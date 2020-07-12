@@ -7,7 +7,7 @@ if exist !ct2.nes (copy !ct2.nes !ct2.old)
 :: запустить перевод символов и дождаться выполнения скрипта
 :: для запуска скрипта требуется Strawberry Perl
 :: http://strawberryperl.com
-start /wait preparations.lua
+start /wait lua53 preparations.lua
 
 :: -U = нет необходимости писать .import L_xx_xxxx в тех банках, которые ссылаются на .export L_xx_xxxx
 :: -l = создать файл листинга для этого банка
