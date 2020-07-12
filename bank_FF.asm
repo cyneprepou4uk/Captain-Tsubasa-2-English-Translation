@@ -9994,6 +9994,10 @@ tbl_FBCC:
 - D - I - 0x03FD1E FF:FD0E: 36        .byte $36	; <3>
 - D - I - 0x03FD1F FF:FD0F: 30        .byte $30	; <ゃ>
 
+.export _общий_RTS
+_общий_RTS:
+	RTS
+
 .segment "VECTORS"
 .word vec_C500_обработчик_NMI
 .word vec_FFF0_обработчик_RESET
