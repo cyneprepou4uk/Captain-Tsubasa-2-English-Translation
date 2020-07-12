@@ -2202,16 +2202,13 @@ C - - - - 0x030CEF 22:8CDF: 90 02     BCC bra_8CE3
 - - - - - 0x030CF1 22:8CE1: E9 0B     SBC #$0B
 bra_8CE3:
 C - - - - 0x030CF3 22:8CE3: 0A        ASL
-; bzk будет экономичнее прочитать сразу оба байта из таблицы
-; сначала второй, pha, потом первый, jsr, pla, jsr
-C - - - - 0x030CF4 22:8CE4: 48        PHA
 C - - - - 0x030CF5 22:8CE5: AA        TAX
+C - - - - 0x030D01 22:8CF1: BD 05 8D  LDA tbl_8D04_сокращения_позиций_игроков + 1,X
+									  PHA
 C - - - - 0x030CF6 22:8CE6: BD 04 8D  LDA tbl_8D04_сокращения_позиций_игроков,X
 C - - - - 0x030CF9 22:8CE9: 20 24 C5  JSR sub_0x03C534
 C - - - - 0x030CFC 22:8CEC: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030CFF 22:8CEF: 68        PLA
-C - - - - 0x030D00 22:8CF0: AA        TAX
-C - - - - 0x030D01 22:8CF1: BD 05 8D  LDA tbl_8D04_сокращения_позиций_игроков + 1,X
 C - - - - 0x030D04 22:8CF4: 20 24 C5  JSR sub_0x03C534
 C - - - - 0x030D07 22:8CF7: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030D0A 22:8CFA: A9 00     LDA #$00
