@@ -39,8 +39,6 @@ C - - - - 0x00003C 01:802C: A5 1E     LDA ram_одноразовые
 C - - - - 0x00003E 01:802E: 29 10     AND #con_btn_Start
 C - - - - 0x000040 01:8030: F0 F5     BEQ bra_8027_попытка_пропуска_демо
 C - - - - 0x000042 01:8032: A9 00     LDA #$00
-C - - - - 0x000048 01:8038: 85 09     STA ram_0009
-C - - - - 0x00004A 01:803A: 85 0A     STA ram_000A
 C - - - - 0x00004C 01:803C: 85 11     STA ram_0011
 C - - - - 0x00004E 01:803E: 85 12     STA ram_0012
 C - - - - 0x000050 01:8040: 85 0D     STA ram_000D
@@ -382,8 +380,6 @@ C - - - - 0x0002D2 01:82C2: 29 20     AND #con_btn_Select
 C - - - - 0x0002D4 01:82C4: F0 EF     BEQ bra_82B5_попытка_пропуска_катсцены
 bra_82C6:
 C - - - - 0x0002D6 01:82C6: A9 00     LDA #$00
-C - - - - 0x0002DC 01:82CC: 85 09     STA ram_0009
-C - - - - 0x0002DE 01:82CE: 85 0A     STA ram_000A
 C - - - - 0x0002E0 01:82D0: 85 11     STA ram_0011
 C - - - - 0x0002E2 01:82D2: 85 12     STA ram_0012
 C - - - - 0x0002E4 01:82D4: 85 0D     STA ram_000D
@@ -1223,13 +1219,6 @@ C - - - - 0x0007E4 01:87D4: A9 02     LDA #$02
 C - - - - 0x0007E6 01:87D6: 4C 79 88  JMP loc_8879
 
 ofs_87D9_F7:
-loc_87D9:
-C - - - - 0x0007E9 01:87D9: A5 09     LDA ram_0009
-C - - - - 0x0007EB 01:87DB: F0 08     BEQ bra_87E5
-- - - - - 0x0007ED 01:87DD: A9 01     LDA #$01
-- - - - - 0x0007EF 01:87DF: 20 A8 9F  JSR sub_9FA8
-- - - - - 0x0007F2 01:87E2: 4C D9 87  JMP loc_87D9
-bra_87E5:
 C - - - - 0x0007F5 01:87E5: A5 7B     LDA ram_007B
 C - - - - 0x0007F7 01:87E7: 49 01     EOR #$01
 C - - - - 0x0007F9 01:87E9: 85 7B     STA ram_007B
@@ -1761,8 +1750,6 @@ sub_0x000B07:
 sub_8AF7:
 C - - - - 0x000B07 01:8AF7: 85 ED     STA ram_00ED
 C - - - - 0x000B09 01:8AF9: A9 00     LDA #$00
-C - - - - 0x000B0B 01:8AFB: 85 09     STA ram_0009
-C - - - - 0x000B0D 01:8AFD: 85 0A     STA ram_000A
 C - - - - 0x000B0F 01:8AFF: 85 0D     STA ram_000D
 C - - - - 0x000B11 01:8B01: 85 0E     STA ram_000E
 C - - - - 0x000B13 01:8B03: A5 5B     LDA ram_005B

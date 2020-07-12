@@ -1087,11 +1087,8 @@ bra_A7A4:
 - - - - - 0x0047BC 03:A7AC: 88        DEY
 - - - - - 0x0047BD 03:A7AD: D0 E1     BNE bra_A790
 - - - - - 0x0047BF 03:A7AF: 20 91 9B  JSR sub_0x001BA1
-bra_A7B2:
 - - - - - 0x0047C2 03:A7B2: A9 01     LDA #$01
 - - - - - 0x0047C4 03:A7B4: 20 A8 9F  JSR sub_0x001FB8
-- - - - - 0x0047C7 03:A7B7: A5 09     LDA ram_0009
-- - - - - 0x0047C9 03:A7B9: D0 F7     BNE bra_A7B2
 - - - - - 0x0047CB 03:A7BB: 4C 51 A6  JMP loc_A651
 
 ofs_A7BE_14:
