@@ -455,9 +455,6 @@ C - - - - 0x03C6D0 FF:C6C0: 9A        TXS
 C - - - - 0x03C6D1 FF:C6C1: A9 00     LDA #$00
 C - - - - 0x03C6D3 FF:C6C3: 85 01     STA ram_0001
 C - - - - 0x03C6D5 FF:C6C5: 85 02     STA ram_0002
-C - - - - 0x03C6D7 FF:C6C7: A9 00     LDA #$00
-C - - - - 0x03C6D9 FF:C6C9: 85 05     STA ram_0005
-C - - - - 0x03C6DB FF:C6CB: 85 06     STA ram_0006
 C - - - - 0x03C6DD FF:C6CD: A9 00     LDA #$00
 C - - - - 0x03C6DF FF:C6CF: 85 09     STA ram_0009
 C - - - - 0x03C6E1 FF:C6D1: 85 0A     STA ram_000A
