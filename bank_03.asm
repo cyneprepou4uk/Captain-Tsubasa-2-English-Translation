@@ -160,51 +160,6 @@ C - - - - 0x004143 03:A133: 85 1B     STA ram_001B
 C - - - - 0x004145 03:A135: E6 3A     INC ram_003A
 C - - - - 0x004147 03:A137: 60        RTS
 
-
-; bzk
-- - - - - 0x004148 03:A138: FF        .byte $FF
-- - - - - 0x004149 03:A139: FF        .byte $FF
-- - - - - 0x00414A 03:A13A: FF        .byte $FF
-- - - - - 0x00414B 03:A13B: FF        .byte $FF
-- - - - - 0x00414C 03:A13C: FF        .byte $FF
-- - - - - 0x00414D 03:A13D: FF        .byte $FF
-- - - - - 0x00414E 03:A13E: FF        .byte $FF
-- - - - - 0x00414F 03:A13F: FF        .byte $FF
-- - - - - 0x004150 03:A140: FF        .byte $FF
-- - - - - 0x004151 03:A141: FF        .byte $FF
-- - - - - 0x004152 03:A142: FF        .byte $FF
-- - - - - 0x004153 03:A143: FF        .byte $FF
-- - - - - 0x004154 03:A144: FF        .byte $FF
-- - - - - 0x004155 03:A145: FF        .byte $FF
-- - - - - 0x004156 03:A146: FF        .byte $FF
-- - - - - 0x004157 03:A147: FF        .byte $FF
-- - - - - 0x004158 03:A148: FF        .byte $FF
-- - - - - 0x004159 03:A149: FF        .byte $FF
-- - - - - 0x00415A 03:A14A: FF        .byte $FF
-- - - - - 0x00415B 03:A14B: FF        .byte $FF
-- - - - - 0x00415C 03:A14C: FF        .byte $FF
-- - - - - 0x00415D 03:A14D: FF        .byte $FF
-- - - - - 0x00415E 03:A14E: FF        .byte $FF
-- - - - - 0x00415F 03:A14F: FF        .byte $FF
-- - - - - 0x004160 03:A150: FF        .byte $FF
-- - - - - 0x004161 03:A151: FF        .byte $FF
-- - - - - 0x004162 03:A152: FF        .byte $FF
-- - - - - 0x004163 03:A153: FF        .byte $FF
-- - - - - 0x004164 03:A154: FF        .byte $FF
-- - - - - 0x004165 03:A155: FF        .byte $FF
-- - - - - 0x004166 03:A156: FF        .byte $FF
-- - - - - 0x004167 03:A157: FF        .byte $FF
-- - - - - 0x004168 03:A158: FF        .byte $FF
-- - - - - 0x004169 03:A159: FF        .byte $FF
-- - - - - 0x00416A 03:A15A: FF        .byte $FF
-- - - - - 0x00416B 03:A15B: FF        .byte $FF
-- - - - - 0x00416C 03:A15C: FF        .byte $FF
-- - - - - 0x00416D 03:A15D: FF        .byte $FF
-- - - - - 0x00416E 03:A15E: FF        .byte $FF
-- - - - - 0x00416F 03:A15F: FF        .byte $FF
-
-
-
 .export sub_0x004170
 sub_0x004170:
 C - - - - 0x004170 03:A160: 8D 00 E0  STA $E000
@@ -275,39 +230,6 @@ C - - - - 0x0041ED 03:A1DD: 8D 00 80  STA $8000
 C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $8001
 C - - - - 0x0041F3 03:A1E3: 60        RTS
 
-
-; bzk
-- - - - - 0x0041F4 03:A1E4: FF        .byte $FF
-- - - - - 0x0041F5 03:A1E5: FF        .byte $FF
-- - - - - 0x0041F6 03:A1E6: FF        .byte $FF
-- - - - - 0x0041F7 03:A1E7: FF        .byte $FF
-- - - - - 0x0041F8 03:A1E8: FF        .byte $FF
-- - - - - 0x0041F9 03:A1E9: FF        .byte $FF
-- - - - - 0x0041FA 03:A1EA: FF        .byte $FF
-- - - - - 0x0041FB 03:A1EB: FF        .byte $FF
-- - - - - 0x0041FC 03:A1EC: FF        .byte $FF
-- - - - - 0x0041FD 03:A1ED: FF        .byte $FF
-- - - - - 0x0041FE 03:A1EE: FF        .byte $FF
-- - - - - 0x0041FF 03:A1EF: FF        .byte $FF
-- - - - - 0x004200 03:A1F0: FF        .byte $FF
-- - - - - 0x004201 03:A1F1: FF        .byte $FF
-- - - - - 0x004202 03:A1F2: FF        .byte $FF
-- - - - - 0x004203 03:A1F3: FF        .byte $FF
-- - - - - 0x004204 03:A1F4: FF        .byte $FF
-- - - - - 0x004205 03:A1F5: FF        .byte $FF
-- - - - - 0x004206 03:A1F6: FF        .byte $FF
-- - - - - 0x004207 03:A1F7: FF        .byte $FF
-- - - - - 0x004208 03:A1F8: FF        .byte $FF
-- - - - - 0x004209 03:A1F9: FF        .byte $FF
-- - - - - 0x00420A 03:A1FA: FF        .byte $FF
-- - - - - 0x00420B 03:A1FB: FF        .byte $FF
-- - - - - 0x00420C 03:A1FC: FF        .byte $FF
-- - - - - 0x00420D 03:A1FD: FF        .byte $FF
-- - - - - 0x00420E 03:A1FE: FF        .byte $FF
-- - - - - 0x00420F 03:A1FF: FF        .byte $FF
-
-
-
 .export loc_0x004210
 loc_0x004210:
 C D - - - 0x004210 03:A200: 4C 1B A2  JMP loc_A21B
@@ -339,9 +261,6 @@ C - - - - 0x004222 03:A212: 4C 84 A4  JMP loc_A484
 .export sub_0x004225
 sub_0x004225:
 C - - - - 0x004225 03:A215: 4C CE A8  JMP loc_A8CE
-
-; bzk наверное не используется, а там куча кода для удаления
-- - - - - 0x004228 03:A218: 4C FE A8  JMP loc_A8FE
 
 loc_A21B:
 C D - - - 0x00422B 03:A21B: A2 FF     LDX #$FF
@@ -1285,7 +1204,6 @@ C - - - - 0x004879 03:A869: F0 21     BEQ bra_A88C
 C - - - - 0x00487B 03:A86B: 4C A8 A8  JMP loc_A8A8
 
 loc_A86E:
-sub_A86E:
 C D - - - 0x00487E 03:A86E: A5 26     LDA ram_матч
 C - - - - 0x004880 03:A870: C9 06     CMP #$06
 C - - - - 0x004882 03:A872: 90 08     BCC bra_A87C
@@ -1372,151 +1290,6 @@ C - - - - 0x004909 03:A8F9: C8        INY
 C - - - - 0x00490A 03:A8FA: C8        INY
 C - - - - 0x00490B 03:A8FB: D0 D8     BNE bra_A8D5
 C - - - - 0x00490D 03:A8FD: 60        RTS
-
-; bzk
-loc_A8FE:
-- - - - - 0x00490E 03:A8FE: A9 02     LDA #$02
-- - - - - 0x004910 03:A900: 20 A8 9F  JSR sub_0x001FB8
-- - - - - 0x004913 03:A903: 20 A0 98  JSR sub_0x0018B0
-- - - - - 0x004916 03:A906: 20 7F 9B  JSR sub_0x001B8F
-- - - - - 0x004919 03:A909: A2 00     LDX #$00
-- - - - - 0x00491B 03:A90B: A0 01     LDY #$01
-- - - - - 0x00491D 03:A90D: 20 6F 9B  JSR sub_0x001B7F
-- - - - - 0x004920 03:A910: A2 02     LDX #$02
-- - - - - 0x004922 03:A912: A0 03     LDY #$03
-- - - - - 0x004924 03:A914: 20 74 9B  JSR sub_0x001B84
-- - - - - 0x004927 03:A917: A0 F8     LDY #$F8
-bra_A919:
-- - - - - 0x004929 03:A919: B9 96 A8  LDA tbl_A98E - $F8,Y
-- - - - - 0x00492C 03:A91C: 99 60 04  STA $0460,Y
-- - - - - 0x00492F 03:A91F: C8        INY
-- - - - - 0x004930 03:A920: D0 F7     BNE bra_A919
-- - - - - 0x004932 03:A922: A9 01     LDA #$01
-- - - - - 0x004934 03:A924: A2 01     LDX #$01
-- - - - - 0x004936 03:A926: 20 7A 99  JSR sub_0x00198A
-- - - - - 0x004939 03:A929: A5 26     LDA ram_матч
-- - - - - 0x00493B 03:A92B: 85 42     STA ram_0042
-- - - - - 0x00493D 03:A92D: 20 36 AA  JSR sub_AA36
-bra_A930:
-- - - - - 0x004940 03:A930: A9 01     LDA #$01
-- - - - - 0x004942 03:A932: 20 A8 9F  JSR sub_0x001FB8
-- - - - - 0x004945 03:A935: A5 1E     LDA ram_одноразовые
-; con_btn_A
-- - - - - 0x004947 03:A937: 30 25     BMI bra_A95E
-- - - - - 0x004949 03:A939: 20 20 AA  JSR sub_AA20_проверка_нажатий_вверх_вниз
-- - - - - 0x00494C 03:A93C: 90 F2     BCC bra_A930
-- - - - - 0x00494E 03:A93E: A2 10     LDX #$10
-loc_A940:
-- - - - - 0x004950 03:A940: 18        CLC
-- - - - - 0x004951 03:A941: 65 42     ADC ram_0042
-- - - - - 0x004953 03:A943: C9 21     CMP #$21
-- - - - - 0x004955 03:A945: B0 02     BCS bra_A949
-- - - - - 0x004957 03:A947: 85 42     STA ram_0042
-bra_A949:
-- - - - - 0x004959 03:A949: 20 36 AA  JSR sub_AA36
-bra_A94C:
-- - - - - 0x00495C 03:A94C: A9 01     LDA #$01
-- - - - - 0x00495E 03:A94E: 20 A8 9F  JSR sub_0x001FB8
-- - - - - 0x004961 03:A951: 20 20 AA  JSR sub_AA20_проверка_нажатий_вверх_вниз
-- - - - - 0x004964 03:A954: 90 DA     BCC bra_A930
-- - - - - 0x004966 03:A956: CA        DEX
-- - - - - 0x004967 03:A957: D0 F3     BNE bra_A94C
-- - - - - 0x004969 03:A959: A2 04     LDX #$04
-- - - - - 0x00496B 03:A95B: 4C 40 A9  JMP loc_A940
-bra_A95E:
-- - - - - 0x00496E 03:A95E: 20 F0 99  JSR sub_0x001A00
-- - - - - 0x004971 03:A961: 20 7F 9B  JSR sub_0x001B8F
-- - - - - 0x004974 03:A964: A5 42     LDA ram_0042
-- - - - - 0x004976 03:A966: C5 26     CMP ram_матч
-- - - - - 0x004978 03:A968: F0 23     BEQ bra_A98D
-- - - - - 0x00497A 03:A96A: 85 26     STA ram_матч
-- - - - - 0x00497C 03:A96C: 0A        ASL
-- - - - - 0x00497D 03:A96D: AA        TAX
-- - - - - 0x00497E 03:A96E: BD 96 A9  LDA tbl_A996,X
-- - - - - 0x004981 03:A971: 85 42     STA ram_0042
-- - - - - 0x004983 03:A973: BD 97 A9  LDA tbl_A996 + 1,X
-- - - - - 0x004986 03:A976: 85 43     STA ram_0043
-- - - - - 0x004988 03:A978: A2 00     LDX #$00
-bra_A97A:
-- - - - - 0x00498A 03:A97A: A5 42     LDA ram_0042
-- - - - - 0x00498C 03:A97C: 9D 54 04  STA $0454,X
-- - - - - 0x00498F 03:A97F: A5 43     LDA ram_0043
-- - - - - 0x004991 03:A981: 9D 55 04  STA $0455,X
-- - - - - 0x004994 03:A984: E8        INX
-- - - - - 0x004995 03:A985: E8        INX
-- - - - - 0x004996 03:A986: E0 14     CPX #$14
-- - - - - 0x004998 03:A988: D0 F0     BNE bra_A97A
-- - - - - 0x00499A 03:A98A: 20 6E A8  JSR sub_A86E
-bra_A98D:
-- - - - - 0x00499D 03:A98D: 60        RTS
-
-tbl_A98E:
-- - - - - 0x00499E 03:A98E: 80        .byte $80
-- - - - - 0x00499F 03:A98F: 33        .byte $33	; <0>
-- - - - - 0x0049A0 03:A990: 00        .byte $00
-- - - - - 0x0049A1 03:A991: A0        .byte $A0	; <が>
-- - - - - 0x0049A2 03:A992: 80        .byte $80
-- - - - - 0x0049A3 03:A993: 33        .byte $33	; <0>
-- - - - - 0x0049A4 03:A994: 00        .byte $00
-- - - - - 0x0049A5 03:A995: A8        .byte $A8	; <ぜ>
-
-tbl_A996:
-- - - - - 0x0049A6 03:A996: 00 00     .word $0000
-- - - - - 0x0049A8 03:A998: 60 00     .word $0060
-- - - - - 0x0049AA 03:A99A: D0 00     .word $00D0
-- - - - - 0x0049AC 03:A99C: 50 01     .word $0150
-- - - - - 0x0049AE 03:A99E: 00 03     .word $0300
-- - - - - 0x0049B0 03:A9A0: 00 05     .word $0500
-- - - - - 0x0049B2 03:A9A2: 28 06     .word $0628
-- - - - - 0x0049B4 03:A9A4: 80 07     .word $0780
-- - - - - 0x0049B6 03:A9A6: 00 09     .word $0900
-- - - - - 0x0049B8 03:A9A8: 30 0C     .word $0C30
-- - - - - 0x0049BA 03:A9AA: E0 0D     .word $0DE0
-- - - - - 0x0049BC 03:A9AC: 70 11     .word $1170
-- - - - - 0x0049BE 03:A9AE: 50 13     .word $1350
-- - - - - 0x0049C0 03:A9B0: 50 15     .word $1550
-- - - - - 0x0049C2 03:A9B2: B0 19     .word $19B0
-- - - - - 0x0049C4 03:A9B4: 60 1E     .word $1E60
-- - - - - 0x0049C6 03:A9B6: 60 1E     .word $1E60
-- - - - - 0x0049C8 03:A9B8: D0 20     .word $20D0
-- - - - - 0x0049CA 03:A9BA: 48 23     .word $2348
-- - - - - 0x0049CC 03:A9BC: C8 25     .word $25C8
-- - - - - 0x0049CE 03:A9BE: 50 28     .word $2850
-- - - - - 0x0049D0 03:A9C0: E0 2A     .word $2AE0
-- - - - - 0x0049D2 03:A9C2: E0 2A     .word $2AE0
-- - - - - 0x0049D4 03:A9C4: 78 2D     .word $2D78
-- - - - - 0x0049D6 03:A9C6: 18 30     .word $3018
-- - - - - 0x0049D8 03:A9C8: C8 32     .word $32C8
-- - - - - 0x0049DA 03:A9CA: 58 38     .word $3858
-- - - - - 0x0049DC 03:A9CC: 58 38     .word $3858
-- - - - - 0x0049DE 03:A9CE: 30 3B     .word $3B30
-- - - - - 0x0049E0 03:A9D0: 10 3E     .word $3E10
-- - - - - 0x0049E2 03:A9D2: 40 44     .word $4440
-- - - - - 0x0049E4 03:A9D4: E8 4A     .word $4AE8
-- - - - - 0x0049E6 03:A9D6: 20 55     .word $5520
-- - - - - 0x0049E8 03:A9D8: 00 59     .word $5900
-- - - - - 0x0049EA 03:A9DA: 20 5D     .word $5D20
-- - - - - 0x0049EC 03:A9DC: 50 61     .word $6150
-- - - - - 0x0049EE 03:A9DE: 90 65     .word $6590
-- - - - - 0x0049F0 03:A9E0: E0 69     .word $69E0
-- - - - - 0x0049F2 03:A9E2: 40 6E     .word $6E40
-- - - - - 0x0049F4 03:A9E4: 00 73     .word $7300
-- - - - - 0x0049F6 03:A9E6: E0 77     .word $77E0
-- - - - - 0x0049F8 03:A9E8: D0 7C     .word $7CD0
-- - - - - 0x0049FA 03:A9EA: 00 82     .word $8200
-- - - - - 0x0049FC 03:A9EC: 80 87     .word $8780
-- - - - - 0x0049FE 03:A9EE: 80 8D     .word $8D80
-- - - - - 0x004A00 03:A9F0: E0 93     .word $93E0
-- - - - - 0x004A02 03:A9F2: D0 9A     .word $9AD0
-- - - - - 0x004A04 03:A9F4: E0 A1     .word $A1E0
-- - - - - 0x004A06 03:A9F6: C0 A9     .word $A9C0
-- - - - - 0x004A08 03:A9F8: C0 B1     .word $B1C0
-- - - - - 0x004A0A 03:A9FA: D0 B9     .word $B9D0
-- - - - - 0x004A0C 03:A9FC: 04 C2     .word $C204
-- - - - - 0x004A0E 03:A9FE: 80 CB     .word $CB80
-- - - - - 0x004A10 03:AA00: A0 D7     .word $D7A0
-- - - - - 0x004A12 03:AA02: 00 E8     .word $E800
-- - - - - 0x004A14 03:AA04: FF FF     .word $FFFF
 
 sub_AA06:
 C - - - - 0x004A16 03:AA06: 84 ED     STY ram_00ED
