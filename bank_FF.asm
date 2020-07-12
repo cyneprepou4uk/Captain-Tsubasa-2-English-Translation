@@ -158,29 +158,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-; bzk мусор
-- - - - - 0x03C504 FF:C4F4: FF        .byte $FF
-- - - - - 0x03C505 FF:C4F5: FF        .byte $FF
-- - - - - 0x03C506 FF:C4F6: FF        .byte $FF
-- - - - - 0x03C507 FF:C4F7: FF        .byte $FF
-- - - - - 0x03C508 FF:C4F8: FF        .byte $FF
-- - - - - 0x03C509 FF:C4F9: FF        .byte $FF
-- - - - - 0x03C50A FF:C4FA: FF        .byte $FF
-- - - - - 0x03C50B FF:C4FB: FF        .byte $FF
-- - - - - 0x03C50C FF:C4FC: FF        .byte $FF
-- - - - - 0x03C50D FF:C4FD: FF        .byte $FF
-- - - - - 0x03C50E FF:C4FE: FF        .byte $FF
-- - - - - 0x03C50F FF:C4FF: FF        .byte $FF
-
-vec_C500_обработчик_NMI:
-C - - - - 0x03C510 FF:C500: 4C 6E C7  JMP loc_C76E
-
-loc_C503_обработчик_RESET:
-C D - - - 0x03C513 FF:C503: 4C 4E C6  JMP loc_C64E_обработчик_RESET
-
-vec_C506_обработчик_IRQ:
-C - - - - 0x03C516 FF:C506: 4C 21 C8  JMP loc_C821
-
 .export sub_0x03C519_байты_после_JSR_для_непрямого_прыжка
 sub_0x03C519_байты_после_JSR_для_непрямого_прыжка:
 C - - - - 0x03C519 FF:C509: 4C 99 CB  JMP loc_CB99_байты_после_JSR_для_непрямого_прыжка
@@ -580,7 +557,9 @@ C - - - - 0x03C658 FF:C648: 4C E8 D7  JMP loc_D7E8
 ; bzk
 - - - - - 0x03C65B FF:C64B: 4C A2 EF  JMP loc_EFA2
 
-loc_C64E_обработчик_RESET:
+vec_FFF0_обработчик_RESET:
+C - - - - 0x040000 FF:FFF0: A9 00     LDA #$00
+C - - - - 0x040002 FF:FFF2: 8D 00 80  STA $8000
 C D - - - 0x03C65E FF:C64E: A9 08     LDA #$08
 C - - - - 0x03C660 FF:C650: 8D 00 20  STA $2000
 C - - - - 0x03C663 FF:C653: 78        SEI
@@ -731,7 +710,7 @@ tbl_C766:
 - D - - - 0x03C77C FF:C76C: 2E        .byte $2E	; <ん>
 - D - - - 0x03C77D FF:C76D: FD        .byte $FD
 
-loc_C76E:
+vec_C500_обработчик_NMI:
 C D - - - 0x03C77E FF:C76E: 24 1B     BIT ram_001B
 C - - - - 0x03C780 FF:C770: 50 03     BVC bra_C775
 C - - - - 0x03C782 FF:C772: 4C 21 C4  JMP loc_C421
@@ -819,7 +798,7 @@ C - - - - 0x03C82E FF:C81E: AA        TAX
 C - - - - 0x03C82F FF:C81F: 68        PLA
 C - - - - 0x03C830 FF:C820: 40        RTI
 
-loc_C821:
+vec_C506_обработчик_IRQ:
 C D - - - 0x03C831 FF:C821: 24 1B     BIT ram_001B
 C - - - - 0x03C833 FF:C823: 50 03     BVC bra_C828
 C - - - - 0x03C835 FF:C825: 4C 78 C4  JMP loc_C478
@@ -10410,16 +10389,6 @@ tbl_FBCC:
 - D - I - 0x03FD1D FF:FD0D: 0F        .byte $0F	; <そ>
 - D - I - 0x03FD1E FF:FD0E: 36        .byte $36	; <3>
 - D - I - 0x03FD1F FF:FD0F: 30        .byte $30	; <ゃ>
-
-; bzk
-.res $2E0
-
-vec_FFF0_обработчик_RESET:
-C - - - - 0x040000 FF:FFF0: A9 00     LDA #$00
-C - - - - 0x040002 FF:FFF2: 8D 00 80  STA $8000
-C - - - - 0x040005 FF:FFF5: 4C 03 C5  JMP loc_C503_обработчик_RESET
-- - - - - 0x040008 FF:FFF8: 00        .byte $00
-- - - - - 0x040009 FF:FFF9: 00        .byte $00
 
 .segment "VECTORS"
 .word vec_C500_обработчик_NMI
