@@ -2204,7 +2204,7 @@ bra_8CE3:
 C - - - - 0x030CF3 22:8CE3: 0A        ASL
 C - - - - 0x030CF5 22:8CE5: AA        TAX
 C - - - - 0x030D01 22:8CF1: BD 05 8D  LDA tbl_8D04_сокращения_позиций_игроков + 1,X
-									  PHA
+                                      PHA
 C - - - - 0x030CF6 22:8CE6: BD 04 8D  LDA tbl_8D04_сокращения_позиций_игроков,X
 C - - - - 0x030CF9 22:8CE9: 20 24 C5  JSR sub_0x03C534
 C - - - - 0x030CFC 22:8CEC: 20 9F 8C  JSR sub_8C9F
