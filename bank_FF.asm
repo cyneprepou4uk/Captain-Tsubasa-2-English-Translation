@@ -1101,35 +1101,6 @@ C - - - - 0x03CA62 FF:CA52: 20 9F EE  JSR sub_EE9F
 C - - - - 0x03CA65 FF:CA55: 20 CA E3  JSR sub_E3CA
 C - - - - 0x03CA68 FF:CA58: 4C 4D CA  JMP loc_CA4D
 
-; bzk
-- - - - - 0x03CA6B FF:CA5B: A9 00     LDA #$00
-- - - - - 0x03CA6D FF:CA5D: 85 05     STA ram_0005
-- - - - - 0x03CA6F FF:CA5F: A9 00     LDA #$00
-- - - - - 0x03CA71 FF:CA61: 85 09     STA ram_0009
-- - - - - 0x03CA73 FF:CA63: A9 00     LDA #$00
-- - - - - 0x03CA75 FF:CA65: 85 0D     STA ram_000D
-- - - - - 0x03CA77 FF:CA67: A9 00     LDA #$00
-- - - - - 0x03CA79 FF:CA69: 85 15     STA ram_0015
-- - - - - 0x03CA7B FF:CA6B: A9 00     LDA #$00
-- - - - - 0x03CA7D FF:CA6D: 85 11     STA ram_0011
-bra_CA6F_старт_не_нажата:
-- - - - - 0x03CA7F FF:CA6F: A9 01     LDA #$01
-- - - - - 0x03CA81 FF:CA71: 20 0F CB  JSR sub_CB0F
-- - - - - 0x03CA84 FF:CA74: A9 10     LDA #con_btn_Start
-- - - - - 0x03CA86 FF:CA76: 2D 1E 00  AND ram_одноразовые
-- - - - - 0x03CA89 FF:CA79: F0 F4     BEQ bra_CA6F_старт_не_нажата
-- - - - - 0x03CA8B FF:CA7B: A2 05     LDX #$05
-- - - - - 0x03CA8D FF:CA7D: 20 02 CB  JSR sub_CB02
-- - - - - 0x03CA90 FF:CA80: A2 09     LDX #$09
-- - - - - 0x03CA92 FF:CA82: 20 02 CB  JSR sub_CB02
-- - - - - 0x03CA95 FF:CA85: A2 0D     LDX #$0D
-- - - - - 0x03CA97 FF:CA87: 20 02 CB  JSR sub_CB02
-- - - - - 0x03CA9A FF:CA8A: A2 15     LDX #$15
-- - - - - 0x03CA9C FF:CA8C: 20 02 CB  JSR sub_CB02
-- - - - - 0x03CA9F FF:CA8F: A2 11     LDX #$11
-- - - - - 0x03CAA1 FF:CA91: 20 02 CB  JSR sub_CB02
-- - - - - 0x03CAA4 FF:CA94: 4C 4D CA  JMP loc_CA4D
-
 loc_CA97:
 C D - - - 0x03CAA7 FF:CA97: A2 01     LDX #$01
 bra_CA99:
@@ -1204,7 +1175,6 @@ C - - - - 0x03CB0D FF:CAFD: 95 01     STA ram_0001,X
 C - - - - 0x03CB0F FF:CAFF: 4C A5 CA  JMP loc_CAA5
 
 loc_CB02:
-sub_CB02:
 C D - - - 0x03CB12 FF:CB02: B5 01     LDA ram_0001,X
 C - - - - 0x03CB14 FF:CB04: F0 06     BEQ bra_CB0C_выход
 C - - - - 0x03CB16 FF:CB06: B5 00     LDA ram_0000,X
@@ -1328,8 +1298,6 @@ sub_CBB0_запись_номера_сценария:
 C D - - - 0x03CBC0 FF:CBB0: 8D 18 05  STA ram_сценарий
 C - - - - 0x03CBC3 FF:CBB3: A9 80     LDA #$80
 C - - - - 0x03CBC5 FF:CBB5: 8D 16 05  STA ram_флаг_сценария_ХЗ
-C - - - - 0x03CBC8 FF:CBB8: A9 00     LDA #$00
-C - - - - 0x03CBCA FF:CBBA: 85 05     STA ram_0005
 C - - - - 0x03CBCC FF:CBBC: A9 00     LDA #$00
 C - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CBD1 FF:CBC1: 60        RTS
