@@ -602,7 +602,7 @@ C - - - - 0x03C7EE FF:C7DE: AE 69 04  LDX $0469
 ; STA,X, так как E000 отвечает за отключение irq, а E001 за включение
 ; в 0469 пишется 00 или 01
 C - - - - 0x03C7F1 FF:C7E1: 9D 00 E0  STA $E000,X
-C - - - - 0x03C7F4 FF:C7E4: 20 C5 C9  JSR sub_C9C5
+C - - - - 0x03C7F4 FF:C7E4: 20 C5 C9  JSR sub_C9C5_генератор_рандома
 C - - - - 0x03C7F7 FF:C7E7: 20 82 C9  JSR sub_C982
 C - - - - 0x03C7FA FF:C7EA: A5 1B     LDA ram_001B
 C - - - - 0x03C7FC FF:C7EC: 09 80     ORA #$80
@@ -863,7 +863,7 @@ C - - - - 0x03C9D1 FF:C9C1: 9D 1C 00  STA ram_удержанные,X
 bra_C9C4_выход:
 C - - - - 0x03C9D4 FF:C9C4: 60        RTS
 
-sub_C9C5:
+sub_C9C5_генератор_рандома:
 C - - - - 0x03C9D5 FF:C9C5: AE E1 00  LDX ram_рандом_1
 C - - - - 0x03C9D8 FF:C9C8: BD 00 03  LDA $0300,X
 C - - - - 0x03C9DB FF:C9CB: 7D 00 07  ADC $0700,X
@@ -880,33 +880,19 @@ C - - - - 0x03C9F8 FF:C9E8: 60        RTS
 
 sub_C9E9:
 C - - - - 0x03C9F9 FF:C9E9: A2 00     LDX #$00
-; bzk бесполезное чтение 22, значит X всегда 00, удалить проверку
-C - - - - 0x03C9FB FF:C9EB: 24 22     BIT ram_0022
-C - - - - 0x03C9FD FF:C9ED: 10 02     BPL bra_C9F1
-- - - - - 0x03C9FF FF:C9EF: A2 04     LDX #$04
-bra_C9F1:
-C - - - - 0x03CA01 FF:C9F1: A5 22     LDA ram_0022
-C - - - - 0x03CA03 FF:C9F3: 8D 00 80  STA $8000
+C - - - - 0x03CA03 FF:C9F3: 8D 00 80  STX $8000
 C - - - - 0x03CA06 FF:C9F6: BD 90 04  LDA $0490,X
 C - - - - 0x03CA09 FF:C9F9: 8D 01 80  STA $8001
-C - - - - 0x03CA0C FF:C9FC: A5 22     LDA ram_0022
-C - - - - 0x03CA0E FF:C9FE: 09 01     ORA #$01
-C - - - - 0x03CA10 FF:CA00: 8D 00 80  STA $8000
-C - - - - 0x03CA13 FF:CA03: BD 91 04  LDA $0491,X
+C - - - - 0x03CA0C FF:C9FC: A5 22     INX
+C - - - - 0x03CA10 FF:CA00: 8D 00 80  STX $8000
+C - - - - 0x03CA13 FF:CA03: BD 91 04  LDA $0490,X
 C - - - - 0x03CA16 FF:CA06: 8D 01 80  STA $8001
-C - - - - 0x03CA19 FF:CA09: 8A        TXA
-C - - - - 0x03CA1A FF:CA0A: 49 04     EOR #$04
-C - - - - 0x03CA1C FF:CA0C: AA        TAX
-C - - - - 0x03CA1D FF:CA0D: A0 02     LDY #$02
 bra_CA0F:
-C - - - - 0x03CA1F FF:CA0F: 98        TYA
-C - - - - 0x03CA20 FF:CA10: 05 22     ORA ram_0022
-C - - - - 0x03CA22 FF:CA12: 8D 00 80  STA $8000
-C - - - - 0x03CA25 FF:CA15: BD 90 04  LDA $0490,X
+                                      INX
+C - - - - 0x03CA22 FF:CA12: 8D 00 80  STX $8000
+C - - - - 0x03CA25 FF:CA15: BD 90 04  LDA $0492,X
 C - - - - 0x03CA28 FF:CA18: 8D 01 80  STA $8001
-C - - - - 0x03CA2B FF:CA1B: E8        INX
-C - - - - 0x03CA2C FF:CA1C: C8        INY
-C - - - - 0x03CA2D FF:CA1D: C0 06     CPY #$06
+C - - - - 0x03CA2D FF:CA1D: C0 06     CPX #$05
 C - - - - 0x03CA2F FF:CA1F: D0 EE     BNE bra_CA0F
 C - - - - 0x03CA31 FF:CA21: 60        RTS
 

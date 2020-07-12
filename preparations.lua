@@ -91,7 +91,7 @@ for i, f in ipairs(files) do
 	file:close()
 	
 	--удалить хлам
-	text = string.gsub(text, regex, "\t")
+	text = string.gsub(text, regex, "")
 	
 	local rus = ""
 	local eng = ""
