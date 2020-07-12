@@ -61,15 +61,6 @@
 - D - I - 0x00A07E 06:A06E: C4 BF     .word off_BFC4_57_нанкацу_перед_матчем
 - D - I - 0x00A080 06:A070: CE BF     .word off_BFCE_58_япония_перед_матчем
 
-; bzk мусор
-- - - - - 0x00A082 06:A072: F4 BF     .word off_BFF4
-- - - - - 0x00A084 06:A074: F4 BF     .word off_BFF4
-- - - - - 0x00A086 06:A076: F4 BF     .word off_BFF4
-- - - - - 0x00A088 06:A078: F4 BF     .word off_BFF4
-- - - - - 0x00A08A 06:A07A: F4 BF     .word off_BFF4
-- - - - - 0x00A08C 06:A07C: F4 BF     .word off_BFF4
-- - - - - 0x00A08E 06:A07E: F4 BF     .word off_BFF4
-
 
 
 off_A080_20_цубаса_видит_санае_перед_матчем:
@@ -8305,8 +8296,3 @@ off_BFD5:
 - D - I - 0x00C001 06:BFF1: 01        .byte $01	; <あ>
 - D - I - 0x00C002 06:BFF2: EA        .byte $EA
 - D - I - 0x00C003 06:BFF3: FF        .byte $FF
-
-
-
-off_BFF4:
-- - - - - 0x00C004 06:BFF4: FF        .byte $FF
