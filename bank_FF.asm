@@ -455,33 +455,27 @@ C - - - - 0x03C6D0 FF:C6C0: 9A        TXS
 C - - - - 0x03C6D1 FF:C6C1: A9 00     LDA #$00
 C - - - - 0x03C6D3 FF:C6C3: 85 01     STA ram_0001
 C - - - - 0x03C6D5 FF:C6C5: 85 02     STA ram_0002
-C - - - - 0x03C6D7 FF:C6C7: A9 00     LDA #$00
 C - - - - 0x03C6D9 FF:C6C9: 85 05     STA ram_0005
 C - - - - 0x03C6DB FF:C6CB: 85 06     STA ram_0006
-C - - - - 0x03C6DD FF:C6CD: A9 00     LDA #$00
 C - - - - 0x03C6DF FF:C6CF: 85 09     STA ram_0009
 C - - - - 0x03C6E1 FF:C6D1: 85 0A     STA ram_000A
-C - - - - 0x03C6E3 FF:C6D3: A9 00     LDA #$00
 C - - - - 0x03C6E5 FF:C6D5: 85 0D     STA ram_000D
 C - - - - 0x03C6E7 FF:C6D7: 85 0E     STA ram_000E
-C - - - - 0x03C6E9 FF:C6D9: A9 00     LDA #$00
 C - - - - 0x03C6EB FF:C6DB: 85 11     STA ram_0011
 C - - - - 0x03C6ED FF:C6DD: 85 12     STA ram_0012
-C - - - - 0x03C6EF FF:C6DF: A9 00     LDA #$00
 C - - - - 0x03C6F1 FF:C6E1: 85 15     STA ram_0015
 C - - - - 0x03C6F3 FF:C6E3: 85 16     STA ram_0016
 C - - - - 0x03C6F5 FF:C6E5: 20 1F CF  JSR sub_CF1F
-C - - - - 0x03C6F8 FF:C6E8: A9 00     LDA #$00
+C - - - - 0x03C707 FF:C6F7: A9 20     LDA #$20
+C - - - - 0x03C709 FF:C6F9: 8D 6C 04  STA $046C
+C - - - - 0x03C70C FF:C6FC: A9 00     LDA #$00
+C - - - - 0x03C70E FF:C6FE: 8D 6D 04  STA $046D
 C - - - - 0x03C6FA FF:C6EA: 85 1B     STA ram_001B
 C - - - - 0x03C6FC FF:C6EC: 8D 3F 06  STA $063F
 C - - - - 0x03C6FF FF:C6EF: A9 08     LDA #$08
 C - - - - 0x03C701 FF:C6F1: 85 20     STA ram_0020
 C - - - - 0x03C703 FF:C6F3: A9 1E     LDA #$1E
 C - - - - 0x03C705 FF:C6F5: 85 21     STA ram_0021
-C - - - - 0x03C707 FF:C6F7: A9 20     LDA #$20
-C - - - - 0x03C709 FF:C6F9: 8D 6C 04  STA $046C
-C - - - - 0x03C70C FF:C6FC: A9 00     LDA #$00
-C - - - - 0x03C70E FF:C6FE: 8D 6D 04  STA $046D
 C - - - - 0x03C711 FF:C701: A9 3F     LDA #$3F
 C - - - - 0x03C713 FF:C703: 8D 6E 04  STA $046E
 C - - - - 0x03C716 FF:C706: A2 00     LDX #$00
@@ -6187,10 +6181,8 @@ C - - - - 0x03EC85 FF:EC75: 4D 16 05  EOR ram_флаг_сценария_ХЗ
 C - - - - 0x03EC88 FF:EC78: 8D 16 05  STA ram_флаг_сценария_ХЗ
 C - - - - 0x03EC8B FF:EC7B: A9 00     LDA #$00
 C - - - - 0x03EC8D FF:EC7D: 8D D2 05  STA $05D2
-C - - - - 0x03EC90 FF:EC80: A9 00     LDA #$00
 C - - - - 0x03EC92 FF:EC82: 85 0D     STA ram_000D
 C - - - - 0x03EC94 FF:EC84: 85 0E     STA ram_000E
-C - - - - 0x03EC96 FF:EC86: A9 00     LDA #$00
 C - - - - 0x03EC98 FF:EC88: 8D 16 05  STA ram_флаг_сценария_ХЗ
 C - - - - 0x03EC9B FF:EC8B: 60        RTS
 bra_EC8C:
@@ -6445,7 +6437,6 @@ C - - - - 0x03EE9E FF:EE8E: ED DA 05  SBC $05DA
 C - - - - 0x03EEA1 FF:EE91: 90 0B     BCC bra_EE9E_выход
 C - - - - 0x03EEA3 FF:EE93: A9 00     LDA #$00
 C - - - - 0x03EEA5 FF:EE95: 8D D2 05  STA $05D2
-C - - - - 0x03EEA8 FF:EE98: A9 00     LDA #$00
 C - - - - 0x03EEAA FF:EE9A: 85 0D     STA ram_000D
 C - - - - 0x03EEAC FF:EE9C: 85 0E     STA ram_000E
 bra_EE9E_выход:

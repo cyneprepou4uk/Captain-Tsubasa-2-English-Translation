@@ -4343,10 +4343,8 @@ C - - - - 0x0271CA 19:B1BA: D0 F6     BNE bra_B1B2
 C - - - - 0x0271CC 19:B1BC: A9 00     LDA #$00
 C - - - - 0x0271CE 19:B1BE: 85 11     STA ram_0011
 C - - - - 0x0271D0 19:B1C0: 85 12     STA ram_0012
-C - - - - 0x0271D2 19:B1C2: A9 00     LDA #$00
 C - - - - 0x0271D4 19:B1C4: 85 0D     STA ram_000D
 C - - - - 0x0271D6 19:B1C6: 85 0E     STA ram_000E
-C - - - - 0x0271D8 19:B1C8: A9 00     LDA #$00
 C - - - - 0x0271DA 19:B1CA: 8D D2 05  STA $05D2
 C - - - - 0x0271DD 19:B1CD: AA        TAX
 bra_B1CE:
