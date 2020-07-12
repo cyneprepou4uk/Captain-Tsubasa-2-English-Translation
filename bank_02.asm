@@ -919,14 +919,15 @@ C - - - - 0x00267E 02:A66E: A2 A6     LDX #> tbl_A673
 C - - - - 0x002680 02:A670: 4C 28 9C  JMP loc_0x001C38
 
 tbl_A673:
-- D - I - 0x002683 02:A673: 7B A6     .word ofs_A67B
-- D - I - 0x002685 02:A675: 9F A6     .word ofs_A69F
-- D - I - 0x002687 02:A677: BE A6     .word ofs_A6BE
-- D - I - 0x002689 02:A679: C4 A6     .word ofs_A6C4
+- D - I - 0x002683 02:A673: 7B A6     .word ofs_A67B_00_катсцена_тренера
+- D - I - 0x002685 02:A675: 9F A6     .word ofs_A69F_01
+- D - I - 0x002687 02:A677: BE A6     .word ofs_A6BE_02
+- D - I - 0x002689 02:A679: C4 A6     .word ofs_A6C4_03
 
-ofs_A67B:
-C - J - - 0x00268B 02:A67B: A6 26     LDX ram_матч
-C - - - - 0x00268D 02:A67D: BD 71 B3  LDA tbl_B371_катсцена_тренера,X
+ofs_A67B_00_катсцена_тренера:
+C - J - - 0x00268B 02:A67B: A6 26     LDA ram_матч
+									  CLC
+									  ADC #$23
 C - - - - 0x002690 02:A680: 20 64 84  JSR sub_0x000474
 bra_A683:
 C - - - - 0x002693 02:A683: A9 01     LDA #$01
@@ -942,7 +943,7 @@ C - - - - 0x0026A7 02:A697: A9 02     LDA #$02
 C - - - - 0x0026A9 02:A699: 20 A8 9F  JSR sub_0x001FB8
 C - - - - 0x0026AC 02:A69C: 4C 52 A6  JMP loc_A652
 
-ofs_A69F:
+ofs_A69F_01:
 C - J - - 0x0026AF 02:A69F: 20 F0 99  JSR sub_0x001A00
 C - - - - 0x0026B2 02:A6A2: A6 26     LDX ram_матч
 C - - - - 0x0026B4 02:A6A4: BD D7 B3  LDA tbl_B3D7,X
@@ -955,11 +956,11 @@ C - - - - 0x0026C5 02:A6B5: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x0026C8 02:A6B8: 20 F0 99  JSR sub_0x001A00
 C - - - - 0x0026CB 02:A6BB: 4C 4C A6  JMP loc_A64C
 
-ofs_A6BE:
+ofs_A6BE_02:
 C - J - - 0x0026CE 02:A6BE: 20 21 A7  JSR sub_A721
 C - - - - 0x0026D1 02:A6C1: 4C 4C A6  JMP loc_A64C
 
-ofs_A6C4:
+ofs_A6C4_03:
 C - J - - 0x0026D4 02:A6C4: A6 26     LDX ram_матч
 C - - - - 0x0026D6 02:A6C6: BD 1B B4  LDA tbl_B41B,X
 C - - - - 0x0026D9 02:A6C9: 20 64 84  JSR sub_0x000474
@@ -1060,7 +1061,7 @@ tbl_A781:
 - D - I - 0x002793 02:A783: AC A7     .word ofs_A7AC
 - D - I - 0x002795 02:A785: C5 A7     .word ofs_A7C5
 - D - I - 0x002797 02:A787: DD AA     .word ofs_AADD
-- D - I - 0x002799 02:A789: 73 AA     .word ofs_AA73
+- D - I - 0x002799 02:A789: 73 AA     .word sub_0x001A00
 
 ofs_A78B:
 C - J - - 0x00279B 02:A78B: A0 EB     LDY #< tbl_B6EB
@@ -1197,7 +1198,7 @@ tbl_A89D:
 - D - I - 0x0028AF 02:A89F: CA A8     .word ofs_A8CA
 - D - I - 0x0028B1 02:A8A1: E5 A8     .word ofs_A8E5
 - D - I - 0x0028B3 02:A8A3: DD AA     .word ofs_AADD
-- D - I - 0x0028B5 02:A8A5: 73 AA     .word ofs_AA73
+- D - I - 0x0028B5 02:A8A5: 73 AA     .word sub_0x001A00
 
 ofs_A8A7:
 C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_B6EB
@@ -1422,11 +1423,6 @@ C - - - - 0x002A78 02:AA68: A9 F8     LDA #$F8
 C - - - - 0x002A7A 02:AA6A: 8D 5C 05  STA $055C
 C - - - - 0x002A7D 02:AA6D: 8D 60 05  STA $0560
 C - - - - 0x002A80 02:AA70: 4C 8D A8  JMP loc_A88D
-
-; bzk неэффективно
-ofs_AA73:
-C - J - - 0x002A83 02:AA73: 20 F0 99  JSR sub_0x001A00
-C - - - - 0x002A86 02:AA76: 60        RTS
 
 sub_AA77:
 ; повторно отрисовать опции в меню команды после подтверждения/отмены выбора опции во внутреннем окне
@@ -2459,11 +2455,11 @@ tbl_B0D7:
 - - - - - 0x0030F7 02:B0E7: 73 B1     .word ofs_B173_08
 - - - - - 0x0030F9 02:B0E9: 86 B1     .word ofs_B186_09
 - D - - - 0x0030FB 02:B0EB: 99 B1     .word ofs_B199_0A
-- - - - - 0x0030FD 02:B0ED: BA B1     .word ofs_B1BA_0F_RTS
-- - - - - 0x0030FF 02:B0EF: BA B1     .word ofs_B1BA_0F_RTS
+- - - - - 0x0030FD 02:B0ED: BA B1     .word _общий_RTS
+- - - - - 0x0030FF 02:B0EF: BA B1     .word _общий_RTS
 - D - - - 0x003101 02:B0F1: A4 B1     .word ofs_B1A4_0D
 - D - - - 0x003103 02:B0F3: AC B1     .word ofs_B1AC_0E
-- D - - - 0x003105 02:B0F5: BA B1     .word ofs_B1BA_0F_RTS
+- D - - - 0x003105 02:B0F5: BA B1     .word _общий_RTS
 
 ofs_B0F7_00:
 ; нарисовать подготовленный шаблон оформления, например опции с защитой, расстановкой и тд
@@ -2581,10 +2577,6 @@ C - - - - 0x0031C1 02:B1B1: B1 EC     LDA (ram_00EC),Y
 C - - - - 0x0031C3 02:B1B3: 85 ED     STA ram_00ED
 C - - - - 0x0031C5 02:B1B5: 86 EC     STX ram_00EC
 C - - - - 0x0031C7 02:B1B7: 4C C4 B0  JMP loc_B0C4
-
-; bzk
-ofs_B1BA_0F_RTS:
-C - J - - 0x0031CA 02:B1BA: 60        RTS
 
 loc_B1BB:
 C D - - - 0x0031CB 02:B1BB: 18        CLC
@@ -3047,44 +3039,6 @@ tbl_B33D:
 - D - - - 0x00337E 02:B36E: FE        .byte $FE
 - D - - - 0x00337F 02:B36F: 02        .byte $02	; <い>
 - D - - - 0x003380 02:B370: 90        .byte $90	; <U>
-
-tbl_B371_катсцена_тренера:
-; bzk здесь байты тупо идут по порядку с увеличением, таблица не обязательна
-; достаточно LDA номер матча + 23 + TAX
-- D - - - 0x003381 02:B371: 23        .byte $23	; <も>
-- D - - - 0x003382 02:B372: 24        .byte $24	; <や>
-- D - - - 0x003383 02:B373: 25        .byte $25	; <ゆ>
-- D - - - 0x003384 02:B374: 26        .byte $26	; <よ>
-- D - - - 0x003385 02:B375: 27        .byte $27	; <ら>
-- D - - - 0x003386 02:B376: 28        .byte $28	; <り>
-- D - - - 0x003387 02:B377: 29        .byte $29	; <る>
-- D - - - 0x003388 02:B378: 2A        .byte $2A	; <れ>
-- D - - - 0x003389 02:B379: 2B        .byte $2B	; <ろ>
-- D - - - 0x00338A 02:B37A: 2C        .byte $2C	; <わ>
-- D - - - 0x00338B 02:B37B: 2D        .byte $2D	; <を>
-- D - - - 0x00338C 02:B37C: 2E        .byte $2E	; <ん>
-- D - - - 0x00338D 02:B37D: 2F        .byte $2F	; <っ>
-- D - - - 0x00338E 02:B37E: 30        .byte $30	; <ゃ>
-- D - - - 0x00338F 02:B37F: 31        .byte $31	; <ゅ>
-- D - - - 0x003390 02:B380: 32        .byte $32	; <ょ>
-- D - - - 0x003391 02:B381: 33        .byte $33	; <0>
-- D - - - 0x003392 02:B382: 34        .byte $34	; <1>
-- D - - - 0x003393 02:B383: 35        .byte $35	; <2>
-- D - - - 0x003394 02:B384: 36        .byte $36	; <3>
-- D - - - 0x003395 02:B385: 37        .byte $37	; <4>
-- D - - - 0x003396 02:B386: 38        .byte $38	; <5>
-- D - - - 0x003397 02:B387: 39        .byte $39	; <6>
-- D - - - 0x003398 02:B388: 3A        .byte $3A	; <7>
-- D - - - 0x003399 02:B389: 3B        .byte $3B	; <8>
-- D - - - 0x00339A 02:B38A: 3C        .byte $3C	; <9>
-- D - - - 0x00339B 02:B38B: 3D        .byte $3D	; <+>
-- D - - - 0x00339C 02:B38C: 3E        .byte $3E	; <Jr>
-- D - - - 0x00339D 02:B38D: 3F        .byte $3F	; <•>
-- D - - - 0x00339E 02:B38E: 40        .byte $40	; <「>
-- D - - - 0x00339F 02:B38F: 41        .byte $41	; <ア>
-- D - - - 0x0033A0 02:B390: 42        .byte $42	; <イ>
-- D - - - 0x0033A1 02:B391: 43        .byte $43	; <ウ>
-- - - - - 0x0033A2 02:B392: 43        .byte $43	; <ウ>
 
 tbl_B393:
 ; номер катсцены тренера, когда просто показывается его рожа
