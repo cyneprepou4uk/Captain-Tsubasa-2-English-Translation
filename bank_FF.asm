@@ -3,23 +3,6 @@
 .incbin "DPCM.bin"
 ; нельзя писать код выше dpcm
 
-; bzk предположительно неиспользуемый мусор от звукового канала
-- - - - - 0x03C401 FF:C3F1: B9        .byte $B9	; <ザ>
-- - - - - 0x03C402 FF:C3F2: 27        .byte $27	; <ら>
-- - - - - 0x03C403 FF:C3F3: A9        .byte $A9	; <ぞ>
-- - - - - 0x03C404 FF:C3F4: AA        .byte $AA	; <だ>
-- - - - - 0x03C405 FF:C3F5: 4D        .byte $4D	; <ス>
-- - - - - 0x03C406 FF:C3F6: D2        .byte $D2
-- - - - - 0x03C407 FF:C3F7: 2B        .byte $2B	; <ろ>
-- - - - - 0x03C408 FF:C3F8: 69        .byte $69	; <ル>
-- - - - - 0x03C409 FF:C3F9: A5        .byte $A5	; <ざ>
-- - - - - 0x03C40A FF:C3FA: 00        .byte $00
-- - - - - 0x03C40B FF:C3FB: 00        .byte $00
-- - - - - 0x03C40C FF:C3FC: 00        .byte $00
-- - - - - 0x03C40D FF:C3FD: 00        .byte $00
-- - - - - 0x03C40E FF:C3FE: 00        .byte $00
-- - - - - 0x03C40F FF:C3FF: 00        .byte $00
-
 loc_C400:
 C D - - - 0x03C410 FF:C400: A8        TAY
 C - - - - 0x03C411 FF:C401: A9 08     LDA #$08
@@ -180,9 +163,6 @@ C D - - - 0x03C522 FF:C512: 4C F7 CA  JMP loc_CAF7
 sub_0x03C525:
 C - - - - 0x03C525 FF:C515: 4C 0F CB  JMP loc_CB0F
 
-; bzk
-- - - - - 0x03C528 FF:C518: 4C 0D CB  JMP loc_CB0D
-
 .export sub_0x03C52B
 sub_0x03C52B:
 C - - - - 0x03C52B FF:C51B: 4C 02 CB  JMP loc_CB02
@@ -232,9 +212,6 @@ C - - - - 0x03C549 FF:C539: 4C E2 CD  JMP loc_CDE2
 .export sub_0x03C54C_чтение_таблицы_сжатых_слов
 sub_0x03C54C_чтение_таблицы_сжатых_слов:
 C - - - - 0x03C54C FF:C53C: 4C 0F F3  JMP loc_F30F_чтение_таблицы_сжатых_слов
-
-; bzk
-- - - - - 0x03C54F FF:C53F: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
 .export sub_0x03C552
 sub_0x03C552:
@@ -315,138 +292,6 @@ C - - - - 0x03C588 FF:C578: 4C D1 D0  JMP loc_D0D1_попытка_убить_м�
 .export loc_0x03C58B
 loc_0x03C58B:
 C D - - - 0x03C58B FF:C57B: 4C BE C6  JMP loc_C6BE
-
-; bzk
-- - - - - 0x03C58E FF:C57E: 4C 1F CF  JMP loc_CF1F
-
-; bzk мусор
-- - - - - 0x03C591 FF:C581: 00        .byte $00
-- - - - - 0x03C592 FF:C582: 00        .byte $00
-- - - - - 0x03C593 FF:C583: 00        .byte $00
-- - - - - 0x03C594 FF:C584: 00        .byte $00
-- - - - - 0x03C595 FF:C585: 00        .byte $00
-- - - - - 0x03C596 FF:C586: 00        .byte $00
-- - - - - 0x03C597 FF:C587: 00        .byte $00
-- - - - - 0x03C598 FF:C588: 00        .byte $00
-- - - - - 0x03C599 FF:C589: 00        .byte $00
-- - - - - 0x03C59A FF:C58A: 00        .byte $00
-- - - - - 0x03C59B FF:C58B: 00        .byte $00
-- - - - - 0x03C59C FF:C58C: 00        .byte $00
-- - - - - 0x03C59D FF:C58D: 00        .byte $00
-- - - - - 0x03C59E FF:C58E: 00        .byte $00
-- - - - - 0x03C59F FF:C58F: 00        .byte $00
-- - - - - 0x03C5A0 FF:C590: 00        .byte $00
-- - - - - 0x03C5A1 FF:C591: 00        .byte $00
-- - - - - 0x03C5A2 FF:C592: 00        .byte $00
-- - - - - 0x03C5A3 FF:C593: 00        .byte $00
-- - - - - 0x03C5A4 FF:C594: 00        .byte $00
-- - - - - 0x03C5A5 FF:C595: 00        .byte $00
-- - - - - 0x03C5A6 FF:C596: 00        .byte $00
-- - - - - 0x03C5A7 FF:C597: 00        .byte $00
-- - - - - 0x03C5A8 FF:C598: 00        .byte $00
-- - - - - 0x03C5A9 FF:C599: 00        .byte $00
-- - - - - 0x03C5AA FF:C59A: 00        .byte $00
-- - - - - 0x03C5AB FF:C59B: 00        .byte $00
-- - - - - 0x03C5AC FF:C59C: 00        .byte $00
-- - - - - 0x03C5AD FF:C59D: 00        .byte $00
-- - - - - 0x03C5AE FF:C59E: 00        .byte $00
-- - - - - 0x03C5AF FF:C59F: 00        .byte $00
-- - - - - 0x03C5B0 FF:C5A0: 00        .byte $00
-- - - - - 0x03C5B1 FF:C5A1: 00        .byte $00
-- - - - - 0x03C5B2 FF:C5A2: 00        .byte $00
-- - - - - 0x03C5B3 FF:C5A3: 00        .byte $00
-- - - - - 0x03C5B4 FF:C5A4: 00        .byte $00
-- - - - - 0x03C5B5 FF:C5A5: 00        .byte $00
-- - - - - 0x03C5B6 FF:C5A6: 00        .byte $00
-- - - - - 0x03C5B7 FF:C5A7: 00        .byte $00
-- - - - - 0x03C5B8 FF:C5A8: 00        .byte $00
-- - - - - 0x03C5B9 FF:C5A9: 00        .byte $00
-- - - - - 0x03C5BA FF:C5AA: 00        .byte $00
-- - - - - 0x03C5BB FF:C5AB: 00        .byte $00
-- - - - - 0x03C5BC FF:C5AC: 00        .byte $00
-- - - - - 0x03C5BD FF:C5AD: 00        .byte $00
-- - - - - 0x03C5BE FF:C5AE: 00        .byte $00
-- - - - - 0x03C5BF FF:C5AF: 00        .byte $00
-- - - - - 0x03C5C0 FF:C5B0: 00        .byte $00
-- - - - - 0x03C5C1 FF:C5B1: 00        .byte $00
-- - - - - 0x03C5C2 FF:C5B2: 00        .byte $00
-- - - - - 0x03C5C3 FF:C5B3: 00        .byte $00
-- - - - - 0x03C5C4 FF:C5B4: 00        .byte $00
-- - - - - 0x03C5C5 FF:C5B5: 00        .byte $00
-- - - - - 0x03C5C6 FF:C5B6: 00        .byte $00
-- - - - - 0x03C5C7 FF:C5B7: 00        .byte $00
-- - - - - 0x03C5C8 FF:C5B8: 00        .byte $00
-- - - - - 0x03C5C9 FF:C5B9: 00        .byte $00
-- - - - - 0x03C5CA FF:C5BA: 00        .byte $00
-- - - - - 0x03C5CB FF:C5BB: 00        .byte $00
-- - - - - 0x03C5CC FF:C5BC: 00        .byte $00
-- - - - - 0x03C5CD FF:C5BD: 00        .byte $00
-- - - - - 0x03C5CE FF:C5BE: 00        .byte $00
-- - - - - 0x03C5CF FF:C5BF: 00        .byte $00
-- - - - - 0x03C5D0 FF:C5C0: 00        .byte $00
-- - - - - 0x03C5D1 FF:C5C1: 00        .byte $00
-- - - - - 0x03C5D2 FF:C5C2: 00        .byte $00
-- - - - - 0x03C5D3 FF:C5C3: 00        .byte $00
-- - - - - 0x03C5D4 FF:C5C4: 00        .byte $00
-- - - - - 0x03C5D5 FF:C5C5: 00        .byte $00
-- - - - - 0x03C5D6 FF:C5C6: 00        .byte $00
-- - - - - 0x03C5D7 FF:C5C7: 00        .byte $00
-- - - - - 0x03C5D8 FF:C5C8: 00        .byte $00
-- - - - - 0x03C5D9 FF:C5C9: 00        .byte $00
-- - - - - 0x03C5DA FF:C5CA: 00        .byte $00
-- - - - - 0x03C5DB FF:C5CB: 00        .byte $00
-- - - - - 0x03C5DC FF:C5CC: 00        .byte $00
-- - - - - 0x03C5DD FF:C5CD: 00        .byte $00
-- - - - - 0x03C5DE FF:C5CE: 00        .byte $00
-- - - - - 0x03C5DF FF:C5CF: 00        .byte $00
-- - - - - 0x03C5E0 FF:C5D0: 00        .byte $00
-- - - - - 0x03C5E1 FF:C5D1: 00        .byte $00
-- - - - - 0x03C5E2 FF:C5D2: 00        .byte $00
-- - - - - 0x03C5E3 FF:C5D3: 00        .byte $00
-- - - - - 0x03C5E4 FF:C5D4: 00        .byte $00
-- - - - - 0x03C5E5 FF:C5D5: 00        .byte $00
-- - - - - 0x03C5E6 FF:C5D6: 00        .byte $00
-- - - - - 0x03C5E7 FF:C5D7: 00        .byte $00
-- - - - - 0x03C5E8 FF:C5D8: 00        .byte $00
-- - - - - 0x03C5E9 FF:C5D9: 00        .byte $00
-- - - - - 0x03C5EA FF:C5DA: 00        .byte $00
-- - - - - 0x03C5EB FF:C5DB: 00        .byte $00
-- - - - - 0x03C5EC FF:C5DC: 00        .byte $00
-- - - - - 0x03C5ED FF:C5DD: 00        .byte $00
-- - - - - 0x03C5EE FF:C5DE: 00        .byte $00
-- - - - - 0x03C5EF FF:C5DF: 00        .byte $00
-- - - - - 0x03C5F0 FF:C5E0: 00        .byte $00
-- - - - - 0x03C5F1 FF:C5E1: 00        .byte $00
-- - - - - 0x03C5F2 FF:C5E2: 00        .byte $00
-- - - - - 0x03C5F3 FF:C5E3: 00        .byte $00
-- - - - - 0x03C5F4 FF:C5E4: 00        .byte $00
-- - - - - 0x03C5F5 FF:C5E5: 00        .byte $00
-- - - - - 0x03C5F6 FF:C5E6: 00        .byte $00
-- - - - - 0x03C5F7 FF:C5E7: 00        .byte $00
-- - - - - 0x03C5F8 FF:C5E8: 00        .byte $00
-- - - - - 0x03C5F9 FF:C5E9: 00        .byte $00
-- - - - - 0x03C5FA FF:C5EA: 00        .byte $00
-- - - - - 0x03C5FB FF:C5EB: 00        .byte $00
-- - - - - 0x03C5FC FF:C5EC: 00        .byte $00
-- - - - - 0x03C5FD FF:C5ED: 00        .byte $00
-- - - - - 0x03C5FE FF:C5EE: 00        .byte $00
-- - - - - 0x03C5FF FF:C5EF: 00        .byte $00
-- - - - - 0x03C600 FF:C5F0: 00        .byte $00
-- - - - - 0x03C601 FF:C5F1: 00        .byte $00
-- - - - - 0x03C602 FF:C5F2: 00        .byte $00
-- - - - - 0x03C603 FF:C5F3: 00        .byte $00
-- - - - - 0x03C604 FF:C5F4: 00        .byte $00
-- - - - - 0x03C605 FF:C5F5: 00        .byte $00
-- - - - - 0x03C606 FF:C5F6: 00        .byte $00
-- - - - - 0x03C607 FF:C5F7: 00        .byte $00
-- - - - - 0x03C608 FF:C5F8: 00        .byte $00
-- - - - - 0x03C609 FF:C5F9: 00        .byte $00
-- - - - - 0x03C60A FF:C5FA: 00        .byte $00
-- - - - - 0x03C60B FF:C5FB: 00        .byte $00
-- - - - - 0x03C60C FF:C5FC: 00        .byte $00
-- - - - - 0x03C60D FF:C5FD: 00        .byte $00
-- - - - - 0x03C60E FF:C5FE: 00        .byte $00
-- - - - - 0x03C60F FF:C5FF: 00        .byte $00
 
 .export sub_0x03C610
 sub_0x03C610:
@@ -1183,9 +1028,6 @@ C - - - - 0x03CB1A FF:CB0A: F6 00     INC ram_0000,X
 bra_CB0C_выход:
 C - - - - 0x03CB1C FF:CB0C: 60        RTS
 
-loc_CB0D:
-- - - - - 0x03CB1D FF:CB0D: A9 00     LDA #$00
-
 loc_CB0F:
 sub_CB0F:
 C D - - - 0x03CB1F FF:CB0F: 85 7F     STA ram_007F
@@ -1206,16 +1048,6 @@ C - - - - 0x03CB35 FF:CB25: BA        TSX
 C - - - - 0x03CB36 FF:CB26: 96 01     STX ram_0001,Y
 C - - - - 0x03CB38 FF:CB28: A6 00     LDX ram_0000
 C - - - - 0x03CB3A FF:CB2A: 4C A5 CA  JMP loc_CAA5
-
-; bzk
-- - - - - 0x03CB3D FF:CB2D: 20        .byte $20	; <み>
-- - - - - 0x03CB3E FF:CB2E: 40        .byte $40	; <「>
-- - - - - 0x03CB3F FF:CB2F: 18        .byte $18	; <ね>
-- - - - - 0x03CB40 FF:CB30: 18        .byte $18	; <ね>
-- - - - - 0x03CB41 FF:CB31: 18        .byte $18	; <ね>
-- - - - - 0x03CB42 FF:CB32: 18        .byte $18	; <ね>
-- - - - - 0x03CB43 FF:CB33: 18        .byte $18	; <ね>
-- - - - - 0x03CB44 FF:CB34: 18        .byte $18	; <ね>
 
 loc_CB35:
 sub_CB35:
@@ -1867,7 +1699,6 @@ C - - - - 0x03CF29 FF:CF19: 85 20     STA ram_0020
 C - - - - 0x03CF2B FF:CF1B: 68        PLA
 C - - - - 0x03CF2C FF:CF1C: 4C 00 C4  JMP loc_C400
 
-loc_CF1F:
 sub_CF1F:
 C - - - - 0x03CF2F FF:CF1F: A9 68     LDA #$68
 C - - - - 0x03CF31 FF:CF21: 85 3A     STA ram_003A
