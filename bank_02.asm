@@ -1990,7 +1990,7 @@ C - - - - 0x002E04 02:ADF4: A8        TAY
 C - - - - 0x002E05 02:ADF5: A9 00     LDA #$00
 C - - - - 0x002E07 02:ADF7: 69 B6     ADC #> tbl_B6BB_название_твоей_команды_в_опциях
 C - - - - 0x002E09 02:ADF9: AA        TAX
-C - - - - 0x002E0A 02:ADFA: AD EC 00  LDA a: ram_00EC
+C - - - - 0x002E0A 02:ADFA: AD EC 00  LDA ram_00EC
 C - - - - 0x002E0D 02:ADFD: 20 B8 97  JSR sub_0x0017C8
 C - - - - 0x002E10 02:AE00: 60        RTS
 
