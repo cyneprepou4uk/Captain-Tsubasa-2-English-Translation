@@ -1,2 +1,2 @@
 # Captain-Tsubasa-2-Translation
-Disassembly of Captain Tsubasa 2 [NES]
+Captain Tsubasa 2 [NES] disassembly
