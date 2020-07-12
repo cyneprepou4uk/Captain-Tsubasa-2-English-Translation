@@ -11272,8 +11272,6 @@ tbl_AD54:
 - D - - - 0x032D66 22:AD56: 61 AD     .word off_AD61_01
 - D - - - 0x032D68 22:AD58: 68 AD     .word off_AD68_02
 - D - - - 0x032D6A 22:AD5A: 6B AD     .word off_AD6B_03
-; bzk поинтер на таблицу поинтеров, не должен использоваться
-- - - - - 0x032D6C 22:AD5C: 6E AD     .word off_AD6E_04
 
 off_AD5E_00:
 - D - I - 0x032D6E 22:AD5E: 78        .byte $78	; <?>
