@@ -3856,7 +3856,7 @@ C - - - - 0x03DE90 FF:DE80: A9 1B     LDA #$1B
 C - - - - 0x03DE92 FF:DE82: 85 25     STA ram_для_8001_07
 C - - - - 0x03DE94 FF:DE84: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DE97 FF:DE87: 68        PLA
-C - - - - 0x03DE98 FF:DE88: 20 1E 80  JSR sub_0x03402E
+C - - - - 0x03DE98 FF:DE88: 20 1E 80  JSR sub_0x034B5A
 C - - - - 0x03DE9B FF:DE8B: A9 1C     LDA #$1C
 C - - - - 0x03DE9D FF:DE8D: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DEA0 FF:DE90: A2 50     LDX #$50
@@ -3924,7 +3924,7 @@ C - - - - 0x03DF24 FF:DF14: A9 1B     LDA #$1B
 C - - - - 0x03DF26 FF:DF16: 85 25     STA ram_для_8001_07
 C - - - - 0x03DF28 FF:DF18: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DF2B FF:DF1B: 68        PLA
-C - - - - 0x03DF2C FF:DF1C: 20 1E 80  JSR sub_0x03402E
+C - - - - 0x03DF2C FF:DF1C: 20 1E 80  JSR sub_0x034B5A
 C - - - - 0x03DF2F FF:DF1F: 68        PLA
 C - - - - 0x03DF30 FF:DF20: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DF33 FF:DF23: A2 50     LDX #$50
@@ -4079,7 +4079,7 @@ C - - - - 0x03E053 FF:E043: A9 1B     LDA #$1B
 C - - - - 0x03E055 FF:E045: 85 25     STA ram_для_8001_07
 C - - - - 0x03E057 FF:E047: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E05A FF:E04A: 68        PLA
-C - - - - 0x03E05B FF:E04B: 20 1E 80  JSR sub_0x03402E
+C - - - - 0x03E05B FF:E04B: 20 1E 80  JSR sub_0x034B5A
 C - - - - 0x03E05E FF:E04E: A9 1B     LDA #$1B
 C - - - - 0x03E060 FF:E050: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03E063 FF:E053: A2 50     LDX #$50

@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x03402E
-sub_0x03402E:
-C - - - - 0x03402E 23:801E: 4C 4A 8B  JMP loc_8B4A
-
 .export sub_0x034031
 sub_0x034031:
 C - - - - 0x034031 23:8021: 4C 72 8F  JMP loc_8F72
@@ -1585,7 +1581,8 @@ tbl_8B46:
 - D - - - 0x034B58 23:8B48: 40        .byte $40	; <「>
 - D - - - 0x034B59 23:8B49: 00        .byte $00
 
-loc_8B4A:
+.export sub_0x034B5A
+sub_0x034B5A:
 sub_8B4A:
 C D - - - 0x034B5A 23:8B4A: 20 9C 8B  JSR sub_8B9C
 C - - - - 0x034B5D 23:8B4D: B0 01     BCS bra_8B50
