@@ -2,10 +2,6 @@
 .include "copy_bank_ram.inc"
 ; меню во время игры 0x030861
 
-.export sub_0x03001C
-sub_0x03001C:
-C - - - - 0x03001C 22:800C: 4C 51 88  JMP loc_8851
-
 ofs_800F_minus:
 .export ofs_0x03001F
 ofs_0x03001F = ofs_800F_minus - 1
@@ -1424,7 +1420,8 @@ C - - - - 0x03085A 22:884A: 85 7E     STA ram_007E
 C - - - - 0x03085C 22:884C: 86 7D     STX ram_007D
 C - - - - 0x03085E 22:884E: 4C 15 88  JMP loc_8815
 
-loc_8851:
+.export sub_0x030861
+sub_0x030861:
 C D - - - 0x030861 22:8851: A8        TAY
 C - - - - 0x030862 22:8852: 0A        ASL
 C - - - - 0x030863 22:8853: AA        TAX

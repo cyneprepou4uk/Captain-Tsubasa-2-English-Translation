@@ -6407,7 +6407,7 @@ C - - - - 0x03EF9E FF:EF8E: A9 19     LDA #$19
 C - - - - 0x03EFA0 FF:EF90: 85 25     STA ram_для_8001_07
 C - - - - 0x03EFA2 FF:EF92: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EFA5 FF:EF95: 68        PLA
-C - - - - 0x03EFA6 FF:EF96: 20 0C 80  JSR sub_0x03001C
+C - - - - 0x03EFA6 FF:EF96: 20 0C 80  JSR sub_0x030861
 C - - - - 0x03EFA9 FF:EF99: 68        PLA
 C - - - - 0x03EFAA FF:EF9A: 85 25     STA ram_для_8001_07
 C - - - - 0x03EFAC FF:EF9C: 68        PLA
