@@ -155,7 +155,7 @@ C - - - - 0x0340F7 23:80E7: 4C 74 80  JMP loc_8074
 bra_80EA:
 C - - - - 0x0340FA 23:80EA: 20 85 90  JSR sub_9085_клон_ссыт_напороться_на_мяч
 loc_80ED:
-C D - - - 0x0340FD 23:80ED: 20 06 C6  JSR sub_0x03C616
+C D - - - 0x0340FD 23:80ED: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x034100 23:80F0: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x034103 23:80F3: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - D - I - 0x034106 23:80F6: FE 80     .word ofs_80FE_00
@@ -290,7 +290,7 @@ ofs_81D1_03:
 C - J - - 0x0341E1 23:81D1: 20 C8 8B  JSR sub_8BC8
 C - - - - 0x0341E4 23:81D4: 18        CLC
 C - - - - 0x0341E5 23:81D5: 20 95 90  JSR sub_9095
-C - - - - 0x0341E8 23:81D8: 20 06 C6  JSR sub_0x03C616
+C - - - - 0x0341E8 23:81D8: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x0341EB 23:81DB: 20 ED 81  JSR sub_81ED
 loc_81DE:
 C D - - - 0x0341EE 23:81DE: AD 42 04  LDA ram_игрок_без_мяча
@@ -597,7 +597,7 @@ tbl_83F1:
 - D - - - 0x034404 23:83F4: 00        .byte $00
 
 loc_83F5:
-C D - - - 0x034405 23:83F5: 20 06 C6  JSR sub_0x03C616
+C D - - - 0x034405 23:83F5: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x034408 23:83F8: AD 12 06  LDA ram_флаг_защитника
 C - - - - 0x03440B 23:83FB: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - D - I - 0x03440E 23:83FE: 08 84     .word ofs_8408_00_01
@@ -1281,7 +1281,7 @@ C - - - - 0x0348E8 23:88D8: 18        CLC
 C - - - - 0x0348E9 23:88D9: 20 95 90  JSR sub_9095
 C - - - - 0x0348EC 23:88DC: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - 0x0348EF 23:88DF: 20 6E 8E  JSR sub_8E6E
-C - - - - 0x0348F2 23:88E2: 20 06 C6  JSR sub_0x03C616
+C - - - - 0x0348F2 23:88E2: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x0348F5 23:88E5: A2 50     LDX #$50
 C - - - - 0x0348F7 23:88E7: 9A        TXS
 C - - - - 0x0348F8 23:88E8: 4C 0F C6  JMP loc_0x03C61F
@@ -1495,7 +1495,7 @@ tbl_8A6A:
 - D - - - 0x034A7E 23:8A6E: 01        .byte $01	; <あ>
 
 loc_8A6F:
-C D - - - 0x034A7F 23:8A6F: 20 06 C6  JSR sub_0x03C616
+C D - - - 0x034A7F 23:8A6F: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x034A82 23:8A72: AD 12 06  LDA ram_флаг_защитника
 C - - - - 0x034A85 23:8A75: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - D - I - 0x034A88 23:8A78: 80 8A     .word ofs_8A80_00_01
@@ -1709,7 +1709,7 @@ ofs_8BDF:
 C D - - - 0x034BEF 23:8BDF: 20 70 90  JSR sub_9070
 C - - - - 0x034BF2 23:8BE2: 20 6D 8C  JSR sub_8C6D
 loc_8BE5:
-C D - - - 0x034BF5 23:8BE5: 20 06 C6  JSR sub_0x03C616
+C D - - - 0x034BF5 23:8BE5: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x034BF8 23:8BE8: 20 42 8C  JSR sub_8C42
 C - - - - 0x034BFB 23:8BEB: B0 25     BCS bra_8C12
 C - - - - 0x034BFD 23:8BED: A9 00     LDA #$00
