@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C51F
-sub_0x03C51F:
-C - - - - 0x03C51F FF:C50F: 4C E7 CA  JMP loc_CAE7
-
 .export loc_0x03C522
 loc_0x03C522:
 C D - - - 0x03C522 FF:C512: 4C F7 CA  JMP loc_CAF7
@@ -946,7 +942,8 @@ C - - - - 0x03CAF4 FF:CAE4: AA        TAX
 C - - - - 0x03CAF5 FF:CAE5: 9A        TXS
 C - - - - 0x03CAF6 FF:CAE6: 60        RTS
 
-loc_CAE7:
+.export sub_0x03CAF7
+sub_0x03CAF7:
 sub_CAE7:
 C D - - - 0x03CAF7 FF:CAE7: 48        PHA
 C - - - - 0x03CAF8 FF:CAE8: 98        TYA
