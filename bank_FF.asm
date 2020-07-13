@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C549
-sub_0x03C549:
-C - - - - 0x03C549 FF:C539: 4C E2 CD  JMP loc_CDE2
-
 .export sub_0x03C54C_чтение_таблицы_сжатых_слов
 sub_0x03C54C_чтение_таблицы_сжатых_слов:
 C - - - - 0x03C54C FF:C53C: 4C 0F F3  JMP loc_F30F_чтение_таблицы_сжатых_слов
@@ -1393,7 +1389,8 @@ C - - - - 0x03CDEE FF:CDDE: 69 34     ADC #$34
 C - - - - 0x03CDF0 FF:CDE0: AA        TAX
 C - - - - 0x03CDF1 FF:CDE1: 60        RTS
 
-loc_CDE2:
+.export sub_0x03CDF2
+sub_0x03CDF2:
 sub_CDE2:
 C D - - - 0x03CDF2 FF:CDE2: 8A        TXA
 C - - - - 0x03CDF3 FF:CDE3: 38        SEC

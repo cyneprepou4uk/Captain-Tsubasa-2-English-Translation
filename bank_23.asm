@@ -696,7 +696,7 @@ C - - - - 0x0344BA 23:84AA: 18        CLC
 C - - - - 0x0344BB 23:84AB: 69 01     ADC #$01
 bra_84AD:
 C - - - - 0x0344BD 23:84AD: A8        TAY
-C - - - - 0x0344BE 23:84AE: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x0344BE 23:84AE: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x0344C1 23:84B1: A2 08     LDX #$08
 bra_84B3:
 C - - - - 0x0344C3 23:84B3: DD EF 84  CMP tbl_84EF,X
@@ -1169,7 +1169,7 @@ C - - - - 0x03480D 23:87FD: AA        TAX
 C - - - - 0x03480E 23:87FE: A0 08     LDY #con_игрок_координата_Y_hi
 C - - - - 0x034810 23:8800: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x034812 23:8802: A8        TAY
-C - - - - 0x034813 23:8803: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x034813 23:8803: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x034816 23:8806: CD FE 05  CMP $05FE
 C - - - - 0x034819 23:8809: D0 23     BNE bra_882E
 C - - - - 0x03481B 23:880B: AE 00 06  LDX $0600
@@ -2636,7 +2636,7 @@ bra_917A:
 C - - - - 0x03518A 23:917A: 18        CLC
 C - - - - 0x03518B 23:917B: 6D 37 06  ADC $0637
 C - - - - 0x03518E 23:917E: A8        TAY
-C - - - - 0x03518F 23:917F: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x03518F 23:917F: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x035192 23:9182: 8D 24 06  STA $0624
 C - - - - 0x035195 23:9185: 8D 1E 06  STA $061E
 C - - - - 0x035198 23:9188: 20 D2 91  JSR sub_91D2
@@ -2970,7 +2970,7 @@ C - - - - 0x0353FB 23:93EB: F0 02     BEQ bra_93EF
 C - - - - 0x0353FD 23:93ED: 49 FF     EOR #$FF
 bra_93EF:
 C - - - - 0x0353FF 23:93EF: A8        TAY
-C - - - - 0x035400 23:93F0: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x035400 23:93F0: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x035403 23:93F3: 85 3B     STA ram_003B
 C - - - - 0x035405 23:93F5: A9 00     LDA #$00
 bra_93F7:
@@ -4322,7 +4322,7 @@ C - - - - 0x035DF6 23:9DE6: AA        TAX
 C - - - - 0x035DF7 23:9DE7: A0 08     LDY #con_игрок_координата_Y_hi
 C - - - - 0x035DF9 23:9DE9: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x035DFB 23:9DEB: A8        TAY
-C - - - - 0x035DFC 23:9DEC: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x035DFC 23:9DEC: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x035DFF 23:9DEF: CD 24 06  CMP $0624
 C - - - - 0x035E02 23:9DF2: F0 0E     BEQ bra_9E02
 bra_9DF4:
@@ -5117,7 +5117,7 @@ C - - - - 0x0361A6 23:A196: 49 FF     EOR #$FF
 C - - - - 0x0361A8 23:A198: A8        TAY
 C - - - - 0x0361A9 23:A199: E8        INX
 C - - - - 0x0361AA 23:A19A: C8        INY
-C - - - - 0x0361AB 23:A19B: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x0361AB 23:A19B: 20 39 C5  JSR sub_0x03CDF2
 bra_A19E:
 C - - - - 0x0361AE 23:A19E: A0 09     LDY #con_игрок_09
 C - - - - 0x0361B0 23:A1A0: 91 34     STA (ram_plr_data),Y
@@ -5151,7 +5151,7 @@ bra_A1CF:
 C - - - - 0x0361DF 23:A1CF: A0 08     LDY #con_игрок_координата_Y_hi
 C - - - - 0x0361E1 23:A1D1: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x0361E3 23:A1D3: A8        TAY
-C - - - - 0x0361E4 23:A1D4: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x0361E4 23:A1D4: 20 39 C5  JSR sub_0x03CDF2
 bra_A1D7:
 C - - - - 0x0361E7 23:A1D7: A0 09     LDY #con_игрок_09
 C - - - - 0x0361E9 23:A1D9: 91 34     STA (ram_plr_data),Y

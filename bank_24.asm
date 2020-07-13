@@ -934,7 +934,7 @@ C - - - - 0x0384B7 24:84A7: 10 02     BPL bra_84AB
 C - - - - 0x0384B9 24:84A9: 49 FF     EOR #$FF
 bra_84AB:
 C - - - - 0x0384BB 24:84AB: A8        TAY
-C - - - - 0x0384BC 24:84AC: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x0384BC 24:84AC: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x0384BF 24:84AF: A2 00     LDX #$00
 bra_84B1:
 C - - - - 0x0384C1 24:84B1: DD BE 8B  CMP tbl_8BBE,X
@@ -1202,7 +1202,7 @@ C - - - - 0x038688 24:8678: 10 02     BPL bra_867C
 C - - - - 0x03868A 24:867A: 49 FF     EOR #$FF
 bra_867C:
 C - - - - 0x03868C 24:867C: A8        TAY
-C - - - - 0x03868D 24:867D: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x03868D 24:867D: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x038690 24:8680: A2 00     LDX #$00
 bra_8682:
 C - - - - 0x038692 24:8682: DD BE 8B  CMP tbl_8BBE,X
@@ -1350,7 +1350,7 @@ C - - - - 0x038797 24:8787: 98        TYA
 C - - - - 0x038798 24:8788: 49 FF     EOR #$FF
 C - - - - 0x03879A 24:878A: A8        TAY
 bra_878B:
-C - - - - 0x03879B 24:878B: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x03879B 24:878B: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x03879E 24:878E: A2 00     LDX #$00
 bra_8790:
 C - - - - 0x0387A0 24:8790: DD BE 8B  CMP tbl_8BBE,X
@@ -1732,7 +1732,7 @@ C - - - - 0x038A23 24:8A13: AA        TAX
 C - - - - 0x038A24 24:8A14: A0 08     LDY #con_игрок_координата_Y_hi
 C - - - - 0x038A26 24:8A16: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x038A28 24:8A18: A8        TAY
-C - - - - 0x038A29 24:8A19: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x038A29 24:8A19: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x038A2C 24:8A1C: 8D 38 06  STA $0638
 C - - - - 0x038A2F 24:8A1F: 60        RTS
 
@@ -1846,7 +1846,7 @@ C - - - - 0x038ACE 24:8ABE: 10 02     BPL bra_8AC2
 C - - - - 0x038AD0 24:8AC0: 49 FF     EOR #$FF
 bra_8AC2:
 C - - - - 0x038AD2 24:8AC2: A8        TAY
-C - - - - 0x038AD3 24:8AC3: 20 39 C5  JSR sub_0x03C549
+C - - - - 0x038AD3 24:8AC3: 20 39 C5  JSR sub_0x03CDF2
 C - - - - 0x038AD6 24:8AC6: A2 00     LDX #$00
 bra_8AC8:
 C - - - - 0x038AD8 24:8AC8: DD 9E 8B  CMP tbl_8B9E,X
