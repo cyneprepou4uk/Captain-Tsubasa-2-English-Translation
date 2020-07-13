@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x034031
-sub_0x034031:
-C - - - - 0x034031 23:8021: 4C 72 8F  JMP loc_8F72
-
 .export sub_0x034034
 sub_0x034034:
 C - - - - 0x034034 23:8024: 4C A4 8C  JMP loc_8CA4
@@ -2275,7 +2271,8 @@ C - - - - 0x034F7D 23:8F6D: 90 02     BCC bra_8F71_выход
 bra_8F71_выход:
 C - - - - 0x034F81 23:8F71: 60        RTS
 
-loc_8F72:
+.export sub_0x034F82
+sub_0x034F82:
 sub_8F72:
 ; bzk беспозеное чтение номера
 C D - - - 0x034F82 23:8F72: AD 41 04  LDA ram_игрок_с_мячом

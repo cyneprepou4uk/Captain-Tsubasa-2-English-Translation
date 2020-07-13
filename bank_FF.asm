@@ -2817,7 +2817,7 @@ C - - - - 0x03D7CC FF:D7BC: A9 1B     LDA #$1B
 C - - - - 0x03D7CE FF:D7BE: 85 25     STA ram_для_8001_07
 C - - - - 0x03D7D0 FF:D7C0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D7D3 FF:D7C3: 68        PLA
-C - - - - 0x03D7D4 FF:D7C4: 20 21 80  JSR sub_0x034031
+C - - - - 0x03D7D4 FF:D7C4: 20 21 80  JSR sub_0x034F82
 C - - - - 0x03D7D7 FF:D7C7: 48        PHA
 C - - - - 0x03D7DA FF:D7CA: A9 1A     LDA #$1A
 C - - - - 0x03D7DC FF:D7CC: 85 24     STA ram_для_8001_06
@@ -4274,7 +4274,7 @@ C - - - - 0x03E1D0 FF:E1C0: A9 1B     LDA #$1B
 C - - - - 0x03E1D2 FF:E1C2: 85 25     STA ram_для_8001_07
 C - - - - 0x03E1D4 FF:E1C4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E1D7 FF:E1C7: 68        PLA
-C - - - - 0x03E1D8 FF:E1C8: 20 21 80  JSR sub_0x034031
+C - - - - 0x03E1D8 FF:E1C8: 20 21 80  JSR sub_0x034F82
 C - - - - 0x03E1DB FF:E1CB: 20 46 CC  JSR sub_CC46
 C - - - - 0x03E1DE FF:E1CE: A9 00     LDA #$00
 C - - - - 0x03E1E0 FF:E1D0: 8D 2D 06  STA $062D
