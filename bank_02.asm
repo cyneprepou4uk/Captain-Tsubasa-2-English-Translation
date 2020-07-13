@@ -1461,19 +1461,22 @@ C - - - - 0x002AEC 02:AADC: 60        RTS
 ofs_AADD:
 C - J - - 0x002AED 02:AADD: A9 28     LDA #$28
 C - - - - 0x002AEF 02:AADF: 85 60     STA ram_0060
-C - - - - 0x002AF1 02:AAE1: A9 18     LDA #$18
+; X курсора на экране со списком игроков
+C - - - - 0x002AF1 02:AAE1: A9 18     LDA #$10
 C - - - - 0x002AF3 02:AAE3: 85 61     STA ram_0061
 loc_AAE5:
 C D - - - 0x002AF5 02:AAE5: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002AF8 02:AAE8: A0 81     LDY #< tbl_B881_экран_со_списком_игроков
 C - - - - 0x002AFA 02:AAEA: A2 B8     LDX #> tbl_B881_экран_со_списком_игроков
 C - - - - 0x002AFC 02:AAEC: 20 C0 B0  JSR sub_B0C0
-C - - - - 0x002AFF 02:AAEF: A9 84     LDA #$84
+; начальный адрес для отображения имен
+C - - - - 0x002AFF 02:AAEF: A9 84     LDA #$83
 C - - - - 0x002B01 02:AAF1: 85 E6     STA ram_00E6
 C - - - - 0x002B03 02:AAF3: A9 20     LDA #$20
 C - - - - 0x002B05 02:AAF5: 85 E7     STA ram_00E7
 C - - - - 0x002B07 02:AAF7: 20 AC AE  JSR sub_AEAC
-C - - - - 0x002B0A 02:AAFA: A9 AA     LDA #$AA
+; начальный адрес для отображения энергии
+C - - - - 0x002B0A 02:AAFA: A9 AA     LDA #$AB
 C - - - - 0x002B0C 02:AAFC: 85 5C     STA ram_005C
 C - - - - 0x002B0E 02:AAFE: A9 20     LDA #$20
 C - - - - 0x002B10 02:AB00: 85 5D     STA ram_005D
@@ -1506,8 +1509,8 @@ C - - - - 0x002B43 02:AB33: C9 20     CMP #$20
 C - - - - 0x002B45 02:AB35: D0 F5     BNE bra_AB2C
 bra_AB37:
 C - - - - 0x002B47 02:AB37: 20 7E 99  JSR sub_0x00198E
-C - - - - 0x002B4A 02:AB3A: A0 DC     LDY #< tbl_ADDC
-C - - - - 0x002B4C 02:AB3C: A2 AD     LDX #> tbl_ADDC
+C - - - - 0x002B4A 02:AB3A: A0 DC     LDY #< tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков
+C - - - - 0x002B4C 02:AB3C: A2 AD     LDX #> tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков
 C - - - - 0x002B4E 02:AB3E: 20 3A 9C  JSR sub_0x001C4A
 C - - - - 0x002B51 02:AB41: A5 60     LDA ram_0060
 C - - - - 0x002B53 02:AB43: 8D 5C 05  STA $055C
@@ -1926,13 +1929,16 @@ tbl_ADD6:
 - D - I - 0x002DEA 02:ADDA: 40        .byte $40	; <「>
 - D - I - 0x002DEB 02:ADDB: B8        .byte $B8	; <ゴ>
 
-tbl_ADDC:
+tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков:
+; но затем позиция перезаписывается в 0x002AF1
 - D - I - 0x002DEC 02:ADDC: F4        .byte $F4
 - D - I - 0x002DED 02:ADDD: 28        .byte $28	; <り>
 - D - I - 0x002DEE 02:ADDE: 71        .byte $71	; <ュ>
 - D - I - 0x002DEF 02:ADDF: 00        .byte $00
 - D - I - 0x002DF0 02:ADE0: 18        .byte $18	; <ね>
 - D - I - 0x002DF1 02:ADE1: C8        .byte $C8	; <ぱ>
+
+; bzk предположительно мусор
 - - - - - 0x002DF2 02:ADE2: 44        .byte $44	; <エ>
 - - - - - 0x002DF3 02:ADE3: 67        .byte $67	; <ラ>
 - - - - - 0x002DF4 02:ADE4: 7D        .byte $7D	; <ー>
@@ -2129,7 +2135,8 @@ C - - - - 0x002F15 02:AF05: 84 E6     STY ram_00E6
 C - - - - 0x002F17 02:AF07: 86 E7     STX ram_00E7
 sub_AF09:
 C - - - - 0x002F19 02:AF09: 20 3C C5  JSR sub_0x03F31F_таблица_слов
-C - - - - 0x002F1C 02:AF0C: A9 05     LDA #$05
+; ограничени по количеству символов для имен
+C - - - - 0x002F1C 02:AF0C: A9 05     LDA #$08
 C - - - - 0x002F1E 02:AF0E: 85 ED     STA ram_00ED
 bra_AF10:
 C - - - - 0x002F20 02:AF10: A2 00     LDX #$00
@@ -2152,7 +2159,8 @@ C - - - - 0x002F3B 02:AF2B: C6 ED     DEC ram_00ED
 C - - - - 0x002F3D 02:AF2D: D0 E1     BNE bra_AF10
 C - - - - 0x002F3F 02:AF2F: A5 E6     LDA ram_00E6
 C - - - - 0x002F41 02:AF31: 38        SEC
-C - - - - 0x002F42 02:AF32: E9 05     SBC #$05
+; здесь также нужно корректировать
+C - - - - 0x002F42 02:AF32: E9 05     SBC #$08
 C - - - - 0x002F44 02:AF34: 85 E6     STA ram_00E6
 C - - - - 0x002F46 02:AF36: 60        RTS
 
@@ -4341,49 +4349,50 @@ off_B86D:
 
 
 tbl_B881_экран_со_списком_игроков:
+; верхняя синяя полоска
 - D - I - 0x003891 02:B881: 05        .byte $05	; <お>
 - D - I - 0x003892 02:B882: 62 20     .word $2062
-- D - I - 0x003894 02:B884: 1B        .byte $1B	; <ひ>
+- D - I - 0x003894 02:B884: 1B        .byte $1C	; <ひ>
 - D - I - 0x003895 02:B885: 89        .byte $89	; <I>
-
+; нижняя синяя полоска
 - D - I - 0x003896 02:B886: 05        .byte $05	; <お>
 - D - I - 0x003897 02:B887: 62 23     .word $2362
-- D - I - 0x003899 02:B889: 1B        .byte $1B	; <ひ>
+- D - I - 0x003899 02:B889: 1B        .byte $1C	; <ひ>
 - D - I - 0x00389A 02:B88A: 89        .byte $89	; <I>
-
+; левая синяя полоска
 - D - I - 0x00389B 02:B88B: 04        .byte $04	; <え>
 - D - I - 0x00389C 02:B88C: 81 20     .word $2081
 - D - I - 0x00389E 02:B88E: 17        .byte $17	; <ぬ>
 - D - I - 0x00389F 02:B88F: 8A        .byte $8A	; <N>
-
+; правая синяя полоска
 - D - I - 0x0038A0 02:B890: 04        .byte $04	; <え>
-- D - I - 0x0038A1 02:B891: 9D 20     .word $209D
+- D - I - 0x0038A1 02:B891: 9D 20     .word $209E
 - D - I - 0x0038A3 02:B893: 17        .byte $17	; <ぬ>
 - D - I - 0x0038A4 02:B894: 8A        .byte $8A	; <N>
 
 - D - I - 0x0038A5 02:B895: 00        .byte $00
-- D - I - 0x0038A6 02:B896: 99 B8     .word off_B899
+- D - I - 0x0038A6 02:B896: 99 B8     .word off_B899_углы
 
 - D - I - 0x0038A8 02:B898: 0F        .byte $0F	; <そ>
 
 
 
-off_B899:
+off_B899_углы:
+; левый верхний угол
 - D - I - 0x0038A9 02:B899: 01        .byte $01	; <あ>
-- D - I - 0x0038AA 02:B89A: 61        .byte $61	; <ム>
-- D - I - 0x0038AB 02:B89B: 20        .byte $20	; <み>
+- D - I - 0x0038AA 02:B89A: 61 20     .word $2061
 - D - I - 0x0038AC 02:B89C: 88        .byte $88	; <H>
+; левый нижний угол
 - D - I - 0x0038AD 02:B89D: 01        .byte $01	; <あ>
-- D - I - 0x0038AE 02:B89E: 61        .byte $61	; <ム>
-- D - I - 0x0038AF 02:B89F: 23        .byte $23	; <も>
+- D - I - 0x0038AE 02:B89E: 61 23     .word $2361
 - D - I - 0x0038B0 02:B8A0: 8E        .byte $8E	; <L>
+; правый верхний угол
 - D - I - 0x0038B1 02:B8A1: 01        .byte $01	; <あ>
-- D - I - 0x0038B2 02:B8A2: 7D        .byte $7D	; <ー>
-- D - I - 0x0038B3 02:B8A3: 20        .byte $20	; <み>
+- D - I - 0x0038B2 02:B8A2: 7D 20     .word $207E
 - D - I - 0x0038B4 02:B8A4: 90        .byte $90	; <U>
+; правый нижний угол
 - D - I - 0x0038B5 02:B8A5: 41        .byte $41	; <ア>
-- D - I - 0x0038B6 02:B8A6: 7D        .byte $7D	; <ー>
-- D - I - 0x0038B7 02:B8A7: 23        .byte $23	; <も>
+- D - I - 0x0038B6 02:B8A6: 7D 23     .word $237E
 - D - I - 0x0038B8 02:B8A8: 93        .byte $93	; <Y>
 
 
