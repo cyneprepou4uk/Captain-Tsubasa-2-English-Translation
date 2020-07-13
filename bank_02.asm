@@ -1,8 +1,6 @@
 .segment "BANK_02"
 .include "copy_bank_ram.inc"
 
-- D - - - 0x002010 02:A000: 4C 1E A0  JMP loc_A01E
-
 .export sub_0x002013
 sub_0x002013:
 C - - - - 0x002013 02:A003: 4C 0D A1  JMP loc_A10D
