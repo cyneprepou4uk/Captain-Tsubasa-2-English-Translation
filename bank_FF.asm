@@ -6558,14 +6558,6 @@ C - - - - 0x03F012 FF:F002: AD 00 06  LDA $0600
 C - - - - 0x03F015 FF:F005: D0 0C     BNE bra_F013
 C - - - - 0x03F017 FF:F007: A9 02     LDA #$02
 C - - - - 0x03F019 FF:F009: 8D 3D 06  STA $063D
-C - - - - 0x03F01C FF:F00C: 4C 13 F0  JMP loc_F013
-
-tbl_F00F:
-- D - - - 0x03F01F FF:F00F: 00        .byte $00
-- D - - - 0x03F020 FF:F010: 00        .byte $00
-- D - - - 0x03F021 FF:F011: 01        .byte $01	; <あ>
-- D - - - 0x03F022 FF:F012: 00        .byte $00
-
 bra_F013:
 .export sub_0x03F023
 sub_0x03F023:
@@ -6701,6 +6693,12 @@ C - - - - 0x03F118 FF:F108: A9 80     LDA #$80
 C - - - - 0x03F11A FF:F10A: 8D 15 05  STA $0515
 bra_F10D_выход:
 C - - - - 0x03F11D FF:F10D: 60        RTS
+
+tbl_F00F:
+- D - - - 0x03F01F FF:F00F: 00        .byte $00
+- D - - - 0x03F020 FF:F010: 00        .byte $00
+- D - - - 0x03F021 FF:F011: 01        .byte $01	; <あ>
+- D - - - 0x03F022 FF:F012: 00        .byte $00
 
 tbl_F10E:
 - D - - - 0x03F11E FF:F10E: 00        .byte $00
