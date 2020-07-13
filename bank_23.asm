@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x034034
-sub_0x034034:
-C - - - - 0x034034 23:8024: 4C A4 8C  JMP loc_8CA4
-
 .export loc_0x034037
 loc_0x034037:
 C D - - - 0x034037 23:8027: 4C 27 81  JMP loc_8127
@@ -1778,7 +1774,8 @@ C - - - - 0x034CB0 23:8CA0: 18        CLC
 C - - - - 0x034CB1 23:8CA1: 65 3A     ADC ram_003A
 C - - - - 0x034CB3 23:8CA3: 60        RTS
 
-loc_8CA4:
+.export sub_0x034CB4
+sub_0x034CB4:
 sub_8CA4:
 C D - - - 0x034CB4 23:8CA4: 4A        LSR
 C - - - - 0x034CB5 23:8CA5: 08        PHP
