@@ -138,17 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export loc_0x03C628
-loc_0x03C628:
-C D - - - 0x03C628 FF:C618: 4C FD DC  JMP loc_DCFD
-
-.export loc_0x03C62B
-loc_0x03C62B:
-.export ofs_0x03C62B
-ofs_0x03C62B:
-; !!! флаг J не выставлен, возможно был перезаписан флагом D
-C D - - - 0x03C62B FF:C61B: 4C 02 DD  JMP loc_DD02
-
 .export sub_0x03C62E
 sub_0x03C62E:
 C - - - - 0x03C62E FF:C61E: 4C 59 E0  JMP loc_E059
@@ -3674,10 +3663,14 @@ C - - - - 0x03DCFC FF:DCEC: 8D 4E 04  STA ram_высота_мяча
 bra_DCEF_выход:
 C - - - - 0x03DCFF FF:DCEF: 60        RTS
 
-loc_DCFD:
+.export loc_0x03DD0D
+loc_0x03DD0D:
 C D - - - 0x03DD0D FF:DCFD: A9 FF     LDA #$FF
 C - - - - 0x03DD0F FF:DCFF: 8D 1A 06  STA $061A
-loc_DD02:
+.export loc_0x03DD12
+loc_0x03DD12:
+.export ofs_0x03DD12
+ofs_0x03DD12:
 C D - - - 0x03DD12 FF:DD02: 20 81 DD  JSR sub_DD81
 C - - - - 0x03DD15 FF:DD05: 20 47 DD  JSR sub_DD47
 C - - - - 0x03DD18 FF:DD08: 08        PHP
