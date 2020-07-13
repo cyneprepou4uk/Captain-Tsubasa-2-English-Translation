@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C546
-sub_0x03C546:
-C - - - - 0x03C546 FF:C536: 4C C9 CD  JMP loc_CDC9
-
 .export sub_0x03C549
 sub_0x03C549:
 C - - - - 0x03C549 FF:C539: 4C E2 CD  JMP loc_CDE2
@@ -1373,7 +1369,8 @@ tbl_CD89_адреса_игроков:
 
 
 
-loc_CDC9:
+.export sub_0x03CDD9
+sub_0x03CDD9:
 sub_CDC9:
 C D - - - 0x03CDD9 FF:CDC9: A2 00     LDX #$00
 bra_CDCB:
