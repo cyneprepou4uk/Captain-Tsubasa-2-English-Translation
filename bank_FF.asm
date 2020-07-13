@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C634
-sub_0x03C634:
-C - - - - 0x03C634 FF:C624: 4C DF DC  JMP loc_DCDF
-
 .export ofs_0x03C637
 ofs_0x03C637:
 C - J - - 0x03C637 FF:C627: 4C 4C E5  JMP loc_E54C
@@ -3643,7 +3639,8 @@ tbl_DCB3:
 - D - - - 0x03DCED FF:DCDD: 97        .byte $97
 - D - - - 0x03DCEE FF:DCDE: A4        .byte $A4	; <ご>
 
-loc_DCDF:
+.export sub_0x03DCEF
+sub_0x03DCEF:
 sub_DCDF:
 C D - - - 0x03DCEF FF:DCDF: AD 4E 04  LDA ram_высота_мяча
 C - - - - 0x03DCF2 FF:DCE2: D0 0B     BNE bra_DCEF_выход
