@@ -324,7 +324,7 @@ C - - - - 0x03C7D0 FF:C7C0: A5 4B     LDA ram_004B
 C - - - - 0x03C7D2 FF:C7C2: 8D 05 20  STA $2005
 C - - - - 0x03C7D5 FF:C7C5: A5 21     LDA ram_для_2001
 C - - - - 0x03C7D7 FF:C7C7: 8D 01 20  STA $2001
-C - - - - 0x03C7DA FF:C7CA: 20 E9 C9  JSR sub_C9E9
+C - - - - 0x03C7DA FF:C7CA: 20 E9 C9  JSR sub_C9E9_банксвич_CHR
 C - - - - 0x03C7DD FF:C7CD: A6 8E     LDX ram_008E
 C - - - - 0x03C7DF FF:C7CF: 86 8C     STX ram_008C
 C - - - - 0x03C7E1 FF:C7D1: 86 8D     STX ram_008D
@@ -603,7 +603,7 @@ C - - - - 0x03C9F2 FF:C9E2: 8D E3 00  STA ram_рандом_3
 C - - - - 0x03C9F5 FF:C9E5: EE E1 00  INC ram_рандом_1
 C - - - - 0x03C9F8 FF:C9E8: 60        RTS
 
-sub_C9E9:
+sub_C9E9_банксвич_CHR:
 C - - - - 0x03C9F9 FF:C9E9: A2 00     LDX #$00
 C - - - - 0x03CA03 FF:C9F3: 8D 00 80  STX $8000
 C - - - - 0x03CA06 FF:C9F6: BD 90 04  LDA $0490,X
