@@ -5104,7 +5104,7 @@ C - - - - 0x03E7D0 FF:E7C0: AD FE 05  LDA $05FE
 C - - - - 0x03E7D3 FF:E7C3: 20 C9 CD  JSR sub_CDC9
 C - - - - 0x03E7D6 FF:E7C6: 8E 35 06  STX $0635
 C - - - - 0x03E7D9 FF:E7C9: 8C 37 06  STY $0637
-C - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP sub_0x03401C
+C - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP sub_0x034845
 
 sub_E7D0:
 ; код хочет получить A на выходе для 0044
