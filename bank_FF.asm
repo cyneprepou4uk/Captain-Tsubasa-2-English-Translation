@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C582
-sub_0x03C582:
-C - - - - 0x03C582 FF:C572: 4C 62 DB  JMP loc_DB62
-
 .export sub_0x03C585
 sub_0x03C585:
 C - - - - 0x03C585 FF:C575: 4C 33 E2  JMP loc_E233
@@ -3413,7 +3409,8 @@ C - - - - 0x03DB6B FF:DB5B: 8E 4F 04  STX $044F
 C - - - - 0x03DB6E FF:DB5E: 8E FB 05  STX ram_команда_с_мячом
 C - - - - 0x03DB71 FF:DB61: 60        RTS
 
-loc_DB62:
+.export sub_0x03DB72
+sub_0x03DB72:
 C D - - - 0x03DB72 FF:DB62: A9 0A     LDA #$0A
 C - - - - 0x03DB74 FF:DB64: AE 2A 00  LDX ram_твоя_команда
 C - - - - 0x03DB77 FF:DB67: E0 02     CPX #$02
