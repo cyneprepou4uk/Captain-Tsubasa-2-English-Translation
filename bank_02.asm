@@ -1,10 +1,6 @@
 .segment "BANK_02"
 .include "copy_bank_ram.inc"
 
-.export sub_0x00202B
-sub_0x00202B:
-- - - - - 0x00202B 02:A01B: 4C 9B A3  JMP loc_A39B
-
 sub_A01E:
 C - - - - 0x00202E 02:A01E: AD 48 04  LDA ram_флаг_циклона
 C - - - - 0x002031 02:A021: 4A        LSR
@@ -488,7 +484,9 @@ bra_A381:
 - - - - - 0x0023A4 02:A394: 8D 00 07  STA ram_звук
 - - - - - 0x0023A7 02:A397: 20 A0 9B  JSR sub_0x001BB0
 - - - - - 0x0023AA 02:A39A: 60        RTS
-loc_A39B:
+
+.export sub_0x0023AB
+sub_0x0023AB:
 - - - - - 0x0023AB 02:A39B: A9 00     LDA #$00
 - - - - - 0x0023AD 02:A39D: 85 EA     STA ram_00EA
 - - - - - 0x0023AF 02:A39F: A9 0B     LDA #$0B
