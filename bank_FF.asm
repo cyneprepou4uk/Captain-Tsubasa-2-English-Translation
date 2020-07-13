@@ -138,12 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C613
-sub_0x03C613:
-.export loc_0x03C613
-loc_0x03C613:
-C D - - - 0x03C613 FF:C603: 4C 93 D1  JMP loc_D193
-
 .export sub_0x03C616
 sub_0x03C616:
 C - - - - 0x03C616 FF:C606: 4C 74 E0  JMP loc_E074
@@ -1961,7 +1955,10 @@ tbl_D183:
 - - - - - 0x03D19F FF:D18F: 5A 00     .word $005A
 - - - - - 0x03D1A1 FF:D191: 5A 00     .word $005A
 
-loc_D193:
+.export sub_0x03D1A3
+sub_0x03D1A3:
+.export loc_0x03D1A3
+loc_0x03D1A3:
 sub_D193:
 C D - - - 0x03D1A3 FF:D193: AA        TAX
 C - - - - 0x03D1A4 FF:D194: 18        CLC
