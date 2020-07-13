@@ -756,7 +756,7 @@ C - - - - 0x002588 02:A578: 30 03     BMI bra_A57D
 C - - - - 0x00258A 02:A57A: CA        DEX
 C - - - - 0x00258B 02:A57B: D0 F4     BNE bra_A571
 bra_A57D:
-C - - - - 0x00258D 02:A57D: 20 F0 99  JSR sub_0x001A00
+C - - - - 0x00258D 02:A57D: 20 F0 99  JSR sub_0x001A00_опция_выход
 C - - - - 0x002590 02:A580: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x002593 02:A583: A9 00     LDA #$00
 C - - - - 0x002595 02:A585: 85 ED     STA ram_00ED
@@ -786,7 +786,7 @@ C - - - - 0x0025C1 02:A5B1: A5 EC     LDA ram_00EC
 C - - - - 0x0025C3 02:A5B3: F0 5B     BEQ bra_A610_выход
 C - - - - 0x0025C5 02:A5B5: A6 26     LDX ram_матч
 C - - - - 0x0025C7 02:A5B7: BD F9 B3  LDA tbl_B3F9,X
-C - - - - 0x0025CA 02:A5BA: 20 64 84  JSR sub_0x000474
+C - - - - 0x0025CA 02:A5BA: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0025CD 02:A5BD: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x0025D0 02:A5C0: A9 00     LDA #$00
 C - - - - 0x0025D2 02:A5C2: 85 ED     STA ram_00ED
@@ -826,7 +826,7 @@ C - - - - 0x002615 02:A605: 85 EA     STA ram_00EA
 C - - - - 0x002617 02:A607: 4C C6 A5  JMP loc_A5C6
 bra_A60A:
 C - - - - 0x00261A 02:A60A: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
-C - - - - 0x00261D 02:A60D: 20 F0 99  JSR sub_0x001A00
+C - - - - 0x00261D 02:A60D: 20 F0 99  JSR sub_0x001A00_опция_выход
 bra_A610_выход:
 C - - - - 0x002620 02:A610: 60        RTS
 
@@ -872,7 +872,7 @@ C - - - - 0x00265F 02:A64F: 20 7F 9B  JSR sub_0x001B8F
 loc_A652:
 C D - - - 0x002662 02:A652: A6 26     LDX ram_матч
 C - - - - 0x002664 02:A654: BD 93 B3  LDA tbl_B393,X
-C - - - - 0x002667 02:A657: 20 64 84  JSR sub_0x000474
+C - - - - 0x002667 02:A657: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x00266A 02:A65A: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x00266D 02:A65D: A9 01     LDA #$01
 C - - - - 0x00266F 02:A65F: 20 20 89  JSR sub_0x000930
@@ -881,21 +881,21 @@ C - - - - 0x002672 02:A662: A0 D0     LDY #< tbl_ADD0
 C - - - - 0x002674 02:A664: A2 AD     LDX #> tbl_ADD0
 C - - - - 0x002676 02:A666: 20 3A 9C  JSR sub_0x001C4A
 C - - - - 0x002679 02:A669: 20 E8 9B  JSR sub_0x001BF8
-C - - - - 0x00267C 02:A66C: A0 73     LDY #< tbl_A673
-C - - - - 0x00267E 02:A66E: A2 A6     LDX #> tbl_A673
-C - - - - 0x002680 02:A670: 4C 28 9C  JMP loc_0x001C38
+C - - - - 0x00267C 02:A66C: A0 73     LDY #< tbl_A673_опции
+C - - - - 0x00267E 02:A66E: A2 A6     LDX #> tbl_A673_опции
+C - - - - 0x002680 02:A670: 4C 28 9C  JMP loc_0x001C38_непрямой_прыжок
 
-tbl_A673:
-- D - I - 0x002683 02:A673: 7B A6     .word ofs_A67B_00_катсцена_тренера
-- D - I - 0x002685 02:A675: 9F A6     .word ofs_A69F_01
-- D - I - 0x002687 02:A677: BE A6     .word ofs_A6BE_02
-- D - I - 0x002689 02:A679: C4 A6     .word ofs_A6C4_03
+tbl_A673_опции:
+- D - I - 0x002683 02:A673: 7B A6     .word ofs_A67B_00_совет
+- D - I - 0x002685 02:A675: 9F A6     .word ofs_A69F_01_пароль
+- D - I - 0x002687 02:A677: BE A6     .word ofs_A6BE_02_команда
+- D - I - 0x002689 02:A679: C4 A6     .word ofs_A6C4_03_матч
 
-ofs_A67B_00_катсцена_тренера:
+ofs_A67B_00_совет:
 C - J - - 0x00268B 02:A67B: A6 26     LDA ram_матч
                                       CLC
                                       ADC #$23
-C - - - - 0x002690 02:A680: 20 64 84  JSR sub_0x000474
+C - - - - 0x002690 02:A680: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 bra_A683:
 C - - - - 0x002693 02:A683: A9 01     LDA #$01
 C - - - - 0x002695 02:A685: 20 A8 9F  JSR sub_0x001FB8
@@ -905,32 +905,32 @@ C - - - - 0x00269C 02:A68C: F0 D4     BEQ bra_A662
 C - - - - 0x00269E 02:A68E: A5 1E     LDA ram_одноразовые
 C - - - - 0x0026A0 02:A690: 29 10     AND #con_btn_Start
 C - - - - 0x0026A2 02:A692: F0 EF     BEQ bra_A683
-C - - - - 0x0026A4 02:A694: 20 F0 99  JSR sub_0x001A00
+C - - - - 0x0026A4 02:A694: 20 F0 99  JSR sub_0x001A00_опция_выход
 C - - - - 0x0026A7 02:A697: A9 02     LDA #$02
 C - - - - 0x0026A9 02:A699: 20 A8 9F  JSR sub_0x001FB8
 C - - - - 0x0026AC 02:A69C: 4C 52 A6  JMP loc_A652
 
-ofs_A69F_01:
-C - J - - 0x0026AF 02:A69F: 20 F0 99  JSR sub_0x001A00
+ofs_A69F_01_пароль:
+C - J - - 0x0026AF 02:A69F: 20 F0 99  JSR sub_0x001A00_опция_выход
 C - - - - 0x0026B2 02:A6A2: A6 26     LDX ram_матч
 C - - - - 0x0026B4 02:A6A4: BD D7 B3  LDA tbl_B3D7,X
-C - - - - 0x0026B7 02:A6A7: 20 64 84  JSR sub_0x000474
+C - - - - 0x0026B7 02:A6A7: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0026BA 02:A6AA: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x0026BD 02:A6AD: 20 1E A0  JSR sub_A01E
 C - - - - 0x0026C0 02:A6B0: A9 4E     LDA #$4E
-C - - - - 0x0026C2 02:A6B2: 20 64 84  JSR sub_0x000474
+C - - - - 0x0026C2 02:A6B2: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0026C5 02:A6B5: 20 A9 82  JSR sub_0x0002B9
-C - - - - 0x0026C8 02:A6B8: 20 F0 99  JSR sub_0x001A00
+C - - - - 0x0026C8 02:A6B8: 20 F0 99  JSR sub_0x001A00_опция_выход
 C - - - - 0x0026CB 02:A6BB: 4C 4C A6  JMP loc_A64C
 
-ofs_A6BE_02:
-C - J - - 0x0026CE 02:A6BE: 20 21 A7  JSR sub_A721
+ofs_A6BE_02_команда:
+C - J - - 0x0026CE 02:A6BE: 20 21 A7  JSR sub_A721_экран_с_опциями_команды
 C - - - - 0x0026D1 02:A6C1: 4C 4C A6  JMP loc_A64C
 
-ofs_A6C4_03:
+ofs_A6C4_03_матч:
 C - J - - 0x0026D4 02:A6C4: A6 26     LDX ram_матч
 C - - - - 0x0026D6 02:A6C6: BD 1B B4  LDA tbl_B41B,X
-C - - - - 0x0026D9 02:A6C9: 20 64 84  JSR sub_0x000474
+C - - - - 0x0026D9 02:A6C9: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0026DC 02:A6CC: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x0026DF 02:A6CF: 4C 15 A7  JMP loc_A715
 
@@ -942,7 +942,7 @@ C - - - - 0x0026E7 02:A6D7: 20 A0 98  JSR sub_0x0018B0_очистка_двух_n
 C - - - - 0x0026EA 02:A6DA: 20 7F 9B  JSR sub_0x001B8F
 C - - - - 0x0026ED 02:A6DD: A6 26     LDX ram_матч
 C - - - - 0x0026EF 02:A6DF: BD B5 B3  LDA tbl_B3B5,X
-C - - - - 0x0026F2 02:A6E2: 20 64 84  JSR sub_0x000474
+C - - - - 0x0026F2 02:A6E2: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0026F5 02:A6E5: 4C F9 A6  JMP loc_A6F9
 
 loc_A6E8:
@@ -952,7 +952,7 @@ C - - - - 0x0026FE 02:A6EE: A6 26     LDX ram_матч
 C - - - - 0x002700 02:A6F0: BD B5 B3  LDA tbl_B3B5,X
 C - - - - 0x002703 02:A6F3: 18        CLC
 C - - - - 0x002704 02:A6F4: 69 01     ADC #$01
-C - - - - 0x002706 02:A6F6: 20 64 84  JSR sub_0x000474
+C - - - - 0x002706 02:A6F6: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 loc_A6F9:
 C D - - - 0x002709 02:A6F9: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x00270C 02:A6FC: A0 D6     LDY #< tbl_ADD6
@@ -961,7 +961,7 @@ C - - - - 0x002710 02:A700: 20 3A 9C  JSR sub_0x001C4A
 C - - - - 0x002713 02:A703: 20 E8 9B  JSR sub_0x001BF8
 C - - - - 0x002716 02:A706: C9 02     CMP #$02
 C - - - - 0x002718 02:A708: F0 06     BEQ bra_A710
-C - - - - 0x00271A 02:A70A: 20 21 A7  JSR sub_A721
+C - - - - 0x00271A 02:A70A: 20 21 A7  JSR sub_A721_экран_с_опциями_команды
 C - - - - 0x00271D 02:A70D: 4C E8 A6  JMP loc_A6E8
 bra_A710:
 C - - - - 0x002720 02:A710: A9 31     LDA #$31
@@ -976,8 +976,8 @@ C - - - - 0x00272B 02:A71B: A2 B5     LDX #> tbl_B583
 C - - - - 0x00272D 02:A71D: 20 AB 97  JSR sub_0x0017BB
 C - - - - 0x002730 02:A720: 60        RTS
 
-sub_A721:
-loc_A721:
+sub_A721_экран_с_опциями_команды:
+loc_A721_экран_с_опциями_команды:
 C D - - - 0x002731 02:A721: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002734 02:A724: A2 1F     LDX #$1F
 C - - - - 0x002736 02:A726: A0 2E     LDY #$2E
@@ -991,9 +991,9 @@ C - - - - 0x002746 02:A736: A9 2E     LDA #$2E
 C - - - - 0x002748 02:A738: 85 8F     STA ram_008F
 C - - - - 0x00274A 02:A73A: A5 2A     LDA ram_твоя_команда
 C - - - - 0x00274C 02:A73C: C9 02     CMP #$02
-C - - - - 0x00274E 02:A73E: D0 03     BNE bra_A743
-C - - - - 0x002750 02:A740: 4C 4E A8  JMP loc_A84E
-bra_A743:
+C - - - - 0x00274E 02:A73E: D0 03     BNE bra_A743_это_не_япония
+C - - - - 0x002750 02:A740: 4C 4E A8  JMP loc_A84E_экран_опций_японии
+bra_A743_это_не_япония:
 C - - - - 0x002753 02:A743: A0 3D     LDY #< tbl_B43D_экран_с_опциями_без_запасных
 C - - - - 0x002755 02:A745: A2 B4     LDX #> tbl_B43D_экран_с_опциями_без_запасных
 C - - - - 0x002757 02:A747: 20 C0 B0  JSR sub_B0C0
@@ -1020,18 +1020,18 @@ C D - - - 0x002781 02:A771: A9 FC     LDA #$FC
 C - - - - 0x002783 02:A773: A2 38     LDX #$38
 C - - - - 0x002785 02:A775: A0 78     LDY #$78
 C - - - - 0x002787 02:A777: 20 E3 9B  JSR sub_0x001BF3
-C - - - - 0x00278A 02:A77A: A0 81     LDY #< tbl_A781
-C - - - - 0x00278C 02:A77C: A2 A7     LDX #> tbl_A781
-C - - - - 0x00278E 02:A77E: 4C 28 9C  JMP loc_0x001C38
+C - - - - 0x00278A 02:A77A: A0 81     LDY #< tbl_A781_опции
+C - - - - 0x00278C 02:A77C: A2 A7     LDX #> tbl_A781_опции
+C - - - - 0x00278E 02:A77E: 4C 28 9C  JMP loc_0x001C38_непрямой_прыжок
 
-tbl_A781:
-- D - I - 0x002791 02:A781: 8B A7     .word ofs_A78B
-- D - I - 0x002793 02:A783: AC A7     .word ofs_A7AC
-- D - I - 0x002795 02:A785: C5 A7     .word ofs_A7C5
-- D - I - 0x002797 02:A787: DD AA     .word ofs_AADD
-- D - I - 0x002799 02:A789: 73 AA     .word sub_0x001A00
+tbl_A781_опции:
+- D - I - 0x002791 02:A781: 8B A7     .word ofs_A78B_расстановка
+- D - I - 0x002793 02:A783: AC A7     .word ofs_A7AC_защита
+- D - I - 0x002795 02:A785: C5 A7     .word ofs_A7C5_замена
+- D - I - 0x002797 02:A787: DD AA     .word ofs_AADD_статус
+- D - I - 0x002799 02:A789: 73 AA     .word sub_0x001A00_опция_выход
 
-ofs_A78B:
+ofs_A78B_расстановка:
 C - J - - 0x00279B 02:A78B: A0 EB     LDY #< tbl_B6EB
 C - - - - 0x00279D 02:A78D: A2 B6     LDX #> tbl_B6EB
 C - - - - 0x00279F 02:A78F: 20 AB 97  JSR sub_0x0017BB
@@ -1046,7 +1046,7 @@ C - - - - 0x0027B4 02:A7A4: A9 38     LDA #$38
 C - - - - 0x0027B6 02:A7A6: 8D 64 05  STA $0564
 C - - - - 0x0027B9 02:A7A9: 4C 71 A7  JMP loc_A771
 
-ofs_A7AC:
+ofs_A7AC_защита:
 C - J - - 0x0027BC 02:A7AC: A0 90     LDY #< tbl_B790
 C - - - - 0x0027BE 02:A7AE: A2 B7     LDX #> tbl_B790
 C - - - - 0x0027C0 02:A7B0: 20 AB 97  JSR sub_0x0017BB
@@ -1058,7 +1058,7 @@ C - - - - 0x0027CD 02:A7BD: A9 48     LDA #$48
 C - - - - 0x0027CF 02:A7BF: 8D 64 05  STA $0564
 C - - - - 0x0027D2 02:A7C2: 4C 71 A7  JMP loc_A771
 
-ofs_A7C5:
+ofs_A7C5_замена:
 C - J - - 0x0027D5 02:A7C5: A9 58     LDA #$58
 C - - - - 0x0027D7 02:A7C7: 8D 64 05  STA $0564
 C - - - - 0x0027DA 02:A7CA: A9 94     LDA #$94
@@ -1123,7 +1123,8 @@ C - - - - 0x002853 02:A843: A9 F8     LDA #$F8
 C - - - - 0x002855 02:A845: 8D 5C 05  STA $055C
 C - - - - 0x002858 02:A848: 8D 60 05  STA $0560
 C - - - - 0x00285B 02:A84B: 4C 71 A7  JMP loc_A771
-loc_A84E:
+
+loc_A84E_экран_опций_японии:
 C D - - - 0x00285E 02:A84E: A0 51     LDY #< tbl_B451_экран_с_опциями_с_запасными
 C - - - - 0x002860 02:A850: A2 B4     LDX #> tbl_B451_экран_с_опциями_с_запасными
 C - - - - 0x002862 02:A852: 20 C0 B0  JSR sub_B0C0
@@ -1157,18 +1158,18 @@ C D - - - 0x00289D 02:A88D: A9 FC     LDA #$FC
 C - - - - 0x00289F 02:A88F: A2 38     LDX #$38
 C - - - - 0x0028A1 02:A891: A0 78     LDY #$78
 C - - - - 0x0028A3 02:A893: 20 E3 9B  JSR sub_0x001BF3
-C - - - - 0x0028A6 02:A896: A0 9D     LDY #< tbl_A89D
-C - - - - 0x0028A8 02:A898: A2 A8     LDX #> tbl_A89D
-C - - - - 0x0028AA 02:A89A: 4C 28 9C  JMP loc_0x001C38
+C - - - - 0x0028A6 02:A896: A0 9D     LDY #< tbl_A89D_опции
+C - - - - 0x0028A8 02:A898: A2 A8     LDX #> tbl_A89D_опции
+C - - - - 0x0028AA 02:A89A: 4C 28 9C  JMP loc_0x001C38_непрямой_прыжок
 
-tbl_A89D:
-- D - I - 0x0028AD 02:A89D: A7 A8     .word ofs_A8A7
-- D - I - 0x0028AF 02:A89F: CA A8     .word ofs_A8CA
-- D - I - 0x0028B1 02:A8A1: E5 A8     .word ofs_A8E5
-- D - I - 0x0028B3 02:A8A3: DD AA     .word ofs_AADD
-- D - I - 0x0028B5 02:A8A5: 73 AA     .word sub_0x001A00
+tbl_A89D_опции:
+- D - I - 0x0028AD 02:A89D: A7 A8     .word ofs_A8A7_расстановка
+- D - I - 0x0028AF 02:A89F: CA A8     .word ofs_A8CA_защита
+- D - I - 0x0028B1 02:A8A1: E5 A8     .word ofs_A8E5_замена
+- D - I - 0x0028B3 02:A8A3: DD AA     .word ofs_AADD_статус
+- D - I - 0x0028B5 02:A8A5: 73 AA     .word sub_0x001A00_опция_выход
 
-ofs_A8A7:
+ofs_A8A7_расстановка:
 C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_B6EB
 C - - - - 0x0028B9 02:A8A9: A2 B6     LDX #> tbl_B6EB
 C - - - - 0x0028BB 02:A8AB: A9 FB     LDA #$FB
@@ -1184,7 +1185,7 @@ C - - - - 0x0028D2 02:A8C2: A9 38     LDA #$38
 C - - - - 0x0028D4 02:A8C4: 8D 64 05  STA $0564
 C - - - - 0x0028D7 02:A8C7: 4C 8D A8  JMP loc_A88D
 
-ofs_A8CA:
+ofs_A8CA_защита:
 C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_B790
 C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_B790
 C - - - - 0x0028DE 02:A8CE: A9 FB     LDA #$FB
@@ -1197,7 +1198,7 @@ C - - - - 0x0028ED 02:A8DD: A9 48     LDA #$48
 C - - - - 0x0028EF 02:A8DF: 8D 64 05  STA $0564
 C - - - - 0x0028F2 02:A8E2: 4C 8D A8  JMP loc_A88D
 
-ofs_A8E5:
+ofs_A8E5_замена:
 C - J - - 0x0028F5 02:A8E5: A9 58     LDA #$58
 C - - - - 0x0028F7 02:A8E7: 8D 64 05  STA $0564
 C - - - - 0x0028FA 02:A8EA: A9 94     LDA #$94
@@ -1458,7 +1459,7 @@ bra_AADB:
 C - - - - 0x002AEB 02:AADB: 18        CLC
 C - - - - 0x002AEC 02:AADC: 60        RTS
 
-ofs_AADD:
+ofs_AADD_статус:
 C - J - - 0x002AED 02:AADD: A9 28     LDA #$28
 C - - - - 0x002AEF 02:AADF: 85 60     STA ram_0060
 ; X курсора на экране со списком игроков
@@ -1554,10 +1555,10 @@ loc_AB87:
 C D - - - 0x002B97 02:AB87: 24 1E     BIT ram_одноразовые
 ; con_btn_B
 C - - - - 0x002B99 02:AB89: 50 03     BVC bra_AB8E
-C - - - - 0x002B9B 02:AB8B: 4C 21 A7  JMP loc_A721
+C - - - - 0x002B9B 02:AB8B: 4C 21 A7  JMP loc_A721_экран_с_опциями_команды
 bra_AB8E:
 C - - - - 0x002B9E 02:AB8E: 10 C1     BPL bra_AB51
-C - - - - 0x002BA0 02:AB90: 20 F0 99  JSR sub_0x001A00
+C - - - - 0x002BA0 02:AB90: 20 F0 99  JSR sub_0x001A00_опция_выход
 C - - - - 0x002BA3 02:AB93: AC 5C 05  LDY $055C
 C - - - - 0x002BA6 02:AB96: AE 5F 05  LDX $055F
 C - - - - 0x002BA9 02:AB99: 84 60     STY ram_0060
