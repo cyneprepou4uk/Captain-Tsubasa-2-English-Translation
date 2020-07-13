@@ -1,14 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export loc_0x034013
-loc_0x034013:
-C D - - - 0x034013 23:8003: 4C 3C 80  JMP loc_803C
-
-.export loc_0x034016
-loc_0x034016:
-C D - - - 0x034016 23:8006: 4C F8 84  JMP loc_84F8
-
 .export loc_0x034019
 loc_0x034019:
 C D - - - 0x034019 23:8009: 4C F6 86  JMP loc_86F6
@@ -73,7 +65,8 @@ C - - - - 0x034046 23:8036: 4C AC 85  JMP loc_85AC
 sub_0x034049:
 C - - - - 0x034049 23:8039: 4C 4E 90  JMP loc_904E
 
-loc_803C:
+.export loc_0x03404C
+loc_0x03404C:
 C D - - - 0x03404C 23:803C: A9 00     LDA #$00
 C - - - - 0x03404E 23:803E: 8D 4E 04  STA ram_высота_мяча
 C - - - - 0x034051 23:8041: 8D 21 06  STA $0621
@@ -739,7 +732,8 @@ tbl_84EF:
 - D - - - 0x034506 23:84F6: 05        .byte $05	; <お>
 - D - - - 0x034507 23:84F7: 11        .byte $11	; <ち>
 
-loc_84F8:
+.export loc_0x034508
+loc_0x034508:
 C D - - - 0x034508 23:84F8: A9 01     LDA #$01
 C - - - - 0x03450A 23:84FA: 8D 00 06  STA $0600
 C - - - - 0x03450D 23:84FD: AD FB 05  LDA ram_команда_с_мячом

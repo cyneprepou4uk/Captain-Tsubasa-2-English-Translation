@@ -3644,7 +3644,7 @@ C - - - - 0x03DD3B FF:DD2B: 85 25     STA ram_для_8001_07
 C - - - - 0x03DD3D FF:DD2D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DD40 FF:DD30: A2 50     LDX #$50
 C - - - - 0x03DD42 FF:DD32: 9A        TXS
-C - - - - 0x03DD43 FF:DD33: 4C 06 80  JMP loc_0x034016
+C - - - - 0x03DD43 FF:DD33: 4C 06 80  JMP loc_0x034508
 bra_DD36:
 C - - - - 0x03DD46 FF:DD36: A9 1A     LDA #$1A
 C - - - - 0x03DD48 FF:DD38: 85 24     STA ram_для_8001_06
@@ -4527,7 +4527,7 @@ C - - - - 0x03E3A8 FF:E398: 85 25     STA ram_для_8001_07
 C - - - - 0x03E3AA FF:E39A: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E3AD FF:E39D: A2 50     LDX #$50
 C - - - - 0x03E3AF FF:E39F: 9A        TXS
-C - - - - 0x03E3B0 FF:E3A0: 4C 03 80  JMP loc_0x034013
+C - - - - 0x03E3B0 FF:E3A0: 4C 03 80  JMP loc_0x03404C
 bra_E3A3_переключить_управляемого:
 C - - - - 0x03E3B3 FF:E3A3: EE 32 05  INC $0532
 C - - - - 0x03E3B6 FF:E3A6: A9 C0     LDA #(con_btn_B + con_btn_A)
@@ -4698,7 +4698,7 @@ C - - - - 0x03E4DC FF:E4CC: 85 25     STA ram_для_8001_07
 C - - - - 0x03E4DE FF:E4CE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E4E1 FF:E4D1: A2 50     LDX #$50
 C - - - - 0x03E4E3 FF:E4D3: 9A        TXS
-C - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x034013
+C - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x03404C
 
 .export sub_0x03E4E7
 sub_0x03E4E7:
@@ -4804,7 +4804,7 @@ C - - - - 0x03E595 FF:E585: 85 25     STA ram_для_8001_07
 C - - - - 0x03E597 FF:E587: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E59A FF:E58A: A2 50     LDX #$50
 C - - - - 0x03E59C FF:E58C: 9A        TXS
-C - - - - 0x03E59D FF:E58D: 4C 03 80  JMP loc_0x034013
+C - - - - 0x03E59D FF:E58D: 4C 03 80  JMP loc_0x03404C
 bra_E590:
 C - - - - 0x03E5A0 FF:E590: A2 50     LDX #$50
 C - - - - 0x03E5A2 FF:E592: 9A        TXS
