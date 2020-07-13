@@ -1004,7 +1004,7 @@ ofs_8621_FF:
 
 sub_8629:
 loc_8629:
-C D - - - 0x030639 22:8629: 20 24 C5  JSR sub_0x03CBD2
+C D - - - 0x030639 22:8629: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x03063C 22:862C: A6 3A     LDX ram_003A
 C - - - - 0x03063E 22:862E: 9D A8 04  STA $04A8,X
 C - - - - 0x030641 22:8631: A6 3B     LDX ram_003B
@@ -1622,7 +1622,7 @@ C - - - - 0x0309B4 22:89A4: 90 06     BCC bra_89AC
 C - - - - 0x0309B6 22:89A6: 20 B4 89  JSR sub_89B4
 C - - - - 0x0309B9 22:89A9: 4C 9C 89  JMP loc_899C
 bra_89AC:
-C - - - - 0x0309BC 22:89AC: 20 24 C5  JSR sub_0x03CBD2
+C - - - - 0x0309BC 22:89AC: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x0309BF 22:89AF: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x0309C2 22:89B2: D0 E8     BNE bra_899C
 sub_89B4:
@@ -1747,7 +1747,7 @@ C - - - - 0x030A83 22:8A73: 85 46     STA ram_0046
 bra_8A75:
 C - - - - 0x030A85 22:8A75: A4 46     LDY ram_0046
 C - - - - 0x030A87 22:8A77: B1 30     LDA (ram_0030),Y
-C - - - - 0x030A89 22:8A79: 20 24 C5  JSR sub_0x03CBD2
+C - - - - 0x030A89 22:8A79: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x030A8C 22:8A7C: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030A8F 22:8A7F: E6 46     INC ram_0046
 C - - - - 0x030A91 22:8A81: C6 49     DEC ram_0049
@@ -1903,7 +1903,7 @@ C - - - - 0x030B66 22:8B56: AA        TAX
 C - - - - 0x030B67 22:8B57: BD 72 8B  LDA tbl_8B72_текст_периода_матча,X
 C - - - - 0x030B6A 22:8B5A: C9 FF     CMP #$FF
 C - - - - 0x030B6C 22:8B5C: F0 09     BEQ bra_8B67
-C - - - - 0x030B6E 22:8B5E: 20 24 C5  JSR sub_0x03CBD2
+C - - - - 0x030B6E 22:8B5E: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x030B71 22:8B61: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030B74 22:8B64: 4C 69 8B  JMP loc_8B69
 bra_8B67:
@@ -2192,10 +2192,10 @@ C - - - - 0x030CF5 22:8CE5: AA        TAX
 C - - - - 0x030D01 22:8CF1: BD 05 8D  LDA tbl_8D04_сокращения_позиций_игроков + 1,X
                                       PHA
 C - - - - 0x030CF6 22:8CE6: BD 04 8D  LDA tbl_8D04_сокращения_позиций_игроков,X
-C - - - - 0x030CF9 22:8CE9: 20 24 C5  JSR sub_0x03CBD2
+C - - - - 0x030CF9 22:8CE9: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x030CFC 22:8CEC: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030CFF 22:8CEF: 68        PLA
-C - - - - 0x030D04 22:8CF4: 20 24 C5  JSR sub_0x03CBD2
+C - - - - 0x030D04 22:8CF4: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x030D07 22:8CF7: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030D0A 22:8CFA: A9 00     LDA #$00
 C - - - - 0x030D0C 22:8CFC: A8        TAY
@@ -2322,7 +2322,7 @@ C - - - - 0x030D85 22:8D75: B0 0F     BCS bra_8D86
 C - - - - 0x030D87 22:8D77: 98        TYA
 C - - - - 0x030D88 22:8D78: 48        PHA
 C - - - - 0x030D89 22:8D79: B1 30     LDA (ram_0030),Y
-C - - - - 0x030D8B 22:8D7B: 20 24 C5  JSR sub_0x03CBD2
+C - - - - 0x030D8B 22:8D7B: 20 24 C5  JSR sub_0x03CBD2_кодировка_японских_символов
 C - - - - 0x030D8E 22:8D7E: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030D91 22:8D81: 68        PLA
 C - - - - 0x030D92 22:8D82: A8        TAY

@@ -834,8 +834,11 @@ C - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CBD1 FF:CBC1: 60        RTS
 
 
-.export sub_0x03CBD2
-sub_0x03CBD2:
+.export sub_0x03CBD2_кодировка_японских_символов
+sub_0x03CBD2_кодировка_японских_символов:
+; на выходе игру интересуют A и Y
+; Y = дополнительный символ над буквой, 94 = 2 палки, 95 - кружок
+; A = тайл итоговой буквы
 C D - - - 0x03CBD2 FF:CBC2: A0 00     LDY #$00
 C - - - - 0x03CBD4 FF:CBC4: C9 A0     CMP #$A0
 C - - - - 0x03CBD6 FF:CBC6: 90 28     BCC bra_CBF0_выход
