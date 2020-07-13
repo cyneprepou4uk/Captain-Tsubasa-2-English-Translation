@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C56A
-sub_0x03C56A:
-C - - - - 0x03C56A FF:C55A: 4C 4F CF  JMP loc_CF4F
-
 .export sub_0x03C56D_запись_номера_звука_в_свободный_адрес
 sub_0x03C56D_запись_номера_звука_в_свободный_адрес:
 C - - - - 0x03C56D FF:C55D: 4C F1 CB  JMP loc_CBF1_запись_номера_звука_в_свободный_адрес
@@ -1602,7 +1598,8 @@ C - - - - 0x03CF5B FF:CF4B: CA        DEX
 C - - - - 0x03CF5C FF:CF4C: D0 FA     BNE bra_CF48
 C - - - - 0x03CF5E FF:CF4E: 60        RTS
 
-loc_CF4F:
+.export sub_0x03CF5F
+sub_0x03CF5F:
 sub_CF4F:
 ofs_DC03_04:
 C D - - - 0x03CF5F FF:CF4F: A9 00     LDA #$00

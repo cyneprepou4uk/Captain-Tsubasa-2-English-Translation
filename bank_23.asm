@@ -1832,14 +1832,14 @@ C - - - - 0x034CCD 23:8CBD: 60        RTS
 bra_8CBE:
 C - - - - 0x034CCE 23:8CBE: 28        PLP
 C - - - - 0x034CCF 23:8CBF: 20 EA 8C  JSR sub_8CEA
-C - - - - 0x034CD2 23:8CC2: 20 5A C5  JSR sub_0x03C56A
+C - - - - 0x034CD2 23:8CC2: 20 5A C5  JSR sub_0x03CF5F
 C - - - - 0x034CD5 23:8CC5: A2 50     LDX #$50
 C - - - - 0x034CD7 23:8CC7: 9A        TXS
 C - - - - 0x034CD8 23:8CC8: 4C 1C 91  JMP loc_911C
 bra_8CCB:
 C - - - - 0x034CDB 23:8CCB: 28        PLP
 C - - - - 0x034CDC 23:8CCC: 20 EA 8C  JSR sub_8CEA
-C - - - - 0x034CDF 23:8CCF: 20 5A C5  JSR sub_0x03C56A
+C - - - - 0x034CDF 23:8CCF: 20 5A C5  JSR sub_0x03CF5F
 C - - - - 0x034CE2 23:8CD2: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x034CE5 23:8CD5: F0 02     BEQ bra_8CD9
 C - - - - 0x034CE7 23:8CD7: A9 80     LDA #$80
@@ -2149,7 +2149,7 @@ C - - - - 0x034E70 23:8E60: CD E2 00  CMP ram_рандом_2
 C - - - - 0x034E73 23:8E63: 90 08     BCC bra_8E6D_выход
 C - - - - 0x034E75 23:8E65: A9 04     LDA #$04
 C - - - - 0x034E77 23:8E67: 8D 12 06  STA ram_флаг_защитника
-C - - - - 0x034E7A 23:8E6A: 20 5A C5  JSR sub_0x03C56A
+C - - - - 0x034E7A 23:8E6A: 20 5A C5  JSR sub_0x03CF5F
 bra_8E6D_выход:
 C - - - - 0x034E7D 23:8E6D: 60        RTS
 
