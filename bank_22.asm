@@ -119,7 +119,7 @@ ofs_80A0_F1:
 
 ; bzk бесполезно
 ofs_80B5_F2:
-C - J - - 0x0300C5 22:80B5: 4C 2D C5  JMP loc_0x03C53D
+C - J - - 0x0300C5 22:80B5: 4C 2D C5  JMP loc_0x03CC56
 
 ofs_80B8_F3:
 C - J - - 0x0300C8 22:80B8: AC E5 05  LDY $05E5
@@ -369,7 +369,7 @@ bra_81FC_выход:
 C - - - - 0x03020C 22:81FC: 60        RTS
 
 ofs_81FD_F5:
-C - J - - 0x03020D 22:81FD: 20 2D C5  JSR sub_0x03C53D
+C - J - - 0x03020D 22:81FD: 20 2D C5  JSR sub_0x03CC56
 C - - - - 0x030210 22:8200: A9 0D     LDA #$0D
 C - - - - 0x030212 22:8202: 8D F3 05  STA $05F3
 C - - - - 0x030215 22:8205: A9 80     LDA #$80
@@ -393,7 +393,7 @@ C - - - - 0x030236 22:8226: A9 80     LDA #$80
 C - - - - 0x030238 22:8228: 8D F4 05  STA $05F4
 C - - - - 0x03023B 22:822B: 4C 34 82  JMP loc_8234
 bra_822E:
-C - - - - 0x03023E 22:822E: 20 2D C5  JSR sub_0x03C53D
+C - - - - 0x03023E 22:822E: 20 2D C5  JSR sub_0x03CC56
 C - - - - 0x030241 22:8231: AC E5 05  LDY $05E5
 loc_8234:
 C D - - - 0x030244 22:8234: B1 5F     LDA (ram_005F),Y

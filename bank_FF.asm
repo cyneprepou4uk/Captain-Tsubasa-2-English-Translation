@@ -138,12 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C53D
-sub_0x03C53D:
-.export loc_0x03C53D
-loc_0x03C53D:
-C D - - - 0x03C53D FF:C52D: 4C 46 CC  JMP loc_CC46
-
 .export sub_0x03C540
 sub_0x03C540:
 C - - - - 0x03C540 FF:C530: 4C 02 CC  JMP loc_CC02
@@ -1142,6 +1136,10 @@ C - - - - 0x03CC50 FF:CC40: A9 20     LDA #$20
 C - - - - 0x03CC52 FF:CC42: 8D 6C 04  STA $046C
 C - - - - 0x03CC55 FF:CC45: 60        RTS
 
+.export sub_0x03CC56
+sub_0x03CC56:
+.export loc_0x03CC56
+loc_0x03CC56:
 loc_CC46:
 sub_CC46:
 C D - - - 0x03CC56 FF:CC46: A9 00     LDA #$00

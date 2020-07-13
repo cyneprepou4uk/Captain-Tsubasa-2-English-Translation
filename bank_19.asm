@@ -4330,7 +4330,7 @@ C - - - - 0x027173 19:B163: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - - - - - 0x0271B4 19:B1A4: 00 00     .word $0000
 
 ofs_B1A6_E0:
-C - J - - 0x0271B6 19:B1A6: 20 2D C5  JSR sub_0x03C53D
+C - J - - 0x0271B6 19:B1A6: 20 2D C5  JSR sub_0x03CC56
 C - - - - 0x0271B9 19:B1A9: A4 8A     LDY ram_008A
 C - - - - 0x0271BB 19:B1AB: E6 8A     INC ram_008A
 C - - - - 0x0271BD 19:B1AD: B1 88     LDA (ram_0088),Y
