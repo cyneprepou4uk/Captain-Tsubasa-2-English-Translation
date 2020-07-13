@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C579
-sub_0x03C579:
-C - - - - 0x03C579 FF:C569: 4C 35 CB  JMP loc_CB35
-
 .export sub_0x03C57C_восстановить_часть_энергии_игрокам_после_тайма
 sub_0x03C57C_восстановить_часть_энергии_игрокам_после_тайма:
 C - - - - 0x03C57C FF:C56C: 4C 22 D0  JMP loc_D022_восстановить_часть_энергии_игрокам_после_тайма
@@ -882,7 +878,8 @@ C - - - - 0x03CB36 FF:CB26: 96 01     STX ram_0001,Y
 C - - - - 0x03CB38 FF:CB28: A6 00     LDX ram_0000
 C - - - - 0x03CB3A FF:CB2A: 4C A5 CA  JMP loc_CAA5
 
-loc_CB35:
+.export sub_0x03CB45
+sub_0x03CB45:
 sub_CB35:
 C D - - - 0x03CB45 FF:CB35: A5 20     LDA ram_0020
 C - - - - 0x03CB47 FF:CB37: 29 7F     AND #$7F
@@ -6561,7 +6558,6 @@ C - - - - 0x03F019 FF:F009: 8D 3D 06  STA $063D
 bra_F013:
 .export sub_0x03F023
 sub_0x03F023:
-loc_F013:
 C D - - - 0x03F023 FF:F013: A9 00     LDA #$00
 loc_F015:
 C D - - - 0x03F025 FF:F015: 48        PHA
