@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C543
-sub_0x03C543:
-C - - - - 0x03C543 FF:C533: 4C D2 CC  JMP loc_CCD2
-
 .export sub_0x03C546
 sub_0x03C546:
 C - - - - 0x03C546 FF:C536: 4C C9 CD  JMP loc_CDC9
@@ -1210,7 +1206,8 @@ C - - - - 0x03CCDC FF:CCCC: A9 01     LDA #$01
 C - - - - 0x03CCDE FF:CCCE: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CCE1 FF:CCD1: 60        RTS
 
-loc_CCD2:
+.export sub_0x03CCE2
+sub_0x03CCE2:
 sub_CCD2:
 ; bzk байты после jsr везде одинаковые, кроме случая в 0x0273CC
 C D - - - 0x03CCE2 FF:CCD2: BA        TSX

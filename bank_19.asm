@@ -4471,7 +4471,7 @@ loc_B291:
 - - - - - 0x0272A4 19:B294: E8        INX
 - - - - - 0x0272A5 19:B295: E0 20     CPX #$20
 - - - - - 0x0272A7 19:B297: D0 D5     BNE bra_B26E
-- - - - - 0x0272A9 19:B299: 20 33 C5  JSR sub_0x03C543
+- - - - - 0x0272A9 19:B299: 20 33 C5  JSR sub_0x03CCE2
 - - - - - 0x0272AC 19:B29C: 00        .byte $00
 - - - - - 0x0272AD 19:B29D: 6C 04     .word ram_копия_спрайт_Y + 4
 - - - - - 0x0272AF 19:B29F: 68        PLA
@@ -4506,7 +4506,7 @@ bra_B2C8:
 C - - - - 0x0272D8 19:B2C8: E8        INX
 C - - - - 0x0272D9 19:B2C9: E0 20     CPX #$20
 C - - - - 0x0272DB 19:B2CB: D0 E6     BNE bra_B2B3
-C - - - - 0x0272DD 19:B2CD: 20 33 C5  JSR sub_0x03C543
+C - - - - 0x0272DD 19:B2CD: 20 33 C5  JSR sub_0x03CCE2
 - D - I - 0x0272E0 19:B2D0: 00        .byte $00
 - D - I - 0x0272E1 19:B2D1: 6C 04     .word ram_копия_спрайт_Y + 4
 C - - - - 0x0272E3 19:B2D3: A5 3A     LDA ram_003A
@@ -4524,7 +4524,7 @@ C - - - - 0x0272F0 19:B2E0: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0272F3 19:B2E3: 68        PLA
 C - - - - 0x0272F4 19:B2E4: 48        PHA
 C - - - - 0x0272F5 19:B2E5: 8D 72 04  STA ram_копия_спрайт_атрибут + 8
-C - - - - 0x0272F8 19:B2E8: 20 33 C5  JSR sub_0x03C543
+C - - - - 0x0272F8 19:B2E8: 20 33 C5  JSR sub_0x03CCE2
 - D - I - 0x0272FB 19:B2EB: 00        .byte $00
 - D - I - 0x0272FC 19:B2EC: 6C 04     .word ram_копия_спрайт_Y + 4
 C - - - - 0x0272FE 19:B2EE: 68        PLA
@@ -4544,7 +4544,7 @@ C - - - - 0x02730E 19:B2FE: E8        INX
 C - - - - 0x02730F 19:B2FF: E8        INX
 C - - - - 0x027310 19:B300: E0 20     CPX #$20
 C - - - - 0x027312 19:B302: D0 F5     BNE bra_B2F9
-C - - - - 0x027314 19:B304: 20 33 C5  JSR sub_0x03C543
+C - - - - 0x027314 19:B304: 20 33 C5  JSR sub_0x03CCE2
 - D - I - 0x027317 19:B307: 00        .byte $00
 - D - I - 0x027318 19:B308: 6C 04     .word ram_копия_спрайт_Y + 4
 C - - - - 0x02731A 19:B30A: A9 01     LDA #$01
@@ -4565,7 +4565,7 @@ bra_B31F:
 - - - - - 0x027332 19:B322: E8        INX
 - - - - - 0x027333 19:B323: E0 20     CPX #$20
 - - - - - 0x027335 19:B325: D0 EB     BNE bra_B312
-- - - - - 0x027337 19:B327: 20 33 C5  JSR sub_0x03C543
+- - - - - 0x027337 19:B327: 20 33 C5  JSR sub_0x03CCE2
 - - - - - 0x02733A 19:B32A: 00        .byte $00
 - - - - - 0x02733B 19:B32B: 6C 04     .word ram_копия_спрайт_Y + 4
 - - - - - 0x02733D 19:B32D: A9 01     LDA #$01
@@ -4614,7 +4614,7 @@ C - - - - 0x027388 19:B378: 20 30 C5  JSR sub_0x03CC12
 C - - - - 0x02738B 19:B37B: A2 00     LDX #$00
 C - - - - 0x02738D 19:B37D: A9 16     LDA #$16
 C - - - - 0x02738F 19:B37F: 20 30 C5  JSR sub_0x03CC12
-C - - - - 0x027392 19:B382: 20 33 C5  JSR sub_0x03C543
+C - - - - 0x027392 19:B382: 20 33 C5  JSR sub_0x03CCE2
 - D - I - 0x027395 19:B385: 00        .byte $00
 - D - I - 0x027396 19:B386: 6C 04     .word ram_копия_спрайт_Y + 4
 C - - - - 0x027398 19:B388: A2 03     LDX #$03
@@ -4638,7 +4638,7 @@ C - - - - 0x0273C2 19:B3B2: A9 80     LDA #$80
 C - - - - 0x0273C4 19:B3B4: 8D 47 05  STA ram_копия_спрайт_X + $DC
 C - - - - 0x0273C7 19:B3B7: A9 31     LDA #$31
 C - - - - 0x0273C9 19:B3B9: 8D 59 05  STA ram_копия_спрайт_тайл + $F0
-C - - - - 0x0273CC 19:B3BC: 20 33 C5  JSR sub_0x03C543
+C - - - - 0x0273CC 19:B3BC: 20 33 C5  JSR sub_0x03CCE2
 - D - I - 0x0273CF 19:B3BF: 13        .byte $13	; <て>
 - D - I - 0x0273D0 19:B3C0: 4E B4     .word tbl_B44E_финальная_надпись_TECMO
 C - - - - 0x0273D2 19:B3C2: A9 60     LDA #$60
@@ -4666,7 +4666,7 @@ C - - - - 0x0273FA 19:B3EA: C9 08     CMP #$08
 C - - - - 0x0273FC 19:B3EC: D0 DD     BNE bra_B3CB
 bra_B3EE:
 C - - - - 0x0273FE 19:B3EE: 8E 70 04  STX ram_копия_спрайт_Y + 8
-C - - - - 0x027401 19:B3F1: 20 33 C5  JSR sub_0x03C543
+C - - - - 0x027401 19:B3F1: 20 33 C5  JSR sub_0x03CCE2
 - D - I - 0x027404 19:B3F4: 00        .byte $00
 - D - I - 0x027405 19:B3F5: 6C 04     .word ram_копия_спрайт_Y + 4
 C - - - - 0x027407 19:B3F7: 4C CB B3  JMP loc_B3CB
