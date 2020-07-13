@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export loc_0x03C652
-loc_0x03C652:
-C - - - - 0x03C652 FF:C642: 4C 52 D8  JMP loc_D852
-
 .export sub_0x03C655
 sub_0x03C655:
 C - - - - 0x03C655 FF:C645: 4C EC E6  JMP loc_E6EC
@@ -2905,7 +2901,8 @@ tbl_D84E:
 - D - - - 0x03D860 FF:D850: 01        .byte $01	; <あ>
 - D - - - 0x03D861 FF:D851: FF        .byte $FF
 
-loc_D852:
+.export loc_0x03D862
+loc_0x03D862:
 sub_D852:
 C D - - - 0x03D862 FF:D852: A9 FF     LDA #$FF
 C - - - - 0x03D864 FF:D854: AE 25 06  LDX $0625
