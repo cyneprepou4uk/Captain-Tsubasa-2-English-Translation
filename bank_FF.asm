@@ -4398,7 +4398,7 @@ C - - - - 0x03E2C3 FF:E2B3: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E2C6 FF:E2B6: A2 50     LDX #$50
 C - - - - 0x03E2C8 FF:E2B8: 9A        TXS
 ; сработало при нападении соперника на моего кипера
-C - - - - 0x03E2C9 FF:E2B9: 4C 09 80  JMP loc_0x034019
+C - - - - 0x03E2C9 FF:E2B9: 4C 09 80  JMP loc_0x034706
 
 sub_E2BC:
 C - - - - 0x03E2CC FF:E2BC: EE 18 06  INC $0618
