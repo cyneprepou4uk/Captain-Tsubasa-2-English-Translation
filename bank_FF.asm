@@ -1823,7 +1823,7 @@ C - - - - 0x03D154 FF:D144: A9 1B     LDA #$1B
 C - - - - 0x03D156 FF:D146: 85 25     STA ram_для_8001_07
 C - - - - 0x03D158 FF:D148: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D15B FF:D14B: 68        PLA
-C - - - - 0x03D15C FF:D14C: 20 30 80  JSR sub_0x034040_вычисление_счета_пенальти
+C - - - - 0x03D15C FF:D14C: 20 30 80  JSR sub_0x0355F1_вычисление_счета_пенальти
 bra_D14F:
 C - - - - 0x03D15F FF:D14F: 8D 29 06  STA $0629
 C - - - - 0x03D162 FF:D152: 0A        ASL
