@@ -2102,7 +2102,7 @@ C - - - - 0x03D360 FF:D350: 70 02     BVS bra_D354
 C - - - - 0x03D362 FF:D352: 09 80     ORA #$80
 bra_D354:
 C - - - - 0x03D364 FF:D354: A2 00     LDX #$00
-C - - - - 0x03D366 FF:D356: 20 3D E9  JSR sub_E93D
+C - - - - 0x03D366 FF:D356: 20 3D E9  JSR sub_E93D_отображение_выбранных_действий
 C - - - - 0x03D369 FF:D359: 4C B4 D2  JMP loc_D2B4
 
 ; на кипера напали
@@ -2317,12 +2317,12 @@ C - - - - 0x03D4E7 FF:D4D7: 2C 1F 06  BIT $061F
 C - - - - 0x03D4EA FF:D4DA: 70 02     BVS bra_D4DE
 C - - - - 0x03D4EC FF:D4DC: 09 80     ORA #$80
 bra_D4DE:
-C - - - - 0x03D4EE FF:D4DE: 20 3D E9  JSR sub_E93D
+C - - - - 0x03D4EE FF:D4DE: 20 3D E9  JSR sub_E93D_отображение_выбранных_действий
 C - - - - 0x03D4F1 FF:D4E1: 4C A6 D3  JMP loc_D3A6
 
 sub_D4E4:
 C - - - - 0x03D4F4 FF:D4E4: 20 04 D5  JSR sub_D504
-C - - - - 0x03D4F7 FF:D4E7: 4C 3D E9  JMP loc_E93D
+C - - - - 0x03D4F7 FF:D4E7: 4C 3D E9  JMP loc_E93D_отображение_выбранных_действий
 
 sub_D4EA:
 C - - - - 0x03D4FA FF:D4EA: AD 00 06  LDA $0600
@@ -2584,7 +2584,7 @@ C - - - - 0x03D680 FF:D670: 70 02     BVS bra_D674
 C - - - - 0x03D682 FF:D672: 09 80     ORA #$80
 bra_D674:
 C - - - - 0x03D684 FF:D674: A2 00     LDX #$00
-C - - - - 0x03D686 FF:D676: 20 3D E9  JSR sub_E93D
+C - - - - 0x03D686 FF:D676: 20 3D E9  JSR sub_E93D_отображение_выбранных_действий
 C - - - - 0x03D689 FF:D679: 4C E5 D5  JMP loc_D5E5
 
 sub_D67C:
@@ -2592,7 +2592,7 @@ C - - - - 0x03D68C FF:D67C: AE 3B 04  LDX ram_действие_атаки
 C - - - - 0x03D68F FF:D67F: BD DE D6  LDA tbl_D6DE,X
 C - - - - 0x03D692 FF:D682: A2 00     LDX #$00
 C - - - - 0x03D694 FF:D684: 8E 3C 04  STX ram_подтип_действия
-C - - - - 0x03D697 FF:D687: 20 3D E9  JSR sub_E93D
+C - - - - 0x03D697 FF:D687: 20 3D E9  JSR sub_E93D_отображение_выбранных_действий
 C - - - - 0x03D69A FF:D68A: AE 3B 04  LDX ram_действие_атаки
 C - - - - 0x03D69D FF:D68D: E0 02     CPX #$02
 C - - - - 0x03D69F FF:D68F: D0 05     BNE bra_D696
@@ -5339,8 +5339,8 @@ bra_E93A_запись_координаты:
 C - - - - 0x03E94A FF:E93A: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03E94C FF:E93C: 60        RTS
 
-sub_E93D:
-loc_E93D:
+sub_E93D_отображение_выбранных_действий:
+loc_E93D_отображение_выбранных_действий:
 C D - - - 0x03E94D FF:E93D: 48        PHA
 C - - - - 0x03E94E FF:E93E: 8A        TXA
 C - - - - 0x03E94F FF:E93F: 48        PHA
@@ -5363,10 +5363,9 @@ C - - - - 0x03E96C FF:E95C: 68        PLA
 C - - - - 0x03E96D FF:E95D: 0A        ASL
 C - - - - 0x03E96E FF:E95E: 66 3A     ROR ram_003A
 C - - - - 0x03E970 FF:E960: A8        TAY
-C - - - - 0x03E971 FF:E961: 18        CLC
-C - - - - 0x03E972 FF:E962: B9 DA E9  LDA tbl_E9DA,Y
+C - - - - 0x03E972 FF:E962: B9 DA E9  LDA tbl_E9DA_действия,Y
 C - - - - 0x03E975 FF:E965: 85 3C     STA ram_003C
-C - - - - 0x03E977 FF:E967: B9 DB E9  LDA tbl_E9DA + 1,Y
+C - - - - 0x03E977 FF:E967: B9 DB E9  LDA tbl_E9DA_действия + 1,Y
 C - - - - 0x03E97A FF:E96A: 85 3D     STA ram_003D
 C - - - - 0x03E97C FF:E96C: A0 00     LDY #$00
 C - - - - 0x03E97E FF:E96E: 18        CLC
@@ -5434,12 +5433,11 @@ C - - - - 0x03E9E9 FF:E9D9: 60        RTS
 
 
 
-tbl_E9DA:
-; вероятно что-то связано с каждой командой соперников
+tbl_E9DA_действия:
 ; почему-то 0D не считывалось
-- D - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00
-- D - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01
-- D - - - 0x03E9EE FF:E9DE: 34 EA     .word off_EA34_02
+- D - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00_дриблинг
+- D - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01_пас
+- D - - - 0x03E9EE FF:E9DE: 34 EA     .word off_EA34_02_удар
 - D - - - 0x03E9F0 FF:E9E0: 3D EA     .word off_EA3D_03
 - D - - - 0x03E9F2 FF:E9E2: 46 EA     .word off_EA46_04
 - D - - - 0x03E9F4 FF:E9E4: 51 EA     .word off_EA51_05
@@ -5471,7 +5469,7 @@ tbl_E9DA:
 - D - - - 0x03EA28 FF:EA18: 72 EB     .word off_EB72_1F
 - D - - - 0x03EA2A FF:EA1A: 7B EB     .word off_EB7B_20
 
-off_EA1C_00:
+off_EA1C_00_дриблинг:
 - D - I - 0x03EA2C FF:EA1C: AC        .byte $AC	; <づ>
 - D - I - 0x03EA2D FF:EA1D: 22        .byte $22	; <め>
 - D - I - 0x03EA2E FF:EA1E: 16        .byte $16	; <に>
@@ -5486,7 +5484,7 @@ off_EA1C_00:
 - D - I - 0x03EA37 FF:EA27: 69        .byte $69	; <ル>
 - D - I - 0x03EA38 FF:EA28: 00        .byte $00
 
-off_EA29_01:
+off_EA29_01_пас:
 - D - I - 0x03EA39 FF:EA29: AC        .byte $AC	; <づ>
 - D - I - 0x03EA3A FF:EA2A: 22        .byte $22	; <め>
 - D - I - 0x03EA3B FF:EA2B: 16        .byte $16	; <に>
@@ -5499,7 +5497,7 @@ off_EA29_01:
 - D - I - 0x03EA42 FF:EA32: 00        .byte $00
 - D - I - 0x03EA43 FF:EA33: 00        .byte $00
 
-off_EA34_02:
+off_EA34_02_удар:
 - D - I - 0x03EA44 FF:EA34: AC        .byte $AC	; <づ>
 - D - I - 0x03EA45 FF:EA35: 22        .byte $22	; <め>
 - D - I - 0x03EA46 FF:EA36: 16        .byte $16	; <に>
