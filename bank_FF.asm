@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C555
-sub_0x03C555:
-C - - - - 0x03C555 FF:C545: 4C 4A CE  JMP loc_CE4A
-
 .export sub_0x03C558
 sub_0x03C558:
 C - - - - 0x03C558 FF:C548: 4C 99 CE  JMP loc_CE99
@@ -1459,7 +1455,8 @@ C - - - - 0x03CE54 FF:CE44: A5 25     LDA ram_для_8001_07
 C - - - - 0x03CE56 FF:CE46: 8D 01 80  STA $8001
 C - - - - 0x03CE59 FF:CE49: 60        RTS
 
-loc_CE4A:
+.export sub_0x03CE5A
+sub_0x03CE5A:
 sub_CE4A:
 C D - - - 0x03CE5A FF:CE4A: 18        CLC
 C - - - - 0x03CE5B FF:CE4B: 69 40     ADC #$40
