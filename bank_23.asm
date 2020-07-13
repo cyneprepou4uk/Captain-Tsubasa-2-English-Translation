@@ -2959,7 +2959,7 @@ C - - - - 0x0353EB 23:93DB: 4C 12 C6  JMP loc_0x03DE62
 sub_93DE:
 loc_93DE:
 ; бесконечный цикл
-C D - - - 0x0353EE 23:93DE: 20 48 C6  JSR sub_0x03C658
+C D - - - 0x0353EE 23:93DE: 20 48 C6  JSR sub_0x03D7F8
 C - - - - 0x0353F1 23:93E1: 4C DE 93  JMP loc_93DE
 
 loc_93E4:
@@ -3099,7 +3099,7 @@ C - - - - 0x0354EC 23:94DC: A9 20     LDA #$20
 C - - - - 0x0354EE 23:94DE: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - 0x0354F1 23:94E1: A9 05     LDA #$05
 C - - - - 0x0354F3 23:94E3: 20 0D 9E  JSR sub_9E0D
-C - - - - 0x0354F6 23:94E6: 20 45 C6  JSR sub_0x03C655
+C - - - - 0x0354F6 23:94E6: 20 45 C6  JSR sub_0x03E6FC
 C - - - - 0x0354F9 23:94E9: 20 09 95  JSR sub_9509
 C - - - - 0x0354FC 23:94EC: A9 21     LDA #$21
 C - - - - 0x0354FE 23:94EE: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
@@ -4383,7 +4383,7 @@ C - - - - 0x035E5E 23:9E4E: E6 3B     INC ram_003B
 C - - - - 0x035E60 23:9E50: A5 3B     LDA ram_003B
 C - - - - 0x035E62 23:9E52: C9 16     CMP #$16
 C - - - - 0x035E64 23:9E54: D0 C9     BNE bra_9E1F
-C - - - - 0x035E66 23:9E56: 20 45 C6  JSR sub_0x03C655
+C - - - - 0x035E66 23:9E56: 20 45 C6  JSR sub_0x03E6FC
 C - - - - 0x035E69 23:9E59: 60        RTS
 
 sub_9E5A:

@@ -138,14 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C655
-sub_0x03C655:
-C - - - - 0x03C655 FF:C645: 4C EC E6  JMP loc_E6EC
-
-.export sub_0x03C658
-sub_0x03C658:
-C - - - - 0x03C658 FF:C648: 4C E8 D7  JMP loc_D7E8
-
 vec_FFF0_обработчик_RESET:
 C - - - - 0x040000 FF:FFF0: A9 00     LDA #$00
 C - - - - 0x040002 FF:FFF2: 8D 00 80  STA $8000
@@ -2843,7 +2835,8 @@ C - - - - 0x03D7F2 FF:D7E2: 8D 4A 04  STA ram_таймер_драйв_тигра
 bra_D7E5:
 C - - - - 0x03D7F5 FF:D7E5: 4C 0C D7  JMP loc_D70C
 
-loc_D7E8:
+.export sub_0x03D7F8
+sub_0x03D7F8:
 ofs_D7E8_F1:
 C D J - - 0x03D7F8 FF:D7E8: A9 38     LDA #$38
 C - - - - 0x03D7FA FF:D7EA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -4997,7 +4990,8 @@ tbl_E6D0:
 - D - - - 0x03E6ED FF:E6DD: 74        .byte $74	; <ィ>
 - D - - - 0x03E6EE FF:E6DE: 8C        .byte $8C	; <M>
 
-loc_E6EC:
+.export sub_0x03E6FC
+sub_0x03E6FC:
 sub_E6EC:
 C D - - - 0x03E6FC FF:E6EC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E6FF FF:E6EF: 20 7C CD  JSR sub_CD7C_адрес_игрока
