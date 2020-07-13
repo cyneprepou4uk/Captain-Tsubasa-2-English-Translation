@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C610
-sub_0x03C610:
-C - - - - 0x03C610 FF:C600: 4C 65 D5  JMP loc_D565
-
 .export sub_0x03C613
 sub_0x03C613:
 .export loc_0x03C613
@@ -2559,7 +2555,8 @@ tbl_D561_действие_кипера_если_соперник_принима�
 - D - - - 0x03D573 FF:D563: FF        .byte $FF ; 
 - D - - - 0x03D574 FF:D564: 03        .byte $03 ; jump
 
-loc_D565:
+.export sub_0x03D575
+sub_0x03D575:
 C D - - - 0x03D575 FF:D565: 20 73 D5  JSR sub_D573
 C - - - - 0x03D578 FF:D568: A9 1A     LDA #$1A
 C - - - - 0x03D57A FF:D56A: 85 24     STA ram_для_8001_06
