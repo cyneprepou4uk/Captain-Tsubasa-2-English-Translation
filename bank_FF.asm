@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C573
-sub_0x03C573:
-C - - - - 0x03C573 FF:C563: 4C 8F CF  JMP loc_CF8F
-
 .export sub_0x03C576
 sub_0x03C576:
 C - - - - 0x03C576 FF:C566: 4C 13 F0  JMP loc_F013
@@ -1636,7 +1632,8 @@ C - - - - 0x03CF98 FF:CF88: A9 19     LDA #$19
 C - - - - 0x03CF9A FF:CF8A: 85 25     STA ram_для_8001_07
 C - - - - 0x03CF9C FF:CF8C: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
-loc_CF8F:
+.export sub_0x03CF9F
+sub_0x03CF9F:
 sub_CF8F:
 C D - - - 0x03CF9F FF:CF8F: 8D 23 06  STA $0623
 C - - - - 0x03CFA2 FF:CF92: AA        TAX
