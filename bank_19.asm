@@ -4143,7 +4143,7 @@ C - - - - 0x027056 19:B046: 50 03     BVC bra_B04B
 C - - - - 0x027058 19:B048: 4C AF B0  JMP loc_B0AF
 bra_B04B:
 C - - - - 0x02705B 19:B04B: A9 01     LDA #$01
-C - - - - 0x02705D 19:B04D: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x02705D 19:B04D: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x027060 19:B050: AD 15 05  LDA ram_копия_спрайт_тайл + $AC
 C - - - - 0x027063 19:B053: D0 F6     BNE bra_B04B
 C - - - - 0x027065 19:B055: A9 01     LDA #$01
@@ -4206,7 +4206,7 @@ C - - - - 0x0270C8 19:B0B8: E6 8A     INC ram_008A
 C - - - - 0x0270CA 19:B0BA: 48        PHA
 bra_B0BB:
 C - - - - 0x0270CB 19:B0BB: A9 01     LDA #$01
-C - - - - 0x0270CD 19:B0BD: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0270CD 19:B0BD: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0270D0 19:B0C0: AD 15 05  LDA ram_копия_спрайт_тайл + $AC
 C - - - - 0x0270D3 19:B0C3: D0 F6     BNE bra_B0BB
 C - - - - 0x0270D5 19:B0C5: A9 01     LDA #$01
@@ -4247,7 +4247,7 @@ bra_B10C:
 C - - - - 0x02711C 19:B10C: 48        PHA
 C - - - - 0x02711D 19:B10D: 20 27 B1  JSR sub_B127
 C - - - - 0x027120 19:B110: A9 01     LDA #$01
-C - - - - 0x027122 19:B112: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x027122 19:B112: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x027125 19:B115: 68        PLA
 C - - - - 0x027126 19:B116: 18        CLC
 C - - - - 0x027127 19:B117: 69 02     ADC #$02
@@ -4337,7 +4337,7 @@ C - - - - 0x0271BD 19:B1AD: B1 88     LDA (ram_0088),Y
 C - - - - 0x0271BF 19:B1AF: 20 4E C5  JSR sub_0x03C55E_запись_номера_сценария
 bra_B1B2:
 C - - - - 0x0271C2 19:B1B2: A9 01     LDA #$01
-C - - - - 0x0271C4 19:B1B4: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0271C4 19:B1B4: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0271C7 19:B1B7: AD 16 05  LDA ram_флаг_сценария_ХЗ
 C - - - - 0x0271CA 19:B1BA: D0 F6     BNE bra_B1B2
 C - - - - 0x0271CC 19:B1BC: A9 00     LDA #$00
@@ -4366,7 +4366,7 @@ C - - - - 0x0271F4 19:B1E4: B1 88     LDA (ram_0088),Y
 bra_B1E6:
 C - - - - 0x0271F6 19:B1E6: 48        PHA
 C - - - - 0x0271F7 19:B1E7: A9 01     LDA #$01
-C - - - - 0x0271F9 19:B1E9: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0271F9 19:B1E9: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0271FC 19:B1EC: 68        PLA
 C - - - - 0x0271FD 19:B1ED: 38        SEC
 C - - - - 0x0271FE 19:B1EE: E9 01     SBC #$01
@@ -4437,12 +4437,12 @@ bra_B24D:
 - - - - - 0x027266 19:B256: D0 F5     BNE bra_B24D
 - - - - - 0x027268 19:B258: 20 10 B3  JSR sub_B310
 - - - - - 0x02726B 19:B25B: A9 30     LDA #$30
-- - - - - 0x02726D 19:B25D: 20 15 C5  JSR sub_0x03C525
+- - - - - 0x02726D 19:B25D: 20 15 C5  JSR sub_0x03CB1F
 - - - - - 0x027270 19:B260: A9 20     LDA #$20
 bra_B262:
 - - - - - 0x027272 19:B262: 48        PHA
 - - - - - 0x027273 19:B263: A9 05     LDA #$05
-- - - - - 0x027275 19:B265: 20 15 C5  JSR sub_0x03C525
+- - - - - 0x027275 19:B265: 20 15 C5  JSR sub_0x03CB1F
 - - - - - 0x027278 19:B268: 68        PLA
 - - - - - 0x027279 19:B269: 48        PHA
 - - - - - 0x02727A 19:B26A: 85 3A     STA ram_003A
@@ -4486,7 +4486,7 @@ C - J - - 0x0272B6 19:B2A6: A9 30     LDA #$30
 bra_B2A8:
 C - - - - 0x0272B8 19:B2A8: 48        PHA
 C - - - - 0x0272B9 19:B2A9: A9 02     LDA #$02
-C - - - - 0x0272BB 19:B2AB: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0272BB 19:B2AB: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0272BE 19:B2AE: 68        PLA
 C - - - - 0x0272BF 19:B2AF: 85 3A     STA ram_003A
 C - - - - 0x0272C1 19:B2B1: A2 00     LDX #$00
@@ -4520,7 +4520,7 @@ C - J - - 0x0272EB 19:B2DB: A9 10     LDA #$10
 bra_B2DD:
 C - - - - 0x0272ED 19:B2DD: 48        PHA
 C - - - - 0x0272EE 19:B2DE: A9 02     LDA #$02
-C - - - - 0x0272F0 19:B2E0: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0272F0 19:B2E0: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0272F3 19:B2E3: 68        PLA
 C - - - - 0x0272F4 19:B2E4: 48        PHA
 C - - - - 0x0272F5 19:B2E5: 8D 72 04  STA ram_копия_спрайт_атрибут + 8
@@ -4548,7 +4548,7 @@ C - - - - 0x027314 19:B304: 20 33 C5  JSR sub_0x03C543
 - D - I - 0x027317 19:B307: 00        .byte $00
 - D - I - 0x027318 19:B308: 6C 04     .word ram_копия_спрайт_Y + 4
 C - - - - 0x02731A 19:B30A: A9 01     LDA #$01
-C - - - - 0x02731C 19:B30C: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x02731C 19:B30C: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x02731F 19:B30F: 60        RTS
 
 sub_B310:
@@ -4569,7 +4569,7 @@ bra_B31F:
 - - - - - 0x02733A 19:B32A: 00        .byte $00
 - - - - - 0x02733B 19:B32B: 6C 04     .word ram_копия_спрайт_Y + 4
 - - - - - 0x02733D 19:B32D: A9 01     LDA #$01
-- - - - - 0x02733F 19:B32F: 20 15 C5  JSR sub_0x03C525
+- - - - - 0x02733F 19:B32F: 20 15 C5  JSR sub_0x03CB1F
 - - - - - 0x027342 19:B332: 60        RTS
 
 ofs_B333_FС:
@@ -4642,13 +4642,13 @@ C - - - - 0x0273CC 19:B3BC: 20 33 C5  JSR sub_0x03C543
 - D - I - 0x0273CF 19:B3BF: 13        .byte $13	; <て>
 - D - I - 0x0273D0 19:B3C0: 4E B4     .word tbl_B44E_финальная_надпись_TECMO
 C - - - - 0x0273D2 19:B3C2: A9 60     LDA #$60
-C - - - - 0x0273D4 19:B3C4: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0273D4 19:B3C4: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0273D7 19:B3C7: A9 00     LDA #$00
 C - - - - 0x0273D9 19:B3C9: 85 8A     STA ram_008A
 bra_B3CB:
 loc_B3CB:
 C D - - - 0x0273DB 19:B3CB: A9 01     LDA #$01
-C - - - - 0x0273DD 19:B3CD: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x0273DD 19:B3CD: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0273E0 19:B3D0: A5 8A     LDA ram_008A
 C - - - - 0x0273E2 19:B3D2: 18        CLC
 C - - - - 0x0273E3 19:B3D3: 69 60     ADC #$60
@@ -4673,7 +4673,7 @@ C - - - - 0x027407 19:B3F7: 4C CB B3  JMP loc_B3CB
 bra_B3FA:
 loc_B3FA:
 C D - - - 0x02740A 19:B3FA: A9 01     LDA #$01
-C - - - - 0x02740C 19:B3FC: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x02740C 19:B3FC: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x02740F 19:B3FF: 4C FA B3  JMP loc_B3FA
 
 tbl_B402:
@@ -4689,7 +4689,7 @@ C - - - - 0x027419 19:B409: 86 8B     STX ram_008B
 C - - - - 0x02741B 19:B40B: 86 8A     STX ram_008A
 bra_B40D:
 C - - - - 0x02741D 19:B40D: A9 01     LDA #$01
-C - - - - 0x02741F 19:B40F: 20 15 C5  JSR sub_0x03C525
+C - - - - 0x02741F 19:B40F: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x027422 19:B412: AD 15 05  LDA ram_копия_спрайт_тайл + $AC
 C - - - - 0x027425 19:B415: D0 F6     BNE bra_B40D
 C - - - - 0x027427 19:B417: A9 01     LDA #$01
