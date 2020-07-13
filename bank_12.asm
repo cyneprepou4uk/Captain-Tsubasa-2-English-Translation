@@ -1,25 +1,9 @@
 .segment "BANK_12"
 .include "copy_bank_ram.inc"
 
-ofs_8000_minus:
-.export ofs_0x016010
-ofs_0x016010 = ofs_8000_minus - 1
-C D - - - 0x016010 12:8000: 4C 0C 80  JMP loc_800C
-
-ofs_8003_minus:
-.export ofs_0x016013
-ofs_0x016013 = ofs_8003_minus - 1
-C - - - - 0x016013 12:8003: 4C 83 80  JMP loc_8083
-
-.export sub_0x016016
-sub_0x016016:
-C - - - - 0x016016 12:8006: 4C A1 84  JMP loc_84A1
-
-ofs_8009_minus:
-.export ofs_0x016019
-ofs_0x016019 = ofs_8009_minus - 1
-C - - - - 0x016019 12:8009: 4C 4C 81  JMP loc_814C
-
+ofs_800C_minus:
+.export ofs_0x01601C
+ofs_0x01601C = ofs_800C_minus - 1
 loc_800C:
 C D - - - 0x01601C 12:800C: A9 01     LDA #$01
 C - - - - 0x01601E 12:800E: 20 15 C5  JSR sub_0x03CB1F
@@ -85,6 +69,9 @@ C - - - - 0x01608C 12:807C: E9 01     SBC #$01
 C - - - - 0x01608E 12:807E: D0 CC     BNE bra_804C
 C - - - - 0x016090 12:8080: 4C 0C 80  JMP loc_800C
 
+ofs_8083_minus:
+.export ofs_0x016093
+ofs_0x016093 = ofs_8083_minus - 1
 loc_8083:
 C D - - - 0x016093 12:8083: A9 01     LDA #$01
 C - - - - 0x016095 12:8085: 20 15 C5  JSR sub_0x03CB1F
@@ -208,7 +195,9 @@ C - - - - 0x016157 12:8147: 69 8B     ADC #> tbl_8B64
 C - - - - 0x016159 12:8149: 85 59     STA ram_0059
 C - - - - 0x01615B 12:814B: 60        RTS
 
-loc_814C:
+ofs_814C_minus:
+.export ofs_0x01615C
+ofs_0x01615C = ofs_814C_minus - 1
 ; bzk вероятно можно немного сэкономить, если сначала проверить на FF у адреса, а только потом грузить поинтеры
 ; убедиться что эти поинтеры в дальнейшем не понадобятся
 C D - - - 0x01615C 12:814C: A9 F6     LDA #< tbl_87F6_фоны_анимаций
@@ -790,7 +779,8 @@ C - - - - 0x0164AC 12:849C: 69 00     ADC #$00
 C - - - - 0x0164AE 12:849E: 85 5C     STA ram_005C
 C - - - - 0x0164B0 12:84A0: 60        RTS
 
-loc_84A1:
+.export sub_0x0164B1
+sub_0x0164B1:
 sub_84A1:
 C D - - - 0x0164B1 12:84A1: A2 02     LDX #$02
 C - - - - 0x0164B3 12:84A3: C9 80     CMP #$80

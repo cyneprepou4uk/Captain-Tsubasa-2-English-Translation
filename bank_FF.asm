@@ -6046,7 +6046,7 @@ C - - - - 0x03ECF2 FF:ECE2: A9 0C     LDA #$0C
 C - - - - 0x03ECF4 FF:ECE4: 85 25     STA ram_для_8001_07
 C - - - - 0x03ECF6 FF:ECE6: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03ECF9 FF:ECE9: 68        PLA
-C - - - - 0x03ECFA FF:ECEA: 20 06 80  JSR sub_0x016016
+C - - - - 0x03ECFA FF:ECEA: 20 06 80  JSR sub_0x0164B1
 C - - - - 0x03ECFD FF:ECED: A9 00     LDA #$00
 C - - - - 0x03ECFF FF:ECEF: 85 4A     STA ram_004A
 C - - - - 0x03ED01 FF:ECF1: AD D1 05  LDA $05D1
@@ -6154,8 +6154,8 @@ C - - - - 0x03EDE4 FF:EDD4: 95 01     STA ram_0001,X
 C - - - - 0x03EDE6 FF:EDD6: A9 0B     LDA #$0B
 C - - - - 0x03EDE8 FF:EDD8: 95 02     STA ram_0002,X
 ; сработало при нападении кипера соперника верхним олвэйсом
-C - - - - 0x03EDEA FF:EDDA: A9 7F     LDA #> ofs_0x016010
-C - - - - 0x03EDEC FF:EDDC: A0 FF     LDY #< ofs_0x016010
+C - - - - 0x03EDEA FF:EDDA: A9 7F     LDA #> ofs_0x01601C
+C - - - - 0x03EDEC FF:EDDC: A0 FF     LDY #< ofs_0x01601C
 C - - - - 0x03EDEE FF:EDDE: 20 E7 CA  JSR sub_CAE7
 C - - - - 0x03EDF1 FF:EDE1: 4C F5 ED  JMP loc_EDF5
 bra_EDE4:
@@ -6164,8 +6164,8 @@ C - - - - 0x03EDF6 FF:EDE6: A9 A0     LDA #$A0
 C - - - - 0x03EDF8 FF:EDE8: 95 01     STA ram_0001,X
 C - - - - 0x03EDFA FF:EDEA: A9 0B     LDA #$0B
 C - - - - 0x03EDFC FF:EDEC: 95 02     STA ram_0002,X
-C - - - - 0x03EDFE FF:EDEE: A9 80     LDA #> ofs_0x016013
-C - - - - 0x03EE00 FF:EDF0: A0 02     LDY #< ofs_0x016013
+C - - - - 0x03EDFE FF:EDEE: A9 80     LDA #> ofs_0x016093
+C - - - - 0x03EE00 FF:EDF0: A0 02     LDY #< ofs_0x016093
 C - - - - 0x03EE02 FF:EDF2: 20 E7 CA  JSR sub_CAE7
 bra_EDF5:
 loc_EDF5:
