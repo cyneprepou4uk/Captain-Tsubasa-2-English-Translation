@@ -4334,7 +4334,7 @@ C - J - - 0x0271B6 19:B1A6: 20 2D C5  JSR sub_0x03CC56
 C - - - - 0x0271B9 19:B1A9: A4 8A     LDY ram_008A
 C - - - - 0x0271BB 19:B1AB: E6 8A     INC ram_008A
 C - - - - 0x0271BD 19:B1AD: B1 88     LDA (ram_0088),Y
-C - - - - 0x0271BF 19:B1AF: 20 4E C5  JSR sub_0x03C55E_запись_номера_сценария
+C - - - - 0x0271BF 19:B1AF: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 bra_B1B2:
 C - - - - 0x0271C2 19:B1B2: A9 01     LDA #$01
 C - - - - 0x0271C4 19:B1B4: 20 15 C5  JSR sub_0x03CB1F
