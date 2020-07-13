@@ -7161,9 +7161,9 @@ C - - - - 0x03F321 FF:F311: 84 30     STY ram_0030
 C - - - - 0x03F323 FF:F313: A0 F3     LDY #> tbl_F329_таблица_сжатых_слов
 C - - - - 0x03F325 FF:F315: 84 31     STY ram_0031
 C - - - - 0x03F327 FF:F317: 0A        ASL
-C - - - - 0x03F328 FF:F318: 90 02     BCC bra_F31C
+C - - - - 0x03F328 FF:F318: 90 02     BCC bra_F31C_не_увеличивать_старший_байт
 C - - - - 0x03F32A FF:F31A: E6 31     INC ram_0031
-bra_F31C:
+bra_F31C_не_увеличивать_старший_байт:
 C - - - - 0x03F32C FF:F31C: A8        TAY
 C - - - - 0x03F32D FF:F31D: B1 30     LDA (ram_0030),Y
 C - - - - 0x03F32F FF:F31F: 48        PHA
