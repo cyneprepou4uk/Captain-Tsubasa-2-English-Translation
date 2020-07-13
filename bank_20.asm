@@ -1,26 +1,8 @@
 .segment "BANK_20"
 .include "copy_bank_ram.inc"
-.export sub_0x028010
-sub_0x028010:
-C D - - - 0x028010 20:8000: 4C 0F 80  JMP loc_800F
 
-.export sub_0x028013
-sub_0x028013:
-C - - - - 0x028013 20:8003: 4C DC 84  JMP loc_84DC
-
-.export sub_0x028016
-sub_0x028016:
-C - - - - 0x028016 20:8006: 4C D9 83  JMP loc_83D9
-
-.export sub_0x028019
-sub_0x028019:
-C - - - - 0x028019 20:8009: 4C 24 86  JMP loc_8624
-
-.export sub_0x02801C
-sub_0x02801C:
-C - - - - 0x02801C 20:800C: 4C 96 87  JMP loc_8796
-
-loc_800F:
+.export sub_0x02801F
+sub_0x02801F:
 C D - - - 0x02801F 20:800F: AD 3A 05  LDA $053A
 C - - - - 0x028022 20:8012: F0 6F     BEQ bra_8083_выход
 C - - - - 0x028024 20:8014: 10 51     BPL bra_8067
@@ -647,7 +629,8 @@ C - - - - 0x0283E6 20:83D6: E6 4D     INC ram_004D
 bra_83D8_выход:
 C - - - - 0x0283E8 20:83D8: 60        RTS
 
-loc_83D9:
+.export sub_0x0283E9
+sub_0x0283E9:
 C D - - - 0x0283E9 20:83D9: A0 10     LDY #$10
 C - - - - 0x0283EB 20:83DB: B1 3C     LDA (ram_003C),Y
 C - - - - 0x0283ED 20:83DD: F0 0A     BEQ bra_83E9
@@ -825,7 +808,8 @@ C - - - - 0x0284E6 20:84D6: B1 3E     LDA (ram_003E),Y
 C - - - - 0x0284E8 20:84D8: 8D 46 05  STA $0546
 C - - - - 0x0284EB 20:84DB: 60        RTS
 
-loc_84DC:
+.export sub_0x0284EC
+sub_0x0284EC:
 C D - - - 0x0284EC 20:84DC: A0 11     LDY #$11
 C - - - - 0x0284EE 20:84DE: B1 3C     LDA (ram_003C),Y
 C - - - - 0x0284F0 20:84E0: F0 0D     BEQ bra_84EF
@@ -1036,7 +1020,8 @@ C - - - - 0x02862F 20:861F: 71 3C     ADC (ram_003C),Y
 C - - - - 0x028631 20:8621: 91 3C     STA (ram_003C),Y
 C - - - - 0x028633 20:8623: 60        RTS
 
-loc_8624:
+.export sub_0x028634
+sub_0x028634:
 C D - - - 0x028634 20:8624: AD 2D 06  LDA $062D
 C - - - - 0x028637 20:8627: 29 0F     AND #$0F
 C - - - - 0x028639 20:8629: C9 05     CMP #$05
@@ -1252,7 +1237,8 @@ C - - - - 0x0287A1 20:8791: 68        PLA
 C - - - - 0x0287A2 20:8792: AA        TAX
 C - - - - 0x0287A3 20:8793: 4C E7 87  JMP loc_87E7
 
-loc_8796:
+.export sub_0x0287A6
+sub_0x0287A6:
 C D - - - 0x0287A6 20:8796: A9 10     LDA #$10
 C - - - - 0x0287A8 20:8798: 20 A7 87  JSR sub_87A7
 C - - - - 0x0287AB 20:879B: 8D 35 06  STA $0635

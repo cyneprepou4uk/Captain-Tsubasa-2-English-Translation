@@ -4839,7 +4839,7 @@ C - - - - 0x03E5D3 FF:E5C3: 85 25     STA ram_для_8001_07
 C - - - - 0x03E5D5 FF:E5C5: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E5D8 FF:E5C8: 68        PLA
 ; сработало при наебке кипера
-C - - - - 0x03E5D9 FF:E5C9: 20 0C 80  JSR sub_0x02801C
+C - - - - 0x03E5D9 FF:E5C9: 20 0C 80  JSR sub_0x0287A6
 C - - - - 0x03E5DC FF:E5CC: A9 01     LDA #$01
 C - - - - 0x03E5DE FF:E5CE: 48        PHA
 C - - - - 0x03E5E1 FF:E5D1: A9 1A     LDA #$1A
@@ -6270,7 +6270,7 @@ C - - - - 0x03EEB6 FF:EEA6: A9 15     LDA #$15
 C - - - - 0x03EEB8 FF:EEA8: 85 25     STA ram_для_8001_07
 C - - - - 0x03EEBA FF:EEAA: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EEBD FF:EEAD: 68        PLA
-C - - - - 0x03EEBE FF:EEAE: 20 00 80  JSR sub_0x028010
+C - - - - 0x03EEBE FF:EEAE: 20 00 80  JSR sub_0x02801F
 C - - - - 0x03EEC1 FF:EEB1: A9 00     LDA #$00
 C - - - - 0x03EEC3 FF:EEB3: 85 3A     STA ram_003A
 C - - - - 0x03EEC5 FF:EEB5: 85 48     STA ram_0048
@@ -6328,7 +6328,7 @@ C - - - - 0x03EF19 FF:EF09: A9 15     LDA #$15
 C - - - - 0x03EF1B FF:EF0B: 85 25     STA ram_для_8001_07
 C - - - - 0x03EF1D FF:EF0D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF20 FF:EF10: 68        PLA
-C - - - - 0x03EF21 FF:EF11: 20 06 80  JSR sub_0x028016
+C - - - - 0x03EF21 FF:EF11: 20 06 80  JSR sub_0x0283E9
 bra_EF14:
 C - - - - 0x03EF24 FF:EF14: 48        PHA
 C - - - - 0x03EF27 FF:EF17: A9 14     LDA #$14
@@ -6337,7 +6337,7 @@ C - - - - 0x03EF2B FF:EF1B: A9 15     LDA #$15
 C - - - - 0x03EF2D FF:EF1D: 85 25     STA ram_для_8001_07
 C - - - - 0x03EF2F FF:EF1F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF32 FF:EF22: 68        PLA
-C - - - - 0x03EF33 FF:EF23: 20 03 80  JSR sub_0x028013
+C - - - - 0x03EF33 FF:EF23: 20 03 80  JSR sub_0x0284EC
 C - - - - 0x03EF36 FF:EF26: 48        PHA
 C - - - - 0x03EF39 FF:EF29: A9 16     LDA #$16
 C - - - - 0x03EF3B FF:EF2B: 85 24     STA ram_для_8001_06
@@ -6360,7 +6360,7 @@ C - - - - 0x03EF5C FF:EF4C: A9 15     LDA #$15
 C - - - - 0x03EF5E FF:EF4E: 85 25     STA ram_для_8001_07
 C - - - - 0x03EF60 FF:EF50: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF63 FF:EF53: 68        PLA
-C - - - - 0x03EF64 FF:EF54: 20 09 80  JSR sub_0x028019
+C - - - - 0x03EF64 FF:EF54: 20 09 80  JSR sub_0x028634
 bra_EF57:
 C - - - - 0x03EF67 FF:EF57: A9 40     LDA #$40
 C - - - - 0x03EF69 FF:EF59: 38        SEC
