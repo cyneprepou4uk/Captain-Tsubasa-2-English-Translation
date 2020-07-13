@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C537_банксвич_PRG_06_07_с_возвратом
-sub_0x03C537_банксвич_PRG_06_07_с_возвратом:
-C - - - - 0x03C537 FF:C527: 4C 08 CE  JMP loc_CE08_банксвич_PRG_06_07_с_возвратом
-
 .export sub_0x03C53A
 sub_0x03C53A:
 C - - - - 0x03C53A FF:C52A: 4C 7F EF  JMP loc_EF7F
@@ -1444,7 +1440,9 @@ C - - - - 0x03CE15 FF:CE05: A9 FF     LDA #$FF
 bra_CE07_выход:
 C - - - - 0x03CE17 FF:CE07: 60        RTS
 
-loc_CE08_банксвич_PRG_06_07_с_возвратом:
+
+.export sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
+sub_0x03CE18_банксвич_PRG_06_07_с_возвратом:
 sub_CE08_банксвич_PRG_06_07_с_возвратом:
 ; в A подается обычный номер игрока из plr_data
 C D - - - 0x03CE18 FF:CE08: A8        TAY

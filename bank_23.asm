@@ -5124,7 +5124,7 @@ C - - - - 0x0361B0 23:A1A0: 91 34     STA (ram_plr_data),Y
 C - - - - 0x0361B2 23:A1A2: 68        PLA
 C - - - - 0x0361B3 23:A1A3: 48        PHA
 C - - - - 0x0361B4 23:A1A4: A6 3F     LDX ram_003F
-C - - - - 0x0361B6 23:A1A6: 20 27 C5  JSR sub_0x03C537_банксвич_PRG_06_07_с_возвратом
+C - - - - 0x0361B6 23:A1A6: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
 C - - - - 0x0361B9 23:A1A9: 68        PLA
 C - - - - 0x0361BA 23:A1AA: A6 32     LDX ram_0032
 C - - - - 0x0361BC 23:A1AC: EC E2 00  CPX ram_рандом_2
