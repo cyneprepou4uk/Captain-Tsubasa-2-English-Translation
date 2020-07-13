@@ -1,18 +1,6 @@
 .segment "BANK_02"
 .include "copy_bank_ram.inc"
 
-.export sub_0x002013
-sub_0x002013:
-C - - - - 0x002013 02:A003: 4C 0D A1  JMP loc_A10D
-
-.export sub_0x002016
-sub_0x002016:
-C - - - - 0x002016 02:A006: 4C EB A4  JMP loc_A4EB
-
-.export sub_0x002019
-sub_0x002019:
-C - - - - 0x002019 02:A009: 4C 4C A6  JMP loc_A64C
-
 .export loc_0x00201C
 loc_0x00201C:
 C D - - - 0x00201C 02:A00C: 4C D2 A6  JMP loc_A6D2
@@ -168,7 +156,8 @@ C - - - - 0x002117 02:A107: A2 0B     LDX #$0B
 C - - - - 0x002119 02:A109: 20 E8 98  JSR sub_0x0018F8
 C - - - - 0x00211C 02:A10C: 60        RTS
 
-loc_A10D:
+.export sub_0x00211D
+sub_0x00211D:
 C D - - - 0x00211D 02:A10D: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002120 02:A110: A9 00     LDA #$00
 C - - - - 0x002122 02:A112: A0 F0     LDY #$F0
@@ -713,7 +702,8 @@ C - - - - 0x0024F4 02:A4E4: 85 E9     STA ram_00E9
 C - - - - 0x0024F6 02:A4E6: A5 E8     LDA ram_00E8
 C - - - - 0x0024F8 02:A4E8: 4C 95 98  JMP loc_0x0018A5
 
-loc_A4EB:
+.export sub_0x0024FB
+sub_0x0024FB:
 C D - - - 0x0024FB 02:A4EB: A2 6A     LDX #$6A
 C - - - - 0x0024FD 02:A4ED: A0 6B     LDY #$6B
 C - - - - 0x0024FF 02:A4EF: 20 6F 9B  JSR sub_0x001B7F
@@ -896,6 +886,8 @@ C - - - - 0x002655 02:A645: BD A9 BD  LDA tbl_BDA8 + 1,X
 C - - - - 0x002658 02:A648: AA        TAX
 C - - - - 0x002659 02:A649: 4C 50 9D  JMP loc_0x001D60
 
+.export sub_0x00265C
+sub_0x00265C:
 loc_A64C:
 C D - - - 0x00265C 02:A64C: 20 A0 98  JSR sub_0x0018B0
 C - - - - 0x00265F 02:A64F: 20 7F 9B  JSR sub_0x001B8F
