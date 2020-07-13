@@ -1945,7 +1945,7 @@ C - - - - 0x034D88 23:8D78: A5 32     LDA ram_0032
 C - - - - 0x034D8A 23:8D7A: 85 69     STA ram_0069
 C - - - - 0x034D8C 23:8D7C: A5 33     LDA ram_0033
 C - - - - 0x034D8E 23:8D7E: 85 6A     STA ram_006A
-C - - - - 0x034D90 23:8D80: 20 21 C5  JSR sub_0x03C531
+C - - - - 0x034D90 23:8D80: 20 21 C5  JSR sub_0x03CD1D
 C - - - - 0x034D93 23:8D83: A9 00     LDA #$00
 C - - - - 0x034D95 23:8D85: 8D 74 00  STA ram_0074
 C - - - - 0x034D98 23:8D88: A5 6C     LDA ram_006C
@@ -2268,7 +2268,7 @@ C - - - - 0x034F3C 23:8F2C: A9 C0     LDA #$C0
 C - - - - 0x034F3E 23:8F2E: 85 69     STA ram_0069
 C - - - - 0x034F40 23:8F30: A9 00     LDA #$00
 C - - - - 0x034F42 23:8F32: 85 6A     STA ram_006A
-C - - - - 0x034F44 23:8F34: 20 21 C5  JSR sub_0x03C531
+C - - - - 0x034F44 23:8F34: 20 21 C5  JSR sub_0x03CD1D
 C - - - - 0x034F47 23:8F37: A5 6B     LDA ram_006B
 C - - - - 0x034F49 23:8F39: 85 6F     STA ram_006F
 C - - - - 0x034F4B 23:8F3B: A5 6C     LDA ram_006C
@@ -2367,7 +2367,7 @@ C - - - - 0x034FED 23:8FDD: A5 32     LDA ram_0032
 C - - - - 0x034FEF 23:8FDF: 85 69     STA ram_0069
 C - - - - 0x034FF1 23:8FE1: A5 33     LDA ram_0033
 C - - - - 0x034FF3 23:8FE3: 85 6A     STA ram_006A
-C - - - - 0x034FF5 23:8FE5: 20 21 C5  JSR sub_0x03C531
+C - - - - 0x034FF5 23:8FE5: 20 21 C5  JSR sub_0x03CD1D
 C - - - - 0x034FF8 23:8FE8: A5 6C     LDA ram_006C
 C - - - - 0x034FFA 23:8FEA: 8D 1C 06  STA $061C
 C - - - - 0x034FFD 23:8FED: A5 6D     LDA ram_006D
