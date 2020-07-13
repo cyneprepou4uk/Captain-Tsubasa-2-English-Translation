@@ -74,7 +74,7 @@ C - - - - 0x00409D 03:A08D: CA        DEX
 C - - - - 0x00409E 03:A08E: 8E 05 20  STX $2005
 loc_A091:
 C - - - - 0x0040A1 03:A091: A0 16     LDY #$16
-C - - - - 0x0040A3 03:A093: 20 CB A1  JSR sub_A1CB
+C - - - - 0x0040A3 03:A093: 20 CB A1  JSR sub_A1CB_банксвич_CHR_00_01
 C - - - - 0x0040A6 03:A096: A5 79     LDA ram_0079
 C - - - - 0x0040A8 03:A098: F0 10     BEQ bra_A0AA
 C - - - - 0x0040AA 03:A09A: 0A        ASL
@@ -213,10 +213,10 @@ bra_A1C0:
 C - - - - 0x0041D0 03:A1C0: 8D 00 E0  STA $E000
 C - - - - 0x0041D3 03:A1C3: 85 78     STA ram_0078
 C - - - - 0x0041D5 03:A1C5: A0 18     LDY #$18
-C - - - - 0x0041D7 03:A1C7: 20 CB A1  JSR sub_A1CB
+C - - - - 0x0041D7 03:A1C7: 20 CB A1  JSR sub_A1CB_банксвич_CHR_00_01
 C - - - - 0x0041DA 03:A1CA: 60        RTS
 
-sub_A1CB:
+sub_A1CB_банксвич_CHR_00_01:
 C - - - - 0x0041DB 03:A1CB: B6 78     LDX ram_0078,Y
 C - - - - 0x0041DD 03:A1CD: A9 00     LDA #$00
 C - - - - 0x0041E1 03:A1D1: 8D 00 80  STA $8000
