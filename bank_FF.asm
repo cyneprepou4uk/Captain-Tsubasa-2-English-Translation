@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C55B
-sub_0x03C55B:
-C - - - - 0x03C55B FF:C54B: 4C 6E CE  JMP loc_CE6E
-
 .export sub_0x03C55E_запись_номера_сценария
 sub_0x03C55E_запись_номера_сценария:
 C - - - - 0x03C55E FF:C54E: 4C B0 CB  JMP loc_CBB0_запись_номера_сценария
@@ -1484,7 +1480,8 @@ C - - - - 0x03CE7C FF:CE6C: C8        INY
 bra_CE6D_выход:
 C - - - - 0x03CE7D FF:CE6D: 60        RTS
 
-loc_CE6E:
+.export sub_0x03CE7E
+sub_0x03CE7E:
 C D - - - 0x03CE7E FF:CE6E: 85 36     STA ram_0036
 C - - - - 0x03CE80 FF:CE70: 0A        ASL
 C - - - - 0x03CE81 FF:CE71: 65 36     ADC ram_0036

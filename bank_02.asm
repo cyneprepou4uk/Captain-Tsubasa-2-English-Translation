@@ -1753,7 +1753,7 @@ C - - - - 0x002CE8 02:ACD8: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x002CEB 02:ACDB: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x002CEE 02:ACDE: C8        INY
 C - - - - 0x002CEF 02:ACDF: B1 5C     LDA (ram_005C),Y
-C - - - - 0x002CF1 02:ACE1: 20 4B C5  JSR sub_0x03C55B
+C - - - - 0x002CF1 02:ACE1: 20 4B C5  JSR sub_0x03CE7E
 C - - - - 0x002CF4 02:ACE4: AD 3F 04  LDA $043F
 C - - - - 0x002CF7 02:ACE7: 85 EC     STA ram_00EC
 C - - - - 0x002CF9 02:ACE9: AD 40 04  LDA $0440
