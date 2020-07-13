@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x03401F
-sub_0x03401F:
-C - - - - 0x03401F 23:800F: 4C E1 87  JMP loc_87E1
-
 .export sub_0x034022
 sub_0x034022:
 C - - - - 0x034022 23:8012: 4C 8D 88  JMP loc_888D
@@ -1133,7 +1129,8 @@ tbl_87DD:
 - D - - - 0x0347EF 23:87DF: 52        .byte $52	; <ツ>
 - D - - - 0x0347F0 23:87E0: 00        .byte $00
 
-loc_87E1:
+.export sub_0x0347F1
+sub_0x0347F1:
 sub_87E1:
 C D - - - 0x0347F1 23:87E1: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x0347F4 23:87E4: 49 0B     EOR #$0B
