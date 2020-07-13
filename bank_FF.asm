@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C552
-sub_0x03C552:
-C - - - - 0x03C552 FF:C542: 4C 4D CE  JMP loc_CE4D
-
 .export sub_0x03C555
 sub_0x03C555:
 C - - - - 0x03C555 FF:C545: 4C 4A CE  JMP loc_CE4A
@@ -1467,7 +1463,8 @@ loc_CE4A:
 sub_CE4A:
 C D - - - 0x03CE5A FF:CE4A: 18        CLC
 C - - - - 0x03CE5B FF:CE4B: 69 40     ADC #$40
-loc_CE4D:
+.export sub_0x03CE5D
+sub_0x03CE5D:
 sub_CE4D:
 C D - - - 0x03CE5D FF:CE4D: 0A        ASL
 C - - - - 0x03CE5E FF:CE4E: 08        PHP
