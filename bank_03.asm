@@ -229,18 +229,6 @@ C - - - - 0x0041ED 03:A1DD: 8D 00 80  STA $8000
 C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $8001
 C - - - - 0x0041F3 03:A1E3: 60        RTS
 
-.export loc_0x004210
-loc_0x004210:
-C D - - - 0x004210 03:A200: 4C 1B A2  JMP loc_A21B
-
-.export loc_0x004213
-loc_0x004213:
-C D - - - 0x004213 03:A203: 4C AF A2  JMP loc_A2AF
-
-.export loc_0x004216
-loc_0x004216:
-C D - - - 0x004216 03:A206: 4C E8 A2  JMP loc_A2E8
-
 .export loc_0x004219_управление_музыкальным_экраном
 loc_0x004219_управление_музыкальным_экраном:
 C D - - - 0x004219 03:A209: 4C D8 A3  JMP loc_A3D8_управление_музыкальным_экраном
@@ -261,7 +249,8 @@ C - - - - 0x004222 03:A212: 4C 84 A4  JMP loc_A484
 sub_0x004225:
 C - - - - 0x004225 03:A215: 4C CE A8  JMP loc_A8CE
 
-loc_A21B:
+.export loc_0x00422B
+loc_0x00422B:
 C D - - - 0x00422B 03:A21B: A2 FF     LDX #$FF
 C - - - - 0x00422D 03:A21D: 9A        TXS
 C - - - - 0x00422E 03:A21E: 48        PHA
@@ -341,7 +330,8 @@ C - - - - 0x0042B7 03:A2A7: 85 20     STA ram_0020
 C - - - - 0x0042B9 03:A2A9: 8D 00 20  STA $2000
 C - - - - 0x0042BC 03:A2AC: 4C ED 9E  JMP loc_0x001EFD
 
-loc_A2AF:
+.export loc_0x0042BF
+loc_0x0042BF:
 C D - - - 0x0042BF 03:A2AF: 20 F0 99  JSR sub_0x001A00
 C - - - - 0x0042C2 03:A2B2: 20 A0 98  JSR sub_0x0018B0
 C - - - - 0x0042C5 03:A2B5: 20 7F 9B  JSR sub_0x001B8F
@@ -373,7 +363,8 @@ C - - - - 0x0042F0 03:A2E0: A0 04     LDY #$04
 C - - - - 0x0042F2 03:A2E2: 20 06 AA  JSR sub_AA06
 C - - - - 0x0042F5 03:A2E5: 4C 57 C5  JMP loc_0x03C6CE
 
-loc_A2E8:
+.export loc_0x0042F8
+loc_0x0042F8:
 C D - - - 0x0042F8 03:A2E8: A5 57     LDA ram_0057
 C - - - - 0x0042FA 03:A2EA: 30 4C     BMI bra_A338
 C - - - - 0x0042FC 03:A2EC: 85 ED     STA ram_00ED

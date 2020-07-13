@@ -16,7 +16,7 @@ C - - - - 0x03C425 FF:C415: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 C - - - - 0x03C428 FF:C418: A2 02     LDX #$02
 C - - - - 0x03C42A FF:C41A: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_07
 C - - - - 0x03C42D FF:C41D: 98        TYA
-C - - - - 0x03C42E FF:C41E: 4C 00 A2  JMP loc_0x004210
+C - - - - 0x03C42E FF:C41E: 4C 00 A2  JMP loc_0x00422B
 
 loc_C421:
 C D - - - 0x03C431 FF:C421: 24 3B     BIT ram_003B
