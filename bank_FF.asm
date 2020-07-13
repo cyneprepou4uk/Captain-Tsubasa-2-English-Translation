@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C558
-sub_0x03C558:
-C - - - - 0x03C558 FF:C548: 4C 99 CE  JMP loc_CE99
-
 .export sub_0x03C55B
 sub_0x03C55B:
 C - - - - 0x03C55B FF:C54B: 4C 6E CE  JMP loc_CE6E
@@ -1515,7 +1511,8 @@ C - - - - 0x03CEA3 FF:CE93: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 sub_CE96_непрямой_прыжок:
 C - - - - 0x03CEA6 FF:CE96: 6C 36 00  JMP (ram_0036)
 
-loc_CE99:
+.export sub_0x03CEA9
+sub_0x03CEA9:
 sub_CE99:
 C D - - - 0x03CEA9 FF:CE99: 85 46     STA ram_0046
 C - - - - 0x03CEAB FF:CE9B: E6 46     INC ram_0046
