@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C56D_запись_номера_звука_в_свободный_адрес
-sub_0x03C56D_запись_номера_звука_в_свободный_адрес:
-C - - - - 0x03C56D FF:C55D: 4C F1 CB  JMP loc_CBF1_запись_номера_звука_в_свободный_адрес
-
 .export sub_0x03C570
 sub_0x03C570:
 C - - - - 0x03C570 FF:C560: 4C 72 CF  JMP loc_CF72
@@ -1020,17 +1016,19 @@ C - - - - 0x03CBFE FF:CBEE: 69 40     ADC #$40
 bra_CBF0_выход:
 C - - - - 0x03CC00 FF:CBF0: 60        RTS
 
-loc_CBF1_запись_номера_звука_в_свободный_адрес:
-sub_CBF1_запись_номера_звука_в_свободный_адрес:
+.export sub_0x03CC01_запись_звука
+sub_0x03CC01_запись_звука:
+sub_CBF1_запись_звука:
+; выбор свободного адреса для записи
 C D - - - 0x03CC01 FF:CBF1: A2 00     LDX #$00
-bra_CBF3:
+bra_CBF3_цикл_поиска:
 C - - - - 0x03CC03 FF:CBF3: BC 00 07  LDY ram_звук,X
-C - - - - 0x03CC06 FF:CBF6: F0 06     BEQ bra_CBFE
+C - - - - 0x03CC06 FF:CBF6: F0 06     BEQ bra_CBFE_адрес_свободен
 C - - - - 0x03CC08 FF:CBF8: E8        INX
 C - - - - 0x03CC09 FF:CBF9: E0 05     CPX #$05
-C - - - - 0x03CC0B FF:CBFB: D0 F6     BNE bra_CBF3
+C - - - - 0x03CC0B FF:CBFB: D0 F6     BNE bra_CBF3_цикл_поиска
 - - - - - 0x03CC0D FF:CBFD: 60        RTS
-bra_CBFE:
+bra_CBFE_адрес_свободен:
 C - - - - 0x03CC0E FF:CBFE: 9D 00 07  STA ram_звук,X
 C - - - - 0x03CC11 FF:CC01: 60        RTS
 
@@ -1827,7 +1825,7 @@ C - - - - 0x03D0B1 FF:D0A1: BD 2A 00  LDA ram_твоя_команда,X
 C - - - - 0x03D0B4 FF:D0A4: AA        TAX
 C - - - - 0x03D0B5 FF:D0A5: BD AC D0  LDA tbl_D0AC_мелодии_команд,X
 bra_D0A8:
-C - - - - 0x03D0B8 FF:D0A8: 20 F1 CB  JSR sub_CBF1_запись_номера_звука_в_свободный_адрес
+C - - - - 0x03D0B8 FF:D0A8: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - 0x03D0BB FF:D0AB: 60        RTS
 
 
@@ -2041,7 +2039,7 @@ C - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA ram_флаг_loss
 C - - - - 0x03D1F1 FF:D1E1: 09 80     ORA #$80
 C - - - - 0x03D1F3 FF:D1E3: 8D 3E 06  STA ram_флаг_loss
 C - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #$32
-C - - - - 0x03D1F8 FF:D1E8: 20 F1 CB  JSR sub_CBF1_запись_номера_звука_в_свободный_адрес
+C - - - - 0x03D1F8 FF:D1E8: 20 F1 CB  JSR sub_CBF1_запись_звука
 bra_D1EB:
 C - - - - 0x03D1FB FF:D1EB: AD F8 05  LDA ram_время_hi
 C - - - - 0x03D1FE FF:D1EE: 0D F7 05  ORA ram_время_lo
@@ -3348,7 +3346,7 @@ C - - - - 0x03DAB7 FF:DAA7: 4C FE CE  JMP loc_CEFE
 
 loc_DAAA:
 C D - - - 0x03DABA FF:DAAA: A9 01     LDA #$01
-C - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_номера_звука_в_свободный_адрес
+C - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - 0x03DABF FF:DAAF: 20 4F CF  JSR sub_CF4F
 C - - - - 0x03DAC2 FF:DAB2: 48        PHA
 C - - - - 0x03DAC5 FF:DAB5: A9 1A     LDA #$1A
@@ -6041,7 +6039,7 @@ C - - - - 0x03EC0C FF:EBFC: 10 04     BPL bra_EC02
 C - - - - 0x03EC0E FF:EBFE: C9 63     CMP #$63
 C - - - - 0x03EC10 FF:EC00: D0 03     BNE bra_EC05
 bra_EC02:
-C - - - - 0x03EC12 FF:EC02: 20 F1 CB  JSR sub_CBF1_запись_номера_звука_в_свободный_адрес
+C - - - - 0x03EC12 FF:EC02: 20 F1 CB  JSR sub_CBF1_запись_звука
 bra_EC05:
 C D - - - 0x03EC15 FF:EC05: 4C 86 EB  JMP loc_EB86
 
