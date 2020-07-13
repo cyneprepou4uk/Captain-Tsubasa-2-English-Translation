@@ -4133,7 +4133,7 @@ C - - - - 0x03E0B3 FF:E0A3: A9 1B     LDA #$1B
 C - - - - 0x03E0B5 FF:E0A5: 85 25     STA ram_для_8001_07
 C - - - - 0x03E0B7 FF:E0A7: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E0BA FF:E0AA: 68        PLA
-C - - - - 0x03E0BB FF:E0AB: 20 00 80  JSR sub_0x034010
+C - - - - 0x03E0BB FF:E0AB: 20 00 80  JSR sub_0x036113
 C - - - - 0x03E0BE FF:E0AE: 68        PLA
 bra_E0AF:
 C - - - - 0x03E0BF FF:E0AF: 85 41     STA ram_0041
@@ -4623,7 +4623,7 @@ C - - - - 0x03E452 FF:E442: A9 1B     LDA #$1B
 C - - - - 0x03E454 FF:E444: 85 25     STA ram_для_8001_07
 C - - - - 0x03E456 FF:E446: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E459 FF:E449: 68        PLA
-C - - - - 0x03E45A FF:E44A: 20 00 80  JSR sub_0x034010
+C - - - - 0x03E45A FF:E44A: 20 00 80  JSR sub_0x036113
 C - - - - 0x03E45D FF:E44D: 68        PLA
 bra_E44E:
 C - - - - 0x03E45E FF:E44E: 85 41     STA ram_0041
