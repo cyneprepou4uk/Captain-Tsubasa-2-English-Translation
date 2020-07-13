@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export ofs_0x03C637
-ofs_0x03C637:
-C - J - - 0x03C637 FF:C627: 4C 4C E5  JMP loc_E54C
-
 .export ofs_0x03C63A
 ofs_0x03C63A:
 C - J - - 0x03C63A FF:C62A: 4C 96 E5  JMP loc_E596
@@ -4807,7 +4803,8 @@ C - - - - 0x03E558 FF:E548: EE 00 06  INC $0600
 bra_E54B_выход:
 C - - - - 0x03E55B FF:E54B: 60        RTS
 
-loc_E54C:
+.export ofs_0x03E55C
+ofs_0x03E55C:
 C D - - - 0x03E55C FF:E54C: A9 00     LDA #$00
 C - - - - 0x03E55E FF:E54E: 8D 4E 04  STA ram_высота_мяча
 C - - - - 0x03E561 FF:E551: AD 00 06  LDA $0600
