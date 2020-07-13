@@ -269,7 +269,7 @@ C - - - - 0x004265 03:A255: 20 43 9A  JSR sub_0x001A53
 C - - - - 0x004268 03:A258: A9 00     LDA #$00
 C - - - - 0x00426A 03:A25A: 85 4A     STA ram_004A
 C - - - - 0x00426C 03:A25C: 85 4B     STA ram_004B
-C - - - - 0x00426E 03:A25E: 20 A0 98  JSR sub_0x0018B0
+C - - - - 0x00426E 03:A25E: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x004271 03:A261: 20 7F 9B  JSR sub_0x001B8F
 C - - - - 0x004274 03:A264: A9 02     LDA #$02
 C - - - - 0x004276 03:A266: 85 8F     STA ram_008F
@@ -313,7 +313,7 @@ C - - - - 0x0042BC 03:A2AC: 4C ED 9E  JMP loc_0x001EFD
 .export loc_0x0042BF
 loc_0x0042BF:
 C D - - - 0x0042BF 03:A2AF: 20 F0 99  JSR sub_0x001A00
-C - - - - 0x0042C2 03:A2B2: 20 A0 98  JSR sub_0x0018B0
+C - - - - 0x0042C2 03:A2B2: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x0042C5 03:A2B5: 20 7F 9B  JSR sub_0x001B8F
 C - - - - 0x0042C8 03:A2B8: A5 20     LDA ram_0020
 C - - - - 0x0042CA 03:A2BA: 29 7F     AND #$7F
@@ -686,7 +686,7 @@ C - - - - 0x004544 03:A534: A9 02     LDA #$02
 C - - - - 0x004546 03:A536: 85 91     STA ram_0091
 C - - - - 0x004548 03:A538: 20 F0 99  JSR sub_0x001A00
 C - - - - 0x00454B 03:A53B: 20 7F 9B  JSR sub_0x001B8F
-C - - - - 0x00454E 03:A53E: 20 A0 98  JSR sub_0x0018B0
+C - - - - 0x00454E 03:A53E: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x004551 03:A541: A9 C0     LDA #$C0
 C - - - - 0x004553 03:A543: 85 E6     STA ram_00E6
 C - - - - 0x004555 03:A545: A9 23     LDA #$23

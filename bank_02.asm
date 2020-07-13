@@ -132,8 +132,8 @@ C - - - - 0x002117 02:A107: A2 0B     LDX #$0B
 C - - - - 0x002119 02:A109: 20 E8 98  JSR sub_0x0018F8
 C - - - - 0x00211C 02:A10C: 60        RTS
 
-.export sub_0x00211D
-sub_0x00211D:
+.export sub_0x00211D_экран_continue
+sub_0x00211D_экран_continue:
 C D - - - 0x00211D 02:A10D: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002120 02:A110: A9 00     LDA #$00
 C - - - - 0x002122 02:A112: A0 F0     LDY #$F0
@@ -757,7 +757,7 @@ C - - - - 0x00258A 02:A57A: CA        DEX
 C - - - - 0x00258B 02:A57B: D0 F4     BNE bra_A571
 bra_A57D:
 C - - - - 0x00258D 02:A57D: 20 F0 99  JSR sub_0x001A00
-C - - - - 0x002590 02:A580: 20 A0 98  JSR sub_0x0018B0
+C - - - - 0x002590 02:A580: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x002593 02:A583: A9 00     LDA #$00
 C - - - - 0x002595 02:A585: 85 ED     STA ram_00ED
 C - - - - 0x002597 02:A587: 85 EC     STA ram_00EC
@@ -867,7 +867,7 @@ C - - - - 0x002659 02:A649: 4C 50 9D  JMP loc_0x001D60
 .export sub_0x00265C
 sub_0x00265C:
 loc_A64C:
-C D - - - 0x00265C 02:A64C: 20 A0 98  JSR sub_0x0018B0
+C D - - - 0x00265C 02:A64C: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x00265F 02:A64F: 20 7F 9B  JSR sub_0x001B8F
 loc_A652:
 C D - - - 0x002662 02:A652: A6 26     LDX ram_матч
@@ -938,7 +938,7 @@ C - - - - 0x0026DF 02:A6CF: 4C 15 A7  JMP loc_A715
 loc_0x0026E2:
 C D - - - 0x0026E2 02:A6D2: A9 55     LDA #$55
 C - - - - 0x0026E4 02:A6D4: 8D 00 07  STA ram_звук
-C - - - - 0x0026E7 02:A6D7: 20 A0 98  JSR sub_0x0018B0
+C - - - - 0x0026E7 02:A6D7: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x0026EA 02:A6DA: 20 7F 9B  JSR sub_0x001B8F
 C - - - - 0x0026ED 02:A6DD: A6 26     LDX ram_матч
 C - - - - 0x0026EF 02:A6DF: BD B5 B3  LDA tbl_B3B5,X
@@ -946,7 +946,7 @@ C - - - - 0x0026F2 02:A6E2: 20 64 84  JSR sub_0x000474
 C - - - - 0x0026F5 02:A6E5: 4C F9 A6  JMP loc_A6F9
 
 loc_A6E8:
-C D - - - 0x0026F8 02:A6E8: 20 A0 98  JSR sub_0x0018B0
+C D - - - 0x0026F8 02:A6E8: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x0026FB 02:A6EB: 20 7F 9B  JSR sub_0x001B8F
 C - - - - 0x0026FE 02:A6EE: A6 26     LDX ram_матч
 C - - - - 0x002700 02:A6F0: BD B5 B3  LDA tbl_B3B5,X
@@ -2536,7 +2536,7 @@ C - - - - 0x0031AF 02:B19F: A9 03     LDA #$03
 C - - - - 0x0031B1 02:B1A1: 4C BB B1  JMP loc_B1BB
 
 ofs_B1A4_0D:
-C - J - - 0x0031B4 02:B1A4: 20 A0 98  JSR sub_0x0018B0
+C - J - - 0x0031B4 02:B1A4: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - 0x0031B7 02:B1A7: A9 01     LDA #$01
 C - - - - 0x0031B9 02:B1A9: 4C BB B1  JMP loc_B1BB
 
