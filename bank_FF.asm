@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C540
-sub_0x03C540:
-C - - - - 0x03C540 FF:C530: 4C 02 CC  JMP loc_CC02
-
 .export sub_0x03C543
 sub_0x03C543:
 C - - - - 0x03C543 FF:C533: 4C D2 CC  JMP loc_CCD2
@@ -1092,7 +1088,8 @@ bra_CBFE:
 C - - - - 0x03CC0E FF:CBFE: 9D 00 07  STA ram_звук,X
 C - - - - 0x03CC11 FF:CC01: 60        RTS
 
-loc_CC02:
+.export sub_0x03CC12
+sub_0x03CC12:
 sub_CC02:
 C D - - - 0x03CC12 FF:CC02: A0 00     LDY #$00
 C - - - - 0x03CC14 FF:CC04: 84 66     STY ram_0066
