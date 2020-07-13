@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x03403A
-sub_0x03403A:
-C - - - - 0x03403A 23:802A: 4C EB A1  JMP loc_A1EB
-
 .export sub_0x034040_вычисление_счета_пенальти
 sub_0x034040_вычисление_счета_пенальти:
 C - - - - 0x034040 23:8030: 4C E1 95  JMP loc_95E1_вычисление_счета_пенальти
@@ -5137,7 +5133,8 @@ tbl_A1DC:
 - D - - - 0x0361F9 23:A1E9: 01        .byte $01	; <あ>
 - D - - - 0x0361FA 23:A1EA: 00        .byte $00
 
-loc_A1EB:
+.export sub_0x0361FB
+sub_0x0361FB:
 C D - - - 0x0361FB 23:A1EB: AD F4 05  LDA $05F4
 C - - - - 0x0361FE 23:A1EE: D0 01     BNE bra_A1F1
 C - - - - 0x036200 23:A1F0: 60        RTS

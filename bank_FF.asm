@@ -1495,7 +1495,7 @@ C - - - - 0x03CF89 FF:CF79: A9 1B     LDA #$1B
 C - - - - 0x03CF8B FF:CF7B: 85 25     STA ram_для_8001_07
 C - - - - 0x03CF8D FF:CF7D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03CF90 FF:CF80: 68        PLA
-C - - - - 0x03CF91 FF:CF81: 20 2A 80  JSR sub_0x03403A
+C - - - - 0x03CF91 FF:CF81: 20 2A 80  JSR sub_0x0361FB
 C - - - - 0x03CF94 FF:CF84: A9 18     LDA #$18
 C - - - - 0x03CF96 FF:CF86: 85 24     STA ram_для_8001_06
 C - - - - 0x03CF98 FF:CF88: A9 19     LDA #$19
