@@ -999,7 +999,8 @@ C - - - - 0x002755 02:A745: A2 B4     LDX #> tbl_B43D_экран_с_опциям
 C - - - - 0x002757 02:A747: 20 C0 B0  JSR sub_B0C0
 C - - - - 0x00275A 02:A74A: A9 00     LDA #$00
 C - - - - 0x00275C 02:A74C: 20 E9 AD  JSR sub_ADE9
-C - - - - 0x00275F 02:A74F: A9 88     LDA #$88
+; позиция имен основных игроков
+C - - - - 0x00275F 02:A74F: A9 88     LDA #$85
 C - - - - 0x002761 02:A751: 85 E6     STA ram_00E6
 C - - - - 0x002763 02:A753: A9 20     LDA #$20
 C - - - - 0x002765 02:A755: 85 E7     STA ram_00E7
@@ -1007,11 +1008,11 @@ C - - - - 0x002767 02:A757: 20 AC AE  JSR sub_AEAC
 C - - - - 0x00276A 02:A75A: A9 00     LDA #$00
 C - - - - 0x00276C 02:A75C: 20 01 AE  JSR sub_AE01
 C - - - - 0x00276F 02:A75F: A0 FC     LDY #$FC
-bra_A761:
+bra_A761_цикл:
 C - - - - 0x002771 02:A761: B9 A2 AC  LDA tbl_AD9E - $FC,Y
 C - - - - 0x002774 02:A764: 99 68 04  STA ram_копия_спрайт_Y,Y
 C - - - - 0x002777 02:A767: C8        INY
-C - - - - 0x002778 02:A768: D0 F7     BNE bra_A761
+C - - - - 0x002778 02:A768: D0 F7     BNE bra_A761_цикл
 C - - - - 0x00277A 02:A76A: A9 03     LDA #$03
 C - - - - 0x00277C 02:A76C: A2 39     LDX #$39
 C - - - - 0x00277E 02:A76E: 20 7A 99  JSR sub_0x00198A
@@ -1064,8 +1065,8 @@ C - - - - 0x0027D7 02:A7C7: 8D 64 05  STA $0564
 C - - - - 0x0027DA 02:A7CA: A9 94     LDA #$94
 C - - - - 0x0027DC 02:A7CC: 85 4C     STA ram_004C
 loc_A7CE:
-C D - - - 0x0027DE 02:A7CE: A0 A8     LDY #< tbl_ADA8
-C - - - - 0x0027E0 02:A7D0: A2 AD     LDX #> tbl_ADA8
+C D - - - 0x0027DE 02:A7CE: A0 A8     LDY #< tbl_ADA8_курсор_замены_1
+C - - - - 0x0027E0 02:A7D0: A2 AD     LDX #> tbl_ADA8_курсор_замены_1
 C - - - - 0x0027E2 02:A7D2: 20 3A 9C  JSR sub_0x001C4A
 bra_A7D5:
 C - - - - 0x0027E5 02:A7D5: A9 01     LDA #$01
@@ -1079,8 +1080,8 @@ C - - - - 0x0027F1 02:A7E1: 10 F2     BPL bra_A7D5
 C - - - - 0x0027F3 02:A7E3: A9 01     LDA #$01
 C - - - - 0x0027F5 02:A7E5: 8D 62 05  STA $0562
 C - - - - 0x0027F8 02:A7E8: 20 D3 9C  JSR sub_0x001CE3
-C - - - - 0x0027FB 02:A7EB: A0 AE     LDY #< tbl_ADAE
-C - - - - 0x0027FD 02:A7ED: A2 AD     LDX #> tbl_ADAE
+C - - - - 0x0027FB 02:A7EB: A0 AE     LDY #< tbl_ADAE_курсор_замены_2
+C - - - - 0x0027FD 02:A7ED: A2 AD     LDX #> tbl_ADAE_курсор_замены_2
 C - - - - 0x0027FF 02:A7EF: AD 60 05  LDA $0560
 C - - - - 0x002802 02:A7F2: 20 3C 9C  JSR sub_0x001C4C
 bra_A7F5:
@@ -1864,20 +1865,20 @@ tbl_ADA2:
 - D - I - 0x002DB6 02:ADA6: 90        .byte $90	; <U>
 - D - I - 0x002DB7 02:ADA7: 78        .byte $78	; <?>
 
-tbl_ADA8:
+tbl_ADA8_курсор_замены_1:
 - D - I - 0x002DB8 02:ADA8: F8        .byte $F8
 - D - I - 0x002DB9 02:ADA9: 28        .byte $28	; <り>
 - D - I - 0x002DBA 02:ADAA: 71        .byte $71	; <ュ>
 - D - I - 0x002DBB 02:ADAB: 00        .byte $00
-- D - I - 0x002DBC 02:ADAC: 38        .byte $38	; <5>
+- D - I - 0x002DBC 02:ADAC: 38        .byte $20	; <5>
 - D - I - 0x002DBD 02:ADAD: B8        .byte $B8	; <ゴ>
 
-tbl_ADAE:
+tbl_ADAE_курсор_замены_2:
 - D - I - 0x002DBE 02:ADAE: F4        .byte $F4
 - D - I - 0x002DBF 02:ADAF: 28        .byte $28	; <り>
 - D - I - 0x002DC0 02:ADB0: 71        .byte $71	; <ュ>
 - D - I - 0x002DC1 02:ADB1: 00        .byte $00
-- D - I - 0x002DC2 02:ADB2: 38        .byte $38	; <5>
+- D - I - 0x002DC2 02:ADB2: 38        .byte $20	; <5>
 - D - I - 0x002DC3 02:ADB3: B8        .byte $B8	; <ゴ>
 
 tbl_ADB4:
@@ -3213,23 +3214,23 @@ tbl_B41B:
 tbl_B43D_экран_с_опциями_без_запасных:
 ; вертикальная полоска слева от имен игроков
 - D - I - 0x00344D 02:B43D: 04        .byte $04	; <え>
-- D - I - 0x00344E 02:B43E: 84 20     .word $2084
+- D - I - 0x00344E 02:B43E: 84 20     .word $2081
 - D - I - 0x003450 02:B440: 16        .byte $16	; <に>
 - D - I - 0x003451 02:B441: AA        .byte $AA	; <だ>
 ; вертикальная полоска справа от имен игроков
 - D - I - 0x003452 02:B442: 04        .byte $04	; <え>
-- D - I - 0x003453 02:B443: 8D 20     .word $208D
+- D - I - 0x003453 02:B443: 8D 20     .word $208E
 - D - I - 0x003455 02:B445: 16        .byte $16	; <に>
 - D - I - 0x003456 02:B446: AB        .byte $AB	; <ぢ>
-; оформление вокруг игроков сверху и снизу
+
 - D - I - 0x003457 02:B447: 00        .byte $00
-- D - I - 0x003458 02:B448: 74 B4     .word off_B474
-; опции под имененем команды
+- D - I - 0x003458 02:B448: 74 B4     .word off_B474_окно_основных_игроков
+
 - D - I - 0x00345A 02:B44A: 00        .byte $00
-- D - I - 0x00345B 02:B44B: B3 B4     .word off_B4B3
-; миникарта
+- D - I - 0x00345B 02:B44B: B3 B4     .word off_B4B3_опции
+
 - D - I - 0x00345D 02:B44D: 00        .byte $00
-- D - I - 0x00345E 02:B44E: 53 B6     .word off_B653
+- D - I - 0x00345E 02:B44E: 53 B6     .word off_B653_миникарта
 ; закончить отрисовку
 - D - I - 0x003460 02:B450: 0F        .byte $0F	; <そ>
 
@@ -3246,16 +3247,16 @@ tbl_B451_экран_с_опциями_с_запасными:
 - D - I - 0x003467 02:B457: 8A 20     .word $208A
 - D - I - 0x003469 02:B459: 16        .byte $16	; <に>
 - D - I - 0x00346A 02:B45A: AB        .byte $AB	; <ぢ>
-; оформление вокруг основных игроков сверху и снизу + смещение влево
+; + смещение влево
 - D - I - 0x00346B 02:B45B: 01        .byte $01	; <あ>
-- D - I - 0x00346C 02:B45C: 74 B4     .word off_B474
+- D - I - 0x00346C 02:B45C: 74 B4     .word off_B474_окно_основных_игроков
 - D - I - 0x00346E 02:B45E: FD        .byte $FD
 ; опции под имененем команды
 - D - I - 0x00346F 02:B45F: 00        .byte $00
-- D - I - 0x003470 02:B460: 83 B5     .word off_B583
-; миникарта + смещение влево
+- D - I - 0x003470 02:B460: 83 B5     .word off_B583_опции
+; + смещение влево
 - D - I - 0x003472 02:B462: 01        .byte $01	; <あ>
-- D - I - 0x003473 02:B463: 53 B6     .word off_B653
+- D - I - 0x003473 02:B463: 53 B6     .word off_B653_миникарта
 - D - I - 0x003475 02:B465: FB        .byte $FB
 ; вертикальная полоска слева от имен запасных игроков
 - D - I - 0x003476 02:B466: 04        .byte $04	; <え>
@@ -3275,93 +3276,98 @@ tbl_B451_экран_с_опциями_с_запасными:
 
 
 
-off_B474:
-- D - I - 0x003484 02:B474: 01        .byte $01	; <あ>
-- D - I - 0x003485 02:B475: 46        .byte $46	; <カ>
-- D - I - 0x003486 02:B476: 20        .byte $20	; <み>
-- D - I - 0x003487 02:B477: 95        .byte $95
-- D - I - 0x003488 02:B478: 0A        .byte $0A	; <こ>
-- D - I - 0x003489 02:B479: 64        .byte $64	; <ヤ>
-- D - I - 0x00348A 02:B47A: 20        .byte $20	; <み>
+off_B474_окно_основных_игроков:
+; верхняя обводка
+- D - I - 0x003488 02:B478: 0A        .byte $0E
+- D - I - 0x003489 02:B479: 64 20     .word $2061
 - D - I - 0x00348B 02:B47B: 9C        .byte $9C
-- D - I - 0x00348C 02:B47C: A8        .byte $A8	; <ぜ>
-- D - I - 0x00348D 02:B47D: 5C        .byte $5C	; <フ>
-- D - I - 0x00348E 02:B47E: 6A        .byte $6A	; <レ>
-- D - I - 0x00348F 02:B47F: 42        .byte $42	; <イ>
-- D - I - 0x003490 02:B480: 64        .byte $64	; <ヤ>
-- D - I - 0x003491 02:B481: 7D        .byte $7D	; <ー>
+- D - I - 0x00348C 02:B47C: A8        .byte $A8
+- D - I - 0x00348B 02:B47B: 9C        .byte $A8
+- D - I - 0x00348C 02:B47C: A8        .byte $A8
+- D - I - 0x00348D 02:B47D: 5C        .byte $00
+- D - I - 0x00348E 02:B47E: 6A        .byte $54
+- D - I - 0x00348F 02:B47F: 42        .byte $65
+- D - I - 0x003490 02:B480: 64        .byte $61
+- D - I - 0x003491 02:B481: 7D        .byte $6D
 - D - I - 0x003492 02:B482: 00        .byte $00
-- D - I - 0x003493 02:B483: A8        .byte $A8	; <ぜ>
+- D - I - 0x003493 02:B483: A8        .byte $A8
+- D - I - 0x003494 02:B484: 9D        .byte $A8
+- D - I - 0x003493 02:B483: A8        .byte $A8
 - D - I - 0x003494 02:B484: 9D        .byte $9D
-- D - I - 0x003495 02:B485: 0A        .byte $0A	; <こ>
-- D - I - 0x003496 02:B486: 44        .byte $44	; <エ>
-- D - I - 0x003497 02:B487: 23        .byte $23	; <も>
+; нижняя обводка
+- D - I - 0x003495 02:B485: 0A        .byte $0E
+- D - I - 0x003496 02:B486: 44 23     .word $2341
 - D - I - 0x003498 02:B488: 9E        .byte $9E
-- D - I - 0x003499 02:B489: A9        .byte $A9	; <ぞ>
-- D - I - 0x00349A 02:B48A: A9        .byte $A9	; <ぞ>
-- D - I - 0x00349B 02:B48B: A9        .byte $A9	; <ぞ>
-- D - I - 0x00349C 02:B48C: A9        .byte $A9	; <ぞ>
-- D - I - 0x00349D 02:B48D: A9        .byte $A9	; <ぞ>
-- D - I - 0x00349E 02:B48E: A9        .byte $A9	; <ぞ>
-- D - I - 0x00349F 02:B48F: A9        .byte $A9	; <ぞ>
-- D - I - 0x0034A0 02:B490: A9        .byte $A9	; <ぞ>
+- D - I - 0x003499 02:B489: A9        .byte $A9
+- D - I - 0x00349A 02:B48A: A9        .byte $A9
+- D - I - 0x00349B 02:B48B: A9        .byte $A9
+- D - I - 0x00349C 02:B48C: A9        .byte $A9
+- D - I - 0x00349D 02:B48D: A9        .byte $A9
+- D - I - 0x00349E 02:B48E: A9        .byte $A9
+- D - I - 0x00349F 02:B48F: A9        .byte $A9
+- D - I - 0x00349C 02:B48C: A9        .byte $A9
+- D - I - 0x00349D 02:B48D: A9        .byte $A9
+- D - I - 0x00349E 02:B48E: A9        .byte $A9
+- D - I - 0x00349F 02:B48F: A9        .byte $A9
+- D - I - 0x0034A0 02:B490: A9        .byte $A9
 - D - I - 0x0034A1 02:B491: 9F        .byte $9F
+
 - D - I - 0x0034A2 02:B492: 83        .byte $83	; <C>
-- D - I - 0x0034A3 02:B493: A5        .byte $A5	; <ざ>
-- D - I - 0x0034A4 02:B494: 20        .byte $20	; <み>
-- D - I - 0x0034A5 02:B495: 34        .byte $34	; <1>
+- D - I - 0x0034A3 02:B493: A5 20     .word $20A2
+- D - I - 0x0034A5 02:B495: 34        .byte $31	; <1>
 - D - I - 0x0034A6 02:B496: 00        .byte $00
-- D - I - 0x0034A7 02:B497: 34        .byte $34	; <1>
+- D - I - 0x0034A7 02:B497: 34        .byte $31	; <1>
+
 - D - I - 0x0034A8 02:B498: 93        .byte $93	; <Y>
-- D - I - 0x0034A9 02:B499: A6        .byte $A6	; <じ>
-- D - I - 0x0034AA 02:B49A: 20        .byte $20	; <み>
-- D - I - 0x0034AB 02:B49B: 34        .byte $34	; <1>
+- D - I - 0x0034A9 02:B499: A6 20     .word $20A3
+- D - I - 0x0034AB 02:B49B: 34        .byte $31
 - D - I - 0x0034AC 02:B49C: 00        .byte $00
-- D - I - 0x0034AD 02:B49D: 33        .byte $33	; <0>
+- D - I - 0x0034AD 02:B49D: 33        .byte $30
 - D - I - 0x0034AE 02:B49E: 00        .byte $00
-- D - I - 0x0034AF 02:B49F: 3C        .byte $3C	; <9>
+- D - I - 0x0034AF 02:B49F: 3C        .byte $39
 - D - I - 0x0034B0 02:B4A0: 00        .byte $00
-- D - I - 0x0034B1 02:B4A1: 3B        .byte $3B	; <8>
+- D - I - 0x0034B1 02:B4A1: 3B        .byte $38
 - D - I - 0x0034B2 02:B4A2: 00        .byte $00
-- D - I - 0x0034B3 02:B4A3: 3A        .byte $3A	; <7>
+- D - I - 0x0034B3 02:B4A3: 3A        .byte $37
 - D - I - 0x0034B4 02:B4A4: 00        .byte $00
-- D - I - 0x0034B5 02:B4A5: 39        .byte $39	; <6>
+- D - I - 0x0034B5 02:B4A5: 39        .byte $36
 - D - I - 0x0034B6 02:B4A6: 00        .byte $00
-- D - I - 0x0034B7 02:B4A7: 38        .byte $38	; <5>
+- D - I - 0x0034B7 02:B4A7: 38        .byte $35
 - D - I - 0x0034B8 02:B4A8: 00        .byte $00
-- D - I - 0x0034B9 02:B4A9: 37        .byte $37	; <4>
+- D - I - 0x0034B9 02:B4A9: 37        .byte $34
 - D - I - 0x0034BA 02:B4AA: 00        .byte $00
-- D - I - 0x0034BB 02:B4AB: 36        .byte $36	; <3>
+- D - I - 0x0034BB 02:B4AB: 36        .byte $33
 - D - I - 0x0034BC 02:B4AC: 00        .byte $00
-- D - I - 0x0034BD 02:B4AD: 35        .byte $35	; <2>
-- D - I - 0x0034BE 02:B4AE: 42        .byte $42	; <イ>
-- D - I - 0x0034BF 02:B4AF: 25        .byte $25	; <ゆ>
-- D - I - 0x0034C0 02:B4B0: 23        .byte $23	; <も>
-- D - I - 0x0034C1 02:B4B1: 87        .byte $87	; <G>
-- D - I - 0x0034C2 02:B4B2: 8B        .byte $8B	; <K>
+- D - I - 0x0034BD 02:B4AD: 35        .byte $32
+
+- D - I - 0x0034BE 02:B4AE: 42        .byte $42
+- D - I - 0x0034BF 02:B4AF: 25 23     .word $2322
+- D - I - 0x0034C1 02:B4B1: 87        .byte $47
+- D - I - 0x0034C2 02:B4B2: 8B        .byte $4B
+
+
 
 tbl_B4B3:
-off_B4B3:
-- D - I - 0x0034C3 02:B4B3: 0D        .byte $0D	; <す>
-- D - I - 0x0034C4 02:B4B4: B0        .byte $B0	; <び>
-- D - I - 0x0034C5 02:B4B5: 20        .byte $20	; <み>
+off_B4B3_опции:
+- D - I - 0x0034C3 02:B4B3: 0D        .byte $0D
+- D - I - 0x0034C4 02:B4B4: B0 20     .word $20B0
 - D - I - 0x0034C6 02:B4B6: 9C        .byte $9C
-- D - I - 0x0034C7 02:B4B7: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034C8 02:B4B8: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034C9 02:B4B9: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034CA 02:B4BA: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034CB 02:B4BB: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034CC 02:B4BC: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034CD 02:B4BD: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034CE 02:B4BE: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034CF 02:B4BF: A8        .byte $A8	; <ぜ>
-- D - I - 0x0034D0 02:B4C0: A8        .byte $A8	; <ぜ>
+- D - I - 0x0034C7 02:B4B7: A8        .byte $A8
+- D - I - 0x0034C8 02:B4B8: A8        .byte $A8
+- D - I - 0x0034C9 02:B4B9: A8        .byte $A8
+- D - I - 0x0034CA 02:B4BA: A8        .byte $A8
+- D - I - 0x0034CB 02:B4BB: A8        .byte $A8
+- D - I - 0x0034CC 02:B4BC: A8        .byte $A8
+- D - I - 0x0034CD 02:B4BD: A8        .byte $A8
+- D - I - 0x0034CE 02:B4BE: A8        .byte $A8
+- D - I - 0x0034CF 02:B4BF: A8        .byte $A8
+- D - I - 0x0034D0 02:B4C0: A8        .byte $A8
 - D - I - 0x0034D1 02:B4C1: 9D        .byte $9D
 - D - I - 0x0034D2 02:B4C2: 00        .byte $00
-- D - I - 0x0034D3 02:B4C3: 0D        .byte $0D	; <す>
-- D - I - 0x0034D4 02:B4C4: D0        .byte $D0	; <ペ>
-- D - I - 0x0034D5 02:B4C5: 20        .byte $20	; <み>
-- D - I - 0x0034D6 02:B4C6: AA        .byte $AA	; <だ>
+; пустая строка с границами по бокам + пробел
+- D - I - 0x0034D3 02:B4C3: 0D        .byte $0D
+- D - I - 0x0034D4 02:B4C4: D0 20     .word $20D0
+- D - I - 0x0034D6 02:B4C6: AA        .byte $AA
 - D - I - 0x0034D7 02:B4C7: 00        .byte $00
 - D - I - 0x0034D8 02:B4C8: 00        .byte $00
 - D - I - 0x0034D9 02:B4C9: 00        .byte $00
@@ -3372,30 +3378,30 @@ off_B4B3:
 - D - I - 0x0034DE 02:B4CE: 00        .byte $00
 - D - I - 0x0034DF 02:B4CF: 00        .byte $00
 - D - I - 0x0034E0 02:B4D0: 00        .byte $00
-- D - I - 0x0034E1 02:B4D1: AB        .byte $AB	; <ぢ>
+- D - I - 0x0034E1 02:B4D1: AB        .byte $AB
 - D - I - 0x0034E2 02:B4D2: 00        .byte $00
-- D - I - 0x0034E3 02:B4D3: 0D        .byte $0D	; <す>
-- D - I - 0x0034E4 02:B4D4: F0        .byte $F0
-- D - I - 0x0034E5 02:B4D5: 20        .byte $20	; <み>
-- D - I - 0x0034E6 02:B4D6: AA        .byte $AA	; <だ>
+; расстановка
+- D - I - 0x0034E3 02:B4D3: 0D        .byte $0D
+- D - I - 0x0034E4 02:B4D4: F0 20     .word $20F0
+- D - I - 0x0034E6 02:B4D6: AA        .byte $AA
 - D - I - 0x0034E7 02:B4D7: 00        .byte $00
-- D - I - 0x0034E8 02:B4D8: 5C        .byte $5C	; <フ>
-- D - I - 0x0034E9 02:B4D9: 76        .byte $76	; <ォ>
-- D - I - 0x0034EA 02:B4DA: 7D        .byte $7D	; <ー>
-- D - I - 0x0034EB 02:B4DB: 62        .byte $62	; <メ>
-- D - I - 0x0034EC 02:B4DC: 7D        .byte $7D	; <ー>
-- D - I - 0x0034ED 02:B4DD: 4C        .byte $4C	; <シ>
-- D - I - 0x0034EE 02:B4DE: 72        .byte $72	; <ョ>
-- D - I - 0x0034EF 02:B4DF: 6E        .byte $6E	; <ン>
-- D - I - 0x0034F0 02:B4E0: 00        .byte $00
-- D - I - 0x0034F1 02:B4E1: AB        .byte $AB	; <ぢ>
+- D - I - 0x0034E8 02:B4D8: 5C        .byte $46
+- D - I - 0x0034E9 02:B4D9: 76        .byte $6F
+- D - I - 0x0034EA 02:B4DA: 7D        .byte $72
+- D - I - 0x0034EB 02:B4DB: 62        .byte $6D
+- D - I - 0x0034EC 02:B4DC: 7D        .byte $61
+- D - I - 0x0034ED 02:B4DD: 4C        .byte $74
+- D - I - 0x0034EE 02:B4DE: 72        .byte $69
+- D - I - 0x0034EF 02:B4DF: 6E        .byte $6F
+- D - I - 0x0034F0 02:B4E0: 00        .byte $6E
+- D - I - 0x0034F1 02:B4E1: AB        .byte $AB
 - D - I - 0x0034F2 02:B4E2: 00        .byte $00
-- D - I - 0x0034F3 02:B4E3: 0D        .byte $0D	; <す>
-- D - I - 0x0034F4 02:B4E4: 10        .byte $10	; <た>
-- D - I - 0x0034F5 02:B4E5: 21        .byte $21	; <む>
-- D - I - 0x0034F6 02:B4E6: AA        .byte $AA	; <だ>
+; пустая строка с границами по бокам + пробел
+- D - I - 0x0034F3 02:B4E3: 0D        .byte $0D
+- D - I - 0x0034F4 02:B4E4: 10 21     .word $2110
+- D - I - 0x0034F6 02:B4E6: AA        .byte $AA
 - D - I - 0x0034F7 02:B4E7: 00        .byte $00
-- D - I - 0x0034F8 02:B4E8: 94        .byte $94
+- D - I - 0x0034F8 02:B4E8: 94        .byte $00
 - D - I - 0x0034F9 02:B4E9: 00        .byte $00
 - D - I - 0x0034FA 02:B4EA: 00        .byte $00
 - D - I - 0x0034FB 02:B4EB: 00        .byte $00
@@ -3403,64 +3409,64 @@ off_B4B3:
 - D - I - 0x0034FD 02:B4ED: 00        .byte $00
 - D - I - 0x0034FE 02:B4EE: 00        .byte $00
 - D - I - 0x0034FF 02:B4EF: 00        .byte $00
-- D - I - 0x003500 02:B4F0: 95        .byte $95
-- D - I - 0x003501 02:B4F1: AB        .byte $AB	; <ぢ>
+- D - I - 0x003500 02:B4F0: 95        .byte $00
+- D - I - 0x003501 02:B4F1: AB        .byte $AB
 - D - I - 0x003502 02:B4F2: 00        .byte $00
-- D - I - 0x003503 02:B4F3: 0D        .byte $0D	; <す>
-- D - I - 0x003504 02:B4F4: 30        .byte $30	; <ゃ>
-- D - I - 0x003505 02:B4F5: 21        .byte $21	; <む>
-- D - I - 0x003506 02:B4F6: AA        .byte $AA	; <だ>
+; защита
+- D - I - 0x003503 02:B4F3: 0D        .byte $0D
+- D - I - 0x003504 02:B4F4: 30 21     .word $2130
+- D - I - 0x003506 02:B4F6: AA        .byte $AA
 - D - I - 0x003507 02:B4F7: 00        .byte $00
-- D - I - 0x003508 02:B4F8: 53        .byte $53	; <テ>
-- D - I - 0x003509 02:B4F9: 74        .byte $74	; <ィ>
-- D - I - 0x00350A 02:B4FA: 5C        .byte $5C	; <フ>
-- D - I - 0x00350B 02:B4FB: 75        .byte $75	; <ェ>
-- D - I - 0x00350C 02:B4FC: 6E        .byte $6E	; <ン>
-- D - I - 0x00350D 02:B4FD: 4D        .byte $4D	; <ス>
-- D - I - 0x00350E 02:B4FE: 50        .byte $50	; <タ>
-- D - I - 0x00350F 02:B4FF: 42        .byte $42	; <イ>
-- D - I - 0x003510 02:B500: 5C        .byte $5C	; <フ>
-- D - I - 0x003511 02:B501: AB        .byte $AB	; <ぢ>
+- D - I - 0x003508 02:B4F8: 53        .byte $44
+- D - I - 0x003509 02:B4F9: 74        .byte $65
+- D - I - 0x00350A 02:B4FA: 5C        .byte $66
+- D - I - 0x00350B 02:B4FB: 75        .byte $65
+- D - I - 0x00350C 02:B4FC: 6E        .byte $6E
+- D - I - 0x00350D 02:B4FD: 4D        .byte $73
+- D - I - 0x00350E 02:B4FE: 50        .byte $65
+- D - I - 0x00350F 02:B4FF: 42        .byte $00
+- D - I - 0x003510 02:B500: 5C        .byte $00
+- D - I - 0x003511 02:B501: AB        .byte $AB
 - D - I - 0x003512 02:B502: 00        .byte $00
-- D - I - 0x003513 02:B503: 0D        .byte $0D	; <す>
-- D - I - 0x003514 02:B504: 50        .byte $50	; <タ>
-- D - I - 0x003515 02:B505: 21        .byte $21	; <む>
-- D - I - 0x003516 02:B506: AA        .byte $AA	; <だ>
+; пустая строка с границами по бокам + пробел
+- D - I - 0x003513 02:B503: 0D        .byte $0D
+- D - I - 0x003514 02:B504: 50 21     .word $2150
+- D - I - 0x003516 02:B506: AA        .byte $AA
 - D - I - 0x003517 02:B507: 00        .byte $00
 - D - I - 0x003518 02:B508: 00        .byte $00
 - D - I - 0x003519 02:B509: 00        .byte $00
 - D - I - 0x00351A 02:B50A: 00        .byte $00
-- D - I - 0x00351B 02:B50B: 94        .byte $94
+- D - I - 0x00351B 02:B50B: 94        .byte $00
 - D - I - 0x00351C 02:B50C: 00        .byte $00
 - D - I - 0x00351D 02:B50D: 00        .byte $00
 - D - I - 0x00351E 02:B50E: 00        .byte $00
 - D - I - 0x00351F 02:B50F: 00        .byte $00
 - D - I - 0x003520 02:B510: 00        .byte $00
-- D - I - 0x003521 02:B511: AB        .byte $AB	; <ぢ>
+- D - I - 0x003521 02:B511: AB        .byte $AB
 - D - I - 0x003522 02:B512: 00        .byte $00
-- D - I - 0x003523 02:B513: 0D        .byte $0D	; <す>
-- D - I - 0x003524 02:B514: 70        .byte $70	; <ャ>
-- D - I - 0x003525 02:B515: 21        .byte $21	; <む>
-- D - I - 0x003526 02:B516: AA        .byte $AA	; <だ>
+; замена
+- D - I - 0x003523 02:B513: 0D        .byte $0D
+- D - I - 0x003524 02:B514: 70 21     .word $2170
+- D - I - 0x003526 02:B516: AA        .byte $AA
 - D - I - 0x003527 02:B517: 00        .byte $00
-- D - I - 0x003528 02:B518: 51        .byte $51	; <チ>
-- D - I - 0x003529 02:B519: 75        .byte $75	; <ェ>
-- D - I - 0x00352A 02:B51A: 6E        .byte $6E	; <ン>
-- D - I - 0x00352B 02:B51B: 4C        .byte $4C	; <シ>
-- D - I - 0x00352C 02:B51C: 00        .byte $00
-- D - I - 0x00352D 02:B51D: 00        .byte $00
-- D - I - 0x00352E 02:B51E: 00        .byte $00
+- D - I - 0x003528 02:B518: 51        .byte $4C
+- D - I - 0x003529 02:B519: 75        .byte $69
+- D - I - 0x00352A 02:B51A: 6E        .byte $6E
+- D - I - 0x00352B 02:B51B: 4C        .byte $65
+- D - I - 0x00352C 02:B51C: 00        .byte $5D
+- D - I - 0x00352D 02:B51D: 00        .byte $75
+- D - I - 0x00352E 02:B51E: 00        .byte $70
 - D - I - 0x00352F 02:B51F: 00        .byte $00
 - D - I - 0x003530 02:B520: 00        .byte $00
-- D - I - 0x003531 02:B521: AB        .byte $AB	; <ぢ>
+- D - I - 0x003531 02:B521: AB        .byte $AB
 - D - I - 0x003532 02:B522: 00        .byte $00
-- D - I - 0x003533 02:B523: 0D        .byte $0D	; <す>
-- D - I - 0x003534 02:B524: 90        .byte $90	; <U>
-- D - I - 0x003535 02:B525: 21        .byte $21	; <む>
-- D - I - 0x003536 02:B526: AA        .byte $AA	; <だ>
+; пустая строка с границами по бокам + пробел
+- D - I - 0x003533 02:B523: 0D        .byte $0D
+- D - I - 0x003534 02:B524: 90 21     .word $2190
+- D - I - 0x003536 02:B526: AA        .byte $AA
 - D - I - 0x003537 02:B527: 00        .byte $00
 - D - I - 0x003538 02:B528: 00        .byte $00
-- D - I - 0x003539 02:B529: 94        .byte $94
+- D - I - 0x003539 02:B529: 94        .byte $00
 - D - I - 0x00353A 02:B52A: 00        .byte $00
 - D - I - 0x00353B 02:B52B: 00        .byte $00
 - D - I - 0x00353C 02:B52C: 00        .byte $00
@@ -3468,28 +3474,28 @@ off_B4B3:
 - D - I - 0x00353E 02:B52E: 00        .byte $00
 - D - I - 0x00353F 02:B52F: 00        .byte $00
 - D - I - 0x003540 02:B530: 00        .byte $00
-- D - I - 0x003541 02:B531: AB        .byte $AB	; <ぢ>
+- D - I - 0x003541 02:B531: AB        .byte $AB
 - D - I - 0x003542 02:B532: 00        .byte $00
-- D - I - 0x003543 02:B533: 0D        .byte $0D	; <す>
-- D - I - 0x003544 02:B534: B0        .byte $B0	; <び>
-- D - I - 0x003545 02:B535: 21        .byte $21	; <む>
-- D - I - 0x003546 02:B536: AA        .byte $AA	; <だ>
+; статус
+- D - I - 0x003543 02:B533: 0D        .byte $0D
+- D - I - 0x003544 02:B534: B0 21     .word $21B0
+- D - I - 0x003546 02:B536: AA        .byte $AA
 - D - I - 0x003547 02:B537: 00        .byte $00
-- D - I - 0x003548 02:B538: 6A        .byte $6A	; <レ>
-- D - I - 0x003549 02:B539: 5D        .byte $5D	; <ヘ>
-- D - I - 0x00354A 02:B53A: 69        .byte $69	; <ル>
-- D - I - 0x00354B 02:B53B: 00        .byte $00
-- D - I - 0x00354C 02:B53C: 00        .byte $00
-- D - I - 0x00354D 02:B53D: 00        .byte $00
+- D - I - 0x003548 02:B538: 6A        .byte $53
+- D - I - 0x003549 02:B539: 5D        .byte $74
+- D - I - 0x00354A 02:B53A: 69        .byte $61
+- D - I - 0x00354B 02:B53B: 00        .byte $74
+- D - I - 0x00354C 02:B53C: 00        .byte $75
+- D - I - 0x00354D 02:B53D: 00        .byte $73
 - D - I - 0x00354E 02:B53E: 00        .byte $00
 - D - I - 0x00354F 02:B53F: 00        .byte $00
 - D - I - 0x003550 02:B540: 00        .byte $00
-- D - I - 0x003551 02:B541: AB        .byte $AB	; <ぢ>
+- D - I - 0x003551 02:B541: AB        .byte $AB
 - D - I - 0x003552 02:B542: 00        .byte $00
-- D - I - 0x003553 02:B543: 0D        .byte $0D	; <す>
-- D - I - 0x003554 02:B544: D0        .byte $D0	; <ペ>
-- D - I - 0x003555 02:B545: 21        .byte $21	; <む>
-- D - I - 0x003556 02:B546: AA        .byte $AA	; <だ>
+; пустая строка с границами по бокам + пробел
+- D - I - 0x003553 02:B543: 0D        .byte $0D
+- D - I - 0x003554 02:B544: D0 21     .word $21D0
+- D - I - 0x003556 02:B546: AA        .byte $AA
 - D - I - 0x003557 02:B547: 00        .byte $00
 - D - I - 0x003558 02:B548: 00        .byte $00
 - D - I - 0x003559 02:B549: 00        .byte $00
@@ -3500,43 +3506,43 @@ off_B4B3:
 - D - I - 0x00355E 02:B54E: 00        .byte $00
 - D - I - 0x00355F 02:B54F: 00        .byte $00
 - D - I - 0x003560 02:B550: 00        .byte $00
-- D - I - 0x003561 02:B551: AB        .byte $AB	; <ぢ>
+- D - I - 0x003561 02:B551: AB        .byte $AB
 - D - I - 0x003562 02:B552: 00        .byte $00
-- D - I - 0x003563 02:B553: 0D        .byte $0D	; <す>
-- D - I - 0x003564 02:B554: F0        .byte $F0
-- D - I - 0x003565 02:B555: 21        .byte $21	; <む>
-- D - I - 0x003566 02:B556: AA        .byte $AA	; <だ>
+; выход
+- D - I - 0x003563 02:B553: 0D        .byte $0D
+- D - I - 0x003564 02:B554: F0 21     .word $21F0
+- D - I - 0x003566 02:B556: AA        .byte $AA
 - D - I - 0x003567 02:B557: 00        .byte $00
-- D - I - 0x003568 02:B558: 05        .byte $05	; <お>
-- D - I - 0x003569 02:B559: 2C        .byte $2C	; <わ>
-- D - I - 0x00356A 02:B55A: 28        .byte $28	; <り>
-- D - I - 0x00356B 02:B55B: 00        .byte $00
+- D - I - 0x003568 02:B558: 05        .byte $44
+- D - I - 0x003569 02:B559: 2C        .byte $6F
+- D - I - 0x00356A 02:B55A: 28        .byte $6E
+- D - I - 0x00356B 02:B55B: 00        .byte $65
 - D - I - 0x00356C 02:B55C: 00        .byte $00
 - D - I - 0x00356D 02:B55D: 00        .byte $00
 - D - I - 0x00356E 02:B55E: 00        .byte $00
 - D - I - 0x00356F 02:B55F: 00        .byte $00
 - D - I - 0x003570 02:B560: 00        .byte $00
-- D - I - 0x003571 02:B561: AB        .byte $AB	; <ぢ>
+- D - I - 0x003571 02:B561: AB        .byte $AB
 - D - I - 0x003572 02:B562: 00        .byte $00
-- D - I - 0x003573 02:B563: 0D        .byte $0D	; <す>
-- D - I - 0x003574 02:B564: 10        .byte $10	; <た>
-- D - I - 0x003575 02:B565: 22        .byte $22	; <め>
+; нижняя граница окна опций
+- D - I - 0x003573 02:B563: 0D        .byte $0D
+- D - I - 0x003574 02:B564: 10 22     .word $2210
 - D - I - 0x003576 02:B566: 9E        .byte $9E
-- D - I - 0x003577 02:B567: A9        .byte $A9	; <ぞ>
-- D - I - 0x003578 02:B568: A9        .byte $A9	; <ぞ>
-- D - I - 0x003579 02:B569: A9        .byte $A9	; <ぞ>
-- D - I - 0x00357A 02:B56A: A9        .byte $A9	; <ぞ>
-- D - I - 0x00357B 02:B56B: A9        .byte $A9	; <ぞ>
-- D - I - 0x00357C 02:B56C: A9        .byte $A9	; <ぞ>
-- D - I - 0x00357D 02:B56D: A9        .byte $A9	; <ぞ>
-- D - I - 0x00357E 02:B56E: A9        .byte $A9	; <ぞ>
-- D - I - 0x00357F 02:B56F: A9        .byte $A9	; <ぞ>
-- D - I - 0x003580 02:B570: A9        .byte $A9	; <ぞ>
+- D - I - 0x003577 02:B567: A9        .byte $A9
+- D - I - 0x003578 02:B568: A9        .byte $A9
+- D - I - 0x003579 02:B569: A9        .byte $A9
+- D - I - 0x00357A 02:B56A: A9        .byte $A9
+- D - I - 0x00357B 02:B56B: A9        .byte $A9
+- D - I - 0x00357C 02:B56C: A9        .byte $A9
+- D - I - 0x00357D 02:B56D: A9        .byte $A9
+- D - I - 0x00357E 02:B56E: A9        .byte $A9
+- D - I - 0x00357F 02:B56F: A9        .byte $A9
+- D - I - 0x003580 02:B570: A9        .byte $A9
 - D - I - 0x003581 02:B571: 9F        .byte $9F
 - D - I - 0x003582 02:B572: 00        .byte $00
-- D - I - 0x003583 02:B573: 4D        .byte $4D	; <ス>
-- D - I - 0x003584 02:B574: 30        .byte $30	; <ゃ>
-- D - I - 0x003585 02:B575: 22        .byte $22	; <め>
+; пустая строка с границами по бокам + пробел
+- D - I - 0x003583 02:B573: 4D        .byte $4D
+- D - I - 0x003584 02:B574: 30 22     .word $2230
 - D - I - 0x003586 02:B576: 00        .byte $00
 - D - I - 0x003587 02:B577: 00        .byte $00
 - D - I - 0x003588 02:B578: 00        .byte $00
@@ -3551,8 +3557,10 @@ off_B4B3:
 - D - I - 0x003591 02:B581: 00        .byte $00
 - D - I - 0x003592 02:B582: 00        .byte $00
 
+
+
 tbl_B583:
-off_B583:
+off_B583_опции:
 - D - I - 0x003593 02:B583: 0D        .byte $0D	; <す>
 - D - I - 0x003594 02:B584: AB        .byte $AB	; <ぢ>
 - D - I - 0x003595 02:B585: 20        .byte $20	; <み>
@@ -3762,7 +3770,7 @@ off_B583:
 - D - I - 0x003661 02:B651: 00        .byte $00
 - D - I - 0x003662 02:B652: AA        .byte $AA	; <だ>
 
-off_B653:
+off_B653_миникарта:
 - D - I - 0x003663 02:B653: 0A        .byte $0A	; <こ>
 - D - I - 0x003664 02:B654: 91        .byte $91	; <V>
 - D - I - 0x003665 02:B655: 22        .byte $22	; <め>
