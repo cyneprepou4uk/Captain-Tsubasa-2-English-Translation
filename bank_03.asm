@@ -371,7 +371,7 @@ C - - - - 0x0042EC 03:A2DC: A0 68     LDY #$68
 C - - - - 0x0042EE 03:A2DE: 84 EC     STY ram_00EC
 C - - - - 0x0042F0 03:A2E0: A0 04     LDY #$04
 C - - - - 0x0042F2 03:A2E2: 20 06 AA  JSR sub_AA06
-C - - - - 0x0042F5 03:A2E5: 4C 57 C5  JMP loc_0x03C567
+C - - - - 0x0042F5 03:A2E5: 4C 57 C5  JMP loc_0x03C6CE
 
 loc_A2E8:
 C D - - - 0x0042F8 03:A2E8: A5 57     LDA ram_0057

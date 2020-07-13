@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export loc_0x03C567
-loc_0x03C567:
-C D - - - 0x03C567 FF:C557: 4C BE C6  JMP loc_C6BE
-
 .export sub_0x03C56A
 sub_0x03C56A:
 C - - - - 0x03C56A FF:C55A: 4C 4F CF  JMP loc_CF4F
@@ -185,10 +181,6 @@ C - - - - 0x03C585 FF:C575: 4C 33 E2  JMP loc_E233
 .export sub_0x03C588_попытка_убить_мисуги
 sub_0x03C588_попытка_убить_мисуги:
 C - - - - 0x03C588 FF:C578: 4C D1 D0  JMP loc_D0D1_попытка_убить_мисуги
-
-.export loc_0x03C58B
-loc_0x03C58B:
-C D - - - 0x03C58B FF:C57B: 4C BE C6  JMP loc_C6BE
 
 .export sub_0x03C610
 sub_0x03C610:
@@ -349,7 +341,8 @@ C - - - - 0x03C6C8 FF:C6B8: 58        CLI
 C - - - - 0x03C6C9 FF:C6B9: A9 00     LDA #$00
 C - - - - 0x03C6CB FF:C6BB: 4C FE CE  JMP loc_CEFE
 
-loc_C6BE:
+.export loc_0x03C6CE
+loc_0x03C6CE:
 C D - - - 0x03C6CE FF:C6BE: A2 E0     LDX #$E0
 C - - - - 0x03C6D0 FF:C6C0: 9A        TXS
 C - - - - 0x03C6D1 FF:C6C1: A9 00     LDA #$00
