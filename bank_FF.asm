@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export loc_0x03C64F
-loc_0x03C64F:
-C - - - - 0x03C64F FF:C63F: 4C F7 D8  JMP loc_D8F7
-
 .export loc_0x03C652
 loc_0x03C652:
 C - - - - 0x03C652 FF:C642: 4C 52 D8  JMP loc_D852
@@ -2997,7 +2993,8 @@ C - - - - 0x03D901 FF:D8F1: A9 50     LDA #$50
 C - - - - 0x03D903 FF:D8F3: 8D FF 02  STA ram_спрайт_X + $FC
 C - - - - 0x03D906 FF:D8F6: 60        RTS
 
-loc_D8F7:
+.export loc_0x03D907
+loc_0x03D907:
 sub_D8F7:
 C D - - - 0x03D907 FF:D8F7: A9 00     LDA #$00
 C - - - - 0x03D909 FF:D8F9: 8D 30 04  STA $0430
