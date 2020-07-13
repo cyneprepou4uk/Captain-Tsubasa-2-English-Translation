@@ -2121,7 +2121,7 @@ C - - - - 0x030C70 22:8C60: 85 71     STA ram_0071
 C - - - - 0x030C72 22:8C62: A9 00     LDA #$00
 C - - - - 0x030C74 22:8C64: 85 74     STA ram_0074
 bra_8C66:
-C - - - - 0x030C76 22:8C66: 20 1E C5  JSR sub_0x03C52E
+C - - - - 0x030C76 22:8C66: 20 1E C5  JSR sub_0x03CD4C
 C - - - - 0x030C79 22:8C69: A5 72     LDA ram_0072
 C - - - - 0x030C7B 22:8C6B: 20 7A 8C  JSR sub_8C7A
 C - - - - 0x030C7E 22:8C6E: A5 70     LDA ram_0070

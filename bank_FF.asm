@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C52E
-sub_0x03C52E:
-C - - - - 0x03C52E FF:C51E: 4C 3C CD  JMP loc_CD3C
-
 .export sub_0x03C531
 sub_0x03C531:
 C - - - - 0x03C531 FF:C521: 4C 0D CD  JMP loc_CD0D
@@ -1300,7 +1296,8 @@ C - - - - 0x03CD49 FF:CD39: 68        PLA
 C - - - - 0x03CD4A FF:CD3A: AA        TAX
 C - - - - 0x03CD4B FF:CD3B: 60        RTS
 
-loc_CD3C:
+.export sub_0x03CD4C
+sub_0x03CD4C:
 sub_CD3C:
 C D - - - 0x03CD4C FF:CD3C: 8A        TXA
 C - - - - 0x03CD4D FF:CD3D: 48        PHA
