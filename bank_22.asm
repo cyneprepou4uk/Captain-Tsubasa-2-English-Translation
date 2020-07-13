@@ -2,10 +2,6 @@
 .include "copy_bank_ram.inc"
 ; меню во время игры 0x030861
 
-.export sub_0x030013
-sub_0x030013:
-C - - - - 0x030013 22:8003: 4C F8 86  JMP loc_86F8
-
 .export sub_0x030016
 sub_0x030016:
 C - - - - 0x030016 22:8006: 4C 79 87  JMP loc_8779
@@ -1219,7 +1215,8 @@ tbl_86E8:
 
 
 
-loc_86F8:
+.export sub_0x030708
+sub_0x030708:
 C D - - - 0x030708 22:86F8: AD 32 05  LDA $0532
 C - - - - 0x03070B 22:86FB: F0 25     BEQ bra_8722_выход
 C - - - - 0x03070D 22:86FD: 10 1B     BPL bra_871A

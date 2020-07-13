@@ -5903,7 +5903,7 @@ C - - - - 0x03EBB8 FF:EBA8: A9 19     LDA #$19
 C - - - - 0x03EBBA FF:EBAA: 85 25     STA ram_для_8001_07
 C - - - - 0x03EBBC FF:EBAC: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EBBF FF:EBAF: 68        PLA
-C - - - - 0x03EBC0 FF:EBB0: 20 03 80  JSR sub_0x030013
+C - - - - 0x03EBC0 FF:EBB0: 20 03 80  JSR sub_0x030708
 C - - - - 0x03EBC3 FF:EBB3: 48        PHA
 C - - - - 0x03EBC6 FF:EBB6: A9 18     LDA #$18
 C - - - - 0x03EBC8 FF:EBB8: 85 24     STA ram_для_8001_06
