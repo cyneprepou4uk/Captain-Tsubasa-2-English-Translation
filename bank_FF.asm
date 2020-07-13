@@ -3654,7 +3654,7 @@ C - - - - 0x03DD4E FF:DD3E: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DD51 FF:DD41: A2 50     LDX #$50
 C - - - - 0x03DD53 FF:DD43: 9A        TXS
 ; сработало при volley в пустые ворота
-C - - - - 0x03DD54 FF:DD44: 4C 18 80  JMP loc_0x034028
+C - - - - 0x03DD54 FF:DD44: 4C 18 80  JMP loc_0x034903
 
 sub_DD47:
 C - - - - 0x03DD57 FF:DD47: AD 3C 04  LDA ram_подтип_действия
