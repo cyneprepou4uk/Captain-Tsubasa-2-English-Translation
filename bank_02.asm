@@ -37,7 +37,6 @@ C - - - - 0x002028 02:A018: 4C 50 B0  JMP loc_B050
 sub_0x00202B:
 - - - - - 0x00202B 02:A01B: 4C 9B A3  JMP loc_A39B
 
-loc_A01E:
 sub_A01E:
 C - - - - 0x00202E 02:A01E: AD 48 04  LDA ram_флаг_циклона
 C - - - - 0x002031 02:A021: 4A        LSR
