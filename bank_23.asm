@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x034025
-sub_0x034025:
-C - - - - 0x034025 23:8015: 4C A8 88  JMP loc_88A8
-
 .export loc_0x034028
 loc_0x034028:
 C D - - - 0x034028 23:8018: 4C F3 88  JMP loc_88F3
@@ -1231,7 +1227,8 @@ C - - - - 0x0348AF 23:889F: BC EB 88  LDY tbl_88EB,X
 C - - - - 0x0348B2 23:88A2: 20 E9 8E  JSR sub_8EE9
 C - - - - 0x0348B5 23:88A5: 4C 32 81  JMP loc_8132
 
-loc_88A8:
+.export sub_0x0348B8
+sub_0x0348B8:
 sub_88A8:
 C D - - - 0x0348B8 23:88A8: A9 0B     LDA #$0B
 C - - - - 0x0348BA 23:88AA: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария

@@ -4918,7 +4918,7 @@ C - - - - 0x03E67C FF:E66C: A9 1B     LDA #$1B
 C - - - - 0x03E67E FF:E66E: 85 25     STA ram_для_8001_07
 C - - - - 0x03E680 FF:E670: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E683 FF:E673: 68        PLA
-C - - - - 0x03E684 FF:E674: 20 15 80  JSR sub_0x034025
+C - - - - 0x03E684 FF:E674: 20 15 80  JSR sub_0x0348B8
 bra_E677_выход:
 C - - - - 0x03E687 FF:E677: 60        RTS
 
