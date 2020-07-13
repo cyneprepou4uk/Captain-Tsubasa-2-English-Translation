@@ -1360,7 +1360,7 @@ C - - - - 0x03CD8A FF:CD7A: 49 0B     EOR #$0B
 sub_0x03CD8C_адрес_игрока:
 .export loc_0x03CD8C_адрес_игрока
 loc_0x03CD8C_адрес_игрока:
-sub_CD7C_получить_базовый_адрес_игрока:
+sub_CD7C_адрес_игрока:
 C D - - - 0x03CD8C FF:CD7C: 0A        ASL
 C - - - - 0x03CD8D FF:CD7D: A8        TAY
 C - - - - 0x03CD8E FF:CD7E: B9 89 CD  LDA tbl_CD89_адреса_игроков,Y
@@ -1582,7 +1582,7 @@ C - - - - 0x03CEBB FF:CEAB: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - 0x03CEBE FF:CEAE: F0 13     BEQ bra_CEC3
 C - - - - 0x03CEC0 FF:CEB0: CD 42 04  CMP ram_игрок_без_мяча
 C - - - - 0x03CEC3 FF:CEB3: F0 0E     BEQ bra_CEC3
-C - - - - 0x03CEC5 FF:CEB5: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03CEC5 FF:CEB5: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03CEC8 FF:CEB8: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03CECA FF:CEBA: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03CECC FF:CEBC: D0 05     BNE bra_CEC3
@@ -1679,7 +1679,7 @@ ofs_DC03_04:
 C D - - - 0x03CF5F FF:CF4F: A9 00     LDA #$00
 bra_CF51:
 C - - - - 0x03CF61 FF:CF51: 48        PHA
-C - - - - 0x03CF62 FF:CF52: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03CF62 FF:CF52: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03CF65 FF:CF55: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03CF67 FF:CF57: A9 00     LDA #$00
 C - - - - 0x03CF69 FF:CF59: 91 34     STA (ram_plr_data),Y
@@ -1966,7 +1966,7 @@ C - - - - 0x03D0EB FF:D0DB: C9 0B     CMP #$0B
 C - - - - 0x03D0ED FF:D0DD: 90 02     BCC bra_D0E1_это_основной_состав
 C - - - - 0x03D0EF FF:D0DF: 69 0A     ADC #$0A
 bra_D0E1_это_основной_состав:
-C - - - - 0x03D0F1 FF:D0E1: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03D0F1 FF:D0E1: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03D0F4 FF:D0E4: A0 00     LDY #con_игрок_номер
 C - - - - 0x03D0F6 FF:D0E6: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D0F8 FF:D0E8: AA        TAX
@@ -2173,12 +2173,12 @@ bra_D24E:
 C - - - - 0x03D25E FF:D24E: 8A        TXA
 C - - - - 0x03D25F FF:D24F: 48        PHA
 C - - - - 0x03D260 FF:D250: A9 00     LDA #$00
-C - - - - 0x03D262 FF:D252: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03D262 FF:D252: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03D265 FF:D255: 68        PLA
 C - - - - 0x03D266 FF:D256: 48        PHA
 C - - - - 0x03D267 FF:D257: 20 63 D2  JSR sub_D263
 C - - - - 0x03D26A FF:D25A: A9 0B     LDA #$0B
-C - - - - 0x03D26C FF:D25C: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03D26C FF:D25C: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03D26F FF:D25F: 68        PLA
 C - - - - 0x03D270 FF:D260: 4C 63 D2  JMP loc_D263
 
@@ -3199,7 +3199,7 @@ C - - - - 0x03D915 FF:D905: C9 00     CMP #$00
 C - - - - 0x03D917 FF:D907: F0 38     BEQ bra_D941
 C - - - - 0x03D919 FF:D909: C9 0B     CMP #$0B
 C - - - - 0x03D91B FF:D90B: F0 34     BEQ bra_D941
-C - - - - 0x03D91D FF:D90D: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03D91D FF:D90D: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03D920 FF:D910: A0 06     LDY #con_игрок_координата_X_hi
 C - - - - 0x03D922 FF:D912: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D924 FF:D914: AA        TAX
@@ -3345,7 +3345,7 @@ C - - - - 0x03DA2A FF:DA1A: A9 80     LDA #con_btn_A
 C - - - - 0x03DA2C FF:DA1C: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03DA2F FF:DA1F: F0 BB     BEQ bra_D9DC
 C - - - - 0x03DA31 FF:DA21: AD FC 05  LDA ram_принимающий
-C - - - - 0x03DA34 FF:DA24: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DA34 FF:DA24: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DA37 FF:DA27: A0 06     LDY #con_игрок_координата_X_hi
 C - - - - 0x03DA39 FF:DA29: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03DA3B FF:DA2B: AA        TAX
@@ -3357,7 +3357,7 @@ C - - - - 0x03DA44 FF:DA34: 8D 38 06  STA $0638
 C - - - - 0x03DA47 FF:DA37: 4C 0C D7  JMP loc_D70C
 
 sub_DA3A:
-C - - - - 0x03DA4A FF:DA3A: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DA4A FF:DA3A: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DA4D FF:DA3D: A0 06     LDY #con_игрок_координата_X_hi
 C - - - - 0x03DA4F FF:DA3F: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03DA51 FF:DA41: 38        SEC
@@ -3559,7 +3559,7 @@ C - - - - 0x03DBC0 FF:DBB0: F0 19     BEQ bra_DBCB_выход
 C - - - - 0x03DBC2 FF:DBB2: D0 F2     BNE bra_DBA6
 bra_DBB4:
 C - - - - 0x03DBC4 FF:DBB4: BD EB DB  LDA tbl_DBEA + 1,X
-C - - - - 0x03DBC7 FF:DBB7: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DBC7 FF:DBB7: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DBCA FF:DBBA: A0 00     LDY #con_игрок_номер
 C - - - - 0x03DBCC FF:DBBC: BD EC DB  LDA tbl_DBEA + 2,X
 C - - - - 0x03DBCF FF:DBBF: 91 34     STA (ram_plr_data),Y
@@ -3577,7 +3577,7 @@ C - - - - 0x03DBDE FF:DBCE: 48        PHA
 ; почему-то 10-й игрок команды соперников пропускается
 C - - - - 0x03DBDF FF:DBCF: C9 14     CMP #$14
 C - - - - 0x03DBE1 FF:DBD1: F0 0E     BEQ bra_DBE1
-C - - - - 0x03DBE3 FF:DBD3: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DBE3 FF:DBD3: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DBE6 FF:DBD6: A0 01     LDY #con_игрок_энергия_lo
 C - - - - 0x03DBE8 FF:DBD8: A9 80     LDA #$80
 C - - - - 0x03DBEA FF:DBDA: 91 34     STA (ram_plr_data),Y
@@ -3643,7 +3643,7 @@ C - - - - 0x03DC39 FF:DC29: A9 00     LDA #$00
 loc_DC2B_цикл:
 ; bzk тут несколько pla + pha для счетчика чтобы обновить флаги, по тактам будет экономичнее хранить счетчик в адресе
 C D - - - 0x03DC3B FF:DC2B: 48        PHA
-C - - - - 0x03DC3C FF:DC2C: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DC3C FF:DC2C: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DC3F FF:DC2F: A6 3A     LDX ram_003A
 C - - - - 0x03DC41 FF:DC31: E6 3A     INC ram_003A
 C - - - - 0x03DC43 FF:DC33: 68        PLA
@@ -4097,7 +4097,7 @@ bra_DEF7:
 C - - - - 0x03DF07 FF:DEF7: 98        TYA
 C - - - - 0x03DF08 FF:DEF8: 48        PHA
 C - - - - 0x03DF09 FF:DEF9: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - 0x03DF0C FF:DEFC: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DF0C FF:DEFC: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DF0F FF:DEFF: AD 35 06  LDA $0635
 C - - - - 0x03DF12 FF:DF02: A0 06     LDY #con_игрок_координата_X_hi
 C - - - - 0x03DF14 FF:DF04: 91 34     STA (ram_plr_data),Y
@@ -4141,7 +4141,7 @@ C - - - - 0x03DF59 FF:DF49: 60        RTS
 sub_DF4A:
 C - - - - 0x03DF5A FF:DF4A: 20 99 CE  JSR sub_CE99
 C - - - - 0x03DF5D FF:DF4D: 48        PHA
-C - - - - 0x03DF5E FF:DF4E: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03DF5E FF:DF4E: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DF61 FF:DF51: AD FE 05  LDA $05FE
 C - - - - 0x03DF64 FF:DF54: A0 09     LDY #con_игрок_09
 C - - - - 0x03DF66 FF:DF56: 91 34     STA (ram_plr_data),Y
@@ -4221,7 +4221,7 @@ C - - - - 0x03DFF6 FF:DFE6: 20 3E E7  JSR sub_E73E
 C - - - - 0x03DFF9 FF:DFE9: A9 1A     LDA #$1A
 C - - - - 0x03DFFB FF:DFEB: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DFFE FF:DFEE: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - 0x03E001 FF:DFF1: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E001 FF:DFF1: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E004 FF:DFF4: AD 43 04  LDA $0443
 C - - - - 0x03E007 FF:DFF7: 0A        ASL
 C - - - - 0x03E008 FF:DFF8: 0A        ASL
@@ -4277,7 +4277,7 @@ sub_E059:
 C D - - - 0x03E069 FF:E059: AD FC 05  LDA ram_принимающий
 C - - - - 0x03E06C FF:E05C: C9 FF     CMP #$FF
 C - - - - 0x03E06E FF:E05E: F0 13     BEQ bra_E073_выход
-C - - - - 0x03E070 FF:E060: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E070 FF:E060: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E073 FF:E063: A0 06     LDY #con_игрок_координата_X_hi
 C - - - - 0x03E075 FF:E065: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E077 FF:E067: AA        TAX
@@ -4321,7 +4321,7 @@ C - - - - 0x03E0BB FF:E0AB: 20 00 80  JSR sub_0x034010
 C - - - - 0x03E0BE FF:E0AE: 68        PLA
 bra_E0AF:
 C - - - - 0x03E0BF FF:E0AF: 85 41     STA ram_0041
-C - - - - 0x03E0C1 FF:E0B1: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E0C1 FF:E0B1: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E0C4 FF:E0B4: A5 41     LDA ram_0041
 C - - - - 0x03E0C6 FF:E0B6: C9 0B     CMP #$0B
 C - - - - 0x03E0C8 FF:E0B8: AE FB 05  LDX ram_команда_с_мячом
@@ -4386,7 +4386,7 @@ C - - - - 0x03E137 FF:E127: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x03E13A FF:E12A: 20 99 CE  JSR sub_CE99
 C - - - - 0x03E13D FF:E12D: 8D FD 05  STA ram_управляемый
 C - - - - 0x03E140 FF:E130: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - 0x03E143 FF:E133: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E143 FF:E133: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E146 FF:E136: A9 05     LDA #$05
 C - - - - 0x03E148 FF:E138: A0 09     LDY #con_игрок_09
 C - - - - 0x03E14A FF:E13A: 91 34     STA (ram_plr_data),Y
@@ -4640,7 +4640,7 @@ bra_E315:
 C - - - - 0x03E325 FF:E315: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E328 FF:E318: C9 0B     CMP #$0B
 C - - - - 0x03E32A FF:E31A: B0 2C     BCS bra_E348_выход
-C - - - - 0x03E32C FF:E31C: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E32C FF:E31C: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E32F FF:E31F: A2 03     LDX #$03
 C - - - - 0x03E331 FF:E321: A0 00     LDY #con_игрок_номер
 C - - - - 0x03E333 FF:E323: B1 34     LDA (ram_plr_data),Y
@@ -4808,7 +4808,7 @@ C - - - - 0x03E45A FF:E44A: 20 00 80  JSR sub_0x034010
 C - - - - 0x03E45D FF:E44D: 68        PLA
 bra_E44E:
 C - - - - 0x03E45E FF:E44E: 85 41     STA ram_0041
-C - - - - 0x03E460 FF:E450: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E460 FF:E450: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E463 FF:E453: A5 41     LDA ram_0041
 C - - - - 0x03E465 FF:E455: C9 0B     CMP #$0B
 C - - - - 0x03E467 FF:E457: AE FB 05  LDX ram_команда_с_мячом
@@ -4895,7 +4895,7 @@ C - - - - 0x03E4F8 FF:E4E8: A9 0A     LDA #$0A
 C - - - - 0x03E4FA FF:E4EA: 85 42     STA ram_0042
 bra_E4EC:
 C - - - - 0x03E4FC FF:E4EC: A5 41     LDA ram_0041
-C - - - - 0x03E4FE FF:E4EE: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E4FE FF:E4EE: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E501 FF:E4F1: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03E503 FF:E4F3: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E505 FF:E4F5: D0 03     BNE bra_E4FA
@@ -5169,7 +5169,7 @@ tbl_E6D0:
 loc_E6EC:
 sub_E6EC:
 C D - - - 0x03E6FC FF:E6EC: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - 0x03E6FF FF:E6EF: 20 7C CD  JSR sub_CD7C_получить_базовый_адрес_игрока
+C - - - - 0x03E6FF FF:E6EF: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E702 FF:E6F2: A0 06     LDY #con_игрок_координата_X_hi
 C - - - - 0x03E704 FF:E6F4: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E706 FF:E6F6: 8D 35 06  STA $0635
