@@ -2666,7 +2666,7 @@ C - - - - 0x0351D1 23:91C1: 8D 3C 04  STA ram_подтип_действия
 C - - - - 0x0351D4 23:91C4: 8D 1A 06  STA $061A
 C - - - - 0x0351D7 23:91C7: A9 01     LDA #$01
 C - - - - 0x0351D9 23:91C9: 8D 1B 06  STA $061B
-C - - - - 0x0351DC 23:91CC: 20 0C C6  JSR sub_0x03C61C
+C - - - - 0x0351DC 23:91CC: 20 0C C6  JSR sub_0x03E74E
 C - - - - 0x0351DF 23:91CF: 4C 3C C6  JMP loc_0x03C64C
 
 sub_91D2:
@@ -3203,7 +3203,7 @@ C - - - - 0x0355D3 23:95C3: A9 1A     LDA #$1A
 C - - - - 0x0355D5 23:95C5: 8D 1A 06  STA $061A
 C - - - - 0x0355D8 23:95C8: A9 01     LDA #$01
 C - - - - 0x0355DA 23:95CA: 8D 1B 06  STA $061B
-C - - - - 0x0355DD 23:95CD: 20 0C C6  JSR sub_0x03C61C
+C - - - - 0x0355DD 23:95CD: 20 0C C6  JSR sub_0x03E74E
 C - - - - 0x0355E0 23:95D0: AD FC 05  LDA ram_принимающий
 C - - - - 0x0355E3 23:95D3: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x0355E6 23:95D6: A9 1C     LDA #$1C
