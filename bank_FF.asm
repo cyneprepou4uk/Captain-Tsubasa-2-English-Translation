@@ -4286,7 +4286,7 @@ C - - - - 0x03E1EC FF:E1DC: 85 25     STA ram_для_8001_07
 C - - - - 0x03E1EE FF:E1DE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E1F1 FF:E1E1: A2 50     LDX #$50
 C - - - - 0x03E1F3 FF:E1E3: 9A        TXS
-C - - - - 0x03E1F4 FF:E1E4: 4C 27 80  JMP loc_0x034037
+C - - - - 0x03E1F4 FF:E1E4: 4C 27 80  JMP loc_0x034137
 bra_E1E7:
 C - - - - 0x03E1F7 FF:E1E7: A2 00     LDX #$00
 C - - - - 0x03E1F9 FF:E1E9: 8E FF 05  STX $05FF
