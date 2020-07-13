@@ -3878,7 +3878,7 @@ C - - - - 0x03DE48 FF:DE38: A9 3A     LDA #$3A
 C - - - - 0x03DE4A FF:DE3A: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DE4D FF:DE3D: A9 1A     LDA #$1A
 C - - - - 0x03DE4F FF:DE3F: 8D 1A 06  STA $061A
-C - - - - 0x03DE52 FF:DE42: 4C 5E DE  JMP loc_DE5E
+C - - - - 0x03DE52 FF:DE42: 4C 5E DE  BNE bra_DE5E
 
 .export loc_0x03DE62
 loc_0x03DE62:
@@ -3892,7 +3892,7 @@ bra_DE5B:
 C - - - - 0x03DE6B FF:DE5B: 8D 1A 06  STA $061A
 .export loc_0x03DE6E
 loc_0x03DE6E:
-loc_DE5E:
+bra_DE5E:
 C D - - - 0x03DE6E FF:DE5E: 20 59 E0  JSR sub_E059
 C - - - - 0x03DE71 FF:DE61: 20 8B DF  JSR sub_DF8B
 C - - - - 0x03DE74 FF:DE64: A9 01     LDA #$01
