@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C53A
-sub_0x03C53A:
-C - - - - 0x03C53A FF:C52A: 4C 7F EF  JMP loc_EF7F
-
 .export sub_0x03C53D
 sub_0x03C53D:
 .export loc_0x03C53D
@@ -6543,7 +6539,8 @@ tbl_EF73:
 - D - - - 0x03EF8B FF:EF7B: 9B 05     .word $059B
 - D - - - 0x03EF8D FF:EF7D: B0 05     .word $05B0
 
-loc_EF7F:
+.export sub_0x03EF8F
+sub_0x03EF8F:
 sub_EF7F:
 C D - - - 0x03EF8F FF:EF7F: A8        TAY
 C - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_для_8001_06
