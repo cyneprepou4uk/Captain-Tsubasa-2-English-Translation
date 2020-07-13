@@ -5919,7 +5919,7 @@ C - - - - 0x03EBDC FF:EBCC: A9 19     LDA #$19
 C - - - - 0x03EBDE FF:EBCE: 85 25     STA ram_для_8001_07
 C - - - - 0x03EBE0 FF:EBD0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EBE3 FF:EBD3: 68        PLA
-C - - - - 0x03EBE4 FF:EBD4: 20 09 80  JSR sub_0x030019
+C - - - - 0x03EBE4 FF:EBD4: 20 09 80  JSR sub_0x0307F6
 C - - - - 0x03EBE7 FF:EBD7: AD 2E 05  LDA ram_задержка_звука_анимации
 C - - - - 0x03EBEA FF:EBDA: F0 29     BEQ bra_EC05
 C - - - - 0x03EBEC FF:EBDC: CE 2E 05  DEC ram_задержка_звука_анимации
