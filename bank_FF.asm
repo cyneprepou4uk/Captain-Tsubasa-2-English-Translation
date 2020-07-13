@@ -9,7 +9,7 @@ C - - - - 0x03C411 FF:C401: A9 08     LDA #$08
 C - - - - 0x03C413 FF:C403: 85 20     STA ram_0020
 C - - - - 0x03C415 FF:C405: 8D 00 20  STA $2000
 C - - - - 0x03C418 FF:C408: A9 1E     LDA #$1E
-C - - - - 0x03C41A FF:C40A: 85 21     STA ram_0021
+C - - - - 0x03C41A FF:C40A: 85 21     STA ram_для_2001
 C - - - - 0x03C41C FF:C40C: 8D 01 20  STA $2001
 C - - - - 0x03C423 FF:C413: A2 00     LDX #$00
 C - - - - 0x03C425 FF:C415: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
@@ -170,7 +170,7 @@ C - - - - 0x03C688 FF:C678: D0 F6     BNE bra_C670_цикл_очистки
 C - - - - 0x03C68A FF:C67A: A9 08     LDA #$08
 C - - - - 0x03C68C FF:C67C: 85 20     STA ram_0020
 C - - - - 0x03C68E FF:C67E: A9 06     LDA #$06
-C - - - - 0x03C690 FF:C680: 85 21     STA ram_0021
+C - - - - 0x03C690 FF:C680: 85 21     STA ram_для_2001
 C - - - - 0x03C692 FF:C682: 8D 01 20  STA $2001
 C - - - - 0x03C695 FF:C685: A9 00     LDA #$00
 C - - - - 0x03C697 FF:C687: 8D 10 40  STA $4010
@@ -221,7 +221,7 @@ C - - - - 0x03C6FC FF:C6EC: 8D 3F 06  STA $063F
 C - - - - 0x03C6FF FF:C6EF: A9 08     LDA #$08
 C - - - - 0x03C701 FF:C6F1: 85 20     STA ram_0020
 C - - - - 0x03C703 FF:C6F3: A9 1E     LDA #$1E
-C - - - - 0x03C705 FF:C6F5: 85 21     STA ram_0021
+C - - - - 0x03C705 FF:C6F5: 85 21     STA ram_для_2001
 C - - - - 0x03C711 FF:C701: A9 3F     LDA #$3F
 C - - - - 0x03C713 FF:C703: 8D 6E 04  STA $046E
 C - - - - 0x03C716 FF:C706: A2 00     LDX #$00
@@ -322,7 +322,7 @@ C - - - - 0x03C7CA FF:C7BA: 6D 38 05  ADC $0538
 C - - - - 0x03C7CD FF:C7BD: 8D 05 20  STA $2005
 C - - - - 0x03C7D0 FF:C7C0: A5 4B     LDA ram_004B
 C - - - - 0x03C7D2 FF:C7C2: 8D 05 20  STA $2005
-C - - - - 0x03C7D5 FF:C7C5: A5 21     LDA ram_0021
+C - - - - 0x03C7D5 FF:C7C5: A5 21     LDA ram_для_2001
 C - - - - 0x03C7D7 FF:C7C7: 8D 01 20  STA $2001
 C - - - - 0x03C7DA FF:C7CA: 20 E9 C9  JSR sub_C9E9
 C - - - - 0x03C7DD FF:C7CD: A6 8E     LDX ram_008E
@@ -623,9 +623,9 @@ C - - - - 0x03CA31 FF:CA21: 60        RTS
 
 ofs_CA22_minus:
 ofs_CA22 = ofs_CA22_minus - 1
-C - - - - 0x03CA32 FF:CA22: A5 21     LDA ram_0021
+C - - - - 0x03CA32 FF:CA22: A5 21     LDA ram_для_2001
 C - - - - 0x03CA34 FF:CA24: 09 1E     ORA #$1E
-C - - - - 0x03CA36 FF:CA26: 85 21     STA ram_0021
+C - - - - 0x03CA36 FF:CA26: 85 21     STA ram_для_2001
 C - - - - 0x03CA38 FF:CA28: A9 00     LDA #$00
 C - - - - 0x03CA3A FF:CA2A: 8D 90 04  STA $0490
 C - - - - 0x03CA3D FF:CA2D: A9 02     LDA #$02
@@ -5886,14 +5886,14 @@ ofs_EB86_minus:
 ofs_EB86 = ofs_EB86_minus - 1
 C D - - - 0x03EB96 FF:EB86: A9 01     LDA #$01
 C - - - - 0x03EB98 FF:EB88: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03EB9B FF:EB8B: A5 21     LDA ram_0021
+C - - - - 0x03EB9B FF:EB8B: A5 21     LDA ram_для_2001
 C - - - - 0x03EB9D FF:EB8D: 29 1E     AND #$1E
 C - - - - 0x03EB9F FF:EB8F: AE 39 05  LDX $0539
 C - - - - 0x03EBA2 FF:EB92: F0 05     BEQ bra_EB99
-C - - - - 0x03EBA4 FF:EB94: A5 21     LDA ram_0021
+C - - - - 0x03EBA4 FF:EB94: A5 21     LDA ram_для_2001
 C - - - - 0x03EBA6 FF:EB96: 4D 39 05  EOR $0539
 bra_EB99:
-C - - - - 0x03EBA9 FF:EB99: 85 21     STA ram_0021
+C - - - - 0x03EBA9 FF:EB99: 85 21     STA ram_для_2001
 C - - - - 0x03EBAB FF:EB9B: 20 08 EC  JSR sub_EC08
 C - - - - 0x03EBAE FF:EB9E: 20 85 ED  JSR sub_ED85
 C - - - - 0x03EBB1 FF:EBA1: 48        PHA
