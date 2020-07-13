@@ -4910,7 +4910,7 @@ C - - - - 0x03E66A FF:E65A: A9 1B     LDA #$1B
 C - - - - 0x03E66C FF:E65C: 85 25     STA ram_для_8001_07
 C - - - - 0x03E66E FF:E65E: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E671 FF:E661: 68        PLA
-C - - - - 0x03E672 FF:E662: 20 12 80  JSR sub_0x034022
+C - - - - 0x03E672 FF:E662: 20 12 80  JSR sub_0x03489D
 C - - - - 0x03E675 FF:E665: 48        PHA
 C - - - - 0x03E678 FF:E668: A9 1A     LDA #$1A
 C - - - - 0x03E67A FF:E66A: 85 24     STA ram_для_8001_06
