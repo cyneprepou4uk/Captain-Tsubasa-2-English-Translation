@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x034046
-sub_0x034046:
-C - - - - 0x034046 23:8036: 4C AC 85  JMP loc_85AC
-
 .export sub_0x034049
 sub_0x034049:
 C - - - - 0x034049 23:8039: 4C 4E 90  JMP loc_904E
@@ -774,6 +770,8 @@ C - - - - 0x0345B1 23:85A1: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 bra_85AC:
 loc_85AC:
 ofs_85AC_00:
+.export sub_0x0345BC
+sub_0x0345BC:
 C D J - - 0x0345BC 23:85AC: A2 00     LDX #$00
 C - - - - 0x0345BE 23:85AE: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0345C1 23:85B1: 20 D4 8B  JSR sub_8BD4

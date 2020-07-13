@@ -2825,7 +2825,7 @@ C - - - - 0x03D7DE FF:D7CE: A9 1B     LDA #$1B
 C - - - - 0x03D7E0 FF:D7D0: 85 25     STA ram_для_8001_07
 C - - - - 0x03D7E2 FF:D7D2: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D7E5 FF:D7D5: 68        PLA
-C - - - - 0x03D7E6 FF:D7D6: 20 36 80  JSR sub_0x034046
+C - - - - 0x03D7E6 FF:D7D6: 20 36 80  JSR sub_0x0345BC
 bra_D7D9:
 C - - - - 0x03D7E9 FF:D7D9: C9 11     CMP #$11
 C - - - - 0x03D7EB FF:D7DB: D0 08     BNE bra_D7E5
