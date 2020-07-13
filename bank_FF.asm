@@ -3631,7 +3631,7 @@ C - - - - 0x03DD21 FF:DD11: 28        PLP
 C - - - - 0x03DD22 FF:DD12: 90 08     BCC bra_DD1C
 C - - - - 0x03DD24 FF:DD14: A9 2D     LDA #$2D
 C - - - - 0x03DD26 FF:DD16: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - 0x03DD29 FF:DD19: 4C 1B 80  JMP loc_0x03402B
+C - - - - 0x03DD29 FF:DD19: 4C 1B 80  JMP loc_0x034BF5
 bra_DD1C:
 C - - - - 0x03DD2C FF:DD1C: 20 77 CD  JSR sub_CD77
 C - - - - 0x03DD2F FF:DD1F: A0 0A     LDY #con_игрок_бездействие
@@ -3891,7 +3891,7 @@ C - - - - 0x03DEE2 FF:DED2: D0 E1     BNE bra_DEB5
 C - - - - 0x03DEE4 FF:DED4: A9 34     LDA #$34
 C - - - - 0x03DEE6 FF:DED6: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 ; сработало когда мой перс с быстрой анимацией выбивает головой мяч из моей штрафной в поле, и мяч ударился об землю
-C - - - - 0x03DEE9 FF:DED9: 4C 1B 80  JMP loc_0x03402B
+C - - - - 0x03DEE9 FF:DED9: 4C 1B 80  JMP loc_0x034BF5
 bra_DEDC:
 C - - - - 0x03DEEC FF:DEDC: A2 00     LDX #$00
 C - - - - 0x03DEEE FF:DEDE: C9 0B     CMP #$0B
