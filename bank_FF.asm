@@ -6073,8 +6073,8 @@ C - - - - 0x03ED2E FF:ED1E: A9 C8     LDA #$C8
 C - - - - 0x03ED30 FF:ED20: 95 01     STA ram_0001,X
 C - - - - 0x03ED32 FF:ED22: A9 18     LDA #$18
 C - - - - 0x03ED34 FF:ED24: 95 02     STA ram_0002,X
-C - - - - 0x03ED36 FF:ED26: A9 7F     LDA #> ofs_0x030010
-C - - - - 0x03ED38 FF:ED28: A0 FF     LDY #< ofs_0x030010
+C - - - - 0x03ED36 FF:ED26: A9 7F     LDA #> ofs_0x03001F
+C - - - - 0x03ED38 FF:ED28: A0 FF     LDY #< ofs_0x03001F
 C - - - - 0x03ED3A FF:ED2A: 20 E7 CA  JSR sub_CAE7
 bra_ED2D:
 C - - - - 0x03ED3D FF:ED2D: AD 2B 05  LDA $052B

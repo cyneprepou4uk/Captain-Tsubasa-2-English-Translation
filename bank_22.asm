@@ -1,10 +1,6 @@
 .segment "BANK_22"
 .include "copy_bank_ram.inc"
 ; меню во время игры 0x030861
-ofs_8000_minus:
-.export ofs_0x030010
-ofs_0x030010 = ofs_8000_minus - 1
-C D - - - 0x030010 22:8000: 4C 0F 80  JMP loc_800F
 
 .export sub_0x030013
 sub_0x030013:
@@ -22,7 +18,9 @@ C - - - - 0x030019 22:8009: 4C E6 87  JMP loc_87E6
 sub_0x03001C:
 C - - - - 0x03001C 22:800C: 4C 51 88  JMP loc_8851
 
-loc_800F:
+ofs_800F_minus:
+.export ofs_0x03001F
+ofs_0x03001F = ofs_800F_minus - 1
 C D - - - 0x03001F 22:800F: 2C 3F 06  BIT $063F
 C - - - - 0x030022 22:8012: 10 03     BPL bra_8017
 C - - - - 0x030024 22:8014: 4C 12 C5  JMP loc_0x03CB07
