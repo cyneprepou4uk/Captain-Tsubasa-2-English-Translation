@@ -219,12 +219,10 @@ C - - - - 0x0041DA 03:A1CA: 60        RTS
 sub_A1CB:
 C - - - - 0x0041DB 03:A1CB: B6 78     LDX ram_0078,Y
 C - - - - 0x0041DD 03:A1CD: A9 00     LDA #$00
-C - - - - 0x0041DF 03:A1CF: 05 22     ORA ram_0022
 C - - - - 0x0041E1 03:A1D1: 8D 00 80  STA $8000
 C - - - - 0x0041E4 03:A1D4: 8E 01 80  STX $8001
 C - - - - 0x0041E7 03:A1D7: B6 79     LDX ram_0079,Y
 C - - - - 0x0041E9 03:A1D9: A9 01     LDA #$01
-C - - - - 0x0041EB 03:A1DB: 05 22     ORA ram_0022
 C - - - - 0x0041ED 03:A1DD: 8D 00 80  STA $8000
 C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $8001
 C - - - - 0x0041F3 03:A1E3: 60        RTS
