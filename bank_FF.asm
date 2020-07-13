@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C585
-sub_0x03C585:
-C - - - - 0x03C585 FF:C575: 4C 33 E2  JMP loc_E233
-
 .export sub_0x03C588_попытка_убить_мисуги
 sub_0x03C588_попытка_убить_мисуги:
 C - - - - 0x03C588 FF:C578: 4C D1 D0  JMP loc_D0D1_попытка_убить_мисуги
@@ -4409,7 +4405,8 @@ C - - - - 0x03E23C FF:E22C: 68        PLA
 C - - - - 0x03E23D FF:E22D: 20 33 80  JSR sub_0x034043_попытка_активировать_катсцену_драйв_оверхеда
 C - - - - 0x03E240 FF:E230: 4C 45 E1  JMP loc_E145
 
-loc_E233:
+.export sub_0x03E243
+sub_0x03E243:
 sub_E233:
 C D - - - 0x03E243 FF:E233: A9 1E     LDA #$1E
 C - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
