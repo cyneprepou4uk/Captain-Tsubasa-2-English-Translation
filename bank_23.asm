@@ -1519,7 +1519,7 @@ C - - - - 0x034A9B 23:8A8B: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x034AA6 23:8A96: 27 C6     .word ofs_0x03E55C
 - - - - - 0x034AA8 23:8A98: 00        .byte $00
 - - - - - 0x034AA9 23:8A99: 00        .byte $00
-- D - I - 0x034AAA 23:8A9A: 2D C6     .word ofs_0x03C63D
+- D - I - 0x034AAA 23:8A9A: 2D C6     .word ofs_0x03E698
 
 ofs_8A9C_03:
 C - J - - 0x034AAC 23:8A9C: 20 C8 8B  JSR sub_8BC8

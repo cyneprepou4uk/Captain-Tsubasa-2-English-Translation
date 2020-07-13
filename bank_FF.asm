@@ -138,10 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export ofs_0x03C63D
-ofs_0x03C63D:
-C - J - - 0x03C63D FF:C62D: 4C 88 E6  JMP loc_E688
-
 .export loc_0x03C640
 loc_0x03C640:
 C D - - - 0x03C640 FF:C630: 4C 78 E6  JMP loc_E678
@@ -4958,7 +4954,8 @@ C - - - - 0x03E68D FF:E67D: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03E690 FF:E680: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
 C - - - - 0x03E693 FF:E683: A9 02     LDA #$02
 C - - - - 0x03E695 FF:E685: 20 0F CB  JSR sub_CB0F
-loc_E688:
+.export ofs_0x03E698
+ofs_0x03E698:
 C D - - - 0x03E698 FF:E688: A9 00     LDA #$00
 C - - - - 0x03E69A FF:E68A: 2C 35 06  BIT $0635
 C - - - - 0x03E69D FF:E68D: 10 02     BPL bra_E691
