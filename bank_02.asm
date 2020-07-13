@@ -1,18 +1,6 @@
 .segment "BANK_02"
 .include "copy_bank_ram.inc"
 
-.export loc_0x00201C
-loc_0x00201C:
-C D - - - 0x00201C 02:A00C: 4C D2 A6  JMP loc_A6D2
-
-.export sub_0x00201F
-sub_0x00201F:
-C - - - - 0x00201F 02:A00F: 4C C2 AF  JMP loc_AFC2
-
-.export sub_0x002022
-sub_0x002022:
-C - - - - 0x002022 02:A012: 4C 79 AF  JMP loc_AF79
-
 .export sub_0x002025
 sub_0x002025:
 C - - - - 0x002025 02:A015: 4C 8A AF  JMP loc_AF8A
@@ -956,7 +944,8 @@ C - - - - 0x0026D9 02:A6C9: 20 64 84  JSR sub_0x000474
 C - - - - 0x0026DC 02:A6CC: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x0026DF 02:A6CF: 4C 15 A7  JMP loc_A715
 
-loc_A6D2:
+.export loc_0x0026E2
+loc_0x0026E2:
 C D - - - 0x0026E2 02:A6D2: A9 55     LDA #$55
 C - - - - 0x0026E4 02:A6D4: 8D 00 07  STA ram_звук
 C - - - - 0x0026E7 02:A6D7: 20 A0 98  JSR sub_0x0018B0
@@ -2221,7 +2210,8 @@ C - - - - 0x002F84 02:AF74: C0 04     CPY #$04
 C - - - - 0x002F86 02:AF76: D0 F1     BNE bra_AF69
 C - - - - 0x002F88 02:AF78: 60        RTS
 
-loc_AF79:
+.export sub_0x002F89
+sub_0x002F89:
 C D - - - 0x002F89 02:AF79: A5 26     LDA ram_матч
 C - - - - 0x002F8B 02:AF7B: 0A        ASL
 C - - - - 0x002F8C 02:AF7C: AA        TAX
@@ -2264,7 +2254,8 @@ C - - - - 0x002FCD 02:AFBD: E0 16     CPX #$16
 C - - - - 0x002FCF 02:AFBF: 90 DF     BCC bra_AFA0
 C - - - - 0x002FD1 02:AFC1: 60        RTS
 
-loc_AFC2:
+.export sub_0x002FD2
+sub_0x002FD2:
 C D - - - 0x002FD2 02:AFC2: 86 EC     STX ram_00EC
 C - - - - 0x002FD4 02:AFC4: 20 23 B0  JSR sub_B023
 C - - - - 0x002FD7 02:AFC7: 85 EB     STA ram_00EB

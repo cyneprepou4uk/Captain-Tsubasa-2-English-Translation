@@ -130,7 +130,7 @@ C - - - - 0x03C4EE FF:C4DE: A2 01     LDX #$01
 C - - - - 0x03C4F0 FF:C4E0: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_07
 C - - - - 0x03C4F3 FF:C4E3: 98        TYA
 C - - - - 0x03C4F4 FF:C4E4: A6 ED     LDX ram_00ED
-C - - - - 0x03C4F6 FF:C4E6: 20 0F A0  JSR sub_0x00201F
+C - - - - 0x03C4F6 FF:C4E6: 20 0F A0  JSR sub_0x002FD2
 C - - - - 0x03C4F9 FF:C4E9: A6 EF     LDX ram_00EF
 C - - - - 0x03C4FB FF:C4EB: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_07
 C - - - - 0x03C4FE FF:C4EE: A6 EE     LDX ram_00EE
