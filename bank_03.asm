@@ -229,14 +229,6 @@ C - - - - 0x0041ED 03:A1DD: 8D 00 80  STA $8000
 C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $8001
 C - - - - 0x0041F3 03:A1E3: 60        RTS
 
-.export sub_0x004222
-sub_0x004222:
-C - - - - 0x004222 03:A212: 4C 84 A4  JMP loc_A484
-
-.export sub_0x004225
-sub_0x004225:
-C - - - - 0x004225 03:A215: 4C CE A8  JMP loc_A8CE
-
 .export loc_0x00422B
 loc_0x00422B:
 C D - - - 0x00422B 03:A21B: A2 FF     LDX #$FF
@@ -598,7 +590,8 @@ tbl_A47C:
 - D - - - 0x004492 03:A482: 03        .byte $03	; <う>
 - D - - - 0x004493 03:A483: 98        .byte $98
 
-loc_A484:
+.export sub_0x004494
+sub_0x004494:
 C D - - - 0x004494 03:A484: A5 ED     LDA ram_00ED
 C - - - - 0x004496 03:A486: 0A        ASL
 C - - - - 0x004497 03:A487: AA        TAX
@@ -1241,7 +1234,8 @@ C - - - - 0x0048D9 03:A8C9: C9 84     CMP #$84
 C - - - - 0x0048DB 03:A8CB: 90 F0     BCC bra_A8BD
 C - - - - 0x0048DD 03:A8CD: 60        RTS
 
-loc_A8CE:
+.export sub_0x0048DE
+sub_0x0048DE:
 C D - - - 0x0048DE 03:A8CE: A9 01     LDA #$01
 C - - - - 0x0048E0 03:A8D0: 20 A8 9F  JSR sub_0x001FB8
 C - - - - 0x0048E3 03:A8D3: A0 00     LDY #$00
