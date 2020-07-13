@@ -1208,8 +1208,8 @@ C - - - - 0x0028F7 02:A8E7: 8D 64 05  STA $0564
 C - - - - 0x0028FA 02:A8EA: A9 94     LDA #$94
 C - - - - 0x0028FC 02:A8EC: 85 4C     STA ram_004C
 loc_A8EE:
-C D - - - 0x0028FE 02:A8EE: A0 BE     LDY #< tbl_ADBE
-C - - - - 0x002900 02:A8F0: A2 AD     LDX #> tbl_ADBE
+C D - - - 0x0028FE 02:A8EE: A0 BE     LDY #< tbl_ADBE_курсор_замены_игроков_японии_1
+C - - - - 0x002900 02:A8F0: A2 AD     LDX #> tbl_ADBE_курсор_замены_игроков_японии_1
 C - - - - 0x002902 02:A8F2: 20 3A 9C  JSR sub_0x001C4A
 C - - - - 0x002905 02:A8F5: AD 50 04  LDA $0450
 C - - - - 0x002908 02:A8F8: C9 03     CMP #$03
@@ -1235,8 +1235,8 @@ C - - - - 0x00292D 02:A91D: 4C C0 A9  JMP loc_A9C0
 bra_A920:
 C - - - - 0x002930 02:A920: A9 01     LDA #$01
 C - - - - 0x002932 02:A922: 20 D3 9C  JSR sub_0x001CE3
-C - - - - 0x002935 02:A925: A0 C4     LDY #< tbl_ADC4
-C - - - - 0x002937 02:A927: A2 AD     LDX #> tbl_ADC4
+C - - - - 0x002935 02:A925: A0 C4     LDY #< tbl_ADC4_курсор_замены_игроков_японии_2
+C - - - - 0x002937 02:A927: A2 AD     LDX #> tbl_ADC4_курсор_замены_игроков_японии_2
 C - - - - 0x002939 02:A929: AD 60 05  LDA $0560
 C - - - - 0x00293C 02:A92C: 20 3C 9C  JSR sub_0x001C4C
 C - - - - 0x00293F 02:A92F: AD 50 04  LDA $0450
@@ -1261,7 +1261,8 @@ C - - - - 0x002965 02:A955: 29 03     AND #con_btn_Right + con_btn_Left
 C - - - - 0x002967 02:A957: F0 5B     BEQ bra_A9B4
 C - - - - 0x002969 02:A959: 4A        LSR
 C - - - - 0x00296A 02:A95A: B0 1B     BCS bra_A977
-C - - - - 0x00296C 02:A95C: A9 20     LDA #$20
+; X курсора при замене игроков японцев слева
+C - - - - 0x00296C 02:A95C: A9 20     LDA #$08
 C - - - - 0x00296E 02:A95E: 8D 5F 05  STA $055F
 C - - - - 0x002971 02:A961: A9 B8     LDA #$B8
 C - - - - 0x002973 02:A963: 85 E6     STA ram_00E6
@@ -1276,7 +1277,8 @@ C - - - - 0x00297C 02:A96C: D0 46     BNE bra_A9B4
 bra_A977:
 C - - - - 0x002987 02:A977: A9 00     LDA #$00
 C - - - - 0x002989 02:A979: 20 D3 9C  JSR sub_0x001CE3
-C - - - - 0x00298C 02:A97C: A9 C0     LDA #$C0
+; X курсора при замене игроков японцев справа
+C - - - - 0x00298C 02:A97C: A9 C0     LDA #$B0
 C - - - - 0x00298E 02:A97E: 8D 5F 05  STA $055F
 C - - - - 0x002991 02:A981: A9 00     LDA #$00
 C - - - - 0x002993 02:A983: 85 EB     STA ram_00EB
@@ -1314,8 +1316,8 @@ bra_A9BB:
 C - - - - 0x0029CB 02:A9BB: 10 87     BPL bra_A944
 C - - - - 0x0029CD 02:A9BD: 4C FB A9  JMP loc_A9FB
 loc_A9C0:
-C D - - - 0x0029D0 02:A9C0: A0 CA     LDY #< tbl_ADCA
-C - - - - 0x0029D2 02:A9C2: A2 AD     LDX #> tbl_ADCA
+C D - - - 0x0029D0 02:A9C0: A0 CA     LDY #< tbl_ADCA_курсор_замены_киперов_японии
+C - - - - 0x0029D2 02:A9C2: A2 AD     LDX #> tbl_ADCA_курсор_замены_киперов_японии
 C - - - - 0x0029D4 02:A9C4: 20 3A 9C  JSR sub_0x001C4A
 C - - - - 0x0029D7 02:A9C7: A9 FF     LDA #$FF
 C - - - - 0x0029D9 02:A9C9: 85 E9     STA ram_00E9
@@ -1371,12 +1373,14 @@ C - - - - 0x002A43 02:AA33: 9D 50 04  STA $0450,X
 C - - - - 0x002A46 02:AA36: 20 A1 B0  JSR sub_B0A1
 C - - - - 0x002A49 02:AA39: 20 7F AA  JSR sub_AA7F
 bra_AA3C:
-C - - - - 0x002A4C 02:AA3C: A9 85     LDA #$85
+; координата имен основных игроков после замены
+C - - - - 0x002A4C 02:AA3C: A9 85     LDA #$82
 C - - - - 0x002A4E 02:AA3E: 85 E6     STA ram_00E6
 C - - - - 0x002A50 02:AA40: A9 20     LDA #$20
 C - - - - 0x002A52 02:AA42: 85 E7     STA ram_00E7
 C - - - - 0x002A54 02:AA44: 20 AC AE  JSR sub_AEAC
-C - - - - 0x002A57 02:AA47: A9 99     LDA #$99
+; координата имен запасных игроков после замены
+C - - - - 0x002A57 02:AA47: A9 99     LDA #$97
 C - - - - 0x002A59 02:AA49: 85 E6     STA ram_00E6
 C - - - - 0x002A5B 02:AA4B: A9 20     LDA #$20
 C - - - - 0x002A5D 02:AA4D: 85 E7     STA ram_00E7
@@ -1898,28 +1902,28 @@ tbl_ADB8:
 - D - I - 0x002DCC 02:ADBC: 68        .byte $68	; <リ>
 - D - I - 0x002DCD 02:ADBD: 78        .byte $78	; <?>
 
-tbl_ADBE:
+tbl_ADBE_курсор_замены_игроков_японии_1:
 - D - I - 0x002DCE 02:ADBE: F8        .byte $F8
 - D - I - 0x002DCF 02:ADBF: 28        .byte $28	; <り>
 - D - I - 0x002DD0 02:ADC0: 71        .byte $71	; <ュ>
 - D - I - 0x002DD1 02:ADC1: 00        .byte $00
-- D - I - 0x002DD2 02:ADC2: 20        .byte $20	; <み>
+- D - I - 0x002DD2 02:ADC2: 20        .byte $08	; <み>
 - D - I - 0x002DD3 02:ADC3: C8        .byte $C8	; <ぱ>
 
-tbl_ADC4:
+tbl_ADC4_курсор_замены_игроков_японии_2:
 - D - I - 0x002DD4 02:ADC4: F4        .byte $F4
 - D - I - 0x002DD5 02:ADC5: 28        .byte $28	; <り>
 - D - I - 0x002DD6 02:ADC6: 71        .byte $71	; <ュ>
 - D - I - 0x002DD7 02:ADC7: 00        .byte $00
-- D - I - 0x002DD8 02:ADC8: 20        .byte $20	; <み>
+- D - I - 0x002DD8 02:ADC8: 20        .byte $08	; <み>
 - D - I - 0x002DD9 02:ADC9: B8        .byte $B8	; <ゴ>
 
-tbl_ADCA:
+tbl_ADCA_курсор_замены_киперов_японии:
 - D - I - 0x002DDA 02:ADCA: F4        .byte $F4
 - D - I - 0x002DDB 02:ADCB: B8        .byte $B8	; <ゴ>
 - D - I - 0x002DDC 02:ADCC: 71        .byte $71	; <ュ>
 - D - I - 0x002DDD 02:ADCD: 00        .byte $00
-- D - I - 0x002DDE 02:ADCE: C0        .byte $C0	; <ヅ>
+- D - I - 0x002DDE 02:ADCE: C0        .byte $B0	; <ヅ>
 - D - I - 0x002DDF 02:ADCF: C8        .byte $C8	; <ぱ>
 
 tbl_ADD0:
