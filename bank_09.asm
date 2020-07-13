@@ -1,6 +1,7 @@
 .segment "BANK_09"
 .include "copy_bank_ram.inc"
 ; тут только данные, связанные с банком 07
+
 .export tbl_0x010010
 tbl_0x010010:
 - D - I - 0x010010 09:A000: AA        .byte $AA	; <だ>

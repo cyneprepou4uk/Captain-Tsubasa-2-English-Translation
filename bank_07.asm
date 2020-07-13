@@ -1,6 +1,7 @@
 .segment "BANK_07"
 .include "copy_bank_ram.inc"
 ; тут только данные
+
 .export tbl_0x00C010_скрытые_катсцены
 tbl_0x00C010_скрытые_катсцены:
 - D - I - 0x00C010 07:A000: 0C A0     .word off_A00C_00_обезьянка_после_проигрыша
