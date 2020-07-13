@@ -4708,7 +4708,8 @@ C - - - - 0x001DD3 01:9DC3: A5 ED     LDA ram_00ED
 C - - - - 0x001DD5 01:9DC5: 20 DE 9D  JSR sub_9DDE
 C - - - - 0x001DD8 01:9DC8: A5 EC     LDA ram_00EC
 C - - - - 0x001DDA 01:9DCA: 20 DA 9D  JSR sub_9DDA
-C - - - - 0x001DDD 01:9DCD: A9 33     LDA #$33
+; корректировка номера тайла для цифры единиц
+C - - - - 0x001DDD 01:9DCD: A9 33     LDA #$30
 C - - - - 0x001DDF 01:9DCF: 85 E7     STA ram_00E7
 C - - - - 0x001DE1 01:9DD1: A5 EC     LDA ram_00EC
 C - - - - 0x001DE3 01:9DD3: 20 DE 9D  JSR sub_9DDE
@@ -4723,7 +4724,8 @@ C - - - - 0x001DED 01:9DDD: 4A        LSR
 sub_9DDE:
 C - - - - 0x001DEE 01:9DDE: 29 0F     AND #$0F
 C - - - - 0x001DF0 01:9DE0: F0 04     BEQ bra_9DE6
-C - - - - 0x001DF2 01:9DE2: A0 33     LDY #$33
+; корректировка номера тайла для десятков и сотен
+C - - - - 0x001DF2 01:9DE2: A0 33     LDY #$30
 C - - - - 0x001DF4 01:9DE4: 84 E7     STY ram_00E7
 bra_9DE6:
 C - - - - 0x001DF6 01:9DE6: 18        CLC

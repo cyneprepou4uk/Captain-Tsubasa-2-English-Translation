@@ -7397,77 +7397,104 @@ tbl_F329_таблица_сжатых_слов:
 - D - I - 0x03F517 FF:F507: C8 FA     .word off_FAC8_EF
 
 off_F509_01_цубаса:
-- D - I - 0x03F519 FF:F509: 12        .byte $12	; <つ>
-- D - I - 0x03F51A FF:F50A: AF        .byte $AF	; <ば>
-- D - I - 0x03F51B FF:F50B: 0B        .byte $0B	; <さ>
-- D - I - 0x03F51C FF:F50C: FC        .byte $FC
+                                      .byte $54
+                                      .byte $73
+                                      .byte $75
+                                      .byte $62
+                                      .byte $61
+                                      .byte $73
+                                      .byte $61
+                                      .byte $FC
 
 off_F50D_02_ренато:
-- D - I - 0x03F51D FF:F50D: 6A        .byte $6A	; <レ>
-- D - I - 0x03F51E FF:F50E: 55        .byte $55	; <ナ>
-- D - I - 0x03F51F FF:F50F: 7D        .byte $7D	; <ー>
-- D - I - 0x03F520 FF:F510: 54        .byte $54	; <ト>
-- D - I - 0x03F521 FF:F511: FC        .byte $FC
+                                      .byte $52
+                                      .byte $65
+                                      .byte $6E
+                                      .byte $61
+                                      .byte $74
+                                      .byte $6F
+                                      .byte $FC
 
 off_F512_03_лима:
-- D - I - 0x03F522 FF:F512: 68        .byte $68	; <リ>
-- D - I - 0x03F523 FF:F513: 5F        .byte $5F	; <マ>
-- D - I - 0x03F524 FF:F514: FC        .byte $FC
+                                      .byte $4C
+                                      .byte $69
+                                      .byte $6D
+                                      .byte $61
+                                      .byte $FC
 
 off_F515_04_марини:
-- D - I - 0x03F525 FF:F515: 5F        .byte $5F	; <マ>
-- D - I - 0x03F526 FF:F516: 68        .byte $68	; <リ>
-- D - I - 0x03F527 FF:F517: 7D        .byte $7D	; <ー>
-- D - I - 0x03F528 FF:F518: 56        .byte $56	; <ニ>
-- D - I - 0x03F529 FF:F519: FC        .byte $FC
+                                      .byte $4D
+                                      .byte $61
+                                      .byte $72
+                                      .byte $69
+                                      .byte $6E
+                                      .byte $69
+                                      .byte $FC
 
 off_F51A_05_амарал:
-- D - I - 0x03F52A FF:F51A: 41        .byte $41	; <ア>
-- D - I - 0x03F52B FF:F51B: 5F        .byte $5F	; <マ>
-- D - I - 0x03F52C FF:F51C: 67        .byte $67	; <ラ>
-- D - I - 0x03F52D FF:F51D: 43        .byte $43	; <ウ>
-- D - I - 0x03F52E FF:F51E: FC        .byte $FC
+                                      .byte $41
+                                      .byte $6D
+                                      .byte $61
+                                      .byte $72
+                                      .byte $61
+                                      .byte $6C
+                                      .byte $FC
 
 off_F51F_06_дотор:
-- D - I - 0x03F52F FF:F51F: C2        .byte $C2	; <ド>
-- D - I - 0x03F530 FF:F520: 54        .byte $54	; <ト>
-- D - I - 0x03F531 FF:F521: 7D        .byte $7D	; <ー>
-- D - I - 0x03F532 FF:F522: 69        .byte $69	; <ル>
-- D - I - 0x03F533 FF:F523: FC        .byte $FC
+                                      .byte $44
+                                      .byte $6F
+                                      .byte $74
+                                      .byte $6F
+                                      .byte $72
+                                      .byte $FC
 
 off_F524_07_батиста:
-- D - I - 0x03F534 FF:F524: C3        .byte $C3	; <バ>
-- D - I - 0x03F535 FF:F525: 51        .byte $51	; <チ>
-- D - I - 0x03F536 FF:F526: 4D        .byte $4D	; <ス>
-- D - I - 0x03F537 FF:F527: 50        .byte $50	; <タ>
-- D - I - 0x03F538 FF:F528: FC        .byte $FC
+                                      .byte $42
+                                      .byte $61
+                                      .byte $74
+                                      .byte $69
+                                      .byte $73
+                                      .byte $74
+                                      .byte $61
+                                      .byte $FC
 
 off_F529_08_тахамата:
-- D - I - 0x03F539 FF:F529: 50        .byte $50	; <タ>
-- D - I - 0x03F53A FF:F52A: 5A        .byte $5A	; <ハ>
-- D - I - 0x03F53B FF:F52B: 5F        .byte $5F	; <マ>
-- D - I - 0x03F53C FF:F52C: 50        .byte $50	; <タ>
-- D - I - 0x03F53D FF:F52D: FC        .byte $FC
+                                      .byte $54
+                                      .byte $61
+                                      .byte $68
+                                      .byte $61
+                                      .byte $6D
+                                      .byte $61
+                                      .byte $74
+                                      .byte $61
+                                      .byte $FC
 
 off_F52E_09_бабинтон:
-- D - I - 0x03F53E FF:F52E: C3        .byte $C3	; <バ>
-- D - I - 0x03F53F FF:F52F: C4        .byte $C4	; <ビ>
-- D - I - 0x03F540 FF:F530: 6E        .byte $6E	; <ン>
-- D - I - 0x03F541 FF:F531: 54        .byte $54	; <ト>
-- D - I - 0x03F542 FF:F532: 6E        .byte $6E	; <ン>
-- D - I - 0x03F543 FF:F533: FC        .byte $FC
+                                      .byte $42
+                                      .byte $61
+                                      .byte $62
+                                      .byte $69
+                                      .byte $6E
+                                      .byte $67
+                                      .byte $74
+                                      .byte $6F
+                                      .byte $6E
+                                      .byte $FC
 
 off_F534_0A_гил:
-- D - I - 0x03F544 FF:F534: BA        .byte $BA	; <ジ>
-- D - I - 0x03F545 FF:F535: 43        .byte $43	; <ウ>
-- D - I - 0x03F546 FF:F536: FC        .byte $FC
+                                      .byte $47
+                                      .byte $69
+                                      .byte $6C
+                                      .byte $FC
 
 off_F537_0B_платон:
-- D - I - 0x03F547 FF:F537: CF        .byte $CF	; <プ>
-- D - I - 0x03F548 FF:F538: 67        .byte $67	; <ラ>
-- D - I - 0x03F549 FF:F539: 54        .byte $54	; <ト>
-- D - I - 0x03F54A FF:F53A: 6E        .byte $6E	; <ン>
-- D - I - 0x03F54B FF:F53B: FC        .byte $FC
+                                      .byte $50
+                                      .byte $6C
+                                      .byte $61
+                                      .byte $74
+                                      .byte $6F
+                                      .byte $6E
+                                      .byte $FC
 
 off_F53C_0C_урабэ:
 - D - I - 0x03F54C FF:F53C: 03        .byte $03	; <う>
