@@ -540,7 +540,7 @@ sub_A3B4:
 - - - - - 0x0023C4 02:A3B4: 85 EB     STA ram_00EB
 bra_A3B6:
 - - - - - 0x0023C6 02:A3B6: A5 EA     LDA ram_00EA
-- - - - - 0x0023C8 02:A3B8: 20 0C C5  JSR sub_0x03C51C_получить_базовый_адрес_игрока
+- - - - - 0x0023C8 02:A3B8: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 - - - - - 0x0023CB 02:A3BB: A0 00     LDY #con_игрок_номер
 - - - - - 0x0023CD 02:A3BD: B1 34     LDA (ram_plr_data),Y
 - - - - - 0x0023CF 02:A3BF: 20 13 B0  JSR sub_B013
@@ -869,7 +869,7 @@ sub_A611:
 C - - - - 0x002621 02:A611: 85 EB     STA ram_00EB
 bra_A613:
 C - - - - 0x002623 02:A613: A5 ED     LDA ram_00ED
-C - - - - 0x002625 02:A615: 20 0C C5  JSR sub_0x03C51C_получить_базовый_адрес_игрока
+C - - - - 0x002625 02:A615: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x002628 02:A618: A0 00     LDY #con_игрок_номер
 C - - - - 0x00262A 02:A61A: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x00262C 02:A61C: 20 13 B0  JSR sub_B013
@@ -2137,7 +2137,7 @@ C - - - - 0x002EEC 02:AEDC: 86 E9     STX ram_00E9
 C - - - - 0x002EEE 02:AEDE: 84 EB     STY ram_00EB
 bra_AEE0:
 C - - - - 0x002EF0 02:AEE0: A5 E8     LDA ram_00E8
-C - - - - 0x002EF2 02:AEE2: 20 0C C5  JSR sub_0x03C51C_получить_базовый_адрес_игрока
+C - - - - 0x002EF2 02:AEE2: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x002EF5 02:AEE5: A0 00     LDY #con_игрок_номер
 C - - - - 0x002EF7 02:AEE7: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x002EF9 02:AEE9: 20 09 AF  JSR sub_AF09
@@ -2190,7 +2190,7 @@ C - - - - 0x002F46 02:AF36: 60        RTS
 
 sub_AF37:
 C - - - - 0x002F47 02:AF37: A5 5E     LDA ram_005E
-C - - - - 0x002F49 02:AF39: 20 0C C5  JSR sub_0x03C51C_получить_базовый_адрес_игрока
+C - - - - 0x002F49 02:AF39: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x002F4C 02:AF3C: A0 01     LDY #con_игрок_энергия_lo
 C - - - - 0x002F4E 02:AF3E: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x002F50 02:AF40: 85 EC     STA ram_00EC

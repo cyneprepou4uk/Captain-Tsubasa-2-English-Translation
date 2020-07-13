@@ -138,12 +138,6 @@ C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
-.export sub_0x03C51C_получить_базовый_адрес_игрока
-sub_0x03C51C_получить_базовый_адрес_игрока:
-.export loc_0x03C51C_получить_базовый_адрес_игрока
-loc_0x03C51C_получить_базовый_адрес_игрока:
-C D - - - 0x03C51C FF:C50C: 4C 7C CD  JMP loc_CD7C_получить_базовый_адрес_игрока
-
 .export sub_0x03C51F
 sub_0x03C51F:
 C - - - - 0x03C51F FF:C50F: 4C E7 CA  JMP loc_CAE7
@@ -1362,7 +1356,10 @@ loc_CD77:
 sub_CD77:
 C D - - - 0x03CD87 FF:CD77: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x03CD8A FF:CD7A: 49 0B     EOR #$0B
-loc_CD7C_получить_базовый_адрес_игрока:
+.export sub_0x03CD8C_адрес_игрока
+sub_0x03CD8C_адрес_игрока:
+.export loc_0x03CD8C_адрес_игрока
+loc_0x03CD8C_адрес_игрока:
 sub_CD7C_получить_базовый_адрес_игрока:
 C D - - - 0x03CD8C FF:CD7C: 0A        ASL
 C - - - - 0x03CD8D FF:CD7D: A8        TAY
