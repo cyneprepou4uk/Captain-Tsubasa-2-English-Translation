@@ -1,14 +1,6 @@
 .segment "BANK_02"
 .include "copy_bank_ram.inc"
 
-.export sub_0x002025
-sub_0x002025:
-C - - - - 0x002025 02:A015: 4C 8A AF  JMP loc_AF8A
-
-.export sub_0x002028
-sub_0x002028:
-C - - - - 0x002028 02:A018: 4C 50 B0  JMP loc_B050
-
 .export sub_0x00202B
 sub_0x00202B:
 - - - - - 0x00202B 02:A01B: 4C 9B A3  JMP loc_A39B
@@ -2221,7 +2213,8 @@ C - - - - 0x002F92 02:AF82: BD 4D BA  LDA tbl_BA4C + 1,X
 C - - - - 0x002F95 02:AF85: 85 E7     STA ram_00E7
 C - - - - 0x002F97 02:AF87: 4C 9E AF  JMP loc_AF9E
 
-loc_AF8A:
+.export sub_0x002F9A
+sub_0x002F9A:
 C D - - - 0x002F9A 02:AF8A: A5 26     LDA ram_матч
 C - - - - 0x002F9C 02:AF8C: 0A        ASL
 C - - - - 0x002F9D 02:AF8D: AA        TAX
@@ -2344,7 +2337,8 @@ C - - - - 0x00305B 02:B04B: BD 91 BA  LDA tbl_BA90 + 1,X
 C - - - - 0x00305E 02:B04E: AA        TAX
 C - - - - 0x00305F 02:B04F: 60        RTS
 
-loc_B050:
+.export sub_0x003060
+sub_0x003060:
 C D - - - 0x003060 02:B050: A5 26     LDA ram_матч
 C - - - - 0x003062 02:B052: C9 10     CMP #$10
 C - - - - 0x003064 02:B054: F0 16     BEQ bra_B06C
