@@ -838,20 +838,24 @@ C - - - - 0x03CBD1 FF:CBC1: 60        RTS
 sub_0x03CBD2_кодировка_японских_символов:
 ; на выходе игру интересуют A и Y
 ; Y = дополнительный символ над буквой, 94 = 2 палки, 95 - кружок
+	; не везде используется Y, бывает просто проверяется на неравенство 00
 ; A = тайл итоговой буквы
+	; оригинал в любом случае должен пропустить байт через кодировку для получения голого символа
 C D - - - 0x03CBD2 FF:CBC2: A0 00     LDY #$00
 C - - - - 0x03CBD4 FF:CBC4: C9 A0     CMP #$A0
 C - - - - 0x03CBD6 FF:CBC6: 90 28     BCC bra_CBF0_выход
+; A0+
 C - - - - 0x03CBD8 FF:CBC8: A0 94     LDY #$94
 C - - - - 0x03CBDA FF:CBCA: C9 C8     CMP #$C8
-C - - - - 0x03CBDC FF:CBCC: 90 0C     BCC bra_CBDA
+C - - - - 0x03CBDC FF:CBCC: 90 0C     BCC bra_CBDA_A0_C7
+; C8-D1
 C - - - - 0x03CBDE FF:CBCE: A0 95     LDY #$95
 C - - - - 0x03CBE0 FF:CBD0: E9 AE     SBC #$AE
 C - - - - 0x03CBE2 FF:CBD2: C9 1F     CMP #$1F
 C - - - - 0x03CBE4 FF:CBD4: 90 1A     BCC bra_CBF0_выход
 C - - - - 0x03CBE6 FF:CBD6: E9 05     SBC #$05
 C - - - - 0x03CBE8 FF:CBD8: B0 13     BCS bra_CBED
-bra_CBDA:
+bra_CBDA_A0_C7:
 C - - - - 0x03CBEA FF:CBDA: C9 B4     CMP #$B4
 C - - - - 0x03CBEC FF:CBDC: 08        PHP
 C - - - - 0x03CBED FF:CBDD: 90 02     BCC bra_CBE1
