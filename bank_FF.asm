@@ -3231,7 +3231,7 @@ C - - - - 0x03DAC9 FF:DAB9: A9 1B     LDA #$1B
 C - - - - 0x03DACB FF:DABB: 85 25     STA ram_для_8001_07
 C - - - - 0x03DACD FF:DABD: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DAD0 FF:DAC0: 68        PLA
-C - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x034049
+C - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x03505E
 C - - - - 0x03DAD4 FF:DAC4: 20 24 DB  JSR sub_DB24
 C - - - - 0x03DAD7 FF:DAC7: A9 00     LDA #$00
 C - - - - 0x03DAD9 FF:DAC9: 20 7F EF  JSR sub_EF7F
@@ -4312,7 +4312,7 @@ C - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E
 - - - - - 0x03E225 FF:E215: 85 25     STA ram_для_8001_07
 - - - - - 0x03E227 FF:E217: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 - - - - - 0x03E22A FF:E21A: 68        PLA
-- - - - - 0x03E22B FF:E21B: 20 39 80  JSR sub_0x034049
+- - - - - 0x03E22B FF:E21B: 20 39 80  JSR sub_0x03505E
 
 bra_E21E:
 C - - - - 0x03E22E FF:E21E: 48        PHA

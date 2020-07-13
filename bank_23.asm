@@ -1,10 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
 
-.export sub_0x034049
-sub_0x034049:
-C - - - - 0x034049 23:8039: 4C 4E 90  JMP loc_904E
-
 .export loc_0x03404C
 loc_0x03404C:
 C D - - - 0x03404C 23:803C: A9 00     LDA #$00
@@ -2376,7 +2372,8 @@ C - - - - 0x03505A 23:904A: 8A        TXA
 C - - - - 0x03505B 23:904B: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03505D 23:904D: 60        RTS
 
-loc_904E:
+.export sub_0x03505E
+sub_0x03505E:
 sub_904E:
 C D - - - 0x03505E 23:904E: 2C 4B 04  BIT $044B
 C - - - - 0x035061 23:9051: 10 1C     BPL bra_906F_выход
