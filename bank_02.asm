@@ -830,7 +830,7 @@ bra_A5C6:
 loc_A5C6:
 C D - - - 0x0025D6 02:A5C6: A6 ED     LDX ram_00ED
 C - - - - 0x0025D8 02:A5C8: BD 56 06  LDA $0656,X
-C - - - - 0x0025DB 02:A5CB: 20 3C C5  JSR sub_0x03C54C_чтение_таблицы_сжатых_слов
+C - - - - 0x0025DB 02:A5CB: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - 0x0025DE 02:A5CE: A5 EA     LDA ram_00EA
 C - - - - 0x0025E0 02:A5D0: 0A        ASL
 C - - - - 0x0025E1 02:A5D1: AA        TAX
@@ -1712,7 +1712,7 @@ C - - - - 0x002C99 02:AC89: 4C 13 AD  JMP loc_AD13
 bra_AC8C:
 C - - - - 0x002C9C 02:AC8C: C8        INY
 C - - - - 0x002C9D 02:AC8D: B1 5C     LDA (ram_005C),Y
-C - - - - 0x002C9F 02:AC8F: 20 3C C5  JSR sub_0x03C54C_чтение_таблицы_сжатых_слов
+C - - - - 0x002C9F 02:AC8F: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - 0x002CA2 02:AC92: A5 5E     LDA ram_005E
 C - - - - 0x002CA4 02:AC94: 0A        ASL
 C - - - - 0x002CA5 02:AC95: AA        TAX
@@ -2160,7 +2160,7 @@ sub_AF05:
 C - - - - 0x002F15 02:AF05: 84 E6     STY ram_00E6
 C - - - - 0x002F17 02:AF07: 86 E7     STX ram_00E7
 sub_AF09:
-C - - - - 0x002F19 02:AF09: 20 3C C5  JSR sub_0x03C54C_чтение_таблицы_сжатых_слов
+C - - - - 0x002F19 02:AF09: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - 0x002F1C 02:AF0C: A9 05     LDA #$05
 C - - - - 0x002F1E 02:AF0E: 85 ED     STA ram_00ED
 bra_AF10:
