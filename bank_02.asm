@@ -4398,17 +4398,19 @@ off_B899_углы:
 
 
 tbl_B8A9_экран_статов_полевого:
+; очистить nametable
 - D - I - 0x0038B9 02:B8A9: 0D        .byte $0D
 
 - D - I - 0x0038BA 02:B8AA: 0A        .byte $00
 - D - I - 0x0038BB 02:B8AB: 4E BF     .word off_BF4E_названия_действий_полевого
-
+; прыжок
 - D - I - 0x0038BD 02:B8AD: 0E        .byte $0E
 - D - I - 0x0038BE 02:B8AE: B4 B8     .word off_B8B4_оформление_окон
 
 
 
 tbl_B8B0_экран_статов_кипера:
+; очистить nametable
 - D - I - 0x0038C0 02:B8B0: 0D        .byte $0D
 
 - D - I - 0x0038C1 02:B8B1: 0A        .byte $00
@@ -4419,87 +4421,85 @@ tbl_B8B0_экран_статов_кипера:
 off_B8B4_оформление_окон:
 ; это общая подпрограмма, используется и для кипера тоже
 ; левая синяя полоска
-- D - I - 0x0038C7 02:B8B7: 04        .byte $04	; <え>
+- D - I - 0x0038C7 02:B8B7: 04        .byte $04
 - D - I - 0x0038C8 02:B8B8: 83 20     .word $2081
-- D - I - 0x0038CA 02:B8BA: 07        .byte $07	; <き>
-- D - I - 0x0038CB 02:B8BB: 8A        .byte $8F	; <N>
+- D - I - 0x0038CA 02:B8BA: 07        .byte $07
+- D - I - 0x0038CB 02:B8BB: 8A        .byte $8F
 ; правая синяя полоска
-- D - I - 0x0038CC 02:B8BC: 04        .byte $04	; <え>
+- D - I - 0x0038CC 02:B8BC: 04        .byte $04
 - D - I - 0x0038CD 02:B8BD: 8E 20     .word $208E
-- D - I - 0x0038CF 02:B8BF: 07        .byte $07	; <き>
-- D - I - 0x0038D0 02:B8C0: 8A        .byte $8F	; <N>
+- D - I - 0x0038CF 02:B8BF: 07        .byte $07
+- D - I - 0x0038D0 02:B8C0: 8A        .byte $8F
 ; нижняя синяя полоска
-- D - I - 0x0038D1 02:B8C1: 05        .byte $05	; <お>
+- D - I - 0x0038D1 02:B8C1: 05        .byte $05
 - D - I - 0x0038D2 02:B8C2: 64 21     .word $2162
-- D - I - 0x0038D4 02:B8C4: 0A        .byte $0C	; <こ>
-- D - I - 0x0038D5 02:B8C5: 89        .byte $8E	; <I>
+- D - I - 0x0038D4 02:B8C4: 0A        .byte $0C
+- D - I - 0x0038D5 02:B8C5: 89        .byte $8E
 ; левая полоска high ball
-- D - I - 0x0038D6 02:B8C6: 04        .byte $04	; <え>
+- D - I - 0x0038D6 02:B8C6: 04        .byte $04
 - D - I - 0x0038D7 02:B8C7: 90 20     .word $2090
-- D - I - 0x0038D9 02:B8C9: 0A        .byte $0A	; <こ>
-- D - I - 0x0038DA 02:B8CA: AA        .byte $AA	; <だ>
+- D - I - 0x0038D9 02:B8C9: 0A        .byte $0A
+- D - I - 0x0038DA 02:B8CA: AA        .byte $AA
 ; правая полоска high ball
-- D - I - 0x0038DB 02:B8CB: 04        .byte $04	; <え>
+- D - I - 0x0038DB 02:B8CB: 04        .byte $04
 - D - I - 0x0038DC 02:B8CC: 9C 20     .word $209E
-- D - I - 0x0038DE 02:B8CE: 0A        .byte $0A	; <こ>
-- D - I - 0x0038DF 02:B8CF: AB        .byte $AB	; <ぢ>
+- D - I - 0x0038DE 02:B8CE: 0A        .byte $0A
+- D - I - 0x0038DF 02:B8CF: AB        .byte $AB
 ; нижняя полоска high ball
-- D - I - 0x0038E0 02:B8D0: 05        .byte $05	; <お>
+- D - I - 0x0038E0 02:B8D0: 05        .byte $05
 - D - I - 0x0038E1 02:B8D1: D1 21     .word $21D1
-- D - I - 0x0038E3 02:B8D3: 0B        .byte $0D	; <さ>
-- D - I - 0x0038E4 02:B8D4: A9        .byte $A9	; <ぞ>
+- D - I - 0x0038E3 02:B8D3: 0B        .byte $0D
+- D - I - 0x0038E4 02:B8D4: A9        .byte $A9
 ; левая полоска stats
-- D - I - 0x0038E5 02:B8D5: 04        .byte $04	; <え>
+- D - I - 0x0038E5 02:B8D5: 04        .byte $04
 - D - I - 0x0038E6 02:B8D6: C3 21     .word $21E1
-- D - I - 0x0038E8 02:B8D8: 0D        .byte $0C	; <す>
-- D - I - 0x0038E9 02:B8D9: AA        .byte $AA	; <だ>
+- D - I - 0x0038E8 02:B8D8: 0D        .byte $0C
+- D - I - 0x0038E9 02:B8D9: AA        .byte $AA
 ; правая полоска stats
-- D - I - 0x0038EA 02:B8DA: 04        .byte $04	; <え>
+- D - I - 0x0038EA 02:B8DA: 04        .byte $04
 - D - I - 0x0038EB 02:B8DB: CE 21     .word $21EE
-- D - I - 0x0038ED 02:B8DD: 0D        .byte $0C	; <す>
-- D - I - 0x0038EE 02:B8DE: AB        .byte $AB	; <ぢ>
+- D - I - 0x0038ED 02:B8DD: 0D        .byte $0C
+- D - I - 0x0038EE 02:B8DE: AB        .byte $AB
 ; нижняя полоска stats
-- D - I - 0x0038EF 02:B8DF: 05        .byte $05	; <お>
+- D - I - 0x0038EF 02:B8DF: 05        .byte $05
 - D - I - 0x0038F0 02:B8E0: 64 23     .word $2362
-- D - I - 0x0038F2 02:B8E2: 0A        .byte $0C	; <こ>
-- D - I - 0x0038F3 02:B8E3: A9        .byte $A9	; <ぞ>
+- D - I - 0x0038F2 02:B8E2: 0A        .byte $0C
+- D - I - 0x0038F3 02:B8E3: A9        .byte $A9
 ; левая полоска low ball
-- D - I - 0x0038F4 02:B8E4: 04        .byte $04	; <え>
+- D - I - 0x0038F4 02:B8E4: 04        .byte $04
 - D - I - 0x0038F5 02:B8E5: 30 22     .word $2230
-- D - I - 0x0038F7 02:B8E7: 0A        .byte $0A	; <こ>
-- D - I - 0x0038F8 02:B8E8: AA        .byte $AA	; <だ>
+- D - I - 0x0038F7 02:B8E7: 0A        .byte $0A
+- D - I - 0x0038F8 02:B8E8: AA        .byte $AA
 ; правая полоска low ball
-- D - I - 0x0038F9 02:B8E9: 04        .byte $04	; <え>
+- D - I - 0x0038F9 02:B8E9: 04        .byte $04
 - D - I - 0x0038FA 02:B8EA: 3C 22     .word $223E
-- D - I - 0x0038FC 02:B8EC: 0A        .byte $0A	; <こ>
-- D - I - 0x0038FD 02:B8ED: AB        .byte $AB	; <ぢ>
+- D - I - 0x0038FC 02:B8EC: 0A        .byte $0A
+- D - I - 0x0038FD 02:B8ED: AB        .byte $AB
 ; нижняя полоска low ball
-- D - I - 0x0038FE 02:B8EE: 05        .byte $05	; <お>
+- D - I - 0x0038FE 02:B8EE: 05        .byte $05
 - D - I - 0x0038FF 02:B8EF: 71 23     .word $2371
-- D - I - 0x003901 02:B8F1: 0B        .byte $0D	; <さ>
-- D - I - 0x003902 02:B8F2: A9        .byte $A9	; <ぞ>
+- D - I - 0x003901 02:B8F1: 0B        .byte $0D
+- D - I - 0x003902 02:B8F2: A9        .byte $A9
 
-- D - I - 0x003903 02:B8F3: 05        .byte $05	; <お>
+- D - I - 0x003903 02:B8F3: 05        .byte $05
 - D - I - 0x003904 02:B8F4: ED 24     .word $24ED
-- D - I - 0x003906 02:B8F6: 08        .byte $08	; <く>
-- D - I - 0x003907 02:B8F7: A8        .byte $A8	; <ぜ>
+- D - I - 0x003906 02:B8F6: 08        .byte $08
+- D - I - 0x003907 02:B8F7: A8        .byte $A8
 
-- D - I - 0x003908 02:B8F8: 04        .byte $04	; <え>
+- D - I - 0x003908 02:B8F8: 04        .byte $04
 - D - I - 0x003909 02:B8F9: 03 25     .word $2503
-- D - I - 0x00390B 02:B8FB: 13        .byte $13	; <て>
-- D - I - 0x00390C 02:B8FC: AA        .byte $AA	; <だ>
+- D - I - 0x00390B 02:B8FB: 13        .byte $13
+- D - I - 0x00390C 02:B8FC: AA        .byte $AA
 
-- D - I - 0x00390D 02:B8FD: 04        .byte $04	; <え>
+- D - I - 0x00390D 02:B8FD: 04        .byte $04
 - D - I - 0x00390E 02:B8FE: 1C 25     .word $251C
-- D - I - 0x003910 02:B900: 13        .byte $13	; <て>
-- D - I - 0x003911 02:B901: AB        .byte $AB	; <ぢ>
+- D - I - 0x003910 02:B900: 13        .byte $13
+- D - I - 0x003911 02:B901: AB        .byte $AB
 
-; !!! использование подпрограммы 0A вместо 00 занимает слишком долго вычислений, судя по значительному замедлению загрузки экрана
-; по занимаемому месту одинаково, но с 00 чуть менее удобно, так как надо вычислять количество считываемых байтов
-- D - I - 0x0038C4 02:B8B4: 0A        .byte $00	; <こ>
+- D - I - 0x0038C4 02:B8B4: 0A        .byte $00
 - D - I - 0x0038C5 02:B8B5: 15 BF     .word off_BF15_оформление_окон_и_текст
 
-- D - I - 0x003915 02:B905: 0F        .byte $0F	; <そ>
+- D - I - 0x003915 02:B905: 0F        .byte $0F
 
 
 tbl_B967:
