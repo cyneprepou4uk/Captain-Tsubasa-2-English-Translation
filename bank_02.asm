@@ -1023,18 +1023,18 @@ C D - - - 0x002781 02:A771: A9 FC     LDA #$FC
 C - - - - 0x002783 02:A773: A2 38     LDX #$38
 C - - - - 0x002785 02:A775: A0 78     LDY #$78
 C - - - - 0x002787 02:A777: 20 E3 9B  JSR sub_0x001BF3
-C - - - - 0x00278A 02:A77A: A0 81     LDY #< tbl_A781_опции_сан_паулу_и_нанкацу
-C - - - - 0x00278C 02:A77C: A2 A7     LDX #> tbl_A781_опции_сан_паулу_и_нанкацу
+C - - - - 0x00278A 02:A77A: A0 81     LDY #< tbl_A781_опции_сан_паулу_нанкацу
+C - - - - 0x00278C 02:A77C: A2 A7     LDX #> tbl_A781_опции_сан_паулу_нанкацу
 C - - - - 0x00278E 02:A77E: 4C 28 9C  JMP loc_0x001C38_непрямой_прыжок
 
-tbl_A781_опции_сан_паулу_и_нанкацу:
-- D - I - 0x002791 02:A781: 8B A7     .word ofs_A78B_расстановка
-- D - I - 0x002793 02:A783: AC A7     .word ofs_A7AC_защита
-- D - I - 0x002795 02:A785: C5 A7     .word ofs_A7C5_замена
-- D - I - 0x002797 02:A787: DD AA     .word ofs_AADD_статус
+tbl_A781_опции_сан_паулу_нанкацу:
+- D - I - 0x002791 02:A781: 8B A7     .word ofs_A78B_опция_formation_сан_паулу_нанкацу
+- D - I - 0x002793 02:A783: AC A7     .word ofs_A7AC_опция_defense_сан_паулу_нанкацу
+- D - I - 0x002795 02:A785: C5 A7     .word ofs_A7C5_опция_lineup_сан_паулу_нанкацу
+- D - I - 0x002797 02:A787: DD AA     .word ofs_AADD_экран_status
 - D - I - 0x002799 02:A789: 73 AA     .word sub_0x001A00_выход_из_экрана
 
-ofs_A78B_расстановка:
+ofs_A78B_опция_formation_сан_паулу_нанкацу:
 C - J - - 0x00279B 02:A78B: A0 EB     LDY #< tbl_B6EB_расстановка
 C - - - - 0x00279D 02:A78D: A2 B6     LDX #> tbl_B6EB_расстановка
 C - - - - 0x00279F 02:A78F: 20 AB 97  JSR sub_0x0017BB
@@ -1049,7 +1049,7 @@ C - - - - 0x0027B4 02:A7A4: A9 38     LDA #$38
 C - - - - 0x0027B6 02:A7A6: 8D 64 05  STA $0564
 C - - - - 0x0027B9 02:A7A9: 4C 71 A7  JMP loc_A771
 
-ofs_A7AC_защита:
+ofs_A7AC_опция_defense_сан_паулу_нанкацу:
 C - J - - 0x0027BC 02:A7AC: A0 90     LDY #< tbl_B790_защита
 C - - - - 0x0027BE 02:A7AE: A2 B7     LDX #> tbl_B790_защита
 C - - - - 0x0027C0 02:A7B0: 20 AB 97  JSR sub_0x0017BB
@@ -1061,7 +1061,7 @@ C - - - - 0x0027CD 02:A7BD: A9 48     LDA #$48
 C - - - - 0x0027CF 02:A7BF: 8D 64 05  STA $0564
 C - - - - 0x0027D2 02:A7C2: 4C 71 A7  JMP loc_A771
 
-ofs_A7C5_замена:
+ofs_A7C5_опция_lineup_сан_паулу_нанкацу:
 C - J - - 0x0027D5 02:A7C5: A9 58     LDA #$58
 C - - - - 0x0027D7 02:A7C7: 8D 64 05  STA $0564
 C - - - - 0x0027DA 02:A7CA: A9 94     LDA #$94
@@ -1169,13 +1169,13 @@ C - - - - 0x0028A8 02:A898: A2 A8     LDX #> tbl_A89D_опции_японии
 C - - - - 0x0028AA 02:A89A: 4C 28 9C  JMP loc_0x001C38_непрямой_прыжок
 
 tbl_A89D_опции_японии:
-- D - I - 0x0028AD 02:A89D: A7 A8     .word ofs_A8A7_расстановка
-- D - I - 0x0028AF 02:A89F: CA A8     .word ofs_A8CA_защита
-- D - I - 0x0028B1 02:A8A1: E5 A8     .word ofs_A8E5_замена
-- D - I - 0x0028B3 02:A8A3: DD AA     .word ofs_AADD_статус
+- D - I - 0x0028AD 02:A89D: A7 A8     .word ofs_A8A7_опция_formation_япония
+- D - I - 0x0028AF 02:A89F: CA A8     .word ofs_A8CA_опция_defense_япония
+- D - I - 0x0028B1 02:A8A1: E5 A8     .word ofs_A8E5_опция_lineup_япония
+- D - I - 0x0028B3 02:A8A3: DD AA     .word ofs_AADD_экран_status
 - D - I - 0x0028B5 02:A8A5: 73 AA     .word sub_0x001A00_выход_из_экрана
 
-ofs_A8A7_расстановка:
+ofs_A8A7_опция_formation_япония:
 C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_B6EB_расстановка
 C - - - - 0x0028B9 02:A8A9: A2 B6     LDX #> tbl_B6EB_расстановка
 C - - - - 0x0028BB 02:A8AB: A9 FB     LDA #$FB
@@ -1191,7 +1191,7 @@ C - - - - 0x0028D2 02:A8C2: A9 38     LDA #$38
 C - - - - 0x0028D4 02:A8C4: 8D 64 05  STA $0564
 C - - - - 0x0028D7 02:A8C7: 4C 8D A8  JMP loc_A88D
 
-ofs_A8CA_защита:
+ofs_A8CA_опция_defense_япония:
 C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_B790_защита
 C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_B790_защита
 C - - - - 0x0028DE 02:A8CE: A9 FB     LDA #$FB
@@ -1204,7 +1204,7 @@ C - - - - 0x0028ED 02:A8DD: A9 48     LDA #$48
 C - - - - 0x0028EF 02:A8DF: 8D 64 05  STA $0564
 C - - - - 0x0028F2 02:A8E2: 4C 8D A8  JMP loc_A88D
 
-ofs_A8E5_замена:
+ofs_A8E5_опция_lineup_япония:
 C - J - - 0x0028F5 02:A8E5: A9 58     LDA #$58
 C - - - - 0x0028F7 02:A8E7: 8D 64 05  STA $0564
 C - - - - 0x0028FA 02:A8EA: A9 94     LDA #$94
@@ -1469,7 +1469,7 @@ bra_AADB:
 C - - - - 0x002AEB 02:AADB: 18        CLC
 C - - - - 0x002AEC 02:AADC: 60        RTS
 
-ofs_AADD_статус:
+ofs_AADD_экран_status:
 C - J - - 0x002AED 02:AADD: A9 28     LDA #$28
 C - - - - 0x002AEF 02:AADF: 85 60     STA ram_0060
 ; X курсора на экране со списком игроков
@@ -4138,7 +4138,7 @@ tbl_B790_защита:
 - D - I - 0x0037C7 02:B7B7: 00        .byte $00
 - D - I - 0x0037C8 02:B7B8: 00        .byte $00
 - D - I - 0x0037C9 02:B7B9: AB        .byte $AB
-; обычная
+; normal
 - D - I - 0x0037CA 02:B7BA: 0C        .byte $0C
 - D - I - 0x0037CB 02:B7BB: 71 21     .word $2171
 - D - I - 0x0037CD 02:B7BD: AA        .byte $AA
@@ -4168,7 +4168,7 @@ tbl_B790_защита:
 - D - I - 0x0037E5 02:B7D5: 00        .byte $00
 - D - I - 0x0037E6 02:B7D6: 00        .byte $00
 - D - I - 0x0037E7 02:B7D7: AB        .byte $AB
-; пресс
+; press
 - D - I - 0x0037E8 02:B7D8: 0C        .byte $0C
 - D - I - 0x0037E9 02:B7D9: B1 21     .word $21B1
 - D - I - 0x0037EB 02:B7DB: AA        .byte $AA
@@ -4198,7 +4198,7 @@ tbl_B790_защита:
 - D - I - 0x003803 02:B7F3: 95        .byte $00
 - D - I - 0x003804 02:B7F4: 00        .byte $00
 - D - I - 0x003805 02:B7F5: AB        .byte $AB
-; контр
+; counter
 - D - I - 0x003806 02:B7F6: 0C        .byte $0C
 - D - I - 0x003807 02:B7F7: F1 21     .word $21F1
 - D - I - 0x003809 02:B7F9: AA        .byte $AA
