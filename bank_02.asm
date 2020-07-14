@@ -1196,8 +1196,8 @@ C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_B790_защита
 C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_B790_защита
 C - - - - 0x0028DE 02:A8CE: A9 FB     LDA #$FB
 C - - - - 0x0028E0 02:A8D0: 20 AD 97  JSR sub_0x0017BD
-C - - - - 0x0028E3 02:A8D3: A0 B8     LDY #< tbl_ADB8
-C - - - - 0x0028E5 02:A8D5: A2 AD     LDX #> tbl_ADB8
+C - - - - 0x0028E3 02:A8D3: A0 B8     LDY #< tbl_ADB8_курсор_защиты
+C - - - - 0x0028E5 02:A8D5: A2 AD     LDX #> tbl_ADB8_курсор_защиты
 C - - - - 0x0028E7 02:A8D7: 20 77 AE  JSR sub_AE77
 C - - - - 0x0028EA 02:A8DA: 20 19 A7  JSR sub_A719
 C - - - - 0x0028ED 02:A8DD: A9 48     LDA #$48
@@ -1865,34 +1865,34 @@ tbl_AD8A:
 - - - - - 0x002DAD 02:AD9D: 0E        .byte $0E	; <せ>
 
 tbl_AD9E:
-- D - - - 0x002DAE 02:AD9E: 38        .byte $38	; <5>
-- D - - - 0x002DAF 02:AD9F: 71        .byte $71	; <ュ>
+- D - - - 0x002DAE 02:AD9E: 38        .byte $38
+- D - - - 0x002DAF 02:AD9F: 71        .byte $71
 - D - - - 0x002DB0 02:ADA0: 00        .byte $00
-- D - - - 0x002DB1 02:ADA1: 88        .byte $88	; <H>
+- D - - - 0x002DB1 02:ADA1: 88        .byte $88
 
 tbl_ADA2:
 - D - I - 0x002DB2 02:ADA2: F8        .byte $F8
-- D - I - 0x002DB3 02:ADA3: 58        .byte $58	; <ネ>
-- D - I - 0x002DB4 02:ADA4: 71        .byte $71	; <ュ>
+- D - I - 0x002DB3 02:ADA3: 58        .byte $58
+- D - I - 0x002DB4 02:ADA4: 71        .byte $71
 - D - I - 0x002DB5 02:ADA5: 00        .byte $00
-- D - I - 0x002DB6 02:ADA6: 90        .byte $90	; <U>
-- D - I - 0x002DB7 02:ADA7: 78        .byte $78	; <?>
+- D - I - 0x002DB6 02:ADA6: 90        .byte $90
+- D - I - 0x002DB7 02:ADA7: 78        .byte $78
 
 tbl_ADA8_курсор_замены_1:
 - D - I - 0x002DB8 02:ADA8: F8        .byte $F8
-- D - I - 0x002DB9 02:ADA9: 28        .byte $28	; <り>
-- D - I - 0x002DBA 02:ADAA: 71        .byte $71	; <ュ>
+- D - I - 0x002DB9 02:ADA9: 28        .byte $28
+- D - I - 0x002DBA 02:ADAA: 71        .byte $71
 - D - I - 0x002DBB 02:ADAB: 00        .byte $00
-- D - I - 0x002DBC 02:ADAC: 38        .byte $20	; <5>
-- D - I - 0x002DBD 02:ADAD: B8        .byte $B8	; <ゴ>
+- D - I - 0x002DBC 02:ADAC: 38        .byte $20
+- D - I - 0x002DBD 02:ADAD: B8        .byte $B8
 
 tbl_ADAE_курсор_замены_2:
 - D - I - 0x002DBE 02:ADAE: F4        .byte $F4
-- D - I - 0x002DBF 02:ADAF: 28        .byte $28	; <り>
-- D - I - 0x002DC0 02:ADB0: 71        .byte $71	; <ュ>
+- D - I - 0x002DBF 02:ADAF: 28        .byte $28
+- D - I - 0x002DC0 02:ADB0: 71        .byte $71
 - D - I - 0x002DC1 02:ADB1: 00        .byte $00
-- D - I - 0x002DC2 02:ADB2: 38        .byte $20	; <5>
-- D - I - 0x002DC3 02:ADB3: B8        .byte $B8	; <ゴ>
+- D - I - 0x002DC2 02:ADB2: 38        .byte $20
+- D - I - 0x002DC3 02:ADB3: B8        .byte $B8
 
 tbl_ADB4:
 - D - - - 0x002DC4 02:ADB4: 38        .byte $38	; <5>
@@ -1900,37 +1900,37 @@ tbl_ADB4:
 - D - - - 0x002DC6 02:ADB6: 00        .byte $00
 - D - - - 0x002DC7 02:ADB7: 60        .byte $60	; <ミ>
 
-tbl_ADB8:
+tbl_ADB8_курсор_защиты:
 - D - I - 0x002DC8 02:ADB8: F8        .byte $F8
-- D - I - 0x002DC9 02:ADB9: 58        .byte $58	; <ネ>
-- D - I - 0x002DCA 02:ADBA: 71        .byte $71	; <ュ>
+- D - I - 0x002DC9 02:ADB9: 58        .byte $58
+- D - I - 0x002DCA 02:ADBA: 71        .byte $71
 - D - I - 0x002DCB 02:ADBB: 00        .byte $00
-- D - I - 0x002DCC 02:ADBC: 68        .byte $68	; <リ>
-- D - I - 0x002DCD 02:ADBD: 78        .byte $78	; <?>
+- D - I - 0x002DCC 02:ADBC: 68        .byte $68
+- D - I - 0x002DCD 02:ADBD: 78        .byte $78
 
 tbl_ADBE_курсор_замены_игроков_японии_1:
 - D - I - 0x002DCE 02:ADBE: F8        .byte $F8
-- D - I - 0x002DCF 02:ADBF: 28        .byte $28	; <り>
-- D - I - 0x002DD0 02:ADC0: 71        .byte $71	; <ュ>
+- D - I - 0x002DCF 02:ADBF: 28        .byte $28
+- D - I - 0x002DD0 02:ADC0: 71        .byte $71
 - D - I - 0x002DD1 02:ADC1: 00        .byte $00
-- D - I - 0x002DD2 02:ADC2: 20        .byte $08	; <み>
-- D - I - 0x002DD3 02:ADC3: C8        .byte $C8	; <ぱ>
+- D - I - 0x002DD2 02:ADC2: 20        .byte $08
+- D - I - 0x002DD3 02:ADC3: C8        .byte $C8
 
 tbl_ADC4_курсор_замены_игроков_японии_2:
 - D - I - 0x002DD4 02:ADC4: F4        .byte $F4
-- D - I - 0x002DD5 02:ADC5: 28        .byte $28	; <り>
-- D - I - 0x002DD6 02:ADC6: 71        .byte $71	; <ュ>
+- D - I - 0x002DD5 02:ADC5: 28        .byte $28
+- D - I - 0x002DD6 02:ADC6: 71        .byte $71
 - D - I - 0x002DD7 02:ADC7: 00        .byte $00
-- D - I - 0x002DD8 02:ADC8: 20        .byte $08	; <み>
-- D - I - 0x002DD9 02:ADC9: B8        .byte $B8	; <ゴ>
+- D - I - 0x002DD8 02:ADC8: 20        .byte $08
+- D - I - 0x002DD9 02:ADC9: B8        .byte $B8
 
 tbl_ADCA_курсор_замены_киперов_японии:
 - D - I - 0x002DDA 02:ADCA: F4        .byte $F4
-- D - I - 0x002DDB 02:ADCB: B8        .byte $B8	; <ゴ>
-- D - I - 0x002DDC 02:ADCC: 71        .byte $71	; <ュ>
+- D - I - 0x002DDB 02:ADCB: B8        .byte $B8
+- D - I - 0x002DDC 02:ADCC: 71        .byte $71
 - D - I - 0x002DDD 02:ADCD: 00        .byte $00
-- D - I - 0x002DDE 02:ADCE: C0        .byte $B0	; <ヅ>
-- D - I - 0x002DDF 02:ADCF: C8        .byte $C8	; <ぱ>
+- D - I - 0x002DDE 02:ADCE: C0        .byte $B0
+- D - I - 0x002DDF 02:ADCF: C8        .byte $C8
 
 tbl_ADD0:
 - D - I - 0x002DE0 02:ADD0: FC        .byte $FC
@@ -1951,20 +1951,11 @@ tbl_ADD6:
 tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков:
 ; но затем позиция перезаписывается в 0x002AF1
 - D - I - 0x002DEC 02:ADDC: F4        .byte $F4
-- D - I - 0x002DED 02:ADDD: 28        .byte $28	; <り>
-- D - I - 0x002DEE 02:ADDE: 71        .byte $71	; <ュ>
+- D - I - 0x002DED 02:ADDD: 28        .byte $28
+- D - I - 0x002DEE 02:ADDE: 71        .byte $71
 - D - I - 0x002DEF 02:ADDF: 00        .byte $00
-- D - I - 0x002DF0 02:ADE0: 18        .byte $18	; <ね>
-- D - I - 0x002DF1 02:ADE1: C8        .byte $C8	; <ぱ>
-
-; bzk предположительно мусор
-- - - - - 0x002DF2 02:ADE2: 44        .byte $44	; <エ>
-- - - - - 0x002DF3 02:ADE3: 67        .byte $67	; <ラ>
-- - - - - 0x002DF4 02:ADE4: 7D        .byte $7D	; <ー>
-- - - - - 0x002DF5 02:ADE5: 4A        .byte $4A	; <コ>
-- - - - - 0x002DF6 02:ADE6: 7D        .byte $7D	; <ー>
-- - - - - 0x002DF7 02:ADE7: C2        .byte $C2	; <ド>
-- - - - - 0x002DF8 02:ADE8: FC        .byte $FC
+- D - I - 0x002DF0 02:ADE0: 18        .byte $18
+- D - I - 0x002DF1 02:ADE1: C8        .byte $C8
 
 sub_ADE9:
 C - - - - 0x002DF9 02:ADE9: 85 EC     STA ram_00EC
