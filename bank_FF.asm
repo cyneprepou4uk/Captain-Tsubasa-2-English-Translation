@@ -424,7 +424,10 @@ C - - - - 0x03C89F FF:C88F: 2C 02 20  BIT $2002
 C - - - - 0x03C8A2 FF:C892: A9 00     LDA #$00
 C - - - - 0x03C8A4 FF:C894: 8D 05 20  STA $2005
 C - - - - 0x03C8A7 FF:C897: 8D 05 20  STA $2005
+                                      LDX ram_матч
+									  LDA tbl_0x040000_банки_CHR_с_сокращенными_именами,X
 C - - - - 0x03C8AD FF:C89D: 8D 00 80  STA $8000
+									  LDA #$00
 C - - - - 0x03C8B2 FF:C8A2: 8D 01 80  STA $8001
 C - - - - 0x03C8B8 FF:C8A8: 09 01     LDA #$01
 C - - - - 0x03C8BA FF:C8AA: 8D 00 80  STA $8000
@@ -7470,15 +7473,14 @@ off_F529_08_тахамата:
                                       .byte $FC
 
 off_F52E_09_бабинтон:
-                                      .byte $42
-                                      .byte $61
-                                      .byte $62
-                                      .byte $69
-                                      .byte $6E
-                                      .byte $67
-                                      .byte $74
-                                      .byte $6F
-                                      .byte $6E
+                                      .byte $08
+                                      .byte $09
+                                      .byte $0A
+                                      .byte $0B
+                                      .byte $0C
+                                      .byte $0D
+                                      .byte $0E
+                                      .byte $0F
                                       .byte $FC
 
 off_F534_0A_гил:
@@ -7647,27 +7649,25 @@ off_F57F_1C_джито:
                                       .byte $FC
 
 off_F583_1D_мацуяма:
-                                      .byte $4D
-                                      .byte $61
-                                      .byte $74
-                                      .byte $73
-                                      .byte $75
-                                      .byte $79
-                                      .byte $61
-                                      .byte $6D
-                                      .byte $61
+                                      .byte $10
+                                      .byte $11
+                                      .byte $12
+                                      .byte $13
+                                      .byte $14
+                                      .byte $15
+                                      .byte $16
+                                      .byte $17
                                       .byte $FC
 
 off_F588_1E_соримачи:
-                                      .byte $53
-                                      .byte $6F
-                                      .byte $72
-                                      .byte $69
-                                      .byte $6D
-                                      .byte $61
-                                      .byte $63
-                                      .byte $68
-                                      .byte $69
+                                      .byte $18
+                                      .byte $19
+                                      .byte $1A
+                                      .byte $1B
+                                      .byte $1C
+                                      .byte $1D
+                                      .byte $1E
+                                      .byte $1F
                                       .byte $FC
 
 off_F58D_1F_савада:
@@ -7689,31 +7689,25 @@ off_F591_20_мисуги:
                                       .byte $FC
 
 off_F595_21_вакабаяши:
-                                      .byte $57
-                                      .byte $61
-                                      .byte $6B
-                                      .byte $61
-                                      .byte $62
-                                      .byte $61
-                                      .byte $79
-                                      .byte $61
-                                      .byte $73
-                                      .byte $68
-                                      .byte $69
+                                      .byte $20
+                                      .byte $21
+                                      .byte $22
+                                      .byte $23
+                                      .byte $24
+                                      .byte $25
+                                      .byte $26
+                                      .byte $27
                                       .byte $FC
 
 off_F59B_22_вакашимазу:
-                                      .byte $57
-                                      .byte $61
-                                      .byte $6B
-                                      .byte $61
-                                      .byte $73
-                                      .byte $68
-                                      .byte $69
-                                      .byte $6D
-                                      .byte $61
-                                      .byte $7A
-                                      .byte $75
+                                      .byte $28
+                                      .byte $29
+                                      .byte $2A
+                                      .byte $2B
+                                      .byte $2C
+                                      .byte $2D
+                                      .byte $2E
+                                      .byte $2F
                                       .byte $FC
 
 off_F5A1_23_сатретусги:
@@ -9928,8 +9922,8 @@ tbl_FBCC:
 
 
 
-.export tbl_0x040000_банки_CHR_с_сокращениями_имен
-tbl_0x040000_банки_CHR_с_сокращениями_имен:
+.export tbl_0x040000_банки_CHR_с_сокращенными_именами
+tbl_0x040000_банки_CHR_с_сокращенными_именами:
 ; выбирается в зависимости от номера комады
 .byte $80		; 00
 .byte $80		; 01
