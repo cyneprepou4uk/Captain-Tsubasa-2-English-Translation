@@ -9926,6 +9926,52 @@ tbl_FBCC:
 - D - I - 0x03FD1E FF:FD0E: 36        .byte $36	; <3>
 - D - I - 0x03FD1F FF:FD0F: 30        .byte $30	; <ゃ>
 
+
+
+.export tbl_0x040000_банки_CHR_с_сокращениями_имен
+tbl_0x040000_банки_CHR_с_сокращениями_имен:
+; выбирается в зависимости от номера комады
+.byte $80		; 00
+.byte $80		; 01
+.byte $80		; 02
+.byte $80		; 03
+.byte $80		; 04
+.byte $80		; 05
+
+.byte $82		; 06
+.byte $82		; 07
+.byte $82		; 08
+.byte $82		; 09
+.byte $82		; 0A
+.byte $82		; 0B
+
+.byte $80		; 0C
+.byte $80		; 0D
+.byte $84		; 0E
+.byte $84		; 0F
+
+.byte $84		; 10
+.byte $86		; 11
+.byte $84		; 12
+.byte $84		; 13
+.byte $84		; 14
+.byte $84		; 15
+
+.byte $84		; 16
+.byte $84		; 17
+.byte $84		; 18
+.byte $84		; 19
+.byte $84		; 1A
+
+.byte $84		; 1B
+.byte $86		; 1C
+.byte $84		; 1D
+.byte $88		; 1E
+.byte $84		; 1F
+.byte $86		; 20
+
+
+
 .export _общий_RTS
 _общий_RTS:
 	RTS
