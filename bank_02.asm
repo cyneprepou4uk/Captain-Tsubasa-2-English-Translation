@@ -5922,158 +5922,71 @@ off_BF15_оформление_окон_и_текст:
 
 off_BF4E_названия_действий_полевого:
 ; stats
-; dribble
-- D - I - 0x003F62 02:BF52: 6F        .byte $07
-- D - I - 0x003F5E 02:BF4E: 91 20     .word $2202
-- D - I - 0x003F60 02:BF50: 54        .byte $44
-- D - I - 0x003F60 02:BF50: 54        .byte $72
-- D - I - 0x003F60 02:BF50: 54        .byte $69
-- D - I - 0x003F60 02:BF50: 54        .byte $62
-- D - I - 0x003F60 02:BF50: 54        .byte $62
-- D - I - 0x003F61 02:BF51: 67        .byte $6C
-- D - I - 0x003F62 02:BF52: 6F        .byte $65
-; pass
-- D - I - 0x003F62 02:BF52: 6F        .byte $04
-- D - I - 0x003F65 02:BF55: D1 20     .word $2242
-- D - I - 0x003F67 02:BF57: 4C        .byte $50
-- D - I - 0x003F68 02:BF58: 71        .byte $61
-- D - I - 0x003F69 02:BF59: 7D        .byte $73
-- D - I - 0x003F6A 02:BF5A: 54        .byte $73
-; shoot
-- D - I - 0x003F62 02:BF52: 6F        .byte $05
-- D - I - 0x003F6C 02:BF5C: 11 21     .word $2282
-- D - I - 0x003F6E 02:BF5E: 4D        .byte $53
-- D - I - 0x003F6E 02:BF5E: 4D        .byte $68
-- D - I - 0x003F6E 02:BF5E: 4D        .byte $6F
-- D - I - 0x003F6F 02:BF5F: 69        .byte $6F
-- D - I - 0x003F70 02:BF60: 7D        .byte $74
-; tackle
-- D - I - 0x003F62 02:BF52: 6F        .byte $06
-- D - I - 0x003F72 02:BF62: 51 21     .word $22C2
-- D - I - 0x003F74 02:BF64: 48        .byte $54
-- D - I - 0x003F74 02:BF64: 48        .byte $61
-- D - I - 0x003F74 02:BF64: 48        .byte $63
-- D - I - 0x003F75 02:BF65: 68        .byte $6B
-- D - I - 0x003F76 02:BF66: 41        .byte $6C
-- D - I - 0x003F77 02:BF67: 7D        .byte $65
-; block
-- D - I - 0x003F62 02:BF52: 6F        .byte $05
-- D - I - 0x003F79 02:BF69: 91 21     .word $2302
-- D - I - 0x003F7B 02:BF6B: 0E        .byte $42
-- D - I - 0x003F7C 02:BF6C: 28        .byte $6C
-- D - I - 0x003F7D 02:BF6D: 01        .byte $6F
-- D - I - 0x003F7E 02:BF6E: 02        .byte $63
-- D - I - 0x003F7E 02:BF6E: 02        .byte $6B
-; intercept
-- D - I - 0x003F62 02:BF52: 6F        .byte $09
-- D - I - 0x003F80 02:BF70: E4 21     .word $2342
-- D - I - 0x003F82 02:BF72: C2        .byte $49
-- D - I - 0x003F82 02:BF72: C2        .byte $6E
-- D - I - 0x003F82 02:BF72: C2        .byte $74
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F83 02:BF73: 68        .byte $63
-- D - I - 0x003F84 02:BF74: C5        .byte $65
-- D - I - 0x003F85 02:BF75: 69        .byte $70
-- D - I - 0x003F82 02:BF72: C2        .byte $74
-; trap high
-- D - I - 0x003F62 02:BF52: 6F        .byte $04
-- D - I - 0x003F80 02:BF70: E4 21     .word $20B1
-- D - I - 0x003F82 02:BF72: C2        .byte $54
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F82 02:BF72: C2        .byte $61
-- D - I - 0x003F82 02:BF72: C2        .byte $70
-; shoot high
-- D - I - 0x003F62 02:BF52: 6F        .byte $05
-- D - I - 0x003F80 02:BF70: E4 21     .word $20F1
-- D - I - 0x003F82 02:BF72: C2        .byte $53
-- D - I - 0x003F82 02:BF72: C2        .byte $68
-- D - I - 0x003F82 02:BF72: C2        .byte $6F
-- D - I - 0x003F82 02:BF72: C2        .byte $6F
-- D - I - 0x003F82 02:BF72: C2        .byte $74
-; through high
-- D - I - 0x003F62 02:BF52: 6F        .byte $07
-- D - I - 0x003F80 02:BF70: E4 21     .word $2131
-- D - I - 0x003F82 02:BF72: C2        .byte $54
-- D - I - 0x003F82 02:BF72: C2        .byte $68
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F82 02:BF72: C2        .byte $6F
-- D - I - 0x003F82 02:BF72: C2        .byte $75
-- D - I - 0x003F83 02:BF73: 68        .byte $67
-- D - I - 0x003F84 02:BF74: C5        .byte $68
-; clearance high
-- D - I - 0x003F62 02:BF52: 6F        .byte $09
-- D - I - 0x003F80 02:BF70: E4 21     .word $2171
-- D - I - 0x003F82 02:BF72: C2        .byte $43
-- D - I - 0x003F82 02:BF72: C2        .byte $6C
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-- D - I - 0x003F82 02:BF72: C2        .byte $61
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F83 02:BF73: 68        .byte $61
-- D - I - 0x003F84 02:BF74: C5        .byte $6E
-- D - I - 0x003F85 02:BF75: 69        .byte $63
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-; interfere high
-- D - I - 0x003F62 02:BF52: 6F        .byte $09
-- D - I - 0x003F80 02:BF70: E4 21     .word $21B1
-- D - I - 0x003F82 02:BF72: C2        .byte $49
-- D - I - 0x003F82 02:BF72: C2        .byte $6E
-- D - I - 0x003F82 02:BF72: C2        .byte $74
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F83 02:BF73: 68        .byte $66
-- D - I - 0x003F84 02:BF74: C5        .byte $65
-- D - I - 0x003F85 02:BF75: 69        .byte $72
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-; trap low
-- D - I - 0x003F62 02:BF52: 6F        .byte $04
-- D - I - 0x003F80 02:BF70: E4 21     .word $2251
-- D - I - 0x003F82 02:BF72: C2        .byte $54
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F82 02:BF72: C2        .byte $61
-- D - I - 0x003F82 02:BF72: C2        .byte $70
-; shoot low
-- D - I - 0x003F62 02:BF52: 6F        .byte $05
-- D - I - 0x003F80 02:BF70: E4 21     .word $2291
-- D - I - 0x003F82 02:BF72: C2        .byte $53
-- D - I - 0x003F82 02:BF72: C2        .byte $68
-- D - I - 0x003F82 02:BF72: C2        .byte $6F
-- D - I - 0x003F82 02:BF72: C2        .byte $6F
-- D - I - 0x003F82 02:BF72: C2        .byte $74
-; through low
-- D - I - 0x003F62 02:BF52: 6F        .byte $07
-- D - I - 0x003F80 02:BF70: E4 21     .word $22D1
-- D - I - 0x003F82 02:BF72: C2        .byte $54
-- D - I - 0x003F82 02:BF72: C2        .byte $68
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F82 02:BF72: C2        .byte $6F
-- D - I - 0x003F82 02:BF72: C2        .byte $75
-- D - I - 0x003F83 02:BF73: 68        .byte $67
-- D - I - 0x003F84 02:BF74: C5        .byte $68
-; clearance low
-- D - I - 0x003F62 02:BF52: 6F        .byte $09
-- D - I - 0x003F80 02:BF70: E4 21     .word $2311
-- D - I - 0x003F82 02:BF72: C2        .byte $43
-- D - I - 0x003F82 02:BF72: C2        .byte $6C
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-- D - I - 0x003F82 02:BF72: C2        .byte $61
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F83 02:BF73: 68        .byte $61
-- D - I - 0x003F84 02:BF74: C5        .byte $6E
-- D - I - 0x003F85 02:BF75: 69        .byte $63
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-; interfere low
-- D - I - 0x003F62 02:BF52: 6F        .byte $49
-- D - I - 0x003F80 02:BF70: E4 21     .word $2351
-- D - I - 0x003F82 02:BF72: C2        .byte $49
-- D - I - 0x003F82 02:BF72: C2        .byte $6E
-- D - I - 0x003F82 02:BF72: C2        .byte $74
-- D - I - 0x003F82 02:BF72: C2        .byte $65
-- D - I - 0x003F82 02:BF72: C2        .byte $72
-- D - I - 0x003F83 02:BF73: 68        .byte $66
-- D - I - 0x003F84 02:BF74: C5        .byte $65
-- D - I - 0x003F85 02:BF75: 69        .byte $72
-- D - I - 0x003F82 02:BF72: C2        .byte $65
+	.byte $07
+	.word $2202
+	.text "Dribble"
+	
+	.byte $04
+	.word $2242
+	.text "Pass"
+	
+	.byte $05
+	.word $2282
+	.text "Shoot"
+	
+	.byte $06
+	.word $22C2
+	.text "Tackle"
+	
+	.byte $05
+	.word $2302
+	.text "Block"
+	
+	.byte $09
+	.word $2342
+	.text "Intercept"
+; high ball
+	.byte $04
+	.word $20B1
+	.text "Trap"
+	
+	.byte $05
+	.word $20F1
+	.text "Shoot"
+	
+	.byte $07
+	.word $2131
+	.text "Through"
+	
+	.byte $09
+	.word $2171
+	.text "Clearance"
+	
+	.byte $09
+	.word $21B1
+	.text "Interfere"
+; low ball
+	.byte $04
+	.word $2251
+	.text "Trap"
+	
+	.byte $05
+	.word $2291
+	.text "Shoot"
+	
+	.byte $07
+	.word $22D1
+	.text "Through"
+	
+	.byte $09
+	.word $2311
+	.text "Clearance"
+	
+	.byte $49
+	.word $2351
+	.text "Interfere"
+
+
 
 off_BFBB_названия_действий_кипера:
 - D - I - 0x003FD1 02:BFC1: FD        .byte $44
