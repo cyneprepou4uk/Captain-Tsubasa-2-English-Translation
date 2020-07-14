@@ -1475,7 +1475,7 @@ C - - - - 0x002AEF 02:AADF: 85 60     STA ram_0060
 ; X курсора на экране со списком игроков
 C - - - - 0x002AF1 02:AAE1: A9 18     LDA #$10
 C - - - - 0x002AF3 02:AAE3: 85 61     STA ram_0061
-loc_AAE5:
+loc_AAE5_выйти_на_экран_статуса:
 C D - - - 0x002AF5 02:AAE5: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002AF8 02:AAE8: A0 81     LDY #< tbl_B881_экран_со_списком_игроков
 C - - - - 0x002AFA 02:AAEA: A2 B8     LDX #> tbl_B881_экран_со_списком_игроков
@@ -1580,7 +1580,8 @@ C - - - - 0x002BB5 02:ABA5: A5 ED     LDA ram_00ED
 C - - - - 0x002BB7 02:ABA7: 85 5F     STA ram_005F
 C - - - - 0x002BB9 02:ABA9: A0 00     LDY #con_игрок_номер
 C - - - - 0x002BBB 02:ABAB: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x002BBD 02:ABAD: A0 46     LDY #$46
+; адрес ppu для имени игрока
+C - - - - 0x002BBD 02:ABAD: A0 46     LDY #$44
 C - - - - 0x002BBF 02:ABAF: A2 20     LDX #$20
 C - - - - 0x002BC1 02:ABB1: 20 05 AF  JSR sub_AF05
 C - - - - 0x002BC4 02:ABB4: A0 03     LDY #con_игрок_уровень
@@ -1588,9 +1589,10 @@ C - - - - 0x002BC6 02:ABB6: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x002BC8 02:ABB8: 18        CLC
 C - - - - 0x002BC9 02:ABB9: 69 01     ADC #$01
 C - - - - 0x002BCB 02:ABBB: 20 7C 9E  JSR sub_0x001E8C
+; адрес ppu для номера уровня
 C - - - - 0x002BCE 02:ABBE: A0 AB     LDY #$AB
 C - - - - 0x002BD0 02:ABC0: A2 20     LDX #$20
-C - - - - 0x002BD2 02:ABC2: 20 8E 9D  JSR sub_0x001D9E
+C - - - - 0x002BD2 02:ABC2: 20 8E 9D  JSR sub_0x001D9E_запись_в_буфер_уровня_игрока
 C - - - - 0x002BD5 02:ABC5: A5 5F     LDA ram_005F
 C - - - - 0x002BD7 02:ABC7: A2 00     LDX #$00
 C - - - - 0x002BD9 02:ABC9: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
@@ -1599,13 +1601,14 @@ C - - - - 0x002BDE 02:ABCE: 85 EC     STA ram_00EC
 C - - - - 0x002BE0 02:ABD0: A5 33     LDA ram_0033
 C - - - - 0x002BE2 02:ABD2: 85 ED     STA ram_00ED
 C - - - - 0x002BE4 02:ABD4: 20 4F 9E  JSR sub_0x001E5F
-C - - - - 0x002BE7 02:ABD7: A0 29     LDY #$29
-C - - - - 0x002BE9 02:ABD9: A2 21     LDX #$21
+; адрес ppu для максимальной энергии
+C - - - - 0x002BE7 02:ABD7: A0 29     LDY #$E9
+C - - - - 0x002BE9 02:ABD9: A2 21     LDX #$20
 C - - - - 0x002BEB 02:ABDB: A5 E8     LDA ram_00E8
 C - - - - 0x002BED 02:ABDD: 85 EC     STA ram_00EC
 C - - - - 0x002BEF 02:ABDF: A5 E9     LDA ram_00E9
 C - - - - 0x002BF1 02:ABE1: 85 ED     STA ram_00ED
-C - - - - 0x002BF3 02:ABE3: 20 B5 9D  JSR sub_0x001DC5
+C - - - - 0x002BF3 02:ABE3: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 C - - - - 0x002BF6 02:ABE6: A5 5F     LDA ram_005F
 C - - - - 0x002BF8 02:ABE8: F0 10     BEQ bra_ABFA_кипер
 C - - - - 0x002BFA 02:ABEA: C9 1E     CMP #$1E
@@ -1619,40 +1622,39 @@ bra_ABFA_кипер:
 C - - - - 0x002C0A 02:ABFA: A0 B0     LDY #< tbl_B8B0_экран_статов_кипера
 C - - - - 0x002C0C 02:ABFC: A2 B8     LDX #> tbl_B8B0_экран_статов_кипера
 C - - - - 0x002C0E 02:ABFE: 20 C0 B0  JSR sub_B0C0
-C - - - - 0x002C11 02:AC01: A0 31     LDY # tbl_B9B2_статы_кипера - tbl_B981
+C - - - - 0x002C11 02:AC01: A0 31     LDY # tbl_B9B2_позиция_статов_кипера - tbl_B981_позиция_статов_полевого
 loc_AC03:
 C D - - - 0x002C13 02:AC03: 84 E6     STY ram_00E6
-loc_AC05:
+loc_AC05_повторить_запись_числа:
 C D - - - 0x002C15 02:AC05: A4 E6     LDY ram_00E6
-; срабатывает перед просмотром статов игрока
-C - - - - 0x002C17 02:AC07: BE 81 B9  LDX tbl_B981,Y
+C - - - - 0x002C17 02:AC07: BE 81 B9  LDX tbl_B981_позиция_статов_полевого,Y
 C - - - - 0x002C1A 02:AC0A: E0 FF     CPX #$FF
-C - - - - 0x002C1C 02:AC0C: F0 20     BEQ bra_AC2E
+C - - - - 0x002C1C 02:AC0C: F0 20     BEQ bra_AC2E_закончить_запись_чисел
 C - - - - 0x002C1E 02:AC0E: A5 5F     LDA ram_005F
 C - - - - 0x002C20 02:AC10: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
 C - - - - 0x002C23 02:AC13: A5 32     LDA ram_0032
 C - - - - 0x002C25 02:AC15: 20 7C 9E  JSR sub_0x001E8C
 C - - - - 0x002C28 02:AC18: A4 E6     LDY ram_00E6
-C - - - - 0x002C2A 02:AC1A: B9 82 B9  LDA tbl_B981 + 1,Y
-C - - - - 0x002C2D 02:AC1D: BE 83 B9  LDX tbl_B981 + 2,Y
+C - - - - 0x002C2A 02:AC1A: B9 82 B9  LDA tbl_B981_позиция_статов_полевого + 1,Y
+C - - - - 0x002C2D 02:AC1D: BE 83 B9  LDX tbl_B981_позиция_статов_полевого + 2,Y
 C - - - - 0x002C30 02:AC20: A8        TAY
-C - - - - 0x002C31 02:AC21: 20 B5 9D  JSR sub_0x001DC5
+C - - - - 0x002C31 02:AC21: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 C - - - - 0x002C34 02:AC24: A5 E6     LDA ram_00E6
 C - - - - 0x002C36 02:AC26: 18        CLC
 C - - - - 0x002C37 02:AC27: 69 03     ADC #$03
 C - - - - 0x002C39 02:AC29: 85 E6     STA ram_00E6
-C - - - - 0x002C3B 02:AC2B: 4C 05 AC  JMP loc_AC05
-bra_AC2E:
+C - - - - 0x002C3B 02:AC2B: 4C 05 AC  JMP loc_AC05_повторить_запись_числа
+bra_AC2E_закончить_запись_чисел:
 C - - - - 0x002C3E 02:AC2E: 20 7E 99  JSR sub_0x00198E
-bra_AC31:
+bra_AC31_B_не_нажата:
 C - - - - 0x002C41 02:AC31: A9 01     LDA #$01
 C - - - - 0x002C43 02:AC33: 20 A8 9F  JSR sub_0x001FB8
 C - - - - 0x002C46 02:AC36: 24 1E     BIT ram_одноразовые
 ; con_btn_B
-C - - - - 0x002C48 02:AC38: 50 03     BVC bra_AC3D
-C - - - - 0x002C4A 02:AC3A: 4C E5 AA  JMP loc_AAE5
-bra_AC3D:
-C - - - - 0x002C4D 02:AC3D: 10 F2     BPL bra_AC31
+C - - - - 0x002C48 02:AC38: 50 03     BVC bra_AC3D_A_не_нажата
+C - - - - 0x002C4A 02:AC3A: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
+bra_AC3D_A_не_нажата:
+C - - - - 0x002C4D 02:AC3D: 10 F2     BPL bra_AC31_B_не_нажата
 C - - - - 0x002C4F 02:AC3F: A0 00     LDY #con_игрок_номер
 C - - - - 0x002C51 02:AC41: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x002C53 02:AC43: A2 27     LDX #$27
@@ -1661,7 +1663,7 @@ C - - - - 0x002C55 02:AC45: CA        DEX
 C - - - - 0x002C56 02:AC46: CA        DEX
 C - - - - 0x002C57 02:AC47: CA        DEX
 C - - - - 0x002C58 02:AC48: 10 03     BPL bra_AC4D
-C - - - - 0x002C5A 02:AC4A: 4C E5 AA  JMP loc_AAE5
+C - - - - 0x002C5A 02:AC4A: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
 bra_AC4D:
 C - - - - 0x002C5D 02:AC4D: DD 2E BB  CMP tbl_BB2E_список_спешалов_игроков,X
 C - - - - 0x002C60 02:AC50: D0 F3     BNE bra_AC45
@@ -1689,6 +1691,8 @@ bra_AC7B:
 C - - - - 0x002C8B 02:AC7B: AD 48 04  LDA ram_флаг_циклона
 C - - - - 0x002C8E 02:AC7E: 4A        LSR
 C - - - - 0x002C8F 02:AC7F: B0 0B     BCS bra_AC8C
+; bzk проверка на матч с аргентиной для отображения циклона в списке спешалов
+; по идее это не нужно, если только флаг циклона не отвечает за что-то еще
 C - - - - 0x002C91 02:AC81: A9 1E     LDA #$1E
 bra_AC83:
 C - - - - 0x002C93 02:AC83: C5 26     CMP ram_матч
@@ -1761,7 +1765,7 @@ C - - - - 0x002D17 02:AD07: A8        TAY
 C - - - - 0x002D18 02:AD08: BD 49 BC  LDA tbl_BC48 + 1,X
 C - - - - 0x002D1B 02:AD0B: 69 00     ADC #$00
 C - - - - 0x002D1D 02:AD0D: AA        TAX
-C - - - - 0x002D1E 02:AD0E: 20 B5 9D  JSR sub_0x001DC5
+C - - - - 0x002D1E 02:AD0E: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 C - - - - 0x002D21 02:AD11: E6 5E     INC ram_005E
 loc_AD13:
 C D - - - 0x002D23 02:AD13: A5 5C     LDA ram_005C
@@ -1824,7 +1828,7 @@ C - - - - 0x002D7F 02:AD6F: 24 1E     BIT ram_одноразовые
 C - - - - 0x002D81 02:AD71: 70 D8     BVS bra_AD4B
 ; con_btn_A
 C - - - - 0x002D83 02:AD73: 10 F5     BPL bra_AD6A
-C - - - - 0x002D85 02:AD75: 4C E5 AA  JMP loc_AAE5
+C - - - - 0x002D85 02:AD75: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
 bra_AD78:
 C - - - - 0x002D88 02:AD78: A9 00     LDA #$00
 C - - - - 0x002D8A 02:AD7A: 85 7E     STA ram_007E
@@ -1836,7 +1840,7 @@ C - - - - 0x002D91 02:AD81: 24 1E     BIT ram_одноразовые
 C - - - - 0x002D93 02:AD83: 30 C6     BMI bra_AD4B
 ; con_btn_B
 C - - - - 0x002D95 02:AD85: 50 F5     BVC bra_AD7C
-C - - - - 0x002D97 02:AD87: 4C E5 AA  JMP loc_AAE5
+C - - - - 0x002D97 02:AD87: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
 
 tbl_AD8A:
 - D - - - 0x002D9A 02:AD8A: 00        .byte $00
@@ -2191,7 +2195,7 @@ C - - - - 0x002F5E 02:AF4E: A5 E8     LDA ram_00E8
 C - - - - 0x002F60 02:AF50: 85 EC     STA ram_00EC
 C - - - - 0x002F62 02:AF52: A5 E9     LDA ram_00E9
 C - - - - 0x002F64 02:AF54: 85 ED     STA ram_00ED
-C - - - - 0x002F66 02:AF56: 20 B5 9D  JSR sub_0x001DC5
+C - - - - 0x002F66 02:AF56: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 C - - - - 0x002F69 02:AF59: A5 5C     LDA ram_005C
 C - - - - 0x002F6B 02:AF5B: 18        CLC
 C - - - - 0x002F6C 02:AF5C: 69 40     ADC #$40
@@ -4480,21 +4484,21 @@ off_B8B4_оформление_окон:
 - D - I - 0x0038FF 02:B8EF: 71 23     .word $2371
 - D - I - 0x003901 02:B8F1: 0B        .byte $0D
 - D - I - 0x003902 02:B8F2: A9        .byte $A9
-
-- D - I - 0x003903 02:B8F3: 05        .byte $05
-- D - I - 0x003904 02:B8F4: ED 24     .word $24ED
-- D - I - 0x003906 02:B8F6: 08        .byte $08
-- D - I - 0x003907 02:B8F7: A8        .byte $A8
-
+; левая полоска special
 - D - I - 0x003908 02:B8F8: 04        .byte $04
-- D - I - 0x003909 02:B8F9: 03 25     .word $2503
+- D - I - 0x003909 02:B8F9: 03 25     .word $2501
 - D - I - 0x00390B 02:B8FB: 13        .byte $13
 - D - I - 0x00390C 02:B8FC: AA        .byte $AA
-
+; правая полоска special
 - D - I - 0x00390D 02:B8FD: 04        .byte $04
-- D - I - 0x00390E 02:B8FE: 1C 25     .word $251C
+- D - I - 0x00390E 02:B8FE: 1C 25     .word $251E
 - D - I - 0x003910 02:B900: 13        .byte $13
 - D - I - 0x003911 02:B901: AB        .byte $AB
+; верхняя полоска special по центру
+- D - I - 0x003903 02:B8F3: 05        .byte $05
+- D - I - 0x003904 02:B8F4: ED 24     .word $24EC
+- D - I - 0x003906 02:B8F6: 08        .byte $08
+- D - I - 0x003907 02:B8F7: A8        .byte $A8
 
 - D - I - 0x0038C4 02:B8B4: 0A        .byte $00
 - D - I - 0x0038C5 02:B8B5: 15 BF     .word off_BF15_оформление_окон_и_текст
@@ -4532,61 +4536,61 @@ tbl_B967:
 
 
 
-tbl_B981:
-; для полевого
+tbl_B981_позиция_статов_полевого:
+; dribble
 - D - - - 0x003991 02:B981: 03        .byte $03	; <う>
-- D - - - 0x003992 02:B982: 09 22     .word $2209
-
+- D - - - 0x003992 02:B982: 09 22     .word $220A
+; pass
 - D - - - 0x003994 02:B984: 02        .byte $02	; <い>
-- D - - - 0x003995 02:B985: 49 22     .word $2249
-
+- D - - - 0x003995 02:B985: 49 22     .word $224A
+; shoot
 - D - - - 0x003997 02:B987: 01        .byte $01	; <あ>
-- D - - - 0x003998 02:B988: 89 22     .word $2289
-
+- D - - - 0x003998 02:B988: 89 22     .word $228A
+; tackle
 - D - - - 0x00399A 02:B98A: 05        .byte $05	; <お>
-- D - - - 0x00399B 02:B98B: C9 22     .word $22C9
-
+- D - - - 0x00399B 02:B98B: C9 22     .word $22CA
+; block
 - D - - - 0x00399D 02:B98D: 04        .byte $04	; <え>
-- D - - - 0x00399E 02:B98E: 09 23     .word $2309
-
+- D - - - 0x00399E 02:B98E: 09 23     .word $230A
+; intercept
 - D - - - 0x0039A0 02:B990: 06        .byte $06	; <か>
-- D - - - 0x0039A1 02:B991: 49 23     .word $2349
+- D - - - 0x0039A1 02:B991: 49 23     .word $234A
 
 - D - - - 0x0039A3 02:B993: 11        .byte $11	; <ち>
-- D - - - 0x0039A4 02:B994: B7 20     .word $20B7
+- D - - - 0x0039A4 02:B994: B7 20     .word $20BA
 
 - D - - - 0x0039A6 02:B996: 0F        .byte $0F	; <そ>
-- D - - - 0x0039A7 02:B997: F7 20     .word $20F7
+- D - - - 0x0039A7 02:B997: F7 20     .word $20FA
 
 - D - - - 0x0039A9 02:B999: 12        .byte $12	; <つ>
-- D - - - 0x0039AA 02:B99A: 37 21     .word $2137
+- D - - - 0x0039AA 02:B99A: 37 21     .word $213A
 
 - D - - - 0x0039AC 02:B99C: 14        .byte $14	; <と>
-- D - - - 0x0039AD 02:B99D: 77 21     .word $2177
+- D - - - 0x0039AD 02:B99D: 77 21     .word $217A
 
 - D - - - 0x0039AF 02:B99F: 15        .byte $15	; <な>
-- D - - - 0x0039B0 02:B9A0: B7 21     .word $21B7
+- D - - - 0x0039B0 02:B9A0: B7 21     .word $21BA
 
 - D - - - 0x0039B2 02:B9A2: 09        .byte $09	; <け>
-- D - - - 0x0039B3 02:B9A3: 57 22     .word $2257
+- D - - - 0x0039B3 02:B9A3: 57 22     .word $225A
 
 - D - - - 0x0039B5 02:B9A5: 07        .byte $07	; <き>
-- D - - - 0x0039B6 02:B9A6: 97 22     .word $2297
+- D - - - 0x0039B6 02:B9A6: 97 22     .word $229A
 
 - D - - - 0x0039B8 02:B9A8: 0A        .byte $0A	; <こ>
-- D - - - 0x0039B9 02:B9A9: D7 22     .word $22D7
+- D - - - 0x0039B9 02:B9A9: D7 22     .word $22DA
 
 - D - - - 0x0039BB 02:B9AB: 0C        .byte $0C	; <し>
-- D - - - 0x0039BC 02:B9AC: 17 23     .word $2317
+- D - - - 0x0039BC 02:B9AC: 17 23     .word $231A
 
 - D - - - 0x0039BE 02:B9AE: 0D        .byte $0D	; <す>
-- D - - - 0x0039BF 02:B9AF: 57 23     .word $2357
+- D - - - 0x0039BF 02:B9AF: 57 23     .word $235A
 
 - D - - - 0x0039C1 02:B9B1: FF        .byte $FF
 
 
 
-tbl_B9B2_статы_кипера:
+tbl_B9B2_позиция_статов_кипера:
 - D - - - 0x0039C2 02:B9B2: 18        .byte $18	; <ね>
 - D - - - 0x0039C3 02:B9B3: 09 22     .word $2209
 
@@ -6132,8 +6136,11 @@ off_BF15_оформление_окон_и_текст:
                                       .word $237E
                                       .byte $9F
 ; текст special
-- D - I - 0x003F57 02:BF47: FD        .byte $07
-- D - I - 0x003F4F 02:BF3F: C6 24     .word $24E6
+- D - I - 0x003F57 02:BF47: FD        .byte $0A
+- D - I - 0x003F4F 02:BF3F: C6 24     .word $24E1
+- D - I - 0x003F51 02:BF41: 1B        .byte $9C
+- D - I - 0x003F51 02:BF41: 1B        .byte $A8
+- D - I - 0x003F51 02:BF41: 1B        .byte $00
 - D - I - 0x003F51 02:BF41: 1B        .byte $53
 - D - I - 0x003F52 02:BF42: 2F        .byte $70
 - D - I - 0x003F53 02:BF43: 0B        .byte $65
@@ -6196,7 +6203,7 @@ off_BF4E_названия_действий_полевого:
 - D - I - 0x003F7E 02:BF6E: 02        .byte $63
 - D - I - 0x003F7E 02:BF6E: 02        .byte $6B
 ; intercept
-- D - I - 0x003F62 02:BF52: 6F        .byte $49
+- D - I - 0x003F62 02:BF52: 6F        .byte $09
 - D - I - 0x003F80 02:BF70: E4 21     .word $2342
 - D - I - 0x003F82 02:BF72: C2        .byte $49
 - D - I - 0x003F82 02:BF72: C2        .byte $6E
@@ -6207,8 +6214,104 @@ off_BF4E_названия_действий_полевого:
 - D - I - 0x003F84 02:BF74: C5        .byte $65
 - D - I - 0x003F85 02:BF75: 69        .byte $70
 - D - I - 0x003F82 02:BF72: C2        .byte $74
-
-
+; trap high
+- D - I - 0x003F62 02:BF52: 6F        .byte $04
+- D - I - 0x003F80 02:BF70: E4 21     .word $20B1
+- D - I - 0x003F82 02:BF72: C2        .byte $54
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F82 02:BF72: C2        .byte $61
+- D - I - 0x003F82 02:BF72: C2        .byte $70
+; shoot high
+- D - I - 0x003F62 02:BF52: 6F        .byte $05
+- D - I - 0x003F80 02:BF70: E4 21     .word $20F1
+- D - I - 0x003F82 02:BF72: C2        .byte $53
+- D - I - 0x003F82 02:BF72: C2        .byte $68
+- D - I - 0x003F82 02:BF72: C2        .byte $6F
+- D - I - 0x003F82 02:BF72: C2        .byte $6F
+- D - I - 0x003F82 02:BF72: C2        .byte $74
+; through high
+- D - I - 0x003F62 02:BF52: 6F        .byte $07
+- D - I - 0x003F80 02:BF70: E4 21     .word $2131
+- D - I - 0x003F82 02:BF72: C2        .byte $54
+- D - I - 0x003F82 02:BF72: C2        .byte $68
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F82 02:BF72: C2        .byte $6F
+- D - I - 0x003F82 02:BF72: C2        .byte $75
+- D - I - 0x003F83 02:BF73: 68        .byte $67
+- D - I - 0x003F84 02:BF74: C5        .byte $68
+; clearance high
+- D - I - 0x003F62 02:BF52: 6F        .byte $09
+- D - I - 0x003F80 02:BF70: E4 21     .word $2171
+- D - I - 0x003F82 02:BF72: C2        .byte $43
+- D - I - 0x003F82 02:BF72: C2        .byte $6C
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+- D - I - 0x003F82 02:BF72: C2        .byte $61
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F83 02:BF73: 68        .byte $61
+- D - I - 0x003F84 02:BF74: C5        .byte $6E
+- D - I - 0x003F85 02:BF75: 69        .byte $63
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+; interfere high
+- D - I - 0x003F62 02:BF52: 6F        .byte $09
+- D - I - 0x003F80 02:BF70: E4 21     .word $21B1
+- D - I - 0x003F82 02:BF72: C2        .byte $49
+- D - I - 0x003F82 02:BF72: C2        .byte $6E
+- D - I - 0x003F82 02:BF72: C2        .byte $74
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F83 02:BF73: 68        .byte $66
+- D - I - 0x003F84 02:BF74: C5        .byte $65
+- D - I - 0x003F85 02:BF75: 69        .byte $72
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+; trap low
+- D - I - 0x003F62 02:BF52: 6F        .byte $04
+- D - I - 0x003F80 02:BF70: E4 21     .word $2251
+- D - I - 0x003F82 02:BF72: C2        .byte $54
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F82 02:BF72: C2        .byte $61
+- D - I - 0x003F82 02:BF72: C2        .byte $70
+; shoot low
+- D - I - 0x003F62 02:BF52: 6F        .byte $05
+- D - I - 0x003F80 02:BF70: E4 21     .word $2291
+- D - I - 0x003F82 02:BF72: C2        .byte $53
+- D - I - 0x003F82 02:BF72: C2        .byte $68
+- D - I - 0x003F82 02:BF72: C2        .byte $6F
+- D - I - 0x003F82 02:BF72: C2        .byte $6F
+- D - I - 0x003F82 02:BF72: C2        .byte $74
+; through low
+- D - I - 0x003F62 02:BF52: 6F        .byte $07
+- D - I - 0x003F80 02:BF70: E4 21     .word $22D1
+- D - I - 0x003F82 02:BF72: C2        .byte $54
+- D - I - 0x003F82 02:BF72: C2        .byte $68
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F82 02:BF72: C2        .byte $6F
+- D - I - 0x003F82 02:BF72: C2        .byte $75
+- D - I - 0x003F83 02:BF73: 68        .byte $67
+- D - I - 0x003F84 02:BF74: C5        .byte $68
+; clearance low
+- D - I - 0x003F62 02:BF52: 6F        .byte $09
+- D - I - 0x003F80 02:BF70: E4 21     .word $2311
+- D - I - 0x003F82 02:BF72: C2        .byte $43
+- D - I - 0x003F82 02:BF72: C2        .byte $6C
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+- D - I - 0x003F82 02:BF72: C2        .byte $61
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F83 02:BF73: 68        .byte $61
+- D - I - 0x003F84 02:BF74: C5        .byte $6E
+- D - I - 0x003F85 02:BF75: 69        .byte $63
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+; interfere low
+- D - I - 0x003F62 02:BF52: 6F        .byte $49
+- D - I - 0x003F80 02:BF70: E4 21     .word $2351
+- D - I - 0x003F82 02:BF72: C2        .byte $49
+- D - I - 0x003F82 02:BF72: C2        .byte $6E
+- D - I - 0x003F82 02:BF72: C2        .byte $74
+- D - I - 0x003F82 02:BF72: C2        .byte $65
+- D - I - 0x003F82 02:BF72: C2        .byte $72
+- D - I - 0x003F83 02:BF73: 68        .byte $66
+- D - I - 0x003F84 02:BF74: C5        .byte $65
+- D - I - 0x003F85 02:BF75: 69        .byte $72
+- D - I - 0x003F82 02:BF72: C2        .byte $65
 
 off_BFBB_названия_действий_кипера:
 - D - I - 0x003FD1 02:BFC1: FD        .byte $44

@@ -4679,8 +4679,8 @@ C - - - - 0x001D97 01:9D87: C6 E8     DEC ram_00E8
 C - - - - 0x001D99 01:9D89: D0 F5     BNE bra_9D80
 C - - - - 0x001D9B 01:9D8B: 4C 5E 9B  JMP loc_9B5E
 
-.export sub_0x001D9E
-sub_0x001D9E:
+.export sub_0x001D9E_запись_в_буфер_уровня_игрока
+sub_0x001D9E_запись_в_буфер_уровня_игрока:
 C - - - - 0x001D9E 01:9D8E: 85 EC     STA ram_00EC
 C - - - - 0x001DA0 01:9D90: A9 02     LDA #$02
 C - - - - 0x001DA2 01:9D92: 20 28 9B  JSR sub_9B28
@@ -4689,24 +4689,25 @@ C - - - - 0x001DA7 01:9D97: 4A        LSR
 C - - - - 0x001DA8 01:9D98: 4A        LSR
 C - - - - 0x001DA9 01:9D99: 4A        LSR
 C - - - - 0x001DAA 01:9D9A: 4A        LSR
-C - - - - 0x001DAB 01:9D9B: D0 02     BNE bra_9D9F
-C - - - - 0x001DAD 01:9D9D: A9 CD     LDA #$CD
-bra_9D9F:
+C - - - - 0x001DAB 01:9D9B: D0 02     BNE bra_9D9F_десятки_есть
+; иначе D0 + 30 = тайл 00
+C - - - - 0x001DAD 01:9D9D: A9 CD     LDA #$D0
+bra_9D9F_десятки_есть:
 C - - - - 0x001DAF 01:9D9F: 18        CLC
-C - - - - 0x001DB0 01:9DA0: 69 33     ADC #$33
+C - - - - 0x001DB0 01:9DA0: 69 33     ADC #$30
 C - - - - 0x001DB2 01:9DA2: 9D E8 05  STA $05E8,X
 C - - - - 0x001DB5 01:9DA5: E8        INX
 C - - - - 0x001DB6 01:9DA6: A5 EC     LDA ram_00EC
 C - - - - 0x001DB8 01:9DA8: 29 0F     AND #$0F
 C - - - - 0x001DBA 01:9DAA: 18        CLC
-C - - - - 0x001DBB 01:9DAB: 69 33     ADC #$33
+C - - - - 0x001DBB 01:9DAB: 69 33     ADC #$30
 C - - - - 0x001DBD 01:9DAD: 9D E8 05  STA $05E8,X
 C - - - - 0x001DC0 01:9DB0: E8        INX
 C - - - - 0x001DC1 01:9DB1: 20 5E 9B  JSR sub_9B5E
 C - - - - 0x001DC4 01:9DB4: 60        RTS
 
-.export sub_0x001DC5
-sub_0x001DC5:
+.export sub_0x001DC5_запись_чисел_в_буфер
+sub_0x001DC5_запись_чисел_в_буфер:
 C - - - - 0x001DC5 01:9DB5: A9 04     LDA #$04
 C - - - - 0x001DC7 01:9DB7: 20 28 9B  JSR sub_9B28
 C - - - - 0x001DCA 01:9DBA: A9 00     LDA #$00
