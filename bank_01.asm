@@ -3252,17 +3252,16 @@ C - - - - 0x0014E5 01:94D5: 4C 43 91  JMP loc_9143
 sub_94D8:
 C - - - - 0x0014E8 01:94D8: A0 00     LDY #$00
 C - - - - 0x0014EA 01:94DA: B1 E6     LDA (ram_00E6),Y
-C - - - - 0x0014EC 01:94DC: 09 80     ORA #$80
-C - - - - 0x0014EE 01:94DE: 85 9E     STA ram_009E
+C - - - - 0x0014EE 01:94DE: 85 9E     STA ram_для_8001_02
 C - - - - 0x0014F0 01:94E0: C8        INY
 C - - - - 0x0014F1 01:94E1: B1 E6     LDA (ram_00E6),Y
-C - - - - 0x0014F3 01:94E3: 85 9F     STA ram_009F
+C - - - - 0x0014F3 01:94E3: 85 9F     STA ram_для_8001_03
 C - - - - 0x0014F5 01:94E5: A0 02     LDY #$02
 C - - - - 0x0014F7 01:94E7: B1 E6     LDA (ram_00E6),Y
-C - - - - 0x0014F9 01:94E9: 85 A0     STA ram_00A0
+C - - - - 0x0014F9 01:94E9: 85 A0     STA ram_для_8001_04
 C - - - - 0x0014FB 01:94EB: C8        INY
 C - - - - 0x0014FC 01:94EC: B1 E6     LDA (ram_00E6),Y
-C - - - - 0x0014FE 01:94EE: 85 A1     STA ram_00A1
+C - - - - 0x0014FE 01:94EE: 85 A1     STA ram_для_8001_05
 C - - - - 0x001500 01:94F0: A5 E6     LDA ram_00E6
 C - - - - 0x001502 01:94F2: 18        CLC
 C - - - - 0x001503 01:94F3: 69 04     ADC #$04
@@ -4290,17 +4289,14 @@ C - - - - 0x001B7E 01:9B6E: 60        RTS
 
 .export sub_0x001B7F
 sub_0x001B7F:
-C - - - - 0x001B7F 01:9B6F: 86 9E     STX ram_009E
-C - - - - 0x001B81 01:9B71: 84 9F     STY ram_009F
+C - - - - 0x001B7F 01:9B6F: 86 9E     STX ram_для_8001_02
+C - - - - 0x001B81 01:9B71: 84 9F     STY ram_для_8001_03
 C - - - - 0x001B83 01:9B73: 60        RTS
 
 .export sub_0x001B84
 sub_0x001B84:
-C - - - - 0x001B84 01:9B74: 86 A0     STX ram_00A0
-C - - - - 0x001B86 01:9B76: 84 A1     STY ram_00A1
-C - - - - 0x001B88 01:9B78: A5 9E     LDA ram_009E
-C - - - - 0x001B8A 01:9B7A: 09 80     ORA #$80
-C - - - - 0x001B8C 01:9B7C: 85 9E     STA ram_009E
+C - - - - 0x001B84 01:9B74: 86 A0     STX ram_для_8001_04
+C - - - - 0x001B86 01:9B76: 84 A1     STY ram_для_8001_05
 C - - - - 0x001B8E 01:9B7E: 60        RTS
 
 .export sub_0x001B8F

@@ -90,19 +90,19 @@ C - - - - 0x0040BD 03:A0AD: 85 78     STA ram_0078
 bra_A0AF:
 C - - - - 0x0040BF 03:A0AF: A9 02     LDA #$02
 C - - - - 0x0040C1 03:A0B1: 8D 00 80  STA $8000
-C - - - - 0x0040C4 03:A0B4: A5 9E     LDA ram_009E
+C - - - - 0x0040C4 03:A0B4: A5 9E     LDA ram_для_8001_02
 C - - - - 0x0040C6 03:A0B6: 8D 01 80  STA $8001
 C - - - - 0x0040C9 03:A0B9: A9 03     LDA #$03
 C - - - - 0x0040CB 03:A0BB: 8D 00 80  STA $8000
-C - - - - 0x0040CE 03:A0BE: A5 9F     LDA ram_009F
+C - - - - 0x0040CE 03:A0BE: A5 9F     LDA ram_для_8001_03
 C - - - - 0x0040D0 03:A0C0: 8D 01 80  STA $8001
 C - - - - 0x0040D3 03:A0C3: A9 04     LDA #$04
 C - - - - 0x0040D5 03:A0C5: 8D 00 80  STA $8000
-C - - - - 0x0040D8 03:A0C8: A5 A0     LDA ram_00A0
+C - - - - 0x0040D8 03:A0C8: A5 A0     LDA ram_для_8001_04
 C - - - - 0x0040DA 03:A0CA: 8D 01 80  STA $8001
 C - - - - 0x0040DD 03:A0CD: A9 05     LDA #$05
 C - - - - 0x0040DF 03:A0CF: 8D 00 80  STA $8000
-C - - - - 0x0040E2 03:A0D2: A5 A1     LDA ram_00A1
+C - - - - 0x0040E2 03:A0D2: A5 A1     LDA ram_для_8001_05
 C - - - - 0x0040E4 03:A0D4: 8D 01 80  STA $8001
 C - - - - 0x0040E7 03:A0D7: A2 02     LDX #$01
 C - - - - 0x0040E9 03:A0D9: A9 04     LDA #$04
