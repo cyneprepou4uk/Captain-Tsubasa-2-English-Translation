@@ -4406,7 +4406,7 @@ tbl_B8A9_экран_статов_полевого:
 - D - I - 0x0038B9 02:B8A9: 0D        .byte $0D	; <す>
 
 - D - I - 0x0038BA 02:B8AA: 0A        .byte $0A	; <こ>
-- D - I - 0x0038BB 02:B8AB: 4E BF     .word off_BF4E
+- D - I - 0x0038BB 02:B8AB: 4E BF     .word off_BF4E_названия_действий
 
 - D - I - 0x0038BD 02:B8AD: 0E        .byte $0E	; <せ>
 - D - I - 0x0038BE 02:B8AE: B4 B8     .word off_B8B4
@@ -5715,45 +5715,45 @@ off_BDA2:
 
 
 tbl_BDA8:
-- D - - - 0x003DB8 02:BDA8: F2 BD     .word off_BDF2
-- D - - - 0x003DBA 02:BDAA: F9 BD     .word off_BDF9
-- D - - - 0x003DBC 02:BDAC: 00 BE     .word off_BE00
-- D - - - 0x003DBE 02:BDAE: 09 BE     .word off_BE09
-- D - - - 0x003DC0 02:BDB0: 11 BE     .word off_BE11
-- D - - - 0x003DC2 02:BDB2: 1A BE     .word off_BE1A
-- D - - - 0x003DC4 02:BDB4: 21 BE     .word off_BE21
-- D - - - 0x003DC6 02:BDB6: 29 BE     .word off_BE29
-- D - - - 0x003DC8 02:BDB8: 30 BE     .word off_BE30
-- D - - - 0x003DCA 02:BDBA: 37 BE     .word off_BE37
-- D - - - 0x003DCC 02:BDBC: 3F BE     .word off_BE3F
-- D - - - 0x003DCE 02:BDBE: 48 BE     .word off_BE48
-- D - - - 0x003DD0 02:BDC0: 4F BE     .word off_BE4F
-- D - - - 0x003DD2 02:BDC2: 59 BE     .word off_BE59
-- D - - - 0x003DD4 02:BDC4: 5F BE     .word off_BE5F
-- D - - - 0x003DD6 02:BDC6: 66 BE     .word off_BE66
-- D - - - 0x003DD8 02:BDC8: 6D BE     .word off_BE6D
-- D - - - 0x003DDA 02:BDCA: 74 BE     .word off_BE74
-- D - - - 0x003DDC 02:BDCC: 7D BE     .word off_BE7D
-- D - - - 0x003DDE 02:BDCE: 84 BE     .word off_BE84
-- D - - - 0x003DE0 02:BDD0: 8A BE     .word off_BE8A
-- D - - - 0x003DE2 02:BDD2: 91 BE     .word off_BE91
-- D - - - 0x003DE4 02:BDD4: 97 BE     .word off_BE97
-- D - - - 0x003DE6 02:BDD6: 9F BE     .word off_BE9F
-- D - - - 0x003DE8 02:BDD8: A7 BE     .word off_BEA7
-- D - - - 0x003DEA 02:BDDA: AE BE     .word off_BEAE
-- D - - - 0x003DEC 02:BDDC: B7 BE     .word off_BEB7
-- D - - - 0x003DEE 02:BDDE: C0 BE     .word off_BEC0
-- D - - - 0x003DF0 02:BDE0: CA BE     .word off_BECA
-- D - - - 0x003DF2 02:BDE2: D2 BE     .word off_BED2
-- D - - - 0x003DF4 02:BDE4: DA BE     .word off_BEDA
-- D - - - 0x003DF6 02:BDE6: E2 BE     .word off_BEE2
-- D - - - 0x003DF8 02:BDE8: EA BE     .word off_BEEA
-- D - - - 0x003DFA 02:BDEA: F2 BE     .word off_BEF2
-- D - - - 0x003DFC 02:BDEC: FC BE     .word off_BEFC
-- D - - - 0x003DFE 02:BDEE: 05 BF     .word off_BF05
-- - - - - 0x003E00 02:BDF0: 0D BF     .word off_BF0D
+- D - - - 0x003DB8 02:BDA8: F2 BD     .word off_BDF2_00
+- D - - - 0x003DBA 02:BDAA: F9 BD     .word off_BDF9_01
+- D - - - 0x003DBC 02:BDAC: 00 BE     .word off_BE00_02
+- D - - - 0x003DBE 02:BDAE: 09 BE     .word off_BE09_03
+- D - - - 0x003DC0 02:BDB0: 11 BE     .word off_BE11_04
+- D - - - 0x003DC2 02:BDB2: 1A BE     .word off_BE1A_05
+- D - - - 0x003DC4 02:BDB4: 21 BE     .word off_BE21_06
+- D - - - 0x003DC6 02:BDB6: 29 BE     .word off_BE29_07
+- D - - - 0x003DC8 02:BDB8: 30 BE     .word off_BE30_08
+- D - - - 0x003DCA 02:BDBA: 37 BE     .word off_BE37_09
+- D - - - 0x003DCC 02:BDBC: 3F BE     .word off_BE3F_0A
+- D - - - 0x003DCE 02:BDBE: 48 BE     .word off_BE48_0B
+- D - - - 0x003DD0 02:BDC0: 4F BE     .word off_BE4F_0C
+- D - - - 0x003DD2 02:BDC2: 59 BE     .word off_BE59_0D
+- D - - - 0x003DD4 02:BDC4: 5F BE     .word off_BE5F_0E
+- D - - - 0x003DD6 02:BDC6: 66 BE     .word off_BE66_0F
+- D - - - 0x003DD8 02:BDC8: 6D BE     .word off_BE6D_10
+- D - - - 0x003DDA 02:BDCA: 74 BE     .word off_BE74_11
+- D - - - 0x003DDC 02:BDCC: 7D BE     .word off_BE7D_12
+- D - - - 0x003DDE 02:BDCE: 84 BE     .word off_BE84_13
+- D - - - 0x003DE0 02:BDD0: 8A BE     .word off_BE8A_14
+- D - - - 0x003DE2 02:BDD2: 91 BE     .word off_BE91_15
+- D - - - 0x003DE4 02:BDD4: 97 BE     .word off_BE97_16
+- D - - - 0x003DE6 02:BDD6: 9F BE     .word off_BE9F_17
+- D - - - 0x003DE8 02:BDD8: A7 BE     .word off_BEA7_18
+- D - - - 0x003DEA 02:BDDA: AE BE     .word off_BEAE_19
+- D - - - 0x003DEC 02:BDDC: B7 BE     .word off_BEB7_1A
+- D - - - 0x003DEE 02:BDDE: C0 BE     .word off_BEC0_1B
+- D - - - 0x003DF0 02:BDE0: CA BE     .word off_BECA_1C
+- D - - - 0x003DF2 02:BDE2: D2 BE     .word off_BED2_1D
+- D - - - 0x003DF4 02:BDE4: DA BE     .word off_BEDA_1E
+- D - - - 0x003DF6 02:BDE6: E2 BE     .word off_BEE2_1F
+- D - - - 0x003DF8 02:BDE8: EA BE     .word off_BEEA_20
+- D - - - 0x003DFA 02:BDEA: F2 BE     .word off_BEF2_21
+- D - - - 0x003DFC 02:BDEC: FC BE     .word off_BEFC_22
+- D - - - 0x003DFE 02:BDEE: 05 BF     .word off_BF05_23
+- - - - - 0x003E00 02:BDF0: 0D BF     .word off_BF0D_24
 
-off_BDF2:
+off_BDF2_00:
 - D - I - 0x003E02 02:BDF2: 00        .byte $00
 - D - I - 0x003E03 02:BDF3: 4B        .byte $4B	; <サ>
 - D - I - 0x003E04 02:BDF4: 6E        .byte $6E	; <ン>
@@ -5761,7 +5761,8 @@ off_BDF2:
 - D - I - 0x003E06 02:BDF6: 43        .byte $43	; <ウ>
 - D - I - 0x003E07 02:BDF7: 6B        .byte $6B	; <ロ>
 - D - I - 0x003E08 02:BDF8: FF        .byte $FF
-off_BDF9:
+
+off_BDF9_01:
 - D - I - 0x003E09 02:BDF9: 00        .byte $00
 - D - I - 0x003E0A 02:BDFA: 00        .byte $00
 - D - I - 0x003E0B 02:BDFB: 15        .byte $15	; <な>
@@ -5769,7 +5770,8 @@ off_BDF9:
 - D - I - 0x003E0D 02:BDFD: 06        .byte $06	; <か>
 - D - I - 0x003E0E 02:BDFE: 12        .byte $12	; <つ>
 - D - I - 0x003E0F 02:BDFF: FF        .byte $FF
-off_BE00:
+
+off_BE00_02:
 - D - I - 0x003E10 02:BE00: A8        .byte $A8	; <ぜ>
 - D - I - 0x003E11 02:BE01: 2E        .byte $2E	; <ん>
 - D - I - 0x003E12 02:BE02: 16        .byte $16	; <に>
@@ -5779,7 +5781,8 @@ off_BE00:
 - D - I - 0x003E16 02:BE06: 7D        .byte $7D	; <ー>
 - D - I - 0x003E17 02:BE07: 4D        .byte $4D	; <ス>
 - D - I - 0x003E18 02:BE08: FF        .byte $FF
-off_BE09:
+
+off_BE09_03:
 - D - I - 0x003E19 02:BE09: 00        .byte $00
 - D - I - 0x003E1A 02:BE0A: 5C        .byte $5C	; <フ>
 - D - I - 0x003E1B 02:BE0B: 69        .byte $69	; <ル>
@@ -5788,7 +5791,8 @@ off_BE09:
 - D - I - 0x003E1E 02:BE0E: 6E        .byte $6E	; <ン>
 - D - I - 0x003E1F 02:BE0F: 4E        .byte $4E	; <セ>
 - D - I - 0x003E20 02:BE10: FF        .byte $FF
-off_BE11:
+
+off_BE11_04:
 - D - I - 0x003E21 02:BE11: 00        .byte $00
 - D - I - 0x003E22 02:BE12: 4A        .byte $4A	; <コ>
 - D - I - 0x003E23 02:BE13: 68        .byte $68	; <リ>
@@ -5798,7 +5802,8 @@ off_BE11:
 - D - I - 0x003E27 02:BE17: 6E        .byte $6E	; <ン>
 - D - I - 0x003E28 02:BE18: 4D        .byte $4D	; <ス>
 - D - I - 0x003E29 02:BE19: FF        .byte $FF
-off_BE1A:
+
+off_BE1A_05:
 - D - I - 0x003E2A 02:BE1A: 00        .byte $00
 - D - I - 0x003E2B 02:BE1B: 00        .byte $00
 - D - I - 0x003E2C 02:BE1C: B6        .byte $B6	; <グ>
@@ -5806,7 +5811,8 @@ off_BE1A:
 - D - I - 0x003E2E 02:BE1E: 60        .byte $60	; <ミ>
 - D - I - 0x003E2F 02:BE1F: 45        .byte $45	; <オ>
 - D - I - 0x003E30 02:BE20: FF        .byte $FF
-off_BE21:
+
+off_BE21_06:
 - D - I - 0x003E31 02:BE21: 00        .byte $00
 - D - I - 0x003E32 02:BE22: CD        .byte $CD	; <パ>
 - D - I - 0x003E33 02:BE23: 69        .byte $69	; <ル>
@@ -5815,7 +5821,8 @@ off_BE21:
 - D - I - 0x003E36 02:BE26: 67        .byte $67	; <ラ>
 - D - I - 0x003E37 02:BE27: 4D        .byte $4D	; <ス>
 - D - I - 0x003E38 02:BE28: FF        .byte $FF
-off_BE29:
+
+off_BE29_07:
 - D - I - 0x003E39 02:BE29: 00        .byte $00
 - D - I - 0x003E3A 02:BE2A: 00        .byte $00
 - D - I - 0x003E3B 02:BE2B: 4B        .byte $4B	; <サ>
@@ -5823,7 +5830,8 @@ off_BE29:
 - D - I - 0x003E3D 02:BE2D: 54        .byte $54	; <ト>
 - D - I - 0x003E3E 02:BE2E: 4D        .byte $4D	; <ス>
 - D - I - 0x003E3F 02:BE2F: FF        .byte $FF
-off_BE30:
+
+off_BE30_08:
 - D - I - 0x003E40 02:BE30: 00        .byte $00
 - D - I - 0x003E41 02:BE31: 5C        .byte $5C	; <フ>
 - D - I - 0x003E42 02:BE32: 67        .byte $67	; <ラ>
@@ -5831,7 +5839,8 @@ off_BE30:
 - D - I - 0x003E44 02:BE34: 6E        .byte $6E	; <ン>
 - D - I - 0x003E45 02:BE35: B8        .byte $B8	; <ゴ>
 - D - I - 0x003E46 02:BE36: FF        .byte $FF
-off_BE37:
+
+off_BE37_09:
 - D - I - 0x003E47 02:BE37: 08        .byte $08	; <く>
 - D - I - 0x003E48 02:BE38: 16        .byte $16	; <に>
 - D - I - 0x003E49 02:BE39: 20        .byte $20	; <み>
@@ -5840,7 +5849,8 @@ off_BE37:
 - D - I - 0x003E4C 02:BE3C: 02        .byte $02	; <い>
 - D - I - 0x003E4D 02:BE3D: 2E        .byte $2E	; <ん>
 - D - I - 0x003E4E 02:BE3E: FF        .byte $FF
-off_BE3F:
+
+off_BE3F_0A:
 - D - I - 0x003E4F 02:BE3F: 01        .byte $01	; <あ>
 - D - I - 0x003E50 02:BE40: 07        .byte $07	; <き>
 - D - I - 0x003E51 02:BE41: 10        .byte $10	; <た>
@@ -5850,7 +5860,8 @@ off_BE3F:
 - D - I - 0x003E55 02:BE45: 0A        .byte $0A	; <こ>
 - D - I - 0x003E56 02:BE46: 03        .byte $03	; <う>
 - D - I - 0x003E57 02:BE47: FF        .byte $FF
-off_BE48:
+
+off_BE48_0B:
 - D - I - 0x003E58 02:BE48: 00        .byte $00
 - D - I - 0x003E59 02:BE49: 00        .byte $00
 - D - I - 0x003E5A 02:BE4A: 10        .byte $10	; <た>
@@ -5858,7 +5869,8 @@ off_BE48:
 - D - I - 0x003E5C 02:BE4C: 15        .byte $15	; <な>
 - D - I - 0x003E5D 02:BE4D: 20        .byte $20	; <み>
 - D - I - 0x003E5E 02:BE4E: FF        .byte $FF
-off_BE4F:
+
+off_BE4F_0C:
 - D - I - 0x003E5F 02:BE4F: 21        .byte $21	; <む>
 - D - I - 0x003E60 02:BE50: 0B        .byte $0B	; <さ>
 - D - I - 0x003E61 02:BE51: 0C        .byte $0C	; <し>
@@ -5869,14 +5881,16 @@ off_BE4F:
 - D - I - 0x003E66 02:BE56: A9        .byte $A9	; <ぞ>
 - D - I - 0x003E67 02:BE57: 08        .byte $08	; <く>
 - D - I - 0x003E68 02:BE58: FF        .byte $FF
-off_BE59:
+
+off_BE59_0D:
 - D - I - 0x003E69 02:BE59: 00        .byte $00
 - D - I - 0x003E6A 02:BE5A: 00        .byte $00
 - D - I - 0x003E6B 02:BE5B: 1C        .byte $1C	; <ふ>
 - D - I - 0x003E6C 02:BE5C: 27        .byte $27	; <ら>
 - D - I - 0x003E6D 02:BE5D: 19        .byte $19	; <の>
 - D - I - 0x003E6E 02:BE5E: FF        .byte $FF
-off_BE5F:
+
+off_BE5F_0E:
 - D - I - 0x003E6F 02:BE5F: 00        .byte $00
 - D - I - 0x003E70 02:BE60: 00        .byte $00
 - D - I - 0x003E71 02:BE61: 14        .byte $14	; <と>
@@ -5884,7 +5898,8 @@ off_BE5F:
 - D - I - 0x003E73 02:BE63: 1E        .byte $1E	; <ほ>
 - D - I - 0x003E74 02:BE64: 03        .byte $03	; <う>
 - D - I - 0x003E75 02:BE65: FF        .byte $FF
-off_BE66:
+
+off_BE66_0F:
 - D - I - 0x003E76 02:BE66: 00        .byte $00
 - D - I - 0x003E77 02:BE67: 81        .byte $81	; <A>
 - D - I - 0x003E78 02:BE68: 8F        .byte $8F	; <S>
@@ -5892,7 +5907,8 @@ off_BE66:
 - D - I - 0x003E7A 02:BE6A: 7D        .byte $7D	; <ー>
 - D - I - 0x003E7B 02:BE6B: 5F        .byte $5F	; <マ>
 - D - I - 0x003E7C 02:BE6C: FF        .byte $FF
-off_BE6D:
+
+off_BE6D_10:
 - D - I - 0x003E7D 02:BE6D: 00        .byte $00
 - D - I - 0x003E7E 02:BE6E: 43        .byte $43	; <ウ>
 - D - I - 0x003E7F 02:BE6F: 69        .byte $69	; <ル>
@@ -5900,7 +5916,8 @@ off_BE6D:
 - D - I - 0x003E81 02:BE71: 41        .byte $41	; <ア>
 - D - I - 0x003E82 02:BE72: 42        .byte $42	; <イ>
 - D - I - 0x003E83 02:BE73: FF        .byte $FF
-off_BE74:
+
+off_BE74_11:
 - D - I - 0x003E84 02:BE74: 5A        .byte $5A	; <ハ>
 - D - I - 0x003E85 02:BE75: 6E        .byte $6E	; <ン>
 - D - I - 0x003E86 02:BE76: C5        .byte $C5	; <ブ>
@@ -5910,7 +5927,8 @@ off_BE74:
 - D - I - 0x003E8A 02:BE7A: 8F        .byte $8F	; <S>
 - D - I - 0x003E8B 02:BE7B: 91        .byte $91	; <V>
 - D - I - 0x003E8C 02:BE7C: FF        .byte $FF
-off_BE7D:
+
+off_BE7D_12:
 - D - I - 0x003E8D 02:BE7D: 00        .byte $00
 - D - I - 0x003E8E 02:BE7E: A8        .byte $A8	; <ぜ>
 - D - I - 0x003E8F 02:BE7F: 2E        .byte $2E	; <ん>
@@ -5918,14 +5936,16 @@ off_BE7D:
 - D - I - 0x003E91 02:BE81: 1E        .byte $1E	; <ほ>
 - D - I - 0x003E92 02:BE82: 2E        .byte $2E	; <ん>
 - D - I - 0x003E93 02:BE83: FF        .byte $FF
-off_BE84:
+
+off_BE84_13:
 - D - I - 0x003E94 02:BE84: 00        .byte $00
 - D - I - 0x003E95 02:BE85: 00        .byte $00
 - D - I - 0x003E96 02:BE86: 4C        .byte $4C	; <シ>
 - D - I - 0x003E97 02:BE87: 68        .byte $68	; <リ>
 - D - I - 0x003E98 02:BE88: 41        .byte $41	; <ア>
 - D - I - 0x003E99 02:BE89: FF        .byte $FF
-off_BE8A:
+
+off_BE8A_14:
 - D - I - 0x003E9A 02:BE8A: 00        .byte $00
 - D - I - 0x003E9B 02:BE8B: 11        .byte $11	; <ち>
 - D - I - 0x003E9C 02:BE8C: 31        .byte $31	; <ゅ>
@@ -5933,14 +5953,16 @@ off_BE8A:
 - D - I - 0x003E9E 02:BE8E: A4        .byte $A4	; <ご>
 - D - I - 0x003E9F 02:BE8F: 08        .byte $08	; <く>
 - D - I - 0x003EA0 02:BE90: FF        .byte $FF
-off_BE91:
+
+off_BE91_15:
 - D - I - 0x003EA1 02:BE91: 00        .byte $00
 - D - I - 0x003EA2 02:BE92: 00        .byte $00
 - D - I - 0x003EA3 02:BE93: 42        .byte $42	; <イ>
 - D - I - 0x003EA4 02:BE94: 67        .byte $67	; <ラ>
 - D - I - 0x003EA5 02:BE95: 6E        .byte $6E	; <ン>
 - D - I - 0x003EA6 02:BE96: FF        .byte $FF
-off_BE97:
+
+off_BE97_16:
 - D - I - 0x003EA7 02:BE97: 07        .byte $07	; <き>
 - D - I - 0x003EA8 02:BE98: 10        .byte $10	; <た>
 - D - I - 0x003EA9 02:BE99: 11        .byte $11	; <ち>
@@ -5949,7 +5971,8 @@ off_BE97:
 - D - I - 0x003EAC 02:BE9C: 0E        .byte $0E	; <せ>
 - D - I - 0x003EAD 02:BE9D: 2E        .byte $2E	; <ん>
 - D - I - 0x003EAE 02:BE9E: FF        .byte $FF
-off_BE9F:
+
+off_BE9F_17:
 - D - I - 0x003EAF 02:BE9F: 4B        .byte $4B	; <サ>
 - D - I - 0x003EB0 02:BEA0: 43        .byte $43	; <ウ>
 - D - I - 0x003EB1 02:BEA1: BA        .byte $BA	; <ジ>
@@ -5958,7 +5981,8 @@ off_BE9F:
 - D - I - 0x003EB4 02:BEA4: C4        .byte $C4	; <ビ>
 - D - I - 0x003EB5 02:BEA5: 41        .byte $41	; <ア>
 - D - I - 0x003EB6 02:BEA6: FF        .byte $FF
-off_BEA7:
+
+off_BEA7_18:
 - D - I - 0x003EB7 02:BEA7: 00        .byte $00
 - D - I - 0x003EB8 02:BEA8: 00        .byte $00
 - D - I - 0x003EB9 02:BEA9: 06        .byte $06	; <か>
@@ -5966,7 +5990,8 @@ off_BEA7:
 - D - I - 0x003EBB 02:BEAB: 0A        .byte $0A	; <こ>
 - D - I - 0x003EBC 02:BEAC: 08        .byte $08	; <く>
 - D - I - 0x003EBD 02:BEAD: FF        .byte $FF
-off_BEAE:
+
+off_BEAE_19:
 - D - I - 0x003EBE 02:BEAE: C3        .byte $C3	; <バ>
 - D - I - 0x003EBF 02:BEAF: 4D        .byte $4D	; <ス>
 - D - I - 0x003EC0 02:BEB0: 4A        .byte $4A	; <コ>
@@ -5976,7 +6001,8 @@ off_BEAE:
 - D - I - 0x003EC4 02:BEB4: B4        .byte $B4	; <ガ>
 - D - I - 0x003EC5 02:BEB5: 5F        .byte $5F	; <マ>
 - D - I - 0x003EC6 02:BEB6: FF        .byte $FF
-off_BEB7:
+
+off_BEB7_1A:
 - D - I - 0x003EC7 02:BEB7: D1        .byte $D1	; <ポ>
 - D - I - 0x003EC8 02:BEB8: 7D        .byte $7D	; <ー>
 - D - I - 0x003EC9 02:BEB9: 67        .byte $67	; <ラ>
@@ -5986,7 +6012,8 @@ off_BEB7:
 - D - I - 0x003ECD 02:BEBD: 7D        .byte $7D	; <ー>
 - D - I - 0x003ECE 02:BEBE: 4D        .byte $4D	; <ス>
 - D - I - 0x003ECF 02:BEBF: FF        .byte $FF
-off_BEC0:
+
+off_BEC0_1B:
 - D - I - 0x003ED0 02:BEC0: 42        .byte $42	; <イ>
 - D - I - 0x003ED1 02:BEC1: 6E        .byte $6E	; <ン>
 - D - I - 0x003ED2 02:BEC2: B6        .byte $B6	; <グ>
@@ -5997,7 +6024,8 @@ off_BEC0:
 - D - I - 0x003ED7 02:BEC7: 7D        .byte $7D	; <ー>
 - D - I - 0x003ED8 02:BEC8: 4D        .byte $4D	; <ス>
 - D - I - 0x003ED9 02:BEC9: FF        .byte $FF
-off_BECA:
+
+off_BECA_1C:
 - D - I - 0x003EDA 02:BECA: 4F        .byte $4F	; <ソ>
 - D - I - 0x003EDB 02:BECB: C4        .byte $C4	; <ビ>
 - D - I - 0x003EDC 02:BECC: 44        .byte $44	; <エ>
@@ -6006,7 +6034,8 @@ off_BECA:
 - D - I - 0x003EDF 02:BECF: 7D        .byte $7D	; <ー>
 - D - I - 0x003EE0 02:BED0: 4D        .byte $4D	; <ス>
 - D - I - 0x003EE1 02:BED1: FF        .byte $FF
-off_BED2:
+
+off_BED2_1D:
 - D - I - 0x003EE2 02:BED2: 5C        .byte $5C	; <フ>
 - D - I - 0x003EE3 02:BED3: 67        .byte $67	; <ラ>
 - D - I - 0x003EE4 02:BED4: 6E        .byte $6E	; <ン>
@@ -6015,7 +6044,8 @@ off_BED2:
 - D - I - 0x003EE7 02:BED7: 7D        .byte $7D	; <ー>
 - D - I - 0x003EE8 02:BED8: 4D        .byte $4D	; <ス>
 - D - I - 0x003EE9 02:BED9: FF        .byte $FF
-off_BEDA:
+
+off_BEDA_1E:
 - D - I - 0x003EEA 02:BEDA: 62        .byte $62	; <メ>
 - D - I - 0x003EEB 02:BEDB: 47        .byte $47	; <キ>
 - D - I - 0x003EEC 02:BEDC: 4C        .byte $4C	; <シ>
@@ -6024,7 +6054,8 @@ off_BEDA:
 - D - I - 0x003EEF 02:BEDF: 7D        .byte $7D	; <ー>
 - D - I - 0x003EF0 02:BEE0: 4D        .byte $4D	; <ス>
 - D - I - 0x003EF1 02:BEE1: FF        .byte $FF
-off_BEE2:
+
+off_BEE2_1F:
 - D - I - 0x003EF2 02:BEE2: 42        .byte $42	; <イ>
 - D - I - 0x003EF3 02:BEE3: 50        .byte $50	; <タ>
 - D - I - 0x003EF4 02:BEE4: 68        .byte $68	; <リ>
@@ -6033,7 +6064,8 @@ off_BEE2:
 - D - I - 0x003EF7 02:BEE7: 7D        .byte $7D	; <ー>
 - D - I - 0x003EF8 02:BEE8: 4D        .byte $4D	; <ス>
 - D - I - 0x003EF9 02:BEE9: FF        .byte $FF
-off_BEEA:
+
+off_BEEA_20:
 - D - I - 0x003EFA 02:BEEA: 45        .byte $45	; <オ>
 - D - I - 0x003EFB 02:BEEB: 67        .byte $67	; <ラ>
 - D - I - 0x003EFC 02:BEEC: 6E        .byte $6E	; <ン>
@@ -6042,7 +6074,8 @@ off_BEEA:
 - D - I - 0x003EFF 02:BEEF: 7D        .byte $7D	; <ー>
 - D - I - 0x003F00 02:BEF0: 4D        .byte $4D	; <ス>
 - D - I - 0x003F01 02:BEF1: FF        .byte $FF
-off_BEF2:
+
+off_BEF2_21:
 - D - I - 0x003F02 02:BEF2: 41        .byte $41	; <ア>
 - D - I - 0x003F03 02:BEF3: 69        .byte $69	; <ル>
 - D - I - 0x003F04 02:BEF4: BC        .byte $BC	; <ゼ>
@@ -6053,7 +6086,8 @@ off_BEF2:
 - D - I - 0x003F09 02:BEF9: 7D        .byte $7D	; <ー>
 - D - I - 0x003F0A 02:BEFA: 4D        .byte $4D	; <ス>
 - D - I - 0x003F0B 02:BEFB: FF        .byte $FF
-off_BEFC:
+
+off_BEFC_22:
 - D - I - 0x003F0C 02:BEFC: 56        .byte $56	; <ニ>
 - D - I - 0x003F0D 02:BEFD: 4C        .byte $4C	; <シ>
 - D - I - 0x003F0E 02:BEFE: C2        .byte $C2	; <ド>
@@ -6063,7 +6097,8 @@ off_BEFC:
 - D - I - 0x003F12 02:BF02: 7D        .byte $7D	; <ー>
 - D - I - 0x003F13 02:BF03: 4D        .byte $4D	; <ス>
 - D - I - 0x003F14 02:BF04: FF        .byte $FF
-off_BF05:
+
+off_BF05_23:
 - D - I - 0x003F15 02:BF05: C5        .byte $C5	; <ブ>
 - D - I - 0x003F16 02:BF06: 67        .byte $67	; <ラ>
 - D - I - 0x003F17 02:BF07: BA        .byte $BA	; <ジ>
@@ -6072,7 +6107,8 @@ off_BF05:
 - D - I - 0x003F1A 02:BF0A: 7D        .byte $7D	; <ー>
 - D - I - 0x003F1B 02:BF0B: 4D        .byte $4D	; <ス>
 - D - I - 0x003F1C 02:BF0C: FF        .byte $FF
-off_BF0D:
+
+off_BF0D_24:
 - - - - - 0x003F1D 02:BF0D: C5        .byte $C5	; <ブ>
 - - - - - 0x003F1E 02:BF0E: 67        .byte $67	; <ラ>
 - - - - - 0x003F1F 02:BF0F: BA        .byte $BA	; <ジ>
@@ -6081,6 +6117,8 @@ off_BF0D:
 - - - - - 0x003F22 02:BF12: 7D        .byte $7D	; <ー>
 - - - - - 0x003F23 02:BF13: 4D        .byte $4D	; <ス>
 - - - - - 0x003F24 02:BF14: FF        .byte $FF
+
+
 
 off_BF15:
 - D - I - 0x003F25 02:BF15: 85        .byte $85	; <E>
@@ -6140,116 +6178,121 @@ off_BF15:
 - D - I - 0x003F5B 02:BF4B: 6F        .byte $6F	; <ッ>
 - D - I - 0x003F5C 02:BF4C: 52        .byte $52	; <ツ>
 - D - I - 0x003F5D 02:BF4D: FF        .byte $FF
-off_BF4E:
-- D - I - 0x003F5E 02:BF4E: 91        .byte $91	; <V>
-- D - I - 0x003F5F 02:BF4F: 20        .byte $20	; <み>
-- D - I - 0x003F60 02:BF50: 54        .byte $54	; <ト>
-- D - I - 0x003F61 02:BF51: 67        .byte $67	; <ラ>
-- D - I - 0x003F62 02:BF52: 6F        .byte $6F	; <ッ>
-- D - I - 0x003F63 02:BF53: CF        .byte $CF	; <プ>
+
+
+
+off_BF4E_названия_действий:
+- D - I - 0x003F5E 02:BF4E: 91 20     .word $2091
+- D - I - 0x003F60 02:BF50: 54        .byte $54
+- D - I - 0x003F61 02:BF51: 67        .byte $67
+- D - I - 0x003F62 02:BF52: 6F        .byte $6F
+- D - I - 0x003F63 02:BF53: CF        .byte $CF
 - D - I - 0x003F64 02:BF54: FD        .byte $FD
-- D - I - 0x003F65 02:BF55: D1        .byte $D1	; <ポ>
-- D - I - 0x003F66 02:BF56: 20        .byte $20	; <み>
-- D - I - 0x003F67 02:BF57: 4C        .byte $4C	; <シ>
-- D - I - 0x003F68 02:BF58: 71        .byte $71	; <ュ>
-- D - I - 0x003F69 02:BF59: 7D        .byte $7D	; <ー>
-- D - I - 0x003F6A 02:BF5A: 54        .byte $54	; <ト>
+
+- D - I - 0x003F65 02:BF55: D1 20     .word $20D1
+- D - I - 0x003F67 02:BF57: 4C        .byte $4C
+- D - I - 0x003F68 02:BF58: 71        .byte $71
+- D - I - 0x003F69 02:BF59: 7D        .byte $7D
+- D - I - 0x003F6A 02:BF5A: 54        .byte $54
 - D - I - 0x003F6B 02:BF5B: FD        .byte $FD
-- D - I - 0x003F6C 02:BF5C: 11        .byte $11	; <ち>
-- D - I - 0x003F6D 02:BF5D: 21        .byte $21	; <む>
-- D - I - 0x003F6E 02:BF5E: 4D        .byte $4D	; <ス>
-- D - I - 0x003F6F 02:BF5F: 69        .byte $69	; <ル>
-- D - I - 0x003F70 02:BF60: 7D        .byte $7D	; <ー>
+
+- D - I - 0x003F6C 02:BF5C: 11 21     .word $2111
+- D - I - 0x003F6E 02:BF5E: 4D        .byte $4D
+- D - I - 0x003F6F 02:BF5F: 69        .byte $69
+- D - I - 0x003F70 02:BF60: 7D        .byte $7D
 - D - I - 0x003F71 02:BF61: FD        .byte $FD
-- D - I - 0x003F72 02:BF62: 51        .byte $51	; <チ>
-- D - I - 0x003F73 02:BF63: 21        .byte $21	; <む>
-- D - I - 0x003F74 02:BF64: 48        .byte $48	; <ク>
-- D - I - 0x003F75 02:BF65: 68        .byte $68	; <リ>
-- D - I - 0x003F76 02:BF66: 41        .byte $41	; <ア>
-- D - I - 0x003F77 02:BF67: 7D        .byte $7D	; <ー>
+
+- D - I - 0x003F72 02:BF62: 51 21     .word $2151
+- D - I - 0x003F74 02:BF64: 48        .byte $48
+- D - I - 0x003F75 02:BF65: 68        .byte $68
+- D - I - 0x003F76 02:BF66: 41        .byte $41
+- D - I - 0x003F77 02:BF67: 7D        .byte $7D
 - D - I - 0x003F78 02:BF68: FD        .byte $FD
-- D - I - 0x003F79 02:BF69: 91        .byte $91	; <V>
-- D - I - 0x003F7A 02:BF6A: 21        .byte $21	; <む>
-- D - I - 0x003F7B 02:BF6B: 0E        .byte $0E	; <せ>
-- D - I - 0x003F7C 02:BF6C: 28        .byte $28	; <り>
-- D - I - 0x003F7D 02:BF6D: 01        .byte $01	; <あ>
-- D - I - 0x003F7E 02:BF6E: 02        .byte $02	; <い>
+
+- D - I - 0x003F79 02:BF69: 91 21     .word $2191
+- D - I - 0x003F7B 02:BF6B: 0E        .byte $0E
+- D - I - 0x003F7C 02:BF6C: 28        .byte $28
+- D - I - 0x003F7D 02:BF6D: 01        .byte $01
+- D - I - 0x003F7E 02:BF6E: 02        .byte $02
 - D - I - 0x003F7F 02:BF6F: FD        .byte $FD
-- D - I - 0x003F80 02:BF70: E4        .byte $E4
-- D - I - 0x003F81 02:BF71: 21        .byte $21	; <む>
-- D - I - 0x003F82 02:BF72: C2        .byte $C2	; <ド>
-- D - I - 0x003F83 02:BF73: 68        .byte $68	; <リ>
-- D - I - 0x003F84 02:BF74: C5        .byte $C5	; <ブ>
-- D - I - 0x003F85 02:BF75: 69        .byte $69	; <ル>
+
+- D - I - 0x003F80 02:BF70: E4 21     .word $21E4
+- D - I - 0x003F82 02:BF72: C2        .byte $C2
+- D - I - 0x003F83 02:BF73: 68        .byte $68
+- D - I - 0x003F84 02:BF74: C5        .byte $C5
+- D - I - 0x003F85 02:BF75: 69        .byte $69
 - D - I - 0x003F86 02:BF76: FD        .byte $FD
-- D - I - 0x003F87 02:BF77: 24        .byte $24	; <や>
-- D - I - 0x003F88 02:BF78: 22        .byte $22	; <め>
-- D - I - 0x003F89 02:BF79: CD        .byte $CD	; <パ>
-- D - I - 0x003F8A 02:BF7A: 4D        .byte $4D	; <ス>
+
+- D - I - 0x003F87 02:BF77: 24 22     .word $2224
+- D - I - 0x003F89 02:BF79: CD        .byte $CD
+- D - I - 0x003F8A 02:BF7A: 4D        .byte $4D
 - D - I - 0x003F8B 02:BF7B: FD        .byte $FD
-- D - I - 0x003F8C 02:BF7C: 64        .byte $64	; <ヤ>
-- D - I - 0x003F8D 02:BF7D: 22        .byte $22	; <め>
-- D - I - 0x003F8E 02:BF7E: 4C        .byte $4C	; <シ>
-- D - I - 0x003F8F 02:BF7F: 71        .byte $71	; <ュ>
-- D - I - 0x003F90 02:BF80: 7D        .byte $7D	; <ー>
-- D - I - 0x003F91 02:BF81: 54        .byte $54	; <ト>
+
+- D - I - 0x003F8C 02:BF7C: 64 22     .word $2264
+- D - I - 0x003F8E 02:BF7E: 4C        .byte $4C
+- D - I - 0x003F8F 02:BF7F: 71        .byte $71
+- D - I - 0x003F90 02:BF80: 7D        .byte $7D
+- D - I - 0x003F91 02:BF81: 54        .byte $54
 - D - I - 0x003F92 02:BF82: FD        .byte $FD
-- D - I - 0x003F93 02:BF83: A4        .byte $A4	; <ご>
-- D - I - 0x003F94 02:BF84: 22        .byte $22	; <め>
-- D - I - 0x003F95 02:BF85: 50        .byte $50	; <タ>
-- D - I - 0x003F96 02:BF86: 6F        .byte $6F	; <ッ>
-- D - I - 0x003F97 02:BF87: 48        .byte $48	; <ク>
-- D - I - 0x003F98 02:BF88: 69        .byte $69	; <ル>
+
+- D - I - 0x003F93 02:BF83: A4 22     .word $22A4
+- D - I - 0x003F95 02:BF85: 50        .byte $50
+- D - I - 0x003F96 02:BF86: 6F        .byte $6F
+- D - I - 0x003F97 02:BF87: 48        .byte $48
+- D - I - 0x003F98 02:BF88: 69        .byte $69
 - D - I - 0x003F99 02:BF89: FD        .byte $FD
-- D - I - 0x003F9A 02:BF8A: E4        .byte $E4
-- D - I - 0x003F9B 02:BF8B: 22        .byte $22	; <め>
-- D - I - 0x003F9C 02:BF8C: C5        .byte $C5	; <ブ>
-- D - I - 0x003F9D 02:BF8D: 6B        .byte $6B	; <ロ>
-- D - I - 0x003F9E 02:BF8E: 6F        .byte $6F	; <ッ>
-- D - I - 0x003F9F 02:BF8F: 48        .byte $48	; <ク>
+
+- D - I - 0x003F9A 02:BF8A: E4 22     .word $22E4
+- D - I - 0x003F9C 02:BF8C: C5        .byte $C5
+- D - I - 0x003F9D 02:BF8D: 6B        .byte $6B
+- D - I - 0x003F9E 02:BF8E: 6F        .byte $6F
+- D - I - 0x003F9F 02:BF8F: 48        .byte $48
 - D - I - 0x003FA0 02:BF90: FD        .byte $FD
-- D - I - 0x003FA1 02:BF91: 24        .byte $24	; <や>
-- D - I - 0x003FA2 02:BF92: 23        .byte $23	; <も>
-- D - I - 0x003FA3 02:BF93: CD        .byte $CD	; <パ>
-- D - I - 0x003FA4 02:BF94: 4D        .byte $4D	; <ス>
-- D - I - 0x003FA5 02:BF95: 46        .byte $46	; <カ>
-- D - I - 0x003FA6 02:BF96: 6F        .byte $6F	; <ッ>
-- D - I - 0x003FA7 02:BF97: 54        .byte $54	; <ト>
+
+- D - I - 0x003FA1 02:BF91: 24 23     .word $2324
+- D - I - 0x003FA3 02:BF93: CD        .byte $CD
+- D - I - 0x003FA4 02:BF94: 4D        .byte $4D
+- D - I - 0x003FA5 02:BF95: 46        .byte $46
+- D - I - 0x003FA6 02:BF96: 6F        .byte $6F
+- D - I - 0x003FA7 02:BF97: 54        .byte $54
 - D - I - 0x003FA8 02:BF98: FD        .byte $FD
-- D - I - 0x003FA9 02:BF99: 31        .byte $31	; <ゅ>
-- D - I - 0x003FAA 02:BF9A: 22        .byte $22	; <め>
-- D - I - 0x003FAB 02:BF9B: 54        .byte $54	; <ト>
-- D - I - 0x003FAC 02:BF9C: 67        .byte $67	; <ラ>
-- D - I - 0x003FAD 02:BF9D: 6F        .byte $6F	; <ッ>
-- D - I - 0x003FAE 02:BF9E: CF        .byte $CF	; <プ>
+
+- D - I - 0x003FA9 02:BF99: 31 22     .word $2231
+- D - I - 0x003FAB 02:BF9B: 54        .byte $54
+- D - I - 0x003FAC 02:BF9C: 67        .byte $67
+- D - I - 0x003FAD 02:BF9D: 6F        .byte $6F
+- D - I - 0x003FAE 02:BF9E: CF        .byte $CF
 - D - I - 0x003FAF 02:BF9F: FD        .byte $FD
-- D - I - 0x003FB0 02:BFA0: 71        .byte $71	; <ュ>
-- D - I - 0x003FB1 02:BFA1: 22        .byte $22	; <め>
-- D - I - 0x003FB2 02:BFA2: 4C        .byte $4C	; <シ>
-- D - I - 0x003FB3 02:BFA3: 71        .byte $71	; <ュ>
-- D - I - 0x003FB4 02:BFA4: 7D        .byte $7D	; <ー>
-- D - I - 0x003FB5 02:BFA5: 54        .byte $54	; <ト>
+
+- D - I - 0x003FB0 02:BFA0: 71 22     .word $2271
+- D - I - 0x003FB2 02:BFA2: 4C        .byte $4C
+- D - I - 0x003FB3 02:BFA3: 71        .byte $71
+- D - I - 0x003FB4 02:BFA4: 7D        .byte $7D
+- D - I - 0x003FB5 02:BFA5: 54        .byte $54
 - D - I - 0x003FB6 02:BFA6: FD        .byte $FD
-- D - I - 0x003FB7 02:BFA7: B1        .byte $B1	; <ぶ>
-- D - I - 0x003FB8 02:BFA8: 22        .byte $22	; <め>
-- D - I - 0x003FB9 02:BFA9: 4D        .byte $4D	; <ス>
-- D - I - 0x003FBA 02:BFAA: 69        .byte $69	; <ル>
-- D - I - 0x003FBB 02:BFAB: 7D        .byte $7D	; <ー>
+
+- D - I - 0x003FB7 02:BFA7: B1 22     .word $22B1
+- D - I - 0x003FB9 02:BFA9: 4D        .byte $4D
+- D - I - 0x003FBA 02:BFAA: 69        .byte $69
+- D - I - 0x003FBB 02:BFAB: 7D        .byte $7D
 - D - I - 0x003FBC 02:BFAC: FD        .byte $FD
-- D - I - 0x003FBD 02:BFAD: F1        .byte $F1
-- D - I - 0x003FBE 02:BFAE: 22        .byte $22	; <め>
-- D - I - 0x003FBF 02:BFAF: 48        .byte $48	; <ク>
-- D - I - 0x003FC0 02:BFB0: 68        .byte $68	; <リ>
-- D - I - 0x003FC1 02:BFB1: 41        .byte $41	; <ア>
-- D - I - 0x003FC2 02:BFB2: 7D        .byte $7D	; <ー>
+
+- D - I - 0x003FBD 02:BFAD: F1 22     .word $22F1
+- D - I - 0x003FBF 02:BFAF: 48        .byte $48
+- D - I - 0x003FC0 02:BFB0: 68        .byte $68
+- D - I - 0x003FC1 02:BFB1: 41        .byte $41
+- D - I - 0x003FC2 02:BFB2: 7D        .byte $7D
 - D - I - 0x003FC3 02:BFB3: FD        .byte $FD
-- D - I - 0x003FC4 02:BFB4: 31        .byte $31	; <ゅ>
-- D - I - 0x003FC5 02:BFB5: 23        .byte $23	; <も>
-- D - I - 0x003FC6 02:BFB6: 0E        .byte $0E	; <せ>
-- D - I - 0x003FC7 02:BFB7: 28        .byte $28	; <り>
-- D - I - 0x003FC8 02:BFB8: 01        .byte $01	; <あ>
-- D - I - 0x003FC9 02:BFB9: 02        .byte $02	; <い>
+
+- D - I - 0x003FC4 02:BFB4: 31 23     .word $2331
+- D - I - 0x003FC6 02:BFB6: 0E        .byte $0E
+- D - I - 0x003FC7 02:BFB7: 28        .byte $28
+- D - I - 0x003FC8 02:BFB8: 01        .byte $01
+- D - I - 0x003FC9 02:BFB9: 02        .byte $02
 - D - I - 0x003FCA 02:BFBA: FF        .byte $FF
+
+
+
 off_BFBB:
 - D - I - 0x003FCB 02:BFBB: 91        .byte $91	; <V>
 - D - I - 0x003FCC 02:BFBC: 20        .byte $20	; <み>
