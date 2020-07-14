@@ -1035,8 +1035,8 @@ tbl_A781_опции_сан_паулу_нанкацу:
 - D - I - 0x002799 02:A789: 73 AA     .word sub_0x001A00_выход_из_экрана
 
 ofs_A78B_опция_formation_сан_паулу_нанкацу:
-C - J - - 0x00279B 02:A78B: A0 EB     LDY #< tbl_B6EB_расстановка
-C - - - - 0x00279D 02:A78D: A2 B6     LDX #> tbl_B6EB_расстановка
+C - J - - 0x00279B 02:A78B: A0 EB     LDY #< tbl_B6EB_расстановка_сан_паулу_нанкацу
+C - - - - 0x00279D 02:A78D: A2 B6     LDX #> tbl_B6EB_расстановка_сан_паулу_нанкацу
 C - - - - 0x00279F 02:A78F: 20 AB 97  JSR sub_0x0017BB
 C - - - - 0x0027A2 02:A792: A2 90     LDX #$90
 C - - - - 0x0027A4 02:A794: 20 1E AE  JSR sub_AE1E
@@ -1050,8 +1050,8 @@ C - - - - 0x0027B6 02:A7A6: 8D 64 05  STA $0564
 C - - - - 0x0027B9 02:A7A9: 4C 71 A7  JMP loc_A771
 
 ofs_A7AC_опция_defense_сан_паулу_нанкацу:
-C - J - - 0x0027BC 02:A7AC: A0 90     LDY #< tbl_B790_защита
-C - - - - 0x0027BE 02:A7AE: A2 B7     LDX #> tbl_B790_защита
+C - J - - 0x0027BC 02:A7AC: A0 90     LDY #< tbl_B790_защита_сан_паулу_нанкацу
+C - - - - 0x0027BE 02:A7AE: A2 B7     LDX #> tbl_B790_защита_сан_паулу_нанкацу
 C - - - - 0x0027C0 02:A7B0: 20 AB 97  JSR sub_0x0017BB
 C - - - - 0x0027C3 02:A7B3: A0 A2     LDY #< tbl_ADA2_курсор_защиты_сан_паулу_нанкацу
 C - - - - 0x0027C5 02:A7B5: A2 AD     LDX #> tbl_ADA2_курсор_защиты_сан_паулу_нанкацу
@@ -1176,10 +1176,9 @@ tbl_A89D_опции_японии:
 - D - I - 0x0028B5 02:A8A5: 73 AA     .word sub_0x001A00_выход_из_экрана
 
 ofs_A8A7_опция_formation_япония:
-C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_B6EB_расстановка
-C - - - - 0x0028B9 02:A8A9: A2 B6     LDX #> tbl_B6EB_расстановка
-C - - - - 0x0028BB 02:A8AB: A9 FB     LDA #$FB
-C - - - - 0x0028BD 02:A8AD: 20 AD 97  JSR sub_0x0017BD
+C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_0x040001_расстановка_япония
+C - - - - 0x0028B9 02:A8A9: A2 B6     LDX #> tbl_0x040001_расстановка_япония
+C - - - - 0x0028BD 02:A8AD: 20 AD 97  JSR sub_0x0017BB
 C - - - - 0x0028C0 02:A8B0: A2 68     LDX #$68
 C - - - - 0x0028C2 02:A8B2: 20 1E AE  JSR sub_AE1E
 C - - - - 0x0028C5 02:A8B5: A9 D8     LDA #$D8
@@ -1192,10 +1191,9 @@ C - - - - 0x0028D4 02:A8C4: 8D 64 05  STA $0564
 C - - - - 0x0028D7 02:A8C7: 4C 8D A8  JMP loc_A88D
 
 ofs_A8CA_опция_defense_япония:
-C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_B790_защита
-C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_B790_защита
-C - - - - 0x0028DE 02:A8CE: A9 FB     LDA #$FB
-C - - - - 0x0028E0 02:A8D0: 20 AD 97  JSR sub_0x0017BD
+C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_0x040002_защита_япония
+C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_0x040002_защита_япония
+C - - - - 0x0028E0 02:A8D0: 20 AD 97  JSR sub_0x0017BB
 C - - - - 0x0028E3 02:A8D3: A0 B8     LDY #< tbl_ADB8_курсор_защиты_японии
 C - - - - 0x0028E5 02:A8D5: A2 AD     LDX #> tbl_ADB8_курсор_защиты_японии
 C - - - - 0x0028E7 02:A8D7: 20 77 AE  JSR sub_AE77
@@ -3618,18 +3616,18 @@ off_B583_опции_2:
 - D - I - 0x0035AE 02:B59E: 00        .byte $00
 - D - I - 0x0035B1 02:B5A1: AB        .byte $AB
 - D - I - 0x0035B2 02:B5A2: AA        .byte $AA
-; расстановка
+; formation
 - D - I - 0x0035B3 02:B5A3: 0D        .byte $0B
 - D - I - 0x0035B4 02:B5A4: EB 20     .word $20EB
 - D - I - 0x0035B6 02:B5A6: AA        .byte $AA
 - D - I - 0x0035B7 02:B5A7: 00        .byte $00
-- D - I - 0x0035B8 02:B5A8: 5C        .byte $46
-- D - I - 0x0035B9 02:B5A9: 76        .byte $6F
-- D - I - 0x0035BA 02:B5AA: 7D        .byte $72
-- D - I - 0x0035BB 02:B5AB: 62        .byte $6D
-- D - I - 0x0035BC 02:B5AC: 7D        .byte $61
-- D - I - 0x0035BD 02:B5AD: 4C        .byte $74
-- D - I - 0x0035BE 02:B5AE: 72        .byte $5B
+- D - I - 0x0035B8 02:B5A8: 5C        .byte $80
+- D - I - 0x0035B9 02:B5A9: 76        .byte $81
+- D - I - 0x0035BA 02:B5AA: 7D        .byte $82
+- D - I - 0x0035BB 02:B5AB: 62        .byte $83
+- D - I - 0x0035BC 02:B5AC: 7D        .byte $84
+- D - I - 0x0035BD 02:B5AD: 4C        .byte $85
+- D - I - 0x0035BE 02:B5AE: 72        .byte $86
 - D - I - 0x0035C1 02:B5B1: AB        .byte $AB
 - D - I - 0x0035C2 02:B5B2: AA        .byte $AA
 ; пустая строка
@@ -3646,7 +3644,7 @@ off_B583_опции_2:
 - D - I - 0x0035D0 02:B5C0: 95        .byte $00
 - D - I - 0x0035D1 02:B5C1: AB        .byte $AB
 - D - I - 0x0035D2 02:B5C2: AA        .byte $AA
-; защита
+; defense
 - D - I - 0x0035D3 02:B5C3: 0D        .byte $0B
 - D - I - 0x0035D4 02:B5C4: 2B 21     .word $212B
 - D - I - 0x0035D6 02:B5C6: AA        .byte $AA
@@ -3674,7 +3672,7 @@ off_B583_опции_2:
 - D - I - 0x0035EE 02:B5DE: 00        .byte $00
 - D - I - 0x0035F1 02:B5E1: AB        .byte $AB
 - D - I - 0x0035F2 02:B5E2: AA        .byte $AA
-; замена
+; line-up
 - D - I - 0x0035F3 02:B5E3: 0D        .byte $0B
 - D - I - 0x0035F4 02:B5E4: 6B 21     .word $216B
 - D - I - 0x0035F6 02:B5E6: AA        .byte $AA
@@ -3702,7 +3700,7 @@ off_B583_опции_2:
 - D - I - 0x00360E 02:B5FE: 00        .byte $00
 - D - I - 0x003611 02:B601: AB        .byte $AB
 - D - I - 0x003612 02:B602: AA        .byte $AA
-; статус
+; status
 - D - I - 0x003613 02:B603: 0D        .byte $0B
 - D - I - 0x003614 02:B604: AB 21     .word $21AB
 - D - I - 0x003616 02:B606: AA        .byte $AA
@@ -3730,7 +3728,7 @@ off_B583_опции_2:
 - D - I - 0x00362E 02:B61E: 00        .byte $00
 - D - I - 0x003631 02:B621: AB        .byte $AB
 - D - I - 0x003632 02:B622: AA        .byte $AA
-; выход
+; done
 - D - I - 0x003633 02:B623: 0D        .byte $0B
 - D - I - 0x003634 02:B624: EB 21     .word $21EB
 - D - I - 0x003636 02:B626: AA        .byte $AA
@@ -3744,7 +3742,7 @@ off_B583_опции_2:
 - D - I - 0x00363E 02:B62E: 00        .byte $00
 - D - I - 0x003641 02:B631: AB        .byte $AB
 - D - I - 0x003642 02:B632: AA        .byte $AA
-; выход
+; пустая строка
 - D - I - 0x003643 02:B633: 0D        .byte $0B
 - D - I - 0x003644 02:B634: 0B 22     .word $220B
 - D - I - 0x003646 02:B636: 9E        .byte $9E
@@ -3929,7 +3927,7 @@ off_0000_япония:
 
 
 
-tbl_B6EB_расстановка:
+tbl_B6EB_расстановка_сан_паулу_нанкацу:
 ; расстановка
 - D - I - 0x0036FB 02:B6EB: 0C        .byte $0C
 - D - I - 0x0036FC 02:B6EC: F1 20     .word $20F1
@@ -4098,8 +4096,8 @@ tbl_B6EB_расстановка:
 
 
 
-tbl_B790_защита:
-; защита
+tbl_B790_защита_сан_паулу_нанкацу:
+; defense
 - D - I - 0x0037AC 02:B79C: 0C        .byte $0C
 - D - I - 0x0037AD 02:B79D: 31 21     .word $2131
 - D - I - 0x0037AF 02:B79F: 9C        .byte $9C
