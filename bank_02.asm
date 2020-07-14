@@ -1044,7 +1044,7 @@ C - - - - 0x0027A7 02:A797: A9 00     LDA #$00
 C - - - - 0x0027A9 02:A799: 20 3A AE  JSR sub_AE3A
 C - - - - 0x0027AC 02:A79C: A9 F8     LDA #$F8
 C - - - - 0x0027AE 02:A79E: 8D 60 05  STA $0560
-C - - - - 0x0027B1 02:A7A1: 20 77 AA  JSR sub_AA77
+C - - - - 0x0027B1 02:A7A1: 20 77 AA  JSR sub_AA77_повторная_отрисовка_опций
 C - - - - 0x0027B4 02:A7A4: A9 38     LDA #$38
 C - - - - 0x0027B6 02:A7A6: 8D 64 05  STA $0564
 C - - - - 0x0027B9 02:A7A9: 4C 71 A7  JMP loc_A771
@@ -1053,10 +1053,10 @@ ofs_A7AC_опция_defense_сан_паулу_нанкацу:
 C - J - - 0x0027BC 02:A7AC: A0 90     LDY #< tbl_B790_защита
 C - - - - 0x0027BE 02:A7AE: A2 B7     LDX #> tbl_B790_защита
 C - - - - 0x0027C0 02:A7B0: 20 AB 97  JSR sub_0x0017BB
-C - - - - 0x0027C3 02:A7B3: A0 A2     LDY #< tbl_ADA2
-C - - - - 0x0027C5 02:A7B5: A2 AD     LDX #> tbl_ADA2
+C - - - - 0x0027C3 02:A7B3: A0 A2     LDY #< tbl_ADA2_курсор_защиты_сан_паулу_нанкацу
+C - - - - 0x0027C5 02:A7B5: A2 AD     LDX #> tbl_ADA2_курсор_защиты_сан_паулу_нанкацу
 C - - - - 0x0027C7 02:A7B7: 20 77 AE  JSR sub_AE77
-C - - - - 0x0027CA 02:A7BA: 20 77 AA  JSR sub_AA77
+C - - - - 0x0027CA 02:A7BA: 20 77 AA  JSR sub_AA77_повторная_отрисовка_опций
 C - - - - 0x0027CD 02:A7BD: A9 48     LDA #$48
 C - - - - 0x0027CF 02:A7BF: 8D 64 05  STA $0564
 C - - - - 0x0027D2 02:A7C2: 4C 71 A7  JMP loc_A771
@@ -1196,8 +1196,8 @@ C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_B790_защита
 C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_B790_защита
 C - - - - 0x0028DE 02:A8CE: A9 FB     LDA #$FB
 C - - - - 0x0028E0 02:A8D0: 20 AD 97  JSR sub_0x0017BD
-C - - - - 0x0028E3 02:A8D3: A0 B8     LDY #< tbl_ADB8_курсор_защиты
-C - - - - 0x0028E5 02:A8D5: A2 AD     LDX #> tbl_ADB8_курсор_защиты
+C - - - - 0x0028E3 02:A8D3: A0 B8     LDY #< tbl_ADB8_курсор_защиты_японии
+C - - - - 0x0028E5 02:A8D5: A2 AD     LDX #> tbl_ADB8_курсор_защиты_японии
 C - - - - 0x0028E7 02:A8D7: 20 77 AE  JSR sub_AE77
 C - - - - 0x0028EA 02:A8DA: 20 19 A7  JSR sub_A719
 C - - - - 0x0028ED 02:A8DD: A9 48     LDA #$48
@@ -1403,7 +1403,7 @@ C - - - - 0x002A7A 02:AA6A: 8D 5C 05  STA $055C
 C - - - - 0x002A7D 02:AA6D: 8D 60 05  STA $0560
 C - - - - 0x002A80 02:AA70: 4C 8D A8  JMP loc_A88D
 
-sub_AA77:
+sub_AA77_повторная_отрисовка_опций:
 ; повторно отрисовать опции в меню команды после подтверждения/отмены выбора опции во внутреннем окне
 C - - - - 0x002A87 02:AA77: A0 B3     LDY #< tbl_B4B3
 C - - - - 0x002A89 02:AA79: A2 B4     LDX #> tbl_B4B3
@@ -1522,6 +1522,7 @@ C - - - - 0x002B43 02:AB33: C9 20     CMP #$20
 C - - - - 0x002B45 02:AB35: D0 F5     BNE bra_AB2C
 bra_AB37:
 C - - - - 0x002B47 02:AB37: 20 7E 99  JSR sub_0x00198E
+; X курсора потом перезаписывается в 0x002AF1
 C - - - - 0x002B4A 02:AB3A: A0 DC     LDY #< tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков
 C - - - - 0x002B4C 02:AB3C: A2 AD     LDX #> tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков
 C - - - - 0x002B4E 02:AB3E: 20 3A 9C  JSR sub_0x001C4A
@@ -1870,7 +1871,7 @@ tbl_AD9E:
 - D - - - 0x002DB0 02:ADA0: 00        .byte $00
 - D - - - 0x002DB1 02:ADA1: 88        .byte $88
 
-tbl_ADA2:
+tbl_ADA2_курсор_защиты_сан_паулу_нанкацу:
 - D - I - 0x002DB2 02:ADA2: F8        .byte $F8
 - D - I - 0x002DB3 02:ADA3: 58        .byte $58
 - D - I - 0x002DB4 02:ADA4: 71        .byte $71
@@ -1900,7 +1901,7 @@ tbl_ADB4:
 - D - - - 0x002DC6 02:ADB6: 00        .byte $00
 - D - - - 0x002DC7 02:ADB7: 60        .byte $60	; <ミ>
 
-tbl_ADB8_курсор_защиты:
+tbl_ADB8_курсор_защиты_японии:
 - D - I - 0x002DC8 02:ADB8: F8        .byte $F8
 - D - I - 0x002DC9 02:ADB9: 58        .byte $58
 - D - I - 0x002DCA 02:ADBA: 71        .byte $71
@@ -1949,7 +1950,6 @@ tbl_ADD6:
 - D - I - 0x002DEB 02:ADDB: B8        .byte $B8	; <ゴ>
 
 tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков:
-; но затем позиция перезаписывается в 0x002AF1
 - D - I - 0x002DEC 02:ADDC: F4        .byte $F4
 - D - I - 0x002DED 02:ADDD: 28        .byte $28
 - D - I - 0x002DEE 02:ADDE: 71        .byte $71
