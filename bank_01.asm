@@ -4052,8 +4052,8 @@ C - - - - 0x0019FC 01:99EC: 4C DC 99  JMP loc_99DC
 bra_99EF_выход:
 C - - - - 0x0019FF 01:99EF: 60        RTS
 
-.export sub_0x001A00_опция_выход
-sub_0x001A00_опция_выход:
+.export sub_0x001A00_выход_из_экрана
+sub_0x001A00_выход_из_экрана:
 sub_99F0:
 loc_99F0:
 C D - - - 0x001A00 01:99F0: A5 4A     LDA ram_004A
@@ -4254,6 +4254,8 @@ C - - - - 0x001B35 01:9B25: 4C 71 9A  JMP loc_9A71
 sub_0x001B38:
 sub_9B28:
 loc_9B28:
+; в A подается выделенное количество тайлов для буфера перед записью в него
+	; +80 = ???
 C D - - - 0x001B38 01:9B28: 48        PHA
 C - - - - 0x001B39 01:9B29: 2C 29 06  BIT $0629
 C - - - - 0x001B3C 01:9B2C: 50 09     BVC bra_9B37
@@ -4708,30 +4710,31 @@ C - - - - 0x001DC4 01:9DB4: 60        RTS
 
 .export sub_0x001DC5_запись_чисел_в_буфер
 sub_0x001DC5_запись_чисел_в_буфер:
-C - - - - 0x001DC5 01:9DB5: A9 04     LDA #$04
+; 00EC - десятки и единицы
+; 00ED - сотни и тысячи
+C - - - - 0x001DC5 01:9DB5: A9 04     LDA #$03
 C - - - - 0x001DC7 01:9DB7: 20 28 9B  JSR sub_9B28
+; тайл, который следует записать если разряд числа = 0
 C - - - - 0x001DCA 01:9DBA: A9 00     LDA #$00
 C - - - - 0x001DCC 01:9DBC: 85 E7     STA ram_00E7
-C - - - - 0x001DCE 01:9DBE: A5 ED     LDA ram_00ED
-C - - - - 0x001DD0 01:9DC0: 20 DA 9D  JSR sub_9DDA
 C - - - - 0x001DD3 01:9DC3: A5 ED     LDA ram_00ED
-C - - - - 0x001DD5 01:9DC5: 20 DE 9D  JSR sub_9DDE
+C - - - - 0x001DD5 01:9DC5: 20 DE 9D  JSR sub_9DDE_единицы
 C - - - - 0x001DD8 01:9DC8: A5 EC     LDA ram_00EC
-C - - - - 0x001DDA 01:9DCA: 20 DA 9D  JSR sub_9DDA
+C - - - - 0x001DDA 01:9DCA: 20 DA 9D  JSR sub_9DDA_десятки
 ; корректировка номера тайла для цифры единиц
 C - - - - 0x001DDD 01:9DCD: A9 33     LDA #$30
 C - - - - 0x001DDF 01:9DCF: 85 E7     STA ram_00E7
 C - - - - 0x001DE1 01:9DD1: A5 EC     LDA ram_00EC
-C - - - - 0x001DE3 01:9DD3: 20 DE 9D  JSR sub_9DDE
+C - - - - 0x001DE3 01:9DD3: 20 DE 9D  JSR sub_9DDE_единицы
 C - - - - 0x001DE6 01:9DD6: 20 5E 9B  JSR sub_9B5E
 C - - - - 0x001DE9 01:9DD9: 60        RTS
 
-sub_9DDA:
+sub_9DDA_десятки:
 C - - - - 0x001DEA 01:9DDA: 4A        LSR
 C - - - - 0x001DEB 01:9DDB: 4A        LSR
 C - - - - 0x001DEC 01:9DDC: 4A        LSR
 C - - - - 0x001DED 01:9DDD: 4A        LSR
-sub_9DDE:
+sub_9DDE_единицы:
 C - - - - 0x001DEE 01:9DDE: 29 0F     AND #$0F
 C - - - - 0x001DF0 01:9DE0: F0 04     BEQ bra_9DE6
 ; корректировка номера тайла для десятков и сотен
