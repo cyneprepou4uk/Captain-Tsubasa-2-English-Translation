@@ -1658,3 +1658,4 @@ con_btn_A                                   = $80
 
 
 .charmap $3A, $7D	; ":"
+.charmap $2E, $5B	; "."
