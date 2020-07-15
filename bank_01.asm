@@ -4203,10 +4203,10 @@ C - - - - 0x001AD5 01:9AC5: 26 E7     ROL ram_00E7
 C - - - - 0x001AD7 01:9AC7: 0A        ASL
 C - - - - 0x001AD8 01:9AC8: 26 E7     ROL ram_00E7
 C - - - - 0x001ADA 01:9ACA: 18        CLC
-C - - - - 0x001ADB 01:9ACB: 69 00     ADC #< tbl_0x00D010
+C - - - - 0x001ADB 01:9ACB: 69 00     ADC #< tbl_0x00D010_палитры
 C - - - - 0x001ADD 01:9ACD: 85 E6     STA ram_00E6
 C - - - - 0x001ADF 01:9ACF: A5 E7     LDA ram_00E7
-C - - - - 0x001AE1 01:9AD1: 69 B0     ADC #> tbl_0x00D010
+C - - - - 0x001AE1 01:9AD1: 69 B0     ADC #> tbl_0x00D010_палитры
 C - - - - 0x001AE3 01:9AD3: 85 E7     STA ram_00E7
 C - - - - 0x001AE5 01:9AD5: A2 00     LDX #$00
 C - - - - 0x001AE7 01:9AD7: 4C F9 9A  JMP loc_9AF9

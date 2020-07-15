@@ -99,7 +99,7 @@ tbl_0x00E010:
 - D - I - 0x00E0C8 08:A0B8: 0D AE     .word off_AE0D_5C
 - D - I - 0x00E0CA 08:A0BA: 27 AE     .word off_AE27_5D
 - D - I - 0x00E0CC 08:A0BC: 37 AE     .word off_AE37_5E
-- D - I - 0x00E0CE 08:A0BE: 4B AE     .word off_AE4B_5F
+- D - I - 0x00E0CE 08:A0BE: 4B AE     .word off_AE4B_5F_тренер_на_экране_meeting
 - D - I - 0x00E0D0 08:A0C0: 83 AE     .word off_AE83_60
 - D - I - 0x00E0D2 08:A0C2: BB AE     .word off_AEBB_61
 - D - I - 0x00E0D4 08:A0C4: DB AE     .word off_AEDB_62
@@ -4130,7 +4130,7 @@ off_AE37_5E:
 
 
 
-off_AE4B_5F:
+off_AE4B_5F_тренер_на_экране_meeting:
 - D - I - 0x00EE5B 08:AE4B: 3C        .byte $3C	; номер банка chr 1
 - D - I - 0x00EE5C 08:AE4C: 02        .byte $02	; номер банка chr 2
 - D - I - 0x00EE5D 08:AE4D: 00        .byte $00 ; палитра
