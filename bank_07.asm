@@ -3021,96 +3021,22 @@ off_BB9A_01_облако_комментатора_во_время_катсцен
 
 
 off_BBE8_02_диалог_тренера:
-- D - I - 0x00DBF8 07:BBE8: 1E        .byte $1E	; <ほ>
-- D - I - 0x00DBF9 07:BBE9: 21        .byte $21	; <む>
-- D - I - 0x00DBFA 07:BBEA: 22        .byte $22	; <め>
-- D - I - 0x00DBFB 07:BBEB: 9C        .byte $9C
-- D - I - 0x00DBFC 07:BBEC: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DBFD 07:BBED: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DBFE 07:BBEE: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DBFF 07:BBEF: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC00 07:BBF0: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC01 07:BBF1: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC02 07:BBF2: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC03 07:BBF3: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC04 07:BBF4: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC05 07:BBF5: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC06 07:BBF6: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC07 07:BBF7: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC08 07:BBF8: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC09 07:BBF9: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC0A 07:BBFA: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC0B 07:BBFB: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC0C 07:BBFC: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC0D 07:BBFD: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC0E 07:BBFE: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC0F 07:BBFF: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC10 07:BC00: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC11 07:BC01: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC12 07:BC02: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC13 07:BC03: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC14 07:BC04: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC15 07:BC05: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC16 07:BC06: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC17 07:BC07: A8        .byte $A8	; <ぜ>
-- D - I - 0x00DC18 07:BC08: 9D        .byte $9D
-- D - I - 0x00DC19 07:BC09: 1E        .byte $1E	; <ほ>
-- D - I - 0x00DC1A 07:BC0A: 61        .byte $61	; <ム>
-- D - I - 0x00DC1B 07:BC0B: 23        .byte $23	; <も>
-- D - I - 0x00DC1C 07:BC0C: 9E        .byte $9E
-- D - I - 0x00DC1D 07:BC0D: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC1E 07:BC0E: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC1F 07:BC0F: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC20 07:BC10: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC21 07:BC11: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC22 07:BC12: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC23 07:BC13: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC24 07:BC14: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC25 07:BC15: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC26 07:BC16: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC27 07:BC17: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC28 07:BC18: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC29 07:BC19: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC2A 07:BC1A: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC2B 07:BC1B: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC2C 07:BC1C: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC2D 07:BC1D: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC2E 07:BC1E: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC2F 07:BC1F: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC30 07:BC20: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC31 07:BC21: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC32 07:BC22: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC33 07:BC23: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC34 07:BC24: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC35 07:BC25: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC36 07:BC26: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC37 07:BC27: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC38 07:BC28: A9        .byte $A9	; <ぞ>
-- D - I - 0x00DC39 07:BC29: 9F        .byte $9F
-- D - I - 0x00DC3A 07:BC2A: 89        .byte $89	; <I>
-- D - I - 0x00DC3B 07:BC2B: 41        .byte $41	; <ア>
-- D - I - 0x00DC3C 07:BC2C: 22        .byte $22	; <め>
-- D - I - 0x00DC3D 07:BC2D: AA        .byte $AA	; <だ>
-- D - I - 0x00DC3E 07:BC2E: AA        .byte $AA	; <だ>
-- D - I - 0x00DC3F 07:BC2F: AA        .byte $AA	; <だ>
-- D - I - 0x00DC40 07:BC30: AA        .byte $AA	; <だ>
-- D - I - 0x00DC41 07:BC31: AA        .byte $AA	; <だ>
-- D - I - 0x00DC42 07:BC32: AA        .byte $AA	; <だ>
-- D - I - 0x00DC43 07:BC33: AA        .byte $AA	; <だ>
-- D - I - 0x00DC44 07:BC34: AA        .byte $AA	; <だ>
-- D - I - 0x00DC45 07:BC35: AA        .byte $AA	; <だ>
-- D - I - 0x00DC46 07:BC36: C9        .byte $C9	; <ぴ>
-- D - I - 0x00DC47 07:BC37: 5E        .byte $5E	; <ホ>
-- D - I - 0x00DC48 07:BC38: 22        .byte $22	; <め>
-- D - I - 0x00DC49 07:BC39: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC4A 07:BC3A: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC4B 07:BC3B: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC4C 07:BC3C: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC4D 07:BC3D: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC4E 07:BC3E: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC4F 07:BC3F: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC50 07:BC40: AB        .byte $AB	; <ぢ>
-- D - I - 0x00DC51 07:BC41: AB        .byte $AB	; <ぢ>
+; верхняя горизонтальная полоска
+	.byte $1E
+	.word $2221
+	.byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D
+; нижняя горизонтальная полоска
+	.byte $1E
+	.word $2361
+	.byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
+; левая вертикальная полоска
+	.byte $89
+	.word $2241
+	.byte $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA
+; правая вертикальная полоска
+	.byte $C9
+	.word $225E
+	.byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 
 
 
