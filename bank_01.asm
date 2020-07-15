@@ -4464,11 +4464,11 @@ C - - - - 0x001C45 01:9C35: 86 E6     STX ram_00E6
 C - - - - 0x001C47 01:9C37: 6C E6 00  JMP (ram_00E6)
 
 
-.export sub_0x001C4A
-sub_0x001C4A:
+.export sub_0x001C4A_отобразить_курсор
+sub_0x001C4A_отобразить_курсор:
 C - - - - 0x001C4A 01:9C3A: A9 00     LDA #$00
-.export sub_0x001C4C
-sub_0x001C4C:
+.export sub_0x001C4C_отобразить_курсор_со_смещением
+sub_0x001C4C_отобразить_курсор_со_смещением:
 C - - - - 0x001C4C 01:9C3C: 85 E9     STA ram_00E9
 C - - - - 0x001C4E 01:9C3E: 84 E6     STY ram_00E6
 C - - - - 0x001C50 01:9C40: 86 E7     STX ram_00E7
