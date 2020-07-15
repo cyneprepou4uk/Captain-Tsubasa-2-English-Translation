@@ -1935,12 +1935,18 @@ tbl_ADCA_курсор_замены_киперов_японии:
 - D - I - 0x002DDF 02:ADCF: C8        .byte $C8
 
 tbl_ADD0_курсор_тренера:
+; ???
 - D - I - 0x002DE0 02:ADD0: FC        .byte $FC
-- D - I - 0x002DE1 02:ADD1: 98        .byte $98
+; Y
+- D - I - 0x002DE1 02:ADD1: 98        .byte $96
+; тайл
 - D - I - 0x002DE2 02:ADD2: FF        .byte $FF
-- D - I - 0x002DE3 02:ADD3: 03        .byte $03	; <う>
-- D - I - 0x002DE4 02:ADD4: 10        .byte $10	; <た>
-- D - I - 0x002DE5 02:ADD5: C8        .byte $C8	; <ぱ>
+; палитра
+- D - I - 0x002DE3 02:ADD3: 03        .byte $03
+; X
+- D - I - 0x002DE4 02:ADD4: 10        .byte $0E
+; максимальное значение Y внизу
+- D - I - 0x002DE5 02:ADD5: C8        .byte $C6
 
 tbl_ADD6:
 - D - I - 0x002DE6 02:ADD6: FC        .byte $FC
