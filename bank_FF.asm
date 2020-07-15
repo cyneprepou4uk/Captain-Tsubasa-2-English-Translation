@@ -1859,11 +1859,11 @@ tbl_D183:
 - - - - - 0x03D19F FF:D18F: 5A 00     .word $005A
 - - - - - 0x03D1A1 FF:D191: 5A 00     .word $005A
 
-.export sub_0x03D1A3
-sub_0x03D1A3:
-.export loc_0x03D1A3
-loc_0x03D1A3:
-sub_D193:
+.export sub_0x03D1A3_уменьшить_таймер_времени_тайма
+sub_0x03D1A3_уменьшить_таймер_времени_тайма:
+.export loc_0x03D1A3_уменьшить_таймер_времени_тайма
+loc_0x03D1A3_уменьшить_таймер_времени_тайма:
+sub_D193_уменьшить_таймер_времени_тайма:
 C D - - - 0x03D1A3 FF:D193: AA        TAX
 C - - - - 0x03D1A4 FF:D194: 18        CLC
 C - - - - 0x03D1A5 FF:D195: 6D FF 05  ADC $05FF
@@ -1898,16 +1898,19 @@ C - - - - 0x03D1DA FF:D1CA: 8E F7 05  STX ram_время_lo
 C - - - - 0x03D1DD FF:D1CD: A9 00     LDA #$00
 C - - - - 0x03D1DF FF:D1CF: 20 7F EF  JSR sub_EF7F
 C - - - - 0x03D1E2 FF:D1D2: 2C 3E 06  BIT ram_флаг_loss
-C - - - - 0x03D1E5 FF:D1D5: 30 14     BMI bra_D1EB
+C - - - - 0x03D1E5 FF:D1D5: 30 14     BMI bra_D1EB_сейчас_не_loss
 C - - - - 0x03D1E7 FF:D1D7: AD F7 05  LDA ram_время_lo
+; 5 минут
 C - - - - 0x03D1EA FF:D1DA: C9 1E     CMP #$1E
-C - - - - 0x03D1EC FF:D1DC: B0 0D     BCS bra_D1EB
+C - - - - 0x03D1EC FF:D1DC: B0 0D     BCS bra_D1EB_сейчас_не_loss
+; bzk можно сразу писать 80, ORA тут не за чем
 C - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA ram_флаг_loss
 C - - - - 0x03D1F1 FF:D1E1: 09 80     ORA #$80
 C - - - - 0x03D1F3 FF:D1E3: 8D 3E 06  STA ram_флаг_loss
+; музыка добавочного времени
 C - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #$32
 C - - - - 0x03D1F8 FF:D1E8: 20 F1 CB  JSR sub_CBF1_запись_звука
-bra_D1EB:
+bra_D1EB_сейчас_не_loss:
 C - - - - 0x03D1FB FF:D1EB: AD F8 05  LDA ram_время_hi
 C - - - - 0x03D1FE FF:D1EE: 0D F7 05  ORA ram_время_lo
 C - - - - 0x03D201 FF:D1F1: D0 2C     BNE bra_D21F_выход
@@ -1963,11 +1966,13 @@ C - - - - 0x03D25B FF:D24B: 8D 49 04  STA ram_флаг_драйв_тигра
 bra_D24E:
 C - - - - 0x03D25E FF:D24E: 8A        TXA
 C - - - - 0x03D25F FF:D24F: 48        PHA
+; твой кипер
 C - - - - 0x03D260 FF:D250: A9 00     LDA #$00
 C - - - - 0x03D262 FF:D252: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03D265 FF:D255: 68        PLA
 C - - - - 0x03D266 FF:D256: 48        PHA
 C - - - - 0x03D267 FF:D257: 20 63 D2  JSR sub_D263
+; кипер соперника
 C - - - - 0x03D26A FF:D25A: A9 0B     LDA #$0B
 C - - - - 0x03D26C FF:D25C: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03D26F FF:D25F: 68        PLA
@@ -4292,7 +4297,7 @@ C - - - - 0x03E1F7 FF:E1E7: A2 00     LDX #$00
 C - - - - 0x03E1F9 FF:E1E9: 8E FF 05  STX $05FF
 C - - - - 0x03E1FC FF:E1EC: E8        INX
 C - - - - 0x03E1FD FF:E1ED: 8A        TXA
-C - - - - 0x03E1FE FF:E1EE: 20 93 D1  JSR sub_D193
+C - - - - 0x03E1FE FF:E1EE: 20 93 D1  JSR sub_D193_уменьшить_таймер_времени_тайма
 C - - - - 0x03E201 FF:E1F1: 20 7D E2  JSR sub_E27D
 C - - - - 0x03E204 FF:E1F4: EE 13 06  INC $0613
 C - - - - 0x03E207 FF:E1F7: 20 BC E2  JSR sub_E2BC
