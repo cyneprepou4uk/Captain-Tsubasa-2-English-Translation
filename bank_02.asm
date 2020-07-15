@@ -137,10 +137,10 @@ sub_0x00211D_экран_continue:
 C D - - - 0x00211D 02:A10D: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002120 02:A110: A9 00     LDA #$00
 C - - - - 0x002122 02:A112: A0 F0     LDY #$F0
-bra_A114:
+bra_A114_цикл:
 C - - - - 0x002124 02:A114: 99 66 05  STA $0566,Y
 C - - - - 0x002127 02:A117: C8        INY
-C - - - - 0x002128 02:A118: D0 FA     BNE bra_A114
+C - - - - 0x002128 02:A118: D0 FA     BNE bra_A114_цикл
 C - - - - 0x00212A 02:A11A: A2 2C     LDX #$2C
 C - - - - 0x00212C 02:A11C: A0 2D     LDY #$2D
 C - - - - 0x00212E 02:A11E: 20 6F 9B  JSR sub_0x001B7F
@@ -168,10 +168,10 @@ C - - - - 0x00215B 02:A14B: A9 00     LDA #$00
 C - - - - 0x00215D 02:A14D: 85 EC     STA ram_00EC
 C - - - - 0x00215F 02:A14F: A9 05     LDA #$05
 C - - - - 0x002161 02:A151: 85 EB     STA ram_00EB
-bra_A153:
+bra_A153_цикл_записи_символов_пароля:
 C - - - - 0x002163 02:A153: A9 0D     LDA #$0D
 C - - - - 0x002165 02:A155: 85 ED     STA ram_00ED
-bra_A157:
+bra_A157_цикл_записи_строки:
 C - - - - 0x002167 02:A157: A4 EC     LDY ram_00EC
 C - - - - 0x002169 02:A159: B1 E6     LDA (ram_00E6),Y
 C - - - - 0x00216B 02:A15B: A4 E8     LDY ram_00E8
@@ -181,7 +181,7 @@ C - - - - 0x002172 02:A162: E6 E8     INC ram_00E8
 C - - - - 0x002174 02:A164: E6 E8     INC ram_00E8
 C - - - - 0x002176 02:A166: E6 EC     INC ram_00EC
 C - - - - 0x002178 02:A168: C6 ED     DEC ram_00ED
-C - - - - 0x00217A 02:A16A: D0 EB     BNE bra_A157
+C - - - - 0x00217A 02:A16A: D0 EB     BNE bra_A157_цикл_записи_строки
 C - - - - 0x00217C 02:A16C: A5 E8     LDA ram_00E8
 C - - - - 0x00217E 02:A16E: 18        CLC
 C - - - - 0x00217F 02:A16F: 69 26     ADC #$26
@@ -190,9 +190,10 @@ C - - - - 0x002183 02:A173: A5 E9     LDA ram_00E9
 C - - - - 0x002185 02:A175: 69 00     ADC #$00
 C - - - - 0x002187 02:A177: 85 E9     STA ram_00E9
 C - - - - 0x002189 02:A179: C6 EB     DEC ram_00EB
-C - - - - 0x00218B 02:A17B: D0 D6     BNE bra_A153
+C - - - - 0x00218B 02:A17B: D0 D6     BNE bra_A153_цикл_записи_символов_пароля
 C - - - - 0x00218D 02:A17D: A0 F8     LDY #$F8
 bra_A17F:
+; bzk неверный поинтер на таблицу, точнее надо правильно указать смещение
 C - - - - 0x00218F 02:A17F: B9 05 B2  LDA tbl_B205,Y
 C - - - - 0x002192 02:A182: 99 60 04  STA $0460,Y
 C - - - - 0x002195 02:A185: C8        INY
@@ -4728,78 +4729,16 @@ tbl_BC58:
 
 
 
-; читается из 3х мест
 tbl_BC6E_символы_пароля:
+; читается из 3х мест
 ; 5 строк по 13 символов
-- D - I - 0x003C7E 02:BC6E: 01        .byte $01	; <あ>
-- D - I - 0x003C7F 02:BC6F: 06        .byte $06	; <か>
-- D - I - 0x003C80 02:BC70: 0B        .byte $0B	; <さ>
-- D - I - 0x003C81 02:BC71: 10        .byte $10	; <た>
-- D - I - 0x003C82 02:BC72: 15        .byte $15	; <な>
-- D - I - 0x003C83 02:BC73: 1A        .byte $1A	; <は>
-- D - I - 0x003C84 02:BC74: 1F        .byte $1F	; <ま>
-- D - I - 0x003C85 02:BC75: 27        .byte $27	; <ら>
-- D - I - 0x003C86 02:BC76: A0        .byte $A0	; <が>
-- D - I - 0x003C87 02:BC77: A5        .byte $A5	; <ざ>
-- D - I - 0x003C88 02:BC78: AF        .byte $AF	; <ば>
-- D - I - 0x003C89 02:BC79: C8        .byte $C8	; <ぱ>
-- D - I - 0x003C8A 02:BC7A: 24        .byte $24	; <や>
-
-- D - I - 0x003C8B 02:BC7B: 02        .byte $02	; <い>
-- D - I - 0x003C8C 02:BC7C: 07        .byte $07	; <き>
-- D - I - 0x003C8D 02:BC7D: 0C        .byte $0C	; <し>
-- D - I - 0x003C8E 02:BC7E: 11        .byte $11	; <ち>
-- D - I - 0x003C8F 02:BC7F: 16        .byte $16	; <に>
-- D - I - 0x003C90 02:BC80: 1B        .byte $1B	; <ひ>
-- D - I - 0x003C91 02:BC81: 20        .byte $20	; <み>
-- D - I - 0x003C92 02:BC82: 28        .byte $28	; <り>
-- D - I - 0x003C93 02:BC83: A1        .byte $A1	; <ぎ>
-- D - I - 0x003C94 02:BC84: A6        .byte $A6	; <じ>
-- D - I - 0x003C95 02:BC85: B0        .byte $B0	; <び>
-- D - I - 0x003C96 02:BC86: C9        .byte $C9	; <ぴ>
-- D - I - 0x003C97 02:BC87: 25        .byte $25	; <ゆ>
-
-- D - I - 0x003C98 02:BC88: 03        .byte $03	; <う>
-- D - I - 0x003C99 02:BC89: 08        .byte $08	; <く>
-- D - I - 0x003C9A 02:BC8A: 0D        .byte $0D	; <す>
-- D - I - 0x003C9B 02:BC8B: 12        .byte $12	; <つ>
-- D - I - 0x003C9C 02:BC8C: 17        .byte $17	; <ぬ>
-- D - I - 0x003C9D 02:BC8D: 1C        .byte $1C	; <ふ>
-- D - I - 0x003C9E 02:BC8E: 21        .byte $21	; <む>
-- D - I - 0x003C9F 02:BC8F: 29        .byte $29	; <る>
-- D - I - 0x003CA0 02:BC90: A2        .byte $A2	; <ぐ>
-- D - I - 0x003CA1 02:BC91: A7        .byte $A7	; <ず>
-- D - I - 0x003CA2 02:BC92: B1        .byte $B1	; <ぶ>
-- D - I - 0x003CA3 02:BC93: CA        .byte $CA	; <ぷ>
-- D - I - 0x003CA4 02:BC94: 26        .byte $26	; <よ>
-
-- D - I - 0x003CA5 02:BC95: 04        .byte $04	; <え>
-- D - I - 0x003CA6 02:BC96: 09        .byte $09	; <け>
-- D - I - 0x003CA7 02:BC97: 0E        .byte $0E	; <せ>
-- D - I - 0x003CA8 02:BC98: 13        .byte $13	; <て>
-- D - I - 0x003CA9 02:BC99: 18        .byte $18	; <ね>
-- D - I - 0x003CAA 02:BC9A: 1D        .byte $1D	; <へ>
-- D - I - 0x003CAB 02:BC9B: 22        .byte $22	; <め>
-- D - I - 0x003CAC 02:BC9C: 2A        .byte $2A	; <れ>
-- D - I - 0x003CAD 02:BC9D: A3        .byte $A3	; <げ>
-- D - I - 0x003CAE 02:BC9E: A8        .byte $A8	; <ぜ>
-- D - I - 0x003CAF 02:BC9F: B2        .byte $B2	; <べ>
-- D - I - 0x003CB0 02:BCA0: CB        .byte $CB	; <ぺ>
-- D - I - 0x003CB1 02:BCA1: 2C        .byte $2C	; <わ>
-
-- D - I - 0x003CB2 02:BCA2: 05        .byte $05	; <お>
-- D - I - 0x003CB3 02:BCA3: 0A        .byte $0A	; <こ>
-- D - I - 0x003CB4 02:BCA4: 0F        .byte $0F	; <そ>
-- D - I - 0x003CB5 02:BCA5: 14        .byte $14	; <と>
-- D - I - 0x003CB6 02:BCA6: 19        .byte $19	; <の>
-- D - I - 0x003CB7 02:BCA7: 1E        .byte $1E	; <ほ>
-- D - I - 0x003CB8 02:BCA8: 23        .byte $23	; <も>
-- D - I - 0x003CB9 02:BCA9: 2B        .byte $2B	; <ろ>
-- D - I - 0x003CBA 02:BCAA: A4        .byte $A4	; <ご>
-- D - I - 0x003CBB 02:BCAB: A9        .byte $A9	; <ぞ>
-- D - I - 0x003CBC 02:BCAC: B3        .byte $B3	; <ぼ>
-- D - I - 0x003CBD 02:BCAD: CC        .byte $CC	; <ぽ>
-- D - I - 0x003CBE 02:BCAE: 85        .byte $85	; <E>
+	.text "ABCDEFGHIJKLM"
+	.text "NOPQRSTUVWXYZ"
+	.text "abcdefghijklm"
+	.text "nopqrstuvwxyz"
+	.text "0123456789!?"
+; последний символ GO
+	.byte $D0
 
 
 
