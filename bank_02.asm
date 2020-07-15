@@ -4395,25 +4395,25 @@ tbl_B981_позиция_статов_полевого:
 
 tbl_B9B2_позиция_статов_кипера:
 - D - - - 0x0039C2 02:B9B2: 18        .byte $18
-- D - - - 0x0039C3 02:B9B3: 09 22     .word $2209
+- D - - - 0x0039C3 02:B9B3: 09 22     .word $220B
 
 - D - - - 0x0039C5 02:B9B5: 19        .byte $19
-- D - - - 0x0039C6 02:B9B6: 49 22     .word $2249
+- D - - - 0x0039C6 02:B9B6: 49 22     .word $224B
 
 - D - - - 0x0039C8 02:B9B8: 1A        .byte $1A
-- D - - - 0x0039C9 02:B9B9: 89 22     .word $2289
+- D - - - 0x0039C9 02:B9B9: 89 22     .word $228B
 
 - D - - - 0x0039CB 02:B9BB: 1C        .byte $1C
-- D - - - 0x0039CC 02:B9BC: E9 22     .word $22E9
+- D - - - 0x0039CC 02:B9BC: E9 22     .word $22EB
 
 - D - - - 0x0039CE 02:B9BE: 1B        .byte $1B
-- D - - - 0x0039CF 02:B9BF: 49 23     .word $2349
+- D - - - 0x0039CF 02:B9BF: 49 23     .word $234B
 
 - D - - - 0x0039D1 02:B9C1: 1E        .byte $1E
-- D - - - 0x0039D2 02:B9C2: B7 20     .word $20B7
+- D - - - 0x0039D2 02:B9C2: B7 20     .word $20BB
 
 - D - - - 0x0039D4 02:B9C4: 1D        .byte $1D
-- D - - - 0x0039D5 02:B9C5: 57 22     .word $2257
+- D - - - 0x0039D5 02:B9C5: 57 22     .word $225B
 
 - D - - - 0x0039D7 02:B9C7: FF        .byte $FF
 
@@ -5989,64 +5989,38 @@ off_BF4E_названия_действий_полевого:
 
 
 off_BFBB_названия_действий_кипера:
-- D - I - 0x003FD1 02:BFC1: FD        .byte $44
-- D - I - 0x003FCB 02:BFBB: 91 20     .word $2091
-- D - I - 0x003FCD 02:BFBD: 14        .byte $14
-- D - I - 0x003FCE 02:BFBE: B0        .byte $B0
-- D - I - 0x003FCF 02:BFBF: AA        .byte $AA
-- D - I - 0x003FD0 02:BFC0: 0D        .byte $0D
-
-- D - I - 0x003FD6 02:BFC6: FD        .byte $FD
-- D - I - 0x003FD2 02:BFC2: E4 21     .word $21E4
-- D - I - 0x003FD4 02:BFC4: CD        .byte $CD
-- D - I - 0x003FD5 02:BFC5: 4D        .byte $4D
-
-- D - I - 0x003FDD 02:BFCD: FD        .byte $FD
-- D - I - 0x003FD7 02:BFC7: 24 22     .word $2224
-- D - I - 0x003FD9 02:BFC9: 47        .byte $47
-- D - I - 0x003FDA 02:BFCA: 70        .byte $70
-- D - I - 0x003FDB 02:BFCB: 6F        .byte $6F
-- D - I - 0x003FDC 02:BFCC: 51        .byte $51
-
-- D - I - 0x003FE3 02:BFD3: FD        .byte $FD
-- D - I - 0x003FDE 02:BFCE: 64 22     .word $2264
-- D - I - 0x003FE0 02:BFD0: CD        .byte $CD
-- D - I - 0x003FE1 02:BFD1: 6E        .byte $6E
-- D - I - 0x003FE2 02:BFD2: 51        .byte $51
-
-- D - I - 0x003FEA 02:BFDA: FD        .byte $FD
-- D - I - 0x003FE4 02:BFD4: C4 22     .word $22C4
-- D - I - 0x003FE6 02:BFD6: 0F        .byte $0F
-- D - I - 0x003FE7 02:BFD7: 15        .byte $15
-- D - I - 0x003FE8 02:BFD8: 04        .byte $04
-- D - I - 0x003FE9 02:BFD9: 29        .byte $29
-
-- D - I - 0x003FF2 02:BFE2: FD        .byte $FD
-- D - I - 0x003FEB 02:BFDB: A4 22     .word $22A4
-- D - I - 0x003FED 02:BFDD: C2        .byte $C2
-- D - I - 0x003FEE 02:BFDE: 68        .byte $68
-- D - I - 0x003FEF 02:BFDF: C5        .byte $C5
-- D - I - 0x003FF0 02:BFE0: 69        .byte $69
-- D - I - 0x003FF1 02:BFE1: 16        .byte $16
-
-- D - I - 0x003FF9 02:BFE9: FD        .byte $FD
-- D - I - 0x003FF3 02:BFE3: 24 23     .word $2324
-- D - I - 0x003FF5 02:BFE5: 0F        .byte $0F
-- D - I - 0x003FF6 02:BFE6: 15        .byte $15
-- D - I - 0x003FF7 02:BFE7: 04        .byte $04
-- D - I - 0x003FF8 02:BFE8: 29        .byte $29
-
-- D - I - 0x004001 02:BFF1: FD        .byte $FD
-- D - I - 0x003FFA 02:BFEA: 04 23     .word $2304
-- D - I - 0x003FFC 02:BFEC: 4C        .byte $4C
-- D - I - 0x003FFD 02:BFED: 71        .byte $71
-- D - I - 0x003FFE 02:BFEE: 7D        .byte $7D
-- D - I - 0x003FFF 02:BFEF: 54        .byte $54
-- D - I - 0x004000 02:BFF0: 16        .byte $16
-
-- D - I - 0x004008 02:BFF8: FF        .byte $FF
-- D - I - 0x004002 02:BFF2: 31 22     .word $2231
-- D - I - 0x004004 02:BFF4: 14        .byte $14
-- D - I - 0x004005 02:BFF5: B0        .byte $B0
-- D - I - 0x004006 02:BFF6: AA        .byte $AA
-- D - I - 0x004007 02:BFF7: 0D        .byte $0D
+	.byte $04
+	.word $2202
+	.text "Pass"
+	
+	.byte $05
+	.word $2242
+	.text "Catch"
+	
+	.byte $05
+	.word $2282
+	.text "Punch"
+	
+	.byte $04
+	.word $22C2
+	.text "Stop"
+	
+	.byte $07
+	.word $22E3
+	.text "dribble"
+	
+	.byte $04
+	.word $2322
+	.text "Stop"
+	
+	.byte $04
+	.word $2343
+	.text "shot"
+	
+	.byte $04
+	.word $20B1
+	.text "Dive"
+	
+	.byte $44
+	.word $2251
+	.text "Dive"
