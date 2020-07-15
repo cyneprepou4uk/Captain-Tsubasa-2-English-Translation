@@ -2205,43 +2205,18 @@ C - - - - 0x030D0D 22:8CFD: 20 9F 8C  JSR sub_8C9F
 C - - - - 0x030D10 22:8D00: 68        PLA
 C - - - - 0x030D11 22:8D01: 4C 1A 8D  JMP loc_8D1A
 
-
-
 tbl_8D04_сокращения_позиций_игроков:
-- D - - - 0x030D14 22:8D04: 87        .byte $87	; <G>
-- D - - - 0x030D15 22:8D05: 8B        .byte $8B	; <K>
-
-- D - - - 0x030D16 22:8D06: 84        .byte $84	; <D>
-- D - - - 0x030D17 22:8D07: 86        .byte $86	; <F>
-
-- D - - - 0x030D18 22:8D08: 84        .byte $84	; <D>
-- D - - - 0x030D19 22:8D09: 86        .byte $86	; <F>
-
-- D - - - 0x030D1A 22:8D0A: 84        .byte $84	; <D>
-- D - - - 0x030D1B 22:8D0B: 86        .byte $86	; <F>
-
-- D - - - 0x030D1C 22:8D0C: 84        .byte $84	; <D>
-- D - - - 0x030D1D 22:8D0D: 86        .byte $86	; <F>
-
-- D - - - 0x030D1E 22:8D0E: 8C        .byte $8C	; <M>
-- D - - - 0x030D1F 22:8D0F: 86        .byte $86	; <F>
-
-- D - - - 0x030D20 22:8D10: 86        .byte $86	; <F>
-- D - - - 0x030D21 22:8D11: 92        .byte $92	; <W>
-
-- D - - - 0x030D22 22:8D12: 8C        .byte $8C	; <M>
-- D - - - 0x030D23 22:8D13: 86        .byte $86	; <F>
-
-- D - - - 0x030D24 22:8D14: 86        .byte $86	; <F>
-- D - - - 0x030D25 22:8D15: 92        .byte $92	; <W>
-
-- D - - - 0x030D26 22:8D16: 8C        .byte $8C	; <M>
-- D - - - 0x030D27 22:8D17: 86        .byte $86	; <F>
-
-- D - - - 0x030D28 22:8D18: 86        .byte $86	; <F>
-- D - - - 0x030D29 22:8D19: 92        .byte $92	; <W>
-
-
+	.text "GK"		; 1
+	.text "DF"		; 2
+	.text "DF"		; 3
+	.text "DF"		; 4
+	.text "DF"		; 5
+	.text "MF"		; 6
+	.text "FW"		; 7
+	.text "MF"		; 8
+	.text "FW"		; 9
+	.text "MF"		; 10
+	.text "FW"		; 11
 
 loc_8D1A:
 sub_8D1A:
