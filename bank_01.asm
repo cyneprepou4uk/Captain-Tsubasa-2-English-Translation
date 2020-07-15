@@ -1567,17 +1567,14 @@ C - - - - 0x000A05 01:89F5: A9 02     LDA #$02
 C - - - - 0x000A07 01:89F7: 85 91     STA ram_0091
 C - - - - 0x000A09 01:89F9: A6 56     LDX ram_0056
 C - - - - 0x000A0B 01:89FB: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
+bra_89FE_выход:
 C - - - - 0x000A0E 01:89FE: 60        RTS
 
 sub_89FF:
 C - - - - 0x000A0F 01:89FF: AD 52 06  LDA $0652
-C - - - - 0x000A12 01:8A02: 30 03     BMI bra_8A07
-C - - - - 0x000A14 01:8A04: 4C 90 8A  JMP loc_8A90
-bra_8A07:
+C - - - - 0x000A12 01:8A02: 30 03     BPL bra_89FE_выход
 C - - - - 0x000A17 01:8A07: CE 53 06  DEC $0653
-C - - - - 0x000A1A 01:8A0A: F0 03     BEQ bra_8A0F
-C - - - - 0x000A1C 01:8A0C: 4C 90 8A  JMP loc_8A90
-bra_8A0F:
+C - - - - 0x000A1A 01:8A0A: F0 03     BNE bra_89FE_выход
 C - - - - 0x000A1F 01:8A0F: A2 06     LDX #$06
 C - - - - 0x000A21 01:8A11: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
 loc_8A14:
@@ -1641,7 +1638,6 @@ bra_8A86:
 loc_8A8B:
 C D - - - 0x000A9B 01:8A8B: A6 56     LDX ram_0056
 C - - - - 0x000A9D 01:8A8D: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
-loc_8A90:
 C D - - - 0x000AA0 01:8A90: 60        RTS
 
 sub_8A91:
