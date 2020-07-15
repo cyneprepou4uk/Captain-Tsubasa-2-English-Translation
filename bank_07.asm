@@ -3322,8 +3322,11 @@ tbl_0x00DD90:
 - D - I - 0x00DE8A 07:BE7A: E8        .byte $E8
 - D - I - 0x00DE8B 07:BE7B: EA        .byte $EA
 
+
+
 .export tbl_0x00DF10
 tbl_0x00DF10:
+; предположительно по 19 байтов
 - D - I - 0x00DF10 07:BF00: 00        .byte $00
 - D - I - 0x00DF11 07:BF01: 00        .byte $00
 - D - I - 0x00DF12 07:BF02: 00        .byte $00
@@ -3343,6 +3346,7 @@ tbl_0x00DF10:
 - D - I - 0x00DF20 07:BF10: 00        .byte $00
 - D - I - 0x00DF21 07:BF11: 00        .byte $00
 - D - I - 0x00DF22 07:BF12: 00        .byte $00
+
 - D - I - 0x00DF23 07:BF13: 40        .byte $40	; <「>
 - D - I - 0x00DF24 07:BF14: 80        .byte $80
 - D - I - 0x00DF25 07:BF15: 00        .byte $00
@@ -3362,6 +3366,7 @@ tbl_0x00DF10:
 - D - I - 0x00DF33 07:BF23: 00        .byte $00
 - D - I - 0x00DF34 07:BF24: 00        .byte $00
 - D - I - 0x00DF35 07:BF25: 00        .byte $00
+
 - - - - - 0x00DF36 07:BF26: 0F        .byte $0F	; <そ>
 - - - - - 0x00DF37 07:BF27: 0F        .byte $0F	; <そ>
 - - - - - 0x00DF38 07:BF28: 00        .byte $00
@@ -3381,6 +3386,7 @@ tbl_0x00DF10:
 - - - - - 0x00DF46 07:BF36: 8F        .byte $8F	; <S>
 - - - - - 0x00DF47 07:BF37: 00        .byte $00
 - - - - - 0x00DF48 07:BF38: 22        .byte $22	; <め>
+
 - D - I - 0x00DF49 07:BF39: 04        .byte $04	; <え>
 - D - I - 0x00DF4A 07:BF3A: 68        .byte $68	; <リ>
 - D - I - 0x00DF4B 07:BF3B: 00        .byte $00
@@ -3400,6 +3406,7 @@ tbl_0x00DF10:
 - D - I - 0x00DF59 07:BF49: 00        .byte $00
 - D - I - 0x00DF5A 07:BF4A: 00        .byte $00
 - D - I - 0x00DF5B 07:BF4B: 00        .byte $00
+
 - - - - - 0x00DF5C 07:BF4C: 18        .byte $18	; <ね>
 - - - - - 0x00DF5D 07:BF4D: 00        .byte $00
 - - - - - 0x00DF5E 07:BF4E: 00        .byte $00
@@ -3419,6 +3426,7 @@ tbl_0x00DF10:
 - - - - - 0x00DF6C 07:BF5C: 00        .byte $00
 - - - - - 0x00DF6D 07:BF5D: 00        .byte $00
 - - - - - 0x00DF6E 07:BF5E: 00        .byte $00
+
 - D - I - 0x00DF6F 07:BF5F: 18        .byte $18	; <ね>
 - D - I - 0x00DF70 07:BF60: 08        .byte $08	; <く>
 - D - I - 0x00DF71 07:BF61: 00        .byte $00
@@ -3438,6 +3446,7 @@ tbl_0x00DF10:
 - D - I - 0x00DF7F 07:BF6F: 00        .byte $00
 - D - I - 0x00DF80 07:BF70: 00        .byte $00
 - D - I - 0x00DF81 07:BF71: 00        .byte $00
+
 - D - I - 0x00DF82 07:BF72: 10        .byte $10	; <た>
 - D - I - 0x00DF83 07:BF73: 10        .byte $10	; <た>
 - D - I - 0x00DF84 07:BF74: 00        .byte $00
@@ -3457,6 +3466,7 @@ tbl_0x00DF10:
 - D - I - 0x00DF92 07:BF82: 00        .byte $00
 - D - I - 0x00DF93 07:BF83: 00        .byte $00
 - D - I - 0x00DF94 07:BF84: 00        .byte $00
+
 - D - I - 0x00DF95 07:BF85: 20        .byte $20	; <み>
 - D - I - 0x00DF96 07:BF86: 07        .byte $07	; <き>
 - D - I - 0x00DF97 07:BF87: 00        .byte $00
@@ -3476,6 +3486,7 @@ tbl_0x00DF10:
 - D - I - 0x00DFA5 07:BF95: 00        .byte $00
 - D - I - 0x00DFA6 07:BF96: 00        .byte $00
 - D - I - 0x00DFA7 07:BF97: 00        .byte $00
+
 - D - I - 0x00DFA8 07:BF98: 20        .byte $20	; <み>
 - D - I - 0x00DFA9 07:BF99: 10        .byte $10	; <た>
 - D - I - 0x00DFAA 07:BF9A: 00        .byte $00
@@ -3495,6 +3506,7 @@ tbl_0x00DF10:
 - D - I - 0x00DFB8 07:BFA8: 00        .byte $00
 - D - I - 0x00DFB9 07:BFA9: 00        .byte $00
 - D - I - 0x00DFBA 07:BFAA: 00        .byte $00
+
 - D - I - 0x00DFBB 07:BFAB: 20        .byte $20	; <み>
 - D - I - 0x00DFBC 07:BFAC: 14        .byte $14	; <と>
 - D - I - 0x00DFBD 07:BFAD: 00        .byte $00
