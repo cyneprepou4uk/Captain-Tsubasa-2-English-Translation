@@ -7541,7 +7541,7 @@ off_F59B_22_вакашимазу:
 
 off_F5A1_23_сатретусги:
 ; Satretusgui
-	.byte $53, $61, $74, $72, $65, $74, $75, $73, $67, $75, $69
+	.byte $10, $11, $12, $13, $14, $15, $16, $17
 	.byte $FC
 
 off_F5A8_24_рибейро:
@@ -7550,7 +7550,7 @@ off_F5A8_24_рибейро:
 
 off_F5AD_25_данил_сильва:
 ; Danil Silva
-	.byte $44, $61, $6E, $69, $6C, $20, $53, $69, $6C, $76, $61
+	.byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
 	.byte $FC
 
 off_F5B3_26_меон:
@@ -7579,7 +7579,7 @@ off_F5CA_2B_карлос:
 
 off_F5CF_2C_сантамария:
 ; Santamaria
-	.byte $4B, $6E, $50, $5F, $68, $41
+	.byte $60, $21, $22, $23, $24, $25, $26, $27
 	.byte $FC
 
 off_F5D6_2D_джеторио:
@@ -7608,7 +7608,7 @@ off_F5EC_32_сода:
 
 off_F5F0_33_наканиши:
 ; Nakanishi
-	.byte $15, $06, $16, $0C
+	.byte $10, $11, $12, $13, $14, $15, $16, $17
 	.byte $FC
 
 off_F5F5_34_мисуги:
@@ -7617,7 +7617,7 @@ off_F5F5_34_мисуги:
 
 off_F5F9_35_мацуяма:
 ; Matsuyama
-	.byte $1F, $12, $24, $1F
+	.byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
 	.byte $FC
 
 off_F5FE_36_хюга:
@@ -7626,7 +7626,7 @@ off_F5FE_36_хюга:
 
 off_F603_37_соримачи:
 ; Sorimachi
-	.byte $0F, $28, $1F, $11
+	.byte $60, $21, $22, $23, $24, $25, $26, $27
 	.byte $FC
 
 off_F608_38_савада:
@@ -7635,7 +7635,7 @@ off_F608_38_савада:
 
 off_F60C_39_вакашимазу:
 ; Wakashimazu
-	.byte $2C, $06, $0C, $1F, $AC
+	.byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
 	.byte $FC
 
 off_F612_3A_рампион:
@@ -7644,17 +7644,17 @@ off_F612_3A_рампион:
 
 off_F618_3B_викторино:
 ; Victorino
-	.byte $C4, $48, $54, $68, $7D, $59
+	.byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
 	.byte $FC
 
 off_F61F_3C_данил_сильва:
 ; Danil Silva
-	.byte $BE, $3F, $4C, $69, $C3
+	.byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
 	.byte $FC
 
 off_F625_3D_капельман:
 ; Kappelman
-	.byte $46, $D0, $6B, $5F, $6E
+	.byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
 	.byte $FC
 
 off_F62B_3E_кальц:
@@ -7667,7 +7667,7 @@ off_F62F_3F_метза:
 
 off_F634_40_вакабаяши:
 ; Wakabayashi
-	.byte $2C, $06, $AF, $24, $0C
+	.byte $10, $11, $12, $13, $14, $15, $16, $17
 	.byte $FC
 
 off_F63A_41_хюга:
@@ -7712,22 +7712,22 @@ off_F65F_4A_сода:
 
 off_F663_4B_мацуяма:
 ; Matsuyama
-	.byte $1F, $12, $24, $1F
+	.byte $10, $11, $12, $13, $14, $15, $16, $17
 	.byte $FC
 
 off_F668_4C_вакашимазу:
 ; Wakashimazu
-	.byte $2C, $06, $0C, $1F, $AC
+	.byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
 	.byte $FC
 
 off_F66E_4D_ли_хан:
 ; Li Han-ne
-	.byte $68, $3F, $5A, $6E, $58
+	.byte $01, $02, $03, $04, $05, $06, $07
 	.byte $FC
 
 off_F674_4E_ли_банкун:
 ; Li Ban-kun
-	.byte $68, $3F, $C3, $6E, $48, $6E
+	.byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
 	.byte $FC
 
 off_F67B_4F_ша:
@@ -7780,7 +7780,7 @@ off_F6B1_5A_рампион:
 
 off_F6B7_5B_эрнандес:
 ; Hernandez
-	.byte $5D, $69, $55, $6E, $C1, $4D
+	.byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
 	.byte $FC
 
 off_F6BE_5C_ислас:
@@ -7797,7 +7797,7 @@ off_F6C7_5E_паскаль:
 
 off_F6CC_5F_сатретусги:
 ; Satretusgui
-	.byte $4B, $54, $69, $4D, $53, $B5
+	.byte $40, $01, $02, $03, $04, $05, $06, $07
 	.byte $FC
 
 off_F6D3_60_диас:
@@ -7806,7 +7806,7 @@ off_F6D3_60_диас:
 
 off_F6D8_61_бабинтон:
 ; Babington
-	.byte $C3, $C4, $6E, $54, $6E
+	.byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
 	.byte $FC
 
 off_F6DE_62_гальван:
@@ -7815,7 +7815,7 @@ off_F6DE_62_гальван:
 
 off_F6E3_63_шнайдер:
 ; Schneider
-	.byte $4C, $71, $55, $42, $BE, $7D
+	.byte $40, $01, $02, $03, $04, $05, $06, $07
 	.byte $FC
 
 off_F6EA_64_маргус:
@@ -7836,7 +7836,7 @@ off_F6F8_67_шестер:
 
 off_F6FE_68_капельман:
 ; Kappelman
-	.byte $46, $D0, $6B, $5F, $6E
+	.byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
 	.byte $FC
 
 off_F704_69_мюллер:
@@ -7861,7 +7861,7 @@ off_F718_6D_ней:
 
 off_F71B_6E_сантамария:
 ; Santamaria
-	.byte $4B, $6E, $50, $5F, $68, $41
+	.byte $40, $01, $02, $03, $04, $05, $06, $07
 	.byte $FC
 
 off_F722_6F_тониньо:
@@ -9517,27 +9517,27 @@ tbl_0x040000_банки_CHR_с_сокращенными_именами:
 	.byte $80		; 0C
 	.byte $80		; 0D
 	.byte $84		; 0E
-	.byte $84		; 0F
+	.byte $82		; 0F
 	
-	.byte $84		; 10
-	.byte $86		; 11
-	.byte $84		; 12
-	.byte $84		; 13
-	.byte $84		; 14
-	.byte $84		; 15
+	.byte $86		; 10
+	.byte $88		; 11
+	.byte $86		; 12
+	.byte $86		; 13
+	.byte $86		; 14
+	.byte $86		; 15
 	
-	.byte $84		; 16
-	.byte $84		; 17
-	.byte $84		; 18
-	.byte $84		; 19
-	.byte $84		; 1A
+	.byte $86		; 16
+	.byte $86		; 17
+	.byte $86		; 18
+	.byte $86		; 19
+	.byte $86		; 1A
 	
-	.byte $84		; 1B
-	.byte $86		; 1C
-	.byte $84		; 1D
-	.byte $88		; 1E
-	.byte $84		; 1F
-	.byte $86		; 20
+	.byte $86		; 1B
+	.byte $8A		; 1C
+	.byte $86		; 1D
+	.byte $8C		; 1E
+	.byte $86		; 1F
+	.byte $8A		; 20
 
 
 
