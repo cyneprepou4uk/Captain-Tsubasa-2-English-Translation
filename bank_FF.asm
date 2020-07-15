@@ -1870,7 +1870,7 @@ C - - - - 0x03D1A5 FF:D195: 6D FF 05  ADC $05FF
 C - - - - 0x03D1A8 FF:D198: 8D FF 05  STA $05FF
 C - - - - 0x03D1AB FF:D19B: 8A        TXA
 C - - - - 0x03D1AC FF:D19C: 48        PHA
-C - - - - 0x03D1AD FF:D19D: 20 35 D2  JSR sub_D235
+C - - - - 0x03D1AD FF:D19D: 20 35 D2  JSR sub_D235_уменьшить_таймер_драйв_тигра
 C - - - - 0x03D1B0 FF:D1A0: 68        PLA
 C - - - - 0x03D1B1 FF:D1A1: AE F8 05  LDX ram_время_hi
 C - - - - 0x03D1B4 FF:D1A4: D0 08     BNE bra_D1AE
@@ -1950,7 +1950,7 @@ bra_D231:
 C - - - - 0x03D241 FF:D231: 8D F9 05  STA ram_loss
 C - - - - 0x03D244 FF:D234: 60        RTS
 
-sub_D235:
+sub_D235_уменьшить_таймер_драйв_тигра:
 C - - - - 0x03D245 FF:D235: 49 FF     EOR #$FF
 C - - - - 0x03D247 FF:D237: 18        CLC
 C - - - - 0x03D248 FF:D238: 69 01     ADC #$01
