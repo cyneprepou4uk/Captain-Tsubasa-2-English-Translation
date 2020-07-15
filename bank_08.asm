@@ -4138,7 +4138,6 @@ off_AE4B_5F:
 - D - I - 0x00EE5F 08:AE4F: 10        .byte $10	; <た>
 - D - I - 0x00EE60 08:AE50: 08        .byte $08	; <く>
 
-
 - D - I - 0x00EE61 08:AE51: 48        .byte $48	; <ク>
 - D - I - 0x00EE62 08:AE52: 5C        .byte $5C	; <フ>
 - D - I - 0x00EE63 08:AE53: 5C        .byte $5C	; <フ>

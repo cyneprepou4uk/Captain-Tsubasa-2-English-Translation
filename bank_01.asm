@@ -1828,7 +1828,7 @@ C - - - - 0x000B6A 01:8B5A: B1 63     LDA (ram_0063),Y
 C - - - - 0x000B6C 01:8B5C: 85 5F     STA ram_005F
 C - - - - 0x000B6E 01:8B5E: C8        INY
 C - - - - 0x000B6F 01:8B5F: B1 63     LDA (ram_0063),Y
-; 
+; ???
 C - - - - 0x000B71 01:8B61: 29 F8     AND #$F8
 C - - - - 0x000B73 01:8B63: 85 5C     STA ram_005C
 C - - - - 0x000B75 01:8B65: A9 02     LDA #$02
@@ -1838,6 +1838,7 @@ C - - - - 0x000B7B 01:8B6B: 26 5D     ROL ram_005D
 C - - - - 0x000B7D 01:8B6D: 06 5C     ASL ram_005C
 C - - - - 0x000B7F 01:8B6F: 26 5D     ROL ram_005D
 C - - - - 0x000B81 01:8B71: B1 63     LDA (ram_0063),Y
+; ???
 C - - - - 0x000B83 01:8B73: 29 07     AND #$07
 C - - - - 0x000B85 01:8B75: 05 5C     ORA ram_005C
 C - - - - 0x000B87 01:8B77: 85 5C     STA ram_005C
@@ -1847,7 +1848,7 @@ C - - - - 0x000B8D 01:8B7D: 06 5C     ASL ram_005C
 C - - - - 0x000B8F 01:8B7F: 26 5D     ROL ram_005D
 C - - - - 0x000B91 01:8B81: A5 5D     LDA ram_005D
 C - - - - 0x000B93 01:8B83: 29 0C     AND #$0C
-C - - - - 0x000B95 01:8B85: D0 0C     BNE bra_8B93
+C - - - - 0x000B95 01:8B85: D0 0C     BNE bra_8B93_пропуск
 C - - - - 0x000B97 01:8B87: A5 7B     LDA ram_007B
 C - - - - 0x000B99 01:8B89: 0A        ASL
 C - - - - 0x000B9A 01:8B8A: 0A        ASL
@@ -1855,13 +1856,13 @@ C - - - - 0x000B9B 01:8B8B: 45 5B     EOR ram_005B
 C - - - - 0x000B9D 01:8B8D: 29 04     AND #$04
 C - - - - 0x000B9F 01:8B8F: 05 5D     ORA ram_005D
 C - - - - 0x000BA1 01:8B91: 85 5D     STA ram_005D
-bra_8B93:
+bra_8B93_пропуск:
 C - - - - 0x000BA3 01:8B93: A5 5E     LDA ram_005E
 C - - - - 0x000BA5 01:8B95: C9 09     CMP #$09
-C - - - - 0x000BA7 01:8B97: 90 06     BCC bra_8B9F
+C - - - - 0x000BA7 01:8B97: 90 06     BCC bra_8B9F_меньше_09
 C - - - - 0x000BA9 01:8B99: 20 71 90  JSR sub_9071
 C - - - - 0x000BAC 01:8B9C: 4C AB 8B  JMP loc_8BAB
-bra_8B9F:
+bra_8B9F_меньше_09:
 C - - - - 0x000BAF 01:8B9F: A5 5D     LDA ram_005D
 C - - - - 0x000BB1 01:8BA1: 29 04     AND #$04
 C - - - - 0x000BB3 01:8BA3: D0 06     BNE bra_8BAB
