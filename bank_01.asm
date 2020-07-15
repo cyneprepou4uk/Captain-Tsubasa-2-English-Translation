@@ -1395,7 +1395,7 @@ C - - - - 0x0008F1 01:88E1: A8        TAY
 C - - - - 0x0008F2 01:88E2: B9 14 8A  LDA tbl_8AB4_кодировка_японских_символов - $A0,Y
 C - - - - 0x0008F5 01:88E5: 9D E8 05  STA $05E8,X
 C - - - - 0x0008F8 01:88E8: E8        INX
-C - - - - 0x0008F9 01:88E9: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x0008F9 01:88E9: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x0008FC 01:88EC: 60        RTS
 bra_88ED:
 C - - - - 0x0008FD 01:88ED: 9D E9 05  STA $05E9,X
@@ -1403,7 +1403,7 @@ C - - - - 0x000900 01:88F0: A9 00     LDA #$00
 C - - - - 0x000902 01:88F2: 9D E8 05  STA $05E8,X
 C - - - - 0x000905 01:88F5: E8        INX
 C - - - - 0x000906 01:88F6: E8        INX
-C - - - - 0x000907 01:88F7: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x000907 01:88F7: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x00090A 01:88FA: 60        RTS
 
 .export sub_0x00090B
@@ -1669,7 +1669,7 @@ C - - - - 0x000AAD 01:8A9D: E8        INX
 C - - - - 0x000AAE 01:8A9E: C8        INY
 C - - - - 0x000AAF 01:8A9F: C0 04     CPY #$04
 C - - - - 0x000AB1 01:8AA1: D0 F5     BNE bra_8A98
-C - - - - 0x000AB3 01:8AA3: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x000AB3 01:8AA3: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x000AB6 01:8AA6: A5 E8     LDA ram_00E8
 C - - - - 0x000AB8 01:8AA8: 18        CLC
 C - - - - 0x000AB9 01:8AA9: 69 04     ADC #$04
@@ -2420,7 +2420,7 @@ C - - - - 0x000F5E 01:8F4E: E8        INX
 C - - - - 0x000F5F 01:8F4F: C8        INY
 C - - - - 0x000F60 01:8F50: C0 04     CPY #$04
 C - - - - 0x000F62 01:8F52: D0 F5     BNE bra_8F49
-C - - - - 0x000F64 01:8F54: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x000F64 01:8F54: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x000F67 01:8F57: C6 E8     DEC ram_00E8
 C - - - - 0x000F69 01:8F59: F0 70     BEQ bra_8FCB
 C - - - - 0x000F6B 01:8F5B: A5 EA     LDA ram_00EA
@@ -2470,7 +2470,7 @@ C - - - - 0x000FBA 01:8FAA: 4A        LSR
 C - - - - 0x000FBB 01:8FAB: 9D E8 05  STA $05E8,X
 C - - - - 0x000FBE 01:8FAE: 99 4A 06  STA $064A,Y
 C - - - - 0x000FC1 01:8FB1: E8        INX
-C - - - - 0x000FC2 01:8FB2: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x000FC2 01:8FB2: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x000FC5 01:8FB5: 4C 3E 8F  JMP loc_8F3E
 bra_8FB8:
 C - - - - 0x000FC8 01:8FB8: A5 E7     LDA ram_00E7
@@ -2481,7 +2481,7 @@ C - - - - 0x000FCD 01:8FBD: 4A        LSR
 C - - - - 0x000FCE 01:8FBE: 19 4A 06  ORA $064A,Y
 C - - - - 0x000FD1 01:8FC1: 9D E8 05  STA $05E8,X
 C - - - - 0x000FD4 01:8FC4: E8        INX
-C - - - - 0x000FD5 01:8FC5: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x000FD5 01:8FC5: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x000FD8 01:8FC8: 4C 3E 8F  JMP loc_8F3E
 bra_8FCB:
 C - - - - 0x000FDB 01:8FCB: A2 07     LDX #$07
@@ -2543,7 +2543,7 @@ C - - - - 0x00102F 01:901F: 85 E6     STA ram_00E6
 C - - - - 0x001031 01:9021: 68        PLA
 C - - - - 0x001032 01:9022: 99 4A 06  STA $064A,Y
 loc_9025:
-C - - - - 0x001035 01:9025: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x001035 01:9025: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x001038 01:9028: A5 E8     LDA ram_00E8
 C - - - - 0x00103A 01:902A: 18        CLC
 C - - - - 0x00103B 01:902B: 69 08     ADC #$08
@@ -2560,7 +2560,7 @@ C - - - - 0x00104F 01:903F: A5 E7     LDA ram_00E7
 loc_9041:
 C D - - - 0x001051 01:9041: 9D E8 05  STA $05E8,X
 C - - - - 0x001054 01:9044: E8        INX
-C - - - - 0x001055 01:9045: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x001055 01:9045: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x001058 01:9048: 60        RTS
 
 sub_9049:
@@ -3809,7 +3809,7 @@ C - - - - 0x001812 01:9802: 85 E6     STA ram_00E6
 C - - - - 0x001814 01:9804: A5 E7     LDA ram_00E7
 C - - - - 0x001816 01:9806: 69 00     ADC #$00
 C - - - - 0x001818 01:9808: 85 E7     STA ram_00E7
-C - - - - 0x00181A 01:980A: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x00181A 01:980A: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x00181D 01:980D: A5 EB     LDA ram_00EB
 C - - - - 0x00181F 01:980F: F0 03     BEQ bra_9814_пропуск
 C - - - - 0x001821 01:9811: 20 A8 9F  JSR sub_9FA8_задержка_кадра
@@ -3963,7 +3963,7 @@ C - - - - 0x001913 01:9903: 9D E8 05  STA $05E8,X
 C - - - - 0x001916 01:9906: E8        INX
 C - - - - 0x001917 01:9907: 88        DEY
 C - - - - 0x001918 01:9908: D0 F9     BNE bra_9903
-C - - - - 0x00191A 01:990A: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x00191A 01:990A: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x00191D 01:990D: A5 E8     LDA ram_00E8
 C - - - - 0x00191F 01:990F: 10 05     BPL bra_9916
 - - - - - 0x001921 01:9911: A9 01     LDA #$01
@@ -4183,7 +4183,7 @@ C - - - - 0x001AA5 01:9A95: 20 A2 9A  JSR sub_9AA2
 C - - - - 0x001AA8 01:9A98: C0 20     CPY #$20
 C - - - - 0x001AAA 01:9A9A: D0 F1     BNE bra_9A8D
 C - - - - 0x001AAC 01:9A9C: A6 E7     LDX ram_00E7
-C - - - - 0x001AAE 01:9A9E: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x001AAE 01:9A9E: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x001AB1 01:9AA1: 60        RTS
 
 sub_9AA2:
@@ -4281,7 +4281,7 @@ C D - - - 0x001B38 01:9B28: 48        PHA
 C - - - - 0x001B39 01:9B29: 2C 29 06  BIT $0629
 ; вероятно это флаг ожидания выключения рендеринга
 C - - - - 0x001B3C 01:9B2C: 50 09     BVC bra_9B37
-bra_9B2E:
+bra_9B2E_буфер_переполнен:
 C - - - - 0x001B3E 01:9B2E: A9 01     LDA #$01
 C - - - - 0x001B40 01:9B30: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - 0x001B43 01:9B33: 68        PLA
@@ -4291,7 +4291,7 @@ C - - - - 0x001B47 01:9B37: 29 3F     AND #$3F
 C - - - - 0x001B49 01:9B39: 18        CLC
 C - - - - 0x001B4A 01:9B3A: 6D 28 06  ADC ram_индекс_буфера
 C - - - - 0x001B4D 01:9B3D: C9 3D     CMP #$3D
-C - - - - 0x001B4F 01:9B3F: B0 ED     BCS bra_9B2E
+C - - - - 0x001B4F 01:9B3F: B0 ED     BCS bra_9B2E_буфер_переполнен
 C - - - - 0x001B51 01:9B41: 68        PLA
 C - - - - 0x001B52 01:9B42: 09 40     ORA #$40
 C - - - - 0x001B54 01:9B44: 8D 29 06  STA $0629
@@ -4308,10 +4308,10 @@ C - - - - 0x001B6B 01:9B5B: E8        INX
 C - - - - 0x001B6C 01:9B5C: E8        INX
 C - - - - 0x001B6D 01:9B5D: 60        RTS
 
-.export sub_0x001B6E
-sub_0x001B6E:
-sub_9B5E:
-loc_9B5E:
+.export sub_0x001B6E_закрыть_буфер
+sub_0x001B6E_закрыть_буфер:
+sub_9B5E_закрыть_буфер:
+loc_9B5E_закрыть_буфер:
 C D - - - 0x001B6E 01:9B5E: A9 00     LDA #$00
 C - - - - 0x001B70 01:9B60: 9D E8 05  STA $05E8,X
 C - - - - 0x001B73 01:9B63: 8E 28 06  STX ram_индекс_буфера
@@ -4707,7 +4707,7 @@ C - - - - 0x001D95 01:9D85: C8        INY
 C - - - - 0x001D96 01:9D86: E8        INX
 C - - - - 0x001D97 01:9D87: C6 E8     DEC ram_00E8
 C - - - - 0x001D99 01:9D89: D0 F5     BNE bra_9D80
-C - - - - 0x001D9B 01:9D8B: 4C 5E 9B  JMP loc_9B5E
+C - - - - 0x001D9B 01:9D8B: 4C 5E 9B  JMP loc_9B5E_закрыть_буфер
 
 .export sub_0x001D9E_запись_в_буфер_уровня_игрока
 sub_0x001D9E_запись_в_буфер_уровня_игрока:
@@ -4733,7 +4733,7 @@ C - - - - 0x001DBA 01:9DAA: 18        CLC
 C - - - - 0x001DBB 01:9DAB: 69 33     ADC #$30
 C - - - - 0x001DBD 01:9DAD: 9D E8 05  STA $05E8,X
 C - - - - 0x001DC0 01:9DB0: E8        INX
-C - - - - 0x001DC1 01:9DB1: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x001DC1 01:9DB1: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x001DC4 01:9DB4: 60        RTS
 
 .export sub_0x001DC5_запись_чисел_в_буфер
@@ -4754,7 +4754,7 @@ C - - - - 0x001DDD 01:9DCD: A9 33     LDA #$30
 C - - - - 0x001DDF 01:9DCF: 85 E7     STA ram_00E7
 C - - - - 0x001DE1 01:9DD1: A5 EC     LDA ram_00EC
 C - - - - 0x001DE3 01:9DD3: 20 DE 9D  JSR sub_9DDE_единицы
-C - - - - 0x001DE6 01:9DD6: 20 5E 9B  JSR sub_9B5E
+C - - - - 0x001DE6 01:9DD6: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - 0x001DE9 01:9DD9: 60        RTS
 
 sub_9DDA_десятки:
@@ -5103,6 +5103,7 @@ C - - - - 0x001FB5 01:9FA5: 60        RTS
 sub_0x001FB8_задержка_кадра:
 sub_9FA8_задержка_кадра:
 ; а может и нет, пока хз
+; на вход в A подается количество кадров
 C - - - - 0x001FB8 01:9FA8: 85 19     STA ram_0019
 C - - - - 0x001FBA 01:9FAA: 8A        TXA
 C - - - - 0x001FBB 01:9FAB: 48        PHA
