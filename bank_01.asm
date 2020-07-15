@@ -4022,8 +4022,8 @@ C - - - - 0x00198C 01:997C: 86 49     STX ram_0049
 sub_0x00198E:
 sub_997E:
 C - - - - 0x00198E 01:997E: 20 07 9B  JSR sub_9B07
-C - - - - 0x001991 01:9981: 20 B8 9A  JSR sub_9AB8
-C - - - - 0x001994 01:9984: 20 DA 9A  JSR sub_9ADA
+C - - - - 0x001991 01:9981: 20 B8 9A  JSR sub_9AB8_запись_палитры_фона_в_буфер
+C - - - - 0x001994 01:9984: 20 DA 9A  JSR sub_9ADA_запись_палитры_спрайтов_в_буфер
 C - - - - 0x001997 01:9987: A6 E9     LDX ram_00E9
 C - - - - 0x001999 01:9989: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
 bra_998C:
@@ -4049,7 +4049,7 @@ C - - - - 0x0019BD 01:99AD: 60        RTS
 
 sub_99D1:
 C - - - - 0x0019E1 01:99D1: 20 07 9B  JSR sub_9B07
-C - - - - 0x0019E4 01:99D4: 20 DA 9A  JSR sub_9ADA
+C - - - - 0x0019E4 01:99D4: 20 DA 9A  JSR sub_9ADA_запись_палитры_спрайтов_в_буфер
 C - - - - 0x0019E7 01:99D7: A6 E9     LDX ram_00E9
 C - - - - 0x0019E9 01:99D9: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
 loc_99DC:
@@ -4119,8 +4119,8 @@ C - - - - 0x001A43 01:9A33: 86 49     STX ram_0049
 sub_0x001A45:
 sub_9A35:
 C - - - - 0x001A45 01:9A35: 20 07 9B  JSR sub_9B07
-C - - - - 0x001A48 01:9A38: 20 B8 9A  JSR sub_9AB8
-C - - - - 0x001A4B 01:9A3B: 20 DA 9A  JSR sub_9ADA
+C - - - - 0x001A48 01:9A38: 20 B8 9A  JSR sub_9AB8_запись_палитры_фона_в_буфер
+C - - - - 0x001A4B 01:9A3B: 20 DA 9A  JSR sub_9ADA_запись_палитры_спрайтов_в_буфер
 C - - - - 0x001A4E 01:9A3E: A6 E9     LDX ram_00E9
 C - - - - 0x001A50 01:9A40: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
 .export sub_0x001A53
@@ -4134,7 +4134,7 @@ C - - - - 0x001A59 01:9A49: 4C 71 9A  JMP loc_9A71
 sub_9A4C:
 C - - - - 0x001A5C 01:9A4C: 85 48     STA ram_0048
 C - - - - 0x001A5E 01:9A4E: 20 07 9B  JSR sub_9B07
-C - - - - 0x001A61 01:9A51: 20 B8 9A  JSR sub_9AB8
+C - - - - 0x001A61 01:9A51: 20 B8 9A  JSR sub_9AB8_запись_палитры_фона_в_буфер
 C - - - - 0x001A64 01:9A54: A6 E9     LDX ram_00E9
 C - - - - 0x001A66 01:9A56: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
 C - - - - 0x001A69 01:9A59: A9 0F     LDA #$0F
@@ -4144,7 +4144,7 @@ C - - - - 0x001A6D 01:9A5D: 4C 71 9A  JMP loc_9A71
 sub_9A60:
 C - - - - 0x001A70 01:9A60: 85 49     STA ram_0049
 C - - - - 0x001A72 01:9A62: 20 07 9B  JSR sub_9B07
-C - - - - 0x001A75 01:9A65: 20 DA 9A  JSR sub_9ADA
+C - - - - 0x001A75 01:9A65: 20 DA 9A  JSR sub_9ADA_запись_палитры_спрайтов_в_буфер
 C - - - - 0x001A78 01:9A68: A6 E9     LDX ram_00E9
 C - - - - 0x001A7A 01:9A6A: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_07
 C - - - - 0x001A7D 01:9A6D: A9 0F     LDA #$0F
@@ -4190,7 +4190,7 @@ C - - - - 0x001AC4 01:9AB4: E6 E7     INC ram_00E7
 C - - - - 0x001AC6 01:9AB6: C8        INY
 C - - - - 0x001AC7 01:9AB7: 60        RTS
 
-sub_9AB8:
+sub_9AB8_запись_палитры_фона_в_буфер:
 C - - - - 0x001AC8 01:9AB8: A9 00     LDA #$00
 C - - - - 0x001ACA 01:9ABA: 85 E7     STA ram_00E7
 C - - - - 0x001ACC 01:9ABC: A5 48     LDA ram_0048
@@ -4203,15 +4203,15 @@ C - - - - 0x001AD5 01:9AC5: 26 E7     ROL ram_00E7
 C - - - - 0x001AD7 01:9AC7: 0A        ASL
 C - - - - 0x001AD8 01:9AC8: 26 E7     ROL ram_00E7
 C - - - - 0x001ADA 01:9ACA: 18        CLC
-C - - - - 0x001ADB 01:9ACB: 69 00     ADC #< tbl_0x00D010_палитры
+C - - - - 0x001ADB 01:9ACB: 69 00     ADC #< tbl_0x00D010_палитра_фона
 C - - - - 0x001ADD 01:9ACD: 85 E6     STA ram_00E6
 C - - - - 0x001ADF 01:9ACF: A5 E7     LDA ram_00E7
-C - - - - 0x001AE1 01:9AD1: 69 B0     ADC #> tbl_0x00D010_палитры
+C - - - - 0x001AE1 01:9AD1: 69 B0     ADC #> tbl_0x00D010_палитра_фона
 C - - - - 0x001AE3 01:9AD3: 85 E7     STA ram_00E7
 C - - - - 0x001AE5 01:9AD5: A2 00     LDX #$00
-C - - - - 0x001AE7 01:9AD7: 4C F9 9A  JMP loc_9AF9
+C - - - - 0x001AE7 01:9AD7: 4C F9 9A  JMP loc_9AF9_чтение_палитры
 
-sub_9ADA:
+sub_9ADA_запись_палитры_спрайтов_в_буфер:
 C - - - - 0x001AEA 01:9ADA: A9 00     LDA #$00
 C - - - - 0x001AEC 01:9ADC: 85 E7     STA ram_00E7
 C - - - - 0x001AEE 01:9ADE: A5 49     LDA ram_0049
@@ -4224,21 +4224,21 @@ C - - - - 0x001AF7 01:9AE7: 26 E7     ROL ram_00E7
 C - - - - 0x001AF9 01:9AE9: 0A        ASL
 C - - - - 0x001AFA 01:9AEA: 26 E7     ROL ram_00E7
 C - - - - 0x001AFC 01:9AEC: 18        CLC
-C - - - - 0x001AFD 01:9AED: 69 00     ADC #< tbl_0x00D310
+C - - - - 0x001AFD 01:9AED: 69 00     ADC #< tbl_0x00D310_палитра_спрайтов
 C - - - - 0x001AFF 01:9AEF: 85 E6     STA ram_00E6
 C - - - - 0x001B01 01:9AF1: A5 E7     LDA ram_00E7
-C - - - - 0x001B03 01:9AF3: 69 B3     ADC #> tbl_0x00D310
+C - - - - 0x001B03 01:9AF3: 69 B3     ADC #> tbl_0x00D310_палитра_спрайтов
 C - - - - 0x001B05 01:9AF5: 85 E7     STA ram_00E7
 C - - - - 0x001B07 01:9AF7: A2 10     LDX #$10
-loc_9AF9:
+loc_9AF9_чтение_палитры:
 C D - - - 0x001B09 01:9AF9: A0 00     LDY #$00
-bra_9AFB:
+bra_9AFB_цикл:
 C - - - - 0x001B0B 01:9AFB: B1 E6     LDA (ram_00E6),Y
 C - - - - 0x001B0D 01:9AFD: 9D 2A 06  STA $062A,X
 C - - - - 0x001B10 01:9B00: E8        INX
 C - - - - 0x001B11 01:9B01: C8        INY
 C - - - - 0x001B12 01:9B02: C0 10     CPY #$10
-C - - - - 0x001B14 01:9B04: D0 F5     BNE bra_9AFB
+C - - - - 0x001B14 01:9B04: D0 F5     BNE bra_9AFB_цикл
 C - - - - 0x001B16 01:9B06: 60        RTS
 
 sub_9B07:
