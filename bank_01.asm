@@ -1802,12 +1802,15 @@ C - - - - 0x000B47 01:8B37: 85 64     STA ram_0064
 C - - - - 0x000B49 01:8B39: 86 63     STX ram_0063
 C - - - - 0x000B4B 01:8B3B: A0 00     LDY #$00
 C - - - - 0x000B4D 01:8B3D: B1 63     LDA (ram_0063),Y
+; номер банка chr 1
 C - - - - 0x000B4F 01:8B3F: 85 75     STA ram_0075
 C - - - - 0x000B51 01:8B41: C8        INY
 C - - - - 0x000B52 01:8B42: B1 63     LDA (ram_0063),Y
+; номер банка chr 2
 C - - - - 0x000B54 01:8B44: 85 76     STA ram_0076
 C - - - - 0x000B56 01:8B46: C8        INY
 C - - - - 0x000B57 01:8B47: B1 63     LDA (ram_0063),Y
+; номер палитры + ???
 C - - - - 0x000B59 01:8B49: AA        TAX
 C - - - - 0x000B5A 01:8B4A: 29 3F     AND #$3F
 C - - - - 0x000B5C 01:8B4C: 85 48     STA ram_0048
@@ -1817,12 +1820,15 @@ C - - - - 0x000B61 01:8B51: 2A        ROL
 C - - - - 0x000B62 01:8B52: 26 5B     ROL ram_005B
 C - - - - 0x000B64 01:8B54: C8        INY
 C - - - - 0x000B65 01:8B55: B1 63     LDA (ram_0063),Y
+; какой-то счетчик
 C - - - - 0x000B67 01:8B57: 85 5E     STA ram_005E
 C - - - - 0x000B69 01:8B59: C8        INY
 C - - - - 0x000B6A 01:8B5A: B1 63     LDA (ram_0063),Y
+; какое-то дополнительное смещение с счетчику
 C - - - - 0x000B6C 01:8B5C: 85 5F     STA ram_005F
 C - - - - 0x000B6E 01:8B5E: C8        INY
 C - - - - 0x000B6F 01:8B5F: B1 63     LDA (ram_0063),Y
+; 
 C - - - - 0x000B71 01:8B61: 29 F8     AND #$F8
 C - - - - 0x000B73 01:8B63: 85 5C     STA ram_005C
 C - - - - 0x000B75 01:8B65: A9 02     LDA #$02
@@ -1899,28 +1905,29 @@ C - - - - 0x000BF8 01:8BE8: 4A        LSR
 C - - - - 0x000BF9 01:8BE9: 66 60     ROR ram_0060
 C - - - - 0x000BFB 01:8BEB: 85 61     STA ram_0061
 C - - - - 0x000BFD 01:8BED: 8A        TXA
-C - - - - 0x000BFE 01:8BEE: F0 03     BEQ bra_8BF3
+C - - - - 0x000BFE 01:8BEE: F0 03     BEQ bra_8BF3_пропуск
 C - - - - 0x000C00 01:8BF0: C8        INY
 C - - - - 0x000C01 01:8BF1: B1 70     LDA (ram_0070),Y
-bra_8BF3:
+bra_8BF3_пропуск:
 C - - - - 0x000C03 01:8BF3: 85 72     STA ram_0072
 C - - - - 0x000C05 01:8BF5: A5 62     LDA ram_0062
 C - - - - 0x000C07 01:8BF7: 29 C0     AND #$C0
-C - - - - 0x000C09 01:8BF9: F0 48     BEQ bra_8C43
+C - - - - 0x000C09 01:8BF9: F0 48     BEQ bra_8C0C_00
 C - - - - 0x000C0B 01:8BFB: C9 40     CMP #$40
-C - - - - 0x000C0D 01:8BFD: F0 16     BEQ bra_8C15
+C - - - - 0x000C0D 01:8BFD: F0 16     BEQ bra_8C15_40
 C - - - - 0x000C0F 01:8BFF: C9 80     CMP #$80
-C - - - - 0x000C11 01:8C01: F0 09     BEQ bra_8C0C
+C - - - - 0x000C11 01:8C01: F0 09     BEQ bra_8C0C_80
+; C0 bzk аналогичный код ниже
 C - - - - 0x000C13 01:8C03: A9 04     LDA #$04
 C - - - - 0x000C15 01:8C05: A2 01     LDX #$01
 C - - - - 0x000C17 01:8C07: A4 5F     LDY ram_005F
 C - - - - 0x000C19 01:8C09: 4C 59 8C  JMP loc_8C59
-bra_8C0C:
+bra_8C0C_80:
 C - - - - 0x000C1C 01:8C0C: A9 04     LDA #$04
 C - - - - 0x000C1E 01:8C0E: A2 01     LDX #$01
 C - - - - 0x000C20 01:8C10: A4 5F     LDY ram_005F
 C - - - - 0x000C22 01:8C12: 4C 59 8C  JMP loc_8C59
-bra_8C15:
+bra_8C15_40:
 C - - - - 0x000C25 01:8C15: A5 5E     LDA ram_005E
 C - - - - 0x000C27 01:8C17: A6 5F     LDX ram_005F
 C - - - - 0x000C29 01:8C19: 20 EE 9D  JSR sub_9DEE
@@ -1945,7 +1952,7 @@ C - - - - 0x000C4B 01:8C3B: A8        TAY
 C - - - - 0x000C4C 01:8C3C: A9 FC     LDA #$FC
 C - - - - 0x000C4E 01:8C3E: A2 FF     LDX #$FF
 C - - - - 0x000C50 01:8C40: 4C 59 8C  JMP loc_8C59
-bra_8C43:
+bra_8C0C_00:
 C - - - - 0x000C53 01:8C43: A5 5F     LDA ram_005F
 C - - - - 0x000C55 01:8C45: 38        SEC
 C - - - - 0x000C56 01:8C46: E9 01     SBC #$01
@@ -4758,7 +4765,7 @@ C - - - - 0x001DFE 01:9DEE: 85 ED     STA ram_00ED
 C - - - - 0x001E00 01:9DF0: A9 00     LDA #$00
 C - - - - 0x001E02 01:9DF2: 85 EC     STA ram_00EC
 C - - - - 0x001E04 01:9DF4: A0 08     LDY #$08
-bra_9DF6:
+bra_9DF6_цикл:
 C - - - - 0x001E06 01:9DF6: 06 EC     ASL ram_00EC
 C - - - - 0x001E08 01:9DF8: 26 ED     ROL ram_00ED
 C - - - - 0x001E0A 01:9DFA: 90 0C     BCC bra_9E08
@@ -4771,7 +4778,7 @@ C - - - - 0x001E14 01:9E04: 69 00     ADC #$00
 C - - - - 0x001E16 01:9E06: 85 ED     STA ram_00ED
 bra_9E08:
 C - - - - 0x001E18 01:9E08: 88        DEY
-C - - - - 0x001E19 01:9E09: D0 EB     BNE bra_9DF6
+C - - - - 0x001E19 01:9E09: D0 EB     BNE bra_9DF6_цикл
 C - - - - 0x001E1B 01:9E0B: 60        RTS
 
 .export sub_0x001E1C
