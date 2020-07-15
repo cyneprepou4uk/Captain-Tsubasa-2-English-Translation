@@ -877,8 +877,8 @@ C - - - - 0x00266A 02:A65A: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x00266D 02:A65D: A9 01     LDA #$01
 C - - - - 0x00266F 02:A65F: 20 20 89  JSR sub_0x000930
 bra_A662:
-C - - - - 0x002672 02:A662: A0 D0     LDY #< tbl_ADD0
-C - - - - 0x002674 02:A664: A2 AD     LDX #> tbl_ADD0
+C - - - - 0x002672 02:A662: A0 D0     LDY #< tbl_ADD0_курсор_тренера
+C - - - - 0x002674 02:A664: A2 AD     LDX #> tbl_ADD0_курсор_тренера
 C - - - - 0x002676 02:A666: 20 3A 9C  JSR sub_0x001C4A_отобразить_курсор
 C - - - - 0x002679 02:A669: 20 E8 9B  JSR sub_0x001BF8
 C - - - - 0x00267C 02:A66C: A0 73     LDY #< tbl_A673_опции
@@ -1934,7 +1934,7 @@ tbl_ADCA_курсор_замены_киперов_японии:
 - D - I - 0x002DDE 02:ADCE: C0        .byte $B0
 - D - I - 0x002DDF 02:ADCF: C8        .byte $C8
 
-tbl_ADD0:
+tbl_ADD0_курсор_тренера:
 - D - I - 0x002DE0 02:ADD0: FC        .byte $FC
 - D - I - 0x002DE1 02:ADD1: 98        .byte $98
 - D - I - 0x002DE2 02:ADD2: FF        .byte $FF
@@ -2056,7 +2056,7 @@ C - - - - 0x002E8F 02:AE7F: 0A        ASL
 C - - - - 0x002E90 02:AE80: 18        CLC
 C - - - - 0x002E91 02:AE81: 69 58     ADC #$58
 C - - - - 0x002E93 02:AE83: 8D 60 05  STA $0560
-C - - - - 0x002E96 02:AE86: 20 0D 9C  JSR sub_0x001C1D
+C - - - - 0x002E96 02:AE86: 20 0D 9C  JSR sub_0x001C1D_скрыть_курсор_после_выбора_опции
 C - - - - 0x002E99 02:AE89: B0 03     BCS bra_AE8E_выход
 C - - - - 0x002E9B 02:AE8B: 4A        LSR
 C - - - - 0x002E9C 02:AE8C: 85 2D     STA ram_защита_слева

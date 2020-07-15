@@ -4407,16 +4407,16 @@ sub_0x001BF3:
 C - - - - 0x001BF3 01:9BE3: 86 E7     STX ram_00E7
 C - - - - 0x001BF5 01:9BE5: 84 E6     STY ram_00E6
 C - - - - 0x001BF7 01:9BE7: A8        TAY
-bra_9BE8:
 .export sub_0x001BF8
 sub_0x001BF8:
+bra_9BE8_кнопка_не_нажата:
 C - - - - 0x001BF8 01:9BE8: A9 01     LDA #$01
 C - - - - 0x001BFA 01:9BEA: 20 A8 9F  JSR sub_9FA8
 C - - - - 0x001BFD 01:9BED: A5 1E     LDA ram_одноразовые
-C - - - - 0x001BFF 01:9BEF: 20 E7 9C  JSR sub_9CE7
+C - - - - 0x001BFF 01:9BEF: 20 E7 9C  JSR sub_9CE7_сдвинуть_курсор_вверх_вниз
 C - - - - 0x001C02 01:9BF2: A5 1E     LDA ram_одноразовые
 C - - - - 0x001C04 01:9BF4: 29 90     AND #con_btn_A + con_btn_Start
-C - - - - 0x001C06 01:9BF6: 10 F0     BPL bra_9BE8
+C - - - - 0x001C06 01:9BF6: 10 F0     BPL bra_9BE8_кнопка_не_нажата
 bra_9BF8:
 C - - - - 0x001C08 01:9BF8: B9 68 04  LDA ram_копия_спрайт_Y,Y
 C - - - - 0x001C0B 01:9BFB: AA        TAX
@@ -4432,19 +4432,21 @@ C - - - - 0x001C19 01:9C09: A5 E7     LDA ram_00E7
 C - - - - 0x001C1B 01:9C0B: 18        CLC
 C - - - - 0x001C1C 01:9C0C: 60        RTS
 
-.export sub_0x001C1D
-sub_0x001C1D:
-bra_9C0D:
+.export sub_0x001C1D_скрыть_курсор_после_выбора_опции
+sub_0x001C1D_скрыть_курсор_после_выбора_опции:
+bra_9C0D_B_не_нажата:
 C - - - - 0x001C1D 01:9C0D: A9 01     LDA #$01
 C - - - - 0x001C1F 01:9C0F: 20 A8 9F  JSR sub_9FA8
 C - - - - 0x001C22 01:9C12: A5 1E     LDA ram_одноразовые
-C - - - - 0x001C24 01:9C14: 20 E7 9C  JSR sub_9CE7
+C - - - - 0x001C24 01:9C14: 20 E7 9C  JSR sub_9CE7_сдвинуть_курсор_вверх_вниз
 C - - - - 0x001C27 01:9C17: A5 1E     LDA ram_одноразовые
+; bzk тут проверяется на кнопку старт, это опции defense
+; однако для опции formation старт не предусмотрена
 C - - - - 0x001C29 01:9C19: 29 90     AND #con_btn_A + con_btn_Start
 C - - - - 0x001C2B 01:9C1B: D0 DB     BNE bra_9BF8
 C - - - - 0x001C2D 01:9C1D: 24 1E     BIT ram_одноразовые
 ; con_btn_B
-C - - - - 0x001C2F 01:9C1F: 50 EC     BVC bra_9C0D
+C - - - - 0x001C2F 01:9C1F: 50 EC     BVC bra_9C0D_B_не_нажата
 C - - - - 0x001C31 01:9C21: A9 F8     LDA #$F8
 C - - - - 0x001C33 01:9C23: 99 68 04  STA ram_копия_спрайт_Y,Y
 C - - - - 0x001C36 01:9C26: 38        SEC
@@ -4511,7 +4513,7 @@ loc_9C73:
 C D - - - 0x001C83 01:9C73: 85 E8     STA ram_00E8
 bra_9C75:
 C - - - - 0x001C85 01:9C75: A5 1C     LDA ram_удержанные
-C - - - - 0x001C87 01:9C77: 20 E7 9C  JSR sub_9CE7
+C - - - - 0x001C87 01:9C77: 20 E7 9C  JSR sub_9CE7_сдвинуть_курсор_вверх_вниз
 C - - - - 0x001C8A 01:9C7A: 90 4C     BCC bra_9CC8_выход
 C - - - - 0x001C8C 01:9C7C: A6 E9     LDX ram_00E9
 C - - - - 0x001C8E 01:9C7E: E0 FF     CPX #$FF
@@ -4540,8 +4542,8 @@ C - - - - 0x001CB9 01:9CA9: CD 52 04  CMP $0452
 C - - - - 0x001CBC 01:9CAC: F0 C7     BEQ bra_9C75
 C - - - - 0x001CBE 01:9CAE: CD 53 04  CMP $0453
 C - - - - 0x001CC1 01:9CB1: F0 C2     BEQ bra_9C75
-bra_9CB3:
 loc_9CB3:
+bra_9CB3:
 C D - - - 0x001CC3 01:9CB3: A9 01     LDA #$01
 C - - - - 0x001CC5 01:9CB5: 20 A8 9F  JSR sub_9FA8
 C - - - - 0x001CC8 01:9CB8: A6 1C     LDX ram_удержанные
@@ -4577,28 +4579,32 @@ C - - - - 0x001CF3 01:9CE3: 9D 6A 04  STA ram_копия_спрайт_атриб
 bra_9CE6_выход:
 C - - - - 0x001CF6 01:9CE6: 60        RTS
 
-sub_9CE7:
+sub_9CE7_сдвинуть_курсор_вверх_вниз:
+.scope
+ram_max_Y = ram_00E6
+ram_min_Y = ram_00E7
 C - - - - 0x001CF7 01:9CE7: 29 0F     AND #con_btns_Dpad
 C - - - - 0x001CF9 01:9CE9: AA        TAX
 C - - - - 0x001CFA 01:9CEA: BD E2 9E  LDA tbl_9EE2,X
-C - - - - 0x001CFD 01:9CED: F0 17     BEQ bra_9D06
+C - - - - 0x001CFD 01:9CED: F0 17     BEQ bra_9D06_нужная_кнопка_не_нажата
 C - - - - 0x001CFF 01:9CEF: 18        CLC
 C - - - - 0x001D00 01:9CF0: 79 68 04  ADC ram_копия_спрайт_Y,Y
-C - - - - 0x001D03 01:9CF3: C5 E7     CMP ram_00E7
+C - - - - 0x001D03 01:9CF3: C5 E7     CMP ram_min_Y
 C - - - - 0x001D05 01:9CF5: B0 02     BCS bra_9CF9
-C - - - - 0x001D07 01:9CF7: A5 E6     LDA ram_00E6
+C - - - - 0x001D07 01:9CF7: A5 E6     LDA ram_max_Y
 bra_9CF9:
-C - - - - 0x001D09 01:9CF9: C5 E6     CMP ram_00E6
+C - - - - 0x001D09 01:9CF9: C5 E6     CMP ram_max_Y
 C - - - - 0x001D0B 01:9CFB: F0 04     BEQ bra_9D01
 C - - - - 0x001D0D 01:9CFD: 90 02     BCC bra_9D01
-C - - - - 0x001D0F 01:9CFF: A5 E7     LDA ram_00E7
+C - - - - 0x001D0F 01:9CFF: A5 E7     LDA ram_min_Y
 bra_9D01:
 C - - - - 0x001D11 01:9D01: 99 68 04  STA ram_копия_спрайт_Y,Y
 C - - - - 0x001D14 01:9D04: 38        SEC
 C - - - - 0x001D15 01:9D05: 60        RTS
-bra_9D06:
+bra_9D06_нужная_кнопка_не_нажата:
 C - - - - 0x001D16 01:9D06: 18        CLC
 C - - - - 0x001D17 01:9D07: 60        RTS
+.endscope
 
 .export sub_0x001D18
 sub_0x001D18:
@@ -4959,11 +4965,11 @@ tbl_9EE2:
 - D - - - 0x001EF3 01:9EE3: 00        .byte $00
 - D - - - 0x001EF4 01:9EE4: 00        .byte $00
 - - - - - 0x001EF5 01:9EE5: 00        .byte $00
-- D - - - 0x001EF6 01:9EE6: 10        .byte $10	; <た>
+- D - - - 0x001EF6 01:9EE6: 10        .byte $10	; Down
 - D - - - 0x001EF7 01:9EE7: 00        .byte $00
 - - - - - 0x001EF8 01:9EE8: 00        .byte $00
 - - - - - 0x001EF9 01:9EE9: 00        .byte $00
-- D - - - 0x001EFA 01:9EEA: F0        .byte $F0
+- D - - - 0x001EFA 01:9EEA: F0        .byte $F0 ; Up
 - - - - - 0x001EFB 01:9EEB: 00        .byte $00
 - - - - - 0x001EFC 01:9EEC: 00        .byte $00
 
