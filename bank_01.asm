@@ -2243,7 +2243,7 @@ C - - - - 0x000E3B 01:8E2B: 85 74     STA ram_0074
 bra_8E2D:
 C - - - - 0x000E3D 01:8E2D: A0 00     LDY #$00
 C - - - - 0x000E3F 01:8E2F: B1 63     LDA (ram_0063),Y
-C - - - - 0x000E41 01:8E31: 20 F0 8E  JSR sub_8EF0
+C - - - - 0x000E41 01:8E31: 20 F0 8E  JSR sub_8EF0_чтение_блоков_тайлов
 C - - - - 0x000E44 01:8E34: A5 5C     LDA ram_005C
 C - - - - 0x000E46 01:8E36: AA        TAX
 C - - - - 0x000E47 01:8E37: 18        CLC
@@ -2358,7 +2358,7 @@ C - - - - 0x000EFC 01:8EEC: 4C 19 8E  JMP loc_8E19
 bra_8EEF_выход:
 C - - - - 0x000EFF 01:8EEF: 60        RTS
 
-sub_8EF0:
+sub_8EF0_чтение_блоков_тайлов:
 C - - - - 0x000F00 01:8EF0: AA        TAX
 C - - - - 0x000F01 01:8EF1: A5 5C     LDA ram_005C
 C - - - - 0x000F03 01:8EF3: 85 67     STA ram_0067
