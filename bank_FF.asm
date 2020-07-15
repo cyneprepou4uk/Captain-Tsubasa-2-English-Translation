@@ -223,9 +223,7 @@ C - - - - 0x03C71A FF:C70A: 20 02 CC  JSR sub_CC02
 C - - - - 0x03C71D FF:C70D: A2 10     LDX #$10
 C - - - - 0x03C71F FF:C70F: A9 12     LDA #$12
 C - - - - 0x03C721 FF:C711: 20 02 CC  JSR sub_CC02
-C - - - - 0x03C724 FF:C714: 20 D2 CC  JSR sub_CCD2
-- D - I - 0x03C727 FF:C717: 00        .byte $00
-- D - I - 0x03C728 FF:C718: 6C 04     .word ram_копия_спрайт_Y + 4
+C - - - - 0x03C724 FF:C714: 20 D2 CC  JSR sub_CCD3
 C - - - - 0x03C72A FF:C71A: A2 07     LDX #$07
 bra_C71C:
 C - - - - 0x03C72C FF:C71C: BD 66 C7  LDA tbl_C766,X
@@ -1017,40 +1015,43 @@ C - - - - 0x03CCE1 FF:CCD1: 60        RTS
 
 .export sub_0x03CCE2
 sub_0x03CCE2:
-sub_CCD2:
-; bzk байты после jsr везде одинаковые, кроме случая в 0x0273CC
-C D - - - 0x03CCE2 FF:CCD2: BA        TSX
-C - - - - 0x03CCE3 FF:CCD3: BD 01 01  LDA $0101,X
-C - - - - 0x03CCE6 FF:CCD6: 85 75     STA ram_0075
-C - - - - 0x03CCE8 FF:CCD8: 48        PHA
-C - - - - 0x03CCE9 FF:CCD9: BD 02 01  LDA $0102,X
-C - - - - 0x03CCEC FF:CCDC: 85 76     STA ram_0076
-C - - - - 0x03CCEE FF:CCDE: 68        PLA
-C - - - - 0x03CCEF FF:CCDF: 18        CLC
-C - - - - 0x03CCF0 FF:CCE0: 69 03     ADC #$03
-C - - - - 0x03CCF2 FF:CCE2: 9D 01 01  STA $0101,X
-C - - - - 0x03CCF5 FF:CCE5: 90 03     BCC bra_CCEA
-- - - - - 0x03CCF7 FF:CCE7: FE 02 01  INC $0102,X
-bra_CCEA:
-C - - - - 0x03CCFA FF:CCEA: 98        TYA
-C - - - - 0x03CCFB FF:CCEB: 48        PHA
-C - - - - 0x03CCFC FF:CCEC: AD 98 04  LDA $0498
-C - - - - 0x03CCFF FF:CCEF: 0A        ASL
-C - - - - 0x03CD00 FF:CCF0: 6D 98 04  ADC $0498
-C - - - - 0x03CD03 FF:CCF3: AA        TAX
-C - - - - 0x03CD04 FF:CCF4: A0 01     LDY #$01
-C - - - - 0x03CD06 FF:CCF6: B1 75     LDA (ram_0075),Y
-C - - - - 0x03CD08 FF:CCF8: 9D 99 04  STA $0499,X
-C - - - - 0x03CD0B FF:CCFB: C8        INY
-C - - - - 0x03CD0C FF:CCFC: B1 75     LDA (ram_0075),Y
-C - - - - 0x03CD0E FF:CCFE: 9D 9A 04  STA $049A,X
-C - - - - 0x03CD11 FF:CD01: C8        INY
-C - - - - 0x03CD12 FF:CD02: B1 75     LDA (ram_0075),Y
-C - - - - 0x03CD14 FF:CD04: 9D 9B 04  STA $049B,X
-C - - - - 0x03CD17 FF:CD07: EE 98 04  INC $0498
-C - - - - 0x03CD1A FF:CD0A: 68        PLA
-C - - - - 0x03CD1B FF:CD0B: A8        TAY
-C - - - - 0x03CD1C FF:CD0C: 60        RTS
+; уникальный случай для надписи текмо в финальной заставке 0x0273CC
+	LDA #$03
+	.byte $2C
+.export sub_0x03CCE3
+sub_0x03CCE3:
+sub_CCD3:
+; срабатывает раз перед показом новой анимации
+	LDA #$00
+	STA ram_temp_1
+	TYA
+	PHA
+	LDA $0498
+	ASL
+	ADC $0498
+	TAX
+	LDY ram_temp_1
+	LDA tbl_0000,Y
+	STA $0499,X
+	LDA tbl_0000 + 1,Y
+	STA $049A,X
+	LDA tbl_0000 + 2,Y
+	STA $049B,X
+	INC $0498
+	PLA
+	TAY
+	RTS
+
+
+
+tbl_0000:
+	.byte $00
+    .word ram_копия_спрайт_Y + 4
+	
+	.byte $13
+	.word tbl_0x02745E_финальная_надпись_TECMO
+
+
 
 .export sub_0x03CD1D
 sub_0x03CD1D:
@@ -6038,9 +6039,7 @@ bra_ECCA:
 C - - - - 0x03ECDA FF:ECCA: AD 25 05  LDA $0525
 C - - - - 0x03ECDD FF:ECCD: A2 00     LDX #$00
 C - - - - 0x03ECDF FF:ECCF: 20 02 CC  JSR sub_CC02
-C - - - - 0x03ECE2 FF:ECD2: 20 D2 CC  JSR sub_CCD2
-- D - I - 0x03ECE5 FF:ECD5: 00        .byte $00
-- D - I - 0x03ECE6 FF:ECD6: 6C 04     .word ram_копия_спрайт_Y + 4
+C - - - - 0x03ECE2 FF:ECD2: 20 D2 CC  JSR sub_CCD3
 C - - - - 0x03ECE8 FF:ECD8: AD CE 05  LDA $05CE
 C - - - - 0x03ECEB FF:ECDB: 48        PHA
 C - - - - 0x03ECEE FF:ECDE: A9 0B     LDA #$0B
