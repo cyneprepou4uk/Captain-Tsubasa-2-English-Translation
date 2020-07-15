@@ -30,7 +30,7 @@
             <Keywords name="Keywords4">@ bra_ b_</Keywords>
             <Keywords name="Keywords5">( .text</Keywords>
             <Keywords name="Keywords6">_ L_ loc_ sub_ ofs_ vec_</Keywords>
-            <Keywords name="Keywords7">.import .export .res</Keywords>
+            <Keywords name="Keywords7">.import .export .res .charmap</Keywords>
             <Keywords name="Keywords8">&#x0442;&#x0430;&#x0431;&#x043B;&#x0438;&#x0446;&#x0430; table tbl t_ &#x0442;_</Keywords>
             <Keywords name="Delimiters">00&quot; 01 02&quot; 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23</Keywords>
         </KeywordLists>
