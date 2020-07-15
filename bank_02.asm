@@ -2452,7 +2452,7 @@ tbl_B0D7:
 - - - - - 0x0030FF 02:B0EF: BA B1     .word _общий_RTS
 - D - - - 0x003101 02:B0F1: A4 B1     .word ofs_B1A4_0D_очистить_nametable
 - D - - - 0x003103 02:B0F3: AC B1     .word ofs_B1AC_0E_прыжок
-- D - - - 0x003105 02:B0F5: BA B1     .word _общий_RTS	; 0F
+- D - - - 0x003105 02:B0F5: BA B1     .word _общий_RTS	; 0F закончить чтение
 
 ofs_B0F7_00_запись_в_буфер_без_смещения:
 C - J - - 0x003107 02:B0F7: 20 C9 B1  JSR sub_B1C9_прочитать_поинтер
@@ -2544,6 +2544,8 @@ ofs_B186_09:
 - - - - - 0x0031A6 02:B196: 4C BB B1  JMP loc_B1BB
 
 ofs_B199_0A_запись_в_буфер_с_учетом_кодировки_японских_символов:
+; bzk избавиться от всех местоположений в таблицах с байтами, заменить на 00
+; вроде бы больше нету .byte $0A, тогда просто поудалять эти японские коды
 C - J - - 0x0031A9 02:B199: 20 C9 B1  JSR sub_B1C9_прочитать_поинтер
 C - - - - 0x0031AC 02:B19C: 20 27 9D  JSR sub_0x001D37_запись_в_буфер_с_учетом_кодировки_японских_символов
 C - - - - 0x0031AF 02:B19F: A9 03     LDA #$03
@@ -2789,97 +2791,94 @@ tbl_B255:
 
 
 tbl_B296_экран_continue:
-- D - I - 0x0032A6 02:B296: 05        .byte $05	; <お>
+; верхняя горизонтальная линия главного окна
+- D - I - 0x0032A6 02:B296: 05        .byte $05
 - D - I - 0x0032A7 02:B297: C3 20     .word $20C3
-- D - I - 0x0032A9 02:B299: 1B        .byte $1B	; <ひ>
-- D - I - 0x0032AA 02:B29A: 89        .byte $89	; <I>
-
-- D - I - 0x0032AB 02:B29B: 05        .byte $05	; <お>
+- D - I - 0x0032A9 02:B299: 1B        .byte $1B
+- D - I - 0x0032AA 02:B29A: 89        .byte $8E
+; центральная горизонтальная линия главного окна
+- D - I - 0x0032AB 02:B29B: 05        .byte $05
 - D - I - 0x0032AC 02:B29C: A3 21     .word $21A3
-- D - I - 0x0032AE 02:B29E: 1B        .byte $1B	; <ひ>
-- D - I - 0x0032AF 02:B29F: BA        .byte $BA	; <ジ>
-
-- D - I - 0x0032B0 02:B2A0: 05        .byte $05	; <お>
+- D - I - 0x0032AE 02:B29E: 1B        .byte $1B
+- D - I - 0x0032AF 02:B29F: BA        .byte $BA
+; нижняя горизонтальная линия главного окна
+- D - I - 0x0032B0 02:B2A0: 05        .byte $05
 - D - I - 0x0032B1 02:B2A1: 23 23     .word $2323
-- D - I - 0x0032B3 02:B2A3: 1B        .byte $1B	; <ひ>
-- D - I - 0x0032B4 02:B2A4: 89        .byte $89	; <I>
-
-- D - I - 0x0032B5 02:B2A5: 04        .byte $04	; <え>
+- D - I - 0x0032B3 02:B2A3: 1B        .byte $1B
+- D - I - 0x0032B4 02:B2A4: 89        .byte $8E
+; левая вертикальная линия главного окна
+- D - I - 0x0032B5 02:B2A5: 04        .byte $04
 - D - I - 0x0032B6 02:B2A6: E2 20     .word $20E2
-- D - I - 0x0032B8 02:B2A8: 12        .byte $12	; <つ>
-- D - I - 0x0032B9 02:B2A9: 8A        .byte $8A	; <N>
-
-- D - I - 0x0032BA 02:B2AA: 04        .byte $04	; <え>
+- D - I - 0x0032B8 02:B2A8: 12        .byte $12
+- D - I - 0x0032B9 02:B2A9: 8A        .byte $8F
+; правая вертикальная линия главного окна
+- D - I - 0x0032BA 02:B2AA: 04        .byte $04
 - D - I - 0x0032BB 02:B2AB: FE 20     .word $20FE
-- D - I - 0x0032BD 02:B2AD: 12        .byte $12	; <つ>
-- D - I - 0x0032BE 02:B2AE: 8A        .byte $8A	; <N>
+- D - I - 0x0032BD 02:B2AD: 12        .byte $12
+- D - I - 0x0032BE 02:B2AE: 8A        .byte $8F
 
 - D - I - 0x0032BF 02:B2AF: 00        .byte $00
-- D - I - 0x0032C0 02:B2B0: C3 B2     .word off_B2C3_прочерки_для_символов_пароля
+- D - I - 0x0032C0 02:B2B0: C3 B2     .word off_B2C3_углы_окна_и_прочерки_для_символов_пароля
 
-- D - I - 0x0032C2 02:B2B2: 0A        .byte $0A	; <こ>
+- D - I - 0x0032C2 02:B2B2: 0A        .byte $00
 - D - I - 0x0032C3 02:B2B3: AF BC     .word off_BCAF_фраза_пароль_над_символами_пароля
+; левая вертикальная линия всплывающего окна с неверным паролем
+- D - I - 0x0032C8 02:B2B8: 04        .byte $04
+- D - I - 0x0032C9 02:B2B9: E2 24     .word $24E2
+- D - I - 0x0032CB 02:B2BB: 08        .byte $08
+- D - I - 0x0032CC 02:B2BC: 8A        .byte $8F
+; правая вертикальная линия всплывающего окна с неверным паролем
+- D - I - 0x0032CD 02:B2BD: 04        .byte $04
+- D - I - 0x0032CE 02:B2BE: FE 24     .word $24FE
+- D - I - 0x0032D0 02:B2C0: 08        .byte $08
+- D - I - 0x0032D1 02:B2C1: 8A        .byte $8F
 
-- D - I - 0x0032C5 02:B2B5: 0A        .byte $0A	; <こ>
+- D - I - 0x0032C5 02:B2B5: 0A        .byte $00
 - D - I - 0x0032C6 02:B2B6: BE BC     .word off_BCBE_фраза_неверный_пароль
 
-- D - I - 0x0032C8 02:B2B8: 04        .byte $04	; <え>
-- D - I - 0x0032C9 02:B2B9: E2 24     .word $24E2
-- D - I - 0x0032CB 02:B2BB: 08        .byte $08	; <く>
-- D - I - 0x0032CC 02:B2BC: 8A        .byte $8A	; <N>
-
-- D - I - 0x0032CD 02:B2BD: 04        .byte $04	; <え>
-- D - I - 0x0032CE 02:B2BE: FE 24     .word $24FE
-- D - I - 0x0032D0 02:B2C0: 08        .byte $08	; <く>
-- D - I - 0x0032D1 02:B2C1: 8A        .byte $8A	; <N>
-
-- D - I - 0x0032D2 02:B2C2: 0F        .byte $0F	; <そ>
+- D - I - 0x0032D2 02:B2C2: 0F        .byte $0F
 
 
 
-off_B2C3_прочерки_для_символов_пароля:
-- D - I - 0x0032D3 02:B2C3: 01        .byte $01	; <あ>
-- D - I - 0x0032D4 02:B2C4: C2        .byte $C2	; <ド>
-- D - I - 0x0032D5 02:B2C5: 20        .byte $20	; <み>
-- D - I - 0x0032D6 02:B2C6: 88        .byte $88	; <H>
-- D - I - 0x0032D7 02:B2C7: 01        .byte $01	; <あ>
-- D - I - 0x0032D8 02:B2C8: DE        .byte $DE
-- D - I - 0x0032D9 02:B2C9: 20        .byte $20	; <み>
-- D - I - 0x0032DA 02:B2CA: 90        .byte $90	; <U>
-- D - I - 0x0032DB 02:B2CB: 01        .byte $01	; <あ>
-- D - I - 0x0032DC 02:B2CC: 22        .byte $22	; <め>
-- D - I - 0x0032DD 02:B2CD: 23        .byte $23	; <も>
-- D - I - 0x0032DE 02:B2CE: 8E        .byte $8E	; <L>
-- D - I - 0x0032DF 02:B2CF: 01        .byte $01	; <あ>
-- D - I - 0x0032E0 02:B2D0: 3E        .byte $3E	; <Jr>
-- D - I - 0x0032E1 02:B2D1: 23        .byte $23	; <も>
-- D - I - 0x0032E2 02:B2D2: 93        .byte $93	; <Y>
-- D - I - 0x0032E3 02:B2D3: 0B        .byte $0B	; <さ>
-- D - I - 0x0032E4 02:B2D4: 2A        .byte $2A	; <れ>
-- D - I - 0x0032E5 02:B2D5: 21        .byte $21	; <む>
-- D - I - 0x0032E6 02:B2D6: 7D        .byte $7D	; <ー>
-- D - I - 0x0032E7 02:B2D7: 7D        .byte $7D	; <ー>
-- D - I - 0x0032E8 02:B2D8: 7D        .byte $7D	; <ー>
-- D - I - 0x0032E9 02:B2D9: 7D        .byte $7D	; <ー>
-- D - I - 0x0032EA 02:B2DA: 7D        .byte $7D	; <ー>
-- D - I - 0x0032EB 02:B2DB: 00        .byte $00
-- D - I - 0x0032EC 02:B2DC: 7D        .byte $7D	; <ー>
-- D - I - 0x0032ED 02:B2DD: 7D        .byte $7D	; <ー>
-- D - I - 0x0032EE 02:B2DE: 7D        .byte $7D	; <ー>
-- D - I - 0x0032EF 02:B2DF: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F0 02:B2E0: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F1 02:B2E1: 49        .byte $49	; <ケ>
-- D - I - 0x0032F2 02:B2E2: 6A        .byte $6A	; <レ>
-- D - I - 0x0032F3 02:B2E3: 21        .byte $21	; <む>
-- D - I - 0x0032F4 02:B2E4: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F5 02:B2E5: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F6 02:B2E6: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F7 02:B2E7: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F8 02:B2E8: 7D        .byte $7D	; <ー>
-- D - I - 0x0032F9 02:B2E9: 00        .byte $00
-- D - I - 0x0032FA 02:B2EA: 7D        .byte $7D	; <ー>
-- D - I - 0x0032FB 02:B2EB: 7D        .byte $7D	; <ー>
-- D - I - 0x0032FC 02:B2EC: 7D        .byte $7D	; <ー>
+off_B2C3_углы_окна_и_прочерки_для_символов_пароля:
+; левый верхний угол
+	.byte $01
+	.word $20C2
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $20DE
+	.byte $91
+; левый нижний угол
+	.byte $01
+	.word $2322
+	.byte $92
+; правый нижний угол
+	.byte $01
+	.word $233E
+	.byte $93
+
+	.byte $0B
+	.word $212A
+	.text "----- -----"
+
+	.byte $49
+	.word $216A
+	.text "----- ---"
+
+
+
+off_BCAF_фраза_пароль_над_символами_пароля:
+	.byte $5D
+	.word $2082
+	.text "It's the Score Memo Shootout!"
+
+off_BCBE_фраза_неверный_пароль:
+	.byte $48
+	.word $254C
+	.text "NO GOOD!"
+
+
 
 tbl_B2ED:
 - - - - - 0x0032FD 02:B2ED: 00        .byte $00
@@ -4742,46 +4741,6 @@ tbl_BC6E_символы_пароля:
 	.text "0123456789!?"
 ; последний символ GO
 	.byte $D0
-
-
-
-off_BCAF_фраза_пароль_над_символами_пароля:
-- D - I - 0x003CBF 02:BCAF: 6A        .byte $6A	; <レ>
-- D - I - 0x003CC0 02:BCB0: 20        .byte $20	; <み>
-- D - I - 0x003CC1 02:BCB1: 4D        .byte $4D	; <ス>
-- D - I - 0x003CC2 02:BCB2: 4A        .byte $4A	; <コ>
-- D - I - 0x003CC3 02:BCB3: 41        .byte $41	; <ア>
-- D - I - 0x003CC4 02:BCB4: 62        .byte $62	; <メ>
-- D - I - 0x003CC5 02:BCB5: 63        .byte $63	; <モ>
-- D - I - 0x003CC6 02:BCB6: 2D        .byte $2D	; <を>
-- D - I - 0x003CC7 02:BCB7: 4C        .byte $4C	; <シ>
-- D - I - 0x003CC8 02:BCB8: 71        .byte $71	; <ュ>
-- D - I - 0x003CC9 02:BCB9: 7D        .byte $7D	; <ー>
-- D - I - 0x003CCA 02:BCBA: 54        .byte $54	; <ト>
-- D - I - 0x003CCB 02:BCBB: AA        .byte $AA	; <だ>
-- D - I - 0x003CCC 02:BCBC: 79        .byte $79	; <!>
-- D - I - 0x003CCD 02:BCBD: FF        .byte $FF
-
-off_BCBE_фраза_неверный_пароль:
-- D - I - 0x003CCE 02:BCBE: 28        .byte $28	; <り>
-- D - I - 0x003CCF 02:BCBF: 25        .byte $25	; <ゆ>
-- D - I - 0x003CD0 02:BCC0: 05        .byte $05	; <お>
-- D - I - 0x003CD1 02:BCC1: 2F        .byte $2F	; <っ>
-- D - I - 0x003CD2 02:BCC2: 14        .byte $14	; <と>
-- D - I - 0x003CD3 02:BCC3: 79        .byte $79	; <!>
-- D - I - 0x003CD4 02:BCC4: 00        .byte $00
-- D - I - 0x003CD5 02:BCC5: 0A        .byte $0A	; <こ>
-- D - I - 0x003CD6 02:BCC6: 2A        .byte $2A	; <れ>
-- D - I - 0x003CD7 02:BCC7: 1A        .byte $1A	; <は>
-- D - I - 0x003CD8 02:BCC8: 60        .byte $60	; <ミ>
-- D - I - 0x003CD9 02:BCC9: 4D        .byte $4D	; <ス>
-- D - I - 0x003CDA 02:BCCA: 47        .byte $47	; <キ>
-- D - I - 0x003CDB 02:BCCB: 6F        .byte $6F	; <ッ>
-- D - I - 0x003CDC 02:BCCC: 48        .byte $48	; <ク>
-- D - I - 0x003CDD 02:BCCD: AA        .byte $AA	; <だ>
-- D - I - 0x003CDE 02:BCCE: 79        .byte $79	; <!>
-- D - I - 0x003CDF 02:BCCF: 79        .byte $79	; <!>
-- D - I - 0x003CE0 02:BCD0: FF        .byte $FF
 
 
 
