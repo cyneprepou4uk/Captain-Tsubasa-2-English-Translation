@@ -107,7 +107,7 @@ C - - - - 0x0020EA 02:A0DA: 69 80     ADC #$80
 C - - - - 0x0020EC 02:A0DC: A8        TAY
 C - - - - 0x0020ED 02:A0DD: A2 22     LDX #$22
 C - - - - 0x0020EF 02:A0DF: A5 EC     LDA ram_00EC
-C - - - - 0x0020F1 02:A0E1: 20 CA 88  JSR sub_0x0008DA
+C - - - - 0x0020F1 02:A0E1: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер_с_учетом_кодировки
 C - - - - 0x0020F4 02:A0E4: A5 99     LDA ram_0099
 C - - - - 0x0020F6 02:A0E6: 10 04     BPL bra_A0EC
 - - - - - 0x0020F8 02:A0E8: 49 41     EOR #$41
@@ -119,7 +119,7 @@ C - - - - 0x002100 02:A0F0: C9 12     CMP #$12
 C - - - - 0x002102 02:A0F2: 90 BF     BCC bra_A0B3
 bra_A0F4:
 C - - - - 0x002104 02:A0F4: A9 01     LDA #$01
-C - - - - 0x002106 02:A0F6: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002106 02:A0F6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002109 02:A0F9: A5 1E     LDA ram_одноразовые
 ; con_btn_A
 C - - - - 0x00210B 02:A0FB: 10 F7     BPL bra_A0F4
@@ -176,7 +176,7 @@ C - - - - 0x002167 02:A157: A4 EC     LDY ram_00EC
 C - - - - 0x002169 02:A159: B1 E6     LDA (ram_00E6),Y
 C - - - - 0x00216B 02:A15B: A4 E8     LDY ram_00E8
 C - - - - 0x00216D 02:A15D: A6 E9     LDX ram_00E9
-C - - - - 0x00216F 02:A15F: 20 CA 88  JSR sub_0x0008DA
+C - - - - 0x00216F 02:A15F: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер_с_учетом_кодировки
 C - - - - 0x002172 02:A162: E6 E8     INC ram_00E8
 C - - - - 0x002174 02:A164: E6 E8     INC ram_00E8
 C - - - - 0x002176 02:A166: E6 EC     INC ram_00EC
@@ -215,7 +215,7 @@ C - - - - 0x0021B3 02:A1A3: 4C 01 A2  JMP loc_A201
 bra_A1A6:
 loc_A1A6:
 C D - - - 0x0021B6 02:A1A6: A9 01     LDA #$01
-C - - - - 0x0021B8 02:A1A8: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x0021B8 02:A1A8: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0021BB 02:A1AB: 20 D0 A3  JSR sub_A3D0
 C - - - - 0x0021BE 02:A1AE: 24 1E     BIT ram_одноразовые
 ; con_btn_A
@@ -280,7 +280,7 @@ C - - - - 0x002221 02:A211: BD E8 B1  LDA tbl_B1E8,X
 C - - - - 0x002224 02:A214: 20 D8 A4  JSR sub_A4D8
 bra_A217:
 C - - - - 0x002227 02:A217: A9 01     LDA #$01
-C - - - - 0x002229 02:A219: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002229 02:A219: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x00222C 02:A21C: 20 D0 A3  JSR sub_A3D0
 C - - - - 0x00222F 02:A21F: A5 1C     LDA ram_удержанные
 C - - - - 0x002231 02:A221: 29 0F     AND #con_btns_Dpad
@@ -303,7 +303,7 @@ C - - - - 0x002250 02:A240: BD 6E BC  LDA tbl_BC6E_символы_пароля,X
 C - - - - 0x002253 02:A243: A6 ED     LDX ram_00ED
 C - - - - 0x002255 02:A245: BC 41 B2  LDY tbl_B241,X
 C - - - - 0x002258 02:A248: A2 21     LDX #$21
-C - - - - 0x00225A 02:A24A: 20 CA 88  JSR sub_0x0008DA
+C - - - - 0x00225A 02:A24A: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер_с_учетом_кодировки
 C - - - - 0x00225D 02:A24D: A9 12     LDA #$12
 C - - - - 0x00225F 02:A24F: 8D 01 07  STA ram_звук + 1
 loc_A252:
@@ -372,7 +372,7 @@ C - - - - 0x0022D5 02:A2C5: 8D 00 07  STA ram_звук
 C - - - - 0x0022D8 02:A2C8: A9 01     LDA #$01
 C - - - - 0x0022DA 02:A2CA: 85 7E     STA ram_007E
 C - - - - 0x0022DC 02:A2CC: A9 78     LDA #$78
-C - - - - 0x0022DE 02:A2CE: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x0022DE 02:A2CE: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0022E1 02:A2D1: A9 00     LDA #$00
 C - - - - 0x0022E3 02:A2D3: 85 7E     STA ram_007E
 C - - - - 0x0022E5 02:A2D5: A9 33     LDA #$33
@@ -748,7 +748,7 @@ C - - - - 0x00257C 02:A56C: 20 7A 99  JSR sub_0x00198A_запись_палитр
 C - - - - 0x00257F 02:A56F: A2 F0     LDX #$F0
 bra_A571:
 C - - - - 0x002581 02:A571: A9 01     LDA #$01
-C - - - - 0x002583 02:A573: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002583 02:A573: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002586 02:A576: A5 1E     LDA ram_одноразовые
 ; пропуск VS экрана
 ; con_btn_A
@@ -898,7 +898,7 @@ C - J - - 0x00268B 02:A67B: A6 26     LDA ram_матч
 C - - - - 0x002690 02:A680: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 bra_A683:
 C - - - - 0x002693 02:A683: A9 01     LDA #$01
-C - - - - 0x002695 02:A685: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002695 02:A685: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002698 02:A688: A5 4D     LDA ram_004D
 C - - - - 0x00269A 02:A68A: 05 4E     ORA ram_004E
 C - - - - 0x00269C 02:A68C: F0 D4     BEQ bra_A662
@@ -907,7 +907,7 @@ C - - - - 0x0026A0 02:A690: 29 10     AND #con_btn_Start
 C - - - - 0x0026A2 02:A692: F0 EF     BEQ bra_A683
 C - - - - 0x0026A4 02:A694: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - 0x0026A7 02:A697: A9 02     LDA #$02
-C - - - - 0x0026A9 02:A699: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x0026A9 02:A699: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0026AC 02:A69C: 4C 52 A6  JMP loc_A652
 
 ofs_A69F_01_пароль:
@@ -1075,7 +1075,7 @@ C - - - - 0x0027E0 02:A7D0: A2 AD     LDX #> tbl_ADA8_курсор_замены_
 C - - - - 0x0027E2 02:A7D2: 20 3A 9C  JSR sub_0x001C4A_отобразить_курсор
 bra_A7D5:
 C - - - - 0x0027E5 02:A7D5: A9 01     LDA #$01
-C - - - - 0x0027E7 02:A7D7: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x0027E7 02:A7D7: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0027EA 02:A7DA: 20 C9 9C  JSR sub_0x001CD9
 C - - - - 0x0027ED 02:A7DD: 24 1E     BIT ram_одноразовые
 ; con_btn_B
@@ -1091,7 +1091,7 @@ C - - - - 0x0027FF 02:A7EF: AD 60 05  LDA $0560
 C - - - - 0x002802 02:A7F2: 20 3C 9C  JSR sub_0x001C4C_отобразить_курсор_со_смещением
 bra_A7F5_кнопки_не_нажаты:
 C - - - - 0x002805 02:A7F5: A9 01     LDA #$01
-C - - - - 0x002807 02:A7F7: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002807 02:A7F7: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x00280A 02:A7FA: 20 C9 9C  JSR sub_0x001CD9
 C - - - - 0x00280D 02:A7FD: 24 1E     BIT ram_одноразовые
 ; con_btn_B
@@ -1221,7 +1221,7 @@ C - - - - 0x00290C 02:A8FC: A9 B8     LDA #$B8
 C - - - - 0x00290E 02:A8FE: 85 E6     STA ram_00E6
 bra_A900:
 C - - - - 0x002910 02:A900: A9 01     LDA #$01
-C - - - - 0x002912 02:A902: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002912 02:A902: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002915 02:A905: 20 C9 9C  JSR sub_0x001CD9
 C - - - - 0x002918 02:A908: 24 1E     BIT ram_одноразовые
 ; con_btn_B
@@ -1254,7 +1254,7 @@ C - - - - 0x002950 02:A940: A9 FF     LDA #$FF
 C - - - - 0x002952 02:A942: 85 E9     STA ram_00E9
 bra_A944:
 C - - - - 0x002954 02:A944: A9 01     LDA #$01
-C - - - - 0x002956 02:A946: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002956 02:A946: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002959 02:A949: 20 C9 9C  JSR sub_0x001CD9
 C - - - - 0x00295C 02:A94C: AD 50 04  LDA $0450
 C - - - - 0x00295F 02:A94F: C9 03     CMP #$03
@@ -1338,7 +1338,7 @@ bra_A9E2:
 C - - - - 0x0029F2 02:A9E2: A0 F4     LDY #$F4
 bra_A9E4:
 C - - - - 0x0029F4 02:A9E4: A9 01     LDA #$01
-C - - - - 0x0029F6 02:A9E6: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x0029F6 02:A9E6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0029F9 02:A9E9: 20 C9 9C  JSR sub_0x001CD9
 C - - - - 0x0029FC 02:A9EC: 24 1E     BIT ram_одноразовые
 ; con_btn_B
@@ -1536,7 +1536,7 @@ C - - - - 0x002B5D 02:AB4D: A9 B8     LDA #$B8
 C - - - - 0x002B5F 02:AB4F: 85 E6     STA ram_00E6
 bra_AB51:
 C - - - - 0x002B61 02:AB51: A9 01     LDA #$01
-C - - - - 0x002B63 02:AB53: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002B63 02:AB53: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002B66 02:AB56: 20 71 9C  JSR sub_0x001C81
 C - - - - 0x002B69 02:AB59: A5 2A     LDA ram_твоя_команда
 C - - - - 0x002B6B 02:AB5B: C9 02     CMP #$02
@@ -1650,7 +1650,7 @@ bra_AC2E_закончить_запись_чисел:
 C - - - - 0x002C3E 02:AC2E: 20 7E 99  JSR sub_0x00198E_запись_палитры_фона_и_спрайтов
 bra_AC31_B_не_нажата:
 C - - - - 0x002C41 02:AC31: A9 01     LDA #$01
-C - - - - 0x002C43 02:AC33: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002C43 02:AC33: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002C46 02:AC36: 24 1E     BIT ram_одноразовые
 ; con_btn_B
 C - - - - 0x002C48 02:AC38: 50 03     BVC bra_AC3D_A_не_нажата
@@ -1719,7 +1719,7 @@ C - - - - 0x002CB4 02:ACA4: C9 FC     CMP #$FC
 C - - - - 0x002CB6 02:ACA6: B0 16     BCS bra_ACBE
 C - - - - 0x002CB8 02:ACA8: A4 E8     LDY ram_00E8
 C - - - - 0x002CBA 02:ACAA: A6 E9     LDX ram_00E9
-C - - - - 0x002CBC 02:ACAC: 20 CA 88  JSR sub_0x0008DA
+C - - - - 0x002CBC 02:ACAC: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер_с_учетом_кодировки
 C - - - - 0x002CBF 02:ACAF: E6 30     INC ram_0030
 C - - - - 0x002CC1 02:ACB1: D0 02     BNE bra_ACB5
 - - - - - 0x002CC3 02:ACB3: E6 31     INC ram_0031
@@ -1814,7 +1814,7 @@ C - - - - 0x002D67 02:AD57: A5 8F     LDA ram_008F
 C - - - - 0x002D69 02:AD59: 85 91     STA ram_0091
 bra_AD5B:
 C - - - - 0x002D6B 02:AD5B: A9 01     LDA #$01
-C - - - - 0x002D6D 02:AD5D: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002D6D 02:AD5D: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002D70 02:AD60: 24 1E     BIT ram_одноразовые
 ; con_btn_B
 C - - - - 0x002D72 02:AD62: 70 14     BVS bra_AD78
@@ -1824,7 +1824,7 @@ C - - - - 0x002D76 02:AD66: A9 00     LDA #$00
 C - - - - 0x002D78 02:AD68: 85 7E     STA ram_007E
 bra_AD6A:
 C - - - - 0x002D7A 02:AD6A: A9 01     LDA #$01
-C - - - - 0x002D7C 02:AD6C: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002D7C 02:AD6C: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002D7F 02:AD6F: 24 1E     BIT ram_одноразовые
 ; con_btn_B
 C - - - - 0x002D81 02:AD71: 70 D8     BVS bra_AD4B
@@ -1836,7 +1836,7 @@ C - - - - 0x002D88 02:AD78: A9 00     LDA #$00
 C - - - - 0x002D8A 02:AD7A: 85 7E     STA ram_007E
 bra_AD7C:
 C - - - - 0x002D8C 02:AD7C: A9 01     LDA #$01
-C - - - - 0x002D8E 02:AD7E: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002D8E 02:AD7E: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002D91 02:AD81: 24 1E     BIT ram_одноразовые
 ; con_btn_A
 C - - - - 0x002D93 02:AD83: 30 C6     BMI bra_AD4B
@@ -2012,7 +2012,7 @@ C - - - - 0x002E4C 02:AE3C: A5 2C     LDA ram_расстановка_слева
 C - - - - 0x002E4E 02:AE3E: 85 E6     STA ram_00E6
 bra_AE40:
 C - - - - 0x002E50 02:AE40: A9 01     LDA #$01
-C - - - - 0x002E52 02:AE42: 20 A8 9F  JSR sub_0x001FB8
+C - - - - 0x002E52 02:AE42: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002E55 02:AE45: A5 1E     LDA ram_одноразовые
 C - - - - 0x002E57 02:AE47: 29 0C     AND #con_btn_Down + con_btn_Up
 C - - - - 0x002E59 02:AE49: F0 1C     BEQ bra_AE67
@@ -2160,7 +2160,7 @@ bra_AF21:
 C - - - - 0x002F31 02:AF21: 8A        TXA
 C - - - - 0x002F32 02:AF22: A4 E6     LDY ram_00E6
 C - - - - 0x002F34 02:AF24: A6 E7     LDX ram_00E7
-C - - - - 0x002F36 02:AF26: 20 CA 88  JSR sub_0x0008DA
+C - - - - 0x002F36 02:AF26: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер_с_учетом_кодировки
 C - - - - 0x002F39 02:AF29: E6 E6     INC ram_00E6
 C - - - - 0x002F3B 02:AF2B: C6 ED     DEC ram_00ED
 C - - - - 0x002F3D 02:AF2D: D0 E1     BNE bra_AF10
@@ -2893,8 +2893,6 @@ tbl_B2ED:
 - - - - - 0x00330B 02:B2FB: 00        .byte $00
 - - - - - 0x00330C 02:B2FC: 00        .byte $00
 
-
-
 tbl_B2FD:
 - D - - - 0x00330D 02:B2FD: 40        .byte $40	; <「>
 - D - - - 0x00330E 02:B2FE: 01        .byte $01	; <あ>
@@ -2904,8 +2902,6 @@ tbl_B2FD:
 - D - - - 0x003312 02:B302: 01        .byte $01	; <あ>
 - D - - - 0x003313 02:B303: 00        .byte $00
 - D - - - 0x003314 02:B304: 50        .byte $50	; <タ>
-
-
 
 tbl_B305_экран_номера_матча:
 - D - I - 0x003315 02:B305: 0D        .byte $0D	; <す>

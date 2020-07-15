@@ -2470,7 +2470,7 @@ C - - - - 0x03D580 FF:D570: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 sub_D573:
 C - - - - 0x03D583 FF:D573: A9 00     LDA #$00
 C - - - - 0x03D585 FF:D575: 8D 2D 06  STA $062D
-C - - - - 0x03D588 FF:D578: 8D 28 06  STA $0628
+C - - - - 0x03D588 FF:D578: 8D 28 06  STA ram_индекс_буфера
 C - - - - 0x03D58B FF:D57B: 20 77 CD  JSR sub_CD77
 C - - - - 0x03D58E FF:D57E: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03D590 FF:D580: B1 34     LDA (ram_plr_data),Y
@@ -3810,7 +3810,7 @@ C - - - - 0x03DE2A FF:DE1A: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03DE2C FF:DE1C: A9 00     LDA #$00
 C - - - - 0x03DE2E FF:DE1E: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03DE30 FF:DE20: A9 00     LDA #$00
-C - - - - 0x03DE32 FF:DE22: 8D 28 06  STA $0628
+C - - - - 0x03DE32 FF:DE22: 8D 28 06  STA ram_индекс_буфера
 C - - - - 0x03DE35 FF:DE25: 8D 4E 04  STA ram_высота_мяча
 C - - - - 0x03DE38 FF:DE28: 20 DF DC  JSR sub_DCDF
 C - - - - 0x03DE3B FF:DE2B: A9 01     LDA #$01
@@ -3829,7 +3829,7 @@ loc_0x03DE62:
 .export ofs_0x03DE62
 ofs_0x03DE62:
 C D - - - 0x03DE62 FF:DE52: A9 FF     LDA #$FF
-C - - - - 0x03DE64 FF:DE54: 2C 28 06  BIT $0628
+C - - - - 0x03DE64 FF:DE54: 2C 28 06  BIT ram_индекс_буфера
 C - - - - 0x03DE67 FF:DE57: 10 02     BPL bra_DE5B
 C - - - - 0x03DE69 FF:DE59: A9 26     LDA #$26
 bra_DE5B:
