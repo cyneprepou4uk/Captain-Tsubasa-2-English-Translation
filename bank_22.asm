@@ -1900,10 +1900,10 @@ C - - - - 0x030B64 22:8B54: 65 47     ADC ram_0047
 C - - - - 0x030B66 22:8B56: AA        TAX
 C - - - - 0x030B67 22:8B57: BD 72 8B  LDA tbl_8B72_текст_периода_матча,X
 C - - - - 0x030B6A 22:8B5A: C9 FF     CMP #$FF
-C - - - - 0x030B6C 22:8B5C: F0 09     BEQ bra_8B67
+C - - - - 0x030B6C 22:8B5C: F0 09     BEQ bra_8B67_пропуск_записи
 C - - - - 0x030B71 22:8B61: 20 9F 8C  JSR sub_8C9F_записать_символ_в_буфер_и_увеличить_индекс
 C - - - - 0x030B74 22:8B64: 4C 69 8B  JMP loc_8B69
-bra_8B67:
+bra_8B67_пропуск_записи:
 C - - - - 0x030B77 22:8B67: E6 3D     INC ram_003D
 loc_8B69:
 C D - - - 0x030B79 22:8B69: E6 47     INC ram_0047
@@ -1915,36 +1915,20 @@ C - - - - 0x030B81 22:8B71: 60        RTS
 
 
 tbl_8B72_текст_периода_матча:
-- D - - - 0x030B82 22:8B72: FF        .byte $FF
-- D - - - 0x030B83 22:8B73: A8        .byte $A8	; <ぜ>
-- D - - - 0x030B84 22:8B74: 2E        .byte $2E	; <ん>
-- D - - - 0x030B85 22:8B75: FF        .byte $FF
-- D - - - 0x030B86 22:8B76: FF        .byte $FF
-
-- D - - - 0x030B87 22:8B77: FF        .byte $FF
-- D - - - 0x030B88 22:8B78: 0A        .byte $0A	; <こ>
-- D - - - 0x030B89 22:8B79: 03        .byte $03	; <う>
-- D - - - 0x030B8A 22:8B7A: FF        .byte $FF
-- D - - - 0x030B8B 22:8B7B: FF        .byte $FF
-
-- D - - - 0x030B8C 22:8B7C: 04        .byte $04	; <え>
-- D - - - 0x030B8D 22:8B7D: 2E        .byte $2E	; <ん>
-- D - - - 0x030B8E 22:8B7E: 00        .byte $00
-- D - - - 0x030B8F 22:8B7F: A8        .byte $A8	; <ぜ>
-- D - - - 0x030B90 22:8B80: 2E        .byte $2E	; <ん>
-
-- D - - - 0x030B91 22:8B81: 04        .byte $04	; <え>
-- D - - - 0x030B92 22:8B82: 2E        .byte $2E	; <ん>
-- D - - - 0x030B93 22:8B83: 00        .byte $00
-- D - - - 0x030B94 22:8B84: 0A        .byte $0A	; <こ>
-- D - - - 0x030B95 22:8B85: 03        .byte $03	; <う>
-
-- - - - - 0x030B96 22:8B86: FF        .byte $FF
-- - - - - 0x030B97 22:8B87: 8D        .byte $8D	; <P>
-- - - - - 0x030B98 22:8B88: 8B        .byte $8B	; <K>
-- - - - - 0x030B99 22:8B89: FF        .byte $FF
-- - - - - 0x030B9A 22:8B8A: FF        .byte $FF
-
+	.byte $FF
+	.text "1st"
+	.byte $FF
+	
+	.byte $FF
+	.text "2nd"
+	.byte $FF
+	
+	.text "E.T.1"
+	
+	.text "E.T.2"
+	
+	.text "P.K."
+	.byte $FF
 
 
 
