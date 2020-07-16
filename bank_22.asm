@@ -2160,7 +2160,7 @@ C - - - - 0x030CC4 22:8CB4: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x030CC6 22:8CB6: AA        TAX
 C - - - - 0x030CC7 22:8CB7: 88        DEY
 C - - - - 0x030CC8 22:8CB8: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x030CCA 22:8CBA: 4C D9 8C  JMP loc_8CD9
+C - - - - 0x030CCA 22:8CBA: 4C D9 8C  JMP loc_8C55
 bra_8CBD:
 C - - - - 0x030CCD 22:8CBD: 29 7F     AND #$7F
 C - - - - 0x030CCF 22:8CBF: C9 07     CMP #$07
@@ -2178,8 +2178,6 @@ C - - - - 0x030CE1 22:8CD1: 68        PLA
 C - - - - 0x030CE2 22:8CD2: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
 C - - - - 0x030CE5 22:8CD5: A5 32     LDA ram_0032
 C - - - - 0x030CE7 22:8CD7: A6 33     LDX ram_0033
-; bzk
-loc_8CD9:
 C D - - - 0x030CE9 22:8CD9: 4C 55 8C  JMP loc_8C55
 
 loc_8CDC:
