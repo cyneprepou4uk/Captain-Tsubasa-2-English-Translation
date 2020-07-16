@@ -226,7 +226,7 @@ C - - - - 0x03C721 FF:C711: 20 02 CC  JSR sub_CC02
 C - - - - 0x03C724 FF:C714: 20 D2 CC  JSR sub_CCD3
 C - - - - 0x03C72A FF:C71A: A2 07     LDX #$07
 bra_C71C:
-C - - - - 0x03C72C FF:C71C: BD 66 C7  LDA tbl_C766,X
+C - - - - 0x03C72C FF:C71C: BD 66 C7  LDA tbl_C766_базовое_имя_безымянного_игрока,X
 C - - - - 0x03C72F FF:C71F: 9D EB 05  STA $05EB,X
 C - - - - 0x03C732 FF:C722: CA        DEX
 C - - - - 0x03C733 FF:C723: 10 F7     BPL bra_C71C
@@ -261,15 +261,9 @@ C - - - - 0x03C76E FF:C75E: 85 19     STA ram_0019
 C - - - - 0x03C770 FF:C760: 8D 00 20  STA $2000
 C - - - - 0x03C773 FF:C763: 4C 97 CA  JMP loc_CA97
 
-tbl_C766:
-- D - - - 0x03C776 FF:C766: 13        .byte $13	; <て>
-- D - - - 0x03C777 FF:C767: 07        .byte $07	; <き>
-- D - - - 0x03C778 FF:C768: 19        .byte $19	; <の>
-- D - - - 0x03C779 FF:C769: 00        .byte $00
-- D - - - 0x03C77A FF:C76A: 00        .byte $00
-- D - - - 0x03C77B FF:C76B: AF        .byte $AF	; <ば>
-- D - - - 0x03C77C FF:C76C: 2E        .byte $2E	; <ん>
-- D - - - 0x03C77D FF:C76D: FD        .byte $FD
+tbl_C766_базовое_имя_безымянного_игрока:
+	.text "En. #00"
+	.byte $FD
 
 vec_C500_обработчик_NMI:
 C D - - - 0x03C77E FF:C76E: 24 1B     BIT ram_001B
