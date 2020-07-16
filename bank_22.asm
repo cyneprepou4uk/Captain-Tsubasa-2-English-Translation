@@ -15186,7 +15186,7 @@ off_BBE3_имя_команды_справа:
 - D - I - 0x033BF5 22:BBE5: FC        .byte $FC
 
 off_BBE6_action:
-	;.text "Action"
+	.text "Action"
 - D - I - 0x033BFC 22:BBEC: FC        .byte $FC
 
 off_BBED_текст_кому_пас_вопрос:
