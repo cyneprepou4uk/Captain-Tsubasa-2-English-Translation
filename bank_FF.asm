@@ -1898,7 +1898,7 @@ bra_D1C7:
 C - - - - 0x03D1D7 FF:D1C7: 8D F8 05  STA ram_время_hi
 C - - - - 0x03D1DA FF:D1CA: 8E F7 05  STX ram_время_lo
 C - - - - 0x03D1DD FF:D1CD: A9 00     LDA #$00
-C - - - - 0x03D1DF FF:D1CF: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D1DF FF:D1CF: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D1E2 FF:D1D2: 2C 3E 06  BIT ram_флаг_loss
 C - - - - 0x03D1E5 FF:D1D5: 30 14     BMI bra_D1EB_сейчас_не_loss
 C - - - - 0x03D1E7 FF:D1D7: AD F7 05  LDA ram_время_lo
@@ -2025,10 +2025,10 @@ loc_D29A_отрисовка_меню_для_киперов:
 ; сработало когда появляется рожа кипера чтобы выбрать действие
 C D - - - 0x03D2AA FF:D29A: AE 21 06  LDX $0621
 C - - - - 0x03D2AD FF:D29D: BD 59 D3  LDA tbl_D35C_окно_с_действием - 3,X
-C - - - - 0x03D2B0 FF:D2A0: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D2B0 FF:D2A0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D2B3 FF:D2A3: AE 21 06  LDX $0621
 C - - - - 0x03D2B6 FF:D2A6: BD 5C D3  LDA tbl_D35F_статы_кипера - 3,X
-C - - - - 0x03D2B9 FF:D2A9: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D2B9 FF:D2A9: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D2BC FF:D2AC: A9 00     LDA #$00
 C - - - - 0x03D2BE FF:D2AE: 8D 3E 04  STA $043E
 C - - - - 0x03D2C1 FF:D2B1: 8D 1E 06  STA $061E
@@ -2184,7 +2184,7 @@ C - - - - 0x03D3AB FF:D39B: F0 06     BEQ bra_D3A3
 C - - - - 0x03D3AD FF:D39D: AE 21 06  LDX $0621
 C - - - - 0x03D3B0 FF:D3A0: BD 52 D5  LDA tbl_D552,X
 bra_D3A3:
-C - - - - 0x03D3B3 FF:D3A3: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D3B3 FF:D3A3: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 loc_D3A6:
 C D - - - 0x03D3B6 FF:D3A6: A9 01     LDA #$01
 C - - - - 0x03D3B8 FF:D3A8: 20 0F CB  JSR sub_CB0F
@@ -2218,7 +2218,7 @@ C - - - - 0x03D3F6 FF:D3E6: AD 30 04  LDA $0430
 C - - - - 0x03D3F9 FF:D3E9: F0 39     BEQ bra_D424
 C - - - - 0x03D3FB FF:D3EB: 18        CLC
 C - - - - 0x03D3FC FF:D3EC: 69 0B     ADC #$0B
-C - - - - 0x03D3FE FF:D3EE: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D3FE FF:D3EE: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D401 FF:D3F1: 20 7A D7  JSR sub_D77A
 C - - - - 0x03D404 FF:D3F4: 0A        ASL
 C - - - - 0x03D405 FF:D3F5: 08        PHP
@@ -2239,7 +2239,7 @@ C - - - - 0x03D422 FF:D412: AD 1E 06  LDA $061E
 C - - - - 0x03D425 FF:D415: CD 00 06  CMP $0600
 C - - - - 0x03D428 FF:D418: F0 05     BEQ bra_D41F
 C - - - - 0x03D42A FF:D41A: A9 16     LDA #$16
-C - - - - 0x03D42C FF:D41C: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D42C FF:D41C: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D41F:
 C - - - - 0x03D42F FF:D41F: 28        PLP
 C - - - - 0x03D430 FF:D420: B0 16     BCS bra_D438
@@ -2346,7 +2346,7 @@ sub_D4EA:
 C - - - - 0x03D4FA FF:D4EA: AD 00 06  LDA $0600
 C - - - - 0x03D4FD FF:D4ED: 18        CLC
 C - - - - 0x03D4FE FF:D4EE: 69 11     ADC #$11
-C - - - - 0x03D500 FF:D4F0: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D500 FF:D4F0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D503 FF:D4F3: A9 00     LDA #$00
 bra_D4F5:
 C - - - - 0x03D505 FF:D4F5: 48        PHA
@@ -2522,10 +2522,10 @@ C - - - - 0x03D5DB FF:D5CB: 4C 6E D3  JMP loc_D36E
 bra_D5CE:
 C - - - - 0x03D5DE FF:D5CE: AE 21 06  LDX $0621
 C - - - - 0x03D5E1 FF:D5D1: BD 06 D7  LDA tbl_D706,X
-C - - - - 0x03D5E4 FF:D5D4: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D5E4 FF:D5D4: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D5E7 FF:D5D7: AE 21 06  LDX $0621
 C - - - - 0x03D5EA FF:D5DA: BD 00 D7  LDA tbl_D700,X
-C - - - - 0x03D5ED FF:D5DD: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D5ED FF:D5DD: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D5F0 FF:D5E0: A9 00     LDA #$00
 C - - - - 0x03D5F2 FF:D5E2: 8D 1E 06  STA $061E
 bra_D5E5:
@@ -2631,7 +2631,7 @@ C - - - - 0x03D6BB FF:D6AB: AD 30 04  LDA $0430
 C - - - - 0x03D6BE FF:D6AE: F0 0E     BEQ bra_D6BE
 C - - - - 0x03D6C0 FF:D6B0: 18        CLC
 C - - - - 0x03D6C1 FF:D6B1: 69 08     ADC #$08
-C - - - - 0x03D6C3 FF:D6B3: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D6C3 FF:D6B3: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D6C6 FF:D6B6: 20 7A D7  JSR sub_D77A
 C - - - - 0x03D6C9 FF:D6B9: 0A        ASL
 C - - - - 0x03D6CA FF:D6BA: 90 01     BCC bra_D6BD
@@ -2848,7 +2848,7 @@ ofs_D7E8_F1:
 C D J - - 0x03D7F8 FF:D7E8: A9 38     LDA #$38
 C - - - - 0x03D7FA FF:D7EA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03D7FD FF:D7ED: A9 0F     LDA #$0F
-C - - - - 0x03D7FF FF:D7EF: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D7FF FF:D7EF: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D802 FF:D7F2: A9 81     LDA #$81
 C - - - - 0x03D804 FF:D7F4: 8D 2D 06  STA $062D
 C - - - - 0x03D807 FF:D7F7: A9 1F     LDA #$1F
@@ -2918,7 +2918,7 @@ bra_D868:
 C - - - - 0x03D878 FF:D868: AD 30 04  LDA $0430
 C - - - - 0x03D87B FF:D86B: 18        CLC
 C - - - - 0x03D87C FF:D86C: 69 22     ADC #$22
-C - - - - 0x03D87E FF:D86E: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D87E FF:D86E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D881 FF:D871: A9 00     LDA #$00
 C - - - - 0x03D883 FF:D873: 8D 25 06  STA $0625
 C - - - - 0x03D886 FF:D876: 4C B5 D8  JMP loc_D8B5
@@ -2929,7 +2929,7 @@ C - - - - 0x03D88E FF:D87E: A9 40     LDA #con_btn_B
 C - - - - 0x03D890 FF:D880: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D893 FF:D883: F0 0A     BEQ bra_D88F
 - - - - - 0x03D895 FF:D885: A9 0F     LDA #$0F
-- - - - - 0x03D897 FF:D887: 20 7F EF  JSR sub_EF7F
+- - - - - 0x03D897 FF:D887: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 - - - - - 0x03D89A FF:D88A: 20 F7 D8  JSR sub_D8F7
 - - - - - 0x03D89D FF:D88D: 18        CLC
 - - - - - 0x03D89E FF:D88E: 60        RTS
@@ -2959,7 +2959,7 @@ C D - - - 0x03D8C5 FF:D8B5: AE 25 06  LDX $0625
 C - - - - 0x03D8C8 FF:D8B8: BD 31 04  LDA $0431,X
 C - - - - 0x03D8CB FF:D8BB: 8D FC 05  STA ram_принимающий
 C - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #$1D
-C - - - - 0x03D8D0 FF:D8C0: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D8D0 FF:D8C0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D8C3:
 C - - - - 0x03D8D3 FF:D8C3: 20 DA D8  JSR sub_D8DA
 C - - - - 0x03D8D6 FF:D8C6: A9 80     LDA #con_btn_A
@@ -3038,7 +3038,7 @@ C - - - - 0x03D957 FF:D947: D0 B6     BNE bra_D8FF
 C - - - - 0x03D959 FF:D949: AE 30 04  LDX $0430
 C - - - - 0x03D95C FF:D94C: D0 06     BNE bra_D954
 C - - - - 0x03D95E FF:D94E: A9 1C     LDA #$1C
-C - - - - 0x03D960 FF:D950: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D960 FF:D950: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D963 FF:D953: 60        RTS
 bra_D954:
 C - - - - 0x03D964 FF:D954: AD 25 06  LDA $0625
@@ -3046,7 +3046,7 @@ C - - - - 0x03D967 FF:D957: D0 08     BNE bra_D961
 C - - - - 0x03D969 FF:D959: 8A        TXA
 C - - - - 0x03D96A FF:D95A: 18        CLC
 C - - - - 0x03D96B FF:D95B: 69 1F     ADC #$1F
-C - - - - 0x03D96D FF:D95D: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D96D FF:D95D: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D970 FF:D960: 60        RTS
 bra_D961:
 C - - - - 0x03D971 FF:D961: CA        DEX
@@ -3054,13 +3054,13 @@ C - - - - 0x03D972 FF:D962: D0 0C     BNE bra_D970
 C - - - - 0x03D974 FF:D964: AD 31 04  LDA $0431
 C - - - - 0x03D977 FF:D967: 8D FC 05  STA ram_принимающий
 C - - - - 0x03D97A FF:D96A: A9 1D     LDA #$1D
-C - - - - 0x03D97C FF:D96C: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D97C FF:D96C: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D97F FF:D96F: 60        RTS
 bra_D970:
 C - - - - 0x03D980 FF:D970: 8A        TXA
 C - - - - 0x03D981 FF:D971: 18        CLC
 C - - - - 0x03D982 FF:D972: 69 18     ADC #$18
-C - - - - 0x03D984 FF:D974: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D984 FF:D974: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D987 FF:D977: 60        RTS
 
 ofs_D979_F3:
@@ -3093,7 +3093,7 @@ C - - - - 0x03D9BF FF:D9AF: D0 E1     BNE bra_D992
 C - - - - 0x03D9C1 FF:D9B1: AD 30 04  LDA $0430
 C - - - - 0x03D9C4 FF:D9B4: D0 12     BNE bra_D9C8
 C - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #$11
-C - - - - 0x03D9C8 FF:D9B8: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D9C8 FF:D9B8: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D9BB:
 C - - - - 0x03D9CB FF:D9BB: A9 01     LDA #$01
 C - - - - 0x03D9CD FF:D9BD: 20 0F CB  JSR sub_CB0F
@@ -3103,7 +3103,7 @@ C - - - - 0x03D9D5 FF:D9C5: F0 F4     BEQ bra_D9BB
 C - - - - 0x03D9D7 FF:D9C7: 60        RTS
 bra_D9C8:
 C - - - - 0x03D9D8 FF:D9C8: A9 10     LDA #$10
-C - - - - 0x03D9DA FF:D9CA: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03D9DA FF:D9CA: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D9DD FF:D9CD: A9 82     LDA #$82
 C - - - - 0x03D9DF FF:D9CF: 8D 2D 06  STA $062D
 C - - - - 0x03D9E2 FF:D9D2: A9 1F     LDA #$1F
@@ -3139,7 +3139,7 @@ C - - - - 0x03DA16 FF:DA06: AA        TAX
 C - - - - 0x03DA17 FF:DA07: BD 31 04  LDA $0431,X
 C - - - - 0x03DA1A FF:DA0A: 8D FC 05  STA ram_принимающий
 C - - - - 0x03DA1D FF:DA0D: A9 1D     LDA #$1D
-C - - - - 0x03DA1F FF:DA0F: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03DA1F FF:DA0F: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_DA12:
 C - - - - 0x03DA22 FF:DA12: A9 40     LDA #con_btn_B
 C - - - - 0x03DA24 FF:DA14: 2D 1E 00  AND ram_одноразовые
@@ -3241,9 +3241,9 @@ C - - - - 0x03DAD0 FF:DAC0: 68        PLA
 C - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x03505E
 C - - - - 0x03DAD4 FF:DAC4: 20 24 DB  JSR sub_DB24
 C - - - - 0x03DAD7 FF:DAC7: A9 00     LDA #$00
-C - - - - 0x03DAD9 FF:DAC9: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03DAD9 FF:DAC9: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DADC FF:DACC: A9 01     LDA #$01
-C - - - - 0x03DADE FF:DACE: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03DADE FF:DACE: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DAE1 FF:DAD1: AD 29 06  LDA $0629
 C - - - - 0x03DAE4 FF:DAD4: C9 04     CMP #$04
 C - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9
@@ -4177,9 +4177,9 @@ C - - - - 0x03E0EE FF:E0DE: 60        RTS
 loc_0x03E0EF:
 loc_E0DF:
 C D - - - 0x03E0EF FF:E0DF: A9 00     LDA #$00
-C - - - - 0x03E0F1 FF:E0E1: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03E0F1 FF:E0E1: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03E0F4 FF:E0E4: A9 01     LDA #$01
-C - - - - 0x03E0F6 FF:E0E6: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03E0F6 FF:E0E6: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03E0F9 FF:E0E9: 20 33 E2  JSR sub_E233
 C - - - - 0x03E0FC FF:E0EC: A9 0A     LDA #$0A
 C - - - - 0x03E0FE FF:E0EE: 8D 14 06  STA $0614
@@ -4362,13 +4362,13 @@ sub_E267:
 C - - - - 0x03E277 FF:E267: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x03E27A FF:E26A: F0 0B     BEQ bra_E277
 C - - - - 0x03E27C FF:E26C: A9 31     LDA #$31
-C - - - - 0x03E27E FF:E26E: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03E27E FF:E26E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03E281 FF:E271: A9 32     LDA #$32
-C - - - - 0x03E283 FF:E273: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03E283 FF:E273: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03E286 FF:E276: 60        RTS
 bra_E277:
 C - - - - 0x03E287 FF:E277: A9 30     LDA #$30
-C - - - - 0x03E289 FF:E279: 20 7F EF  JSR sub_EF7F
+C - - - - 0x03E289 FF:E279: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03E28C FF:E27C: 60        RTS
 
 sub_E27D:
@@ -6394,9 +6394,9 @@ tbl_EF73:
 - D - - - 0x03EF8B FF:EF7B: 9B 05     .word $059B
 - D - - - 0x03EF8D FF:EF7D: B0 05     .word $05B0
 
-.export sub_0x03EF8F
-sub_0x03EF8F:
-sub_EF7F:
+.export sub_0x03EF8F_отрисовка_меню_во_время_матча
+sub_0x03EF8F_отрисовка_меню_во_время_матча:
+sub_EF7F_отрисовка_меню_во_время_матча:
 C D - - - 0x03EF8F FF:EF7F: A8        TAY
 C - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_для_8001_06
 C - - - - 0x03EF92 FF:EF82: 48        PHA
@@ -6410,7 +6410,7 @@ C - - - - 0x03EF9E FF:EF8E: A9 19     LDA #$19
 C - - - - 0x03EFA0 FF:EF90: 85 25     STA ram_для_8001_07
 C - - - - 0x03EFA2 FF:EF92: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EFA5 FF:EF95: 68        PLA
-C - - - - 0x03EFA6 FF:EF96: 20 0C 80  JSR sub_0x030861
+C - - - - 0x03EFA6 FF:EF96: 20 0C 80  JSR sub_0x030861_отрисовка_меню_во_время_матча
 C - - - - 0x03EFA9 FF:EF99: 68        PLA
 C - - - - 0x03EFAA FF:EF9A: 85 25     STA ram_для_8001_07
 C - - - - 0x03EFAC FF:EF9C: 68        PLA
