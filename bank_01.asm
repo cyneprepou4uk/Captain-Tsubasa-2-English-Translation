@@ -4484,7 +4484,7 @@ bra_9CB3:
 C D - - - 0x001CC3 01:9CB3: A9 01     LDA #$01
 C - - - - 0x001CC5 01:9CB5: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - 0x001CC8 01:9CB8: A6 1C     LDX ram_удержанные
-C - - - - 0x001CCA 01:9CBA: BD E2 9E  LDA tbl_9EE2,X
+C - - - - 0x001CCA 01:9CBA: BD E2 9E  LDA tbl_9EE2_кнопка_вверх_или_вниз,X
 C - - - - 0x001CCD 01:9CBD: F0 09     BEQ bra_9CC8_выход
 C - - - - 0x001CCF 01:9CBF: C6 E8     DEC ram_00E8
 C - - - - 0x001CD1 01:9CC1: D0 F0     BNE bra_9CB3
@@ -4522,7 +4522,7 @@ ram_max_Y = ram_00E6
 ram_min_Y = ram_00E7
 C - - - - 0x001CF7 01:9CE7: 29 0F     AND #con_btns_Dpad
 C - - - - 0x001CF9 01:9CE9: AA        TAX
-C - - - - 0x001CFA 01:9CEA: BD E2 9E  LDA tbl_9EE2,X
+C - - - - 0x001CFA 01:9CEA: BD E2 9E  LDA tbl_9EE2_кнопка_вверх_или_вниз,X
 C - - - - 0x001CFD 01:9CED: F0 17     BEQ bra_9D06_нужная_кнопка_не_нажата
 C - - - - 0x001CFF 01:9CEF: 18        CLC
 C - - - - 0x001D00 01:9CF0: 79 68 04  ADC ram_копия_спрайт_Y,Y
@@ -4832,6 +4832,7 @@ C - - - - 0x001EAF 01:9E9F: 85 EC     STA ram_00EC
 C - - - - 0x001EB1 01:9EA1: 60        RTS
 
 tbl_9EA2:
+; 64 байта
 - D - - - 0x001EB2 01:9EA2: 0F        .byte $0F	; <そ>
 - D - - - 0x001EB3 01:9EA3: 00        .byte $00
 - D - - - 0x001EB4 01:9EA4: 00        .byte $00
@@ -4897,18 +4898,18 @@ tbl_9EA2:
 - D - - - 0x001EF0 01:9EE0: 30        .byte $30	; <ゃ>
 - D - - - 0x001EF1 01:9EE1: 30        .byte $30	; <ゃ>
 
-tbl_9EE2:
-- D - - - 0x001EF2 01:9EE2: 00        .byte $00
-- D - - - 0x001EF3 01:9EE3: 00        .byte $00
-- D - - - 0x001EF4 01:9EE4: 00        .byte $00
-- - - - - 0x001EF5 01:9EE5: 00        .byte $00
-- D - - - 0x001EF6 01:9EE6: 10        .byte $10	; Down
-- D - - - 0x001EF7 01:9EE7: 00        .byte $00
-- - - - - 0x001EF8 01:9EE8: 00        .byte $00
-- - - - - 0x001EF9 01:9EE9: 00        .byte $00
-- D - - - 0x001EFA 01:9EEA: F0        .byte $F0 ; Up
-- - - - - 0x001EFB 01:9EEB: 00        .byte $00
-- - - - - 0x001EFC 01:9EEC: 00        .byte $00
+tbl_9EE2_кнопка_вверх_или_вниз:
+	.byte $00
+	.byte $00
+	.byte $00
+	.byte $00
+	.byte $10	; Down
+	.byte $00
+	.byte $00
+	.byte $00
+	.byte $F0	; Up
+	.byte $00
+	.byte $00
 
 .export loc_0x001EFD
 loc_0x001EFD:
