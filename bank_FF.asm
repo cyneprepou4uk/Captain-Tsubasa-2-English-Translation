@@ -613,6 +613,7 @@ C - - - - 0x03CA31 FF:CA21: 60        RTS
 
 ofs_CA22_minus:
 ofs_CA22 = ofs_CA22_minus - 1
+; срабатывает перед началом матча после каждого тайма
 C - - - - 0x03CA32 FF:CA22: A5 21     LDA ram_для_2001
 C - - - - 0x03CA34 FF:CA24: 09 1E     ORA #$1E
 C - - - - 0x03CA36 FF:CA26: 85 21     STA ram_для_2001
@@ -5991,6 +5992,10 @@ C - - - - 0x03ECC7 FF:ECB7: AD 26 05  LDA $0526
 C - - - - 0x03ECCA FF:ECBA: 10 0E     BPL bra_ECCA
 C - - - - 0x03ECCC FF:ECBC: 29 7F     AND #$7F
 C - - - - 0x03ECCE FF:ECBE: 8D 26 05  STA $0526
+                                      BNE bra_ECC1
+									  LDX ram_матч
+									  LDA tbl_0x040000_банки_CHR_с_сокращенными_именами,X
+bra_ECC1:
 C - - - - 0x03ECD1 FF:ECC1: 8D 90 04  STA $0490
 C - - - - 0x03ECD4 FF:ECC4: AD 27 05  LDA $0527
 C - - - - 0x03ECD7 FF:ECC7: 8D 91 04  STA $0491
