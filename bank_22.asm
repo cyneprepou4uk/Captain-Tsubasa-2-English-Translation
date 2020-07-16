@@ -1644,8 +1644,8 @@ C - - - - 0x0309C7 22:89B7: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0309E2 22:89D2: DF 8A     .word ofs_8ADF_EC
 - D - I - 0x0309E4 22:89D4: E7 8A     .word ofs_8AE7_ED
 - D - I - 0x0309E6 22:89D6: 2F 8B     .word ofs_8B2F_EE
-- D - I - 0x0309E8 22:89D8: 48 8B     .word ofs_8B48_EF
-- D - I - 0x0309EA 22:89DA: 8B 8B     .word ofs_8B8B_F0
+- D - I - 0x0309E8 22:89D8: 48 8B     .word ofs_8B48_EF_номер_тайма
+- D - I - 0x0309EA 22:89DA: 8B 8B     .word ofs_8B8B_F0_время_тайма
 - D - I - 0x0309EC 22:89DC: D5 8B     .word ofs_8BD5_F1
 - D - I - 0x0309EE 22:89DE: DE 8B     .word ofs_8BDE_F2
 - - - - - 0x0309F0 22:89E0: E4 8B     .word ofs_8BE4_F3
@@ -1890,7 +1890,7 @@ bra_8B43:
 C - - - - 0x030B53 22:8B43: A2 00     LDX #$00
 C - - - - 0x030B55 22:8B45: 4C 55 8C  JMP loc_8C55
 
-ofs_8B48_EF:
+ofs_8B48_EF_номер_тайма:
 C - J - - 0x030B58 22:8B48: A9 00     LDA #$00
 C - - - - 0x030B5A 22:8B4A: 85 47     STA ram_0047
 bra_8B4C:
@@ -1951,7 +1951,7 @@ tbl_8B72_текст_периода_матча:
 
 
 
-ofs_8B8B_F0:
+ofs_8B8B_F0_время_тайма:
 C - J - - 0x030B9B 22:8B8B: A2 00     LDX #$00
 C - - - - 0x030B9D 22:8B8D: AD F7 05  LDA ram_время_lo
 C - - - - 0x030BA0 22:8B90: AC F8 05  LDY ram_время_hi
