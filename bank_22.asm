@@ -1629,8 +1629,8 @@ sub_89B4:
 C - - - - 0x0309C4 22:89B4: 38        SEC
 C - - - - 0x0309C5 22:89B5: E9 E0     SBC #$E0
 C - - - - 0x0309C7 22:89B7: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
-- D - I - 0x0309CA 22:89BA: FA 89     .word ofs_89FA_E0
-- D - I - 0x0309CC 22:89BC: 00 8A     .word ofs_8A00_E1
+- D - I - 0x0309CA 22:89BA: FA 89     .word ofs_89FA_E0_позиция_и_имя_игрока
+- D - I - 0x0309CC 22:89BC: 00 8A     .word ofs_8A00_E1_stamina_и_количество
 - D - I - 0x0309CE 22:89BE: 06 8A     .word ofs_8A06_E2
 - D - I - 0x0309D0 22:89C0: 0C 8A     .word ofs_8A0C_E3
 - D - I - 0x0309D2 22:89C2: 12 8A     .word ofs_8A12_E4
@@ -1662,11 +1662,11 @@ C - - - - 0x0309C7 22:89B7: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - - - - - 0x030A06 22:89F6: 55 8C     .word ofs_8C55_FD_FE_FF
 - - - - - 0x030A08 22:89F8: 55 8C     .word ofs_8C55_FD_FE_FF
 
-ofs_89FA_E0:
+ofs_89FA_E0_позиция_и_имя_игрока:
 C - J - - 0x030A0A 22:89FA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x030A0D 22:89FD: 4C DC 8C  JMP loc_8CDC
 
-ofs_8A00_E1:
+ofs_8A00_E1_stamina_и_количество:
 C - J - - 0x030A10 22:8A00: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x030A13 22:8A03: 4C A5 8C  JMP loc_8CA5
 
@@ -2178,6 +2178,7 @@ C - - - - 0x030CE1 22:8CD1: 68        PLA
 C - - - - 0x030CE2 22:8CD2: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
 C - - - - 0x030CE5 22:8CD5: A5 32     LDA ram_0032
 C - - - - 0x030CE7 22:8CD7: A6 33     LDX ram_0033
+; bzk
 loc_8CD9:
 C D - - - 0x030CE9 22:8CD9: 4C 55 8C  JMP loc_8C55
 
@@ -12977,7 +12978,7 @@ tbl_B3BD:
 tbl_B3CF_вид_меню:
 - D - - - 0x0333DF 22:B3CF: 53 B4     .word off_B453_00_номер_тайма_и_время
 - D - - - 0x0333E1 22:B3D1: 64 B4     .word off_B464_01_команды_и_счет
-- D - - - 0x0333E3 22:B3D3: 7D B4     .word off_B47D_02_действие_игрока_с_мячом
+- D - - - 0x0333E3 22:B3D3: 7D B4     .word off_B47D_02_окно_действия_игрока_с_мячом
 - D - - - 0x0333E5 22:B3D5: 8A B4     .word off_B48A_03_статы_dribble_pass_shot
 - D - - - 0x0333E7 22:B3D7: A7 B4     .word off_B4A7_04_статы_trap_pass_shot
 - D - - - 0x0333E9 22:B3D9: C4 B4     .word off_B4C4_05_статы_trap_pass_clear
@@ -13042,116 +13043,117 @@ tbl_B3CF_вид_меню:
 - D - - - 0x03345F 22:B44F: 9E BB     .word off_BB9E_40_выбранные_игроки_на_пенальти
 - D - - - 0x033461 22:B451: BF BB     .word off_BBBF_41_пенальти_после_матча
 
-
-
-; 1 - базовый адрес ppu
-; 2 - размер области по горизонтали и вертикали (вне этой области текст не отобразится)
-; 3 - смещение области по горизонтали и вертикали
-; 4 - размер рамки по горизонтали и вертикали (горизонталь не может быть меньше 03)
-; 5 - количество считываемых далее локаций
-; 6 - смещение текста по вертикали и горизонтали + сам текст
-
 off_B453_00_номер_тайма_и_время:
-- D - I - 0x033463 22:B453: 21 22     .word $2220
+; адрес ppu
+	.word $2220
+; X * Y зачищаемой области (вне этой области текст не запишется)
+	.byte $07
+	.byte $04
+; смещение окна X, Y (X предположительно не может быть < 03)
+	.byte $00
+	.byte $01
+; размер окна X, Y
+	.byte $07
+	.byte $03
+; количество текста
+	.byte $02
+; смещение текста X, Y + поинтеры на текст
+	.byte $01
+	.byte $01
+	.word @номер_тайма
+	.byte $03
+	.byte $05
+	.word @время_тайма
 
-- D - I - 0x033465 22:B455: 07        .byte $07
-- D - I - 0x033466 22:B456: 04        .byte $04
+@номер_тайма:
+	.byte $EF
+; закончить чтение
+	.byte $FC
 
-- D - I - 0x033467 22:B457: 00        .byte $00
-- D - I - 0x033468 22:B458: 01        .byte $01
-
-- D - I - 0x033469 22:B459: 07        .byte $07
-- D - I - 0x03346A 22:B45A: 03        .byte $03
-
-- D - I - 0x03346B 22:B45B: 02        .byte $02
-
-- D - I - 0x03346C 22:B45C: 01        .byte $01
-- D - I - 0x03346D 22:B45D: 01        .byte $01
-- D - I - 0x03346E 22:B45E: DC BB     .word off_BBDC_номер_тайма
-- D - I - 0x033470 22:B460: 03        .byte $03
-- D - I - 0x033471 22:B461: 05        .byte $05
-- D - I - 0x033472 22:B462: DE BB     .word off_BBDE_время_тайма
+@время_тайма:
+	.byte $F0
+	.byte $FC
 
 
 
 off_B464_01_команды_и_счет:
-- D - I - 0x033474 22:B464: C1 22     .word $22C0
+	.word $22C0
+; X * Y зачищаемой области
+	.byte $07
+	.byte $07
+; смещение окна X, Y
+	.byte $00
+	.byte $00
+; размер окна X, Y
+	.byte $07
+	.byte $04
+; количество текста
+	.byte $04
+; смещение текста X, Y + поинтеры на текст
+	.byte $01
+	.byte $01
+	.word off_BBE0_имя_команды_слева
+	.byte $01
+	.byte $05
+	.word off_BD9C_счет_команды_слева
+	.byte $03
+	.byte $01
+	.word off_BBE3_имя_команды_справа
+	.byte $03
+	.byte $05
+	.word off_BD9F_счет_команды_справа
 
-- D - I - 0x033476 22:B466: 07        .byte $07	; <き>
-- D - I - 0x033477 22:B467: 07        .byte $07	; <き>
-
-- D - I - 0x033478 22:B468: 00        .byte $00
-- D - I - 0x033479 22:B469: 00        .byte $00
-
-- D - I - 0x03347A 22:B46A: 07        .byte $07	; <き>
-- D - I - 0x03347B 22:B46B: 04        .byte $04	; <え>
-
-- D - I - 0x03347C 22:B46C: 04        .byte $04	; <え>
-
-- D - I - 0x03347D 22:B46D: 01        .byte $01	; <あ>
-- D - I - 0x03347E 22:B46E: 01        .byte $01	; <あ>
-- D - I - 0x03347F 22:B46F: E0 BB     .word off_BBE0_имя_команды_слева
-- D - I - 0x033481 22:B471: 01        .byte $01	; <あ>
-- D - I - 0x033482 22:B472: 05        .byte $05	; <お>
-- D - I - 0x033483 22:B473: 9C BD     .word off_BD9C_счет_команды_слева
-- D - I - 0x033485 22:B475: 03        .byte $03	; <う>
-- D - I - 0x033486 22:B476: 01        .byte $01	; <あ>
-- D - I - 0x033487 22:B477: E3 BB     .word off_BBE3_имя_команды_справа
-- D - I - 0x033489 22:B479: 03        .byte $03	; <う>
-- D - I - 0x03348A 22:B47A: 05        .byte $05	; <お>
-- D - I - 0x03348B 22:B47B: 9F BD     .word off_BD9F_счет_команды_справа
 
 
-
-off_B47D_02_действие_игрока_с_мячом:
-- D - I - 0x03348D 22:B47D: 4A 22     .word $224A
-
-- D - I - 0x03348F 22:B47F: 08        .byte $08	; <く>
-- D - I - 0x033490 22:B480: 05        .byte $05	; <お>
-
-- D - I - 0x033491 22:B481: 00        .byte $00
-- D - I - 0x033492 22:B482: 00        .byte $00
-
-- D - I - 0x033493 22:B483: 08        .byte $08	; <く>
-- D - I - 0x033494 22:B484: 05        .byte $05	; <お>
-
-- D - I - 0x033495 22:B485: 01        .byte $01	; <あ>
-
-- D - I - 0x033496 22:B486: 02        .byte $02	; <い>
-- D - I - 0x033497 22:B487: 01        .byte $01	; <あ>
-- D - I - 0x033498 22:B488: E6 BB     .word off_BBE6_action
+off_B47D_02_окно_действия_игрока_с_мячом:
+	.word $2247
+; X * Y зачищаемой области
+	.byte $08
+	.byte $07
+; смещение окна X, Y
+	.byte $00
+	.byte $00
+; размер окна X, Y
+	.byte $08
+	.byte $05
+; количество текста
+	.byte $01
+; смещение текста X, Y + поинтеры на текст
+	.byte $02
+	.byte $01
+	.word off_BBE6_action
 
 
 
 off_B48A_03_статы_dribble_pass_shot:
-- D - I - 0x03349A 22:B48A: 32 22     .word $2232
-
-- D - I - 0x03349C 22:B48C: 0C        .byte $0C	; <し>
-- D - I - 0x03349D 22:B48D: 0A        .byte $0A	; <こ>
-
-- D - I - 0x03349E 22:B48E: 00        .byte $00
-- D - I - 0x03349F 22:B48F: 01        .byte $01	; <あ>
-
-- D - I - 0x0334A0 22:B490: 0C        .byte $0C	; <し>
-- D - I - 0x0334A1 22:B491: 09        .byte $09	; <け>
-
-- D - I - 0x0334A2 22:B492: 05        .byte $05	; <お>
-
-- D - I - 0x0334A3 22:B493: 01        .byte $01	; <あ>
-- D - I - 0x0334A4 22:B494: 02        .byte $02	; <い>
-- D - I - 0x0334A5 22:B495: 21 BC     .word off_BC21_позиция_и_имя_игрока
-- D - I - 0x0334A7 22:B497: 03        .byte $03	; <う>
-- D - I - 0x0334A8 22:B498: 01        .byte $01	; <あ>
-- D - I - 0x0334A9 22:B499: 23 BC     .word off_BC23_энергия_и_количество
-- D - I - 0x0334AB 22:B49B: 05        .byte $05	; <お>
-- D - I - 0x0334AC 22:B49C: 01        .byte $01	; <あ>
-- D - I - 0x0334AD 22:B49D: 2E BC     .word off_BC2E_дриблинг_и_величина
-- D - I - 0x0334AF 22:B49F: 07        .byte $07	; <き>
-- D - I - 0x0334B0 22:B4A0: 01        .byte $01	; <あ>
-- D - I - 0x0334B1 22:B4A1: 39 BC     .word off_BC39_пас_и_величина
-- D - I - 0x0334B3 22:B4A3: 09        .byte $09	; <け>
-- D - I - 0x0334B4 22:B4A4: 01        .byte $01	; <あ>
-- D - I - 0x0334B5 22:B4A5: 44 BC     .word off_BC44_удар_с_земли_и_величина
+	.word $222F
+; X * Y зачищаемой области
+	.byte $10
+	.byte $0A
+; смещение окна X, Y
+	.byte $00
+	.byte $01
+; размер окна X, Y
+	.byte $0E
+	.byte $0A
+; количество текста
+	.byte $05
+; смещение текста X, Y + поинтеры на текст
+	.byte $01
+	.byte $02
+	.word off_BC21_позиция_и_имя_игрока
+	.byte $03
+	.byte $01
+	.word off_BC23_stamina_и_количество
+	.byte $05
+	.byte $01
+	.word off_BC2E_дриблинг_и_величина
+	.byte $07
+	.byte $01
+	.word off_BC39_пас_и_величина
+	.byte $09
+	.byte $01
+	.word off_BC44_удар_с_земли_и_величина
 
 
 
@@ -13175,7 +13177,7 @@ off_B4A7_04_статы_trap_pass_shot:
 - D - I - 0x0334C2 22:B4B2: 21 BC     .word off_BC21_позиция_и_имя_игрока
 - D - I - 0x0334C4 22:B4B4: 03        .byte $03	; <う>
 - D - I - 0x0334C5 22:B4B5: 01        .byte $01	; <あ>
-- D - I - 0x0334C6 22:B4B6: 23 BC     .word off_BC23_энергия_и_количество
+- D - I - 0x0334C6 22:B4B6: 23 BC     .word off_BC23_stamina_и_количество
 - D - I - 0x0334C8 22:B4B8: 05        .byte $05	; <お>
 - D - I - 0x0334C9 22:B4B9: 01        .byte $01	; <あ>
 - D - I - 0x0334CA 22:B4BA: 4F BC     .word off_BC4F_trap_и_величина
@@ -13207,7 +13209,7 @@ off_B4C4_05_статы_trap_pass_clear:
 - D - I - 0x0334DF 22:B4CF: 21 BC     .word off_BC21_позиция_и_имя_игрока
 - D - I - 0x0334E1 22:B4D1: 03        .byte $03	; <う>
 - D - I - 0x0334E2 22:B4D2: 01        .byte $01	; <あ>
-- D - I - 0x0334E3 22:B4D3: 23 BC     .word off_BC23_энергия_и_количество
+- D - I - 0x0334E3 22:B4D3: 23 BC     .word off_BC23_stamina_и_количество
 - D - I - 0x0334E5 22:B4D5: 05        .byte $05	; <お>
 - D - I - 0x0334E6 22:B4D6: 01        .byte $01	; <あ>
 - D - I - 0x0334E7 22:B4D7: 4F BC     .word off_BC4F_trap_и_величина
@@ -13485,25 +13487,41 @@ off_B5A2_10_перепасовка:
 
 
 off_B5B7_11_не_с_кем_перепасоваться:
-- D - I - 0x0335C7 22:B5B7: 48 22     .word $2248
+	.word $2247
+	
+	.byte $09
+	.byte $07
+	
+	.byte $00
+	.byte $00
+	
+	.byte $09
+	.byte $07
+	
+	.byte $03
+	
+	.byte $02
+	.byte $01
+	.word @no
+	.byte $04
+	.byte $01
+	.word @players
+	.byte $06
+	.byte $01
+	.word @open
 
-- D - I - 0x0335C9 22:B5B9: 0A        .byte $0A	; <こ>
-- D - I - 0x0335CA 22:B5BA: 05        .byte $05	; <お>
 
-- D - I - 0x0335CB 22:B5BB: 00        .byte $00
-- D - I - 0x0335CC 22:B5BC: 00        .byte $00
-
-- D - I - 0x0335CD 22:B5BD: 0A        .byte $0A	; <こ>
-- D - I - 0x0335CE 22:B5BE: 05        .byte $05	; <お>
-
-- D - I - 0x0335CF 22:B5BF: 02        .byte $02	; <い>
-
-- D - I - 0x0335D0 22:B5C0: 02        .byte $02	; <い>
-- D - I - 0x0335D1 22:B5C1: 01        .byte $01	; <あ>
-- D - I - 0x0335D2 22:B5C2: 14 BC     .word off_BC14_текст_не_с_кем
-- D - I - 0x0335D4 22:B5C4: 04        .byte $04	; <え>
-- D - I - 0x0335D5 22:B5C5: 01        .byte $01	; <あ>
-- D - I - 0x0335D6 22:B5C6: 19 BC     .word off_BC19_текст_перепасоваться
+@no:
+	.text "No"
+	.byte $FC
+	
+@players:
+	.text "players"
+	.byte $FC
+	
+@open:
+	.text "open!"
+	.byte $FC
 
 
 
@@ -15165,16 +15183,6 @@ off_BBBF_41_пенальти_после_матча:
 - D - I - 0x033BE9 22:BBD9: 06        .byte $06	; <か>
 - D - I - 0x033BEA 22:BBDA: 9F BD     .word off_BD9F_счет_команды_справа
 
-
-
-off_BBDC_номер_тайма:
-- D - I - 0x033BEC 22:BBDC: EF        .byte $EF
-- D - I - 0x033BED 22:BBDD: FC        .byte $FC
-
-off_BBDE_время_тайма:
-- D - I - 0x033BEE 22:BBDE: F0        .byte $F0
-- D - I - 0x033BEF 22:BBDF: FC        .byte $FC
-
 off_BBE0_имя_команды_слева:
 - D - I - 0x033BF0 22:BBE0: ED        .byte $ED
 - D - I - 0x033BF1 22:BBE1: 00        .byte $00
@@ -15233,36 +15241,17 @@ off_BC0B_текст_с_кем:
 - D - I - 0x033C21 22:BC11: 10        .byte $10	; <た>
 - D - I - 0x033C22 22:BC12: 08        .byte $08	; <く>
 - D - I - 0x033C23 22:BC13: FC        .byte $FC
-off_BC14_текст_не_с_кем:
-- D - I - 0x033C24 22:BC14: 1F        .byte $1F	; <ま>
-- D - I - 0x033C25 22:BC15: 2C        .byte $2C	; <わ>
-- D - I - 0x033C26 22:BC16: 28        .byte $28	; <り>
-- D - I - 0x033C27 22:BC17: 16        .byte $16	; <に>
-- D - I - 0x033C28 22:BC18: FC        .byte $FC
-off_BC19_текст_перепасоваться:
-- D - I - 0x033C29 22:BC19: 20        .byte $20	; <み>
-- D - I - 0x033C2A 22:BC1A: 06        .byte $06	; <か>
-- D - I - 0x033C2B 22:BC1B: 10        .byte $10	; <た>
-- D - I - 0x033C2C 22:BC1C: A0        .byte $A0	; <が>
-- D - I - 0x033C2D 22:BC1D: 02        .byte $02	; <い>
-- D - I - 0x033C2E 22:BC1E: 15        .byte $15	; <な>
-- D - I - 0x033C2F 22:BC1F: 02        .byte $02	; <い>
-- D - I - 0x033C30 22:BC20: FC        .byte $FC
+
+
 off_BC21_позиция_и_имя_игрока:
-- D - I - 0x033C31 22:BC21: E0        .byte $E0
-- D - I - 0x033C32 22:BC22: FC        .byte $FC
-off_BC23_энергия_и_количество:
-- D - I - 0x033C33 22:BC23: B4        .byte $B4	; <ガ>
-- D - I - 0x033C34 22:BC24: 6F        .byte $6F	; <ッ>
-- D - I - 0x033C35 22:BC25: 52        .byte $52	; <ツ>
-- D - I - 0x033C36 22:BC26: 00        .byte $00
-- D - I - 0x033C37 22:BC27: 00        .byte $00
-- D - I - 0x033C38 22:BC28: 00        .byte $00
-- D - I - 0x033C39 22:BC29: 00        .byte $00
-- D - I - 0x033C3A 22:BC2A: 00        .byte $00
-- D - I - 0x033C3B 22:BC2B: E1        .byte $E1
-- D - I - 0x033C3C 22:BC2C: 00        .byte $00
-- D - I - 0x033C3D 22:BC2D: FC        .byte $FC
+	.byte $E0
+	.byte $FC
+
+off_BC23_stamina_и_количество:
+	.text "Stamina   "
+	.byte $E1
+	.byte $FC
+
 off_BC2E_дриблинг_и_величина:
 - D - I - 0x033C3E 22:BC2E: C2        .byte $C2	; <ド>
 - D - I - 0x033C3F 22:BC2F: 68        .byte $68	; <リ>
