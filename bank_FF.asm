@@ -833,49 +833,6 @@ C - - - - 0x03CBCC FF:CBBC: A9 00     LDA #$00
 C - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CBD1 FF:CBC1: 60        RTS
 
-
-.export sub_0x03CBD2_кодировка_японских_символов
-sub_0x03CBD2_кодировка_японских_символов:
-; на выходе игру интересуют A и Y
-; Y = дополнительный символ над буквой, 94 = 2 палки, 95 - кружок
-	; не везде используется Y, бывает просто проверяется на неравенство 00
-; A = тайл итоговой буквы
-	; оригинал в любом случае должен пропустить байт через кодировку для получения голого символа
-; bzk удалить код и все упоминания о нем
-C D - - - 0x03CBD2 FF:CBC2: A0 00     LDY #$00
-C - - - - 0x03CBD4 FF:CBC4: C9 A0     CMP #$A0
-C - - - - 0x03CBD6 FF:CBC6: 90 28     BCC bra_CBF0_выход
-; A0+
-C - - - - 0x03CBD8 FF:CBC8: A0 94     LDY #$94
-C - - - - 0x03CBDA FF:CBCA: C9 C8     CMP #$C8
-C - - - - 0x03CBDC FF:CBCC: 90 0C     BCC bra_CBDA_A0_C7
-; C8-D1
-C - - - - 0x03CBDE FF:CBCE: A0 95     LDY #$95
-C - - - - 0x03CBE0 FF:CBD0: E9 AE     SBC #$AE
-C - - - - 0x03CBE2 FF:CBD2: C9 1F     CMP #$1F
-C - - - - 0x03CBE4 FF:CBD4: 90 1A     BCC bra_CBF0_выход
-C - - - - 0x03CBE6 FF:CBD6: E9 05     SBC #$05
-C - - - - 0x03CBE8 FF:CBD8: B0 13     BCS bra_CBED
-bra_CBDA_A0_C7:
-C - - - - 0x03CBEA FF:CBDA: C9 B4     CMP #$B4
-C - - - - 0x03CBEC FF:CBDC: 08        PHP
-C - - - - 0x03CBED FF:CBDD: 90 02     BCC bra_CBE1
-C - - - - 0x03CBEF FF:CBDF: E9 14     SBC #$14
-bra_CBE1:
-C - - - - 0x03CBF1 FF:CBE1: 38        SEC
-C - - - - 0x03CBF2 FF:CBE2: E9 9A     SBC #$9A
-C - - - - 0x03CBF4 FF:CBE4: C9 15     CMP #$15
-C - - - - 0x03CBF6 FF:CBE6: 90 02     BCC bra_CBEA
-C - - - - 0x03CBF8 FF:CBE8: 69 04     ADC #$04
-bra_CBEA:
-C - - - - 0x03CBFA FF:CBEA: 28        PLP
-C - - - - 0x03CBFB FF:CBEB: 90 03     BCC bra_CBF0_выход
-bra_CBED:
-C - - - - 0x03CBFD FF:CBED: 18        CLC
-C - - - - 0x03CBFE FF:CBEE: 69 40     ADC #$40
-bra_CBF0_выход:
-C - - - - 0x03CC00 FF:CBF0: 60        RTS
-
 .export sub_0x03CC01_запись_звука
 sub_0x03CC01_запись_звука:
 sub_CBF1_запись_звука:
