@@ -1,4 +1,4 @@
-.segment "BANK_FF_1"
+.segment "BANK_FE"
 .include "copy_bank_ram.inc"
 .incbin "DPCM.bin"
 ; нельзя писать код выше dpcm
@@ -3962,7 +3962,7 @@ tbl_DFBD:
 
 
 
-.segment "BANK_FF_2"
+.segment "BANK_FF"
 
 .export loc_0x03DFE9
 loc_0x03DFE9:
