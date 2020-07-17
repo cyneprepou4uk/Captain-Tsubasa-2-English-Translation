@@ -490,14 +490,14 @@ C - - - - 0x03C922 FF:C912: 85 77     STA ram_0077
 C - - - - 0x03C924 FF:C914: BD 9B 04  LDA $049B,X
 C - - - - 0x03C927 FF:C917: 85 78     STA ram_0078
 C - - - - 0x03C929 FF:C919: 10 11     BPL bra_C92C
-C - - - - 0x03C92B FF:C91B: A2 06     LDX #$06
+C - - - - 0x03C92B FF:C91B: A2 06     LDX #$00
 C - - - - 0x03C92D FF:C91D: 29 20     AND #$20
 C - - - - 0x03C92F FF:C91F: F0 01     BEQ bra_C922
 C - - - - 0x03C931 FF:C921: E8        INX
 bra_C922:
                                       TYA
                                       ORA #$80
-C - - - - 0x03C936 FF:C926: 8D 00 80  STA $5114 - 6,X
+C - - - - 0x03C936 FF:C926: 8D 00 80  STA $5114,X
 bra_C92C:
 C - - - - 0x03C93C FF:C92C: A0 00     LDY #$00
 bra_C92E:
