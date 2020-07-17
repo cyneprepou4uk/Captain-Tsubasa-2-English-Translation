@@ -28,22 +28,24 @@ C - - - - 0x03C43A FF:C42A: 86 3D     STX ram_003D
 C - - - - 0x03C43C FF:C42C: 84 3E     STY ram_003E
 C - - - - 0x03C440 FF:C430: 09 07     LDA #$07
 C - - - - 0x03C442 FF:C432: 8D 00 80  STA $8000
-C - - - - 0x03C445 FF:C435: A9 02     LDA #$02
-C - - - - 0x03C447 FF:C437: 8D 01 80  STA $8001
+C - - - - 0x03C445 FF:C435: A9 02     LDA #$82
+C - - - - 0x03C447 FF:C437: 8D 01 80  STA $5115
 C - - - - 0x03C44A FF:C43A: 20 00 A0  JSR sub_0x004010
 C - - - - 0x03C44F FF:C43F: 09 06     LDA #$06
 C - - - - 0x03C451 FF:C441: 8D 00 80  STA $8000
-C - - - - 0x03C454 FF:C444: A9 0C     LDA #$0C
-C - - - - 0x03C456 FF:C446: 8D 01 80  STA $8001
+C - - - - 0x03C454 FF:C444: A9 0C     LDA #$8C
+C - - - - 0x03C456 FF:C446: 8D 01 80  STA $5114
 C - - - - 0x03C459 FF:C449: 20 00 80  JSR sub_0x018010_звуковой_движок
 C - - - - 0x03C45E FF:C44E: 09 06     LDA #$06
 C - - - - 0x03C460 FF:C450: 8D 00 80  STA $8000
 C - - - - 0x03C463 FF:C453: A5 24     LDA ram_для_8001_06
-C - - - - 0x03C465 FF:C455: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C465 FF:C455: 8D 01 80  STA $5114
 C - - - - 0x03C46A FF:C45A: 09 07     LDA #$07
 C - - - - 0x03C46C FF:C45C: 8D 00 80  STA $8000
 C - - - - 0x03C46F FF:C45F: A5 25     LDA ram_для_8001_07
-C - - - - 0x03C471 FF:C461: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C471 FF:C461: 8D 01 80  STA $5115
 C - - - - 0x03C474 FF:C464: A5 23     LDA ram_для_8000
 C - - - - 0x03C476 FF:C466: 8D 00 80  STA $8000
 C - - - - 0x03C479 FF:C469: A4 3E     LDY ram_003E
@@ -68,13 +70,14 @@ C - - - - 0x03C491 FF:C481: 86 3D     STX ram_003D
 C - - - - 0x03C493 FF:C483: 84 3E     STY ram_003E
 C - - - - 0x03C497 FF:C487: 09 07     LDA #$07
 C - - - - 0x03C499 FF:C489: 8D 00 80  STA $8000
-C - - - - 0x03C49C FF:C48C: A9 02     LDA #$02
-C - - - - 0x03C49E FF:C48E: 8D 01 80  STA $8001
+C - - - - 0x03C49C FF:C48C: A9 02     LDA #$82
+C - - - - 0x03C49E FF:C48E: 8D 01 80  STA $5115
 C - - - - 0x03C4A1 FF:C491: 20 60 A1  JSR sub_0x004170
 C - - - - 0x03C4A6 FF:C496: 09 07     LDA #$07
 C - - - - 0x03C4A8 FF:C498: 8D 00 80  STA $8000
 C - - - - 0x03C4AB FF:C49B: A5 25     LDA ram_для_8001_07
-C - - - - 0x03C4AD FF:C49D: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C4AD FF:C49D: 8D 01 80  STA $5115
 C - - - - 0x03C4B0 FF:C4A0: A5 23     LDA ram_для_8000
 C - - - - 0x03C4B2 FF:C4A2: 8D 00 80  STA $8000
 C - - - - 0x03C4B5 FF:C4A5: A4 3E     LDY ram_003E
@@ -83,13 +86,16 @@ C - - - - 0x03C4B9 FF:C4A9: A5 3C     LDA ram_003C
 C - - - - 0x03C4BB FF:C4AB: 46 3B     LSR ram_003B
 C - - - - 0x03C4BD FF:C4AD: 40        RTI
 bra_C4AE:
-- - - - - 0x03C4BE FF:C4AE: 8D 00 E0  STA $E000
+                                      LDA #$00
+- - - - - 0x03C4BE FF:C4AE: 8D 00 E0  STA $5204
 - - - - - 0x03C4C1 FF:C4B1: 40        RTI
 
 sub_C4B2_банксвич_PRG_06:
 C - - - - 0x03C4C2 FF:C4B2: 86 24     STX ram_для_8001_06
-C - - - - 0x03C4C4 FF:C4B4: A9 06     LDA #$06
-C - - - - 0x03C4C6 FF:C4B6: 4C BD C4  JMP loc_C4BD
+                                      TXA
+									  EOR #$80
+									  STA $5114
+									  RTS
 
 .export sub_0x03C4C9_банксвич_PRG_07
 sub_0x03C4C9_банксвич_PRG_07:
@@ -100,10 +106,11 @@ C D - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_8001_07
 C - - - - 0x03C4CB FF:C4BB: A9 07     LDA #$07
 .export sub_0x03C4CD
 sub_0x03C4CD:
-loc_C4BD:
 C - - - - 0x03C4CF FF:C4BF: 85 23     STA ram_для_8000
 C - - - - 0x03C4D1 FF:C4C1: 8D 00 80  STA $8000
-C - - - - 0x03C4D4 FF:C4C4: 8E 01 80  STX $8001
+                                      TXA
+									  EOR #$80
+C - - - - 0x03C4D4 FF:C4C4: 8E 01 80  STA $5115
 C - - - - 0x03C4D7 FF:C4C7: 60        RTS
 
 .export sub_0x03C4D8
@@ -132,8 +139,6 @@ bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
 vec_FFF0_обработчик_RESET:
-C - - - - 0x040000 FF:FFF0: A9 00     LDA #$00
-C - - - - 0x040002 FF:FFF2: 8D 00 80  STA $8000
 C D - - - 0x03C65E FF:C64E: A9 08     LDA #$08
 C - - - - 0x03C660 FF:C650: 8D 00 20  STA $2000
 C - - - - 0x03C663 FF:C653: 78        SEI
@@ -182,7 +187,7 @@ C - - - - 0x03C6B5 FF:C6A5: 20 35 CB  JSR sub_CB35
 C - - - - 0x03C6B8 FF:C6A8: 20 8B CB  JSR sub_CB8B
 C - - - - 0x03C6C0 FF:C6B0: A9 00     LDA #$00
 C - - - - 0x03C6C2 FF:C6B2: 8D 69 04  STA $0469
-C - - - - 0x03C6C5 FF:C6B5: 8D 00 E0  STA $E000
+C - - - - 0x03C6C5 FF:C6B5: 8D 00 E0  STA $5204
 C - - - - 0x03C6C8 FF:C6B8: 58        CLI
 C - - - - 0x03C6C9 FF:C6B9: A9 00     LDA #$00
 C - - - - 0x03C6CB FF:C6BB: 4C FE CE  JMP loc_CEFE
@@ -288,8 +293,8 @@ C - - - - 0x03C799 FF:C789: A9 00     LDA #$00
 C - - - - 0x03C79B FF:C78B: 8D 03 20  STA $2003
 C - - - - 0x03C79E FF:C78E: A9 02     LDA #$02
 C - - - - 0x03C7A0 FF:C790: 8D 14 40  STA $4014
-C - - - - 0x03C7A3 FF:C793: AD 6B 04  LDA $046B
-C - - - - 0x03C7A6 FF:C796: 8D 00 A0  STA $A000
+C - - - - 0x03C7A3 FF:C793: AD 6B 04  LDA ram_mirroring
+C - - - - 0x03C7A6 FF:C796: 8D 00 A0  STA $5105
 C - - - - 0x03C7A9 FF:C799: 20 FB C8  JSR sub_C8FB
 C - - - - 0x03C7AC FF:C79C: 2C 02 20  BIT $2002
 C - - - - 0x03C7AF FF:C79F: A9 3F     LDA #$3F
@@ -315,12 +320,12 @@ C - - - - 0x03C7DF FF:C7CF: 86 8C     STX ram_008C
 C - - - - 0x03C7E1 FF:C7D1: 86 8D     STX ram_008D
 C - - - - 0x03C7E3 FF:C7D3: BD F7 C8  LDA tbl_C8F7_значение_для_регистра_IRQ,X
 C - - - - 0x03C7E6 FF:C7D6: 29 7F     AND #$7F
-C - - - - 0x03C7E8 FF:C7D8: 8D 00 C0  STA $C000
-C - - - - 0x03C7EB FF:C7DB: 8D 01 C0  STA $C001
-C - - - - 0x03C7EE FF:C7DE: AE 69 04  LDX $0469
-; STA,X, так как E000 отвечает за отключение irq, а E001 за включение
-; в 0469 пишется 00 или 01
-C - - - - 0x03C7F1 FF:C7E1: 9D 00 E0  STA $E000,X
+                                      SEC
+									  SBC #$01
+                                      STA ram_линия_irq
+C - - - - 0x03C7E8 FF:C7D8: 8D 00 C0  STA $5203
+C - - - - 0x03C7EE FF:C7DE: AE 69 04  LDA $0469
+C - - - - 0x03C7F1 FF:C7E1: 9D 00 E0  STA $5204
 C - - - - 0x03C7F4 FF:C7E4: 20 C5 C9  JSR sub_C9C5_генератор_рандома
 C - - - - 0x03C7F7 FF:C7E7: 20 82 C9  JSR sub_C982
 C - - - - 0x03C7FA FF:C7EA: A5 1B     LDA ram_001B
@@ -329,11 +334,13 @@ C - - - - 0x03C7FE FF:C7EE: 85 1B     STA ram_001B
 C - - - - 0x03C802 FF:C7F2: 09 07     LDA #$07
 C - - - - 0x03C804 FF:C7F4: 8D 00 80  STA $8000
 C - - - - 0x03C807 FF:C7F7: A5 25     LDA ram_для_8001_07
-C - - - - 0x03C809 FF:C7F9: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C809 FF:C7F9: 8D 01 80  STA $5115
 C - - - - 0x03C80E FF:C7FE: 09 06     LDA #$06
 C - - - - 0x03C810 FF:C800: 8D 00 80  STA $8000
 C - - - - 0x03C813 FF:C803: A5 24     LDA ram_для_8001_06
-C - - - - 0x03C815 FF:C805: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C815 FF:C805: 8D 01 80  STA $5114
 C - - - - 0x03C818 FF:C808: 68        PLA
 C - - - - 0x03C819 FF:C809: AA        TAX
 C - - - - 0x03C81A FF:C80A: 9A        TXS
@@ -356,13 +363,13 @@ C D - - - 0x03C831 FF:C821: 24 1B     BIT ram_001B
 C - - - - 0x03C833 FF:C823: 50 03     BVC bra_C828
 C - - - - 0x03C835 FF:C825: 4C 78 C4  JMP loc_C478
 bra_C828:
-; bzk LSR дольше выполняется чем STA
-C - - - - 0x03C838 FF:C828: 4E 00 E0  LSR $E000
-C - - - - 0x03C83B FF:C82B: 4E 01 E0  LSR $E001
 C - - - - 0x03C83E FF:C82E: 46 19     LSR ram_0019
 C - - - - 0x03C840 FF:C830: 85 80     STA ram_0080
 C - - - - 0x03C842 FF:C832: 86 81     STX ram_0081
 C - - - - 0x03C844 FF:C834: 84 82     STY ram_0082
+                                      BIT $5204
+                                      LDA #$80
+									  STA $5204
 C - - - - 0x03C846 FF:C836: BA        TSX
 C - - - - 0x03C847 FF:C837: 8A        TXA
 C - - - - 0x03C848 FF:C838: A2 FF     LDX #$FF
@@ -393,8 +400,11 @@ C - - - - 0x03C86E FF:C85E: E8        INX
 C - - - - 0x03C86F FF:C85F: 86 8D     STX ram_008D
 C - - - - 0x03C871 FF:C861: BD F7 C8  LDA tbl_C8F7_значение_для_регистра_IRQ,X
 C - - - - 0x03C874 FF:C864: 29 7F     AND #$7F
-C - - - - 0x03C876 FF:C866: 8D 00 C0  STA $C000
-C - - - - 0x03C879 FF:C869: 8D 01 C0  STA $C001
+                                      CLC
+									  ADC ram_линия_irq
+									  ADC #$01
+									  STA ram_линия_irq
+C - - - - 0x03C876 FF:C866: 8D 00 C0  STA $5203
 C - - - - 0x03C87C FF:C86C: 2C 02 20  BIT $2002
 C - - - - 0x03C87F FF:C86F: AD 43 06  LDA $0643
 C - - - - 0x03C882 FF:C872: 8D 05 20  STA $2005
@@ -419,39 +429,49 @@ C - - - - 0x03C8A7 FF:C897: 8D 05 20  STA $2005
 C - - - - 0x03C8AD FF:C89D: 8D 00 80  STA $8000
                                       LDX ram_матч
 									  LDA tbl_0x040000_банки_CHR_с_сокращенными_именами,X
-C - - - - 0x03C8B2 FF:C8A2: 8D 01 80  STA $8001
+									  TAX
+C - - - - 0x03C8B2 FF:C8A2: 8D 01 80  STX $5120
+                                      INX
+									  STX $5121
 C - - - - 0x03C8B8 FF:C8A8: 09 01     LDA #$01
 C - - - - 0x03C8BA FF:C8AA: 8D 00 80  STA $8000
-C - - - - 0x03C8BD FF:C8AD: A5 87     LDA ram_0087
-C - - - - 0x03C8BF FF:C8AF: 8D 01 80  STA $8001
+C - - - - 0x03C8BD FF:C8AD: A5 87     LDX ram_0087
+C - - - - 0x03C8BF FF:C8AF: 8D 01 80  STX $5122
+                                      INX
+									  STX $5123
 C - - - - 0x03C8C5 FF:C8B5: 09 02     LDA #$02
 C - - - - 0x03C8C7 FF:C8B7: 8D 00 80  STA $8000
 C - - - - 0x03C8CA FF:C8BA: A9 1F     LDA #$1F
-C - - - - 0x03C8CC FF:C8BC: 8D 01 80  STA $8001
+C - - - - 0x03C8CC FF:C8BC: 8D 01 80  STA $5124
 C - - - - 0x03C8D2 FF:C8C2: 09 03     LDA #$03
 C - - - - 0x03C8D4 FF:C8C4: 8D 00 80  STA $8000
 C - - - - 0x03C8D7 FF:C8C7: A9 2E     LDA #$2E
-C - - - - 0x03C8D9 FF:C8C9: 8D 01 80  STA $8001
-C - - - - 0x03C8DC FF:C8CC: 4E 00 E0  LSR $E000
+C - - - - 0x03C8D9 FF:C8C9: 8D 01 80  STA $5125
+                                      LDA #$00
+C - - - - 0x03C8DC FF:C8CC: 4E 00 E0  STA $5204
 C - - - - 0x03C8E1 FF:C8D1: 09 06     LDA #$06
 C - - - - 0x03C8E3 FF:C8D3: 8D 00 80  STA $8000
-C - - - - 0x03C8E6 FF:C8D6: A9 0C     LDA #$0C
-C - - - - 0x03C8E8 FF:C8D8: 8D 01 80  STA $8001
+C - - - - 0x03C8E6 FF:C8D6: A9 0C     LDA #$8C
+C - - - - 0x03C8E8 FF:C8D8: 8D 01 80  STA $5114
 C - - - - 0x03C8EB FF:C8DB: 20 00 80  JSR sub_0x018010_звуковой_движок
 C - - - - 0x03C8F0 FF:C8E0: 09 07     LDA #$07
 C - - - - 0x03C8F2 FF:C8E2: 8D 00 80  STA $8000
 C - - - - 0x03C8F5 FF:C8E5: A5 25     LDA ram_для_8001_07
-C - - - - 0x03C8F7 FF:C8E7: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C8F7 FF:C8E7: 8D 01 80  STA $5115
 C - - - - 0x03C8FC FF:C8EC: 09 06     LDA #$06
 C - - - - 0x03C8FE FF:C8EE: 8D 00 80  STA $8000
 C - - - - 0x03C901 FF:C8F1: A5 24     LDA ram_для_8001_06
-C - - - - 0x03C903 FF:C8F3: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03C903 FF:C8F3: 8D 01 80  STA $5114
 C - - - - 0x03C906 FF:C8F6: 60        RTS
 
 tbl_C8F7_значение_для_регистра_IRQ:
+; bzk могут возникнуть проблемы с байтом 80, так как после AND 7F + SBC 01 будет FF
+; но по видимому этот байт не используется
 - D - - - 0x03C907 FF:C8F7: FB        .byte $FB
 - - - - - 0x03C908 FF:C8F8: 80        .byte $80
-- D - - - 0x03C909 FF:C8F9: 1E        .byte $1E	; <ほ>
+- D - - - 0x03C909 FF:C8F9: 1E        .byte $1E
 - D - - - 0x03C90A FF:C8FA: DC        .byte $DC
 
 sub_C8FB:
@@ -475,9 +495,9 @@ C - - - - 0x03C92D FF:C91D: 29 20     AND #$20
 C - - - - 0x03C92F FF:C91F: F0 01     BEQ bra_C922
 C - - - - 0x03C931 FF:C921: E8        INX
 bra_C922:
-C - - - - 0x03C932 FF:C922: 8A        TXA
-C - - - - 0x03C936 FF:C926: 8D 00 80  STA $8000
-C - - - - 0x03C939 FF:C929: 8C 01 80  STY $8001
+                                      TYA
+                                      ORA #$80
+C - - - - 0x03C936 FF:C926: 8D 00 80  STA $5114 - 6,X
 bra_C92C:
 C - - - - 0x03C93C FF:C92C: A0 00     LDY #$00
 bra_C92E:
@@ -591,16 +611,22 @@ sub_C9E9_банксвич_CHR:
 C - - - - 0x03C9F9 FF:C9E9: A2 00     LDX #$00
 C - - - - 0x03CA03 FF:C9F3: 8D 00 80  STX $8000
 C - - - - 0x03CA06 FF:C9F6: BD 90 04  LDA $0490,X
-C - - - - 0x03CA09 FF:C9F9: 8D 01 80  STA $8001
+                                      TAY
+C - - - - 0x03CA09 FF:C9F9: 8D 01 80  STY $5120
+                                      INY
+									  STY $5121
 C - - - - 0x03CA0C FF:C9FC: A5 22     INX
 C - - - - 0x03CA10 FF:CA00: 8D 00 80  STX $8000
 C - - - - 0x03CA13 FF:CA03: BD 91 04  LDA $0490,X
-C - - - - 0x03CA16 FF:CA06: 8D 01 80  STA $8001
+                                      TAY
+C - - - - 0x03CA16 FF:CA06: 8D 01 80  STY $5122
+                                      INY
+									  STY $5123
 bra_CA0F:
                                       INX
 C - - - - 0x03CA22 FF:CA12: 8D 00 80  STX $8000
 C - - - - 0x03CA25 FF:CA15: BD 90 04  LDA $0492,X
-C - - - - 0x03CA28 FF:CA18: 8D 01 80  STA $8001
+C - - - - 0x03CA28 FF:CA18: 8D 01 80  STA $5124 - 2,X
 C - - - - 0x03CA2D FF:CA1D: C0 06     CPX #$05
 C - - - - 0x03CA2F FF:CA1F: D0 EE     BNE bra_CA0F
 C - - - - 0x03CA31 FF:CA21: 60        RTS
@@ -618,7 +644,7 @@ C - - - - 0x03CA3F FF:CA2F: 8D 91 04  STA $0491
 C - - - - 0x03CA42 FF:CA32: 8D 87 00  STA ram_0087
 C - - - - 0x03CA45 FF:CA35: A9 00     LDA #$00
 C - - - - 0x03CA47 FF:CA37: 85 8E     STA ram_008E
-C - - - - 0x03CA49 FF:CA39: A9 01     LDA #$01
+C - - - - 0x03CA49 FF:CA39: A9 01     LDA #$80
 C - - - - 0x03CA4B FF:CA3B: 8D 69 04  STA $0469
 C - - - - 0x03CA4E FF:CA3E: A9 01     LDA #$01
 C - - - - 0x03CA50 FF:CA40: 8D 43 05  STA $0543
@@ -1229,12 +1255,14 @@ C - - - - 0x03CE3F FF:CE2F: 09 06     LDA #$06
 C - - - - 0x03CE41 FF:CE31: 85 23     STA ram_для_8000
 C - - - - 0x03CE43 FF:CE33: 8D 00 80  STA $8000
 C - - - - 0x03CE46 FF:CE36: A5 24     LDA ram_для_8001_06
-C - - - - 0x03CE48 FF:CE38: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03CE48 FF:CE38: 8D 01 80  STA $5114
 C - - - - 0x03CE4D FF:CE3D: 09 07     LDA #$07
 C - - - - 0x03CE4F FF:CE3F: 85 23     STA ram_для_8000
 C - - - - 0x03CE51 FF:CE41: 8D 00 80  STA $8000
 C - - - - 0x03CE54 FF:CE44: A5 25     LDA ram_для_8001_07
-C - - - - 0x03CE56 FF:CE46: 8D 01 80  STA $8001
+                                      ORA #$80
+C - - - - 0x03CE56 FF:CE46: 8D 01 80  STA $5115
 C - - - - 0x03CE59 FF:CE49: 60        RTS
 
 .export sub_0x03CE5A
@@ -1368,7 +1396,7 @@ loc_CEFE:
 C D - - - 0x03CF0E FF:CEFE: 48        PHA
 C - - - - 0x03CF14 FF:CF04: A9 00     LDA #$00
 C - - - - 0x03CF16 FF:CF06: 8D 69 04  STA $0469
-C - - - - 0x03CF19 FF:CF09: 8D 00 E0  STA $E000
+C - - - - 0x03CF19 FF:CF09: 8D 00 E0  STA $5204
 C - - - - 0x03CF1C FF:CF0C: 20 8B CB  JSR sub_CB8B
 C - - - - 0x03CF1F FF:CF0F: 20 35 CB  JSR sub_CB35
 C - - - - 0x03CF22 FF:CF12: A5 20     LDA ram_0020
@@ -4307,7 +4335,7 @@ C - - - - 0x03E267 FF:E257: 8D 42 06  STA $0642
 C - - - - 0x03E26A FF:E25A: 8D 43 06  STA $0643
 C - - - - 0x03E26D FF:E25D: A9 02     LDA #$02
 C - - - - 0x03E26F FF:E25F: 85 8E     STA ram_008E
-C - - - - 0x03E271 FF:E261: A9 01     LDA #$01
+C - - - - 0x03E271 FF:E261: A9 01     LDA #$80
 C - - - - 0x03E273 FF:E263: 8D 69 04  STA $0469
 C - - - - 0x03E276 FF:E266: 60        RTS
 
@@ -6052,7 +6080,7 @@ C - - - - 0x03ED5B FF:ED4B: AD 31 05  LDA ram_для_052F_звук_анимац�
 C - - - - 0x03ED5E FF:ED4E: 8D 2F 05  STA ram_звук_анимации
 C - - - - 0x03ED61 FF:ED51: A9 00     LDA #$00
 C - - - - 0x03ED63 FF:ED53: 85 8E     STA ram_008E
-C - - - - 0x03ED65 FF:ED55: A9 01     LDA #$01
+C - - - - 0x03ED65 FF:ED55: A9 01     LDA #$80
 C - - - - 0x03ED67 FF:ED57: 8D 69 04  STA $0469
 C - - - - 0x03ED6A FF:ED5A: 60        RTS
 
@@ -9611,7 +9639,17 @@ tbl_0x040002_защита_япония:
 _общий_RTS:
 	RTS
 
+.segment "MMC5_INIT"
+@reset:
+	LDA #$03
+	STA $5100
+	STA $5101
+	LDA #$9E
+	STA $5116
+	JMP vec_FFF0_обработчик_RESET
+
+
 .segment "VECTORS"
 .word vec_C500_обработчик_NMI
-.word vec_FFF0_обработчик_RESET
+.word @reset
 .word vec_C506_обработчик_IRQ

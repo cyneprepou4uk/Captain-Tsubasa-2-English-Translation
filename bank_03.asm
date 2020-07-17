@@ -78,32 +78,35 @@ C - - - - 0x0040A3 03:A093: 20 CB A1  JSR sub_A1CB_банксвич_CHR_00_01
 C - - - - 0x0040A6 03:A096: A5 79     LDA ram_0079
 C - - - - 0x0040A8 03:A098: F0 10     BEQ bra_A0AA
 C - - - - 0x0040AA 03:A09A: 0A        ASL
-C - - - - 0x0040AB 03:A09B: 8D 00 C0  STA $C000
-C - - - - 0x0040AE 03:A09E: 8D 01 C0  STA $C001
-C - - - - 0x0040B1 03:A0A1: 8D 01 E0  STA $E001
+                                      LDY #$80
+C - - - - 0x0040B1 03:A0A1: 8D 01 E0  STY $5204
+                                      SEC
+									  SBC #$01
+									  STA ram_линия_irq
+C - - - - 0x0040AB 03:A09B: 8D 00 C0  STA $5203
 C - - - - 0x0040B4 03:A0A4: A9 04     LDA #$04
 C - - - - 0x0040B6 03:A0A6: 85 78     STA ram_0078
 C - - - - 0x0040B8 03:A0A8: 10 05     BPL bra_A0AF
 bra_A0AA:
-C - - - - 0x0040BA 03:A0AA: 8D 00 E0  STA $E000
-C - - - - 0x0040BD 03:A0AD: 85 78     STA ram_0078
+                                      STA $5204
+                                      STA ram_0078
 bra_A0AF:
 C - - - - 0x0040BF 03:A0AF: A9 02     LDA #$02
 C - - - - 0x0040C1 03:A0B1: 8D 00 80  STA $8000
 C - - - - 0x0040C4 03:A0B4: A5 9E     LDA ram_для_8001_02
-C - - - - 0x0040C6 03:A0B6: 8D 01 80  STA $8001
+C - - - - 0x0040C6 03:A0B6: 8D 01 80  STA $5124
 C - - - - 0x0040C9 03:A0B9: A9 03     LDA #$03
 C - - - - 0x0040CB 03:A0BB: 8D 00 80  STA $8000
 C - - - - 0x0040CE 03:A0BE: A5 9F     LDA ram_для_8001_03
-C - - - - 0x0040D0 03:A0C0: 8D 01 80  STA $8001
+C - - - - 0x0040D0 03:A0C0: 8D 01 80  STA $5125
 C - - - - 0x0040D3 03:A0C3: A9 04     LDA #$04
 C - - - - 0x0040D5 03:A0C5: 8D 00 80  STA $8000
 C - - - - 0x0040D8 03:A0C8: A5 A0     LDA ram_для_8001_04
-C - - - - 0x0040DA 03:A0CA: 8D 01 80  STA $8001
+C - - - - 0x0040DA 03:A0CA: 8D 01 80  STA $5126
 C - - - - 0x0040DD 03:A0CD: A9 05     LDA #$05
 C - - - - 0x0040DF 03:A0CF: 8D 00 80  STA $8000
 C - - - - 0x0040E2 03:A0D2: A5 A1     LDA ram_для_8001_05
-C - - - - 0x0040E4 03:A0D4: 8D 01 80  STA $8001
+C - - - - 0x0040E4 03:A0D4: 8D 01 80  STA $5127
 C - - - - 0x0040E7 03:A0D7: A2 02     LDX #$01
 C - - - - 0x0040E9 03:A0D9: A9 04     LDA #$04
 C - - - - 0x0040EB 03:A0DB: 85 40     STA ram_0040
@@ -161,8 +164,9 @@ C - - - - 0x004147 03:A137: 60        RTS
 
 .export sub_0x004170
 sub_0x004170:
-C - - - - 0x004170 03:A160: 8D 00 E0  STA $E000
-C - - - - 0x004173 03:A163: 8D 01 E0  STA $E001
+                                      BIT $5204
+C - - - - 0x004170 03:A160: 8D 00 E0  LDA #$80
+C - - - - 0x004173 03:A163: 8D 01 E0  STA $5204
 C - - - - 0x004176 03:A166: A6 78     LDX ram_0078
 C - - - - 0x004178 03:A168: B5 78     LDA ram_0078,X
 C - - - - 0x00417A 03:A16A: 10 21     BPL bra_A18D
@@ -206,11 +210,14 @@ C - - - - 0x0041C2 03:A1B2: E6 78     INC ram_0078
 C - - - - 0x0041C4 03:A1B4: E6 78     INC ram_0078
 C - - - - 0x0041C6 03:A1B6: E6 78     INC ram_0078
 C - - - - 0x0041C8 03:A1B8: 0A        ASL
-C - - - - 0x0041C9 03:A1B9: 8D 00 C0  STA $C000
-C - - - - 0x0041CC 03:A1BC: 8D 01 C0  STA $C001
+									  CLC
+									  ADC ram_линия_irq
+									  ADC #$02
+									  STA ram_линия_irq
+C - - - - 0x0041C9 03:A1B9: 8D 00 C0  STA $5203
 C - - - - 0x0041CF 03:A1BF: 60        RTS
 bra_A1C0:
-C - - - - 0x0041D0 03:A1C0: 8D 00 E0  STA $E000
+C - - - - 0x0041D0 03:A1C0: 8D 00 E0  STA $5204
 C - - - - 0x0041D3 03:A1C3: 85 78     STA ram_0078
 C - - - - 0x0041D5 03:A1C5: A0 18     LDY #$18
 C - - - - 0x0041D7 03:A1C7: 20 CB A1  JSR sub_A1CB_банксвич_CHR_00_01
@@ -220,11 +227,15 @@ sub_A1CB_банксвич_CHR_00_01:
 C - - - - 0x0041DB 03:A1CB: B6 78     LDX ram_0078,Y
 C - - - - 0x0041DD 03:A1CD: A9 00     LDA #$00
 C - - - - 0x0041E1 03:A1D1: 8D 00 80  STA $8000
-C - - - - 0x0041E4 03:A1D4: 8E 01 80  STX $8001
+C - - - - 0x0041E4 03:A1D4: 8E 01 80  STX $5120
+                                      INX
+									  STX $5121
 C - - - - 0x0041E7 03:A1D7: B6 79     LDX ram_0079,Y
 C - - - - 0x0041E9 03:A1D9: A9 01     LDA #$01
 C - - - - 0x0041ED 03:A1DD: 8D 00 80  STA $8000
-C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $8001
+C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $5122
+                                      INX
+									  STX $5123
 C - - - - 0x0041F3 03:A1E3: 60        RTS
 
 .export loc_0x00422B
@@ -232,8 +243,8 @@ loc_0x00422B:
 C D - - - 0x00422B 03:A21B: A2 FF     LDX #$FF
 C - - - - 0x00422D 03:A21D: 9A        TXS
 C - - - - 0x00422E 03:A21E: 48        PHA
-C - - - - 0x00422F 03:A21F: A9 00     LDA #$00
-C - - - - 0x004231 03:A221: 8D 00 A0  STA $A000
+C - - - - 0x00422F 03:A21F: A9 00     LDA #$44
+C - - - - 0x004231 03:A221: 8D 00 A0  STA $5105
 C - - - - 0x004234 03:A224: A5 1B     LDA ram_001B
 C - - - - 0x004236 03:A226: 09 40     ORA #$40
 C - - - - 0x004238 03:A228: 85 1B     STA ram_001B
@@ -317,8 +328,8 @@ C - - - - 0x0042C8 03:A2B8: A5 20     LDA ram_0020
 C - - - - 0x0042CA 03:A2BA: 29 7F     AND #$7F
 C - - - - 0x0042CC 03:A2BC: 8D 00 20  STA $2000
 C - - - - 0x0042CF 03:A2BF: 85 20     STA ram_0020
-C - - - - 0x0042D1 03:A2C1: 8D 00 E0  STA $E000
 C - - - - 0x0042D4 03:A2C4: A9 00     LDA #$00
+C - - - - 0x0042D1 03:A2C1: 8D 00 E0  STA $5204
 C - - - - 0x0042D6 03:A2C6: A0 E8     LDY #$E8
 ; сработало перед появлением экрана с разводкой
 bra_A2C8:
@@ -768,8 +779,8 @@ ofs_A5B9_07:
 - - - - - 0x0045CF 03:A5BF: 60        RTS
 
 ofs_A5C0_08:
-- - - - - 0x0045D0 03:A5C0: A9 00     LDA #$00
-- - - - - 0x0045D2 03:A5C2: 8D 00 A0  STA $A000
+- - - - - 0x0045D0 03:A5C0: A9 00     LDA #$44
+- - - - - 0x0045D2 03:A5C2: 8D 00 A0  STA $5105
 - - - - - 0x0045D5 03:A5C5: A5 1B     LDA ram_001B
 - - - - - 0x0045D7 03:A5C7: 29 BF     AND #$BF
 - - - - - 0x0045D9 03:A5C9: 85 1B     STA ram_001B
@@ -777,8 +788,8 @@ ofs_A5C0_08:
 - - - - - 0x0045DD 03:A5CD: 60        RTS
 
 ofs_A5CE_09:
-- - - - - 0x0045DE 03:A5CE: A9 01     LDA #$01
-- - - - - 0x0045E0 03:A5D0: 8D 00 A0  STA $A000
+- - - - - 0x0045DE 03:A5CE: A9 01     LDA #$50
+- - - - - 0x0045E0 03:A5D0: 8D 00 A0  STA $5105
 - - - - - 0x0045E3 03:A5D3: A5 1B     LDA ram_001B
 - - - - - 0x0045E5 03:A5D5: 09 40     ORA #$40
 - - - - - 0x0045E7 03:A5D7: 85 1B     STA ram_001B
