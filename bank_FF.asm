@@ -1,6 +1,5 @@
 .segment "BANK_FE"
 .include "copy_bank_ram.inc"
-; нельзя писать код выше dpcm
 
 loc_C400:
 C D - - - 0x03C410 FF:C400: A8        TAY
@@ -123,15 +122,8 @@ vec_FFF0_обработчик_RESET:
 C D - - - 0x03C65E FF:C64E: A9 08     LDA #$08
 C - - - - 0x03C660 FF:C650: 8D 00 20  STA $2000
 C - - - - 0x03C663 FF:C653: 78        SEI
-C - - - - 0x03C664 FF:C654: D8        CLD
 C - - - - 0x03C665 FF:C655: A2 FF     LDX #$FF
 C - - - - 0x03C667 FF:C657: 9A        TXS
-bra_C658:
-C - - - - 0x03C668 FF:C658: AD 02 20  LDA $2002
-C - - - - 0x03C66B FF:C65B: 10 FB     BPL bra_C658
-bra_C65D:
-C - - - - 0x03C66D FF:C65D: AD 02 20  LDA $2002
-C - - - - 0x03C670 FF:C660: 10 FB     BPL bra_C65D
 C - - - - 0x03C677 FF:C667: A9 00     LDA #$00
 C - - - - 0x03C679 FF:C669: 85 00     STA ram_0000
 C - - - - 0x03C67B FF:C66B: 85 01     STA ram_0001
@@ -162,7 +154,7 @@ C - - - - 0x03C6A8 FF:C698: 8D 06 20  STA $2006
 C - - - - 0x03C6AB FF:C69B: 49 00     EOR #$00
 C - - - - 0x03C6AD FF:C69D: CA        DEX
 C - - - - 0x03C6AE FF:C69E: D0 F5     BNE bra_C695
-C - - - - 0x03C6B5 FF:C6A5: 20 35 CB  JSR sub_CB35
+C - - - - 0x03C6B5 FF:C6A5: 20 35 CB  JSR sub_CB35_очистить_nametable
 C - - - - 0x03C6B8 FF:C6A8: 20 8B CB  JSR sub_CB8B
 C - - - - 0x03C6C0 FF:C6B0: A9 00     LDA #$00
 C - - - - 0x03C6C2 FF:C6B2: 8D 69 04  STA $0469
@@ -717,52 +709,37 @@ C - - - - 0x03CB36 FF:CB26: 96 01     STX ram_0001,Y
 C - - - - 0x03CB38 FF:CB28: A6 00     LDX ram_0000
 C - - - - 0x03CB3A FF:CB2A: 4C A5 CA  JMP loc_CAA5
 
-.export sub_0x03CB45
-sub_0x03CB45:
-sub_CB35:
-C D - - - 0x03CB45 FF:CB35: A5 20     LDA ram_0020
-C - - - - 0x03CB47 FF:CB37: 29 7F     AND #$7F
-C - - - - 0x03CB49 FF:CB39: 85 20     STA ram_0020
-C - - - - 0x03CB4B FF:CB3B: 8D 00 20  STA $2000
-C - - - - 0x03CB4E FF:CB3E: A9 06     LDA #$06
-C - - - - 0x03CB50 FF:CB40: 8D 01 20  STA $2001
-C - - - - 0x03CB53 FF:CB43: A9 20     LDA #$20
-C - - - - 0x03CB55 FF:CB45: 20 5C CB  JSR sub_CB5C
-C - - - - 0x03CB58 FF:CB48: A9 24     LDA #$24
-C - - - - 0x03CB5A FF:CB4A: 20 5C CB  JSR sub_CB5C
-C - - - - 0x03CB5D FF:CB4D: A9 1E     LDA #$1E
-C - - - - 0x03CB5F FF:CB4F: 8D 01 20  STA $2001
-C - - - - 0x03CB62 FF:CB52: A5 20     LDA ram_0020
-C - - - - 0x03CB64 FF:CB54: 09 80     ORA #$80
-C - - - - 0x03CB66 FF:CB56: 85 20     STA ram_0020
-C - - - - 0x03CB68 FF:CB58: 8D 00 20  STA $2000
-C - - - - 0x03CB6B FF:CB5B: 60        RTS
-
-sub_CB5C:
-C - - - - 0x03CB6C FF:CB5C: 2C 02 20  BIT $2002
-C - - - - 0x03CB6F FF:CB5F: 8D 06 20  STA $2006
-C - - - - 0x03CB72 FF:CB62: A9 00     LDA #$00
-C - - - - 0x03CB74 FF:CB64: 8D 06 20  STA $2006
-C - - - - 0x03CB77 FF:CB67: A9 00     LDA #$00
-C - - - - 0x03CB79 FF:CB69: A2 C0     LDX #$C0
-C - - - - 0x03CB7B FF:CB6B: A0 04     LDY #$04
-bra_CB6D:
-C - - - - 0x03CB7D FF:CB6D: 8D 07 20  STA $2007
-C - - - - 0x03CB80 FF:CB70: CA        DEX
-C - - - - 0x03CB81 FF:CB71: D0 FA     BNE bra_CB6D
-C - - - - 0x03CB83 FF:CB73: 88        DEY
-C - - - - 0x03CB84 FF:CB74: D0 F7     BNE bra_CB6D
-C - - - - 0x03CB86 FF:CB76: 8A        TXA
-C - - - - 0x03CB87 FF:CB77: A2 40     LDX #$40
-bra_CB79:
-C - - - - 0x03CB89 FF:CB79: 8D 07 20  STA $2007
-C - - - - 0x03CB8C FF:CB7C: CA        DEX
-C - - - - 0x03CB8D FF:CB7D: D0 FA     BNE bra_CB79
-C - - - - 0x03CB8F FF:CB7F: 2C 02 20  BIT $2002
-C - - - - 0x03CB92 FF:CB82: A9 00     LDA #$00
-C - - - - 0x03CB94 FF:CB84: 8D 05 20  STA $2005
-C - - - - 0x03CB97 FF:CB87: 8D 05 20  STA $2005
-C - - - - 0x03CB9A FF:CB8A: 60        RTS
+.export sub_0x03CB45_очистить_nametable
+sub_0x03CB45_очистить_nametable:
+sub_CB35_очистить_nametable:
+	LDA ram_0020
+	AND #$7F
+	STA ram_0020
+	STA $2000
+	LDA #$06
+	STA $2001
+	BIT $2002
+	LDA #$20
+	STA $2006
+	LDA #$00
+	STA $2006
+	TAX
+	LDY #$08
+@цикл:
+	STA $2007
+	DEX
+	BNE @цикл
+	DEY
+	BNE @цикл
+	STA $2005
+	STA $2005
+	LDA #$1E
+	STA $2001
+	LDA ram_0020
+	ORA #$80
+	STA ram_0020
+	STA $2000
+	RTS
 
 sub_CB8B:
 C - - - - 0x03CB9B FF:CB8B: A0 00     LDY #$00
@@ -1343,7 +1320,7 @@ C - - - - 0x03CF14 FF:CF04: A9 00     LDA #$00
 C - - - - 0x03CF16 FF:CF06: 8D 69 04  STA $0469
 C - - - - 0x03CF19 FF:CF09: 8D 00 E0  STA $5204
 C - - - - 0x03CF1C FF:CF0C: 20 8B CB  JSR sub_CB8B
-C - - - - 0x03CF1F FF:CF0F: 20 35 CB  JSR sub_CB35
+C - - - - 0x03CF1F FF:CF0F: 20 35 CB  JSR sub_CB35_очистить_nametable
 C - - - - 0x03CF22 FF:CF12: A5 20     LDA ram_0020
 C - - - - 0x03CF24 FF:CF14: 29 7F     AND #$7F
 C - - - - 0x03CF26 FF:CF16: 8D 00 20  STA $2000
