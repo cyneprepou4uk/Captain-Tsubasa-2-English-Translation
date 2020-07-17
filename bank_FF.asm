@@ -12,9 +12,9 @@ C - - - - 0x03C418 FF:C408: A9 1E     LDA #$1E
 C - - - - 0x03C41A FF:C40A: 85 21     STA ram_для_2001
 C - - - - 0x03C41C FF:C40C: 8D 01 20  STA $2001
 C - - - - 0x03C423 FF:C413: A2 00     LDX #$00
-C - - - - 0x03C425 FF:C415: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
+C - - - - 0x03C425 FF:C415: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
 C - - - - 0x03C428 FF:C418: A2 02     LDX #$02
-C - - - - 0x03C42A FF:C41A: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_07
+C - - - - 0x03C42A FF:C41A: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_5115
 C - - - - 0x03C42D FF:C41D: 98        TYA
 C - - - - 0x03C42E FF:C41E: 4C 00 A2  JMP loc_0x00422B
 
@@ -90,22 +90,22 @@ bra_C4AE:
 - - - - - 0x03C4BE FF:C4AE: 8D 00 E0  STA $5204
 - - - - - 0x03C4C1 FF:C4B1: 40        RTI
 
-sub_C4B2_банксвич_PRG_06:
+sub_C4B2_банксвич_PRG_5114:
 C - - - - 0x03C4C2 FF:C4B2: 86 24     STX ram_для_8001_06
                                       TXA
 									  EOR #$80
 									  STA $5114
 									  RTS
 
-.export sub_0x03C4C9_банксвич_PRG_07
-sub_0x03C4C9_банксвич_PRG_07:
-.export loc_0x03C4C9_банксвич_PRG_07
-loc_0x03C4C9_банксвич_PRG_07:
-sub_C4B9_банксвич_PRG_07:
+.export sub_0x03C4C9_банксвич_PRG_5115
+sub_0x03C4C9_банксвич_PRG_5115:
+.export loc_0x03C4C9_банксвич_PRG_5115
+loc_0x03C4C9_банксвич_PRG_5115:
+sub_C4B9_банксвич_PRG_5115:
 C D - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_8001_07
 C - - - - 0x03C4CB FF:C4BB: A9 07     LDA #$07
-.export sub_0x03C4CD
-sub_0x03C4CD:
+.export sub_0x03C4CD_банксвич_PRG_5115
+sub_0x03C4CD_банксвич_PRG_5115:
 C - - - - 0x03C4CF FF:C4BF: 85 23     STA ram_для_8000
 C - - - - 0x03C4D1 FF:C4C1: 8D 00 80  STA $8000
                                       TXA
@@ -125,16 +125,16 @@ C - - - - 0x03C4E3 FF:C4D3: 85 EE     STA ram_00EE
 C - - - - 0x03C4E5 FF:C4D5: A5 25     LDA ram_для_8001_07
 C - - - - 0x03C4E7 FF:C4D7: 85 EF     STA ram_00EF
 C - - - - 0x03C4E9 FF:C4D9: A2 00     LDX #$00
-C - - - - 0x03C4EB FF:C4DB: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
+C - - - - 0x03C4EB FF:C4DB: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
 C - - - - 0x03C4EE FF:C4DE: A2 01     LDX #$01
-C - - - - 0x03C4F0 FF:C4E0: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_07
+C - - - - 0x03C4F0 FF:C4E0: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_5115
 C - - - - 0x03C4F3 FF:C4E3: 98        TYA
 C - - - - 0x03C4F4 FF:C4E4: A6 ED     LDX ram_00ED
 C - - - - 0x03C4F6 FF:C4E6: 20 0F A0  JSR sub_0x002FD2
 C - - - - 0x03C4F9 FF:C4E9: A6 EF     LDX ram_00EF
-C - - - - 0x03C4FB FF:C4EB: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_07
+C - - - - 0x03C4FB FF:C4EB: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_5115
 C - - - - 0x03C4FE FF:C4EE: A6 EE     LDX ram_00EE
-C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_06
+C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
