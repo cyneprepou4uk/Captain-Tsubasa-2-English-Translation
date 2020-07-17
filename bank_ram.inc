@@ -1687,6 +1687,8 @@ con_музыка_добавочное_время					= $32
 .charmap $3F, $5F	; "?"
 .charmap $2D, $5D	; "-"
 .charmap $2E, $5B	; "."
+.charmap $2C, $5C	; "."
 .charmap $3A, $7D	; ":"
 .charmap $27, $7C	; "'"
 .charmap $23, $7F	; "#"
+.charmap $2F, $3E	; "/"
