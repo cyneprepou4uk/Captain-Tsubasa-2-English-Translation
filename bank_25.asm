@@ -759,23 +759,23 @@ off_матч_07:
 	.text "1st Round"
 	
 	.byte $08
-	.word $2231
+	.word $2232
 	.text "Nankatsu"
 	
 	.byte $0B
-	.word $2270
+	.word $2271
 	.text "Public High"
 	
 	.byte $04
-	.word $22B3
+	.word $22B4
 	.text "~VS~"
 	
 	.byte $09
-	.word $22F1
+	.word $22F2
 	.text "Tatsunami"
 	
 	.byte $44
-	.word $2333
+	.word $2334
 	.text "High"
 
 
