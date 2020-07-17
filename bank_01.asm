@@ -4601,8 +4601,6 @@ C - - - - 0x001D5F 01:9D4F: 60        RTS
 
 .export sub_0x001D60
 sub_0x001D60:
-.export loc_0x001D60
-loc_0x001D60:
 C D - - - 0x001D60 01:9D50: 84 E6     STY ram_00E6
 C - - - - 0x001D62 01:9D52: 86 E7     STX ram_00E7
 C - - - - 0x001D64 01:9D54: A9 FF     LDA #$FF
