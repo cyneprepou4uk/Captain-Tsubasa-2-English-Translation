@@ -1,4 +1,4 @@
-.segment "BANK_FF"
+.segment "BANK_FF_1"
 .include "copy_bank_ram.inc"
 .incbin "DPCM.bin"
 ; нельзя писать код выше dpcm
@@ -3959,6 +3959,10 @@ tbl_DFBD:
 - - - - - 0x03DFE6 FF:DFD6: 20        .byte $20	; <み>
 - - - - - 0x03DFE7 FF:DFD7: B0        .byte $B0	; <び>
 - - - - - 0x03DFE8 FF:DFD8: CB        .byte $CB	; <ぺ>
+
+
+
+.segment "BANK_FF_2"
 
 .export loc_0x03DFE9
 loc_0x03DFE9:
