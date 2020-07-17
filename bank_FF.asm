@@ -1798,8 +1798,7 @@ C - - - - 0x03D1EC FF:D1DC: B0 0D     BCS bra_D1EB_сейчас_не_loss
 C - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA ram_флаг_loss
 C - - - - 0x03D1F1 FF:D1E1: 09 80     ORA #$80
 C - - - - 0x03D1F3 FF:D1E3: 8D 3E 06  STA ram_флаг_loss
-; музыка добавочного времени
-C - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #$32
+C - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #con_музыка_добавочное_время
 C - - - - 0x03D1F8 FF:D1E8: 20 F1 CB  JSR sub_CBF1_запись_звука
 bra_D1EB_сейчас_не_loss:
 C - - - - 0x03D1FB FF:D1EB: AD F8 05  LDA ram_время_hi
@@ -3114,7 +3113,7 @@ C - - - - 0x03DAA5 FF:DA95: 4C 0C D7  JMP loc_D70C
 .export loc_0x03DABA
 loc_0x03DABA:
 loc_DAAA:
-C D - - - 0x03DABA FF:DAAA: A9 01     LDA #$01
+C D - - - 0x03DABA FF:DAAA: A9 01     LDA #con_музыка_выключить_все
 C - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - 0x03DABF FF:DAAF: 20 4F CF  JSR sub_CF4F
 C - - - - 0x03DAC2 FF:DAB2: 48        PHA
