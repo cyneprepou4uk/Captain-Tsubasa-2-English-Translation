@@ -94,15 +94,9 @@ for i, f in ipairs(files) do
 	
 	--удалить хлам
 	text = string.gsub(text, regex, "")
-	
-	local rus = ""
-	local eng = ""
-	for i, character in ipairs(translation) do
-		if i % 2 ~= 0 then		--если читается нечетный байт таблицы, значит это русский символ
-			rus = character
-		else		--в противном случае заменить русский на английский
-			eng = character
-			text = string.gsub(text, rus, eng)
+	for i, _ in ipairs(translation) do
+		if i % 2 ~= 0 then
+			text = string.gsub(text, translation[i], translation[i + 1])
 		end
 	end
 	
