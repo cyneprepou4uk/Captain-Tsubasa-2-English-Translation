@@ -40,60 +40,82 @@ tbl_0x040003_экран_номера_матча:
 	.word off_матч_33
 
 off_матч_01:
-					.byte $0D
-					
-					.byte $05
-					.word $2145
-					.byte $16
-					.byte $30
-					
-					.byte $05
-					.word $21A5
-					.byte $16
-					.byte $BA
-					
-					.byte $05
-					.word $22A5
-					.byte $16
-					.byte $89
-					
-					.byte $04
-					.word $2164
-					.byte $0A
-					.byte $8A
-					
-					.byte $04
-					.word $217B
-					.byte $0A
-					.byte $8A
-					
-					.byte $04
-					.word $21CF
-					.byte $07
-					.byte $BB
-					
-					.byte $00
-					.word off_доп
-					
-					.byte $0F
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22A5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0A
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CF
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0A
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	;.byte $00
+	;.word @текст
+	
+	.byte $0F
 
-off_доп:
-					.byte $01
-					.word $2144
-					.byte $88
-					.byte $01
-					.word $215B
-					.byte $90
-					.byte $01
-					.word $22A4
-					.byte $8E
-					.byte $01
-					.word $22BB
-					.byte $93
-					.byte $42
-					.word $2233
-					.byte $91
-					.byte $8F
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22A4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22BB
+	.byte $93
+
+@текст:
+	.byte $01
+	.word $2144
+	.byte $88
+	.byte $01
+	.word $215B
+	.byte $90
+	.byte $01
+	.word $22A4
+	.byte $8E
+	.byte $01
+	.word $22BB
+	.byte $93
+	.byte $42
+	.word $2233
+	.byte $91
+	.byte $8F
 
 
 
@@ -130,59 +152,59 @@ off_матч_30:
 off_матч_31:
 off_матч_32:
 off_матч_33:
-					.byte $0D
-					
-					.byte $05
-					.word $2145
-					.byte $16
-					.byte $89
-					
-					.byte $05
-					.word $21A5
-					.byte $16
-					.byte $BA
-					
-					.byte $05
-					.word $22A5
-					.byte $16
-					.byte $89
-					
-					.byte $04
-					.word $2164
-					.byte $0A
-					.byte $8A
-					
-					.byte $04
-					.word $217B
-					.byte $0A
-					.byte $8A
-					
-					.byte $04
-					.word $21CF
-					.byte $07
-					.byte $BB
-					
-					.byte $00
-					.word off_B328
-					
-					.byte $0F
+	.byte $0D
+	
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $89
+	
+	.byte $05
+	.word $21A5
+	.byte $16
+	.byte $BA
+	
+	.byte $05
+	.word $22A5
+	.byte $16
+	.byte $89
+	
+	.byte $04
+	.word $2164
+	.byte $0A
+	.byte $8A
+	
+	.byte $04
+	.word $217B
+	.byte $0A
+	.byte $8A
+	
+	.byte $04
+	.word $21CF
+	.byte $07
+	.byte $BB
+	
+	.byte $00
+	.word off_B328
+	
+	.byte $0F
 
 
 
 off_B328:
-					.byte $01
-					.word $2144
-					.byte $88
-					.byte $01
-					.word $215B
-					.byte $90
-					.byte $01
-					.word $22A4
-					.byte $8E
-					.byte $01
-					.word $22BB
-					.byte $93
-					.byte $42
-					.word $2233
-					.byte $91
-					.byte $8F
+	.byte $01
+	.word $2144
+	.byte $88
+	.byte $01
+	.word $215B
+	.byte $90
+	.byte $01
+	.word $22A4
+	.byte $8E
+	.byte $01
+	.word $22BB
+	.byte $93
+	.byte $42
+	.word $2233
+	.byte $91
+	.byte $8F
