@@ -9622,16 +9622,37 @@ _общий_RTS:
 	RTS
 
 .segment "MMC5_INIT"
-@reset:
+@подготовка_mmc5:
 	LDA #$03
 	STA $5100
 	STA $5101
+	LDX #$02
+	STX $5104
+	STX $5102
+	DEX
+	STX $5103
 	LDA #$9E
 	STA $5116
+	LDY #$00
+	STY ram_0000
+	STY ram_0002
+	LDA #$C0
+	STA ram_0001
+	LDA #$60
+	STA ram_0003
+	LDX #$1F
+@цикл_копирования_на_батарейку:
+	LDA (ram_0000),Y
+	STA (ram_0002),Y
+	INY
+	BNE @цикл_копирования_на_батарейку
+	INC ram_0001
+	INC ram_0003
+	DEX
+	BPL @цикл_копирования_на_батарейку
 	JMP vec_FFF0_обработчик_RESET
-
 
 .segment "VECTORS"
 .word vec_C500_обработчик_NMI
-.word @reset
+.word @подготовка_mmc5
 .word vec_C506_обработчик_IRQ
