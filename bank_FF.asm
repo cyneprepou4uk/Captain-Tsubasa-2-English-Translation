@@ -598,28 +598,21 @@ C - - - - 0x03C9F5 FF:C9E5: EE E1 00  INC ram_рандом_1
 C - - - - 0x03C9F8 FF:C9E8: 60        RTS
 
 sub_C9E9_банксвич_CHR:
-C - - - - 0x03C9F9 FF:C9E9: A2 00     LDX #$00
-C - - - - 0x03CA03 FF:C9F3: 8D 00 80  STX $8000
-C - - - - 0x03CA06 FF:C9F6: BD 90 04  LDA $0490,X
-                                      TAY
-C - - - - 0x03CA09 FF:C9F9: 8D 01 80  STY $5120
-                                      INY
+C - - - - 0x03CA06 FF:C9F6: BD 90 04  LDY $0490
+									  STY $5120
+									  INY
 									  STY $5121
-C - - - - 0x03CA0C FF:C9FC: A5 22     INX
-C - - - - 0x03CA10 FF:CA00: 8D 00 80  STX $8000
-C - - - - 0x03CA13 FF:CA03: BD 91 04  LDA $0490,X
-                                      TAY
-C - - - - 0x03CA16 FF:CA06: 8D 01 80  STY $5122
-                                      INY
+									  LDY $0491
+									  STY $5122
+									  INY
 									  STY $5123
+                                      LDX #$03
 bra_CA0F_цикл:
-                                      INX
-C - - - - 0x03CA22 FF:CA12: 8D 00 80  STX $8000
-C - - - - 0x03CA25 FF:CA15: BD 90 04  LDA $0492,X
-C - - - - 0x03CA28 FF:CA18: 8D 01 80  STA $5124 - 2,X
-C - - - - 0x03CA2D FF:CA1D: C0 06     CPX #$05
-C - - - - 0x03CA2F FF:CA1F: D0 EE     BNE bra_CA0F_цикл
-C - - - - 0x03CA31 FF:CA21: 60        RTS
+									  LDA $0494,X
+									  STA $5124,X
+									  DEX
+									  BPL bra_CA0F_цикл
+									  RTS
 
 ofs_CA22_minus:
 ofs_CA22 = ofs_CA22_minus - 1
