@@ -132,8 +132,6 @@ C - - - - 0x03C66B FF:C65B: 10 FB     BPL bra_C658
 bra_C65D:
 C - - - - 0x03C66D FF:C65D: AD 02 20  LDA $2002
 C - - - - 0x03C670 FF:C660: 10 FB     BPL bra_C65D
-C - - - - 0x03C672 FF:C662: A9 C0     LDA #$C0
-C - - - - 0x03C674 FF:C664: 8D 01 A0  STA $A001
 C - - - - 0x03C677 FF:C667: A9 00     LDA #$00
 C - - - - 0x03C679 FF:C669: 85 00     STA ram_0000
 C - - - - 0x03C67B FF:C66B: 85 01     STA ram_0001
