@@ -91,20 +91,12 @@ bra_A0AA:
                                       STA $5204
                                       STA ram_0078
 bra_A0AF:
-C - - - - 0x0040BF 03:A0AF: A9 02     LDA #$02
-C - - - - 0x0040C1 03:A0B1: 8D 00 80  STA $8000
 C - - - - 0x0040C4 03:A0B4: A5 9E     LDA ram_для_8001_02
 C - - - - 0x0040C6 03:A0B6: 8D 01 80  STA $5124
-C - - - - 0x0040C9 03:A0B9: A9 03     LDA #$03
-C - - - - 0x0040CB 03:A0BB: 8D 00 80  STA $8000
 C - - - - 0x0040CE 03:A0BE: A5 9F     LDA ram_для_8001_03
 C - - - - 0x0040D0 03:A0C0: 8D 01 80  STA $5125
-C - - - - 0x0040D3 03:A0C3: A9 04     LDA #$04
-C - - - - 0x0040D5 03:A0C5: 8D 00 80  STA $8000
 C - - - - 0x0040D8 03:A0C8: A5 A0     LDA ram_для_8001_04
 C - - - - 0x0040DA 03:A0CA: 8D 01 80  STA $5126
-C - - - - 0x0040DD 03:A0CD: A9 05     LDA #$05
-C - - - - 0x0040DF 03:A0CF: 8D 00 80  STA $8000
 C - - - - 0x0040E2 03:A0D2: A5 A1     LDA ram_для_8001_05
 C - - - - 0x0040E4 03:A0D4: 8D 01 80  STA $5127
 C - - - - 0x0040E7 03:A0D7: A2 02     LDX #$01
@@ -225,14 +217,10 @@ C - - - - 0x0041DA 03:A1CA: 60        RTS
 
 sub_A1CB_банксвич_CHR_00_01:
 C - - - - 0x0041DB 03:A1CB: B6 78     LDX ram_0078,Y
-C - - - - 0x0041DD 03:A1CD: A9 00     LDA #$00
-C - - - - 0x0041E1 03:A1D1: 8D 00 80  STA $8000
 C - - - - 0x0041E4 03:A1D4: 8E 01 80  STX $5120
                                       INX
 									  STX $5121
 C - - - - 0x0041E7 03:A1D7: B6 79     LDX ram_0079,Y
-C - - - - 0x0041E9 03:A1D9: A9 01     LDA #$01
-C - - - - 0x0041ED 03:A1DD: 8D 00 80  STA $8000
 C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $5122
                                       INX
 									  STX $5123
