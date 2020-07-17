@@ -1836,7 +1836,13 @@ C - - - - 0x03D236 FF:D226: 6D F9 05  ADC ram_loss
 C - - - - 0x03D239 FF:D229: 10 06     BPL bra_D231
 C - - - - 0x03D23B FF:D22B: A2 50     LDX #$50
 C - - - - 0x03D23D FF:D22D: 9A        TXS
-C - - - - 0x03D23E FF:D22E: 4C 98 DA  JMP loc_DA98
+C D - - - 0x03DAA8 FF:DA98: A9 00     LDA #$00
+C - - - - 0x03DAAA FF:DA9A: 8D 2D 06  STA $062D
+C - - - - 0x03DAAD FF:DA9D: 8D 15 06  STA $0615
+C - - - - 0x03DAB0 FF:DAA0: A9 33     LDA #$33
+C - - - - 0x03DAB2 FF:DAA2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
+C - - - - 0x03DAB5 FF:DAA5: A9 FF     LDA #$FF
+C - - - - 0x03DAB7 FF:DAA7: 4C FE CE  JMP loc_CEFE
 bra_D231:
 C - - - - 0x03D241 FF:D231: 8D F9 05  STA ram_loss
 C - - - - 0x03D244 FF:D234: 60        RTS
@@ -3104,15 +3110,6 @@ C - - - - 0x03DA9E FF:DA8E: A9 80     LDA #con_btn_A
 C - - - - 0x03DAA0 FF:DA90: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03DAA3 FF:DA93: F0 DF     BEQ bra_DA74
 C - - - - 0x03DAA5 FF:DA95: 4C 0C D7  JMP loc_D70C
-
-loc_DA98:
-C D - - - 0x03DAA8 FF:DA98: A9 00     LDA #$00
-C - - - - 0x03DAAA FF:DA9A: 8D 2D 06  STA $062D
-C - - - - 0x03DAAD FF:DA9D: 8D 15 06  STA $0615
-C - - - - 0x03DAB0 FF:DAA0: A9 33     LDA #$33
-C - - - - 0x03DAB2 FF:DAA2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - 0x03DAB5 FF:DAA5: A9 FF     LDA #$FF
-C - - - - 0x03DAB7 FF:DAA7: 4C FE CE  JMP loc_CEFE
 
 .export loc_0x03DABA
 loc_0x03DABA:
