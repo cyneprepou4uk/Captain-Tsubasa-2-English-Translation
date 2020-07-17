@@ -1140,8 +1140,8 @@ tbl_A89D_опции_японии:
 - D - I - 0x0028B5 02:A8A5: 73 AA     .word sub_0x001A00_выход_из_экрана
 
 ofs_A8A7_опция_formation_япония:
-C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_0x040001_расстановка_япония
-C - - - - 0x0028B9 02:A8A9: A2 B6     LDX #> tbl_0x040001_расстановка_япония
+C - J - - 0x0028B7 02:A8A7: A0 EB     LDY #< tbl_B791_расстановка_япония
+C - - - - 0x0028B9 02:A8A9: A2 B6     LDX #> tbl_B791_расстановка_япония
 C - - - - 0x0028BD 02:A8AD: 20 AD 97  JSR sub_0x0017BB
 C - - - - 0x0028C0 02:A8B0: A2 68     LDX #$68
 C - - - - 0x0028C2 02:A8B2: 20 1E AE  JSR sub_AE1E
@@ -1155,8 +1155,8 @@ C - - - - 0x0028D4 02:A8C4: 8D 64 05  STA $0564
 C - - - - 0x0028D7 02:A8C7: 4C 8D A8  JMP loc_A88D
 
 ofs_A8CA_опция_defense_япония:
-C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_0x040002_защита_япония
-C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_0x040002_защита_япония
+C - J - - 0x0028DA 02:A8CA: A0 90     LDY #< tbl_B792_защита_япония
+C - - - - 0x0028DC 02:A8CC: A2 B7     LDX #> tbl_B792_защита_япония
 C - - - - 0x0028E0 02:A8D0: 20 AD 97  JSR sub_0x0017BB
 C - - - - 0x0028E3 02:A8D3: A0 B8     LDY #< tbl_ADB8_курсор_защиты_японии
 C - - - - 0x0028E5 02:A8D5: A2 AD     LDX #> tbl_ADB8_курсор_защиты_японии
@@ -3555,6 +3555,112 @@ tbl_B790_защита_сан_паулу_нанкацу:
 	.byte $4C
 	.word $2232
 	.byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
+
+
+
+.export tbl_B791_расстановка_япония
+tbl_B791_расстановка_япония:
+; formation
+	.byte $0A
+	.word $20EC
+	.byte $9C, $80, $81, $82, $83, $84, $85, $86, $A8, $9D
+	
+	.byte $0A
+	.word $210C
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $212C
+	.byte $AA
+	.text " 4:3:3  "
+	.byte $AB
+	
+	.byte $0A
+	.word $214C
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $216C
+	.byte $AA
+	.text " 4:4:2  "
+	.byte $AB
+	
+	.byte $0A
+	.word $218C
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $21AC
+	.byte $AA
+	.text " 3:5:2  "
+	.byte $AB
+	
+	.byte $0A
+	.word $21CC
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $21EC
+	.byte $AA
+	.text " Brazil "
+	.byte $AB
+; tactics
+	.byte $0A
+	.word $220C
+	.byte $AA, $00, $00, $87, $88, $89, $8A, $8B, $8C, $AB
+	
+	.byte $4A
+	.word $222C
+	.byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
+
+
+
+
+.export tbl_B792_защита_япония
+tbl_B792_защита_япония:
+	.byte $0A
+	.word $212C
+	.byte $9C
+	.text "Defense"
+	.byte $A8, $9D
+	
+	.byte $0A
+	.word $214C
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $216C
+	.byte $AA
+	.text " Normal "
+	.byte $AB
+	
+	.byte $0A
+	.word $218C
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $21AC
+	.byte $AA
+	.text " Press  "
+	.byte $AB
+	
+	.byte $0A
+	.word $21CC
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $0A
+	.word $21EC
+	.byte $AA
+	.text " Counter"
+	.byte $AB
+	
+	.byte $0A
+	.word $220C
+	.byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
+	
+	.byte $4A
+	.word $222C
+	.byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
 
