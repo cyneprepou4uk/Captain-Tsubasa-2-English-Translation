@@ -136,21 +136,18 @@ vec_FFF0_обработчик_RESET:
 					INC ram_0001
 					DEX
 					BNE @очистка_ram
+					STA $4010
+					STA $0469
+					STA $5204
 					LDA #$08
 					STA ram_0020
 					LDA #$06
 					STA ram_для_2001
 					STA $2001
-					LDA #$00
-					STA $4010
 					LDA #$40
 					STA $4017
-					LDA $2002
 					JSR sub_CB35_очистить_nametable
 					JSR sub_CB8B_очистить_память_спрайтов
-					LDA #$00
-					STA $0469
-					STA $5204
 					CLI
 					LDA #$00
 					JMP loc_CEFE
