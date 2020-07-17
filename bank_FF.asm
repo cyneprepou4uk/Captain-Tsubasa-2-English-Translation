@@ -119,49 +119,41 @@ bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
 
 vec_FFF0_обработчик_RESET:
-C D - - - 0x03C65E FF:C64E: A9 08     LDA #$08
-C - - - - 0x03C660 FF:C650: 8D 00 20  STA $2000
-C - - - - 0x03C663 FF:C653: 78        SEI
-C - - - - 0x03C665 FF:C655: A2 FF     LDX #$FF
-C - - - - 0x03C667 FF:C657: 9A        TXS
-C - - - - 0x03C677 FF:C667: A9 00     LDA #$00
-C - - - - 0x03C679 FF:C669: 85 00     STA ram_0000
-C - - - - 0x03C67B FF:C66B: 85 01     STA ram_0001
-C - - - - 0x03C67D FF:C66D: A8        TAY
-C - - - - 0x03C67E FF:C66E: A2 08     LDX #$08
-bra_C670_цикл_очистки:
-C - - - - 0x03C680 FF:C670: 91 00     STA (ram_0000),Y
-C - - - - 0x03C682 FF:C672: C8        INY
-C - - - - 0x03C683 FF:C673: D0 FB     BNE bra_C670_цикл_очистки
-C - - - - 0x03C685 FF:C675: E6 01     INC ram_0001
-C - - - - 0x03C687 FF:C677: CA        DEX
-C - - - - 0x03C688 FF:C678: D0 F6     BNE bra_C670_цикл_очистки
-C - - - - 0x03C68A FF:C67A: A9 08     LDA #$08
-C - - - - 0x03C68C FF:C67C: 85 20     STA ram_0020
-C - - - - 0x03C68E FF:C67E: A9 06     LDA #$06
-C - - - - 0x03C690 FF:C680: 85 21     STA ram_для_2001
-C - - - - 0x03C692 FF:C682: 8D 01 20  STA $2001
-C - - - - 0x03C695 FF:C685: A9 00     LDA #$00
-C - - - - 0x03C697 FF:C687: 8D 10 40  STA $4010
-C - - - - 0x03C69A FF:C68A: A9 40     LDA #$40
-C - - - - 0x03C69C FF:C68C: 8D 17 40  STA $4017
-C - - - - 0x03C69F FF:C68F: AD 02 20  LDA $2002
-C - - - - 0x03C6A2 FF:C692: A9 10     LDA #$10
-C - - - - 0x03C6A4 FF:C694: AA        TAX
-bra_C695:
-C - - - - 0x03C6A5 FF:C695: 8D 06 20  STA $2006
-C - - - - 0x03C6A8 FF:C698: 8D 06 20  STA $2006
-C - - - - 0x03C6AB FF:C69B: 49 00     EOR #$00
-C - - - - 0x03C6AD FF:C69D: CA        DEX
-C - - - - 0x03C6AE FF:C69E: D0 F5     BNE bra_C695
-C - - - - 0x03C6B5 FF:C6A5: 20 35 CB  JSR sub_CB35_очистить_nametable
-C - - - - 0x03C6B8 FF:C6A8: 20 8B CB  JSR sub_CB8B
-C - - - - 0x03C6C0 FF:C6B0: A9 00     LDA #$00
-C - - - - 0x03C6C2 FF:C6B2: 8D 69 04  STA $0469
-C - - - - 0x03C6C5 FF:C6B5: 8D 00 E0  STA $5204
-C - - - - 0x03C6C8 FF:C6B8: 58        CLI
-C - - - - 0x03C6C9 FF:C6B9: A9 00     LDA #$00
-C - - - - 0x03C6CB FF:C6BB: 4C FE CE  JMP loc_CEFE
+					LDA #$08
+					STA $2000
+					SEI
+					LDX #$FF
+					TXS
+					LDA #$00
+					STA ram_0000
+					STA ram_0001
+					TAY
+					LDX #$08
+@очистка_ram:
+					STA (ram_0000),Y
+					INY
+					BNE @очистка_ram
+					INC ram_0001
+					DEX
+					BNE @очистка_ram
+					LDA #$08
+					STA ram_0020
+					LDA #$06
+					STA ram_для_2001
+					STA $2001
+					LDA #$00
+					STA $4010
+					LDA #$40
+					STA $4017
+					LDA $2002
+					JSR sub_CB35_очистить_nametable
+					JSR sub_CB8B_очистить_память_спрайтов
+					LDA #$00
+					STA $0469
+					STA $5204
+					CLI
+					LDA #$00
+					JMP loc_CEFE
 
 .export loc_0x03C6CE
 loc_0x03C6CE:
@@ -712,46 +704,46 @@ C - - - - 0x03CB3A FF:CB2A: 4C A5 CA  JMP loc_CAA5
 .export sub_0x03CB45_очистить_nametable
 sub_0x03CB45_очистить_nametable:
 sub_CB35_очистить_nametable:
-	LDA ram_0020
-	AND #$7F
-	STA ram_0020
-	STA $2000
-	LDA #$06
-	STA $2001
-	BIT $2002
-	LDA #$20
-	STA $2006
-	LDA #$00
-	STA $2006
-	TAX
-	LDY #$08
+					LDA ram_0020
+					AND #$7F
+					STA ram_0020
+					STA $2000
+					LDA #$06
+					STA $2001
+					BIT $2002
+					LDA #$20
+					STA $2006
+					LDA #$00
+					STA $2006
+					TAX
+					LDY #$08
 @цикл:
-	STA $2007
-	DEX
-	BNE @цикл
-	DEY
-	BNE @цикл
-	STA $2005
-	STA $2005
-	LDA #$1E
-	STA $2001
-	LDA ram_0020
-	ORA #$80
-	STA ram_0020
-	STA $2000
-	RTS
+					STA $2007
+					DEX
+					BNE @цикл
+					DEY
+					BNE @цикл
+					STA $2005
+					STA $2005
+					LDA #$1E
+					STA $2001
+					LDA ram_0020
+					ORA #$80
+					STA ram_0020
+					STA $2000
+					RTS
 
-sub_CB8B:
-C - - - - 0x03CB9B FF:CB8B: A0 00     LDY #$00
-C - - - - 0x03CB9D FF:CB8D: A9 F8     LDA #$F8
-bra_CB8F:
-C - - - - 0x03CB9F FF:CB8F: 99 00 02  STA ram_спрайт_Y,Y
-C - - - - 0x03CBA2 FF:CB92: C8        INY
-C - - - - 0x03CBA3 FF:CB93: C8        INY
-C - - - - 0x03CBA4 FF:CB94: C8        INY
-C - - - - 0x03CBA5 FF:CB95: C8        INY
-C - - - - 0x03CBA6 FF:CB96: D0 F7     BNE bra_CB8F
-C - - - - 0x03CBA8 FF:CB98: 60        RTS
+sub_CB8B_очистить_память_спрайтов:
+	LDY #$00
+	LDA #$F8
+@цикл:
+	STA ram_спрайт_Y,Y
+	INY
+	INY
+	INY
+	INY
+	BNE @цикл
+	RTS
 
 .export sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка:
@@ -1319,7 +1311,7 @@ C D - - - 0x03CF0E FF:CEFE: 48        PHA
 C - - - - 0x03CF14 FF:CF04: A9 00     LDA #$00
 C - - - - 0x03CF16 FF:CF06: 8D 69 04  STA $0469
 C - - - - 0x03CF19 FF:CF09: 8D 00 E0  STA $5204
-C - - - - 0x03CF1C FF:CF0C: 20 8B CB  JSR sub_CB8B
+C - - - - 0x03CF1C FF:CF0C: 20 8B CB  JSR sub_CB8B_очистить_память_спрайтов
 C - - - - 0x03CF1F FF:CF0F: 20 35 CB  JSR sub_CB35_очистить_nametable
 C - - - - 0x03CF22 FF:CF12: A5 20     LDA ram_0020
 C - - - - 0x03CF24 FF:CF14: 29 7F     AND #$7F
@@ -4428,7 +4420,7 @@ C - - - - 0x03E394 FF:E384: 8D 00 06  STA $0600
 C - - - - 0x03E397 FF:E387: 8D 15 06  STA $0615
 C - - - - 0x03E39A FF:E38A: A9 44     LDA #$44
 C - - - - 0x03E39C FF:E38C: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - 0x03E39F FF:E38F: 20 8B CB  JSR sub_CB8B
+C - - - - 0x03E39F FF:E38F: 20 8B CB  JSR sub_CB8B_очистить_память_спрайтов
 C - - - - 0x03E3A2 FF:E392: A9 1A     LDA #$1A
 C - - - - 0x03E3A4 FF:E394: 85 24     STA ram_для_5114
 C - - - - 0x03E3A6 FF:E396: A9 1B     LDA #$1B
@@ -4597,7 +4589,7 @@ bra_E4B6:
 C - - - - 0x03E4C6 FF:E4B6: A9 00     LDA #$00
 C - - - - 0x03E4C8 FF:E4B8: 8D 2D 06  STA $062D
 C - - - - 0x03E4CB FF:E4BB: 8D 15 06  STA $0615
-C - - - - 0x03E4CE FF:E4BE: 20 8B CB  JSR sub_CB8B
+C - - - - 0x03E4CE FF:E4BE: 20 8B CB  JSR sub_CB8B_очистить_память_спрайтов
 C - - - - 0x03E4D1 FF:E4C1: A9 2E     LDA #$2E
 C - - - - 0x03E4D3 FF:E4C3: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03E4D6 FF:E4C6: A9 1A     LDA #$1A
