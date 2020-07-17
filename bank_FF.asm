@@ -1830,7 +1830,7 @@ C - - - - 0x03D232 FF:D222: 18        CLC
 C - - - - 0x03D233 FF:D223: 69 01     ADC #$01
 C - - - - 0x03D235 FF:D225: 18        CLC
 C - - - - 0x03D236 FF:D226: 6D F9 05  ADC ram_loss
-C - - - - 0x03D239 FF:D229: 10 06     BPL bra_D231
+C - - - - 0x03D239 FF:D229: 10 06     BPL bra_D231_записать_loss
 C - - - - 0x03D23B FF:D22B: A2 50     LDX #$50
 C - - - - 0x03D23D FF:D22D: 9A        TXS
 C D - - - 0x03DAA8 FF:DA98: A9 00     LDA #$00
@@ -1840,7 +1840,7 @@ C - - - - 0x03DAB0 FF:DAA0: A9 33     LDA #$33
 C - - - - 0x03DAB2 FF:DAA2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DAB5 FF:DAA5: A9 FF     LDA #$FF
 C - - - - 0x03DAB7 FF:DAA7: 4C FE CE  JMP loc_CEFE
-bra_D231:
+bra_D231_записать_loss:
 C - - - - 0x03D241 FF:D231: 8D F9 05  STA ram_loss
 C - - - - 0x03D244 FF:D234: 60        RTS
 
