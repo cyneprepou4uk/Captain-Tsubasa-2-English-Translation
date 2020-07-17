@@ -1,6 +1,5 @@
 .segment "BANK_FE"
 .include "copy_bank_ram.inc"
-.incbin "DPCM.bin"
 ; нельзя писать код выше dpcm
 
 loc_C400:
@@ -3960,10 +3959,6 @@ tbl_DFBD:
 - - - - - 0x03DFE7 FF:DFD7: B0        .byte $B0	; <び>
 - - - - - 0x03DFE8 FF:DFD8: CB        .byte $CB	; <ぺ>
 
-
-
-.segment "BANK_FF"
-
 .export loc_0x03DFE9
 loc_0x03DFE9:
 C D - - - 0x03DFE9 FF:DFD9: 20 59 E0  JSR sub_E059
@@ -4639,6 +4634,41 @@ C - - - - 0x03E4DE FF:E4CE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E4E1 FF:E4D1: A2 50     LDX #$50
 C - - - - 0x03E4E3 FF:E4D3: 9A        TXS
 C - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x03404C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.segment "BANK_FF"
+.incbin "DPCM.bin"
+
 
 .export sub_0x03E4E7
 sub_0x03E4E7:
