@@ -221,7 +221,7 @@ C - - - - 0x03C73B FF:C72B: A9 00     LDA #$00
 C - - - - 0x03C73D FF:C72D: 95 02     STA ram_0002,X
 C - - - - 0x03C73F FF:C72F: A9 CA     LDA #> ofs_CA22
 C - - - - 0x03C741 FF:C731: A0 21     LDY #< ofs_CA22
-C - - - - 0x03C743 FF:C733: 20 E7 CA  JSR sub_CAE7
+C - - - - 0x03C743 FF:C733: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 C - - - - 0x03C746 FF:C736: A2 05     LDX #$05
 C - - - - 0x03C748 FF:C738: A9 50     LDA #$50
 C - - - - 0x03C74A FF:C73A: 95 01     STA ram_0001,X
@@ -229,7 +229,7 @@ C - - - - 0x03C74C FF:C73C: A9 00     LDA #$00
 C - - - - 0x03C74E FF:C73E: 95 02     STA ram_0002,X
 C - - - - 0x03C750 FF:C740: A9 D1     LDA #> ofs_D11E
 C - - - - 0x03C752 FF:C742: A0 1D     LDY #< ofs_D11E
-C - - - - 0x03C754 FF:C744: 20 E7 CA  JSR sub_CAE7
+C - - - - 0x03C754 FF:C744: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 C - - - - 0x03C757 FF:C747: A2 09     LDX #$09
 C - - - - 0x03C759 FF:C749: A9 78     LDA #$78
 C - - - - 0x03C75B FF:C74B: 95 01     STA ram_0001,X
@@ -237,7 +237,7 @@ C - - - - 0x03C75D FF:C74D: A9 00     LDA #$00
 C - - - - 0x03C75F FF:C74F: 95 02     STA ram_0002,X
 C - - - - 0x03C761 FF:C751: A9 EB     LDA #> ofs_EB86
 C - - - - 0x03C763 FF:C753: A0 85     LDY #< ofs_EB86
-C - - - - 0x03C765 FF:C755: 20 E7 CA  JSR sub_CAE7
+C - - - - 0x03C765 FF:C755: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 C - - - - 0x03C768 FF:C758: A5 20     LDA ram_0020
 C - - - - 0x03C76A FF:C75A: 09 80     ORA #$80
 C - - - - 0x03C76C FF:C75C: 85 20     STA ram_0020
@@ -664,9 +664,9 @@ C - - - - 0x03CAF4 FF:CAE4: AA        TAX
 C - - - - 0x03CAF5 FF:CAE5: 9A        TXS
 C - - - - 0x03CAF6 FF:CAE6: 60        RTS
 
-.export sub_0x03CAF7
-sub_0x03CAF7:
-sub_CAE7:
+.export sub_0x03CAF7_подготовить_подпрограмму_в_стеке
+sub_0x03CAF7_подготовить_подпрограмму_в_стеке:
+sub_CAE7_подготовить_подпрограмму_в_стеке:
 C D - - - 0x03CAF7 FF:CAE7: 48        PHA
 C - - - - 0x03CAF8 FF:CAE8: 98        TYA
 C - - - - 0x03CAF9 FF:CAE9: B4 01     LDY ram_0001,X
@@ -1766,9 +1766,9 @@ bra_D168:
 C - - - - 0x03D178 FF:D168: 18        CLC
 C - - - - 0x03D179 FF:D169: 65 3A     ADC ram_003A
 C - - - - 0x03D17B FF:D16B: AA        TAX
-C - - - - 0x03D17C FF:D16C: BD 83 D1  LDA tbl_D183,X
+C - - - - 0x03D17C FF:D16C: BD 83 D1  LDA tbl_D183_время_тайма,X
 C - - - - 0x03D17F FF:D16F: 8D F7 05  STA ram_время_lo
-C - - - - 0x03D182 FF:D172: BD 84 D1  LDA tbl_D183 + 1,X
+C - - - - 0x03D182 FF:D172: BD 84 D1  LDA tbl_D183_время_тайма + 1,X
 C - - - - 0x03D185 FF:D175: 8D F8 05  STA ram_время_hi
 C - - - - 0x03D188 FF:D178: A9 00     LDA #$00
 C - - - - 0x03D18A FF:D17A: 8D F9 05  STA ram_loss
@@ -1776,8 +1776,7 @@ C - - - - 0x03D18D FF:D17D: A2 50     LDX #$50
 C - - - - 0x03D18F FF:D17F: 9A        TXS
 C - - - - 0x03D190 FF:D180: 4C AA DA  JMP loc_DAAA
 
-tbl_D183:
-; время тайма
+tbl_D183_время_тайма:
 - D - - - 0x03D193 FF:D183: B4 00     .word $00B4
 - D - - - 0x03D195 FF:D185: B4 00     .word $00B4
 - D - - - 0x03D197 FF:D187: 5A 00     .word $005A
@@ -6043,7 +6042,7 @@ C - - - - 0x03ED32 FF:ED22: A9 18     LDA #$18
 C - - - - 0x03ED34 FF:ED24: 95 02     STA ram_0002,X
 C - - - - 0x03ED36 FF:ED26: A9 7F     LDA #> ofs_0x03001F
 C - - - - 0x03ED38 FF:ED28: A0 FF     LDY #< ofs_0x03001F
-C - - - - 0x03ED3A FF:ED2A: 20 E7 CA  JSR sub_CAE7
+C - - - - 0x03ED3A FF:ED2A: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 bra_ED2D:
 C - - - - 0x03ED3D FF:ED2D: AD 2B 05  LDA $052B
 C - - - - 0x03ED40 FF:ED30: 09 80     ORA #$80
@@ -6124,7 +6123,7 @@ C - - - - 0x03EDE8 FF:EDD8: 95 02     STA ram_0002,X
 ; сработало при нападении кипера соперника верхним олвэйсом
 C - - - - 0x03EDEA FF:EDDA: A9 7F     LDA #> ofs_0x01601C
 C - - - - 0x03EDEC FF:EDDC: A0 FF     LDY #< ofs_0x01601C
-C - - - - 0x03EDEE FF:EDDE: 20 E7 CA  JSR sub_CAE7
+C - - - - 0x03EDEE FF:EDDE: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 C - - - - 0x03EDF1 FF:EDE1: 4C F5 ED  JMP loc_EDF5
 bra_EDE4:
 C - - - - 0x03EDF4 FF:EDE4: A2 0D     LDX #$0D
@@ -6134,7 +6133,7 @@ C - - - - 0x03EDFA FF:EDEA: A9 0B     LDA #$0B
 C - - - - 0x03EDFC FF:EDEC: 95 02     STA ram_0002,X
 C - - - - 0x03EDFE FF:EDEE: A9 80     LDA #> ofs_0x016093
 C - - - - 0x03EE00 FF:EDF0: A0 02     LDY #< ofs_0x016093
-C - - - - 0x03EE02 FF:EDF2: 20 E7 CA  JSR sub_CAE7
+C - - - - 0x03EE02 FF:EDF2: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 bra_EDF5:
 loc_EDF5:
 C D - - - 0x03EE05 FF:EDF5: 2C D2 05  BIT $05D2
