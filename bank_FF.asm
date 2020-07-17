@@ -1794,9 +1794,7 @@ C - - - - 0x03D1E7 FF:D1D7: AD F7 05  LDA ram_время_lo
 ; 5 минут
 C - - - - 0x03D1EA FF:D1DA: C9 1E     CMP #$1E
 C - - - - 0x03D1EC FF:D1DC: B0 0D     BCS bra_D1EB_сейчас_не_loss
-; bzk можно сразу писать 80, ORA тут не за чем
-C - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA ram_флаг_loss
-C - - - - 0x03D1F1 FF:D1E1: 09 80     ORA #$80
+C - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA #$80
 C - - - - 0x03D1F3 FF:D1E3: 8D 3E 06  STA ram_флаг_loss
 C - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #con_музыка_добавочное_время
 C - - - - 0x03D1F8 FF:D1E8: 20 F1 CB  JSR sub_CBF1_запись_звука
