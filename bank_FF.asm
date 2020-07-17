@@ -47,22 +47,19 @@ loc_CEFE:
 					STA $2000
 					STA ram_0020
 					PLA
-					JMP loc_C400
-
-loc_C400:
-C D - - - 0x03C410 FF:C400: A8        TAY
-C - - - - 0x03C411 FF:C401: A9 08     LDA #$08
-C - - - - 0x03C413 FF:C403: 85 20     STA ram_0020
-C - - - - 0x03C415 FF:C405: 8D 00 20  STA $2000
-C - - - - 0x03C418 FF:C408: A9 1E     LDA #$1E
-C - - - - 0x03C41A FF:C40A: 85 21     STA ram_для_2001
-C - - - - 0x03C41C FF:C40C: 8D 01 20  STA $2001
-C - - - - 0x03C423 FF:C413: A2 00     LDX #$00
-C - - - - 0x03C425 FF:C415: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
-C - - - - 0x03C428 FF:C418: A2 02     LDX #$02
-C - - - - 0x03C42A FF:C41A: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_5115
-C - - - - 0x03C42D FF:C41D: 98        TYA
-C - - - - 0x03C42E FF:C41E: 4C 00 A2  JMP loc_0x00422B
+					TAY
+					LDA #$08
+					STA ram_0020
+					STA $2000
+					LDA #$1E
+					STA ram_для_2001
+					STA $2001
+					LDX #$00
+					JSR sub_C4B2_банксвич_PRG_5114
+					LDX #$02
+					JSR sub_C4B9_банксвич_PRG_5115
+					TYA
+					JMP loc_0x00422B
 
 loc_C421:
 C D - - - 0x03C431 FF:C421: 24 3B     BIT ram_003B
