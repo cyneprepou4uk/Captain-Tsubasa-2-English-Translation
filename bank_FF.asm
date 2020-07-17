@@ -20,8 +20,9 @@ vec_FFF0_обработчик_RESET:
 					DEX
 					BNE @очистка_ram
 					STA $4010
-					STA $0469
 					STA $5204
+					LDA #$44
+					STA $5105
 					LDA #$08
 					STA ram_0020
 					LDA #$06
