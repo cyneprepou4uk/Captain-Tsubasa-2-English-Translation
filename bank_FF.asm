@@ -9586,7 +9586,7 @@ _общий_RTS:
 	STX $5102
 	DEX
 	STX $5103
-	LDA #$9E
+	LDA #$BE
 	STA $5116
 	LDY #$00
 	STY ram_0000
