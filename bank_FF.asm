@@ -38,12 +38,12 @@ C - - - - 0x03C456 FF:C446: 8D 01 80  STA $5114
 C - - - - 0x03C459 FF:C449: 20 00 80  JSR sub_0x018010_звуковой_движок
 C - - - - 0x03C45E FF:C44E: 09 06     LDA #$06
 C - - - - 0x03C460 FF:C450: 8D 00 80  STA $8000
-C - - - - 0x03C463 FF:C453: A5 24     LDA ram_для_8001_06
+C - - - - 0x03C463 FF:C453: A5 24     LDA ram_для_5114
                                       ORA #$80
 C - - - - 0x03C465 FF:C455: 8D 01 80  STA $5114
 C - - - - 0x03C46A FF:C45A: 09 07     LDA #$07
 C - - - - 0x03C46C FF:C45C: 8D 00 80  STA $8000
-C - - - - 0x03C46F FF:C45F: A5 25     LDA ram_для_8001_07
+C - - - - 0x03C46F FF:C45F: A5 25     LDA ram_для_5115
                                       ORA #$80
 C - - - - 0x03C471 FF:C461: 8D 01 80  STA $5115
 C - - - - 0x03C479 FF:C469: A4 3E     LDY ram_003E
@@ -73,7 +73,7 @@ C - - - - 0x03C49E FF:C48E: 8D 01 80  STA $5115
 C - - - - 0x03C4A1 FF:C491: 20 60 A1  JSR sub_0x004170
 C - - - - 0x03C4A6 FF:C496: 09 07     LDA #$07
 C - - - - 0x03C4A8 FF:C498: 8D 00 80  STA $8000
-C - - - - 0x03C4AB FF:C49B: A5 25     LDA ram_для_8001_07
+C - - - - 0x03C4AB FF:C49B: A5 25     LDA ram_для_5115
                                       ORA #$80
 C - - - - 0x03C4AD FF:C49D: 8D 01 80  STA $5115
 C - - - - 0x03C4B5 FF:C4A5: A4 3E     LDY ram_003E
@@ -87,7 +87,7 @@ bra_C4AE:
 - - - - - 0x03C4C1 FF:C4B1: 40        RTI
 
 sub_C4B2_банксвич_PRG_5114:
-C - - - - 0x03C4C2 FF:C4B2: 86 24     STX ram_для_8001_06
+C - - - - 0x03C4C2 FF:C4B2: 86 24     STX ram_для_5114
                                       TXA
 									  EOR #$80
 									  STA $5114
@@ -98,7 +98,7 @@ sub_0x03C4C9_банксвич_PRG_5115:
 .export loc_0x03C4C9_банксвич_PRG_5115
 loc_0x03C4C9_банксвич_PRG_5115:
 sub_C4B9_банксвич_PRG_5115:
-C D - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_8001_07
+C D - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_5115
 C - - - - 0x03C4CB FF:C4BB: A9 07     LDA #$07
 .export sub_0x03C4CD_банксвич_PRG_5115
 sub_0x03C4CD_банксвич_PRG_5115:
@@ -114,9 +114,9 @@ C - - - - 0x03C4DA FF:C4CA: B0 27     BCS bra_C4F3_выход
 C - - - - 0x03C4DC FF:C4CC: A8        TAY
 C - - - - 0x03C4DD FF:C4CD: F0 24     BEQ bra_C4F3_выход
 C - - - - 0x03C4DF FF:C4CF: 86 ED     STX ram_00ED
-C - - - - 0x03C4E1 FF:C4D1: A5 24     LDA ram_для_8001_06
+C - - - - 0x03C4E1 FF:C4D1: A5 24     LDA ram_для_5114
 C - - - - 0x03C4E3 FF:C4D3: 85 EE     STA ram_00EE
-C - - - - 0x03C4E5 FF:C4D5: A5 25     LDA ram_для_8001_07
+C - - - - 0x03C4E5 FF:C4D5: A5 25     LDA ram_для_5115
 C - - - - 0x03C4E7 FF:C4D7: 85 EF     STA ram_00EF
 C - - - - 0x03C4E9 FF:C4D9: A2 00     LDX #$00
 C - - - - 0x03C4EB FF:C4DB: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
@@ -327,12 +327,12 @@ C - - - - 0x03C7FC FF:C7EC: 09 80     ORA #$80
 C - - - - 0x03C7FE FF:C7EE: 85 1B     STA ram_001B
 C - - - - 0x03C802 FF:C7F2: 09 07     LDA #$07
 C - - - - 0x03C804 FF:C7F4: 8D 00 80  STA $8000
-C - - - - 0x03C807 FF:C7F7: A5 25     LDA ram_для_8001_07
+C - - - - 0x03C807 FF:C7F7: A5 25     LDA ram_для_5115
                                       ORA #$80
 C - - - - 0x03C809 FF:C7F9: 8D 01 80  STA $5115
 C - - - - 0x03C80E FF:C7FE: 09 06     LDA #$06
 C - - - - 0x03C810 FF:C800: 8D 00 80  STA $8000
-C - - - - 0x03C813 FF:C803: A5 24     LDA ram_для_8001_06
+C - - - - 0x03C813 FF:C803: A5 24     LDA ram_для_5114
                                       ORA #$80
 C - - - - 0x03C815 FF:C805: 8D 01 80  STA $5114
 C - - - - 0x03C818 FF:C808: 68        PLA
@@ -446,12 +446,12 @@ C - - - - 0x03C8E8 FF:C8D8: 8D 01 80  STA $5114
 C - - - - 0x03C8EB FF:C8DB: 20 00 80  JSR sub_0x018010_звуковой_движок
 C - - - - 0x03C8F0 FF:C8E0: 09 07     LDA #$07
 C - - - - 0x03C8F2 FF:C8E2: 8D 00 80  STA $8000
-C - - - - 0x03C8F5 FF:C8E5: A5 25     LDA ram_для_8001_07
+C - - - - 0x03C8F5 FF:C8E5: A5 25     LDA ram_для_5115
                                       ORA #$80
 C - - - - 0x03C8F7 FF:C8E7: 8D 01 80  STA $5115
 C - - - - 0x03C8FC FF:C8EC: 09 06     LDA #$06
 C - - - - 0x03C8FE FF:C8EE: 8D 00 80  STA $8000
-C - - - - 0x03C901 FF:C8F1: A5 24     LDA ram_для_8001_06
+C - - - - 0x03C901 FF:C8F1: A5 24     LDA ram_для_5114
                                       ORA #$80
 C - - - - 0x03C903 FF:C8F3: 8D 01 80  STA $5114
 C - - - - 0x03C906 FF:C8F6: 60        RTS
@@ -669,9 +669,9 @@ bra_CAB9:
 C - - - - 0x03CAC9 FF:CAB9: 46 19     LSR ram_0019
 C - - - - 0x03CACB FF:CABB: 86 00     STX ram_0000
 C - - - - 0x03CACD FF:CABD: B5 02     LDA ram_0002,X
-C - - - - 0x03CACF FF:CABF: 85 24     STA ram_для_8001_06
+C - - - - 0x03CACF FF:CABF: 85 24     STA ram_для_5114
 C - - - - 0x03CAD1 FF:CAC1: B5 03     LDA ram_0003,X
-C - - - - 0x03CAD3 FF:CAC3: 85 25     STA ram_для_8001_07
+C - - - - 0x03CAD3 FF:CAC3: 85 25     STA ram_для_5115
 C - - - - 0x03CAD5 FF:CAC5: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03CAD8 FF:CAC8: B5 01     LDA ram_0001,X
 C - - - - 0x03CADA FF:CACA: AA        TAX
@@ -686,10 +686,10 @@ C - - - - 0x03CAE3 FF:CAD3: 60        RTS
 bra_CAD4:
 C - - - - 0x03CAE4 FF:CAD4: 86 00     STX ram_0000
 C - - - - 0x03CAE6 FF:CAD6: B5 02     LDA ram_0002,X
-C - - - - 0x03CAE8 FF:CAD8: 85 24     STA ram_для_8001_06
+C - - - - 0x03CAE8 FF:CAD8: 85 24     STA ram_для_5114
 C - - - - 0x03CAEA FF:CADA: 18        CLC
 C - - - - 0x03CAEB FF:CADB: 69 01     ADC #$01
-C - - - - 0x03CAED FF:CADD: 85 25     STA ram_для_8001_07
+C - - - - 0x03CAED FF:CADD: 85 25     STA ram_для_5115
 C - - - - 0x03CAEF FF:CADF: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03CAF2 FF:CAE2: B5 01     LDA ram_0001,X
 C - - - - 0x03CAF4 FF:CAE4: AA        TAX
@@ -736,9 +736,9 @@ C - - - - 0x03CB22 FF:CB12: 48        PHA
 C - - - - 0x03CB23 FF:CB13: 98        TYA
 C - - - - 0x03CB24 FF:CB14: 48        PHA
 C - - - - 0x03CB25 FF:CB15: A6 00     LDX ram_0000
-C - - - - 0x03CB27 FF:CB17: A5 24     LDA ram_для_8001_06
+C - - - - 0x03CB27 FF:CB17: A5 24     LDA ram_для_5114
 C - - - - 0x03CB29 FF:CB19: 95 02     STA ram_0002,X
-C - - - - 0x03CB2B FF:CB1B: A5 25     LDA ram_для_8001_07
+C - - - - 0x03CB2B FF:CB1B: A5 25     LDA ram_для_5115
 C - - - - 0x03CB2D FF:CB1D: 95 03     STA ram_0003,X
 C - - - - 0x03CB2F FF:CB1F: A5 7F     LDA ram_007F
 C - - - - 0x03CB31 FF:CB21: 95 00     STA ram_0000,X
@@ -1209,18 +1209,18 @@ sub_0x03CE18_банксвич_PRG_06_07_с_возвратом:
 sub_CE08_банксвич_PRG_06_07_с_возвратом:
 ; в A подается обычный номер игрока из plr_data
 C D - - - 0x03CE18 FF:CE08: A8        TAY
-C - - - - 0x03CE19 FF:CE09: AD 24 00  LDA ram_для_8001_06
+C - - - - 0x03CE19 FF:CE09: AD 24 00  LDA ram_для_5114
 C - - - - 0x03CE1C FF:CE0C: 48        PHA
-C - - - - 0x03CE1D FF:CE0D: AD 25 00  LDA ram_для_8001_07
+C - - - - 0x03CE1D FF:CE0D: AD 25 00  LDA ram_для_5115
 C - - - - 0x03CE20 FF:CE10: 48        PHA
 C - - - - 0x03CE21 FF:CE11: 98        TYA
 ; сохранить номер игрока
 C - - - - 0x03CE22 FF:CE12: 48        PHA
 ; переключить 06 и 07 на предпоследние банки
 C - - - - 0x03CE25 FF:CE15: A9 1C     LDA #$1C
-C - - - - 0x03CE27 FF:CE17: 85 24     STA ram_для_8001_06
+C - - - - 0x03CE27 FF:CE17: 85 24     STA ram_для_5114
 C - - - - 0x03CE29 FF:CE19: A9 1D     LDA #$1D
-C - - - - 0x03CE2B FF:CE1B: 85 25     STA ram_для_8001_07
+C - - - - 0x03CE2B FF:CE1B: 85 25     STA ram_для_5115
 C - - - - 0x03CE2D FF:CE1D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 ; здесь номер игрока вытаскивается из стека
 C - - - - 0x03CE30 FF:CE20: 68        PLA
@@ -1228,16 +1228,16 @@ C - - - - 0x03CE30 FF:CE20: 68        PLA
 ; бряк срабатывает при отрисовке статов во время игры, а также при попытке выбрать действие
 C - - - - 0x03CE31 FF:CE21: 20 00 80  JSR sub_0x038010
 C - - - - 0x03CE34 FF:CE24: 68        PLA
-C - - - - 0x03CE35 FF:CE25: 85 25     STA ram_для_8001_07
+C - - - - 0x03CE35 FF:CE25: 85 25     STA ram_для_5115
 C - - - - 0x03CE37 FF:CE27: 68        PLA
-C - - - - 0x03CE38 FF:CE28: 85 24     STA ram_для_8001_06
+C - - - - 0x03CE38 FF:CE28: 85 24     STA ram_для_5114
 ; восстановить банк 06 и 07
 loc_CE2D_банксвич_PRG:
 sub_CE2D_банксвич_PRG:
-C - - - - 0x03CE46 FF:CE36: A5 24     LDA ram_для_8001_06
+C - - - - 0x03CE46 FF:CE36: A5 24     LDA ram_для_5114
                                       ORA #$80
 C - - - - 0x03CE48 FF:CE38: 8D 01 80  STA $5114
-C - - - - 0x03CE54 FF:CE44: A5 25     LDA ram_для_8001_07
+C - - - - 0x03CE54 FF:CE44: A5 25     LDA ram_для_5115
                                       ORA #$80
 C - - - - 0x03CE56 FF:CE46: 8D 01 80  STA $5115
 C - - - - 0x03CE59 FF:CE49: 60        RTS
@@ -1283,21 +1283,21 @@ C - - - - 0x03CE81 FF:CE71: 65 36     ADC ram_0036
 C - - - - 0x03CE83 FF:CE73: 85 36     STA ram_0036
 C - - - - 0x03CE85 FF:CE75: A9 80     LDA #$80
 C - - - - 0x03CE87 FF:CE77: 85 37     STA ram_0037
-C - - - - 0x03CE89 FF:CE79: A5 24     LDA ram_для_8001_06
+C - - - - 0x03CE89 FF:CE79: A5 24     LDA ram_для_5114
 C - - - - 0x03CE8B FF:CE7B: 48        PHA
-C - - - - 0x03CE8C FF:CE7C: A5 25     LDA ram_для_8001_07
+C - - - - 0x03CE8C FF:CE7C: A5 25     LDA ram_для_5115
 C - - - - 0x03CE8E FF:CE7E: 48        PHA
 C - - - - 0x03CE8F FF:CE7F: A9 1C     LDA #$1C
-C - - - - 0x03CE91 FF:CE81: 85 24     STA ram_для_8001_06
+C - - - - 0x03CE91 FF:CE81: 85 24     STA ram_для_5114
 C - - - - 0x03CE93 FF:CE83: A9 1D     LDA #$1D
-C - - - - 0x03CE95 FF:CE85: 85 25     STA ram_для_8001_07
+C - - - - 0x03CE95 FF:CE85: 85 25     STA ram_для_5115
 ; !!! флаг D, хз где прыжок
 C D - - - 0x03CE97 FF:CE87: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03CE9A FF:CE8A: 20 96 CE  JSR sub_CE96_непрямой_прыжок
 C - - - - 0x03CE9D FF:CE8D: 68        PLA
-C - - - - 0x03CE9E FF:CE8E: 85 25     STA ram_для_8001_07
+C - - - - 0x03CE9E FF:CE8E: 85 25     STA ram_для_5115
 C - - - - 0x03CEA0 FF:CE90: 68        PLA
-C - - - - 0x03CEA1 FF:CE91: 85 24     STA ram_для_8001_06
+C - - - - 0x03CEA1 FF:CE91: 85 24     STA ram_для_5114
 C - - - - 0x03CEA3 FF:CE93: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
 sub_CE96_непрямой_прыжок:
@@ -1446,16 +1446,16 @@ C - - - - 0x03CF81 FF:CF71: 60        RTS
 sub_0x03CF82:
 C D - - - 0x03CF82 FF:CF72: 48        PHA
 C - - - - 0x03CF85 FF:CF75: A9 1A     LDA #$1A
-C - - - - 0x03CF87 FF:CF77: 85 24     STA ram_для_8001_06
+C - - - - 0x03CF87 FF:CF77: 85 24     STA ram_для_5114
 C - - - - 0x03CF89 FF:CF79: A9 1B     LDA #$1B
-C - - - - 0x03CF8B FF:CF7B: 85 25     STA ram_для_8001_07
+C - - - - 0x03CF8B FF:CF7B: 85 25     STA ram_для_5115
 C - - - - 0x03CF8D FF:CF7D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03CF90 FF:CF80: 68        PLA
 C - - - - 0x03CF91 FF:CF81: 20 2A 80  JSR sub_0x0361FB
 C - - - - 0x03CF94 FF:CF84: A9 18     LDA #$18
-C - - - - 0x03CF96 FF:CF86: 85 24     STA ram_для_8001_06
+C - - - - 0x03CF96 FF:CF86: 85 24     STA ram_для_5114
 C - - - - 0x03CF98 FF:CF88: A9 19     LDA #$19
-C - - - - 0x03CF9A FF:CF8A: 85 25     STA ram_для_8001_07
+C - - - - 0x03CF9A FF:CF8A: 85 25     STA ram_для_5115
 C - - - - 0x03CF9C FF:CF8C: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
 .export sub_0x03CF9F
@@ -1752,9 +1752,9 @@ C - - - - 0x03D11F FF:D10F: 60        RTS
 
 loc_D110:
 C D - - - 0x03D120 FF:D110: A9 12     LDA #$12
-C - - - - 0x03D122 FF:D112: 85 24     STA ram_для_8001_06
+C - - - - 0x03D122 FF:D112: 85 24     STA ram_для_5114
 C - - - - 0x03D124 FF:D114: A9 13     LDA #$13
-C - - - - 0x03D126 FF:D116: 85 25     STA ram_для_8001_07
+C - - - - 0x03D126 FF:D116: 85 25     STA ram_для_5115
 C - - - - 0x03D128 FF:D118: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D12B FF:D11B: 4C 00 B0  JMP loc_0x027010
 
@@ -1775,9 +1775,9 @@ C - - - - 0x03D149 FF:D139: C9 04     CMP #$04
 C - - - - 0x03D14B FF:D13B: D0 12     BNE bra_D14F
 C - - - - 0x03D14D FF:D13D: 48        PHA
 C - - - - 0x03D150 FF:D140: A9 1A     LDA #$1A
-C - - - - 0x03D152 FF:D142: 85 24     STA ram_для_8001_06
+C - - - - 0x03D152 FF:D142: 85 24     STA ram_для_5114
 C - - - - 0x03D154 FF:D144: A9 1B     LDA #$1B
-C - - - - 0x03D156 FF:D146: 85 25     STA ram_для_8001_07
+C - - - - 0x03D156 FF:D146: 85 25     STA ram_для_5115
 C - - - - 0x03D158 FF:D148: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D15B FF:D14B: 68        PLA
 C - - - - 0x03D15C FF:D14C: 20 30 80  JSR sub_0x0355F1_вычисление_счета_пенальти
@@ -2166,9 +2166,9 @@ C - - - - 0x03D3DE FF:D3CE: B9 01 06  LDA $0601,Y
 C - - - - 0x03D3E1 FF:D3D1: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x03D3E4 FF:D3D4: 48        PHA
 C - - - - 0x03D3E7 FF:D3D7: A9 1C     LDA #$1C
-C - - - - 0x03D3E9 FF:D3D9: 85 24     STA ram_для_8001_06
+C - - - - 0x03D3E9 FF:D3D9: 85 24     STA ram_для_5114
 C - - - - 0x03D3EB FF:D3DB: A9 1D     LDA #$1D
-C - - - - 0x03D3ED FF:D3DD: 85 25     STA ram_для_8001_07
+C - - - - 0x03D3ED FF:D3DD: 85 25     STA ram_для_5115
 C - - - - 0x03D3EF FF:D3DF: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D3F2 FF:D3E2: 68        PLA
 C - - - - 0x03D3F3 FF:D3E3: 20 0C 80  JSR sub_0x03801C
@@ -2427,9 +2427,9 @@ tbl_D561_действие_кипера_если_соперник_принима�
 sub_0x03D575:
 C D - - - 0x03D575 FF:D565: 20 73 D5  JSR sub_D573
 C - - - - 0x03D578 FF:D568: A9 1A     LDA #$1A
-C - - - - 0x03D57A FF:D56A: 85 24     STA ram_для_8001_06
+C - - - - 0x03D57A FF:D56A: 85 24     STA ram_для_5114
 C - - - - 0x03D57C FF:D56C: A9 1B     LDA #$1B
-C - - - - 0x03D57E FF:D56E: 85 25     STA ram_для_8001_07
+C - - - - 0x03D57E FF:D56E: 85 25     STA ram_для_5115
 C - - - - 0x03D580 FF:D570: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
 sub_D573:
@@ -2579,9 +2579,9 @@ bra_D696:
 C - - - - 0x03D6A6 FF:D696: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03D6A9 FF:D699: 48        PHA
 C - - - - 0x03D6AC FF:D69C: A9 1C     LDA #$1C
-C - - - - 0x03D6AE FF:D69E: 85 24     STA ram_для_8001_06
+C - - - - 0x03D6AE FF:D69E: 85 24     STA ram_для_5114
 C - - - - 0x03D6B0 FF:D6A0: A9 1D     LDA #$1D
-C - - - - 0x03D6B2 FF:D6A2: 85 25     STA ram_для_8001_07
+C - - - - 0x03D6B2 FF:D6A2: 85 25     STA ram_для_5115
 C - - - - 0x03D6B4 FF:D6A4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D6B7 FF:D6A7: 68        PLA
 C - - - - 0x03D6B8 FF:D6A8: 20 09 80  JSR sub_0x038019
@@ -2690,9 +2690,9 @@ C - - - - 0x03D726 FF:D716: 60        RTS
 sub_D717:
 C - - - - 0x03D727 FF:D717: 48        PHA
 C - - - - 0x03D72A FF:D71A: A9 1C     LDA #$1C
-C - - - - 0x03D72C FF:D71C: 85 24     STA ram_для_8001_06
+C - - - - 0x03D72C FF:D71C: 85 24     STA ram_для_5114
 C - - - - 0x03D72E FF:D71E: A9 1D     LDA #$1D
-C - - - - 0x03D730 FF:D720: 85 25     STA ram_для_8001_07
+C - - - - 0x03D730 FF:D720: 85 25     STA ram_для_5115
 C - - - - 0x03D732 FF:D722: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D735 FF:D725: 68        PLA
 C - - - - 0x03D736 FF:D726: 20 12 80  JSR sub_0x038022
@@ -2715,9 +2715,9 @@ C - - - - 0x03D755 FF:D745: 60        RTS
 sub_D746:
 C - - - - 0x03D756 FF:D746: 48        PHA
 C - - - - 0x03D759 FF:D749: A9 1C     LDA #$1C
-C - - - - 0x03D75B FF:D74B: 85 24     STA ram_для_8001_06
+C - - - - 0x03D75B FF:D74B: 85 24     STA ram_для_5114
 C - - - - 0x03D75D FF:D74D: A9 1D     LDA #$1D
-C - - - - 0x03D75F FF:D74F: 85 25     STA ram_для_8001_07
+C - - - - 0x03D75F FF:D74F: 85 25     STA ram_для_5115
 C - - - - 0x03D761 FF:D751: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D764 FF:D754: 68        PLA
 C - - - - 0x03D765 FF:D755: 20 15 80  JSR sub_0x038025
@@ -2777,17 +2777,17 @@ C - - - - 0x03D7C0 FF:D7B0: A9 46     LDA #$46
 C - - - - 0x03D7C2 FF:D7B2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03D7C5 FF:D7B5: 48        PHA
 C - - - - 0x03D7C8 FF:D7B8: A9 1A     LDA #$1A
-C - - - - 0x03D7CA FF:D7BA: 85 24     STA ram_для_8001_06
+C - - - - 0x03D7CA FF:D7BA: 85 24     STA ram_для_5114
 C - - - - 0x03D7CC FF:D7BC: A9 1B     LDA #$1B
-C - - - - 0x03D7CE FF:D7BE: 85 25     STA ram_для_8001_07
+C - - - - 0x03D7CE FF:D7BE: 85 25     STA ram_для_5115
 C - - - - 0x03D7D0 FF:D7C0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D7D3 FF:D7C3: 68        PLA
 C - - - - 0x03D7D4 FF:D7C4: 20 21 80  JSR sub_0x034F82
 C - - - - 0x03D7D7 FF:D7C7: 48        PHA
 C - - - - 0x03D7DA FF:D7CA: A9 1A     LDA #$1A
-C - - - - 0x03D7DC FF:D7CC: 85 24     STA ram_для_8001_06
+C - - - - 0x03D7DC FF:D7CC: 85 24     STA ram_для_5114
 C - - - - 0x03D7DE FF:D7CE: A9 1B     LDA #$1B
-C - - - - 0x03D7E0 FF:D7D0: 85 25     STA ram_для_8001_07
+C - - - - 0x03D7E0 FF:D7D0: 85 25     STA ram_для_5115
 C - - - - 0x03D7E2 FF:D7D2: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D7E5 FF:D7D5: 68        PLA
 C - - - - 0x03D7E6 FF:D7D6: 20 36 80  JSR sub_0x0345BC
@@ -3191,9 +3191,9 @@ C - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - 0x03DABF FF:DAAF: 20 4F CF  JSR sub_CF4F
 C - - - - 0x03DAC2 FF:DAB2: 48        PHA
 C - - - - 0x03DAC5 FF:DAB5: A9 1A     LDA #$1A
-C - - - - 0x03DAC7 FF:DAB7: 85 24     STA ram_для_8001_06
+C - - - - 0x03DAC7 FF:DAB7: 85 24     STA ram_для_5114
 C - - - - 0x03DAC9 FF:DAB9: A9 1B     LDA #$1B
-C - - - - 0x03DACB FF:DABB: 85 25     STA ram_для_8001_07
+C - - - - 0x03DACB FF:DABB: 85 25     STA ram_для_5115
 C - - - - 0x03DACD FF:DABD: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DAD0 FF:DAC0: 68        PLA
 C - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x03505E
@@ -3253,9 +3253,9 @@ C - - - - 0x03DB37 FF:DB27: 20 99 CB  JSR sub_CB99_байты_после_JSR_д�
 ofs_DB34_00:
 C - J - - 0x03DB44 FF:DB34: 48        PHA
 C - - - - 0x03DB47 FF:DB37: A9 1C     LDA #$1C
-C - - - - 0x03DB49 FF:DB39: 85 24     STA ram_для_8001_06
+C - - - - 0x03DB49 FF:DB39: 85 24     STA ram_для_5114
 C - - - - 0x03DB4B FF:DB3B: A9 1D     LDA #$1D
-C - - - - 0x03DB4D FF:DB3D: 85 25     STA ram_для_8001_07
+C - - - - 0x03DB4D FF:DB3D: 85 25     STA ram_для_5115
 C - - - - 0x03DB4F FF:DB3F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DB52 FF:DB42: 68        PLA
 C - - - - 0x03DB53 FF:DB43: 20 03 80  JSR sub_0x038013
@@ -3603,18 +3603,18 @@ C - - - - 0x03DD2F FF:DD1F: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03DD31 FF:DD21: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03DD33 FF:DD23: D0 11     BNE bra_DD36
 C - - - - 0x03DD35 FF:DD25: A9 1A     LDA #$1A
-C - - - - 0x03DD37 FF:DD27: 85 24     STA ram_для_8001_06
+C - - - - 0x03DD37 FF:DD27: 85 24     STA ram_для_5114
 C - - - - 0x03DD39 FF:DD29: A9 1B     LDA #$1B
-C - - - - 0x03DD3B FF:DD2B: 85 25     STA ram_для_8001_07
+C - - - - 0x03DD3B FF:DD2B: 85 25     STA ram_для_5115
 C - - - - 0x03DD3D FF:DD2D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DD40 FF:DD30: A2 50     LDX #$50
 C - - - - 0x03DD42 FF:DD32: 9A        TXS
 C - - - - 0x03DD43 FF:DD33: 4C 06 80  JMP loc_0x034508
 bra_DD36:
 C - - - - 0x03DD46 FF:DD36: A9 1A     LDA #$1A
-C - - - - 0x03DD48 FF:DD38: 85 24     STA ram_для_8001_06
+C - - - - 0x03DD48 FF:DD38: 85 24     STA ram_для_5114
 C - - - - 0x03DD4A FF:DD3A: A9 1B     LDA #$1B
-C - - - - 0x03DD4C FF:DD3C: 85 25     STA ram_для_8001_07
+C - - - - 0x03DD4C FF:DD3C: 85 25     STA ram_для_5115
 C - - - - 0x03DD4E FF:DD3E: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DD51 FF:DD41: A2 50     LDX #$50
 C - - - - 0x03DD53 FF:DD43: 9A        TXS
@@ -3816,9 +3816,9 @@ C - - - - 0x03DE83 FF:DE73: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x03DE86 FF:DE76: 20 EC E6  JSR sub_E6EC
 C - - - - 0x03DE89 FF:DE79: 48        PHA
 C - - - - 0x03DE8C FF:DE7C: A9 1A     LDA #$1A
-C - - - - 0x03DE8E FF:DE7E: 85 24     STA ram_для_8001_06
+C - - - - 0x03DE8E FF:DE7E: 85 24     STA ram_для_5114
 C - - - - 0x03DE90 FF:DE80: A9 1B     LDA #$1B
-C - - - - 0x03DE92 FF:DE82: 85 25     STA ram_для_8001_07
+C - - - - 0x03DE92 FF:DE82: 85 25     STA ram_для_5115
 C - - - - 0x03DE94 FF:DE84: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DE97 FF:DE87: 68        PLA
 C - - - - 0x03DE98 FF:DE88: 20 1E 80  JSR sub_0x034B5A
@@ -3884,9 +3884,9 @@ C - - - - 0x03DF19 FF:DF09: A0 08     LDY #con_игрок_координата_Y
 C - - - - 0x03DF1B FF:DF0B: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03DF1D FF:DF0D: 48        PHA
 C - - - - 0x03DF20 FF:DF10: A9 1A     LDA #$1A
-C - - - - 0x03DF22 FF:DF12: 85 24     STA ram_для_8001_06
+C - - - - 0x03DF22 FF:DF12: 85 24     STA ram_для_5114
 C - - - - 0x03DF24 FF:DF14: A9 1B     LDA #$1B
-C - - - - 0x03DF26 FF:DF16: 85 25     STA ram_для_8001_07
+C - - - - 0x03DF26 FF:DF16: 85 25     STA ram_для_5115
 C - - - - 0x03DF28 FF:DF18: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DF2B FF:DF1B: 68        PLA
 C - - - - 0x03DF2C FF:DF1C: 20 1E 80  JSR sub_0x034B5A
@@ -4039,9 +4039,9 @@ C - - - - 0x03E046 FF:E036: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x03E049 FF:E039: 20 EC E6  JSR sub_E6EC
 C - - - - 0x03E04C FF:E03C: 48        PHA
 C - - - - 0x03E04F FF:E03F: A9 1A     LDA #$1A
-C - - - - 0x03E051 FF:E041: 85 24     STA ram_для_8001_06
+C - - - - 0x03E051 FF:E041: 85 24     STA ram_для_5114
 C - - - - 0x03E053 FF:E043: A9 1B     LDA #$1B
-C - - - - 0x03E055 FF:E045: 85 25     STA ram_для_8001_07
+C - - - - 0x03E055 FF:E045: 85 25     STA ram_для_5115
 C - - - - 0x03E057 FF:E047: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E05A FF:E04A: 68        PLA
 C - - - - 0x03E05B FF:E04B: 20 1E 80  JSR sub_0x034B5A
@@ -4093,9 +4093,9 @@ C - - - - 0x03E0A9 FF:E099: 10 14     BPL bra_E0AF
 C - - - - 0x03E0AB FF:E09B: 48        PHA
 C - - - - 0x03E0AC FF:E09C: 48        PHA
 C - - - - 0x03E0AF FF:E09F: A9 1A     LDA #$1A
-C - - - - 0x03E0B1 FF:E0A1: 85 24     STA ram_для_8001_06
+C - - - - 0x03E0B1 FF:E0A1: 85 24     STA ram_для_5114
 C - - - - 0x03E0B3 FF:E0A3: A9 1B     LDA #$1B
-C - - - - 0x03E0B5 FF:E0A5: 85 25     STA ram_для_8001_07
+C - - - - 0x03E0B5 FF:E0A5: 85 25     STA ram_для_5115
 C - - - - 0x03E0B7 FF:E0A7: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E0BA FF:E0AA: 68        PLA
 C - - - - 0x03E0BB FF:E0AB: 20 00 80  JSR sub_0x036113
@@ -4223,9 +4223,9 @@ C - - - - 0x03E1AB FF:E19B: A9 00     LDA #$00
 C - - - - 0x03E1AD FF:E19D: 8D 21 06  STA $0621
 C - - - - 0x03E1B0 FF:E1A0: 48        PHA
 C - - - - 0x03E1B3 FF:E1A3: A9 1C     LDA #$1C
-C - - - - 0x03E1B5 FF:E1A5: 85 24     STA ram_для_8001_06
+C - - - - 0x03E1B5 FF:E1A5: 85 24     STA ram_для_5114
 C - - - - 0x03E1B7 FF:E1A7: A9 1D     LDA #$1D
-C - - - - 0x03E1B9 FF:E1A9: 85 25     STA ram_для_8001_07
+C - - - - 0x03E1B9 FF:E1A9: 85 25     STA ram_для_5115
 C - - - - 0x03E1BB FF:E1AB: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E1BE FF:E1AE: 68        PLA
 C - - - - 0x03E1BF FF:E1AF: 20 06 80  JSR sub_0x038016
@@ -4234,9 +4234,9 @@ C - - - - 0x03E1C5 FF:E1B5: C9 02     CMP #$02
 C - - - - 0x03E1C7 FF:E1B7: F0 2E     BEQ bra_E1E7
 C - - - - 0x03E1C9 FF:E1B9: 48        PHA
 C - - - - 0x03E1CC FF:E1BC: A9 1A     LDA #$1A
-C - - - - 0x03E1CE FF:E1BE: 85 24     STA ram_для_8001_06
+C - - - - 0x03E1CE FF:E1BE: 85 24     STA ram_для_5114
 C - - - - 0x03E1D0 FF:E1C0: A9 1B     LDA #$1B
-C - - - - 0x03E1D2 FF:E1C2: 85 25     STA ram_для_8001_07
+C - - - - 0x03E1D2 FF:E1C2: 85 25     STA ram_для_5115
 C - - - - 0x03E1D4 FF:E1C4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E1D7 FF:E1C7: 68        PLA
 C - - - - 0x03E1D8 FF:E1C8: 20 21 80  JSR sub_0x034F82
@@ -4245,9 +4245,9 @@ C - - - - 0x03E1DE FF:E1CE: A9 00     LDA #$00
 C - - - - 0x03E1E0 FF:E1D0: 8D 2D 06  STA $062D
 C - - - - 0x03E1E3 FF:E1D3: 8D 15 06  STA $0615
 C - - - - 0x03E1E6 FF:E1D6: A9 1A     LDA #$1A
-C - - - - 0x03E1E8 FF:E1D8: 85 24     STA ram_для_8001_06
+C - - - - 0x03E1E8 FF:E1D8: 85 24     STA ram_для_5114
 C - - - - 0x03E1EA FF:E1DA: A9 1B     LDA #$1B
-C - - - - 0x03E1EC FF:E1DC: 85 25     STA ram_для_8001_07
+C - - - - 0x03E1EC FF:E1DC: 85 25     STA ram_для_5115
 C - - - - 0x03E1EE FF:E1DE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E1F1 FF:E1E1: A2 50     LDX #$50
 C - - - - 0x03E1F3 FF:E1E3: 9A        TXS
@@ -4272,9 +4272,9 @@ C - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E
 - - - - - 0x03E21A FF:E20A: 10 12     BPL bra_E21E
 - - - - - 0x03E21C FF:E20C: 48        PHA
 - - - - - 0x03E21F FF:E20F: A9 1A     LDA #$1A
-- - - - - 0x03E221 FF:E211: 85 24     STA ram_для_8001_06
+- - - - - 0x03E221 FF:E211: 85 24     STA ram_для_5114
 - - - - - 0x03E223 FF:E213: A9 1B     LDA #$1B
-- - - - - 0x03E225 FF:E215: 85 25     STA ram_для_8001_07
+- - - - - 0x03E225 FF:E215: 85 25     STA ram_для_5115
 - - - - - 0x03E227 FF:E217: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 - - - - - 0x03E22A FF:E21A: 68        PLA
 - - - - - 0x03E22B FF:E21B: 20 39 80  JSR sub_0x03505E
@@ -4282,9 +4282,9 @@ C - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E
 bra_E21E:
 C - - - - 0x03E22E FF:E21E: 48        PHA
 C - - - - 0x03E231 FF:E221: A9 1A     LDA #$1A
-C - - - - 0x03E233 FF:E223: 85 24     STA ram_для_8001_06
+C - - - - 0x03E233 FF:E223: 85 24     STA ram_для_5114
 C - - - - 0x03E235 FF:E225: A9 1B     LDA #$1B
-C - - - - 0x03E237 FF:E227: 85 25     STA ram_для_8001_07
+C - - - - 0x03E237 FF:E227: 85 25     STA ram_для_5115
 C - - - - 0x03E239 FF:E229: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E23C FF:E22C: 68        PLA
 C - - - - 0x03E23D FF:E22D: 20 33 80  JSR sub_0x034E96_катсцена_драйв_оверхеда
@@ -4297,9 +4297,9 @@ C D - - - 0x03E243 FF:E233: A9 1E     LDA #$1E
 C - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03E248 FF:E238: 48        PHA
 C - - - - 0x03E24B FF:E23B: A9 1C     LDA #$1C
-C - - - - 0x03E24D FF:E23D: 85 24     STA ram_для_8001_06
+C - - - - 0x03E24D FF:E23D: 85 24     STA ram_для_5114
 C - - - - 0x03E24F FF:E23F: A9 1D     LDA #$1D
-C - - - - 0x03E251 FF:E241: 85 25     STA ram_для_8001_07
+C - - - - 0x03E251 FF:E241: 85 25     STA ram_для_5115
 C - - - - 0x03E253 FF:E243: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E256 FF:E246: 68        PLA
 C - - - - 0x03E257 FF:E247: 20 24 80  JSR sub_0x038034
@@ -4356,9 +4356,9 @@ C - - - - 0x03E2B3 FF:E2A3: A9 00     LDA #$00
 C - - - - 0x03E2B5 FF:E2A5: 8D 2D 06  STA $062D
 C - - - - 0x03E2B8 FF:E2A8: 8D 15 06  STA $0615
 C - - - - 0x03E2BB FF:E2AB: A9 1A     LDA #$1A
-C - - - - 0x03E2BD FF:E2AD: 85 24     STA ram_для_8001_06
+C - - - - 0x03E2BD FF:E2AD: 85 24     STA ram_для_5114
 C - - - - 0x03E2BF FF:E2AF: A9 1B     LDA #$1B
-C - - - - 0x03E2C1 FF:E2B1: 85 25     STA ram_для_8001_07
+C - - - - 0x03E2C1 FF:E2B1: 85 25     STA ram_для_5115
 C - - - - 0x03E2C3 FF:E2B3: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E2C6 FF:E2B6: A2 50     LDX #$50
 C - - - - 0x03E2C8 FF:E2B8: 9A        TXS
@@ -4486,9 +4486,9 @@ C - - - - 0x03E39A FF:E38A: A9 44     LDA #$44
 C - - - - 0x03E39C FF:E38C: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03E39F FF:E38F: 20 8B CB  JSR sub_CB8B
 C - - - - 0x03E3A2 FF:E392: A9 1A     LDA #$1A
-C - - - - 0x03E3A4 FF:E394: 85 24     STA ram_для_8001_06
+C - - - - 0x03E3A4 FF:E394: 85 24     STA ram_для_5114
 C - - - - 0x03E3A6 FF:E396: A9 1B     LDA #$1B
-C - - - - 0x03E3A8 FF:E398: 85 25     STA ram_для_8001_07
+C - - - - 0x03E3A8 FF:E398: 85 25     STA ram_для_5115
 C - - - - 0x03E3AA FF:E39A: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E3AD FF:E39D: A2 50     LDX #$50
 C - - - - 0x03E3AF FF:E39F: 9A        TXS
@@ -4583,9 +4583,9 @@ C - - - - 0x03E448 FF:E438: F0 14     BEQ bra_E44E
 C - - - - 0x03E44A FF:E43A: 48        PHA
 C - - - - 0x03E44B FF:E43B: 48        PHA
 C - - - - 0x03E44E FF:E43E: A9 1A     LDA #$1A
-C - - - - 0x03E450 FF:E440: 85 24     STA ram_для_8001_06
+C - - - - 0x03E450 FF:E440: 85 24     STA ram_для_5114
 C - - - - 0x03E452 FF:E442: A9 1B     LDA #$1B
-C - - - - 0x03E454 FF:E444: 85 25     STA ram_для_8001_07
+C - - - - 0x03E454 FF:E444: 85 25     STA ram_для_5115
 C - - - - 0x03E456 FF:E446: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E459 FF:E449: 68        PLA
 C - - - - 0x03E45A FF:E44A: 20 00 80  JSR sub_0x036113
@@ -4657,9 +4657,9 @@ C - - - - 0x03E4CE FF:E4BE: 20 8B CB  JSR sub_CB8B
 C - - - - 0x03E4D1 FF:E4C1: A9 2E     LDA #$2E
 C - - - - 0x03E4D3 FF:E4C3: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03E4D6 FF:E4C6: A9 1A     LDA #$1A
-C - - - - 0x03E4D8 FF:E4C8: 85 24     STA ram_для_8001_06
+C - - - - 0x03E4D8 FF:E4C8: 85 24     STA ram_для_5114
 C - - - - 0x03E4DA FF:E4CA: A9 1B     LDA #$1B
-C - - - - 0x03E4DC FF:E4CC: 85 25     STA ram_для_8001_07
+C - - - - 0x03E4DC FF:E4CC: 85 25     STA ram_для_5115
 C - - - - 0x03E4DE FF:E4CE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E4E1 FF:E4D1: A2 50     LDX #$50
 C - - - - 0x03E4E3 FF:E4D3: 9A        TXS
@@ -4763,9 +4763,9 @@ C - - - - 0x03E587 FF:E577: 8C 00 06  STY $0600
 C - - - - 0x03E58A FF:E57A: A9 2E     LDA #$2E
 C - - - - 0x03E58C FF:E57C: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03E58F FF:E57F: A9 1A     LDA #$1A
-C - - - - 0x03E591 FF:E581: 85 24     STA ram_для_8001_06
+C - - - - 0x03E591 FF:E581: 85 24     STA ram_для_5114
 C - - - - 0x03E593 FF:E583: A9 1B     LDA #$1B
-C - - - - 0x03E595 FF:E585: 85 25     STA ram_для_8001_07
+C - - - - 0x03E595 FF:E585: 85 25     STA ram_для_5115
 C - - - - 0x03E597 FF:E587: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E59A FF:E58A: A2 50     LDX #$50
 C - - - - 0x03E59C FF:E58C: 9A        TXS
@@ -4798,9 +4798,9 @@ C - - - - 0x03E5C7 FF:E5B7: 20 B0 CB  JSR sub_CBB0_запись_номера_с�
 bra_E5BA:
 C - - - - 0x03E5CA FF:E5BA: 48        PHA
 C - - - - 0x03E5CD FF:E5BD: A9 14     LDA #$14
-C - - - - 0x03E5CF FF:E5BF: 85 24     STA ram_для_8001_06
+C - - - - 0x03E5CF FF:E5BF: 85 24     STA ram_для_5114
 C - - - - 0x03E5D1 FF:E5C1: A9 15     LDA #$15
-C - - - - 0x03E5D3 FF:E5C3: 85 25     STA ram_для_8001_07
+C - - - - 0x03E5D3 FF:E5C3: 85 25     STA ram_для_5115
 C - - - - 0x03E5D5 FF:E5C5: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E5D8 FF:E5C8: 68        PLA
 ; сработало при наебке кипера
@@ -4808,9 +4808,9 @@ C - - - - 0x03E5D9 FF:E5C9: 20 0C 80  JSR sub_0x0287A6
 C - - - - 0x03E5DC FF:E5CC: A9 01     LDA #$01
 C - - - - 0x03E5DE FF:E5CE: 48        PHA
 C - - - - 0x03E5E1 FF:E5D1: A9 1A     LDA #$1A
-C - - - - 0x03E5E3 FF:E5D3: 85 24     STA ram_для_8001_06
+C - - - - 0x03E5E3 FF:E5D3: 85 24     STA ram_для_5114
 C - - - - 0x03E5E5 FF:E5D5: A9 1B     LDA #$1B
-C - - - - 0x03E5E7 FF:E5D7: 85 25     STA ram_для_8001_07
+C - - - - 0x03E5E7 FF:E5D7: 85 25     STA ram_для_5115
 C - - - - 0x03E5E9 FF:E5D9: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E5EC FF:E5DC: 68        PLA
 C - - - - 0x03E5ED FF:E5DD: 20 24 80  JSR sub_0x034CB4
@@ -4854,9 +4854,9 @@ C - - - - 0x03E641 FF:E631: F0 44     BEQ bra_E677_выход
 C - - - - 0x03E643 FF:E633: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x03E646 FF:E636: 48        PHA
 C - - - - 0x03E649 FF:E639: A9 1C     LDA #$1C
-C - - - - 0x03E64B FF:E63B: 85 24     STA ram_для_8001_06
+C - - - - 0x03E64B FF:E63B: 85 24     STA ram_для_5114
 C - - - - 0x03E64D FF:E63D: A9 1D     LDA #$1D
-C - - - - 0x03E64F FF:E63F: 85 25     STA ram_для_8001_07
+C - - - - 0x03E64F FF:E63F: 85 25     STA ram_для_5115
 C - - - - 0x03E651 FF:E641: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E654 FF:E644: 68        PLA
 ; сработало когда соперник пытается наебать моего кипера
@@ -4870,17 +4870,17 @@ bra_E651:
 C - - - - 0x03E661 FF:E651: 85 32     STA ram_0032
 C - - - - 0x03E663 FF:E653: 48        PHA
 C - - - - 0x03E666 FF:E656: A9 1A     LDA #$1A
-C - - - - 0x03E668 FF:E658: 85 24     STA ram_для_8001_06
+C - - - - 0x03E668 FF:E658: 85 24     STA ram_для_5114
 C - - - - 0x03E66A FF:E65A: A9 1B     LDA #$1B
-C - - - - 0x03E66C FF:E65C: 85 25     STA ram_для_8001_07
+C - - - - 0x03E66C FF:E65C: 85 25     STA ram_для_5115
 C - - - - 0x03E66E FF:E65E: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E671 FF:E661: 68        PLA
 C - - - - 0x03E672 FF:E662: 20 12 80  JSR sub_0x03489D
 C - - - - 0x03E675 FF:E665: 48        PHA
 C - - - - 0x03E678 FF:E668: A9 1A     LDA #$1A
-C - - - - 0x03E67A FF:E66A: 85 24     STA ram_для_8001_06
+C - - - - 0x03E67A FF:E66A: 85 24     STA ram_для_5114
 C - - - - 0x03E67C FF:E66C: A9 1B     LDA #$1B
-C - - - - 0x03E67E FF:E66E: 85 25     STA ram_для_8001_07
+C - - - - 0x03E67E FF:E66E: 85 25     STA ram_для_5115
 C - - - - 0x03E680 FF:E670: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E683 FF:E673: 68        PLA
 C - - - - 0x03E684 FF:E674: 20 15 80  JSR sub_0x0348B8
@@ -5861,25 +5861,25 @@ C - - - - 0x03EBAB FF:EB9B: 20 08 EC  JSR sub_EC08
 C - - - - 0x03EBAE FF:EB9E: 20 85 ED  JSR sub_ED85
 C - - - - 0x03EBB1 FF:EBA1: 48        PHA
 C - - - - 0x03EBB4 FF:EBA4: A9 18     LDA #$18
-C - - - - 0x03EBB6 FF:EBA6: 85 24     STA ram_для_8001_06
+C - - - - 0x03EBB6 FF:EBA6: 85 24     STA ram_для_5114
 C - - - - 0x03EBB8 FF:EBA8: A9 19     LDA #$19
-C - - - - 0x03EBBA FF:EBAA: 85 25     STA ram_для_8001_07
+C - - - - 0x03EBBA FF:EBAA: 85 25     STA ram_для_5115
 C - - - - 0x03EBBC FF:EBAC: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EBBF FF:EBAF: 68        PLA
 C - - - - 0x03EBC0 FF:EBB0: 20 03 80  JSR sub_0x030708
 C - - - - 0x03EBC3 FF:EBB3: 48        PHA
 C - - - - 0x03EBC6 FF:EBB6: A9 18     LDA #$18
-C - - - - 0x03EBC8 FF:EBB8: 85 24     STA ram_для_8001_06
+C - - - - 0x03EBC8 FF:EBB8: 85 24     STA ram_для_5114
 C - - - - 0x03EBCA FF:EBBA: A9 19     LDA #$19
-C - - - - 0x03EBCC FF:EBBC: 85 25     STA ram_для_8001_07
+C - - - - 0x03EBCC FF:EBBC: 85 25     STA ram_для_5115
 C - - - - 0x03EBCE FF:EBBE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EBD1 FF:EBC1: 68        PLA
 C - - - - 0x03EBD2 FF:EBC2: 20 06 80  JSR sub_0x030789
 C - - - - 0x03EBD5 FF:EBC5: 48        PHA
 C - - - - 0x03EBD8 FF:EBC8: A9 18     LDA #$18
-C - - - - 0x03EBDA FF:EBCA: 85 24     STA ram_для_8001_06
+C - - - - 0x03EBDA FF:EBCA: 85 24     STA ram_для_5114
 C - - - - 0x03EBDC FF:EBCC: A9 19     LDA #$19
-C - - - - 0x03EBDE FF:EBCE: 85 25     STA ram_для_8001_07
+C - - - - 0x03EBDE FF:EBCE: 85 25     STA ram_для_5115
 C - - - - 0x03EBE0 FF:EBD0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EBE3 FF:EBD3: 68        PLA
 C - - - - 0x03EBE4 FF:EBD4: 20 09 80  JSR sub_0x0307F6
@@ -5920,9 +5920,9 @@ C - - - - 0x03EC25 FF:EC15: A9 01     LDA #$01
 C - - - - 0x03EC27 FF:EC17: 8D 16 05  STA ram_флаг_сценария_ХЗ
 C - - - - 0x03EC2A FF:EC1A: 48        PHA
 C - - - - 0x03EC2D FF:EC1D: A9 10     LDA #$10
-C - - - - 0x03EC2F FF:EC1F: 85 24     STA ram_для_8001_06
+C - - - - 0x03EC2F FF:EC1F: 85 24     STA ram_для_5114
 C - - - - 0x03EC31 FF:EC21: A9 11     LDA #$11
-C - - - - 0x03EC33 FF:EC23: 85 25     STA ram_для_8001_07
+C - - - - 0x03EC33 FF:EC23: 85 25     STA ram_для_5115
 C - - - - 0x03EC35 FF:EC25: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EC38 FF:EC28: 68        PLA
 C - - - - 0x03EC39 FF:EC29: 20 00 80  JSR sub_0x020016
@@ -5951,9 +5951,9 @@ C - - - - 0x03EC6D FF:EC5D: 2C 16 05  BIT ram_флаг_сценария_ХЗ
 C - - - - 0x03EC70 FF:EC60: 70 12     BVS bra_EC74_выход
 C - - - - 0x03EC72 FF:EC62: 48        PHA
 C - - - - 0x03EC75 FF:EC65: A9 10     LDA #$10
-C - - - - 0x03EC77 FF:EC67: 85 24     STA ram_для_8001_06
+C - - - - 0x03EC77 FF:EC67: 85 24     STA ram_для_5114
 C - - - - 0x03EC79 FF:EC69: A9 11     LDA #$11
-C - - - - 0x03EC7B FF:EC6B: 85 25     STA ram_для_8001_07
+C - - - - 0x03EC7B FF:EC6B: 85 25     STA ram_для_5115
 C - - - - 0x03EC7D FF:EC6D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EC80 FF:EC70: 68        PLA
 C - - - - 0x03EC81 FF:EC71: 20 03 80  JSR sub_0x020031
@@ -6006,9 +6006,9 @@ C - - - - 0x03ECE2 FF:ECD2: 20 D2 CC  JSR sub_CCD3
 C - - - - 0x03ECE8 FF:ECD8: AD CE 05  LDA $05CE
 C - - - - 0x03ECEB FF:ECDB: 48        PHA
 C - - - - 0x03ECEE FF:ECDE: A9 0B     LDA #$0B
-C - - - - 0x03ECF0 FF:ECE0: 85 24     STA ram_для_8001_06
+C - - - - 0x03ECF0 FF:ECE0: 85 24     STA ram_для_5114
 C - - - - 0x03ECF2 FF:ECE2: A9 0C     LDA #$0C
-C - - - - 0x03ECF4 FF:ECE4: 85 25     STA ram_для_8001_07
+C - - - - 0x03ECF4 FF:ECE4: 85 25     STA ram_для_5115
 C - - - - 0x03ECF6 FF:ECE6: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03ECF9 FF:ECE9: 68        PLA
 C - - - - 0x03ECFA FF:ECEA: 20 06 80  JSR sub_0x0164B1
@@ -6074,9 +6074,9 @@ C - - - - 0x03ED7D FF:ED6D: 09 20     ORA #$20
 C - - - - 0x03ED7F FF:ED6F: 8D 16 05  STA ram_флаг_сценария_ХЗ
 C - - - - 0x03ED82 FF:ED72: 48        PHA
 C - - - - 0x03ED85 FF:ED75: A9 10     LDA #$10
-C - - - - 0x03ED87 FF:ED77: 85 24     STA ram_для_8001_06
+C - - - - 0x03ED87 FF:ED77: 85 24     STA ram_для_5114
 C - - - - 0x03ED89 FF:ED79: A9 11     LDA #$11
-C - - - - 0x03ED8B FF:ED7B: 85 25     STA ram_для_8001_07
+C - - - - 0x03ED8B FF:ED7B: 85 25     STA ram_для_5115
 C - - - - 0x03ED8D FF:ED7D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03ED90 FF:ED80: 68        PLA
 C - - - - 0x03ED91 FF:ED81: 20 03 80  JSR sub_0x020031
@@ -6230,9 +6230,9 @@ C - - - - 0x03EEAE FF:EE9E: 60        RTS
 sub_EE9F:
 C - - - - 0x03EEAF FF:EE9F: 48        PHA
 C - - - - 0x03EEB2 FF:EEA2: A9 14     LDA #$14
-C - - - - 0x03EEB4 FF:EEA4: 85 24     STA ram_для_8001_06
+C - - - - 0x03EEB4 FF:EEA4: 85 24     STA ram_для_5114
 C - - - - 0x03EEB6 FF:EEA6: A9 15     LDA #$15
-C - - - - 0x03EEB8 FF:EEA8: 85 25     STA ram_для_8001_07
+C - - - - 0x03EEB8 FF:EEA8: 85 25     STA ram_для_5115
 C - - - - 0x03EEBA FF:EEAA: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EEBD FF:EEAD: 68        PLA
 C - - - - 0x03EEBE FF:EEAE: 20 00 80  JSR sub_0x02801F
@@ -6288,26 +6288,26 @@ C - - - - 0x03EF0D FF:EEFD: 2C 15 06  BIT $0615
 C - - - - 0x03EF10 FF:EF00: 70 12     BVS bra_EF14
 C - - - - 0x03EF12 FF:EF02: 48        PHA
 C - - - - 0x03EF15 FF:EF05: A9 14     LDA #$14
-C - - - - 0x03EF17 FF:EF07: 85 24     STA ram_для_8001_06
+C - - - - 0x03EF17 FF:EF07: 85 24     STA ram_для_5114
 C - - - - 0x03EF19 FF:EF09: A9 15     LDA #$15
-C - - - - 0x03EF1B FF:EF0B: 85 25     STA ram_для_8001_07
+C - - - - 0x03EF1B FF:EF0B: 85 25     STA ram_для_5115
 C - - - - 0x03EF1D FF:EF0D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF20 FF:EF10: 68        PLA
 C - - - - 0x03EF21 FF:EF11: 20 06 80  JSR sub_0x0283E9
 bra_EF14:
 C - - - - 0x03EF24 FF:EF14: 48        PHA
 C - - - - 0x03EF27 FF:EF17: A9 14     LDA #$14
-C - - - - 0x03EF29 FF:EF19: 85 24     STA ram_для_8001_06
+C - - - - 0x03EF29 FF:EF19: 85 24     STA ram_для_5114
 C - - - - 0x03EF2B FF:EF1B: A9 15     LDA #$15
-C - - - - 0x03EF2D FF:EF1D: 85 25     STA ram_для_8001_07
+C - - - - 0x03EF2D FF:EF1D: 85 25     STA ram_для_5115
 C - - - - 0x03EF2F FF:EF1F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF32 FF:EF22: 68        PLA
 C - - - - 0x03EF33 FF:EF23: 20 03 80  JSR sub_0x0284EC
 C - - - - 0x03EF36 FF:EF26: 48        PHA
 C - - - - 0x03EF39 FF:EF29: A9 16     LDA #$16
-C - - - - 0x03EF3B FF:EF2B: 85 24     STA ram_для_8001_06
+C - - - - 0x03EF3B FF:EF2B: 85 24     STA ram_для_5114
 C - - - - 0x03EF3D FF:EF2D: A9 17     LDA #$17
-C - - - - 0x03EF3F FF:EF2F: 85 25     STA ram_для_8001_07
+C - - - - 0x03EF3F FF:EF2F: 85 25     STA ram_для_5115
 C - - - - 0x03EF41 FF:EF31: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF44 FF:EF34: 68        PLA
 C - - - - 0x03EF45 FF:EF35: 20 00 80  JSR sub_0x02C010
@@ -6320,9 +6320,9 @@ C - - - - 0x03EF50 FF:EF40: 2C 2D 06  BIT $062D
 C - - - - 0x03EF53 FF:EF43: 10 12     BPL bra_EF57
 C - - - - 0x03EF55 FF:EF45: 48        PHA
 C - - - - 0x03EF58 FF:EF48: A9 14     LDA #$14
-C - - - - 0x03EF5A FF:EF4A: 85 24     STA ram_для_8001_06
+C - - - - 0x03EF5A FF:EF4A: 85 24     STA ram_для_5114
 C - - - - 0x03EF5C FF:EF4C: A9 15     LDA #$15
-C - - - - 0x03EF5E FF:EF4E: 85 25     STA ram_для_8001_07
+C - - - - 0x03EF5E FF:EF4E: 85 25     STA ram_для_5115
 C - - - - 0x03EF60 FF:EF50: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EF63 FF:EF53: 68        PLA
 C - - - - 0x03EF64 FF:EF54: 20 09 80  JSR sub_0x028634
@@ -6360,23 +6360,23 @@ tbl_EF73:
 sub_0x03EF8F_отрисовка_меню_во_время_матча:
 sub_EF7F_отрисовка_меню_во_время_матча:
 C D - - - 0x03EF8F FF:EF7F: A8        TAY
-C - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_для_8001_06
+C - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_для_5114
 C - - - - 0x03EF92 FF:EF82: 48        PHA
-C - - - - 0x03EF93 FF:EF83: A5 25     LDA ram_для_8001_07
+C - - - - 0x03EF93 FF:EF83: A5 25     LDA ram_для_5115
 C - - - - 0x03EF95 FF:EF85: 48        PHA
 C - - - - 0x03EF96 FF:EF86: 98        TYA
 C - - - - 0x03EF97 FF:EF87: 48        PHA
 C - - - - 0x03EF9A FF:EF8A: A9 18     LDA #$18
-C - - - - 0x03EF9C FF:EF8C: 85 24     STA ram_для_8001_06
+C - - - - 0x03EF9C FF:EF8C: 85 24     STA ram_для_5114
 C - - - - 0x03EF9E FF:EF8E: A9 19     LDA #$19
-C - - - - 0x03EFA0 FF:EF90: 85 25     STA ram_для_8001_07
+C - - - - 0x03EFA0 FF:EF90: 85 25     STA ram_для_5115
 C - - - - 0x03EFA2 FF:EF92: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EFA5 FF:EF95: 68        PLA
 C - - - - 0x03EFA6 FF:EF96: 20 0C 80  JSR sub_0x030861_отрисовка_меню_во_время_матча
 C - - - - 0x03EFA9 FF:EF99: 68        PLA
-C - - - - 0x03EFAA FF:EF9A: 85 25     STA ram_для_8001_07
+C - - - - 0x03EFAA FF:EF9A: 85 25     STA ram_для_5115
 C - - - - 0x03EFAC FF:EF9C: 68        PLA
-C - - - - 0x03EFAD FF:EF9D: 85 24     STA ram_для_8001_06
+C - - - - 0x03EFAD FF:EF9D: 85 24     STA ram_для_5114
 C - - - - 0x03EFAF FF:EF9F: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
 sub_EFA2:
