@@ -1,6 +1,54 @@
 .segment "BANK_FE"
 .include "copy_bank_ram.inc"
 
+vec_FFF0_обработчик_RESET:
+					LDA #$08
+					STA $2000
+					SEI
+					LDX #$FF
+					TXS
+					LDA #$00
+					STA ram_0000
+					STA ram_0001
+					TAY
+					LDX #$08
+@очистка_ram:
+					STA (ram_0000),Y
+					INY
+					BNE @очистка_ram
+					INC ram_0001
+					DEX
+					BNE @очистка_ram
+					STA $4010
+					STA $0469
+					STA $5204
+					LDA #$08
+					STA ram_0020
+					LDA #$06
+					STA ram_для_2001
+					STA $2001
+					LDA #$40
+					STA $4017
+					JSR sub_CB35_очистить_nametable
+					JSR sub_CB8B_очистить_память_спрайтов
+					CLI
+					LDA #$00
+.export loc_0x03CF0E
+loc_0x03CF0E:
+loc_CEFE:
+					PHA
+					LDA #$00
+					STA $0469
+					STA $5204
+					JSR sub_CB8B_очистить_память_спрайтов
+					JSR sub_CB35_очистить_nametable
+					LDA ram_0020
+					AND #$7F
+					STA $2000
+					STA ram_0020
+					PLA
+					JMP loc_C400
+
 loc_C400:
 C D - - - 0x03C410 FF:C400: A8        TAY
 C - - - - 0x03C411 FF:C401: A9 08     LDA #$08
@@ -117,40 +165,6 @@ C - - - - 0x03C4FE FF:C4EE: A6 EE     LDX ram_00EE
 C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
 bra_C4F3_выход:
 C - - - - 0x03C503 FF:C4F3: 60        RTS
-
-vec_FFF0_обработчик_RESET:
-					LDA #$08
-					STA $2000
-					SEI
-					LDX #$FF
-					TXS
-					LDA #$00
-					STA ram_0000
-					STA ram_0001
-					TAY
-					LDX #$08
-@очистка_ram:
-					STA (ram_0000),Y
-					INY
-					BNE @очистка_ram
-					INC ram_0001
-					DEX
-					BNE @очистка_ram
-					STA $4010
-					STA $0469
-					STA $5204
-					LDA #$08
-					STA ram_0020
-					LDA #$06
-					STA ram_для_2001
-					STA $2001
-					LDA #$40
-					STA $4017
-					JSR sub_CB35_очистить_nametable
-					JSR sub_CB8B_очистить_память_спрайтов
-					CLI
-					LDA #$00
-					JMP loc_CEFE
 
 .export loc_0x03C6CE
 loc_0x03C6CE:
@@ -1301,21 +1315,7 @@ bra_CEFC:
 C - - - - 0x03CF0C FF:CEFC: 18        CLC
 C - - - - 0x03CF0D FF:CEFD: 60        RTS
 
-.export loc_0x03CF0E
-loc_0x03CF0E:
-loc_CEFE:
-C D - - - 0x03CF0E FF:CEFE: 48        PHA
-C - - - - 0x03CF14 FF:CF04: A9 00     LDA #$00
-C - - - - 0x03CF16 FF:CF06: 8D 69 04  STA $0469
-C - - - - 0x03CF19 FF:CF09: 8D 00 E0  STA $5204
-C - - - - 0x03CF1C FF:CF0C: 20 8B CB  JSR sub_CB8B_очистить_память_спрайтов
-C - - - - 0x03CF1F FF:CF0F: 20 35 CB  JSR sub_CB35_очистить_nametable
-C - - - - 0x03CF22 FF:CF12: A5 20     LDA ram_0020
-C - - - - 0x03CF24 FF:CF14: 29 7F     AND #$7F
-C - - - - 0x03CF26 FF:CF16: 8D 00 20  STA $2000
-C - - - - 0x03CF29 FF:CF19: 85 20     STA ram_0020
-C - - - - 0x03CF2B FF:CF1B: 68        PLA
-C - - - - 0x03CF2C FF:CF1C: 4C 00 C4  JMP loc_C400
+
 
 sub_CF1F:
 C - - - - 0x03CF2F FF:CF1F: A9 68     LDA #$68
