@@ -612,13 +612,13 @@ C - - - - 0x03CA13 FF:CA03: BD 91 04  LDA $0490,X
 C - - - - 0x03CA16 FF:CA06: 8D 01 80  STY $5122
                                       INY
 									  STY $5123
-bra_CA0F:
+bra_CA0F_цикл:
                                       INX
 C - - - - 0x03CA22 FF:CA12: 8D 00 80  STX $8000
 C - - - - 0x03CA25 FF:CA15: BD 90 04  LDA $0492,X
 C - - - - 0x03CA28 FF:CA18: 8D 01 80  STA $5124 - 2,X
 C - - - - 0x03CA2D FF:CA1D: C0 06     CPX #$05
-C - - - - 0x03CA2F FF:CA1F: D0 EE     BNE bra_CA0F
+C - - - - 0x03CA2F FF:CA1F: D0 EE     BNE bra_CA0F_цикл
 C - - - - 0x03CA31 FF:CA21: 60        RTS
 
 ofs_CA22_minus:
