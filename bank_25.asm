@@ -664,6 +664,125 @@ off_матч_06:
 
 
 off_матч_07:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2142
+	.byte $1C
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E2
+	.byte $1C
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $2362
+	.byte $1C
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2161
+	.byte $10
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $0B
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217E
+	.byte $10
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2141
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215E
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $2361
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $237E
+	.byte $93
+
+
+
+@текст:
+	.byte $09
+	.word $20CC
+	.text "Episode 7"
+	
+	.byte $1C
+	.word $2102
+	.byte $7B
+	.text "                          "
+	.byte $7B
+	
+	.byte $14
+	.word $2186
+	.text "National High School"
+	
+	.byte $19
+	.word $21C3
+	.text "Football Tournament,Japan"
+	
+	.byte $05
+	.word $2265
+	.text "Group"
+	
+	.byte $06
+	.word $22A5
+	.text "Stage,"
+	
+	.byte $09
+	.word $22E3
+	.text "1st Round"
+	
+	.byte $08
+	.word $2231
+	.text "Nankatsu"
+	
+	.byte $0B
+	.word $2270
+	.text "Public High"
+	
+	.byte $04
+	.word $22B3
+	.text "~VS~"
+	
+	.byte $09
+	.word $22F1
+	.text "Tatsunami"
+	
+	.byte $44
+	.word $2333
+	.text "High"
+
+
+
+
+
+
 off_матч_08:
 off_матч_09:
 off_матч_10:
