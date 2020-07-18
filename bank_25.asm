@@ -216,10 +216,10 @@ off_матч_02:
 	.word $206B
 	.text "Episode 2"
 	
-	.byte $1C
-	.word $20A2
+	.byte $16
+	.word $20A5
 	.byte $7B
-	.text "                          "
+	.text "Kickoff for Tomorrow"
 	.byte $7B
 	
 	.byte $0E
@@ -424,10 +424,10 @@ off_матч_04:
 	.word $206B
 	.text "Episode 4"
 	
-	.byte $1C
-	.word $20A2
+	.byte $10
+	.word $20A8
 	.byte $7B
-	.text "                          "
+	.text "The Deadly Duo"
 	.byte $7B
 	
 	.byte $0E
@@ -1743,7 +1743,7 @@ off_матч_16:
 	.byte $14
 	.word $20A6
 	.byte $7B
-	.text "Farewell,Sao Paulo"
+	.text "Sayonara,Sao Paulo"
 	.byte $7B
 	
 	.byte $09
