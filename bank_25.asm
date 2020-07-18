@@ -139,7 +139,7 @@ off_матч_01:
 	.text "~VS~"
 	
 	.byte $4A
-	.word $226F
+	.word $2270
 	.text "Fluminence"
 
 
@@ -973,7 +973,7 @@ off_матч_09:
 	.text "Episode 9"
 	
 	.byte $0C
-	.word $20AA
+	.word $20A9
 	.byte $7B
 	.text "Ace Killer"
 	.byte $7B
@@ -2429,28 +2429,28 @@ off_матч_23:
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $2325
+	.word $22E5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
 	.word $2164
-	.byte $0E
+	.byte $0C
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220F
+	.word $21CE
 	.byte $09
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
 	.word $217B
-	.byte $0E
+	.byte $0C
 	.byte $8F
 	
 	.byte $00
@@ -2474,11 +2474,11 @@ off_матч_23:
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $2324
+	.word $22E4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $233B
+	.word $22FB
 	.byte $93
 
 
@@ -2494,36 +2494,32 @@ off_матч_23:
 	.text "From East to West"
 	.byte $7B
 	
-	.byte $0F
-	.word $2189
-	.text "U-20 World Cup,"
+	.byte $0A
+	.word $218B
+	.text "Friendlies"
 	
-	.byte $10
-	.word $21C8
-	.text "Asian Qualifiers"
-	
-	.byte $08
-	.word $2266
-	.text "Friendly"
+	.byte $03
+	.word $2228
+	.text "1st"
 	
 	.byte $05
-	.word $22A7
+	.word $2267
 	.text "match"
 	
 	.byte $05
-	.word $2232
+	.word $21F2
 	.text "Japan"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $05
-	.word $22B2
+	.word $2272
 	.text "Vasco"
 	
 	.byte $47
-	.word $22F1
+	.word $22B1
 	.text "da Gama"
 
 
@@ -2541,28 +2537,28 @@ off_матч_24:
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
 	.word $2164
-	.byte $0C
+	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
 	.word $217B
-	.byte $0C
+	.byte $0A
 	.byte $8F
 	
 	.byte $00
@@ -2586,11 +2582,11 @@ off_матч_24:
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
@@ -2606,32 +2602,28 @@ off_матч_24:
 	.text "Polishing the Play"
 	.byte $7B
 	
-	.byte $0F
-	.word $2189
-	.text "U-20 World Cup,"
-	
-	.byte $10
-	.word $21C8
-	.text "Tournament Phase"
+	.byte $0A
+	.word $218B
+	.text "Friendlies"
 	
 	.byte $03
-	.word $2248
-	.text "1st"
+	.word $2208
+	.text "2nd"
 	
 	.byte $05
-	.word $2287
-	.text "Round"
+	.word $2247
+	.text "match"
 	
 	.byte $05
-	.word $2231
+	.word $21F2
 	.text "Japan"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $46
-	.word $22B1
+	.word $2271
 	.text "Poland"
 
 
@@ -2649,28 +2641,28 @@ off_матч_25:
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
 	.word $2164
-	.byte $0C
+	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
 	.word $217B
-	.byte $0C
+	.byte $0A
 	.byte $8F
 	
 	.byte $00
@@ -2694,11 +2686,11 @@ off_матч_25:
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
@@ -2714,32 +2706,28 @@ off_матч_25:
 	.text "Become a Super Striker"
 	.byte $7B
 	
-	.byte $0F
-	.word $2189
-	.text "U-20 World Cup,"
-	
-	.byte $10
-	.word $21C8
-	.text "Tournament Phase"
+	.byte $0A
+	.word $218B
+	.text "Friendlies"
 	
 	.byte $03
-	.word $2248
-	.text "2nd"
+	.word $2208
+	.text "3rd"
 	
 	.byte $05
-	.word $2287
-	.text "Round"
+	.word $2247
+	.text "match"
 	
 	.byte $05
-	.word $2232
+	.word $21F2
 	.text "Japan"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $47
-	.word $22B1
+	.word $2271
 	.text "England"
 
 
@@ -2757,28 +2745,28 @@ off_матч_26:
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
 	.word $2164
-	.byte $0C
+	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220D
+	.word $21CD
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
 	.word $217B
-	.byte $0C
+	.byte $0A
 	.byte $8F
 	
 	.byte $00
@@ -2802,11 +2790,11 @@ off_матч_26:
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
@@ -2822,32 +2810,28 @@ off_матч_26:
 	.text "Through the Iron Curtain"
 	.byte $7B
 	
-	.byte $0F
-	.word $2189
-	.text "U-20 World Cup,"
-	
-	.byte $10
-	.word $21C8
-	.text "Tournament Phase"
+	.byte $0A
+	.word $218B
+	.text "Friendlies"
 	
 	.byte $03
-	.word $2247
-	.text "3rd"
+	.word $2207
+	.text "4th"
 	
 	.byte $05
-	.word $2286
-	.text "Round"
+	.word $2246
+	.text "match"
 	
 	.byte $05
-	.word $2231
+	.word $21F1
 	.text "Japan"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $4C
-	.word $22AE
+	.word $226E
 	.text "Soviet Union"
 
 
@@ -2865,28 +2849,28 @@ off_матч_27:
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
 	.word $2164
-	.byte $0C
+	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
 	.word $217B
-	.byte $0C
+	.byte $0A
 	.byte $8F
 	
 	.byte $00
@@ -2910,11 +2894,11 @@ off_матч_27:
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
@@ -2922,7 +2906,7 @@ off_матч_27:
 @текст:
 	.byte $0A
 	.word $206B
-	.text "Episode 26"
+	.text "Episode 27"
 	
 	.byte $16
 	.word $20A5
@@ -2930,32 +2914,28 @@ off_матч_27:
 	.text "An Elegant Commander"
 	.byte $7B
 	
-	.byte $0F
-	.word $2189
-	.text "U-20 World Cup,"
-	
-	.byte $10
-	.word $21C8
-	.text "Tournament Phase"
+	.byte $0A
+	.word $218B
+	.text "Friendlies"
 	
 	.byte $03
-	.word $2248
-	.text "4th"
+	.word $2208
+	.text "5th"
 	
 	.byte $05
-	.word $2287
-	.text "Round"
+	.word $2247
+	.text "match"
 	
 	.byte $05
-	.word $2232
+	.word $21F2
 	.text "Japan"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $46
-	.word $22B1
+	.word $2271
 	.text "France"
 
 
