@@ -128,7 +128,7 @@ off_матч_01:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -232,7 +232,7 @@ off_матч_02:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -336,7 +336,7 @@ off_матч_03:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -440,7 +440,7 @@ off_матч_04:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -544,7 +544,7 @@ off_матч_05:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -732,10 +732,10 @@ off_матч_07:
 	.word $206B
 	.text "Episode 7"
 	
-	.byte $1C
-	.word $20A2
+	.byte $18
+	.word $20A4
 	.byte $7B
-	.text "                          "
+	.text "The Source of Strength"
 	.byte $7B
 	
 	.byte $14
@@ -1444,7 +1444,7 @@ off_матч_13:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -1548,7 +1548,7 @@ off_матч_14:
 	
 	.byte $05
 	.word $2247
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -1652,7 +1652,7 @@ off_матч_15:
 	
 	.byte $05
 	.word $2246
-	.text "final"
+	.text "Final"
 	
 	.byte $09
 	.word $21F0
@@ -1772,75 +1772,1832 @@ off_матч_16:
 
 
 off_матч_17:
-off_матч_18:
-off_матч_19:
-off_матч_20:
-off_матч_21:
-off_матч_22:
-off_матч_23:
-off_матч_24:
-off_матч_25:
-off_матч_26:
-off_матч_27:
-off_матч_28:
-off_матч_29:
-off_матч_30:
-off_матч_31:
-off_матч_32:
-off_матч_33:
+; очистить nametable
 	.byte $0D
-	
+; верхняя горизонтальная линия
 	.byte $05
 	.word $2145
 	.byte $16
-	.byte $89
-	
+	.byte $8E
+; центральная горизонтальная линия
 	.byte $05
-	.word $21A5
+	.word $21E5
 	.byte $16
 	.byte $BA
-	
+; нижняя горизонтальная линия
 	.byte $05
-	.word $22A5
+	.word $22E5
 	.byte $16
-	.byte $89
-	
+	.byte $8E
+; левая вертикальная линия
 	.byte $04
 	.word $2164
-	.byte $0A
-	.byte $8A
-	
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
 	.byte $04
-	.word $217B
-	.byte $0A
-	.byte $8A
-	
-	.byte $04
-	.word $21CF
+	.word $220E
 	.byte $07
 	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
 	
 	.byte $00
-	.word off_B328
+	.word @углы
 	
+	.byte $00
+	.word @текст
+; закончить
 	.byte $0F
 
 
 
-off_B328:
+@углы:
+; левый верхний угол
 	.byte $01
 	.word $2144
-	.byte $88
+	.byte $90
+; правый верхний угол
 	.byte $01
 	.word $215B
-	.byte $90
-	.byte $01
-	.word $22A4
-	.byte $8E
-	.byte $01
-	.word $22BB
-	.byte $93
-	.byte $42
-	.word $2233
 	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 17"
+	
+	.byte $17
+	.word $20A4
+	.byte $7B
+	.text "Road to the World Cup"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $03
+	.word $2248
+	.text "1st"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $45
+	.word $22B2
+	.text "Syria"
+
+
+
+
+
+
+off_матч_18:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
 	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 18"
+	
+	.byte $17
+	.word $20A4
+	.byte $7B
+	.text "                     "
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $03
+	.word $2248
+	.text "2nd"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $45
+	.word $22B2
+	.text "China"
+
+
+
+
+
+
+off_матч_19:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 19"
+	
+	.byte $17
+	.word $20A4
+	.byte $7B
+	.text "                     "
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $03
+	.word $2248
+	.text "3rd"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $44
+	.word $22B2
+	.text "Iran"
+
+
+
+
+
+
+off_матч_20:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 20"
+	
+	.byte $17
+	.word $20A4
+	.byte $7B
+	.text "                     "
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $03
+	.word $2248
+	.text "4th"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $4B
+	.word $22AF
+	.text "North Korea"
+
+
+
+
+
+
+off_матч_21:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220D
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 21"
+	
+	.byte $17
+	.word $20A4
+	.byte $7B
+	.text "                     "
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $03
+	.word $2247
+	.text "5th"
+	
+	.byte $05
+	.word $2286
+	.text "Round"
+	
+	.byte $05
+	.word $2231
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $4C
+	.word $22AE
+	.text "Saudi Arabia"
+
+
+
+
+
+
+off_матч_22:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 22"
+	
+	.byte $17
+	.word $20A4
+	.byte $7B
+	.text "                     "
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $03
+	.word $2248
+	.text "6th"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $4B
+	.word $22AF
+	.text "South Korea"
+
+
+
+
+
+
+off_матч_23:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $2325
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0E
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220F
+	.byte $09
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0E
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $2324
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $233B
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 23"
+	
+	.byte $13
+	.word $20A6
+	.byte $7B
+	.text "From East to West"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Asian Qualifiers"
+	
+	.byte $08
+	.word $2266
+	.text "Friendly"
+	
+	.byte $05
+	.word $22A7
+	.text "match"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $05
+	.word $22B2
+	.text "Vasco"
+	
+	.byte $47
+	.word $22F1
+	.text "da Gama"
+
+
+
+
+
+
+off_матч_24:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 24"
+	
+	.byte $14
+	.word $20A6
+	.byte $7B
+	.text "Polishing the Play"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Tournament Phase"
+	
+	.byte $03
+	.word $2248
+	.text "1st"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2231
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $46
+	.word $22B1
+	.text "Poland"
+
+
+
+
+
+
+off_матч_25:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 25"
+	
+	.byte $18
+	.word $20A4
+	.byte $7B
+	.text "Become a Super Striker"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Tournament Phase"
+	
+	.byte $03
+	.word $2248
+	.text "2nd"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $47
+	.word $22B1
+	.text "England"
+
+
+
+
+
+
+off_матч_26:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220D
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 26"
+	
+	.byte $1A
+	.word $20A3
+	.byte $7B
+	.text "Through the Iron Curtain"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Tournament Phase"
+	
+	.byte $03
+	.word $2247
+	.text "3rd"
+	
+	.byte $05
+	.word $2286
+	.text "Round"
+	
+	.byte $05
+	.word $2231
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $4C
+	.word $22AE
+	.text "Soviet Union"
+
+
+
+
+
+
+off_матч_27:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 26"
+	
+	.byte $16
+	.word $20A5
+	.byte $7B
+	.text "An Elegant Commander"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $10
+	.word $21C8
+	.text "Tournament Phase"
+	
+	.byte $03
+	.word $2248
+	.text "4th"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $46
+	.word $22B1
+	.text "France"
+
+
+
+
+
+
+off_матч_28:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 27"
+	
+	.byte $1A
+	.word $20A3
+	.byte $7B
+	.text "Rise of the Mexican Hero"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $0B
+	.word $21CA
+	.text "Group Stage"
+	
+	.byte $03
+	.word $2248
+	.text "1th"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $46
+	.word $22B1
+	.text "Mexico"
+
+
+
+
+
+
+off_матч_29:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 29"
+	
+	.byte $18
+	.word $20A4
+	.byte $7B
+	.text "Italy's God of Defense"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $0B
+	.word $21CA
+	.text "Group Stage"
+	
+	.byte $03
+	.word $2248
+	.text "2nd"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $45
+	.word $22B2
+	.text "Italy"
+
+
+
+
+
+
+off_матч_30:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 30"
+	
+	.byte $1E
+	.word $20A1
+	.byte $7B
+	.text "Legacy of the 1,000-Goal Ace"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $0B
+	.word $21CA
+	.text "Group Stage"
+	
+	.byte $03
+	.word $2248
+	.text "3rd"
+	
+	.byte $05
+	.word $2287
+	.text "Round"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $4B
+	.word $22AF
+	.text "Netherlands"
+
+
+
+
+
+
+off_матч_31:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 31"
+	
+	.byte $14
+	.word $20A6
+	.byte $7B
+	.text "Pride of Argentina"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $0E
+	.word $21C9
+	.text "Knockout Stage"
+	
+	.byte $07
+	.word $2246
+	.text "Quater-"
+	
+	.byte $05
+	.word $2287
+	.text "Final"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $49
+	.word $22B0
+	.text "Argentina"
+
+
+
+
+
+
+off_матч_32:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220D
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 32"
+	
+	.byte $19
+	.word $20A4
+	.byte $7B
+	.text "Germany's Young Emperor"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $0E
+	.word $21C9
+	.text "Knockout Stage"
+	
+	.byte $05
+	.word $2246
+	.text "Semi-"
+	
+	.byte $05
+	.word $2286
+	.text "Final"
+	
+	.byte $05
+	.word $2231
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $4C
+	.word $22AE
+	.text "West Germany"
+
+
+
+
+
+
+off_матч_33:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21E5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0C
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $220E
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0C
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 33"
+	
+	.byte $1D
+	.word $20A2
+	.byte $7B
+	.text "Clash of the Super Strikers"
+	.byte $7B
+	
+	.byte $0F
+	.word $2189
+	.text "U-20 World Cup,"
+	
+	.byte $0E
+	.word $21C9
+	.text "Knockout Stage"
+	
+	.byte $05
+	.word $2267
+	.text "Final"
+	
+	.byte $05
+	.word $2232
+	.text "Japan"
+	
+	.byte $04
+	.word $2272
+	.text "~VS~"
+	
+	.byte $46
+	.word $22B1
+	.text "Brazil"
