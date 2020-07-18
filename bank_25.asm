@@ -48,32 +48,32 @@ off_матч_01:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2185
+	.word $2145
 	.byte $16
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $21A4
+	.word $2164
 	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $21BB
+	.word $217B
 	.byte $0A
 	.byte $8F
 	
@@ -90,56 +90,56 @@ off_матч_01:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2184
+	.word $2144
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $219B
+	.word $215B
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
 
 @текст:
 	.byte $09
-	.word $20EC
+	.word $206B
 	.text "Episode 1"
 	
 	.byte $1C
-	.word $2122
+	.word $20A2
 	.byte $7B
 	.text "#10,Sao Paulo's Lucky Star"
 	.byte $7B
 	
-	.byte $0F
-	.word $21C9
-	.text "Rio Cup, Brazil"
+	.byte $0E
+	.word $2189
+	.text "Rio Cup,Brazil"
 	
 	.byte $05
-	.word $2247
+	.word $2207
 	.text "1/32-"
 	
 	.byte $05
-	.word $2287
+	.word $2247
 	.text "final"
 	
 	.byte $09
-	.word $2230
+	.word $21F0
 	.text "Sao Paulo"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $4A
-	.word $22AF
+	.word $226F
 	.text "Fluminence"
 
 
@@ -152,32 +152,32 @@ off_матч_02:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2185
+	.word $2145
 	.byte $16
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $21A4
+	.word $2164
 	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $21BB
+	.word $217B
 	.byte $0A
 	.byte $8F
 	
@@ -194,56 +194,56 @@ off_матч_02:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2184
+	.word $2144
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $219B
+	.word $215B
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
 
 @текст:
 	.byte $09
-	.word $20EC
+	.word $206B
 	.text "Episode 2"
 	
 	.byte $1C
-	.word $2122
+	.word $20A2
 	.byte $7B
 	.text "                          "
 	.byte $7B
 	
-	.byte $0F
-	.word $21C9
-	.text "Rio Cup, Brazil"
+	.byte $0E
+	.word $2189
+	.text "Rio Cup,Brazil"
 	
 	.byte $05
-	.word $2247
+	.word $2207
 	.text "1/16-"
 	
 	.byte $05
-	.word $2287
+	.word $2247
 	.text "final"
 	
 	.byte $09
-	.word $2230
+	.word $21F0
 	.text "Sao Paulo"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $4B
-	.word $22AF
+	.word $226F
 	.text "Corinthians"
 
 
@@ -256,32 +256,32 @@ off_матч_03:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2185
+	.word $2145
 	.byte $16
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $21A4
+	.word $2164
 	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $21BB
+	.word $217B
 	.byte $0A
 	.byte $8F
 	
@@ -298,56 +298,56 @@ off_матч_03:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2184
+	.word $2144
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $219B
+	.word $215B
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
 
 @текст:
 	.byte $09
-	.word $20EC
+	.word $206B
 	.text "Episode 3"
 	
 	.byte $1C
-	.word $2122
+	.word $20A2
 	.byte $7B
 	.text "                          "
 	.byte $7B
 	
-	.byte $0F
-	.word $21C9
-	.text "Rio Cup, Brazil"
+	.byte $0E
+	.word $2189
+	.text "Rio Cup,Brazil"
 	
 	.byte $04
-	.word $2247
+	.word $2207
 	.text "1/8-"
 	
 	.byte $05
-	.word $2287
+	.word $2247
 	.text "final"
 	
 	.byte $09
-	.word $2230
+	.word $21F0
 	.text "Sao Paulo"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $46
-	.word $22B1
+	.word $2271
 	.text "Gremio"
 
 
@@ -360,32 +360,32 @@ off_матч_04:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2185
+	.word $2145
 	.byte $16
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $21A4
+	.word $2164
 	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $21BB
+	.word $217B
 	.byte $0A
 	.byte $8F
 	
@@ -402,56 +402,56 @@ off_матч_04:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2184
+	.word $2144
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $219B
+	.word $215B
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
 
 @текст:
 	.byte $09
-	.word $20EC
+	.word $206B
 	.text "Episode 4"
 	
 	.byte $1C
-	.word $2122
+	.word $20A2
 	.byte $7B
 	.text "                          "
 	.byte $7B
 	
-	.byte $0F
-	.word $21C9
-	.text "Rio Cup, Brazil"
+	.byte $0E
+	.word $2189
+	.text "Rio Cup,Brazil"
 	
 	.byte $07
-	.word $2246
+	.word $2206
 	.text "Quater-"
 	
 	.byte $05
-	.word $2287
+	.word $2247
 	.text "final"
 	
 	.byte $09
-	.word $2230
+	.word $21F0
 	.text "Sao Paulo"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $49
-	.word $22B0
+	.word $2270
 	.text "Palmeiras"
 
 
@@ -464,32 +464,32 @@ off_матч_05:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2185
+	.word $2145
 	.byte $16
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $21A4
+	.word $2164
 	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $21BB
+	.word $217B
 	.byte $0A
 	.byte $8F
 	
@@ -506,56 +506,56 @@ off_матч_05:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2184
+	.word $2144
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $219B
+	.word $215B
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
 
 @текст:
 	.byte $09
-	.word $20EC
+	.word $206B
 	.text "Episode 5"
 	
 	.byte $1C
-	.word $2122
+	.word $20A2
 	.byte $7B
 	.text "                          "
 	.byte $7B
 	
-	.byte $0F
-	.word $21C9
-	.text "Rio Cup, Brazil"
+	.byte $0E
+	.word $2189
+	.text "Rio Cup,Brazil"
 	
 	.byte $05
-	.word $2247
+	.word $2207
 	.text "Semi-"
 	
 	.byte $05
-	.word $2287
+	.word $2247
 	.text "final"
 	
 	.byte $09
-	.word $2230
+	.word $21F0
 	.text "Sao Paulo"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $46
-	.word $22B1
+	.word $2271
 	.text "Santos"
 
 
@@ -568,32 +568,32 @@ off_матч_06:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2185
+	.word $2145
 	.byte $16
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E5
+	.word $21A5
 	.byte $16
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
+	.word $22A5
 	.byte $16
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $21A4
+	.word $2164
 	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
+	.word $21CE
 	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $21BB
+	.word $217B
 	.byte $0A
 	.byte $8F
 	
@@ -610,52 +610,52 @@ off_матч_06:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2184
+	.word $2144
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $219B
+	.word $215B
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A4
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BB
 	.byte $93
 
 
 
 @текст:
 	.byte $09
-	.word $20EC
+	.word $206B
 	.text "Episode 6"
 	
 	.byte $19
-	.word $2124
+	.word $20A3
 	.byte $7B
 	.text "Son of the Football God"
 	.byte $7B
 	
-	.byte $0F
-	.word $21C9
-	.text "Rio Cup, Brazil"
+	.byte $0E
+	.word $2189
+	.text "Rio Cup,Brazil"
 	
 	.byte $05
-	.word $2267
+	.word $2227
 	.text "Final"
 	
 	.byte $09
-	.word $2230
+	.word $21F0
 	.text "Sao Paulo"
 	
 	.byte $04
-	.word $2272
+	.word $2232
 	.text "~VS~"
 	
 	.byte $48
-	.word $22B0
+	.word $2270
 	.text "Flamengo"
 
 
@@ -668,33 +668,33 @@ off_матч_07:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2142
+	.word $2102
 	.byte $1C
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21E2
+	.word $21A2
 	.byte $1C
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $2362
+	.word $22E2
 	.byte $1C
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $2161
-	.byte $10
+	.word $2121
+	.byte $0E
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $220E
-	.byte $0B
+	.word $21CE
+	.byte $09
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $217E
-	.byte $10
+	.word $213E
+	.byte $0E
 	.byte $8F
 	
 	.byte $00
@@ -710,11 +710,127 @@ off_матч_07:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2141
+	.word $2101
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $215E
+	.word $211E
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E1
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FE
+	.byte $93
+
+
+
+@текст:
+	.byte $09
+	.word $206B
+	.text "Episode 7"
+	
+	.byte $1C
+	.word $20A2
+	.byte $7B
+	.text "                          "
+	.byte $7B
+	
+	.byte $14
+	.word $2146
+	.text "National High School"
+	
+	.byte $19
+	.word $2183
+	.text "Football Tournament,Japan"
+	
+	.byte $05
+	.word $2205
+	.text "Group"
+	
+	.byte $06
+	.word $2245
+	.text "Stage,"
+	
+	.byte $09
+	.word $2283
+	.text "1st Round"
+	
+	.byte $08
+	.word $21F2
+	.text "Nankatsu"
+	
+	.byte $0B
+	.word $2231
+	.text "Public High"
+	
+	.byte $04
+	.word $2274
+	.text "~VS~"
+	
+	.byte $4E
+	.word $22AF
+	.text "Kunimi Academy"
+
+
+
+
+
+
+off_матч_08:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2102
+	.byte $1C
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A2
+	.byte $1C
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $2362
+	.byte $1C
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2121
+	.byte $12
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $0D
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $213E
+	.byte $12
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2101
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $211E
 	.byte $91
 ; правый нижний угол
 	.byte $01
@@ -729,65 +845,520 @@ off_матч_07:
 
 @текст:
 	.byte $09
-	.word $20CC
-	.text "Episode 7"
+	.word $206B
+	.text "Episode 8"
 	
-	.byte $1C
-	.word $2102
+	.byte $12
+	.word $20A7
 	.byte $7B
-	.text "                          "
+	.text "The Flying Twins"
 	.byte $7B
 	
 	.byte $14
-	.word $2186
+	.word $2146
 	.text "National High School"
 	
 	.byte $19
-	.word $21C3
+	.word $2183
 	.text "Football Tournament,Japan"
 	
 	.byte $05
-	.word $2265
+	.word $2245
 	.text "Group"
 	
 	.byte $06
-	.word $22A5
+	.word $2285
 	.text "Stage,"
 	
 	.byte $09
-	.word $22E3
-	.text "1st Round"
+	.word $22C3
+	.text "2nd Round"
 	
 	.byte $08
-	.word $2232
+	.word $21F2
 	.text "Nankatsu"
 	
 	.byte $0B
-	.word $2271
+	.word $2231
 	.text "Public High"
 	
 	.byte $04
-	.word $22B4
+	.word $2274
 	.text "~VS~"
 	
-	.byte $09
-	.word $22F2
-	.text "Tatsunami"
+	.byte $05
+	.word $22B3
+	.text "Akita"
 	
-	.byte $44
-	.word $2334
-	.text "High"
+	.byte $0A
+	.word $22F1
+	.text "Commercial"
+	
+	.byte $46
+	.word $2333
+	.text "School"
 
 
 
 
 
 
-off_матч_08:
 off_матч_09:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2102
+	.byte $1C
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A2
+	.byte $1C
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E2
+	.byte $1C
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2121
+	.byte $0E
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $09
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $213E
+	.byte $0E
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2101
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $211E
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E1
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FE
+	.byte $93
+
+
+
+@текст:
+	.byte $09
+	.word $206B
+	.text "Episode 9"
+	
+	.byte $0C
+	.word $20AA
+	.byte $7B
+	.text "Ace Killer"
+	.byte $7B
+	
+	.byte $14
+	.word $2146
+	.text "National High School"
+	
+	.byte $19
+	.word $2183
+	.text "Football Tournament,Japan"
+	
+	.byte $05
+	.word $2205
+	.text "Group"
+	
+	.byte $06
+	.word $2245
+	.text "Stage,"
+	
+	.byte $09
+	.word $2283
+	.text "3rd Round"
+	
+	.byte $08
+	.word $21F2
+	.text "Nankatsu"
+	
+	.byte $0B
+	.word $2231
+	.text "Public High"
+	
+	.byte $04
+	.word $2274
+	.text "~VS~"
+	
+	.byte $4E
+	.word $22AF
+	.text "Tatsunami High"
+
+
+
+
+
+
 off_матч_10:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2102
+	.byte $1C
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A2
+	.byte $1C
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $2322
+	.byte $1C
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2121
+	.byte $10
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $0B
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $213E
+	.byte $10
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2101
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $211E
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $2321
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $233E
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 10"
+	
+	.byte $13
+	.word $20A7
+	.byte $7B
+	.text "Heart of the Game"
+	.byte $7B
+	
+	.byte $14
+	.word $2146
+	.text "National High School"
+	
+	.byte $19
+	.word $2183
+	.text "Football Tournament,Japan"
+	
+	.byte $05
+	.word $2225
+	.text "Group"
+	
+	.byte $06
+	.word $2265
+	.text "Stage,"
+	
+	.byte $09
+	.word $22A3
+	.text "4th Round"
+	
+	.byte $08
+	.word $21F2
+	.text "Nankatsu"
+	
+	.byte $0B
+	.word $2231
+	.text "Public High"
+	
+	.byte $04
+	.word $2274
+	.text "~VS~"
+	
+	.byte $07
+	.word $22B3
+	.text "Musashi"
+	
+	.byte $4E
+	.word $22EF
+	.text "Medical School"
+
+
+
+
+
+
 off_матч_11:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2102
+	.byte $1C
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A2
+	.byte $1C
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $2322
+	.byte $1C
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2121
+	.byte $10
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $0B
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $213E
+	.byte $10
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2101
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $211E
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $2321
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $233E
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 11"
+	
+	.byte $1E
+	.word $20A1
+	.byte $7B
+	.text "Hot #10 from a Snowy Country"
+	.byte $7B
+	
+	.byte $14
+	.word $2146
+	.text "National High School"
+	
+	.byte $19
+	.word $2183
+	.text "Football Tournament,Japan"
+	
+	.byte $09
+	.word $2263
+	.text "Semifinal"
+	
+	.byte $08
+	.word $21F2
+	.text "Nankatsu"
+	
+	.byte $0B
+	.word $2231
+	.text "Public High"
+	
+	.byte $04
+	.word $2274
+	.text "~VS~"
+	
+	.byte $06
+	.word $22B3
+	.text "Furano"
+	
+	.byte $4B
+	.word $22F1
+	.text "Public High"
+
+
+
+
+
+
 off_матч_12:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2102
+	.byte $1C
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A2
+	.byte $1C
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22E2
+	.byte $1C
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2121
+	.byte $0E
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $09
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $213E
+	.byte $0E
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2101
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $211E
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22E1
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22FE
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 12"
+	
+	.byte $1A
+	.word $20A3
+	.byte $7B
+	.text "Ultimate Offensive Style"
+	.byte $7B
+	
+	.byte $14
+	.word $2146
+	.text "National High School"
+	
+	.byte $19
+	.word $2183
+	.text "Football Tournament,Japan"
+	
+	.byte $05
+	.word $2245
+	.text "Final"
+	
+	.byte $08
+	.word $21F2
+	.text "Nankatsu"
+	
+	.byte $0B
+	.word $2231
+	.text "Public High"
+	
+	.byte $04
+	.word $2274
+	.text "~VS~"
+	
+	.byte $4C
+	.word $22B0
+	.text "Toho Academy"
+
+
+
+
+
+
 off_матч_13:
 off_матч_14:
 off_матч_15:
