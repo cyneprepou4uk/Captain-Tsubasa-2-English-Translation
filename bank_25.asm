@@ -122,9 +122,9 @@ off_матч_01:
 	.word $2189
 	.text "Rio Cup,Brazil"
 	
-	.byte $05
+	.byte $04
 	.word $2207
-	.text "1/32-"
+	.text "1/32"
 	
 	.byte $05
 	.word $2247
@@ -226,9 +226,9 @@ off_матч_02:
 	.word $2189
 	.text "Rio Cup,Brazil"
 	
-	.byte $05
+	.byte $04
 	.word $2207
-	.text "1/16-"
+	.text "1/16"
 	
 	.byte $05
 	.word $2247
@@ -320,19 +320,19 @@ off_матч_03:
 	.word $206B
 	.text "Episode 3"
 	
-	.byte $1C
-	.word $20A2
+	.byte $14
+	.word $20A6
 	.byte $7B
-	.text "                          "
+	.text "Settling the Score"
 	.byte $7B
 	
 	.byte $0E
 	.word $2189
 	.text "Rio Cup,Brazil"
 	
-	.byte $04
-	.word $2207
-	.text "1/8-"
+	.byte $03
+	.word $2208
+	.text "1/8"
 	
 	.byte $05
 	.word $2247
@@ -436,7 +436,7 @@ off_матч_04:
 	
 	.byte $07
 	.word $2206
-	.text "Quater-"
+	.text "Quarter"
 	
 	.byte $05
 	.word $2247
@@ -528,19 +528,19 @@ off_матч_05:
 	.word $206B
 	.text "Episode 5"
 	
-	.byte $1C
-	.word $20A2
+	.byte $1A
+	.word $20A3
 	.byte $7B
-	.text "                          "
+	.text "The Eel and the Dynamite"
 	.byte $7B
 	
 	.byte $0E
 	.word $2189
 	.text "Rio Cup,Brazil"
 	
-	.byte $05
+	.byte $04
 	.word $2207
-	.text "Semi-"
+	.text "Semi"
 	
 	.byte $05
 	.word $2247
@@ -1438,9 +1438,9 @@ off_матч_13:
 	.word $218B
 	.text "Japan Cup"
 	
-	.byte $04
-	.word $2207
-	.text "1/8-"
+	.byte $03
+	.word $2208
+	.text "1/8"
 	
 	.byte $05
 	.word $2247
@@ -1544,7 +1544,7 @@ off_матч_14:
 	
 	.byte $07
 	.word $2206
-	.text "Quater-"
+	.text "Quarter"
 	
 	.byte $05
 	.word $2247
@@ -1646,9 +1646,9 @@ off_матч_15:
 	.word $218B
 	.text "Japan Cup"
 	
-	.byte $05
+	.byte $04
 	.word $2206
-	.text "Semi-"
+	.text "Semi"
 	
 	.byte $05
 	.word $2246
@@ -2596,10 +2596,10 @@ off_матч_24:
 	.word $206B
 	.text "Episode 24"
 	
-	.byte $14
-	.word $20A6
+	.byte $0F
+	.word $20A9
 	.byte $7B
-	.text "Polishing the Play"
+	.text "Pole Position"
 	.byte $7B
 	
 	.byte $0A
@@ -3352,7 +3352,7 @@ off_матч_31:
 	
 	.byte $07
 	.word $2246
-	.text "Quater-"
+	.text "Quarter"
 	
 	.byte $05
 	.word $2287
@@ -3458,9 +3458,9 @@ off_матч_32:
 	.word $21C9
 	.text "Knockout Stage"
 	
-	.byte $05
+	.byte $04
 	.word $2246
-	.text "Semi-"
+	.text "Semi"
 	
 	.byte $05
 	.word $2286
