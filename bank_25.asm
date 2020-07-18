@@ -134,9 +134,9 @@ off_матч_01:
 	.word $2230
 	.text "Sao Paulo"
 	
-	.byte $02
-	.word $2273
-	.text "VS"
+	.byte $04
+	.word $2272
+	.text "~VS~"
 	
 	.byte $4A
 	.word $22AF
@@ -238,9 +238,9 @@ off_матч_02:
 	.word $2230
 	.text "Sao Paulo"
 	
-	.byte $02
-	.word $2273
-	.text "VS"
+	.byte $04
+	.word $2272
+	.text "~VS~"
 	
 	.byte $4B
 	.word $22AF
@@ -342,9 +342,9 @@ off_матч_03:
 	.word $2230
 	.text "Sao Paulo"
 	
-	.byte $02
-	.word $2273
-	.text "VS"
+	.byte $04
+	.word $2272
+	.text "~VS~"
 	
 	.byte $46
 	.word $22B1
@@ -446,9 +446,9 @@ off_матч_04:
 	.word $2230
 	.text "Sao Paulo"
 	
-	.byte $02
-	.word $2273
-	.text "VS"
+	.byte $04
+	.word $2272
+	.text "~VS~"
 	
 	.byte $49
 	.word $22B0
@@ -550,9 +550,9 @@ off_матч_05:
 	.word $2230
 	.text "Sao Paulo"
 	
-	.byte $02
-	.word $2273
-	.text "VS"
+	.byte $04
+	.word $2272
+	.text "~VS~"
 	
 	.byte $46
 	.word $22B1
@@ -650,9 +650,9 @@ off_матч_06:
 	.word $2230
 	.text "Sao Paulo"
 	
-	.byte $02
-	.word $2273
-	.text "VS"
+	.byte $04
+	.word $2272
+	.text "~VS~"
 	
 	.byte $48
 	.word $22B0
