@@ -1360,9 +1360,417 @@ off_матч_12:
 
 
 off_матч_13:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22A5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0A
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0A
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22A4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22BB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 13"
+	
+	.byte $18
+	.word $20A4
+	.byte $7B
+	.text "Entering the Colosseum"
+	.byte $7B
+	
+	.byte $09
+	.word $218B
+	.text "Japan Cup"
+	
+	.byte $04
+	.word $2207
+	.text "1/8-"
+	
+	.byte $05
+	.word $2247
+	.text "final"
+	
+	.byte $09
+	.word $21F0
+	.text "Sao Paulo"
+	
+	.byte $04
+	.word $2232
+	.text "~VS~"
+	
+	.byte $47
+	.word $2271
+	.text "AS Roma"
+
+
+
+
+
+
 off_матч_14:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22A5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0A
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0A
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22A4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22BB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 14"
+	
+	.byte $20
+	.word $20A0
+	.byte $7B
+	.text "Black Panther of South America"
+	.byte $7B
+	
+	.byte $09
+	.word $218B
+	.text "Japan Cup"
+	
+	.byte $07
+	.word $2206
+	.text "Quater-"
+	
+	.byte $05
+	.word $2247
+	.text "final"
+	
+	.byte $09
+	.word $21F0
+	.text "Sao Paulo"
+	
+	.byte $04
+	.word $2232
+	.text "~VS~"
+	
+	.byte $47
+	.word $2271
+	.text "Uruguay"
+
+
+
+
+
+
 off_матч_15:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22A5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0A
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CD
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0A
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22A4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22BB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 15"
+	
+	.byte $1F
+	.word $20A0
+	.byte $7B
+	.text "The Guardian Deity of the Net"
+	.byte $7B
+	
+	.byte $09
+	.word $218B
+	.text "Japan Cup"
+	
+	.byte $05
+	.word $2206
+	.text "Semi-"
+	
+	.byte $05
+	.word $2246
+	.text "final"
+	
+	.byte $09
+	.word $21F0
+	.text "Sao Paulo"
+	
+	.byte $04
+	.word $2232
+	.text "~VS~"
+	
+	.byte $4C
+	.word $226E
+	.text "Hamburger SV"
+
+
+
+
+
+
 off_матч_16:
+; очистить nametable
+	.byte $0D
+; верхняя горизонтальная линия
+	.byte $05
+	.word $2145
+	.byte $16
+	.byte $8E
+; центральная горизонтальная линия
+	.byte $05
+	.word $21A5
+	.byte $16
+	.byte $BA
+; нижняя горизонтальная линия
+	.byte $05
+	.word $22A5
+	.byte $16
+	.byte $8E
+; левая вертикальная линия
+	.byte $04
+	.word $2164
+	.byte $0A
+	.byte $8F
+; центральная вертикальная линия
+	.byte $04
+	.word $21CE
+	.byte $07
+	.byte $BB
+; правая вертикальная линия
+	.byte $04
+	.word $217B
+	.byte $0A
+	.byte $8F
+	
+	.byte $00
+	.word @углы
+	
+	.byte $00
+	.word @текст
+; закончить
+	.byte $0F
+
+
+
+@углы:
+; левый верхний угол
+	.byte $01
+	.word $2144
+	.byte $90
+; правый верхний угол
+	.byte $01
+	.word $215B
+	.byte $91
+; правый нижний угол
+	.byte $01
+	.word $22A4
+	.byte $92
+; левый нижний угол
+	.byte $41
+	.word $22BB
+	.byte $93
+
+
+
+@текст:
+	.byte $0A
+	.word $206B
+	.text "Episode 16"
+	
+	.byte $14
+	.word $20A6
+	.byte $7B
+	.text "Farewell,Sao Paulo"
+	.byte $7B
+	
+	.byte $09
+	.word $218B
+	.text "Japan Cup"
+	
+	.byte $05
+	.word $2227
+	.text "Final"
+	
+	.byte $09
+	.word $21F0
+	.text "Sao Paulo"
+	
+	.byte $04
+	.word $2232
+	.text "~VS~"
+	
+	.byte $45
+	.word $2272
+	.text "Japan"
+
+
+
+
+
+
 off_матч_17:
 off_матч_18:
 off_матч_19:
