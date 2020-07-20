@@ -116,47 +116,16 @@ off_A020_00_самая_первая_заставка:
 	.byte $75	; <ェ>
 	.byte $F3
 	.byte $00
-	.byte $F4
-	.byte $05	; <お>
+	.byte con_катсцена_задержка + 3
 	.byte con_катсцена_скорость_текста
-	.byte $01	; <あ>
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $05	; <お>
-	.byte $05	; <お>
-	.byte $A9	; <ぞ>
-	.byte $27	; <ら>
-	.byte $00
-	.byte $12	; <つ>
-	.byte $AF	; <ば>
-	.byte $0B	; <さ>
+	.byte $01
+	.text " Ozora Tsubasa"
 	.byte con_катсцена_новая_строка
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $C5	; <ブ>
-	.byte $67	; <ラ>
-	.byte $BA	; <ジ>
-	.byte $69	; <ル>
 	.byte con_катсцена_новая_строка
-	.byte $00
-	.byte $00
-	.byte $4B	; <サ>
-	.byte $6E	; <ン>
-	.byte $CD	; <パ>
-	.byte $43	; <ウ>
-	.byte $6B	; <ロ>
-	.byte $86	; <F>
-	.byte $83	; <C>
-	.byte $00
-	.byte $8C	; <M>
-	.byte $86	; <F>
+	.byte con_смещение_текста + 1
+	.text "Sao Paulo FC,Brazil"
 	.byte con_катсцена_новая_строка
-	.byte $F4
-	.byte $04	; <え>
+	.text "  Midfielder"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
 	.byte con_катсцена_завершить_текст
@@ -254,37 +223,16 @@ off_A020_00_самая_первая_заставка:
 	.byte $76	; <ォ>
 	.byte $F3
 	.byte $00
-	.byte $F4
-	.byte $05	; <お>
+	.byte con_катсцена_задержка + 3
 	.byte con_катсцена_скорость_текста
-	.byte $02	; <い>
-	.byte $00
-	.byte $00
-	.byte $1B	; <ひ>
-	.byte $31	; <ゅ>
-	.byte $03	; <う>
-	.byte $A0	; <が>
-	.byte $00
-	.byte $0A	; <こ>
-	.byte $A6	; <じ>
-	.byte $2B	; <ろ>
-	.byte $03	; <う>
+	.byte $01
+	.text " Hyuga Kojiro"
 	.byte con_катсцена_новая_строка
-	.byte $00
-	.byte $14	; <と>
-	.byte $03	; <う>
-	.byte $1E	; <ほ>
-	.byte $03	; <う>
-	.byte $A0	; <が>
-	.byte $08	; <く>
-	.byte $04	; <え>
-	.byte $2E	; <ん>
-	.byte $00
-	.byte $83	; <C>
-	.byte $86	; <F>
 	.byte con_катсцена_новая_строка
-	.byte $F4
-	.byte $04	; <え>
+	.byte con_смещение_текста + 1
+	.text "Toho Academy,Japan"
+	.byte con_катсцена_новая_строка
+	.text " Center foward"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
 	.byte con_катсцена_завершить_текст
@@ -372,36 +320,16 @@ off_A020_00_самая_первая_заставка:
 	.byte $77	; <:>
 	.byte $F3
 	.byte $00
-	.byte $F4
-	.byte $05	; <お>
+	.byte con_катсцена_задержка + 3
 	.byte con_катсцена_скорость_текста
-	.byte $02	; <い>
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $20	; <み>
-	.byte $0B	; <さ>
-	.byte $07	; <き>
-	.byte $00
-	.byte $10	; <た>
-	.byte $2B	; <ろ>
-	.byte $03	; <う>
+	.byte $01
+	.text " Misaki Taro"
 	.byte con_катсцена_новая_строка
-	.byte $00
-	.byte $15	; <な>
-	.byte $2E	; <ん>
-	.byte $06	; <か>
-	.byte $12	; <つ>
-	.byte $0A	; <こ>
-	.byte $03	; <う>
-	.byte $0A	; <こ>
-	.byte $03	; <う>
-	.byte $00
-	.byte $8C	; <M>
-	.byte $86	; <F>
 	.byte con_катсцена_новая_строка
-	.byte $F4
-	.byte $04	; <え>
+	.byte con_смещение_текста + 2
+	.text "Nankatsu High,Japan"
+	.byte con_катсцена_новая_строка
+	.text "  Midfielder"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
 	.byte con_катсцена_завершить_текст
@@ -500,50 +428,17 @@ off_A020_00_самая_первая_заставка:
 	.byte $7C	; <~>
 	.byte $F3
 	.byte $00
-	.byte $F4
-	.byte $05	; <お>
+	.byte con_катсцена_задержка + 3
 	.byte con_катсцена_скорость_текста
-	.byte $01	; <あ>
-	.byte $00
-	.byte $00
-	.byte $2C	; <わ>
-	.byte $06	; <か>
-	.byte $AF	; <ば>
-	.byte $24	; <や>
-	.byte $0C	; <し>
-	.byte $00
-	.byte $A3	; <げ>
-	.byte $2E	; <ん>
-	.byte $A9	; <ぞ>
-	.byte $03	; <う>
+	.byte $01
+	.byte con_смещение_текста
+	.text "Wakabayashi Genzo"
 	.byte con_катсцена_новая_строка
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $00
-	.byte $56	; <ニ>
-	.byte $4C	; <シ>
-	.byte $C2	; <ド>
-	.byte $42	; <イ>
-	.byte $52	; <ツ>
 	.byte con_катсцена_новая_строка
-	.byte $00
-	.byte $00
-	.byte $5A	; <ハ>
-	.byte $6E	; <ン>
-	.byte $C5	; <ブ>
-	.byte $69	; <ル>
-	.byte $B4	; <ガ>
-	.byte $7D	; <ー>
-	.byte $8F	; <S>
-	.byte $91	; <V>
-	.byte $00
-	.byte $87	; <G>
-	.byte $8B	; <K>
+	.byte con_смещение_текста + 1
+	.text "Hamburger SV,Germany"
 	.byte con_катсцена_новая_строка
-	.byte $F4
-	.byte $04	; <え>
+	.text "  Goalkeeper"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
 	.byte con_катсцена_завершить_текст
@@ -555,88 +450,22 @@ off_A020_00_самая_первая_заставка:
 	.byte $0D	; <す>
 	.byte con_катсцена_скорость_текста
 	.byte $00
-	.byte con_смещение_текста + 2
-	.byte $0B	; <さ>
-	.byte $02	; <い>
-	.byte $AA	; <だ>
-	.byte $02	; <い>
-	.byte $19	; <の>
-	.byte $13	; <て>
-	.byte $07	; <き>
-	.byte $00
-	.byte $C5	; <ブ>
-	.byte $67	; <ラ>
-	.byte $BA	; <ジ>
-	.byte $69	; <ル>
-	.byte $65	; <ユ>
-	.byte $7D	; <ー>
-	.byte $4D	; <ス>
-	.byte $2D	; <を>
-	.byte $1F	; <ま>
-	.byte $04	; <え>
-	.byte $16	; <に>
-	.byte $0C	; <し>
+	.byte con_смещение_текста + 5
+	.text "Facing down our strongest"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста + 1
-	.byte $4B	; <サ>
-	.byte $6F	; <ッ>
-	.byte $46	; <カ>
-	.byte $7D	; <ー>
-	.byte $0E	; <せ>
-	.byte $06	; <か>
-	.byte $02	; <い>
-	.byte $02	; <い>
-	.byte $11	; <ち>
-	.byte $1D	; <へ>
-	.byte $19	; <の>
-	.byte $00
-	.byte $25	; <ゆ>
-	.byte $22	; <め>
-	.byte $2D	; <を>
-	.byte $06	; <か>
-	.byte $09	; <け>
-	.byte $10	; <た>
+	.byte con_смещение_текста + 5
+	.text "foe,Brazil,our dream and"
 	.byte con_катсцена_новая_строка
-	.byte $2C	; <わ>
-	.byte $2A	; <れ>
-	.byte $27	; <ら>
-	.byte $A0	; <が>
-	.byte $00
-	.byte $A8	; <ぜ>
-	.byte $2E	; <ん>
-	.byte $16	; <に>
-	.byte $1E	; <ほ>
-	.byte $2E	; <ん>
-	.byte $65	; <ユ>
-	.byte $7D	; <ー>
-	.byte $4D	; <ス>
-	.byte $19	; <の>
+	.byte con_смещение_текста + 5
+	.text "goal:to be #1 in the world."
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста + 2
-	.byte $5C	; <フ>
-	.byte $73	; <ヮ>
-	.byte $42	; <イ>
-	.byte $55	; <ナ>
-	.byte $69	; <ル>
-	.byte $B7	; <ゲ>
-	.byte $7D	; <ー>
-	.byte $61	; <ム>
-	.byte $A0	; <が>
-	.byte $00
-	.byte $1A	; <は>
-	.byte $A6	; <じ>
-	.byte $1F	; <ま>
-	.byte $2B	; <ろ>
-	.byte $03	; <う>
-	.byte $14	; <と>
-	.byte $0C	; <し>
-	.byte $13	; <て>
-	.byte $02	; <い>
-	.byte $10	; <た>
+	.byte con_смещение_текста + 5
+	.text "We stand as one team,"
 	.byte con_катсцена_новая_строка
+	.byte con_смещение_текста + 5
+	.text "awaiting the final battle."
 	.byte $E9
 	.byte con_катсцена_задержка + 2
-	.byte con_катсцена_задержка + 7
 	.byte con_катсцена_задержка + 7
 	.byte $F4
 	.byte $05	; <お>
