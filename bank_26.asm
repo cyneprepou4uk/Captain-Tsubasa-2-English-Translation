@@ -52,7 +52,7 @@ off_A020_00_самая_первая_заставка:
 	.text "Ozora Tsubasa!"
 	.byte con_катсцена_задержка + 4
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte $E8
 	.byte $01
 	.byte $EC
@@ -77,7 +77,7 @@ off_A020_00_самая_первая_заставка:
 	.text "  Midfielder"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_задний_фон
 	.byte $08
 	.byte $FB
@@ -121,7 +121,7 @@ off_A020_00_самая_первая_заставка:
 	.byte con_катсцена_номер_звука
 	.byte $02
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte $EC
 	.byte $FF
 	.byte $EE
@@ -144,7 +144,7 @@ off_A020_00_самая_первая_заставка:
 	.text " Center foward"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_вид_окна_текста
 	.byte $01
 	.byte $EC
@@ -181,7 +181,7 @@ off_A020_00_самая_первая_заставка:
 	.text "Perfect coordination!"
 	.byte con_катсцена_задержка + 4
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte $EC
 	.byte $FF
 	.byte $EE
@@ -204,7 +204,7 @@ off_A020_00_самая_первая_заставка:
 	.text "  Midfielder"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_вид_окна_текста
 	.byte $01
 	.byte $EC
@@ -237,7 +237,7 @@ off_A020_00_самая_первая_заставка:
 	.text "own Guardian Deity!"
 	.byte con_катсцена_задержка + 4
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte $EC
 	.byte $FF
 	.byte $EE
@@ -261,7 +261,7 @@ off_A020_00_самая_первая_заставка:
 	.text "  Goalkeeper"
 	.byte con_катсцена_задержка + 6
 	.byte $EA
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte $EC
 	.byte $FF
 	.byte $EE
@@ -289,7 +289,7 @@ off_A020_00_самая_первая_заставка:
 	.byte con_катсцена_задержка + 7
 	.byte $F4
 	.byte $05
-	.byte con_катсцена_завершить_текст
+	.byte con_катсцена_затереть_текст
 	.byte $F8
 	.byte $00
 	.byte con_катсцена_прыжок
