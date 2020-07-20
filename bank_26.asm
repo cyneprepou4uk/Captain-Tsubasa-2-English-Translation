@@ -57,6 +57,9 @@ off_A020_00_самая_первая_заставка:
 	.byte con_смещение_текста, $09
 	.text "Ozora Tsubasa!"
 	.byte con_катсцена_задержка, $3C
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte $E8
@@ -72,17 +75,20 @@ off_A020_00_самая_первая_заставка:
 	.byte $F3
 	.byte $00
 	.byte con_катсцена_задержка, $28
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0A
 	.byte con_катсцена_скорость_текста, $01
 	.text "Ozora Tsubasa"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "Sao Paulo FC, Brazil"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0B
 	.text "Midfielder"
 	.byte con_катсцена_задержка, $78
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_задний_фон
@@ -123,6 +129,9 @@ off_A020_00_самая_первая_заставка:
 	.text "like a wild beast!"
 	.byte con_катсцена_задержка, $3C
 	.byte con_катсцена_номер_звука, $02
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte $EC
@@ -137,16 +146,19 @@ off_A020_00_самая_первая_заставка:
 	.byte $00
 	.byte con_катсцена_задержка, $28
 	.byte con_катсцена_скорость_текста, $01
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0A
 	.text "Hyuga Kojiro"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $07
 	.text "Toho Academy, Japan"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0A
 	.text "Center foward"
 	.byte con_катсцена_задержка, $78
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_вид_окна_текста
@@ -184,6 +196,9 @@ off_A020_00_самая_первая_заставка:
 	.byte con_смещение_текста, $09
 	.text "Perfect coordination!"
 	.byte con_катсцена_задержка, $3C
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte $EC
@@ -198,16 +213,19 @@ off_A020_00_самая_первая_заставка:
 	.byte $00
 	.byte con_катсцена_задержка, $28
 	.byte con_катсцена_скорость_текста, $01
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0A
 	.text "Misaki Tarou"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "Nankatsu High, Japan"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0B
 	.text "Midfielder"
 	.byte con_катсцена_задержка, $78
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_вид_окна_текста
@@ -242,6 +260,9 @@ off_A020_00_самая_первая_заставка:
 	.byte con_смещение_текста, $09
 	.text "own Guardian Deity!"
 	.byte con_катсцена_задержка, $3C
+	
+	
+	
 	.byte $EA
 	.byte con_катсцена_затереть_текст
 	.byte $EC
@@ -256,14 +277,14 @@ off_A020_00_самая_первая_заставка:
 	.byte $00
 	.byte con_катсцена_задержка, $28
 	.byte con_катсцена_скорость_текста, $01
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $08
 	.text "Wakabayashi Genzo"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "Hamburger SV, Germany"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $0B
 	.text "Goalkeeper"
 	.byte con_катсцена_задержка, $78
 	.byte $EA
@@ -275,19 +296,19 @@ off_A020_00_самая_первая_заставка:
 	.byte $01
 	.byte $0D
 	.byte con_катсцена_скорость_текста, $00
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $03
 	.text "Facing down our strongest"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $03
 	.text "foe, Brazil, our dream and"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $02
 	.text "goal: to be #1 in the world."
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $05
 	.text "We stand as one team,"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $03
 	.text "awaiting the final battle."
 	.byte $E9
 	.byte con_катсцена_задержка, $F0
@@ -319,21 +340,24 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_номер_звука, $55
 	.byte con_катсцена_скорость_текста, $03
 	.byte con_смещение_текста, $09
-	.text "Nothing beats Ozora"
+	.text "Nothing beats"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
-	.text "Tsubasa's love of football."
+	.byte con_смещение_текста, $08
+	.text "Ozora Tsubasa's"
+	.byte con_катсцена_новая_строка
+	.byte con_смещение_текста, $08
+	.text "love of football."
 	.byte con_катсцена_мячик
 	
 	
 	
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $07
 	.text "His ultimate dream"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $07
 	.text "is to win the U-20"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "World Cup with Japan."
 	.byte con_катсцена_мячик
 	
@@ -346,14 +370,14 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $17
 	.byte $E9
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $04
 	.text "They conquered the world!"
 	.byte con_катсцена_задержка, $3C
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $08
 	.text "Japan made it to"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $08
 	.text "the finals of the"
 	.byte con_катсцена_новая_строка
 	.byte con_смещение_текста, $09
@@ -362,17 +386,17 @@ off_A2A1_01_история_цубасы:
 	
 	
 	
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $04
 	.text "where they hammered West"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $05
 	.text "Germany. "
 	.byte con_катсцена_задержка, $14
 	.text "At last, "
 	.byte con_катсцена_задержка, $0A
 	.text "they"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "were world champions!"
 	.byte con_катсцена_мячик
 	
@@ -385,24 +409,24 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $50
 	.byte $E9
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $03
 	.text "After this victory oversea,"
 	.byte con_катсцена_задержка, $0A
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $04
 	.text "Tsubasa was reunited with"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $04
 	.text "his former coach Roberto."
 	.byte con_катсцена_мячик
 	
 	.byte con_смещение_текста, $09
 	.text "Finally he had"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $07
 	.text "realized his dream"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "of playing in Brazil!"
 	.byte con_катсцена_мячик
 	
@@ -413,10 +437,8 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $51
 	.byte $E9
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "Three years later..."
-	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
 	.byte con_катсцена_задержка, $3C
 	.byte $F3
 	.byte $FF
@@ -435,9 +457,11 @@ off_A2A1_01_история_цубасы:
 	.byte $00
 	.byte $17
 	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_новая_строка
+	.byte con_смещение_текста, $06
 	.text "a new journey begins"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $04
 	.text "for Tsubasa in Sao Paulo!"
 ; скрытая катсцена
 	.byte $F4
@@ -445,9 +469,9 @@ off_A2A1_01_история_цубасы:
 	.byte $05
 	.byte $EA
 	.byte con_катсцена_номер_звука, $31
-	.byte $DE
+	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_номер_звука, $01
-	.byte $DE
+	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_номер_звука, $51
 	.byte $F9
 	.byte $2D
@@ -456,32 +480,30 @@ off_A2A1_01_история_цубасы:
 	.byte $0B
 	.byte $E9
 	.byte $F4, $05
-	.byte con_смещение_текста, $09
+	.byte con_смещение_текста, $06
 	.text "Brazil, Sao Paulo FC"
 	.byte $F4, $04
-	.byte $DE
-	.byte $DF
+	.byte con_катсцена_задержка, $F0
+	.byte con_катсцена_задержка, $78
 	.byte $F4, $05
 	.byte con_катсцена_затереть_текст
 	.byte $F4, $04
 	.byte con_катсцена_скорость_текста, $04
 	.byte con_катсцена_задержка, $28
-	.byte con_смещение_текста, $09
-	.byte $DF
+	.byte con_смещение_текста, $04
+	.byte con_катсцена_задержка, $F0
 	.byte con_катсцена_тайл_кавычки
 	.text "Alright, "
 	.byte con_катсцена_задержка, $0A
-	.text "everyone,"
+	.text "everyone, "
 	.byte con_катсцена_задержка, $0A
+	.text "the"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
-	.text "the Rio Cup Youth"
+	.byte con_смещение_текста, $05
+	.text "Rio Cup Youth Division"
 	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
-	.text "Division begins"
-	.byte con_катсцена_новая_строка
-	.byte con_смещение_текста, $09
-	.text "tomorrow!"
+	.byte con_смещение_текста, $05
+	.text "begins tomorrow!"
 	.byte con_катсцена_тайл_кавычки
 	.byte con_катсцена_мячик
 	.byte con_смещение_текста
