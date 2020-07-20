@@ -121,7 +121,7 @@ bra_C4AE:
 sub_C4B2_банксвич_PRG_5114:
 C - - - - 0x03C4C2 FF:C4B2: 86 24     STX ram_для_5114
                                       TXA
-									  EOR #$80
+									  ORA #$80
 									  STA $5114
 									  RTS
 
@@ -135,7 +135,7 @@ C - - - - 0x03C4CB FF:C4BB: A9 07     LDA #$07
 .export sub_0x03C4CD_банксвич_PRG_5115
 sub_0x03C4CD_банксвич_PRG_5115:
                                       TXA
-									  EOR #$80
+									  ORA #$80
 C - - - - 0x03C4D4 FF:C4C4: 8E 01 80  STA $5115
 C - - - - 0x03C4D7 FF:C4C7: 60        RTS
 
