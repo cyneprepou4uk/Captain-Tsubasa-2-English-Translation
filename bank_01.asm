@@ -822,7 +822,7 @@ C - - - - 0x000519 01:8509: E9 D8     SBC #$D8
 C - - - - 0x00051B 01:850B: AA        TAX
 ; X не используется в подпрограмме
 C - - - - 0x000520 01:8510: 20 9A 89  JSR sub_899A___для_0099___бит7_0___бит6_1
-C - - - - 0x00051C 01:850C: BD E6 8A  LDA tbl_8AE6_D8_E0,X
+C - - - - 0x00051C 01:850C: BD E6 8A  LDA tbl_8AE6_D8_E0_задержка_для_катсцены,X
 C - - - - 0x000524 01:8514: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - 0x000527 01:8517: A9 01     LDA #$01
 C - - - - 0x000529 01:8519: 4C 79 88  JMP loc_8879
@@ -1661,14 +1661,14 @@ C - - - - 0x000ABF 01:8AAF: 69 00     ADC #$00
 C - - - - 0x000AC1 01:8AB1: 85 E9     STA ram_00E9
 C - - - - 0x000AC3 01:8AB3: 60        RTS
 
-tbl_8AE6_D8_E0:
-- - - - - 0x000AF6 01:8AE6: 01        .byte $01	; D8 <あ>
-- D - - - 0x000AF7 01:8AE7: 0A        .byte $0A	; D9 <こ>
-- D - - - 0x000AF8 01:8AE8: 14        .byte $14	; DA <と>
-- D - - - 0x000AF9 01:8AE9: 28        .byte $28	; DB <り>
-- D - - - 0x000AFA 01:8AEA: 3C        .byte $3C	; DC <9>
-- D - - - 0x000AFB 01:8AEB: 50        .byte $50	; DD <タ>
-- D - - - 0x000AFC 01:8AEC: 78        .byte $78	; DE <?>
+tbl_8AE6_D8_E0_задержка_для_катсцены:
+- - - - - 0x000AF6 01:8AE6: 01        .byte $01	; D8
+- D - - - 0x000AF7 01:8AE7: 0A        .byte $0A	; D9
+- D - - - 0x000AF8 01:8AE8: 14        .byte $14	; DA
+- D - - - 0x000AF9 01:8AE9: 28        .byte $28	; DB
+- D - - - 0x000AFA 01:8AEA: 3C        .byte $3C	; DC
+- D - - - 0x000AFB 01:8AEB: 50        .byte $50	; DD
+- D - - - 0x000AFC 01:8AEC: 78        .byte $78	; DE
 - D - - - 0x000AFD 01:8AED: F0        .byte $F0 ; DF
 
 
