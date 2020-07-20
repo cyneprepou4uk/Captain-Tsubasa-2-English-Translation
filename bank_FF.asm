@@ -325,6 +325,13 @@ C - - - - 0x03C82F FF:C81F: 68        PLA
 C - - - - 0x03C830 FF:C820: 40        RTI
 
 vec_C506_обработчик_IRQ:
+									  PHA
+									  LDA #$0C
+@мусорный_цикл:
+									  SEC
+									  SBC #$01
+									  BNE @мусорный_цикл
+									  PLA
 C D - - - 0x03C831 FF:C821: 24 1B     BIT ram_001B
 C - - - - 0x03C833 FF:C823: 50 03     BVC bra_C828
 C - - - - 0x03C835 FF:C825: 4C 78 C4  JMP loc_C478
@@ -9470,40 +9477,40 @@ tbl_0x040000_банки_CHR_с_сокращенными_именами:
 
 .export _общий_RTS
 _общий_RTS:
-	RTS
+					RTS
 
 .segment "MMC5_INIT"
 @подготовка_mmc5:
-	LDA #$03
-	STA $5100
-	STA $5101
-	LDX #$02
-	STX $5104
-	STX $5102
-	DEX
-	STX $5103
-	LDA #$BE
-	STA $5116
-	LDY #$00
-	STY ram_0000
-	STY ram_0002
-	LDA #$C0
-	STA ram_0001
-	LDA #$60
-	STA ram_0003
-	LDX #$1F
+					LDA #$03
+					STA $5100
+					STA $5101
+					LDX #$02
+					STX $5104
+					STX $5102
+					DEX
+					STX $5103
+					LDA #$BE
+					STA $5116
+					LDY #$00
+					STY ram_0000
+					STY ram_0002
+					LDA #$C0
+					STA ram_0001
+					LDA #$60
+					STA ram_0003
+					LDX #$1F
 @цикл_копирования_на_батарейку:
-	LDA (ram_0000),Y
-	STA (ram_0002),Y
-	INY
-	BNE @цикл_копирования_на_батарейку
-	INC ram_0001
-	INC ram_0003
-	DEX
-	BPL @цикл_копирования_на_батарейку
-	JMP vec_FFF0_обработчик_RESET
+					LDA (ram_0000),Y
+					STA (ram_0002),Y
+					INY
+					BNE @цикл_копирования_на_батарейку
+					INC ram_0001
+					INC ram_0003
+					DEX
+					BPL @цикл_копирования_на_батарейку
+					JMP vec_FFF0_обработчик_RESET
 
 .segment "VECTORS"
-.word vec_C500_обработчик_NMI
-.word @подготовка_mmc5
-.word vec_C506_обработчик_IRQ
+	.word vec_C500_обработчик_NMI
+	.word @подготовка_mmc5
+	.word vec_C506_обработчик_IRQ
