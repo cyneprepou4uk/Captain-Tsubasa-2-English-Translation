@@ -131,7 +131,6 @@ sub_0x03C4C9_банксвич_PRG_5115:
 loc_0x03C4C9_банксвич_PRG_5115:
 sub_C4B9_банксвич_PRG_5115:
 C D - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_5115
-C - - - - 0x03C4CB FF:C4BB: A9 07     LDA #$07
 .export sub_0x03C4CD_банксвич_PRG_5115
 sub_0x03C4CD_банксвич_PRG_5115:
                                       TXA
