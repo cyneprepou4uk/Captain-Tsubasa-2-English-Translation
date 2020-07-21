@@ -853,15 +853,19 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $20
 	.byte $3F
 	.byte con_катсцена_задержка, $3C
-	.byte con_катсцена_смещение_текста, $06
+	.byte con_катсцена_смещение_текста, $03
 	.byte con_катсцена_скорость_текста, $03
-	.text "And here is another"
+	.text "But before that,"
+	.byte con_катсцена_задержка, $0F
+	.text " let's take"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $05
-	.text "captain Tsubasa,"
-	.byte con_катсцена_задержка, $1E
-	.byte con_катсцена_скорость_текста, $0A
-	.text " but..."
+	.byte con_катсцена_смещение_текста, $04
+	.text "a look at Tsubasa's first"
+	.byte con_катсцена_новая_строка
+	.byte con_катсцена_смещение_текста, $07
+	.text "day on the tea"
+	.byte con_катсцена_скорость_текста, $08
+	.text "m..."
 	.byte con_катсцена_задержка, $78
 	
 	
