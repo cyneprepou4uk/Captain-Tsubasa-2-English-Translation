@@ -3,8 +3,10 @@
 ; данные катсцен
 ; поинтеры в 0x000485
 
-.word off_A020_00_самая_первая_заставка
-.word off_A2A1_01_история_цубасы
+	.word off_A020_00_самая_первая_заставка
+	.word off_A2A1_01_история_цубасы
+	.word off_A626_02_карлос_перед_первым_матчем
+	.word off_A6B4_03_карлос_после_первого_матча
 
 
 
@@ -1271,3 +1273,197 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_затемнение_экрана
 	.byte $F4, $07
 
+
+
+
+
+
+off_A626_02_карлос_перед_первым_матчем:
+	.byte $E8
+	.byte $01	; <あ>
+	.byte $F9
+	.byte $02	; <い>
+	.byte $FB
+	.byte $01	; <あ>
+	.byte $15	; <な>
+	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_осветление_экрана
+	.byte con_катсцена_номер_звука
+	.byte $53	; <テ>
+	.byte con_катсцена_скорость_текста
+	.byte $02	; <い>
+	.byte $F4
+	.byte $05	; <お>
+	.byte $00
+	.byte $00
+	.byte $5C	; <フ>
+	.byte $67	; <ラ>
+	.byte $62	; <メ>
+	.byte $6E	; <ン>
+	.byte $B8	; <ゴ>
+	.byte $00
+	.byte $47	; <キ>
+	.byte $70	; <ャ>
+	.byte $CF	; <プ>
+	.byte $53	; <テ>
+	.byte $6E	; <ン>
+	.byte $FC
+	.byte $00
+	.byte $00
+	.byte $46	; <カ>
+	.byte $69	; <ル>
+	.byte $6B	; <ロ>
+	.byte $4D	; <ス>
+	.byte $3F	; <•>
+	.byte $4B	; <サ>
+	.byte $6E	; <ン>
+	.byte $50	; <タ>
+	.byte $7D	; <ー>
+	.byte $55	; <ナ>
+	.byte $FC
+	.byte $F4
+	.byte $04	; <え>
+	.byte con_катсцена_задержка
+	.byte $B4	; <ガ>
+	.byte $F4
+	.byte $05	; <お>
+	.byte con_катсцена_затереть_текст
+	.byte $F4
+	.byte $04	; <え>
+	.byte con_катсцена_скорость_текста
+	.byte $08	; <く>
+	.byte $E1
+	.byte $40	; <「>
+	.byte $4B	; <サ>
+	.byte $6E	; <ン>
+	.byte $CD	; <パ>
+	.byte $43	; <ウ>
+	.byte $6B	; <ロ>
+	.byte $86	; <F>
+	.byte $83	; <C>
+	.byte $16	; <に>
+	.byte $00
+	.byte $02	; <い>
+	.byte $29	; <る>
+	.byte $14	; <と>
+	.byte $02	; <い>
+	.byte $03	; <う>
+	.byte $FC
+	.byte $0D	; <す>
+	.byte $A4	; <ご>
+	.byte $03	; <う>
+	.byte $AD	; <で>
+	.byte $19	; <の>
+	.byte $05	; <お>
+	.byte $14	; <と>
+	.byte $0A	; <こ>
+	.byte $14	; <と>
+	.byte $1A	; <は>
+	.byte $00
+	.byte $01	; <あ>
+	.byte $02	; <い>
+	.byte $12	; <つ>
+	.byte $06	; <か>
+	.byte $7B	; <。>
+	.byte $FC
+	.byte con_катсцена_задержка, $3C
+	.byte $AE	; <ど>
+	.byte $2A	; <れ>
+	.byte $1E	; <ほ>
+	.byte $AE	; <ど>
+	.byte $19	; <の>
+	.byte $03	; <う>
+	.byte $AD	; <で>
+	.byte $06	; <か>
+	.byte $00
+	.byte $20	; <み>
+	.byte $0E	; <せ>
+	.byte $13	; <て>
+	.byte $23	; <も>
+	.byte $27	; <ら>
+	.byte $05	; <お>
+	.byte $03	; <う>
+	.byte $FC
+	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_затемнение_экрана
+	.byte con_катсцена_затереть_текст
+	.byte $F9
+	.byte $19	; <の>
+	.byte $FB
+	.byte $01	; <あ>
+	.byte $14	; <と>
+	.byte con_катсцена_номер_звука
+	.byte $69	; <ル>
+	.byte con_катсцена_осветление_экрана
+	.byte $F5
+	.byte $04	; <え>
+	.byte $F4
+	.byte $05	; <お>
+	.byte $E1
+	.byte $40	; <「>
+	.byte $52	; <ツ>
+	.byte $C3	; <バ>
+	.byte $4B	; <サ>
+	.byte $3F	; <•>
+	.byte $45	; <オ>
+	.byte $45	; <オ>
+	.byte $BD	; <ゾ>
+	.byte $67	; <ラ>
+	.byte $79	; <!>
+	.byte $79	; <!>
+	.byte $FC
+	.byte $F4
+	.byte $04	; <え>
+	.byte con_катсцена_задержка
+	.byte $B4	; <ガ>
+	.byte con_катсцена_номер_звука
+	.byte $31	; <ゅ>
+	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_затемнение_экрана
+	.byte con_катсцена_выход
+
+
+
+
+
+off_A6B4_03_карлос_после_первого_матча:
+	.byte $E8
+	.byte $01
+	.byte $F9
+	.byte $02
+	.byte $FB
+	.byte $01
+	.byte $15
+	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_осветление_экрана
+	.byte con_катсцена_номер_звука
+	.byte $5A	; <ハ>
+	.byte con_катсцена_задержка, $50
+	.byte $E1
+	.byte $40	; <「>
+	.byte $AE	; <ど>
+	.byte $03	; <う>
+	.byte $24	; <や>
+	.byte $27	; <ら>
+	.byte $00
+	.byte $03	; <う>
+	.byte $2C	; <わ>
+	.byte $0B	; <さ>
+	.byte $1A	; <は>
+	.byte $FC
+	.byte $1E	; <ほ>
+	.byte $2E	; <ん>
+	.byte $14	; <と>
+	.byte $03	; <う>
+	.byte $AA	; <だ>
+	.byte $2F	; <っ>
+	.byte $10	; <た>
+	.byte $15	; <な>
+	.byte $7B	; <。>
+	.byte $FC
+	.byte con_катсцена_задержка, $50
+	.byte con_катсцена_номер_звука
+	.byte $31	; <ゅ>
+	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_затемнение_экрана
+	.byte con_катсцена_выход
