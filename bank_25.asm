@@ -112,15 +112,15 @@ off_матч_01:
 	.word $206B
 	.text "Episode 1"
 	
-	.byte $1C
-	.word $20A2
+	.byte $1D
+	.word $20A1
 	.byte $7B
-	.text "#10,Sao Paulo's Lucky Star"
+	.text "#10, Sao Paulo's Lucky Star"
 	.byte $7B
 	
-	.byte $0E
-	.word $2189
-	.text "Rio Cup,Brazil"
+	.byte $0F
+	.word $2188
+	.text "Rio Cup, Brazil"
 	
 	.byte $04
 	.word $2207
@@ -222,9 +222,9 @@ off_матч_02:
 	.text "Kickoff for Tomorrow"
 	.byte $7B
 	
-	.byte $0E
-	.word $2189
-	.text "Rio Cup,Brazil"
+	.byte $0F
+	.word $2188
+	.text "Rio Cup, Brazil"
 	
 	.byte $04
 	.word $2207
@@ -326,9 +326,9 @@ off_матч_03:
 	.text "Settling the Score"
 	.byte $7B
 	
-	.byte $0E
-	.word $2189
-	.text "Rio Cup,Brazil"
+	.byte $0F
+	.word $2188
+	.text "Rio Cup, Brazil"
 	
 	.byte $03
 	.word $2208
@@ -425,14 +425,14 @@ off_матч_04:
 	.text "Episode 4"
 	
 	.byte $10
-	.word $20A8
+	.word $20A7
 	.byte $7B
 	.text "The Deadly Duo"
 	.byte $7B
 	
-	.byte $0E
-	.word $2189
-	.text "Rio Cup,Brazil"
+	.byte $0F
+	.word $2188
+	.text "Rio Cup, Brazil"
 	
 	.byte $07
 	.word $2206
@@ -534,9 +534,9 @@ off_матч_05:
 	.text "The Eel and the Dynamite"
 	.byte $7B
 	
-	.byte $0E
-	.word $2189
-	.text "Rio Cup,Brazil"
+	.byte $0F
+	.word $2188
+	.text "Rio Cup, Brazil"
 	
 	.byte $04
 	.word $2207
@@ -638,9 +638,9 @@ off_матч_06:
 	.text "Son of the Football God"
 	.byte $7B
 	
-	.byte $0E
-	.word $2189
-	.text "Rio Cup,Brazil"
+	.byte $0F
+	.word $2188
+	.text "Rio Cup, Brazil"
 	
 	.byte $05
 	.word $2227
@@ -742,9 +742,9 @@ off_матч_07:
 	.word $2146
 	.text "National High School"
 	
-	.byte $19
+	.byte $1A
 	.word $2183
-	.text "Football Tournament,Japan"
+	.text "Football Tournament, Japan"
 	
 	.byte $05
 	.word $2205
@@ -858,9 +858,9 @@ off_матч_08:
 	.word $2146
 	.text "National High School"
 	
-	.byte $19
+	.byte $1A
 	.word $2183
-	.text "Football Tournament,Japan"
+	.text "Football Tournament, Japan"
 	
 	.byte $05
 	.word $2245
@@ -982,9 +982,9 @@ off_матч_09:
 	.word $2146
 	.text "National High School"
 	
-	.byte $19
+	.byte $1A
 	.word $2183
-	.text "Football Tournament,Japan"
+	.text "Football Tournament, Japan"
 	
 	.byte $05
 	.word $2205
@@ -1098,9 +1098,9 @@ off_матч_10:
 	.word $2146
 	.text "National High School"
 	
-	.byte $19
+	.byte $1A
 	.word $2183
-	.text "Football Tournament,Japan"
+	.text "Football Tournament, Japan"
 	
 	.byte $05
 	.word $2225
@@ -1218,9 +1218,9 @@ off_матч_11:
 	.word $2146
 	.text "National High School"
 	
-	.byte $19
+	.byte $1A
 	.word $2183
-	.text "Football Tournament,Japan"
+	.text "Football Tournament, Japan"
 	
 	.byte $09
 	.word $2263
@@ -1330,9 +1330,9 @@ off_матч_12:
 	.word $2146
 	.text "National High School"
 	
-	.byte $19
+	.byte $1A
 	.word $2183
-	.text "Football Tournament,Japan"
+	.text "Football Tournament, Japan"
 	
 	.byte $05
 	.word $2245
@@ -1740,10 +1740,10 @@ off_матч_16:
 	.word $206B
 	.text "Episode 16"
 	
-	.byte $14
-	.word $20A6
+	.byte $15
+	.word $20A5
 	.byte $7B
-	.text "Sayonara,Sao Paulo"
+	.text "Sayonara, Sao Paulo"
 	.byte $7B
 	
 	.byte $09
@@ -2424,33 +2424,33 @@ off_матч_23:
 	.byte $0D
 ; верхняя горизонтальная линия
 	.byte $05
-	.word $2145
-	.byte $16
+	.word $2144
+	.byte $18
 	.byte $8E
 ; центральная горизонтальная линия
 	.byte $05
-	.word $21A5
-	.byte $16
+	.word $21A4
+	.byte $18
 	.byte $BA
 ; нижняя горизонтальная линия
 	.byte $05
-	.word $22E5
-	.byte $16
+	.word $22A4
+	.byte $18
 	.byte $8E
 ; левая вертикальная линия
 	.byte $04
-	.word $2164
-	.byte $0C
+	.word $2163
+	.byte $0A
 	.byte $8F
 ; центральная вертикальная линия
 	.byte $04
-	.word $21CE
-	.byte $09
+	.word $21D0
+	.byte $07
 	.byte $BB
 ; правая вертикальная линия
 	.byte $04
-	.word $217B
-	.byte $0C
+	.word $217C
+	.byte $0A
 	.byte $8F
 	
 	.byte $00
@@ -2466,19 +2466,19 @@ off_матч_23:
 @углы:
 ; левый верхний угол
 	.byte $01
-	.word $2144
+	.word $2143
 	.byte $90
 ; правый верхний угол
 	.byte $01
-	.word $215B
+	.word $215C
 	.byte $91
 ; правый нижний угол
 	.byte $01
-	.word $22E4
+	.word $22A3
 	.byte $92
 ; левый нижний угол
 	.byte $41
-	.word $22FB
+	.word $22BC
 	.byte $93
 
 
@@ -2494,33 +2494,33 @@ off_матч_23:
 	.text "From East to West"
 	.byte $7B
 	
-	.byte $0A
-	.word $218B
-	.text "Friendlies"
+	.byte $10
+	.word $2188
+	.text "Friendlies, Asia"
 	
-	.byte $03
-	.word $2228
-	.text "1st"
+	.byte $07
+	.word $21E6
+	.text "Special"
+	
+	.byte $0A
+	.word $2225
+	.text "Exhibition"
 	
 	.byte $05
 	.word $2267
-	.text "match"
+	.text "Match"
 	
 	.byte $05
-	.word $21F2
+	.word $21F3
 	.text "Japan"
 	
 	.byte $04
-	.word $2232
+	.word $2234
 	.text "~VS~"
 	
-	.byte $05
-	.word $2272
-	.text "Vasco"
-	
-	.byte $47
-	.word $22B1
-	.text "da Gama"
+	.byte $46
+	.word $2273
+	.text "Turkey"
 
 
 
@@ -2602,13 +2602,13 @@ off_матч_24:
 	.text "Pole Position"
 	.byte $7B
 	
-	.byte $0A
-	.word $218B
-	.text "Friendlies"
+	.byte $12
+	.word $2187
+	.text "Friendlies, Europe"
 	
 	.byte $03
 	.word $2208
-	.text "2nd"
+	.text "1st"
 	
 	.byte $05
 	.word $2247
@@ -2706,13 +2706,13 @@ off_матч_25:
 	.text "Become a Super Striker"
 	.byte $7B
 	
-	.byte $0A
-	.word $218B
-	.text "Friendlies"
+	.byte $12
+	.word $2187
+	.text "Friendlies, Europe"
 	
 	.byte $03
 	.word $2208
-	.text "3rd"
+	.text "2nd"
 	
 	.byte $05
 	.word $2247
@@ -2810,13 +2810,13 @@ off_матч_26:
 	.text "Through the Iron Curtain"
 	.byte $7B
 	
-	.byte $0A
-	.word $218B
-	.text "Friendlies"
+	.byte $12
+	.word $2187
+	.text "Friendlies, Europe"
 	
 	.byte $03
 	.word $2207
-	.text "4th"
+	.text "3rd"
 	
 	.byte $05
 	.word $2246
@@ -2914,13 +2914,13 @@ off_матч_27:
 	.text "An Elegant Commander"
 	.byte $7B
 	
-	.byte $0A
-	.word $218B
-	.text "Friendlies"
+	.byte $12
+	.word $2187
+	.text "Friendlies, Europe"
 	
 	.byte $03
 	.word $2208
-	.text "5th"
+	.text "4th"
 	
 	.byte $05
 	.word $2247
@@ -3553,7 +3553,7 @@ off_матч_33:
 	.text "Episode 33"
 	
 	.byte $1D
-	.word $20A2
+	.word $20A1
 	.byte $7B
 	.text "Clash of the Super Strikers"
 	.byte $7B
