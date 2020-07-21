@@ -444,14 +444,12 @@ off_A2A1_01_история_цубасы:
 	.byte $FF
 	.byte $23
 	.byte $41
-	.byte $F6
-	.byte $01
+	.byte con_катсцена_задержка, $01
 	.byte $F3
 	.byte $FF
 	.byte $24
 	.byte $42
-	.byte $F6
-	.byte $06
+	.byte con_катсцена_задержка, $06
 	.byte $F3
 	.byte $FF
 	.byte $00
@@ -756,8 +754,7 @@ off_A2A1_01_история_цубасы:
 	.byte $F9
 	.byte $14
 	.byte con_катсцена_осветление_экрана
-	.byte $F6
-	.byte $B4
+	.byte con_катсцена_задержка, $B4
 	.byte con_катсцена_затемнение_экрана
 	.byte $E8
 	.byte $00
@@ -769,8 +766,7 @@ off_A2A1_01_история_цубасы:
 	.byte $C6
 	.byte con_катсцена_номер_звука, $45
 	.byte con_катсцена_осветление_экрана
-	.byte $F6
-	.byte $B4
+	.byte con_катсцена_задержка, $B4
 	.byte $FB
 	.byte $01
 	.byte $CB
@@ -795,14 +791,12 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $FF
 	.byte $24
 	.byte $42
-	.byte $F6
-	.byte $06
+	.byte con_катсцена_задержка, $06
 	.byte $F3
 	.byte $FF
 	.byte $23
 	.byte $41
-	.byte $F6
-	.byte $01
+	.byte con_катсцена_задержка, $01
 	.byte $F3
 	.byte $FF
 	.byte $20
@@ -1137,8 +1131,7 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $EF
 	.byte con_катсцена_скорость_текста, $08
 	.text "...@"
-	.byte $F6
-	.byte $B4
+	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_затереть_текст
 	.byte $FB
 	.byte $01
@@ -1217,14 +1210,12 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $FF
 	.byte $24	; <や>
 	.byte $42	; <イ>
-	.byte $F6
-	.byte $06	; <か>
+	.byte con_катсцена_задержка, $06
 	.byte $F3
 	.byte $FF
 	.byte $23	; <も>
 	.byte $41	; <ア>
-	.byte $F6
-	.byte $01	; <あ>
+	.byte con_катсцена_задержка, $01
 	.byte $F3
 	.byte $FF
 	.byte $20	; <み>
