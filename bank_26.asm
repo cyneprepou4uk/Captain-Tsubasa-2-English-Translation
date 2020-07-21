@@ -177,9 +177,9 @@ off_A020_00_самая_первая_заставка:
 	.byte con_катсцена_номер_звука, $0E
 	.byte con_катсцена_скорость_текста, $04
 	.byte con_катсцена_смещение_текста, $09
-	.text "Wow, "
-	.byte con_катсцена_задержка, $0A
-	.text "look"
+	.text "Wow,"
+	.byte con_катсцена_задержка, $0F
+	.text " look"
 	.byte con_катсцена_номер_звука, $09
 	.text " at that"
 	.byte con_катсцена_новая_строка
@@ -253,9 +253,9 @@ off_A020_00_самая_первая_заставка:
 	.text "As expected from"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $09
-	.text "Wakabyashi, "
-	.byte con_катсцена_задержка, $0A
-	.text "Japan's"
+	.text "Wakabyashi,"
+	.byte con_катсцена_задержка, $0F
+	.text " Japan's"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $09
 	.text "own Guardian Deity!"
@@ -312,9 +312,8 @@ off_A020_00_самая_первая_заставка:
 	.text "awaiting the final battle."
 	.byte con_катсцена_осветление_экрана
 	.byte con_катсцена_задержка, $F0
-	.byte con_катсцена_задержка, $F0
-	.byte $F4
-	.byte $05
+	.byte con_катсцена_задержка, $B4
+	.byte $F4, $05
 	.byte con_катсцена_затереть_текст
 	.byte $F8
 	.byte $00
@@ -335,9 +334,10 @@ off_A2A1_01_история_цубасы:
 	.byte $FB
 	.byte $01
 	.byte $6D
-	.byte con_катсцена_задержка, $28
+	.byte con_катсцена_задержка, $1E
 	.byte con_катсцена_осветление_экрана
 	.byte con_катсцена_номер_звука, $55
+	.byte con_катсцена_задержка, $1E
 	.byte con_катсцена_скорость_текста, $03
 	.byte con_катсцена_смещение_текста, $09
 	.text "Nothing beats"
@@ -370,6 +370,7 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $17
 	.byte con_катсцена_осветление_экрана
+	.byte con_катсцена_задержка, $0A
 	.byte con_катсцена_смещение_текста, $04
 	.text "They conquered the world!"
 	.byte con_катсцена_задержка, $3C
@@ -391,10 +392,10 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
 	.text "Germany. "
-	.byte con_катсцена_задержка, $14
-	.text "At last, "
-	.byte con_катсцена_задержка, $0A
-	.text "they"
+	.byte con_катсцена_задержка, $1E
+	.text "At last,"
+	.byte con_катсцена_задержка, $0F
+	.text " they"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
 	.text "were world champions!"
@@ -409,16 +410,21 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $50
 	.byte con_катсцена_осветление_экрана
+	.byte con_катсцена_задержка, $0A
 	.byte con_катсцена_смещение_текста, $03
 	.text "After this victory oversea,"
-	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_задержка, $0F
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $04
 	.text "Tsubasa was reunited with"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $04
-	.text "his former coach Roberto."
+	.text "his former coach,"
+	.byte con_катсцена_задержка, $0F
+	.text " Roberto."
 	.byte con_катсцена_мячик
+	
+	
 	
 	.byte con_катсцена_смещение_текста, $09
 	.text "Finally he had"
@@ -430,6 +436,8 @@ off_A2A1_01_история_цубасы:
 	.text "of playing in Brazil!"
 	.byte con_катсцена_мячик
 	
+	
+	
 	.byte con_катсцена_затемнение_экрана
 	.byte $F9
 	.byte $5E
@@ -437,8 +445,11 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $51
 	.byte con_катсцена_осветление_экрана
-	.byte con_катсцена_смещение_текста, $06
-	.text "Three years later..."
+	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_смещение_текста, $08
+	.text "3 years late"
+	.byte con_катсцена_скорость_текста, $08
+	.text "r..."
 	.byte con_катсцена_задержка, $3C
 	.byte $F3
 	.byte $FF
@@ -455,9 +466,10 @@ off_A2A1_01_история_цубасы:
 	.byte $00
 	.byte $17
 	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_скорость_текста, $02
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
-	.text "a new journey begins"
+	.text "A new journey begins"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $04
 	.text "for Tsubasa in Sao Paulo!"
@@ -472,7 +484,7 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_номер_звука, $31
 	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_номер_звука, $01
-	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_задержка, $50
 	.byte con_катсцена_номер_звука, $51
 	.byte $F9
 	.byte $2D
@@ -480,7 +492,9 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $0B
 	.byte con_катсцена_осветление_экрана
+	.byte con_катсцена_задержка, $1E
 	.byte $F4, $05
+	.byte con_катсцена_скорость_текста, $00
 	.byte con_катсцена_смещение_текста, $06
 	.text "Brazil, Sao Paulo FC"
 	.byte $F4, $04
@@ -492,46 +506,55 @@ off_A2A1_01_история_цубасы:
 	
 	
 	
+	.byte con_катсцена_задержка, $3C
 	.byte con_катсцена_скорость_текста, $04
-	.byte con_катсцена_задержка, $28
 	.byte con_катсцена_смещение_текста, $04
 	.byte con_катсцена_задержка, $F0
-	.text "@Alright, "
+	.text "@Alright,"
 	.byte con_катсцена_задержка, $0A
-	.text "everyone, "
-	.byte con_катсцена_задержка, $0A
-	.text "the"
+	.text " everyone."
+	.byte con_катсцена_задержка, $1E
+	.text " The"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
 	.text "Rio Cup Youth Division"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
 	.text "begins tomorrow.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $50
 	
 	
 	
-	.byte con_катсцена_смещение_текста, $04
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_смещение_текста, $05
 	.text "@Flamengo's ranked #1"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $05
-	.text "in the nation, "
-	.byte con_катсцена_задержка, $0A
-	.text "so we'll"
+	.byte con_катсцена_смещение_текста, $06
+	.text "in the nation,"
+	.byte con_катсцена_задержка, $1E
+	.text " so"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $05
-	.text "be seeing them there.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_смещение_текста, $06
+	.text "we'll definitely be"
+	.byte con_катсцена_новая_строка
+	.byte con_катсцена_смещение_текста, $06
+	.text "seeing them there.@"
+	.byte con_катсцена_задержка, $50
 	
 	
+	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $0A
 	.byte $FB
 	.byte $01
 	.byte $3C
+	.byte con_катсцена_задержка, $0F
 	.byte con_катсцена_смещение_текста, $04
-	.text "@Their captain, "
-	.byte con_катсцена_задержка, $0A
-	.text "Carlos,"
-	.byte con_катсцена_задержка, $0A
+	.text "@Their captain,"
+	.byte con_катсцена_задержка, $1E
+	.text " Carlos,"
+	.byte con_катсцена_задержка, $1E
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
 	.text "has bagged a hat trick"
@@ -541,68 +564,82 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
 	.text "the Qualifiers.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $50
 	
 	
 	
-	.byte con_катсцена_смещение_текста, $06
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_смещение_текста, $08
 	.text "@We need to keep"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
-	.text "tabs on him. "
-	.byte con_катсцена_задержка, $28
-	.text "I also"
+	.byte con_катсцена_смещение_текста, $09
+	.text "tabs on him.@"
+	.byte con_катсцена_задержка, $78
+	
+	
+	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_смещение_текста, $08
+	.text "@I also want you"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
-	.text "want you to examine"
+	.byte con_катсцена_смещение_текста, $09
+	.text "to examine the"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
-	.text "the other teams.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_смещение_текста, $09
+	.text "other teams.@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
-	.byte con_катсцена_смещение_текста, $04
-	.text "@Here, "
+	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_задержка, $0A
-	.text "take look at"
-	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
-	.text "their rosters, "
-	.byte con_катсцена_задержка, $0A
-	.text "skills,"
-	.byte con_катсцена_задержка, $0A
+	.text "@Here."
+	.byte con_катсцена_задержка, $1E
+	.text " Take a look at"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $05
+	.byte con_катсцена_смещение_текста, $06
+	.text "their rosters,"
+	.byte con_катсцена_задержка, $0F
+	.text " skills,"
+	.byte con_катсцена_задержка, $0F
+	.byte con_катсцена_новая_строка
+	.byte con_катсцена_смещение_текста, $06
 	.text "and positions.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $78
 	
 	
 	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $3C
 	.byte $FB
 	.byte $01
 	.byte $3B
-	
+	.byte con_катсцена_задержка, $1E
 	.byte con_катсцена_смещение_текста, $02
-	.text "@By the way, "
-	.byte con_катсцена_задержка, $0A
-	.text "we're taking on"
+	.text "@By the way,"
+	.byte con_катсцена_задержка, $1E
+	.text " we're taking on"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $03
-	.text "a new trainee manager, "
-	.byte con_катсцена_задержка, $0A
-	.text "sent"
+	.text "a new trainee manager,"
+	.byte con_катсцена_задержка, $0F
+	.text " sent"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $03
 	.text "to us from the Japanese"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $03
 	.text "Football Organization.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $50
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затемнение_экрана
+	.byte con_катсцена_затереть_текст
 	.byte $F9
 	.byte $13
 	.byte $FA
@@ -611,67 +648,76 @@ off_A2A1_01_история_цубасы:
 	.byte $01
 	.byte $2A
 	.byte con_катсцена_осветление_экрана
-	.byte con_катсцена_задержка, $28
+	.byte con_катсцена_задержка, $3C
 	.byte con_катсцена_смещение_текста, $07
 	.text "@My name is Yoko"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
-	.text "Katagiri - "
-	.byte con_катсцена_задержка, $14
+	.text "Katagiri."
+	.byte con_катсцена_задержка, $3C
 	.byte $FB
 	.byte $01
 	.byte $2B
-	.text "good"
+	.text " Good"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
 	.text "to meet you all.@"
 	.byte con_катсцена_номер_звука, $62
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $96
 	
 	
+	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $3C
 	.byte $FB
 	.byte $01
 	.byte $2A
-	.byte con_катсцена_смещение_текста, $06
-	.text "@Starting today, "
-	.byte con_катсцена_задержка, $0A
-	.text "I'll"
+	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_смещение_текста, $05
+	.text "@Starting today,"
+	.byte con_катсцена_задержка, $1E
+	.text " I'll"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
+	.byte con_катсцена_смещение_текста, $06
 	.text "be your manager for"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
-	.text "a while, "
-	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_смещение_текста, $06
+	.text "a while,"
+	.byte con_катсцена_задержка, $1E
 	.byte $FB
 	.byte $01
 	.byte $2B
-	.text "so thank you"
+	.text " so thank you"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
+	.byte con_катсцена_смещение_текста, $06
 	.text "for your patience.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $78
 	
 	
 	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $0A
 	.byte $FB
 	.byte $01
 	.byte $2A
+	.byte con_катсцена_задержка, $3C
 	.byte con_катсцена_смещение_текста, $06
-	.text "@Tsubasa, "
-	.byte con_катсцена_задержка, $0A
-	.text "right?"
-	.byte con_катсцена_задержка, $14
+	.text "@Tsubasa,"
+	.byte con_катсцена_задержка, $0F
+	.text " right?"
+	.byte con_катсцена_задержка, $3C
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "My brother's told"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "me a lot about you.@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $50
 	
 	
 	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $0A
 	.byte $FB
 	.byte $01
 	.byte $12
@@ -682,9 +728,12 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_скорость_текста, $01
 	.byte con_катсцена_смещение_текста, $08
 	.text "@Oh?@"
-	.byte con_катсцена_мячик
+	.byte con_катсцена_задержка, $3C
 	
 	
+	
+	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $0A
 	.byte $FB
 	.byte $01
 	.byte $2B
@@ -694,15 +743,15 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_задержка, $28
 	.byte con_катсцена_скорость_текста, $04
 	.byte con_катсцена_смещение_текста, $07
-	.text "@Yep - "
-	.byte con_катсцена_задержка, $14
-	.text "my brother,"
-	.byte con_катсцена_задержка, $0A
+	.text "@Yep -"
+	.byte con_катсцена_задержка, $1E
+	.text " my brother,"
+	.byte con_катсцена_задержка, $0F
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
-	.text "Munemasa, "
-	.byte con_катсцена_задержка, $0A
-	.text "from the"
+	.text "Munemasa,"
+	.byte con_катсцена_задержка, $0F
+	.text " from the"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
 	.byte con_катсцена_скорость_текста, $0A
@@ -713,26 +762,26 @@ off_A2A1_01_история_цубасы:
 	.byte $FB
 	.byte $01
 	.byte $2A
-	.byte con_катсцена_задержка, $14
-	.byte con_катсцена_скорость_текста, $14
+	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_скорость_текста, $10
 	.text "No pressure~"
 	.byte $FB
 	.byte $01
 	.byte $2C
 	.byte con_катсцена_скорость_текста, $00
 	.text "@"
-	.byte con_катсцена_задержка, $14
-	.byte con_катсцена_мячик
-	
-	
-	
+	.byte con_катсцена_задержка, $30
 	.byte con_катсцена_номер_звука, $31
-	.byte $F4
-	.byte $05
+	.byte con_катсцена_задержка, $50
+	
+	
+	
 	.byte $FB
 	.byte $01
 	.byte $2B
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_затереть_текст
+	.byte $F4, $05
+	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_номер_звука, $01
 	.byte con_катсцена_затереть_текст
 	.byte con_катсцена_смещение_текста, $03
@@ -743,8 +792,8 @@ off_A2A1_01_история_цубасы:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $03
 	.text "beginning with the Rio Cup."
-	.byte $F4
-	.byte $04
+	.byte $F4, $04
+	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_задержка, $F0
 	
 	
@@ -805,25 +854,21 @@ off_0x040005_скрытая_катсцена_из_01:
 	.text "And here is another"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
-	.text "captain Tsubasa, "
-	.byte con_катсцена_задержка, $0A
-	.text "but"
+	.text "captain Tsubasa,"
+	.byte con_катсцена_задержка, $0F
 	.byte con_катсцена_скорость_текста, $08
-	.text "..."
+	.text " but..."
 	.byte con_катсцена_задержка, $78
 	
 	
 	
 	.byte con_катсцена_затемнение_экрана
-	.byte $ED
-	.byte $31
-	.byte con_катсцена_задержка, $78
-	.byte $ED
-	.byte $01
+	.byte con_катсцена_номер_звука, $31
+	.byte con_катсцена_задержка, $50
+	.byte con_катсцена_номер_звука, $01
 	.byte con_катсцена_затереть_текст
-	.byte con_катсцена_задержка, $78
-	.byte $ED
-	.byte $51
+	.byte con_катсцена_задержка, $50
+	.byte con_катсцена_номер_звука, $51
 	.byte con_катсцена_скорость_текста, $00
 	.byte $F9
 	.byte $2D
@@ -831,23 +876,18 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $01
 	.byte $0B
 	.byte con_катсцена_осветление_экрана
-	.byte $F4
-	.byte $05
-	.byte con_катсцена_смещение_текста, $0D
-	.text "Brazil"
+	.byte con_катсцена_задержка, $1E
+	.byte $F4, $05
+	.byte con_катсцена_скорость_текста, $00
+	.byte con_катсцена_смещение_текста, $04
+	.text "Brazil, 3 years earlier"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $07
-	.text "Three years earlier"
-	.byte con_катсцена_новая_строка
-	.byte $F4
-	.byte $04
+	.byte $F4, $04
 	.byte con_катсцена_задержка, $78
 	.byte con_катсцена_задержка, $F0
-	.byte $F4
-	.byte $05
+	.byte $F4, $05
 	.byte con_катсцена_затереть_текст
-	.byte $F4
-	.byte $04
+	.byte $F4, $04
 	.byte con_катсцена_задержка, $F0
 	.byte con_катсцена_задержка, $3C
 	.byte $FA
@@ -856,14 +896,13 @@ off_0x040005_скрытая_катсцена_из_01:
 	
 	
 	.byte con_катсцена_скорость_текста, $04
-	.byte con_катсцена_смещение_текста, $07
-	.text "@Welcome to"
-	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $08
-	.text "Brazil, "
+	.byte con_катсцена_смещение_текста, $06
+	.text "@Welcome to Brazil,"
 	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_новая_строка
+	.byte con_катсцена_смещение_текста, $07
 	.text "Tsubasa.@"
-	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -875,11 +914,11 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F3
 	.byte $00
 	.byte con_катсцена_смещение_текста, $07
-	.byte con_катсцена_задержка, $3C
-	.text "@Wow"
+	.byte con_катсцена_задержка, $14
+	.text "@Wo"
 	.byte con_катсцена_скорость_текста, $08
 	.byte $EF
-	.text ".."
+	.text "w.."
 	.byte $EF
 	.text "."
 	.byte con_катсцена_задержка, $3C
@@ -888,7 +927,7 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
 	.text "here at last.@"
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -899,7 +938,7 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F7
 	.byte $F3
 	.byte $00
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $06
 	.text "@That's right."
 	.byte con_катсцена_задержка, $1E
@@ -909,11 +948,12 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "your home team now.@"
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $14
 	.byte $FB
 	.byte $01
 	.byte $3C
@@ -922,7 +962,7 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "to give it your all.@"
-	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -933,12 +973,12 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F7
 	.byte $F3
 	.byte $00
-	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $06
-	.text "@Right, "
-	.byte con_катсцена_задержка, $0A
-	.text "of course.@"
-	.byte con_катсцена_задержка, $3C
+	.text "@Right,"
+	.byte con_катсцена_задержка, $1E
+	.text " of course.@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -952,34 +992,35 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $07
 	.text "@Given your age,"
-	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_задержка, $0F
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
 	.text "you'll be in the"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $08
-	.text "youth division.@"
-	.byte con_катсцена_задержка, $3C
+	.text "Youth Division.@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
-	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_задержка, $14
 	.byte $FB
 	.byte $01
 	.byte $3C
 	.byte con_катсцена_смещение_текста, $05
-	.text "@Still, "
-	.byte con_катсцена_задержка, $0A
-	.text "it has a lot"
+	.text "@Still,"
+	.byte con_катсцена_задержка, $0F
+	.text " it has a lot"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
 	.text "of high-level teams.@"
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $06
 	.text "@Flamengo FC seems"
 	.byte con_катсцена_новая_строка
@@ -988,7 +1029,7 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "opponents.@"
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -999,10 +1040,10 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F7
 	.byte $F3
 	.byte $00
-	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $06
 	.text "@Flamengo FC?@"
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -1025,6 +1066,7 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F7
 	.byte $F3
 	.byte $8E
+	.byte con_катсцена_задержка, $08
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "Carlos Santana's"
@@ -1032,11 +1074,12 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte con_катсцена_смещение_текста, $07
 	.text "their top striker.@"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $04
 	.text "@His skills might make"
 	.byte con_катсцена_новая_строка
@@ -1044,44 +1087,48 @@ off_0x040005_скрытая_катсцена_из_01:
 	.text "him the biggest talent"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
-	.text "in the entire"
+	.text "in the entire youth"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
-	.text "youth division.@"
-	.byte con_катсцена_задержка, $3C
+	.text "division.@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $03
-	.text "@Besides you, "
-	.byte con_катсцена_задержка, $0A
-	.text "of course.@"
-	.byte con_катсцена_задержка, $3C
+	.text "@Besides you,"
+	.byte con_катсцена_задержка, $0F
+	.text " of course.@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $05
 	.text "@He's been practicing"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
 	.text "his new move,"
-	.byte con_катсцена_задержка, $0A
+	.byte con_катсцена_задержка, $0F
+	.text " the"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
-	.text "the Mirage Shot,@"
-	.byte con_катсцена_задержка, $3C
+	.text "Mirage Shot,@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
 	.byte con_катсцена_затереть_текст
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $04
-	.text "@which might just"
+	.text "@which might just make"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $05
-	.text "make him unstoppable.@"
-	.byte con_катсцена_задержка, $3C
+	.text "him unstoppable.@"
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -1095,23 +1142,23 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $01
 	.byte $3B
 	.byte con_катсцена_осветление_экрана
-	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_смещение_текста, $05
 	.text "@You'll face Carlos"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
-	.text "eventually. "
+	.text "eventually."
 	.byte con_катсцена_задержка, $1E
-	.text "In the"
+	.text " In the"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
-	.text "meantime, "
-	.byte con_катсцена_задержка, $0A
-	.text "I will work"
+	.text "meantime,"
+	.byte con_катсцена_задержка, $0F
+	.text " I will work"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $06
 	.text "you hard in training.@"
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $50
 	
 	
 	
@@ -1122,16 +1169,19 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F7
 	.byte $F3
 	.byte $00
-	.byte con_катсцена_задержка, $1E
+	.byte con_катсцена_задержка, $14
 	.byte con_катсцена_скорость_текста, $06
 	.byte con_катсцена_смещение_текста, $06
-	.text "@So, "
+	.text "@So,"
 	.byte con_катсцена_задержка, $14
-	.text "Carlos Santana"
+	.text " Carlos Santan"
 	.byte $EF
 	.byte con_катсцена_скорость_текста, $08
-	.text "...@"
-	.byte con_катсцена_задержка, $78
+	.text "a...@"
+	.byte con_катсцена_задержка, $50
+	
+	
+	
 	.byte con_катсцена_затереть_текст
 	.byte $FB
 	.byte $01
@@ -1139,152 +1189,76 @@ off_0x040005_скрытая_катсцена_из_01:
 	.byte $F7
 	.byte $F3
 	.byte $00
-	.byte con_катсцена_смещение_текста, $00
-	.byte $40	; <「>
-	.byte $0B	; <さ>
-	.byte $13	; <て>
-	.byte con_катсцена_задержка, $28
-	.byte $00
-	.byte $20	; <み>
-	.byte $2E	; <ん>
-	.byte $15	; <な>
-	.byte $16	; <に>
-	.byte $00
-	.byte $05	; <お>
-	.byte $1F	; <ま>
-	.byte $04	; <え>
-	.byte $2D	; <を>
-	.byte $0C	; <し>
-	.byte $32	; <ょ>
-	.byte $03	; <う>
-	.byte $06	; <か>
-	.byte $02	; <い>
+	.byte con_катсцена_задержка, $14
+	.byte con_катсцена_скорость_текста, $04
+	.byte con_катсцена_смещение_текста, $06
+	.text "@Ah,"
+	.byte con_катсцена_задержка, $0F
+	.text " right,"
+	.byte con_катсцена_задержка, $0F
+	.text " I need"
 	.byte con_катсцена_новая_строка
-	.byte $0C	; <し>
-	.byte $15	; <な>
-	.byte $02	; <い>
-	.byte $14	; <と>
-	.byte $15	; <な>
-	.byte $7A	; <、>
-	.byte con_катсцена_задержка, $28
-	.byte $0F	; <そ>
-	.byte $2B	; <ろ>
-	.byte $0F	; <そ>
-	.byte $2B	; <ろ>
-	.byte $02	; <い>
-	.byte $0A	; <こ>
-	.byte $03	; <う>
-	.byte $06	; <か>
-	.byte $7B	; <。>
+	.byte con_катсцена_смещение_текста, $07
+	.text "to introduce you"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_задержка, $78
+	.byte con_катсцена_смещение_текста, $07
+	.text "to the team.@"
+	.byte con_катсцена_задержка, $50
+	
+	
+	
 	.byte con_катсцена_затереть_текст
 	.byte $FB
-	.byte $01	; <あ>
-	.byte $4E	; <セ>
+	.byte $01
+	.byte $4E
 	.byte $F7
 	.byte $F3
 	.byte $00
-	.byte con_катсцена_смещение_текста, $00
-	.byte $40	; <「>
-	.byte $03	; <う>
-	.byte $2E	; <ん>
-	.byte $7A	; <、>
-	.byte con_катсцена_задержка, $28
-	.byte $26	; <よ>
-	.byte $7D	; <ー>
-	.byte $0C	; <し>
-	.byte $00
-	.byte $24	; <や>
-	.byte $29	; <る>
-	.byte $A9	; <ぞ>
-	.byte $79	; <!>
-	.byte con_катсцена_новая_строка
-	.byte $ED
-	.byte $31	; <ゅ>
+	.byte con_катсцена_задержка, $14
+	.byte con_катсцена_смещение_текста, $06
+	.text "@Yeah."
+	.byte con_катсцена_задержка, $0F
+	.text " Let's go!@"
+	.byte con_катсцена_номер_звука, $31
 	.byte con_катсцена_задержка, $78
-	.byte $ED
-	.byte $01	; <あ>
+	.byte con_катсцена_номер_звука, $01
+	
+	
+	
 	.byte con_катсцена_затереть_текст
 	.byte $F3
 	.byte $FF
-	.byte $24	; <や>
-	.byte $42	; <イ>
+	.byte $24
+	.byte $42
 	.byte con_катсцена_задержка, $06
 	.byte $F3
 	.byte $FF
-	.byte $23	; <も>
-	.byte $41	; <ア>
+	.byte $23
+	.byte $41
 	.byte con_катсцена_задержка, $01
 	.byte $F3
 	.byte $FF
-	.byte $20	; <み>
-	.byte $3F	; <•>
-	.byte $F4
-	.byte $05	; <お>
+	.byte $20
+	.byte $3F
+	.byte $F4, $05
 	.byte con_катсцена_затереть_текст
-	.byte con_катсцена_задержка, $3C
+	.byte con_катсцена_задержка, $1E
 	.byte con_катсцена_скорость_текста, $00
-	.byte $05	; <お>
-	.byte $05	; <お>
-	.byte $A9	; <ぞ>
-	.byte $27	; <ら>
-	.byte $00
-	.byte $12	; <つ>
-	.byte $AF	; <ば>
-	.byte $0B	; <さ>
-	.byte $00
-	.byte $34	; <1>
-	.byte $38	; <5>
-	.byte $0B	; <さ>
-	.byte $02	; <い>
+	.byte con_катсцена_смещение_текста, $05
+	.text "Ozora Tsubasa, age 15"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $00
-	.byte $4D	; <ス>
-	.byte $7D	; <ー>
-	.byte $CD	; <パ>
-	.byte $7D	; <ー>
-	.byte $4D	; <ス>
-	.byte $54	; <ト>
-	.byte $67	; <ラ>
-	.byte $42	; <イ>
-	.byte $46	; <カ>
-	.byte $7D	; <ー>
-	.byte $1D	; <へ>
-	.byte $19	; <の>
-	.byte $00
-	.byte $10	; <た>
-	.byte $10	; <た>
-	.byte $06	; <か>
-	.byte $02	; <い>
-	.byte $1A	; <は>
+	.byte con_катсцена_смещение_текста, $04
+	.text "The showdown between the"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $00
-	.byte $0A	; <こ>
-	.byte $0A	; <こ>
-	.byte $26	; <よ>
-	.byte $28	; <り>
-	.byte $00
-	.byte $36	; <3>
-	.byte $18	; <ね>
-	.byte $2E	; <ん>
-	.byte $A4	; <ご>
-	.byte $16	; <に>
-	.byte $00
-	.byte $1A	; <は>
-	.byte $A6	; <じ>
-	.byte $1F	; <ま>
-	.byte $29	; <る>
-	.byte $3F	; <•>
-	.byte $3F	; <•>
-	.byte $3F	; <•>
+	.byte con_катсцена_смещение_текста, $03
+	.text "@Super Strikers@ will take"
 	.byte con_катсцена_новая_строка
-	.byte $F4
-	.byte $04	; <え>
-	.byte $ED
-	.byte $45	; <オ>
+	.byte con_катсцена_смещение_текста, $04
+	.text "place 3 years from now..."
+	.byte con_катсцена_номер_звука, $45
+	.byte $F4, $04
 	.byte con_катсцена_задержка, $F0
 	.byte con_катсцена_задержка, $F0
-	.byte $F4
-	.byte $07	; <き>
+	.byte con_катсцена_затемнение_экрана
+	.byte $F4, $07
 
