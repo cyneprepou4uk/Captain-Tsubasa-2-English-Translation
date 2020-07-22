@@ -1265,8 +1265,8 @@ off_A6DC_04_цубаса_и_меон:
 	.byte con_катсцена_смещение_текста, $06
 	.text "Tsubasa and the rest"
 	.byte con_катсцена_новая_строка
-	.byte con_катсцена_смещение_текста, $06
-	.text "of team are training"
+	.byte con_катсцена_смещение_текста, $04
+	.text "of the team are training"
 	.byte con_катсцена_новая_строка
 	.byte con_катсцена_смещение_текста, $07
 	.text "to face Gremio the"
