@@ -138,26 +138,23 @@ C - - - - 0x03C4D7 FF:C4C7: 60        RTS
 
 .export sub_0x03C4D8
 sub_0x03C4D8:
+; срабатывает когда цубаса ударил, игроки напариваются на мяч, и после этого бряк
+; в A подается номер игрока
+; A и X менять нельзя до прыжка в подпрограмму
+					BEQ bra_C4F3_выход
 					CMP #$23
 					BCS bra_C4F3_выход
-					TAY
-					BEQ bra_C4F3_выход
-					STX ram_00ED
-					LDA ram_для_5114
-					STA ram_00EE
-					LDA ram_для_5115
-					STA ram_00EF
-					LDX #$00
-					JSR sub_C4B2_банксвич_PRG_5114
-					LDX #$01
-					JSR sub_C4B9_банксвич_PRG_5115
-					TYA
-					LDX ram_00ED
+					LDY #$80
+					STY $5114
+					LDY #$81
+					STY $5115
 					JSR sub_0x002FD2
-					LDX ram_00EF
-					JSR sub_C4B9_банксвич_PRG_5115
-					LDX ram_00EE
-					JSR sub_C4B2_банксвич_PRG_5114
+					LDA ram_для_5114
+					ORA #$80
+					STA $5114
+					LDA ram_для_5115
+					ORA #$80
+					STA $5115
 bra_C4F3_выход:
 					RTS
 
