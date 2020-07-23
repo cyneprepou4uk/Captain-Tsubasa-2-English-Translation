@@ -8,6 +8,7 @@
     .word off_A626_02_карлос_перед_первым_матчем
     .word off_A6B4_03_карлос_после_первого_матча
     .word off_A6DC_04_цубаса_и_меон
+    .word off_A968_05_карлос_и_коимбра
 
 
 
@@ -1559,3 +1560,515 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_катсцена_задержка, $F0
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_выход
+
+
+
+
+
+
+off_A968_05_карлос_и_коимбра:
+    .byte $E8
+    .byte $01    ; <あ>
+    .byte $F9
+    .byte $55    ; <ナ>
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $63    ; <モ>
+    .byte $DE
+    .byte $E9
+    .byte $ED
+    .byte $54    ; <ト>
+    .byte $DD
+    .byte $EF
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $24    ; <や>
+    .byte $29    ; <る>
+    .byte $15    ; <な>
+    .byte $00
+    .byte $12    ; <つ>
+    .byte $AF    ; <ば>
+    .byte $0B    ; <さ>
+    .byte $7A    ; <、>
+    .byte $DB
+    .byte $05    ; <お>
+    .byte $1F    ; <ま>
+    .byte $04    ; <え>
+    .byte $14    ; <と>
+    .byte $1A    ; <は>
+    .byte $FC
+    .byte $09    ; <け>
+    .byte $2F    ; <っ>
+    .byte $0C    ; <し>
+    .byte $32    ; <ょ>
+    .byte $03    ; <う>
+    .byte $AD    ; <で>
+    .byte $00
+    .byte $01    ; <あ>
+    .byte $02    ; <い>
+    .byte $10    ; <た>
+    .byte $02    ; <い>
+    .byte $A8    ; <ぜ>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $F2
+    .byte $06    ; <か>
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $5C    ; <フ>
+    .byte $6F    ; <ッ>
+    .byte $DB
+    .byte $00
+    .byte $01    ; <あ>
+    .byte $1F    ; <ま>
+    .byte $02    ; <い>
+    .byte $15    ; <な>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DC
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $64    ; <ヤ>
+    .byte $F2
+    .byte $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $04    ; <え>
+    .byte $2F    ; <っ>
+    .byte $FC
+    .byte $DC
+    .byte $FA
+    .byte $25    ; <ゆ>
+    .byte $FD
+    .byte $DD
+    .byte $F8
+    .byte $0F    ; <そ>
+    .byte $DC
+    .byte $ED
+    .byte $15    ; <な>
+    .byte $F4
+    .byte $03    ; <う>
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $45    ; <オ>
+    .byte $DA
+    .byte $F4
+    .byte $01    ; <あ>
+    .byte $F2
+    .byte $08    ; <く>
+    .byte $DD
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $62    ; <メ>
+    .byte $45    ; <オ>
+    .byte $6E    ; <ン>
+    .byte $A4    ; <ご>
+    .byte $14    ; <と>
+    .byte $07    ; <き>
+    .byte $16    ; <に>
+    .byte $00
+    .byte $13    ; <て>
+    .byte $0A    ; <こ>
+    .byte $A7    ; <ず>
+    .byte $29    ; <る>
+    .byte $26    ; <よ>
+    .byte $03    ; <う>
+    .byte $AD    ; <で>
+    .byte $1A    ; <は>
+    .byte $FC
+    .byte $0B    ; <さ>
+    .byte $07    ; <き>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $05    ; <お>
+    .byte $23    ; <も>
+    .byte $02    ; <い>
+    .byte $24    ; <や>
+    .byte $27    ; <ら>
+    .byte $2A    ; <れ>
+    .byte $29    ; <る>
+    .byte $A8    ; <ぜ>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $FA
+    .byte $4A    ; <コ>
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $61    ; <ム>
+    .byte $F7
+    .byte $F3
+    .byte $00
+    .byte $FA
+    .byte $49    ; <ケ>
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $15    ; <な>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $00
+    .byte $05    ; <お>
+    .byte $1F    ; <ま>
+    .byte $04    ; <え>
+    .byte $1A    ; <は>
+    .byte $78    ; <?>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $60    ; <ミ>
+    .byte $F7
+    .byte $F3
+    .byte $00
+    .byte $E1
+    .byte $DC
+    .byte $40    ; <「>
+    .byte $AA    ; <だ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $46    ; <カ>
+    .byte $69    ; <ル>
+    .byte $6B    ; <ロ>
+    .byte $4D    ; <ス>
+    .byte $7A    ; <、>
+    .byte $DB
+    .byte $0A    ; <こ>
+    .byte $19    ; <の>
+    .byte $68    ; <リ>
+    .byte $45    ; <オ>
+    .byte $46    ; <カ>
+    .byte $6F    ; <ッ>
+    .byte $CF    ; <プ>
+    .byte $FC
+    .byte $DB
+    .byte $5C    ; <フ>
+    .byte $67    ; <ラ>
+    .byte $62    ; <メ>
+    .byte $6E    ; <ン>
+    .byte $B8    ; <ゴ>
+    .byte $19    ; <の>
+    .byte $00
+    .byte $25    ; <ゆ>
+    .byte $03    ; <う>
+    .byte $0C    ; <し>
+    .byte $32    ; <ょ>
+    .byte $03    ; <う>
+    .byte $1A    ; <は>
+    .byte $FC
+    .byte $15    ; <な>
+    .byte $02    ; <い>
+    .byte $06    ; <か>
+    .byte $23    ; <も>
+    .byte $15    ; <な>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $61    ; <ム>
+    .byte $F7
+    .byte $F3
+    .byte $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $AE    ; <ど>
+    .byte $03    ; <う>
+    .byte $02    ; <い>
+    .byte $03    ; <う>
+    .byte $02    ; <い>
+    .byte $20    ; <み>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $60    ; <ミ>
+    .byte $F7
+    .byte $F3
+    .byte $00
+    .byte $E1
+    .byte $DC
+    .byte $40    ; <「>
+    .byte $52    ; <ツ>
+    .byte $C3    ; <バ>
+    .byte $4B    ; <サ>
+    .byte $3F    ; <•>
+    .byte $45    ; <オ>
+    .byte $45    ; <オ>
+    .byte $BD    ; <ゾ>
+    .byte $67    ; <ラ>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $FC
+    .byte $DC
+    .byte $01    ; <あ>
+    .byte $02    ; <い>
+    .byte $12    ; <つ>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $1F    ; <ま>
+    .byte $AA    ; <だ>
+    .byte $00
+    .byte $A6    ; <じ>
+    .byte $B1    ; <ぶ>
+    .byte $2E    ; <ん>
+    .byte $A0    ; <が>
+    .byte $23    ; <も>
+    .byte $12    ; <つ>
+    .byte $FC
+    .byte $1E    ; <ほ>
+    .byte $2E    ; <ん>
+    .byte $14    ; <と>
+    .byte $03    ; <う>
+    .byte $19    ; <の>
+    .byte $00
+    .byte $11    ; <ち>
+    .byte $06    ; <か>
+    .byte $27    ; <ら>
+    .byte $2D    ; <を>
+    .byte $0C    ; <し>
+    .byte $27    ; <ら>
+    .byte $15    ; <な>
+    .byte $02    ; <い>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $23    ; <も>
+    .byte $0C    ; <し>
+    .byte $00
+    .byte $4D    ; <ス>
+    .byte $7D    ; <ー>
+    .byte $CD    ; <パ>
+    .byte $7D    ; <ー>
+    .byte $4D    ; <ス>
+    .byte $54    ; <ト>
+    .byte $67    ; <ラ>
+    .byte $42    ; <イ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte $14    ; <と>
+    .byte $0C    ; <し>
+    .byte $13    ; <て>
+    .byte $FC
+    .byte $22    ; <め>
+    .byte $A5    ; <ざ>
+    .byte $22    ; <め>
+    .byte $10    ; <た>
+    .byte $14    ; <と>
+    .byte $0C    ; <し>
+    .byte $10    ; <た>
+    .byte $27    ; <ら>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $FC
+    .byte $DC
+    .byte $05    ; <お>
+    .byte $1F    ; <ま>
+    .byte $04    ; <え>
+    .byte $10    ; <た>
+    .byte $11    ; <ち>
+    .byte $16    ; <に>
+    .byte $00
+    .byte $06    ; <か>
+    .byte $11    ; <ち>
+    .byte $22    ; <め>
+    .byte $1A    ; <は>
+    .byte $15    ; <な>
+    .byte $02    ; <い>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $61    ; <ム>
+    .byte $F7
+    .byte $F3
+    .byte $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $4D    ; <ス>
+    .byte $7D    ; <ー>
+    .byte $CD    ; <パ>
+    .byte $7D    ; <ー>
+    .byte $4D    ; <ス>
+    .byte $54    ; <ト>
+    .byte $67    ; <ラ>
+    .byte $42    ; <イ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte $78    ; <?>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $60    ; <ミ>
+    .byte $F7
+    .byte $F3
+    .byte $00
+    .byte $E1
+    .byte $DC
+    .byte $40    ; <「>
+    .byte $05    ; <お>
+    .byte $1F    ; <ま>
+    .byte $04    ; <え>
+    .byte $16    ; <に>
+    .byte $23    ; <も>
+    .byte $00
+    .byte $02    ; <い>
+    .byte $A7    ; <ず>
+    .byte $2A    ; <れ>
+    .byte $2C    ; <わ>
+    .byte $06    ; <か>
+    .byte $29    ; <る>
+    .byte $0B    ; <さ>
+    .byte $7A    ; <、>
+    .byte $FC
+    .byte $DB
+    .byte $0F    ; <そ>
+    .byte $2A    ; <れ>
+    .byte $1F    ; <ま>
+    .byte $AD    ; <で>
+    .byte $00
+    .byte $0E    ; <せ>
+    .byte $02    ; <い>
+    .byte $A8    ; <ぜ>
+    .byte $02    ; <い>
+    .byte $00
+    .byte $A0    ; <が>
+    .byte $2E    ; <ん>
+    .byte $AF    ; <ば>
+    .byte $29    ; <る>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $15    ; <な>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $ED
+    .byte $16    ; <に>
+    .byte $F4
+    .byte $03    ; <う>
+    .byte $F4
+    .byte $05    ; <お>
+    .byte $DE
+    .byte $FD
+    .byte $FA
+    .byte $54    ; <ト>
+    .byte $FB
+    .byte $01    ; <あ>
+    .byte $05    ; <お>
+    .byte $F4
+    .byte $01    ; <あ>
+    .byte $ED
+    .byte $46    ; <カ>
+    .byte $F4
+    .byte $04    ; <え>
+    .byte $DF
+    .byte $DF
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $01    ; <あ>
+    .byte $02    ; <い>
+    .byte $12    ; <つ>
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $DE
+    .byte $15    ; <な>
+    .byte $16    ; <に>
+    .byte $23    ; <も>
+    .byte $19    ; <の>
+    .byte $15    ; <な>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $78    ; <?>
+    .byte $FC
+    .byte $DE
+    .byte $1F    ; <ま>
+    .byte $29    ; <る>
+    .byte $AD    ; <で>
+    .byte $00
+    .byte $0D    ; <す>
+    .byte $B2    ; <べ>
+    .byte $13    ; <て>
+    .byte $2D    ; <を>
+    .byte $0C    ; <し>
+    .byte $2F    ; <っ>
+    .byte $13    ; <て>
+    .byte $02    ; <い>
+    .byte $29    ; <る>
+    .byte $26    ; <よ>
+    .byte $03    ; <う>
+    .byte $15    ; <な>
+    .byte $FC
+    .byte $08    ; <く>
+    .byte $11    ; <ち>
+    .byte $B1    ; <ぶ>
+    .byte $28    ; <り>
+    .byte $AA    ; <だ>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $7B    ; <。>
+    .byte $FC
+    .byte $DE
+    .byte $FD
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $0F    ; <そ>
+    .byte $2A    ; <れ>
+    .byte $16    ; <に>
+    .byte $00
+    .byte $01    ; <あ>
+    .byte $02    ; <い>
+    .byte $12    ; <つ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $02    ; <い>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $FC
+    .byte $4D    ; <ス>
+    .byte $7D    ; <ー>
+    .byte $CD    ; <パ>
+    .byte $7D    ; <ー>
+    .byte $4D    ; <ス>
+    .byte $54    ; <ト>
+    .byte $67    ; <ラ>
+    .byte $42    ; <イ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte $14    ; <と>
+    .byte $1A    ; <は>
+    .byte $FC
+    .byte $DB
+    .byte $02    ; <い>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $02    ; <い>
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $FC
+    .byte $DE
+    .byte $ED
+    .byte $31    ; <ゅ>
+    .byte $DE
+    .byte $EA
+    .byte $FF
