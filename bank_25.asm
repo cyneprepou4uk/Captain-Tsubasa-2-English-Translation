@@ -140,7 +140,7 @@ off_матч_01:
 	
 	.byte $4A
 	.word $2270
-	.text "Fluminence"
+	.text "Fluminense"
 
 
 
