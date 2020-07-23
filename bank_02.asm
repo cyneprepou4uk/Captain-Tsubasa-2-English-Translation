@@ -4156,40 +4156,39 @@ tbl_BA1C:
 - - - - - 0x003A5B 02:BA4B: 00        .byte $00
 
 tbl_BA4C:
-- D - - - 0x003A5C 02:BA4C: 52 00     .word $0052
-- D - - - 0x003A5E 02:BA4E: 54 00     .word $0054
-- D - - - 0x003A60 02:BA50: 56 00     .word $0056
-- D - - - 0x003A62 02:BA52: 58 00     .word $0058
-- D - - - 0x003A64 02:BA54: 5A 00     .word $005A
-- D - - - 0x003A66 02:BA56: 00 00     .word $0000
-- D - - - 0x003A68 02:BA58: 6D 00     .word $006D
-- D - - - 0x003A6A 02:BA5A: 7B 00     .word $007B
-- D - - - 0x003A6C 02:BA5C: 8E 00     .word $008E
-- D - - - 0x003A6E 02:BA5E: 9A 00     .word $009A
-- D - - - 0x003A70 02:BA60: A0 00     .word $00A0
-- D - - - 0x003A72 02:BA62: 00 00     .word $0000
-- D - - - 0x003A74 02:BA64: B1 00     .word $00B1
-- D - - - 0x003A76 02:BA66: BD 00     .word $00BD
-- D - - - 0x003A78 02:BA68: D5 00     .word $00D5
-- D - - - 0x003A7A 02:BA6A: 00 00     .word $0000
-- D - - - 0x003A7C 02:BA6C: C8 00     .word $00C8
-- D - - - 0x003A7E 02:BA6E: E7 00     .word $00E7
-- D - - - 0x003A80 02:BA70: EA 00     .word $00EA
-- D - - - 0x003A82 02:BA72: ED 00     .word $00ED
-- D - - - 0x003A84 02:BA74: F0 00     .word $00F0
-- D - - - 0x003A86 02:BA76: F2 00     .word $00F2
-- D - - - 0x003A88 02:BA78: F2 00     .word $00F2
-- D - - - 0x003A8A 02:BA7A: F5 00     .word $00F5
-- D - - - 0x003A8C 02:BA7C: F8 00     .word $00F8
-- D - - - 0x003A8E 02:BA7E: FE 00     .word $00FE
-- D - - - 0x003A90 02:BA80: 0A 01     .word $010A
-- D - - - 0x003A92 02:BA82: 0A 01     .word $010A
-- D - - - 0x003A94 02:BA84: 0D 01     .word $010D
-- D - - - 0x003A96 02:BA86: 10 01     .word $0110
-- D - - - 0x003A98 02:BA88: 37 01     .word $0137
-- D - - - 0x003A9A 02:BA8A: 3D 01     .word $013D
-- D - - - 0x003A9C 02:BA8C: 45 01     .word $0145
-- - - - - 0x003A9E 02:BA8E: 45 01     .word $0145
+- D - - - 0x003A5C 02:BA4C: 52 00     .word $0052 ; 00
+- D - - - 0x003A5E 02:BA4E: 54 00     .word $0054 ; 01
+- D - - - 0x003A60 02:BA50: 56 00     .word $0056 ; 02
+- D - - - 0x003A62 02:BA52: 58 00     .word $0058 ; 03
+- D - - - 0x003A64 02:BA54: 5A 00     .word $005A ; 04
+- D - - - 0x003A66 02:BA56: 00 00     .word $0000 ; 05
+- D - - - 0x003A68 02:BA58: 6D 00     .word $006D ; 06
+- D - - - 0x003A6A 02:BA5A: 7B 00     .word $007B ; 07
+- D - - - 0x003A6C 02:BA5C: 8E 00     .word $008E ; 08
+- D - - - 0x003A6E 02:BA5E: 9A 00     .word $009A ; 09
+- D - - - 0x003A70 02:BA60: A0 00     .word $00A0 ; 0A
+- D - - - 0x003A72 02:BA62: 00 00     .word $0000 ; 0B
+- D - - - 0x003A74 02:BA64: B1 00     .word $00B1 ; 0C
+- D - - - 0x003A76 02:BA66: BD 00     .word $00BD ; 0D
+- D - - - 0x003A78 02:BA68: D5 00     .word $00D5 ; 0E
+- D - - - 0x003A7A 02:BA6A: 00 00     .word $0000 ; 0F
+- D - - - 0x003A7C 02:BA6C: C8 00     .word $00C8 ; 10
+- D - - - 0x003A7E 02:BA6E: E7 00     .word $00E7 ; 11
+- D - - - 0x003A80 02:BA70: EA 00     .word $00EA ; 12
+- D - - - 0x003A82 02:BA72: ED 00     .word $00ED ; 13
+- D - - - 0x003A84 02:BA74: F0 00     .word $00F0 ; 14
+- D - - - 0x003A86 02:BA76: F2 00     .word $00F2 ; 15
+- D - - - 0x003A88 02:BA78: F2 00     .word $00F2 ; 16
+- D - - - 0x003A8A 02:BA7A: F5 00     .word $00F5 ; 17
+- D - - - 0x003A8C 02:BA7C: F8 00     .word $00F8 ; 18
+- D - - - 0x003A8E 02:BA7E: FE 00     .word $00FE ; 19
+- D - - - 0x003A90 02:BA80: 0A 01     .word $010A ; 1A
+- D - - - 0x003A92 02:BA82: 0A 01     .word $010A ; 1B
+- D - - - 0x003A94 02:BA84: 0D 01     .word $010D ; 1C
+- D - - - 0x003A96 02:BA86: 10 01     .word $0110 ; 1D
+- D - - - 0x003A98 02:BA88: 37 01     .word $0137 ; 1E
+- D - - - 0x003A9A 02:BA8A: 3D 01     .word $013D ; 1F
+- D - - - 0x003A9C 02:BA8C: 45 01     .word $0145 ; 20
 
 tbl_BA90:
 ; предположительно количество опыта для набора уровня
