@@ -47,8 +47,6 @@ loc_CEFE:
 					AND #$7F
 					STA $2000
 					STA ram_0020
-					PLA
-					TAY
 					LDA #$08
 					STA ram_0020
 					STA $2000
@@ -59,7 +57,7 @@ loc_CEFE:
 					JSR sub_C4B2_банксвич_PRG_5114
 					LDX #$02
 					JSR sub_C4B9_банксвич_PRG_5115
-					TYA
+					PLA
 					JMP loc_0x00422B
 
 loc_C421:
