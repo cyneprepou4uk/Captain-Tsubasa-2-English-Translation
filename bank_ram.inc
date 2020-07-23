@@ -1724,3 +1724,5 @@ con_катсцена_выход                          = $FF
 .charmap $23, $7F    ; "#"
 .charmap $2F, $3E    ; "/"
 .charmap $40, $7B    ; """
+.charmap $28, $3C    ; "("
+.charmap $29, $3D    ; ")"
