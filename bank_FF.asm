@@ -138,28 +138,28 @@ C - - - - 0x03C4D7 FF:C4C7: 60        RTS
 
 .export sub_0x03C4D8
 sub_0x03C4D8:
-C - - - - 0x03C4D8 FF:C4C8: C9 23     CMP #$23
-C - - - - 0x03C4DA FF:C4CA: B0 27     BCS bra_C4F3_выход
-C - - - - 0x03C4DC FF:C4CC: A8        TAY
-C - - - - 0x03C4DD FF:C4CD: F0 24     BEQ bra_C4F3_выход
-C - - - - 0x03C4DF FF:C4CF: 86 ED     STX ram_00ED
-C - - - - 0x03C4E1 FF:C4D1: A5 24     LDA ram_для_5114
-C - - - - 0x03C4E3 FF:C4D3: 85 EE     STA ram_00EE
-C - - - - 0x03C4E5 FF:C4D5: A5 25     LDA ram_для_5115
-C - - - - 0x03C4E7 FF:C4D7: 85 EF     STA ram_00EF
-C - - - - 0x03C4E9 FF:C4D9: A2 00     LDX #$00
-C - - - - 0x03C4EB FF:C4DB: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
-C - - - - 0x03C4EE FF:C4DE: A2 01     LDX #$01
-C - - - - 0x03C4F0 FF:C4E0: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_5115
-C - - - - 0x03C4F3 FF:C4E3: 98        TYA
-C - - - - 0x03C4F4 FF:C4E4: A6 ED     LDX ram_00ED
-C - - - - 0x03C4F6 FF:C4E6: 20 0F A0  JSR sub_0x002FD2
-C - - - - 0x03C4F9 FF:C4E9: A6 EF     LDX ram_00EF
-C - - - - 0x03C4FB FF:C4EB: 20 B9 C4  JSR sub_C4B9_банксвич_PRG_5115
-C - - - - 0x03C4FE FF:C4EE: A6 EE     LDX ram_00EE
-C - - - - 0x03C500 FF:C4F0: 20 B2 C4  JSR sub_C4B2_банксвич_PRG_5114
+					CMP #$23
+					BCS bra_C4F3_выход
+					TAY
+					BEQ bra_C4F3_выход
+					STX ram_00ED
+					LDA ram_для_5114
+					STA ram_00EE
+					LDA ram_для_5115
+					STA ram_00EF
+					LDX #$00
+					JSR sub_C4B2_банксвич_PRG_5114
+					LDX #$01
+					JSR sub_C4B9_банксвич_PRG_5115
+					TYA
+					LDX ram_00ED
+					JSR sub_0x002FD2
+					LDX ram_00EF
+					JSR sub_C4B9_банксвич_PRG_5115
+					LDX ram_00EE
+					JSR sub_C4B2_банксвич_PRG_5114
 bra_C4F3_выход:
-C - - - - 0x03C503 FF:C4F3: 60        RTS
+					RTS
 
 .export loc_0x03C6CE
 loc_0x03C6CE:
