@@ -1136,13 +1136,13 @@ off_A626_02_карлос_перед_первым_матчем:
     
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $04
-    .text "@The rumors say someone"
+    .text "(The rumors say someone"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "remarkable has joined"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "Sao Paulo.@"
+    .text "Sao Paulo.)"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
@@ -1151,12 +1151,12 @@ off_A626_02_карлос_перед_первым_матчем:
     
     
     .byte con_катсцена_смещение_текста, $04
-    .text "@I guess we'll see how"
+    .text "(I guess we'll see how"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "good you really are"
     .byte con_катсцена_скорость_текста, $08
-    .text "...@"
+    .text "...)"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затемнение_экрана
@@ -1216,14 +1216,14 @@ off_A6B4_03_карлос_после_первого_матча:
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $06
-    .text "@So,"
+    .text "(So,"
     .byte con_катсцена_задержка, $3C
     .text " the rumor"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $07
     .text "really was true"
     .byte con_катсцена_скорость_текста, $08
-    .text "...@"
+    .text "...)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
@@ -1246,7 +1246,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $07
-    .text "@Let's just see"
+    .text "(Let's just see"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $08
     .text "how good you are,"
@@ -1256,7 +1256,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_катсцена_смещение_текста, $08
     .text "Ozora Tsubasa"
     .byte con_катсцена_скорость_текста, $08
-    .text "...@"
+    .text "...)"
     .byte con_катсцена_задержка, $D0
     
     
@@ -2192,23 +2192,30 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     
     
-    .byte con_катсцена_смещение_текста, $03
-    .text "@To this day,"
-    .byte con_катсцена_задержка, $14
-    .text " nobody has"
+    .byte con_катсцена_смещение_текста, $05
+    .text "@The Cyclone is one"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $04
-    .text "managed to replicate the"
+    .byte con_катсцена_смещение_текста, $06
+    .text "technique nobody"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "has ever replicated.@"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte con_катсцена_смещение_текста, $04
-    .text "Cyclone."
-    .byte con_катсцена_задержка, $3C
-    .text " It's only added"
+    .text "@It's only added to the"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $04
-    .text "to the man's legend"
+    .byte con_катсцена_смещение_текста, $05
+    .text "man's legend of being"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "a Super Striker"
     .byte con_катсцена_закрыть_рот
-    .byte con_катсцена_скорость_текста, $08
+    .byte con_катсцена_скорость_текста, $06
     .text "...@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
