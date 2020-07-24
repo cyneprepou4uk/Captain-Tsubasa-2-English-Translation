@@ -92,8 +92,7 @@ off_A020_10_цубаса_и_вакабаяши_перед_матчем:
     .byte con_катсцена_новая_строка
     .byte $DE
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $58    ; <ネ>
@@ -146,8 +145,7 @@ off_A020_10_цубаса_и_вакабаяши_перед_матчем:
 off_A099_11_цубаса_и_вакабаяши_после_матча:
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $34    ; <1>
@@ -301,8 +299,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
 off_A134_12_цубаса_и_мисаки_перед_матчем:
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $3F    ; <•>
@@ -447,8 +444,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_катсцена_новая_строка
     .byte $DD
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $2E    ; <ん>
+    .byte $FA, $2E
     .byte $FB
     .byte $01    ; <あ>
     .byte $3B    ; <8>
@@ -457,8 +453,7 @@ off_A195_13_после_победы_над_японией:
     .byte $00
     .byte $F5
     .byte $04    ; <え>
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
@@ -506,8 +501,7 @@ off_A195_13_после_победы_над_японией:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $11    ; <ち>
+    .byte $FA, $11
     .byte $E1
     .byte $40    ; <「>
     .byte $C3    ; <バ>
@@ -640,8 +634,7 @@ off_A195_13_после_победы_над_японией:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $30    ; <ゃ>
+    .byte $FA, $30
     .byte $E1
     .byte $40    ; <「>
     .byte $20    ; <み>
@@ -922,8 +915,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_катсцена_затереть_текст
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $32
-    .byte $FA
-    .byte $33    ; <0>
+    .byte $FA, $33
     .byte $FB
     .byte $01    ; <あ>
     .byte $26    ; <よ>
@@ -1108,8 +1100,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_катсцена_новая_строка
     .byte $F5
     .byte $FF
-    .byte $FA
-    .byte $34    ; <1>
+    .byte $FA, $34
     .byte con_катсцена_затереть_текст
     .byte $F7
     .byte con_катсцена_номер_звука, $1E
@@ -1154,8 +1145,7 @@ off_A195_13_после_победы_над_японией:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $32    ; <ょ>
+    .byte $FA, $32
     .byte con_катсцена_скорость_текста
     .byte $04    ; <え>
     .byte $E1
@@ -1176,8 +1166,7 @@ off_A195_13_после_победы_над_японией:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $33    ; <0>
+    .byte $FA, $33
     .byte $F5
     .byte $05    ; <お>
     .byte $DC
@@ -1470,8 +1459,7 @@ off_A195_13_после_победы_над_японией:
 off_A5D6_14_после_победы_над_китаем:
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $22    ; <め>
@@ -1821,16 +1809,14 @@ off_A703_15_после_победы_над_кореей:
     .byte con_катсцена_новая_строка
     .byte $DD
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $2E    ; <ん>
+    .byte $FA, $2E
     .byte $FB
     .byte $01    ; <あ>
     .byte $2D    ; <を>
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $65    ; <ユ>
+    .byte $FA, $65
     .byte $F5
     .byte $04    ; <え>
     .byte con_катсцена_скорость_текста
@@ -1864,8 +1850,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $FF
     .byte $13    ; <て>
     .byte $0C    ; <し>
-    .byte $FA
-    .byte $38    ; <5>
+    .byte $FA, $38
     .byte con_катсцена_номер_звука, $43
     .byte con_катсцена_скорость_текста
     .byte $00
@@ -1971,8 +1956,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $DF
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $03    ; <う>
+    .byte $FA, $03
     .byte $FB
     .byte $01    ; <あ>
     .byte $78    ; <?>
@@ -2016,8 +2000,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $21    ; <む>
+    .byte $FA, $21
     .byte $FB
     .byte $02    ; <い>
     .byte $73    ; <ヮ>
@@ -2031,8 +2014,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $DB
     .byte $F5
     .byte $FF
-    .byte $FA
-    .byte $5A    ; <ハ>
+    .byte $FA, $5A
     .byte $FB
     .byte $01    ; <あ>
     .byte $01    ; <あ>
@@ -2040,16 +2022,14 @@ off_A703_15_после_победы_над_кореей:
     .byte $F3
     .byte $00
     .byte con_катсцена_номер_звука, $03
-    .byte $FA
-    .byte $20    ; <み>
+    .byte $FA, $20
     .byte $F7
     .byte con_катсцена_номер_звука, $04
     .byte con_катсцена_задержка
     .byte $35    ; <2>
     .byte $F7
     .byte con_катсцена_номер_звука, $05
-    .byte $FA
-    .byte $56    ; <ニ>
+    .byte $FA, $56
     .byte $FB
     .byte $03    ; <う>
     .byte $C0    ; <ヅ>
@@ -2057,8 +2037,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $80
     .byte $F7
     .byte con_катсцена_номер_звука, $07
-    .byte $FA
-    .byte $39    ; <6>
+    .byte $FA, $39
     .byte $FB
     .byte $01    ; <あ>
     .byte $85    ; <E>
@@ -2087,8 +2066,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $DE
     .byte $EE
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $3A    ; <7>
+    .byte $FA, $3A
     .byte $FB
     .byte $01    ; <あ>
     .byte $8B    ; <K>
@@ -2327,8 +2305,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_катсцена_новая_строка
     .byte $DB
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $09    ; <け>
+    .byte $FA, $09
     .byte $FB
     .byte $01    ; <あ>
     .byte $43    ; <ウ>
@@ -2362,8 +2339,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $39    ; <6>
+    .byte $FA, $39
     .byte $FB
     .byte $01    ; <あ>
     .byte $85    ; <E>
@@ -2404,8 +2380,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $DE
     .byte $EE
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $3A    ; <7>
+    .byte $FA, $3A
     .byte $FB
     .byte $01    ; <あ>
     .byte $8B    ; <K>
@@ -2570,8 +2545,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $EE
     .byte $EC
     .byte $FF
-    .byte $FA
-    .byte $05    ; <お>
+    .byte $FA, $05
     .byte $FB
     .byte $01    ; <あ>
     .byte $79    ; <!>
@@ -2597,8 +2571,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $21    ; <む>
+    .byte $FA, $21
     .byte $FB
     .byte $02    ; <い>
     .byte $73    ; <ヮ>
@@ -2613,8 +2586,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_катсцена_номер_звука, $10
     .byte $F5
     .byte $FF
-    .byte $FA
-    .byte $5A    ; <ハ>
+    .byte $FA, $5A
     .byte $FB
     .byte $01    ; <あ>
     .byte $00
@@ -2624,8 +2596,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $2D    ; <を>
     .byte $04    ; <え>
     .byte con_катсцена_номер_звука, $06
-    .byte $FA
-    .byte $20    ; <み>
+    .byte $FA, $20
     .byte $F7
     .byte con_катсцена_номер_звука, $07
     .byte con_катсцена_задержка
@@ -2635,8 +2606,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $19    ; <の>
     .byte $F7
     .byte con_катсцена_номер_звука, $08
-    .byte $FA
-    .byte $56    ; <ニ>
+    .byte $FA, $56
     .byte $FB
     .byte $03    ; <う>
     .byte $C0    ; <ヅ>
@@ -2644,8 +2614,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $80
     .byte $F7
     .byte con_катсцена_номер_звука, $07
-    .byte $FA
-    .byte $39    ; <6>
+    .byte $FA, $39
     .byte $FB
     .byte $01    ; <あ>
     .byte $86    ; <F>
@@ -2676,8 +2645,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $DE
     .byte $EE
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $3A    ; <7>
+    .byte $FA, $3A
     .byte $FB
     .byte $01    ; <あ>
     .byte $8B    ; <K>
@@ -2785,8 +2753,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $DC
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $13
-    .byte $FA
-    .byte $12    ; <つ>
+    .byte $FA, $12
     .byte $FB
     .byte $01    ; <あ>
     .byte $46    ; <カ>
@@ -2907,8 +2874,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_катсцена_номер_звука, $01
     .byte $DB
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $50    ; <タ>
+    .byte $FA, $50
     .byte $FB
     .byte $01    ; <あ>
     .byte $6C    ; <ワ>
@@ -2917,8 +2883,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $00
     .byte con_катсцена_номер_звука, $52
     .byte $DE
-    .byte $FA
-    .byte $13    ; <て>
+    .byte $FA, $13
     .byte $FB
     .byte $01    ; <あ>
     .byte $3D    ; <+>
@@ -2944,8 +2909,7 @@ off_A703_15_после_победы_над_кореей:
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
     .byte $DE
-    .byte $FA
-    .byte $12    ; <つ>
+    .byte $FA, $12
     .byte $F4
     .byte $05    ; <お>
     .byte con_катсцена_затереть_текст
@@ -3124,8 +3088,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_катсцена_задержка
     .byte $B4    ; <ガ>
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $50    ; <タ>
+    .byte $FA, $50
     .byte $FB
     .byte $01    ; <あ>
     .byte $6C    ; <ワ>
@@ -3810,8 +3773,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte $E8, $01
     .byte $DE
     .byte con_катсцена_задний_фон, $12
-    .byte $FA
-    .byte $13    ; <て>
+    .byte $FA, $13
     .byte $FB
     .byte $01    ; <あ>
     .byte $16    ; <に>
@@ -3992,8 +3954,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $2C    ; <わ>
+    .byte $FA, $2C
     .byte $FB
     .byte $01    ; <あ>
     .byte $2A    ; <れ>
@@ -4207,8 +4168,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte $0B    ; <さ>
     .byte $7A    ; <、>
     .byte $DB
-    .byte $FA
-    .byte $50    ; <タ>
+    .byte $FA, $50
     .byte $FB
     .byte $01    ; <あ>
     .byte $6C    ; <ワ>
@@ -4348,8 +4308,7 @@ off_AF35_17_цубаса_читает_письмо:
 off_B159_18_мисаки_и_пьер_перед_матчем:
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $5C    ; <フ>
@@ -4464,8 +4423,7 @@ off_B159_18_мисаки_и_пьер_перед_матчем:
 off_B1CE_19_цубаса_после_победы_над_францией:
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte con_катсцена_номер_звука, $69
@@ -4590,8 +4548,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $23    ; <も>
+    .byte $FA, $23
     .byte $FB
     .byte $01    ; <あ>
     .byte $AE    ; <ど>
@@ -4610,16 +4567,14 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_катсцена_новая_строка
     .byte $DD
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $66    ; <ヨ>
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $FA
-    .byte $11    ; <ち>
+    .byte $FA, $11
     .byte $F5
     .byte $04    ; <え>
     .byte $DE
@@ -4876,8 +4831,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $23    ; <も>
+    .byte $FA, $23
     .byte $FB
     .byte $01    ; <あ>
     .byte $AD    ; <で>
@@ -5515,8 +5469,7 @@ off_B4F1_1B_цубаса_планирует_циклон_2:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $23    ; <も>
+    .byte $FA, $23
     .byte $FB
     .byte $01    ; <あ>
     .byte $AE    ; <ど>
@@ -6296,8 +6249,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte $43    ; <ウ>
     .byte con_катсцена_номер_звука, $30
     .byte con_катсцена_затемнение_экрана
-    .byte $FA
-    .byte $48    ; <ク>
+    .byte $FA, $48
     .byte $FB
     .byte $01    ; <あ>
     .byte $35    ; <2>
@@ -6331,8 +6283,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_катсцена_новая_строка
     .byte $DE
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $53    ; <テ>
+    .byte $FA, $53
     .byte $FB
     .byte $01    ; <あ>
     .byte $AB    ; <ぢ>
@@ -6421,8 +6372,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_катсцена_номер_звука, $30
     .byte $DB
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $05    ; <お>
+    .byte $FA, $05
     .byte $FB
     .byte $01    ; <あ>
     .byte $A4    ; <ご>
@@ -6449,8 +6399,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_катсцена_новая_строка
     .byte $DB
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $21    ; <む>
+    .byte $FA, $21
     .byte $FB
     .byte $02    ; <い>
     .byte $73    ; <ヮ>
@@ -6465,8 +6414,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_катсцена_номер_звука, $10
     .byte $F5
     .byte $FF
-    .byte $FA
-    .byte $02    ; <い>
+    .byte $FA, $02
     .byte $FB
     .byte $01    ; <あ>
     .byte $5B    ; <ヒ>
@@ -6483,8 +6431,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_катсцена_новая_строка
     .byte $DA
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $09    ; <け>
+    .byte $FA, $09
     .byte $FB
     .byte $01    ; <あ>
     .byte $43    ; <ウ>
@@ -6516,8 +6463,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_катсцена_номер_звука, $24
     .byte $DE
     .byte $DF
-    .byte $FA
-    .byte $3E    ; <Jr>
+    .byte $FA, $3E
     .byte $FB
     .byte $02    ; <い>
     .byte $A7    ; <ず>
@@ -6525,8 +6471,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte $F8
     .byte $12    ; <つ>
     .byte $F7
-    .byte $FA
-    .byte $41    ; <ア>
+    .byte $FA, $41
     .byte $F8
     .byte $11    ; <ち>
     .byte $F3
@@ -6582,8 +6527,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte $2A    ; <れ>
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $23    ; <も>
+    .byte $FA, $23
     .byte $FB
     .byte $01    ; <あ>
     .byte $AD    ; <で>
@@ -6670,8 +6614,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $06    ; <か>
@@ -7078,8 +7021,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_катсцена_новая_строка
     .byte $DB
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $59    ; <ノ>
+    .byte $FA, $59
     .byte $FB
     .byte $01    ; <あ>
     .byte $83    ; <C>
@@ -7117,8 +7059,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
     .byte $DC
-    .byte $FA
-    .byte $40    ; <「>
+    .byte $FA, $40
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
@@ -7240,8 +7181,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_катсцена_новая_строка
     .byte $DE
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $5D    ; <ヘ>
@@ -7268,8 +7208,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte $F5
     .byte $FF
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $02    ; <い>
+    .byte $FA, $02
     .byte $FB
     .byte $01    ; <あ>
     .byte $32    ; <ょ>
@@ -7459,8 +7398,7 @@ off_BA74_1D_после_победы_над_аргентиной:
 off_BDD6_1E_цубаса_и_шнайдер_перед_матчем:
     .byte $E8, $01
     .byte con_катсцена_задний_фон, $11
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $FB
     .byte $01    ; <あ>
     .byte $21    ; <む>
@@ -7600,8 +7538,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_катсцена_новая_строка
     .byte $DD
     .byte con_катсцена_затереть_текст
-    .byte $FA
-    .byte $11    ; <ち>
+    .byte $FA, $11
     .byte $FB
     .byte $01    ; <あ>
     .byte $16    ; <に>
@@ -7701,8 +7638,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte $DE
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $2B
-    .byte $FA
-    .byte $11    ; <ち>
+    .byte $FA, $11
     .byte con_катсцена_номер_звука, $69
     .byte con_катсцена_осветление_экрана
     .byte $F5
@@ -7789,8 +7725,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte $FF
     .byte $00
     .byte $0F    ; <そ>
-    .byte $FA
-    .byte $10    ; <た>
+    .byte $FA, $10
     .byte $EF
     .byte $09    ; <け>
     .byte $2F    ; <っ>
@@ -7901,8 +7836,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_катсцена_мячик
     .byte $F5
     .byte $FF
-    .byte $FA
-    .byte $43    ; <ウ>
+    .byte $FA, $43
     .byte $FB
     .byte $01    ; <あ>
     .byte $B1    ; <ぶ>
