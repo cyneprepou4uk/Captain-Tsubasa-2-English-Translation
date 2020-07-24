@@ -30,6 +30,7 @@ files = {
     "bank_24.asm",
     "bank_25.asm",
     "bank_26.asm",
+    "bank_27.asm",
     "bank_FF.asm",
     "bank_ram.inc",
 }
