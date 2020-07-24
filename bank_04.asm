@@ -328,8 +328,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte $FB
     .byte $01    ; <あ>
     .byte $A1    ; <ぎ>
-    .byte $F8
-    .byte $0A    ; <こ>
+    .byte $F8, $0A
     .byte con_катсцена_осветление_экрана
     .byte $F5
     .byte $00
@@ -4919,8 +4918,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $AF    ; <ば>
     .byte $0B    ; <さ>
     .byte $3F    ; <•>
-    .byte $F8
-    .byte $02    ; <い>
+    .byte $F8, $02
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte con_катсцена_новая_строка
@@ -4991,8 +4989,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $E1
     .byte $40    ; <「>
     .byte $5C    ; <フ>
-    .byte $F8
-    .byte $02    ; <い>
+    .byte $F8, $02
     .byte $6F    ; <ッ>
     .byte $3F    ; <•>
     .byte $3F    ; <•>
