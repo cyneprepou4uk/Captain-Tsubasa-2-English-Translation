@@ -71,7 +71,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $00
     .byte $EC
     .byte $05    ; <お>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $43    ; <ウ>
     .byte $FB
     .byte $01    ; <あ>
@@ -179,7 +179,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $00
     .byte $DD
     .byte $EA
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $02    ; <い>
     .byte $FB
     .byte $01    ; <あ>
@@ -296,7 +296,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $DF
     .byte $EA
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $29    ; <る>
     .byte $FB
     .byte $01    ; <あ>
@@ -349,7 +349,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
 off_A1A1_21_коимбра_вступает_в_игру:
     .byte $E8
     .byte $01    ; <あ>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $11    ; <ち>
     .byte $FB
     .byte $01    ; <あ>
@@ -425,7 +425,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $DE
     .byte $EA
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $10    ; <た>
     .byte $FB
     .byte $01    ; <あ>
@@ -477,7 +477,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $DE
     .byte $EA
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $11    ; <ち>
     .byte $FB
     .byte $01    ; <あ>
@@ -710,7 +710,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $EA
     .byte $DC
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $63    ; <モ>
     .byte $FB
     .byte $01    ; <あ>
@@ -908,7 +908,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $DF
     .byte $F4
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $11    ; <ち>
     .byte $FA
     .byte $10    ; <た>
@@ -1009,7 +1009,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
 off_A43B_22_финальная_катсцена:
     .byte $E8
     .byte $01    ; <あ>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $0D    ; <す>
     .byte $FB
     .byte $01    ; <あ>
@@ -1767,7 +1767,7 @@ off_A43B_22_финальная_катсцена:
     .byte $DE
     .byte con_катсцена_номер_звука, $01
     .byte $DC
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $1A    ; <は>
     .byte $FB
     .byte $01    ; <あ>
@@ -2509,7 +2509,7 @@ off_A43B_22_финальная_катсцена:
     .byte $00
     .byte $EC
     .byte $04    ; <え>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $45    ; <オ>
     .byte $FB
     .byte $01    ; <あ>
@@ -2593,7 +2593,7 @@ off_A43B_22_финальная_катсцена:
     .byte $EE
     .byte $EC
     .byte $FF
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $11    ; <ち>
     .byte $FA
     .byte $10    ; <た>
@@ -2822,7 +2822,7 @@ off_A43B_22_финальная_катсцена:
     .byte $EA
     .byte $DC
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $11    ; <ち>
     .byte $FA
     .byte $10    ; <た>
@@ -3361,7 +3361,7 @@ off_A43B_22_финальная_катсцена:
     .byte $EA
     .byte $DC
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $33    ; <0>
     .byte $FB
     .byte $01    ; <あ>
@@ -3483,7 +3483,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_катсцена_затереть_текст
     .byte $F4
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $47    ; <キ>
     .byte $FA
     .byte $4C    ; <シ>
@@ -3604,7 +3604,7 @@ off_A43B_22_финальная_катсцена:
     .byte $DF
     .byte $EA
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $47    ; <キ>
     .byte $FB
     .byte $01    ; <あ>
@@ -3684,7 +3684,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte con_катсцена_затереть_текст
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $4F    ; <ソ>
     .byte $FA
     .byte $52    ; <ツ>
@@ -4191,7 +4191,7 @@ off_A43B_22_финальная_катсцена:
     .byte $14    ; <と>
     .byte $DE
     .byte $EA
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $4E    ; <セ>
     .byte $FB
     .byte $02    ; <い>
@@ -6479,7 +6479,7 @@ off_B913_39_тренер_16:
     .byte $7B    ; <。>
     .byte $EB
     .byte $EA
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $60    ; <ミ>
     .byte $FB
     .byte $01    ; <あ>
@@ -7801,7 +7801,7 @@ off_BDAD_43_тренер_20:
 
 
 off_BE84_44_тренер_роберто:
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $5F    ; <マ>
     .byte $FB
     .byte $01    ; <あ>
@@ -7831,7 +7831,7 @@ off_BE89:
 
 
 off_BE9E_45_тренер_катагири:
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $5F    ; <マ>
     .byte $FB
     .byte $01    ; <あ>
@@ -7866,7 +7866,7 @@ off_BEA3:
 
 off_BEBC_46_тренер_миками:
 off_BEBC:
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $5F    ; <マ>
     .byte $FB
     .byte $01    ; <あ>
@@ -7914,7 +7914,7 @@ off_BEDB_47_первый_перерыв_йоко:
 off_BEE1_48_перерыв_йоко:
     .byte $F1
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $61    ; <ム>
     .byte $FB
     .byte $01    ; <あ>
@@ -7936,7 +7936,7 @@ off_BEEB_49_первый_перерыв_санае:
 off_BEF1_4A_перерыв_санае:
     .byte $F1
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $61    ; <ム>
     .byte $FB
     .byte $01    ; <あ>
@@ -7955,7 +7955,7 @@ off_BEFE:
     .byte $01    ; <あ>
     .byte $F1
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $61    ; <ム>
     .byte $E9
     .byte $F2
@@ -8000,7 +8000,7 @@ off_BEFE:
 off_BF2A_4C_перерыв_ишизаки:
     .byte $F1
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $61    ; <ム>
     .byte $FB
     .byte $01    ; <あ>
@@ -8069,7 +8069,7 @@ off_BF60_51_пароль_ишизаки:
 off_BF63:
     .byte $F1
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $5F    ; <マ>
     .byte $F3
     .byte $00
@@ -8146,7 +8146,7 @@ off_BF9F:
     .byte $01    ; <あ>
     .byte $F1
     .byte $02    ; <い>
-    .byte $F9
+    .byte con_катсцена_задний_фон
     .byte $5F    ; <マ>
     .byte $F3
     .byte $00
