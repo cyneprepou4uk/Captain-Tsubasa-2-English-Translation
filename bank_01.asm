@@ -1682,22 +1682,22 @@ C - - - - 0x000AC3 01:8AB3: 60        RTS
 
 tbl_8AEE:
 ; выбор банка для чтения текста в зависимости от номера катсцены
-- D - - - 0x000AFE 01:8AEE: 00        .byte $00
-
-- D - - - 0x000AFF 01:8AEF: 03        .byte $9F
-- D - - - 0x000B00 01:8AF0: 10        .byte $07
-
-- D - - - 0x000AFF 01:8AEF: 03        .byte $83
-- D - - - 0x000B00 01:8AF0: 10        .byte $10
-
-- D - - - 0x000B01 01:8AF1: 04        .byte $84
-- D - - - 0x000B02 01:8AF2: 20        .byte $20
-
-- D - - - 0x000B03 01:8AF3: 05        .byte $85
-- D - - - 0x000B04 01:8AF4: 60        .byte $60
-
-- D - - - 0x000B05 01:8AF5: 06        .byte $86
-- D - - - 0x000B06 01:8AF6: FF        .byte $FF
+    .byte $00
+    
+    .byte $9F
+    .byte $07
+    
+    .byte $83
+    .byte $10
+    
+    .byte $84
+    .byte $20
+    
+    .byte $85
+    .byte $60
+    
+    .byte $86
+    .byte $FF
 
 
 
