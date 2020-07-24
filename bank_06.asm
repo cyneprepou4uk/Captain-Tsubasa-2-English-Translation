@@ -77,11 +77,9 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $01    ; <あ>
     .byte $B2    ; <べ>
     .byte $DE
-    .byte $ED
-    .byte $69    ; <ル>
+    .byte con_катсцена_номер_звука, $69
     .byte $E9
-    .byte $ED
-    .byte $53    ; <テ>
+    .byte con_катсцена_номер_звука, $53
     .byte $0B    ; <さ>
     .byte $73    ; <ヮ>
     .byte $00
@@ -129,8 +127,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $79    ; <!>
     .byte $FC
     .byte $DE
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $FD
     .byte $EE
     .byte $EC
@@ -143,8 +140,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
@@ -156,8 +152,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte $FC
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DD
     .byte $FB
     .byte $01    ; <あ>
@@ -190,8 +185,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $01    ; <あ>
     .byte $26    ; <よ>
     .byte $E9
-    .byte $ED
-    .byte $55    ; <ナ>
+    .byte con_катсцена_номер_звука, $55
     .byte $F2
     .byte $08    ; <く>
     .byte $DC
@@ -309,8 +303,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $54    ; <ト>
     .byte $F3
     .byte $00
-    .byte $ED
-    .byte $5F    ; <マ>
+    .byte con_катсцена_номер_звука, $5F
     .byte $DD
     .byte $FA
     .byte $23    ; <も>
@@ -322,8 +315,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $00
     .byte $F5
     .byte $08    ; <く>
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $F2
     .byte $00
     .byte $E1
@@ -333,8 +325,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte $FC
-    .byte $ED
-    .byte $6E    ; <ン>
+    .byte con_катсцена_номер_звука, $6E
     .byte $F6
     .byte $1E    ; <ほ>
     .byte $FD
@@ -346,11 +337,9 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $ED
-    .byte $6E    ; <ン>
+    .byte con_катсцена_номер_звука, $6E
     .byte $DC
-    .byte $ED
-    .byte $6C    ; <ワ>
+    .byte con_катсцена_номер_звука, $6C
     .byte $DE
     .byte $EA
     .byte con_катсцена_выход
@@ -365,12 +354,10 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $FB
     .byte $01    ; <あ>
     .byte $3E    ; <Jr>
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte $E9
-    .byte $ED
-    .byte $46    ; <カ>
+    .byte con_катсцена_номер_звука, $46
     .byte $DD
     .byte $E1
     .byte $40    ; <「>
@@ -503,8 +490,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $2E    ; <ん>
     .byte $AA    ; <だ>
     .byte $7A    ; <、>
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DB
     .byte $C5    ; <ブ>
     .byte $67    ; <ラ>
@@ -516,8 +502,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte $FC
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte $06    ; <か>
     .byte $2E    ; <ん>
@@ -539,8 +524,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $00
     .byte $F5
     .byte $0C    ; <し>
-    .byte $ED
-    .byte $30    ; <ゃ>
+    .byte con_катсцена_номер_звука, $30
     .byte $F2
     .byte $02    ; <い>
     .byte $E1
@@ -578,8 +562,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $10    ; <た>
     .byte $F4
     .byte $04    ; <え>
-    .byte $ED
-    .byte $54    ; <ト>
+    .byte con_катсцена_номер_звука, $54
     .byte $F2
     .byte $08    ; <く>
     .byte $E1
@@ -656,8 +639,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $FB
     .byte $01    ; <あ>
     .byte $5F    ; <マ>
-    .byte $ED
-    .byte $15    ; <な>
+    .byte con_катсцена_номер_звука, $15
     .byte $DA
     .byte $EF
     .byte $F4
@@ -687,8 +669,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $FC
     .byte $F5
     .byte $04    ; <え>
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DE
     .byte $F5
     .byte $FF
@@ -931,8 +912,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $11    ; <ち>
     .byte $FA
     .byte $10    ; <た>
-    .byte $ED
-    .byte $69    ; <ル>
+    .byte con_катсцена_номер_звука, $69
     .byte $F4
     .byte $03    ; <う>
     .byte $FB
@@ -1019,8 +999,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $3F    ; <•>
     .byte $FC
     .byte $DE
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DE
     .byte $EA
     .byte con_катсцена_выход
@@ -1037,8 +1016,7 @@ off_A43B_22_финальная_катсцена:
     .byte $43    ; <ウ>
     .byte $DE
     .byte $E9
-    .byte $ED
-    .byte $4F    ; <ソ>
+    .byte con_катсцена_номер_звука, $4F
     .byte $DC
     .byte $E1
     .byte $40    ; <「>
@@ -1125,8 +1103,7 @@ off_A43B_22_финальная_катсцена:
     .byte $00
     .byte $FA
     .byte $11    ; <ち>
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DD
     .byte $F1
     .byte $01    ; <あ>
@@ -1190,8 +1167,7 @@ off_A43B_22_финальная_катсцена:
     .byte $10    ; <た>
     .byte $79    ; <!>
     .byte $EB
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $EE
     .byte $EC
     .byte $FF
@@ -1450,8 +1426,7 @@ off_A43B_22_финальная_катсцена:
     .byte $01    ; <あ>
     .byte $43    ; <ウ>
     .byte $F7
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $FA
     .byte $10    ; <た>
     .byte $F1
@@ -1475,8 +1450,7 @@ off_A43B_22_финальная_катсцена:
     .byte $2F    ; <っ>
     .byte $13    ; <て>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $06    ; <か>
     .byte $11    ; <ち>
     .byte $04    ; <え>
@@ -1493,8 +1467,7 @@ off_A43B_22_финальная_катсцена:
     .byte $0D    ; <す>
     .byte $7B    ; <。>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DB
     .byte $05    ; <お>
     .byte $22    ; <め>
@@ -1512,8 +1485,7 @@ off_A43B_22_финальная_катсцена:
     .byte $4D    ; <ス>
     .byte $79    ; <!>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DB
     .byte $EC
     .byte $04    ; <え>
@@ -1781,34 +1753,28 @@ off_A43B_22_финальная_катсцена:
     .byte $F7
     .byte $F3
     .byte $C2    ; <ド>
-    .byte $ED
-    .byte $25    ; <ゆ>
+    .byte con_катсцена_номер_звука, $25
     .byte $F5
     .byte $08    ; <く>
     .byte $DA
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $F7
     .byte $F5
     .byte $04    ; <え>
     .byte $DF
     .byte $EA
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DE
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DC
     .byte $F9
     .byte $1A    ; <は>
     .byte $FB
     .byte $01    ; <あ>
     .byte $59    ; <ノ>
-    .byte $ED
-    .byte $69    ; <ル>
+    .byte con_катсцена_номер_звука, $69
     .byte $E9
-    .byte $ED
-    .byte $51    ; <チ>
+    .byte con_катсцена_номер_звука, $51
     .byte $F5
     .byte $04    ; <え>
     .byte $DE
@@ -2535,8 +2501,7 @@ off_A43B_22_финальная_катсцена:
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DE
     .byte $EA
     .byte $FD
@@ -2588,8 +2553,7 @@ off_A43B_22_финальная_катсцена:
     .byte $10    ; <た>
     .byte $79    ; <!>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DB
     .byte $05    ; <お>
     .byte $22    ; <め>
@@ -2607,8 +2571,7 @@ off_A43B_22_финальная_катсцена:
     .byte $6C    ; <ワ>
     .byte $6E    ; <ン>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $A8    ; <ぜ>
     .byte $2E    ; <ん>
     .byte $16    ; <に>
@@ -2622,11 +2585,9 @@ off_A43B_22_финальная_катсцена:
     .byte $FC
     .byte $DF
     .byte $EA
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DE
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DC
     .byte $FD
     .byte $EE
@@ -2641,8 +2602,7 @@ off_A43B_22_финальная_катсцена:
     .byte $42    ; <イ>
     .byte $F3
     .byte $00
-    .byte $ED
-    .byte $47    ; <キ>
+    .byte con_катсцена_номер_звука, $47
     .byte $F5
     .byte $04    ; <え>
     .byte $EF
@@ -2869,8 +2829,7 @@ off_A43B_22_финальная_катсцена:
     .byte $FB
     .byte $01    ; <あ>
     .byte $42    ; <イ>
-    .byte $ED
-    .byte $69    ; <ル>
+    .byte con_катсцена_номер_звука, $69
     .byte $E9
     .byte $F5
     .byte $04    ; <え>
@@ -2967,8 +2926,7 @@ off_A43B_22_финальная_катсцена:
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte $FC
-    .byte $ED
-    .byte $62    ; <メ>
+    .byte con_катсцена_номер_звука, $62
     .byte $DE
     .byte $FD
     .byte $FB
@@ -3053,15 +3011,12 @@ off_A43B_22_финальная_катсцена:
     .byte $3F    ; <•>
     .byte $FC
     .byte $EA
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DE
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte $FD
-    .byte $ED
-    .byte $48    ; <ク>
+    .byte con_катсцена_номер_звука, $48
     .byte $DC
     .byte $F3
     .byte $00
@@ -3620,17 +3575,13 @@ off_A43B_22_финальная_катсцена:
     .byte $0C    ; <し>
     .byte $F8
     .byte $15    ; <な>
-    .byte $ED
-    .byte $0E    ; <せ>
+    .byte con_катсцена_номер_звука, $0E
     .byte $DA
-    .byte $ED
-    .byte $0E    ; <せ>
+    .byte con_катсцена_номер_звука, $0E
     .byte $DA
-    .byte $ED
-    .byte $0E    ; <せ>
+    .byte con_катсцена_номер_звука, $0E
     .byte $DA
-    .byte $ED
-    .byte $0E    ; <せ>
+    .byte con_катсцена_номер_звука, $0E
     .byte $DA
     .byte $F8
     .byte $15    ; <な>
@@ -3649,8 +3600,7 @@ off_A43B_22_финальная_катсцена:
     .byte $FF
     .byte $25    ; <ゆ>
     .byte $43    ; <ウ>
-    .byte $ED
-    .byte $30    ; <ゃ>
+    .byte con_катсцена_номер_звука, $30
     .byte $DF
     .byte $EA
     .byte $FD
@@ -3729,11 +3679,9 @@ off_A43B_22_финальная_катсцена:
     .byte $F6
     .byte $B4    ; <ガ>
     .byte $EA
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DE
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte $FD
     .byte $F9
@@ -3743,8 +3691,7 @@ off_A43B_22_финальная_катсцена:
     .byte $FB
     .byte $01    ; <あ>
     .byte $66    ; <ヨ>
-    .byte $ED
-    .byte $55    ; <ナ>
+    .byte con_катсцена_номер_звука, $55
     .byte $DE
     .byte $E9
     .byte $DD
@@ -3857,11 +3804,9 @@ off_A43B_22_финальная_катсцена:
     .byte $00
     .byte $F8
     .byte $02    ; <い>
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $DE
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $DE
     .byte $FA
     .byte $02    ; <い>
@@ -3884,8 +3829,7 @@ off_A43B_22_финальная_катсцена:
     .byte $79    ; <!>
     .byte $FC
     .byte $DE
-    .byte $ED
-    .byte $50    ; <タ>
+    .byte con_катсцена_номер_звука, $50
     .byte $DD
     .byte $F4
     .byte $05    ; <お>
@@ -4058,8 +4002,7 @@ off_A43B_22_финальная_катсцена:
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte $DC
-    .byte $ED
-    .byte $19    ; <の>
+    .byte con_катсцена_номер_звука, $19
     .byte $23    ; <も>
     .byte $0C    ; <し>
     .byte $23    ; <も>
@@ -4264,8 +4207,7 @@ off_A43B_22_финальная_катсцена:
     .byte $06    ; <か>
     .byte $F8
     .byte $16    ; <に>
-    .byte $ED
-    .byte $6A    ; <レ>
+    .byte con_катсцена_номер_звука, $6A
     .byte $F8
     .byte $01    ; <あ>
     .byte $04    ; <え>
@@ -4388,8 +4330,7 @@ off_A43B_22_финальная_катсцена:
     .byte $F8
     .byte $05    ; <お>
     .byte $DD
-    .byte $ED
-    .byte $59    ; <ノ>
+    .byte con_катсцена_номер_звука, $59
     .byte $F8
     .byte $0F    ; <そ>
     .byte $DE
@@ -8209,8 +8150,7 @@ off_BF9F:
     .byte $5F    ; <マ>
     .byte $F3
     .byte $00
-    .byte $ED
-    .byte $6F    ; <ッ>
+    .byte con_катсцена_номер_звука, $6F
     .byte $F2
     .byte $02    ; <い>
     .byte $EF
@@ -8266,8 +8206,7 @@ off_BFCE_58_япония_перед_матчем:
     .byte $01    ; <あ>
     .byte $0E    ; <せ>
 off_BFD5:
-    .byte $ED
-    .byte $31    ; <ゅ>
+    .byte con_катсцена_номер_звука, $31
     .byte $F7
     .byte $F3
     .byte $00
@@ -8293,7 +8232,6 @@ off_BFD5:
     .byte $79    ; <!>
     .byte $FC
     .byte $DA
-    .byte $ED
-    .byte $01    ; <あ>
+    .byte con_катсцена_номер_звука, $01
     .byte $EA
     .byte con_катсцена_выход
