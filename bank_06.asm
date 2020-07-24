@@ -353,7 +353,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $6C    ; <ワ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -1023,7 +1023,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $31    ; <ゅ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -4405,7 +4405,7 @@ off_A43B_22_финальная_катсцена:
     .byte $FC
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -7957,7 +7957,7 @@ off_BED6:
     .byte $01    ; <あ>
     .byte $F3
     .byte $00
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -8296,4 +8296,4 @@ off_BFD5:
     .byte $ED
     .byte $01    ; <あ>
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход

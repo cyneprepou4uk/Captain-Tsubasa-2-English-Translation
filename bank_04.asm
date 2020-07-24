@@ -804,7 +804,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte $31    ; <ゅ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -933,7 +933,7 @@ off_AE6D_07_цубаса_и_карлос_перед_матчем:
     .byte $F5
     .byte $FF
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -2027,7 +2027,7 @@ off_B1F1_09_цубаса_победил_карлоса_часть_2:
     .byte $DE
     .byte $ED
     .byte $01    ; <あ>
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -2230,7 +2230,7 @@ off_B327_0A_мисуги_во_втором_тайме:
     .byte $31    ; <ゅ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -2514,7 +2514,7 @@ off_B3EE_0B_мисуги_после_матча:
     .byte $31    ; <ゅ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -2656,7 +2656,7 @@ off_B506_0C_мацуяма_перед_матчем:
     .byte $31    ; <ゅ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -2972,7 +2972,7 @@ off_B590_0D_мацуяма_после_матча:
     .byte $31    ; <ゅ>
     .byte $DE
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -3081,7 +3081,7 @@ off_B6C8_0E_мисаки_и_хюга_перед_матчем:
     .byte $F5
     .byte $FF
     .byte $EA
-    .byte $FF
+    .byte con_катсцена_выход
 
 
 
@@ -5340,4 +5340,4 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $DE
     .byte $ED
     .byte $01    ; <あ>
-    .byte $FF
+    .byte con_катсцена_выход
