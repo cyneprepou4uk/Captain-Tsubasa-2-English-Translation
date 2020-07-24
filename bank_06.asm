@@ -2984,10 +2984,7 @@ off_A43B_22_финальная_катсцена:
     .byte $F5, $FF
     .byte con_катсцена_затереть_текст
     .byte $FA, $46
-    .byte $FB
-    .byte $02    ; <い>
-    .byte $90    ; <U>
-    .byte $9D
+    .byte $FB, $02, $90, $9D
     .byte $F7
     .byte $F3, $00
     .byte $FA, $4C
@@ -3767,21 +3764,14 @@ off_A43B_22_финальная_катсцена:
     .byte $DC
     .byte con_катсцена_затереть_текст
     .byte $FA, $4D
-    .byte $FB
-    .byte $03    ; <う>
-    .byte $B9    ; <ザ>
-    .byte $BD    ; <ゾ>
-    .byte $B0    ; <び>
+    .byte $FB, $03, $B9, $BD, $B0
     .byte $F7
     .byte $F3, $00
     .byte $F8, $14
     .byte $DE
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_задний_фон, $4E
-    .byte $FB
-    .byte $02    ; <い>
-    .byte $BD    ; <ゾ>
-    .byte $04    ; <え>
+    .byte $FB, $02, $BD, $04
     .byte $F3, $00
     .byte $F8, $05
     .byte $DB
