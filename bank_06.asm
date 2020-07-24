@@ -1166,7 +1166,7 @@ off_A43B_22_финальная_катсцена:
     .byte $0C    ; <し>
     .byte $10    ; <た>
     .byte $79    ; <!>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_номер_звука, $62
     .byte $EE
     .byte $EC
@@ -1495,7 +1495,7 @@ off_A43B_22_финальная_катсцена:
     .byte $7C    ; <~>
     .byte $79    ; <!>
     .byte $79    ; <!>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $EE
     .byte $EC
     .byte $FF
@@ -1993,7 +1993,7 @@ off_A43B_22_финальная_катсцена:
     .byte $2B    ; <ろ>
     .byte $03    ; <う>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $4B    ; <サ>
@@ -2044,7 +2044,7 @@ off_A43B_22_финальная_катсцена:
     .byte $54    ; <ト>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $0F    ; <そ>
@@ -2090,7 +2090,7 @@ off_A43B_22_финальная_катсцена:
     .byte $03    ; <う>
     .byte $06    ; <か>
     .byte $78    ; <?>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $05    ; <お>
@@ -2148,7 +2148,7 @@ off_A43B_22_финальная_катсцена:
     .byte $27    ; <ら>
     .byte $15    ; <な>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $66    ; <ヨ>
@@ -4405,7 +4405,7 @@ off_B16D_23_тренер_00:
     .byte $12    ; <つ>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $0F    ; <そ>
@@ -4465,7 +4465,7 @@ off_B16D_23_тренер_00:
     .byte $04    ; <え>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -4551,7 +4551,7 @@ off_B1E3_24_тренер_01:
     .byte $29    ; <る>
     .byte $15    ; <な>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -4608,7 +4608,7 @@ off_B236_25_тренер_02:
     .byte $0D    ; <す>
     .byte $29    ; <る>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $87    ; <G>
@@ -4668,7 +4668,7 @@ off_B236_25_тренер_02:
     .byte $09    ; <け>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -4731,7 +4731,7 @@ off_B2A8_26_тренер_03:
     .byte $29    ; <る>
     .byte $15    ; <な>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -4805,7 +4805,7 @@ off_B2E4_27_тренер_04:
     .byte $02    ; <い>
     .byte $A9    ; <ぞ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $11    ; <ち>
@@ -4841,7 +4841,7 @@ off_B2E4_27_тренер_04:
     .byte $02    ; <い>
     .byte $A9    ; <ぞ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -4919,7 +4919,7 @@ off_B34F_28_тренер_05:
     .byte $02    ; <い>
     .byte $29    ; <る>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $46    ; <カ>
@@ -4974,7 +4974,7 @@ off_B34F_28_тренер_05:
     .byte $09    ; <け>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -5055,7 +5055,7 @@ off_B3D1_29_тренер_06:
     .byte $29    ; <る>
     .byte $15    ; <な>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -5134,7 +5134,7 @@ off_B41F_2A_тренер_07:
     .byte $22    ; <め>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -5210,7 +5210,7 @@ off_B46B_2B_тренер_08:
     .byte $2E    ; <ん>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -5254,7 +5254,7 @@ off_B4B4_2C_тренер_09:
     .byte $2B    ; <ろ>
     .byte $03    ; <う>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $20    ; <み>
@@ -5307,7 +5307,7 @@ off_B4B4_2C_тренер_09:
     .byte $B1    ; <ぶ>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -5378,7 +5378,7 @@ off_B512_2D_тренер_0A:
     .byte $09    ; <け>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -5455,7 +5455,7 @@ off_B556_2E_тренер_0B:
     .byte $0D    ; <す>
     .byte $15    ; <な>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $87    ; <G>
@@ -5520,7 +5520,7 @@ off_B556_2E_тренер_0B:
     .byte $22    ; <め>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -5584,7 +5584,7 @@ off_B5E1_2F_тренер_0C:
     .byte $02    ; <い>
     .byte $29    ; <る>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -5654,7 +5654,7 @@ off_B61E_30_тренер_0D:
     .byte $22    ; <め>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -5730,7 +5730,7 @@ off_B661_31_тренер_0E:
     .byte $AF    ; <ば>
     .byte $03    ; <う>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $87    ; <G>
@@ -5783,7 +5783,7 @@ off_B661_31_тренер_0E:
     .byte $0D    ; <す>
     .byte $15    ; <な>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -5851,7 +5851,7 @@ off_B6DF_32_тренер_0F:
     .byte $06    ; <か>
     .byte $04    ; <え>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -5915,7 +5915,7 @@ off_B720_33_тренер_10:
     .byte $02    ; <い>
     .byte $A9    ; <ぞ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $06    ; <か>
@@ -5955,7 +5955,7 @@ off_B720_33_тренер_10:
     .byte $22    ; <め>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6020,7 +6020,7 @@ off_B785_34_тренер_11:
     .byte $09    ; <け>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6090,7 +6090,7 @@ off_B7C3_35_тренер_12:
     .byte $09    ; <け>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6170,7 +6170,7 @@ off_B806_36_тренер_13:
     .byte $22    ; <め>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6246,7 +6246,7 @@ off_B853_37_тренер_14:
     .byte $0C    ; <し>
     .byte $02    ; <い>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6307,7 +6307,7 @@ off_B89C_38_тренер_15:
     .byte $03    ; <う>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $07    ; <き>
@@ -6368,7 +6368,7 @@ off_B89C_38_тренер_15:
     .byte $2E    ; <ん>
     .byte $15    ; <な>
     .byte $79    ; <!>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6426,7 +6426,7 @@ off_B913_39_тренер_16:
     .byte $2F    ; <っ>
     .byte $10    ; <た>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $4D    ; <ス>
@@ -6477,7 +6477,7 @@ off_B913_39_тренер_16:
     .byte $03    ; <う>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $EA
     .byte con_катсцена_задний_фон
     .byte $60    ; <ミ>
@@ -6510,7 +6510,7 @@ off_B913_39_тренер_16:
     .byte $FF
     .byte $00
     .byte $0C    ; <し>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $4B    ; <サ>
@@ -6579,7 +6579,7 @@ off_B913_39_тренер_16:
     .byte $15    ; <な>
     .byte $02    ; <い>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $47    ; <キ>
@@ -6629,7 +6629,7 @@ off_B913_39_тренер_16:
     .byte $AA    ; <だ>
     .byte $26    ; <よ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $EA
     .byte con_катсцена_прыжок
     .word off_BEBC
@@ -6678,7 +6678,7 @@ off_BA16_3A_тренер_17:
     .byte $4D    ; <ス>
     .byte $06    ; <か>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $32    ; <ょ>
@@ -6743,7 +6743,7 @@ off_BA16_3A_тренер_17:
     .byte $02    ; <い>
     .byte $A8    ; <ぜ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $42    ; <イ>
@@ -6821,7 +6821,7 @@ off_BA16_3A_тренер_17:
     .byte $2E    ; <ん>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $EA
     .byte con_катсцена_прыжок
     .word off_BEBC
@@ -6888,7 +6888,7 @@ off_BAD3_3B_тренер_18:
     .byte $04    ; <え>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -6963,7 +6963,7 @@ off_BB12_3C_тренер_19:
     .byte $02    ; <い>
     .byte $09    ; <け>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -7043,7 +7043,7 @@ off_BB5A_3D_тренер_1A:
     .byte $48    ; <ク>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -7108,7 +7108,7 @@ off_BBA7_3E_тренер_1B:
     .byte $29    ; <る>
     .byte $A9    ; <ぞ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -7180,7 +7180,7 @@ off_BBE5_3F_тренер_1C:
     .byte $08    ; <く>
     .byte $2A    ; <れ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -7254,7 +7254,7 @@ off_BC2A_40_тренер_1D:
     .byte $23    ; <も>
     .byte $12    ; <つ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $84    ; <D>
@@ -7308,7 +7308,7 @@ off_BC2A_40_тренер_1D:
     .byte $31    ; <ゅ>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -7393,7 +7393,7 @@ off_BCA7_41_тренер_1E:
     .byte $09    ; <け>
     .byte $2B    ; <ろ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -7431,7 +7431,7 @@ off_BCF9_42_тренер_1F:
     .byte $15    ; <な>
     .byte $0D    ; <す>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $34    ; <1>
@@ -7498,7 +7498,7 @@ off_BCF9_42_тренер_1F:
     .byte $48    ; <ク>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $AA    ; <だ>
@@ -7570,7 +7570,7 @@ off_BCF9_42_тренер_1F:
     .byte $2E    ; <ん>
     .byte $15    ; <な>
     .byte $79    ; <!>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $42    ; <イ>
@@ -7611,7 +7611,7 @@ off_BDAD_43_тренер_20:
     .byte $15    ; <な>
     .byte $0D    ; <す>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $47    ; <キ>
@@ -7678,7 +7678,7 @@ off_BDAD_43_тренер_20:
     .byte $2E    ; <ん>
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $E1
     .byte $40    ; <「>
     .byte $87    ; <G>
@@ -7736,7 +7736,7 @@ off_BDAD_43_тренер_20:
     .byte $15    ; <な>
     .byte $02    ; <い>
     .byte $7B    ; <。>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $4B    ; <サ>
@@ -7788,7 +7788,7 @@ off_BDAD_43_тренер_20:
     .byte $05    ; <お>
     .byte $03    ; <う>
     .byte $79    ; <!>
-    .byte $EB
+    .byte con_катсцена_мячик
     .byte $FB
     .byte $01    ; <あ>
     .byte $42    ; <イ>
