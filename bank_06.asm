@@ -155,8 +155,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $01    ; <あ>
     .byte $08    ; <く>
     .byte $DA
-    .byte $F5
-    .byte $08    ; <く>
+    .byte $F5, $08
     .byte con_катсцена_скорость_текста
     .byte $00
     .byte $E1
@@ -303,8 +302,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $F5
-    .byte $08    ; <く>
+    .byte $F5, $08
     .byte con_катсцена_номер_звука, $01
     .byte con_катсцена_скорость_текста
     .byte $00
@@ -506,8 +504,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $F5
-    .byte $0C    ; <し>
+    .byte $F5, $0C
     .byte con_катсцена_номер_звука, $30
     .byte con_катсцена_скорость_текста
     .byte $02    ; <い>
@@ -527,8 +524,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
-    .byte $F5
-    .byte $FF
+    .byte $F5, $FF
     .byte $DF
     .byte $F4
     .byte $05    ; <お>
@@ -648,12 +644,10 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $34    ; <1>
     .byte $33    ; <0>
     .byte con_катсцена_новая_строка
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte con_катсцена_номер_звука, $62
     .byte $DE
-    .byte $F5
-    .byte $FF
+    .byte $F5, $FF
     .byte con_катсцена_затереть_текст
     .byte $FB
     .byte $01    ; <あ>
@@ -661,11 +655,9 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $F5
-    .byte $08    ; <く>
+    .byte $F5, $08
     .byte $DA
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte con_катсцена_скорость_текста
     .byte $08    ; <く>
     .byte $E1
@@ -895,8 +887,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $01    ; <あ>
     .byte $0A    ; <こ>
     .byte con_катсцена_осветление_экрана
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte $DC
     .byte $EF
     .byte $E1
@@ -1051,8 +1042,7 @@ off_A43B_22_финальная_катсцена:
     .byte $F3
     .byte $00
     .byte $FA, $2B
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte $E1
     .byte $40    ; <「>
     .byte $20    ; <み>
@@ -1716,13 +1706,11 @@ off_A43B_22_финальная_катсцена:
     .byte $F3
     .byte $C2    ; <ド>
     .byte con_катсцена_номер_звука, $25
-    .byte $F5
-    .byte $08    ; <く>
+    .byte $F5, $08
     .byte $DA
     .byte con_катсцена_номер_звука, $62
     .byte $F7
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte $DF
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_номер_звука, $31
@@ -1736,8 +1724,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_катсцена_номер_звука, $69
     .byte con_катсцена_осветление_экрана
     .byte con_катсцена_номер_звука, $51
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte $DE
     .byte $DF
     .byte $DF
@@ -2408,8 +2395,7 @@ off_A43B_22_финальная_катсцена:
     .byte $3F    ; <•>
     .byte con_катсцена_новая_строка
     .byte $DE
-    .byte $F5
-    .byte $FF
+    .byte $F5, $FF
     .byte con_катсцена_затереть_текст
     .byte $FA, $0D
     .byte $FB
@@ -2558,8 +2544,7 @@ off_A43B_22_финальная_катсцена:
     .byte $F3
     .byte $00
     .byte con_катсцена_номер_звука, $47
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte $EF
     .byte $E1
     .byte $40    ; <「>
@@ -2784,8 +2769,7 @@ off_A43B_22_финальная_катсцена:
     .byte $42    ; <イ>
     .byte con_катсцена_номер_звука, $69
     .byte con_катсцена_осветление_экрана
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte con_катсцена_вид_окна_текста
     .byte $00
     .byte $EC
@@ -2993,8 +2977,7 @@ off_A43B_22_финальная_катсцена:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $F5
-    .byte $04    ; <え>
+    .byte $F5, $04
     .byte con_катсцена_скорость_текста
     .byte $00
     .byte $E1
@@ -3225,8 +3208,7 @@ off_A43B_22_финальная_катсцена:
     .byte $7B    ; <。>
     .byte con_катсцена_новая_строка
     .byte $DE
-    .byte $F5
-    .byte $FF
+    .byte $F5, $FF
     .byte con_катсцена_затереть_текст
     .byte $FA, $46
     .byte $FB
@@ -3513,8 +3495,7 @@ off_A43B_22_финальная_катсцена:
     .byte $F7
     .byte $F3
     .byte $00
-    .byte $F5
-    .byte $0C    ; <し>
+    .byte $F5, $0C
     .byte $F8, $15
     .byte con_катсцена_номер_звука, $0E
     .byte $DA
@@ -3534,8 +3515,7 @@ off_A43B_22_финальная_катсцена:
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
-    .byte $F5
-    .byte $FF
+    .byte $F5, $FF
     .byte $F3
     .byte $FF
     .byte $25    ; <ゆ>
