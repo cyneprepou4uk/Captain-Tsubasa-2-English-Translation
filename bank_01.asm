@@ -1685,7 +1685,7 @@ tbl_8AEE:
 - D - - - 0x000AFE 01:8AEE: 00        .byte $00
 
 - D - - - 0x000AFF 01:8AEF: 03        .byte $9F
-- D - - - 0x000B00 01:8AF0: 10        .byte $06
+- D - - - 0x000B00 01:8AF0: 10        .byte $07
 
 - D - - - 0x000AFF 01:8AEF: 03        .byte $83
 - D - - - 0x000B00 01:8AF0: 10        .byte $10

@@ -9,6 +9,7 @@
     .word off_A6B4_03_карлос_после_первого_матча
     .word off_A6DC_04_цубаса_и_меон
     .word off_A968_05_карлос_и_коимбра
+    .word off_AB61_06_роберто_говорит_о_джаиро
 
 
 
@@ -1834,6 +1835,708 @@ off_A968_05_карлос_и_коимбра:
     .byte con_катсцена_скорость_текста, $05
     .byte con_катсцена_смещение_текста, $07
     .text "@Super Striker@?)"
+    .byte con_катсцена_номер_звука, $31
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_выход
+
+
+
+
+
+
+off_AB61_06_роберто_говорит_о_джаиро:
+    .byte $E8, $01
+    .byte con_катсцена_задний_фон, $26
+    .byte $FA, $27
+    .byte $FB, $01, $3B
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_осветление_экрана
+    .byte $F5, $0E
+    .byte con_катсцена_номер_звука, $47
+    .byte con_катсцена_задержка, $50
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $02    ; <い>
+    .byte $26    ; <よ>
+    .byte $02    ; <い>
+    .byte $26    ; <よ>
+    .byte $00
+    .byte $01    ; <あ>
+    .byte $0C    ; <し>
+    .byte $10    ; <た>
+    .byte $AA    ; <だ>
+    .byte $15    ; <な>
+    .byte $00
+    .byte $12    ; <つ>
+    .byte $AF    ; <ば>
+    .byte $0B    ; <さ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $FB, $01, $4E
+    .byte $F7
+    .byte $F3, $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $5C    ; <フ>
+    .byte $67    ; <ラ>
+    .byte $62    ; <メ>
+    .byte $6E    ; <ン>
+    .byte $B8    ; <ゴ>
+    .byte $14    ; <と>
+    .byte $19    ; <の>
+    .byte $00
+    .byte $09    ; <け>
+    .byte $2F    ; <っ>
+    .byte $0C    ; <し>
+    .byte $32    ; <ょ>
+    .byte $03    ; <う>
+    .byte $0E    ; <せ>
+    .byte $2E    ; <ん>
+    .byte $7A    ; <、>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $28
+    .byte $12    ; <つ>
+    .byte $02    ; <い>
+    .byte $16    ; <に>
+    .byte $00
+    .byte $46    ; <カ>
+    .byte $69    ; <ル>
+    .byte $6B    ; <ロ>
+    .byte $4D    ; <ス>
+    .byte $14    ; <と>
+    .byte $10    ; <た>
+    .byte $02    ; <い>
+    .byte $09    ; <け>
+    .byte $12    ; <つ>
+    .byte $AA    ; <だ>
+    .byte $18    ; <ね>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $FB, $01, $3B
+    .byte $F7
+    .byte $F3, $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $AA    ; <だ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $12    ; <つ>
+    .byte $AF    ; <ば>
+    .byte $0B    ; <さ>
+    .byte $7A    ; <、>
+    .byte con_катсцена_задержка, $28
+    .byte $FB, $01, $3C
+    .byte $46    ; <カ>
+    .byte $69    ; <ル>
+    .byte $6B    ; <ロ>
+    .byte $4D    ; <ス>
+    .byte $1A    ; <は>
+    .byte con_катсцена_новая_строка
+    .byte $26    ; <よ>
+    .byte $0F    ; <そ>
+    .byte $03    ; <う>
+    .byte $02    ; <い>
+    .byte $A6    ; <じ>
+    .byte $32    ; <ょ>
+    .byte $03    ; <う>
+    .byte $16    ; <に>
+    .byte $00
+    .byte $13    ; <て>
+    .byte $A4    ; <ご>
+    .byte $2C    ; <わ>
+    .byte $02    ; <い>
+    .byte $A9    ; <ぞ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $15    ; <な>
+    .byte $16    ; <に>
+    .byte $0C    ; <し>
+    .byte $2B    ; <ろ>
+    .byte $00
+    .byte $01    ; <あ>
+    .byte $19    ; <の>
+    .byte $00
+    .byte $AD    ; <で>
+    .byte $2E    ; <ん>
+    .byte $0E    ; <せ>
+    .byte $12    ; <つ>
+    .byte $19    ; <の>
+    .byte $4D    ; <ス>
+    .byte $54    ; <ト>
+    .byte $67    ; <ラ>
+    .byte $42    ; <イ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $28
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $19    ; <の>
+    .byte $00
+    .byte $0B    ; <さ>
+    .byte $02    ; <い>
+    .byte $27    ; <ら>
+    .byte $02    ; <い>
+    .byte $AA    ; <だ>
+    .byte $7A    ; <、>
+    .byte $14    ; <と>
+    .byte $02    ; <い>
+    .byte $03    ; <う>
+    .byte $1B    ; <ひ>
+    .byte $14    ; <と>
+    .byte $23    ; <も>
+    .byte con_катсцена_новая_строка
+    .byte $02    ; <い>
+    .byte $29    ; <る>
+    .byte $08    ; <く>
+    .byte $27    ; <ら>
+    .byte $02    ; <い>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $FB, $01, $11
+    .byte $F7
+    .byte $F3, $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $78    ; <?>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $3C
+    .byte $FB, $01, $4E
+    .byte $6B    ; <ロ>
+    .byte $C6    ; <ベ>
+    .byte $69    ; <ル>
+    .byte $54    ; <ト>
+    .byte $7A    ; <、>
+    .byte con_катсцена_задержка, $28
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $2F    ; <っ>
+    .byte $13    ; <て>
+    .byte $00
+    .byte $AA    ; <だ>
+    .byte $2A    ; <れ>
+    .byte $AA    ; <だ>
+    .byte $02    ; <い>
+    .byte $78    ; <?>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $FB, $01, $3B
+    .byte $F7
+    .byte $F3, $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $0F    ; <そ>
+    .byte $03    ; <う>
+    .byte $06    ; <か>
+    .byte $7A    ; <、>
+    .byte con_катсцена_задержка, $28
+    .byte $05    ; <お>
+    .byte $1F    ; <ま>
+    .byte $04    ; <え>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $2D    ; <を>
+    .byte con_катсцена_новая_строка
+    .byte $0C    ; <し>
+    .byte $27    ; <ら>
+    .byte $15    ; <な>
+    .byte $02    ; <い>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $15    ; <な>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $EF
+    .byte $3F    ; <•>
+    .byte $3F    ; <•>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $3C
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $D0    ; <ペ>
+    .byte $6A    ; <レ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $06    ; <か>
+    .byte $12    ; <つ>
+    .byte $24    ; <や>
+    .byte $08    ; <く>
+    .byte $0D    ; <す>
+    .byte $29    ; <る>
+    .byte $1F    ; <ま>
+    .byte $04    ; <え>
+    .byte $19    ; <の>
+    .byte con_катсцена_новая_строка
+    .byte $0E    ; <せ>
+    .byte $AA    ; <だ>
+    .byte $02    ; <い>
+    .byte $19    ; <の>
+    .byte $00
+    .byte $4D    ; <ス>
+    .byte $54    ; <ト>
+    .byte $67    ; <ラ>
+    .byte $42    ; <イ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte $15    ; <な>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_мячик
+    .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_номер_звука, $31
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_номер_звука, $69
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_номер_звука, $3E
+    .byte con_катсцена_задний_фон, $01
+    .byte $FB, $01, $A1
+    .byte $F8, $0A
+    .byte con_катсцена_осветление_экрана
+    .byte $F5, $00
+    .byte con_катсцена_задержка, $50
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $C5    ; <ブ>
+    .byte $67    ; <ラ>
+    .byte $BA    ; <ジ>
+    .byte $69    ; <ル>
+    .byte $4B    ; <サ>
+    .byte $6F    ; <ッ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte $00
+    .byte $AD    ; <で>
+    .byte $2E    ; <ん>
+    .byte $0E    ; <せ>
+    .byte $12    ; <つ>
+    .byte $19    ; <の>
+    .byte $05    ; <お>
+    .byte $14    ; <と>
+    .byte $0A    ; <こ>
+    .byte con_катсцена_новая_строка
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $5D    ; <ヘ>
+    .byte $C1    ; <デ>
+    .byte $74    ; <ィ>
+    .byte $6E    ; <ン>
+    .byte $B6    ; <グ>
+    .byte $19    ; <の>
+    .byte $16    ; <に>
+    .byte $A0    ; <が>
+    .byte $13    ; <て>
+    .byte $15    ; <な>
+    .byte con_катсцена_новая_строка
+    .byte $CF    ; <プ>
+    .byte $6B    ; <ロ>
+    .byte $0E    ; <せ>
+    .byte $2E    ; <ん>
+    .byte $0C    ; <し>
+    .byte $31    ; <ゅ>
+    .byte $AA    ; <だ>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $7B    ; <。>
+    .byte con_катсцена_мячик
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $AA    ; <だ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $20    ; <み>
+    .byte $0A    ; <こ>
+    .byte $03    ; <う>
+    .byte $16    ; <に>
+    .byte $2E    ; <ん>
+    .byte $07    ; <き>
+    .byte $2B    ; <ろ>
+    .byte $08    ; <く>
+    .byte $23    ; <も>
+    .byte $00
+    .byte $1C    ; <ふ>
+    .byte $08    ; <く>
+    .byte $21    ; <む>
+    .byte $14    ; <と>
+    .byte con_катсцена_новая_строка
+    .byte $34    ; <1>
+    .byte $33    ; <0>
+    .byte $33    ; <0>
+    .byte $33    ; <0>
+    .byte $B8    ; <ゴ>
+    .byte $7D    ; <ー>
+    .byte $69    ; <ル>
+    .byte $11    ; <ち>
+    .byte $06    ; <か>
+    .byte $02    ; <い>
+    .byte $00
+    .byte $14    ; <と>
+    .byte $08    ; <く>
+    .byte $13    ; <て>
+    .byte $2E    ; <ん>
+    .byte $2D    ; <を>
+    .byte $01    ; <あ>
+    .byte $A3    ; <げ>
+    .byte $10    ; <た>
+    .byte con_катсцена_новая_строка
+    .byte $44    ; <エ>
+    .byte $7D    ; <ー>
+    .byte $4D    ; <ス>
+    .byte $4D    ; <ス>
+    .byte $54    ; <ト>
+    .byte $67    ; <ラ>
+    .byte $42    ; <イ>
+    .byte $46    ; <カ>
+    .byte $7D    ; <ー>
+    .byte $15    ; <な>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_мячик
+    .byte con_катсцена_затемнение_экрана
+    .byte $E8, $01
+    .byte con_катсцена_задний_фон, $68
+    .byte $FB, $03, $9E, $93, $A5
+    .byte con_катсцена_номер_звука, $6B
+    .byte con_катсцена_осветление_экрана
+    .byte $F3, $94
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $0F    ; <そ>
+    .byte $2A    ; <れ>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $20    ; <み>
+    .byte $A7    ; <ず>
+    .byte $06    ; <か>
+    .byte $27    ; <ら>
+    .byte con_катсцена_новая_строка
+    .byte $01    ; <あ>
+    .byte $20    ; <み>
+    .byte $AA    ; <だ>
+    .byte $0C    ; <し>
+    .byte $10    ; <た>
+    .byte $4C    ; <シ>
+    .byte $71    ; <ュ>
+    .byte $7D    ; <ー>
+    .byte $54    ; <ト>
+    .byte $7A    ; <、>
+    .byte con_катсцена_задержка, $14
+    .byte $4B    ; <サ>
+    .byte $42    ; <イ>
+    .byte $48    ; <ク>
+    .byte $6B    ; <ロ>
+    .byte $6E    ; <ン>
+    .byte $16    ; <に>
+    .byte $26    ; <よ>
+    .byte $2F    ; <っ>
+    .byte $13    ; <て>
+    .byte con_катсцена_новая_строка
+    .byte $07    ; <き>
+    .byte $A7    ; <ず>
+    .byte $06    ; <か>
+    .byte $2A    ; <れ>
+    .byte $10    ; <た>
+    .byte $23    ; <も>
+    .byte $19    ; <の>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_номер_звука, $02
+    .byte con_катсцена_затереть_текст
+    .byte $FA, $21
+    .byte $FB, $02, $73, $74
+    .byte $F7
+    .byte $F3, $00
+    .byte $F5, $03
+    .byte con_катсцена_номер_звука, $0E
+    .byte con_катсцена_задержка, $28
+    .byte con_катсцена_номер_звука, $10
+    .byte $F5, $FF
+    .byte $FA, $09
+    .byte $F7
+    .byte $F3, $00
+    .byte $F5, $07
+    .byte con_катсцена_номер_звука, $04
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_номер_звука, $06
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_номер_звука, $24
+    .byte con_катсцена_задержка, $28
+    .byte $F5, $FF
+    .byte $F3, $FF, $25, $43
+    .byte $FA, $56
+    .byte $FB, $03, $C0, $A0, $80
+    .byte $F7
+    .byte $F3, $00
+    .byte con_катсцена_номер_звука, $24
+    .byte $FA, $39
+    .byte $FB, $01, $86
+    .byte $F7
+    .byte $F3, $FF, $21, $35
+    .byte con_катсцена_номер_звука, $61
+    .byte con_катсцена_задержка, $F0
+    .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_задний_фон, $26
+    .byte $FA, $27
+    .byte $FB, $01, $3B
+    .byte con_катсцена_осветление_экрана
+    .byte $F5, $0E
+    .byte con_катсцена_номер_звука, $47
+    .byte con_катсцена_задержка, $3C
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $4B    ; <サ>
+    .byte $42    ; <イ>
+    .byte $48    ; <ク>
+    .byte $6B    ; <ロ>
+    .byte $6E    ; <ン>
+    .byte $2D    ; <を>
+    .byte $14    ; <と>
+    .byte $2A    ; <れ>
+    .byte $29    ; <る>
+    .byte $47    ; <キ>
+    .byte $7D    ; <ー>
+    .byte $CD    ; <パ>
+    .byte $7D    ; <ー>
+    .byte $1A    ; <は>
+    .byte con_катсцена_новая_строка
+    .byte $AA    ; <だ>
+    .byte $2A    ; <れ>
+    .byte $23    ; <も>
+    .byte $02    ; <い>
+    .byte $15    ; <な>
+    .byte $06    ; <か>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $3C
+    .byte $BA    ; <ジ>
+    .byte $70    ; <ャ>
+    .byte $42    ; <イ>
+    .byte $6B    ; <ロ>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $A6    ; <じ>
+    .byte $B1    ; <ぶ>
+    .byte $2E    ; <ん>
+    .byte $19    ; <の>
+    .byte $5A    ; <ハ>
+    .byte $6E    ; <ン>
+    .byte $C1    ; <デ>
+    .byte $2D    ; <を>
+    .byte $05    ; <お>
+    .byte $A1    ; <ぎ>
+    .byte $15    ; <な>
+    .byte $03    ; <う>
+    .byte con_катсцена_новая_строка
+    .byte $21    ; <む>
+    .byte $13    ; <て>
+    .byte $07    ; <き>
+    .byte $19    ; <の>
+    .byte $4C    ; <シ>
+    .byte $71    ; <ュ>
+    .byte $7D    ; <ー>
+    .byte $54    ; <ト>
+    .byte $2D    ; <を>
+    .byte $00
+    .byte $01    ; <あ>
+    .byte $20    ; <み>
+    .byte $AA    ; <だ>
+    .byte $0C    ; <し>
+    .byte $10    ; <た>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $AA    ; <だ>
+    .byte $A0    ; <が>
+    .byte $00
+    .byte $02    ; <い>
+    .byte $1F    ; <ま>
+    .byte $AD    ; <で>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $AA    ; <だ>
+    .byte $2A    ; <れ>
+    .byte $23    ; <も>
+    .byte $03    ; <う>
+    .byte $13    ; <て>
+    .byte $15    ; <な>
+    .byte $02    ; <い>
+    .byte con_катсцена_новая_строка
+    .byte $1F    ; <ま>
+    .byte $B3    ; <ぼ>
+    .byte $2B    ; <ろ>
+    .byte $0C    ; <し>
+    .byte $19    ; <の>
+    .byte $4C    ; <シ>
+    .byte $71    ; <ュ>
+    .byte $7D    ; <ー>
+    .byte $54    ; <ト>
+    .byte $14    ; <と>
+    .byte $02    ; <い>
+    .byte $2C    ; <わ>
+    .byte $2A    ; <れ>
+    .byte $7A    ; <、>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $28
+    .byte $02    ; <い>
+    .byte $12    ; <つ>
+    .byte $0C    ; <し>
+    .byte $06    ; <か>
+    .byte $00
+    .byte $0C    ; <し>
+    .byte $27    ; <ら>
+    .byte $2A    ; <れ>
+    .byte $A5    ; <ざ>
+    .byte $29    ; <る>
+    .byte $AD    ; <で>
+    .byte $2E    ; <ん>
+    .byte $0E    ; <せ>
+    .byte $12    ; <つ>
+    .byte $16    ; <に>
+    .byte con_катсцена_новая_строка
+    .byte $15    ; <な>
+    .byte $2F    ; <っ>
+    .byte $10    ; <た>
+    .byte $2E    ; <ん>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $E1
+    .byte con_катсцена_задержка, $3C
+    .byte $FB, $01, $3C
+    .byte $40    ; <「>
+    .byte $12    ; <つ>
+    .byte $AF    ; <ば>
+    .byte $0B    ; <さ>
+    .byte $7A    ; <、>
+    .byte con_катсцена_задержка, $28
+    .byte $CF    ; <プ>
+    .byte $6B    ; <ロ>
+    .byte $2D    ; <を>
+    .byte $22    ; <め>
+    .byte $A5    ; <ざ>
+    .byte $0D    ; <す>
+    .byte $16    ; <に>
+    .byte $1A    ; <は>
+    .byte $00
+    .byte $1F    ; <ま>
+    .byte $A7    ; <ず>
+    .byte con_катсцена_новая_строка
+    .byte $01    ; <あ>
+    .byte $0D    ; <す>
+    .byte $19    ; <の>
+    .byte $0C    ; <し>
+    .byte $01    ; <あ>
+    .byte $02    ; <い>
+    .byte $16    ; <に>
+    .byte $00
+    .byte $06    ; <か>
+    .byte $12    ; <つ>
+    .byte $0A    ; <こ>
+    .byte $14    ; <と>
+    .byte $AA    ; <だ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $3C
+    .byte $0C    ; <し>
+    .byte $2F    ; <っ>
+    .byte $06    ; <か>
+    .byte $28    ; <り>
+    .byte $15    ; <な>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte $FB, $01, $4E
+    .byte $F7
+    .byte $F3, $00
+    .byte $E1
+    .byte $40    ; <「>
+    .byte $03    ; <う>
+    .byte $2E    ; <ん>
+    .byte $7A    ; <、>
+    .byte con_катсцена_задержка, $28
+    .byte $01    ; <あ>
+    .byte $0D    ; <す>
+    .byte $19    ; <の>
+    .byte $0C    ; <し>
+    .byte $01    ; <あ>
+    .byte $02    ; <い>
+    .byte con_катсцена_новая_строка
+    .byte $06    ; <か>
+    .byte $15    ; <な>
+    .byte $27    ; <ら>
+    .byte $A7    ; <ず>
+    .byte $00
+    .byte $06    ; <か>
+    .byte $2F    ; <っ>
+    .byte $13    ; <て>
+    .byte $20    ; <み>
+    .byte $0E    ; <せ>
+    .byte $29    ; <る>
+    .byte $26    ; <よ>
+    .byte $7B    ; <。>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_затемнение_экрана
