@@ -1997,7 +1997,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     
     .byte con_катсцена_смещение_текста, $05
-    .text "@Jario was one of the"
+    .text "@Jairo was one of the"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
     .text "greats in Brazilian"
