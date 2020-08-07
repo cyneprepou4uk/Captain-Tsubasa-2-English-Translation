@@ -1073,49 +1073,42 @@ off_AEEA_08_цубаса_победил_карлоса:
 
 .export off_0x040005_скрытая_катсцена_из_08
 off_0x040005_скрытая_катсцена_из_08:
-    .byte $E8
-    .byte $01    ; <あ>
-    .byte $ED
+    .byte $E8, $01
+    .byte con_катсцена_номер_звука
     .byte $43    ; <ウ>
-    .byte $EC
-    .byte $01    ; <あ>
+    .byte $EC, $01
     .byte $2E    ; <ん>
     .byte $78    ; <?>
-    .byte $DE
+    .byte con_катсцена_задержка, $78
     .byte $00
     .byte $15    ; <な>
     .byte $2E    ; <ん>
     .byte $AA    ; <だ>
     .byte $78    ; <?>
-    .byte $FC
-    .byte $DF
-    .byte $FD
-    .byte $FB
-    .byte $01    ; <あ>
-    .byte $C2    ; <ド>
-    .byte $F3
-    .byte $00
-    .byte $ED
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $F0
+    .byte con_катсцена_затереть_текст
+    .byte $FB, $01, $C2
+    .byte $F3, $00
+    .byte con_катсцена_номер_звука
     .byte $27    ; <ら>
-    .byte $EC
-    .byte $05    ; <お>
+    .byte $EC, $05
     .byte $05    ; <お>
     .byte $05    ; <お>
     .byte $2F    ; <っ>
-    .byte $DA
+    .byte con_катсцена_задержка, $14
     .byte $00
     .byte $06    ; <か>
     .byte $2A    ; <れ>
     .byte $1A    ; <は>
     .byte $79    ; <!>
-    .byte $FC
-    .byte $DE
-    .byte $ED
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_номер_звука
     .byte $62    ; <メ>
-    .byte $ED
+    .byte con_катсцена_номер_звука
     .byte $3C    ; <9>
-    .byte $EC
-    .byte $04    ; <え>
+    .byte $EC, $04
     .byte $5F    ; <マ>
     .byte $42    ; <イ>
     .byte $53    ; <テ>
@@ -1130,9 +1123,8 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $AA    ; <だ>
     .byte $79    ; <!>
     .byte $79    ; <!>
-    .byte $EB
-    .byte $EC
-    .byte $02    ; <い>
+    .byte con_катсцена_мячик
+    .byte $EC, $02
     .byte $4B    ; <サ>
     .byte $6E    ; <ン>
     .byte $CD    ; <パ>
@@ -1145,7 +1137,7 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $03    ; <う>
     .byte $28    ; <り>
     .byte $16    ; <に>
-    .byte $FC
+    .byte con_катсцена_новая_строка
     .byte $BA    ; <ジ>
     .byte $70    ; <ャ>
     .byte $6F    ; <ッ>
@@ -1160,8 +1152,8 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $32    ; <ょ>
     .byte $03    ; <う>
     .byte $79    ; <!>
-    .byte $FC
-    .byte $DB
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $28
     .byte $C3    ; <バ>
     .byte $6E    ; <ン>
     .byte $B9    ; <ザ>
@@ -1175,14 +1167,11 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $AD    ; <で>
     .byte $0D    ; <す>
     .byte $79    ; <!>
-    .byte $EB
-    .byte $FB
-    .byte $01    ; <あ>
-    .byte $C3    ; <バ>
-    .byte $ED
+    .byte con_катсцена_мячик
+    .byte $FB, $01, $C3
+    .byte con_катсцена_номер_звука
     .byte $62    ; <メ>
-    .byte $EC
-    .byte $04    ; <え>
+    .byte $EC, $04
     .byte $4B    ; <サ>
     .byte $6E    ; <ン>
     .byte $47    ; <キ>
@@ -1198,10 +1187,9 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $6F    ; <ッ>
     .byte $48    ; <ク>
     .byte $79    ; <!>
-    .byte $FC
-    .byte $DB
-    .byte $EC
-    .byte $02    ; <い>
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $28
+    .byte $EC, $02
     .byte $14    ; <と>
     .byte $08    ; <く>
     .byte $B2    ; <べ>
@@ -1210,7 +1198,7 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $4D    ; <ス>
     .byte $54    ; <ト>
     .byte $19    ; <の>
-    .byte $FC
+    .byte con_катсцена_новая_строка
     .byte $5F    ; <マ>
     .byte $42    ; <イ>
     .byte $53    ; <テ>
@@ -1226,8 +1214,8 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $0C    ; <し>
     .byte $10    ; <た>
     .byte $7B    ; <。>
-    .byte $FC
-    .byte $DB
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $28
     .byte $1F    ; <ま>
     .byte $10    ; <た>
     .byte $00
@@ -1243,17 +1231,15 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte $32    ; <ょ>
     .byte $03    ; <う>
     .byte $79    ; <!>
-    .byte $FC
-    .byte $DE
-    .byte $EA
-    .byte $ED
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_номер_звука
     .byte $31    ; <ゅ>
-    .byte $DE
-    .byte $FA
-    .byte $10    ; <た>
+    .byte con_катсцена_задержка, $78
+    .byte $FA, $10
     .byte $F5
     .byte $04    ; <え>
-    .byte $ED
+    .byte con_катсцена_номер_звука
     .byte $4D    ; <ス>
-    .byte $F4
-    .byte $07    ; <き>
+    .byte $F4, $07
