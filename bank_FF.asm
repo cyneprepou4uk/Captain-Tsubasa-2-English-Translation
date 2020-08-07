@@ -20,7 +20,6 @@ vec_FFF0_обработчик_RESET:
                     DEX
                     BNE @очистка_ram
                     STA $4010
-                    STA $5204
                     LDA #$44
                     STA $5105
                     LDA #$08
@@ -30,8 +29,6 @@ vec_FFF0_обработчик_RESET:
                     STA $2001
                     LDA #$40
                     STA $4017
-                    JSR sub_CB35_очистить_nametable
-                    JSR sub_CB8B_очистить_память_спрайтов
                     CLI
                     LDA #$00
 .export loc_0x03CF0E
