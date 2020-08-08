@@ -155,7 +155,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .text "You've lead your team"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "to victory,"
+    .text "to this victory,"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -208,8 +208,6 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_смещение_текста, $06
     .text "strong competitors.)"
     .byte con_катсцена_задержка, $50
-    .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
     
     
     
@@ -292,7 +290,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_смещение_текста, $05
     .text "@It was."
-    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_задержка, $3C
     .text " This is the"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
@@ -326,12 +324,11 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_смещение_текста, $04
     .text "Hongo's pupils.@"
     .byte con_катсцена_задержка, $50
-    .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
     
     
     
     .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $06
     .byte $FB, $01, $A3
     .byte $F3, $00
@@ -384,7 +381,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_смещение_текста, $05
     .text "leagues."
     .byte con_катсцена_задержка, $1E
-    .text " When that"
+    .text " But when that"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "happens,"
@@ -516,6 +513,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     
     
     
+    .byte con_катсцена_скорость_текста, $06
     .byte con_катсцена_смещение_текста, $09
     .text "One week ago,"
     .byte con_катсцена_задержка, $14
@@ -525,9 +523,8 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_скорость_текста, $08
     .text "..."
     .byte con_катсцена_задержка, $50
-    .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
     .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_затереть_текст
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_номер_звука, $01
@@ -535,7 +532,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     
     
     .byte $E8, $01
-    .byte con_катсцена_задержка, $F0
+    .byte con_катсцена_задержка, $78
     .byte con_катсцена_номер_звука, $69
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_задний_фон, $0C
@@ -543,276 +540,182 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_осветление_экрана
     .byte $F5, $04
     .byte con_катсцена_номер_звука, $51
+    .byte con_катсцена_задержка, $3C
+    
+    
+    
     .byte con_катсцена_вид_окна_текста, $00
     .byte con_катсцена_комментатор, $00
-    .byte con_катсцена_скорость_текста, $08
-    .byte $06    ; <か>
-    .byte $0A    ; <こ>
-    .byte $00
-    .byte $35    ; <2>
-    .byte $18    ; <ね>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $09
+    .text "The high schools"
     .byte con_катсцена_новая_строка
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $7A    ; <、>
+    .byte con_катсцена_смещение_текста, $09
+    .text "Nankatsu and Toho"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "have dominated the"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "National Football"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "Tournament for the"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "past two years,"
     .byte con_катсцена_задержка, $14
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $1E    ; <ほ>
-    .byte $03    ; <う>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $2C    ; <わ>
-    .byte $09    ; <け>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
     .byte con_катсцена_новая_строка
-    .byte $91    ; <V>
-    .byte $35    ; <2>
-    .byte $09    ; <け>
-    .byte $2F    ; <っ>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
-    .byte $09    ; <け>
-    .byte $2F    ; <っ>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
+    .byte con_катсцена_смещение_текста, $09
+    .text "and they seem fated"
     .byte con_катсцена_новая_строка
-    .byte $14    ; <と>
-    .byte $07    ; <き>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $1F    ; <ま>
-    .byte $0C    ; <し>
-    .byte $10    ; <た>
-    .byte $7B    ; <。>
-    .byte con_катсцена_мячик
-    .byte $1C    ; <ふ>
-    .byte $25    ; <ゆ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $0A    ; <こ>
-    .byte $08    ; <く>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $4B    ; <サ>
-    .byte $6F    ; <ッ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
+    .byte con_катсцена_смещение_текста, $09
+    .text "to meet a third time."
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "The time has come"
     .byte con_катсцена_новая_строка
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $09    ; <け>
-    .byte $2E    ; <ん>
-    .byte $10    ; <た>
-    .byte $02    ; <い>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
+    .byte con_катсцена_смещение_текста, $09
+    .text "for the High School"
     .byte con_катсцена_новая_строка
-    .byte $12    ; <つ>
-    .byte $02    ; <い>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $1F    ; <ま>
-    .byte $08    ; <く>
-    .byte $AD    ; <で>
-    .byte $0D    ; <す>
-    .byte $79    ; <!>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "Nationals to begin!"
     .byte $FA, $11
     .byte con_катсцена_мячик
+    .byte con_катсцена_частично_затереть_текст
+    
+    
+    
     .byte con_катсцена_номер_звука, $62
     .byte $FB, $01, $49
     .byte $F7
     .byte $F3, $00
     .byte $FA, $10
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $1E    ; <ほ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $1B    ; <ひ>
-    .byte $14    ; <と>
-    .byte $12    ; <つ>
+    .byte con_катсцена_смещение_текста, $09
+    .text "Toho,"
+    .byte con_катсцена_задержка, $0F
+    .text " led by captain"
     .byte con_катсцена_новая_строка
-    .byte $05    ; <お>
-    .byte $14    ; <と>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $91    ; <V>
-    .byte $34    ; <1>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $1E    ; <ほ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
-    .byte $1B    ; <ひ>
-    .byte $07    ; <き>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
+    .byte con_катсцена_смещение_текста, $09
+    .text "Hyuga,"
+    .byte con_катсцена_задержка, $0F
+    .text " won the"
     .byte con_катсцена_новая_строка
-    .byte $47    ; <キ>
-    .byte $70    ; <ャ>
-    .byte $CF    ; <プ>
-    .byte $53    ; <テ>
-    .byte $6E    ; <ン>
-    .byte $00
-    .byte $1B    ; <ひ>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $A0    ; <が>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $09
+    .text "tournament two"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "years ago."
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "They are huge"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "favorites to claim"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "the title as"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "champions again."
     .byte con_катсцена_мячик
+    .byte con_катсцена_частично_затереть_текст
+    
+    
+    
     .byte con_катсцена_номер_звука, $62
     .byte $FB, $01, $1E
     .byte $F7
     .byte $F3, $00
     .byte $FA, $2B
-    .byte $0B    ; <さ>
-    .byte $08    ; <く>
-    .byte $18    ; <ね>
-    .byte $2E    ; <ん>
-    .byte $91    ; <V>
-    .byte $34    ; <1>
-    .byte $00
-    .byte $0F    ; <そ>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $91    ; <V>
-    .byte $35    ; <2>
-    .byte $10    ; <た>
-    .byte $2F    ; <っ>
-    .byte $0E    ; <せ>
-    .byte $02    ; <い>
-    .byte $16    ; <に>
+    .byte con_катсцена_смещение_текста, $09
+    .text "But having won the"
     .byte con_катсцена_новая_строка
-    .byte $23    ; <も>
-    .byte $04    ; <え>
-    .byte $29    ; <る>
-    .byte $00
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $47    ; <キ>
-    .byte $70    ; <ャ>
-    .byte $CF    ; <プ>
-    .byte $53    ; <テ>
-    .byte $6E    ; <ン>
+    .byte con_катсцена_смещение_текста, $09
+    .text "previous year,"
+    .byte con_катсцена_задержка, $0F
     .byte con_катсцена_новая_строка
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $09
+    .text "Nankatsu,"
+    .byte con_катсцена_задержка, $14
+    .text " led by"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "captain Misaki,"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "are ready to lay"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "down a fierce"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "challenge for a"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "second title."
     .byte con_катсцена_мячик
+    .byte con_катсцена_частично_затереть_текст
+    
+    
+    
     .byte $FB, $01, $43
     .byte $F7
     .byte con_катсцена_комментатор, $05
     .byte con_катсцена_номер_звука, $62
-    .byte $0A    ; <こ>
-    .byte $0A    ; <こ>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $08    ; <く>
-    .byte $28    ; <り>
-    .byte $12    ; <つ>
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $A1    ; <ぎ>
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $16    ; <に>
+    .byte con_катсцена_смещение_текста, $09
+    .text "The stage is all set"
     .byte con_катсцена_новая_строка
-    .byte $1F    ; <ま>
-    .byte $07    ; <き>
-    .byte $05    ; <お>
-    .byte $0A    ; <こ>
-    .byte $29    ; <る>
-    .byte $00
-    .byte $5E    ; <ホ>
-    .byte $6F    ; <ッ>
-    .byte $54    ; <ト>
-    .byte $5C    ; <フ>
-    .byte $73    ; <ヮ>
-    .byte $42    ; <イ>
-    .byte $54    ; <ト>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $09
+    .text "for an intense"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $0C    ; <し>
-    .byte $2E    ; <ん>
-    .byte $08    ; <く>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $22    ; <め>
-    .byte $A5    ; <ざ>
-    .byte $0D    ; <す>
+    .byte con_катсцена_смещение_текста, $09
+    .text "showdown here at"
     .byte con_катсцена_новая_строка
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $A6    ; <じ>
-    .byte $1F    ; <ま>
-    .byte $28    ; <り>
-    .byte $1F    ; <ま>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $09
+    .text "the National Stadium!"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "The battle for the"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $09
+    .text "pennant and glory"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "is about to begin!"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_номер_звука, $31
+    .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte $F5, $FF
     .byte con_катсцена_затемнение_экрана
-    .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_номер_звука, $01
     .byte con_катсцена_выход
@@ -906,8 +809,8 @@ off_0x040005_скрытая_катсцена_из_08:
     
     
     
-    .byte $FB, $01, $C3
     .byte con_катсцена_номер_звука, $62
+    .byte $FB, $01, $C3
     .byte con_катсцена_комментатор, $04
     .byte con_катсцена_смещение_текста, $09
     .text "Farewell and thank"
