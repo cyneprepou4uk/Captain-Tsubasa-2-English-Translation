@@ -231,7 +231,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $02
-    .text "@You all were magnificent"
+    .text "@You were all magnificent"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
     .text "out there!@"
@@ -453,7 +453,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .text " what"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "are you doing here!?@"
+    .text "are you doing here?!@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -575,7 +575,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .text "and they seem fated"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "to meet a third time."
+    .text "to meet once again."
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_частично_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -804,29 +804,30 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte con_катсцена_смещение_текста, $09
     .text "again and again!"
     .byte con_катсцена_мячик
-    .byte con_катсцена_частично_затереть_текст
-    .byte con_катсцена_задержка, $0A
-    
-    
-    
     .byte con_катсцена_номер_звука, $62
+    .byte con_катсцена_частично_затереть_текст
     .byte $FB, $01, $C3
+    .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte con_катсцена_комментатор, $04
     .byte con_катсцена_смещение_текста, $09
-    .text "Farewell and thank"
+    .text "Thank you and"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "you,"
+    .text "farewell,"
     .byte con_катсцена_задержка, $0F
-    .text " mister Jack!"
+    .text " mister"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "Jack!"
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_комментатор, $02
+    .text " Let's meet"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "Let's meet again"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $09
-    .text "somewhere!"
+    .text "again somewhere!"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_частично_затереть_текст
     .byte con_катсцена_задержка, $0A
