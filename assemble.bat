@@ -53,7 +53,20 @@ copy /A copy_*.lst !debug.txt
 :: удалить копии листинга
 del copy_*.lst
 
-:: писать pause если требуется ждать ввода пользователя перед закрытием консоли
-:: иначе таймаут автозакрытия консоли в секундах
-timeout 10
-:: pause
+:: проверить размер файла и вывести нужное сообщение
+setlocal enableextensions
+FOR %%A IN ("!ct2.nes") DO set "size=%%~zA"
+if %size% EQU 786448 (
+    echo.
+    echo --------------------------------------------
+    echo Done! Look for !ct2.nes file in your folder.
+    echo --------------------------------------------
+    timeout 10
+) else (
+    echo.
+    echo --------------------------------------------------
+    echo Something's wrong, check log for more information.
+    echo --------------------------------------------------
+    echo.
+    pause
+)
