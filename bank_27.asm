@@ -1372,13 +1372,10 @@ off_B590_0D_мацуяма_после_матча:
     .byte con_катсцена_смещение_текста, $04
     .text "Misaki."
     .byte con_катсцена_задержка, $3C
-    .text " Too bad Nankatsu"
+    .text " But your winning"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "doesn't stand a chance"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $04
-    .text "in tomorrow's match!)"
+    .text "streak ends here!)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
