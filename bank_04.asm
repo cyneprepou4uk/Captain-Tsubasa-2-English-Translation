@@ -20,7 +20,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $4E
     .byte con_катсцена_вид_окна_текста, $00
-    .byte $EC, $02
+    .byte con_катсцена_комментатор, $02
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $09
     .text "It's been a long"
@@ -76,55 +76,24 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_катсцена_затемнение_экрана
-    .byte $EC, $FF
+    .byte con_катсцена_комментатор, $FF
     .byte $EE
     .byte con_катсцена_задний_фон, $0E
     .byte con_катсцена_осветление_экрана
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $24    ; <や>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $24    ; <や>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $A8    ; <ぜ>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $04
+    .text "@We did it!@"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $05    ; <お>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte $11    ; <ち>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $04
+    .text "@The title is ours!@"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $A9    ; <ぞ>
-    .byte $79    ; <!>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "@Nankatsu are champions!@"
     .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $1A
@@ -136,158 +105,71 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $F0
     .byte con_катсцена_задержка, $F0
     .byte $FA, $10
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $28
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $19    ; <の>
-    .byte $02    ; <い>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $00
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $AD    ; <で>
+    .byte con_катсцена_смещение_текста, $05
+    .text "@Huh. You guys pulled"
     .byte con_катсцена_новая_строка
-    .byte $26    ; <よ>
-    .byte $08    ; <く>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $0A    ; <こ>
-    .byte $1F    ; <ま>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $06
+    .text "it off, even without"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $06
+    .text "your golden boy.@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $19
     .byte $F7
     .byte $F3, $00
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $0A    ; <こ>
-    .byte $A6    ; <じ>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $28
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $13    ; <て>
-    .byte $10    ; <た>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_смещение_текста, $03
+    .text "@Tsubasa's one player."
     .byte con_катсцена_новая_строка
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $00
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $02    ; <い>
-    .byte $2E    ; <ん>
-    .byte $A0    ; <が>
+    .byte con_катсцена_смещение_текста, $04
+    .text "We all worked together,"
     .byte con_катсцена_новая_строка
-    .byte $11    ; <ち>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $2D    ; <を>
-    .byte $01    ; <あ>
-    .byte $2C    ; <わ>
-    .byte $0E    ; <せ>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $04
+    .text "and that's why we won.@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $0A    ; <こ>
-    .byte $A6    ; <じ>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $19    ; <の>
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $14    ; <と>
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_смещение_текста, $03
+    .text "@It might have gone"
     .byte con_катсцена_новая_строка
-    .byte $11    ; <ち>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $2D    ; <を>
-    .byte $01    ; <あ>
-    .byte $2C    ; <わ>
-    .byte $0E    ; <せ>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $0A    ; <こ>
-    .byte $1F    ; <ま>
-    .byte $AD    ; <で>
+    .byte con_катсцена_смещение_текста, $04
+    .text "differently if you fought"
     .byte con_катсцена_новая_строка
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $04    ; <え>
-    .byte $10    ; <た>
-    .byte $1A    ; <は>
-    .byte $A7    ; <ず>
-    .byte $AA    ; <だ>
-    .byte $26    ; <よ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $04
+    .text "by joining efforts with"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $04
+    .text "your teammates, Kojiro...@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $31
     .byte $F7
     .byte $F3, $00
-    .byte $E1
-    .byte con_катсцена_задержка, $3C
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $EF
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $02
+    .byte con_катсцена_смещение_текста, $0D
+    .byte con_катсцена_закрыть_рот
+    .text "@Hm"
+    .byte con_катсцена_закрыть_рот
+    .text "ph.@"
+    .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $06
@@ -299,67 +181,37 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F5, $04
     .byte con_катсцена_вид_окна_текста, $00
-    .byte $EC, $02
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $47    ; <キ>
-    .byte $70    ; <ャ>
-    .byte $CF    ; <プ>
-    .byte $53    ; <テ>
-    .byte $6E    ; <ン>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $01    ; <あ>
-    .byte $08    ; <く>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $79    ; <!>
+    .byte con_катсцена_комментатор, $02
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $09
+    .text "A good show of"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $1F    ; <ま>
-    .byte $0B    ; <さ>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $08    ; <く>
-    .byte $22    ; <め>
-    .byte $02    ; <い>
-    .byte $19    ; <の>
-    .byte $10    ; <た>
-    .byte $02    ; <い>
-    .byte $09    ; <け>
-    .byte $12    ; <つ>
-    .byte $19    ; <の>
+    .byte con_катсцена_смещение_текста, $09
+    .text "sportsmanship by"
     .byte con_катсцена_новая_строка
-    .byte $0B    ; <さ>
-    .byte $02    ; <い>
-    .byte $A4    ; <ご>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $A5    ; <ざ>
-    .byte $29    ; <る>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $1C    ; <ふ>
-    .byte $0B    ; <さ>
-    .byte $2C    ; <わ>
-    .byte $0C    ; <し>
-    .byte $02    ; <い>
+    .byte con_катсцена_смещение_текста, $09
+    .text "both team captains,"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "bringing the rivalry"
     .byte con_катсцена_новая_строка
-    .byte $09    ; <け>
-    .byte $12    ; <つ>
-    .byte $1F    ; <ま>
-    .byte $12    ; <つ>
-    .byte $AD    ; <で>
-    .byte $0D    ; <す>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $09
+    .text "between high schools"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $09
+    .text "to a fitting close!"
+    .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
-    .byte $EC, $FF
+    .byte con_катсцена_комментатор, $FF
     .byte $EE
     .byte con_катсцена_задний_фон, $11
     .byte $FA, $10
@@ -368,89 +220,44 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_осветление_экрана
     .byte $F5, $04
     .byte con_катсцена_задержка, $3C
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $BA    ; <ジ>
-    .byte $70    ; <ャ>
-    .byte $CD    ; <パ>
-    .byte $6E    ; <ン>
-    .byte $46    ; <カ>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $10    ; <た>
-    .byte $A0    ; <が>
-    .byte $02    ; <い>
+    .byte con_катсцена_смещение_текста, $02
+    .text "@I know it won't be high"
     .byte con_катсцена_новая_строка
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $19    ; <の>
-    .byte $62    ; <メ>
-    .byte $6E    ; <ン>
-    .byte $C3    ; <バ>
-    .byte $7D    ; <ー>
-    .byte $AD    ; <で>
+    .byte con_катсцена_смещение_текста, $03
+    .text "school-level from here on."
     .byte con_катсцена_новая_строка
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $05    ; <お>
-    .byte $03    ; <う>
-    .byte $A8    ; <ぜ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $03
+    .text "I'll work with everyone"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $03
+    .text "on our nation's team.@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $19
     .byte $F7
     .byte $F3, $00
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $03    ; <う>
-    .byte $2E    ; <ん>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $28
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $C2    ; <ド>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $1D    ; <へ>
-    .byte $19    ; <の>
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_смещение_текста, $03
+    .text "@With the Tiger of Toho"
     .byte con_катсцена_новая_строка
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $A6    ; <じ>
-    .byte $15    ; <な>
-    .byte $0C    ; <し>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $AA    ; <だ>
-    .byte con_катсцена_задержка, $28
-    .byte $00
-    .byte $A0    ; <が>
-    .byte $2E    ; <ん>
-    .byte $AF    ; <ば>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $04
+    .text "on our side, the other"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $04
+    .text "teams better watch out!@"
+    .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_затереть_текст
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_номер_звука, $01
-    .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_номер_звука, $69
     .byte con_катсцена_задержка, $78
@@ -459,238 +266,126 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $1F
     .byte con_катсцена_осветление_экрана
     .byte con_катсцена_вид_окна_текста, $00
-    .byte $EC, $04
-    .byte $0B    ; <さ>
-    .byte $73    ; <ヮ>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $1F    ; <ま>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $2E    ; <ん>
-    .byte $08    ; <く>
-    .byte $19    ; <の>
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $07    ; <き>
-    .byte $A0    ; <が>
+    .byte con_катсцена_комментатор, $04
+    .byte con_катсцена_смещение_текста, $09
+    .text "Nankatsu's captain"
     .byte con_катсцена_новая_строка
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $00
-    .byte $10    ; <た>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $2C    ; <わ>
-    .byte $10    ; <た>
-    .byte $28    ; <り>
-    .byte $1F    ; <ま>
-    .byte $0C    ; <し>
-    .byte $10    ; <た>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $09
+    .text "Misaki Tarou has"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_номер_звука, $62
+    .byte con_катсцена_смещение_текста, $09
+    .text "been handed the"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "Championship Pennant,"
     .byte con_катсцена_задержка, $50
-    .byte con_катсцена_затереть_текст
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $47    ; <キ>
-    .byte $70    ; <ャ>
-    .byte $CF    ; <プ>
-    .byte $53    ; <テ>
-    .byte $6E    ; <ン>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $91    ; <V>
-    .byte $35    ; <2>
-    .byte $2D    ; <を>
-    .byte $1A    ; <は>
-    .byte $10    ; <た>
-    .byte $0C    ; <し>
-    .byte $10    ; <た>
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "and is waving it"
     .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $24    ; <や>
-    .byte $08    ; <く>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $00
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $4A    ; <コ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $01    ; <あ>
-    .byte $27    ; <ら>
-    .byte $0C    ; <し>
-    .byte $AD    ; <で>
-    .byte $0D    ; <す>
-    .byte $79    ; <!>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "high and proud!"
     .byte con_катсцена_номер_звука, $62
     .byte con_катсцена_задержка, $78
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_комментатор, $02
+    .byte con_катсцена_смещение_текста, $09
+    .text "The reporters are"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "flocking around"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "Misaki down on"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "the pitch."
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_частично_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $09
+    .text "Nankatsu has shown an"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "incredible fighting"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "spirit in securing"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "their second title!"
+    .byte con_катсцена_номер_звука, $62
+    .byte con_катсцена_задержка, $78
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
-    .byte $EC, $FF
+    .byte con_катсцена_комментатор, $FF
     .byte $EE
     .byte con_катсцена_задний_фон, $02
     .byte $FB, $01, $42
     .byte con_катсцена_осветление_экрана
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_смещение_текста, $05
+    .text "(That's just about"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "everyone, then -"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "the rest is in your"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "hands, Katagiri.)"
     .byte con_катсцена_задержка, $50
-    .byte $EF
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $0A    ; <こ>
-    .byte $2A    ; <れ>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $62    ; <メ>
-    .byte $6E    ; <ン>
-    .byte $C3    ; <バ>
-    .byte $7D    ; <ー>
-    .byte $A0    ; <が>
-    .byte $0F    ; <そ>
-    .byte $2B    ; <ろ>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $3C
-    .byte $3E    ; <Jr>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $11    ; <ち>
-    .byte $17    ; <ぬ>
-    .byte $02    ; <い>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $2A    ; <れ>
-    .byte $27    ; <ら>
-    .byte $A0    ; <が>
-    .byte $7A    ; <、>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $1C    ; <ふ>
-    .byte $2F    ; <っ>
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $35    ; <2>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte $A4    ; <ご>
-    .byte $19    ; <の>
-    .byte $BA    ; <ジ>
-    .byte $70    ; <ャ>
-    .byte $CD    ; <パ>
-    .byte $6E    ; <ン>
-    .byte $46    ; <カ>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $1A    ; <は>
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $03
+    .text "(In just two weeks, the"
     .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2A    ; <れ>
-    .byte $27    ; <ら>
-    .byte $16    ; <に>
-    .byte $14    ; <と>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $0B    ; <さ>
-    .byte $02    ; <い>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $19    ; <の>
-    .byte $0C    ; <し>
-    .byte $2A    ; <れ>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $04
+    .text "Japan Cup will put them"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $04
+    .text "through their paces.)"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte $E1
-    .byte $40    ; <「>
-    .byte $15    ; <な>
-    .byte $16    ; <に>
-    .byte $0C    ; <し>
-    .byte $2B    ; <ろ>
-    .byte con_катсцена_задержка, $28
-    .byte $00
-    .byte $01    ; <あ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $14    ; <と>
-    .byte $0A    ; <こ>
-    .byte $10    ; <た>
-    .byte $11    ; <ち>
-    .byte $A0    ; <が>
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $06
+    .text "(I know these young"
     .byte con_катсцена_новая_строка
-    .byte $08    ; <く>
-    .byte $29    ; <る>
-    .byte $19    ; <の>
-    .byte $AA    ; <だ>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $15    ; <な>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
+    .byte con_катсцена_смещение_текста, $07
+    .text "men will rise to"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $F0
+    .byte con_катсцена_смещение_текста, $07
+    .text "the challenge...)"
+    .byte con_катсцена_задержка, $78
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_затереть_текст
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
-    .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $2F
     .byte $FB, $01, $1F
     .byte con_катсцена_осветление_экрана
@@ -863,7 +558,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F5, $04
     .byte con_катсцена_скорость_текста
     .byte $08    ; <く>
-    .byte $E1
     .byte $40    ; <「>
     .byte $46    ; <カ>
     .byte $69    ; <ル>
@@ -883,7 +577,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $63
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $A1    ; <ぎ>
@@ -930,7 +623,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte $F5, $04
-    .byte $E1
     .byte $40    ; <「>
     .byte $19    ; <の>
     .byte $A9    ; <ぞ>
@@ -941,11 +633,10 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $0B    ; <さ>
     .byte $7B    ; <。>
     .byte con_катсцена_новая_строка
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_скорость_текста
     .byte $04    ; <え>
-    .byte $E1
     .byte $40    ; <「>
     .byte $0C    ; <し>
     .byte $32    ; <ょ>
@@ -985,9 +676,8 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte con_катсцена_номер_звука, $52
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $FA, $11
-    .byte $E1
     .byte $40    ; <「>
     .byte $06    ; <か>
     .byte $10    ; <た>
@@ -1005,7 +695,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $0A    ; <こ>
     .byte $0A    ; <こ>
     .byte $16    ; <に>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $79    ; <!>
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
@@ -1016,7 +706,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_номер_звука, $46
     .byte con_катсцена_скорость_текста
     .byte $08    ; <く>
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
@@ -1058,7 +747,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_скорость_текста
     .byte $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $04    ; <え>
     .byte $2F    ; <っ>
@@ -1066,7 +754,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_мячик
     .byte con_катсцена_скорость_текста
     .byte $08    ; <く>
-    .byte $E1
     .byte $40    ; <「>
     .byte $36    ; <3>
     .byte $06    ; <か>
@@ -1120,7 +807,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $10    ; <た>
     .byte $7B    ; <。>
     .byte con_катсцена_мячик
-    .byte $E1
     .byte $40    ; <「>
     .byte $16    ; <に>
     .byte $1E    ; <ほ>
@@ -1183,7 +869,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $29    ; <る>
     .byte $7B    ; <。>
     .byte con_катсцена_мячик
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
@@ -1228,11 +913,10 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $AA    ; <だ>
     .byte $7B    ; <。>
     .byte con_катсцена_новая_строка
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_скорость_текста
     .byte $04    ; <え>
-    .byte $E1
     .byte $40    ; <「>
     .byte $1F    ; <ま>
     .byte $2F    ; <っ>
@@ -1251,10 +935,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte $FA, $10
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста
     .byte $08    ; <く>
-    .byte $E1
     .byte $40    ; <「>
     .byte $26    ; <よ>
     .byte $03    ; <う>
@@ -1265,13 +948,12 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $05    ; <お>
     .byte $1F    ; <ま>
     .byte $04    ; <え>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $06    ; <か>
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
@@ -1329,7 +1011,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $11
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $BA    ; <ジ>
     .byte $70    ; <ャ>
@@ -1345,7 +1026,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $2A
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $A8    ; <ぜ>
     .byte $2E    ; <ん>
@@ -1412,7 +1092,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $19    ; <の>
     .byte $7B    ; <。>
     .byte con_катсцена_мячик
-    .byte $E1
     .byte $40    ; <「>
     .byte $2C    ; <わ>
     .byte $06    ; <か>
@@ -1446,7 +1125,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $1F    ; <ま>
@@ -1488,7 +1166,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $11
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $2C    ; <わ>
     .byte $06    ; <か>
@@ -1529,7 +1206,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $2E    ; <ん>
     .byte $1D    ; <へ>
     .byte $1A    ; <は>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte $3F    ; <•>
@@ -1540,7 +1217,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $43
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
@@ -1570,7 +1246,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $3C
-    .byte $E1
     .byte $40    ; <「>
     .byte $0F    ; <そ>
     .byte $03    ; <う>
@@ -1610,7 +1285,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte $FA, $11
-    .byte $E1
     .byte $40    ; <「>
     .byte $0F    ; <そ>
     .byte $0C    ; <し>
@@ -1672,7 +1346,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $09
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $06    ; <か>
     .byte $10    ; <た>
@@ -1685,7 +1358,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $20    ; <み>
     .byte $2E    ; <ん>
     .byte $15    ; <な>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte $3F    ; <•>
@@ -1695,15 +1368,14 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $4D
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte con_катсцена_задержка, $3C
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
     .byte $0B    ; <さ>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte con_катсцена_новая_строка
@@ -1732,13 +1404,12 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $09
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $6B    ; <ロ>
     .byte $C6    ; <ベ>
     .byte $69    ; <ル>
     .byte $54    ; <ト>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte $3F    ; <•>
@@ -1749,7 +1420,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
     .byte $FB, $01, $10
-    .byte $E1
     .byte con_катсцена_задержка, $78
     .byte $40    ; <「>
     .byte $2C    ; <わ>
@@ -1763,9 +1433,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $05    ; <お>
     .byte $2A    ; <れ>
     .byte con_катсцена_номер_звука, $4C
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
-    .byte $EF
+    .byte con_катсцена_закрыть_рот
     .byte $3F    ; <•>
     .byte $3F    ; <•>
     .byte con_катсцена_новая_строка
@@ -1787,7 +1457,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte con_катсцена_номер_звука, $62
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
@@ -1803,7 +1472,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte con_катсцена_задержка, $3C
-    .byte $E1
     .byte $40    ; <「>
     .byte $0F    ; <そ>
     .byte $19    ; <の>
@@ -1851,7 +1519,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $40
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $5C    ; <フ>
     .byte $F8, $02
@@ -1865,7 +1532,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $63
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $12    ; <つ>
     .byte $AF    ; <ば>
@@ -1900,7 +1566,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $13
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $46    ; <カ>
     .byte $69    ; <ル>
@@ -1940,7 +1605,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $63
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $01    ; <あ>
     .byte $01    ; <あ>
@@ -1961,7 +1625,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $0C
     .byte $F7
     .byte $F3, $00
-    .byte $E1
     .byte $40    ; <「>
     .byte $26    ; <よ>
     .byte $7D    ; <ー>
@@ -1974,7 +1637,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $28
-    .byte $E1
     .byte $40    ; <「>
     .byte $02    ; <い>
     .byte $0A    ; <こ>
@@ -1989,7 +1651,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $79    ; <!>
     .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $28
-    .byte $E1
     .byte $40    ; <「>
     .byte $20    ; <み>
     .byte $2E    ; <ん>
@@ -2014,7 +1675,6 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $28
     .byte con_катсцена_скорость_текста
     .byte $02    ; <い>
-    .byte $E1
     .byte $40    ; <「>
     .byte $05    ; <お>
     .byte $03    ; <う>
@@ -2146,7 +1806,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .text "messing around!"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_частично_затереть_текст
-    .byte con_катсцена_задержка, $24
+    .byte con_катсцена_задержка, $20
     
     
     
