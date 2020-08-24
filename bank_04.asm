@@ -26,7 +26,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "It's been a long"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "tournament, but"
+    .text "tournament,"
+    .byte con_катсцена_задержка, $14
+    .text " but"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "the High School"
@@ -43,7 +45,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "After a hard-fought"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "battle, Nankatsu"
+    .text "battle,"
+    .byte con_катсцена_задержка, $14
+    .text " Nankatsu"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "High holds the"
@@ -60,13 +64,15 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "for a second year!"
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_номер_звука, $62
-    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "Just listen to the"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "crowd, it's going"
+    .text "crowd,"
+    .byte con_катсцена_задержка, $14
+    .text " it's going"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "wild!"
@@ -80,13 +86,14 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $EE
     .byte con_катсцена_задний_фон, $0E
     .byte con_катсцена_осветление_экрана
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $04
     .text "@We did it!@"
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "@The title is ours!@"
-    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "@Nankatsu are champions!@"
@@ -105,11 +112,23 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $F0
     .byte con_катсцена_задержка, $F0
     .byte $FA, $10
-    .byte con_катсцена_смещение_текста, $05
-    .text "@Huh. You guys pulled"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_смещение_текста, $04
+    .text " "
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $02
+    .text "@Hu"
+    .byte con_катсцена_закрыть_рот
+    .text "h."
+    .byte con_катсцена_задержка, $28
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $04
+    .text " You guys pulled"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "it off, even without"
+    .text "it off,"
+    .byte con_катсцена_задержка, $14
+    .text " even without"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
     .text "your golden boy.@"
@@ -125,19 +144,20 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $03
     .text "@Tsubasa's one player."
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "We all worked together,"
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "and that's why we won.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
-    
-    
-    
     .byte con_катсцена_задержка, $1E
+    
+    
+    
     .byte con_катсцена_смещение_текста, $03
     .text "@It might have gone"
     .byte con_катсцена_новая_строка
@@ -148,7 +168,12 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "by joining efforts with"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "your teammates, Kojiro...@"
+    .text "your teammates,"
+    .byte con_катсцена_задержка, $1E
+    .text " Kojiro"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "...@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -225,6 +250,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
     .text "school-level from here on."
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
     .text "I'll work with everyone"
@@ -245,11 +271,13 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "@With the Tiger of Toho"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "on our side, the other"
+    .text "on our side,"
+    .byte con_катсцена_задержка, $1E
+    .text " the other"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "teams better watch out!@"
-    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_задержка, $78
     
     
     
@@ -265,6 +293,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_задний_фон, $2F
     .byte $FB, $01, $1F
     .byte con_катсцена_осветление_экрана
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_вид_окна_текста, $00
     .byte con_катсцена_комментатор, $04
     .byte con_катсцена_смещение_текста, $09
@@ -343,13 +372,18 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "(That's just about"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "everyone, then -"
+    .text "everyone,"
+    .byte con_катсцена_задержка, $08
+    .text " then -"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
     .text "the rest is in your"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "hands, Katagiri.)"
+    .text "hands,"
+    .byte con_катсцена_задержка, $1E
+    .text " Katagiri.)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -366,7 +400,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "through their paces.)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
+    .byte con_катсцена_задержка, $1E
     
     
     
@@ -377,7 +411,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "men will rise to"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $07
-    .text "the challenge...)"
+    .text "the challenge"
+    .byte con_катсцена_скорость_текста, $08
+    .text "...)"
     .byte con_катсцена_задержка, $78
     
     
@@ -386,6 +422,8 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
+    .byte con_катсцена_номер_звука, $01
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_задний_фон, $2F
     .byte $FB, $01, $1F
     .byte con_катсцена_осветление_экрана
@@ -442,16 +480,22 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_катсцена_смещение_текста, $04
-    .text "For now, let's cross the"
+    .text "For now,"
+    .byte con_катсцена_задержка, $0F
+    .text " let's cross the"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
-    .text "ocean again, back to South"
+    .text "ocean again,"
+    .byte con_катсцена_задержка, $1E
+    .text " back to South"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
     .text "America and the conclusion"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $08
-    .text "of the Rio Cup..."
+    .text "of the Rio Cup"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
     .byte con_катсцена_задержка, $78
     
     
@@ -630,7 +674,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "World Cup is being held"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "in Brazil, right?@"
+    .text "in Brazil,"
+    .byte con_катсцена_задержка, $0F
+    .text " right?@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -639,6 +685,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_катсцена_смещение_текста, $03
     .text "@Japan's bid was confirmed."
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "So was West Germany's -"
@@ -666,7 +713,9 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "@You would lead Japan"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "again, at position #10.@"
+    .text "again,"
+    .byte con_катсцена_задержка, $14
+    .text " at position #10.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -681,12 +730,21 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "@Now just a moment,"
+    .byte con_катсцена_задержка, $08
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "brother! He's a"
+    .text "brother!"
+    .byte con_катсцена_задержка, $1E
+    .text " He's a"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "player on MY team!@"
+    .text "player on "
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_скорость_текста, $08
+    .text "MY"
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_скорость_текста, $04
+    .text " team!@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -697,9 +755,13 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte $FA, $10
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_смещение_текста, $0A
-    .text "@Y-Yoko?!@"
+    .text "@Y-"
+    .byte con_катсцена_задержка, $08
+    .text "Yoko?!@"
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_скорость_текста, $02
     .byte con_катсцена_смещение_текста, $0A
@@ -716,10 +778,13 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $03
-    .text "@Tsubasa, before you even"
+    .text "@Tsubasa,"
+    .byte con_катсцена_задержка, $1E
+    .text " before you even"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "think about leaving us,"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "Sao Paulo's playing the"
@@ -735,8 +800,20 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $11
     .byte $F7
     .byte $F3, $00
-    .byte con_катсцена_смещение_текста, $05
-    .text "@Uh... the Japan Cup?@"
+    .byte con_катсцена_задержка, $0A
+    .byte con_катсцена_скорость_текста, $02
+    .byte con_катсцена_смещение_текста, $04
+    .byte con_катсцена_закрыть_рот
+    .text " "
+    .byte con_катсцена_закрыть_рот
+    .text "@Uh"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $04
+    .text " the Japan Cup?@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -746,6 +823,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $2A
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_смещение_текста, $05
     .text "@It's an international"
     .byte con_катсцена_новая_строка
@@ -756,7 +834,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "in Japan.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
+    .byte con_катсцена_задержка, $14
     
     
     
@@ -770,7 +848,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "invited to compete.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
+    .byte con_катсцена_задержка, $14
     
     
     
@@ -784,29 +862,41 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "learn to work together.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
+    .byte con_катсцена_задержка, $3C
     
     
     
     .byte con_катсцена_смещение_текста, $04
-    .text "@You know, Hamburger SV"
+    .text "@You know,"
+    .byte con_катсцена_задержка, $1E
+    .text " Hamburger SV"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "and their goalkeeper,"
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "Wakabayashi, are"
+    .text "Wakabayashi,"
+    .byte con_катсцена_задержка, $1E
+    .text " are"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "already participating.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
+    .byte con_катсцена_задержка, $1E
     
     
     
     .byte con_катсцена_смещение_текста, $03
-    .text "@So... you all could test"
+    .text "@So"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_скорость_текста, $04
+    .text " you all could test"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "your skills against both"
@@ -825,15 +915,23 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $4E
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $0A
     .byte con_катсцена_смещение_текста, $04
     .text "@Against Wakabayashi and"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
+    .text "Misaki?"
+    .byte con_катсцена_задержка, $3C
     .byte $FB, $01, $11
-    .text "Misaki? Hold on! Yoko,"
+    .text " Hold on!"
+    .byte con_катсцена_задержка, $14
+    .text " Yoko,"
+    .byte con_катсцена_задержка, $0F
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "Katagiri", $3A, $3B, "I can't"
+    .text "Katagiri", $3A, $3B
+    .byte con_катсцена_задержка, $14
+    .text "I can't"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "go back yet!@"
@@ -853,7 +951,10 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "to Japan before I've"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "made it as a pro...@"
+    .text "made it as a pro"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "...@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -864,8 +965,12 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $43
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $06
-    .text "@Hey, didn't we just"
+    .text "@Hey,"
+    .byte con_катсцена_задержка, $0F
+    .text " didn't we just"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $07
     .text "win the Rio Cup?!@"
@@ -894,11 +999,16 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $F7
     .byte $F3, $00
     .byte $FA, $11
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $03
     .text "@Japan U-20 needs you and"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "your skills. Tsubasa, you"
+    .text "your skills."
+    .byte con_катсцена_задержка, $1E
+    .text " Tsubasa,"
+    .byte con_катсцена_задержка, $14
+    .text " you"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "must go home to Japan and"
@@ -914,8 +1024,14 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $10
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $09
-    .text "@Hey", $3A, $3B, "guys...@"
+    .text "@Hey", $3A, $3B
+    .byte con_катсцена_задержка, $14
+    .text "guys"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "...@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -925,11 +1041,16 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $4D
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $02
-    .text "@Tsubasa, you'll always"
+    .text "@Tsubasa,"
+    .byte con_катсцена_задержка, $1E
+    .text " you'll always"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
     .text "have a place in Sao Paulo."
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $03
     .text "But it looks like a lot of"
@@ -942,33 +1063,57 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     
-    .byte $FB, $01, $09
+    .byte $FB, $01, $10
     .byte $F7
     .byte $F3, $00
-    .byte con_катсцена_смещение_текста, $06
-    .text "@Roberto... If you"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $07
-    .text "feel that strongly"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $07
-    .text "about it...@"
-    .byte con_катсцена_номер_звука, $31
-    .byte con_катсцена_задержка, $78
-    .byte con_катсцена_номер_звука, $01
     .byte con_катсцена_задержка, $3C
-    .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
-    
-    
-    
+    .byte con_катсцена_скорость_текста, $06
+    .byte con_катсцена_смещение_текста, $06
+    .text "@Roberto"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $50
+    .byte $FB, $01, $09
+    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_скорость_текста, $04
+    .text " If you"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $07
+    .text "feel"
     .byte $FB, $01, $10
+    .byte con_катсцена_номер_звука, $31
+    .text " that strongly"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $07
+    .text "about it"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "...@"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_номер_звука, $01
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $3C
+    
+    
+    
     .byte con_катсцена_смещение_текста, $04
-    .text "@...then I'll return"
+    .text "@..."
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $04
+    .text "then I'll return"
     .byte con_катсцена_номер_звука, $4C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "to my home team... and"
+    .text "to my home team"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $04
+    .text " and"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "lead it to victory!@"
@@ -984,8 +1129,11 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $4D
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $06
-    .text "@Atta boy, Tsubasa.@"
+    .text "@Atta boy,"
+    .byte con_катсцена_задержка, $14
+    .text " Tsubasa.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -995,12 +1143,18 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $10
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $04
-    .text "@But! Mister Katagiri,"
+    .text "@But!"
+    .byte con_катсцена_задержка, $28
+    .text " Mister Katagiri,"
+    .byte con_катсцена_задержка, $1E
     .byte $FB, $01, $09
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "until I do, Sao Paulo"
+    .text "until I do,"
+    .byte con_катсцена_задержка, $1E
+    .text " Sao Paulo"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "is my home team.@"
@@ -1011,10 +1165,15 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_катсцена_смещение_текста, $04
-    .text "@That means we WILL be"
+    .text "@That means we"
+    .byte con_катсцена_скорость_текста, $08
+    .text " WILL "
+    .byte con_катсцена_скорость_текста, $04
+    .text "be"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
     .text "taking the Japan Cup!@"
+    .byte con_катсцена_задержка, $1E
     .byte $FB, $01, $10
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
@@ -1025,12 +1184,19 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $40
     .byte $F7
     .byte $F3, $00
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_смещение_текста, $06
     .text "@Loyal to the team"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $07
-    .text "as ever, huh...?"
+    .text "as ever, "
+    .byte con_катсцена_задержка, $0F
+    .byte con_катсцена_скорость_текста, $02
+    .text "h"
     .byte $F8, $02
+    .text "uh"
+    .byte con_катсцена_скорость_текста, $08
+    .text "...?@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -1040,155 +1206,97 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte $FB, $01, $63
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $3C
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $19    ; <の>
-    .byte $06    ; <か>
-    .byte $28    ; <り>
-    .byte $1A    ; <は>
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $04
+    .text "@Remember what I said,"
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_новая_строка
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $C2    ; <ド>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $04    ; <え>
-    .byte $0D    ; <す>
-    .byte $A8    ; <ぜ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $05
+    .text "Tsubasa!"
+    .byte con_катсцена_задержка, $1E
+    .text " You and Japan"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $05
+    .text "had better be here for"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "the U-20 World Cup!@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $13
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $6B    ; <ロ>
-    .byte $4D    ; <ス>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка
-    .byte $1E    ; <ほ>
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_смещение_текста, $04
+    .text "@Carlos"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $1E
     .byte $FB, $01, $11
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_скорость_текста, $04
+    .text " I wouldn't"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "miss it for the world.@"
     .byte con_катсцена_задержка, $50
-    .byte $05    ; <お>
-    .byte $2A    ; <れ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $27    ; <ら>
-    .byte $A7    ; <ず>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $0A    ; <こ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $1D    ; <へ>
-    .byte $23    ; <も>
-    .byte $AE    ; <ど>
-    .byte $29    ; <る>
-    .byte $A9    ; <ぞ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $63
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $01    ; <あ>
-    .byte $01    ; <あ>
-    .byte con_катсцена_задержка, $28
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $A8    ; <ぜ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
-    .byte $F5, $FF
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_смещение_текста, $04
+    .text "@I'll hold you to that.@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte $F5, $FF
     .byte $FA, $0F
     .byte $FB, $01, $0C
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $26    ; <よ>
-    .byte $7D    ; <ー>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $1F    ; <ま>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $79    ; <!>
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_смещение_текста, $06
+    .text "@Then it's settled!@"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $40    ; <「>
-    .byte $02    ; <い>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A8    ; <ぜ>
-    .byte $00
-    .byte $47    ; <キ>
-    .byte $70    ; <ャ>
-    .byte $CF    ; <プ>
-    .byte $53    ; <テ>
-    .byte $6E    ; <ン>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $06
+    .text "@Lead on,"
+    .byte con_катсцена_задержка, $14
+    .text " captain!@"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $06
+    .text "@Alright guys,"
+    .byte con_катсцена_задержка, $14
+    .text " we're"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte con_катсцена_задержка, $3C
-    .byte $26    ; <よ>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $00
-    .byte $16    ; <に>
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $1D    ; <へ>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $07
+    .text "off to Japan!@"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte con_катсцена_скорость_текста
-    .byte $02    ; <い>
-    .byte $40    ; <「>
-    .byte $05    ; <お>
-    .byte $03    ; <う>
-    .byte $79    ; <!>
-    .byte $79    ; <!>
+    .byte con_катсцена_скорость_текста, $01
+    .byte con_катсцена_смещение_текста, $0C
+    .text "@Yeah!!@"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $0C
+    .text "@Yeah!!@"
     .byte con_катсцена_номер_звука, $62
     .byte con_катсцена_задержка, $F0
     .byte con_катсцена_затемнение_экрана
@@ -1211,13 +1319,21 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_катсцена_номер_звука, $43
     .byte con_катсцена_комментатор, $01
     .byte con_катсцена_смещение_текста, $09
-    .text "Hey! The music just"
+    .text "Hey!"
+    .byte con_катсцена_задержка, $1E
+    .text " The music just"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "stopped..."
+    .text "stopped"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $09
-    .text "Could it be...?"
+    .text "Could it be"
+    .byte con_катсцена_скорость_текста, $08
+    .text "...?"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_частично_затереть_текст
     .byte con_катсцена_задержка, $50
@@ -1227,10 +1343,14 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte $FB, $01, $C2
     .byte $F3, $00
     .byte con_катсцена_номер_звука, $27
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_комментатор, $05
+    .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $09
-    .text "Oh, of course!"
-    .byte con_катсцена_задержка, $78
+    .text "Oh,"
+    .byte con_катсцена_задержка, $08
+    .text " of course!"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $62
     .byte con_катсцена_номер_звука, $3C
     .byte con_катсцена_комментатор, $02
@@ -1241,6 +1361,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "boy once more,"
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "Mighty Bomb Jack!"
@@ -1254,7 +1375,9 @@ off_0x040005_скрытая_катсцена_из_0F:
     .text "The fans sure love"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "him, and he loves"
+    .text "him,"
+    .byte con_катсцена_задержка, $14
+    .text " and he loves"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "his fans!"
@@ -1266,10 +1389,13 @@ off_0x040005_скрытая_катсцена_из_0F:
     
     .byte con_катсцена_смещение_текста, $09
     .text "He's a good guy!"
+    .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .byte con_катсцена_комментатор, $04
-    .text "Yo, Japan's best!"
+    .text "Yo,"
+    .byte con_катсцена_задержка, $0F
+    .text " Japan's best!"
     .byte con_катсцена_мячик
     .byte con_катсцена_частично_затереть_текст
     
