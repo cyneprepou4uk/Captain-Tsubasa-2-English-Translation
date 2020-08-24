@@ -1595,16 +1595,16 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     .byte $F7
     .byte $F3, $00
     .byte con_катсцена_задержка, $1E
-    .byte con_катсцена_смещение_текста, $04
+    .byte con_катсцена_смещение_текста, $05
     .text "@Yeah,"
     .byte con_катсцена_задержка, $0F
     .text " I'll be there."
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
+    .byte con_катсцена_смещение_текста, $06
     .text "We both need to do"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
+    .byte con_катсцена_смещение_текста, $06
     .text "our best for Japan.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
@@ -1617,18 +1617,18 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     .byte $F3, $00
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_смещение_текста, $05
-    .text "@Let's go all the way"
+    .text "@Let's go all the"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "around the world,"
+    .text "way around the"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "world,"
     .byte con_катсцена_задержка, $1E
-    .text " to"
+    .text " to Brazil"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "Brazil and the"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "World Cup!@"
+    .text "and the World Cup!@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
