@@ -1236,7 +1236,7 @@
 - D - I - 0x0144DD 11:A4CD: 64        .byte $64    ; <ヤ>
 ; таймер удара Шнайдера
 - D - I - 0x0144DE 11:A4CE: E2        .byte $E4
-- D - I - 0x0144DF 11:A4CF: EE        .byte $EE
+- D - I - 0x0144DF 11:A4CF: EE        .byte $EF
 - D - I - 0x0144E0 11:A4D0: F7        .byte $F7
 - D - I - 0x0144E1 11:A4D1: 2E        .byte $2E    ; <ん>
 - D - I - 0x0144E2 11:A4D2: 00        .byte $00
