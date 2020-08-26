@@ -121,6 +121,7 @@ ram_0052                                    = $52 ; indirect_lo
 ram_0053                                    = $53 ; indirect_hi
 ram_0054                                    = $54 ; indirect_lo
 ram_0055                                    = $55 ; indirect_hi
+    ram_скорость_текста = ram_0055
 ram_0056                                    = $56 ; indirect_lo
 ram_0057                                    = $57 ; indirect_hi
 ram_0058                                    = $58 ; indirect_lo
