@@ -1490,20 +1490,20 @@ off_A020_10_цубаса_и_вакабаяши_перед_матчем:
     .byte con_катсцена_номер_звука, $53
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_закрыть_рот
-    .byte con_катсцена_смещение_текста, $04
-    .text "(It's been 3 years since"
-    .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "I've seen you,"
+    .text "(It's been three years"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "since I've seen you,"
     .byte con_катсцена_задержка, $14
-    .text " Tsubasa."
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "Tsubasa."
     .byte con_катсцена_задержка, $3C
+    .text " You'd better"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "You'd better not have"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "gone soft!)"
+    .byte con_катсцена_смещение_текста, $06
+    .text "not have gone soft!)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
