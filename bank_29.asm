@@ -124,7 +124,7 @@ off_A195_13_после_победы_над_японией:
     .text "Brazil are getting"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "Amaral and Dotil.@"
+    .text "Amaral and Dotor.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $3C
