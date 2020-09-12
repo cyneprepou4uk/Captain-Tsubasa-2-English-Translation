@@ -441,10 +441,10 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_катсцена_задержка, $0F
     .text " Ishi", $3A, $3B, "@ "
     .byte $F8, $02
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_задержка, $50
     .byte $FB, $01, $6A
     .byte con_катсцена_номер_звука, $43
-    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_скорость_текста, $06
     .byte con_катсцена_смещение_текста, $04
@@ -531,17 +531,21 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte $F3, $FF, $00, $0C
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_скорость_текста, $04
-    .byte con_катсцена_смещение_текста, $07
-    .text "(My old coach and"
+    .byte con_катсцена_смещение_текста, $05
+    .text "(That was always your"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $08
-    .text "I used to talk"
+    .byte con_катсцена_смещение_текста, $06
+    .text "goal,"
+    .byte con_катсцена_задержка, $14
+    .text " Roberto -"
+    .byte con_катсцена_задержка, $1E
+    .text " to"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $08
-    .text "about what it"
+    .byte con_катсцена_смещение_текста, $06
+    .text "push me to not only"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $08
-    .text "took to become"
+    .byte con_катсцена_смещение_текста, $06
+    .text "be a striker,"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -549,12 +553,12 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     
     .byte con_катсцена_смещение_текста, $08
-    .text "both a playmaker"
+    .text "but a playmaker"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $28
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $08
-    .text "and a goalscorer -"
-    .byte con_катсцена_задержка, $3C
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_скорость_текста, $06
     .byte con_катсцена_смещение_текста, $08
     .text "a Super Striker.)"
     .byte con_катсцена_задержка, $78
@@ -568,18 +572,15 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_катсцена_осветление_экрана
     .byte $F5, $04
     .byte con_катсцена_задержка, $3C
-    .byte con_катсцена_смещение_текста, $05
-    .text "(He sent me a message"
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $06
-    .text "recently,"
-    .byte con_катсцена_задержка, $1E
-    .text " to jog my"
+    .text "(That was why you"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "memory about it"
-    .byte con_катсцена_скорость_текста, $08
-    .text "..."
+    .byte con_катсцена_смещение_текста, $07
+    .text "were so insistent"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $07
+    .text "in your message.)"
     .byte con_катсцена_задержка, $78
     
     
@@ -590,38 +591,41 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte $FB, $01, $52
     .byte con_катсцена_осветление_экрана
     .byte $F5, $04
-    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_скорость_текста, $04
-    .byte con_катсцена_смещение_текста, $04
-    .text "...and"
-    .byte con_катсцена_скорость_текста, $06
-    .byte con_катсцена_задержка, $0F
-    .text " @Super Striker@"
-    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_смещение_текста, $05
+    .text "(Knowing you,"
+    .byte con_катсцена_задержка, $1E
+    .text " the only"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_скорость_текста, $04
-    .byte con_катсцена_смещение_текста, $04
-    .text "must be referring to that"
+    .byte con_катсцена_смещение_текста, $06
+    .text "player like that would"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $04
-    .text "1,000-"
+    .byte con_катсцена_смещение_текста, $06
+    .text "be the 1,000-"
     .byte con_катсцена_задержка, $0F
-    .text "goal legend,"
+    .text "goal"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "legend,"
     .byte con_катсцена_задержка, $28
-    .text " Jairo.)"
+    .text " Jairo"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $3C
     
     
     
-    .byte con_катсцена_смещение_текста, $03
-    .text "(Or rather,"
-    .byte con_катсцена_задержка, $3C
-    .text " what he used"
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $04
+    .text "..."
+    .byte con_катсцена_скорость_текста, $04
+    .text "and what he had that"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "to get all those goals"
+    .text "enabled him to get them"
     .byte con_катсцена_скорость_текста, $08
     .text "..."
     .byte con_катсцена_задержка, $50
