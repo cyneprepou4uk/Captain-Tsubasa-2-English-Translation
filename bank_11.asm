@@ -2905,8 +2905,7 @@ off_A837:
 - D - I - 0x01485D 11:A84D: 38        .byte $38
 - D - I - 0x01485E 11:A84E: 2E        .byte $2E
 - D - I - 0x01485F 11:A84F: FB        .byte $FB
-- D - I - 0x014860 11:A850: CF        .byte $CF
-- D - I - 0x014861 11:A851: B7        .byte $B7
+- D - I - 0x014860 11:A850: CF B7     .word off_B7CF
 
 
 
@@ -2938,8 +2937,7 @@ off_A852:
 - D - I - 0x01487A 11:A86A: 38        .byte $38
 - D - I - 0x01487B 11:A86B: 3E        .byte $3E
 - D - I - 0x01487C 11:A86C: FB        .byte $FB
-- D - I - 0x01487D 11:A86D: CF        .byte $CF
-- D - I - 0x01487E 11:A86E: B7        .byte $B7
+- D - I - 0x01487D 11:A86D: CF B7     .word off_B7CF
 
 
 
@@ -2978,8 +2976,7 @@ off_A86F:
 - D - I - 0x01489E 11:A88E: 3C        .byte $3C
 - D - I - 0x01489F 11:A88F: 2E        .byte $2E
 - D - I - 0x0148A0 11:A890: FB        .byte $FB
-- D - I - 0x0148A1 11:A891: 21        .byte $21
-- D - I - 0x0148A2 11:A892: B8        .byte $B8
+- D - I - 0x0148A1 11:A891: 21 B8     .word off_B821
 
 
 
@@ -3021,8 +3018,7 @@ off_A893:
 - D - I - 0x0148C5 11:A8B5: 1C        .byte $1C
 - D - I - 0x0148C6 11:A8B6: 3E        .byte $3E
 - D - I - 0x0148C7 11:A8B7: FB        .byte $FB
-- D - I - 0x0148C8 11:A8B8: 21        .byte $21
-- D - I - 0x0148C9 11:A8B9: B8        .byte $B8
+- D - I - 0x0148C8 11:A8B8: 21 B8     .word off_B821
 
 
 
@@ -3062,8 +3058,7 @@ off_A8BA:
 - D - I - 0x0148EA 11:A8DA: 00        .byte $00
 - D - I - 0x0148EB 11:A8DB: 2E        .byte $2E
 - D - I - 0x0148EC 11:A8DC: FB        .byte $FB
-- D - I - 0x0148ED 11:A8DD: 6D        .byte $6D
-- D - I - 0x0148EE 11:A8DE: B8        .byte $B8
+- D - I - 0x0148ED 11:A8DD: 6D B8     .word off_B86D
 
 
 
@@ -3107,8 +3102,7 @@ off_A8DF:
 - D - I - 0x014913 11:A903: 00        .byte $00
 - D - I - 0x014914 11:A904: 3E        .byte $3E
 - D - I - 0x014915 11:A905: FB        .byte $FB
-- D - I - 0x014916 11:A906: 6D        .byte $6D
-- D - I - 0x014917 11:A907: B8        .byte $B8
+- D - I - 0x014916 11:A906: 6D B8     .word off_B86D
 
 
 
@@ -3150,8 +3144,7 @@ off_A908:
 - D - I - 0x01493A 11:A92A: 3C        .byte $3C
 - D - I - 0x01493B 11:A92B: 2E        .byte $2E
 - D - I - 0x01493C 11:A92C: FB        .byte $FB
-- D - I - 0x01493D 11:A92D: C3        .byte $C3
-- D - I - 0x01493E 11:A92E: B8        .byte $B8
+- D - I - 0x01493D 11:A92D: C3 B8     .word off_B8C3
 
 
 
@@ -3196,8 +3189,7 @@ off_A92F:
 - D - I - 0x014964 11:A954: 1C        .byte $1C
 - D - I - 0x014965 11:A955: 3E        .byte $3E
 - D - I - 0x014966 11:A956: FB        .byte $FB
-- D - I - 0x014967 11:A957: C3        .byte $C3
-- D - I - 0x014968 11:A958: B8        .byte $B8
+- D - I - 0x014967 11:A957: C3 B8     .word off_B8C3
 
 
 
@@ -3226,8 +3218,7 @@ off_A959:
 - D - I - 0x01497E 11:A96E: 00        .byte $00
 - D - I - 0x01497F 11:A96F: 1C        .byte $1C
 - D - I - 0x014980 11:A970: FB        .byte $FB
-- D - I - 0x014981 11:A971: 4C        .byte $4C
-- D - I - 0x014982 11:A972: B9        .byte $B9
+- D - I - 0x014981 11:A971: 4C B9     .word off_B94C
 
 
 
@@ -3309,8 +3300,7 @@ off_A98F:
 - D - I - 0x0149C9 11:A9B9: 4B        .byte $4B
 - D - I - 0x0149CA 11:A9BA: 5A        .byte $5A
 - D - I - 0x0149CB 11:A9BB: FB        .byte $FB
-- D - I - 0x0149CC 11:A9BC: 90        .byte $90
-- D - I - 0x0149CD 11:A9BD: BC        .byte $BC
+- D - I - 0x0149CC 11:A9BC: 90 BC     .word off_BC90
 
 
 
@@ -3344,8 +3334,7 @@ off_A9BE:
 - D - I - 0x0149E8 11:A9D8: 7F        .byte $7F
 - D - I - 0x0149E9 11:A9D9: 54        .byte $54
 - D - I - 0x0149EA 11:A9DA: FB        .byte $FB
-- D - I - 0x0149EB 11:A9DB: AA        .byte $AA
-- D - I - 0x0149EC 11:A9DC: B9        .byte $B9
+- D - I - 0x0149EB 11:A9DB: AA B9     .word off_B9AA
 
 
 
@@ -4323,8 +4312,7 @@ off_AD72:
 - D - I - 0x014D87 11:AD77: 88        .byte $88
 - D - I - 0x014D88 11:AD78: BB        .byte $BB
 - D - I - 0x014D89 11:AD79: FB        .byte $FB
-- D - I - 0x014D8A 11:AD7A: FC        .byte $FC
-- D - I - 0x014D8B 11:AD7B: BA        .byte $BA
+- D - I - 0x014D8A 11:AD7A: FC BA     .word off_BAFC
 
 
 
@@ -4337,8 +4325,7 @@ off_AD7C:
 - D - I - 0x014D91 11:AD81: 88        .byte $88
 - D - I - 0x014D92 11:AD82: BB        .byte $BB
 - D - I - 0x014D93 11:AD83: FB        .byte $FB
-- D - I - 0x014D94 11:AD84: 14        .byte $14
-- D - I - 0x014D95 11:AD85: BB        .byte $BB
+- D - I - 0x014D94 11:AD84: 14 BB     .word off_BB14
 
 
 
@@ -4351,8 +4338,7 @@ off_AD86:
 - D - I - 0x014D9B 11:AD8B: 88        .byte $88
 - D - I - 0x014D9C 11:AD8C: BB        .byte $BB
 - D - I - 0x014D9D 11:AD8D: FB        .byte $FB
-- D - I - 0x014D9E 11:AD8E: 56        .byte $56
-- D - I - 0x014D9F 11:AD8F: BB        .byte $BB
+- D - I - 0x014D9E 11:AD8E: 56 BB     .word off_BB56
 
 
 
@@ -4365,8 +4351,7 @@ off_AD90:
 - D - I - 0x014DA5 11:AD95: 88        .byte $88
 - D - I - 0x014DA6 11:AD96: BB        .byte $BB
 - D - I - 0x014DA7 11:AD97: FB        .byte $FB
-- D - I - 0x014DA8 11:AD98: 6E        .byte $6E
-- D - I - 0x014DA9 11:AD99: BB        .byte $BB
+- D - I - 0x014DA8 11:AD98: 6E BB     .word off_BB6E
 
 
 
@@ -4379,8 +4364,7 @@ off_AD9A:
 - D - I - 0x014DAF 11:AD9F: 9C        .byte $9C
 - D - I - 0x014DB0 11:ADA0: BB        .byte $BB
 - D - I - 0x014DB1 11:ADA1: FB        .byte $FB
-- D - I - 0x014DB2 11:ADA2: FC        .byte $FC
-- D - I - 0x014DB3 11:ADA3: BA        .byte $BA
+- D - I - 0x014DB2 11:ADA2: FC BA     .word off_BAFC
 
 
 
@@ -4393,8 +4377,7 @@ off_ADA4:
 - D - I - 0x014DB9 11:ADA9: 9C        .byte $9C
 - D - I - 0x014DBA 11:ADAA: BB        .byte $BB
 - D - I - 0x014DBB 11:ADAB: FB        .byte $FB
-- D - I - 0x014DBC 11:ADAC: 14        .byte $14
-- D - I - 0x014DBD 11:ADAD: BB        .byte $BB
+- D - I - 0x014DBC 11:ADAC: 14 BB     .word off_BB14
 
 
 
@@ -4407,8 +4390,7 @@ off_ADAE:
 - D - I - 0x014DC3 11:ADB3: 9C        .byte $9C
 - D - I - 0x014DC4 11:ADB4: BB        .byte $BB
 - D - I - 0x014DC5 11:ADB5: FB        .byte $FB
-- D - I - 0x014DC6 11:ADB6: 56        .byte $56
-- D - I - 0x014DC7 11:ADB7: BB        .byte $BB
+- D - I - 0x014DC6 11:ADB6: 56 BB     .word off_BB56
 
 
 
@@ -4421,8 +4403,7 @@ off_ADB8:
 - D - I - 0x014DCD 11:ADBD: 03        .byte $03
 - D - I - 0x014DCE 11:ADBE: BC        .byte $BC
 - D - I - 0x014DCF 11:ADBF: FB        .byte $FB
-- D - I - 0x014DD0 11:ADC0: 3D        .byte $3D
-- D - I - 0x014DD1 11:ADC1: BC        .byte $BC
+- D - I - 0x014DD0 11:ADC0: 3D BC     .word off_BC3D
 
 
 
@@ -4435,8 +4416,7 @@ off_ADC2:
 - D - I - 0x014DD7 11:ADC7: A2        .byte $A2
 - D - I - 0x014DD8 11:ADC8: BB        .byte $BB
 - D - I - 0x014DD9 11:ADC9: FB        .byte $FB
-- D - I - 0x014DDA 11:ADCA: FC        .byte $FC
-- D - I - 0x014DDB 11:ADCB: BA        .byte $BA
+- D - I - 0x014DDA 11:ADCA: FC BA     .word off_BAFC
 
 
 
@@ -4449,8 +4429,7 @@ off_ADCC:
 - D - I - 0x014DE1 11:ADD1: A2        .byte $A2
 - D - I - 0x014DE2 11:ADD2: BB        .byte $BB
 - D - I - 0x014DE3 11:ADD3: FB        .byte $FB
-- D - I - 0x014DE4 11:ADD4: 14        .byte $14
-- D - I - 0x014DE5 11:ADD5: BB        .byte $BB
+- D - I - 0x014DE4 11:ADD4: 14 BB     .word off_BB14
 
 
 
@@ -4507,8 +4486,7 @@ off_ADF0:
 - D - I - 0x014E13 11:AE03: 0B        .byte $0B
 - D - I - 0x014E14 11:AE04: 2E        .byte $2E
 - D - I - 0x014E15 11:AE05: FB        .byte $FB
-- D - I - 0x014E16 11:AE06: 06        .byte $06
-- D - I - 0x014E17 11:AE07: BA        .byte $BA
+- D - I - 0x014E16 11:AE06: 06 BA     .word off_BA06
 
 
 
@@ -4521,8 +4499,7 @@ off_AE08:
 - D - I - 0x014E1D 11:AE0D: 65        .byte $65
 - D - I - 0x014E1E 11:AE0E: BA        .byte $BA
 - D - I - 0x014E1F 11:AE0F: FB        .byte $FB
-- D - I - 0x014E20 11:AE10: 71        .byte $71
-- D - I - 0x014E21 11:AE11: BA        .byte $BA
+- D - I - 0x014E20 11:AE10: 71 BA     .word off_BA71
 
 
 
@@ -4539,6 +4516,7 @@ off_AE12:
 - D - I - 0x014E2B 11:AE1B: 75        .byte $75
 - D - I - 0x014E2C 11:AE1C: 07        .byte $07
 - D - I - 0x014E2D 11:AE1D: 77        .byte $77
+off_AE1E:
 - D - I - 0x014E2E 11:AE1E: 0B        .byte $0B
 - D - I - 0x014E2F 11:AE1F: 4F        .byte $4F
 - D - I - 0x014E30 11:AE20: A0        .byte $A0
@@ -4548,8 +4526,7 @@ off_AE12:
 - D - I - 0x014E34 11:AE24: 65        .byte $65
 - D - I - 0x014E35 11:AE25: BA        .byte $BA
 - D - I - 0x014E36 11:AE26: FB        .byte $FB
-- D - I - 0x014E37 11:AE27: 7C        .byte $7C
-- D - I - 0x014E38 11:AE28: BA        .byte $BA
+- D - I - 0x014E37 11:AE27: 7C BA     .word off_BA7C
 
 
 
@@ -4567,8 +4544,7 @@ off_AE29:
 - D - I - 0x014E43 11:AE33: 07        .byte $07
 - D - I - 0x014E44 11:AE34: 73        .byte $73
 - D - I - 0x014E45 11:AE35: FB        .byte $FB
-- D - I - 0x014E46 11:AE36: 1E        .byte $1E
-- D - I - 0x014E47 11:AE37: AE        .byte $AE
+- D - I - 0x014E46 11:AE36: 1E AE     .word off_AE1E
 
 
 
@@ -4587,12 +4563,12 @@ off_AE38:
 - D - I - 0x014E53 11:AE43: A0        .byte $A0
 - D - I - 0x014E54 11:AE44: 0F        .byte $0F
 - D - I - 0x014E55 11:AE45: 7A        .byte $7A
+off_AE46:
 - D - I - 0x014E56 11:AE46: A1        .byte $A1
 - D - I - 0x014E57 11:AE47: 0F        .byte $0F
 - D - I - 0x014E58 11:AE48: 74        .byte $74
 - D - I - 0x014E59 11:AE49: FB        .byte $FB
-- D - I - 0x014E5A 11:AE4A: 71        .byte $71
-- D - I - 0x014E5B 11:AE4B: BA        .byte $BA
+- D - I - 0x014E5A 11:AE4A: 71 BA     .word off_BA71
 
 
 
@@ -4612,8 +4588,7 @@ off_AE4C:
 - D - I - 0x014E68 11:AE58: 0F        .byte $0F
 - D - I - 0x014E69 11:AE59: 7C        .byte $7C
 - D - I - 0x014E6A 11:AE5A: FB        .byte $FB
-- D - I - 0x014E6B 11:AE5B: 46        .byte $46
-- D - I - 0x014E6C 11:AE5C: AE        .byte $AE
+- D - I - 0x014E6B 11:AE5B: 46 AE     .word off_AE46
 
 
 
@@ -5714,8 +5689,7 @@ off_B22D:
 - D - I - 0x015242 11:B232: A2        .byte $A2
 - D - I - 0x015243 11:B233: BB        .byte $BB
 - D - I - 0x015244 11:B234: FB        .byte $FB
-- D - I - 0x015245 11:B235: 56        .byte $56
-- D - I - 0x015246 11:B236: BB        .byte $BB
+- D - I - 0x015245 11:B235: 56 BB     .word off_BB56
 
 
 
@@ -5765,8 +5739,7 @@ off_B258:
 - D - I - 0x01526D 11:B25D: B0        .byte $B0
 - D - I - 0x01526E 11:B25E: BB        .byte $BB
 - D - I - 0x01526F 11:B25F: FB        .byte $FB
-- D - I - 0x015270 11:B260: FC        .byte $FC
-- D - I - 0x015271 11:B261: BA        .byte $BA
+- D - I - 0x015270 11:B260: FC BA     .word off_BAFC
 
 
 
@@ -5779,8 +5752,7 @@ off_B262:
 - D - I - 0x015277 11:B267: B0        .byte $B0
 - D - I - 0x015278 11:B268: BB        .byte $BB
 - D - I - 0x015279 11:B269: FB        .byte $FB
-- D - I - 0x01527A 11:B26A: 14        .byte $14
-- D - I - 0x01527B 11:B26B: BB        .byte $BB
+- D - I - 0x01527A 11:B26A: 14 BB     .word off_BB14
 
 
 
@@ -5793,8 +5765,7 @@ off_B26C:
 - D - I - 0x015281 11:B271: B0        .byte $B0
 - D - I - 0x015282 11:B272: BB        .byte $BB
 - D - I - 0x015283 11:B273: FB        .byte $FB
-- D - I - 0x015284 11:B274: 56        .byte $56
-- D - I - 0x015285 11:B275: BB        .byte $BB
+- D - I - 0x015284 11:B274: 56 BB     .word off_BB56
 
 
 
@@ -5844,8 +5815,7 @@ off_B297:
 - D - I - 0x0152AC 11:B29C: BE        .byte $BE
 - D - I - 0x0152AD 11:B29D: BB        .byte $BB
 - D - I - 0x0152AE 11:B29E: FB        .byte $FB
-- D - I - 0x0152AF 11:B29F: FC        .byte $FC
-- D - I - 0x0152B0 11:B2A0: BA        .byte $BA
+- D - I - 0x0152AF 11:B29F: FC BA     .word off_BAFC
 
 
 
@@ -5858,8 +5828,7 @@ off_B2A1:
 - D - I - 0x0152B6 11:B2A6: BE        .byte $BE
 - D - I - 0x0152B7 11:B2A7: BB        .byte $BB
 - D - I - 0x0152B8 11:B2A8: FB        .byte $FB
-- D - I - 0x0152B9 11:B2A9: 14        .byte $14
-- D - I - 0x0152BA 11:B2AA: BB        .byte $BB
+- D - I - 0x0152B9 11:B2A9: 14 BB     .word off_BB14
 
 
 
@@ -5872,8 +5841,7 @@ off_B2AB:
 - D - I - 0x0152C0 11:B2B0: BE        .byte $BE
 - D - I - 0x0152C1 11:B2B1: BB        .byte $BB
 - D - I - 0x0152C2 11:B2B2: FB        .byte $FB
-- D - I - 0x0152C3 11:B2B3: 56        .byte $56
-- D - I - 0x0152C4 11:B2B4: BB        .byte $BB
+- D - I - 0x0152C3 11:B2B3: 56 BB     .word off_BB56
 
 
 
@@ -5927,8 +5895,7 @@ off_B2DA:
 - D - I - 0x0152EF 11:B2DF: C9        .byte $C9
 - D - I - 0x0152F0 11:B2E0: BB        .byte $BB
 - D - I - 0x0152F1 11:B2E1: FB        .byte $FB
-- D - I - 0x0152F2 11:B2E2: FC        .byte $FC
-- D - I - 0x0152F3 11:B2E3: BA        .byte $BA
+- D - I - 0x0152F2 11:B2E2: FC BA     .word off_BAFC
 
 
 
@@ -5941,8 +5908,7 @@ off_B2E4:
 - D - I - 0x0152F9 11:B2E9: C9        .byte $C9
 - D - I - 0x0152FA 11:B2EA: BB        .byte $BB
 - D - I - 0x0152FB 11:B2EB: FB        .byte $FB
-- D - I - 0x0152FC 11:B2EC: 14        .byte $14
-- D - I - 0x0152FD 11:B2ED: BB        .byte $BB
+- D - I - 0x0152FC 11:B2EC: 14 BB     .word off_BB14
 
 
 
@@ -5955,8 +5921,7 @@ off_B2EE:
 - D - I - 0x015303 11:B2F3: C9        .byte $C9
 - D - I - 0x015304 11:B2F4: BB        .byte $BB
 - D - I - 0x015305 11:B2F5: FB        .byte $FB
-- D - I - 0x015306 11:B2F6: 56        .byte $56
-- D - I - 0x015307 11:B2F7: BB        .byte $BB
+- D - I - 0x015306 11:B2F6: 56 BB     .word off_BB56
 
 
 
@@ -5998,8 +5963,7 @@ off_B311:
 - D - I - 0x015326 11:B316: D4        .byte $D4
 - D - I - 0x015327 11:B317: BB        .byte $BB
 - D - I - 0x015328 11:B318: FB        .byte $FB
-- D - I - 0x015329 11:B319: 2C        .byte $2C
-- D - I - 0x01532A 11:B31A: BC        .byte $BC
+- D - I - 0x015329 11:B319: 2C BC     .word off_BC2C
 
 
 
@@ -6012,8 +5976,7 @@ off_B31B:
 - D - I - 0x015330 11:B320: E8        .byte $E8
 - D - I - 0x015331 11:B321: BB        .byte $BB
 - D - I - 0x015332 11:B322: FB        .byte $FB
-- D - I - 0x015333 11:B323: 2C        .byte $2C
-- D - I - 0x015334 11:B324: BC        .byte $BC
+- D - I - 0x015333 11:B323: 2C BC     .word off_BC2C
 
 
 
@@ -6026,8 +5989,7 @@ off_B325:
 - D - I - 0x01533A 11:B32A: 03        .byte $03
 - D - I - 0x01533B 11:B32B: BC        .byte $BC
 - D - I - 0x01533C 11:B32C: FB        .byte $FB
-- D - I - 0x01533D 11:B32D: 2C        .byte $2C
-- D - I - 0x01533E 11:B32E: BC        .byte $BC
+- D - I - 0x01533D 11:B32D: 2C BC     .word off_BC2C
 
 
 
@@ -6040,8 +6002,7 @@ off_B32F:
 - D - I - 0x015344 11:B334: 1A        .byte $1A
 - D - I - 0x015345 11:B335: BC        .byte $BC
 - D - I - 0x015346 11:B336: FB        .byte $FB
-- D - I - 0x015347 11:B337: 2C        .byte $2C
-- D - I - 0x015348 11:B338: BC        .byte $BC
+- D - I - 0x015347 11:B337: 2C BC     .word off_BC2C
 
 
 
@@ -6054,8 +6015,7 @@ off_B339:
 - D - I - 0x01534E 11:B33E: D4        .byte $D4
 - D - I - 0x01534F 11:B33F: BB        .byte $BB
 - D - I - 0x015350 11:B340: FB        .byte $FB
-- D - I - 0x015351 11:B341: 3D        .byte $3D
-- D - I - 0x015352 11:B342: BC        .byte $BC
+- D - I - 0x015351 11:B341: 3D BC     .word off_BC3D
 
 
 
@@ -6068,8 +6028,7 @@ off_B343:
 - D - I - 0x015358 11:B348: E8        .byte $E8
 - D - I - 0x015359 11:B349: BB        .byte $BB
 - D - I - 0x01535A 11:B34A: FB        .byte $FB
-- D - I - 0x01535B 11:B34B: 3D        .byte $3D
-- D - I - 0x01535C 11:B34C: BC        .byte $BC
+- D - I - 0x01535B 11:B34B: 3D BC     .word off_BC3D
 
 
 
@@ -6133,8 +6092,7 @@ off_B37C:
 - D - I - 0x015391 11:B381: 1A        .byte $1A
 - D - I - 0x015392 11:B382: BC        .byte $BC
 - D - I - 0x015393 11:B383: FB        .byte $FB
-- D - I - 0x015394 11:B384: 3D        .byte $3D
-- D - I - 0x015395 11:B385: BC        .byte $BC
+- D - I - 0x015394 11:B384: 3D BC     .word off_BC3D
 - - - - - 0x015396 11:B386: 06        .byte $06
 - - - - - 0x015397 11:B387: 07        .byte $07
 - - - - - 0x015398 11:B388: 5E        .byte $5E
@@ -6332,8 +6290,7 @@ off_B40E:
 - D - I - 0x015448 11:B438: 4B        .byte $4B
 - D - I - 0x015449 11:B439: 5A        .byte $5A
 - D - I - 0x01544A 11:B43A: FB        .byte $FB
-- D - I - 0x01544B 11:B43B: 90        .byte $90
-- D - I - 0x01544C 11:B43C: BC        .byte $BC
+- D - I - 0x01544B 11:B43B: 90 BC     .word off_BC90
 
 
 
@@ -6794,8 +6751,7 @@ off_B5DC:
 - D - I - 0x0155EE 11:B5DE: 5E        .byte $5E
 - D - I - 0x0155EF 11:B5DF: 5F        .byte $5F
 - D - I - 0x0155F0 11:B5E0: FB        .byte $FB
-- D - I - 0x0155F1 11:B5E1: 4E        .byte $4E
-- D - I - 0x0155F2 11:B5E2: BC        .byte $BC
+- D - I - 0x0155F1 11:B5E1: 4E BC     .word off_BC4E
 
 
 
@@ -6805,8 +6761,7 @@ off_B5E3:
 - D - I - 0x0155F5 11:B5E5: 5E        .byte $5E
 - D - I - 0x0155F6 11:B5E6: 5F        .byte $5F
 - D - I - 0x0155F7 11:B5E7: FB        .byte $FB
-- D - I - 0x0155F8 11:B5E8: 5A        .byte $5A
-- D - I - 0x0155F9 11:B5E9: BC        .byte $BC
+- D - I - 0x0155F8 11:B5E8: 5A BC     .word off_BC5A
 
 
 
@@ -6819,8 +6774,7 @@ off_B5EA:
 - D - I - 0x0155FF 11:B5EF: 70        .byte $70
 - D - I - 0x015600 11:B5F0: BC        .byte $BC
 - D - I - 0x015601 11:B5F1: FB        .byte $FB
-- D - I - 0x015602 11:B5F2: 4E        .byte $4E
-- D - I - 0x015603 11:B5F3: BC        .byte $BC
+- D - I - 0x015602 11:B5F2: 4E BC     .word off_BC4E
 
 
 
@@ -6833,8 +6787,7 @@ off_B5F4:
 - D - I - 0x015609 11:B5F9: 70        .byte $70
 - D - I - 0x01560A 11:B5FA: BC        .byte $BC
 - D - I - 0x01560B 11:B5FB: FB        .byte $FB
-- D - I - 0x01560C 11:B5FC: 5A        .byte $5A
-- D - I - 0x01560D 11:B5FD: BC        .byte $BC
+- D - I - 0x01560C 11:B5FC: 5A BC     .word off_BC5A
 
 
 
@@ -6931,8 +6884,7 @@ off_B62B:
 - D - I - 0x015663 11:B653: 2F        .byte $2F
 - D - I - 0x015664 11:B654: E5        .byte $E5
 - D - I - 0x015665 11:B655: FB        .byte $FB
-- D - I - 0x015666 11:B656: 74        .byte $74
-- D - I - 0x015667 11:B657: BC        .byte $BC
+- D - I - 0x015666 11:B656: 74 BC     .word off_BC74
 
 
 
@@ -6986,8 +6938,7 @@ off_B658:
 - D - I - 0x015696 11:B686: 2F        .byte $2F
 - D - I - 0x015697 11:B687: FA        .byte $FA
 - D - I - 0x015698 11:B688: FB        .byte $FB
-- D - I - 0x015699 11:B689: 74        .byte $74
-- D - I - 0x01569A 11:B68A: BC        .byte $BC
+- D - I - 0x015699 11:B689: 74 BC     .word off_BC74
 
 
 
@@ -7064,8 +7015,7 @@ off_B6A0:
 - D - I - 0x0156DC 11:B6CC: 2F        .byte $2F
 - D - I - 0x0156DD 11:B6CD: E5        .byte $E5
 - D - I - 0x0156DE 11:B6CE: FB        .byte $FB
-- D - I - 0x0156DF 11:B6CF: 74        .byte $74
-- D - I - 0x0156E0 11:B6D0: BC        .byte $BC
+- D - I - 0x0156DF 11:B6CF: 74 BC     .word off_BC74
 
 
 
@@ -7197,8 +7147,7 @@ off_B739:
 - D - I - 0x015751 11:B741: 01        .byte $01
 - D - I - 0x015752 11:B742: BE        .byte $BE
 - D - I - 0x015753 11:B743: FB        .byte $FB
-- D - I - 0x015754 11:B744: A1        .byte $A1
-- D - I - 0x015755 11:B745: BC        .byte $BC
+- D - I - 0x015754 11:B744: A1 BC     .word off_BCA1
 
 
 
@@ -7214,8 +7163,7 @@ off_B746:
 - D - I - 0x01575E 11:B74E: 01        .byte $01
 - D - I - 0x01575F 11:B74F: 7F        .byte $7F
 - D - I - 0x015760 11:B750: FB        .byte $FB
-- D - I - 0x015761 11:B751: A1        .byte $A1
-- D - I - 0x015762 11:B752: BC        .byte $BC
+- D - I - 0x015761 11:B751: A1 BC     .word off_BCA1
 
 
 
@@ -7372,6 +7320,7 @@ off_B7BB:
 - D - I - 0x0157DC 11:B7CC: 03        .byte $03
 - D - I - 0x0157DD 11:B7CD: 31        .byte $31
 - D - I - 0x0157DE 11:B7CE: FF        .byte $FF
+off_B7CF:
 - D - I - 0x0157DF 11:B7CF: BD        .byte $BD
 - D - I - 0x0157E0 11:B7D0: 9D        .byte $9D
 - D - I - 0x0157E1 11:B7D1: C0        .byte $C0
@@ -7454,6 +7403,7 @@ off_B7BB:
 - D - I - 0x01582E 11:B81E: 01        .byte $01
 - D - I - 0x01582F 11:B81F: 18        .byte $18
 - D - I - 0x015830 11:B820: FF        .byte $FF
+off_B821:
 - D - I - 0x015831 11:B821: BD        .byte $BD
 - D - I - 0x015832 11:B822: 7D        .byte $7D
 - D - I - 0x015833 11:B823: 47        .byte $47
@@ -7530,6 +7480,7 @@ off_B7BB:
 - D - I - 0x01587A 11:B86A: 7D        .byte $7D
 - D - I - 0x01587B 11:B86B: 16        .byte $16
 - D - I - 0x01587C 11:B86C: FF        .byte $FF
+off_B86D:
 - D - I - 0x01587D 11:B86D: BD        .byte $BD
 - D - I - 0x01587E 11:B86E: 7D        .byte $7D
 - D - I - 0x01587F 11:B86F: 12        .byte $12
@@ -7616,6 +7567,7 @@ off_B7BB:
 - D - I - 0x0158D0 11:B8C0: 51        .byte $51
 - D - I - 0x0158D1 11:B8C1: 04        .byte $04
 - D - I - 0x0158D2 11:B8C2: FF        .byte $FF
+off_B8C3:
 - D - I - 0x0158D3 11:B8C3: BD        .byte $BD
 - D - I - 0x0158D4 11:B8C4: 39        .byte $39
 - D - I - 0x0158D5 11:B8C5: 14        .byte $14
@@ -7753,6 +7705,7 @@ off_B7BB:
 - D - I - 0x015959 11:B949: 1B        .byte $1B
 - D - I - 0x01595A 11:B94A: 66        .byte $66
 - D - I - 0x01595B 11:B94B: FE        .byte $FE
+off_B94C:
 - D - I - 0x01595C 11:B94C: BD        .byte $BD
 - D - I - 0x01595D 11:B94D: 86        .byte $86
 - D - I - 0x01595E 11:B94E: CC        .byte $CC
@@ -7847,6 +7800,7 @@ off_B7BB:
 - D - I - 0x0159B7 11:B9A7: 0C        .byte $0C
 - D - I - 0x0159B8 11:B9A8: 2F        .byte $2F
 - D - I - 0x0159B9 11:B9A9: FF        .byte $FF
+off_B9AA:
 - D - I - 0x0159BA 11:B9AA: BF        .byte $BF
 - D - I - 0x0159BB 11:B9AB: 03        .byte $03
 - D - I - 0x0159BC 11:B9AC: 5C        .byte $5C
@@ -7880,6 +7834,7 @@ off_B7BB:
 - D - I - 0x0159D8 11:B9C8: 4B        .byte $4B
 - D - I - 0x0159D9 11:B9C9: 5A        .byte $5A
 - D - I - 0x0159DA 11:B9CA: FF        .byte $FF
+off_B9CB:
 - D - I - 0x0159DB 11:B9CB: 3A        .byte $3A
 - D - I - 0x0159DC 11:B9CC: 03        .byte $03
 - D - I - 0x0159DD 11:B9CD: A0        .byte $A0
@@ -7939,6 +7894,7 @@ off_B7BB:
 - D - I - 0x015A13 11:BA03: 0F        .byte $0F
 - D - I - 0x015A14 11:BA04: 9F        .byte $9F
 - D - I - 0x015A15 11:BA05: FE        .byte $FE
+off_BA06:
 - D - I - 0x015A16 11:BA06: BD        .byte $BD
 - D - I - 0x015A17 11:BA07: 17        .byte $17
 - D - I - 0x015A18 11:BA08: 29        .byte $29
@@ -8046,6 +8002,7 @@ off_B7BB:
 - D - I - 0x015A7E 11:BA6E: 0F        .byte $0F
 - D - I - 0x015A7F 11:BA6F: 71        .byte $71
 - D - I - 0x015A80 11:BA70: FE        .byte $FE
+off_BA71:
 - D - I - 0x015A81 11:BA71: A2        .byte $A2
 - D - I - 0x015A82 11:BA72: 07        .byte $07
 - D - I - 0x015A83 11:BA73: 5D        .byte $5D
@@ -8057,6 +8014,7 @@ off_B7BB:
 - D - I - 0x015A89 11:BA79: A0        .byte $A0
 - D - I - 0x015A8A 11:BA7A: 03        .byte $03
 - D - I - 0x015A8B 11:BA7B: 55        .byte $55
+off_BA7C:
 - D - I - 0x015A8C 11:BA7C: 07        .byte $07
 - D - I - 0x015A8D 11:BA7D: 59        .byte $59
 - D - I - 0x015A8E 11:BA7E: 0B        .byte $0B
@@ -8067,8 +8025,8 @@ off_B7BB:
 - D - I - 0x015A93 11:BA83: 0B        .byte $0B
 - D - I - 0x015A94 11:BA84: 5E        .byte $5E
 - D - I - 0x015A95 11:BA85: FB        .byte $FB
-- D - I - 0x015A96 11:BA86: 06        .byte $06
-- D - I - 0x015A97 11:BA87: BA        .byte $BA
+- D - I - 0x015A96 11:BA86: 06 BA     .word off_BA06
+off_BA88:
 - D - I - 0x015A98 11:BA88: A0        .byte $A0
 - D - I - 0x015A99 11:BA89: 0F        .byte $0F
 - D - I - 0x015A9A 11:BA8A: 37        .byte $37
@@ -8185,6 +8143,7 @@ off_B7BB:
 - D - I - 0x015B09 11:BAF9: 0F        .byte $0F
 - D - I - 0x015B0A 11:BAFA: 02        .byte $02
 - D - I - 0x015B0B 11:BAFB: FE        .byte $FE
+off_BAFC:
 - D - I - 0x015B0C 11:BAFC: BD        .byte $BD
 - D - I - 0x015B0D 11:BAFD: 03        .byte $03
 - D - I - 0x015B0E 11:BAFE: 22        .byte $22
@@ -8207,8 +8166,8 @@ off_B7BB:
 - D - I - 0x015B1F 11:BB0F: 07        .byte $07
 - D - I - 0x015B20 11:BB10: 21        .byte $21
 - D - I - 0x015B21 11:BB11: FB        .byte $FB
-- D - I - 0x015B22 11:BB12: CB        .byte $CB
-- D - I - 0x015B23 11:BB13: B9        .byte $B9
+- D - I - 0x015B22 11:BB12: CB B9     .word off_B9CB
+off_BB14:
 - D - I - 0x015B24 11:BB14: BD        .byte $BD
 - D - I - 0x015B25 11:BB15: 38        .byte $38
 - D - I - 0x015B26 11:BB16: 30        .byte $30
@@ -8275,6 +8234,7 @@ off_B7BB:
 - D - I - 0x015B63 11:BB53: 03        .byte $03
 - D - I - 0x015B64 11:BB54: 1B        .byte $1B
 - D - I - 0x015B65 11:BB55: FF        .byte $FF
+off_BB56:
 - D - I - 0x015B66 11:BB56: BD        .byte $BD
 - D - I - 0x015B67 11:BB57: 00        .byte $00
 - D - I - 0x015B68 11:BB58: 15        .byte $15
@@ -8297,8 +8257,8 @@ off_B7BB:
 - D - I - 0x015B79 11:BB69: 07        .byte $07
 - D - I - 0x015B7A 11:BB6A: 2E        .byte $2E
 - D - I - 0x015B7B 11:BB6B: FB        .byte $FB
-- D - I - 0x015B7C 11:BB6C: CB        .byte $CB
-- D - I - 0x015B7D 11:BB6D: B9        .byte $B9
+- D - I - 0x015B7C 11:BB6C: CB B9     .word off_B9CB
+off_BB6E:
 - D - I - 0x015B7E 11:BB6E: BD        .byte $BD
 - D - I - 0x015B7F 11:BB6F: 00        .byte $00
 - D - I - 0x015B80 11:BB70: 15        .byte $15
@@ -8323,8 +8283,7 @@ off_B7BB:
 - D - I - 0x015B93 11:BB83: 07        .byte $07
 - D - I - 0x015B94 11:BB84: 3E        .byte $3E
 - D - I - 0x015B95 11:BB85: FB        .byte $FB
-- D - I - 0x015B96 11:BB86: CB        .byte $CB
-- D - I - 0x015B97 11:BB87: B9        .byte $B9
+- D - I - 0x015B96 11:BB86: CB B9     .word off_B9CB
 - D - I - 0x015B98 11:BB88: BD        .byte $BD
 - D - I - 0x015B99 11:BB89: 0A        .byte $0A
 - D - I - 0x015B9A 11:BB8A: 90        .byte $90
@@ -8419,8 +8378,7 @@ off_B7BB:
 - D - I - 0x015BF3 11:BBE3: 3C        .byte $3C
 - D - I - 0x015BF4 11:BBE4: 1A        .byte $1A
 - D - I - 0x015BF5 11:BBE5: FB        .byte $FB
-- D - I - 0x015BF6 11:BBE6: 88        .byte $88
-- D - I - 0x015BF7 11:BBE7: BA        .byte $BA
+- D - I - 0x015BF6 11:BBE6: 88 BA     .word off_BA88
 - D - I - 0x015BF8 11:BBE8: A7        .byte $A7
 - D - I - 0x015BF9 11:BBE9: 38        .byte $38
 - D - I - 0x015BFA 11:BBEA: 0C        .byte $0C
@@ -8446,8 +8404,7 @@ off_B7BB:
 - D - I - 0x015C0E 11:BBFE: 38        .byte $38
 - D - I - 0x015C0F 11:BBFF: 17        .byte $17
 - D - I - 0x015C10 11:BC00: FB        .byte $FB
-- D - I - 0x015C11 11:BC01: 88        .byte $88
-- D - I - 0x015C12 11:BC02: BA        .byte $BA
+- D - I - 0x015C11 11:BC01: 88 BA     .word off_BA88
 - D - I - 0x015C13 11:BC03: A7        .byte $A7
 - D - I - 0x015C14 11:BC04: 38        .byte $38
 - D - I - 0x015C15 11:BC05: 0E        .byte $0E
@@ -8469,8 +8426,7 @@ off_B7BB:
 - D - I - 0x015C25 11:BC15: 38        .byte $38
 - D - I - 0x015C26 11:BC16: 26        .byte $26
 - D - I - 0x015C27 11:BC17: FB        .byte $FB
-- D - I - 0x015C28 11:BC18: 88        .byte $88
-- D - I - 0x015C29 11:BC19: BA        .byte $BA
+- D - I - 0x015C28 11:BC18: 88 BA     .word off_BA88
 - D - I - 0x015C2A 11:BC1A: A7        .byte $A7
 - D - I - 0x015C2B 11:BC1B: 38        .byte $38
 - D - I - 0x015C2C 11:BC1C: 38        .byte $38
@@ -8487,8 +8443,8 @@ off_B7BB:
 - D - I - 0x015C37 11:BC27: 3C        .byte $3C
 - D - I - 0x015C38 11:BC28: 2F        .byte $2F
 - D - I - 0x015C39 11:BC29: FB        .byte $FB
-- D - I - 0x015C3A 11:BC2A: 88        .byte $88
-- D - I - 0x015C3B 11:BC2B: BA        .byte $BA
+- D - I - 0x015C3A 11:BC2A: 88 BA     .word off_BA88
+off_BC2C:
 - D - I - 0x015C3C 11:BC2C: BF        .byte $BF
 - D - I - 0x015C3D 11:BC2D: 13        .byte $13
 - D - I - 0x015C3E 11:BC2E: 7D        .byte $7D
@@ -8506,6 +8462,7 @@ off_B7BB:
 - D - I - 0x015C4A 11:BC3A: 17        .byte $17
 - D - I - 0x015C4B 11:BC3B: 6E        .byte $6E
 - D - I - 0x015C4C 11:BC3C: FF        .byte $FF
+off_BC3D:
 - D - I - 0x015C4D 11:BC3D: BF        .byte $BF
 - D - I - 0x015C4E 11:BC3E: 13        .byte $13
 - D - I - 0x015C4F 11:BC3F: 7C        .byte $7C
@@ -8523,6 +8480,7 @@ off_B7BB:
 - D - I - 0x015C5B 11:BC4B: 17        .byte $17
 - D - I - 0x015C5C 11:BC4C: 7B        .byte $7B
 - D - I - 0x015C5D 11:BC4D: FF        .byte $FF
+off_BC4E:
 - D - I - 0x015C5E 11:BC4E: A5        .byte $A5
 - D - I - 0x015C5F 11:BC4F: 9E        .byte $9E
 - D - I - 0x015C60 11:BC50: C4        .byte $C4
@@ -8533,8 +8491,8 @@ off_B7BB:
 - D - I - 0x015C65 11:BC55: 02        .byte $02
 - D - I - 0x015C66 11:BC56: 7F        .byte $7F
 - D - I - 0x015C67 11:BC57: FB        .byte $FB
-- D - I - 0x015C68 11:BC58: 63        .byte $63
-- D - I - 0x015C69 11:BC59: BC        .byte $BC
+- D - I - 0x015C68 11:BC58: 63 BC     .word off_BC63
+off_BC5A:
 - D - I - 0x015C6A 11:BC5A: A5        .byte $A5
 - D - I - 0x015C6B 11:BC5B: 9E        .byte $9E
 - D - I - 0x015C6C 11:BC5C: C4        .byte $C4
@@ -8544,6 +8502,7 @@ off_B7BB:
 - D - I - 0x015C70 11:BC60: C4        .byte $C4
 - D - I - 0x015C71 11:BC61: 02        .byte $02
 - D - I - 0x015C72 11:BC62: 7D        .byte $7D
+off_BC63:
 - D - I - 0x015C73 11:BC63: A0        .byte $A0
 - D - I - 0x015C74 11:BC64: 02        .byte $02
 - D - I - 0x015C75 11:BC65: 7F        .byte $7F
@@ -8561,6 +8520,7 @@ off_B7BB:
 - D - I - 0x015C81 11:BC71: 3A        .byte $3A
 - D - I - 0x015C82 11:BC72: 7F        .byte $7F
 - D - I - 0x015C83 11:BC73: FE        .byte $FE
+off_BC74:
 - D - I - 0x015C84 11:BC74: 33        .byte $33
 - D - I - 0x015C85 11:BC75: E7        .byte $E7
 - D - I - 0x015C86 11:BC76: 37        .byte $37
@@ -8589,6 +8549,7 @@ off_B7BB:
 - D - I - 0x015C9D 11:BC8D: 3B        .byte $3B
 - D - I - 0x015C9E 11:BC8E: EE        .byte $EE
 - D - I - 0x015C9F 11:BC8F: FF        .byte $FF
+off_BC90:
 - D - I - 0x015CA0 11:BC90: BF        .byte $BF
 - D - I - 0x015CA1 11:BC91: 3F        .byte $3F
 - D - I - 0x015CA2 11:BC92: 50        .byte $50
@@ -8606,6 +8567,7 @@ off_B7BB:
 - D - I - 0x015CAE 11:BC9E: 7F        .byte $7F
 - D - I - 0x015CAF 11:BC9F: 50        .byte $50
 - D - I - 0x015CB0 11:BCA0: FF        .byte $FF
+off_BCA1:
 - D - I - 0x015CB1 11:BCA1: A0        .byte $A0
 - D - I - 0x015CB2 11:BCA2: 3D        .byte $3D
 - D - I - 0x015CB3 11:BCA3: B9        .byte $B9
