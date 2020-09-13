@@ -5,7 +5,7 @@
 ; основные данные анимации
 con_повторы         = $E0
 con_повторить       = $F0
-con_F1              = $F1
+con_координаты_Y_X              = $F1
 con_F5              = $F5
 con_F6              = $F6
 con_F7              = $F7
@@ -134,7 +134,7 @@ con_FE              = $FE
 off_A0DA_00:
 - D - I - 0x0120EA 10:A0DA: 00        .byte $00
 
-- D - I - 0x0120EB 10:A0DB: F1        .byte con_F1
+- D - I - 0x0120EB 10:A0DB: F1        .byte con_координаты_Y_X
 - D - I - 0x0120EC 10:A0DC: 2E        .byte $2E
 - D - I - 0x0120ED 10:A0DD: 6A        .byte $6A
 
@@ -183,7 +183,7 @@ off_A0DA_00:
 
 - D - I - 0x012117 10:A107: 87 C1     .dbyt off_A7C1 - $2000
 
-- D - I - 0x012119 10:A109: F1        .byte con_F1
+- D - I - 0x012119 10:A109: F1        .byte con_координаты_Y_X
 - D - I - 0x01211A 10:A10A: 22        .byte $22
 - D - I - 0x01211B 10:A10B: 3E        .byte $3E
 
@@ -235,7 +235,7 @@ off_A0DA_00:
 
 - D - I - 0x012148 10:A138: F0        .byte con_повторить
 
-- D - I - 0x012149 10:A139: F1        .byte con_F1
+- D - I - 0x012149 10:A139: F1        .byte con_координаты_Y_X
 - D - I - 0x01214A 10:A13A: 26        .byte $26
 - D - I - 0x01214B 10:A13B: 62        .byte $62
 
@@ -289,7 +289,7 @@ off_A0DA_00:
 off_A167_01:
 - D - I - 0x012177 10:A167: 00        .byte $00
 
-- D - I - 0x012178 10:A168: F1        .byte con_F1
+- D - I - 0x012178 10:A168: F1        .byte con_координаты_Y_X
 - D - I - 0x012179 10:A169: 36        .byte $36
 - D - I - 0x01217A 10:A16A: 5A        .byte $5A
 
@@ -327,7 +327,7 @@ off_A167_01:
 - D - I - 0x012198 10:A188: 87 49     .dbyt off_A749 - $2000
 - D - I - 0x01219A 10:A18A: 01        .byte $01
 
-- D - I - 0x01219B 10:A18B: F1        .byte con_F1
+- D - I - 0x01219B 10:A18B: F1        .byte con_координаты_Y_X
 - D - I - 0x01219C 10:A18C: 2E        .byte $2E
 - D - I - 0x01219D 10:A18D: 6A        .byte $6A
 
@@ -387,7 +387,7 @@ off_A167_01:
 - D - I - 0x0121CF 10:A1BF: 86 C2     .dbyt off_A6C2 - $2000
 - D - I - 0x0121D1 10:A1C1: 01        .byte $01
 
-- D - I - 0x0121D2 10:A1C2: F1        .byte con_F1
+- D - I - 0x0121D2 10:A1C2: F1        .byte con_координаты_Y_X
 - D - I - 0x0121D3 10:A1C3: 0A        .byte $0A
 - D - I - 0x0121D4 10:A1C4: 3E        .byte $3E
 
@@ -443,7 +443,7 @@ off_A167_01:
 off_A1F1_02:
 - D - I - 0x012201 10:A1F1: 0C        .byte $0C
 
-- D - I - 0x012202 10:A1F2: F1        .byte con_F1
+- D - I - 0x012202 10:A1F2: F1        .byte con_координаты_Y_X
 - D - I - 0x012203 10:A1F3: 30        .byte $30
 - D - I - 0x012204 10:A1F4: 3E        .byte $3E
 
@@ -464,7 +464,7 @@ off_A1F1_02:
 off_A201_03:
 - D - I - 0x012211 10:A201: 16        .byte $16
 
-- D - I - 0x012212 10:A202: F1        .byte con_F1
+- D - I - 0x012212 10:A202: F1        .byte con_координаты_Y_X
 - D - I - 0x012213 10:A203: 30        .byte $30
 - D - I - 0x012214 10:A204: 97        .byte $97
 
@@ -495,7 +495,7 @@ off_A201_03:
 off_A218_04:
 - D - I - 0x012228 10:A218: 0C        .byte $0C
 
-- D - I - 0x012229 10:A219: F1        .byte con_F1
+- D - I - 0x012229 10:A219: F1        .byte con_координаты_Y_X
 - D - I - 0x01222A 10:A21A: 30        .byte $30
 - D - I - 0x01222B 10:A21B: 48        .byte $48
 
@@ -514,7 +514,7 @@ off_A218_04:
 off_A223_05:
 - D - I - 0x012233 10:A223: 0E        .byte $0E
 
-- D - I - 0x012234 10:A224: F1        .byte con_F1
+- D - I - 0x012234 10:A224: F1        .byte con_координаты_Y_X
 - D - I - 0x012235 10:A225: 30        .byte $30
 - D - I - 0x012236 10:A226: 8B        .byte $8B
 
@@ -536,7 +536,7 @@ off_A223_05:
 off_A231_06:
 - D - I - 0x012241 10:A231: 03        .byte $03
 
-- D - I - 0x012242 10:A232: F1        .byte con_F1
+- D - I - 0x012242 10:A232: F1        .byte con_координаты_Y_X
 - D - I - 0x012243 10:A233: 30        .byte $30
 - D - I - 0x012244 10:A234: 4E        .byte $4E
 
@@ -551,7 +551,7 @@ off_A231_06:
 off_A23B_07:
 - D - I - 0x01224B 10:A23B: 0C        .byte $0C
 
-- D - I - 0x01224C 10:A23C: F1        .byte con_F1
+- D - I - 0x01224C 10:A23C: F1        .byte con_координаты_Y_X
 - D - I - 0x01224D 10:A23D: 30        .byte $30
 - D - I - 0x01224E 10:A23E: 4C        .byte $4C
 
@@ -582,7 +582,7 @@ off_A23B_07:
 off_A251_08:
 - D - I - 0x012261 10:A251: 0C        .byte $0C
 
-- D - I - 0x012262 10:A252: F1        .byte con_F1
+- D - I - 0x012262 10:A252: F1        .byte con_координаты_Y_X
 - D - I - 0x012263 10:A253: 30        .byte $30
 - D - I - 0x012264 10:A254: 2E        .byte $2E
 
@@ -600,7 +600,7 @@ off_A251_08:
 off_A25C_09:
 - D - I - 0x01226C 10:A25C: 17        .byte $17
 
-- D - I - 0x01226D 10:A25D: F1        .byte con_F1
+- D - I - 0x01226D 10:A25D: F1        .byte con_координаты_Y_X
 - D - I - 0x01226E 10:A25E: 30        .byte $30
 - D - I - 0x01226F 10:A25F: 46        .byte $46
 
@@ -615,7 +615,7 @@ off_A25C_09:
 off_A266_0A:
 - D - I - 0x012276 10:A266: 0F        .byte $0F
 
-- D - I - 0x012277 10:A267: F1        .byte con_F1
+- D - I - 0x012277 10:A267: F1        .byte con_координаты_Y_X
 - D - I - 0x012278 10:A268: 30        .byte $30
 - D - I - 0x012279 10:A269: 46        .byte $46
 
@@ -630,7 +630,7 @@ off_A266_0A:
 off_A270_0B:
 - D - I - 0x012280 10:A270: 0A        .byte $0A
 
-- D - I - 0x012281 10:A271: F1        .byte con_F1
+- D - I - 0x012281 10:A271: F1        .byte con_координаты_Y_X
 - D - I - 0x012282 10:A272: 30        .byte $30
 - D - I - 0x012283 10:A273: BE        .byte $BE
 
@@ -661,7 +661,7 @@ off_A270_0B:
 off_A287_0C:
 - D - I - 0x012297 10:A287: 23        .byte $23
 
-- D - I - 0x012298 10:A288: F1        .byte con_F1
+- D - I - 0x012298 10:A288: F1        .byte con_координаты_Y_X
 - D - I - 0x012299 10:A289: 30        .byte $30
 - D - I - 0x01229A 10:A28A: 46        .byte $46
 
@@ -674,7 +674,7 @@ off_A287_0C:
 off_A28E_0D:
 - D - I - 0x01229E 10:A28E: 09        .byte $09
 
-- D - I - 0x01229F 10:A28F: F1        .byte con_F1
+- D - I - 0x01229F 10:A28F: F1        .byte con_координаты_Y_X
 - D - I - 0x0122A0 10:A290: 26        .byte $26
 - D - I - 0x0122A1 10:A291: 3E        .byte $3E
 
@@ -687,7 +687,7 @@ off_A28E_0D:
 off_A295_0E:
 - D - I - 0x0122A5 10:A295: 33        .byte $33
 
-- D - I - 0x0122A6 10:A296: F1        .byte con_F1
+- D - I - 0x0122A6 10:A296: F1        .byte con_координаты_Y_X
 - D - I - 0x0122A7 10:A297: 30        .byte $30
 - D - I - 0x0122A8 10:A298: 46        .byte $46
 
@@ -700,7 +700,7 @@ off_A295_0E:
 off_A29C_0F:
 - D - I - 0x0122AC 10:A29C: 17        .byte $17
 
-- D - I - 0x0122AD 10:A29D: F1        .byte con_F1
+- D - I - 0x0122AD 10:A29D: F1        .byte con_координаты_Y_X
 - D - I - 0x0122AE 10:A29E: 30        .byte $30
 - D - I - 0x0122AF 10:A29F: 46        .byte $46
 
@@ -713,7 +713,7 @@ off_A29C_0F:
 off_A2A3_10:
 - D - I - 0x0122B3 10:A2A3: 17        .byte $17
 
-- D - I - 0x0122B4 10:A2A4: F1        .byte con_F1
+- D - I - 0x0122B4 10:A2A4: F1        .byte con_координаты_Y_X
 - D - I - 0x0122B5 10:A2A5: 30        .byte $30
 - D - I - 0x0122B6 10:A2A6: 46        .byte $46
 
@@ -728,7 +728,7 @@ off_A2A3_10:
 off_A2AD_11:
 - D - I - 0x0122BD 10:A2AD: 17        .byte $17
 
-- D - I - 0x0122BE 10:A2AE: F1        .byte con_F1
+- D - I - 0x0122BE 10:A2AE: F1        .byte con_координаты_Y_X
 - D - I - 0x0122BF 10:A2AF: 30        .byte $30
 - D - I - 0x0122C0 10:A2B0: 2E        .byte $2E
 
@@ -745,7 +745,7 @@ off_A2AD_11:
 off_A2B8_12:
 - D - I - 0x0122C8 10:A2B8: 17        .byte $17
 
-- D - I - 0x0122C9 10:A2B9: F1        .byte con_F1
+- D - I - 0x0122C9 10:A2B9: F1        .byte con_координаты_Y_X
 - D - I - 0x0122CA 10:A2BA: 30        .byte $30
 - D - I - 0x0122CB 10:A2BB: 2E        .byte $2E
 
@@ -763,7 +763,7 @@ off_A2B8_12:
 off_A2C3_13:
 - D - I - 0x0122D3 10:A2C3: 17        .byte $17
 
-- D - I - 0x0122D4 10:A2C4: F1        .byte con_F1
+- D - I - 0x0122D4 10:A2C4: F1        .byte con_координаты_Y_X
 - D - I - 0x0122D5 10:A2C5: 30        .byte $30
 - D - I - 0x0122D6 10:A2C6: 2E        .byte $2E
 
@@ -779,7 +779,7 @@ off_A2C3_13:
 off_A2CD_14:
 - D - I - 0x0122DD 10:A2CD: 17        .byte $17
 
-- D - I - 0x0122DE 10:A2CE: F1        .byte con_F1
+- D - I - 0x0122DE 10:A2CE: F1        .byte con_координаты_Y_X
 - D - I - 0x0122DF 10:A2CF: 30        .byte $30
 - D - I - 0x0122E0 10:A2D0: EE        .byte $EE
 
@@ -800,7 +800,7 @@ off_A2CD_14:
 off_A2DA_15:
 - D - I - 0x0122EA 10:A2DA: 0E        .byte $0E
 
-- D - I - 0x0122EB 10:A2DB: F1        .byte con_F1
+- D - I - 0x0122EB 10:A2DB: F1        .byte con_координаты_Y_X
 - D - I - 0x0122EC 10:A2DC: 30        .byte $30
 - D - I - 0x0122ED 10:A2DD: 46        .byte $46
 
@@ -813,7 +813,7 @@ off_A2DA_15:
 off_A2E1_16:
 - D - I - 0x0122F1 10:A2E1: 0C        .byte $0C
 
-- D - I - 0x0122F2 10:A2E2: F1        .byte con_F1
+- D - I - 0x0122F2 10:A2E2: F1        .byte con_координаты_Y_X
 - D - I - 0x0122F3 10:A2E3: 30        .byte $30
 - D - I - 0x0122F4 10:A2E4: 2E        .byte $2E
 
@@ -829,7 +829,7 @@ off_A2E1_16:
 off_A2EB_17:
 - D - I - 0x0122FB 10:A2EB: 3E        .byte $3E
 
-- D - I - 0x0122FC 10:A2EC: F1        .byte con_F1
+- D - I - 0x0122FC 10:A2EC: F1        .byte con_координаты_Y_X
 - D - I - 0x0122FD 10:A2ED: 30        .byte $30
 - D - I - 0x0122FE 10:A2EE: 46        .byte $46
 
@@ -842,7 +842,7 @@ off_A2EB_17:
 off_A2F2_18:
 - D - I - 0x012302 10:A2F2: 19        .byte $19
 
-- D - I - 0x012303 10:A2F3: F1        .byte con_F1
+- D - I - 0x012303 10:A2F3: F1        .byte con_координаты_Y_X
 - D - I - 0x012304 10:A2F4: 30        .byte $30
 - D - I - 0x012305 10:A2F5: EE        .byte $EE
 
@@ -863,7 +863,7 @@ off_A2F2_18:
 off_A2FF_19:
 - D - I - 0x01230F 10:A2FF: 17        .byte $17
 
-- D - I - 0x012310 10:A300: F1        .byte con_F1
+- D - I - 0x012310 10:A300: F1        .byte con_координаты_Y_X
 - D - I - 0x012311 10:A301: 30        .byte $30
 - D - I - 0x012312 10:A302: 2E        .byte $2E
 
@@ -880,7 +880,7 @@ off_A2FF_19:
 off_A30A_1A:
 - D - I - 0x01231A 10:A30A: 18        .byte $18
 
-- D - I - 0x01231B 10:A30B: F1        .byte con_F1
+- D - I - 0x01231B 10:A30B: F1        .byte con_координаты_Y_X
 - D - I - 0x01231C 10:A30C: 30        .byte $30
 - D - I - 0x01231D 10:A30D: BC        .byte $BC
 
@@ -908,7 +908,7 @@ off_A30A_1A:
 off_A31E_1B:
 - D - I - 0x01232E 10:A31E: 17        .byte $17
 
-- D - I - 0x01232F 10:A31F: F1        .byte con_F1
+- D - I - 0x01232F 10:A31F: F1        .byte con_координаты_Y_X
 - D - I - 0x012330 10:A320: 30        .byte $30
 - D - I - 0x012331 10:A321: 2E        .byte $2E
 
@@ -927,7 +927,7 @@ off_A329_1C:
 
 - D - I - 0x01233A 10:A32A: F5        .byte con_F5
 
-- D - I - 0x01233B 10:A32B: F1        .byte con_F1
+- D - I - 0x01233B 10:A32B: F1        .byte con_координаты_Y_X
 - D - I - 0x01233C 10:A32C: 30        .byte $30
 - D - I - 0x01233D 10:A32D: 2E        .byte $2E
 
@@ -942,7 +942,7 @@ off_A329_1C:
 off_A334_1D:
 - D - I - 0x012344 10:A334: 0B        .byte $0B
 
-- D - I - 0x012345 10:A335: F1        .byte con_F1
+- D - I - 0x012345 10:A335: F1        .byte con_координаты_Y_X
 - D - I - 0x012346 10:A336: 30        .byte $30
 - D - I - 0x012347 10:A337: 4E        .byte $4E
 
@@ -957,7 +957,7 @@ off_A334_1D:
 off_A33E_1E:
 - D - I - 0x01234E 10:A33E: 17        .byte $17
 
-- D - I - 0x01234F 10:A33F: F1        .byte con_F1
+- D - I - 0x01234F 10:A33F: F1        .byte con_координаты_Y_X
 - D - I - 0x012350 10:A340: 30        .byte $30
 - D - I - 0x012351 10:A341: 2E        .byte $2E
 
@@ -972,7 +972,7 @@ off_A33E_1E:
 off_A346_1F:
 - D - I - 0x012356 10:A346: 17        .byte $17
 
-- D - I - 0x012357 10:A347: F1        .byte con_F1
+- D - I - 0x012357 10:A347: F1        .byte con_координаты_Y_X
 - D - I - 0x012358 10:A348: 30        .byte $30
 - D - I - 0x012359 10:A349: 4E        .byte $4E
 
@@ -985,7 +985,7 @@ off_A346_1F:
 off_A34D_20:
 - D - I - 0x01235D 10:A34D: 19        .byte $19
 
-- D - I - 0x01235E 10:A34E: F1        .byte con_F1
+- D - I - 0x01235E 10:A34E: F1        .byte con_координаты_Y_X
 - D - I - 0x01235F 10:A34F: 30        .byte $30
 - D - I - 0x012360 10:A350: 4E        .byte $4E
 
@@ -1000,7 +1000,7 @@ off_A34D_20:
 off_A357_21:
 - D - I - 0x012367 10:A357: 28        .byte $28
 
-- D - I - 0x012368 10:A358: F1        .byte con_F1
+- D - I - 0x012368 10:A358: F1        .byte con_координаты_Y_X
 - D - I - 0x012369 10:A359: 30        .byte $30
 - D - I - 0x01236A 10:A35A: 46        .byte $46
 
@@ -1015,7 +1015,7 @@ off_A357_21:
 off_A361_22:
 - D - I - 0x012371 10:A361: 20        .byte $20
 
-- D - I - 0x012372 10:A362: F1        .byte con_F1
+- D - I - 0x012372 10:A362: F1        .byte con_координаты_Y_X
 - D - I - 0x012373 10:A363: 30        .byte $30
 - D - I - 0x012374 10:A364: 46        .byte $46
 
@@ -1030,7 +1030,7 @@ off_A361_22:
 off_A36B_23:
 - D - I - 0x01237B 10:A36B: 1F        .byte $1F
 
-- D - I - 0x01237C 10:A36C: F1        .byte con_F1
+- D - I - 0x01237C 10:A36C: F1        .byte con_координаты_Y_X
 - D - I - 0x01237D 10:A36D: 50        .byte $50
 - D - I - 0x01237E 10:A36E: C6        .byte $C6
 
@@ -1059,7 +1059,7 @@ off_A36B_23:
 off_A380_24:
 - D - I - 0x012390 10:A380: 1F        .byte $1F
 
-- D - I - 0x012391 10:A381: F1        .byte con_F1
+- D - I - 0x012391 10:A381: F1        .byte con_координаты_Y_X
 - D - I - 0x012392 10:A382: 30        .byte $30
 - D - I - 0x012393 10:A383: 42        .byte $42
 
@@ -1085,7 +1085,7 @@ off_A392_25:
 - D - I - 0x0123A2 10:A392: 1F        .byte $1F
 
 @бесконечный_цикл:
-- D - I - 0x0123A3 10:A393: F1        .byte con_F1
+- D - I - 0x0123A3 10:A393: F1        .byte con_координаты_Y_X
 - D - I - 0x0123A4 10:A394: 30        .byte $30
 - D - I - 0x0123A5 10:A395: 2E        .byte $2E
 
@@ -1094,7 +1094,7 @@ off_A392_25:
 - D - I - 0x0123A7 10:A397: 8B 3B     .dbyt off_AB3B - $2000
 - D - I - 0x0123A9 10:A399: 02        .byte $02
 
-- D - I - 0x0123AA 10:A39A: F1        .byte con_F1
+- D - I - 0x0123AA 10:A39A: F1        .byte con_координаты_Y_X
 - D - I - 0x0123AB 10:A39B: 30        .byte $30
 - D - I - 0x0123AC 10:A39C: 2F        .byte $2F
 
@@ -1108,7 +1108,7 @@ off_A392_25:
 off_A3A2_26:
 - D - I - 0x0123B2 10:A3A2: 1D        .byte $1D
 
-- D - I - 0x0123B3 10:A3A3: F1        .byte con_F1
+- D - I - 0x0123B3 10:A3A3: F1        .byte con_координаты_Y_X
 - D - I - 0x0123B4 10:A3A4: 30        .byte $30
 - D - I - 0x0123B5 10:A3A5: 40        .byte $40
 
@@ -1123,7 +1123,7 @@ off_A3A2_26:
 off_A3AC_27:
 - D - I - 0x0123BC 10:A3AC: 1D        .byte $1D
 
-- D - I - 0x0123BD 10:A3AD: F1        .byte con_F1
+- D - I - 0x0123BD 10:A3AD: F1        .byte con_координаты_Y_X
 - D - I - 0x0123BE 10:A3AE: 30        .byte $30
 - D - I - 0x0123BF 10:A3AF: 40        .byte $40
 
@@ -1138,7 +1138,7 @@ off_A3AC_27:
 off_A3B6_28:
 - D - I - 0x0123C6 10:A3B6: 1D        .byte $1D
 
-- D - I - 0x0123C7 10:A3B7: F1        .byte con_F1
+- D - I - 0x0123C7 10:A3B7: F1        .byte con_координаты_Y_X
 - D - I - 0x0123C8 10:A3B8: 30        .byte $30
 - D - I - 0x0123C9 10:A3B9: 40        .byte $40
 
@@ -1151,7 +1151,7 @@ off_A3B6_28:
 off_A3BD_29:
 - D - I - 0x0123CD 10:A3BD: 1D        .byte $1D
 
-- D - I - 0x0123CE 10:A3BE: F1        .byte con_F1
+- D - I - 0x0123CE 10:A3BE: F1        .byte con_координаты_Y_X
 - D - I - 0x0123CF 10:A3BF: 30        .byte $30
 - D - I - 0x0123D0 10:A3C0: 40        .byte $40
 
@@ -1164,7 +1164,7 @@ off_A3BD_29:
 off_A3C4_2A:
 - D - I - 0x0123D4 10:A3C4: 18        .byte $18
 
-- D - I - 0x0123D5 10:A3C5: F1        .byte con_F1
+- D - I - 0x0123D5 10:A3C5: F1        .byte con_координаты_Y_X
 - D - I - 0x0123D6 10:A3C6: 30        .byte $30
 - D - I - 0x0123D7 10:A3C7: 40        .byte $40
 
@@ -1179,7 +1179,7 @@ off_A3C4_2A:
 off_A3CE_2B:
 - D - I - 0x0123DE 10:A3CE: 18        .byte $18
 
-- D - I - 0x0123DF 10:A3CF: F1        .byte con_F1
+- D - I - 0x0123DF 10:A3CF: F1        .byte con_координаты_Y_X
 - D - I - 0x0123E0 10:A3D0: 30        .byte $30
 - D - I - 0x0123E1 10:A3D1: 40        .byte $40
 
@@ -1194,7 +1194,7 @@ off_A3CE_2B:
 off_A3D8_2C:
 - D - I - 0x0123E8 10:A3D8: 18        .byte $18
 
-- D - I - 0x0123E9 10:A3D9: F1        .byte con_F1
+- D - I - 0x0123E9 10:A3D9: F1        .byte con_координаты_Y_X
 - D - I - 0x0123EA 10:A3DA: 30        .byte $30
 - D - I - 0x0123EB 10:A3DB: 40        .byte $40
 
@@ -1207,7 +1207,7 @@ off_A3D8_2C:
 off_A3DF_2D:
 - D - I - 0x0123EF 10:A3DF: 18        .byte $18
 
-- D - I - 0x0123F0 10:A3E0: F1        .byte con_F1
+- D - I - 0x0123F0 10:A3E0: F1        .byte con_координаты_Y_X
 - D - I - 0x0123F1 10:A3E1: 30        .byte $30
 - D - I - 0x0123F2 10:A3E2: A9        .byte $A9
 
@@ -1236,7 +1236,7 @@ off_A3DF_2D:
 off_A3F4_2E:
 - D - I - 0x012404 10:A3F4: 1A        .byte $1A
 
-- D - I - 0x012405 10:A3F5: F1        .byte con_F1
+- D - I - 0x012405 10:A3F5: F1        .byte con_координаты_Y_X
 - D - I - 0x012406 10:A3F6: 30        .byte $30
 - D - I - 0x012407 10:A3F7: 40        .byte $40
 
@@ -1249,7 +1249,7 @@ off_A3F4_2E:
 off_A3FB_2F:
 - D - I - 0x01240B 10:A3FB: 1B        .byte $1B
 
-- D - I - 0x01240C 10:A3FC: F1        .byte con_F1
+- D - I - 0x01240C 10:A3FC: F1        .byte con_координаты_Y_X
 - D - I - 0x01240D 10:A3FD: 30        .byte $30
 - D - I - 0x01240E 10:A3FE: 40        .byte $40
 
@@ -1262,7 +1262,7 @@ off_A3FB_2F:
 off_A402_30:
 - - - - - 0x012412 10:A402: 16        .byte $16
 
-- - - - - 0x012413 10:A403: F1        .byte con_F1
+- - - - - 0x012413 10:A403: F1        .byte con_координаты_Y_X
 - - - - - 0x012414 10:A404: 30        .byte $30
 - - - - - 0x012415 10:A405: 4A        .byte $4A
 
@@ -1277,7 +1277,7 @@ off_A402_30:
 off_A40C_31:
 - D - I - 0x01241C 10:A40C: 16        .byte $16
 
-- D - I - 0x01241D 10:A40D: F1        .byte con_F1
+- D - I - 0x01241D 10:A40D: F1        .byte con_координаты_Y_X
 - D - I - 0x01241E 10:A40E: 30        .byte $30
 - D - I - 0x01241F 10:A40F: 4A        .byte $4A
 
@@ -1295,7 +1295,7 @@ off_A40C_31:
 off_A419_32:
 - D - I - 0x012429 10:A419: 03        .byte $03
 
-- D - I - 0x01242A 10:A41A: F1        .byte con_F1
+- D - I - 0x01242A 10:A41A: F1        .byte con_координаты_Y_X
 - D - I - 0x01242B 10:A41B: 30        .byte $30
 - D - I - 0x01242C 10:A41C: 4A        .byte $4A
 
@@ -1310,7 +1310,7 @@ off_A419_32:
 off_A423_33:
 - D - I - 0x012433 10:A423: 03        .byte $03
 
-- D - I - 0x012434 10:A424: F1        .byte con_F1
+- D - I - 0x012434 10:A424: F1        .byte con_координаты_Y_X
 - D - I - 0x012435 10:A425: 30        .byte $30
 - D - I - 0x012436 10:A426: 2C        .byte $2C
 
@@ -1330,7 +1330,7 @@ off_A423_33:
 off_A431_34:
 - D - I - 0x012441 10:A431: 1C        .byte $1C
 
-- D - I - 0x012442 10:A432: F1        .byte con_F1
+- D - I - 0x012442 10:A432: F1        .byte con_координаты_Y_X
 - D - I - 0x012443 10:A433: 30        .byte $30
 - D - I - 0x012444 10:A434: 40        .byte $40
 
@@ -1345,7 +1345,7 @@ off_A431_34:
 off_A43B_35:
 - D - I - 0x01244B 10:A43B: 46        .byte $46
 
-- D - I - 0x01244C 10:A43C: F1        .byte con_F1
+- D - I - 0x01244C 10:A43C: F1        .byte con_координаты_Y_X
 - D - I - 0x01244D 10:A43D: 30        .byte $30
 - D - I - 0x01244E 10:A43E: C8        .byte $C8
 
@@ -1362,7 +1362,7 @@ off_A43B_35:
 off_A445_36:
 - D - I - 0x012455 10:A445: 0A        .byte $0A
 
-- D - I - 0x012456 10:A446: F1        .byte con_F1
+- D - I - 0x012456 10:A446: F1        .byte con_координаты_Y_X
 - D - I - 0x012457 10:A447: 30        .byte $30
 - D - I - 0x012458 10:A448: 4E        .byte $4E
 
@@ -1377,7 +1377,7 @@ off_A44C_37:
 
 - D - I - 0x01245D 10:A44D: F5        .byte con_F5
 
-- D - I - 0x01245E 10:A44E: F1        .byte con_F1
+- D - I - 0x01245E 10:A44E: F1        .byte con_координаты_Y_X
 - D - I - 0x01245F 10:A44F: 30        .byte $30
 - D - I - 0x012460 10:A450: 32        .byte $32
 
@@ -1392,7 +1392,7 @@ off_A44C_37:
 off_A457_38:
 - D - I - 0x012467 10:A457: 10        .byte $10
 
-- D - I - 0x012468 10:A458: F1        .byte con_F1
+- D - I - 0x012468 10:A458: F1        .byte con_координаты_Y_X
 - D - I - 0x012469 10:A459: 30        .byte $30
 - D - I - 0x01246A 10:A45A: 42        .byte $42
 
@@ -1407,7 +1407,7 @@ off_A457_38:
 off_A461_39:
 - D - I - 0x012471 10:A461: 46        .byte $46
 
-- D - I - 0x012472 10:A462: F1        .byte con_F1
+- D - I - 0x012472 10:A462: F1        .byte con_координаты_Y_X
 - D - I - 0x012473 10:A463: 30        .byte $30
 - D - I - 0x012474 10:A464: 2E        .byte $2E
 
@@ -1424,7 +1424,7 @@ off_A461_39:
 off_A46C_3A:
 - D - I - 0x01247C 10:A46C: 2A        .byte $2A
 
-- D - I - 0x01247D 10:A46D: F1        .byte con_F1
+- D - I - 0x01247D 10:A46D: F1        .byte con_координаты_Y_X
 - D - I - 0x01247E 10:A46E: 30        .byte $30
 - D - I - 0x01247F 10:A46F: 3E        .byte $3E
 
@@ -1439,7 +1439,7 @@ off_A46C_3A:
 off_A476_3B:
 - D - I - 0x012486 10:A476: 0A        .byte $0A
 
-- D - I - 0x012487 10:A477: F1        .byte con_F1
+- D - I - 0x012487 10:A477: F1        .byte con_координаты_Y_X
 - D - I - 0x012488 10:A478: 30        .byte $30
 - D - I - 0x012489 10:A479: 44        .byte $44
 
@@ -1454,7 +1454,7 @@ off_A476_3B:
 off_A480_3C:
 - D - I - 0x012490 10:A480: 0A        .byte $0A
 
-- D - I - 0x012491 10:A481: F1        .byte con_F1
+- D - I - 0x012491 10:A481: F1        .byte con_координаты_Y_X
 - D - I - 0x012492 10:A482: 30        .byte $30
 - D - I - 0x012493 10:A483: 44        .byte $44
 
@@ -1469,7 +1469,7 @@ off_A480_3C:
 off_A48A_3D:
 - D - I - 0x01249A 10:A48A: 0A        .byte $0A
 
-- D - I - 0x01249B 10:A48B: F1        .byte con_F1
+- D - I - 0x01249B 10:A48B: F1        .byte con_координаты_Y_X
 - D - I - 0x01249C 10:A48C: 30        .byte $30
 - D - I - 0x01249D 10:A48D: 44        .byte $44
 
@@ -1484,7 +1484,7 @@ off_A48A_3D:
 off_A494_3E:
 - D - I - 0x0124A4 10:A494: 0A        .byte $0A
 
-- D - I - 0x0124A5 10:A495: F1        .byte con_F1
+- D - I - 0x0124A5 10:A495: F1        .byte con_координаты_Y_X
 - D - I - 0x0124A6 10:A496: 30        .byte $30
 - D - I - 0x0124A7 10:A497: 42        .byte $42
 
@@ -1497,7 +1497,7 @@ off_A494_3E:
 off_A49B_3F:
 - D - I - 0x0124AB 10:A49B: 0C        .byte $0C
 
-- D - I - 0x0124AC 10:A49C: F1        .byte con_F1
+- D - I - 0x0124AC 10:A49C: F1        .byte con_координаты_Y_X
 - D - I - 0x0124AD 10:A49D: 30        .byte $30
 - D - I - 0x0124AE 10:A49E: 4A        .byte $4A
 
@@ -1512,7 +1512,7 @@ off_A49B_3F:
 off_A4A5_40:
 - D - I - 0x0124B5 10:A4A5: 0D        .byte $0D
 
-- D - I - 0x0124B6 10:A4A6: F1        .byte con_F1
+- D - I - 0x0124B6 10:A4A6: F1        .byte con_координаты_Y_X
 - D - I - 0x0124B7 10:A4A7: 30        .byte $30
 - D - I - 0x0124B8 10:A4A8: 2C        .byte $2C
 
@@ -1529,7 +1529,7 @@ off_A4A5_40:
 off_A4B0_41:
 - D - I - 0x0124C0 10:A4B0: 0D        .byte $0D
 
-- D - I - 0x0124C1 10:A4B1: F1        .byte con_F1
+- D - I - 0x0124C1 10:A4B1: F1        .byte con_координаты_Y_X
 - D - I - 0x0124C2 10:A4B2: 30        .byte $30
 - D - I - 0x0124C3 10:A4B3: 42        .byte $42
 
@@ -1544,7 +1544,7 @@ off_A4B0_41:
 off_A4BA_42:
 - D - I - 0x0124CA 10:A4BA: 0D        .byte $0D
 
-- D - I - 0x0124CB 10:A4BB: F1        .byte con_F1
+- D - I - 0x0124CB 10:A4BB: F1        .byte con_координаты_Y_X
 - D - I - 0x0124CC 10:A4BC: 30        .byte $30
 - D - I - 0x0124CD 10:A4BD: 42        .byte $42
 
@@ -1559,7 +1559,7 @@ off_A4BA_42:
 off_A4C4_43:
 - D - I - 0x0124D4 10:A4C4: 11        .byte $11
 
-- D - I - 0x0124D5 10:A4C5: F1        .byte con_F1
+- D - I - 0x0124D5 10:A4C5: F1        .byte con_координаты_Y_X
 - D - I - 0x0124D6 10:A4C6: DC        .byte $DC
 - D - I - 0x0124D7 10:A4C7: 50        .byte $50
 
@@ -1576,7 +1576,7 @@ off_A4C4_43:
 off_A4CD_44:
 - D - I - 0x0124DD 10:A4CD: 1F        .byte $1F
 
-- D - I - 0x0124DE 10:A4CE: F1        .byte con_F1
+- D - I - 0x0124DE 10:A4CE: F1        .byte con_координаты_Y_X
 - D - I - 0x0124DF 10:A4CF: 30        .byte $30
 - D - I - 0x0124E0 10:A4D0: 42        .byte $42
 
@@ -1591,7 +1591,7 @@ off_A4CD_44:
 off_A4D7_45:
 - D - I - 0x0124E7 10:A4D7: 05        .byte $05
 
-- D - I - 0x0124E8 10:A4D8: F1        .byte con_F1
+- D - I - 0x0124E8 10:A4D8: F1        .byte con_координаты_Y_X
 - D - I - 0x0124E9 10:A4D9: 30        .byte $30
 - D - I - 0x0124EA 10:A4DA: 3E        .byte $3E
 
@@ -1606,7 +1606,7 @@ off_A4D7_45:
 off_A4E1_46:
 - D - I - 0x0124F1 10:A4E1: 2C        .byte $2C
 
-- D - I - 0x0124F2 10:A4E2: F1        .byte con_F1
+- D - I - 0x0124F2 10:A4E2: F1        .byte con_координаты_Y_X
 - D - I - 0x0124F3 10:A4E3: 30        .byte $30
 - D - I - 0x0124F4 10:A4E4: 46        .byte $46
 
@@ -1621,7 +1621,7 @@ off_A4E1_46:
 off_A4EB_47:
 - D - I - 0x0124FB 10:A4EB: 0C        .byte $0C
 
-- D - I - 0x0124FC 10:A4EC: F1        .byte con_F1
+- D - I - 0x0124FC 10:A4EC: F1        .byte con_координаты_Y_X
 - D - I - 0x0124FD 10:A4ED: 30        .byte $30
 - D - I - 0x0124FE 10:A4EE: 46        .byte $46
 
@@ -1636,7 +1636,7 @@ off_A4EB_47:
 off_A4F5_48:
 - D - I - 0x012505 10:A4F5: 0F        .byte $0F
 
-- D - I - 0x012506 10:A4F6: F1        .byte con_F1
+- D - I - 0x012506 10:A4F6: F1        .byte con_координаты_Y_X
 - D - I - 0x012507 10:A4F7: 30        .byte $30
 - D - I - 0x012508 10:A4F8: 2E        .byte $2E
 
@@ -1651,7 +1651,7 @@ off_A4F5_48:
 off_A4FD_49:
 - D - I - 0x01250D 10:A4FD: 16        .byte $16
 
-- D - I - 0x01250E 10:A4FE: F1        .byte con_F1
+- D - I - 0x01250E 10:A4FE: F1        .byte con_координаты_Y_X
 - D - I - 0x01250F 10:A4FF: 30        .byte $30
 - D - I - 0x012510 10:A500: 4A        .byte $4A
 
@@ -1664,7 +1664,7 @@ off_A4FD_49:
 off_A504_4A:
 - D - I - 0x012514 10:A504: 29        .byte $29
 
-- D - I - 0x012515 10:A505: F1        .byte con_F1
+- D - I - 0x012515 10:A505: F1        .byte con_координаты_Y_X
 - D - I - 0x012516 10:A506: 30        .byte $30
 - D - I - 0x012517 10:A507: BF        .byte $BF
 
@@ -1685,7 +1685,7 @@ off_A504_4A:
 off_A511_4B:
 - D - I - 0x012521 10:A511: 0C        .byte $0C
 
-- D - I - 0x012522 10:A512: F1        .byte con_F1
+- D - I - 0x012522 10:A512: F1        .byte con_координаты_Y_X
 - D - I - 0x012523 10:A513: 30        .byte $30
 - D - I - 0x012524 10:A514: 46        .byte $46
 
@@ -1700,7 +1700,7 @@ off_A511_4B:
 off_A51B_4C:
 - D - I - 0x01252B 10:A51B: 0F        .byte $0F
 
-- D - I - 0x01252C 10:A51C: F1        .byte con_F1
+- D - I - 0x01252C 10:A51C: F1        .byte con_координаты_Y_X
 - D - I - 0x01252D 10:A51D: 30        .byte $30
 - D - I - 0x01252E 10:A51E: 46        .byte $46
 
@@ -1715,7 +1715,7 @@ off_A522_4D:
 
 - D - I - 0x012533 10:A523: F5        .byte con_F5
 
-- D - I - 0x012534 10:A524: F1        .byte con_F1
+- D - I - 0x012534 10:A524: F1        .byte con_координаты_Y_X
 - D - I - 0x012535 10:A525: 30        .byte $30
 - D - I - 0x012536 10:A526: 2E        .byte $2E
 
@@ -1732,7 +1732,7 @@ off_A52D_4E:
 
 - D - I - 0x01253E 10:A52E: F5        .byte con_F5
 
-- D - I - 0x01253F 10:A52F: F1        .byte con_F1
+- D - I - 0x01253F 10:A52F: F1        .byte con_координаты_Y_X
 - D - I - 0x012540 10:A530: 30        .byte $30
 - D - I - 0x012541 10:A531: 2E        .byte $2E
 
@@ -1749,7 +1749,7 @@ off_A538_4F:
 
 - D - I - 0x012549 10:A539: F5        .byte con_F5
 
-- D - I - 0x01254A 10:A53A: F1        .byte con_F1
+- D - I - 0x01254A 10:A53A: F1        .byte con_координаты_Y_X
 - D - I - 0x01254B 10:A53B: 30        .byte $30
 - D - I - 0x01254C 10:A53C: 2E        .byte $2E
 
@@ -1769,7 +1769,7 @@ off_A546_50:
 
 - D - I - 0x012557 10:A547: F5        .byte con_F5
 
-- D - I - 0x012558 10:A548: F1        .byte con_F1
+- D - I - 0x012558 10:A548: F1        .byte con_координаты_Y_X
 - D - I - 0x012559 10:A549: 30        .byte $30
 - D - I - 0x01255A 10:A54A: 2E        .byte $2E
 
@@ -1782,7 +1782,7 @@ off_A546_50:
 off_A54E_51:
 - D - I - 0x01255E 10:A54E: 3F        .byte $3F
 
-- D - I - 0x01255F 10:A54F: F1        .byte con_F1
+- D - I - 0x01255F 10:A54F: F1        .byte con_координаты_Y_X
 - D - I - 0x012560 10:A550: 30        .byte $30
 - D - I - 0x012561 10:A551: 46        .byte $46
 
@@ -1795,7 +1795,7 @@ off_A54E_51:
 off_A555_52:
 - D - I - 0x012565 10:A555: 0C        .byte $0C
 
-- D - I - 0x012566 10:A556: F1        .byte con_F1
+- D - I - 0x012566 10:A556: F1        .byte con_координаты_Y_X
 - D - I - 0x012567 10:A557: 30        .byte $30
 - D - I - 0x012568 10:A558: 46        .byte $46
 
@@ -1808,7 +1808,7 @@ off_A555_52:
 off_A55C_53:
 - D - I - 0x01256C 10:A55C: 2B        .byte $2B
 
-- D - I - 0x01256D 10:A55D: F1        .byte con_F1
+- D - I - 0x01256D 10:A55D: F1        .byte con_координаты_Y_X
 - D - I - 0x01256E 10:A55E: 28        .byte $28
 - D - I - 0x01256F 10:A55F: AA        .byte $AA
 
@@ -1843,7 +1843,7 @@ off_A55C_53:
 off_A573_54:
 - D - I - 0x012583 10:A573: 0C        .byte $0C
 
-- D - I - 0x012584 10:A574: F1        .byte con_F1
+- D - I - 0x012584 10:A574: F1        .byte con_координаты_Y_X
 - D - I - 0x012585 10:A575: 30        .byte $30
 - D - I - 0x012586 10:A576: 66        .byte $66
 
@@ -1877,7 +1877,7 @@ off_A573_54:
 off_A58C_55:
 - D - I - 0x01259C 10:A58C: 0C        .byte $0C
 
-- D - I - 0x01259D 10:A58D: F1        .byte con_F1
+- D - I - 0x01259D 10:A58D: F1        .byte con_координаты_Y_X
 - D - I - 0x01259E 10:A58E: 30        .byte $30
 - D - I - 0x01259F 10:A58F: 3E        .byte $3E
 
@@ -1890,7 +1890,7 @@ off_A58C_55:
 off_A593_56:
 - D - I - 0x0125A3 10:A593: 1D        .byte $1D
 
-- D - I - 0x0125A4 10:A594: F1        .byte con_F1
+- D - I - 0x0125A4 10:A594: F1        .byte con_координаты_Y_X
 - D - I - 0x0125A5 10:A595: 30        .byte $30
 - D - I - 0x0125A6 10:A596: 2E        .byte $2E
 
@@ -1907,7 +1907,7 @@ off_A59B_57:
 
 - D - I - 0x0125AC 10:A59C: F5        .byte con_F5
 
-- D - I - 0x0125AD 10:A59D: F1        .byte con_F1
+- D - I - 0x0125AD 10:A59D: F1        .byte con_координаты_Y_X
 - D - I - 0x0125AE 10:A59E: 30        .byte $30
 - D - I - 0x0125AF 10:A59F: 2E        .byte $2E
 
@@ -1922,7 +1922,7 @@ off_A59B_57:
 off_A5A6_58:
 - D - I - 0x0125B6 10:A5A6: 17        .byte $17
 
-- D - I - 0x0125B7 10:A5A7: F1        .byte con_F1
+- D - I - 0x0125B7 10:A5A7: F1        .byte con_координаты_Y_X
 - D - I - 0x0125B8 10:A5A8: 30        .byte $30
 - D - I - 0x0125B9 10:A5A9: 2E        .byte $2E
 
@@ -1937,7 +1937,7 @@ off_A5A6_58:
 off_A5AE_59:
 - D - I - 0x0125BE 10:A5AE: 0A        .byte $0A
 
-- D - I - 0x0125BF 10:A5AF: F1        .byte con_F1
+- D - I - 0x0125BF 10:A5AF: F1        .byte con_координаты_Y_X
 - D - I - 0x0125C0 10:A5B0: 30        .byte $30
 - D - I - 0x0125C1 10:A5B1: BE        .byte $BE
 
@@ -1968,7 +1968,7 @@ off_A5AE_59:
 off_A5C5_5A:
 - D - I - 0x0125D5 10:A5C5: 0F        .byte $0F
 
-- D - I - 0x0125D6 10:A5C6: F1        .byte con_F1
+- D - I - 0x0125D6 10:A5C6: F1        .byte con_координаты_Y_X
 - D - I - 0x0125D7 10:A5C7: 30        .byte $30
 - D - I - 0x0125D8 10:A5C8: 2E        .byte $2E
 
@@ -1983,7 +1983,7 @@ off_A5C5_5A:
 off_A5CD_5B:
 - D - I - 0x0125DD 10:A5CD: 46        .byte $46
 
-- D - I - 0x0125DE 10:A5CE: F1        .byte con_F1
+- D - I - 0x0125DE 10:A5CE: F1        .byte con_координаты_Y_X
 - D - I - 0x0125DF 10:A5CF: 30        .byte $30
 - D - I - 0x0125E0 10:A5D0: 48        .byte $48
 
@@ -2002,7 +2002,7 @@ off_A5CD_5B:
 off_A5D9_5C:
 - D - I - 0x0125E9 10:A5D9: 34        .byte $34
 
-- D - I - 0x0125EA 10:A5DA: F1        .byte con_F1
+- D - I - 0x0125EA 10:A5DA: F1        .byte con_координаты_Y_X
 - D - I - 0x0125EB 10:A5DB: 30        .byte $30
 - D - I - 0x0125EC 10:A5DC: 4E        .byte $4E
 
@@ -2015,7 +2015,7 @@ off_A5D9_5C:
 off_A5E0_5D:
 - D - I - 0x0125F0 10:A5E0: 34        .byte $34
 
-- D - I - 0x0125F1 10:A5E1: F1        .byte con_F1
+- D - I - 0x0125F1 10:A5E1: F1        .byte con_координаты_Y_X
 - D - I - 0x0125F2 10:A5E2: 30        .byte $30
 - D - I - 0x0125F3 10:A5E3: 2E        .byte $2E
 
@@ -2030,7 +2030,7 @@ off_A5E0_5D:
 off_A5E8_5E:
 - D - I - 0x0125F8 10:A5E8: 40        .byte $40
 
-- D - I - 0x0125F9 10:A5E9: F1        .byte con_F1
+- D - I - 0x0125F9 10:A5E9: F1        .byte con_координаты_Y_X
 - D - I - 0x0125FA 10:A5EA: 30        .byte $30
 - D - I - 0x0125FB 10:A5EB: 2E        .byte $2E
 
@@ -2047,7 +2047,7 @@ off_A5E8_5E:
 off_A5F3_5F:
 - D - I - 0x012603 10:A5F3: 13        .byte $13
 
-- D - I - 0x012604 10:A5F4: F1        .byte con_F1
+- D - I - 0x012604 10:A5F4: F1        .byte con_координаты_Y_X
 - D - I - 0x012605 10:A5F5: 30        .byte $30
 - D - I - 0x012606 10:A5F6: 2E        .byte $2E
 
@@ -2064,7 +2064,7 @@ off_A5F3_5F:
 off_A5FE_60:
 - D - I - 0x01260E 10:A5FE: 05        .byte $05
 
-- D - I - 0x01260F 10:A5FF: F1        .byte con_F1
+- D - I - 0x01260F 10:A5FF: F1        .byte con_координаты_Y_X
 - D - I - 0x012610 10:A600: 30        .byte $30
 - D - I - 0x012611 10:A601: 2E        .byte $2E
 
@@ -2081,7 +2081,7 @@ off_A5FE_60:
 off_A609_61:
 - D - I - 0x012619 10:A609: 0E        .byte $0E
 
-- D - I - 0x01261A 10:A60A: F1        .byte con_F1
+- D - I - 0x01261A 10:A60A: F1        .byte con_координаты_Y_X
 - D - I - 0x01261B 10:A60B: 30        .byte $30
 - D - I - 0x01261C 10:A60C: 46        .byte $46
 
@@ -2096,7 +2096,7 @@ off_A609_61:
 off_A613_62:
 - D - I - 0x012623 10:A613: 0A        .byte $0A
 
-- D - I - 0x012624 10:A614: F1        .byte con_F1
+- D - I - 0x012624 10:A614: F1        .byte con_координаты_Y_X
 - D - I - 0x012625 10:A615: 30        .byte $30
 - D - I - 0x012626 10:A616: 2E        .byte $2E
 
@@ -2111,7 +2111,7 @@ off_A613_62:
 off_A61B_63:
 - D - I - 0x01262B 10:A61B: 0E        .byte $0E
 
-- D - I - 0x01262C 10:A61C: F1        .byte con_F1
+- D - I - 0x01262C 10:A61C: F1        .byte con_координаты_Y_X
 - D - I - 0x01262D 10:A61D: 30        .byte $30
 - D - I - 0x01262E 10:A61E: 46        .byte $46
 
@@ -2126,7 +2126,7 @@ off_A61B_63:
 off_A625_64:
 - D - I - 0x012635 10:A625: 0E        .byte $0E
 
-- D - I - 0x012636 10:A626: F1        .byte con_F1
+- D - I - 0x012636 10:A626: F1        .byte con_координаты_Y_X
 - D - I - 0x012637 10:A627: 30        .byte $30
 - D - I - 0x012638 10:A628: 46        .byte $46
 
@@ -2143,7 +2143,7 @@ off_A625_64:
 off_A62E_65:
 - D - I - 0x01263E 10:A62E: 0C        .byte $0C
 
-- D - I - 0x01263F 10:A62F: F1        .byte con_F1
+- D - I - 0x01263F 10:A62F: F1        .byte con_координаты_Y_X
 - D - I - 0x012640 10:A630: 30        .byte $30
 - D - I - 0x012641 10:A631: 32        .byte $32
 
@@ -2156,7 +2156,7 @@ off_A62E_65:
 off_A635_66:
 - D - I - 0x012645 10:A635: 0C        .byte $0C
 
-- D - I - 0x012646 10:A636: F1        .byte con_F1
+- D - I - 0x012646 10:A636: F1        .byte con_координаты_Y_X
 - D - I - 0x012647 10:A637: 30        .byte $30
 - D - I - 0x012648 10:A638: 2E        .byte $2E
 
@@ -2173,7 +2173,7 @@ off_A635_66:
 off_A640_67:
 - D - I - 0x012650 10:A640: 0C        .byte $0C
 
-- D - I - 0x012651 10:A641: F1        .byte con_F1
+- D - I - 0x012651 10:A641: F1        .byte con_координаты_Y_X
 - D - I - 0x012652 10:A642: 30        .byte $30
 - D - I - 0x012653 10:A643: 2E        .byte $2E
 
@@ -2188,7 +2188,7 @@ off_A640_67:
 off_A648_68:
 - D - I - 0x012658 10:A648: 1F        .byte $1F
 
-- D - I - 0x012659 10:A649: F1        .byte con_F1
+- D - I - 0x012659 10:A649: F1        .byte con_координаты_Y_X
 - D - I - 0x01265A 10:A64A: 30        .byte $30
 - D - I - 0x01265B 10:A64B: 2E        .byte $2E
 
@@ -2205,7 +2205,7 @@ off_A648_68:
 off_A653_69:
 - D - I - 0x012663 10:A653: 0C        .byte $0C
 
-- D - I - 0x012664 10:A654: F1        .byte con_F1
+- D - I - 0x012664 10:A654: F1        .byte con_координаты_Y_X
 - D - I - 0x012665 10:A655: 30        .byte $30
 - D - I - 0x012666 10:A656: 3E        .byte $3E
 
@@ -2223,7 +2223,7 @@ off_A65D_6A:
 
 - D - I - 0x01266E 10:A65E: F5        .byte con_F5
 
-- D - I - 0x01266F 10:A65F: F1        .byte con_F1
+- D - I - 0x01266F 10:A65F: F1        .byte con_координаты_Y_X
 - D - I - 0x012670 10:A660: 30        .byte $30
 - D - I - 0x012671 10:A661: 2E        .byte $2E
 
@@ -2236,7 +2236,7 @@ off_A65D_6A:
 off_A665_6B:
 - D - I - 0x012675 10:A665: 27        .byte $27
 
-- D - I - 0x012676 10:A666: F1        .byte con_F1
+- D - I - 0x012676 10:A666: F1        .byte con_координаты_Y_X
 - D - I - 0x012677 10:A667: 30        .byte $30
 - D - I - 0x012678 10:A668: 3E        .byte $3E
 
@@ -2261,7 +2261,7 @@ off_A665_6B:
 off_A674_6C:
 - D - I - 0x012684 10:A674: 0C        .byte $0C
 
-- D - I - 0x012685 10:A675: F1        .byte con_F1
+- D - I - 0x012685 10:A675: F1        .byte con_координаты_Y_X
 - D - I - 0x012686 10:A676: 34        .byte $34
 - D - I - 0x012687 10:A677: 38        .byte $38
 
