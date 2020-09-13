@@ -2,6 +2,9 @@
 .include "copy_bank_ram.inc"
 ; тут только данные
 
+con_повторы         = $E0
+con_повторить       = $F0
+
 ; поинтер находится в 0x0010DF, начало таблицы в банке 10
 - D - I - 0x014010 11:A000: BE A0     .word off_A0BE_6D
 - D - I - 0x014012 11:A002: C6 A0     .word off_A0C6_6E
@@ -128,7 +131,7 @@ off_A0C6_6E:
 - D - I - 0x0140DC 11:A0CC: 00        .byte $00
 - D - I - 0x0140DD 11:A0CD: 00        .byte $00
 
-- D - I - 0x0140DE 11:A0CE: E2        .byte $E2
+- D - I - 0x0140DE 11:A0CE: E2        .byte con_повторы + $02
 
 - D - I - 0x0140DF 11:A0CF: F5        .byte $F5
 
@@ -144,7 +147,7 @@ off_A0C6_6E:
 - D - I - 0x0140E9 11:A0D9: 89 08     .dbyt off_A908 - $2000
 - D - I - 0x0140EB 11:A0DB: 01        .byte $01
 
-- D - I - 0x0140EC 11:A0DC: F0        .byte $F0
+- D - I - 0x0140EC 11:A0DC: F0        .byte con_повторить
 
 @бесконечный_цикл:
 - D - I - 0x0140ED 11:A0DD: F5        .byte $F5
@@ -182,7 +185,7 @@ off_A0F0_6F:
 - D - I - 0x014106 11:A0F6: 00        .byte $00
 - D - I - 0x014107 11:A0F7: 00        .byte $00
 
-- D - I - 0x014108 11:A0F8: E2        .byte $E2
+- D - I - 0x014108 11:A0F8: E2        .byte con_повторы + $02
 
 - D - I - 0x014109 11:A0F9: F5        .byte $F5
 
@@ -198,7 +201,7 @@ off_A0F0_6F:
 - D - I - 0x014113 11:A103: 89 2F     .dbyt off_A92F - $2000
 - D - I - 0x014115 11:A105: 01        .byte $01
 
-- D - I - 0x014116 11:A106: F0        .byte $F0
+- D - I - 0x014116 11:A106: F0        .byte con_повторить
 
 @бесконечный_цикл:
 - D - I - 0x014117 11:A107: F5        .byte $F5
@@ -258,7 +261,7 @@ off_A126_71:
 - D - I - 0x01413F 11:A12F: 00        .byte $00
 - D - I - 0x014140 11:A130: 50        .byte $50
 
-- D - I - 0x014141 11:A131: EA        .byte $EA
+- D - I - 0x014141 11:A131: EA        .byte con_повторы + $0A
 
 - D - I - 0x014142 11:A132: F7        .byte $F7
 - D - I - 0x014143 11:A133: 2E        .byte $2E
@@ -276,7 +279,7 @@ off_A126_71:
 - D - I - 0x01414D 11:A13D: 89 73     .dbyt off_A973 - $2000
 - D - I - 0x01414F 11:A13F: 01        .byte $01
 
-- D - I - 0x014150 11:A140: F0        .byte $F0
+- D - I - 0x014150 11:A140: F0        .byte con_повторить
 
 - D - I - 0x014151 11:A141: F7        .byte $F7
 - D - I - 0x014152 11:A142: 79        .byte $79
@@ -343,7 +346,7 @@ off_A165_74:
 - D - I - 0x014179 11:A169: 89 DD     .dbyt off_A9DD - $2000
 - D - I - 0x01417B 11:A16B: 01        .byte $01
 
-- D - I - 0x01417C 11:A16C: E9        .byte $E9
+- D - I - 0x01417C 11:A16C: E9        .byte con_повторы + $09
 
 - D - I - 0x01417D 11:A16D: F1        .byte $F1
 - D - I - 0x01417E 11:A16E: 30        .byte $30
@@ -359,7 +362,7 @@ off_A165_74:
 - D - I - 0x014186 11:A176: 8A 3E     .dbyt off_AA3E - $2000
 - D - I - 0x014188 11:A178: 01        .byte $01
 
-- D - I - 0x014189 11:A179: F0        .byte $F0
+- D - I - 0x014189 11:A179: F0        .byte con_повторить
 
 - D - I - 0x01418A 11:A17A: F1        .byte $F1
 - D - I - 0x01418B 11:A17B: 30        .byte $30
@@ -512,7 +515,7 @@ off_A1CA_7D:
 - D - I - 0x0141DC 11:A1CC: 06        .byte $06
 - D - I - 0x0141DD 11:A1CD: 4E        .byte $4E
 
-- D - I - 0x0141DE 11:A1CE: EC        .byte $EC
+- D - I - 0x0141DE 11:A1CE: EC        .byte con_повторы + $0C
 
 - D - I - 0x0141DF 11:A1CF: F7        .byte $F7
 - D - I - 0x0141E0 11:A1D0: 2F        .byte $2F
@@ -530,9 +533,9 @@ off_A1CA_7D:
 - D - I - 0x0141EA 11:A1DA: 8D 72     .dbyt off_AD72 - $2000
 - D - I - 0x0141EC 11:A1DC: 01        .byte $01
 
-- D - I - 0x0141ED 11:A1DD: F0        .byte $F0
+- D - I - 0x0141ED 11:A1DD: F0        .byte con_повторить
 
-- D - I - 0x0141EE 11:A1DE: E6        .byte $E6
+- D - I - 0x0141EE 11:A1DE: E6        .byte con_повторы + $06
 
 - D - I - 0x0141EF 11:A1DF: F7        .byte $F7
 - D - I - 0x0141F0 11:A1E0: 00        .byte $00
@@ -551,7 +554,7 @@ off_A1CA_7D:
 - D - I - 0x0141FC 11:A1EC: 92 DA     .dbyt off_B2DA - $2000
 - D - I - 0x0141FE 11:A1EE: 01        .byte $01
 
-- D - I - 0x0141FF 11:A1EF: F0        .byte $F0
+- D - I - 0x0141FF 11:A1EF: F0        .byte con_повторить
 
 @бесконечный_цикл:
 - D - I - 0x014200 11:A1F0: F7        .byte $F7
@@ -589,7 +592,7 @@ off_A1FC_7E:
 - D - I - 0x014219 11:A209: 00        .byte $00
 - D - I - 0x01421A 11:A20A: 00        .byte $00
 
-- D - I - 0x01421B 11:A20B: E6        .byte $E6
+- D - I - 0x01421B 11:A20B: E6        .byte con_повторы + $06
 
 - D - I - 0x01421C 11:A20C: 8D CC     .dbyt off_ADCC - $2000
 - D - I - 0x01421E 11:A20E: 01        .byte $01
@@ -603,7 +606,7 @@ off_A1FC_7E:
 - D - I - 0x014225 11:A215: 92 E4     .dbyt off_B2E4 - $2000
 - D - I - 0x014227 11:A217: 01        .byte $01
 
-- D - I - 0x014228 11:A218: F0        .byte $F0
+- D - I - 0x014228 11:A218: F0        .byte con_повторить
 
 - D - I - 0x014229 11:A219: 8D A4     .dbyt off_ADA4 - $2000
 
@@ -614,7 +617,7 @@ off_A1FC_7E:
 off_A21C_7F:
 - D - I - 0x01422C 11:A21C: 12        .byte $12
 
-- D - I - 0x01422D 11:A21D: E3        .byte $E3
+- D - I - 0x01422D 11:A21D: E3        .byte con_повторы + $03
 
 - D - I - 0x01422E 11:A21E: F1        .byte $F1
 - D - I - 0x01422F 11:A21F: 06        .byte $06
@@ -628,14 +631,14 @@ off_A21C_7F:
 - D - I - 0x014236 11:A226: 00        .byte $00
 - D - I - 0x014237 11:A227: 0E        .byte $0E
 
-- D - I - 0x014238 11:A228: F0        .byte $F0
+- D - I - 0x014238 11:A228: F0        .byte con_повторить
 
 - D - I - 0x014239 11:A229: F7        .byte $F7
 - D - I - 0x01423A 11:A22A: 00        .byte $00
 - D - I - 0x01423B 11:A22B: 00        .byte $00
 - D - I - 0x01423C 11:A22C: 00        .byte $00
 
-- D - I - 0x01423D 11:A22D: E6        .byte $E6
+- D - I - 0x01423D 11:A22D: E6        .byte con_повторы + $06
 
 - D - I - 0x01423E 11:A22E: 92 2D     .dbyt off_B22D - $2000
 - D - I - 0x014240 11:A230: 01        .byte $01
@@ -649,7 +652,7 @@ off_A21C_7F:
 - D - I - 0x014247 11:A237: 92 EE     .dbyt off_B2EE - $2000
 - D - I - 0x014249 11:A239: 01        .byte $01
 
-- D - I - 0x01424A 11:A23A: F0        .byte $F0
+- D - I - 0x01424A 11:A23A: F0        .byte con_повторить
 
 - D - I - 0x01424B 11:A23B: 8D AE     .dbyt off_ADAE - $2000
 
@@ -683,7 +686,7 @@ off_A24A_81:
 - D - I - 0x01425C 11:A24C: 24        .byte $24
 - D - I - 0x01425D 11:A24D: 4E        .byte $4E
 
-- D - I - 0x01425E 11:A24E: EF        .byte $EF
+- D - I - 0x01425E 11:A24E: EF        .byte con_повторы + $0F
 
 - D - I - 0x01425F 11:A24F: F7        .byte $F7
 - D - I - 0x014260 11:A250: 0F        .byte $0F
@@ -701,7 +704,7 @@ off_A24A_81:
 - D - I - 0x01426A 11:A25A: 96 D1     .dbyt off_B6D1 - $2000
 - D - I - 0x01426C 11:A25C: 01        .byte $01
 
-- D - I - 0x01426D 11:A25D: F0        .byte $F0
+- D - I - 0x01426D 11:A25D: F0        .byte con_повторить
 
 - D - I - 0x01426E 11:A25E: FF        .byte $FF
 
@@ -710,7 +713,7 @@ off_A24A_81:
 off_A25F_82:
 - D - I - 0x01426F 11:A25F: 02        .byte $02
 
-- D - I - 0x014270 11:A260: E3        .byte $E3
+- D - I - 0x014270 11:A260: E3        .byte con_повторы + $03
 
 - D - I - 0x014271 11:A261: F1        .byte $F1
 - D - I - 0x014272 11:A262: 0E        .byte $0E
@@ -724,14 +727,14 @@ off_A25F_82:
 - D - I - 0x014279 11:A269: 00        .byte $00
 - D - I - 0x01427A 11:A26A: 0A        .byte $0A
 
-- D - I - 0x01427B 11:A26B: F0        .byte $F0
+- D - I - 0x01427B 11:A26B: F0        .byte con_повторить
 
 - D - I - 0x01427C 11:A26C: F7        .byte $F7
 - D - I - 0x01427D 11:A26D: 00        .byte $00
 - D - I - 0x01427E 11:A26E: 00        .byte $00
 - D - I - 0x01427F 11:A26F: 00        .byte $00
 
-- D - I - 0x014280 11:A270: E6        .byte $E6
+- D - I - 0x014280 11:A270: E6        .byte con_повторы + $06
 
 - D - I - 0x014281 11:A271: 8E 12     .dbyt off_AE12 - $2000
 
@@ -765,7 +768,7 @@ off_A25F_82:
 - D - I - 0x01429B 11:A28B: 00        .byte $00
 - D - I - 0x01429C 11:A28C: 01        .byte $01
 
-- D - I - 0x01429D 11:A28D: F0        .byte $F0
+- D - I - 0x01429D 11:A28D: F0        .byte con_повторить
 
 @бесконечный_цикл:
 - D - I - 0x01429E 11:A28E: F7        .byte $F7
@@ -939,7 +942,7 @@ off_A305_86:
 - D - I - 0x014317 11:A307: 30        .byte $30
 - D - I - 0x014318 11:A308: 3C        .byte $3C
 
-- D - I - 0x014319 11:A309: E2        .byte $E2
+- D - I - 0x014319 11:A309: E2        .byte con_повторы + $02
 
 - D - I - 0x01431A 11:A30A: F5        .byte $F5
 
@@ -949,7 +952,7 @@ off_A305_86:
 - D - I - 0x01431E 11:A30E: 8E BE     .dbyt off_AEBE - $2000
 - D - I - 0x014320 11:A310: 01        .byte $01
 
-- D - I - 0x014321 11:A311: F0        .byte $F0
+- D - I - 0x014321 11:A311: F0        .byte con_повторить
 
 - D - I - 0x014322 11:A312: F1        .byte $F1
 - D - I - 0x014323 11:A313: 30        .byte $30
@@ -1089,9 +1092,9 @@ off_A36F_89:
 - D - I - 0x014385 11:A375: FE        .byte $FE
 - D - I - 0x014386 11:A376: 00        .byte $00
 
-- D - I - 0x014387 11:A377: E3        .byte $E3
+- D - I - 0x014387 11:A377: E3        .byte con_повторы + $03
 
-- D - I - 0x014388 11:A378: EF        .byte $EF
+- D - I - 0x014388 11:A378: EF        .byte con_повторы + $0F
 
 - D - I - 0x014389 11:A379: 90 7D     .dbyt off_B07D - $2000
 - D - I - 0x01438B 11:A37B: 01        .byte $01
@@ -1099,18 +1102,18 @@ off_A36F_89:
 - D - I - 0x01438C 11:A37C: 90 94     .dbyt off_B094 - $2000
 - D - I - 0x01438E 11:A37E: 01        .byte $01
 
-- D - I - 0x01438F 11:A37F: F0        .byte $F0
+- D - I - 0x01438F 11:A37F: F0        .byte con_повторить
 
-- D - I - 0x014390 11:A380: F0        .byte $F0
+- D - I - 0x014390 11:A380: F0        .byte con_повторить
 
 - D - I - 0x014391 11:A381: F7        .byte $F7
 - D - I - 0x014392 11:A382: 00        .byte $00
 - D - I - 0x014393 11:A383: 00        .byte $00
 - D - I - 0x014394 11:A384: 00        .byte $00
 
-- D - I - 0x014395 11:A385: E4        .byte $E4
+- D - I - 0x014395 11:A385: E4        .byte con_повторы + $04
 
-- D - I - 0x014396 11:A386: EF        .byte $EF
+- D - I - 0x014396 11:A386: EF        .byte con_повторы + $0F
 
 - D - I - 0x014397 11:A387: 90 7D     .dbyt off_B07D - $2000
 - D - I - 0x014399 11:A389: 01        .byte $01
@@ -1118,16 +1121,16 @@ off_A36F_89:
 - D - I - 0x01439A 11:A38A: 90 94     .dbyt off_B094 - $2000
 - D - I - 0x01439C 11:A38C: 01        .byte $01
 
-- D - I - 0x01439D 11:A38D: F0        .byte $F0
+- D - I - 0x01439D 11:A38D: F0        .byte con_повторить
 
-- D - I - 0x01439E 11:A38E: F0        .byte $F0
+- D - I - 0x01439E 11:A38E: F0        .byte con_повторить
 
 - D - I - 0x01439F 11:A38F: F7        .byte $F7
 - D - I - 0x0143A0 11:A390: F0        .byte $F0
 - D - I - 0x0143A1 11:A391: 00        .byte $00
 - D - I - 0x0143A2 11:A392: 00        .byte $00
 
-- D - I - 0x0143A3 11:A393: EF        .byte $EF
+- D - I - 0x0143A3 11:A393: EF        .byte con_повторы + $0F
 
 - D - I - 0x0143A4 11:A394: 90 7D     .dbyt off_B07D - $2000
 - D - I - 0x0143A6 11:A396: 01        .byte $01
@@ -1135,7 +1138,7 @@ off_A36F_89:
 - D - I - 0x0143A7 11:A397: 90 94     .dbyt off_B094 - $2000
 - D - I - 0x0143A9 11:A399: 01        .byte $01
 
-- D - I - 0x0143AA 11:A39A: F0        .byte $F0
+- D - I - 0x0143AA 11:A39A: F0        .byte con_повторить
 
 - D - I - 0x0143AB 11:A39B: F1        .byte $F1
 - D - I - 0x0143AC 11:A39C: B0        .byte $B0
@@ -1146,9 +1149,9 @@ off_A36F_89:
 - D - I - 0x0143B0 11:A3A0: FF        .byte $FF
 - D - I - 0x0143B1 11:A3A1: 00        .byte $00
 
-- D - I - 0x0143B2 11:A3A2: E4        .byte $E4
+- D - I - 0x0143B2 11:A3A2: E4        .byte con_повторы + $04
 
-- D - I - 0x0143B3 11:A3A3: EF        .byte $EF
+- D - I - 0x0143B3 11:A3A3: EF        .byte con_повторы + $0F
 
 - D - I - 0x0143B4 11:A3A4: 90 7D     .dbyt off_B07D - $2000
 - D - I - 0x0143B6 11:A3A6: 01        .byte $01
@@ -1156,9 +1159,9 @@ off_A36F_89:
 - D - I - 0x0143B7 11:A3A7: 90 94     .dbyt off_B094 - $2000
 - D - I - 0x0143B9 11:A3A9: 01        .byte $01
 
-- D - I - 0x0143BA 11:A3AA: F0        .byte $F0
+- D - I - 0x0143BA 11:A3AA: F0        .byte con_повторить
 
-- D - I - 0x0143BB 11:A3AB: F0        .byte $F0
+- D - I - 0x0143BB 11:A3AB: F0        .byte con_повторить
 
 @бесконечный_цикл:
 - D - I - 0x0143BC 11:A3AC: F7        .byte $F7
@@ -1334,9 +1337,9 @@ off_A40C_93:
 - D - I - 0x014425 11:A415: 00        .byte $00
 - D - I - 0x014426 11:A416: 64        .byte $64
 ; таймер замаха джаиро сразу перед ударом
-- D - I - 0x014427 11:A417: E5        .byte $E9
+- D - I - 0x014427 11:A417: E5        .byte con_повторы + $09
 
-- D - I - 0x014428 11:A418: ED        .byte $ED
+- D - I - 0x014428 11:A418: ED        .byte con_повторы + $0D
 
 - D - I - 0x014429 11:A419: F7        .byte $F7
 - D - I - 0x01442A 11:A41A: 1F        .byte $1F
@@ -1354,9 +1357,9 @@ off_A40C_93:
 - D - I - 0x014434 11:A424: 89 73     .dbyt off_A973 - $2000
 - D - I - 0x014436 11:A426: 01        .byte $01
 
-- D - I - 0x014437 11:A427: F0        .byte $F0
+- D - I - 0x014437 11:A427: F0        .byte con_повторить
 
-- D - I - 0x014438 11:A428: F0        .byte $F0
+- D - I - 0x014438 11:A428: F0        .byte con_повторить
 
 - D - I - 0x014439 11:A429: F7        .byte $F7
 - D - I - 0x01443A 11:A42A: 79        .byte $79
@@ -1611,9 +1614,9 @@ off_A4C3_9F:
 - D - I - 0x0144DC 11:A4CC: 00        .byte $00
 - D - I - 0x0144DD 11:A4CD: 64        .byte $64
 ; таймер удара Шнайдера
-- D - I - 0x0144DE 11:A4CE: E2        .byte $E4
+- D - I - 0x0144DE 11:A4CE: E2        .byte con_повторы + $04
 
-- D - I - 0x0144DF 11:A4CF: EE        .byte $EF
+- D - I - 0x0144DF 11:A4CF: EE        .byte con_повторы + $0F
 
 - D - I - 0x0144E0 11:A4D0: F7        .byte $F7
 - D - I - 0x0144E1 11:A4D1: 2E        .byte $2E
@@ -1631,9 +1634,9 @@ off_A4C3_9F:
 - D - I - 0x0144EB 11:A4DB: 89 73     .dbyt off_A973 - $2000
 - D - I - 0x0144ED 11:A4DD: 01        .byte $01
 
-- D - I - 0x0144EE 11:A4DE: F0        .byte $F0
+- D - I - 0x0144EE 11:A4DE: F0        .byte con_повторить
 
-- D - I - 0x0144EF 11:A4DF: F0        .byte $F0
+- D - I - 0x0144EF 11:A4DF: F0        .byte con_повторить
 
 - D - I - 0x0144F0 11:A4E0: F7        .byte $F7
 - D - I - 0x0144F1 11:A4E1: 79        .byte $79
@@ -1708,7 +1711,7 @@ off_A50E_A2:
 - D - I - 0x014520 11:A510: 12        .byte $12
 - D - I - 0x014521 11:A511: 8E        .byte $8E
 
-- D - I - 0x014522 11:A512: EC        .byte $EC
+- D - I - 0x014522 11:A512: EC        .byte con_повторы + $0C
 
 - D - I - 0x014523 11:A513: F7        .byte $F7
 - D - I - 0x014524 11:A514: 29        .byte $29
@@ -1724,7 +1727,7 @@ off_A50E_A2:
 - D - I - 0x01452D 11:A51D: 00        .byte $00
 - D - I - 0x01452E 11:A51E: 01        .byte $01
 
-- D - I - 0x01452F 11:A51F: F0        .byte $F0
+- D - I - 0x01452F 11:A51F: F0        .byte con_повторить
 
 - D - I - 0x014530 11:A520: F7        .byte $F7
 - D - I - 0x014531 11:A521: 00        .byte $00
@@ -1750,7 +1753,7 @@ off_A52A_A3:
 
 - D - I - 0x01453E 11:A52E: 8E 5D     .dbyt off_AE5D - $2000
 
-- D - I - 0x014540 11:A530: E5        .byte $E5
+- D - I - 0x014540 11:A530: E5        .byte con_повторы + $05
 
 - D - I - 0x014541 11:A531: F7        .byte $F7
 - D - I - 0x014542 11:A532: 20        .byte $20
@@ -1764,7 +1767,7 @@ off_A52A_A3:
 - D - I - 0x014549 11:A539: 00        .byte $00
 - D - I - 0x01454A 11:A53A: 01        .byte $01
 
-- D - I - 0x01454B 11:A53B: F0        .byte $F0
+- D - I - 0x01454B 11:A53B: F0        .byte con_повторить
 
 - D - I - 0x01454C 11:A53C: F7        .byte $F7
 - D - I - 0x01454D 11:A53D: 10        .byte $10
@@ -1816,7 +1819,7 @@ off_A54D_A5:
 off_A559_A6:
 - D - I - 0x014569 11:A559: 12        .byte $12
 
-- D - I - 0x01456A 11:A55A: E3        .byte $E3
+- D - I - 0x01456A 11:A55A: E3        .byte con_повторы + $03
 
 - D - I - 0x01456B 11:A55B: F1        .byte $F1
 - D - I - 0x01456C 11:A55C: 12        .byte $12
@@ -1830,7 +1833,7 @@ off_A559_A6:
 - D - I - 0x014573 11:A563: 00        .byte $00
 - D - I - 0x014574 11:A564: 0E        .byte $0E
 
-- D - I - 0x014575 11:A565: F0        .byte $F0
+- D - I - 0x014575 11:A565: F0        .byte con_повторить
 
 - D - I - 0x014576 11:A566: F1        .byte $F1
 - D - I - 0x014577 11:A567: 3E        .byte $3E
@@ -1952,9 +1955,9 @@ off_A570_A7:
 - D - I - 0x0145D4 11:A5C4: 00        .byte $00
 - D - I - 0x0145D5 11:A5C5: 2D        .byte $2D
 
-- D - I - 0x0145D6 11:A5C6: E3        .byte $E3
+- D - I - 0x0145D6 11:A5C6: E3        .byte con_повторы + $03
 
-- D - I - 0x0145D7 11:A5C7: EB        .byte $EB
+- D - I - 0x0145D7 11:A5C7: EB        .byte con_повторы + $0B
 
 - D - I - 0x0145D8 11:A5C8: F7        .byte $F7
 - D - I - 0x0145D9 11:A5C9: 0F        .byte $0F
@@ -1968,9 +1971,9 @@ off_A570_A7:
 - D - I - 0x0145E0 11:A5D0: 00        .byte $00
 - D - I - 0x0145E1 11:A5D1: 01        .byte $01
 
-- D - I - 0x0145E2 11:A5D2: F0        .byte $F0
+- D - I - 0x0145E2 11:A5D2: F0        .byte con_повторить
 
-- D - I - 0x0145E3 11:A5D3: F0        .byte $F0
+- D - I - 0x0145E3 11:A5D3: F0        .byte con_повторить
 
 - D - I - 0x0145E4 11:A5D4: FF        .byte $FF
 
@@ -1988,9 +1991,9 @@ off_A5D5_A8:
 - D - I - 0x0145EC 11:A5DC: 7F        .byte $7F
 - D - I - 0x0145ED 11:A5DD: 12        .byte $12
 
-- D - I - 0x0145EE 11:A5DE: E3        .byte $E3
+- D - I - 0x0145EE 11:A5DE: E3        .byte con_повторы + $03
 
-- D - I - 0x0145EF 11:A5DF: EB        .byte $EB
+- D - I - 0x0145EF 11:A5DF: EB        .byte con_повторы + $0B
 
 - D - I - 0x0145F0 11:A5E0: F7        .byte $F7
 - D - I - 0x0145F1 11:A5E1: 01        .byte $01
@@ -2004,9 +2007,9 @@ off_A5D5_A8:
 - D - I - 0x0145F8 11:A5E8: 00        .byte $00
 - D - I - 0x0145F9 11:A5E9: 01        .byte $01
 
-- D - I - 0x0145FA 11:A5EA: F0        .byte $F0
+- D - I - 0x0145FA 11:A5EA: F0        .byte con_повторить
 
-- D - I - 0x0145FB 11:A5EB: F0        .byte $F0
+- D - I - 0x0145FB 11:A5EB: F0        .byte con_повторить
 
 - D - I - 0x0145FC 11:A5EC: FF        .byte $FF
 
@@ -2344,7 +2347,7 @@ off_A6BB_B9:
 off_A6C2_BA:
 - D - I - 0x0146D2 11:A6C2: 37        .byte $37
 
-- D - I - 0x0146D3 11:A6C3: E4        .byte $E4
+- D - I - 0x0146D3 11:A6C3: E4        .byte con_повторы + $04
 
 - D - I - 0x0146D4 11:A6C4: F1        .byte $F1
 - D - I - 0x0146D5 11:A6C5: 2C        .byte $2C
@@ -2360,9 +2363,9 @@ off_A6C2_BA:
 - D - I - 0x0146DD 11:A6CD: 89 8F     .dbyt off_A98F - $2000
 - D - I - 0x0146DF 11:A6CF: 04        .byte $04
 
-- D - I - 0x0146E0 11:A6D0: F0        .byte $F0
+- D - I - 0x0146E0 11:A6D0: F0        .byte con_повторить
 
-- D - I - 0x0146E1 11:A6D1: E3        .byte $E3
+- D - I - 0x0146E1 11:A6D1: E3        .byte con_повторы + $03
 
 - D - I - 0x0146E2 11:A6D2: F1        .byte $F1
 - D - I - 0x0146E3 11:A6D3: 2C        .byte $2C
@@ -2374,7 +2377,7 @@ off_A6C2_BA:
 - D - I - 0x0146E8 11:A6D8: 89 BE     .dbyt off_A9BE - $2000
 - D - I - 0x0146EA 11:A6DA: 04        .byte $04
 
-- D - I - 0x0146EB 11:A6DB: F0        .byte $F0
+- D - I - 0x0146EB 11:A6DB: F0        .byte con_повторить
 
 - D - I - 0x0146EC 11:A6DC: FF        .byte $FF
 
@@ -2555,7 +2558,7 @@ off_A750_C0:
 off_A757_C1:
 - D - I - 0x014767 11:A757: 02        .byte $02
 
-- D - I - 0x014768 11:A758: E3        .byte $E3
+- D - I - 0x014768 11:A758: E3        .byte con_повторы + $03
 
 - D - I - 0x014769 11:A759: F1        .byte $F1
 - D - I - 0x01476A 11:A75A: 04        .byte $04
@@ -2569,7 +2572,7 @@ off_A757_C1:
 - D - I - 0x014771 11:A761: 00        .byte $00
 - D - I - 0x014772 11:A762: 0A        .byte $0A
 
-- D - I - 0x014773 11:A763: F0        .byte $F0
+- D - I - 0x014773 11:A763: F0        .byte con_повторить
 
 - D - I - 0x014774 11:A764: FF        .byte $FF
 
@@ -2587,7 +2590,7 @@ off_A765_C2_джек_выходит_и_поздравляет:
 - D - I - 0x01477B 11:A76B: 00        .byte $00
 - D - I - 0x01477C 11:A76C: 00        .byte $00
 
-- D - I - 0x01477D 11:A76D: EF        .byte $EF
+- D - I - 0x01477D 11:A76D: EF        .byte con_повторы + $0F
 
 - D - I - 0x01477E 11:A76E: 97 39     .dbyt off_B739 - $2000
 - D - I - 0x014780 11:A770: 02        .byte $02
@@ -2595,7 +2598,7 @@ off_A765_C2_джек_выходит_и_поздравляет:
 - D - I - 0x014781 11:A771: 97 46     .dbyt off_B746 - $2000
 - D - I - 0x014783 11:A773: 02        .byte $02
 
-- D - I - 0x014784 11:A774: F0        .byte $F0
+- D - I - 0x014784 11:A774: F0        .byte con_повторить
 
 - D - I - 0x014785 11:A775: F7        .byte $F7
 - D - I - 0x014786 11:A776: 00        .byte $00
@@ -2637,9 +2640,9 @@ off_A784_C3_джек_уходит_с_поля:
 - D - I - 0x0147A1 11:A791: 00        .byte $00
 - D - I - 0x0147A2 11:A792: 00        .byte $00
 
-- D - I - 0x0147A3 11:A793: E2        .byte $E2
+- D - I - 0x0147A3 11:A793: E2        .byte con_повторы + $02
 
-- D - I - 0x0147A4 11:A794: EF        .byte $EF
+- D - I - 0x0147A4 11:A794: EF        .byte con_повторы + $0F
 
 - D - I - 0x0147A5 11:A795: 97 39     .dbyt off_B739 - $2000
 - D - I - 0x0147A7 11:A797: 02        .byte $02
@@ -2647,9 +2650,9 @@ off_A784_C3_джек_уходит_с_поля:
 - D - I - 0x0147A8 11:A798: 97 46     .dbyt off_B746 - $2000
 - D - I - 0x0147AA 11:A79A: 02        .byte $02
 
-- D - I - 0x0147AB 11:A79B: F0        .byte $F0
+- D - I - 0x0147AB 11:A79B: F0        .byte con_повторить
 
-- D - I - 0x0147AC 11:A79C: F0        .byte $F0
+- D - I - 0x0147AC 11:A79C: F0        .byte con_повторить
 
 - D - I - 0x0147AD 11:A79D: FF        .byte $FF
 
