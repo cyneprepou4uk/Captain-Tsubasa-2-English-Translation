@@ -3,20 +3,20 @@
 ; тут только данные
 
 ; основные данные анимации
-con_повторы         = $E0
-con_повторить       = $F0
-con_координаты_Y_X              = $F1
-con_F5              = $F5
-con_F6              = $F6
-con_F7              = $F7
-con_F9              = $F9
-con_развилка        = $FA
-con_выход           = $FF
+con_повторы             = $E0
+con_повторить           = $F0
+con_координаты_Y_X      = $F1
+con_F5                  = $F5
+con_F6                  = $F6
+con_F7                  = $F7
+con_F9                  = $F9
+con_развилка            = $FA
+con_выход               = $FF
 
 ; данные спрайтов
-con_jsr             = $FA
-con_jmp             = $FB
-con_FE              = $FE
+con_jsr                 = $FA
+con_jmp                 = $FB
+con_FE                  = $FE
 
 ; поинтер находится в 0x0010DF, начало таблицы в банке 10
 - D - I - 0x014010 11:A000: BE A0     .word off_A0BE_6D
