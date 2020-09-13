@@ -4,6 +4,7 @@
 
 con_повторы         = $E0
 con_повторить       = $F0
+con_выход           = $FF
 
 ; поинтер находится в 0x0010DF, продолжение таблицы в банке 11
 - D - I - 0x012010 10:A000: DA A0     .word off_A0DA_00
@@ -269,7 +270,7 @@ off_A0DA_00:
 
 - D - I - 0x012174 10:A164: 86 81     .dbyt off_A681 - $2000
 
-- D - I - 0x012176 10:A166: FF        .byte $FF
+- D - I - 0x012176 10:A166: FF        .byte con_выход
 
 
 
@@ -423,7 +424,7 @@ off_A167_01:
 
 - D - I - 0x0121FE 10:A1EE: 86 81     .dbyt off_A681 - $2000
 
-- D - I - 0x012200 10:A1F0: FF        .byte $FF
+- D - I - 0x012200 10:A1F0: FF        .byte con_выход
 
 
 
@@ -444,7 +445,7 @@ off_A1F1_02:
 - D - I - 0x01220C 10:A1FC: EA A8     .word off_A8EA
 - D - I - 0x01220E 10:A1FE: 0D B4     .word off_B40D
 
-- - - - - 0x012210 10:A200: FF        .byte $FF
+- - - - - 0x012210 10:A200: FF        .byte con_выход
 
 
 
@@ -474,7 +475,7 @@ off_A201_03:
 - D - I - 0x012223 10:A213: 8E AC     .word off_AC8E
 - D - I - 0x012225 10:A215: 19 B2     .word off_B219
 
-- - - - - 0x012227 10:A217: FF        .byte $FF
+- - - - - 0x012227 10:A217: FF        .byte con_выход
 
 
 
@@ -492,7 +493,7 @@ off_A218_04:
 - D - I - 0x012230 10:A220: 7F        .byte $7F
 - D - I - 0x012231 10:A221: 23        .byte $23
 
-- D - I - 0x012232 10:A222: FF        .byte $FF
+- D - I - 0x012232 10:A222: FF        .byte con_выход
 
 
 
@@ -513,7 +514,7 @@ off_A223_05:
 - D - I - 0x01223E 10:A22E: 00        .byte $00
 - D - I - 0x01223F 10:A22F: 45        .byte $45
 
-- D - I - 0x012240 10:A230: FF        .byte $FF
+- D - I - 0x012240 10:A230: FF        .byte con_выход
 
 
 
@@ -528,7 +529,7 @@ off_A231_06:
 - D - I - 0x012246 10:A236: B4 B0     .word off_B0B4
 - D - I - 0x012248 10:A238: AC AC     .word off_ACAC
 
-- - - - - 0x01224A 10:A23A: FF        .byte $FF
+- - - - - 0x01224A 10:A23A: FF        .byte con_выход
 
 
 
@@ -557,7 +558,7 @@ off_A23B_07:
 - D - I - 0x01225C 10:A24C: E3 A9     .word off_A9E3
 - D - I - 0x01225E 10:A24E: F6 A9     .word off_A9F6
 
-- - - - - 0x012260 10:A250: FF        .byte $FF
+- - - - - 0x012260 10:A250: FF        .byte con_выход
 
 
 
@@ -575,7 +576,7 @@ off_A251_08:
 
 - D - I - 0x012269 10:A259: 88 FE     .dbyt off_A8FE - $2000
 
-- D - I - 0x01226B 10:A25B: FF        .byte $FF
+- D - I - 0x01226B 10:A25B: FF        .byte con_выход
 
 
 
@@ -590,7 +591,7 @@ off_A25C_09:
 - D - I - 0x012271 10:A261: EA A8     .word off_A8EA
 - D - I - 0x012273 10:A263: 0D B4     .word off_B40D
 
-- - - - - 0x012275 10:A265: FF        .byte $FF
+- - - - - 0x012275 10:A265: FF        .byte con_выход
 
 
 
@@ -605,7 +606,7 @@ off_A266_0A:
 - D - I - 0x01227B 10:A26B: D0 B1     .word off_B1D0
 - D - I - 0x01227D 10:A26D: E7 B1     .word off_B1E7
 
-- - - - - 0x01227F 10:A26F: FF        .byte $FF
+- - - - - 0x01227F 10:A26F: FF        .byte con_выход
 
 
 
@@ -635,7 +636,7 @@ off_A270_0B:
 - D - I - 0x012292 10:A282: 10 B3     .word off_B310
 - D - I - 0x012294 10:A284: 8A AD     .word off_AD8A
 
-- - - - - 0x012296 10:A286: FF        .byte $FF
+- - - - - 0x012296 10:A286: FF        .byte con_выход
 
 
 
@@ -648,7 +649,7 @@ off_A287_0C:
 
 - D - I - 0x01229B 10:A28B: 88 52     .dbyt off_A852 - $2000
 
-- D - I - 0x01229D 10:A28D: FF        .byte $FF
+- D - I - 0x01229D 10:A28D: FF        .byte con_выход
 
 
 
@@ -661,7 +662,7 @@ off_A28E_0D:
 
 - D - I - 0x0122A2 10:A292: 87 CB     .dbyt off_A7CB - $2000
 
-- D - I - 0x0122A4 10:A294: FF        .byte $FF
+- D - I - 0x0122A4 10:A294: FF        .byte con_выход
 
 
 
@@ -674,7 +675,7 @@ off_A295_0E:
 
 - D - I - 0x0122A9 10:A299: 88 52     .dbyt off_A852 - $2000
 
-- D - I - 0x0122AB 10:A29B: FF        .byte $FF
+- D - I - 0x0122AB 10:A29B: FF        .byte con_выход
 
 
 
@@ -687,7 +688,7 @@ off_A29C_0F:
 
 - D - I - 0x0122B0 10:A2A0: 88 95     .dbyt off_A895 - $2000
 
-- D - I - 0x0122B2 10:A2A2: FF        .byte $FF
+- D - I - 0x0122B2 10:A2A2: FF        .byte con_выход
 
 
 
@@ -702,7 +703,7 @@ off_A2A3_10:
 - D - I - 0x0122B8 10:A2A8: 64 B3     .word off_B364
 - D - I - 0x0122BA 10:A2AA: D6 A8     .word off_A8D6
 
-- - - - - 0x0122BC 10:A2AC: FF        .byte $FF
+- - - - - 0x0122BC 10:A2AC: FF        .byte con_выход
 
 
 
@@ -719,7 +720,7 @@ off_A2AD_11:
 - D - I - 0x0122C3 10:A2B3: EA A8     .word off_A8EA
 - D - I - 0x0122C5 10:A2B5: 0D B4     .word off_B40D
 
-- - - - - 0x0122C7 10:A2B7: FF        .byte $FF
+- - - - - 0x0122C7 10:A2B7: FF        .byte con_выход
 
 
 
@@ -737,7 +738,7 @@ off_A2B8_12:
 
 - D - I - 0x0122D0 10:A2C0: 88 FE     .dbyt off_A8FE - $2000
 
-- D - I - 0x0122D2 10:A2C2: FF        .byte $FF
+- D - I - 0x0122D2 10:A2C2: FF        .byte con_выход
 
 
 
@@ -753,7 +754,7 @@ off_A2C3_13:
 
 - D - I - 0x0122DA 10:A2CA: 89 E3     .dbyt off_A9E3 - $2000
 
-- D - I - 0x0122DC 10:A2CC: FF        .byte $FF
+- D - I - 0x0122DC 10:A2CC: FF        .byte con_выход
 
 
 
@@ -773,7 +774,7 @@ off_A2CD_14:
 - D - I - 0x0122E7 10:A2D7: FF        .byte $FF
 - D - I - 0x0122E8 10:A2D8: 40        .byte $40
 
-- D - I - 0x0122E9 10:A2D9: FF        .byte $FF
+- D - I - 0x0122E9 10:A2D9: FF        .byte con_выход
 
 
 
@@ -786,7 +787,7 @@ off_A2DA_15:
 
 - D - I - 0x0122EE 10:A2DE: 91 D0     .dbyt off_B1D0 - $2000
 
-- D - I - 0x0122F0 10:A2E0: FF        .byte $FF
+- D - I - 0x0122F0 10:A2E0: FF        .byte con_выход
 
 
 
@@ -802,7 +803,7 @@ off_A2E1_16:
 
 - D - I - 0x0122F8 10:A2E8: 89 E3     .dbyt off_A9E3 - $2000
 
-- D - I - 0x0122FA 10:A2EA: FF        .byte $FF
+- D - I - 0x0122FA 10:A2EA: FF        .byte con_выход
 
 
 
@@ -815,7 +816,7 @@ off_A2EB_17:
 
 - D - I - 0x0122FF 10:A2EF: 88 52     .dbyt off_A852 - $2000
 
-- D - I - 0x012301 10:A2F1: FF        .byte $FF
+- D - I - 0x012301 10:A2F1: FF        .byte con_выход
 
 
 
@@ -835,7 +836,7 @@ off_A2F2_18:
 - D - I - 0x01230C 10:A2FC: FF        .byte $FF
 - D - I - 0x01230D 10:A2FD: 40        .byte $40
 
-- D - I - 0x01230E 10:A2FE: FF        .byte $FF
+- D - I - 0x01230E 10:A2FE: FF        .byte con_выход
 
 
 
@@ -852,7 +853,7 @@ off_A2FF_19:
 - D - I - 0x012315 10:A305: 4A AA     .word off_AA4A
 - D - I - 0x012317 10:A307: 5E AA     .word off_AA5E
 
-- - - - - 0x012319 10:A309: FF        .byte $FF
+- - - - - 0x012319 10:A309: FF        .byte con_выход
 
 
 
@@ -897,7 +898,7 @@ off_A31E_1B:
 - D - I - 0x012334 10:A324: 72 AA     .word off_AA72
 - D - I - 0x012336 10:A326: F0 B0     .word off_B0F0
 
-- - - - - 0x012338 10:A328: FF        .byte $FF
+- - - - - 0x012338 10:A328: FF        .byte con_выход
 
 
 
@@ -914,7 +915,7 @@ off_A329_1C:
 - D - I - 0x01233F 10:A32F: 86 AA     .word off_AA86
 - D - I - 0x012341 10:A331: 92 AA     .word off_AA92
 
-- - - - - 0x012343 10:A333: FF        .byte $FF
+- - - - - 0x012343 10:A333: FF        .byte con_выход
 
 
 
@@ -929,7 +930,7 @@ off_A334_1D:
 - D - I - 0x012349 10:A339: 86 AA     .word off_AA86
 - D - I - 0x01234B 10:A33B: 92 AA     .word off_AA92
 
-- - - - - 0x01234D 10:A33D: FF        .byte $FF
+- - - - - 0x01234D 10:A33D: FF        .byte con_выход
 
 
 
@@ -944,7 +945,7 @@ off_A33E_1E:
 
 - D - I - 0x012353 10:A343: 8A 72     .dbyt off_AA72 - $2000
 
-- D - I - 0x012355 10:A345: FF        .byte $FF
+- D - I - 0x012355 10:A345: FF        .byte con_выход
 
 
 
@@ -957,7 +958,7 @@ off_A346_1F:
 
 - D - I - 0x01235A 10:A34A: 8A 4A     .dbyt off_AA4A - $2000
 
-- D - I - 0x01235C 10:A34C: FF        .byte $FF
+- D - I - 0x01235C 10:A34C: FF        .byte con_выход
 
 
 
@@ -972,7 +973,7 @@ off_A34D_20:
 - D - I - 0x012362 10:A352: B2 AA     .word off_AAB2
 - D - I - 0x012364 10:A354: BE AA     .word off_AABE
 
-- - - - - 0x012366 10:A356: FF        .byte $FF
+- - - - - 0x012366 10:A356: FF        .byte con_выход
 
 
 
@@ -987,7 +988,7 @@ off_A357_21:
 - D - I - 0x01236C 10:A35C: CA AA     .word off_AACA
 - D - I - 0x01236E 10:A35E: A2 B4     .word off_B4A2
 
-- - - - - 0x012370 10:A360: FF        .byte $FF
+- - - - - 0x012370 10:A360: FF        .byte con_выход
 
 
 
@@ -1002,7 +1003,7 @@ off_A361_22:
 - D - I - 0x012376 10:A366: 84 AF     .word off_AF84
 - D - I - 0x012378 10:A368: D4 AA     .word off_AAD4
 
-- - - - - 0x01237A 10:A36A: FF        .byte $FF
+- - - - - 0x01237A 10:A36A: FF        .byte con_выход
 
 
 
@@ -1030,7 +1031,7 @@ off_A36B_23:
 - D - I - 0x01238B 10:A37B: FD AA     .word off_AAFD
 - D - I - 0x01238D 10:A37D: C9 B0     .word off_B0C9
 
-- - - - - 0x01238F 10:A37F: FF        .byte $FF
+- - - - - 0x01238F 10:A37F: FF        .byte con_выход
 
 
 
@@ -1055,7 +1056,7 @@ off_A380_24:
 - D - I - 0x01239D 10:A38D: 1C AB     .word off_AB1C
 - D - I - 0x01239F 10:A38F: AB AF     .word off_AFAB
 
-- - - - - 0x0123A1 10:A391: FF        .byte $FF
+- - - - - 0x0123A1 10:A391: FF        .byte con_выход
 
 
 
@@ -1094,7 +1095,7 @@ off_A3A2_26:
 - D - I - 0x0123B7 10:A3A7: 21 B4     .word off_B421
 - D - I - 0x0123B9 10:A3A9: 68 AB     .word off_AB68
 
-- - - - - 0x0123BB 10:A3AB: FF        .byte $FF
+- - - - - 0x0123BB 10:A3AB: FF        .byte con_выход
 
 
 
@@ -1109,7 +1110,7 @@ off_A3AC_27:
 - D - I - 0x0123C1 10:A3B1: 80 AB     .word off_AB80
 - D - I - 0x0123C3 10:A3B3: D2 AF     .word off_AFD2
 
-- - - - - 0x0123C5 10:A3B5: FF        .byte $FF
+- - - - - 0x0123C5 10:A3B5: FF        .byte con_выход
 
 
 
@@ -1122,7 +1123,7 @@ off_A3B6_28:
 
 - D - I - 0x0123CA 10:A3BA: 8B 96     .dbyt off_AB96 - $2000
 
-- D - I - 0x0123CC 10:A3BC: FF        .byte $FF
+- D - I - 0x0123CC 10:A3BC: FF        .byte con_выход
 
 
 
@@ -1135,7 +1136,7 @@ off_A3BD_29:
 
 - D - I - 0x0123D1 10:A3C1: 8B AE     .dbyt off_ABAE - $2000
 
-- D - I - 0x0123D3 10:A3C3: FF        .byte $FF
+- D - I - 0x0123D3 10:A3C3: FF        .byte con_выход
 
 
 
@@ -1150,7 +1151,7 @@ off_A3C4_2A:
 - D - I - 0x0123D9 10:A3C9: D9 B3     .word off_B3D9
 - D - I - 0x0123DB 10:A3CB: C6 AB     .word off_ABC6
 
-- - - - - 0x0123DD 10:A3CD: FF        .byte $FF
+- - - - - 0x0123DD 10:A3CD: FF        .byte con_выход
 
 
 
@@ -1165,7 +1166,7 @@ off_A3CE_2B:
 - D - I - 0x0123E3 10:A3D3: DE AB     .word off_ABDE
 - D - I - 0x0123E5 10:A3D5: 64 B2     .word off_B264
 
-- - - - - 0x0123E7 10:A3D7: FF        .byte $FF
+- - - - - 0x0123E7 10:A3D7: FF        .byte con_выход
 
 
 
@@ -1178,7 +1179,7 @@ off_A3D8_2C:
 
 - D - I - 0x0123EC 10:A3DC: 8B F4     .dbyt off_ABF4 - $2000
 
-- D - I - 0x0123EE 10:A3DE: FF        .byte $FF
+- D - I - 0x0123EE 10:A3DE: FF        .byte con_выход
 
 
 
@@ -1206,7 +1207,7 @@ off_A3DF_2D:
 - D - I - 0x0123FF 10:A3EF: 7A B2     .word off_B27A
 - D - I - 0x012401 10:A3F1: 0A AC     .word off_AC0A
 
-- - - - - 0x012403 10:A3F3: FF        .byte $FF
+- - - - - 0x012403 10:A3F3: FF        .byte con_выход
 
 
 
@@ -1219,7 +1220,7 @@ off_A3F4_2E:
 
 - D - I - 0x012408 10:A3F8: 8C 22     .dbyt off_AC22 - $2000
 
-- D - I - 0x01240A 10:A3FA: FF        .byte $FF
+- D - I - 0x01240A 10:A3FA: FF        .byte con_выход
 
 
 
@@ -1232,7 +1233,7 @@ off_A3FB_2F:
 
 - D - I - 0x01240F 10:A3FF: 8C 58     .dbyt off_AC58 - $2000
 
-- D - I - 0x012411 10:A401: FF        .byte $FF
+- D - I - 0x012411 10:A401: FF        .byte con_выход
 
 
 
@@ -1247,7 +1248,7 @@ off_A402_30:
 - - - - - 0x012417 10:A407: 8E AC     .word off_AC8E
 - - - - - 0x012419 10:A409: 19 B2     .word off_B219
 
-- - - - - 0x01241B 10:A40B: FF        .byte $FF
+- - - - - 0x01241B 10:A40B: FF        .byte con_выход
 
 
 
@@ -1265,7 +1266,7 @@ off_A40C_31:
 - D - I - 0x012424 10:A414: FF AF     .word off_AFFF
 - D - I - 0x012426 10:A416: 98 AC     .word off_AC98
 
-- - - - - 0x012428 10:A418: FF        .byte $FF
+- - - - - 0x012428 10:A418: FF        .byte con_выход
 
 
 
@@ -1280,7 +1281,7 @@ off_A419_32:
 - D - I - 0x01242E 10:A41E: A2 AC     .word off_ACA2
 - D - I - 0x012430 10:A420: 39 B4     .word off_B439
 
-- - - - - 0x012432 10:A422: FF        .byte $FF
+- - - - - 0x012432 10:A422: FF        .byte con_выход
 
 
 
@@ -1300,7 +1301,7 @@ off_A423_33:
 - D - I - 0x01243C 10:A42C: B4 B0     .word off_B0B4
 - D - I - 0x01243E 10:A42E: AC AC     .word off_ACAC
 
-- - - - - 0x012440 10:A430: FF        .byte $FF
+- - - - - 0x012440 10:A430: FF        .byte con_выход
 
 
 
@@ -1315,7 +1316,7 @@ off_A431_34:
 - D - I - 0x012446 10:A436: 24 AF     .word off_AF24
 - D - I - 0x012448 10:A438: B6 AC     .word off_ACB6
 
-- - - - - 0x01244A 10:A43A: FF        .byte $FF
+- - - - - 0x01244A 10:A43A: FF        .byte con_выход
 
 
 
@@ -1332,7 +1333,7 @@ off_A43B_35:
 - D - I - 0x012452 10:A442: 7F        .byte $7F
 - D - I - 0x012453 10:A443: 7F        .byte $7F
 
-- D - I - 0x012454 10:A444: FF        .byte $FF
+- D - I - 0x012454 10:A444: FF        .byte con_выход
 
 
 
@@ -1345,7 +1346,7 @@ off_A445_36:
 
 - D - I - 0x012459 10:A449: 8D BA     .dbyt off_ADBA - $2000
 
-- D - I - 0x01245B 10:A44B: FF        .byte $FF
+- D - I - 0x01245B 10:A44B: FF        .byte con_выход
 
 
 
@@ -1362,7 +1363,7 @@ off_A44C_37:
 - D - I - 0x012462 10:A452: F1 B3     .word off_B3F1
 - D - I - 0x012464 10:A454: EC AC     .word off_ACEC
 
-- - - - - 0x012466 10:A456: FF        .byte $FF
+- - - - - 0x012466 10:A456: FF        .byte con_выход
 
 
 
@@ -1377,7 +1378,7 @@ off_A457_38:
 - D - I - 0x01246C 10:A45C: 20 AD     .word off_AD20
 - D - I - 0x01246E 10:A45E: 06 AD     .word off_AD06
 
-- - - - - 0x012470 10:A460: FF        .byte $FF
+- - - - - 0x012470 10:A460: FF        .byte con_выход
 
 
 
@@ -1394,7 +1395,7 @@ off_A461_39:
 - D - I - 0x012477 10:A467: 24 AF     .word off_AF24
 - D - I - 0x012479 10:A469: B6 AC     .word off_ACB6
 
-- - - - - 0x01247B 10:A46B: FF        .byte $FF
+- - - - - 0x01247B 10:A46B: FF        .byte con_выход
 
 
 
@@ -1409,7 +1410,7 @@ off_A46C_3A:
 - D - I - 0x012481 10:A471: 36 AF     .word off_AF36
 - - - - - 0x012483 10:A473: 3C AD     .word off_AD3C
 
-- - - - - 0x012485 10:A475: FF        .byte $FF
+- - - - - 0x012485 10:A475: FF        .byte con_выход
 
 
 
@@ -1424,7 +1425,7 @@ off_A476_3B:
 - D - I - 0x01248B 10:A47B: 10 B3     .word off_B310
 - D - I - 0x01248D 10:A47D: 8A AD     .word off_AD8A
 
-- - - - - 0x01248F 10:A47F: FF        .byte $FF
+- - - - - 0x01248F 10:A47F: FF        .byte con_выход
 
 
 
@@ -1439,7 +1440,7 @@ off_A480_3C:
 - D - I - 0x012495 10:A485: A2 AD     .word off_ADA2
 - D - I - 0x012497 10:A487: CA A9     .word off_A9CA
 
-- - - - - 0x012499 10:A489: FF        .byte $FF
+- - - - - 0x012499 10:A489: FF        .byte con_выход
 
 
 
@@ -1454,7 +1455,7 @@ off_A48A_3D:
 - D - I - 0x01249F 10:A48F: BA AD     .word off_ADBA
 - D - I - 0x0124A1 10:A491: 40 B3     .word off_B340
 
-- - - - - 0x0124A3 10:A493: FF        .byte $FF
+- - - - - 0x0124A3 10:A493: FF        .byte con_выход
 
 
 
@@ -1467,7 +1468,7 @@ off_A494_3E:
 
 - D - I - 0x0124A8 10:A498: 8D F7     .dbyt off_ADF7 - $2000
 
-- D - I - 0x0124AA 10:A49A: FF        .byte $FF
+- D - I - 0x0124AA 10:A49A: FF        .byte con_выход
 
 
 
@@ -1482,7 +1483,7 @@ off_A49B_3F:
 - D - I - 0x0124B0 10:A4A0: 4A AA     .word off_AA4A
 - D - I - 0x0124B2 10:A4A2: 5E AA     .word off_AA5E
 
-- - - - - 0x0124B4 10:A4A4: FF        .byte $FF
+- - - - - 0x0124B4 10:A4A4: FF        .byte con_выход
 
 
 
@@ -1499,7 +1500,7 @@ off_A4A5_40:
 - D - I - 0x0124BB 10:A4AB: 16 B0     .word off_B016
 - D - I - 0x0124BD 10:A4AD: 4B AE     .word off_AE4B
 
-- - - - - 0x0124BF 10:A4AF: FF        .byte $FF
+- - - - - 0x0124BF 10:A4AF: FF        .byte con_выход
 
 
 
@@ -1514,7 +1515,7 @@ off_A4B0_41:
 - D - I - 0x0124C5 10:A4B5: 78 B3     .word off_B378
 - - - - - 0x0124C7 10:A4B7: 75 AE     .word off_AE75
 
-- - - - - 0x0124C9 10:A4B9: FF        .byte $FF
+- - - - - 0x0124C9 10:A4B9: FF        .byte con_выход
 
 
 
@@ -1529,7 +1530,7 @@ off_A4BA_42:
 - D - I - 0x0124CF 10:A4BF: 99 B3     .word off_B399
 - D - I - 0x0124D1 10:A4C1: 96 AE     .word off_AE96
 
-- - - - - 0x0124D3 10:A4C3: FF        .byte $FF
+- - - - - 0x0124D3 10:A4C3: FF        .byte con_выход
 
 
 
@@ -1546,7 +1547,7 @@ off_A4C4_43:
 
 - D - I - 0x0124DB 10:A4CB: 7F        .byte $7F
 
-- D - I - 0x0124DC 10:A4CC: FF        .byte $FF
+- D - I - 0x0124DC 10:A4CC: FF        .byte con_выход
 
 
 
@@ -1561,7 +1562,7 @@ off_A4CD_44:
 - D - I - 0x0124E2 10:A4D2: FD AA     .word off_AAFD
 - D - I - 0x0124E4 10:A4D4: C9 B0     .word off_B0C9
 
-- - - - - 0x0124E6 10:A4D6: FF        .byte $FF
+- - - - - 0x0124E6 10:A4D6: FF        .byte con_выход
 
 
 
@@ -1576,7 +1577,7 @@ off_A4D7_45:
 - D - I - 0x0124EC 10:A4DC: 2E B2     .word off_B22E
 - D - I - 0x0124EE 10:A4DE: DA B2     .word off_B2DA
 
-- - - - - 0x0124F0 10:A4E0: FF        .byte $FF
+- - - - - 0x0124F0 10:A4E0: FF        .byte con_выход
 
 
 
@@ -1591,7 +1592,7 @@ off_A4E1_46:
 - D - I - 0x0124F6 10:A4E6: 78 B3     .word off_B378
 - D - I - 0x0124F8 10:A4E8: 75 AE     .word off_AE75
 
-- - - - - 0x0124FA 10:A4EA: FF        .byte $FF
+- - - - - 0x0124FA 10:A4EA: FF        .byte con_выход
 
 
 
@@ -1606,7 +1607,7 @@ off_A4EB_47:
 - D - I - 0x012500 10:A4F0: 64 B3     .word off_B364
 - D - I - 0x012502 10:A4F2: D6 A8     .word off_A8D6
 
-- - - - - 0x012504 10:A4F4: FF        .byte $FF
+- - - - - 0x012504 10:A4F4: FF        .byte con_выход
 
 
 
@@ -1621,7 +1622,7 @@ off_A4F5_48:
 
 - D - I - 0x01250A 10:A4FA: 8D DE     .dbyt off_ADDE - $2000
 
-- D - I - 0x01250C 10:A4FC: FF        .byte $FF
+- D - I - 0x01250C 10:A4FC: FF        .byte con_выход
 
 
 
@@ -1634,7 +1635,7 @@ off_A4FD_49:
 
 - D - I - 0x012511 10:A501: 8C 8E     .dbyt off_AC8E - $2000
 
-- D - I - 0x012513 10:A503: FF        .byte $FF
+- D - I - 0x012513 10:A503: FF        .byte con_выход
 
 
 
@@ -1654,7 +1655,7 @@ off_A504_4A:
 - D - I - 0x01251E 10:A50E: 00        .byte $00
 - D - I - 0x01251F 10:A50F: 7F        .byte $7F
 
-- D - I - 0x012520 10:A510: FF        .byte $FF
+- D - I - 0x012520 10:A510: FF        .byte con_выход
 
 
 
@@ -1669,7 +1670,7 @@ off_A511_4B:
 - D - I - 0x012526 10:A516: EA A8     .word off_A8EA
 - D - I - 0x012528 10:A518: 0D B4     .word off_B40D
 
-- - - - - 0x01252A 10:A51A: FF        .byte $FF
+- - - - - 0x01252A 10:A51A: FF        .byte con_выход
 
 
 
@@ -1682,7 +1683,7 @@ off_A51B_4C:
 
 - D - I - 0x01252F 10:A51F: 8D DE     .dbyt off_ADDE - $2000
 
-- D - I - 0x012531 10:A521: FF        .byte $FF
+- D - I - 0x012531 10:A521: FF        .byte con_выход
 
 
 
@@ -1699,7 +1700,7 @@ off_A522_4D:
 - D - I - 0x012538 10:A528: 10 B3     .word off_B310
 - D - I - 0x01253A 10:A52A: 8A AD     .word off_AD8A
 
-- - - - - 0x01253C 10:A52C: FF        .byte $FF
+- - - - - 0x01253C 10:A52C: FF        .byte con_выход
 
 
 
@@ -1716,7 +1717,7 @@ off_A52D_4E:
 - D - I - 0x012543 10:A533: 64 B3     .word off_B364
 - D - I - 0x012545 10:A535: D6 A8     .word off_A8D6
 
-- - - - - 0x012547 10:A537: FF        .byte $FF
+- - - - - 0x012547 10:A537: FF        .byte con_выход
 
 
 
@@ -1736,7 +1737,7 @@ off_A538_4F:
 - D - I - 0x012551 10:A541: 21 B4     .word off_B421
 - D - I - 0x012553 10:A543: 68 AB     .word off_AB68
 
-- - - - - 0x012555 10:A545: FF        .byte $FF
+- - - - - 0x012555 10:A545: FF        .byte con_выход
 
 
 
@@ -1751,7 +1752,7 @@ off_A546_50:
 
 - D - I - 0x01255B 10:A54B: 93 10     .dbyt off_B310 - $2000
 
-- D - I - 0x01255D 10:A54D: FF        .byte $FF
+- D - I - 0x01255D 10:A54D: FF        .byte con_выход
 
 
 
@@ -1764,7 +1765,7 @@ off_A54E_51:
 
 - D - I - 0x012562 10:A552: 93 64     .dbyt off_B364 - $2000
 
-- D - I - 0x012564 10:A554: FF        .byte $FF
+- D - I - 0x012564 10:A554: FF        .byte con_выход
 
 
 
@@ -1777,7 +1778,7 @@ off_A555_52:
 
 - D - I - 0x012569 10:A559: 88 EA     .dbyt off_A8EA - $2000
 
-- D - I - 0x01256B 10:A55B: FF        .byte $FF
+- D - I - 0x01256B 10:A55B: FF        .byte con_выход
 
 
 
@@ -1812,7 +1813,7 @@ off_A55C_53:
 
 - D - I - 0x012581 10:A571: F0        .byte con_повторить
 
-- D - I - 0x012582 10:A572: FF        .byte $FF
+- D - I - 0x012582 10:A572: FF        .byte con_выход
 
 
 
@@ -1846,7 +1847,7 @@ off_A573_54:
 
 - D - I - 0x012599 10:A589: 88 EA     .dbyt off_A8EA - $2000
 
-- D - I - 0x01259B 10:A58B: FF        .byte $FF
+- D - I - 0x01259B 10:A58B: FF        .byte con_выход
 
 
 
@@ -1859,7 +1860,7 @@ off_A58C_55:
 
 - D - I - 0x0125A0 10:A590: 89 16     .dbyt off_A916 - $2000
 
-- D - I - 0x0125A2 10:A592: FF        .byte $FF
+- D - I - 0x0125A2 10:A592: FF        .byte con_выход
 
 
 
@@ -1874,7 +1875,7 @@ off_A593_56:
 
 - D - I - 0x0125A8 10:A598: 8B 96     .dbyt off_AB96 - $2000
 
-- D - I - 0x0125AA 10:A59A: FF        .byte $FF
+- D - I - 0x0125AA 10:A59A: FF        .byte con_выход
 
 
 
@@ -1891,7 +1892,7 @@ off_A59B_57:
 - D - I - 0x0125B1 10:A5A1: EA A8     .word off_A8EA
 - D - I - 0x0125B3 10:A5A3: 0D B4     .word off_B40D
 
-- - - - - 0x0125B5 10:A5A5: FF        .byte $FF
+- - - - - 0x0125B5 10:A5A5: FF        .byte con_выход
 
 
 
@@ -1906,7 +1907,7 @@ off_A5A6_58:
 
 - D - I - 0x0125BB 10:A5AB: 88 EA     .dbyt off_A8EA - $2000
 
-- D - I - 0x0125BD 10:A5AD: FF        .byte $FF
+- D - I - 0x0125BD 10:A5AD: FF        .byte con_выход
 
 
 
@@ -1936,7 +1937,7 @@ off_A5AE_59:
 - D - I - 0x0125D0 10:A5C0: 10 B3     .word off_B310
 - D - I - 0x0125D2 10:A5C2: 8A AD     .word off_AD8A
 
-- - - - - 0x0125D4 10:A5C4: FF        .byte $FF
+- - - - - 0x0125D4 10:A5C4: FF        .byte con_выход
 
 
 
@@ -1951,7 +1952,7 @@ off_A5C5_5A:
 
 - D - I - 0x0125DA 10:A5CA: 91 D0     .dbyt off_B1D0 - $2000
 
-- D - I - 0x0125DC 10:A5CC: FF        .byte $FF
+- D - I - 0x0125DC 10:A5CC: FF        .byte con_выход
 
 
 
@@ -1970,7 +1971,7 @@ off_A5CD_5B:
 - D - I - 0x0125E5 10:A5D5: 8C DA     .dbyt off_ACDA - $2000
 - D - I - 0x0125E7 10:A5D7: 05        .byte $05
 
-- D - I - 0x0125E8 10:A5D8: FF        .byte $FF
+- D - I - 0x0125E8 10:A5D8: FF        .byte con_выход
 
 
 
@@ -1983,7 +1984,7 @@ off_A5D9_5C:
 
 - D - I - 0x0125ED 10:A5DD: 92 92     .dbyt off_B292 - $2000
 
-- D - I - 0x0125EF 10:A5DF: FF        .byte $FF
+- D - I - 0x0125EF 10:A5DF: FF        .byte con_выход
 
 
 
@@ -1998,7 +1999,7 @@ off_A5E0_5D:
 
 - D - I - 0x0125F5 10:A5E5: 92 A8     .dbyt off_B2A8 - $2000
 
-- D - I - 0x0125F7 10:A5E7: FF        .byte $FF
+- D - I - 0x0125F7 10:A5E7: FF        .byte con_выход
 
 
 
@@ -2015,7 +2016,7 @@ off_A5E8_5E:
 - D - I - 0x0125FE 10:A5EE: 2E B2     .word off_B22E
 - D - I - 0x012600 10:A5F0: DA B2     .word off_B2DA
 
-- - - - - 0x012602 10:A5F2: FF        .byte $FF
+- - - - - 0x012602 10:A5F2: FF        .byte con_выход
 
 
 
@@ -2032,7 +2033,7 @@ off_A5F3_5F:
 - D - I - 0x012609 10:A5F9: C0 B2     .word off_B2C0
 - D - I - 0x01260B 10:A5FB: CD B2     .word off_B2CD
 
-- - - - - 0x01260D 10:A5FD: FF        .byte $FF
+- - - - - 0x01260D 10:A5FD: FF        .byte con_выход
 
 
 
@@ -2049,7 +2050,7 @@ off_A5FE_60:
 - D - I - 0x012614 10:A604: 2E B2     .word off_B22E
 - D - I - 0x012616 10:A606: DA B2     .word off_B2DA
 
-- - - - - 0x012618 10:A608: FF        .byte $FF
+- - - - - 0x012618 10:A608: FF        .byte con_выход
 
 
 
@@ -2064,7 +2065,7 @@ off_A609_61:
 - D - I - 0x01261E 10:A60E: D0 B1     .word off_B1D0
 - D - I - 0x012620 10:A610: E7 B1     .word off_B1E7
 
-- - - - - 0x012622 10:A612: FF        .byte $FF
+- - - - - 0x012622 10:A612: FF        .byte con_выход
 
 
 
@@ -2079,7 +2080,7 @@ off_A613_62:
 
 - D - I - 0x012628 10:A618: 8D BA     .dbyt off_ADBA - $2000
 
-- D - I - 0x01262A 10:A61A: FF        .byte $FF
+- D - I - 0x01262A 10:A61A: FF        .byte con_выход
 
 
 
@@ -2094,7 +2095,7 @@ off_A61B_63:
 - D - I - 0x012630 10:A620: E8 AF     .word off_AFE8
 - D - I - 0x012632 10:A622: 00 B2     .word off_B200
 
-- - - - - 0x012634 10:A624: FF        .byte $FF
+- - - - - 0x012634 10:A624: FF        .byte con_выход
 
 
 
@@ -2111,7 +2112,7 @@ off_A625_64:
 
 - D - I - 0x01263C 10:A62C: 78        .byte $78
 
-- D - I - 0x01263D 10:A62D: FF        .byte $FF
+- D - I - 0x01263D 10:A62D: FF        .byte con_выход
 
 
 
@@ -2124,7 +2125,7 @@ off_A62E_65:
 
 - D - I - 0x012642 10:A632: 89 16     .dbyt off_A916 - $2000
 
-- D - I - 0x012644 10:A634: FF        .byte $FF
+- D - I - 0x012644 10:A634: FF        .byte con_выход
 
 
 
@@ -2141,7 +2142,7 @@ off_A635_66:
 - D - I - 0x01264B 10:A63B: 64 B3     .word off_B364
 - D - I - 0x01264D 10:A63D: D6 A8     .word off_A8D6
 
-- - - - - 0x01264F 10:A63F: FF        .byte $FF
+- - - - - 0x01264F 10:A63F: FF        .byte con_выход
 
 
 
@@ -2156,7 +2157,7 @@ off_A640_67:
 
 - D - I - 0x012655 10:A645: 93 64     .dbyt off_B364 - $2000
 
-- D - I - 0x012657 10:A647: FF        .byte $FF
+- D - I - 0x012657 10:A647: FF        .byte con_выход
 
 
 
@@ -2173,7 +2174,7 @@ off_A648_68:
 - D - I - 0x01265E 10:A64E: FD AA     .word off_AAFD
 - D - I - 0x012660 10:A650: C9 B0     .word off_B0C9
 
-- - - - - 0x012662 10:A652: FF        .byte $FF
+- - - - - 0x012662 10:A652: FF        .byte con_выход
 
 
 
@@ -2189,7 +2190,7 @@ off_A653_69:
 
 - D - I - 0x01266A 10:A65A: 89 16     .dbyt off_A916 - $2000
 
-- D - I - 0x01266C 10:A65C: FF        .byte $FF
+- D - I - 0x01266C 10:A65C: FF        .byte con_выход
 
 
 
@@ -2204,7 +2205,7 @@ off_A65D_6A:
 
 - D - I - 0x012672 10:A662: 88 EA     .dbyt off_A8EA - $2000
 
-- D - I - 0x012674 10:A664: FF        .byte $FF
+- D - I - 0x012674 10:A664: FF        .byte con_выход
 
 
 
@@ -2229,7 +2230,7 @@ off_A665_6B:
 
 - D - I - 0x012682 10:A672: F0        .byte con_повторить
 
-- D - I - 0x012683 10:A673: FF        .byte $FF
+- D - I - 0x012683 10:A673: FF        .byte con_выход
 
 
 
@@ -2248,7 +2249,7 @@ off_A674_6C:
 
 - D - I - 0x01268E 10:A67E: 90 96     .dbyt off_B096 - $2000
 
-- D - I - 0x012690 10:A680: FF        .byte $FF
+- D - I - 0x012690 10:A680: FF        .byte con_выход
 
 
 
