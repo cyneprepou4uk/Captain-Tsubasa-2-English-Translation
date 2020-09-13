@@ -8,7 +8,7 @@ con_повторить           = $F0
 con_координаты_Y_X      = $F1
 con_F5                  = $F5
 con_F6                  = $F6
-con_F7                  = $F7
+con_физика              = $F7   ; 1й байт = скорость + угол + направление (00/80), 2й = разгон X, 3й = разгон Y
 con_F9                  = $F9
 con_развилка            = $FA
 con_выход               = $FF
@@ -139,7 +139,7 @@ off_A0C6_6E:
 - D - I - 0x0140D8 11:A0C8: 1E        .byte $1E
 - D - I - 0x0140D9 11:A0C9: F6        .byte $F6
 
-- D - I - 0x0140DA 11:A0CA: F7        .byte con_F7
+- D - I - 0x0140DA 11:A0CA: F7        .byte con_физика
 - D - I - 0x0140DB 11:A0CB: 05        .byte $05
 - D - I - 0x0140DC 11:A0CC: 00        .byte $00
 - D - I - 0x0140DD 11:A0CD: 00        .byte $00
@@ -167,7 +167,7 @@ off_A0C6_6E:
 
 - D - I - 0x0140EE 11:A0DE: 88 37     .dbyt off_A837 - $2000
 
-- D - I - 0x0140F0 11:A0E0: F7        .byte con_F7
+- D - I - 0x0140F0 11:A0E0: F7        .byte con_физика
 - D - I - 0x0140F1 11:A0E1: 00        .byte $00
 - D - I - 0x0140F2 11:A0E2: 00        .byte $00
 - D - I - 0x0140F3 11:A0E3: 02        .byte $02
@@ -194,7 +194,7 @@ off_A0F0_6F:
 - D - I - 0x014102 11:A0F2: 1E        .byte $1E
 - D - I - 0x014103 11:A0F3: F6        .byte $F6
 
-- D - I - 0x014104 11:A0F4: F7        .byte con_F7
+- D - I - 0x014104 11:A0F4: F7        .byte con_физика
 - D - I - 0x014105 11:A0F5: 05        .byte $05
 - D - I - 0x014106 11:A0F6: 00        .byte $00
 - D - I - 0x014107 11:A0F7: 00        .byte $00
@@ -222,7 +222,7 @@ off_A0F0_6F:
 
 - D - I - 0x014118 11:A108: 88 52     .dbyt off_A852 - $2000
 
-- D - I - 0x01411A 11:A10A: F7        .byte con_F7
+- D - I - 0x01411A 11:A10A: F7        .byte con_физика
 - D - I - 0x01411B 11:A10B: 00        .byte $00
 - D - I - 0x01411C 11:A10C: 00        .byte $00
 - D - I - 0x01411D 11:A10D: 02        .byte $02
@@ -251,7 +251,7 @@ off_A11A_70:
 
 - D - I - 0x01412E 11:A11E: 89 59     .dbyt off_A959 - $2000
 
-- D - I - 0x014130 11:A120: F7        .byte con_F7
+- D - I - 0x014130 11:A120: F7        .byte con_физика
 - D - I - 0x014131 11:A121: 20        .byte $20
 - D - I - 0x014132 11:A122: FF        .byte $FF
 - D - I - 0x014133 11:A123: 00        .byte $00
@@ -271,7 +271,7 @@ off_A126_71:
 
 - D - I - 0x01413A 11:A12A: 89 73     .dbyt off_A973 - $2000
 
-- D - I - 0x01413C 11:A12C: F7        .byte con_F7
+- D - I - 0x01413C 11:A12C: F7        .byte con_физика
 - D - I - 0x01413D 11:A12D: 20        .byte $20
 - D - I - 0x01413E 11:A12E: FF        .byte $FF
 - D - I - 0x01413F 11:A12F: 00        .byte $00
@@ -280,7 +280,7 @@ off_A126_71:
 
 - D - I - 0x014141 11:A131: EA        .byte con_повторы + $0A
 
-- D - I - 0x014142 11:A132: F7        .byte con_F7
+- D - I - 0x014142 11:A132: F7        .byte con_физика
 - D - I - 0x014143 11:A133: 2E        .byte $2E
 - D - I - 0x014144 11:A134: 00        .byte $00
 - D - I - 0x014145 11:A135: 00        .byte $00
@@ -288,7 +288,7 @@ off_A126_71:
 - D - I - 0x014146 11:A136: 89 73     .dbyt off_A973 - $2000
 - D - I - 0x014148 11:A138: 01        .byte $01
 
-- D - I - 0x014149 11:A139: F7        .byte con_F7
+- D - I - 0x014149 11:A139: F7        .byte con_физика
 - D - I - 0x01414A 11:A13A: E2        .byte $E2
 - D - I - 0x01414B 11:A13B: 00        .byte $00
 - D - I - 0x01414C 11:A13C: 00        .byte $00
@@ -298,7 +298,7 @@ off_A126_71:
 
 - D - I - 0x014150 11:A140: F0        .byte con_повторить
 
-- D - I - 0x014151 11:A141: F7        .byte con_F7
+- D - I - 0x014151 11:A141: F7        .byte con_физика
 - D - I - 0x014152 11:A142: 79        .byte $79
 - D - I - 0x014153 11:A143: 00        .byte $00
 - D - I - 0x014154 11:A144: 00        .byte $00
@@ -324,7 +324,7 @@ off_A14C_72:
 
 - D - I - 0x014160 11:A150: 90 6B     .dbyt off_B06B - $2000
 
-- D - I - 0x014162 11:A152: F7        .byte con_F7
+- D - I - 0x014162 11:A152: F7        .byte con_физика
 - D - I - 0x014163 11:A153: 2E        .byte $2E
 - D - I - 0x014164 11:A154: 00        .byte $00
 - D - I - 0x014165 11:A155: 00        .byte $00
@@ -537,7 +537,7 @@ off_A1CA_7D:
 
 - D - I - 0x0141DE 11:A1CE: EC        .byte con_повторы + $0C
 
-- D - I - 0x0141DF 11:A1CF: F7        .byte con_F7
+- D - I - 0x0141DF 11:A1CF: F7        .byte con_физика
 - D - I - 0x0141E0 11:A1D0: 2F        .byte $2F
 - D - I - 0x0141E1 11:A1D1: 00        .byte $00
 - D - I - 0x0141E2 11:A1D2: 00        .byte $00
@@ -545,7 +545,7 @@ off_A1CA_7D:
 - D - I - 0x0141E3 11:A1D3: 8D 72     .dbyt off_AD72 - $2000
 - D - I - 0x0141E5 11:A1D5: 01        .byte $01
 
-- D - I - 0x0141E6 11:A1D6: F7        .byte con_F7
+- D - I - 0x0141E6 11:A1D6: F7        .byte con_физика
 - D - I - 0x0141E7 11:A1D7: 00        .byte $00
 - D - I - 0x0141E8 11:A1D8: 00        .byte $00
 - D - I - 0x0141E9 11:A1D9: 00        .byte $00
@@ -557,7 +557,7 @@ off_A1CA_7D:
 
 - D - I - 0x0141EE 11:A1DE: E6        .byte con_повторы + $06
 
-- D - I - 0x0141EF 11:A1DF: F7        .byte con_F7
+- D - I - 0x0141EF 11:A1DF: F7        .byte con_физика
 - D - I - 0x0141F0 11:A1E0: 00        .byte $00
 - D - I - 0x0141F1 11:A1E1: 01        .byte $01
 - D - I - 0x0141F2 11:A1E2: FF        .byte $FF
@@ -577,7 +577,7 @@ off_A1CA_7D:
 - D - I - 0x0141FF 11:A1EF: F0        .byte con_повторить
 
 @бесконечный_цикл:
-- D - I - 0x014200 11:A1F0: F7        .byte con_F7
+- D - I - 0x014200 11:A1F0: F7        .byte con_физика
 - D - I - 0x014201 11:A1F1: 00        .byte $00
 - D - I - 0x014202 11:A1F2: 01        .byte $01
 - D - I - 0x014203 11:A1F3: FF        .byte $FF
@@ -601,14 +601,14 @@ off_A1FC_7E:
 
 - D - I - 0x014210 11:A200: 8D 7C     .dbyt off_AD7C - $2000
 
-- D - I - 0x014212 11:A202: F7        .byte con_F7
+- D - I - 0x014212 11:A202: F7        .byte con_физика
 - D - I - 0x014213 11:A203: 4E        .byte $4E
 - D - I - 0x014214 11:A204: 00        .byte $00
 - D - I - 0x014215 11:A205: 00        .byte $00
 
 - D - I - 0x014216 11:A206: 12        .byte $12
 
-- D - I - 0x014217 11:A207: F7        .byte con_F7
+- D - I - 0x014217 11:A207: F7        .byte con_физика
 - D - I - 0x014218 11:A208: 00        .byte $00
 - D - I - 0x014219 11:A209: 00        .byte $00
 - D - I - 0x01421A 11:A20A: 00        .byte $00
@@ -646,7 +646,7 @@ off_A21C_7F:
 
 - D - I - 0x014231 11:A221: 8D 86     .dbyt off_AD86 - $2000
 
-- D - I - 0x014233 11:A223: F7        .byte con_F7
+- D - I - 0x014233 11:A223: F7        .byte con_физика
 - D - I - 0x014234 11:A224: 2E        .byte $2E
 - D - I - 0x014235 11:A225: 00        .byte $00
 - D - I - 0x014236 11:A226: 00        .byte $00
@@ -655,7 +655,7 @@ off_A21C_7F:
 
 - D - I - 0x014238 11:A228: F0        .byte con_повторить
 
-- D - I - 0x014239 11:A229: F7        .byte con_F7
+- D - I - 0x014239 11:A229: F7        .byte con_физика
 - D - I - 0x01423A 11:A22A: 00        .byte $00
 - D - I - 0x01423B 11:A22B: 00        .byte $00
 - D - I - 0x01423C 11:A22C: 00        .byte $00
@@ -689,7 +689,7 @@ off_A23E_80:
 - D - I - 0x014250 11:A240: 06        .byte $06
 - D - I - 0x014251 11:A241: 3A        .byte $3A
 
-- D - I - 0x014252 11:A242: F7        .byte con_F7
+- D - I - 0x014252 11:A242: F7        .byte con_физика
 - D - I - 0x014253 11:A243: 21        .byte $21
 - D - I - 0x014254 11:A244: 00        .byte $00
 - D - I - 0x014255 11:A245: 00        .byte $00
@@ -710,7 +710,7 @@ off_A24A_81:
 
 - D - I - 0x01425E 11:A24E: EF        .byte con_повторы + $0F
 
-- D - I - 0x01425F 11:A24F: F7        .byte con_F7
+- D - I - 0x01425F 11:A24F: F7        .byte con_физика
 - D - I - 0x014260 11:A250: 0F        .byte $0F
 - D - I - 0x014261 11:A251: 00        .byte $00
 - D - I - 0x014262 11:A252: 00        .byte $00
@@ -718,7 +718,7 @@ off_A24A_81:
 - D - I - 0x014263 11:A253: 96 D1     .dbyt off_B6D1 - $2000
 - D - I - 0x014265 11:A255: 01        .byte $01
 
-- D - I - 0x014266 11:A256: F7        .byte con_F7
+- D - I - 0x014266 11:A256: F7        .byte con_физика
 - D - I - 0x014267 11:A257: 00        .byte $00
 - D - I - 0x014268 11:A258: 00        .byte $00
 - D - I - 0x014269 11:A259: 00        .byte $00
@@ -743,7 +743,7 @@ off_A25F_82:
 
 - D - I - 0x014274 11:A264: 8D F0     .dbyt off_ADF0 - $2000
 
-- D - I - 0x014276 11:A266: F7        .byte con_F7
+- D - I - 0x014276 11:A266: F7        .byte con_физика
 - D - I - 0x014277 11:A267: 26        .byte $26
 - D - I - 0x014278 11:A268: 00        .byte $00
 - D - I - 0x014279 11:A269: 00        .byte $00
@@ -752,7 +752,7 @@ off_A25F_82:
 
 - D - I - 0x01427B 11:A26B: F0        .byte con_повторить
 
-- D - I - 0x01427C 11:A26C: F7        .byte con_F7
+- D - I - 0x01427C 11:A26C: F7        .byte con_физика
 - D - I - 0x01427D 11:A26D: 00        .byte $00
 - D - I - 0x01427E 11:A26E: 00        .byte $00
 - D - I - 0x01427F 11:A26F: 00        .byte $00
@@ -761,7 +761,7 @@ off_A25F_82:
 
 - D - I - 0x014281 11:A271: 8E 12     .dbyt off_AE12 - $2000
 
-- D - I - 0x014283 11:A273: F7        .byte con_F7
+- D - I - 0x014283 11:A273: F7        .byte con_физика
 - D - I - 0x014284 11:A274: E0        .byte $E0
 - D - I - 0x014285 11:A275: 00        .byte $00
 - D - I - 0x014286 11:A276: 00        .byte $00
@@ -770,7 +770,7 @@ off_A25F_82:
 
 - D - I - 0x014288 11:A278: 8E 29     .dbyt off_AE29 - $2000
 
-- D - I - 0x01428A 11:A27A: F7        .byte con_F7
+- D - I - 0x01428A 11:A27A: F7        .byte con_физика
 - D - I - 0x01428B 11:A27B: 20        .byte $20
 - D - I - 0x01428C 11:A27C: 00        .byte $00
 - D - I - 0x01428D 11:A27D: 00        .byte $00
@@ -779,7 +779,7 @@ off_A25F_82:
 
 - D - I - 0x01428F 11:A27F: 8E 38     .dbyt off_AE38 - $2000
 
-- D - I - 0x014291 11:A281: F7        .byte con_F7
+- D - I - 0x014291 11:A281: F7        .byte con_физика
 - D - I - 0x014292 11:A282: E0        .byte $E0
 - D - I - 0x014293 11:A283: 00        .byte $00
 - D - I - 0x014294 11:A284: 00        .byte $00
@@ -788,7 +788,7 @@ off_A25F_82:
 
 - D - I - 0x014296 11:A286: 8E 4C     .dbyt off_AE4C - $2000
 
-- D - I - 0x014298 11:A288: F7        .byte con_F7
+- D - I - 0x014298 11:A288: F7        .byte con_физика
 - D - I - 0x014299 11:A289: 20        .byte $20
 - D - I - 0x01429A 11:A28A: 00        .byte $00
 - D - I - 0x01429B 11:A28B: 00        .byte $00
@@ -798,7 +798,7 @@ off_A25F_82:
 - D - I - 0x01429D 11:A28D: F0        .byte con_повторить
 
 @бесконечный_цикл:
-- D - I - 0x01429E 11:A28E: F7        .byte con_F7
+- D - I - 0x01429E 11:A28E: F7        .byte con_физика
 - D - I - 0x01429F 11:A28F: F0        .byte $F0
 - D - I - 0x0142A0 11:A290: 00        .byte $00
 - D - I - 0x0142A1 11:A291: 00        .byte $00
@@ -806,7 +806,7 @@ off_A25F_82:
 - D - I - 0x0142A2 11:A292: 8E 08     .dbyt off_AE08 - $2000
 - D - I - 0x0142A4 11:A294: 01        .byte $01
 
-- D - I - 0x0142A5 11:A295: F7        .byte con_F7
+- D - I - 0x0142A5 11:A295: F7        .byte con_физика
 - D - I - 0x0142A6 11:A296: 10        .byte $10
 - D - I - 0x0142A7 11:A297: 00        .byte $00
 - D - I - 0x0142A8 11:A298: 00        .byte $00
@@ -1114,7 +1114,7 @@ off_A36F_89:
 - D - I - 0x014381 11:A371: EE        .byte $EE
 - D - I - 0x014382 11:A372: 3C        .byte $3C
 
-- D - I - 0x014383 11:A373: F7        .byte con_F7
+- D - I - 0x014383 11:A373: F7        .byte con_физика
 - D - I - 0x014384 11:A374: 20        .byte $20
 - D - I - 0x014385 11:A375: FE        .byte $FE
 - D - I - 0x014386 11:A376: 00        .byte $00
@@ -1133,7 +1133,7 @@ off_A36F_89:
 
 - D - I - 0x014390 11:A380: F0        .byte con_повторить
 
-- D - I - 0x014391 11:A381: F7        .byte con_F7
+- D - I - 0x014391 11:A381: F7        .byte con_физика
 - D - I - 0x014392 11:A382: 00        .byte $00
 - D - I - 0x014393 11:A383: 00        .byte $00
 - D - I - 0x014394 11:A384: 00        .byte $00
@@ -1152,7 +1152,7 @@ off_A36F_89:
 
 - D - I - 0x01439E 11:A38E: F0        .byte con_повторить
 
-- D - I - 0x01439F 11:A38F: F7        .byte con_F7
+- D - I - 0x01439F 11:A38F: F7        .byte con_физика
 - D - I - 0x0143A0 11:A390: F0        .byte $F0
 - D - I - 0x0143A1 11:A391: 00        .byte $00
 - D - I - 0x0143A2 11:A392: 00        .byte $00
@@ -1171,7 +1171,7 @@ off_A36F_89:
 - D - I - 0x0143AC 11:A39C: B0        .byte $B0
 - D - I - 0x0143AD 11:A39D: 30        .byte $30
 
-- D - I - 0x0143AE 11:A39E: F7        .byte con_F7
+- D - I - 0x0143AE 11:A39E: F7        .byte con_физика
 - D - I - 0x0143AF 11:A39F: 20        .byte $20
 - D - I - 0x0143B0 11:A3A0: FF        .byte $FF
 - D - I - 0x0143B1 11:A3A1: 00        .byte $00
@@ -1191,7 +1191,7 @@ off_A36F_89:
 - D - I - 0x0143BB 11:A3AB: F0        .byte con_повторить
 
 @бесконечный_цикл:
-- D - I - 0x0143BC 11:A3AC: F7        .byte con_F7
+- D - I - 0x0143BC 11:A3AC: F7        .byte con_физика
 - D - I - 0x0143BD 11:A3AD: 00        .byte $00
 - D - I - 0x0143BE 11:A3AE: 00        .byte $00
 - D - I - 0x0143BF 11:A3AF: 00        .byte $00
@@ -1216,7 +1216,7 @@ off_A3B8_8A:
 - D - I - 0x0143CC 11:A3BC: 90 B9     .dbyt off_B0B9 - $2000
 - D - I - 0x0143CE 11:A3BE: 0F        .byte $0F
 
-- D - I - 0x0143CF 11:A3BF: F7        .byte con_F7
+- D - I - 0x0143CF 11:A3BF: F7        .byte con_физика
 - D - I - 0x0143D0 11:A3C0: 00        .byte $00
 - D - I - 0x0143D1 11:A3C1: 04        .byte $04
 - D - I - 0x0143D2 11:A3C2: FE        .byte $FE
@@ -1329,14 +1329,14 @@ off_A3F6_92:
 
 - D - I - 0x01440B 11:A3FB: 97 B3     .dbyt off_B7B3 - $2000
 
-- D - I - 0x01440D 11:A3FD: F7        .byte con_F7
+- D - I - 0x01440D 11:A3FD: F7        .byte con_физика
 - D - I - 0x01440E 11:A3FE: 19        .byte $19
 - D - I - 0x01440F 11:A3FF: 00        .byte $00
 - D - I - 0x014410 11:A400: F9        .byte $F9
 
 - D - I - 0x014411 11:A401: 0B        .byte $0B
 
-- D - I - 0x014412 11:A402: F7        .byte con_F7
+- D - I - 0x014412 11:A402: F7        .byte con_физика
 - D - I - 0x014413 11:A403: 00        .byte $00
 - D - I - 0x014414 11:A404: 00        .byte $00
 - D - I - 0x014415 11:A405: 00        .byte $00
@@ -1360,7 +1360,7 @@ off_A40C_93:
 
 - D - I - 0x014420 11:A410: 89 73     .dbyt off_A973 - $2000
 
-- D - I - 0x014422 11:A412: F7        .byte con_F7
+- D - I - 0x014422 11:A412: F7        .byte con_физика
 - D - I - 0x014423 11:A413: 20        .byte $20
 - D - I - 0x014424 11:A414: FF        .byte $FF
 - D - I - 0x014425 11:A415: 00        .byte $00
@@ -1371,7 +1371,7 @@ off_A40C_93:
 
 - D - I - 0x014428 11:A418: ED        .byte con_повторы + $0D
 
-- D - I - 0x014429 11:A419: F7        .byte con_F7
+- D - I - 0x014429 11:A419: F7        .byte con_физика
 - D - I - 0x01442A 11:A41A: 1F        .byte $1F
 - D - I - 0x01442B 11:A41B: 00        .byte $00
 - D - I - 0x01442C 11:A41C: 00        .byte $00
@@ -1379,7 +1379,7 @@ off_A40C_93:
 - D - I - 0x01442D 11:A41D: 89 73     .dbyt off_A973 - $2000
 - D - I - 0x01442F 11:A41F: 01        .byte $01
 
-- D - I - 0x014430 11:A420: F7        .byte con_F7
+- D - I - 0x014430 11:A420: F7        .byte con_физика
 - D - I - 0x014431 11:A421: F1        .byte $F1
 - D - I - 0x014432 11:A422: 00        .byte $00
 - D - I - 0x014433 11:A423: 00        .byte $00
@@ -1391,7 +1391,7 @@ off_A40C_93:
 
 - D - I - 0x014438 11:A428: F0        .byte con_повторить
 
-- D - I - 0x014439 11:A429: F7        .byte con_F7
+- D - I - 0x014439 11:A429: F7        .byte con_физика
 - D - I - 0x01443A 11:A42A: 79        .byte $79
 - D - I - 0x01443B 11:A42B: 00        .byte $00
 - D - I - 0x01443C 11:A42C: 00        .byte $00
@@ -1417,7 +1417,7 @@ off_A434_94:
 
 - D - I - 0x014448 11:A438: 8D D6     .dbyt off_ADD6 - $2000
 
-- D - I - 0x01444A 11:A43A: F7        .byte con_F7
+- D - I - 0x01444A 11:A43A: F7        .byte con_физика
 - D - I - 0x01444B 11:A43B: 29        .byte $29
 - D - I - 0x01444C 11:A43C: 00        .byte $00
 - D - I - 0x01444D 11:A43D: 00        .byte $00
@@ -1430,7 +1430,7 @@ off_A434_94:
 
 - D - I - 0x014452 11:A442: 8D D6     .dbyt off_ADD6 - $2000
 
-- D - I - 0x014454 11:A444: F7        .byte con_F7
+- D - I - 0x014454 11:A444: F7        .byte con_физика
 - D - I - 0x014455 11:A445: 00        .byte $00
 - D - I - 0x014456 11:A446: 00        .byte $00
 - D - I - 0x014457 11:A447: 00        .byte $00
@@ -1449,7 +1449,7 @@ off_A449_95:
 - D - I - 0x01445D 11:A44D: 94 3D     .dbyt off_B43D - $2000
 - D - I - 0x01445F 11:A44F: 0A        .byte $0A
 
-- D - I - 0x014460 11:A450: F7        .byte con_F7
+- D - I - 0x014460 11:A450: F7        .byte con_физика
 - D - I - 0x014461 11:A451: 07        .byte $07
 - D - I - 0x014462 11:A452: 00        .byte $00
 - D - I - 0x014463 11:A453: 00        .byte $00
@@ -1470,7 +1470,7 @@ off_A456_96:
 - D - I - 0x01446A 11:A45A: 92 37     .dbyt off_B237 - $2000
 - D - I - 0x01446C 11:A45C: 0A        .byte $0A
 
-- D - I - 0x01446D 11:A45D: F7        .byte con_F7
+- D - I - 0x01446D 11:A45D: F7        .byte con_физика
 - D - I - 0x01446E 11:A45E: 09        .byte $09
 - D - I - 0x01446F 11:A45F: 00        .byte $00
 - D - I - 0x014470 11:A460: 00        .byte $00
@@ -1491,7 +1491,7 @@ off_A463_97:
 - D - I - 0x014477 11:A467: 92 76     .dbyt off_B276 - $2000
 - D - I - 0x014479 11:A469: 0F        .byte $0F
 
-- D - I - 0x01447A 11:A46A: F7        .byte con_F7
+- D - I - 0x01447A 11:A46A: F7        .byte con_физика
 - D - I - 0x01447B 11:A46B: B0        .byte $B0
 - D - I - 0x01447C 11:A46C: 00        .byte $00
 - D - I - 0x01447D 11:A46D: 00        .byte $00
@@ -1525,7 +1525,7 @@ off_A477_99:
 - D - I - 0x01448B 11:A47B: 92 B5     .dbyt off_B2B5 - $2000
 - D - I - 0x01448D 11:A47D: 1E        .byte $1E
 
-- D - I - 0x01448E 11:A47E: F7        .byte con_F7
+- D - I - 0x01448E 11:A47E: F7        .byte con_физика
 - D - I - 0x01448F 11:A47F: 10        .byte $10
 - D - I - 0x014490 11:A480: 00        .byte $00
 - D - I - 0x014491 11:A481: 00        .byte $00
@@ -1545,7 +1545,7 @@ off_A484_9A:
 
 - D - I - 0x014498 11:A488: 93 AB     .dbyt off_B3AB - $2000
 
-- D - I - 0x01449A 11:A48A: F7        .byte con_F7
+- D - I - 0x01449A 11:A48A: F7        .byte con_физика
 - D - I - 0x01449B 11:A48B: 20        .byte $20
 - D - I - 0x01449C 11:A48C: FF        .byte $FF
 - D - I - 0x01449D 11:A48D: 00        .byte $00
@@ -1579,14 +1579,14 @@ off_A497_9C:
 - D - I - 0x0144AB 11:A49B: 93 4D     .dbyt off_B34D - $2000
 
 @бесконечный_цикл:
-- D - I - 0x0144AD 11:A49D: F7        .byte con_F7
+- D - I - 0x0144AD 11:A49D: F7        .byte con_физика
 - D - I - 0x0144AE 11:A49E: 0F        .byte $0F
 - D - I - 0x0144AF 11:A49F: 00        .byte $00
 - D - I - 0x0144B0 11:A4A0: 00        .byte $00
 
 - D - I - 0x0144B1 11:A4A1: 01        .byte $01
 
-- D - I - 0x0144B2 11:A4A2: F7        .byte con_F7
+- D - I - 0x0144B2 11:A4A2: F7        .byte con_физика
 - D - I - 0x0144B3 11:A4A3: 00        .byte $00
 - D - I - 0x0144B4 11:A4A4: 00        .byte $00
 - D - I - 0x0144B5 11:A4A5: 00        .byte $00
@@ -1609,7 +1609,7 @@ off_A4AA_9D:
 - D - I - 0x0144BE 11:A4AE: 93 BA     .dbyt off_B3BA - $2000
 - D - I - 0x0144C0 11:A4B0: 28        .byte $28
 
-- D - I - 0x0144C1 11:A4B1: F7        .byte con_F7
+- D - I - 0x0144C1 11:A4B1: F7        .byte con_физика
 - D - I - 0x0144C2 11:A4B2: 00        .byte $00
 - D - I - 0x0144C3 11:A4B3: 00        .byte $00
 - D - I - 0x0144C4 11:A4B4: 01        .byte $01
@@ -1629,7 +1629,7 @@ off_A4B7_9E:
 
 - D - I - 0x0144CB 11:A4BB: 89 59     .dbyt off_A959 - $2000
 
-- D - I - 0x0144CD 11:A4BD: F7        .byte con_F7
+- D - I - 0x0144CD 11:A4BD: F7        .byte con_физика
 - D - I - 0x0144CE 11:A4BE: 20        .byte $20
 - D - I - 0x0144CF 11:A4BF: FF        .byte $FF
 - D - I - 0x0144D0 11:A4C0: 00        .byte $00
@@ -1649,7 +1649,7 @@ off_A4C3_9F:
 
 - D - I - 0x0144D7 11:A4C7: 89 73     .dbyt off_A973 - $2000
 
-- D - I - 0x0144D9 11:A4C9: F7        .byte con_F7
+- D - I - 0x0144D9 11:A4C9: F7        .byte con_физика
 - D - I - 0x0144DA 11:A4CA: 20        .byte $20
 - D - I - 0x0144DB 11:A4CB: FF        .byte $FF
 - D - I - 0x0144DC 11:A4CC: 00        .byte $00
@@ -1660,7 +1660,7 @@ off_A4C3_9F:
 
 - D - I - 0x0144DF 11:A4CF: EE        .byte con_повторы + $0F
 
-- D - I - 0x0144E0 11:A4D0: F7        .byte con_F7
+- D - I - 0x0144E0 11:A4D0: F7        .byte con_физика
 - D - I - 0x0144E1 11:A4D1: 2E        .byte $2E
 - D - I - 0x0144E2 11:A4D2: 00        .byte $00
 - D - I - 0x0144E3 11:A4D3: 00        .byte $00
@@ -1668,7 +1668,7 @@ off_A4C3_9F:
 - D - I - 0x0144E4 11:A4D4: 89 73     .dbyt off_A973 - $2000
 - D - I - 0x0144E6 11:A4D6: 01        .byte $01
 
-- D - I - 0x0144E7 11:A4D7: F7        .byte con_F7
+- D - I - 0x0144E7 11:A4D7: F7        .byte con_физика
 - D - I - 0x0144E8 11:A4D8: E2        .byte $E2
 - D - I - 0x0144E9 11:A4D9: 00        .byte $00
 - D - I - 0x0144EA 11:A4DA: 00        .byte $00
@@ -1680,7 +1680,7 @@ off_A4C3_9F:
 
 - D - I - 0x0144EF 11:A4DF: F0        .byte con_повторить
 
-- D - I - 0x0144F0 11:A4E0: F7        .byte con_F7
+- D - I - 0x0144F0 11:A4E0: F7        .byte con_физика
 - D - I - 0x0144F1 11:A4E1: 79        .byte $79
 - D - I - 0x0144F2 11:A4E2: 00        .byte $00
 - D - I - 0x0144F3 11:A4E3: 00        .byte $00
@@ -1704,7 +1704,7 @@ off_A4EB_A0:
 - D - I - 0x0144FD 11:A4ED: 16        .byte $16
 - D - I - 0x0144FE 11:A4EE: 8E        .byte $8E
 
-- D - I - 0x0144FF 11:A4EF: F7        .byte con_F7
+- D - I - 0x0144FF 11:A4EF: F7        .byte con_физика
 - D - I - 0x014500 11:A4F0: 29        .byte $29
 - D - I - 0x014501 11:A4F1: 00        .byte $00
 - D - I - 0x014502 11:A4F2: 07        .byte $07
@@ -1723,7 +1723,7 @@ off_A4F7_A1:
 - D - I - 0x014509 11:A4F9: 1E        .byte $1E
 - D - I - 0x01450A 11:A4FA: 36        .byte $36
 
-- D - I - 0x01450B 11:A4FB: F7        .byte con_F7
+- D - I - 0x01450B 11:A4FB: F7        .byte con_физика
 - D - I - 0x01450C 11:A4FC: 00        .byte $00
 - D - I - 0x01450D 11:A4FD: 00        .byte $00
 - D - I - 0x01450E 11:A4FE: 00        .byte $00
@@ -1756,7 +1756,7 @@ off_A50E_A2:
 
 - D - I - 0x014522 11:A512: EC        .byte con_повторы + $0C
 
-- D - I - 0x014523 11:A513: F7        .byte con_F7
+- D - I - 0x014523 11:A513: F7        .byte con_физика
 - D - I - 0x014524 11:A514: 29        .byte $29
 - D - I - 0x014525 11:A515: 00        .byte $00
 - D - I - 0x014526 11:A516: 00        .byte $00
@@ -1764,7 +1764,7 @@ off_A50E_A2:
 - D - I - 0x014527 11:A517: 8D D6     .dbyt off_ADD6 - $2000
 - D - I - 0x014529 11:A519: 01        .byte $01
 
-- D - I - 0x01452A 11:A51A: F7        .byte con_F7
+- D - I - 0x01452A 11:A51A: F7        .byte con_физика
 - D - I - 0x01452B 11:A51B: 00        .byte $00
 - D - I - 0x01452C 11:A51C: 00        .byte $00
 - D - I - 0x01452D 11:A51D: 00        .byte $00
@@ -1773,7 +1773,7 @@ off_A50E_A2:
 
 - D - I - 0x01452F 11:A51F: F0        .byte con_повторить
 
-- D - I - 0x014530 11:A520: F7        .byte con_F7
+- D - I - 0x014530 11:A520: F7        .byte con_физика
 - D - I - 0x014531 11:A521: 00        .byte $00
 - D - I - 0x014532 11:A522: 00        .byte $00
 - D - I - 0x014533 11:A523: 00        .byte $00
@@ -1799,14 +1799,14 @@ off_A52A_A3:
 
 - D - I - 0x014540 11:A530: E5        .byte con_повторы + $05
 
-- D - I - 0x014541 11:A531: F7        .byte con_F7
+- D - I - 0x014541 11:A531: F7        .byte con_физика
 - D - I - 0x014542 11:A532: 20        .byte $20
 - D - I - 0x014543 11:A533: 00        .byte $00
 - D - I - 0x014544 11:A534: 00        .byte $00
 
 - D - I - 0x014545 11:A535: 01        .byte $01
 
-- D - I - 0x014546 11:A536: F7        .byte con_F7
+- D - I - 0x014546 11:A536: F7        .byte con_физика
 - D - I - 0x014547 11:A537: E0        .byte $E0
 - D - I - 0x014548 11:A538: 00        .byte $00
 - D - I - 0x014549 11:A539: 00        .byte $00
@@ -1815,14 +1815,14 @@ off_A52A_A3:
 
 - D - I - 0x01454B 11:A53B: F0        .byte con_повторить
 
-- D - I - 0x01454C 11:A53C: F7        .byte con_F7
+- D - I - 0x01454C 11:A53C: F7        .byte con_физика
 - D - I - 0x01454D 11:A53D: 10        .byte $10
 - D - I - 0x01454E 11:A53E: 00        .byte $00
 - D - I - 0x01454F 11:A53F: 00        .byte $00
 
 - D - I - 0x014550 11:A540: 02        .byte $02
 
-- D - I - 0x014551 11:A541: F7        .byte con_F7
+- D - I - 0x014551 11:A541: F7        .byte con_физика
 - D - I - 0x014552 11:A542: 00        .byte $00
 - D - I - 0x014553 11:A543: 00        .byte $00
 - D - I - 0x014554 11:A544: 00        .byte $00
@@ -1853,7 +1853,7 @@ off_A54D_A5:
 
 - D - I - 0x014561 11:A551: 93 AB     .dbyt off_B3AB - $2000
 
-- D - I - 0x014563 11:A553: F7        .byte con_F7
+- D - I - 0x014563 11:A553: F7        .byte con_физика
 - D - I - 0x014564 11:A554: 20        .byte $20
 - D - I - 0x014565 11:A555: FF        .byte $FF
 - D - I - 0x014566 11:A556: 00        .byte $00
@@ -1875,7 +1875,7 @@ off_A559_A6:
 
 - D - I - 0x01456E 11:A55E: 8D D6     .dbyt off_ADD6 - $2000
 
-- D - I - 0x014570 11:A560: F7        .byte con_F7
+- D - I - 0x014570 11:A560: F7        .byte con_физика
 - D - I - 0x014571 11:A561: 29        .byte $29
 - D - I - 0x014572 11:A562: 00        .byte $00
 - D - I - 0x014573 11:A563: 00        .byte $00
@@ -1888,7 +1888,7 @@ off_A559_A6:
 - D - I - 0x014577 11:A567: 3E        .byte $3E
 - D - I - 0x014578 11:A568: BE        .byte $BE
 
-- D - I - 0x014579 11:A569: F7        .byte con_F7
+- D - I - 0x014579 11:A569: F7        .byte con_физика
 - D - I - 0x01457A 11:A56A: 00        .byte $00
 - D - I - 0x01457B 11:A56B: 00        .byte $00
 - D - I - 0x01457C 11:A56C: 00        .byte $00
@@ -1908,7 +1908,7 @@ off_A570_A7:
 
 - D - I - 0x014584 11:A574: 94 5E     .dbyt off_B45E - $2000
 
-- D - I - 0x014586 11:A576: F7        .byte con_F7
+- D - I - 0x014586 11:A576: F7        .byte con_физика
 - D - I - 0x014587 11:A577: 00        .byte $00
 - D - I - 0x014588 11:A578: 00        .byte $00
 - D - I - 0x014589 11:A579: 00        .byte $00
@@ -1916,103 +1916,103 @@ off_A570_A7:
 - D - I - 0x01458A 11:A57A: 7F        .byte $7F
 - D - I - 0x01458B 11:A57B: 21        .byte $21
 
-- D - I - 0x01458C 11:A57C: F7        .byte con_F7
+- D - I - 0x01458C 11:A57C: F7        .byte con_физика
 - D - I - 0x01458D 11:A57D: 00        .byte $00
 - D - I - 0x01458E 11:A57E: 04        .byte $04
 - D - I - 0x01458F 11:A57F: 00        .byte $00
 
 - D - I - 0x014590 11:A580: 07        .byte $07
 
-- D - I - 0x014591 11:A581: F7        .byte con_F7
+- D - I - 0x014591 11:A581: F7        .byte con_физика
 - D - I - 0x014592 11:A582: 00        .byte $00
 - D - I - 0x014593 11:A583: 00        .byte $00
 - D - I - 0x014594 11:A584: 00        .byte $00
 
 - D - I - 0x014595 11:A585: 02        .byte $02
 
-- D - I - 0x014596 11:A586: F7        .byte con_F7
+- D - I - 0x014596 11:A586: F7        .byte con_физика
 - D - I - 0x014597 11:A587: 00        .byte $00
 - D - I - 0x014598 11:A588: 04        .byte $04
 - D - I - 0x014599 11:A589: 00        .byte $00
 
 - D - I - 0x01459A 11:A58A: 1B        .byte $1B
 
-- D - I - 0x01459B 11:A58B: F7        .byte con_F7
+- D - I - 0x01459B 11:A58B: F7        .byte con_физика
 - D - I - 0x01459C 11:A58C: 00        .byte $00
 - D - I - 0x01459D 11:A58D: 00        .byte $00
 - D - I - 0x01459E 11:A58E: 00        .byte $00
 
-- D - I - 0x01459F 11:A58F: F7        .byte con_F7
+- D - I - 0x01459F 11:A58F: F7        .byte con_физика
 - D - I - 0x0145A0 11:A590: F0        .byte $F0
 - D - I - 0x0145A1 11:A591: 00        .byte $00
 - D - I - 0x0145A2 11:A592: 00        .byte $00
 
 - D - I - 0x0145A3 11:A593: 05        .byte $05
 
-- D - I - 0x0145A4 11:A594: F7        .byte con_F7
+- D - I - 0x0145A4 11:A594: F7        .byte con_физика
 - D - I - 0x0145A5 11:A595: 10        .byte $10
 - D - I - 0x0145A6 11:A596: 00        .byte $00
 - D - I - 0x0145A7 11:A597: 00        .byte $00
 
 - D - I - 0x0145A8 11:A598: 05        .byte $05
 
-- D - I - 0x0145A9 11:A599: F7        .byte con_F7
+- D - I - 0x0145A9 11:A599: F7        .byte con_физика
 - D - I - 0x0145AA 11:A59A: F0        .byte $F0
 - D - I - 0x0145AB 11:A59B: 00        .byte $00
 - D - I - 0x0145AC 11:A59C: 00        .byte $00
 
 - D - I - 0x0145AD 11:A59D: 04        .byte $04
 
-- D - I - 0x0145AE 11:A59E: F7        .byte con_F7
+- D - I - 0x0145AE 11:A59E: F7        .byte con_физика
 - D - I - 0x0145AF 11:A59F: 10        .byte $10
 - D - I - 0x0145B0 11:A5A0: 00        .byte $00
 - D - I - 0x0145B1 11:A5A1: 00        .byte $00
 
 - D - I - 0x0145B2 11:A5A2: 04        .byte $04
 
-- D - I - 0x0145B3 11:A5A3: F7        .byte con_F7
+- D - I - 0x0145B3 11:A5A3: F7        .byte con_физика
 - D - I - 0x0145B4 11:A5A4: F0        .byte $F0
 - D - I - 0x0145B5 11:A5A5: 00        .byte $00
 - D - I - 0x0145B6 11:A5A6: 00        .byte $00
 
 - D - I - 0x0145B7 11:A5A7: 03        .byte $03
 
-- D - I - 0x0145B8 11:A5A8: F7        .byte con_F7
+- D - I - 0x0145B8 11:A5A8: F7        .byte con_физика
 - D - I - 0x0145B9 11:A5A9: 10        .byte $10
 - D - I - 0x0145BA 11:A5AA: 00        .byte $00
 - D - I - 0x0145BB 11:A5AB: 00        .byte $00
 
 - D - I - 0x0145BC 11:A5AC: 03        .byte $03
 
-- D - I - 0x0145BD 11:A5AD: F7        .byte con_F7
+- D - I - 0x0145BD 11:A5AD: F7        .byte con_физика
 - D - I - 0x0145BE 11:A5AE: F0        .byte $F0
 - D - I - 0x0145BF 11:A5AF: 00        .byte $00
 - D - I - 0x0145C0 11:A5B0: 00        .byte $00
 
 - D - I - 0x0145C1 11:A5B1: 02        .byte $02
 
-- D - I - 0x0145C2 11:A5B2: F7        .byte con_F7
+- D - I - 0x0145C2 11:A5B2: F7        .byte con_физика
 - D - I - 0x0145C3 11:A5B3: 10        .byte $10
 - D - I - 0x0145C4 11:A5B4: 00        .byte $00
 - D - I - 0x0145C5 11:A5B5: 00        .byte $00
 
 - D - I - 0x0145C6 11:A5B6: 02        .byte $02
 
-- D - I - 0x0145C7 11:A5B7: F7        .byte con_F7
+- D - I - 0x0145C7 11:A5B7: F7        .byte con_физика
 - D - I - 0x0145C8 11:A5B8: F0        .byte $F0
 - D - I - 0x0145C9 11:A5B9: 00        .byte $00
 - D - I - 0x0145CA 11:A5BA: 00        .byte $00
 
 - D - I - 0x0145CB 11:A5BB: 01        .byte $01
 
-- D - I - 0x0145CC 11:A5BC: F7        .byte con_F7
+- D - I - 0x0145CC 11:A5BC: F7        .byte con_физика
 - D - I - 0x0145CD 11:A5BD: 10        .byte $10
 - D - I - 0x0145CE 11:A5BE: 00        .byte $00
 - D - I - 0x0145CF 11:A5BF: 00        .byte $00
 
 - D - I - 0x0145D0 11:A5C0: 01        .byte $01
 
-- D - I - 0x0145D1 11:A5C1: F7        .byte con_F7
+- D - I - 0x0145D1 11:A5C1: F7        .byte con_физика
 - D - I - 0x0145D2 11:A5C2: 00        .byte $00
 - D - I - 0x0145D3 11:A5C3: 00        .byte $00
 - D - I - 0x0145D4 11:A5C4: 00        .byte $00
@@ -2023,14 +2023,14 @@ off_A570_A7:
 
 - D - I - 0x0145D7 11:A5C7: EB        .byte con_повторы + $0B
 
-- D - I - 0x0145D8 11:A5C8: F7        .byte con_F7
+- D - I - 0x0145D8 11:A5C8: F7        .byte con_физика
 - D - I - 0x0145D9 11:A5C9: 0F        .byte $0F
 - D - I - 0x0145DA 11:A5CA: 00        .byte $00
 - D - I - 0x0145DB 11:A5CB: 00        .byte $00
 
 - D - I - 0x0145DC 11:A5CC: 01        .byte $01
 
-- D - I - 0x0145DD 11:A5CD: F7        .byte con_F7
+- D - I - 0x0145DD 11:A5CD: F7        .byte con_физика
 - D - I - 0x0145DE 11:A5CE: 00        .byte $00
 - D - I - 0x0145DF 11:A5CF: 00        .byte $00
 - D - I - 0x0145E0 11:A5D0: 00        .byte $00
@@ -2061,14 +2061,14 @@ off_A5D5_A8:
 
 - D - I - 0x0145EF 11:A5DF: EB        .byte con_повторы + $0B
 
-- D - I - 0x0145F0 11:A5E0: F7        .byte con_F7
+- D - I - 0x0145F0 11:A5E0: F7        .byte con_физика
 - D - I - 0x0145F1 11:A5E1: 01        .byte $01
 - D - I - 0x0145F2 11:A5E2: 00        .byte $00
 - D - I - 0x0145F3 11:A5E3: 00        .byte $00
 
 - D - I - 0x0145F4 11:A5E4: 01        .byte $01
 
-- D - I - 0x0145F5 11:A5E5: F7        .byte con_F7
+- D - I - 0x0145F5 11:A5E5: F7        .byte con_физика
 - D - I - 0x0145F6 11:A5E6: 00        .byte $00
 - D - I - 0x0145F7 11:A5E7: 00        .byte $00
 - D - I - 0x0145F8 11:A5E8: 00        .byte $00
@@ -2091,7 +2091,7 @@ off_A5ED_A9:
 - D - I - 0x014600 11:A5F0: 9E        .byte $9E
 
 @бесконечный_цикл:
-- D - I - 0x014601 11:A5F1: F7        .byte con_F7
+- D - I - 0x014601 11:A5F1: F7        .byte con_физика
 - D - I - 0x014602 11:A5F2: 0F        .byte $0F
 - D - I - 0x014603 11:A5F3: FE        .byte $FE
 - D - I - 0x014604 11:A5F4: 00        .byte $00
@@ -2099,7 +2099,7 @@ off_A5ED_A9:
 - D - I - 0x014605 11:A5F5: 94 A6     .dbyt off_B4A6 - $2000
 - D - I - 0x014607 11:A5F7: 01        .byte $01
 
-- D - I - 0x014608 11:A5F8: F7        .byte con_F7
+- D - I - 0x014608 11:A5F8: F7        .byte con_физика
 - D - I - 0x014609 11:A5F9: 00        .byte $00
 - D - I - 0x01460A 11:A5FA: FE        .byte $FE
 - D - I - 0x01460B 11:A5FB: 00        .byte $00
@@ -2125,14 +2125,14 @@ off_A602_AA:
 
 - D - I - 0x014618 11:A608: 89 73     .dbyt off_A973 - $2000
 
-- D - I - 0x01461A 11:A60A: F7        .byte con_F7
+- D - I - 0x01461A 11:A60A: F7        .byte con_физика
 - D - I - 0x01461B 11:A60B: 20        .byte $20
 - D - I - 0x01461C 11:A60C: FF        .byte $FF
 - D - I - 0x01461D 11:A60D: 00        .byte $00
 
 - D - I - 0x01461E 11:A60E: 78        .byte $78
 
-- D - I - 0x01461F 11:A60F: F7        .byte con_F7
+- D - I - 0x01461F 11:A60F: F7        .byte con_физика
 - D - I - 0x014620 11:A610: 00        .byte $00
 - D - I - 0x014621 11:A611: 00        .byte $00
 - D - I - 0x014622 11:A612: 00        .byte $00
@@ -2140,14 +2140,14 @@ off_A602_AA:
 - D - I - 0x014623 11:A613: 01        .byte $01
 
 @бесконечный_цикл:
-- D - I - 0x014624 11:A614: F7        .byte con_F7
+- D - I - 0x014624 11:A614: F7        .byte con_физика
 - D - I - 0x014625 11:A615: 2E        .byte $2E
 - D - I - 0x014626 11:A616: 00        .byte $00
 - D - I - 0x014627 11:A617: 00        .byte $00
 
 - D - I - 0x014628 11:A618: 01        .byte $01
 
-- D - I - 0x014629 11:A619: F7        .byte con_F7
+- D - I - 0x014629 11:A619: F7        .byte con_физика
 - D - I - 0x01462A 11:A61A: E2        .byte $E2
 - D - I - 0x01462B 11:A61B: 00        .byte $00
 - D - I - 0x01462C 11:A61C: 00        .byte $00
@@ -2184,7 +2184,7 @@ off_A627_AC:
 - D - I - 0x01463F 11:A62F: 7F        .byte $7F
 - D - I - 0x014640 11:A630: 3D        .byte $3D
 
-- D - I - 0x014641 11:A631: F7        .byte con_F7
+- D - I - 0x014641 11:A631: F7        .byte con_физика
 - D - I - 0x014642 11:A632: 0F        .byte $0F
 - D - I - 0x014643 11:A633: 00        .byte $00
 - D - I - 0x014644 11:A634: 00        .byte $00
@@ -2249,7 +2249,7 @@ off_A650_B0:
 
 - D - I - 0x014664 11:A654: 95 AC     .dbyt off_B5AC - $2000
 
-- D - I - 0x014666 11:A656: F7        .byte con_F7
+- D - I - 0x014666 11:A656: F7        .byte con_физика
 - D - I - 0x014667 11:A657: F0        .byte $F0
 - D - I - 0x014668 11:A658: 00        .byte $00
 - D - I - 0x014669 11:A659: FD        .byte $FD
@@ -2323,7 +2323,7 @@ off_A681_B4:
 - D - I - 0x014694 11:A684: 3E        .byte $3E
 
 @бесконечный_цикл:
-- D - I - 0x014695 11:A685: F7        .byte con_F7
+- D - I - 0x014695 11:A685: F7        .byte con_физика
 - D - I - 0x014696 11:A686: 10        .byte $10
 - D - I - 0x014697 11:A687: 00        .byte $00
 - D - I - 0x014698 11:A688: 00        .byte $00
@@ -2331,7 +2331,7 @@ off_A681_B4:
 - D - I - 0x014699 11:A689: 94 A6     .dbyt off_B4A6 - $2000
 - D - I - 0x01469B 11:A68B: 01        .byte $01
 
-- D - I - 0x01469C 11:A68C: F7        .byte con_F7
+- D - I - 0x01469C 11:A68C: F7        .byte con_физика
 - D - I - 0x01469D 11:A68D: 00        .byte $00
 - D - I - 0x01469E 11:A68E: 00        .byte $00
 - D - I - 0x01469F 11:A68F: 00        .byte $00
@@ -2354,7 +2354,7 @@ off_A695_B5:
 - D - I - 0x0146AB 11:A69B: 7F        .byte $7F
 - D - I - 0x0146AC 11:A69C: 3E        .byte $3E
 
-- D - I - 0x0146AD 11:A69D: F7        .byte con_F7
+- D - I - 0x0146AD 11:A69D: F7        .byte con_физика
 - D - I - 0x0146AE 11:A69E: 0F        .byte $0F
 - D - I - 0x0146AF 11:A69F: 00        .byte $00
 - D - I - 0x0146B0 11:A6A0: 00        .byte $00
@@ -2467,21 +2467,21 @@ off_A6DD_BB:
 
 - D - I - 0x0146F1 11:A6E1: 93 E9     .dbyt off_B3E9 - $2000
 
-- D - I - 0x0146F3 11:A6E3: F7        .byte con_F7
+- D - I - 0x0146F3 11:A6E3: F7        .byte con_физика
 - D - I - 0x0146F4 11:A6E4: 09        .byte $09
 - D - I - 0x0146F5 11:A6E5: 00        .byte $00
 - D - I - 0x0146F6 11:A6E6: 00        .byte $00
 
 - D - I - 0x0146F7 11:A6E7: 12        .byte $12
 
-- D - I - 0x0146F8 11:A6E8: F7        .byte con_F7
+- D - I - 0x0146F8 11:A6E8: F7        .byte con_физика
 - D - I - 0x0146F9 11:A6E9: 00        .byte $00
 - D - I - 0x0146FA 11:A6EA: 00        .byte $00
 - D - I - 0x0146FB 11:A6EB: 00        .byte $00
 
 - D - I - 0x0146FC 11:A6EC: 28        .byte $28
 
-- D - I - 0x0146FD 11:A6ED: F7        .byte con_F7
+- D - I - 0x0146FD 11:A6ED: F7        .byte con_физика
 - D - I - 0x0146FE 11:A6EE: 07        .byte $07
 - D - I - 0x0146FF 11:A6EF: 00        .byte $00
 - D - I - 0x014700 11:A6F0: 00        .byte $00
@@ -2605,14 +2605,14 @@ off_A73E_BF:
 - D - I - 0x014754 11:A744: 78        .byte $78
 - D - I - 0x014755 11:A745: 78        .byte $78
 
-- D - I - 0x014756 11:A746: F7        .byte con_F7
+- D - I - 0x014756 11:A746: F7        .byte con_физика
 - D - I - 0x014757 11:A747: 20        .byte $20
 - D - I - 0x014758 11:A748: FF        .byte $FF
 - D - I - 0x014759 11:A749: 00        .byte $00
 
 - D - I - 0x01475A 11:A74A: 78        .byte $78
 
-- D - I - 0x01475B 11:A74B: F7        .byte con_F7
+- D - I - 0x01475B 11:A74B: F7        .byte con_физика
 - D - I - 0x01475C 11:A74C: 00        .byte $00
 - D - I - 0x01475D 11:A74D: 00        .byte $00
 - D - I - 0x01475E 11:A74E: 00        .byte $00
@@ -2645,7 +2645,7 @@ off_A757_C1:
 
 - D - I - 0x01476C 11:A75C: 97 11     .dbyt off_B711 - $2000
 
-- D - I - 0x01476E 11:A75E: F7        .byte con_F7
+- D - I - 0x01476E 11:A75E: F7        .byte con_физика
 - D - I - 0x01476F 11:A75F: 05        .byte $05
 - D - I - 0x014770 11:A760: 00        .byte $00
 - D - I - 0x014771 11:A761: 00        .byte $00
@@ -2665,7 +2665,7 @@ off_A765_C2_джек_выходит_и_поздравляет:
 - D - I - 0x014777 11:A767: 38        .byte $38
 - D - I - 0x014778 11:A768: 78        .byte $78
 
-- D - I - 0x014779 11:A769: F7        .byte con_F7
+- D - I - 0x014779 11:A769: F7        .byte con_физика
 - D - I - 0x01477A 11:A76A: 0F        .byte $0F
 - D - I - 0x01477B 11:A76B: 00        .byte $00
 - D - I - 0x01477C 11:A76C: 00        .byte $00
@@ -2680,7 +2680,7 @@ off_A765_C2_джек_выходит_и_поздравляет:
 
 - D - I - 0x014784 11:A774: F0        .byte con_повторить
 
-- D - I - 0x014785 11:A775: F7        .byte con_F7
+- D - I - 0x014785 11:A775: F7        .byte con_физика
 - D - I - 0x014786 11:A776: 00        .byte $00
 - D - I - 0x014787 11:A777: 00        .byte $00
 - D - I - 0x014788 11:A778: 00        .byte $00
@@ -2706,7 +2706,7 @@ off_A784_C3_джек_уходит_с_поля:
 - D - I - 0x014796 11:A786: 38        .byte $38
 - D - I - 0x014797 11:A787: 3C        .byte $3C
 
-- D - I - 0x014798 11:A788: F7        .byte con_F7
+- D - I - 0x014798 11:A788: F7        .byte con_физика
 - D - I - 0x014799 11:A789: 00        .byte $00
 - D - I - 0x01479A 11:A78A: 00        .byte $00
 - D - I - 0x01479B 11:A78B: 00        .byte $00
@@ -2715,7 +2715,7 @@ off_A784_C3_джек_уходит_с_поля:
 ; таймер джека перед движением влево когда он покидает поле
 - D - I - 0x01479E 11:A78E: 3C        .byte $1E
 
-- D - I - 0x01479F 11:A78F: F7        .byte con_F7
+- D - I - 0x01479F 11:A78F: F7        .byte con_физика
 - D - I - 0x0147A0 11:A790: 0F        .byte $0F
 - D - I - 0x0147A1 11:A791: 00        .byte $00
 - D - I - 0x0147A2 11:A792: 00        .byte $00
@@ -2742,10 +2742,10 @@ off_A79E_C4_джек_улетает_и_появляется_и_садится_н
 - D - I - 0x0147AE 11:A79E: 15        .byte $15
 
 - D - I - 0x0147AF 11:A79F: F1        .byte con_координаты_Y_X
-- D - I - 0x0147B0 11:A7A0: 38        .byte $38     ; базовая позиция анимации по вертикали
-- D - I - 0x0147B1 11:A7A1: 3C        .byte $3C     ; базовая позиция анимации по горизонтали
+- D - I - 0x0147B0 11:A7A0: 38        .byte $38
+- D - I - 0x0147B1 11:A7A1: 3C        .byte $3C
 
-- D - I - 0x0147B2 11:A7A2: F7        .byte con_F7
+- D - I - 0x0147B2 11:A7A2: F7        .byte con_физика
 - D - I - 0x0147B3 11:A7A3: E0        .byte $E0     ; влияет на угол полета и скорость полета
 - D - I - 0x0147B4 11:A7A4: 00        .byte $00
 - D - I - 0x0147B5 11:A7A5: 00        .byte $00
@@ -2753,7 +2753,7 @@ off_A79E_C4_джек_улетает_и_появляется_и_садится_н
 - D - I - 0x0147B6 11:A7A6: 97 62     .dbyt off_B762 - $2000
 - D - I - 0x0147B8 11:A7A8: 12        .byte $12     ; таймер полета джека вверх перед зависанием в воздухе
 
-- D - I - 0x0147B9 11:A7A9: F7        .byte con_F7
+- D - I - 0x0147B9 11:A7A9: F7        .byte con_физика
 - D - I - 0x0147BA 11:A7AA: 00        .byte $00
 - D - I - 0x0147BB 11:A7AB: 00        .byte $00
 - D - I - 0x0147BC 11:A7AC: 00        .byte $00
@@ -2767,14 +2767,14 @@ off_A79E_C4_джек_улетает_и_появляется_и_садится_н
 
 - D - I - 0x0147C2 11:A7B2: 97 53     .dbyt off_B753 - $2000
 
-- D - I - 0x0147C4 11:A7B4: F7        .byte con_F7
+- D - I - 0x0147C4 11:A7B4: F7        .byte con_физика
 - D - I - 0x0147C5 11:A7B5: F0        .byte $F0
 - D - I - 0x0147C6 11:A7B6: 00        .byte $00
 - D - I - 0x0147C7 11:A7B7: 00        .byte $00
 
 - D - I - 0x0147C8 11:A7B8: 04        .byte $04
 
-- D - I - 0x0147C9 11:A7B9: F7        .byte con_F7
+- D - I - 0x0147C9 11:A7B9: F7        .byte con_физика
 - D - I - 0x0147CA 11:A7BA: 00        .byte $00
 - D - I - 0x0147CB 11:A7BB: 00        .byte $00
 - D - I - 0x0147CC 11:A7BC: 00        .byte $00
@@ -2782,7 +2782,7 @@ off_A79E_C4_джек_улетает_и_появляется_и_садится_н
 - D - I - 0x0147CD 11:A7BD: 7F        .byte $7F     ; таймер джека перед падением после телепорта
 - D - I - 0x0147CE 11:A7BE: 2B        .byte $2B
 
-- D - I - 0x0147CF 11:A7BF: F7        .byte con_F7
+- D - I - 0x0147CF 11:A7BF: F7        .byte con_физика
 - D - I - 0x0147D0 11:A7C0: 20        .byte $20
 - D - I - 0x0147D1 11:A7C1: 00        .byte $00
 - D - I - 0x0147D2 11:A7C2: 00        .byte $00
@@ -2794,7 +2794,7 @@ off_A79E_C4_джек_улетает_и_появляется_и_садится_н
 - D - I - 0x0147D7 11:A7C7: 5B        .byte $5B
 - D - I - 0x0147D8 11:A7C8: 0A        .byte $0A
 
-- D - I - 0x0147D9 11:A7C9: F7        .byte con_F7
+- D - I - 0x0147D9 11:A7C9: F7        .byte con_физика
 - D - I - 0x0147DA 11:A7CA: 00        .byte $00
 - D - I - 0x0147DB 11:A7CB: 00        .byte $00
 - D - I - 0x0147DC 11:A7CC: 00        .byte $00
@@ -2832,7 +2832,7 @@ off_A7D8_C5_объект_для_скрытия_прыгающего_джека:
 - D - I - 0x0147F5 11:A7E5: 7F        .byte $7F
 - D - I - 0x0147F6 11:A7E6: 31        .byte $31
 
-- D - I - 0x0147F7 11:A7E7: F7        .byte con_F7
+- D - I - 0x0147F7 11:A7E7: F7        .byte con_физика
 - D - I - 0x0147F8 11:A7E8: 20        .byte $20
 - D - I - 0x0147F9 11:A7E9: 00        .byte $00
 - D - I - 0x0147FA 11:A7EA: 00        .byte $00
@@ -2853,7 +2853,7 @@ off_A7ED_C6:
 - D - I - 0x014801 11:A7F1: 97 80     .dbyt off_B780 - $2000
 - D - I - 0x014803 11:A7F3: 45        .byte $45
 
-- D - I - 0x014804 11:A7F4: F7        .byte con_F7
+- D - I - 0x014804 11:A7F4: F7        .byte con_физика
 - D - I - 0x014805 11:A7F5: 07        .byte $07
 - D - I - 0x014806 11:A7F6: 00        .byte $00
 - D - I - 0x014807 11:A7F7: 07        .byte $07
@@ -2931,7 +2931,7 @@ off_A81F_CA:
 
 - D - I - 0x014833 11:A823: 97 BB     .dbyt off_B7BB - $2000
 
-- D - I - 0x014835 11:A825: F7        .byte con_F7
+- D - I - 0x014835 11:A825: F7        .byte con_физика
 - D - I - 0x014836 11:A826: 09        .byte $09
 - D - I - 0x014837 11:A827: 00        .byte $00
 - D - I - 0x014838 11:A828: 07        .byte $07
@@ -2951,7 +2951,7 @@ off_A82B_CB:
 
 - D - I - 0x01483F 11:A82F: 97 BB     .dbyt off_B7BB - $2000
 
-- D - I - 0x014841 11:A831: F7        .byte con_F7
+- D - I - 0x014841 11:A831: F7        .byte con_физика
 - D - I - 0x014842 11:A832: 09        .byte $09
 - D - I - 0x014843 11:A833: 00        .byte $00
 - D - I - 0x014844 11:A834: 07        .byte $07
@@ -7698,7 +7698,7 @@ off_B910:
 - D - I - 0x015927 11:B917: 5D        .byte $5D
 - D - I - 0x015928 11:B918: 1B        .byte $1B
 - D - I - 0x015929 11:B919: 5F        .byte $5F
-- D - I - 0x01592A 11:B91A: FE        .byte $FE
+- D - I - 0x01592A 11:B91A: FE        .byte con_FE
 off_B91B:
 - D - I - 0x01592B 11:B91B: BB        .byte $BB
 - D - I - 0x01592C 11:B91C: 85        .byte $85
@@ -7720,7 +7720,7 @@ off_B91B:
 - D - I - 0x01593C 11:B92C: CC        .byte $CC
 - D - I - 0x01593D 11:B92D: 03        .byte $03
 - D - I - 0x01593E 11:B92E: 66        .byte $66
-- D - I - 0x01593F 11:B92F: FE        .byte $FE
+- D - I - 0x01593F 11:B92F: FE        .byte con_FE
 off_B930:
 - D - I - 0x015940 11:B930: BC        .byte $BC
 - D - I - 0x015941 11:B931: 17        .byte $17
@@ -7732,7 +7732,7 @@ off_B930:
 - D - I - 0x015947 11:B937: 5D        .byte $5D
 - D - I - 0x015948 11:B938: 1B        .byte $1B
 - D - I - 0x015949 11:B939: 5F        .byte $5F
-- D - I - 0x01594A 11:B93A: FE        .byte $FE
+- D - I - 0x01594A 11:B93A: FE        .byte con_FE
 off_B93B:
 - D - I - 0x01594B 11:B93B: BD        .byte $BD
 - D - I - 0x01594C 11:B93C: 85        .byte $85
@@ -7750,7 +7750,7 @@ off_B93B:
 - D - I - 0x015958 11:B948: F5        .byte $F5
 - D - I - 0x015959 11:B949: 1B        .byte $1B
 - D - I - 0x01595A 11:B94A: 66        .byte $66
-- D - I - 0x01595B 11:B94B: FE        .byte $FE
+- D - I - 0x01595B 11:B94B: FE        .byte con_FE
 off_B94C:
 - D - I - 0x01595C 11:B94C: BD        .byte $BD
 - D - I - 0x01595D 11:B94D: 86        .byte $86
@@ -7941,7 +7941,7 @@ off_B9F3:
 - D - I - 0x015A12 11:BA02: 02        .byte $02
 - D - I - 0x015A13 11:BA03: 0F        .byte $0F
 - D - I - 0x015A14 11:BA04: 9F        .byte $9F
-- D - I - 0x015A15 11:BA05: FE        .byte $FE
+- D - I - 0x015A15 11:BA05: FE        .byte con_FE
 off_BA06:
 - D - I - 0x015A16 11:BA06: BD        .byte $BD
 - D - I - 0x015A17 11:BA07: 17        .byte $17
@@ -8050,7 +8050,7 @@ off_BA65:
 - D - I - 0x015A7D 11:BA6D: A0        .byte $A0
 - D - I - 0x015A7E 11:BA6E: 0F        .byte $0F
 - D - I - 0x015A7F 11:BA6F: 71        .byte $71
-- D - I - 0x015A80 11:BA70: FE        .byte $FE
+- D - I - 0x015A80 11:BA70: FE        .byte con_FE
 off_BA71:
 - D - I - 0x015A81 11:BA71: A2        .byte $A2
 - D - I - 0x015A82 11:BA72: 07        .byte $07
@@ -8176,7 +8176,7 @@ off_BA88:
 - D - I - 0x015AF9 11:BAE9: 55        .byte $55
 - D - I - 0x015AFA 11:BAEA: 03        .byte $03
 - D - I - 0x015AFB 11:BAEB: 57        .byte $57
-- D - I - 0x015AFC 11:BAEC: FE        .byte $FE
+- D - I - 0x015AFC 11:BAEC: FE        .byte con_FE
 off_BAED:
 - D - I - 0x015AFD 11:BAED: 37        .byte $37
 - D - I - 0x015AFE 11:BAEE: 02        .byte $02
@@ -8192,7 +8192,7 @@ off_BAED:
 - D - I - 0x015B08 11:BAF8: 02        .byte $02
 - D - I - 0x015B09 11:BAF9: 0F        .byte $0F
 - D - I - 0x015B0A 11:BAFA: 02        .byte $02
-- D - I - 0x015B0B 11:BAFB: FE        .byte $FE
+- D - I - 0x015B0B 11:BAFB: FE        .byte con_FE
 off_BAFC:
 - D - I - 0x015B0C 11:BAFC: BD        .byte $BD
 - D - I - 0x015B0D 11:BAFD: 03        .byte $03
@@ -8354,13 +8354,13 @@ off_BB88:
 - D - I - 0x015BA8 11:BB98: 94        .byte $94
 - D - I - 0x015BA9 11:BB99: 0E        .byte $0E
 - D - I - 0x015BAA 11:BB9A: 96        .byte $96
-- D - I - 0x015BAB 11:BB9B: FE        .byte $FE
+- D - I - 0x015BAB 11:BB9B: FE        .byte con_FE
 off_BB9C:
 - D - I - 0x015BAC 11:BB9C: FA        .byte con_jsr
 - D - I - 0x015BAD 11:BB9D: F0 B9     .word off_B9F0
 - D - I - 0x015BAF 11:BB9F: 13        .byte $13
 - D - I - 0x015BB0 11:BBA0: B5        .byte $B5
-- D - I - 0x015BB1 11:BBA1: FE        .byte $FE
+- D - I - 0x015BB1 11:BBA1: FE        .byte con_FE
 off_BBA2:
 - D - I - 0x015BB2 11:BBA2: BC        .byte $BC
 - D - I - 0x015BB3 11:BBA3: 0F        .byte $0F
@@ -8374,7 +8374,7 @@ off_BBA2:
 - D - I - 0x015BBB 11:BBAB: F3 B9     .word off_B9F3
 - D - I - 0x015BBD 11:BBAD: 13        .byte $13
 - D - I - 0x015BBE 11:BBAE: B5        .byte $B5
-- D - I - 0x015BBF 11:BBAF: FE        .byte $FE
+- D - I - 0x015BBF 11:BBAF: FE        .byte con_FE
 off_BBB0:
 - D - I - 0x015BC0 11:BBB0: BC        .byte $BC
 - D - I - 0x015BC1 11:BBB1: 0F        .byte $0F
@@ -8388,7 +8388,7 @@ off_BBB0:
 - D - I - 0x015BC9 11:BBB9: F3 B9     .word off_B9F3
 - D - I - 0x015BCB 11:BBBB: 13        .byte $13
 - D - I - 0x015BCC 11:BBBC: B5        .byte $B5
-- D - I - 0x015BCD 11:BBBD: FE        .byte $FE
+- D - I - 0x015BCD 11:BBBD: FE        .byte con_FE
 off_BBBE:
 - D - I - 0x015BCE 11:BBBE: BE        .byte $BE
 - D - I - 0x015BCF 11:BBBF: 17        .byte $17
@@ -8399,7 +8399,7 @@ off_BBBE:
 - D - I - 0x015BD5 11:BBC5: B0        .byte $B0
 - D - I - 0x015BD6 11:BBC6: 17        .byte $17
 - D - I - 0x015BD7 11:BBC7: B2        .byte $B2
-- D - I - 0x015BD8 11:BBC8: FE        .byte $FE
+- D - I - 0x015BD8 11:BBC8: FE        .byte con_FE
 off_BBC9:
 - D - I - 0x015BD9 11:BBC9: BE        .byte $BE
 - D - I - 0x015BDA 11:BBCA: 17        .byte $17
@@ -8410,7 +8410,7 @@ off_BBC9:
 - D - I - 0x015BE0 11:BBD0: B8        .byte $B8
 - D - I - 0x015BE1 11:BBD1: 17        .byte $17
 - D - I - 0x015BE2 11:BBD2: AB        .byte $AB
-- D - I - 0x015BE3 11:BBD3: FE        .byte $FE
+- D - I - 0x015BE3 11:BBD3: FE        .byte con_FE
 off_BBD4:
 - D - I - 0x015BE4 11:BBD4: A7        .byte $A7
 - D - I - 0x015BE5 11:BBD5: 38        .byte $38
@@ -8575,7 +8575,7 @@ off_BC70:
 - D - I - 0x015C80 11:BC70: AD        .byte $AD
 - D - I - 0x015C81 11:BC71: 3A        .byte $3A
 - D - I - 0x015C82 11:BC72: 7F        .byte $7F
-- D - I - 0x015C83 11:BC73: FE        .byte $FE
+- D - I - 0x015C83 11:BC73: FE        .byte con_FE
 off_BC74:
 - D - I - 0x015C84 11:BC74: 33        .byte $33
 - D - I - 0x015C85 11:BC75: E7        .byte $E7
