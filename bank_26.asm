@@ -298,10 +298,10 @@ off_A2A1_01_история_цубасы:
     .text "His ultimate dream"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $07
-    .text "is to win the U-20"
+    .text "is to win the World"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "World Cup with Japan."
+    .byte con_катсцена_смещение_текста, $09
+    .text "Cup with Japan."
     .byte con_катсцена_мячик
     
     
