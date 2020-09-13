@@ -2741,54 +2741,71 @@ off_A79E_C4_джек_улетает_и_появляется_и_садится_н
 - D - I - 0x0147B1 11:A7A1: 3C        .byte $3C
 
 - D - I - 0x0147B2 11:A7A2: F7        .byte con_физика
-- D - I - 0x0147B3 11:A7A3: E0        .byte $E0     ; влияет на угол полета и скорость полета
+- D - I - 0x0147B3 11:A7A3: E0        .byte $E0
 - D - I - 0x0147B4 11:A7A4: 00        .byte $00
 - D - I - 0x0147B5 11:A7A5: 00        .byte $00
-
+; полет
 - D - I - 0x0147B6 11:A7A6: 97 62     .dbyt off_B762 - $2000
-- D - I - 0x0147B8 11:A7A8: 12        .byte $12     ; таймер полета джека вверх перед зависанием в воздухе
+- D - I - 0x0147B8 11:A7A8: 12        .byte $12
 
 - D - I - 0x0147B9 11:A7A9: F7        .byte con_физика
 - D - I - 0x0147BA 11:A7AA: 00        .byte $00
 - D - I - 0x0147BB 11:A7AB: 00        .byte $00
 - D - I - 0x0147BC 11:A7AC: 00        .byte $00
-
-- D - I - 0x0147BD 11:A7AD: 7F        .byte $7F     ; таймер джека перед телепортом когда он висит в воздухе
-- D - I - 0x0147BE 11:A7AE: 11        .byte $11
+; невидимость
+- D - I - 0x0147BD 11:A7AD: 7F        .byte $7F
+- D - I - 0x0147BE 11:A7AE: 11        .byte $50
 
 - D - I - 0x0147BF 11:A7AF: F1        .byte con_координаты_Y_X
 - D - I - 0x0147C0 11:A7B0: 1C        .byte $1C
 - D - I - 0x0147C1 11:A7B1: 0A        .byte $0A
 
 - D - I - 0x0147C2 11:A7B2: 97 53     .dbyt off_B753 - $2000
-
+; появление из фона
 - D - I - 0x0147C4 11:A7B4: F7        .byte con_физика
 - D - I - 0x0147C5 11:A7B5: F0        .byte $F0
 - D - I - 0x0147C6 11:A7B6: 00        .byte $00
 - D - I - 0x0147C7 11:A7B7: 00        .byte $00
 
 - D - I - 0x0147C8 11:A7B8: 04        .byte $04
-
+; остановить появление
 - D - I - 0x0147C9 11:A7B9: F7        .byte con_физика
 - D - I - 0x0147CA 11:A7BA: 00        .byte $00
 - D - I - 0x0147CB 11:A7BB: 00        .byte $00
 - D - I - 0x0147CC 11:A7BC: 00        .byte $00
 
-- D - I - 0x0147CD 11:A7BD: 7F        .byte $7F     ; таймер джека перед падением после телепорта
-- D - I - 0x0147CE 11:A7BE: 2B        .byte $2B
+- D - I - 0x0147CD 11:A7BD: 7F        .byte $7F
+; прыжок из фона
+- D - I - 0x0147B2 11:A7A2: F7        .byte con_физика
+- D - I - 0x0147B3 11:A7A3: E0        .byte $F0
+- D - I - 0x0147B4 11:A7A4: 00        .byte $FB
+- D - I - 0x0147B5 11:A7A5: 00        .byte $00
 
+- D - I - 0x0147B6 11:A7A6: 97 62     .dbyt off_B762 - $2000
+- D - I - 0x0147B8 11:A7A8: 12        .byte $10
+; смена анимации перед приземлением на границу фона
+- D - I - 0x0147C2 11:A7B2: 97 53     .dbyt off_B753 - $2000
+- D - I - 0x0147B8 11:A7A8: 12        .byte $04
+
+- D - I - 0x0147C9 11:A7B9: F7        .byte con_физика
+- D - I - 0x0147CA 11:A7BA: 00        .byte $00
+- D - I - 0x0147CB 11:A7BB: 00        .byte $00
+- D - I - 0x0147CC 11:A7BC: 00        .byte $00
+; ожидание падения
+- D - I - 0x0147CD 11:A7BD: 7F        .byte $7F
+; падение
 - D - I - 0x0147CF 11:A7BF: F7        .byte con_физика
-- D - I - 0x0147D0 11:A7C0: 20        .byte $20
-- D - I - 0x0147D1 11:A7C1: 00        .byte $00
+- D - I - 0x0147D0 11:A7C0: 20        .byte $10
+- D - I - 0x0147D1 11:A7C1: 00        .byte $08
 - D - I - 0x0147D2 11:A7C2: 00        .byte $00
 
 - D - I - 0x0147D3 11:A7C3: 97 71     .dbyt off_B771 - $2000
-- D - I - 0x0147D5 11:A7C5: 21        .byte $21
+- D - I - 0x0147D5 11:A7C5: 21        .byte $1A
 
 - D - I - 0x0147D6 11:A7C6: F1        .byte con_координаты_Y_X
 - D - I - 0x0147D7 11:A7C7: 5B        .byte $5B
 - D - I - 0x0147D8 11:A7C8: 0A        .byte $0A
-
+; приземление
 - D - I - 0x0147D9 11:A7C9: F7        .byte con_физика
 - D - I - 0x0147DA 11:A7CA: 00        .byte $00
 - D - I - 0x0147DB 11:A7CB: 00        .byte $00
@@ -2817,22 +2834,22 @@ off_A7D8_C5_объект_для_скрытия_прыгающего_джека:
 
 - D - I - 0x0147EC 11:A7DC: 96 EB     .dbyt off_B6EB - $2000
 - D - I - 0x0147EE 11:A7DE: 7F        .byte $7F
-- D - I - 0x0147EF 11:A7DF: 23        .byte $23
+- D - I - 0x0147EF 11:A7DF: 23        .byte $62
 
 - D - I - 0x0147F0 11:A7E0: F1        .byte con_координаты_Y_X
 - D - I - 0x0147F1 11:A7E1: 1C        .byte $1C
 - D - I - 0x0147F2 11:A7E2: 00        .byte $00
 
 - D - I - 0x0147F3 11:A7E3: 96 EB     .dbyt off_B6EB - $2000
-- D - I - 0x0147F5 11:A7E5: 7F        .byte $7F
-- D - I - 0x0147F6 11:A7E6: 31        .byte $31
+- D - I - 0x0147F2 11:A7E2: 00        .byte $7F
+- D - I - 0x0147F2 11:A7E2: 00        .byte $30
 
-- D - I - 0x0147F7 11:A7E7: F7        .byte con_физика
-- D - I - 0x0147F8 11:A7E8: 20        .byte $20
-- D - I - 0x0147F9 11:A7E9: 00        .byte $00
-- D - I - 0x0147FA 11:A7EA: 00        .byte $00
+- D - I - 0x0147B9 11:A7A9: F7        .byte con_физика
+- D - I - 0x0147BA 11:A7AA: 00        .byte $10
+- D - I - 0x0147BB 11:A7AB: 00        .byte $00
+- D - I - 0x0147BC 11:A7AC: 00        .byte $00
 
-- D - I - 0x0147FB 11:A7EB: 10        .byte $10
+- D - I - 0x0147F2 11:A7E2: 00        .byte $7F
 
 - D - I - 0x0147FC 11:A7EC: FF        .byte con_выход
 
@@ -2963,7 +2980,7 @@ off_A82B_CB:
 
 
 
-
+; данные спрайтов
 off_A837:
 - D - I - 0x014847 11:A837: 08        .byte $08
 - D - I - 0x014848 11:A838: 09        .byte $09
