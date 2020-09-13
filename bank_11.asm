@@ -151,7 +151,7 @@ off_A0C6_6E:
 
 - D - I - 0x0140EC 11:A0DC: F0        .byte $F0
 
-off_A0DD:
+@бесконечный_цикл:
 - D - I - 0x0140ED 11:A0DD: F5        .byte $F5
 
 - D - I - 0x0140EE 11:A0DE: 88        .byte $88
@@ -175,7 +175,7 @@ off_A0DD:
 - D - I - 0x0140FC 11:A0EC: 08        .byte $08
 - D - I - 0x0140FD 11:A0ED: 03        .byte $03
 
-- D - I - 0x0140FE 11:A0EE: A0 DD     .dbyt off_A0DD
+- D - I - 0x0140FE 11:A0EE: A0 DD     .dbyt @бесконечный_цикл
 
 
 
@@ -213,7 +213,7 @@ off_A0F0_6F:
 
 - D - I - 0x014116 11:A106: F0        .byte $F0
 
-off_A107:
+@бесконечный_цикл:
 - D - I - 0x014117 11:A107: F5        .byte $F5
 
 - D - I - 0x014118 11:A108: 88        .byte $88
@@ -237,7 +237,7 @@ off_A107:
 - D - I - 0x014126 11:A116: 2F        .byte $2F
 - D - I - 0x014127 11:A117: 03        .byte $03
 
-- D - I - 0x014128 11:A118: A1 07     .dbyt off_A107
+- D - I - 0x014128 11:A118: A1 07     .dbyt @бесконечный_цикл
 
 
 
@@ -597,7 +597,7 @@ off_A1CA_7D:
 
 - D - I - 0x0141FF 11:A1EF: F0        .byte $F0
 
-off_A1F0:
+@бесконечный_цикл:
 - D - I - 0x014200 11:A1F0: F7        .byte $F7
 - D - I - 0x014201 11:A1F1: 00        .byte $00
 - D - I - 0x014202 11:A1F2: 01        .byte $01
@@ -611,7 +611,7 @@ off_A1F0:
 - D - I - 0x014208 11:A1F8: 9A        .byte $9A
 - D - I - 0x014209 11:A1F9: 01        .byte $01
 
-- D - I - 0x01420A 11:A1FA: A1 F0     .dbyt off_A1F0
+- D - I - 0x01420A 11:A1FA: A1 F0     .dbyt @бесконечный_цикл
 
 
 
@@ -833,7 +833,7 @@ off_A25F_82:
 
 - D - I - 0x01429D 11:A28D: F0        .byte $F0
 
-off_A28E:
+@бесконечный_цикл:
 - D - I - 0x01429E 11:A28E: F7        .byte $F7
 - D - I - 0x01429F 11:A28F: F0        .byte $F0
 - D - I - 0x0142A0 11:A290: 00        .byte $00
@@ -852,14 +852,14 @@ off_A28E:
 - D - I - 0x0142AA 11:A29A: 08        .byte $08
 - D - I - 0x0142AB 11:A29B: 01        .byte $01
 
-- D - I - 0x0142AC 11:A29C: A2 8E     .dbyt off_A28E
+- D - I - 0x0142AC 11:A29C: A2 8E     .dbyt @бесконечный_цикл
 
 
 
 off_A29E_83:
 - D - I - 0x0142AE 11:A29E: 2D        .byte $2D
 
-off_A29F:
+@бесконечный_цикл:
 - D - I - 0x0142AF 11:A29F: F1        .byte $F1
 - D - I - 0x0142B0 11:A2A0: 22        .byte $22
 - D - I - 0x0142B1 11:A2A1: 38        .byte $38
@@ -920,14 +920,14 @@ off_A29F:
 - D - I - 0x0142D7 11:A2C7: 7C        .byte $7C
 - D - I - 0x0142D8 11:A2C8: 01        .byte $01
 
-- D - I - 0x0142D9 11:A2C9: A2 9F     .dbyt off_A29F
+- D - I - 0x0142D9 11:A2C9: A2 9F     .dbyt @бесконечный_цикл
 
 
 
 off_A2CB_84:
 - D - I - 0x0142DB 11:A2CB: 00        .byte $00
 
-off_A2CC:
+@бесконечный_цикл:
 - D - I - 0x0142DC 11:A2CC: F1        .byte $F1
 - D - I - 0x0142DD 11:A2CD: 22        .byte $22
 - D - I - 0x0142DE 11:A2CE: 38        .byte $38
@@ -988,7 +988,7 @@ off_A2CC:
 - D - I - 0x014304 11:A2F4: B8        .byte $B8
 - D - I - 0x014305 11:A2F5: 01        .byte $01
 
-- D - I - 0x014306 11:A2F6: A2 CC     .dbyt off_A2CC
+- D - I - 0x014306 11:A2F6: A2 CC     .dbyt @бесконечный_цикл
 
 
 
@@ -999,7 +999,7 @@ off_A2F8_85:
 - D - I - 0x01430A 11:A2FA: 30        .byte $30
 - D - I - 0x01430B 11:A2FB: 3C        .byte $3C
 
-off_A2FC:
+@бесконечный_цикл:
 - D - I - 0x01430C 11:A2FC: F5        .byte $F5
 
 - D - I - 0x01430D 11:A2FD: 8E        .byte $8E
@@ -1010,7 +1010,7 @@ off_A2FC:
 - D - I - 0x014311 11:A301: 1C        .byte $1C
 - D - I - 0x014312 11:A302: 01        .byte $01
 
-- D - I - 0x014313 11:A303: A2 FC     .dbyt off_A2FC
+- D - I - 0x014313 11:A303: A2 FC     .dbyt @бесконечный_цикл
 
 
 
@@ -1132,7 +1132,7 @@ off_A318_87:
 - D - I - 0x014364 11:A354: E4        .byte $E4
 - D - I - 0x014365 11:A355: 01        .byte $01
 
-off_A356:
+@бесконечный_цикл:
 - D - I - 0x014366 11:A356: F1        .byte $F1
 - D - I - 0x014367 11:A357: 16        .byte $16
 - D - I - 0x014368 11:A358: 39        .byte $39
@@ -1153,7 +1153,7 @@ off_A356:
 - D - I - 0x014372 11:A362: C3        .byte $C3
 - D - I - 0x014373 11:A363: 01        .byte $01
 
-- D - I - 0x014374 11:A364: A3 56     .dbyt off_A356
+- D - I - 0x014374 11:A364: A3 56     .dbyt @бесконечный_цикл
 
 
 
@@ -1266,7 +1266,7 @@ off_A36F_89:
 
 - D - I - 0x0143BB 11:A3AB: F0        .byte $F0
 
-off_A3AC:
+@бесконечный_цикл:
 - D - I - 0x0143BC 11:A3AC: F7        .byte $F7
 - D - I - 0x0143BD 11:A3AD: 00        .byte $00
 - D - I - 0x0143BE 11:A3AE: 00        .byte $00
@@ -1280,7 +1280,7 @@ off_A3AC:
 - D - I - 0x0143C4 11:A3B4: 94        .byte $94
 - D - I - 0x0143C5 11:A3B5: 01        .byte $01
 
-- D - I - 0x0143C6 11:A3B6: A3 AC     .dbyt off_A3AC
+- D - I - 0x0143C6 11:A3B6: A3 AC     .dbyt @бесконечный_цикл
 
 
 
@@ -1669,7 +1669,7 @@ off_A497_9C:
 - D - I - 0x0144AB 11:A49B: 93        .byte $93
 - D - I - 0x0144AC 11:A49C: 4D        .byte $4D
 
-off_A49D:
+@бесконечный_цикл:
 - D - I - 0x0144AD 11:A49D: F7        .byte $F7
 - D - I - 0x0144AE 11:A49E: 0F        .byte $0F
 - D - I - 0x0144AF 11:A49F: 00        .byte $00
@@ -1682,7 +1682,7 @@ off_A49D:
 - D - I - 0x0144B5 11:A4A5: 00        .byte $00
 - D - I - 0x0144B6 11:A4A6: 01        .byte $01
 
-- D - I - 0x0144B7 11:A4A7: A4 9D     .dbyt off_A49D
+- D - I - 0x0144B7 11:A4A7: A4 9D     .dbyt @бесконечный_цикл
 
 - - - - - 0x0144B9 11:A4A9: FF        .byte $FF
 
@@ -1820,7 +1820,7 @@ off_A4F7_A1:
 - D - I - 0x01450D 11:A4FD: 00        .byte $00
 - D - I - 0x01450E 11:A4FE: 00        .byte $00
 
-off_A4FF:
+@бесконечный_цикл:
 - D - I - 0x01450F 11:A4FF: F5        .byte $F5
 
 - D - I - 0x014510 11:A500: 88        .byte $88
@@ -1839,7 +1839,7 @@ off_A4FF:
 - D - I - 0x01451A 11:A50A: 08        .byte $08
 - D - I - 0x01451B 11:A50B: 03        .byte $03
 
-- D - I - 0x01451C 11:A50C: A4 FF     .dbyt off_A4FF
+- D - I - 0x01451C 11:A50C: A4 FF     .dbyt @бесконечный_цикл
 
 
 
@@ -2170,7 +2170,7 @@ off_A5ED_A9:
 - D - I - 0x0145FF 11:A5EF: 2E        .byte $2E
 - D - I - 0x014600 11:A5F0: 9E        .byte $9E
 
-off_A5F1:
+@бесконечный_цикл:
 - D - I - 0x014601 11:A5F1: F7        .byte $F7
 - D - I - 0x014602 11:A5F2: 0F        .byte $0F
 - D - I - 0x014603 11:A5F3: FE        .byte $FE
@@ -2189,7 +2189,7 @@ off_A5F1:
 - D - I - 0x01460D 11:A5FD: A6        .byte $A6
 - D - I - 0x01460E 11:A5FE: 01        .byte $01
 
-- D - I - 0x01460F 11:A5FF: A5 F1     .dbyt off_A5F1
+- D - I - 0x01460F 11:A5FF: A5 F1     .dbyt @бесконечный_цикл
 
 - - - - - 0x014611 11:A601: FF        .byte $FF
 
@@ -2220,7 +2220,7 @@ off_A602_AA:
 - D - I - 0x014622 11:A612: 00        .byte $00
 - D - I - 0x014623 11:A613: 01        .byte $01
 
-off_A614:
+@бесконечный_цикл:
 - D - I - 0x014624 11:A614: F7        .byte $F7
 - D - I - 0x014625 11:A615: 2E        .byte $2E
 - D - I - 0x014626 11:A616: 00        .byte $00
@@ -2233,7 +2233,7 @@ off_A614:
 - D - I - 0x01462C 11:A61C: 00        .byte $00
 - D - I - 0x01462D 11:A61D: 01        .byte $01
 
-- D - I - 0x01462E 11:A61E: A6 14     .dbyt off_A614
+- D - I - 0x01462E 11:A61E: A6 14     .dbyt @бесконечный_цикл
 
 
 
@@ -2351,7 +2351,7 @@ off_A65C_B1:
 - D - I - 0x01466E 11:A65E: 30        .byte $30
 - D - I - 0x01466F 11:A65F: 28        .byte $28
 
-off_A660:
+@бесконечный_цикл:
 - D - I - 0x014670 11:A660: 95        .byte $95
 - D - I - 0x014671 11:A661: DC        .byte $DC
 - D - I - 0x014672 11:A662: 0F        .byte $0F
@@ -2360,7 +2360,7 @@ off_A660:
 - D - I - 0x014674 11:A664: E3        .byte $E3
 - D - I - 0x014675 11:A665: 0F        .byte $0F
 
-- D - I - 0x014676 11:A666: A6 60     .dbyt off_A660
+- D - I - 0x014676 11:A666: A6 60     .dbyt @бесконечный_цикл
 
 
 
@@ -2371,7 +2371,7 @@ off_A668_B2:
 - D - I - 0x01467A 11:A66A: 30        .byte $30
 - D - I - 0x01467B 11:A66B: 28        .byte $28
 
-off_A66C:
+@бесконечный_цикл:
 - D - I - 0x01467C 11:A66C: 95        .byte $95
 - D - I - 0x01467D 11:A66D: EA        .byte $EA
 - D - I - 0x01467E 11:A66E: 0F        .byte $0F
@@ -2380,7 +2380,7 @@ off_A66C:
 - D - I - 0x014680 11:A670: F4        .byte $F4
 - D - I - 0x014681 11:A671: 0F        .byte $0F
 
-- D - I - 0x014682 11:A672: A6 6C     .dbyt off_A66C
+- D - I - 0x014682 11:A672: A6 6C     .dbyt @бесконечный_цикл
 
 
 
@@ -2413,7 +2413,7 @@ off_A681_B4:
 - D - I - 0x014693 11:A683: F3        .byte $F3
 - D - I - 0x014694 11:A684: 3E        .byte $3E
 
-off_A685:
+@бесконечный_цикл:
 - D - I - 0x014695 11:A685: F7        .byte $F7
 - D - I - 0x014696 11:A686: 10        .byte $10
 - D - I - 0x014697 11:A687: 00        .byte $00
@@ -2432,7 +2432,7 @@ off_A685:
 - D - I - 0x0146A1 11:A691: A6        .byte $A6
 - D - I - 0x0146A2 11:A692: 01        .byte $01
 
-- D - I - 0x0146A3 11:A693: A6 85     .dbyt off_A685
+- D - I - 0x0146A3 11:A693: A6 85     .dbyt @бесконечный_цикл
 
 
 
@@ -2927,7 +2927,7 @@ off_A79E_C4_джек_прыгает_и_появляется:
 - D - I - 0x0147DE 11:A7CE: 53        .byte $53
 - D - I - 0x0147DF 11:A7CF: 1E        .byte $1E
 
-off_A7D0:
+@бесконечный_цикл:
 - D - I - 0x0147E0 11:A7D0: 97        .byte $97
 - D - I - 0x0147E1 11:A7D1: 62        .byte $62
 - D - I - 0x0147E2 11:A7D2: 0F        .byte $0F
@@ -2936,7 +2936,7 @@ off_A7D0:
 - D - I - 0x0147E4 11:A7D4: 53        .byte $53
 - D - I - 0x0147E5 11:A7D5: 0F        .byte $0F
 
-- D - I - 0x0147E6 11:A7D6: A7 D0     .dbyt off_A7D0
+- D - I - 0x0147E6 11:A7D6: A7 D0     .dbyt @бесконечный_цикл
 
 
 
