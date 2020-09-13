@@ -3328,28 +3328,6 @@ off_AA92:
 - D - I - 0x012AAC 10:AA9C: E4 B5     .word off_B5E4
 
 
-; bzk
-- - - - - 0x012AAE 10:AA9E: 6C        .byte $6C
-- - - - - 0x012AAF 10:AA9F: 6D        .byte $6D
-- - - - - 0x012AB0 10:AAA0: 6E        .byte $6E
-- - - - - 0x012AB1 10:AAA1: 6F        .byte $6F
-- - - - - 0x012AB2 10:AAA2: BE        .byte $BE
-- - - - - 0x012AB3 10:AAA3: 3A        .byte $3A
-- - - - - 0x012AB4 10:AAA4: 1F        .byte $1F
-- - - - - 0x012AB5 10:AAA5: BF        .byte $BF
-- - - - - 0x012AB6 10:AAA6: 3C        .byte $3C
-- - - - - 0x012AB7 10:AAA7: 35        .byte $35
-- - - - - 0x012AB8 10:AAA8: 03        .byte $03
-- - - - - 0x012AB9 10:AAA9: 34        .byte $34
-- - - - - 0x012ABA 10:AAAA: 04        .byte $04
-- - - - - 0x012ABB 10:AAAB: 0C        .byte $0C
-- - - - - 0x012ABC 10:AAAC: A0        .byte $A0
-- - - - - 0x012ABD 10:AAAD: 3A        .byte $3A
-- - - - - 0x012ABE 10:AAAE: 4A        .byte $4A
-- - - - - 0x012ABF 10:AAAF: FB        .byte con_jmp
-- - - - - 0x012AC0 10:AAB0: 83 B5     .word off_B583
-
-
 
 off_AAB2:
 - D - I - 0x012AC2 10:AAB2: 6C        .byte $6C
@@ -5281,56 +5259,6 @@ off_B11D:
 - D - I - 0x0131B0 10:B1A0: FF        .byte con_FF
 
 
-; bzk
-- - - - - 0x0131B1 10:B1A1: 60        .byte $60
-- - - - - 0x0131B2 10:B1A2: 61        .byte $61
-- - - - - 0x0131B3 10:B1A3: 62        .byte $62
-- - - - - 0x0131B4 10:B1A4: 63        .byte $63
-- - - - - 0x0131B5 10:B1A5: BF        .byte $BF
-- - - - - 0x0131B6 10:B1A6: 3A        .byte $3A
-- - - - - 0x0131B7 10:B1A7: F9        .byte $F9
-- - - - - 0x0131B8 10:B1A8: 3E        .byte $3E
-- - - - - 0x0131B9 10:B1A9: FB        .byte $FB
-- - - - - 0x0131BA 10:B1AA: 81        .byte $81
-- - - - - 0x0131BB 10:B1AB: C0        .byte $C0
-- - - - - 0x0131BC 10:B1AC: 38        .byte $38
-- - - - - 0x0131BD 10:B1AD: EF        .byte $EF
-- - - - - 0x0131BE 10:B1AE: C0        .byte $C0
-- - - - - 0x0131BF 10:B1AF: 18        .byte $18
-- - - - - 0x0131C0 10:B1B0: FA        .byte $FA
-- - - - - 0x0131C1 10:B1B1: A0        .byte $A0
-- - - - - 0x0131C2 10:B1B2: 36        .byte $36
-- - - - - 0x0131C3 10:B1B3: 74        .byte $74
-- - - - - 0x0131C4 10:B1B4: 3A        .byte $3A
-- - - - - 0x0131C5 10:B1B5: 76        .byte $76
-- - - - - 0x0131C6 10:B1B6: 3F        .byte $3F
-- - - - - 0x0131C7 10:B1B7: 7C        .byte $7C
-- - - - - 0x0131C8 10:B1B8: 02        .byte $02
-- - - - - 0x0131C9 10:B1B9: 7E        .byte $7E
-- - - - - 0x0131CA 10:B1BA: 07        .byte $07
-- - - - - 0x0131CB 10:B1BB: 72        .byte $72
-- - - - - 0x0131CC 10:B1BC: 0B        .byte $0B
-- - - - - 0x0131CD 10:B1BD: 78        .byte $78
-- - - - - 0x0131CE 10:B1BE: 0F        .byte $0F
-- - - - - 0x0131CF 10:B1BF: 7A        .byte $7A
-- - - - - 0x0131D0 10:B1C0: A1        .byte $A1
-- - - - - 0x0131D1 10:B1C1: 36        .byte $36
-- - - - - 0x0131D2 10:B1C2: 75        .byte $75
-- - - - - 0x0131D3 10:B1C3: 3A        .byte $3A
-- - - - - 0x0131D4 10:B1C4: 77        .byte $77
-- - - - - 0x0131D5 10:B1C5: 3F        .byte $3F
-- - - - - 0x0131D6 10:B1C6: 7D        .byte $7D
-- - - - - 0x0131D7 10:B1C7: 00        .byte $00
-- - - - - 0x0131D8 10:B1C8: 7F        .byte $7F
-- - - - - 0x0131D9 10:B1C9: 07        .byte $07
-- - - - - 0x0131DA 10:B1CA: 73        .byte $73
-- - - - - 0x0131DB 10:B1CB: 0B        .byte $0B
-- - - - - 0x0131DC 10:B1CC: 79        .byte $79
-- - - - - 0x0131DD 10:B1CD: 0F        .byte $0F
-- - - - - 0x0131DE 10:B1CE: 7B        .byte $7B
-- - - - - 0x0131DF 10:B1CF: FF        .byte con_FF
-
-
 
 off_B1D0:
 - D - I - 0x0131E0 10:B1D0: 68        .byte $68
@@ -5706,32 +5634,6 @@ off_B310:
 - D - I - 0x013334 10:B324: 6E        .byte $6E
 - D - I - 0x013335 10:B325: FB        .byte con_jmp
 - D - I - 0x013336 10:B326: 8D B8     .word off_B88D
-
-
-; bzk
-- - - - - 0x013338 10:B328: 78        .byte $78
-- - - - - 0x013339 10:B329: 79        .byte $79
-- - - - - 0x01333A 10:B32A: 7A        .byte $7A
-- - - - - 0x01333B 10:B32B: 7B        .byte $7B
-- - - - - 0x01333C 10:B32C: BE        .byte $BE
-- - - - - 0x01333D 10:B32D: 3B        .byte $3B
-- - - - - 0x01333E 10:B32E: 4E        .byte $4E
-- - - - - 0x01333F 10:B32F: 3F        .byte $3F
-- - - - - 0x013340 10:B330: 6A        .byte $6A
-- - - - - 0x013341 10:B331: BF        .byte $BF
-- - - - - 0x013342 10:B332: 38        .byte $38
-- - - - - 0x013343 10:B333: 44        .byte $44
-- - - - - 0x013344 10:B334: 3C        .byte $3C
-- - - - - 0x013345 10:B335: 6B        .byte $6B
-- - - - - 0x013346 10:B336: 03        .byte $03
-- - - - - 0x013347 10:B337: 71        .byte $71
-- - - - - 0x013348 10:B338: A0        .byte $A0
-- - - - - 0x013349 10:B339: 3B        .byte $3B
-- - - - - 0x01334A 10:B33A: 4F        .byte $4F
-- - - - - 0x01334B 10:B33B: 3F        .byte $3F
-- - - - - 0x01334C 10:B33C: 6E        .byte $6E
-- - - - - 0x01334D 10:B33D: FB        .byte con_jmp
-- - - - - 0x01334E 10:B33E: 8D B8     .word off_B88D
 
 
 
@@ -7321,37 +7223,6 @@ off_B8FF:
 - D - I - 0x013938 10:B928: 0D        .byte $0D
 - D - I - 0x013939 10:B929: 3E        .byte $3E
 - D - I - 0x01393A 10:B92A: FF        .byte con_FF
-
-
-; bzk
-- - - - - 0x01393B 10:B92B: 33        .byte $33
-- - - - - 0x01393C 10:B92C: E7        .byte $E7
-- - - - - 0x01393D 10:B92D: 37        .byte $37
-- - - - - 0x01393E 10:B92E: ED        .byte $ED
-- - - - - 0x01393F 10:B92F: 3B        .byte $3B
-- - - - - 0x013940 10:B930: EF        .byte $EF
-- - - - - 0x013941 10:B931: BD        .byte $BD
-- - - - - 0x013942 10:B932: 33        .byte $33
-- - - - - 0x013943 10:B933: E2        .byte $E2
-- - - - - 0x013944 10:B934: 37        .byte $37
-- - - - - 0x013945 10:B935: E8        .byte $E8
-- - - - - 0x013946 10:B936: 3B        .byte $3B
-- - - - - 0x013947 10:B937: EA        .byte $EA
-- - - - - 0x013948 10:B938: BE        .byte $BE
-- - - - - 0x013949 10:B939: 33        .byte $33
-- - - - - 0x01394A 10:B93A: E3        .byte $E3
-- - - - - 0x01394B 10:B93B: 37        .byte $37
-- - - - - 0x01394C 10:B93C: E9        .byte $E9
-- - - - - 0x01394D 10:B93D: 3B        .byte $3B
-- - - - - 0x01394E 10:B93E: EB        .byte $EB
-- - - - - 0x01394F 10:B93F: A2        .byte $A2
-- - - - - 0x013950 10:B940: 33        .byte $33
-- - - - - 0x013951 10:B941: E6        .byte $E6
-- - - - - 0x013952 10:B942: 37        .byte $37
-- - - - - 0x013953 10:B943: EC        .byte $EC
-- - - - - 0x013954 10:B944: 3B        .byte $3B
-- - - - - 0x013955 10:B945: EE        .byte $EE
-- - - - - 0x013956 10:B946: FF        .byte con_FF
 
 off_B947:
 - D - I - 0x013957 10:B947: BE        .byte $BE
