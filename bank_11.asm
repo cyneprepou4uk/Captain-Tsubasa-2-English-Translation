@@ -88,8 +88,8 @@
 - D - I - 0x0140B4 11:A0A4: 3E A7     .word off_A73E_BF
 - D - I - 0x0140B6 11:A0A6: 50 A7     .word off_A750_C0
 - D - I - 0x0140B8 11:A0A8: 57 A7     .word off_A757_C1
-- D - I - 0x0140BA 11:A0AA: 65 A7     .word off_A765_C2
-- D - I - 0x0140BC 11:A0AC: 84 A7     .word off_A784_C3
+- D - I - 0x0140BA 11:A0AA: 65 A7     .word off_A765_C2_джек_выходит_и_поздравляет
+- D - I - 0x0140BC 11:A0AC: 84 A7     .word off_A784_C3_джек_уходит_с_поля
 - D - I - 0x0140BE 11:A0AE: 9E A7     .word off_A79E_C4_джек_прыгает_и_появляется
 - D - I - 0x0140C0 11:A0B0: D8 A7     .word off_A7D8_C5_объект_для_скрытия_прыгающего_джека
 - D - I - 0x0140C2 11:A0B2: ED A7     .word off_A7ED_C6
@@ -2146,42 +2146,53 @@ off_A757_C1:
 
 
 
-off_A765_C2:
-- D - I - 0x014775 11:A765: 15        .byte $15    ; <な>
+off_A765_C2_джек_выходит_и_поздравляет:
+- D - I - 0x014775 11:A765: 15        .byte $15
+
 - D - I - 0x014776 11:A766: F1        .byte $F1
-- D - I - 0x014777 11:A767: 38        .byte $38    ; <5>
-- D - I - 0x014778 11:A768: 78        .byte $78    ; <?>
+- D - I - 0x014777 11:A767: 38        .byte $38
+- D - I - 0x014778 11:A768: 78        .byte $78
+
 - D - I - 0x014779 11:A769: F7        .byte $F7
-- D - I - 0x01477A 11:A76A: 0F        .byte $0F    ; <そ>
+- D - I - 0x01477A 11:A76A: 0F        .byte $0F
 - D - I - 0x01477B 11:A76B: 00        .byte $00
 - D - I - 0x01477C 11:A76C: 00        .byte $00
+
 - D - I - 0x01477D 11:A76D: EF        .byte $EF
+
 - D - I - 0x01477E 11:A76E: 97        .byte $97
-- D - I - 0x01477F 11:A76F: 39        .byte $39    ; <6>
-- D - I - 0x014780 11:A770: 02        .byte $02    ; <い>
+- D - I - 0x01477F 11:A76F: 39        .byte $39
+- D - I - 0x014780 11:A770: 02        .byte $02
+
 - D - I - 0x014781 11:A771: 97        .byte $97
-- D - I - 0x014782 11:A772: 46        .byte $46    ; <カ>
-- D - I - 0x014783 11:A773: 02        .byte $02    ; <い>
+- D - I - 0x014782 11:A772: 46        .byte $46
+- D - I - 0x014783 11:A773: 02        .byte $02
+
 - D - I - 0x014784 11:A774: F0        .byte $F0
+
 - D - I - 0x014785 11:A775: F7        .byte $F7
 - D - I - 0x014786 11:A776: 00        .byte $00
 - D - I - 0x014787 11:A777: 00        .byte $00
 - D - I - 0x014788 11:A778: 00        .byte $00
+
 - D - I - 0x014789 11:A779: 97        .byte $97
-- D - I - 0x01478A 11:A77A: 53        .byte $53    ; <テ>
-- D - I - 0x01478B 11:A77B: 2A        .byte $2A    ; <れ>
+- D - I - 0x01478A 11:A77A: 53        .byte $53
+- D - I - 0x01478B 11:A77B: 2A        .byte $2A
+
 - D - I - 0x01478C 11:A77C: 97        .byte $97
-- D - I - 0x01478D 11:A77D: 62        .byte $62    ; <メ>
-- D - I - 0x01478E 11:A77E: 0F        .byte $0F    ; <そ>
+- D - I - 0x01478D 11:A77D: 62        .byte $62
+- D - I - 0x01478E 11:A77E: 0F        .byte $0F
+
 - D - I - 0x01478F 11:A77F: 97        .byte $97
-- D - I - 0x014790 11:A780: 53        .byte $53    ; <テ>
-- D - I - 0x014791 11:A781: 0F        .byte $0F    ; <そ>
-- D - I - 0x014792 11:A782: A7        .byte $A7    ; <ず>
-- D - I - 0x014793 11:A783: 7C        .byte $7C    ; <~>
+- D - I - 0x014790 11:A780: 53        .byte $53
+- D - I - 0x014791 11:A781: 0F        .byte $0F
+
+- D - I - 0x014792 11:A782: A7        .byte $A7
+- D - I - 0x014793 11:A783: 7C        .byte $7C
 
 
 
-off_A784_C3:
+off_A784_C3_джек_уходит_с_поля:
 - D - I - 0x014794 11:A784: 15        .byte $15    ; <な>
 - D - I - 0x014795 11:A785: F1        .byte $F1
 - D - I - 0x014796 11:A786: 38        .byte $38    ; <5>
@@ -2209,72 +2220,85 @@ off_A784_C3:
 - D - I - 0x0147AB 11:A79B: F0        .byte $F0
 - D - I - 0x0147AC 11:A79C: F0        .byte $F0
 - D - I - 0x0147AD 11:A79D: FF        .byte $FF
-; предположительно начало анимации полета джека (начало)
 
 
 
 off_A79E_C4_джек_прыгает_и_появляется:
-- D - I - 0x0147AE 11:A79E: 15        .byte $15    ; <な>
+- D - I - 0x0147AE 11:A79E: 15        .byte $15
+
 - D - I - 0x0147AF 11:A79F: F1        .byte $F1
 - D - I - 0x0147B0 11:A7A0: 38        .byte $38    ; базовая позиция анимации по вертикали
 - D - I - 0x0147B1 11:A7A1: 3C        .byte $3C    ; базовая позиция анимации по 
+
 - D - I - 0x0147B2 11:A7A2: F7        .byte $F7
 - D - I - 0x0147B3 11:A7A3: E0        .byte $E0    ; влияет на угол полета и скорость полета
 - D - I - 0x0147B4 11:A7A4: 00        .byte $00
 - D - I - 0x0147B5 11:A7A5: 00        .byte $00
+
 - D - I - 0x0147B6 11:A7A6: 97        .byte $97
-- D - I - 0x0147B7 11:A7A7: 62        .byte $62    ; <メ>
+- D - I - 0x0147B7 11:A7A7: 62        .byte $62
 ; таймер полета джека вверх перед зависанием в воздухе
-- D - I - 0x0147B8 11:A7A8: 12        .byte $58    ; <つ>
+- D - I - 0x0147B8 11:A7A8: 12        .byte $12
+
 - D - I - 0x0147B9 11:A7A9: F7        .byte $F7
 - D - I - 0x0147BA 11:A7AA: 00        .byte $00
 - D - I - 0x0147BB 11:A7AB: 00        .byte $00
 - D - I - 0x0147BC 11:A7AC: 00        .byte $00
+
 ; таймер джека перед телепортом когда он висит в воздухе
-- D - I - 0x0147BD 11:A7AD: 7F        .byte $7F    ; <,>
-- D - I - 0x0147BE 11:A7AE: 11        .byte $11    ; <ち>
+- D - I - 0x0147BD 11:A7AD: 7F        .byte $7F
+- D - I - 0x0147BE 11:A7AE: 11        .byte $11
+
 - D - I - 0x0147BF 11:A7AF: F1        .byte $F1
-- D - I - 0x0147C0 11:A7B0: 1C        .byte $1C    ; <ふ>
-- D - I - 0x0147C1 11:A7B1: 0A        .byte $0A    ; <こ>
+- D - I - 0x0147C0 11:A7B0: 1C        .byte $1C
+- D - I - 0x0147C1 11:A7B1: 0A        .byte $0A
+
 - D - I - 0x0147C2 11:A7B2: 97        .byte $97
-- D - I - 0x0147C3 11:A7B3: 53        .byte $53    ; <テ>
+- D - I - 0x0147C3 11:A7B3: 53        .byte $53
+
 - D - I - 0x0147C4 11:A7B4: F7        .byte $F7
 - D - I - 0x0147C5 11:A7B5: F0        .byte $F0
 - D - I - 0x0147C6 11:A7B6: 00        .byte $00
 - D - I - 0x0147C7 11:A7B7: 00        .byte $00
-- D - I - 0x0147C8 11:A7B8: 04        .byte $04    ; <え>
+
+- D - I - 0x0147C8 11:A7B8: 04        .byte $04
+
 - D - I - 0x0147C9 11:A7B9: F7        .byte $F7
 - D - I - 0x0147CA 11:A7BA: 00        .byte $00
 - D - I - 0x0147CB 11:A7BB: 00        .byte $00
 - D - I - 0x0147CC 11:A7BC: 00        .byte $00
-- D - I - 0x0147CD 11:A7BD: 7F        .byte $7F    ; <,>
+
+- D - I - 0x0147CD 11:A7BD: 7F        .byte $7F
 ; таймер джека перед падением после телепорта
-- D - I - 0x0147CE 11:A7BE: 2B        .byte $7F    ; <ろ>
+- D - I - 0x0147CE 11:A7BE: 2B        .byte $2B
+
 - D - I - 0x0147CF 11:A7BF: F7        .byte $F7
-- D - I - 0x0147D0 11:A7C0: 20        .byte $20    ; <み>
+- D - I - 0x0147D0 11:A7C0: 20        .byte $20
 - D - I - 0x0147D1 11:A7C1: 00        .byte $00
 - D - I - 0x0147D2 11:A7C2: 00        .byte $00
 - D - I - 0x0147D3 11:A7C3: 97        .byte $97
-- D - I - 0x0147D4 11:A7C4: 71        .byte $71    ; <ュ>
-- D - I - 0x0147D5 11:A7C5: 21        .byte $21    ; <む>
+- D - I - 0x0147D4 11:A7C4: 71        .byte $71
+- D - I - 0x0147D5 11:A7C5: 21        .byte $21
+
 - D - I - 0x0147D6 11:A7C6: F1        .byte $F1
-- D - I - 0x0147D7 11:A7C7: 5B        .byte $5B    ; <ヒ>
-- D - I - 0x0147D8 11:A7C8: 0A        .byte $0A    ; <こ>
+- D - I - 0x0147D7 11:A7C7: 5B        .byte $5B
+- D - I - 0x0147D8 11:A7C8: 0A        .byte $0A
+
 - D - I - 0x0147D9 11:A7C9: F7        .byte $F7
 - D - I - 0x0147DA 11:A7CA: 00        .byte $00
 - D - I - 0x0147DB 11:A7CB: 00        .byte $00
 - D - I - 0x0147DC 11:A7CC: 00        .byte $00
 - D - I - 0x0147DD 11:A7CD: 97        .byte $97
-- D - I - 0x0147DE 11:A7CE: 53        .byte $53    ; <テ>
-- D - I - 0x0147DF 11:A7CF: 1E        .byte $1E    ; <ほ>
+- D - I - 0x0147DE 11:A7CE: 53        .byte $53
+- D - I - 0x0147DF 11:A7CF: 1E        .byte $1E
 - D - I - 0x0147E0 11:A7D0: 97        .byte $97
-- D - I - 0x0147E1 11:A7D1: 62        .byte $62    ; <メ>
-- D - I - 0x0147E2 11:A7D2: 0F        .byte $0F    ; <そ>
+- D - I - 0x0147E1 11:A7D1: 62        .byte $62
+- D - I - 0x0147E2 11:A7D2: 0F        .byte $0F
 - D - I - 0x0147E3 11:A7D3: 97        .byte $97
-- D - I - 0x0147E4 11:A7D4: 53        .byte $53    ; <テ>
-- D - I - 0x0147E5 11:A7D5: 0F        .byte $0F    ; <そ>
-- D - I - 0x0147E6 11:A7D6: A7        .byte $A7    ; <ず>
-- D - I - 0x0147E7 11:A7D7: D0        .byte $D0    ; <ペ>
+- D - I - 0x0147E4 11:A7D4: 53        .byte $53
+- D - I - 0x0147E5 11:A7D5: 0F        .byte $0F
+- D - I - 0x0147E6 11:A7D6: A7        .byte $A7
+- D - I - 0x0147E7 11:A7D7: D0        .byte $D0
 
 
 
