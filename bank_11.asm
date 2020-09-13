@@ -1596,8 +1596,6 @@ off_A497_9C:
 
 - D - I - 0x0144B7 11:A4A7: A4 9D     .dbyt @бесконечный_цикл
 
-- - - - - 0x0144B9 11:A4A9: FF        .byte con_выход
-
 
 
 off_A4AA_9D:
@@ -2110,8 +2108,6 @@ off_A5ED_A9:
 
 - D - I - 0x01460F 11:A5FF: A5 F1     .dbyt @бесконечный_цикл
 
-- - - - - 0x014611 11:A601: FF        .byte con_выход
-
 
 
 off_A602_AA:
@@ -2389,8 +2385,6 @@ off_A6AA_B7:
 - D - I - 0x0146BE 11:A6AE: FA        .byte con_развилка
 - D - I - 0x0146BF 11:A6AF: 2B B6     .word off_B62B
 - D - I - 0x0146C1 11:A6B1: A0 B6     .word off_B6A0
-
-- - - - - 0x0146C3 11:A6B3: FF        .byte con_выход
 
 
 
