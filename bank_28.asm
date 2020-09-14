@@ -226,10 +226,13 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "bringing the rivalry"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "between high schools"
+    .text "between the high"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
-    .text "to a fitting close!"
+    .text "schools to a"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $09
+    .text "fitting close!"
     .byte con_катсцена_задержка, $50
     
     
