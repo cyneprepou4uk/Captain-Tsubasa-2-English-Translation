@@ -10,7 +10,7 @@ con_F5                  = $F5
 con_F6                  = $F6
 con_физика              = $F7   ; 1й байт = скорость + угол + направление (00/80), 2й = разгон X, 3й = разгон Y
 con_F9                  = $F9
-con_развилка            = $FA
+con_разговор            = $FA   ; развилка, первый прыжоок если персонаж молчит, второй если говорит
 con_выход               = $FF
 
 ; данные спрайтов
@@ -454,7 +454,7 @@ off_A1F1_02_цубаса_резкий_поворот_красный:
     .dbyt off_A9E3 - $2000
     .byte $02
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_A8EA
     .word off_B40D
 
@@ -483,7 +483,7 @@ off_A201_03:
     .byte $00
     .byte $00
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AC8E
     .word off_B219
 
@@ -537,7 +537,7 @@ off_A231_06_хюга_обычный_красный:
     .byte $30
     .byte $4E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B0B4
     .word off_ACAC
 
@@ -566,7 +566,7 @@ off_A23B_07_цубаса_движение_спиной_влево_поворот
 
     .byte $32
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_A9E3
     .word off_A9F6
 
@@ -597,7 +597,7 @@ off_A25C_09_цубаса_злой_белый_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_A8EA
     .word off_B40D
 
@@ -610,7 +610,7 @@ off_A266_0A_карлос_злой_желтый_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B1D0
     .word off_B1E7
 
@@ -639,7 +639,7 @@ off_A270_0B:
     .byte $00
     .byte $00
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B310
     .word off_AD8A
 
@@ -704,7 +704,7 @@ off_A2A3_10_цубаса_обычный_белый_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B364
     .word off_A8D6
 
@@ -719,7 +719,7 @@ off_A2AD_11_цубаса_злой_белый_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_A8EA
     .word off_B40D
 
@@ -852,7 +852,7 @@ off_A2FF_19_мисаки_обычный_белый_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AA4A
     .word off_AA5E
 
@@ -895,7 +895,7 @@ off_A31E_1B_мисаки_злой_белый_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AA72
     .word off_B0F0
 
@@ -910,7 +910,7 @@ off_A329_1C_мацуяма_злой_желтый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AA86
     .word off_AA92
 
@@ -923,7 +923,7 @@ off_A334_1D_мацуяма_злой_желтый_справа:
     .byte $30
     .byte $4E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AA86
     .word off_AA92
 
@@ -964,7 +964,7 @@ off_A34D_20_мисуги_злой_белый_справа:
     .byte $30
     .byte $4E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AAB2
     .word off_AABE
 
@@ -977,7 +977,7 @@ off_A357_21_шнайдер_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AACA
     .word off_B4A2
 
@@ -990,7 +990,7 @@ off_A361_22_китаец_обычный_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AF84
     .word off_AAD4
 
@@ -1017,7 +1017,7 @@ off_A36B_23:
     .byte $00
     .byte $00
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AAFD
     .word off_B0C9
 
@@ -1040,7 +1040,7 @@ off_A380_24_ишизаки_моргает:
 
     .byte con_повторить
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AB1C
     .word off_AFAB
 
@@ -1077,7 +1077,7 @@ off_A3A2_26_санае_обычная_справа:
     .byte $30
     .byte $40
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B421
     .word off_AB68
 
@@ -1090,7 +1090,7 @@ off_A3AC_27_санае_закрытые_глаза_справа:
     .byte $30
     .byte $40
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AB80
     .word off_AFD2
 
@@ -1129,7 +1129,7 @@ off_A3C4_2A_йоко_обычная_справа:
     .byte $30
     .byte $40
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B3D9
     .word off_ABC6
 
@@ -1142,7 +1142,7 @@ off_A3CE_2B_йоко_закрытые_глаза_справа:
     .byte $30
     .byte $40
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_ABDE
     .word off_B264
 
@@ -1182,7 +1182,7 @@ off_A3DF_2D_йоко_злая_резко_движется_влево:
     .byte $00
     .byte $00
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B27A
     .word off_AC0A
 
@@ -1221,7 +1221,7 @@ off_A402_30_хюга_злой_черный_справа:     ; unused
     .byte $30
     .byte $4A
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AC8E
     .word off_B219
 
@@ -1237,7 +1237,7 @@ off_A40C_31_хюга_обычный_черный_справа_поднимает
     .dbyt off_AC8E - $2000
     .byte $07
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AFFF
     .word off_AC98
 
@@ -1250,7 +1250,7 @@ off_A419_32_хюга_злой_красный_справа:
     .byte $30
     .byte $4A
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_ACA2
     .word off_B439
 
@@ -1268,7 +1268,7 @@ off_A423_33_хюга_обычный_красный_слева_поднимает
     .dbyt off_ACA2 - $2000
     .byte $0A
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B0B4
     .word off_ACAC
 
@@ -1281,7 +1281,7 @@ off_A431_34_вакабаяши_справа:
     .byte $30
     .byte $40
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AF24
     .word off_ACB6
 
@@ -1326,7 +1326,7 @@ off_A44C_37_меон_слева:
     .byte $30
     .byte $32
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B3F1
     .word off_ACEC
 
@@ -1339,7 +1339,7 @@ off_A457_38_меон_справа:
     .byte $30
     .byte $42
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AD20
     .word off_AD06
 
@@ -1354,7 +1354,7 @@ off_A461_39_вакабаяши_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AF24
     .word off_ACB6
 
@@ -1367,7 +1367,7 @@ off_A46C_3A_гертис_справа:
     .byte $30
     .byte $3E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AF36
     .word off_AD3C     ; unused
 
@@ -1380,7 +1380,7 @@ off_A476_3B_роберто_обычный_справа:
     .byte $30
     .byte $44
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B310
     .word off_AD8A
 
@@ -1393,7 +1393,7 @@ off_A480_3C_роберто_злой_справа:
     .byte $30
     .byte $44
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_ADA2
     .word off_A9CA
 
@@ -1406,7 +1406,7 @@ off_A48A_3D_роберто_очки_справа:
     .byte $30
     .byte $44
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_ADBA
     .word off_B340
 
@@ -1432,7 +1432,7 @@ off_A49B_3F_мисаки_обычный_красный_справа:
     .byte $30
     .byte $4A
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AA4A
     .word off_AA5E
 
@@ -1447,7 +1447,7 @@ off_A4A5_40_катагири_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B016
     .word off_AE4B
 
@@ -1460,7 +1460,7 @@ off_A4B0_41_очкастый_менеджер_закрытые_глаза_спр
     .byte $30
     .byte $42
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B378
     .word off_AE75     ; unused
 
@@ -1473,7 +1473,7 @@ off_A4BA_42_миками_справа:
     .byte $30
     .byte $42
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B399
     .word off_AE96
 
@@ -1503,7 +1503,7 @@ off_A4CD_44_ишизаки_закрытые_глаза_справа:
     .byte $30
     .byte $42
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AAFD
     .word off_B0C9
 
@@ -1516,7 +1516,7 @@ off_A4D7_45_коимбра_тень_справа:
     .byte $30
     .byte $3E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B22E
     .word off_B2DA
 
@@ -1529,7 +1529,7 @@ off_A4E1_46_менеджер_бразилии_закрытые_глаза_спр
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B378
     .word off_AE75
 
@@ -1542,7 +1542,7 @@ off_A4EB_47_цубаса_обычный_красный_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B364
     .word off_A8D6
 
@@ -1604,7 +1604,7 @@ off_A511_4B_цубаса_злой_красный_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_A8EA
     .word off_B40D
 
@@ -1632,7 +1632,7 @@ off_A522_4D_роберто_обычный_слева:
     .byte $30
     .byte $2E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B310
     .word off_AD8A
 
@@ -1647,7 +1647,7 @@ off_A52D_4E_цубаса_обычный_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B364
     .word off_A8D6
 
@@ -1665,7 +1665,7 @@ off_A538_4F_санае_расстроена_поднимает_брови_сле
     .dbyt off_ABAE - $2000
     .byte $28
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B421
     .word off_AB68
 
@@ -1818,7 +1818,7 @@ off_A59B_57_цубаса_злой_красный_слева:
     .byte $30
     .byte $2E
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_A8EA
     .word off_B40D
 
@@ -1862,7 +1862,7 @@ off_A5AE_59:
     .byte $00
     .byte $00
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B310
     .word off_AD8A
 
@@ -1939,7 +1939,7 @@ off_A5E8_5E_коимбра_тень_серый_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B22E
     .word off_B2DA
 
@@ -1954,7 +1954,7 @@ off_A5F3_5F_коимбра_злой_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B2C0
     .word off_B2CD
 
@@ -1969,7 +1969,7 @@ off_A5FE_60_коимбра_злой_тень_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B22E
     .word off_B2DA
 
@@ -1982,7 +1982,7 @@ off_A609_61_карлос_злой_красный_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B1D0
     .word off_B1E7
 
@@ -2010,7 +2010,7 @@ off_A61B_63_карлос_обычный_красный_справа:
     .byte $30
     .byte $46
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AFE8
     .word off_B200
 
@@ -2055,7 +2055,7 @@ off_A635_66_цубаса_обычный_красный_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B364
     .word off_A8D6
 
@@ -2085,7 +2085,7 @@ off_A648_68_ишизаки_закрытые_глаза_слева:
 
     .byte con_F5
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_AAFD
     .word off_B0C9
 

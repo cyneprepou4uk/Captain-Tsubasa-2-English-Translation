@@ -10,7 +10,7 @@ con_F5                  = $F5
 con_F6                  = $F6
 con_физика              = $F7   ; 1й байт = скорость + угол + направление (00/80), 2й = разгон X, 3й = разгон Y
 con_F9                  = $F9
-con_развилка            = $FA
+con_разговор            = $FA   ; развилка, первый прыжоок если персонаж молчит, второй если говорит
 con_выход               = $FF
 
 ; данные спрайтов
@@ -2382,7 +2382,7 @@ off_A6AA_B7_глаза_и_рот_санае_крупным_планом_разг
     .byte $3C
     .byte $44
 
-    .byte con_развилка
+    .byte con_разговор
     .word off_B62B
     .word off_B6A0
 
@@ -3056,8 +3056,10 @@ off_A86F:
     .byte $C6, $3C, $2B
 
     .byte $A1
-    .byte $9E, $CE
-    .byte $3C, $2E
+
+    .byte $9E
+
+    .byte $CE, $3C, $2E
 
     .byte con_jmp
     .word off_B821
@@ -3083,11 +3085,12 @@ off_A893:
 
     .byte $CE, $3C, $3A
     .byte $C6, $3C, $2B
-    
+
     .byte $A1
-    .byte $9D, $CE
-    .byte $3C, $3C
-    
+
+    .byte $9D
+
+    .byte $CE, $3C, $3C
     .byte $CE, $1C, $3E
 
     .byte con_jmp
@@ -3119,8 +3122,10 @@ off_A8BA:
     .byte $C6, $00, $2B
 
     .byte $A1
-    .byte $9E, $CE
-    .byte $00, $2E
+
+    .byte $9E
+
+    .byte $CE, $00, $2E
 
     .byte con_jmp
     .word off_B86D
@@ -3198,6 +3203,7 @@ off_A908:
     .byte $9E
 
     .byte $C0, $3C, $2E
+
     .byte con_jmp
     .word off_B8C3
 
