@@ -1,5 +1,7 @@
 ; \$065(0|1|2|3|4|5|6|7|8|9|A|B|C|D|E|F)
 
+; .\s.\s.\s.\s.\s0x0........:....:\s..\s..\s..\s\s
+
 ; (LDA|LDX|LDY|STA|STX|STY|CMP|CPX|CPY|ASL|ROL|LSR|ROR|BIT|ADC|SBC|INC|DEC|ORA|AND|EOR)\s\$00
 
 ; (LDA|LDX|LDY|STA|STX|STY|CMP|CPX|CPY|ASL|ROL|LSR|ROR|BIT|ADC|SBC|INC|DEC|ORA|AND|EOR)\s\$(6|7)(0|1|2|3|4|5|6|7|8|9|A|B|C|D|E|F)
