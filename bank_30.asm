@@ -1016,10 +1016,10 @@ off_B4F1_1B_цубаса_планирует_циклон_2:
     .text "goals with only long"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "shots should be near"
+    .text "shots should be"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $05
-    .text "to impossible"
+    .text "nearly impossible"
     .byte con_катсцена_скорость_текста, $08
     .text "...)"
     .byte con_катсцена_задержка, $78
