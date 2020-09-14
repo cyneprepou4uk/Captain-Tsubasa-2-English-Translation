@@ -16,7 +16,7 @@ con_выход               = $FF
 ; данные спрайтов
 con_jsr                 = $FA
 con_jmp                 = $FB
-con_FE                  = $FE
+con_rts                 = $FE
 con_FF                  = $FF
 
 ; поинтер находится в 0x0010DF, начало таблицы в банке 10
@@ -6499,7 +6499,7 @@ off_B910:
                                       .byte $17, $5D
                                       .byte $1B, $5F
 
-- D - I - 0x01592A 11:B91A: FE        .byte con_FE
+- D - I - 0x01592A 11:B91A: FE        .byte con_rts
 
 
 
@@ -6521,7 +6521,7 @@ off_B91B:
 - D - I - 0x01593B 11:B92B: 86        .byte $86
                                       .byte $CC, $03, $66
 
-- D - I - 0x01593F 11:B92F: FE        .byte con_FE
+- D - I - 0x01593F 11:B92F: FE        .byte con_rts
 
 
 
@@ -6534,7 +6534,7 @@ off_B930:
                                       .byte $17, $5D
                                       .byte $1B, $5F
 
-- D - I - 0x01594A 11:B93A: FE        .byte con_FE
+- D - I - 0x01594A 11:B93A: FE        .byte con_rts
 
 
 
@@ -6549,7 +6549,7 @@ off_B93B:
                                       .byte $C4, $1B, $F5
                                       .byte $1B, $66
 
-- D - I - 0x01595B 11:B94B: FE        .byte con_FE
+- D - I - 0x01595B 11:B94B: FE        .byte con_rts
 
 
 
@@ -6699,7 +6699,7 @@ off_B9F3:
                                       .byte $09, $02
                                       .byte $0F, $9F
 
-- D - I - 0x015A15 11:BA05: FE        .byte con_FE
+- D - I - 0x015A15 11:BA05: FE        .byte con_rts
 
 
 
@@ -6777,7 +6777,7 @@ off_BA65:
 - D - I - 0x015A7D 11:BA6D: A0        .byte $A0
                                       .byte $0F, $71
 
-- D - I - 0x015A80 11:BA70: FE        .byte con_FE
+- D - I - 0x015A80 11:BA70: FE        .byte con_rts
 
 
 
@@ -6873,7 +6873,7 @@ off_BA88:
                                       .byte $3F, $55
                                       .byte $03, $57
 
-- D - I - 0x015AFC 11:BAEC: FE        .byte con_FE
+- D - I - 0x015AFC 11:BAEC: FE        .byte con_rts
 
 
 
@@ -6886,7 +6886,7 @@ off_BAED:
                                       .byte $0B, $02
                                       .byte $0F, $02
 
-- D - I - 0x015B0B 11:BAFB: FE        .byte con_FE
+- D - I - 0x015B0B 11:BAFB: FE        .byte con_rts
 
 
 
@@ -7017,7 +7017,7 @@ off_BB88:
                                       .byte $09, $94
                                       .byte $0E, $96
 
-- D - I - 0x015BAB 11:BB9B: FE        .byte con_FE
+- D - I - 0x015BAB 11:BB9B: FE        .byte con_rts
 
 
 
@@ -7027,7 +7027,7 @@ off_BB9C:
 
                                       .byte $13, $B5
 
-- D - I - 0x015BB1 11:BBA1: FE        .byte con_FE
+- D - I - 0x015BB1 11:BBA1: FE        .byte con_rts
 
 
 
@@ -7044,7 +7044,7 @@ off_BBA2:
 
                                       .byte $13, $B5
 
-- D - I - 0x015BBF 11:BBAF: FE        .byte con_FE
+- D - I - 0x015BBF 11:BBAF: FE        .byte con_rts
 
 
 
@@ -7061,7 +7061,7 @@ off_BBB0:
 
                                       .byte $13, $B5
 
-- D - I - 0x015BCD 11:BBBD: FE        .byte con_FE
+- D - I - 0x015BCD 11:BBBD: FE        .byte con_rts
 
 
 
@@ -7074,7 +7074,7 @@ off_BBBE:
                                       .byte $13, $B0
                                       .byte $17, $B2
 
-- D - I - 0x015BD8 11:BBC8: FE        .byte con_FE
+- D - I - 0x015BD8 11:BBC8: FE        .byte con_rts
 
 
 
@@ -7088,7 +7088,7 @@ off_BBC9:
                                       .byte $13, $B8
                                       .byte $17, $AB
 
-- D - I - 0x015BE3 11:BBD3: FE        .byte con_FE
+- D - I - 0x015BE3 11:BBD3: FE        .byte con_rts
 
 
 
@@ -7255,7 +7255,7 @@ off_BC70:
 - D - I - 0x015C80 11:BC70: AD        .byte $AD
                                       .byte $3A, $7F
 
-- D - I - 0x015C83 11:BC73: FE        .byte con_FE
+- D - I - 0x015C83 11:BC73: FE        .byte con_rts
 
 
 
