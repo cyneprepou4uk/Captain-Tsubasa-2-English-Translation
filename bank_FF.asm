@@ -128,8 +128,6 @@ loc_0x03C4C9_банксвич_PRG_5115:
 sub_C4B9_банксвич_PRG_5115:
 ; bzk оптимизировать
 C D - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_5115
-.export sub_0x03C4CD_банксвич_PRG_5115
-sub_0x03C4CD_банксвич_PRG_5115:
                                       TXA
                                       ORA #$80
 C - - - - 0x03C4D4 FF:C4C4: 8E 01 80  STA $5115
