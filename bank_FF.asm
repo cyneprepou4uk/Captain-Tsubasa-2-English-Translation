@@ -7117,7 +7117,7 @@ tbl_F329_таблица_сжатых_слов:
 - D - I - 0x03F379 FF:F369: 91 F5     .word off_F591_20_мисуги
 - D - I - 0x03F37B FF:F36B: 95 F5     .word off_F595_21_вакабаяши
 - D - I - 0x03F37D FF:F36D: 9B F5     .word off_F59B_22_вакашимазу
-- D - I - 0x03F37F FF:F36F: A1 F5     .word off_F5A1_23_сатретусги
+- D - I - 0x03F37F FF:F36F: A1 F5     .word off_F5A1_23_сатрустеги
 - D - I - 0x03F381 FF:F371: A8 F5     .word off_F5A8_24_рибейро
 - D - I - 0x03F383 FF:F373: AD F5     .word off_F5AD_25_данил_сильва
 - D - I - 0x03F385 FF:F375: B3 F5     .word off_F5B3_26_меон
@@ -7177,7 +7177,7 @@ tbl_F329_таблица_сжатых_слов:
 - D - I - 0x03F3F1 FF:F3E1: BE F6     .word off_F6BE_5C_ислас
 - D - I - 0x03F3F3 FF:F3E3: C3 F6     .word off_F6C3_5D_либута
 - D - I - 0x03F3F5 FF:F3E5: C7 F6     .word off_F6C7_5E_паскаль
-- D - I - 0x03F3F7 FF:F3E7: CC F6     .word off_F6CC_5F_сатретусги
+- D - I - 0x03F3F7 FF:F3E7: CC F6     .word off_F6CC_5F_сатрустеги
 - D - I - 0x03F3F9 FF:F3E9: D3 F6     .word off_F6D3_60_диас
 - D - I - 0x03F3FB FF:F3EB: D8 F6     .word off_F6D8_61_бабинтон
 - D - I - 0x03F3FD FF:F3ED: DE F6     .word off_F6DE_62_гальван
@@ -7464,8 +7464,8 @@ off_F59B_22_вакашимазу:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
-off_F5A1_23_сатретусги:
-; Satretusgui
+off_F5A1_23_сатрустеги:
+; Satrustegui
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
@@ -7720,8 +7720,8 @@ off_F6C7_5E_паскаль:
     .text "Pasqal"
     .byte $FC
 
-off_F6CC_5F_сатретусги:
-; Satretusgui
+off_F6CC_5F_сатрустеги:
+; Satrustegui
     .byte $40, $01, $02, $03, $04, $05, $06, $07
     .byte $FC
 
