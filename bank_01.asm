@@ -1719,7 +1719,7 @@ tbl_8AEE:
     .byte $17
     
     .byte $A3
-    .byte $1D
+    .byte $1F
     
     .byte $84
     .byte $20
