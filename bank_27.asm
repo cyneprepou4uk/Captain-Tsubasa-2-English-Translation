@@ -908,7 +908,7 @@ off_B327_0A_мисуги_во_втором_тайме:
     .byte con_катсцена_новая_строка
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $0A
-    .text "Don't let Jun push"
+    .text "don't let Jun push"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $0A
     .text "himself too far"
@@ -1060,7 +1060,7 @@ off_B3EE_0B_мисуги_после_матча:
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_скорость_текста, $04
-    .text " I"
+    .text "I"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
     .text "will beat this heart"
@@ -1181,14 +1181,16 @@ off_B506_0C_мацуяма_перед_матчем:
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $06
     .byte con_катсцена_смещение_текста, $05
-    .text "(Fujisawa"
+    .text "(Fujisawa,"
+    .byte con_катсцена_задержка, $1E
+    .text " watch me"
     .byte con_катсцена_скорость_текста, $08
     .text "..."
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_новая_строка
     .byte con_катсцена_скорость_текста, $04
     .byte con_катсцена_смещение_текста, $06
-    .text "This one's for you.)"
+    .text "this one's for you.)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78

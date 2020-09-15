@@ -63,17 +63,18 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_катсцена_смещение_текста, $05
-    .text "@That's it for us this"
+    .text "@That's it for us"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "season."
-    .byte con_катсцена_задержка, $3C
-    .text " Now", $3A, $3B
-    .byte con_катсцена_задержка, $14
-    .text "go and"
+    .text "this season."
+    .byte con_катсцена_задержка, $1E
+    .text " You're"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
-    .text "join your friends.@"
+    .text "free to join the"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "Japan squad again.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -85,25 +86,16 @@ off_A195_13_после_победы_над_японией:
     .byte $F3, $00
     .byte $FA, $11
     .byte con_катсцена_задержка, $1E
-    .byte con_катсцена_скорость_текста, $06
+    .byte con_катсцена_смещение_текста, $03
+    .text "@It's been three years"
+    .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "@My friends"
-    .byte con_катсцена_закрыть_рот
-    .byte con_катсцена_скорость_текста, $08
-    .text "..."
-    .byte con_катсцена_задержка, $50
-    .byte con_катсцена_закрыть_рот
-    .byte con_катсцена_скорость_текста, $04
-    .text " It's been"
+    .text "since I started playing"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "three years since I"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "started playing with"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "you all.@"
+    .byte con_катсцена_смещение_текста, $04
+    .text "with Sao Paulo,"
+    .byte con_катсцена_задержка, $0F
+    .text " you know?@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $50
@@ -187,12 +179,12 @@ off_A195_13_после_победы_над_японией:
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $08
     .text "..."
-    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_задержка, $28
     .byte con_катсцена_новая_строка
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $04
-    .byte con_катсцена_смещение_текста, $05
-    .text " Sayonara,"
+    .byte con_катсцена_смещение_текста, $06
+    .text "sayonara,"
     .byte con_катсцена_задержка, $28
     .text " Roberto.@"
     .byte con_катсцена_задержка, $50
@@ -522,7 +514,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $04
-    .text " when all"
+    .text "when all"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
     .text "this is done,"
@@ -655,7 +647,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_катсцена_задержка, $1E
     .byte con_катсцена_закрыть_рот
     .byte con_катсцена_скорость_текста, $04
-    .text " did I come"
+    .text "did I come"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $07
     .text "in at a bad time?@"
@@ -1962,7 +1954,7 @@ off_AC95_16_разговор_репортеров:
     .text "..."
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_скорость_текста, $04
-    .text " funny that"
+    .text "funny that"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $06
     .text "should come up.@"
