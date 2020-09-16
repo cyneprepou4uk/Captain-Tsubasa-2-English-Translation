@@ -624,7 +624,7 @@ tbl_A491:
 - D - - - 0x0044C9 03:A4B9: BD A7     .word ofs_A7BE_14 - 1
 - D - - - 0x0044CB 03:A4BB: CE A7     .word ofs_A7CF_15 - 1
 - D - - - 0x0044CD 03:A4BD: D6 A7     .word ofs_A7D7_16 - 1
-- D - - - 0x0044CF 03:A4BF: FA A7     .word ofs_A7FB_17 - 1
+- D - - - 0x0044CF 03:A4BF: FA A7     .word ofs_A7FB_17_вывод_забитых_голов_в_катсцене - 1
 
 ofs_A4C1_00:
 C - - - - 0x0044D1 03:A4C1: 20 0D 9A  JSR sub_0x001A1D
@@ -1107,7 +1107,8 @@ C - - - - 0x004806 03:A7F6: D0 E1     BNE bra_A7D9
 C - - - - 0x004808 03:A7F8: A9 02     LDA #$02
 C - - - - 0x00480A 03:A7FA: 60        RTS
 
-ofs_A7FB_17:
+ofs_A7FB_17_вывод_забитых_голов_в_катсцене:
+; использовалось в скрытой катсцене со шнайдером
 C - - - - 0x00480B 03:A7FB: A5 28     LDA ram_голы
 C - - - - 0x00480D 03:A7FD: 20 7C 9E  JSR sub_0x001E8C
 C - - - - 0x004810 03:A800: A5 EC     LDA ram_00EC
