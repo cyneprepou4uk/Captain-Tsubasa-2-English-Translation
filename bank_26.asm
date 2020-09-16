@@ -573,10 +573,11 @@ off_A2A1_01_история_цубасы:
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_смещение_текста, $03
     .text "@My name is Yoko Katagiri."
-    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_задержка, $28
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .byte $FB, $01, $2B
+    .byte con_катсцена_задержка, $14
     .text "Good to meet you all!@"
     .byte con_катсцена_номер_звука, $62
     .byte con_катсцена_задержка, $78
@@ -587,21 +588,22 @@ off_A2A1_01_история_цубасы:
     
     .byte $FB, $01, $2A
     .byte con_катсцена_задержка, $1E
-    .byte con_катсцена_смещение_текста, $04
+    .byte con_катсцена_смещение_текста, $05
     .text "@Starting today,"
     .byte con_катсцена_задержка, $14
     .text " I'll"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
+    .byte con_катсцена_смещение_текста, $06
     .text "be your manager for"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
+    .byte con_катсцена_смещение_текста, $06
     .text "a while,"
-    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_задержка, $14
     .byte $FB, $01, $2B
+    .byte con_катсцена_задержка, $0A
     .text " so thank you"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
+    .byte con_катсцена_смещение_текста, $06
     .text "for your patience.@"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
@@ -611,30 +613,27 @@ off_A2A1_01_история_цубасы:
     
     .byte $FB, $01, $2A
     .byte con_катсцена_задержка, $3C
-    .byte con_катсцена_смещение_текста, $05
+    .byte con_катсцена_смещение_текста, $06
     .text "@Tsubasa,"
     .byte con_катсцена_задержка, $14
     .text " right?"
-    .byte con_катсцена_задержка, $3C
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "My brother's told"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "me a lot about you.@"
-    .byte con_катсцена_задержка, $50
-    .byte con_катсцена_затереть_текст
-    .byte con_катсцена_задержка, $0A
-    
-    
-    
+    .byte con_катсцена_задержка, $28
     .byte $FB, $01, $4E
     .byte $F7
     .byte $F3, $00
-    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_задержка, $28
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $07
+    .text "My brother's told"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $07
+    .text "me a lot about you.@"
+    .byte con_катсцена_задержка, $1E
     .byte $FB, $01, $12
+    .byte con_катсцена_новая_строка
     .byte con_катсцена_скорость_текста, $02
-    .byte con_катсцена_смещение_текста, $08
+    .byte con_катсцена_смещение_текста, $06
     .text "@Oh?@"
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_затереть_текст
@@ -658,15 +657,15 @@ off_A2A1_01_история_цубасы:
     .byte con_катсцена_задержка, $14
     .text " from the"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_скорость_текста, $0A
     .byte con_катсцена_смещение_текста, $07
-    .byte con_катсцена_скорость_текста, $0E
     .text "JFO."
     .byte con_катсцена_скорость_текста, $00
     .text " "
     .byte con_катсцена_задержка, $1E
     .byte $FB, $01, $2A
     .byte con_катсцена_задержка, $1E
-    .byte con_катсцена_скорость_текста, $10
+    .byte con_катсцена_скорость_текста, $0C
     .text "No pressure~"
     .byte $FB, $01, $2C
     .byte con_катсцена_скорость_текста, $00
@@ -683,14 +682,17 @@ off_A2A1_01_история_цубасы:
     .byte $F4, $05
     .byte con_катсцена_задержка, $3C
     .byte con_катсцена_затереть_текст
-    .byte con_катсцена_смещение_текста, $03
-    .text "The next step in Tsubasa's"
+    .byte con_катсцена_смещение_текста, $08
+    .text "The next step in"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $03
-    .text "journey starts in Brazil,"
+    .byte con_катсцена_смещение_текста, $04
+    .text "Tsubasa's journey starts"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $03
-    .text "beginning with the Rio Cup."
+    .byte con_катсцена_смещение_текста, $06
+    .text "in Brazil, beginning"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $08
+    .text "with the Rio Cup."
     .byte $F4, $04
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_задержка, $F0

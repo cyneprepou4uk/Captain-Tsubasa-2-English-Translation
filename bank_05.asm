@@ -124,7 +124,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .text "trials,"
     .byte con_катсцена_задержка, $14
     .text " surprises,"
-    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "and upsets,"
@@ -447,10 +447,14 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_катсцена_задержка, $28
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "see if they can give you"
+    .text "see"
+    .byte con_катсцена_номер_звука, $01
+    .text " if they can give you"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "some advice. "
+    .text "some"
+    .byte con_катсцена_задержка, $14
+    .text " advice. "
     .byte con_катсцена_задержка, $50
     .byte $FB, $01, $21
     .byte $F7
@@ -469,18 +473,49 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte $F7
     .byte $F3, $00
     .byte $FB, $01, $12
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_номер_звука, $4C
+    .byte con_катсцена_задержка, $1E
+    .byte $FB, $01, $11
     .byte con_катсцена_задержка, $50
-    .byte con_катсцена_скорость_текста, $08
-    .byte con_катсцена_смещение_текста, $05
-    .text "@Thank-"
+    .byte con_катсцена_скорость_текста, $02
+    .byte con_катсцена_смещение_текста, $02
+    .byte con_катсцена_закрыть_рот
+    .text " "
+    .byte con_катсцена_закрыть_рот
+    .text "@Wo"
+    .byte con_катсцена_закрыть_рот
+    .text "w,"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_скорость_текста, $04
+    .text " thanks,"
     .byte con_катсцена_задержка, $1E
-    .text "you-"
+    .text " Schneider!"
+    .byte con_катсцена_задержка, $28
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "After we beat Brazil and"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "win the World Cup,"
     .byte con_катсцена_задержка, $1E
-    .text "very-"
+    .text " that's"
+    .byte con_катсцена_задержка, $14
+    .byte $FB, $01, $66
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "the"
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_скорость_текста, $06
+    .text " FIRST THING "
+    .byte con_катсцена_задержка, $14
+    .byte con_катсцена_скорость_текста, $04
+    .text "I'll do!@"
     .byte con_катсцена_задержка, $1E
-    .text "much.@"
-    .byte con_катсцена_задержка, $1E
-    .byte con_катсцена_задержка, $50
+    .byte $FB, $01, $11
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
     
