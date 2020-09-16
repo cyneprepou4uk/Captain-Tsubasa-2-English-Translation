@@ -581,8 +581,8 @@ off_A251_08_цубаса_в_шоке_красный_слева:
 
     .byte con_F5
 
-    .dbyt off_A8EA - $2000
-    .byte $0A
+;   .dbyt off_A8EA - $2000
+;   .byte $0A
 
     .dbyt off_A8FE - $2000
 
@@ -734,8 +734,8 @@ off_A2B8_12_цубаса_в_шоке_белый_слева:
 
     .byte con_F5
 
-    .dbyt off_B364 - $2000
-    .byte $0A
+;   .dbyt off_B364 - $2000
+;   .byte $0A
 
     .dbyt off_A8FE - $2000
 
