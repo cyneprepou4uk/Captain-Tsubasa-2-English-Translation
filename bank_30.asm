@@ -2167,39 +2167,26 @@ off_BDD6_1E_цубаса_и_шнайдер_перед_матчем:
     .byte con_катсцена_номер_звука, $53
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_закрыть_рот
-    .byte $40    ; <「>
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $28
-    .byte $3E    ; <Jr>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $28    ; <り>
-    .byte $1A    ; <は>
+    .byte con_катсцена_смещение_текста, $03
+    .text "(Tsubasa,"
+    .byte con_катсцена_задержка, $1E
+    .text " this is where we"
     .byte con_катсцена_новая_строка
-    .byte $0A    ; <こ>
-    .byte $0A    ; <こ>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $04    ; <え>
-    .byte $0B    ; <さ>
-    .byte $0E    ; <せ>
-    .byte $13    ; <て>
-    .byte $23    ; <も>
-    .byte $27    ; <ら>
-    .byte $03    ; <う>
-    .byte $A8    ; <ぜ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $04
+    .text "pay you back for our last"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "defeat."
+    .byte con_катсцена_задержка, $1E
+    .text " You", $3A, $3B
+    .byte con_катсцена_задержка, $3C
+    .text "and that"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "traitor Wakabayashi!)"
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
     
     
     
@@ -2207,52 +2194,38 @@ off_BDD6_1E_цубаса_и_шнайдер_перед_матчем:
     .byte $F7
     .byte $F3, $00
     .byte con_катсцена_задержка, $50
-    .byte $40    ; <「>
-    .byte $01    ; <あ>
-    .byte $0D    ; <す>
-    .byte con_катсцена_задержка, $28
-    .byte $00
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $14    ; <と>
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $03    ; <う>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $16    ; <に>
-    .byte $23    ; <も>
+    .byte con_катсцена_смещение_текста, $06
+    .text "(Once again,"
+    .byte con_катсцена_задержка, $1E
+    .text " West"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $0A    ; <こ>
-    .byte $19    ; <の>
-    .byte $0C    ; <し>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $28
-    .byte $56    ; <ニ>
-    .byte $4C    ; <シ>
-    .byte $C2    ; <ド>
-    .byte $42    ; <イ>
-    .byte $52    ; <ツ>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $2D    ; <を>
+    .byte con_катсцена_смещение_текста, $07
+    .text "Germany's standing"
     .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $27    ; <ら>
-    .byte $A7    ; <ず>
-    .byte $10    ; <た>
-    .byte $05    ; <お>
-    .byte $0D    ; <す>
-    .byte $79    ; <!>
+    .byte con_катсцена_смещение_текста, $07
+    .text "between us and"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $07
+    .text "the World Cup.)"
+    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $3C
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $05
+    .text "(Schneider,"
+    .byte con_катсцена_задержка, $1E
+    .text " Japan"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "are taking your team"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "down as many times"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "as we have to!)"
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78
