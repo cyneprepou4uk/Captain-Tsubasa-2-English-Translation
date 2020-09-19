@@ -40,13 +40,14 @@ ca65 -U -l copy_bank_28.asm
 ca65 -U -l copy_bank_29.asm
 ca65 -U -l copy_bank_30.asm
 ca65 -U -l copy_bank_31.asm
+ca65 -U -l copy_bank_32.asm
 ca65 -U -l copy_bank_FF.asm
 
 :: компиляция кода в бинарники
-ld65 -C ld65.cfg copy_bank_01.o copy_bank_02.o copy_bank_03.o copy_bank_04.o copy_bank_05.o copy_bank_06.o copy_bank_07.o copy_bank_08.o copy_bank_09.o copy_bank_10.o copy_bank_11.o copy_bank_12.o copy_bank_13.o copy_bank_14.o copy_bank_15.o copy_bank_16.o copy_bank_17.o copy_bank_18.o copy_bank_19.o copy_bank_20.o copy_bank_21.o copy_bank_22.o copy_bank_23.o copy_bank_24.o copy_bank_25.o copy_bank_26.o copy_bank_27.o copy_bank_28.o copy_bank_29.o copy_bank_30.o copy_bank_31.o copy_bank_FF.o
+ld65 -C ld65.cfg copy_bank_01.o copy_bank_02.o copy_bank_03.o copy_bank_04.o copy_bank_05.o copy_bank_06.o copy_bank_07.o copy_bank_08.o copy_bank_09.o copy_bank_10.o copy_bank_11.o copy_bank_12.o copy_bank_13.o copy_bank_14.o copy_bank_15.o copy_bank_16.o copy_bank_17.o copy_bank_18.o copy_bank_19.o copy_bank_20.o copy_bank_21.o copy_bank_22.o copy_bank_23.o copy_bank_24.o copy_bank_25.o copy_bank_26.o copy_bank_27.o copy_bank_28.o copy_bank_29.o copy_bank_30.o copy_bank_31.o copy_bank_32.o copy_bank_FF.o
 
 :: сбор бинарников, хедера и chr в общий ром
-copy /B header.bin + copy_bank_01.bin + copy_bank_02.bin + copy_bank_03.bin + copy_bank_04.bin + copy_bank_05.bin + copy_bank_06.bin + copy_bank_07.bin + copy_bank_08.bin + copy_bank_09.bin + copy_bank_10.bin + copy_bank_11.bin + copy_bank_12.bin + copy_bank_13.bin + copy_bank_14.bin + copy_bank_15.bin + copy_bank_16.bin + copy_bank_17.bin + copy_bank_18.bin + copy_bank_19.bin + copy_bank_20.bin + copy_bank_21.bin + copy_bank_22.bin + copy_bank_23.bin + copy_bank_24.bin + copy_bank_25.bin + copy_bank_26.bin + copy_bank_27.bin + copy_bank_28.bin + copy_bank_29.bin + copy_bank_30.bin + copy_bank_31.bin + empty.bin + copy_bank_FF.bin + CHR_ROM.chr !ct2.nes
+copy /B header.bin + copy_bank_01.bin + copy_bank_02.bin + copy_bank_03.bin + copy_bank_04.bin + copy_bank_05.bin + copy_bank_06.bin + copy_bank_07.bin + copy_bank_08.bin + copy_bank_09.bin + copy_bank_10.bin + copy_bank_11.bin + copy_bank_12.bin + copy_bank_13.bin + copy_bank_14.bin + copy_bank_15.bin + copy_bank_16.bin + copy_bank_17.bin + copy_bank_18.bin + copy_bank_19.bin + copy_bank_20.bin + copy_bank_21.bin + copy_bank_22.bin + copy_bank_23.bin + copy_bank_24.bin + copy_bank_25.bin + copy_bank_26.bin + copy_bank_27.bin + copy_bank_28.bin + copy_bank_29.bin + copy_bank_30.bin + copy_bank_31.bin + copy_bank_32.bin + empty.bin + copy_bank_FF.bin + CHR_ROM.chr !ct2.nes
 
 :: удалить остаточный хлам и копии
 del *.o + copy_*.bin + copy_*.asm + copy_*.inc
