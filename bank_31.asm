@@ -422,6 +422,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte $FB, $01, $12
     .byte con_катсцена_скорость_текста, $02
     .text "What", $3A, $3B, "@"
+    .byte con_катсцена_номер_звука, $01
     .byte con_катсцена_задержка, $28
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задержка, $0A
@@ -450,9 +451,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_катсцена_задержка, $28
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
-    .text "see"
-    .byte con_катсцена_номер_звука, $01
-    .text " if they can give you"
+    .text "see if they can give you"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $04
     .text "some"
@@ -777,180 +776,108 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte con_катсцена_осветление_экрана
     .byte con_катсцена_номер_звука, $46
     .byte con_катсцена_задержка, $50
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $A4    ; <ご>
-    .byte $14    ; <と>
-    .byte $AA    ; <だ>
-    .byte $00
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
+    .byte con_катсцена_смещение_текста, $03
+    .text "(So,"
+    .byte con_катсцена_задержка, $28
+    .text " my letter didn't go"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
-    .byte $05    ; <お>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $19    ; <の>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $10    ; <た>
-    .byte $0C    ; <し>
-    .byte $06    ; <か>
-    .byte $16    ; <に>
-    .byte $0D    ; <す>
-    .byte $A4    ; <ご>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "to waste."
     .byte con_катсцена_задержка, $3C
-    .byte $4D    ; <ス>
-    .byte $7D    ; <ー>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $54    ; <ト>
-    .byte $67    ; <ラ>
-    .byte $42    ; <イ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
+    .text " You figured"
     .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte $0E    ; <せ>
-    .byte $02    ; <い>
-    .byte $0C    ; <し>
-    .byte $12    ; <つ>
-    .byte $12    ; <つ>
-    .byte $00
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $26    ; <よ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $04
+    .text "out the secret to being"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
-    .byte con_катсцена_затемнение_экрана
+    .byte con_катсцена_смещение_текста, $04
+    .text "a @Super Striker@.)"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $1E
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $04
+    .text "(Nicely done"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_задний_фон, $10
     .byte $FB, $01, $62
     .byte con_катсцена_осветление_экрана
-    .byte $40    ; <「>
-    .byte $AA    ; <だ>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $2A    ; <れ>
-    .byte $1A    ; <は>
-    .byte $7A    ; <、>
-    .byte con_катсцена_задержка, $28
-    .byte $05    ; <お>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $16    ; <に>
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_скорость_текста, $04
+    .text "I won't"
     .byte con_катсцена_новая_строка
-    .byte $03    ; <う>
-    .byte $04    ; <え>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $03    ; <う>
-    .byte $04    ; <え>
-    .byte $A0    ; <が>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $2D    ; <を>
+    .byte con_катсцена_смещение_текста, $05
+    .text "let you rest on your"
     .byte con_катсцена_новая_строка
-    .byte $0C    ; <し>
-    .byte $27    ; <ら>
-    .byte $0B    ; <さ>
-    .byte $15    ; <な>
-    .byte $09    ; <け>
-    .byte $2A    ; <れ>
-    .byte $AF    ; <ば>
-    .byte $00
-    .byte $15    ; <な>
-    .byte $27    ; <ら>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "laurels,"
+    .byte con_катсцена_задержка, $08
+    .text " though.)"
     .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $05
+    .text "(There will always be"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "someone out there to"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "test your mettle.)"
+    .byte con_катсцена_задержка, $50
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_затереть_текст
     .byte con_катсцена_задний_фон, $11
     .byte $FB, $01, $36
     .byte con_катсцена_осветление_экрана
-    .byte $40    ; <「>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7A    ; <、>
-    .byte con_катсцена_номер_звука, $31
-    .byte con_катсцена_задержка, $28
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_смещение_текста, $03
+    .text "(Someone on this very"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "field,"
+    .byte con_катсцена_задержка, $14
+    .text " in fact."
+    .byte con_катсцена_задержка, $3C
+    .text " You see,"
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "Brazil has it's own"
     .byte con_катсцена_номер_звука, $01
-    .byte con_катсцена_задержка, $78
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte $0E    ; <せ>
-    .byte $02    ; <い>
-    .byte $0B    ; <さ>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $50
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_затереть_текст
+    
+    
+    
     .byte $FA, $50
     .byte $FB, $01, $6C
     .byte $F7
     .byte $F3, $00
     .byte $F5, $0C
     .byte con_катсцена_номер_звука, $30
-    .byte con_катсцена_скорость_текста
-    .byte $02    ; <い>
-    .byte $40    ; <「>
-    .byte $4D    ; <ス>
-    .byte $7D    ; <ー>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $54    ; <ト>
-    .byte $67    ; <ラ>
-    .byte $42    ; <イ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
-    .byte $A0    ; <が>
-    .byte $79    ; <!>
-    .byte $79    ; <!>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_скорость_текста, $03
+    .byte con_катсцена_смещение_текста, $07
+    .text "...Super Striker!!)"
     .byte $F5, $FF
     .byte con_катсцена_задержка, $F0
-    .byte $F4, $05
-    .byte con_катсцена_задержка, $28
     .byte con_катсцена_затереть_текст
+    
+    
+    
+    .byte $F4, $05
     .byte $FA, $44
     .byte $FB, $01, $81
     .byte $F7
@@ -958,295 +885,173 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $FA, $10
     .byte $F4, $04
     .byte con_катсцена_номер_звука, $54
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $03
+    .text "@Your attention,"
+    .byte con_катсцена_задержка, $08
+    .text " please!"
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "Brazil are substituting"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "main foward,"
+    .byte con_катсцена_задержка, $14
+    .text " Riverio"
     .byte con_катсцена_скорость_текста, $08
-    .byte $40    ; <「>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $19    ; <の>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $10    ; <た>
-    .byte $02    ; <い>
-    .byte $2D    ; <を>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $0C    ; <し>
-    .byte $27    ; <ら>
-    .byte $0E    ; <せ>
-    .byte $0C    ; <し>
-    .byte $1F    ; <ま>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $3C
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $3F    ; <•>
-    .byte con_катсцена_задержка, $28
-    .byte $68    ; <リ>
-    .byte $C6    ; <ベ>
-    .byte $68    ; <リ>
-    .byte $45    ; <オ>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2C    ; <わ>
-    .byte $28    ; <り>
-    .byte $1F    ; <ま>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte con_катсцена_новая_строка
+    .text "..."
     .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+
     .byte $FB, $01, $60
     .byte $F7
     .byte $F3, $00
     .byte $FA, $11
     .byte con_катсцена_закрыть_рот
-    .byte $40    ; <「>
-    .byte $4A    ; <コ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $04
+    .text "...with their captain"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "at position"
+    .byte con_катсцена_задержка, $0F
+    .text " #"
+    .byte con_катсцена_задержка, $0F
+    .text "10,"
     .byte con_катсцена_задержка, $3C
     .byte $F4, $03
     .byte $FB, $01, $5F
     .byte con_катсцена_номер_звука, $15
     .byte con_катсцена_задержка, $14
-    .byte con_катсцена_закрыть_рот
     .byte $F4, $01
-    .byte con_катсцена_затереть_текст
-    .byte $40    ; <「>
-    .byte $4A    ; <コ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
     .byte con_катсцена_задержка, $3C
-    .byte $00
-    .byte $0E    ; <せ>
-    .byte $AF    ; <ば>
-    .byte $2E    ; <ん>
-    .byte $A4    ; <ご>
-    .byte $03    ; <う>
-    .byte con_катсцена_задержка, $28
-    .byte con_катсцена_скорость_текста, $00
-    .byte $34    ; <1>
-    .byte $33    ; <0>
+    .byte con_катсцена_закрыть_рот
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $04
+    .text "Arthur Antines Coimbra!@"
     .byte $F5, $04
     .byte con_катсцена_номер_звука, $62
     .byte con_катсцена_задержка, $78
-    .byte $F5, $FF
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    .byte $F5, $FF
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $4C
     .byte $F7
     .byte $F3, $00
     .byte $F5, $08
+;   .byte con_катсцена_задержка, $14
+;   .byte $F5, $04
+    .byte con_катсцена_скорость_текста, $02
+    .byte con_катсцена_смещение_текста, $05
+    .text "(Aah,"
+    .byte con_катсцена_задержка, $1E
+    .byte con_катсцена_скорость_текста, $04
+    .text " that", $3A, $3B
     .byte con_катсцена_задержка, $14
-    .byte $F5, $04
-    .byte con_катсцена_скорость_текста, $08
-    .byte $40    ; <「>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $12    ; <つ>
-    .byte $1A    ; <は>
-    .byte con_катсцена_задержка, $28
-    .byte $00
-    .byte $68    ; <リ>
-    .byte $45    ; <オ>
-    .byte $46    ; <カ>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $19    ; <の>
-    .byte $14    ; <と>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $79    ; <!>
+    .text "that jerk"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "from the Rio Cup!)"
     .byte con_катсцена_задержка, $78
+    
+    
+    
     .byte con_катсцена_затемнение_экрана
-    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $3C
     .byte con_катсцена_задний_фон, $63
     .byte $FB, $01, $5E
     .byte con_катсцена_осветление_экрана
     .byte $FA, $4A
     .byte $F3, $FF, $21, $40
-    .byte $40    ; <「>
-    .byte $52    ; <ツ>
-    .byte $C3    ; <バ>
-    .byte $4B    ; <サ>
-    .byte $3F    ; <•>
-    .byte $45    ; <オ>
-    .byte $45    ; <オ>
-    .byte $BD    ; <ゾ>
-    .byte $67    ; <ラ>
-    .byte con_катсцена_закрыть_рот
-    .byte $3F    ; <•>
-    .byte con_катсцена_закрыть_рот
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $3C
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $12    ; <つ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $AA    ; <だ>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $B1    ; <ぶ>
-    .byte $2E    ; <ん>
-    .byte $A0    ; <が>
-    .byte $23    ; <も>
-    .byte $12    ; <つ>
+    .byte con_катсцена_смещение_текста, $05
+    .text "@That Ozora Tsubasa"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_новая_строка
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $11    ; <ち>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $2D    ; <を>
-    .byte $0C    ; <し>
-    .byte $27    ; <ら>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $06
+    .text "he's got even more"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $06
+    .text "potential than he"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "realizes.@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
-    .byte $40    ; <「>
-    .byte $23    ; <も>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $4D    ; <ス>
-    .byte $7D    ; <ー>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $54    ; <ト>
-    .byte $67    ; <ラ>
-    .byte $42    ; <イ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $22    ; <め>
-    .byte $A5    ; <ざ>
-    .byte $22    ; <め>
-    .byte $10    ; <た>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $10    ; <た>
-    .byte $27    ; <ら>
-    .byte con_катсцена_закрыть_рот
-    .byte $3F    ; <•>
-    .byte con_катсцена_закрыть_рот
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte con_катсцена_новая_строка
     .byte con_катсцена_задержка, $3C
-    .byte $05    ; <お>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $10    ; <た>
-    .byte $11    ; <ち>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $11    ; <ち>
-    .byte $22    ; <め>
-    .byte $1A    ; <は>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
+    
+    
+    
+    .byte con_катсцена_смещение_текста, $04
+    .text "@If he actually becomes"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_смещение_текста, $05
+    .text "a @Super Striker@,"
+    .byte con_катсцена_задержка, $1E
+    .text " you"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "don't stand a chance.@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $61
     .byte $F7
-    .byte $40    ; <「>
-    .byte $4D    ; <ス>
-    .byte $7D    ; <ー>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $54    ; <ト>
-    .byte $67    ; <ラ>
-    .byte $42    ; <イ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
-    .byte $78    ; <?>
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $78
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_скорость_текста, $06
+    .byte con_катсцена_смещение_текста, $06
+    .text "@A @Super Striker@?@"
+    .byte con_катсцена_задержка, $50
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $5E
     .byte $F7
     .byte con_катсцена_задержка, $3C
-    .byte $40    ; <「>
-    .byte $05    ; <お>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $16    ; <に>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $A7    ; <ず>
-    .byte $2A    ; <れ>
-    .byte $2C    ; <わ>
-    .byte $06    ; <か>
-    .byte $29    ; <る>
-    .byte $0B    ; <さ>
-    .byte $7A    ; <、>
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $04
+    .text "@If you want to stand"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $0F    ; <そ>
-    .byte $2A    ; <れ>
-    .byte $1F    ; <ま>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $0E    ; <せ>
-    .byte $02    ; <い>
-    .byte $A8    ; <ぜ>
-    .byte $02    ; <い>
-    .byte $00
-    .byte $A0    ; <が>
-    .byte $2E    ; <ん>
-    .byte $AF    ; <ば>
-    .byte $29    ; <る>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    .byte con_катсцена_смещение_текста, $05
+    .text "up to him,"
+    .byte con_катсцена_задержка, $3C
+    .text " you'd"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "better train like your"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "life depended on it"
+    .byte con_катсцена_закрыть_рот
+    .byte con_катсцена_скорость_текста, $08
+    .text "...@"
     .byte con_катсцена_задержка, $78
+    .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $3C
+    
+    
+    
     .byte $F4, $03
     .byte $F4, $05
-    .byte con_катсцена_затереть_текст
     .byte $FA, $54
     .byte $FB, $01, $05
     .byte $F4, $01
@@ -1262,78 +1067,51 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte $FB, $01, $0A
     .byte con_катсцена_осветление_экрана
     .byte $F5, $04
-    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_задержка, $78
     .byte con_катсцена_закрыть_рот
-    .byte $40    ; <「>
-    .byte $0F    ; <そ>
-    .byte $03    ; <う>
-    .byte $02    ; <い>
-    .byte $03    ; <う>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $06    ; <か>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
+    .byte con_катсцена_скорость_текста, $04
+    .byte con_катсцена_смещение_текста, $04
+    .text "(That's just what I did,"
+    .byte con_катсцена_задержка, $14
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "you bastard."
+    .byte con_катсцена_задержка, $3C
+    .text " But did"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "you mean so I wouldn't"
+    .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $05
+    .text "slow you down?!)"
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_затереть_текст
+    .byte con_катсцена_задержка, $0A
+    
+    
+    
     .byte $FB, $01, $6A
     .byte $F7
     .byte $F3, $00
     .byte con_катсцена_задержка, $3C
-    .byte $40    ; <「>
-    .byte $01    ; <あ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $4A    ; <コ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $14    ; <と>
-    .byte $02    ; <い>
-    .byte $03    ; <う>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $14    ; <と>
-    .byte $0A    ; <こ>
-    .byte $7A    ; <、>
+    .byte con_катсцена_смещение_текста, $05
+    .text "(Roberto"
+    .byte con_катсцена_скорость_текста, $08
+    .text "..."
+    .byte con_катсцена_задержка, $3C
+    .byte con_катсцена_скорость_текста, $04
+    .text "what's your"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $1A    ; <は>
-    .byte $2E    ; <ん>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $A6    ; <じ>
-    .byte $22    ; <め>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $AD    ; <で>
-    .byte $29    ; <る>
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $13    ; <て>
+    .byte con_катсцена_смещение_текста, $06
+    .text "strategy?"
+    .byte con_катсцена_задержка, $3C
+    .text " Is this"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_задержка, $28
-    .byte $AE    ; <ど>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $00
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
-    .byte $3F    ; <•>
+    .byte con_катсцена_смещение_текста, $06
+    .text "new guy some kind"
     .byte con_катсцена_новая_строка
+    .byte con_катсцена_смещение_текста, $06
+    .text "of secret weapon?)"
     .byte con_катсцена_задержка, $78
     .byte con_катсцена_номер_звука, $31
     .byte con_катсцена_задержка, $78

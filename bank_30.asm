@@ -1949,12 +1949,12 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_катсцена_комментатор, $05
     .byte con_катсцена_скорость_текста, $03
     .byte con_катсцена_смещение_текста, $09
-    .text "But "
+    .text "But"
+    .byte con_катсцена_номер_звука, $01
+    .byte con_катсцена_задержка, $01
     .byte con_катсцена_номер_звука, $2A
     .byte $F3, $1E
-    .text "Gertise makes"
-    .byte con_катсцена_номер_звука, $01
-    .text " a"
+    .text " Gertise makes a"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_смещение_текста, $09
     .text "stunning one-"
