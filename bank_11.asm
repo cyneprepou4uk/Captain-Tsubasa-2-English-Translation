@@ -6,7 +6,7 @@
 con_повторы             = $E0
 con_повторить           = $F0
 con_координаты_Y_X      = $F1
-con_F5                  = $F5
+con_F5_зеркало          = $F5
 con_F6                  = $F6
 con_физика              = $F7   ; 1й байт = скорость + угол + направление (00/80), 2й = разгон X, 3й = разгон Y
 con_F9                  = $F9
@@ -121,7 +121,7 @@ con_FF                  = $FF
 off_A0BE_6D_цубаса_с_мячом_серый:
     .byte $3D
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $1E
@@ -147,7 +147,7 @@ off_A0C6_6E_цубаса_появляется_и_бежит_с_мячом:
 
     .byte con_повторы + $02
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_A837 - $2000
     .byte $01
@@ -164,7 +164,7 @@ off_A0C6_6E_цубаса_появляется_и_бежит_с_мячом:
     .byte con_повторить
 
 @бесконечный_цикл:
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_A837 - $2000
 
@@ -202,7 +202,7 @@ off_A0F0_6F_пьер_появляется_и_бежит_с_мячом:
 
     .byte con_повторы + $02
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_A852 - $2000
     .byte $01
@@ -219,7 +219,7 @@ off_A0F0_6F_пьер_появляется_и_бежит_с_мячом:
     .byte con_повторить
 
 @бесконечный_цикл:
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_A852 - $2000
 
@@ -425,7 +425,7 @@ off_A18F_76:
     .byte $30
     .byte $C0
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AAE7 - $2000
 
@@ -491,7 +491,7 @@ off_A1B2_7A_лицо_пьера_слева:
     .byte $30
     .byte $30
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AC5A - $2000
 
@@ -836,7 +836,7 @@ off_A29E_83_удар_пьера_и_наполеона:
     .byte $22
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AEB6 - $2000
     .byte $01
@@ -854,7 +854,7 @@ off_A29E_83_удар_пьера_и_наполеона:
     .byte $22
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B32F - $2000
     .byte $01
@@ -872,7 +872,7 @@ off_A29E_83_удар_пьера_и_наполеона:
     .byte $22
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B37C - $2000
     .byte $01
@@ -898,7 +898,7 @@ off_A2CB_84_удар_мисаки_и_цубасы:
     .byte $22
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AEAE - $2000
     .byte $01
@@ -916,7 +916,7 @@ off_A2CB_84_удар_мисаки_и_цубасы:
     .byte $22
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B325 - $2000
     .byte $01
@@ -934,7 +934,7 @@ off_A2CB_84_удар_мисаки_и_цубасы:
     .byte $22
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_ADB8 - $2000
     .byte $01
@@ -951,7 +951,7 @@ off_A2F8_85_мяч_в_сетке:
     .byte $3C
 
 @бесконечный_цикл:
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AEBE - $2000
     .byte $01
@@ -972,7 +972,7 @@ off_A305_86_мяч_рвет_сетку:
 
     .byte con_повторы + $02
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AF1C - $2000
     .byte $01
@@ -1082,7 +1082,7 @@ off_A318_87_мяч_подброшенный_джаиро_вид_сверху:
     .byte $16
     .byte $3D
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AFC3 - $2000
     .byte $01
@@ -1728,7 +1728,7 @@ off_A4F7_A1_джаиро_бежит_с_мячом:
     .byte $00
 
 @бесконечный_цикл:
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_A837 - $2000
     .byte $03

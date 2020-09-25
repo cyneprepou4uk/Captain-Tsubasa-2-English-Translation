@@ -6,7 +6,7 @@
 con_повторы             = $E0
 con_повторить           = $F0
 con_координаты_Y_X      = $F1
-con_F5                  = $F5
+con_F5_зеркало          = $F5
 con_F6                  = $F6
 con_физика              = $F7   ; 1й байт = скорость + угол + направление (00/80), 2й = разгон X, 3й = разгон Y
 con_F9                  = $F9
@@ -369,7 +369,7 @@ off_A167_01_полет_мяча_диаза:
     .dbyt off_A75D - $2000
     .byte $02
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_физика
     .byte $49
@@ -392,7 +392,7 @@ off_A167_01_полет_мяча_диаза:
     .byte $0A
     .byte $3E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_физика
     .byte $2F
@@ -449,7 +449,7 @@ off_A1F1_02_цубаса_резкий_поворот_красный:
     .byte $3E
 
     .dbyt off_A916 - $2000
-    .byte $39
+    .byte $58
 
     .dbyt off_A9E3 - $2000
     .byte $02
@@ -579,7 +579,7 @@ off_A251_08_цубаса_в_шоке_красный_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
 ;   .dbyt off_A8EA - $2000
 ;   .byte $0A
@@ -717,7 +717,7 @@ off_A2AD_11_цубаса_злой_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_A8EA
@@ -732,7 +732,7 @@ off_A2B8_12_цубаса_в_шоке_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
 ;   .dbyt off_B364 - $2000
 ;   .byte $0A
@@ -850,7 +850,7 @@ off_A2FF_19_мисаки_обычный_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_AA4A
@@ -893,7 +893,7 @@ off_A31E_1B_мисаки_злой_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_AA72
@@ -904,7 +904,7 @@ off_A31E_1B_мисаки_злой_белый_слева:
 off_A329_1C_мацуяма_злой_желтый_слева:
     .byte $0B
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -936,7 +936,7 @@ off_A33E_1E_мисаки_злой_молчит_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AA72 - $2000
 
@@ -1054,7 +1054,7 @@ off_A392_25_ишизаки_злой_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AB3B - $2000
     .byte $02
@@ -1263,7 +1263,7 @@ off_A423_33_хюга_обычный_красный_слева_поднимает
     .byte $30
     .byte $2C
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_ACA2 - $2000
     .byte $0A
@@ -1320,7 +1320,7 @@ off_A445_36_роберто_очки_молчит_справа:
 off_A44C_37_меон_слева:
     .byte $10
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -1352,7 +1352,7 @@ off_A461_39_вакабаяши_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_AF24
@@ -1445,7 +1445,7 @@ off_A4A5_40_катагири_черные_очки_слева:
     .byte $30
     .byte $2C
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_B016
@@ -1555,7 +1555,7 @@ off_A4F5_48_карлос_в_шоке_желтый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_ADDE - $2000
 
@@ -1626,7 +1626,7 @@ off_A51B_4C_карлос_в_шоке_желтый_справа:
 off_A522_4D_роберто_обычный_слева:
     .byte $0A
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -1641,7 +1641,7 @@ off_A522_4D_роберто_обычный_слева:
 off_A52D_4E_цубаса_обычный_белый_слева:
     .byte $17
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -1656,14 +1656,14 @@ off_A52D_4E_цубаса_обычный_белый_слева:
 off_A538_4F_санае_расстроена_поднимает_брови_слева:
     .byte $1D
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
     .byte $2E
 
     .dbyt off_ABAE - $2000
-    .byte $28
+    .byte $60
 
     .byte con_разговор
     .word off_B421
@@ -1674,7 +1674,7 @@ off_A538_4F_санае_расстроена_поднимает_брови_сле
 off_A546_50_роберто_молчит_серый_слева:
     .byte $3F
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -1801,7 +1801,7 @@ off_A593_56_санае_в_шоке_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_AB96 - $2000
 
@@ -1812,7 +1812,7 @@ off_A593_56_санае_в_шоке_слева:
 off_A59B_57_цубаса_злой_красный_слева:
     .byte $0C
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -1831,7 +1831,7 @@ off_A5A6_58_цубаса_злой_молчит_белый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_A8EA - $2000
 
@@ -1875,7 +1875,7 @@ off_A5C5_5A_карлос_злой_молчит_желтый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B1D0 - $2000
 
@@ -1922,7 +1922,7 @@ off_A5E0_5D_пьер_в_шоке_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B2A8 - $2000
 
@@ -1937,7 +1937,7 @@ off_A5E8_5E_коимбра_тень_серый_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_B22E
@@ -1952,7 +1952,7 @@ off_A5F3_5F_коимбра_злой_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_B2C0
@@ -1967,7 +1967,7 @@ off_A5FE_60_коимбра_злой_тень_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_B22E
@@ -1995,7 +1995,7 @@ off_A613_62_роберто_очки_молчит_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_ADBA - $2000
 
@@ -2053,7 +2053,7 @@ off_A635_66_цубаса_обычный_красный_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_B364
@@ -2068,7 +2068,7 @@ off_A640_67_цубаса_обычный_молчит_красный_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B364 - $2000
 
@@ -2083,7 +2083,7 @@ off_A648_68_ишизаки_закрытые_глаза_слева:
     .byte $30
     .byte $2E
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_разговор
     .word off_AAFD
@@ -2110,7 +2110,7 @@ off_A653_69_цубаса_резко_поворачивается_спиной_к
 off_A65D_6A_цубаса_злой_молчит_красный_слева:
     .byte $0C
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .byte con_координаты_Y_X
     .byte $30
@@ -2136,7 +2136,7 @@ off_A665_6B_ишизаки_надутые_губы:
     .dbyt off_B44E - $2000
     .byte $0A
 
-    .byte con_F5
+    .byte con_F5_зеркало
 
     .dbyt off_B44E - $2000
     .byte $0A
