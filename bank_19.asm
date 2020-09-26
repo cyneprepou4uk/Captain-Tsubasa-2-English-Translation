@@ -4953,7 +4953,7 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_brightness, $02
     .byte con_animation, $53
     .byte con_brightness, $00
-    .byte con_offset, $67, $22
+    .byte con_offset, $68, $22
     .text "Wakabayashi Genzo"
     .byte con_endline
     .byte con_brightness, $03
@@ -4986,13 +4986,13 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_hide_letters
     .byte con_E2, $02, $01, $09
     .byte con_animation, $69
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Director"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
-    .text "Fuwaita Otomi"
+    .byte con_offset, $EF, $22
+    .text "Fighter Otomi"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5000,13 +5000,13 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $01, $15, $14
     .byte con_animation, $78
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "In-Game Programming"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
-    .text "Yocchi"
+    .byte con_offset, $F6, $22
+    .text "Yochin"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5014,12 +5014,12 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $0B, $32, $14
     .byte con_animation, $6B
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Out-Game Programming"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $F5, $22
     .text "Akihiko"
     .byte con_endline
     .byte con_timer, $48
@@ -5028,12 +5028,12 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $01, $14, $14
     .byte con_animation, $6C
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Planning"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $F5, $22
     .text "Red Fox"
     .byte con_endline
     .byte con_timer, $48
@@ -5042,12 +5042,12 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $02, $01, $09
     .byte con_animation, $6D
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Out-Game Director"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $F7, $22
     .text "Horse"
     .byte con_endline
     .byte con_timer, $48
@@ -5056,12 +5056,12 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $0A, $30, $09
     .byte con_animation, $6E
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Animation Director"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $F1, $22
     .text "Niwaka Maru"
     .byte con_endline
     .byte con_timer, $48
@@ -5070,30 +5070,21 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $0E, $39, $0B
     .byte con_animation, $6F
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Music"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
-    .byte $24    ; <や>
-    .byte $1F    ; <ま>
-    .byte $0B    ; <さ>
-    .byte $2E    ; <ん>
+    .byte con_offset, $F1, $22
+    .text "Yama-san"
     .byte con_endline
     
-    .byte con_offset, $30, $23
-    .byte $62    ; <メ>
-    .byte $50    ; <タ>
-    .byte $69    ; <ル>
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $07    ; <き>
+    .byte con_offset, $31, $23
+    .text "Metal Yuhki"
     .byte con_endline
     
-    .byte con_offset, $70, $23
-    .byte $1F    ; <ま>
-    .byte $25    ; <ゆ>
+    .byte con_offset, $71, $23
+    .text "Mayu"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5101,12 +5092,12 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $01, $0C, $09
     .byte con_animation, $70
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Sprite Animation"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $ED, $22
     .text "Super Gonta-kun"
     .byte con_endline
     .byte con_timer, $48
@@ -5116,12 +5107,12 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_E2, $0D, $00, $0B
     .byte con_E2, $0D, $35, $14
     .byte con_animation, $71
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Maintenence"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $F5, $22
     .text "Mashian"
     .byte con_endline
     .byte con_timer, $48
@@ -5130,7 +5121,7 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $09, $2E, $14
     .byte con_animation, $72
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Graphic Team #1"
     .byte con_endline
     .byte con_timer, $20
@@ -5144,7 +5135,7 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_endline
     
     .byte con_offset, $70, $23
-    .text "Simpiro Ace"
+    .text "Shinpero Ace"
     .byte con_endline
     
     .byte con_timer, $48
@@ -5153,20 +5144,20 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $02, $01, $09
     .byte con_animation, $6A
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Graphic Team #2"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $F4, $22
     .text "Purple"
     .byte con_endline
     
-    .byte con_offset, $30, $23
+    .byte con_offset, $34, $23
     .text "Zu"
     .byte con_endline
     
-    .byte con_offset, $70, $23
+    .byte con_offset, $74, $23
     .text "Fuyufuyu"
     .byte con_endline
     .byte con_timer, $48
@@ -5175,7 +5166,7 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $02, $21, $0B
     .byte con_animation, $73
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Programming"
     .byte con_endline
     .byte con_timer, $20
@@ -5185,7 +5176,7 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_endline
     
     .byte con_offset, $30, $23
-    .text "Absent"
+    .text "Yahemi"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5195,23 +5186,13 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_E2, $01, $00, $14
     .byte con_E2, $01, $0F, $0B
     .byte con_animation, $74
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Chief Debugger"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
-    .byte $07    ; <き>
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $24    ; <や>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $B2    ; <べ>
-    .byte $04    ; <え>
+    .byte con_offset, $F3, $22
+    .text "Today #10"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5219,12 +5200,12 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $02, $11, $09
     .byte con_animation, $75
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Out-Game Advisor"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $EE, $22
     .text "Cherry Blossom"
     .byte con_endline
     .byte con_timer, $48
@@ -5233,29 +5214,29 @@ con_endline                 = $FC   ; закончить чтение текст
     
     .byte con_E2, $12, $44, $09
     .byte con_animation, $76
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Manual Design"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
-    .text "Eco eco"
+    .byte con_offset, $EC, $22
+    .text "Mondo Eco"
     .byte con_endline
     
-    .byte con_offset, $30, $23
-    .text "Pancho Takachan"
+    .byte con_offset, $2C, $23
+    .text "Pancho Taka-chan"
     .byte con_endline
     .byte con_timer, $48
     
     
     
     .byte con_animation, $77
-    .byte con_offset, $63, $22
+    .byte con_offset, $64, $22
     .text "Original"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F0, $22
+    .byte con_offset, $EC, $22
     .text "Yoichi Takahashi"
     .byte con_endline
     .byte con_timer, $80

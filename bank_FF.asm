@@ -915,8 +915,8 @@ tbl_CCD2_адрес_ppu:
     .word $2260
     .word $22A0
     .word $22E0
-    .word $2300
-    .word $2340
+    .word $2320
+    .word $2360
 
 .export sub_0x03CCE2
 sub_0x03CCE2:
