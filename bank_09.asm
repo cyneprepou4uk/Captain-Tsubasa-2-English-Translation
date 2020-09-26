@@ -210,19 +210,19 @@ tbl_0x010010_блоки_4x4_тайла:
     .byte $0F, $0F, $0F, $0F
     .byte $40, $41, $40, $40
     .byte $42, $43, $42, $42
-    ; 22
+    ; 22 Tecmo Theater 1
     .byte $FA
     .byte $01, $01, $01, $01
     .byte $0D, $0D, $0D, $0D
     .byte $40, $41, $40, $40
     .byte $42, $43, $42, $42
-    ; 23
+    ; 23 Tecmo Theater 2
     .byte $FA
     .byte $01, $01, $01, $01
     .byte $0D, $0D, $0D, $0D
     .byte $44, $45, $40, $40
     .byte $46, $47, $42, $42
-    ; 24
+    ; 24 Tecmo Theater 3
     .byte $FA
     .byte $01, $01, $01, $01
     .byte $0D, $0D, $01, $1A
