@@ -850,49 +850,40 @@ loc_CC46:
 sub_CC46:
 C D - - - 0x03CC56 FF:CC46: A9 00     LDA #$00
 C - - - - 0x03CC58 FF:CC48: 8D F4 05  STA $05F4
-C - - - - 0x03CC5B FF:CC4B: A9 06     LDA #$06
-bra_CC4D:
+C - - - - 0x03CC5B FF:CC4B: A9 06     LDA #$04
+bra_CC4D_продолжить_очистку_буфера:
 C - - - - 0x03CC5D FF:CC4D: 48        PHA
-bra_CC4E:
+bra_CC4E_ожидание_очистки:
 C - - - - 0x03CC5E FF:CC4E: A9 01     LDA #$01
 C - - - - 0x03CC60 FF:CC50: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CC63 FF:CC53: AD 15 05  LDA $0515
-C - - - - 0x03CC66 FF:CC56: D0 F6     BNE bra_CC4E
+C - - - - 0x03CC66 FF:CC56: D0 F6     BNE bra_CC4E_ожидание_очистки
 C - - - - 0x03CC68 FF:CC58: A9 01     LDA #$01
 C - - - - 0x03CC6A FF:CC5A: 8D 15 05  STA $0515
-C - - - - 0x03CC6D FF:CC5D: A0 4F     LDY #$4F
+C - - - - 0x03CC6D FF:CC5D: A0 4F     LDY #$23
 C - - - - 0x03CC6F FF:CC5F: A2 00     LDX #$00
 C - - - - 0x03CC71 FF:CC61: 8A        TXA
-bra_CC62:
+bra_CC62_цикл:
 C - - - - 0x03CC72 FF:CC62: 9D A5 04  STA $04A5,X
 C - - - - 0x03CC75 FF:CC65: E8        INX
 C - - - - 0x03CC76 FF:CC66: 88        DEY
-C - - - - 0x03CC77 FF:CC67: D0 F9     BNE bra_CC62
-C - - - - 0x03CC79 FF:CC69: A9 18     LDA #$18
+C - - - - 0x03CC77 FF:CC67: D0 F9     BPL bra_CC62_цикл
+C - - - - 0x03CC79 FF:CC69: A9 18     LDA #$20
 C - - - - 0x03CC7B FF:CC6B: 8D A5 04  STA $04A5
-C - - - - 0x03CC7E FF:CC6E: 8D C0 04  STA $04C0
-C - - - - 0x03CC81 FF:CC71: A9 20     LDA #$20
-C - - - - 0x03CC83 FF:CC73: 8D A6 04  STA $04A6
 C - - - - 0x03CC86 FF:CC76: 68        PLA
 C - - - - 0x03CC87 FF:CC77: 48        PHA
-C - - - - 0x03CC88 FF:CC78: 09 08     ORA #$08
-C - - - - 0x03CC8A FF:CC7A: 4A        LSR
-C - - - - 0x03CC8B FF:CC7B: 6E A6 04  ROR $04A6
-C - - - - 0x03CC8E FF:CC7E: 4A        LSR
-C - - - - 0x03CC8F FF:CC7F: 6E A6 04  ROR $04A6
-C - - - - 0x03CC92 FF:CC82: 09 20     ORA #$20
+                                      ASL
+                                      TAX
+                                      LDA tbl_CCD2_адрес_ppu,X
+                                      STA $04A6
+                                      LDA tbl_CCD2_адрес_ppu + 1,X
 C - - - - 0x03CC94 FF:CC84: 8D A7 04  STA $04A7
-C - - - - 0x03CC97 FF:CC87: 8D C2 04  STA $04C2
-C - - - - 0x03CC9A FF:CC8A: AD A6 04  LDA $04A6
-C - - - - 0x03CC9D FF:CC8D: 18        CLC
-C - - - - 0x03CC9E FF:CC8E: 69 20     ADC #$20
-C - - - - 0x03CCA0 FF:CC90: 8D C1 04  STA $04C1
 C - - - - 0x03CCA3 FF:CC93: A9 80     LDA #$80
 C - - - - 0x03CCA5 FF:CC95: 8D 15 05  STA $0515
 C - - - - 0x03CCA8 FF:CC98: 68        PLA
 C - - - - 0x03CCA9 FF:CC99: 38        SEC
 C - - - - 0x03CCAA FF:CC9A: E9 01     SBC #$01
-C - - - - 0x03CCAC FF:CC9C: 10 AF     BPL bra_CC4D
+C - - - - 0x03CCAC FF:CC9C: 10 AF     BPL bra_CC4D_продолжить_очистку_буфера
 bra_CC9E:
 C - - - - 0x03CCAE FF:CC9E: A9 01     LDA #$01
 C - - - - 0x03CCB0 FF:CCA0: 20 0F CB  JSR sub_CB0F
@@ -918,6 +909,14 @@ C - - - - 0x03CCD9 FF:CCC9: 8D 15 05  STA $0515
 C - - - - 0x03CCDC FF:CCCC: A9 01     LDA #$01
 C - - - - 0x03CCDE FF:CCCE: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CCE1 FF:CCD1: 60        RTS
+
+
+tbl_CCD2_адрес_ppu:
+    .word $2260
+    .word $22A0
+    .word $22E0
+    .word $2300
+    .word $2340
 
 .export sub_0x03CCE2
 sub_0x03CCE2:

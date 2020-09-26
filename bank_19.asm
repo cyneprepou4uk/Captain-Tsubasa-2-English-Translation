@@ -4106,9 +4106,9 @@
 .export loc_0x027010
 loc_0x027010:
 C D - - - 0x027010 19:B000: A9 00     LDA #$00
-C - - - - 0x027012 19:B002: 8D 90 04  STA ram_копия_спрайт_Y + $28
+C - - - - 0x027012 19:B002: 8D 90 04  STA $0490
 C - - - - 0x027015 19:B005: A9 02     LDA #$02
-C - - - - 0x027017 19:B007: 8D 91 04  STA ram_копия_спрайт_тайл + $28
+C - - - - 0x027017 19:B007: 8D 91 04  STA $0491
 C - - - - 0x02701A 19:B00A: 8D 87 00  STA ram_0087
 C - - - - 0x02701D 19:B00D: A9 67     LDA #< tbl_B467
 C - - - - 0x02701F 19:B00F: 85 88     STA ram_0088
@@ -4139,149 +4139,124 @@ C - - - - 0x027050 19:B040: 4C 2D B0  JMP loc_B02D
 sub_B043:
 C - - - - 0x027053 19:B043: 2C 3F 06  BIT $063F
 C - - - - 0x027056 19:B046: 50 03     BVC bra_B04B
-C - - - - 0x027058 19:B048: 4C AF B0  JMP loc_B0AF
+C - - - - 0x027058 19:B048: 4C AF B0  JMP loc_B0AF_скрытие_букв_спрайтами
 bra_B04B:
 C - - - - 0x02705B 19:B04B: A9 01     LDA #$01
 C - - - - 0x02705D 19:B04D: 20 15 C5  JSR sub_0x03CB1F
-C - - - - 0x027060 19:B050: AD 15 05  LDA ram_копия_спрайт_тайл + $AC
+C - - - - 0x027060 19:B050: AD 15 05  LDA $0515
 C - - - - 0x027063 19:B053: D0 F6     BNE bra_B04B
 C - - - - 0x027065 19:B055: A9 01     LDA #$01
-C - - - - 0x027067 19:B057: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
+C - - - - 0x027067 19:B057: 8D 15 05  STA $0515
 C - - - - 0x02706A 19:B05A: A2 47     LDX #$47
 C - - - - 0x02706C 19:B05C: A9 00     LDA #$00
-bra_B05E:
-C - - - - 0x02706E 19:B05E: 9D A5 04  STA ram_копия_спрайт_тайл + $3C,X
+bra_B05E_очистка_буфера:
+C - - - - 0x02706E 19:B05E: 9D A5 04  STA $04A5,X
 C - - - - 0x027071 19:B061: CA        DEX
-C - - - - 0x027072 19:B062: 10 FA     BPL bra_B05E
+C - - - - 0x027072 19:B062: 10 FA     BPL bra_B05E_очистка_буфера
+; количество символов в буфере
 C - - - - 0x027074 19:B064: A9 20     LDA #$20
-C - - - - 0x027076 19:B066: 8D A5 04  STA ram_копия_спрайт_тайл + $3C
-C - - - - 0x027079 19:B069: 8D C8 04  STA ram_копия_спрайт_Y + $60
-C - - - - 0x02707C 19:B06C: E8        INX
-C - - - - 0x02707D 19:B06D: 86 3A     STX ram_003A
+C - - - - 0x027076 19:B066: 8D A5 04  STA $04A5
 C - - - - 0x02707F 19:B06F: A5 8B     LDA ram_008B
-C - - - - 0x027081 19:B071: 29 07     AND #$07
-C - - - - 0x027083 19:B073: 09 88     ORA #$88
-C - - - - 0x027085 19:B075: 4A        LSR
-C - - - - 0x027086 19:B076: 66 3A     ROR ram_003A
-C - - - - 0x027088 19:B078: 4A        LSR
-C - - - - 0x027089 19:B079: 66 3A     ROR ram_003A
-C - - - - 0x02708B 19:B07B: 8D A7 04  STA ram_копия_спрайт_X + $3C
-C - - - - 0x02708E 19:B07E: 8D CA 04  STA ram_копия_спрайт_атрибут + $60
-C - - - - 0x027091 19:B081: A5 3A     LDA ram_003A
-C - - - - 0x027093 19:B083: 8D A6 04  STA ram_копия_спрайт_атрибут + $3C
-C - - - - 0x027096 19:B086: 18        CLC
-C - - - - 0x027097 19:B087: 69 20     ADC #$20
-C - - - - 0x027099 19:B089: 8D C9 04  STA ram_копия_спрайт_тайл + $60
-C - - - - 0x02709C 19:B08C: A5 8B     LDA ram_008B
-C - - - - 0x02709E 19:B08E: 4A        LSR
-C - - - - 0x02709F 19:B08F: 4A        LSR
-C - - - - 0x0270A0 19:B090: 4A        LSR
-C - - - - 0x0270A1 19:B091: AA        TAX
-bra_B092:
+C - - - - 0x02708B 19:B07B: 8D A7 04  STA $04A7
+C - - - - 0x02709C 19:B08C: A5 8B     LDA ram_0086
+                                      PHA
+                                      AND #$E0
+                                      STA $04A6
+                                      PLA
+                                      AND #$1F
+                                      TAX
+bra_B092_запись_текста_в_буфер:
 C - - - - 0x0270A2 19:B092: A4 8A     LDY ram_008A
 C - - - - 0x0270A4 19:B094: B1 88     LDA (ram_0088),Y
 C - - - - 0x0270A6 19:B096: C9 E0     CMP #$E0
-C - - - - 0x0270A8 19:B098: B0 0F     BCS bra_B0A9
-C - - - - 0x0270AD 19:B09D: 9D CB 04  STA ram_копия_спрайт_X + $60,X
-C - - - - 0x0270B0 19:B0A0: 98        LDA #$00
-C - - - - 0x0270B1 19:B0A1: 9D A8 04  STA ram_копия_спрайт_Y + $40,X
+C - - - - 0x0270A8 19:B098: B0 0F     BCS bra_B0A9_E0_и_выше
+C - - - - 0x0270B1 19:B0A1: 9D A8 04  STA $04A8,X
 C - - - - 0x0270B4 19:B0A4: E8        INX
 C - - - - 0x0270B5 19:B0A5: E6 8A     INC ram_008A
-C - - - - 0x0270B7 19:B0A7: D0 E9     BNE bra_B092
-bra_B0A9:
+C - - - - 0x0270B7 19:B0A7: D0 E9     BNE bra_B092_запись_текста_в_буфер
+bra_B0A9_E0_и_выше:
 C - - - - 0x0270B9 19:B0A9: A9 80     LDA #$80
-C - - - - 0x0270BB 19:B0AB: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
+C - - - - 0x0270BB 19:B0AB: 8D 15 05  STA $0515
 C - - - - 0x0270BE 19:B0AE: 60        RTS
 
-loc_B0AF:
+loc_B0AF_скрытие_букв_спрайтами:
 C D - - - 0x0270BF 19:B0AF: A4 8A     LDY ram_008A
 C - - - - 0x0270C1 19:B0B1: B1 88     LDA (ram_0088),Y
 C - - - - 0x0270C3 19:B0B3: C9 E0     CMP #$E0
-C - - - - 0x0270C5 19:B0B5: 90 01     BCC bra_B0B8
+C - - - - 0x0270C5 19:B0B5: 90 01     BCC bra_B0B8_меньше_E0
 C - - - - 0x0270C7 19:B0B7: 60        RTS
-bra_B0B8:
+bra_B0B8_меньше_E0:
 C - - - - 0x0270C8 19:B0B8: E6 8A     INC ram_008A
 C - - - - 0x0270CA 19:B0BA: 48        PHA
 bra_B0BB:
 C - - - - 0x0270CB 19:B0BB: A9 01     LDA #$01
 C - - - - 0x0270CD 19:B0BD: 20 15 C5  JSR sub_0x03CB1F
-C - - - - 0x0270D0 19:B0C0: AD 15 05  LDA ram_копия_спрайт_тайл + $AC
+C - - - - 0x0270D0 19:B0C0: AD 15 05  LDA $0515
 C - - - - 0x0270D3 19:B0C3: D0 F6     BNE bra_B0BB
 C - - - - 0x0270D5 19:B0C5: A9 01     LDA #$01
-C - - - - 0x0270D7 19:B0C7: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
+C - - - - 0x0270D7 19:B0C7: 8D 15 05  STA $0515
+; закрытие буфера
 C - - - - 0x0270DA 19:B0CA: A2 00     LDX #$00
-C - - - - 0x0270DC 19:B0CC: 8E AD 04  STX ram_копия_спрайт_тайл + $44
+C - - - - 0x0270DC 19:B0CC: 8E AD 04  STX $04A9
+; bzk бесполезный адрес 003A
 C - - - - 0x0270DF 19:B0CF: 86 3A     STX ram_003A
 C - - - - 0x0270E1 19:B0D1: E8        INX
-C - - - - 0x0270E2 19:B0D2: 8E A5 04  STX ram_копия_спрайт_тайл + $3C
-C - - - - 0x0270E5 19:B0D5: 8E A9 04  STX ram_копия_спрайт_тайл + $40
+C - - - - 0x0270E2 19:B0D2: 8E A5 04  STX $04A5
 C - - - - 0x0270E8 19:B0D8: A5 8B     LDA ram_008B
-C - - - - 0x0270EA 19:B0DA: 29 07     AND #$07
-C - - - - 0x0270EC 19:B0DC: 09 88     ORA #$88
-C - - - - 0x0270EE 19:B0DE: 4A        LSR
-C - - - - 0x0270EF 19:B0DF: 66 3A     ROR ram_003A
-C - - - - 0x0270F1 19:B0E1: 4A        LSR
-C - - - - 0x0270F2 19:B0E2: 66 3A     ROR ram_003A
-C - - - - 0x0270F4 19:B0E4: 8D A7 04  STA ram_копия_спрайт_X + $3C
-C - - - - 0x0270F7 19:B0E7: 8D AB 04  STA ram_копия_спрайт_X + $40
-C - - - - 0x0270FA 19:B0EA: A5 8B     LDA ram_008B
-C - - - - 0x0270FC 19:B0EC: 4A        LSR
-C - - - - 0x0270FD 19:B0ED: 4A        LSR
-C - - - - 0x0270FE 19:B0EE: 4A        LSR
-C - - - - 0x0270FF 19:B0EF: 18        CLC
-C - - - - 0x027100 19:B0F0: 65 3A     ADC ram_003A
-C - - - - 0x027102 19:B0F2: 8D A6 04  STA ram_копия_спрайт_атрибут + $3C
-C - - - - 0x027105 19:B0F5: 18        CLC
-C - - - - 0x027106 19:B0F6: 69 20     ADC #$20
-C - - - - 0x027108 19:B0F8: 8D AA 04  STA ram_копия_спрайт_атрибут + $40
+C - - - - 0x0270F4 19:B0E4: 8D A7 04  STA $04A7
+C - - - - 0x0270FA 19:B0EA: A5 8B     LDA ram_0086
+C - - - - 0x027102 19:B0F2: 8D A6 04  STA $04A6
 C - - - - 0x02710B 19:B0FB: 68        PLA
-C - - - - 0x02710F 19:B0FF: 8D AC 04  STA ram_копия_спрайт_Y + $44
+C - - - - 0x02710F 19:B0FF: 8D AC 04  STA $04A8
 C - - - - 0x027115 19:B105: A9 80     LDA #$80
-C - - - - 0x027117 19:B107: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
-C - - - - 0x02711A 19:B10A: A9 00     LDA #$00
-C - - - - 0x027112 19:B102: 8C A8 04  STA ram_копия_спрайт_Y + $40
-bra_B10C:
+C - - - - 0x027117 19:B107: 8D 15 05  STA $0515
+                                      LDA #$00
+bra_B10C_задержка_следующей_буквы:
 C - - - - 0x02711C 19:B10C: 48        PHA
-C - - - - 0x02711D 19:B10D: 20 27 B1  JSR sub_B127
+C - - - - 0x02711D 19:B10D: 20 27 B1  JSR sub_B127_позиция_спрайта_для_скрытия_буквы
 C - - - - 0x027120 19:B110: A9 01     LDA #$01
 C - - - - 0x027122 19:B112: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x027125 19:B115: 68        PLA
 C - - - - 0x027126 19:B116: 18        CLC
 C - - - - 0x027127 19:B117: 69 02     ADC #$02
 C - - - - 0x027129 19:B119: C9 08     CMP #$08
-C - - - - 0x02712B 19:B11B: D0 EF     BNE bra_B10C
-C - - - - 0x02712D 19:B11D: A5 8B     LDA ram_008B
-C - - - - 0x02712F 19:B11F: 18        CLC
-C - - - - 0x027130 19:B120: 69 08     ADC #$08
-C - - - - 0x027132 19:B122: 85 8B     STA ram_008B
-C - - - - 0x027134 19:B124: 4C AF B0  JMP loc_B0AF
+C - - - - 0x02712B 19:B11B: D0 EF     BNE bra_B10C_задержка_следующей_буквы
+C - - - - 0x02712D 19:B11D: A5 8B     INC ram_0086
+C - - - - 0x027134 19:B124: 4C AF B0  JMP loc_B0AF_скрытие_букв_спрайтами
 
-sub_B127:
-C - - - - 0x027137 19:B127: 85 3A     STA ram_003A
-C - - - - 0x027139 19:B129: A9 01     LDA #$01
-C - - - - 0x02713B 19:B12B: 8D F9 02  STA ram_спрайт_тайл + $F8
-C - - - - 0x02713E 19:B12E: 8D FD 02  STA ram_спрайт_тайл + $FC
-C - - - - 0x027141 19:B131: A9 00     LDA #$00
-C - - - - 0x027143 19:B133: 8D FA 02  STA ram_спрайт_атрибут + $F8
-C - - - - 0x027146 19:B136: 8D FE 02  STA ram_спрайт_атрибут + $FC
-C - - - - 0x027149 19:B139: A5 8B     LDA ram_008B
-C - - - - 0x02714B 19:B13B: 29 07     AND #$07
-C - - - - 0x02714D 19:B13D: 0A        ASL
-C - - - - 0x02714E 19:B13E: 0A        ASL
-C - - - - 0x02714F 19:B13F: 0A        ASL
-C - - - - 0x027150 19:B140: 0A        ASL
-C - - - - 0x027151 19:B141: 18        CLC
-C - - - - 0x027152 19:B142: 69 7C     ADC #$7C
-C - - - - 0x027154 19:B144: 8D F8 02  STA ram_спрайт_Y + $F8
-C - - - - 0x027157 19:B147: 69 08     ADC #$08
-C - - - - 0x027159 19:B149: 8D FC 02  STA ram_спрайт_Y + $FC
-C - - - - 0x02715C 19:B14C: A5 8B     LDA ram_008B
-C - - - - 0x02715E 19:B14E: 29 F8     AND #$F8
-C - - - - 0x027160 19:B150: 18        CLC
-C - - - - 0x027161 19:B151: 65 3A     ADC ram_003A
-C - - - - 0x027163 19:B153: 8D FB 02  STA ram_спрайт_X + $F8
-C - - - - 0x027166 19:B156: 8D FF 02  STA ram_спрайт_X + $FC
-C - - - - 0x027169 19:B159: 60        RTS
+sub_B127_позиция_спрайта_для_скрытия_буквы:
+.scope
+ram_temp = ram_003A
+                                      STA ram_temp
+                                      LDA ram_0086
+                                      AND #$1F
+                                      ASL
+                                      ASL
+                                      ASL
+                                      CLC
+                                      ADC ram_temp
+                                      STA ram_спрайт_X + $FC
+                                      LDA #$01
+                                      STA ram_спрайт_тайл + $FC
+                                      LDA #$00
+                                      STA ram_спрайт_атрибут + $FC
+                                      LDA ram_0086
+                                      AND #$E0
+                                      LSR
+                                      LSR
+                                      SEC
+                                      SBC #$10
+                                      LDY ram_008B
+                                      CPY #$23
+                                      BNE @пропуск
+                                      CLC
+                                      ADC #$40
+@пропуск:
+                                      CLC
+                                      ADC #$88
+                                      STA ram_спрайт_Y + $FC
+                                      RTS
+.endscope
 
 ; bzk возможно неэкономично
 sub_B15A:
@@ -4346,8 +4321,8 @@ C - - - - 0x0271DA 19:B1CA: 8D D2 05  STA $05D2
 C - - - - 0x0271DD 19:B1CD: AA        TAX
 bra_B1CE:
 C - - - - 0x0271DE 19:B1CE: A9 FF     LDA #$FF
-C - - - - 0x0271E0 19:B1D0: 9D 58 05  STA ram_копия_спрайт_Y + $F0,X
-C - - - - 0x0271E3 19:B1D3: 9D 57 05  STA ram_копия_спрайт_X + $EC,X
+C - - - - 0x0271E0 19:B1D0: 9D 58 05  STA ram_0468 + $F0,X
+C - - - - 0x0271E3 19:B1D3: 9D 57 05  STA ram_046B + $EC,X
 C - - - - 0x0271E6 19:B1D6: 8A        TXA
 C - - - - 0x0271E7 19:B1D7: 18        CLC
 C - - - - 0x0271E8 19:B1D8: 69 15     ADC #$15
@@ -4396,9 +4371,13 @@ C - - - - 0x027227 19:B217: 60        RTS
 
 ofs_B21B_E4_смещение_текста:
 C - J - - 0x02722B 19:B21B: A4 8A     LDY ram_008A
-C - - - - 0x02722D 19:B21D: E6 8A     INC ram_008A
 C - - - - 0x02722F 19:B21F: B1 88     LDA (ram_0088),Y
-C - - - - 0x027231 19:B221: 85 8B     STA ram_008B
+C - - - - 0x027231 19:B221: 85 8B     STA ram_0086
+                                      INY
+                                      LDA (ram_0088),Y
+                                      STA ram_008B
+                                      INY
+                                      STY ram_008A
 C - - - - 0x027233 19:B223: 60        RTS
 
 ofs_B224_E5:
@@ -4419,15 +4398,15 @@ C - - - - 0x02724D 19:B23D: 60        RTS
 
 ofs_B23E_00_осветление_экрана:
 C - J - - 0x02724E 19:B23E: A9 0F     LDA #$0F
-C - - - - 0x027250 19:B240: 8D 72 04  STA ram_копия_спрайт_атрибут + 8
+C - - - - 0x027250 19:B240: 8D 72 04  STA ram_046A + 8
 C - - - - 0x027253 19:B243: 4C F7 B2  JMP loc_B2F7
 
 ofs_B246_01:
 - - - - - 0x027256 19:B246: A9 30     LDA #$30
-- - - - - 0x027258 19:B248: 8D 72 04  STA ram_копия_спрайт_атрибут + 8
+- - - - - 0x027258 19:B248: 8D 72 04  STA ram_046A + 8
 - - - - - 0x02725B 19:B24B: A2 00     LDX #$00
 bra_B24D:
-- - - - - 0x02725D 19:B24D: BD 6F 04  LDA ram_копия_спрайт_X + 4,X
+- - - - - 0x02725D 19:B24D: BD 6F 04  LDA ram_046B + 4,X
 - - - - - 0x027260 19:B250: 9D 08 04  STA $0408,X
 - - - - - 0x027263 19:B253: E8        INX
 - - - - - 0x027264 19:B254: E0 20     CPX #$20
@@ -4464,7 +4443,7 @@ bra_B28B:
 - - - - - 0x02729F 19:B28F: A9 0F     LDA #$0F
 bra_B291:
 loc_B291:
-- - - - - 0x0272A1 19:B291: 9D 6F 04  STA ram_копия_спрайт_X + 4,X
+- - - - - 0x0272A1 19:B291: 9D 6F 04  STA ram_046B + 4,X
 - - - - - 0x0272A4 19:B294: E8        INX
 - - - - - 0x0272A5 19:B295: E0 20     CPX #$20
 - - - - - 0x0272A7 19:B297: D0 D5     BNE bra_B26E
@@ -4489,14 +4468,14 @@ bra_B2B3:
 C - - - - 0x0272C3 19:B2B3: 8A        TXA
 C - - - - 0x0272C4 19:B2B4: 29 03     AND #$03
 C - - - - 0x0272C6 19:B2B6: F0 10     BEQ bra_B2C8
-C - - - - 0x0272C8 19:B2B8: BD 6F 04  LDA ram_копия_спрайт_X + 4,X
+C - - - - 0x0272C8 19:B2B8: BD 6F 04  LDA ram_046B + 4,X
 C - - - - 0x0272CB 19:B2BB: 29 0F     AND #$0F
 C - - - - 0x0272CD 19:B2BD: 05 3A     ORA ram_003A
 C - - - - 0x0272CF 19:B2BF: A4 3A     LDY ram_003A
 C - - - - 0x0272D1 19:B2C1: D0 02     BNE bra_B2C5
 C - - - - 0x0272D3 19:B2C3: A9 0F     LDA #$0F
 bra_B2C5:
-C - - - - 0x0272D5 19:B2C5: 9D 6F 04  STA ram_копия_спрайт_X + 4,X
+C - - - - 0x0272D5 19:B2C5: 9D 6F 04  STA ram_046B + 4,X
 bra_B2C8:
 C - - - - 0x0272D8 19:B2C8: E8        INX
 C - - - - 0x0272D9 19:B2C9: E0 20     CPX #$20
@@ -4516,7 +4495,7 @@ C - - - - 0x0272EE 19:B2DE: A9 02     LDA #$02
 C - - - - 0x0272F0 19:B2E0: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x0272F3 19:B2E3: 68        PLA
 C - - - - 0x0272F4 19:B2E4: 48        PHA
-C - - - - 0x0272F5 19:B2E5: 8D 72 04  STA ram_копия_спрайт_атрибут + 8
+C - - - - 0x0272F5 19:B2E5: 8D 72 04  STA ram_046A + 8
 C - - - - 0x0272F8 19:B2E8: 20 33 C5  JSR sub_0x03CCE3
 C - - - - 0x0272FE 19:B2EE: 68        PLA
 C - - - - 0x0272FF 19:B2EF: 18        CLC
@@ -4528,7 +4507,7 @@ C - - - - 0x027306 19:B2F6: 60        RTS
 loc_B2F7:
 C D - - - 0x027307 19:B2F7: A2 00     LDX #$00
 bra_B2F9:
-C - - - - 0x027309 19:B2F9: 9D 6F 04  STA ram_копия_спрайт_X + 4,X
+C - - - - 0x027309 19:B2F9: 9D 6F 04  STA ram_046B + 4,X
 C - - - - 0x02730C 19:B2FC: E8        INX
 C - - - - 0x02730D 19:B2FD: E8        INX
 C - - - - 0x02730E 19:B2FE: E8        INX
@@ -4543,14 +4522,14 @@ C - - - - 0x02731F 19:B30F: 60        RTS
 sub_B310:
 - - - - - 0x027320 19:B310: A2 00     LDX #$00
 bra_B312:
-- - - - - 0x027322 19:B312: BD 6F 04  LDA ram_копия_спрайт_X + 4,X
+- - - - - 0x027322 19:B312: BD 6F 04  LDA ram_046B + 4,X
 - - - - - 0x027325 19:B315: 29 0F     AND #$0F
 - - - - - 0x027327 19:B317: 09 30     ORA #$30
 - - - - - 0x027329 19:B319: C9 3F     CMP #$3F
 - - - - - 0x02732B 19:B31B: D0 02     BNE bra_B31F
 - - - - - 0x02732D 19:B31D: A9 30     LDA #$30
 bra_B31F:
-- - - - - 0x02732F 19:B31F: 9D 6F 04  STA ram_копия_спрайт_X + 4,X
+- - - - - 0x02732F 19:B31F: 9D 6F 04  STA ram_046B + 4,X
 - - - - - 0x027332 19:B322: E8        INX
 - - - - - 0x027333 19:B323: E0 20     CPX #$20
 - - - - - 0x027335 19:B325: D0 EB     BNE bra_B312
@@ -4561,7 +4540,7 @@ bra_B31F:
 
 ofs_B333_FС:
 C - J - - 0x027343 19:B333: A9 80     LDA #$80
-C - - - - 0x027345 19:B335: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
+C - - - - 0x027345 19:B335: 8D 15 05  STA $0515
 C - - - - 0x027348 19:B338: 60        RTS
 
 loc_B339:
@@ -4579,13 +4558,13 @@ C - - - - 0x027358 19:B348: 60        RTS
 ofs_B218_E3:
 C D - - - 0x027359 19:B349: 20 A6 B2  JSR sub_B2A6
 C - - - - 0x02735C 19:B34C: A9 01     LDA #$01
-C - - - - 0x02735E 19:B34E: 8D 6B 04  STA ram_копия_спрайт_X
+C - - - - 0x02735E 19:B34E: 8D 6B 04  STA ram_046B
 C - - - - 0x027361 19:B351: A9 00     LDA #$00
 C - - - - 0x027363 19:B353: 85 4B     STA ram_004B
-C - - - - 0x027365 19:B355: 8D 17 05  STA ram_копия_спрайт_X + $AC
+C - - - - 0x027365 19:B355: 8D 17 05  STA ram_046B + $AC
 C - - - - 0x027368 19:B358: 8D 3C 05  STA ram_номер_анимации
 C - - - - 0x02736B 19:B35B: A9 80     LDA #$80
-C - - - - 0x02736D 19:B35D: 8D 3A 05  STA ram_копия_спрайт_атрибут + $D0
+C - - - - 0x02736D 19:B35D: 8D 3A 05  STA ram_046A + $D0
 C - - - - 0x027370 19:B360: A9 24     LDA #$24
 C - - - - 0x027372 19:B362: 85 4A     STA ram_004A
 C - - - - 0x027374 19:B364: A9 20     LDA #$20
@@ -4605,24 +4584,24 @@ C - - - - 0x027392 19:B382: 20 33 C5  JSR sub_0x03CCE3
 C - - - - 0x027398 19:B388: A2 03     LDX #$03
 bra_B38A:
 C - - - - 0x02739A 19:B38A: BD 02 B4  LDA tbl_B402,X
-C - - - - 0x02739D 19:B38D: 9D 94 04  STA ram_копия_спрайт_Y + $2C,X
+C - - - - 0x02739D 19:B38D: 9D 94 04  STA ram_0468 + $2C,X
 C - - - - 0x0273A0 19:B390: CA        DEX
 C - - - - 0x0273A1 19:B391: 10 F7     BPL bra_B38A
 C - - - - 0x0273A3 19:B393: A9 7C     LDA #$7C
-C - - - - 0x0273A5 19:B395: 8D 90 04  STA ram_копия_спрайт_Y + $28
+C - - - - 0x0273A5 19:B395: 8D 90 04  STA $0490
 C - - - - 0x0273A8 19:B398: A9 7E     LDA #$7E
-C - - - - 0x0273AA 19:B39A: 8D 91 04  STA ram_копия_спрайт_тайл + $28
+C - - - - 0x0273AA 19:B39A: 8D 91 04  STA $0491
 C - - - - 0x0273AD 19:B39D: A9 FF     LDA #$FF
-C - - - - 0x0273AF 19:B39F: 8D 57 05  STA ram_копия_спрайт_X + $EC
-C - - - - 0x0273B2 19:B3A2: 8D 58 05  STA ram_копия_спрайт_Y + $F0
-C - - - - 0x0273B5 19:B3A5: 8D 41 05  STA ram_копия_спрайт_тайл + $D8
-C - - - - 0x0273BA 19:B3AA: 8D 4F 05  STA ram_копия_спрайт_X + $E4
+C - - - - 0x0273AF 19:B39F: 8D 57 05  STA ram_046B + $EC
+C - - - - 0x0273B2 19:B3A2: 8D 58 05  STA ram_0468 + $F0
+C - - - - 0x0273B5 19:B3A5: 8D 41 05  STA ram_0469 + $D8
+C - - - - 0x0273BA 19:B3AA: 8D 4F 05  STA ram_046B + $E4
 C - - - - 0x0273BD 19:B3AD: A9 DD     LDA #$DD
-C - - - - 0x0273BF 19:B3AF: 8D 53 05  STA ram_копия_спрайт_X + $E8
+C - - - - 0x0273BF 19:B3AF: 8D 53 05  STA ram_046B + $E8
 C - - - - 0x0273C2 19:B3B2: A9 80     LDA #$80
-C - - - - 0x0273C4 19:B3B4: 8D 47 05  STA ram_копия_спрайт_X + $DC
+C - - - - 0x0273C4 19:B3B4: 8D 47 05  STA ram_046B + $DC
 C - - - - 0x0273C7 19:B3B7: A9 31     LDA #$31
-C - - - - 0x0273C9 19:B3B9: 8D 59 05  STA ram_копия_спрайт_тайл + $F0
+C - - - - 0x0273C9 19:B3B9: 8D 59 05  STA ram_0469 + $F0
 C - - - - 0x0273CC 19:B3BC: 20 33 C5  JSR sub_0x03CCE2
 C - - - - 0x0273D2 19:B3C2: A9 60     LDA #$60
 C - - - - 0x0273D4 19:B3C4: 20 15 C5  JSR sub_0x03CB1F
@@ -4637,7 +4616,7 @@ C - - - - 0x0273E2 19:B3D2: 18        CLC
 C - - - - 0x0273E3 19:B3D3: 69 60     ADC #$60
 C - - - - 0x0273E5 19:B3D5: 85 8A     STA ram_008A
 C - - - - 0x0273E7 19:B3D7: 90 F2     BCC bra_B3CB
-C - - - - 0x0273E9 19:B3D9: CE 4F 05  DEC ram_копия_спрайт_X + $E4
+C - - - - 0x0273E9 19:B3D9: CE 4F 05  DEC ram_046B + $E4
 C - - - - 0x0273EC 19:B3DC: C6 4A     DEC ram_004A
 C - - - - 0x0273EE 19:B3DE: F0 1A     BEQ bra_B3FA
 C - - - - 0x0273F0 19:B3E0: A2 06     LDX #$06
@@ -4648,7 +4627,7 @@ C - - - - 0x0273F8 19:B3E8: A2 16     LDX #$16
 C - - - - 0x0273FA 19:B3EA: C9 08     CMP #$08
 C - - - - 0x0273FC 19:B3EC: D0 DD     BNE bra_B3CB
 bra_B3EE:
-C - - - - 0x0273FE 19:B3EE: 8E 70 04  STX ram_копия_спрайт_Y + 8
+C - - - - 0x0273FE 19:B3EE: 8E 70 04  STX ram_0468 + 8
 C - - - - 0x027401 19:B3F1: 20 33 C5  JSR sub_0x03CCE3
 C - - - - 0x027407 19:B3F7: 4C CB B3  JMP loc_B3CB
 bra_B3FA:
@@ -4671,26 +4650,26 @@ C - - - - 0x02741B 19:B40B: 86 8A     STX ram_008A
 bra_B40D:
 C - - - - 0x02741D 19:B40D: A9 01     LDA #$01
 C - - - - 0x02741F 19:B40F: 20 15 C5  JSR sub_0x03CB1F
-C - - - - 0x027422 19:B412: AD 15 05  LDA ram_копия_спрайт_тайл + $AC
+C - - - - 0x027422 19:B412: AD 15 05  LDA $0515
 C - - - - 0x027425 19:B415: D0 F6     BNE bra_B40D
 C - - - - 0x027427 19:B417: A9 01     LDA #$01
-C - - - - 0x027429 19:B419: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
+C - - - - 0x027429 19:B419: 8D 15 05  STA $0515
 C - - - - 0x02742C 19:B41C: A2 24     LDX #$24
 C - - - - 0x02742E 19:B41E: A9 00     LDA #$00
 bra_B420:
-C - - - - 0x027430 19:B420: 9D A5 04  STA ram_копия_спрайт_тайл + $3C,X
+C - - - - 0x027430 19:B420: 9D A5 04  STA $04A5,X
 C - - - - 0x027433 19:B423: CA        DEX
 C - - - - 0x027434 19:B424: 10 FA     BPL bra_B420
 C - - - - 0x027436 19:B426: A9 20     LDA #$20
-C - - - - 0x027438 19:B428: 8D A5 04  STA ram_копия_спрайт_тайл + $3C
+C - - - - 0x027438 19:B428: 8D A5 04  STA $04A5
 C - - - - 0x02743B 19:B42B: A6 8A     LDX ram_008A
-C - - - - 0x02743D 19:B42D: 8E A6 04  STX ram_копия_спрайт_атрибут + $3C
+C - - - - 0x02743D 19:B42D: 8E A6 04  STX $04A6
 C - - - - 0x027440 19:B430: 68        PLA
 C - - - - 0x027441 19:B431: 48        PHA
 C - - - - 0x027442 19:B432: 05 8B     ORA ram_008B
-C - - - - 0x027444 19:B434: 8D A7 04  STA ram_копия_спрайт_X + $3C
+C - - - - 0x027444 19:B434: 8D A7 04  STA $04A7
 C - - - - 0x027447 19:B437: A9 80     LDA #$80
-C - - - - 0x027449 19:B439: 8D 15 05  STA ram_копия_спрайт_тайл + $AC
+C - - - - 0x027449 19:B439: 8D 15 05  STA $0515
 C - - - - 0x02744C 19:B43C: 8A        TXA
 C - - - - 0x02744D 19:B43D: 18        CLC
 C - - - - 0x02744E 19:B43E: 69 20     ADC #$20
@@ -4738,18 +4717,18 @@ tbl_0x02745E_финальная_надпись_TECMO:
 
 tbl_B467:
 .scope
-con_animation       = $E0
-con_timer           = $E1
-con_E2              = $E2
-con_E3              = $E3
-con_offset          = $E4   ; смещение по горизонтали и вертикали
-con_brightness      = $E5   ; 00 - осветление экрана, 02 - затемнение экрана, 03 - показать текст
-con_E6              = $E6
-con_endline         = $FC   ; закончить чтение текста
+con_animation               = $E0
+con_timer                   = $E1
+con_E2                      = $E2
+con_E3                      = $E3
+con_offset                  = $E4   ; смещение по горизонтали и вертикали
+con_brightness              = $E5   ; 00 - осветление экрана, 02 - затемнение экрана, 03 - показать текст
+con_hide_letters            = $E6   ; текст до конца катсцены побуквенно скрывается спрайтами
+con_endline                 = $FC   ; закончить чтение текста
 
     .byte con_animation, $5C
     .byte con_brightness, $00
-    .byte con_offset, $5A
+    .byte con_offset, $69, $22
     .text "Carlos Santana"
     .byte con_endline
     .byte con_brightness, $03
@@ -4760,6 +4739,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $5D
     .byte con_brightness, $00
+    .byte con_offset, $6A, $22
     .text "Claudio Meon"
     .byte con_endline
     .byte con_brightness, $03
@@ -4771,7 +4751,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_E2, $01, $14, $09
     .byte con_animation, $56
     .byte con_brightness, $00
-    .byte con_offset, $62
+    .byte con_offset, $6A, $22
     .text "Ishizaki Ryo"
     .byte con_endline
     .byte con_brightness, $03
@@ -4782,6 +4762,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $59
     .byte con_brightness, $00
+    .byte con_offset, $69, $22
     .text "Jitou Hiroshi"
     .byte con_endline
     .byte con_brightness, $03
@@ -4792,9 +4773,10 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $5A
     .byte con_brightness, $00
+    .byte con_offset, $67, $22
     .text "Tachibana brothers"
     .byte con_endline
-    .byte con_offset, $6B
+    .byte con_offset, $A8, $22
     .text "Masao and Kazuo"
     .byte con_endline
     .byte con_brightness, $03
@@ -4805,7 +4787,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $57
     .byte con_brightness, $00
-    .byte con_offset, $62
+    .byte con_offset, $6A, $22
     .text "Souda Makoto"
     .byte con_endline
     .byte con_brightness, $03
@@ -4816,16 +4798,18 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $55
     .byte con_brightness, $00
+    .byte con_offset, $6B, $22
     .text "Misugi Jun"
     .byte con_endline
     .byte con_brightness, $03
-    
-    
-    
     .byte con_timer, $68
+    
+    
+    
     .byte con_brightness, $02
     .byte con_animation, $54
     .byte con_brightness, $00
+    .byte con_offset, $68, $22
     .text "Matsuyama Hikaru"
     .byte con_endline
     .byte con_brightness, $03
@@ -4837,6 +4821,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_E2, $01, $15, $09
     .byte con_animation, $58
     .byte con_brightness, $00
+    .byte con_offset, $6B, $22
     .text "Nitta Shun"
     .byte con_endline
     .byte con_brightness, $03
@@ -4847,7 +4832,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $64
     .byte con_brightness, $00
-    .byte con_offset, $5A
+    .byte con_offset, $68, $22
     .text "Ramon Victorino"
     .byte con_endline
     .byte con_brightness, $03
@@ -4858,7 +4843,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $5E
     .byte con_brightness, $00
-    .byte con_offset, $62
+    .byte con_offset, $69, $22
     .text "Hermann Kaltz"
     .byte con_endline
     .byte con_brightness, $03
@@ -4869,7 +4854,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $5F
     .byte con_brightness, $00
-    .byte con_offset, $5A
+    .byte con_offset, $68, $22
     .text "Elle Sid Pierre"
     .byte con_endline
     .byte con_brightness, $03
@@ -4880,7 +4865,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $60
     .byte con_brightness, $00
-    .byte con_offset, $62
+    .byte con_offset, $69, $22
     .text "Louis Napoleon"
     .byte con_endline
     .byte con_brightness, $03
@@ -4891,6 +4876,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $61
     .byte con_brightness, $00
+    .byte con_offset, $6B, $22
     .text "Juan Diaz"
     .byte con_endline
     .byte con_brightness, $03
@@ -4901,6 +4887,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $62
     .byte con_brightness, $00
+    .byte con_offset, $6A, $22
     .text "Alan Pascal"
     .byte con_endline
     .byte con_brightness, $03
@@ -4911,7 +4898,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $63
     .byte con_brightness, $00
-    .byte con_offset, $42
+    .byte con_offset, $66, $22
     .text "Karl Heinz Schneider"
     .byte con_endline
     .byte con_brightness, $03
@@ -4922,7 +4909,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $65
     .byte con_brightness, $00
-    .byte con_offset, $42
+    .byte con_offset, $65, $22
     .text "Arthur Antines Coimbra"
     .byte con_endline
     .byte con_brightness, $03
@@ -4933,7 +4920,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $51
     .byte con_brightness, $00
-    .byte con_offset, $62
+    .byte con_offset, $6A, $22
     .text "Misaki Tarou"
     .byte con_endline
     .byte con_brightness, $03
@@ -4944,6 +4931,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $5B
     .byte con_brightness, $00
+    .byte con_offset, $69, $22
     .text "Wakashimazu Ken"
     .byte con_endline
     .byte con_brightness, $03
@@ -4954,6 +4942,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $52
     .byte con_brightness, $00
+    .byte con_offset, $6A, $22
     .text "Hyuga Kojiro"
     .byte con_endline
     .byte con_brightness, $03
@@ -4964,7 +4953,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_animation, $53
     .byte con_brightness, $00
-    .byte con_offset, $5A
+    .byte con_offset, $67, $22
     .text "Wakabayashi Genzo"
     .byte con_endline
     .byte con_brightness, $03
@@ -4976,7 +4965,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_E2, $02, $01, $09
     .byte con_animation, $50
     .byte con_brightness, $00
-    .byte con_offset, $62
+    .byte con_offset, $69, $22
     .text "Ozora Tsubasa"
     .byte con_endline
     .byte con_brightness, $03
@@ -4987,35 +4976,23 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_brightness, $02
     .byte con_E2, $00, $58, $09
     .byte con_animation, $66
-    .byte con_offset, $71
+    .byte con_offset, $6D, $22
     .text "STAFF"
     .byte con_endline
     .byte con_timer, $A0
     
     
     
-    .byte con_E6
+    .byte con_hide_letters
     .byte con_E2, $02, $01, $09
     .byte con_animation, $69
-    .byte con_offset, $41
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $6A    ; <レ>
-    .byte $48    ; <ク>
-    .byte $50    ; <タ>
-    .byte $7D    ; <ー>
+    .byte con_offset, $63, $22
+    .text "Director"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $5C    ; <フ>
-    .byte $73    ; <ヮ>
-    .byte $42    ; <イ>
-    .byte $50    ; <タ>
-    .byte $7D    ; <ー>
-    .byte $05    ; <お>
-    .byte $14    ; <と>
-    .byte $20    ; <み>
+    .byte con_offset, $F0, $22
+    .text "Fuwaita Otomi"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5023,26 +5000,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $01, $15, $14
     .byte con_animation, $78
-    .byte con_offset, $41
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $B7    ; <ゲ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $00
-    .byte $CF    ; <プ>
-    .byte $6B    ; <ロ>
-    .byte $B6    ; <グ>
-    .byte $67    ; <ラ>
-    .byte $61    ; <ム>
+    .byte con_offset, $63, $22
+    .text "In-Game Programming"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $26    ; <よ>
-    .byte $2F    ; <っ>
-    .byte $11    ; <ち>
-    .byte $2E    ; <ん>
+    .byte con_offset, $F0, $22
+    .text "Yocchi"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5050,27 +5014,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $0B, $32, $14
     .byte con_animation, $6B
-    .byte con_offset, $41
-    .byte $41    ; <ア>
-    .byte $43    ; <ウ>
-    .byte $54    ; <ト>
-    .byte $B7    ; <ゲ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $00
-    .byte $CF    ; <プ>
-    .byte $6B    ; <ロ>
-    .byte $B6    ; <グ>
-    .byte $67    ; <ラ>
-    .byte $61    ; <ム>
+    .byte con_offset, $63, $22
+    .text "Out-Game Programming"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $41    ; <ア>
-    .byte $47    ; <キ>
-    .byte $5B    ; <ヒ>
-    .byte $4A    ; <コ>
+    .byte con_offset, $F0, $22
+    .text "Akihiko"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5078,22 +5028,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $01, $14, $14
     .byte con_animation, $6C
-    .byte con_offset, $41
-    .byte $CF    ; <プ>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $55    ; <ナ>
-    .byte $7D    ; <ー>
+    .byte con_offset, $63, $22
+    .text "Planning"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $01    ; <あ>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $07    ; <き>
-    .byte $12    ; <つ>
-    .byte $18    ; <ね>
+    .byte con_offset, $F0, $22
+    .text "Red Fox"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5101,25 +5042,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $02, $01, $09
     .byte con_animation, $6D
-    .byte con_offset, $41
-    .byte $41    ; <ア>
-    .byte $43    ; <ウ>
-    .byte $54    ; <ト>
-    .byte $B7    ; <ゲ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $6A    ; <レ>
-    .byte $48    ; <ク>
-    .byte $50    ; <タ>
-    .byte $7D    ; <ー>
+    .byte con_offset, $63, $22
+    .text "Out-Game Director"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $03    ; <う>
-    .byte $1F    ; <ま>
+    .byte con_offset, $F0, $22
+    .text "Horse"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5127,29 +5056,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $0A, $30, $09
     .byte con_animation, $6E
-    .byte con_offset, $41
-    .byte $41    ; <ア>
-    .byte $56    ; <ニ>
-    .byte $62    ; <メ>
-    .byte $7D    ; <ー>
-    .byte $4C    ; <シ>
-    .byte $72    ; <ョ>
-    .byte $6E    ; <ン>
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $6A    ; <レ>
-    .byte $48    ; <ク>
-    .byte $50    ; <タ>
-    .byte $7D    ; <ー>
+    .byte con_offset, $63, $22
+    .text "Animation Director"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $16    ; <に>
-    .byte $2C    ; <わ>
-    .byte $06    ; <か>
-    .byte $1F    ; <ま>
-    .byte $29    ; <る>
+    .byte con_offset, $F0, $22
+    .text "Niwaka Maru"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5157,24 +5070,19 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $0E, $39, $0B
     .byte con_animation, $6F
-    .byte con_offset, $41
-    .byte $60    ; <ミ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $BA    ; <ジ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
+    .byte con_offset, $63, $22
+    .text "Music"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
+    .byte con_offset, $F0, $22
     .byte $24    ; <や>
     .byte $1F    ; <ま>
     .byte $0B    ; <さ>
     .byte $2E    ; <ん>
     .byte con_endline
     
-    .byte con_offset, $84
+    .byte con_offset, $30, $23
     .byte $62    ; <メ>
     .byte $50    ; <タ>
     .byte $69    ; <ル>
@@ -5183,7 +5091,7 @@ con_endline         = $FC   ; закончить чтение текста
     .byte $07    ; <き>
     .byte con_endline
     
-    .byte con_offset, $85
+    .byte con_offset, $70, $23
     .byte $1F    ; <ま>
     .byte $25    ; <ゆ>
     .byte con_endline
@@ -5193,30 +5101,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $01, $0C, $09
     .byte con_animation, $70
-    .byte con_offset, $41
-    .byte $4D    ; <ス>
-    .byte $CF    ; <プ>
-    .byte $67    ; <ラ>
-    .byte $42    ; <イ>
-    .byte $54    ; <ト>
-    .byte $41    ; <ア>
-    .byte $48    ; <ク>
-    .byte $4C    ; <シ>
-    .byte $72    ; <ョ>
-    .byte $6E    ; <ン>
+    .byte con_offset, $63, $22
+    .text "Sprite Animation"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $4D    ; <ス>
-    .byte $7D    ; <ー>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $A4    ; <ご>
-    .byte $2E    ; <ん>
-    .byte $10    ; <た>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
+    .byte con_offset, $F0, $22
+    .text "Super Gonta-kun"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5225,22 +5116,13 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_E2, $0D, $00, $0B
     .byte con_E2, $0D, $35, $14
     .byte con_animation, $71
-    .byte con_offset, $41
-    .byte $C3    ; <バ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
+    .byte con_offset, $63, $22
+    .text "Maintenence"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $1F    ; <ま>
-    .byte $7D    ; <ー>
-    .byte $0C    ; <し>
-    .byte $01    ; <あ>
-    .byte $2E    ; <ん>
+    .byte con_offset, $F0, $22
+    .text "Mashian"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5248,40 +5130,21 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $09, $2E, $14
     .byte con_animation, $72
-    .byte con_offset, $41
-    .byte $B6    ; <グ>
-    .byte $67    ; <ラ>
-    .byte $5C    ; <フ>
-    .byte $74    ; <ィ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $00
-    .byte $34    ; <1>
+    .byte con_offset, $63, $22
+    .text "Graphic Team #1"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $49    ; <ケ>
-    .byte $7D    ; <ー>
-    .byte $55    ; <ナ>
+    .byte con_offset, $F0, $22
+    .text "Kena"
     .byte con_endline
     
-    .byte con_offset, $84
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $4A    ; <コ>
+    .byte con_offset, $30, $23
+    .text "Perco"
     .byte con_endline
-    .byte con_offset, $85
-    .byte $4C    ; <シ>
-    .byte $6E    ; <ン>
-    .byte $CE    ; <ピ>
-    .byte $6B    ; <ロ>
-    .byte $44    ; <エ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
+    
+    .byte con_offset, $70, $23
+    .text "Simpiro Ace"
     .byte con_endline
     
     .byte con_timer, $48
@@ -5290,38 +5153,21 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $02, $01, $09
     .byte con_animation, $6A
-    .byte con_offset, $41
-    .byte $B6    ; <グ>
-    .byte $67    ; <ラ>
-    .byte $5C    ; <フ>
-    .byte $74    ; <ィ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $00
-    .byte $35    ; <2>
+    .byte con_offset, $63, $22
+    .text "Graphic Team #2"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $21    ; <む>
-    .byte $27    ; <ら>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
+    .byte con_offset, $F0, $22
+    .text "Purple"
     .byte con_endline
     
-    .byte con_offset, $84
-    .byte $A7    ; <ず>
-    .byte $03    ; <う>
+    .byte con_offset, $30, $23
+    .text "Zu"
     .byte con_endline
     
-    .byte con_offset, $85
-    .byte $1C    ; <ふ>
-    .byte $25    ; <ゆ>
-    .byte $1C    ; <ふ>
-    .byte $25    ; <ゆ>
+    .byte con_offset, $70, $23
+    .text "Fuyufuyu"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5329,30 +5175,17 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $02, $21, $0B
     .byte con_animation, $73
-    .byte con_offset, $41
-    .byte $C1    ; <デ>
-    .byte $7D    ; <ー>
-    .byte $50    ; <タ>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
+    .byte con_offset, $63, $22
+    .text "Programming"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $0B    ; <さ>
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $0A    ; <こ>
-    .byte $2E    ; <ん>
+    .byte con_offset, $F0, $22
+    .text "Sugar Radish"
     .byte con_endline
     
-    .byte con_offset, $84
-    .byte $24    ; <や>
-    .byte $1D    ; <へ>
-    .byte $20    ; <み>
+    .byte con_offset, $30, $23
+    .text "Absent"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5362,18 +5195,12 @@ con_endline         = $FC   ; закончить чтение текста
     .byte con_E2, $01, $00, $14
     .byte con_E2, $01, $0F, $0B
     .byte con_animation, $74
-    .byte con_offset, $41
-    .byte $C1    ; <デ>
-    .byte $C3    ; <バ>
-    .byte $6F    ; <ッ>
-    .byte $B6    ; <グ>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $5C    ; <フ>
+    .byte con_offset, $63, $22
+    .text "Chief Debugger"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
+    .byte con_offset, $F0, $22
     .byte $07    ; <き>
     .byte $07    ; <き>
     .byte $32    ; <ょ>
@@ -5392,28 +5219,13 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $02, $11, $09
     .byte con_animation, $75
-    .byte con_offset, $41
-    .byte $41    ; <ア>
-    .byte $43    ; <ウ>
-    .byte $54    ; <ト>
-    .byte $B7    ; <ゲ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $41    ; <ア>
-    .byte $C2    ; <ド>
-    .byte $C3    ; <バ>
-    .byte $42    ; <イ>
-    .byte $B9    ; <ザ>
-    .byte $7D    ; <ー>
+    .byte con_offset, $63, $22
+    .text "Out-Game Advisor"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $0B    ; <さ>
-    .byte $08    ; <く>
-    .byte $27    ; <ら>
-    .byte $A5    ; <ざ>
-    .byte $07    ; <き>
+    .byte con_offset, $F0, $22
+    .text "Cherry Blossom"
     .byte con_endline
     .byte con_timer, $48
     
@@ -5421,68 +5233,30 @@ con_endline         = $FC   ; закончить чтение текста
     
     .byte con_E2, $12, $44, $09
     .byte con_animation, $76
-    .byte con_offset, $41
-    .byte $CD    ; <パ>
-    .byte $6F    ; <ッ>
-    .byte $49    ; <ケ>
-    .byte $7D    ; <ー>
-    .byte $BA    ; <ジ>
-    .byte $C1    ; <デ>
-    .byte $B9    ; <ザ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $3F    ; <•>
-    .byte $5F    ; <マ>
-    .byte $56    ; <ニ>
-    .byte $71    ; <ュ>
-    .byte $41    ; <ア>
-    .byte $69    ; <ル>
+    .byte con_offset, $63, $22
+    .text "Manual Design"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $23    ; <も>
-    .byte $2E    ; <ん>
-    .byte $AE    ; <ど>
-    .byte $44    ; <エ>
-    .byte $4A    ; <コ>
+    .byte con_offset, $F0, $22
+    .text "Eco eco"
     .byte con_endline
     
-    .byte con_offset, $84
-    .byte $CD    ; <パ>
-    .byte $6E    ; <ン>
-    .byte $51    ; <チ>
-    .byte $72    ; <ョ>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $11    ; <ち>
-    .byte $30    ; <ゃ>
-    .byte $2E    ; <ん>
+    .byte con_offset, $30, $23
+    .text "Pancho Takachan"
     .byte con_endline
     .byte con_timer, $48
     
     
     
     .byte con_animation, $77
-    .byte con_offset, $41
-    .byte $45    ; <オ>
-    .byte $68    ; <リ>
-    .byte $BA    ; <ジ>
-    .byte $55    ; <ナ>
-    .byte $69    ; <ル>
+    .byte con_offset, $63, $22
+    .text "Original"
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $83
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $1A    ; <は>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $26    ; <よ>
-    .byte $03    ; <う>
-    .byte $02    ; <い>
-    .byte $11    ; <ち>
+    .byte con_offset, $F0, $22
+    .text "Yoichi Takahashi"
     .byte con_endline
     .byte con_timer, $80
     
