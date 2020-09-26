@@ -4110,9 +4110,9 @@ C - - - - 0x027012 19:B002: 8D 90 04  STA $0490
 C - - - - 0x027015 19:B005: A9 02     LDA #$02
 C - - - - 0x027017 19:B007: 8D 91 04  STA $0491
 C - - - - 0x02701A 19:B00A: 8D 87 00  STA ram_0087
-C - - - - 0x02701D 19:B00D: A9 67     LDA #< tbl_B467
+C - - - - 0x02701D 19:B00D: A9 67     LDA #< tbl_B467_титры
 C - - - - 0x02701F 19:B00F: 85 88     STA ram_0088
-C - - - - 0x027021 19:B011: A9 B4     LDA #> tbl_B467
+C - - - - 0x027021 19:B011: A9 B4     LDA #> tbl_B467_титры
 C - - - - 0x027023 19:B013: 85 89     STA ram_0089
 C - - - - 0x027025 19:B015: A9 00     LDA #$00
 C - - - - 0x027027 19:B017: 8D FB 05  STA ram_команда_с_мячом
@@ -4218,7 +4218,7 @@ C - - - - 0x027120 19:B110: A9 01     LDA #$01
 C - - - - 0x027122 19:B112: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x027125 19:B115: 68        PLA
 C - - - - 0x027126 19:B116: 18        CLC
-C - - - - 0x027127 19:B117: 69 02     ADC #$02
+C - - - - 0x027127 19:B117: 69 02     ADC #$04
 C - - - - 0x027129 19:B119: C9 08     CMP #$08
 C - - - - 0x02712B 19:B11B: D0 EF     BNE bra_B10C_задержка_следующей_буквы
 C - - - - 0x02712D 19:B11D: A5 8B     INC ram_0086
@@ -4618,11 +4618,11 @@ tbl_0x02745E_финальная_надпись_TECMO:
 
 
 
-tbl_B467:
+tbl_B467_титры:
 .scope
 con_animation               = $E0
 con_timer                   = $E1
-con_E2                      = $E2
+con_E2                      = $E2   ; ??? + номер игрока + ???
 con_E3                      = $E3
 con_offset                  = $E4   ; смещение по горизонтали и вертикали
 con_brightness              = $E5   ; 00 - осветление экрана, 01 - затемнение экрана, 02 - показать текст
@@ -4897,7 +4897,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $EF, $22
     .text "Fighter Otomi"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -4911,7 +4911,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F6, $22
     .text "Yochin"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -4925,7 +4925,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F5, $22
     .text "Akihiko"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -4939,7 +4939,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F5, $22
     .text "Red Fox"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -4953,7 +4953,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F7, $22
     .text "Horse"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -4967,7 +4967,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F1, $22
     .text "Niwaka Maru"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -4989,7 +4989,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $71, $23
     .text "Mayu"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5003,7 +5003,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $ED, $22
     .text "Super Gonta-kun"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5018,7 +5018,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F5, $22
     .text "Mashian"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5041,7 +5041,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .text "Shinpero Ace"
     .byte con_endline
     
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5063,7 +5063,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $74, $23
     .text "Fuyufuyu"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5081,7 +5081,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $30, $23
     .text "Yahemi"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5097,7 +5097,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $F3, $22
     .text "Today #10"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5111,7 +5111,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $EE, $22
     .text "Cherry Blossom"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
@@ -5129,7 +5129,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_offset, $2C, $23
     .text "Pancho Taka-chan"
     .byte con_endline
-    .byte con_timer, $48
+    .byte con_timer, $50
     
     
     
