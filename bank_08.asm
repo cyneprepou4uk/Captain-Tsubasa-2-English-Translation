@@ -4,116 +4,116 @@
 
 .export tbl_0x00E010
 tbl_0x00E010:
-- D - I - 0x00E010 08:A000: D4 A0     .word off_A0D4_00
-- D - I - 0x00E012 08:A002: DF A0     .word off_A0DF_01
-- D - I - 0x00E014 08:A004: 27 A1     .word off_A127_02
-- D - I - 0x00E016 08:A006: 3F A1     .word off_A13F_03
-- D - I - 0x00E018 08:A008: 50 A1     .word off_A150_04
-- D - I - 0x00E01A 08:A00A: 64 A1     .word off_A164_05
-- D - I - 0x00E01C 08:A00C: 74 A1     .word off_A174_06
-- D - I - 0x00E01E 08:A00E: 90 A1     .word off_A190_07
-- D - I - 0x00E020 08:A010: A1 A1     .word off_A1A1_08
-- D - I - 0x00E022 08:A012: C9 A1     .word off_A1C9_09
-- D - I - 0x00E024 08:A014: F1 A1     .word off_A1F1_0A
-- D - I - 0x00E026 08:A016: 2A A2     .word off_A22A_0B
-- D - I - 0x00E028 08:A018: 3B A2     .word off_A23B_0C
-- D - I - 0x00E02A 08:A01A: 74 A2     .word off_A274_0D
-- D - I - 0x00E02C 08:A01C: 84 A2     .word off_A284_0E
-- D - I - 0x00E02E 08:A01E: 94 A2     .word off_A294_0F
-- D - I - 0x00E030 08:A020: A4 A2     .word off_A2A4_10
-- D - I - 0x00E032 08:A022: BC A2     .word off_A2BC_11
-- D - I - 0x00E034 08:A024: D4 A2     .word off_A2D4_12
-- D - I - 0x00E036 08:A026: EC A2     .word off_A2EC_13
-- D - I - 0x00E038 08:A028: 04 A3     .word off_A304_14
-- D - I - 0x00E03A 08:A02A: 1C A3     .word off_A31C_15
-- D - I - 0x00E03C 08:A02C: 37 A3     .word off_A337_16
-- D - I - 0x00E03E 08:A02E: 73 A3     .word off_A373_17
-- D - I - 0x00E040 08:A030: AB A3     .word off_A3AB_18
-- D - I - 0x00E042 08:A032: E3 A3     .word off_A3E3_19
-- D - I - 0x00E044 08:A034: 0C A4     .word off_A40C_1A
-- D - I - 0x00E046 08:A036: 35 A4     .word off_A435_1B
-- D - I - 0x00E048 08:A038: 55 A4     .word off_A455_1C
-- D - I - 0x00E04A 08:A03A: 9E A4     .word off_A49E_1D
-- D - I - 0x00E04C 08:A03C: B6 A4     .word off_A4B6_1E
-- D - I - 0x00E04E 08:A03E: D6 A4     .word off_A4D6_1F
-- D - I - 0x00E050 08:A040: FE A4     .word off_A4FE_20
-- D - I - 0x00E052 08:A042: 26 A5     .word off_A526_21
-- D - I - 0x00E054 08:A044: 36 A5     .word off_A536_22
-- D - I - 0x00E056 08:A046: 5F A5     .word off_A55F_23
-- D - I - 0x00E058 08:A048: 77 A5     .word off_A577_24
-- D - I - 0x00E05A 08:A04A: 8F A5     .word off_A58F_25
-- D - I - 0x00E05C 08:A04C: B8 A5     .word off_A5B8_26
-- D - I - 0x00E05E 08:A04E: D0 A5     .word off_A5D0_27
-- D - I - 0x00E060 08:A050: E8 A5     .word off_A5E8_28
-- D - I - 0x00E062 08:A052: 10 A6     .word off_A610_29
-- D - I - 0x00E064 08:A054: 39 A6     .word off_A639_2A
-- D - I - 0x00E066 08:A056: 72 A6     .word off_A672_2B
-- D - I - 0x00E068 08:A058: 92 A6     .word off_A692_2C
-- D - I - 0x00E06A 08:A05A: 9E A6     .word off_A69E_2D
-- D - I - 0x00E06C 08:A05C: C7 A6     .word off_A6C7_2E
-- D - I - 0x00E06E 08:A05E: DF A6     .word off_A6DF_2F
-- D - I - 0x00E070 08:A060: F3 A6     .word off_A6F3_30
-- D - I - 0x00E072 08:A062: 0B A7     .word off_A70B_31
-- D - I - 0x00E074 08:A064: 53 A7     .word off_A753_32
-- D - I - 0x00E076 08:A066: 73 A7     .word off_A773_33
-- D - I - 0x00E078 08:A068: 93 A7     .word off_A793_34
-- D - I - 0x00E07A 08:A06A: B3 A7     .word off_A7B3_35
-- D - I - 0x00E07C 08:A06C: EB A7     .word off_A7EB_36
-- D - I - 0x00E07E 08:A06E: 2C A8     .word off_A82C_37
-- D - I - 0x00E080 08:A070: 64 A8     .word off_A864_38
-- D - I - 0x00E082 08:A072: 7D A8     .word off_A87D_39
-- D - I - 0x00E084 08:A074: 91 A8     .word off_A891_3A
-- D - I - 0x00E086 08:A076: A9 A8     .word off_A8A9_3B
-- D - I - 0x00E088 08:A078: CD A8     .word off_A8CD_3C
-- D - I - 0x00E08A 08:A07A: E5 A8     .word off_A8E5_3D
-- D - I - 0x00E08C 08:A07C: FD A8     .word off_A8FD_3E
-- D - I - 0x00E08E 08:A07E: 25 A9     .word off_A925_3F
-- D - I - 0x00E090 08:A080: 6E A9     .word off_A96E_40
-- D - I - 0x00E092 08:A082: 97 A9     .word off_A997_41
-- D - I - 0x00E094 08:A084: C0 A9     .word off_A9C0_42
-- D - I - 0x00E096 08:A086: D4 A9     .word off_A9D4_43
-- D - I - 0x00E098 08:A088: E8 A9     .word off_A9E8_44
-- D - I - 0x00E09A 08:A08A: F8 A9     .word off_A9F8_45
-- D - I - 0x00E09C 08:A08C: 31 AA     .word off_AA31_46
-- D - I - 0x00E09E 08:A08E: 4B AA     .word off_AA4B_47
-- D - I - 0x00E0A0 08:A090: 63 AA     .word off_AA63_48
-- D - I - 0x00E0A2 08:A092: 7C AA     .word off_AA7C_49
-- D - I - 0x00E0A4 08:A094: 8A AA     .word off_AA8A_4A
-- D - I - 0x00E0A6 08:A096: A2 AA     .word off_AAA2_4B
-- D - I - 0x00E0A8 08:A098: BA AA     .word off_AABA_4C
-- D - I - 0x00E0AA 08:A09A: D2 AA     .word off_AAD2_4D
-- D - I - 0x00E0AC 08:A09C: EA AA     .word off_AAEA_4E
-- D - I - 0x00E0AE 08:A09E: 63 AC     .word off_AC63_4F
-- D - I - 0x00E0B0 08:A0A0: 7B AC     .word off_AC7B_50
-- D - I - 0x00E0B2 08:A0A2: 93 AC     .word off_AC93_51
-- D - I - 0x00E0B4 08:A0A4: B3 AC     .word off_ACB3_52
-- D - I - 0x00E0B6 08:A0A6: CB AC     .word off_ACCB_53
-- D - I - 0x00E0B8 08:A0A8: F3 AC     .word off_ACF3_54
-- D - I - 0x00E0BA 08:A0AA: 0C AD     .word off_AD0C_55
-- D - I - 0x00E0BC 08:A0AC: 34 AD     .word off_AD34_56
-- D - I - 0x00E0BE 08:A0AE: 5C AD     .word off_AD5C_57
-- D - I - 0x00E0C0 08:A0B0: 74 AD     .word off_AD74_58
-- D - I - 0x00E0C2 08:A0B2: 9C AD     .word off_AD9C_59
-- D - I - 0x00E0C4 08:A0B4: C4 AD     .word off_ADC4_5A
-- D - I - 0x00E0C6 08:A0B6: EC AD     .word off_ADEC_5B
-- D - I - 0x00E0C8 08:A0B8: 0D AE     .word off_AE0D_5C
-- D - I - 0x00E0CA 08:A0BA: 27 AE     .word off_AE27_5D
-- D - I - 0x00E0CC 08:A0BC: 37 AE     .word off_AE37_5E
+- D - I - 0x00E010 08:A000: D4 A0     .word off_A0D4_00_tecmo_theater
+- D - I - 0x00E012 08:A002: DF A0     .word off_A0DF_01_поле_во_время_бега
+- D - I - 0x00E014 08:A004: 27 A1     .word off_A127_02_трибуны_лестница_узкий_экран
+- D - I - 0x00E016 08:A006: 3F A1     .word off_A13F_03_движение_портрета_влево_сан_паулу
+- D - I - 0x00E018 08:A008: 50 A1     .word off_A150_04_серые_трибуны_1_катсцена_01
+- D - I - 0x00E01A 08:A00A: 64 A1     .word off_A164_05_портрет_цубасы_на_месте_демо
+- D - I - 0x00E01C 08:A00C: 74 A1     .word off_A174_06_небольшой_голубой_квадрат
+- D - I - 0x00E01E 08:A00E: 90 A1     .word off_A190_07_портрет_хюги_движение_вправо_демо
+- D - I - 0x00E020 08:A010: A1 A1     .word off_A1A1_08_поле_во_время_подката
+- D - I - 0x00E022 08:A012: C9 A1     .word off_A1C9_09_черный_фон_ХЗ
+- D - I - 0x00E024 08:A014: F1 A1     .word off_A1F1_0A_ворота_вакабаяши_демо
+- D - I - 0x00E026 08:A016: 2A A2     .word off_A22A_0B_портрет_вакабаяши_движение_вправо_демо
+- D - I - 0x00E028 08:A018: 3B A2     .word off_A23B_0C_трибуны_поле_пауза_медленное_движение_вправо
+- D - I - 0x00E02A 08:A01A: 74 A2     .word off_A274_0D_команда_японии
+- D - I - 0x00E02C 08:A01C: 84 A2     .word off_A284_0E_команда_нанкацу
+- D - I - 0x00E02E 08:A01E: 94 A2     .word off_A294_0F_команда_сан_паулу
+- D - I - 0x00E030 08:A020: A4 A2     .word off_A2A4_10_трибуны_на_месте_1
+- D - I - 0x00E032 08:A022: BC A2     .word off_A2BC_11_трибуны_на_месте_2
+- D - I - 0x00E034 08:A024: D4 A2     .word off_A2D4_12_пустые_трибуны_на_месте_1
+- D - I - 0x00E036 08:A026: EC A2     .word off_A2EC_13_пустые_трибуны_на_месте_2
+- D - I - 0x00E038 08:A028: 04 A3     .word off_A304_14_1990_presented_by_tecmo
+- D - I - 0x00E03A 08:A02A: 1C A3     .word off_A31C_15_логотип_super_striker
+- D - I - 0x00E03C 08:A02C: 37 A3     .word off_A337_16_красный_фон_обезьянка_проигрыш
+- D - I - 0x00E03E 08:A02E: 73 A3     .word off_A373_17_главное_меню_с_логотипом
+- D - I - 0x00E040 08:A030: AB A3     .word off_A3AB_18_музыкальное_меню
+- D - I - 0x00E042 08:A032: E3 A3     .word off_A3E3_19_трибуны_быстрое_движение_влево
+- D - I - 0x00E044 08:A034: 0C A4     .word off_A40C_1A_трибуны_ворота_табло_пауза_медленное_движение_вправо
+- D - I - 0x00E046 08:A036: 35 A4     .word off_A435_1B_пустые_трибуны_ворота_табло
+- D - I - 0x00E048 08:A038: 55 A4     .word off_A455_1C_ворота_сидит_меон_движение_вверх
+- D - I - 0x00E04A 08:A03A: 9E A4     .word off_A49E_1D_белый_фон_для_флага_бразилии
+- D - I - 0x00E04C 08:A03C: B6 A4     .word off_A4B6_1E_ворота_стоит_меон_ждет_удара
+- D - I - 0x00E04E 08:A03E: D6 A4     .word off_A4D6_1F_пустые_трибуны_небо
+- D - I - 0x00E050 08:A040: FE A4     .word off_A4FE_20_небо
+- D - I - 0x00E052 08:A042: 26 A5     .word off_A526_21_зеленый_фон_для_ударов_ногой_по_мячу
+- D - I - 0x00E054 08:A044: 36 A5     .word off_A536_22_цубаса_крупным_планом_движение_вправо
+- D - I - 0x00E056 08:A046: 5F A5     .word off_A55F_23_цубаса_крупным_планом
+- D - I - 0x00E058 08:A048: 77 A5     .word off_A577_24_сетка_крупным_планом
+- D - I - 0x00E05A 08:A04A: 8F A5     .word off_A58F_25_трибуны_лестница_быстрое_движение_вправо
+- D - I - 0x00E05C 08:A04C: B8 A5     .word off_A5B8_26_трибуны_ночное_небо_1
+- D - I - 0x00E05E 08:A04E: D0 A5     .word off_A5D0_27_трибуны_ночное_небо_2
+- D - I - 0x00E060 08:A050: E8 A5     .word off_A5E8_28_черный_фон_ХЗ
+- D - I - 0x00E062 08:A052: 10 A6     .word off_A610_29_трибуны_очень_быстрое_движение_влево
+- D - I - 0x00E064 08:A054: 39 A6     .word off_A639_2A_трибуны_ворота_табло_медленное_движение_вправо
+- D - I - 0x00E066 08:A056: 72 A6     .word off_A672_2B_трибуны_ворота_табло_поле
+- D - I - 0x00E068 08:A058: 92 A6     .word off_A692_2C_пустые_трибуны_ворота_табло_в_квадрате_рукопожатие
+- D - I - 0x00E06A 08:A05A: 9E A6     .word off_A69E_2D_пустые_трибуны_ворота_табло_пауза_медленное_движение_вправо
+- D - I - 0x00E06C 08:A05C: C7 A6     .word off_A6C7_2E_трибуны_ворота_табло_центр
+- D - I - 0x00E06E 08:A05E: DF A6     .word off_A6DF_2F_рука_с_флагом_небо
+- D - I - 0x00E070 08:A060: F3 A6     .word off_A6F3_30_верхушка_трибун_яои_фуджисава
+- D - I - 0x00E072 08:A062: 0B A7     .word off_A70B_31_парк_вечер
+- D - I - 0x00E074 08:A064: 53 A7     .word off_A753_32_горы_вечер_1
+- D - I - 0x00E076 08:A066: 73 A7     .word off_A773_33_горы_вечер_2
+- D - I - 0x00E078 08:A068: 93 A7     .word off_A793_34_горы_вечер_3
+- D - I - 0x00E07A 08:A06A: B3 A7     .word off_A7B3_35_горы_вечер_4
+- D - I - 0x00E07C 08:A06C: EB A7     .word off_A7EB_36_удар_движение_экрана_поле_сверху_представление_циклона_цубасой
+- D - I - 0x00E07E 08:A06E: 2C A8     .word off_A82C_37_небо_самолет
+- D - I - 0x00E080 08:A070: 64 A8     .word off_A864_38_синий_фон_полоска_удивление_цубасы
+- D - I - 0x00E082 08:A072: 7D A8     .word off_A87D_39_рваная_сетка
+- D - I - 0x00E084 08:A074: 91 A8     .word off_A891_3A_майка_арбитра_рука_вверх
+- D - I - 0x00E086 08:A076: A9 A8     .word off_A8A9_3B_портрет_пьера_слева
+- D - I - 0x00E088 08:A078: CD A8     .word off_A8CD_3C_зеленый_фон_для_флагов
+- D - I - 0x00E08A 08:A07A: E5 A8     .word off_A8E5_3D_небо_узкий_экран
+- D - I - 0x00E08C 08:A07C: FD A8     .word off_A8FD_3E_вмятина_на_сетке_после_циклона_катсцена
+- D - I - 0x00E08E 08:A07E: 25 A9     .word off_A925_3F_ночное_поле_трибуны_дождь_пауза_движение_вправо
+- D - I - 0x00E090 08:A080: 6E A9     .word off_A96E_40_ворота_гертис_ловит_мяч_движенме_влево
+- D - I - 0x00E092 08:A082: 97 A9     .word off_A997_41_черный_экран_молния_ХЗ
+- D - I - 0x00E094 08:A084: C0 A9     .word off_A9C0_42_турнирная_сетка_флаги
+- D - I - 0x00E096 08:A086: D4 A9     .word off_A9D4_43_время_11_55
+- D - I - 0x00E098 08:A088: E8 A9     .word off_A9E8_44_трибуны_табло_в_прямоугольнике
+- D - I - 0x00E09A 08:A08A: F8 A9     .word off_A9F8_45_небо_цубаса_с_кубком_движение_влево
+- D - I - 0x00E09C 08:A08C: 31 AA     .word off_AA31_46_угол_йоко_ишизаки_подглядывают
+- D - I - 0x00E09E 08:A08E: 4B AA     .word off_AA4B_47_коридор_лестница_йоко
+- D - I - 0x00E0A0 08:A090: 63 AA     .word off_AA63_48_трибуны_лестница_пауза_медленное_движение_вправо
+- D - I - 0x00E0A2 08:A092: 7C AA     .word off_AA7C_49_тень_под_трибунами_коимбра
+- D - I - 0x00E0A4 08:A094: 8A AA     .word off_AA8A_4A_под_трибунами_карлос
+- D - I - 0x00E0A6 08:A096: A2 AA     .word off_AAA2_4B_санае_крупным_планом_смотрит_вправо
+- D - I - 0x00E0A8 08:A098: BA AA     .word off_AABA_4C_коридор_ишизаки
+- D - I - 0x00E0AA 08:A09A: D2 AA     .word off_AAD2_4D_цубаса_крупным_планом_рука_у_виска
+- D - I - 0x00E0AC 08:A09C: EA AA     .word off_AAEA_4E_цубаса_с_рукой_у_виска_трибуны_движение_вверх
+- D - I - 0x00E0AE 08:A09E: 63 AC     .word off_AC63_4F_под_пустыми_трибунами_слева
+- D - I - 0x00E0B0 08:A0A0: 7B AC     .word off_AC7B_50_роберто_крупный_план_очки
+- D - I - 0x00E0B2 08:A0A2: 93 AC     .word off_AC93_51_трибуны_ворота_табло_поле_слева
+- D - I - 0x00E0B4 08:A0A4: B3 AC     .word off_ACB3_52_под_пустыми_трибунами_справа
+- D - I - 0x00E0B6 08:A0A6: CB AC     .word off_ACCB_53_ночное_поле_трибуны_дождь
+- D - I - 0x00E0B8 08:A0A8: F3 AC     .word off_ACF3_54_под_трибунами_пауза_медленное_движение_вправо
+- D - I - 0x00E0BA 08:A0AA: 0C AD     .word off_AD0C_55_трибуны_лестница_полный_экран
+- D - I - 0x00E0BC 08:A0AC: 34 AD     .word off_AD34_56_ворота_вблизи_слева
+- D - I - 0x00E0BE 08:A0AE: 5C AD     .word off_AD5C_57_под_трибунами_слева
+- D - I - 0x00E0C0 08:A0B0: 74 AD     .word off_AD74_58_нижняя_часть_ворот_где_сидит_меон
+- D - I - 0x00E0C2 08:A0B2: 9C AD     .word off_AD9C_59_голубой_фон
+- D - I - 0x00E0C4 08:A0B4: C4 AD     .word off_ADC4_5A_трибуны_небо
+- D - I - 0x00E0C6 08:A0B6: EC AD     .word off_ADEC_5B_сетка_крупным_планом_сетка_крупным_планом_сетка_крупным_планом_движение_вправо
+- D - I - 0x00E0C8 08:A0B8: 0D AE     .word off_AE0D_5C_серое_поле_катсцена_01
+- D - I - 0x00E0CA 08:A0BA: 27 AE     .word off_AE27_5D_серая_команда_японии_катсцена_01
+- D - I - 0x00E0CC 08:A0BC: 37 AE     .word off_AE37_5E_серые_трибуны_2_катсцена_01
 - D - I - 0x00E0CE 08:A0BE: 4B AE     .word off_AE4B_5F_тренер_на_экране_meeting
-- D - I - 0x00E0D0 08:A0C0: 83 AE     .word off_AE83_60
-- D - I - 0x00E0D2 08:A0C2: BB AE     .word off_AEBB_61
-- D - I - 0x00E0D4 08:A0C4: DB AE     .word off_AEDB_62
-- D - I - 0x00E0D6 08:A0C6: F3 AE     .word off_AEF3_63
-- D - I - 0x00E0D8 08:A0C8: 01 AF     .word off_AF01_64
-- D - I - 0x00E0DA 08:A0CA: 19 AF     .word off_AF19_65
-- D - I - 0x00E0DC 08:A0CC: 31 AF     .word off_AF31_66
-- D - I - 0x00E0DE 08:A0CE: 5A AF     .word off_AF5A_67
-- D - I - 0x00E0E0 08:A0D0: 83 AF     .word off_AF83_68
-- D - I - 0x00E0E2 08:A0D2: D9 AF     .word off_AFD9_69
+- D - I - 0x00E0D0 08:A0C0: 83 AE     .word off_AE83_60_meeting_ХЗ
+- D - I - 0x00E0D2 08:A0C2: BB AE     .word off_AEBB_61_halftime_ХЗ
+- D - I - 0x00E0D4 08:A0C4: DB AE     .word off_AEDB_62_черный_фон_ХЗ
+- D - I - 0x00E0D6 08:A0C6: F3 AE     .word off_AEF3_63_тень_под_трибунами_серый_фон
+- D - I - 0x00E0D8 08:A0C8: 01 AF     .word off_AF01_64_серый_фон_схема_драйв_удара_циклона
+- D - I - 0x00E0DA 08:A0CA: 19 AF     .word off_AF19_65_синий_узкий_фон_ХЗ
+- D - I - 0x00E0DC 08:A0CC: 31 AF     .word off_AF31_66_фон_замаха_шнайдера
+- D - I - 0x00E0DE 08:A0CE: 5A AF     .word off_AF5A_67_фон_замаха_цубасы
+- D - I - 0x00E0E0 08:A0D0: 83 AF     .word off_AF83_68_фон_замаха_джаиро
+- D - I - 0x00E0E2 08:A0D2: D9 AF     .word off_AFD9_69_коридор_дырка_в_стене
 
 
 
-off_A0D4_00:
+off_A0D4_00_tecmo_theater:
 - D - I - 0x00E0E4 08:A0D4: 7C        .byte $7C    ; <~>
 - D - I - 0x00E0E5 08:A0D5: 7E        .byte $7E    ; <.>
 - D - I - 0x00E0E6 08:A0D6: 81        .byte $81    ; <A>
@@ -130,7 +130,7 @@ off_A0D4_00:
 
 
 
-off_A0DF_01:
+off_A0DF_01_поле_во_время_бега:
 - D - I - 0x00E0EF 08:A0DF: 3C        .byte $3C    ; <9>
 - D - I - 0x00E0F0 08:A0E0: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E0F1 08:A0E1: 02        .byte $02    ; <い>
@@ -208,7 +208,7 @@ off_A0DF_01:
 
 
 
-off_A127_02:
+off_A127_02_трибуны_лестница_узкий_экран:
 - D - I - 0x00E137 08:A127: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E138 08:A128: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E139 08:A129: 06        .byte $06    ; <か>
@@ -238,7 +238,7 @@ off_A127_02:
 
 
 
-off_A13F_03:
+off_A13F_03_движение_портрета_влево_сан_паулу:
 - D - I - 0x00E14F 08:A13F: 3A        .byte $3A    ; <7>
 - D - I - 0x00E150 08:A140: 00        .byte $00
 - D - I - 0x00E151 08:A141: 04        .byte $04    ; <え>
@@ -261,7 +261,7 @@ off_A13F_03:
 
 
 
-off_A150_04:
+off_A150_04_серые_трибуны_1_катсцена_01:
 - D - I - 0x00E160 08:A150: 3C        .byte $3C    ; <9>
 - D - I - 0x00E161 08:A151: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E162 08:A152: 20        .byte $20    ; <み>
@@ -287,7 +287,7 @@ off_A150_04:
 
 
 
-off_A164_05:
+off_A164_05_портрет_цубасы_на_месте_демо:
 - D - I - 0x00E174 08:A164: 3A        .byte $3A    ; <7>
 - D - I - 0x00E175 08:A165: 00        .byte $00
 - D - I - 0x00E176 08:A166: 04        .byte $04    ; <え>
@@ -309,7 +309,7 @@ off_A164_05:
 
 
 
-off_A174_06:
+off_A174_06_небольшой_голубой_квадрат:
 - D - I - 0x00E184 08:A174: 3C        .byte $3C    ; <9>
 - D - I - 0x00E185 08:A175: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E186 08:A176: 00        .byte $00
@@ -343,7 +343,7 @@ off_A174_06:
 
 
 
-off_A190_07:
+off_A190_07_портрет_хюги_движение_вправо_демо:
 - D - I - 0x00E1A0 08:A190: 3A        .byte $3A    ; <7>
 - D - I - 0x00E1A1 08:A191: 00        .byte $00
 - D - I - 0x00E1A2 08:A192: 1B        .byte $1B    ; <ひ>
@@ -366,7 +366,7 @@ off_A190_07:
 
 
 
-off_A1A1_08:
+off_A1A1_08_поле_во_время_подката:
 - D - I - 0x00E1B1 08:A1A1: 40        .byte $40    ; <「>
 - D - I - 0x00E1B2 08:A1A2: 00        .byte $00
 - D - I - 0x00E1B3 08:A1A3: 8E        .byte $8E    ; <L>
@@ -412,7 +412,7 @@ off_A1A1_08:
 
 
 
-off_A1C9_09:
+off_A1C9_09_черный_фон_ХЗ:
 - D - I - 0x00E1D9 08:A1C9: 3C        .byte $3C    ; <9>
 - D - I - 0x00E1DA 08:A1CA: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E1DB 08:A1CB: 03        .byte $03    ; <う>
@@ -458,7 +458,7 @@ off_A1C9_09:
 
 
 
-off_A1F1_0A:
+off_A1F1_0A_ворота_вакабаяши_демо:
 - D - I - 0x00E201 08:A1F1: 3C        .byte $3C    ; <9>
 - D - I - 0x00E202 08:A1F2: 4C        .byte $4C    ; <シ>
 - D - I - 0x00E203 08:A1F3: 00        .byte $00
@@ -521,7 +521,7 @@ off_A1F1_0A:
 
 
 
-off_A22A_0B:
+off_A22A_0B_портрет_вакабаяши_движение_вправо_демо:
 - D - I - 0x00E23A 08:A22A: 38        .byte $38    ; <5>
 - D - I - 0x00E23B 08:A22B: 3A        .byte $3A    ; <7>
 - D - I - 0x00E23C 08:A22C: 05        .byte $05    ; <お>
@@ -544,7 +544,7 @@ off_A22A_0B:
 
 
 
-off_A23B_0C:
+off_A23B_0C_трибуны_поле_пауза_медленное_движение_вправо:
 - D - I - 0x00E24B 08:A23B: 3C        .byte $3C    ; <9>
 - D - I - 0x00E24C 08:A23C: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E24D 08:A23D: 00        .byte $00
@@ -607,7 +607,7 @@ off_A23B_0C:
 
 
 
-off_A274_0D:
+off_A274_0D_команда_японии:
 - D - I - 0x00E284 08:A274: 64        .byte $64    ; <ヤ>
 - D - I - 0x00E285 08:A275: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E286 08:A276: 98        .byte $98
@@ -629,7 +629,7 @@ off_A274_0D:
 
 
 
-off_A284_0E:
+off_A284_0E_команда_нанкацу:
 - D - I - 0x00E294 08:A284: 64        .byte $64    ; <ヤ>
 - D - I - 0x00E295 08:A285: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E296 08:A286: 99        .byte $99
@@ -651,7 +651,7 @@ off_A284_0E:
 
 
 
-off_A294_0F:
+off_A294_0F_команда_сан_паулу:
 - D - I - 0x00E2A4 08:A294: 64        .byte $64    ; <ヤ>
 - D - I - 0x00E2A5 08:A295: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E2A6 08:A296: 9A        .byte $9A
@@ -673,7 +673,7 @@ off_A294_0F:
 
 
 
-off_A2A4_10:
+off_A2A4_10_трибуны_на_месте_1:
 - D - I - 0x00E2B4 08:A2A4: 3C        .byte $3C    ; <9>
 - D - I - 0x00E2B5 08:A2A5: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E2B6 08:A2A6: 00        .byte $00
@@ -703,7 +703,7 @@ off_A2A4_10:
 
 
 
-off_A2BC_11:
+off_A2BC_11_трибуны_на_месте_2:
 - D - I - 0x00E2CC 08:A2BC: 3C        .byte $3C    ; <9>
 - D - I - 0x00E2CD 08:A2BD: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E2CE 08:A2BE: 00        .byte $00
@@ -733,7 +733,7 @@ off_A2BC_11:
 
 
 
-off_A2D4_12:
+off_A2D4_12_пустые_трибуны_на_месте_1:
 - D - I - 0x00E2E4 08:A2D4: 3C        .byte $3C    ; <9>
 - D - I - 0x00E2E5 08:A2D5: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E2E6 08:A2D6: 00        .byte $00
@@ -763,7 +763,7 @@ off_A2D4_12:
 
 
 
-off_A2EC_13:
+off_A2EC_13_пустые_трибуны_на_месте_2:
 - D - I - 0x00E2FC 08:A2EC: 3C        .byte $3C    ; <9>
 - D - I - 0x00E2FD 08:A2ED: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E2FE 08:A2EE: 00        .byte $00
@@ -793,7 +793,7 @@ off_A2EC_13:
 
 
 
-off_A304_14:
+off_A304_14_1990_presented_by_tecmo:
 - D - I - 0x00E314 08:A304: 7C        .byte $7C    ; <~>
 - D - I - 0x00E315 08:A305: 7E        .byte $7E    ; <.>
 - D - I - 0x00E316 08:A306: 81        .byte $81    ; <A>
@@ -823,7 +823,7 @@ off_A304_14:
 
 
 
-off_A31C_15:
+off_A31C_15_логотип_super_striker:
 - D - I - 0x00E32C 08:A31C: 76        .byte $76    ; <ォ>
 - D - I - 0x00E32D 08:A31D: 7E        .byte $7E    ; <.>
 - D - I - 0x00E32E 08:A31E: 81        .byte $81    ; <A>
@@ -856,7 +856,7 @@ off_A31C_15:
 
 
 
-off_A337_16:
+off_A337_16_красный_фон_обезьянка_проигрыш:
 - D - I - 0x00E347 08:A337: 7C        .byte $7C    ; <~>
 - D - I - 0x00E348 08:A338: 72        .byte $72    ; <ョ>
 - D - I - 0x00E349 08:A339: 83        .byte $83    ; <C>
@@ -922,7 +922,7 @@ off_A337_16:
 
 
 
-off_A373_17:
+off_A373_17_главное_меню_с_логотипом:
 - D - I - 0x00E383 08:A373: 7C        .byte $7C    ; <~>
 - D - I - 0x00E384 08:A374: 7E        .byte $7E    ; <.>
 - D - I - 0x00E385 08:A375: 81        .byte $81    ; <A>
@@ -984,7 +984,7 @@ off_A373_17:
 
 
 
-off_A3AB_18:
+off_A3AB_18_музыкальное_меню:
 - D - I - 0x00E3BB 08:A3AB: 7C        .byte $7C    ; <~>
 - D - I - 0x00E3BC 08:A3AC: 7E        .byte $7E    ; <.>
 - D - I - 0x00E3BD 08:A3AD: AC        .byte $AC    ; <づ>
@@ -1046,7 +1046,7 @@ off_A3AB_18:
 
 
 
-off_A3E3_19:
+off_A3E3_19_трибуны_быстрое_движение_влево:
 - D - I - 0x00E3F3 08:A3E3: 3C        .byte $3C    ; <9>
 - D - I - 0x00E3F4 08:A3E4: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E3F5 08:A3E5: 00        .byte $00
@@ -1093,7 +1093,7 @@ off_A3E3_19:
 
 
 
-off_A40C_1A:
+off_A40C_1A_трибуны_ворота_табло_пауза_медленное_движение_вправо:
 - D - I - 0x00E41C 08:A40C: 3C        .byte $3C    ; <9>
 - D - I - 0x00E41D 08:A40D: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E41E 08:A40E: 00        .byte $00
@@ -1140,7 +1140,7 @@ off_A40C_1A:
 
 
 
-off_A435_1B:
+off_A435_1B_пустые_трибуны_ворота_табло:
 - D - I - 0x00E445 08:A435: 3C        .byte $3C    ; <9>
 - D - I - 0x00E446 08:A436: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E447 08:A437: 00        .byte $00
@@ -1178,7 +1178,7 @@ off_A435_1B:
 
 
 
-off_A455_1C:
+off_A455_1C_ворота_сидит_меон_движение_вверх:
 - D - I - 0x00E465 08:A455: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E466 08:A456: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E467 08:A457: 17        .byte $17    ; <ぬ>
@@ -1257,7 +1257,7 @@ off_A455_1C:
 
 
 
-off_A49E_1D:
+off_A49E_1D_белый_фон_для_флага_бразилии:
 - D - I - 0x00E4AE 08:A49E: 3C        .byte $3C    ; <9>
 - D - I - 0x00E4AF 08:A49F: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E4B0 08:A4A0: 11        .byte $11    ; <ち>
@@ -1287,7 +1287,7 @@ off_A49E_1D:
 
 
 
-off_A4B6_1E:
+off_A4B6_1E_ворота_стоит_меон_ждет_удара:
 - D - I - 0x00E4C6 08:A4B6: 3C        .byte $3C    ; <9>
 - D - I - 0x00E4C7 08:A4B7: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E4C8 08:A4B8: 00        .byte $00
@@ -1325,7 +1325,7 @@ off_A4B6_1E:
 
 
 
-off_A4D6_1F:
+off_A4D6_1F_пустые_трибуны_небо:
 - D - I - 0x00E4E6 08:A4D6: 3C        .byte $3C    ; <9>
 - D - I - 0x00E4E7 08:A4D7: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E4E8 08:A4D8: 00        .byte $00
@@ -1371,7 +1371,7 @@ off_A4D6_1F:
 
 
 
-off_A4FE_20:
+off_A4FE_20_небо:
 - D - I - 0x00E50E 08:A4FE: 3C        .byte $3C    ; <9>
 - D - I - 0x00E50F 08:A4FF: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E510 08:A500: 00        .byte $00
@@ -1417,7 +1417,7 @@ off_A4FE_20:
 
 
 
-off_A526_21:
+off_A526_21_зеленый_фон_для_ударов_ногой_по_мячу:
 - D - I - 0x00E536 08:A526: 60        .byte $60    ; <ミ>
 - D - I - 0x00E537 08:A527: 62        .byte $62    ; <メ>
 - D - I - 0x00E538 08:A528: 07        .byte $07    ; <き>
@@ -1439,7 +1439,7 @@ off_A526_21:
 
 
 
-off_A536_22:
+off_A536_22_цубаса_крупным_планом_движение_вправо:
 - D - I - 0x00E546 08:A536: 60        .byte $60    ; <ミ>
 - D - I - 0x00E547 08:A537: 62        .byte $62    ; <メ>
 - D - I - 0x00E548 08:A538: 96        .byte $96
@@ -1486,7 +1486,7 @@ off_A536_22:
 
 
 
-off_A55F_23:
+off_A55F_23_цубаса_крупным_планом:
 - D - I - 0x00E56F 08:A55F: 60        .byte $60    ; <ミ>
 - D - I - 0x00E570 08:A560: 62        .byte $62    ; <メ>
 - D - I - 0x00E571 08:A561: 96        .byte $96
@@ -1516,7 +1516,7 @@ off_A55F_23:
 
 
 
-off_A577_24:
+off_A577_24_сетка_крупным_планом:
 - D - I - 0x00E587 08:A577: 68        .byte $68    ; <リ>
 - D - I - 0x00E588 08:A578: 6A        .byte $6A    ; <レ>
 - D - I - 0x00E589 08:A579: 80        .byte $80
@@ -1546,7 +1546,7 @@ off_A577_24:
 
 
 
-off_A58F_25:
+off_A58F_25_трибуны_лестница_быстрое_движение_вправо:
 - D - I - 0x00E59F 08:A58F: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E5A0 08:A590: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E5A1 08:A591: 06        .byte $06    ; <か>
@@ -1593,7 +1593,7 @@ off_A58F_25:
 
 
 
-off_A5B8_26:
+off_A5B8_26_трибуны_ночное_небо_1:
 - D - I - 0x00E5C8 08:A5B8: 3C        .byte $3C    ; <9>
 - D - I - 0x00E5C9 08:A5B9: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E5CA 08:A5BA: 07        .byte $07    ; <き>
@@ -1623,7 +1623,7 @@ off_A5B8_26:
 
 
 
-off_A5D0_27:
+off_A5D0_27_трибуны_ночное_небо_2:
 - D - I - 0x00E5E0 08:A5D0: 3C        .byte $3C    ; <9>
 - D - I - 0x00E5E1 08:A5D1: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E5E2 08:A5D2: 07        .byte $07    ; <き>
@@ -1653,7 +1653,7 @@ off_A5D0_27:
 
 
 
-off_A5E8_28:
+off_A5E8_28_черный_фон_ХЗ:
 - D - I - 0x00E5F8 08:A5E8: 00        .byte $00
 - D - I - 0x00E5F9 08:A5E9: 02        .byte $02    ; <い>
 - D - I - 0x00E5FA 08:A5EA: 00        .byte $00
@@ -1699,7 +1699,7 @@ off_A5E8_28:
 
 
 
-off_A610_29:
+off_A610_29_трибуны_очень_быстрое_движение_влево:
 - D - I - 0x00E620 08:A610: 3C        .byte $3C    ; <9>
 - D - I - 0x00E621 08:A611: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E622 08:A612: 00        .byte $00
@@ -1746,7 +1746,7 @@ off_A610_29:
 
 
 
-off_A639_2A:
+off_A639_2A_трибуны_ворота_табло_медленное_движение_вправо:
 - D - I - 0x00E649 08:A639: 3C        .byte $3C    ; <9>
 - D - I - 0x00E64A 08:A63A: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E64B 08:A63B: 00        .byte $00
@@ -1809,7 +1809,7 @@ off_A639_2A:
 
 
 
-off_A672_2B:
+off_A672_2B_трибуны_ворота_табло_поле:
 - D - I - 0x00E682 08:A672: 3C        .byte $3C    ; <9>
 - D - I - 0x00E683 08:A673: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E684 08:A674: 00        .byte $00
@@ -1847,7 +1847,7 @@ off_A672_2B:
 
 
 
-off_A692_2C:
+off_A692_2C_пустые_трибуны_ворота_табло_в_квадрате_рукопожатие:
 - D - I - 0x00E6A2 08:A692: 3C        .byte $3C    ; <9>
 - D - I - 0x00E6A3 08:A693: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E6A4 08:A694: 00        .byte $00
@@ -1865,7 +1865,7 @@ off_A692_2C:
 
 
 
-off_A69E_2D:
+off_A69E_2D_пустые_трибуны_ворота_табло_пауза_медленное_движение_вправо:
 - D - I - 0x00E6AE 08:A69E: 3C        .byte $3C    ; <9>
 - D - I - 0x00E6AF 08:A69F: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E6B0 08:A6A0: 00        .byte $00
@@ -1912,7 +1912,7 @@ off_A69E_2D:
 
 
 
-off_A6C7_2E:
+off_A6C7_2E_трибуны_ворота_табло_центр:
 - D - I - 0x00E6D7 08:A6C7: 3C        .byte $3C    ; <9>
 - D - I - 0x00E6D8 08:A6C8: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E6D9 08:A6C9: 00        .byte $00
@@ -1942,7 +1942,7 @@ off_A6C7_2E:
 
 
 
-off_A6DF_2F:
+off_A6DF_2F_рука_с_флагом_небо:
 - D - I - 0x00E6EF 08:A6DF: 3C        .byte $3C    ; <9>
 - D - I - 0x00E6F0 08:A6E0: 62        .byte $62    ; <メ>
 - D - I - 0x00E6F1 08:A6E1: 09        .byte $09    ; <け>
@@ -1968,7 +1968,7 @@ off_A6DF_2F:
 
 
 
-off_A6F3_30:
+off_A6F3_30_верхушка_трибун_яои_фуджисава:
 - D - I - 0x00E703 08:A6F3: 3C        .byte $3C    ; <9>
 - D - I - 0x00E704 08:A6F4: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E705 08:A6F5: 00        .byte $00
@@ -1998,7 +1998,7 @@ off_A6F3_30:
 
 
 
-off_A70B_31:
+off_A70B_31_парк_вечер:
 - D - I - 0x00E71B 08:A70B: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E71C 08:A70C: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E71D 08:A70D: 0A        .byte $0A    ; <こ>
@@ -2076,7 +2076,7 @@ off_A70B_31:
 
 
 
-off_A753_32:
+off_A753_32_горы_вечер_1:
 - D - I - 0x00E763 08:A753: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E764 08:A754: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E765 08:A755: 0A        .byte $0A    ; <こ>
@@ -2114,7 +2114,7 @@ off_A753_32:
 
 
 
-off_A773_33:
+off_A773_33_горы_вечер_2:
 - D - I - 0x00E783 08:A773: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E784 08:A774: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E785 08:A775: 0A        .byte $0A    ; <こ>
@@ -2152,7 +2152,7 @@ off_A773_33:
 
 
 
-off_A793_34:
+off_A793_34_горы_вечер_3:
 - D - I - 0x00E7A3 08:A793: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E7A4 08:A794: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E7A5 08:A795: 0A        .byte $0A    ; <こ>
@@ -2190,7 +2190,7 @@ off_A793_34:
 
 
 
-off_A7B3_35:
+off_A7B3_35_горы_вечер_4:
 - D - I - 0x00E7C3 08:A7B3: 5C        .byte $5C    ; <フ>
 - D - I - 0x00E7C4 08:A7B4: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E7C5 08:A7B5: 0A        .byte $0A    ; <こ>
@@ -2252,7 +2252,7 @@ off_A7B3_35:
 
 
 
-off_A7EB_36:
+off_A7EB_36_удар_движение_экрана_поле_сверху_представление_циклона_цубасой:
 - D - I - 0x00E7FB 08:A7EB: 60        .byte $60    ; <ミ>
 - D - I - 0x00E7FC 08:A7EC: 62        .byte $62    ; <メ>
 - D - I - 0x00E7FD 08:A7ED: 87        .byte $87    ; <G>
@@ -2323,7 +2323,7 @@ off_A7EB_36:
 
 
 
-off_A82C_37:
+off_A82C_37_небо_самолет:
 - D - I - 0x00E83C 08:A82C: 3C        .byte $3C    ; <9>
 - D - I - 0x00E83D 08:A82D: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E83E 08:A82E: 00        .byte $00
@@ -2385,7 +2385,7 @@ off_A82C_37:
 
 
 
-off_A864_38:
+off_A864_38_синий_фон_полоска_удивление_цубасы:
 - D - I - 0x00E874 08:A864: 0C        .byte $0C    ; <し>
 - D - I - 0x00E875 08:A865: 0E        .byte $0E    ; <せ>
 - D - I - 0x00E876 08:A866: 93        .byte $93    ; <Y>
@@ -2416,7 +2416,7 @@ off_A864_38:
 
 
 
-off_A87D_39:
+off_A87D_39_рваная_сетка:
 - D - I - 0x00E88D 08:A87D: 46        .byte $46    ; <カ>
 - D - I - 0x00E88E 08:A87E: 3C        .byte $3C    ; <9>
 - D - I - 0x00E88F 08:A87F: 00        .byte $00
@@ -2442,7 +2442,7 @@ off_A87D_39:
 
 
 
-off_A891_3A:
+off_A891_3A_майка_арбитра_рука_вверх:
 - D - I - 0x00E8A1 08:A891: 3C        .byte $3C    ; <9>
 - D - I - 0x00E8A2 08:A892: 2C        .byte $2C    ; <わ>
 - D - I - 0x00E8A3 08:A893: 1D        .byte $1D    ; <へ>
@@ -2472,7 +2472,7 @@ off_A891_3A:
 
 
 
-off_A8A9_3B:
+off_A8A9_3B_портрет_пьера_слева:
 - D - I - 0x00E8B9 08:A8A9: 3A        .byte $3A    ; <7>
 - D - I - 0x00E8BA 08:A8AA: 00        .byte $00
 - D - I - 0x00E8BB 08:A8AB: 15        .byte $15    ; <な>
@@ -2514,7 +2514,7 @@ off_A8A9_3B:
 
 
 
-off_A8CD_3C:
+off_A8CD_3C_зеленый_фон_для_флагов:
 - D - I - 0x00E8DD 08:A8CD: 60        .byte $60    ; <ミ>
 - D - I - 0x00E8DE 08:A8CE: 62        .byte $62    ; <メ>
 - D - I - 0x00E8DF 08:A8CF: 07        .byte $07    ; <き>
@@ -2544,7 +2544,7 @@ off_A8CD_3C:
 
 
 
-off_A8E5_3D:
+off_A8E5_3D_небо_узкий_экран:
 - D - I - 0x00E8F5 08:A8E5: 3C        .byte $3C    ; <9>
 - D - I - 0x00E8F6 08:A8E6: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E8F7 08:A8E7: 0B        .byte $0B    ; <さ>
@@ -2574,7 +2574,7 @@ off_A8E5_3D:
 
 
 
-off_A8FD_3E:
+off_A8FD_3E_вмятина_на_сетке_после_циклона_катсцена:
 - D - I - 0x00E90D 08:A8FD: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E90E 08:A8FE: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E90F 08:A8FF: 03        .byte $03    ; <う>
@@ -2620,7 +2620,7 @@ off_A8FD_3E:
 
 
 
-off_A925_3F:
+off_A925_3F_ночное_поле_трибуны_дождь_пауза_движение_вправо:
 - D - I - 0x00E935 08:A925: 3C        .byte $3C    ; <9>
 - D - I - 0x00E936 08:A926: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E937 08:A927: 0C        .byte $0C    ; <し>
@@ -2699,7 +2699,7 @@ off_A925_3F:
 
 
 
-off_A96E_40:
+off_A96E_40_ворота_гертис_ловит_мяч_движенме_влево:
 - D - I - 0x00E97E 08:A96E: 3C        .byte $3C    ; <9>
 - D - I - 0x00E97F 08:A96F: 4C        .byte $4C    ; <シ>
 - D - I - 0x00E980 08:A970: 00        .byte $00
@@ -2746,7 +2746,7 @@ off_A96E_40:
 
 
 
-off_A997_41:
+off_A997_41_черный_экран_молния_ХЗ:
 - D - I - 0x00E9A7 08:A997: 66        .byte $66    ; <ヨ>
 - D - I - 0x00E9A8 08:A998: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00E9A9 08:A999: 03        .byte $03    ; <う>
@@ -2793,7 +2793,7 @@ off_A997_41:
 
 
 
-off_A9C0_42:
+off_A9C0_42_турнирная_сетка_флаги:
 - D - I - 0x00E9D0 08:A9C0: 6C        .byte $6C    ; <ワ>
 - D - I - 0x00E9D1 08:A9C1: 6E        .byte $6E    ; <ン>
 - D - I - 0x00E9D2 08:A9C2: 0D        .byte $0D    ; <す>
@@ -2819,7 +2819,7 @@ off_A9C0_42:
 
 
 
-off_A9D4_43:
+off_A9D4_43_время_11_55:
 - D - I - 0x00E9E4 08:A9D4: 34        .byte $34    ; <1>
 - D - I - 0x00E9E5 08:A9D5: 36        .byte $36    ; <3>
 - D - I - 0x00E9E6 08:A9D6: 8E        .byte $8E    ; <L>
@@ -2845,7 +2845,7 @@ off_A9D4_43:
 
 
 
-off_A9E8_44:
+off_A9E8_44_трибуны_табло_в_прямоугольнике:
 - D - I - 0x00E9F8 08:A9E8: 3C        .byte $3C    ; <9>
 - D - I - 0x00E9F9 08:A9E9: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00E9FA 08:A9EA: 00        .byte $00
@@ -2867,7 +2867,7 @@ off_A9E8_44:
 
 
 
-off_A9F8_45:
+off_A9F8_45_небо_цубаса_с_кубком_движение_влево:
 - D - I - 0x00EA08 08:A9F8: 5C        .byte $5C    ; <フ>
 - D - I - 0x00EA09 08:A9F9: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00EA0A 08:A9FA: 22        .byte $22    ; <め>
@@ -2930,7 +2930,7 @@ off_A9F8_45:
 
 
 
-off_AA31_46:
+off_AA31_46_угол_йоко_ишизаки_подглядывают:
 - D - I - 0x00EA41 08:AA31: 44        .byte $44    ; <エ>
 - D - I - 0x00EA42 08:AA32: 46        .byte $46    ; <カ>
 - D - I - 0x00EA43 08:AA33: 10        .byte $10    ; <た>
@@ -2962,7 +2962,7 @@ off_AA31_46:
 
 
 
-off_AA4B_47:
+off_AA4B_47_коридор_лестница_йоко:
 - D - I - 0x00EA5B 08:AA4B: 44        .byte $44    ; <エ>
 - D - I - 0x00EA5C 08:AA4C: 46        .byte $46    ; <カ>
 - D - I - 0x00EA5D 08:AA4D: 10        .byte $10    ; <た>
@@ -2992,7 +2992,7 @@ off_AA4B_47:
 
 
 
-off_AA63_48:
+off_AA63_48_трибуны_лестница_пауза_медленное_движение_вправо:
 - D - I - 0x00EA73 08:AA63: 5C        .byte $5C    ; <フ>
 - D - I - 0x00EA74 08:AA64: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00EA75 08:AA65: 06        .byte $06    ; <か>
@@ -3023,7 +3023,7 @@ off_AA63_48:
 
 
 
-off_AA7C_49:
+off_AA7C_49_тень_под_трибунами_коимбра:
 - D - I - 0x00EA8C 08:AA7C: 3C        .byte $3C    ; <9>
 - D - I - 0x00EA8D 08:AA7D: 6A        .byte $6A    ; <レ>
 - D - I - 0x00EA8E 08:AA7E: 0B        .byte $0B    ; <さ>
@@ -3043,7 +3043,7 @@ off_AA7C_49:
 
 
 
-off_AA8A_4A:
+off_AA8A_4A_под_трибунами_карлос:
 - D - I - 0x00EA9A 08:AA8A: 3C        .byte $3C    ; <9>
 - D - I - 0x00EA9B 08:AA8B: 6A        .byte $6A    ; <レ>
 - D - I - 0x00EA9C 08:AA8C: 00        .byte $00
@@ -3073,7 +3073,7 @@ off_AA8A_4A:
 
 
 
-off_AAA2_4B:
+off_AAA2_4B_санае_крупным_планом_смотрит_вправо:
 - D - I - 0x00EAB2 08:AAA2: 68        .byte $68    ; <リ>
 - D - I - 0x00EAB3 08:AAA3: 6A        .byte $6A    ; <レ>
 - D - I - 0x00EAB4 08:AAA4: 92        .byte $92    ; <W>
@@ -3103,7 +3103,7 @@ off_AAA2_4B:
 
 
 
-off_AABA_4C:
+off_AABA_4C_коридор_ишизаки:
 - D - I - 0x00EACA 08:AABA: 44        .byte $44    ; <エ>
 - D - I - 0x00EACB 08:AABB: 46        .byte $46    ; <カ>
 - D - I - 0x00EACC 08:AABC: 10        .byte $10    ; <た>
@@ -3133,7 +3133,7 @@ off_AABA_4C:
 
 
 
-off_AAD2_4D:
+off_AAD2_4D_цубаса_крупным_планом_рука_у_виска:
 - D - I - 0x00EAE2 08:AAD2: 60        .byte $60    ; <ミ>
 - D - I - 0x00EAE3 08:AAD3: 62        .byte $62    ; <メ>
 - D - I - 0x00EAE4 08:AAD4: 96        .byte $96
@@ -3163,7 +3163,7 @@ off_AAD2_4D:
 
 
 
-off_AAEA_4E:
+off_AAEA_4E_цубаса_с_рукой_у_виска_трибуны_движение_вверх:
 - D - I - 0x00EAFA 08:AAEA: 5C        .byte $5C    ; <フ>
 - D - I - 0x00EAFB 08:AAEB: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00EAFC 08:AAEC: 06        .byte $06    ; <か>
@@ -3546,7 +3546,7 @@ off_AAEA_4E:
 
 
 
-off_AC63_4F:
+off_AC63_4F_под_пустыми_трибунами_слева:
 - D - I - 0x00EC73 08:AC63: 3C        .byte $3C    ; <9>
 - D - I - 0x00EC74 08:AC64: 6A        .byte $6A    ; <レ>
 - D - I - 0x00EC75 08:AC65: 0B        .byte $0B    ; <さ>
@@ -3576,7 +3576,7 @@ off_AC63_4F:
 
 
 
-off_AC7B_50:
+off_AC7B_50_роберто_крупный_план_очки:
 - D - I - 0x00EC8B 08:AC7B: 5C        .byte $5C    ; <フ>
 - D - I - 0x00EC8C 08:AC7C: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00EC8D 08:AC7D: 0F        .byte $0F    ; <そ>
@@ -3606,7 +3606,7 @@ off_AC7B_50:
 
 
 
-off_AC93_51:
+off_AC93_51_трибуны_ворота_табло_поле_слева:
 - D - I - 0x00ECA3 08:AC93: 3C        .byte $3C    ; <9>
 - D - I - 0x00ECA4 08:AC94: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00ECA5 08:AC95: 00        .byte $00
@@ -3644,7 +3644,7 @@ off_AC93_51:
 
 
 
-off_ACB3_52:
+off_ACB3_52_под_пустыми_трибунами_справа:
 - D - I - 0x00ECC3 08:ACB3: 3C        .byte $3C    ; <9>
 - D - I - 0x00ECC4 08:ACB4: 6A        .byte $6A    ; <レ>
 - D - I - 0x00ECC5 08:ACB5: 00        .byte $00
@@ -3674,7 +3674,7 @@ off_ACB3_52:
 
 
 
-off_ACCB_53:
+off_ACCB_53_ночное_поле_трибуны_дождь:
 - D - I - 0x00ECDB 08:ACCB: 3C        .byte $3C    ; <9>
 - D - I - 0x00ECDC 08:ACCC: 66        .byte $66    ; <ヨ>
 - D - I - 0x00ECDD 08:ACCD: 0C        .byte $0C    ; <し>
@@ -3720,7 +3720,7 @@ off_ACCB_53:
 
 
 
-off_ACF3_54:
+off_ACF3_54_под_трибунами_пауза_медленное_движение_вправо:
 - D - I - 0x00ED03 08:ACF3: 3C        .byte $3C    ; <9>
 - D - I - 0x00ED04 08:ACF4: 6A        .byte $6A    ; <レ>
 - D - I - 0x00ED05 08:ACF5: 00        .byte $00
@@ -3751,7 +3751,7 @@ off_ACF3_54:
 
 
 
-off_AD0C_55:
+off_AD0C_55_трибуны_лестница_полный_экран:
 - D - I - 0x00ED1C 08:AD0C: 5C        .byte $5C    ; <フ>
 - D - I - 0x00ED1D 08:AD0D: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00ED1E 08:AD0E: 06        .byte $06    ; <か>
@@ -3797,7 +3797,7 @@ off_AD0C_55:
 
 
 
-off_AD34_56:
+off_AD34_56_ворота_вблизи_слева:
 - D - I - 0x00ED44 08:AD34: 3C        .byte $3C    ; <9>
 - D - I - 0x00ED45 08:AD35: 4C        .byte $4C    ; <シ>
 - D - I - 0x00ED46 08:AD36: 00        .byte $00
@@ -3843,7 +3843,7 @@ off_AD34_56:
 
 
 
-off_AD5C_57:
+off_AD5C_57_под_трибунами_слева:
 - D - I - 0x00ED6C 08:AD5C: 3C        .byte $3C    ; <9>
 - D - I - 0x00ED6D 08:AD5D: 6A        .byte $6A    ; <レ>
 - D - I - 0x00ED6E 08:AD5E: 0B        .byte $0B    ; <さ>
@@ -3873,7 +3873,7 @@ off_AD5C_57:
 
 
 
-off_AD74_58:
+off_AD74_58_нижняя_часть_ворот_где_сидит_меон:
 - D - I - 0x00ED84 08:AD74: 5C        .byte $5C    ; <フ>
 - D - I - 0x00ED85 08:AD75: 5E        .byte $5E    ; <ホ>
 - D - I - 0x00ED86 08:AD76: 17        .byte $17    ; <ぬ>
@@ -3919,7 +3919,7 @@ off_AD74_58:
 
 
 
-off_AD9C_59:
+off_AD9C_59_голубой_фон:
 - D - I - 0x00EDAC 08:AD9C: 3C        .byte $3C    ; <9>
 - D - I - 0x00EDAD 08:AD9D: 4C        .byte $4C    ; <シ>
 - D - I - 0x00EDAE 08:AD9E: 00        .byte $00
@@ -3965,7 +3965,7 @@ off_AD9C_59:
 
 
 
-off_ADC4_5A:
+off_ADC4_5A_трибуны_небо:
 - D - I - 0x00EDD4 08:ADC4: 3C        .byte $3C    ; <9>
 - D - I - 0x00EDD5 08:ADC5: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00EDD6 08:ADC6: 00        .byte $00
@@ -4011,7 +4011,7 @@ off_ADC4_5A:
 
 
 
-off_ADEC_5B:
+off_ADEC_5B_сетка_крупным_планом_сетка_крупным_планом_сетка_крупным_планом_движение_вправо:
 - D - I - 0x00EDFC 08:ADEC: 68        .byte $68    ; <リ>
 - D - I - 0x00EDFD 08:ADED: 6A        .byte $6A    ; <レ>
 - D - I - 0x00EDFE 08:ADEE: 80        .byte $80
@@ -4050,7 +4050,7 @@ off_ADEC_5B:
 
 
 
-off_AE0D_5C:
+off_AE0D_5C_серое_поле_катсцена_01:
 - D - I - 0x00EE1D 08:AE0D: 3C        .byte $3C    ; <9>
 - D - I - 0x00EE1E 08:AE0E: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00EE1F 08:AE0F: 1E        .byte $1E    ; <ほ>
@@ -4082,7 +4082,7 @@ off_AE0D_5C:
 
 
 
-off_AE27_5D:
+off_AE27_5D_серая_команда_японии_катсцена_01:
 - D - I - 0x00EE37 08:AE27: 64        .byte $64    ; <ヤ>
 - D - I - 0x00EE38 08:AE28: 66        .byte $66    ; <ヨ>
 - D - I - 0x00EE39 08:AE29: 9F        .byte $9F
@@ -4104,7 +4104,7 @@ off_AE27_5D:
 
 
 
-off_AE37_5E:
+off_AE37_5E_серые_трибуны_2_катсцена_01:
 - D - I - 0x00EE47 08:AE37: 3C        .byte $3C    ; <9>
 - D - I - 0x00EE48 08:AE38: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00EE49 08:AE39: 20        .byte $20    ; <み>
@@ -4187,13 +4187,16 @@ off_AE4B_5F_тренер_на_экране_meeting:
 - D - I - 0x00EE8E 08:AE7E: 2E        .byte $2E
 - D - I - 0x00EE8F 08:AE7F: 2F        .byte $2F
 - D - I - 0x00EE90 08:AE80: 2E        .byte $2E
-
+; эти 2 байта отвечают за что-то типа базовой позиции скроллинга
+; и предположительно за скорость движения фона
+; также выше может быть еще один байт, который является таймером перед движением фона
+    ; видимо он зависит от самого последнего байта
 - - - - - 0x00EE91 08:AE81: 00        .byte $00
 - D - I - 0x00EE92 08:AE82: A0        .byte $A0
 
 
 
-off_AE83_60:
+off_AE83_60_meeting_ХЗ:
 - D - I - 0x00EE93 08:AE83: 3C        .byte $3C    ; <9>
 - D - I - 0x00EE94 08:AE84: 02        .byte $02    ; <い>
 - D - I - 0x00EE95 08:AE85: 00        .byte $00
@@ -4255,7 +4258,7 @@ off_AE83_60:
 
 
 
-off_AEBB_61:
+off_AEBB_61_halftime_ХЗ:
 - D - I - 0x00EECB 08:AEBB: 3C        .byte $3C    ; <9>
 - D - I - 0x00EECC 08:AEBC: 02        .byte $02    ; <い>
 - D - I - 0x00EECD 08:AEBD: 00        .byte $00
@@ -4293,7 +4296,7 @@ off_AEBB_61:
 
 
 
-off_AEDB_62:
+off_AEDB_62_черный_фон_ХЗ:
 - D - I - 0x00EEEB 08:AEDB: 56        .byte $56    ; <ニ>
 - D - I - 0x00EEEC 08:AEDC: 46        .byte $46    ; <カ>
 - D - I - 0x00EEED 08:AEDD: 0C        .byte $0C    ; <し>
@@ -4323,7 +4326,7 @@ off_AEDB_62:
 
 
 
-off_AEF3_63:
+off_AEF3_63_тень_под_трибунами_серый_фон:
 - D - I - 0x00EF03 08:AEF3: 3C        .byte $3C    ; <9>
 - D - I - 0x00EF04 08:AEF4: 6A        .byte $6A    ; <レ>
 - D - I - 0x00EF05 08:AEF5: 21        .byte $21    ; <む>
@@ -4343,7 +4346,7 @@ off_AEF3_63:
 
 
 
-off_AF01_64:
+off_AF01_64_серый_фон_схема_драйв_удара_циклона:
 - D - I - 0x00EF11 08:AF01: 3C        .byte $3C    ; <9>
 - D - I - 0x00EF12 08:AF02: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00EF13 08:AF03: 10        .byte $10    ; <た>
@@ -4373,7 +4376,7 @@ off_AF01_64:
 
 
 
-off_AF19_65:
+off_AF19_65_синий_узкий_фон_ХЗ:
 - D - I - 0x00EF29 08:AF19: 3C        .byte $3C    ; <9>
 - D - I - 0x00EF2A 08:AF1A: 3E        .byte $3E    ; <Jr>
 - D - I - 0x00EF2B 08:AF1B: 07        .byte $07    ; <き>
@@ -4403,7 +4406,7 @@ off_AF19_65:
 
 
 
-off_AF31_66:
+off_AF31_66_фон_замаха_шнайдера:
 - D - I - 0x00EF41 08:AF31: 06        .byte $06    ; <か>
 - D - I - 0x00EF42 08:AF32: 00        .byte $00
 - D - I - 0x00EF43 08:AF33: 8E        .byte $8E    ; <L>
@@ -4450,7 +4453,7 @@ off_AF31_66:
 
 
 
-off_AF5A_67:
+off_AF5A_67_фон_замаха_цубасы:
 - D - I - 0x00EF6A 08:AF5A: 06        .byte $06    ; <か>
 - D - I - 0x00EF6B 08:AF5B: 00        .byte $00
 - D - I - 0x00EF6C 08:AF5C: 8D        .byte $8D    ; <P>
@@ -4497,7 +4500,7 @@ off_AF5A_67:
 
 
 
-off_AF83_68:
+off_AF83_68_фон_замаха_джаиро:
 - D - I - 0x00EF93 08:AF83: 06        .byte $06    ; <か>
 - D - I - 0x00EF94 08:AF84: 00        .byte $00
 - D - I - 0x00EF95 08:AF85: 8F        .byte $8F    ; <S>
@@ -4589,7 +4592,7 @@ off_AF83_68:
 
 
 
-off_AFD9_69:
+off_AFD9_69_коридор_дырка_в_стене:
 - D - I - 0x00EFE9 08:AFD9: 56        .byte $56    ; <ニ>
 - D - I - 0x00EFEA 08:AFDA: 46        .byte $46    ; <カ>
 - D - I - 0x00EFEB 08:AFDB: 10        .byte $10    ; <た>
