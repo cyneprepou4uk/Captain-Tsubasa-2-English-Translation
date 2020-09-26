@@ -468,13 +468,13 @@ tbl_0x010010_блоки_4x4_тайла:
     .byte $FC, $89, $8C, $85
     .byte $A9, $A9, $A9, $A9
     .byte $00, $00, $00, $00
-    ; 4D
+    ; 4D MEETING 1 (unused)
     .byte $FF
     .byte $A8, $A8, $A8, $A8
     .byte $8C, $85, $85, $FC
     .byte $A9, $A9, $A9, $A9
     .byte $00, $00, $00, $00
-    ; 4E
+    ; 4E MEETING 2 (unused)
     .byte $FF
     .byte $A8, $A8, $A8, $A8
     .byte $89, $8A, $87, $00

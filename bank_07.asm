@@ -1449,6 +1449,10 @@ off_BC42_03_экран_с_тренером:
     .byte $89
     .word $225E
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
+; Team Meeting
+    .byte $0C
+    .word $20AA
+    .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
 
     .byte $06
     .word $2263

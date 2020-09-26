@@ -4132,64 +4132,64 @@ off_AE37_5E:
 
 off_AE4B_5F_тренер_на_экране_meeting:
 ; комменты в 0x000B4B
-- D - I - 0x00EE5B 08:AE4B: 3C        .byte $3C    ; номер банка chr 1
-- D - I - 0x00EE5C 08:AE4C: 02        .byte $02    ; номер банка chr 2
-- D - I - 0x00EE5D 08:AE4D: 00        .byte $00 ; палитра
-- D - I - 0x00EE5E 08:AE4E: 03        .byte $03    ; множитель счетчика количества байтов для чтения
-- D - I - 0x00EE5F 08:AE4F: 10        .byte $10    ; счетчик количества байтов для чтения
-- D - I - 0x00EE60 08:AE50: 08        .byte $08    ; смещение для адреса записи ppu
+- D - I - 0x00EE5B 08:AE4B: 3C        .byte $3C     ; номер банка chr 1
+- D - I - 0x00EE5C 08:AE4C: 02        .byte $02     ; номер банка chr 2
+- D - I - 0x00EE5D 08:AE4D: 00        .byte $00     ; палитра
+- D - I - 0x00EE5E 08:AE4E: 03        .byte $03     ; множитель счетчика количества байтов для чтения
+- D - I - 0x00EE5F 08:AE4F: 10        .byte $10     ; счетчик количества байтов для чтения
+- D - I - 0x00EE60 08:AE50: 08        .byte $08     ; смещение для адреса записи ppu
 ; дальше идут байты, которые являются поинтерами на блоки с тайлами размером 4x4 тайла
-- D - I - 0x00EE61 08:AE51: 48        .byte $48    ; <ク>
-- D - I - 0x00EE62 08:AE52: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE63 08:AE53: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE64 08:AE54: 4D        .byte $4D    ; <ス>
-- D - I - 0x00EE65 08:AE55: 4E        .byte $4E    ; <セ>
-- D - I - 0x00EE66 08:AE56: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE67 08:AE57: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE68 08:AE58: 49        .byte $49    ; <ケ>
-- D - I - 0x00EE69 08:AE59: 48        .byte $48    ; <ク>
-- D - I - 0x00EE6A 08:AE5A: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE6B 08:AE5B: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE6C 08:AE5C: 4D        .byte $4D    ; <ス>
-- D - I - 0x00EE6D 08:AE5D: 4E        .byte $4E    ; <セ>
-- D - I - 0x00EE6E 08:AE5E: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE6F 08:AE5F: 5C        .byte $5C    ; <フ>
-- D - I - 0x00EE70 08:AE60: 49        .byte $49    ; <ケ>
-- D - I - 0x00EE71 08:AE61: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE72 08:AE62: 2D        .byte $2D    ; <を>
-- D - I - 0x00EE73 08:AE63: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE74 08:AE64: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE75 08:AE65: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE76 08:AE66: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE77 08:AE67: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE78 08:AE68: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE79 08:AE69: 09        .byte $09    ; <け>
-- D - I - 0x00EE7A 08:AE6A: 0A        .byte $0A    ; <こ>
-- D - I - 0x00EE7B 08:AE6B: 0B        .byte $0B    ; <さ>
-- D - I - 0x00EE7C 08:AE6C: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE7D 08:AE6D: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE7E 08:AE6E: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE7F 08:AE6F: 2D        .byte $2D    ; <を>
-- D - I - 0x00EE80 08:AE70: 2C        .byte $2C    ; <わ>
-- D - I - 0x00EE81 08:AE71: 2E        .byte $2E    ; <ん>
-- D - I - 0x00EE82 08:AE72: 2F        .byte $2F    ; <っ>
-- D - I - 0x00EE83 08:AE73: 2E        .byte $2E    ; <ん>
-- D - I - 0x00EE84 08:AE74: 2F        .byte $2F    ; <っ>
-- D - I - 0x00EE85 08:AE75: 2E        .byte $2E    ; <ん>
-- D - I - 0x00EE86 08:AE76: 2F        .byte $2F    ; <っ>
-- D - I - 0x00EE87 08:AE77: 2E        .byte $2E    ; <ん>
-- D - I - 0x00EE88 08:AE78: 2F        .byte $2F    ; <っ>
-- D - I - 0x00EE89 08:AE79: 05        .byte $05    ; <お>
-- D - I - 0x00EE8A 08:AE7A: 06        .byte $06    ; <か>
-- D - I - 0x00EE8B 08:AE7B: 07        .byte $07    ; <き>
-- D - I - 0x00EE8C 08:AE7C: 2E        .byte $2E    ; <ん>
-- D - I - 0x00EE8D 08:AE7D: 2F        .byte $2F    ; <っ>
-- D - I - 0x00EE8E 08:AE7E: 2E        .byte $2E    ; <ん>
-- D - I - 0x00EE8F 08:AE7F: 2F        .byte $2F    ; <っ>
-- D - I - 0x00EE90 08:AE80: 2E        .byte $2E    ; <ん>
+- D - I - 0x00EE61 08:AE51: 48        .byte $48
+- D - I - 0x00EE62 08:AE52: 5C        .byte $5C
+- D - I - 0x00EE63 08:AE53: 5C        .byte $5C
+- D - I - 0x00EE64 08:AE54: 4D        .byte $5C     ; MEETING 1
+- D - I - 0x00EE65 08:AE55: 4E        .byte $5C     ; MEETING 2
+- D - I - 0x00EE66 08:AE56: 5C        .byte $5C
+- D - I - 0x00EE67 08:AE57: 5C        .byte $5C
+- D - I - 0x00EE68 08:AE58: 49        .byte $49
+- D - I - 0x00EE69 08:AE59: 48        .byte $48
+- D - I - 0x00EE6A 08:AE5A: 5C        .byte $5C
+- D - I - 0x00EE6B 08:AE5B: 5C        .byte $5C
+- D - I - 0x00EE6C 08:AE5C: 4D        .byte $4D
+- D - I - 0x00EE6D 08:AE5D: 4E        .byte $4E
+- D - I - 0x00EE6E 08:AE5E: 5C        .byte $5C
+- D - I - 0x00EE6F 08:AE5F: 5C        .byte $5C
+- D - I - 0x00EE70 08:AE60: 49        .byte $49
+- D - I - 0x00EE71 08:AE61: 2C        .byte $2C
+- D - I - 0x00EE72 08:AE62: 2D        .byte $2D
+- D - I - 0x00EE73 08:AE63: 2C        .byte $2C
+- D - I - 0x00EE74 08:AE64: 2C        .byte $2C
+- D - I - 0x00EE75 08:AE65: 2C        .byte $2C
+- D - I - 0x00EE76 08:AE66: 2C        .byte $2C
+- D - I - 0x00EE77 08:AE67: 2C        .byte $2C
+- D - I - 0x00EE78 08:AE68: 2C        .byte $2C
+- D - I - 0x00EE79 08:AE69: 09        .byte $09
+- D - I - 0x00EE7A 08:AE6A: 0A        .byte $0A
+- D - I - 0x00EE7B 08:AE6B: 0B        .byte $0B
+- D - I - 0x00EE7C 08:AE6C: 2C        .byte $2C
+- D - I - 0x00EE7D 08:AE6D: 2C        .byte $2C
+- D - I - 0x00EE7E 08:AE6E: 2C        .byte $2C
+- D - I - 0x00EE7F 08:AE6F: 2D        .byte $2D
+- D - I - 0x00EE80 08:AE70: 2C        .byte $2C
+- D - I - 0x00EE81 08:AE71: 2E        .byte $2E
+- D - I - 0x00EE82 08:AE72: 2F        .byte $2F
+- D - I - 0x00EE83 08:AE73: 2E        .byte $2E
+- D - I - 0x00EE84 08:AE74: 2F        .byte $2F
+- D - I - 0x00EE85 08:AE75: 2E        .byte $2E
+- D - I - 0x00EE86 08:AE76: 2F        .byte $2F
+- D - I - 0x00EE87 08:AE77: 2E        .byte $2E
+- D - I - 0x00EE88 08:AE78: 2F        .byte $2F
+- D - I - 0x00EE89 08:AE79: 05        .byte $05
+- D - I - 0x00EE8A 08:AE7A: 06        .byte $06
+- D - I - 0x00EE8B 08:AE7B: 07        .byte $07
+- D - I - 0x00EE8C 08:AE7C: 2E        .byte $2E
+- D - I - 0x00EE8D 08:AE7D: 2F        .byte $2F
+- D - I - 0x00EE8E 08:AE7E: 2E        .byte $2E
+- D - I - 0x00EE8F 08:AE7F: 2F        .byte $2F
+- D - I - 0x00EE90 08:AE80: 2E        .byte $2E
 
 - - - - - 0x00EE91 08:AE81: 00        .byte $00
-- D - I - 0x00EE92 08:AE82: A0        .byte $A0    ; <が>
+- D - I - 0x00EE92 08:AE82: A0        .byte $A0
 
 
 
