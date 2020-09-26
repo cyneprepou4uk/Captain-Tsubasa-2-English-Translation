@@ -263,7 +263,7 @@ off_B2E4_27_тренер_04:
     .byte con_base_offset
     .word $2244
     .text "Hey, maybe I'll treat", con_line
-    .text "guys you to broiled eel", con_line
+    .text "you guys to broiled eel", con_line
     .text "in soy sauce after we", con_line
     .text "win. It's delicious!"
     .byte con_ball
