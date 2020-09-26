@@ -786,17 +786,17 @@ off_B913_39_тренер_16:
     
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_задний_фон, $60
-    .byte $FB, $01, $1B
+    .byte con_катсцена_FB, $01, $1B
     .byte con_катсцена_F0
     .word $2246
     .text "Wow, Roberto's", con_катсцена_новая_строка
     .text "coaching Brazil U-20.", con_катсцена_новая_строка
     .text "What a shock..."
-    .byte $F3, $FF, $00, $0C
+    .byte con_катсцена_F3, $FF, $00, $0C
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $4B
+    .byte con_катсцена_FB, $01, $4B
     .byte con_катсцена_F0
     .word $2243
     .text "I know. But he's a former", con_катсцена_новая_строка
@@ -806,7 +806,7 @@ off_B913_39_тренер_16:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $47
+    .byte con_катсцена_FB, $01, $47
     .byte con_катсцена_F0
     .word $2246
     .text "No matter what, I", con_катсцена_новая_строка
@@ -816,7 +816,7 @@ off_B913_39_тренер_16:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $4B
+    .byte con_катсцена_FB, $01, $4B
     .byte con_катсцена_F0
     .word $2246
     .text "...and that means", con_катсцена_новая_строка
@@ -835,9 +835,9 @@ off_BA16_3A_тренер_17:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
     
-    .byte $FB, $01, $57
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_FB, $01, $57
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_F0
     .word $2246
     .text "It looks like next", con_катсцена_новая_строка
@@ -854,9 +854,9 @@ off_BA16_3A_тренер_17:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $32
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_FB, $01, $32
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_F0
     .word $2246
     .text "Those are some good", con_катсцена_новая_строка
@@ -866,9 +866,9 @@ off_BA16_3A_тренер_17:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $42
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_FB, $01, $42
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_F0
     .word $2244
     .text "They do. I want you to", con_катсцена_новая_строка
@@ -1110,9 +1110,9 @@ off_BCF9_42_тренер_1F:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $34
-    .byte $F7
-    .byte $F3, $C6
+    .byte con_катсцена_FB, $01, $34
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $C6
     .byte con_катсцена_F0
     .word $2243
     .text "Right. Whenever Schneider", con_катсцена_новая_строка
@@ -1146,9 +1146,9 @@ off_BCF9_42_тренер_1F:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $42
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_FB, $01, $42
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1166,9 +1166,9 @@ off_BDAD_43_тренер_20:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $4B
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_FB, $01, $4B
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_F0
     .word $2246
     .text "Santamaria is their", con_катсцена_новая_строка
@@ -1203,7 +1203,7 @@ off_BDAD_43_тренер_20:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $47
+    .byte con_катсцена_FB, $01, $47
     .byte con_катсцена_F0
     .word $2245
     .text "We've made it this far.", con_катсцена_новая_строка
@@ -1221,9 +1221,9 @@ off_BDAD_43_тренер_20:
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte $FB, $01, $42
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_FB, $01, $42
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1231,7 +1231,7 @@ off_BDAD_43_тренер_20:
 
 off_BE84_44_тренер_роберто:
     .byte con_катсцена_задний_фон, $5F
-    .byte $FB, $01, $3B
+    .byte con_катсцена_FB, $01, $3B
 off_BE89:
     .byte con_катсцена_вид_окна_текста, $03
     .byte con_катсцена_скорость_текста, $00
@@ -1249,7 +1249,7 @@ off_BE89:
 
 off_BE9E_45_тренер_катагири:
     .byte con_катсцена_задний_фон, $5F
-    .byte $FB, $01, $41
+    .byte con_катсцена_FB, $01, $41
 off_BEA3:
     .byte con_катсцена_вид_окна_текста, $03
     .byte con_катсцена_скорость_текста, $00
@@ -1270,7 +1270,7 @@ off_BEA3:
 off_BEBC_46_тренер_миками:
 off_BEBC:
     .byte con_катсцена_задний_фон, $5F
-    .byte $FB, $01, $42
+    .byte con_катсцена_FB, $01, $42
 off_BEC1:
     .byte con_катсцена_вид_окна_текста, $03
     .byte con_катсцена_скорость_текста, $00
@@ -1284,14 +1284,14 @@ off_BEC1:
     .text " fellas.@"
     .byte con_катсцена_новая_строка
 off_BED6:
-    .byte $E8, $01
-    .byte $F3, $00
+    .byte con_катсцена_E8, $01
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_выход
 
 
 
 off_BEDB_47_первый_перерыв_йоко:
-    .byte $FB, $01, $2A
+    .byte con_катсцена_FB, $01, $2A
     .byte con_катсцена_прыжок
     .word off_BEFE
 
@@ -1300,14 +1300,14 @@ off_BEDB_47_первый_перерыв_йоко:
 off_BEE1_48_перерыв_йоко:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_задний_фон, $61
-    .byte $FB, $01, $2A
+    .byte con_катсцена_FB, $01, $2A
     .byte con_катсцена_прыжок
     .word off_BF31
 
 
 
 off_BEEB_49_первый_перерыв_санае:
-    .byte $FB, $01, $26
+    .byte con_катсцена_FB, $01, $26
     .byte con_катсцена_прыжок
     .word off_BEFE
 
@@ -1316,16 +1316,16 @@ off_BEEB_49_первый_перерыв_санае:
 off_BEF1_4A_перерыв_санае:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_задний_фон, $61
-    .byte $FB, $01, $26
+    .byte con_катсцена_FB, $01, $26
     .byte con_катсцена_прыжок
     .word off_BF31
 
 
 
 off_BEFB_4B_первый_перерыв_ишизаки:
-    .byte $FB, $01, $44
+    .byte con_катсцена_FB, $01, $44
 off_BEFE:
-    .byte $E8, $01
+    .byte con_катсцена_E8, $01
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_задний_фон, $61
     .byte con_катсцена_осветление_экрана
@@ -1370,9 +1370,9 @@ off_BEFE:
 off_BF2A_4C_перерыв_ишизаки:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_задний_фон, $61
-    .byte $FB, $01, $24
+    .byte con_катсцена_FB, $01, $24
 off_BF31:
-    .byte $E8, $01
+    .byte con_катсцена_E8, $01
     .byte con_катсцена_скорость_текста, $00
     .byte $40    ; <「>
     .byte $AE    ; <ど>
@@ -1402,31 +1402,31 @@ off_BF31:
     .byte $06    ; <か>
     .byte $02    ; <い>
     .byte con_катсцена_новая_строка
-    .byte $F3, $00
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_выход
 
 
 
 off_BF54_4D_пароль_йоко:
-    .byte $FB, $01, $2B
+    .byte con_катсцена_FB, $01, $2B
     .byte con_катсцена_прыжок
     .word off_BF63
 
 
 
 off_BF5A_4F_пароль_санае:
-    .byte $FB, $01, $27
+    .byte con_катсцена_FB, $01, $27
     .byte con_катсцена_прыжок
     .word off_BF63
 
 
 
 off_BF60_51_пароль_ишизаки:
-    .byte $FB, $01, $44
+    .byte con_катсцена_FB, $01, $44
 off_BF63:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_задний_фон, $5F
-    .byte $F3, $00
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_скорость_текста, $02
     .byte con_катсцена_закрыть_рот
     .byte $40    ; <「>
@@ -1472,26 +1472,26 @@ off_BF7D_4E_удачи_после_пароля:
 
 
 off_BF90_53_новый_уровень_йоко:
-    .byte $FB, $01, $2B
+    .byte con_катсцена_FB, $01, $2B
     .byte con_катсцена_прыжок
     .word off_BF9F
 
 
 
 off_BF96_54_новый_уровень_санае:
-    .byte $FB, $01, $27
+    .byte con_катсцена_FB, $01, $27
     .byte con_катсцена_прыжок
     .word off_BF9F
 
 
 
 off_BF9C_55_новый_уровень_ишизаки:
-    .byte $FB, $01, $44
+    .byte con_катсцена_FB, $01, $44
 off_BF9F:
-    .byte $E8, $01
+    .byte con_катсцена_E8, $01
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_задний_фон, $5F
-    .byte $F3, $00
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_номер_звука, $6F
     .byte con_катсцена_скорость_текста, $02
     .byte con_катсцена_закрыть_рот
@@ -1514,8 +1514,8 @@ off_BF9F:
 
 off_BFBA_56_сан_паулу_перед_матчем:
     .byte con_катсцена_вид_окна_текста, $02
-    .byte $FA, $0F
-    .byte $FB, $01, $0C
+    .byte con_катсцена_FA, $0F
+    .byte con_катсцена_FB, $01, $0C
     .byte con_катсцена_прыжок
     .word off_BFD5
 
@@ -1523,8 +1523,8 @@ off_BFBA_56_сан_паулу_перед_матчем:
 
 off_BFC4_57_нанкацу_перед_матчем:
     .byte con_катсцена_вид_окна_текста, $02
-    .byte $FA, $0E
-    .byte $FB, $01, $0F
+    .byte con_катсцена_FA, $0E
+    .byte con_катсцена_FB, $01, $0F
     .byte con_катсцена_прыжок
     .word off_BFD5
 
@@ -1532,12 +1532,12 @@ off_BFC4_57_нанкацу_перед_матчем:
 
 off_BFCE_58_япония_перед_матчем:
     .byte con_катсцена_вид_окна_текста, $02
-    .byte $FA, $0D
-    .byte $FB, $01, $0E
+    .byte con_катсцена_FA, $0D
+    .byte con_катсцена_FB, $01, $0E
 off_BFD5:
     .byte con_катсцена_номер_звука, $31
-    .byte $F7
-    .byte $F3, $00
+    .byte con_катсцена_F7
+    .byte con_катсцена_F3, $00
     .byte con_катсцена_скорость_текста, $02
     .byte $40    ; <「>
     .byte $26    ; <よ>
