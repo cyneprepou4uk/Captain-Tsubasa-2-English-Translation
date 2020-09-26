@@ -7469,7 +7469,7 @@ off_F5A1_23_сатрустеги:
     .byte $FC
 
 off_F5A8_24_рибейро:
-    .text "Riberio"
+    .text "Ribeiro"
     .byte $FC
 
 off_F5AD_25_данил_сильва:
@@ -7776,7 +7776,7 @@ off_F70F_6B_загалло:
     .byte $FC
 
 off_F713_6C_рибейро:
-    .text "Riberio"
+    .text "Ribeiro"
     .byte $FC
 
 off_F718_6D_ней:

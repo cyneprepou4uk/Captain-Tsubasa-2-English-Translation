@@ -64,46 +64,38 @@
 off_B16D_23_тренер_00:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte con_катсцена_смещение_текста, $04
-    .text "@The Rio Cup has a lot"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "of skilled players.@"
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "The Rio Cup has a lot", con_катсцена_новая_строка
+    .text "of skilled players."
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte con_катсцена_смещение_текста, $04
-    .text "@If we're going to have"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "a chance, we need to"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $05
-    .text "study our opponents.@"
+    .byte con_катсцена_F0
+    .word $2245
+    .text "If we're going to have", con_катсцена_новая_строка
+    .text "a chance, we need to", con_катсцена_новая_строка
+    .text "study our opponents."
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte con_катсцена_смещение_текста, $03
-    .text "@The key to victory is"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $04
-    .text "teamwork - keep the ball"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $04
-    .text "moving back and forth.@"
+    .byte con_катсцена_F0
+    .word $2244
+    .text "The key to victory is", con_катсцена_новая_строка
+    .text "teamwork - keep the ball", con_катсцена_новая_строка
+    .text "moving back and forth."
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
     
-    .byte con_катсцена_смещение_текста, $05
-    .text "@Utilize your players"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "well and play to"
-    .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $06
-    .text "their strengths.@"
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Utilize your players", con_катсцена_новая_строка
+    .text "well and play to", con_катсцена_новая_строка
+    .text "their strengths."
     .byte con_катсцена_мячик
     .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -112,81 +104,25 @@ off_B16D_23_тренер_00:
 off_B1E3_24_тренер_01:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $68    ; <リ>
-    .byte $C6    ; <ベ>
-    .byte $68    ; <リ>
-    .byte $45    ; <オ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $4E    ; <セ>
-    .byte $6F    ; <ッ>
-    .byte $54    ; <ト>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $14    ; <と>
-    .byte con_катсцена_новая_строка
-    .byte $41    ; <ア>
-    .byte $69    ; <ル>
-    .byte $BC    ; <ゼ>
-    .byte $6E    ; <ン>
-    .byte $51    ; <チ>
-    .byte $6E    ; <ン>
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $1B    ; <ひ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $00
-    .byte $4B    ; <サ>
-    .byte $54    ; <ト>
-    .byte $69    ; <ル>
-    .byte $4D    ; <ス>
-    .byte $53    ; <テ>
-    .byte $B5    ; <ギ>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $5D    ; <ヘ>
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $14    ; <と>
-    .byte $08    ; <く>
-    .byte $13    ; <て>
-    .byte $2E    ; <ん>
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte $A0    ; <が>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $1C    ; <ふ>
-    .byte $10    ; <た>
-    .byte $28    ; <り>
-    .byte $2D    ; <を>
-    .byte $00
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $16    ; <に>
-    .byte $11    ; <ち>
-    .byte $06    ; <か>
-    .byte $AC    ; <づ>
-    .byte $09    ; <け>
-    .byte $29    ; <る>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Ribeiro is Argentina's", con_катсцена_новая_строка
+    .text "playmaker in the", con_катсцена_новая_строка
+    .text "midfield - he's", con_катсцена_новая_строка
+    .text "good at set pieces."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Satrustegui scores a", con_катсцена_новая_строка
+    .text "lot of headers. Don't", con_катсцена_новая_строка
+    .text "let them cross the", con_катсцена_новая_строка
+    .text "ball inside our box!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -195,111 +131,33 @@ off_B1E3_24_тренер_01:
 off_B236_25_тренер_02:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $43    ; <ウ>
-    .byte $69    ; <ル>
-    .byte $B6    ; <グ>
-    .byte $41    ; <ア>
-    .byte $42    ; <イ>
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $1B    ; <ひ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $BE    ; <ダ>
-    .byte $3F    ; <•>
-    .byte $4C    ; <シ>
-    .byte $69    ; <ル>
-    .byte $C3    ; <バ>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $B2    ; <べ>
-    .byte $02    ; <い>
-    .byte $14    ; <と>
-    .byte $08    ; <く>
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $4D    ; <ス>
-    .byte $CE    ; <ピ>
-    .byte $7D    ; <ー>
-    .byte $C2    ; <ド>
-    .byte $19    ; <の>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte con_катсцена_новая_строка
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $2D    ; <を>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "The Uruguayan Danil", con_катсцена_новая_строка
+    .text "Silva is playing with", con_катсцена_новая_строка
+    .text "the typical speed of", con_катсцена_новая_строка
+    .text "a South American."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $3F    ; <•>
-    .byte $62    ; <メ>
-    .byte $45    ; <オ>
-    .byte $6E    ; <ン>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $C2    ; <ド>
-    .byte $67    ; <ラ>
-    .byte $42    ; <イ>
-    .byte $C5    ; <ブ>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $07    ; <き>
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A0    ; <が>
-    .byte $7A    ; <、>
-    .byte $A6    ; <じ>
-    .byte $30    ; <ゃ>
-    .byte $08    ; <く>
-    .byte $13    ; <て>
-    .byte $2E    ; <ん>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $1A    ; <は>
-    .byte $A7    ; <ず>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $18    ; <ね>
-    .byte $27    ; <ら>
-    .byte $02    ; <い>
-    .byte $00
-    .byte $14    ; <と>
-    .byte $2F    ; <っ>
-    .byte $C8    ; <ぱ>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
-    .byte $20    ; <み>
-    .byte $12    ; <つ>
-    .byte $09    ; <け>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Meon can easily stop", con_катсцена_новая_строка
+    .text "the Drive Shot, but", con_катсцена_новая_строка
+    .text "that doesn't mean he", con_катсцена_новая_строка
+    .text "can't be beat."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Long shots, headers", con_катсцена_новая_строка
+    .text "and crosses - just", con_катсцена_новая_строка
+    .text "keep trying!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -308,58 +166,23 @@ off_B236_25_тренер_02:
 off_B2A8_26_тренер_03:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $54    ; <ト>
-    .byte $56    ; <ニ>
-    .byte $7D    ; <ー>
-    .byte $56    ; <ニ>
-    .byte $72    ; <ョ>
-    .byte $14    ; <と>
-    .byte $00
-    .byte $43    ; <ウ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte $19    ; <の>
-    .byte $58    ; <ネ>
-    .byte $42    ; <イ>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $4A    ; <コ>
-    .byte $6E    ; <ン>
-    .byte $C4    ; <ビ>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $06    ; <か>
-    .byte $03    ; <う>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1C    ; <ふ>
-    .byte $10    ; <た>
-    .byte $28    ; <り>
-    .byte $2D    ; <を>
-    .byte $5C    ; <フ>
-    .byte $68    ; <リ>
-    .byte $7D    ; <ー>
-    .byte $16    ; <に>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Toninho is a midfielder,", con_катсцена_новая_строка
+    .text "Nei is a winger -", con_катсцена_новая_строка
+    .text "they both specialize", con_катсцена_новая_строка
+    .text "in combos."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2247
+    .text "Keep the pressure", con_катсцена_новая_строка
+    .text "tight on them!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -368,104 +191,34 @@ off_B2A8_26_тренер_03:
 off_B2E4_27_тренер_04:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $83    ; <C>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $B9    ; <ザ>
-    .byte $B4    ; <ガ>
-    .byte $6B    ; <ロ>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $BE    ; <ダ>
-    .byte $C5    ; <ブ>
-    .byte $69    ; <ル>
-    .byte $42    ; <イ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $14    ; <と>
-    .byte $02    ; <い>
-    .byte $03    ; <う>
-    .byte con_катсцена_новая_строка
-    .byte $47    ; <キ>
-    .byte $7D    ; <ー>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $A4    ; <ご>
-    .byte $2B    ; <ろ>
-    .byte $0C    ; <し>
-    .byte $19    ; <の>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $83    ; <C>
-    .byte $82    ; <B>
-    .byte $3F    ; <•>
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $43    ; <ウ>
-    .byte $4E    ; <セ>
-    .byte $43    ; <ウ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $47    ; <キ>
-    .byte $70    ; <ャ>
-    .byte $59    ; <ノ>
-    .byte $6E    ; <ン>
-    .byte $5D    ; <ヘ>
-    .byte $6F    ; <ッ>
-    .byte $C2    ; <ド>
-    .byte $23    ; <も>
-    .byte con_катсцена_новая_строка
-    .byte $13    ; <て>
-    .byte $A4    ; <ご>
-    .byte $2C    ; <わ>
-    .byte $02    ; <い>
-    .byte $A9    ; <ぞ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "Zagallo, the center", con_катсцена_новая_строка
+    .text "forward, has a blistering", con_катсцена_новая_строка
+    .text "strike called the", con_катсцена_новая_строка
+    .text "@Double Eel@."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $11    ; <ち>
-    .byte $15    ; <な>
-    .byte $20    ; <み>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $42    ; <イ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $14    ; <と>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $43    ; <ウ>
-    .byte $55    ; <ナ>
-    .byte $B5    ; <ギ>
-    .byte $19    ; <の>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $AA    ; <だ>
-    .byte con_катсцена_новая_строка
-    .byte $46    ; <カ>
-    .byte $C3    ; <バ>
-    .byte $64    ; <ヤ>
-    .byte $47    ; <キ>
-    .byte $16    ; <に>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
-    .byte $14    ; <と>
-    .byte $00
-    .byte $03    ; <う>
-    .byte $1F    ; <ま>
-    .byte $02    ; <い>
-    .byte $A9    ; <ぞ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Dirceu, the center back,", con_катсцена_новая_строка
+    .text "has a @Cannon Header@", con_катсцена_новая_строка
+    .text "that's honestly", con_катсцена_новая_строка
+    .text "frightening!"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Hey, maybe I'll treat", con_катсцена_новая_строка
+    .text "guys you to broiled eel", con_катсцена_новая_строка
+    .text "in soy sauce after we", con_катсцена_новая_строка
+    .text "win. It's delicious!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -474,127 +227,34 @@ off_B2E4_27_тренер_04:
 off_B34F_28_тренер_05:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $5C    ; <フ>
-    .byte $67    ; <ラ>
-    .byte $62    ; <メ>
-    .byte $6E    ; <ン>
-    .byte $B8    ; <ゴ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $26    ; <よ>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $1E    ; <ほ>
-    .byte $14    ; <と>
-    .byte $2E    ; <ん>
-    .byte $AE    ; <ど>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $83    ; <C>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $6B    ; <ロ>
-    .byte $4D    ; <ス>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $60    ; <ミ>
-    .byte $67    ; <ラ>
-    .byte $7D    ; <ー>
-    .byte $BA    ; <ジ>
-    .byte $71    ; <ュ>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $14    ; <と>
-    .byte con_катсцена_новая_строка
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $4B    ; <サ>
-    .byte $6E    ; <ン>
-    .byte $50    ; <タ>
-    .byte $5F    ; <マ>
-    .byte $68    ; <リ>
-    .byte $41    ; <ア>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $C3    ; <バ>
-    .byte $55    ; <ナ>
-    .byte $55    ; <ナ>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Flamengo's gotten so far", con_катсцена_новая_строка
+    .text "in large part due to the", con_катсцена_новая_строка
+    .text "center forward Carlos'", con_катсцена_новая_строка
+    .text "Mirage Shot,"
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $6B    ; <ロ>
-    .byte $4D    ; <ス>
-    .byte $7A    ; <、>
-    .byte $4B    ; <サ>
-    .byte $6E    ; <ン>
-    .byte $50    ; <タ>
-    .byte $5F    ; <マ>
-    .byte $68    ; <リ>
-    .byte $41    ; <ア>
-    .byte $2D    ; <を>
-    .byte $5F    ; <マ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $0C    ; <し>
-    .byte con_катсцена_новая_строка
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $14    ; <と>
-    .byte $07    ; <き>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $BA    ; <ジ>
-    .byte $75    ; <ェ>
-    .byte $54    ; <ト>
-    .byte $7D    ; <ー>
-    .byte $68    ; <リ>
-    .byte $45    ; <オ>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $45    ; <オ>
-    .byte $7D    ; <ー>
-    .byte $C3    ; <バ>
-    .byte $7D    ; <ー>
-    .byte $67    ; <ラ>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $09    ; <け>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "and the midfielder", con_катсцена_новая_строка
+    .text "Santamaria's Banana Shot.", con_катсцена_новая_строка
+    .text "Put tight markers on", con_катсцена_новая_строка
+    .text "Carlos and Santamaria."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "The time to attack is", con_катсцена_новая_строка
+    .text "when their defender,", con_катсцена_новая_строка
+    .text "Jetorio, goes forward", con_катсцена_новая_строка
+    .text "on an overlapping run."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -603,76 +263,24 @@ off_B34F_28_тренер_05:
 off_B3D1_29_тренер_06:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $A6    ; <じ>
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $23    ; <も>
-    .byte $11    ; <ち>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $19    ; <の>
-    .byte $CD    ; <パ>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $02    ; <い>
-    .byte $06    ; <か>
-    .byte $0C    ; <し>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $5C    ; <フ>
-    .byte $75    ; <ェ>
-    .byte $6E    ; <ン>
-    .byte $4D    ; <ス>
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte $2D    ; <を>
-    .byte $23    ; <も>
-    .byte $11    ; <ち>
-    .byte con_катсцена_новая_строка
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $0B    ; <さ>
-    .byte $19    ; <の>
-    .byte $14    ; <と>
-    .byte $00
-    .byte $4A    ; <コ>
-    .byte $6E    ; <ン>
-    .byte $C4    ; <ビ>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $06    ; <か>
-    .byte $03    ; <う>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $13    ; <て>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $CD    ; <パ>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $09    ; <け>
-    .byte $29    ; <る>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Their defender, Jitou,", con_катсцена_новая_строка
+    .text "uses his physical", con_катсцена_новая_строка
+    .text "strength,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "and a nasty combo-play", con_катсцена_новая_строка
+    .text "with the forward, Sano.", con_катсцена_новая_строка
+    .text "Don't let them get", con_катсцена_новая_строка
+    .text "the best of you."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -681,74 +289,31 @@ off_B3D1_29_тренер_06:
 off_B41F_2A_тренер_07:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $10    ; <た>
-    .byte $11    ; <ち>
-    .byte $AF    ; <ば>
-    .byte $15    ; <な>
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $4D    ; <ス>
-    .byte $46    ; <カ>
-    .byte $42    ; <イ>
-    .byte $67    ; <ラ>
-    .byte $C5    ; <ブ>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $5C    ; <フ>
-    .byte $75    ; <ェ>
-    .byte $6E    ; <ン>
-    .byte $4D    ; <ス>
-    .byte $16    ; <に>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $2C    ; <わ>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $08    ; <く>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $1C    ; <ふ>
-    .byte $10    ; <た>
-    .byte $28    ; <り>
-    .byte $2D    ; <を>
-    .byte $5F    ; <マ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $0C    ; <し>
-    .byte con_катсцена_новая_строка
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "The Tachibana twins use", con_катсцена_новая_строка
+    .text "their Skylab technique", con_катсцена_новая_строка
+    .text "as both offensive and", con_катсцена_новая_строка
+    .text "defensive tactics,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "so go in a wide circle", con_катсцена_новая_строка
+    .text "around them. Mark the", con_катсцена_новая_строка
+    .text "forward and midfielder,"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "and keep your defenders", con_катсцена_новая_строка
+    .text "in front of the goal."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -757,71 +322,25 @@ off_B41F_2A_тренер_07:
 off_B46B_2B_тренер_08:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $44    ; <エ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $A4    ; <ご>
-    .byte $2B    ; <ろ>
-    .byte $0C    ; <し>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $0F    ; <そ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $7A    ; <、>
-    .byte con_катсцена_новая_строка
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $3F    ; <•>
-    .byte $15    ; <な>
-    .byte $06    ; <か>
-    .byte $16    ; <に>
-    .byte $0C    ; <し>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $23    ; <も>
-    .byte $28    ; <り>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $12    ; <つ>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $4D    ; <ス>
-    .byte $47    ; <キ>
-    .byte $2D    ; <を>
-    .byte $18    ; <ね>
-    .byte $27    ; <ら>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $46    ; <カ>
-    .byte $43    ; <ウ>
-    .byte $6E    ; <ン>
-    .byte $50    ; <タ>
-    .byte $7D    ; <ー>
-    .byte $41    ; <ア>
-    .byte $50    ; <タ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $09    ; <け>
-    .byte $29    ; <る>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Their defender, Souda,", con_катсцена_новая_строка
+    .text "is tough as nails. And", con_катсцена_новая_строка
+    .text "the goalie, Nakanishi,", con_катсцена_новая_строка
+    .text "is a brick wall."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "They'll look for a", con_катсцена_новая_строка
+    .text "gap in your offense,", con_катсцена_новая_строка
+    .text "and hit you on the", con_катсцена_новая_строка
+    .text "counterattack."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -830,91 +349,25 @@ off_B46B_2B_тренер_08:
 off_B4B4_2C_тренер_09:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $21    ; <む>
-    .byte $0B    ; <さ>
-    .byte $0C    ; <し>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $12    ; <つ>
-    .byte $23    ; <も>
-    .byte $AE    ; <ど>
-    .byte $03    ; <う>
-    .byte $28    ; <り>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $1A    ; <は>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $20    ; <み>
-    .byte $0D    ; <す>
-    .byte $A1    ; <ぎ>
-    .byte $2D    ; <を>
-    .byte $02    ; <い>
-    .byte $2A    ; <れ>
-    .byte $13    ; <て>
-    .byte $08    ; <く>
-    .byte $29    ; <る>
-    .byte $AA    ; <だ>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Musashi keeps Misugi", con_катсцена_новая_строка
+    .text "in reserve for the", con_катсцена_новая_строка
+    .text "second half, due to", con_катсцена_новая_строка
+    .text "his heart condition."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $0D    ; <す>
-    .byte $A1    ; <ぎ>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
-    .byte $02    ; <い>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $21    ; <む>
-    .byte $0B    ; <さ>
-    .byte $0C    ; <し>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $AA    ; <だ>
-    .byte $2E    ; <ん>
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $01    ; <あ>
-    .byte $A0    ; <が>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $20    ; <み>
-    .byte $0D    ; <す>
-    .byte $A1    ; <ぎ>
-    .byte $19    ; <の>
-    .byte $02    ; <い>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $1A    ; <は>
-    .byte $2E    ; <ん>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $B1    ; <ぶ>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "Misugi's a quality player,", con_катсцена_новая_строка
+    .text "so focus on getting goals", con_катсцена_новая_строка
+    .text "in the first half, when", con_катсцена_новая_строка
+    .text "the going's easier!"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -923,66 +376,31 @@ off_B4B4_2C_тренер_09:
 off_B512_2D_тренер_0A:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $19    ; <の>
-    .byte $1C    ; <ふ>
-    .byte $27    ; <ら>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $09    ; <け>
-    .byte $2E    ; <ん>
-    .byte $A5    ; <ざ>
-    .byte $02    ; <い>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $1F    ; <ま>
-    .byte $12    ; <つ>
-    .byte $24    ; <や>
-    .byte $1F    ; <ま>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $C7    ; <ボ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $23    ; <も>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $27    ; <ら>
-    .byte con_катсцена_новая_строка
-    .byte $42    ; <イ>
-    .byte $7D    ; <ー>
-    .byte $B6    ; <グ>
-    .byte $69    ; <ル>
-    .byte $4C    ; <シ>
-    .byte $72    ; <ョ>
-    .byte $6F    ; <ッ>
-    .byte $54    ; <ト>
-    .byte $7A    ; <、>
-    .byte $15    ; <な>
-    .byte $AA    ; <だ>
-    .byte $2A    ; <れ>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $09    ; <け>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Furano has strong", con_катсцена_новая_строка
+    .text "teamwork, all-around.", con_катсцена_новая_строка
+    .text "Watch out for", con_катсцена_новая_строка
+    .text "Matsuyama's Eagle Shot."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Their entire side is", con_катсцена_новая_строка
+    .text "going on the offensive", con_катсцена_новая_строка
+    .text "when he calls for the", con_катсцена_новая_строка
+    .text "@Avalanche Attack,"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "so keep an eye on them!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -991,136 +409,41 @@ off_B512_2D_тренер_0A:
 off_B556_2E_тренер_0B:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $50    ; <タ>
-    .byte $42    ; <イ>
-    .byte $B4    ; <ガ>
-    .byte $7D    ; <ー>
-    .byte $4C    ; <シ>
-    .byte $72    ; <ョ>
-    .byte $6F    ; <ッ>
-    .byte $54    ; <ト>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $26    ; <よ>
-    .byte $28    ; <り>
-    .byte $0B    ; <さ>
-    .byte $27    ; <ら>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $CD    ; <パ>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $41    ; <ア>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $4A    ; <コ>
-    .byte $6E    ; <ン>
-    .byte $54    ; <ト>
-    .byte $6B    ; <ロ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $50    ; <タ>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $0B    ; <さ>
-    .byte $2C    ; <わ>
-    .byte $AA    ; <だ>
-    .byte $2D    ; <を>
-    .byte $5F    ; <マ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $0C    ; <し>
-    .byte con_катсцена_новая_строка
-    .byte $1B    ; <ひ>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $A0    ; <が>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $CD    ; <パ>
-    .byte $4D    ; <ス>
-    .byte $2D    ; <を>
-    .byte $14    ; <と>
-    .byte $05    ; <お>
-    .byte $0D    ; <す>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Hyuga's Tiger Shot is", con_катсцена_новая_строка
+    .text "even more fearsome", con_катсцена_новая_строка
+    .text "than before."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $2C    ; <わ>
-    .byte $06    ; <か>
-    .byte $0C    ; <し>
-    .byte $1F    ; <ま>
-    .byte $AC    ; <づ>
-    .byte $AA    ; <だ>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte con_катсцена_новая_строка
-    .byte $6B    ; <ロ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A9    ; <ぞ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $1F    ; <ま>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $0E    ; <せ>
-    .byte $2F    ; <っ>
-    .byte $07    ; <き>
-    .byte $2E    ; <ん>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $16    ; <に>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $7A    ; <、>
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $C7    ; <ボ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $01    ; <あ>
-    .byte $12    ; <つ>
-    .byte $22    ; <め>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "Also, put a mark on their", con_катсцена_новая_строка
+    .text "playmaker Sawada, so the", con_катсцена_новая_строка
+    .text "two don't link up and", con_катсцена_новая_строка
+    .text "pull of a combo."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Wakashimazu's their", con_катсцена_новая_строка
+    .text "goalie, and his", con_катсцена_новая_строка
+    .text "Triangle Jump will", con_катсцена_новая_строка
+    .text "stop long shots cold."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2248
+    .text "Get close with", con_катсцена_новая_строка
+    .text "Nitta or Misaki", con_катсцена_новая_строка
+    .text "and drive it in!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEA3
 
@@ -1129,59 +452,16 @@ off_B556_2E_тренер_0B:
 off_B5E1_2F_тренер_0C:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $CE    ; <ピ>
-    .byte $45    ; <オ>
-    .byte $6E    ; <ン>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $6B    ; <ロ>
-    .byte $7D    ; <ー>
-    .byte $5F    ; <マ>
-    .byte $19    ; <の>
-    .byte $50    ; <タ>
-    .byte $46    ; <カ>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $02    ; <い>
-    .byte $20    ; <み>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
-    .byte $23    ; <も>
-    .byte $11    ; <ち>
-    .byte $00
-    .byte $4D    ; <ス>
-    .byte $CE    ; <ピ>
-    .byte $7D    ; <ー>
-    .byte $C2    ; <ド>
-    .byte $3F    ; <•>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte con_катсцена_новая_строка
-    .byte $14    ; <と>
-    .byte $23    ; <も>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $A7    ; <ず>
-    .byte $AF    ; <ば>
-    .byte $17    ; <ぬ>
-    .byte $09    ; <け>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "Their forward's name is", con_катсцена_новая_строка
+    .text "Rampion - he's nicknamed", con_катсцена_новая_строка
+    .text "@The Hawk of Rome@ due to", con_катсцена_новая_строка
+    .text "his speed and shot power."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -1190,65 +470,24 @@ off_B5E1_2F_тренер_0C:
 off_B61E_30_тренер_0D:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $52    ; <ツ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $C4    ; <ビ>
-    .byte $48    ; <ク>
-    .byte $54    ; <ト>
-    .byte $68    ; <リ>
-    .byte $7D    ; <ー>
-    .byte $59    ; <ノ>
-    .byte $14    ; <と>
-    .byte con_катсцена_новая_строка
-    .byte $23    ; <も>
-    .byte $14    ; <と>
-    .byte $B6    ; <グ>
-    .byte $6A    ; <レ>
-    .byte $60    ; <ミ>
-    .byte $45    ; <オ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $BE    ; <ダ>
-    .byte $3F    ; <•>
-    .byte $4C    ; <シ>
-    .byte $69    ; <ル>
-    .byte $C3    ; <バ>
-    .byte $19    ; <の>
-    .byte $46    ; <カ>
-    .byte $43    ; <ウ>
-    .byte $6E    ; <ン>
-    .byte $50    ; <タ>
-    .byte $7D    ; <ー>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $4D    ; <ス>
-    .byte $CE    ; <ピ>
-    .byte $7D    ; <ー>
-    .byte $C2    ; <ド>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $23    ; <も>
-    .byte $28    ; <り>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "The two forwards are", con_катсцена_новая_строка
+    .text "Victorino and Danil", con_катсцена_новая_строка
+    .text "Silva - the one", con_катсцена_новая_строка
+    .text "from Gremio."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "They'll counterattack", con_катсцена_новая_строка
+    .text "with speed, so keep", con_катсцена_новая_строка
+    .text "a strong defense."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -1257,123 +496,38 @@ off_B61E_30_тренер_0D:
 off_B661_31_тренер_0E:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $56    ; <ニ>
-    .byte $4C    ; <シ>
-    .byte $C2    ; <ド>
-    .byte $42    ; <イ>
-    .byte $52    ; <ツ>
-    .byte $19    ; <の>
-    .byte $0C    ; <し>
-    .byte $A4    ; <ご>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $52    ; <ツ>
-    .byte $14    ; <と>
-    .byte con_катсцена_новая_строка
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $62    ; <メ>
-    .byte $6F    ; <ッ>
-    .byte $52    ; <ツ>
-    .byte $73    ; <ヮ>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $11    ; <ち>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $AF    ; <ば>
-    .byte $2E    ; <ん>
-    .byte $2D    ; <を>
-    .byte $05    ; <お>
-    .byte $0B    ; <さ>
-    .byte $04    ; <え>
-    .byte con_катсцена_новая_строка
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $46    ; <カ>
-    .byte $D0    ; <ペ>
-    .byte $6B    ; <ロ>
-    .byte $5F    ; <マ>
-    .byte $6E    ; <ン>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $4B    ; <サ>
-    .byte $42    ; <イ>
-    .byte $C2    ; <ド>
-    .byte $6C    ; <ワ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $BE    ; <ダ>
-    .byte $7D    ; <ー>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $03    ; <う>
-    .byte $AF    ; <ば>
-    .byte $03    ; <う>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Kaltz and their", con_катсцена_новая_строка
+    .text "midfielder, Metzer, will", con_катсцена_новая_строка
+    .text "dominate the midfield."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $3F    ; <•>
-    .byte $2C    ; <わ>
-    .byte $06    ; <か>
-    .byte $AF    ; <ば>
-    .byte $24    ; <や>
-    .byte $0C    ; <し>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $D0    ; <ペ>
-    .byte $55    ; <ナ>
-    .byte $69    ; <ル>
-    .byte $53    ; <テ>
-    .byte $74    ; <ィ>
-    .byte $44    ; <エ>
-    .byte $68    ; <リ>
-    .byte $41    ; <ア>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $0F    ; <そ>
-    .byte $14    ; <と>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $00
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $25    ; <ゆ>
-    .byte $29    ; <る>
-    .byte $0B    ; <さ>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $51    ; <チ>
-    .byte $70    ; <ャ>
-    .byte $6E    ; <ン>
-    .byte $4D    ; <ス>
-    .byte $2D    ; <を>
-    .byte $16    ; <に>
-    .byte $A0    ; <が>
-    .byte $0D    ; <す>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Their forward, Kappelman,", con_катсцена_новая_строка
+    .text "uses his Sidewinder", con_катсцена_новая_строка
+    .text "shot to score."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "We all know how good", con_катсцена_новая_строка
+    .text "Wakabayashi is, so don't", con_катсцена_новая_строка
+    .text "bother with long shots."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Get up close, and don't", con_катсцена_новая_строка
+    .text "waste your chances!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -1382,63 +536,16 @@ off_B661_31_тренер_0E:
 off_B6DF_32_тренер_0F:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $0D    ; <す>
-    .byte $B2    ; <べ>
-    .byte $13    ; <て>
-    .byte $16    ; <に>
-    .byte $05    ; <お>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $C3    ; <バ>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $4D    ; <ス>
-    .byte $19    ; <の>
-    .byte $14    ; <と>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte $16    ; <に>
-    .byte $14    ; <と>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $1C    ; <ふ>
-    .byte $0F    ; <そ>
-    .byte $08    ; <く>
-    .byte $1A    ; <は>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte con_катсцена_новая_строка
-    .byte $05    ; <お>
-    .byte $23    ; <も>
-    .byte $02    ; <い>
-    .byte $07    ; <き>
-    .byte $28    ; <り>
-    .byte $00
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $04    ; <え>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Japan's team this year", con_катсцена_новая_строка
+    .text "has no real weaknesses.", con_катсцена_новая_строка
+    .text "This one's for the glory,", con_катсцена_новая_строка
+    .text "so give it your all!"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BE89
 
@@ -1447,98 +554,26 @@ off_B6DF_32_тренер_0F:
 off_B720_33_тренер_10:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $0A    ; <こ>
-    .byte $19    ; <の>
-    .byte $10    ; <た>
-    .byte $02    ; <い>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $AD    ; <で>
-    .byte $1B    ; <ひ>
-    .byte $27    ; <ら>
-    .byte $06    ; <か>
-    .byte $2A    ; <れ>
-    .byte $29    ; <る>
-    .byte con_катсцена_новая_строка
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $10    ; <た>
-    .byte $02    ; <い>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $AD    ; <で>
-    .byte $29    ; <る>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $19    ; <の>
-    .byte $26    ; <よ>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $1F    ; <ま>
-    .byte $09    ; <け>
-    .byte $29    ; <る>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $AD    ; <で>
-    .byte $07    ; <き>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A9    ; <ぞ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "If we expect to make it", con_катсцена_новая_строка
+    .text "to the finals in Brazil,", con_катсцена_новая_строка
+    .text "we cannot lose a", con_катсцена_новая_строка
+    .text "single game."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $06    ; <か>
-    .byte $08    ; <く>
-    .byte $A6    ; <じ>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $B1    ; <ぶ>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $D1    ; <ポ>
-    .byte $BA    ; <ジ>
-    .byte $4C    ; <シ>
-    .byte $72    ; <ョ>
-    .byte $6E    ; <ン>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $0C    ; <し>
-    .byte $2F    ; <っ>
-    .byte $06    ; <か>
-    .byte $28    ; <り>
-    .byte $03    ; <う>
-    .byte $09    ; <け>
-    .byte $23    ; <も>
-    .byte $11    ; <ち>
-    .byte $00
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $12    ; <つ>
-    .byte $14    ; <と>
-    .byte $22    ; <め>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Each one of you must", con_катсцена_новая_строка
+    .text "firmly take charge of", con_катсцена_новая_строка
+    .text "his own position, and", con_катсцена_новая_строка
+    .text "work hard on team play."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1547,60 +582,23 @@ off_B720_33_тренер_10:
 off_B785_34_тренер_11:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $37    ; <4>
-    .byte $33    ; <0>
-    .byte $33    ; <0>
-    .byte $33    ; <0>
-    .byte $18    ; <ね>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $2A    ; <れ>
-    .byte $07    ; <き>
-    .byte $0C    ; <し>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $00
-    .byte $08    ; <く>
-    .byte $16    ; <に>
-    .byte $AA    ; <だ>
-    .byte con_катсцена_новая_строка
-    .byte $AE    ; <ど>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte $A0    ; <が>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $1C    ; <ふ>
-    .byte $0C    ; <し>
-    .byte $A1    ; <ぎ>
-    .byte $AD    ; <で>
-    .byte $1A    ; <は>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $13    ; <て>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $03    ; <う>
-    .byte $A4    ; <ご>
-    .byte $07    ; <き>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $09    ; <け>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "China has a history", con_катсцена_новая_строка
+    .text "spanning 4,000 years,", con_катсцена_новая_строка
+    .text "and they have a", con_катсцена_новая_строка
+    .text "lot to prove."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Watch their movements", con_катсцена_новая_строка
+    .text "carefully."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1609,65 +607,33 @@ off_B785_34_тренер_11:
 off_B7C3_35_тренер_12:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $42    ; <イ>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $A3    ; <げ>
-    .byte $0C    ; <し>
-    .byte $02    ; <い>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $B0    ; <び>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $23    ; <も>
-    .byte $28    ; <り>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $29    ; <る>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $2E    ; <ん>
-    .byte $0F    ; <そ>
-    .byte $08    ; <く>
-    .byte $06    ; <か>
-    .byte $08    ; <く>
-    .byte $A4    ; <ご>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $14    ; <と>
-    .byte $22    ; <め>
-    .byte $16    ; <に>
-    .byte $08    ; <く>
-    .byte $29    ; <る>
-    .byte $00
-    .byte $48    ; <ク>
-    .byte $6B    ; <ロ>
-    .byte $4D    ; <ス>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $16    ; <に>
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $09    ; <け>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Iran has a strong", con_катсцена_новая_строка
+    .text "and forceful - even", con_катсцена_новая_строка
+    .text "violent - defense."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "They will try and", con_катсцена_новая_строка
+    .text "take you out of the", con_катсцена_новая_строка
+    .text "game, even if it", con_катсцена_новая_строка
+    .text "means multiple fouls."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    
+    .byte con_катсцена_F0
+    .word $2249
+    .text "Be careful in", con_катсцена_новая_строка
+    .text "close duels."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1676,75 +642,30 @@ off_B7C3_35_тренер_12:
 off_B806_36_тренер_13:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $19    ; <の>
-    .byte $4D    ; <ス>
-    .byte $CE    ; <ピ>
-    .byte $7D    ; <ー>
-    .byte $C2    ; <ド>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $0D    ; <す>
-    .byte $AF    ; <ば>
-    .byte $24    ; <や>
-    .byte $02    ; <い>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $1B    ; <ひ>
-    .byte $08    ; <く>
-    .byte $02    ; <い>
-    .byte $C7    ; <ボ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $18    ; <ね>
-    .byte $27    ; <ら>
-    .byte $02    ; <い>
-    .byte con_катсцена_новая_строка
-    .byte $C7    ; <ボ>
-    .byte $6A    ; <レ>
-    .byte $7D    ; <ー>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $2D    ; <を>
-    .byte $00
-    .byte $26    ; <よ>
-    .byte $08    ; <く>
-    .byte $03    ; <う>
-    .byte $11    ; <ち>
-    .byte $0A    ; <こ>
-    .byte $21    ; <む>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "This team will", con_катсцена_новая_строка
+    .text "rapidly switch up", con_катсцена_новая_строка
+    .text "offence and defense."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "They'll drive for the", con_катсцена_новая_строка
+    .text "goal through both", con_катсцена_новая_строка
+    .text "dribbling and powerful", con_катсцена_новая_строка
+    .text "volley shots."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Firm up your defense!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1753,71 +674,23 @@ off_B806_36_тренер_13:
 off_B853_37_тренер_14:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $A0    ; <が>
-    .byte $10    ; <た>
-    .byte $4B    ; <サ>
-    .byte $6F    ; <ッ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
-    .byte $19    ; <の>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $19    ; <の>
-    .byte $5D    ; <ヘ>
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $28    ; <り>
-    .byte con_катсцена_новая_строка
-    .byte $02    ; <い>
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $23    ; <も>
-    .byte con_катсцена_новая_строка
-    .byte $15    ; <な>
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $06    ; <か>
-    .byte $00
-    .byte $08    ; <く>
-    .byte $0E    ; <せ>
-    .byte $23    ; <も>
-    .byte $19    ; <の>
-    .byte $27    ; <ら>
-    .byte $0C    ; <し>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Our opponents play using", con_катсцена_новая_строка
+    .text "the Brazilian style,", con_катсцена_новая_строка
+    .text "and can make powerful", con_катсцена_новая_строка
+    .text "headers inside the box."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "There's also something", con_катсцена_новая_строка
+    .text "about their goalkeeper..."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1826,116 +699,41 @@ off_B853_37_тренер_14:
 off_B89C_38_тренер_15:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $68    ; <リ>
-    .byte $3F    ; <•>
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $15    ; <な>
-    .byte $0C    ; <し>
-    .byte $AD    ; <で>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $3F    ; <•>
-    .byte $4C    ; <シ>
-    .byte $70    ; <ャ>
-    .byte $14    ; <と>
-    .byte $00
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $47    ; <キ>
-    .byte $61    ; <ム>
-    .byte $19    ; <の>
-    .byte $4A    ; <コ>
-    .byte $6E    ; <ン>
-    .byte $C4    ; <ビ>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $52    ; <ツ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $06    ; <か>
-    .byte $03    ; <う>
-    .byte $0F    ; <そ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "The Li brothers already", con_катсцена_новая_строка
+    .text "warned us about the", con_катсцена_новая_строка
+    .text "forward Sha and", con_катсцена_новая_строка
+    .text "midfielder Kim."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $07    ; <き>
-    .byte $11    ; <ち>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $15    ; <な>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $1E    ; <ほ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
-    .byte $08    ; <く>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte con_катсцена_новая_строка
-    .byte $1C    ; <ふ>
-    .byte $10    ; <た>
-    .byte $28    ; <り>
-    .byte $19    ; <の>
-    .byte $10    ; <た>
-    .byte $22    ; <め>
-    .byte $16    ; <に>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $16    ; <に>
-    .byte $06    ; <か>
-    .byte $11    ; <ち>
-    .byte con_катсцена_новая_строка
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $1B    ; <ひ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $09    ; <け>
-    .byte $2E    ; <ん>
-    .byte $2D    ; <を>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $11    ; <ち>
-    .byte $14    ; <と>
-    .byte $29    ; <る>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $10    ; <た>
-    .byte $19    ; <の>
-    .byte $21    ; <む>
-    .byte $A9    ; <ぞ>
-    .byte $00
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $79    ; <!>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "They haven't changed", con_катсцена_новая_строка
+    .text "their strategy of", con_катсцена_новая_строка
+    .text "combo-plays and", con_катсцена_новая_строка
+    .text "Twin Shots."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "Let's not let that info go", con_катсцена_новая_строка
+    .text "to waste - for their sake,", con_катсцена_новая_строка
+    .text "we must win this game,"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2248
+    .text "and the right to", con_катсцена_новая_строка
+    .text "represent Asia.", con_катсцена_новая_строка
+    .text "Go get 'em!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -1944,242 +742,89 @@ off_B89C_38_тренер_15:
 off_B913_39_тренер_16:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $26    ; <よ>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $68    ; <リ>
-    .byte $7D    ; <ー>
-    .byte $B6    ; <グ>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $A6    ; <じ>
-    .byte $06    ; <か>
-    .byte $AA    ; <だ>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $26    ; <よ>
-    .byte $03    ; <う>
-    .byte $0A    ; <こ>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $AF    ; <ば>
-    .byte $27    ; <ら>
-    .byte $08    ; <く>
-    .byte $19    ; <の>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $AA    ; <だ>
-    .byte con_катсцена_новая_строка
-    .byte $16    ; <に>
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte $1D    ; <へ>
-    .byte $00
-    .byte $23    ; <も>
-    .byte $AE    ; <ど>
-    .byte $29    ; <る>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $16    ; <に>
-    .byte $15    ; <な>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "We've made it through", con_катсцена_новая_строка
+    .text "the Asia Qualifiers -", con_катсцена_новая_строка
+    .text "well done, everyone."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $4D    ; <ス>
-    .byte $4A    ; <コ>
-    .byte $41    ; <ア>
-    .byte $62    ; <メ>
-    .byte $63    ; <モ>
-    .byte $19    ; <の>
-    .byte $07    ; <き>
-    .byte $2B    ; <ろ>
-    .byte $08    ; <く>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $0C    ; <し>
-    .byte $A5    ; <ざ>
-    .byte $07    ; <き>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $0D    ; <す>
-    .byte $0D    ; <す>
-    .byte $2E    ; <ん>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $1B    ; <ひ>
-    .byte $07    ; <き>
-    .byte $03    ; <う>
-    .byte $09    ; <け>
-    .byte $13    ; <て>
-    .byte $08    ; <く>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte $19    ; <の>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2A    ; <れ>
-    .byte $16    ; <に>
-    .byte $1F    ; <ま>
-    .byte $06    ; <か>
-    .byte $0E    ; <せ>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "The JFO made arrangements", con_катсцена_новая_строка
+    .text "for us to take on some", con_катсцена_новая_строка
+    .text "@friendly matches@ from", con_катсцена_новая_строка
+    .text "now until the World Cup"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Group Stage, to keep", con_катсцена_новая_строка
+    .text "your skills sharp and", con_катсцена_новая_строка
+    .text "your minds focused."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Yoko will be returning", con_катсцена_новая_строка
+    .text "to Japan for a bit for", con_катсцена_новая_строка
+    .text "personal reasons."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Ishizaki, you're in", con_катсцена_новая_строка
+    .text "charge of the score", con_катсцена_новая_строка
+    .text "memo until she returns.", con_катсцена_новая_строка
+    .text "That's all."
+    .byte con_катсцена_мячик
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_задний_фон, $60
     .byte $FB, $01, $1B
-    .byte $40    ; <「>
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $08    ; <く>
-    .byte $2E    ; <ん>
-    .byte $7A    ; <、>
-    .byte $6B    ; <ロ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $54    ; <ト>
-    .byte $19    ; <の>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $02    ; <い>
-    .byte $02    ; <い>
-    .byte $19    ; <の>
-    .byte $78    ; <?>
-    .byte con_катсцена_новая_строка
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Wow, Roberto's", con_катсцена_новая_строка
+    .text "coaching Brazil U-20.", con_катсцена_новая_строка
+    .text "What a shock..."
     .byte $F3, $FF, $00, $0C
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $4B
-    .byte $F7
-    .byte $40    ; <「>
-    .byte $6B    ; <ロ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $54    ; <ト>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $65    ; <ユ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte $14    ; <と>
-    .byte $08    ; <く>
-    .byte $16    ; <に>
-    .byte $15    ; <な>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $AE    ; <ど>
-    .byte $2B    ; <ろ>
-    .byte $02    ; <い>
-    .byte $10    ; <た>
-    .byte $26    ; <よ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $AA    ; <だ>
-    .byte $09    ; <け>
-    .byte $AE    ; <ど>
-    .byte $00
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte $A0    ; <が>
-    .byte $AA    ; <だ>
-    .byte $2A    ; <れ>
-    .byte $AA    ; <だ>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $14    ; <と>
-    .byte con_катсцена_новая_строка
-    .byte $05    ; <お>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte $11    ; <ち>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1F    ; <ま>
-    .byte $09    ; <け>
-    .byte $27    ; <ら>
-    .byte $2A    ; <れ>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2243
+    .text "I know. But he's a former", con_катсцена_новая_строка
+    .text "ace, so it's only natural", con_катсцена_новая_строка
+    .text "they'd want him coaching", con_катсцена_новая_строка
+    .text "their squad."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $47
-    .byte $40    ; <「>
-    .byte $02    ; <い>
-    .byte $1F    ; <ま>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $25    ; <ゆ>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $2D    ; <を>
-    .byte $22    ; <め>
-    .byte $A5    ; <ざ>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $09    ; <け>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $6B    ; <ロ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $54    ; <ト>
-    .byte $23    ; <も>
-    .byte con_катсцена_новая_строка
-    .byte $05    ; <お>
-    .byte $15    ; <な>
-    .byte $A6    ; <じ>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte $A0    ; <が>
-    .byte $04    ; <え>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
-    .byte $A7    ; <ず>
-    .byte $AA    ; <だ>
-    .byte $26    ; <よ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2246
+    .text "No matter what, I", con_катсцена_новая_строка
+    .text "want Roberto to see", con_катсцена_новая_строка
+    .text "us at our very best.", con_катсцена_новая_строка
+    .text "We owe it to him..."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte $FB, $01, $4B
+    .byte con_катсцена_F0
+    .word $2246
+    .text "...and that means", con_катсцена_новая_строка
+    .text "winning this match,", con_катсцена_новая_строка
+    .text "and every single", con_катсцена_новая_строка
+    .text "one until Brazil!"
+    .byte con_катсцена_мячик
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_прыжок
     .word off_BEBC
@@ -2188,176 +833,73 @@ off_B913_39_тренер_16:
 
 off_BA16_3A_тренер_17:
     .byte con_катсцена_вид_окна_текста, $02
+    .byte con_катсцена_скорость_текста, $00
+    
     .byte $FB, $01, $57
     .byte $F7
     .byte $F3, $00
-    .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $D1    ; <ポ>
-    .byte $7D    ; <ー>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $C2    ; <ド>
-    .byte $7A    ; <、>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $C2    ; <ド>
-    .byte $7A    ; <、>
-    .byte $4F    ; <ソ>
-    .byte $C4    ; <ビ>
-    .byte $44    ; <エ>
-    .byte $54    ; <ト>
-    .byte $7A    ; <、>
-    .byte con_катсцена_новая_строка
-    .byte $0F    ; <そ>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $00
-    .byte $5C    ; <フ>
-    .byte $67    ; <ラ>
-    .byte $6E    ; <ン>
-    .byte $4D    ; <ス>
-    .byte $06    ; <か>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2246
+    .text "It looks like next", con_катсцена_новая_строка
+    .text "up we'll be playing", con_катсцена_новая_строка
+    .text "exhibition matches", con_катсцена_новая_строка
+    .text "against Poland,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "England, the Soviet", con_катсцена_новая_строка
+    .text "Union, and France."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $32
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $B6    ; <グ>
-    .byte $69    ; <ル>
-    .byte $7D    ; <ー>
-    .byte $CF    ; <プ>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $02    ; <い>
-    .byte $2F    ; <っ>
-    .byte $10    ; <た>
-    .byte $26    ; <よ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $AE    ; <ど>
-    .byte $03    ; <う>
-    .byte $24    ; <や>
-    .byte $27    ; <ら>
-    .byte $00
-    .byte $09    ; <け>
-    .byte $2F    ; <っ>
-    .byte $0C    ; <し>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $54    ; <ト>
-    .byte $7D    ; <ー>
-    .byte $55    ; <ナ>
-    .byte $62    ; <メ>
-    .byte $6E    ; <ン>
-    .byte $54    ; <ト>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte $10    ; <た>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $02    ; <い>
-    .byte $06    ; <か>
-    .byte $0E    ; <せ>
-    .byte $13    ; <て>
-    .byte $23    ; <も>
-    .byte $27    ; <ら>
-    .byte $04    ; <え>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A8    ; <ぜ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Those are some good", con_катсцена_новая_строка
+    .text "teams. I guess the", con_катсцена_новая_строка
+    .text "JFO really want us", con_катсцена_новая_строка
+    .text "to work for it..."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $42
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $AA    ; <だ>
-    .byte $2B    ; <ろ>
-    .byte $03    ; <う>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $0A    ; <こ>
-    .byte $19    ; <の>
-    .byte $B6    ; <グ>
-    .byte $69    ; <ル>
-    .byte $7D    ; <ー>
-    .byte $CF    ; <プ>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $13    ; <て>
-    .byte $07    ; <き>
-    .byte $AF    ; <ば>
-    .byte $06    ; <か>
-    .byte $28    ; <り>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $1B    ; <ひ>
-    .byte $07    ; <き>
-    .byte $2C    ; <わ>
-    .byte $09    ; <け>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $54    ; <ト>
-    .byte $7D    ; <ー>
-    .byte $55    ; <ナ>
-    .byte $62    ; <メ>
-    .byte $6E    ; <ン>
-    .byte $54    ; <ト>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $02    ; <い>
-    .byte $09    ; <け>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A9    ; <ぞ>
-    .byte $7A    ; <、>
-    .byte $15    ; <な>
-    .byte $2E    ; <ん>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $06    ; <か>
-    .byte $12    ; <つ>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2244
+    .text "They do. I want you to", con_катсцена_новая_строка
+    .text "treat these matches just", con_катсцена_новая_строка
+    .text "like tournament ones,", con_катсцена_новая_строка
+    .text "and give it your all."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2248
+    .text "No slacking off."
+    .byte con_катсцена_мячик
+    
+;   .byte con_катсцена_F0
+;   .word $2244
+;   .text "No slacking off, we're", con_катсцена_новая_строка
+;   .text "up against Poland now.", con_катсцена_новая_строка
+;   .text "Dzajic is a highly", con_катсцена_новая_строка
+;   .text "agile goalkeeper."
+;   .byte con_катсцена_мячик
+;   .byte con_катсцена_тренер_затереть_текст
+;   
+;   .byte con_катсцена_F0
+;   .word $2244
+;   .text "Don't let their foward", con_катсцена_новая_строка
+;   .text "Macher break through our", con_катсцена_новая_строка
+;   .text "defense with his speed."
+;   .byte con_катсцена_мячик
+;   .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_затемнение_экрана
     .byte con_катсцена_прыжок
     .word off_BEBC
@@ -2367,61 +909,22 @@ off_BA16_3A_тренер_17:
 off_BAD3_3B_тренер_18:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $6B    ; <ロ>
-    .byte $C5    ; <ブ>
-    .byte $4F    ; <ソ>
-    .byte $6E    ; <ン>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $1B    ; <ひ>
-    .byte $2F    ; <っ>
-    .byte $0B    ; <さ>
-    .byte $12    ; <つ>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $46    ; <カ>
-    .byte $6F    ; <ッ>
-    .byte $54    ; <ト>
-    .byte $AD    ; <で>
-    .byte $07    ; <き>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $19    ; <の>
-    .byte $6B    ; <ロ>
-    .byte $C4    ; <ビ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte con_катсцена_новая_строка
-    .byte $01    ; <あ>
-    .byte $27    ; <ら>
-    .byte $0F    ; <そ>
-    .byte $02    ; <い>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $A0    ; <が>
-    .byte $0F    ; <そ>
-    .byte $15    ; <な>
-    .byte $04    ; <え>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "The defender, Robson,", con_катсцена_новая_строка
+    .text "will get behind our", con_катсцена_новая_строка
+    .text "special shots."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Focus on lobbing when", con_катсцена_новая_строка
+    .text "in front of the goal."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2430,70 +933,23 @@ off_BAD3_3B_тренер_18:
 off_BB12_3C_тренер_19:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $AF    ; <ば>
-    .byte $12    ; <つ>
-    .byte $A2    ; <ぐ>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $4D    ; <ス>
-    .byte $50    ; <タ>
-    .byte $60    ; <ミ>
-    .byte $55    ; <ナ>
-    .byte $14    ; <と>
-    .byte $00
-    .byte $11    ; <ち>
-    .byte $20    ; <み>
-    .byte $12    ; <つ>
-    .byte $15    ; <な>
-    .byte $CF    ; <プ>
-    .byte $6A    ; <レ>
-    .byte $42    ; <イ>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $6A    ; <レ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $19    ; <の>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $86    ; <F>
-    .byte $92    ; <W>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $4D    ; <ス>
-    .byte $CE    ; <ピ>
-    .byte $7D    ; <ー>
-    .byte $C2    ; <ド>
-    .byte $7A    ; <、>
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $18    ; <ね>
-    .byte $AF    ; <ば>
-    .byte $28    ; <り>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte con_катсцена_новая_строка
-    .byte $0C    ; <し>
-    .byte $2E    ; <ん>
-    .byte $11    ; <ち>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $16    ; <に>
-    .byte $02    ; <い>
-    .byte $09    ; <け>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "We're facing a team", con_катсцена_новая_строка
+    .text "with amazing stamina", con_катсцена_новая_строка
+    .text "and accurate play."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Watch out for the speed", con_катсцена_новая_строка
+    .text "and persistence of their", con_катсцена_новая_строка
+    .text "offense and defense."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2502,75 +958,31 @@ off_BB12_3C_тренер_19:
 off_BB5A_3D_тренер_1A:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $CD    ; <パ>
-    .byte $4D    ; <ス>
-    .byte $6C    ; <ワ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $2D    ; <を>
-    .byte $1A    ; <は>
-    .byte $0C    ; <し>
-    .byte $27    ; <ら>
-    .byte $14    ; <と>
-    .byte $0C    ; <し>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $2C    ; <わ>
-    .byte $27    ; <ら>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $A0    ; <が>
-    .byte $7A    ; <、>
-    .byte $03    ; <う>
-    .byte $2C    ; <わ>
-    .byte $0B    ; <さ>
-    .byte $AD    ; <で>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $CE    ; <ピ>
-    .byte $44    ; <エ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $01    ; <あ>
-    .byte $27    ; <ら>
-    .byte $10    ; <た>
-    .byte $15    ; <な>
-    .byte $00
-    .byte $6C    ; <ワ>
-    .byte $B9    ; <ザ>
-    .byte $A0    ; <が>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $27    ; <ら>
-    .byte $0C    ; <し>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $CE    ; <ピ>
-    .byte $44    ; <エ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $5F    ; <マ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "We're facing France again.", con_катсцена_новая_строка
+    .text "Their passing and offense", con_катсцена_новая_строка
+    .text "strategy hasn't changed", con_катсцена_новая_строка
+    .text "in three years,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "but rumors say their", con_катсцена_новая_строка
+    .text "midfielder, Pierre,", con_катсцена_новая_строка
+    .text "has a new skill."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2248
+    .text "Mark him - don't", con_катсцена_новая_строка
+    .text "let him use it."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2579,60 +991,23 @@ off_BB5A_3D_тренер_1A:
 off_BBA7_3E_тренер_1B:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $44    ; <エ>
-    .byte $4D    ; <ス>
-    .byte $CD    ; <パ>
-    .byte $7D    ; <ー>
-    .byte $56    ; <ニ>
-    .byte $70    ; <ャ>
-    .byte $2D    ; <を>
-    .byte $62    ; <メ>
-    .byte $42    ; <イ>
-    .byte $6E    ; <ン>
-    .byte $16    ; <に>
-    .byte con_катсцена_новая_строка
-    .byte $53    ; <テ>
-    .byte $48    ; <ク>
-    .byte $56    ; <ニ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $19    ; <の>
-    .byte $01    ; <あ>
-    .byte $29    ; <る>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $AD    ; <で>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $0F    ; <そ>
-    .byte $03    ; <う>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $09    ; <け>
-    .byte $13    ; <て>
-    .byte $08    ; <く>
-    .byte $29    ; <る>
-    .byte $A9    ; <ぞ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2243
+    .text "This team's technique is", con_катсцена_новая_строка
+    .text "sound - the midfielder", con_катсцена_новая_строка
+    .text "Espana is their playmaker."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Focus on putting all", con_катсцена_новая_строка
+    .text "men forward and get", con_катсцена_новая_строка
+    .text "that important goal! "
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2641,67 +1016,23 @@ off_BBA7_3E_тренер_1B:
 off_BBE5_3F_тренер_1C:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $3F    ; <•>
-    .byte $5D    ; <ヘ>
-    .byte $69    ; <ル>
-    .byte $55    ; <ナ>
-    .byte $6E    ; <ン>
-    .byte $C1    ; <デ>
-    .byte $4D    ; <ス>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $16    ; <に>
-    .byte $1E    ; <ほ>
-    .byte $2E    ; <ん>
-    .byte con_катсцена_новая_строка
-    .byte $AA    ; <だ>
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $14    ; <と>
-    .byte $03    ; <う>
-    .byte $0C    ; <し>
-    .byte $2D    ; <を>
-    .byte $23    ; <も>
-    .byte $24    ; <や>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $03    ; <う>
-    .byte $AF    ; <ば>
-    .byte $03    ; <う>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $21    ; <む>
-    .byte $A7    ; <ず>
-    .byte $06    ; <か>
-    .byte $0C    ; <し>
-    .byte $02    ; <い>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $A0    ; <が>
-    .byte $2E    ; <ん>
-    .byte $AF    ; <ば>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $08    ; <く>
-    .byte $2A    ; <れ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Hernandez is their", con_катсцена_новая_строка
+    .text "goalkeeper, and his", con_катсцена_новая_строка
+    .text "blood will be running", con_катсцена_новая_строка
+    .text "hot to shut us out."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2247
+    .text "Make every finish", con_катсцена_новая_строка
+    .text "of the ball count! "
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2710,122 +1041,34 @@ off_BBE5_3F_тренер_1C:
 off_BC2A_40_тренер_1D:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $83    ; <C>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $42    ; <イ>
-    .byte $4D    ; <ス>
-    .byte $67    ; <ラ>
-    .byte $4D    ; <ス>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $2E    ; <ん>
-    .byte $4C    ; <シ>
-    .byte $7D    ; <ー>
-    .byte $BB    ; <ズ>
-    .byte $6E    ; <ン>
-    .byte con_катсцена_новая_строка
-    .byte $14    ; <と>
-    .byte $12    ; <つ>
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $01    ; <あ>
-    .byte $27    ; <ら>
-    .byte $2C    ; <わ>
-    .byte $2A    ; <れ>
-    .byte $10    ; <た>
-    .byte $00
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $13    ; <て>
-    .byte $2E    ; <ん>
-    .byte $0B    ; <さ>
-    .byte $02    ; <い>
-    .byte $13    ; <て>
-    .byte $07    ; <き>
-    .byte $4B    ; <サ>
-    .byte $6F    ; <ッ>
-    .byte $46    ; <カ>
-    .byte $7D    ; <ー>
-    .byte $4E    ; <セ>
-    .byte $6E    ; <ン>
-    .byte $4D    ; <ス>
-    .byte $14    ; <と>
-    .byte con_катсцена_новая_строка
-    .byte $AF    ; <ば>
-    .byte $12    ; <つ>
-    .byte $A2    ; <ぐ>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $53    ; <テ>
-    .byte $48    ; <ク>
-    .byte $56    ; <ニ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $2D    ; <を>
-    .byte $23    ; <も>
-    .byte $12    ; <つ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "The center forward,", con_катсцена_новая_строка
+    .text "Islas, who appeared", con_катсцена_новая_строка
+    .text "all of a sudden", con_катсцена_новая_строка
+    .text "this season,"
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $3F    ; <•>
-    .byte $68    ; <リ>
-    .byte $C5    ; <ブ>
-    .byte $50    ; <タ>
-    .byte $14    ; <と>
-    .byte $14    ; <と>
-    .byte $23    ; <も>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $66    ; <ヨ>
-    .byte $7D    ; <ー>
-    .byte $6B    ; <ロ>
-    .byte $6F    ; <ッ>
-    .byte $CD    ; <パ>
-    .byte $AD    ; <で>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $55    ; <ナ>
-    .byte $42    ; <イ>
-    .byte $BE    ; <ダ>
-    .byte $7D    ; <ー>
-    .byte $14    ; <と>
-    .byte $15    ; <な>
-    .byte $27    ; <ら>
-    .byte $B0    ; <び>
-    .byte $00
-    .byte $1B    ; <ひ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $06    ; <か>
-    .byte $19    ; <の>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte con_катсцена_новая_строка
-    .byte $26    ; <よ>
-    .byte $03    ; <う>
-    .byte $11    ; <ち>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $02    ; <い>
-    .byte $0E    ; <せ>
-    .byte $2E    ; <ん>
-    .byte $0C    ; <し>
-    .byte $31    ; <ゅ>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "is practically a", con_катсцена_новая_строка
+    .text "genius when it comes", con_катсцена_новая_строка
+    .text "to tactical awareness", con_катсцена_новая_строка
+    .text "and technique."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "He and Libuta are", con_катсцена_новая_строка
+    .text "considered top class", con_катсцена_новая_строка
+    .text "players in Europe,", con_катсцена_новая_строка
+    .text "alongside Schneider."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2834,80 +1077,22 @@ off_BC2A_40_тренер_1D:
 off_BCA7_41_тренер_1E:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $02    ; <い>
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $C1    ; <デ>
-    .byte $74    ; <ィ>
-    .byte $41    ; <ア>
-    .byte $4D    ; <ス>
-    .byte $19    ; <の>
-    .byte $6C    ; <ワ>
-    .byte $6E    ; <ン>
-    .byte $5F    ; <マ>
-    .byte $6E    ; <ン>
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $AA    ; <だ>
-    .byte $A0    ; <が>
-    .byte con_катсцена_новая_строка
-    .byte $0A    ; <こ>
-    .byte $2E    ; <ん>
-    .byte $AE    ; <ど>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $CD    ; <パ>
-    .byte $4D    ; <ス>
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $19    ; <の>
-    .byte $1E    ; <ほ>
-    .byte $06    ; <か>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $B4    ; <ガ>
-    .byte $69    ; <ル>
-    .byte $C3    ; <バ>
-    .byte $6E    ; <ン>
-    .byte $7A    ; <、>
-    .byte con_катсцена_новая_строка
-    .byte $C3    ; <バ>
-    .byte $C4    ; <ビ>
-    .byte $6E    ; <ン>
-    .byte $54    ; <ト>
-    .byte $6E    ; <ン>
-    .byte $7A    ; <、>
-    .byte $4B    ; <サ>
-    .byte $54    ; <ト>
-    .byte $69    ; <ル>
-    .byte $4D    ; <ス>
-    .byte $53    ; <テ>
-    .byte $B5    ; <ギ>
-    .byte $A0    ; <が>
-    .byte $02    ; <い>
-    .byte $29    ; <る>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $13    ; <て>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $0A    ; <こ>
-    .byte $03    ; <う>
-    .byte $A3    ; <げ>
-    .byte $07    ; <き>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $12    ; <つ>
-    .byte $09    ; <け>
-    .byte $2B    ; <ろ>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Diaz used to carry", con_катсцена_новая_строка
+    .text "this team, but along", con_катсцена_новая_строка
+    .text "with Pascal they've", con_катсцена_новая_строка
+    .text "added Satrustegui,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Galvan, and Babington.", con_катсцена_новая_строка
+    .text "Keep alert on defense!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
     .byte con_катсцена_прыжок
     .word off_BEC1
 
@@ -2916,167 +1101,51 @@ off_BCA7_41_тренер_1E:
 off_BCF9_42_тренер_1F:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $56    ; <ニ>
-    .byte $4C    ; <シ>
-    .byte $C2    ; <ド>
-    .byte $42    ; <イ>
-    .byte $52    ; <ツ>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $1E    ; <ほ>
-    .byte $03    ; <う>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $2C    ; <わ>
-    .byte $06    ; <か>
-    .byte $AF    ; <ば>
-    .byte $24    ; <や>
-    .byte $0C    ; <し>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $15    ; <な>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2247
+    .text "Wakabayashi will", con_катсцена_новая_строка
+    .text "share his data on", con_катсцена_новая_строка
+    .text "West Germany."
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $34
     .byte $F7
     .byte $F3, $C6
-    .byte $40    ; <「>
-    .byte $84    ; <D>
-    .byte $86    ; <F>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $55    ; <ナ>
-    .byte $42    ; <イ>
-    .byte $BE    ; <ダ>
-    .byte $7D    ; <ー>
-    .byte $2D    ; <を>
-    .byte $5F    ; <マ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $CD    ; <パ>
-    .byte $4D    ; <ス>
-    .byte $2D    ; <を>
-    .byte $2C    ; <わ>
-    .byte $10    ; <た>
-    .byte $0D    ; <す>
-    .byte $15    ; <な>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $8C    ; <M>
-    .byte $86    ; <F>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $46    ; <カ>
-    .byte $D0    ; <ペ>
-    .byte $6B    ; <ロ>
-    .byte $5F    ; <マ>
-    .byte $6E    ; <ン>
-    .byte $14    ; <と>
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $52    ; <ツ>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $03    ; <う>
-    .byte $A4    ; <ご>
-    .byte $07    ; <き>
-    .byte $2D    ; <を>
-    .byte $51    ; <チ>
-    .byte $75    ; <ェ>
-    .byte $6F    ; <ッ>
-    .byte $48    ; <ク>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2243
+    .text "Right. Whenever Schneider", con_катсцена_новая_строка
+    .text "is near our goal, someone", con_катсцена_новая_строка
+    .text "needs to mark him so he", con_катсцена_новая_строка
+    .text "doesn't get the ball."
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $AA    ; <だ>
-    .byte $02    ; <い>
-    .byte $A6    ; <じ>
-    .byte $15    ; <な>
-    .byte $19    ; <の>
-    .byte $1A    ; <は>
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $11    ; <ち>
-    .byte $27    ; <ら>
-    .byte $19    ; <の>
-    .byte $D0    ; <ペ>
-    .byte $7D    ; <ー>
-    .byte $4D    ; <ス>
-    .byte $AD    ; <で>
-    .byte con_катсцена_новая_строка
-    .byte $0C    ; <し>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $2D    ; <を>
-    .byte $0D    ; <す>
-    .byte $0D    ; <す>
-    .byte $22    ; <め>
-    .byte $29    ; <る>
-    .byte $0A    ; <こ>
-    .byte $14    ; <と>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte $00
-    .byte $0F    ; <そ>
-    .byte $2A    ; <れ>
-    .byte $16    ; <に>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $3F    ; <•>
-    .byte $20    ; <み>
-    .byte $0B    ; <さ>
-    .byte $07    ; <き>
-    .byte $19    ; <の>
-    .byte $4A    ; <コ>
-    .byte $6E    ; <ン>
-    .byte $C4    ; <ビ>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $11    ; <ち>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $AF    ; <ば>
-    .byte $2E    ; <ん>
-    .byte $2D    ; <を>
-    .byte con_катсцена_новая_строка
-    .byte $0E    ; <せ>
-    .byte $02    ; <い>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7A    ; <、>
-    .byte $02    ; <い>
-    .byte $02    ; <い>
-    .byte $15    ; <な>
-    .byte $00
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $79    ; <!>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2244
+    .text "Keep an eye on Kaltz and", con_катсцена_новая_строка
+    .text "Schester - they're the", con_катсцена_новая_строка
+    .text "midfield duo. We need to", con_катсцена_новая_строка
+    .text "set the pace on this one,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "and keep it throughout.", con_катсцена_новая_строка
+    .text "Tsubasa, Misaki - your", con_катсцена_новая_строка
+    .text "Golden Combo will win", con_катсцена_новая_строка
+    .text "the midfield battle."
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Let's get going, guys!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $42
     .byte $F7
     .byte $F3, $00
@@ -3088,199 +1157,70 @@ off_BCF9_42_тренер_1F:
 off_BDAD_43_тренер_20:
     .byte con_катсцена_вид_окна_текста, $02
     .byte con_катсцена_скорость_текста, $00
-    .byte $40    ; <「>
-    .byte $C5    ; <ブ>
-    .byte $67    ; <ラ>
-    .byte $BA    ; <ジ>
-    .byte $69    ; <ル>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $A6    ; <じ>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $1E    ; <ほ>
-    .byte $03    ; <う>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $12    ; <つ>
-    .byte $AF    ; <ば>
-    .byte $0B    ; <さ>
-    .byte $A0    ; <が>
-    .byte $00
-    .byte $1A    ; <は>
-    .byte $15    ; <な>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Tsubasa, playing for", con_катсцена_новая_строка
+    .text "Sao Paulo, Brazil", con_катсцена_новая_строка
+    .text "is your table."
     .byte con_катсцена_мячик
-    .byte $FB, $01, $47
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte $FB, $01, $4B
     .byte $F7
     .byte $F3, $00
-    .byte $40    ; <「>
-    .byte $1F    ; <ま>
-    .byte $A7    ; <ず>
-    .byte $00
-    .byte $11    ; <ち>
-    .byte $31    ; <ゅ>
-    .byte $03    ; <う>
-    .byte $AF    ; <ば>
-    .byte $2E    ; <ん>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $07    ; <き>
-    .byte $06    ; <か>
-    .byte $2E    ; <ん>
-    .byte con_катсцена_новая_строка
-    .byte $4B    ; <サ>
-    .byte $6E    ; <ン>
-    .byte $50    ; <タ>
-    .byte $5F    ; <マ>
-    .byte $68    ; <リ>
-    .byte $41    ; <ア>
-    .byte $2D    ; <を>
-    .byte $5F    ; <マ>
-    .byte $7D    ; <ー>
-    .byte $48    ; <ク>
-    .byte $0C    ; <し>
-    .byte $13    ; <て>
-    .byte con_катсцена_новая_строка
-    .byte $46    ; <カ>
-    .byte $69    ; <ル>
-    .byte $6B    ; <ロ>
-    .byte $4D    ; <ス>
-    .byte $7A    ; <、>
-    .byte $B9    ; <ザ>
-    .byte $B4    ; <ガ>
-    .byte $6B    ; <ロ>
-    .byte $7A    ; <、>
-    .byte $58    ; <ネ>
-    .byte $42    ; <イ>
-    .byte $7A    ; <、>
-    .byte $54    ; <ト>
-    .byte $56    ; <ニ>
-    .byte $7D    ; <ー>
-    .byte $56    ; <ニ>
-    .byte $72    ; <ョ>
-    .byte $1D    ; <へ>
-    .byte $19    ; <の>
-    .byte con_катсцена_новая_строка
-    .byte $CD    ; <パ>
-    .byte $4D    ; <ス>
-    .byte $2D    ; <を>
-    .byte $1C    ; <ふ>
-    .byte $03    ; <う>
-    .byte $A6    ; <じ>
-    .byte $29    ; <る>
-    .byte $2E    ; <ん>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
+    .byte con_катсцена_F0
+    .word $2246
+    .text "Santamaria is their", con_катсцена_новая_строка
+    .text "playmaker in the", con_катсцена_новая_строка
+    .text "midfield, mark", con_катсцена_новая_строка
+    .text "him tight!"
     .byte con_катсцена_мячик
-    .byte $40    ; <「>
-    .byte $87    ; <G>
-    .byte $8B    ; <K>
-    .byte $3F    ; <•>
-    .byte $B7    ; <ゲ>
-    .byte $69    ; <ル>
-    .byte $53    ; <テ>
-    .byte $74    ; <ィ>
-    .byte $4D    ; <ス>
-    .byte $16    ; <に>
-    .byte $00
-    .byte $6B    ; <ロ>
-    .byte $6E    ; <ン>
-    .byte $B6    ; <グ>
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $1A    ; <は>
-    .byte con_катсцена_новая_строка
-    .byte $07    ; <き>
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $26    ; <よ>
-    .byte $03    ; <う>
-    .byte $AA    ; <だ>
-    .byte $7A    ; <、>
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $1F    ; <ま>
-    .byte $04    ; <え>
-    .byte $16    ; <に>
-    .byte $07    ; <き>
-    .byte $2A    ; <れ>
-    .byte $0A    ; <こ>
-    .byte $20    ; <み>
-    .byte con_катсцена_новая_строка
-    .byte $11    ; <ち>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte $0E    ; <せ>
-    .byte $12    ; <つ>
-    .byte $00
-    .byte $4C    ; <シ>
-    .byte $71    ; <ュ>
-    .byte $7D    ; <ー>
-    .byte $54    ; <ト>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
-    .byte $0C    ; <し>
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $7B    ; <。>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Don't let him pass the", con_катсцена_новая_строка
+    .text "ball to Zagallo, Nei,", con_катсцена_новая_строка
+    .text "Ribeiro, or Carlos."
     .byte con_катсцена_мячик
-    .byte $FB, $01, $4B
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $19    ; <の>
-    .byte $11    ; <ち>
-    .byte $06    ; <か>
-    .byte $27    ; <ら>
-    .byte $2D    ; <を>
-    .byte $00
-    .byte $01    ; <あ>
-    .byte $2C    ; <わ>
-    .byte $0E    ; <せ>
-    .byte $2A    ; <れ>
-    .byte $AF    ; <ば>
-    .byte con_катсцена_новая_строка
-    .byte $06    ; <か>
-    .byte $15    ; <な>
-    .byte $27    ; <ら>
-    .byte $A7    ; <ず>
-    .byte $00
-    .byte $B8    ; <ゴ>
-    .byte $7D    ; <ー>
-    .byte $69    ; <ル>
-    .byte $2D    ; <を>
-    .byte $03    ; <う>
-    .byte $AF    ; <ば>
-    .byte $04    ; <え>
-    .byte $29    ; <る>
-    .byte $1A    ; <は>
-    .byte $A7    ; <ず>
-    .byte $AA    ; <だ>
-    .byte $7B    ; <。>
-    .byte con_катсцена_новая_строка
-    .byte $A8    ; <ぜ>
-    .byte $2E    ; <ん>
-    .byte $28    ; <り>
-    .byte $32    ; <ょ>
-    .byte $08    ; <く>
-    .byte $AD    ; <で>
-    .byte $00
-    .byte $10    ; <た>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $05    ; <お>
-    .byte $03    ; <う>
-    .byte $79    ; <!>
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "Long shots are useless", con_катсцена_новая_строка
+    .text "against Gertise. If", con_катсцена_новая_строка
+    .text "you stand any chance", con_катсцена_новая_строка
+    .text "of beating him,"
     .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "get in his face and", con_катсцена_новая_строка
+    .text "drive it past him with", con_катсцена_новая_строка
+    .text "pace on the ball!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte $FB, $01, $47
+    .byte con_катсцена_F0
+    .word $2245
+    .text "We've made it this far.", con_катсцена_новая_строка
+    .text "Playing together as a", con_катсцена_новая_строка
+    .text "team like we always do,"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
+    .byte con_катсцена_F0
+    .word $2245
+    .text "we can bring home the", con_катсцена_новая_строка
+    .text "World Cup for youth", con_катсцена_новая_строка
+    .text "players a second time.", con_катсцена_новая_строка
+    .text "Let's do it!!"
+    .byte con_катсцена_мячик
+    .byte con_катсцена_тренер_затереть_текст
+    
     .byte $FB, $01, $42
     .byte $F7
     .byte $F3, $00
@@ -3295,10 +1235,11 @@ off_BE84_44_тренер_роберто:
 off_BE89:
     .byte con_катсцена_вид_окна_текста, $03
     .byte con_катсцена_скорость_текста, $00
-    .byte con_катсцена_смещение_текста, $10
-    .text "Roberto:"
+    
+    .byte con_катсцена_F0
+    .word $2250
+    .text " Roberto:"
     .byte con_катсцена_новая_строка
-    .byte con_катсцена_смещение_текста, $0F
     .text "@Okay, guys.@"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_прыжок
@@ -3312,23 +1253,14 @@ off_BE9E_45_тренер_катагири:
 off_BEA3:
     .byte con_катсцена_вид_окна_текста, $03
     .byte con_катсцена_скорость_текста, $00
-    .byte $F0
-    .byte $4C    ; <シ>
-    .byte $22    ; <め>
-    .byte $10    ; <た>
-    .byte $06    ; <か>
-    .byte $1A    ; <は>
-    .byte $0C    ; <し>
-    .byte $40    ; <「>
-    .byte $26    ; <よ>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $07    ; <き>
-    .byte $09    ; <け>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2250
+    .text " Katagiri:"
+    .byte con_катсцена_новая_строка
+    .text "@Right on,"
+    .byte con_катсцена_новая_строка
+    .text " guys.@"
     .byte con_катсцена_новая_строка
     .byte con_катсцена_прыжок
     .word off_BED6
@@ -3342,22 +1274,14 @@ off_BEBC:
 off_BEC1:
     .byte con_катсцена_вид_окна_текста, $03
     .byte con_катсцена_скорость_текста, $00
-    .byte $F0
-    .byte $4C    ; <シ>
-    .byte $22    ; <め>
-    .byte $20    ; <み>
-    .byte $06    ; <か>
-    .byte $20    ; <み>
-    .byte $40    ; <「>
-    .byte $26    ; <よ>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $07    ; <き>
-    .byte $09    ; <け>
-    .byte $7B    ; <。>
+    
+    .byte con_катсцена_F0
+    .word $2250
+    .text " Mikami:"
+    .byte con_катсцена_новая_строка
+    .text "@Alright,"
+    .byte con_катсцена_новая_строка
+    .text " fellas.@"
     .byte con_катсцена_новая_строка
 off_BED6:
     .byte $E8, $01

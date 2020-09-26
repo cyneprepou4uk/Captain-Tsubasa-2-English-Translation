@@ -114,9 +114,7 @@ off_матч_01:
     
     .byte $1D
     .word $20A1
-    .byte $7B
-    .text "#10, Sao Paulo's Lucky Star"
-    .byte $7B
+    .text "@#10, Sao Paulo's Lucky Star@"
     
     .byte $0F
     .word $2188
@@ -218,9 +216,7 @@ off_матч_02:
     
     .byte $16
     .word $20A5
-    .byte $7B
-    .text "Kickoff for Tomorrow"
-    .byte $7B
+    .text "@Kickoff for Tomorrow@"
     
     .byte $0F
     .word $2188
@@ -322,9 +318,7 @@ off_матч_03:
     
     .byte $14
     .word $20A6
-    .byte $7B
-    .text "Settling the Score"
-    .byte $7B
+    .text "@Settling the Score@"
     
     .byte $0F
     .word $2188
@@ -426,9 +420,7 @@ off_матч_04:
     
     .byte $10
     .word $20A7
-    .byte $7B
-    .text "The Deadly Duo"
-    .byte $7B
+    .text "@The Deadly Duo@"
     
     .byte $0F
     .word $2188
@@ -530,9 +522,7 @@ off_матч_05:
     
     .byte $1A
     .word $20A3
-    .byte $7B
-    .text "The Eel and the Dynamite"
-    .byte $7B
+    .text "@The Eel and the Dynamite@"
     
     .byte $0F
     .word $2188
@@ -634,9 +624,7 @@ off_матч_06:
     
     .byte $19
     .word $20A3
-    .byte $7B
-    .text "Son of the Football God"
-    .byte $7B
+    .text "@Son of the Football God@"
     
     .byte $0F
     .word $2188
@@ -734,9 +722,7 @@ off_матч_07:
     
     .byte $18
     .word $20A4
-    .byte $7B
-    .text "The Source of Strength"
-    .byte $7B
+    .text "@The Source of Strength@"
     
     .byte $14
     .word $2146
@@ -850,9 +836,7 @@ off_матч_08:
     
     .byte $12
     .word $20A7
-    .byte $7B
-    .text "The Flying Twins"
-    .byte $7B
+    .text "@The Flying Twins@"
     
     .byte $14
     .word $2146
@@ -974,9 +958,7 @@ off_матч_09:
     
     .byte $0C
     .word $20A9
-    .byte $7B
-    .text "Ace Killer"
-    .byte $7B
+    .text "@Ace Killer@"
     
     .byte $14
     .word $2146
@@ -1090,9 +1072,7 @@ off_матч_10:
     
     .byte $13
     .word $20A7
-    .byte $7B
-    .text "Heart of the Game"
-    .byte $7B
+    .text "@Heart of the Game@"
     
     .byte $14
     .word $2146
@@ -1210,9 +1190,7 @@ off_матч_11:
     
     .byte $1E
     .word $20A1
-    .byte $7B
-    .text "Hot #10 from a Snowy Country"
-    .byte $7B
+    .text "@Hot #10 from a Snowy Country@"
     
     .byte $14
     .word $2146
@@ -1322,9 +1300,7 @@ off_матч_12:
     
     .byte $1A
     .word $20A3
-    .byte $7B
-    .text "Ultimate Offensive Style"
-    .byte $7B
+    .text "@Ultimate Offensive Style@"
     
     .byte $14
     .word $2146
@@ -1430,9 +1406,7 @@ off_матч_13:
     
     .byte $18
     .word $20A4
-    .byte $7B
-    .text "Entering the Colosseum"
-    .byte $7B
+    .text "@Entering the Colosseum@"
     
     .byte $09
     .word $218B
@@ -1534,9 +1508,7 @@ off_матч_14:
     
     .byte $20
     .word $20A0
-    .byte $7B
-    .text "Black Panther of South America"
-    .byte $7B
+    .text "@Black Panther of South America@"
     
     .byte $09
     .word $218B
@@ -1638,9 +1610,7 @@ off_матч_15:
     
     .byte $1F
     .word $20A0
-    .byte $7B
-    .text "The Guardian Deity of the Net"
-    .byte $7B
+    .text "@The Guardian Deity of the Net@"
     
     .byte $09
     .word $218B
@@ -1742,9 +1712,7 @@ off_матч_16:
     
     .byte $15
     .word $20A5
-    .byte $7B
-    .text "Sayonara, Sao Paulo"
-    .byte $7B
+    .text "@Sayonara, Sao Paulo@"
     
     .byte $09
     .word $218B
@@ -1842,9 +1810,7 @@ off_матч_17:
     
     .byte $17
     .word $20A4
-    .byte $7B
-    .text "Road to the World Cup"
-    .byte $7B
+    .text "@Road to the World Cup@"
     
     .byte $0F
     .word $2189
@@ -1948,11 +1914,9 @@ off_матч_18:
     .word $206B
     .text "Episode 18"
     
-    .byte $17
-    .word $20A4
-    .byte $7B
-    .text "                     "
-    .byte $7B
+    .byte $1A
+    .word $20A3
+    .text "@The East's Rising Dragon@"
     
     .byte $0F
     .word $2189
@@ -2058,9 +2022,7 @@ off_матч_19:
     
     .byte $17
     .word $20A4
-    .byte $7B
-    .text "                     "
-    .byte $7B
+    .text "@                     @"
     
     .byte $0F
     .word $2189
@@ -2166,9 +2128,7 @@ off_матч_20:
     
     .byte $17
     .word $20A4
-    .byte $7B
-    .text "                     "
-    .byte $7B
+    .text "@                     @"
     
     .byte $0F
     .word $2189
@@ -2274,9 +2234,7 @@ off_матч_21:
     
     .byte $17
     .word $20A4
-    .byte $7B
-    .text "                     "
-    .byte $7B
+    .text "@                     @"
     
     .byte $0F
     .word $2189
@@ -2382,9 +2340,7 @@ off_матч_22:
     
     .byte $17
     .word $20A4
-    .byte $7B
-    .text "                     "
-    .byte $7B
+    .text "@                     @"
     
     .byte $0F
     .word $2189
@@ -2490,9 +2446,7 @@ off_матч_23:
     
     .byte $13
     .word $20A6
-    .byte $7B
-    .text "From East to West"
-    .byte $7B
+    .text "@From East to West@"
     
     .byte $10
     .word $2188
@@ -2598,9 +2552,7 @@ off_матч_24:
     
     .byte $0F
     .word $20A9
-    .byte $7B
-    .text "Pole Position"
-    .byte $7B
+    .text "@Pole Position@"
     
     .byte $12
     .word $2187
@@ -2702,9 +2654,7 @@ off_матч_25:
     
     .byte $18
     .word $20A4
-    .byte $7B
-    .text "Become a Super Striker"
-    .byte $7B
+    .text "@Become a Super Striker@"
     
     .byte $12
     .word $2187
@@ -2806,9 +2756,7 @@ off_матч_26:
     
     .byte $1A
     .word $20A3
-    .byte $7B
-    .text "Through the Iron Curtain"
-    .byte $7B
+    .text "@Through the Iron Curtain@"
     
     .byte $12
     .word $2187
@@ -2910,9 +2858,7 @@ off_матч_27:
     
     .byte $16
     .word $20A5
-    .byte $7B
-    .text "An Elegant Commander"
-    .byte $7B
+    .text "@An Elegant Commander@"
     
     .byte $12
     .word $2187
@@ -3014,9 +2960,7 @@ off_матч_28:
     
     .byte $1A
     .word $20A3
-    .byte $7B
-    .text "Rise of the Mexican Hero"
-    .byte $7B
+    .text "@Rise of the Mexican Hero@"
     
     .byte $0F
     .word $2189
@@ -3122,9 +3066,7 @@ off_матч_29:
     
     .byte $18
     .word $20A4
-    .byte $7B
-    .text "Italy's God of Defense"
-    .byte $7B
+    .text "@Italy's God of Defense@"
     
     .byte $0F
     .word $2189
@@ -3230,9 +3172,7 @@ off_матч_30:
     
     .byte $1E
     .word $20A1
-    .byte $7B
-    .text "Legacy of the 1,000-Goal Ace"
-    .byte $7B
+    .text "@Legacy of the 1,000-Goal Ace@"
     
     .byte $0F
     .word $2189
@@ -3338,9 +3278,7 @@ off_матч_31:
     
     .byte $14
     .word $20A6
-    .byte $7B
-    .text "Pride of Argentina"
-    .byte $7B
+    .text "@Pride of Argentina@"
     
     .byte $0F
     .word $2189
@@ -3446,9 +3384,7 @@ off_матч_32:
     
     .byte $19
     .word $20A4
-    .byte $7B
-    .text "Germany's Young Emperor"
-    .byte $7B
+    .text "@Germany's Young Emperor@"
     
     .byte $0F
     .word $2189
@@ -3554,9 +3490,7 @@ off_матч_33:
     
     .byte $1D
     .word $20A1
-    .byte $7B
-    .text "Clash of the Super Strikers"
-    .byte $7B
+    .text "@Clash of the Super Strikers@"
     
     .byte $0F
     .word $2189
