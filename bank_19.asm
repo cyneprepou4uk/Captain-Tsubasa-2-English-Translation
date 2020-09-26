@@ -4386,9 +4386,8 @@ C - - - - 0x027236 19:B226: E6 8A     INC ram_008A
 C - - - - 0x027238 19:B228: B1 88     LDA (ram_0088),Y
 C - - - - 0x02723A 19:B22A: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - D - I - 0x02723D 19:B22D: 3E B2     .word ofs_B23E_00_осветление_экрана
-- - - - - 0x02723F 19:B22F: 46 B2     .word ofs_B246_01
-- D - I - 0x027241 19:B231: A6 B2     .word ofs_B2A6_02_затемнение_экрана
-- D - I - 0x027243 19:B233: DB B2     .word ofs_B2DB_03
+- D - I - 0x027241 19:B231: A6 B2     .word ofs_B2A6_01_затемнение_экрана
+- D - I - 0x027243 19:B233: DB B2     .word ofs_B2DB_02_отображение_текста
 
 ofs_B235_E6:
 C - J - - 0x027245 19:B235: AD 3F 06  LDA $063F
@@ -4401,61 +4400,8 @@ C - J - - 0x02724E 19:B23E: A9 0F     LDA #$0F
 C - - - - 0x027250 19:B240: 8D 72 04  STA ram_046A + 8
 C - - - - 0x027253 19:B243: 4C F7 B2  JMP loc_B2F7
 
-ofs_B246_01:
-- - - - - 0x027256 19:B246: A9 30     LDA #$30
-- - - - - 0x027258 19:B248: 8D 72 04  STA ram_046A + 8
-- - - - - 0x02725B 19:B24B: A2 00     LDX #$00
-bra_B24D:
-- - - - - 0x02725D 19:B24D: BD 6F 04  LDA ram_046B + 4,X
-- - - - - 0x027260 19:B250: 9D 08 04  STA $0408,X
-- - - - - 0x027263 19:B253: E8        INX
-- - - - - 0x027264 19:B254: E0 20     CPX #$20
-- - - - - 0x027266 19:B256: D0 F5     BNE bra_B24D
-- - - - - 0x027268 19:B258: 20 10 B3  JSR sub_B310
-- - - - - 0x02726B 19:B25B: A9 30     LDA #$30
-- - - - - 0x02726D 19:B25D: 20 15 C5  JSR sub_0x03CB1F
-- - - - - 0x027270 19:B260: A9 20     LDA #$20
-bra_B262:
-- - - - - 0x027272 19:B262: 48        PHA
-- - - - - 0x027273 19:B263: A9 05     LDA #$05
-- - - - - 0x027275 19:B265: 20 15 C5  JSR sub_0x03CB1F
-- - - - - 0x027278 19:B268: 68        PLA
-- - - - - 0x027279 19:B269: 48        PHA
-- - - - - 0x02727A 19:B26A: 85 3A     STA ram_003A
-- - - - - 0x02727C 19:B26C: A2 00     LDX #$00
-bra_B26E:
-- - - - - 0x02727E 19:B26E: BD 08 04  LDA $0408,X
-- - - - - 0x027281 19:B271: 29 F0     AND #$F0
-- - - - - 0x027283 19:B273: C5 3A     CMP ram_003A
-- - - - - 0x027285 19:B275: BD 08 04  LDA $0408,X
-- - - - - 0x027288 19:B278: B0 17     BCS bra_B291
-- - - - - 0x02728A 19:B27A: 29 0F     AND #$0F
-- - - - - 0x02728C 19:B27C: C9 0F     CMP #$0F
-- - - - - 0x02728E 19:B27E: D0 0B     BNE bra_B28B
-- - - - - 0x027290 19:B280: 05 3A     ORA ram_003A
-- - - - - 0x027292 19:B282: C9 0F     CMP #$0F
-- - - - - 0x027294 19:B284: F0 0B     BEQ bra_B291
-- - - - - 0x027296 19:B286: 29 F0     AND #$F0
-- - - - - 0x027298 19:B288: 4C 91 B2  JMP loc_B291
-bra_B28B:
-- - - - - 0x02729B 19:B28B: 05 3A     ORA ram_003A
-- - - - - 0x02729D 19:B28D: D0 02     BNE bra_B291
-- - - - - 0x02729F 19:B28F: A9 0F     LDA #$0F
-bra_B291:
-loc_B291:
-- - - - - 0x0272A1 19:B291: 9D 6F 04  STA ram_046B + 4,X
-- - - - - 0x0272A4 19:B294: E8        INX
-- - - - - 0x0272A5 19:B295: E0 20     CPX #$20
-- - - - - 0x0272A7 19:B297: D0 D5     BNE bra_B26E
-- - - - - 0x0272A9 19:B299: 20 33 C5  JSR sub_0x03CCE3
-- - - - - 0x0272AF 19:B29F: 68        PLA
-- - - - - 0x0272B0 19:B2A0: 38        SEC
-- - - - - 0x0272B1 19:B2A1: E9 10     SBC #$10
-- - - - - 0x0272B3 19:B2A3: 10 BD     BPL bra_B262
-- - - - - 0x0272B5 19:B2A5: 60        RTS
-
 sub_B2A6:
-ofs_B2A6_02_затемнение_экрана:
+ofs_B2A6_01_затемнение_экрана:
 C - J - - 0x0272B6 19:B2A6: A9 30     LDA #$30
 bra_B2A8:
 C - - - - 0x0272B8 19:B2A8: 48        PHA
@@ -4487,7 +4433,7 @@ C - - - - 0x0272E6 19:B2D6: E9 10     SBC #$10
 C - - - - 0x0272E8 19:B2D8: 10 CE     BPL bra_B2A8
 C - - - - 0x0272EA 19:B2DA: 60        RTS
 
-ofs_B2DB_03:
+ofs_B2DB_02_отображение_текста:
 C - J - - 0x0272EB 19:B2DB: A9 10     LDA #$10
 bra_B2DD:
 C - - - - 0x0272ED 19:B2DD: 48        PHA
@@ -4518,25 +4464,6 @@ C - - - - 0x027314 19:B304: 20 33 C5  JSR sub_0x03CCE3
 C - - - - 0x02731A 19:B30A: A9 01     LDA #$01
 C - - - - 0x02731C 19:B30C: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x02731F 19:B30F: 60        RTS
-
-sub_B310:
-- - - - - 0x027320 19:B310: A2 00     LDX #$00
-bra_B312:
-- - - - - 0x027322 19:B312: BD 6F 04  LDA ram_046B + 4,X
-- - - - - 0x027325 19:B315: 29 0F     AND #$0F
-- - - - - 0x027327 19:B317: 09 30     ORA #$30
-- - - - - 0x027329 19:B319: C9 3F     CMP #$3F
-- - - - - 0x02732B 19:B31B: D0 02     BNE bra_B31F
-- - - - - 0x02732D 19:B31D: A9 30     LDA #$30
-bra_B31F:
-- - - - - 0x02732F 19:B31F: 9D 6F 04  STA ram_046B + 4,X
-- - - - - 0x027332 19:B322: E8        INX
-- - - - - 0x027333 19:B323: E0 20     CPX #$20
-- - - - - 0x027335 19:B325: D0 EB     BNE bra_B312
-- - - - - 0x027337 19:B327: 20 33 C5  JSR sub_0x03CCE3
-- - - - - 0x02733D 19:B32D: A9 01     LDA #$01
-- - - - - 0x02733F 19:B32F: 20 15 C5  JSR sub_0x03CB1F
-- - - - - 0x027342 19:B332: 60        RTS
 
 ofs_B333_FС:
 C - J - - 0x027343 19:B333: A9 80     LDA #$80
@@ -4722,7 +4649,7 @@ con_timer                   = $E1
 con_E2                      = $E2
 con_E3                      = $E3
 con_offset                  = $E4   ; смещение по горизонтали и вертикали
-con_brightness              = $E5   ; 00 - осветление экрана, 02 - затемнение экрана, 03 - показать текст
+con_brightness              = $E5   ; 00 - осветление экрана, 01 - затемнение экрана, 02 - показать текст
 con_hide_letters            = $E6   ; текст до конца катсцены побуквенно скрывается спрайтами
 con_endline                 = $FC   ; закончить чтение текста
 
@@ -4731,46 +4658,46 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_offset, $69, $22
     .text "Carlos Santana"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $5D
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
     .text "Claudio Meon"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_E2, $01, $14, $09
     .byte con_animation, $56
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
     .text "Ishizaki Ryo"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $59
     .byte con_brightness, $00
     .byte con_offset, $69, $22
     .text "Jitou Hiroshi"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $5A
     .byte con_brightness, $00
     .byte con_offset, $67, $22
@@ -4779,201 +4706,201 @@ con_endline                 = $FC   ; закончить чтение текст
     .byte con_offset, $A8, $22
     .text "Masao and Kazuo"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $57
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
     .text "Souda Makoto"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $55
     .byte con_brightness, $00
     .byte con_offset, $6B, $22
     .text "Misugi Jun"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $54
     .byte con_brightness, $00
     .byte con_offset, $68, $22
     .text "Matsuyama Hikaru"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_E2, $01, $15, $09
     .byte con_animation, $58
     .byte con_brightness, $00
     .byte con_offset, $6B, $22
     .text "Nitta Shun"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $64
     .byte con_brightness, $00
     .byte con_offset, $68, $22
     .text "Ramon Victorino"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $5E
     .byte con_brightness, $00
     .byte con_offset, $69, $22
     .text "Hermann Kaltz"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $5F
     .byte con_brightness, $00
     .byte con_offset, $68, $22
     .text "Elle Sid Pierre"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $60
     .byte con_brightness, $00
     .byte con_offset, $69, $22
     .text "Louis Napoleon"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $61
     .byte con_brightness, $00
     .byte con_offset, $6B, $22
     .text "Juan Diaz"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $62
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
     .text "Alan Pascal"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $63
     .byte con_brightness, $00
     .byte con_offset, $66, $22
     .text "Karl Heinz Schneider"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $65
     .byte con_brightness, $00
     .byte con_offset, $65, $22
     .text "Arthur Antines Coimbra"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $51
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
     .text "Misaki Tarou"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $5B
     .byte con_brightness, $00
     .byte con_offset, $69, $22
     .text "Wakashimazu Ken"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $52
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
     .text "Hyuga Kojiro"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_animation, $53
     .byte con_brightness, $00
     .byte con_offset, $68, $22
     .text "Wakabayashi Genzo"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_E2, $02, $01, $09
     .byte con_animation, $50
     .byte con_brightness, $00
     .byte con_offset, $69, $22
     .text "Ozora Tsubasa"
     .byte con_endline
-    .byte con_brightness, $03
+    .byte con_brightness, $02
     .byte con_timer, $68
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_E2, $00, $58, $09
     .byte con_animation, $66
     .byte con_offset, $6D, $22
@@ -5243,6 +5170,6 @@ con_endline                 = $FC   ; закончить чтение текст
     
     
     
-    .byte con_brightness, $02
+    .byte con_brightness, $01
     .byte con_E3
 .endscope
