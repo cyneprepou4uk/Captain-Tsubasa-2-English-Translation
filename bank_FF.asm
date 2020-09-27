@@ -4297,12 +4297,7 @@ sub_E2BC_регенерация_и_усталость:
 temp_макс_энергия_lo = ram_0032
 temp_макс_энергия_hi = ram_0033
 temp_затрата_энергии = ram_003A
-C - - - - 0x03E2CC FF:E2BC: EE 18 06  INC $0618
-C - - - - 0x03E2CF FF:E2BF: AD 18 06  LDA $0618
-C - - - - 0x03E2D2 FF:E2C2: C9 01     CMP #$01
-C - - - - 0x03E2D4 FF:E2C4: 90 4F     BCC bra_E315_пропустить_регенерацию
 C - - - - 0x03E2D6 FF:E2C6: A9 00     LDA #$00
-C - - - - 0x03E2D8 FF:E2C8: 8D 18 06  STA $0618
 bra_E2CB_цикл_регенерации_игроков:
 C - - - - 0x03E2DB FF:E2CB: 48        PHA
 C - - - - 0x03E2DC FF:E2CC: CD 41 04  CMP ram_игрок_с_мячом
@@ -4351,7 +4346,6 @@ C - - - - 0x03E31E FF:E30E: 18        CLC
 C - - - - 0x03E31F FF:E30F: 69 01     ADC #$01
 C - - - - 0x03E321 FF:E311: C9 0B     CMP #$0B
 C - - - - 0x03E323 FF:E313: D0 B6     BNE bra_E2CB_цикл_регенерации_игроков
-bra_E315_пропустить_регенерацию:
 C - - - - 0x03E325 FF:E315: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E328 FF:E318: C9 0B     CMP #$0B
 C - - - - 0x03E32A FF:E31A: B0 2C     BCS bra_E348_выход
