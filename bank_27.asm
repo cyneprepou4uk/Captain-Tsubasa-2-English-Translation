@@ -25,7 +25,7 @@ con_toggle_mouth            = $EF   ; переключатель, при вкл�
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
 con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
-con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
+con_palette                 = $F3   ; если + FF, то указывается палитра для фона + спрайтов, иначе только для фона
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
@@ -102,7 +102,7 @@ off_AE6D_07_цубаса_и_карлос_перед_матчем:
     
     .byte con_animation, $01, $58
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_offset, $09
     .text "The stadium is"
     .byte con_line
@@ -171,7 +171,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_clear_all
     .byte con_animation, $01, $2A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_animation, $01, $2B
     .byte con_offset, $0A
@@ -184,7 +184,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_bg_2, $11
     .byte con_animation, $01, $3B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_toggle_mouth
     .byte con_offset, $04
@@ -295,7 +295,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_bg_2, $10
     .byte con_animation, $01, $13
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $04
     .byte con_pause, $14
     .byte con_speed, $02
@@ -319,7 +319,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     
     .byte con_animation, $01, $15
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $04
     .text "Carlos"
@@ -381,7 +381,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_clear_1
     .byte con_bg_1, $06
     .byte con_animation, $01, $A3
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
@@ -415,7 +415,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     
     .byte con_animation, $01, $63
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@Hey."
@@ -448,7 +448,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $06
     .text "@I'm looking"
@@ -484,7 +484,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
     .byte con_sound, $43
     .byte con_pause, $78
@@ -494,7 +494,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_bg_2, $10
     .byte con_animation, $01, $40
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $52
     .byte con_pause, $28
     .byte con_toggle_mouth
@@ -511,9 +511,9 @@ off_AEEA_08_цубаса_победил_карлоса:
     
     
     
-    .byte con_F3, $FF, $24, $42
+    .byte con_palette, $FF, $24, $42
     .byte con_pause, $06
-    .byte con_F3, $FF, $23, $41
+    .byte con_palette, $FF, $23, $41
     .byte con_F4, $05
     .byte con_sound, $53
     .byte con_pause, $3C
@@ -650,7 +650,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_sound, $62
     .byte con_animation, $01, $49
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $10
     .byte con_offset, $09
     .text "Toho,"
@@ -692,7 +692,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_sound, $62
     .byte con_animation, $01, $1E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $2B
     .byte con_offset, $09
     .text "But having won the"
@@ -797,7 +797,7 @@ off_0x040005_скрытая_катсцена_из_08:
     
     
     .byte con_animation, $01, $C2
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $27
     .byte con_charlie, $05
     .byte con_pause, $1E
@@ -942,7 +942,7 @@ off_B327_0A_мисуги_во_втором_тайме:
     
     .byte con_animation, $01, $2E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $11
     .byte con_offset, $02
     .text "Yayoi: "
@@ -970,7 +970,7 @@ off_B327_0A_мисуги_во_втором_тайме:
     
     .byte con_animation, $01, $20
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $04
     .byte con_pause, $78
     .byte con_toggle_mouth
@@ -1038,7 +1038,7 @@ off_B3EE_0B_мисуги_после_матча:
     
     .byte con_animation, $01, $20
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $04
     .byte con_offset, $05
@@ -1128,7 +1128,7 @@ off_B3EE_0B_мисуги_после_матча:
     
     .byte con_animation, $01, $19
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $30
     .byte con_pause, $1E
     .byte con_offset, $04
@@ -1143,7 +1143,7 @@ off_B3EE_0B_мисуги_после_матча:
     
     .byte con_animation, $01, $2E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $08
     .text "(Jun,"
@@ -1190,7 +1190,7 @@ off_B506_0C_мацуяма_перед_матчем:
     
     .byte con_animation, $01, $1B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@We've come too far to"
@@ -1207,7 +1207,7 @@ off_B506_0C_мацуяма_перед_матчем:
     .byte con_clear_1
     .byte con_animation, $01, $2F
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $10
     .byte con_pause, $3C
     .byte con_offset, $03
@@ -1224,7 +1224,7 @@ off_B506_0C_мацуяма_перед_матчем:
     
     .byte con_animation, $01, $1C
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_toggle_mouth
     .byte con_speed, $06
@@ -1281,7 +1281,7 @@ off_B590_0D_мацуяма_после_матча:
     
     .byte con_animation, $01, $19
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@Good game,"
@@ -1295,7 +1295,7 @@ off_B590_0D_мацуяма_после_матча:
     
     .byte con_animation, $01, $1D
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $03
     .text "@I'm glad we could face"
@@ -1320,7 +1320,7 @@ off_B590_0D_мацуяма_после_матча:
     
     .byte con_animation, $01, $19
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $06
     .text "@Sure thing.@"
@@ -1407,7 +1407,7 @@ off_B590_0D_мацуяма_после_матча:
     .byte con_bg_2, $02
     .byte con_animation, $01, $49
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $50
     .byte con_offset, $03
     .text "(I figured it'd be you,"
@@ -1465,7 +1465,7 @@ off_B6C8_0E_мисаки_и_хюга_перед_матчем:
     
     .byte con_animation, $01, $1E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $04
     .text "(Hyuga,"

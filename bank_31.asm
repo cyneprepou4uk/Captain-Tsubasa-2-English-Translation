@@ -25,7 +25,7 @@ con_toggle_mouth            = $EF   ; переключатель, при вкл�
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
 con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
-con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
+con_palette                 = $F3   ; если + FF, то указывается палитра для фона + спрайтов, иначе только для фона
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
@@ -79,7 +79,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_bg_2, $11
     .byte con_animation, $01, $16
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_speed, $00
     .byte con_offset, $0A
     .text "(!?)"
@@ -217,7 +217,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_sound, $62
     .byte con_animation, $01, $63
     .byte con_toggle_cam
-    .byte con_F3, $FF, $00, $0F
+    .byte con_palette, $FF, $00, $0F
     .byte con_bg_2, $10
     .byte con_pause, $1E
     .byte con_toggle_mouth
@@ -258,7 +258,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_sound, $62
     .byte con_animation, $01, $67
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $09
     .text "But on the other"
@@ -298,7 +298,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_bg_2, $43
     .byte con_animation, $01, $B1
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $09
     .text "Who will Lady Fortune"
@@ -367,7 +367,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_animation, $01, $66
     .byte con_screen_on
     .byte con_F5, $04
-    .byte con_F3, $FF, $00, $0C
+    .byte con_palette, $FF, $00, $0C
     .byte con_pause, $1E
     .byte con_speed, $04
     .byte con_offset, $06
@@ -387,7 +387,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     
     .byte con_animation, $01, $21
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $04
     .text "@It won't take long."
@@ -430,7 +430,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_animation, $01, $57
     .byte con_pause, $28
@@ -474,7 +474,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     
     .byte con_animation, $01, $21
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_speed, $04
     .byte con_offset, $03
@@ -489,7 +489,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_pause, $28
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_animation, $01, $12
     .byte con_pause, $28
     .byte con_line
@@ -503,7 +503,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_pause, $50
     .byte con_animation, $01, $21
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .text "H"
     .byte con_F8, $02
@@ -516,7 +516,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_animation, $01, $12
     .byte con_pause, $1E
     .byte con_sound, $4C
@@ -584,7 +584,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     
     .byte con_animation, $01, $42
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $03
     .text "@That's it,"
@@ -665,7 +665,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_bg_2, $11
     .byte con_animation, $01, $07
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $08
     .byte con_speed, $08
     .byte con_offset, $0C
@@ -694,7 +694,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     
     .byte con_animation, $01, $43
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $50
     .byte con_screen_off
     .byte con_bg_1, $02
@@ -720,7 +720,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $04
     .byte con_offset, $06
@@ -747,7 +747,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_bg_2, $51
     .byte con_animation, $01, $AB
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $78
     .byte con_speed, $04
     .byte con_offset, $05
@@ -769,7 +769,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_clear_1
     .byte con_bg_1, $29
     .byte con_animation, $01, $54
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $5F
     .byte con_speed, $04
     .byte con_offset, $09
@@ -780,7 +780,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AD
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
     .byte con_sound, $01
     .byte con_pause, $08
@@ -791,7 +791,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_bg_2, $43
     .byte con_animation, $01, $B3
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $02
     .byte con_clear_1
     .byte con_sound, $6E
@@ -908,7 +908,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte con_bg_2, $50
     .byte con_animation, $01, $6C
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $0C
     .byte con_sound, $30
     .byte con_speed, $03
@@ -924,7 +924,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte con_bg_2, $44
     .byte con_animation, $01, $81
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $10
     .byte con_F4, $04
     .byte con_sound, $54
@@ -952,7 +952,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
 
     .byte con_animation, $01, $60
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $11
     .byte con_toggle_mouth
     .byte con_speed, $04
@@ -988,7 +988,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     
     .byte con_animation, $01, $4C
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
 ;   .byte con_pause, $14
 ;   .byte con_F5, $04
@@ -1014,7 +1014,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte con_animation, $01, $5E
     .byte con_screen_on
     .byte con_bg_2, $4A
-    .byte con_F3, $FF, $21, $40
+    .byte con_palette, $FF, $21, $40
     .byte con_pause, $3C
     .byte con_offset, $05
     .text "@That Ozora Tsubasa"
@@ -1099,7 +1099,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .byte con_animation, $01, $05
     .byte con_F4, $01
     .byte con_F4, $04
-    .byte con_F3, $FF, $21, $40
+    .byte con_palette, $FF, $21, $40
     .byte con_pause, $F0
     .byte con_pause, $F0
     .byte con_F4, $02
@@ -1135,7 +1135,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     
     .byte con_animation, $01, $6A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $50
     .byte con_offset, $05
     .text "(Roberto"

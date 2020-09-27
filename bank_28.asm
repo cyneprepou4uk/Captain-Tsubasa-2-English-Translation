@@ -25,7 +25,7 @@ con_toggle_mouth            = $EF   ; переключатель, при вкл�
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
 con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
-con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
+con_palette                 = $F3   ; если + FF, то указывается палитра для фона + спрайтов, иначе только для фона
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
@@ -182,7 +182,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $19
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $03
     .text "@Tsubasa's one player."
@@ -224,7 +224,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $31
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_toggle_mouth
     .byte con_speed, $02
@@ -241,7 +241,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_clear_1
     .byte con_bg_1, $06
     .byte con_animation, $01, $A3
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
@@ -307,7 +307,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $19
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $03
     .text "@With the Tiger of Toho"
@@ -550,7 +550,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_pause, $F0
     .byte con_bg_1, $06
     .byte con_animation, $01, $A3
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
@@ -584,7 +584,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $63
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@Hey."
@@ -617,7 +617,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $06
     .text "@I'm looking"
@@ -653,7 +653,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
     .byte con_sound, $43
     .byte con_pause, $78
@@ -663,7 +663,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_bg_2, $10
     .byte con_animation, $01, $40
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $52
     .byte con_pause, $28
 ; требуется чтобы был нормальный задний фон для Йоко
@@ -796,7 +796,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $2A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $10
     .byte con_pause, $1E
     .byte con_toggle_mouth
@@ -842,7 +842,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $0A
     .byte con_speed, $02
     .byte con_offset, $04
@@ -865,7 +865,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $2A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $05
     .text "@It's an international"
@@ -957,7 +957,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $0A
     .byte con_offset, $04
     .text "@Against Wakabayashi and"
@@ -1007,7 +1007,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_bg_2, $0F
     .byte con_animation, $01, $43
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_speed, $04
     .byte con_offset, $06
@@ -1040,7 +1040,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_bg_2, $10
     .byte con_animation, $01, $40
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $11
     .byte con_pause, $1E
     .byte con_offset, $03
@@ -1066,7 +1066,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $10
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $09
     .text "@Hey", $3A, $3B
@@ -1083,7 +1083,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $4D
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $04
     .byte con_offset, $02
@@ -1108,7 +1108,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $10
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $06
     .byte con_offset, $06
@@ -1171,7 +1171,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $4D
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $06
     .text "@Atta boy,"
@@ -1185,7 +1185,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $10
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@But!"
@@ -1226,7 +1226,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $40
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $50
     .byte con_offset, $06
     .text "@Loyal to the team"
@@ -1248,7 +1248,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $63
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_speed, $04
     .byte con_offset, $04
@@ -1273,7 +1273,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $13
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@Carlos"
@@ -1295,7 +1295,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_animation, $01, $63
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $04
     .text "@I'll hold you to that.@"
@@ -1309,7 +1309,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_bg_2, $0F
     .byte con_animation, $01, $0C
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $06
     .text "@Then it's settled!@"
@@ -1384,7 +1384,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     
     
     .byte con_animation, $01, $C2
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $27
     .byte con_pause, $1E
     .byte con_charlie, $05
@@ -1575,7 +1575,7 @@ off_A020_10_цубаса_и_вакабаяши_перед_матчем:
     .byte con_bg_2, $10
     .byte con_animation, $01, $58
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $50
     .byte con_offset, $05
     .text "(Just like all those"
@@ -1628,7 +1628,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $02
     .text "@So do you."
@@ -1652,7 +1652,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     
     .byte con_animation, $01, $34
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $05
     .text "@Yeah,"
@@ -1673,7 +1673,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $05
     .text "@Let's go all the"
@@ -1728,7 +1728,7 @@ off_A134_12_цубаса_и_мисаки_перед_матчем:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $05
     .text "@Misaki,"

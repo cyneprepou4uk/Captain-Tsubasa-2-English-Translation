@@ -25,7 +25,7 @@ con_toggle_mouth            = $EF   ; переключатель, при вкл�
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
 con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
-con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
+con_palette                 = $F3   ; если + FF, то указывается палитра для фона + спрайтов, иначе только для фона
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
@@ -70,7 +70,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte con_animation, $01, $66
     .byte con_pause, $14
     .byte con_animation, $01, $12
-    .byte con_F3, $FF, $00, $0C
+    .byte con_palette, $FF, $00, $0C
     .byte con_F5, $08
     .byte con_line
     .byte con_offset, $08
@@ -87,7 +87,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     .byte con_animation, $01, $2B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_animation, $01, $2A
     .byte con_pause, $1E
@@ -104,7 +104,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $05
     .text "@Mikami said you flew"
@@ -127,7 +127,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     .byte con_animation, $01, $2A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $05
     .byte con_toggle_mouth
@@ -166,7 +166,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     .byte con_toggle_cam
-    .byte con_F3, $8C
+    .byte con_palette, $8C
     .byte con_animation, $01, $66
     .byte con_pause, $14
     .byte con_animation, $01, $12
@@ -188,7 +188,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     .byte con_animation, $01, $2B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $2C
     .byte con_pause, $3C
     .byte con_animation, $01, $2A
@@ -225,7 +225,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     .byte con_animation, $02, $B6, $8A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_speed, $04
     .byte con_offset, $03
@@ -311,7 +311,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte con_bg_2, $50
     .byte con_animation, $01, $6C
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $0C
     .byte con_sound, $30
     .byte con_speed, $02
@@ -324,7 +324,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte con_screen_off
     .byte con_clear_1
     .byte con_pause, $3C
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_line
     .byte con_line
     .byte con_speed, $02
@@ -411,7 +411,7 @@ off_B159_18_мисаки_и_пьер_перед_матчем:
     
     .byte con_animation, $01, $1E
     .byte con_toggle_cam
-    .byte con_F3, $FF, $00, $0C
+    .byte con_palette, $FF, $00, $0C
     .byte con_pause, $50
     .byte con_offset, $04
     .text "(Pierre,"
@@ -475,7 +475,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $04
     .text "@No kidding,"
@@ -507,7 +507,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
     .byte con_pause, $14
     .byte con_sound, $52
@@ -522,7 +522,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_bg_2, $10
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $11
     .byte con_F5, $04
     .byte con_pause, $78
@@ -553,7 +553,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     .byte con_animation, $01, $24
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_speed, $02
     .byte con_offset, $0C
@@ -570,7 +570,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_sound, $69
     .byte con_screen_on
     .byte con_F5, $04
-    .byte con_F3, $FF, $00, $0C
+    .byte con_palette, $FF, $00, $0C
     .byte con_pause, $78
     .byte con_speed, $04
     .byte con_offset, $05
@@ -681,7 +681,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AD
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $30
     .byte con_sound, $57
     .byte con_F5, $08
@@ -1007,7 +1007,7 @@ off_B4F1_1B_цубаса_планирует_циклон_2:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $09
     .byte con_sound, $43
     .byte con_pause, $78
@@ -1184,54 +1184,54 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_F8, $11
     .byte con_screen_on
     .byte con_pause, $F0
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $0A
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $03
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_sound, $30
     .byte con_pause, $F0
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $0A
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $78
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_sound, $30
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_sound, $30
     .byte con_pause, $78
     .byte con_sound, $4B
@@ -1301,33 +1301,33 @@ off_B71E_1C_цубаса_изучил_циклон:
     
     
     
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_sound, $30
     .byte con_pause, $0A
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_sound, $30
     .byte con_pause, $50
     .byte con_screen_off
     .byte con_bg_1, $36
     .byte con_animation, $02, $73, $74
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $03
     .byte con_sound, $0E
     .byte con_pause, $28
     .byte con_sound, $10
     .byte con_F5, $FF
     .byte con_animation, $02, $88, $87
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_sound, $5F
     .byte con_pause, $50
@@ -1417,7 +1417,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     
     
     
-    .byte con_F3, $FF, $25, $43
+    .byte con_palette, $FF, $25, $43
     .byte con_sound, $30
     .byte con_screen_off
     .byte con_clear_1
@@ -1442,7 +1442,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_bg_2, $53
     .byte con_animation, $01, $AB
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F8, $11
     .byte con_pause, $78
     .byte con_offset, $04
@@ -1456,26 +1456,26 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_line
     .byte con_offset, $05
     .text "Time to make it work", $3A, $3B, ")"
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $27
+    .byte con_palette, $27
     .byte con_pause, $03
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_sound, $30
     .byte con_pause, $0A
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_pause, $06
-    .byte con_F3, $0C
+    .byte con_palette, $0C
     .byte con_pause, $02
-    .byte con_F3, $11
+    .byte con_palette, $11
     .byte con_sound, $30
     .byte con_pause, $3C
     .byte con_bg_2, $05
     .byte con_animation, $01, $A4
     .byte con_toggle_cam
-    .byte con_F3, $FF, $13, $01
+    .byte con_palette, $FF, $13, $01
     
     
     
@@ -1496,7 +1496,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_bg_2, $21
     .byte con_animation, $02, $73, $74
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $03
     .byte con_sound, $0E
     .byte con_pause, $28
@@ -1505,7 +1505,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_bg_2, $02
     .byte con_animation, $01, $5B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_speed, $02
     .byte con_offset, $07
     .text "@What the", $3A, $3B, "?!@"
@@ -1517,7 +1517,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_bg_2, $09
     .byte con_animation, $01, $43
     .byte con_toggle_cam
-    .byte con_F3, $FF, $03, $11
+    .byte con_palette, $FF, $03, $11
     .byte con_F5, $07
     .byte con_sound, $0E
     .byte con_pause, $0A
@@ -1526,7 +1526,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_sound, $09
     .byte con_pause, $3C
     .byte con_F5, $FF
-    .byte con_F3, $FF, $25, $43
+    .byte con_palette, $FF, $25, $43
     .byte con_sound, $60
     .byte con_pause, $0A
     .byte con_sound, $61
@@ -1542,12 +1542,12 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_toggle_cam
     .byte con_bg_2, $41
     .byte con_F8, $11
-    .byte con_F3, $FF, $28, $44
+    .byte con_palette, $FF, $28, $44
     .byte con_pause, $50
-    .byte con_F3, $FF, $29, $45
+    .byte con_palette, $FF, $29, $45
     .byte con_pause, $50
     .byte con_sound, $70
-    .byte con_F3, $FF, $2A, $1E
+    .byte con_palette, $FF, $2A, $1E
     .byte con_pause, $F0
     .byte con_pause, $F0
     .byte con_pause, $F0
@@ -1566,13 +1566,13 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_pause, $1E
     .byte con_sound, $45
     .byte con_pause, $3C
-    .byte con_F3, $2B
+    .byte con_palette, $2B
     .byte con_pause, $03
-    .byte con_F3, $2A
+    .byte con_palette, $2A
     .byte con_pause, $02
-    .byte con_F3, $2B
+    .byte con_palette, $2B
     .byte con_pause, $03
-    .byte con_F3, $2A
+    .byte con_palette, $2A
     .byte con_screen_off
     .byte con_clear_1
     
@@ -1581,7 +1581,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AD
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $09
     .byte con_sound, $30
     .byte con_pause, $1E
@@ -1608,7 +1608,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_pause, $78
     .byte con_bg_1, $06
     .byte con_animation, $01, $A3
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
@@ -1690,7 +1690,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     .byte con_animation, $01, $66
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_speed, $02
     .byte con_offset, $07
@@ -1772,7 +1772,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_clear_1
     .byte con_bg_1, $11
     .byte con_animation, $01, $5C
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_speed, $02
     .byte con_offset, $0F
@@ -1785,7 +1785,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_clear_1
     .byte con_bg_1, $10
     .byte con_animation, $01, $5A
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $0B
     .text "Brazil,"
@@ -1797,7 +1797,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_clear_1
     .byte con_bg_1, $2E
     .byte con_animation, $01, $21
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_toggle_mouth
     .byte con_speed, $06
@@ -1817,7 +1817,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_clear_1
     .byte con_bg_1, $42
     .byte con_animation, $02, $98, $8F
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_sound, $30
     .byte con_speed, $02
@@ -1869,7 +1869,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_animation, $01, $6F
     .byte con_sound, $62
     .byte con_F8, $0A
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $00
     .byte con_base_offset
     .word $2240
@@ -1926,7 +1926,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_charlie, $FF
     .byte con_bg_1, $3B
     .byte con_animation, $01, $7A
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
     .byte con_sound, $26
     .byte con_speed, $03
@@ -1949,7 +1949,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     .byte con_animation, $01, $7B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $08
     .byte con_sound, $26
     .byte con_offset, $08
@@ -1962,7 +1962,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_bg_2, $59
     .byte con_animation, $01, $83
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $09
     .byte con_F5, $01
     .byte con_window, $01
@@ -1984,7 +1984,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     .byte con_clear_2
     .byte con_animation, $03, $C0, $7E, $94
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $0B
     .byte con_pause, $0F
     .byte con_charlie, $05
@@ -1994,7 +1994,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_sound, $01
     .byte con_pause, $01
     .byte con_sound, $2A
-    .byte con_F3, $1E
+    .byte con_palette, $1E
     .text " Gertise makes a"
     .byte con_line
     .byte con_offset, $09
@@ -2017,7 +2017,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_charlie, $01
     .byte con_bg_1, $3A
     .byte con_animation, $01, $8B
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $04
     .byte con_sound, $66
     .byte con_speed, $04
@@ -2066,7 +2066,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_bg_2, $10
     .byte con_animation, $01, $5D
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $04
     .byte con_pause, $50
     .byte con_speed, $08
@@ -2084,7 +2084,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_bg_2, $02
     .byte con_animation, $01, $32
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $04
     .byte con_offset, $05
@@ -2232,7 +2232,7 @@ off_BDD6_1E_цубаса_и_шнайдер_перед_матчем:
     
     .byte con_animation, $01, $6A
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $50
     .byte con_offset, $06
     .text "(Once again,"

@@ -25,7 +25,7 @@ con_toggle_mouth            = $EF   ; переключатель, при вкл�
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
 con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
-con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
+con_palette                 = $F3   ; если + FF, то указывается палитра для фона + спрайтов, иначе только для фона
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
@@ -842,7 +842,7 @@ off_B913_39_тренер_16:
     .text "Wow, Roberto's", con_line
     .text "coaching Brazil U-20.", con_line
     .text "What a shock..."
-    .byte con_F3, $FF, $00, $0C
+    .byte con_palette, $FF, $00, $0C
     .byte con_ball
     .byte con_clear_3
     
@@ -887,7 +887,7 @@ off_BA16_3A_тренер_17:
     
     .byte con_animation, $01, $57
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_base_offset
     .word $2246
     .text "It looks like next", con_line
@@ -906,7 +906,7 @@ off_BA16_3A_тренер_17:
     
     .byte con_animation, $01, $32
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_base_offset
     .word $2246
     .text "Those are some good", con_line
@@ -918,7 +918,7 @@ off_BA16_3A_тренер_17:
     
     .byte con_animation, $01, $42
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_base_offset
     .word $2244
     .text "They do. I want you to", con_line
@@ -1162,7 +1162,7 @@ off_BCF9_42_тренер_1F:
     
     .byte con_animation, $01, $34
     .byte con_toggle_cam
-    .byte con_F3, $C6
+    .byte con_palette, $C6
     .byte con_base_offset
     .word $2243
     .text "Right. Whenever Schneider", con_line
@@ -1198,7 +1198,7 @@ off_BCF9_42_тренер_1F:
     
     .byte con_animation, $01, $42
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_jump
     .word off_BEC1
 
@@ -1218,7 +1218,7 @@ off_BDAD_43_тренер_20:
     
     .byte con_animation, $01, $4B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_base_offset
     .word $2246
     .text "Santamaria is their", con_line
@@ -1273,7 +1273,7 @@ off_BDAD_43_тренер_20:
     
     .byte con_animation, $01, $42
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_jump
     .word off_BEC1
 
@@ -1335,7 +1335,7 @@ off_BEC1:
     .byte con_line
 off_BED6:
     .byte con_E8, $01
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_exit
 
 
@@ -1452,7 +1452,7 @@ off_BF31:
     .byte $06    ; <か>
     .byte $02    ; <い>
     .byte con_line
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_exit
 
 
@@ -1476,7 +1476,7 @@ off_BF60_51_пароль_ишизаки:
 off_BF63:
     .byte con_window, $02
     .byte con_bg_1, $5F
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_speed, $02
     .byte con_toggle_mouth
     .byte $40    ; <「>
@@ -1541,7 +1541,7 @@ off_BF9F:
     .byte con_E8, $01
     .byte con_window, $02
     .byte con_bg_1, $5F
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
@@ -1587,7 +1587,7 @@ off_BFCE_58_япония_перед_матчем:
 off_BFD5:
     .byte con_sound, $31
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_speed, $02
     .byte $40    ; <「>
     .byte $26    ; <よ>

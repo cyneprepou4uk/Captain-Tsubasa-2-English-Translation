@@ -25,7 +25,7 @@ con_toggle_mouth            = $EF   ; переключатель, при вкл�
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
 con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
-con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
+con_palette                 = $F3   ; если + FF, то указывается палитра для фона + спрайтов, иначе только для фона
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
@@ -68,7 +68,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_bg_1, $01
     .byte con_animation, $01, $6E
     .byte con_F8, $0A
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $00
     .byte con_sound, $68
     .byte con_offset, $09
@@ -98,7 +98,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_charlie, $FF
     .byte con_bg_2, $03
     .byte con_animation, $01, $75
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_offset, $0A
     .byte con_speed, $01
@@ -118,7 +118,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_clear_1
     .byte con_bg_1, $08
     .byte con_animation, $02, $C1, $82
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $10
     .byte con_sound, $28
     .byte con_pause, $14
@@ -156,7 +156,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_charlie, $FF
     .byte con_bg_2, $07
     .byte con_animation, $01, $76
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_speed, $01
     .byte con_offset, $0A
@@ -178,7 +178,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_charlie, $02
     .byte con_bg_1, $09
     .byte con_animation, $01, $84
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $01
     .byte con_sound, $0E
     .byte con_speed, $04
@@ -211,7 +211,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_charlie, $FF
     .byte con_bg_2, $03
     .byte con_animation, $01, $77
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_speed, $01
     .byte con_offset, $0A
@@ -233,7 +233,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_charlie, $04
     .byte con_bg_1, $0A
     .byte con_animation, $03, $C0, $A2, $7D
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $07
     .byte con_speed, $04
     .byte con_offset, $09
@@ -262,7 +262,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_charlie, $FF
     .byte con_bg_2, $0B
     .byte con_animation, $01, $7C
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_speed, $01
     .byte con_offset, $08
@@ -433,11 +433,11 @@ off_A2A1_01_история_цубасы:
     .byte con_speed, $08
     .text "..."
     .byte con_pause, $3C
-    .byte con_F3, $FF, $23, $41
+    .byte con_palette, $FF, $23, $41
     .byte con_pause, $01
-    .byte con_F3, $FF, $24, $42
+    .byte con_palette, $FF, $24, $42
     .byte con_pause, $06
-    .byte con_F3, $FF, $00, $17
+    .byte con_palette, $FF, $00, $17
     .byte con_pause, $3C
     .byte con_speed, $03
     .byte con_line
@@ -658,7 +658,7 @@ off_A2A1_01_история_цубасы:
     .byte con_pause, $28
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $28
     .byte con_toggle_mouth
     .byte con_line
@@ -681,7 +681,7 @@ off_A2A1_01_история_цубасы:
     
     .byte con_animation, $01, $2B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_speed, $04
     .byte con_offset, $06
@@ -750,7 +750,7 @@ off_A2A1_01_история_цубасы:
     .byte con_screen_on
     .byte con_pause, $B4
     .byte con_animation, $01, $CB
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $06
     .byte con_sound, $30
     .byte con_pause, $3C
@@ -765,11 +765,11 @@ off_A2A1_01_история_цубасы:
 off_0x040005_скрытая_катсцена_из_01:
     .byte con_clear_1
     .byte con_E8, $01
-    .byte con_F3, $FF, $24, $42
+    .byte con_palette, $FF, $24, $42
     .byte con_pause, $06
-    .byte con_F3, $FF, $23, $41
+    .byte con_palette, $FF, $23, $41
     .byte con_pause, $01
-    .byte con_F3, $FF, $20, $3F
+    .byte con_palette, $FF, $20, $3F
     .byte con_pause, $3C
     .byte con_offset, $03
     .byte con_speed, $03
@@ -831,7 +831,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_speed, $06
     .byte con_offset, $06
     .byte con_pause, $1E
@@ -858,7 +858,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $3B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $06
     .text "@That's right."
@@ -889,7 +889,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $06
     .text "@Right,"
@@ -903,7 +903,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $3B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $07
     .text "@Given your age,"
@@ -952,7 +952,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $06
     .text "@Flamengo FC?@"
@@ -964,7 +964,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $3C
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $10
     .byte con_pause, $14
     .byte con_offset, $06
@@ -972,7 +972,7 @@ off_0x040005_скрытая_катсцена_из_01:
     .byte con_pause, $3C
     .byte con_animation, $01, $5A
     .byte con_toggle_cam
-    .byte con_F3, $8E
+    .byte con_palette, $8E
     .byte con_pause, $14
     .byte con_line
     .byte con_offset, $07
@@ -1069,7 +1069,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $05
     .byte con_toggle_mouth
@@ -1098,7 +1098,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $3B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $78
     .byte con_speed, $04
     .byte con_offset, $04
@@ -1120,7 +1120,7 @@ off_0x040005_скрытая_катсцена_из_01:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_speed, $06
     .byte con_offset, $05
@@ -1155,11 +1155,11 @@ off_0x040005_скрытая_катсцена_из_01:
     
     
     .byte con_pause, $3C
-    .byte con_F3, $FF, $24, $42
+    .byte con_palette, $FF, $24, $42
     .byte con_pause, $06
-    .byte con_F3, $FF, $23, $41
+    .byte con_palette, $FF, $23, $41
     .byte con_pause, $01
-    .byte con_F3, $FF, $20, $3F
+    .byte con_palette, $FF, $20, $3F
     .byte con_F4, $05
     .byte con_clear_1
     .byte con_pause, $3C
@@ -1366,7 +1366,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $12
     .byte con_animation, $01, $07
     .byte con_toggle_cam
-    .byte con_F3, $FF, $00, $17
+    .byte con_palette, $FF, $00, $17
     .byte con_speed, $02
     .byte con_offset, $05
     .byte con_pause, $0A
@@ -1386,7 +1386,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $58
     .byte con_animation, $01, $43
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_1, $1C
     .byte con_F8, $05
     .byte con_pause, $0A
@@ -1404,7 +1404,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $3D
     .byte con_animation, $01, $38
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $12
     .byte con_pause, $14
     .byte con_speed, $04
@@ -1440,7 +1440,7 @@ off_A6DC_04_цубаса_и_меон:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $06
     .text "@What for?@"
@@ -1452,7 +1452,7 @@ off_A6DC_04_цубаса_и_меон:
     
     .byte con_animation, $01, $38
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $02
     .text "@Well"
@@ -1481,7 +1481,7 @@ off_A6DC_04_цубаса_и_меон:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $78
     .byte con_speed, $02
     .byte con_offset, $05
@@ -1502,7 +1502,7 @@ off_A6DC_04_цубаса_и_меон:
     
     .byte con_animation, $01, $38
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@That's why you're the"
@@ -1550,7 +1550,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $21
     .byte con_animation, $02, $73, $74
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $03
     .byte con_sound, $0E
     .byte con_pause, $28
@@ -1558,7 +1558,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $1F
     .byte con_animation, $01, $01
     .byte con_toggle_cam
-    .byte con_F3, $FF, $00, $12
+    .byte con_palette, $FF, $00, $12
     .byte con_sound, $03
     .byte con_bg_2, $20
     .byte con_toggle_cam
@@ -1580,14 +1580,14 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $52
     .byte con_F5, $08
     .byte con_speed, $01
     .byte con_offset, $06
     ; дополнительные пробелы, иначе сбивается тайминг мерцания цвета и серого экрана
     .text "@What the", $3A, $3B, "?!@  "
-    .byte con_F3, $2E
+    .byte con_palette, $2E
     .byte con_pause, $F0
     .byte con_pause, $3C
     
@@ -1597,7 +1597,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_bg_2, $24
     .byte con_animation, $01, $37
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $49
     .byte con_pause, $78
     .byte con_speed, $04
@@ -1715,7 +1715,7 @@ off_A968_05_карлос_и_коимбра:
     .byte con_bg_2, $4A
     .byte con_animation, $01, $61
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_bg_2, $49
     .byte con_pause, $3C
     .byte con_offset, $05
@@ -1728,7 +1728,7 @@ off_A968_05_карлос_и_коимбра:
     
     .byte con_animation, $01, $60
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $03
     .text "@Listen up,"
@@ -1757,7 +1757,7 @@ off_A968_05_карлос_и_коимбра:
     
     .byte con_animation, $01, $61
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $06
     .text "@And how's that?@"
@@ -1769,7 +1769,7 @@ off_A968_05_карлос_и_коимбра:
     
     .byte con_animation, $01, $60
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $05
     .text "@That Ozora Tsubasa"
@@ -1812,7 +1812,7 @@ off_A968_05_карлос_и_коимбра:
     
     .byte con_animation, $01, $61
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $06
     .byte con_offset, $06
@@ -1825,7 +1825,7 @@ off_A968_05_карлос_и_коимбра:
     
     .byte con_animation, $01, $60
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_speed, $04
     .byte con_offset, $04
@@ -1931,7 +1931,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $05
     .text "@Yeah"
@@ -1966,7 +1966,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     .byte con_animation, $01, $3B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_animation, $01, $3C
     .byte con_pause, $0A
@@ -2025,7 +2025,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     .byte con_animation, $01, $11
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $05
     .text "@I've never heard"
@@ -2048,7 +2048,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     .byte con_animation, $01, $3B
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $3C
     .byte con_offset, $03
     .text "@Well,"
@@ -2157,7 +2157,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte con_animation, $03, $9E, $93, $A5
     .byte con_sound, $6B
     .byte con_screen_on
-    .byte con_F3, $94
+    .byte con_palette, $94
     .byte con_offset, $05
     .text "@The reason for this"
     .byte con_line
@@ -2192,7 +2192,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte con_bg_2, $21
     .byte con_animation, $02, $73, $74
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $03
     .byte con_sound, $0E
     .byte con_pause, $28
@@ -2200,7 +2200,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte con_F5, $FF
     .byte con_bg_2, $09
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_F5, $07
     .byte con_sound, $04
     .byte con_pause, $14
@@ -2209,16 +2209,16 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte con_sound, $24
     .byte con_pause, $28
     .byte con_F5, $FF
-    .byte con_F3, $FF, $25, $43
+    .byte con_palette, $FF, $25, $43
     .byte con_bg_2, $56
     .byte con_animation, $03, $C0, $A0, $80
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_sound, $24
     .byte con_bg_2, $39
     .byte con_animation, $01, $86
     .byte con_toggle_cam
-    .byte con_F3, $FF, $21, $35
+    .byte con_palette, $FF, $21, $35
     .byte con_sound, $61
     .byte con_pause, $F0
     .byte con_screen_off
@@ -2319,7 +2319,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     .byte con_animation, $01, $4E
     .byte con_toggle_cam
-    .byte con_F3, $00
+    .byte con_palette, $00
     .byte con_pause, $14
     .byte con_offset, $05
     .text "@Yeah,"
