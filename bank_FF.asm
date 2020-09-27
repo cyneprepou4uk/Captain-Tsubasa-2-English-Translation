@@ -861,6 +861,7 @@ C - - - - 0x03CC63 FF:CC53: AD 15 05  LDA $0515
 C - - - - 0x03CC66 FF:CC56: D0 F6     BNE bra_CC4E_ожидание_очистки
 C - - - - 0x03CC68 FF:CC58: A9 01     LDA #$01
 C - - - - 0x03CC6A FF:CC5A: 8D 15 05  STA $0515
+; размер буфера
 C - - - - 0x03CC6D FF:CC5D: A0 4F     LDY #$23
 C - - - - 0x03CC6F FF:CC5F: A2 00     LDX #$00
 C - - - - 0x03CC71 FF:CC61: 8A        TXA
@@ -869,6 +870,7 @@ C - - - - 0x03CC72 FF:CC62: 9D A5 04  STA $04A5,X
 C - - - - 0x03CC75 FF:CC65: E8        INX
 C - - - - 0x03CC76 FF:CC66: 88        DEY
 C - - - - 0x03CC77 FF:CC67: D0 F9     BPL bra_CC62_цикл
+; количество байтов для ppu
 C - - - - 0x03CC79 FF:CC69: A9 18     LDA #$20
 C - - - - 0x03CC7B FF:CC6B: 8D A5 04  STA $04A5
 C - - - - 0x03CC86 FF:CC76: 68        PLA
@@ -4183,7 +4185,7 @@ C - - - - 0x03E1FD FF:E1ED: 8A        TXA
 C - - - - 0x03E1FE FF:E1EE: 20 93 D1  JSR sub_D193_уменьшить_таймер_времени_тайма
 C - - - - 0x03E201 FF:E1F1: 20 7D E2  JSR sub_E27D
 C - - - - 0x03E204 FF:E1F4: EE 13 06  INC $0613
-C - - - - 0x03E207 FF:E1F7: 20 BC E2  JSR sub_E2BC
+C - - - - 0x03E207 FF:E1F7: 20 BC E2  JSR sub_E2BC_регенерация_и_усталость
 C - - - - 0x03E20A FF:E1FA: 20 07 E4  JSR sub_E407
 C - - - - 0x03E20D FF:E1FD: 2C 4B 04  BIT $044B
 C - - - - 0x03E210 FF:E200: 10 1C     BPL bra_E21E
@@ -4288,93 +4290,102 @@ C - - - - 0x03E2C8 FF:E2B8: 9A        TXS
 ; сработало при нападении соперника на моего кипера
 C - - - - 0x03E2C9 FF:E2B9: 4C 09 80  JMP loc_0x034706
 
-sub_E2BC:
+
+
+sub_E2BC_регенерация_и_усталость:
+.scope
+temp_макс_энергия_lo = ram_0032
+temp_макс_энергия_hi = ram_0033
+temp_затрата_энергии = ram_003A
 C - - - - 0x03E2CC FF:E2BC: EE 18 06  INC $0618
 C - - - - 0x03E2CF FF:E2BF: AD 18 06  LDA $0618
 C - - - - 0x03E2D2 FF:E2C2: C9 01     CMP #$01
-C - - - - 0x03E2D4 FF:E2C4: 90 4F     BCC bra_E315
+C - - - - 0x03E2D4 FF:E2C4: 90 4F     BCC bra_E315_пропустить_регенерацию
 C - - - - 0x03E2D6 FF:E2C6: A9 00     LDA #$00
 C - - - - 0x03E2D8 FF:E2C8: 8D 18 06  STA $0618
-bra_E2CB:
+bra_E2CB_цикл_регенерации_игроков:
 C - - - - 0x03E2DB FF:E2CB: 48        PHA
 C - - - - 0x03E2DC FF:E2CC: CD 41 04  CMP ram_игрок_с_мячом
-C - - - - 0x03E2DF FF:E2CF: F0 3C     BEQ bra_E30D
+C - - - - 0x03E2DF FF:E2CF: F0 3C     BEQ bra_E30D_не_регенерировать
 C - - - - 0x03E2E1 FF:E2D1: A2 00     LDX #$00
 C - - - - 0x03E2E3 FF:E2D3: 20 08 CE  JSR sub_CE08_банксвич_PRG_06_07_с_возвратом
-C - - - - 0x03E2E6 FF:E2D6: A2 02     LDX #$02
+C - - - - 0x03E2E6 FF:E2D6: A2 02     LDX #$02      ; регенерация энергии
 C - - - - 0x03E2E8 FF:E2D8: A0 00     LDY #con_игрок_номер
 C - - - - 0x03E2EA FF:E2DA: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x03E2EC FF:E2DC: A0 01     LDY #$01
+C - - - - 0x03E2EC FF:E2DC: A0 01     LDY #con_игрок_энергия_lo
 C - - - - 0x03E2EE FF:E2DE: C9 20     CMP #$20
-C - - - - 0x03E2F0 FF:E2E0: D0 0A     BNE bra_E2EC
+C - - - - 0x03E2F0 FF:E2E0: D0 0A     BNE bra_E2EC_это_не_мисуги
 C - - - - 0x03E2F2 FF:E2E2: A2 01     LDX #$01
-C - - - - 0x03E2F4 FF:E2E4: B1 34     LDA (ram_plr_data),Y
+C - - - - 0x03E2F4 FF:E2E4: B1 34     LDA (ram_plr_data),Y      ; con_игрок_энергия_lo
 C - - - - 0x03E2F6 FF:E2E6: C8        INY
-C - - - - 0x03E2F7 FF:E2E7: 11 34     ORA (ram_plr_data),Y
-C - - - - 0x03E2F9 FF:E2E9: F0 22     BEQ bra_E30D
+C - - - - 0x03E2F7 FF:E2E7: 11 34     ORA (ram_plr_data),Y      ; con_игрок_энергия_hi
+C - - - - 0x03E2F9 FF:E2E9: F0 22     BEQ bra_E30D_не_регенерировать      ; проверка на дохлого мисуги
 C - - - - 0x03E2FB FF:E2EB: 88        DEY
-bra_E2EC:
+bra_E2EC_это_не_мисуги:
 C - - - - 0x03E2FC FF:E2EC: 8A        TXA
 C - - - - 0x03E2FD FF:E2ED: 18        CLC
-C - - - - 0x03E2FE FF:E2EE: 71 34     ADC (ram_plr_data),Y
+C - - - - 0x03E2FE FF:E2EE: 71 34     ADC (ram_plr_data),Y      ; con_игрок_энергия_lo
 C - - - - 0x03E300 FF:E2F0: AA        TAX
 C - - - - 0x03E301 FF:E2F1: C8        INY
-C - - - - 0x03E302 FF:E2F2: B1 34     LDA (ram_plr_data),Y
+C - - - - 0x03E302 FF:E2F2: B1 34     LDA (ram_plr_data),Y      ; con_игрок_энергия_hi
 C - - - - 0x03E304 FF:E2F4: 69 00     ADC #$00
 C - - - - 0x03E306 FF:E2F6: A8        TAY
 C - - - - 0x03E307 FF:E2F7: 38        SEC
 C - - - - 0x03E308 FF:E2F8: 8A        TXA
-C - - - - 0x03E309 FF:E2F9: E5 32     SBC ram_0032
+C - - - - 0x03E309 FF:E2F9: E5 32     SBC temp_макс_энергия_lo
 C - - - - 0x03E30B FF:E2FB: 98        TYA
-C - - - - 0x03E30C FF:E2FC: E5 33     SBC ram_0033
-C - - - - 0x03E30E FF:E2FE: 90 04     BCC bra_E304
-C - - - - 0x03E310 FF:E300: A6 32     LDX ram_0032
-C - - - - 0x03E312 FF:E302: A4 33     LDY ram_0033
-bra_E304:
+C - - - - 0x03E30C FF:E2FC: E5 33     SBC temp_макс_энергия_hi
+C - - - - 0x03E30E FF:E2FE: 90 04     BCC bra_E304_игрок_не_полностью_восстановился
+C - - - - 0x03E310 FF:E300: A6 32     LDX temp_макс_энергия_lo      ; иначе запись максимальной энергии
+C - - - - 0x03E312 FF:E302: A4 33     LDY temp_макс_энергия_hi
+bra_E304_игрок_не_полностью_восстановился:
 C - - - - 0x03E314 FF:E304: 98        TYA
 C - - - - 0x03E315 FF:E305: A0 02     LDY #con_игрок_энергия_hi
-C - - - - 0x03E317 FF:E307: 91 34     STA (ram_plr_data),Y
+C - - - - 0x03E317 FF:E307: 91 34     STA (ram_plr_data),Y      ; con_игрок_энергия_hi
 C - - - - 0x03E319 FF:E309: 8A        TXA
 C - - - - 0x03E31A FF:E30A: 88        DEY
-C - - - - 0x03E31B FF:E30B: 91 34     STA (ram_plr_data),Y
-bra_E30D:
+C - - - - 0x03E31B FF:E30B: 91 34     STA (ram_plr_data),Y      ; con_игрок_энергия_lo
+bra_E30D_не_регенерировать:
 C - - - - 0x03E31D FF:E30D: 68        PLA
 C - - - - 0x03E31E FF:E30E: 18        CLC
 C - - - - 0x03E31F FF:E30F: 69 01     ADC #$01
 C - - - - 0x03E321 FF:E311: C9 0B     CMP #$0B
-C - - - - 0x03E323 FF:E313: D0 B6     BNE bra_E2CB
-bra_E315:
+C - - - - 0x03E323 FF:E313: D0 B6     BNE bra_E2CB_цикл_регенерации_игроков
+bra_E315_пропустить_регенерацию:
 C - - - - 0x03E325 FF:E315: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E328 FF:E318: C9 0B     CMP #$0B
 C - - - - 0x03E32A FF:E31A: B0 2C     BCS bra_E348_выход
 C - - - - 0x03E32C FF:E31C: 20 7C CD  JSR sub_CD7C_адрес_игрока
-C - - - - 0x03E32F FF:E31F: A2 03     LDX #$03
+C - - - - 0x03E32F FF:E31F: A2 03     LDX #$03      ; уменьшение энергии во время бега
 C - - - - 0x03E331 FF:E321: A0 00     LDY #con_игрок_номер
 C - - - - 0x03E333 FF:E323: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E335 FF:E325: C9 20     CMP #$20
-C - - - - 0x03E337 FF:E327: D0 02     BNE bra_E32B
+C - - - - 0x03E337 FF:E327: D0 02     BNE bra_E32B_это_не_мисуги
 C - - - - 0x03E339 FF:E329: A2 05     LDX #$05
-bra_E32B:
-C - - - - 0x03E33B FF:E32B: 86 3A     STX ram_003A
+bra_E32B_это_не_мисуги:
+C - - - - 0x03E33B FF:E32B: 86 3A     STX temp_затрата_энергии
 C - - - - 0x03E33D FF:E32D: A0 01     LDY #con_игрок_энергия_lo
-C - - - - 0x03E33F FF:E32F: B1 34     LDA (ram_plr_data),Y
+C - - - - 0x03E33F FF:E32F: B1 34     LDA (ram_plr_data),Y      ; con_игрок_энергия_lo
 C - - - - 0x03E341 FF:E331: 38        SEC
-C - - - - 0x03E342 FF:E332: E5 3A     SBC ram_003A
+C - - - - 0x03E342 FF:E332: E5 3A     SBC temp_затрата_энергии
 C - - - - 0x03E344 FF:E334: AA        TAX
 C - - - - 0x03E345 FF:E335: C8        INY
-C - - - - 0x03E346 FF:E336: B1 34     LDA (ram_plr_data),Y
+C - - - - 0x03E346 FF:E336: B1 34     LDA (ram_plr_data),Y      ; con_игрок_энергия_hi
 C - - - - 0x03E348 FF:E338: E9 00     SBC #$00
-C - - - - 0x03E34A FF:E33A: B0 03     BCS bra_E33F
-C - - - - 0x03E34C FF:E33C: A2 00     LDX #$00
+C - - - - 0x03E34A FF:E33A: B0 03     BCS bra_E33F_игрок_еще_не_выдохся
+C - - - - 0x03E34C FF:E33C: A2 00     LDX #$00      ; иначе обнуление энергии
 C - - - - 0x03E34E FF:E33E: 8A        TXA
-bra_E33F:
-C - - - - 0x03E34F FF:E33F: 91 34     STA (ram_plr_data),Y
+bra_E33F_игрок_еще_не_выдохся:
+C - - - - 0x03E34F FF:E33F: 91 34     STA (ram_plr_data),Y      ; con_игрок_энергия_hi
 C - - - - 0x03E351 FF:E341: 8A        TXA
 C - - - - 0x03E352 FF:E342: 88        DEY
-C - - - - 0x03E353 FF:E343: 91 34     STA (ram_plr_data),Y
+C - - - - 0x03E353 FF:E343: 91 34     STA (ram_plr_data),Y      ; con_игрок_энергия_lo
 C - - - - 0x03E355 FF:E345: 20 67 E2  JSR sub_E267
 bra_E348_выход:
 C - - - - 0x03E358 FF:E348: 60        RTS
+.endscope
+
+
 
 sub_E349:
 C - - - - 0x03E359 FF:E349: A9 00     LDA #$00

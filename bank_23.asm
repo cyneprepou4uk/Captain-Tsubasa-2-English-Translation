@@ -258,8 +258,10 @@ C - - - - 0x034235 23:8225: BD 01 06  LDA $0601,X
 C - - - - 0x034238 23:8228: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x03423B 23:822B: A0 00     LDY #con_игрок_номер
 C - - - - 0x03423D 23:822D: B1 34     LDA (ram_plr_data),Y
+; проверка на ишизаки
 C - - - - 0x03423F 23:822F: C9 14     CMP #$14
 C - - - - 0x034241 23:8231: F0 0B     BEQ bra_823E
+; проверка на ишизаки
 C - - - - 0x034243 23:8233: C9 49     CMP #$49
 C - - - - 0x034245 23:8235: F0 07     BEQ bra_823E
 C - - - - 0x034247 23:8237: E8        INX
@@ -704,8 +706,10 @@ C - - - - 0x034547 23:8537: 20 51 C5  JSR sub_0x03CD87
 C - - - - 0x03454A 23:853A: A2 F3     LDX #$F3
 C - - - - 0x03454C 23:853C: A0 00     LDY #con_игрок_номер
 C - - - - 0x03454E 23:853E: B1 34     LDA (ram_plr_data),Y
+; проверка на вакабаяши
 C - - - - 0x034550 23:8540: C9 21     CMP #$21
 C - - - - 0x034552 23:8542: F0 04     BEQ bra_8548
+; проверка на вакабаяши
 C - - - - 0x034554 23:8544: C9 40     CMP #$40
 C - - - - 0x034556 23:8546: D0 02     BNE bra_854A
 bra_8548:
@@ -2331,7 +2335,7 @@ C - - - - 0x03500B 23:8FFB: A9 00     LDA #$00
 C - - - - 0x03500D 23:8FFD: 85 3A     STA ram_003A
 C - - - - 0x03500F 23:8FFF: A0 00     LDY #con_игрок_номер
 C - - - - 0x035011 23:9001: B1 34     LDA (ram_plr_data),Y
-; проверка на вакашимазу
+; проверка на мисуги
 C - - - - 0x035013 23:9003: C9 20     CMP #$20
 C - - - - 0x035015 23:9005: D0 28     BNE bra_902F
 C - - - - 0x035017 23:9007: AD FB 05  LDA ram_команда_с_мячом
@@ -3799,14 +3803,14 @@ C - - - - 0x035AC2 23:9AB2: A0 00     LDY #con_игрок_номер
 C - - - - 0x035AC4 23:9AB4: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x035AC6 23:9AB6: AE 50 04  LDX $0450
 C - - - - 0x035AC9 23:9AB9: F0 0A     BEQ bra_9AC5
-bra_9ABB:
+bra_9ABB_цикл:
 C - - - - 0x035ACB 23:9ABB: DD 50 04  CMP $0450,X
 C - - - - 0x035ACE 23:9ABE: D0 02     BNE bra_9AC2
 C - - - - 0x035AD0 23:9AC0: 38        SEC
 C - - - - 0x035AD1 23:9AC1: 60        RTS
 bra_9AC2:
 C - - - - 0x035AD2 23:9AC2: CA        DEX
-C - - - - 0x035AD3 23:9AC3: D0 F6     BNE bra_9ABB
+C - - - - 0x035AD3 23:9AC3: D0 F6     BNE bra_9ABB_цикл
 bra_9AC5:
 C - - - - 0x035AD5 23:9AC5: 18        CLC
 C - - - - 0x035AD6 23:9AC6: 60        RTS
@@ -4252,7 +4256,7 @@ C - - - - 0x035DE3 23:9DD3: 60        RTS
 sub_9DD4:
 C - - - - 0x035DE4 23:9DD4: A9 01     LDA #$01
 C - - - - 0x035DE6 23:9DD6: 85 3A     STA ram_003A
-bra_9DD8:
+bra_9DD8_цикл:
 C - - - - 0x035DE8 23:9DD8: A5 3A     LDA ram_003A
 C - - - - 0x035DEA 23:9DDA: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - 0x035DED 23:9DDD: F0 15     BEQ bra_9DF4
@@ -4270,7 +4274,7 @@ bra_9DF4:
 C - - - - 0x035E04 23:9DF4: E6 3A     INC ram_003A
 C - - - - 0x035E06 23:9DF6: A5 3A     LDA ram_003A
 C - - - - 0x035E08 23:9DF8: C9 0B     CMP #$0B
-C - - - - 0x035E0A 23:9DFA: D0 DC     BNE bra_9DD8
+C - - - - 0x035E0A 23:9DFA: D0 DC     BNE bra_9DD8_цикл
 C - - - - 0x035E0C 23:9DFC: A2 FF     LDX #$FF
 C - - - - 0x035E0E 23:9DFE: A9 1C     LDA #$1C
 C - - - - 0x035E10 23:9E00: D0 04     BNE bra_9E06
@@ -4292,7 +4296,7 @@ C - - - - 0x035E26 23:9E16: BD F1 9F  LDA tbl_9FF0 + 1,X
 C - - - - 0x035E29 23:9E19: 85 3D     STA ram_003D
 C - - - - 0x035E2B 23:9E1B: A9 00     LDA #$00
 C - - - - 0x035E2D 23:9E1D: 85 3B     STA ram_003B
-bra_9E1F:
+bra_9E1F_цикл:
 C - - - - 0x035E2F 23:9E1F: A5 3B     LDA ram_003B
 C - - - - 0x035E31 23:9E21: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x035E34 23:9E24: A6 3B     LDX ram_003B
@@ -4323,7 +4327,7 @@ C D - - - 0x035E5B 23:9E4B: 20 EE 9B  JSR sub_9BEE
 C - - - - 0x035E5E 23:9E4E: E6 3B     INC ram_003B
 C - - - - 0x035E60 23:9E50: A5 3B     LDA ram_003B
 C - - - - 0x035E62 23:9E52: C9 16     CMP #$16
-C - - - - 0x035E64 23:9E54: D0 C9     BNE bra_9E1F
+C - - - - 0x035E64 23:9E54: D0 C9     BNE bra_9E1F_цикл
 C - - - - 0x035E66 23:9E56: 20 45 C6  JSR sub_0x03E6FC
 C - - - - 0x035E69 23:9E59: 60        RTS
 
@@ -5191,13 +5195,13 @@ C - - - - 0x03627D 23:A26D: C8        INY
 C - - - - 0x03627E 23:A26E: E8        INX
 C - - - - 0x03627F 23:A26F: E8        INX
 C - - - - 0x036280 23:A270: E8        INX
-bra_A271:
+bra_A271_цикл:
 C - - - - 0x036281 23:A271: B1 3A     LDA (ram_003A),Y
 C - - - - 0x036283 23:A273: 9D A5 04  STA $04A5,X
 C - - - - 0x036286 23:A276: E8        INX
 C - - - - 0x036287 23:A277: C8        INY
 C - - - - 0x036288 23:A278: C6 3C     DEC ram_003C
-C - - - - 0x03628A 23:A27A: D0 F5     BNE bra_A271
+C - - - - 0x03628A 23:A27A: D0 F5     BNE bra_A271_цикл
 C - - - - 0x03628C 23:A27C: F0 DA     BEQ bra_A258
 bra_A27E:
 C - - - - 0x03628E 23:A27E: 9D A5 04  STA $04A5,X
