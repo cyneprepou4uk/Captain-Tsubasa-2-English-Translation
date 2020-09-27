@@ -12,26 +12,26 @@ con_E8                      = $E8   ; везде 01, кроме экрана п�
 con_screen_on               = $E9
 con_screen_off              = $EA
 con_ball                    = $EB
-con_announcer               = $EC   ; 00 - обычные глаза
+con_charlie                 = $EC   ; 00 - обычные глаза
                                     ; 01 - маленькие глаза
                                     ; 02 - обычный радостный
                                     ; 03 - радостный с пальцами
                                     ; 04 - радостный с флагом
                                     ; 05 - с микрофоном
-                                    ; FF - отключить комментатора (но не удаляет его с экрана)
+                                    ; FF - отключить чарли (но не удаляет его с экрана)
 con_sound                   = $ED   ; + номер звука
 con_clear_all               = $EE   ; полностью затереть нижнюю часть экрана
 con_toggle_mouth            = $EF   ; переключатель, при включении срабатывает не сразу, желательно ставить перед задержкой
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
-con_speed                   = $F2
+con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
 con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
 con_F5                      = $F5
 con_pause                   = $F6   ; + доп. байт, чем больше тем дольше
-con_F7                      = $F7
+con_toggle_cam              = $F7   ; мгновенно сдвигает положение камеры в ту или иную сторону
 con_F8                      = $F8   ; 02 - зафризить движение рта персонажа
                                     ; 17 - в скрытой катсцене со шнайдером выводит количество забитых голов
 con_bg_1                    = $F9   ; background
@@ -886,7 +886,7 @@ off_BA16_3A_тренер_17:
     .byte con_speed, $00
     
     .byte con_animation, $01, $57
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_base_offset
     .word $2246
@@ -905,7 +905,7 @@ off_BA16_3A_тренер_17:
     .byte con_clear_3
     
     .byte con_animation, $01, $32
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_base_offset
     .word $2246
@@ -917,7 +917,7 @@ off_BA16_3A_тренер_17:
     .byte con_clear_3
     
     .byte con_animation, $01, $42
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_base_offset
     .word $2244
@@ -1161,7 +1161,7 @@ off_BCF9_42_тренер_1F:
     .byte con_clear_3
     
     .byte con_animation, $01, $34
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $C6
     .byte con_base_offset
     .word $2243
@@ -1197,7 +1197,7 @@ off_BCF9_42_тренер_1F:
     .byte con_clear_3
     
     .byte con_animation, $01, $42
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_jump
     .word off_BEC1
@@ -1217,7 +1217,7 @@ off_BDAD_43_тренер_20:
     .byte con_clear_3
     
     .byte con_animation, $01, $4B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_base_offset
     .word $2246
@@ -1272,7 +1272,7 @@ off_BDAD_43_тренер_20:
     .byte con_clear_3
     
     .byte con_animation, $01, $42
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_jump
     .word off_BEC1
@@ -1586,7 +1586,7 @@ off_BFCE_58_япония_перед_матчем:
     .byte con_animation, $01, $0E
 off_BFD5:
     .byte con_sound, $31
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_speed, $02
     .byte $40    ; <「>

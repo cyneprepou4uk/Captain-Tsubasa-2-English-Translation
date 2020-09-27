@@ -12,26 +12,26 @@ con_E8                      = $E8   ; везде 01, кроме экрана п�
 con_screen_on               = $E9
 con_screen_off              = $EA
 con_ball                    = $EB
-con_announcer               = $EC   ; 00 - обычные глаза
+con_charlie                 = $EC   ; 00 - обычные глаза
                                     ; 01 - маленькие глаза
                                     ; 02 - обычный радостный
                                     ; 03 - радостный с пальцами
                                     ; 04 - радостный с флагом
                                     ; 05 - с микрофоном
-                                    ; FF - отключить комментатора (но не удаляет его с экрана)
+                                    ; FF - отключить чарли (но не удаляет его с экрана)
 con_sound                   = $ED   ; + номер звука
 con_clear_all               = $EE   ; полностью затереть нижнюю часть экрана
 con_toggle_mouth            = $EF   ; переключатель, при включении срабатывает не сразу, желательно ставить перед задержкой
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
-con_speed                   = $F2
+con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
 con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
 con_F5                      = $F5
 con_pause                   = $F6   ; + доп. байт, чем больше тем дольше
-con_F7                      = $F7
+con_toggle_cam              = $F7   ; мгновенно сдвигает положение камеры в ту или иную сторону
 con_F8                      = $F8   ; 02 - зафризить движение рта персонажа
                                     ; 17 - в скрытой катсцене со шнайдером выводит количество забитых голов
 con_bg_1                    = $F9   ; background
@@ -86,7 +86,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     .byte con_animation, $01, $2B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_animation, $01, $2A
@@ -103,7 +103,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
@@ -126,7 +126,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     .byte con_animation, $01, $2A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
@@ -165,7 +165,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $8C
     .byte con_animation, $01, $66
     .byte con_pause, $14
@@ -187,7 +187,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     .byte con_animation, $01, $2B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $2C
     .byte con_pause, $3C
@@ -224,7 +224,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     
     .byte con_animation, $02, $B6, $8A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -310,7 +310,7 @@ off_AF35_17_цубаса_читает_письмо:
     
     .byte con_bg_2, $50
     .byte con_animation, $01, $6C
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $0C
     .byte con_sound, $30
@@ -410,7 +410,7 @@ off_B159_18_мисаки_и_пьер_перед_матчем:
     
     
     .byte con_animation, $01, $1E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $00, $0C
     .byte con_pause, $50
     .byte con_offset, $04
@@ -474,7 +474,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $04
@@ -506,7 +506,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $08
     .byte con_pause, $14
@@ -521,7 +521,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     .byte con_bg_2, $10
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $11
     .byte con_F5, $04
@@ -552,7 +552,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     
     .byte con_animation, $01, $24
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_speed, $02
@@ -680,7 +680,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     
     .byte con_bg_2, $23
     .byte con_animation, $01, $AD
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $30
     .byte con_sound, $57
@@ -1006,7 +1006,7 @@ off_B4F1_1B_цубаса_планирует_циклон_2:
     
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $09
     .byte con_sound, $43
@@ -1441,7 +1441,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     
     .byte con_bg_2, $53
     .byte con_animation, $01, $AB
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F8, $11
     .byte con_pause, $78
@@ -1474,7 +1474,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_pause, $3C
     .byte con_bg_2, $05
     .byte con_animation, $01, $A4
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $13, $01
     
     
@@ -1495,7 +1495,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     
     .byte con_bg_2, $21
     .byte con_animation, $02, $73, $74
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $03
     .byte con_sound, $0E
@@ -1504,7 +1504,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_F5, $FF
     .byte con_bg_2, $02
     .byte con_animation, $01, $5B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_speed, $02
     .byte con_offset, $07
@@ -1516,7 +1516,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     
     .byte con_bg_2, $09
     .byte con_animation, $01, $43
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $03, $11
     .byte con_F5, $07
     .byte con_sound, $0E
@@ -1539,7 +1539,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_bg_2, $3E
     .byte con_animation, $02, $A7, $A8
     .byte con_F8, $12
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_bg_2, $41
     .byte con_F8, $11
     .byte con_F3, $FF, $28, $44
@@ -1580,7 +1580,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     
     .byte con_bg_2, $23
     .byte con_animation, $01, $AD
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $09
     .byte con_sound, $30
@@ -1612,7 +1612,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F5, $04
     .byte con_pause, $3C
     .byte con_sound, $47
@@ -1689,7 +1689,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_speed, $02
@@ -1875,7 +1875,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .word $2240
     .byte con_pause, $28
     .byte con_window, $00
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "In the last minutes"
@@ -1923,7 +1923,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_clear_1
     .byte con_E8, $01
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $3B
     .byte con_animation, $01, $7A
     .byte con_F3, $00
@@ -1948,7 +1948,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     
     .byte con_animation, $01, $7B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $08
     .byte con_sound, $26
@@ -1961,12 +1961,12 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     .byte con_bg_2, $59
     .byte con_animation, $01, $83
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $09
     .byte con_F5, $01
     .byte con_window, $01
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "The duo unleash their"
@@ -1987,7 +1987,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_F3, $00
     .byte con_sound, $0B
     .byte con_pause, $0F
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_speed, $03
     .byte con_offset, $09
     .text "But"
@@ -2014,7 +2014,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_screen_off
     .byte con_clear_2
     .byte con_window, $00
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_bg_1, $3A
     .byte con_animation, $01, $8B
     .byte con_F3, $00
@@ -2045,7 +2045,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_pause, $3C
     .byte con_clear_1
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $02
     .byte con_animation, $01, $4B
     .byte con_screen_on
@@ -2065,7 +2065,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     .byte con_bg_2, $10
     .byte con_animation, $01, $5D
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $04
     .byte con_pause, $50
@@ -2083,7 +2083,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_F5, $FF
     .byte con_bg_2, $02
     .byte con_animation, $01, $32
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -2124,7 +2124,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_screen_on
     .byte con_pause, $1E
     .byte con_window, $00
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Brazil has secured a"
@@ -2165,7 +2165,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_toggle_mouth
     .byte con_F4, $01
     .byte con_pause, $3C
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_line
     .byte con_offset, $09
     .text "Elzo Gertise!"
@@ -2175,7 +2175,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     
     
     
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_offset, $09
     .text "We'll be right back"
     .byte con_line
@@ -2231,7 +2231,7 @@ off_BDD6_1E_цубаса_и_шнайдер_перед_матчем:
     
     
     .byte con_animation, $01, $6A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $50
     .byte con_offset, $06

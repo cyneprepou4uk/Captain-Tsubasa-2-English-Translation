@@ -12,26 +12,26 @@ con_E8                      = $E8   ; везде 01, кроме экрана п�
 con_screen_on               = $E9
 con_screen_off              = $EA
 con_ball                    = $EB
-con_announcer               = $EC   ; 00 - обычные глаза
+con_charlie                 = $EC   ; 00 - обычные глаза
                                     ; 01 - маленькие глаза
                                     ; 02 - обычный радостный
                                     ; 03 - радостный с пальцами
                                     ; 04 - радостный с флагом
                                     ; 05 - с микрофоном
-                                    ; FF - отключить комментатора (но не удаляет его с экрана)
+                                    ; FF - отключить чарли (но не удаляет его с экрана)
 con_sound                   = $ED   ; + номер звука
 con_clear_all               = $EE   ; полностью затереть нижнюю часть экрана
 con_toggle_mouth            = $EF   ; переключатель, при включении срабатывает не сразу, желательно ставить перед задержкой
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
-con_speed                   = $F2
+con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
 con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
 con_F5                      = $F5
 con_pause                   = $F6   ; + доп. байт, чем больше тем дольше
-con_F7                      = $F7
+con_toggle_cam              = $F7   ; мгновенно сдвигает положение камеры в ту или иную сторону
 con_F8                      = $F8   ; 02 - зафризить движение рта персонажа
                                     ; 17 - в скрытой катсцене со шнайдером выводит количество забитых голов
 con_bg_1                    = $F9   ; background
@@ -80,7 +80,7 @@ off_A195_13_после_победы_над_японией:
     
     .byte con_bg_2, $2E
     .byte con_animation, $01, $3B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $04
     .byte con_bg_2, $10
@@ -121,7 +121,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $11
     .byte con_pause, $1E
@@ -233,7 +233,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $3F
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $06
@@ -253,7 +253,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $30
     .byte con_offset, $06
@@ -301,7 +301,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $26
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $06
@@ -461,7 +461,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -473,7 +473,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_speed, $08
     .text "..."
     .byte con_animation, $01, $26
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_line
@@ -501,7 +501,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $78
     .byte con_animation, $01, $57
@@ -522,7 +522,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $27
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_animation, $01, $26
@@ -543,7 +543,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $57
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $78
     .byte con_offset, $05
@@ -575,7 +575,7 @@ off_A195_13_после_победы_над_японией:
     .text "@Would you", $3A, $3B, "@"
     .byte con_F5, $FF
     .byte con_bg_2, $34
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $1E
     .byte con_F8, $0E
     .byte con_sound, $52
@@ -598,7 +598,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_F8, $02
     .byte con_sound, $48
     .byte con_animation, $01, $08
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $32
     .byte con_pause, $14
@@ -615,7 +615,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $28
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $33
     .byte con_F5, $05
@@ -645,7 +645,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_offset, $05
@@ -675,7 +675,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $24
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_speed, $04
@@ -698,7 +698,7 @@ off_A195_13_после_победы_над_японией:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_toggle_mouth
@@ -844,7 +844,7 @@ off_A5D6_14_после_победы_над_китаем:
     
     
     .byte con_animation, $01, $33
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -860,7 +860,7 @@ off_A5D6_14_после_победы_над_китаем:
     
     
     .byte con_animation, $01, $44
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $00, $20
     .byte con_pause, $14
     .byte con_toggle_mouth
@@ -890,7 +890,7 @@ off_A5D6_14_после_победы_над_китаем:
     
     
     .byte con_animation, $01, $68
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -911,7 +911,7 @@ off_A5D6_14_после_победы_над_китаем:
     
     
     .byte con_animation, $01, $22
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_toggle_mouth
@@ -961,7 +961,7 @@ off_A5D6_14_после_победы_над_китаем:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_speed, $04
@@ -1016,7 +1016,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $2E
     .byte con_animation, $01, $2D
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $65
     .byte con_F5, $04
@@ -1040,7 +1040,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_F5, $FF
     .byte con_animation, $01, $12
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $13, $0C
     .byte con_bg_2, $38
     .byte con_sound, $43
@@ -1150,7 +1150,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_clear_1
     .byte con_bg_2, $21
     .byte con_animation, $02, $73, $74
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $03
     .byte con_sound, $0E
@@ -1158,22 +1158,22 @@ off_A703_15_после_победы_над_кореей:
     .byte con_F5, $FF
     .byte con_bg_2, $5A
     .byte con_animation, $01, $01
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $03
     .byte con_bg_2, $20
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $04
     .byte con_pause, $35
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $05
     .byte con_bg_2, $56
     .byte con_animation, $03, $C0, $A0, $80
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $07
     .byte con_bg_2, $39
     .byte con_animation, $01, $85
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $5D
     .byte con_F5, $04
@@ -1182,7 +1182,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_pause, $28
     .byte con_window, $01
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "It's buried in the"
@@ -1208,12 +1208,12 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $3A
     .byte con_animation, $01, $8B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $66
     .byte con_pause, $14
     .byte con_window, $00
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_speed, $04
     .byte con_offset, $09
     .text "It's"
@@ -1252,7 +1252,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_sound, $01
     .byte con_clear_2
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $3C
     .byte con_animation, $01, $96
     .byte con_sound, $36
@@ -1284,7 +1284,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_sound, $68
     .byte con_pause, $1E
     .byte con_window, $01
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Pierre is making his"
@@ -1307,7 +1307,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_clear_1
     .byte con_E8, $01
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $3B
     .byte con_animation, $01, $7A
     .byte con_F3, $00
@@ -1336,7 +1336,7 @@ off_A703_15_после_победы_над_кореей:
     
     
     .byte con_animation, $01, $7B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $08
     .byte con_sound, $26
@@ -1351,11 +1351,11 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $09
     .byte con_animation, $01, $43
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $0C
     .byte con_window, $01
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Wh", $3A, $3B, "?!"
@@ -1374,13 +1374,13 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $39
     .byte con_animation, $01, $85
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $5D
     .byte con_F5, $04
     .byte con_clear_2
     .byte con_pause, $14
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_offset, $09
     .text "A truly impressive"
     .byte con_line
@@ -1400,11 +1400,11 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $3A
     .byte con_animation, $01, $8B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $66
     .byte con_window, $00
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_offset, $09
     .text "It's over!"
     .byte con_pause, $08
@@ -1412,7 +1412,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_pause, $08
     .text " It's over!"
     .byte con_pause, $1E
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_line
     .byte con_offset, $09
     .text "France qualifies for"
@@ -1428,7 +1428,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_sound, $01
     .byte con_clear_1
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $3C
     .byte con_animation, $03, $BD, $C8, $97
     .byte con_sound, $38
@@ -1458,7 +1458,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_screen_on
 ; таймер замаха удара шнайдера 0x0144DE
     .byte con_window, $01
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Schneider intends to"
@@ -1472,7 +1472,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_offset, $09
     .text "field!"
     .byte con_pause, $14
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_speed, $03
     .text " Watch out!!"
     .byte con_pause, $50
@@ -1483,10 +1483,10 @@ off_A703_15_после_победы_над_кореей:
     
     
     .byte con_sound, $02
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_2, $05
     .byte con_animation, $01, $79
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $30
     .byte con_F5, $11
@@ -1501,7 +1501,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $21
     .byte con_animation, $02, $73, $74
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $0F
     .byte con_sound, $0E
@@ -1510,24 +1510,24 @@ off_A703_15_после_победы_над_кореей:
     .byte con_F5, $FF
     .byte con_bg_2, $5A
     .byte con_animation, $01, $00
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $2D, $04
     .byte con_sound, $06
     .byte con_bg_2, $20
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $07
     .byte con_pause, $1A
     .byte con_sound, $07
     .byte con_pause, $19
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $08
     .byte con_bg_2, $56
     .byte con_animation, $03, $C0, $A0, $80
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $07
     .byte con_bg_2, $39
     .byte con_animation, $01, $86
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $61
     .byte con_F5, $04
@@ -1536,7 +1536,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_pause, $0F
     .byte con_window, $01
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_speed, $02
     .byte con_offset, $09
     .text "WHO~~~"
@@ -1559,12 +1559,12 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $3A
     .byte con_animation, $01, $8B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $66
     .byte con_pause, $14
     .byte con_window, $00
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_offset, $09
     .text "With t"
     .byte con_sound, $69
@@ -1600,7 +1600,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_screen_off
     .byte con_clear_1
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $1D
     .byte con_pause, $3C
     .byte con_animation, $03, $C9, $91, $99
@@ -1671,7 +1671,7 @@ off_A703_15_после_победы_над_кореей:
     
     
     .byte con_animation, $01, $48
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_speed, $08
     .text "...@"
@@ -1691,7 +1691,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $50
     .byte con_animation, $01, $6C
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $52
     .byte con_pause, $78
@@ -1700,7 +1700,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $12
     .byte con_animation, $01, $3D
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $30
     .byte con_toggle_mouth
@@ -1783,7 +1783,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $13
     .byte con_animation, $01, $5A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $50
     .byte con_speed, $02
@@ -1807,7 +1807,7 @@ off_A703_15_после_победы_над_кореей:
     
     .byte con_bg_2, $50
     .byte con_animation, $01, $6C
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F8, $02
     .byte con_pause, $3C

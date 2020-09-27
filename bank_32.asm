@@ -12,26 +12,26 @@ con_E8                      = $E8   ; везде 01, кроме экрана п�
 con_screen_on               = $E9
 con_screen_off              = $EA
 con_ball                    = $EB
-con_announcer               = $EC   ; 00 - обычные глаза
+con_charlie                 = $EC   ; 00 - обычные глаза
                                     ; 01 - маленькие глаза
                                     ; 02 - обычный радостный
                                     ; 03 - радостный с пальцами
                                     ; 04 - радостный с флагом
                                     ; 05 - с микрофоном
-                                    ; FF - отключить комментатора (но не удаляет его с экрана)
+                                    ; FF - отключить чарли (но не удаляет его с экрана)
 con_sound                   = $ED   ; + номер звука
 con_clear_all               = $EE   ; полностью затереть нижнюю часть экрана
 con_toggle_mouth            = $EF   ; переключатель, при включении срабатывает не сразу, желательно ставить перед задержкой
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
-con_speed                   = $F2
+con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
 con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
 con_F5                      = $F5
 con_pause                   = $F6   ; + доп. байт, чем больше тем дольше
-con_F7                      = $F7
+con_toggle_cam              = $F7   ; мгновенно сдвигает положение камеры в ту или иную сторону
 con_F8                      = $F8   ; 02 - зафризить движение рта персонажа
                                     ; 17 - в скрытой катсцене со шнайдером выводит количество забитых голов
 con_bg_1                    = $F9   ; background
@@ -76,7 +76,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $10
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $2B
     .byte con_F5, $04
@@ -94,13 +94,13 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $43
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $11
     .byte con_sound, $62
     .byte con_pause, $50
     .byte con_window, $01
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .byte con_speed, $04
     .byte con_offset, $09
     .text "The Japanese players"
@@ -139,8 +139,8 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_sound, $62
     .byte con_clear_all
-    .byte con_announcer, $FF
-    .byte con_F7
+    .byte con_charlie, $FF
+    .byte con_toggle_cam
     .byte con_F8, $0E
     .byte con_offset, $06
     .text "@You brought us to"
@@ -158,7 +158,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $03
@@ -182,7 +182,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $06
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $0A
     .byte con_offset, $0A
@@ -197,7 +197,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $39
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_speed, $04
@@ -218,7 +218,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $20
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $C7
     .byte con_pause, $0A
     .byte con_offset, $06
@@ -240,7 +240,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $1C
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $C8
     .byte con_pause, $14
     .byte con_offset, $06
@@ -262,7 +262,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $3F
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $0A
     .byte con_offset, $07
@@ -274,12 +274,12 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $2B
     .byte con_animation, $01, $43
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_sound, $62
     .byte con_bg_2, $10
     .byte con_pause, $14
     .byte con_window, $01
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .byte con_speed, $04
     .byte con_offset, $09
     .text "The team really"
@@ -302,7 +302,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_offset, $09
     .text "the Japan squad!"
     .byte con_pause, $28
-    .byte con_announcer, $04
+    .byte con_charlie, $04
     .byte con_line
     .byte con_offset, $09
     .text "Let's celebrate!!"
@@ -313,10 +313,10 @@ off_A43B_22_финальная_катсцена:
     
     
     
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_2, $11
     .byte con_animation, $01, $0A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $10
     .byte con_pause, $1E
@@ -334,7 +334,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $5F
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $0A
     .byte con_toggle_mouth
@@ -366,7 +366,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $0A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $04
@@ -432,7 +432,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $5F
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $03
@@ -452,7 +452,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $63
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $00, $0F
     .byte con_pause, $0A
     .byte con_offset, $05
@@ -468,13 +468,13 @@ off_A43B_22_финальная_катсцена:
     .byte con_clear_1
     .byte con_bg_2, $06
     .byte con_animation, $01, $A3
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $C2
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
     .byte con_sound, $62
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F5, $04
     .byte con_pause, $B4
     .byte con_sound, $31
@@ -528,7 +528,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $03
@@ -552,7 +552,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $3B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_toggle_mouth
     .byte con_pause, $14
@@ -587,7 +587,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $FF, $00, $0C
     .byte con_pause, $14
     .byte con_animation, $01, $12
@@ -601,7 +601,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $3B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_speed, $04
@@ -688,7 +688,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $04
@@ -709,7 +709,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $3B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -788,7 +788,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_offset, $07
@@ -803,7 +803,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $3C
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_speed, $04
@@ -841,7 +841,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $57
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_offset, $05
@@ -871,7 +871,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $3B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
@@ -896,7 +896,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_clear_1
     .byte con_bg_2, $0D
     .byte con_animation, $01, $0E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -941,7 +941,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_animation, $01, $53
     .byte con_screen_on
     .byte con_window, $00
-    .byte con_announcer, $04
+    .byte con_charlie, $04
     .byte con_speed, $04
     .byte con_offset, $09
     .text "And now,"
@@ -991,7 +991,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $3C
     .byte con_clear_1
     .byte con_clear_all
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $11
     .byte con_bg_2, $10
     .byte con_animation, $01, $42
@@ -1021,7 +1021,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $40
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_pause, $1E
     .byte con_offset, $05
     .text "@With players like"
@@ -1043,7 +1043,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $42
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_pause, $1E
     .byte con_offset, $04
     .text "@If their goal reaches"
@@ -1065,7 +1065,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $40
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_toggle_mouth
     .byte con_pause, $14
     .byte con_speed, $02
@@ -1096,7 +1096,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $42
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_pause, $14
     .byte con_offset, $05
     .text "@Well,"
@@ -1126,7 +1126,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_sound, $69
     .byte con_pause, $1E
     .byte con_window, $00
-    .byte con_announcer, $04
+    .byte con_charlie, $04
     .byte con_toggle_mouth
     .byte con_offset, $09
     .text "After having circled"
@@ -1151,7 +1151,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $50
     .byte con_clear_all
     .byte con_clear_1
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     
     
     
@@ -1193,7 +1193,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $24
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $2E
     .byte con_pause, $14
@@ -1207,7 +1207,7 @@ off_A43B_22_финальная_катсцена:
     .text "..."
     .byte con_pause, $28
     .byte con_animation, $01, $07
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -1268,7 +1268,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $28
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $04
     .byte con_pause, $0A
@@ -1278,7 +1278,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $28
     .byte con_bg_2, $57
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_toggle_mouth
@@ -1302,7 +1302,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $26
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -1331,7 +1331,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $66
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
@@ -1348,7 +1348,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $27
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $02
@@ -1381,12 +1381,12 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $46
     .byte con_animation, $02, $90, $9D
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $4C
     .byte con_pause, $F0
     .byte con_animation, $01, $68
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $47
     .byte con_pause, $1E
@@ -1418,7 +1418,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $2B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_speed, $04
@@ -1459,7 +1459,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $2A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_pause, $1E
     .byte con_speed, $04
     .byte con_offset, $03
@@ -1480,7 +1480,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_animation, $01, $4F
 ; рот автоматически закрыт в таймере анимации
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_pause, $28
     .byte con_offset, $08
     .text "@Can I trust you"
@@ -1505,7 +1505,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $2A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_pause, $1E
     .byte con_animation, $01, $2B
     .byte con_pause, $1E
@@ -1567,7 +1567,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $68
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -1589,7 +1589,7 @@ off_A43B_22_финальная_катсцена:
     .text "serious about @scoring@,"
     .byte con_pause, $28
     .byte con_animation, $01, $2B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_toggle_mouth
     .byte con_pause, $28
@@ -1626,7 +1626,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $62
     .byte con_animation, $01, $6B
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $0C
     .byte con_F8, $15
@@ -1689,7 +1689,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $69
     .byte con_animation, $01, $25
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_offset, $05
@@ -1733,7 +1733,7 @@ off_A43B_22_финальная_катсцена:
     
     
     .byte con_animation, $01, $29
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $28
     .byte con_toggle_mouth
@@ -1760,7 +1760,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $02
     .byte con_animation, $01, $47
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_offset, $09
@@ -1786,7 +1786,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $14
     .byte con_bg_2, $52
     .byte con_animation, $01, $29
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F8, $02
     .byte con_sound, $31
@@ -1795,7 +1795,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $50
     .byte con_bg_2, $02
     .byte con_animation, $01, $55
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $0A
     .byte con_speed, $02
@@ -1811,7 +1811,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $3C
     .byte con_bg_2, $4B
     .byte con_animation, $01, $B7
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -1835,7 +1835,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $02
     .byte con_animation, $01, $55
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $78
     .byte con_offset, $06
@@ -1870,7 +1870,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $4B
     .byte con_animation, $01, $B7
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_offset, $06
@@ -1890,7 +1890,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $02
     .byte con_animation, $01, $02
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $50
     .byte con_offset, $04
@@ -1909,7 +1909,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $3C
     .byte con_bg_2, $4B
     .byte con_animation, $01, $B7
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F8, $02
     .byte con_pause, $3C
@@ -1931,7 +1931,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $23
     .byte con_animation, $01, $AD
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -1951,7 +1951,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $4B
     .byte con_animation, $01, $B7
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $78
     .byte con_speed, $08
@@ -1983,7 +1983,7 @@ off_A43B_22_финальная_катсцена:
     
     .byte con_bg_2, $4D
     .byte con_animation, $03, $B9, $BD, $B0
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F8, $14
     .byte con_pause, $F0

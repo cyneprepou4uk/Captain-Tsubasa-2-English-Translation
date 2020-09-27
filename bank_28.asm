@@ -12,26 +12,26 @@ con_E8                      = $E8   ; везде 01, кроме экрана п�
 con_screen_on               = $E9
 con_screen_off              = $EA
 con_ball                    = $EB
-con_announcer               = $EC   ; 00 - обычные глаза
+con_charlie                 = $EC   ; 00 - обычные глаза
                                     ; 01 - маленькие глаза
                                     ; 02 - обычный радостный
                                     ; 03 - радостный с пальцами
                                     ; 04 - радостный с флагом
                                     ; 05 - с микрофоном
-                                    ; FF - отключить комментатора (но не удаляет его с экрана)
+                                    ; FF - отключить чарли (но не удаляет его с экрана)
 con_sound                   = $ED   ; + номер звука
 con_clear_all               = $EE   ; полностью затереть нижнюю часть экрана
 con_toggle_mouth            = $EF   ; переключатель, при включении срабатывает не сразу, желательно ставить перед задержкой
 con_base_offset             = $F0   ; начальное положение текста + low 2006 + high 2006
 con_window                  = $F1
-con_speed                   = $F2
+con_speed                   = $F2   ; + интервал между буквами, если 00 то текст выводится сразу
 con_F3                      = $F3   ; либо .byte $F3, $00,  либо .byte $F3, $FF, $??, $??
 con_F4                      = $F4   ; 04 - скрыть текст
                                     ; 05 - показать скрытый текст
                                     ; 06 - мячик скрытой катсцены + номер катсцены
 con_F5                      = $F5
 con_pause                   = $F6   ; + доп. байт, чем больше тем дольше
-con_F7                      = $F7
+con_toggle_cam              = $F7   ; мгновенно сдвигает положение камеры в ту или иную сторону
 con_F8                      = $F8   ; 02 - зафризить движение рта персонажа
                                     ; 17 - в скрытой катсцене со шнайдером выводит количество забитых голов
 con_bg_1                    = $F9   ; background
@@ -62,7 +62,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_pause, $50
     .byte con_sound, $4E
     .byte con_window, $00
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .byte con_offset, $09
     .text "It's been a long"
     .byte con_line
@@ -125,7 +125,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_screen_off
     .byte con_clear_all
     .byte con_clear_1
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $0E
     .byte con_screen_on
     .byte con_pause, $1E
@@ -181,7 +181,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $19
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $03
@@ -223,7 +223,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $31
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_toggle_mouth
@@ -245,10 +245,10 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F5, $04
     .byte con_window, $00
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .byte con_speed, $04
     .byte con_offset, $09
     .text "A good show of"
@@ -279,7 +279,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_screen_off
     .byte con_clear_all
     .byte con_clear_1
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $11
     .byte con_bg_2, $10
     .byte con_animation, $01, $31
@@ -306,7 +306,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $19
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $03
@@ -337,7 +337,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_screen_on
     .byte con_pause, $3C
     .byte con_window, $00
-    .byte con_announcer, $04
+    .byte con_charlie, $04
     .byte con_offset, $09
     .text "Nankatsu's captain"
     .byte con_line
@@ -367,7 +367,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .byte con_offset, $09
     .text "The reporters are"
     .byte con_line
@@ -404,7 +404,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_screen_off
     .byte con_clear_all
     .byte con_clear_1
-    .byte con_announcer, $FF
+    .byte con_charlie, $FF
     .byte con_bg_1, $02
     .byte con_animation, $01, $42
     .byte con_screen_on
@@ -554,7 +554,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_sound, $25
     .byte con_F5, $08
     .byte con_pause, $14
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F5, $04
     .byte con_pause, $78
     .byte con_sound, $62
@@ -583,7 +583,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $63
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $04
@@ -616,7 +616,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $06
@@ -652,7 +652,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_clear_1
     .byte con_bg_2, $23
     .byte con_animation, $01, $AE
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_F5, $08
     .byte con_sound, $43
@@ -662,7 +662,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_bg_2, $10
     .byte con_animation, $01, $40
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_sound, $52
     .byte con_pause, $28
@@ -795,7 +795,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $2A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $10
     .byte con_pause, $1E
@@ -841,7 +841,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $11
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $0A
     .byte con_speed, $02
@@ -864,7 +864,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $2A
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $05
@@ -956,7 +956,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $0A
     .byte con_offset, $04
@@ -1006,7 +1006,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_bg_2, $0F
     .byte con_animation, $01, $43
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -1039,7 +1039,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     .byte con_bg_2, $10
     .byte con_animation, $01, $40
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_bg_2, $11
     .byte con_pause, $1E
@@ -1065,7 +1065,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $10
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $09
@@ -1082,7 +1082,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $4D
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $04
@@ -1107,7 +1107,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $10
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $3C
     .byte con_speed, $06
@@ -1170,7 +1170,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $4D
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $06
@@ -1184,7 +1184,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $10
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $04
@@ -1225,7 +1225,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $40
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $50
     .byte con_offset, $06
@@ -1247,7 +1247,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $63
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_speed, $04
@@ -1272,7 +1272,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $13
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $04
@@ -1294,7 +1294,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_animation, $01, $63
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $04
@@ -1308,7 +1308,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_F5, $FF
     .byte con_bg_2, $0F
     .byte con_animation, $01, $0C
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $06
@@ -1360,7 +1360,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_sound, $01
     .byte con_pause, $78
     .byte con_sound, $43
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_offset, $09
     .text "Hey!"
     .byte con_pause, $1E
@@ -1387,7 +1387,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_F3, $00
     .byte con_sound, $27
     .byte con_pause, $1E
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Oh,"
@@ -1396,7 +1396,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_pause, $50
     .byte con_sound, $62
     .byte con_sound, $3C
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .text " It's"
     .byte con_line
     .byte con_offset, $09
@@ -1435,7 +1435,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_pause, $1E
     .byte con_line
     .byte con_offset, $09
-    .byte con_announcer, $04
+    .byte con_charlie, $04
     .text "Yo,"
     .byte con_pause, $0F
     .text " Japan's best!"
@@ -1447,7 +1447,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_animation, $02, $C5, $C4
     .byte con_sound, $04
     .byte con_pause, $14
-    .byte con_announcer, $02
+    .byte con_charlie, $02
     .byte con_offset, $09
     .text "That's a real"
     .byte con_line
@@ -1455,7 +1455,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .text "jumping Jack!"
     .byte con_pause, $50
     .byte con_line
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Now,"
@@ -1472,7 +1472,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     
     
     
-    .byte con_announcer, $00
+    .byte con_charlie, $00
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Oh,"
@@ -1484,7 +1484,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     
     
     
-    .byte con_announcer, $05
+    .byte con_charlie, $05
     .byte con_speed, $04
     .byte con_offset, $09
     .text "Enough horsing"
@@ -1510,7 +1510,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_pause, $02
     .byte con_sound, $64
     .byte con_pause, $3C
-    .byte con_announcer, $01
+    .byte con_charlie, $01
     .byte con_offset, $09
 ; пустой текст чтобы сменить эмоцию комментатора
     .text " "
@@ -1574,7 +1574,7 @@ off_A020_10_цубаса_и_вакабаяши_перед_матчем:
     
     .byte con_bg_2, $10
     .byte con_animation, $01, $58
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $50
     .byte con_offset, $05
@@ -1627,7 +1627,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $14
     .byte con_offset, $02
@@ -1651,7 +1651,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     
     
     .byte con_animation, $01, $34
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
@@ -1672,7 +1672,7 @@ off_A099_11_цубаса_и_вакабаяши_после_матча:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
@@ -1727,7 +1727,7 @@ off_A134_12_цубаса_и_мисаки_перед_матчем:
     
     
     .byte con_animation, $01, $4E
-    .byte con_F7
+    .byte con_toggle_cam
     .byte con_F3, $00
     .byte con_pause, $1E
     .byte con_offset, $05
