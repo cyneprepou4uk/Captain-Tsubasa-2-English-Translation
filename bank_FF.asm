@@ -504,6 +504,7 @@ C - - - - 0x03C991 FF:C981: 60        RTS
 sub_C982:
 C - - - - 0x03C992 FF:C982: A2 00     LDX #$00
 C - - - - 0x03C994 FF:C984: AD 1C 00  LDA ram_удержанные
+; bzk опт удалить прыжок и rts
 C - - - - 0x03C997 FF:C987: 20 8B C9  JSR sub_C98B
 C - - - - 0x03C99A FF:C98A: 60        RTS
 
@@ -1218,8 +1219,8 @@ C - - - - 0x03CE7C FF:CE6C: C8        INY
 bra_CE6D_выход:
 C - - - - 0x03CE7D FF:CE6D: 60        RTS
 
-.export sub_0x03CE7E
-sub_0x03CE7E:
+.export sub_0x03CE7E_прыжки_в_начале_банка_24
+sub_0x03CE7E_прыжки_в_начале_банка_24:
 C D - - - 0x03CE7E FF:CE6E: 85 36     STA ram_0036
 C - - - - 0x03CE80 FF:CE70: 0A        ASL
 C - - - - 0x03CE81 FF:CE71: 65 36     ADC ram_0036
@@ -5995,8 +5996,8 @@ C - - - - 0x03ED2E FF:ED1E: A9 C8     LDA #$C8
 C - - - - 0x03ED30 FF:ED20: 95 01     STA ram_0001,X
 C - - - - 0x03ED32 FF:ED22: A9 18     LDA #$18
 C - - - - 0x03ED34 FF:ED24: 95 02     STA ram_0002,X
-C - - - - 0x03ED36 FF:ED26: A9 7F     LDA #> ofs_0x03001F
-C - - - - 0x03ED38 FF:ED28: A0 FF     LDY #< ofs_0x03001F
+C - - - - 0x03ED36 FF:ED26: A9 7F     LDA #> ofs_0x03001F_чтение_байтов_облака
+C - - - - 0x03ED38 FF:ED28: A0 FF     LDY #< ofs_0x03001F_чтение_байтов_облака
 C - - - - 0x03ED3A FF:ED2A: 20 E7 CA  JSR sub_CAE7_подготовить_подпрограмму_в_стеке
 bra_ED2D:
 C - - - - 0x03ED3D FF:ED2D: AD 2B 05  LDA $052B
