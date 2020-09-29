@@ -4278,7 +4278,8 @@ C - - - - 0x027173 19:B163: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0271AE 19:B19E: 33 B3     .word ofs_B333_E7_закончить_чтение_строки
 
 ofs_B1A6_E0_рожа_игрока_или_фон:
-C - J - - 0x0271B6 19:B1A6: 20 2D C5  JSR sub_0x03CC56
+.scope
+C - J - - 0x0271B6 19:B1A6: 20 2D C5  JSR sub_очистить_текст
 C - - - - 0x0271B9 19:B1A9: A4 8A     LDY ram_008A
 C - - - - 0x0271BB 19:B1AB: E6 8A     INC ram_008A
 C - - - - 0x0271BD 19:B1AD: B1 88     LDA (ram_0088),Y
@@ -4306,6 +4307,56 @@ C - - - - 0x0271EA 19:B1DA: AA        TAX
 C - - - - 0x0271EB 19:B1DB: E0 7E     CPX #$7E
 C - - - - 0x0271ED 19:B1DD: D0 EF     BNE bra_B1CE
 C - - - - 0x0271EF 19:B1DF: 60        RTS
+
+sub_очистить_текст:
+; 04A5 - счетчик тайлов
+; 04A6 - 2006 lo
+; 04A7 - 2006 hi
+    LDA #$01
+    STA $0515
+    LDA #$00
+    STA $05F4
+    STA $04A6
+    LDX #$40
+    STX $04A5
+@очистить_буфер:
+    STA $04A8,X
+    DEX
+    BPL @очистить_буфер
+    LDA #$22
+    STA $04A7
+    LDA #$06        ; счетчик цикла
+@цикл:
+    PHA
+@ожидание_очистки:
+    LDA #$80
+    STA $0515
+    LDA #$01
+    JSR sub_0x03CB1F
+    LDA $0515
+    BNE @ожидание_очистки
+    LDA #$01
+    STA $0515
+    LDA $04A6
+    CLC
+    ADC #$40        ; увеличение адреса на 40, начиная с 2200
+    STA $04A6
+    BCC @пропуск
+    INC $04A7
+@пропуск:
+    PLA
+    SEC
+    SBC #$01
+    BPL @цикл
+    LSR $04A5       ; 40 / 2 = 20
+    LDA #$E0        ; очистка второй половины атрибутов
+    STA $04A6
+    LDA #$80
+    STA $0515
+    LDA #$01
+    JSR sub_0x03CB1F
+    RTS
+.endscope
 
 ofs_B1E0_E1_таймер_перед_следующим_экраном:
 C - J - - 0x0271F0 19:B1E0: A4 8A     LDY ram_008A
@@ -4974,7 +5025,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_E2, $0E, $39, $0B
     .byte con_animation, $6F
     .byte con_offset, $64, $22
-    .text "Music"
+    .text "Composers"
     .byte con_endline
     .byte con_timer, $20
     
@@ -5070,7 +5121,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_E2, $02, $21, $0B
     .byte con_animation, $73
     .byte con_offset, $64, $22
-    .text "Programming"
+    .text "Data Work"
     .byte con_endline
     .byte con_timer, $20
     
@@ -5094,8 +5145,8 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_endline
     .byte con_timer, $20
     
-    .byte con_offset, $F3, $22
-    .text "Today #10"
+    .byte con_offset, $F1, $22
+    .text "Today Jubei"
     .byte con_endline
     .byte con_timer, $50
     

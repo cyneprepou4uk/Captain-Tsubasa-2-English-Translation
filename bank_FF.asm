@@ -843,50 +843,57 @@ C - - - - 0x03CC50 FF:CC40: A9 20     LDA #$20
 C - - - - 0x03CC52 FF:CC42: 8D 6C 04  STA $046C
 C - - - - 0x03CC55 FF:CC45: 60        RTS
 
-.export sub_0x03CC56
-sub_0x03CC56:
-.export loc_0x03CC56
-loc_0x03CC56:
-loc_CC46:
-sub_CC46:
+.export sub_0x03CC56_очистить_нижнюю_половину_экрана
+sub_0x03CC56_очистить_нижнюю_половину_экрана:
+.export loc_0x03CC56_очистить_нижнюю_половину_экрана
+loc_0x03CC56_очистить_нижнюю_половину_экрана:
+loc_CC46_очистить_нижнюю_половину_экрана:
+sub_CC46_очистить_нижнюю_половину_экрана:
 C D - - - 0x03CC56 FF:CC46: A9 00     LDA #$00
 C - - - - 0x03CC58 FF:CC48: 8D F4 05  STA $05F4
-C - - - - 0x03CC5B FF:CC4B: A9 06     LDA #$04
-bra_CC4D_продолжить_очистку_буфера:
+C - - - - 0x03CC5B FF:CC4B: A9 06     LDA #$06
+bra_CC4D:
 C - - - - 0x03CC5D FF:CC4D: 48        PHA
-bra_CC4E_ожидание_очистки:
+bra_CC4E:
 C - - - - 0x03CC5E FF:CC4E: A9 01     LDA #$01
 C - - - - 0x03CC60 FF:CC50: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CC63 FF:CC53: AD 15 05  LDA $0515
-C - - - - 0x03CC66 FF:CC56: D0 F6     BNE bra_CC4E_ожидание_очистки
+C - - - - 0x03CC66 FF:CC56: D0 F6     BNE bra_CC4E
 C - - - - 0x03CC68 FF:CC58: A9 01     LDA #$01
 C - - - - 0x03CC6A FF:CC5A: 8D 15 05  STA $0515
-; размер буфера
-C - - - - 0x03CC6D FF:CC5D: A0 4F     LDY #$23
+C - - - - 0x03CC6D FF:CC5D: A0 4F     LDY #$4F
 C - - - - 0x03CC6F FF:CC5F: A2 00     LDX #$00
 C - - - - 0x03CC71 FF:CC61: 8A        TXA
-bra_CC62_цикл:
+bra_CC62:
 C - - - - 0x03CC72 FF:CC62: 9D A5 04  STA $04A5,X
 C - - - - 0x03CC75 FF:CC65: E8        INX
 C - - - - 0x03CC76 FF:CC66: 88        DEY
-C - - - - 0x03CC77 FF:CC67: D0 F9     BPL bra_CC62_цикл
-; количество байтов для ppu
-C - - - - 0x03CC79 FF:CC69: A9 18     LDA #$20
+C - - - - 0x03CC77 FF:CC67: D0 F9     BNE bra_CC62
+C - - - - 0x03CC79 FF:CC69: A9 18     LDA #$18
 C - - - - 0x03CC7B FF:CC6B: 8D A5 04  STA $04A5
+C - - - - 0x03CC7E FF:CC6E: 8D C0 04  STA $04C0
+C - - - - 0x03CC81 FF:CC71: A9 20     LDA #$20
+C - - - - 0x03CC83 FF:CC73: 8D A6 04  STA $04A6
 C - - - - 0x03CC86 FF:CC76: 68        PLA
 C - - - - 0x03CC87 FF:CC77: 48        PHA
-                                      ASL
-                                      TAX
-                                      LDA tbl_CCD2_адрес_ppu,X
-                                      STA $04A6
-                                      LDA tbl_CCD2_адрес_ppu + 1,X
+C - - - - 0x03CC88 FF:CC78: 09 08     ORA #$08
+C - - - - 0x03CC8A FF:CC7A: 4A        LSR
+C - - - - 0x03CC8B FF:CC7B: 6E A6 04  ROR $04A6
+C - - - - 0x03CC8E FF:CC7E: 4A        LSR
+C - - - - 0x03CC8F FF:CC7F: 6E A6 04  ROR $04A6
+C - - - - 0x03CC92 FF:CC82: 09 20     ORA #$20
 C - - - - 0x03CC94 FF:CC84: 8D A7 04  STA $04A7
+C - - - - 0x03CC97 FF:CC87: 8D C2 04  STA $04C2
+C - - - - 0x03CC9A FF:CC8A: AD A6 04  LDA $04A6
+C - - - - 0x03CC9D FF:CC8D: 18        CLC
+C - - - - 0x03CC9E FF:CC8E: 69 20     ADC #$20
+C - - - - 0x03CCA0 FF:CC90: 8D C1 04  STA $04C1
 C - - - - 0x03CCA3 FF:CC93: A9 80     LDA #$80
 C - - - - 0x03CCA5 FF:CC95: 8D 15 05  STA $0515
 C - - - - 0x03CCA8 FF:CC98: 68        PLA
 C - - - - 0x03CCA9 FF:CC99: 38        SEC
 C - - - - 0x03CCAA FF:CC9A: E9 01     SBC #$01
-C - - - - 0x03CCAC FF:CC9C: 10 AF     BPL bra_CC4D_продолжить_очистку_буфера
+C - - - - 0x03CCAC FF:CC9C: 10 AF     BPL bra_CC4D
 bra_CC9E:
 C - - - - 0x03CCAE FF:CC9E: A9 01     LDA #$01
 C - - - - 0x03CCB0 FF:CCA0: 20 0F CB  JSR sub_CB0F
@@ -912,14 +919,6 @@ C - - - - 0x03CCD9 FF:CCC9: 8D 15 05  STA $0515
 C - - - - 0x03CCDC FF:CCCC: A9 01     LDA #$01
 C - - - - 0x03CCDE FF:CCCE: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03CCE1 FF:CCD1: 60        RTS
-
-
-tbl_CCD2_адрес_ppu:
-    .word $2260
-    .word $22A0
-    .word $22E0
-    .word $2320
-    .word $2360
 
 .export sub_0x03CCE2
 sub_0x03CCE2:
@@ -1981,7 +1980,7 @@ C - - - - 0x03D31B FF:D30B: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D31E FF:D30E: F0 08     BEQ bra_D318
 C - - - - 0x03D320 FF:D310: 2C 1E 06  BIT $061E
 C - - - - 0x03D323 FF:D313: 10 03     BPL bra_D318
-C - - - - 0x03D325 FF:D315: 4C 46 CC  JMP loc_CC46
+C - - - - 0x03D325 FF:D315: 4C 46 CC  JMP loc_CC46_очистить_нижнюю_половину_экрана
 bra_D318:
 C - - - - 0x03D328 FF:D318: 2C 1E 06  BIT $061E
 C - - - - 0x03D32B FF:D31B: 10 97     BPL bra_D2B4
@@ -2058,7 +2057,7 @@ C - - - - 0x03D388 FF:D378: AD 00 06  LDA $0600
 C - - - - 0x03D38B FF:D37B: D0 01     BNE bra_D37E
 C - - - - 0x03D38D FF:D37D: 60        RTS
 bra_D37E:
-C - - - - 0x03D38E FF:D37E: 20 46 CC  JSR sub_CC46
+C - - - - 0x03D38E FF:D37E: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D391 FF:D381: A2 03     LDX #$03
 C - - - - 0x03D393 FF:D383: A9 FF     LDA #$FF
 bra_D385:
@@ -2088,7 +2087,7 @@ bra_D3B5:
 C - - - - 0x03D3C5 FF:D3B5: AE 1E 06  LDX $061E
 C - - - - 0x03D3C8 FF:D3B8: EC 00 06  CPX $0600
 C - - - - 0x03D3CB FF:D3BB: D0 03     BNE bra_D3C0
-C - - - - 0x03D3CD FF:D3BD: 4C 46 CC  JMP loc_CC46
+C - - - - 0x03D3CD FF:D3BD: 4C 46 CC  JMP loc_CC46_очистить_нижнюю_половину_экрана
 bra_D3C0:
 C - - - - 0x03D3D0 FF:D3C0: BD 0B 06  LDA ram_действие_защиты,X
 C - - - - 0x03D3D3 FF:D3C3: C9 FF     CMP #$FF
@@ -2125,7 +2124,7 @@ C - - - - 0x03D413 FF:D403: AE 1E 06  LDX $061E
 C - - - - 0x03D416 FF:D406: 9D 06 06  STA $0606,X
 C - - - - 0x03D419 FF:D409: EE 1E 06  INC $061E
 bra_D40C:
-C - - - - 0x03D41C FF:D40C: 20 46 CC  JSR sub_CC46
+C - - - - 0x03D41C FF:D40C: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D41F FF:D40F: 20 EA D4  JSR sub_D4EA
 C - - - - 0x03D422 FF:D412: AD 1E 06  LDA $061E
 C - - - - 0x03D425 FF:D415: CD 00 06  CMP $0600
@@ -2404,10 +2403,10 @@ C - - - - 0x03D5C7 FF:D5B7: 85 11     STA ram_0011
 C - - - - 0x03D5C9 FF:D5B9: 85 12     STA ram_0012
 C - - - - 0x03D5CB FF:D5BB: A9 02     LDA #$02
 C - - - - 0x03D5CD FF:D5BD: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03D5D0 FF:D5C0: 20 46 CC  JSR sub_CC46
+C - - - - 0x03D5D0 FF:D5C0: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 ; bzk зачем тут 2 одинаковых jsr?
 loc_D5C3:
-C D - - - 0x03D5D3 FF:D5C3: 20 46 CC  JSR sub_CC46
+C D - - - 0x03D5D3 FF:D5C3: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D5D6 FF:D5C6: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x03D5D9 FF:D5C9: F0 03     BEQ bra_D5CE
 C - - - - 0x03D5DB FF:D5CB: 4C 6E D3  JMP loc_D36E
@@ -2614,7 +2613,7 @@ tbl_D706:
 
 loc_D70C:
 ofs_D70C_F2_F4_F6_F7_F8_F9:
-C D J - - 0x03D71C FF:D70C: 20 46 CC  JSR sub_CC46
+C D J - - 0x03D71C FF:D70C: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D71F FF:D70F: A9 00     LDA #$00
 C - - - - 0x03D721 FF:D711: 8D 2D 06  STA $062D
 C - - - - 0x03D724 FF:D714: 68        PLA
@@ -4165,7 +4164,7 @@ C - - - - 0x03E1D2 FF:E1C2: 85 25     STA ram_для_5115
 C - - - - 0x03E1D4 FF:E1C4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03E1D7 FF:E1C7: 68        PLA
 C - - - - 0x03E1D8 FF:E1C8: 20 21 80  JSR sub_0x034F82
-C - - - - 0x03E1DB FF:E1CB: 20 46 CC  JSR sub_CC46
+C - - - - 0x03E1DB FF:E1CB: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03E1DE FF:E1CE: A9 00     LDA #$00
 C - - - - 0x03E1E0 FF:E1D0: 8D 2D 06  STA $062D
 C - - - - 0x03E1E3 FF:E1D3: 8D 15 06  STA $0615
@@ -5948,7 +5947,7 @@ C - - - - 0x03ECBB FF:ECAB: 8D 16 05  STA ram_флаг_сценария_ХЗ
 C - - - - 0x03ECBE FF:ECAE: A9 00     LDA #$00
 C - - - - 0x03ECC0 FF:ECB0: 85 11     STA ram_0011
 C - - - - 0x03ECC2 FF:ECB2: 85 12     STA ram_0012
-C - - - - 0x03ECC4 FF:ECB4: 20 46 CC  JSR sub_CC46
+C - - - - 0x03ECC4 FF:ECB4: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 bra_ECB7:
 C - - - - 0x03ECC7 FF:ECB7: AD 26 05  LDA $0526
 C - - - - 0x03ECCA FF:ECBA: 10 0E     BPL bra_ECCA

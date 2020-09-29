@@ -50,6 +50,9 @@ con_exit                    = $FF   ; end of the cutscene
 
 
 off_A43B_22_финальная_катсцена:
+;   .byte con_sound, $59
+;   .byte con_exit
+    
     .byte con_E8, $01
     .byte con_bg_1, $0D
     .byte con_animation, $01, $43
