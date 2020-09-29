@@ -849,76 +849,79 @@ sub_0x03CC56_очистить_нижнюю_половину_экрана:
 loc_0x03CC56_очистить_нижнюю_половину_экрана:
 loc_CC46_очистить_нижнюю_половину_экрана:
 sub_CC46_очистить_нижнюю_половину_экрана:
-C D - - - 0x03CC56 FF:CC46: A9 00     LDA #$00
-C - - - - 0x03CC58 FF:CC48: 8D F4 05  STA $05F4
-C - - - - 0x03CC5B FF:CC4B: A9 06     LDA #$06
-bra_CC4D:
-C - - - - 0x03CC5D FF:CC4D: 48        PHA
-bra_CC4E:
-C - - - - 0x03CC5E FF:CC4E: A9 01     LDA #$01
-C - - - - 0x03CC60 FF:CC50: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03CC63 FF:CC53: AD 15 05  LDA $0515
-C - - - - 0x03CC66 FF:CC56: D0 F6     BNE bra_CC4E
-C - - - - 0x03CC68 FF:CC58: A9 01     LDA #$01
-C - - - - 0x03CC6A FF:CC5A: 8D 15 05  STA $0515
-C - - - - 0x03CC6D FF:CC5D: A0 4F     LDY #$4F
-C - - - - 0x03CC6F FF:CC5F: A2 00     LDX #$00
-C - - - - 0x03CC71 FF:CC61: 8A        TXA
-bra_CC62:
-C - - - - 0x03CC72 FF:CC62: 9D A5 04  STA $04A5,X
-C - - - - 0x03CC75 FF:CC65: E8        INX
-C - - - - 0x03CC76 FF:CC66: 88        DEY
-C - - - - 0x03CC77 FF:CC67: D0 F9     BNE bra_CC62
-C - - - - 0x03CC79 FF:CC69: A9 18     LDA #$18
-C - - - - 0x03CC7B FF:CC6B: 8D A5 04  STA $04A5
-C - - - - 0x03CC7E FF:CC6E: 8D C0 04  STA $04C0
-C - - - - 0x03CC81 FF:CC71: A9 20     LDA #$20
-C - - - - 0x03CC83 FF:CC73: 8D A6 04  STA $04A6
-C - - - - 0x03CC86 FF:CC76: 68        PLA
-C - - - - 0x03CC87 FF:CC77: 48        PHA
-C - - - - 0x03CC88 FF:CC78: 09 08     ORA #$08
-C - - - - 0x03CC8A FF:CC7A: 4A        LSR
-C - - - - 0x03CC8B FF:CC7B: 6E A6 04  ROR $04A6
-C - - - - 0x03CC8E FF:CC7E: 4A        LSR
-C - - - - 0x03CC8F FF:CC7F: 6E A6 04  ROR $04A6
-C - - - - 0x03CC92 FF:CC82: 09 20     ORA #$20
-C - - - - 0x03CC94 FF:CC84: 8D A7 04  STA $04A7
-C - - - - 0x03CC97 FF:CC87: 8D C2 04  STA $04C2
-C - - - - 0x03CC9A FF:CC8A: AD A6 04  LDA $04A6
-C - - - - 0x03CC9D FF:CC8D: 18        CLC
-C - - - - 0x03CC9E FF:CC8E: 69 20     ADC #$20
-C - - - - 0x03CCA0 FF:CC90: 8D C1 04  STA $04C1
-C - - - - 0x03CCA3 FF:CC93: A9 80     LDA #$80
-C - - - - 0x03CCA5 FF:CC95: 8D 15 05  STA $0515
-C - - - - 0x03CCA8 FF:CC98: 68        PLA
-C - - - - 0x03CCA9 FF:CC99: 38        SEC
-C - - - - 0x03CCAA FF:CC9A: E9 01     SBC #$01
-C - - - - 0x03CCAC FF:CC9C: 10 AF     BPL bra_CC4D
-bra_CC9E:
-C - - - - 0x03CCAE FF:CC9E: A9 01     LDA #$01
-C - - - - 0x03CCB0 FF:CCA0: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03CCB3 FF:CCA3: AD 15 05  LDA $0515
-C - - - - 0x03CCB6 FF:CCA6: D0 F6     BNE bra_CC9E
-C - - - - 0x03CCB8 FF:CCA8: A9 01     LDA #$01
-C - - - - 0x03CCBA FF:CCAA: 8D 15 05  STA $0515
-C - - - - 0x03CCBD FF:CCAD: A9 20     LDA #$20
-C - - - - 0x03CCBF FF:CCAF: 8D A5 04  STA $04A5
-C - - - - 0x03CCC2 FF:CCB2: A9 E0     LDA #$E0
-C - - - - 0x03CCC4 FF:CCB4: 8D A6 04  STA $04A6
-C - - - - 0x03CCC7 FF:CCB7: A9 23     LDA #$23
-C - - - - 0x03CCC9 FF:CCB9: 8D A7 04  STA $04A7
-C - - - - 0x03CCCC FF:CCBC: A2 00     LDX #$00
-C - - - - 0x03CCCE FF:CCBE: 8A        TXA
-bra_CCBF:
-C - - - - 0x03CCCF FF:CCBF: 9D A8 04  STA $04A8,X
-C - - - - 0x03CCD2 FF:CCC2: E8        INX
-C - - - - 0x03CCD3 FF:CCC3: E0 21     CPX #$21
-C - - - - 0x03CCD5 FF:CCC5: D0 F8     BNE bra_CCBF
-C - - - - 0x03CCD7 FF:CCC7: A9 80     LDA #$80
-C - - - - 0x03CCD9 FF:CCC9: 8D 15 05  STA $0515
-C - - - - 0x03CCDC FF:CCCC: A9 01     LDA #$01
-C - - - - 0x03CCDE FF:CCCE: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03CCE1 FF:CCD1: 60        RTS
+; первые 8 тайлов не очищаются для сохранения отображения таймера и счета
+    ; буфер 1
+        ; 04A5 - счетчик тайлов
+        ; 04A6 - 2006 lo
+        ; 04A7 - 2006 hi
+    ; буфер 2
+        ; 04C0 - счетчик тайлов
+        ; 04C1 - 2006 lo
+        ; 04C2 - 2006 hi
+    LDA #$00
+    STA $05F4
+@ожидание_освобождения_буфера_1:
+    LDA #$01
+    JSR sub_CB0F
+    LDA $0515
+    BNE @ожидание_освобождения_буфера_1
+    LDA #$01
+    STA $0515
+    LDA #$00
+    LDX #$33
+@очистка_буфера:
+    STA $04A8,X
+    DEX
+    BPL @очистка_буфера
+    LDA #$18
+    STA $04A5
+    STA $04C0
+    LDA #$C8        ; начальный адрес будет сразу же уменьшен на 40 внутри цикла
+    STA $04A6
+    LDA #$23
+    STA $04A7
+    STA $04C2
+    LDA #$07
+bra_CC4D_цикл_очистки_экрана:
+    PHA
+    LDA $04A6
+    SEC
+    SBC #$40
+    STA $04A6
+    BCS @пропустить
+    DEC $04A7
+    DEC $04C2
+@пропустить:
+    CLC
+    ADC #$20
+    STA $04C1
+    LDA #$80
+    STA $0515
+@ожидание_освобождения_буфера_2:
+    LDA #$01
+    JSR sub_CB0F
+    LDA $0515
+    BNE @ожидание_освобождения_буфера_2
+    LDA #$01
+    STA $0515
+    PLA
+    SEC
+    SBC #$01
+    BNE bra_CC4D_цикл_очистки_экрана
+    STA $04C0        ; A = 00, очистка остаточных байтов бывшей второй части буфера
+    STA $04C1
+    STA $04C2
+    LDA #$20
+    STA $04A5
+    LDA #$E0        ; очистка второй половины атрибутов
+    STA $04A6
+    LDA #$23
+    STA $04A7
+    LDA #$80
+    STA $0515
+    LDA #$01
+    JSR sub_CB0F
+    RTS
 
 .export sub_0x03CCE2
 sub_0x03CCE2:
