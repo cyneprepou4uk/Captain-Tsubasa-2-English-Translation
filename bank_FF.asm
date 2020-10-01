@@ -855,9 +855,9 @@ sub_CC46_очистить_нижнюю_половину_экрана:
         ; 04A6 - 2006 lo
         ; 04A7 - 2006 hi
     ; буфер 2
-        ; 04C0 - счетчик тайлов
-        ; 04C1 - 2006 lo
-        ; 04C2 - 2006 hi
+        ; 04C1 - счетчик тайлов
+        ; 04C2 - 2006 lo
+        ; 04C3 - 2006 hi
     LDA #$00
     STA $05F4
 @ожидание_освобождения_буфера_1:
@@ -868,19 +868,19 @@ sub_CC46_очистить_нижнюю_половину_экрана:
     LDA #$01
     STA $0515
     LDA #$00
-    LDX #$33
+    LDX #$35
 @очистка_буфера:
     STA $04A8,X
     DEX
     BPL @очистка_буфера
-    LDA #$18
+    LDA #$19
     STA $04A5
-    STA $04C0
-    LDA #$C8        ; начальный адрес будет сразу же уменьшен на 40 внутри цикла
+    STA $04C1
+    LDA #$C7        ; начальный адрес будет сразу же уменьшен на 40 внутри цикла
     STA $04A6
     LDA #$23
     STA $04A7
-    STA $04C2
+    STA $04C3
     LDA #$07
 bra_CC4D_цикл_очистки_экрана:
     PHA
@@ -890,11 +890,11 @@ bra_CC4D_цикл_очистки_экрана:
     STA $04A6
     BCS @пропустить
     DEC $04A7
-    DEC $04C2
+    DEC $04C3
 @пропустить:
     CLC
     ADC #$20
-    STA $04C1
+    STA $04C2
     LDA #$80
     STA $0515
 @ожидание_освобождения_буфера_2:
@@ -908,9 +908,9 @@ bra_CC4D_цикл_очистки_экрана:
     SEC
     SBC #$01
     BNE bra_CC4D_цикл_очистки_экрана
-    STA $04C0        ; A = 00, очистка остаточных байтов бывшей второй части буфера
-    STA $04C1
+    STA $04C1        ; A = 00, очистка остаточных байтов бывшей второй части буфера
     STA $04C2
+    STA $04C3
     LDA #$20
     STA $04A5
     LDA #$E0        ; очистка второй половины атрибутов
@@ -7968,874 +7968,349 @@ off_F80E_99:
     .text "Brazil"
     .byte $FC
 
-off_F813_9A:    ; shoot
-- D - I - 0x03F823 FF:F813: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F824 FF:F814: 71        .byte $71    ; <ュ>
-- D - I - 0x03F825 FF:F815: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F826 FF:F816: 54        .byte $54    ; <ト>
-- D - I - 0x03F827 FF:F817: FC        .byte $FC
+off_F813_9A:        ; shoot
+    .text "9A "     ; <シュート>
+    .byte $FC
 
 off_F818_9B:
-- D - I - 0x03F828 FF:F818: C7        .byte $C7    ; <ボ>
-- D - I - 0x03F829 FF:F819: 6A        .byte $6A    ; <レ>
-- D - I - 0x03F82A FF:F81A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F82B FF:F81B: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F82C FF:F81C: 71        .byte $71    ; <ュ>
-- D - I - 0x03F82D FF:F81D: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F82E FF:F81E: 54        .byte $54    ; <ト>
-- D - I - 0x03F82F FF:F81F: FC        .byte $FC
+    .text "9B "     ; <ボレーシュート>
+    .byte $FC
 
 off_F820_9C:
-- D - I - 0x03F830 FF:F820: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03F831 FF:F821: C1        .byte $C1    ; <デ>
-- D - I - 0x03F832 FF:F822: 74        .byte $74    ; <ィ>
-- D - I - 0x03F833 FF:F823: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F834 FF:F824: B6        .byte $B6    ; <グ>
-- D - I - 0x03F835 FF:F825: FC        .byte $FC
+    .text "9C "     ; <ヘディング>
+    .byte $FC
 
 off_F826_9D:
-- D - I - 0x03F836 FF:F826: C2        .byte $C2    ; <ド>
-- D - I - 0x03F837 FF:F827: 67        .byte $67    ; <ラ>
-- D - I - 0x03F838 FF:F828: 42        .byte $42    ; <イ>
-- D - I - 0x03F839 FF:F829: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F83A FF:F82A: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F83B FF:F82B: 71        .byte $71    ; <ュ>
-- D - I - 0x03F83C FF:F82C: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F83D FF:F82D: 54        .byte $54    ; <ト>
-- D - I - 0x03F83E FF:F82E: FC        .byte $FC
+    .text "9D "     ; <ドライブシュート>
+    .byte $FC
 
 off_F82F_9E:
-- D - I - 0x03F83F FF:F82F: C2        .byte $C2    ; <ド>
-- D - I - 0x03F840 FF:F830: 67        .byte $67    ; <ラ>
-- D - I - 0x03F841 FF:F831: 42        .byte $42    ; <イ>
-- D - I - 0x03F842 FF:F832: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F843 FF:F833: 45        .byte $45    ; <オ>
-- D - I - 0x03F844 FF:F834: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F845 FF:F835: C3        .byte $C3    ; <バ>
-- D - I - 0x03F846 FF:F836: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F847 FF:F837: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03F848 FF:F838: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F849 FF:F839: C2        .byte $C2    ; <ド>
-- D - I - 0x03F84A FF:F83A: FC        .byte $FC
+    .text "9E "     ; <ドライブオーバーヘッド>
+    .byte $FC
 
 off_F83B_9F:
-- D - I - 0x03F84B FF:F83B: 1A        .byte $1A    ; <は>
-- D - I - 0x03F84C FF:F83C: 24        .byte $24    ; <や>
-- D - I - 0x03F84D FF:F83D: B1        .byte $B1    ; <ぶ>
-- D - I - 0x03F84E FF:F83E: 0B        .byte $0B    ; <さ>
-- D - I - 0x03F84F FF:F83F: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F850 FF:F840: 71        .byte $71    ; <ュ>
-- D - I - 0x03F851 FF:F841: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F852 FF:F842: 54        .byte $54    ; <ト>
-- D - I - 0x03F853 FF:F843: FC        .byte $FC
+    .text "9F "     ; <はやぶさシュート>
+    .byte $FC
 
 off_F844_A0:
-- D - I - 0x03F854 FF:F844: 1A        .byte $1A    ; <は>
-- D - I - 0x03F855 FF:F845: 24        .byte $24    ; <や>
-- D - I - 0x03F856 FF:F846: B1        .byte $B1    ; <ぶ>
-- D - I - 0x03F857 FF:F847: 0B        .byte $0B    ; <さ>
-- D - I - 0x03F858 FF:F848: C7        .byte $C7    ; <ボ>
-- D - I - 0x03F859 FF:F849: 6A        .byte $6A    ; <レ>
-- D - I - 0x03F85A FF:F84A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F85B FF:F84B: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F85C FF:F84C: 71        .byte $71    ; <ュ>
-- D - I - 0x03F85D FF:F84D: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F85E FF:F84E: 54        .byte $54    ; <ト>
-- D - I - 0x03F85F FF:F84F: FC        .byte $FC
+    .text "A0 "     ; <はやぶさボレーシュート>
+    .byte $FC
 
 off_F850_A1:
-- D - I - 0x03F860 FF:F850: 46        .byte $46    ; <カ>
-- D - I - 0x03F861 FF:F851: 60        .byte $60    ; <ミ>
-- D - I - 0x03F862 FF:F852: 4F        .byte $4F    ; <ソ>
-- D - I - 0x03F863 FF:F853: 68        .byte $68    ; <リ>
-- D - I - 0x03F864 FF:F854: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F865 FF:F855: 71        .byte $71    ; <ュ>
-- D - I - 0x03F866 FF:F856: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F867 FF:F857: 54        .byte $54    ; <ト>
-- D - I - 0x03F868 FF:F858: FC        .byte $FC
+    .text "A1 "     ; <カミソリシュート>
+    .byte $FC
 
 off_F859_A2:
-- D - I - 0x03F869 FF:F859: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F86A FF:F85A: 46        .byte $46    ; <カ>
-- D - I - 0x03F86B FF:F85B: 42        .byte $42    ; <イ>
-- D - I - 0x03F86C FF:F85C: 67        .byte $67    ; <ラ>
-- D - I - 0x03F86D FF:F85D: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F86E FF:F85E: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03F86F FF:F85F: 68        .byte $68    ; <リ>
-- D - I - 0x03F870 FF:F860: 49        .byte $49    ; <ケ>
-- D - I - 0x03F871 FF:F861: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F872 FF:F862: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F873 FF:F863: FC        .byte $FC
+    .text "A2 "     ; <スカイラブハリケーン>
+    .byte $FC
 
 off_F864_A3:
-- D - I - 0x03F874 FF:F864: 52        .byte $52    ; <ツ>
-- D - I - 0x03F875 FF:F865: 42        .byte $42    ; <イ>
-- D - I - 0x03F876 FF:F866: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F877 FF:F867: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F878 FF:F868: 71        .byte $71    ; <ュ>
-- D - I - 0x03F879 FF:F869: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F87A FF:F86A: 54        .byte $54    ; <ト>
-- D - I - 0x03F87B FF:F86B: FC        .byte $FC
+    .text "A3 "     ; <ツインシュート>
+    .byte $FC
 
 off_F86C_A4:
-- D - I - 0x03F87C FF:F86C: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F87D FF:F86D: 46        .byte $46    ; <カ>
-- D - I - 0x03F87E FF:F86E: 42        .byte $42    ; <イ>
-- D - I - 0x03F87F FF:F86F: 67        .byte $67    ; <ラ>
-- D - I - 0x03F880 FF:F870: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F881 FF:F871: 52        .byte $52    ; <ツ>
-- D - I - 0x03F882 FF:F872: 42        .byte $42    ; <イ>
-- D - I - 0x03F883 FF:F873: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F884 FF:F874: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F885 FF:F875: 71        .byte $71    ; <ュ>
-- D - I - 0x03F886 FF:F876: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F887 FF:F877: 54        .byte $54    ; <ト>
-- D - I - 0x03F888 FF:F878: FC        .byte $FC
+    .text "A4 "     ; <スカイラブツインシュート>
+    .byte $FC
 
 off_F879_A5:
-- D - I - 0x03F889 FF:F879: 42        .byte $42    ; <イ>
-- D - I - 0x03F88A FF:F87A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F88B FF:F87B: B6        .byte $B6    ; <グ>
-- D - I - 0x03F88C FF:F87C: 69        .byte $69    ; <ル>
-- D - I - 0x03F88D FF:F87D: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F88E FF:F87E: 72        .byte $72    ; <ョ>
-- D - I - 0x03F88F FF:F87F: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F890 FF:F880: 54        .byte $54    ; <ト>
-- D - I - 0x03F891 FF:F881: FC        .byte $FC
+    .text "A5 "     ; <イーグルショット>
+    .byte $FC
 
 off_F882_A6:
-- D - I - 0x03F892 FF:F882: 50        .byte $50    ; <タ>
-- D - I - 0x03F893 FF:F883: 42        .byte $42    ; <イ>
-- D - I - 0x03F894 FF:F884: B4        .byte $B4    ; <ガ>
-- D - I - 0x03F895 FF:F885: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F896 FF:F886: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F897 FF:F887: 72        .byte $72    ; <ョ>
-- D - I - 0x03F898 FF:F888: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F899 FF:F889: 54        .byte $54    ; <ト>
-- D - I - 0x03F89A FF:F88A: FC        .byte $FC
+    .text "A6 "     ; <タイガーショット>
+    .byte $FC
 
 off_F88B_A7:
-- D - I - 0x03F89B FF:F88B: 58        .byte $58    ; <ネ>
-- D - I - 0x03F89C FF:F88C: 45        .byte $45    ; <オ>
-- D - I - 0x03F89D FF:F88D: 3F        .byte $3F    ; <•>
-- D - I - 0x03F89E FF:F88E: 50        .byte $50    ; <タ>
-- D - I - 0x03F89F FF:F88F: 42        .byte $42    ; <イ>
-- D - I - 0x03F8A0 FF:F890: B4        .byte $B4    ; <ガ>
-- D - I - 0x03F8A1 FF:F891: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8A2 FF:F892: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F8A3 FF:F893: 72        .byte $72    ; <ョ>
-- D - I - 0x03F8A4 FF:F894: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F8A5 FF:F895: 54        .byte $54    ; <ト>
-- D - I - 0x03F8A6 FF:F896: FC        .byte $FC
+    .text "A7 "     ; <ネオ • タイガーショット>
+    .byte $FC
 
 off_F897_A8:
-- D - I - 0x03F8A7 FF:F897: 45        .byte $45    ; <オ>
-- D - I - 0x03F8A8 FF:F898: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8A9 FF:F899: C3        .byte $C3    ; <バ>
-- D - I - 0x03F8AA FF:F89A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8AB FF:F89B: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03F8AC FF:F89C: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F8AD FF:F89D: C2        .byte $C2    ; <ド>
-- D - I - 0x03F8AE FF:F89E: 47        .byte $47    ; <キ>
-- D - I - 0x03F8AF FF:F89F: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F8B0 FF:F8A0: 48        .byte $48    ; <ク>
-- D - I - 0x03F8B1 FF:F8A1: FC        .byte $FC
+    .text "A8 "     ; <オーバーヘッドキック>
+    .byte $FC
 
 off_F8A2_A9:
-- D - I - 0x03F8B2 FF:F8A2: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03F8B3 FF:F8A3: 42        .byte $42    ; <イ>
-- D - I - 0x03F8B4 FF:F8A4: CD        .byte $CD    ; <パ>
-- D - I - 0x03F8B5 FF:F8A5: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8B6 FF:F8A6: 45        .byte $45    ; <オ>
-- D - I - 0x03F8B7 FF:F8A7: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8B8 FF:F8A8: C3        .byte $C3    ; <バ>
-- D - I - 0x03F8B9 FF:F8A9: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8BA FF:F8AA: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03F8BB FF:F8AB: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F8BC FF:F8AC: C2        .byte $C2    ; <ド>
-- D - I - 0x03F8BD FF:F8AD: FC        .byte $FC
+    .text "A9 "     ; <ハイパーオーバーヘッド>
+    .byte $FC
 
 off_F8AE_AA:
-- D - I - 0x03F8BE FF:F8AE: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F8BF FF:F8AF: 70        .byte $70    ; <ャ>
-- D - I - 0x03F8C0 FF:F8B0: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F8C1 FF:F8B1: CE        .byte $CE    ; <ピ>
-- D - I - 0x03F8C2 FF:F8B2: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F8C3 FF:F8B3: B6        .byte $B6    ; <グ>
-- D - I - 0x03F8C4 FF:F8B4: C7        .byte $C7    ; <ボ>
-- D - I - 0x03F8C5 FF:F8B5: 6A        .byte $6A    ; <レ>
-- D - I - 0x03F8C6 FF:F8B6: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8C7 FF:F8B7: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F8C8 FF:F8B8: 71        .byte $71    ; <ュ>
-- D - I - 0x03F8C9 FF:F8B9: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8CA FF:F8BA: 54        .byte $54    ; <ト>
-- D - I - 0x03F8CB FF:F8BB: FC        .byte $FC
+    .text "AA "     ; <ジャンピングボレーシュート>
+    .byte $FC
 
 off_F8BC_AB:
-- D - I - 0x03F8CC FF:F8BC: C2        .byte $C2    ; <ド>
-- D - I - 0x03F8CD FF:F8BD: 67        .byte $67    ; <ラ>
-- D - I - 0x03F8CE FF:F8BE: 42        .byte $42    ; <イ>
-- D - I - 0x03F8CF FF:F8BF: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F8D0 FF:F8C0: 50        .byte $50    ; <タ>
-- D - I - 0x03F8D1 FF:F8C1: 42        .byte $42    ; <イ>
-- D - I - 0x03F8D2 FF:F8C2: B4        .byte $B4    ; <ガ>
-- D - I - 0x03F8D3 FF:F8C3: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8D4 FF:F8C4: FC        .byte $FC
+    .text "AB "     ; <ドライブタイガー>
+    .byte $FC
 
 off_F8C5_AC:
-- D - I - 0x03F8D5 FF:F8C5: 4B        .byte $4B    ; <サ>
-- D - I - 0x03F8D6 FF:F8C6: 42        .byte $42    ; <イ>
-- D - I - 0x03F8D7 FF:F8C7: 48        .byte $48    ; <ク>
-- D - I - 0x03F8D8 FF:F8C8: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03F8D9 FF:F8C9: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F8DA FF:F8CA: FC        .byte $FC
+    .text "AC "     ; <サイクロン>
+    .byte $FC
 
 off_F8CB_AD:
-- D - I - 0x03F8DB FF:F8CB: 0B        .byte $0B    ; <さ>
-- D - I - 0x03F8DC FF:F8CC: 19        .byte $19    ; <の>
-- D - I - 0x03F8DD FF:F8CD: 14        .byte $14    ; <と>
-- D - I - 0x03F8DE FF:F8CE: 19        .byte $19    ; <の>
-- D - I - 0x03F8DF FF:F8CF: 4A        .byte $4A    ; <コ>
-- D - I - 0x03F8E0 FF:F8D0: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F8E1 FF:F8D1: C4        .byte $C4    ; <ビ>
-- D - I - 0x03F8E2 FF:F8D2: CF        .byte $CF    ; <プ>
-- D - I - 0x03F8E3 FF:F8D3: 6A        .byte $6A    ; <レ>
-- D - I - 0x03F8E4 FF:F8D4: 42        .byte $42    ; <イ>
-- D - I - 0x03F8E5 FF:F8D5: FC        .byte $FC
+    .text "AD "     ; <さのとのコンビプレイ>
+    .byte $FC
 
 off_F8D6_AE:
-- D - I - 0x03F8E6 FF:F8D6: C3        .byte $C3    ; <バ>
-- D - I - 0x03F8E7 FF:F8D7: 55        .byte $55    ; <ナ>
-- D - I - 0x03F8E8 FF:F8D8: 55        .byte $55    ; <ナ>
-- D - I - 0x03F8E9 FF:F8D9: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F8EA FF:F8DA: 71        .byte $71    ; <ュ>
-- D - I - 0x03F8EB FF:F8DB: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8EC FF:F8DC: 54        .byte $54    ; <ト>
-- D - I - 0x03F8ED FF:F8DD: FC        .byte $FC
+    .text "AE "     ; <バナナシュート>
+    .byte $FC
 
 off_F8DE_AF:
-- D - I - 0x03F8EE FF:F8DE: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F8EF FF:F8DF: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8F0 FF:F8E0: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F8F1 FF:F8E1: 50        .byte $50    ; <タ>
-- D - I - 0x03F8F2 FF:F8E2: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8F3 FF:F8E3: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F8F4 FF:F8E4: 71        .byte $71    ; <ュ>
-- D - I - 0x03F8F5 FF:F8E5: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8F6 FF:F8E6: 54        .byte $54    ; <ト>
-- D - I - 0x03F8F7 FF:F8E7: FC        .byte $FC
+    .text "AF "     ; <ブースターシュート>
+    .byte $FC
 
 off_F8E8_B0:
-- D - I - 0x03F8F8 FF:F8E8: 60        .byte $60    ; <ミ>
-- D - I - 0x03F8F9 FF:F8E9: 67        .byte $67    ; <ラ>
-- D - I - 0x03F8FA FF:F8EA: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F8FB FF:F8EB: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F8FC FF:F8EC: 71        .byte $71    ; <ュ>
-- D - I - 0x03F8FD FF:F8ED: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F8FE FF:F8EE: 71        .byte $71    ; <ュ>
-- D - I - 0x03F8FF FF:F8EF: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F900 FF:F8F0: 54        .byte $54    ; <ト>
-- D - I - 0x03F901 FF:F8F1: FC        .byte $FC
+    .text "B0 "     ; <ミラージュシュート>
+    .byte $FC
 
 off_F8F2_B1:
-- D - I - 0x03F902 FF:F8F2: 5F        .byte $5F    ; <マ>
-- D - I - 0x03F903 FF:F8F3: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F904 FF:F8F4: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03F905 FF:F8F5: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F906 FF:F8F6: 71        .byte $71    ; <ュ>
-- D - I - 0x03F907 FF:F8F7: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F908 FF:F8F8: 54        .byte $54    ; <ト>
-- D - I - 0x03F909 FF:F8F9: FC        .byte $FC
+    .text "B1 "     ; <マッハシュート>
+    .byte $FC
 
 off_F8FA_B2:
-- D - I - 0x03F90A FF:F8FA: 4B        .byte $4B    ; <サ>
-- D - I - 0x03F90B FF:F8FB: 42        .byte $42    ; <イ>
-- D - I - 0x03F90C FF:F8FC: C2        .byte $C2    ; <ド>
-- D - I - 0x03F90D FF:F8FD: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03F90E FF:F8FE: 42        .byte $42    ; <イ>
-- D - I - 0x03F90F FF:F8FF: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F910 FF:F900: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F911 FF:F901: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F912 FF:F902: FC        .byte $FC
+    .text "B2 "     ; <サイドワインダー>
+    .byte $FC
 
 off_F903_B3:
-- D - I - 0x03F913 FF:F903: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F914 FF:F904: 67        .byte $67    ; <ラ>
-- D - I - 0x03F915 FF:F905: 42        .byte $42    ; <イ>
-- D - I - 0x03F916 FF:F906: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F917 FF:F907: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F918 FF:F908: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F919 FF:F909: 71        .byte $71    ; <ュ>
-- D - I - 0x03F91A FF:F90A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F91B FF:F90B: 54        .byte $54    ; <ト>
-- D - I - 0x03F91C FF:F90C: FC        .byte $FC
+    .text "B3 "     ; <スライダーシュート>
+    .byte $FC
 
 off_F90D_B4:
-- D - I - 0x03F91D FF:F90D: 47        .byte $47    ; <キ>
-- D - I - 0x03F91E FF:F90E: 70        .byte $70    ; <ャ>
-- D - I - 0x03F91F FF:F90F: 59        .byte $59    ; <ノ>
-- D - I - 0x03F920 FF:F910: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F921 FF:F911: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F922 FF:F912: 71        .byte $71    ; <ュ>
-- D - I - 0x03F923 FF:F913: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F924 FF:F914: 54        .byte $54    ; <ト>
-- D - I - 0x03F925 FF:F915: FC        .byte $FC
+    .text "B4 "     ; <キャノンシュート>
+    .byte $FC
 
 off_F916_B5:
-- D - I - 0x03F926 FF:F916: 5C        .byte $5C    ; <フ>
-- D - I - 0x03F927 FF:F917: 73        .byte $73    ; <ヮ>
-- D - I - 0x03F928 FF:F918: 42        .byte $42    ; <イ>
-- D - I - 0x03F929 FF:F919: 64        .byte $64    ; <ヤ>
-- D - I - 0x03F92A FF:F91A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F92B FF:F91B: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F92C FF:F91C: 72        .byte $72    ; <ョ>
-- D - I - 0x03F92D FF:F91D: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F92E FF:F91E: 54        .byte $54    ; <ト>
-- D - I - 0x03F92F FF:F91F: FC        .byte $FC
+    .text "B5 "     ; <フヮイヤーショット>
+    .byte $FC
 
 off_F920_B6:
-- D - I - 0x03F930 FF:F920: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F931 FF:F921: 42        .byte $42    ; <イ>
-- D - I - 0x03F932 FF:F922: 55        .byte $55    ; <ナ>
-- D - I - 0x03F933 FF:F923: 5F        .byte $5F    ; <マ>
-- D - I - 0x03F934 FF:F924: 42        .byte $42    ; <イ>
-- D - I - 0x03F935 FF:F925: 54        .byte $54    ; <ト>
-- D - I - 0x03F936 FF:F926: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03F937 FF:F927: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F938 FF:F928: C2        .byte $C2    ; <ド>
-- D - I - 0x03F939 FF:F929: FC        .byte $FC
+    .text "B6 "     ; <ダイナマイトヘッド>
+    .byte $FC
 
-off_F92A_B7:
-- - - - - 0x03F93A FF:F92A: 47        .byte $47    ; <キ>
-- - - - - 0x03F93B FF:F92B: 70        .byte $70    ; <ャ>
-- - - - - 0x03F93C FF:F92C: 59        .byte $59    ; <ノ>
-- - - - - 0x03F93D FF:F92D: 6E        .byte $6E    ; <ン>
-- - - - - 0x03F93E FF:F92E: 5D        .byte $5D    ; <ヘ>
-- - - - - 0x03F93F FF:F92F: 6F        .byte $6F    ; <ッ>
-- - - - - 0x03F940 FF:F930: C2        .byte $C2    ; <ド>
-- - - - - 0x03F941 FF:F931: FC        .byte $FC
+off_F92A_B7:    ; unused
+    .text "B7 "     ; <キャノンヘッド>
+    .byte $FC
 
 off_F932_B8:
-- D - I - 0x03F942 FF:F932: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03F943 FF:F933: 49        .byte $49    ; <ケ>
-- D - I - 0x03F944 FF:F934: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F945 FF:F935: 54        .byte $54    ; <ト>
-- D - I - 0x03F946 FF:F936: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03F947 FF:F937: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F948 FF:F938: C2        .byte $C2    ; <ド>
-- D - I - 0x03F949 FF:F939: FC        .byte $FC
+    .text "B8 "     ; <ロケットヘッド>
+    .byte $FC
 
 off_F93A_B9:
-- D - I - 0x03F94A FF:F93A: 0C        .byte $0C    ; <し>
-- D - I - 0x03F94B FF:F93B: 32        .byte $32    ; <ょ>
-- D - I - 0x03F94C FF:F93C: 03        .byte $03    ; <う>
-- D - I - 0x03F94D FF:F93D: 28        .byte $28    ; <り>
-- D - I - 0x03F94E FF:F93E: 31        .byte $31    ; <ゅ>
-- D - I - 0x03F94F FF:F93F: 03        .byte $03    ; <う>
-- D - I - 0x03F950 FF:F940: 07        .byte $07    ; <き>
-- D - I - 0x03F951 FF:F941: 30        .byte $30    ; <ゃ>
-- D - I - 0x03F952 FF:F942: 08        .byte $08    ; <く>
-- D - I - 0x03F953 FF:F943: FC        .byte $FC
+    .text "B9 "     ; <しょうりゅうきゃく>
+    .byte $FC
 
 off_F944_BA:
-- D - I - 0x03F954 FF:F944: A8        .byte $A8    ; <ぜ>
-- D - I - 0x03F955 FF:F945: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F956 FF:F946: 13        .byte $13    ; <て>
-- D - I - 0x03F957 FF:F947: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F958 FF:F948: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F959 FF:F949: 71        .byte $71    ; <ュ>
-- D - I - 0x03F95A FF:F94A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F95B FF:F94B: 54        .byte $54    ; <ト>
-- D - I - 0x03F95C FF:F94C: FC        .byte $FC
+    .text "BA "     ; <ぜんてんシュート>
+    .byte $FC
 
 off_F94D_BB:
-- D - I - 0x03F95D FF:F94D: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F95E FF:F94E: 67        .byte $67    ; <ラ>
-- D - I - 0x03F95F FF:F94F: 42        .byte $42    ; <イ>
-- D - I - 0x03F960 FF:F950: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F961 FF:F951: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F962 FF:F952: 47        .byte $47    ; <キ>
-- D - I - 0x03F963 FF:F953: 70        .byte $70    ; <ャ>
-- D - I - 0x03F964 FF:F954: 59        .byte $59    ; <ノ>
-- D - I - 0x03F965 FF:F955: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F966 FF:F956: FC        .byte $FC
+    .text "BB "     ; <スライダーキャノン>
+    .byte $FC
 
 off_F957_BC:
-- D - I - 0x03F967 FF:F957: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F968 FF:F958: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F969 FF:F959: 69        .byte $69    ; <ル>
-- D - I - 0x03F96A FF:F95A: 42        .byte $42    ; <イ>
-- D - I - 0x03F96B FF:F95B: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F96C FF:F95C: 69        .byte $69    ; <ル>
-- D - I - 0x03F96D FF:F95D: FC        .byte $FC
+    .text "BC "     ; <ダブルイール>
+    .byte $FC
 
 off_F95E_BD:
-- D - I - 0x03F96E FF:F95E: C2        .byte $C2    ; <ド>
-- D - I - 0x03F96F FF:F95F: 68        .byte $68    ; <リ>
-- D - I - 0x03F970 FF:F960: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F971 FF:F961: 69        .byte $69    ; <ル>
-- D - I - 0x03F972 FF:F962: FC        .byte $FC
+    .text "BD "     ; <ドリブル>
+    .byte $FC
 
 off_F963_BE:
-- D - I - 0x03F973 FF:F963: 5B        .byte $5B    ; <ヒ>
-- D - I - 0x03F974 FF:F964: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F975 FF:F965: 69        .byte $69    ; <ル>
-- D - I - 0x03F976 FF:F966: 68        .byte $68    ; <リ>
-- D - I - 0x03F977 FF:F967: 5C        .byte $5C    ; <フ>
-- D - I - 0x03F978 FF:F968: 54        .byte $54    ; <ト>
-- D - I - 0x03F979 FF:F969: FC        .byte $FC
+    .text "BE "     ; <ヒールリフト>
+    .byte $FC
 
 off_F96A_BF:
-- D - I - 0x03F97A FF:F96A: A4        .byte $A4    ; <ご>
-- D - I - 0x03F97B FF:F96B: 03        .byte $03    ; <う>
-- D - I - 0x03F97C FF:F96C: 02        .byte $02    ; <い>
-- D - I - 0x03F97D FF:F96D: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F97E FF:F96E: 15        .byte $15    ; <な>
-- D - I - 0x03F97F FF:F96F: C2        .byte $C2    ; <ド>
-- D - I - 0x03F980 FF:F970: 68        .byte $68    ; <リ>
-- D - I - 0x03F981 FF:F971: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F982 FF:F972: 69        .byte $69    ; <ル>
-- D - I - 0x03F983 FF:F973: FC        .byte $FC
+    .text "BF "     ; <ごういんなドリブル>
+    .byte $FC
 
 off_F974_C0:
-- D - I - 0x03F984 FF:F974: 07        .byte $07    ; <き>
-- D - I - 0x03F985 FF:F975: 04        .byte $04    ; <え>
-- D - I - 0x03F986 FF:F976: 29        .byte $29    ; <る>
-- D - I - 0x03F987 FF:F977: 5C        .byte $5C    ; <フ>
-- D - I - 0x03F988 FF:F978: 75        .byte $75    ; <ェ>
-- D - I - 0x03F989 FF:F979: 42        .byte $42    ; <イ>
-- D - I - 0x03F98A FF:F97A: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F98B FF:F97B: 54        .byte $54    ; <ト>
-- D - I - 0x03F98C FF:F97C: FC        .byte $FC
+    .text "C0 "     ; <きえるフェイント>
+    .byte $FC
 
 off_F97D_C1:
-- D - I - 0x03F98D FF:F97D: B1        .byte $B1    ; <ぶ>
-- D - I - 0x03F98E FF:F97E: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F98F FF:F97F: 0C        .byte $0C    ; <し>
-- D - I - 0x03F990 FF:F980: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F991 FF:F981: C2        .byte $C2    ; <ド>
-- D - I - 0x03F992 FF:F982: 68        .byte $68    ; <リ>
-- D - I - 0x03F993 FF:F983: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F994 FF:F984: 69        .byte $69    ; <ル>
-- D - I - 0x03F995 FF:F985: FC        .byte $FC
+    .text "C1 "     ; <ぶんしんドリブル>
+    .byte $FC
 
 off_F986_C2:
-- D - I - 0x03F996 FF:F986: 0A        .byte $0A    ; <こ>
-- D - I - 0x03F997 FF:F987: 03        .byte $03    ; <う>
-- D - I - 0x03F998 FF:F988: 0F        .byte $0F    ; <そ>
-- D - I - 0x03F999 FF:F989: 08        .byte $08    ; <く>
-- D - I - 0x03F99A FF:F98A: C2        .byte $C2    ; <ド>
-- D - I - 0x03F99B FF:F98B: 68        .byte $68    ; <リ>
-- D - I - 0x03F99C FF:F98C: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F99D FF:F98D: 69        .byte $69    ; <ル>
-- D - I - 0x03F99E FF:F98E: FC        .byte $FC
+    .text "C2 "     ; <こうそくドリブル>
+    .byte $FC
 
 off_F98F_C3:
-- D - I - 0x03F99F FF:F98F: 1A        .byte $1A    ; <は>
-- D - I - 0x03F9A0 FF:F990: 28        .byte $28    ; <り>
-- D - I - 0x03F9A1 FF:F991: 18        .byte $18    ; <ね>
-- D - I - 0x03F9A2 FF:F992: A7        .byte $A7    ; <ず>
-- D - I - 0x03F9A3 FF:F993: 20        .byte $20    ; <み>
-- D - I - 0x03F9A4 FF:F994: C2        .byte $C2    ; <ド>
-- D - I - 0x03F9A5 FF:F995: 68        .byte $68    ; <リ>
-- D - I - 0x03F9A6 FF:F996: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F9A7 FF:F997: 69        .byte $69    ; <ル>
-- D - I - 0x03F9A8 FF:F998: FC        .byte $FC
+    .text "C3 "     ; <はりねずみドリブル>
+    .byte $FC
 
 off_F999_C4:
-- D - I - 0x03F9A9 FF:F999: CD        .byte $CD    ; <パ>
-- D - I - 0x03F9AA FF:F99A: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F9AB FF:F99B: FC        .byte $FC
+    .text "C4 "     ; <パス>
+    .byte $FC
 
 off_F99C_C5:
-- D - I - 0x03F9AC FF:F99C: C2        .byte $C2    ; <ド>
-- D - I - 0x03F9AD FF:F99D: 67        .byte $67    ; <ラ>
-- D - I - 0x03F9AE FF:F99E: 42        .byte $42    ; <イ>
-- D - I - 0x03F9AF FF:F99F: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F9B0 FF:F9A0: CD        .byte $CD    ; <パ>
-- D - I - 0x03F9B1 FF:F9A1: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F9B2 FF:F9A2: FC        .byte $FC
+    .text "C5 "     ; <ドライブパス>
+    .byte $FC
 
 off_F9A3_C6:
-- D - I - 0x03F9B3 FF:F9A3: 46        .byte $46    ; <カ>
-- D - I - 0x03F9B4 FF:F9A4: 60        .byte $60    ; <ミ>
-- D - I - 0x03F9B5 FF:F9A5: 4F        .byte $4F    ; <ソ>
-- D - I - 0x03F9B6 FF:F9A6: 68        .byte $68    ; <リ>
-- D - I - 0x03F9B7 FF:F9A7: CD        .byte $CD    ; <パ>
-- D - I - 0x03F9B8 FF:F9A8: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F9B9 FF:F9A9: FC        .byte $FC
+    .text "C6 "     ; <カミソリパス>
+    .byte $FC
 
 off_F9AA_C7:
-- D - I - 0x03F9BA FF:F9AA: 54        .byte $54    ; <ト>
-- D - I - 0x03F9BB FF:F9AB: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F9BC FF:F9AC: CF        .byte $CF    ; <プ>
-- D - I - 0x03F9BD FF:F9AD: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F9BE FF:F9AE: CE        .byte $CE    ; <ピ>
-- D - I - 0x03F9BF FF:F9AF: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F9C0 FF:F9B0: CD        .byte $CD    ; <パ>
-- D - I - 0x03F9C1 FF:F9B1: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F9C2 FF:F9B2: FC        .byte $FC
+    .text "C7 "     ; <トップスピンパス>
+    .byte $FC
 
 off_F9B3_C8:
-- D - I - 0x03F9C3 FF:F9B3: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03F9C4 FF:F9B4: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F9C5 FF:F9B5: 52        .byte $52    ; <ツ>
-- D - I - 0x03F9C6 FF:F9B6: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F9C7 FF:F9B7: 68        .byte $68    ; <リ>
-- D - I - 0x03F9C8 FF:F9B8: 50        .byte $50    ; <タ>
-- D - I - 0x03F9C9 FF:F9B9: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F9CA FF:F9BA: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F9CB FF:F9BB: FC        .byte $FC
+    .text "C8 "     ; <ワンツーリターン>
+    .byte $FC
 
 off_F9BC_C9:
-- D - I - 0x03F9CC FF:F9BC: B8        .byte $B8    ; <ゴ>
-- D - I - 0x03F9CD FF:F9BD: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F9CE FF:F9BE: 69        .byte $69    ; <ル>
-- D - I - 0x03F9CF FF:F9BF: C1        .byte $C1    ; <デ>
-- D - I - 0x03F9D0 FF:F9C0: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F9D1 FF:F9C1: 4A        .byte $4A    ; <コ>
-- D - I - 0x03F9D2 FF:F9C2: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F9D3 FF:F9C3: C4        .byte $C4    ; <ビ>
-- D - I - 0x03F9D4 FF:F9C4: FC        .byte $FC
+    .text "C9 "     ; <ゴールデンコンビ>
+    .byte $FC
 
 off_F9C5_CA:
-- D - I - 0x03F9D5 FF:F9C5: 14        .byte $14    ; <と>
-- D - I - 0x03F9D6 FF:F9C6: 03        .byte $03    ; <う>
-- D - I - 0x03F9D7 FF:F9C7: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03F9D8 FF:F9C8: 03        .byte $03    ; <う>
-- D - I - 0x03F9D9 FF:F9C9: 4A        .byte $4A    ; <コ>
-- D - I - 0x03F9DA FF:F9CA: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F9DB FF:F9CB: C4        .byte $C4    ; <ビ>
-- D - I - 0x03F9DC FF:F9CC: FC        .byte $FC
+    .text "CA "     ; <とうほうコンビ>
+    .byte $FC
 
 off_F9CD_CB:
-- D - I - 0x03F9DD FF:F9CD: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F9DE FF:F9CE: 75        .byte $75    ; <ェ>
-- D - I - 0x03F9DF FF:F9CF: 60        .byte $60    ; <ミ>
-- D - I - 0x03F9E0 FF:F9D0: 56        .byte $56    ; <ニ>
-- D - I - 0x03F9E1 FF:F9D1: 41        .byte $41    ; <ア>
-- D - I - 0x03F9E2 FF:F9D2: 50        .byte $50    ; <タ>
-- D - I - 0x03F9E3 FF:F9D3: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F9E4 FF:F9D4: 48        .byte $48    ; <ク>
-- D - I - 0x03F9E5 FF:F9D5: FC        .byte $FC
+    .text "CB "     ; <ジェミニアタック>
+    .byte $FC
 
-off_F9D6_CC:
-- - - - - 0x03F9E6 FF:F9D6: 44        .byte $44    ; <エ>
-- - - - - 0x03F9E7 FF:F9D7: 6F        .byte $6F    ; <ッ>
-- - - - - 0x03F9E8 FF:F9D8: 5C        .byte $5C    ; <フ>
-- - - - - 0x03F9E9 FF:F9D9: 75        .byte $75    ; <ェ>
-- - - - - 0x03F9EA FF:F9DA: 69        .byte $69    ; <ル>
-- - - - - 0x03F9EB FF:F9DB: 0A        .byte $0A    ; <こ>
-- - - - - 0x03F9EC FF:F9DC: 03        .byte $03    ; <う>
-- - - - - 0x03F9ED FF:F9DD: A3        .byte $A3    ; <げ>
-- - - - - 0x03F9EE FF:F9DE: 07        .byte $07    ; <き>
-- - - - - 0x03F9EF FF:F9DF: FC        .byte $FC
+off_F9D6_CC:        ; unused
+    .text "CC "     ; <エッフェルこうげき>
+    .byte $FC
 
 off_F9E0_CD:
-- D - I - 0x03F9F0 FF:F9E0: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F9F1 FF:F9E1: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03F9F2 FF:F9E2: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F9F3 FF:F9E3: 48        .byte $48    ; <ク>
-- D - I - 0x03F9F4 FF:F9E4: FC        .byte $FC
+    .text "CD "     ; <ブロック>
+    .byte $FC
 
 off_F9E5_CE:
-- D - I - 0x03F9F5 FF:F9E5: A0        .byte $A0    ; <が>
-- D - I - 0x03F9F6 FF:F9E6: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F9F7 FF:F9E7: 22        .byte $22    ; <め>
-- D - I - 0x03F9F8 FF:F9E8: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F9F9 FF:F9E9: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F9FA FF:F9EA: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03F9FB FF:F9EB: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03F9FC FF:F9EC: 48        .byte $48    ; <ク>
-- D - I - 0x03F9FD FF:F9ED: FC        .byte $FC
+    .text "CE "     ; <がんめんブロック>
+    .byte $FC
 
 off_F9EE_CF:
-- D - I - 0x03F9FE FF:F9EE: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F9FF FF:F9EF: 46        .byte $46    ; <カ>
-- D - I - 0x03FA00 FF:F9F0: 42        .byte $42    ; <イ>
-- D - I - 0x03FA01 FF:F9F1: 67        .byte $67    ; <ラ>
-- D - I - 0x03FA02 FF:F9F2: C5        .byte $C5    ; <ブ>
-- D - I - 0x03FA03 FF:F9F3: C5        .byte $C5    ; <ブ>
-- D - I - 0x03FA04 FF:F9F4: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03FA05 FF:F9F5: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA06 FF:F9F6: 48        .byte $48    ; <ク>
-- D - I - 0x03FA07 FF:F9F7: FC        .byte $FC
+    .text "CF "     ; <スカイラブブロック>
+    .byte $FC
 
 off_F9F8_D0:
-- D - I - 0x03FA08 FF:F9F8: CD        .byte $CD    ; <パ>
-- D - I - 0x03FA09 FF:F9F9: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03FA0A FF:F9FA: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FA0B FF:F9FB: C5        .byte $C5    ; <ブ>
-- D - I - 0x03FA0C FF:F9FC: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03FA0D FF:F9FD: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA0E FF:F9FE: 48        .byte $48    ; <ク>
-- D - I - 0x03FA0F FF:F9FF: FC        .byte $FC
+    .text "D0 "     ; <パワーブロック>
+    .byte $FC
 
 off_FA00_D1:
-- D - I - 0x03FA10 FF:FA00: 50        .byte $50    ; <タ>
-- D - I - 0x03FA11 FF:FA01: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA12 FF:FA02: 48        .byte $48    ; <ク>
-- D - I - 0x03FA13 FF:FA03: 69        .byte $69    ; <ル>
-- D - I - 0x03FA14 FF:FA04: FC        .byte $FC
+    .text "D1 "     ; <タックル>
+    .byte $FC
 
 off_FA05_D2:
-- D - I - 0x03FA15 FF:FA05: 4D        .byte $4D    ; <ス>
-- D - I - 0x03FA16 FF:FA06: 46        .byte $46    ; <カ>
-- D - I - 0x03FA17 FF:FA07: 42        .byte $42    ; <イ>
-- D - I - 0x03FA18 FF:FA08: 67        .byte $67    ; <ラ>
-- D - I - 0x03FA19 FF:FA09: C5        .byte $C5    ; <ブ>
-- D - I - 0x03FA1A FF:FA0A: 50        .byte $50    ; <タ>
-- D - I - 0x03FA1B FF:FA0B: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA1C FF:FA0C: 48        .byte $48    ; <ク>
-- D - I - 0x03FA1D FF:FA0D: 69        .byte $69    ; <ル>
-- D - I - 0x03FA1E FF:FA0E: FC        .byte $FC
+    .text "D2 "     ; <スカイラブタックル>
+    .byte $FC
 
 off_FA0F_D3:
-- D - I - 0x03FA1F FF:FA0F: 46        .byte $46    ; <カ>
-- D - I - 0x03FA20 FF:FA10: 60        .byte $60    ; <ミ>
-- D - I - 0x03FA21 FF:FA11: 4F        .byte $4F    ; <ソ>
-- D - I - 0x03FA22 FF:FA12: 68        .byte $68    ; <リ>
-- D - I - 0x03FA23 FF:FA13: 50        .byte $50    ; <タ>
-- D - I - 0x03FA24 FF:FA14: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA25 FF:FA15: 48        .byte $48    ; <ク>
-- D - I - 0x03FA26 FF:FA16: 69        .byte $69    ; <ル>
-- D - I - 0x03FA27 FF:FA17: FC        .byte $FC
+    .text "D3 "     ; <カミソリタックル>
+    .byte $FC
 
 off_FA18_D4:
-- D - I - 0x03FA28 FF:FA18: CD        .byte $CD    ; <パ>
-- D - I - 0x03FA29 FF:FA19: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03FA2A FF:FA1A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FA2B FF:FA1B: 50        .byte $50    ; <タ>
-- D - I - 0x03FA2C FF:FA1C: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA2D FF:FA1D: 48        .byte $48    ; <ク>
-- D - I - 0x03FA2E FF:FA1E: 69        .byte $69    ; <ル>
-- D - I - 0x03FA2F FF:FA1F: FC        .byte $FC
+    .text "D4 "     ; <パワータックル>
+    .byte $FC
 
 off_FA20_D5:
-- D - I - 0x03FA30 FF:FA20: 50        .byte $50    ; <タ>
-- D - I - 0x03FA31 FF:FA21: 42        .byte $42    ; <イ>
-- D - I - 0x03FA32 FF:FA22: B4        .byte $B4    ; <ガ>
-- D - I - 0x03FA33 FF:FA23: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FA34 FF:FA24: 50        .byte $50    ; <タ>
-- D - I - 0x03FA35 FF:FA25: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA36 FF:FA26: 48        .byte $48    ; <ク>
-- D - I - 0x03FA37 FF:FA27: 69        .byte $69    ; <ル>
-- D - I - 0x03FA38 FF:FA28: FC        .byte $FC
+    .text "D5 "     ; <タイガータックル>
+    .byte $FC
 
-off_FA29_D6:
-- - - - - 0x03FA39 FF:FA29: 50        .byte $50    ; <タ>
-- - - - - 0x03FA3A FF:FA2A: 6F        .byte $6F    ; <ッ>
-- - - - - 0x03FA3B FF:FA2B: 48        .byte $48    ; <ク>
-- - - - - 0x03FA3C FF:FA2C: 69        .byte $69    ; <ル>
-- - - - - 0x03FA3D FF:FA2D: FC        .byte $FC
+off_FA29_D6:        ; unused
+    .text "D6 "     ; <タックル>
+    .byte $FC
 
 off_FA2E_D7:
-- D - I - 0x03FA3E FF:FA2E: CD        .byte $CD    ; <パ>
-- D - I - 0x03FA3F FF:FA2F: 4D        .byte $4D    ; <ス>
-- D - I - 0x03FA40 FF:FA30: 46        .byte $46    ; <カ>
-- D - I - 0x03FA41 FF:FA31: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA42 FF:FA32: 54        .byte $54    ; <ト>
-- D - I - 0x03FA43 FF:FA33: FC        .byte $FC
+    .text "D7 "     ; <パスカット>
+    .byte $FC
 
 off_FA34_D8:
-- D - I - 0x03FA44 FF:FA34: 4D        .byte $4D    ; <ス>
-- D - I - 0x03FA45 FF:FA35: 46        .byte $46    ; <カ>
-- D - I - 0x03FA46 FF:FA36: 42        .byte $42    ; <イ>
-- D - I - 0x03FA47 FF:FA37: 67        .byte $67    ; <ラ>
-- D - I - 0x03FA48 FF:FA38: C5        .byte $C5    ; <ブ>
-- D - I - 0x03FA49 FF:FA39: CD        .byte $CD    ; <パ>
-- D - I - 0x03FA4A FF:FA3A: 4D        .byte $4D    ; <ス>
-- D - I - 0x03FA4B FF:FA3B: 46        .byte $46    ; <カ>
-- D - I - 0x03FA4C FF:FA3C: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA4D FF:FA3D: 54        .byte $54    ; <ト>
-- D - I - 0x03FA4E FF:FA3E: FC        .byte $FC
+    .text "D8 "     ; <スカイラブパスカット>
+    .byte $FC
 
 off_FA3F_D9:
-- D - I - 0x03FA4F FF:FA3F: 54        .byte $54    ; <ト>
-- D - I - 0x03FA50 FF:FA40: 67        .byte $67    ; <ラ>
-- D - I - 0x03FA51 FF:FA41: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA52 FF:FA42: CF        .byte $CF    ; <プ>
-- D - I - 0x03FA53 FF:FA43: FC        .byte $FC
+    .text "D9 "     ; <トラップ>
+    .byte $FC
 
 off_FA44_DA:
-- D - I - 0x03FA54 FF:FA44: 4D        .byte $4D    ; <ス>
-- D - I - 0x03FA55 FF:FA45: 69        .byte $69    ; <ル>
-- D - I - 0x03FA56 FF:FA46: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FA57 FF:FA47: FC        .byte $FC
+    .text "DA "     ; <スルー>
+    .byte $FC
 
 off_FA48_DB:
-- D - I - 0x03FA58 FF:FA48: 48        .byte $48    ; <ク>
-- D - I - 0x03FA59 FF:FA49: 68        .byte $68    ; <リ>
-- D - I - 0x03FA5A FF:FA4A: 41        .byte $41    ; <ア>
-- D - I - 0x03FA5B FF:FA4B: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FA5C FF:FA4C: FC        .byte $FC
+    .text "DB "     ; <クリアー>
+    .byte $FC
 
-off_FA4D_DC:
-- - - - - 0x03FA5D FF:FA4D: 48        .byte $48    ; <ク>
-- - - - - 0x03FA5E FF:FA4E: 68        .byte $68    ; <リ>
-- - - - - 0x03FA5F FF:FA4F: 41        .byte $41    ; <ア>
-- - - - - 0x03FA60 FF:FA50: 7D        .byte $7D    ; <ー>
-- - - - - 0x03FA61 FF:FA51: FC        .byte $FC
+off_FA4D_DC:        ; unused
+    .text "DC "     ; <クリアー>
+    .byte $FC
 
-off_FA52_DD:
-- - - - - 0x03FA62 FF:FA52: 0E        .byte $0E    ; <せ>
-- - - - - 0x03FA63 FF:FA53: 28        .byte $28    ; <り>
-- - - - - 0x03FA64 FF:FA54: 01        .byte $01    ; <あ>
-- - - - - 0x03FA65 FF:FA55: 02        .byte $02    ; <い>
-- - - - - 0x03FA66 FF:FA56: FC        .byte $FC
+off_FA52_DD:        ; unused
+    .text "DD "     ; <せりあい>
+    .byte $FC
 
-off_FA57_DE:
-- - - - - 0x03FA67 FF:FA57: 0E        .byte $0E    ; <せ>
-- - - - - 0x03FA68 FF:FA58: 28        .byte $28    ; <り>
-- - - - - 0x03FA69 FF:FA59: 01        .byte $01    ; <あ>
-- - - - - 0x03FA6A FF:FA5A: 02        .byte $02    ; <い>
-- - - - - 0x03FA6B FF:FA5B: FC        .byte $FC
+off_FA57_DE:        ; unused
+    .text "DE "     ; <せりあい>
+    .byte $FC
 
-off_FA5C_DF:
-- - - - - 0x03FA6C FF:FA5C: 5C        .byte $5C    ; <フ>
-- - - - - 0x03FA6D FF:FA5D: 76        .byte $76    ; <ォ>
-- - - - - 0x03FA6E FF:FA5E: 6B        .byte $6B    ; <ロ>
-- - - - - 0x03FA6F FF:FA5F: 7D        .byte $7D    ; <ー>
-- - - - - 0x03FA70 FF:FA60: FC        .byte $FC
+off_FA5C_DF:        ; unused
+    .text "DF "     ; <フォロー>
+    .byte $FC
 
 off_FA61_E0:
-- D - I - 0x03FA71 FF:FA61: 47        .byte $47    ; <キ>
-- D - I - 0x03FA72 FF:FA62: 70        .byte $70    ; <ャ>
-- D - I - 0x03FA73 FF:FA63: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FA74 FF:FA64: 51        .byte $51    ; <チ>
-- D - I - 0x03FA75 FF:FA65: 6E        .byte $6E    ; <ン>
-- D - I - 0x03FA76 FF:FA66: B6        .byte $B6    ; <グ>
-- D - I - 0x03FA77 FF:FA67: FC        .byte $FC
+    .text "E0 "     ; <キャッチング>
+    .byte $FC
 
-off_FA68_E1:
-- - - - - 0x03FA78 FF:FA68: 6B        .byte $6B    ; <ロ>
-- - - - - 0x03FA79 FF:FA69: 7D        .byte $7D    ; <ー>
-- - - - - 0x03FA7A FF:FA6A: 68        .byte $68    ; <リ>
-- - - - - 0x03FA7B FF:FA6B: 6E        .byte $6E    ; <ン>
-- - - - - 0x03FA7C FF:FA6C: B6        .byte $B6    ; <グ>
-- - - - - 0x03FA7D FF:FA6D: 4E        .byte $4E    ; <セ>
-- - - - - 0x03FA7E FF:FA6E: 7D        .byte $7D    ; <ー>
-- - - - - 0x03FA7F FF:FA6F: C5        .byte $C5    ; <ブ>
-- - - - - 0x03FA80 FF:FA70: FC        .byte $FC
+off_FA68_E1:        ; unused
+    .text "E1 "     ; <ローリングセーブ>
+    .byte $FC
 
-off_FA71_E2:
-- - - - - 0x03FA81 FF:FA71: B1        .byte $B1    ; <ぶ>
-- - - - - 0x03FA82 FF:FA72: 2E        .byte $2E    ; <ん>
-- - - - - 0x03FA83 FF:FA73: 0C        .byte $0C    ; <し>
-- - - - - 0x03FA84 FF:FA74: 2E        .byte $2E    ; <ん>
-- - - - - 0x03FA85 FF:FA75: 4E        .byte $4E    ; <セ>
-- - - - - 0x03FA86 FF:FA76: 7D        .byte $7D    ; <ー>
-- - - - - 0x03FA87 FF:FA77: C5        .byte $C5    ; <ブ>
-- - - - - 0x03FA88 FF:FA78: FC        .byte $FC
+off_FA71_E2:        ; unused
+    .text "E2 "     ; <ぶんしんセーブ>
+    .byte $FC
 
-off_FA79_E3:
-- - - - - 0x03FA89 FF:FA79: AA        .byte $AA    ; <だ>
-- - - - - 0x03FA8A FF:FA7A: 02        .byte $02    ; <い>
-- - - - - 0x03FA8B FF:FA7B: 06        .byte $06    ; <か>
-- - - - - 0x03FA8C FF:FA7C: 02        .byte $02    ; <い>
-- - - - - 0x03FA8D FF:FA7D: 13        .byte $13    ; <て>
-- - - - - 0x03FA8E FF:FA7E: 2E        .byte $2E    ; <ん>
-- - - - - 0x03FA8F FF:FA7F: 4E        .byte $4E    ; <セ>
-- - - - - 0x03FA90 FF:FA80: 7D        .byte $7D    ; <ー>
-- - - - - 0x03FA91 FF:FA81: C5        .byte $C5    ; <ブ>
-- - - - - 0x03FA92 FF:FA82: FC        .byte $FC
+off_FA79_E3:        ; unused
+    .text "E3 "     ; <だいかいてんセーブ>
+    .byte $FC
 
 off_FA83_E4:
-- D - I - 0x03FA93 FF:FA83: CD        .byte $CD    ; <パ>
-- D - I - 0x03FA94 FF:FA84: 6E        .byte $6E    ; <ン>
-- D - I - 0x03FA95 FF:FA85: 51        .byte $51    ; <チ>
-- D - I - 0x03FA96 FF:FA86: 6E        .byte $6E    ; <ン>
-- D - I - 0x03FA97 FF:FA87: B6        .byte $B6    ; <グ>
-- D - I - 0x03FA98 FF:FA88: FC        .byte $FC
+    .text "E4 "     ; <パンチング>
+    .byte $FC
 
 off_FA89_E5:
-- D - I - 0x03FA99 FF:FA89: 0B        .byte $0B    ; <さ>
-- D - I - 0x03FA9A FF:FA8A: 2E        .byte $2E    ; <ん>
-- D - I - 0x03FA9B FF:FA8B: 06        .byte $06    ; <か>
-- D - I - 0x03FA9C FF:FA8C: 08        .byte $08    ; <く>
-- D - I - 0x03FA9D FF:FA8D: 14        .byte $14    ; <と>
-- D - I - 0x03FA9E FF:FA8E: B0        .byte $B0    ; <び>
-- D - I - 0x03FA9F FF:FA8F: FC        .byte $FC
+    .text "E5 "     ; <さんかくとび>
+    .byte $FC
 
 off_FA90_E6:
-- D - I - 0x03FAA0 FF:FA90: 0D        .byte $0D    ; <す>
-- D - I - 0x03FAA1 FF:FA91: 29        .byte $29    ; <る>
-- D - I - 0x03FAA2 FF:FA92: AE        .byte $AE    ; <ど>
-- D - I - 0x03FAA3 FF:FA93: 02        .byte $02    ; <い>
-- D - I - 0x03FAA4 FF:FA94: 00        .byte $00
-- D - I - 0x03FAA5 FF:FA95: FC        .byte $FC
+    .text "E6 "     ; <するどい  >
+    .byte $FC
 
 off_FA96_E7:
-- D - I - 0x03FAA6 FF:FA96: 0D        .byte $0D    ; <す>
-- D - I - 0x03FAA7 FF:FA97: AF        .byte $AF    ; <ば>
-- D - I - 0x03FAA8 FF:FA98: 24        .byte $24    ; <や>
-- D - I - 0x03FAA9 FF:FA99: 08        .byte $08    ; <く>
-- D - I - 0x03FAAA FF:FA9A: 00        .byte $00
-- D - I - 0x03FAAB FF:FA9B: FC        .byte $FC
+    .text "E7 "     ; <すばやく  >
+    .byte $FC
 
 off_FA9C_E8:
-- D - I - 0x03FAAC FF:FA9C: 07        .byte $07    ; <き>
-- D - I - 0x03FAAD FF:FA9D: 32        .byte $32    ; <ょ>
-- D - I - 0x03FAAE FF:FA9E: 03        .byte $03    ; <う>
-- D - I - 0x03FAAF FF:FA9F: 2A        .byte $2A    ; <れ>
-- D - I - 0x03FAB0 FF:FAA0: 12        .byte $12    ; <つ>
-- D - I - 0x03FAB1 FF:FAA1: 15        .byte $15    ; <な>
-- D - I - 0x03FAB2 FF:FAA2: 00        .byte $00
-- D - I - 0x03FAB3 FF:FAA3: FC        .byte $FC
+    .text "E8 "     ; <きょうれつな  >
+    .byte $FC
 
 off_FAA4_E9:
-- D - I - 0x03FAB4 FF:FAA4: 03        .byte $03    ; <う>
-- D - I - 0x03FAB5 FF:FAA5: 1F        .byte $1F    ; <ま>
-- D - I - 0x03FAB6 FF:FAA6: 02        .byte $02    ; <い>
-- D - I - 0x03FAB7 FF:FAA7: 00        .byte $00
-- D - I - 0x03FAB8 FF:FAA8: FC        .byte $FC
+    .text "E9 "     ; <うまい  >
+    .byte $FC
 
 off_FAA9_EA:
-- D - I - 0x03FAB9 FF:FAA9: 07        .byte $07    ; <き>
-- D - I - 0x03FABA FF:FAAA: 32        .byte $32    ; <ょ>
-- D - I - 0x03FABB FF:FAAB: 03        .byte $03    ; <う>
-- D - I - 0x03FABC FF:FAAC: 2A        .byte $2A    ; <れ>
-- D - I - 0x03FABD FF:FAAD: 12        .byte $12    ; <つ>
-- D - I - 0x03FABE FF:FAAE: 15        .byte $15    ; <な>
-- D - I - 0x03FABF FF:FAAF: FC        .byte $FC
+    .text "EA "     ; <きょうれつな>
+    .byte $FC
 
 off_FAB0_EB:
-- D - I - 0x03FAC0 FF:FAB0: 4E        .byte $4E    ; <セ>
-- D - I - 0x03FAC1 FF:FAB1: 6E        .byte $6E    ; <ン>
-- D - I - 0x03FAC2 FF:FAB2: 50        .byte $50    ; <タ>
-- D - I - 0x03FAC3 FF:FAB3: 68        .byte $68    ; <リ>
-- D - I - 0x03FAC4 FF:FAB4: 6E        .byte $6E    ; <ン>
-- D - I - 0x03FAC5 FF:FAB5: B6        .byte $B6    ; <グ>
-- D - I - 0x03FAC6 FF:FAB6: FC        .byte $FC
+    .text "EB "     ; <センタリング>
+    .byte $FC
 
 off_FAB7_EC:
-- D - I - 0x03FAC7 FF:FAB7: D0        .byte $D0    ; <ペ>
-- D - I - 0x03FAC8 FF:FAB8: 55        .byte $55    ; <ナ>
-- D - I - 0x03FAC9 FF:FAB9: 69        .byte $69    ; <ル>
-- D - I - 0x03FACA FF:FABA: 53        .byte $53    ; <テ>
-- D - I - 0x03FACB FF:FABB: 74        .byte $74    ; <ィ>
-- D - I - 0x03FACC FF:FABC: 47        .byte $47    ; <キ>
-- D - I - 0x03FACD FF:FABD: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03FACE FF:FABE: 48        .byte $48    ; <ク>
-- D - I - 0x03FACF FF:FABF: FC        .byte $FC
+    .text "EC "     ; <ペナルティキック>
+    .byte $FC
 
 off_FAC0_ED:
-- D - I - 0x03FAD0 FF:FAC0: C7        .byte $C7    ; <ボ>
-- D - I - 0x03FAD1 FF:FAC1: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FAD2 FF:FAC2: 69        .byte $69    ; <ル>
-- D - I - 0x03FAD3 FF:FAC3: FC        .byte $FC
+    .text "ED "     ; <ボール>
+    .byte $FC
 
 off_FAC4_EE:
-- D - I - 0x03FAD4 FF:FAC4: B8        .byte $B8    ; <ゴ>
-- D - I - 0x03FAD5 FF:FAC5: 7D        .byte $7D    ; <ー>
-- D - I - 0x03FAD6 FF:FAC6: 69        .byte $69    ; <ル>
-- D - I - 0x03FAD7 FF:FAC7: FC        .byte $FC
+    .text "EE "     ; <ゴール>
+    .byte $FC
 
 off_FAC8_EF:
-- D - I - 0x03FAD8 FF:FAC8: 50        .byte $50    ; <タ>
-- D - I - 0x03FAD9 FF:FAC9: 42        .byte $42    ; <イ>
-- D - I - 0x03FADA FF:FACA: 79        .byte $79    ; <!>
-- D - I - 0x03FADB FF:FACB: FC        .byte $FC
+    .text "EF "     ; <タイ!>
+    .byte $FC
 
 
 
