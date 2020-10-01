@@ -291,9 +291,9 @@ off_B34F_28_тренер_05:
     .byte con_base_offset
     .word $2244
     .text "and the midfielder", con_line
-    .text "Santamaria's Banana Shot.", con_line
-    .text "Put tight markers on", con_line
-    .text "Carlos and Santamaria."
+    .text "Santamaria's Banana", con_line
+    .text "Shot. Put tight markers", con_line
+    .text "on both of them."
     .byte con_ball
     .byte con_clear_3
     
