@@ -1,4 +1,4 @@
-# Captain Tsubasa 2 English Translation of Captain Tsubasa 2
+# English Translation of Captain Tsubasa 2
 Captain Tsubasa 2 [NES] disassembly. Most comments are in Russian.
 
 ## How to build
