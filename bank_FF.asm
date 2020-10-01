@@ -5430,49 +5430,49 @@ tbl_E9DA_действия:
 off_EA1C_00_dribble:
     .word $2288     ; адрес ppu
     .byte $22       ; AND 03 = количество строк, LSR LSR = количество символов в строке
-    .text "dribble "
+    .text "Dribble "
     .text "        "
 
 off_EA29_01_pass:
     .word $2288
     .byte $22
-    .text "  pass  "
+    .text "  Pass  "
     .text "        "
 
 off_EA34_02_shoot:
     .word $2288
     .byte $22
-    .text " shoot  "
+    .text " Shoot  "
     .text "        "
 
 off_EA3D_03_1_2_pass:
     .word $2288
     .byte $22
-    .text "1-2 pass"
+    .text "1-2 Pass"
     .text "        "
 
 off_EA46_04_trap:
     .word $2288
     .byte $22
-    .text "  trap  "
+    .text "  Trap  "
     .text "        "
 
 off_EA51_05_through:
     .word $2288
     .byte $22
-    .text "through "
+    .text "Through "
     .text "        "
 
 off_EA59_06_clear:
     .word $2288
     .byte $22
-    .text " clear  "
+    .text " Clear1 "
     .text "        "
 
 off_EA61_07_подкат:
     .word $2288
     .byte $22
-    .text " tackle "
+    .text " Tackle "
     .text "        "
 
 off_EA6A_08_skylab_tackle:
@@ -5502,7 +5502,7 @@ off_EA87_0B_тигровый_подкат:
 off_EA94_0C_блок:
     .word $2288
     .byte $25
-    .text "  block  "
+    .text "  Block  "
 
 off_EA9F_0D_скайлаб_блок:
     .word $2288
@@ -5537,35 +5537,35 @@ off_EACE_11_скайлаб_перехват:
 off_EADB_12_wait_player:
     .word $2288
     .byte $25
-    .text "  wait   "
+    .text "  Wait   "
 
 off_EAE6_13_mark:
     .word $2288
     .byte $22
-    .text "  mark  "
+    .text "  Mark  "
     .text "        "
 
 off_EAEF_14_passcut:
     .word $2288
     .byte $25
-    .text " passcut "
+    .text " Passcut "
 
 off_EAF8_15_clear:
     .word $2288
     .byte $22
-    .text " clear  "
+    .text " Clear2 "
     .text "        "
 
 off_EB01_16_punch:
     .word $2288
     .byte $22
-    .text " punch  "
+    .text " Punch  "
     .text "        "
 
 off_EB0D_17_catch:
     .word $2288
     .byte $22
-    .text " catch  "
+    .text " Catch  "
     .text "        "
 
 off_EB17_18_triangle_jump:
@@ -5583,7 +5583,7 @@ off_EB26_19_dive:
 off_EB33_1A_wait_gk:
     .word $2288
     .byte $22
-    .text "  wait  "
+    .text "  Wait  "
     .text "        "
 
 off_EB3E_1B_контр_удар:
