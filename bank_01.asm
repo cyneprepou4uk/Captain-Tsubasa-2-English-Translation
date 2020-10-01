@@ -1729,7 +1729,7 @@ tbl_8AEE:
     .byte $00
     
     .byte $9F
-    .byte $07
+    .byte $07       ; индекс, с которого начинаются катсцены в следующем банке
     
     .byte $A0
     .byte $0F
@@ -1749,10 +1749,13 @@ tbl_8AEE:
     .byte $A5
     .byte $23
     
+    .byte $84
+    .byte $47
+    
     .byte $85
     .byte $60
     
-    .byte $86
+    .byte $86       ; bzk предположительно не нужно
     .byte $FF
 
 
