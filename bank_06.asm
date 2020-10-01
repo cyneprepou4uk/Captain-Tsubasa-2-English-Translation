@@ -304,8 +304,19 @@ off_BFBA_56_сан_паулу_перед_матчем:
     .byte con_window, $02
     .byte con_bg_2, $0F
     .byte con_animation, $01, $0C
-    .byte con_jump
-    .word off_BFD5
+    .byte con_sound, $31
+    .byte con_toggle_cam
+    .byte con_palette, $00
+    .byte con_speed, $02
+    .byte con_offset, $08
+    .text "@For Sao Paulo!@", con_line
+    .byte con_pause, $14
+    .byte con_offset, $07
+    .text "@NON DUCOR, DUCO!@"
+    .byte con_pause, $1E
+    .byte con_sound, $01
+    .byte con_screen_off
+    .byte con_exit
 
 
 
@@ -313,8 +324,19 @@ off_BFC4_57_нанкацу_перед_матчем:
     .byte con_window, $02
     .byte con_bg_2, $0E
     .byte con_animation, $01, $0F
-    .byte con_jump
-    .word off_BFD5
+    .byte con_sound, $31
+    .byte con_toggle_cam
+    .byte con_palette, $00
+    .byte con_speed, $02
+    .byte con_offset, $03
+    .text "@Let's do Nankatsu proud!@", con_line
+    .byte con_pause, $14
+    .byte con_offset, $0C
+    .text "@YEAH!!@"
+    .byte con_pause, $1E
+    .byte con_sound, $01
+    .byte con_screen_off
+    .byte con_exit
 
 
 
@@ -322,31 +344,18 @@ off_BFCE_58_япония_перед_матчем:
     .byte con_window, $02
     .byte con_bg_2, $0D
     .byte con_animation, $01, $0E
-off_BFD5:
     .byte con_sound, $31
     .byte con_toggle_cam
     .byte con_palette, $00
     .byte con_speed, $02
-    .byte $40    ; <「>
-    .byte $26    ; <よ>
-    .byte $0C    ; <し>
-    .byte $00
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $02    ; <い>
-    .byte $08    ; <く>
-    .byte $A9    ; <ぞ>
-    .byte $79    ; <!>
-    .byte con_line
+    .byte con_offset, $07
+    .text "@Japan's counting", con_line
+    .byte con_offset, $0A
+    .text "on us, guys!@", con_line
     .byte con_pause, $14
-    .byte $40    ; <「>
-    .byte $05    ; <お>
-    .byte $03    ; <う>
-    .byte $79    ; <!>
-    .byte $79    ; <!>
-    .byte con_line
-    .byte con_pause, $14
+    .byte con_offset, $0B
+    .text "@BANZAI!!@"
+    .byte con_pause, $1E
     .byte con_sound, $01
     .byte con_screen_off
     .byte con_exit
