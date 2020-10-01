@@ -698,7 +698,7 @@ off_B806_36_тренер_13:
     .word $2246
     .text "This team will", con_line
     .text "rapidly switch up", con_line
-    .text "offence and defense."
+    .text "offense and defense."
     .byte con_ball
     .byte con_clear_3
     
