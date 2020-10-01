@@ -284,19 +284,12 @@ off_BF90_53_новый_уровень_йоко:
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
-    .byte $40    ; <「>
-    .byte $6A    ; <レ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $41    ; <ア>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $AD    ; <で>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
-    .byte con_line
-    .byte con_pause, $14
-    .byte con_clear_1
+    .byte con_offset, $04
+    .text "@I could really see you", con_line
+    .byte con_offset, $06
+    .text "improving out there.@"
+    .byte con_pause, $28
+    .byte con_clear_3
     .byte con_exit
 
 
@@ -310,19 +303,14 @@ off_BF96_54_новый_уровень_санае:
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
-    .byte $40    ; <「>
-    .byte $6A    ; <レ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $41    ; <ア>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $AD    ; <で>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
-    .byte con_line
-    .byte con_pause, $14
-    .byte con_clear_1
+    .byte con_offset, $07
+    .text "@Great job! We'll", con_line
+    .byte con_offset, $06
+    .text "win the Championship", con_line
+    .byte con_offset, $09
+    .text "at this rate!@"
+    .byte con_pause, $28
+    .byte con_clear_3
     .byte con_exit
 
 
@@ -336,19 +324,12 @@ off_BF9C_55_новый_уровень_ишизаки:
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
-    .byte $40    ; <「>
-    .byte $6A    ; <レ>
-    .byte $C6    ; <ベ>
-    .byte $69    ; <ル>
-    .byte $41    ; <ア>
-    .byte $6F    ; <ッ>
-    .byte $CF    ; <プ>
-    .byte $AD    ; <で>
-    .byte $0D    ; <す>
-    .byte $7B    ; <。>
-    .byte con_line
-    .byte con_pause, $14
-    .byte con_clear_1
+    .byte con_offset, $05
+    .text "@We're good, and we're", con_line
+    .byte con_offset, $06
+    .text "only getting better!@"
+    .byte con_pause, $28
+    .byte con_clear_3
     .byte con_exit
 
 
