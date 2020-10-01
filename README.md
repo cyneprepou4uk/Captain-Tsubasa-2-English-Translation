@@ -8,9 +8,9 @@ Use **notepad_plus_plus_syntax.xml** to highlight code in [Notepad++](https://no
 
 ## How to build
 
-No special requiements. Just launch **assemble.bat** and wait until it's done.
+No special requirements. Just launch **assemble.bat** and wait until it's done.
 
-Then open **!ct2.nes** to play the game (however, translation is not ready yet).
+Then open **!ct2.nes** to play the game (translation is not fully complete, yet).
 
 
 
