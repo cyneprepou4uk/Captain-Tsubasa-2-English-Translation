@@ -6357,11 +6357,11 @@ bra_EFB2:
 C - - - - 0x03EFC2 FF:EFB2: A9 00     LDA #$00
 bra_EFB4:
 C - - - - 0x03EFC4 FF:EFB4: 48        PHA
-bra_EFB5:
+bra_EFB5_ожидание_освобождения_буфера:
 C - - - - 0x03EFC5 FF:EFB5: A9 01     LDA #$01
 C - - - - 0x03EFC7 FF:EFB7: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03EFCA FF:EFBA: AD 15 05  LDA $0515
-C - - - - 0x03EFCD FF:EFBD: D0 F6     BNE bra_EFB5
+C - - - - 0x03EFCD FF:EFBD: D0 F6     BNE bra_EFB5_ожидание_освобождения_буфера
 C - - - - 0x03EFCF FF:EFBF: A9 01     LDA #$01
 C - - - - 0x03EFD1 FF:EFC1: 8D 15 05  STA $0515
 C - - - - 0x03EFD4 FF:EFC4: 68        PLA
@@ -6406,11 +6406,11 @@ sub_0x03F023:
 C D - - - 0x03F023 FF:F013: A9 00     LDA #$00
 loc_F015:
 C D - - - 0x03F025 FF:F015: 48        PHA
-bra_F016:
+bra_F016_ожидание_освобождения_буфера:
 C - - - - 0x03F026 FF:F016: A9 01     LDA #$01
 C - - - - 0x03F028 FF:F018: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03F02B FF:F01B: AD 15 05  LDA $0515
-C - - - - 0x03F02E FF:F01E: D0 F6     BNE bra_F016
+C - - - - 0x03F02E FF:F01E: D0 F6     BNE bra_F016_ожидание_освобождения_буфера
 C - - - - 0x03F030 FF:F020: A9 01     LDA #$01
 C - - - - 0x03F032 FF:F022: 8D 15 05  STA $0515
 C - - - - 0x03F035 FF:F025: AD 3D 06  LDA $063D
@@ -6479,11 +6479,11 @@ bra_F09F:
 C - - - - 0x03F0AF FF:F09F: AD 3D 06  LDA $063D
 C - - - - 0x03F0B2 FF:F0A2: C9 03     CMP #$03
 C - - - - 0x03F0B4 FF:F0A4: F0 67     BEQ bra_F10D_выход
-bra_F0A6:
+bra_F0A6_ожидание_освобождения_буфера:
 C - - - - 0x03F0B6 FF:F0A6: A9 01     LDA #$01
 C - - - - 0x03F0B8 FF:F0A8: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03F0BB FF:F0AB: AD 15 05  LDA $0515
-C - - - - 0x03F0BE FF:F0AE: D0 F6     BNE bra_F0A6
+C - - - - 0x03F0BE FF:F0AE: D0 F6     BNE bra_F0A6_ожидание_освобождения_буфера
 C - - - - 0x03F0C0 FF:F0B0: A9 01     LDA #$01
 C - - - - 0x03F0C2 FF:F0B2: 8D 15 05  STA $0515
 C - - - - 0x03F0C5 FF:F0B5: A9 01     LDA #$01
