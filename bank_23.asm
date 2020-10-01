@@ -3633,7 +3633,7 @@ C - - - - 0x035982 23:9972: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 
 loc_9979:
 ofs_9979_00:
-C D J - - 0x035989 23:9979: AD 50 04  LDA $0450
+C D J - - 0x035989 23:9979: AD 50 04  LDA ram_счетчик_замен
 C - - - - 0x03598C 23:997C: C9 03     CMP #$03
 C - - - - 0x03598E 23:997E: 90 12     BCC bra_9992
 - - - - - 0x035990 23:9980: A9 38     LDA #$38
@@ -3776,10 +3776,10 @@ C - - - - 0x035A8E 23:9A7E: C0 04     CPY #$04
 C - - - - 0x035A90 23:9A80: D0 F1     BNE bra_9A73_копирование_между_адресами
 C - - - - 0x035A92 23:9A82: A0 00     LDY #$00
 C - - - - 0x035A94 23:9A84: B1 3A     LDA (ram_003A),Y
-C - - - - 0x035A96 23:9A86: AE 50 04  LDX $0450
+C - - - - 0x035A96 23:9A86: AE 50 04  LDX ram_счетчик_замен
 C - - - - 0x035A99 23:9A89: 9D 51 04  STA $0451,X
 C - - - - 0x035A9C 23:9A8C: E8        INX
-C - - - - 0x035A9D 23:9A8D: 8E 50 04  STX $0450
+C - - - - 0x035A9D 23:9A8D: 8E 50 04  STX ram_счетчик_замен
 C - - - - 0x035AA0 23:9A90: A9 3B     LDA #$3B
 C - - - - 0x035AA2 23:9A92: 20 2A C5  JSR sub_0x03EF8F_отрисовка_меню_во_время_матча
 bra_9A95:
@@ -3788,7 +3788,7 @@ C - - - - 0x035AA7 23:9A97: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x035AAA 23:9A9A: AD 1C 00  LDA ram_удержанные
 C - - - - 0x035AAD 23:9A9D: 29 C0     AND #con_btn_B + con_btn_A
 C - - - - 0x035AAF 23:9A9F: F0 F4     BEQ bra_9A95
-C - - - - 0x035AB1 23:9AA1: AE 50 04  LDX $0450
+C - - - - 0x035AB1 23:9AA1: AE 50 04  LDX ram_счетчик_замен
 C - - - - 0x035AB4 23:9AA4: E0 03     CPX #$03
 C - - - - 0x035AB6 23:9AA6: B0 03     BCS bra_9AAB_выход
 C - - - - 0x035AB8 23:9AA8: 4C 79 99  JMP loc_9979
@@ -3801,10 +3801,10 @@ C - - - - 0x035ABD 23:9AAD: 69 16     ADC #$16
 C - - - - 0x035ABF 23:9AAF: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x035AC2 23:9AB2: A0 00     LDY #con_игрок_номер
 C - - - - 0x035AC4 23:9AB4: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x035AC6 23:9AB6: AE 50 04  LDX $0450
+C - - - - 0x035AC6 23:9AB6: AE 50 04  LDX ram_счетчик_замен
 C - - - - 0x035AC9 23:9AB9: F0 0A     BEQ bra_9AC5
 bra_9ABB_цикл:
-C - - - - 0x035ACB 23:9ABB: DD 50 04  CMP $0450,X
+C - - - - 0x035ACB 23:9ABB: DD 50 04  CMP ram_забаненный_игрок - 1,X
 C - - - - 0x035ACE 23:9ABE: D0 02     BNE bra_9AC2
 C - - - - 0x035AD0 23:9AC0: 38        SEC
 C - - - - 0x035AD1 23:9AC1: 60        RTS
