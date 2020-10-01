@@ -7,8 +7,8 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_02 - меню с игроками и статами, опции, миникарта
 ; bank_03 - звуки музыкального экрана
 ; bank_04 - 
-; bank_05 - 
-; bank_06 - советы тренера
+; bank_05 - советы тренера
+; bank_06 - прочие катсцены
 ; bank_07 - палитра
 ; bank_08 - 
 ; bank_09 - блоки тайлов
