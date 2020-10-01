@@ -62,11 +62,11 @@ con_exit                    = $FF   ; end of the cutscene
     .word off_BEFB_4B_первый_перерыв_ишизаки
     .word off_BF2A_4C_перерыв_ишизаки
     .word off_BF54_4D_пароль_йоко
-    .word off_BF7D_4E_удачи_после_пароля
+    .word off_BF7D_4E_удачи_после_пароля_йоко
     .word off_BF5A_4F_пароль_санае
-    .word off_BF7D_4E_удачи_после_пароля
+    .word off_BF7D_50_удачи_после_пароля_санае
     .word off_BF60_51_пароль_ишизаки
-    .word off_BF7D_4E_удачи_после_пароля
+    .word off_BF7D_52_удачи_после_пароля_ишизаки
     .word off_BF90_53_новый_уровень_йоко
     .word off_BF96_54_новый_уровень_санае
     .word off_BF9C_55_новый_уровень_ишизаки
@@ -197,38 +197,102 @@ off_BF31:
 
 off_BF54_4D_пароль_йоко:
     .byte con_animation, $01, $2B
-    .byte con_jump
-    .word off_BF63
+    .byte con_window, $02
+    .byte con_bg_1, $5F
+    .byte con_palette, $00
+    .byte con_speed, $02
+    .byte con_offset, $08
+    .byte con_toggle_mouth
+    .text "@Here's today's", con_line
+    .byte con_offset, $0A
+    .text "score memo.@"
+    .byte con_pause, $1E
+    .byte con_clear_3
+    .byte con_exit
+
+
+
+off_BF7D_4E_удачи_после_пароля_йоко:
+    .byte con_speed, $02
+    .byte con_offset, $05
+    .text "@Good luck out there.@"
+    .byte con_pause, $14
+    .byte con_exit
 
 
 
 off_BF5A_4F_пароль_санае:
     .byte con_animation, $01, $27
-    .byte con_jump
-    .word off_BF63
+    .byte con_window, $02
+    .byte con_bg_1, $5F
+    .byte con_palette, $00
+    .byte con_speed, $02
+    .byte con_offset, $04
+    .byte con_toggle_mouth
+    .text "@I've prepared the score", con_line
+    .byte con_offset, $08
+    .text "memo, everyone.@"
+    .byte con_pause, $1E
+    .byte con_clear_3
+    .byte con_exit
+
+
+
+off_BF7D_50_удачи_после_пароля_санае:
+    .byte con_speed, $02
+    .byte con_offset, $09
+    .text "@Do your best", con_line
+    .byte con_offset, $0B
+    .text "out there.@", con_line
+    .byte con_pause, $14
+    .byte con_exit
 
 
 
 off_BF60_51_пароль_ишизаки:
     .byte con_animation, $01, $44
-off_BF63:
     .byte con_window, $02
     .byte con_bg_1, $5F
     .byte con_palette, $00
     .byte con_speed, $02
+    .byte con_offset, $07
+    .byte con_toggle_mouth
+    .text "@Here's our score", con_line
+    .byte con_offset, $0A
+    .text "memo, guys.@"
+    .byte con_pause, $1E
+    .byte con_clear_3
+    .byte con_exit
+
+
+
+off_BF7D_52_удачи_после_пароля_ишизаки:
+    .byte con_speed, $02
+    .byte con_offset, $07
+    .text "@Let's keep it up!@"
+    .byte con_pause, $14
+    .byte con_exit
+
+
+
+off_BF90_53_новый_уровень_йоко:
+    .byte con_animation, $01, $2B
+    .byte con_E8, $01
+    .byte con_window, $02
+    .byte con_bg_1, $5F
+    .byte con_palette, $00
+    .byte con_sound, $6F
+    .byte con_speed, $02
     .byte con_toggle_mouth
     .byte $40    ; <「>
-    .byte $07    ; <き>
-    .byte $32    ; <ょ>
-    .byte $03    ; <う>
-    .byte $19    ; <の>
-    .byte $00
-    .byte $4D    ; <ス>
-    .byte $4A    ; <コ>
+    .byte $6A    ; <レ>
+    .byte $C6    ; <ベ>
+    .byte $69    ; <ル>
     .byte $41    ; <ア>
-    .byte $62    ; <メ>
-    .byte $63    ; <モ>
-    .byte $26    ; <よ>
+    .byte $6F    ; <ッ>
+    .byte $CF    ; <プ>
+    .byte $AD    ; <で>
+    .byte $0D    ; <す>
     .byte $7B    ; <。>
     .byte con_line
     .byte con_pause, $14
@@ -237,45 +301,34 @@ off_BF63:
 
 
 
-off_BF7D_4E_удачи_после_пароля:
+off_BF96_54_новый_уровень_санае:
+    .byte con_animation, $01, $27
+    .byte con_E8, $01
+    .byte con_window, $02
+    .byte con_bg_1, $5F
+    .byte con_palette, $00
+    .byte con_sound, $6F
     .byte con_speed, $02
+    .byte con_toggle_mouth
     .byte $40    ; <「>
-    .byte $0A    ; <こ>
-    .byte $19    ; <の>
-    .byte $01    ; <あ>
-    .byte $14    ; <と>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $A0    ; <が>
-    .byte $2E    ; <ん>
-    .byte $AF    ; <ば>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $18    ; <ね>
+    .byte $6A    ; <レ>
+    .byte $C6    ; <ベ>
+    .byte $69    ; <ル>
+    .byte $41    ; <ア>
+    .byte $6F    ; <ッ>
+    .byte $CF    ; <プ>
+    .byte $AD    ; <で>
+    .byte $0D    ; <す>
     .byte $7B    ; <。>
     .byte con_line
     .byte con_pause, $14
+    .byte con_clear_1
     .byte con_exit
-
-
-
-off_BF90_53_новый_уровень_йоко:
-    .byte con_animation, $01, $2B
-    .byte con_jump
-    .word off_BF9F
-
-
-
-off_BF96_54_новый_уровень_санае:
-    .byte con_animation, $01, $27
-    .byte con_jump
-    .word off_BF9F
 
 
 
 off_BF9C_55_новый_уровень_ишизаки:
     .byte con_animation, $01, $44
-off_BF9F:
     .byte con_E8, $01
     .byte con_window, $02
     .byte con_bg_1, $5F
