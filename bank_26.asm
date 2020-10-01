@@ -247,7 +247,7 @@ off_A020_00_самая_первая_заставка:
     .text "As expected from"
     .byte con_line
     .byte con_offset, $09
-    .text "Wakabyashi,"
+    .text "Wakabayashi,"
     .byte con_pause, $0F
     .text " Japan's"
     .byte con_line
