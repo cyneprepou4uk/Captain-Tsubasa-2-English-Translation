@@ -1454,7 +1454,7 @@ C - - - - 0x002B10 02:AB00: 85 5D     STA ram_005D
 C - - - - 0x002B12 02:AB02: A9 0A     LDA #$0A
 C - - - - 0x002B14 02:AB04: 85 5E     STA ram_005E
 bra_AB06_цикл:
-C - - - - 0x002B16 02:AB06: 20 37 AF  JSR sub_AF37
+C - - - - 0x002B16 02:AB06: 20 37 AF  JSR sub_AF37_отображение_текущей_энергии
 C - - - - 0x002B19 02:AB09: C6 5E     DEC ram_005E
 C - - - - 0x002B1B 02:AB0B: A5 5E     LDA ram_005E
 C - - - - 0x002B1D 02:AB0D: 10 F7     BPL bra_AB06_цикл
@@ -1475,7 +1475,7 @@ C - - - - 0x002B36 02:AB26: 85 5D     STA ram_005D
 C - - - - 0x002B38 02:AB28: A9 16     LDA #$16
 C - - - - 0x002B3A 02:AB2A: 85 5E     STA ram_005E
 bra_AB2C_цикл:
-C - - - - 0x002B3C 02:AB2C: 20 37 AF  JSR sub_AF37
+C - - - - 0x002B3C 02:AB2C: 20 37 AF  JSR sub_AF37_отображение_текущей_энергии
 C - - - - 0x002B3F 02:AB2F: E6 5E     INC ram_005E
 C - - - - 0x002B41 02:AB31: A5 5E     LDA ram_005E
 C - - - - 0x002B43 02:AB33: C9 20     CMP #$20
@@ -1563,13 +1563,20 @@ C - - - - 0x002BE0 02:ABD0: A5 33     LDA ram_0033
 C - - - - 0x002BE2 02:ABD2: 85 ED     STA ram_00ED
 C - - - - 0x002BE4 02:ABD4: 20 4F 9E  JSR sub_0x001E5F
 ; адрес ppu для максимальной энергии
-C - - - - 0x002BE7 02:ABD7: A0 29     LDY #$EA
-C - - - - 0x002BE9 02:ABD9: A2 21     LDX #$20
+C - - - - 0x002BE7 02:ABD7: A0 29     LDY #$2A
+C - - - - 0x002BE9 02:ABD9: A2 21     LDX #$21
 C - - - - 0x002BEB 02:ABDB: A5 E8     LDA ram_00E8
 C - - - - 0x002BED 02:ABDD: 85 EC     STA ram_00EC
 C - - - - 0x002BEF 02:ABDF: A5 E9     LDA ram_00E9
 C - - - - 0x002BF1 02:ABE1: 85 ED     STA ram_00ED
 C - - - - 0x002BF3 02:ABE3: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
+; адрес ppu для текущей энергии
+                                      LDA #$26
+                                      STA ram_005C
+                                      LDA #$21
+                                      STA ram_005D
+                                      LDA ram_005F
+                                      JSR sub_AF39_отображение_текущей_энергии
 C - - - - 0x002BF6 02:ABE6: A5 5F     LDA ram_005F
 C - - - - 0x002BF8 02:ABE8: F0 10     BEQ bra_ABFA_кипер
 C - - - - 0x002BFA 02:ABEA: C9 1E     CMP #$1E
@@ -2107,8 +2114,7 @@ C - - - - 0x002F15 02:AF05: 84 E6     STY ram_00E6
 C - - - - 0x002F17 02:AF07: 86 E7     STX ram_00E7
 sub_AF09:
 C - - - - 0x002F19 02:AF09: 20 3C C5  JSR sub_0x03F31F_таблица_слов
-; ограничени по количеству символов для имен
-C - - - - 0x002F1C 02:AF0C: A9 05     LDA #$08
+C - - - - 0x002F1C 02:AF0C: A9 05     LDA #$08      ; ограничение по количеству символов для имен
 C - - - - 0x002F1E 02:AF0E: 85 ED     STA ram_00ED
 bra_AF10:
 C - - - - 0x002F20 02:AF10: A2 00     LDX #$00
@@ -2131,13 +2137,13 @@ C - - - - 0x002F3B 02:AF2B: C6 ED     DEC ram_00ED
 C - - - - 0x002F3D 02:AF2D: D0 E1     BNE bra_AF10
 C - - - - 0x002F3F 02:AF2F: A5 E6     LDA ram_00E6
 C - - - - 0x002F41 02:AF31: 38        SEC
-; здесь также нужно корректировать
-C - - - - 0x002F42 02:AF32: E9 05     SBC #$08
+C - - - - 0x002F42 02:AF32: E9 05     SBC #$08      ; здесь также нужно корректировать ограничение
 C - - - - 0x002F44 02:AF34: 85 E6     STA ram_00E6
 C - - - - 0x002F46 02:AF36: 60        RTS
 
-sub_AF37:
+sub_AF37_отображение_текущей_энергии:
 C - - - - 0x002F47 02:AF37: A5 5E     LDA ram_005E
+sub_AF39_отображение_текущей_энергии:
 C - - - - 0x002F49 02:AF39: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x002F4C 02:AF3C: A0 01     LDY #con_игрок_энергия_lo
 C - - - - 0x002F4E 02:AF3E: B1 34     LDA (ram_plr_data),Y
@@ -4714,14 +4720,14 @@ off_BF15_оформление_окон_и_текст:
     .byte $05
     .word $20A3
     .text "Level"
-; текст max
-    .byte $04
-    .word $20E3
-    .text "Max."
-; текст stamina
+; текст mastaminax
     .byte $07
-    .word $2123
-    .text "stamina"
+    .word $20E3
+    .text "Stamina"
+; текст / для разделителя текущей и максимальной энергии
+    .byte $01
+    .word $2129
+    .text "/"
 ; верхняя полоска stats и нижняя полоска high ball
     .byte $10
     .word $21C1
