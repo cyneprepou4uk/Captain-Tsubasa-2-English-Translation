@@ -425,7 +425,9 @@ tbl_C8F7_значение_для_регистра_IRQ:
 
 sub_C8FB:
 C - - - - 0x03C90B FF:C8FB: AD 98 04  LDA $0498
-C - - - - 0x03C90E FF:C8FE: F0 51     BEQ bra_C951
+C - - - - 0x03C90E FF:C8FE: F0 51     BNE bra_C900
+                                      JMP loc_C951
+bra_C900:
 C - - - - 0x03C910 FF:C900: CE 98 04  DEC $0498
 C - - - - 0x03C913 FF:C903: 38        SEC
 C - - - - 0x03C914 FF:C904: E9 01     SBC #$01
@@ -472,34 +474,47 @@ C - - - - 0x03C95C FF:C94C: D0 F7     BNE bra_C945
 C - - - - 0x03C95E FF:C94E: F0 DE     BEQ bra_C92E
 bra_C950_выход:
 C - - - - 0x03C960 FF:C950: 60        RTS
-bra_C951:
-C - - - - 0x03C961 FF:C951: AD 15 05  LDA $0515
-C - - - - 0x03C964 FF:C954: 10 2B     BPL bra_C981_выход
-C - - - - 0x03C966 FF:C956: A2 00     LDX #$00
-C - - - - 0x03C968 FF:C958: 8E 15 05  STX $0515
-bra_C95B:
-C - - - - 0x03C96B FF:C95B: BD A5 04  LDA $04A5,X
-C - - - - 0x03C96E FF:C95E: F0 21     BEQ bra_C981_выход
-C - - - - 0x03C970 FF:C960: A8        TAY
-C - - - - 0x03C971 FF:C961: E8        INX
-C - - - - 0x03C972 FF:C962: BD A5 04  LDA $04A5,X
-C - - - - 0x03C975 FF:C965: 48        PHA
-C - - - - 0x03C976 FF:C966: E8        INX
-C - - - - 0x03C977 FF:C967: BD A5 04  LDA $04A5,X
-C - - - - 0x03C97A FF:C96A: 2C 02 20  BIT $2002
-C - - - - 0x03C97D FF:C96D: 8D 06 20  STA $2006
-C - - - - 0x03C980 FF:C970: 68        PLA
-C - - - - 0x03C981 FF:C971: 8D 06 20  STA $2006
-C - - - - 0x03C984 FF:C974: E8        INX
-bra_C975:
-C - - - - 0x03C985 FF:C975: BD A5 04  LDA $04A5,X
-C - - - - 0x03C988 FF:C978: 8D 07 20  STA $2007
-C - - - - 0x03C98B FF:C97B: E8        INX
-C - - - - 0x03C98C FF:C97C: 88        DEY
-C - - - - 0x03C98D FF:C97D: D0 F6     BNE bra_C975
-C - - - - 0x03C98F FF:C97F: F0 DA     BEQ bra_C95B
-bra_C981_выход:
-C - - - - 0x03C991 FF:C981: 60        RTS
+
+loc_C951:
+    LDA $0515
+    BPL @выход
+    AND #$01
+    STA ram_temp_1
+    LDX #$00
+    STX $0515
+@цикл_записи_в_ppu:
+    LDA $04A5,X
+    BEQ @выход        ; 00 = конец буфера
+    TAY
+    INX
+    LDA $04A5,X
+    PHA
+    INX
+    LDA $04A5,X
+    BIT $2002
+    STA $2006
+    PLA
+    STA $2006
+    INX
+    LDA ram_temp_1
+    BNE @запись_одного_байта
+@основной_цикл_записи_в_2007:
+    LDA $04A5,X
+    STA $2007
+    INX
+    DEY
+    BNE @основной_цикл_записи_в_2007
+    BEQ @цикл_записи_в_ppu
+@выход:
+    RTS
+
+@запись_одного_байта:
+    LDA $04A5,X
+@цикл_записи_в_2007:
+    STA $2007
+    DEY
+    BNE @цикл_записи_в_2007
+    BEQ @цикл_записи_в_ppu
 
 sub_C982:
 C - - - - 0x03C992 FF:C982: A2 00     LDX #$00
