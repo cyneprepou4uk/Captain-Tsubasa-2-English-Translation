@@ -5150,4 +5150,3 @@ C - - - - 0x001FEE 01:9FDE: A9 FE     LDA #$FE
 bra_9FE0:
 C - - - - 0x001FF0 01:9FE0: 95 00     STA ram_0000,X
 C - - - - 0x001FF2 01:9FE2: 4C FB 9E  JMP loc_9EFB
-
