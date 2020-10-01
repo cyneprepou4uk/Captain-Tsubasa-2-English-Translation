@@ -7825,278 +7825,150 @@ off_F745_75_коимбра:
     .byte $FC
 
 off_F74B_76:
-- D - I - 0x03F75B FF:F74B: 4B        .byte $4B    ; <サ>
-- D - I - 0x03F75C FF:F74C: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F75D FF:F74D: CD        .byte $CD    ; <パ>
-- D - I - 0x03F75E FF:F74E: 43        .byte $43    ; <ウ>
-- D - I - 0x03F75F FF:F74F: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03F760 FF:F750: FC        .byte $FC
+    .text "Sao Paulo"
+    .byte $FC
 
 off_F751_77:
-- D - I - 0x03F761 FF:F751: 15        .byte $15    ; <な>
-- D - I - 0x03F762 FF:F752: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F763 FF:F753: 06        .byte $06    ; <か>
-- D - I - 0x03F764 FF:F754: 12        .byte $12    ; <つ>
-- D - I - 0x03F765 FF:F755: FC        .byte $FC
+    .text "Nankatsu"
+    .byte $FC
 
 off_F756_78:
-- D - I - 0x03F766 FF:F756: 16        .byte $16    ; <に>
-- D - I - 0x03F767 FF:F757: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03F768 FF:F758: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F769 FF:F759: FC        .byte $FC
+    .text "Japan"
+    .byte $FC
 
 off_F75A_79:
-- D - I - 0x03F76A FF:F75A: 5C        .byte $5C    ; <フ>
-- D - I - 0x03F76B FF:F75B: 69        .byte $69    ; <ル>
-- D - I - 0x03F76C FF:F75C: 60        .byte $60    ; <ミ>
-- D - I - 0x03F76D FF:F75D: 58        .byte $58    ; <ネ>
-- D - I - 0x03F76E FF:F75E: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F76F FF:F75F: 4E        .byte $4E    ; <セ>
-- D - I - 0x03F770 FF:F760: FC        .byte $FC
+    .text "Fluminense"
+    .byte $FC
 
 off_F761_7A:
-- D - I - 0x03F771 FF:F761: 4A        .byte $4A    ; <コ>
-- D - I - 0x03F772 FF:F762: 68        .byte $68    ; <リ>
-- D - I - 0x03F773 FF:F763: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F774 FF:F764: 51        .byte $51    ; <チ>
-- D - I - 0x03F775 FF:F765: 70        .byte $70    ; <ャ>
-- D - I - 0x03F776 FF:F766: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F777 FF:F767: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F778 FF:F768: FC        .byte $FC
+    .text "Corinthians"
+    .byte $FC
 
 off_F769_7B:
-- D - I - 0x03F779 FF:F769: B6        .byte $B6    ; <グ>
-- D - I - 0x03F77A FF:F76A: 6A        .byte $6A    ; <レ>
-- D - I - 0x03F77B FF:F76B: 60        .byte $60    ; <ミ>
-- D - I - 0x03F77C FF:F76C: 45        .byte $45    ; <オ>
-- D - I - 0x03F77D FF:F76D: FC        .byte $FC
+    .text "Gremio"
+    .byte $FC
 
 off_F76E_7C:
-- D - I - 0x03F77E FF:F76E: CD        .byte $CD    ; <パ>
-- D - I - 0x03F77F FF:F76F: 69        .byte $69    ; <ル>
-- D - I - 0x03F780 FF:F770: 62        .byte $62    ; <メ>
-- D - I - 0x03F781 FF:F771: 42        .byte $42    ; <イ>
-- D - I - 0x03F782 FF:F772: 67        .byte $67    ; <ラ>
-- D - I - 0x03F783 FF:F773: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F784 FF:F774: FC        .byte $FC
+    .text "Palmeiras"
+    .byte $FC
 
 off_F775_7D:
-- D - I - 0x03F785 FF:F775: 4B        .byte $4B    ; <サ>
-- D - I - 0x03F786 FF:F776: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F787 FF:F777: 54        .byte $54    ; <ト>
-- D - I - 0x03F788 FF:F778: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F789 FF:F779: FC        .byte $FC
+    .text "Santos"
+    .byte $FC
 
 off_F77A_7E:
-- D - I - 0x03F78A FF:F77A: 5C        .byte $5C    ; <フ>
-- D - I - 0x03F78B FF:F77B: 67        .byte $67    ; <ラ>
-- D - I - 0x03F78C FF:F77C: 62        .byte $62    ; <メ>
-- D - I - 0x03F78D FF:F77D: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F78E FF:F77E: B8        .byte $B8    ; <ゴ>
-- D - I - 0x03F78F FF:F77F: FC        .byte $FC
+    .text "Flamengo"
+    .byte $FC
 
 off_F780_7F:
-- D - I - 0x03F790 FF:F780: 08        .byte $08    ; <く>
-- D - I - 0x03F791 FF:F781: 16        .byte $16    ; <に>
-- D - I - 0x03F792 FF:F782: 20        .byte $20    ; <み>
-- D - I - 0x03F793 FF:F783: FC        .byte $FC
+    .text "Kunimi"
+    .byte $FC
 
 off_F784_80:
-- D - I - 0x03F794 FF:F784: 01        .byte $01    ; <あ>
-- D - I - 0x03F795 FF:F785: 07        .byte $07    ; <き>
-- D - I - 0x03F796 FF:F786: 10        .byte $10    ; <た>
-- D - I - 0x03F797 FF:F787: FC        .byte $FC
+    .text "Akita"
+    .byte $FC
 
 off_F788_81:
-- D - I - 0x03F798 FF:F788: 10        .byte $10    ; <た>
-- D - I - 0x03F799 FF:F789: 12        .byte $12    ; <つ>
-- D - I - 0x03F79A FF:F78A: 15        .byte $15    ; <な>
-- D - I - 0x03F79B FF:F78B: 20        .byte $20    ; <み>
-- D - I - 0x03F79C FF:F78C: FC        .byte $FC
+    .text "Tatsunami"
+    .byte $FC
 
 off_F78D_82:
-- D - I - 0x03F79D FF:F78D: 21        .byte $21    ; <む>
-- D - I - 0x03F79E FF:F78E: 0B        .byte $0B    ; <さ>
-- D - I - 0x03F79F FF:F78F: 0C        .byte $0C    ; <し>
-- D - I - 0x03F7A0 FF:F790: FC        .byte $FC
+    .text "Musashi"
+    .byte $FC
 
 off_F791_83:
-- D - I - 0x03F7A1 FF:F791: 1C        .byte $1C    ; <ふ>
-- D - I - 0x03F7A2 FF:F792: 27        .byte $27    ; <ら>
-- D - I - 0x03F7A3 FF:F793: 19        .byte $19    ; <の>
-- D - I - 0x03F7A4 FF:F794: FC        .byte $FC
+    .text "Furano"
+    .byte $FC
 
 off_F795_84:
-- D - I - 0x03F7A5 FF:F795: 14        .byte $14    ; <と>
-- D - I - 0x03F7A6 FF:F796: 03        .byte $03    ; <う>
-- D - I - 0x03F7A7 FF:F797: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03F7A8 FF:F798: 03        .byte $03    ; <う>
-- D - I - 0x03F7A9 FF:F799: FC        .byte $FC
+    .text "Toho"
+    .byte $FC
 
 off_F79A_85:
-- D - I - 0x03F7AA FF:F79A: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03F7AB FF:F79B: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F7AC FF:F79C: 5F        .byte $5F    ; <マ>
-- D - I - 0x03F7AD FF:F79D: FC        .byte $FC
+    .text "AS Roma"
+    .byte $FC
 
 off_F79E_86:
-- D - I - 0x03F7AE FF:F79E: 43        .byte $43    ; <ウ>
-- D - I - 0x03F7AF FF:F79F: 69        .byte $69    ; <ル>
-- D - I - 0x03F7B0 FF:F7A0: B6        .byte $B6    ; <グ>
-- D - I - 0x03F7B1 FF:F7A1: 41        .byte $41    ; <ア>
-- D - I - 0x03F7B2 FF:F7A2: 42        .byte $42    ; <イ>
-- D - I - 0x03F7B3 FF:F7A3: FC        .byte $FC
+    .text "Uruguay"
+    .byte $FC
 
 off_F7A4_87:
-- D - I - 0x03F7B4 FF:F7A4: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03F7B5 FF:F7A5: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F7B6 FF:F7A6: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F7B7 FF:F7A7: 69        .byte $69    ; <ル>
-- D - I - 0x03F7B8 FF:F7A8: B4        .byte $B4    ; <ガ>
-- D - I - 0x03F7B9 FF:F7A9: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F7BA FF:F7AA: FC        .byte $FC
+    .text "Hamburger SV"
+    .byte $FC
 
 off_F7AB_88:
-- D - I - 0x03F7BB FF:F7AB: 16        .byte $16    ; <に>
-- D - I - 0x03F7BC FF:F7AC: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03F7BD FF:F7AD: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F7BE FF:F7AE: FC        .byte $FC
+    .text "Japan"
+    .byte $FC
 
 off_F7AF_89:
-- D - I - 0x03F7BF FF:F7AF: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F7C0 FF:F7B0: 68        .byte $68    ; <リ>
-- D - I - 0x03F7C1 FF:F7B1: 41        .byte $41    ; <ア>
-- D - I - 0x03F7C2 FF:F7B2: FC        .byte $FC
+    .text "Syria"
+    .byte $FC
 
 off_F7B3_8A:
-- D - I - 0x03F7C3 FF:F7B3: 11        .byte $11    ; <ち>
-- D - I - 0x03F7C4 FF:F7B4: 31        .byte $31    ; <ゅ>
-- D - I - 0x03F7C5 FF:F7B5: 03        .byte $03    ; <う>
-- D - I - 0x03F7C6 FF:F7B6: A4        .byte $A4    ; <ご>
-- D - I - 0x03F7C7 FF:F7B7: 08        .byte $08    ; <く>
-- D - I - 0x03F7C8 FF:F7B8: FC        .byte $FC
+    .text "China"
+    .byte $FC
 
 off_F7B9_8B:
-- D - I - 0x03F7C9 FF:F7B9: 42        .byte $42    ; <イ>
-- D - I - 0x03F7CA FF:F7BA: 67        .byte $67    ; <ラ>
-- D - I - 0x03F7CB FF:F7BB: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F7CC FF:F7BC: FC        .byte $FC
+    .text "Iran"
+    .byte $FC
 
 off_F7BD_8C:
-- D - I - 0x03F7CD FF:F7BD: 07        .byte $07    ; <き>
-- D - I - 0x03F7CE FF:F7BE: 10        .byte $10    ; <た>
-- D - I - 0x03F7CF FF:F7BF: 11        .byte $11    ; <ち>
-- D - I - 0x03F7D0 FF:F7C0: 32        .byte $32    ; <ょ>
-- D - I - 0x03F7D1 FF:F7C1: 03        .byte $03    ; <う>
-- D - I - 0x03F7D2 FF:F7C2: 0E        .byte $0E    ; <せ>
-- D - I - 0x03F7D3 FF:F7C3: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F7D4 FF:F7C4: FC        .byte $FC
+    .text "North Korea"
+    .byte $FC
 
 off_F7C5_8D:
-- D - I - 0x03F7D5 FF:F7C5: 4B        .byte $4B    ; <サ>
-- D - I - 0x03F7D6 FF:F7C6: 43        .byte $43    ; <ウ>
-- D - I - 0x03F7D7 FF:F7C7: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F7D8 FF:F7C8: 41        .byte $41    ; <ア>
-- D - I - 0x03F7D9 FF:F7C9: 67        .byte $67    ; <ラ>
-- D - I - 0x03F7DA FF:F7CA: C4        .byte $C4    ; <ビ>
-- D - I - 0x03F7DB FF:F7CB: 41        .byte $41    ; <ア>
-- D - I - 0x03F7DC FF:F7CC: FC        .byte $FC
+    .text "Saudi Arabia"
+    .byte $FC
 
 off_F7CD_8E:
-- D - I - 0x03F7DD FF:F7CD: 06        .byte $06    ; <か>
-- D - I - 0x03F7DE FF:F7CE: 2E        .byte $2E    ; <ん>
-- D - I - 0x03F7DF FF:F7CF: 0A        .byte $0A    ; <こ>
-- D - I - 0x03F7E0 FF:F7D0: 08        .byte $08    ; <く>
-- D - I - 0x03F7E1 FF:F7D1: FC        .byte $FC
+    .text "South Korea"
+    .byte $FC
 
 off_F7D2_8F:
-- D - I - 0x03F7E2 FF:F7D2: C3        .byte $C3    ; <バ>
-- D - I - 0x03F7E3 FF:F7D3: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F7E4 FF:F7D4: 4A        .byte $4A    ; <コ>
-- D - I - 0x03F7E5 FF:F7D5: 3F        .byte $3F    ; <•>
-- D - I - 0x03F7E6 FF:F7D6: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F7E7 FF:F7D7: 3F        .byte $3F    ; <•>
-- D - I - 0x03F7E8 FF:F7D8: B4        .byte $B4    ; <ガ>
-- D - I - 0x03F7E9 FF:F7D9: 5F        .byte $5F    ; <マ>
-- D - I - 0x03F7EA FF:F7DA: FC        .byte $FC
+    .text "Turkey"
+    .byte $FC
 
 off_F7DB_90:
-- D - I - 0x03F7EB FF:F7DB: D1        .byte $D1    ; <ポ>
-- D - I - 0x03F7EC FF:F7DC: 7D        .byte $7D    ; <ー>
-- D - I - 0x03F7ED FF:F7DD: 67        .byte $67    ; <ラ>
-- D - I - 0x03F7EE FF:F7DE: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F7EF FF:F7DF: C2        .byte $C2    ; <ド>
-- D - I - 0x03F7F0 FF:F7E0: FC        .byte $FC
+    .text "Poland"
+    .byte $FC
 
 off_F7E1_91:
-- D - I - 0x03F7F1 FF:F7E1: 42        .byte $42    ; <イ>
-- D - I - 0x03F7F2 FF:F7E2: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F7F3 FF:F7E3: B6        .byte $B6    ; <グ>
-- D - I - 0x03F7F4 FF:F7E4: 67        .byte $67    ; <ラ>
-- D - I - 0x03F7F5 FF:F7E5: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F7F6 FF:F7E6: C2        .byte $C2    ; <ド>
-- D - I - 0x03F7F7 FF:F7E7: FC        .byte $FC
+    .text "England"
+    .byte $FC
 
 off_F7E8_92:
-- D - I - 0x03F7F8 FF:F7E8: 4F        .byte $4F    ; <ソ>
-- D - I - 0x03F7F9 FF:F7E9: C4        .byte $C4    ; <ビ>
-- D - I - 0x03F7FA FF:F7EA: 44        .byte $44    ; <エ>
-- D - I - 0x03F7FB FF:F7EB: 54        .byte $54    ; <ト>
-- D - I - 0x03F7FC FF:F7EC: FC        .byte $FC
+    .text "Soviet Union"
+    .byte $FC
 
 off_F7ED_93:
-- D - I - 0x03F7FD FF:F7ED: 5C        .byte $5C    ; <フ>
-- D - I - 0x03F7FE FF:F7EE: 67        .byte $67    ; <ラ>
-- D - I - 0x03F7FF FF:F7EF: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F800 FF:F7F0: 4D        .byte $4D    ; <ス>
-- D - I - 0x03F801 FF:F7F1: FC        .byte $FC
+    .text "France"
+    .byte $FC
 
 off_F7F2_94:
-- D - I - 0x03F802 FF:F7F2: 62        .byte $62    ; <メ>
-- D - I - 0x03F803 FF:F7F3: 47        .byte $47    ; <キ>
-- D - I - 0x03F804 FF:F7F4: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F805 FF:F7F5: 4A        .byte $4A    ; <コ>
-- D - I - 0x03F806 FF:F7F6: FC        .byte $FC
+    .text "Mexico"
+    .byte $FC
 
 off_F7F7_95:
-- D - I - 0x03F807 FF:F7F7: 42        .byte $42    ; <イ>
-- D - I - 0x03F808 FF:F7F8: 50        .byte $50    ; <タ>
-- D - I - 0x03F809 FF:F7F9: 68        .byte $68    ; <リ>
-- D - I - 0x03F80A FF:F7FA: 41        .byte $41    ; <ア>
-- D - I - 0x03F80B FF:F7FB: FC        .byte $FC
+    .text "Italy"
+    .byte $FC
 
 off_F7FC_96:
-- D - I - 0x03F80C FF:F7FC: 45        .byte $45    ; <オ>
-- D - I - 0x03F80D FF:F7FD: 67        .byte $67    ; <ラ>
-- D - I - 0x03F80E FF:F7FE: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F80F FF:F7FF: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F810 FF:F800: FC        .byte $FC
+    .text "Netherlands"
+    .byte $FC
 
 off_F801_97:
-- D - I - 0x03F811 FF:F801: 41        .byte $41    ; <ア>
-- D - I - 0x03F812 FF:F802: 69        .byte $69    ; <ル>
-- D - I - 0x03F813 FF:F803: BC        .byte $BC    ; <ゼ>
-- D - I - 0x03F814 FF:F804: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F815 FF:F805: 51        .byte $51    ; <チ>
-- D - I - 0x03F816 FF:F806: 6E        .byte $6E    ; <ン>
-- D - I - 0x03F817 FF:F807: FC        .byte $FC
+    .text "Argentina"
+    .byte $FC
 
 off_F808_98:
-- D - I - 0x03F818 FF:F808: 56        .byte $56    ; <ニ>
-- D - I - 0x03F819 FF:F809: 4C        .byte $4C    ; <シ>
-- D - I - 0x03F81A FF:F80A: C2        .byte $C2    ; <ド>
-- D - I - 0x03F81B FF:F80B: 42        .byte $42    ; <イ>
-- D - I - 0x03F81C FF:F80C: 52        .byte $52    ; <ツ>
-- D - I - 0x03F81D FF:F80D: FC        .byte $FC
+    .text "West Germany"
+    .byte $FC
 
 off_F80E_99:
-- D - I - 0x03F81E FF:F80E: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F81F FF:F80F: 67        .byte $67    ; <ラ>
-- D - I - 0x03F820 FF:F810: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F821 FF:F811: 69        .byte $69    ; <ル>
-- D - I - 0x03F822 FF:F812: FC        .byte $FC
+    .text "Brazil"
+    .byte $FC
 
-off_F813_9A:
+off_F813_9A:    ; shoot
 - D - I - 0x03F823 FF:F813: 4C        .byte $4C    ; <シ>
 - D - I - 0x03F824 FF:F814: 71        .byte $71    ; <ュ>
 - D - I - 0x03F825 FF:F815: 7D        .byte $7D    ; <ー>
