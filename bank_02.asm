@@ -685,8 +685,11 @@ C - - - - 0x0024F4 02:A4E4: 85 E9     STA ram_00E9
 C - - - - 0x0024F6 02:A4E6: A5 E8     LDA ram_00E8
 C - - - - 0x0024F8 02:A4E8: 4C 95 98  JMP loc_0x0018A5
 
-.export sub_0x0024FB
-sub_0x0024FB:
+.export sub_0x0024FB_VS_экран_и_повышение_уровня
+sub_0x0024FB_VS_экран_и_повышение_уровня:
+                                      LDX ram_матч
+                                      LDA tbl_0x040000_банки_CHR_с_сокращенными_именами,X
+                                      STA a: $90
 C D - - - 0x0024FB 02:A4EB: A2 6A     LDX #$6A
 C - - - - 0x0024FD 02:A4ED: A0 6B     LDY #$6B
 C - - - - 0x0024FF 02:A4EF: 20 6F 9B  JSR sub_0x001B7F_запись_первых_двух_банков_спрайтов
@@ -743,14 +746,14 @@ C - - - - 0x0025AD 02:A59D: A5 E4     LDA ram_00E4
 C - - - - 0x0025AF 02:A59F: C5 26     CMP ram_матч
 C - - - - 0x0025B1 02:A5A1: B0 0E     BCS bra_A5B1
 C - - - - 0x0025B3 02:A5A3: A5 26     LDA ram_матч
-C - - - - 0x0025B5 02:A5A5: C9 06     CMP #$06
+C - - - - 0x0025B5 02:A5A5: C9 06     CMP #$06      ; не повышать уровень при определенных матчах
 C - - - - 0x0025B7 02:A5A7: F0 67     BEQ bra_A610_выход
 C - - - - 0x0025B9 02:A5A9: C9 0C     CMP #$0C
 C - - - - 0x0025BB 02:A5AB: F0 63     BEQ bra_A610_выход
 C - - - - 0x0025BD 02:A5AD: C9 10     CMP #$10
 C - - - - 0x0025BF 02:A5AF: F0 5F     BEQ bra_A610_выход
 bra_A5B1:
-C - - - - 0x0025C1 02:A5B1: A5 EC     LDA ram_00EC
+C - - - - 0x0025C1 02:A5B1: A5 EC     LDA ram_00EC      ; ? никто не набрал уровень
 C - - - - 0x0025C3 02:A5B3: F0 5B     BEQ bra_A610_выход
 C - - - - 0x0025C5 02:A5B5: A6 26     LDX ram_матч
 C - - - - 0x0025C7 02:A5B7: BD F9 B3  LDA tbl_B3F9_номер_катсцены_повышения_уровня,X
@@ -759,7 +762,7 @@ C - - - - 0x0025CD 02:A5BD: 20 A9 82  JSR sub_0x0002B9
 C - - - - 0x0025D0 02:A5C0: A9 00     LDA #$00
 C - - - - 0x0025D2 02:A5C2: 85 ED     STA ram_00ED
 C - - - - 0x0025D4 02:A5C4: 85 EA     STA ram_00EA
-loc_A5C6:
+loc_A5C6_следующий_экран_имен_игроков_с_новым_уровнем:
 bra_A5C6_цикл:
 C D - - - 0x0025D6 02:A5C6: A6 ED     LDX ram_00ED
 C - - - - 0x0025D8 02:A5C8: BD 56 06  LDA $0656,X
@@ -767,9 +770,9 @@ C - - - - 0x0025DB 02:A5CB: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - 0x0025DE 02:A5CE: A5 EA     LDA ram_00EA
 C - - - - 0x0025E0 02:A5D0: 0A        ASL
 C - - - - 0x0025E1 02:A5D1: AA        TAX
-C - - - - 0x0025E2 02:A5D2: BD 58 BC  LDA tbl_BC58,X
+C - - - - 0x0025E2 02:A5D2: BD 58 BC  LDA tbl_BC58_адрес_ppu_для_имен_игроков,X
 C - - - - 0x0025E5 02:A5D5: 85 E8     STA ram_00E8
-C - - - - 0x0025E7 02:A5D7: BD 59 BC  LDA tbl_BC58 + 1,X
+C - - - - 0x0025E7 02:A5D7: BD 59 BC  LDA tbl_BC58_адрес_ppu_для_имен_игроков + 1,X
 C - - - - 0x0025EA 02:A5DA: 85 E9     STA ram_00E9
 C - - - - 0x0025EC 02:A5DC: A4 30     LDY ram_0030
 C - - - - 0x0025EE 02:A5DE: A6 31     LDX ram_0031
@@ -777,22 +780,22 @@ C - - - - 0x0025F0 02:A5E0: 20 50 9D  JSR sub_0x001D60
 C - - - - 0x0025F3 02:A5E3: E6 EA     INC ram_00EA
 C - - - - 0x0025F5 02:A5E5: E6 ED     INC ram_00ED
 C - - - - 0x0025F7 02:A5E7: C6 EC     DEC ram_00EC
-C - - - - 0x0025F9 02:A5E9: F0 1F     BEQ bra_A60A
+C - - - - 0x0025F9 02:A5E9: F0 1F     BEQ bra_A60A_закончить
 C - - - - 0x0025FB 02:A5EB: A5 ED     LDA ram_00ED
 C - - - - 0x0025FD 02:A5ED: C9 0B     CMP #$0B
 C - - - - 0x0025FF 02:A5EF: D0 D5     BNE bra_A5C6_цикл
 C - - - - 0x002601 02:A5F1: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
-C - - - - 0x002604 02:A5F4: A9 44     LDA #$44
+C - - - - 0x002604 02:A5F4: A9 44     LDA #$43      ; адрес ppu для затирания текста
 C - - - - 0x002606 02:A5F6: 85 E6     STA ram_00E6
 C - - - - 0x002608 02:A5F8: A9 22     LDA #$22
 C - - - - 0x00260A 02:A5FA: 85 E7     STA ram_00E7
 C - - - - 0x00260C 02:A5FC: A0 08     LDY #$08
-C - - - - 0x00260E 02:A5FE: A2 18     LDX #$18
+C - - - - 0x00260E 02:A5FE: A2 18     LDX #$1B      ; количество символов в буфере
 C - - - - 0x002610 02:A600: 20 E8 98  JSR sub_0x0018F8
 C - - - - 0x002613 02:A603: A9 00     LDA #$00
 C - - - - 0x002615 02:A605: 85 EA     STA ram_00EA
-C - - - - 0x002617 02:A607: 4C C6 A5  JMP loc_A5C6
-bra_A60A:
+C - - - - 0x002617 02:A607: 4C C6 A5  JMP loc_A5C6_следующий_экран_имен_игроков_с_новым_уровнем
+bra_A60A_закончить:
 C - - - - 0x00261A 02:A60A: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
 C - - - - 0x00261D 02:A60D: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 bra_A610_выход:
@@ -4554,29 +4557,28 @@ off_BC42_вакашимазу:
 
 
 tbl_BC48:
-- D - - - 0x003C58 02:BC48: 26 25     .word $2526
-- D - - - 0x003C5A 02:BC4A: 66 25     .word $2566
-- D - - - 0x003C5C 02:BC4C: A6 25     .word $25A6
-- D - - - 0x003C5E 02:BC4E: E6 25     .word $25E6
-- D - - - 0x003C60 02:BC50: 26 26     .word $2626
-- D - - - 0x003C62 02:BC52: 66 26     .word $2666
-- D - - - 0x003C64 02:BC54: A6 26     .word $26A6
-- D - - - 0x003C66 02:BC56: E6 26     .word $26E6
+    .word $2526
+    .word $2566
+    .word $25A6
+    .word $25E6
+    .word $2626
+    .word $2666
+    .word $26A6
+    .word $26E6
 
-tbl_BC58:
-- D - - - 0x003C68 02:BC58: 45 22     .word $2245
-- D - - - 0x003C6A 02:BC5A: 4D 22     .word $224D
-- D - - - 0x003C6C 02:BC5C: 55 22     .word $2255
-- D - - - 0x003C6E 02:BC5E: 85 22     .word $2285
-- D - - - 0x003C70 02:BC60: 8D 22     .word $228D
-- D - - - 0x003C72 02:BC62: 95 22     .word $2295
-- D - - - 0x003C74 02:BC64: C5 22     .word $22C5
-- D - - - 0x003C76 02:BC66: CD 22     .word $22CD
-- D - - - 0x003C78 02:BC68: D5 22     .word $22D5
-- D - - - 0x003C7A 02:BC6A: 05 23     .word $2305
-- D - - - 0x003C7C 02:BC6C: 0D 23     .word $230D
-
-
+tbl_BC58_адрес_ppu_для_имен_игроков:
+; при повышении уровня
+    .word $2243
+    .word $224C
+    .word $2255
+    .word $2283
+    .word $228C
+    .word $2295
+    .word $22C3
+    .word $22CC
+    .word $22D5
+    .word $2303
+    .word $230C
 
 tbl_BC6E_символы_пароля:
 ; читается из 3х мест
