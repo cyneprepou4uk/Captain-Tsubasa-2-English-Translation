@@ -5302,12 +5302,11 @@ loc_E93D_отображение_выбранного_действия:
 C D - - - 0x03E94D FF:E93D: 48        PHA
 C - - - - 0x03E94E FF:E93E: 8A        TXA
 C - - - - 0x03E94F FF:E93F: 48        PHA
-bra_E940_текст_еще_скрыт:
+bra_E940_ожидание_освобождения_буфера:
 C - - - - 0x03E950 FF:E940: A9 01     LDA #$01
 C - - - - 0x03E952 FF:E942: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03E955 FF:E945: AD 15 05  LDA $0515
-C - - - - 0x03E958 FF:E948: D0 F6     BNE bra_E940_текст_еще_скрыт
-; если 0515 = 00, значит надпись скрыта, ожидание появления в процессе цикла моргания
+C - - - - 0x03E958 FF:E948: D0 F6     BNE bra_E940_ожидание_освобождения_буфера
 C - - - - 0x03E95A FF:E94A: A9 01     LDA #$01
 C - - - - 0x03E95C FF:E94C: 8D 15 05  STA $0515
 C - - - - 0x03E95F FF:E94F: A9 00     LDA #$00
@@ -5345,7 +5344,7 @@ C - - - - 0x03E996 FF:E986: 4A        LSR
 C - - - - 0x03E997 FF:E987: 85 41     STA ram_0041
 C - - - - 0x03E999 FF:E989: C8        INY
 C - - - - 0x03E99A FF:E98A: A2 00     LDX #$00
-bra_E98C:
+bra_E98C_цикл_новой_строки:
 C - - - - 0x03E99C FF:E98C: A5 41     LDA ram_0041
 C - - - - 0x03E99E FF:E98E: 9D A5 04  STA $04A5,X
 C - - - - 0x03E9A1 FF:E991: 18        CLC
@@ -5364,7 +5363,7 @@ C - - - - 0x03E9B7 FF:E9A7: A5 41     LDA ram_0041
 C - - - - 0x03E9B9 FF:E9A9: 85 43     STA ram_0043
 C - - - - 0x03E9BB FF:E9AB: 2C 3A 00  BIT ram_003A
 C - - - - 0x03E9BE FF:E9AE: 30 11     BMI bra_E9C1
-bra_E9B0:
+bra_E9B0_цикл_чтения_строки:
 C - - - - 0x03E9C0 FF:E9B0: B1 3C     LDA (ram_003C),Y
 C - - - - 0x03E9C2 FF:E9B2: C8        INY
 C - - - - 0x03E9C3 FF:E9B3: C9 FE     CMP #$FE
@@ -5372,7 +5371,7 @@ C - - - - 0x03E9C5 FF:E9B5: F0 0A     BEQ bra_E9C1
 C - - - - 0x03E9C7 FF:E9B7: 9D A5 04  STA $04A5,X
 C - - - - 0x03E9CA FF:E9BA: E8        INX
 C - - - - 0x03E9CB FF:E9BB: C6 43     DEC ram_0043
-C - - - - 0x03E9CD FF:E9BD: D0 F1     BNE bra_E9B0
+C - - - - 0x03E9CD FF:E9BD: D0 F1     BNE bra_E9B0_цикл_чтения_строки
 C - - - - 0x03E9CF FF:E9BF: F0 0A     BEQ bra_E9CB
 bra_E9C1:
 C - - - - 0x03E9D1 FF:E9C1: A9 00     LDA #$00
@@ -5385,7 +5384,7 @@ bra_E9CB:
 C - - - - 0x03E9DB FF:E9CB: A9 00     LDA #$00
 C - - - - 0x03E9DD FF:E9CD: 9D A5 04  STA $04A5,X
 C - - - - 0x03E9E0 FF:E9D0: C6 40     DEC ram_0040
-C - - - - 0x03E9E2 FF:E9D2: D0 B8     BNE bra_E98C
+C - - - - 0x03E9E2 FF:E9D2: D0 B8     BNE bra_E98C_цикл_новой_строки
 C - - - - 0x03E9E4 FF:E9D4: A9 80     LDA #$80
 C - - - - 0x03E9E6 FF:E9D6: 8D 15 05  STA $0515
 C - - - - 0x03E9E9 FF:E9D9: 60        RTS
@@ -5394,15 +5393,15 @@ C - - - - 0x03E9E9 FF:E9D9: 60        RTS
 
 tbl_E9DA_действия:
 ; почему-то 0D не считывалось
-- D - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00_дриблинг
-- D - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01_пас
-- D - - - 0x03E9EE FF:E9DE: 34 EA     .word off_EA34_02_удар
-- D - - - 0x03E9F0 FF:E9E0: 3D EA     .word off_EA3D_03_перепасовка
+- D - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00_dribble
+- D - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01_pass
+- D - - - 0x03E9EE FF:E9DE: 34 EA     .word off_EA34_02_shoot
+- D - - - 0x03E9F0 FF:E9E0: 3D EA     .word off_EA3D_03_1_2_pass
 - D - - - 0x03E9F2 FF:E9E2: 46 EA     .word off_EA46_04_trap
 - D - - - 0x03E9F4 FF:E9E4: 51 EA     .word off_EA51_05_through
 - D - - - 0x03E9F6 FF:E9E6: 59 EA     .word off_EA59_06_clear
 - D - - - 0x03E9F8 FF:E9E8: 61 EA     .word off_EA61_07_подкат
-- D - - - 0x03E9FA FF:E9EA: 6A EA     .word off_EA6A_08_скайлаб_подкат
+- D - - - 0x03E9FA FF:E9EA: 6A EA     .word off_EA6A_08_skylab_tackle
 - D - - - 0x03E9FC FF:E9EC: 73 EA     .word off_EA73_09_острый_подкат
 - D - - - 0x03E9FE FF:E9EE: 7C EA     .word off_EA7C_0A_мощный_подкат
 - D - - - 0x03EA00 FF:E9F0: 87 EA     .word off_EA87_0B_тигровый_подкат
@@ -5412,416 +5411,212 @@ tbl_E9DA_действия:
 - D - - - 0x03EA08 FF:E9F8: B7 EA     .word off_EAB7_0F_мощный_блок
 - D - - - 0x03EA0A FF:E9FA: C4 EA     .word off_EAC4_10_перехват
 - D - - - 0x03EA0C FF:E9FC: CE EA     .word off_EACE_11_скайлаб_перехват
-- D - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_выжидать
+- D - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_wait_player
 - D - - - 0x03EA10 FF:EA00: E6 EA     .word off_EAE6_13_mark
-- D - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_compete
-- D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_выбить
-- D - - - 0x03EA16 FF:EA06: 01 EB     .word off_EB01_16_отбить_удар
-- D - - - 0x03EA18 FF:EA08: 0D EB     .word off_EB0D_17_словить_удар
-- D - - - 0x03EA1A FF:EA0A: 17 EB     .word off_EB17_18_треугольный_прыжок
-- D - - - 0x03EA1C FF:EA0C: 26 EB     .word off_EB26_19_напасть
-- D - - - 0x03EA1E FF:EA0E: 33 EB     .word off_EB33_1A_выжидать
+- D - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_passcut
+- D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_clear
+- D - - - 0x03EA16 FF:EA06: 01 EB     .word off_EB01_16_punch
+- D - - - 0x03EA18 FF:EA08: 0D EB     .word off_EB0D_17_catch
+- D - - - 0x03EA1A FF:EA0A: 17 EB     .word off_EB17_18_triangle_jump
+- D - - - 0x03EA1C FF:EA0C: 26 EB     .word off_EB26_19_dive
+- D - - - 0x03EA1E FF:EA0E: 33 EB     .word off_EB33_1A_wait_gk
 - D - - - 0x03EA20 FF:EA10: 3E EB     .word off_EB3E_1B_контр_удар
 - D - - - 0x03EA22 FF:EA12: 4C EB     .word off_EB4C_1C_контр_дриблинг
 - D - - - 0x03EA24 FF:EA14: 5E EB     .word off_EB5E_1D_________черточки
-- D - - - 0x03EA26 FF:EA16: 67 EB     .word off_EB67_1E_влево
+- D - - - 0x03EA26 FF:EA16: 67 EB     .word off_EB67_1E_left
 - D - - - 0x03EA28 FF:EA18: 72 EB     .word off_EB72_1F_прямо
 - D - - - 0x03EA2A FF:EA1A: 7B EB     .word off_EB7B_20_вправо
 
-off_EA1C_00_дриблинг:
-- D - I - 0x03EA2C FF:EA1C: AC 22     .word $22AC
-- D - I - 0x03EA2E FF:EA1E: 16        .byte $16    ; <に>
-- D - I - 0x03EA2F FF:EA1F: 94        .byte $94
-- D - I - 0x03EA30 FF:EA20: 00        .byte $00
-- D - I - 0x03EA31 FF:EA21: 94        .byte $94
-- D - I - 0x03EA32 FF:EA22: 00        .byte $00
-- D - I - 0x03EA33 FF:EA23: 00        .byte $00
-- D - I - 0x03EA34 FF:EA24: 54        .byte $54    ; <ト>
-- D - I - 0x03EA35 FF:EA25: 68        .byte $68    ; <リ>
-- D - I - 0x03EA36 FF:EA26: 5C        .byte $5C    ; <フ>
-- D - I - 0x03EA37 FF:EA27: 69        .byte $69    ; <ル>
-- D - I - 0x03EA38 FF:EA28: 00        .byte $00
+off_EA1C_00_dribble:
+    .word $2288     ; адрес ppu
+    .byte $22       ; AND 03 = количество строк, LSR LSR = количество символов в строке
+    .text "dribble "
+    .text "        "
 
-off_EA29_01_пас:
-- D - I - 0x03EA39 FF:EA29: AC 22     .word $22AC
-- D - I - 0x03EA3B FF:EA2B: 16        .byte $16    ; <に>
-- D - I - 0x03EA3C FF:EA2C: 00        .byte $00
-- D - I - 0x03EA3D FF:EA2D: 95        .byte $95
-- D - I - 0x03EA3E FF:EA2E: FE        .byte $FE
-- D - I - 0x03EA3F FF:EA2F: 00        .byte $00
-- D - I - 0x03EA40 FF:EA30: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03EA41 FF:EA31: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EA42 FF:EA32: 00        .byte $00
-- D - I - 0x03EA43 FF:EA33: 00        .byte $00
+off_EA29_01_pass:
+    .word $2288
+    .byte $22
+    .text "  pass  "
+    .text "        "
 
-off_EA34_02_удар:
-- D - I - 0x03EA44 FF:EA34: AC 22     .word $22AC
-- D - I - 0x03EA46 FF:EA36: 16        .byte $16    ; <に>
-- D - I - 0x03EA47 FF:EA37: FE        .byte $FE
-- D - I - 0x03EA48 FF:EA38: 4C        .byte $4C    ; <シ>
-- D - I - 0x03EA49 FF:EA39: 71        .byte $71    ; <ュ>
-- D - I - 0x03EA4A FF:EA3A: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EA4B FF:EA3B: 54        .byte $54    ; <ト>
-- D - I - 0x03EA4C FF:EA3C: 00        .byte $00
+off_EA34_02_shoot:
+    .word $2288
+    .byte $22
+    .text " shoot  "
+    .text "        "
 
-off_EA3D_03_перепасовка:
-- D - I - 0x03EA4D FF:EA3D: AC 22     .word $22AC
-- D - I - 0x03EA4F FF:EA3F: 16        .byte $16    ; <に>
-- D - I - 0x03EA50 FF:EA40: FE        .byte $FE
-- D - I - 0x03EA51 FF:EA41: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03EA52 FF:EA42: 6E        .byte $6E    ; <ン>
-- D - I - 0x03EA53 FF:EA43: 3F        .byte $3F    ; <•>
-- D - I - 0x03EA54 FF:EA44: 52        .byte $52    ; <ツ>
-- D - I - 0x03EA55 FF:EA45: 7D        .byte $7D    ; <ー>
+off_EA3D_03_1_2_pass:
+    .word $2288
+    .byte $22
+    .text "1-2 pass"
+    .text "        "
 
 off_EA46_04_trap:
-- D - I - 0x03EA56 FF:EA46: AC 22     .word $22AC
-- D - I - 0x03EA58 FF:EA48: 12        .byte $12    ; <つ>
-- D - I - 0x03EA59 FF:EA49: 00        .byte $00
-- D - I - 0x03EA5A FF:EA4A: 00        .byte $00
-- D - I - 0x03EA5B FF:EA4B: 00        .byte $00
-- D - I - 0x03EA5C FF:EA4C: 95        .byte $95
-- D - I - 0x03EA5D FF:EA4D: 54        .byte $54    ; <ト>
-- D - I - 0x03EA5E FF:EA4E: 67        .byte $67    ; <ラ>
-- D - I - 0x03EA5F FF:EA4F: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03EA60 FF:EA50: 5C        .byte $5C    ; <フ>
+    .word $2288
+    .byte $22
+    .text "  trap  "
+    .text "        "
 
 off_EA51_05_through:
-- D - I - 0x03EA61 FF:EA51: AC 22     .word $22AC
-- D - I - 0x03EA63 FF:EA53: 12        .byte $12    ; <つ>
-- D - I - 0x03EA64 FF:EA54: FE        .byte $FE
-- D - I - 0x03EA65 FF:EA55: 00        .byte $00
-- D - I - 0x03EA66 FF:EA56: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EA67 FF:EA57: 69        .byte $69    ; <ル>
-- D - I - 0x03EA68 FF:EA58: 7D        .byte $7D    ; <ー>
+    .word $2288
+    .byte $22
+    .text "through "
+    .text "        "
 
 off_EA59_06_clear:
-- D - I - 0x03EA69 FF:EA59: AC 22     .word $22AC
-- D - I - 0x03EA6B FF:EA5B: 12        .byte $12    ; <つ>
-- D - I - 0x03EA6C FF:EA5C: FE        .byte $FE
-- D - I - 0x03EA6D FF:EA5D: 48        .byte $48    ; <ク>
-- D - I - 0x03EA6E FF:EA5E: 68        .byte $68    ; <リ>
-- D - I - 0x03EA6F FF:EA5F: 41        .byte $41    ; <ア>
-- D - I - 0x03EA70 FF:EA60: 7D        .byte $7D    ; <ー>
+    .word $2288
+    .byte $22
+    .text " clear  "
+    .text "        "
 
 off_EA61_07_подкат:
-- D - I - 0x03EA71 FF:EA61: 6E 22     .word $226E
-- D - I - 0x03EA73 FF:EA63: 16        .byte $16    ; <に>
-- D - I - 0x03EA74 FF:EA64: FE        .byte $FE
-- D - I - 0x03EA75 FF:EA65: 00        .byte $00
-- D - I - 0x03EA76 FF:EA66: 50        .byte $50    ; <タ>
-- D - I - 0x03EA77 FF:EA67: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03EA78 FF:EA68: 48        .byte $48    ; <ク>
-- D - I - 0x03EA79 FF:EA69: 69        .byte $69    ; <ル>
+    .word $2288
+    .byte $22
+    .text " tackle "
+    .text "        "
 
-off_EA6A_08_скайлаб_подкат:
-- D - I - 0x03EA7A FF:EA6A: 6E 22     .word $226E
-- D - I - 0x03EA7C FF:EA6C: 16        .byte $16    ; <に>
-- D - I - 0x03EA7D FF:EA6D: FE        .byte $FE
-- D - I - 0x03EA7E FF:EA6E: 00        .byte $00
-- D - I - 0x03EA7F FF:EA6F: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EA80 FF:EA70: 46        .byte $46    ; <カ>
-- D - I - 0x03EA81 FF:EA71: 42        .byte $42    ; <イ>
-- D - I - 0x03EA82 FF:EA72: 50        .byte $50    ; <タ>
+off_EA6A_08_skylab_tackle:
+    .word $2288
+    .byte $22
+    .text " Skylab "
+    .text " Tackle "
 
 off_EA73_09_острый_подкат:
-- D - I - 0x03EA83 FF:EA73: 6E 22     .word $226E
-- D - I - 0x03EA85 FF:EA75: 16        .byte $16    ; <に>
-- D - I - 0x03EA86 FF:EA76: FE        .byte $FE
-- D - I - 0x03EA87 FF:EA77: 00        .byte $00
-- D - I - 0x03EA88 FF:EA78: 46        .byte $46    ; <カ>
-- D - I - 0x03EA89 FF:EA79: 60        .byte $60    ; <ミ>
-- D - I - 0x03EA8A FF:EA7A: 4F        .byte $4F    ; <ソ>
-- D - I - 0x03EA8B FF:EA7B: 68        .byte $68    ; <リ>
+    .word $2288
+    .byte $22
+    .text " Razor  "
+    .text " Tackle "
 
 off_EA7C_0A_мощный_подкат:
-- D - I - 0x03EA8C FF:EA7C: 6E 22     .word $226E
-- D - I - 0x03EA8E FF:EA7E: 16        .byte $16    ; <に>
-- D - I - 0x03EA8F FF:EA7F: 00        .byte $00
-- D - I - 0x03EA90 FF:EA80: 95        .byte $95
-- D - I - 0x03EA91 FF:EA81: FE        .byte $FE
-- D - I - 0x03EA92 FF:EA82: 00        .byte $00
-- D - I - 0x03EA93 FF:EA83: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03EA94 FF:EA84: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03EA95 FF:EA85: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EA96 FF:EA86: 50        .byte $50    ; <タ>
+    .word $2288
+    .byte $22
+    .text " Power  "
+    .text " Tackle "
 
 off_EA87_0B_тигровый_подкат:
-- D - I - 0x03EA97 FF:EA87: 6E 22     .word $226E
-- D - I - 0x03EA99 FF:EA89: 16        .byte $16    ; <に>
-- D - I - 0x03EA9A FF:EA8A: 00        .byte $00
-- D - I - 0x03EA9B FF:EA8B: 00        .byte $00
-- D - I - 0x03EA9C FF:EA8C: 00        .byte $00
-- D - I - 0x03EA9D FF:EA8D: 94        .byte $94
-- D - I - 0x03EA9E FF:EA8E: 00        .byte $00
-- D - I - 0x03EA9F FF:EA8F: 00        .byte $00
-- D - I - 0x03EAA0 FF:EA90: 50        .byte $50    ; <タ>
-- D - I - 0x03EAA1 FF:EA91: 42        .byte $42    ; <イ>
-- D - I - 0x03EAA2 FF:EA92: 46        .byte $46    ; <カ>
-- D - I - 0x03EAA3 FF:EA93: 7D        .byte $7D    ; <ー>
+    .word $2288
+    .byte $22
+    .text " Tiger  "
+    .text " Tackle "
 
 off_EA94_0C_блок:
-- D - I - 0x03EAA4 FF:EA94: 6E 22     .word $226E
-- D - I - 0x03EAA6 FF:EA96: 16        .byte $16    ; <に>
-- D - I - 0x03EAA7 FF:EA97: 00        .byte $00
-- D - I - 0x03EAA8 FF:EA98: 94        .byte $94
-- D - I - 0x03EAA9 FF:EA99: FE        .byte $FE
-- D - I - 0x03EAAA FF:EA9A: 00        .byte $00
-- D - I - 0x03EAAB FF:EA9B: 5C        .byte $5C    ; <フ>
-- D - I - 0x03EAAC FF:EA9C: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03EAAD FF:EA9D: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03EAAE FF:EA9E: 48        .byte $48    ; <ク>
+    .word $2288
+    .byte $25
+    .text "  block  "
 
 off_EA9F_0D_скайлаб_блок:
-- - - - - 0x03EAAF FF:EA9F: 6E 22     .word $226E
-- - - - - 0x03EAB1 FF:EAA1: 16        .byte $16    ; <に>
-- - - - - 0x03EAB2 FF:EAA2: 00        .byte $00
-- - - - - 0x03EAB3 FF:EAA3: 00        .byte $00
-- - - - - 0x03EAB4 FF:EAA4: 00        .byte $00
-- - - - - 0x03EAB5 FF:EAA5: 00        .byte $00
-- - - - - 0x03EAB6 FF:EAA6: 94        .byte $94
-- - - - - 0x03EAB7 FF:EAA7: 00        .byte $00
-- - - - - 0x03EAB8 FF:EAA8: 4D        .byte $4D    ; <ス>
-- - - - - 0x03EAB9 FF:EAA9: 46        .byte $46    ; <カ>
-- - - - - 0x03EABA FF:EAAA: 42        .byte $42    ; <イ>
-- - - - - 0x03EABB FF:EAAB: 5C        .byte $5C    ; <フ>
+    .word $2288
+    .byte $22
+    .text " Skylab "
+    .text " Block  "
 
 off_EAAC_0E_лицевой_блок:
-- D - I - 0x03EABC FF:EAAC: 6E 22     .word $226E
-- D - I - 0x03EABE FF:EAAE: 16        .byte $16    ; <に>
-- D - I - 0x03EABF FF:EAAF: 00        .byte $00
-- D - I - 0x03EAC0 FF:EAB0: 94        .byte $94
-- D - I - 0x03EAC1 FF:EAB1: FE        .byte $FE
-- D - I - 0x03EAC2 FF:EAB2: 00        .byte $00
-- D - I - 0x03EAC3 FF:EAB3: 06        .byte $06    ; <か>
-- D - I - 0x03EAC4 FF:EAB4: 2E        .byte $2E    ; <ん>
-- D - I - 0x03EAC5 FF:EAB5: 22        .byte $22    ; <め>
-- D - I - 0x03EAC6 FF:EAB6: 2E        .byte $2E    ; <ん>
+    .word $2288
+    .byte $22
+    .text "  Face  "
+    .text " Block  "
 
 off_EAB7_0F_мощный_блок:
-- D - I - 0x03EAC7 FF:EAB7: 6E 22     .word $226E
-- D - I - 0x03EAC9 FF:EAB9: 16        .byte $16    ; <に>
-- D - I - 0x03EACA FF:EABA: 00        .byte $00
-- D - I - 0x03EACB FF:EABB: 95        .byte $95
-- D - I - 0x03EACC FF:EABC: 00        .byte $00
-- D - I - 0x03EACD FF:EABD: 00        .byte $00
-- D - I - 0x03EACE FF:EABE: 94        .byte $94
-- D - I - 0x03EACF FF:EABF: 00        .byte $00
-- D - I - 0x03EAD0 FF:EAC0: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03EAD1 FF:EAC1: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03EAD2 FF:EAC2: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EAD3 FF:EAC3: 5C        .byte $5C    ; <フ>
+    .word $2288
+    .byte $22
+    .text " Power  "
+    .text " Block  "
 
 off_EAC4_10_перехват:
-- D - I - 0x03EAD4 FF:EAC4: 6E 22     .word $226E
-- D - I - 0x03EAD6 FF:EAC6: 16        .byte $16    ; <に>
-- D - I - 0x03EAD7 FF:EAC7: 95        .byte $95
-- D - I - 0x03EAD8 FF:EAC8: FE        .byte $FE
-- D - I - 0x03EAD9 FF:EAC9: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03EADA FF:EACA: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EADB FF:EACB: 46        .byte $46    ; <カ>
-- D - I - 0x03EADC FF:EACC: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03EADD FF:EACD: 54        .byte $54    ; <ト>
+    .word $2288
+    .byte $22
+    .text " Inter- "
+    .text "  cept  "
 
 off_EACE_11_скайлаб_перехват:
-- D - I - 0x03EADE FF:EACE: 6E 22     .word $226E
-- D - I - 0x03EAE0 FF:EAD0: 16        .byte $16    ; <に>
-- D - I - 0x03EAE1 FF:EAD1: 00        .byte $00
-- D - I - 0x03EAE2 FF:EAD2: 00        .byte $00
-- D - I - 0x03EAE3 FF:EAD3: 00        .byte $00
-- D - I - 0x03EAE4 FF:EAD4: 00        .byte $00
-- D - I - 0x03EAE5 FF:EAD5: 95        .byte $95
-- D - I - 0x03EAE6 FF:EAD6: 00        .byte $00
-- D - I - 0x03EAE7 FF:EAD7: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EAE8 FF:EAD8: 46        .byte $46    ; <カ>
-- D - I - 0x03EAE9 FF:EAD9: 42        .byte $42    ; <イ>
-- D - I - 0x03EAEA FF:EADA: 5A        .byte $5A    ; <ハ>
+    .word $2288
+    .byte $22
+    .text " Skylab "
+    .text "  Cut   "
 
-off_EADB_12_выжидать:
-- D - I - 0x03EAEB FF:EADB: 6E 22     .word $226E
-- D - I - 0x03EAED FF:EADD: 16        .byte $16    ; <に>
-- D - I - 0x03EAEE FF:EADE: 00        .byte $00
-- D - I - 0x03EAEF FF:EADF: 94        .byte $94
-- D - I - 0x03EAF0 FF:EAE0: FE        .byte $FE
-- D - I - 0x03EAF1 FF:EAE1: 03        .byte $03    ; <う>
-- D - I - 0x03EAF2 FF:EAE2: 0A        .byte $0A    ; <こ>
-- D - I - 0x03EAF3 FF:EAE3: 06        .byte $06    ; <か>
-- D - I - 0x03EAF4 FF:EAE4: 15        .byte $15    ; <な>
-- D - I - 0x03EAF5 FF:EAE5: 02        .byte $02    ; <い>
+off_EADB_12_wait_player:
+    .word $2288
+    .byte $25
+    .text "  wait   "
 
 off_EAE6_13_mark:
-- D - I - 0x03EAF6 FF:EAE6: 6E 22     .word $226E
-- D - I - 0x03EAF8 FF:EAE8: 16        .byte $16    ; <に>
-- D - I - 0x03EAF9 FF:EAE9: FE        .byte $FE
-- D - I - 0x03EAFA FF:EAEA: 00        .byte $00
-- D - I - 0x03EAFB FF:EAEB: 5C        .byte $5C    ; <フ>
-- D - I - 0x03EAFC FF:EAEC: 76        .byte $76    ; <ォ>
-- D - I - 0x03EAFD FF:EAED: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03EAFE FF:EAEE: 7D        .byte $7D    ; <ー>
+    .word $2288
+    .byte $22
+    .text "  mark  "
+    .text "        "
 
-off_EAEF_14_compete:
-- D - I - 0x03EAFF FF:EAEF: 6E 22     .word $226E
-- D - I - 0x03EB01 FF:EAF1: 16        .byte $16    ; <に>
-- D - I - 0x03EB02 FF:EAF2: FE        .byte $FE
-- D - I - 0x03EB03 FF:EAF3: 00        .byte $00
-- D - I - 0x03EB04 FF:EAF4: 0E        .byte $0E    ; <せ>
-- D - I - 0x03EB05 FF:EAF5: 28        .byte $28    ; <り>
-- D - I - 0x03EB06 FF:EAF6: 01        .byte $01    ; <あ>
-- D - I - 0x03EB07 FF:EAF7: 03        .byte $03    ; <う>
+off_EAEF_14_passcut:
+    .word $2288
+    .byte $25
+    .text " passcut "
 
-off_EAF8_15_выбить:
-- D - I - 0x03EB08 FF:EAF8: 6E 22     .word $226E
-- D - I - 0x03EB0A FF:EAFA: 16        .byte $16    ; <に>
-- D - I - 0x03EB0B FF:EAFB: FE        .byte $FE
-- D - I - 0x03EB0C FF:EAFC: 00        .byte $00
-- D - I - 0x03EB0D FF:EAFD: 48        .byte $48    ; <ク>
-- D - I - 0x03EB0E FF:EAFE: 68        .byte $68    ; <リ>
-- D - I - 0x03EB0F FF:EAFF: 41        .byte $41    ; <ア>
-- D - I - 0x03EB10 FF:EB00: 7D        .byte $7D    ; <ー>
+off_EAF8_15_clear:
+    .word $2288
+    .byte $22
+    .text " clear  "
+    .text "        "
 
-off_EB01_16_отбить_удар:
-- D - I - 0x03EB11 FF:EB01: AB 22     .word $22AB
-- D - I - 0x03EB13 FF:EB03: 1A        .byte $1A    ; <は>
-- D - I - 0x03EB14 FF:EB04: 00        .byte $00
-- D - I - 0x03EB15 FF:EB05: 95        .byte $95
-- D - I - 0x03EB16 FF:EB06: FE        .byte $FE
-- D - I - 0x03EB17 FF:EB07: 00        .byte $00
-- D - I - 0x03EB18 FF:EB08: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03EB19 FF:EB09: 6E        .byte $6E    ; <ン>
-- D - I - 0x03EB1A FF:EB0A: 51        .byte $51    ; <チ>
-- D - I - 0x03EB1B FF:EB0B: 00        .byte $00
-- D - I - 0x03EB1C FF:EB0C: 00        .byte $00
+off_EB01_16_punch:
+    .word $2288
+    .byte $22
+    .text " punch  "
+    .text "        "
 
-off_EB0D_17_словить_удар:
-- D - I - 0x03EB1D FF:EB0D: AB 22     .word $22AB
-- D - I - 0x03EB1F FF:EB0F: 1A        .byte $1A    ; <は>
-- D - I - 0x03EB20 FF:EB10: FE        .byte $FE
-- D - I - 0x03EB21 FF:EB11: 00        .byte $00
-- D - I - 0x03EB22 FF:EB12: 47        .byte $47    ; <キ>
-- D - I - 0x03EB23 FF:EB13: 70        .byte $70    ; <ャ>
-- D - I - 0x03EB24 FF:EB14: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03EB25 FF:EB15: 51        .byte $51    ; <チ>
-- D - I - 0x03EB26 FF:EB16: 00        .byte $00
+off_EB0D_17_catch:
+    .word $2288
+    .byte $22
+    .text " catch  "
+    .text "        "
 
-off_EB17_18_треугольный_прыжок:
-- D - I - 0x03EB27 FF:EB17: AB 22     .word $22AB
-- D - I - 0x03EB29 FF:EB19: 1A        .byte $1A    ; <は>
-- D - I - 0x03EB2A FF:EB1A: 00        .byte $00
-- D - I - 0x03EB2B FF:EB1B: 00        .byte $00
-- D - I - 0x03EB2C FF:EB1C: 00        .byte $00
-- D - I - 0x03EB2D FF:EB1D: 00        .byte $00
-- D - I - 0x03EB2E FF:EB1E: 00        .byte $00
-- D - I - 0x03EB2F FF:EB1F: 94        .byte $94
-- D - I - 0x03EB30 FF:EB20: 0B        .byte $0B    ; <さ>
-- D - I - 0x03EB31 FF:EB21: 2E        .byte $2E    ; <ん>
-- D - I - 0x03EB32 FF:EB22: 06        .byte $06    ; <か>
-- D - I - 0x03EB33 FF:EB23: 08        .byte $08    ; <く>
-- D - I - 0x03EB34 FF:EB24: 14        .byte $14    ; <と>
-- D - I - 0x03EB35 FF:EB25: 1B        .byte $1B    ; <ひ>
+off_EB17_18_triangle_jump:
+    .word $2288
+    .byte $22
+    .text "Triangle"
+    .text "  Jump  "
 
-off_EB26_19_напасть:
-- D - I - 0x03EB36 FF:EB26: 6E 22     .word $226E
-- D - I - 0x03EB38 FF:EB28: 16        .byte $16    ; <に>
-- D - I - 0x03EB39 FF:EB29: 00        .byte $00
-- D - I - 0x03EB3A FF:EB2A: 00        .byte $00
-- D - I - 0x03EB3B FF:EB2B: 94        .byte $94
-- D - I - 0x03EB3C FF:EB2C: 94        .byte $94
-- D - I - 0x03EB3D FF:EB2D: FE        .byte $FE
-- D - I - 0x03EB3E FF:EB2E: 00        .byte $00
-- D - I - 0x03EB3F FF:EB2F: 14        .byte $14    ; <と>
-- D - I - 0x03EB40 FF:EB30: 1B        .byte $1B    ; <ひ>
-- D - I - 0x03EB41 FF:EB31: 10        .byte $10    ; <た>
-- D - I - 0x03EB42 FF:EB32: 0D        .byte $0D    ; <す>
+off_EB26_19_dive:
+    .word $2288
+    .byte $22
+    .text "  dive  "
+    .text "        "
 
-off_EB33_1A_выжидать:
-- D - I - 0x03EB43 FF:EB33: 6E 22     .word $226E
-- D - I - 0x03EB45 FF:EB35: 16        .byte $16    ; <に>
-- D - I - 0x03EB46 FF:EB36: 00        .byte $00
-- D - I - 0x03EB47 FF:EB37: 94        .byte $94
-- D - I - 0x03EB48 FF:EB38: FE        .byte $FE
-- D - I - 0x03EB49 FF:EB39: 20        .byte $20    ; <み>
-- D - I - 0x03EB4A FF:EB3A: 06        .byte $06    ; <か>
-- D - I - 0x03EB4B FF:EB3B: 1F        .byte $1F    ; <ま>
-- D - I - 0x03EB4C FF:EB3C: 04        .byte $04    ; <え>
-- D - I - 0x03EB4D FF:EB3D: 29        .byte $29    ; <る>
+off_EB33_1A_wait_gk:
+    .word $2288
+    .byte $22
+    .text "  wait  "
+    .text "        "
 
 off_EB3E_1B_контр_удар:
-- D - I - 0x03EB4E FF:EB3E: AB 22     .word $22AB
-- D - I - 0x03EB50 FF:EB40: 17        .byte $17    ; <ぬ>
-- D - I - 0x03EB51 FF:EB41: FE        .byte $FE
-- D - I - 0x03EB52 FF:EB42: 4C        .byte $4C    ; <シ>
-- D - I - 0x03EB53 FF:EB43: 71        .byte $71    ; <ュ>
-- D - I - 0x03EB54 FF:EB44: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EB55 FF:EB45: 54        .byte $54    ; <ト>
-- D - I - 0x03EB56 FF:EB46: 16        .byte $16    ; <に>
-- D - I - 0x03EB57 FF:EB47: 0F        .byte $0F    ; <そ>
-- D - I - 0x03EB58 FF:EB48: 15        .byte $15    ; <な>
-- D - I - 0x03EB59 FF:EB49: 04        .byte $04    ; <え>
-- D - I - 0x03EB5A FF:EB4A: 29        .byte $29    ; <る>
-- D - I - 0x03EB5B FF:EB4B: 00        .byte $00
+    .word $2288
+    .byte $22
+    .text "  Stop  "
+    .text "  Shot  "
 
 off_EB4C_1C_контр_дриблинг:
-- D - I - 0x03EB5C FF:EB4C: AB 22     .word $22AB
-- D - I - 0x03EB5E FF:EB4E: 17        .byte $17    ; <ぬ>
-- D - I - 0x03EB5F FF:EB4F: 94        .byte $94
-- D - I - 0x03EB60 FF:EB50: 00        .byte $00
-- D - I - 0x03EB61 FF:EB51: 94        .byte $94
-- D - I - 0x03EB62 FF:EB52: 00        .byte $00
-- D - I - 0x03EB63 FF:EB53: 00        .byte $00
-- D - I - 0x03EB64 FF:EB54: 54        .byte $54    ; <ト>
-- D - I - 0x03EB65 FF:EB55: 68        .byte $68    ; <リ>
-- D - I - 0x03EB66 FF:EB56: 5C        .byte $5C    ; <フ>
-- D - I - 0x03EB67 FF:EB57: 69        .byte $69    ; <ル>
-- D - I - 0x03EB68 FF:EB58: 16        .byte $16    ; <に>
-- D - I - 0x03EB69 FF:EB59: 0F        .byte $0F    ; <そ>
-- D - I - 0x03EB6A FF:EB5A: 15        .byte $15    ; <な>
-- D - I - 0x03EB6B FF:EB5B: 04        .byte $04    ; <え>
-- D - I - 0x03EB6C FF:EB5C: 29        .byte $29    ; <る>
-- D - I - 0x03EB6D FF:EB5D: 00        .byte $00
+    .word $2288
+    .byte $22
+    .text "  Stop  "
+    .text "Dribble "
 
 off_EB5E_1D_________черточки:
-- D - I - 0x03EB6E FF:EB5E: 6E 22     .word $226E
-- D - I - 0x03EB70 FF:EB60: 16        .byte $16    ; <に>
-- D - I - 0x03EB71 FF:EB61: FE        .byte $FE
-- D - I - 0x03EB72 FF:EB62: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EB73 FF:EB63: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EB74 FF:EB64: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EB75 FF:EB65: 7D        .byte $7D    ; <ー>
-- D - I - 0x03EB76 FF:EB66: 7D        .byte $7D    ; <ー>
+    .word $2288
+    .byte $25
+    .text "---------"
 
-off_EB67_1E_влево:
-- D - I - 0x03EB77 FF:EB67: AA 22     .word $22AA
-- D - I - 0x03EB79 FF:EB69: 16        .byte $16    ; <に>
-- D - I - 0x03EB7A FF:EB6A: 00        .byte $00
-- D - I - 0x03EB7B FF:EB6B: 94        .byte $94
-- D - I - 0x03EB7C FF:EB6C: FE        .byte $FE
-- D - I - 0x03EB7D FF:EB6D: 1B        .byte $1B    ; <ひ>
-- D - I - 0x03EB7E FF:EB6E: 10        .byte $10    ; <た>
-- D - I - 0x03EB7F FF:EB6F: 28        .byte $28    ; <り>
-- D - I - 0x03EB80 FF:EB70: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EB81 FF:EB71: 60        .byte $60    ; <ミ>
+off_EB67_1E_left:
+    .word $2288
+    .byte $21
+    .text "  left  "
 
 off_EB72_1F_прямо:
-- D - I - 0x03EB82 FF:EB72: AA 22     .word $22AA
-- D - I - 0x03EB84 FF:EB74: 16        .byte $16    ; <に>
-- D - I - 0x03EB85 FF:EB75: FE        .byte $FE
-- D - I - 0x03EB86 FF:EB76: 0C        .byte $0C    ; <し>
-- D - I - 0x03EB87 FF:EB77: 32        .byte $32    ; <ょ>
-- D - I - 0x03EB88 FF:EB78: 03        .byte $03    ; <う>
-- D - I - 0x03EB89 FF:EB79: 22        .byte $22    ; <め>
-- D - I - 0x03EB8A FF:EB7A: 2E        .byte $2E    ; <ん>
+    .word $2288
+    .byte $21
+    .text " middle "
 
 off_EB7B_20_вправо:
-- D - I - 0x03EB8B FF:EB7B: AA 22     .word $22AA
-- D - I - 0x03EB8D FF:EB7D: 16        .byte $16    ; <に>
-- D - I - 0x03EB8E FF:EB7E: 00        .byte $00
-- D - I - 0x03EB8F FF:EB7F: 94        .byte $94
-- D - I - 0x03EB90 FF:EB80: FE        .byte $FE
-- D - I - 0x03EB91 FF:EB81: 20        .byte $20    ; <み>
-- D - I - 0x03EB92 FF:EB82: 07        .byte $07    ; <き>
-- D - I - 0x03EB93 FF:EB83: 4D        .byte $4D    ; <ス>
-- D - I - 0x03EB94 FF:EB84: 60        .byte $60    ; <ミ>
-- D - I - 0x03EB95 FF:EB85: 00        .byte $00
+    .word $2288
+    .byte $21
+    .text " right  "
 
 
 

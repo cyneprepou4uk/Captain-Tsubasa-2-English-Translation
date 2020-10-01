@@ -4693,9 +4693,9 @@ off_BF4E_названия_действий_полевого:
     .word $2302
     .text "Block"
     
-    .byte $09
+    .byte $07
     .word $2342
-    .text "Intercept"
+    .text "Passcut"
 ; high ball
     .byte $04
     .word $20B1
@@ -4713,9 +4713,9 @@ off_BF4E_названия_действий_полевого:
     .word $2171
     .text "Clearance"
     
-    .byte $09
+    .byte $07
     .word $21B1
-    .text "Interfere"
+    .text "Compete"
 ; low ball
     .byte $04
     .word $2251
@@ -4733,9 +4733,9 @@ off_BF4E_названия_действий_полевого:
     .word $2311
     .text "Clearance"
     
-    .byte $49
+    .byte $47
     .word $2351
-    .text "Interfere"
+    .text "Compete"
 
 
 
