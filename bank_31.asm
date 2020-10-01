@@ -324,7 +324,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .text "off!"
     .byte con_sound, $62
 ; скрытая катсцена
-    .byte con_F4, $06, $05
+    .byte con_F4, $06, $03
     .byte con_screen_off
     .byte con_exit
 

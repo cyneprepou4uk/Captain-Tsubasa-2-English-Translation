@@ -1,54 +1,9 @@
 .segment "BANK_07"
 .include "copy_bank_ram.inc"
 ; тут только данные
-; скрытые катсцены
 ; палитра фона
 ; палитра спрайтов
 ; оформление окна диалога
-
-.export tbl_0x00C010_скрытые_катсцены
-tbl_0x00C010_скрытые_катсцены:
-- D - I - 0x00C010 07:A000: 0C A0     .word off_0x040005_обезьянка_после_проигрыша
-- D - I - 0x00C012 07:A002: 1B A0     .word off_0x040005_экран_с_музыкой
-
-
-
-.export off_0x040005_обезьянка_после_проигрыша
-off_0x040005_обезьянка_после_проигрыша:
-- D - I - 0x00C01C 07:A00C: E8        .byte $E8
-- D - I - 0x00C01D 07:A00D: 00        .byte $00
-- D - I - 0x00C01E 07:A00E: F9        .byte $F9
-- D - I - 0x00C01F 07:A00F: 16        .byte $16    ; <に>
-- D - I - 0x00C020 07:A010: FB        .byte $FB
-- D - I - 0x00C021 07:A011: 02        .byte $02    ; <い>
-- D - I - 0x00C022 07:A012: BA        .byte $BA    ; <ジ>
-- D - I - 0x00C023 07:A013: BB        .byte $BB    ; <ズ>
-- D - I - 0x00C024 07:A014: F3        .byte $F3
-- D - I - 0x00C025 07:A015: 00        .byte $00
-- D - I - 0x00C026 07:A016: ED        .byte $ED
-- D - I - 0x00C027 07:A017: 56        .byte $56    ; <ニ>
-- D - I - 0x00C028 07:A018: F6        .byte $F6
-- D - I - 0x00C029 07:A019: A0        .byte $A0    ; <が>
-- D - I - 0x00C02A 07:A01A: FF        .byte $FF
-
-
-
-.export off_0x040005_экран_с_музыкой
-off_0x040005_экран_с_музыкой:
-- D - I - 0x00C02B 07:A01B: E8        .byte $E8
-- D - I - 0x00C02C 07:A01C: 00        .byte $00
-- D - I - 0x00C02D 07:A01D: F9        .byte $F9
-- D - I - 0x00C02E 07:A01E: 18        .byte $18    ; <ね>
-- D - I - 0x00C02F 07:A01F: FB        .byte $FB
-- D - I - 0x00C030 07:A020: 02        .byte $02    ; <い>
-- D - I - 0x00C031 07:A021: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00C032 07:A022: CA        .byte $CA    ; <ぷ>
-- D - I - 0x00C033 07:A023: F3        .byte $F3
-- D - I - 0x00C034 07:A024: 00        .byte $00
-- D - I - 0x00C035 07:A025: F5        .byte $F5
-- D - I - 0x00C036 07:A026: 0B        .byte $0B    ; <さ>
-- D - I - 0x00C037 07:A027: FF        .byte $FF
-
 
 
 

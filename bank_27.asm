@@ -166,7 +166,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_offset, $09
     .text "won the Rio Cup!"
 ; скрытая катсцена
-    .byte con_F4, $06, $03
+    .byte con_F4, $06, $01
     .byte con_sound, $62
     .byte con_charlie, $FF
     .byte con_clear_all

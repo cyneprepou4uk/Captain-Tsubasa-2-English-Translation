@@ -119,7 +119,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_offset, $09
     .text "wild!"
 ; скрытая катсцена
-    .byte con_F4, $06, $04
+    .byte con_F4, $06, $02
     
     
     

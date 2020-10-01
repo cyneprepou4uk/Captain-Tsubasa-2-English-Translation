@@ -73,6 +73,8 @@ con_exit                    = $FF   ; end of the cutscene
     .word off_BFBA_56_сан_паулу_перед_матчем
     .word off_BFC4_57_нанкацу_перед_матчем
     .word off_BFCE_58_япония_перед_матчем
+    .word off_BFD0_59_обезьянка_после_проигрыша
+    .word off_BFD1_5A_экран_с_музыкой
 
 
 
@@ -347,4 +349,25 @@ off_BFD5:
     .byte con_pause, $14
     .byte con_sound, $01
     .byte con_screen_off
+    .byte con_exit
+
+
+
+off_BFD0_59_обезьянка_после_проигрыша:
+    .byte con_E8, $00
+    .byte con_bg_1, $16
+    .byte con_animation, $02, $BA, $BB
+    .byte con_palette, $00
+    .byte con_sound, $56
+    .byte con_pause, $A0
+    .byte con_exit
+
+
+
+off_BFD1_5A_экран_с_музыкой:
+    .byte con_E8, $00
+    .byte con_bg_1, $18
+    .byte con_animation, $02, $BC, $CA
+    .byte con_palette, $00
+    .byte con_F5, $0B
     .byte con_exit

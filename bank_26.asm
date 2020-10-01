@@ -448,7 +448,7 @@ off_A2A1_01_история_цубасы:
     .byte con_offset, $04
     .text "for Tsubasa in Sao Paulo!"
 ; скрытая катсцена
-    .byte con_F4, $06, $02
+    .byte con_F4, $06, $00
     
     
     
