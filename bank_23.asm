@@ -4418,63 +4418,6 @@ tbl_9EB7_изменение_позиции_курсора_основных_иг�
     .byte $06   ; down
     .byte $09   ; up
 
-; ??? unused до конца
-; bzk мусор, этих игроков не существует, они типа компьютерные
-    .byte $03   ; right
-    .byte $07   ; left
-    .byte $09   ; down
-    .byte $0A   ; up
-    
-    .byte $05   ; right
-    .byte $09   ; left
-    .byte $02   ; down
-    .byte $04   ; up
-    
-    .byte $06   ; right
-    .byte $0A   ; left
-    .byte $03   ; down
-    .byte $01   ; up
-    
-    .byte $07   ; right
-    .byte $00   ; left
-    .byte $04   ; down
-    .byte $02   ; up
-    
-    .byte $08   ; right
-    .byte $00   ; left
-    .byte $01   ; down
-    .byte $03   ; up
-    
-    .byte $09   ; right
-    .byte $01   ; left
-    .byte $06   ; down
-    .byte $08   ; up
-    
-    .byte $0A   ; right
-    .byte $02   ; left
-    .byte $07   ; down
-    .byte $05   ; up
-    
-    .byte $00   ; right
-    .byte $03   ; left
-    .byte $08   ; down
-    .byte $06   ; up
-    
-    .byte $00   ; right
-    .byte $04   ; left
-    .byte $05   ; down
-    .byte $07   ; up
-    
-    .byte $01   ; right
-    .byte $05   ; left
-    .byte $0A   ; down
-    .byte $00   ; up
-    
-    .byte $02   ; right
-    .byte $06   ; left
-    .byte $00   ; down
-    .byte $09   ; up
-
 
 
 tbl_9F0F_изменение_позиции_курсора_запасных_игроков:
