@@ -2871,7 +2871,7 @@ C - - - - 0x03D8CB FF:D8BB: 8D FC 05  STA ram_принимающий
 C - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #$1D
 C - - - - 0x03D8D0 FF:D8C0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D8C3:
-C - - - - 0x03D8D3 FF:D8C3: 20 DA D8  JSR sub_D8DA
+C - - - - 0x03D8D3 FF:D8C3: 20 DA D8  JSR sub_D8DA_курсор_выбора_из_нескольких_напарников_для_паса
 C - - - - 0x03D8D6 FF:D8C6: A9 80     LDA #con_btn_A
 C - - - - 0x03D8D8 FF:D8C8: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D8DB FF:D8CB: F0 AC     BEQ bra_D879
@@ -2883,20 +2883,20 @@ C - - - - 0x03D8E5 FF:D8D5: 8D 38 06  STA $0638
 C - - - - 0x03D8E8 FF:D8D8: 38        SEC
 C - - - - 0x03D8E9 FF:D8D9: 60        RTS
 
-sub_D8DA:
+sub_D8DA_курсор_выбора_из_нескольких_напарников_для_паса:
 C - - - - 0x03D8EA FF:D8DA: AD 25 06  LDA $0625
 C - - - - 0x03D8ED FF:D8DD: 0A        ASL
 C - - - - 0x03D8EE FF:D8DE: 0A        ASL
 C - - - - 0x03D8EF FF:D8DF: 0A        ASL
 C - - - - 0x03D8F0 FF:D8E0: 0A        ASL
 C - - - - 0x03D8F1 FF:D8E1: 18        CLC
-C - - - - 0x03D8F2 FF:D8E2: 69 9A     ADC #$9A
+C - - - - 0x03D8F2 FF:D8E2: 69 9A     ADC #$99
 C - - - - 0x03D8F4 FF:D8E4: 8D FC 02  STA ram_спрайт_Y + $FC
 C - - - - 0x03D8F7 FF:D8E7: A9 11     LDA #$11
 C - - - - 0x03D8F9 FF:D8E9: 8D FD 02  STA ram_спрайт_тайл + $FC
 C - - - - 0x03D8FC FF:D8EC: A9 03     LDA #$03
 C - - - - 0x03D8FE FF:D8EE: 8D FE 02  STA ram_спрайт_атрибут + $FC
-C - - - - 0x03D901 FF:D8F1: A9 50     LDA #$50
+C - - - - 0x03D901 FF:D8F1: A9 50     LDA #$3E
 C - - - - 0x03D903 FF:D8F3: 8D FF 02  STA ram_спрайт_X + $FC
 C - - - - 0x03D906 FF:D8F6: 60        RTS
 
