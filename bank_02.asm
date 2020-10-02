@@ -1632,7 +1632,7 @@ C - - - - 0x002C4D 02:AC3D: 10 F2     BPL bra_AC31_B_не_нажата
 C - - - - 0x002C4F 02:AC3F: A0 00     LDY #con_игрок_номер
 C - - - - 0x002C51 02:AC41: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x002C53 02:AC43: A2 27     LDX #$27
-bra_AC45:
+bra_AC45_цикл:
 C - - - - 0x002C55 02:AC45: CA        DEX
 C - - - - 0x002C56 02:AC46: CA        DEX
 C - - - - 0x002C57 02:AC47: CA        DEX
@@ -1640,40 +1640,40 @@ C - - - - 0x002C58 02:AC48: 10 03     BPL bra_AC4D
 C - - - - 0x002C5A 02:AC4A: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
 bra_AC4D:
 C - - - - 0x002C5D 02:AC4D: DD 2E BB  CMP tbl_BB2E_список_спешалов_игроков,X
-C - - - - 0x002C60 02:AC50: D0 F3     BNE bra_AC45
+C - - - - 0x002C60 02:AC50: D0 F3     BNE bra_AC45_цикл
 C - - - - 0x002C62 02:AC52: BD 2F BB  LDA tbl_BB2E_список_спешалов_игроков + 1,X
 C - - - - 0x002C65 02:AC55: 85 5C     STA ram_005C
 C - - - - 0x002C67 02:AC57: BD 30 BB  LDA tbl_BB2E_список_спешалов_игроков + 2,X
 C - - - - 0x002C6A 02:AC5A: 85 5D     STA ram_005D
 C - - - - 0x002C6C 02:AC5C: A9 00     LDA #$00
 C - - - - 0x002C6E 02:AC5E: 85 5E     STA ram_005E
-loc_AC60:
+loc_AC60_цикл_чтения_спешалов_игрока:
 C D - - - 0x002C70 02:AC60: A0 00     LDY #$00
 C - - - - 0x002C72 02:AC62: B1 5C     LDA (ram_005C),Y
-C - - - - 0x002C74 02:AC64: 10 1D     BPL bra_AC83
+C - - - - 0x002C74 02:AC64: 10 1D     BPL bra_AC83_проверить_матч
 C - - - - 0x002C76 02:AC66: C9 FF     CMP #$FF
 C - - - - 0x002C78 02:AC68: D0 03     BNE bra_AC6D
-C - - - - 0x002C7A 02:AC6A: 4C 23 AD  JMP loc_AD23
+C - - - - 0x002C7A 02:AC6A: 4C 23 AD  JMP loc_AD23_нижняя_полоска_окна_special
 bra_AC6D:
 C - - - - 0x002C7D 02:AC6D: C9 FE     CMP #$FE
-C - - - - 0x002C7F 02:AC6F: D0 0A     BNE bra_AC7B
+C - - - - 0x002C7F 02:AC6F: D0 0A     BNE bra_AC7B_циклон
 C - - - - 0x002C81 02:AC71: AD 46 04  LDA ram_флаг_драйв_оверхеда
 C - - - - 0x002C84 02:AC74: C9 05     CMP #$05
-C - - - - 0x002C86 02:AC76: F0 14     BEQ bra_AC8C
-C - - - - 0x002C88 02:AC78: 4C 13 AD  JMP loc_AD13
-bra_AC7B:
+C - - - - 0x002C86 02:AC76: F0 14     BEQ bra_AC8C_узнать_имя_спешала
+C - - - - 0x002C88 02:AC78: 4C 13 AD  JMP loc_AD13_новая_строка
+bra_AC7B_циклон:
 C - - - - 0x002C8B 02:AC7B: AD 48 04  LDA ram_флаг_циклона
 C - - - - 0x002C8E 02:AC7E: 4A        LSR
-C - - - - 0x002C8F 02:AC7F: B0 0B     BCS bra_AC8C
+C - - - - 0x002C8F 02:AC7F: B0 0B     BCS bra_AC8C_узнать_имя_спешала
 ; bzk проверка на матч с аргентиной для отображения циклона в списке спешалов
 ; по идее это не нужно, если только флаг циклона не отвечает за что-то еще
 C - - - - 0x002C91 02:AC81: A9 1E     LDA #$1E
-bra_AC83:
+bra_AC83_проверить_матч:
 C - - - - 0x002C93 02:AC83: C5 26     CMP ram_матч
-C - - - - 0x002C95 02:AC85: 90 05     BCC bra_AC8C
-C - - - - 0x002C97 02:AC87: F0 03     BEQ bra_AC8C
-C - - - - 0x002C99 02:AC89: 4C 13 AD  JMP loc_AD13
-bra_AC8C:
+C - - - - 0x002C95 02:AC85: 90 05     BCC bra_AC8C_узнать_имя_спешала
+C - - - - 0x002C97 02:AC87: F0 03     BEQ bra_AC8C_узнать_имя_спешала
+C - - - - 0x002C99 02:AC89: 4C 13 AD  JMP loc_AD13_новая_строка
+bra_AC8C_узнать_имя_спешала:
 C - - - - 0x002C9C 02:AC8C: C8        INY
 C - - - - 0x002C9D 02:AC8D: B1 5C     LDA (ram_005C),Y
 C - - - - 0x002C9F 02:AC8F: 20 3C C5  JSR sub_0x03F31F_таблица_слов
@@ -1684,24 +1684,24 @@ C - - - - 0x002CA6 02:AC96: BD 48 BC  LDA tbl_BC48,X
 C - - - - 0x002CA9 02:AC99: 85 E8     STA ram_00E8
 C - - - - 0x002CAB 02:AC9B: BD 49 BC  LDA tbl_BC48 + 1,X
 C - - - - 0x002CAE 02:AC9E: 85 E9     STA ram_00E9
-loc_ACA0:
+loc_ACA0_цикл_чтения_имени_спешала:
 C D - - - 0x002CB0 02:ACA0: A0 00     LDY #$00
 C - - - - 0x002CB2 02:ACA2: B1 30     LDA (ram_0030),Y
 C - - - - 0x002CB4 02:ACA4: C9 FC     CMP #$FC
-C - - - - 0x002CB6 02:ACA6: B0 16     BCS bra_ACBE
+C - - - - 0x002CB6 02:ACA6: B0 16     BCS bra_ACBE_закончить_чтение_имени
 C - - - - 0x002CB8 02:ACA8: A4 E8     LDY ram_00E8
 C - - - - 0x002CBA 02:ACAA: A6 E9     LDX ram_00E9
 C - - - - 0x002CBC 02:ACAC: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер_с_учетом_кодировки
 C - - - - 0x002CBF 02:ACAF: E6 30     INC ram_0030
-C - - - - 0x002CC1 02:ACB1: D0 02     BNE bra_ACB5
+C - - - - 0x002CC1 02:ACB1: D0 02     BNE bra_ACB5_пропуск
 - - - - - 0x002CC3 02:ACB3: E6 31     INC ram_0031
-bra_ACB5:
+bra_ACB5_пропуск:
 C - - - - 0x002CC5 02:ACB5: E6 E8     INC ram_00E8
-C - - - - 0x002CC7 02:ACB7: D0 02     BNE bra_ACBB
+C - - - - 0x002CC7 02:ACB7: D0 02     BNE bra_ACBB_пропуск
 - - - - - 0x002CC9 02:ACB9: E6 E9     INC ram_00E9
-bra_ACBB:
-C - - - - 0x002CCB 02:ACBB: 4C A0 AC  JMP loc_ACA0
-bra_ACBE:
+bra_ACBB_пропуск:
+C - - - - 0x002CCB 02:ACBB: 4C A0 AC  JMP loc_ACA0_цикл_чтения_имени_спешала
+bra_ACBE_закончить_чтение_имени:
 C - - - - 0x002CCE 02:ACBE: A9 00     LDA #$00
 C - - - - 0x002CD0 02:ACC0: 8D 4E 04  STA ram_высота_мяча
 C - - - - 0x002CD3 02:ACC3: A0 02     LDY #$02
@@ -1741,7 +1741,7 @@ C - - - - 0x002D1B 02:AD0B: 69 00     ADC #$00
 C - - - - 0x002D1D 02:AD0D: AA        TAX
 C - - - - 0x002D1E 02:AD0E: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 C - - - - 0x002D21 02:AD11: E6 5E     INC ram_005E
-loc_AD13:
+loc_AD13_новая_строка:
 C D - - - 0x002D23 02:AD13: A5 5C     LDA ram_005C
 C - - - - 0x002D25 02:AD15: 18        CLC
 C - - - - 0x002D26 02:AD16: 69 05     ADC #$05
@@ -1749,9 +1749,9 @@ C - - - - 0x002D28 02:AD18: 85 5C     STA ram_005C
 C - - - - 0x002D2A 02:AD1A: A5 5D     LDA ram_005D
 C - - - - 0x002D2C 02:AD1C: 69 00     ADC #$00
 C - - - - 0x002D2E 02:AD1E: 85 5D     STA ram_005D
-C - - - - 0x002D30 02:AD20: 4C 60 AC  JMP loc_AC60
+C - - - - 0x002D30 02:AD20: 4C 60 AC  JMP loc_AC60_цикл_чтения_спешалов_игрока
 
-loc_AD23:
+loc_AD23_нижняя_полоска_окна_special:
 C D - - - 0x002D33 02:AD23: A5 5E     LDA ram_005E
 C - - - - 0x002D35 02:AD25: AA        TAX
 C - - - - 0x002D36 02:AD26: 0A        ASL
@@ -4207,352 +4207,385 @@ tbl_BB24_япония:
 
 tbl_BB2E_список_спешалов_игроков:
 ; первый байт это номер игрока, код ищет по таблице игроков со спешалами
-    .byte $01    ; <あ>
+    .byte $01
     .word off_BB55_цубаса
 
-    .byte $11    ; <ち>
+    .byte $11
     .word off_BB7E_мисаки
 
-    .byte $14    ; <と>
+    .byte $14
     .word off_BB93_ишизаки
 
-    .byte $15    ; <な>
+    .byte $15
     .word off_BB99_нитта
 
-    .byte $17    ; <ぬ>
+    .byte $17
     .word off_BBA4_масао
 
-    .byte $18    ; <ね>
+    .byte $18
     .word off_BBC8_казуо
 
-    .byte $1A    ; <は>
+    .byte $1A
     .word off_BBEC_хюга
 
-    .byte $1B    ; <ひ>
+    .byte $1B
     .word off_BC0B_сода
 
-    .byte $1C    ; <ふ>
+    .byte $1C
     .word off_BC1B_джито
 
-    .byte $1D    ; <へ>
+    .byte $1D
     .word off_BC30_мацуяма
 
-    .byte $1F    ; <ま>
+    .byte $1F
     .word off_BC36_савада
 
-    .byte $20    ; <み>
+    .byte $20
     .word off_BC3C_мисуги
 
-    .byte $22    ; <め>
+    .byte $22
     .word off_BC42_вакашимазу
 
 
 
 off_BB55_цубаса:
-- D - I - 0x003B65 02:BB55: 00        .byte $00
-- D - I - 0x003B66 02:BB56: 9D        .byte $9D
-- D - I - 0x003B67 02:BB57: 00        .byte $00
-- D - I - 0x003B68 02:BB58: 03        .byte $03    ; <う>
-- D - I - 0x003B69 02:BB59: 06        .byte $06    ; <か>
-- D - I - 0x003B6A 02:BB5A: 00        .byte $00
-- D - I - 0x003B6B 02:BB5B: A8        .byte $A8    ; <ぜ>
-- D - I - 0x003B6C 02:BB5C: 00        .byte $00
-- D - I - 0x003B6D 02:BB5D: 0E        .byte $0E    ; <せ>
-- D - I - 0x003B6E 02:BB5E: 06        .byte $06    ; <か>
-- D - I - 0x003B6F 02:BB5F: FE        .byte $FE
-- D - I - 0x003B70 02:BB60: 9E        .byte $9E
-- D - I - 0x003B71 02:BB61: 00        .byte $00
-- D - I - 0x003B72 02:BB62: 04        .byte $04    ; <え>
-- D - I - 0x003B73 02:BB63: 06        .byte $06    ; <か>
-- D - I - 0x003B74 02:BB64: 10        .byte $10    ; <た>
-- D - I - 0x003B75 02:BB65: A3        .byte $A3    ; <げ>
-- D - I - 0x003B76 02:BB66: 00        .byte $00
-- D - I - 0x003B77 02:BB67: 09        .byte $09    ; <け>
-- D - I - 0x003B78 02:BB68: 06        .byte $06    ; <か>
-- D - I - 0x003B79 02:BB69: FD        .byte $FD
-- D - I - 0x003B7A 02:BB6A: AC        .byte $AC    ; <づ>
-- D - I - 0x003B7B 02:BB6B: 00        .byte $00
-- D - I - 0x003B7C 02:BB6C: 12        .byte $12    ; <つ>
-- D - I - 0x003B7D 02:BB6D: 06        .byte $06    ; <か>
-- D - I - 0x003B7E 02:BB6E: 00        .byte $00
-- D - I - 0x003B7F 02:BB6F: BE        .byte $BE    ; <ダ>
-- D - I - 0x003B80 02:BB70: 02        .byte $02    ; <い>
-- D - I - 0x003B81 02:BB71: 01        .byte $01    ; <あ>
-- D - I - 0x003B82 02:BB72: 06        .byte $06    ; <か>
-- D - I - 0x003B83 02:BB73: 00        .byte $00
-- D - I - 0x003B84 02:BB74: C5        .byte $C5    ; <ブ>
-- D - I - 0x003B85 02:BB75: 01        .byte $01    ; <あ>
-- D - I - 0x003B86 02:BB76: 01        .byte $01    ; <あ>
-- D - I - 0x003B87 02:BB77: 06        .byte $06    ; <か>
-- D - I - 0x003B88 02:BB78: 10        .byte $10    ; <た>
-- D - I - 0x003B89 02:BB79: C9        .byte $C9    ; <ぴ>
-- D - I - 0x003B8A 02:BB7A: 03        .byte $03    ; <う>
-- D - I - 0x003B8B 02:BB7B: 01        .byte $01    ; <あ>
-- D - I - 0x003B8C 02:BB7C: 06        .byte $06    ; <か>
-
-- D - I - 0x003B8D 02:BB7D: FF        .byte $FF
+    .byte $00       ; номер матча, если текущий меньше значит спешала еще нету
+    .byte $9D       ; drive shot
+    .byte $00
+    .byte $03
+    .byte $06       ; номер прыжка в начале банка 24
+    
+    .byte $00
+    .byte $A8       ; overhead kick
+    .byte $00
+    .byte $0E
+    .byte $06
+    
+    .byte $FE
+    .byte $9E       ; drive overhead
+    .byte $00
+    .byte $04
+    .byte $06
+    
+    .byte $10
+    .byte $A3       ; twin shot
+    .byte $00
+    .byte $09
+    .byte $06
+    
+    .byte $FD
+    .byte $AC       ; cyclone
+    .byte $00
+    .byte $12
+    .byte $06
+    
+    .byte $00
+    .byte $BE       ; heel lift
+    .byte $02
+    .byte $01
+    .byte $06
+    
+    .byte $00
+    .byte $C5       ; drive pass
+    .byte $01
+    .byte $01
+    .byte $06
+    
+    .byte $10
+    .byte $C9       ; golden combo
+    .byte $03
+    .byte $01
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BB7E_мисаки:
-- D - I - 0x003B8E 02:BB7E: 00        .byte $00
-- D - I - 0x003B8F 02:BB7F: A8        .byte $A8    ; <ぜ>
-- D - I - 0x003B90 02:BB80: 00        .byte $00
-- D - I - 0x003B91 02:BB81: 0E        .byte $0E    ; <せ>
-- D - I - 0x003B92 02:BB82: 06        .byte $06    ; <か>
-- D - I - 0x003B93 02:BB83: 10        .byte $10    ; <た>
-- D - I - 0x003B94 02:BB84: A3        .byte $A3    ; <げ>
-- D - I - 0x003B95 02:BB85: 00        .byte $00
-- D - I - 0x003B96 02:BB86: 09        .byte $09    ; <け>
-- D - I - 0x003B97 02:BB87: 06        .byte $06    ; <か>
-- D - I - 0x003B98 02:BB88: 00        .byte $00
-- D - I - 0x003B99 02:BB89: AA        .byte $AA    ; <だ>
-- D - I - 0x003B9A 02:BB8A: 00        .byte $00
-- D - I - 0x003B9B 02:BB8B: 10        .byte $10    ; <た>
-- D - I - 0x003B9C 02:BB8C: 06        .byte $06    ; <か>
-- D - I - 0x003B9D 02:BB8D: 10        .byte $10    ; <た>
-- D - I - 0x003B9E 02:BB8E: C9        .byte $C9    ; <ぴ>
-- D - I - 0x003B9F 02:BB8F: 03        .byte $03    ; <う>
-- D - I - 0x003BA0 02:BB90: 01        .byte $01    ; <あ>
-- D - I - 0x003BA1 02:BB91: 06        .byte $06    ; <か>
-
-- D - I - 0x003BA2 02:BB92: FF        .byte $FF
+    .byte $00
+    .byte $A8       ; overhead kick
+    .byte $00
+    .byte $0E
+    .byte $06
+    
+    .byte $10
+    .byte $A3       ; twin shot
+    .byte $00
+    .byte $09
+    .byte $06
+    
+    .byte $00
+    .byte $AA       ; jumping volley
+    .byte $00
+    .byte $10
+    .byte $06
+    
+    .byte $10
+    .byte $C9       ; golden combo
+    .byte $03
+    .byte $01
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BB93_ишизаки:
-- D - I - 0x003BA3 02:BB93: 00        .byte $00
-- D - I - 0x003BA4 02:BB94: CE        .byte $CE    ; <ピ>
-- D - I - 0x003BA5 02:BB95: 00        .byte $00
-- D - I - 0x003BA6 02:BB96: 01        .byte $01    ; <あ>
-- D - I - 0x003BA7 02:BB97: 07        .byte $07    ; <き>
-
-- D - I - 0x003BA8 02:BB98: FF        .byte $FF
+    .byte $00
+    .byte $CE       ; face block
+    .byte $00
+    .byte $01
+    .byte $07
+    
+    .byte $FF
 
 
 
 off_BB99_нитта:
-- D - I - 0x003BA9 02:BB99: 00        .byte $00
-- D - I - 0x003BAA 02:BB9A: 9F        .byte $9F
-- D - I - 0x003BAB 02:BB9B: 00        .byte $00
-- D - I - 0x003BAC 02:BB9C: 05        .byte $05    ; <お>
-- D - I - 0x003BAD 02:BB9D: 06        .byte $06    ; <か>
-- D - I - 0x003BAE 02:BB9E: 00        .byte $00
-- D - I - 0x003BAF 02:BB9F: A0        .byte $A0    ; <が>
-- D - I - 0x003BB0 02:BBA0: 00        .byte $00
-- D - I - 0x003BB1 02:BBA1: 06        .byte $06    ; <か>
-- D - I - 0x003BB2 02:BBA2: 06        .byte $06    ; <か>
-
-- D - I - 0x003BB3 02:BBA3: FF        .byte $FF
+    .byte $00
+    .byte $9F       ; falcon shot
+    .byte $00
+    .byte $05
+    .byte $06
+    
+    .byte $00
+    .byte $A0       ; falcon volley
+    .byte $00
+    .byte $06
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BBA4_масао:
-- D - I - 0x003BB4 02:BBA4: 00        .byte $00
-- D - I - 0x003BB5 02:BBA5: A2        .byte $A2    ; <ぐ>
-- D - I - 0x003BB6 02:BBA6: 00        .byte $00
-- D - I - 0x003BB7 02:BBA7: 08        .byte $08    ; <く>
-- D - I - 0x003BB8 02:BBA8: 06        .byte $06    ; <か>
-- D - I - 0x003BB9 02:BBA9: 00        .byte $00
-- D - I - 0x003BBA 02:BBAA: A4        .byte $A4    ; <ご>
-- D - I - 0x003BBB 02:BBAB: 00        .byte $00
-- D - I - 0x003BBC 02:BBAC: 0A        .byte $0A    ; <こ>
-- D - I - 0x003BBD 02:BBAD: 06        .byte $06    ; <か>
-- D - I - 0x003BBE 02:BBAE: 00        .byte $00
-- D - I - 0x003BBF 02:BBAF: A3        .byte $A3    ; <げ>
-- D - I - 0x003BC0 02:BBB0: 00        .byte $00
-- D - I - 0x003BC1 02:BBB1: 09        .byte $09    ; <け>
-- D - I - 0x003BC2 02:BBB2: 06        .byte $06    ; <か>
-- D - I - 0x003BC3 02:BBB3: 00        .byte $00
-- D - I - 0x003BC4 02:BBB4: CB        .byte $CB    ; <ぺ>
-- D - I - 0x003BC5 02:BBB5: 03        .byte $03    ; <う>
-- D - I - 0x003BC6 02:BBB6: 03        .byte $03    ; <う>
-- D - I - 0x003BC7 02:BBB7: 06        .byte $06    ; <か>
-- D - I - 0x003BC8 02:BBB8: 00        .byte $00
-- D - I - 0x003BC9 02:BBB9: D2        .byte $D2
-- D - I - 0x003BCA 02:BBBA: 01        .byte $01    ; <あ>
-- D - I - 0x003BCB 02:BBBB: 01        .byte $01    ; <あ>
-- D - I - 0x003BCC 02:BBBC: 07        .byte $07    ; <き>
-- D - I - 0x003BCD 02:BBBD: 00        .byte $00
-- D - I - 0x003BCE 02:BBBE: CF        .byte $CF    ; <プ>
-- D - I - 0x003BCF 02:BBBF: 00        .byte $00
-- D - I - 0x003BD0 02:BBC0: 02        .byte $02    ; <い>
-- D - I - 0x003BD1 02:BBC1: 07        .byte $07    ; <き>
-- D - I - 0x003BD2 02:BBC2: 00        .byte $00
-- D - I - 0x003BD3 02:BBC3: D8        .byte $D8
-- D - I - 0x003BD4 02:BBC4: 02        .byte $02    ; <い>
-- D - I - 0x003BD5 02:BBC5: 01        .byte $01    ; <あ>
-- D - I - 0x003BD6 02:BBC6: 07        .byte $07    ; <き>
-
-- D - I - 0x003BD7 02:BBC7: FF        .byte $FF
+    .byte $00
+    .byte $A2       ; skylb hurricane
+    .byte $00
+    .byte $08
+    .byte $06
+    
+    .byte $00
+    .byte $A4       ; skylab twin shot
+    .byte $00
+    .byte $0A
+    .byte $06
+    
+    .byte $00
+    .byte $A3       ; twin shot
+    .byte $00
+    .byte $09
+    .byte $06
+    
+    .byte $00
+    .byte $CB       ; gemini attack
+    .byte $03
+    .byte $03
+    .byte $06
+    
+    .byte $00
+    .byte $D2       ; skylab tackle
+    .byte $01
+    .byte $01       ; у другого брата 03
+    .byte $07
+    
+    .byte $00
+    .byte $CF       ; skylab block
+    .byte $00
+    .byte $02
+    .byte $07
+    
+    .byte $00
+    .byte $D8       ; skylab pass cut
+    .byte $02
+    .byte $01
+    .byte $07
+    
+    .byte $FF
 
 
 
 off_BBC8_казуо:
-- D - I - 0x003BD8 02:BBC8: 00        .byte $00
-- D - I - 0x003BD9 02:BBC9: A2        .byte $A2    ; <ぐ>
-- D - I - 0x003BDA 02:BBCA: 00        .byte $00
-- D - I - 0x003BDB 02:BBCB: 08        .byte $08    ; <く>
-- D - I - 0x003BDC 02:BBCC: 06        .byte $06    ; <か>
-- D - I - 0x003BDD 02:BBCD: 00        .byte $00
-- D - I - 0x003BDE 02:BBCE: A4        .byte $A4    ; <ご>
-- D - I - 0x003BDF 02:BBCF: 00        .byte $00
-- D - I - 0x003BE0 02:BBD0: 0A        .byte $0A    ; <こ>
-- D - I - 0x003BE1 02:BBD1: 06        .byte $06    ; <か>
-- D - I - 0x003BE2 02:BBD2: 00        .byte $00
-- D - I - 0x003BE3 02:BBD3: A3        .byte $A3    ; <げ>
-- D - I - 0x003BE4 02:BBD4: 00        .byte $00
-- D - I - 0x003BE5 02:BBD5: 09        .byte $09    ; <け>
-- D - I - 0x003BE6 02:BBD6: 06        .byte $06    ; <か>
-- D - I - 0x003BE7 02:BBD7: 00        .byte $00
-- D - I - 0x003BE8 02:BBD8: CB        .byte $CB    ; <ぺ>
-- D - I - 0x003BE9 02:BBD9: 03        .byte $03    ; <う>
-- D - I - 0x003BEA 02:BBDA: 03        .byte $03    ; <う>
-- D - I - 0x003BEB 02:BBDB: 06        .byte $06    ; <か>
-- D - I - 0x003BEC 02:BBDC: 00        .byte $00
-- D - I - 0x003BED 02:BBDD: D2        .byte $D2
-- D - I - 0x003BEE 02:BBDE: 01        .byte $01    ; <あ>
-- D - I - 0x003BEF 02:BBDF: 03        .byte $03    ; <う>
-- D - I - 0x003BF0 02:BBE0: 07        .byte $07    ; <き>
-- D - I - 0x003BF1 02:BBE1: 00        .byte $00
-- D - I - 0x003BF2 02:BBE2: CF        .byte $CF    ; <プ>
-- D - I - 0x003BF3 02:BBE3: 00        .byte $00
-- D - I - 0x003BF4 02:BBE4: 02        .byte $02    ; <い>
-- D - I - 0x003BF5 02:BBE5: 07        .byte $07    ; <き>
-- D - I - 0x003BF6 02:BBE6: 00        .byte $00
-- D - I - 0x003BF7 02:BBE7: D8        .byte $D8
-- D - I - 0x003BF8 02:BBE8: 02        .byte $02    ; <い>
-- D - I - 0x003BF9 02:BBE9: 01        .byte $01    ; <あ>
-- D - I - 0x003BFA 02:BBEA: 07        .byte $07    ; <き>
-
-- D - I - 0x003BFB 02:BBEB: FF        .byte $FF
+    .byte $00
+    .byte $A2       ; skylb hurricane
+    .byte $00
+    .byte $08
+    .byte $06
+             
+    .byte $00
+    .byte $A4       ; skylab twin shot
+    .byte $00
+    .byte $0A
+    .byte $06
+             
+    .byte $00
+    .byte $A3       ; twin shot
+    .byte $00
+    .byte $09
+    .byte $06
+             
+    .byte $00
+    .byte $CB       ; gemini attack
+    .byte $03
+    .byte $03
+    .byte $06
+             
+    .byte $00
+    .byte $D2       ; skylab tackle
+    .byte $01
+    .byte $03       ; у другого брата 01
+    .byte $07
+             
+    .byte $00
+    .byte $CF       ; skylab block
+    .byte $00
+    .byte $02
+    .byte $07
+             
+    .byte $00
+    .byte $D8       ; skylab pass cut
+    .byte $02
+    .byte $01
+    .byte $07
+    
+    .byte $FF
 
 
 
 off_BBEC_хюга:
-- D - I - 0x003BFC 02:BBEC: 00        .byte $00
-- D - I - 0x003BFD 02:BBED: A6        .byte $A6    ; <じ>
-- D - I - 0x003BFE 02:BBEE: 00        .byte $00
-- D - I - 0x003BFF 02:BBEF: 0C        .byte $0C    ; <し>
-- D - I - 0x003C00 02:BBF0: 06        .byte $06    ; <か>
-- D - I - 0x003C01 02:BBF1: 00        .byte $00
-- D - I - 0x003C02 02:BBF2: A7        .byte $A7    ; <ず>
-- D - I - 0x003C03 02:BBF3: 00        .byte $00
-- D - I - 0x003C04 02:BBF4: 0D        .byte $0D    ; <す>
-- D - I - 0x003C05 02:BBF5: 06        .byte $06    ; <か>
-- D - I - 0x003C06 02:BBF6: 00        .byte $00
-- D - I - 0x003C07 02:BBF7: A8        .byte $A8    ; <ぜ>
-- D - I - 0x003C08 02:BBF8: 00        .byte $00
-- D - I - 0x003C09 02:BBF9: 0E        .byte $0E    ; <せ>
-- D - I - 0x003C0A 02:BBFA: 06        .byte $06    ; <か>
-- D - I - 0x003C0B 02:BBFB: 00        .byte $00
-- D - I - 0x003C0C 02:BBFC: BF        .byte $BF    ; <ヂ>
-- D - I - 0x003C0D 02:BBFD: 02        .byte $02    ; <い>
-- D - I - 0x003C0E 02:BBFE: 02        .byte $02    ; <い>
-- D - I - 0x003C0F 02:BBFF: 06        .byte $06    ; <か>
-- D - I - 0x003C10 02:BC00: 00        .byte $00
-- D - I - 0x003C11 02:BC01: CA        .byte $CA    ; <ぷ>
-- D - I - 0x003C12 02:BC02: 03        .byte $03    ; <う>
-- D - I - 0x003C13 02:BC03: 02        .byte $02    ; <い>
-- D - I - 0x003C14 02:BC04: 06        .byte $06    ; <か>
-- D - I - 0x003C15 02:BC05: 00        .byte $00
-- D - I - 0x003C16 02:BC06: D5        .byte $D5
-- D - I - 0x003C17 02:BC07: 01        .byte $01    ; <あ>
-- D - I - 0x003C18 02:BC08: 04        .byte $04    ; <え>
-- D - I - 0x003C19 02:BC09: 07        .byte $07    ; <き>
-
-- D - I - 0x003C1A 02:BC0A: FF        .byte $FF
+    .byte $00
+    .byte $A6       ; tiger shot
+    .byte $00
+    .byte $0C
+    .byte $06
+    
+    .byte $00
+    .byte $A7       ; neo tiger shot
+    .byte $00
+    .byte $0D
+    .byte $06
+    
+    .byte $00
+    .byte $A8       ; overhead kick
+    .byte $00
+    .byte $0E
+    .byte $06
+    
+    .byte $00
+    .byte $BF       ; power dribble
+    .byte $02
+    .byte $02
+    .byte $06
+    
+    .byte $00
+    .byte $CA       ; toho combo
+    .byte $03
+    .byte $02
+    .byte $06
+    
+    .byte $00
+    .byte $D5       ; tiger tackle
+    .byte $01
+    .byte $04
+    .byte $07
+    
+    .byte $FF
 
 
 
 off_BC0B_сода:
-- D - I - 0x003C1B 02:BC0B: 00        .byte $00
-- D - I - 0x003C1C 02:BC0C: A1        .byte $A1    ; <ぎ>
-- D - I - 0x003C1D 02:BC0D: 00        .byte $00
-- D - I - 0x003C1E 02:BC0E: 07        .byte $07    ; <き>
-- D - I - 0x003C1F 02:BC0F: 06        .byte $06    ; <か>
-- D - I - 0x003C20 02:BC10: 00        .byte $00
-- D - I - 0x003C21 02:BC11: D3        .byte $D3
-- D - I - 0x003C22 02:BC12: 01        .byte $01    ; <あ>
-- D - I - 0x003C23 02:BC13: 02        .byte $02    ; <い>
-- D - I - 0x003C24 02:BC14: 07        .byte $07    ; <き>
-- D - I - 0x003C25 02:BC15: 00        .byte $00
-- D - I - 0x003C26 02:BC16: C6        .byte $C6    ; <ベ>
-- D - I - 0x003C27 02:BC17: 01        .byte $01    ; <あ>
-- D - I - 0x003C28 02:BC18: 02        .byte $02    ; <い>
-- D - I - 0x003C29 02:BC19: 06        .byte $06    ; <か>
-
-- D - I - 0x003C2A 02:BC1A: FF        .byte $FF
+    .byte $00
+    .byte $A1       ; razor shot
+    .byte $00
+    .byte $07
+    .byte $06
+    
+    .byte $00
+    .byte $D3       ; razor tackle
+    .byte $01
+    .byte $02
+    .byte $07
+    
+    .byte $00
+    .byte $C6       ; razor pass
+    .byte $01
+    .byte $02
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BC1B_джито:
-- D - I - 0x003C2B 02:BC1B: 00        .byte $00
-- D - I - 0x003C2C 02:BC1C: AD        .byte $AD    ; <で>
-- D - I - 0x003C2D 02:BC1D: 00        .byte $00
-- D - I - 0x003C2E 02:BC1E: 13        .byte $13    ; <て>
-- D - I - 0x003C2F 02:BC1F: 06        .byte $06    ; <か>
-- D - I - 0x003C30 02:BC20: 00        .byte $00
-- D - I - 0x003C31 02:BC21: BF        .byte $BF    ; <ヂ>
-- D - I - 0x003C32 02:BC22: 02        .byte $02    ; <い>
-- D - I - 0x003C33 02:BC23: 02        .byte $02    ; <い>
-- D - I - 0x003C34 02:BC24: 06        .byte $06    ; <か>
-- D - I - 0x003C35 02:BC25: 00        .byte $00
-- D - I - 0x003C36 02:BC26: D4        .byte $D4
-- D - I - 0x003C37 02:BC27: 01        .byte $01    ; <あ>
-- D - I - 0x003C38 02:BC28: 03        .byte $03    ; <う>
-- D - I - 0x003C39 02:BC29: 07        .byte $07    ; <き>
-- D - I - 0x003C3A 02:BC2A: 00        .byte $00
-- D - I - 0x003C3B 02:BC2B: D0        .byte $D0    ; <ペ>
-- D - I - 0x003C3C 02:BC2C: 00        .byte $00
-- D - I - 0x003C3D 02:BC2D: 03        .byte $03    ; <う>
-- D - I - 0x003C3E 02:BC2E: 07        .byte $07    ; <き>
-
-- D - I - 0x003C3F 02:BC2F: FF        .byte $FF
+    .byte $00
+    .byte $AD       ; sano combo
+    .byte $00
+    .byte $13
+    .byte $06
+    
+    .byte $00
+    .byte $BF       ; power dribble
+    .byte $02
+    .byte $02
+    .byte $06
+    
+    .byte $00
+    .byte $D4       ; power tackle
+    .byte $01
+    .byte $03
+    .byte $07
+    
+    .byte $00
+    .byte $D0       ; power block
+    .byte $00
+    .byte $03
+    .byte $07
+    
+    .byte $FF
 
 
 
 off_BC30_мацуяма:
-- D - I - 0x003C40 02:BC30: 00        .byte $00
-- D - I - 0x003C41 02:BC31: A5        .byte $A5    ; <ざ>
-- D - I - 0x003C42 02:BC32: 00        .byte $00
-- D - I - 0x003C43 02:BC33: 0B        .byte $0B    ; <さ>
-- D - I - 0x003C44 02:BC34: 06        .byte $06    ; <か>
-
-- D - I - 0x003C45 02:BC35: FF        .byte $FF
+    .byte $00
+    .byte $A5       ; eagle shot
+    .byte $00
+    .byte $0B
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BC36_савада:
-- D - I - 0x003C46 02:BC36: 00        .byte $00
-- D - I - 0x003C47 02:BC37: CA        .byte $CA    ; <ぷ>
-- D - I - 0x003C48 02:BC38: 03        .byte $03    ; <う>
-- D - I - 0x003C49 02:BC39: 02        .byte $02    ; <い>
-- D - I - 0x003C4A 02:BC3A: 06        .byte $06    ; <か>
-
-- D - I - 0x003C4B 02:BC3B: FF        .byte $FF
+    .byte $00
+    .byte $CA       ; toho combo
+    .byte $03
+    .byte $02
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BC3C_мисуги:
-- D - I - 0x003C4C 02:BC3C: 00        .byte $00
-- D - I - 0x003C4D 02:BC3D: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003C4E 02:BC3E: 00        .byte $00
-- D - I - 0x003C4F 02:BC3F: 0F        .byte $0F    ; <そ>
-- D - I - 0x003C50 02:BC40: 06        .byte $06    ; <か>
-
-- D - I - 0x003C51 02:BC41: FF        .byte $FF
+    .byte $00
+    .byte $A9       ; hyper overhead
+    .byte $00
+    .byte $0F
+    .byte $06
+    
+    .byte $FF
 
 
 
 off_BC42_вакашимазу:
-- D - I - 0x003C52 02:BC42: 00        .byte $00
-- D - I - 0x003C53 02:BC43: E5        .byte $E5
-- D - I - 0x003C54 02:BC44: 02        .byte $02    ; <い>
-- D - I - 0x003C55 02:BC45: 00        .byte $00
-- D - I - 0x003C56 02:BC46: 08        .byte $08    ; <く>
-
-- D - I - 0x003C57 02:BC47: FF        .byte $FF
+    .byte $00
+    .byte $E5       ; triangle jump
+    .byte $02
+    .byte $00
+    .byte $08
+    
+    .byte $FF
 
 
 
@@ -4665,9 +4698,9 @@ off_BF15_оформление_окон_и_текст:
     .word $24F5
     .text "Cost "
 ; полоска до конца окна после cost
-    .byte $46
-    .word $24F9
-    .byte $A8, $A8, $A8, $A8, $A8, $9D
+    .byte $45
+    .word $24FA
+    .byte $A8, $A8, $A8, $A8, $9D
 
 
 
@@ -4693,9 +4726,9 @@ off_BF4E_названия_действий_полевого:
     .word $2302
     .text "Block"
     
-    .byte $07
+    .byte $08
     .word $2342
-    .text "Passcut"
+    .text "Pass cut"
 ; high ball
     .byte $04
     .word $20B1
