@@ -3687,7 +3687,7 @@ C - - - - 0x0359E2 23:99D2: AD 25 06  LDA $0625
 C - - - - 0x0359E5 23:99D5: 20 90 9B  JSR sub_9B90
 C - - - - 0x0359E8 23:99D8: 90 24     BCC bra_99FE
 loc_99DA:
-C - - - - 0x0359EA 23:99DA: BD 0F 9F  LDA tbl_9F0F,X
+C - - - - 0x0359EA 23:99DA: BD 0F 9F  LDA tbl_9F0F_изменение_позиции_курсора_запасных_игроков,X
 C - - - - 0x0359ED 23:99DD: 48        PHA
 C - - - - 0x0359EE 23:99DE: 20 AC 9A  JSR sub_9AAC
 C - - - - 0x0359F1 23:99E1: 68        PLA
@@ -3731,7 +3731,7 @@ C - - - - 0x035A3A 23:9A2A: AD 26 06  LDA $0626
 C - - - - 0x035A3D 23:9A2D: F0 1A     BEQ bra_9A49
 - - - - - 0x035A3F 23:9A2F: 20 90 9B  JSR sub_9B90
 - - - - - 0x035A42 23:9A32: 90 15     BCC bra_9A49
-- - - - - 0x035A44 23:9A34: BD B7 9E  LDA tbl_9EB7_индекс_курсора_при_смещении,X
+- - - - - 0x035A44 23:9A34: BD B7 9E  LDA tbl_9EB7_изменение_позиции_курсора_основных_игроков,X
 - - - - - 0x035A47 23:9A37: 48        PHA
 - - - - - 0x035A48 23:9A38: AD 26 06  LDA $0626
 - - - - - 0x035A4B 23:9A3B: A0 16     LDY #$16
@@ -3832,7 +3832,7 @@ C - - - - 0x035AED 23:9ADD: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x035AF0 23:9AE0: AD 25 06  LDA $0625
 C - - - - 0x035AF3 23:9AE3: 20 90 9B  JSR sub_9B90
 C - - - - 0x035AF6 23:9AE6: 90 15     BCC bra_9AFD
-C - - - - 0x035AF8 23:9AE8: BD B7 9E  LDA tbl_9EB7_индекс_курсора_при_смещении,X
+C - - - - 0x035AF8 23:9AE8: BD B7 9E  LDA tbl_9EB7_изменение_позиции_курсора_основных_игроков,X
 C - - - - 0x035AFB 23:9AEB: 48        PHA
 C - - - - 0x035AFC 23:9AEC: AD 25 06  LDA $0625
 C - - - - 0x035AFF 23:9AEF: A0 16     LDY #$16
@@ -3865,12 +3865,12 @@ C - - - - 0x035B32 23:9B22: 20 15 C5  JSR sub_0x03CB1F
 C - - - - 0x035B35 23:9B25: AD 26 06  LDA $0626
 C - - - - 0x035B38 23:9B28: 20 90 9B  JSR sub_9B90
 C - - - - 0x035B3B 23:9B2B: 90 22     BCC bra_9B4F
-C - - - - 0x035B3D 23:9B2D: BD B7 9E  LDA tbl_9EB7_индекс_курсора_при_смещении,X
+C - - - - 0x035B3D 23:9B2D: BD B7 9E  LDA tbl_9EB7_изменение_позиции_курсора_основных_игроков,X
 C - - - - 0x035B40 23:9B30: CD 25 06  CMP $0625
 C - - - - 0x035B43 23:9B33: D0 08     BNE bra_9B3D
 C - - - - 0x035B45 23:9B35: A6 3A     LDX ram_003A
 C - - - - 0x035B47 23:9B37: 20 A4 9B  JSR sub_9BA4
-C - - - - 0x035B4A 23:9B3A: BD B7 9E  LDA tbl_9EB7_индекс_курсора_при_смещении,X
+C - - - - 0x035B4A 23:9B3A: BD B7 9E  LDA tbl_9EB7_изменение_позиции_курсора_основных_игроков,X
 bra_9B3D:
 C - - - - 0x035B4D 23:9B3D: 48        PHA
 C - - - - 0x035B4E 23:9B3E: AD 26 06  LDA $0626
@@ -4344,7 +4344,7 @@ C - - - - 0x035EA5 23:9E95: 0A        ASL
 C - - - - 0x035EA6 23:9E96: 0A        ASL
 C - - - - 0x035EA7 23:9E97: 65 3A     ADC ram_003A
 C - - - - 0x035EA9 23:9E99: AA        TAX
-C - - - - 0x035EAA 23:9E9A: BD B7 9E  LDA tbl_9EB7_индекс_курсора_при_смещении,X
+C - - - - 0x035EAA 23:9E9A: BD B7 9E  LDA tbl_9EB7_изменение_позиции_курсора_основных_игроков,X
 C - - - - 0x035EAD 23:9E9D: 48        PHA
 C - - - - 0x035EAE 23:9E9E: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x035EB1 23:9EA1: A0 00     LDY #$00
@@ -4361,164 +4361,175 @@ C - - - - 0x035EC6 23:9EB6: 60        RTS
 
 
 
-tbl_9EB7_индекс_курсора_при_смещении:
-; unused
+tbl_9EB7_изменение_позиции_курсора_основных_игроков:
+; unused (нельзя перемещать кипера между основными игроками)
     .byte $FF
     .byte $FF
     .byte $FF
     .byte $FF
-
-; замена между основными игроками
     ; 2
-    .byte $06   ; left
     .byte $06   ; right
+    .byte $06   ; left
     .byte $02   ; down
     .byte $05   ; up
     ; 3
-    .byte $07   ; left
     .byte $07   ; right
+    .byte $07   ; left
     .byte $03   ; down
     .byte $01   ; up
     ; 4
-    .byte $08   ; left
     .byte $08   ; right
+    .byte $08   ; left
     .byte $04   ; down
     .byte $02   ; up
     ; 5
-    .byte $09   ; left
     .byte $09   ; right
+    .byte $09   ; left
     .byte $05   ; down
     .byte $03   ; up
     ; 6
-    .byte $0A   ; left
     .byte $0A   ; right
+    .byte $0A   ; left
     .byte $01   ; down
     .byte $04   ; up
     ; 7
-    .byte $01   ; left
     .byte $01   ; right
+    .byte $01   ; left
     .byte $07   ; down
     .byte $0A   ; up
     ; 8
-    .byte $02   ; left
     .byte $02   ; right
+    .byte $02   ; left
     .byte $08   ; down
     .byte $06   ; up
     ; 9
-    .byte $03   ; left
     .byte $03   ; right
+    .byte $03   ; left
     .byte $09   ; down
     .byte $07   ; up
     ; 10
-    .byte $04   ; left
     .byte $04   ; right
+    .byte $04   ; left
     .byte $0A   ; down
     .byte $08   ; up
     ; 11
-    .byte $05   ; left
     .byte $05   ; right
+    .byte $05   ; left
     .byte $06   ; down
     .byte $09   ; up
 
 ; ??? unused до конца
-    .byte $03   ; left
-    .byte $07   ; right
+; bzk мусор, этих игроков не существует, они типа компьютерные
+    .byte $03   ; right
+    .byte $07   ; left
     .byte $09   ; down
     .byte $0A   ; up
     
-    .byte $05   ; left
-    .byte $09   ; right
+    .byte $05   ; right
+    .byte $09   ; left
     .byte $02   ; down
     .byte $04   ; up
     
-    .byte $06   ; left
-    .byte $0A   ; right
+    .byte $06   ; right
+    .byte $0A   ; left
     .byte $03   ; down
     .byte $01   ; up
     
-    .byte $07   ; left
-    .byte $00   ; right
+    .byte $07   ; right
+    .byte $00   ; left
     .byte $04   ; down
     .byte $02   ; up
     
-    .byte $08   ; left
-    .byte $00   ; right
+    .byte $08   ; right
+    .byte $00   ; left
     .byte $01   ; down
     .byte $03   ; up
     
-    .byte $09   ; left
-    .byte $01   ; right
+    .byte $09   ; right
+    .byte $01   ; left
     .byte $06   ; down
     .byte $08   ; up
     
-    .byte $0A   ; left
-    .byte $02   ; right
+    .byte $0A   ; right
+    .byte $02   ; left
     .byte $07   ; down
     .byte $05   ; up
     
-    .byte $00   ; left
-    .byte $03   ; right
+    .byte $00   ; right
+    .byte $03   ; left
     .byte $08   ; down
     .byte $06   ; up
     
-    .byte $00   ; left
-    .byte $04   ; right
+    .byte $00   ; right
+    .byte $04   ; left
     .byte $05   ; down
     .byte $07   ; up
     
-    .byte $01   ; left
-    .byte $05   ; right
+    .byte $01   ; right
+    .byte $05   ; left
     .byte $0A   ; down
     .byte $00   ; up
     
-    .byte $02   ; left
-    .byte $06   ; right
+    .byte $02   ; right
+    .byte $06   ; left
     .byte $00   ; down
     .byte $09   ; up
 
 
 
-tbl_9F0F:
-- D - - - 0x035F1F 23:9F0F: 03        .byte $03    ; <う>
-- - - - - 0x035F20 23:9F10: 06        .byte $06    ; <か>
-- - - - - 0x035F21 23:9F11: 01        .byte $01    ; <あ>
-- - - - - 0x035F22 23:9F12: 02        .byte $02    ; <い>
-- - - - - 0x035F23 23:9F13: 04        .byte $04    ; <え>
-- - - - - 0x035F24 23:9F14: 08        .byte $08    ; <く>
-- - - - - 0x035F25 23:9F15: 02        .byte $02    ; <い>
-- - - - - 0x035F26 23:9F16: 00        .byte $00
-- - - - - 0x035F27 23:9F17: 05        .byte $05    ; <お>
-- - - - - 0x035F28 23:9F18: 09        .byte $09    ; <け>
-- - - - - 0x035F29 23:9F19: 00        .byte $00
-- - - - - 0x035F2A 23:9F1A: 01        .byte $01    ; <あ>
-- D - - - 0x035F2B 23:9F1B: 06        .byte $06    ; <か>
-- - - - - 0x035F2C 23:9F1C: 00        .byte $00
-- - - - - 0x035F2D 23:9F1D: 04        .byte $04    ; <え>
-- - - - - 0x035F2E 23:9F1E: 05        .byte $05    ; <お>
-- - - - - 0x035F2F 23:9F1F: 07        .byte $07    ; <き>
-- - - - - 0x035F30 23:9F20: 01        .byte $01    ; <あ>
-- - - - - 0x035F31 23:9F21: 05        .byte $05    ; <お>
-- - - - - 0x035F32 23:9F22: 03        .byte $03    ; <う>
-- - - - - 0x035F33 23:9F23: 09        .byte $09    ; <け>
-- - - - - 0x035F34 23:9F24: 02        .byte $02    ; <い>
-- - - - - 0x035F35 23:9F25: 03        .byte $03    ; <う>
-- - - - - 0x035F36 23:9F26: 04        .byte $04    ; <え>
-- D - - - 0x035F37 23:9F27: 08        .byte $08    ; <く>
-- - - - - 0x035F38 23:9F28: 03        .byte $03    ; <う>
-- - - - - 0x035F39 23:9F29: 07        .byte $07    ; <き>
-- - - - - 0x035F3A 23:9F2A: 07        .byte $07    ; <き>
-- - - - - 0x035F3B 23:9F2B: 09        .byte $09    ; <け>
-- - - - - 0x035F3C 23:9F2C: 04        .byte $04    ; <え>
-- - - - - 0x035F3D 23:9F2D: 06        .byte $06    ; <か>
-- - - - - 0x035F3E 23:9F2E: 06        .byte $06    ; <か>
-- - - - - 0x035F3F 23:9F2F: 01        .byte $01    ; <あ>
-- - - - - 0x035F40 23:9F30: 07        .byte $07    ; <き>
-- D - - - 0x035F41 23:9F31: 09        .byte $09    ; <け>
-- - - - - 0x035F42 23:9F32: 09        .byte $09    ; <け>
-- - - - - 0x035F43 23:9F33: 02        .byte $02    ; <い>
-- - - - - 0x035F44 23:9F34: 05        .byte $05    ; <お>
-- - - - - 0x035F45 23:9F35: 08        .byte $08    ; <く>
-- - - - - 0x035F46 23:9F36: 08        .byte $08    ; <く>
+tbl_9F0F_изменение_позиции_курсора_запасных_игроков:
+    ; 1
+    .byte $05   ; right
+    .byte $08   ; left
+    .byte $01   ; down
+    .byte $04   ; up
+    ; 2
+    .byte $06   ; right
+    .byte $08   ; left
+    .byte $02   ; down
+    .byte $00   ; up
+    ; 3
+    .byte $07   ; right
+    .byte $08   ; left
+    .byte $03   ; down
+    .byte $01   ; up
+    ; 4
+    .byte $08   ; right
+    .byte $08   ; left
+    .byte $04   ; down
+    .byte $02   ; up
+    ; 5
+    .byte $09   ; right
+    .byte $09   ; left
+    .byte $00   ; down
+    .byte $03   ; up
+    ; 6
+    .byte $08   ; right
+    .byte $00   ; left
+    .byte $06   ; down
+    .byte $09   ; up
+    ; 7
+    .byte $08   ; right
+    .byte $01   ; left
+    .byte $07   ; down
+    .byte $05   ; up
+    ; 8
+    .byte $09   ; right
+    .byte $02   ; left
+    .byte $08   ; down
+    .byte $06   ; up
+    ; GK1
+    .byte $03   ; right
+    .byte $03   ; left
+    .byte $09   ; down
+    .byte $07   ; up
+    ; GK2
+    .byte $04   ; right
+    .byte $04   ; left
+    .byte $05   ; down
+    .byte $08   ; up
+
+
 
 sub_9F37:
 C - - - - 0x035F47 23:9F37: A2 B1     LDX #$B1
@@ -4559,39 +4570,41 @@ C - - - - 0x035F85 23:9F75: 8D 15 05  STA $0515
 C - - - - 0x035F88 23:9F78: 60        RTS
 
 tbl_9F79_позиция_ppu_курсора:
-- - - - - 0x035F89 23:9F79: 18 23     .word $2318
-- D - - - 0x035F8B 23:9F7B: 8A 22     .word $228A
-- D - - - 0x035F8D 23:9F7D: CA 22     .word $22CA
-- D - - - 0x035F8F 23:9F7F: 0A 23     .word $230A
-- D - - - 0x035F91 23:9F81: 4A 23     .word $234A
-- D - - - 0x035F93 23:9F83: 91 22     .word $2291
-- D - - - 0x035F95 23:9F85: D1 22     .word $22D1
-- D - - - 0x035F97 23:9F87: 11 23     .word $2311
-- D - - - 0x035F99 23:9F89: 51 23     .word $2351
-- D - - - 0x035F9B 23:9F8B: 98 22     .word $2298
-- D - - - 0x035F9D 23:9F8D: D8 22     .word $22D8
-- D - - - 0x035F9F 23:9F8F: 16 23     .word $2316
+; ??? первый адрес еще не использовался
+    .word $2318
+    .word $228A
+    .word $22CA
+    .word $230A
+    .word $234A
+    .word $2291
+    .word $22D1
+    .word $2311
+    .word $2351
+    .word $2298
+    .word $22D8
+    .word $2316
 ; замена между основными игроками
-- D - - - 0x035FA1 23:9F91: 84 22     .word $2264   ; 2
-- D - - - 0x035FA3 23:9F93: C4 22     .word $22A4   ; 3
-- D - - - 0x035FA5 23:9F95: 04 23     .word $22E4   ; 4
-- D - - - 0x035FA7 23:9F97: 44 23     .word $2324   ; 5
-- D - - - 0x035FA9 23:9F99: 8D 22     .word $2364   ; 6
-- D - - - 0x035FAB 23:9F9B: CD 22     .word $2274   ; 7
-- D - - - 0x035FAD 23:9F9D: 0D 23     .word $22B4   ; 8
-- D - - - 0x035FAF 23:9F9F: 4D 23     .word $22F4   ; 9
-- D - - - 0x035FB1 23:9FA1: 96 22     .word $2334   ; 10
-- D - - - 0x035FB3 23:9FA3: D6 22     .word $2374   ; 11
-- D - - - 0x035FB5 23:9FA5: C2 22     .word $22C2
-- - - - - 0x035FB7 23:9FA7: 02 23     .word $2302
-- - - - - 0x035FB9 23:9FA9: 42 23     .word $2342
-- D - - - 0x035FBB 23:9FAB: C9 22     .word $22C9
-- - - - - 0x035FBD 23:9FAD: 09 23     .word $2309
-- - - - - 0x035FBF 23:9FAF: 49 23     .word $2349
-- D - - - 0x035FC1 23:9FB1: D0 22     .word $22D0
-- - - - - 0x035FC3 23:9FB3: 10 23     .word $2310
-- D - - - 0x035FC5 23:9FB5: 17 23     .word $2317
-- D - - - 0x035FC7 23:9FB7: 57 23     .word $2357
+    .word $2264   ; 2
+    .word $22A4   ; 3
+    .word $22E4   ; 4
+    .word $2324   ; 5
+    .word $2364   ; 6
+    .word $2274   ; 7
+    .word $22B4   ; 8
+    .word $22F4   ; 9
+    .word $2334   ; 10
+    .word $2374   ; 11
+; замена запасных игроков
+    .word $2262   ; 1
+    .word $22A2   ; 2
+    .word $22E2   ; 3
+    .word $2322   ; 4
+    .word $2362   ; 5
+    .word $226C   ; 6
+    .word $22AC   ; 7
+    .word $22EC   ; 8
+    .word $2334   ; GK1
+    .word $2374   ; GK2
 
 tbl_9FB9:
 - D - - - 0x035FC9 23:9FB9: C3 9F     .word off_9FC3_00
