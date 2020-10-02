@@ -1408,9 +1408,9 @@ C - - - - 0x03CF98 FF:CF88: A9 19     LDA #$19
 C - - - - 0x03CF9A FF:CF8A: 85 25     STA ram_для_5115
 C - - - - 0x03CF9C FF:CF8C: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
-.export sub_0x03CF9F
-sub_0x03CF9F:
-sub_CF8F:
+.export sub_0x03CF9F_курсор_меню_после_гола
+sub_0x03CF9F_курсор_меню_после_гола:
+sub_CF8F_курсор_меню_после_гола:
 C D - - - 0x03CF9F FF:CF8F: 8D 23 06  STA $0623
 C - - - - 0x03CFA2 FF:CF92: AA        TAX
 C - - - - 0x03CFA3 FF:CF93: BD 02 D0  LDA tbl_D002_горизонталь_спрайта,X
@@ -1433,27 +1433,35 @@ C - - - - 0x03CFC4 FF:CFB4: 7D 0A D0  ADC tbl_D00A_вертикаль_спрай
 C - - - - 0x03CFC7 FF:CFB7: 8D FC 02  STA ram_спрайт_Y + $FC
 C - - - - 0x03CFCA FF:CFBA: A9 0C     LDA #con_btn_Down + con_btn_Up
 C - - - - 0x03CFCC FF:CFBC: 2D 1E 00  AND ram_одноразовые
-C - - - - 0x03CFCF FF:CFBF: F0 26     BEQ bra_CFE7
+C - - - - 0x03CFCF FF:CFBF: F0 26     BEQ bra_CFE7_проверка_кнопок_A_и_B
 C - - - - 0x03CFD1 FF:CFC1: A2 01     LDX #$01
 C - - - - 0x03CFD3 FF:CFC3: 29 08     AND #$08
-C - - - - 0x03CFD5 FF:CFC5: F0 02     BEQ bra_CFC9
+C - - - - 0x03CFD5 FF:CFC5: F0 02     BEQ bra_CFC9_нажата_кнопка_вниз
 C - - - - 0x03CFD7 FF:CFC7: A2 FF     LDX #$FF
-bra_CFC9:
+bra_CFC9_нажата_кнопка_вниз:
 C - - - - 0x03CFD9 FF:CFC9: 8A        TXA
 C - - - - 0x03CFDA FF:CFCA: 18        CLC
 C - - - - 0x03CFDB FF:CFCB: 6D 22 06  ADC $0622
-C - - - - 0x03CFDE FF:CFCE: 30 17     BMI bra_CFE7
+C - - - - 0x03CFDE FF:CFCE: 30 17     BPL bra_CFD0_курсор_еще_не_достиг_вершины_списка
+                                      LDX $0623
+                                      LDA tbl_D012_лимит_позиции_курсора,X
+                                      STA $0622
+                                      BNE bra_CFE7_проверка_кнопок_A_и_B
+bra_CFD0_курсор_еще_не_достиг_вершины_списка:
 C - - - - 0x03CFE0 FF:CFD0: AE 23 06  LDX $0623
-C - - - - 0x03CFE3 FF:CFD3: DD 12 D0  CMP tbl_D012,X
+C - - - - 0x03CFE3 FF:CFD3: DD 12 D0  CMP tbl_D012_лимит_позиции_курсора,X
 C - - - - 0x03CFE6 FF:CFD6: F0 02     BEQ bra_CFDA
-C - - - - 0x03CFE8 FF:CFD8: B0 0D     BCS bra_CFE7
+C - - - - 0x03CFE8 FF:CFD8: B0 0D     BCC bra_CFDA
+                                      LDA #$00
+                                      STA $0622
+                                      BEQ bra_CFE7_проверка_кнопок_A_и_B
 bra_CFDA:
 C - - - - 0x03CFEA FF:CFDA: 8D 22 06  STA $0622
 C - - - - 0x03CFED FF:CFDD: AE 23 06  LDX $0623
 C - - - - 0x03CFF0 FF:CFE0: E0 05     CPX #$05
-C - - - - 0x03CFF2 FF:CFE2: D0 03     BNE bra_CFE7
+C - - - - 0x03CFF2 FF:CFE2: D0 03     BNE bra_CFE7_проверка_кнопок_A_и_B
 C - - - - 0x03CFF4 FF:CFE4: 8D 2C 00  STA ram_расстановка_слева
-bra_CFE7:
+bra_CFE7_проверка_кнопок_A_и_B:
 C - - - - 0x03CFF7 FF:CFE7: A9 80     LDA #con_btn_A
 C - - - - 0x03CFF9 FF:CFE9: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03CFFC FF:CFEC: D0 0A     BNE bra_CFF8
@@ -1471,44 +1479,45 @@ C - - - - 0x03D00E FF:CFFE: 8E FC 02  STX ram_спрайт_Y + $FC
 C - - - - 0x03D011 FF:D001: 60        RTS
 
 tbl_D002_горизонталь_спрайта:
-- - - - - 0x03D012 FF:D002: 48        .byte $48    ; <ク>
-- D - - - 0x03D013 FF:D003: 48        .byte $48    ; <ク>
-- D - - - 0x03D014 FF:D004: 48        .byte $48    ; <ク>
-- D - - - 0x03D015 FF:D005: 48        .byte $48    ; <ク>
-- D - - - 0x03D016 FF:D006: 40        .byte $40    ; <「>
-- D - - - 0x03D017 FF:D007: 48        .byte $48    ; <ク>
-- D - - - 0x03D018 FF:D008: 48        .byte $48    ; <ク>
-- D - - - 0x03D019 FF:D009: 48        .byte $48    ; <ク>
+    .byte $48     ; unused
+    .byte $48     ; ???
+    .byte $48     ; ???
+    .byte $48     ; ???
+    .byte $40     ; все 5 опций после гола
+    .byte $48     ; formation
+    .byte $48     ; defense
+    .byte $48     ; swap players/positions
 
 tbl_D00A_вертикаль_спрайта:
-- - - - - 0x03D01A FF:D00A: 9A        .byte $9A
-- D - - - 0x03D01B FF:D00B: 9A        .byte $9A
-- D - - - 0x03D01C FF:D00C: 9A        .byte $9A
-- D - - - 0x03D01D FF:D00D: 9A        .byte $9A
-- D - - - 0x03D01E FF:D00E: 92        .byte $92    ; <W>
-- D - - - 0x03D01F FF:D00F: A2        .byte $A2    ; <ぐ>
-- D - - - 0x03D020 FF:D010: B2        .byte $B2    ; <べ>
-- D - - - 0x03D021 FF:D011: C2        .byte $C2    ; <ド>
+    .byte $9A     ; unused
+    .byte $9A     ; ???
+    .byte $9A     ; ???
+    .byte $9A     ; ???
+    .byte $92     ; все 5 опций после гола
+    .byte $A2     ; formation
+    .byte $B2     ; defense
+    .byte $C2     ; swap players/positions
 
-tbl_D012:
-- - - - - 0x03D022 FF:D012: 00        .byte $00
-- D - - - 0x03D023 FF:D013: 01        .byte $01    ; <あ>
-- D - - - 0x03D024 FF:D014: 02        .byte $02    ; <い>
-- D - - - 0x03D025 FF:D015: 03        .byte $03    ; <う>
-- D - - - 0x03D026 FF:D016: 04        .byte $04    ; <え>
-- D - - - 0x03D027 FF:D017: 03        .byte $03    ; <う>
-- D - - - 0x03D028 FF:D018: 02        .byte $02    ; <い>
-- D - - - 0x03D029 FF:D019: 01        .byte $01    ; <あ>
+tbl_D012_лимит_позиции_курсора:
+; на всякий случай заметка, один из бранчей ожидает что тут не будет 00
+    .byte $00     ; unused
+    .byte $01     ; ???
+    .byte $02     ; ???
+    .byte $03     ; ???
+    .byte $04     ; все 5 опций после гола
+    .byte $03     ; formation
+    .byte $02     ; defense
+    .byte $01     ; swap players/positions
 
 tbl_D01A_номер_тайла:
-- - - - - 0x03D02A FF:D01A: 11        .byte $11    ; <ち>
-- D - - - 0x03D02B FF:D01B: 11        .byte $11    ; <ち>
-- D - - - 0x03D02C FF:D01C: 11        .byte $11    ; <ち>
-- D - - - 0x03D02D FF:D01D: 11        .byte $11    ; <ち>
-- D - - - 0x03D02E FF:D01E: 71        .byte $71    ; <ュ>
-- D - - - 0x03D02F FF:D01F: 71        .byte $71    ; <ュ>
-- D - - - 0x03D030 FF:D020: 71        .byte $71    ; <ュ>
-- D - - - 0x03D031 FF:D021: 71        .byte $71    ; <ュ>
+    .byte $11     ; unused
+    .byte $11     ; ???
+    .byte $11     ; ???
+    .byte $11     ; ???
+    .byte $71     ; все 5 опций после гола
+    .byte $71     ; formation
+    .byte $71     ; defense
+    .byte $71     ; swap players/positions
 
 .export sub_0x03D032_восстановить_энергию_в_перерыве
 sub_0x03D032_восстановить_энергию_в_перерыве:
@@ -2700,7 +2709,7 @@ sub_D77A:
 C - - - - 0x03D78A FF:D77A: A9 00     LDA #$00
 C - - - - 0x03D78C FF:D77C: 8D 22 06  STA $0622
 C - - - - 0x03D78F FF:D77F: AD 30 04  LDA $0430
-C - - - - 0x03D792 FF:D782: 20 8F CF  JSR sub_CF8F
+C - - - - 0x03D792 FF:D782: 20 8F CF  JSR sub_CF8F_курсор_меню_после_гола
 C - - - - 0x03D795 FF:D785: A2 80     LDX #$80
 C - - - - 0x03D797 FF:D787: 90 07     BCC bra_D790
 C - - - - 0x03D799 FF:D789: AA        TAX
