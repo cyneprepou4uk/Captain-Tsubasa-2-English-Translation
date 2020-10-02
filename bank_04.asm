@@ -5,7 +5,7 @@
 
 .export tbl_0x40004_вид_меню
 tbl_0x40004_вид_меню:
-- D - - - 0x0333DF 22:B3CF: 53 B4     .word off_B453_00_period_number_and_time         ; номер тайма и время
+- D - - - 0x0333DF 22:B3CF: 53 B4     .word off_B453_00_period_number_and_time          ; номер тайма и время
 - D - - - 0x0333E1 22:B3D1: 64 B4     .word off_B464_01_team_names_and_score            ; сокращения команд и счет
 - D - - - 0x0333E3 22:B3D3: 7D B4     .word off_B47D_02_окно_действия_игрока_с_мячом
 - D - - - 0x0333E5 22:B3D5: 8A B4     .word off_B48A_03_player_dribble_pass_shoot
