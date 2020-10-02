@@ -5477,7 +5477,7 @@ off_EA59_06_clearing:
 off_EA61_07_подкат:
     .word $2288
     .byte $25
-    .text " Tackle  "
+    .text "  Tackle "
 
 off_EA6A_08_skylab_tackle:
     .word $2288
@@ -5505,7 +5505,7 @@ off_EA87_0B_tiger_tackle:
 off_EA94_0C_block:
     .word $2288
     .byte $25
-    .text "  Block  "
+    .text "   Block "
 
 off_EA9F_0D_skylab_block:
     .word $2288
@@ -5525,7 +5525,7 @@ off_EAB7_0F_power_block:
 off_EAC4_10_passcut:      ; в воздухе понизу
     .word $2288
     .byte $25
-    .text "Pass cut "
+    .text " Pass cut"
 
 off_EACE_11_skylab_passcut:
     .word $2288
