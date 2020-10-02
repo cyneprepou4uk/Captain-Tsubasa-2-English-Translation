@@ -6,7 +6,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_01 - код для катсцен
 ; bank_02 - меню с игроками и статами, опции, миникарта
 ; bank_03 - звуки музыкального экрана
-; bank_04 - 
+; bank_04 - меню во время игры (байты)
 ; bank_05 - советы тренера
 ; bank_06 - прочие катсцены
 ; bank_07 - палитра
@@ -24,7 +24,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_19 - титры финальной катсцены
 ; bank_20 - 
 ; bank_21 - 
-; bank_22 - фразы облаков, графика облаков, меню во время игры
+; bank_22 - фразы облаков, графика облаков, меню во время игры (код)
 ; bank_23 - 
 ; bank_24 - 
 ; bank_25 - VS экран
