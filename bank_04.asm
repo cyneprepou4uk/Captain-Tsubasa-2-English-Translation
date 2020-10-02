@@ -806,19 +806,22 @@ off_B5C8_12_1_player_action_window:
     .word $2247
 ; X * Y зачищаемой области
     .byte $0B
-    .byte $04
+    .byte $03
 ; смещение окна X, Y
     .byte $00
     .byte $00
 ; размер окна X, Y
     .byte $0B
-    .byte $04
+    .byte $03
 ; количество поинтеров
     .byte $02
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
+    .byte $01
+    .byte $01
+    .word @name_1
 
 @txt:
     .text "Action"
@@ -837,13 +840,13 @@ off_B5D9_13_2_players_action_window:
     .word $2247
 ; X * Y зачищаемой области
     .byte $0B
-    .byte $06
+    .byte $05
 ; смещение окна X, Y
     .byte $00
     .byte $00
 ; размер окна X, Y
     .byte $0B
-    .byte $06
+    .byte $05
 ; количество поинтеров
     .byte $03
 ; смещение текста Y, X + поинтеры на текст
@@ -875,31 +878,31 @@ off_B5D9_13_2_players_action_window:
 
 
 off_B5EE_14_3_players_action_window:
-- D - I - 0x0335FE 22:B5EE: 28 22     .word $2228
-
-- D - I - 0x033600 22:B5F0: 0C        .byte $0C
-- D - I - 0x033601 22:B5F1: 08        .byte $08
-
-- D - I - 0x033602 22:B5F2: 00        .byte $00
-- D - I - 0x033603 22:B5F3: 01        .byte $01
-
-- D - I - 0x033604 22:B5F4: 0C        .byte $0C
-- D - I - 0x033605 22:B5F5: 07        .byte $07
-
-- D - I - 0x033606 22:B5F6: 04        .byte $04
-
-- D - I - 0x033607 22:B5F7: 01        .byte $01
-- D - I - 0x033608 22:B5F8: 03        .byte $03
-- D - I - 0x033609 22:B5F9: E6 BB     .word @txt
-- D - I - 0x03360B 22:B5FB: 03        .byte $03
-- D - I - 0x03360C 22:B5FC: 01        .byte $01
-- D - I - 0x03360D 22:B5FD: 88 BC     .word @name_1
-- D - I - 0x03360F 22:B5FF: 05        .byte $05
-- D - I - 0x033610 22:B600: 01        .byte $01
-- D - I - 0x033611 22:B601: 8B BC     .word @name_2
-- D - I - 0x033613 22:B603: 07        .byte $07
-- D - I - 0x033614 22:B604: 01        .byte $01
-- D - I - 0x033615 22:B605: 8E BC     .word @name_3
+    .word $2247
+; X * Y зачищаемой области
+    .byte $0B
+    .byte $07
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0B
+    .byte $07
+; количество поинтеров
+    .byte $04
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $01
+    .byte $01
+    .word @name_1
+    .byte $03
+    .byte $01
+    .word @name_2
+    .byte $05
+    .byte $01
+    .word @name_3
 
 @txt:
     .text "Action"
@@ -923,34 +926,34 @@ off_B5EE_14_3_players_action_window:
 
 
 off_B607_15_4_players_action_window:
-- D - I - 0x033617 22:B607: 28 22     .word $2228
-
-- D - I - 0x033619 22:B609: 0C        .byte $0C
-- D - I - 0x03361A 22:B60A: 0A        .byte $0A
-
-- D - I - 0x03361B 22:B60B: 00        .byte $00
-- D - I - 0x03361C 22:B60C: 01        .byte $01
-
-- D - I - 0x03361D 22:B60D: 0C        .byte $0C
-- D - I - 0x03361E 22:B60E: 09        .byte $09
-
-- D - I - 0x03361F 22:B60F: 05        .byte $05
-
-- D - I - 0x033620 22:B610: 01        .byte $01
-- D - I - 0x033621 22:B611: 03        .byte $03
-- D - I - 0x033622 22:B612: E6 BB     .word @txt
-- D - I - 0x033624 22:B614: 03        .byte $03
-- D - I - 0x033625 22:B615: 01        .byte $01
-- D - I - 0x033626 22:B616: 88 BC     .word @name_1
-- D - I - 0x033628 22:B618: 05        .byte $05
-- D - I - 0x033629 22:B619: 01        .byte $01
-- D - I - 0x03362A 22:B61A: 8B BC     .word @name_2
-- D - I - 0x03362C 22:B61C: 07        .byte $07
-- D - I - 0x03362D 22:B61D: 01        .byte $01
-- D - I - 0x03362E 22:B61E: 8E BC     .word @name_3
-- D - I - 0x033630 22:B620: 09        .byte $09
-- D - I - 0x033631 22:B621: 01        .byte $01
-- D - I - 0x033632 22:B622: 91 BC     .word @name_4
+    .word $2247
+; X * Y зачищаемой области
+    .byte $0B
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0B
+    .byte $09
+; количество поинтеров
+    .byte $05
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $01
+    .byte $01
+    .word @name_1
+    .byte $03
+    .byte $01
+    .word @name_2
+    .byte $05
+    .byte $01
+    .word @name_3
+    .byte $07
+    .byte $01
+    .word @name_4
 
 @txt:
     .text "Action"
