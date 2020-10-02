@@ -4472,7 +4472,7 @@ off_BBEC_хюга:
     .byte $06
     
     .byte $00
-    .byte $BF       ; power dribble
+    .byte $BF       ; force dribble
     .byte $02
     .byte $02
     .byte $06
@@ -4524,7 +4524,7 @@ off_BC1B_джито:
     .byte $06
     
     .byte $00
-    .byte $BF       ; power dribble
+    .byte $BF       ; force dribble
     .byte $02
     .byte $02
     .byte $06
