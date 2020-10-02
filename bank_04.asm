@@ -806,22 +806,19 @@ off_B5C8_12_1_player_action_window:
     .word $2247
 ; X * Y зачищаемой области
     .byte $0B
-    .byte $03
+    .byte $04
 ; смещение окна X, Y
     .byte $00
     .byte $00
 ; размер окна X, Y
     .byte $0B
-    .byte $03
+    .byte $04
 ; количество поинтеров
     .byte $02
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
-    .byte $01
-    .byte $01
-    .word @name_1
 
 @txt:
     .text "Action"
