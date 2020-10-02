@@ -2210,25 +2210,40 @@ off_B975_37_swap:
 
 
 off_B98A_38_no_subs_left:
-- - - - - 0x03399A 22:B98A: E7 22     .word $22E7
+    .word $22E7
+; X * Y зачищаемой области
+    .byte $0D
+    .byte $05
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0D
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt_1
+    .byte $02
+    .byte $01
+    .word @txt_2
+    .byte $04
+    .byte $02
+    .word @txt_3
 
-- - - - - 0x03399C 22:B98C: 0D        .byte $0D
-- - - - - 0x03399D 22:B98D: 05        .byte $05
+@txt_1:
+    .text "Swap"
+    .byte con_закончить
 
-- - - - - 0x03399E 22:B98E: 00        .byte $00
-- - - - - 0x03399F 22:B98F: 00        .byte $00
+@txt_2:
+    .text "Only 3 subs"
+    .byte con_закончить
 
-- - - - - 0x0339A0 22:B990: 0D        .byte $0D
-- - - - - 0x0339A1 22:B991: 05        .byte $05
-
-- - - - - 0x0339A2 22:B992: 02        .byte $02
-
-- - - - - 0x0339A3 22:B993: 02        .byte $02
-- - - - - 0x0339A4 22:B994: 02        .byte $02
-- - - - - 0x0339A5 22:B995: E2 BE     .word off_BEE2
-- - - - - 0x0339A7 22:B997: 04        .byte $04
-- - - - - 0x0339A8 22:B998: 03        .byte $03
-- - - - - 0x0339A9 22:B999: 8C BF     .word off_BF8C
+@txt_3:
+    .text "per match!"
+    .byte con_закончить
 
 
 
@@ -2440,91 +2455,114 @@ off_B9F8_3A_swap_sub_players:
 
 
 off_BA39_3B_кого_отправить_на_скамейку:
-- D - I - 0x033A49 22:BA39: 20 22     .word $2220
+    .word $2220
+; X * Y зачищаемой области
+    .byte $20
+    .byte $0C
+; смещение окна X, Y
+    .byte $01
+    .byte $00
+; размер окна X, Y
+    .byte $1E
+    .byte $0C
+; количество поинтеров
+    .byte $0C
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $09
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @name_2
+    .byte $04
+    .byte $03
+    .word @name_3
+    .byte $06
+    .byte $03
+    .word @name_4
+    .byte $08
+    .byte $03
+    .word @name_5
+    .byte $0A
+    .byte $03
+    .word @name_6
+    .byte $02
+    .byte $13
+    .word @name_7
+    .byte $04
+    .byte $13
+    .word @name_8
+    .byte $06
+    .byte $13
+    .word @name_9
+    .byte $08
+    .byte $12
+    .word @name_10
+    .byte $0A
+    .byte $12
+    .word @name_11
+    .byte $0B
+    .byte $0B
+    .word @name_gk
 
-- D - I - 0x033A4B 22:BA3B: 1F        .byte $1F
-- D - I - 0x033A4C 22:BA3C: 0B        .byte $0B
+@txt:
+    .text " Whom to sub? "
+    .byte con_закончить
 
-- D - I - 0x033A4D 22:BA3D: 01        .byte $01
-- D - I - 0x033A4E 22:BA3E: 01        .byte $01
+@name_2:
+    .text "2 "
+    .byte con_name, $01
+    .byte con_закончить
 
-- D - I - 0x033A4F 22:BA3F: 1D        .byte $1D
-- D - I - 0x033A50 22:BA40: 09        .byte $09
+@name_3:
+    .text "3 "
+    .byte con_name, $02
+    .byte con_закончить
 
-- D - I - 0x033A51 22:BA41: 18        .byte $18
+@name_4:
+    .text "4 "
+    .byte con_name, $03
+    .byte con_закончить
 
-- D - I - 0x033A52 22:BA42: 01        .byte $01
-- D - I - 0x033A53 22:BA43: 03        .byte $03
-- D - I - 0x033A54 22:BA44: CF BE     .word off_BECF
-- D - I - 0x033A56 22:BA46: 01        .byte $01
-- D - I - 0x033A57 22:BA47: 0B        .byte $0B
-- D - I - 0x033A58 22:BA48: 3C BF     .word off_BF3C
-- D - I - 0x033A5A 22:BA4A: 07        .byte $07
-- D - I - 0x033A5B 22:BA4B: 17        .byte $17
-- D - I - 0x033A5C 22:BA4C: CB BD     .word off_BDCB
-- D - I - 0x033A5E 22:BA4E: 03        .byte $03
-- D - I - 0x033A5F 22:BA4F: 05        .byte $05
-- D - I - 0x033A60 22:BA50: CE BD     .word off_BDCE
-- D - I - 0x033A62 22:BA52: 05        .byte $05
-- D - I - 0x033A63 22:BA53: 05        .byte $05
-- D - I - 0x033A64 22:BA54: D1 BD     .word off_BDD1
-- D - I - 0x033A66 22:BA56: 07        .byte $07
-- D - I - 0x033A67 22:BA57: 05        .byte $05
-- D - I - 0x033A68 22:BA58: D4 BD     .word off_BDD4
-- D - I - 0x033A6A 22:BA5A: 09        .byte $09
-- D - I - 0x033A6B 22:BA5B: 05        .byte $05
-- D - I - 0x033A6C 22:BA5C: D7 BD     .word off_BDD7
-- D - I - 0x033A6E 22:BA5E: 03        .byte $03
-- D - I - 0x033A6F 22:BA5F: 0E        .byte $0E
-- D - I - 0x033A70 22:BA60: DA BD     .word off_BDDA
-- D - I - 0x033A72 22:BA62: 05        .byte $05
-- D - I - 0x033A73 22:BA63: 0E        .byte $0E
-- D - I - 0x033A74 22:BA64: DD BD     .word off_BDDD
-- D - I - 0x033A76 22:BA66: 07        .byte $07
-- D - I - 0x033A77 22:BA67: 0E        .byte $0E
-- D - I - 0x033A78 22:BA68: E0 BD     .word off_BDE0
-- D - I - 0x033A7A 22:BA6A: 09        .byte $09
-- D - I - 0x033A7B 22:BA6B: 0E        .byte $0E
-- D - I - 0x033A7C 22:BA6C: E3 BD     .word off_BDE3
-- D - I - 0x033A7E 22:BA6E: 03        .byte $03
-- D - I - 0x033A7F 22:BA6F: 17        .byte $17
-- D - I - 0x033A80 22:BA70: E6 BD     .word off_BDE6
-- D - I - 0x033A82 22:BA72: 05        .byte $05
-- D - I - 0x033A83 22:BA73: 17        .byte $17
-- D - I - 0x033A84 22:BA74: E9 BD     .word off_BDE9
-- D - I - 0x033A86 22:BA76: 07        .byte $07
-- D - I - 0x033A87 22:BA77: 14        .byte $14
-- D - I - 0x033A88 22:BA78: EA BE     .word off_BEEA
-- D - I - 0x033A8A 22:BA7A: 03        .byte $03
-- D - I - 0x033A8B 22:BA7B: 03        .byte $03
-- D - I - 0x033A8C 22:BA7C: ED BE     .word off_BEED
-- D - I - 0x033A8E 22:BA7E: 05        .byte $05
-- D - I - 0x033A8F 22:BA7F: 03        .byte $03
-- D - I - 0x033A90 22:BA80: EF BE     .word off_BEEF
-- D - I - 0x033A92 22:BA82: 07        .byte $07
-- D - I - 0x033A93 22:BA83: 03        .byte $03
-- D - I - 0x033A94 22:BA84: F1 BE     .word off_BEF1
-- D - I - 0x033A96 22:BA86: 09        .byte $09
-- D - I - 0x033A97 22:BA87: 03        .byte $03
-- D - I - 0x033A98 22:BA88: F3 BE     .word off_BEF3
-- D - I - 0x033A9A 22:BA8A: 03        .byte $03
-- D - I - 0x033A9B 22:BA8B: 0C        .byte $0C
-- D - I - 0x033A9C 22:BA8C: F5 BE     .word off_BEF5
-- D - I - 0x033A9E 22:BA8E: 05        .byte $05
-- D - I - 0x033A9F 22:BA8F: 0C        .byte $0C
-- D - I - 0x033AA0 22:BA90: F7 BE     .word off_BEF7
-- D - I - 0x033AA2 22:BA92: 07        .byte $07
-- D - I - 0x033AA3 22:BA93: 0C        .byte $0C
-- D - I - 0x033AA4 22:BA94: F9 BE     .word off_BEF9
-- D - I - 0x033AA6 22:BA96: 09        .byte $09
-- D - I - 0x033AA7 22:BA97: 0C        .byte $0C
-- D - I - 0x033AA8 22:BA98: FB BE     .word off_BEFB
-- D - I - 0x033AAA 22:BA9A: 03        .byte $03
-- D - I - 0x033AAB 22:BA9B: 14        .byte $14
-- D - I - 0x033AAC 22:BA9C: FD BE     .word off_BEFD
-- D - I - 0x033AAE 22:BA9E: 05        .byte $05
-- D - I - 0x033AAF 22:BA9F: 14        .byte $14
-- D - I - 0x033AB0 22:BAA0: 00 BF     .word off_BF00
+@name_5:
+    .text "5 "
+    .byte con_name, $04
+    .byte con_закончить
+
+@name_6:
+    .text "6 "
+    .byte con_name, $05
+    .byte con_закончить
+
+@name_7:
+    .text "7 "
+    .byte con_name, $06
+    .byte con_закончить
+
+@name_8:
+    .text "8 "
+    .byte con_name, $07
+    .byte con_закончить
+
+@name_9:
+    .text "9 "
+    .byte con_name, $08
+    .byte con_закончить
+
+@name_10:
+    .text "10 "
+    .byte con_name, $09
+    .byte con_закончить
+
+@name_11:
+    .text "11 "
+    .byte con_name, $0A
+    .byte con_закончить
+
+@name_gk:
+    .text "GK "
+    .byte con_name, $00
+    .byte con_закончить
 
 
 
@@ -3354,10 +3392,6 @@ off_BDC3:
 - D - I - 0x033DD9 22:BDC9: 78        .byte $78
 - D - I - 0x033DDA 22:BDCA: FC        .byte con_закончить
 
-off_BDCB:
-    .byte con_name, $00
-    .byte con_закончить
-
 off_BDCE:
     .byte con_name, $01
     .byte con_закончить
@@ -3559,27 +3593,6 @@ off_BE77:
 - D - I - 0x033E91 22:BE81: 29        .byte $29
 - D - I - 0x033E92 22:BE82: FC        .byte con_закончить
 
-off_BECF:
-- D - I - 0x033EDF 22:BECF: 62        .byte $62
-- D - I - 0x033EE0 22:BED0: 6E        .byte $6E
-- D - I - 0x033EE1 22:BED1: C3        .byte $C3
-- D - I - 0x033EE2 22:BED2: 7D        .byte $7D
-- D - I - 0x033EE3 22:BED3: 51        .byte $51
-- D - I - 0x033EE4 22:BED4: 75        .byte $75
-- D - I - 0x033EE5 22:BED5: 6E        .byte $6E
-- D - I - 0x033EE6 22:BED6: BA        .byte $BA
-- D - I - 0x033EE7 22:BED7: FC        .byte con_закончить
-
-off_BEE2:       ; unused
-- - - - - 0x033EF2 22:BEE2: 0D        .byte $0D
-- - - - - 0x033EF3 22:BEE3: AD        .byte $AD
-- - - - - 0x033EF4 22:BEE4: 16        .byte $16
-- - - - - 0x033EF5 22:BEE5: 00        .byte $00
-- - - - - 0x033EF6 22:BEE6: 36        .byte $36
-- - - - - 0x033EF7 22:BEE7: 16        .byte $16
-- - - - - 0x033EF8 22:BEE8: 2E        .byte $2E
-- - - - - 0x033EF9 22:BEE9: FC        .byte con_закончить
-
 off_BEEA:
 - D - I - 0x033EFA 22:BEEA: 87        .byte $87
 - D - I - 0x033EFB 22:BEEB: 8B        .byte $8B
@@ -3626,25 +3639,6 @@ off_BF00:
 - D - I - 0x033F10 22:BF00: 34        .byte $34
 - D - I - 0x033F11 22:BF01: 34        .byte $34
 - D - I - 0x033F12 22:BF02: FC        .byte con_закончить
-
-off_BF3C:
-- D - I - 0x033F4C 22:BF3C: 00        .byte $00
-- D - I - 0x033F4D 22:BF3D: 00        .byte $00
-- D - I - 0x033F4E 22:BF3E: AA        .byte $AA
-- D - I - 0x033F4F 22:BF3F: 2A        .byte $2A
-- D - I - 0x033F50 22:BF40: 14        .byte $14
-- D - I - 0x033F51 22:BF41: 00        .byte $00
-- D - I - 0x033F52 22:BF42: 0A        .byte $0A
-- D - I - 0x033F53 22:BF43: 03        .byte $03
-- D - I - 0x033F54 22:BF44: 10        .byte $10
-- D - I - 0x033F55 22:BF45: 02        .byte $02
-- D - I - 0x033F56 22:BF46: 0C        .byte $0C
-- D - I - 0x033F57 22:BF47: 1F        .byte $1F
-- D - I - 0x033F58 22:BF48: 0D        .byte $0D
-- D - I - 0x033F59 22:BF49: 06        .byte $06
-- D - I - 0x033F5A 22:BF4A: 00        .byte $00
-- D - I - 0x033F5B 22:BF4B: 78        .byte $78
-- D - I - 0x033F5C 22:BF4C: FC        .byte con_закончить
 
 off_BF4D:
 - D - I - 0x033F5D 22:BF4D: F5        .byte con_plr_stamina, $00
@@ -3729,17 +3723,6 @@ off_BF86:       ; unused
 off_BF89:       ; unused
 - - - - - 0x033F99 22:BF89: F5        .byte con_plr_stamina, $1F
 - - - - - 0x033F9B 22:BF8B: FC        .byte con_закончить
-
-off_BF8C:       ; unused
-- - - - - 0x033F9C 22:BF8C: 0A        .byte $0A
-- - - - - 0x033F9D 22:BF8D: 03        .byte $03
-- - - - - 0x033F9E 22:BF8E: 10        .byte $10
-- - - - - 0x033F9F 22:BF8F: 02        .byte $02
-- - - - - 0x033FA0 22:BF90: 0C        .byte $0C
-- - - - - 0x033FA1 22:BF91: 13        .byte $13
-- - - - - 0x033FA2 22:BF92: 02        .byte $02
-- - - - - 0x033FA3 22:BF93: 29        .byte $29
-- - - - - 0x033FA4 22:BF94: FC        .byte con_закончить
 
 off_BF95:
 - D - I - 0x033FA5 22:BF95: 8D        .byte $8D
