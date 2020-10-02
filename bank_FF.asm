@@ -5411,81 +5411,73 @@ tbl_E9DA_действия:
 - D - - - 0x03E9F0 FF:E9E0: 3D EA     .word off_EA3D_03_1_2_pass
 - D - - - 0x03E9F2 FF:E9E2: 46 EA     .word off_EA46_04_trap
 - D - - - 0x03E9F4 FF:E9E4: 51 EA     .word off_EA51_05_through
-- D - - - 0x03E9F6 FF:E9E6: 59 EA     .word off_EA59_06_clear
+- D - - - 0x03E9F6 FF:E9E6: 59 EA     .word off_EA59_06_clearing
 - D - - - 0x03E9F8 FF:E9E8: 61 EA     .word off_EA61_07_подкат
 - D - - - 0x03E9FA FF:E9EA: 6A EA     .word off_EA6A_08_skylab_tackle
-- D - - - 0x03E9FC FF:E9EC: 73 EA     .word off_EA73_09_острый_подкат
-- D - - - 0x03E9FE FF:E9EE: 7C EA     .word off_EA7C_0A_мощный_подкат
-- D - - - 0x03EA00 FF:E9F0: 87 EA     .word off_EA87_0B_тигровый_подкат
-- D - - - 0x03EA02 FF:E9F2: 94 EA     .word off_EA94_0C_блок
-- - - - - 0x03EA04 FF:E9F4: 9F EA     .word off_EA9F_0D_скайлаб_блок
-- D - - - 0x03EA06 FF:E9F6: AC EA     .word off_EAAC_0E_лицевой_блок
-- D - - - 0x03EA08 FF:E9F8: B7 EA     .word off_EAB7_0F_мощный_блок
-- D - - - 0x03EA0A FF:E9FA: C4 EA     .word off_EAC4_10_перехват
-- D - - - 0x03EA0C FF:E9FC: CE EA     .word off_EACE_11_скайлаб_перехват
+- D - - - 0x03E9FC FF:E9EC: 73 EA     .word off_EA73_09_razor_tackle
+- D - - - 0x03E9FE FF:E9EE: 7C EA     .word off_EA7C_0A_power_tackle
+- D - - - 0x03EA00 FF:E9F0: 87 EA     .word off_EA87_0B_tiger_tackle
+- D - - - 0x03EA02 FF:E9F2: 94 EA     .word off_EA94_0C_block
+- - - - - 0x03EA04 FF:E9F4: 9F EA     .word off_EA9F_0D_skylab_block
+- D - - - 0x03EA06 FF:E9F6: AC EA     .word off_EAAC_0E_face_block
+- D - - - 0x03EA08 FF:E9F8: B7 EA     .word off_EAB7_0F_power_block
+- D - - - 0x03EA0A FF:E9FA: C4 EA     .word off_EAC4_10_passcut
+- D - - - 0x03EA0C FF:E9FC: CE EA     .word off_EACE_11_skylab_passcut
 - D - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_wait_player
 - D - - - 0x03EA10 FF:EA00: E6 EA     .word off_EAE6_13_mark
-- D - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_passcut
-- D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_clear
+- D - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_interfere
+- D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_intercept
 - D - - - 0x03EA16 FF:EA06: 01 EB     .word off_EB01_16_punch
 - D - - - 0x03EA18 FF:EA08: 0D EB     .word off_EB0D_17_catch
 - D - - - 0x03EA1A FF:EA0A: 17 EB     .word off_EB17_18_triangle_jump
 - D - - - 0x03EA1C FF:EA0C: 26 EB     .word off_EB26_19_dive
 - D - - - 0x03EA1E FF:EA0E: 33 EB     .word off_EB33_1A_wait_gk
-- D - - - 0x03EA20 FF:EA10: 3E EB     .word off_EB3E_1B_контр_удар
-- D - - - 0x03EA22 FF:EA12: 4C EB     .word off_EB4C_1C_контр_дриблинг
-- D - - - 0x03EA24 FF:EA14: 5E EB     .word off_EB5E_1D_________черточки
+- D - - - 0x03EA20 FF:EA10: 3E EB     .word off_EB3E_1B_stop_shot
+- D - - - 0x03EA22 FF:EA12: 4C EB     .word off_EB4C_1C_stop_dribble
+- D - - - 0x03EA24 FF:EA14: 5E EB     .word off_EB5E_1D_________lines
 - D - - - 0x03EA26 FF:EA16: 67 EB     .word off_EB67_1E_left
-- D - - - 0x03EA28 FF:EA18: 72 EB     .word off_EB72_1F_прямо
-- D - - - 0x03EA2A FF:EA1A: 7B EB     .word off_EB7B_20_вправо
+- D - - - 0x03EA28 FF:EA18: 72 EB     .word off_EB72_1F_center
+- D - - - 0x03EA2A FF:EA1A: 7B EB     .word off_EB7B_20_right
 
 off_EA1C_00_dribble:
-    .word $2288     ; адрес ppu
-    .byte $22       ; AND 03 = количество строк, LSR LSR = количество символов в строке
-    .text "Dribble "
-    .text "        "
+    .word $2288         ; адрес ppu
+    .byte $25           ; AND 03 = количество строк, LSR LSR = количество символов в строке
+    .text " Dribble "
 
 off_EA29_01_pass:
     .word $2288
-    .byte $22
-    .text "  Pass  "
-    .text "        "
+    .byte $25
+    .text "  Pass   "
 
 off_EA34_02_shoot:
     .word $2288
-    .byte $22
-    .text " Shoot  "
-    .text "        "
+    .byte $25
+    .text "  Shoot  "
 
 off_EA3D_03_1_2_pass:
     .word $2288
-    .byte $22
-    .text "1-2 Pass"
-    .text "        "
+    .byte $25
+    .text "1-2 Pass "
 
 off_EA46_04_trap:
     .word $2288
-    .byte $22
-    .text "  Trap  "
-    .text "        "
+    .byte $25
+    .text "  Trap   "
 
 off_EA51_05_through:
     .word $2288
-    .byte $22
-    .text "Through "
-    .text "        "
+    .byte $25
+    .text " Through "
 
-off_EA59_06_clear:
+off_EA59_06_clearing:
     .word $2288
-    .byte $22
-    .text " Clear1 "
-    .text "        "
+    .byte $25
+    .text "Clearing "
 
 off_EA61_07_подкат:
     .word $2288
-    .byte $22
-    .text " Tackle "
-    .text "        "
+    .byte $25
+    .text " Tackle  "
 
 off_EA6A_08_skylab_tackle:
     .word $2288
@@ -5493,142 +5485,130 @@ off_EA6A_08_skylab_tackle:
     .text " Skylab "
     .text " Tackle "
 
-off_EA73_09_острый_подкат:
+off_EA73_09_razor_tackle:
     .word $2288
     .byte $22
     .text " Razor  "
     .text " Tackle "
 
-off_EA7C_0A_мощный_подкат:
+off_EA7C_0A_power_tackle:
     .word $2288
     .byte $22
     .text " Power  "
     .text " Tackle "
 
-off_EA87_0B_тигровый_подкат:
+off_EA87_0B_tiger_tackle:
     .word $2288
-    .byte $22
-    .text " Tiger  "
-    .text " Tackle "
+    .byte $25
+    .text "Tiger Tkl"
 
-off_EA94_0C_блок:
+off_EA94_0C_block:
     .word $2288
     .byte $25
     .text "  Block  "
 
-off_EA9F_0D_скайлаб_блок:
+off_EA9F_0D_skylab_block:
     .word $2288
-    .byte $22
-    .text " Skylab "
-    .text " Block  "
+    .byte $25
+    .text "SkylabBlk"
 
-off_EAAC_0E_лицевой_блок:
+off_EAAC_0E_face_block:
     .word $2288
     .byte $22
-    .text "  Face  "
-    .text " Block  "
+    .text "FaceBlock"
 
-off_EAB7_0F_мощный_блок:
+off_EAB7_0F_power_block:
     .word $2288
-    .byte $22
-    .text " Power  "
-    .text " Block  "
+    .byte $25
+    .text "Power Blk"
 
-off_EAC4_10_перехват:
+off_EAC4_10_passcut:      ; в воздухе понизу
     .word $2288
-    .byte $22
-    .text " Inter- "
-    .text "  cept  "
+    .byte $25
+    .text "Pass cut "
 
-off_EACE_11_скайлаб_перехват:
+off_EACE_11_skylab_passcut:
     .word $2288
-    .byte $22
-    .text " Skylab "
-    .text "  Cut   "
+    .byte $25
+    .text "SkylabCut"
 
 off_EADB_12_wait_player:
     .word $2288
     .byte $25
-    .text "  Wait   "
+    .text "   Wait  "
 
 off_EAE6_13_mark:
     .word $2288
-    .byte $22
-    .text "  Mark  "
-    .text "        "
+    .byte $25
+    .text "   Mark  "
 
-off_EAEF_14_passcut:
+off_EAEF_14_interfere:
     .word $2288
     .byte $25
-    .text " Passcut "
+    .text "Interfere"
 
-off_EAF8_15_clear:
+off_EAF8_15_intercept:
     .word $2288
-    .byte $22
-    .text " Clear2 "
-    .text "        "
+    .byte $25
+    .text "Interc???"
 
 off_EB01_16_punch:
     .word $2288
-    .byte $22
-    .text " Punch  "
-    .text "        "
+    .byte $25
+    .text "  Punch  "
 
 off_EB0D_17_catch:
     .word $2288
-    .byte $22
-    .text " Catch  "
-    .text "        "
+    .byte $25
+    .text "  Catch  "
 
 off_EB17_18_triangle_jump:
     .word $2288
-    .byte $22
-    .text "Triangle"
-    .text "  Jump  "
+    .byte $26
+    .text "Triangle "
+    .text "  Jump   "
 
 off_EB26_19_dive:
     .word $2288
-    .byte $22
-    .text "  dive  "
-    .text "        "
+    .byte $25
+    .text "   Dive  "
 
 off_EB33_1A_wait_gk:
     .word $2288
-    .byte $22
-    .text "  Wait  "
-    .text "        "
+    .byte $25
+    .text "   Wait  "
 
-off_EB3E_1B_контр_удар:
+off_EB3E_1B_stop_shot:
     .word $2288
-    .byte $22
-    .text "  Stop  "
-    .text "  Shot  "
+    .byte $26
+    .text "   Stop  "
+    .text "   Shot  "
 
-off_EB4C_1C_контр_дриблинг:
+off_EB4C_1C_stop_dribble:
     .word $2288
-    .byte $22
-    .text "  Stop  "
-    .text "Dribble "
+    .byte $26
+    .text "   Stop  "
+    .text " Dribble "
 
-off_EB5E_1D_________черточки:
+off_EB5E_1D_________lines:
     .word $2288
     .byte $25
     .text "---------"
 
 off_EB67_1E_left:
-    .word $2288
-    .byte $21
-    .text "  left  "
+    .word $22C8
+    .byte $25
+    .text "Left     "
 
-off_EB72_1F_прямо:
-    .word $2288
-    .byte $21
-    .text " middle "
+off_EB72_1F_center:
+    .word $22C8
+    .byte $25
+    .text "  Center "
 
-off_EB7B_20_вправо:
-    .word $2288
-    .byte $21
-    .text " right  "
+off_EB7B_20_right:
+    .word $22C8
+    .byte $25
+    .text "    Right"
 
 
 

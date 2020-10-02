@@ -4709,13 +4709,13 @@ off_BF4E_названия_действий_полевого:
     .word $2131
     .text "Through"
     
-    .byte $09
+    .byte $08
     .word $2171
-    .text "Clearance"
+    .text "Clearing"
     
-    .byte $07
+    .byte $09
     .word $21B1
-    .text "Compete"
+    .text "Interfere"
 ; low ball
     .byte $04
     .word $2251
@@ -4729,13 +4729,13 @@ off_BF4E_названия_действий_полевого:
     .word $22D1
     .text "Through"
     
-    .byte $09
+    .byte $08
     .word $2311
-    .text "Clearance"
+    .text "Clearing"
     
-    .byte $47
+    .byte $49
     .word $2351
-    .text "Compete"
+    .text "Interfere"
 
 
 
