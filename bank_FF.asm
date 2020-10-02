@@ -1411,72 +1411,75 @@ C - - - - 0x03CF9C FF:CF8C: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 .export sub_0x03CF9F_курсор_меню_после_гола
 sub_0x03CF9F_курсор_меню_после_гола:
 sub_CF8F_курсор_меню_после_гола:
-C D - - - 0x03CF9F FF:CF8F: 8D 23 06  STA $0623
-C - - - - 0x03CFA2 FF:CF92: AA        TAX
-C - - - - 0x03CFA3 FF:CF93: BD 02 D0  LDA tbl_D002_горизонталь_спрайта,X
-C - - - - 0x03CFA6 FF:CF96: 8D FF 02  STA ram_спрайт_X + $FC
-C - - - - 0x03CFA9 FF:CF99: BD 1A D0  LDA tbl_D01A_номер_тайла,X
-C - - - - 0x03CFAC FF:CF9C: 8D FD 02  STA ram_спрайт_тайл + $FC
-C - - - - 0x03CFAF FF:CF9F: A9 03     LDA #$03
-C - - - - 0x03CFB1 FF:CFA1: 8D FE 02  STA ram_спрайт_атрибут + $FC
-bra_CFA4:
-C - - - - 0x03CFB4 FF:CFA4: A9 01     LDA #$01
-C - - - - 0x03CFB6 FF:CFA6: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03CFB9 FF:CFA9: AD 22 06  LDA $0622
-C - - - - 0x03CFBC FF:CFAC: 0A        ASL
-C - - - - 0x03CFBD FF:CFAD: 0A        ASL
-C - - - - 0x03CFBE FF:CFAE: 0A        ASL
-C - - - - 0x03CFBF FF:CFAF: 0A        ASL
-C - - - - 0x03CFC0 FF:CFB0: AE 23 06  LDX $0623
-C - - - - 0x03CFC3 FF:CFB3: 18        CLC
-C - - - - 0x03CFC4 FF:CFB4: 7D 0A D0  ADC tbl_D00A_вертикаль_спрайта,X
-C - - - - 0x03CFC7 FF:CFB7: 8D FC 02  STA ram_спрайт_Y + $FC
-C - - - - 0x03CFCA FF:CFBA: A9 0C     LDA #con_btn_Down + con_btn_Up
-C - - - - 0x03CFCC FF:CFBC: 2D 1E 00  AND ram_одноразовые
-C - - - - 0x03CFCF FF:CFBF: F0 26     BEQ bra_CFE7_проверка_кнопок_A_и_B
-C - - - - 0x03CFD1 FF:CFC1: A2 01     LDX #$01
-C - - - - 0x03CFD3 FF:CFC3: 29 08     AND #$08
-C - - - - 0x03CFD5 FF:CFC5: F0 02     BEQ bra_CFC9_нажата_кнопка_вниз
-C - - - - 0x03CFD7 FF:CFC7: A2 FF     LDX #$FF
+; на выходе код ожидает получить A (номер меню) и C (кнопка A была нажата = 1)
+; 0622 - номер меню
+; 0623 - номер опции меню
+    STA $0623
+    TAX
+    LDA tbl_D002_горизонталь_спрайта,X
+    STA ram_спрайт_X + $FC
+    LDA tbl_D01A_номер_тайла,X
+    STA ram_спрайт_тайл + $FC
+    LDA #$03
+    STA ram_спрайт_атрибут + $FC
+bra_CFA4_цикл_ожидания_нажатия:
+    LDA #$01
+    JSR sub_CB0F
+    LDA $0622
+    ASL
+    ASL
+    ASL
+    ASL
+    LDX $0623
+    CLC
+    ADC tbl_D00A_вертикаль_спрайта,X
+    STA ram_спрайт_Y + $FC
+    LDA #con_btn_Down + con_btn_Up
+    AND ram_одноразовые
+    BEQ bra_CFE7_проверка_кнопок_A_и_B
+    LDX #$01
+    AND #$08
+    BEQ bra_CFC9_нажата_кнопка_вниз
+    LDX #$FF
 bra_CFC9_нажата_кнопка_вниз:
-C - - - - 0x03CFD9 FF:CFC9: 8A        TXA
-C - - - - 0x03CFDA FF:CFCA: 18        CLC
-C - - - - 0x03CFDB FF:CFCB: 6D 22 06  ADC $0622
-C - - - - 0x03CFDE FF:CFCE: 30 17     BPL bra_CFD0_курсор_еще_не_достиг_вершины_списка
-                                      LDX $0623
-                                      LDA tbl_D012_лимит_позиции_курсора,X
-                                      STA $0622
-                                      BNE bra_CFE7_проверка_кнопок_A_и_B
+    TXA
+    CLC
+    ADC $0622
+    BPL bra_CFD0_курсор_еще_не_достиг_вершины_списка
+    LDX $0623
+    LDA tbl_D012_лимит_позиции_курсора,X
+    STA $0622
+    BNE bra_CFE7_проверка_кнопок_A_и_B
 bra_CFD0_курсор_еще_не_достиг_вершины_списка:
-C - - - - 0x03CFE0 FF:CFD0: AE 23 06  LDX $0623
-C - - - - 0x03CFE3 FF:CFD3: DD 12 D0  CMP tbl_D012_лимит_позиции_курсора,X
-C - - - - 0x03CFE6 FF:CFD6: F0 02     BEQ bra_CFDA
-C - - - - 0x03CFE8 FF:CFD8: B0 0D     BCC bra_CFDA
-                                      LDA #$00
-                                      STA $0622
-                                      BEQ bra_CFE7_проверка_кнопок_A_и_B
+    LDX $0623
+    CMP tbl_D012_лимит_позиции_курсора,X
+    BEQ bra_CFDA
+    BCC bra_CFDA
+    LDA #$00
+    STA $0622
+    BEQ bra_CFE7_проверка_кнопок_A_и_B
 bra_CFDA:
-C - - - - 0x03CFEA FF:CFDA: 8D 22 06  STA $0622
-C - - - - 0x03CFED FF:CFDD: AE 23 06  LDX $0623
-C - - - - 0x03CFF0 FF:CFE0: E0 05     CPX #$05
-C - - - - 0x03CFF2 FF:CFE2: D0 03     BNE bra_CFE7_проверка_кнопок_A_и_B
-C - - - - 0x03CFF4 FF:CFE4: 8D 2C 00  STA ram_расстановка_слева
+    STA $0622
+    LDX $0623
+    CPX #$05
+    BNE bra_CFE7_проверка_кнопок_A_и_B
+    STA ram_расстановка_слева
 bra_CFE7_проверка_кнопок_A_и_B:
-C - - - - 0x03CFF7 FF:CFE7: A9 80     LDA #con_btn_A
-C - - - - 0x03CFF9 FF:CFE9: 2D 1E 00  AND ram_одноразовые
-C - - - - 0x03CFFC FF:CFEC: D0 0A     BNE bra_CFF8
-C - - - - 0x03CFFE FF:CFEE: A9 40     LDA #con_btn_B
-C - - - - 0x03D000 FF:CFF0: 2D 1E 00  AND ram_одноразовые
-C - - - - 0x03D003 FF:CFF3: F0 AF     BEQ bra_CFA4
-C - - - - 0x03D005 FF:CFF5: 18        CLC
-C - - - - 0x03D006 FF:CFF6: 90 04     BCC bra_CFFC
-bra_CFF8:
-C - - - - 0x03D008 FF:CFF8: 38        SEC
-C - - - - 0x03D009 FF:CFF9: AD 22 06  LDA $0622
-bra_CFFC:
-C - - - - 0x03D00C FF:CFFC: A2 F8     LDX #$F8
-C - - - - 0x03D00E FF:CFFE: 8E FC 02  STX ram_спрайт_Y + $FC
-C - - - - 0x03D011 FF:D001: 60        RTS
+    LDA #con_btn_A
+    AND ram_одноразовые
+    BNE bra_CFF8_была_нажата_A
+    LDA #con_btn_B
+    AND ram_одноразовые
+    BEQ bra_CFA4_цикл_ожидания_нажатия
+    CLC
+    BCC bra_CFFC_убрать_спрайт_с_экрана
+bra_CFF8_была_нажата_A:
+    SEC
+    LDA $0622
+bra_CFFC_убрать_спрайт_с_экрана:
+    LDX #$F8
+    STX ram_спрайт_Y + $FC
+    RTS
 
 tbl_D002_горизонталь_спрайта:
     .byte $48     ; unused
