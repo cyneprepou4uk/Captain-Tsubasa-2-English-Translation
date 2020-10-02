@@ -902,8 +902,8 @@ off_B65A_18_player_clear_cut:
 off_B673_19_show_2_teammates:
     .word $2252
 ; X * Y зачищаемой области
-    .byte $0E       ; нужно чистить до конца экрана, на случай появления статов игрока
-    .byte $05
+    .byte $0E
+    .byte $09
 ; смещение окна X, Y
     .byte $00
     .byte $00
@@ -944,7 +944,7 @@ off_B688_1A_show_3_teammates:
     .word $2252
 ; X * Y зачищаемой области
     .byte $0E
-    .byte $07
+    .byte $09
 ; смещение окна X, Y
     .byte $00
     .byte $00
@@ -1169,24 +1169,24 @@ off_B701_1F_opponent_trap_shot_pass:
 
 
 off_B71E_20_show_1_opponent:
-    .word $2232
-    
-    .byte $0C
-    .byte $0A
-    
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
     .byte $00
-    .byte $01
-    
-    .byte $0C
+    .byte $00
+; размер окна X, Y
+    .byte $0D
     .byte $03
-    
+; количество поинтеров
     .byte $02
-    
-    .byte $01
-    .byte $05
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
     .word @txt
+    .byte $02
     .byte $03
-    .byte $01
     .word @opponent_1
 
 @txt:
@@ -1203,27 +1203,27 @@ off_B71E_20_show_1_opponent:
 
 
 off_B72F_21_show_2_opponents:
-    .word $2232
-    
-    .byte $0C
-    .byte $0A
-    
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
     .byte $00
-    .byte $01
-    
-    .byte $0C
+    .byte $00
+; размер окна X, Y
+    .byte $0D
     .byte $05
-    
+; количество поинтеров
     .byte $03
-    
-    .byte $01
-    .byte $05
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
     .word @txt
+    .byte $02
     .byte $03
-    .byte $01
     .word @opponent_1
-    .byte $05
-    .byte $01
+    .byte $04
+    .byte $03
     .word @opponent_2
 
 @txt:
@@ -1235,7 +1235,7 @@ off_B72F_21_show_2_opponents:
     .byte con_закончить
 
 @opponent_2:
-    .byte con_pass_reciever_name_opponent, $00
+    .byte con_pass_reciever_name_opponent, $01
     .byte con_закончить
 
 
@@ -1244,30 +1244,30 @@ off_B72F_21_show_2_opponents:
 
 
 off_B744_22_show_3_opponents:
-    .word $2232
-    
-    .byte $0C
-    .byte $0A
-    
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
     .byte $00
-    .byte $01
-    
-    .byte $0C
+    .byte $00
+; размер окна X, Y
+    .byte $0D
     .byte $07
-    
+; количество поинтеров
     .byte $04
-    
-    .byte $01
-    .byte $05
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
     .word @txt
+    .byte $02
     .byte $03
-    .byte $01
     .word @opponent_1
-    .byte $05
-    .byte $01
+    .byte $04
+    .byte $03
     .word @opponent_2
-    .byte $07
-    .byte $01
+    .byte $06
+    .byte $03
     .word @opponent_3
 
 @txt:
@@ -1279,11 +1279,11 @@ off_B744_22_show_3_opponents:
     .byte con_закончить
 
 @opponent_2:
-    .byte con_pass_reciever_name_opponent, $00
+    .byte con_pass_reciever_name_opponent, $01
     .byte con_закончить
 
 @opponent_3:
-    .byte con_pass_reciever_name_opponent, $00
+    .byte con_pass_reciever_name_opponent, $02
     .byte con_закончить
 
 
@@ -1330,15 +1330,15 @@ off_B75D_23_show_4_opponents:
     .byte con_закончить
 
 @opponent_2:
-    .byte con_pass_reciever_name_opponent, $00
+    .byte con_pass_reciever_name_opponent, $01
     .byte con_закончить
 
 @opponent_3:
-    .byte con_pass_reciever_name_opponent, $00
+    .byte con_pass_reciever_name_opponent, $02
     .byte con_закончить
 
 @opponent_4:
-    .byte con_pass_reciever_name_opponent, $00
+    .byte con_pass_reciever_name_opponent, $03
     .byte con_закончить
 
 
