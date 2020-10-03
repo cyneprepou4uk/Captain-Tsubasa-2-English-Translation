@@ -550,25 +550,40 @@ off_B507_08_gk_counter_drib_shot:
 
 
 off_B528_09_2_specials:
-- D - I - 0x033538 22:B528: 48 22     .word $2248
+    .word $2268
+; X * Y зачищаемой области
+    .byte $13
+    .byte $05
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $13
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $02
+    .word @special_1
+    .byte $04
+    .byte $02
+    .word @special_2
 
-- D - I - 0x03353A 22:B52A: 0F        .byte $0F
-- D - I - 0x03353B 22:B52B: 05        .byte $05
+@txt:
+    .text " Specials "
+    .byte con_закончить
 
-- D - I - 0x03353C 22:B52C: 00        .byte $00
-- D - I - 0x03353D 22:B52D: 00        .byte $00
+@special_1:
+    .byte con_specials_list, $00
+    .byte con_закончить
 
-- D - I - 0x03353E 22:B52E: 0F        .byte $0F
-- D - I - 0x03353F 22:B52F: 05        .byte $05
-
-- D - I - 0x033540 22:B530: 02        .byte $02
-
-- D - I - 0x033541 22:B531: 02        .byte $02
-- D - I - 0x033542 22:B532: 02        .byte $02
-- D - I - 0x033543 22:B533: 7C BC     .word off_BC7C
-- D - I - 0x033545 22:B535: 04        .byte $04
-- D - I - 0x033546 22:B536: 02        .byte $02
-- D - I - 0x033547 22:B537: 7F BC     .word off_BC7F
+@special_2:
+    .byte con_specials_list, $01
+    .byte con_закончить
 
 
 
@@ -576,28 +591,47 @@ off_B528_09_2_specials:
 
 
 off_B539_0A_3_specials:
-- D - I - 0x033549 22:B539: 48 22     .word $2248
+    .word $2268
+; X * Y зачищаемой области
+    .byte $13
+    .byte $07
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $13
+    .byte $07
+; количество поинтеров
+    .byte $04
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $02
+    .word @special_1
+    .byte $04
+    .byte $02
+    .word @special_2
+    .byte $06
+    .byte $02
+    .word @special_3
 
-- D - I - 0x03354B 22:B53B: 0F        .byte $0F
-- D - I - 0x03354C 22:B53C: 07        .byte $07
+@txt:
+    .text " Specials "
+    .byte con_закончить
 
-- D - I - 0x03354D 22:B53D: 00        .byte $00
-- D - I - 0x03354E 22:B53E: 00        .byte $00
+@special_1:
+    .byte con_specials_list, $00
+    .byte con_закончить
 
-- D - I - 0x03354F 22:B53F: 0F        .byte $0F
-- D - I - 0x033550 22:B540: 07        .byte $07
+@special_2:
+    .byte con_specials_list, $01
+    .byte con_закончить
 
-- D - I - 0x033551 22:B541: 03        .byte $03
-
-- D - I - 0x033552 22:B542: 02        .byte $02
-- D - I - 0x033553 22:B543: 02        .byte $02
-- D - I - 0x033554 22:B544: 7C BC     .word off_BC7C
-- D - I - 0x033556 22:B546: 04        .byte $04
-- D - I - 0x033557 22:B547: 02        .byte $02
-- D - I - 0x033558 22:B548: 7F BC     .word off_BC7F
-- D - I - 0x03355A 22:B54A: 06        .byte $06
-- D - I - 0x03355B 22:B54B: 02        .byte $02
-- D - I - 0x03355C 22:B54C: 82 BC     .word off_BC82
+@special_3:
+    .byte con_specials_list, $02
+    .byte con_закончить
 
 
 
@@ -605,31 +639,54 @@ off_B539_0A_3_specials:
 
 
 off_B54E_0B_4_specials:
-- D - I - 0x03355E 22:B54E: 48 22     .word $2248
+    .word $2268
+; X * Y зачищаемой области
+    .byte $13
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $13
+    .byte $09
+; количество поинтеров
+    .byte $05
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $02
+    .word @special_1
+    .byte $04
+    .byte $02
+    .word @special_2
+    .byte $06
+    .byte $02
+    .word @special_3
+    .byte $08
+    .byte $02
+    .word @special_4
 
-- D - I - 0x033560 22:B550: 0F        .byte $0F
-- D - I - 0x033561 22:B551: 09        .byte $09
+@txt:
+    .text " Specials "
+    .byte con_закончить
 
-- D - I - 0x033562 22:B552: 00        .byte $00
-- D - I - 0x033563 22:B553: 00        .byte $00
+@special_1:
+    .byte con_specials_list, $00
+    .byte con_закончить
 
-- D - I - 0x033564 22:B554: 0F        .byte $0F
-- D - I - 0x033565 22:B555: 09        .byte $09
+@special_2:
+    .byte con_specials_list, $01
+    .byte con_закончить
 
-- D - I - 0x033566 22:B556: 04        .byte $04
+@special_3:
+    .byte con_specials_list, $02
+    .byte con_закончить
 
-- D - I - 0x033567 22:B557: 02        .byte $02
-- D - I - 0x033568 22:B558: 02        .byte $02
-- D - I - 0x033569 22:B559: 7C BC     .word off_BC7C
-- D - I - 0x03356B 22:B55B: 04        .byte $04
-- D - I - 0x03356C 22:B55C: 02        .byte $02
-- D - I - 0x03356D 22:B55D: 7F BC     .word off_BC7F
-- D - I - 0x03356F 22:B55F: 06        .byte $06
-- D - I - 0x033570 22:B560: 02        .byte $02
-- D - I - 0x033571 22:B561: 82 BC     .word off_BC82
-- D - I - 0x033573 22:B563: 08        .byte $08
-- D - I - 0x033574 22:B564: 02        .byte $02
-- D - I - 0x033575 22:B565: 85 BC     .word off_BC85
+@special_4:
+    .byte con_specials_list, $03
+    .byte con_закончить
 
 
 
@@ -3417,22 +3474,6 @@ off_BBBF_41_pk_and_score:
 
 
 
-
-off_BC7C:
-    .byte con_specials_list, $00
-    .byte con_закончить
-
-off_BC7F:
-    .byte con_specials_list, $01
-    .byte con_закончить
-
-off_BC82:
-    .byte con_specials_list, $02
-    .byte con_закончить
-
-off_BC85:
-    .byte con_specials_list, $03
-    .byte con_закончить
 
 off_BC94:
     .byte con_E6, $00
