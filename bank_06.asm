@@ -162,12 +162,12 @@ off_BF2A_4C_перерыв_ишизаки:
 off_BF31:
     .byte con_E8, $01
     .byte con_speed, $00
-    .byte con_offset, $07
+    .byte con_offset, $06
     .text "@What do you need?@", con_line
-    .byte con_offset, $09
-    .text "Manage team", con_line
-    .byte con_offset, $09
-    .text "Onto the field!"
+    .byte con_offset, $08
+    .text "Manage our Team", con_line
+    .byte con_offset, $08
+    .text "All set!"
     .byte con_palette, $00
     .byte con_exit
 

@@ -1470,10 +1470,10 @@ off_BC44_05_half_time:
     .byte $89
     .word $225E
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
-; Half Time
+; Half-Time
     .byte $49
     .word $20AB
-    .byte $89, $82, $8A, $8B, $00, $80, $86, $83, $81
+    .byte $89, $82, $8A, $8B, $8C, $80, $86, $83, $81
 
 
 
