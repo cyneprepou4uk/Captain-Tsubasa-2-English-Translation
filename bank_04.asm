@@ -1082,7 +1082,7 @@ off_B641_17_player_interfere_passcut:
 
 @passcut:
     .text "Pass cut   "
-    .byte con_stats_defense, con_def_passcut_1
+    .byte con_stats_defense, con_def_passcut_2
     .byte con_закончить
 
 
