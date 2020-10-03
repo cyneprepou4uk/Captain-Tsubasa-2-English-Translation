@@ -86,8 +86,8 @@ off_BEDB_47_первый_перерыв_йоко:
 
 
 off_BEE1_48_перерыв_йоко:
-    .byte con_window, $02
     .byte con_bg_1, $61
+    .byte con_window, $05
     .byte con_animation, $01, $2A
     .byte con_jump
     .word off_BF31
@@ -102,8 +102,8 @@ off_BEEB_49_первый_перерыв_санае:
 
 
 off_BEF1_4A_перерыв_санае:
-    .byte con_window, $02
     .byte con_bg_1, $61
+    .byte con_window, $05
     .byte con_animation, $01, $26
     .byte con_jump
     .word off_BF31
@@ -114,8 +114,8 @@ off_BEFB_4B_первый_перерыв_ишизаки:
     .byte con_animation, $01, $44
 off_BEFE:
     .byte con_E8, $01
-    .byte con_window, $02
     .byte con_bg_1, $61
+    .byte con_window, $05
     .byte con_screen_on
     .byte con_speed, $02
     .byte con_toggle_mouth
@@ -149,7 +149,7 @@ off_BEFE:
     .byte $7B    ; <。>
     .byte con_line
     .byte con_pause, $14
-    .byte con_clear_1
+    .byte con_clear_3
     .byte con_jump
     .word off_BF31
 
@@ -162,34 +162,12 @@ off_BF2A_4C_перерыв_ишизаки:
 off_BF31:
     .byte con_E8, $01
     .byte con_speed, $00
-    .byte $40    ; <「>
-    .byte $AE    ; <ど>
-    .byte $03    ; <う>
-    .byte $0D    ; <す>
-    .byte $29    ; <る>
-    .byte $78    ; <?>
-    .byte con_line
-    .byte $00
-    .byte $51    ; <チ>
-    .byte $7D    ; <ー>
-    .byte $61    ; <ム>
-    .byte $C1    ; <デ>
-    .byte $7D    ; <ー>
-    .byte $50    ; <タ>
-    .byte $2D    ; <を>
-    .byte $06    ; <か>
-    .byte $04    ; <え>
-    .byte $29    ; <る>
-    .byte con_line
-    .byte $00
-    .byte $0C    ; <し>
-    .byte $01    ; <あ>
-    .byte $02    ; <い>
-    .byte $0B    ; <さ>
-    .byte $02    ; <い>
-    .byte $06    ; <か>
-    .byte $02    ; <い>
-    .byte con_line
+    .byte con_offset, $07
+    .text "@What do you need?@", con_line
+    .byte con_offset, $09
+    .text "Manage team", con_line
+    .byte con_offset, $09
+    .text "Onto the field!"
     .byte con_palette, $00
     .byte con_exit
 
@@ -197,8 +175,8 @@ off_BF31:
 
 off_BF54_4D_пароль_йоко:
     .byte con_animation, $01, $2B
-    .byte con_window, $02
     .byte con_bg_1, $5F
+    .byte con_window, $04
     .byte con_palette, $00
     .byte con_speed, $02
     .byte con_offset, $08
@@ -223,8 +201,8 @@ off_BF7D_4E_удачи_после_пароля_йоко:
 
 off_BF5A_4F_пароль_санае:
     .byte con_animation, $01, $27
-    .byte con_window, $02
     .byte con_bg_1, $5F
+    .byte con_window, $04
     .byte con_palette, $00
     .byte con_speed, $02
     .byte con_offset, $04
@@ -251,8 +229,8 @@ off_BF7D_50_удачи_после_пароля_санае:
 
 off_BF60_51_пароль_ишизаки:
     .byte con_animation, $01, $44
-    .byte con_window, $02
     .byte con_bg_1, $5F
+    .byte con_window, $04
     .byte con_palette, $00
     .byte con_speed, $02
     .byte con_offset, $07

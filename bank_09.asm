@@ -450,19 +450,19 @@ tbl_0x010010_блоки_4x4_тайла:
     .byte $00, $00, $AB, $00
     .byte $A9, $A9, $9F, $00
     .byte $00, $00, $00, $00
-    ; 4A
+    ; 4A HALF TIME 1 (unused)
     .byte $FF
     .byte $A8, $A8, $A8, $A8
     .byte $00, $00, $00, $88
     .byte $A9, $A9, $A9, $A9
     .byte $00, $00, $00, $00
-    ; 4B
+    ; 4B HALF TIME 2 (unused)
     .byte $FF
     .byte $A8, $A8, $A8, $A8
     .byte $81, $8E, $86, $00
     .byte $A9, $A9, $A9, $A9
     .byte $00, $00, $00, $00
-    ; 4C
+    ; 4C HALF TIME 3 (unused)
     .byte $FF
     .byte $A8, $A8, $A8, $A8
     .byte $FC, $89, $8C, $85

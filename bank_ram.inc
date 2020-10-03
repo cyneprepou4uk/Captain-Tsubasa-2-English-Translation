@@ -12,7 +12,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_05 - советы тренера
 ; bank_06 - прочие катсцены
 ; bank_07 - палитра
-; bank_08 - 
+; bank_08 - параметры заднего фона
 ; bank_09 - блоки тайлов
 ; bank_10 - атрибуты спрайтов анимаций
 ; bank_11 - атрибуты спрайтов анимаций
