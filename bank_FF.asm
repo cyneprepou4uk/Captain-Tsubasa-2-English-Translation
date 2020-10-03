@@ -5426,7 +5426,7 @@ tbl_E9DA_действия:
 - D - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_wait_player
 - D - - - 0x03EA10 FF:EA00: E6 EA     .word off_EAE6_13_mark
 - D - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_interfere
-- D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_intercept
+- D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_clearing
 - D - - - 0x03EA16 FF:EA06: 01 EB     .word off_EB01_16_punch
 - D - - - 0x03EA18 FF:EA08: 0D EB     .word off_EB0D_17_catch
 - D - - - 0x03EA1A FF:EA0A: 17 EB     .word off_EB17_18_triangle_jump
@@ -5472,7 +5472,7 @@ off_EA51_05_through:
 off_EA59_06_clearing:
     .word $2288
     .byte $25
-    .text "Clearing "
+    .text "Clearing1"
 
 off_EA61_07_подкат:
     .word $2288
@@ -5537,20 +5537,20 @@ off_EADB_12_wait_player:    ; skip, cancel, follow, mark, dribble
     .byte $25
     .text "   Wait  "
 
-off_EAE6_13_mark:
+off_EAE6_13_mark:           ; когда соперник в твоей штрафной принимает мяч
     .word $2288
     .byte $25
-    .text "   Mark  "
+    .text "    Mark "
 
 off_EAEF_14_interfere:
     .word $2288
     .byte $25
-    .text "Interfere"
+    .text "Interfer1"
 
-off_EAF8_15_intercept:
+off_EAF8_15_clearing:       ; когда соперник в твоей штрафной принимает мяч
     .word $2288
     .byte $25
-    .text "Interc???"
+    .text "Clearing2"
 
 off_EB01_16_punch:
     .word $2288

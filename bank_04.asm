@@ -55,7 +55,7 @@ tbl_0x40004_вид_меню:
     .word off_B8A5_2F_кто_бьет_нарушение
     .word off_B8DE_30_отображение_имени_и_энергии_слева_верху
     .word off_B8EF_31_номер_имя_управляемого_игрока
-    .word off_B900_32_имя_соперника
+    .word off_B900_32_имя_соперника                             ; когда мяч у соперника и тот бежит по полю
     .word off_B90D_33_продолжить_меню_команды
     .word off_B922_34_меню_команды_миникарта
     .word off_B93F_35_formation
@@ -78,12 +78,12 @@ con_plr_name_pos                        = $E0           ; позиция и им
 con_stats_attack                        = $E1           ; статы нападающего при владении мячом у тебя + числовая величина параметра
     con_stamina_atk                         = $00
     con_shoot_atk                           = $01
-    con_pass_atk                            = $02
+    con_pass_atk                            = $02       ; на земле
     con_dribble_atk                         = $03
-    con_air_shot                            = $07           ; удар в воздухе (volley, header)
-    con_08                                  = $08
+    con_air_shoot                           = $07       ; удар в воздухе (volley, header)
+    con_air_pass_atk                        = $08       ; в воздухе
     con_trap_atk                            = $09
-    con_clear_atk                           = $0B
+    con_clearing_atk                        = $0B
 con_teammate_name                           = $E2
 con_stats_reciever                      = $E3
     con_stamina_rec                         = $00
@@ -91,7 +91,7 @@ con_stats_reciever                      = $E3
     con_pass_rec                            = $02
     con_dribble_rec                         = $03
     con_trap_rec                            = $09           ; unused
-    con_clear_rec                           = $0B           ; unused
+    con_clearing_rec                        = $0B           ; unused
 con_E4                                  = $E4           ; + 00-03 ???
 con_defender_name_action                = $E5           ; + номер 00-03
 con_E6                                  = $E6           ; + 00 (???) или 01 (???)
@@ -103,24 +103,27 @@ con_stats_defense                       = $E8           ; статы защит�
     con_03                                  = $03
     con_block                               = $04
     con_tackle                              = $05
-    con_passcut                             = $06
-con_pass_reciever_name_temmate          = $E9           ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
+    con_passcut_1                           = $06
+    con_clearing_def                        = $0C
+    con_interfere                           = $0D
+    con_passcut_2                           = $0E
+con_pass_reciever_name_teammate         = $E9           ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
 con_pass_reciever_name_opponent         = $EA           ; + номер 00-04, имя принимающего пас соперника (для списка из нескольких игроков)
 con_gk_name                             = $EB
 con_stats_gk                            = $EC
     con_stamina_gk                         = $00
-    con_catch                              = $19
+    con_catch                              = $19        ; bzk также jump
     con_punch                              = $1A
-    con_1B_gk                              = $1B
-    con_1C_gk                              = $1C
+    con_stop_dribble                       = $1B
+    con_stop_shot                          = $1C
 con_team_name                           = $ED           ; + 00 (имя команды слева) или 01 (имя команды справа)
 con_score                               = $EE           ; + 00 (счет команды слева) или 01 (счет команды справа)
 con_period_number                       = $EF           ; номер тайма, овертайма, пк
 con_time                                = $F0           ; время тайма
-con_name                       = $F1           ; 00-0A основные, 16-1F запасные
+con_name                                = $F1           ; 00-0A основные, 16-1F запасные
 con_control_plr_name                    = $F2           ; имя управляемого игрока
 con_plr_with_ball_name                  = $F4           ; имя игрока с мячом
-con_plr_stamina                    = $F5           ; 00-0A основные, 16-1F запасные
+con_plr_stamina                         = $F5           ; 00-0A основные, 16-1F запасные
 con_F6                                  = $F6
 con_control_plr_number                  = $F7           ; номер игрока с мячом
 con_закончить                           = $FC
@@ -264,13 +267,13 @@ off_B48A_03_player_dribble_pass_shoot:
     .word @stamina
     .byte $04
     .byte $01
-    .word @дриблинг
+    .word @dribble
     .byte $06
     .byte $01
-    .word @пас
+    .word @pass
     .byte $08
     .byte $01
-    .word @удар
+    .word @shoot
 
 @name_pos:
     .byte con_plr_name_pos
@@ -281,17 +284,17 @@ off_B48A_03_player_dribble_pass_shoot:
     .byte con_stats_attack, con_stamina_atk
     .byte con_закончить
 
-@дриблинг:
+@dribble:
     .text "Dribble    "
     .byte con_stats_attack, con_dribble_atk
     .byte con_закончить
 
-@пас:
+@pass:
     .text "Pass       "
     .byte con_stats_attack, con_pass_atk
     .byte con_закончить
 
-@удар:
+@shoot:
     .text "Shoot      "
     .byte con_stats_attack, con_shoot_atk
     .byte con_закончить
@@ -348,12 +351,12 @@ off_B4A7_04_player_trap_pass_shot:
 
 @pass:
     .text "Pass       "
-    .byte con_stats_attack, con_08
+    .byte con_stats_attack, con_air_pass_atk
     .byte con_закончить
 
 @shot:
     .text "Shoot      "
-    .byte con_stats_attack, con_air_shot
+    .byte con_stats_attack, con_air_shoot
     .byte con_закончить
 
 
@@ -407,12 +410,12 @@ off_B4C4_05_player_trap_pass_clearing:
 
 @pass:
     .text "Pass       "
-    .byte con_stats_attack, con_08
+    .byte con_stats_attack, con_air_pass_atk
     .byte con_закончить
 
 @clearing:
     .text "Clearing   "
-    .byte con_stats_attack, con_clear_atk
+    .byte con_stats_attack, con_clearing_atk
     .byte con_закончить
 
 
@@ -1031,7 +1034,7 @@ off_B624_16_defender_tackle_block_passcut:
 
 @passcut:
     .text "Pass cut   "
-    .byte con_stats_defense, con_passcut
+    .byte con_stats_defense, con_passcut_1
     .byte con_закончить
 
 
@@ -1077,12 +1080,12 @@ off_B641_17_player_interfere_passcut:
 
 @interfere:
     .text "Interfere  "
-    .byte con_stats_defense, con_passcut
+    .byte con_stats_defense, con_interfere
     .byte con_закончить
 
 @passcut:
     .text "Pass cut   "
-    .byte con_stats_defense, con_passcut
+    .byte con_stats_defense, con_passcut_1
     .byte con_закончить
 
 
@@ -1091,31 +1094,50 @@ off_B641_17_player_interfere_passcut:
 
 
 off_B65A_18_player_clearing_passcut:
-- D - I - 0x03366A 22:B65A: 34 22     .word $2234
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $07
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0E
+    .byte $07
+; количество поинтеров
+    .byte $04
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @name
+    .byte $02
+    .byte $01
+    .word @stamina
+    .byte $04
+    .byte $01
+    .word @clearing
+    .byte $06
+    .byte $01
+    .word @passcut
 
-- D - I - 0x03366C 22:B65C: 0C        .byte $0C
-- D - I - 0x03366D 22:B65D: 0A        .byte $0A
+@name:
+    .byte con_defender_name_stats
+    .byte con_закончить
 
-- D - I - 0x03366E 22:B65E: 00        .byte $00
-- D - I - 0x03366F 22:B65F: 01        .byte $01
+@stamina:
+    .text "Stamina    "
+    .byte con_stats_defense, con_stamina_def
+    .byte con_закончить
 
-- D - I - 0x033670 22:B660: 0C        .byte $0C
-- D - I - 0x033671 22:B661: 07        .byte $07
+@clearing:
+    .text "Clearing   "
+    .byte con_stats_defense, con_clearing_def
+    .byte con_закончить
 
-- D - I - 0x033672 22:B662: 04        .byte $04
-
-- D - I - 0x033673 22:B663: 01        .byte $01
-- D - I - 0x033674 22:B664: 02        .byte $02
-- D - I - 0x033675 22:B665: 9A BC     .word off_BC9A
-- D - I - 0x033677 22:B667: 03        .byte $03
-- D - I - 0x033678 22:B668: 01        .byte $01
-- D - I - 0x033679 22:B669: 9C BC     .word off_BC9C_stamina_def
-- D - I - 0x03367B 22:B66B: 05        .byte $05
-- D - I - 0x03367C 22:B66C: 01        .byte $01
-- D - I - 0x03367D 22:B66D: DE BC     .word off_BCDE
-- D - I - 0x03367F 22:B66F: 07        .byte $07
-- D - I - 0x033680 22:B670: 01        .byte $01
-- D - I - 0x033681 22:B671: D3 BC     .word off_BCD3
+@passcut:
+    .text "Pass cut   "
+    .byte con_stats_defense, con_passcut_2
+    .byte con_закончить
 
 
 
@@ -1151,11 +1173,11 @@ off_B673_19_show_2_teammates:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_pass_reciever_name_temmate, $00
+    .byte con_pass_reciever_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_pass_reciever_name_temmate, $01
+    .byte con_pass_reciever_name_teammate, $01
     .byte con_закончить
 
 
@@ -1195,15 +1217,15 @@ off_B688_1A_show_3_teammates:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_pass_reciever_name_temmate, $00
+    .byte con_pass_reciever_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_pass_reciever_name_temmate, $01
+    .byte con_pass_reciever_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_pass_reciever_name_temmate, $02
+    .byte con_pass_reciever_name_teammate, $02
     .byte con_закончить
 
 
@@ -1246,19 +1268,19 @@ off_B6A1_1B_show_4_teammates:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_pass_reciever_name_temmate, $00
+    .byte con_pass_reciever_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_pass_reciever_name_temmate, $01
+    .byte con_pass_reciever_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_pass_reciever_name_temmate, $02
+    .byte con_pass_reciever_name_teammate, $02
     .byte con_закончить
 
 @reciever_4:
-    .byte con_pass_reciever_name_temmate, $03
+    .byte con_pass_reciever_name_teammate, $03
     .byte con_закончить
 
 
@@ -1622,11 +1644,11 @@ off_B77A_24_select_1_of_2_teammates_for_pass:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_pass_reciever_name_temmate, $00
+    .byte con_pass_reciever_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_pass_reciever_name_temmate, $01
+    .byte con_pass_reciever_name_teammate, $01
     .byte con_закончить
 
 
@@ -1666,15 +1688,15 @@ off_B78F_25_select_1_of_3_teammates_for_pass:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_pass_reciever_name_temmate, $00
+    .byte con_pass_reciever_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_pass_reciever_name_temmate, $01
+    .byte con_pass_reciever_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_pass_reciever_name_temmate, $02
+    .byte con_pass_reciever_name_teammate, $02
     .byte con_закончить
 
 
@@ -1717,19 +1739,19 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_pass_reciever_name_temmate, $00
+    .byte con_pass_reciever_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_pass_reciever_name_temmate, $01
+    .byte con_pass_reciever_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_pass_reciever_name_temmate, $02
+    .byte con_pass_reciever_name_teammate, $02
     .byte con_закончить
 
 @reciever_4:
-    .byte con_pass_reciever_name_temmate, $03
+    .byte con_pass_reciever_name_teammate, $03
     .byte con_закончить
 
 
@@ -2202,7 +2224,6 @@ off_B8EF_31_номер_имя_управляемого_игрока:
 
 
 off_B900_32_имя_соперника:
-; когда мяч у соперника и тот бежит по полю
     .word $2011
 ; X * Y зачищаемой области
     .byte $0E
@@ -3372,15 +3393,6 @@ off_BC97:
     .byte con_E6, $01
     .byte con_закончить
 
-off_BC9A:
-    .byte con_defender_name_stats
-    .byte con_закончить
-
-off_BC9C_stamina_def:
-    .text "Stamina    "
-    .byte con_stats_defense, con_stamina_def
-    .byte con_закончить
-
 off_BCD3:
 - D - I - 0x033CE3 22:BCD3: CD        .byte $CD
 - D - I - 0x033CE4 22:BCD4: 4D        .byte $4D
@@ -3426,7 +3438,7 @@ off_BD1C_pass_принимающего:
     .byte con_stats_reciever, con_pass_rec
     .byte con_закончить
 
-off_BD27:       ; unused
+off_BD27:       ; unused <トラップ>
 - - - - - 0x033D37 22:BD27: 54        .byte $54
 - - - - - 0x033D38 22:BD28: 67        .byte $67
 - - - - - 0x033D39 22:BD29: 6F        .byte $6F
@@ -3438,7 +3450,7 @@ off_BD27:       ; unused
 - - - - - 0x033D3F 22:BD2F: E3        .byte con_stats_reciever, con_trap_rec
 - - - - - 0x033D41 22:BD31: FC        .byte con_закончить
 
-off_BD32:       ; unused
+off_BD32:       ; unused <クリアー>
 - - - - - 0x033D42 22:BD32: 48        .byte $48
 - - - - - 0x033D43 22:BD33: 68        .byte $68
 - - - - - 0x033D44 22:BD34: 41        .byte $41
@@ -3447,7 +3459,7 @@ off_BD32:       ; unused
 - - - - - 0x033D47 22:BD37: 00        .byte $00
 - - - - - 0x033D48 22:BD38: 00        .byte $00
 - - - - - 0x033D49 22:BD39: 00        .byte $00
-- - - - - 0x033D4A 22:BD3A: E3        .byte con_stats_reciever, con_clear_rec
+- - - - - 0x033D4A 22:BD3A: E3        .byte con_stats_reciever, con_clearing_rec
 - - - - - 0x033D4C 22:BD3C: FC        .byte con_закончить
 
 off_BD53_имя_и_позиция_кипера:
@@ -3480,7 +3492,7 @@ off_BD81:
 - D - I - 0x033D96 22:BD86: 00        .byte $00
 - D - I - 0x033D97 22:BD87: 00        .byte $00
 - D - I - 0x033D98 22:BD88: 00        .byte $00
-- D - I - 0x033D99 22:BD89: EC        .byte con_stats_gk, con_1B_gk
+- D - I - 0x033D99 22:BD89: EC        .byte con_stats_gk, con_stop_dribble
 - D - I - 0x033D9B 22:BD8B: FC        .byte con_закончить
 
 off_BD8C:
@@ -3492,7 +3504,7 @@ off_BD8C:
 - D - I - 0x033DA1 22:BD91: 00        .byte $00
 - D - I - 0x033DA2 22:BD92: 00        .byte $00
 - D - I - 0x033DA3 22:BD93: 00        .byte $00
-- D - I - 0x033DA4 22:BD94: EC        .byte con_stats_gk, con_1C_gk
+- D - I - 0x033DA4 22:BD94: EC        .byte con_stats_gk, con_stop_shot
 - D - I - 0x033DA6 22:BD96: FC        .byte con_закончить
 
 off_BD97:
@@ -3893,31 +3905,31 @@ off_BFB5:
 off_BFB7:
 - D - I - 0x033FC7 22:BFB7: 34        .byte $34
 - D - I - 0x033FC8 22:BFB8: 00        .byte $00
-- D - I - 0x033FC9 22:BFB9: E9        .byte con_pass_reciever_name_temmate, $00
+- D - I - 0x033FC9 22:BFB9: E9        .byte con_pass_reciever_name_teammate, $00
 - D - I - 0x033FCB 22:BFBB: FC        .byte con_закончить
 
 off_BFBC:
 - D - I - 0x033FCC 22:BFBC: 35        .byte $35
 - D - I - 0x033FCD 22:BFBD: 00        .byte $00
-- D - I - 0x033FCE 22:BFBE: E9        .byte con_pass_reciever_name_temmate, $01
+- D - I - 0x033FCE 22:BFBE: E9        .byte con_pass_reciever_name_teammate, $01
 - D - I - 0x033FD0 22:BFC0: FC        .byte con_закончить
 
 off_BFC1:
 - D - I - 0x033FD1 22:BFC1: 36        .byte $36
 - D - I - 0x033FD2 22:BFC2: 00        .byte $00
-- D - I - 0x033FD3 22:BFC3: E9        .byte con_pass_reciever_name_temmate, $02
+- D - I - 0x033FD3 22:BFC3: E9        .byte con_pass_reciever_name_teammate, $02
 - D - I - 0x033FD5 22:BFC5: FC        .byte con_закончить
 
 off_BFC6:
 - D - I - 0x033FD6 22:BFC6: 37        .byte $37
 - D - I - 0x033FD7 22:BFC7: 00        .byte $00
-- D - I - 0x033FD8 22:BFC8: E9        .byte con_pass_reciever_name_temmate, $03
+- D - I - 0x033FD8 22:BFC8: E9        .byte con_pass_reciever_name_teammate, $03
 - D - I - 0x033FDA 22:BFCA: FC        .byte con_закончить
 
 off_BFCB:
 - D - I - 0x033FDB 22:BFCB: 38        .byte $38
 - D - I - 0x033FDC 22:BFCC: 00        .byte $00
-- D - I - 0x033FDD 22:BFCD: E9        .byte con_pass_reciever_name_temmate, $04
+- D - I - 0x033FDD 22:BFCD: E9        .byte con_pass_reciever_name_teammate, $04
 - D - I - 0x033FDF 22:BFCF: FC        .byte con_закончить
 
 off_BFD0_надпись_PK:
