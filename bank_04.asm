@@ -13,16 +13,16 @@ tbl_0x40004_вид_меню:
     .word off_B4C4_05_player_trap_pass_clearing
     .word off_B4E1_06_gk_punch_catch
     .word off_B4FA_07_action_window_2                           ; действие когда ты на штрафной соперника и нападаешь на него
-    .word off_B507_08_кипер_counter_drib_shot
-    .word off_B528_09_две_опции_действия
-    .word off_B539_0A_три_опции_действия
-    .word off_B54E_0B_четыре_опции_действия
+    .word off_B507_08_gk_counter_drib_shot
+    .word off_B528_09_2_specials
+    .word off_B539_0A_3_specials
+    .word off_B54E_0B_4_specials
     .word off_B567_0C_две_опции_нападения
-    .word off_B578_0D_кипер_jump
+    .word off_B578_0D_gk_dive
     .word $0000      ; unused, тут была копия 0F
-    .word off_B58D_0F_pass_window
-    .word off_B5A2_10_1_2_pass_window
-    .word off_B5B7_11_no_one_is_near_for_1_2_pass               ; не с кем перепасоваться, напарники далеко
+    .word off_B58D_0F_pass_select_a_teammate
+    .word off_B5A2_10_1_2_pass_choose_a_partner
+    .word off_B5B7_11_no_players_nearby                         ; не с кем перепасоваться, напарники далеко
     .word off_B5C8_12_1_player_action_window
     .word off_B5D9_13_2_players_action_window                   ; действие нескольких игроков при нападении на соперника
     .word off_B5EE_14_3_players_action_window
@@ -74,17 +74,18 @@ tbl_0x40004_вид_меню:
 
 
 
+; код в 0x030996
 con_plr_name_pos                        = $E0           ; позиция и имя игрока
 con_stats_attack                        = $E1           ; статы нападающего при владении мячом у тебя + числовая величина параметра
     con_atk_stamina                         = $00
-    con_atk_shoot                           = $01
-    con_atk_pass                            = $02           ; на земле
+    con_atk_shoot                           = $01           ; на поле
+    con_atk_pass                            = $02           ; на поле
     con_atk_dribble                         = $03
-    con_atk_air_shoot                       = $07           ; удар в воздухе (volley, header)
-    con_atk_air_pass                        = $08           ; в воздухе
+    con_atk_air_shoot                       = $07           ; на штрафной
+    con_atk_air_pass                        = $08           ; на штрафной
     con_atk_trap                            = $09
     con_atk_clearing                        = $0B
-con_teammate_name                           = $E2
+con_rec_name_pos                        = $E2           ; позиция и имя принимающего
 con_stats_reciever                      = $E3
     con_rec_stamina                         = $00
     con_rec_shoot                           = $01
@@ -92,24 +93,24 @@ con_stats_reciever                      = $E3
     con_rec_dribble                         = $03
     con_rec_trap                            = $09           ; unused
     con_rec_clearing                        = $0B           ; unused
-con_E4                                  = $E4           ; + 00-03 ???
-con_defender_name_action                = $E5           ; + номер 00-03
+con_specials_list                       = $E4           ; список спешалов (00-03)
+con_defender_actions                    = $E5           ; действия игроков защиты (00-03)
 con_E6                                  = $E6           ; + 00 (???) или 01 (???)
-con_defender_name_stats                 = $E7
+con_def_name_pos                        = $E7           ; позиция и имя защитника
 con_stats_defense                       = $E8           ; статы защитника при владении мячом у компьютера + числовая величина параметра
     con_def_stamina                         = $00
     con_def_block                           = $04
     con_def_tackle                          = $05
-    con_def_passcut_1                       = $06           ; на земле
+    con_def_passcut_1                       = $06           ; на поле
     con_def_clearing                        = $0C
     con_def_interfere                       = $0D
-    con_def_passcut_2                       = $0E           ; в воздухе
+    con_def_passcut_2                       = $0E           ; на штрафной
 con_rec_passiever_name_teammate         = $E9           ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
 con_rec_passiever_name_opponent         = $EA           ; + номер 00-04, имя принимающего пас соперника (для списка из нескольких игроков)
-con_gk_name                             = $EB
+con_gk_name_pos                         = $EB
 con_stats_gk                            = $EC
     con_gk_stamina                         = $00
-    con_gk_catch                           = $19            ; bzk также jump
+    con_gk_catch                           = $19            ; bzk также dive
     con_gk_punch                           = $1A
     con_gk_stop_dribble                    = $1B
     con_gk_stop_shot                       = $1C
@@ -117,13 +118,21 @@ con_team_name                           = $ED           ; + 00 (имя кома�
 con_score                               = $EE           ; + 00 (счет команды слева) или 01 (счет команды справа)
 con_period_number                       = $EF           ; номер тайма, овертайма, пк
 con_time                                = $F0           ; время тайма
-con_name                                = $F1           ; 00-0A основные, 16-1F запасные
+con_menu_name                           = $F1           ; имена из меню, 00-0A основные, 16-1F запасные
 con_control_plr_name                    = $F2           ; имя управляемого игрока
+; unused                                = $F3
 con_plr_with_ball_name                  = $F4           ; имя игрока с мячом
 con_plr_stamina                         = $F5           ; 00-0A основные, 16-1F запасные
 con_pk_players_list                     = $F6
 con_control_plr_number                  = $F7           ; номер игрока с мячом
+; unused                                = $F8
+; unused                                = $F9
+; unused                                = $FA
+; unused                                = $FB
 con_закончить                           = $FC
+; unused                                = $FD
+; unused                                = $FE
+; unused                                = $FF
 
 
 
@@ -448,7 +457,7 @@ off_B4E1_06_gk_punch_catch:
     .word @catch
 
 @name_pos:
-    .byte con_gk_name
+    .byte con_gk_name_pos
     .byte con_закончить
 
 @stamina:
@@ -498,7 +507,7 @@ off_B4FA_07_action_window_2:
 
 
 
-off_B507_08_кипер_counter_drib_shot:
+off_B507_08_gk_counter_drib_shot:
 - D - I - 0x033517 22:B507: 32 22     .word $2232
 
 - D - I - 0x033519 22:B509: 0C        .byte $0C
@@ -536,7 +545,7 @@ off_B507_08_кипер_counter_drib_shot:
 
 
 
-off_B528_09_две_опции_действия:
+off_B528_09_2_specials:
 - D - I - 0x033538 22:B528: 48 22     .word $2248
 
 - D - I - 0x03353A 22:B52A: 0F        .byte $0F
@@ -562,7 +571,7 @@ off_B528_09_две_опции_действия:
 
 
 
-off_B539_0A_три_опции_действия:
+off_B539_0A_3_specials:
 - D - I - 0x033549 22:B539: 48 22     .word $2248
 
 - D - I - 0x03354B 22:B53B: 0F        .byte $0F
@@ -591,7 +600,7 @@ off_B539_0A_три_опции_действия:
 
 
 
-off_B54E_0B_четыре_опции_действия:
+off_B54E_0B_4_specials:
 - D - I - 0x03355E 22:B54E: 48 22     .word $2248
 
 - D - I - 0x033560 22:B550: 0F        .byte $0F
@@ -650,7 +659,7 @@ off_B567_0C_две_опции_нападения:
 
 
 
-off_B578_0D_кипер_jump:
+off_B578_0D_gk_dive:
 - D - I - 0x033588 22:B578: 34 22     .word $2234
 
 - D - I - 0x03358A 22:B57A: 0C        .byte $0C
@@ -679,7 +688,7 @@ off_B578_0D_кипер_jump:
 
 
 
-off_B58D_0F_pass_window:
+off_B58D_0F_pass_select_a_teammate:
     .word $2247
 ; X * Y зачищаемой области
     .byte $19
@@ -720,7 +729,7 @@ off_B58D_0F_pass_window:
 
 
 
-off_B5A2_10_1_2_pass_window:
+off_B5A2_10_1_2_pass_choose_a_partner:
     .word $2247
 ; X * Y зачищаемой области
     .byte $0B
@@ -761,7 +770,7 @@ off_B5A2_10_1_2_pass_window:
 
 
 
-off_B5B7_11_no_one_is_near_for_1_2_pass:
+off_B5B7_11_no_players_nearby:
     .word $2247
 ; X * Y зачищаемой области
     .byte $09
@@ -828,7 +837,7 @@ off_B5C8_12_1_player_action_window:
     .byte con_закончить
 
 @name_1:
-    .byte con_defender_name_action, $00
+    .byte con_defender_actions, $00
     .byte con_закончить
 
 
@@ -865,11 +874,11 @@ off_B5D9_13_2_players_action_window:
     .byte con_закончить
 
 @name_1:
-    .byte con_defender_name_action, $00
+    .byte con_defender_actions, $00
     .byte con_закончить
 
 @name_2:
-    .byte con_defender_name_action, $01
+    .byte con_defender_actions, $01
     .byte con_закончить
 
 
@@ -909,15 +918,15 @@ off_B5EE_14_3_players_action_window:
     .byte con_закончить
 
 @name_1:
-    .byte con_defender_name_action, $00
+    .byte con_defender_actions, $00
     .byte con_закончить
 
 @name_2:
-    .byte con_defender_name_action, $01
+    .byte con_defender_actions, $01
     .byte con_закончить
 
 @name_3:
-    .byte con_defender_name_action, $02
+    .byte con_defender_actions, $02
     .byte con_закончить
 
 
@@ -960,19 +969,19 @@ off_B607_15_4_players_action_window:
     .byte con_закончить
 
 @name_1:
-    .byte con_defender_name_action, $00
+    .byte con_defender_actions, $00
     .byte con_закончить
 
 @name_2:
-    .byte con_defender_name_action, $01
+    .byte con_defender_actions, $01
     .byte con_закончить
 
 @name_3:
-    .byte con_defender_name_action, $02
+    .byte con_defender_actions, $02
     .byte con_закончить
 
 @name_4:
-    .byte con_defender_name_action, $03
+    .byte con_defender_actions, $03
     .byte con_закончить
 
 
@@ -1011,7 +1020,7 @@ off_B624_16_defender_tackle_block_passcut:
     .word @passcut
 
 @name:
-    .byte con_defender_name_stats
+    .byte con_def_name_pos
     .byte con_закончить
 
 @stamina:
@@ -1067,7 +1076,7 @@ off_B641_17_player_interfere_passcut:
     .word @passcut
 
 @name:
-    .byte con_defender_name_stats
+    .byte con_def_name_pos
     .byte con_закончить
 
 @stamina:
@@ -1118,7 +1127,7 @@ off_B65A_18_player_clearing_passcut:
     .word @passcut
 
 @name:
-    .byte con_defender_name_stats
+    .byte con_def_name_pos
     .byte con_закончить
 
 @stamina:
@@ -1336,7 +1345,7 @@ off_B6C7_1D_reciever_dribble_pass_shoot:
     .word @shoot
 
 @name_pos:
-    .byte con_teammate_name
+    .byte con_rec_name_pos
     .byte con_закончить
 
 @stamina:
@@ -2107,43 +2116,43 @@ off_B8A5_2F_кто_бьет_нарушение:
     .byte con_закончить
 
 @name_2:
-    .byte con_name, $01
+    .byte con_menu_name, $01
     .byte con_закончить
 
 @name_3:
-    .byte con_name, $02
+    .byte con_menu_name, $02
     .byte con_закончить
 
 @name_4:
-    .byte con_name, $03
+    .byte con_menu_name, $03
     .byte con_закончить
 
 @name_5:
-    .byte con_name, $04
+    .byte con_menu_name, $04
     .byte con_закончить
 
 @name_6:
-    .byte con_name, $05
+    .byte con_menu_name, $05
     .byte con_закончить
 
 @name_7:
-    .byte con_name, $06
+    .byte con_menu_name, $06
     .byte con_закончить
 
 @name_8:
-    .byte con_name, $07
+    .byte con_menu_name, $07
     .byte con_закончить
 
 @name_9:
-    .byte con_name, $08
+    .byte con_menu_name, $08
     .byte con_закончить
 
 @name_10:
-    .byte con_name, $09
+    .byte con_menu_name, $09
     .byte con_закончить
 
 @name_11:
-    .byte con_name, $0A
+    .byte con_menu_name, $0A
     .byte con_закончить
 
 
@@ -2589,52 +2598,52 @@ off_B99B_39_swap_main_players:
 
 @name_2:
     .text "2 "
-    .byte con_name, $01
+    .byte con_menu_name, $01
     .byte con_закончить
 
 @name_3:
     .text "3 "
-    .byte con_name, $02
+    .byte con_menu_name, $02
     .byte con_закончить
 
 @name_4:
     .text "4 "
-    .byte con_name, $03
+    .byte con_menu_name, $03
     .byte con_закончить
 
 @name_5:
     .text "5 "
-    .byte con_name, $04
+    .byte con_menu_name, $04
     .byte con_закончить
 
 @name_6:
     .text "6 "
-    .byte con_name, $05
+    .byte con_menu_name, $05
     .byte con_закончить
 
 @name_7:
     .text "7 "
-    .byte con_name, $06
+    .byte con_menu_name, $06
     .byte con_закончить
 
 @name_8:
     .text "8 "
-    .byte con_name, $07
+    .byte con_menu_name, $07
     .byte con_закончить
 
 @name_9:
     .text "9 "
-    .byte con_name, $08
+    .byte con_menu_name, $08
     .byte con_закончить
 
 @name_10:
     .text "10 "
-    .byte con_name, $09
+    .byte con_menu_name, $09
     .byte con_закончить
 
 @name_11:
     .text "11 "
-    .byte con_name, $0A
+    .byte con_menu_name, $0A
     .byte con_закончить
 
 
@@ -2695,43 +2704,43 @@ off_B9F8_3A_swap_sub_players:
     .byte con_закончить
 
 @sub_plr_1_name:
-    .byte con_name, $16
+    .byte con_menu_name, $16
     .byte con_закончить
 
 @sub_plr_2_name:
-    .byte con_name, $17
+    .byte con_menu_name, $17
     .byte con_закончить
 
 @sub_plr_3_name:
-    .byte con_name, $18
+    .byte con_menu_name, $18
     .byte con_закончить
 
 @sub_plr_4_name:
-    .byte con_name, $19
+    .byte con_menu_name, $19
     .byte con_закончить
 
 @sub_plr_5_name:
-    .byte con_name, $1A
+    .byte con_menu_name, $1A
     .byte con_закончить
 
 @sub_plr_6_name:
-    .byte con_name, $1B
+    .byte con_menu_name, $1B
     .byte con_закончить
 
 @sub_plr_7_name:
-    .byte con_name, $1C
+    .byte con_menu_name, $1C
     .byte con_закончить
 
 @sub_plr_8_name:
-    .byte con_name, $1D
+    .byte con_menu_name, $1D
     .byte con_закончить
 
 @sub_plr_gk1_name:
-    .byte con_name, $1E
+    .byte con_menu_name, $1E
     .byte con_закончить
 
 @sub_plr_gk2_name:
-    .byte con_name, $1F
+    .byte con_menu_name, $1F
     .byte con_закончить
 
 
@@ -2796,57 +2805,57 @@ off_BA39_3B_кого_отправить_на_скамейку:
 
 @name_2:
     .text "2 "
-    .byte con_name, $01
+    .byte con_menu_name, $01
     .byte con_закончить
 
 @name_3:
     .text "3 "
-    .byte con_name, $02
+    .byte con_menu_name, $02
     .byte con_закончить
 
 @name_4:
     .text "4 "
-    .byte con_name, $03
+    .byte con_menu_name, $03
     .byte con_закончить
 
 @name_5:
     .text "5 "
-    .byte con_name, $04
+    .byte con_menu_name, $04
     .byte con_закончить
 
 @name_6:
     .text "6 "
-    .byte con_name, $05
+    .byte con_menu_name, $05
     .byte con_закончить
 
 @name_7:
     .text "7 "
-    .byte con_name, $06
+    .byte con_menu_name, $06
     .byte con_закончить
 
 @name_8:
     .text "8 "
-    .byte con_name, $07
+    .byte con_menu_name, $07
     .byte con_закончить
 
 @name_9:
     .text "9 "
-    .byte con_name, $08
+    .byte con_menu_name, $08
     .byte con_закончить
 
 @name_10:
     .text "10 "
-    .byte con_name, $09
+    .byte con_menu_name, $09
     .byte con_закончить
 
 @name_11:
     .text "11 "
-    .byte con_name, $0A
+    .byte con_menu_name, $0A
     .byte con_закончить
 
 @name_gk:
     .text "GK "
-    .byte con_name, $00
+    .byte con_menu_name, $00
     .byte con_закончить
 
 
@@ -2943,7 +2952,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_2_name:
-    .byte con_name, $01
+    .byte con_menu_name, $01
     .byte con_закончить
 
 @main_plr_2_stamina:
@@ -2951,7 +2960,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_3_name:
-    .byte con_name, $02
+    .byte con_menu_name, $02
     .byte con_закончить
 
 @main_plr_3_stamina:
@@ -2959,7 +2968,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_4_name:
-    .byte con_name, $03
+    .byte con_menu_name, $03
     .byte con_закончить
 
 @main_plr_4_stamina:
@@ -2967,7 +2976,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_5_name:
-    .byte con_name, $04
+    .byte con_menu_name, $04
     .byte con_закончить
 
 @main_plr_5_stamina:
@@ -2975,7 +2984,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_6_name:
-    .byte con_name, $05
+    .byte con_menu_name, $05
     .byte con_закончить
 
 @main_plr_6_stamina:
@@ -2983,7 +2992,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_7_name:
-    .byte con_name, $06
+    .byte con_menu_name, $06
     .byte con_закончить
 
 @main_plr_7_stamina:
@@ -2991,7 +3000,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_8_name:
-    .byte con_name, $07
+    .byte con_menu_name, $07
     .byte con_закончить
 
 @main_plr_8_stamina:
@@ -2999,7 +3008,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_9_name:
-    .byte con_name, $08
+    .byte con_menu_name, $08
     .byte con_закончить
 
 @main_plr_9_stamina:
@@ -3007,7 +3016,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_10_name:
-    .byte con_name, $09
+    .byte con_menu_name, $09
     .byte con_закончить
 
 @main_plr_10_stamina:
@@ -3015,7 +3024,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_11_name:
-    .byte con_name, $0A
+    .byte con_menu_name, $0A
     .byte con_закончить
 
 @main_plr_11_stamina:
@@ -3023,7 +3032,7 @@ off_BAA2_3C_энергия_основного_состава:
     .byte con_закончить
 
 @main_plr_gk_name:
-    .byte con_name, $00
+    .byte con_menu_name, $00
     .byte con_закончить
 
 @main_plr_gk_stamina:
@@ -3117,7 +3126,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_1_name:
-    .byte con_name, $16
+    .byte con_menu_name, $16
     .byte con_закончить
 
 @sub_plr_1_stamina:
@@ -3125,7 +3134,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_2_name:
-    .byte con_name, $17
+    .byte con_menu_name, $17
     .byte con_закончить
 
 @sub_plr_2_stamina:
@@ -3133,7 +3142,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_3_name:
-    .byte con_name, $18
+    .byte con_menu_name, $18
     .byte con_закончить
 
 @sub_plr_3_stamina:
@@ -3141,7 +3150,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_4_name:
-    .byte con_name, $19
+    .byte con_menu_name, $19
     .byte con_закончить
 
 @sub_plr_4_stamina:
@@ -3149,7 +3158,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_5_name:
-    .byte con_name, $1A
+    .byte con_menu_name, $1A
     .byte con_закончить
 
 @sub_plr_5_stamina:
@@ -3157,7 +3166,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_6_name:
-    .byte con_name, $1B
+    .byte con_menu_name, $1B
     .byte con_закончить
 
 @sub_plr_6_stamina:
@@ -3165,7 +3174,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_7_name:
-    .byte con_name, $1C
+    .byte con_menu_name, $1C
     .byte con_закончить
 
 @sub_plr_7_stamina:
@@ -3173,7 +3182,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_8_name:
-    .byte con_name, $1D
+    .byte con_menu_name, $1D
     .byte con_закончить
 
 @sub_plr_8_stamina:
@@ -3181,7 +3190,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_gk1_name:
-    .byte con_name, $1E
+    .byte con_menu_name, $1E
     .byte con_закончить
 
 @sub_plr_gk1_stamina:
@@ -3189,7 +3198,7 @@ off_BB03_3D_энергия_запасного_состава:
     .byte con_закончить
 
 @sub_plr_gk2_name:
-    .byte con_name, $1F
+    .byte con_menu_name, $1F
     .byte con_закончить
 
 @sub_plr_gk2_stamina:
@@ -3367,19 +3376,19 @@ off_BBBF_41_пенальти_после_матча:
 
 
 off_BC7C:
-    .byte con_E4, $00
+    .byte con_specials_list, $00
     .byte con_закончить
 
 off_BC7F:
-    .byte con_E4, $01
+    .byte con_specials_list, $01
     .byte con_закончить
 
 off_BC82:
-    .byte con_E4, $02
+    .byte con_specials_list, $02
     .byte con_закончить
 
 off_BC85:
-    .byte con_E4, $03
+    .byte con_specials_list, $03
     .byte con_закончить
 
 off_BC94:
@@ -3417,7 +3426,7 @@ off_BCDE:
 - D - I - 0x033CF8 22:BCE8: FC        .byte con_закончить
 
 off_BCF9_позиция_и_имя_принимающего:
-    .byte con_teammate_name
+    .byte con_rec_name_pos
     .byte con_закончить
 
 off_BCFB_энергия_принимающего:
@@ -3460,7 +3469,7 @@ off_BD32:       ; unused <クリアー>
 - - - - - 0x033D4C 22:BD3C: FC        .byte con_закончить
 
 off_BD53_имя_и_позиция_кипера:
-    .byte con_gk_name
+    .byte con_gk_name_pos
     .byte con_закончить
 
 off_BD55_энергия_кипера:
@@ -3548,43 +3557,43 @@ off_BDC3:
 - D - I - 0x033DDA 22:BDCA: FC        .byte con_закончить
 
 off_BDCE:
-    .byte con_name, $01
+    .byte con_menu_name, $01
     .byte con_закончить
 
 off_BDD1:
-    .byte con_name, $02
+    .byte con_menu_name, $02
     .byte con_закончить
 
 off_BDD4:
-    .byte con_name, $03
+    .byte con_menu_name, $03
     .byte con_закончить
 
 off_BDD7:
-    .byte con_name, $04
+    .byte con_menu_name, $04
     .byte con_закончить
 
 off_BDDA:
-    .byte con_name, $05
+    .byte con_menu_name, $05
     .byte con_закончить
 
 off_BDDD:
-    .byte con_name, $06
+    .byte con_menu_name, $06
     .byte con_закончить
 
 off_BDE0:
-    .byte con_name, $07
+    .byte con_menu_name, $07
     .byte con_закончить
 
 off_BDE3:
-    .byte con_name, $08
+    .byte con_menu_name, $08
     .byte con_закончить
 
 off_BDE6:
-    .byte con_name, $09
+    .byte con_menu_name, $09
     .byte con_закончить
 
 off_BDE9:
-    .byte con_name, $0A
+    .byte con_menu_name, $0A
     .byte con_закончить
 
 off_BDEC:
