@@ -773,36 +773,43 @@ off_B5A2_10_1_2_pass_choose_a_partner:
 off_B5B7_11_no_players_nearby:
     .word $2247
 ; X * Y зачищаемой области
-    .byte $09
+    .byte $0B
     .byte $07
 ; смещение окна X, Y
     .byte $00
     .byte $00
 ; размер окна X, Y
-    .byte $09
+    .byte $0B
     .byte $07
 ; количество поинтеров
-    .byte $03
-; смещение текста Y, X + поинтеры на текст
-    .byte $02
-    .byte $01
-    .word @no
     .byte $04
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
     .byte $01
-    .word @players
+    .word @txt_1
+    .byte $02
+    .byte $04
+    .word @txt_2
+    .byte $04
+    .byte $02
+    .word @txt_3
     .byte $06
-    .byte $01
-    .word @nearby
+    .byte $02
+    .word @txt_4
 
-@no:
+@txt_1:
+    .text "1-2 Pass"
+    .byte con_закончить
+
+@txt_2:
     .text "No"
     .byte con_закончить
     
-@players:
+@txt_3:
     .text "players"
     .byte con_закончить
     
-@nearby:
+@txt_4:
     .text "nearby!"
     .byte con_закончить
 
