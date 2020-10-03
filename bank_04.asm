@@ -7,12 +7,12 @@
 tbl_0x40004_вид_меню:
     .word off_B453_00_period_number_and_time                    ; номер тайма и время
     .word off_B464_01_team_names_and_score                      ; сокращения команд и счет
-    .word off_B47D_02_action_window_1                           ; обычный набор действий для полевого и кипера
+    .word off_B47D_02_player_action_window                           ; обычный набор действий для полевого и кипера
     .word off_B48A_03_player_dribble_pass_shoot
     .word off_B4A7_04_player_trap_pass_shot
     .word off_B4C4_05_player_trap_pass_clearing
     .word off_B4E1_06_gk_punch_catch
-    .word off_B4FA_07_action_window_2                           ; действие когда ты на штрафной соперника и нападаешь на него
+    .word off_B4FA_07_gk_action_window_vs_player                ; действие когда ты на штрафной соперника и нападаешь на него
     .word off_B507_08_gk_counter_drib_shot
     .word off_B528_09_2_specials
     .word off_B539_0A_3_specials
@@ -44,15 +44,15 @@ tbl_0x40004_вид_меню:
     .word off_B77A_24_select_1_of_2_teammates_for_pass          ; выбрать одного из напарников для паса
     .word off_B78F_25_select_1_of_3_teammates_for_pass
     .word off_B7A8_26_select_1_of_4_teammates_for_pass
-    .word off_B7C5_27_кто_бьет_штрафной
-    .word off_B7FE_28_переместить_игроков
-    .word off_B813_29_продолжить_перемещение_игроков
-    .word off_B828_2A_штрафной_влево_вправо
-    .word off_B83D_2B_стенка_влево_вправо
+    .word off_B7C5_27_free_kick_taker
+    .word off_B7FE_28_rearrange_players_no_yes
+    .word off_B813_29_rearrange_select_done
+    .word off_B828_2A_aim_left_right
+    .word off_B83D_2B_wall_left_right
     .word off_B852_2C_pk_aim
     .word off_B85F_2D_pk_dive
-    .word off_B86C_2E_кто_подает_угловой
-    .word off_B8A5_2F_кто_бьет_нарушение
+    .word off_B86C_2E_corner_kick_taker
+    .word off_B8A5_2F_select_penalty_taker
     .word off_B8DE_30_display_name_stamina_at_the_top
     .word off_B8EF_31_display_name_number_at_the_top
     .word off_B900_32_display_name_opponent_at_the_top          ; когда мяч у соперника и тот бежит по полю
@@ -224,7 +224,7 @@ off_B464_01_team_names_and_score:
 
 
 
-off_B47D_02_action_window_1:
+off_B47D_02_player_action_window:
     .word $2247
 ; X * Y зачищаемой области
     .byte $0B
@@ -480,7 +480,7 @@ off_B4E1_06_gk_punch_catch:
 
 
 
-off_B4FA_07_action_window_2:
+off_B4FA_07_gk_action_window_vs_player:
     .word $2247
 ; X * Y зачищаемой области
     .byte $0B
@@ -499,12 +499,8 @@ off_B4FA_07_action_window_2:
     .word @txt
 
 @txt:
-    .text "Action2"
+    .byte $86, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_закончить
-
-;@txt:
-;    .byte $89, $8A, $8B, $8C, $8D, $8E, $8F     ; Action
-;    .byte con_закончить
 
 
 
@@ -512,37 +508,64 @@ off_B4FA_07_action_window_2:
 
 
 off_B507_08_gk_counter_drib_shot:
-- D - I - 0x033517 22:B507: 32 22     .word $2232
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0E
+    .byte $09
+; количество поинтеров
+    .byte $06
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @name_pos
+    .byte $02
+    .byte $01
+    .word @stamina
+    .byte $04
+    .byte $01
+    .word @stop_dribble_1
+    .byte $05
+    .byte $01
+    .word @stop_dribble_2
+    .byte $07
+    .byte $01
+    .word @stop_shot_1
+    .byte $08
+    .byte $01
+    .word @stop_shot_2
 
-- D - I - 0x033519 22:B509: 0C        .byte $0C
-- D - I - 0x03351A 22:B50A: 0A        .byte $0A
+@name_pos:
+    .byte con_gk_name_pos
+    .byte con_закончить
 
-- D - I - 0x03351B 22:B50B: 00        .byte $00
-- D - I - 0x03351C 22:B50C: 01        .byte $01
+@stamina:
+    .text "Stamina    "
+    .byte con_stats_gk, con_gk_stamina
+    .byte con_закончить
 
-- D - I - 0x03351D 22:B50D: 0C        .byte $0C
-- D - I - 0x03351E 22:B50E: 09        .byte $09
+@stop_dribble_1:
+    .text "Stop"
+    .byte con_закончить
 
-- D - I - 0x03351F 22:B50F: 06        .byte $06
+@stop_dribble_2:
+    .text " dribble   "
+    .byte con_stats_gk, con_gk_stop_dribble
+    .byte con_закончить
 
-- D - I - 0x033520 22:B510: 01        .byte $01
-- D - I - 0x033521 22:B511: 02        .byte $02
-- D - I - 0x033522 22:B512: 53 BD     .word off_BD53_имя_и_позиция_кипера
-- D - I - 0x033524 22:B514: 03        .byte $03
-- D - I - 0x033525 22:B515: 01        .byte $01
-- D - I - 0x033526 22:B516: 55 BD     .word off_BD55_энергия_кипера
-- D - I - 0x033528 22:B518: 05        .byte $05
-- D - I - 0x033529 22:B519: 01        .byte $01
-- D - I - 0x03352A 22:B51A: 81 BD     .word off_BD81
-- D - I - 0x03352C 22:B51C: 06        .byte $06
-- D - I - 0x03352D 22:B51D: 01        .byte $01
-- D - I - 0x03352E 22:B51E: 97 BD     .word off_BD97
-- D - I - 0x033530 22:B520: 08        .byte $08
-- D - I - 0x033531 22:B521: 01        .byte $01
-- D - I - 0x033532 22:B522: 8C BD     .word off_BD8C
-- D - I - 0x033534 22:B524: 09        .byte $09
-- D - I - 0x033535 22:B525: 01        .byte $01
-- D - I - 0x033536 22:B526: 97 BD     .word off_BD97
+@stop_shot_1:
+    .text "Stop"
+    .byte con_закончить
+
+@stop_shot_2:
+    .text " shot      "
+    .byte con_stats_gk, con_gk_stop_shot
+    .byte con_закончить
 
 
 
@@ -901,7 +924,7 @@ off_B5C8_12_1_player_action_window:
     .word @name_1
 
 @txt:
-    .text "Action"
+    .byte $80, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_закончить
 
 @name_1:
@@ -938,7 +961,7 @@ off_B5D9_13_2_players_action_window:
     .word @name_2
 
 @txt:
-    .text "Action"
+    .byte $80, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_закончить
 
 @name_1:
@@ -982,7 +1005,7 @@ off_B5EE_14_3_players_action_window:
     .word @name_3
 
 @txt:
-    .text "Action"
+    .byte $80, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_закончить
 
 @name_1:
@@ -1033,7 +1056,7 @@ off_B607_15_4_players_action_window:
     .word @name_4
 
 @txt:
-    .text "Action"
+    .byte $80, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_закончить
 
 @name_1:
@@ -1833,172 +1856,268 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
 
 
 
-off_B7C5_27_кто_бьет_штрафной:
-- D - I - 0x0337D5 22:B7C5: 28 22     .word $2228
+off_B7C5_27_free_kick_taker:
+    .word $2228
+; X * Y зачищаемой области
+    .byte $17
+    .byte $0B
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $17
+    .byte $0B
+; количество поинтеров
+    .byte $0B
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $03
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @name_2
+    .byte $04
+    .byte $03
+    .word @name_3
+    .byte $06
+    .byte $03
+    .word @name_4
+    .byte $08
+    .byte $03
+    .word @name_5
+    .byte $0A
+    .byte $03
+    .word @name_6
+    .byte $02
+    .byte $0D
+    .word @name_7
+    .byte $04
+    .byte $0D
+    .word @name_8
+    .byte $06
+    .byte $0D
+    .word @name_9
+    .byte $08
+    .byte $0D
+    .word @name_10
+    .byte $0A
+    .byte $0D
+    .word @name_11
 
-- D - I - 0x0337D7 22:B7C7: 18        .byte $18
-- D - I - 0x0337D8 22:B7C8: 0A        .byte $0A
+@txt:
+    .text " Free Kick taker "
+    .byte con_закончить
 
-- D - I - 0x0337D9 22:B7C9: 00        .byte $00
-- D - I - 0x0337DA 22:B7CA: 01        .byte $01
+@name_2:
+    .byte con_menu_name, $01
+    .byte con_закончить
 
-- D - I - 0x0337DB 22:B7CB: 17        .byte $17
-- D - I - 0x0337DC 22:B7CC: 09        .byte $09
+@name_3:
+    .byte con_menu_name, $02
+    .byte con_закончить
 
-- D - I - 0x0337DD 22:B7CD: 0C        .byte $0C
+@name_4:
+    .byte con_menu_name, $03
+    .byte con_закончить
 
-- D - I - 0x0337DE 22:B7CE: 01        .byte $01
-- D - I - 0x0337DF 22:B7CF: 03        .byte $03
-- D - I - 0x0337E0 22:B7D0: A2 BD     .word off_BDA2
-- D - I - 0x0337E2 22:B7D2: 01        .byte $01
-- D - I - 0x0337E3 22:B7D3: 0D        .byte $0D
-- D - I - 0x0337E4 22:B7D4: C3 BD     .word off_BDC3
-- D - I - 0x0337E6 22:B7D6: 03        .byte $03
-- D - I - 0x0337E7 22:B7D7: 03        .byte $03
-- D - I - 0x0337E8 22:B7D8: CE BD     .word off_BDCE
-- D - I - 0x0337EA 22:B7DA: 05        .byte $05
-- D - I - 0x0337EB 22:B7DB: 03        .byte $03
-- D - I - 0x0337EC 22:B7DC: D1 BD     .word off_BDD1
-- D - I - 0x0337EE 22:B7DE: 07        .byte $07
-- D - I - 0x0337EF 22:B7DF: 03        .byte $03
-- D - I - 0x0337F0 22:B7E0: D4 BD     .word off_BDD4
-- D - I - 0x0337F2 22:B7E2: 09        .byte $09
-- D - I - 0x0337F3 22:B7E3: 03        .byte $03
-- D - I - 0x0337F4 22:B7E4: D7 BD     .word off_BDD7
-- D - I - 0x0337F6 22:B7E6: 03        .byte $03
-- D - I - 0x0337F7 22:B7E7: 0A        .byte $0A
-- D - I - 0x0337F8 22:B7E8: DA BD     .word off_BDDA
-- D - I - 0x0337FA 22:B7EA: 05        .byte $05
-- D - I - 0x0337FB 22:B7EB: 0A        .byte $0A
-- D - I - 0x0337FC 22:B7EC: DD BD     .word off_BDDD
-- D - I - 0x0337FE 22:B7EE: 07        .byte $07
-- D - I - 0x0337FF 22:B7EF: 0A        .byte $0A
-- D - I - 0x033800 22:B7F0: E0 BD     .word off_BDE0
-- D - I - 0x033802 22:B7F2: 09        .byte $09
-- D - I - 0x033803 22:B7F3: 0A        .byte $0A
-- D - I - 0x033804 22:B7F4: E3 BD     .word off_BDE3
-- D - I - 0x033806 22:B7F6: 03        .byte $03
-- D - I - 0x033807 22:B7F7: 11        .byte $11
-- D - I - 0x033808 22:B7F8: E6 BD     .word off_BDE6
-- D - I - 0x03380A 22:B7FA: 05        .byte $05
-- D - I - 0x03380B 22:B7FB: 11        .byte $11
-- D - I - 0x03380C 22:B7FC: E9 BD     .word off_BDE9
+@name_5:
+    .byte con_menu_name, $04
+    .byte con_закончить
 
+@name_6:
+    .byte con_menu_name, $05
+    .byte con_закончить
 
+@name_7:
+    .byte con_menu_name, $06
+    .byte con_закончить
 
+@name_8:
+    .byte con_menu_name, $07
+    .byte con_закончить
 
+@name_9:
+    .byte con_menu_name, $08
+    .byte con_закончить
 
+@name_10:
+    .byte con_menu_name, $09
+    .byte con_закончить
 
-off_B7FE_28_переместить_игроков:
-- D - I - 0x03380E 22:B7FE: 28 22     .word $2228
-
-- D - I - 0x033810 22:B800: 18        .byte $18
-- D - I - 0x033811 22:B801: 0A        .byte $0A
-
-- D - I - 0x033812 22:B802: 03        .byte $03
-- D - I - 0x033813 22:B803: 03        .byte $03
-
-- D - I - 0x033814 22:B804: 09        .byte $09
-- D - I - 0x033815 22:B805: 05        .byte $05
-
-- D - I - 0x033816 22:B806: 03        .byte $03
-
-- D - I - 0x033817 22:B807: 01        .byte $01
-- D - I - 0x033818 22:B808: 01        .byte $01
-- D - I - 0x033819 22:B809: EC BD     .word off_BDEC
-- D - I - 0x03381B 22:B80B: 05        .byte $05
-- D - I - 0x03381C 22:B80C: 06        .byte $06
-- D - I - 0x03381D 22:B80D: 01 BE     .word off_BE01
-- D - I - 0x03381F 22:B80F: 07        .byte $07
-- D - I - 0x033820 22:B810: 06        .byte $06
-- D - I - 0x033821 22:B811: 06 BE     .word off_BE06
-
-
-
-
-
-
-off_B813_29_продолжить_перемещение_игроков:
-- D - I - 0x033823 22:B813: 28 22     .word $2228
-
-- D - I - 0x033825 22:B815: 18        .byte $18
-- D - I - 0x033826 22:B816: 0A        .byte $0A
-
-- D - I - 0x033827 22:B817: 00        .byte $00
-- D - I - 0x033828 22:B818: 01        .byte $01
-
-- D - I - 0x033829 22:B819: 0A        .byte $0A
-- D - I - 0x03382A 22:B81A: 05        .byte $05
-
-- D - I - 0x03382B 22:B81B: 03        .byte $03
-
-- D - I - 0x03382C 22:B81C: 01        .byte $01
-- D - I - 0x03382D 22:B81D: 01        .byte $01
-- D - I - 0x03382E 22:B81E: 0A BE     .word off_BE0A
-- D - I - 0x033830 22:B820: 03        .byte $03
-- D - I - 0x033831 22:B821: 03        .byte $03
-- D - I - 0x033832 22:B822: 13 BE     .word off_BE13
-- D - I - 0x033834 22:B824: 05        .byte $05
-- D - I - 0x033835 22:B825: 03        .byte $03
-- D - I - 0x033836 22:B826: 18 BE     .word off_BE18
+@name_11:
+    .byte con_menu_name, $0A
+    .byte con_закончить
 
 
 
 
 
 
-off_B828_2A_штрафной_влево_вправо:
-- D - I - 0x033838 22:B828: 28 22     .word $2228
+off_B7FE_28_rearrange_players_no_yes:
+    .word $2228
+; X * Y зачищаемой области
+    .byte $18
+    .byte $0C
+; смещение окна X, Y
+    .byte $03
+    .byte $05
+; размер окна X, Y
+    .byte $09
+    .byte $04
+; количество поинтеров
+    .byte $04
+; смещение текста Y, X + поинтеры на текст
+    .byte $01
+    .byte $03
+    .word @txt_1
+    .byte $03
+    .byte $01
+    .word @txt_2
+    .byte $06
+    .byte $07
+    .word @txt_3
+    .byte $08
+    .byte $07
+    .word @txt_4
 
-- D - I - 0x03383A 22:B82A: 18        .byte $18
-- D - I - 0x03383B 22:B82B: 0A        .byte $0A
+@txt_1:
+    .text "Rearrange"
+    .byte con_закончить
 
-- D - I - 0x03383C 22:B82C: 00        .byte $00
-- D - I - 0x03383D 22:B82D: 03        .byte $03
+@txt_2:
+    .text "your players?"
+    .byte con_закончить
 
-- D - I - 0x03383E 22:B82E: 0A        .byte $0A
-- D - I - 0x03383F 22:B82F: 05        .byte $05
+@txt_3:
+    .text "No"
+    .byte con_закончить
 
-- D - I - 0x033840 22:B830: 03        .byte $03
-
-- D - I - 0x033841 22:B831: 01        .byte $01
-- D - I - 0x033842 22:B832: 00        .byte $00
-- D - I - 0x033843 22:B833: 1C BE     .word off_BE1C
-- D - I - 0x033845 22:B835: 05        .byte $05
-- D - I - 0x033846 22:B836: 03        .byte $03
-- D - I - 0x033847 22:B837: 27 BE     .word off_BE27
-- D - I - 0x033849 22:B839: 07        .byte $07
-- D - I - 0x03384A 22:B83A: 03        .byte $03
-- D - I - 0x03384B 22:B83B: 2C BE     .word off_BE2C
+@txt_4:
+    .text "Yes"
+    .byte con_закончить
 
 
 
 
 
 
-off_B83D_2B_стенка_влево_вправо:
-- D - I - 0x03384D 22:B83D: 28 22     .word $2228
+off_B813_29_rearrange_select_done:
+    .word $2247
+; X * Y зачищаемой области
+    .byte $0F
+    .byte $0A
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0B
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $01
+    .word @txt_1
+    .byte $02
+    .byte $03
+    .word @txt_2
+    .byte $04
+    .byte $03
+    .word @txt_3
 
-- D - I - 0x03384F 22:B83F: 18        .byte $18
-- D - I - 0x033850 22:B840: 0A        .byte $0A
+@txt_1:
+    .text "Rearrange"
+    .byte con_закончить
 
-- D - I - 0x033851 22:B841: 03        .byte $03
-- D - I - 0x033852 22:B842: 03        .byte $03
+@txt_2:
+    .text "Select"
+    .byte con_закончить
 
-- D - I - 0x033853 22:B843: 09        .byte $09
-- D - I - 0x033854 22:B844: 05        .byte $05
+@txt_3:
+    .text "Done"
+    .byte con_закончить
 
-- D - I - 0x033855 22:B845: 03        .byte $03
 
-- D - I - 0x033856 22:B846: 01        .byte $01
-- D - I - 0x033857 22:B847: 03        .byte $03
-- D - I - 0x033858 22:B848: 32 BE     .word off_BE32
-- D - I - 0x03385A 22:B84A: 05        .byte $05
-- D - I - 0x03385B 22:B84B: 05        .byte $05
-- D - I - 0x03385C 22:B84C: 3C BE     .word off_BE3C
-- D - I - 0x03385E 22:B84E: 07        .byte $07
-- D - I - 0x03385F 22:B84F: 05        .byte $05
-- D - I - 0x033860 22:B850: 42 BE     .word off_BE42
+
+
+
+
+off_B828_2A_aim_left_right:
+    .word $2247
+; X * Y зачищаемой области
+    .byte $18
+    .byte $0A
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0B
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $03
+    .word @txt_1
+    .byte $02
+    .byte $03
+    .word @txt_2
+    .byte $04
+    .byte $03
+    .word @txt_3
+
+@txt_1:
+    .text " Aim "
+    .byte con_закончить
+
+@txt_2:
+    .text "Left"
+    .byte con_закончить
+
+@txt_3:
+    .text "Right"
+    .byte con_закончить
+
+
+
+
+
+
+off_B83D_2B_wall_left_right:
+    .word $2247
+; X * Y зачищаемой области
+    .byte $19
+    .byte $09
+; смещение окна X, Y
+    .byte $02
+    .byte $00
+; размер окна X, Y
+    .byte $0B
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $04
+    .word @txt_1
+    .byte $02
+    .byte $05
+    .word @txt_2
+    .byte $04
+    .byte $05
+    .word @txt_3
+
+@txt_1:
+    .text " Wall "
+    .byte con_закончить
+
+@txt_2:
+    .text "Left"
+    .byte con_закончить
+
+@txt_3:
+    .text "Right"
+    .byte con_закончить
 
 
 
@@ -2061,63 +2180,104 @@ off_B85F_2D_pk_dive:
 
 
 
-off_B86C_2E_кто_подает_угловой:
-- D - I - 0x03387C 22:B86C: 28 22     .word $2228
+off_B86C_2E_corner_kick_taker:
+    .word $2228
+; X * Y зачищаемой области
+    .byte $17
+    .byte $0B
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $17
+    .byte $0B
+; количество поинтеров
+    .byte $0B
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @name_2
+    .byte $04
+    .byte $03
+    .word @name_3
+    .byte $06
+    .byte $03
+    .word @name_4
+    .byte $08
+    .byte $03
+    .word @name_5
+    .byte $0A
+    .byte $03
+    .word @name_6
+    .byte $02
+    .byte $0D
+    .word @name_7
+    .byte $04
+    .byte $0D
+    .word @name_8
+    .byte $06
+    .byte $0D
+    .word @name_9
+    .byte $08
+    .byte $0D
+    .word @name_10
+    .byte $0A
+    .byte $0D
+    .word @name_11
 
-- D - I - 0x03387E 22:B86E: 18        .byte $18
-- D - I - 0x03387F 22:B86F: 0A        .byte $0A
+@txt:
+    .text " Corner Kick taker "
+    .byte con_закончить
 
-- D - I - 0x033880 22:B870: 00        .byte $00
-- D - I - 0x033881 22:B871: 01        .byte $01
+@name_2:
+    .byte con_menu_name, $01
+    .byte con_закончить
 
-- D - I - 0x033882 22:B872: 17        .byte $17
-- D - I - 0x033883 22:B873: 09        .byte $09
+@name_3:
+    .byte con_menu_name, $02
+    .byte con_закончить
 
-- D - I - 0x033884 22:B874: 0C        .byte $0C
+@name_4:
+    .byte con_menu_name, $03
+    .byte con_закончить
 
-- D - I - 0x033885 22:B875: 01        .byte $01
-- D - I - 0x033886 22:B876: 03        .byte $03
-- D - I - 0x033887 22:B877: AD BD     .word off_BDAD
-- D - I - 0x033889 22:B879: 01        .byte $01
-- D - I - 0x03388A 22:B87A: 0D        .byte $0D
-- D - I - 0x03388B 22:B87B: C3 BD     .word off_BDC3
-- D - I - 0x03388D 22:B87D: 03        .byte $03
-- D - I - 0x03388E 22:B87E: 03        .byte $03
-- D - I - 0x03388F 22:B87F: CE BD     .word off_BDCE
-- D - I - 0x033891 22:B881: 05        .byte $05
-- D - I - 0x033892 22:B882: 03        .byte $03
-- D - I - 0x033893 22:B883: D1 BD     .word off_BDD1
-- D - I - 0x033895 22:B885: 07        .byte $07
-- D - I - 0x033896 22:B886: 03        .byte $03
-- D - I - 0x033897 22:B887: D4 BD     .word off_BDD4
-- D - I - 0x033899 22:B889: 09        .byte $09
-- D - I - 0x03389A 22:B88A: 03        .byte $03
-- D - I - 0x03389B 22:B88B: D7 BD     .word off_BDD7
-- D - I - 0x03389D 22:B88D: 03        .byte $03
-- D - I - 0x03389E 22:B88E: 0A        .byte $0A
-- D - I - 0x03389F 22:B88F: DA BD     .word off_BDDA
-- D - I - 0x0338A1 22:B891: 05        .byte $05
-- D - I - 0x0338A2 22:B892: 0A        .byte $0A
-- D - I - 0x0338A3 22:B893: DD BD     .word off_BDDD
-- D - I - 0x0338A5 22:B895: 07        .byte $07
-- D - I - 0x0338A6 22:B896: 0A        .byte $0A
-- D - I - 0x0338A7 22:B897: E0 BD     .word off_BDE0
-- D - I - 0x0338A9 22:B899: 09        .byte $09
-- D - I - 0x0338AA 22:B89A: 0A        .byte $0A
-- D - I - 0x0338AB 22:B89B: E3 BD     .word off_BDE3
-- D - I - 0x0338AD 22:B89D: 03        .byte $03
-- D - I - 0x0338AE 22:B89E: 11        .byte $11
-- D - I - 0x0338AF 22:B89F: E6 BD     .word off_BDE6
-- D - I - 0x0338B1 22:B8A1: 05        .byte $05
-- D - I - 0x0338B2 22:B8A2: 11        .byte $11
-- D - I - 0x0338B3 22:B8A3: E9 BD     .word off_BDE9
+@name_5:
+    .byte con_menu_name, $04
+    .byte con_закончить
+
+@name_6:
+    .byte con_menu_name, $05
+    .byte con_закончить
+
+@name_7:
+    .byte con_menu_name, $06
+    .byte con_закончить
+
+@name_8:
+    .byte con_menu_name, $07
+    .byte con_закончить
+
+@name_9:
+    .byte con_menu_name, $08
+    .byte con_закончить
+
+@name_10:
+    .byte con_menu_name, $09
+    .byte con_закончить
+
+@name_11:
+    .byte con_menu_name, $0A
+    .byte con_закончить
 
 
 
 
 
 
-off_B8A5_2F_кто_бьет_нарушение:
+off_B8A5_2F_select_penalty_taker:
     .word $2228
 ; X * Y зачищаемой области
     .byte $17
@@ -3572,228 +3732,6 @@ off_BD76:
 - D - I - 0x033D8D 22:BD7D: 00        .byte $00
 - D - I - 0x033D8E 22:BD7E: EC        .byte con_stats_gk, con_gk_catch
 - D - I - 0x033D90 22:BD80: FC        .byte con_закончить
-
-off_BD81:
-- D - I - 0x033D91 22:BD81: 4C        .byte $4C
-- D - I - 0x033D92 22:BD82: 71        .byte $71
-- D - I - 0x033D93 22:BD83: 7D        .byte $7D
-- D - I - 0x033D94 22:BD84: 54        .byte $54
-- D - I - 0x033D95 22:BD85: 16        .byte $16
-- D - I - 0x033D96 22:BD86: 00        .byte $00
-- D - I - 0x033D97 22:BD87: 00        .byte $00
-- D - I - 0x033D98 22:BD88: 00        .byte $00
-- D - I - 0x033D99 22:BD89: EC        .byte con_stats_gk, con_gk_stop_dribble
-- D - I - 0x033D9B 22:BD8B: FC        .byte con_закончить
-
-off_BD8C:
-- D - I - 0x033D9C 22:BD8C: C2        .byte $C2
-- D - I - 0x033D9D 22:BD8D: 68        .byte $68
-- D - I - 0x033D9E 22:BD8E: C5        .byte $C5
-- D - I - 0x033D9F 22:BD8F: 69        .byte $69
-- D - I - 0x033DA0 22:BD90: 16        .byte $16
-- D - I - 0x033DA1 22:BD91: 00        .byte $00
-- D - I - 0x033DA2 22:BD92: 00        .byte $00
-- D - I - 0x033DA3 22:BD93: 00        .byte $00
-- D - I - 0x033DA4 22:BD94: EC        .byte con_stats_gk, con_gk_stop_shot
-- D - I - 0x033DA6 22:BD96: FC        .byte con_закончить
-
-off_BD97:
-- D - I - 0x033DA7 22:BD97: 0F        .byte $0F
-- D - I - 0x033DA8 22:BD98: 15        .byte $15
-- D - I - 0x033DA9 22:BD99: 04        .byte $04
-- D - I - 0x033DAA 22:BD9A: 29        .byte $29
-- D - I - 0x033DAB 22:BD9B: FC        .byte con_закончить
-
-off_BDA2:
-- D - I - 0x033DB2 22:BDA2: 5C        .byte $5C
-- D - I - 0x033DB3 22:BDA3: 68        .byte $68
-- D - I - 0x033DB4 22:BDA4: 7D        .byte $7D
-- D - I - 0x033DB5 22:BDA5: 47        .byte $47
-- D - I - 0x033DB6 22:BDA6: 6F        .byte $6F
-- D - I - 0x033DB7 22:BDA7: 48        .byte $48
-- D - I - 0x033DB8 22:BDA8: 00        .byte $00
-- D - I - 0x033DB9 22:BDA9: 00        .byte $00
-- D - I - 0x033DBA 22:BDAA: 00        .byte $00
-- D - I - 0x033DBB 22:BDAB: 00        .byte $00
-- D - I - 0x033DBC 22:BDAC: FC        .byte con_закончить
-
-off_BDAD:
-- D - I - 0x033DBD 22:BDAD: 4A        .byte $4A
-- D - I - 0x033DBE 22:BDAE: 7D        .byte $7D
-- D - I - 0x033DBF 22:BDAF: 55        .byte $55
-- D - I - 0x033DC0 22:BDB0: 7D        .byte $7D
-- D - I - 0x033DC1 22:BDB1: 47        .byte $47
-- D - I - 0x033DC2 22:BDB2: 6F        .byte $6F
-- D - I - 0x033DC3 22:BDB3: 48        .byte $48
-- D - I - 0x033DC4 22:BDB4: 00        .byte $00
-- D - I - 0x033DC5 22:BDB5: 00        .byte $00
-- D - I - 0x033DC6 22:BDB6: 00        .byte $00
-- D - I - 0x033DC7 22:BDB7: FC        .byte con_закончить
-
-off_BDC3:
-- D - I - 0x033DD3 22:BDC3: 47        .byte $47
-- D - I - 0x033DD4 22:BDC4: 6F        .byte $6F
-- D - I - 0x033DD5 22:BDC5: 46        .byte $46
-- D - I - 0x033DD6 22:BDC6: 7D        .byte $7D
-- D - I - 0x033DD7 22:BDC7: 1A        .byte $1A
-- D - I - 0x033DD8 22:BDC8: 00        .byte $00
-- D - I - 0x033DD9 22:BDC9: 78        .byte $78
-- D - I - 0x033DDA 22:BDCA: FC        .byte con_закончить
-
-off_BDCE:
-    .byte con_menu_name, $01
-    .byte con_закончить
-
-off_BDD1:
-    .byte con_menu_name, $02
-    .byte con_закончить
-
-off_BDD4:
-    .byte con_menu_name, $03
-    .byte con_закончить
-
-off_BDD7:
-    .byte con_menu_name, $04
-    .byte con_закончить
-
-off_BDDA:
-    .byte con_menu_name, $05
-    .byte con_закончить
-
-off_BDDD:
-    .byte con_menu_name, $06
-    .byte con_закончить
-
-off_BDE0:
-    .byte con_menu_name, $07
-    .byte con_закончить
-
-off_BDE3:
-    .byte con_menu_name, $08
-    .byte con_закончить
-
-off_BDE6:
-    .byte con_menu_name, $09
-    .byte con_закончить
-
-off_BDE9:
-    .byte con_menu_name, $0A
-    .byte con_закончить
-
-off_BDEC:
-- D - I - 0x033DFC 22:BDEC: 0E        .byte $0E
-- D - I - 0x033DFD 22:BDED: 2E        .byte $2E
-- D - I - 0x033DFE 22:BDEE: 0C        .byte $0C
-- D - I - 0x033DFF 22:BDEF: 31        .byte $31
-- D - I - 0x033E00 22:BDF0: 19        .byte $19
-- D - I - 0x033E01 22:BDF1: 00        .byte $00
-- D - I - 0x033E02 22:BDF2: D1        .byte $D1
-- D - I - 0x033E03 22:BDF3: BA        .byte $BA
-- D - I - 0x033E04 22:BDF4: 4C        .byte $4C
-- D - I - 0x033E05 22:BDF5: 72        .byte $72
-- D - I - 0x033E06 22:BDF6: 6E        .byte $6E
-- D - I - 0x033E07 22:BDF7: 2D        .byte $2D
-- D - I - 0x033E08 22:BDF8: 00        .byte $00
-- D - I - 0x033E09 22:BDF9: 06        .byte $06
-- D - I - 0x033E0A 22:BDFA: 04        .byte $04
-- D - I - 0x033E0B 22:BDFB: 1F        .byte $1F
-- D - I - 0x033E0C 22:BDFC: 0D        .byte $0D
-- D - I - 0x033E0D 22:BDFD: 06        .byte $06
-- D - I - 0x033E0E 22:BDFE: 00        .byte $00
-- D - I - 0x033E0F 22:BDFF: 78        .byte $78
-- D - I - 0x033E10 22:BE00: FC        .byte con_закончить
-
-off_BE01:
-- D - I - 0x033E11 22:BE01: 06        .byte $06
-- D - I - 0x033E12 22:BE02: 04        .byte $04
-- D - I - 0x033E13 22:BE03: 15        .byte $15
-- D - I - 0x033E14 22:BE04: 02        .byte $02
-- D - I - 0x033E15 22:BE05: FC        .byte con_закончить
-
-off_BE06:
-- D - I - 0x033E16 22:BE06: 06        .byte $06
-- D - I - 0x033E17 22:BE07: 04        .byte $04
-- D - I - 0x033E18 22:BE08: 29        .byte $29
-- D - I - 0x033E19 22:BE09: FC        .byte con_закончить
-
-off_BE0A:
-- D - I - 0x033E1A 22:BE0A: D1        .byte $D1
-- D - I - 0x033E1B 22:BE0B: BA        .byte $BA
-- D - I - 0x033E1C 22:BE0C: 4C        .byte $4C
-- D - I - 0x033E1D 22:BE0D: 72        .byte $72
-- D - I - 0x033E1E 22:BE0E: 6E        .byte $6E
-- D - I - 0x033E1F 22:BE0F: 02        .byte $02
-- D - I - 0x033E20 22:BE10: AE        .byte $AE
-- D - I - 0x033E21 22:BE11: 03        .byte $03
-- D - I - 0x033E22 22:BE12: FC        .byte con_закончить
-
-off_BE13:
-- D - I - 0x033E23 22:BE13: 51        .byte $51
-- D - I - 0x033E24 22:BE14: 75        .byte $75
-- D - I - 0x033E25 22:BE15: 6E        .byte $6E
-- D - I - 0x033E26 22:BE16: BA        .byte $BA
-- D - I - 0x033E27 22:BE17: FC        .byte con_закончить
-
-off_BE18:
-- D - I - 0x033E28 22:BE18: 05        .byte $05
-- D - I - 0x033E29 22:BE19: 2C        .byte $2C
-- D - I - 0x033E2A 22:BE1A: 28        .byte $28
-- D - I - 0x033E2B 22:BE1B: FC        .byte con_закончить
-
-off_BE1C:
-- D - I - 0x033E2C 22:BE1C: 4C        .byte $4C
-- D - I - 0x033E2D 22:BE1D: 71        .byte $71
-- D - I - 0x033E2E 22:BE1E: 7D        .byte $7D
-- D - I - 0x033E2F 22:BE1F: 54        .byte $54
-- D - I - 0x033E30 22:BE20: 4A        .byte $4A
-- D - I - 0x033E31 22:BE21: 7D        .byte $7D
-- D - I - 0x033E32 22:BE22: 4D        .byte $4D
-- D - I - 0x033E33 22:BE23: 1A        .byte $1A
-- D - I - 0x033E34 22:BE24: 00        .byte $00
-- D - I - 0x033E35 22:BE25: 78        .byte $78
-- D - I - 0x033E36 22:BE26: FC        .byte con_закончить
-
-off_BE27:
-- D - I - 0x033E37 22:BE27: 20        .byte $20
-- D - I - 0x033E38 22:BE28: A1        .byte $A1
-- D - I - 0x033E39 22:BE29: 4D        .byte $4D
-- D - I - 0x033E3A 22:BE2A: 60        .byte $60
-- D - I - 0x033E3B 22:BE2B: FC        .byte con_закончить
-
-off_BE2C:
-- D - I - 0x033E3C 22:BE2C: 1B        .byte $1B
-- D - I - 0x033E3D 22:BE2D: AA        .byte $AA
-- D - I - 0x033E3E 22:BE2E: 28        .byte $28
-- D - I - 0x033E3F 22:BE2F: 4D        .byte $4D
-- D - I - 0x033E40 22:BE30: 60        .byte $60
-- D - I - 0x033E41 22:BE31: FC        .byte con_закончить
-
-off_BE32:
-- D - I - 0x033E42 22:BE32: 46        .byte $46
-- D - I - 0x033E43 22:BE33: C6        .byte $C6
-- D - I - 0x033E44 22:BE34: 19        .byte $19
-- D - I - 0x033E45 22:BE35: 00        .byte $00
-- D - I - 0x033E46 22:BE36: 02        .byte $02
-- D - I - 0x033E47 22:BE37: 11        .byte $11
-- D - I - 0x033E48 22:BE38: 1A        .byte $1A
-- D - I - 0x033E49 22:BE39: 00        .byte $00
-- D - I - 0x033E4A 22:BE3A: 78        .byte $78
-- D - I - 0x033E4B 22:BE3B: FC        .byte con_закончить
-
-off_BE3C:
-- D - I - 0x033E4C 22:BE3C: 1B        .byte $1B
-- D - I - 0x033E4D 22:BE3D: AA        .byte $AA
-- D - I - 0x033E4E 22:BE3E: 28        .byte $28
-- D - I - 0x033E4F 22:BE3F: 26        .byte $26
-- D - I - 0x033E50 22:BE40: 28        .byte $28
-- D - I - 0x033E51 22:BE41: FC        .byte con_закончить
-
-off_BE42:
-- D - I - 0x033E52 22:BE42: 20        .byte $20
-- D - I - 0x033E53 22:BE43: A1        .byte $A1
-- D - I - 0x033E54 22:BE44: 26        .byte $26
-- D - I - 0x033E55 22:BE45: 28        .byte $28
-- D - I - 0x033E56 22:BE46: FC        .byte con_закончить
 
 off_BE6F:
 - D - I - 0x033E7F 22:BE6F: 0C        .byte $0C

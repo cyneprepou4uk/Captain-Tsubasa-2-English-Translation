@@ -4186,10 +4186,10 @@ C - - - - 0x035D8E 23:9D7E: 8D 15 05  STA $0515
 C - - - - 0x035D91 23:9D81: 60        RTS
 
 tbl_9D82_адрес_ppu_курсора:
-    .word $22CC, $230C
-    .word $2289, $22C9
-    .word $22C9, $2309
-    .word $22CC, $230C
+    .word $22ED, $232D      ; rearrange players no/yes
+    .word $2288, $22C8      ; rearrange select/done
+    .word $2288, $22C8      ; aim left/right
+    .word $228A, $22CA      ; wall left/right
     .word $2289, $22C9      ; resume/edit team data
 
 tbl_9D96_тайл_курсора:

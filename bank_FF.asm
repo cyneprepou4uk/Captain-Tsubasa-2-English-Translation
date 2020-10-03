@@ -2904,7 +2904,7 @@ C - - - - 0x03D8F0 FF:D8E0: 0A        ASL
 C - - - - 0x03D8F1 FF:D8E1: 18        CLC
 C - - - - 0x03D8F2 FF:D8E2: 69 9A     ADC #$99
 C - - - - 0x03D8F4 FF:D8E4: 8D FC 02  STA ram_спрайт_Y + $FC
-C - - - - 0x03D8F7 FF:D8E7: A9 11     LDA #$11
+C - - - - 0x03D8F7 FF:D8E7: A9 11     LDA #$70
 C - - - - 0x03D8F9 FF:D8E9: 8D FD 02  STA ram_спрайт_тайл + $FC
 C - - - - 0x03D8FC FF:D8EC: A9 03     LDA #$03
 C - - - - 0x03D8FE FF:D8EE: 8D FE 02  STA ram_спрайт_атрибут + $FC
@@ -5423,7 +5423,7 @@ tbl_E9DA_действия:
 - D - - - 0x03EA08 FF:E9F8: B7 EA     .word off_EAB7_0F_power_block
 - D - - - 0x03EA0A FF:E9FA: C4 EA     .word off_EAC4_10_passcut
 - D - - - 0x03EA0C FF:E9FC: CE EA     .word off_EACE_11_skylab_passcut
-- D - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_wait_player
+- D - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_wait
 - D - - - 0x03EA10 FF:EA00: E6 EA     .word off_EAE6_13_mark
 - D - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_interfere
 - D - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_clearing
@@ -5431,7 +5431,7 @@ tbl_E9DA_действия:
 - D - - - 0x03EA18 FF:EA08: 0D EB     .word off_EB0D_17_catch
 - D - - - 0x03EA1A FF:EA0A: 17 EB     .word off_EB17_18_triangle_jump
 - D - - - 0x03EA1C FF:EA0C: 26 EB     .word off_EB26_19_dive
-- D - - - 0x03EA1E FF:EA0E: 33 EB     .word off_EB33_1A_wait_gk
+- D - - - 0x03EA1E FF:EA0E: 33 EB     .word off_EB33_1A_stay
 - D - - - 0x03EA20 FF:EA10: 3E EB     .word off_EB3E_1B_stop_shot
 - D - - - 0x03EA22 FF:EA12: 4C EB     .word off_EB4C_1C_stop_dribble
 - D - - - 0x03EA24 FF:EA14: 5E EB     .word off_EB5E_1D_________lines
@@ -5469,15 +5469,15 @@ off_EA51_05_through:
     .byte $25
     .text " Through "
 
-off_EA59_06_clearing:
+off_EA59_06_clearing:       ; когда ты в своей штрафной с мячом
     .word $2288
     .byte $25
-    .text "Clearing1"
+    .text " Clearing"
 
 off_EA61_07_подкат:
     .word $2288
     .byte $25
-    .text "  Tackle "
+    .text "   Tackle"
 
 off_EA6A_08_skylab_tackle:
     .word $2288
@@ -5502,7 +5502,7 @@ off_EA87_0B_tiger_tackle:
 off_EA94_0C_block:
     .word $2288
     .byte $25
-    .text "   Block "
+    .text "    Block"
 
 off_EA9F_0D_skylab_block:
     .word $2288
@@ -5527,27 +5527,27 @@ off_EAC4_10_passcut:      ; в воздухе понизу
 off_EACE_11_skylab_passcut:
     .word $2288
     .byte $25
-    .text "SkylabCut"
+    .text "SkLab Cut"
 
-off_EADB_12_wait_player:    ; skip, cancel, follow, mark, dribble
+off_EADB_12_wait:       ; player
     .word $2288
     .byte $25
-    .text "   Wait  "
+    .text "     Wait"
 
 off_EAE6_13_mark:           ; когда соперник в твоей штрафной принимает мяч
     .word $2288
     .byte $25
-    .text "    Mark "
+    .text "     Mark"
 
 off_EAEF_14_interfere:
     .word $2288
     .byte $25
-    .text "Interfer1"
+    .text "Interfere"
 
 off_EAF8_15_clearing:       ; когда соперник в твоей штрафной принимает мяч
     .word $2288
     .byte $25
-    .text "Clearing2"
+    .text " Clearing"
 
 off_EB01_16_punch:
     .word $2288
@@ -5570,21 +5570,21 @@ off_EB26_19_dive:
     .byte $25
     .text "   Dive  "
 
-off_EB33_1A_wait_gk:
+off_EB33_1A_stay:       ; GK
     .word $2288
     .byte $25
-    .text "   Wait  "
+    .text "   Stay  "
 
 off_EB3E_1B_stop_shot:
     .word $2288
     .byte $26
-    .text "   Stop  "
-    .text "   shot  "
+    .text "Stop shot"
+    .text "         "
 
 off_EB4C_1C_stop_dribble:
     .word $2288
     .byte $26
-    .text "   Stop  "
+    .text "  Stop   "
     .text " dribble "
 
 off_EB5E_1D_________lines:

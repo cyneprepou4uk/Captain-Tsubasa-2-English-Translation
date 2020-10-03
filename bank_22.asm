@@ -1749,7 +1749,7 @@ C - - - - 0x030A98 22:8A88: E6 40     INC ram_0040
 C - - - - 0x030A9A 22:8A8A: B1 3E     LDA (ram_003E),Y
 C - - - - 0x030A9C 22:8A8C: AA        TAX
 C - - - - 0x030A9D 22:8A8D: BD 01 06  LDA ram_номер_нападающего,X
-C - - - - 0x030AA0 22:8A90: 4C 1A 8D  JMP loc_8D1A
+C - - - - 0x030AA0 22:8A90: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 ofs_8A93_E6:
 C - J - - 0x030AA3 22:8A93: A4 40     LDY ram_0040
@@ -1792,7 +1792,7 @@ C - - - - 0x030ADF 22:8ACF: 90 03     BCC bra_8AD4
 C - - - - 0x030AE1 22:8AD1: F0 01     BEQ bra_8AD4
 C - - - - 0x030AE3 22:8AD3: 60        RTS
 bra_8AD4:
-C - - - - 0x030AE4 22:8AD4: 4C 1A 8D  JMP loc_8D1A
+C - - - - 0x030AE4 22:8AD4: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 ofs_8AD7_EB_имя_кипера_и_позиция:
 C - J - - 0x030AE7 22:8AD7: AD FB 05  LDA ram_команда_с_мячом
@@ -1952,11 +1952,11 @@ ofs_8BD5_F1_имена_из_меню:
 C - J - - 0x030BE5 22:8BD5: A4 40     LDY ram_0040
 C - - - - 0x030BE7 22:8BD7: E6 40     INC ram_0040
 C - - - - 0x030BE9 22:8BD9: B1 3E     LDA (ram_003E),Y
-C - - - - 0x030BEB 22:8BDB: 4C 1A 8D  JMP loc_8D1A
+C - - - - 0x030BEB 22:8BDB: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 ofs_8BDE_F2_имя_управляемого_игрока:
 C - J - - 0x030BEE 22:8BDE: AD FD 05  LDA ram_управляемый
-C - - - - 0x030BF1 22:8BE1: 4C 1A 8D  JMP loc_8D1A
+C - - - - 0x030BF1 22:8BE1: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 ofs_8BE4_F3:
 - - - - - 0x030BF4 22:8BE4: AD FD 05  LDA ram_управляемый
@@ -1964,7 +1964,7 @@ ofs_8BE4_F3:
 
 ofs_8BEA_F4_имя_игрока_с_мячом:
 C - J - - 0x030BFA 22:8BEA: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - 0x030BFD 22:8BED: 4C 1A 8D  JMP loc_8D1A
+C - - - - 0x030BFD 22:8BED: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 ofs_8BF0_F5:
 C - J - - 0x030C00 22:8BF0: A4 40     LDY ram_0040
@@ -1999,7 +1999,7 @@ C D - - - 0x030C2E 22:8C1E: E6 49     INC ram_0049
 C D - - - 0x030C30 22:8C20: D0 E7     BNE bra_8C09
 bra_8C22:
 C - - - - 0x030C32 22:8C22: E6 49     INC ram_0049
-C - - - - 0x030C34 22:8C24: 20 1A 8D  JSR sub_8D1A
+C - - - - 0x030C34 22:8C24: 20 1A 8D  JSR sub_8D1A_вывести_имя
 C - - - - 0x030C37 22:8C27: A4 3C     LDY ram_003C
 C - - - - 0x030C39 22:8C29: 88        DEY
 C - - - - 0x030C3A 22:8C2A: F0 1A     BEQ bra_8C46_выход
@@ -2127,7 +2127,7 @@ C - - - - 0x030D07 22:8CF7: 20 9F 8C  JSR sub_8C9F_записать_символ
 C - - - - 0x030D0A 22:8CFA: A9 00     LDA #$00
 C - - - - 0x030D0D 22:8CFD: 20 9F 8C  JSR sub_8C9F_записать_символ_в_буфер_и_увеличить_индекс
 C - - - - 0x030D10 22:8D00: 68        PLA
-C - - - - 0x030D11 22:8D01: 4C 1A 8D  JMP loc_8D1A
+C - - - - 0x030D11 22:8D01: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 tbl_8D04_сокращения_позиций_игроков:
     .text "GK"        ; 1
@@ -2142,8 +2142,8 @@ tbl_8D04_сокращения_позиций_игроков:
     .text "MF"        ; 10
     .text "FW"        ; 11
 
-loc_8D1A:
-sub_8D1A:
+loc_8D1A_вывести_имя:
+sub_8D1A_вывести_имя:
 C D - - - 0x030D2A 22:8D1A: 85 47     STA ram_0047
 C - - - - 0x030D2C 22:8D1C: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x030D2F 22:8D1F: A0 00     LDY #con_игрок_номер
@@ -2189,11 +2189,11 @@ C - - - - 0x030D9C 22:8D8C: 49 FF     EOR #$FF
 C - - - - 0x030D9E 22:8D8E: 18        CLC
 C - - - - 0x030D9F 22:8D8F: 69 01     ADC #$01
 C - - - - 0x030DA1 22:8D91: 85 47     STA ram_0047
-bra_8D93:
+bra_8D93_цикл_добавления_пробелов_после_имени:
 C - - - - 0x030DA3 22:8D93: A9 00     LDA #$00
 C - - - - 0x030DA6 22:8D96: 20 9F 8C  JSR sub_8C9F_записать_символ_в_буфер_и_увеличить_индекс
 C - - - - 0x030DA9 22:8D99: C6 47     DEC ram_0047
-C - - - - 0x030DAB 22:8D9B: D0 F6     BNE bra_8D93
+C - - - - 0x030DAB 22:8D9B: D0 F6     BNE bra_8D93_цикл_добавления_пробелов_после_имени
 bra_8D9D_выход:
 C - - - - 0x030DAD 22:8D9D: 60        RTS
 
