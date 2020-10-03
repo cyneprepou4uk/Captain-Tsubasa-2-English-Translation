@@ -896,7 +896,8 @@ C - J - - 0x0026D4 02:A6C4: A6 26     LDX ram_матч
 C - - - - 0x0026D6 02:A6C6: BD 1B B4  LDA tbl_B41B_номер_катсцены_с_игроками,X
 C - - - - 0x0026D9 02:A6C9: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0026DC 02:A6CC: 20 A9 82  JSR sub_0x0002B9
-C - - - - 0x0026DF 02:A6CF: 4C 15 A7  JMP loc_A715
+C - - - - 0x0026DF 02:A6CF: 4C 15 A7  JSR sub_0x001BB0
+                                      RTS
 
 .export loc_0x0026E2_перерыв
 loc_0x0026E2_перерыв:
@@ -930,8 +931,6 @@ C - - - - 0x00271D 02:A70D: 4C E8 A6  JMP loc_A6E8
 bra_A710:
 C - - - - 0x002720 02:A710: A9 31     LDA #$31
 C - - - - 0x002722 02:A712: 8D 00 07  STA ram_звук
-loc_A715:
-; bzk неэкономично
 C D - - - 0x002725 02:A715: 20 A0 9B  JSR sub_0x001BB0
 C - - - - 0x002728 02:A718: 60        RTS
 
