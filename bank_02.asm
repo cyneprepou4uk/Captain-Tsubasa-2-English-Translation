@@ -1629,7 +1629,7 @@ bra_AC3D_A_не_нажата:
 C - - - - 0x002C4D 02:AC3D: 10 F2     BPL bra_AC31_B_не_нажата
 C - - - - 0x002C4F 02:AC3F: A0 00     LDY #con_игрок_номер
 C - - - - 0x002C51 02:AC41: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x002C53 02:AC43: A2 27     LDX #$27
+C - - - - 0x002C53 02:AC43: A2 27     LDX #$2A
 bra_AC45_цикл:
 C - - - - 0x002C55 02:AC45: CA        DEX
 C - - - - 0x002C56 02:AC46: CA        DEX
@@ -4198,6 +4198,9 @@ tbl_BB2E_список_спешалов_игроков:
     .byte $18
     .word off_BBC8_казуо
 
+    .byte $19
+    .word off_BBEB_сано
+
     .byte $1A
     .word off_BBEC_хюга
 
@@ -4425,6 +4428,21 @@ off_BBC8_казуо:
 
 
 
+
+
+off_BBEB_сано:
+    .byte $00
+    .byte $A8       ; overhead kick
+    .byte $00
+    .byte $0E
+    .byte $06
+    
+    .byte $FF
+
+
+
+
+
 off_BBEC_хюга:
     .byte $00
     .byte $A6       ; tiger shot
@@ -4523,6 +4541,12 @@ off_BC30_мацуяма:
     .byte $A5       ; eagle shot
     .byte $00
     .byte $0B
+    .byte $06
+    
+    .byte $00
+    .byte $A8       ; overhead kick
+    .byte $00
+    .byte $0E
     .byte $06
     
     .byte $FF
