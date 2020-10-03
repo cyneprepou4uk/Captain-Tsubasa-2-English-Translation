@@ -4435,7 +4435,7 @@ off_BBEC_хюга:
     .byte $06
     
     .byte $00
-    .byte $A7       ; neo tiger shot
+    .byte $A7       ; neo-tiger shot
     .byte $00
     .byte $0D
     .byte $06

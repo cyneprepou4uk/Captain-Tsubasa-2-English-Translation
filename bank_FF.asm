@@ -5481,21 +5481,18 @@ off_EA61_07_подкат:
 
 off_EA6A_08_skylab_tackle:
     .word $2288
-    .byte $22
-    .text " Skylab "
-    .text " Tackle "
+    .byte $25
+    .text "SkLab Tkl"
 
 off_EA73_09_razor_tackle:
     .word $2288
-    .byte $22
-    .text " Razor  "
-    .text " Tackle "
+    .byte $25
+    .text "Razor Tkl"
 
 off_EA7C_0A_power_tackle:
     .word $2288
-    .byte $22
-    .text " Power  "
-    .text " Tackle "
+    .byte $25
+    .text "Power Tkl"
 
 off_EA87_0B_tiger_tackle:
     .word $2288
@@ -5510,12 +5507,12 @@ off_EA94_0C_block:
 off_EA9F_0D_skylab_block:
     .word $2288
     .byte $25
-    .text "SkylabBlk"
+    .text "SkLab Blk"
 
 off_EAAC_0E_face_block:
     .word $2288
-    .byte $22
-    .text "FaceBlock"
+    .byte $25
+    .text " Face Blk"
 
 off_EAB7_0F_power_block:
     .word $2288
@@ -5596,17 +5593,17 @@ off_EB5E_1D_________lines:
     .text "---------"
 
 off_EB67_1E_left:
-    .word $22C8
+    .word $2288
     .byte $25
     .text "Left     "
 
 off_EB72_1F_center:
-    .word $22C8
+    .word $2288
     .byte $25
     .text "  Center "
 
 off_EB7B_20_right:
-    .word $22C8
+    .word $2288
     .byte $25
     .text "    Right"
 
@@ -7823,7 +7820,7 @@ off_F882_A6:        ; tiger shot
     .text "A6 "     ; <タイガーショット>
     .byte $FC
 
-off_F88B_A7:        ; neo tiger shot
+off_F88B_A7:        ; neo-tiger shot
     .text "A7 "     ; <ネオ • タイガーショット>
     .byte $FC
 
