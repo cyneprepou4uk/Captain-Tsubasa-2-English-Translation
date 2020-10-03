@@ -67,9 +67,9 @@ tbl_0x40004_вид_меню:
     .word off_BA39_3B_кого_отправить_на_скамейку
     .word off_BAA2_3C_энергия_основного_состава
     .word off_BB03_3D_энергия_запасного_состава
-    .word off_BB5C_3E_кто_бьет_пенальти
-    .word off_BB69_3F_выбор_игроков_на_пенальти
-    .word off_BB9E_40_выбранные_игроки_на_пенальти
+    .word off_BB5C_3E_pk_shootout_select_taker
+    .word off_BB69_3F_pk_players_list
+    .word off_BB9E_40_pk_order
     .word off_BBBF_41_пенальти_после_матча
 
 
@@ -105,8 +105,8 @@ con_stats_defense                       = $E8           ; статы защит�
     con_def_clearing                        = $0C
     con_def_interfere                       = $0D
     con_def_passcut_2                       = $0E           ; на штрафной
-con_rec_passiever_name_teammate         = $E9           ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
-con_rec_passiever_name_opponent         = $EA           ; + номер 00-04, имя принимающего пас соперника (для списка из нескольких игроков)
+con_rec_name_teammate                   = $E9           ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
+con_rec_name_opponent                   = $EA           ; + номер 00-04, имя принимающего пас соперника (для списка из нескольких игроков)
 con_gk_name_pos                         = $EB
 con_stats_gk                            = $EC
     con_gk_stamina                         = $00
@@ -1186,11 +1186,11 @@ off_B673_19_show_2_teammates:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_rec_passiever_name_teammate, $00
+    .byte con_rec_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_rec_passiever_name_teammate, $01
+    .byte con_rec_name_teammate, $01
     .byte con_закончить
 
 
@@ -1230,15 +1230,15 @@ off_B688_1A_show_3_teammates:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_rec_passiever_name_teammate, $00
+    .byte con_rec_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_rec_passiever_name_teammate, $01
+    .byte con_rec_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_rec_passiever_name_teammate, $02
+    .byte con_rec_name_teammate, $02
     .byte con_закончить
 
 
@@ -1281,19 +1281,19 @@ off_B6A1_1B_show_4_teammates:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_rec_passiever_name_teammate, $00
+    .byte con_rec_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_rec_passiever_name_teammate, $01
+    .byte con_rec_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_rec_passiever_name_teammate, $02
+    .byte con_rec_name_teammate, $02
     .byte con_закончить
 
 @reciever_4:
-    .byte con_rec_passiever_name_teammate, $03
+    .byte con_rec_name_teammate, $03
     .byte con_закончить
 
 
@@ -1476,7 +1476,7 @@ off_B71E_20_show_1_opponent:
     .byte con_закончить
 
 @opponent_1:
-    .byte con_rec_passiever_name_opponent, $00
+    .byte con_rec_name_opponent, $00
     .byte con_закончить
 
 
@@ -1513,11 +1513,11 @@ off_B72F_21_show_2_opponents:
     .byte con_закончить
 
 @opponent_1:
-    .byte con_rec_passiever_name_opponent, $00
+    .byte con_rec_name_opponent, $00
     .byte con_закончить
 
 @opponent_2:
-    .byte con_rec_passiever_name_opponent, $01
+    .byte con_rec_name_opponent, $01
     .byte con_закончить
 
 
@@ -1557,15 +1557,15 @@ off_B744_22_show_3_opponents:
     .byte con_закончить
 
 @opponent_1:
-    .byte con_rec_passiever_name_opponent, $00
+    .byte con_rec_name_opponent, $00
     .byte con_закончить
 
 @opponent_2:
-    .byte con_rec_passiever_name_opponent, $01
+    .byte con_rec_name_opponent, $01
     .byte con_закончить
 
 @opponent_3:
-    .byte con_rec_passiever_name_opponent, $02
+    .byte con_rec_name_opponent, $02
     .byte con_закончить
 
 
@@ -1608,19 +1608,19 @@ off_B75D_23_show_4_opponents:
     .byte con_закончить
 
 @opponent_1:
-    .byte con_rec_passiever_name_opponent, $00
+    .byte con_rec_name_opponent, $00
     .byte con_закончить
 
 @opponent_2:
-    .byte con_rec_passiever_name_opponent, $01
+    .byte con_rec_name_opponent, $01
     .byte con_закончить
 
 @opponent_3:
-    .byte con_rec_passiever_name_opponent, $02
+    .byte con_rec_name_opponent, $02
     .byte con_закончить
 
 @opponent_4:
-    .byte con_rec_passiever_name_opponent, $03
+    .byte con_rec_name_opponent, $03
     .byte con_закончить
 
 
@@ -1657,11 +1657,11 @@ off_B77A_24_select_1_of_2_teammates_for_pass:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_rec_passiever_name_teammate, $00
+    .byte con_rec_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_rec_passiever_name_teammate, $01
+    .byte con_rec_name_teammate, $01
     .byte con_закончить
 
 
@@ -1701,15 +1701,15 @@ off_B78F_25_select_1_of_3_teammates_for_pass:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_rec_passiever_name_teammate, $00
+    .byte con_rec_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_rec_passiever_name_teammate, $01
+    .byte con_rec_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_rec_passiever_name_teammate, $02
+    .byte con_rec_name_teammate, $02
     .byte con_закончить
 
 
@@ -1752,19 +1752,19 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
     .byte con_закончить
 
 @reciever_1:
-    .byte con_rec_passiever_name_teammate, $00
+    .byte con_rec_name_teammate, $00
     .byte con_закончить
 
 @reciever_2:
-    .byte con_rec_passiever_name_teammate, $01
+    .byte con_rec_name_teammate, $01
     .byte con_закончить
 
 @reciever_3:
-    .byte con_rec_passiever_name_teammate, $02
+    .byte con_rec_name_teammate, $02
     .byte con_закончить
 
 @reciever_4:
-    .byte con_rec_passiever_name_teammate, $03
+    .byte con_rec_name_teammate, $03
     .byte con_закончить
 
 
@@ -3217,114 +3217,155 @@ off_BB03_3D_энергия_запасного_состава:
 
 
 
-off_BB5C_3E_кто_бьет_пенальти:
-- D - I - 0x033B6C 22:BB5C: 00 20     .word $2000
+off_BB5C_3E_pk_shootout_select_taker:
+    .word $2060
+; X * Y зачищаемой области
+    .byte $20
+    .byte $01
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $20
+    .byte $01
+; количество поинтеров
+    .byte $01
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $03
+    .word @txt
 
-- D - I - 0x033B6E 22:BB5E: 20        .byte $20
-- D - I - 0x033B6F 22:BB5F: 1D        .byte $1D
-
-- D - I - 0x033B70 22:BB60: 00        .byte $00
-- D - I - 0x033B71 22:BB61: 00        .byte $00
-
-- D - I - 0x033B72 22:BB62: 03        .byte $03
-- D - I - 0x033B73 22:BB63: 02        .byte $02
-
-- D - I - 0x033B74 22:BB64: 01        .byte $01
-
-- D - I - 0x033B75 22:BB65: 04        .byte $04
-- D - I - 0x033B76 22:BB66: 07        .byte $07
-- D - I - 0x033B77 22:BB67: 95 BF     .word off_BF95
-
-
-
-
-
-
-off_BB69_3F_выбор_игроков_на_пенальти:
-- D - I - 0x033B79 22:BB69: A3 20     .word $20A3
-
-- D - I - 0x033B7B 22:BB6B: 0B        .byte $0B
-- D - I - 0x033B7C 22:BB6C: 16        .byte $16
-
-- D - I - 0x033B7D 22:BB6D: 00        .byte $00
-- D - I - 0x033B7E 22:BB6E: 00        .byte $00
-
-- D - I - 0x033B7F 22:BB6F: 0B        .byte $0B
-- D - I - 0x033B80 22:BB70: 16        .byte $16
-
-- D - I - 0x033B81 22:BB71: 0B        .byte $0B
-
-- D - I - 0x033B82 22:BB72: 01        .byte $01
-- D - I - 0x033B83 22:BB73: 07        .byte $07
-- D - I - 0x033B84 22:BB74: B0 BF     .word off_BFB0
-- D - I - 0x033B86 22:BB76: 03        .byte $03
-- D - I - 0x033B87 22:BB77: 01        .byte $01
-- D - I - 0x033B88 22:BB78: B5 BF     .word off_BFB5
-- D - I - 0x033B8A 22:BB7A: 05        .byte $05
-- D - I - 0x033B8B 22:BB7B: 01        .byte $01
-- D - I - 0x033B8C 22:BB7C: B5 BF     .word off_BFB5
-- D - I - 0x033B8E 22:BB7E: 07        .byte $07
-- D - I - 0x033B8F 22:BB7F: 01        .byte $01
-- D - I - 0x033B90 22:BB80: B5 BF     .word off_BFB5
-- D - I - 0x033B92 22:BB82: 09        .byte $09
-- D - I - 0x033B93 22:BB83: 01        .byte $01
-- D - I - 0x033B94 22:BB84: B5 BF     .word off_BFB5
-- D - I - 0x033B96 22:BB86: 0B        .byte $0B
-- D - I - 0x033B97 22:BB87: 01        .byte $01
-- D - I - 0x033B98 22:BB88: B5 BF     .word off_BFB5
-- D - I - 0x033B9A 22:BB8A: 0D        .byte $0D
-- D - I - 0x033B9B 22:BB8B: 01        .byte $01
-- D - I - 0x033B9C 22:BB8C: B5 BF     .word off_BFB5
-- D - I - 0x033B9E 22:BB8E: 0F        .byte $0F
-- D - I - 0x033B9F 22:BB8F: 01        .byte $01
-- D - I - 0x033BA0 22:BB90: B5 BF     .word off_BFB5
-- D - I - 0x033BA2 22:BB92: 11        .byte $11
-- D - I - 0x033BA3 22:BB93: 01        .byte $01
-- D - I - 0x033BA4 22:BB94: B5 BF     .word off_BFB5
-- D - I - 0x033BA6 22:BB96: 13        .byte $13
-- D - I - 0x033BA7 22:BB97: 01        .byte $01
-- D - I - 0x033BA8 22:BB98: B5 BF     .word off_BFB5
-- D - I - 0x033BAA 22:BB9A: 15        .byte $15
-- D - I - 0x033BAB 22:BB9B: 01        .byte $01
-- D - I - 0x033BAC 22:BB9C: B5 BF     .word off_BFB5
+@txt:
+    .text "PK Shootout - Select Taker"
+    .byte con_закончить
 
 
 
 
 
 
-off_BB9E_40_выбранные_игроки_на_пенальти:
-- D - I - 0x033BAE 22:BB9E: 0F 21     .word $210F
+off_BB69_3F_pk_players_list:
+    .word $20C3
+; X * Y зачищаемой области
+    .byte $0C
+    .byte $14
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0C
+    .byte $14
+; количество поинтеров
+    .byte $0B
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $07
+    .word @txt
+    .byte $02
+    .byte $00
+    .word @list
+    .byte $04
+    .byte $00
+    .word @list
+    .byte $06
+    .byte $00
+    .word @list
+    .byte $08
+    .byte $00
+    .word @list
+    .byte $0A
+    .byte $00
+    .word @list
+    .byte $0C
+    .byte $00
+    .word @list
+    .byte $0E
+    .byte $00
+    .word @list
+    .byte $10
+    .byte $00
+    .word @list
+    .byte $12
+    .byte $00
+    .word @list
+    .byte $14
+    .byte $00
+    .word @list
 
-- D - I - 0x033BB0 22:BBA0: 0D        .byte $0D
-- D - I - 0x033BB1 22:BBA1: 0E        .byte $0E
+@txt:
+    .text "Skill"
+    .byte con_закончить
 
-- D - I - 0x033BB2 22:BBA2: 00        .byte $00
-- D - I - 0x033BB3 22:BBA3: 00        .byte $00
+@list:
+    .byte con_pk_players_list
+    .byte con_закончить
 
-- D - I - 0x033BB4 22:BBA4: 0D        .byte $0D
-- D - I - 0x033BB5 22:BBA5: 0E        .byte $0E
 
-- D - I - 0x033BB6 22:BBA6: 06        .byte $06
 
-- D - I - 0x033BB7 22:BBA7: 02        .byte $02
-- D - I - 0x033BB8 22:BBA8: 03        .byte $03
-- D - I - 0x033BB9 22:BBA9: A9 BF     .word off_BFA9
-- D - I - 0x033BBB 22:BBAB: 04        .byte $04
-- D - I - 0x033BBC 22:BBAC: 03        .byte $03
-- D - I - 0x033BBD 22:BBAD: B7 BF     .word off_BFB7
-- D - I - 0x033BBF 22:BBAF: 06        .byte $06
-- D - I - 0x033BC0 22:BBB0: 03        .byte $03
-- D - I - 0x033BC1 22:BBB1: BC BF     .word off_BFBC
-- D - I - 0x033BC3 22:BBB3: 08        .byte $08
-- D - I - 0x033BC4 22:BBB4: 03        .byte $03
-- D - I - 0x033BC5 22:BBB5: C1 BF     .word off_BFC1
-- D - I - 0x033BC7 22:BBB7: 0A        .byte $0A
-- D - I - 0x033BC8 22:BBB8: 03        .byte $03
-- D - I - 0x033BC9 22:BBB9: C6 BF     .word off_BFC6
-- D - I - 0x033BCB 22:BBBB: 0C        .byte $0C
-- D - I - 0x033BCC 22:BBBC: 03        .byte $03
-- D - I - 0x033BCD 22:BBBD: CB BF     .word off_BFCB
+
+
+
+off_BB9E_40_pk_order:
+    .word $2111
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $0E
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0E
+    .byte $0E
+; количество поинтеров
+    .byte $06
+; смещение текста Y, X + поинтеры на текст
+    .byte $02
+    .byte $03
+    .word @txt
+    .byte $04
+    .byte $02
+    .word @shooter_1
+    .byte $06
+    .byte $02
+    .word @shooter_2
+    .byte $08
+    .byte $02
+    .word @shooter_3
+    .byte $0A
+    .byte $02
+    .word @shooter_4
+    .byte $0C
+    .byte $02
+    .word @shooter_5
+
+@txt:
+    .text "PK Order"
+    .byte con_закончить
+
+@shooter_1:
+    .text "1 "
+    .byte con_rec_name_teammate, $00
+    .byte con_закончить
+
+@shooter_2:
+    .text "2 "
+    .byte con_rec_name_teammate, $01
+    .byte con_закончить
+
+@shooter_3:
+    .text "3 "
+    .byte con_rec_name_teammate, $02
+    .byte con_закончить
+
+@shooter_4:
+    .text "4 "
+    .byte con_rec_name_teammate, $03
+    .byte con_закончить
+
+@shooter_5:
+    .text "5 "
+    .byte con_rec_name_teammate, $04
+    .byte con_закончить
 
 
 
@@ -3872,78 +3913,6 @@ off_BF86:       ; unused
 off_BF89:       ; unused
 - - - - - 0x033F99 22:BF89: F5        .byte con_plr_stamina, $1F
 - - - - - 0x033F9B 22:BF8B: FC        .byte con_закончить
-
-off_BF95:
-- D - I - 0x033FA5 22:BF95: 8D        .byte $8D
-- D - I - 0x033FA6 22:BF96: 8B        .byte $8B
-- D - I - 0x033FA7 22:BF97: 0E        .byte $0E
-- D - I - 0x033FA8 22:BF98: 2E        .byte $2E
-- D - I - 0x033FA9 22:BF99: 19        .byte $19
-- D - I - 0x033FAA 22:BF9A: 62        .byte $62
-- D - I - 0x033FAB 22:BF9B: 6E        .byte $6E
-- D - I - 0x033FAC 22:BF9C: C3        .byte $C3
-- D - I - 0x033FAD 22:BF9D: 7D        .byte $7D
-- D - I - 0x033FAE 22:BF9E: 2D        .byte $2D
-- D - I - 0x033FAF 22:BF9F: 00        .byte $00
-- D - I - 0x033FB0 22:BFA0: 04        .byte $04
-- D - I - 0x033FB1 22:BFA1: 27        .byte $27
-- D - I - 0x033FB2 22:BFA2: 2E        .byte $2E
-- D - I - 0x033FB3 22:BFA3: AD        .byte $AD
-- D - I - 0x033FB4 22:BFA4: 08        .byte $08
-- D - I - 0x033FB5 22:BFA5: AA        .byte $AA
-- D - I - 0x033FB6 22:BFA6: 0B        .byte $0B
-- D - I - 0x033FB7 22:BFA7: 02        .byte $02
-- D - I - 0x033FB8 22:BFA8: FC        .byte con_закончить
-
-off_BFA9:
-- D - I - 0x033FB9 22:BFA9: 8D        .byte $8D
-- D - I - 0x033FBA 22:BFAA: 8B        .byte $8B
-- D - I - 0x033FBB 22:BFAB: 62        .byte $62
-- D - I - 0x033FBC 22:BFAC: 6E        .byte $6E
-- D - I - 0x033FBD 22:BFAD: C3        .byte $C3
-- D - I - 0x033FBE 22:BFAE: 7D        .byte $7D
-- D - I - 0x033FBF 22:BFAF: FC        .byte con_закончить
-
-off_BFB0:
-- D - I - 0x033FC0 22:BFB0: 4C        .byte $4C
-- D - I - 0x033FC1 22:BFB1: 71        .byte $71
-- D - I - 0x033FC2 22:BFB2: 7D        .byte $7D
-- D - I - 0x033FC3 22:BFB3: 54        .byte $54
-- D - I - 0x033FC4 22:BFB4: FC        .byte con_закончить
-
-off_BFB5:
-- D - I - 0x033FC5 22:BFB5: F6        .byte con_pk_players_list
-- D - I - 0x033FC6 22:BFB6: FC        .byte con_закончить
-
-off_BFB7:
-- D - I - 0x033FC7 22:BFB7: 34        .byte $34
-- D - I - 0x033FC8 22:BFB8: 00        .byte $00
-- D - I - 0x033FC9 22:BFB9: E9        .byte con_rec_passiever_name_teammate, $00
-- D - I - 0x033FCB 22:BFBB: FC        .byte con_закончить
-
-off_BFBC:
-- D - I - 0x033FCC 22:BFBC: 35        .byte $35
-- D - I - 0x033FCD 22:BFBD: 00        .byte $00
-- D - I - 0x033FCE 22:BFBE: E9        .byte con_rec_passiever_name_teammate, $01
-- D - I - 0x033FD0 22:BFC0: FC        .byte con_закончить
-
-off_BFC1:
-- D - I - 0x033FD1 22:BFC1: 36        .byte $36
-- D - I - 0x033FD2 22:BFC2: 00        .byte $00
-- D - I - 0x033FD3 22:BFC3: E9        .byte con_rec_passiever_name_teammate, $02
-- D - I - 0x033FD5 22:BFC5: FC        .byte con_закончить
-
-off_BFC6:
-- D - I - 0x033FD6 22:BFC6: 37        .byte $37
-- D - I - 0x033FD7 22:BFC7: 00        .byte $00
-- D - I - 0x033FD8 22:BFC8: E9        .byte con_rec_passiever_name_teammate, $03
-- D - I - 0x033FDA 22:BFCA: FC        .byte con_закончить
-
-off_BFCB:
-- D - I - 0x033FDB 22:BFCB: 38        .byte $38
-- D - I - 0x033FDC 22:BFCC: 00        .byte $00
-- D - I - 0x033FDD 22:BFCD: E9        .byte con_rec_passiever_name_teammate, $04
-- D - I - 0x033FDF 22:BFCF: FC        .byte con_закончить
 
 off_BFD0_надпись_PK:
 - D - I - 0x033FE0 22:BFD0: 8D        .byte $8D
