@@ -5532,7 +5532,7 @@ off_EACE_11_skylab_passcut:
     .byte $25
     .text "SkylabCut"
 
-off_EADB_12_wait_player:
+off_EADB_12_wait_player:    ; skip, cancel, follow, mark, dribble
     .word $2288
     .byte $25
     .text "   Wait  "
@@ -5582,13 +5582,13 @@ off_EB3E_1B_stop_shot:
     .word $2288
     .byte $26
     .text "   Stop  "
-    .text "   Shot  "
+    .text "   shot  "
 
 off_EB4C_1C_stop_dribble:
     .word $2288
     .byte $26
     .text "   Stop  "
-    .text " Dribble "
+    .text " dribble "
 
 off_EB5E_1D_________lines:
     .word $2288

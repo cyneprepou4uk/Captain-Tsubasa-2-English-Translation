@@ -1680,9 +1680,9 @@ C - - - - 0x002C9F 02:AC8F: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - 0x002CA2 02:AC92: A5 5E     LDA ram_005E
 C - - - - 0x002CA4 02:AC94: 0A        ASL
 C - - - - 0x002CA5 02:AC95: AA        TAX
-C - - - - 0x002CA6 02:AC96: BD 48 BC  LDA tbl_BC48,X
+C - - - - 0x002CA6 02:AC96: BD 48 BC  LDA tbl_BC48_адрес_ppu_спешалов,X
 C - - - - 0x002CA9 02:AC99: 85 E8     STA ram_00E8
-C - - - - 0x002CAB 02:AC9B: BD 49 BC  LDA tbl_BC48 + 1,X
+C - - - - 0x002CAB 02:AC9B: BD 49 BC  LDA tbl_BC48_адрес_ppu_спешалов + 1,X
 C - - - - 0x002CAE 02:AC9E: 85 E9     STA ram_00E9
 loc_ACA0_цикл_чтения_имени_спешала:
 C D - - - 0x002CB0 02:ACA0: A0 00     LDY #$00
@@ -1712,7 +1712,7 @@ C - - - - 0x002CDD 02:ACCD: C8        INY
 C - - - - 0x002CDE 02:ACCE: B1 5C     LDA (ram_005C),Y
 C - - - - 0x002CE0 02:ACD0: 8D 3C 04  STA ram_подтип_действия
 C - - - - 0x002CE3 02:ACD3: 8D 3E 04  STA $043E
-C - - - - 0x002CE6 02:ACD6: A5 5F     LDA ram_005F
+C - - - - 0x002CE6 02:ACD6: A5 5F     LDA ram_005F      ; хранит номер игрока в меню статов
 C - - - - 0x002CE8 02:ACD8: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x002CEB 02:ACDB: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x002CEE 02:ACDE: C8        INY
@@ -1730,13 +1730,13 @@ C - - - - 0x002D07 02:ACF7: 85 ED     STA ram_00ED
 C - - - - 0x002D09 02:ACF9: A5 5E     LDA ram_005E
 C - - - - 0x002D0B 02:ACFB: 0A        ASL
 C - - - - 0x002D0C 02:ACFC: AA        TAX
-C - - - - 0x002D0D 02:ACFD: BD 48 BC  LDA tbl_BC48,X
+C - - - - 0x002D0D 02:ACFD: BD 48 BC  LDA tbl_BC48_адрес_ppu_спешалов,X
 C - - - - 0x002D10 02:AD00: 29 E0     AND #$E0
-C - - - - 0x002D12 02:AD02: 09 15     ORA #$15
+C - - - - 0x002D12 02:AD02: 09 15     ORA #$19      ; + к адресу ppu для cost
 C - - - - 0x002D14 02:AD04: 18        CLC
 C - - - - 0x002D15 02:AD05: 69 20     ADC #$20
 C - - - - 0x002D17 02:AD07: A8        TAY
-C - - - - 0x002D18 02:AD08: BD 49 BC  LDA tbl_BC48 + 1,X
+C - - - - 0x002D18 02:AD08: BD 49 BC  LDA tbl_BC48_адрес_ppu_спешалов + 1,X
 C - - - - 0x002D1B 02:AD0B: 69 00     ADC #$00
 C - - - - 0x002D1D 02:AD0D: AA        TAX
 C - - - - 0x002D1E 02:AD0E: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
@@ -1764,16 +1764,16 @@ C - - - - 0x002D3E 02:AD2E: A9 40     LDA #$40
 C - - - - 0x002D40 02:AD30: 20 EE 9D  JSR sub_0x001DFE_умножить_A_на_X
 C - - - - 0x002D43 02:AD33: A5 EC     LDA ram_00EC
 C - - - - 0x002D45 02:AD35: 18        CLC
-C - - - - 0x002D46 02:AD36: 69 63     ADC #$63
+C - - - - 0x002D46 02:AD36: 69 63     ADC #$61      ; начало
 C - - - - 0x002D48 02:AD38: A8        TAY
 C - - - - 0x002D49 02:AD39: A5 ED     LDA ram_00ED
 C - - - - 0x002D4B 02:AD3B: 69 25     ADC #$25
 C - - - - 0x002D4D 02:AD3D: AA        TAX
-C - - - - 0x002D4E 02:AD3E: A9 67     LDA #< tbl_B967
+C - - - - 0x002D4E 02:AD3E: A9 67     LDA #< tbl_B967_тайлы_закрывающей_полоски_special
 C - - - - 0x002D50 02:AD40: 85 E6     STA ram_00E6
-C - - - - 0x002D52 02:AD42: A9 B9     LDA #> tbl_B967
+C - - - - 0x002D52 02:AD42: A9 B9     LDA #> tbl_B967_тайлы_закрывающей_полоски_special
 C - - - - 0x002D54 02:AD44: 85 E7     STA ram_00E7
-C - - - - 0x002D56 02:AD46: A9 1A     LDA #$1A
+C - - - - 0x002D56 02:AD46: A9 1A     LDA #$1E      ; длина полоски
 C - - - - 0x002D58 02:AD48: 20 73 9D  JSR sub_0x001D83
 bra_AD4B:
 C - - - - 0x002D5B 02:AD4B: A9 18     LDA #$18
@@ -3813,7 +3813,7 @@ off_B8B4_оформление_окон:
 ; верхняя полоска special по центру
     .byte $05
     .word $24EC
-    .byte $08
+    .byte $0B
     .byte $A8
     
     .byte $00
@@ -3822,34 +3822,9 @@ off_B8B4_оформление_окон:
     .byte $0F
 
 
-tbl_B967:
-- D - I - 0x003977 02:B967: 9E        .byte $9E
-- D - I - 0x003978 02:B968: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003979 02:B969: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00397A 02:B96A: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00397B 02:B96B: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00397C 02:B96C: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00397D 02:B96D: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00397E 02:B96E: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00397F 02:B96F: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003980 02:B970: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003981 02:B971: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003982 02:B972: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003983 02:B973: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003984 02:B974: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003985 02:B975: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003986 02:B976: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003987 02:B977: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003988 02:B978: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003989 02:B979: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00398A 02:B97A: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00398B 02:B97B: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00398C 02:B97C: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00398D 02:B97D: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00398E 02:B97E: A9        .byte $A9    ; <ぞ>
-- D - I - 0x00398F 02:B97F: A9        .byte $A9    ; <ぞ>
-- D - I - 0x003990 02:B980: 9F        .byte $9F
-
+tbl_B967_тайлы_закрывающей_полоски_special:
+    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9
+    .byte $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
 tbl_B981_позиция_числовых_статов_полевого:
@@ -4589,15 +4564,15 @@ off_BC42_вакашимазу:
 
 
 
-tbl_BC48:
-    .word $2526
-    .word $2566
-    .word $25A6
-    .word $25E6
-    .word $2626
-    .word $2666
-    .word $26A6
-    .word $26E6
+tbl_BC48_адрес_ppu_спешалов:
+    .word $2524
+    .word $2564
+    .word $25A4
+    .word $25E4
+    .word $2624
+    .word $2664
+    .word $26A4
+    .word $26E4
 
 tbl_BC58_адрес_ppu_для_имен_игроков:
 ; при повышении уровня
@@ -4695,12 +4670,24 @@ off_BF15_оформление_окон_и_текст:
     .text " Special"
 
     .byte $05
-    .word $24F5
+    .word $24F8
     .text "Cost "
+; читерный кусок синей полоски слева (чтобы окно special сливалось с основным экраном)
+    .byte $01
+    .word $24C1
+    .byte $8F
+; читерный кусок синей полоски и кусок белой полоски в центре
+    .byte $03
+    .word $24CE
+    .byte $8F, $00, $AA
+; читерный кусок белой полоски справа
+    .byte $01
+    .word $24DE
+    .byte $AB
 ; полоска до конца окна после cost
-    .byte $45
-    .word $24FA
-    .byte $A8, $A8, $A8, $A8, $9D
+    .byte $42
+    .word $24FD
+    .byte $A8, $9D
 
 
 
