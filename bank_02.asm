@@ -919,8 +919,8 @@ C - - - - 0x002704 02:A6F4: 69 01     ADC #$01
 C - - - - 0x002706 02:A6F6: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 loc_A6F9:
 C D - - - 0x002709 02:A6F9: 20 A9 82  JSR sub_0x0002B9
-C - - - - 0x00270C 02:A6FC: A0 D6     LDY #< tbl_ADD6
-C - - - - 0x00270E 02:A6FE: A2 AD     LDX #> tbl_ADD6
+C - - - - 0x00270C 02:A6FC: A0 D6     LDY #< tbl_ADD6_курсор_в_перерыве
+C - - - - 0x00270E 02:A6FE: A2 AD     LDX #> tbl_ADD6_курсор_в_перерыве
 C - - - - 0x002710 02:A700: 20 3A 9C  JSR sub_0x001C4A_отобразить_курсор
 C - - - - 0x002713 02:A703: 20 E8 9B  JSR sub_0x001BF8
 C - - - - 0x002716 02:A706: C9 02     CMP #$02
@@ -1489,8 +1489,8 @@ C - - - - 0x002B45 02:AB35: D0 F5     BNE bra_AB2C_цикл
 bra_AB37:
 C - - - - 0x002B47 02:AB37: 20 7E 99  JSR sub_0x00198E_запись_палитры_фона_и_спрайтов
 ; X курсора потом перезаписывается в 0x002AF1
-C - - - - 0x002B4A 02:AB3A: A0 DC     LDY #< tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков
-C - - - - 0x002B4C 02:AB3C: A2 AD     LDX #> tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков
+C - - - - 0x002B4A 02:AB3A: A0 DC     LDY #< tbl_ADDC_курсор_на_экране_со_списком_игроков
+C - - - - 0x002B4C 02:AB3C: A2 AD     LDX #> tbl_ADDC_курсор_на_экране_со_списком_игроков
 C - - - - 0x002B4E 02:AB3E: 20 3A 9C  JSR sub_0x001C4A_отобразить_курсор
 C - - - - 0x002B51 02:AB41: A5 60     LDA ram_0060
 C - - - - 0x002B53 02:AB43: 8D 5C 05  STA $055C
@@ -1843,96 +1843,90 @@ tbl_AD9E_курсор_опции_сан_паулу_нанкацу:
 - D - - - 0x002DB1 02:ADA1: 88        .byte $90
 
 tbl_ADA2_курсор_защиты_сан_паулу_нанкацу:
-- D - I - 0x002DB2 02:ADA2: F8        .byte $F8
-- D - I - 0x002DB3 02:ADA3: 58        .byte $58
-- D - I - 0x002DB4 02:ADA4: 71        .byte $71
-- D - I - 0x002DB5 02:ADA5: 00        .byte $00
-- D - I - 0x002DB6 02:ADA6: 90        .byte $98
-- D - I - 0x002DB7 02:ADA7: 78        .byte $78
+    .byte $F8       ; ???
+    .byte $58       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $98       ; X
+    .byte $78       ; максимальное значение Y внизу
 
 tbl_ADA8_курсор_замены_1:
-- D - I - 0x002DB8 02:ADA8: F8        .byte $F8
-- D - I - 0x002DB9 02:ADA9: 28        .byte $28
-- D - I - 0x002DBA 02:ADAA: 71        .byte $71
-- D - I - 0x002DBB 02:ADAB: 00        .byte $00
-- D - I - 0x002DBC 02:ADAC: 38        .byte $28
-- D - I - 0x002DBD 02:ADAD: B8        .byte $B8
+    .byte $F8       ; ???
+    .byte $28       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $28       ; X
+    .byte $B8       ; максимальное значение Y внизу
 
 tbl_ADAE_курсор_замены_2:
-- D - I - 0x002DBE 02:ADAE: F4        .byte $F4
-- D - I - 0x002DBF 02:ADAF: 28        .byte $28
-- D - I - 0x002DC0 02:ADB0: 71        .byte $71
-- D - I - 0x002DC1 02:ADB1: 00        .byte $00
-- D - I - 0x002DC2 02:ADB2: 38        .byte $28
-- D - I - 0x002DC3 02:ADB3: B8        .byte $B8
+    .byte $F4       ; ???
+    .byte $28       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $28       ; X
+    .byte $B8       ; максимальное значение Y внизу
 
 tbl_ADB4:
-- D - - - 0x002DC4 02:ADB4: 38        .byte $38    ; <5>
-- D - - - 0x002DC5 02:ADB5: 71        .byte $71    ; <ュ>
-- D - - - 0x002DC6 02:ADB6: 00        .byte $00
-- D - - - 0x002DC7 02:ADB7: 60        .byte $60    ; <ミ>
+    .byte $38    ; <5>
+    .byte $71    ; <ュ>
+    .byte $00
+    .byte $60    ; <ミ>
 
 tbl_ADB8_курсор_защиты_японии:
-- D - I - 0x002DC8 02:ADB8: F8        .byte $F8
-- D - I - 0x002DC9 02:ADB9: 58        .byte $58
-- D - I - 0x002DCA 02:ADBA: 71        .byte $71
-- D - I - 0x002DCB 02:ADBB: 00        .byte $00
-- D - I - 0x002DCC 02:ADBC: 68        .byte $68
-- D - I - 0x002DCD 02:ADBD: 78        .byte $78
+    .byte $F8       ; ???
+    .byte $58       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $68       ; X
+    .byte $78       ; максимальное значение Y внизу
 
 tbl_ADBE_курсор_замены_игроков_японии_1:
-- D - I - 0x002DCE 02:ADBE: F8        .byte $F8
-- D - I - 0x002DCF 02:ADBF: 28        .byte $28
-- D - I - 0x002DD0 02:ADC0: 71        .byte $71
-- D - I - 0x002DD1 02:ADC1: 00        .byte $00
-- D - I - 0x002DD2 02:ADC2: 20        .byte $08
-- D - I - 0x002DD3 02:ADC3: C8        .byte $C8
+    .byte $F8       ; ???
+    .byte $28       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $08       ; X
+    .byte $C8       ; максимальное значение Y внизу
 
 tbl_ADC4_курсор_замены_игроков_японии_2:
-- D - I - 0x002DD4 02:ADC4: F4        .byte $F4
-- D - I - 0x002DD5 02:ADC5: 28        .byte $28
-- D - I - 0x002DD6 02:ADC6: 71        .byte $71
-- D - I - 0x002DD7 02:ADC7: 00        .byte $00
-- D - I - 0x002DD8 02:ADC8: 20        .byte $08
-- D - I - 0x002DD9 02:ADC9: B8        .byte $B8
+    .byte $F4       ; ???
+    .byte $28       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $08       ; X
+    .byte $B8       ; максимальное значение Y внизу
 
 tbl_ADCA_курсор_замены_киперов_японии:
-- D - I - 0x002DDA 02:ADCA: F4        .byte $F4
-- D - I - 0x002DDB 02:ADCB: B8        .byte $B8
-- D - I - 0x002DDC 02:ADCC: 71        .byte $71
-- D - I - 0x002DDD 02:ADCD: 00        .byte $00
-- D - I - 0x002DDE 02:ADCE: C0        .byte $B0
-- D - I - 0x002DDF 02:ADCF: C8        .byte $C8
+    .byte $F4       ; ???
+    .byte $B8       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $B0       ; X
+    .byte $C8       ; максимальное значение Y внизу
 
 tbl_ADD0_курсор_тренера:
-; ???
-- D - I - 0x002DE0 02:ADD0: FC        .byte $FC
-; Y
-- D - I - 0x002DE1 02:ADD1: 98        .byte $96
-; тайл
-- D - I - 0x002DE2 02:ADD2: FF        .byte $FF
-; палитра
-- D - I - 0x002DE3 02:ADD3: 03        .byte $03
-; X
-- D - I - 0x002DE4 02:ADD4: 10        .byte $0E
-; максимальное значение Y внизу
-- D - I - 0x002DE5 02:ADD5: C8        .byte $C6
+    .byte $FC       ; ???
+    .byte $96       ; Y
+    .byte $FF       ; тайл
+    .byte $03       ; палитра
+    .byte $0E       ; X
+    .byte $C6       ; максимальное значение Y внизу
 
-tbl_ADD6:
-- D - I - 0x002DE6 02:ADD6: FC        .byte $FC
-- D - I - 0x002DE7 02:ADD7: A8        .byte $A8
-- D - I - 0x002DE8 02:ADD8: FF        .byte $FF
-- D - I - 0x002DE9 02:ADD9: 03        .byte $03
-- D - I - 0x002DEA 02:ADDA: 40        .byte $40
-- D - I - 0x002DEB 02:ADDB: B8        .byte $B8
+tbl_ADD6_курсор_в_перерыве:
+    .byte $FC       ; ???
+    .byte $A8       ; Y
+    .byte $FF       ; тайл
+    .byte $03       ; палитра
+    .byte $40       ; X
+    .byte $B8       ; максимальное значение Y внизу
 
-tbl_ADDC_позиция_курсора_на_экране_со_списком_игроков:
-- D - I - 0x002DEC 02:ADDC: F4        .byte $F4
-- D - I - 0x002DED 02:ADDD: 28        .byte $28
-- D - I - 0x002DEE 02:ADDE: 71        .byte $71
-- D - I - 0x002DEF 02:ADDF: 00        .byte $00
-- D - I - 0x002DF0 02:ADE0: 18        .byte $18
-- D - I - 0x002DF1 02:ADE1: C8        .byte $C8
+tbl_ADDC_курсор_на_экране_со_списком_игроков:
+    .byte $F4       ; ???
+    .byte $28       ; Y
+    .byte $71       ; тайл
+    .byte $00       ; палитра
+    .byte $18       ; X
+    .byte $C8       ; максимальное значение Y внизу
 
 sub_ADE9:
 C - - - - 0x002DF9 02:ADE9: 85 EC     STA ram_00EC
