@@ -55,125 +55,344 @@ con_exit                    = $FF   ; end of the cutscene
 
 
 
-    .word off_BEDB_47_первый_перерыв_йоко
-    .word off_BEE1_48_перерыв_йоко
-    .word off_BEEB_49_первый_перерыв_санае
-    .word off_BEF1_4A_перерыв_санае
-    .word off_BEFB_4B_первый_перерыв_ишизаки
-    .word off_BF2A_4C_перерыв_ишизаки
-    .word off_BF54_4D_пароль_йоко
-    .word off_BF7D_4E_удачи_после_пароля_йоко
-    .word off_BF5A_4F_пароль_санае
-    .word off_BF7D_50_удачи_после_пароля_санае
-    .word off_BF60_51_пароль_ишизаки
-    .word off_BF7D_52_удачи_после_пароля_ишизаки
-    .word off_BF90_53_новый_уровень_йоко
-    .word off_BF96_54_новый_уровень_санае
-    .word off_BF9C_55_новый_уровень_ишизаки
-    .word off_BFBA_56_сан_паулу_перед_матчем
-    .word off_BFC4_57_нанкацу_перед_матчем
-    .word off_BFCE_58_япония_перед_матчем
-    .word off_BFD0_59_обезьянка_после_проигрыша
-    .word off_BFD1_5A_экран_с_музыкой
+    .word off_BFD0_47_обезьянка_после_проигрыша
+    .word off_BFD1_48_экран_с_музыкой
+    .word off_BFD2_49_перерыв_йоко_меню
+    .word off_BFD3_4A_перерыв_йоко_ничья
+    .word off_BFD4_4B_перерыв_йоко_выигрыш
+    .word off_BFD5_4C_перерыв_йоко_проигрыш
+    .word off_BFD6_4D_перерыв_санае_меню
+    .word off_BFD7_4E_перерыв_санае_ничья
+    .word off_BFD8_4F_перерыв_санае_выигрыш
+    .word off_BFD9_50_перерыв_санае_проигрыш
+    .word off_BFDA_51_перерыв_ишизаки_меню
+    .word off_BFDB_52_перерыв_ишизаки_ничья
+    .word off_BFDC_53_перерыв_ишизаки_выигрыш
+    .word off_BFDD_54_перерыв_ишизаки_проигрыш
+    .word off_BF54_55_пароль_йоко
+    .word off_BF7D_56_удачи_после_пароля_йоко
+    .word off_BF5A_57_пароль_санае
+    .word off_BF7D_58_удачи_после_пароля_санае
+    .word off_BF60_59_пароль_ишизаки
+    .word off_BF7D_5A_удачи_после_пароля_ишизаки
+    .word off_BF90_5B_новый_уровень_йоко
+    .word off_BF96_5C_новый_уровень_санае
+    .word off_BF9C_5D_новый_уровень_ишизаки
+    .word off_BFBA_5E_перед_матчем_сан_паулу
+    .word off_BFC4_5F_перед_матчем_нанкацу
+    .word off_BFCE_60_перед_матчем_япония
 
 
 
-off_BEDB_47_первый_перерыв_йоко:
-    .byte con_animation, $01, $2A
-    .byte con_jump
-    .word off_BEFE
+off_BFD0_47_обезьянка_после_проигрыша:
+    .byte con_E8, $00
+    .byte con_bg_1, $16
+    .byte con_animation, $02, $BA, $BB
+    .byte con_palette, $00
+    .byte con_sound, $56
+    .byte con_pause, $A0
+    .byte con_exit
 
 
 
-off_BEE1_48_перерыв_йоко:
+off_BFD1_48_экран_с_музыкой:
+    .byte con_E8, $00
+    .byte con_bg_1, $18
+    .byte con_animation, $02, $BC, $CA
+    .byte con_palette, $00
+    .byte con_F5, $0B
+    .byte con_exit
+
+
+
+off_BFD2_49_перерыв_йоко_меню:
     .byte con_bg_1, $61
     .byte con_window, $05
     .byte con_animation, $01, $2A
-    .byte con_jump
-    .word off_BF31
-
-
-
-off_BEEB_49_первый_перерыв_санае:
-    .byte con_animation, $01, $26
-    .byte con_jump
-    .word off_BEFE
-
-
-
-off_BEF1_4A_перерыв_санае:
-    .byte con_bg_1, $61
-    .byte con_window, $05
-    .byte con_animation, $01, $26
-    .byte con_jump
-    .word off_BF31
-
-
-
-off_BEFB_4B_первый_перерыв_ишизаки:
-    .byte con_animation, $01, $44
-off_BEFE:
-    .byte con_E8, $01
-    .byte con_bg_1, $61
-    .byte con_window, $05
-    .byte con_screen_on
-    .byte con_speed, $02
-    .byte con_toggle_mouth
-    .byte $40    ; <「>
-    .byte $20    ; <み>
-    .byte $2E    ; <ん>
-    .byte $15    ; <な>
-    .byte $00
-    .byte $05    ; <お>
-    .byte $12    ; <つ>
-    .byte $06    ; <か>
-    .byte $2A    ; <れ>
-    .byte $0B    ; <さ>
-    .byte $1F    ; <ま>
-    .byte $7A    ; <、>
-    .byte con_line
-    .byte con_pause, $14
-    .byte $00
-    .byte $0A    ; <こ>
-    .byte $19    ; <の>
-    .byte $01    ; <あ>
-    .byte $14    ; <と>
-    .byte $23    ; <も>
-    .byte $00
-    .byte $A0    ; <が>
-    .byte $2E    ; <ん>
-    .byte $AF    ; <ば>
-    .byte $2F    ; <っ>
-    .byte $13    ; <て>
-    .byte $18    ; <ね>
-    .byte $7B    ; <。>
-    .byte con_line
-    .byte con_pause, $14
-    .byte con_clear_3
-    .byte con_jump
-    .word off_BF31
-
-
-
-off_BF2A_4C_перерыв_ишизаки:
-    .byte con_window, $02
-    .byte con_bg_1, $61
-    .byte con_animation, $01, $24
-off_BF31:
+off_BFD2_йоко_меню:
     .byte con_E8, $01
     .byte con_speed, $00
     .byte con_offset, $06
     .text "@What do you need?@", con_line
-    .byte con_offset, $08
+    .byte con_offset, $29
     .text "Manage our Team", con_line
-    .byte con_offset, $08
+    .byte con_offset, $29
     .text "All set!"
     .byte con_palette, $00
     .byte con_exit
 
 
 
-off_BF54_4D_пароль_йоко:
+off_BFD3_4A_перерыв_йоко_ничья:
+    .byte con_animation, $01, $2A
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $07
+    .text "@We're dead even...", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $08
+    .text "Let's push ahead", con_line
+    .byte con_offset, $08
+    .text "and clear the", con_line
+    .byte con_offset, $08
+    .text "gap for good!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFD2_йоко_меню
+
+
+
+off_BFD4_4B_перерыв_йоко_выигрыш:
+    .byte con_animation, $01, $2A
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $08
+    .text "@Let's keep up", con_line
+    .byte con_offset, $09
+    .text "the pace, just", con_line
+    .byte con_offset, $09
+    .text "like that!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFD2_йоко_меню
+
+
+
+off_BFD5_4C_перерыв_йоко_проигрыш:
+    .byte con_animation, $01, $2A
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $04
+    .text "@We need to turn this", con_line
+    .byte con_offset, $05
+    .text "around,"
+    .byte con_pause, $14
+    .text " NOW."
+    .byte con_pause, $1E
+    .text " Should we", con_line
+    .byte con_offset, $05
+    .text "re-think our strategy?@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFD2_йоко_меню
+
+
+
+off_BFD6_4D_перерыв_санае_меню:
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_animation, $01, $26
+off_BFD6_санае_меню:
+    .byte con_E8, $01
+    .byte con_speed, $00
+    .byte con_offset, $05
+    .text "@Need to fix anything?@", con_line
+    .byte con_offset, $29
+    .text "Manage our Team", con_line
+    .byte con_offset, $29
+    .text "Let's get 'em!"
+    .byte con_palette, $00
+    .byte con_exit
+
+
+
+off_BFD7_4E_перерыв_санае_ничья:
+    .byte con_animation, $01, $26
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $06
+    .text "@You guys will break", con_line
+    .byte con_offset, $07
+    .text "this tie in the", con_line
+    .byte con_offset, $07
+    .text "next half, right?!", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $04
+    .text "Nan-"
+    .byte con_pause, $0F
+    .text "kat-"
+    .byte con_pause, $0F
+    .text "su!"
+    .byte con_pause, $1E
+    .text " Nan-"
+    .byte con_pause, $0F
+    .text "kat-"
+    .byte con_pause, $0F
+    .text "su!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFD6_санае_меню
+
+
+
+off_BFD8_4F_перерыв_санае_выигрыш:
+    .byte con_animation, $01, $26
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $05
+    .text "@You're all doing", con_line
+    .byte con_offset, $06
+    .text "great so far!", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $06
+    .text "Hooray for Nankatsu!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFD6_санае_меню
+
+
+
+off_BFD9_50_перерыв_санае_проигрыш:
+    .byte con_animation, $01, $26
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $05
+    .text "@Why are we losing?!", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $06
+    .text "Do you think Tsubasa", con_line
+    .byte con_offset, $06
+    .text "would be happy", con_line
+    .byte con_offset, $06
+    .text "with this?!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFD6_санае_меню
+
+
+
+off_BFDA_51_перерыв_ишизаки_меню:
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_animation, $01, $24
+off_BFDA_ишизаки_меню:
+    .byte con_E8, $01
+    .byte con_speed, $00
+    .byte con_offset, $06
+    .text "@How's our lineup?@", con_line
+    .byte con_offset, $29
+    .text "Manage our Team", con_line
+    .byte con_offset, $29
+    .text "Let's hit the field!"
+    .byte con_palette, $00
+    .byte con_exit
+
+
+
+off_BFDB_52_перерыв_ишизаки_ничья:
+    .byte con_animation, $01, $44
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $03
+    .text "@Ok, we're tied up -"
+    .byte con_pause, $1E
+    .text " but", con_line
+    .byte con_offset, $04
+    .text "we've got a full 'nother", con_line
+    .byte con_offset, $04
+    .text "half to take the win!", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $04
+    .text "We got this!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFDA_ишизаки_меню
+
+
+
+off_BFDC_53_перерыв_ишизаки_выигрыш:
+    .byte con_animation, $01, $44
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $03
+    .text "@...oh, it's my line now?", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $2B
+    .text "Go, Japan!", con_line
+    .byte con_pause, $1E
+    .byte con_offset, $26
+    .text "Let's keep winning!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFDA_ишизаки_меню
+
+
+
+off_BFDD_54_перерыв_ишизаки_проигрыш:
+    .byte con_animation, $01, $44
+    .byte con_E8, $01
+    .byte con_bg_1, $61
+    .byte con_window, $05
+    .byte con_screen_on
+    .byte con_speed, $02
+    .byte con_toggle_mouth
+    .byte con_offset, $04
+    .text "@Guys..."
+    .byte con_pause, $14
+    .text "we gotta make", con_line
+    .byte con_offset, $05
+    .text "the World Cup,"
+    .byte con_pause, $1E
+    .text " and to", con_line
+    .byte con_offset, $05
+    .text "do that, we gotta win!@"
+    .byte con_ball
+    .byte con_clear_3
+    
+    .byte con_offset, $08
+    .text "@I'll go at them", con_line
+    .byte con_offset, $09
+    .text "face-first if I", con_line
+    .byte con_offset, $09
+    .text "have to!@"
+    .byte con_ball
+    .byte con_clear_3
+    .byte con_jump
+    .word off_BFDA_ишизаки_меню
+
+
+
+off_BF54_55_пароль_йоко:
     .byte con_animation, $01, $2B
     .byte con_bg_1, $5F
     .byte con_window, $04
@@ -190,7 +409,7 @@ off_BF54_4D_пароль_йоко:
 
 
 
-off_BF7D_4E_удачи_после_пароля_йоко:
+off_BF7D_56_удачи_после_пароля_йоко:
     .byte con_speed, $02
     .byte con_offset, $05
     .text "@Good luck out there.@"
@@ -199,7 +418,7 @@ off_BF7D_4E_удачи_после_пароля_йоко:
 
 
 
-off_BF5A_4F_пароль_санае:
+off_BF5A_57_пароль_санае:
     .byte con_animation, $01, $27
     .byte con_bg_1, $5F
     .byte con_window, $04
@@ -216,7 +435,7 @@ off_BF5A_4F_пароль_санае:
 
 
 
-off_BF7D_50_удачи_после_пароля_санае:
+off_BF7D_58_удачи_после_пароля_санае:
     .byte con_speed, $02
     .byte con_offset, $09
     .text "@Do your best", con_line
@@ -227,7 +446,7 @@ off_BF7D_50_удачи_после_пароля_санае:
 
 
 
-off_BF60_51_пароль_ишизаки:
+off_BF60_59_пароль_ишизаки:
     .byte con_animation, $01, $44
     .byte con_bg_1, $5F
     .byte con_window, $04
@@ -244,7 +463,7 @@ off_BF60_51_пароль_ишизаки:
 
 
 
-off_BF7D_52_удачи_после_пароля_ишизаки:
+off_BF7D_5A_удачи_после_пароля_ишизаки:
     .byte con_speed, $02
     .byte con_offset, $07
     .text "@Let's keep it up!@"
@@ -253,7 +472,7 @@ off_BF7D_52_удачи_после_пароля_ишизаки:
 
 
 
-off_BF90_53_новый_уровень_йоко:
+off_BF90_5B_новый_уровень_йоко:
     .byte con_animation, $01, $2B
     .byte con_E8, $01
     .byte con_window, $02
@@ -272,7 +491,7 @@ off_BF90_53_новый_уровень_йоко:
 
 
 
-off_BF96_54_новый_уровень_санае:
+off_BF96_5C_новый_уровень_санае:
     .byte con_animation, $01, $27
     .byte con_E8, $01
     .byte con_window, $02
@@ -293,7 +512,7 @@ off_BF96_54_новый_уровень_санае:
 
 
 
-off_BF9C_55_новый_уровень_ишизаки:
+off_BF9C_5D_новый_уровень_ишизаки:
     .byte con_animation, $01, $44
     .byte con_E8, $01
     .byte con_window, $02
@@ -312,7 +531,7 @@ off_BF9C_55_новый_уровень_ишизаки:
 
 
 
-off_BFBA_56_сан_паулу_перед_матчем:
+off_BFBA_5E_перед_матчем_сан_паулу:
     .byte con_window, $02
     .byte con_bg_2, $0F
     .byte con_animation, $01, $0C
@@ -332,7 +551,7 @@ off_BFBA_56_сан_паулу_перед_матчем:
 
 
 
-off_BFC4_57_нанкацу_перед_матчем:
+off_BFC4_5F_перед_матчем_нанкацу:
     .byte con_window, $02
     .byte con_bg_2, $0E
     .byte con_animation, $01, $0F
@@ -352,7 +571,7 @@ off_BFC4_57_нанкацу_перед_матчем:
 
 
 
-off_BFCE_58_япония_перед_матчем:
+off_BFCE_60_перед_матчем_япония:
     .byte con_window, $02
     .byte con_bg_2, $0D
     .byte con_animation, $01, $0E
@@ -370,25 +589,4 @@ off_BFCE_58_япония_перед_матчем:
     .byte con_pause, $1E
     .byte con_sound, $01
     .byte con_screen_off
-    .byte con_exit
-
-
-
-off_BFD0_59_обезьянка_после_проигрыша:
-    .byte con_E8, $00
-    .byte con_bg_1, $16
-    .byte con_animation, $02, $BA, $BB
-    .byte con_palette, $00
-    .byte con_sound, $56
-    .byte con_pause, $A0
-    .byte con_exit
-
-
-
-off_BFD1_5A_экран_с_музыкой:
-    .byte con_E8, $00
-    .byte con_bg_1, $18
-    .byte con_animation, $02, $BC, $CA
-    .byte con_palette, $00
-    .byte con_F5, $0B
     .byte con_exit
