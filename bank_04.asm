@@ -110,10 +110,13 @@ con_rec_name_opponent                   = $EA           ; + номер 00-04, и
 con_gk_name_pos                         = $EB
 con_stats_gk                            = $EC
     con_gk_stamina                         = $00
-    con_gk_catch                           = $19            ; bzk также dive
+    con_gk_pass                            = $18            ; unused
+    con_gk_catch                           = $19
     con_gk_punch                           = $1A
     con_gk_stop_dribble                    = $1B
     con_gk_stop_shot                       = $1C
+    con_gk_dive_lo                         = $1D
+    con_gk_dive_hi                         = $1E            ; unused
 con_team_name                           = $ED           ; + 00 (имя команды слева) или 01 (имя команды справа)
 con_score                               = $EE           ; + 00 (счет команды слева) или 01 (счет команды справа)
 con_period_number                       = $EF           ; номер тайма, овертайма, пк
@@ -744,28 +747,42 @@ off_B567_0C_две_опции_нападения:
 
 
 off_B578_0D_gk_dive:
-- D - I - 0x033588 22:B578: 34 22     .word $2234
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $05
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0E
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @name_pos
+    .byte $02
+    .byte $01
+    .word @stamina
+    .byte $04
+    .byte $01
+    .word @dive
 
-- D - I - 0x03358A 22:B57A: 0C        .byte $0C
-- D - I - 0x03358B 22:B57B: 0A        .byte $0A
+@name_pos:
+    .byte con_gk_name_pos
+    .byte con_закончить
 
-- D - I - 0x03358C 22:B57C: 00        .byte $00
-- D - I - 0x03358D 22:B57D: 01        .byte $01
+@stamina:
+    .text "Stamina    "
+    .byte con_stats_gk, con_gk_stamina
+    .byte con_закончить
 
-- D - I - 0x03358E 22:B57E: 0C        .byte $0C
-- D - I - 0x03358F 22:B57F: 05        .byte $05
-
-- D - I - 0x033590 22:B580: 03        .byte $03
-
-- D - I - 0x033591 22:B581: 01        .byte $01
-- D - I - 0x033592 22:B582: 02        .byte $02
-- D - I - 0x033593 22:B583: 53 BD     .word off_BD53_имя_и_позиция_кипера
-- D - I - 0x033595 22:B585: 03        .byte $03
-- D - I - 0x033596 22:B586: 01        .byte $01
-- D - I - 0x033597 22:B587: 55 BD     .word off_BD55_энергия_кипера
-- D - I - 0x033599 22:B589: 05        .byte $05
-- D - I - 0x03359A 22:B58A: 01        .byte $01
-- D - I - 0x03359B 22:B58B: 76 BD     .word off_BD76
+@dive:
+    .text "Dive       "
+    .byte con_stats_gk, con_gk_dive_lo
+    .byte con_закончить
 
 
 
@@ -3711,27 +3728,6 @@ off_BD32:       ; unused <クリアー>
 - - - - - 0x033D49 22:BD39: 00        .byte $00
 - - - - - 0x033D4A 22:BD3A: E3        .byte con_stats_reciever, con_rec_clearing
 - - - - - 0x033D4C 22:BD3C: FC        .byte con_закончить
-
-off_BD53_имя_и_позиция_кипера:
-    .byte con_gk_name_pos
-    .byte con_закончить
-
-off_BD55_энергия_кипера:
-    .text "Stamina     "
-    .byte con_stats_gk, con_gk_stamina
-    .byte con_закончить
-
-off_BD76:
-- D - I - 0x033D86 22:BD76: 14        .byte $14
-- D - I - 0x033D87 22:BD77: B0        .byte $B0
-- D - I - 0x033D88 22:BD78: AA        .byte $AA
-- D - I - 0x033D89 22:BD79: 0D        .byte $0D
-- D - I - 0x033D8A 22:BD7A: 00        .byte $00
-- D - I - 0x033D8B 22:BD7B: 00        .byte $00
-- D - I - 0x033D8C 22:BD7C: 00        .byte $00
-- D - I - 0x033D8D 22:BD7D: 00        .byte $00
-- D - I - 0x033D8E 22:BD7E: EC        .byte con_stats_gk, con_gk_catch
-- D - I - 0x033D90 22:BD80: FC        .byte con_закончить
 
 off_BE6F:
 - D - I - 0x033E7F 22:BE6F: 0C        .byte $0C

@@ -5568,12 +5568,12 @@ off_EB17_18_triangle_jump:
 off_EB26_19_dive:
     .word $2288
     .byte $25
-    .text "   Dive  "
+    .text "     Dive"
 
 off_EB33_1A_stay:       ; GK
     .word $2288
     .byte $25
-    .text "   Stay  "
+    .text "     Stay"
 
 off_EB3E_1B_stop_shot:
     .word $2288
