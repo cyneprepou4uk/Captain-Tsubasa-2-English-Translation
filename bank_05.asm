@@ -807,7 +807,9 @@ off_B913_39_тренер_16:
     .byte con_ball
     
     .byte con_screen_off
+    .byte con_clear_3
     .byte con_bg_1, $60
+    .byte con_window, $04
     .byte con_animation, $01, $1B
     .byte con_base_offset
     .word $2246
