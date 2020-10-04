@@ -1314,7 +1314,7 @@ off_BA96_10_12_13:
 tbl_0x00DB50_оформление_окно_диалога:
     .word off_BB48_00_прямоугольное_облако_комментатора_в_катсценах
     .word off_BB9A_01_электрическое_облако_комментатора_в_катсценах
-    .word off_BBE8_02_advice
+    .word off_BBE8_02_meeting___advice
     .word off_BC42_03_meeting___coach
     .word off_BC43_04_meeting___level_up_password
     .word off_BC44_05_half_time
@@ -1361,7 +1361,7 @@ off_BB9A_01_электрическое_облако_комментатора_в_
 
 
 
-off_BBE8_02_advice:
+off_BBE8_02_meeting___advice:
 ; верхняя горизонтальная полоска
     .byte $1E
     .word $2221
