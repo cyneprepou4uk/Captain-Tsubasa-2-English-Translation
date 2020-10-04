@@ -884,18 +884,24 @@ loc_8574:
 
 
 ofs_8574_E7_смещение_текста:
-                    INY
-                    LDA (ram_004D),Y
-                    CLC
-                    ADC ram_0053
-                    STA ram_0053
-                    AND #$1F
-                    CMP ram_0054
-                    BCS bra_8532
-                    STA ram_0053
+    INY
+    LDA (ram_004D),Y
+    BPL @пропустить
+    AND #$7F
+    EOR #$FF
+    CLC
+    ADC #$01
+@пропустить:
+    CLC
+    ADC ram_0053
+    STA ram_0053
+    AND #$1F
+    CMP ram_0054
+    BCS bra_8532
+    STA ram_0053
 bra_8532:
-                    LDA #$02
-                    JMP loc_8879_сместить_указатель_байтов_катсцены
+    LDA #$02
+    JMP loc_8879_сместить_указатель_байтов_катсцены
 
 
 ofs_8575_E8:
