@@ -281,44 +281,12 @@ bra_81AB_выход:
 C - - - - 0x0301BB 22:81AB: 60        RTS
 
 tbl_81AC:
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    .byte $C1
-    .byte $C2
-    
-    .byte $40
-    .byte $40
-    .byte $40
-    .byte $40
-    .byte $41
-    .byte $C2
-    
-    .byte $C0
-    .byte $C0
-    .byte $C1
-    .byte $C3
-    
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    .byte $C1
-    .byte $C2
-    .byte $00
-    
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    
-    .byte $C0
-    .byte $C0
-    .byte $C0
-    .byte $C4
-    .byte $C5
-    .byte $86
+    .byte $C0, $C0, $C0, $C0, $C1, $C2
+    .byte $40, $40, $40, $40, $41, $C2
+    .byte $C0, $C0, $C1, $C3
+    .byte $C0, $C0, $C0, $C0, $C1, $C2, $00
+    .byte $C0, $C0, $C0, $C0
+    .byte $C0, $C0, $C0, $C4, $C5, $86
 
 ofs_81CE_06:
 ; 4 варианта диалога (использовалось лишь первые 2)
