@@ -1593,261 +1593,104 @@ off_BD4E_05:
 - D - I - 0x00DD75 07:BD65: FE        .byte $FE
 
 
-; bzk разобрать таблицу
-.export tbl_0x00DD90
-tbl_0x00DD90:
-- D - I - 0x00DD90 07:BD80: EB        .byte $EB
-- D - I - 0x00DD91 07:BD81: B6        .byte $B6    ; <グ>
-- D - I - 0x00DD92 07:BD82: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DD93 07:BD83: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DD94 07:BD84: EE        .byte $EE
-- D - I - 0x00DD95 07:BD85: B7        .byte $B7    ; <ゲ>
-- D - I - 0x00DD96 07:BD86: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DD97 07:BD87: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DD98 07:BD88: EF        .byte $EF
-- D - I - 0x00DD99 07:BD89: E2        .byte $E2
-- D - I - 0x00DD9A 07:BD8A: E8        .byte $E8
-- D - I - 0x00DD9B 07:BD8B: EA        .byte $EA
-- D - I - 0x00DD9C 07:BD8C: EB        .byte $EB
-- D - I - 0x00DD9D 07:BD8D: B6        .byte $B6    ; <グ>
-- D - I - 0x00DD9E 07:BD8E: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DD9F 07:BD8F: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDA0 07:BD90: EE        .byte $EE
-- D - I - 0x00DDA1 07:BD91: DA        .byte $DA
-- D - I - 0x00DDA2 07:BD92: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDA3 07:BD93: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDA4 07:BD94: EF        .byte $EF
-- D - I - 0x00DDA5 07:BD95: E2        .byte $E2
-- D - I - 0x00DDA6 07:BD96: E8        .byte $E8
-- D - I - 0x00DDA7 07:BD97: EA        .byte $EA
-- D - I - 0x00DDA8 07:BD98: EB        .byte $EB
-- D - I - 0x00DDA9 07:BD99: B6        .byte $B6    ; <グ>
-- D - I - 0x00DDAA 07:BD9A: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDAB 07:BD9B: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDAC 07:BD9C: EE        .byte $EE
-- D - I - 0x00DDAD 07:BD9D: F1        .byte $F1
-- D - I - 0x00DDAE 07:BD9E: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDAF 07:BD9F: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDB0 07:BDA0: EF        .byte $EF
-- D - I - 0x00DDB1 07:BDA1: E2        .byte $E2
-- D - I - 0x00DDB2 07:BDA2: E8        .byte $E8
-- D - I - 0x00DDB3 07:BDA3: EA        .byte $EA
-- D - I - 0x00DDB4 07:BDA4: EB        .byte $EB
-- D - I - 0x00DDB5 07:BDA5: B6        .byte $B6    ; <グ>
-- D - I - 0x00DDB6 07:BDA6: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDB7 07:BDA7: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDB8 07:BDA8: EE        .byte $EE
-- D - I - 0x00DDB9 07:BDA9: D8        .byte $D8
-- D - I - 0x00DDBA 07:BDAA: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDBB 07:BDAB: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDBC 07:BDAC: EF        .byte $EF
-- D - I - 0x00DDBD 07:BDAD: E2        .byte $E2
-- D - I - 0x00DDBE 07:BDAE: E8        .byte $E8
-- D - I - 0x00DDBF 07:BDAF: EA        .byte $EA
-- D - I - 0x00DDC0 07:BDB0: B4        .byte $B4    ; <ガ>
-- D - I - 0x00DDC1 07:BDB1: B6        .byte $B6    ; <グ>
-- D - I - 0x00DDC2 07:BDB2: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDC3 07:BDB3: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDC4 07:BDB4: E4        .byte $E4
-- D - I - 0x00DDC5 07:BDB5: E6        .byte $E6
-- D - I - 0x00DDC6 07:BDB6: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDC7 07:BDB7: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDC8 07:BDB8: E5        .byte $E5
-- D - I - 0x00DDC9 07:BDB9: E7        .byte $E7
-- D - I - 0x00DDCA 07:BDBA: E8        .byte $E8
-- D - I - 0x00DDCB 07:BDBB: EA        .byte $EA
-- D - I - 0x00DDCC 07:BDBC: B4        .byte $B4    ; <ガ>
-- D - I - 0x00DDCD 07:BDBD: B6        .byte $B6    ; <グ>
-- D - I - 0x00DDCE 07:BDBE: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDCF 07:BDBF: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDD0 07:BDC0: E4        .byte $E4
-- D - I - 0x00DDD1 07:BDC1: D9        .byte $D9
-- D - I - 0x00DDD2 07:BDC2: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDD3 07:BDC3: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDD4 07:BDC4: E5        .byte $E5
-- D - I - 0x00DDD5 07:BDC5: E7        .byte $E7
-- D - I - 0x00DDD6 07:BDC6: E8        .byte $E8
-- D - I - 0x00DDD7 07:BDC7: EA        .byte $EA
-- D - I - 0x00DDD8 07:BDC8: B4        .byte $B4    ; <ガ>
-- D - I - 0x00DDD9 07:BDC9: B6        .byte $B6    ; <グ>
-- D - I - 0x00DDDA 07:BDCA: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDDB 07:BDCB: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDDC 07:BDCC: E4        .byte $E4
-- D - I - 0x00DDDD 07:BDCD: F2        .byte $F2
-- D - I - 0x00DDDE 07:BDCE: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDDF 07:BDCF: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDE0 07:BDD0: E5        .byte $E5
-- D - I - 0x00DDE1 07:BDD1: E7        .byte $E7
-- D - I - 0x00DDE2 07:BDD2: E8        .byte $E8
-- D - I - 0x00DDE3 07:BDD3: EA        .byte $EA
-- D - I - 0x00DDE4 07:BDD4: B4        .byte $B4    ; <ガ>
-- D - I - 0x00DDE5 07:BDD5: E9        .byte $E9
-- D - I - 0x00DDE6 07:BDD6: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDE7 07:BDD7: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDE8 07:BDD8: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DDE9 07:BDD9: EC        .byte $EC
-- D - I - 0x00DDEA 07:BDDA: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDEB 07:BDDB: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDEC 07:BDDC: E0        .byte $E0
-- D - I - 0x00DDED 07:BDDD: ED        .byte $ED
-- D - I - 0x00DDEE 07:BDDE: E8        .byte $E8
-- D - I - 0x00DDEF 07:BDDF: EA        .byte $EA
-- D - I - 0x00DDF0 07:BDE0: B4        .byte $B4    ; <ガ>
-- D - I - 0x00DDF1 07:BDE1: E9        .byte $E9
-- D - I - 0x00DDF2 07:BDE2: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDF3 07:BDE3: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DDF4 07:BDE4: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DDF5 07:BDE5: DB        .byte $DB
-- D - I - 0x00DDF6 07:BDE6: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DDF7 07:BDE7: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DDF8 07:BDE8: E0        .byte $E0
-- D - I - 0x00DDF9 07:BDE9: ED        .byte $ED
-- D - I - 0x00DDFA 07:BDEA: E8        .byte $E8
-- D - I - 0x00DDFB 07:BDEB: EA        .byte $EA
-- D - I - 0x00DDFC 07:BDEC: B4        .byte $B4    ; <ガ>
-- D - I - 0x00DDFD 07:BDED: E9        .byte $E9
-- D - I - 0x00DDFE 07:BDEE: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DDFF 07:BDEF: BE        .byte $BE    ; <ダ>
-- D - I - 0x00DE00 07:BDF0: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE01 07:BDF1: F0        .byte $F0
-- D - I - 0x00DE02 07:BDF2: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE03 07:BDF3: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE04 07:BDF4: E0        .byte $E0
-- D - I - 0x00DE05 07:BDF5: ED        .byte $ED
-- D - I - 0x00DE06 07:BDF6: E8        .byte $E8
-- D - I - 0x00DE07 07:BDF7: EA        .byte $EA
-- D - I - 0x00DE08 07:BDF8: F4        .byte $F4
-- D - I - 0x00DE09 07:BDF9: F5        .byte $F5
-- D - I - 0x00DE0A 07:BDFA: B0        .byte $B0    ; <び>
-- D - I - 0x00DE0B 07:BDFB: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE0C 07:BDFC: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE0D 07:BDFD: EC        .byte $EC
-- D - I - 0x00DE0E 07:BDFE: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE0F 07:BDFF: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE10 07:BE00: E0        .byte $E0
-- D - I - 0x00DE11 07:BE01: ED        .byte $ED
-- D - I - 0x00DE12 07:BE02: E8        .byte $E8
-- D - I - 0x00DE13 07:BE03: EA        .byte $EA
-- D - I - 0x00DE14 07:BE04: E1        .byte $E1
-- D - I - 0x00DE15 07:BE05: E3        .byte $E3
-- D - I - 0x00DE16 07:BE06: B0        .byte $B0    ; <び>
-- D - I - 0x00DE17 07:BE07: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE18 07:BE08: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE19 07:BE09: DB        .byte $DB
-- D - I - 0x00DE1A 07:BE0A: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE1B 07:BE0B: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE1C 07:BE0C: E0        .byte $E0
-- D - I - 0x00DE1D 07:BE0D: ED        .byte $ED
-- D - I - 0x00DE1E 07:BE0E: E8        .byte $E8
-- D - I - 0x00DE1F 07:BE0F: EA        .byte $EA
-- D - I - 0x00DE20 07:BE10: F4        .byte $F4
-- D - I - 0x00DE21 07:BE11: F5        .byte $F5
-- D - I - 0x00DE22 07:BE12: B0        .byte $B0    ; <び>
-- D - I - 0x00DE23 07:BE13: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE24 07:BE14: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE25 07:BE15: F0        .byte $F0
-- D - I - 0x00DE26 07:BE16: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE27 07:BE17: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE28 07:BE18: E0        .byte $E0
-- D - I - 0x00DE29 07:BE19: ED        .byte $ED
-- D - I - 0x00DE2A 07:BE1A: E8        .byte $E8
-- D - I - 0x00DE2B 07:BE1B: EA        .byte $EA
-- D - I - 0x00DE2C 07:BE1C: DC        .byte $DC
-- D - I - 0x00DE2D 07:BE1D: DF        .byte $DF
-- D - I - 0x00DE2E 07:BE1E: B0        .byte $B0    ; <び>
-- D - I - 0x00DE2F 07:BE1F: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE30 07:BE20: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE31 07:BE21: EC        .byte $EC
-- D - I - 0x00DE32 07:BE22: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE33 07:BE23: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE34 07:BE24: E0        .byte $E0
-- D - I - 0x00DE35 07:BE25: ED        .byte $ED
-- D - I - 0x00DE36 07:BE26: E8        .byte $E8
-- D - I - 0x00DE37 07:BE27: EA        .byte $EA
-- D - I - 0x00DE38 07:BE28: DD        .byte $DD
-- D - I - 0x00DE39 07:BE29: DF        .byte $DF
-- D - I - 0x00DE3A 07:BE2A: B0        .byte $B0    ; <び>
-- D - I - 0x00DE3B 07:BE2B: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE3C 07:BE2C: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE3D 07:BE2D: DB        .byte $DB
-- D - I - 0x00DE3E 07:BE2E: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE3F 07:BE2F: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE40 07:BE30: E0        .byte $E0
-- D - I - 0x00DE41 07:BE31: ED        .byte $ED
-- D - I - 0x00DE42 07:BE32: E8        .byte $E8
-- D - I - 0x00DE43 07:BE33: EA        .byte $EA
-- D - I - 0x00DE44 07:BE34: DD        .byte $DD
-- D - I - 0x00DE45 07:BE35: F5        .byte $F5
-- D - I - 0x00DE46 07:BE36: B0        .byte $B0    ; <び>
-- D - I - 0x00DE47 07:BE37: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE48 07:BE38: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE49 07:BE39: DB        .byte $DB
-- D - I - 0x00DE4A 07:BE3A: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE4B 07:BE3B: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE4C 07:BE3C: E0        .byte $E0
-- D - I - 0x00DE4D 07:BE3D: ED        .byte $ED
-- D - I - 0x00DE4E 07:BE3E: E8        .byte $E8
-- D - I - 0x00DE4F 07:BE3F: EA        .byte $EA
-- D - I - 0x00DE50 07:BE40: DE        .byte $DE
-- D - I - 0x00DE51 07:BE41: F5        .byte $F5
-- D - I - 0x00DE52 07:BE42: B0        .byte $B0    ; <び>
-- D - I - 0x00DE53 07:BE43: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE54 07:BE44: B5        .byte $B5    ; <ギ>
-- D - I - 0x00DE55 07:BE45: F0        .byte $F0
-- D - I - 0x00DE56 07:BE46: BD        .byte $BD    ; <ゾ>
-- D - I - 0x00DE57 07:BE47: BF        .byte $BF    ; <ヂ>
-- D - I - 0x00DE58 07:BE48: E0        .byte $E0
-- D - I - 0x00DE59 07:BE49: ED        .byte $ED
-- D - I - 0x00DE5A 07:BE4A: E8        .byte $E8
-- D - I - 0x00DE5B 07:BE4B: EA        .byte $EA
-- D - I - 0x00DE5C 07:BE4C: EB        .byte $EB
-- D - I - 0x00DE5D 07:BE4D: B6        .byte $B6    ; <グ>
-- D - I - 0x00DE5E 07:BE4E: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DE5F 07:BE4F: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE60 07:BE50: EE        .byte $EE
-- D - I - 0x00DE61 07:BE51: DA        .byte $DA
-- D - I - 0x00DE62 07:BE52: D6        .byte $D6
-- D - I - 0x00DE63 07:BE53: D3        .byte $D3
-- D - I - 0x00DE64 07:BE54: EF        .byte $EF
-- D - I - 0x00DE65 07:BE55: E2        .byte $E2
-- D - I - 0x00DE66 07:BE56: E8        .byte $E8
-- D - I - 0x00DE67 07:BE57: EA        .byte $EA
-- D - I - 0x00DE68 07:BE58: EB        .byte $EB
-- D - I - 0x00DE69 07:BE59: B6        .byte $B6    ; <グ>
-- D - I - 0x00DE6A 07:BE5A: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DE6B 07:BE5B: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE6C 07:BE5C: EE        .byte $EE
-- D - I - 0x00DE6D 07:BE5D: F1        .byte $F1
-- D - I - 0x00DE6E 07:BE5E: D6        .byte $D6
-- D - I - 0x00DE6F 07:BE5F: D3        .byte $D3
-- D - I - 0x00DE70 07:BE60: EF        .byte $EF
-- D - I - 0x00DE71 07:BE61: E2        .byte $E2
-- D - I - 0x00DE72 07:BE62: E8        .byte $E8
-- D - I - 0x00DE73 07:BE63: EA        .byte $EA
-- D - I - 0x00DE74 07:BE64: EB        .byte $EB
-- D - I - 0x00DE75 07:BE65: B6        .byte $B6    ; <グ>
-- D - I - 0x00DE76 07:BE66: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DE77 07:BE67: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE78 07:BE68: EE        .byte $EE
-- D - I - 0x00DE79 07:BE69: D8        .byte $D8
-- D - I - 0x00DE7A 07:BE6A: D6        .byte $D6
-- D - I - 0x00DE7B 07:BE6B: D3        .byte $D3
-- D - I - 0x00DE7C 07:BE6C: EF        .byte $EF
-- D - I - 0x00DE7D 07:BE6D: E2        .byte $E2
-- D - I - 0x00DE7E 07:BE6E: E8        .byte $E8
-- D - I - 0x00DE7F 07:BE6F: EA        .byte $EA
-- D - I - 0x00DE80 07:BE70: EB        .byte $EB
-- D - I - 0x00DE81 07:BE71: B6        .byte $B6    ; <グ>
-- D - I - 0x00DE82 07:BE72: BC        .byte $BC    ; <ゼ>
-- D - I - 0x00DE83 07:BE73: AE        .byte $AE    ; <ど>
-- D - I - 0x00DE84 07:BE74: EE        .byte $EE
-- D - I - 0x00DE85 07:BE75: F3        .byte $F3
-- D - I - 0x00DE86 07:BE76: D6        .byte $D6
-- D - I - 0x00DE87 07:BE77: D3        .byte $D3
-- D - I - 0x00DE88 07:BE78: EF        .byte $EF
-- D - I - 0x00DE89 07:BE79: E2        .byte $E2
-- D - I - 0x00DE8A 07:BE7A: E8        .byte $E8
-- D - I - 0x00DE8B 07:BE7B: EA        .byte $EA
+
+.export tbl_0x00DD90_тайлы_чарли_в_катсцене
+tbl_0x00DD90_тайлы_чарли_в_катсцене:
+; картинки из 12 тайлов, рисуется вертикально по 4 тайла 3 раза
+    ; 00
+    .byte $EB, $B6, $BC, $BE
+    .byte $EE, $B7, $BD, $BF
+    .byte $EF, $E2, $E8, $EA
+    
+    .byte $EB, $B6, $BC, $BE
+    .byte $EE, $DA, $BD, $BF
+    .byte $EF, $E2, $E8, $EA
+    
+    .byte $EB, $B6, $BC, $BE
+    .byte $EE, $F1, $BD, $BF
+    .byte $EF, $E2, $E8, $EA
+    
+    .byte $EB, $B6, $BC, $BE
+    .byte $EE, $D8, $BD, $BF
+    .byte $EF, $E2, $E8, $EA
+
+
+    ; 01
+    .byte $B4, $B6, $BC, $BE
+    .byte $E4, $E6, $BD, $BF
+    .byte $E5, $E7, $E8, $EA
+    
+    .byte $B4, $B6, $BC, $BE
+    .byte $E4, $D9, $BD, $BF
+    .byte $E5, $E7, $E8, $EA
+    
+    .byte $B4, $B6, $BC, $BE
+    .byte $E4, $F2, $BD, $BF
+    .byte $E5, $E7, $E8, $EA
+
+
+    ; 02
+    .byte $B4, $E9, $BC, $BE
+    .byte $B5, $EC, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $B4, $E9, $BC, $BE
+    .byte $B5, $DB, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $B4, $E9, $BC, $BE
+    .byte $B5, $F0, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+
+
+    ; 03
+    .byte $F4, $F5, $B0, $AE
+    .byte $B5, $EC, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $E1, $E3, $B0, $AE
+    .byte $B5, $DB, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $F4, $F5, $B0, $AE
+    .byte $B5, $F0, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+
+
+    ; 04
+    .byte $DC, $DF, $B0, $AE
+    .byte $B5, $EC, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $DD, $DF, $B0, $AE
+    .byte $B5, $DB, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $DD, $F5, $B0, $AE
+    .byte $B5, $DB, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+    
+    .byte $DE, $F5, $B0, $AE
+    .byte $B5, $F0, $BD, $BF
+    .byte $E0, $ED, $E8, $EA
+
+
+    ; 05
+    .byte $EB, $B6, $BC, $AE
+    .byte $EE, $DA, $D6, $D3
+    .byte $EF, $E2, $E8, $EA
+    
+    .byte $EB, $B6, $BC, $AE
+    .byte $EE, $F1, $D6, $D3
+    .byte $EF, $E2, $E8, $EA
+    
+    .byte $EB, $B6, $BC, $AE
+    .byte $EE, $D8, $D6, $D3
+    .byte $EF, $E2, $E8, $EA
+    
+    .byte $EB, $B6, $BC, $AE
+    .byte $EE, $F3, $D6, $D3
+    .byte $EF, $E2, $E8, $EA
 
 
 
