@@ -377,13 +377,13 @@ C - - - - 0x0002B8 01:82A8: 60        RTS
 
 .export sub_0x0002B9
 sub_0x0002B9:
-bra_82A9:
 sub_82A9:
+bra_82A9_цикл:
 C - - - - 0x0002B9 01:82A9: A9 01     LDA #$01
 C - - - - 0x0002BB 01:82AB: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - 0x0002BE 01:82AE: A5 4D     LDA ram_004D
 C - - - - 0x0002C0 01:82B0: 05 4E     ORA ram_004E
-C - - - - 0x0002C2 01:82B2: D0 F5     BNE bra_82A9
+C - - - - 0x0002C2 01:82B2: D0 F5     BNE bra_82A9_цикл
 C - - - - 0x0002C4 01:82B4: 60        RTS
 
 bra_82B5_попытка_пропуска_катсцены:
@@ -4676,8 +4676,8 @@ C - - - - 0x001D5B 01:9D4B: E0 FF     CPX #$FF
 C - - - - 0x001D5D 01:9D4D: D0 DC     BNE bra_9D2B_цикл
 C - - - - 0x001D5F 01:9D4F: 60        RTS
 
-.export sub_0x001D60
-sub_0x001D60:
+.export sub_0x001D60_запись_имени_с_учетом_кодировки
+sub_0x001D60_запись_имени_с_учетом_кодировки:
 C D - - - 0x001D60 01:9D50: 84 E6     STY ram_00E6
 C - - - - 0x001D62 01:9D52: 86 E7     STX ram_00E7
 C - - - - 0x001D64 01:9D54: A9 FF     LDA #$FF
