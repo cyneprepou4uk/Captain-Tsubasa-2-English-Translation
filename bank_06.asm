@@ -525,10 +525,13 @@ off_BF9C_5D_новый_уровень_ишизаки:
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
-    .byte con_offset, $05
-    .text "@We're good, and we're", con_line
-    .byte con_offset, $06
-    .text "only getting better!@"
+    .byte con_offset, $0A
+    .text "@We're good,", con_line
+    .byte con_pause, $14
+    .byte con_offset, $09
+    .text "and we're only", con_line
+    .byte con_offset, $09
+    .text "getting better!@"
     .byte con_ball
     .byte con_clear_3
     .byte con_exit
