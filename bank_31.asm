@@ -134,7 +134,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_bg_1, $28
     .byte con_screen_on
     .byte con_base_offset
-    .word $2180
+    .word $21A0
     .byte con_speed, $04
     .byte con_offset, $09
     .text "On the day of"
@@ -162,7 +162,7 @@ off_BE49_1F_перед_матчем_с_бразилией:
     .byte con_window, $00
     .byte con_charlie, $05
     .byte con_base_offset
-    .word $2240
+    .word $2260
     .byte con_speed, $04
     .byte con_offset, $09
     .text "After so many"

@@ -2066,7 +2066,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_F8, $0F
     .byte con_pause, $78
     .byte con_base_offset
-    .word $228E
+    .word $22AE
     .byte con_speed, $00
     .text "CAST"
     .byte con_line

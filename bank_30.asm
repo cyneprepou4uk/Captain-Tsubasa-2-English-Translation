@@ -1836,7 +1836,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_sound, $3E
     .byte con_speed, $03
     .byte con_base_offset
-    .word $20E0
+    .word $2100
     .byte con_offset, $0A
     .text "The next day"
     .byte con_pause, $28
@@ -1873,7 +1873,7 @@ off_BA74_1D_после_победы_над_аргентиной:
     .byte con_palette, $00
     .byte con_F5, $00
     .byte con_base_offset
-    .word $2240
+    .word $2260
     .byte con_pause, $28
     .byte con_window, $00
     .byte con_charlie, $00

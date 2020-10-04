@@ -88,7 +88,7 @@ off_B16D_23_тренер_00:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@The Rio Cup has a lot", con_line
     .text "of skilled players.@"
@@ -96,7 +96,7 @@ off_B16D_23_тренер_00:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@If we're going to have", con_line
     .text "a chance, we need to", con_line
@@ -105,7 +105,7 @@ off_B16D_23_тренер_00:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@The key to victory is", con_line
     .text "teamwork - keep the ball", con_line
@@ -114,7 +114,7 @@ off_B16D_23_тренер_00:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Utilize your players", con_line
     .text "well and play to", con_line
@@ -132,7 +132,7 @@ off_B1E3_24_тренер_01:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Ribeiro is Argentina's", con_line
     .text "playmaker in the", con_line
@@ -142,7 +142,7 @@ off_B1E3_24_тренер_01:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Satrustegui scores a", con_line
     .text "lot of headers. Don't", con_line
@@ -161,7 +161,7 @@ off_B236_25_тренер_02:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@The Uruguayan Danil", con_line
     .text "Silva is playing with", con_line
@@ -171,7 +171,7 @@ off_B236_25_тренер_02:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Meon can easily stop", con_line
     .text "the Drive Shot, but", con_line
@@ -181,7 +181,7 @@ off_B236_25_тренер_02:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Long shots, headers", con_line
     .text "and crosses - just", con_line
@@ -199,7 +199,7 @@ off_B2A8_26_тренер_03:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Toninho is a midfielder,", con_line
     .text "Nei is a winger -", con_line
@@ -209,7 +209,7 @@ off_B2A8_26_тренер_03:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2248
+    .word $2268
     .byte con_offset, $81
     .text "@Keep the pressure", con_line
     .text "tight on them!@"
@@ -226,7 +226,7 @@ off_B2E4_27_тренер_04:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Zagallo, the center", con_line
     .text "forward, has a blistering", con_line
@@ -236,7 +236,7 @@ off_B2E4_27_тренер_04:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Dirceu, the center back,", con_line
     .text "has a @Cannon Header@", con_line
@@ -246,7 +246,7 @@ off_B2E4_27_тренер_04:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Hey, maybe I'll treat", con_line
     .text "you guys to broiled eel", con_line
@@ -265,7 +265,7 @@ off_B34F_28_тренер_05:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Flamengo's gotten so far", con_line
     .text "in large part due to the", con_line
@@ -275,7 +275,7 @@ off_B34F_28_тренер_05:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .text "and the midfielder", con_line
     .text "Santamaria's Banana", con_line
     .text "Shot. Put tight markers", con_line
@@ -284,7 +284,7 @@ off_B34F_28_тренер_05:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@The time to attack is", con_line
     .text "when their defender,", con_line
@@ -303,7 +303,7 @@ off_B3D1_29_тренер_06:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Their defender, Jitou,", con_line
     .text "uses his physical", con_line
@@ -312,7 +312,7 @@ off_B3D1_29_тренер_06:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .text "and a nasty combo-play", con_line
     .text "with the forward, Sano.", con_line
     .text "Don't let them get", con_line
@@ -330,7 +330,7 @@ off_B41F_2A_тренер_07:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@The Tachibana twins use", con_line
     .text "their Skylab technique", con_line
@@ -340,7 +340,7 @@ off_B41F_2A_тренер_07:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .text "so go in a wide circle", con_line
     .text "around them. Mark the", con_line
     .text "forward and midfielder,"
@@ -348,7 +348,7 @@ off_B41F_2A_тренер_07:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .text "and keep your defenders", con_line
     .text "in front of the goal.@"
     .byte con_ball
@@ -364,7 +364,7 @@ off_B46B_2B_тренер_08:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Their defender, Souda,", con_line
     .text "is tough as nails. And", con_line
@@ -374,7 +374,7 @@ off_B46B_2B_тренер_08:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@They'll look for a", con_line
     .text "gap in your offense,", con_line
@@ -393,7 +393,7 @@ off_B4B4_2C_тренер_09:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Musashi keeps Misugi", con_line
     .text "in reserve for the", con_line
@@ -403,7 +403,7 @@ off_B4B4_2C_тренер_09:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Misugi's a quality player,", con_line
     .text "so focus on getting goals", con_line
@@ -422,7 +422,7 @@ off_B512_2D_тренер_0A:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Furano has strong", con_line
     .text "teamwork, all-around.", con_line
@@ -432,7 +432,7 @@ off_B512_2D_тренер_0A:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Their entire side is", con_line
     .text "going on the offensive", con_line
@@ -442,7 +442,7 @@ off_B512_2D_тренер_0A:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .text "so keep an eye on them!@"
     .byte con_ball
     .byte con_clear_3
@@ -457,7 +457,7 @@ off_B556_2E_тренер_0B:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Hyuga's Tiger Shot is", con_line
     .text "even more fearsome", con_line
@@ -466,7 +466,7 @@ off_B556_2E_тренер_0B:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Also, put a mark on their", con_line
     .text "playmaker Sawada, so the", con_line
@@ -476,7 +476,7 @@ off_B556_2E_тренер_0B:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Wakashimazu's their", con_line
     .text "goalie, and his", con_line
@@ -486,7 +486,7 @@ off_B556_2E_тренер_0B:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2248
+    .word $2268
     .byte con_offset, $81
     .text "@Get close with", con_line
     .text "Nitta or Misaki", con_line
@@ -504,7 +504,7 @@ off_B5E1_2F_тренер_0C:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Their forward's name is", con_line
     .text "Rampion - he's nicknamed", con_line
@@ -523,7 +523,7 @@ off_B61E_30_тренер_0D:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@The two forwards are", con_line
     .text "Victorino and Danil", con_line
@@ -533,7 +533,7 @@ off_B61E_30_тренер_0D:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@They'll counterattack", con_line
     .text "with speed, so keep", con_line
@@ -551,7 +551,7 @@ off_B661_31_тренер_0E:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Kaltz and their", con_line
     .text "midfielder, Metzer,", con_line
@@ -561,7 +561,7 @@ off_B661_31_тренер_0E:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Their forward, Kappelman,", con_line
     .text "uses his Sidewinder", con_line
@@ -570,7 +570,7 @@ off_B661_31_тренер_0E:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@We all know how good", con_line
     .text "Wakabayashi is, so", con_line
@@ -580,7 +580,7 @@ off_B661_31_тренер_0E:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Get up close, and don't", con_line
     .text "waste your chances!@"
@@ -597,7 +597,7 @@ off_B6DF_32_тренер_0F:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Japan's team this year", con_line
     .text "has no real weaknesses.", con_line
@@ -616,7 +616,7 @@ off_B720_33_тренер_10:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@If we expect to make it", con_line
     .text "to the finals in Brazil,", con_line
@@ -627,7 +627,7 @@ off_B720_33_тренер_10:
     
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Each one of you must", con_line
     .text "firmly take charge of", con_line
@@ -646,7 +646,7 @@ off_B785_34_тренер_11:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@China has a history", con_line
     .text "spanning 4,000 years,", con_line
@@ -656,7 +656,7 @@ off_B785_34_тренер_11:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Watch their movements", con_line
     .text "carefully.@"
@@ -673,7 +673,7 @@ off_B7C3_35_тренер_12:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Iran has a strong", con_line
     .text "and forceful - even", con_line
@@ -683,7 +683,7 @@ off_B7C3_35_тренер_12:
     
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@They will try and", con_line
     .text "take you out of the", con_line
@@ -694,7 +694,7 @@ off_B7C3_35_тренер_12:
     
     
     .byte con_base_offset
-    .word $2249
+    .word $2269
     .byte con_offset, $81
     .text "@Be careful in", con_line
     .text "close duels.@"
@@ -711,7 +711,7 @@ off_B806_36_тренер_13:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2249
+    .word $2269
     .byte con_offset, $81
     .text "@This team will", con_line
     .text "rapidly switch", con_line
@@ -721,7 +721,7 @@ off_B806_36_тренер_13:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@They'll drive for the", con_line
     .text "goal through both", con_line
@@ -731,7 +731,7 @@ off_B806_36_тренер_13:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .text "@Firm up your defense!@"
     .byte con_ball
     .byte con_clear_3
@@ -746,7 +746,7 @@ off_B853_37_тренер_14:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Our opponents play using", con_line
     .text "the Brazilian style,", con_line
@@ -756,7 +756,7 @@ off_B853_37_тренер_14:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@There's also something", con_line
     .text "about their goalkeeper...@"
@@ -773,7 +773,7 @@ off_B89C_38_тренер_15:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@The Li brothers already", con_line
     .text "warned us about the", con_line
@@ -783,7 +783,7 @@ off_B89C_38_тренер_15:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@They haven't changed", con_line
     .text "their strategy of", con_line
@@ -793,7 +793,7 @@ off_B89C_38_тренер_15:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Let's not let that", con_line
     .text "info go to waste -", con_line
@@ -803,7 +803,7 @@ off_B89C_38_тренер_15:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2248
+    .word $2268
     .text "and the right to", con_line
     .text "represent Asia.", con_line
     .text "Go get 'em!@"
@@ -820,7 +820,7 @@ off_B913_39_тренер_16:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@We've made it through", con_line
     .text "the Asia Qualifiers -", con_line
@@ -829,7 +829,7 @@ off_B913_39_тренер_16:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@The JFO made arrangements", con_line
     .text "for us to take on some", con_line
@@ -839,7 +839,7 @@ off_B913_39_тренер_16:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .text "Group Stage, to keep", con_line
     .text "your skills sharp and", con_line
     .text "your minds focused.@"
@@ -847,7 +847,7 @@ off_B913_39_тренер_16:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Yoko will be returning", con_line
     .text "to Japan for a bit for", con_line
@@ -856,7 +856,7 @@ off_B913_39_тренер_16:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Ishizaki, you're in", con_line
     .text "charge of the score", con_line
@@ -870,7 +870,7 @@ off_B913_39_тренер_16:
     .byte con_window, $04
     .byte con_animation, $01, $1B
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Wow, Roberto's", con_line
     .text "coaching Brazil U-20.", con_line
@@ -882,7 +882,7 @@ off_B913_39_тренер_16:
     .byte con_toggle_cam
     .byte con_animation, $01, $4B
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@I know. But he's a former", con_line
     .text "ace, so it's only natural", con_line
@@ -893,7 +893,7 @@ off_B913_39_тренер_16:
     
     .byte con_animation, $01, $47
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@No matter what, I", con_line
     .text "want Roberto to see", con_line
@@ -904,7 +904,7 @@ off_B913_39_тренер_16:
     
     .byte con_animation, $01, $4B
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .text "...and that means", con_line
     .text "winning this match,", con_line
     .text "and every single", con_line
@@ -926,7 +926,7 @@ off_BA16_3A_тренер_17:
     .byte con_toggle_cam
     .byte con_palette, $00
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@It looks like next", con_line
     .text "up we'll be playing", con_line
@@ -936,7 +936,7 @@ off_BA16_3A_тренер_17:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .text "England, the Soviet", con_line
     .text "Union, and France.@"
     .byte con_ball
@@ -946,7 +946,7 @@ off_BA16_3A_тренер_17:
     .byte con_toggle_cam
     .byte con_palette, $00
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Those are some good", con_line
     .text "teams. I guess the", con_line
@@ -959,7 +959,7 @@ off_BA16_3A_тренер_17:
     .byte con_toggle_cam
     .byte con_palette, $00
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@They do. I want you to", con_line
     .text "treat these matches just", con_line
@@ -969,12 +969,12 @@ off_BA16_3A_тренер_17:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .text "@No slacking off.@"
     .byte con_ball
     
 ;   .byte con_base_offset
-;   .word $2244
+;   .word $2264
 ;   .text "No slacking off, we're", con_line
 ;   .text "up against Poland now.", con_line
 ;   .text "Dzajic is a highly", con_line
@@ -983,7 +983,7 @@ off_BA16_3A_тренер_17:
 ;   .byte con_clear_3
 ;   
 ;   .byte con_base_offset
-;   .word $2244
+;   .word $2264
 ;   .text "Don't let their foward", con_line
 ;   .text "Macher break through our", con_line
 ;   .text "defense with his speed."
@@ -1001,7 +1001,7 @@ off_BAD3_3B_тренер_18:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@The defender, Robson,", con_line
     .text "will get behind our", con_line
@@ -1010,7 +1010,7 @@ off_BAD3_3B_тренер_18:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Focus on lobbing when", con_line
     .text "in front of the goal.@"
@@ -1027,7 +1027,7 @@ off_BB12_3C_тренер_19:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@We're facing a team", con_line
     .text "with amazing stamina", con_line
@@ -1036,7 +1036,7 @@ off_BB12_3C_тренер_19:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Watch out for the speed", con_line
     .text "and persistence of their", con_line
@@ -1054,7 +1054,7 @@ off_BB5A_3D_тренер_1A:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@We're facing France again.", con_line
     .text "Their passing and offense", con_line
@@ -1064,7 +1064,7 @@ off_BB5A_3D_тренер_1A:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .text "but rumors say their", con_line
     .text "midfielder, Pierre,", con_line
     .text "has a new skill.@"
@@ -1072,7 +1072,7 @@ off_BB5A_3D_тренер_1A:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2248
+    .word $2268
     .byte con_offset, $81
     .text "@Mark him - don't", con_line
     .text "let him use it.@"
@@ -1089,7 +1089,7 @@ off_BBA7_3E_тренер_1B:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@This team's technique", con_line
     .text "is sound - the", con_line
@@ -1099,7 +1099,7 @@ off_BBA7_3E_тренер_1B:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Focus on putting all", con_line
     .text "men forward and get", con_line
@@ -1117,7 +1117,7 @@ off_BBE5_3F_тренер_1C:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Hernandez is their", con_line
     .text "goalkeeper, and his", con_line
@@ -1127,7 +1127,7 @@ off_BBE5_3F_тренер_1C:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Make every finish", con_line
     .text "of the ball count!@"
@@ -1144,7 +1144,7 @@ off_BC2A_40_тренер_1D:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@The center forward,", con_line
     .text "Islas, who appeared", con_line
@@ -1154,7 +1154,7 @@ off_BC2A_40_тренер_1D:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .text "is practically a", con_line
     .text "genius when it comes", con_line
     .text "to tactical awareness", con_line
@@ -1163,7 +1163,7 @@ off_BC2A_40_тренер_1D:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@He and Libuta are", con_line
     .text "considered top class", con_line
@@ -1182,7 +1182,7 @@ off_BCA7_41_тренер_1E:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Diaz used to carry", con_line
     .text "this team, but along", con_line
@@ -1192,7 +1192,7 @@ off_BCA7_41_тренер_1E:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .text "Galvan, and Babington.", con_line
     .text "Keep alert on defense!@"
     .byte con_ball
@@ -1207,7 +1207,7 @@ off_BCF9_42_тренер_1F:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2248
+    .word $2268
     .byte con_offset, $81
     .text "@Wakabayashi will", con_line
     .text "share his data on", con_line
@@ -1219,7 +1219,7 @@ off_BCF9_42_тренер_1F:
     .byte con_toggle_cam
     .byte con_palette, $C6
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Right. Whenever Schneider", con_line
     .text "is near our goal, someone", con_line
@@ -1229,7 +1229,7 @@ off_BCF9_42_тренер_1F:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .byte con_offset, $81
     .text "@Keep an eye on Kaltz and", con_line
     .text "Schester - they're the", con_line
@@ -1239,7 +1239,7 @@ off_BCF9_42_тренер_1F:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .text "and keep it throughout.", con_line
     .text "Tsubasa, Misaki - your", con_line
     .text "Golden Combo will win", con_line
@@ -1248,7 +1248,7 @@ off_BCF9_42_тренер_1F:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2244
+    .word $2264
     .text "@Let's get going, guys!@"
     .byte con_ball
     .byte con_clear_3
@@ -1266,7 +1266,7 @@ off_BDAD_43_тренер_20:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .byte con_offset, $81
     .text "@Tsubasa, since you", con_line
     .text "played for Sao Paulo,", con_line
@@ -1278,7 +1278,7 @@ off_BDAD_43_тренер_20:
     .byte con_toggle_cam
     .byte con_palette, $00
     .byte con_base_offset
-    .word $2247
+    .word $2267
     .byte con_offset, $81
     .text "@Santamaria is their", con_line
     .text "playmaker in the", con_line
@@ -1288,7 +1288,7 @@ off_BDAD_43_тренер_20:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Don't let him pass the", con_line
     .text "ball to Zagallo, Nei,", con_line
@@ -1297,7 +1297,7 @@ off_BDAD_43_тренер_20:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@Long shots are useless", con_line
     .text "against Gertise. If", con_line
@@ -1307,7 +1307,7 @@ off_BDAD_43_тренер_20:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .text "get in his face and", con_line
     .text "drive it past him with", con_line
     .text "pace on the ball!@"
@@ -1316,7 +1316,7 @@ off_BDAD_43_тренер_20:
     
     .byte con_animation, $01, $47
     .byte con_base_offset
-    .word $2245
+    .word $2265
     .byte con_offset, $81
     .text "@We've made it this far.", con_line
     .text "Playing together as a", con_line
@@ -1325,7 +1325,7 @@ off_BDAD_43_тренер_20:
     .byte con_clear_3
     
     .byte con_base_offset
-    .word $2246
+    .word $2266
     .text "we can bring home", con_line
     .text "the World Cup youth", con_line
     .text "trophy a second time.", con_line
@@ -1349,7 +1349,7 @@ off_BE89:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2250
+    .word $2270
     .text " Roberto:"
     .byte con_line
     .text "@Okay, guys.@"
@@ -1367,7 +1367,7 @@ off_BEA3:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2250
+    .word $2270
     .text " Katagiri:"
     .byte con_line
     .text "@Right on,"
@@ -1388,7 +1388,7 @@ off_BEC1:
     .byte con_speed, $00
     
     .byte con_base_offset
-    .word $2250
+    .word $2270
     .text " Mikami:"
     .byte con_line
     .text "@Alright,"
