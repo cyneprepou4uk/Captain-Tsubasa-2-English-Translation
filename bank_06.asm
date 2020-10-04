@@ -475,17 +475,19 @@ off_BF7D_5A_удачи_после_пароля_ишизаки:
 off_BF90_5B_новый_уровень_йоко:
     .byte con_animation, $01, $2B
     .byte con_E8, $01
-    .byte con_window, $02
     .byte con_bg_1, $5F
+    .byte con_window, $04
     .byte con_palette, $00
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
-    .byte con_offset, $04
-    .text "@I could really see you", con_line
-    .byte con_offset, $06
-    .text "improving out there.@"
-    .byte con_pause, $28
+    .byte con_offset, $08
+    .text "@I could really", con_line
+    .byte con_offset, $08
+    .text "see you improving", con_line
+    .byte con_offset, $0B
+    .text "out there!@"
+    .byte con_ball
     .byte con_clear_3
     .byte con_exit
 
@@ -494,19 +496,21 @@ off_BF90_5B_новый_уровень_йоко:
 off_BF96_5C_новый_уровень_санае:
     .byte con_animation, $01, $27
     .byte con_E8, $01
-    .byte con_window, $02
     .byte con_bg_1, $5F
+    .byte con_window, $04
     .byte con_palette, $00
     .byte con_sound, $6F
     .byte con_speed, $02
     .byte con_toggle_mouth
     .byte con_offset, $07
-    .text "@Great job! We'll", con_line
+    .text "@Great job!"
+    .byte con_pause, $1E
+    .text " We'll", con_line
     .byte con_offset, $06
     .text "win the Championship", con_line
     .byte con_offset, $09
     .text "at this rate!@"
-    .byte con_pause, $28
+    .byte con_ball
     .byte con_clear_3
     .byte con_exit
 
@@ -515,8 +519,8 @@ off_BF96_5C_новый_уровень_санае:
 off_BF9C_5D_новый_уровень_ишизаки:
     .byte con_animation, $01, $44
     .byte con_E8, $01
-    .byte con_window, $02
     .byte con_bg_1, $5F
+    .byte con_window, $04
     .byte con_palette, $00
     .byte con_sound, $6F
     .byte con_speed, $02
@@ -525,7 +529,7 @@ off_BF9C_5D_новый_уровень_ишизаки:
     .text "@We're good, and we're", con_line
     .byte con_offset, $06
     .text "only getting better!@"
-    .byte con_pause, $28
+    .byte con_ball
     .byte con_clear_3
     .byte con_exit
 
