@@ -1447,8 +1447,12 @@ off_BC43_04_meeting___level_up_password:
     .word $225E
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 ; Team Meeting
-    .byte $4C
+    .byte $0C
     .word $20AA
+    .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
+; Team Meeting      ; для смещения камеры в совете тренера
+    .byte $4C
+    .word $24AA
     .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
 
 

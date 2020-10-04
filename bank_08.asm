@@ -4207,8 +4207,8 @@ off_AE83_60_meeting:
 - D - I - 0x00EE99 08:AE89: 48        .byte $48
 - D - I - 0x00EE9A 08:AE8A: 5C        .byte $5C
 - D - I - 0x00EE9B 08:AE8B: 5C        .byte $5C
-- D - I - 0x00EE9C 08:AE8C: 4D        .byte $4D
-- D - I - 0x00EE9D 08:AE8D: 4E        .byte $4E
+- D - I - 0x00EE9C 08:AE8C: 4D        .byte $5C
+- D - I - 0x00EE9D 08:AE8D: 4E        .byte $5C
 - D - I - 0x00EE9E 08:AE8E: 5C        .byte $5C
 - D - I - 0x00EE9F 08:AE8F: 5C        .byte $5C
 - D - I - 0x00EEA0 08:AE90: 49        .byte $49

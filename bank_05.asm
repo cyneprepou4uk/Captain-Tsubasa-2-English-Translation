@@ -856,7 +856,8 @@ off_B913_39_тренер_16:
 
 
 off_BA16_3A_тренер_17:
-    .byte con_window, $02
+    .byte con_window, $04
+    .byte con_pause, $01    ; чтобы экран успел отрисоваться пока цубаса меняет палитру
     .byte con_speed, $00
     
     .byte con_animation, $01, $57
@@ -1123,7 +1124,7 @@ off_BCA7_41_тренер_1E:
 
 
 off_BCF9_42_тренер_1F:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
