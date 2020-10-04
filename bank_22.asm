@@ -55,28 +55,28 @@ C - - - - 0x030075 22:8065: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x03007C 22:806C: F2 82     .word ofs_82F2_02
 
 ofs_806E_00:
-loc_806E:
+loc_806E_цикл:
 C D J - - 0x03007E 22:806E: AC E5 05  LDY $05E5
 C - - - - 0x030081 22:8071: EE E5 05  INC $05E5
 C - - - - 0x030084 22:8074: B1 5F     LDA (ram_005F),Y
 C - - - - 0x030086 22:8076: C9 F0     CMP #$F0
 C - - - - 0x030088 22:8078: 90 06     BCC bra_8080_EF_и_ниже
-C - - - - 0x03008A 22:807A: 20 87 80  JSR sub_8087
-C - - - - 0x03008D 22:807D: 4C 6E 80  JMP loc_806E
+C - - - - 0x03008A 22:807A: 20 87 80  JSR sub_8087_управляющие_байты
+C - - - - 0x03008D 22:807D: 4C 6E 80  JMP loc_806E_цикл
 bra_8080_EF_и_ниже:
 C - - - - 0x030090 22:8080: 8D E9 05  STA ram_таймер_облака_ХЗ
 C - - - - 0x030093 22:8083: EE E4 05  INC $05E4
 C - - - - 0x030096 22:8086: 60        RTS
 
-sub_8087:
-C - - - - 0x030097 22:8087: 29 0F     AND #$0F
-C - - - - 0x030099 22:8089: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
-- D - I - 0x03009C 22:808C: 98 80     .word ofs_8098_F0_выход
-- - - - - 0x03009E 22:808E: A0 80     .word ofs_80A0_F1
-- D - I - 0x0300A0 22:8090: B5 80     .word ofs_80B5_F2_очистить_облако
-- D - I - 0x0300A2 22:8092: B8 80     .word ofs_80B8_F3
-- D - I - 0x0300A4 22:8094: CB 80     .word ofs_80CB_F4
-- D - I - 0x0300A6 22:8096: FD 81     .word ofs_81FD_F5
+sub_8087_управляющие_байты:
+    AND #$0F
+    JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
+    .word ofs_8098_F0_выход
+    .word ofs_80A0_F1       ; unused
+    .word ofs_80B5_F2_очистить_облако
+    .word ofs_80B8_F3
+    .word ofs_80CB_F4
+    .word ofs_81FD_F5
 
 ofs_8098_F0_выход:
 C - J - - 0x0300A8 22:8098: A9 00     LDA #$00
@@ -195,13 +195,13 @@ bra_8130_выход:
 C - - - - 0x030140 22:8130: 60        RTS
 
 tbl_8131_номер_команды:
-- D - - - 0x030141 22:8131: 05        .byte $05    ; <お>
-- D - - - 0x030142 22:8132: 0B        .byte $0B    ; <さ>
-- D - - - 0x030143 22:8133: 0F        .byte $0F    ; <そ>
-- D - - - 0x030144 22:8134: 15        .byte $15    ; <な>
-- D - - - 0x030145 22:8135: 16        .byte $16    ; <に>
-- D - - - 0x030146 22:8136: 1A        .byte $1A    ; <は>
-- D - - - 0x030147 22:8137: 21        .byte $21    ; <む>
+    .byte $05
+    .byte $0B
+    .byte $0F
+    .byte $15
+    .byte $16
+    .byte $1A
+    .byte $21
 
 ofs_8138_05:
 ; 16 вариантов диалога
@@ -281,40 +281,46 @@ bra_81AB_выход:
 C - - - - 0x0301BB 22:81AB: 60        RTS
 
 tbl_81AC:
-- D - - - 0x0301BC 22:81AC: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301BD 22:81AD: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301BE 22:81AE: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301BF 22:81AF: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301C0 22:81B0: C1        .byte $C1    ; <デ>
-- D - - - 0x0301C1 22:81B1: C2        .byte $C2    ; <ド>
-- D - - - 0x0301C2 22:81B2: 40        .byte $40    ; <「>
-- D - - - 0x0301C3 22:81B3: 40        .byte $40    ; <「>
-- D - - - 0x0301C4 22:81B4: 40        .byte $40    ; <「>
-- D - - - 0x0301C5 22:81B5: 40        .byte $40    ; <「>
-- D - - - 0x0301C6 22:81B6: 41        .byte $41    ; <ア>
-- D - - - 0x0301C7 22:81B7: C2        .byte $C2    ; <ド>
-- D - - - 0x0301C8 22:81B8: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301C9 22:81B9: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301CA 22:81BA: C1        .byte $C1    ; <デ>
-- D - - - 0x0301CB 22:81BB: C3        .byte $C3    ; <バ>
-- D - - - 0x0301CC 22:81BC: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301CD 22:81BD: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301CE 22:81BE: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301CF 22:81BF: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D0 22:81C0: C1        .byte $C1    ; <デ>
-- D - - - 0x0301D1 22:81C1: C2        .byte $C2    ; <ド>
-- D - - - 0x0301D2 22:81C2: 00        .byte $00
-- D - - - 0x0301D3 22:81C3: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D4 22:81C4: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D5 22:81C5: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D6 22:81C6: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D7 22:81C7: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D8 22:81C8: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301D9 22:81C9: C0        .byte $C0    ; <ヅ>
-- D - - - 0x0301DA 22:81CA: C4        .byte $C4    ; <ビ>
-- D - - - 0x0301DB 22:81CB: C5        .byte $C5    ; <ブ>
-- D - - - 0x0301DC 22:81CC: 86        .byte $86    ; <F>
-- - - - - 0x0301DD 22:81CD: C6        .byte $C6    ; <ベ>
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    .byte $C1
+    .byte $C2
+    
+    .byte $40
+    .byte $40
+    .byte $40
+    .byte $40
+    .byte $41
+    .byte $C2
+    
+    .byte $C0
+    .byte $C0
+    .byte $C1
+    .byte $C3
+    
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    .byte $C1
+    .byte $C2
+    .byte $00
+    
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    
+    .byte $C0
+    .byte $C0
+    .byte $C0
+    .byte $C4
+    .byte $C5
+    .byte $86
+; bzk мусор
+- - - - - 0x0301DD 22:81CD: C6        .byte $C6
 
 ofs_81CE_06:
 ; 4 варианта диалога (использовалось лишь первые 2)
@@ -368,13 +374,13 @@ ofs_8218_01:
 C - J - - 0x030228 22:8218: AC E5 05  LDY $05E5
 C - - - - 0x03022B 22:821B: B1 5F     LDA (ram_005F),Y
 C - - - - 0x03022D 22:821D: C9 90     CMP #$90
-C - - - - 0x03022F 22:821F: B0 0D     BCS bra_822E
+C - - - - 0x03022F 22:821F: B0 0D     BCS bra_822E_90_и_выше
 C - - - - 0x030231 22:8221: 29 0F     AND #$0F
 C - - - - 0x030233 22:8223: 8D F3 05  STA $05F3
 C - - - - 0x030236 22:8226: A9 80     LDA #$80
 C - - - - 0x030238 22:8228: 8D F4 05  STA $05F4
 C - - - - 0x03023B 22:822B: 4C 34 82  JMP loc_8234
-bra_822E:
+bra_822E_90_и_выше:
 C - - - - 0x03023E 22:822E: 20 2D C5  JSR sub_0x03CC56_очистить_нижнюю_половину_экрана
 C - - - - 0x030241 22:8231: AC E5 05  LDY $05E5
 loc_8234:
@@ -2238,21 +2244,21 @@ tbl_8D9E_тайлы_окон_меню:
 
 
 tbl_8DC2_тайлы_облаков:
-- D - - - 0x030DD2 22:8DC2: E0 8D     .word off_8DE0_00
-- D - - - 0x030DD4 22:8DC4: 37 8E     .word off_8E37_01
-- D - - - 0x030DD6 22:8DC6: 94 8E     .word off_8E94_02
-- - - - - 0x030DD8 22:8DC8: F6 8E     .word off_8EF6_03
-- D - - - 0x030DDA 22:8DCA: 6B 8F     .word off_8F6B_04
-- D - - - 0x030DDC 22:8DCC: BF 8F     .word off_8FBF_05
-- D - - - 0x030DDE 22:8DCE: 15 90     .word off_9015_06
-- D - - - 0x030DE0 22:8DD0: 73 90     .word off_9073_07
-- D - - - 0x030DE2 22:8DD2: DF 90     .word off_90DF_08
-- D - - - 0x030DE4 22:8DD4: 40 91     .word off_9140_09_0A_0B
-- D - - - 0x030DE6 22:8DD6: 40 91     .word off_9140_09_0A_0B
-- D - - - 0x030DE8 22:8DD8: 40 91     .word off_9140_09_0A_0B
-- D - - - 0x030DEA 22:8DDA: B0 91     .word off_91B0_0C_0D_0E
-- D - - - 0x030DEC 22:8DDC: B0 91     .word off_91B0_0C_0D_0E
-- D - - - 0x030DEE 22:8DDE: B0 91     .word off_91B0_0C_0D_0E
+    .word off_8DE0_00
+    .word off_8E37_01
+    .word off_8E94_02
+    .word off_8EF6_03       ; unused
+    .word off_8F6B_04
+    .word off_8FBF_05
+    .word off_9015_06
+    .word off_9073_07
+    .word off_90DF_08
+    .word off_9140_09_0A_0B
+    .word off_9140_09_0A_0B
+    .word off_9140_09_0A_0B
+    .word off_91B0_0C_0D_0E
+    .word off_91B0_0C_0D_0E
+    .word off_91B0_0C_0D_0E
 
 
 
