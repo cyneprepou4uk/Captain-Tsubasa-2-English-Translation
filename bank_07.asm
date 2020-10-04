@@ -1481,116 +1481,116 @@ off_BC44_05_half_time:
 
 
 
-.export tbl_0x00DD10
-tbl_0x00DD10:
-- D - - - 0x00DD10 07:BD00: 0C BD     .word off_BD0C_00
-- D - - - 0x00DD12 07:BD02: 1A BD     .word off_BD1A_01
-- D - - - 0x00DD14 07:BD04: 24 BD     .word off_BD24_02
-- D - - - 0x00DD16 07:BD06: 32 BD     .word off_BD32_03
-- D - - - 0x00DD18 07:BD08: 41 BD     .word off_BD41_04
-- D - - - 0x00DD1A 07:BD0A: 4E BD     .word off_BD4E_05
+.export tbl_0x00DD10_номера_анимаций_чарли
+tbl_0x00DD10_номера_анимаций_чарли:
+    .word off_BD0C_00
+    .word off_BD1A_01
+    .word off_BD24_02
+    .word off_BD32_03
+    .word off_BD41_04
+    .word off_BD4E_05
 
 off_BD0C_00:
-- D - I - 0x00DD1C 07:BD0C: 05        .byte $05    ; <お>
-- D - I - 0x00DD1D 07:BD0D: 0D        .byte $0D    ; <す>
-- D - I - 0x00DD1E 07:BD0E: 15        .byte $15    ; <な>
-- D - I - 0x00DD1F 07:BD0F: 0D        .byte $0D    ; <す>
-- D - I - 0x00DD20 07:BD10: 15        .byte $15    ; <な>
-- D - I - 0x00DD21 07:BD11: 1D        .byte $1D    ; <へ>
-- D - I - 0x00DD22 07:BD12: 15        .byte $15    ; <な>
-- D - I - 0x00DD23 07:BD13: 0D        .byte $0D    ; <す>
-- D - I - 0x00DD24 07:BD14: 15        .byte $15    ; <な>
-- D - I - 0x00DD25 07:BD15: 1D        .byte $1D    ; <へ>
-- D - I - 0x00DD26 07:BD16: 15        .byte $15    ; <な>
-- D - I - 0x00DD27 07:BD17: 0D        .byte $0D    ; <す>
-- D - I - 0x00DD28 07:BD18: 05        .byte $05    ; <お>
-- D - I - 0x00DD29 07:BD19: FE        .byte $FE
+    .byte $05
+    .byte $0D
+    .byte $15
+    .byte $0D
+    .byte $15
+    .byte $1D
+    .byte $15
+    .byte $0D
+    .byte $15
+    .byte $1D
+    .byte $15
+    .byte $0D
+    .byte $05
+    .byte $FE
 
 off_BD1A_01:
-- D - I - 0x00DD2A 07:BD1A: 24        .byte $24    ; <や>
-- D - I - 0x00DD2B 07:BD1B: 2C        .byte $2C    ; <わ>
-- D - I - 0x00DD2C 07:BD1C: 34        .byte $34    ; <1>
-- D - I - 0x00DD2D 07:BD1D: 2C        .byte $2C    ; <わ>
-- D - I - 0x00DD2E 07:BD1E: 34        .byte $34    ; <1>
-- D - I - 0x00DD2F 07:BD1F: 2C        .byte $2C    ; <わ>
-- D - I - 0x00DD30 07:BD20: 34        .byte $34    ; <1>
-- D - I - 0x00DD31 07:BD21: 2C        .byte $2C    ; <わ>
-- D - I - 0x00DD32 07:BD22: 24        .byte $24    ; <や>
-- D - I - 0x00DD33 07:BD23: FE        .byte $FE
+    .byte $24
+    .byte $2C
+    .byte $34
+    .byte $2C
+    .byte $34
+    .byte $2C
+    .byte $34
+    .byte $2C
+    .byte $24
+    .byte $FE
 
 off_BD24_02:
-- D - I - 0x00DD34 07:BD24: 3D        .byte $3D    ; <+>
-- D - I - 0x00DD35 07:BD25: 45        .byte $45    ; <オ>
-- D - I - 0x00DD36 07:BD26: 4D        .byte $4D    ; <ス>
-- D - I - 0x00DD37 07:BD27: 45        .byte $45    ; <オ>
-- D - I - 0x00DD38 07:BD28: 4D        .byte $4D    ; <ス>
-- D - I - 0x00DD39 07:BD29: 45        .byte $45    ; <オ>
-- D - I - 0x00DD3A 07:BD2A: 3D        .byte $3D    ; <+>
-- D - I - 0x00DD3B 07:BD2B: 45        .byte $45    ; <オ>
-- D - I - 0x00DD3C 07:BD2C: 4D        .byte $4D    ; <ス>
-- D - I - 0x00DD3D 07:BD2D: 45        .byte $45    ; <オ>
-- D - I - 0x00DD3E 07:BD2E: 4D        .byte $4D    ; <ス>
-- D - I - 0x00DD3F 07:BD2F: 45        .byte $45    ; <オ>
-- D - I - 0x00DD40 07:BD30: 3D        .byte $3D    ; <+>
-- D - I - 0x00DD41 07:BD31: FE        .byte $FE
+    .byte $3D
+    .byte $45
+    .byte $4D
+    .byte $45
+    .byte $4D
+    .byte $45
+    .byte $3D
+    .byte $45
+    .byte $4D
+    .byte $45
+    .byte $4D
+    .byte $45
+    .byte $3D
+    .byte $FE
 
 off_BD32_03:
-- D - I - 0x00DD42 07:BD32: 55        .byte $55    ; <ナ>
-- D - I - 0x00DD43 07:BD33: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x00DD44 07:BD34: 65        .byte $65    ; <ユ>
-- D - I - 0x00DD45 07:BD35: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x00DD46 07:BD36: 65        .byte $65    ; <ユ>
-- D - I - 0x00DD47 07:BD37: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x00DD48 07:BD38: 55        .byte $55    ; <ナ>
-- D - I - 0x00DD49 07:BD39: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x00DD4A 07:BD3A: 65        .byte $65    ; <ユ>
-- D - I - 0x00DD4B 07:BD3B: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x00DD4C 07:BD3C: 65        .byte $65    ; <ユ>
-- D - I - 0x00DD4D 07:BD3D: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x00DD4E 07:BD3E: 65        .byte $65    ; <ユ>
-- D - I - 0x00DD4F 07:BD3F: 5D        .byte $5D    ; <ヘ>
-- - - - - 0x00DD50 07:BD40: FE        .byte $FE
+    .byte $55
+    .byte $5D
+    .byte $65
+    .byte $5D
+    .byte $65
+    .byte $5D
+    .byte $55
+    .byte $5D
+    .byte $65
+    .byte $5D
+    .byte $65
+    .byte $5D
+    .byte $65
+    .byte $5D
+    .byte $FE
 
 off_BD41_04:
-- D - I - 0x00DD51 07:BD41: 6B        .byte $6B    ; <ロ>
-- D - I - 0x00DD52 07:BD42: 73        .byte $73    ; <ヮ>
-- D - I - 0x00DD53 07:BD43: 83        .byte $83    ; <C>
-- D - I - 0x00DD54 07:BD44: 7B        .byte $7B    ; <。>
-- D - I - 0x00DD55 07:BD45: 6D        .byte $6D    ; <ヲ>
-- D - I - 0x00DD56 07:BD46: 75        .byte $75    ; <ェ>
-- D - I - 0x00DD57 07:BD47: 85        .byte $85    ; <E>
-- D - I - 0x00DD58 07:BD48: 7D        .byte $7D    ; <ー>
-- D - I - 0x00DD59 07:BD49: 6B        .byte $6B    ; <ロ>
-- D - I - 0x00DD5A 07:BD4A: 73        .byte $73    ; <ヮ>
-- D - I - 0x00DD5B 07:BD4B: 83        .byte $83    ; <C>
-- D - I - 0x00DD5C 07:BD4C: 7B        .byte $7B    ; <。>
-- D - I - 0x00DD5D 07:BD4D: FE        .byte $FE
+    .byte $6B
+    .byte $73
+    .byte $83
+    .byte $7B
+    .byte $6D
+    .byte $75
+    .byte $85
+    .byte $7D
+    .byte $6B
+    .byte $73
+    .byte $83
+    .byte $7B
+    .byte $FE
 
 off_BD4E_05:
-- D - I - 0x00DD5E 07:BD4E: 95        .byte $95
-- D - I - 0x00DD5F 07:BD4F: 9D        .byte $9D
-- D - I - 0x00DD60 07:BD50: 95        .byte $95
-- D - I - 0x00DD61 07:BD51: 9D        .byte $9D
-- D - I - 0x00DD62 07:BD52: 95        .byte $95
-- D - I - 0x00DD63 07:BD53: A7        .byte $A7    ; <ず>
-- D - I - 0x00DD64 07:BD54: 9D        .byte $9D
-- D - I - 0x00DD65 07:BD55: A5        .byte $A5    ; <ざ>
-- D - I - 0x00DD66 07:BD56: 9F        .byte $9F
-- D - I - 0x00DD67 07:BD57: 95        .byte $95
-- D - I - 0x00DD68 07:BD58: 8F        .byte $8F    ; <S>
-- D - I - 0x00DD69 07:BD59: 95        .byte $95
-- D - I - 0x00DD6A 07:BD5A: 9F        .byte $9F
-- D - I - 0x00DD6B 07:BD5B: A7        .byte $A7    ; <ず>
-- D - I - 0x00DD6C 07:BD5C: 9D        .byte $9D
-- D - I - 0x00DD6D 07:BD5D: A7        .byte $A7    ; <ず>
-- D - I - 0x00DD6E 07:BD5E: 9D        .byte $9D
-- D - I - 0x00DD6F 07:BD5F: A7        .byte $A7    ; <ず>
-- D - I - 0x00DD70 07:BD60: 9D        .byte $9D
-- D - I - 0x00DD71 07:BD61: A7        .byte $A7    ; <ず>
-- D - I - 0x00DD72 07:BD62: 9D        .byte $9D
-- D - I - 0x00DD73 07:BD63: 95        .byte $95
-- D - I - 0x00DD74 07:BD64: 8F        .byte $8F    ; <S>
-- D - I - 0x00DD75 07:BD65: FE        .byte $FE
+    .byte $95
+    .byte $9D
+    .byte $95
+    .byte $9D
+    .byte $95
+    .byte $A7
+    .byte $9D
+    .byte $A5
+    .byte $9F
+    .byte $95
+    .byte $8F
+    .byte $95
+    .byte $9F
+    .byte $A7
+    .byte $9D
+    .byte $A7
+    .byte $9D
+    .byte $A7
+    .byte $9D
+    .byte $A7
+    .byte $9D
+    .byte $95
+    .byte $8F
+    .byte $FE
 
 
 
