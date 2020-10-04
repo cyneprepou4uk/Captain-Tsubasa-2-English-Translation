@@ -84,7 +84,7 @@ con_exit                    = $FF   ; end of the cutscene
 
 
 off_B16D_23_тренер_00:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -124,7 +124,7 @@ off_B16D_23_тренер_00:
 
 
 off_B1E3_24_тренер_01:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -151,7 +151,7 @@ off_B1E3_24_тренер_01:
 
 
 off_B236_25_тренер_02:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -186,7 +186,7 @@ off_B236_25_тренер_02:
 
 
 off_B2A8_26_тренер_03:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -211,7 +211,7 @@ off_B2A8_26_тренер_03:
 
 
 off_B2E4_27_тренер_04:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -247,7 +247,7 @@ off_B2E4_27_тренер_04:
 
 
 off_B34F_28_тренер_05:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -283,7 +283,7 @@ off_B34F_28_тренер_05:
 
 
 off_B3D1_29_тренер_06:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -309,7 +309,7 @@ off_B3D1_29_тренер_06:
 
 
 off_B41F_2A_тренер_07:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -342,7 +342,7 @@ off_B41F_2A_тренер_07:
 
 
 off_B46B_2B_тренер_08:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -369,7 +369,7 @@ off_B46B_2B_тренер_08:
 
 
 off_B4B4_2C_тренер_09:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -396,7 +396,7 @@ off_B4B4_2C_тренер_09:
 
 
 off_B512_2D_тренер_0A:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -429,7 +429,7 @@ off_B512_2D_тренер_0A:
 
 
 off_B556_2E_тренер_0B:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -472,7 +472,7 @@ off_B556_2E_тренер_0B:
 
 
 off_B5E1_2F_тренер_0C:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -490,7 +490,7 @@ off_B5E1_2F_тренер_0C:
 
 
 off_B61E_30_тренер_0D:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -516,7 +516,7 @@ off_B61E_30_тренер_0D:
 
 
 off_B661_31_тренер_0E:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -556,7 +556,7 @@ off_B661_31_тренер_0E:
 
 
 off_B6DF_32_тренер_0F:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -574,7 +574,7 @@ off_B6DF_32_тренер_0F:
 
 
 off_B720_33_тренер_10:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -602,7 +602,7 @@ off_B720_33_тренер_10:
 
 
 off_B785_34_тренер_11:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -627,7 +627,7 @@ off_B785_34_тренер_11:
 
 
 off_B7C3_35_тренер_12:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -662,7 +662,7 @@ off_B7C3_35_тренер_12:
 
 
 off_B806_36_тренер_13:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -694,7 +694,7 @@ off_B806_36_тренер_13:
 
 
 off_B853_37_тренер_14:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -719,7 +719,7 @@ off_B853_37_тренер_14:
 
 
 off_B89C_38_тренер_15:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -762,7 +762,7 @@ off_B89C_38_тренер_15:
 
 
 off_B913_39_тренер_16:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -932,7 +932,7 @@ off_BA16_3A_тренер_17:
 
 
 off_BAD3_3B_тренер_18:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -956,7 +956,7 @@ off_BAD3_3B_тренер_18:
 
 
 off_BB12_3C_тренер_19:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -981,7 +981,7 @@ off_BB12_3C_тренер_19:
 
 
 off_BB5A_3D_тренер_1A:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -1014,7 +1014,7 @@ off_BB5A_3D_тренер_1A:
 
 
 off_BBA7_3E_тренер_1B:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -1039,7 +1039,7 @@ off_BBA7_3E_тренер_1B:
 
 
 off_BBE5_3F_тренер_1C:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -1064,7 +1064,7 @@ off_BBE5_3F_тренер_1C:
 
 
 off_BC2A_40_тренер_1D:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -1100,7 +1100,7 @@ off_BC2A_40_тренер_1D:
 
 
 off_BCA7_41_тренер_1E:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -1180,7 +1180,7 @@ off_BCF9_42_тренер_1F:
 
 
 off_BDAD_43_тренер_20:
-    .byte con_window, $02
+    .byte con_window, $04
     .byte con_speed, $00
     
     .byte con_base_offset
@@ -1242,7 +1242,7 @@ off_BDAD_43_тренер_20:
     .text "we can bring home the", con_line
     .text "World Cup for youth", con_line
     .text "players a second time.", con_line
-    .text "Let's do it!!"
+    .text "Let's go, everyone!!"
     .byte con_ball
     .byte con_clear_3
     
