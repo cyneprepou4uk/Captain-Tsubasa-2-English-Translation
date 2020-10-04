@@ -2438,22 +2438,22 @@ C - - - - 0x0030E2 02:B0D2: 85 E7     STA ram_00E7
 C - - - - 0x0030E4 02:B0D4: 6C E6 00  JMP (ram_00E6)
 
 tbl_B0D7:
-- D - - - 0x0030E7 02:B0D7: F7 B0     .word ofs_B0F7_00_запись_в_буфер_без_смещения
-- D - - - 0x0030E9 02:B0D9: 02 B1     .word ofs_B102_01_запись_в_буфер_со_смещением
-- - - - - 0x0030EB 02:B0DB: 13 B1     .word ofs_B113_02
-- - - - - 0x0030ED 02:B0DD: 1E B1     .word ofs_B11E_03
-- D - - - 0x0030EF 02:B0DF: 2F B1     .word ofs_B12F_04_вертикальная_полоска
-- D - - - 0x0030F1 02:B0E1: 3B B1     .word ofs_B13B_05_горизонтальная_полоска
-- - - - - 0x0030F3 02:B0E3: 4D B1     .word ofs_B14D_06
-- - - - - 0x0030F5 02:B0E5: 60 B1     .word ofs_B160_07
-- - - - - 0x0030F7 02:B0E7: 73 B1     .word ofs_B173_08
-- - - - - 0x0030F9 02:B0E9: 86 B1     .word ofs_B186_09
-- D - - - 0x0030FB 02:B0EB: 99 B1     .word ofs_B199_0A_запись_в_буфер_с_учетом_кодировки_японских_символов
-- - - - - 0x0030FD 02:B0ED: BA B1     .word _общий_RTS
-- - - - - 0x0030FF 02:B0EF: BA B1     .word _общий_RTS
-- D - - - 0x003101 02:B0F1: A4 B1     .word ofs_B1A4_0D_очистить_nametable
-- D - - - 0x003103 02:B0F3: AC B1     .word ofs_B1AC_0E_прыжок
-- D - - - 0x003105 02:B0F5: BA B1     .word _общий_RTS    ; 0F закончить чтение
+    .word ofs_B0F7_00_запись_в_буфер_без_смещения
+    .word ofs_B102_01_запись_в_буфер_со_смещением
+    .word ofs_B113_02       ; unused
+    .word ofs_B11E_03       ; unused
+    .word ofs_B12F_04_вертикальная_полоска
+    .word ofs_B13B_05_горизонтальная_полоска
+    .word ofs_B14D_06       ; unused
+    .word ofs_B160_07       ; unused
+    .word ofs_B173_08       ; unused
+    .word ofs_B186_09       ; unused
+    .word ofs_B199_0A_запись_в_буфер_с_учетом_кодировки_японских_символов
+    .word _общий_RTS        ; unused
+    .word _общий_RTS        ; unused
+    .word ofs_B1A4_0D_очистить_nametable
+    .word ofs_B1AC_0E_прыжок
+    .word _общий_RTS        ; 0F закончить чтение
 
 ofs_B0F7_00_запись_в_буфер_без_смещения:
 C - J - - 0x003107 02:B0F7: 20 C9 B1  JSR sub_B1C9_прочитать_поинтер
