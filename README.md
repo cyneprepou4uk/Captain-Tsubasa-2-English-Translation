@@ -12,6 +12,8 @@ No special requirements. Just launch **assemble.bat** and wait until it's done.
 
 Then open **!ct2.nes** to play the game (translation is not fully complete, yet).
 
+Runs properly on [FCEUX](http://fceux.com/) and [Mesen](https://www.mesen.ca/) (maybe some other emulators too).
+
 
 
 ## Collaborative translation project
