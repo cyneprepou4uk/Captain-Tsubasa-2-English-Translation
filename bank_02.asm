@@ -1569,7 +1569,7 @@ C - - - - 0x002BB5 02:ABA5: A5 ED     LDA ram_00ED
 C - - - - 0x002BB7 02:ABA7: 85 5F     STA ram_005F
 C - - - - 0x002BB9 02:ABA9: A0 00     LDY #con_игрок_номер
 C - - - - 0x002BBB 02:ABAB: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x002BBD 02:ABAD: A0 46     LDY #$44      ; адрес ppu для имени игрока
+C - - - - 0x002BBD 02:ABAD: A0 46     LDY #$64      ; адрес ppu для имени игрока
 C - - - - 0x002BBF 02:ABAF: A2 20     LDX #$20
 C - - - - 0x002BC1 02:ABB1: 20 05 AF  JSR sub_AF05
 C - - - - 0x002BC4 02:ABB4: A0 03     LDY #con_игрок_уровень
@@ -1751,8 +1751,6 @@ C - - - - 0x002D0C 02:ACFC: AA        TAX
 C - - - - 0x002D0D 02:ACFD: BD 48 BC  LDA tbl_BC48_адрес_ppu_спешалов,X
 C - - - - 0x002D10 02:AD00: 29 E0     AND #$E0
 C - - - - 0x002D12 02:AD02: 09 15     ORA #$19      ; + к адресу ppu для cost
-C - - - - 0x002D14 02:AD04: 18        CLC
-C - - - - 0x002D15 02:AD05: 69 20     ADC #$20
 C - - - - 0x002D17 02:AD07: A8        TAY
 C - - - - 0x002D18 02:AD08: BD 49 BC  LDA tbl_BC48_адрес_ppu_спешалов + 1,X
 C - - - - 0x002D1B 02:AD0B: 69 00     ADC #$00
@@ -4395,14 +4393,14 @@ off_BC42_вакашимазу:
 
 
 tbl_BC48_адрес_ppu_спешалов:
-    .word $2524
-    .word $2564
-    .word $25A4
-    .word $25E4
-    .word $2624
-    .word $2664
-    .word $26A4
-    .word $26E4
+    .word $2544
+    .word $2584
+    .word $25C4
+    .word $2604
+    .word $2644
+    .word $2684
+    .word $26C4
+    .word $2704
 
 tbl_BC58_адрес_ppu_для_имен_игроков:
     .word $2243
