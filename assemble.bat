@@ -66,7 +66,7 @@ if %size% EQU 786448 (
     echo --------------------------------------------
     echo Done! Look for !ct2.nes file in your folder.
     echo --------------------------------------------
-    timeout 10
+    C:\windows\system32\timeout /T 10
 ) else (
     echo.
     echo --------------------------------------------------
