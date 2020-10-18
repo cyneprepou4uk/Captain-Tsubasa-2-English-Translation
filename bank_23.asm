@@ -792,7 +792,7 @@ C - - - - 0x0345E2 23:85D2: 91 34     STA (ram_plr_data),Y
 C - - - - 0x0345E4 23:85D4: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x0345E6 23:85D6: 91 34     STA (ram_plr_data),Y
 C - - - - 0x0345E8 23:85D8: A9 04     LDA #$04
-C - - - - 0x0345EA 23:85DA: 8D 29 06  STA $0629
+C - - - - 0x0345EA 23:85DA: 8D 29 06  STA ram_флаг_разводки
 C - - - - 0x0345ED 23:85DD: A2 50     LDX #$50
 C - - - - 0x0345EF 23:85DF: 9A        TXS
 C - - - - 0x0345F0 23:85E0: 4C 36 C6  JMP loc_0x03DABA

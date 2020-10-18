@@ -1744,7 +1744,7 @@ C - - - - 0x03D158 FF:D148: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03D15B FF:D14B: 68        PLA
 C - - - - 0x03D15C FF:D14C: 20 30 80  JSR sub_0x0355F1_вычисление_счета_пенальти
 bra_D14F:
-C - - - - 0x03D15F FF:D14F: 8D 29 06  STA $0629
+C - - - - 0x03D15F FF:D14F: 8D 29 06  STA ram_флаг_разводки
 C - - - - 0x03D162 FF:D152: 0A        ASL
 C - - - - 0x03D163 FF:D153: 85 3A     STA ram_003A
 C - - - - 0x03D165 FF:D155: A9 08     LDA #$08
@@ -3157,7 +3157,7 @@ C - - - - 0x03DAD7 FF:DAC7: A9 00     LDA #$00
 C - - - - 0x03DAD9 FF:DAC9: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DADC FF:DACC: A9 01     LDA #$01
 C - - - - 0x03DADE FF:DACE: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - 0x03DAE1 FF:DAD1: AD 29 06  LDA $0629
+C - - - - 0x03DAE1 FF:DAD1: AD 29 06  LDA ram_флаг_разводки
 C - - - - 0x03DAE4 FF:DAD4: C9 04     CMP #$04
 C - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9
 C - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #$35
@@ -3197,7 +3197,7 @@ C - - - - 0x03DB30 FF:DB20: 9A        TXS
 C - - - - 0x03DB31 FF:DB21: 4C DF E0  JMP loc_E0DF
 
 sub_DB24:
-C - - - - 0x03DB34 FF:DB24: AD 29 06  LDA $0629
+C - - - - 0x03DB34 FF:DB24: AD 29 06  LDA ram_флаг_разводки
 C - - - - 0x03DB37 FF:DB27: 20 99 CB  JSR sub_CB99_байты_после_JSR_для_непрямого_прыжка
 - D - I - 0x03DB3A FF:DB2A: 34 DB     .word ofs_DB34_00
 - D - I - 0x03DB3C FF:DB2C: 9E DB     .word ofs_DB9E_01
