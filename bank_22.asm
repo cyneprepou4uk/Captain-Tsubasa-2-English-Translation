@@ -11123,7 +11123,7 @@ off_AD48:
 tbl_AD54:
 ; что-то связанное с тряской экрана когда игрок блокирует пас/удар
 .scope
-con_exit = $F0
+con_stop = $F0
 con_jump = $F1
 - D - - - 0x032D64 22:AD54: 5E AD     .word off_AD5E_00
 - D - - - 0x032D66 22:AD56: 61 AD     .word off_AD61_01
@@ -11133,7 +11133,7 @@ con_jump = $F1
 off_AD5E_00:
 - D - I - 0x032D6E 22:AD5E: 78        .byte $78    ; <?>
 - D - I - 0x032D6F 22:AD5F: B8        .byte $B8    ; <ゴ>
-- - - - - 0x032D70 22:AD60: F0        .byte con_exit
+- - - - - 0x032D70 22:AD60: F0        .byte con_stop
 
 off_AD61_01:
 off_AD61:
@@ -11147,12 +11147,12 @@ off_AD61:
 off_AD68_02:
 - D - I - 0x032D78 22:AD68: 78        .byte $78    ; <?>
 - D - I - 0x032D79 22:AD69: 30        .byte $30    ; <ゃ>
-- - - - - 0x032D7A 22:AD6A: F0        .byte con_exit
+- - - - - 0x032D7A 22:AD6A: F0        .byte con_stop
 
 off_AD6B_03:
 - D - I - 0x032D7B 22:AD6B: 78        .byte $78    ; <?>
 - D - I - 0x032D7C 22:AD6C: D0        .byte $D0    ; <ペ>
-- - - - - 0x032D7D 22:AD6D: F0        .byte con_exit
+- - - - - 0x032D7D 22:AD6D: F0        .byte con_stop
 .endscope
 
 
