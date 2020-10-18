@@ -972,7 +972,7 @@ sub_CCD3:
 
 tbl_0000:
     .byte $00
-    .word ram_копия_спрайт_Y + 4
+    .word ram_0468 + 4
     
     .byte $13
     .word tbl_0x02745E_финальная_надпись_TECMO
