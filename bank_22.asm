@@ -523,10 +523,10 @@ sub_835E_управляющие_байты_облака:
 C - - - - 0x03036E 22:835E: 38        SEC
 C - - - - 0x03036F 22:835F: E9 E0     SBC #$E0
 C - - - - 0x030371 22:8361: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
-- D - I - 0x030374 22:8364: A4 83     .word ofs_83A4_E0
-- D - I - 0x030376 22:8366: CA 83     .word ofs_83CA_E1
-- D - I - 0x030378 22:8368: E2 83     .word ofs_83E2_E2
-- D - I - 0x03037A 22:836A: 43 84     .word ofs_8443_E3
+- D - I - 0x030374 22:8364: A4 83     .word ofs_83A4_E0_название_действия_атаки
+- D - I - 0x030376 22:8366: CA 83     .word ofs_83CA_E1_название_действия_защиты
+- D - I - 0x030378 22:8368: E2 83     .word ofs_83E2_E2_крит_атаки_ХЗ
+- D - I - 0x03037A 22:836A: 43 84     .word ofs_8443_E3_крит_защиты_ХЗ
 - D - I - 0x03037C 22:836C: 67 84     .word ofs_8467_E4_имя_игрока_с_мячом
 - D - I - 0x03037E 22:836E: 6D 84     .word ofs_846D_E5_имя_команды_без_мяча
 - D - I - 0x030380 22:8370: 75 84     .word ofs_8475_E6_имя_команды_с_мячом
@@ -535,7 +535,7 @@ C - - - - 0x030371 22:8361: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x030386 22:8376: 99 84     .word ofs_8499_E9_имя_нападающего_2
 - D - I - 0x030388 22:8378: 9F 84     .word ofs_849F_EA_имя_нападающего_3
 - D - I - 0x03038A 22:837A: A5 84     .word ofs_84A5_EB_имя_принимающего
-- D - I - 0x03038C 22:837C: AB 84     .word ofs_84AB_EC
+- D - I - 0x03038C 22:837C: AB 84     .word ofs_84AB_EC_названия_действия_кипера
 - D - I - 0x03038E 22:837E: CE 84     .word ofs_84CE_ED
 - D - I - 0x030390 22:8380: D6 84     .word ofs_84D6_EE
 - - - - - 0x030392 22:8382: DC 84     .word ofs_84DC_EF_F0
@@ -556,7 +556,7 @@ C - - - - 0x030371 22:8361: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - - - - - 0x0303B0 22:83A0: FE 85     .word ofs_85FE_FE     ; unused
 - - - - - 0x0303B2 22:83A2: 21 86     .word ofs_8621_FF     ; unused
 
-ofs_83A4_E0:
+ofs_83A4_E0_название_действия_атаки:
 C - J - - 0x0303B4 22:83A4: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x0303B7 22:83A7: C9 01     CMP #$01
 C - - - - 0x0303B9 22:83A9: D0 07     BNE bra_83B2
@@ -568,41 +568,41 @@ C - - - - 0x0303C2 22:83B2: AA        TAX
 C - - - - 0x0303C3 22:83B3: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x0303C6 22:83B6: 29 7F     AND #$7F
 C - - - - 0x0303C8 22:83B8: 18        CLC
-C - - - - 0x0303C9 22:83B9: 7D BF 83  ADC tbl_83BF,X
+C - - - - 0x0303C9 22:83B9: 7D BF 83  ADC tbl_83BF_действия_атаки,X
 C - - - - 0x0303CC 22:83BC: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
-tbl_83BF:
-- D - - - 0x0303CF 22:83BF: 9A        .byte $9A
-- D - - - 0x0303D0 22:83C0: C4        .byte $C4    ; <ビ>
-- D - - - 0x0303D1 22:83C1: BD        .byte $BD    ; <ゾ>
-- D - - - 0x0303D2 22:83C2: C8        .byte $C8    ; <ぱ>
-- D - - - 0x0303D3 22:83C3: D9        .byte $D9
-- D - - - 0x0303D4 22:83C4: DA        .byte $DA
-- D - - - 0x0303D5 22:83C5: DB        .byte $DB
-- D - - - 0x0303D6 22:83C6: EC        .byte $EC
-- D - - - 0x0303D7 22:83C7: EC        .byte $EC
-- D - - - 0x0303D8 22:83C8: EC        .byte $EC
-- D - - - 0x0303D9 22:83C9: EB        .byte $EB
+tbl_83BF_действия_атаки:
+    .byte $9A       ; shot
+    .byte $C4       ; pass
+    .byte $BD       ; dribble
+    .byte $C8       ; 1-2 pass
+    .byte $D9       ; trap
+    .byte $DA       ; through
+    .byte $DB       ; clearing
+    .byte $EC       ; penalty kick
+    .byte $EC       ; penalty kick
+    .byte $EC       ; penalty kick
+    .byte $EB       ; centering
 
-ofs_83CA_E1:
+ofs_83CA_E1_название_действия_защиты:
 C - J - - 0x0303DA 22:83CA: AD 3D 04  LDA $043D
 C - - - - 0x0303DD 22:83CD: 29 1F     AND #$1F
 C - - - - 0x0303DF 22:83CF: AA        TAX
 C - - - - 0x0303E0 22:83D0: AD 3E 04  LDA $043E
 C - - - - 0x0303E3 22:83D3: 29 7F     AND #$7F
 C - - - - 0x0303E5 22:83D5: 18        CLC
-C - - - - 0x0303E6 22:83D6: 7D DC 83  ADC tbl_83DC,X
+C - - - - 0x0303E6 22:83D6: 7D DC 83  ADC tbl_83DC_действия_защиты,X
 C - - - - 0x0303E9 22:83D9: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
-tbl_83DC:
-- D - - - 0x0303EC 22:83DC: CD        .byte $CD    ; <パ>
-- D - - - 0x0303ED 22:83DD: D1        .byte $D1    ; <ポ>
-- - - - - 0x0303EE 22:83DE: D7        .byte $D7
-- D - - - 0x0303EF 22:83DF: DB        .byte $DB
-- - - - - 0x0303F0 22:83E0: DD        .byte $DD
-- - - - - 0x0303F1 22:83E1: DF        .byte $DF
+tbl_83DC_действия_защиты:
+    .byte $CD       ; block
+    .byte $D1       ; tackle
+    .byte $D7       ; pass cut (unused)
+    .byte $DB       ; clearing
+    .byte $DD       ; interfere (unused)
+    .byte $DF       ; mark ? (unused)
 
-ofs_83E2_E2:
+ofs_83E2_E2_крит_атаки_ХЗ:
 C - J - - 0x0303F2 22:83E2: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x0303F5 22:83E5: 10 2C     BPL bra_8413
 C - - - - 0x0303F7 22:83E7: 29 7F     AND #$7F
@@ -612,7 +612,7 @@ C - - - - 0x0303FE 22:83EE: D0 0B     BNE bra_83FB
 C - - - - 0x030400 22:83F0: C9 03     CMP #$03
 C - - - - 0x030402 22:83F2: B0 1F     BCS bra_8413
 C - - - - 0x030404 22:83F4: AA        TAX
-C - - - - 0x030405 22:83F5: BD 40 84  LDA tbl_8440,X
+C - - - - 0x030405 22:83F5: BD 40 84  LDA tbl_8440_название_крита_2,X
 C - - - - 0x030408 22:83F8: 4C 10 84  JMP loc_8410
 bra_83FB:
 C - - - - 0x03040B 22:83FB: AE 3B 04  LDX ram_действие_атаки
@@ -622,7 +622,7 @@ C - - - - 0x030412 22:8402: 2C 28 06  BIT ram_индекс_буфера
 C - - - - 0x030415 22:8405: 10 02     BPL bra_8409
 C - - - - 0x030417 22:8407: A2 0A     LDX #$0A
 bra_8409:
-C - - - - 0x030419 22:8409: BD 35 84  LDA tbl_8435,X
+C - - - - 0x030419 22:8409: BD 35 84  LDA tbl_8435_название_крита_1,X
 C - - - - 0x03041C 22:840C: C9 FF     CMP #$FF
 C - - - - 0x03041E 22:840E: F0 03     BEQ bra_8413
 loc_8410:
@@ -637,39 +637,39 @@ C - - - - 0x03042F 22:841F: A9 0A     LDA #$0A
 bra_8421:
 C - - - - 0x030431 22:8421: AA        TAX
 C - - - - 0x030432 22:8422: 08        PHP
-C - - - - 0x030433 22:8423: BD BF 83  LDA tbl_83BF,X
+C - - - - 0x030433 22:8423: BD BF 83  LDA tbl_83BF_действия_атаки,X
 C - - - - 0x030436 22:8426: 28        PLP
 C - - - - 0x030437 22:8427: D0 09     BNE bra_8432
 C - - - - 0x030439 22:8429: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x03043C 22:842C: 29 03     AND #$03
 C - - - - 0x03043E 22:842E: 18        CLC
-C - - - - 0x03043F 22:842F: 7D BF 83  ADC tbl_83BF,X
+C - - - - 0x03043F 22:842F: 7D BF 83  ADC tbl_83BF_действия_атаки,X
 bra_8432:
 C - - - - 0x030442 22:8432: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
-tbl_8435:
-- D - - - 0x030445 22:8435: E8        .byte $E8
-- D - - - 0x030446 22:8436: E6        .byte $E6
-- - - - - 0x030447 22:8437: FF        .byte $FF
-- - - - - 0x030448 22:8438: E6        .byte $E6
-- D - - - 0x030449 22:8439: E9        .byte $E9
-- D - - - 0x03044A 22:843A: E9        .byte $E9
-- D - - - 0x03044B 22:843B: E7        .byte $E7
-- - - - - 0x03044C 22:843C: 00        .byte $00
-- - - - - 0x03044D 22:843D: 00        .byte $00
-- - - - - 0x03044E 22:843E: 00        .byte $00
-- D - - - 0x03044F 22:843F: E9        .byte $E9
+tbl_8435_название_крита_1:
+    .byte $E8        ; きょうれつな power ?
+    .byte $E6        ; するどい кальмар ?
+    .byte $FF        ; (unused)
+    .byte $E6        ; するどい кальмар ?(unused)
+    .byte $E9        ; うまい good
+    .byte $E9        ; うまい good
+    .byte $E7        ; すばやく quick ?
+    .byte $00        ; (unused)
+    .byte $00        ; (unused)
+    .byte $00        ; (unused)
+    .byte $E9        ; うまい good
 
-tbl_8440:
-- - - - - 0x030450 22:8440: E8        .byte $E8
-- D - - - 0x030451 22:8441: EA        .byte $EA
-- D - - - 0x030452 22:8442: E8        .byte $E8
+tbl_8440_название_крита_2:
+    .byte $E8        ; きょうれつな power ? (unused)
+    .byte $EA        ; きょうれつな power ? с пробелом
+    .byte $E8        ; きょうれつな power ?
 
-ofs_8443_E3:
+ofs_8443_E3_крит_защиты_ХЗ:
 C - J - - 0x030453 22:8443: 2C 3E 04  BIT $043E
 C - - - - 0x030456 22:8446: 10 0D     BPL bra_8455
 C - - - - 0x030458 22:8448: AE 3D 04  LDX $043D
-C - - - - 0x03045B 22:844B: BD 61 84  LDA tbl_8461,X
+C - - - - 0x03045B 22:844B: BD 61 84  LDA tbl_8461_крит_защиты_ХЗ,X
 C - - - - 0x03045E 22:844E: C9 FF     CMP #$FF
 C - - - - 0x030460 22:8450: F0 03     BEQ bra_8455
 C - - - - 0x030462 22:8452: 20 3C 86  JSR sub_863C_прочитать_таблицу_слов
@@ -677,16 +677,16 @@ bra_8455:
 C - - - - 0x030465 22:8455: AD 3D 04  LDA $043D
 C - - - - 0x030468 22:8458: 29 3F     AND #$3F
 C - - - - 0x03046A 22:845A: AA        TAX
-C - - - - 0x03046B 22:845B: BD DC 83  LDA tbl_83DC,X
+C - - - - 0x03046B 22:845B: BD DC 83  LDA tbl_83DC_действия_защиты,X
 C - - - - 0x03046E 22:845E: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
-tbl_8461:
-- - - - - 0x030471 22:8461: E6        .byte $E6
-- D - - - 0x030472 22:8462: E6        .byte $E6
-- - - - - 0x030473 22:8463: FF        .byte $FF
-- D - - - 0x030474 22:8464: E7        .byte $E7
-- - - - - 0x030475 22:8465: FF        .byte $FF
-- - - - - 0x030476 22:8466: FF        .byte $FF
+tbl_8461_крит_защиты_ХЗ:
+    .byte $E6        ; するどい кальмар ? (unused)
+    .byte $E6        ; するどい кальмар ?
+    .byte $FF        ; (unused)
+    .byte $E7        ; すばやく quick ?
+    .byte $FF        ; (unused)
+    .byte $FF        ; (unused)
 
 ofs_8467_E4_имя_игрока_с_мячом:
 C - J - - 0x030477 22:8467: AD 41 04  LDA ram_игрок_с_мячом
@@ -735,9 +735,9 @@ ofs_84A5_EB_имя_принимающего:
 C - J - - 0x0304B5 22:84A5: AD FC 05  LDA ram_принимающий
 C - - - - 0x0304B8 22:84A8: 4C 53 86  JMP loc_8653_вывести_имя_игрока
 
-ofs_84AB_EC:
+ofs_84AB_EC_названия_действия_кипера:
 C - J - - 0x0304BB 22:84AB: AE 3D 04  LDX $043D
-C - - - - 0x0304BE 22:84AE: BD C7 84  LDA tbl_84C7,X
+C - - - - 0x0304BE 22:84AE: BD C7 84  LDA tbl_84C7_действия_кипера,X
 C - - - - 0x0304C1 22:84B1: F0 13     BEQ bra_84C6_выход
 C - - - - 0x0304C3 22:84B3: 2C 3E 04  BIT $043E
 C - - - - 0x0304C6 22:84B6: 10 05     BPL bra_84BD
@@ -745,19 +745,19 @@ C - - - - 0x0304C8 22:84B8: A9 E6     LDA #$E6
 C - - - - 0x0304CA 22:84BA: 20 3C 86  JSR sub_863C_прочитать_таблицу_слов
 bra_84BD:
 C - - - - 0x0304CD 22:84BD: AE 3D 04  LDX $043D
-C - - - - 0x0304D0 22:84C0: BD C7 84  LDA tbl_84C7,X
+C - - - - 0x0304D0 22:84C0: BD C7 84  LDA tbl_84C7_действия_кипера,X
 C - - - - 0x0304D3 22:84C3: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 bra_84C6_выход:
 - - - - - 0x0304D6 22:84C6: 60        RTS
 
-tbl_84C7:
-- D - - - 0x0304D7 22:84C7: E0        .byte $E0
-- D - - - 0x0304D8 22:84C8: E4        .byte $E4
-- - - - - 0x0304D9 22:84C9: 00        .byte $00
-- - - - - 0x0304DA 22:84CA: 00        .byte $00
-- - - - - 0x0304DB 22:84CB: 00        .byte $00
-- D - - - 0x0304DC 22:84CC: E0        .byte $E0
-- D - - - 0x0304DD 22:84CD: E0        .byte $E0
+tbl_84C7_действия_кипера:
+    .byte $E0        ; catch
+    .byte $E4        ; punch
+    .byte $00        ; (unused)
+    .byte $00        ; (unused)
+    .byte $00        ; (unused)
+    .byte $E0        ; catch
+    .byte $E0        ; catch
 
 ofs_84CE_ED:
 C - J - - 0x0304DE 22:84CE: AD FB 05  LDA ram_команда_с_мячом
@@ -822,14 +822,14 @@ C - - - - 0x03053A 22:852A: 38        SEC
 C - - - - 0x03053B 22:852B: 60        RTS
 
 tbl_852C:
-- D - - - 0x03053C 22:852C: 01        .byte $01    ; цубаса
-- D - - - 0x03053D 22:852D: 11        .byte $11    ; мисаки
-- D - - - 0x03053E 22:852E: 44        .byte $44    ; мисаки
-- D - - - 0x03053F 22:852F: 34        .byte $34    ; мисуги
-- D - - - 0x030540 22:8530: 45        .byte $45    ; мисуги
-- D - - - 0x030541 22:8531: 15        .byte $15    ; нитта
-- D - - - 0x030542 22:8532: 42        .byte $42    ; нитта
-- D - - - 0x030543 22:8533: 38        .byte $38    ; савада
+    .byte $01    ; tsubasa
+    .byte $11    ; misaki
+    .byte $44    ; misaki
+    .byte $34    ; misugi
+    .byte $45    ; misugi
+    .byte $15    ; nitta
+    .byte $42    ; nitta
+    .byte $38    ; sawada
 
 loc_8534:
 C D - - - 0x030544 22:8534: 08        PHP
@@ -839,9 +839,9 @@ C - - - - 0x030549 22:8539: 90 37     BCC bra_8572
 C - - - - 0x03054B 22:853B: A5 3D     LDA ram_003D
 C - - - - 0x03054D 22:853D: 0A        ASL
 C - - - - 0x03054E 22:853E: AA        TAX
-C - - - - 0x03054F 22:853F: BD 89 85  LDA tbl_8589,X
+C - - - - 0x03054F 22:853F: BD 89 85  LDA tbl_8589_игроки,X
 C - - - - 0x030552 22:8542: 85 3E     STA ram_003E
-C - - - - 0x030554 22:8544: BD 8A 85  LDA tbl_8589 + 1,X
+C - - - - 0x030554 22:8544: BD 8A 85  LDA tbl_8589_игроки + 1,X
 C - - - - 0x030557 22:8547: 85 3F     STA ram_003F
 C - - - - 0x030559 22:8549: A0 00     LDY #con_игрок_номер
 C - - - - 0x03055B 22:854B: B1 34     LDA (ram_plr_data),Y
@@ -867,7 +867,7 @@ C - - - - 0x030582 22:8572: A0 00     LDY #con_игрок_номер
 C - - - - 0x030584 22:8574: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x030586 22:8576: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
-tbl_8589:
+tbl_8589_игроки:
 - D - - - 0x030599 22:8589: 99 85     .word off_8599_00
 - D - - - 0x03059B 22:858B: 9F 85     .word off_859F_01_02
 - - - - - 0x03059D 22:858D: 9F 85     .word off_859F_01_02
