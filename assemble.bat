@@ -66,7 +66,9 @@ if %size% EQU 786448 (
     echo --------------------------------------------
     echo Done! Look for !ct2.nes file in your folder.
     if exist !ct2.bak (
+        echo.
         C:\windows\system32\fc /A /B /T !ct2.nes !ct2.bak > nul && echo Perfect match || echo Differences found
+        echo.
         copy !ct2.nes !ct2.bak
         echo Backup created
     )
@@ -77,6 +79,7 @@ if %size% EQU 786448 (
     echo --------------------------------------------------
     echo Something's wrong, check log for more information.
     if exist !ct2.bak (
+        echo.
         copy !ct2.bak !ct2.nes
         echo Backup restored
     )
