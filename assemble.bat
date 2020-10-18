@@ -2,7 +2,7 @@
 echo off
 
 :: сделать копию прошлой скомпилированной версии
-if exist !ct2.nes (copy !ct2.nes !ct2.old)
+if exist !ct2.old (copy !ct2.nes !ct2.old)
 
 :: запустить перевод символов и дождаться выполнения скрипта
 start /wait lua53 preparations.lua
@@ -65,12 +65,21 @@ if %size% EQU 786448 (
     echo.
     echo --------------------------------------------
     echo Done! Look for !ct2.nes file in your folder.
+    if exist !ct2.bak (
+        C:\windows\system32\fc /A /B /T !ct2.nes !ct2.bak > nul && echo Perfect match || echo Differences found
+        copy !ct2.nes !ct2.bak
+        echo Backup created
+    )
     echo --------------------------------------------
     C:\windows\system32\timeout /T 10
 ) else (
     echo.
     echo --------------------------------------------------
     echo Something's wrong, check log for more information.
+    if exist !ct2.bak (
+        copy !ct2.bak !ct2.nes
+        echo Backup restored
+    )
     echo --------------------------------------------------
     echo.
     pause
