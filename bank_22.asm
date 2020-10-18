@@ -822,20 +822,20 @@ C - - - - 0x03053A 22:852A: 38        SEC
 C - - - - 0x03053B 22:852B: 60        RTS
 
 tbl_852C_игроки:
-    .byte $01    ; tsubasa
-    .byte $11    ; misaki
-    .byte $44    ; misaki
-    .byte $34    ; misugi
-    .byte $45    ; misugi
-    .byte $15    ; nitta
-    .byte $42    ; nitta
-    .byte $38    ; sawada
+    .byte $01       ; tsubasa
+    .byte $11       ; misaki
+    .byte $44       ; misaki
+    .byte $34       ; misugi
+    .byte $45       ; misugi
+    .byte $15       ; nitta
+    .byte $42       ; nitta
+    .byte $38       ; sawada
 
 loc_8534:
 C D - - - 0x030544 22:8534: 08        PHP
 C - - - - 0x030545 22:8535: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x030548 22:8538: 28        PLP
-C - - - - 0x030549 22:8539: 90 37     BCC bra_8572
+C - - - - 0x030549 22:8539: 90 37     BCC bra_8572      ; если игрок не был найден в таблице выше
 C - - - - 0x03054B 22:853B: A5 3D     LDA ram_003D
 C - - - - 0x03054D 22:853D: 0A        ASL
 C - - - - 0x03054E 22:853E: AA        TAX
