@@ -370,17 +370,17 @@ C - - - - 0x030252 22:8242: 0A        ASL
 C - - - - 0x030253 22:8243: 48        PHA
 C - - - - 0x030254 22:8244: AA        TAX
 C - - - - 0x030255 22:8245: BD C2 8D  LDA tbl_8DC2_тайлы_облаков,X
-C - - - - 0x030258 22:8248: 85 61     STA ram_0061
+C - - - - 0x030258 22:8248: 85 61     STA ram_cloud_tile_data
 C - - - - 0x03025A 22:824A: BD C3 8D  LDA tbl_8DC2_тайлы_облаков + 1,X
-C - - - - 0x03025D 22:824D: 85 62     STA ram_0062
+C - - - - 0x03025D 22:824D: 85 62     STA ram_cloud_tile_data + 1
 C - - - - 0x03025F 22:824F: A0 00     LDY #$00
-C - - - - 0x030261 22:8251: B1 61     LDA (ram_0061),Y
+C - - - - 0x030261 22:8251: B1 61     LDA (ram_cloud_tile_data),Y
 C - - - - 0x030263 22:8253: 48        PHA
 C - - - - 0x030264 22:8254: C8        INY
-C - - - - 0x030265 22:8255: B1 61     LDA (ram_0061),Y
+C - - - - 0x030265 22:8255: B1 61     LDA (ram_cloud_tile_data),Y
 C - - - - 0x030267 22:8257: 48        PHA
 C - - - - 0x030268 22:8258: C8        INY
-C - - - - 0x030269 22:8259: B1 61     LDA (ram_0061),Y
+C - - - - 0x030269 22:8259: B1 61     LDA (ram_cloud_tile_data),Y
 C - - - - 0x03026B 22:825B: 8D E7 05  STA $05E7
 C - - - - 0x03026E 22:825E: C8        INY
 C - - - - 0x03026F 22:825F: A9 06     LDA #$06
@@ -412,7 +412,7 @@ C - - - - 0x0302A1 22:8291: E8        INX
 C - - - - 0x0302A2 22:8292: E8        INX
 C - - - - 0x0302A3 22:8293: E8        INX
 bra_8294:
-C - - - - 0x0302A4 22:8294: B1 61     LDA (ram_0061),Y
+C - - - - 0x0302A4 22:8294: B1 61     LDA (ram_cloud_tile_data),Y
 C - - - - 0x0302A6 22:8296: 10 11     BPL bra_82A9
 C - - - - 0x0302A8 22:8298: 29 7F     AND #$7F
 C - - - - 0x0302AA 22:829A: 85 3A     STA ram_003A
@@ -428,7 +428,7 @@ bra_82A9:
 C - - - - 0x0302B9 22:82A9: 85 3A     STA ram_003A
 C - - - - 0x0302BB 22:82AB: C8        INY
 bra_82AC_цикл:
-C - - - - 0x0302BC 22:82AC: B1 61     LDA (ram_0061),Y
+C - - - - 0x0302BC 22:82AC: B1 61     LDA (ram_cloud_tile_data),Y
 C - - - - 0x0302BE 22:82AE: 9D A5 04  STA $04A5,X
 C - - - - 0x0302C1 22:82B1: C8        INY
 C - - - - 0x0302C2 22:82B2: E8        INX
