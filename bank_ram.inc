@@ -251,6 +251,7 @@ ram_005C                                    = $5C ; indirect_lo_hi
 ram_005D                                    = $5D ; indirect_lo_hi
 ram_005E                                    = $5E ; indirect_hi
 ram_005F                                    = $5F ; indirect_lo
+    ram_cloud_data = ram_005F
 ram_0060                                    = $60 ; indirect_hi
 ram_0061                                    = $61 ; indirect_lo
 ram_0062                                    = $62 ; indirect_hi

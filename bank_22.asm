@@ -10,21 +10,21 @@ C - - - - 0x030022 22:8012: 10 03     BPL bra_8017_продолжить
 C - - - - 0x030024 22:8014: 4C 12 C5  JMP loc_0x03CB07
 bra_8017_продолжить:
 C - - - - 0x030027 22:8017: A9 20     LDA #< tbl_9220_фразы_облаков
-C - - - - 0x030029 22:8019: 85 5F     STA ram_005F
+C - - - - 0x030029 22:8019: 85 5F     STA ram_cloud_data
 C - - - - 0x03002B 22:801B: A9 92     LDA #> tbl_9220_фразы_облаков
-C - - - - 0x03002D 22:801D: 85 60     STA ram_0060
+C - - - - 0x03002D 22:801D: 85 60     STA ram_cloud_data + 1
 C - - - - 0x03002F 22:801F: AD EA 05  LDA ram_облако
 C - - - - 0x030032 22:8022: 0A        ASL
 C - - - - 0x030033 22:8023: 90 02     BCC bra_8027_меньше_80
-C - - - - 0x030035 22:8025: E6 60     INC ram_0060
+C - - - - 0x030035 22:8025: E6 60     INC ram_cloud_data + 1
 bra_8027_меньше_80:
 C - - - - 0x030037 22:8027: A8        TAY
-C - - - - 0x030038 22:8028: B1 5F     LDA (ram_005F),Y
+C - - - - 0x030038 22:8028: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x03003A 22:802A: AA        TAX
 C - - - - 0x03003B 22:802B: C8        INY
-C - - - - 0x03003C 22:802C: B1 5F     LDA (ram_005F),Y
-C - - - - 0x03003E 22:802E: 85 60     STA ram_0060
-C - - - - 0x030040 22:8030: 86 5F     STX ram_005F
+C - - - - 0x03003C 22:802C: B1 5F     LDA (ram_cloud_data),Y
+C - - - - 0x03003E 22:802E: 85 60     STA ram_cloud_data + 1
+C - - - - 0x030040 22:8030: 86 5F     STX ram_cloud_data
 C - - - - 0x030042 22:8032: A9 00     LDA #$00
 C - - - - 0x030044 22:8034: 8D E9 05  STA ram_таймер_облака_ХЗ
 C - - - - 0x030047 22:8037: 8D E5 05  STA ram_индекс_байтов_облака
@@ -58,7 +58,7 @@ ofs_806E_00:
 loc_806E_цикл:
 C D J - - 0x03007E 22:806E: AC E5 05  LDY ram_индекс_байтов_облака
 C - - - - 0x030081 22:8071: EE E5 05  INC ram_индекс_байтов_облака
-C - - - - 0x030084 22:8074: B1 5F     LDA (ram_005F),Y
+C - - - - 0x030084 22:8074: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x030086 22:8076: C9 F0     CMP #$F0
 C - - - - 0x030088 22:8078: 90 06     BCC bra_8080_EF_и_ниже
 C - - - - 0x03008A 22:807A: 20 87 80  JSR sub_8087_управляющие_байты
@@ -105,31 +105,31 @@ C - J - - 0x0300C5 22:80B5: 4C 2D C5  JMP loc_0x03CC56_очистить_нижн
 
 ofs_80B8_F3:
 C - J - - 0x0300C8 22:80B8: AC E5 05  LDY ram_индекс_байтов_облака
-C - - - - 0x0300CB 22:80BB: B1 5F     LDA (ram_005F),Y
+C - - - - 0x0300CB 22:80BB: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x0300CD 22:80BD: AA        TAX
 C - - - - 0x0300CE 22:80BE: C8        INY
-C - - - - 0x0300CF 22:80BF: B1 5F     LDA (ram_005F),Y
-C - - - - 0x0300D1 22:80C1: 85 60     STA ram_0060
-C - - - - 0x0300D3 22:80C3: 86 5F     STX ram_005F
+C - - - - 0x0300CF 22:80BF: B1 5F     LDA (ram_cloud_data),Y
+C - - - - 0x0300D1 22:80C1: 85 60     STA ram_cloud_data + 1
+C - - - - 0x0300D3 22:80C3: 86 5F     STX ram_cloud_data
 C - - - - 0x0300D5 22:80C5: A9 00     LDA #$00
 C - - - - 0x0300D7 22:80C7: 8D E5 05  STA ram_индекс_байтов_облака
 C - - - - 0x0300DA 22:80CA: 60        RTS
 
 ofs_80CB_F4:
 C - J - - 0x0300DB 22:80CB: AC E5 05  LDY ram_индекс_байтов_облака
-C - - - - 0x0300DE 22:80CE: B1 5F     LDA (ram_005F),Y
+C - - - - 0x0300DE 22:80CE: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x0300E0 22:80D0: 20 EA 80  JSR sub_80EA_подпрограмма
 C - - - - 0x0300E3 22:80D3: 8A        TXA
 C - - - - 0x0300E4 22:80D4: 0A        ASL
 C - - - - 0x0300E5 22:80D5: 38        SEC
 C - - - - 0x0300E6 22:80D6: 6D E5 05  ADC ram_индекс_байтов_облака
 C - - - - 0x0300E9 22:80D9: A8        TAY
-C - - - - 0x0300EA 22:80DA: B1 5F     LDA (ram_005F),Y
+C - - - - 0x0300EA 22:80DA: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x0300EC 22:80DC: AA        TAX
 C - - - - 0x0300ED 22:80DD: C8        INY
-C - - - - 0x0300EE 22:80DE: B1 5F     LDA (ram_005F),Y
-C - - - - 0x0300F0 22:80E0: 86 5F     STX ram_005F
-C - - - - 0x0300F2 22:80E2: 85 60     STA ram_0060
+C - - - - 0x0300EE 22:80DE: B1 5F     LDA (ram_cloud_data),Y
+C - - - - 0x0300F0 22:80E0: 86 5F     STX ram_cloud_data
+C - - - - 0x0300F2 22:80E2: 85 60     STA ram_cloud_data + 1
 C - - - - 0x0300F4 22:80E4: A9 00     LDA #$00
 C - - - - 0x0300F6 22:80E6: 8D E5 05  STA ram_индекс_байтов_облака
 C - - - - 0x0300F9 22:80E9: 60        RTS
@@ -336,7 +336,7 @@ C - - - - 0x030212 22:8202: 8D F3 05  STA $05F3
 C - - - - 0x030215 22:8205: A9 80     LDA #$80
 C - - - - 0x030217 22:8207: 8D F4 05  STA $05F4
 C - - - - 0x03021A 22:820A: AC E5 05  LDY ram_индекс_байтов_облака
-C - - - - 0x03021D 22:820D: B1 5F     LDA (ram_005F),Y
+C - - - - 0x03021D 22:820D: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x03021F 22:820F: 8D E9 05  STA ram_таймер_облака_ХЗ
 C - - - - 0x030222 22:8212: EE E5 05  INC ram_индекс_байтов_облака
 C - - - - 0x030225 22:8215: 68        PLA
@@ -345,7 +345,7 @@ C - - - - 0x030227 22:8217: 60        RTS
 
 ofs_8218_01:
 C - J - - 0x030228 22:8218: AC E5 05  LDY ram_индекс_байтов_облака
-C - - - - 0x03022B 22:821B: B1 5F     LDA (ram_005F),Y
+C - - - - 0x03022B 22:821B: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x03022D 22:821D: C9 90     CMP #$90
 C - - - - 0x03022F 22:821F: B0 0D     BCS bra_822E_90_и_выше
 C - - - - 0x030231 22:8221: 29 0F     AND #$0F      ; вид комментатора
@@ -357,7 +357,7 @@ bra_822E_90_и_выше:
 C - - - - 0x03023E 22:822E: 20 2D C5  JSR sub_0x03CC56_очистить_нижнюю_половину_экрана
 C - - - - 0x030241 22:8231: AC E5 05  LDY ram_индекс_байтов_облака
 loc_8234:
-C D - - - 0x030244 22:8234: B1 5F     LDA (ram_005F),Y
+C D - - - 0x030244 22:8234: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x030246 22:8236: 4A        LSR
 C - - - - 0x030247 22:8237: 4A        LSR
 C - - - - 0x030248 22:8238: 4A        LSR
@@ -509,7 +509,7 @@ C - - - - 0x030354 22:8344: 85 3B     STA ram_003B
 loc_8346:
 C D - - - 0x030356 22:8346: AC E5 05  LDY ram_индекс_байтов_облака
 C - - - - 0x030359 22:8349: EE E5 05  INC ram_индекс_байтов_облака
-C - - - - 0x03035C 22:834C: B1 5F     LDA (ram_005F),Y
+C - - - - 0x03035C 22:834C: B1 5F     LDA (ram_cloud_data),Y
 C - - - - 0x03035E 22:834E: C9 E0     CMP #$E0
 C - - - - 0x030360 22:8350: 90 06     BCC bra_8358
 C - - - - 0x030362 22:8352: 20 5E 83  JSR sub_835E
@@ -921,7 +921,7 @@ C - - - - 0x0305C8 22:85B8: 4C 3C 86  JMP loc_863C
 ofs_85BB_F7:
 C - J - - 0x0305CB 22:85BB: AC E5 05  LDY ram_индекс_байтов_облака
 C - - - - 0x0305CE 22:85BE: EE E5 05  INC ram_индекс_байтов_облака
-C - - - - 0x0305D1 22:85C1: B1 5F     LDA (ram_005F),Y
+C - - - - 0x0305D1 22:85C1: B1 5F     LDA (ram_cloud_data),Y
 bra_85C3:
 C - - - - 0x0305D3 22:85C3: 48        PHA
 C - - - - 0x0305D4 22:85C4: A9 7C     LDA #$7C
