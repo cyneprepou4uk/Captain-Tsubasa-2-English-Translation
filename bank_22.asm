@@ -544,10 +544,10 @@ C - - - - 0x030371 22:8361: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x030398 22:8388: EC 84     .word ofs_84EC_F2_имя_команды_справа
 - D - I - 0x03039A 22:838A: FB 84     .word ofs_84FB_F3
 - D - I - 0x03039C 22:838C: 07 85     .word ofs_8507_F4
-- D - I - 0x03039E 22:838E: B1 85     .word ofs_85B1_F5
-- D - I - 0x0303A0 22:8390: B6 85     .word ofs_85B6_F6
+- D - I - 0x03039E 22:838E: B1 85     .word ofs_85B1_F5_слово_ball
+- D - I - 0x0303A0 22:8390: B6 85     .word ofs_85B6_F6_слово_goal
 - D - I - 0x0303A2 22:8392: BB 85     .word ofs_85BB_F7
-- D - I - 0x0303A4 22:8394: D0 85     .word ofs_85D0_F8
+- D - I - 0x0303A4 22:8394: D0 85     .word ofs_85D0_F8_слово_okay_джито
 - - - - - 0x0303A6 22:8396: D5 85     .word $0000   ; unused
 - - - - - 0x0303A8 22:8398: D5 85     .word $0000   ; unused
 - - - - - 0x0303AA 22:839A: D5 85     .word $0000   ; unused
@@ -912,12 +912,12 @@ off_85AE_07:
 - - - - - 0x0305BF 22:85AF: 15        .byte $15    ; нитта
 - - - - - 0x0305C0 22:85B0: 00        .byte $00
 
-ofs_85B1_F5:
-C - J - - 0x0305C1 22:85B1: A9 ED     LDA #$ED
+ofs_85B1_F5_слово_ball:
+C - J - - 0x0305C1 22:85B1: A9 ED     LDA #$ED      ; ボール ball
 C - - - - 0x0305C3 22:85B3: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
-ofs_85B6_F6:
-C - J - - 0x0305C6 22:85B6: A9 EE     LDA #$EE
+ofs_85B6_F6_слово_goal:
+C - J - - 0x0305C6 22:85B6: A9 EE     LDA #$EE      ; ゴール goal
 C - - - - 0x0305C8 22:85B8: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
 ofs_85BB_F7:
@@ -934,8 +934,8 @@ C - - - - 0x0305DB 22:85CB: E9 01     SBC #$01
 C - - - - 0x0305DD 22:85CD: D0 F4     BNE bra_85C3
 C - - - - 0x0305DF 22:85CF: 60        RTS
 
-ofs_85D0_F8:
-C - J - - 0x0305E0 22:85D0: A9 EF     LDA #$EF
+ofs_85D0_F8_слово_okay_джито:
+C - J - - 0x0305E0 22:85D0: A9 EF     LDA #$EF      ; タイ
 C - - - - 0x0305E2 22:85D2: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
 ofs_85D6_FC_новая_строка:
