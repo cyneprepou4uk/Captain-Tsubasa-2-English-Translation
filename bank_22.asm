@@ -859,7 +859,7 @@ bra_855C_совпадение:
 C - - - - 0x03056C 22:855C: 8A        TXA
 C - - - - 0x03056D 22:855D: 20 3C 86  JSR sub_863C_прочитать_таблицу_слов
 ; в оригинале тут была таблица с одинаковыми байтами 08 и 2E, читалась с помощью 003D
-C - - - - 0x030578 22:8568: BD 79 85  LDA #$08
+C - - - - 0x030578 22:8568: BD 79 85  LDA #$08      ; 2 байта для окончания "кун"
 C - - - - 0x03057B 22:856B: 20 29 86  JSR sub_8629_запись_в_буфер_японского_символа
 C - - - - 0x030574 22:8564: BD 7A 85  LDA #$2E
 C - - - - 0x03057F 22:856F: 4C 29 86  JMP loc_8629_запись_в_буфер_японского_символа
@@ -1023,7 +1023,7 @@ C - - - - 0x030668 22:8658: A0 00     LDY #con_игрок_номер
 C - - - - 0x03066A 22:865A: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03066C 22:865C: F0 0D     BEQ bra_866B
 C - - - - 0x03066E 22:865E: 20 3C 86  JSR sub_863C_прочитать_таблицу_слов
-C - - - - 0x030671 22:8661: A9 08     LDA #$08
+C - - - - 0x030671 22:8661: A9 08     LDA #$08      ; 2 байта для окончания "кун"
 C - - - - 0x030673 22:8663: 20 29 86  JSR sub_8629_запись_в_буфер_японского_символа
 C - - - - 0x030676 22:8666: A9 2E     LDA #$2E
 C - - - - 0x030678 22:8668: 4C 29 86  JMP loc_8629_запись_в_буфер_японского_символа
@@ -3638,20 +3638,20 @@ con_нападающий_4                = $EB
 con_действие_кипера             = $EC
 con_ED                          = $ED
 con_игрок_без_мяча              = $EE
-con_EF                          = $EF
-    con_exit                        = $F0
-con_F0                          = $F0
+; unused                        = $EF
+con_exit                        = $F0
 con_команда_слева               = $F1
-con_команда_справа              = $F3
+con_команда_справа              = $F2
+con_F3                          = $F3
     con_jump                        = $F3
 con_F4                          = $F4
 con_слово_ball                  = $F5       ; ボール
 con_слово_goal                  = $F6       ; ゴール
 con_тильда                      = $F7       ; указывается количество символов
 con_слово_okay                  = $F8       ; タイ
-con_F9                          = $F9
-con_FA                          = $FA
-con_FB                          = $FB
+; unused                        = $F9
+; unused                        = $FA
+; unused                        = $FB
 con_line                        = $FC
 
 
@@ -3873,7 +3873,7 @@ off_94BB_0C:
 - D - I - 0x0314CD 22:94BD: ED        .byte con_ED
 - D - I - 0x0314CE 22:94BE: FC        .byte con_line
 - - - - - 0x0314CF 22:94BF: 01        .byte $01    ; <あ>
-- D - I - 0x0314D0 22:94C0: EC        .byte $EC
+- D - I - 0x0314D0 22:94C0: EC        .byte con_действие_кипера
 - D - I - 0x0314D1 22:94C1: FC        .byte con_line
 - - - - - 0x0314D2 22:94C2: 08        .byte $08    ; <く>
 - D - I - 0x0314D3 22:94C3: AA        .byte $AA    ; <だ>
@@ -3903,7 +3903,7 @@ off_94D1_0E:
 - D - I - 0x0314E3 22:94D3: ED        .byte con_ED
 - D - I - 0x0314E4 22:94D4: FC        .byte con_line
 - - - - - 0x0314E5 22:94D5: 01        .byte $01    ; <あ>
-- D - I - 0x0314E6 22:94D6: EC        .byte $EC
+- D - I - 0x0314E6 22:94D6: EC        .byte con_действие_кипера
 - D - I - 0x0314E7 22:94D7: FC        .byte con_line
 - D - I - 0x0314E8 22:94D8: F0        .byte con_exit
 
@@ -4089,7 +4089,7 @@ off_9563_17:
 - D - I - 0x031579 22:9569: 2D        .byte $2D    ; <を>
 - D - I - 0x03157A 22:956A: FC        .byte con_line
 - - - - - 0x03157B 22:956B: 01        .byte $01    ; <あ>
-- D - I - 0x03157C 22:956C: E3        .byte $E3
+- D - I - 0x03157C 22:956C: E3        .byte con_крит_защиты
 - D - I - 0x03157D 22:956D: FC        .byte con_line
 - D - I - 0x03157E 22:956E: F0        .byte con_exit
 
@@ -4422,7 +4422,7 @@ off_9686_24:
 - D - I - 0x03169C 22:968C: 2D        .byte $2D    ; <を>
 - D - I - 0x03169D 22:968D: FC        .byte con_line
 - - - - - 0x03169E 22:968E: 01        .byte $01    ; <あ>
-- D - I - 0x03169F 22:968F: E2        .byte $E2
+- D - I - 0x03169F 22:968F: E2        .byte con_крит_атаки
 - D - I - 0x0316A0 22:9690: FC        .byte con_line
 - D - I - 0x0316A1 22:9691: F0        .byte con_exit
 
@@ -4944,7 +4944,7 @@ off_9843_39:
 - D - I - 0x031855 22:9845: EE        .byte $EE
 - D - I - 0x031856 22:9846: FC        .byte con_line
 - - - - - 0x031857 22:9847: 01        .byte $01    ; <あ>
-- D - I - 0x031858 22:9848: E3        .byte $E3
+- D - I - 0x031858 22:9848: E3        .byte con_крит_защиты
 - D - I - 0x031859 22:9849: 79        .byte $79    ; <!>
 - D - I - 0x03185A 22:984A: FC        .byte con_line
 - D - I - 0x03185B 22:984B: F0        .byte con_exit
@@ -5055,7 +5055,7 @@ off_989B_3F:
 - D - I - 0x0318AD 22:989D: EE        .byte $EE
 - D - I - 0x0318AE 22:989E: FC        .byte con_line
 - - - - - 0x0318AF 22:989F: 04        .byte $04    ; <え>
-- D - I - 0x0318B0 22:98A0: E3        .byte $E3
+- D - I - 0x0318B0 22:98A0: E3        .byte con_крит_защиты
 - D - I - 0x0318B1 22:98A1: 79        .byte $79    ; <!>
 - D - I - 0x0318B2 22:98A2: FC        .byte con_line
 - D - I - 0x0318B3 22:98A3: F0        .byte con_exit
@@ -5212,7 +5212,7 @@ off_9917_47:
 - D - I - 0x03192A 22:991A: E4        .byte con_игрок_с_мячом
 - D - I - 0x03192B 22:991B: FC        .byte con_line
 - - - - - 0x03192C 22:991C: 04        .byte $04    ; <え>
-- D - I - 0x03192D 22:991D: E2        .byte $E2
+- D - I - 0x03192D 22:991D: E2        .byte con_крит_атаки
 - D - I - 0x03192E 22:991E: 79        .byte $79    ; <!>
 - D - I - 0x03192F 22:991F: FC        .byte con_line
 - D - I - 0x031930 22:9920: F0        .byte con_exit
@@ -5329,7 +5329,7 @@ off_9975_4D:
 - D - I - 0x031987 22:9977: E4        .byte con_игрок_с_мячом
 - D - I - 0x031988 22:9978: FC        .byte con_line
 - - - - - 0x031989 22:9979: 08        .byte $08    ; <く>
-- D - I - 0x03198A 22:997A: E2        .byte $E2
+- D - I - 0x03198A 22:997A: E2        .byte con_крит_атаки
 - D - I - 0x03198B 22:997B: FC        .byte con_line
 - D - I - 0x03198C 22:997C: F0        .byte con_exit
 
@@ -5388,7 +5388,7 @@ off_999F_51:
 - D - I - 0x0319B6 22:99A6: A0        .byte $A0    ; <が>
 - D - I - 0x0319B7 22:99A7: FC        .byte con_line
 - - - - - 0x0319B8 22:99A8: 01        .byte $01    ; <あ>
-- D - I - 0x0319B9 22:99A9: E5        .byte $E5
+- D - I - 0x0319B9 22:99A9: E5        .byte con_команда_без_мяча
 - D - I - 0x0319BA 22:99AA: 19        .byte $19    ; <の>
 - D - I - 0x0319BB 22:99AB: F6        .byte con_слово_goal
 - D - I - 0x0319BC 22:99AC: 16        .byte $16    ; <に>
@@ -5419,7 +5419,7 @@ off_99BB_52:
 - D - I - 0x0319D2 22:99C2: 79        .byte $79    ; <!>
 - D - I - 0x0319D3 22:99C3: FC        .byte con_line
 - - - - - 0x0319D4 22:99C4: 01        .byte $01    ; <あ>
-- D - I - 0x0319D5 22:99C5: E5        .byte $E5
+- D - I - 0x0319D5 22:99C5: E5        .byte con_команда_без_мяча
 - D - I - 0x0319D6 22:99C6: 19        .byte $19    ; <の>
 - D - I - 0x0319D7 22:99C7: F6        .byte con_слово_goal
 - D - I - 0x0319D8 22:99C8: 16        .byte $16    ; <に>
@@ -5457,7 +5457,7 @@ off_99D9_53:
 - D - I - 0x0319F5 22:99E5: 16        .byte $16    ; <に>
 - D - I - 0x0319F6 22:99E6: FC        .byte con_line
 - - - - - 0x0319F7 22:99E7: 01        .byte $01    ; <あ>
-- D - I - 0x0319F8 22:99E8: E5        .byte $E5
+- D - I - 0x0319F8 22:99E8: E5        .byte con_команда_без_мяча
 - D - I - 0x0319F9 22:99E9: F6        .byte con_слово_goal
 - D - I - 0x0319FA 22:99EA: 1A        .byte $1A    ; <は>
 - D - I - 0x0319FB 22:99EB: FC        .byte con_line
@@ -5494,7 +5494,7 @@ off_99FA_54:
 - - - - - 0x031A17 22:9A07: 79        .byte $79    ; <!>
 - - - - - 0x031A18 22:9A08: FC        .byte con_line
 - - - - - 0x031A19 22:9A09: 01        .byte $01    ; <あ>
-- - - - - 0x031A1A 22:9A0A: E5        .byte $E5
+- - - - - 0x031A1A 22:9A0A: E5        .byte con_команда_без_мяча
 - - - - - 0x031A1B 22:9A0B: 19        .byte $19    ; <の>
 - - - - - 0x031A1C 22:9A0C: F6        .byte con_слово_goal
 - - - - - 0x031A1D 22:9A0D: 2D        .byte $2D    ; <を>
@@ -5530,7 +5530,7 @@ off_9A1C_55:
 - D - I - 0x031A38 22:9A28: AD        .byte $AD    ; <で>
 - D - I - 0x031A39 22:9A29: FC        .byte con_line
 - - - - - 0x031A3A 22:9A2A: 01        .byte $01    ; <あ>
-- D - I - 0x031A3B 22:9A2B: E5        .byte $E5
+- D - I - 0x031A3B 22:9A2B: E5        .byte con_команда_без_мяча
 - D - I - 0x031A3C 22:9A2C: F6        .byte con_слово_goal
 - D - I - 0x031A3D 22:9A2D: 2D        .byte $2D    ; <を>
 - D - I - 0x031A3E 22:9A2E: FC        .byte con_line
@@ -5579,7 +5579,7 @@ off_9A48_57:
 - D - I - 0x031A62 22:9A52: 19        .byte $19    ; <の>
 - D - I - 0x031A63 22:9A53: FC        .byte con_line
 - - - - - 0x031A64 22:9A54: 01        .byte $01    ; <あ>
-- D - I - 0x031A65 22:9A55: E1        .byte $E1
+- D - I - 0x031A65 22:9A55: E1        .byte con_действие_защиты
 - D - I - 0x031A66 22:9A56: FC        .byte con_line
 - - - - - 0x031A67 22:9A57: 01        .byte $01    ; <あ>
 - D - I - 0x031A68 22:9A58: 0B        .byte $0B    ; <さ>
@@ -5636,7 +5636,7 @@ off_9A70_59:
 off_9A80_5A:
 - D - I - 0x031A90 22:9A80: 01        .byte $01    ; <あ>
 - D - I - 0x031A91 22:9A81: 22        .byte $22    ; <め>
-- D - I - 0x031A92 22:9A82: EB        .byte $EB
+- D - I - 0x031A92 22:9A82: EB        .byte con_нападающий_4
 - D - I - 0x031A93 22:9A83: FC        .byte con_line
 - - - - - 0x031A94 22:9A84: 08        .byte $08    ; <く>
 - D - I - 0x031A95 22:9A85: 6C        .byte $6C    ; <ワ>
@@ -5845,7 +5845,7 @@ off_9B26_63:
 - D - I - 0x031B40 22:9B30: 16        .byte $16    ; <に>
 - D - I - 0x031B41 22:9B31: FC        .byte con_line
 - - - - - 0x031B42 22:9B32: 01        .byte $01    ; <あ>
-- D - I - 0x031B43 22:9B33: E2        .byte $E2
+- D - I - 0x031B43 22:9B33: E2        .byte con_крит_атаки
 - D - I - 0x031B44 22:9B34: FC        .byte con_line
 - D - I - 0x031B45 22:9B35: F0        .byte con_exit
 
@@ -5866,7 +5866,7 @@ off_9B36_64:
 - D - I - 0x031B51 22:9B41: 19        .byte $19    ; <の>
 - D - I - 0x031B52 22:9B42: FC        .byte con_line
 - - - - - 0x031B53 22:9B43: 01        .byte $01    ; <あ>
-- D - I - 0x031B54 22:9B44: E2        .byte $E2
+- D - I - 0x031B54 22:9B44: E2        .byte con_крит_атаки
 - D - I - 0x031B55 22:9B45: FC        .byte con_line
 - D - I - 0x031B56 22:9B46: F0        .byte con_exit
 
@@ -6083,7 +6083,7 @@ off_9BF4:
 off_9BFE:
 - D - I - 0x031C0E 22:9BFE: 01        .byte $01    ; <あ>
 - D - I - 0x031C0F 22:9BFF: 52        .byte $52    ; <ツ>
-- D - I - 0x031C10 22:9C00: E8        .byte $E8
+- D - I - 0x031C10 22:9C00: E8        .byte con_нападающий_1
 - D - I - 0x031C11 22:9C01: A0        .byte $A0    ; <が>
 - D - I - 0x031C12 22:9C02: FC        .byte con_line
 - - - - - 0x031C13 22:9C03: 01        .byte $01    ; <あ>
@@ -6099,10 +6099,10 @@ off_9C08:
 off_9C09:
 - D - I - 0x031C19 22:9C09: 01        .byte $01    ; <あ>
 - D - I - 0x031C1A 22:9C0A: 62        .byte $62    ; <メ>
-- D - I - 0x031C1B 22:9C0B: E8        .byte $E8
+- D - I - 0x031C1B 22:9C0B: E8        .byte con_нападающий_1
 - D - I - 0x031C1C 22:9C0C: FC        .byte con_line
 - - - - - 0x031C1D 22:9C0D: 01        .byte $01    ; <あ>
-- D - I - 0x031C1E 22:9C0E: E9        .byte $E9
+- D - I - 0x031C1E 22:9C0E: E9        .byte con_нападающий_2
 - D - I - 0x031C1F 22:9C0F: 16        .byte $16    ; <に>
 - D - I - 0x031C20 22:9C10: FC        .byte con_line
 - - - - - 0x031C21 22:9C11: 01        .byte $01    ; <あ>
@@ -6120,18 +6120,18 @@ off_9C09:
 off_9C1C:
 - D - I - 0x031C2C 22:9C1C: 01        .byte $01    ; <あ>
 - D - I - 0x031C2D 22:9C1D: 72        .byte $72    ; <ョ>
-- D - I - 0x031C2E 22:9C1E: E8        .byte $E8
+- D - I - 0x031C2E 22:9C1E: E8        .byte con_нападающий_1
 - D - I - 0x031C2F 22:9C1F: FC        .byte con_line
 - - - - - 0x031C30 22:9C20: 01        .byte $01    ; <あ>
-- D - I - 0x031C31 22:9C21: E9        .byte $E9
+- D - I - 0x031C31 22:9C21: E9        .byte con_нападающий_2
 - D - I - 0x031C32 22:9C22: FC        .byte con_line
 - - - - - 0x031C33 22:9C23: 01        .byte $01    ; <あ>
-- D - I - 0x031C34 22:9C24: EA        .byte $EA
+- D - I - 0x031C34 22:9C24: EA        .byte con_нападающий_3
 - D - I - 0x031C35 22:9C25: 10        .byte $10    ; <た>
 - D - I - 0x031C36 22:9C26: 11        .byte $11    ; <ち>
 - D - I - 0x031C37 22:9C27: FC        .byte con_line
 - - - - - 0x031C38 22:9C28: 01        .byte $01    ; <あ>
-- D - I - 0x031C39 22:9C29: E7        .byte $E7
+- D - I - 0x031C39 22:9C29: E7        .byte con_количество_нападающих
 - D - I - 0x031C3A 22:9C2A: 16        .byte $16    ; <に>
 - D - I - 0x031C3B 22:9C2B: 2E        .byte $2E    ; <ん>
 - D - I - 0x031C3C 22:9C2C: 16        .byte $16    ; <に>
@@ -6153,7 +6153,7 @@ off_9C37:
 - D - I - 0x031C4A 22:9C3A: 16        .byte $16    ; <に>
 - D - I - 0x031C4B 22:9C3B: FC        .byte con_line
 - - - - - 0x031C4C 22:9C3C: 01        .byte $01    ; <あ>
-- D - I - 0x031C4D 22:9C3D: E8        .byte $E8
+- D - I - 0x031C4D 22:9C3D: E8        .byte con_нападающий_1
 - D - I - 0x031C4E 22:9C3E: A0        .byte $A0    ; <が>
 - D - I - 0x031C4F 22:9C3F: 00        .byte $00
 - D - I - 0x031C50 22:9C40: 12        .byte $12    ; <つ>
@@ -6170,11 +6170,11 @@ off_9C46:
 - D - I - 0x031C59 22:9C49: 16        .byte $16    ; <に>
 - D - I - 0x031C5A 22:9C4A: FC        .byte con_line
 - - - - - 0x031C5B 22:9C4B: 01        .byte $01    ; <あ>
-- D - I - 0x031C5C 22:9C4C: E8        .byte $E8
+- D - I - 0x031C5C 22:9C4C: E8        .byte con_нападающий_1
 - D - I - 0x031C5D 22:9C4D: 14        .byte $14    ; <と>
 - D - I - 0x031C5E 22:9C4E: FC        .byte con_line
 - - - - - 0x031C5F 22:9C4F: 01        .byte $01    ; <あ>
-- D - I - 0x031C60 22:9C50: E9        .byte $E9
+- D - I - 0x031C60 22:9C50: E9        .byte con_нападающий_2
 - D - I - 0x031C61 22:9C51: A0        .byte $A0    ; <が>
 - D - I - 0x031C62 22:9C52: 00        .byte $00
 - D - I - 0x031C63 22:9C53: 12        .byte $12    ; <つ>
@@ -6191,12 +6191,12 @@ off_9C59:
 - D - I - 0x031C6C 22:9C5C: 2D        .byte $2D    ; <を>
 - D - I - 0x031C6D 22:9C5D: FC        .byte con_line
 - - - - - 0x031C6E 22:9C5E: 01        .byte $01    ; <あ>
-- D - I - 0x031C6F 22:9C5F: E8        .byte $E8
+- D - I - 0x031C6F 22:9C5F: E8        .byte con_нападающий_1
 - D - I - 0x031C70 22:9C60: 10        .byte $10    ; <た>
 - D - I - 0x031C71 22:9C61: 11        .byte $11    ; <ち>
 - D - I - 0x031C72 22:9C62: FC        .byte con_line
 - - - - - 0x031C73 22:9C63: 01        .byte $01    ; <あ>
-- D - I - 0x031C74 22:9C64: E7        .byte $E7
+- D - I - 0x031C74 22:9C64: E7        .byte con_количество_нападающих
 - D - I - 0x031C75 22:9C65: 16        .byte $16    ; <に>
 - D - I - 0x031C76 22:9C66: 2E        .byte $2E    ; <ん>
 - D - I - 0x031C77 22:9C67: A0        .byte $A0    ; <が>
@@ -6303,7 +6303,7 @@ off_9CAA_71:
 off_9CCC:
 - D - I - 0x031CDC 22:9CCC: 01        .byte $01    ; <あ>
 - D - I - 0x031CDD 22:9CCD: 13        .byte $13    ; <て>
-- D - I - 0x031CDE 22:9CCE: F1        .byte $F1
+- D - I - 0x031CDE 22:9CCE: F1        .byte con_команда_слева
 - D - I - 0x031CDF 22:9CCF: 19        .byte $19    ; <の>
 - D - I - 0x031CE0 22:9CD0: 00        .byte $00
 - D - I - 0x031CE1 22:9CD1: 68        .byte $68    ; <リ>
@@ -6331,7 +6331,7 @@ off_9CCC:
 off_9CE6:
 - D - I - 0x031CF6 22:9CE6: 01        .byte $01    ; <あ>
 - D - I - 0x031CF7 22:9CE7: 14        .byte $14    ; <と>
-- D - I - 0x031CF8 22:9CE8: F2        .byte $F2
+- D - I - 0x031CF8 22:9CE8: F2        .byte con_команда_справа
 - D - I - 0x031CF9 22:9CE9: 19        .byte $19    ; <の>
 - D - I - 0x031CFA 22:9CEA: 00        .byte $00
 - D - I - 0x031CFB 22:9CEB: 68        .byte $68    ; <リ>
@@ -6392,10 +6392,10 @@ off_9D00:
 off_9D1F:
 - D - I - 0x031D2F 22:9D1F: 01        .byte $01    ; <あ>
 - D - I - 0x031D30 22:9D20: 65        .byte $65    ; <ユ>
-- D - I - 0x031D31 22:9D21: F1        .byte $F1
+- D - I - 0x031D31 22:9D21: F1        .byte con_команда_слева
 - D - I - 0x031D32 22:9D22: FC        .byte con_line
 - - - - - 0x031D33 22:9D23: 01        .byte $01    ; <あ>
-- D - I - 0x031D34 22:9D24: F2        .byte $F2
+- D - I - 0x031D34 22:9D24: F2        .byte con_команда_справа
 - D - I - 0x031D35 22:9D25: 2D        .byte $2D    ; <を>
 - D - I - 0x031D36 22:9D26: FC        .byte con_line
 - - - - - 0x031D37 22:9D27: 01        .byte $01    ; <あ>
@@ -6413,7 +6413,7 @@ off_9D1F:
 off_9D33:
 - D - I - 0x031D43 22:9D33: 01        .byte $01    ; <あ>
 - D - I - 0x031D44 22:9D34: 66        .byte $66    ; <ヨ>
-- D - I - 0x031D45 22:9D35: F1        .byte $F1
+- D - I - 0x031D45 22:9D35: F1        .byte con_команда_слева
 - D - I - 0x031D46 22:9D36: 24        .byte $24    ; <や>
 - D - I - 0x031D47 22:9D37: B1        .byte $B1    ; <ぶ>
 - D - I - 0x031D48 22:9D38: 2A        .byte $2A    ; <れ>
@@ -6422,9 +6422,9 @@ off_9D33:
 - D - I - 0x031D4C 22:9D3C: 79        .byte $79    ; <!>
 - D - I - 0x031D4D 22:9D3D: FC        .byte con_line
 - - - - - 0x031D4E 22:9D3E: 01        .byte $01    ; <あ>
-- D - I - 0x031D4F 22:9D3F: F2        .byte $F2
+- D - I - 0x031D4F 22:9D3F: F2        .byte con_команда_справа
 - D - I - 0x031D50 22:9D40: 00        .byte $00
-- D - I - 0x031D51 22:9D41: F1        .byte $F1
+- D - I - 0x031D51 22:9D41: F1        .byte con_команда_слева
 - D - I - 0x031D52 22:9D42: 2D        .byte $2D    ; <を>
 - D - I - 0x031D53 22:9D43: FC        .byte con_line
 - - - - - 0x031D54 22:9D44: 01        .byte $01    ; <あ>
@@ -6462,7 +6462,7 @@ off_9D50:
 - D - I - 0x031D73 22:9D63: 79        .byte $79    ; <!>
 - D - I - 0x031D74 22:9D64: FC        .byte con_line
 - - - - - 0x031D75 22:9D65: 04        .byte $04    ; <え>
-- D - I - 0x031D76 22:9D66: F1        .byte $F1
+- D - I - 0x031D76 22:9D66: F1        .byte con_команда_слева
 - D - I - 0x031D77 22:9D67: 00        .byte $00
 - D - I - 0x031D78 22:9D68: A3        .byte $A3    ; <げ>
 - D - I - 0x031D79 22:9D69: 07        .byte $07    ; <き>
@@ -6492,7 +6492,7 @@ off_9D50:
 off_9D80:
 - D - I - 0x031D90 22:9D80: 01        .byte $01    ; <あ>
 - D - I - 0x031D91 22:9D81: 66        .byte $66    ; <ヨ>
-- D - I - 0x031D92 22:9D82: F1        .byte $F1
+- D - I - 0x031D92 22:9D82: F1        .byte con_команда_слева
 - D - I - 0x031D93 22:9D83: 00        .byte $00
 - D - I - 0x031D94 22:9D84: A5        .byte $A5    ; <ざ>
 - D - I - 0x031D95 22:9D85: 2E        .byte $2E    ; <ん>
@@ -6526,7 +6526,7 @@ off_9D80:
 off_9DA1:
 - D - I - 0x031DB1 22:9DA1: 01        .byte $01    ; <あ>
 - D - I - 0x031DB2 22:9DA2: 75        .byte $75    ; <ェ>
-- D - I - 0x031DB3 22:9DA3: F1        .byte $F1
+- D - I - 0x031DB3 22:9DA3: F1        .byte con_команда_слева
 - D - I - 0x031DB4 22:9DA4: 00        .byte $00
 - D - I - 0x031DB5 22:9DA5: 24        .byte $24    ; <や>
 - D - I - 0x031DB6 22:9DA6: 2F        .byte $2F    ; <っ>
@@ -6535,7 +6535,7 @@ off_9DA1:
 - D - I - 0x031DB9 22:9DA9: 79        .byte $79    ; <!>
 - D - I - 0x031DBA 22:9DAA: FC        .byte con_line
 - - - - - 0x031DBB 22:9DAB: 01        .byte $01    ; <あ>
-- D - I - 0x031DBC 22:9DAC: F2        .byte $F2
+- D - I - 0x031DBC 22:9DAC: F2        .byte con_команда_справа
 - D - I - 0x031DBD 22:9DAD: 2D        .byte $2D    ; <を>
 - D - I - 0x031DBE 22:9DAE: 00        .byte $00
 - D - I - 0x031DBF 22:9DAF: 08        .byte $08    ; <く>
@@ -6566,7 +6566,7 @@ off_9DA1:
 off_9DC8:
 - D - I - 0x031DD8 22:9DC8: 01        .byte $01    ; <あ>
 - D - I - 0x031DD9 22:9DC9: 75        .byte $75    ; <ェ>
-- D - I - 0x031DDA 22:9DCA: F1        .byte $F1
+- D - I - 0x031DDA 22:9DCA: F1        .byte con_команда_слева
 - D - I - 0x031DDB 22:9DCB: 00        .byte $00
 - D - I - 0x031DDC 22:9DCC: 0C        .byte $0C    ; <し>
 - D - I - 0x031DDD 22:9DCD: 32        .byte $32    ; <ょ>
@@ -6582,7 +6582,7 @@ off_9DC8:
 - D - I - 0x031DE7 22:9DD7: 03        .byte $03    ; <う>
 - D - I - 0x031DE8 22:9DD8: FC        .byte con_line
 - - - - - 0x031DE9 22:9DD9: 01        .byte $01    ; <あ>
-- D - I - 0x031DEA 22:9DDA: F2        .byte $F2
+- D - I - 0x031DEA 22:9DDA: F2        .byte con_команда_справа
 - D - I - 0x031DEB 22:9DDB: 2D        .byte $2D    ; <を>
 - D - I - 0x031DEC 22:9DDC: 00        .byte $00
 - D - I - 0x031DED 22:9DDD: 08        .byte $08    ; <く>
@@ -6590,7 +6590,7 @@ off_9DC8:
 - D - I - 0x031DEF 22:9DDF: 0C        .byte $0C    ; <し>
 - D - I - 0x031DF0 22:9DE0: FC        .byte con_line
 - - - - - 0x031DF1 22:9DE1: 01        .byte $01    ; <あ>
-- D - I - 0x031DF2 22:9DE2: F1        .byte $F1
+- D - I - 0x031DF2 22:9DE2: F1        .byte con_команда_слева
 - D - I - 0x031DF3 22:9DE3: 00        .byte $00
 - D - I - 0x031DF4 22:9DE4: 25        .byte $25    ; <ゆ>
 - D - I - 0x031DF5 22:9DE5: 03        .byte $03    ; <う>
@@ -6606,7 +6606,7 @@ off_9DC8:
 off_9DEE:
 - D - I - 0x031DFE 22:9DEE: 01        .byte $01    ; <あ>
 - D - I - 0x031DFF 22:9DEF: 71        .byte $71    ; <ュ>
-- D - I - 0x031E00 22:9DF0: F1        .byte $F1
+- D - I - 0x031E00 22:9DF0: F1        .byte con_команда_слева
 - D - I - 0x031E01 22:9DF1: 00        .byte $00
 - D - I - 0x031E02 22:9DF2: 25        .byte $25    ; <ゆ>
 - D - I - 0x031E03 22:9DF3: 03        .byte $03    ; <う>
@@ -6642,7 +6642,7 @@ off_9DEE:
 - D - I - 0x031E21 22:9E11: 2E        .byte $2E    ; <ん>
 - D - I - 0x031E22 22:9E12: FC        .byte con_line
 - - - - - 0x031E23 22:9E13: 01        .byte $01    ; <あ>
-- D - I - 0x031E24 22:9E14: F2        .byte $F2
+- D - I - 0x031E24 22:9E14: F2        .byte con_команда_справа
 - D - I - 0x031E25 22:9E15: 2D        .byte $2D    ; <を>
 - D - I - 0x031E26 22:9E16: 00        .byte $00
 - D - I - 0x031E27 22:9E17: 24        .byte $24    ; <や>
@@ -6813,9 +6813,9 @@ off_9E88:
 off_9EB6:
 - - - - - 0x031EC6 22:9EB6: 01        .byte $01    ; <あ>
 - - - - - 0x031EC7 22:9EB7: 61        .byte $61    ; <ム>
-- - - - - 0x031EC8 22:9EB8: F1        .byte $F1
+- - - - - 0x031EC8 22:9EB8: F1        .byte con_команда_слева
 - - - - - 0x031EC9 22:9EB9: 00        .byte $00
-- - - - - 0x031ECA 22:9EBA: F2        .byte $F2
+- - - - - 0x031ECA 22:9EBA: F2        .byte con_команда_справа
 - - - - - 0x031ECB 22:9EBB: FC        .byte con_line
 - - - - - 0x031ECC 22:9EBC: 01        .byte $01    ; <あ>
 - - - - - 0x031ECD 22:9EBD: 14        .byte $14    ; <と>
@@ -6902,9 +6902,9 @@ off_9EFD:
 - - - - - 0x031F1B 22:9F0B: 79        .byte $79    ; <!>
 - - - - - 0x031F1C 22:9F0C: FC        .byte con_line
 - - - - - 0x031F1D 22:9F0D: 08        .byte $08    ; <く>
-- - - - - 0x031F1E 22:9F0E: F1        .byte $F1
+- - - - - 0x031F1E 22:9F0E: F1        .byte con_команда_слева
 - - - - - 0x031F1F 22:9F0F: 00        .byte $00
-- - - - - 0x031F20 22:9F10: F2        .byte $F2
+- - - - - 0x031F20 22:9F10: F2        .byte con_команда_справа
 - - - - - 0x031F21 22:9F11: 00        .byte $00
 - - - - - 0x031F22 22:9F12: 14        .byte $14    ; <と>
 - - - - - 0x031F23 22:9F13: 23        .byte $23    ; <も>
@@ -8246,7 +8246,7 @@ off_A429:
 off_A439_75_игрок_принял_мяч:
 - D - I - 0x032449 22:A439: 01        .byte $01    ; <あ>
 - D - I - 0x03244A 22:A43A: 10        .byte $10    ; <た>
-- D - I - 0x03244B 22:A43B: EB        .byte $EB
+- D - I - 0x03244B 22:A43B: EB        .byte con_нападающий_4
 - D - I - 0x03244C 22:A43C: FC        .byte con_line
 - - - - - 0x03244D 22:A43D: 08        .byte $08    ; <く>
 - D - I - 0x03244E 22:A43E: CD        .byte $CD    ; <パ>
@@ -8588,7 +8588,7 @@ off_A549_81:
 off_A55B_82:
 - D - I - 0x03256B 22:A55B: 01        .byte $01    ; <あ>
 - D - I - 0x03256C 22:A55C: 12        .byte $12    ; <つ>
-- D - I - 0x03256D 22:A55D: EB        .byte $EB
+- D - I - 0x03256D 22:A55D: EB        .byte con_нападающий_4
 - D - I - 0x03256E 22:A55E: FC        .byte con_line
 - - - - - 0x03256F 22:A55F: 01        .byte $01    ; <あ>
 - D - I - 0x032570 22:A560: 03        .byte $03    ; <う>
@@ -9076,7 +9076,7 @@ off_A6EB_97:
 - D - I - 0x032700 22:A6F0: B1        .byte $B1    ; <ぶ>
 - D - I - 0x032701 22:A6F1: AA        .byte $AA    ; <だ>
 - D - I - 0x032702 22:A6F2: 00        .byte $00
-- D - I - 0x032703 22:A6F3: F3        .byte $F3
+- D - I - 0x032703 22:A6F3: F3        .byte con_F3
 - D - I - 0x032704 22:A6F4: 79        .byte $79    ; <!>
 - D - I - 0x032705 22:A6F5: FC        .byte con_line
 - D - I - 0x032706 22:A6F6: F0        .byte con_exit
@@ -9090,7 +9090,7 @@ off_A6F7_98:
 - D - I - 0x03270A 22:A6FA: 08        .byte $08    ; <く>
 - D - I - 0x03270B 22:A6FB: A9        .byte $A9    ; <ぞ>
 - D - I - 0x03270C 22:A6FC: 00        .byte $00
-- D - I - 0x03270D 22:A6FD: F4        .byte $F4
+- D - I - 0x03270D 22:A6FD: F4        .byte con_F4
 - D - I - 0x03270E 22:A6FE: 79        .byte $79    ; <!>
 - D - I - 0x03270F 22:A6FF: FC        .byte con_line
 - D - I - 0x032710 22:A700: F0        .byte con_exit
@@ -9613,7 +9613,7 @@ off_A89E_B3:
 - D - I - 0x0328B1 22:A8A1: 27        .byte $27    ; <ら>
 - D - I - 0x0328B2 22:A8A2: 04        .byte $04    ; <え>
 - D - I - 0x0328B3 22:A8A3: 00        .byte $00
-- D - I - 0x0328B4 22:A8A4: E5        .byte $E5
+- D - I - 0x0328B4 22:A8A4: E5        .byte con_команда_без_мяча
 - D - I - 0x0328B5 22:A8A5: 79        .byte $79    ; <!>
 - D - I - 0x0328B6 22:A8A6: FC        .byte con_line
 - - - - - 0x0328B7 22:A8A7: 01        .byte $01    ; <あ>
@@ -10334,7 +10334,7 @@ off_AAD5_D6:
 - D - I - 0x032AFD 22:AAED: 16        .byte $16    ; <に>
 - D - I - 0x032AFE 22:AAEE: FC        .byte con_line
 - - - - - 0x032AFF 22:AAEF: 01        .byte $01    ; <あ>
-- D - I - 0x032B00 22:AAF0: E5        .byte $E5
+- D - I - 0x032B00 22:AAF0: E5        .byte con_команда_без_мяча
 - D - I - 0x032B01 22:AAF1: 19        .byte $19    ; <の>
 - D - I - 0x032B02 22:AAF2: 00        .byte $00
 - D - I - 0x032B03 22:AAF3: 1F        .byte $1F    ; <ま>
@@ -10436,7 +10436,7 @@ off_AB3E_DA:
 - D - I - 0x032B53 22:AB43: 79        .byte $79    ; <!>
 - D - I - 0x032B54 22:AB44: FC        .byte con_line
 - - - - - 0x032B55 22:AB45: 01        .byte $01    ; <あ>
-- D - I - 0x032B56 22:AB46: E1        .byte $E1
+- D - I - 0x032B56 22:AB46: E1        .byte con_действие_защиты
 - D - I - 0x032B57 22:AB47: AA        .byte $AA    ; <だ>
 - D - I - 0x032B58 22:AB48: 79        .byte $79    ; <!>
 - D - I - 0x032B59 22:AB49: FC        .byte con_line
@@ -10780,7 +10780,7 @@ off_AC6A_E9:
 - D - I - 0x032C7A 22:AC6A: F2        .byte $F2
 - D - I - 0x032C7B 22:AC6B: 01        .byte $01    ; <あ>
 - D - I - 0x032C7C 22:AC6C: 51        .byte $51    ; <チ>
-- D - I - 0x032C7D 22:AC6D: E5        .byte $E5
+- D - I - 0x032C7D 22:AC6D: E5        .byte con_команда_без_мяча
 - D - I - 0x032C7E 22:AC6E: 19        .byte $19    ; <の>
 - D - I - 0x032C7F 22:AC6F: FC        .byte con_line
 - - - - - 0x032C80 22:AC70: 01        .byte $01    ; <あ>
@@ -10880,7 +10880,7 @@ off_ACBB_EC:
 - D - I - 0x032CCE 22:ACBE: 19        .byte $19    ; <の>
 - D - I - 0x032CCF 22:ACBF: FC        .byte con_line
 - - - - - 0x032CD0 22:ACC0: 01        .byte $01    ; <あ>
-- D - I - 0x032CD1 22:ACC1: E1        .byte $E1
+- D - I - 0x032CD1 22:ACC1: E1        .byte con_действие_защиты
 - D - I - 0x032CD2 22:ACC2: 79        .byte $79    ; <!>
 - D - I - 0x032CD3 22:ACC3: FC        .byte con_line
 - D - I - 0x032CD4 22:ACC4: F0        .byte con_exit
