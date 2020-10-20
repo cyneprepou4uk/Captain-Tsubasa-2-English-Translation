@@ -267,7 +267,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_pause, $14
     .byte con_sound, $01
     .byte con_animation, $01, $12
-    .byte $3A, $3B
+    .byte "_"
     .byte con_pause, $50
     .byte con_speed, $08
     .text "will...@"
@@ -293,7 +293,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_offset, $05
     .byte con_sound, $48
     .byte con_pause, $14
-    .text "@I", $3A, $3B, "@"
+    .text "@I_@"
     .byte con_pause, $50
     .byte con_clear_1
     .byte con_pause, $0A
@@ -396,7 +396,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_offset, $07
     .text "pro-levels,"
     .byte con_pause, $0F
-    .text " and", $3A, $3B, "@"
+    .text " and_@"
     .byte con_pause, $0F
     .byte con_line
     .byte con_offset, $06
@@ -486,7 +486,7 @@ off_A195_13_после_победы_над_японией:
     .text " I'm s"
     .byte con_animation, $01, $27
     .byte con_toggle_mouth
-    .text $3A, $3B, "@"
+    .text "_@"
     .byte con_pause, $0F
     .byte con_line
     .byte con_toggle_mouth
@@ -573,7 +573,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_animation, $01, $66
     .byte con_pause, $1E
     .byte con_offset, $05
-    .text "@Would you", $3A, $3B, "@"
+    .text "@Would you_@"
     .byte con_F5, $FF
     .byte con_bg_2, $34
     .byte con_toggle_cam
@@ -584,7 +584,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_offset, $05
     .text "@Ey,"
     .byte con_pause, $0F
-    .text " Tsubasa", $3A, $3B
+    .text " Tsubasa_"
     .byte con_pause, $14
     .text "time for"
     .byte con_line
@@ -605,7 +605,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_pause, $14
     .byte con_speed, $02
     .byte con_offset, $08
-    .text "@Ish", $3A, $3B
+    .text "@Ish_"
     .byte con_pause, $0F
     .byte con_speed, $03
     .text "Ishizaki!@"
@@ -1033,7 +1033,7 @@ off_A703_15_после_победы_над_кореей:
     .text " Brazil's"
     .byte con_line
     .byte con_offset, $07
-    .text "new coach is", $3A, $3B, "@"
+    .text "new coach is_@"
     .byte con_F8, $02
     .byte con_pause, $1E
     
@@ -1359,7 +1359,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_charlie, $05
     .byte con_speed, $04
     .byte con_offset, $09
-    .text "Wh", $3A, $3B, "?!"
+    .text "Wh_?!"
     .byte con_sound, $09
     .byte con_line
     .byte con_offset, $09
@@ -1367,7 +1367,7 @@ off_A703_15_после_победы_над_кореей:
     .byte con_sound, $09
     .text "What's "
     .byte con_sound, $0A
-    .text "this com", $3A, $3B, "?!"
+    .text "this com_?!"
     .byte con_pause, $3C
     .byte con_F5, $FF
     
@@ -1770,7 +1770,7 @@ off_A703_15_после_победы_над_кореей:
     
     
     .byte con_offset, $05
-    .text "@Now", $3A, $3B
+    .text "@Now_"
     .byte con_pause, $0F
     .text "let's keep the"
     .byte con_line

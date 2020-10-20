@@ -313,7 +313,7 @@ off_AEEA_08_цубаса_победил_карлоса:
     .byte con_animation, $01, $12
     .byte con_speed, $02
     .byte con_offset, $07
-    .text "@Oh", $3A, $3B
+    .text "@Oh_"
     .byte con_bg_2, $11
     
     

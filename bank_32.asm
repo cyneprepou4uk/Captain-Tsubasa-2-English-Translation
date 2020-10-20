@@ -1084,7 +1084,7 @@ off_A43B_22_финальная_катсцена:
     .text "I have faith in"
     .byte con_line
     .byte con_offset, $06
-    .text "them", $3A, $3B
+    .text "them_"
     .byte con_pause, $1E
     .text "and I know you"
     .byte con_line
@@ -1278,7 +1278,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $0A
     .byte con_speed, $02
     .byte con_offset, $06
-    .text "@Ah", $3A, $3B
+    .text "@Ah_"
     .byte con_pause, $28
     .byte con_bg_2, $57
     .byte con_animation, $01, $66
@@ -1599,7 +1599,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_pause, $28
     .byte con_line
     .byte con_offset, $04
-    .text "then you and I could", $3A, $3B, "@"
+    .text "then you and I could_@"
     .byte con_pause, $50
     .byte con_clear_1
     .byte con_pause, $50
@@ -1779,7 +1779,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_offset, $0A
     .text "Well,"
     .byte con_pause, $14
-    .text " then", $3A, $3B, "@"
+    .text " then_@"
     .byte con_pause, $3C
     .byte con_clear_1
     .byte con_pause, $1E
@@ -1885,7 +1885,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_toggle_mouth
     .byte con_pause, $28
     .byte con_speed, $04
-    .text "then what", $3A, $3B, "@"
+    .text "then what_@"
     .byte con_pause, $50
     .byte con_clear_1
     .byte con_pause, $1E
@@ -1942,7 +1942,7 @@ off_A43B_22_финальная_катсцена:
     .byte con_offset, $04
     .text "@Until then,"
     .byte con_pause, $3C
-    .text " can you", $3A, $3B
+    .text " can you_"
     .byte con_pause, $1E
     .byte con_line
     .byte con_offset, $05

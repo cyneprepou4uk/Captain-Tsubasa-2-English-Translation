@@ -465,7 +465,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_pause, $50
     .byte con_animation, $01, $12
     .byte con_speed, $02
-    .text "What", $3A, $3B, "@"
+    .text "What_@"
     .byte con_sound, $01
     .byte con_pause, $28
     .byte con_clear_1
@@ -590,7 +590,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_offset, $03
     .text "@That's it,"
     .byte con_pause, $0A
-    .text " lads", $3A, $3B
+    .text " lads_"
     .byte con_pause, $14
     .text "enough"
     .byte con_line
@@ -725,7 +725,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_pause, $3C
     .byte con_speed, $04
     .byte con_offset, $06
-    .text "(That's", $3A, $3B
+    .text "(That's_"
     .byte con_pause, $3C
     .text "no,"
     .byte con_pause, $14
@@ -752,7 +752,7 @@ off_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_pause, $78
     .byte con_speed, $04
     .byte con_offset, $05
-    .text "(Sanae's", $3A, $3B
+    .text "(Sanae's_"
     .byte con_pause, $1E
     .text "she's here!"
     .byte con_pause, $3C
@@ -998,7 +998,7 @@ off_A1A1_21_коимбра_вступает_в_игру:
     .text "(Aah,"
     .byte con_pause, $1E
     .byte con_speed, $04
-    .text " that", $3A, $3B
+    .text " that_"
     .byte con_pause, $14
     .text "that jerk"
     .byte con_line

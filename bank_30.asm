@@ -330,7 +330,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte con_line
     .byte con_speed, $02
     .byte con_offset, $0C
-    .byte $3A, $3B
+    .byte "_"
     .byte con_pause, $14
     .text " Roberto Hongo"
     .byte con_pause, $78
@@ -424,7 +424,7 @@ off_B159_18_мисаки_и_пьер_перед_матчем:
     .byte con_pause, $3C
     .byte con_line
     .byte con_offset, $05
-    .text "Not just you and me", $3A, $3B
+    .text "Not just you and me_"
     .byte con_pause, $14
     .byte con_line
     .byte con_offset, $05
@@ -482,7 +482,7 @@ off_B1CE_19_цубаса_после_победы_над_францией:
     .text "@No kidding,"
     .byte con_sound, $31
     .byte con_pause, $0F
-    .text " Ishi", $3A, $3B, "@ "
+    .text " Ishi_@ "
     .byte con_F8, $02
     .byte con_pause, $50
     .byte con_animation, $01, $6A
@@ -1456,7 +1456,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_pause, $78
     .byte con_line
     .byte con_offset, $05
-    .text "Time to make it work", $3A, $3B, ")"
+    .text "Time to make it work_)"
     .byte con_palette, $27
     .byte con_pause, $03
     .byte con_palette, $0C
@@ -1509,7 +1509,7 @@ off_B71E_1C_цубаса_изучил_циклон:
     .byte con_palette, $00
     .byte con_speed, $02
     .byte con_offset, $07
-    .text "@What the", $3A, $3B, "?!@"
+    .text "@What the_?!@"
     .byte con_pause, $1E
     .byte con_clear_1
     
@@ -2219,7 +2219,7 @@ off_BDD6_1E_цубаса_и_шнайдер_перед_матчем:
     .byte con_offset, $04
     .text "defeat."
     .byte con_pause, $1E
-    .text " You", $3A, $3B
+    .text " You_"
     .byte con_pause, $3C
     .text "and that"
     .byte con_line

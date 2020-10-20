@@ -767,7 +767,7 @@ off_B731_0F_мисаки_победил_хюгу:
     
     
     .byte con_offset, $05
-    .text "@Can we count on", $3A, $3B, "@"
+    .text "@Can we count on_@"
     .byte con_F8, $02
     .byte con_pause, $0A
     .byte con_F5, $08
@@ -973,7 +973,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_pause, $0F
     .byte con_line
     .byte con_offset, $05
-    .text "Katagiri", $3A, $3B
+    .text "Katagiri_"
     .byte con_pause, $14
     .text "I can't"
     .byte con_line
@@ -1070,7 +1070,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .byte con_palette, $00
     .byte con_pause, $1E
     .byte con_offset, $09
-    .text "@Hey", $3A, $3B
+    .text "@Hey_"
     .byte con_pause, $14
     .text "guys"
     .byte con_toggle_mouth

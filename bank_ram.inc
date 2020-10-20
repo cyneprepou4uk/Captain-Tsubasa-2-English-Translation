@@ -1786,20 +1786,3 @@ con_btn_A                                   = $80
 ; музыка
 con_музыка_выключить_все                    = $01
 con_музыка_добавочное_время                 = $32
-
-
-
-.charmap $21, $5E    ; "!"
-.charmap $3F, $5F    ; "?"
-.charmap $2D, $5D    ; "-"
-.charmap $2E, $5B    ; "."
-.charmap $2C, $5C    ; ","
-.charmap $3A, $7D    ; ":"
-.charmap $27, $7C    ; "'"
-.charmap $23, $7F    ; "#"
-.charmap $2F, $3E    ; "/"
-.charmap $40, $7B    ; """
-.charmap $28, $3C    ; "("
-.charmap $29, $3D    ; ")"
-.charmap $2A, $3F    ; "*"
-.charmap $25, $40    ; "%"

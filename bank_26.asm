@@ -1136,7 +1136,7 @@ off_0x040005_скрытая_катсцена_из_01:
     .byte con_pause, $3C
     .byte con_animation, $01, $12
     .byte con_speed, $04
-    .text $3A, $3B
+    .text "_"
     .byte con_pause, $1E
     .byte con_animation, $01, $4E
     .byte con_pause, $10
@@ -1587,7 +1587,7 @@ off_A6DC_04_цубаса_и_меон:
     .byte con_speed, $01
     .byte con_offset, $06
     ; дополнительные пробелы, иначе сбивается тайминг мерцания цвета и серого экрана
-    .text "@What the", $3A, $3B, "?!@  "
+    .text "@What the_?!@  "
     .byte con_palette, $2E
     .byte con_pause, $F0
     .byte con_pause, $3C

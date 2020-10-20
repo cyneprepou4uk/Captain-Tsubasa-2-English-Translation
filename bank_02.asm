@@ -2709,7 +2709,7 @@ off_BCAF_фраза_пароль_над_символами_пароля:
 off_BCBE_фраза_неверный_пароль:
     .byte $54
     .word $2547
-    .text "Oops ", $3A, $3B, " YOU MISSED!!"
+    .text "Oops _ YOU MISSED!!"
 
 
 
