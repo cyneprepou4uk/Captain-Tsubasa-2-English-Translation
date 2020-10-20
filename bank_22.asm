@@ -138,7 +138,7 @@ C - - - - 0x0300F9 22:80E9: 60        RTS
 sub_80EA_подпрограмма:
 C - - - - 0x0300FA 22:80EA: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - - - - - 0x0300FD 22:80ED: FD 80     .word ofs_80FD_00
-- D - I - 0x0300FF 22:80EF: 06 81     .word ofs_8106_01
+- D - I - 0x0300FF 22:80EF: 06 81     .word ofs_8106_01_облако_зависит_от_команды
 - D - I - 0x030101 22:80F1: 0E 81     .word ofs_810E_02
 - D - I - 0x030103 22:80F3: 1E 81     .word ofs_811E_03_сообщение_при_разводке
 - D - I - 0x030105 22:80F5: 22 81     .word ofs_8122_04_выбрать_диалог_ожидания_в_зависимости_от_команды
@@ -156,7 +156,7 @@ ofs_80FD_00:
 bra_8105_выход:
 - - - - - 0x030115 22:8105: 60        RTS
 
-ofs_8106_01:
+ofs_8106_01_облако_зависит_от_команды:
 ; 2 варианта диалога
 C - J - - 0x030116 22:8106: AE FB 05  LDX ram_команда_с_мячом
 C - - - - 0x030119 22:8109: F0 02     BEQ bra_810D_выход
@@ -3497,9 +3497,9 @@ tbl_9220_фразы_облаков:
 - D - I - 0x031310 22:9300: 92 9C     .word off_9C92_70     ; время вышло
 - D - I - 0x031312 22:9302: AA 9C     .word off_9CAA_71     ; сообщение о победе/поражении/ничье
 - D - I - 0x031314 22:9304: 31 9F     .word off_9F31_72     ; игрок делает удар на пенальти
-- D - I - 0x031316 22:9306: 42 9F     .word off_9F42_73_ожидание_перед_разводкой
-- D - I - 0x031318 22:9308: BD A3     .word off_A3BD_74_сообщение_при_разводке
-- D - I - 0x03131A 22:930A: 39 A4     .word off_A439_75_игрок_принял_мяч
+- D - I - 0x031316 22:9306: 42 9F     .word off_9F42_73     ; ожидание перед разводкой
+- D - I - 0x031318 22:9308: BD A3     .word off_A3BD_74     ; сообщение при разводке
+- D - I - 0x03131A 22:930A: 39 A4     .word off_A439_75     ; игрок получил мяч во время разводки
 - D - I - 0x03131C 22:930C: 47 A4     .word off_A447_76     ; 
 - D - I - 0x03131E 22:930E: 61 A4     .word off_A461_77     ; 
 - D - I - 0x031320 22:9310: 6C A4     .word off_A46C_78     ; 
@@ -3623,6 +3623,15 @@ tbl_9220_фразы_облаков:
 - D - I - 0x03140C 22:93FC: E0 AC     .word off_ACE0_EE     ; комментатор во время попытки лови мячи
 - D - I - 0x03140E 22:93FE: 02 AD     .word off_AD02_EF     ; 
 
+
+; начальные байты
+con_exit                        = $F0
+; unused                        = $F1
+con_очистить_облако             = $F2
+con_jump                        = $F3
+con_выбор_облака                = $F4
+
+; байты в тексте
 con_действие_атаки              = $E0
 con_действие_защиты             = $E1
 con_крит_атаки                  = $E2
@@ -3639,11 +3648,10 @@ con_действие_кипера             = $EC
 con_голкипер                    = $ED
 con_игрок_без_мяча              = $EE
 ; unused                        = $EF
-con_exit                        = $F0
+; unused                        = $F0
 con_команда_слева               = $F1
 con_команда_справа              = $F2
 con_F3                          = $F3
-    con_jump                        = $F3
 con_F4                          = $F4
 con_слово_ball                  = $F5       ; ボール
 con_слово_goal                  = $F6       ; ゴール
@@ -3657,7 +3665,7 @@ con_line                        = $FC
 
 
 off_9400_00_очистка_облака:
-    .byte $F2
+    .byte con_очистить_облако
     .byte con_exit
 
 
@@ -4087,7 +4095,7 @@ off_95A9_1B:
 
 
 off_95B7_1C:
-- D - I - 0x0315C7 22:95B7: F2        .byte $F2
+- D - I - 0x0315C7 22:95B7: F2        .byte con_очистить_облако
 - D - I - 0x0315C8 22:95B8: 01        .byte $01    ; <あ>
 - D - I - 0x0315C9 22:95B9: 5C        .byte $5C    ; <フ>
 - D - I - 0x0315CA 22:95BA: AD        .byte $AD    ; <で>
@@ -4129,7 +4137,7 @@ off_95CE_1D:
 
 
 off_95E6_1E:
-- D - I - 0x0315F6 22:95E6: F2        .byte $F2
+- D - I - 0x0315F6 22:95E6: F2        .byte con_очистить_облако
 - D - I - 0x0315F7 22:95E7: 01        .byte $01    ; <あ>
 - D - I - 0x0315F8 22:95E8: 6C        .byte $6C    ; <ワ>
 - D - I - 0x0315F9 22:95E9: AD        .byte $AD    ; <で>
@@ -4235,8 +4243,8 @@ off_962A_21:
 
 
 off_9640_22:
-- D - I - 0x031650 22:9640: F2        .byte $F2
-- D - I - 0x031651 22:9641: F4        .byte $F4
+- D - I - 0x031650 22:9640: F2        .byte con_очистить_облако
+- D - I - 0x031651 22:9641: F4        .byte con_выбор_облака
 - D - I - 0x031652 22:9642: 07        .byte $07
 - - - - - 0x031653 22:9643: 62 96     .word off_9662
 - D - I - 0x031655 22:9645: 49 96     .word off_9649
@@ -4544,64 +4552,38 @@ off_974E_30:
 
 
 off_975F_31:
-- D - I - 0x03176F 22:975F: F4        .byte $F4
-- D - I - 0x031770 22:9760: 01        .byte $01
-- D - I - 0x031771 22:9761: 65 97     .word off_9765
-- D - I - 0x031773 22:9763: 7B 97     .word off_977B
+    .byte con_выбор_облака
+    .byte $01
+    .word off_9765
+    .word off_977B
 
 off_9765:
-- D - I - 0x031775 22:9765: 01        .byte $01
-- D - I - 0x031776 22:9766: 51        .byte $51
-- D - I - 0x031777 22:9767: 0F        .byte $0F    ; <そ>
-- D - I - 0x031778 22:9768: 2A        .byte $2A    ; <れ>
-- D - I - 0x031779 22:9769: 2D        .byte $2D    ; <を>
-- D - I - 0x03177A 22:976A: 00        .byte $00
-- D - I - 0x03177B 22:976B: E4        .byte con_игрок_с_мячом
-- D - I - 0x03177C 22:976C: A0        .byte $A0    ; <が>
-- D - I - 0x03177D 22:976D: FC        .byte con_line
-- - - - - 0x03177E 22:976E: 01        .byte $01    ; <あ>
-- D - I - 0x03177F 22:976F: 18        .byte $18    ; <ね>
-- D - I - 0x031780 22:9770: A6        .byte $A6    ; <じ>
-- D - I - 0x031781 22:9771: 0A        .byte $0A    ; <こ>
-- D - I - 0x031782 22:9772: 20        .byte $20    ; <み>
-- D - I - 0x031783 22:9773: 16        .byte $16    ; <に>
-- D - I - 0x031784 22:9774: 00        .byte $00
-- D - I - 0x031785 22:9775: 02        .byte $02    ; <い>
-- D - I - 0x031786 22:9776: 2F        .byte $2F    ; <っ>
-- D - I - 0x031787 22:9777: 10        .byte $10    ; <た>
-- D - I - 0x031788 22:9778: 79        .byte $79    ; <!>
-- D - I - 0x031789 22:9779: FC        .byte con_line
-- D - I - 0x03178A 22:977A: F0        .byte con_exit
+    .byte $01
+    .byte $51
+    .byte con_игрок_с_мячом
+    .byte con_line
+    
+    .byte $01
+    .text "31-00"
+    .byte con_line
+    .byte con_exit
+
+
 
 off_977B:
-- D - I - 0x03178B 22:977B: 01        .byte $01
-- D - I - 0x03178C 22:977C: 61        .byte $61
-- D - I - 0x03178D 22:977D: 05        .byte $05    ; <お>
-- D - I - 0x03178E 22:977E: 7C        .byte $7C    ; <~>
-- D - I - 0x03178F 22:977F: 2F        .byte $2F    ; <っ>
-- D - I - 0x031790 22:9780: 14        .byte $14    ; <と>
-- D - I - 0x031791 22:9781: 79        .byte $79    ; <!>
-- D - I - 0x031792 22:9782: FC        .byte con_line
-- - - - - 0x031793 22:9783: 01        .byte $01    ; <あ>
-- D - I - 0x031794 22:9784: 0F        .byte $0F    ; <そ>
-- D - I - 0x031795 22:9785: 2A        .byte $2A    ; <れ>
-- D - I - 0x031796 22:9786: 2D        .byte $2D    ; <を>
-- D - I - 0x031797 22:9787: 00        .byte $00
-- D - I - 0x031798 22:9788: E4        .byte con_игрок_с_мячом
-- D - I - 0x031799 22:9789: A0        .byte $A0    ; <が>
-- D - I - 0x03179A 22:978A: FC        .byte con_line
-- - - - - 0x03179B 22:978B: 01        .byte $01    ; <あ>
-- D - I - 0x03179C 22:978C: 18        .byte $18    ; <ね>
-- D - I - 0x03179D 22:978D: A6        .byte $A6    ; <じ>
-- D - I - 0x03179E 22:978E: 0A        .byte $0A    ; <こ>
-- D - I - 0x03179F 22:978F: 20        .byte $20    ; <み>
-- D - I - 0x0317A0 22:9790: 16        .byte $16    ; <に>
-- D - I - 0x0317A1 22:9791: 00        .byte $00
-- D - I - 0x0317A2 22:9792: 07        .byte $07    ; <き>
-- D - I - 0x0317A3 22:9793: 10        .byte $10    ; <た>
-- D - I - 0x0317A4 22:9794: 79        .byte $79    ; <!>
-- D - I - 0x0317A5 22:9795: FC        .byte con_line
-- D - I - 0x0317A6 22:9796: F0        .byte con_exit
+    .byte $01
+    .byte $61
+    .text "31-01"
+    .byte con_line
+    
+    .byte $01
+    .byte con_игрок_с_мячом
+    .byte con_line
+    
+    .byte $01
+    .text "31-01"
+    .byte con_line
+    .byte con_exit
 
 
 
@@ -4740,7 +4722,7 @@ off_97FE_36:
 
 
 off_9810_37:
-- D - I - 0x031820 22:9810: F4        .byte $F4
+- D - I - 0x031820 22:9810: F4        .byte con_выбор_облака
 - D - I - 0x031821 22:9811: 01        .byte $01
 - D - I - 0x031822 22:9812: 16 98     .word off_9816
 - D - I - 0x031824 22:9814: 24 98     .word off_9824
@@ -5068,7 +5050,7 @@ off_990B_46:
 
 
 off_9917_47:
-- D - I - 0x031927 22:9917: F2        .byte $F2
+- D - I - 0x031927 22:9917: F2        .byte con_очистить_облако
 - D - I - 0x031928 22:9918: 01        .byte $01    ; <あ>
 - D - I - 0x031929 22:9919: 51        .byte $51    ; <チ>
 - D - I - 0x03192A 22:991A: E4        .byte con_игрок_с_мячом
@@ -5098,7 +5080,7 @@ off_9921_48:
 
 
 off_992D_49:
-- D - I - 0x03193D 22:992D: F2        .byte $F2
+- D - I - 0x03193D 22:992D: F2        .byte con_очистить_облако
 - D - I - 0x03193E 22:992E: 01        .byte $01    ; <あ>
 - D - I - 0x03193F 22:992F: 5C        .byte $5C    ; <フ>
 - D - I - 0x031940 22:9930: E4        .byte con_игрок_с_мячом
@@ -5418,7 +5400,7 @@ off_9A62_58:
 
 
 off_9A70_59:
-- D - I - 0x031A80 22:9A70: F2        .byte $F2
+- D - I - 0x031A80 22:9A70: F2        .byte con_очистить_облако
 - D - I - 0x031A81 22:9A71: 01        .byte $01    ; <あ>
 - D - I - 0x031A82 22:9A72: 10        .byte $10    ; <た>
 - D - I - 0x031A83 22:9A73: E4        .byte con_игрок_с_мячом
@@ -5464,7 +5446,7 @@ off_9A80_5A:
 
 
 off_9A96_5B:
-- D - I - 0x031AA6 22:9A96: F2        .byte $F2
+- D - I - 0x031AA6 22:9A96: F2        .byte con_очистить_облако
 - D - I - 0x031AA7 22:9A97: 01        .byte $01    ; <あ>
 - D - I - 0x031AA8 22:9A98: 20        .byte $20    ; <み>
 - D - I - 0x031AA9 22:9A99: 4A        .byte $4A    ; <コ>
@@ -5617,7 +5599,7 @@ off_9B07_61:
 
 
 off_9B17_62:
-- D - I - 0x031B27 22:9B17: F2        .byte $F2
+- D - I - 0x031B27 22:9B17: F2        .byte con_очистить_облако
 - D - I - 0x031B28 22:9B18: 01        .byte $01    ; <あ>
 - D - I - 0x031B29 22:9B19: 10        .byte $10    ; <た>
 - D - I - 0x031B2A 22:9B1A: E6        .byte con_команда_с_мячом
@@ -5677,7 +5659,7 @@ off_9B36_64:
 
 
 off_9B47_65:
-- D - I - 0x031B57 22:9B47: F2        .byte $F2
+- D - I - 0x031B57 22:9B47: F2        .byte con_очистить_облако
 - D - I - 0x031B58 22:9B48: 01        .byte $01    ; <あ>
 - D - I - 0x031B59 22:9B49: 20        .byte $20    ; <み>
 - D - I - 0x031B5A 22:9B4A: E6        .byte con_команда_с_мячом
@@ -5768,7 +5750,7 @@ off_9B88_68:
 
 
 off_9B92_69:
-- D - I - 0x031BA2 22:9B92: F4        .byte $F4
+- D - I - 0x031BA2 22:9B92: F4        .byte con_выбор_облака
 - D - I - 0x031BA3 22:9B93: 06        .byte $06
 - D - I - 0x031BA4 22:9B94: 9C 9B     .word off_9B9C
 - D - I - 0x031BA6 22:9B96: 9C 9B     .word off_9B9C
@@ -5776,7 +5758,7 @@ off_9B92_69:
 - - - - - 0x031BAA 22:9B9A: AF 9B     .word off_9BAF
 
 off_9B9C:
-- D - I - 0x031BAC 22:9B9C: F2        .byte $F2
+- D - I - 0x031BAC 22:9B9C: F2        .byte con_очистить_облако
 - D - I - 0x031BAD 22:9B9D: 01        .byte $01    ; <あ>
 - D - I - 0x031BAE 22:9B9E: 20        .byte $20    ; <み>
 - D - I - 0x031BAF 22:9B9F: E6        .byte con_команда_с_мячом
@@ -5797,7 +5779,7 @@ off_9B9C:
 - D - I - 0x031BBE 22:9BAE: F0        .byte con_exit
 
 off_9BAF:
-- - - - - 0x031BBF 22:9BAF: F2        .byte $F2
+- - - - - 0x031BBF 22:9BAF: F2        .byte con_очистить_облако
 - - - - - 0x031BC0 22:9BB0: 01        .byte $01    ; <あ>
 - - - - - 0x031BC1 22:9BB1: 20        .byte $20    ; <み>
 - - - - - 0x031BC2 22:9BB2: E6        .byte con_команда_с_мячом
@@ -5862,14 +5844,14 @@ off_9BD7_6C:
 
 
 off_9BE3_6D:
-- D - I - 0x031BF3 22:9BE3: F2        .byte $F2
-- D - I - 0x031BF4 22:9BE4: F4        .byte $F4
+- D - I - 0x031BF3 22:9BE3: F2        .byte con_очистить_облако
+- D - I - 0x031BF4 22:9BE4: F4        .byte con_выбор_облака
 - D - I - 0x031BF5 22:9BE5: 01        .byte $01
 - D - I - 0x031BF6 22:9BE6: EA 9B     .word off_9BEA
 - D - I - 0x031BF8 22:9BE8: F4 9B     .word off_9BF4
 
 off_9BEA:
-- D - I - 0x031BFA 22:9BEA: F4        .byte $F4
+- D - I - 0x031BFA 22:9BEA: F4        .byte con_выбор_облака
 - D - I - 0x031BFB 22:9BEB: 02        .byte $02
 - D - I - 0x031BFC 22:9BEC: FE 9B     .word off_9BFE
 - D - I - 0x031BFE 22:9BEE: 09 9C     .word off_9C09
@@ -5877,7 +5859,7 @@ off_9BEA:
 - - - - - 0x031C02 22:9BF2: 08 9C     .word off_9C08
 
 off_9BF4:
-- D - I - 0x031C04 22:9BF4: F4        .byte $F4
+- D - I - 0x031C04 22:9BF4: F4        .byte con_выбор_облака
 - D - I - 0x031C05 22:9BF5: 02        .byte $02
 - D - I - 0x031C06 22:9BF6: 37 9C     .word off_9C37
 - D - I - 0x031C08 22:9BF8: 46 9C     .word off_9C46
@@ -6036,7 +6018,7 @@ off_9C71_6E:
 
 
 off_9C82_6F:
-- D - I - 0x031C92 22:9C82: F2        .byte $F2
+- D - I - 0x031C92 22:9C82: F2        .byte con_очистить_облако
 - D - I - 0x031C93 22:9C83: 01        .byte $01    ; <あ>
 - D - I - 0x031C94 22:9C84: 51        .byte $51    ; <チ>
 - D - I - 0x031C95 22:9C85: E4        .byte con_игрок_с_мячом
@@ -6056,7 +6038,7 @@ off_9C82_6F:
 
 
 off_9C92_70:
-- D - I - 0x031CA2 22:9C92: F2        .byte $F2
+- D - I - 0x031CA2 22:9C92: F2        .byte con_очистить_облако
 - D - I - 0x031CA3 22:9C93: 01        .byte $01    ; <あ>
 - D - I - 0x031CA4 22:9C94: 52        .byte $52    ; <ツ>
 - D - I - 0x031CA5 22:9C95: 05        .byte $05    ; <お>
@@ -6083,7 +6065,7 @@ off_9C92_70:
 
 
 off_9CAA_71:
-- D - I - 0x031CBA 22:9CAA: F4        .byte $F4
+- D - I - 0x031CBA 22:9CAA: F4        .byte con_выбор_облака
 - D - I - 0x031CBB 22:9CAB: 05        .byte $05
 - D - I - 0x031CBC 22:9CAC: CC 9C     .word off_9CCC
 - D - I - 0x031CBE 22:9CAE: E6 9C     .word off_9CE6
@@ -6763,8 +6745,8 @@ off_9F31_72:
 
 
 
-off_9F42_73_ожидание_перед_разводкой:
-- D - I - 0x031F52 22:9F42: F4        .byte $F4
+off_9F42_73:
+- D - I - 0x031F52 22:9F42: F4        .byte con_выбор_облака
 - D - I - 0x031F53 22:9F43: 04        .byte $04
 - D - I - 0x031F54 22:9F44: 52 9F     .word off_9F52_ожидание_1
 - D - I - 0x031F56 22:9F46: E1 9F     .word off_9FE1_ожидание_2
@@ -7969,8 +7951,8 @@ off_A3A6_цикл:
 
 
 
-off_A3BD_74_сообщение_при_разводке:
-- D - I - 0x0323CD 22:A3BD: F4        .byte $F4
+off_A3BD_74:
+- D - I - 0x0323CD 22:A3BD: F4        .byte con_выбор_облака
 - D - I - 0x0323CE 22:A3BE: 03        .byte $03
 - D - I - 0x0323CF 22:A3BF: C9 A3     .word off_A3C9    ; первая разводка
 - D - I - 0x0323D1 22:A3C1: E3 A3     .word off_A3E3    ; начало 2го тайма
@@ -7981,65 +7963,65 @@ off_A3BD_74_сообщение_при_разводке:
 off_A3C9:
     .byte $01
     .byte $20
-    .text "74 00"
+    .text "74-00"
     .byte con_line
     
     .byte $01
-    .text "74 00"
+    .text "74-00"
     .byte con_line
     
     .byte $01
-    .text "74 00"
+    .text "74-00"
     .byte con_line
     .byte con_exit
 
 off_A3E3:
     .byte $01
     .byte $10
-    .text "74 01"
+    .text "74-01"
     .byte con_line
     
     .byte $01
-    .text "74 01"
+    .text "74-01"
     .byte con_line
     .byte con_exit
 
 off_A3F7:
     .byte $01
     .byte $10
-    .text "74 02"
+    .text "74-02"
     .byte con_line
     
     .byte $01
-    .text "74 02"
+    .text "74-02"
     .byte con_line
     .byte con_exit
 
 off_A40C:
     .byte $01
     .byte $10
-    .text "74 03"
+    .text "74-03"
     .byte con_line
     
     .byte $01
-    .text "74 03"
+    .text "74-03"
     .byte con_line
     .byte con_exit
 
 off_A429:
     .byte $01
     .byte $10
-    .text "74 04"
+    .text "74-04"
     .byte con_line
     
     .byte $01
-    .text "74 04"
+    .text "74-04"
     .byte con_line
     .byte con_exit
 
 
 
-off_A439_75_игрок_принял_мяч:
+off_A439_75:
 - D - I - 0x032449 22:A439: 01        .byte $01
 - D - I - 0x03244A 22:A43A: 10        .byte $10
 - D - I - 0x03244B 22:A43B: EB        .byte con_нападающий_4
@@ -9202,7 +9184,7 @@ off_A7F8_A5:
 
 
 off_A804_A6:
-- - - - - 0x032814 22:A804: F2        .byte $F2
+- - - - - 0x032814 22:A804: F2        .byte con_очистить_облако
 - - - - - 0x032815 22:A805: 01        .byte $01    ; <あ>
 - - - - - 0x032816 22:A806: 10        .byte $10    ; <た>
 - - - - - 0x032817 22:A807: 0A        .byte $0A    ; <こ>
@@ -10275,7 +10257,7 @@ off_AB4B_DB:
 
 
 off_AB66_DC_DD:
-- D - I - 0x032B76 22:AB66: F4        .byte $F4
+- D - I - 0x032B76 22:AB66: F4        .byte con_выбор_облака
 - D - I - 0x032B77 22:AB67: 01        .byte $01
 - D - I - 0x032B78 22:AB68: 6C AB     .word off_AB6C
 - D - I - 0x032B7A 22:AB6A: 80 AB     .word off_AB80
@@ -10450,7 +10432,7 @@ off_ABF0_E3:
 
 
 off_AC0B_E4:
-- D - I - 0x032C1B 22:AC0B: F2        .byte $F2
+- D - I - 0x032C1B 22:AC0B: F2        .byte con_очистить_облако
 - D - I - 0x032C1C 22:AC0C: 01        .byte $01    ; <あ>
 - D - I - 0x032C1D 22:AC0D: 6C        .byte $6C    ; <ワ>
 - D - I - 0x032C1E 22:AC0E: 05        .byte $05    ; <お>
@@ -10523,7 +10505,7 @@ off_AC38_E6:
 
 
 off_AC4A_E7:
-- D - I - 0x032C5A 22:AC4A: F2        .byte $F2
+- D - I - 0x032C5A 22:AC4A: F2        .byte con_очистить_облако
 - D - I - 0x032C5B 22:AC4B: 01        .byte $01    ; <あ>
 - D - I - 0x032C5C 22:AC4C: 51        .byte $51    ; <チ>
 - D - I - 0x032C5D 22:AC4D: ED        .byte con_голкипер
@@ -10563,7 +10545,7 @@ off_AC5A_E8:
 
 
 off_AC6A_E9:
-- D - I - 0x032C7A 22:AC6A: F2        .byte $F2
+- D - I - 0x032C7A 22:AC6A: F2        .byte con_очистить_облако
 - D - I - 0x032C7B 22:AC6B: 01        .byte $01    ; <あ>
 - D - I - 0x032C7C 22:AC6C: 51        .byte $51    ; <チ>
 - D - I - 0x032C7D 22:AC6D: E5        .byte con_команда_без_мяча
@@ -10586,8 +10568,8 @@ off_AC6A_E9:
 
 
 off_AC7D_EA:
-- D - I - 0x032C8D 22:AC7D: F2        .byte $F2
-- D - I - 0x032C8E 22:AC7E: F4        .byte $F4
+- D - I - 0x032C8D 22:AC7D: F2        .byte con_очистить_облако
+- D - I - 0x032C8E 22:AC7E: F4        .byte con_выбор_облака
 - D - I - 0x032C8F 22:AC7F: 07        .byte $07
 - - - - - 0x032C90 22:AC80: 99 AC     .word off_AC99
 - D - I - 0x032C92 22:AC82: 86 AC     .word off_AC86
