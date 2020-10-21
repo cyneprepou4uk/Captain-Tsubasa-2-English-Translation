@@ -262,4 +262,4 @@ end
 
 
 print(string.format("Script finished in "..string.format("%.3f", os.clock() - time).." seconds"))
-io.read()             --uncomment this line in order to pause the console after script is complete
+--io.read()             --uncomment this line in order to pause the console after script is complete
