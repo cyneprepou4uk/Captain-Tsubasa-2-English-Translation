@@ -47,62 +47,62 @@ files_list = {
     --try to place most common characters at the top, so the script will work a bit faster
 --WARNING: do not use " character for " itself in the files, instead use @ for example, like .text "@hello@"
 translation = {
-    " ",    "$20",
+    [" "] = "$20",
     
-    "A",    "$41",          "a",    "$61",
-    "B",    "$42",          "b",    "$62",
-    "C",    "$43",          "c",    "$63",
-    "D",    "$44",          "d",    "$64",
-    "E",    "$45",          "e",    "$65",
-    "F",    "$46",          "f",    "$66",
-    "G",    "$47",          "g",    "$67",
-    "H",    "$48",          "h",    "$68",
-    "I",    "$49",          "i",    "$69",
-    "J",    "$4A",          "j",    "$6A",
-    "K",    "$4B",          "k",    "$6B",
-    "L",    "$4C",          "l",    "$6C",
-    "M",    "$4D",          "m",    "$6D",
-    "N",    "$4E",          "n",    "$6E",
-    "O",    "$4F",          "o",    "$6F",
-    "P",    "$50",          "p",    "$70",
-    "Q",    "$51",          "q",    "$71",
-    "R",    "$52",          "r",    "$72",
-    "S",    "$53",          "s",    "$73",
-    "T",    "$54",          "t",    "$74",
-    "U",    "$55",          "u",    "$75",
-    "V",    "$56",          "v",    "$76",
-    "W",    "$57",          "w",    "$77",
-    "X",    "$58",          "x",    "$78",
-    "Y",    "$59",          "y",    "$79",
-    "Z",    "$5A",          "z",    "$7A",
+    ["A"] = "$41",      ["a"] = "$61",
+    ["B"] = "$42",      ["b"] = "$62",
+    ["C"] = "$43",      ["c"] = "$63",
+    ["D"] = "$44",      ["d"] = "$64",
+    ["E"] = "$45",      ["e"] = "$65",
+    ["F"] = "$46",      ["f"] = "$66",
+    ["G"] = "$47",      ["g"] = "$67",
+    ["H"] = "$48",      ["h"] = "$68",
+    ["I"] = "$49",      ["i"] = "$69",
+    ["J"] = "$4A",      ["j"] = "$6A",
+    ["K"] = "$4B",      ["k"] = "$6B",
+    ["L"] = "$4C",      ["l"] = "$6C",
+    ["M"] = "$4D",      ["m"] = "$6D",
+    ["N"] = "$4E",      ["n"] = "$6E",
+    ["O"] = "$4F",      ["o"] = "$6F",
+    ["P"] = "$50",      ["p"] = "$70",
+    ["Q"] = "$51",      ["q"] = "$71",
+    ["R"] = "$52",      ["r"] = "$72",
+    ["S"] = "$53",      ["s"] = "$73",
+    ["T"] = "$54",      ["t"] = "$74",
+    ["U"] = "$55",      ["u"] = "$75",
+    ["V"] = "$56",      ["v"] = "$76",
+    ["W"] = "$57",      ["w"] = "$77",
+    ["X"] = "$58",      ["x"] = "$78",
+    ["Y"] = "$59",      ["y"] = "$79",
+    ["Z"] = "$5A",      ["z"] = "$7A",
     
-    ",",    "$5C",
-    ".",    "$5B",
-    "@",    "$7B",         --symbol "
-    "!",    "$5E",
-    "?",    "$5F",
-    "-",    "$5D",
-    "_",    "$3A, $3B",    --symbol --
-    "/",    "$3E",
-    ":",    "$7D",
-    "(",    "$3C",
-    ")",    "$3D",
-    "'",    "$7C",
-    "~",    "$7E",
-    "#",    "$7F",
-    "*",    "$3F",
-    "%",    "$40",
+    [","] = "$5C",
+    ["."] = "$5B",
+    ["@"] = "$7B",         --symbol "
+    ["!"] = "$5E",
+    ["?"] = "$5F",
+    ["-"] = "$5D",
+    ["_"] = "$3A, $3B",    --symbol --
+    ["/"] = "$3E",
+    [":"] = "$7D",
+    ["("] = "$3C",
+    [")"] = "$3D",
+    ["'"] = "$7C",
+    ["~"] = "$7E",
+    ["#"] = "$7F",
+    ["*"] = "$3F",
+    ["%"] = "$40",
     
-    "0",    "$30",
-    "1",    "$31",
-    "2",    "$32",
-    "3",    "$33",
-    "4",    "$34",
-    "5",    "$35",
-    "6",    "$36",
-    "7",    "$37",
-    "8",    "$38",
-    "9",    "$39",
+    ["0"] = "$30",
+    ["1"] = "$31",
+    ["2"] = "$32",
+    ["3"] = "$33",
+    ["4"] = "$34",
+    ["5"] = "$35",
+    ["6"] = "$36",
+    ["7"] = "$37",
+    ["8"] = "$38",
+    ["9"] = "$39",
 }
 
 --если скрипт не нашел совпадений по таблице перевода, он заменяет символ на байт $30 (обычно это 0)
@@ -214,36 +214,14 @@ for _, f in ipairs(files_list) do                               --execute this l
             local after = string.sub(text, length + 1, string.len(text))            --copy all characters after text
             text = string.sub(text, 0, length - 1)                                  --delete " at the end of the string
             
-            local characters = {}                                               --a loop for dumping text into a table
-            for i = 1, string.len(text) do
-                characters[i] = string.sub(text, i, i)
+            local translated_text = ""                                              --this variable will contain all translated text
+            for _, c in utf8.codes(text) do
+                translated_text = translated_text..(translation[utf8.char(c)] or unknown_character)
+                translated_text = translated_text..", "                             --add ", " after each translated character
             end
             
-            for i, _ in ipairs(characters) do                                   --a loop for translating characters into bytes
-                local was_replaced = false
-                for j, _ in ipairs(translation) do                              --an internal loop for each character
-                    if j % 2 ~=0 then                                           --check every odd cycle
-                        if characters[i] == translation[j] then                 --check if match was found
-                            characters[i] = translation[j + 1]                  --replace character with a byte
-                            was_replaced = true                                 --set found flag
-                            break                                               --exit the internal loop if match was found
-                        end
-                    end
-                end
-                
-                if was_replaced == false then                           --if the character was not found in the translation table
-                    characters[i] = unknown_character                   --then replace it with a specific byte ($30 by default)
-                end
-                
-            end
-            
-            text = ""
-            for i, c in ipairs(characters) do                           --a loop for creating a line of bytes, separated by ", "
-                text = text..c..", "
-            end
-            
-            text = string.sub(text, 0, string.len(text) - 2)            --delete the very last ", "
-            line = "\t.byte "..text..after                              --create a total line
+            text = string.sub(translated_text, 0, string.len(translated_text) - 2)          --delete the very last ", "
+            line = "\t.byte "..text..after                                                  --create a total line
         end
 
         io.write(line.."\n")                                            --write line to the main copy
@@ -284,4 +262,4 @@ end
 
 
 print(string.format("Script finished in "..string.format("%.3f", os.clock() - time).." seconds"))
---io.read()             --uncomment this line in order to pause the console after script is complete
+io.read()             --uncomment this line in order to pause the console after script is complete
