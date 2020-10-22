@@ -98,14 +98,14 @@ C - - - - 0x0200BC 17:80AC: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0200C1 17:80B1: D4 80     .word ofs_80D4_F1_выход
 - D - I - 0x0200C3 17:80B3: F4 80     .word ofs_80F4_F2_прыжок
 - D - I - 0x0200C5 17:80B5: 05 81     .word ofs_8105_F3_развилка
-- D - I - 0x0200C7 17:80B7: E0 87     .word ofs_87E0_F4_отзеркалить_анимацию
-- D - I - 0x0200C9 17:80B9: E6 87     .word ofs_87E6_F5_не_отзеркаливать_анимацию
-- D - I - 0x0200CB 17:80BB: EC 87     .word ofs_87EC_F6_перевернуть_зеркало
+- D - I - 0x0200C7 17:80B7: E0 87     .word ofs_87E0_F4_mirror_on
+- D - I - 0x0200C9 17:80B9: E6 87     .word ofs_87E6_F5_mirror_off
+- D - I - 0x0200CB 17:80BB: EC 87     .word ofs_87EC_F6_mirror_toggle
 - D - I - 0x0200CD 17:80BD: F5 87     .word ofs_87F5_F7
 - D - I - 0x0200CF 17:80BF: FF 87     .word ofs_87FF_F8
 - D - I - 0x0200D1 17:80C1: 09 88     .word ofs_8809_F9_задержка_и_номер_звука
 - D - I - 0x0200D3 17:80C3: 1A 88     .word ofs_881A_FA_внутренняя_подпрограмма_сценария
-- D - I - 0x0200D5 17:80C5: 37 88     .word ofs_8837_FB
+- D - I - 0x0200D5 17:80C5: 37 88     .word ofs_8837_FB_возврат_из_сценария
 - D - I - 0x0200D7 17:80C7: 53 88     .word ofs_8853_FC
 - D - I - 0x0200D9 17:80C9: 5D 88     .word ofs_885D_FD
 - D - I - 0x0200DB 17:80CB: E3 88     .word ofs_88E3_FE
@@ -258,8 +258,8 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201AF 17:819F: B4 83     .word ofs_83B4_16_96
 - D - I - 0x0201B1 17:81A1: C2 83     .word ofs_83C2_17_97
 - D - I - 0x0201B3 17:81A3: C6 83     .word ofs_83C6_18_98_джито
-- - - - - 0x0201B5 17:81A5: D6 83     .word ofs_83D6_19_99
-- - - - - 0x0201B7 17:81A7: DD 83     .word ofs_83DD_1A_9A
+- - - - - 0x0201B5 17:81A5: D6 83     .word ofs_83D6_19_99     ; unused байты не найдены
+- - - - - 0x0201B7 17:81A7: DD 83     .word ofs_83DD_1A_9A     ; unused байты не найдены
 - D - I - 0x0201B9 17:81A9: E4 83     .word ofs_83E4_1B_9B
 - D - I - 0x0201BB 17:81AB: EB 83     .word ofs_83EB_1C_9C
 - D - I - 0x0201BD 17:81AD: F5 83     .word ofs_83F5_1D_9D
@@ -269,7 +269,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201C5 17:81B5: 2B 84     .word ofs_842B_21_A1
 - D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2
 - D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3
-- - - - - 0x0201CB 17:81BB: 42 84     .word ofs_8442_24_A4_диас
+- - - - - 0x0201CB 17:81BB: 42 84     .word ofs_8442_24_A4_диас     ; unused байты не найдены
 - D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_27_A5_A7
 - D - I - 0x0201CF 17:81BF: 57 84     .word ofs_8457_26_A6
 - D - I - 0x0201D1 17:81C1: 4E 84     .word ofs_844E_25_27_A5_A7
@@ -1471,19 +1471,19 @@ tbl_876A_игроки_с_защитным_спешалом:
 - - - - - 0x0207EE 17:87DE: 00        .byte $00        ; 74
 - - - - - 0x0207EF 17:87DF: 00        .byte $00        ; 75
 
-ofs_87E0_F4_отзеркалить_анимацию:
+ofs_87E0_F4_mirror_on:
 ; без чтения следующих байтов
 C - J - - 0x0207F0 17:87E0: A9 40     LDA #$40
 C - - - - 0x0207F2 17:87E2: 8D 2A 05  STA ram_флаг_зеркала_анимации
 C - - - - 0x0207F5 17:87E5: 60        RTS
 
-ofs_87E6_F5_не_отзеркаливать_анимацию:
+ofs_87E6_F5_mirror_off:
 ; без чтения следующих байтов
 C - J - - 0x0207F6 17:87E6: A9 00     LDA #$00
 C - - - - 0x0207F8 17:87E8: 8D 2A 05  STA ram_флаг_зеркала_анимации
 C - - - - 0x0207FB 17:87EB: 60        RTS
 
-ofs_87EC_F6_перевернуть_зеркало:
+ofs_87EC_F6_mirror_toggle:
 ; без чтения следующих байтов
 C - J - - 0x0207FC 17:87EC: A9 40     LDA #$40
 C - - - - 0x0207FE 17:87EE: 4D 2A 05  EOR ram_флаг_зеркала_анимации
@@ -1535,7 +1535,8 @@ C - - - - 0x020840 17:8830: E8        INX
 C - - - - 0x020841 17:8831: 8E 22 05  STX $0522
 C - - - - 0x020844 17:8834: 4C F6 80  JMP loc_80F6_подпрограмма_сценария
 
-ofs_8837_FB:
+ofs_8837_FB_возврат_из_сценария:
+; также возврат из sub сценария
 ; без чтения следующих байтов
 C - J - - 0x020847 17:8837: AE 22 05  LDX $0522
 C - - - - 0x02084A 17:883A: CA        DEX
@@ -1941,7 +1942,7 @@ con_FF                  = $FF   ; 1
 
 
 off_8AB1_00:
-- D - I - 0x020AC1 17:8AB1: F3        .byte con_F3, $34
+- D - I - 0x020AC1 17:8AB1: F3        .byte con_F3, $34     ; узнать высоту мяча
 - D - I - 0x020AC3 17:8AB3: B9 8A     .word off_8AB9
 - D - I - 0x020AC5 17:8AB5: 09 8F     .word off_8F09
 - D - I - 0x020AC7 17:8AB7: 4B 8C     .word off_8C4B
@@ -5369,7 +5370,7 @@ off_9CDD_25:
 
 
 off_9CEE_1D:
-- D - I - 0x021CFE 17:9CEE: F3        .byte con_F3, $B4
+- D - I - 0x021CFE 17:9CEE: F3        .byte con_F3, $B4     ; узнать высоту мяча
 - D - I - 0x021D00 17:9CF0: 03        .byte $03
 - - - - - 0x021D01 17:9CF1: A9        .byte $A9
 - - - - - 0x021D02 17:9CF2: 60        .byte $60
@@ -5559,7 +5560,7 @@ off_9E2D_26:
 
 off_9E3E_18:
 - D - I - 0x021E4E 17:9E3E: FD        .byte con_FD, $00
-- D - I - 0x021E50 17:9E40: F3        .byte con_F3, $B4
+- D - I - 0x021E50 17:9E40: F3        .byte con_F3, $B4     ; узнать высоту мяча
 - D - I - 0x021E52 17:9E42: 03        .byte $03
 - - - - - 0x021E53 17:9E43: 02        .byte $02
 - - - - - 0x021E54 17:9E44: 0B        .byte $0B
@@ -6558,7 +6559,7 @@ off_A275:
 - D - I - 0x022298 11:A288: F3        .byte con_F3, $AD
 - D - I - 0x02229A 11:A28A: 1C        .byte $1C
 - D - I - 0x02229B 11:A28B: 01        .byte $01
-- D - I - 0x02229C 11:A28C: F3        .byte con_F3, $98
+- D - I - 0x02229C 11:A28C: F3        .byte con_F3, $98     ; проверка на джито
 - D - I - 0x02229E 11:A28E: 02        .byte $02
 - - - - - 0x02229F 11:A28F: 0C        .byte $0C
 - D - I - 0x0222A0 11:A290: 01        .byte $01
@@ -9029,7 +9030,7 @@ off_AD13:
 - D - I - 0x022D2B 11:AD1B: F0        .byte con_F0
 - D - I - 0x022D2C 11:AD1C: FB        .byte con_rts
 off_AD1D:
-- D - I - 0x022D2D 11:AD1D: F3        .byte con_F3, $98
+- D - I - 0x022D2D 11:AD1D: F3        .byte con_F3, $98     ; проверка на джито
 - D - I - 0x022D2F 11:AD1F: 02        .byte $02
 - D - I - 0x022D30 11:AD20: 25        .byte $25
 - D - I - 0x022D31 11:AD21: 78        .byte $78
@@ -13185,7 +13186,7 @@ off_BDB8_45:
 
 
 off_BDBD_46:
-- D - I - 0x023DCD 11:BDBD: F3        .byte con_F3, $B4
+- D - I - 0x023DCD 11:BDBD: F3        .byte con_F3, $B4     ; узнать высоту мяча
 - D - I - 0x023DCF 11:BDBF: 03        .byte $03
 - - - - - 0x023DD0 11:BDC0: 02        .byte $02
 - - - - - 0x023DD1 11:BDC1: 0C        .byte $0C
