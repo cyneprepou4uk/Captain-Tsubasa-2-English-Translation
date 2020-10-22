@@ -1508,6 +1508,8 @@ C - - - - 0x020818 17:8808: 60        RTS
 
 ofs_8809_F9_задержка_и_номер_звука:
 ; читает 2 следующих байта
+; bzk поменять местами байты задержки и звука чтобы было удобнее искать по звукам
+    ; но сначала нужно убедиться что все F9 опознаны правильно
 C - J - - 0x020819 17:8809: A4 3A     LDY ram_003A
 C - - - - 0x02081B 17:880B: B1 5D     LDA (ram_сценарий_data),Y
 C - - - - 0x02081D 17:880D: 8D 30 05  STA ram_для_052E_задержка_звука_анимации
@@ -1950,72 +1952,88 @@ off_8AB1_00:
 off_8AB9:
 - D - I - 0x020AC9 17:8AB9: FD        .byte con_FD, $01
 - D - I - 0x020ACB 17:8ABB: F3        .byte con_F3, $80
-- D - I - 0x020ACD 17:8ABD: 02        .byte $02
-- D - I - 0x020ACE 17:8ABE: 05        .byte $05
+- D - I - 0x020ACD 17:8ABD: 02        .byte case_8ABF_00 - *
+- D - I - 0x020ACE 17:8ABE: 05        .byte case_8AC3_01 - *
+case_8ABF_00:
 - D - I - 0x020ACF 17:8ABF: F3        .byte con_F3, $81
-- D - I - 0x020AD1 17:8AC1: 06        .byte $06
-- D - I - 0x020AD2 17:8AC2: CC        .byte $CC
+- D - I - 0x020AD1 17:8AC1: 06        .byte case_8AC7_00 - *
+- D - I - 0x020AD2 17:8AC2: CC        .byte case_8B8E_01 - *
+case_8AC3_01:
 - D - I - 0x020AD3 17:8AC3: F3        .byte con_F3, $81
-- D - I - 0x020AD5 17:8AC5: 07        .byte $07
-- D - I - 0x020AD6 17:8AC6: CD        .byte $CD
+- D - I - 0x020AD5 17:8AC5: 07        .byte case_8ACC_00 - *
+- D - I - 0x020AD6 17:8AC6: CD        .byte case_8B93_01 - *
+case_8AC7_00:
 - D - I - 0x020AD7 17:8AC7: F3        .byte con_F3, $82
-- D - I - 0x020AD9 17:8AC9: 08        .byte $08
-- D - I - 0x020ADA 17:8ACA: 15        .byte $15
-- D - I - 0x020ADB 17:8ACB: 0D        .byte $0D
+- D - I - 0x020AD9 17:8AC9: 08        .byte case_8AD1_00 - *
+- D - I - 0x020ADA 17:8ACA: 15        .byte case_8ADF_01 - *
+- D - I - 0x020ADB 17:8ACB: 0D        .byte case_8AD8_02 - *
+case_8ACC_00:
 - D - I - 0x020ADC 17:8ACC: F3        .byte con_F3, $82
-- D - I - 0x020ADE 17:8ACE: 18        .byte $18
-- D - I - 0x020ADF 17:8ACF: 1E        .byte $1E
-- D - I - 0x020AE0 17:8AD0: 24        .byte $24
+- D - I - 0x020ADE 17:8ACE: 18        .byte case_8AE6_00 - *
+- D - I - 0x020ADF 17:8ACF: 1E        .byte case_8AED_01 - *
+- D - I - 0x020AE0 17:8AD0: 24        .byte case_8AF4_02 - *
+case_8AD1_00:
 - D - I - 0x020AE1 17:8AD1: F3        .byte con_F3, $83
-- D - I - 0x020AE3 17:8AD3: 28        .byte $28
-- D - I - 0x020AE4 17:8AD4: 30        .byte $30
-- D - I - 0x020AE5 17:8AD5: 38        .byte $38
-- D - I - 0x020AE6 17:8AD6: 49        .byte $49
-- D - I - 0x020AE7 17:8AD7: 5A        .byte $5A
+- D - I - 0x020AE3 17:8AD3: 28        .byte case_8AFB_00 - *
+- D - I - 0x020AE4 17:8AD4: 30        .byte case_8B04_01 - *
+- D - I - 0x020AE5 17:8AD5: 38        .byte case_8B0D_02 - *
+- D - I - 0x020AE6 17:8AD6: 49        .byte case_8B1F_03 - *
+- D - I - 0x020AE7 17:8AD7: 5A        .byte case_8B31_04 - *
+case_8AD8_02:
 - D - I - 0x020AE8 17:8AD8: F3        .byte con_F3, $83
-- D - I - 0x020AEA 17:8ADA: 21        .byte $21
-- D - I - 0x020AEB 17:8ADB: 29        .byte $29
-- D - I - 0x020AEC 17:8ADC: 31        .byte $31
-- D - I - 0x020AED 17:8ADD: 42        .byte $42
-- D - I - 0x020AEE 17:8ADE: 53        .byte $53
+- D - I - 0x020AEA 17:8ADA: 21        .byte case_8AFB_00 - *
+- D - I - 0x020AEB 17:8ADB: 29        .byte case_8B04_01 - *
+- D - I - 0x020AEC 17:8ADC: 31        .byte case_8B0D_02 - *
+- D - I - 0x020AED 17:8ADD: 42        .byte case_8B1F_03 - *
+- D - I - 0x020AEE 17:8ADE: 53        .byte case_8B31_04 - *
+case_8ADF_01:
 - D - I - 0x020AEF 17:8ADF: F3        .byte con_F3, $83
-- D - I - 0x020AF1 17:8AE1: 5C        .byte $5C
-- D - I - 0x020AF2 17:8AE2: 67        .byte $67
-- D - I - 0x020AF3 17:8AE3: 72        .byte $72
-- D - I - 0x020AF4 17:8AE4: 86        .byte $86
-- D - I - 0x020AF5 17:8AE5: 9A        .byte $9A
+- D - I - 0x020AF1 17:8AE1: 5C        .byte case_8B3D_00 - *
+- D - I - 0x020AF2 17:8AE2: 67        .byte case_8B49_01 - *
+- D - I - 0x020AF3 17:8AE3: 72        .byte case_8B55_02 - *
+- D - I - 0x020AF4 17:8AE4: 86        .byte case_8B6A_03 - *
+- D - I - 0x020AF5 17:8AE5: 9A        .byte case_8B7F_04 - *
+case_8AE6_00:
 - D - I - 0x020AF6 17:8AE6: F3        .byte con_F3, $83
-- D - I - 0x020AF8 17:8AE8: 16        .byte $16
-- D - I - 0x020AF9 17:8AE9: 1E        .byte $1E
-- D - I - 0x020AFA 17:8AEA: 26        .byte $26
-- D - I - 0x020AFB 17:8AEB: 37        .byte $37
-- D - I - 0x020AFC 17:8AEC: 48        .byte $48
+- D - I - 0x020AF8 17:8AE8: 16        .byte case_8AFE_00 - *
+- D - I - 0x020AF9 17:8AE9: 1E        .byte case_8B07_01 - *
+- D - I - 0x020AFA 17:8AEA: 26        .byte case_8B10_02 - *
+- D - I - 0x020AFB 17:8AEB: 37        .byte case_8B22_03 - *
+- D - I - 0x020AFC 17:8AEC: 48        .byte case_8B34_04 - *
+case_8AED_01:
 - D - I - 0x020AFD 17:8AED: F3        .byte con_F3, $83
-- D - I - 0x020AFF 17:8AEF: 4E        .byte $4E
-- D - I - 0x020B00 17:8AF0: 59        .byte $59
-- D - I - 0x020B01 17:8AF1: 64        .byte $64
-- D - I - 0x020B02 17:8AF2: 78        .byte $78
-- D - I - 0x020B03 17:8AF3: 8C        .byte $8C
+- D - I - 0x020AFF 17:8AEF: 4E        .byte case_8B3D_00 - *
+- D - I - 0x020B00 17:8AF0: 59        .byte case_8B49_01 - *
+- D - I - 0x020B01 17:8AF1: 64        .byte case_8B55_02 - *
+- D - I - 0x020B02 17:8AF2: 78        .byte case_8B6A_03 - *
+- D - I - 0x020B03 17:8AF3: 8C        .byte case_8B7F_04 - *
+case_8AF4_02:
 - D - I - 0x020B04 17:8AF4: F3        .byte con_F3, $83
-- D - I - 0x020B06 17:8AF6: 08        .byte $08
-- D - I - 0x020B07 17:8AF7: 10        .byte $10
-- D - I - 0x020B08 17:8AF8: 18        .byte $18
-- D - I - 0x020B09 17:8AF9: 29        .byte $29
-- D - I - 0x020B0A 17:8AFA: 3A        .byte $3A
+- D - I - 0x020B06 17:8AF6: 08        .byte case_8AFE_00 - *
+- D - I - 0x020B07 17:8AF7: 10        .byte case_8B07_01 - *
+- D - I - 0x020B08 17:8AF8: 18        .byte case_8B10_02 - *
+- D - I - 0x020B09 17:8AF9: 29        .byte case_8B22_03 - *
+- D - I - 0x020B0A 17:8AFA: 3A        .byte case_8B34_04 - *
+case_8AFB_00:
 - D - I - 0x020B0B 17:8AFB: FA        .byte con_jsr_2
 - D - I - 0x020B0C 17:8AFC: 8B 9C     .word off_9C8B
+case_8AFE_00:
 - D - I - 0x020B0E 17:8AFE: FA        .byte con_jsr_2
 - D - I - 0x020B0F 17:8AFF: C0 9C     .word off_9CC0
 - D - I - 0x020B11 17:8B01: F2        .byte con_jsr_1
 - D - I - 0x020B12 17:8B02: AA 9E     .word off_9EAA
+case_8B04_01:
 - D - I - 0x020B14 17:8B04: FA        .byte con_jsr_2
 - D - I - 0x020B15 17:8B05: 8B 9C     .word off_9C8B
+case_8B07_01:
 - D - I - 0x020B17 17:8B07: FA        .byte con_jsr_2
 - D - I - 0x020B18 17:8B08: A3 9C     .word off_9CA3
 - D - I - 0x020B1A 17:8B0A: F2        .byte con_jsr_1
 - D - I - 0x020B1B 17:8B0B: AA 9E     .word off_9EAA
+case_8B0D_02:
 - D - I - 0x020B1D 17:8B0D: FA        .byte con_jsr_2
 - D - I - 0x020B1E 17:8B0E: 8B 9C     .word off_9C8B
+case_8B10_02:
 - D - I - 0x020B20 17:8B10: FA        .byte con_jsr_2
 - D - I - 0x020B21 17:8B11: FE 9D     .word off_9DFE
 - D - I - 0x020B23 17:8B13: FA        .byte con_jsr_2
@@ -2027,8 +2045,10 @@ off_8AB9:
 - D - I - 0x020B2B 17:8B1B: 64 9E     .word off_9E64
 - D - I - 0x020B2D 17:8B1D: F6        .byte con_mirror_toggle
 - D - I - 0x020B2E 17:8B1E: F0        .byte con_F0
+case_8B1F_03:
 - D - I - 0x020B2F 17:8B1F: FA        .byte con_jsr_2
 - D - I - 0x020B30 17:8B20: 8B 9C     .word off_9C8B
+case_8B22_03:
 - D - I - 0x020B32 17:8B22: FA        .byte con_jsr_2
 - D - I - 0x020B33 17:8B23: FE 9D     .word off_9DFE
 - D - I - 0x020B35 17:8B25: FA        .byte con_jsr_2
@@ -2040,14 +2060,17 @@ off_8AB9:
 - D - I - 0x020B3D 17:8B2D: 64 9E     .word off_9E64
 - D - I - 0x020B3F 17:8B2F: F6        .byte con_mirror_toggle
 - D - I - 0x020B40 17:8B30: F0        .byte con_F0
+case_8B31_04:
 - D - I - 0x020B41 17:8B31: FA        .byte con_jsr_2
 - D - I - 0x020B42 17:8B32: 8B 9C     .word off_9C8B
+case_8B34_04:
 - D - I - 0x020B44 17:8B34: FA        .byte con_jsr_2
 - D - I - 0x020B45 17:8B35: FE 9D     .word off_9DFE
 - D - I - 0x020B47 17:8B37: FA        .byte con_jsr_2
 - D - I - 0x020B48 17:8B38: DD A2     .word off_A2DD
 - D - I - 0x020B4A 17:8B3A: F2        .byte con_jsr_1
 - D - I - 0x020B4B 17:8B3B: 5B A3     .word off_A35B
+case_8B3D_00:
 - D - I - 0x020B4D 17:8B3D: FA        .byte con_jsr_2
 - D - I - 0x020B4E 17:8B3E: 36 A9     .word off_A936
 - D - I - 0x020B50 17:8B40: FA        .byte con_jsr_2
@@ -2056,6 +2079,7 @@ off_8AB9:
 - D - I - 0x020B54 17:8B44: C0 9C     .word off_9CC0
 - D - I - 0x020B56 17:8B46: F2        .byte con_jsr_1
 - D - I - 0x020B57 17:8B47: AA 9E     .word off_9EAA
+case_8B49_01:
 - D - I - 0x020B59 17:8B49: FA        .byte con_jsr_2
 - D - I - 0x020B5A 17:8B4A: 36 A9     .word off_A936
 - D - I - 0x020B5C 17:8B4C: FA        .byte con_jsr_2
@@ -2064,6 +2088,7 @@ off_8AB9:
 - D - I - 0x020B60 17:8B50: A3 9C     .word off_9CA3
 - D - I - 0x020B62 17:8B52: F2        .byte con_jsr_1
 - D - I - 0x020B63 17:8B53: AA 9E     .word off_9EAA
+case_8B55_02:
 - D - I - 0x020B65 17:8B55: FA        .byte con_jsr_2
 - D - I - 0x020B66 17:8B56: 36 A9     .word off_A936
 - D - I - 0x020B68 17:8B58: FA        .byte con_jsr_2
@@ -2079,6 +2104,7 @@ off_8AB9:
 - D - I - 0x020B76 17:8B66: 64 9E     .word off_9E64
 - D - I - 0x020B78 17:8B68: F6        .byte con_mirror_toggle
 - D - I - 0x020B79 17:8B69: F0        .byte con_F0
+case_8B6A_03:
 - D - I - 0x020B7A 17:8B6A: FA        .byte con_jsr_2
 - D - I - 0x020B7B 17:8B6B: 36 A9     .word off_A936
 - D - I - 0x020B7D 17:8B6D: FA        .byte con_jsr_2
@@ -2094,6 +2120,7 @@ off_8AB9:
 - D - I - 0x020B8B 17:8B7B: 64 9E     .word off_9E64
 - D - I - 0x020B8D 17:8B7D: F6        .byte con_mirror_toggle
 - D - I - 0x020B8E 17:8B7E: F0        .byte con_F0
+case_8B7F_04:
 - D - I - 0x020B8F 17:8B7F: FA        .byte con_jsr_2
 - D - I - 0x020B90 17:8B80: 36 A9     .word off_A936
 - D - I - 0x020B92 17:8B82: FA        .byte con_jsr_2
@@ -2104,50 +2131,59 @@ off_8AB9:
 - D - I - 0x020B99 17:8B89: DD A2     .word off_A2DD
 - D - I - 0x020B9B 17:8B8B: F2        .byte con_jsr_1
 - D - I - 0x020B9C 17:8B8C: 5B A3     .word off_A35B
+case_8B8E_01:
 - D - I - 0x020B9E 17:8B8E: F3        .byte con_F3, $82
-- D - I - 0x020BA0 17:8B90: 08        .byte $08
-- D - I - 0x020BA1 17:8B91: 15        .byte $15
-- D - I - 0x020BA2 17:8B92: 0D        .byte $0D
+- D - I - 0x020BA0 17:8B90: 08        .byte case_8B98_00 - *
+- D - I - 0x020BA1 17:8B91: 15        .byte case_8BA6_01 - *
+- D - I - 0x020BA2 17:8B92: 0D        .byte case_8B9F_02 - *
+case_8B93_01:
 - D - I - 0x020BA3 17:8B93: F3        .byte con_F3, $82
-- D - I - 0x020BA5 17:8B95: 18        .byte $18
-- D - I - 0x020BA6 17:8B96: 25        .byte $25
-- D - I - 0x020BA7 17:8B97: 1D        .byte $1D
+- D - I - 0x020BA5 17:8B95: 18        .byte case_8BAD_00 - *
+- D - I - 0x020BA6 17:8B96: 25        .byte case_8BBB_01 - *
+- D - I - 0x020BA7 17:8B97: 1D        .byte case_8BB4_02 - *
+case_8B98_00:
 - D - I - 0x020BA8 17:8B98: F3        .byte con_F3, $83
-- - - - - 0x020BAA 17:8B9A: 28        .byte $28
-- D - I - 0x020BAB 17:8B9B: 37        .byte $37
-- - - - - 0x020BAC 17:8B9C: 35        .byte $35
-- - - - - 0x020BAD 17:8B9D: 34        .byte $34
-- - - - - 0x020BAE 17:8B9E: 33        .byte $33
+- - - - - 0x020BAA 17:8B9A: 28        .byte case_8BC2_00 - *
+- D - I - 0x020BAB 17:8B9B: 37        .byte case_8BD2_01 - *
+- - - - - 0x020BAC 17:8B9C: 35        .byte case_8BD1_02 - *
+- - - - - 0x020BAD 17:8B9D: 34        .byte case_8BD1_03 - *
+- - - - - 0x020BAE 17:8B9E: 33        .byte case_8BD1_04 - *
+case_8B9F_02:
 - D - I - 0x020BAF 17:8B9F: F3        .byte con_F3, $83
-- D - I - 0x020BB1 17:8BA1: 21        .byte $21
-- D - I - 0x020BB2 17:8BA2: 30        .byte $30
-- - - - - 0x020BB3 17:8BA3: 2E        .byte $2E
-- - - - - 0x020BB4 17:8BA4: 2D        .byte $2D
-- - - - - 0x020BB5 17:8BA5: 2C        .byte $2C
+- D - I - 0x020BB1 17:8BA1: 21        .byte case_8BC2_00 - *
+- D - I - 0x020BB2 17:8BA2: 30        .byte case_8BD2_01 - *
+- - - - - 0x020BB3 17:8BA3: 2E        .byte case_8BD1_02 - *
+- - - - - 0x020BB4 17:8BA4: 2D        .byte case_8BD1_03 - *
+- - - - - 0x020BB5 17:8BA5: 2C        .byte case_8BD1_04 - *
+case_8BA6_01:
 - D - I - 0x020BB6 17:8BA6: F3        .byte con_F3, $83
-- D - I - 0x020BB8 17:8BA8: 3C        .byte $3C
-- D - I - 0x020BB9 17:8BA9: 4D        .byte $4D
-- D - I - 0x020BBA 17:8BAA: 61        .byte $61
-- D - I - 0x020BBB 17:8BAB: 77        .byte $77
-- D - I - 0x020BBC 17:8BAC: 8D        .byte $8D
+- D - I - 0x020BB8 17:8BA8: 3C        .byte case_8BE4_00 - *
+- D - I - 0x020BB9 17:8BA9: 4D        .byte case_8BF6_01 - *
+- D - I - 0x020BBA 17:8BAA: 61        .byte case_8C0B_02 - *
+- D - I - 0x020BBB 17:8BAB: 77        .byte case_8C22_03 - *
+- D - I - 0x020BBC 17:8BAC: 8D        .byte case_8C39_04 - *
+case_8BAD_00:
 - D - I - 0x020BBD 17:8BAD: F3        .byte con_F3, $83
-- D - I - 0x020BBF 17:8BAF: 13        .byte $13
-- D - I - 0x020BC0 17:8BB0: 22        .byte $22
-- - - - - 0x020BC1 17:8BB1: 20        .byte $20
-- - - - - 0x020BC2 17:8BB2: 1F        .byte $1F
-- - - - - 0x020BC3 17:8BB3: 1E        .byte $1E
+- D - I - 0x020BBF 17:8BAF: 13        .byte case_8BC2_00 - *
+- D - I - 0x020BC0 17:8BB0: 22        .byte case_8BD2_01 - *
+- - - - - 0x020BC1 17:8BB1: 20        .byte case_8BD1_02 - *
+- - - - - 0x020BC2 17:8BB2: 1F        .byte case_8BD1_03 - *
+- - - - - 0x020BC3 17:8BB3: 1E        .byte case_8BD1_04 - *
+case_8BB4_02:
 - D - I - 0x020BC4 17:8BB4: F3        .byte con_F3, $83
-- D - I - 0x020BC6 17:8BB6: 0C        .byte $0C
-- - - - - 0x020BC7 17:8BB7: 1B        .byte $1B
-- - - - - 0x020BC8 17:8BB8: 19        .byte $19
-- - - - - 0x020BC9 17:8BB9: 18        .byte $18
-- - - - - 0x020BCA 17:8BBA: 17        .byte $17
+- D - I - 0x020BC6 17:8BB6: 0C        .byte case_8BC2_00 - *
+- - - - - 0x020BC7 17:8BB7: 1B        .byte case_8BD2_01 - *
+- - - - - 0x020BC8 17:8BB8: 19        .byte case_8BD1_02 - *
+- - - - - 0x020BC9 17:8BB9: 18        .byte case_8BD1_03 - *
+- - - - - 0x020BCA 17:8BBA: 17        .byte case_8BD1_04 - *
+case_8BBB_01:
 - D - I - 0x020BCB 17:8BBB: F3        .byte con_F3, $83
-- D - I - 0x020BCD 17:8BBD: 27        .byte $27
-- D - I - 0x020BCE 17:8BBE: 38        .byte $38
-- D - I - 0x020BCF 17:8BBF: 4C        .byte $4C
-- D - I - 0x020BD0 17:8BC0: 62        .byte $62
-- D - I - 0x020BD1 17:8BC1: 78        .byte $78
+- D - I - 0x020BCD 17:8BBD: 27        .byte case_8BE4_00 - *
+- D - I - 0x020BCE 17:8BBE: 38        .byte case_8BF6_01 - *
+- D - I - 0x020BCF 17:8BBF: 4C        .byte case_8C0B_02 - *
+- D - I - 0x020BD0 17:8BC0: 62        .byte case_8C22_03 - *
+- D - I - 0x020BD1 17:8BC1: 78        .byte case_8C39_04 - *
+case_8BC2_00:
 - D - I - 0x020BD2 17:8BC2: FA        .byte con_jsr_2
 - D - I - 0x020BD3 17:8BC3: 8B 9C     .word off_9C8B
 - D - I - 0x020BD5 17:8BC5: FA        .byte con_jsr_2
@@ -2158,7 +2194,11 @@ off_8AB9:
 - D - I - 0x020BDC 17:8BCC: AA 9E     .word off_9EAA
 - D - I - 0x020BDE 17:8BCE: FA        .byte con_jsr_2
 - D - I - 0x020BDF 17:8BCF: 62 9F     .word off_9F62
+case_8BD1_02:
+case_8BD1_03:
+case_8BD1_04:
 - D - I - 0x020BE1 17:8BD1: F0        .byte con_F0
+case_8BD2_01:
 - D - I - 0x020BE2 17:8BD2: FA        .byte con_jsr_2
 - D - I - 0x020BE3 17:8BD3: 8B 9C     .word off_9C8B
 - D - I - 0x020BE5 17:8BD5: FA        .byte con_jsr_2
@@ -2171,6 +2211,7 @@ off_8AB9:
 - D - I - 0x020BEF 17:8BDF: 5C 9F     .word off_9F5C
 - D - I - 0x020BF1 17:8BE1: F2        .byte con_jsr_1
 - D - I - 0x020BF2 17:8BE2: 47 A2     .word off_A247
+case_8BE4_00:
 - D - I - 0x020BF4 17:8BE4: FA        .byte con_jsr_2
 - D - I - 0x020BF5 17:8BE5: 36 A9     .word off_A936
 - D - I - 0x020BF7 17:8BE7: FA        .byte con_jsr_2
@@ -2183,6 +2224,7 @@ off_8AB9:
 - D - I - 0x020C01 17:8BF1: AA 9E     .word off_9EAA
 - D - I - 0x020C03 17:8BF3: F2        .byte con_jsr_1
 - D - I - 0x020C04 17:8BF4: 62 9F     .word off_9F62
+case_8BF6_01:
 - D - I - 0x020C06 17:8BF6: FA        .byte con_jsr_2
 - D - I - 0x020C07 17:8BF7: 36 A9     .word off_A936
 - D - I - 0x020C09 17:8BF9: FA        .byte con_jsr_2
@@ -2197,6 +2239,7 @@ off_8AB9:
 - D - I - 0x020C16 17:8C06: 5C 9F     .word off_9F5C
 - D - I - 0x020C18 17:8C08: F2        .byte con_jsr_1
 - D - I - 0x020C19 17:8C09: 47 A2     .word off_A247
+case_8C0B_02:
 - D - I - 0x020C1B 17:8C0B: FA        .byte con_jsr_2
 - D - I - 0x020C1C 17:8C0C: 36 A9     .word off_A936
 - D - I - 0x020C1E 17:8C0E: FA        .byte con_jsr_2
@@ -2213,6 +2256,7 @@ off_8AB9:
 - D - I - 0x020C2D 17:8C1D: 6E 9F     .word off_9F6E
 - D - I - 0x020C2F 17:8C1F: F2        .byte con_jsr_1
 - D - I - 0x020C30 17:8C20: 71 A3     .word off_A371
+case_8C22_03:
 - D - I - 0x020C32 17:8C22: FA        .byte con_jsr_2
 - D - I - 0x020C33 17:8C23: 36 A9     .word off_A936
 - D - I - 0x020C35 17:8C25: FA        .byte con_jsr_2
@@ -2229,6 +2273,7 @@ off_8AB9:
 - D - I - 0x020C44 17:8C34: 74 9F     .word off_9F74
 - D - I - 0x020C46 17:8C36: F2        .byte con_jsr_1
 - D - I - 0x020C47 17:8C37: 6F A0     .word off_A06F
+case_8C39_04:
 - D - I - 0x020C49 17:8C39: FA        .byte con_jsr_2
 - D - I - 0x020C4A 17:8C3A: 36 A9     .word off_A936
 - D - I - 0x020C4C 17:8C3C: FA        .byte con_jsr_2
@@ -5241,14 +5286,14 @@ off_9C30_30:
 - D - I - 0x021C42 17:9C32: 3F 9C     .word off_9C3F
 - D - I - 0x021C44 17:9C34: 36 9C     .word off_9C36
 off_9C36:
-- D - I - 0x021C46 17:9C36: F9        .byte con_delay_soundID, $02, $42
+- D - I - 0x021C46 17:9C36: F9        .byte con_delay_soundID, $02, $42     ; гол в ворота нашей команды
 - D - I - 0x021C49 17:9C39: F3        .byte con_F3, $21
 - D - I - 0x021C4B 17:9C3B: B5 A2     .word off_A2B5
 - D - I - 0x021C4D 17:9C3D: BC A2     .word off_A2BC
 off_9C3F:
 - D - I - 0x021C4F 17:9C3F: F5        .byte con_mirror_off
 - D - I - 0x021C50 17:9C40: F7        .byte con_F7, $13
-- D - I - 0x021C52 17:9C42: F9        .byte con_delay_soundID, $02, $41
+- D - I - 0x021C52 17:9C42: F9        .byte con_delay_soundID, $02, $41     ; гол в ворота соперника
 - D - I - 0x021C55 17:9C45: F3        .byte con_F3, $21
 - D - I - 0x021C57 17:9C47: 4B 9C     .word off_9C4B
 - D - I - 0x021C59 17:9C49: 53 9C     .word off_9C53
@@ -5354,7 +5399,7 @@ off_9CDD_25:
 - D - I - 0x021CF2 17:9CE2: 02        .byte $02
 - D - I - 0x021CF3 17:9CE3: 10        .byte $10
 - D - I - 0x021CF4 17:9CE4: FD        .byte con_FD, $03
-- D - I - 0x021CF6 17:9CE6: F9        .byte con_delay_soundID, $02, $12
+- D - I - 0x021CF6 17:9CE6: F9        .byte con_delay_soundID, $02, $12     ; обычный удар с земли
 - D - I - 0x021CF9 17:9CE9: 30        .byte $30
 - D - I - 0x021CFA 17:9CEA: 42        .byte $42
 - D - I - 0x021CFB 17:9CEB: 82        .byte $82
@@ -5541,7 +5586,7 @@ off_9E2D_26:
 - D - I - 0x021E42 17:9E32: 02        .byte $02
 - D - I - 0x021E43 17:9E33: 12        .byte $12
 - D - I - 0x021E44 17:9E34: FD        .byte con_FD, $00
-- D - I - 0x021E46 17:9E36: F9        .byte con_delay_soundID, $09, $2B
+- D - I - 0x021E46 17:9E36: F9        .byte con_delay_soundID, $09, $2B     ; отбитие мяча
 - D - I - 0x021E49 17:9E39: 37        .byte $37
 - D - I - 0x021E4A 17:9E3A: 42        .byte $42
 - D - I - 0x021E4B 17:9E3B: 83        .byte $83
@@ -5563,7 +5608,7 @@ off_9E45:
 - D - I - 0x021E5B 17:9E4B: 90 AF     .word off_AF90
 - D - I - 0x021E5D 17:9E4D: AA AF     .word off_AFAA
 off_9E4F:
-- D - I - 0x021E5F 17:9E4F: F9        .byte con_delay_soundID, $15, $2B
+- D - I - 0x021E5F 17:9E4F: F9        .byte con_delay_soundID, $15, $2B     ; отбитие мяча
 - D - I - 0x021E62 17:9E52: 3F        .byte $3F
 - D - I - 0x021E63 17:9E53: 2A        .byte $2A
 - D - I - 0x021E64 17:9E54: 19        .byte $19
@@ -5770,7 +5815,7 @@ off_9F9C:
 - D - I - 0x021FB5 17:9FA5: A0        .byte $A0
 - D - I - 0x021FB6 17:9FA6: F2        .byte con_jsr_1
 - D - I - 0x021FB7 17:9FA7: 23 9C     .word off_9C23
-- D - I - 0x021FB9 17:9FA9: F9        .byte con_delay_soundID, $02, $20
+- D - I - 0x021FB9 17:9FA9: F9        .byte con_delay_soundID, $02, $20     ; ???
 - D - I - 0x021FBC 17:9FAC: 78        .byte $78
 - D - I - 0x021FBD 17:9FAD: 48        .byte $48
 - D - I - 0x021FBE 17:9FAE: 75        .byte $75
@@ -5805,7 +5850,7 @@ off_9FBF:
 off_9FC7:
 - D - I - 0x021FD7 17:9FC7: F6        .byte con_mirror_toggle
 - D - I - 0x021FD8 17:9FC8: FC        .byte con_FC, $04
-- D - I - 0x021FDA 17:9FCA: F9        .byte con_delay_soundID, $02, $2A
+- D - I - 0x021FDA 17:9FCA: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
 - D - I - 0x021FDD 17:9FCD: FB        .byte con_rts
 off_9FCE:
 - D - I - 0x021FDE 17:9FCE: FA        .byte con_jsr_2
@@ -5847,7 +5892,7 @@ off_9FEA:
 off_9FF1:
 - D - I - 0x022001 17:9FF1: F8        .byte con_F8, $02
 off_9FF3:
-- D - I - 0x022003 17:9FF3: F9        .byte con_delay_soundID, $02, $2A
+- D - I - 0x022003 17:9FF3: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
 - D - I - 0x022006 17:9FF6: 14        .byte $14
 - D - I - 0x022007 17:9FF7: F0        .byte con_F0
 - D - I - 0x022008 17:9FF8: 08        .byte $08
@@ -5898,7 +5943,7 @@ off_A01C:
 off_A023:
 - D - I - 0x022033 11:A023: F8        .byte con_F8, $02
 off_A025:
-- D - I - 0x022035 11:A025: F9        .byte con_delay_soundID, $02, $2D
+- D - I - 0x022035 11:A025: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
 - D - I - 0x022038 11:A028: 14        .byte $14
 - D - I - 0x022039 11:A029: F0        .byte con_F0
 - D - I - 0x02203A 11:A02A: 0D        .byte $0D
@@ -5944,7 +5989,7 @@ off_A04C:
 - D - I - 0x02205F 11:A04F: F0        .byte con_F0
 - D - I - 0x022060 11:A050: FB        .byte con_rts
 off_A051:
-- D - I - 0x022061 11:A051: F9        .byte con_delay_soundID, $02, $2D
+- D - I - 0x022061 11:A051: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
 - D - I - 0x022064 11:A054: 1B        .byte $1B
 - D - I - 0x022065 11:A055: F0        .byte con_F0
 - D - I - 0x022066 11:A056: 0D        .byte $0D
@@ -5977,7 +6022,7 @@ off_A06A:
 - D - I - 0x02207E 11:A06E: FB        .byte con_rts
 off_A06F:
 - D - I - 0x02207F 11:A06F: FC        .byte con_FC, $02
-- D - I - 0x022081 11:A071: F9        .byte con_delay_soundID, $02, $2D
+- D - I - 0x022081 11:A071: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
 - D - I - 0x022084 11:A074: 3C        .byte $3C
 - D - I - 0x022085 11:A075: 57        .byte $57
 - D - I - 0x022086 11:A076: 15        .byte $15
@@ -5985,7 +6030,7 @@ off_A06F:
 - D - I - 0x022088 11:A078: FB        .byte con_rts
 off_A079:
 - D - I - 0x022089 11:A079: FC        .byte con_FC, $03
-- D - I - 0x02208B 11:A07B: F9        .byte con_delay_soundID, $02, $2A
+- D - I - 0x02208B 11:A07B: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
 - D - I - 0x02208E 11:A07E: 3C        .byte $3C
 - D - I - 0x02208F 11:A07F: 57        .byte $57
 - D - I - 0x022090 11:A080: 16        .byte $16
@@ -5993,7 +6038,7 @@ off_A079:
 - D - I - 0x022092 11:A082: FB        .byte con_rts
 off_A083:
 - D - I - 0x022093 11:A083: F7        .byte con_F7, $07
-- D - I - 0x022095 11:A085: F9        .byte con_delay_soundID, $21, $2A
+- D - I - 0x022095 11:A085: F9        .byte con_delay_soundID, $21, $2A     ; ловля мяча/мяч приклеился
 - D - I - 0x022098 11:A088: 50        .byte $50
 - D - I - 0x022099 11:A089: 40        .byte $40
 - D - I - 0x02209A 11:A08A: 17        .byte $17
@@ -6013,7 +6058,7 @@ off_A094:
 - D - I - 0x0220A7 11:A097: 0C        .byte $0C
 - D - I - 0x0220A8 11:A098: FB        .byte con_rts
 off_A099:
-- D - I - 0x0220A9 11:A099: F9        .byte con_delay_soundID, $02, $2A
+- D - I - 0x0220A9 11:A099: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
 - D - I - 0x0220AC 11:A09C: 28        .byte $28
 - D - I - 0x0220AD 11:A09D: 03        .byte $03
 - D - I - 0x0220AE 11:A09E: 03        .byte $03
@@ -6026,21 +6071,21 @@ off_A0A1:
 - D - I - 0x0220B4 11:A0A4: 0E        .byte $0E
 - D - I - 0x0220B5 11:A0A5: FB        .byte con_rts
 off_A0A6:
-- D - I - 0x0220B6 11:A0A6: F9        .byte con_delay_soundID, $21, $2A
+- D - I - 0x0220B6 11:A0A6: F9        .byte con_delay_soundID, $21, $2A     ; ловля мяча/мяч приклеился
 - D - I - 0x0220B9 11:A0A9: 46        .byte $46
 - D - I - 0x0220BA 11:A0AA: 03        .byte $03
 - D - I - 0x0220BB 11:A0AB: 1B        .byte $1B
 - D - I - 0x0220BC 11:A0AC: 0E        .byte $0E
 - D - I - 0x0220BD 11:A0AD: FB        .byte con_rts
 off_A0AE:
-- D - I - 0x0220BE 11:A0AE: F9        .byte con_delay_soundID, $02, $25
+- D - I - 0x0220BE 11:A0AE: F9        .byte con_delay_soundID, $02, $25     ; прыжок
 - D - I - 0x0220C1 11:A0B1: 14        .byte $14
 - D - I - 0x0220C2 11:A0B2: 02        .byte $02
 - D - I - 0x0220C3 11:A0B3: 1C        .byte $1C
 - D - I - 0x0220C4 11:A0B4: 00        .byte $00
 - D - I - 0x0220C5 11:A0B5: FB        .byte con_rts
 off_A0B6:
-- D - I - 0x0220C6 11:A0B6: F9        .byte con_delay_soundID, $19, $2B
+- D - I - 0x0220C6 11:A0B6: F9        .byte con_delay_soundID, $19, $2B     ; отбитие мяча/принятие на ногу
 - D - I - 0x0220C9 11:A0B9: 18        .byte $18
 - D - I - 0x0220CA 11:A0BA: 04        .byte $04
 - D - I - 0x0220CB 11:A0BB: 21        .byte $21
@@ -6054,14 +6099,14 @@ off_A0BE:
 - D - I - 0x0220D2 11:A0C2: FB        .byte con_rts
 off_A0C3:
 - D - I - 0x0220D3 11:A0C3: FC        .byte con_FC, $02
-- D - I - 0x0220D5 11:A0C5: F9        .byte con_delay_soundID, $02, $2D
+- D - I - 0x0220D5 11:A0C5: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
 - D - I - 0x0220D8 11:A0C8: 46        .byte $46
 - D - I - 0x0220D9 11:A0C9: 57        .byte $57
 - D - I - 0x0220DA 11:A0CA: 15        .byte $15
 - D - I - 0x0220DB 11:A0CB: 05        .byte $05
 - D - I - 0x0220DC 11:A0CC: FB        .byte con_rts
 off_A0CD:
-- D - I - 0x0220DD 11:A0CD: F9        .byte con_delay_soundID, $02, $24
+- D - I - 0x0220DD 11:A0CD: F9        .byte con_delay_soundID, $02, $24     ; полет циклона
 - D - I - 0x0220E0 11:A0D0: 0A        .byte $0A
 - D - I - 0x0220E1 11:A0D1: 13        .byte $13
 - D - I - 0x0220E2 11:A0D2: 23        .byte $23
@@ -6166,13 +6211,13 @@ off_A131:
 - D - I - 0x022143 11:A133: 03        .byte $03
 - D - I - 0x022144 11:A134: 0A        .byte $0A
 - - - - - 0x022145 11:A135: 09        .byte $09
-- D - I - 0x022146 11:A136: F9        .byte con_delay_soundID, $21, $2B
+- D - I - 0x022146 11:A136: F9        .byte con_delay_soundID, $21, $2B     ; отбитие мяча
 - D - I - 0x022149 11:A139: 3A        .byte $3A
 - D - I - 0x02214A 11:A13A: 0E        .byte $0E
 - D - I - 0x02214B 11:A13B: 2A        .byte $2A
 - D - I - 0x02214C 11:A13C: 0E        .byte $0E
 - D - I - 0x02214D 11:A13D: FB        .byte con_rts
-- D - I - 0x02214E 11:A13E: F9        .byte con_delay_soundID, $21, $2B
+- D - I - 0x02214E 11:A13E: F9        .byte con_delay_soundID, $21, $2B     ; отбитие мяча
 - D - I - 0x022151 11:A141: 3A        .byte $3A
 - D - I - 0x022152 11:A142: 0F        .byte $0F
 - D - I - 0x022153 11:A143: 2B        .byte $2B
