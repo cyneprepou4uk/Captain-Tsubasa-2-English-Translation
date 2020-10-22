@@ -5690,7 +5690,7 @@ C - - - - 0x03EC31 FF:EC21: A9 11     LDA #$11
 C - - - - 0x03EC33 FF:EC23: 85 25     STA ram_для_5115
 C - - - - 0x03EC35 FF:EC25: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EC38 FF:EC28: 68        PLA
-C - - - - 0x03EC39 FF:EC29: 20 00 80  JSR sub_0x020016
+C - - - - 0x03EC39 FF:EC29: 20 00 80  JSR sub_0x020016_прочитать_поинтеры_сценария
 C - - - - 0x03EC3C FF:EC2C: A9 00     LDA #$00
 C - - - - 0x03EC3E FF:EC2E: 8D 22 05  STA $0522
 C - - - - 0x03EC41 FF:EC31: 8D 39 05  STA $0539
@@ -5721,7 +5721,7 @@ C - - - - 0x03EC79 FF:EC69: A9 11     LDA #$11
 C - - - - 0x03EC7B FF:EC6B: 85 25     STA ram_для_5115
 C - - - - 0x03EC7D FF:EC6D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EC80 FF:EC70: 68        PLA
-C - - - - 0x03EC81 FF:EC71: 20 03 80  JSR sub_0x020031
+C - - - - 0x03EC81 FF:EC71: 20 03 80  JSR sub_0x020031_обработка_сценария
 bra_EC74_выход:
 C - - - - 0x03EC84 FF:EC74: 60        RTS
 bra_EC75:
@@ -5844,7 +5844,7 @@ C - - - - 0x03ED89 FF:ED79: A9 11     LDA #$11
 C - - - - 0x03ED8B FF:ED7B: 85 25     STA ram_для_5115
 C - - - - 0x03ED8D FF:ED7D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03ED90 FF:ED80: 68        PLA
-C - - - - 0x03ED91 FF:ED81: 20 03 80  JSR sub_0x020031
+C - - - - 0x03ED91 FF:ED81: 20 03 80  JSR sub_0x020031_обработка_сценария
 bra_ED84_выход:
 C - - - - 0x03ED94 FF:ED84: 60        RTS
 
