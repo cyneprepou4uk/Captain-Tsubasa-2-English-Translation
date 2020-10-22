@@ -1931,7 +1931,7 @@ con_mirror_off          = $F5   ; 0
 con_mirror_toggle       = $F6   ; 0
 con_F7                  = $F7   ; 1
 con_F8                  = $F8   ; 1
-con_задержка_звук       = $F9   ; 2
+con_delay_soundID       = $F9   ; 2
 con_jsr_2               = $FA   ; 2
 con_rts                 = $FB   ; 0
 con_FC                  = $FC   ; 1
@@ -5241,18 +5241,14 @@ off_9C30_30:
 - D - I - 0x021C42 17:9C32: 3F 9C     .word off_9C3F
 - D - I - 0x021C44 17:9C34: 36 9C     .word off_9C36
 off_9C36:
-- D - I - 0x021C46 17:9C36: F9        .byte $F9
-- D - I - 0x021C47 17:9C37: 02        .byte $02
-- D - I - 0x021C48 17:9C38: 42        .byte $42
+- D - I - 0x021C46 17:9C36: F9        .byte con_delay_soundID, $02, $42
 - D - I - 0x021C49 17:9C39: F3        .byte con_F3, $21
 - D - I - 0x021C4B 17:9C3B: B5 A2     .word off_A2B5
 - D - I - 0x021C4D 17:9C3D: BC A2     .word off_A2BC
 off_9C3F:
 - D - I - 0x021C4F 17:9C3F: F5        .byte con_mirror_off
 - D - I - 0x021C50 17:9C40: F7        .byte con_F7, $13
-- D - I - 0x021C52 17:9C42: F9        .byte $F9
-- D - I - 0x021C53 17:9C43: 02        .byte $02
-- D - I - 0x021C54 17:9C44: 41        .byte $41
+- D - I - 0x021C52 17:9C42: F9        .byte con_delay_soundID, $02, $41
 - D - I - 0x021C55 17:9C45: F3        .byte con_F3, $21
 - D - I - 0x021C57 17:9C47: 4B 9C     .word off_9C4B
 - D - I - 0x021C59 17:9C49: 53 9C     .word off_9C53
@@ -5358,9 +5354,7 @@ off_9CDD_25:
 - D - I - 0x021CF2 17:9CE2: 02        .byte $02
 - D - I - 0x021CF3 17:9CE3: 10        .byte $10
 - D - I - 0x021CF4 17:9CE4: FD        .byte con_FD, $03
-- D - I - 0x021CF6 17:9CE6: F9        .byte $F9
-- D - I - 0x021CF7 17:9CE7: 02        .byte $02
-- D - I - 0x021CF8 17:9CE8: 12        .byte $12
+- D - I - 0x021CF6 17:9CE6: F9        .byte con_delay_soundID, $02, $12
 - D - I - 0x021CF9 17:9CE9: 30        .byte $30
 - D - I - 0x021CFA 17:9CEA: 42        .byte $42
 - D - I - 0x021CFB 17:9CEB: 82        .byte $82
@@ -5547,9 +5541,7 @@ off_9E2D_26:
 - D - I - 0x021E42 17:9E32: 02        .byte $02
 - D - I - 0x021E43 17:9E33: 12        .byte $12
 - D - I - 0x021E44 17:9E34: FD        .byte con_FD, $00
-- D - I - 0x021E46 17:9E36: F9        .byte $F9
-- D - I - 0x021E47 17:9E37: 09        .byte $09
-- D - I - 0x021E48 17:9E38: 2B        .byte $2B
+- D - I - 0x021E46 17:9E36: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x021E49 17:9E39: 37        .byte $37
 - D - I - 0x021E4A 17:9E3A: 42        .byte $42
 - D - I - 0x021E4B 17:9E3B: 83        .byte $83
@@ -5571,9 +5563,7 @@ off_9E45:
 - D - I - 0x021E5B 17:9E4B: 90 AF     .word off_AF90
 - D - I - 0x021E5D 17:9E4D: AA AF     .word off_AFAA
 off_9E4F:
-- D - I - 0x021E5F 17:9E4F: F9        .byte $F9
-- D - I - 0x021E60 17:9E50: 15        .byte $15
-- D - I - 0x021E61 17:9E51: 2B        .byte $2B
+- D - I - 0x021E5F 17:9E4F: F9        .byte con_delay_soundID, $15, $2B
 - D - I - 0x021E62 17:9E52: 3F        .byte $3F
 - D - I - 0x021E63 17:9E53: 2A        .byte $2A
 - D - I - 0x021E64 17:9E54: 19        .byte $19
@@ -5780,9 +5770,7 @@ off_9F9C:
 - D - I - 0x021FB5 17:9FA5: A0        .byte $A0
 - D - I - 0x021FB6 17:9FA6: F2        .byte con_jsr_1
 - D - I - 0x021FB7 17:9FA7: 23 9C     .word off_9C23
-- D - I - 0x021FB9 17:9FA9: F9        .byte $F9
-- D - I - 0x021FBA 17:9FAA: 02        .byte $02
-- D - I - 0x021FBB 17:9FAB: 20        .byte $20
+- D - I - 0x021FB9 17:9FA9: F9        .byte con_delay_soundID, $02, $20
 - D - I - 0x021FBC 17:9FAC: 78        .byte $78
 - D - I - 0x021FBD 17:9FAD: 48        .byte $48
 - D - I - 0x021FBE 17:9FAE: 75        .byte $75
@@ -5817,9 +5805,7 @@ off_9FBF:
 off_9FC7:
 - D - I - 0x021FD7 17:9FC7: F6        .byte con_mirror_toggle
 - D - I - 0x021FD8 17:9FC8: FC        .byte con_FC, $04
-- D - I - 0x021FDA 17:9FCA: F9        .byte $F9
-- D - I - 0x021FDB 17:9FCB: 02        .byte $02
-- D - I - 0x021FDC 17:9FCC: 2A        .byte $2A
+- D - I - 0x021FDA 17:9FCA: F9        .byte con_delay_soundID, $02, $2A
 - D - I - 0x021FDD 17:9FCD: FB        .byte con_rts
 off_9FCE:
 - D - I - 0x021FDE 17:9FCE: FA        .byte con_jsr_2
@@ -5861,9 +5847,7 @@ off_9FEA:
 off_9FF1:
 - D - I - 0x022001 17:9FF1: F8        .byte con_F8, $02
 off_9FF3:
-- D - I - 0x022003 17:9FF3: F9        .byte $F9
-- D - I - 0x022004 17:9FF4: 02        .byte $02
-- D - I - 0x022005 17:9FF5: 2A        .byte $2A
+- D - I - 0x022003 17:9FF3: F9        .byte con_delay_soundID, $02, $2A
 - D - I - 0x022006 17:9FF6: 14        .byte $14
 - D - I - 0x022007 17:9FF7: F0        .byte con_F0
 - D - I - 0x022008 17:9FF8: 08        .byte $08
@@ -5914,9 +5898,7 @@ off_A01C:
 off_A023:
 - D - I - 0x022033 11:A023: F8        .byte con_F8, $02
 off_A025:
-- D - I - 0x022035 11:A025: F9        .byte $F9
-- D - I - 0x022036 11:A026: 02        .byte $02
-- D - I - 0x022037 11:A027: 2D        .byte $2D
+- D - I - 0x022035 11:A025: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x022038 11:A028: 14        .byte $14
 - D - I - 0x022039 11:A029: F0        .byte con_F0
 - D - I - 0x02203A 11:A02A: 0D        .byte $0D
@@ -5962,9 +5944,7 @@ off_A04C:
 - D - I - 0x02205F 11:A04F: F0        .byte con_F0
 - D - I - 0x022060 11:A050: FB        .byte con_rts
 off_A051:
-- D - I - 0x022061 11:A051: F9        .byte $F9
-- D - I - 0x022062 11:A052: 02        .byte $02
-- D - I - 0x022063 11:A053: 2D        .byte $2D
+- D - I - 0x022061 11:A051: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x022064 11:A054: 1B        .byte $1B
 - D - I - 0x022065 11:A055: F0        .byte con_F0
 - D - I - 0x022066 11:A056: 0D        .byte $0D
@@ -5997,9 +5977,7 @@ off_A06A:
 - D - I - 0x02207E 11:A06E: FB        .byte con_rts
 off_A06F:
 - D - I - 0x02207F 11:A06F: FC        .byte con_FC, $02
-- D - I - 0x022081 11:A071: F9        .byte $F9
-- D - I - 0x022082 11:A072: 02        .byte $02
-- D - I - 0x022083 11:A073: 2D        .byte $2D
+- D - I - 0x022081 11:A071: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x022084 11:A074: 3C        .byte $3C
 - D - I - 0x022085 11:A075: 57        .byte $57
 - D - I - 0x022086 11:A076: 15        .byte $15
@@ -6007,9 +5985,7 @@ off_A06F:
 - D - I - 0x022088 11:A078: FB        .byte con_rts
 off_A079:
 - D - I - 0x022089 11:A079: FC        .byte con_FC, $03
-- D - I - 0x02208B 11:A07B: F9        .byte $F9
-- D - I - 0x02208C 11:A07C: 02        .byte $02
-- D - I - 0x02208D 11:A07D: 2A        .byte $2A
+- D - I - 0x02208B 11:A07B: F9        .byte con_delay_soundID, $02, $2A
 - D - I - 0x02208E 11:A07E: 3C        .byte $3C
 - D - I - 0x02208F 11:A07F: 57        .byte $57
 - D - I - 0x022090 11:A080: 16        .byte $16
@@ -6017,9 +5993,7 @@ off_A079:
 - D - I - 0x022092 11:A082: FB        .byte con_rts
 off_A083:
 - D - I - 0x022093 11:A083: F7        .byte con_F7, $07
-- D - I - 0x022095 11:A085: F9        .byte $F9
-- D - I - 0x022096 11:A086: 21        .byte $21
-- D - I - 0x022097 11:A087: 2A        .byte $2A
+- D - I - 0x022095 11:A085: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x022098 11:A088: 50        .byte $50
 - D - I - 0x022099 11:A089: 40        .byte $40
 - D - I - 0x02209A 11:A08A: 17        .byte $17
@@ -6039,9 +6013,7 @@ off_A094:
 - D - I - 0x0220A7 11:A097: 0C        .byte $0C
 - D - I - 0x0220A8 11:A098: FB        .byte con_rts
 off_A099:
-- D - I - 0x0220A9 11:A099: F9        .byte $F9
-- D - I - 0x0220AA 11:A09A: 02        .byte $02
-- D - I - 0x0220AB 11:A09B: 2A        .byte $2A
+- D - I - 0x0220A9 11:A099: F9        .byte con_delay_soundID, $02, $2A
 - D - I - 0x0220AC 11:A09C: 28        .byte $28
 - D - I - 0x0220AD 11:A09D: 03        .byte $03
 - D - I - 0x0220AE 11:A09E: 03        .byte $03
@@ -6054,27 +6026,21 @@ off_A0A1:
 - D - I - 0x0220B4 11:A0A4: 0E        .byte $0E
 - D - I - 0x0220B5 11:A0A5: FB        .byte con_rts
 off_A0A6:
-- D - I - 0x0220B6 11:A0A6: F9        .byte $F9
-- D - I - 0x0220B7 11:A0A7: 21        .byte $21
-- D - I - 0x0220B8 11:A0A8: 2A        .byte $2A
+- D - I - 0x0220B6 11:A0A6: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x0220B9 11:A0A9: 46        .byte $46
 - D - I - 0x0220BA 11:A0AA: 03        .byte $03
 - D - I - 0x0220BB 11:A0AB: 1B        .byte $1B
 - D - I - 0x0220BC 11:A0AC: 0E        .byte $0E
 - D - I - 0x0220BD 11:A0AD: FB        .byte con_rts
 off_A0AE:
-- D - I - 0x0220BE 11:A0AE: F9        .byte $F9
-- D - I - 0x0220BF 11:A0AF: 02        .byte $02
-- D - I - 0x0220C0 11:A0B0: 25        .byte $25
+- D - I - 0x0220BE 11:A0AE: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0220C1 11:A0B1: 14        .byte $14
 - D - I - 0x0220C2 11:A0B2: 02        .byte $02
 - D - I - 0x0220C3 11:A0B3: 1C        .byte $1C
 - D - I - 0x0220C4 11:A0B4: 00        .byte $00
 - D - I - 0x0220C5 11:A0B5: FB        .byte con_rts
 off_A0B6:
-- D - I - 0x0220C6 11:A0B6: F9        .byte $F9
-- D - I - 0x0220C7 11:A0B7: 19        .byte $19
-- D - I - 0x0220C8 11:A0B8: 2B        .byte $2B
+- D - I - 0x0220C6 11:A0B6: F9        .byte con_delay_soundID, $19, $2B
 - D - I - 0x0220C9 11:A0B9: 18        .byte $18
 - D - I - 0x0220CA 11:A0BA: 04        .byte $04
 - D - I - 0x0220CB 11:A0BB: 21        .byte $21
@@ -6088,18 +6054,14 @@ off_A0BE:
 - D - I - 0x0220D2 11:A0C2: FB        .byte con_rts
 off_A0C3:
 - D - I - 0x0220D3 11:A0C3: FC        .byte con_FC, $02
-- D - I - 0x0220D5 11:A0C5: F9        .byte $F9
-- D - I - 0x0220D6 11:A0C6: 02        .byte $02
-- D - I - 0x0220D7 11:A0C7: 2D        .byte $2D
+- D - I - 0x0220D5 11:A0C5: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x0220D8 11:A0C8: 46        .byte $46
 - D - I - 0x0220D9 11:A0C9: 57        .byte $57
 - D - I - 0x0220DA 11:A0CA: 15        .byte $15
 - D - I - 0x0220DB 11:A0CB: 05        .byte $05
 - D - I - 0x0220DC 11:A0CC: FB        .byte con_rts
 off_A0CD:
-- D - I - 0x0220DD 11:A0CD: F9        .byte $F9
-- D - I - 0x0220DE 11:A0CE: 02        .byte $02
-- D - I - 0x0220DF 11:A0CF: 24        .byte $24
+- D - I - 0x0220DD 11:A0CD: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x0220E0 11:A0D0: 0A        .byte $0A
 - D - I - 0x0220E1 11:A0D1: 13        .byte $13
 - D - I - 0x0220E2 11:A0D2: 23        .byte $23
@@ -6204,17 +6166,13 @@ off_A131:
 - D - I - 0x022143 11:A133: 03        .byte $03
 - D - I - 0x022144 11:A134: 0A        .byte $0A
 - - - - - 0x022145 11:A135: 09        .byte $09
-- D - I - 0x022146 11:A136: F9        .byte $F9
-- D - I - 0x022147 11:A137: 21        .byte $21
-- D - I - 0x022148 11:A138: 2B        .byte $2B
+- D - I - 0x022146 11:A136: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x022149 11:A139: 3A        .byte $3A
 - D - I - 0x02214A 11:A13A: 0E        .byte $0E
 - D - I - 0x02214B 11:A13B: 2A        .byte $2A
 - D - I - 0x02214C 11:A13C: 0E        .byte $0E
 - D - I - 0x02214D 11:A13D: FB        .byte con_rts
-- D - I - 0x02214E 11:A13E: F9        .byte $F9
-- D - I - 0x02214F 11:A13F: 21        .byte $21
-- D - I - 0x022150 11:A140: 2B        .byte $2B
+- D - I - 0x02214E 11:A13E: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x022151 11:A141: 3A        .byte $3A
 - D - I - 0x022152 11:A142: 0F        .byte $0F
 - D - I - 0x022153 11:A143: 2B        .byte $2B
@@ -6243,9 +6201,7 @@ off_A14B:
 - D - I - 0x022169 11:A159: FB        .byte con_rts
 off_A15A:
 - D - I - 0x02216A 11:A15A: FC        .byte con_FC, $02
-- D - I - 0x02216C 11:A15C: F9        .byte $F9
-- D - I - 0x02216D 11:A15D: 02        .byte $02
-- D - I - 0x02216E 11:A15E: 2D        .byte $2D
+- D - I - 0x02216C 11:A15C: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x02216F 11:A15F: 46        .byte $46
 - D - I - 0x022170 11:A160: 57        .byte $57
 - D - I - 0x022171 11:A161: 2E        .byte $2E
@@ -6253,18 +6209,14 @@ off_A15A:
 - D - I - 0x022173 11:A163: FB        .byte con_rts
 off_A164:
 - D - I - 0x022174 11:A164: FC        .byte con_FC, $02
-- D - I - 0x022176 11:A166: F9        .byte $F9
-- D - I - 0x022177 11:A167: 02        .byte $02
-- D - I - 0x022178 11:A168: 2D        .byte $2D
+- D - I - 0x022176 11:A166: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x022179 11:A169: 5A        .byte $5A
 - D - I - 0x02217A 11:A16A: 57        .byte $57
 - D - I - 0x02217B 11:A16B: 2E        .byte $2E
 - D - I - 0x02217C 11:A16C: 16        .byte $16
 - D - I - 0x02217D 11:A16D: FB        .byte con_rts
 off_A16E:
-- D - I - 0x02217E 11:A16E: F9        .byte $F9
-- D - I - 0x02217F 11:A16F: 02        .byte $02
-- D - I - 0x022180 11:A170: 2A        .byte $2A
+- D - I - 0x02217E 11:A16E: F9        .byte con_delay_soundID, $02, $2A
 - D - I - 0x022181 11:A171: 46        .byte $46
 - D - I - 0x022182 11:A172: 6C        .byte $6C
 - D - I - 0x022183 11:A173: 2E        .byte $2E
@@ -6278,18 +6230,14 @@ off_A176:
 - D - I - 0x02218A 11:A17A: FB        .byte con_rts
 off_A17B:
 - D - I - 0x02218B 11:A17B: FC        .byte con_FC, $02
-- D - I - 0x02218D 11:A17D: F9        .byte $F9
-- D - I - 0x02218E 11:A17E: 02        .byte $02
-- D - I - 0x02218F 11:A17F: 2D        .byte $2D
+- D - I - 0x02218D 11:A17D: F9        .byte con_delay_soundID, $02, $2D
 - D - I - 0x022190 11:A180: 46        .byte $46
 - D - I - 0x022191 11:A181: 57        .byte $57
 - D - I - 0x022192 11:A182: 30        .byte $30
 - D - I - 0x022193 11:A183: 05        .byte $05
 - D - I - 0x022194 11:A184: FB        .byte con_rts
 off_A185:
-- D - I - 0x022195 11:A185: F9        .byte $F9
-- D - I - 0x022196 11:A186: 02        .byte $02
-- D - I - 0x022197 11:A187: 2B        .byte $2B
+- D - I - 0x022195 11:A185: F9        .byte con_delay_soundID, $02, $2B
 - D - I - 0x022198 11:A188: 46        .byte $46
 - D - I - 0x022199 11:A189: 6C        .byte $6C
 - D - I - 0x02219A 11:A18A: 30        .byte $30
@@ -6297,9 +6245,7 @@ off_A185:
 - D - I - 0x02219C 11:A18C: FB        .byte con_rts
 off_A18D:
 - D - I - 0x02219D 11:A18D: F7        .byte con_F7, $02
-- D - I - 0x02219F 11:A18F: F9        .byte $F9
-- D - I - 0x0221A0 11:A190: 29        .byte $29
-- D - I - 0x0221A1 11:A191: 2C        .byte $2C
+- D - I - 0x02219F 11:A18F: F9        .byte con_delay_soundID, $29, $2C
 - D - I - 0x0221A2 11:A192: 46        .byte $46
 - D - I - 0x0221A3 11:A193: 22        .byte $22
 - D - I - 0x0221A4 11:A194: 33        .byte $33
@@ -6310,9 +6256,7 @@ off_A18D:
 
 off_A197_78:
 off_A197:
-- D - I - 0x0221A7 11:A197: F9        .byte $F9
-- D - I - 0x0221A8 11:A198: 21        .byte $21
-- D - I - 0x0221A9 11:A199: 2A        .byte $2A
+- D - I - 0x0221A7 11:A197: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x0221AA 11:A19A: 2D        .byte $2D
 - D - I - 0x0221AB 11:A19B: 6E        .byte $6E
 - D - I - 0x0221AC 11:A19C: 34        .byte $34
@@ -6320,18 +6264,14 @@ off_A197:
 - D - I - 0x0221AE 11:A19E: FB        .byte con_rts
 off_A19F:
 - - - - - 0x0221AF 11:A19F: FC        .byte con_FC, $02
-- - - - - 0x0221B1 11:A1A1: F9        .byte $F9
-- - - - - 0x0221B2 11:A1A2: 02        .byte $02
-- - - - - 0x0221B3 11:A1A3: 2D        .byte $2D
+- - - - - 0x0221B1 11:A1A1: F9        .byte con_delay_soundID, $02, $2D
 - - - - - 0x0221B4 11:A1A4: 41        .byte $41
 - - - - - 0x0221B5 11:A1A5: 57        .byte $57
 - - - - - 0x0221B6 11:A1A6: 30        .byte $30
 - - - - - 0x0221B7 11:A1A7: 19        .byte $19
 - - - - - 0x0221B8 11:A1A8: FB        .byte con_rts
 off_A1A9:
-- D - I - 0x0221B9 11:A1A9: F9        .byte $F9
-- D - I - 0x0221BA 11:A1AA: 02        .byte $02
-- D - I - 0x0221BB 11:A1AB: 2B        .byte $2B
+- D - I - 0x0221B9 11:A1A9: F9        .byte con_delay_soundID, $02, $2B
 - D - I - 0x0221BC 11:A1AC: 5A        .byte $5A
 - D - I - 0x0221BD 11:A1AD: 6C        .byte $6C
 - D - I - 0x0221BE 11:A1AE: 30        .byte $30
@@ -6339,18 +6279,14 @@ off_A1A9:
 - D - I - 0x0221C0 11:A1B0: FB        .byte con_rts
 off_A1B1:
 - D - I - 0x0221C1 11:A1B1: FC        .byte con_FC, $02
-- D - I - 0x0221C3 11:A1B3: F9        .byte $F9
-- D - I - 0x0221C4 11:A1B4: 1E        .byte $1E
-- D - I - 0x0221C5 11:A1B5: 2B        .byte $2B
+- D - I - 0x0221C3 11:A1B3: F9        .byte con_delay_soundID, $1E, $2B
 - D - I - 0x0221C6 11:A1B6: 3A        .byte $3A
 - D - I - 0x0221C7 11:A1B7: 57        .byte $57
 - D - I - 0x0221C8 11:A1B8: 35        .byte $35
 - D - I - 0x0221C9 11:A1B9: 1A        .byte $1A
 - D - I - 0x0221CA 11:A1BA: FB        .byte con_rts
 off_A1BB:
-- D - I - 0x0221CB 11:A1BB: F9        .byte $F9
-- D - I - 0x0221CC 11:A1BC: 1E        .byte $1E
-- D - I - 0x0221CD 11:A1BD: 2C        .byte $2C
+- D - I - 0x0221CB 11:A1BB: F9        .byte con_delay_soundID, $1E, $2C
 - D - I - 0x0221CE 11:A1BE: 3A        .byte $3A
 - D - I - 0x0221CF 11:A1BF: 6C        .byte $6C
 - D - I - 0x0221D0 11:A1C0: 35        .byte $35
@@ -6372,9 +6308,7 @@ off_A1CA:
 - D - I - 0x0221E0 11:A1D0: FB        .byte con_rts
 off_A1D1:
 - D - I - 0x0221E1 11:A1D1: FC        .byte con_FC, $01
-- D - I - 0x0221E3 11:A1D3: F9        .byte $F9
-- D - I - 0x0221E4 11:A1D4: 21        .byte $21
-- D - I - 0x0221E5 11:A1D5: 2A        .byte $2A
+- D - I - 0x0221E3 11:A1D3: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x0221E6 11:A1D6: 30        .byte $30
 - D - I - 0x0221E7 11:A1D7: 2E        .byte $2E
 - D - I - 0x0221E8 11:A1D8: 2D        .byte $2D
@@ -6390,9 +6324,7 @@ off_A1DD:
 - D - I - 0x0221F3 11:A1E3: FB        .byte con_rts
 off_A1E4:
 - D - I - 0x0221F4 11:A1E4: F7        .byte con_F7, $41
-- D - I - 0x0221F6 11:A1E6: F9        .byte $F9
-- D - I - 0x0221F7 11:A1E7: 02        .byte $02
-- D - I - 0x0221F8 11:A1E8: 21        .byte $21
+- D - I - 0x0221F6 11:A1E6: F9        .byte con_delay_soundID, $02, $21
 - D - I - 0x0221F9 11:A1E9: E0        .byte $E0
 - D - I - 0x0221FA 11:A1EA: 47        .byte $47
 - D - I - 0x0221FB 11:A1EB: 7D        .byte $7D
@@ -6403,9 +6335,7 @@ off_A1E4:
 - D - I - 0x022201 11:A1F1: F0        .byte con_F0
 - D - I - 0x022202 11:A1F2: F0        .byte con_F0
 - D - I - 0x022203 11:A1F3: F7        .byte con_F7, $43
-- D - I - 0x022205 11:A1F5: F9        .byte $F9
-- D - I - 0x022206 11:A1F6: 02        .byte $02
-- D - I - 0x022207 11:A1F7: 30        .byte $30
+- D - I - 0x022205 11:A1F5: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x022208 11:A1F8: 32        .byte $32
 - D - I - 0x022209 11:A1F9: 05        .byte $05
 - D - I - 0x02220A 11:A1FA: F0        .byte con_F0
@@ -6415,16 +6345,12 @@ off_A1E4:
 - - - - - 0x02220E 11:A1FE: FB        .byte con_rts
 off_A1FF:
 - D - I - 0x02220F 11:A1FF: F7        .byte con_F7, $30
-- D - I - 0x022211 11:A201: F9        .byte $F9
-- D - I - 0x022212 11:A202: 02        .byte $02
-- D - I - 0x022213 11:A203: 17        .byte $17
+- D - I - 0x022211 11:A201: F9        .byte con_delay_soundID, $02, $17
 - D - I - 0x022214 11:A204: 96        .byte $96
 - D - I - 0x022215 11:A205: 6A        .byte $6A
 - D - I - 0x022216 11:A206: 3A        .byte $3A
 - D - I - 0x022217 11:A207: 20        .byte $20
-- D - I - 0x022218 11:A208: F9        .byte $F9
-- D - I - 0x022219 11:A209: 02        .byte $02
-- D - I - 0x02221A 11:A20A: 1F        .byte $1F
+- D - I - 0x022218 11:A208: F9        .byte con_delay_soundID, $02, $1F
 - D - I - 0x02221B 11:A20B: F7        .byte con_F7, $1D
 - D - I - 0x02221D 11:A20D: 80        .byte $80
 - D - I - 0x02221E 11:A20E: 47        .byte $47
@@ -6432,9 +6358,7 @@ off_A1FF:
 - D - I - 0x022220 11:A210: 21        .byte $21
 - D - I - 0x022221 11:A211: FB        .byte con_rts
 off_A212:
-- D - I - 0x022222 11:A212: F9        .byte $F9
-- D - I - 0x022223 11:A213: 21        .byte $21
-- D - I - 0x022224 11:A214: 1B        .byte $1B
+- D - I - 0x022222 11:A212: F9        .byte con_delay_soundID, $21, $1B
 - D - I - 0x022225 11:A215: 40        .byte $40
 - D - I - 0x022226 11:A216: 2B        .byte $2B
 - D - I - 0x022227 11:A217: 3B        .byte $3B
@@ -6466,18 +6390,14 @@ off_A229:
 - D - I - 0x02223D 11:A22D: FB        .byte con_rts
 off_A22E:
 - D - I - 0x02223E 11:A22E: F7        .byte con_F7, $02
-- D - I - 0x022240 11:A230: F9        .byte $F9
-- D - I - 0x022241 11:A231: 26        .byte $26
-- D - I - 0x022242 11:A232: 2C        .byte $2C
+- D - I - 0x022240 11:A230: F9        .byte con_delay_soundID, $26, $2C
 - D - I - 0x022243 11:A233: 50        .byte $50
 - D - I - 0x022244 11:A234: 22        .byte $22
 - D - I - 0x022245 11:A235: 38        .byte $38
 - D - I - 0x022246 11:A236: 24        .byte $24
 - D - I - 0x022247 11:A237: FB        .byte con_rts
 off_A238:
-- D - I - 0x022248 11:A238: F9        .byte $F9
-- D - I - 0x022249 11:A239: 21        .byte $21
-- D - I - 0x02224A 11:A23A: 2B        .byte $2B
+- D - I - 0x022248 11:A238: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x02224B 11:A23B: 56        .byte $56
 - D - I - 0x02224C 11:A23C: 6D        .byte $6D
 - D - I - 0x02224D 11:A23D: 39        .byte $39
@@ -6499,9 +6419,7 @@ off_A247:
 - D - I - 0x02225D 11:A24D: FB        .byte con_rts
 off_A24E:
 - D - I - 0x02225E 11:A24E: F7        .byte con_F7, $1F
-- D - I - 0x022260 11:A250: F9        .byte $F9
-- D - I - 0x022261 11:A251: 02        .byte $02
-- D - I - 0x022262 11:A252: 63        .byte $63
+- D - I - 0x022260 11:A250: F9        .byte con_delay_soundID, $02, $63
 - D - I - 0x022263 11:A253: 10        .byte $10
 - D - I - 0x022264 11:A254: 06        .byte $06
 - D - I - 0x022265 11:A255: 43        .byte $43
@@ -6515,9 +6433,7 @@ off_A258:
 - D - I - 0x02226C 11:A25C: FB        .byte con_rts
 off_A25D:
 - D - I - 0x02226D 11:A25D: F7        .byte con_F7, $03
-- D - I - 0x02226F 11:A25F: F9        .byte $F9
-- D - I - 0x022270 11:A260: 02        .byte $02
-- D - I - 0x022271 11:A261: 60        .byte $60
+- D - I - 0x02226F 11:A25F: F9        .byte con_delay_soundID, $02, $60
 - D - I - 0x022272 11:A262: 78        .byte $78
 - D - I - 0x022273 11:A263: 07        .byte $07
 - D - I - 0x022274 11:A264: 44        .byte $44
@@ -6525,9 +6441,7 @@ off_A25D:
 - D - I - 0x022276 11:A266: FB        .byte con_rts
 off_A267:
 - D - I - 0x022277 11:A267: F7        .byte con_F7, $03
-- D - I - 0x022279 11:A269: F9        .byte $F9
-- D - I - 0x02227A 11:A26A: 02        .byte $02
-- D - I - 0x02227B 11:A26B: 61        .byte $61
+- D - I - 0x022279 11:A269: F9        .byte con_delay_soundID, $02, $61
 - D - I - 0x02227C 11:A26C: 78        .byte $78
 - D - I - 0x02227D 11:A26D: 07        .byte $07
 - D - I - 0x02227E 11:A26E: 45        .byte $45
@@ -6641,9 +6555,7 @@ off_A2D8:
 - D - I - 0x0222EC 11:A2DC: FB        .byte con_rts
 off_A2DD:
 - D - I - 0x0222ED 11:A2DD: F7        .byte con_F7, $0F
-- D - I - 0x0222EF 11:A2DF: F9        .byte $F9
-- D - I - 0x0222F0 11:A2E0: 02        .byte $02
-- D - I - 0x0222F1 11:A2E1: 2E        .byte $2E
+- D - I - 0x0222EF 11:A2DF: F9        .byte con_delay_soundID, $02, $2E
 off_A2E2:
 - D - I - 0x0222F2 11:A2E2: 21        .byte $21
 - D - I - 0x0222F3 11:A2E3: 05        .byte $05
@@ -6652,9 +6564,7 @@ off_A2E2:
 - D - I - 0x0222F6 11:A2E6: FB        .byte con_rts
 off_A2E7:
 - D - I - 0x0222F7 11:A2E7: F7        .byte con_F7, $0E
-- D - I - 0x0222F9 11:A2E9: F9        .byte $F9
-- D - I - 0x0222FA 11:A2EA: 02        .byte $02
-- D - I - 0x0222FB 11:A2EB: 2E        .byte $2E
+- D - I - 0x0222F9 11:A2E9: F9        .byte con_delay_soundID, $02, $2E
 - D - I - 0x0222FC 11:A2EC: F2        .byte con_jsr_1
 - D - I - 0x0222FD 11:A2ED: E2 A2     .word off_A2E2
 off_A2EF:
@@ -6663,9 +6573,7 @@ off_A2EF:
 - D - I - 0x022302 11:A2F2: E2 A2     .word off_A2E2
 off_A2F4:
 - D - I - 0x022304 11:A2F4: F7        .byte con_F7, $10
-- D - I - 0x022306 11:A2F6: F9        .byte $F9
-- D - I - 0x022307 11:A2F7: 02        .byte $02
-- D - I - 0x022308 11:A2F8: 65        .byte $65
+- D - I - 0x022306 11:A2F6: F9        .byte con_delay_soundID, $02, $65
 - D - I - 0x022309 11:A2F9: 1E        .byte $1E
 - D - I - 0x02230A 11:A2FA: 05        .byte $05
 - D - I - 0x02230B 11:A2FB: 00        .byte $00
@@ -6673,18 +6581,14 @@ off_A2F4:
 - D - I - 0x02230D 11:A2FD: FB        .byte con_rts
 off_A2FE:
 - D - I - 0x02230E 11:A2FE: F7        .byte con_F7, $10
-- D - I - 0x022310 11:A300: F9        .byte $F9
-- D - I - 0x022311 11:A301: 02        .byte $02
-- D - I - 0x022312 11:A302: 2E        .byte $2E
+- D - I - 0x022310 11:A300: F9        .byte con_delay_soundID, $02, $2E
 - D - I - 0x022313 11:A303: 20        .byte $20
 - D - I - 0x022314 11:A304: 05        .byte $05
 - D - I - 0x022315 11:A305: 00        .byte $00
 - D - I - 0x022316 11:A306: 2C        .byte $2C
 - D - I - 0x022317 11:A307: FB        .byte con_rts
 off_A308:
-- D - I - 0x022318 11:A308: F9        .byte $F9
-- D - I - 0x022319 11:A309: 02        .byte $02
-- D - I - 0x02231A 11:A30A: 2E        .byte $2E
+- D - I - 0x022318 11:A308: F9        .byte con_delay_soundID, $02, $2E
 - D - I - 0x02231B 11:A30B: F7        .byte con_F7, $10
 - D - I - 0x02231D 11:A30D: 14        .byte $14
 - D - I - 0x02231E 11:A30E: 05        .byte $05
@@ -6699,9 +6603,7 @@ off_A312:
 - D - I - 0x022326 11:A316: FE        .byte con_FE, $01
 - D - I - 0x022328 11:A318: FB        .byte con_rts
 off_A319:
-- D - I - 0x022329 11:A319: F9        .byte $F9
-- D - I - 0x02232A 11:A31A: 02        .byte $02
-- D - I - 0x02232B 11:A31B: 2A        .byte $2A
+- D - I - 0x022329 11:A319: F9        .byte con_delay_soundID, $02, $2A
 - D - I - 0x02232C 11:A31C: 32        .byte $32
 - D - I - 0x02232D 11:A31D: 01        .byte $01
 - D - I - 0x02232E 11:A31E: 4A        .byte $4A
@@ -6709,9 +6611,7 @@ off_A319:
 - D - I - 0x022330 11:A320: FB        .byte con_rts
 off_A321:
 - - - - - 0x022331 11:A321: F8        .byte con_F8, $02
-- - - - - 0x022333 11:A323: F9        .byte $F9
-- - - - - 0x022334 11:A324: 02        .byte $02
-- - - - - 0x022335 11:A325: 2A        .byte $2A
+- - - - - 0x022333 11:A323: F9        .byte con_delay_soundID, $02, $2A
 - - - - - 0x022336 11:A326: 14        .byte $14
 - - - - - 0x022337 11:A327: 01        .byte $01
 - - - - - 0x022338 11:A328: 4A        .byte $4A
@@ -6719,9 +6619,7 @@ off_A321:
 - - - - - 0x02233A 11:A32A: FE        .byte con_FE, $01
 - - - - - 0x02233C 11:A32C: FB        .byte con_rts
 off_A32D:
-- D - I - 0x02233D 11:A32D: F9        .byte $F9
-- D - I - 0x02233E 11:A32E: 02        .byte $02
-- D - I - 0x02233F 11:A32F: 03        .byte $03
+- D - I - 0x02233D 11:A32D: F9        .byte con_delay_soundID, $02, $03
 - D - I - 0x022340 11:A330: 35        .byte $35
 - D - I - 0x022341 11:A331: 1F        .byte $1F
 - D - I - 0x022342 11:A332: 11        .byte $11
@@ -6757,9 +6655,7 @@ off_A34D:
 - D - I - 0x02235F 11:A34F: 00        .byte $00
 - D - I - 0x022360 11:A350: 2F        .byte $2F
 - D - I - 0x022361 11:A351: F7        .byte con_F7, $05
-- D - I - 0x022363 11:A353: F9        .byte $F9
-- D - I - 0x022364 11:A354: 21        .byte $21
-- D - I - 0x022365 11:A355: 68        .byte $68
+- D - I - 0x022363 11:A353: F9        .byte con_delay_soundID, $21, $68
 - D - I - 0x022366 11:A356: 2D        .byte $2D
 - D - I - 0x022367 11:A357: F0        .byte con_F0
 - D - I - 0x022368 11:A358: 4D        .byte $4D
@@ -6767,9 +6663,7 @@ off_A34D:
 - D - I - 0x02236A 11:A35A: FB        .byte con_rts
 off_A35B:
 - D - I - 0x02236B 11:A35B: F5        .byte con_mirror_off
-- D - I - 0x02236C 11:A35C: F9        .byte $F9
-- D - I - 0x02236D 11:A35D: 02        .byte $02
-- D - I - 0x02236E 11:A35E: 67        .byte $67
+- D - I - 0x02236C 11:A35C: F9        .byte con_delay_soundID, $02, $67
 - D - I - 0x02236F 11:A35F: 70        .byte $70
 - D - I - 0x022370 11:A360: 0C        .byte $0C
 - D - I - 0x022371 11:A361: 4E        .byte $4E
@@ -6847,9 +6741,7 @@ off_A39E:
 - D - I - 0x0223B1 11:A3A1: 39        .byte $39
 - D - I - 0x0223B2 11:A3A2: FB        .byte con_rts
 off_A3A3:
-- D - I - 0x0223B3 11:A3A3: F9        .byte $F9
-- D - I - 0x0223B4 11:A3A4: 02        .byte $02
-- D - I - 0x0223B5 11:A3A5: 25        .byte $25
+- D - I - 0x0223B3 11:A3A3: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0223B6 11:A3A6: 3C        .byte $3C
 - D - I - 0x0223B7 11:A3A7: 2F        .byte $2F
 - D - I - 0x0223B8 11:A3A8: 57        .byte $57
@@ -6865,18 +6757,14 @@ off_A3AB:
 - D - I - 0x0223C2 11:A3B2: FB        .byte con_rts
 off_A3B3:
 - D - I - 0x0223C3 11:A3B3: F8        .byte con_F8, $03
-- D - I - 0x0223C5 11:A3B5: F9        .byte $F9
-- D - I - 0x0223C6 11:A3B6: 02        .byte $02
-- D - I - 0x0223C7 11:A3B7: 25        .byte $25
+- D - I - 0x0223C5 11:A3B5: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0223C8 11:A3B8: 32        .byte $32
 - D - I - 0x0223C9 11:A3B9: 1D        .byte $1D
 - D - I - 0x0223CA 11:A3BA: 20        .byte $20
 - D - I - 0x0223CB 11:A3BB: 3C        .byte $3C
 - D - I - 0x0223CC 11:A3BC: FB        .byte con_rts
 off_A3BD:
-- D - I - 0x0223CD 11:A3BD: F9        .byte $F9
-- D - I - 0x0223CE 11:A3BE: 02        .byte $02
-- D - I - 0x0223CF 11:A3BF: 25        .byte $25
+- D - I - 0x0223CD 11:A3BD: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0223D0 11:A3C0: 32        .byte $32
 - D - I - 0x0223D1 11:A3C1: 1E        .byte $1E
 - D - I - 0x0223D2 11:A3C2: 1C        .byte $1C
@@ -6884,9 +6772,7 @@ off_A3BD:
 - D - I - 0x0223D4 11:A3C4: FB        .byte con_rts
 off_A3C5:
 - D - I - 0x0223D5 11:A3C5: F8        .byte con_F8, $01
-- D - I - 0x0223D7 11:A3C7: F9        .byte $F9
-- D - I - 0x0223D8 11:A3C8: 02        .byte $02
-- D - I - 0x0223D9 11:A3C9: 25        .byte $25
+- D - I - 0x0223D7 11:A3C7: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0223DA 11:A3CA: 32        .byte $32
 - D - I - 0x0223DB 11:A3CB: 1E        .byte $1E
 - D - I - 0x0223DC 11:A3CC: 20        .byte $20
@@ -6930,9 +6816,7 @@ off_A3E4:
 - D - I - 0x022407 11:A3F7: C7 BB     .word off_BBC7
 off_A3F9:
 - D - I - 0x022409 11:A3F9: FC        .byte con_FC, $02
-- D - I - 0x02240B 11:A3FB: F9        .byte $F9
-- D - I - 0x02240C 11:A3FC: 02        .byte $02
-- D - I - 0x02240D 11:A3FD: 27        .byte $27
+- D - I - 0x02240B 11:A3FB: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x02240E 11:A3FE: 14        .byte $14
 - D - I - 0x02240F 11:A3FF: 59        .byte $59
 - D - I - 0x022410 11:A400: 58        .byte $58
@@ -6961,17 +6845,13 @@ off_A3F9:
 - D - I - 0x02242D 11:A41D: DB        .byte $DB
 off_A41E:
 - D - I - 0x02242E 11:A41E: FC        .byte con_FC, $04
-- D - I - 0x022430 11:A420: F9        .byte $F9
-- D - I - 0x022431 11:A421: 02        .byte $02
-- D - I - 0x022432 11:A422: 27        .byte $27
+- D - I - 0x022430 11:A420: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x022433 11:A423: 14        .byte $14
 - D - I - 0x022434 11:A424: 59        .byte $59
 - D - I - 0x022435 11:A425: 58        .byte $58
 - D - I - 0x022436 11:A426: 00        .byte $00
 - D - I - 0x022437 11:A427: F8        .byte con_F8, $02
-- D - I - 0x022439 11:A429: F9        .byte $F9
-- D - I - 0x02243A 11:A42A: 02        .byte $02
-- D - I - 0x02243B 11:A42B: 30        .byte $30
+- D - I - 0x022439 11:A429: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x02243C 11:A42C: F2        .byte con_jsr_1
 - D - I - 0x02243D 11:A42D: 63 A4     .word off_A463
 - D - I - 0x02243F 11:A42F: F7        .byte con_F7, $44
@@ -6982,9 +6862,7 @@ off_A41E:
 - D - I - 0x022445 11:A435: F2        .byte con_jsr_1
 - D - I - 0x022446 11:A436: 1E A4     .word off_A41E
 - D - I - 0x022448 11:A438: F7        .byte con_F7, $02
-- D - I - 0x02244A 11:A43A: F9        .byte $F9
-- D - I - 0x02244B 11:A43B: 02        .byte $02
-- D - I - 0x02244C 11:A43C: 26        .byte $26
+- D - I - 0x02244A 11:A43A: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x02244D 11:A43D: 20        .byte $20
 - D - I - 0x02244E 11:A43E: 23        .byte $23
 - D - I - 0x02244F 11:A43F: 58        .byte $58
@@ -6992,9 +6870,7 @@ off_A41E:
 - D - I - 0x022451 11:A441: FA        .byte con_jsr_2
 - D - I - 0x022452 11:A442: A9 A5     .word off_A5A9
 - D - I - 0x022454 11:A444: FC        .byte con_FC, $03
-- D - I - 0x022456 11:A446: F9        .byte $F9
-- D - I - 0x022457 11:A447: 02        .byte $02
-- D - I - 0x022458 11:A448: 28        .byte $28
+- D - I - 0x022456 11:A446: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022459 11:A449: 50        .byte $50
 - D - I - 0x02245A 11:A44A: 57        .byte $57
 - D - I - 0x02245B 11:A44B: 50        .byte $50
@@ -7016,9 +6892,7 @@ off_A45D:
 - D - I - 0x02246D 11:A45D: FA        .byte con_jsr_2
 - D - I - 0x02246E 11:A45E: 78 AF     .word off_AF78
 off_A460:
-- D - I - 0x022470 11:A460: F9        .byte $F9
-- D - I - 0x022471 11:A461: 02        .byte $02
-- D - I - 0x022472 11:A462: 28        .byte $28
+- D - I - 0x022470 11:A460: F9        .byte con_delay_soundID, $02, $28
 off_A463:
 - D - I - 0x022473 11:A463: FC        .byte con_FC, $04
 - D - I - 0x022475 11:A465: 50        .byte $50
@@ -7033,33 +6907,25 @@ off_A46A:
 - D - I - 0x02247E 11:A46E: 70 A4     .word off_A470
 off_A470:
 - D - I - 0x022480 11:A470: FC        .byte con_FC, $02
-- D - I - 0x022482 11:A472: F9        .byte $F9
-- D - I - 0x022483 11:A473: 02        .byte $02
-- D - I - 0x022484 11:A474: 0F        .byte $0F
+- D - I - 0x022482 11:A472: F9        .byte con_delay_soundID, $02, $0F
 - D - I - 0x022485 11:A475: 0A        .byte $0A
 - D - I - 0x022486 11:A476: 57        .byte $57
 - D - I - 0x022487 11:A477: 50        .byte $50
 - D - I - 0x022488 11:A478: F0        .byte con_F0
 - D - I - 0x022489 11:A479: FC        .byte con_FC, $02
-- D - I - 0x02248B 11:A47B: F9        .byte $F9
-- D - I - 0x02248C 11:A47C: 02        .byte $02
-- D - I - 0x02248D 11:A47D: 0F        .byte $0F
+- D - I - 0x02248B 11:A47B: F9        .byte con_delay_soundID, $02, $0F
 - D - I - 0x02248E 11:A47E: 0A        .byte $0A
 - D - I - 0x02248F 11:A47F: 59        .byte $59
 - D - I - 0x022490 11:A480: F0        .byte con_F0
 - D - I - 0x022491 11:A481: F0        .byte con_F0
 - D - I - 0x022492 11:A482: FC        .byte con_FC, $02
-- D - I - 0x022494 11:A484: F9        .byte $F9
-- D - I - 0x022495 11:A485: 02        .byte $02
-- D - I - 0x022496 11:A486: 0F        .byte $0F
+- D - I - 0x022494 11:A484: F9        .byte con_delay_soundID, $02, $0F
 - D - I - 0x022497 11:A487: 0A        .byte $0A
 - D - I - 0x022498 11:A488: 58        .byte $58
 - D - I - 0x022499 11:A489: F0        .byte con_F0
 - D - I - 0x02249A 11:A48A: F0        .byte con_F0
 - D - I - 0x02249B 11:A48B: FC        .byte con_FC, $02
-- D - I - 0x02249D 11:A48D: F9        .byte $F9
-- D - I - 0x02249E 11:A48E: 02        .byte $02
-- D - I - 0x02249F 11:A48F: 0F        .byte $0F
+- D - I - 0x02249D 11:A48D: F9        .byte con_delay_soundID, $02, $0F
 - D - I - 0x0224A0 11:A490: 0A        .byte $0A
 - D - I - 0x0224A1 11:A491: 59        .byte $59
 - D - I - 0x0224A2 11:A492: F0        .byte con_F0
@@ -7575,9 +7441,7 @@ off_A6CE:
 - - - - - 0x0226E2 11:A6D2: 34        .byte $34
 - - - - - 0x0226E3 11:A6D3: FB        .byte $FB     ; bzk возможно тут начинается мусор, байты уменьшаются на 1
 - - - - - 0x0226E4 11:A6D4: FA        .byte $FA
-- - - - - 0x0226E5 11:A6D5: F9        .byte $F9
-- - - - - 0x0226E6 11:A6D6: F8        .byte $F8
-- - - - - 0x0226E6 11:A6D7: F7        .byte $F7
+- - - - - 0x0226E5 11:A6D5: F9        .byte con_delay_soundID, $F8, $F7
 - - - - - 0x0226E7 11:A6D8: F6        .byte $F6
 - - - - - 0x0226E9 11:A6D9: F5        .byte $F5
 - - - - - 0x0226EA 11:A6DA: F4        .byte $F4
@@ -7652,9 +7516,7 @@ off_A71A:
 - D - I - 0x02272F 11:A71F: 9C        .byte $9C
 - D - I - 0x022730 11:A720: AC        .byte $AC
 - D - I - 0x022731 11:A721: F8        .byte con_F8, $04
-- D - I - 0x022733 11:A723: F9        .byte $F9
-- D - I - 0x022734 11:A724: 02        .byte $02
-- D - I - 0x022735 11:A725: 25        .byte $25
+- D - I - 0x022733 11:A723: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022736 11:A726: 32        .byte $32
 - D - I - 0x022737 11:A727: 1D        .byte $1D
 - D - I - 0x022738 11:A728: 1C        .byte $1C
@@ -7665,9 +7527,7 @@ off_A71A:
 - D - I - 0x02273E 11:A72E: 30        .byte $30
 - D - I - 0x02273F 11:A72F: 9C        .byte $9C
 - D - I - 0x022740 11:A730: D3        .byte $D3
-- D - I - 0x022741 11:A731: F9        .byte $F9
-- D - I - 0x022742 11:A732: 02        .byte $02
-- D - I - 0x022743 11:A733: 28        .byte $28
+- D - I - 0x022741 11:A731: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022744 11:A734: F8        .byte con_F8, $04
 - D - I - 0x022746 11:A736: F7        .byte con_F7, $3A
 - D - I - 0x022748 11:A738: 32        .byte $32
@@ -7676,9 +7536,7 @@ off_A71A:
 - D - I - 0x02274B 11:A73B: F0        .byte con_F0
 - D - I - 0x02274C 11:A73C: F6        .byte con_mirror_toggle
 - D - I - 0x02274D 11:A73D: F7        .byte con_F7, $10
-- D - I - 0x02274F 11:A73F: F9        .byte $F9
-- D - I - 0x022750 11:A740: 02        .byte $02
-- D - I - 0x022751 11:A741: 30        .byte $30
+- D - I - 0x02274F 11:A73F: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x022752 11:A742: 20        .byte $20
 - D - I - 0x022753 11:A743: 05        .byte $05
 - D - I - 0x022754 11:A744: 00        .byte $00
@@ -7689,9 +7547,7 @@ off_A71A:
 - D - I - 0x022759 11:A749: AF        .byte $AF
 off_A74A:
 - D - I - 0x02275A 11:A74A: F7        .byte con_F7, $1E
-- D - I - 0x02275C 11:A74C: F9        .byte $F9
-- D - I - 0x02275D 11:A74D: 02        .byte $02
-- D - I - 0x02275E 11:A74E: 6D        .byte $6D
+- D - I - 0x02275C 11:A74C: F9        .byte con_delay_soundID, $02, $6D
 - D - I - 0x02275F 11:A74F: 1E        .byte $1E
 - D - I - 0x022760 11:A750: 05        .byte $05
 - D - I - 0x022761 11:A751: F0        .byte con_F0
@@ -7706,9 +7562,7 @@ off_A756:
 - D - I - 0x02276B 11:A75B: AB        .byte $AB
 - D - I - 0x02276C 11:A75C: AC        .byte $AC
 - D - I - 0x02276D 11:A75D: F8        .byte con_F8, $04
-- D - I - 0x02276F 11:A75F: F9        .byte $F9
-- D - I - 0x022770 11:A760: 02        .byte $02
-- D - I - 0x022771 11:A761: 25        .byte $25
+- D - I - 0x02276F 11:A75F: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022772 11:A762: 32        .byte $32
 - D - I - 0x022773 11:A763: 1D        .byte $1D
 - D - I - 0x022774 11:A764: 1C        .byte $1C
@@ -7719,9 +7573,7 @@ off_A756:
 - D - I - 0x02277A 11:A76A: 30        .byte $30
 - D - I - 0x02277B 11:A76B: AB        .byte $AB
 - D - I - 0x02277C 11:A76C: D3        .byte $D3
-- D - I - 0x02277D 11:A76D: F9        .byte $F9
-- D - I - 0x02277E 11:A76E: 02        .byte $02
-- D - I - 0x02277F 11:A76F: 28        .byte $28
+- D - I - 0x02277D 11:A76D: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022780 11:A770: F8        .byte con_F8, $04
 - D - I - 0x022782 11:A772: F7        .byte con_F7, $3A
 - D - I - 0x022784 11:A774: 32        .byte $32
@@ -7730,9 +7582,7 @@ off_A756:
 - D - I - 0x022787 11:A777: F0        .byte con_F0
 - D - I - 0x022788 11:A778: F6        .byte con_mirror_toggle
 - D - I - 0x022789 11:A779: F7        .byte con_F7, $10
-- D - I - 0x02278B 11:A77B: F9        .byte $F9
-- D - I - 0x02278C 11:A77C: 02        .byte $02
-- D - I - 0x02278D 11:A77D: 30        .byte $30
+- D - I - 0x02278B 11:A77B: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x02278E 11:A77E: 20        .byte $20
 - D - I - 0x02278F 11:A77F: 05        .byte $05
 - D - I - 0x022790 11:A780: 00        .byte $00
@@ -7754,9 +7604,7 @@ off_A78F:
 - - - - - 0x0227A0 11:A790: C7 BB     .word off_BBC7
 off_A792:
 - - - - - 0x0227A2 11:A792: F7        .byte con_F7, $33
-- - - - - 0x0227A4 11:A794: F9        .byte $F9
-- - - - - 0x0227A5 11:A795: 02        .byte $02
-- - - - - 0x0227A6 11:A796: 27        .byte $27
+- - - - - 0x0227A4 11:A794: F9        .byte con_delay_soundID, $02, $27
 - - - - - 0x0227A7 11:A797: 28        .byte $28
 - - - - - 0x0227A8 11:A798: 6B        .byte $6B
 - - - - - 0x0227A9 11:A799: E3        .byte $E3
@@ -7782,9 +7630,7 @@ off_A7A5:
 - - - - - 0x0227BF 11:A7AF: 98        .byte $98
 - - - - - 0x0227C0 11:A7B0: D7        .byte $D7
 off_A7B1:
-- D - I - 0x0227C1 11:A7B1: F9        .byte $F9
-- D - I - 0x0227C2 11:A7B2: 02        .byte $02
-- D - I - 0x0227C3 11:A7B3: 25        .byte $25
+- D - I - 0x0227C1 11:A7B1: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0227C4 11:A7B4: 28        .byte $28
 - D - I - 0x0227C5 11:A7B5: 4E        .byte $4E
 - D - I - 0x0227C6 11:A7B6: CF        .byte $CF
@@ -7846,9 +7692,7 @@ off_A7EE:
 - D - I - 0x022803 11:A7F3: 60        .byte $60
 - D - I - 0x022804 11:A7F4: 45        .byte $45
 - D - I - 0x022805 11:A7F5: F7        .byte con_F7, $24
-- D - I - 0x022807 11:A7F7: F9        .byte $F9
-- D - I - 0x022808 11:A7F8: 02        .byte $02
-- D - I - 0x022809 11:A7F9: 68        .byte $68
+- D - I - 0x022807 11:A7F7: F9        .byte con_delay_soundID, $02, $68
 - D - I - 0x02280A 11:A7FA: 10        .byte $10
 - D - I - 0x02280B 11:A7FB: 6B        .byte $6B
 - D - I - 0x02280C 11:A7FC: F0        .byte con_F0
@@ -7872,9 +7716,7 @@ off_A805:
 - D - I - 0x02281F 11:A80F: FB        .byte con_rts
 off_A810:
 - D - I - 0x022820 11:A810: F7        .byte con_F7, $02
-- D - I - 0x022822 11:A812: F9        .byte $F9
-- D - I - 0x022823 11:A813: 31        .byte $31
-- D - I - 0x022824 11:A814: 1E        .byte $1E
+- D - I - 0x022822 11:A812: F9        .byte con_delay_soundID, $31, $1E
 - D - I - 0x022825 11:A815: 3F        .byte $3F
 - D - I - 0x022826 11:A816: 23        .byte $23
 - D - I - 0x022827 11:A817: E2        .byte $E2
@@ -7939,9 +7781,7 @@ off_A858:
 - D - I - 0x02286F 11:A85F: F0        .byte con_F0
 - D - I - 0x022870 11:A860: 00        .byte $00
 - D - I - 0x022871 11:A861: F7        .byte con_F7, $02
-- D - I - 0x022873 11:A863: F9        .byte $F9
-- D - I - 0x022874 11:A864: 02        .byte $02
-- D - I - 0x022875 11:A865: 11        .byte $11
+- D - I - 0x022873 11:A863: F9        .byte con_delay_soundID, $02, $11
 - D - I - 0x022876 11:A866: 46        .byte $46
 - D - I - 0x022877 11:A867: F0        .byte con_F0
 - D - I - 0x022878 11:A868: D1        .byte $D1
@@ -7950,9 +7790,7 @@ off_A858:
 - D - I - 0x02287B 11:A86B: FB        .byte con_rts
 off_A86C:
 - D - I - 0x02287C 11:A86C: F7        .byte con_F7, $02
-- D - I - 0x02287E 11:A86E: F9        .byte $F9
-- D - I - 0x02287F 11:A86F: 0D        .byte $0D
-- D - I - 0x022880 11:A870: 0C        .byte $0C
+- D - I - 0x02287E 11:A86E: F9        .byte con_delay_soundID, $0D, $0C
 - D - I - 0x022881 11:A871: 10        .byte $10
 - D - I - 0x022882 11:A872: 23        .byte $23
 - D - I - 0x022883 11:A873: DD        .byte $DD
@@ -7963,9 +7801,7 @@ off_A86C:
 - D - I - 0x022889 11:A879: F0        .byte con_F0
 - D - I - 0x02288A 11:A87A: 49        .byte $49
 - D - I - 0x02288B 11:A87B: F7        .byte con_F7, $14
-- D - I - 0x02288D 11:A87D: F9        .byte $F9
-- D - I - 0x02288E 11:A87E: 02        .byte $02
-- D - I - 0x02288F 11:A87F: 0D        .byte $0D
+- D - I - 0x02288D 11:A87D: F9        .byte con_delay_soundID, $02, $0D
 - D - I - 0x022890 11:A880: 1E        .byte $1E
 - D - I - 0x022891 11:A881: F0        .byte con_F0
 - D - I - 0x022892 11:A882: 00        .byte $00
@@ -8007,9 +7843,7 @@ off_A8A0:
 - D - I - 0x0228BA 11:A8AA: FB        .byte con_rts
 off_A8AB:
 - D - I - 0x0228BB 11:A8AB: F7        .byte con_F7, $02
-- D - I - 0x0228BD 11:A8AD: F9        .byte $F9
-- D - I - 0x0228BE 11:A8AE: 0D        .byte $0D
-- D - I - 0x0228BF 11:A8AF: 1F        .byte $1F
+- D - I - 0x0228BD 11:A8AD: F9        .byte con_delay_soundID, $0D, $1F
 - D - I - 0x0228C0 11:A8B0: 12        .byte $12
 - D - I - 0x0228C1 11:A8B1: 23        .byte $23
 - D - I - 0x0228C2 11:A8B2: DD        .byte $DD
@@ -8028,9 +7862,7 @@ off_A8C1:
 - D - I - 0x0228D1 11:A8C1: FA        .byte con_jsr_2
 - D - I - 0x0228D2 11:A8C2: D0 A8     .word off_A8D0
 - D - I - 0x0228D4 11:A8C4: F7        .byte con_F7, $0D
-- D - I - 0x0228D6 11:A8C6: F9        .byte $F9
-- D - I - 0x0228D7 11:A8C7: 02        .byte $02
-- D - I - 0x0228D8 11:A8C8: 26        .byte $26
+- D - I - 0x0228D6 11:A8C6: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x0228D9 11:A8C9: 1E        .byte $1E
 - D - I - 0x0228DA 11:A8CA: 47        .byte $47
 - D - I - 0x0228DB 11:A8CB: D1        .byte $D1
@@ -8039,18 +7871,14 @@ off_A8C1:
 - D - I - 0x0228DE 11:A8CE: EF AA     .word off_AAEF
 off_A8D0:
 - D - I - 0x0228E0 11:A8D0: F7        .byte con_F7, $0D
-- D - I - 0x0228E2 11:A8D2: F9        .byte $F9
-- D - I - 0x0228E3 11:A8D3: 02        .byte $02
-- D - I - 0x0228E4 11:A8D4: 26        .byte $26
+- D - I - 0x0228E2 11:A8D2: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x0228E5 11:A8D5: 28        .byte $28
 - D - I - 0x0228E6 11:A8D6: 47        .byte $47
 - D - I - 0x0228E7 11:A8D7: D0        .byte $D0
 - D - I - 0x0228E8 11:A8D8: 49        .byte $49
 - D - I - 0x0228E9 11:A8D9: F6        .byte con_mirror_toggle
 - D - I - 0x0228EA 11:A8DA: F7        .byte con_F7, $0D
-- D - I - 0x0228EC 11:A8DC: F9        .byte $F9
-- D - I - 0x0228ED 11:A8DD: 02        .byte $02
-- D - I - 0x0228EE 11:A8DE: 26        .byte $26
+- D - I - 0x0228EC 11:A8DC: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x0228EF 11:A8DF: 28        .byte $28
 - D - I - 0x0228F0 11:A8E0: 47        .byte $47
 - D - I - 0x0228F1 11:A8E1: D0        .byte $D0
@@ -8066,25 +7894,19 @@ off_A8E5:
 off_A8EB:
 - D - I - 0x0228FB 11:A8EB: F6        .byte con_mirror_toggle
 - D - I - 0x0228FC 11:A8EC: F7        .byte con_F7, $14
-- D - I - 0x0228FE 11:A8EE: F9        .byte $F9
-- D - I - 0x0228FF 11:A8EF: 02        .byte $02
-- D - I - 0x022900 11:A8F0: 26        .byte $26
+- D - I - 0x0228FE 11:A8EE: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022901 11:A8F1: 17        .byte $17
 - D - I - 0x022902 11:A8F2: 22        .byte $22
 - D - I - 0x022903 11:A8F3: D1        .byte $D1
 - D - I - 0x022904 11:A8F4: C9        .byte $C9
 - D - I - 0x022905 11:A8F5: F7        .byte con_F7, $02
-- D - I - 0x022907 11:A8F7: F9        .byte $F9
-- D - I - 0x022908 11:A8F8: 02        .byte $02
-- D - I - 0x022909 11:A8F9: 26        .byte $26
+- D - I - 0x022907 11:A8F7: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x02290A 11:A8FA: 17        .byte $17
 - D - I - 0x02290B 11:A8FB: F0        .byte con_F0
 - D - I - 0x02290C 11:A8FC: D2        .byte $D2
 - D - I - 0x02290D 11:A8FD: F0        .byte con_F0
 - D - I - 0x02290E 11:A8FE: F7        .byte con_F7, $02
-- D - I - 0x022910 11:A900: F9        .byte $F9
-- D - I - 0x022911 11:A901: 02        .byte $02
-- D - I - 0x022912 11:A902: 26        .byte $26
+- D - I - 0x022910 11:A900: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022913 11:A903: 17        .byte $17
 - D - I - 0x022914 11:A904: F0        .byte con_F0
 - D - I - 0x022915 11:A905: D1        .byte $D1
@@ -8108,17 +7930,13 @@ off_A918:
 - - - - - 0x022928 11:A918: FA        .byte con_jsr_2
 - - - - - 0x022929 11:A919: C7 BB     .word off_BBC7
 - - - - - 0x02292B 11:A91B: F7        .byte con_F7, $02
-- - - - - 0x02292D 11:A91D: F9        .byte $F9
-- - - - - 0x02292E 11:A91E: 02        .byte $02
-- - - - - 0x02292F 11:A91F: 26        .byte $26
+- - - - - 0x02292D 11:A91D: F9        .byte con_delay_soundID, $02, $26
 - - - - - 0x022930 11:A920: 17        .byte $17
 - - - - - 0x022931 11:A921: F0        .byte con_F0
 - - - - - 0x022932 11:A922: D2        .byte $D2
 - - - - - 0x022933 11:A923: 00        .byte $00
 - - - - - 0x022934 11:A924: F7        .byte con_F7, $02
-- - - - - 0x022936 11:A926: F9        .byte $F9
-- - - - - 0x022937 11:A927: 02        .byte $02
-- - - - - 0x022938 11:A928: 26        .byte $26
+- - - - - 0x022936 11:A926: F9        .byte con_delay_soundID, $02, $26
 - - - - - 0x022939 11:A929: 17        .byte $17
 - - - - - 0x02293A 11:A92A: F0        .byte con_F0
 - - - - - 0x02293B 11:A92B: D1        .byte $D1
@@ -8383,9 +8201,7 @@ off_AA4F:
 - D - I - 0x022A64 11:AA54: 60        .byte $60
 - D - I - 0x022A65 11:AA55: 46        .byte $46
 - D - I - 0x022A66 11:AA56: F7        .byte con_F7, $33
-- D - I - 0x022A68 11:AA58: F9        .byte $F9
-- D - I - 0x022A69 11:AA59: 02        .byte $02
-- D - I - 0x022A6A 11:AA5A: 68        .byte $68
+- D - I - 0x022A68 11:AA58: F9        .byte con_delay_soundID, $02, $68
 - D - I - 0x022A6B 11:AA5B: 14        .byte $14
 - D - I - 0x022A6C 11:AA5C: 6B        .byte $6B
 - D - I - 0x022A6D 11:AA5D: F0        .byte con_F0
@@ -8434,9 +8250,7 @@ off_AA7E:
 - - - - - 0x022A98 11:AA88: FB        .byte con_rts
 off_AA89:
 - D - I - 0x022A99 11:AA89: F7        .byte con_F7, $3A
-- D - I - 0x022A9B 11:AA8B: F9        .byte $F9
-- D - I - 0x022A9C 11:AA8C: 02        .byte $02
-- D - I - 0x022A9D 11:AA8D: 27        .byte $27
+- D - I - 0x022A9B 11:AA8B: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x022A9E 11:AA8E: 78        .byte $78
 - D - I - 0x022A9F 11:AA8F: 23        .byte $23
 - D - I - 0x022AA0 11:AA90: D0        .byte $D0
@@ -8478,9 +8292,7 @@ off_AAB7:
 - D - I - 0x022ACD 11:AABD: 23        .byte $23
 - D - I - 0x022ACE 11:AABE: F0        .byte con_F0
 - D - I - 0x022ACF 11:AABF: 00        .byte $00
-- D - I - 0x022AD0 11:AAC0: F9        .byte $F9
-- D - I - 0x022AD1 11:AAC1: 02        .byte $02
-- D - I - 0x022AD2 11:AAC2: 11        .byte $11
+- D - I - 0x022AD0 11:AAC0: F9        .byte con_delay_soundID, $02, $11
 - D - I - 0x022AD3 11:AAC3: F7        .byte con_F7, $02
 - D - I - 0x022AD5 11:AAC5: 46        .byte $46
 - D - I - 0x022AD6 11:AAC6: F0        .byte con_F0
@@ -8512,24 +8324,18 @@ off_AAE3:
 - D - I - 0x022AF3 11:AAE3: FA        .byte con_jsr_2
 - D - I - 0x022AF4 11:AAE4: D0 A8     .word off_A8D0
 - D - I - 0x022AF6 11:AAE6: F7        .byte con_F7, $0D
-- D - I - 0x022AF8 11:AAE8: F9        .byte $F9
-- D - I - 0x022AF9 11:AAE9: 02        .byte $02
-- D - I - 0x022AFA 11:AAEA: 26        .byte $26
+- D - I - 0x022AF8 11:AAE8: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022AFB 11:AAEB: 1E        .byte $1E
 - D - I - 0x022AFC 11:AAEC: 47        .byte $47
 - D - I - 0x022AFD 11:AAED: D1        .byte $D1
 - D - I - 0x022AFE 11:AAEE: 46        .byte $46
 off_AAEF:
-- D - I - 0x022AFF 11:AAEF: F9        .byte $F9
-- D - I - 0x022B00 11:AAF0: 02        .byte $02
-- D - I - 0x022B01 11:AAF1: 26        .byte $26
+- D - I - 0x022AFF 11:AAEF: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022B02 11:AAF2: 1E        .byte $1E
 - D - I - 0x022B03 11:AAF3: F0        .byte con_F0
 - D - I - 0x022B04 11:AAF4: D2        .byte $D2
 - D - I - 0x022B05 11:AAF5: F0        .byte con_F0
-- D - I - 0x022B06 11:AAF6: F9        .byte $F9
-- D - I - 0x022B07 11:AAF7: 02        .byte $02
-- D - I - 0x022B08 11:AAF8: 26        .byte $26
+- D - I - 0x022B06 11:AAF6: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022B09 11:AAF9: 1E        .byte $1E
 - D - I - 0x022B0A 11:AAFA: F0        .byte con_F0
 - D - I - 0x022B0B 11:AAFB: D1        .byte $D1
@@ -8544,34 +8350,26 @@ off_AAFF:
 - - - - - 0x022B14 11:AB04: E5 A8     .word off_A8E5
 off_AB06:
 - - - - - 0x022B16 11:AB06: F7        .byte con_F7, $02
-- - - - - 0x022B18 11:AB08: F9        .byte $F9
-- - - - - 0x022B19 11:AB09: 02        .byte $02
-- - - - - 0x022B1A 11:AB0A: 26        .byte $26
+- - - - - 0x022B18 11:AB08: F9        .byte con_delay_soundID, $02, $26
 - - - - - 0x022B1B 11:AB0B: 17        .byte $17
 - - - - - 0x022B1C 11:AB0C: F0        .byte con_F0
 - - - - - 0x022B1D 11:AB0D: D2        .byte $D2
 - - - - - 0x022B1E 11:AB0E: 00        .byte $00
 - - - - - 0x022B1F 11:AB0F: F7        .byte con_F7, $02
-- - - - - 0x022B21 11:AB11: F9        .byte $F9
-- - - - - 0x022B22 11:AB12: 02        .byte $02
-- - - - - 0x022B23 11:AB13: 26        .byte $26
+- - - - - 0x022B21 11:AB11: F9        .byte con_delay_soundID, $02, $26
 - - - - - 0x022B24 11:AB14: 17        .byte $17
 - - - - - 0x022B25 11:AB15: F0        .byte con_F0
 - - - - - 0x022B26 11:AB16: D1        .byte $D1
 - - - - - 0x022B27 11:AB17: 46        .byte $46
 off_AB18:
 - - - - - 0x022B28 11:AB18: F7        .byte con_F7, $02
-- - - - - 0x022B2A 11:AB1A: F9        .byte $F9
-- - - - - 0x022B2B 11:AB1B: 02        .byte $02
-- - - - - 0x022B2C 11:AB1C: 26        .byte $26
+- - - - - 0x022B2A 11:AB1A: F9        .byte con_delay_soundID, $02, $26
 - - - - - 0x022B2D 11:AB1D: 17        .byte $17
 - - - - - 0x022B2E 11:AB1E: F0        .byte con_F0
 - - - - - 0x022B2F 11:AB1F: D2        .byte $D2
 - - - - - 0x022B30 11:AB20: F0        .byte con_F0
 - - - - - 0x022B31 11:AB21: F7        .byte con_F7, $02
-- - - - - 0x022B33 11:AB23: F9        .byte $F9
-- - - - - 0x022B34 11:AB24: 02        .byte $02
-- - - - - 0x022B35 11:AB25: 26        .byte $26
+- - - - - 0x022B33 11:AB23: F9        .byte con_delay_soundID, $02, $26
 - - - - - 0x022B36 11:AB26: 17        .byte $17
 - - - - - 0x022B37 11:AB27: F0        .byte con_F0
 - - - - - 0x022B38 11:AB28: D1        .byte $D1
@@ -8583,27 +8381,21 @@ off_AB18:
 - - - - - 0x022B3F 11:AB2F: 06 AB     .word off_AB06
 off_AB31:
 - D - I - 0x022B41 11:AB31: F5        .byte con_mirror_off
-- D - I - 0x022B42 11:AB32: F9        .byte $F9
-- D - I - 0x022B43 11:AB33: 02        .byte $02
-- D - I - 0x022B44 11:AB34: 19        .byte $19
+- D - I - 0x022B42 11:AB32: F9        .byte con_delay_soundID, $02, $19
 - D - I - 0x022B45 11:AB35: 28        .byte $28
 - D - I - 0x022B46 11:AB36: 01        .byte $01
 - D - I - 0x022B47 11:AB37: 61        .byte $61
 - D - I - 0x022B48 11:AB38: 47        .byte $47
 off_AB39:
 - D - I - 0x022B49 11:AB39: F7        .byte con_F7, $0B
-- D - I - 0x022B4B 11:AB3B: F9        .byte $F9
-- D - I - 0x022B4C 11:AB3C: 02        .byte $02
-- D - I - 0x022B4D 11:AB3D: 12        .byte $12
+- D - I - 0x022B4B 11:AB3B: F9        .byte con_delay_soundID, $02, $12
 - D - I - 0x022B4E 11:AB3E: 14        .byte $14
 - D - I - 0x022B4F 11:AB3F: 10        .byte $10
 - D - I - 0x022B50 11:AB40: 62        .byte $62
 - D - I - 0x022B51 11:AB41: F0        .byte con_F0
 off_AB42:
 - D - I - 0x022B52 11:AB42: F7        .byte con_F7, $02
-- D - I - 0x022B54 11:AB44: F9        .byte $F9
-- D - I - 0x022B55 11:AB45: 02        .byte $02
-- D - I - 0x022B56 11:AB46: 03        .byte $03
+- D - I - 0x022B54 11:AB44: F9        .byte con_delay_soundID, $02, $03
 - D - I - 0x022B57 11:AB47: 22        .byte $22
 - D - I - 0x022B58 11:AB48: 25        .byte $25
 - D - I - 0x022B59 11:AB49: 63        .byte $63
@@ -8621,9 +8413,7 @@ off_AB4C:
 - D - I - 0x022B65 11:AB55: FA        .byte con_jsr_2
 - D - I - 0x022B66 11:AB56: C7 BB     .word off_BBC7
 off_AB58:
-- D - I - 0x022B68 11:AB58: F9        .byte $F9
-- D - I - 0x022B69 11:AB59: 02        .byte $02
-- D - I - 0x022B6A 11:AB5A: 16        .byte $16
+- D - I - 0x022B68 11:AB58: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022B6B 11:AB5B: 28        .byte $28
 - D - I - 0x022B6C 11:AB5C: 4A        .byte $4A
 - D - I - 0x022B6D 11:AB5D: 8E        .byte $8E
@@ -8631,9 +8421,7 @@ off_AB58:
 - D - I - 0x022B6F 11:AB5F: FA        .byte con_jsr_2
 - D - I - 0x022B70 11:AB60: 7C AB     .word off_AB7C
 - D - I - 0x022B72 11:AB62: F7        .byte con_F7, $02
-- D - I - 0x022B74 11:AB64: F9        .byte $F9
-- D - I - 0x022B75 11:AB65: 02        .byte $02
-- D - I - 0x022B76 11:AB66: 04        .byte $04
+- D - I - 0x022B74 11:AB64: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x022B77 11:AB67: 20        .byte $20
 - D - I - 0x022B78 11:AB68: 25        .byte $25
 - D - I - 0x022B79 11:AB69: 63        .byte $63
@@ -8655,9 +8443,7 @@ off_AB6B:
 - D - I - 0x022B8A 11:AB7A: 58 AB     .word off_AB58
 off_AB7C:
 - D - I - 0x022B8C 11:AB7C: F7        .byte con_F7, $04
-- D - I - 0x022B8E 11:AB7E: F9        .byte $F9
-- D - I - 0x022B8F 11:AB7F: 10        .byte $10
-- D - I - 0x022B90 11:AB80: 13        .byte $13
+- D - I - 0x022B8E 11:AB7E: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022B91 11:AB81: 10        .byte $10
 - D - I - 0x022B92 11:AB82: 41        .byte $41
 - D - I - 0x022B93 11:AB83: 8C        .byte $8C
@@ -8665,9 +8451,7 @@ off_AB7C:
 - D - I - 0x022B95 11:AB85: FB        .byte con_rts
 off_AB86:
 - D - I - 0x022B96 11:AB86: F7        .byte con_F7, $04
-- D - I - 0x022B98 11:AB88: F9        .byte $F9
-- D - I - 0x022B99 11:AB89: 10        .byte $10
-- D - I - 0x022B9A 11:AB8A: 13        .byte $13
+- D - I - 0x022B98 11:AB88: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022B9B 11:AB8B: 10        .byte $10
 - D - I - 0x022B9C 11:AB8C: 41        .byte $41
 - D - I - 0x022B9D 11:AB8D: 8C        .byte $8C
@@ -8675,9 +8459,7 @@ off_AB86:
 - D - I - 0x022B9F 11:AB8F: FB        .byte con_rts
 off_AB90:
 - D - I - 0x022BA0 11:AB90: F7        .byte con_F7, $04
-- D - I - 0x022BA2 11:AB92: F9        .byte $F9
-- D - I - 0x022BA3 11:AB93: 10        .byte $10
-- D - I - 0x022BA4 11:AB94: 13        .byte $13
+- D - I - 0x022BA2 11:AB92: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022BA5 11:AB95: 10        .byte $10
 - D - I - 0x022BA6 11:AB96: 41        .byte $41
 - D - I - 0x022BA7 11:AB97: 8C        .byte $8C
@@ -8685,9 +8467,7 @@ off_AB90:
 - D - I - 0x022BA9 11:AB99: FB        .byte con_rts
 off_AB9A:
 - D - I - 0x022BAA 11:AB9A: F7        .byte con_F7, $04
-- D - I - 0x022BAC 11:AB9C: F9        .byte $F9
-- D - I - 0x022BAD 11:AB9D: 10        .byte $10
-- D - I - 0x022BAE 11:AB9E: 13        .byte $13
+- D - I - 0x022BAC 11:AB9C: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022BAF 11:AB9F: 10        .byte $10
 - D - I - 0x022BB0 11:ABA0: 41        .byte $41
 - D - I - 0x022BB1 11:ABA1: 8C        .byte $8C
@@ -8695,9 +8475,7 @@ off_AB9A:
 - D - I - 0x022BB3 11:ABA3: FB        .byte con_rts
 off_ABA4:
 - D - I - 0x022BB4 11:ABA4: F7        .byte con_F7, $04
-- D - I - 0x022BB6 11:ABA6: F9        .byte $F9
-- D - I - 0x022BB7 11:ABA7: 10        .byte $10
-- D - I - 0x022BB8 11:ABA8: 13        .byte $13
+- D - I - 0x022BB6 11:ABA6: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022BB9 11:ABA9: 10        .byte $10
 - D - I - 0x022BBA 11:ABAA: 41        .byte $41
 - D - I - 0x022BBB 11:ABAB: 8C        .byte $8C
@@ -8705,9 +8483,7 @@ off_ABA4:
 - D - I - 0x022BBD 11:ABAD: FB        .byte con_rts
 off_ABAE:
 - D - I - 0x022BBE 11:ABAE: F7        .byte con_F7, $04
-- D - I - 0x022BC0 11:ABB0: F9        .byte $F9
-- D - I - 0x022BC1 11:ABB1: 10        .byte $10
-- D - I - 0x022BC2 11:ABB2: 13        .byte $13
+- D - I - 0x022BC0 11:ABB0: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022BC3 11:ABB3: 10        .byte $10
 - D - I - 0x022BC4 11:ABB4: 41        .byte $41
 - D - I - 0x022BC5 11:ABB5: 8C        .byte $8C
@@ -8719,9 +8495,7 @@ off_ABB8:
 - D - I - 0x022BCA 11:ABBA: 61        .byte $61
 - D - I - 0x022BCB 11:ABBB: 49        .byte $49
 - D - I - 0x022BCC 11:ABBC: F7        .byte con_F7, $04
-- D - I - 0x022BCE 11:ABBE: F9        .byte $F9
-- D - I - 0x022BCF 11:ABBF: 02        .byte $02
-- D - I - 0x022BD0 11:ABC0: 18        .byte $18
+- D - I - 0x022BCE 11:ABBE: F9        .byte con_delay_soundID, $02, $18
 - D - I - 0x022BD1 11:ABC1: 14        .byte $14
 - D - I - 0x022BD2 11:ABC2: 05        .byte $05
 - D - I - 0x022BD3 11:ABC3: F0        .byte con_F0
@@ -8748,9 +8522,7 @@ off_ABD4:
 - D - I - 0x022BEA 11:ABDA: FA        .byte con_jsr_2
 - D - I - 0x022BEB 11:ABDB: 86 AB     .word off_AB86
 - D - I - 0x022BED 11:ABDD: F7        .byte con_F7, $02
-- D - I - 0x022BEF 11:ABDF: F9        .byte $F9
-- D - I - 0x022BF0 11:ABE0: 02        .byte $02
-- D - I - 0x022BF1 11:ABE1: 06        .byte $06
+- D - I - 0x022BEF 11:ABDF: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022BF2 11:ABE2: 20        .byte $20
 - D - I - 0x022BF3 11:ABE3: 25        .byte $25
 - D - I - 0x022BF4 11:ABE4: 63        .byte $63
@@ -8773,17 +8545,13 @@ off_ABF0:
 - D - I - 0x022C07 11:ABF7: A3        .byte $A3
 off_ABF8:
 - D - I - 0x022C08 11:ABF8: F7        .byte con_F7, $0D
-- D - I - 0x022C0A 11:ABFA: F9        .byte $F9
-- D - I - 0x022C0B 11:ABFB: 02        .byte $02
-- D - I - 0x022C0C 11:ABFC: 17        .byte $17
+- D - I - 0x022C0A 11:ABFA: F9        .byte con_delay_soundID, $02, $17
 - D - I - 0x022C0D 11:ABFD: 3C        .byte $3C
 - D - I - 0x022C0E 11:ABFE: 6A        .byte $6A
 - D - I - 0x022C0F 11:ABFF: 9D        .byte $9D
 - D - I - 0x022C10 11:AC00: 49        .byte $49
 - D - I - 0x022C11 11:AC01: F7        .byte con_F7, $15
-- D - I - 0x022C13 11:AC03: F9        .byte $F9
-- D - I - 0x022C14 11:AC04: 09        .byte $09
-- D - I - 0x022C15 11:AC05: 1D        .byte $1D
+- D - I - 0x022C13 11:AC03: F9        .byte con_delay_soundID, $09, $1D
 - D - I - 0x022C16 11:AC06: 20        .byte $20
 - D - I - 0x022C17 11:AC07: 05        .byte $05
 - D - I - 0x022C18 11:AC08: CE        .byte $CE
@@ -8794,9 +8562,7 @@ off_ABF8:
 - D - I - 0x022C1E 11:AC0E: 00        .byte $00
 - D - I - 0x022C1F 11:AC0F: F0        .byte con_F0
 - D - I - 0x022C20 11:AC10: F7        .byte con_F7, $02
-- D - I - 0x022C22 11:AC12: F9        .byte $F9
-- D - I - 0x022C23 11:AC13: 02        .byte $02
-- D - I - 0x022C24 11:AC14: 06        .byte $06
+- D - I - 0x022C22 11:AC12: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022C25 11:AC15: 20        .byte $20
 - D - I - 0x022C26 11:AC16: 25        .byte $25
 - D - I - 0x022C27 11:AC17: 63        .byte $63
@@ -8821,9 +8587,7 @@ off_AC2B:
 - D - I - 0x022C3B 11:AC2B: FA        .byte con_jsr_2
 - D - I - 0x022C3C 11:AC2C: C7 BB     .word off_BBC7
 - D - I - 0x022C3E 11:AC2E: F7        .byte con_F7, $19
-- D - I - 0x022C40 11:AC30: F9        .byte $F9
-- D - I - 0x022C41 11:AC31: 02        .byte $02
-- D - I - 0x022C42 11:AC32: 15        .byte $15
+- D - I - 0x022C40 11:AC30: F9        .byte con_delay_soundID, $02, $15
 - D - I - 0x022C43 11:AC33: 28        .byte $28
 - D - I - 0x022C44 11:AC34: 49        .byte $49
 - D - I - 0x022C45 11:AC35: 8E        .byte $8E
@@ -8831,9 +8595,7 @@ off_AC2B:
 - D - I - 0x022C47 11:AC37: FA        .byte con_jsr_2
 - D - I - 0x022C48 11:AC38: 9A AB     .word off_AB9A
 - D - I - 0x022C4A 11:AC3A: F7        .byte con_F7, $02
-- D - I - 0x022C4C 11:AC3C: F9        .byte $F9
-- D - I - 0x022C4D 11:AC3D: 02        .byte $02
-- D - I - 0x022C4E 11:AC3E: 06        .byte $06
+- D - I - 0x022C4C 11:AC3C: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022C4F 11:AC3F: 20        .byte $20
 - D - I - 0x022C50 11:AC40: 25        .byte $25
 - D - I - 0x022C51 11:AC41: 63        .byte $63
@@ -8860,9 +8622,7 @@ off_AC55:
 - D - I - 0x022C68 11:AC58: FA        .byte con_jsr_2
 - D - I - 0x022C69 11:AC59: A4 AB     .word off_ABA4
 - D - I - 0x022C6B 11:AC5B: F7        .byte con_F7, $02
-- D - I - 0x022C6D 11:AC5D: F9        .byte $F9
-- D - I - 0x022C6E 11:AC5E: 02        .byte $02
-- D - I - 0x022C6F 11:AC5F: 06        .byte $06
+- D - I - 0x022C6D 11:AC5D: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022C70 11:AC60: 20        .byte $20
 - D - I - 0x022C71 11:AC61: 25        .byte $25
 - D - I - 0x022C72 11:AC62: 63        .byte $63
@@ -8891,26 +8651,20 @@ off_AC7A:
 - D - I - 0x022C8B 11:AC7B: F0        .byte con_F0
 - D - I - 0x022C8C 11:AC7C: F0        .byte con_F0
 - D - I - 0x022C8D 11:AC7D: 00        .byte $00
-- D - I - 0x022C8E 11:AC7E: F9        .byte $F9
-- D - I - 0x022C8F 11:AC7F: 02        .byte $02
-- D - I - 0x022C90 11:AC80: 16        .byte $16
+- D - I - 0x022C8E 11:AC7E: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022C91 11:AC81: F7        .byte con_F7, $1B
 - D - I - 0x022C93 11:AC83: 28        .byte $28
 - D - I - 0x022C94 11:AC84: 4A        .byte $4A
 - D - I - 0x022C95 11:AC85: 8E        .byte $8E
 - D - I - 0x022C96 11:AC86: 49        .byte $49
 - D - I - 0x022C97 11:AC87: F7        .byte con_F7, $04
-- D - I - 0x022C99 11:AC89: F9        .byte $F9
-- D - I - 0x022C9A 11:AC8A: 02        .byte $02
-- D - I - 0x022C9B 11:AC8B: 13        .byte $13
+- D - I - 0x022C99 11:AC89: F9        .byte con_delay_soundID, $02, $13
 - D - I - 0x022C9C 11:AC8C: 1E        .byte $1E
 - D - I - 0x022C9D 11:AC8D: 41        .byte $41
 - D - I - 0x022C9E 11:AC8E: 8C        .byte $8C
 - D - I - 0x022C9F 11:AC8F: 6A        .byte $6A
 - D - I - 0x022CA0 11:AC90: F7        .byte con_F7, $02
-- D - I - 0x022CA2 11:AC92: F9        .byte $F9
-- D - I - 0x022CA3 11:AC93: 02        .byte $02
-- D - I - 0x022CA4 11:AC94: 06        .byte $06
+- D - I - 0x022CA2 11:AC92: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022CA5 11:AC95: 20        .byte $20
 - D - I - 0x022CA6 11:AC96: 25        .byte $25
 - D - I - 0x022CA7 11:AC97: 63        .byte $63
@@ -8953,27 +8707,21 @@ off_ACB9:
 - D - I - 0x022CD4 11:ACC4: 55        .byte $55
 - D - I - 0x022CD5 11:ACC5: 9E        .byte $9E
 - D - I - 0x022CD6 11:ACC6: B7        .byte $B7
-- D - I - 0x022CD7 11:ACC7: F9        .byte $F9
-- D - I - 0x022CD8 11:ACC8: 02        .byte $02
-- D - I - 0x022CD9 11:ACC9: 26        .byte $26
+- D - I - 0x022CD7 11:ACC7: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022CDA 11:ACCA: F7        .byte con_F7, $02
 - D - I - 0x022CDC 11:ACCC: 1E        .byte $1E
 - D - I - 0x022CDD 11:ACCD: 23        .byte $23
 - D - I - 0x022CDE 11:ACCE: 6B        .byte $6B
 - D - I - 0x022CDF 11:ACCF: 00        .byte $00
 - D - I - 0x022CE0 11:ACD0: F6        .byte con_mirror_toggle
-- D - I - 0x022CE1 11:ACD1: F9        .byte $F9
-- D - I - 0x022CE2 11:ACD2: 02        .byte $02
-- D - I - 0x022CE3 11:ACD3: 26        .byte $26
+- D - I - 0x022CE1 11:ACD1: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022CE4 11:ACD4: F7        .byte con_F7, $02
 - D - I - 0x022CE6 11:ACD6: 1E        .byte $1E
 - D - I - 0x022CE7 11:ACD7: 22        .byte $22
 - D - I - 0x022CE8 11:ACD8: E7        .byte $E7
 - D - I - 0x022CE9 11:ACD9: F0        .byte con_F0
 - D - I - 0x022CEA 11:ACDA: F7        .byte con_F7, $10
-- D - I - 0x022CEC 11:ACDC: F9        .byte $F9
-- D - I - 0x022CED 11:ACDD: 11        .byte $11
-- D - I - 0x022CEE 11:ACDE: 30        .byte $30
+- D - I - 0x022CEC 11:ACDC: F9        .byte con_delay_soundID, $11, $30
 - D - I - 0x022CEF 11:ACDF: 14        .byte $14
 - D - I - 0x022CF0 11:ACE0: 05        .byte $05
 - D - I - 0x022CF1 11:ACE1: 00        .byte $00
@@ -8984,9 +8732,7 @@ off_ACB9:
 - D - I - 0x022CF7 11:ACE7: D7        .byte $D7
 - D - I - 0x022CF8 11:ACE8: F0        .byte con_F0
 - D - I - 0x022CF9 11:ACE9: F7        .byte con_F7, $23
-- D - I - 0x022CFB 11:ACEB: F9        .byte $F9
-- D - I - 0x022CFC 11:ACEC: 02        .byte $02
-- D - I - 0x022CFD 11:ACED: 0A        .byte $0A
+- D - I - 0x022CFB 11:ACEB: F9        .byte con_delay_soundID, $02, $0A
 - D - I - 0x022CFE 11:ACEE: 3C        .byte $3C
 - D - I - 0x022CFF 11:ACEF: 27        .byte $27
 - D - I - 0x022D00 11:ACF0: DC        .byte $DC
@@ -9005,9 +8751,7 @@ off_ACB9:
 - D - I - 0x022D11 11:AD01: 9E        .byte $9E
 - D - I - 0x022D12 11:AD02: B8        .byte $B8
 - D - I - 0x022D13 11:AD03: F6        .byte con_mirror_toggle
-- D - I - 0x022D14 11:AD04: F9        .byte $F9
-- D - I - 0x022D15 11:AD05: 02        .byte $02
-- D - I - 0x022D16 11:AD06: 08        .byte $08
+- D - I - 0x022D14 11:AD04: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x022D17 11:AD07: 41        .byte $41
 - D - I - 0x022D18 11:AD08: 1D        .byte $1D
 - D - I - 0x022D19 11:AD09: 1F        .byte $1F
@@ -9021,9 +8765,7 @@ off_AD0C:
 - D - I - 0x022D21 11:AD11: A7 B0     .word off_B0A7
 off_AD13:
 - D - I - 0x022D23 11:AD13: F7        .byte con_F7, $10
-- D - I - 0x022D25 11:AD15: F9        .byte $F9
-- D - I - 0x022D26 11:AD16: 02        .byte $02
-- D - I - 0x022D27 11:AD17: 12        .byte $12
+- D - I - 0x022D25 11:AD15: F9        .byte con_delay_soundID, $02, $12
 - D - I - 0x022D28 11:AD18: 14        .byte $14
 - D - I - 0x022D29 11:AD19: 10        .byte $10
 - D - I - 0x022D2A 11:AD1A: 62        .byte $62
@@ -9042,25 +8784,19 @@ off_AD25:
 - D - I - 0x022D36 11:AD26: B8 AB     .word off_ABB8
 - D - I - 0x022D38 11:AD28: FA        .byte con_jsr_2
 - D - I - 0x022D39 11:AD29: AE AB     .word off_ABAE
-- D - I - 0x022D3B 11:AD2B: F9        .byte $F9
-- D - I - 0x022D3C 11:AD2C: 02        .byte $02
-- D - I - 0x022D3D 11:AD2D: 0E        .byte $0E
+- D - I - 0x022D3B 11:AD2B: F9        .byte con_delay_soundID, $02, $0E
 - D - I - 0x022D3E 11:AD2E: 30        .byte $30
 - D - I - 0x022D3F 11:AD2F: 62        .byte $62
 - D - I - 0x022D40 11:AD30: 40        .byte $40
 - D - I - 0x022D41 11:AD31: 00        .byte $00
 - D - I - 0x022D42 11:AD32: F7        .byte con_F7, $3D
-- D - I - 0x022D44 11:AD34: F9        .byte $F9
-- D - I - 0x022D45 11:AD35: 02        .byte $02
-- D - I - 0x022D46 11:AD36: 25        .byte $25
+- D - I - 0x022D44 11:AD34: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022D47 11:AD37: 28        .byte $28
 - D - I - 0x022D48 11:AD38: 1F        .byte $1F
 - D - I - 0x022D49 11:AD39: 71        .byte $71
 - D - I - 0x022D4A 11:AD3A: 49        .byte $49
 - D - I - 0x022D4B 11:AD3B: F7        .byte con_F7, $3D
-- D - I - 0x022D4D 11:AD3D: F9        .byte $F9
-- D - I - 0x022D4E 11:AD3E: 21        .byte $21
-- D - I - 0x022D4F 11:AD3F: 1B        .byte $1B
+- D - I - 0x022D4D 11:AD3D: F9        .byte con_delay_soundID, $21, $1B
 - D - I - 0x022D50 11:AD40: 46        .byte $46
 - D - I - 0x022D51 11:AD41: 51        .byte $51
 - D - I - 0x022D52 11:AD42: E8        .byte $E8
@@ -9078,9 +8814,7 @@ off_AD4C:
 - D - I - 0x022D5F 11:AD4F: FA        .byte con_jsr_2
 - D - I - 0x022D60 11:AD50: AE AB     .word off_ABAE
 - D - I - 0x022D62 11:AD52: F7        .byte con_F7, $02
-- D - I - 0x022D64 11:AD54: F9        .byte $F9
-- D - I - 0x022D65 11:AD55: 02        .byte $02
-- D - I - 0x022D66 11:AD56: 06        .byte $06
+- D - I - 0x022D64 11:AD54: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022D67 11:AD57: 20        .byte $20
 - D - I - 0x022D68 11:AD58: 25        .byte $25
 - D - I - 0x022D69 11:AD59: 63        .byte $63
@@ -9099,18 +8833,14 @@ off_AD5E:
 - D - I - 0x022D7A 11:AD6A: C8        .byte $C8
 - D - I - 0x022D7B 11:AD6B: 00        .byte $00
 - D - I - 0x022D7C 11:AD6C: F7        .byte con_F7, $29
-- D - I - 0x022D7E 11:AD6E: F9        .byte $F9
-- D - I - 0x022D7F 11:AD6F: 02        .byte $02
-- D - I - 0x022D80 11:AD70: 14        .byte $14
+- D - I - 0x022D7E 11:AD6E: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x022D81 11:AD71: 1E        .byte $1E
 - D - I - 0x022D82 11:AD72: 47        .byte $47
 - D - I - 0x022D83 11:AD73: E9        .byte $E9
 - D - I - 0x022D84 11:AD74: 04        .byte $04
 - D - I - 0x022D85 11:AD75: F7        .byte con_F7, $3E
 - D - I - 0x022D87 11:AD77: FC        .byte con_FC, $02
-- D - I - 0x022D89 11:AD79: F9        .byte $F9
-- D - I - 0x022D8A 11:AD7A: 02        .byte $02
-- D - I - 0x022D8B 11:AD7B: 0B        .byte $0B
+- D - I - 0x022D89 11:AD79: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x022D8C 11:AD7C: 28        .byte $28
 - D - I - 0x022D8D 11:AD7D: 58        .byte $58
 - D - I - 0x022D8E 11:AD7E: C5        .byte $C5
@@ -9128,9 +8858,7 @@ off_AD89:
 - D - I - 0x022D99 11:AD89: FA        .byte con_jsr_2
 - D - I - 0x022D9A 11:AD8A: C7 BB     .word off_BBC7
 - D - I - 0x022D9C 11:AD8C: F7        .byte con_F7, $26
-- D - I - 0x022D9E 11:AD8E: F9        .byte $F9
-- D - I - 0x022D9F 11:AD8F: 02        .byte $02
-- D - I - 0x022DA0 11:AD90: 15        .byte $15
+- D - I - 0x022D9E 11:AD8E: F9        .byte con_delay_soundID, $02, $15
 - D - I - 0x022DA1 11:AD91: 28        .byte $28
 - D - I - 0x022DA2 11:AD92: 49        .byte $49
 - D - I - 0x022DA3 11:AD93: 8E        .byte $8E
@@ -9138,9 +8866,7 @@ off_AD89:
 - D - I - 0x022DA5 11:AD95: FA        .byte con_jsr_2
 - D - I - 0x022DA6 11:AD96: 9A AB     .word off_AB9A
 - D - I - 0x022DA8 11:AD98: F7        .byte con_F7, $02
-- D - I - 0x022DAA 11:AD9A: F9        .byte $F9
-- D - I - 0x022DAB 11:AD9B: 02        .byte $02
-- D - I - 0x022DAC 11:AD9C: 06        .byte $06
+- D - I - 0x022DAA 11:AD9A: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022DAD 11:AD9D: 20        .byte $20
 - D - I - 0x022DAE 11:AD9E: 25        .byte $25
 - D - I - 0x022DAF 11:AD9F: 63        .byte $63
@@ -9161,9 +8887,7 @@ off_ADAB:
 - D - I - 0x022DBF 11:ADAF: FA        .byte con_jsr_2
 - D - I - 0x022DC0 11:ADB0: C7 BB     .word off_BBC7
 - D - I - 0x022DC2 11:ADB2: F7        .byte con_F7, $0D
-- D - I - 0x022DC4 11:ADB4: F9        .byte $F9
-- D - I - 0x022DC5 11:ADB5: 02        .byte $02
-- D - I - 0x022DC6 11:ADB6: 16        .byte $16
+- D - I - 0x022DC4 11:ADB4: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022DC7 11:ADB7: 28        .byte $28
 - D - I - 0x022DC8 11:ADB8: 4A        .byte $4A
 - D - I - 0x022DC9 11:ADB9: 8E        .byte $8E
@@ -9171,9 +8895,7 @@ off_ADAB:
 - D - I - 0x022DCB 11:ADBB: FA        .byte con_jsr_2
 - D - I - 0x022DCC 11:ADBC: A4 AB     .word off_ABA4
 - D - I - 0x022DCE 11:ADBE: F7        .byte con_F7, $02
-- D - I - 0x022DD0 11:ADC0: F9        .byte $F9
-- D - I - 0x022DD1 11:ADC1: 02        .byte $02
-- D - I - 0x022DD2 11:ADC2: 0B        .byte $0B
+- D - I - 0x022DD0 11:ADC0: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x022DD3 11:ADC3: 20        .byte $20
 - D - I - 0x022DD4 11:ADC4: 25        .byte $25
 - D - I - 0x022DD5 11:ADC5: 63        .byte $63
@@ -9186,9 +8908,7 @@ off_ADCA:
 - D - I - 0x022DDD 11:ADCD: FA        .byte con_jsr_2
 - D - I - 0x022DDE 11:ADCE: 86 AB     .word off_AB86
 - D - I - 0x022DE0 11:ADD0: F7        .byte con_F7, $02
-- D - I - 0x022DE2 11:ADD2: F9        .byte $F9
-- D - I - 0x022DE3 11:ADD3: 02        .byte $02
-- D - I - 0x022DE4 11:ADD4: 08        .byte $08
+- D - I - 0x022DE2 11:ADD2: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x022DE5 11:ADD5: 20        .byte $20
 - D - I - 0x022DE6 11:ADD6: 25        .byte $25
 - D - I - 0x022DE7 11:ADD7: 63        .byte $63
@@ -9202,9 +8922,7 @@ off_ADDC:
 - D - I - 0x022DEF 11:ADDF: BC        .byte $BC
 - D - I - 0x022DF0 11:ADE0: FA        .byte con_jsr_2
 - D - I - 0x022DF1 11:ADE1: C7 BB     .word off_BBC7
-- D - I - 0x022DF3 11:ADE3: F9        .byte $F9
-- D - I - 0x022DF4 11:ADE4: 02        .byte $02
-- D - I - 0x022DF5 11:ADE5: 17        .byte $17
+- D - I - 0x022DF3 11:ADE3: F9        .byte con_delay_soundID, $02, $17
 - D - I - 0x022DF6 11:ADE6: 3C        .byte $3C
 - D - I - 0x022DF7 11:ADE7: 6A        .byte $6A
 - D - I - 0x022DF8 11:ADE8: 9D        .byte $9D
@@ -9212,9 +8930,7 @@ off_ADDC:
 - D - I - 0x022DFA 11:ADEA: FA        .byte con_jsr_2
 - D - I - 0x022DFB 11:ADEB: 90 AB     .word off_AB90
 - D - I - 0x022DFD 11:ADED: F7        .byte con_F7, $02
-- D - I - 0x022DFF 11:ADEF: F9        .byte $F9
-- D - I - 0x022E00 11:ADF0: 02        .byte $02
-- D - I - 0x022E01 11:ADF1: 0B        .byte $0B
+- D - I - 0x022DFF 11:ADEF: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x022E02 11:ADF2: 28        .byte $28
 - D - I - 0x022E03 11:ADF3: 25        .byte $25
 - D - I - 0x022E04 11:ADF4: 63        .byte $63
@@ -9231,9 +8947,7 @@ off_ADF9:
 - D - I - 0x022E10 11:AE00: FA        .byte con_jsr_2
 - D - I - 0x022E11 11:AE01: AE AB     .word off_ABAE
 - D - I - 0x022E13 11:AE03: F7        .byte con_F7, $02
-- D - I - 0x022E15 11:AE05: F9        .byte $F9
-- D - I - 0x022E16 11:AE06: 02        .byte $02
-- D - I - 0x022E17 11:AE07: 06        .byte $06
+- D - I - 0x022E15 11:AE05: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022E18 11:AE08: 28        .byte $28
 - D - I - 0x022E19 11:AE09: 25        .byte $25
 - D - I - 0x022E1A 11:AE0A: 63        .byte $63
@@ -9248,25 +8962,19 @@ off_AE0F:
 - D - I - 0x022E23 11:AE13: FA        .byte con_jsr_2
 - D - I - 0x022E24 11:AE14: C7 BB     .word off_BBC7
 - D - I - 0x022E26 11:AE16: F7        .byte con_F7, $1D
-- D - I - 0x022E28 11:AE18: F9        .byte $F9
-- D - I - 0x022E29 11:AE19: 02        .byte $02
-- D - I - 0x022E2A 11:AE1A: 16        .byte $16
+- D - I - 0x022E28 11:AE18: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022E2B 11:AE1B: 28        .byte $28
 - D - I - 0x022E2C 11:AE1C: 4A        .byte $4A
 - D - I - 0x022E2D 11:AE1D: 8E        .byte $8E
 - D - I - 0x022E2E 11:AE1E: 49        .byte $49
 - D - I - 0x022E2F 11:AE1F: F7        .byte con_F7, $04
-- D - I - 0x022E31 11:AE21: F9        .byte $F9
-- D - I - 0x022E32 11:AE22: 10        .byte $10
-- D - I - 0x022E33 11:AE23: 13        .byte $13
+- D - I - 0x022E31 11:AE21: F9        .byte con_delay_soundID, $10, $13
 - D - I - 0x022E34 11:AE24: 10        .byte $10
 - D - I - 0x022E35 11:AE25: 41        .byte $41
 - D - I - 0x022E36 11:AE26: 8C        .byte $8C
 - D - I - 0x022E37 11:AE27: 6C        .byte $6C
 - D - I - 0x022E38 11:AE28: F7        .byte con_F7, $02
-- D - I - 0x022E3A 11:AE2A: F9        .byte $F9
-- D - I - 0x022E3B 11:AE2B: 02        .byte $02
-- D - I - 0x022E3C 11:AE2C: 0B        .byte $0B
+- D - I - 0x022E3A 11:AE2A: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x022E3D 11:AE2D: 28        .byte $28
 - D - I - 0x022E3E 11:AE2E: 25        .byte $25
 - D - I - 0x022E3F 11:AE2F: 63        .byte $63
@@ -9275,9 +8983,7 @@ off_AE0F:
 - D - I - 0x022E42 11:AE32: 6B AB     .word off_AB6B
 off_AE34:
 - D - I - 0x022E44 11:AE34: F7        .byte con_F7, $31
-- D - I - 0x022E46 11:AE36: F9        .byte $F9
-- D - I - 0x022E47 11:AE37: 02        .byte $02
-- D - I - 0x022E48 11:AE38: 16        .byte $16
+- D - I - 0x022E46 11:AE36: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022E49 11:AE39: 28        .byte $28
 - D - I - 0x022E4A 11:AE3A: 4A        .byte $4A
 - D - I - 0x022E4B 11:AE3B: 8E        .byte $8E
@@ -9285,9 +8991,7 @@ off_AE34:
 - D - I - 0x022E4D 11:AE3D: FA        .byte con_jsr_2
 - D - I - 0x022E4E 11:AE3E: 9A AB     .word off_AB9A
 - D - I - 0x022E50 11:AE40: F7        .byte con_F7, $02
-- D - I - 0x022E52 11:AE42: F9        .byte $F9
-- D - I - 0x022E53 11:AE43: 02        .byte $02
-- D - I - 0x022E54 11:AE44: 08        .byte $08
+- D - I - 0x022E52 11:AE42: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x022E55 11:AE45: 28        .byte $28
 - D - I - 0x022E56 11:AE46: 25        .byte $25
 - D - I - 0x022E57 11:AE47: 63        .byte $63
@@ -9337,17 +9041,13 @@ off_AE64:
 - D - I - 0x022E85 11:AE75: 9C        .byte $9C
 - D - I - 0x022E86 11:AE76: A9        .byte $A9
 - D - I - 0x022E87 11:AE77: F6        .byte con_mirror_toggle
-- D - I - 0x022E88 11:AE78: F9        .byte $F9
-- D - I - 0x022E89 11:AE79: 02        .byte $02
-- D - I - 0x022E8A 11:AE7A: 25        .byte $25
+- D - I - 0x022E88 11:AE78: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022E8B 11:AE7B: 32        .byte $32
 - D - I - 0x022E8C 11:AE7C: 1F        .byte $1F
 - D - I - 0x022E8D 11:AE7D: 64        .byte $64
 - D - I - 0x022E8E 11:AE7E: 00        .byte $00
 - D - I - 0x022E8F 11:AE7F: F6        .byte con_mirror_toggle
-- D - I - 0x022E90 11:AE80: F9        .byte $F9
-- D - I - 0x022E91 11:AE81: 02        .byte $02
-- D - I - 0x022E92 11:AE82: 28        .byte $28
+- D - I - 0x022E90 11:AE80: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022E93 11:AE83: F8        .byte con_F8, $04
 - D - I - 0x022E95 11:AE85: F7        .byte con_F7, $3A
 - D - I - 0x022E97 11:AE87: 32        .byte $32
@@ -9366,9 +9066,7 @@ off_AE64:
 - D - I - 0x022EA5 11:AE95: AF        .byte $AF
 off_AE96:
 - D - I - 0x022EA6 11:AE96: F7        .byte con_F7, $1E
-- D - I - 0x022EA8 11:AE98: F9        .byte $F9
-- D - I - 0x022EA9 11:AE99: 02        .byte $02
-- D - I - 0x022EAA 11:AE9A: 6D        .byte $6D
+- D - I - 0x022EA8 11:AE98: F9        .byte con_delay_soundID, $02, $6D
 - D - I - 0x022EAB 11:AE9B: 20        .byte $20
 - D - I - 0x022EAC 11:AE9C: 05        .byte $05
 - D - I - 0x022EAD 11:AE9D: F0        .byte con_F0
@@ -9391,17 +9089,13 @@ off_AE96:
 - D - I - 0x022EC0 11:AEB0: AB        .byte $AB
 - D - I - 0x022EC1 11:AEB1: A9        .byte $A9
 - D - I - 0x022EC2 11:AEB2: F6        .byte con_mirror_toggle
-- D - I - 0x022EC3 11:AEB3: F9        .byte $F9
-- D - I - 0x022EC4 11:AEB4: 02        .byte $02
-- D - I - 0x022EC5 11:AEB5: 25        .byte $25
+- D - I - 0x022EC3 11:AEB3: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022EC6 11:AEB6: 32        .byte $32
 - D - I - 0x022EC7 11:AEB7: 1F        .byte $1F
 - D - I - 0x022EC8 11:AEB8: 64        .byte $64
 - D - I - 0x022EC9 11:AEB9: 00        .byte $00
 - D - I - 0x022ECA 11:AEBA: F6        .byte con_mirror_toggle
-- D - I - 0x022ECB 11:AEBB: F9        .byte $F9
-- D - I - 0x022ECC 11:AEBC: 02        .byte $02
-- D - I - 0x022ECD 11:AEBD: 28        .byte $28
+- D - I - 0x022ECB 11:AEBB: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022ECE 11:AEBE: F8        .byte con_F8, $04
 - D - I - 0x022ED0 11:AEC0: F7        .byte con_F7, $3A
 - D - I - 0x022ED2 11:AEC2: 32        .byte $32
@@ -9434,9 +9128,7 @@ off_AED4:
 - D - I - 0x022EF0 11:AEE0: A0        .byte $A0
 - D - I - 0x022EF1 11:AEE1: AE        .byte $AE
 - D - I - 0x022EF2 11:AEE2: F6        .byte con_mirror_toggle
-- D - I - 0x022EF3 11:AEE3: F9        .byte $F9
-- D - I - 0x022EF4 11:AEE4: 02        .byte $02
-- D - I - 0x022EF5 11:AEE5: 26        .byte $26
+- D - I - 0x022EF3 11:AEE3: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022EF6 11:AEE6: F7        .byte con_F7, $02
 - D - I - 0x022EF8 11:AEE8: 1E        .byte $1E
 - D - I - 0x022EF9 11:AEE9: 22        .byte $22
@@ -9444,16 +9136,12 @@ off_AED4:
 - D - I - 0x022EFB 11:AEEB: 00        .byte $00
 - D - I - 0x022EFC 11:AEEC: F6        .byte con_mirror_toggle
 - D - I - 0x022EFD 11:AEED: FC        .byte con_FC, $03
-- D - I - 0x022EFF 11:AEEF: F9        .byte $F9
-- D - I - 0x022F00 11:AEF0: 02        .byte $02
-- D - I - 0x022F01 11:AEF1: 28        .byte $28
+- D - I - 0x022EFF 11:AEEF: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022F02 11:AEF2: 20        .byte $20
 - D - I - 0x022F03 11:AEF3: 59        .byte $59
 - D - I - 0x022F04 11:AEF4: EA        .byte $EA
 - D - I - 0x022F05 11:AEF5: F0        .byte con_F0
-- D - I - 0x022F06 11:AEF6: F9        .byte $F9
-- D - I - 0x022F07 11:AEF7: 02        .byte $02
-- D - I - 0x022F08 11:AEF8: 26        .byte $26
+- D - I - 0x022F06 11:AEF6: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022F09 11:AEF9: F7        .byte con_F7, $02
 - D - I - 0x022F0B 11:AEFB: 1E        .byte $1E
 - D - I - 0x022F0C 11:AEFC: 22        .byte $22
@@ -9464,9 +9152,7 @@ off_AED4:
 - D - I - 0x022F12 11:AF02: 05        .byte $05
 - D - I - 0x022F13 11:AF03: 00        .byte $00
 - D - I - 0x022F14 11:AF04: F0        .byte con_F0
-- D - I - 0x022F15 11:AF05: F9        .byte $F9
-- D - I - 0x022F16 11:AF06: 02        .byte $02
-- D - I - 0x022F17 11:AF07: 30        .byte $30
+- D - I - 0x022F15 11:AF05: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x022F18 11:AF08: 1E        .byte $1E
 - D - I - 0x022F19 11:AF09: 3C        .byte $3C
 - D - I - 0x022F1A 11:AF0A: C2        .byte $C2
@@ -9492,9 +9178,7 @@ off_AED4:
 - D - I - 0x022F30 11:AF20: C7 BB     .word off_BBC7
 - D - I - 0x022F32 11:AF22: F6        .byte con_mirror_toggle
 - D - I - 0x022F33 11:AF23: F7        .byte con_F7, $10
-- D - I - 0x022F35 11:AF25: F9        .byte $F9
-- D - I - 0x022F36 11:AF26: 02        .byte $02
-- D - I - 0x022F37 11:AF27: 6D        .byte $6D
+- D - I - 0x022F35 11:AF25: F9        .byte con_delay_soundID, $02, $6D
 - D - I - 0x022F38 11:AF28: 1E        .byte $1E
 - D - I - 0x022F39 11:AF29: 05        .byte $05
 - D - I - 0x022F3A 11:AF2A: C2        .byte $C2
@@ -9505,9 +9189,7 @@ off_AED4:
 - D - I - 0x022F3F 11:AF2F: F0        .byte con_F0
 - D - I - 0x022F40 11:AF30: FB        .byte con_rts
 off_AF31:
-- D - I - 0x022F41 11:AF31: F9        .byte $F9
-- D - I - 0x022F42 11:AF32: 02        .byte $02
-- D - I - 0x022F43 11:AF33: 25        .byte $25
+- D - I - 0x022F41 11:AF31: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022F44 11:AF34: 37        .byte $37
 - D - I - 0x022F45 11:AF35: 47        .byte $47
 - D - I - 0x022F46 11:AF36: C9        .byte $C9
@@ -9515,17 +9197,13 @@ off_AF31:
 - D - I - 0x022F48 11:AF38: FA        .byte con_jsr_2
 - D - I - 0x022F49 11:AF39: C7 BB     .word off_BBC7
 - D - I - 0x022F4B 11:AF3B: F7        .byte con_F7, $0E
-- D - I - 0x022F4D 11:AF3D: F9        .byte $F9
-- D - I - 0x022F4E 11:AF3E: 02        .byte $02
-- D - I - 0x022F4F 11:AF3F: 30        .byte $30
+- D - I - 0x022F4D 11:AF3D: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x022F50 11:AF40: 28        .byte $28
 - D - I - 0x022F51 11:AF41: 05        .byte $05
 - D - I - 0x022F52 11:AF42: CB        .byte $CB
 - D - I - 0x022F53 11:AF43: EF        .byte $EF
 - D - I - 0x022F54 11:AF44: F6        .byte con_mirror_toggle
-- D - I - 0x022F55 11:AF45: F9        .byte $F9
-- D - I - 0x022F56 11:AF46: 02        .byte $02
-- D - I - 0x022F57 11:AF47: 6D        .byte $6D
+- D - I - 0x022F55 11:AF45: F9        .byte con_delay_soundID, $02, $6D
 - D - I - 0x022F58 11:AF48: 28        .byte $28
 - D - I - 0x022F59 11:AF49: 20        .byte $20
 - D - I - 0x022F5A 11:AF4A: AC        .byte $AC
@@ -9535,9 +9213,7 @@ off_AF31:
 - D - I - 0x022F5F 11:AF4F: F6        .byte con_mirror_toggle
 - D - I - 0x022F60 11:AF50: FB        .byte con_rts
 off_AF51:
-- D - I - 0x022F61 11:AF51: F9        .byte $F9
-- D - I - 0x022F62 11:AF52: 05        .byte $05
-- D - I - 0x022F63 11:AF53: 2B        .byte $2B
+- D - I - 0x022F61 11:AF51: F9        .byte con_delay_soundID, $05, $2B
 - D - I - 0x022F64 11:AF54: 3C        .byte $3C
 - D - I - 0x022F65 11:AF55: 72        .byte $72
 - D - I - 0x022F66 11:AF56: 66        .byte $66
@@ -9550,17 +9226,13 @@ off_AF59:
 - D - I - 0x022F6C 11:AF5C: 91        .byte $91
 - D - I - 0x022F6D 11:AF5D: C2        .byte $C2
 - D - I - 0x022F6E 11:AF5E: F7        .byte con_F7, $10
-- D - I - 0x022F70 11:AF60: F9        .byte $F9
-- D - I - 0x022F71 11:AF61: 02        .byte $02
-- D - I - 0x022F72 11:AF62: 12        .byte $12
+- D - I - 0x022F70 11:AF60: F9        .byte con_delay_soundID, $02, $12
 - D - I - 0x022F73 11:AF63: 14        .byte $14
 - D - I - 0x022F74 11:AF64: 10        .byte $10
 - D - I - 0x022F75 11:AF65: 62        .byte $62
 - D - I - 0x022F76 11:AF66: F0        .byte con_F0
 - D - I - 0x022F77 11:AF67: F7        .byte con_F7, $02
-- D - I - 0x022F79 11:AF69: F9        .byte $F9
-- D - I - 0x022F7A 11:AF6A: 02        .byte $02
-- D - I - 0x022F7B 11:AF6B: 04        .byte $04
+- D - I - 0x022F79 11:AF69: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x022F7C 11:AF6C: 27        .byte $27
 - D - I - 0x022F7D 11:AF6D: 24        .byte $24
 - D - I - 0x022F7E 11:AF6E: 66        .byte $66
@@ -9575,9 +9247,7 @@ off_AF73:
 - D - I - 0x022F87 11:AF77: C2        .byte $C2
 off_AF78:
 - D - I - 0x022F88 11:AF78: F7        .byte con_F7, $15
-- D - I - 0x022F8A 11:AF7A: F9        .byte $F9
-- D - I - 0x022F8B 11:AF7B: 09        .byte $09
-- D - I - 0x022F8C 11:AF7C: 1D        .byte $1D
+- D - I - 0x022F8A 11:AF7A: F9        .byte con_delay_soundID, $09, $1D
 - D - I - 0x022F8D 11:AF7D: 20        .byte $20
 - D - I - 0x022F8E 11:AF7E: 05        .byte $05
 - D - I - 0x022F8F 11:AF7F: CE        .byte $CE
@@ -9605,9 +9275,7 @@ off_AF90:
 off_AF97:
 - D - I - 0x022FA7 11:AF97: F6        .byte con_mirror_toggle
 - D - I - 0x022FA8 11:AF98: F7        .byte con_F7, $02
-- D - I - 0x022FAA 11:AF9A: F9        .byte $F9
-- D - I - 0x022FAB 11:AF9B: 02        .byte $02
-- D - I - 0x022FAC 11:AF9C: 06        .byte $06
+- D - I - 0x022FAA 11:AF9A: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x022FAD 11:AF9D: 27        .byte $27
 - D - I - 0x022FAE 11:AF9E: 24        .byte $24
 - D - I - 0x022FAF 11:AF9F: 66        .byte $66
@@ -9621,26 +9289,20 @@ off_AF97:
 off_AFAA:
 - D - I - 0x022FBA 11:AFAA: F5        .byte con_mirror_off
 - D - I - 0x022FBB 11:AFAB: F7        .byte con_F7, $10
-- D - I - 0x022FBD 11:AFAD: F9        .byte $F9
-- D - I - 0x022FBE 11:AFAE: 02        .byte $02
-- D - I - 0x022FBF 11:AFAF: 12        .byte $12
+- D - I - 0x022FBD 11:AFAD: F9        .byte con_delay_soundID, $02, $12
 - D - I - 0x022FC0 11:AFB0: 1D        .byte $1D
 - D - I - 0x022FC1 11:AFB1: 10        .byte $10
 - D - I - 0x022FC2 11:AFB2: 62        .byte $62
 - D - I - 0x022FC3 11:AFB3: 49        .byte $49
 - D - I - 0x022FC4 11:AFB4: F7        .byte con_F7, $02
-- D - I - 0x022FC6 11:AFB6: F9        .byte $F9
-- D - I - 0x022FC7 11:AFB7: 02        .byte $02
-- D - I - 0x022FC8 11:AFB8: 07        .byte $07
+- D - I - 0x022FC6 11:AFB6: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x022FC9 11:AFB9: 37        .byte $37
 - D - I - 0x022FCA 11:AFBA: 24        .byte $24
 - D - I - 0x022FCB 11:AFBB: 66        .byte $66
 - D - I - 0x022FCC 11:AFBC: F0        .byte con_F0
 - D - I - 0x022FCD 11:AFBD: FB        .byte con_rts
 off_AFBE:
-- D - I - 0x022FCE 11:AFBE: F9        .byte $F9
-- D - I - 0x022FCF 11:AFBF: 21        .byte $21
-- D - I - 0x022FD0 11:AFC0: 1B        .byte $1B
+- D - I - 0x022FCE 11:AFBE: F9        .byte con_delay_soundID, $21, $1B
 - D - I - 0x022FD1 11:AFC1: 48        .byte $48
 - D - I - 0x022FD2 11:AFC2: 2A        .byte $2A
 - D - I - 0x022FD3 11:AFC3: 3B        .byte $3B
@@ -9657,9 +9319,7 @@ off_AFC6:
 - D - I - 0x022FDC 11:AFCC: 30        .byte $30
 - D - I - 0x022FDD 11:AFCD: 91        .byte $91
 - D - I - 0x022FDE 11:AFCE: A4        .byte $A4
-- D - I - 0x022FDF 11:AFCF: F9        .byte $F9
-- D - I - 0x022FE0 11:AFD0: 02        .byte $02
-- D - I - 0x022FE1 11:AFD1: 25        .byte $25
+- D - I - 0x022FDF 11:AFCF: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x022FE2 11:AFD2: 22        .byte $22
 - D - I - 0x022FE3 11:AFD3: 20        .byte $20
 - D - I - 0x022FE4 11:AFD4: ED        .byte $ED
@@ -9669,9 +9329,7 @@ off_AFC6:
 - D - I - 0x022FE9 11:AFD9: 05        .byte $05
 - D - I - 0x022FEA 11:AFDA: 00        .byte $00
 - D - I - 0x022FEB 11:AFDB: 00        .byte $00
-- D - I - 0x022FEC 11:AFDC: F9        .byte $F9
-- D - I - 0x022FED 11:AFDD: 31        .byte $31
-- D - I - 0x022FEE 11:AFDE: 2B        .byte $2B
+- D - I - 0x022FEC 11:AFDC: F9        .byte con_delay_soundID, $31, $2B
 - D - I - 0x022FEF 11:AFDF: 40        .byte $40
 - D - I - 0x022FF0 11:AFE0: 47        .byte $47
 - D - I - 0x022FF1 11:AFE1: BF        .byte $BF
@@ -9679,9 +9337,7 @@ off_AFC6:
 - D - I - 0x022FF3 11:AFE3: F6        .byte con_mirror_toggle
 - D - I - 0x022FF4 11:AFE4: FB        .byte con_rts
 off_AFE5:
-- D - I - 0x022FF5 11:AFE5: F9        .byte $F9
-- D - I - 0x022FF6 11:AFE6: 21        .byte $21
-- D - I - 0x022FF7 11:AFE7: 1A        .byte $1A
+- D - I - 0x022FF5 11:AFE5: F9        .byte con_delay_soundID, $21, $1A
 - D - I - 0x022FF8 11:AFE8: 50        .byte $50
 - D - I - 0x022FF9 11:AFE9: 2A        .byte $2A
 - D - I - 0x022FFA 11:AFEA: 3B        .byte $3B
@@ -9738,9 +9394,7 @@ off_B018:
 
 off_B01B_76:
 - D - I - 0x02302B 11:B01B: F6        .byte con_mirror_toggle
-- D - I - 0x02302C 11:B01C: F9        .byte $F9
-- D - I - 0x02302D 11:B01D: 31        .byte $31
-- D - I - 0x02302E 11:B01E: 1A        .byte $1A
+- D - I - 0x02302C 11:B01C: F9        .byte con_delay_soundID, $31, $1A
 - D - I - 0x02302F 11:B01F: 64        .byte $64
 - D - I - 0x023030 11:B020: 4C        .byte $4C
 - D - I - 0x023031 11:B021: BF        .byte $BF
@@ -9829,9 +9483,7 @@ off_B079:
 - D - I - 0x023090 11:B080: A3        .byte $A3
 - D - I - 0x023091 11:B081: B5        .byte $B5
 off_B082:
-- D - I - 0x023092 11:B082: F9        .byte $F9
-- D - I - 0x023093 11:B083: 02        .byte $02
-- D - I - 0x023094 11:B084: 25        .byte $25
+- D - I - 0x023092 11:B082: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023095 11:B085: 19        .byte $19
 - D - I - 0x023096 11:B086: 1F        .byte $1F
 - D - I - 0x023097 11:B087: AC        .byte $AC
@@ -9839,9 +9491,7 @@ off_B082:
 - D - I - 0x023099 11:B089: FA        .byte con_jsr_2
 - D - I - 0x02309A 11:B08A: C7 BB     .word off_BBC7
 - D - I - 0x02309C 11:B08C: F7        .byte con_F7, $1D
-- D - I - 0x02309E 11:B08E: F9        .byte $F9
-- D - I - 0x02309F 11:B08F: 31        .byte $31
-- D - I - 0x0230A0 11:B090: 2B        .byte $2B
+- D - I - 0x02309E 11:B08E: F9        .byte con_delay_soundID, $31, $2B
 - D - I - 0x0230A1 11:B091: 4B        .byte $4B
 - D - I - 0x0230A2 11:B092: 49        .byte $49
 - D - I - 0x0230A3 11:B093: BF        .byte $BF
@@ -9857,25 +9507,19 @@ off_B082:
 - D - I - 0x0230AD 11:B09D: 82 B0     .word off_B082
 off_B09F:
 - - - - - 0x0230AF 11:B09F: F5        .byte con_mirror_off
-- - - - - 0x0230B0 11:B0A0: F9        .byte $F9
-- - - - - 0x0230B1 11:B0A1: 19        .byte $19
-- - - - - 0x0230B2 11:B0A2: 2B        .byte $2B
+- - - - - 0x0230B0 11:B0A0: F9        .byte con_delay_soundID, $19, $2B
 - - - - - 0x0230B3 11:B0A3: 3C        .byte $3C
 - - - - - 0x0230B4 11:B0A4: 29        .byte $29
 - - - - - 0x0230B5 11:B0A5: C6        .byte $C6
 - - - - - 0x0230B6 11:B0A6: 00        .byte $00
 off_B0A7:
-- D - I - 0x0230B7 11:B0A7: F9        .byte $F9
-- D - I - 0x0230B8 11:B0A8: 02        .byte $02
-- D - I - 0x0230B9 11:B0A9: 22        .byte $22
+- D - I - 0x0230B7 11:B0A7: F9        .byte con_delay_soundID, $02, $22
 - D - I - 0x0230BA 11:B0AA: 64        .byte $64
 - D - I - 0x0230BB 11:B0AB: 52        .byte $52
 - D - I - 0x0230BC 11:B0AC: E5        .byte $E5
 - D - I - 0x0230BD 11:B0AD: B5        .byte $B5
 - D - I - 0x0230BE 11:B0AE: F7        .byte con_F7, $2F
-- D - I - 0x0230C0 11:B0B0: F9        .byte $F9
-- D - I - 0x0230C1 11:B0B1: 02        .byte $02
-- D - I - 0x0230C2 11:B0B2: 1F        .byte $1F
+- D - I - 0x0230C0 11:B0B0: F9        .byte con_delay_soundID, $02, $1F
 - D - I - 0x0230C3 11:B0B3: 64        .byte $64
 - D - I - 0x0230C4 11:B0B4: 4A        .byte $4A
 - D - I - 0x0230C5 11:B0B5: C7        .byte $C7
@@ -9884,9 +9528,7 @@ off_B0A7:
 - D - I - 0x0230C8 11:B0B8: 30        .byte $30
 - D - I - 0x0230C9 11:B0B9: 91        .byte $91
 - D - I - 0x0230CA 11:B0BA: AF        .byte $AF
-- D - I - 0x0230CB 11:B0BB: F9        .byte $F9
-- D - I - 0x0230CC 11:B0BC: 11        .byte $11
-- D - I - 0x0230CD 11:B0BD: 23        .byte $23
+- D - I - 0x0230CB 11:B0BB: F9        .byte con_delay_soundID, $11, $23
 - D - I - 0x0230CE 11:B0BE: F7        .byte con_F7, $04
 - D - I - 0x0230D0 11:B0C0: 28        .byte $28
 - D - I - 0x0230D1 11:B0C1: 41        .byte $41
@@ -9897,9 +9539,7 @@ off_B0A7:
 - - - - - 0x0230D7 11:B0C7: FB        .byte con_rts
 off_B0C8:
 - D - I - 0x0230D8 11:B0C8: F7        .byte con_F7, $1E
-- D - I - 0x0230DA 11:B0CA: F9        .byte $F9
-- D - I - 0x0230DB 11:B0CB: 21        .byte $21
-- D - I - 0x0230DC 11:B0CC: 1A        .byte $1A
+- D - I - 0x0230DA 11:B0CA: F9        .byte con_delay_soundID, $21, $1A
 - D - I - 0x0230DD 11:B0CD: 48        .byte $48
 - D - I - 0x0230DE 11:B0CE: 05        .byte $05
 - D - I - 0x0230DF 11:B0CF: 3B        .byte $3B
@@ -9908,9 +9548,7 @@ off_B0C8:
 - D - I - 0x0230E3 11:B0D3: FB        .byte con_rts
 off_B0D4:
 - - - - - 0x0230E4 11:B0D4: F7        .byte con_F7, $2A
-- - - - - 0x0230E6 11:B0D6: F9        .byte $F9
-- - - - - 0x0230E7 11:B0D7: 21        .byte $21
-- - - - - 0x0230E8 11:B0D8: 1A        .byte $1A
+- - - - - 0x0230E6 11:B0D6: F9        .byte con_delay_soundID, $21, $1A
 - - - - - 0x0230E9 11:B0D9: 48        .byte $48
 - - - - - 0x0230EA 11:B0DA: 4B        .byte $4B
 - - - - - 0x0230EB 11:B0DB: 3B        .byte $3B
@@ -9918,27 +9556,21 @@ off_B0D4:
 - - - - - 0x0230ED 11:B0DD: FB        .byte con_rts
 off_B0DE:
 - D - I - 0x0230EE 11:B0DE: F7        .byte con_F7, $20
-- D - I - 0x0230F0 11:B0E0: F9        .byte $F9
-- D - I - 0x0230F1 11:B0E1: 21        .byte $21
-- D - I - 0x0230F2 11:B0E2: 1A        .byte $1A
+- D - I - 0x0230F0 11:B0E0: F9        .byte con_delay_soundID, $21, $1A
 - D - I - 0x0230F3 11:B0E3: 56        .byte $56
 - D - I - 0x0230F4 11:B0E4: 48        .byte $48
 - D - I - 0x0230F5 11:B0E5: CA        .byte $CA
 - D - I - 0x0230F6 11:B0E6: 49        .byte $49
 - D - I - 0x0230F7 11:B0E7: FB        .byte con_rts
 off_B0E8:
-- D - I - 0x0230F8 11:B0E8: F9        .byte $F9
-- D - I - 0x0230F9 11:B0E9: 02        .byte $02
-- D - I - 0x0230FA 11:B0EA: 1A        .byte $1A
+- D - I - 0x0230F8 11:B0E8: F9        .byte con_delay_soundID, $02, $1A
 - D - I - 0x0230FB 11:B0EB: 1E        .byte $1E
 - D - I - 0x0230FC 11:B0EC: 1D        .byte $1D
 - D - I - 0x0230FD 11:B0ED: 69        .byte $69
 - D - I - 0x0230FE 11:B0EE: 49        .byte $49
 - D - I - 0x0230FF 11:B0EF: FE        .byte con_FE, $01
 - D - I - 0x023101 11:B0F1: FC        .byte con_FC, $03
-- D - I - 0x023103 11:B0F3: F9        .byte $F9
-- D - I - 0x023104 11:B0F4: 02        .byte $02
-- D - I - 0x023105 11:B0F5: 06        .byte $06
+- D - I - 0x023103 11:B0F3: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x023106 11:B0F6: 28        .byte $28
 - D - I - 0x023107 11:B0F7: 58        .byte $58
 - D - I - 0x023108 11:B0F8: 6A        .byte $6A
@@ -9954,9 +9586,7 @@ off_B0FB:
 - D - I - 0x023113 11:B103: 05        .byte $05
 - D - I - 0x023114 11:B104: 00        .byte $00
 - D - I - 0x023115 11:B105: 00        .byte $00
-- D - I - 0x023116 11:B106: F9        .byte $F9
-- D - I - 0x023117 11:B107: 02        .byte $02
-- D - I - 0x023118 11:B108: 46        .byte $46
+- D - I - 0x023116 11:B106: F9        .byte con_delay_soundID, $02, $46
 - D - I - 0x023119 11:B109: 10        .byte $10
 - D - I - 0x02311A 11:B10A: 54        .byte $54
 - D - I - 0x02311B 11:B10B: D4        .byte $D4
@@ -9996,16 +9626,12 @@ off_B0FB:
 - D - I - 0x02313F 11:B12F: F0        .byte con_F0
 - D - I - 0x023140 11:B130: F0        .byte con_F0
 - D - I - 0x023141 11:B131: F7        .byte con_F7, $1F
-- D - I - 0x023143 11:B133: F9        .byte $F9
-- D - I - 0x023144 11:B134: 02        .byte $02
-- D - I - 0x023145 11:B135: 30        .byte $30
+- D - I - 0x023143 11:B133: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x023146 11:B136: 1E        .byte $1E
 - D - I - 0x023147 11:B137: 30        .byte $30
 - D - I - 0x023148 11:B138: B5        .byte $B5
 - D - I - 0x023149 11:B139: 8D        .byte $8D
-- D - I - 0x02314A 11:B13A: F9        .byte $F9
-- D - I - 0x02314B 11:B13B: 02        .byte $02
-- D - I - 0x02314C 11:B13C: 7F        .byte $7F
+- D - I - 0x02314A 11:B13A: F9        .byte con_delay_soundID, $02, $7F
 - D - I - 0x02314D 11:B13D: 01        .byte $01
 - D - I - 0x02314E 11:B13E: F0        .byte con_F0
 - D - I - 0x02314F 11:B13F: F0        .byte con_F0
@@ -10022,25 +9648,19 @@ off_B0FB:
 - D - I - 0x02315C 11:B14C: 4F        .byte $4F
 - D - I - 0x02315D 11:B14D: B4        .byte $B4
 - D - I - 0x02315E 11:B14E: C0        .byte $C0
-- D - I - 0x02315F 11:B14F: F9        .byte $F9
-- D - I - 0x023160 11:B150: 02        .byte $02
-- D - I - 0x023161 11:B151: 25        .byte $25
+- D - I - 0x02315F 11:B14F: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023162 11:B152: 28        .byte $28
 - D - I - 0x023163 11:B153: 1F        .byte $1F
 - D - I - 0x023164 11:B154: EB        .byte $EB
 - D - I - 0x023165 11:B155: 00        .byte $00
 - D - I - 0x023166 11:B156: F6        .byte con_mirror_toggle
-- D - I - 0x023167 11:B157: F9        .byte $F9
-- D - I - 0x023168 11:B158: 02        .byte $02
-- D - I - 0x023169 11:B159: 25        .byte $25
+- D - I - 0x023167 11:B157: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x02316A 11:B15A: 28        .byte $28
 - D - I - 0x02316B 11:B15B: 1F        .byte $1F
 - D - I - 0x02316C 11:B15C: EC        .byte $EC
 - D - I - 0x02316D 11:B15D: F0        .byte con_F0
 - D - I - 0x02316E 11:B15E: F7        .byte con_F7, $31
-- D - I - 0x023170 11:B160: F9        .byte $F9
-- D - I - 0x023171 11:B161: 02        .byte $02
-- D - I - 0x023172 11:B162: 24        .byte $24
+- D - I - 0x023170 11:B160: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x023173 11:B163: 27        .byte $27
 - D - I - 0x023174 11:B164: 6A        .byte $6A
 - D - I - 0x023175 11:B165: DB        .byte $DB
@@ -10051,16 +9671,12 @@ off_B0FB:
 - D - I - 0x02317B 11:B16B: F0        .byte con_F0
 - D - I - 0x02317C 11:B16C: DE        .byte $DE
 - D - I - 0x02317D 11:B16D: F7        .byte con_F7, $10
-- D - I - 0x02317F 11:B16F: F9        .byte $F9
-- D - I - 0x023180 11:B170: 02        .byte $02
-- D - I - 0x023181 11:B171: 14        .byte $14
+- D - I - 0x02317F 11:B16F: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023182 11:B172: 1E        .byte $1E
 - D - I - 0x023183 11:B173: 05        .byte $05
 - D - I - 0x023184 11:B174: 00        .byte $00
 - D - I - 0x023185 11:B175: 00        .byte $00
-- D - I - 0x023186 11:B176: F9        .byte $F9
-- D - I - 0x023187 11:B177: 02        .byte $02
-- D - I - 0x023188 11:B178: 09        .byte $09
+- D - I - 0x023186 11:B176: F9        .byte con_delay_soundID, $02, $09
 - D - I - 0x023189 11:B179: FC        .byte con_FC, $03
 - D - I - 0x02318B 11:B17B: 46        .byte $46
 - D - I - 0x02318C 11:B17C: 59        .byte $59
@@ -10075,9 +9691,7 @@ off_B182:
 - D - I - 0x023196 11:B186: 68        .byte $68
 - D - I - 0x023197 11:B187: 47        .byte $47
 - D - I - 0x023198 11:B188: F7        .byte con_F7, $28
-- D - I - 0x02319A 11:B18A: F9        .byte $F9
-- D - I - 0x02319B 11:B18B: 02        .byte $02
-- D - I - 0x02319C 11:B18C: 14        .byte $14
+- D - I - 0x02319A 11:B18A: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x02319D 11:B18D: 19        .byte $19
 - D - I - 0x02319E 11:B18E: 05        .byte $05
 - D - I - 0x02319F 11:B18F: 69        .byte $69
@@ -10111,17 +9725,13 @@ off_B1A0:
 - D - I - 0x0231BC 11:B1AC: 00        .byte $00
 - D - I - 0x0231BD 11:B1AD: F0        .byte con_F0
 - D - I - 0x0231BE 11:B1AE: F7        .byte con_F7, $30
-- D - I - 0x0231C0 11:B1B0: F9        .byte $F9
-- D - I - 0x0231C1 11:B1B1: 02        .byte $02
-- D - I - 0x0231C2 11:B1B2: 14        .byte $14
+- D - I - 0x0231C0 11:B1B0: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x0231C3 11:B1B3: 28        .byte $28
 - D - I - 0x0231C4 11:B1B4: 47        .byte $47
 - D - I - 0x0231C5 11:B1B5: 69        .byte $69
 - D - I - 0x0231C6 11:B1B6: 49        .byte $49
 - D - I - 0x0231C7 11:B1B7: FC        .byte con_FC, $03
-- D - I - 0x0231C9 11:B1B9: F9        .byte $F9
-- D - I - 0x0231CA 11:B1BA: 02        .byte $02
-- D - I - 0x0231CB 11:B1BB: 06        .byte $06
+- D - I - 0x0231C9 11:B1B9: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x0231CC 11:B1BC: 28        .byte $28
 - D - I - 0x0231CD 11:B1BD: 58        .byte $58
 - D - I - 0x0231CE 11:B1BE: 6A        .byte $6A
@@ -10154,9 +9764,7 @@ off_B1CA:
 - - - - - 0x0231EB 11:B1DB: 03        .byte $03
 - - - - - 0x0231EC 11:B1DC: 02        .byte $02
 - D - I - 0x0231ED 11:B1DD: 01        .byte $01
-- D - I - 0x0231EE 11:B1DE: F9        .byte $F9
-- D - I - 0x0231EF 11:B1DF: 02        .byte $02
-- D - I - 0x0231F0 11:B1E0: 26        .byte $26
+- D - I - 0x0231EE 11:B1DE: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x0231F1 11:B1E1: F7        .byte con_F7, $02
 - D - I - 0x0231F3 11:B1E3: 28        .byte $28
 - D - I - 0x0231F4 11:B1E4: 22        .byte $22
@@ -10167,9 +9775,7 @@ off_B1CA:
 - D - I - 0x0231FA 11:B1EA: 05        .byte $05
 - D - I - 0x0231FB 11:B1EB: 00        .byte $00
 - D - I - 0x0231FC 11:B1EC: 00        .byte $00
-- D - I - 0x0231FD 11:B1ED: F9        .byte $F9
-- D - I - 0x0231FE 11:B1EE: 02        .byte $02
-- D - I - 0x0231FF 11:B1EF: 14        .byte $14
+- D - I - 0x0231FD 11:B1ED: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023200 11:B1F0: F7        .byte con_F7, $36
 - D - I - 0x023202 11:B1F2: 3C        .byte $3C
 - D - I - 0x023203 11:B1F3: 05        .byte $05
@@ -10177,9 +9783,7 @@ off_B1CA:
 - D - I - 0x023205 11:B1F5: 04        .byte $04
 off_B1F6:
 - D - I - 0x023206 11:B1F6: F7        .byte con_F7, $23
-- D - I - 0x023208 11:B1F8: F9        .byte $F9
-- D - I - 0x023209 11:B1F9: 02        .byte $02
-- D - I - 0x02320A 11:B1FA: 09        .byte $09
+- D - I - 0x023208 11:B1F8: F9        .byte con_delay_soundID, $02, $09
 - D - I - 0x02320B 11:B1FB: 46        .byte $46
 - D - I - 0x02320C 11:B1FC: 27        .byte $27
 - D - I - 0x02320D 11:B1FD: DC        .byte $DC
@@ -10202,9 +9806,7 @@ off_B1F6:
 - D - I - 0x023221 11:B211: 05        .byte $05
 - D - I - 0x023222 11:B212: 00        .byte $00
 - D - I - 0x023223 11:B213: 00        .byte $00
-- D - I - 0x023224 11:B214: F9        .byte $F9
-- D - I - 0x023225 11:B215: 02        .byte $02
-- D - I - 0x023226 11:B216: 14        .byte $14
+- D - I - 0x023224 11:B214: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023227 11:B217: F7        .byte con_F7, $36
 - D - I - 0x023229 11:B219: 3C        .byte $3C
 - D - I - 0x02322A 11:B21A: 05        .byte $05
@@ -10230,9 +9832,7 @@ off_B22E:
 - D - I - 0x023241 11:B231: 05        .byte $05
 - D - I - 0x023242 11:B232: 00        .byte $00
 - D - I - 0x023243 11:B233: 00        .byte $00
-- D - I - 0x023244 11:B234: F9        .byte $F9
-- D - I - 0x023245 11:B235: 02        .byte $02
-- D - I - 0x023246 11:B236: 14        .byte $14
+- D - I - 0x023244 11:B234: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023247 11:B237: F7        .byte con_F7, $36
 - D - I - 0x023249 11:B239: 3C        .byte $3C
 - D - I - 0x02324A 11:B23A: 05        .byte $05
@@ -10256,25 +9856,19 @@ off_B22E:
 - D - I - 0x02325F 11:B24F: 2E B2     .word off_B22E
 off_B251:
 - D - I - 0x023261 11:B251: F7        .byte con_F7, $31
-- D - I - 0x023263 11:B253: F9        .byte $F9
-- D - I - 0x023264 11:B254: 02        .byte $02
-- D - I - 0x023265 11:B255: 16        .byte $16
+- D - I - 0x023263 11:B253: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x023266 11:B256: 28        .byte $28
 - D - I - 0x023267 11:B257: 6A        .byte $6A
 - D - I - 0x023268 11:B258: C4        .byte $C4
 - D - I - 0x023269 11:B259: 49        .byte $49
 - D - I - 0x02326A 11:B25A: F7        .byte con_F7, $21
-- D - I - 0x02326C 11:B25C: F9        .byte $F9
-- D - I - 0x02326D 11:B25D: 02        .byte $02
-- D - I - 0x02326E 11:B25E: 14        .byte $14
+- D - I - 0x02326C 11:B25C: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x02326F 11:B25F: 16        .byte $16
 - D - I - 0x023270 11:B260: 05        .byte $05
 - D - I - 0x023271 11:B261: 69        .byte $69
 - D - I - 0x023272 11:B262: F0        .byte con_F0
 - D - I - 0x023273 11:B263: FC        .byte con_FC, $04
-- D - I - 0x023275 11:B265: F9        .byte $F9
-- D - I - 0x023276 11:B266: 02        .byte $02
-- D - I - 0x023277 11:B267: 0B        .byte $0B
+- D - I - 0x023275 11:B265: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x023278 11:B268: 28        .byte $28
 - D - I - 0x023279 11:B269: 58        .byte $58
 - D - I - 0x02327A 11:B26A: C5        .byte $C5
@@ -10287,9 +9881,7 @@ off_B26F:
 - D - I - 0x023281 11:B271: B7        .byte $B7
 - D - I - 0x023282 11:B272: 13        .byte $13
 - D - I - 0x023283 11:B273: F7        .byte con_F7, $31
-- D - I - 0x023285 11:B275: F9        .byte $F9
-- D - I - 0x023286 11:B276: 02        .byte $02
-- D - I - 0x023287 11:B277: 25        .byte $25
+- D - I - 0x023285 11:B275: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023288 11:B278: 1B        .byte $1B
 - D - I - 0x023289 11:B279: 48        .byte $48
 - D - I - 0x02328A 11:B27A: CC        .byte $CC
@@ -10302,9 +9894,7 @@ off_B26F:
 - D - I - 0x023293 11:B283: 00        .byte $00
 - D - I - 0x023294 11:B284: 49        .byte $49
 - D - I - 0x023295 11:B285: F7        .byte con_F7, $19
-- D - I - 0x023297 11:B287: F9        .byte $F9
-- D - I - 0x023298 11:B288: 11        .byte $11
-- D - I - 0x023299 11:B289: 1A        .byte $1A
+- D - I - 0x023297 11:B287: F9        .byte con_delay_soundID, $11, $1A
 - D - I - 0x02329A 11:B28A: 28        .byte $28
 - D - I - 0x02329B 11:B28B: 5C        .byte $5C
 - D - I - 0x02329C 11:B28C: CD        .byte $CD
@@ -10344,9 +9934,7 @@ off_B2AD:
 - D - I - 0x0232C0 11:B2B0: 24        .byte $24
 - D - I - 0x0232C1 11:B2B1: 6B        .byte $6B
 - D - I - 0x0232C2 11:B2B2: F0        .byte con_F0
-- D - I - 0x0232C3 11:B2B3: F9        .byte $F9
-- D - I - 0x0232C4 11:B2B4: 02        .byte $02
-- D - I - 0x0232C5 11:B2B5: 25        .byte $25
+- D - I - 0x0232C3 11:B2B3: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0232C6 11:B2B6: 28        .byte $28
 - D - I - 0x0232C7 11:B2B7: 20        .byte $20
 - D - I - 0x0232C8 11:B2B8: AC        .byte $AC
@@ -10360,27 +9948,21 @@ off_B2AD:
 - - - - - 0x0232D0 11:B2C0: AA B2     .word off_B2AA
 off_B2C2:
 - D - I - 0x0232D2 11:B2C2: FC        .byte con_FC, $02
-- D - I - 0x0232D4 11:B2C4: F9        .byte $F9
-- D - I - 0x0232D5 11:B2C5: 21        .byte $21
-- D - I - 0x0232D6 11:B2C6: 2B        .byte $2B
+- D - I - 0x0232D4 11:B2C4: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x0232D7 11:B2C7: 44        .byte $44
 - D - I - 0x0232D8 11:B2C8: 57        .byte $57
 - D - I - 0x0232D9 11:B2C9: 6C        .byte $6C
 - D - I - 0x0232DA 11:B2CA: 4D        .byte $4D
 - D - I - 0x0232DB 11:B2CB: FB        .byte con_rts
 off_B2CC:
-- D - I - 0x0232DC 11:B2CC: F9        .byte $F9
-- D - I - 0x0232DD 11:B2CD: 21        .byte $21
-- D - I - 0x0232DE 11:B2CE: 2B        .byte $2B
+- D - I - 0x0232DC 11:B2CC: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x0232DF 11:B2CF: 3E        .byte $3E
 - D - I - 0x0232E0 11:B2D0: 29        .byte $29
 - D - I - 0x0232E1 11:B2D1: 6D        .byte $6D
 - D - I - 0x0232E2 11:B2D2: 4D        .byte $4D
 - D - I - 0x0232E3 11:B2D3: FB        .byte con_rts
 off_B2D4:
-- D - I - 0x0232E4 11:B2D4: F9        .byte $F9
-- D - I - 0x0232E5 11:B2D5: 21        .byte $21
-- D - I - 0x0232E6 11:B2D6: 2B        .byte $2B
+- D - I - 0x0232E4 11:B2D4: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x0232E7 11:B2D7: 3E        .byte $3E
 - D - I - 0x0232E8 11:B2D8: 67        .byte $67
 - D - I - 0x0232E9 11:B2D9: 6D        .byte $6D
@@ -10407,9 +9989,7 @@ off_B2DC:
 - D - I - 0x0232FF 11:B2EF: 03        .byte $03
 - - - - - 0x023300 11:B2F0: 02        .byte $02
 - - - - - 0x023301 11:B2F1: 01        .byte $01
-- D - I - 0x023302 11:B2F2: F9        .byte $F9
-- D - I - 0x023303 11:B2F3: 02        .byte $02
-- D - I - 0x023304 11:B2F4: 25        .byte $25
+- D - I - 0x023302 11:B2F2: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023305 11:B2F5: 14        .byte $14
 - D - I - 0x023306 11:B2F6: 02        .byte $02
 - D - I - 0x023307 11:B2F7: 1C        .byte $1C
@@ -10439,9 +10019,7 @@ off_B2FE:
 - - - - - 0x02331F 11:B30F: 01        .byte $01
 off_B310:
 - D - I - 0x023320 11:B310: F8        .byte con_F8, $04
-- D - I - 0x023322 11:B312: F9        .byte $F9
-- D - I - 0x023323 11:B313: 02        .byte $02
-- D - I - 0x023324 11:B314: 25        .byte $25
+- D - I - 0x023322 11:B312: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023325 11:B315: 32        .byte $32
 - D - I - 0x023326 11:B316: 1D        .byte $1D
 - D - I - 0x023327 11:B317: 1C        .byte $1C
@@ -10466,9 +10044,7 @@ off_B31A:
 - - - - - 0x02333A 11:B32A: 02        .byte $02
 - - - - - 0x02333B 11:B32B: 01        .byte $01
 off_B32C:
-- D - I - 0x02333C 11:B32C: F9        .byte $F9
-- D - I - 0x02333D 11:B32D: 02        .byte $02
-- D - I - 0x02333E 11:B32E: 25        .byte $25
+- D - I - 0x02333C 11:B32C: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x02333F 11:B32F: 14        .byte $14
 - D - I - 0x023340 11:B330: 02        .byte $02
 - D - I - 0x023341 11:B331: 1C        .byte $1C
@@ -10509,9 +10085,7 @@ off_B347:
 - - - - - 0x023366 11:B356: 03        .byte $03
 - D - I - 0x023367 11:B357: 41        .byte $41
 - - - - - 0x023368 11:B358: 49        .byte $49
-- D - I - 0x023369 11:B359: F9        .byte $F9
-- D - I - 0x02336A 11:B35A: 02        .byte $02
-- D - I - 0x02336B 11:B35B: 25        .byte $25
+- D - I - 0x023369 11:B359: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x02336C 11:B35C: 14        .byte $14
 - D - I - 0x02336D 11:B35D: 02        .byte $02
 - D - I - 0x02336E 11:B35E: 1C        .byte $1C
@@ -10542,17 +10116,13 @@ off_B378:
 - D - I - 0x023389 11:B379: F0        .byte con_F0
 - D - I - 0x02338A 11:B37A: F0        .byte con_F0
 - D - I - 0x02338B 11:B37B: 00        .byte $00
-- D - I - 0x02338C 11:B37C: F9        .byte $F9
-- D - I - 0x02338D 11:B37D: 02        .byte $02
-- D - I - 0x02338E 11:B37E: 27        .byte $27
+- D - I - 0x02338C 11:B37C: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x02338F 11:B37F: F7        .byte con_F7, $33
 - D - I - 0x023391 11:B381: 20        .byte $20
 - D - I - 0x023392 11:B382: 6B        .byte $6B
 - D - I - 0x023393 11:B383: E3        .byte $E3
 - D - I - 0x023394 11:B384: EC        .byte $EC
-- D - I - 0x023395 11:B385: F9        .byte $F9
-- D - I - 0x023396 11:B386: 02        .byte $02
-- D - I - 0x023397 11:B387: 25        .byte $25
+- D - I - 0x023395 11:B385: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023398 11:B388: 14        .byte $14
 - D - I - 0x023399 11:B389: 02        .byte $02
 - D - I - 0x02339A 11:B38A: 1C        .byte $1C
@@ -10664,9 +10234,7 @@ off_B406:
 - D - I - 0x023416 11:B406: FA        .byte con_jsr_2
 - D - I - 0x023417 11:B407: D0 A8     .word off_A8D0
 - D - I - 0x023419 11:B409: F7        .byte con_F7, $0D
-- D - I - 0x02341B 11:B40B: F9        .byte $F9
-- D - I - 0x02341C 11:B40C: 02        .byte $02
-- D - I - 0x02341D 11:B40D: 26        .byte $26
+- D - I - 0x02341B 11:B40B: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x02341E 11:B40E: 1F        .byte $1F
 - D - I - 0x02341F 11:B40F: 47        .byte $47
 - D - I - 0x023420 11:B410: D1        .byte $D1
@@ -10764,9 +10332,7 @@ off_B465:
 - D - I - 0x023479 11:B469: 00        .byte $00
 - D - I - 0x02347A 11:B46A: F0        .byte con_F0
 - D - I - 0x02347B 11:B46B: F7        .byte con_F7, $2A
-- D - I - 0x02347D 11:B46D: F9        .byte $F9
-- D - I - 0x02347E 11:B46E: 02        .byte $02
-- D - I - 0x02347F 11:B46F: 2E        .byte $2E
+- D - I - 0x02347D 11:B46D: F9        .byte con_delay_soundID, $02, $2E
 - D - I - 0x023480 11:B470: 23        .byte $23
 - D - I - 0x023481 11:B471: 6A        .byte $6A
 - D - I - 0x023482 11:B472: BD        .byte $BD
@@ -10783,9 +10349,7 @@ off_B465:
 
 off_B47C_3A:
 - D - I - 0x02348C 11:B47C: FD        .byte con_FD, $00
-- D - I - 0x02348E 11:B47E: F9        .byte $F9
-- D - I - 0x02348F 11:B47F: 09        .byte $09
-- D - I - 0x023490 11:B480: 2B        .byte $2B
+- D - I - 0x02348E 11:B47E: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x023491 11:B481: 3C        .byte $3C
 - D - I - 0x023492 11:B482: 72        .byte $72
 - D - I - 0x023493 11:B483: 77        .byte $77
@@ -10807,9 +10371,7 @@ off_B48E:
 - D - I - 0x02349E 11:B48E: F4        .byte con_mirror_on
 - D - I - 0x02349F 11:B48F: FA        .byte con_jsr_2
 - D - I - 0x0234A0 11:B490: 4B BB     .word off_BB4B
-- D - I - 0x0234A2 11:B492: F9        .byte $F9
-- D - I - 0x0234A3 11:B493: 1D        .byte $1D
-- D - I - 0x0234A4 11:B494: 2C        .byte $2C
+- D - I - 0x0234A2 11:B492: F9        .byte con_delay_soundID, $1D, $2C
 - D - I - 0x0234A5 11:B495: 3C        .byte $3C
 - D - I - 0x0234A6 11:B496: 01        .byte $01
 - D - I - 0x0234A7 11:B497: 78        .byte $78
@@ -10820,36 +10382,28 @@ off_B49A:
 - D - I - 0x0234AB 11:B49B: FA        .byte con_jsr_2
 - D - I - 0x0234AC 11:B49C: 4B BB     .word off_BB4B
 off_B49E:
-- D - I - 0x0234AE 11:B49E: F9        .byte $F9
-- D - I - 0x0234AF 11:B49F: 1D        .byte $1D
-- D - I - 0x0234B0 11:B4A0: 2C        .byte $2C
+- D - I - 0x0234AE 11:B49E: F9        .byte con_delay_soundID, $1D, $2C
 - D - I - 0x0234B1 11:B4A1: 3C        .byte $3C
 - D - I - 0x0234B2 11:B4A2: 01        .byte $01
 - D - I - 0x0234B3 11:B4A3: 78        .byte $78
 - D - I - 0x0234B4 11:B4A4: 58        .byte $58
 - D - I - 0x0234B5 11:B4A5: FB        .byte con_rts
 off_B4A6:
-- D - I - 0x0234B6 11:B4A6: F9        .byte $F9
-- D - I - 0x0234B7 11:B4A7: 02        .byte $02
-- D - I - 0x0234B8 11:B4A8: 2C        .byte $2C
+- D - I - 0x0234B6 11:B4A6: F9        .byte con_delay_soundID, $02, $2C
 - D - I - 0x0234B9 11:B4A9: 3C        .byte $3C
 - D - I - 0x0234BA 11:B4AA: 01        .byte $01
 - D - I - 0x0234BB 11:B4AB: 78        .byte $78
 - D - I - 0x0234BC 11:B4AC: 6E        .byte $6E
 - D - I - 0x0234BD 11:B4AD: FB        .byte con_rts
 off_B4AE:
-- D - I - 0x0234BE 11:B4AE: F9        .byte $F9
-- D - I - 0x0234BF 11:B4AF: 11        .byte $11
-- D - I - 0x0234C0 11:B4B0: 2C        .byte $2C
+- D - I - 0x0234BE 11:B4AE: F9        .byte con_delay_soundID, $11, $2C
 - D - I - 0x0234C1 11:B4B1: 38        .byte $38
 - D - I - 0x0234C2 11:B4B2: 63        .byte $63
 - D - I - 0x0234C3 11:B4B3: 7A        .byte $7A
 - D - I - 0x0234C4 11:B4B4: 6E        .byte $6E
 - D - I - 0x0234C5 11:B4B5: FB        .byte con_rts
 off_B4B6:
-- D - I - 0x0234C6 11:B4B6: F9        .byte $F9
-- D - I - 0x0234C7 11:B4B7: 11        .byte $11
-- D - I - 0x0234C8 11:B4B8: 2C        .byte $2C
+- D - I - 0x0234C6 11:B4B6: F9        .byte con_delay_soundID, $11, $2C
 - D - I - 0x0234C9 11:B4B9: 38        .byte $38
 - D - I - 0x0234CA 11:B4BA: 63        .byte $63
 - D - I - 0x0234CB 11:B4BB: 7A        .byte $7A
@@ -10857,9 +10411,7 @@ off_B4B6:
 - D - I - 0x0234CD 11:B4BD: FB        .byte con_rts
 - - - - - 0x0234CE 11:B4BE: FB        .byte con_rts
 off_B4BF:
-- D - I - 0x0234CF 11:B4BF: F9        .byte $F9
-- D - I - 0x0234D0 11:B4C0: 0B        .byte $0B
-- D - I - 0x0234D1 11:B4C1: 64        .byte $64
+- D - I - 0x0234CF 11:B4BF: F9        .byte con_delay_soundID, $0B, $64
 - D - I - 0x0234D2 11:B4C2: 1E        .byte $1E
 - D - I - 0x0234D3 11:B4C3: 39        .byte $39
 - D - I - 0x0234D4 11:B4C4: 7E        .byte $7E
@@ -10876,9 +10428,7 @@ off_B4C7:
 
 off_B4CC_28:
 - D - I - 0x0234DC 11:B4CC: FD        .byte con_FD, $00
-- D - I - 0x0234DE 11:B4CE: F9        .byte $F9
-- D - I - 0x0234DF 11:B4CF: 09        .byte $09
-- D - I - 0x0234E0 11:B4D0: 2B        .byte $2B
+- D - I - 0x0234DE 11:B4CE: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x0234E1 11:B4D1: 32        .byte $32
 - D - I - 0x0234E2 11:B4D2: 26        .byte $26
 - D - I - 0x0234E3 11:B4D3: 7F        .byte $7F
@@ -10889,9 +10439,7 @@ off_B4CC_28:
 
 off_B4D6_2D:
 - D - I - 0x0234E6 11:B4D6: FD        .byte con_FD, $00
-- D - I - 0x0234E8 11:B4D8: F9        .byte $F9
-- D - I - 0x0234E9 11:B4D9: 0D        .byte $0D
-- D - I - 0x0234EA 11:B4DA: 64        .byte $64
+- D - I - 0x0234E8 11:B4D8: F9        .byte con_delay_soundID, $0D, $64
 - D - I - 0x0234EB 11:B4DB: 3A        .byte $3A
 - D - I - 0x0234EC 11:B4DC: 3C        .byte $3C
 - D - I - 0x0234ED 11:B4DD: 80        .byte $80
@@ -10908,18 +10456,14 @@ off_B4E0_2A:
 - D - I - 0x0234F5 11:B4E5: 62        .byte $62
 - D - I - 0x0234F6 11:B4E6: FB        .byte con_rts
 off_B4E7:
-- D - I - 0x0234F7 11:B4E7: F9        .byte $F9
-- D - I - 0x0234F8 11:B4E8: 02        .byte $02
-- D - I - 0x0234F9 11:B4E9: 03        .byte $03
+- D - I - 0x0234F7 11:B4E7: F9        .byte con_delay_soundID, $02, $03
 - D - I - 0x0234FA 11:B4EA: 3C        .byte $3C
 - D - I - 0x0234FB 11:B4EB: 1F        .byte $1F
 - D - I - 0x0234FC 11:B4EC: 84        .byte $84
 - D - I - 0x0234FD 11:B4ED: 00        .byte $00
 - D - I - 0x0234FE 11:B4EE: FB        .byte con_rts
 off_B4EF:
-- D - I - 0x0234FF 11:B4EF: F9        .byte $F9
-- D - I - 0x023500 11:B4F0: 02        .byte $02
-- D - I - 0x023501 11:B4F1: 04        .byte $04
+- D - I - 0x0234FF 11:B4EF: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x023502 11:B4F2: 37        .byte $37
 - D - I - 0x023503 11:B4F3: 2A        .byte $2A
 - D - I - 0x023504 11:B4F4: 1A        .byte $1A
@@ -10930,9 +10474,7 @@ off_B4F7:
 - D - I - 0x023508 11:B4F8: 65 BB     .word off_BB65
 - D - I - 0x02350A 11:B4FA: FB        .byte con_rts
 off_B4FB:
-- D - I - 0x02350B 11:B4FB: F9        .byte $F9
-- D - I - 0x02350C 11:B4FC: 02        .byte $02
-- D - I - 0x02350D 11:B4FD: 04        .byte $04
+- D - I - 0x02350B 11:B4FB: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x02350E 11:B4FE: 37        .byte $37
 - D - I - 0x02350F 11:B4FF: 00        .byte $00
 - D - I - 0x023510 11:B500: 01        .byte $01
@@ -10944,26 +10486,20 @@ off_B502:
 - D - I - 0x023516 11:B506: 65 BB     .word off_BB65
 - D - I - 0x023518 11:B508: FB        .byte con_rts
 off_B509:
-- D - I - 0x023519 11:B509: F9        .byte $F9
-- D - I - 0x02351A 11:B50A: 02        .byte $02
-- D - I - 0x02351B 11:B50B: 04        .byte $04
+- D - I - 0x023519 11:B509: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x02351C 11:B50C: 2A        .byte $2A
 - D - I - 0x02351D 11:B50D: 00        .byte $00
 - D - I - 0x02351E 11:B50E: 0F        .byte $0F
 - D - I - 0x02351F 11:B50F: 00        .byte $00
 - D - I - 0x023520 11:B510: F7        .byte con_F7, $33
-- D - I - 0x023522 11:B512: F9        .byte $F9
-- D - I - 0x023523 11:B513: 02        .byte $02
-- D - I - 0x023524 11:B514: 05        .byte $05
+- D - I - 0x023522 11:B512: F9        .byte con_delay_soundID, $02, $05
 - D - I - 0x023525 11:B515: 36        .byte $36
 - D - I - 0x023526 11:B516: 27        .byte $27
 - D - I - 0x023527 11:B517: 10        .byte $10
 - D - I - 0x023528 11:B518: 00        .byte $00
 off_B519:
 - D - I - 0x023529 11:B519: F6        .byte con_mirror_toggle
-- D - I - 0x02352A 11:B51A: F9        .byte $F9
-- D - I - 0x02352B 11:B51B: 02        .byte $02
-- D - I - 0x02352C 11:B51C: 08        .byte $08
+- D - I - 0x02352A 11:B51A: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x02352D 11:B51D: F7        .byte con_F7, $09
 - D - I - 0x02352F 11:B51F: 24        .byte $24
 - D - I - 0x023530 11:B520: 43        .byte $43
@@ -10975,9 +10511,7 @@ off_B525:
 - D - I - 0x023535 11:B525: FA        .byte con_jsr_2
 - D - I - 0x023536 11:B526: 75 BB     .word off_BB75
 - D - I - 0x023538 11:B528: F7        .byte con_F7, $33
-- D - I - 0x02353A 11:B52A: F9        .byte $F9
-- D - I - 0x02353B 11:B52B: 02        .byte $02
-- D - I - 0x02353C 11:B52C: 06        .byte $06
+- D - I - 0x02353A 11:B52A: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x02353D 11:B52D: 2A        .byte $2A
 - D - I - 0x02353E 11:B52E: 27        .byte $27
 - D - I - 0x02353F 11:B52F: 12        .byte $12
@@ -10986,9 +10520,7 @@ off_B525:
 off_B532:
 - D - I - 0x023542 11:B532: FA        .byte con_jsr_2
 - D - I - 0x023543 11:B533: 75 BB     .word off_BB75
-- D - I - 0x023545 11:B535: F9        .byte $F9
-- D - I - 0x023546 11:B536: 02        .byte $02
-- D - I - 0x023547 11:B537: 04        .byte $04
+- D - I - 0x023545 11:B535: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x023548 11:B538: F7        .byte con_F7, $30
 - D - I - 0x02354A 11:B53A: 30        .byte $30
 - D - I - 0x02354B 11:B53B: 4B        .byte $4B
@@ -11000,9 +10532,7 @@ off_B53F:
 - D - I - 0x023550 11:B540: FA        .byte con_jsr_2
 - D - I - 0x023551 11:B541: 8F BB     .word off_BB8F
 off_B543:
-- D - I - 0x023553 11:B543: F9        .byte $F9
-- D - I - 0x023554 11:B544: 02        .byte $02
-- D - I - 0x023555 11:B545: 08        .byte $08
+- D - I - 0x023553 11:B543: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x023556 11:B546: 34        .byte $34
 - D - I - 0x023557 11:B547: 56        .byte $56
 - D - I - 0x023558 11:B548: 1D        .byte $1D
@@ -11025,9 +10555,7 @@ off_B55A:
 - D - I - 0x02356A 11:B55A: FA        .byte con_jsr_2
 - D - I - 0x02356B 11:B55B: A7 BB     .word off_BBA7
 - D - I - 0x02356D 11:B55D: F7        .byte con_F7, $3A
-- D - I - 0x02356F 11:B55F: F9        .byte $F9
-- D - I - 0x023570 11:B560: 02        .byte $02
-- D - I - 0x023571 11:B561: 0A        .byte $0A
+- D - I - 0x02356F 11:B55F: F9        .byte con_delay_soundID, $02, $0A
 - D - I - 0x023572 11:B562: 46        .byte $46
 - D - I - 0x023573 11:B563: 24        .byte $24
 - D - I - 0x023574 11:B564: 28        .byte $28
@@ -11036,9 +10564,7 @@ off_B55A:
 off_B567:
 - D - I - 0x023577 11:B567: FA        .byte con_jsr_2
 - D - I - 0x023578 11:B568: 85 BB     .word off_BB85
-- D - I - 0x02357A 11:B56A: F9        .byte $F9
-- D - I - 0x02357B 11:B56B: 02        .byte $02
-- D - I - 0x02357C 11:B56C: 5E        .byte $5E
+- D - I - 0x02357A 11:B56A: F9        .byte con_delay_soundID, $02, $5E
 - D - I - 0x02357D 11:B56D: 1E        .byte $1E
 - D - I - 0x02357E 11:B56E: 35        .byte $35
 - D - I - 0x02357F 11:B56F: 32        .byte $32
@@ -11049,9 +10575,7 @@ off_B567:
 off_B575:
 - D - I - 0x023585 11:B575: FA        .byte con_jsr_2
 - D - I - 0x023586 11:B576: 8F BB     .word off_BB8F
-- D - I - 0x023588 11:B578: F9        .byte $F9
-- D - I - 0x023589 11:B579: 02        .byte $02
-- D - I - 0x02358A 11:B57A: 07        .byte $07
+- D - I - 0x023588 11:B578: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x02358B 11:B57B: 32        .byte $32
 - D - I - 0x02358C 11:B57C: 02        .byte $02
 - D - I - 0x02358D 11:B57D: 36        .byte $36
@@ -11069,9 +10593,7 @@ off_B583:
 - D - I - 0x02359C 11:B58C: 97 BB     .word off_BB97
 - D - I - 0x02359E 11:B58E: F6        .byte con_mirror_toggle
 - D - I - 0x02359F 11:B58F: F7        .byte con_F7, $16
-- D - I - 0x0235A1 11:B591: F9        .byte $F9
-- D - I - 0x0235A2 11:B592: 02        .byte $02
-- D - I - 0x0235A3 11:B593: 07        .byte $07
+- D - I - 0x0235A1 11:B591: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x0235A4 11:B594: 32        .byte $32
 - D - I - 0x0235A5 11:B595: 49        .byte $49
 - D - I - 0x0235A6 11:B596: 36        .byte $36
@@ -11097,50 +10619,38 @@ off_B5A4:
 - D - I - 0x0235BD 11:B5AD: BF BB     .word off_BBBF
 - D - I - 0x0235BF 11:B5AF: F6        .byte con_mirror_toggle
 - D - I - 0x0235C0 11:B5B0: F7        .byte con_F7, $33
-- D - I - 0x0235C2 11:B5B2: F9        .byte $F9
-- D - I - 0x0235C3 11:B5B3: 02        .byte $02
-- D - I - 0x0235C4 11:B5B4: 07        .byte $07
+- D - I - 0x0235C2 11:B5B2: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x0235C5 11:B5B5: 32        .byte $32
 - D - I - 0x0235C6 11:B5B6: 27        .byte $27
 - D - I - 0x0235C7 11:B5B7: 11        .byte $11
 - D - I - 0x0235C8 11:B5B8: 00        .byte $00
 - D - I - 0x0235C9 11:B5B9: FB        .byte con_rts
 off_B5BA:
-- D - I - 0x0235CA 11:B5BA: F9        .byte $F9
-- D - I - 0x0235CB 11:B5BB: 02        .byte $02
-- D - I - 0x0235CC 11:B5BC: 08        .byte $08
+- D - I - 0x0235CA 11:B5BA: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x0235CD 11:B5BD: 41        .byte $41
 - D - I - 0x0235CE 11:B5BE: 02        .byte $02
 - D - I - 0x0235CF 11:B5BF: 29        .byte $29
 - D - I - 0x0235D0 11:B5C0: 00        .byte $00
-- D - I - 0x0235D1 11:B5C1: F9        .byte $F9
-- D - I - 0x0235D2 11:B5C2: 02        .byte $02
-- D - I - 0x0235D3 11:B5C3: 0A        .byte $0A
+- D - I - 0x0235D1 11:B5C1: F9        .byte con_delay_soundID, $02, $0A
 - D - I - 0x0235D4 11:B5C4: 3D        .byte $3D
 - D - I - 0x0235D5 11:B5C5: 13        .byte $13
 - D - I - 0x0235D6 11:B5C6: 2F        .byte $2F
 - D - I - 0x0235D7 11:B5C7: 00        .byte $00
-- D - I - 0x0235D8 11:B5C8: F9        .byte $F9
-- D - I - 0x0235D9 11:B5C9: 02        .byte $02
-- D - I - 0x0235DA 11:B5CA: 0A        .byte $0A
+- D - I - 0x0235D8 11:B5C8: F9        .byte con_delay_soundID, $02, $0A
 - D - I - 0x0235DB 11:B5CB: 46        .byte $46
 - D - I - 0x0235DC 11:B5CC: 5F        .byte $5F
 - D - I - 0x0235DD 11:B5CD: 28        .byte $28
 - D - I - 0x0235DE 11:B5CE: 00        .byte $00
 - D - I - 0x0235DF 11:B5CF: FB        .byte con_rts
 off_B5D0:
-- D - I - 0x0235E0 11:B5D0: F9        .byte $F9
-- D - I - 0x0235E1 11:B5D1: 02        .byte $02
-- D - I - 0x0235E2 11:B5D2: 24        .byte $24
+- D - I - 0x0235E0 11:B5D0: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x0235E3 11:B5D3: 38        .byte $38
 - D - I - 0x0235E4 11:B5D4: 35        .byte $35
 - D - I - 0x0235E5 11:B5D5: 10        .byte $10
 - D - I - 0x0235E6 11:B5D6: 00        .byte $00
 - D - I - 0x0235E7 11:B5D7: FA        .byte con_jsr_2
 - D - I - 0x0235E8 11:B5D8: 5D BB     .word off_BB5D
-- D - I - 0x0235EA 11:B5DA: F9        .byte $F9
-- D - I - 0x0235EB 11:B5DB: 02        .byte $02
-- D - I - 0x0235EC 11:B5DC: 24        .byte $24
+- D - I - 0x0235EA 11:B5DA: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x0235ED 11:B5DD: F7        .byte con_F7, $33
 - D - I - 0x0235EF 11:B5DF: 3C        .byte $3C
 - D - I - 0x0235F0 11:B5E0: 5D        .byte $5D
@@ -11148,9 +10658,7 @@ off_B5D0:
 - D - I - 0x0235F2 11:B5E2: 00        .byte $00
 - D - I - 0x0235F3 11:B5E3: FB        .byte con_rts
 off_B5E4:
-- D - I - 0x0235F4 11:B5E4: F9        .byte $F9
-- D - I - 0x0235F5 11:B5E5: 02        .byte $02
-- D - I - 0x0235F6 11:B5E6: 0E        .byte $0E
+- D - I - 0x0235F4 11:B5E4: F9        .byte con_delay_soundID, $02, $0E
 - D - I - 0x0235F7 11:B5E7: 32        .byte $32
 - D - I - 0x0235F8 11:B5E8: 1D        .byte $1D
 - D - I - 0x0235F9 11:B5E9: 0F        .byte $0F
@@ -11159,9 +10667,7 @@ off_B5E4:
 off_B5EC:
 - D - I - 0x0235FC 11:B5EC: FA        .byte con_jsr_2
 - D - I - 0x0235FD 11:B5ED: 8F BB     .word off_BB8F
-- D - I - 0x0235FF 11:B5EF: F9        .byte $F9
-- D - I - 0x023600 11:B5F0: 02        .byte $02
-- D - I - 0x023601 11:B5F1: 0E        .byte $0E
+- D - I - 0x0235FF 11:B5EF: F9        .byte con_delay_soundID, $02, $0E
 - D - I - 0x023602 11:B5F2: 32        .byte $32
 - D - I - 0x023603 11:B5F3: 62        .byte $62
 - D - I - 0x023604 11:B5F4: 41        .byte $41
@@ -11172,9 +10678,7 @@ off_B5F7:
 - D - I - 0x023609 11:B5F9: FA        .byte con_jsr_2
 - D - I - 0x02360A 11:B5FA: BF BB     .word off_BBBF
 - D - I - 0x02360C 11:B5FC: F7        .byte con_F7, $31
-- D - I - 0x02360E 11:B5FE: F9        .byte $F9
-- D - I - 0x02360F 11:B5FF: 02        .byte $02
-- D - I - 0x023610 11:B600: 07        .byte $07
+- D - I - 0x02360E 11:B5FE: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x023611 11:B601: 34        .byte $34
 - D - I - 0x023612 11:B602: 44        .byte $44
 - D - I - 0x023613 11:B603: 11        .byte $11
@@ -11197,9 +10701,7 @@ off_B60B:
 - D - I - 0x02362A 11:B61A: AF BB     .word off_BBAF
 - D - I - 0x02362C 11:B61C: FB        .byte con_rts
 off_B61D:
-- D - I - 0x02362D 11:B61D: F9        .byte $F9
-- D - I - 0x02362E 11:B61E: 02        .byte $02
-- D - I - 0x02362F 11:B61F: 0B        .byte $0B
+- D - I - 0x02362D 11:B61D: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x023630 11:B620: 32        .byte $32
 - D - I - 0x023631 11:B621: 1C        .byte $1C
 - D - I - 0x023632 11:B622: 3C        .byte $3C
@@ -11209,17 +10711,13 @@ off_B61D:
 - D - I - 0x023636 11:B626: 8F BB     .word off_BB8F
 - D - I - 0x023638 11:B628: F6        .byte con_mirror_toggle
 - D - I - 0x023639 11:B629: F7        .byte con_F7, $18
-- D - I - 0x02363B 11:B62B: F9        .byte $F9
-- D - I - 0x02363C 11:B62C: 02        .byte $02
-- D - I - 0x02363D 11:B62D: 0C        .byte $0C
+- D - I - 0x02363B 11:B62B: F9        .byte con_delay_soundID, $02, $0C
 - D - I - 0x02363E 11:B62E: 32        .byte $32
 - D - I - 0x02363F 11:B62F: 5D        .byte $5D
 - D - I - 0x023640 11:B630: 3D        .byte $3D
 - D - I - 0x023641 11:B631: 00        .byte $00
 - D - I - 0x023642 11:B632: F7        .byte con_F7, $18
-- D - I - 0x023644 11:B634: F9        .byte $F9
-- D - I - 0x023645 11:B635: 02        .byte $02
-- D - I - 0x023646 11:B636: 0D        .byte $0D
+- D - I - 0x023644 11:B634: F9        .byte con_delay_soundID, $02, $0D
 - D - I - 0x023647 11:B637: 20        .byte $20
 - D - I - 0x023648 11:B638: F0        .byte con_F0
 - D - I - 0x023649 11:B639: 00        .byte $00
@@ -11227,9 +10725,7 @@ off_B61D:
 - D - I - 0x02364B 11:B63B: F3        .byte con_F3, $A7
 - D - I - 0x02364D 11:B63D: 02        .byte $02
 - - - - - 0x02364E 11:B63E: 27        .byte $27
-- D - I - 0x02364F 11:B63F: F9        .byte $F9
-- D - I - 0x023650 11:B640: 02        .byte $02
-- D - I - 0x023651 11:B641: 43        .byte $43
+- D - I - 0x02364F 11:B63F: F9        .byte con_delay_soundID, $02, $43
 - D - I - 0x023652 11:B642: F5        .byte con_mirror_off
 - D - I - 0x023653 11:B643: F3        .byte con_F3, $C1
 - - - - - 0x023655 11:B645: 2F        .byte $2F
@@ -11258,17 +10754,13 @@ off_B61D:
 off_B65F:
 - D - I - 0x02366F 11:B65F: FA        .byte con_jsr_2
 - D - I - 0x023670 11:B660: C7 BB     .word off_BBC7
-- D - I - 0x023672 11:B662: F9        .byte $F9
-- D - I - 0x023673 11:B663: 02        .byte $02
-- D - I - 0x023674 11:B664: 7F        .byte $7F
+- D - I - 0x023672 11:B662: F9        .byte con_delay_soundID, $02, $7F
 - D - I - 0x023675 11:B665: F7        .byte con_F7, $2E
 - D - I - 0x023677 11:B667: 32        .byte $32
 - D - I - 0x023678 11:B668: 64        .byte $64
 - D - I - 0x023679 11:B669: 00        .byte $00
 - D - I - 0x02367A 11:B66A: 00        .byte $00
-- D - I - 0x02367B 11:B66B: F9        .byte $F9
-- D - I - 0x02367C 11:B66C: 02        .byte $02
-- D - I - 0x02367D 11:B66D: 11        .byte $11
+- D - I - 0x02367B 11:B66B: F9        .byte con_delay_soundID, $02, $11
 - D - I - 0x02367E 11:B66E: F7        .byte con_F7, $12
 - D - I - 0x023680 11:B670: 32        .byte $32
 - D - I - 0x023681 11:B671: F0        .byte con_F0
@@ -11282,9 +10774,7 @@ off_B675:
 - D - I - 0x023689 11:B679: FA        .byte con_jsr_2
 - D - I - 0x02368A 11:B67A: 9F BB     .word off_BB9F
 - D - I - 0x02368C 11:B67C: F6        .byte con_mirror_toggle
-- D - I - 0x02368D 11:B67D: F9        .byte $F9
-- D - I - 0x02368E 11:B67E: 02        .byte $02
-- D - I - 0x02368F 11:B67F: 0F        .byte $0F
+- D - I - 0x02368D 11:B67D: F9        .byte con_delay_soundID, $02, $0F
 - D - I - 0x023690 11:B680: 3C        .byte $3C
 - D - I - 0x023691 11:B681: 35        .byte $35
 - D - I - 0x023692 11:B682: 5D        .byte $5D
@@ -11293,34 +10783,26 @@ off_B675:
 off_B685:
 - D - I - 0x023695 11:B685: FA        .byte con_jsr_2
 - D - I - 0x023696 11:B686: B7 BB     .word off_BBB7
-- D - I - 0x023698 11:B688: F9        .byte $F9
-- D - I - 0x023699 11:B689: 02        .byte $02
-- D - I - 0x02369A 11:B68A: 10        .byte $10
+- D - I - 0x023698 11:B688: F9        .byte con_delay_soundID, $02, $10
 - D - I - 0x02369B 11:B68B: 37        .byte $37
 - D - I - 0x02369C 11:B68C: 5B        .byte $5B
 - D - I - 0x02369D 11:B68D: 5E        .byte $5E
 - D - I - 0x02369E 11:B68E: 00        .byte $00
 - D - I - 0x02369F 11:B68F: FB        .byte con_rts
 off_B690:
-- D - I - 0x0236A0 11:B690: F9        .byte $F9
-- D - I - 0x0236A1 11:B691: 02        .byte $02
-- D - I - 0x0236A2 11:B692: 06        .byte $06
+- D - I - 0x0236A0 11:B690: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x0236A3 11:B693: 30        .byte $30
 - D - I - 0x0236A4 11:B694: 5A        .byte $5A
 - D - I - 0x0236A5 11:B695: 1A        .byte $1A
 - D - I - 0x0236A6 11:B696: 00        .byte $00
 - D - I - 0x0236A7 11:B697: F6        .byte con_mirror_toggle
-- D - I - 0x0236A8 11:B698: F9        .byte $F9
-- D - I - 0x0236A9 11:B699: 02        .byte $02
-- D - I - 0x0236AA 11:B69A: 06        .byte $06
+- D - I - 0x0236A8 11:B698: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x0236AB 11:B69B: 30        .byte $30
 - D - I - 0x0236AC 11:B69C: 5A        .byte $5A
 - D - I - 0x0236AD 11:B69D: 1A        .byte $1A
 - D - I - 0x0236AE 11:B69E: 00        .byte $00
 - D - I - 0x0236AF 11:B69F: F6        .byte con_mirror_toggle
-- D - I - 0x0236B0 11:B6A0: F9        .byte $F9
-- D - I - 0x0236B1 11:B6A1: 02        .byte $02
-- D - I - 0x0236B2 11:B6A2: 0C        .byte $0C
+- D - I - 0x0236B0 11:B6A0: F9        .byte con_delay_soundID, $02, $0C
 - D - I - 0x0236B3 11:B6A3: 0A        .byte $0A
 - D - I - 0x0236B4 11:B6A4: 14        .byte $14
 - D - I - 0x0236B5 11:B6A5: 3D        .byte $3D
@@ -11360,27 +10842,21 @@ off_B6C0:
 - D - I - 0x0236D9 11:B6C9: B7 BB     .word off_BBB7
 - D - I - 0x0236DB 11:B6CB: F6        .byte con_mirror_toggle
 - D - I - 0x0236DC 11:B6CC: F7        .byte con_F7, $39
-- D - I - 0x0236DE 11:B6CE: F9        .byte $F9
-- D - I - 0x0236DF 11:B6CF: 02        .byte $02
-- D - I - 0x0236E0 11:B6D0: 07        .byte $07
+- D - I - 0x0236DE 11:B6CE: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x0236E1 11:B6D1: 32        .byte $32
 - D - I - 0x0236E2 11:B6D2: 5A        .byte $5A
 - D - I - 0x0236E3 11:B6D3: 11        .byte $11
 - D - I - 0x0236E4 11:B6D4: 00        .byte $00
 - D - I - 0x0236E5 11:B6D5: FB        .byte con_rts
 off_B6D6:
-- D - I - 0x0236E6 11:B6D6: F9        .byte $F9
-- D - I - 0x0236E7 11:B6D7: 02        .byte $02
-- D - I - 0x0236E8 11:B6D8: 06        .byte $06
+- D - I - 0x0236E6 11:B6D6: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x0236E9 11:B6D9: 20        .byte $20
 - D - I - 0x0236EA 11:B6DA: 13        .byte $13
 - D - I - 0x0236EB 11:B6DB: 12        .byte $12
 - D - I - 0x0236EC 11:B6DC: 00        .byte $00
 - D - I - 0x0236ED 11:B6DD: FB        .byte con_rts
 off_B6DE:
-- - - - - 0x0236EE 11:B6DE: F9        .byte $F9
-- - - - - 0x0236EF 11:B6DF: 02        .byte $02
-- - - - - 0x0236F0 11:B6E0: 04        .byte $04
+- - - - - 0x0236EE 11:B6DE: F9        .byte con_delay_soundID, $02, $04
 - - - - - 0x0236F1 11:B6E1: 1E        .byte $1E
 - - - - - 0x0236F2 11:B6E2: 67        .byte $67
 - - - - - 0x0236F3 11:B6E3: 72        .byte $72
@@ -11388,9 +10864,7 @@ off_B6DE:
 - - - - - 0x0236F5 11:B6E5: FB        .byte con_rts
 off_B6E6:
 - D - I - 0x0236F6 11:B6E6: F6        .byte con_mirror_toggle
-- D - I - 0x0236F7 11:B6E7: F9        .byte $F9
-- D - I - 0x0236F8 11:B6E8: 02        .byte $02
-- D - I - 0x0236F9 11:B6E9: 08        .byte $08
+- D - I - 0x0236F7 11:B6E7: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x0236FA 11:B6EA: 33        .byte $33
 - D - I - 0x0236FB 11:B6EB: 13        .byte $13
 - D - I - 0x0236FC 11:B6EC: 1D        .byte $1D
@@ -11398,34 +10872,26 @@ off_B6E6:
 - D - I - 0x0236FE 11:B6EE: F6        .byte con_mirror_toggle
 - D - I - 0x0236FF 11:B6EF: FB        .byte con_rts
 off_B6F0:
-- D - I - 0x023700 11:B6F0: F9        .byte $F9
-- D - I - 0x023701 11:B6F1: 02        .byte $02
-- D - I - 0x023702 11:B6F2: 04        .byte $04
+- D - I - 0x023700 11:B6F0: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x023703 11:B6F3: 32        .byte $32
 - D - I - 0x023704 11:B6F4: 13        .byte $13
 - D - I - 0x023705 11:B6F5: 40        .byte $40
 - D - I - 0x023706 11:B6F6: 00        .byte $00
 - D - I - 0x023707 11:B6F7: F7        .byte con_F7, $14
-- D - I - 0x023709 11:B6F9: F9        .byte $F9
-- D - I - 0x02370A 11:B6FA: 02        .byte $02
-- D - I - 0x02370B 11:B6FB: 0E        .byte $0E
+- D - I - 0x023709 11:B6F9: F9        .byte con_delay_soundID, $02, $0E
 - D - I - 0x02370C 11:B6FC: 23        .byte $23
 - D - I - 0x02370D 11:B6FD: 43        .byte $43
 - D - I - 0x02370E 11:B6FE: 73        .byte $73
 - D - I - 0x02370F 11:B6FF: 00        .byte $00
 - D - I - 0x023710 11:B700: FB        .byte con_rts
 off_B701:
-- D - I - 0x023711 11:B701: F9        .byte $F9
-- D - I - 0x023712 11:B702: 02        .byte $02
-- D - I - 0x023713 11:B703: 06        .byte $06
+- D - I - 0x023711 11:B701: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x023714 11:B704: 28        .byte $28
 - D - I - 0x023715 11:B705: 68        .byte $68
 - D - I - 0x023716 11:B706: 12        .byte $12
 - D - I - 0x023717 11:B707: 00        .byte $00
 - D - I - 0x023718 11:B708: F7        .byte con_F7, $2B
-- D - I - 0x02371A 11:B70A: F9        .byte $F9
-- D - I - 0x02371B 11:B70B: 02        .byte $02
-- D - I - 0x02371C 11:B70C: 05        .byte $05
+- D - I - 0x02371A 11:B70A: F9        .byte con_delay_soundID, $02, $05
 - D - I - 0x02371D 11:B70D: 46        .byte $46
 - D - I - 0x02371E 11:B70E: 60        .byte $60
 - D - I - 0x02371F 11:B70F: 74        .byte $74
@@ -11438,9 +10904,7 @@ off_B712:
 - D - I - 0x023726 11:B716: FA        .byte con_jsr_2
 - D - I - 0x023727 11:B717: A7 BB     .word off_BBA7
 - D - I - 0x023729 11:B719: F7        .byte con_F7, $3A
-- D - I - 0x02372B 11:B71B: F9        .byte $F9
-- D - I - 0x02372C 11:B71C: 02        .byte $02
-- D - I - 0x02372D 11:B71D: 0A        .byte $0A
+- D - I - 0x02372B 11:B71B: F9        .byte con_delay_soundID, $02, $0A
 - D - I - 0x02372E 11:B71E: 46        .byte $46
 - D - I - 0x02372F 11:B71F: 5E        .byte $5E
 - D - I - 0x023730 11:B720: 28        .byte $28
@@ -11448,9 +10912,7 @@ off_B712:
 - D - I - 0x023732 11:B722: F6        .byte con_mirror_toggle
 - D - I - 0x023733 11:B723: FB        .byte con_rts
 off_B724:
-- D - I - 0x023734 11:B724: F9        .byte $F9
-- D - I - 0x023735 11:B725: 02        .byte $02
-- D - I - 0x023736 11:B726: 0F        .byte $0F
+- D - I - 0x023734 11:B724: F9        .byte con_delay_soundID, $02, $0F
 - D - I - 0x023737 11:B727: 3D        .byte $3D
 - D - I - 0x023738 11:B728: 4E        .byte $4E
 - D - I - 0x023739 11:B729: 5D        .byte $5D
@@ -11603,9 +11065,7 @@ off_B7A1:
 - D - I - 0x0237B5 11:B7A5: FB        .byte con_rts
 off_B7A6:
 - D - I - 0x0237B6 11:B7A6: F5        .byte con_mirror_off
-- D - I - 0x0237B7 11:B7A7: F9        .byte $F9
-- D - I - 0x0237B8 11:B7A8: 02        .byte $02
-- D - I - 0x0237B9 11:B7A9: 66        .byte $66
+- D - I - 0x0237B7 11:B7A7: F9        .byte con_delay_soundID, $02, $66
 - D - I - 0x0237BA 11:B7AA: 32        .byte $32
 - D - I - 0x0237BB 11:B7AB: 0C        .byte $0C
 - D - I - 0x0237BC 11:B7AC: 4E        .byte $4E
@@ -11616,9 +11076,7 @@ off_B7AF:
 - D - I - 0x0237C0 11:B7B0: F0        .byte con_F0
 - D - I - 0x0237C1 11:B7B1: F0        .byte con_F0
 - D - I - 0x0237C2 11:B7B2: 71        .byte $71
-- D - I - 0x0237C3 11:B7B3: F9        .byte $F9
-- D - I - 0x0237C4 11:B7B4: 02        .byte $02
-- D - I - 0x0237C5 11:B7B5: 31        .byte $31
+- D - I - 0x0237C3 11:B7B3: F9        .byte con_delay_soundID, $02, $31
 - D - I - 0x0237C6 11:B7B6: C0        .byte $C0
 - D - I - 0x0237C7 11:B7B7: F0        .byte con_F0
 - D - I - 0x0237C8 11:B7B8: F0        .byte con_F0
@@ -11652,7 +11110,7 @@ off_B7C6_38:
 
 
 off_B7CD_35:
-- D - I - 0x0237DD 11:B7CD: F9        .byte con_задержка_звук, $EB, $44
+- D - I - 0x0237DD 11:B7CD: F9        .byte con_delay_soundID, $EB, $44
 - D - I - 0x0237E0 11:B7D0: 02        .byte $02     ; задержка следующей анимации
 - D - I - 0x0237E1 11:B7D1: 3A        .byte $3A     ; фон
 - D - I - 0x0237E2 11:B7D2: 8F        .byte $8F     ; анимация
@@ -11684,24 +11142,18 @@ off_B7DA_1E:
 
 off_B7E4_36:
 - D - I - 0x0237F4 11:B7E4: F5        .byte con_mirror_off
-- D - I - 0x0237F5 11:B7E5: F9        .byte $F9
-- D - I - 0x0237F6 11:B7E6: 02        .byte $02
-- D - I - 0x0237F7 11:B7E7: 7F        .byte $7F
+- D - I - 0x0237F5 11:B7E5: F9        .byte con_delay_soundID, $02, $7F
 - D - I - 0x0237F8 11:B7E8: 10        .byte $10
 - D - I - 0x0237F9 11:B7E9: 3A        .byte $3A
 - D - I - 0x0237FA 11:B7EA: 8F        .byte $8F
 - D - I - 0x0237FB 11:B7EB: F0        .byte con_F0
-- D - I - 0x0237FC 11:B7EC: F9        .byte $F9
-- D - I - 0x0237FD 11:B7ED: 02        .byte $02
-- D - I - 0x0237FE 11:B7EE: 66        .byte $66
+- D - I - 0x0237FC 11:B7EC: F9        .byte con_delay_soundID, $02, $66
 - D - I - 0x0237FF 11:B7EF: 20        .byte $20
 - D - I - 0x023800 11:B7F0: F0        .byte con_F0
 - D - I - 0x023801 11:B7F1: F0        .byte con_F0
 - D - I - 0x023802 11:B7F2: 74        .byte $74
 - D - I - 0x023803 11:B7F3: FD        .byte con_FD, $00
-- D - I - 0x023805 11:B7F5: F9        .byte $F9
-- D - I - 0x023806 11:B7F6: 09        .byte $09
-- D - I - 0x023807 11:B7F7: 2B        .byte $2B
+- D - I - 0x023805 11:B7F5: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x023808 11:B7F8: 32        .byte $32
 - D - I - 0x023809 11:B7F9: 72        .byte $72
 - D - I - 0x02380A 11:B7FA: 66        .byte $66
@@ -11711,9 +11163,7 @@ off_B7E4_36:
 - D - I - 0x02380F 11:B7FF: 1F        .byte $1F
 - D - I - 0x023810 11:B800: 4C        .byte $4C
 - D - I - 0x023811 11:B801: F0        .byte con_F0
-- D - I - 0x023812 11:B802: F9        .byte $F9
-- D - I - 0x023813 11:B803: 1D        .byte $1D
-- D - I - 0x023814 11:B804: 2C        .byte $2C
+- D - I - 0x023812 11:B802: F9        .byte con_delay_soundID, $1D, $2C
 - D - I - 0x023815 11:B805: 3E        .byte $3E
 - D - I - 0x023816 11:B806: 01        .byte $01
 - D - I - 0x023817 11:B807: E6        .byte $E6
@@ -11796,9 +11246,7 @@ off_B848:
 - D - I - 0x02385E 11:B84E: 30        .byte $30
 - D - I - 0x02385F 11:B84F: 91        .byte $91
 - D - I - 0x023860 11:B850: C3        .byte $C3
-- D - I - 0x023861 11:B851: F9        .byte $F9
-- D - I - 0x023862 11:B852: 02        .byte $02
-- D - I - 0x023863 11:B853: 31        .byte $31
+- D - I - 0x023861 11:B851: F9        .byte con_delay_soundID, $02, $31
 - D - I - 0x023864 11:B854: FA        .byte con_jsr_2
 - D - I - 0x023865 11:B855: C7 BB     .word off_BBC7
 - D - I - 0x023867 11:B857: F6        .byte con_mirror_toggle
@@ -11809,9 +11257,7 @@ off_B859:
 - D - I - 0x02386B 11:B85B: F0        .byte con_F0
 - D - I - 0x02386C 11:B85C: F0        .byte con_F0
 - D - I - 0x02386D 11:B85D: F5        .byte con_mirror_off
-- D - I - 0x02386E 11:B85E: F9        .byte $F9
-- D - I - 0x02386F 11:B85F: 02        .byte $02
-- D - I - 0x023870 11:B860: 46        .byte $46
+- D - I - 0x02386E 11:B85E: F9        .byte con_delay_soundID, $02, $46
 - D - I - 0x023871 11:B861: EF        .byte $EF
 - D - I - 0x023872 11:B862: 19        .byte $19
 - D - I - 0x023873 11:B863: E0        .byte $E0
@@ -11844,17 +11290,13 @@ off_B859:
 - D - I - 0x02388E 11:B87E: F0        .byte con_F0
 - D - I - 0x02388F 11:B87F: F0        .byte con_F0
 - D - I - 0x023890 11:B880: F0        .byte con_F0
-- D - I - 0x023891 11:B881: F9        .byte $F9
-- D - I - 0x023892 11:B882: 02        .byte $02
-- D - I - 0x023893 11:B883: 01        .byte $01
+- D - I - 0x023891 11:B881: F9        .byte con_delay_soundID, $02, $01
 - D - I - 0x023894 11:B884: F7        .byte con_F7, $06
 - D - I - 0x023896 11:B886: 56        .byte $56
 - D - I - 0x023897 11:B887: F0        .byte con_F0
 - D - I - 0x023898 11:B888: F0        .byte con_F0
 - D - I - 0x023899 11:B889: 7F        .byte $7F
-- D - I - 0x02389A 11:B88A: F9        .byte $F9
-- D - I - 0x02389B 11:B88B: 02        .byte $02
-- D - I - 0x02389C 11:B88C: 52        .byte $52
+- D - I - 0x02389A 11:B88A: F9        .byte con_delay_soundID, $02, $52
 - D - I - 0x02389D 11:B88D: F7        .byte con_F7, $1F
 - D - I - 0x02389F 11:B88F: 90        .byte $90
 - D - I - 0x0238A0 11:B890: 30        .byte $30
@@ -11865,9 +11307,7 @@ off_B859:
 - D - I - 0x0238A6 11:B896: F0        .byte con_F0
 - D - I - 0x0238A7 11:B897: F0        .byte con_F0
 - D - I - 0x0238A8 11:B898: F0        .byte con_F0
-- D - I - 0x0238A9 11:B899: F9        .byte $F9
-- D - I - 0x0238AA 11:B89A: 02        .byte $02
-- D - I - 0x0238AB 11:B89B: 7F        .byte $7F
+- D - I - 0x0238A9 11:B899: F9        .byte con_delay_soundID, $02, $7F
 - D - I - 0x0238AC 11:B89C: 01        .byte $01
 - D - I - 0x0238AD 11:B89D: F0        .byte con_F0
 - D - I - 0x0238AE 11:B89E: F0        .byte con_F0
@@ -11883,18 +11323,14 @@ off_B8A1_17:
 - D - I - 0x0238B4 11:B8A4: 00        .byte $00
 - D - I - 0x0238B5 11:B8A5: F4        .byte con_mirror_on
 - D - I - 0x0238B6 11:B8A6: F7        .byte con_F7, $1F
-- D - I - 0x0238B8 11:B8A8: F9        .byte $F9
-- D - I - 0x0238B9 11:B8A9: 02        .byte $02
-- D - I - 0x0238BA 11:B8AA: 30        .byte $30
+- D - I - 0x0238B8 11:B8A8: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x0238BB 11:B8AB: 78        .byte $78
 - D - I - 0x0238BC 11:B8AC: 30        .byte $30
 - D - I - 0x0238BD 11:B8AD: 91        .byte $91
 - D - I - 0x0238BE 11:B8AE: 81        .byte $81
 - D - I - 0x0238BF 11:B8AF: FA        .byte con_jsr_2
 - D - I - 0x0238C0 11:B8B0: C7 BB     .word off_BBC7
-- D - I - 0x0238C2 11:B8B2: F9        .byte $F9
-- D - I - 0x0238C3 11:B8B3: 02        .byte $02
-- D - I - 0x0238C4 11:B8B4: 2B        .byte $2B
+- D - I - 0x0238C2 11:B8B2: F9        .byte con_delay_soundID, $02, $2B
 - D - I - 0x0238C5 11:B8B5: 28        .byte $28
 - D - I - 0x0238C6 11:B8B6: 01        .byte $01
 - D - I - 0x0238C7 11:B8B7: 66        .byte $66
@@ -11911,9 +11347,7 @@ off_B8A1_17:
 - D - I - 0x0238D2 11:B8C2: 30        .byte $30
 - D - I - 0x0238D3 11:B8C3: 91        .byte $91
 - D - I - 0x0238D4 11:B8C4: 83        .byte $83
-- D - I - 0x0238D5 11:B8C5: F9        .byte $F9
-- D - I - 0x0238D6 11:B8C6: 02        .byte $02
-- D - I - 0x0238D7 11:B8C7: 25        .byte $25
+- D - I - 0x0238D5 11:B8C5: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x0238D8 11:B8C8: 28        .byte $28
 - D - I - 0x0238D9 11:B8C9: 20        .byte $20
 - D - I - 0x0238DA 11:B8CA: ED        .byte $ED
@@ -11924,9 +11358,7 @@ off_B8A1_17:
 - D - I - 0x0238DF 11:B8CF: A8        .byte $A8
 - D - I - 0x0238E0 11:B8D0: 84        .byte $84
 - D - I - 0x0238E1 11:B8D1: F6        .byte con_mirror_toggle
-- D - I - 0x0238E2 11:B8D2: F9        .byte $F9
-- D - I - 0x0238E3 11:B8D3: 31        .byte $31
-- D - I - 0x0238E4 11:B8D4: 2B        .byte $2B
+- D - I - 0x0238E2 11:B8D2: F9        .byte con_delay_soundID, $31, $2B
 - D - I - 0x0238E5 11:B8D5: 38        .byte $38
 - D - I - 0x0238E6 11:B8D6: 47        .byte $47
 - D - I - 0x0238E7 11:B8D7: BF        .byte $BF
@@ -11936,9 +11368,7 @@ off_B8A1_17:
 - D - I - 0x0238EB 11:B8DB: F0        .byte con_F0
 - D - I - 0x0238EC 11:B8DC: F0        .byte con_F0
 - D - I - 0x0238ED 11:B8DD: F6        .byte con_mirror_toggle
-- D - I - 0x0238EE 11:B8DE: F9        .byte $F9
-- D - I - 0x0238EF 11:B8DF: 02        .byte $02
-- D - I - 0x0238F0 11:B8E0: 04        .byte $04
+- D - I - 0x0238EE 11:B8DE: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x0238F1 11:B8E1: 32        .byte $32
 - D - I - 0x0238F2 11:B8E2: 63        .byte $63
 - D - I - 0x0238F3 11:B8E3: 0F        .byte $0F
@@ -11949,9 +11379,7 @@ off_B8A1_17:
 - D - I - 0x0238F9 11:B8E9: 04        .byte $04
 - D - I - 0x0238FA 11:B8EA: 86        .byte $86
 - D - I - 0x0238FB 11:B8EB: F7        .byte con_F7, $33
-- D - I - 0x0238FD 11:B8ED: F9        .byte $F9
-- D - I - 0x0238FE 11:B8EE: 02        .byte $02
-- D - I - 0x0238FF 11:B8EF: 05        .byte $05
+- D - I - 0x0238FD 11:B8ED: F9        .byte con_delay_soundID, $02, $05
 - D - I - 0x023900 11:B8F0: 36        .byte $36
 - D - I - 0x023901 11:B8F1: 27        .byte $27
 - D - I - 0x023902 11:B8F2: 10        .byte $10
@@ -11967,9 +11395,7 @@ off_B8A1_17:
 - D - I - 0x02390D 11:B8FD: D3        .byte $D3
 - D - I - 0x02390E 11:B8FE: 00        .byte $00
 - D - I - 0x02390F 11:B8FF: F7        .byte con_F7, $03
-- D - I - 0x023911 11:B901: F9        .byte $F9
-- D - I - 0x023912 11:B902: 02        .byte $02
-- D - I - 0x023913 11:B903: 61        .byte $61
+- D - I - 0x023911 11:B901: F9        .byte con_delay_soundID, $02, $61
 - D - I - 0x023914 11:B904: 64        .byte $64
 - D - I - 0x023915 11:B905: 07        .byte $07
 - D - I - 0x023916 11:B906: 45        .byte $45
@@ -12224,9 +11650,7 @@ off_B9FB:
 - D - I - 0x023A0D 11:B9FD: 00        .byte $00
 - D - I - 0x023A0E 11:B9FE: 00        .byte $00
 - D - I - 0x023A0F 11:B9FF: F7        .byte con_F7, $1F
-- D - I - 0x023A11 11:BA01: F9        .byte $F9
-- D - I - 0x023A12 11:BA02: 02        .byte $02
-- D - I - 0x023A13 11:BA03: 30        .byte $30
+- D - I - 0x023A11 11:BA01: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x023A14 11:BA04: A0        .byte $A0
 - D - I - 0x023A15 11:BA05: 30        .byte $30
 - D - I - 0x023A16 11:BA06: 91        .byte $91
@@ -12253,18 +11677,14 @@ off_BA17:
 - D - I - 0x023A2A 11:BA1A: 5F        .byte $5F
 - D - I - 0x023A2B 11:BA1B: FB        .byte con_rts
 off_BA1C:
-- D - I - 0x023A2C 11:BA1C: F9        .byte $F9
-- D - I - 0x023A2D 11:BA1D: 21        .byte $21
-- D - I - 0x023A2E 11:BA1E: 2B        .byte $2B
+- D - I - 0x023A2C 11:BA1C: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x023A2F 11:BA1F: 4A        .byte $4A
 - D - I - 0x023A30 11:BA20: 63        .byte $63
 - D - I - 0x023A31 11:BA21: 6D        .byte $6D
 - D - I - 0x023A32 11:BA22: 14        .byte $14
 - D - I - 0x023A33 11:BA23: FB        .byte con_rts
 off_BA24:
-- D - I - 0x023A34 11:BA24: F9        .byte $F9
-- D - I - 0x023A35 11:BA25: 21        .byte $21
-- D - I - 0x023A36 11:BA26: 2B        .byte $2B
+- D - I - 0x023A34 11:BA24: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x023A37 11:BA27: 46        .byte $46
 - D - I - 0x023A38 11:BA28: 01        .byte $01
 - D - I - 0x023A39 11:BA29: 6C        .byte $6C
@@ -12277,9 +11697,7 @@ off_BA2C:
 - D - I - 0x023A3F 11:BA2F: 61        .byte $61
 - D - I - 0x023A40 11:BA30: 72        .byte $72
 - D - I - 0x023A41 11:BA31: F7        .byte con_F7, $0B
-- D - I - 0x023A43 11:BA33: F9        .byte $F9
-- D - I - 0x023A44 11:BA34: 02        .byte $02
-- D - I - 0x023A45 11:BA35: 12        .byte $12
+- D - I - 0x023A43 11:BA33: F9        .byte con_delay_soundID, $02, $12
 - D - I - 0x023A46 11:BA36: 10        .byte $10
 - D - I - 0x023A47 11:BA37: 10        .byte $10
 - D - I - 0x023A48 11:BA38: 62        .byte $62
@@ -12351,9 +11769,7 @@ off_BA68:
 - - - - - 0x023A8E 11:BA7E: F0        .byte con_F0
 off_BA7F:
 - D - I - 0x023A8F 11:BA7F: F7        .byte con_F7, $03
-- D - I - 0x023A91 11:BA81: F9        .byte $F9
-- D - I - 0x023A92 11:BA82: 02        .byte $02
-- D - I - 0x023A93 11:BA83: 5D        .byte $5D
+- D - I - 0x023A91 11:BA81: F9        .byte con_delay_soundID, $02, $5D
 - D - I - 0x023A94 11:BA84: F3        .byte con_F3, $A1
 - D - I - 0x023A96 11:BA86: 02        .byte $02
 - - - - - 0x023A97 11:BA87: 06        .byte $06
@@ -12378,40 +11794,30 @@ off_BA7F:
 - D - I - 0x023AAC 11:BA9C: 03        .byte $03
 - - - - - 0x023AAD 11:BA9D: 11        .byte $11
 - - - - - 0x023AAE 11:BA9E: 10        .byte $10
-- D - I - 0x023AAF 11:BA9F: F9        .byte $F9
-- D - I - 0x023AB0 11:BAA0: 21        .byte $21
-- D - I - 0x023AB1 11:BAA1: 2B        .byte $2B
+- D - I - 0x023AAF 11:BA9F: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x023AB2 11:BAA2: 3C        .byte $3C
 - D - I - 0x023AB3 11:BAA3: 0E        .byte $0E
 - D - I - 0x023AB4 11:BAA4: 27        .byte $27
 - D - I - 0x023AB5 11:BAA5: DD        .byte $DD
-- D - I - 0x023AB6 11:BAA6: F9        .byte $F9
-- D - I - 0x023AB7 11:BAA7: 02        .byte $02
-- D - I - 0x023AB8 11:BAA8: 7E        .byte $7E
+- D - I - 0x023AB6 11:BAA6: F9        .byte con_delay_soundID, $02, $7E
 - D - I - 0x023AB9 11:BAA9: 01        .byte $01
 - D - I - 0x023ABA 11:BAAA: F0        .byte con_F0
 - D - I - 0x023ABB 11:BAAB: F0        .byte con_F0
 - D - I - 0x023ABC 11:BAAC: F0        .byte con_F0
 - D - I - 0x023ABD 11:BAAD: FB        .byte con_rts
-- - - - - 0x023ABE 11:BAAE: F9        .byte $F9
-- - - - - 0x023ABF 11:BAAF: 21        .byte $21
-- - - - - 0x023AC0 11:BAB0: 2B        .byte $2B
+- - - - - 0x023ABE 11:BAAE: F9        .byte con_delay_soundID, $21, $2B
 - - - - - 0x023AC1 11:BAB1: 3C        .byte $3C
 - - - - - 0x023AC2 11:BAB2: 0F        .byte $0F
 - - - - - 0x023AC3 11:BAB3: 2B        .byte $2B
 - - - - - 0x023AC4 11:BAB4: DD        .byte $DD
-- - - - - 0x023AC5 11:BAB5: F9        .byte $F9
-- - - - - 0x023AC6 11:BAB6: 02        .byte $02
-- - - - - 0x023AC7 11:BAB7: 7E        .byte $7E
+- - - - - 0x023AC5 11:BAB5: F9        .byte con_delay_soundID, $02, $7E
 - - - - - 0x023AC8 11:BAB8: 01        .byte $01
 - - - - - 0x023AC9 11:BAB9: F0        .byte con_F0
 - - - - - 0x023ACA 11:BABA: F0        .byte con_F0
 - - - - - 0x023ACB 11:BABB: F0        .byte con_F0
 - - - - - 0x023ACC 11:BABC: FB        .byte con_rts
 - D - I - 0x023ACD 11:BABD: F7        .byte con_F7, $07
-- D - I - 0x023ACF 11:BABF: F9        .byte $F9
-- D - I - 0x023AD0 11:BAC0: 21        .byte $21
-- D - I - 0x023AD1 11:BAC1: 2A        .byte $2A
+- D - I - 0x023ACF 11:BABF: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x023AD2 11:BAC2: 20        .byte $20
 - D - I - 0x023AD3 11:BAC3: 40        .byte $40
 - D - I - 0x023AD4 11:BAC4: 17        .byte $17
@@ -12422,9 +11828,7 @@ off_BA7F:
 - D - I - 0x023ADA 11:BACA: 00        .byte $00
 - D - I - 0x023ADB 11:BACB: F0        .byte con_F0
 - D - I - 0x023ADC 11:BACC: F6        .byte con_mirror_toggle
-- D - I - 0x023ADD 11:BACD: F9        .byte $F9
-- D - I - 0x023ADE 11:BACE: 02        .byte $02
-- D - I - 0x023ADF 11:BACF: 7E        .byte $7E
+- D - I - 0x023ADD 11:BACD: F9        .byte con_delay_soundID, $02, $7E
 - D - I - 0x023AE0 11:BAD0: 3C        .byte $3C
 - D - I - 0x023AE1 11:BAD1: 20        .byte $20
 - D - I - 0x023AE2 11:BAD2: 52        .byte $52
@@ -12440,16 +11844,12 @@ off_BA7F:
 - - - - - 0x023AED 11:BADD: F0        .byte con_F0
 off_BADE:
 - D - I - 0x023AEE 11:BADE: F7        .byte con_F7, $1F
-- D - I - 0x023AF0 11:BAE0: F9        .byte $F9
-- D - I - 0x023AF1 11:BAE1: 02        .byte $02
-- D - I - 0x023AF2 11:BAE2: 63        .byte $63
+- D - I - 0x023AF0 11:BAE0: F9        .byte con_delay_soundID, $02, $63
 - D - I - 0x023AF3 11:BAE3: 10        .byte $10
 - D - I - 0x023AF4 11:BAE4: 06        .byte $06
 - D - I - 0x023AF5 11:BAE5: 43        .byte $43
 - D - I - 0x023AF6 11:BAE6: 18        .byte $18
-- D - I - 0x023AF7 11:BAE7: F9        .byte $F9
-- D - I - 0x023AF8 11:BAE8: 02        .byte $02
-- D - I - 0x023AF9 11:BAE9: 7E        .byte $7E
+- D - I - 0x023AF7 11:BAE7: F9        .byte con_delay_soundID, $02, $7E
 - D - I - 0x023AFA 11:BAEA: 3C        .byte $3C
 - D - I - 0x023AFB 11:BAEB: 1E        .byte $1E
 - D - I - 0x023AFC 11:BAEC: 42        .byte $42
@@ -12546,9 +11946,7 @@ off_BB4B:
 - D - I - 0x023B5F 11:BB4F: FB        .byte con_rts
 off_BB50:
 - D - I - 0x023B60 11:BB50: F6        .byte con_mirror_toggle
-- D - I - 0x023B61 11:BB51: F9        .byte $F9
-- D - I - 0x023B62 11:BB52: 02        .byte $02
-- D - I - 0x023B63 11:BB53: 08        .byte $08
+- D - I - 0x023B61 11:BB51: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x023B64 11:BB54: 3C        .byte $3C
 - D - I - 0x023B65 11:BB55: 53        .byte $53
 - D - I - 0x023B66 11:BB56: 1D        .byte $1D
@@ -12558,45 +11956,35 @@ off_BB50:
 - D - I - 0x023B6A 11:BB5A: 7D BB     .word off_BB7D
 - D - I - 0x023B6C 11:BB5C: FB        .byte con_rts
 off_BB5D:
-- D - I - 0x023B6D 11:BB5D: F9        .byte $F9
-- D - I - 0x023B6E 11:BB5E: 02        .byte $02
-- D - I - 0x023B6F 11:BB5F: 05        .byte $05
+- D - I - 0x023B6D 11:BB5D: F9        .byte con_delay_soundID, $02, $05
 - D - I - 0x023B70 11:BB60: 32        .byte $32
 - D - I - 0x023B71 11:BB61: 13        .byte $13
 - D - I - 0x023B72 11:BB62: 0E        .byte $0E
 - D - I - 0x023B73 11:BB63: 00        .byte $00
 - D - I - 0x023B74 11:BB64: FB        .byte con_rts
 off_BB65:
-- D - I - 0x023B75 11:BB65: F9        .byte $F9
-- D - I - 0x023B76 11:BB66: 02        .byte $02
-- D - I - 0x023B77 11:BB67: 04        .byte $04
+- D - I - 0x023B75 11:BB65: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x023B78 11:BB68: 3C        .byte $3C
 - D - I - 0x023B79 11:BB69: 00        .byte $00
 - D - I - 0x023B7A 11:BB6A: 0F        .byte $0F
 - D - I - 0x023B7B 11:BB6B: 00        .byte $00
 - D - I - 0x023B7C 11:BB6C: FB        .byte con_rts
 off_BB6D:
-- D - I - 0x023B7D 11:BB6D: F9        .byte $F9
-- D - I - 0x023B7E 11:BB6E: 02        .byte $02
-- D - I - 0x023B7F 11:BB6F: 04        .byte $04
+- D - I - 0x023B7D 11:BB6D: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x023B80 11:BB70: 32        .byte $32
 - D - I - 0x023B81 11:BB71: 20        .byte $20
 - D - I - 0x023B82 11:BB72: 0F        .byte $0F
 - D - I - 0x023B83 11:BB73: 00        .byte $00
 - D - I - 0x023B84 11:BB74: FB        .byte con_rts
 off_BB75:
-- D - I - 0x023B85 11:BB75: F9        .byte $F9
-- D - I - 0x023B86 11:BB76: 02        .byte $02
-- D - I - 0x023B87 11:BB77: 07        .byte $07
+- D - I - 0x023B85 11:BB75: F9        .byte con_delay_soundID, $02, $07
 - D - I - 0x023B88 11:BB78: 36        .byte $36
 - D - I - 0x023B89 11:BB79: 02        .byte $02
 - D - I - 0x023B8A 11:BB7A: 11        .byte $11
 - D - I - 0x023B8B 11:BB7B: 00        .byte $00
 - D - I - 0x023B8C 11:BB7C: FB        .byte con_rts
 off_BB7D:
-- D - I - 0x023B8D 11:BB7D: F9        .byte $F9
-- D - I - 0x023B8E 11:BB7E: 02        .byte $02
-- D - I - 0x023B8F 11:BB7F: 06        .byte $06
+- D - I - 0x023B8D 11:BB7D: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x023B90 11:BB80: 32        .byte $32
 - D - I - 0x023B91 11:BB81: 4E        .byte $4E
 - D - I - 0x023B92 11:BB82: 12        .byte $12
@@ -12604,9 +11992,7 @@ off_BB7D:
 - D - I - 0x023B94 11:BB84: FB        .byte con_rts
 off_BB85:
 - D - I - 0x023B95 11:BB85: F6        .byte con_mirror_toggle
-- D - I - 0x023B96 11:BB86: F9        .byte $F9
-- D - I - 0x023B97 11:BB87: 02        .byte $02
-- D - I - 0x023B98 11:BB88: 5E        .byte $5E
+- D - I - 0x023B96 11:BB86: F9        .byte con_delay_soundID, $02, $5E
 - D - I - 0x023B99 11:BB89: 1B        .byte $1B
 - D - I - 0x023B9A 11:BB8A: 64        .byte $64
 - D - I - 0x023B9B 11:BB8B: 67        .byte $67
@@ -12614,63 +12000,49 @@ off_BB85:
 - D - I - 0x023B9D 11:BB8D: F6        .byte con_mirror_toggle
 - D - I - 0x023B9E 11:BB8E: FB        .byte con_rts
 off_BB8F:
-- D - I - 0x023B9F 11:BB8F: F9        .byte $F9
-- D - I - 0x023BA0 11:BB90: 02        .byte $02
-- D - I - 0x023BA1 11:BB91: 06        .byte $06
+- D - I - 0x023B9F 11:BB8F: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x023BA2 11:BB92: 30        .byte $30
 - D - I - 0x023BA3 11:BB93: 00        .byte $00
 - D - I - 0x023BA4 11:BB94: 1A        .byte $1A
 - D - I - 0x023BA5 11:BB95: 00        .byte $00
 - D - I - 0x023BA6 11:BB96: FB        .byte con_rts
 off_BB97:
-- D - I - 0x023BA7 11:BB97: F9        .byte $F9
-- D - I - 0x023BA8 11:BB98: 02        .byte $02
-- D - I - 0x023BA9 11:BB99: 06        .byte $06
+- D - I - 0x023BA7 11:BB97: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x023BAA 11:BB9A: 2A        .byte $2A
 - D - I - 0x023BAB 11:BB9B: 27        .byte $27
 - D - I - 0x023BAC 11:BB9C: 1A        .byte $1A
 - D - I - 0x023BAD 11:BB9D: 00        .byte $00
 - D - I - 0x023BAE 11:BB9E: FB        .byte con_rts
 off_BB9F:
-- D - I - 0x023BAF 11:BB9F: F9        .byte $F9
-- D - I - 0x023BB0 11:BBA0: 02        .byte $02
-- D - I - 0x023BB1 11:BBA1: 08        .byte $08
+- D - I - 0x023BAF 11:BB9F: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x023BB2 11:BBA2: 3C        .byte $3C
 - D - I - 0x023BB3 11:BBA3: 4B        .byte $4B
 - D - I - 0x023BB4 11:BBA4: 1D        .byte $1D
 - D - I - 0x023BB5 11:BBA5: 00        .byte $00
 - D - I - 0x023BB6 11:BBA6: FB        .byte con_rts
 off_BBA7:
-- D - I - 0x023BB7 11:BBA7: F9        .byte $F9
-- D - I - 0x023BB8 11:BBA8: 02        .byte $02
-- D - I - 0x023BB9 11:BBA9: 09        .byte $09
+- D - I - 0x023BB7 11:BBA7: F9        .byte con_delay_soundID, $02, $09
 - D - I - 0x023BBA 11:BBAA: 32        .byte $32
 - D - I - 0x023BBB 11:BBAB: 20        .byte $20
 - D - I - 0x023BBC 11:BBAC: 1E        .byte $1E
 - D - I - 0x023BBD 11:BBAD: 00        .byte $00
 - D - I - 0x023BBE 11:BBAE: FB        .byte con_rts
 off_BBAF:
-- D - I - 0x023BBF 11:BBAF: F9        .byte $F9
-- D - I - 0x023BC0 11:BBB0: 02        .byte $02
-- D - I - 0x023BC1 11:BBB1: 09        .byte $09
+- D - I - 0x023BBF 11:BBAF: F9        .byte con_delay_soundID, $02, $09
 - D - I - 0x023BC2 11:BBB2: 4B        .byte $4B
 - D - I - 0x023BC3 11:BBB3: 02        .byte $02
 - D - I - 0x023BC4 11:BBB4: 1F        .byte $1F
 - D - I - 0x023BC5 11:BBB5: 00        .byte $00
 - D - I - 0x023BC6 11:BBB6: FB        .byte con_rts
 off_BBB7:
-- D - I - 0x023BC7 11:BBB7: F9        .byte $F9
-- D - I - 0x023BC8 11:BBB8: 02        .byte $02
-- D - I - 0x023BC9 11:BBB9: 0B        .byte $0B
+- D - I - 0x023BC7 11:BBB7: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x023BCA 11:BBBA: 2D        .byte $2D
 - D - I - 0x023BCB 11:BBBB: 60        .byte $60
 - D - I - 0x023BCC 11:BBBC: 3C        .byte $3C
 - D - I - 0x023BCD 11:BBBD: 00        .byte $00
 - D - I - 0x023BCE 11:BBBE: FB        .byte con_rts
 off_BBBF:
-- D - I - 0x023BCF 11:BBBF: F9        .byte $F9
-- D - I - 0x023BD0 11:BBC0: 02        .byte $02
-- D - I - 0x023BD1 11:BBC1: 0B        .byte $0B
+- D - I - 0x023BCF 11:BBBF: F9        .byte con_delay_soundID, $02, $0B
 - D - I - 0x023BD2 11:BBC2: 2D        .byte $2D
 - D - I - 0x023BD3 11:BBC3: 48        .byte $48
 - D - I - 0x023BD4 11:BBC4: 3C        .byte $3C
@@ -12686,9 +12058,7 @@ off_BBC7:
 
 
 off_BBCC_34:
-- D - I - 0x023BDC 11:BBCC: F9        .byte $F9
-- D - I - 0x023BDD 11:BBCD: 0D        .byte $0D
-- D - I - 0x023BDE 11:BBCE: 64        .byte $64
+- D - I - 0x023BDC 11:BBCC: F9        .byte con_delay_soundID, $0D, $64
 - D - I - 0x023BDF 11:BBCF: 30        .byte $30
 - D - I - 0x023BE0 11:BBD0: 3C        .byte $3C
 - D - I - 0x023BE1 11:BBD1: 80        .byte $80
@@ -12703,9 +12073,7 @@ off_BBD4_19:
 - D - I - 0x023BE8 11:BBD8: 02        .byte $02
 - D - I - 0x023BE9 11:BBD9: 09        .byte $09
 off_BBDA:
-- D - I - 0x023BEA 11:BBDA: F9        .byte $F9
-- D - I - 0x023BEB 11:BBDB: 05        .byte $05
-- D - I - 0x023BEC 11:BBDC: 2B        .byte $2B
+- D - I - 0x023BEA 11:BBDA: F9        .byte con_delay_soundID, $05, $2B
 - D - I - 0x023BED 11:BBDD: 3C        .byte $3C
 - D - I - 0x023BEE 11:BBDE: 72        .byte $72
 - D - I - 0x023BEF 11:BBDF: 66        .byte $66
@@ -12840,9 +12208,7 @@ off_BC6D_1A:
 - D - I - 0x023C84 11:BC74: 20        .byte $20
 - D - I - 0x023C85 11:BC75: 7B        .byte $7B
 - D - I - 0x023C86 11:BC76: F0        .byte con_F0
-- D - I - 0x023C87 11:BC77: F9        .byte $F9
-- D - I - 0x023C88 11:BC78: 1D        .byte $1D
-- D - I - 0x023C89 11:BC79: 2C        .byte $2C
+- D - I - 0x023C87 11:BC77: F9        .byte con_delay_soundID, $1D, $2C
 - D - I - 0x023C8A 11:BC7A: 3C        .byte $3C
 - D - I - 0x023C8B 11:BC7B: 3C        .byte $3C
 - D - I - 0x023C8C 11:BC7C: 7C        .byte $7C
@@ -12869,49 +12235,37 @@ off_BC6D_1A:
 - D - I - 0x023CA3 11:BC93: C0        .byte $C0
 - D - I - 0x023CA4 11:BC94: D9        .byte $D9
 - - - - - 0x023CA5 11:BC95: 18        .byte $18
-- D - I - 0x023CA6 11:BC96: F9        .byte $F9
-- D - I - 0x023CA7 11:BC97: 21        .byte $21
-- D - I - 0x023CA8 11:BC98: 2C        .byte $2C
+- D - I - 0x023CA6 11:BC96: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CA9 11:BC99: 28        .byte $28
 - D - I - 0x023CAA 11:BC9A: 36        .byte $36
 - D - I - 0x023CAB 11:BC9B: 95        .byte $95
 - D - I - 0x023CAC 11:BC9C: CC        .byte $CC
 - D - I - 0x023CAD 11:BC9D: F6        .byte con_mirror_toggle
-- D - I - 0x023CAE 11:BC9E: F9        .byte $F9
-- D - I - 0x023CAF 11:BC9F: 21        .byte $21
-- D - I - 0x023CB0 11:BCA0: 2C        .byte $2C
+- D - I - 0x023CAE 11:BC9E: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CB1 11:BCA1: 3C        .byte $3C
 - D - I - 0x023CB2 11:BCA2: 01        .byte $01
 - D - I - 0x023CB3 11:BCA3: 92        .byte $92
 - D - I - 0x023CB4 11:BCA4: F0        .byte con_F0
 - D - I - 0x023CB5 11:BCA5: F6        .byte con_mirror_toggle
-- D - I - 0x023CB6 11:BCA6: F9        .byte $F9
-- D - I - 0x023CB7 11:BCA7: 21        .byte $21
-- D - I - 0x023CB8 11:BCA8: 2C        .byte $2C
+- D - I - 0x023CB6 11:BCA6: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CB9 11:BCA9: 28        .byte $28
 - D - I - 0x023CBA 11:BCAA: 36        .byte $36
 - D - I - 0x023CBB 11:BCAB: 95        .byte $95
 - D - I - 0x023CBC 11:BCAC: F0        .byte con_F0
 - D - I - 0x023CBD 11:BCAD: FB        .byte con_rts
-- D - I - 0x023CBE 11:BCAE: F9        .byte $F9
-- D - I - 0x023CBF 11:BCAF: 21        .byte $21
-- D - I - 0x023CC0 11:BCB0: 2C        .byte $2C
+- D - I - 0x023CBE 11:BCAE: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CC1 11:BCB1: 3C        .byte $3C
 - D - I - 0x023CC2 11:BCB2: 36        .byte $36
 - D - I - 0x023CC3 11:BCB3: 92        .byte $92
 - D - I - 0x023CC4 11:BCB4: CC        .byte $CC
 - D - I - 0x023CC5 11:BCB5: F6        .byte con_mirror_toggle
-- D - I - 0x023CC6 11:BCB6: F9        .byte $F9
-- D - I - 0x023CC7 11:BCB7: 21        .byte $21
-- D - I - 0x023CC8 11:BCB8: 2C        .byte $2C
+- D - I - 0x023CC6 11:BCB6: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CC9 11:BCB9: 3C        .byte $3C
 - D - I - 0x023CCA 11:BCBA: 01        .byte $01
 - D - I - 0x023CCB 11:BCBB: 95        .byte $95
 - D - I - 0x023CCC 11:BCBC: F0        .byte con_F0
 - D - I - 0x023CCD 11:BCBD: F6        .byte con_mirror_toggle
-- D - I - 0x023CCE 11:BCBE: F9        .byte $F9
-- D - I - 0x023CCF 11:BCBF: 21        .byte $21
-- D - I - 0x023CD0 11:BCC0: 2C        .byte $2C
+- D - I - 0x023CCE 11:BCBE: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CD1 11:BCC1: 3C        .byte $3C
 - D - I - 0x023CD2 11:BCC2: 36        .byte $36
 - D - I - 0x023CD3 11:BCC3: 92        .byte $92
@@ -12922,25 +12276,19 @@ off_BC6D_1A:
 - - - - - 0x023CD9 11:BCC9: CD BC     .word off_BCCD
 - D - I - 0x023CDB 11:BCCB: F7        .byte con_F7, $22
 off_BCCD:
-- D - I - 0x023CDD 11:BCCD: F9        .byte $F9
-- D - I - 0x023CDE 11:BCCE: 21        .byte $21
-- D - I - 0x023CDF 11:BCCF: 2C        .byte $2C
+- D - I - 0x023CDD 11:BCCD: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CE0 11:BCD0: 3C        .byte $3C
 - D - I - 0x023CE1 11:BCD1: 36        .byte $36
 - D - I - 0x023CE2 11:BCD2: A7        .byte $A7
 - D - I - 0x023CE3 11:BCD3: D2        .byte $D2
 - D - I - 0x023CE4 11:BCD4: F6        .byte con_mirror_toggle
-- D - I - 0x023CE5 11:BCD5: F9        .byte $F9
-- D - I - 0x023CE6 11:BCD6: 21        .byte $21
-- D - I - 0x023CE7 11:BCD7: 2C        .byte $2C
+- D - I - 0x023CE5 11:BCD5: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CE8 11:BCD8: 3C        .byte $3C
 - D - I - 0x023CE9 11:BCD9: 01        .byte $01
 - D - I - 0x023CEA 11:BCDA: A5        .byte $A5
 - D - I - 0x023CEB 11:BCDB: F0        .byte con_F0
 - D - I - 0x023CEC 11:BCDC: F6        .byte con_mirror_toggle
-- D - I - 0x023CED 11:BCDD: F9        .byte $F9
-- D - I - 0x023CEE 11:BCDE: 21        .byte $21
-- D - I - 0x023CEF 11:BCDF: 2C        .byte $2C
+- D - I - 0x023CED 11:BCDD: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CF0 11:BCE0: 3C        .byte $3C
 - D - I - 0x023CF1 11:BCE1: 36        .byte $36
 - D - I - 0x023CF2 11:BCE2: A7        .byte $A7
@@ -12951,25 +12299,19 @@ off_BCCD:
 - - - - - 0x023CF8 11:BCE8: EC BC     .word off_BCEC
 - D - I - 0x023CFA 11:BCEA: F7        .byte con_F7, $22
 off_BCEC:
-- D - I - 0x023CFC 11:BCEC: F9        .byte $F9
-- D - I - 0x023CFD 11:BCED: 21        .byte $21
-- D - I - 0x023CFE 11:BCEE: 2C        .byte $2C
+- D - I - 0x023CFC 11:BCEC: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CFF 11:BCEF: 3C        .byte $3C
 - D - I - 0x023D00 11:BCF0: 36        .byte $36
 - D - I - 0x023D01 11:BCF1: A5        .byte $A5
 - D - I - 0x023D02 11:BCF2: D2        .byte $D2
 - D - I - 0x023D03 11:BCF3: F6        .byte con_mirror_toggle
-- D - I - 0x023D04 11:BCF4: F9        .byte $F9
-- D - I - 0x023D05 11:BCF5: 21        .byte $21
-- D - I - 0x023D06 11:BCF6: 2C        .byte $2C
+- D - I - 0x023D04 11:BCF4: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D07 11:BCF7: 3C        .byte $3C
 - D - I - 0x023D08 11:BCF8: 01        .byte $01
 - D - I - 0x023D09 11:BCF9: A7        .byte $A7
 - D - I - 0x023D0A 11:BCFA: F0        .byte con_F0
 - D - I - 0x023D0B 11:BCFB: F6        .byte con_mirror_toggle
-- D - I - 0x023D0C 11:BCFC: F9        .byte $F9
-- D - I - 0x023D0D 11:BCFD: 21        .byte $21
-- D - I - 0x023D0E 11:BCFE: 2C        .byte $2C
+- D - I - 0x023D0C 11:BCFC: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D0F 11:BCFF: 3C        .byte $3C
 - D - I - 0x023D10 11:BD00: 36        .byte $36
 - D - I - 0x023D11 11:BD01: A5        .byte $A5
@@ -12980,123 +12322,93 @@ off_BCEC:
 - D - I - 0x023D17 11:BD07: 0B BD     .word off_BD0B
 - D - I - 0x023D19 11:BD09: F7        .byte con_F7, $3F
 off_BD0B:
-- D - I - 0x023D1B 11:BD0B: F9        .byte $F9
-- D - I - 0x023D1C 11:BD0C: 21        .byte $21
-- D - I - 0x023D1D 11:BD0D: 2C        .byte $2C
+- D - I - 0x023D1B 11:BD0B: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D1E 11:BD0E: 3C        .byte $3C
 - D - I - 0x023D1F 11:BD0F: 36        .byte $36
 - D - I - 0x023D20 11:BD10: EF        .byte $EF
 - D - I - 0x023D21 11:BD11: D6        .byte $D6
 - D - I - 0x023D22 11:BD12: F6        .byte con_mirror_toggle
-- D - I - 0x023D23 11:BD13: F9        .byte $F9
-- D - I - 0x023D24 11:BD14: 21        .byte $21
-- D - I - 0x023D25 11:BD15: 2C        .byte $2C
+- D - I - 0x023D23 11:BD13: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D26 11:BD16: 3C        .byte $3C
 - D - I - 0x023D27 11:BD17: 01        .byte $01
 - D - I - 0x023D28 11:BD18: EF        .byte $EF
 - D - I - 0x023D29 11:BD19: F0        .byte con_F0
 - D - I - 0x023D2A 11:BD1A: F6        .byte con_mirror_toggle
-- D - I - 0x023D2B 11:BD1B: F9        .byte $F9
-- D - I - 0x023D2C 11:BD1C: 21        .byte $21
-- D - I - 0x023D2D 11:BD1D: 2C        .byte $2C
+- D - I - 0x023D2B 11:BD1B: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D2E 11:BD1E: 3C        .byte $3C
 - D - I - 0x023D2F 11:BD1F: 36        .byte $36
 - D - I - 0x023D30 11:BD20: EF        .byte $EF
 - D - I - 0x023D31 11:BD21: F0        .byte con_F0
 - D - I - 0x023D32 11:BD22: FB        .byte con_rts
-- - - - - 0x023D33 11:BD23: F9        .byte $F9
-- - - - - 0x023D34 11:BD24: 21        .byte $21
-- - - - - 0x023D35 11:BD25: 2C        .byte $2C
+- - - - - 0x023D33 11:BD23: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D36 11:BD26: 3C        .byte $3C
 - - - - - 0x023D37 11:BD27: 36        .byte $36
 - - - - - 0x023D38 11:BD28: DF        .byte $DF
 - - - - - 0x023D39 11:BD29: CF        .byte $CF
 - - - - - 0x023D3A 11:BD2A: F6        .byte con_mirror_toggle
-- - - - - 0x023D3B 11:BD2B: F9        .byte $F9
-- - - - - 0x023D3C 11:BD2C: 21        .byte $21
-- - - - - 0x023D3D 11:BD2D: 2C        .byte $2C
+- - - - - 0x023D3B 11:BD2B: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D3E 11:BD2E: 3C        .byte $3C
 - - - - - 0x023D3F 11:BD2F: 01        .byte $01
 - - - - - 0x023D40 11:BD30: BE        .byte $BE
 - - - - - 0x023D41 11:BD31: F0        .byte con_F0
 - - - - - 0x023D42 11:BD32: F6        .byte con_mirror_toggle
-- - - - - 0x023D43 11:BD33: F9        .byte $F9
-- - - - - 0x023D44 11:BD34: 21        .byte $21
-- - - - - 0x023D45 11:BD35: 2C        .byte $2C
+- - - - - 0x023D43 11:BD33: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D46 11:BD36: 3C        .byte $3C
 - - - - - 0x023D47 11:BD37: 36        .byte $36
 - - - - - 0x023D48 11:BD38: DF        .byte $DF
 - - - - - 0x023D49 11:BD39: F0        .byte con_F0
 - - - - - 0x023D4A 11:BD3A: FB        .byte con_rts
-- - - - - 0x023D4B 11:BD3B: F9        .byte $F9
-- - - - - 0x023D4C 11:BD3C: 21        .byte $21
-- - - - - 0x023D4D 11:BD3D: 2C        .byte $2C
+- - - - - 0x023D4B 11:BD3B: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D4E 11:BD3E: 3C        .byte $3C
 - - - - - 0x023D4F 11:BD3F: 36        .byte $36
 - - - - - 0x023D50 11:BD40: BE        .byte $BE
 - - - - - 0x023D51 11:BD41: CF        .byte $CF
 - - - - - 0x023D52 11:BD42: F6        .byte con_mirror_toggle
-- - - - - 0x023D53 11:BD43: F9        .byte $F9
-- - - - - 0x023D54 11:BD44: 21        .byte $21
-- - - - - 0x023D55 11:BD45: 2C        .byte $2C
+- - - - - 0x023D53 11:BD43: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D56 11:BD46: 3C        .byte $3C
 - - - - - 0x023D57 11:BD47: 01        .byte $01
 - - - - - 0x023D58 11:BD48: DF        .byte $DF
 - - - - - 0x023D59 11:BD49: F0        .byte con_F0
 - - - - - 0x023D5A 11:BD4A: F6        .byte con_mirror_toggle
-- - - - - 0x023D5B 11:BD4B: F9        .byte $F9
-- - - - - 0x023D5C 11:BD4C: 21        .byte $21
-- - - - - 0x023D5D 11:BD4D: 2C        .byte $2C
+- - - - - 0x023D5B 11:BD4B: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D5E 11:BD4E: 3C        .byte $3C
 - - - - - 0x023D5F 11:BD4F: 36        .byte $36
 - - - - - 0x023D60 11:BD50: BE        .byte $BE
 - - - - - 0x023D61 11:BD51: F0        .byte con_F0
 - - - - - 0x023D62 11:BD52: FB        .byte con_rts
 - D - I - 0x023D63 11:BD53: F7        .byte con_F7, $25
-- D - I - 0x023D65 11:BD55: F9        .byte $F9
-- D - I - 0x023D66 11:BD56: 21        .byte $21
-- D - I - 0x023D67 11:BD57: 2C        .byte $2C
+- D - I - 0x023D65 11:BD55: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D68 11:BD58: 3C        .byte $3C
 - D - I - 0x023D69 11:BD59: 36        .byte $36
 - D - I - 0x023D6A 11:BD5A: A7        .byte $A7
 - D - I - 0x023D6B 11:BD5B: D6        .byte $D6
 - D - I - 0x023D6C 11:BD5C: F6        .byte con_mirror_toggle
-- D - I - 0x023D6D 11:BD5D: F9        .byte $F9
-- D - I - 0x023D6E 11:BD5E: 21        .byte $21
-- D - I - 0x023D6F 11:BD5F: 2C        .byte $2C
+- D - I - 0x023D6D 11:BD5D: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D70 11:BD60: 3C        .byte $3C
 - D - I - 0x023D71 11:BD61: 01        .byte $01
 - D - I - 0x023D72 11:BD62: EE        .byte $EE
 - D - I - 0x023D73 11:BD63: F0        .byte con_F0
 - D - I - 0x023D74 11:BD64: F6        .byte con_mirror_toggle
-- D - I - 0x023D75 11:BD65: F9        .byte $F9
-- D - I - 0x023D76 11:BD66: 21        .byte $21
-- D - I - 0x023D77 11:BD67: 2C        .byte $2C
+- D - I - 0x023D75 11:BD65: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D78 11:BD68: 3C        .byte $3C
 - D - I - 0x023D79 11:BD69: 36        .byte $36
 - D - I - 0x023D7A 11:BD6A: A7        .byte $A7
 - D - I - 0x023D7B 11:BD6B: F0        .byte con_F0
 - D - I - 0x023D7C 11:BD6C: FB        .byte con_rts
 - D - I - 0x023D7D 11:BD6D: F7        .byte con_F7, $25
-- D - I - 0x023D7F 11:BD6F: F9        .byte $F9
-- D - I - 0x023D80 11:BD70: 21        .byte $21
-- D - I - 0x023D81 11:BD71: 2C        .byte $2C
+- D - I - 0x023D7F 11:BD6F: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D82 11:BD72: 3C        .byte $3C
 - D - I - 0x023D83 11:BD73: 36        .byte $36
 - D - I - 0x023D84 11:BD74: EE        .byte $EE
 - D - I - 0x023D85 11:BD75: D6        .byte $D6
 - D - I - 0x023D86 11:BD76: F6        .byte con_mirror_toggle
-- D - I - 0x023D87 11:BD77: F9        .byte $F9
-- D - I - 0x023D88 11:BD78: 21        .byte $21
-- D - I - 0x023D89 11:BD79: 2C        .byte $2C
+- D - I - 0x023D87 11:BD77: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D8A 11:BD7A: 3C        .byte $3C
 - D - I - 0x023D8B 11:BD7B: 01        .byte $01
 - D - I - 0x023D8C 11:BD7C: A7        .byte $A7
 - D - I - 0x023D8D 11:BD7D: F0        .byte con_F0
 - D - I - 0x023D8E 11:BD7E: F6        .byte con_mirror_toggle
-- D - I - 0x023D8F 11:BD7F: F9        .byte $F9
-- D - I - 0x023D90 11:BD80: 21        .byte $21
-- D - I - 0x023D91 11:BD81: 2C        .byte $2C
+- D - I - 0x023D8F 11:BD7F: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D92 11:BD82: 3C        .byte $3C
 - D - I - 0x023D93 11:BD83: 36        .byte $36
 - D - I - 0x023D94 11:BD84: EE        .byte $EE
@@ -13208,9 +12520,7 @@ off_BDBD_46:
 - - - - - 0x023DE3 11:BDD3: 30        .byte $30
 - - - - - 0x023DE4 11:BDD4: 91        .byte $91
 - - - - - 0x023DE5 11:BDD5: 4A        .byte $4A
-- - - - - 0x023DE6 11:BDD6: F9        .byte $F9
-- - - - - 0x023DE7 11:BDD7: 19        .byte $19
-- - - - - 0x023DE8 11:BDD8: 2B        .byte $2B
+- - - - - 0x023DE6 11:BDD6: F9        .byte con_delay_soundID, $19, $2B
 - - - - - 0x023DE9 11:BDD9: 28        .byte $28
 - - - - - 0x023DEA 11:BDDA: 29        .byte $29
 - - - - - 0x023DEB 11:BDDB: C6        .byte $C6
@@ -13218,18 +12528,14 @@ off_BDBD_46:
 off_BDDD:
 - D - I - 0x023DED 11:BDDD: FA        .byte con_jsr_2
 - D - I - 0x023DEE 11:BDDE: A7 B0     .word off_B0A7
-- D - I - 0x023DF0 11:BDE0: F9        .byte $F9
-- D - I - 0x023DF1 11:BDE1: 02        .byte $02
-- D - I - 0x023DF2 11:BDE2: 24        .byte $24
+- D - I - 0x023DF0 11:BDE0: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x023DF3 11:BDE3: 38        .byte $38
 - D - I - 0x023DF4 11:BDE4: 35        .byte $35
 - D - I - 0x023DF5 11:BDE5: 10        .byte $10
 - D - I - 0x023DF6 11:BDE6: 00        .byte $00
 - D - I - 0x023DF7 11:BDE7: FA        .byte con_jsr_2
 - D - I - 0x023DF8 11:BDE8: 5D BB     .word off_BB5D
-- D - I - 0x023DFA 11:BDEA: F9        .byte $F9
-- D - I - 0x023DFB 11:BDEB: 02        .byte $02
-- D - I - 0x023DFC 11:BDEC: 24        .byte $24
+- D - I - 0x023DFA 11:BDEA: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x023DFD 11:BDED: F7        .byte con_F7, $33
 - D - I - 0x023DFF 11:BDEF: 3C        .byte $3C
 - D - I - 0x023E00 11:BDF0: 27        .byte $27
@@ -13668,9 +12974,7 @@ off_BF54_6F:
 - D - I - 0x023F64 11:BF54: FA        .byte con_jsr_2
 - D - I - 0x023F65 11:BF55: 4D A3     .word off_A34D
 - D - I - 0x023F67 11:BF57: FC        .byte con_FC, $01
-- D - I - 0x023F69 11:BF59: F9        .byte $F9
-- D - I - 0x023F6A 11:BF5A: 21        .byte $21
-- D - I - 0x023F6B 11:BF5B: 2A        .byte $2A
+- D - I - 0x023F69 11:BF59: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x023F6C 11:BF5C: 30        .byte $30
 - D - I - 0x023F6D 11:BF5D: 2E        .byte $2E
 - D - I - 0x023F6E 11:BF5E: 2D        .byte $2D
