@@ -98,9 +98,9 @@ C - - - - 0x0200BC 17:80AC: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0200C1 17:80B1: D4 80     .word ofs_80D4_F1_выход
 - D - I - 0x0200C3 17:80B3: F4 80     .word ofs_80F4_F2_прыжок
 - D - I - 0x0200C5 17:80B5: 05 81     .word ofs_8105_F3_развилка
-- D - I - 0x0200C7 17:80B7: E0 87     .word ofs_87E0_F4
-- D - I - 0x0200C9 17:80B9: E6 87     .word ofs_87E6_F5
-- D - I - 0x0200CB 17:80BB: EC 87     .word ofs_87EC_F6
+- D - I - 0x0200C7 17:80B7: E0 87     .word ofs_87E0_F4_отзеркалить_анимацию
+- D - I - 0x0200C9 17:80B9: E6 87     .word ofs_87E6_F5_не_отзеркаливать_анимацию
+- D - I - 0x0200CB 17:80BB: EC 87     .word ofs_87EC_F6_перевернуть_зеркало
 - D - I - 0x0200CD 17:80BD: F5 87     .word ofs_87F5_F7
 - D - I - 0x0200CF 17:80BF: FF 87     .word ofs_87FF_F8
 - D - I - 0x0200D1 17:80C1: 09 88     .word ofs_8809_F9_задержка_и_номер_звука
@@ -153,8 +153,8 @@ C - - - - 0x020114 17:8104: 60        RTS
 ofs_8105_F3_развилка:
 ; читает 3 следующих байта
 ; код считывает байт после F3 и прыгает на одну из соответствующих подпрограмм, откуда получает нужный результат в X
-    ; если байт после F3 отрицательный, то меняется косвенный адрес в зависимости от результата
-    ; если байт после F3 положительный, то косвенный адрес смещается на велечину результата
+    ; если байт после F3 отрицательный, то меняется косвенный адрес сценария в зависимости от результата
+    ; если байт после F3 положительный, то косвенный адрес сценария смещается на велечину результата
         ; в обоих случаях не обязательно будет потенциально несколько результатов, иногда бывает только X = 00
 C - J - - 0x020115 17:8105: A4 3A     LDY ram_003A
 C - - - - 0x020117 17:8107: B1 5D     LDA (ram_сценарий_data),Y
@@ -1471,19 +1471,19 @@ tbl_876A_игроки_с_защитным_спешалом:
 - - - - - 0x0207EE 17:87DE: 00        .byte $00        ; 74
 - - - - - 0x0207EF 17:87DF: 00        .byte $00        ; 75
 
-ofs_87E0_F4:
+ofs_87E0_F4_отзеркалить_анимацию:
 ; без чтения следующих байтов
 C - J - - 0x0207F0 17:87E0: A9 40     LDA #$40
 C - - - - 0x0207F2 17:87E2: 8D 2A 05  STA ram_флаг_зеркала_анимации
 C - - - - 0x0207F5 17:87E5: 60        RTS
 
-ofs_87E6_F5:
+ofs_87E6_F5_не_отзеркаливать_анимацию:
 ; без чтения следующих байтов
 C - J - - 0x0207F6 17:87E6: A9 00     LDA #$00
 C - - - - 0x0207F8 17:87E8: 8D 2A 05  STA ram_флаг_зеркала_анимации
 C - - - - 0x0207FB 17:87EB: 60        RTS
 
-ofs_87EC_F6:
+ofs_87EC_F6_перевернуть_зеркало:
 ; без чтения следующих байтов
 C - J - - 0x0207FC 17:87EC: A9 40     LDA #$40
 C - - - - 0x0207FE 17:87EE: 4D 2A 05  EOR ram_флаг_зеркала_анимации
@@ -1921,6 +1921,11 @@ tbl_89BF_сценарии:
 
 
 
+con_прыжок                               = $F2
+con_задержка_звук                        = $F9
+
+
+
 off_8AB1_00:
 - D - I - 0x020AC1 17:8AB1: F3        .byte $F3
 - D - I - 0x020AC2 17:8AB2: 34        .byte $34    ; <1>
@@ -1999,13 +2004,13 @@ off_8AB9:
 - D - I - 0x020B0C 17:8AFC: 8B 9C     .word off_9C8B
 - D - I - 0x020B0E 17:8AFE: FA        .byte $FA
 - D - I - 0x020B0F 17:8AFF: C0 9C     .word off_9CC0
-- D - I - 0x020B11 17:8B01: F2        .byte con_F2_прыжок
+- D - I - 0x020B11 17:8B01: F2        .byte con_прыжок
 - D - I - 0x020B12 17:8B02: AA 9E     .word off_9EAA
 - D - I - 0x020B14 17:8B04: FA        .byte $FA
 - D - I - 0x020B15 17:8B05: 8B 9C     .word off_9C8B
 - D - I - 0x020B17 17:8B07: FA        .byte $FA
 - D - I - 0x020B18 17:8B08: A3 9C     .word off_9CA3
-- D - I - 0x020B1A 17:8B0A: F2        .byte con_F2_прыжок
+- D - I - 0x020B1A 17:8B0A: F2        .byte con_прыжок
 - D - I - 0x020B1B 17:8B0B: AA 9E     .word off_9EAA
 - D - I - 0x020B1D 17:8B0D: FA        .byte $FA
 - D - I - 0x020B1E 17:8B0E: 8B 9C     .word off_9C8B
@@ -2039,7 +2044,7 @@ off_8AB9:
 - D - I - 0x020B45 17:8B35: FE 9D     .word off_9DFE
 - D - I - 0x020B47 17:8B37: FA        .byte $FA
 - D - I - 0x020B48 17:8B38: DD A2     .word off_A2DD
-- D - I - 0x020B4A 17:8B3A: F2        .byte con_F2_прыжок
+- D - I - 0x020B4A 17:8B3A: F2        .byte con_прыжок
 - D - I - 0x020B4B 17:8B3B: 5B A3     .word off_A35B
 - D - I - 0x020B4D 17:8B3D: FA        .byte $FA
 - D - I - 0x020B4E 17:8B3E: 36 A9     .word off_A936
@@ -2047,7 +2052,7 @@ off_8AB9:
 - D - I - 0x020B51 17:8B41: CF A3     .word off_A3CF
 - D - I - 0x020B53 17:8B43: FA        .byte $FA
 - D - I - 0x020B54 17:8B44: C0 9C     .word off_9CC0
-- D - I - 0x020B56 17:8B46: F2        .byte con_F2_прыжок
+- D - I - 0x020B56 17:8B46: F2        .byte con_прыжок
 - D - I - 0x020B57 17:8B47: AA 9E     .word off_9EAA
 - D - I - 0x020B59 17:8B49: FA        .byte $FA
 - D - I - 0x020B5A 17:8B4A: 36 A9     .word off_A936
@@ -2055,7 +2060,7 @@ off_8AB9:
 - D - I - 0x020B5D 17:8B4D: CF A3     .word off_A3CF
 - D - I - 0x020B5F 17:8B4F: FA        .byte $FA
 - D - I - 0x020B60 17:8B50: A3 9C     .word off_9CA3
-- D - I - 0x020B62 17:8B52: F2        .byte con_F2_прыжок
+- D - I - 0x020B62 17:8B52: F2        .byte con_прыжок
 - D - I - 0x020B63 17:8B53: AA 9E     .word off_9EAA
 - D - I - 0x020B65 17:8B55: FA        .byte $FA
 - D - I - 0x020B66 17:8B56: 36 A9     .word off_A936
@@ -2095,7 +2100,7 @@ off_8AB9:
 - D - I - 0x020B96 17:8B86: FE 9D     .word off_9DFE
 - D - I - 0x020B98 17:8B88: FA        .byte $FA
 - D - I - 0x020B99 17:8B89: DD A2     .word off_A2DD
-- D - I - 0x020B9B 17:8B8B: F2        .byte con_F2_прыжок
+- D - I - 0x020B9B 17:8B8B: F2        .byte con_прыжок
 - D - I - 0x020B9C 17:8B8C: 5B A3     .word off_A35B
 - D - I - 0x020B9E 17:8B8E: F3        .byte $F3
 - D - I - 0x020B9F 17:8B8F: 82        .byte $82    ; <B>
@@ -2170,7 +2175,7 @@ off_8AB9:
 - D - I - 0x020BEC 17:8BDC: AA 9E     .word off_9EAA
 - D - I - 0x020BEE 17:8BDE: FA        .byte $FA
 - D - I - 0x020BEF 17:8BDF: 5C 9F     .word off_9F5C
-- D - I - 0x020BF1 17:8BE1: F2        .byte con_F2_прыжок
+- D - I - 0x020BF1 17:8BE1: F2        .byte con_прыжок
 - D - I - 0x020BF2 17:8BE2: 47 A2     .word off_A247
 - D - I - 0x020BF4 17:8BE4: FA        .byte $FA
 - D - I - 0x020BF5 17:8BE5: 36 A9     .word off_A936
@@ -2182,7 +2187,7 @@ off_8AB9:
 - D - I - 0x020BFE 17:8BEE: DD A2     .word off_A2DD
 - D - I - 0x020C00 17:8BF0: FA        .byte $FA
 - D - I - 0x020C01 17:8BF1: AA 9E     .word off_9EAA
-- D - I - 0x020C03 17:8BF3: F2        .byte con_F2_прыжок
+- D - I - 0x020C03 17:8BF3: F2        .byte con_прыжок
 - D - I - 0x020C04 17:8BF4: 62 9F     .word off_9F62
 - D - I - 0x020C06 17:8BF6: FA        .byte $FA
 - D - I - 0x020C07 17:8BF7: 36 A9     .word off_A936
@@ -2196,7 +2201,7 @@ off_8AB9:
 - D - I - 0x020C13 17:8C03: AA 9E     .word off_9EAA
 - D - I - 0x020C15 17:8C05: FA        .byte $FA
 - D - I - 0x020C16 17:8C06: 5C 9F     .word off_9F5C
-- D - I - 0x020C18 17:8C08: F2        .byte con_F2_прыжок
+- D - I - 0x020C18 17:8C08: F2        .byte con_прыжок
 - D - I - 0x020C19 17:8C09: 47 A2     .word off_A247
 - D - I - 0x020C1B 17:8C0B: FA        .byte $FA
 - D - I - 0x020C1C 17:8C0C: 36 A9     .word off_A936
@@ -2212,7 +2217,7 @@ off_8AB9:
 - D - I - 0x020C2B 17:8C1B: F6        .byte $F6
 - D - I - 0x020C2C 17:8C1C: FA        .byte $FA
 - D - I - 0x020C2D 17:8C1D: 6E 9F     .word off_9F6E
-- D - I - 0x020C2F 17:8C1F: F2        .byte con_F2_прыжок
+- D - I - 0x020C2F 17:8C1F: F2        .byte con_прыжок
 - D - I - 0x020C30 17:8C20: 71 A3     .word off_A371
 - D - I - 0x020C32 17:8C22: FA        .byte $FA
 - D - I - 0x020C33 17:8C23: 36 A9     .word off_A936
@@ -2228,7 +2233,7 @@ off_8AB9:
 - D - I - 0x020C42 17:8C32: F6        .byte $F6
 - D - I - 0x020C43 17:8C33: FA        .byte $FA
 - D - I - 0x020C44 17:8C34: 74 9F     .word off_9F74
-- D - I - 0x020C46 17:8C36: F2        .byte con_F2_прыжок
+- D - I - 0x020C46 17:8C36: F2        .byte con_прыжок
 - D - I - 0x020C47 17:8C37: 6F A0     .word off_A06F
 - D - I - 0x020C49 17:8C39: FA        .byte $FA
 - D - I - 0x020C4A 17:8C3A: 36 A9     .word off_A936
@@ -2240,7 +2245,7 @@ off_8AB9:
 - D - I - 0x020C53 17:8C43: DD A2     .word off_A2DD
 - D - I - 0x020C55 17:8C45: FA        .byte $FA
 - D - I - 0x020C56 17:8C46: 6E 9F     .word off_9F6E
-- D - I - 0x020C58 17:8C48: F2        .byte con_F2_прыжок
+- D - I - 0x020C58 17:8C48: F2        .byte con_прыжок
 - D - I - 0x020C59 17:8C49: 5B A3     .word off_A35B
 off_8C4B:
 - D - I - 0x020C5B 17:8C4B: FD        .byte $FD
@@ -2293,7 +2298,7 @@ off_8C53:
 - D - I - 0x020C90 17:8C80: 42 A0     .word off_A042
 - D - I - 0x020C92 17:8C82: FA        .byte $FA
 - D - I - 0x020C93 17:8C83: 25 A0     .word off_A025
-- D - I - 0x020C95 17:8C85: F2        .byte con_F2_прыжок
+- D - I - 0x020C95 17:8C85: F2        .byte con_прыжок
 - D - I - 0x020C96 17:8C86: 17 A0     .word off_A017
 off_8C88:
 - D - I - 0x020C98 17:8C88: FA        .byte $FA
@@ -2304,12 +2309,12 @@ off_8C88:
 - D - I - 0x020C9F 17:8C8F: 47 A0     .word off_A047
 - D - I - 0x020CA1 17:8C91: FA        .byte $FA
 - D - I - 0x020CA2 17:8C92: 23 A0     .word off_A023
-- D - I - 0x020CA4 17:8C94: F2        .byte con_F2_прыжок
+- D - I - 0x020CA4 17:8C94: F2        .byte con_прыжок
 - D - I - 0x020CA5 17:8C95: 71 A3     .word off_A371
 off_8C97:
 - D - I - 0x020CA7 17:8C97: FA        .byte $FA
 - D - I - 0x020CA8 17:8C98: 47 B3     .word off_B347
-- D - I - 0x020CAA 17:8C9A: F2        .byte con_F2_прыжок
+- D - I - 0x020CAA 17:8C9A: F2        .byte con_прыжок
 - D - I - 0x020CAB 17:8C9B: 67 8F     .word off_8F67
 - D - I - 0x020CAD 17:8C9D: F3        .byte $F3
 - D - I - 0x020CAE 17:8C9E: 83        .byte $83    ; <C>
@@ -2333,7 +2338,7 @@ off_8C97:
 - D - I - 0x020CC5 17:8CB5: 42 A0     .word off_A042
 - D - I - 0x020CC7 17:8CB7: FA        .byte $FA
 - D - I - 0x020CC8 17:8CB8: 25 A0     .word off_A025
-- D - I - 0x020CCA 17:8CBA: F2        .byte con_F2_прыжок
+- D - I - 0x020CCA 17:8CBA: F2        .byte con_прыжок
 - D - I - 0x020CCB 17:8CBB: 17 A0     .word off_A017
 - D - I - 0x020CCD 17:8CBD: FA        .byte $FA
 - D - I - 0x020CCE 17:8CBE: 79 9C     .word off_9C79
@@ -2343,13 +2348,13 @@ off_8C97:
 - D - I - 0x020CD4 17:8CC4: 47 A0     .word off_A047
 - D - I - 0x020CD6 17:8CC6: FA        .byte $FA
 - D - I - 0x020CD7 17:8CC7: 23 A0     .word off_A023
-- D - I - 0x020CD9 17:8CC9: F2        .byte con_F2_прыжок
+- D - I - 0x020CD9 17:8CC9: F2        .byte con_прыжок
 - D - I - 0x020CDA 17:8CCA: 71 A3     .word off_A371
 - D - I - 0x020CDC 17:8CCC: FA        .byte $FA
 - D - I - 0x020CDD 17:8CCD: 79 9C     .word off_9C79
 - D - I - 0x020CDF 17:8CCF: FA        .byte $FA
 - D - I - 0x020CE0 17:8CD0: DC B2     .word off_B2DC
-- D - I - 0x020CE2 17:8CD2: F2        .byte con_F2_прыжок
+- D - I - 0x020CE2 17:8CD2: F2        .byte con_прыжок
 - D - I - 0x020CE3 17:8CD3: 85 A1     .word off_A185
 - D - I - 0x020CE5 17:8CD5: F3        .byte $F3
 - D - I - 0x020CE6 17:8CD6: 83        .byte $83    ; <C>
@@ -2373,7 +2378,7 @@ off_8C97:
 - D - I - 0x020CFD 17:8CED: 0B A0     .word off_A00B
 - D - I - 0x020CFF 17:8CEF: FA        .byte $FA
 - D - I - 0x020D00 17:8CF0: F3 9F     .word off_9FF3
-- D - I - 0x020D02 17:8CF2: F2        .byte con_F2_прыжок
+- D - I - 0x020D02 17:8CF2: F2        .byte con_прыжок
 - D - I - 0x020D03 17:8CF3: E0 9F     .word off_9FE0
 - D - I - 0x020D05 17:8CF5: FA        .byte $FA
 - D - I - 0x020D06 17:8CF6: 79 9C     .word off_9C79
@@ -2383,13 +2388,13 @@ off_8C97:
 - D - I - 0x020D0C 17:8CFC: 10 A0     .word off_A010
 - D - I - 0x020D0E 17:8CFE: FA        .byte $FA
 - D - I - 0x020D0F 17:8CFF: F1 9F     .word off_9FF1
-- D - I - 0x020D11 17:8D01: F2        .byte con_F2_прыжок
+- D - I - 0x020D11 17:8D01: F2        .byte con_прыжок
 - D - I - 0x020D12 17:8D02: 71 A3     .word off_A371
 - D - I - 0x020D14 17:8D04: FA        .byte $FA
 - D - I - 0x020D15 17:8D05: 79 9C     .word off_9C79
 - D - I - 0x020D17 17:8D07: FA        .byte $FA
 - D - I - 0x020D18 17:8D08: F8 9D     .word off_9DF8
-- D - I - 0x020D1A 17:8D0A: F2        .byte con_F2_прыжок
+- D - I - 0x020D1A 17:8D0A: F2        .byte con_прыжок
 - D - I - 0x020D1B 17:8D0B: 6E A1     .word off_A16E
 - D - I - 0x020D1D 17:8D0D: F3        .byte $F3
 - D - I - 0x020D1E 17:8D0E: 82        .byte $82    ; <B>
@@ -2415,7 +2420,7 @@ off_8C97:
 - - - - - 0x020D32 17:8D22: 03        .byte $03    ; <う>
 - - - - - 0x020D33 17:8D23: 42        .byte $42    ; <イ>
 - D - I - 0x020D34 17:8D24: 41        .byte $41    ; <ア>
-- - - - - 0x020D35 17:8D25: F2        .byte con_F2_прыжок
+- - - - - 0x020D35 17:8D25: F2        .byte con_прыжок
 - - - - - 0x020D36 17:8D26: 97 8C     .word off_8C97
 - D - I - 0x020D38 17:8D28: FA        .byte $FA
 - D - I - 0x020D39 17:8D29: 79 9C     .word off_9C79
@@ -2433,7 +2438,7 @@ off_8D38:
 - - - - - 0x020D49 17:8D39: 79 9C     .word off_9C79
 - - - - - 0x020D4B 17:8D3B: FA        .byte $FA
 - - - - - 0x020D4C 17:8D3C: 47 B3     .word off_B347
-- - - - - 0x020D4E 17:8D3E: F2        .byte con_F2_прыжок
+- - - - - 0x020D4E 17:8D3E: F2        .byte con_прыжок
 - - - - - 0x020D4F 17:8D3F: A9 A1     .word off_A1A9
 - - - - - 0x020D51 17:8D41: FA        .byte $FA
 - - - - - 0x020D52 17:8D42: 79 9C     .word off_9C79
@@ -2445,7 +2450,7 @@ off_8D38:
 - - - - - 0x020D5B 17:8D4B: DD A2     .word off_A2DD
 - - - - - 0x020D5D 17:8D4D: FA        .byte $FA
 - - - - - 0x020D5E 17:8D4E: 5C 9F     .word off_9F5C
-- - - - - 0x020D60 17:8D50: F2        .byte con_F2_прыжок
+- - - - - 0x020D60 17:8D50: F2        .byte con_прыжок
 - - - - - 0x020D61 17:8D51: 40 A2     .word off_A240
 - - - - - 0x020D63 17:8D53: FA        .byte $FA
 - - - - - 0x020D64 17:8D54: 79 9C     .word off_9C79
@@ -2457,7 +2462,7 @@ off_8D38:
 - - - - - 0x020D6D 17:8D5D: DD A2     .word off_A2DD
 - - - - - 0x020D6F 17:8D5F: FA        .byte $FA
 - - - - - 0x020D70 17:8D60: 5C 9F     .word off_9F5C
-- - - - - 0x020D72 17:8D62: F2        .byte con_F2_прыжок
+- - - - - 0x020D72 17:8D62: F2        .byte con_прыжок
 - - - - - 0x020D73 17:8D63: 71 A3     .word off_A371
 - D - I - 0x020D75 17:8D65: FA        .byte $FA
 - D - I - 0x020D76 17:8D66: 79 9C     .word off_9C79
@@ -2465,7 +2470,7 @@ off_8D38:
 - D - I - 0x020D79 17:8D69: 47 B3     .word off_B347
 - D - I - 0x020D7B 17:8D6B: FA        .byte $FA
 - D - I - 0x020D7C 17:8D6C: DD A2     .word off_A2DD
-- D - I - 0x020D7E 17:8D6E: F2        .byte con_F2_прыжок
+- D - I - 0x020D7E 17:8D6E: F2        .byte con_прыжок
 - D - I - 0x020D7F 17:8D6F: A9 A1     .word off_A1A9
 - D - I - 0x020D81 17:8D71: F3        .byte $F3
 - D - I - 0x020D82 17:8D72: 83        .byte $83    ; <C>
@@ -2495,7 +2500,7 @@ off_8D38:
 - D - I - 0x020DA2 17:8D92: DD A2     .word off_A2DD
 - D - I - 0x020DA4 17:8D94: FA        .byte $FA
 - D - I - 0x020DA5 17:8D95: 5C 9F     .word off_9F5C
-- D - I - 0x020DA7 17:8D97: F2        .byte con_F2_прыжок
+- D - I - 0x020DA7 17:8D97: F2        .byte con_прыжок
 - D - I - 0x020DA8 17:8D98: 40 A2     .word off_A240
 - - - - - 0x020DAA 17:8D9A: FA        .byte $FA
 - - - - - 0x020DAB 17:8D9B: 79 9C     .word off_9C79
@@ -2507,7 +2512,7 @@ off_8D38:
 - - - - - 0x020DB4 17:8DA4: DD A2     .word off_A2DD
 - - - - - 0x020DB6 17:8DA6: FA        .byte $FA
 - - - - - 0x020DB7 17:8DA7: 5C 9F     .word off_9F5C
-- - - - - 0x020DB9 17:8DA9: F2        .byte con_F2_прыжок
+- - - - - 0x020DB9 17:8DA9: F2        .byte con_прыжок
 - - - - - 0x020DBA 17:8DAA: 71 A3     .word off_A371
 - D - I - 0x020DBC 17:8DAC: F3        .byte $F3
 - D - I - 0x020DBD 17:8DAD: 83        .byte $83    ; <C>
@@ -2537,7 +2542,7 @@ off_8D38:
 - - - - - 0x020DDD 17:8DCD: DD A2     .word off_A2DD
 - - - - - 0x020DDF 17:8DCF: FA        .byte $FA
 - - - - - 0x020DE0 17:8DD0: 5C 9F     .word off_9F5C
-- - - - - 0x020DE2 17:8DD2: F2        .byte con_F2_прыжок
+- - - - - 0x020DE2 17:8DD2: F2        .byte con_прыжок
 - - - - - 0x020DE3 17:8DD3: 40 A2     .word off_A240
 - - - - - 0x020DE5 17:8DD5: FA        .byte $FA
 - - - - - 0x020DE6 17:8DD6: 79 9C     .word off_9C79
@@ -2549,7 +2554,7 @@ off_8D38:
 - - - - - 0x020DEF 17:8DDF: DD A2     .word off_A2DD
 - - - - - 0x020DF1 17:8DE1: FA        .byte $FA
 - - - - - 0x020DF2 17:8DE2: 5C 9F     .word off_9F5C
-- - - - - 0x020DF4 17:8DE4: F2        .byte con_F2_прыжок
+- - - - - 0x020DF4 17:8DE4: F2        .byte con_прыжок
 - - - - - 0x020DF5 17:8DE5: 71 A3     .word off_A371
 - - - - - 0x020DF7 17:8DE7: FA        .byte $FA
 - - - - - 0x020DF8 17:8DE8: 79 9C     .word off_9C79
@@ -2557,7 +2562,7 @@ off_8D38:
 - - - - - 0x020DFB 17:8DEB: F8 9D     .word off_9DF8
 - - - - - 0x020DFD 17:8DED: FA        .byte $FA
 - - - - - 0x020DFE 17:8DEE: DD A2     .word off_A2DD
-- - - - - 0x020E00 17:8DF0: F2        .byte con_F2_прыжок
+- - - - - 0x020E00 17:8DF0: F2        .byte con_прыжок
 - - - - - 0x020E01 17:8DF1: 6E A1     .word off_A16E
 off_8DF3:
 - D - I - 0x020E03 17:8DF3: F3        .byte $F3
@@ -2591,11 +2596,11 @@ off_8DF3:
 - D - I - 0x020E24 17:8E14: 47 A0     .word off_A047
 - D - I - 0x020E26 17:8E16: FA        .byte $FA
 - D - I - 0x020E27 17:8E17: 23 A0     .word off_A023
-- D - I - 0x020E29 17:8E19: F2        .byte con_F2_прыжок
+- D - I - 0x020E29 17:8E19: F2        .byte con_прыжок
 - D - I - 0x020E2A 17:8E1A: 71 A3     .word off_A371
 - - - - - 0x020E2C 17:8E1C: FA        .byte $FA
 - - - - - 0x020E2D 17:8E1D: 47 B3     .word off_B347
-- - - - - 0x020E2F 17:8E1F: F2        .byte con_F2_прыжок
+- - - - - 0x020E2F 17:8E1F: F2        .byte con_прыжок
 - - - - - 0x020E30 17:8E20: A9 A1     .word off_A1A9
 - D - I - 0x020E32 17:8E22: F3        .byte $F3
 - D - I - 0x020E33 17:8E23: 83        .byte $83    ; <C>
@@ -2619,11 +2624,11 @@ off_8DF3:
 - D - I - 0x020E4A 17:8E3A: 47 A0     .word off_A047
 - D - I - 0x020E4C 17:8E3C: FA        .byte $FA
 - D - I - 0x020E4D 17:8E3D: 23 A0     .word off_A023
-- D - I - 0x020E4F 17:8E3F: F2        .byte con_F2_прыжок
+- D - I - 0x020E4F 17:8E3F: F2        .byte con_прыжок
 - D - I - 0x020E50 17:8E40: 71 A3     .word off_A371
 - - - - - 0x020E52 17:8E42: FA        .byte $FA
 - - - - - 0x020E53 17:8E43: DC B2     .word off_B2DC
-- - - - - 0x020E55 17:8E45: F2        .byte con_F2_прыжок
+- - - - - 0x020E55 17:8E45: F2        .byte con_прыжок
 - - - - - 0x020E56 17:8E46: 85 A1     .word off_A185
 - D - I - 0x020E58 17:8E48: F3        .byte $F3
 - D - I - 0x020E59 17:8E49: 83        .byte $83    ; <C>
@@ -2647,11 +2652,11 @@ off_8DF3:
 - D - I - 0x020E70 17:8E60: 10 A0     .word off_A010
 - D - I - 0x020E72 17:8E62: FA        .byte $FA
 - D - I - 0x020E73 17:8E63: F1 9F     .word off_9FF1
-- D - I - 0x020E75 17:8E65: F2        .byte con_F2_прыжок
+- D - I - 0x020E75 17:8E65: F2        .byte con_прыжок
 - D - I - 0x020E76 17:8E66: 71 A3     .word off_A371
 - D - I - 0x020E78 17:8E68: FA        .byte $FA
 - D - I - 0x020E79 17:8E69: F8 9D     .word off_9DF8
-- D - I - 0x020E7B 17:8E6B: F2        .byte con_F2_прыжок
+- D - I - 0x020E7B 17:8E6B: F2        .byte con_прыжок
 - D - I - 0x020E7C 17:8E6C: 6E A1     .word off_A16E
 - D - I - 0x020E7E 17:8E6E: F3        .byte $F3
 - D - I - 0x020E7F 17:8E6F: 82        .byte $82    ; <B>
@@ -2682,7 +2687,7 @@ off_8DF3:
 - D - I - 0x020E9E 17:8E8E: DD A2     .word off_A2DD
 - D - I - 0x020EA0 17:8E90: FA        .byte $FA
 - D - I - 0x020EA1 17:8E91: 5C 9F     .word off_9F5C
-- D - I - 0x020EA3 17:8E93: F2        .byte con_F2_прыжок
+- D - I - 0x020EA3 17:8E93: F2        .byte con_прыжок
 - D - I - 0x020EA4 17:8E94: 40 A2     .word off_A240
 - - - - - 0x020EA6 17:8E96: FA        .byte $FA
 - - - - - 0x020EA7 17:8E97: 47 B3     .word off_B347
@@ -2692,7 +2697,7 @@ off_8DF3:
 - - - - - 0x020EAD 17:8E9D: DD A2     .word off_A2DD
 - - - - - 0x020EAF 17:8E9F: FA        .byte $FA
 - - - - - 0x020EB0 17:8EA0: 5C 9F     .word off_9F5C
-- - - - - 0x020EB2 17:8EA2: F2        .byte con_F2_прыжок
+- - - - - 0x020EB2 17:8EA2: F2        .byte con_прыжок
 - - - - - 0x020EB3 17:8EA3: 71 A3     .word off_A371
 - D - I - 0x020EB5 17:8EA5: F3        .byte $F3
 - D - I - 0x020EB6 17:8EA6: 83        .byte $83    ; <C>
@@ -2718,7 +2723,7 @@ off_8DF3:
 - - - - - 0x020ED0 17:8EC0: DD A2     .word off_A2DD
 - - - - - 0x020ED2 17:8EC2: FA        .byte $FA
 - - - - - 0x020ED3 17:8EC3: 5C 9F     .word off_9F5C
-- - - - - 0x020ED5 17:8EC5: F2        .byte con_F2_прыжок
+- - - - - 0x020ED5 17:8EC5: F2        .byte con_прыжок
 - - - - - 0x020ED6 17:8EC6: 40 A2     .word off_A240
 - - - - - 0x020ED8 17:8EC8: FA        .byte $FA
 - - - - - 0x020ED9 17:8EC9: DC B2     .word off_B2DC
@@ -2728,7 +2733,7 @@ off_8DF3:
 - - - - - 0x020EDF 17:8ECF: DD A2     .word off_A2DD
 - - - - - 0x020EE1 17:8ED1: FA        .byte $FA
 - - - - - 0x020EE2 17:8ED2: 5C 9F     .word off_9F5C
-- - - - - 0x020EE4 17:8ED4: F2        .byte con_F2_прыжок
+- - - - - 0x020EE4 17:8ED4: F2        .byte con_прыжок
 - - - - - 0x020EE5 17:8ED5: 71 A3     .word off_A371
 - D - I - 0x020EE7 17:8ED7: F3        .byte $F3
 - D - I - 0x020EE8 17:8ED8: 83        .byte $83    ; <C>
@@ -2754,7 +2759,7 @@ off_8DF3:
 - - - - - 0x020F02 17:8EF2: DD A2     .word off_A2DD
 - - - - - 0x020F04 17:8EF4: FA        .byte $FA
 - - - - - 0x020F05 17:8EF5: 5C 9F     .word off_9F5C
-- - - - - 0x020F07 17:8EF7: F2        .byte con_F2_прыжок
+- - - - - 0x020F07 17:8EF7: F2        .byte con_прыжок
 - - - - - 0x020F08 17:8EF8: 40 A2     .word off_A240
 - - - - - 0x020F0A 17:8EFA: FA        .byte $FA
 - - - - - 0x020F0B 17:8EFB: F8 9D     .word off_9DF8
@@ -2764,7 +2769,7 @@ off_8DF3:
 - - - - - 0x020F11 17:8F01: DD A2     .word off_A2DD
 - - - - - 0x020F13 17:8F03: FA        .byte $FA
 - - - - - 0x020F14 17:8F04: 5C 9F     .word off_9F5C
-- - - - - 0x020F16 17:8F06: F2        .byte con_F2_прыжок
+- - - - - 0x020F16 17:8F06: F2        .byte con_прыжок
 - - - - - 0x020F17 17:8F07: 71 A3     .word off_A371
 off_8F09:
 - D - I - 0x020F19 17:8F09: FD        .byte $FD
@@ -2796,7 +2801,7 @@ off_8F11:
 - - - - - 0x020F34 17:8F24: 40        .byte $40    ; <「>
 - - - - - 0x020F35 17:8F25: 02        .byte $02    ; <い>
 - D - I - 0x020F36 17:8F26: 01        .byte $01    ; <あ>
-- D - I - 0x020F37 17:8F27: F2        .byte con_F2_прыжок
+- D - I - 0x020F37 17:8F27: F2        .byte con_прыжок
 - D - I - 0x020F38 17:8F28: 88 8C     .word off_8C88
 - - - - - 0x020F3A 17:8F2A: F3        .byte $F3
 - - - - - 0x020F3B 17:8F2B: 9B        .byte $9B
@@ -2804,7 +2809,7 @@ off_8F11:
 - - - - - 0x020F3D 17:8F2D: 37        .byte $37    ; <4>
 - - - - - 0x020F3E 17:8F2E: 02        .byte $02    ; <い>
 - - - - - 0x020F3F 17:8F2F: 01        .byte $01    ; <あ>
-- - - - - 0x020F40 17:8F30: F2        .byte con_F2_прыжок
+- - - - - 0x020F40 17:8F30: F2        .byte con_прыжок
 - - - - - 0x020F41 17:8F31: 38 8D     .word off_8D38
 - D - I - 0x020F43 17:8F33: FA        .byte $FA
 - D - I - 0x020F44 17:8F34: 7A 9F     .word off_9F7A
@@ -2821,7 +2826,7 @@ off_8F11:
 - D - I - 0x020F54 17:8F44: 34 A0     .word off_A034
 - D - I - 0x020F56 17:8F46: FA        .byte $FA
 - D - I - 0x020F57 17:8F47: 25 A0     .word off_A025
-- D - I - 0x020F59 17:8F49: F2        .byte con_F2_прыжок
+- D - I - 0x020F59 17:8F49: F2        .byte con_прыжок
 - D - I - 0x020F5A 17:8F4A: 15 A0     .word off_A015
 - D - I - 0x020F5C 17:8F4C: FA        .byte $FA
 - D - I - 0x020F5D 17:8F4D: 7A 9F     .word off_9F7A
@@ -2831,20 +2836,20 @@ off_8F11:
 - D - I - 0x020F63 17:8F53: 3B A0     .word off_A03B
 - D - I - 0x020F65 17:8F55: FA        .byte $FA
 - D - I - 0x020F66 17:8F56: 23 A0     .word off_A023
-- D - I - 0x020F68 17:8F58: F2        .byte con_F2_прыжок
+- D - I - 0x020F68 17:8F58: F2        .byte con_прыжок
 - D - I - 0x020F69 17:8F59: 71 A3     .word off_A371
 - - - - - 0x020F6B 17:8F5B: FA        .byte $FA
 - - - - - 0x020F6C 17:8F5C: 7A 9F     .word off_9F7A
 - - - - - 0x020F6E 17:8F5E: FA        .byte $FA
 - - - - - 0x020F6F 17:8F5F: 8F A3     .word off_A38F
-- - - - - 0x020F71 17:8F61: F2        .byte con_F2_прыжок
+- - - - - 0x020F71 17:8F61: F2        .byte con_прыжок
 - - - - - 0x020F72 17:8F62: 9F A1     .word off_A19F
 - - - - - 0x020F74 17:8F64: FA        .byte $FA
 - - - - - 0x020F75 17:8F65: 7A 9F     .word off_9F7A
 off_8F67:
 - D - I - 0x020F77 17:8F67: FA        .byte $FA
 - D - I - 0x020F78 17:8F68: 65 B4     .word off_B465
-- D - I - 0x020F7A 17:8F6A: F2        .byte con_F2_прыжок
+- D - I - 0x020F7A 17:8F6A: F2        .byte con_прыжок
 - D - I - 0x020F7B 17:8F6B: 71 A3     .word off_A371
 - D - I - 0x020F7D 17:8F6D: F3        .byte $F3
 - D - I - 0x020F7E 17:8F6E: 83        .byte $83    ; <C>
@@ -2870,7 +2875,7 @@ off_8F67:
 - D - I - 0x020F98 17:8F88: 34 A0     .word off_A034
 - D - I - 0x020F9A 17:8F8A: FA        .byte $FA
 - D - I - 0x020F9B 17:8F8B: 25 A0     .word off_A025
-- D - I - 0x020F9D 17:8F8D: F2        .byte con_F2_прыжок
+- D - I - 0x020F9D 17:8F8D: F2        .byte con_прыжок
 - D - I - 0x020F9E 17:8F8E: 15 A0     .word off_A015
 - D - I - 0x020FA0 17:8F90: FA        .byte $FA
 - D - I - 0x020FA1 17:8F91: E0 A6     .word off_A6E0
@@ -2880,13 +2885,13 @@ off_8F67:
 - D - I - 0x020FA7 17:8F97: 3B A0     .word off_A03B
 - D - I - 0x020FA9 17:8F99: FA        .byte $FA
 - D - I - 0x020FAA 17:8F9A: 23 A0     .word off_A023
-- D - I - 0x020FAC 17:8F9C: F2        .byte con_F2_прыжок
+- D - I - 0x020FAC 17:8F9C: F2        .byte con_прыжок
 - D - I - 0x020FAD 17:8F9D: 71 A3     .word off_A371
 - D - I - 0x020FAF 17:8F9F: FA        .byte $FA
 - D - I - 0x020FB0 17:8FA0: E0 A6     .word off_A6E0
 - D - I - 0x020FB2 17:8FA2: FA        .byte $FA
 - D - I - 0x020FB3 17:8FA3: 8F A3     .word off_A38F
-- D - I - 0x020FB5 17:8FA5: F2        .byte con_F2_прыжок
+- D - I - 0x020FB5 17:8FA5: F2        .byte con_прыжок
 - D - I - 0x020FB6 17:8FA6: 7B A1     .word off_A17B
 - D - I - 0x020FB8 17:8FA8: F3        .byte $F3
 - D - I - 0x020FB9 17:8FA9: 83        .byte $83    ; <C>
@@ -2910,7 +2915,7 @@ off_8F67:
 - D - I - 0x020FD0 17:8FC0: FD 9F     .word off_9FFD
 - D - I - 0x020FD2 17:8FC2: FA        .byte $FA
 - D - I - 0x020FD3 17:8FC3: F3 9F     .word off_9FF3
-- D - I - 0x020FD5 17:8FC5: F2        .byte con_F2_прыжок
+- D - I - 0x020FD5 17:8FC5: F2        .byte con_прыжок
 - D - I - 0x020FD6 17:8FC6: DE 9F     .word off_9FDE
 - D - I - 0x020FD8 17:8FC8: FA        .byte $FA
 - D - I - 0x020FD9 17:8FC9: 7F 9C     .word off_9C7F
@@ -2920,13 +2925,13 @@ off_8F67:
 - D - I - 0x020FDF 17:8FCF: 04 A0     .word off_A004
 - D - I - 0x020FE1 17:8FD1: FA        .byte $FA
 - D - I - 0x020FE2 17:8FD2: F1 9F     .word off_9FF1
-- D - I - 0x020FE4 17:8FD4: F2        .byte con_F2_прыжок
+- D - I - 0x020FE4 17:8FD4: F2        .byte con_прыжок
 - D - I - 0x020FE5 17:8FD5: 71 A3     .word off_A371
 - D - I - 0x020FE7 17:8FD7: FA        .byte $FA
 - D - I - 0x020FE8 17:8FD8: 7F 9C     .word off_9C7F
 - D - I - 0x020FEA 17:8FDA: FA        .byte $FA
 - D - I - 0x020FEB 17:8FDB: 8F A3     .word off_A38F
-- D - I - 0x020FED 17:8FDD: F2        .byte con_F2_прыжок
+- D - I - 0x020FED 17:8FDD: F2        .byte con_прыжок
 - D - I - 0x020FEE 17:8FDE: 64 A1     .word off_A164
 - D - I - 0x020FF0 17:8FE0: F3        .byte $F3
 - D - I - 0x020FF1 17:8FE1: 82        .byte $82    ; <B>
@@ -2952,7 +2957,7 @@ off_8F67:
 - - - - - 0x021005 17:8FF5: 03        .byte $03    ; <う>
 - - - - - 0x021006 17:8FF6: 39        .byte $39    ; <6>
 - - - - - 0x021007 17:8FF7: 38        .byte $38    ; <5>
-- - - - - 0x021008 17:8FF8: F2        .byte con_F2_прыжок
+- - - - - 0x021008 17:8FF8: F2        .byte con_прыжок
 - - - - - 0x021009 17:8FF9: 97 8C     .word off_8C97
 - D - I - 0x02100B 17:8FFB: FA        .byte $FA
 - D - I - 0x02100C 17:8FFC: 7A 9F     .word off_9F7A
@@ -2975,7 +2980,7 @@ off_8F67:
 - D - I - 0x021025 17:9015: DD A2     .word off_A2DD
 - D - I - 0x021027 17:9017: FA        .byte $FA
 - D - I - 0x021028 17:9018: 5C 9F     .word off_9F5C
-- D - I - 0x02102A 17:901A: F2        .byte con_F2_прыжок
+- D - I - 0x02102A 17:901A: F2        .byte con_прыжок
 - D - I - 0x02102B 17:901B: 40 A2     .word off_A240
 - - - - - 0x02102D 17:901D: FA        .byte $FA
 - - - - - 0x02102E 17:901E: 7A 9F     .word off_9F7A
@@ -2987,7 +2992,7 @@ off_8F67:
 - - - - - 0x021037 17:9027: DD A2     .word off_A2DD
 - - - - - 0x021039 17:9029: FA        .byte $FA
 - - - - - 0x02103A 17:902A: 5C 9F     .word off_9F5C
-- - - - - 0x02103C 17:902C: F2        .byte con_F2_прыжок
+- - - - - 0x02103C 17:902C: F2        .byte con_прыжок
 - - - - - 0x02103D 17:902D: 71 A3     .word off_A371
 - - - - - 0x02103F 17:902F: FA        .byte $FA
 - - - - - 0x021040 17:9030: 7A 9F     .word off_9F7A
@@ -2995,7 +3000,7 @@ off_8F67:
 - - - - - 0x021043 17:9033: 8F A3     .word off_A38F
 - - - - - 0x021045 17:9035: FA        .byte $FA
 - - - - - 0x021046 17:9036: DD A2     .word off_A2DD
-- - - - - 0x021048 17:9038: F2        .byte con_F2_прыжок
+- - - - - 0x021048 17:9038: F2        .byte con_прыжок
 - - - - - 0x021049 17:9039: 9F A1     .word off_A19F
 - D - I - 0x02104B 17:903B: F3        .byte $F3
 - D - I - 0x02104C 17:903C: 83        .byte $83    ; <C>
@@ -3025,7 +3030,7 @@ off_8F67:
 - D - I - 0x02106C 17:905C: DD A2     .word off_A2DD
 - D - I - 0x02106E 17:905E: FA        .byte $FA
 - D - I - 0x02106F 17:905F: 5C 9F     .word off_9F5C
-- D - I - 0x021071 17:9061: F2        .byte con_F2_прыжок
+- D - I - 0x021071 17:9061: F2        .byte con_прыжок
 - D - I - 0x021072 17:9062: 40 A2     .word off_A240
 - - - - - 0x021074 17:9064: FA        .byte $FA
 - - - - - 0x021075 17:9065: E0 A6     .word off_A6E0
@@ -3037,7 +3042,7 @@ off_8F67:
 - - - - - 0x02107E 17:906E: DD A2     .word off_A2DD
 - - - - - 0x021080 17:9070: FA        .byte $FA
 - - - - - 0x021081 17:9071: 5C 9F     .word off_9F5C
-- - - - - 0x021083 17:9073: F2        .byte con_F2_прыжок
+- - - - - 0x021083 17:9073: F2        .byte con_прыжок
 - - - - - 0x021084 17:9074: 71 A3     .word off_A371
 off_9076:
 - D - I - 0x021086 17:9076: F3        .byte $F3
@@ -3072,7 +3077,7 @@ off_9076:
 - - - - - 0x0210AB 17:909B: DD A2     .word off_A2DD
 - - - - - 0x0210AD 17:909D: FA        .byte $FA
 - - - - - 0x0210AE 17:909E: 5C 9F     .word off_9F5C
-- - - - - 0x0210B0 17:90A0: F2        .byte con_F2_прыжок
+- - - - - 0x0210B0 17:90A0: F2        .byte con_прыжок
 - - - - - 0x0210B1 17:90A1: 40 A2     .word off_A240
 - - - - - 0x0210B3 17:90A3: FA        .byte $FA
 - - - - - 0x0210B4 17:90A4: 7F 9C     .word off_9C7F
@@ -3084,7 +3089,7 @@ off_9076:
 - - - - - 0x0210BD 17:90AD: DD A2     .word off_A2DD
 - - - - - 0x0210BF 17:90AF: FA        .byte $FA
 - - - - - 0x0210C0 17:90B0: 5C 9F     .word off_9F5C
-- - - - - 0x0210C2 17:90B2: F2        .byte con_F2_прыжок
+- - - - - 0x0210C2 17:90B2: F2        .byte con_прыжок
 - - - - - 0x0210C3 17:90B3: 71 A3     .word off_A371
 - - - - - 0x0210C5 17:90B5: FA        .byte $FA
 - - - - - 0x0210C6 17:90B6: 7F 9C     .word off_9C7F
@@ -3092,7 +3097,7 @@ off_9076:
 - - - - - 0x0210C9 17:90B9: 8F A3     .word off_A38F
 - - - - - 0x0210CB 17:90BB: FA        .byte $FA
 - - - - - 0x0210CC 17:90BC: DD A2     .word off_A2DD
-- - - - - 0x0210CE 17:90BE: F2        .byte con_F2_прыжок
+- - - - - 0x0210CE 17:90BE: F2        .byte con_прыжок
 - - - - - 0x0210CF 17:90BF: 64 A1     .word off_A164
 - D - I - 0x0210D1 17:90C1: F3        .byte $F3
 - D - I - 0x0210D2 17:90C2: 82        .byte $82    ; <B>
@@ -3121,11 +3126,11 @@ off_9076:
 - D - I - 0x0210EE 17:90DE: 3B A0     .word off_A03B
 - D - I - 0x0210F0 17:90E0: FA        .byte $FA
 - D - I - 0x0210F1 17:90E1: 23 A0     .word off_A023
-- D - I - 0x0210F3 17:90E3: F2        .byte con_F2_прыжок
+- D - I - 0x0210F3 17:90E3: F2        .byte con_прыжок
 - D - I - 0x0210F4 17:90E4: 71 A3     .word off_A371
 - - - - - 0x0210F6 17:90E6: FA        .byte $FA
 - - - - - 0x0210F7 17:90E7: 9E A3     .word off_A39E
-- - - - - 0x0210F9 17:90E9: F2        .byte con_F2_прыжок
+- - - - - 0x0210F9 17:90E9: F2        .byte con_прыжок
 - - - - - 0x0210FA 17:90EA: 9F A1     .word off_A19F
 - D - I - 0x0210FC 17:90EC: F3        .byte $F3
 - D - I - 0x0210FD 17:90ED: 83        .byte $83    ; <C>
@@ -3149,11 +3154,11 @@ off_9076:
 - D - I - 0x021114 17:9104: 3B A0     .word off_A03B
 - D - I - 0x021116 17:9106: FA        .byte $FA
 - D - I - 0x021117 17:9107: 23 A0     .word off_A023
-- D - I - 0x021119 17:9109: F2        .byte con_F2_прыжок
+- D - I - 0x021119 17:9109: F2        .byte con_прыжок
 - D - I - 0x02111A 17:910A: 71 A3     .word off_A371
 - D - I - 0x02111C 17:910C: FA        .byte $FA
 - D - I - 0x02111D 17:910D: 94 A3     .word off_A394
-- D - I - 0x02111F 17:910F: F2        .byte con_F2_прыжок
+- D - I - 0x02111F 17:910F: F2        .byte con_прыжок
 - D - I - 0x021120 17:9110: 7B A1     .word off_A17B
 - D - I - 0x021122 17:9112: F3        .byte $F3
 - D - I - 0x021123 17:9113: 83        .byte $83    ; <C>
@@ -3177,11 +3182,11 @@ off_9076:
 - D - I - 0x02113A 17:912A: 04 A0     .word off_A004
 - D - I - 0x02113C 17:912C: FA        .byte $FA
 - D - I - 0x02113D 17:912D: F1 9F     .word off_9FF1
-- D - I - 0x02113F 17:912F: F2        .byte con_F2_прыжок
+- D - I - 0x02113F 17:912F: F2        .byte con_прыжок
 - D - I - 0x021140 17:9130: 71 A3     .word off_A371
 - D - I - 0x021142 17:9132: FA        .byte $FA
 - D - I - 0x021143 17:9133: 99 A3     .word off_A399
-- D - I - 0x021145 17:9135: F2        .byte con_F2_прыжок
+- D - I - 0x021145 17:9135: F2        .byte con_прыжок
 - D - I - 0x021146 17:9136: 64 A1     .word off_A164
 - D - I - 0x021148 17:9138: F3        .byte $F3
 - D - I - 0x021149 17:9139: 82        .byte $82    ; <B>
@@ -3212,7 +3217,7 @@ off_9076:
 - - - - - 0x021168 17:9158: DD A2     .word off_A2DD
 - - - - - 0x02116A 17:915A: FA        .byte $FA
 - - - - - 0x02116B 17:915B: 5C 9F     .word off_9F5C
-- - - - - 0x02116D 17:915D: F2        .byte con_F2_прыжок
+- - - - - 0x02116D 17:915D: F2        .byte con_прыжок
 - - - - - 0x02116E 17:915E: 40 A2     .word off_A240
 - - - - - 0x021170 17:9160: FA        .byte $FA
 - - - - - 0x021171 17:9161: 9E A3     .word off_A39E
@@ -3222,7 +3227,7 @@ off_9076:
 - - - - - 0x021177 17:9167: DD A2     .word off_A2DD
 - - - - - 0x021179 17:9169: FA        .byte $FA
 - - - - - 0x02117A 17:916A: 5C 9F     .word off_9F5C
-- - - - - 0x02117C 17:916C: F2        .byte con_F2_прыжок
+- - - - - 0x02117C 17:916C: F2        .byte con_прыжок
 - - - - - 0x02117D 17:916D: 71 A3     .word off_A371
 - D - I - 0x02117F 17:916F: F3        .byte $F3
 - D - I - 0x021180 17:9170: 83        .byte $83    ; <C>
@@ -3248,7 +3253,7 @@ off_9076:
 - - - - - 0x02119A 17:918A: DD A2     .word off_A2DD
 - - - - - 0x02119C 17:918C: FA        .byte $FA
 - - - - - 0x02119D 17:918D: 5C 9F     .word off_9F5C
-- - - - - 0x02119F 17:918F: F2        .byte con_F2_прыжок
+- - - - - 0x02119F 17:918F: F2        .byte con_прыжок
 - - - - - 0x0211A0 17:9190: 40 A2     .word off_A240
 - - - - - 0x0211A2 17:9192: FA        .byte $FA
 - - - - - 0x0211A3 17:9193: 94 A3     .word off_A394
@@ -3258,7 +3263,7 @@ off_9076:
 - - - - - 0x0211A9 17:9199: DD A2     .word off_A2DD
 - - - - - 0x0211AB 17:919B: FA        .byte $FA
 - - - - - 0x0211AC 17:919C: 5C 9F     .word off_9F5C
-- - - - - 0x0211AE 17:919E: F2        .byte con_F2_прыжок
+- - - - - 0x0211AE 17:919E: F2        .byte con_прыжок
 - - - - - 0x0211AF 17:919F: 71 A3     .word off_A371
 - D - I - 0x0211B1 17:91A1: F3        .byte $F3
 - D - I - 0x0211B2 17:91A2: 83        .byte $83    ; <C>
@@ -3284,7 +3289,7 @@ off_9076:
 - D - I - 0x0211CC 17:91BC: DD A2     .word off_A2DD
 - D - I - 0x0211CE 17:91BE: FA        .byte $FA
 - D - I - 0x0211CF 17:91BF: 5C 9F     .word off_9F5C
-- D - I - 0x0211D1 17:91C1: F2        .byte con_F2_прыжок
+- D - I - 0x0211D1 17:91C1: F2        .byte con_прыжок
 - D - I - 0x0211D2 17:91C2: 40 A2     .word off_A240
 - - - - - 0x0211D4 17:91C4: FA        .byte $FA
 - - - - - 0x0211D5 17:91C5: 99 A3     .word off_A399
@@ -3294,7 +3299,7 @@ off_9076:
 - - - - - 0x0211DB 17:91CB: DD A2     .word off_A2DD
 - - - - - 0x0211DD 17:91CD: FA        .byte $FA
 - - - - - 0x0211DE 17:91CE: 5C 9F     .word off_9F5C
-- - - - - 0x0211E0 17:91D0: F2        .byte con_F2_прыжок
+- - - - - 0x0211E0 17:91D0: F2        .byte con_прыжок
 - - - - - 0x0211E1 17:91D1: 71 A3     .word off_A371
 
 
@@ -3314,7 +3319,7 @@ off_91D3_13:
 - D - I - 0x0211F1 17:91E1: 3C 93     .word off_933C
 - D - I - 0x0211F3 17:91E3: 41 93     .word off_9341
 - D - I - 0x0211F5 17:91E5: DF 9B     .word off_9BDF
-- - - - - 0x0211F7 17:91E7: F2        .byte con_F2_прыжок
+- - - - - 0x0211F7 17:91E7: F2        .byte con_прыжок
 - - - - - 0x0211F8 17:91E8: 40 A2     .word off_A240
 
 
@@ -3339,7 +3344,7 @@ off_91F2_01:
 - D - I - 0x021208 17:91F8: FA        .byte $FA
 - D - I - 0x021209 17:91F9: E2 9D     .word off_9DE2
 - D - I - 0x02120B 17:91FB: F1        .byte $F1
-- D - I - 0x02120C 17:91FC: F2        .byte con_F2_прыжок
+- D - I - 0x02120C 17:91FC: F2        .byte con_прыжок
 - D - I - 0x02120D 17:91FD: 3C 9D     .word off_9D3C
 
 
@@ -3379,15 +3384,15 @@ off_9217:
 - D - I - 0x02122F 17:921F: 09        .byte $09    ; <け>
 - D - I - 0x021230 17:9220: 0B        .byte $0B    ; <さ>
 - - - - - 0x021231 17:9221: 0D        .byte $0D    ; <す>
-- D - I - 0x021232 17:9222: F2        .byte con_F2_прыжок
+- D - I - 0x021232 17:9222: F2        .byte con_прыжок
 - D - I - 0x021233 17:9223: 85 9C     .word off_9C85
-- D - I - 0x021235 17:9225: F2        .byte con_F2_прыжок
+- D - I - 0x021235 17:9225: F2        .byte con_прыжок
 - D - I - 0x021236 17:9226: 91 9C     .word off_9C91
-- D - I - 0x021238 17:9228: F2        .byte con_F2_прыжок
+- D - I - 0x021238 17:9228: F2        .byte con_прыжок
 - D - I - 0x021239 17:9229: 9D 9C     .word off_9C9D
-- D - I - 0x02123B 17:922B: F2        .byte con_F2_прыжок
+- D - I - 0x02123B 17:922B: F2        .byte con_прыжок
 - D - I - 0x02123C 17:922C: 97 9C     .word off_9C97
-- - - - - 0x02123E 17:922E: F2        .byte con_F2_прыжок
+- - - - - 0x02123E 17:922E: F2        .byte con_прыжок
 - - - - - 0x02123F 17:922F: 91 9C     .word off_9C91
 - D - I - 0x021241 17:9231: F3        .byte $F3
 - D - I - 0x021242 17:9232: 85        .byte $85    ; <E>
@@ -3396,15 +3401,15 @@ off_9217:
 - D - I - 0x021245 17:9235: 09        .byte $09    ; <け>
 - D - I - 0x021246 17:9236: 0B        .byte $0B    ; <さ>
 - - - - - 0x021247 17:9237: 0D        .byte $0D    ; <す>
-- D - I - 0x021248 17:9238: F2        .byte con_F2_прыжок
+- D - I - 0x021248 17:9238: F2        .byte con_прыжок
 - D - I - 0x021249 17:9239: 61 9C     .word off_9C61
-- D - I - 0x02124B 17:923B: F2        .byte con_F2_прыжок
+- D - I - 0x02124B 17:923B: F2        .byte con_прыжок
 - D - I - 0x02124C 17:923C: 6D 9C     .word off_9C6D
-- D - I - 0x02124E 17:923E: F2        .byte con_F2_прыжок
+- D - I - 0x02124E 17:923E: F2        .byte con_прыжок
 - D - I - 0x02124F 17:923F: 73 9C     .word off_9C73
-- D - I - 0x021251 17:9241: F2        .byte con_F2_прыжок
+- D - I - 0x021251 17:9241: F2        .byte con_прыжок
 - D - I - 0x021252 17:9242: 67 9C     .word off_9C67
-- - - - - 0x021254 17:9244: F2        .byte con_F2_прыжок
+- - - - - 0x021254 17:9244: F2        .byte con_прыжок
 - - - - - 0x021255 17:9245: 6D 9C     .word off_9C6D
 - D - I - 0x021257 17:9247: FD        .byte $FD
 - D - I - 0x021258 17:9248: 03        .byte $03    ; <う>
@@ -3417,9 +3422,9 @@ off_924F:
 - D - I - 0x021260 17:9250: 84        .byte $84    ; <D>
 - D - I - 0x021261 17:9251: 02        .byte $02    ; <い>
 - D - I - 0x021262 17:9252: 04        .byte $04    ; <え>
-- D - I - 0x021263 17:9253: F2        .byte con_F2_прыжок
+- D - I - 0x021263 17:9253: F2        .byte con_прыжок
 - D - I - 0x021264 17:9254: AB A3     .word off_A3AB
-- D - I - 0x021266 17:9256: F2        .byte con_F2_прыжок
+- D - I - 0x021266 17:9256: F2        .byte con_прыжок
 - D - I - 0x021267 17:9257: A3 A3     .word off_A3A3
 
 
@@ -3601,23 +3606,23 @@ off_930B:
 - D - I - 0x02131C 17:930C: 71 A3     .word off_A371
 - D - I - 0x02131E 17:930E: F0        .byte $F0
 off_930F:
-- D - I - 0x02131F 17:930F: F2        .byte con_F2_прыжок
+- D - I - 0x02131F 17:930F: F2        .byte con_прыжок
 - D - I - 0x021320 17:9310: 6E A1     .word off_A16E
-- D - I - 0x021322 17:9312: F2        .byte con_F2_прыжок
+- D - I - 0x021322 17:9312: F2        .byte con_прыжок
 - D - I - 0x021323 17:9313: 97 A1     .word off_A197
-- D - I - 0x021325 17:9315: F2        .byte con_F2_прыжок
+- D - I - 0x021325 17:9315: F2        .byte con_прыжок
 - D - I - 0x021326 17:9316: 83 A0     .word off_A083
-- D - I - 0x021328 17:9318: F2        .byte con_F2_прыжок
+- D - I - 0x021328 17:9318: F2        .byte con_прыжок
 - D - I - 0x021329 17:9319: 5B A3     .word off_A35B
 - - - - - 0x02132B 17:931B: FA        .byte $FA
 - - - - - 0x02132C 17:931C: 97 A1     .word off_A197
 - - - - - 0x02132E 17:931E: F0        .byte $F0
 off_931F:
-- - - - - 0x02132F 17:931F: F2        .byte con_F2_прыжок
+- - - - - 0x02132F 17:931F: F2        .byte con_прыжок
 - - - - - 0x021330 17:9320: 64 A1     .word off_A164
-- D - I - 0x021332 17:9322: F2        .byte con_F2_прыжок
+- D - I - 0x021332 17:9322: F2        .byte con_прыжок
 - D - I - 0x021333 17:9323: 8D A1     .word off_A18D
-- D - I - 0x021335 17:9325: F2        .byte con_F2_прыжок
+- D - I - 0x021335 17:9325: F2        .byte con_прыжок
 - D - I - 0x021336 17:9326: 79 A0     .word off_A079
 - - - - - 0x021338 17:9328: FA        .byte $FA
 - - - - - 0x021339 17:9329: 8D A1     .word off_A18D
@@ -3645,42 +3650,42 @@ off_932C_08:
 off_933C:
 - D - I - 0x02134C 17:933C: FD        .byte $FD
 - D - I - 0x02134D 17:933D: 00        .byte $00
-- D - I - 0x02134E 17:933E: F2        .byte con_F2_прыжок
+- D - I - 0x02134E 17:933E: F2        .byte con_прыжок
 - D - I - 0x02134F 17:933F: 45 9E     .word off_9E45
 off_9341:
 - D - I - 0x021351 17:9341: FD        .byte $FD
 - D - I - 0x021352 17:9342: 03        .byte $03    ; <う>
-- D - I - 0x021353 17:9343: F2        .byte con_F2_прыжок
+- D - I - 0x021353 17:9343: F2        .byte con_прыжок
 - D - I - 0x021354 17:9344: C2 B2     .word off_B2C2
 - D - I - 0x021356 17:9346: FD        .byte $FD
 - D - I - 0x021357 17:9347: 03        .byte $03    ; <う>
-- D - I - 0x021358 17:9348: F2        .byte con_F2_прыжок
+- D - I - 0x021358 17:9348: F2        .byte con_прыжок
 - D - I - 0x021359 17:9349: 9A 9D     .word off_9D9A
 - D - I - 0x02135B 17:934B: FD        .byte $FD
 - D - I - 0x02135C 17:934C: 03        .byte $03    ; <う>
-- D - I - 0x02135D 17:934D: F2        .byte con_F2_прыжок
+- D - I - 0x02135D 17:934D: F2        .byte con_прыжок
 - D - I - 0x02135E 17:934E: 42 B4     .word off_B442
 off_9350:
 - D - I - 0x021360 17:9350: FD        .byte $FD
 - D - I - 0x021361 17:9351: 00        .byte $00
-- D - I - 0x021362 17:9352: F2        .byte con_F2_прыжок
+- D - I - 0x021362 17:9352: F2        .byte con_прыжок
 - D - I - 0x021363 17:9353: 4F 9E     .word off_9E4F
 - D - I - 0x021365 17:9355: FD        .byte $FD
 - D - I - 0x021366 17:9356: 03        .byte $03    ; <う>
-- D - I - 0x021367 17:9357: F2        .byte con_F2_прыжок
+- D - I - 0x021367 17:9357: F2        .byte con_прыжок
 - D - I - 0x021368 17:9358: CC B2     .word off_B2CC
 off_935A:
 - D - I - 0x02136A 17:935A: FD        .byte $FD
 - D - I - 0x02136B 17:935B: 03        .byte $03    ; <う>
-- D - I - 0x02136C 17:935C: F2        .byte con_F2_прыжок
+- D - I - 0x02136C 17:935C: F2        .byte con_прыжок
 - D - I - 0x02136D 17:935D: D4 B2     .word off_B2D4
 - D - I - 0x02136F 17:935F: FD        .byte $FD
 - D - I - 0x021370 17:9360: 03        .byte $03    ; <う>
-- D - I - 0x021371 17:9361: F2        .byte con_F2_прыжок
+- D - I - 0x021371 17:9361: F2        .byte con_прыжок
 - D - I - 0x021372 17:9362: 52 9D     .word off_9D52
 - D - I - 0x021374 17:9364: FD        .byte $FD
 - D - I - 0x021375 17:9365: 03        .byte $03    ; <う>
-- D - I - 0x021376 17:9366: F2        .byte con_F2_прыжок
+- D - I - 0x021376 17:9366: F2        .byte con_прыжок
 - D - I - 0x021377 17:9367: 3D B4     .word off_B43D
 
 
@@ -3722,27 +3727,27 @@ off_937F:
 - D - I - 0x02139F 17:938F: 19        .byte $19    ; <の>
 - D - I - 0x0213A0 17:9390: FA        .byte $FA
 - D - I - 0x0213A1 17:9391: 0E A1     .word off_A10E
-- D - I - 0x0213A3 17:9393: F2        .byte con_F2_прыжок
+- D - I - 0x0213A3 17:9393: F2        .byte con_прыжок
 - D - I - 0x0213A4 17:9394: 0D 97     .word off_970D
 - D - I - 0x0213A6 17:9396: FA        .byte $FA
 - D - I - 0x0213A7 17:9397: 0E A1     .word off_A10E
-- D - I - 0x0213A9 17:9399: F2        .byte con_F2_прыжок
+- D - I - 0x0213A9 17:9399: F2        .byte con_прыжок
 - D - I - 0x0213AA 17:939A: 16 97     .word off_9716
 - D - I - 0x0213AC 17:939C: FA        .byte $FA
 - D - I - 0x0213AD 17:939D: 0E A1     .word off_A10E
-- D - I - 0x0213AF 17:939F: F2        .byte con_F2_прыжок
+- D - I - 0x0213AF 17:939F: F2        .byte con_прыжок
 - D - I - 0x0213B0 17:93A0: 22 97     .word off_9722
 - D - I - 0x0213B2 17:93A2: FA        .byte $FA
 - D - I - 0x0213B3 17:93A3: 0E A1     .word off_A10E
-- D - I - 0x0213B5 17:93A5: F2        .byte con_F2_прыжок
+- D - I - 0x0213B5 17:93A5: F2        .byte con_прыжок
 - D - I - 0x0213B6 17:93A6: 31 97     .word off_9731
 - D - I - 0x0213B8 17:93A8: FA        .byte $FA
 - D - I - 0x0213B9 17:93A9: 0E A1     .word off_A10E
-- D - I - 0x0213BB 17:93AB: F2        .byte con_F2_прыжок
+- D - I - 0x0213BB 17:93AB: F2        .byte con_прыжок
 - D - I - 0x0213BC 17:93AC: 43 97     .word off_9743
 - D - I - 0x0213BE 17:93AE: FA        .byte $FA
 - D - I - 0x0213BF 17:93AF: 0E A1     .word off_A10E
-- D - I - 0x0213C1 17:93B1: F2        .byte con_F2_прыжок
+- D - I - 0x0213C1 17:93B1: F2        .byte con_прыжок
 - D - I - 0x0213C2 17:93B2: 55 97     .word off_9755
 - D - I - 0x0213C4 17:93B4: FF        .byte $FF
 - D - I - 0x0213C5 17:93B5: 01        .byte $01    ; <あ>
@@ -3753,7 +3758,7 @@ off_937F:
 off_93BE:
 - D - I - 0x0213CE 17:93BE: FA        .byte $FA
 - D - I - 0x0213CF 17:93BF: 4B A1     .word off_A14B
-- D - I - 0x0213D1 17:93C1: F2        .byte con_F2_прыжок
+- D - I - 0x0213D1 17:93C1: F2        .byte con_прыжок
 - D - I - 0x0213D2 17:93C2: 72 95     .word off_9572
 off_93C4:
 - D - I - 0x0213D4 17:93C4: FA        .byte $FA
@@ -3762,7 +3767,7 @@ off_93C4:
 - D - I - 0x0213D8 17:93C8: 08 A3     .word off_A308
 - D - I - 0x0213DA 17:93CA: FA        .byte $FA
 - D - I - 0x0213DB 17:93CB: 71 A3     .word off_A371
-- D - I - 0x0213DD 17:93CD: F2        .byte con_F2_прыжок
+- D - I - 0x0213DD 17:93CD: F2        .byte con_прыжок
 - D - I - 0x0213DE 17:93CE: 22 B8     .word off_B822
 off_93D0:
 - D - I - 0x0213E0 17:93D0: FA        .byte $FA
@@ -3773,7 +3778,7 @@ off_93D0:
 - D - I - 0x0213E7 17:93D7: 08 A3     .word off_A308
 - D - I - 0x0213E9 17:93D9: FA        .byte $FA
 - D - I - 0x0213EA 17:93DA: 71 A3     .word off_A371
-- D - I - 0x0213EC 17:93DC: F2        .byte con_F2_прыжок
+- D - I - 0x0213EC 17:93DC: F2        .byte con_прыжок
 - D - I - 0x0213ED 17:93DD: 3A B8     .word off_B83A
 off_93DF:
 - - - - - 0x0213EF 17:93DF: FA        .byte $FA
@@ -3786,7 +3791,7 @@ off_93DF:
 - - - - - 0x0213F9 17:93E9: 48 B8     .word off_B848
 - - - - - 0x0213FB 17:93EB: FA        .byte $FA
 - - - - - 0x0213FC 17:93EC: 71 A3     .word off_A371
-- - - - - 0x0213FE 17:93EE: F2        .byte con_F2_прыжок
+- - - - - 0x0213FE 17:93EE: F2        .byte con_прыжок
 - - - - - 0x0213FF 17:93EF: 59 B8     .word off_B859
 off_93F1:
 - D - I - 0x021401 17:93F1: FF        .byte $FF
@@ -3800,14 +3805,14 @@ off_93FB:
 - D - I - 0x02140C 17:93FC: 31 A1     .word off_A131
 - D - I - 0x02140E 17:93FE: FA        .byte $FA
 - D - I - 0x02140F 17:93FF: 6A A3     .word off_A36A
-- D - I - 0x021411 17:9401: F2        .byte con_F2_прыжок
+- D - I - 0x021411 17:9401: F2        .byte con_прыжок
 - D - I - 0x021412 17:9402: F0 9E     .word off_9EF0
 off_9404:
 - - - - - 0x021414 17:9404: FA        .byte $FA
 - - - - - 0x021415 17:9405: 22 B8     .word off_B822
 - - - - - 0x021417 17:9407: FA        .byte $FA
 - - - - - 0x021418 17:9408: 31 A1     .word off_A131
-- - - - - 0x02141A 17:940A: F2        .byte con_F2_прыжок
+- - - - - 0x02141A 17:940A: F2        .byte con_прыжок
 - - - - - 0x02141B 17:940B: 6A A3     .word off_A36A
 off_940D:
 - - - - - 0x02141D 17:940D: FA        .byte $FA
@@ -3816,7 +3821,7 @@ off_940D:
 - - - - - 0x021421 17:9411: 31 A1     .word off_A131
 - - - - - 0x021423 17:9413: FA        .byte $FA
 - - - - - 0x021424 17:9414: 6A A3     .word off_A36A
-- - - - - 0x021426 17:9416: F2        .byte con_F2_прыжок
+- - - - - 0x021426 17:9416: F2        .byte con_прыжок
 - - - - - 0x021427 17:9417: 3A B8     .word off_B83A
 off_9419:
 - D - I - 0x021429 17:9419: FA        .byte $FA
@@ -3827,7 +3832,7 @@ off_9419:
 - D - I - 0x021430 17:9420: 48 B8     .word off_B848
 - D - I - 0x021432 17:9422: FA        .byte $FA
 - D - I - 0x021433 17:9423: 6A A3     .word off_A36A
-- D - I - 0x021435 17:9425: F2        .byte con_F2_прыжок
+- D - I - 0x021435 17:9425: F2        .byte con_прыжок
 - D - I - 0x021436 17:9426: 59 B8     .word off_B859
 off_9428:
 - D - I - 0x021438 17:9428: F3        .byte $F3
@@ -3836,7 +3841,7 @@ off_9428:
 - - - - - 0x02143B 17:942B: 06        .byte $06    ; <か>
 - D - I - 0x02143C 17:942C: 34        .byte $34    ; <1>
 - - - - - 0x02143D 17:942D: 01        .byte $01    ; <あ>
-- - - - - 0x02143E 17:942E: F2        .byte con_F2_прыжок
+- - - - - 0x02143E 17:942E: F2        .byte con_прыжок
 - - - - - 0x02143F 17:942F: F1 93     .word off_93F1
 - - - - - 0x021441 17:9431: F3        .byte $F3
 - - - - - 0x021442 17:9432: 8C        .byte $8C    ; <M>
@@ -3851,27 +3856,27 @@ off_9428:
 - D - I - 0x02144B 17:943B: 19        .byte $19    ; <の>
 - D - I - 0x02144C 17:943C: FA        .byte $FA
 - D - I - 0x02144D 17:943D: 22 A1     .word off_A122
-- D - I - 0x02144F 17:943F: F2        .byte con_F2_прыжок
+- D - I - 0x02144F 17:943F: F2        .byte con_прыжок
 - D - I - 0x021450 17:9440: 8A 97     .word off_978A
 - D - I - 0x021452 17:9442: FA        .byte $FA
 - D - I - 0x021453 17:9443: 22 A1     .word off_A122
-- D - I - 0x021455 17:9445: F2        .byte con_F2_прыжок
+- D - I - 0x021455 17:9445: F2        .byte con_прыжок
 - D - I - 0x021456 17:9446: 99 97     .word off_9799
 - - - - - 0x021458 17:9448: FA        .byte $FA
 - - - - - 0x021459 17:9449: 22 A1     .word off_A122
-- - - - - 0x02145B 17:944B: F2        .byte con_F2_прыжок
+- - - - - 0x02145B 17:944B: F2        .byte con_прыжок
 - - - - - 0x02145C 17:944C: AB 97     .word off_97AB
 - - - - - 0x02145E 17:944E: FA        .byte $FA
 - - - - - 0x02145F 17:944F: 22 A1     .word off_A122
-- - - - - 0x021461 17:9451: F2        .byte con_F2_прыжок
+- - - - - 0x021461 17:9451: F2        .byte con_прыжок
 - - - - - 0x021462 17:9452: C3 97     .word off_97C3
 - D - I - 0x021464 17:9454: FA        .byte $FA
 - D - I - 0x021465 17:9455: 22 A1     .word off_A122
-- D - I - 0x021467 17:9457: F2        .byte con_F2_прыжок
+- D - I - 0x021467 17:9457: F2        .byte con_прыжок
 - D - I - 0x021468 17:9458: DB 97     .word off_97DB
 - - - - - 0x02146A 17:945A: FA        .byte $FA
 - - - - - 0x02146B 17:945B: 22 A1     .word off_A122
-- - - - - 0x02146D 17:945D: F2        .byte con_F2_прыжок
+- - - - - 0x02146D 17:945D: F2        .byte con_прыжок
 - - - - - 0x02146E 17:945E: F3 97     .word off_97F3
 - D - I - 0x021470 17:9460: FF        .byte $FF
 - D - I - 0x021471 17:9461: 01        .byte $01    ; <あ>
@@ -3882,7 +3887,7 @@ off_9428:
 off_946A:
 - D - I - 0x02147A 17:946A: FA        .byte $FA
 - D - I - 0x02147B 17:946B: 22 A1     .word off_A122
-- D - I - 0x02147D 17:946D: F2        .byte con_F2_прыжок
+- D - I - 0x02147D 17:946D: F2        .byte con_прыжок
 - D - I - 0x02147E 17:946E: BC 95     .word off_95BC
 off_9470:
 - D - I - 0x021480 17:9470: F3        .byte $F3
@@ -3910,37 +3915,37 @@ off_9470:
 - D - I - 0x021496 17:9486: 5B 9C     .word off_9C5B
 - D - I - 0x021498 17:9488: FA        .byte $FA
 - D - I - 0x021499 17:9489: DD A1     .word off_A1DD
-- D - I - 0x02149B 17:948B: F2        .byte con_F2_прыжок
+- D - I - 0x02149B 17:948B: F2        .byte con_прыжок
 - D - I - 0x02149C 17:948C: 0D 97     .word off_970D
 - D - I - 0x02149E 17:948E: FA        .byte $FA
 - D - I - 0x02149F 17:948F: 5B 9C     .word off_9C5B
 - D - I - 0x0214A1 17:9491: FA        .byte $FA
 - D - I - 0x0214A2 17:9492: DD A1     .word off_A1DD
-- D - I - 0x0214A4 17:9494: F2        .byte con_F2_прыжок
+- D - I - 0x0214A4 17:9494: F2        .byte con_прыжок
 - D - I - 0x0214A5 17:9495: 16 97     .word off_9716
 - D - I - 0x0214A7 17:9497: FA        .byte $FA
 - D - I - 0x0214A8 17:9498: 5B 9C     .word off_9C5B
 - D - I - 0x0214AA 17:949A: FA        .byte $FA
 - D - I - 0x0214AB 17:949B: DD A1     .word off_A1DD
-- D - I - 0x0214AD 17:949D: F2        .byte con_F2_прыжок
+- D - I - 0x0214AD 17:949D: F2        .byte con_прыжок
 - D - I - 0x0214AE 17:949E: 22 97     .word off_9722
 - D - I - 0x0214B0 17:94A0: FA        .byte $FA
 - D - I - 0x0214B1 17:94A1: 5B 9C     .word off_9C5B
 - D - I - 0x0214B3 17:94A3: FA        .byte $FA
 - D - I - 0x0214B4 17:94A4: DD A1     .word off_A1DD
-- D - I - 0x0214B6 17:94A6: F2        .byte con_F2_прыжок
+- D - I - 0x0214B6 17:94A6: F2        .byte con_прыжок
 - D - I - 0x0214B7 17:94A7: 31 97     .word off_9731
 - D - I - 0x0214B9 17:94A9: FA        .byte $FA
 - D - I - 0x0214BA 17:94AA: 5B 9C     .word off_9C5B
 - D - I - 0x0214BC 17:94AC: FA        .byte $FA
 - D - I - 0x0214BD 17:94AD: DD A1     .word off_A1DD
-- D - I - 0x0214BF 17:94AF: F2        .byte con_F2_прыжок
+- D - I - 0x0214BF 17:94AF: F2        .byte con_прыжок
 - D - I - 0x0214C0 17:94B0: 43 97     .word off_9743
 - - - - - 0x0214C2 17:94B2: FA        .byte $FA
 - - - - - 0x0214C3 17:94B3: 5B 9C     .word off_9C5B
 - - - - - 0x0214C5 17:94B5: FA        .byte $FA
 - - - - - 0x0214C6 17:94B6: DD A1     .word off_A1DD
-- - - - - 0x0214C8 17:94B8: F2        .byte con_F2_прыжок
+- - - - - 0x0214C8 17:94B8: F2        .byte con_прыжок
 - - - - - 0x0214C9 17:94B9: 55 97     .word off_9755
 - D - I - 0x0214CB 17:94BB: FA        .byte $FA
 - D - I - 0x0214CC 17:94BC: 5B 9C     .word off_9C5B
@@ -3948,14 +3953,14 @@ off_9470:
 - D - I - 0x0214CF 17:94BF: CA A1     .word off_A1CA
 - D - I - 0x0214D1 17:94C1: FA        .byte $FA
 - D - I - 0x0214D2 17:94C2: 08 A3     .word off_A308
-- D - I - 0x0214D4 17:94C4: F2        .byte con_F2_прыжок
+- D - I - 0x0214D4 17:94C4: F2        .byte con_прыжок
 - D - I - 0x0214D5 17:94C5: 71 A3     .word off_A371
 off_94C7:
 - D - I - 0x0214D7 17:94C7: FA        .byte $FA
 - D - I - 0x0214D8 17:94C8: 5B 9C     .word off_9C5B
 - D - I - 0x0214DA 17:94CA: FA        .byte $FA
 - D - I - 0x0214DB 17:94CB: D1 A1     .word off_A1D1
-- D - I - 0x0214DD 17:94CD: F2        .byte con_F2_прыжок
+- D - I - 0x0214DD 17:94CD: F2        .byte con_прыжок
 - D - I - 0x0214DE 17:94CE: 4E B4     .word off_B44E
 - D - I - 0x0214E0 17:94D0: F3        .byte $F3
 - D - I - 0x0214E1 17:94D1: 8B        .byte $8B    ; <K>
@@ -3963,7 +3968,7 @@ off_94C7:
 - - - - - 0x0214E3 17:94D3: 06        .byte $06    ; <か>
 - - - - - 0x0214E4 17:94D4: 46        .byte $46    ; <カ>
 - - - - - 0x0214E5 17:94D5: 01        .byte $01    ; <あ>
-- - - - - 0x0214E6 17:94D6: F2        .byte con_F2_прыжок
+- - - - - 0x0214E6 17:94D6: F2        .byte con_прыжок
 - - - - - 0x0214E7 17:94D7: C7 94     .word off_94C7
 - - - - - 0x0214E9 17:94D9: F3        .byte $F3
 - - - - - 0x0214EA 17:94DA: 8C        .byte $8C    ; <M>
@@ -3980,37 +3985,37 @@ off_94C7:
 - D - I - 0x0214F5 17:94E5: 5B 9C     .word off_9C5B
 - D - I - 0x0214F7 17:94E7: FA        .byte $FA
 - D - I - 0x0214F8 17:94E8: CA A1     .word off_A1CA
-- D - I - 0x0214FA 17:94EA: F2        .byte con_F2_прыжок
+- D - I - 0x0214FA 17:94EA: F2        .byte con_прыжок
 - D - I - 0x0214FB 17:94EB: 8A 97     .word off_978A
 - - - - - 0x0214FD 17:94ED: FA        .byte $FA
 - - - - - 0x0214FE 17:94EE: 5B 9C     .word off_9C5B
 - - - - - 0x021500 17:94F0: FA        .byte $FA
 - - - - - 0x021501 17:94F1: CA A1     .word off_A1CA
-- - - - - 0x021503 17:94F3: F2        .byte con_F2_прыжок
+- - - - - 0x021503 17:94F3: F2        .byte con_прыжок
 - - - - - 0x021504 17:94F4: 99 97     .word off_9799
 - - - - - 0x021506 17:94F6: FA        .byte $FA
 - - - - - 0x021507 17:94F7: 5B 9C     .word off_9C5B
 - - - - - 0x021509 17:94F9: FA        .byte $FA
 - - - - - 0x02150A 17:94FA: CA A1     .word off_A1CA
-- - - - - 0x02150C 17:94FC: F2        .byte con_F2_прыжок
+- - - - - 0x02150C 17:94FC: F2        .byte con_прыжок
 - - - - - 0x02150D 17:94FD: AB 97     .word off_97AB
 - - - - - 0x02150F 17:94FF: FA        .byte $FA
 - - - - - 0x021510 17:9500: 5B 9C     .word off_9C5B
 - - - - - 0x021512 17:9502: FA        .byte $FA
 - - - - - 0x021513 17:9503: CA A1     .word off_A1CA
-- - - - - 0x021515 17:9505: F2        .byte con_F2_прыжок
+- - - - - 0x021515 17:9505: F2        .byte con_прыжок
 - - - - - 0x021516 17:9506: C3 97     .word off_97C3
 - - - - - 0x021518 17:9508: FA        .byte $FA
 - - - - - 0x021519 17:9509: 5B 9C     .word off_9C5B
 - - - - - 0x02151B 17:950B: FA        .byte $FA
 - - - - - 0x02151C 17:950C: CA A1     .word off_A1CA
-- - - - - 0x02151E 17:950E: F2        .byte con_F2_прыжок
+- - - - - 0x02151E 17:950E: F2        .byte con_прыжок
 - - - - - 0x02151F 17:950F: DB 97     .word off_97DB
 - - - - - 0x021521 17:9511: FA        .byte $FA
 - - - - - 0x021522 17:9512: 5B 9C     .word off_9C5B
 - - - - - 0x021524 17:9514: FA        .byte $FA
 - - - - - 0x021525 17:9515: CA A1     .word off_A1CA
-- - - - - 0x021527 17:9517: F2        .byte con_F2_прыжок
+- - - - - 0x021527 17:9517: F2        .byte con_прыжок
 - - - - - 0x021528 17:9518: F3 97     .word off_97F3
 - - - - - 0x02152A 17:951A: FA        .byte $FA
 - - - - - 0x02152B 17:951B: 5B 9C     .word off_9C5B
@@ -4020,7 +4025,7 @@ off_94C7:
 - - - - - 0x021531 17:9521: DD A2     .word off_A2DD
 - - - - - 0x021533 17:9523: FA        .byte $FA
 - - - - - 0x021534 17:9524: B5 9F     .word off_9FB5
-- - - - - 0x021536 17:9526: F2        .byte con_F2_прыжок
+- - - - - 0x021536 17:9526: F2        .byte con_прыжок
 - - - - - 0x021537 17:9527: 71 A3     .word off_A371
 off_9529:
 - D - I - 0x021539 17:9529: F3        .byte $F3
@@ -4055,27 +4060,27 @@ off_9533:
 - D - I - 0x02155A 17:954A: 19        .byte $19    ; <の>
 - D - I - 0x02155B 17:954B: FA        .byte $FA
 - D - I - 0x02155C 17:954C: 94 A0     .word off_A094
-- D - I - 0x02155E 17:954E: F2        .byte con_F2_прыжок
+- D - I - 0x02155E 17:954E: F2        .byte con_прыжок
 - D - I - 0x02155F 17:954F: 0D 97     .word off_970D
 - D - I - 0x021561 17:9551: FA        .byte $FA
 - D - I - 0x021562 17:9552: 94 A0     .word off_A094
-- D - I - 0x021564 17:9554: F2        .byte con_F2_прыжок
+- D - I - 0x021564 17:9554: F2        .byte con_прыжок
 - D - I - 0x021565 17:9555: 16 97     .word off_9716
 - D - I - 0x021567 17:9557: FA        .byte $FA
 - D - I - 0x021568 17:9558: 94 A0     .word off_A094
-- D - I - 0x02156A 17:955A: F2        .byte con_F2_прыжок
+- D - I - 0x02156A 17:955A: F2        .byte con_прыжок
 - D - I - 0x02156B 17:955B: 22 97     .word off_9722
 - D - I - 0x02156D 17:955D: FA        .byte $FA
 - D - I - 0x02156E 17:955E: 94 A0     .word off_A094
-- D - I - 0x021570 17:9560: F2        .byte con_F2_прыжок
+- D - I - 0x021570 17:9560: F2        .byte con_прыжок
 - D - I - 0x021571 17:9561: 31 97     .word off_9731
 - D - I - 0x021573 17:9563: FA        .byte $FA
 - D - I - 0x021574 17:9564: 94 A0     .word off_A094
-- D - I - 0x021576 17:9566: F2        .byte con_F2_прыжок
+- D - I - 0x021576 17:9566: F2        .byte con_прыжок
 - D - I - 0x021577 17:9567: 43 97     .word off_9743
 - D - I - 0x021579 17:9569: FA        .byte $FA
 - D - I - 0x02157A 17:956A: 94 A0     .word off_A094
-- D - I - 0x02157C 17:956C: F2        .byte con_F2_прыжок
+- D - I - 0x02157C 17:956C: F2        .byte con_прыжок
 - D - I - 0x02157D 17:956D: 55 97     .word off_9755
 - D - I - 0x02157F 17:956F: FA        .byte $FA
 - D - I - 0x021580 17:9570: A1 A0     .word off_A0A1
@@ -4084,12 +4089,12 @@ off_9572:
 - D - I - 0x021583 17:9573: 08 A3     .word off_A308
 - D - I - 0x021585 17:9575: FA        .byte $FA
 - D - I - 0x021586 17:9576: 5D B4     .word off_B45D
-- D - I - 0x021588 17:9578: F2        .byte con_F2_прыжок
+- D - I - 0x021588 17:9578: F2        .byte con_прыжок
 - D - I - 0x021589 17:9579: F0 9E     .word off_9EF0
 off_957B:
 - D - I - 0x02158B 17:957B: FA        .byte $FA
 - D - I - 0x02158C 17:957C: A6 A0     .word off_A0A6
-- D - I - 0x02158E 17:957E: F2        .byte con_F2_прыжок
+- D - I - 0x02158E 17:957E: F2        .byte con_прыжок
 - D - I - 0x02158F 17:957F: 70 97     .word off_9770
 - D - I - 0x021591 17:9581: F3        .byte $F3
 - D - I - 0x021592 17:9582: 8B        .byte $8B    ; <K>
@@ -4097,7 +4102,7 @@ off_957B:
 - D - I - 0x021594 17:9584: 06        .byte $06    ; <か>
 - - - - - 0x021595 17:9585: 34        .byte $34    ; <1>
 - - - - - 0x021596 17:9586: 01        .byte $01    ; <あ>
-- - - - - 0x021597 17:9587: F2        .byte con_F2_прыжок
+- - - - - 0x021597 17:9587: F2        .byte con_прыжок
 - - - - - 0x021598 17:9588: 7B 95     .word off_957B
 - D - I - 0x02159A 17:958A: F3        .byte $F3
 - D - I - 0x02159B 17:958B: 8C        .byte $8C    ; <M>
@@ -4112,27 +4117,27 @@ off_957B:
 - - - - - 0x0215A4 17:9594: 19        .byte $19    ; <の>
 - D - I - 0x0215A5 17:9595: FA        .byte $FA
 - D - I - 0x0215A6 17:9596: A1 A0     .word off_A0A1
-- D - I - 0x0215A8 17:9598: F2        .byte con_F2_прыжок
+- D - I - 0x0215A8 17:9598: F2        .byte con_прыжок
 - D - I - 0x0215A9 17:9599: 8A 97     .word off_978A
 - D - I - 0x0215AB 17:959B: FA        .byte $FA
 - D - I - 0x0215AC 17:959C: A1 A0     .word off_A0A1
-- D - I - 0x0215AE 17:959E: F2        .byte con_F2_прыжок
+- D - I - 0x0215AE 17:959E: F2        .byte con_прыжок
 - D - I - 0x0215AF 17:959F: 99 97     .word off_9799
 - - - - - 0x0215B1 17:95A1: FA        .byte $FA
 - - - - - 0x0215B2 17:95A2: A1 A0     .word off_A0A1
-- - - - - 0x0215B4 17:95A4: F2        .byte con_F2_прыжок
+- - - - - 0x0215B4 17:95A4: F2        .byte con_прыжок
 - - - - - 0x0215B5 17:95A5: AB 97     .word off_97AB
 - - - - - 0x0215B7 17:95A7: FA        .byte $FA
 - - - - - 0x0215B8 17:95A8: A1 A0     .word off_A0A1
-- - - - - 0x0215BA 17:95AA: F2        .byte con_F2_прыжок
+- - - - - 0x0215BA 17:95AA: F2        .byte con_прыжок
 - - - - - 0x0215BB 17:95AB: C3 97     .word off_97C3
 - - - - - 0x0215BD 17:95AD: FA        .byte $FA
 - - - - - 0x0215BE 17:95AE: A1 A0     .word off_A0A1
-- - - - - 0x0215C0 17:95B0: F2        .byte con_F2_прыжок
+- - - - - 0x0215C0 17:95B0: F2        .byte con_прыжок
 - - - - - 0x0215C1 17:95B1: DB 97     .word off_97DB
 - D - I - 0x0215C3 17:95B3: FA        .byte $FA
 - D - I - 0x0215C4 17:95B4: A1 A0     .word off_A0A1
-- D - I - 0x0215C6 17:95B6: F2        .byte con_F2_прыжок
+- D - I - 0x0215C6 17:95B6: F2        .byte con_прыжок
 - D - I - 0x0215C7 17:95B7: F3 97     .word off_97F3
 - - - - - 0x0215C9 17:95B9: FA        .byte $FA
 - - - - - 0x0215CA 17:95BA: A1 A0     .word off_A0A1
@@ -4143,7 +4148,7 @@ off_95BC:
 - D - I - 0x0215D0 17:95C0: B5 9F     .word off_9FB5
 - D - I - 0x0215D2 17:95C2: FA        .byte $FA
 - D - I - 0x0215D3 17:95C3: 71 A3     .word off_A371
-- D - I - 0x0215D5 17:95C5: F2        .byte con_F2_прыжок
+- D - I - 0x0215D5 17:95C5: F2        .byte con_прыжок
 - D - I - 0x0215D6 17:95C6: F0 9E     .word off_9EF0
 off_95C8:
 - D - I - 0x0215D8 17:95C8: F3        .byte $F3
@@ -4169,36 +4174,36 @@ off_95C8:
 - - - - - 0x0215EC 17:95DC: 19        .byte $19    ; <の>
 - D - I - 0x0215ED 17:95DD: FA        .byte $FA
 - D - I - 0x0215EE 17:95DE: CD A0     .word off_A0CD
-- D - I - 0x0215F0 17:95E0: F2        .byte con_F2_прыжок
+- D - I - 0x0215F0 17:95E0: F2        .byte con_прыжок
 - D - I - 0x0215F1 17:95E1: 0A 97     .word off_970A
 - - - - - 0x0215F3 17:95E3: FA        .byte $FA
 - - - - - 0x0215F4 17:95E4: CD A0     .word off_A0CD
-- - - - - 0x0215F6 17:95E6: F2        .byte con_F2_прыжок
+- - - - - 0x0215F6 17:95E6: F2        .byte con_прыжок
 - - - - - 0x0215F7 17:95E7: 13 97     .word off_9713
 - - - - - 0x0215F9 17:95E9: FA        .byte $FA
 - - - - - 0x0215FA 17:95EA: CD A0     .word off_A0CD
-- - - - - 0x0215FC 17:95EC: F2        .byte con_F2_прыжок
+- - - - - 0x0215FC 17:95EC: F2        .byte con_прыжок
 - - - - - 0x0215FD 17:95ED: 1F 97     .word off_971F
 - - - - - 0x0215FF 17:95EF: FA        .byte $FA
 - - - - - 0x021600 17:95F0: CD A0     .word off_A0CD
-- - - - - 0x021602 17:95F2: F2        .byte con_F2_прыжок
+- - - - - 0x021602 17:95F2: F2        .byte con_прыжок
 - - - - - 0x021603 17:95F3: 2E 97     .word off_972E
 - - - - - 0x021605 17:95F5: FA        .byte $FA
 - - - - - 0x021606 17:95F6: CD A0     .word off_A0CD
-- - - - - 0x021608 17:95F8: F2        .byte con_F2_прыжок
+- - - - - 0x021608 17:95F8: F2        .byte con_прыжок
 - - - - - 0x021609 17:95F9: 40 97     .word off_9740
 - - - - - 0x02160B 17:95FB: FA        .byte $FA
 - - - - - 0x02160C 17:95FC: CD A0     .word off_A0CD
-- - - - - 0x02160E 17:95FE: F2        .byte con_F2_прыжок
+- - - - - 0x02160E 17:95FE: F2        .byte con_прыжок
 - - - - - 0x02160F 17:95FF: 52 97     .word off_9752
 - D - I - 0x021611 17:9601: FA        .byte $FA
 - D - I - 0x021612 17:9602: CD A0     .word off_A0CD
-- D - I - 0x021614 17:9604: F2        .byte con_F2_прыжок
+- D - I - 0x021614 17:9604: F2        .byte con_прыжок
 - D - I - 0x021615 17:9605: 5E 97     .word off_975E
 off_9607:
 - D - I - 0x021617 17:9607: FA        .byte $FA
 - D - I - 0x021618 17:9608: CD A0     .word off_A0CD
-- D - I - 0x02161A 17:960A: F2        .byte con_F2_прыжок
+- D - I - 0x02161A 17:960A: F2        .byte con_прыжок
 - D - I - 0x02161B 17:960B: 6D 97     .word off_976D
 - - - - - 0x02161D 17:960D: F3        .byte $F3
 - - - - - 0x02161E 17:960E: 8B        .byte $8B    ; <K>
@@ -4206,7 +4211,7 @@ off_9607:
 - - - - - 0x021620 17:9610: 06        .byte $06    ; <か>
 - - - - - 0x021621 17:9611: 34        .byte $34    ; <1>
 - - - - - 0x021622 17:9612: 01        .byte $01    ; <あ>
-- - - - - 0x021623 17:9613: F2        .byte con_F2_прыжок
+- - - - - 0x021623 17:9613: F2        .byte con_прыжок
 - - - - - 0x021624 17:9614: 07 96     .word off_9607
 - - - - - 0x021626 17:9616: F3        .byte $F3
 - - - - - 0x021627 17:9617: 8C        .byte $8C    ; <M>
@@ -4221,31 +4226,31 @@ off_9607:
 - - - - - 0x021630 17:9620: 19        .byte $19    ; <の>
 - - - - - 0x021631 17:9621: FA        .byte $FA
 - - - - - 0x021632 17:9622: CD A0     .word off_A0CD
-- - - - - 0x021634 17:9624: F2        .byte con_F2_прыжок
+- - - - - 0x021634 17:9624: F2        .byte con_прыжок
 - - - - - 0x021635 17:9625: 87 97     .word off_9787
 - - - - - 0x021637 17:9627: FA        .byte $FA
 - - - - - 0x021638 17:9628: CD A0     .word off_A0CD
-- - - - - 0x02163A 17:962A: F2        .byte con_F2_прыжок
+- - - - - 0x02163A 17:962A: F2        .byte con_прыжок
 - - - - - 0x02163B 17:962B: 96 97     .word off_9796
 - - - - - 0x02163D 17:962D: FA        .byte $FA
 - - - - - 0x02163E 17:962E: CD A0     .word off_A0CD
-- - - - - 0x021640 17:9630: F2        .byte con_F2_прыжок
+- - - - - 0x021640 17:9630: F2        .byte con_прыжок
 - - - - - 0x021641 17:9631: A8 97     .word off_97A8
 - - - - - 0x021643 17:9633: FA        .byte $FA
 - - - - - 0x021644 17:9634: CD A0     .word off_A0CD
-- - - - - 0x021646 17:9636: F2        .byte con_F2_прыжок
+- - - - - 0x021646 17:9636: F2        .byte con_прыжок
 - - - - - 0x021647 17:9637: C0 97     .word off_97C0
 - - - - - 0x021649 17:9639: FA        .byte $FA
 - - - - - 0x02164A 17:963A: CD A0     .word off_A0CD
-- - - - - 0x02164C 17:963C: F2        .byte con_F2_прыжок
+- - - - - 0x02164C 17:963C: F2        .byte con_прыжок
 - - - - - 0x02164D 17:963D: D8 97     .word off_97D8
 - - - - - 0x02164F 17:963F: FA        .byte $FA
 - - - - - 0x021650 17:9640: CD A0     .word off_A0CD
-- - - - - 0x021652 17:9642: F2        .byte con_F2_прыжок
+- - - - - 0x021652 17:9642: F2        .byte con_прыжок
 - - - - - 0x021653 17:9643: F0 97     .word off_97F0
 - - - - - 0x021655 17:9645: FA        .byte $FA
 - - - - - 0x021656 17:9646: CD A0     .word off_A0CD
-- - - - - 0x021658 17:9648: F2        .byte con_F2_прыжок
+- - - - - 0x021658 17:9648: F2        .byte con_прыжок
 - - - - - 0x021659 17:9649: 02 98     .word off_9802
 off_964B:
 - D - I - 0x02165B 17:964B: F3        .byte $F3
@@ -4271,36 +4276,36 @@ off_964B:
 - - - - - 0x02166F 17:965F: 19        .byte $19    ; <の>
 - D - I - 0x021670 17:9660: FA        .byte $FA
 - D - I - 0x021671 17:9661: FF A1     .word off_A1FF
-- D - I - 0x021673 17:9663: F2        .byte con_F2_прыжок
+- D - I - 0x021673 17:9663: F2        .byte con_прыжок
 - D - I - 0x021674 17:9664: 0A 97     .word off_970A
 - - - - - 0x021676 17:9666: FA        .byte $FA
 - - - - - 0x021677 17:9667: FF A1     .word off_A1FF
-- - - - - 0x021679 17:9669: F2        .byte con_F2_прыжок
+- - - - - 0x021679 17:9669: F2        .byte con_прыжок
 - - - - - 0x02167A 17:966A: 13 97     .word off_9713
 - - - - - 0x02167C 17:966C: FA        .byte $FA
 - - - - - 0x02167D 17:966D: FF A1     .word off_A1FF
-- - - - - 0x02167F 17:966F: F2        .byte con_F2_прыжок
+- - - - - 0x02167F 17:966F: F2        .byte con_прыжок
 - - - - - 0x021680 17:9670: 1F 97     .word off_971F
 - - - - - 0x021682 17:9672: FA        .byte $FA
 - - - - - 0x021683 17:9673: FF A1     .word off_A1FF
-- - - - - 0x021685 17:9675: F2        .byte con_F2_прыжок
+- - - - - 0x021685 17:9675: F2        .byte con_прыжок
 - - - - - 0x021686 17:9676: 2E 97     .word off_972E
 - - - - - 0x021688 17:9678: FA        .byte $FA
 - - - - - 0x021689 17:9679: FF A1     .word off_A1FF
-- - - - - 0x02168B 17:967B: F2        .byte con_F2_прыжок
+- - - - - 0x02168B 17:967B: F2        .byte con_прыжок
 - - - - - 0x02168C 17:967C: 40 97     .word off_9740
 - - - - - 0x02168E 17:967E: FA        .byte $FA
 - - - - - 0x02168F 17:967F: FF A1     .word off_A1FF
-- - - - - 0x021691 17:9681: F2        .byte con_F2_прыжок
+- - - - - 0x021691 17:9681: F2        .byte con_прыжок
 - - - - - 0x021692 17:9682: 52 97     .word off_9752
 - D - I - 0x021694 17:9684: FA        .byte $FA
 - D - I - 0x021695 17:9685: FF A1     .word off_A1FF
-- D - I - 0x021697 17:9687: F2        .byte con_F2_прыжок
+- D - I - 0x021697 17:9687: F2        .byte con_прыжок
 - D - I - 0x021698 17:9688: 5E 97     .word off_975E
 off_968A:
 - D - I - 0x02169A 17:968A: FA        .byte $FA
 - D - I - 0x02169B 17:968B: FF A1     .word off_A1FF
-- D - I - 0x02169D 17:968D: F2        .byte con_F2_прыжок
+- D - I - 0x02169D 17:968D: F2        .byte con_прыжок
 - D - I - 0x02169E 17:968E: 6D 97     .word off_976D
 - - - - - 0x0216A0 17:9690: F3        .byte $F3
 - - - - - 0x0216A1 17:9691: 8B        .byte $8B    ; <K>
@@ -4308,7 +4313,7 @@ off_968A:
 - - - - - 0x0216A3 17:9693: 06        .byte $06    ; <か>
 - - - - - 0x0216A4 17:9694: 34        .byte $34    ; <1>
 - - - - - 0x0216A5 17:9695: 01        .byte $01    ; <あ>
-- - - - - 0x0216A6 17:9696: F2        .byte con_F2_прыжок
+- - - - - 0x0216A6 17:9696: F2        .byte con_прыжок
 - - - - - 0x0216A7 17:9697: 8A 96     .word off_968A
 - - - - - 0x0216A9 17:9699: F3        .byte $F3
 - - - - - 0x0216AA 17:969A: 8C        .byte $8C    ; <M>
@@ -4323,31 +4328,31 @@ off_968A:
 - - - - - 0x0216B3 17:96A3: 19        .byte $19    ; <の>
 - - - - - 0x0216B4 17:96A4: FA        .byte $FA
 - - - - - 0x0216B5 17:96A5: FF A1     .word off_A1FF
-- - - - - 0x0216B7 17:96A7: F2        .byte con_F2_прыжок
+- - - - - 0x0216B7 17:96A7: F2        .byte con_прыжок
 - - - - - 0x0216B8 17:96A8: 87 97     .word off_9787
 - - - - - 0x0216BA 17:96AA: FA        .byte $FA
 - - - - - 0x0216BB 17:96AB: FF A1     .word off_A1FF
-- - - - - 0x0216BD 17:96AD: F2        .byte con_F2_прыжок
+- - - - - 0x0216BD 17:96AD: F2        .byte con_прыжок
 - - - - - 0x0216BE 17:96AE: 96 97     .word off_9796
 - - - - - 0x0216C0 17:96B0: FA        .byte $FA
 - - - - - 0x0216C1 17:96B1: FF A1     .word off_A1FF
-- - - - - 0x0216C3 17:96B3: F2        .byte con_F2_прыжок
+- - - - - 0x0216C3 17:96B3: F2        .byte con_прыжок
 - - - - - 0x0216C4 17:96B4: A8 97     .word off_97A8
 - - - - - 0x0216C6 17:96B6: FA        .byte $FA
 - - - - - 0x0216C7 17:96B7: FF A1     .word off_A1FF
-- - - - - 0x0216C9 17:96B9: F2        .byte con_F2_прыжок
+- - - - - 0x0216C9 17:96B9: F2        .byte con_прыжок
 - - - - - 0x0216CA 17:96BA: C0 97     .word off_97C0
 - - - - - 0x0216CC 17:96BC: FA        .byte $FA
 - - - - - 0x0216CD 17:96BD: FF A1     .word off_A1FF
-- - - - - 0x0216CF 17:96BF: F2        .byte con_F2_прыжок
+- - - - - 0x0216CF 17:96BF: F2        .byte con_прыжок
 - - - - - 0x0216D0 17:96C0: D8 97     .word off_97D8
 - - - - - 0x0216D2 17:96C2: FA        .byte $FA
 - - - - - 0x0216D3 17:96C3: FF A1     .word off_A1FF
-- - - - - 0x0216D5 17:96C5: F2        .byte con_F2_прыжок
+- - - - - 0x0216D5 17:96C5: F2        .byte con_прыжок
 - - - - - 0x0216D6 17:96C6: F0 97     .word off_97F0
 - - - - - 0x0216D8 17:96C8: FA        .byte $FA
 - - - - - 0x0216D9 17:96C9: FF A1     .word off_A1FF
-- - - - - 0x0216DB 17:96CB: F2        .byte con_F2_прыжок
+- - - - - 0x0216DB 17:96CB: F2        .byte con_прыжок
 - - - - - 0x0216DC 17:96CC: 02 98     .word off_9802
 off_96CE:
 - D - I - 0x0216DE 17:96CE: F3        .byte $F3
@@ -4409,7 +4414,7 @@ off_96F7_0D:
 - D - I - 0x021711 17:9701: 03        .byte $03    ; <う>
 - D - I - 0x021712 17:9702: 41        .byte $41    ; <ア>
 - D - I - 0x021713 17:9703: 1F        .byte $1F    ; <ま>
-- D - I - 0x021714 17:9704: F2        .byte con_F2_прыжок
+- D - I - 0x021714 17:9704: F2        .byte con_прыжок
 - D - I - 0x021715 17:9705: 28 9C     .word off_9C28
 - D - I - 0x021717 17:9707: FA        .byte $FA
 - D - I - 0x021718 17:9708: E4 A1     .word off_A1E4
@@ -4417,7 +4422,7 @@ off_970A:
 - D - I - 0x02171A 17:970A: FA        .byte $FA
 - D - I - 0x02171B 17:970B: 09 A1     .word off_A109
 off_970D:
-- D - I - 0x02171D 17:970D: F2        .byte con_F2_прыжок
+- D - I - 0x02171D 17:970D: F2        .byte con_прыжок
 - D - I - 0x02171E 17:970E: 28 9C     .word off_9C28
 - - - - - 0x021720 17:9710: FA        .byte $FA
 - - - - - 0x021721 17:9711: E4 A1     .word off_A1E4
@@ -4427,7 +4432,7 @@ off_9713:
 off_9716:
 - D - I - 0x021726 17:9716: FA        .byte $FA
 - D - I - 0x021727 17:9717: 4E A2     .word off_A24E
-- D - I - 0x021729 17:9719: F2        .byte con_F2_прыжок
+- D - I - 0x021729 17:9719: F2        .byte con_прыжок
 - D - I - 0x02172A 17:971A: 58 A2     .word off_A258
 - - - - - 0x02172C 17:971C: FA        .byte $FA
 - - - - - 0x02172D 17:971D: E4 A1     .word off_A1E4
@@ -4439,7 +4444,7 @@ off_9722:
 - D - I - 0x021733 17:9723: B6 A0     .word off_A0B6
 - D - I - 0x021735 17:9725: FA        .byte $FA
 - D - I - 0x021736 17:9726: 12 A3     .word off_A312
-- D - I - 0x021738 17:9728: F2        .byte con_F2_прыжок
+- D - I - 0x021738 17:9728: F2        .byte con_прыжок
 - D - I - 0x021739 17:9729: 71 A3     .word off_A371
 - - - - - 0x02173B 17:972B: FA        .byte $FA
 - - - - - 0x02173C 17:972C: E4 A1     .word off_A1E4
@@ -4453,7 +4458,7 @@ off_9731:
 - D - I - 0x021745 17:9735: 58 A2     .word off_A258
 - D - I - 0x021747 17:9737: FA        .byte $FA
 - D - I - 0x021748 17:9738: 12 A2     .word off_A212
-- D - I - 0x02174A 17:973A: F2        .byte con_F2_прыжок
+- D - I - 0x02174A 17:973A: F2        .byte con_прыжок
 - D - I - 0x02174B 17:973B: 28 9C     .word off_9C28
 - - - - - 0x02174D 17:973D: FA        .byte $FA
 - - - - - 0x02174E 17:973E: E4 A1     .word off_A1E4
@@ -4463,7 +4468,7 @@ off_9740:
 off_9743:
 - D - I - 0x021753 17:9743: FA        .byte $FA
 - D - I - 0x021754 17:9744: BE A0     .word off_A0BE
-- D - I - 0x021756 17:9746: F2        .byte con_F2_прыжок
+- D - I - 0x021756 17:9746: F2        .byte con_прыжок
 - D - I - 0x021757 17:9747: 28 9C     .word off_9C28
 - D - I - 0x021759 17:9749: F3        .byte $F3
 - D - I - 0x02175A 17:974A: 8B        .byte $8B    ; <K>
@@ -4479,7 +4484,7 @@ off_9752:
 off_9755:
 - D - I - 0x021765 17:9755: FA        .byte $FA
 - D - I - 0x021766 17:9756: F4 A2     .word off_A2F4
-- D - I - 0x021768 17:9758: F2        .byte con_F2_прыжок
+- D - I - 0x021768 17:9758: F2        .byte con_прыжок
 - D - I - 0x021769 17:9759: 64 A3     .word off_A364
 - D - I - 0x02176B 17:975B: FA        .byte $FA
 - D - I - 0x02176C 17:975C: E4 A1     .word off_A1E4
@@ -4490,7 +4495,7 @@ off_975E:
 - D - I - 0x021772 17:9762: 08 A3     .word off_A308
 - D - I - 0x021774 17:9764: FA        .byte $FA
 - D - I - 0x021775 17:9765: 71 A3     .word off_A371
-- D - I - 0x021777 17:9767: F2        .byte con_F2_прыжок
+- D - I - 0x021777 17:9767: F2        .byte con_прыжок
 - D - I - 0x021778 17:9768: F0 9E     .word off_9EF0
 off_976A:
 - D - I - 0x02177A 17:976A: FA        .byte $FA
@@ -4501,9 +4506,9 @@ off_976D:
 off_9770:
 - D - I - 0x021780 17:9770: FA        .byte $FA
 - D - I - 0x021781 17:9771: 4E B4     .word off_B44E
-- D - I - 0x021783 17:9773: F2        .byte con_F2_прыжок
+- D - I - 0x021783 17:9773: F2        .byte con_прыжок
 - D - I - 0x021784 17:9774: F0 9E     .word off_9EF0
-- - - - - 0x021786 17:9776: F2        .byte con_F2_прыжок
+- - - - - 0x021786 17:9776: F2        .byte con_прыжок
 - - - - - 0x021787 17:9777: 6A 97     .word off_976A
 - - - - - 0x021789 17:9779: F3        .byte $F3
 - - - - - 0x02178A 17:977A: 8C        .byte $8C    ; <M>
@@ -4526,7 +4531,7 @@ off_978A:
 - D - I - 0x02179B 17:978B: DD A2     .word off_A2DD
 - D - I - 0x02179D 17:978D: FA        .byte $FA
 - D - I - 0x02179E 17:978E: B5 9F     .word off_9FB5
-- D - I - 0x0217A0 17:9790: F2        .byte con_F2_прыжок
+- D - I - 0x0217A0 17:9790: F2        .byte con_прыжок
 - D - I - 0x0217A1 17:9791: 28 9C     .word off_9C28
 - - - - - 0x0217A3 17:9793: FA        .byte $FA
 - - - - - 0x0217A4 17:9794: E4 A1     .word off_A1E4
@@ -4540,7 +4545,7 @@ off_9799:
 - D - I - 0x0217AD 17:979D: B5 9F     .word off_9FB5
 - D - I - 0x0217AF 17:979F: FA        .byte $FA
 - D - I - 0x0217B0 17:97A0: 4E A2     .word off_A24E
-- D - I - 0x0217B2 17:97A2: F2        .byte con_F2_прыжок
+- D - I - 0x0217B2 17:97A2: F2        .byte con_прыжок
 - D - I - 0x0217B3 17:97A3: 58 A2     .word off_A258
 - - - - - 0x0217B5 17:97A5: FA        .byte $FA
 - - - - - 0x0217B6 17:97A6: E4 A1     .word off_A1E4
@@ -4558,7 +4563,7 @@ off_97AB:
 - - - - - 0x0217C5 17:97B5: E7 A2     .word off_A2E7
 - - - - - 0x0217C7 17:97B7: FA        .byte $FA
 - - - - - 0x0217C8 17:97B8: 1B 9E     .word off_9E1B
-- - - - - 0x0217CA 17:97BA: F2        .byte con_F2_прыжок
+- - - - - 0x0217CA 17:97BA: F2        .byte con_прыжок
 - - - - - 0x0217CB 17:97BB: 71 A3     .word off_A371
 - - - - - 0x0217CD 17:97BD: FA        .byte $FA
 - - - - - 0x0217CE 17:97BE: E4 A1     .word off_A1E4
@@ -4576,7 +4581,7 @@ off_97C3:
 - - - - - 0x0217DD 17:97CD: 58 A2     .word off_A258
 - - - - - 0x0217DF 17:97CF: FA        .byte $FA
 - - - - - 0x0217E0 17:97D0: 12 A2     .word off_A212
-- - - - - 0x0217E2 17:97D2: F2        .byte con_F2_прыжок
+- - - - - 0x0217E2 17:97D2: F2        .byte con_прыжок
 - - - - - 0x0217E3 17:97D3: 28 9C     .word off_9C28
 - - - - - 0x0217E5 17:97D5: FA        .byte $FA
 - - - - - 0x0217E6 17:97D6: E4 A1     .word off_A1E4
@@ -4594,7 +4599,7 @@ off_97DB:
 - D - I - 0x0217F5 17:97E5: E7 A2     .word off_A2E7
 - D - I - 0x0217F7 17:97E7: FA        .byte $FA
 - D - I - 0x0217F8 17:97E8: 1B 9E     .word off_9E1B
-- D - I - 0x0217FA 17:97EA: F2        .byte con_F2_прыжок
+- D - I - 0x0217FA 17:97EA: F2        .byte con_прыжок
 - D - I - 0x0217FB 17:97EB: 28 9C     .word off_9C28
 - - - - - 0x0217FD 17:97ED: FA        .byte $FA
 - - - - - 0x0217FE 17:97EE: E4 A1     .word off_A1E4
@@ -4608,7 +4613,7 @@ off_97F3:
 - D - I - 0x021807 17:97F7: B5 9F     .word off_9FB5
 - D - I - 0x021809 17:97F9: FA        .byte $FA
 - D - I - 0x02180A 17:97FA: F4 A2     .word off_A2F4
-- D - I - 0x02180C 17:97FC: F2        .byte con_F2_прыжок
+- D - I - 0x02180C 17:97FC: F2        .byte con_прыжок
 - D - I - 0x02180D 17:97FD: 64 A3     .word off_A364
 - - - - - 0x02180F 17:97FF: FA        .byte $FA
 - - - - - 0x021810 17:9800: E4 A1     .word off_A1E4
@@ -4621,7 +4626,7 @@ off_9802:
 - - - - - 0x021819 17:9809: B5 9F     .word off_9FB5
 - - - - - 0x02181B 17:980B: FA        .byte $FA
 - - - - - 0x02181C 17:980C: 71 A3     .word off_A371
-- - - - - 0x02181E 17:980E: F2        .byte con_F2_прыжок
+- - - - - 0x02181E 17:980E: F2        .byte con_прыжок
 - - - - - 0x02181F 17:980F: F0 9E     .word off_9EF0
 
 
@@ -4668,7 +4673,7 @@ off_9811_0A:
 - D - I - 0x02184C 17:983C: A1 A0     .word off_A0A1
 - D - I - 0x02184E 17:983E: FA        .byte $FA
 - D - I - 0x02184F 17:983F: 08 A3     .word off_A308
-- D - I - 0x021851 17:9841: F2        .byte con_F2_прыжок
+- D - I - 0x021851 17:9841: F2        .byte con_прыжок
 - D - I - 0x021852 17:9842: 5D B4     .word off_B45D
 - D - I - 0x021854 17:9844: FA        .byte $FA
 - D - I - 0x021855 17:9845: F3 9C     .word off_9CF3
@@ -4678,17 +4683,17 @@ off_9811_0A:
 - D - I - 0x02185A 17:984A: 4B A1     .word off_A14B
 - D - I - 0x02185C 17:984C: FA        .byte $FA
 - D - I - 0x02185D 17:984D: 08 A3     .word off_A308
-- D - I - 0x02185F 17:984F: F2        .byte con_F2_прыжок
+- D - I - 0x02185F 17:984F: F2        .byte con_прыжок
 - D - I - 0x021860 17:9850: 5D B4     .word off_B45D
 - D - I - 0x021862 17:9852: FA        .byte $FA
 - D - I - 0x021863 17:9853: F3 9C     .word off_9CF3
 - D - I - 0x021865 17:9855: FD        .byte $FD
 - D - I - 0x021866 17:9856: 03        .byte $03    ; <う>
-- D - I - 0x021867 17:9857: F2        .byte con_F2_прыжок
+- D - I - 0x021867 17:9857: F2        .byte con_прыжок
 - D - I - 0x021868 17:9858: A6 A0     .word off_A0A6
 - - - - - 0x02186A 17:985A: FA        .byte $FA
 - - - - - 0x02186B 17:985B: DD A2     .word off_A2DD
-- - - - - 0x02186D 17:985D: F2        .byte con_F2_прыжок
+- - - - - 0x02186D 17:985D: F2        .byte con_прыжок
 - - - - - 0x02186E 17:985E: 5B A3     .word off_A35B
 - D - I - 0x021870 17:9860: F3        .byte $F3
 - D - I - 0x021871 17:9861: 8F        .byte $8F    ; <S>
@@ -4705,7 +4710,7 @@ off_9811_0A:
 - D - I - 0x02187D 17:986D: A1 A0     .word off_A0A1
 - D - I - 0x02187F 17:986F: FA        .byte $FA
 - D - I - 0x021880 17:9870: DD A2     .word off_A2DD
-- D - I - 0x021882 17:9872: F2        .byte con_F2_прыжок
+- D - I - 0x021882 17:9872: F2        .byte con_прыжок
 - D - I - 0x021883 17:9873: B5 9F     .word off_9FB5
 - - - - - 0x021885 17:9875: FA        .byte $FA
 - - - - - 0x021886 17:9876: DD A2     .word off_A2DD
@@ -4713,7 +4718,7 @@ off_9811_0A:
 - - - - - 0x021889 17:9879: 03        .byte $03    ; <う>
 - - - - - 0x02188A 17:987A: FA        .byte $FA
 - - - - - 0x02188B 17:987B: 6E 9F     .word off_9F6E
-- - - - - 0x02188D 17:987D: F2        .byte con_F2_прыжок
+- - - - - 0x02188D 17:987D: F2        .byte con_прыжок
 - - - - - 0x02188E 17:987E: 71 A3     .word off_A371
 - D - I - 0x021890 17:9880: FA        .byte $FA
 - D - I - 0x021891 17:9881: DD A2     .word off_A2DD
@@ -4721,13 +4726,13 @@ off_9811_0A:
 - D - I - 0x021894 17:9884: 03        .byte $03    ; <う>
 - D - I - 0x021895 17:9885: FA        .byte $FA
 - D - I - 0x021896 17:9886: 68 9F     .word off_9F68
-- D - I - 0x021898 17:9888: F2        .byte con_F2_прыжок
+- D - I - 0x021898 17:9888: F2        .byte con_прыжок
 - D - I - 0x021899 17:9889: BF 9F     .word off_9FBF
 - - - - - 0x02189B 17:988B: FA        .byte $FA
 - - - - - 0x02189C 17:988C: DD A2     .word off_A2DD
 - - - - - 0x02189E 17:988E: FA        .byte $FA
 - - - - - 0x02189F 17:988F: 6E 9F     .word off_9F6E
-- - - - - 0x0218A1 17:9891: F2        .byte con_F2_прыжок
+- - - - - 0x0218A1 17:9891: F2        .byte con_прыжок
 - - - - - 0x0218A2 17:9892: 5B A3     .word off_A35B
 - D - I - 0x0218A4 17:9894: F3        .byte $F3
 - D - I - 0x0218A5 17:9895: 8F        .byte $8F    ; <S>
@@ -4736,25 +4741,25 @@ off_9811_0A:
 - D - I - 0x0218A8 17:9898: 06        .byte $06    ; <か>
 - D - I - 0x0218A9 17:9899: 0E        .byte $0E    ; <せ>
 - D - I - 0x0218AA 17:989A: 16        .byte $16    ; <に>
-- D - I - 0x0218AB 17:989B: F2        .byte con_F2_прыжок
+- D - I - 0x0218AB 17:989B: F2        .byte con_прыжок
 - D - I - 0x0218AC 17:989C: C0 9C     .word off_9CC0
 - D - I - 0x0218AE 17:989E: FA        .byte $FA
 - D - I - 0x0218AF 17:989F: FE 9D     .word off_9DFE
 - D - I - 0x0218B1 17:98A1: FA        .byte $FA
 - D - I - 0x0218B2 17:98A2: 08 A3     .word off_A308
-- D - I - 0x0218B4 17:98A4: F2        .byte con_F2_прыжок
+- D - I - 0x0218B4 17:98A4: F2        .byte con_прыжок
 - D - I - 0x0218B5 17:98A5: 71 A3     .word off_A371
 - D - I - 0x0218B7 17:98A7: FA        .byte $FA
 - D - I - 0x0218B8 17:98A8: FE 9D     .word off_9DFE
 - D - I - 0x0218BA 17:98AA: FA        .byte $FA
 - D - I - 0x0218BB 17:98AB: EF A2     .word off_A2EF
-- D - I - 0x0218BD 17:98AD: F2        .byte con_F2_прыжок
+- D - I - 0x0218BD 17:98AD: F2        .byte con_прыжок
 - D - I - 0x0218BE 17:98AE: CE 9F     .word off_9FCE
 - D - I - 0x0218C0 17:98B0: FA        .byte $FA
 - D - I - 0x0218C1 17:98B1: FE 9D     .word off_9DFE
 - D - I - 0x0218C3 17:98B3: FA        .byte $FA
 - D - I - 0x0218C4 17:98B4: DD A2     .word off_A2DD
-- D - I - 0x0218C6 17:98B6: F2        .byte con_F2_прыжок
+- D - I - 0x0218C6 17:98B6: F2        .byte con_прыжок
 - D - I - 0x0218C7 17:98B7: 5B A3     .word off_A35B
 - D - I - 0x0218C9 17:98B9: F3        .byte $F3
 - D - I - 0x0218CA 17:98BA: 8F        .byte $8F    ; <S>
@@ -4767,7 +4772,7 @@ off_9811_0A:
 - - - - - 0x0218D1 17:98C1: FE 9D     .word off_9DFE
 - - - - - 0x0218D3 17:98C3: FA        .byte $FA
 - - - - - 0x0218D4 17:98C4: DD A2     .word off_A2DD
-- - - - - 0x0218D6 17:98C6: F2        .byte con_F2_прыжок
+- - - - - 0x0218D6 17:98C6: F2        .byte con_прыжок
 - - - - - 0x0218D7 17:98C7: B5 9F     .word off_9FB5
 - D - I - 0x0218D9 17:98C9: FA        .byte $FA
 - D - I - 0x0218DA 17:98CA: FE 9D     .word off_9DFE
@@ -4775,7 +4780,7 @@ off_9811_0A:
 - D - I - 0x0218DD 17:98CD: DD A2     .word off_A2DD
 - D - I - 0x0218DF 17:98CF: FA        .byte $FA
 - D - I - 0x0218E0 17:98D0: 6E 9F     .word off_9F6E
-- D - I - 0x0218E2 17:98D2: F2        .byte con_F2_прыжок
+- D - I - 0x0218E2 17:98D2: F2        .byte con_прыжок
 - D - I - 0x0218E3 17:98D3: 71 A3     .word off_A371
 - D - I - 0x0218E5 17:98D5: FA        .byte $FA
 - D - I - 0x0218E6 17:98D6: FE 9D     .word off_9DFE
@@ -4783,7 +4788,7 @@ off_9811_0A:
 - D - I - 0x0218E9 17:98D9: DD A2     .word off_A2DD
 - D - I - 0x0218EB 17:98DB: FA        .byte $FA
 - D - I - 0x0218EC 17:98DC: 68 9F     .word off_9F68
-- D - I - 0x0218EE 17:98DE: F2        .byte con_F2_прыжок
+- D - I - 0x0218EE 17:98DE: F2        .byte con_прыжок
 - D - I - 0x0218EF 17:98DF: BF 9F     .word off_9FBF
 - - - - - 0x0218F1 17:98E1: FA        .byte $FA
 - - - - - 0x0218F2 17:98E2: FE 9D     .word off_9DFE
@@ -4791,7 +4796,7 @@ off_9811_0A:
 - - - - - 0x0218F5 17:98E5: DD A2     .word off_A2DD
 - - - - - 0x0218F7 17:98E7: FA        .byte $FA
 - - - - - 0x0218F8 17:98E8: 6E 9F     .word off_9F6E
-- - - - - 0x0218FA 17:98EA: F2        .byte con_F2_прыжок
+- - - - - 0x0218FA 17:98EA: F2        .byte con_прыжок
 - - - - - 0x0218FB 17:98EB: 5B A3     .word off_A35B
 
 
@@ -4821,7 +4826,7 @@ off_98F3:
 - D - I - 0x021913 17:9903: 35 A3     .word off_A335
 - D - I - 0x021915 17:9905: FA        .byte $FA
 - D - I - 0x021916 17:9906: C3 A1     .word off_A1C3
-- D - I - 0x021918 17:9908: F2        .byte con_F2_прыжок
+- D - I - 0x021918 17:9908: F2        .byte con_прыжок
 - D - I - 0x021919 17:9909: EA 9F     .word off_9FEA
 - - - - - 0x02191B 17:990B: F0        .byte $F0
 - D - I - 0x02191C 17:990C: FA        .byte $FA
@@ -4832,7 +4837,7 @@ off_98F3:
 - D - I - 0x021923 17:9913: FD 9F     .word off_9FFD
 - D - I - 0x021925 17:9915: FA        .byte $FA
 - D - I - 0x021926 17:9916: F3 9F     .word off_9FF3
-- D - I - 0x021928 17:9918: F2        .byte con_F2_прыжок
+- D - I - 0x021928 17:9918: F2        .byte con_прыжок
 - D - I - 0x021929 17:9919: DE 9F     .word off_9FDE
 - D - I - 0x02192B 17:991B: FA        .byte $FA
 - D - I - 0x02192C 17:991C: 35 A3     .word off_A335
@@ -4842,13 +4847,13 @@ off_98F3:
 - D - I - 0x021932 17:9922: 04 A0     .word off_A004
 - D - I - 0x021934 17:9924: FA        .byte $FA
 - D - I - 0x021935 17:9925: F1 9F     .word off_9FF1
-- D - I - 0x021937 17:9927: F2        .byte con_F2_прыжок
+- D - I - 0x021937 17:9927: F2        .byte con_прыжок
 - D - I - 0x021938 17:9928: 71 A3     .word off_A371
 - D - I - 0x02193A 17:992A: FA        .byte $FA
 - D - I - 0x02193B 17:992B: 35 A3     .word off_A335
 - D - I - 0x02193D 17:992D: FA        .byte $FA
 - D - I - 0x02193E 17:992E: C3 A1     .word off_A1C3
-- D - I - 0x021940 17:9930: F2        .byte con_F2_прыжок
+- D - I - 0x021940 17:9930: F2        .byte con_прыжок
 - D - I - 0x021941 17:9931: 64 A1     .word off_A164
 - D - I - 0x021943 17:9933: FD        .byte $FD
 - D - I - 0x021944 17:9934: 03        .byte $03    ; <う>
@@ -4862,7 +4867,7 @@ off_98F3:
 - D - I - 0x02194C 17:993C: 2D A3     .word off_A32D
 - D - I - 0x02194E 17:993E: FA        .byte $FA
 - D - I - 0x02194F 17:993F: C3 A1     .word off_A1C3
-- D - I - 0x021951 17:9941: F2        .byte con_F2_прыжок
+- D - I - 0x021951 17:9941: F2        .byte con_прыжок
 - D - I - 0x021952 17:9942: EA 9F     .word off_9FEA
 - D - I - 0x021954 17:9944: FA        .byte $FA
 - D - I - 0x021955 17:9945: 2D A3     .word off_A32D
@@ -4872,7 +4877,7 @@ off_98F3:
 - D - I - 0x02195B 17:994B: FD 9F     .word off_9FFD
 - D - I - 0x02195D 17:994D: FA        .byte $FA
 - D - I - 0x02195E 17:994E: F3 9F     .word off_9FF3
-- D - I - 0x021960 17:9950: F2        .byte con_F2_прыжок
+- D - I - 0x021960 17:9950: F2        .byte con_прыжок
 - D - I - 0x021961 17:9951: DE 9F     .word off_9FDE
 - D - I - 0x021963 17:9953: FA        .byte $FA
 - D - I - 0x021964 17:9954: 2D A3     .word off_A32D
@@ -4882,13 +4887,13 @@ off_98F3:
 - D - I - 0x02196A 17:995A: 04 A0     .word off_A004
 - D - I - 0x02196C 17:995C: FA        .byte $FA
 - D - I - 0x02196D 17:995D: F1 9F     .word off_9FF1
-- D - I - 0x02196F 17:995F: F2        .byte con_F2_прыжок
+- D - I - 0x02196F 17:995F: F2        .byte con_прыжок
 - D - I - 0x021970 17:9960: 71 A3     .word off_A371
 - D - I - 0x021972 17:9962: FA        .byte $FA
 - D - I - 0x021973 17:9963: 2D A3     .word off_A32D
 - D - I - 0x021975 17:9965: FA        .byte $FA
 - D - I - 0x021976 17:9966: C3 A1     .word off_A1C3
-- D - I - 0x021978 17:9968: F2        .byte con_F2_прыжок
+- D - I - 0x021978 17:9968: F2        .byte con_прыжок
 - D - I - 0x021979 17:9969: 64 A1     .word off_A164
 - D - I - 0x02197B 17:996B: FD        .byte $FD
 - D - I - 0x02197C 17:996C: 03        .byte $03    ; <う>
@@ -4919,7 +4924,7 @@ off_98F3:
 - D - I - 0x02199D 17:998D: DD A2     .word off_A2DD
 - D - I - 0x02199F 17:998F: FA        .byte $FA
 - D - I - 0x0219A0 17:9990: 5C 9F     .word off_9F5C
-- D - I - 0x0219A2 17:9992: F2        .byte con_F2_прыжок
+- D - I - 0x0219A2 17:9992: F2        .byte con_прыжок
 - D - I - 0x0219A3 17:9993: 40 A2     .word off_A240
 - D - I - 0x0219A5 17:9995: FA        .byte $FA
 - D - I - 0x0219A6 17:9996: 2D A3     .word off_A32D
@@ -4931,13 +4936,13 @@ off_98F3:
 - D - I - 0x0219AF 17:999F: E7 A2     .word off_A2E7
 - D - I - 0x0219B1 17:99A1: FA        .byte $FA
 - D - I - 0x0219B2 17:99A2: 5C 9F     .word off_9F5C
-- D - I - 0x0219B4 17:99A4: F2        .byte con_F2_прыжок
+- D - I - 0x0219B4 17:99A4: F2        .byte con_прыжок
 - D - I - 0x0219B5 17:99A5: 71 A3     .word off_A371
 - D - I - 0x0219B7 17:99A7: FA        .byte $FA
 - D - I - 0x0219B8 17:99A8: 2D A3     .word off_A32D
 - D - I - 0x0219BA 17:99AA: FA        .byte $FA
 - D - I - 0x0219BB 17:99AB: C3 A1     .word off_A1C3
-- D - I - 0x0219BD 17:99AD: F2        .byte con_F2_прыжок
+- D - I - 0x0219BD 17:99AD: F2        .byte con_прыжок
 - D - I - 0x0219BE 17:99AE: 64 A1     .word off_A164
 - - - - - 0x0219C0 17:99B0: FD        .byte $FD
 - - - - - 0x0219C1 17:99B1: 00        .byte $00
@@ -4951,7 +4956,7 @@ off_98F3:
 - - - - - 0x0219C9 17:99B9: 49 B4     .word off_B449
 - - - - - 0x0219CB 17:99BB: FA        .byte $FA
 - - - - - 0x0219CC 17:99BC: C3 A1     .word off_A1C3
-- - - - - 0x0219CE 17:99BE: F2        .byte con_F2_прыжок
+- - - - - 0x0219CE 17:99BE: F2        .byte con_прыжок
 - - - - - 0x0219CF 17:99BF: EA 9F     .word off_9FEA
 - - - - - 0x0219D1 17:99C1: FA        .byte $FA
 - - - - - 0x0219D2 17:99C2: 49 B4     .word off_B449
@@ -4961,7 +4966,7 @@ off_98F3:
 - - - - - 0x0219D8 17:99C8: FD 9F     .word off_9FFD
 - - - - - 0x0219DA 17:99CA: FA        .byte $FA
 - - - - - 0x0219DB 17:99CB: F3 9F     .word off_9FF3
-- - - - - 0x0219DD 17:99CD: F2        .byte con_F2_прыжок
+- - - - - 0x0219DD 17:99CD: F2        .byte con_прыжок
 - - - - - 0x0219DE 17:99CE: DE 9F     .word off_9FDE
 - - - - - 0x0219E0 17:99D0: FA        .byte $FA
 - - - - - 0x0219E1 17:99D1: 49 B4     .word off_B449
@@ -4971,13 +4976,13 @@ off_98F3:
 - - - - - 0x0219E7 17:99D7: 04 A0     .word off_A004
 - - - - - 0x0219E9 17:99D9: FA        .byte $FA
 - - - - - 0x0219EA 17:99DA: F1 9F     .word off_9FF1
-- - - - - 0x0219EC 17:99DC: F2        .byte con_F2_прыжок
+- - - - - 0x0219EC 17:99DC: F2        .byte con_прыжок
 - - - - - 0x0219ED 17:99DD: 71 A3     .word off_A371
 - - - - - 0x0219EF 17:99DF: FA        .byte $FA
 - - - - - 0x0219F0 17:99E0: 49 B4     .word off_B449
 - - - - - 0x0219F2 17:99E2: FA        .byte $FA
 - - - - - 0x0219F3 17:99E3: C3 A1     .word off_A1C3
-- - - - - 0x0219F5 17:99E5: F2        .byte con_F2_прыжок
+- - - - - 0x0219F5 17:99E5: F2        .byte con_прыжок
 - - - - - 0x0219F6 17:99E6: 64 A1     .word off_A164
 - - - - - 0x0219F8 17:99E8: FD        .byte $FD
 - - - - - 0x0219F9 17:99E9: 00        .byte $00
@@ -5008,7 +5013,7 @@ off_98F3:
 - - - - - 0x021A1A 17:9A0A: E7 A2     .word off_A2E7
 - - - - - 0x021A1C 17:9A0C: FA        .byte $FA
 - - - - - 0x021A1D 17:9A0D: 5C 9F     .word off_9F5C
-- - - - - 0x021A1F 17:9A0F: F2        .byte con_F2_прыжок
+- - - - - 0x021A1F 17:9A0F: F2        .byte con_прыжок
 - - - - - 0x021A20 17:9A10: 40 A2     .word off_A240
 - - - - - 0x021A22 17:9A12: FA        .byte $FA
 - - - - - 0x021A23 17:9A13: 49 B4     .word off_B449
@@ -5020,7 +5025,7 @@ off_98F3:
 - - - - - 0x021A2C 17:9A1C: E7 A2     .word off_A2E7
 - - - - - 0x021A2E 17:9A1E: FA        .byte $FA
 - - - - - 0x021A2F 17:9A1F: 5C 9F     .word off_9F5C
-- - - - - 0x021A31 17:9A21: F2        .byte con_F2_прыжок
+- - - - - 0x021A31 17:9A21: F2        .byte con_прыжок
 - - - - - 0x021A32 17:9A22: 71 A3     .word off_A371
 off_9A24:
 - D - I - 0x021A34 17:9A24: F3        .byte $F3
@@ -5044,7 +5049,7 @@ off_9A24:
 - D - I - 0x021A47 17:9A37: AE A0     .word off_A0AE
 - D - I - 0x021A49 17:9A39: FA        .byte $FA
 - D - I - 0x021A4A 17:9A3A: D8 A2     .word off_A2D8
-- D - I - 0x021A4C 17:9A3C: F2        .byte con_F2_прыжок
+- D - I - 0x021A4C 17:9A3C: F2        .byte con_прыжок
 - D - I - 0x021A4D 17:9A3D: 76 A1     .word off_A176
 - - - - - 0x021A4F 17:9A3F: F0        .byte $F0
 - D - I - 0x021A50 17:9A40: FA        .byte $FA
@@ -5057,7 +5062,7 @@ off_9A24:
 - D - I - 0x021A5A 17:9A4A: 2F A0     .word off_A02F
 - D - I - 0x021A5C 17:9A4C: FA        .byte $FA
 - D - I - 0x021A5D 17:9A4D: 51 A0     .word off_A051
-- D - I - 0x021A5F 17:9A4F: F2        .byte con_F2_прыжок
+- D - I - 0x021A5F 17:9A4F: F2        .byte con_прыжок
 - D - I - 0x021A60 17:9A50: 4C A0     .word off_A04C
 - D - I - 0x021A62 17:9A52: FA        .byte $FA
 - D - I - 0x021A63 17:9A53: 35 A3     .word off_A335
@@ -5069,7 +5074,7 @@ off_9A24:
 - D - I - 0x021A6C 17:9A5C: 47 A0     .word off_A047
 - D - I - 0x021A6E 17:9A5E: FA        .byte $FA
 - D - I - 0x021A6F 17:9A5F: 23 A0     .word off_A023
-- D - I - 0x021A71 17:9A61: F2        .byte con_F2_прыжок
+- D - I - 0x021A71 17:9A61: F2        .byte con_прыжок
 - D - I - 0x021A72 17:9A62: 71 A3     .word off_A371
 - D - I - 0x021A74 17:9A64: FA        .byte $FA
 - D - I - 0x021A75 17:9A65: 35 A3     .word off_A335
@@ -5077,7 +5082,7 @@ off_9A24:
 - D - I - 0x021A78 17:9A68: AE A0     .word off_A0AE
 - D - I - 0x021A7A 17:9A6A: FA        .byte $FA
 - D - I - 0x021A7B 17:9A6B: D8 A2     .word off_A2D8
-- D - I - 0x021A7D 17:9A6D: F2        .byte con_F2_прыжок
+- D - I - 0x021A7D 17:9A6D: F2        .byte con_прыжок
 - D - I - 0x021A7E 17:9A6E: 85 A1     .word off_A185
 - D - I - 0x021A80 17:9A70: FD        .byte $FD
 - D - I - 0x021A81 17:9A71: 03        .byte $03    ; <う>
@@ -5101,7 +5106,7 @@ off_9A24:
 - D - I - 0x021A94 17:9A84: AE A0     .word off_A0AE
 - D - I - 0x021A96 17:9A86: FA        .byte $FA
 - D - I - 0x021A97 17:9A87: D8 A2     .word off_A2D8
-- D - I - 0x021A99 17:9A89: F2        .byte con_F2_прыжок
+- D - I - 0x021A99 17:9A89: F2        .byte con_прыжок
 - D - I - 0x021A9A 17:9A8A: 76 A1     .word off_A176
 - D - I - 0x021A9C 17:9A8C: FA        .byte $FA
 - D - I - 0x021A9D 17:9A8D: 2D A3     .word off_A32D
@@ -5113,7 +5118,7 @@ off_9A24:
 - D - I - 0x021AA6 17:9A96: 2F A0     .word off_A02F
 - D - I - 0x021AA8 17:9A98: FA        .byte $FA
 - D - I - 0x021AA9 17:9A99: 51 A0     .word off_A051
-- D - I - 0x021AAB 17:9A9B: F2        .byte con_F2_прыжок
+- D - I - 0x021AAB 17:9A9B: F2        .byte con_прыжок
 - D - I - 0x021AAC 17:9A9C: 4C A0     .word off_A04C
 - D - I - 0x021AAE 17:9A9E: FA        .byte $FA
 - D - I - 0x021AAF 17:9A9F: 2D A3     .word off_A32D
@@ -5125,7 +5130,7 @@ off_9A24:
 - D - I - 0x021AB8 17:9AA8: 47 A0     .word off_A047
 - D - I - 0x021ABA 17:9AAA: FA        .byte $FA
 - D - I - 0x021ABB 17:9AAB: 23 A0     .word off_A023
-- D - I - 0x021ABD 17:9AAD: F2        .byte con_F2_прыжок
+- D - I - 0x021ABD 17:9AAD: F2        .byte con_прыжок
 - D - I - 0x021ABE 17:9AAE: 71 A3     .word off_A371
 - D - I - 0x021AC0 17:9AB0: FA        .byte $FA
 - D - I - 0x021AC1 17:9AB1: 2D A3     .word off_A32D
@@ -5133,7 +5138,7 @@ off_9A24:
 - D - I - 0x021AC4 17:9AB4: AE A0     .word off_A0AE
 - D - I - 0x021AC6 17:9AB6: FA        .byte $FA
 - D - I - 0x021AC7 17:9AB7: D8 A2     .word off_A2D8
-- D - I - 0x021AC9 17:9AB9: F2        .byte con_F2_прыжок
+- D - I - 0x021AC9 17:9AB9: F2        .byte con_прыжок
 - D - I - 0x021ACA 17:9ABA: 85 A1     .word off_A185
 - D - I - 0x021ACC 17:9ABC: FA        .byte $FA
 - D - I - 0x021ACD 17:9ABD: 2D A3     .word off_A32D
@@ -5160,7 +5165,7 @@ off_9A24:
 - D - I - 0x021AEC 17:9ADC: DD A2     .word off_A2DD
 - D - I - 0x021AEE 17:9ADE: FA        .byte $FA
 - D - I - 0x021AEF 17:9ADF: 5C 9F     .word off_9F5C
-- D - I - 0x021AF1 17:9AE1: F2        .byte con_F2_прыжок
+- D - I - 0x021AF1 17:9AE1: F2        .byte con_прыжок
 - D - I - 0x021AF2 17:9AE2: 40 A2     .word off_A240
 - D - I - 0x021AF4 17:9AE4: FA        .byte $FA
 - D - I - 0x021AF5 17:9AE5: 2D A3     .word off_A32D
@@ -5174,7 +5179,7 @@ off_9A24:
 - D - I - 0x021B01 17:9AF1: E7 A2     .word off_A2E7
 - D - I - 0x021B03 17:9AF3: FA        .byte $FA
 - D - I - 0x021B04 17:9AF4: 5C 9F     .word off_9F5C
-- D - I - 0x021B06 17:9AF6: F2        .byte con_F2_прыжок
+- D - I - 0x021B06 17:9AF6: F2        .byte con_прыжок
 - D - I - 0x021B07 17:9AF7: 71 A3     .word off_A371
 - - - - - 0x021B09 17:9AF9: FD        .byte $FD
 - - - - - 0x021B0A 17:9AFA: 00        .byte $00
@@ -5190,7 +5195,7 @@ off_9A24:
 - - - - - 0x021B15 17:9B05: AE A0     .word off_A0AE
 - - - - - 0x021B17 17:9B07: FA        .byte $FA
 - - - - - 0x021B18 17:9B08: D8 A2     .word off_A2D8
-- - - - - 0x021B1A 17:9B0A: F2        .byte con_F2_прыжок
+- - - - - 0x021B1A 17:9B0A: F2        .byte con_прыжок
 - - - - - 0x021B1B 17:9B0B: 76 A1     .word off_A176
 - - - - - 0x021B1D 17:9B0D: FA        .byte $FA
 - - - - - 0x021B1E 17:9B0E: 49 B4     .word off_B449
@@ -5202,7 +5207,7 @@ off_9A24:
 - - - - - 0x021B27 17:9B17: 2F A0     .word off_A02F
 - - - - - 0x021B29 17:9B19: FA        .byte $FA
 - - - - - 0x021B2A 17:9B1A: 51 A0     .word off_A051
-- - - - - 0x021B2C 17:9B1C: F2        .byte con_F2_прыжок
+- - - - - 0x021B2C 17:9B1C: F2        .byte con_прыжок
 - - - - - 0x021B2D 17:9B1D: 4C A0     .word off_A04C
 - - - - - 0x021B2F 17:9B1F: FD        .byte $FD
 - - - - - 0x021B30 17:9B20: 00        .byte $00
@@ -5222,7 +5227,7 @@ off_9A24:
 - - - - - 0x021B41 17:9B31: 47 A0     .word off_A047
 - - - - - 0x021B43 17:9B33: FA        .byte $FA
 - - - - - 0x021B44 17:9B34: 23 A0     .word off_A023
-- - - - - 0x021B46 17:9B36: F2        .byte con_F2_прыжок
+- - - - - 0x021B46 17:9B36: F2        .byte con_прыжок
 - - - - - 0x021B47 17:9B37: 71 A3     .word off_A371
 - - - - - 0x021B49 17:9B39: FA        .byte $FA
 - - - - - 0x021B4A 17:9B3A: 49 B4     .word off_B449
@@ -5230,7 +5235,7 @@ off_9A24:
 - - - - - 0x021B4D 17:9B3D: AE A0     .word off_A0AE
 - - - - - 0x021B4F 17:9B3F: FA        .byte $FA
 - - - - - 0x021B50 17:9B40: D8 A2     .word off_A2D8
-- - - - - 0x021B52 17:9B42: F2        .byte con_F2_прыжок
+- - - - - 0x021B52 17:9B42: F2        .byte con_прыжок
 - - - - - 0x021B53 17:9B43: 85 A1     .word off_A185
 - - - - - 0x021B55 17:9B45: FA        .byte $FA
 - - - - - 0x021B56 17:9B46: 49 B4     .word off_B449
@@ -5257,7 +5262,7 @@ off_9A24:
 - - - - - 0x021B75 17:9B65: E7 A2     .word off_A2E7
 - - - - - 0x021B77 17:9B67: FA        .byte $FA
 - - - - - 0x021B78 17:9B68: 5C 9F     .word off_9F5C
-- - - - - 0x021B7A 17:9B6A: F2        .byte con_F2_прыжок
+- - - - - 0x021B7A 17:9B6A: F2        .byte con_прыжок
 - - - - - 0x021B7B 17:9B6B: 40 A2     .word off_A240
 - - - - - 0x021B7D 17:9B6D: FA        .byte $FA
 - - - - - 0x021B7E 17:9B6E: 49 B4     .word off_B449
@@ -5271,7 +5276,7 @@ off_9A24:
 - - - - - 0x021B8A 17:9B7A: E7 A2     .word off_A2E7
 - - - - - 0x021B8C 17:9B7C: FA        .byte $FA
 - - - - - 0x021B8D 17:9B7D: 5C 9F     .word off_9F5C
-- - - - - 0x021B8F 17:9B7F: F2        .byte con_F2_прыжок
+- - - - - 0x021B8F 17:9B7F: F2        .byte con_прыжок
 - - - - - 0x021B90 17:9B80: 71 A3     .word off_A371
 
 
@@ -5291,25 +5296,25 @@ off_9B82_14:
 - D - I - 0x021B9D 17:9B8D: 19        .byte $19    ; <の>
 - D - I - 0x021B9E 17:9B8E: FA        .byte $FA
 - D - I - 0x021B9F 17:9B8F: 2D A3     .word off_A32D
-- D - I - 0x021BA1 17:9B91: F2        .byte con_F2_прыжок
+- D - I - 0x021BA1 17:9B91: F2        .byte con_прыжок
 - D - I - 0x021BA2 17:9B92: 83 A3     .word off_A383
 - - - - - 0x021BA4 17:9B94: FA        .byte $FA
 - - - - - 0x021BA5 17:9B95: 2D A3     .word off_A32D
 - - - - - 0x021BA7 17:9B97: FA        .byte $FA
 - - - - - 0x021BA8 17:9B98: 21 A3     .word off_A321
-- - - - - 0x021BAA 17:9B9A: F2        .byte con_F2_прыжок
+- - - - - 0x021BAA 17:9B9A: F2        .byte con_прыжок
 - - - - - 0x021BAB 17:9B9B: 7E A3     .word off_A37E
 - D - I - 0x021BAD 17:9B9D: FA        .byte $FA
 - D - I - 0x021BAE 17:9B9E: 2D A3     .word off_A32D
 - D - I - 0x021BB0 17:9BA0: FA        .byte $FA
 - D - I - 0x021BB1 17:9BA1: 08 A3     .word off_A308
-- D - I - 0x021BB3 17:9BA3: F2        .byte con_F2_прыжок
+- D - I - 0x021BB3 17:9BA3: F2        .byte con_прыжок
 - D - I - 0x021BB4 17:9BA4: 71 A3     .word off_A371
 - D - I - 0x021BB6 17:9BA6: FA        .byte $FA
 - D - I - 0x021BB7 17:9BA7: 2D A3     .word off_A32D
 - D - I - 0x021BB9 17:9BA9: FA        .byte $FA
 - D - I - 0x021BBA 17:9BAA: EF A2     .word off_A2EF
-- D - I - 0x021BBC 17:9BAC: F2        .byte con_F2_прыжок
+- D - I - 0x021BBC 17:9BAC: F2        .byte con_прыжок
 - D - I - 0x021BBD 17:9BAD: 19 A3     .word off_A319
 - - - - - 0x021BBF 17:9BAF: F3        .byte $F3
 - - - - - 0x021BC0 17:9BB0: 97        .byte $97
@@ -5330,7 +5335,7 @@ off_9B82_14:
 - - - - - 0x021BD3 17:9BC3: DD A2     .word off_A2DD
 - - - - - 0x021BD5 17:9BC5: FA        .byte $FA
 - - - - - 0x021BD6 17:9BC6: 5C 9F     .word off_9F5C
-- - - - - 0x021BD8 17:9BC8: F2        .byte con_F2_прыжок
+- - - - - 0x021BD8 17:9BC8: F2        .byte con_прыжок
 - - - - - 0x021BD9 17:9BC9: 40 A2     .word off_A240
 
 
@@ -5343,20 +5348,20 @@ off_9BCE:
 off_9BCF:
 - D - I - 0x021BDF 17:9BCF: FA        .byte $FA
 - D - I - 0x021BE0 17:9BD0: BB A1     .word off_A1BB
-- D - I - 0x021BE2 17:9BD2: F2        .byte con_F2_прыжок
+- D - I - 0x021BE2 17:9BD2: F2        .byte con_прыжок
 - D - I - 0x021BE3 17:9BD3: 88 A3     .word off_A388
 off_9BD5:
 - D - I - 0x021BE5 17:9BD5: FA        .byte $FA
 - D - I - 0x021BE6 17:9BD6: B1 A1     .word off_A1B1
-- D - I - 0x021BE8 17:9BD8: F2        .byte con_F2_прыжок
+- D - I - 0x021BE8 17:9BD8: F2        .byte con_прыжок
 - D - I - 0x021BE9 17:9BD9: 88 A3     .word off_A388
 off_9BDB:
 - D - I - 0x021BEB 17:9BDB: F6        .byte $F6
-- D - I - 0x021BEC 17:9BDC: F2        .byte con_F2_прыжок
+- D - I - 0x021BEC 17:9BDC: F2        .byte con_прыжок
 - D - I - 0x021BED 17:9BDD: 38 A2     .word off_A238
 off_9BDF:
 - D - I - 0x021BEF 17:9BDF: F6        .byte $F6
-- D - I - 0x021BF0 17:9BE0: F2        .byte con_F2_прыжок
+- D - I - 0x021BF0 17:9BE0: F2        .byte con_прыжок
 - D - I - 0x021BF1 17:9BE1: 2E A2     .word off_A22E
 
 
@@ -5370,9 +5375,9 @@ off_9BE3_1C:
 - D - I - 0x021BF9 17:9BE9: 84        .byte $84    ; <D>
 - D - I - 0x021BFA 17:9BEA: 02        .byte $02    ; <い>
 - D - I - 0x021BFB 17:9BEB: 04        .byte $04    ; <え>
-- D - I - 0x021BFC 17:9BEC: F2        .byte con_F2_прыжок
+- D - I - 0x021BFC 17:9BEC: F2        .byte con_прыжок
 - D - I - 0x021BFD 17:9BED: 9E B4     .word off_B49E
-- D - I - 0x021BFF 17:9BEF: F2        .byte con_F2_прыжок
+- D - I - 0x021BFF 17:9BEF: F2        .byte con_прыжок
 - D - I - 0x021C00 17:9BF0: B6 B4     .word off_B4B6
 
 
@@ -5380,7 +5385,7 @@ off_9BE3_1C:
 off_9BF2_24:
 - D - I - 0x021C02 17:9BF2: FA        .byte $FA
 - D - I - 0x021C03 17:9BF3: BF B4     .word off_B4BF
-- D - I - 0x021C05 17:9BF5: F2        .byte con_F2_прыжок
+- D - I - 0x021C05 17:9BF5: F2        .byte con_прыжок
 - D - I - 0x021C06 17:9BF6: C7 B4     .word off_B4C7
 
 
@@ -5388,7 +5393,7 @@ off_9BF2_24:
 off_9BF8_27:
 - D - I - 0x021C08 17:9BF8: FA        .byte $FA
 - D - I - 0x021C09 17:9BF9: BF B4     .word off_B4BF
-- D - I - 0x021C0B 17:9BFB: F2        .byte con_F2_прыжок
+- D - I - 0x021C0B 17:9BFB: F2        .byte con_прыжок
 - D - I - 0x021C0C 17:9BFC: 12 BA     .word off_BA12
 
 
@@ -5396,7 +5401,7 @@ off_9BF8_27:
 off_9BFE_29:
 - D - I - 0x021C0E 17:9BFE: FA        .byte $FA
 - D - I - 0x021C0F 17:9BFF: BF B4     .word off_B4BF
-- D - I - 0x021C11 17:9C01: F2        .byte con_F2_прыжок
+- D - I - 0x021C11 17:9C01: F2        .byte con_прыжок
 - D - I - 0x021C12 17:9C02: 17 BA     .word off_BA17
 
 
@@ -5404,7 +5409,7 @@ off_9BFE_29:
 off_9C04_33:
 - D - I - 0x021C14 17:9C04: FA        .byte $FA
 - D - I - 0x021C15 17:9C05: A6 B7     .word off_B7A6
-- D - I - 0x021C17 17:9C07: F2        .byte con_F2_прыжок
+- D - I - 0x021C17 17:9C07: F2        .byte con_прыжок
 - D - I - 0x021C18 17:9C08: AF B7     .word off_B7AF
 
 
@@ -5418,9 +5423,9 @@ off_9C0A_3E:
 - D - I - 0x021C20 17:9C10: 84        .byte $84    ; <D>
 - D - I - 0x021C21 17:9C11: 05        .byte $05    ; <お>
 - D - I - 0x021C22 17:9C12: 01        .byte $01    ; <あ>
-- D - I - 0x021C23 17:9C13: F2        .byte con_F2_прыжок
+- D - I - 0x021C23 17:9C13: F2        .byte con_прыжок
 - D - I - 0x021C24 17:9C14: AE B4     .word off_B4AE
-- D - I - 0x021C26 17:9C16: F2        .byte con_F2_прыжок
+- D - I - 0x021C26 17:9C16: F2        .byte con_прыжок
 - D - I - 0x021C27 17:9C17: A6 B4     .word off_B4A6
 
 
@@ -6049,7 +6054,7 @@ off_9F9C:
 - D - I - 0x021FB3 17:9FA3: 33        .byte $33    ; <0>
 - D - I - 0x021FB4 17:9FA4: 94        .byte $94
 - D - I - 0x021FB5 17:9FA5: A0        .byte $A0    ; <が>
-- D - I - 0x021FB6 17:9FA6: F2        .byte con_F2_прыжок
+- D - I - 0x021FB6 17:9FA6: F2        .byte con_прыжок
 - D - I - 0x021FB7 17:9FA7: 23 9C     .word off_9C23
 - D - I - 0x021FB9 17:9FA9: F9        .byte $F9
 - D - I - 0x021FBA 17:9FAA: 02        .byte $02    ; <い>
@@ -6058,7 +6063,7 @@ off_9F9C:
 - D - I - 0x021FBD 17:9FAD: 48        .byte $48    ; <ク>
 - D - I - 0x021FBE 17:9FAE: 75        .byte $75    ; <ェ>
 - D - I - 0x021FBF 17:9FAF: A1        .byte $A1    ; <ぎ>
-- D - I - 0x021FC0 17:9FB0: F2        .byte con_F2_прыжок
+- D - I - 0x021FC0 17:9FB0: F2        .byte con_прыжок
 - D - I - 0x021FC1 17:9FB1: 23 9C     .word off_9C23
 - D - I - 0x021FC3 17:9FB3: FB        .byte $FB
 - - - - - 0x021FC4 17:9FB4: FB        .byte $FB
@@ -6891,7 +6896,7 @@ off_A275:
 - D - I - 0x0222A5 11:A295: 30        .byte $30    ; <ゃ>
 - D - I - 0x0222A6 11:A296: A0        .byte $A0    ; <が>
 - D - I - 0x0222A7 11:A297: 9E        .byte $9E
-- D - I - 0x0222A8 11:A298: F2        .byte con_F2_прыжок
+- D - I - 0x0222A8 11:A298: F2        .byte con_прыжок
 - D - I - 0x0222A9 11:A299: A3 A2     .word off_A2A3
 - - - - - 0x0222AB 11:A29B: 01        .byte $01    ; <あ>
 - - - - - 0x0222AC 11:A29C: F0        .byte $F0
@@ -6910,49 +6915,49 @@ off_A2A7:
 - D - I - 0x0222B8 11:A2A8: 08        .byte $08    ; <く>
 - D - I - 0x0222B9 11:A2A9: 46        .byte $46    ; <カ>
 - D - I - 0x0222BA 11:A2AA: 52        .byte $52    ; <ツ>
-- D - I - 0x0222BB 11:A2AB: F2        .byte con_F2_прыжок
+- D - I - 0x0222BB 11:A2AB: F2        .byte con_прыжок
 - D - I - 0x0222BC 11:A2AC: 75 A2     .word off_A275
 off_A2AE:
 - D - I - 0x0222BE 11:A2AE: A0        .byte $A0    ; <が>
 - D - I - 0x0222BF 11:A2AF: 09        .byte $09    ; <け>
 - D - I - 0x0222C0 11:A2B0: 47        .byte $47    ; <キ>
 - D - I - 0x0222C1 11:A2B1: 52        .byte $52    ; <ツ>
-- D - I - 0x0222C2 11:A2B2: F2        .byte con_F2_прыжок
+- D - I - 0x0222C2 11:A2B2: F2        .byte con_прыжок
 - D - I - 0x0222C3 11:A2B3: 75 A2     .word off_A275
 off_A2B5:
 - D - I - 0x0222C5 11:A2B5: 82        .byte $82    ; <B>
 - D - I - 0x0222C6 11:A2B6: F0        .byte $F0
 - D - I - 0x0222C7 11:A2B7: F0        .byte $F0
 - D - I - 0x0222C8 11:A2B8: 51        .byte $51    ; <チ>
-- D - I - 0x0222C9 11:A2B9: F2        .byte con_F2_прыжок
+- D - I - 0x0222C9 11:A2B9: F2        .byte con_прыжок
 - D - I - 0x0222CA 11:A2BA: 75 A2     .word off_A275
 off_A2BC:
 - D - I - 0x0222CC 11:A2BC: 82        .byte $82    ; <B>
 - D - I - 0x0222CD 11:A2BD: F0        .byte $F0
 - D - I - 0x0222CE 11:A2BE: F0        .byte $F0
 - D - I - 0x0222CF 11:A2BF: 53        .byte $53    ; <テ>
-- D - I - 0x0222D0 11:A2C0: F2        .byte con_F2_прыжок
+- D - I - 0x0222D0 11:A2C0: F2        .byte con_прыжок
 - D - I - 0x0222D1 11:A2C1: 75 A2     .word off_A275
 off_A2C3:
 - - - - - 0x0222D3 11:A2C3: A0        .byte $A0    ; <が>
 - - - - - 0x0222D4 11:A2C4: 08        .byte $08    ; <く>
 - - - - - 0x0222D5 11:A2C5: 46        .byte $46    ; <カ>
 - - - - - 0x0222D6 11:A2C6: 54        .byte $54    ; <ト>
-- - - - - 0x0222D7 11:A2C7: F2        .byte con_F2_прыжок
+- - - - - 0x0222D7 11:A2C7: F2        .byte con_прыжок
 - - - - - 0x0222D8 11:A2C8: 75 A2     .word off_A275
 off_A2CA:
 - - - - - 0x0222DA 11:A2CA: A0        .byte $A0    ; <が>
 - - - - - 0x0222DB 11:A2CB: 09        .byte $09    ; <け>
 - - - - - 0x0222DC 11:A2CC: 47        .byte $47    ; <キ>
 - - - - - 0x0222DD 11:A2CD: 55        .byte $55    ; <ナ>
-- - - - - 0x0222DE 11:A2CE: F2        .byte con_F2_прыжок
+- - - - - 0x0222DE 11:A2CE: F2        .byte con_прыжок
 - - - - - 0x0222DF 11:A2CF: 75 A2     .word off_A275
 off_A2D1:
 - D - I - 0x0222E1 11:A2D1: A0        .byte $A0    ; <が>
 - D - I - 0x0222E2 11:A2D2: 0A        .byte $0A    ; <こ>
 - D - I - 0x0222E3 11:A2D3: 48        .byte $48    ; <ク>
 - D - I - 0x0222E4 11:A2D4: 55        .byte $55    ; <ナ>
-- D - I - 0x0222E5 11:A2D5: F2        .byte con_F2_прыжок
+- D - I - 0x0222E5 11:A2D5: F2        .byte con_прыжок
 - D - I - 0x0222E6 11:A2D6: 75 A2     .word off_A275
 off_A2D8:
 - D - I - 0x0222E8 11:A2D8: 28        .byte $28    ; <り>
@@ -6978,12 +6983,12 @@ off_A2E7:
 - D - I - 0x0222F9 11:A2E9: F9        .byte $F9
 - D - I - 0x0222FA 11:A2EA: 02        .byte $02    ; <い>
 - D - I - 0x0222FB 11:A2EB: 2E        .byte $2E    ; <ん>
-- D - I - 0x0222FC 11:A2EC: F2        .byte con_F2_прыжок
+- D - I - 0x0222FC 11:A2EC: F2        .byte con_прыжок
 - D - I - 0x0222FD 11:A2ED: E2 A2     .word off_A2E2
 off_A2EF:
 - D - I - 0x0222FF 11:A2EF: F7        .byte $F7
 - D - I - 0x022300 11:A2F0: 10        .byte $10    ; <た>
-- D - I - 0x022301 11:A2F1: F2        .byte con_F2_прыжок
+- D - I - 0x022301 11:A2F1: F2        .byte con_прыжок
 - D - I - 0x022302 11:A2F2: E2 A2     .word off_A2E2
 off_A2F4:
 - D - I - 0x022304 11:A2F4: F7        .byte $F7
@@ -7074,7 +7079,7 @@ off_A33A:
 - - - - - 0x022351 11:A341: 73        .byte $73    ; <ヮ>
 - - - - - 0x022352 11:A342: A6        .byte $A6    ; <じ>
 - - - - - 0x022353 11:A343: 9F        .byte $9F
-- - - - - 0x022354 11:A344: F2        .byte con_F2_прыжок
+- - - - - 0x022354 11:A344: F2        .byte con_прыжок
 - - - - - 0x022355 11:A345: 4B A3     .word off_A34B
 - D - I - 0x022357 11:A347: 32        .byte $32    ; <ょ>
 - D - I - 0x022358 11:A348: 33        .byte $33    ; <0>
@@ -7255,11 +7260,11 @@ off_A3CF:
 off_A3E4:
 - D - I - 0x0223F4 11:A3E4: FA        .byte $FA
 - D - I - 0x0223F5 11:A3E5: F9 A6     .word off_A6F9
-- D - I - 0x0223F7 11:A3E7: F2        .byte con_F2_прыжок
+- D - I - 0x0223F7 11:A3E7: F2        .byte con_прыжок
 - D - I - 0x0223F8 11:A3E8: 60 A4     .word off_A460
 - D - I - 0x0223FA 11:A3EA: FA        .byte $FA
 - D - I - 0x0223FB 11:A3EB: 56 A7     .word off_A756
-- D - I - 0x0223FD 11:A3ED: F2        .byte con_F2_прыжок
+- D - I - 0x0223FD 11:A3ED: F2        .byte con_прыжок
 - D - I - 0x0223FE 11:A3EE: E4 A3     .word off_A3E4
 - D - I - 0x022400 11:A3F0: F7        .byte $F7
 - D - I - 0x022401 11:A3F1: 44        .byte $44    ; <エ>
@@ -7296,7 +7301,7 @@ off_A3F9:
 - D - I - 0x022421 11:A411: D9        .byte $D9
 - D - I - 0x022422 11:A412: FA        .byte $FA
 - D - I - 0x022423 11:A413: C7 BB     .word off_BBC7
-- D - I - 0x022425 11:A415: F2        .byte con_F2_прыжок
+- D - I - 0x022425 11:A415: F2        .byte con_прыжок
 - D - I - 0x022426 11:A416: F9 A3     .word off_A3F9
 - D - I - 0x022428 11:A418: F7        .byte $F7
 - D - I - 0x022429 11:A419: 44        .byte $44    ; <エ>
@@ -7319,7 +7324,7 @@ off_A41E:
 - D - I - 0x022439 11:A429: F9        .byte $F9
 - D - I - 0x02243A 11:A42A: 02        .byte $02    ; <い>
 - D - I - 0x02243B 11:A42B: 30        .byte $30    ; <ゃ>
-- D - I - 0x02243C 11:A42C: F2        .byte con_F2_прыжок
+- D - I - 0x02243C 11:A42C: F2        .byte con_прыжок
 - D - I - 0x02243D 11:A42D: 63 A4     .word off_A463
 - D - I - 0x02243F 11:A42F: F7        .byte $F7
 - D - I - 0x022440 11:A430: 44        .byte $44    ; <エ>
@@ -7327,7 +7332,7 @@ off_A41E:
 - D - I - 0x022442 11:A432: 31        .byte $31    ; <ゅ>
 - D - I - 0x022443 11:A433: B0        .byte $B0    ; <び>
 - D - I - 0x022444 11:A434: DB        .byte $DB
-- D - I - 0x022445 11:A435: F2        .byte con_F2_прыжок
+- D - I - 0x022445 11:A435: F2        .byte con_прыжок
 - D - I - 0x022446 11:A436: 1E A4     .word off_A41E
 - D - I - 0x022448 11:A438: F7        .byte $F7
 - D - I - 0x022449 11:A439: 02        .byte $02    ; <い>
@@ -7356,7 +7361,7 @@ off_A41E:
 - D - I - 0x022461 11:A451: 30        .byte $30    ; <ゃ>
 - D - I - 0x022462 11:A452: AD        .byte $AD    ; <で>
 - D - I - 0x022463 11:A453: DA        .byte $DA
-- D - I - 0x022464 11:A454: F2        .byte con_F2_прыжок
+- D - I - 0x022464 11:A454: F2        .byte con_прыжок
 - D - I - 0x022465 11:A455: 5D A4     .word off_A45D
 - D - I - 0x022467 11:A457: F7        .byte $F7
 - D - I - 0x022468 11:A458: 44        .byte $44    ; <エ>
@@ -7465,31 +7470,31 @@ off_A495:
 - D - I - 0x0224CC 11:A4BC: 30        .byte $30    ; <ゃ>
 - D - I - 0x0224CD 11:A4BD: 91        .byte $91    ; <V>
 - D - I - 0x0224CE 11:A4BE: 97        .byte $97
-- D - I - 0x0224CF 11:A4BF: F2        .byte con_F2_прыжок
+- D - I - 0x0224CF 11:A4BF: F2        .byte con_прыжок
 - D - I - 0x0224D0 11:A4C0: C7 BB     .word off_BBC7
 - D - I - 0x0224D2 11:A4C2: 3C        .byte $3C    ; <9>
 - D - I - 0x0224D3 11:A4C3: 30        .byte $30    ; <ゃ>
 - D - I - 0x0224D4 11:A4C4: 96        .byte $96
 - D - I - 0x0224D5 11:A4C5: 97        .byte $97
-- D - I - 0x0224D6 11:A4C6: F2        .byte con_F2_прыжок
+- D - I - 0x0224D6 11:A4C6: F2        .byte con_прыжок
 - D - I - 0x0224D7 11:A4C7: C7 BB     .word off_BBC7
 - - - - - 0x0224D9 11:A4C9: 3C        .byte $3C    ; <9>
 - - - - - 0x0224DA 11:A4CA: 30        .byte $30    ; <ゃ>
 - - - - - 0x0224DB 11:A4CB: 97        .byte $97
 - - - - - 0x0224DC 11:A4CC: 97        .byte $97
-- - - - - 0x0224DD 11:A4CD: F2        .byte con_F2_прыжок
+- - - - - 0x0224DD 11:A4CD: F2        .byte con_прыжок
 - - - - - 0x0224DE 11:A4CE: C7 BB     .word off_BBC7
 - D - I - 0x0224E0 11:A4D0: 3C        .byte $3C    ; <9>
 - D - I - 0x0224E1 11:A4D1: 31        .byte $31    ; <ゅ>
 - D - I - 0x0224E2 11:A4D2: 9E        .byte $9E
 - D - I - 0x0224E3 11:A4D3: 97        .byte $97
-- D - I - 0x0224E4 11:A4D4: F2        .byte con_F2_прыжок
+- D - I - 0x0224E4 11:A4D4: F2        .byte con_прыжок
 - D - I - 0x0224E5 11:A4D5: C7 BB     .word off_BBC7
 - D - I - 0x0224E7 11:A4D7: 3C        .byte $3C    ; <9>
 - D - I - 0x0224E8 11:A4D8: 31        .byte $31    ; <ゅ>
 - D - I - 0x0224E9 11:A4D9: B0        .byte $B0    ; <び>
 - D - I - 0x0224EA 11:A4DA: 97        .byte $97
-- D - I - 0x0224EB 11:A4DB: F2        .byte con_F2_прыжок
+- D - I - 0x0224EB 11:A4DB: F2        .byte con_прыжок
 - D - I - 0x0224EC 11:A4DC: C7 BB     .word off_BBC7
 - - - - - 0x0224EE 11:A4DE: F3        .byte $F3
 - - - - - 0x0224EF 11:A4DF: AB        .byte $AB    ; <ぢ>
@@ -7499,171 +7504,171 @@ off_A495:
 - - - - - 0x0224F3 11:A4E3: 30        .byte $30    ; <ゃ>
 - - - - - 0x0224F4 11:A4E4: A3        .byte $A3    ; <げ>
 - - - - - 0x0224F5 11:A4E5: 97        .byte $97
-- - - - - 0x0224F6 11:A4E6: F2        .byte con_F2_прыжок
+- - - - - 0x0224F6 11:A4E6: F2        .byte con_прыжок
 - - - - - 0x0224F7 11:A4E7: C7 BB     .word off_BBC7
-- - - - - 0x0224F9 11:A4E9: F2        .byte con_F2_прыжок
+- - - - - 0x0224F9 11:A4E9: F2        .byte con_прыжок
 - - - - - 0x0224FA 11:A4EA: 89 A9     .word off_A989
 - - - - - 0x0224FC 11:A4EC: 3C        .byte $3C    ; <9>
 - - - - - 0x0224FD 11:A4ED: 30        .byte $30    ; <ゃ>
 - - - - - 0x0224FE 11:A4EE: AE        .byte $AE    ; <ど>
 - - - - - 0x0224FF 11:A4EF: 97        .byte $97
-- - - - - 0x022500 11:A4F0: F2        .byte con_F2_прыжок
+- - - - - 0x022500 11:A4F0: F2        .byte con_прыжок
 - - - - - 0x022501 11:A4F1: C7 BB     .word off_BBC7
 - - - - - 0x022503 11:A4F3: 3C        .byte $3C    ; <9>
 - - - - - 0x022504 11:A4F4: 30        .byte $30    ; <ゃ>
 - - - - - 0x022505 11:A4F5: A1        .byte $A1    ; <ぎ>
 - - - - - 0x022506 11:A4F6: 97        .byte $97
-- - - - - 0x022507 11:A4F7: F2        .byte con_F2_прыжок
+- - - - - 0x022507 11:A4F7: F2        .byte con_прыжок
 - - - - - 0x022508 11:A4F8: C7 BB     .word off_BBC7
 - D - I - 0x02250A 11:A4FA: 3C        .byte $3C    ; <9>
 - D - I - 0x02250B 11:A4FB: 30        .byte $30    ; <ゃ>
 - D - I - 0x02250C 11:A4FC: AF        .byte $AF    ; <ば>
 - D - I - 0x02250D 11:A4FD: 97        .byte $97
-- D - I - 0x02250E 11:A4FE: F2        .byte con_F2_прыжок
+- D - I - 0x02250E 11:A4FE: F2        .byte con_прыжок
 - D - I - 0x02250F 11:A4FF: C7 BB     .word off_BBC7
 - - - - - 0x022511 11:A501: 3C        .byte $3C    ; <9>
 - - - - - 0x022512 11:A502: 30        .byte $30    ; <ゃ>
 - - - - - 0x022513 11:A503: 98        .byte $98
 - - - - - 0x022514 11:A504: 97        .byte $97
-- - - - - 0x022515 11:A505: F2        .byte con_F2_прыжок
+- - - - - 0x022515 11:A505: F2        .byte con_прыжок
 - - - - - 0x022516 11:A506: C7 BB     .word off_BBC7
 - - - - - 0x022518 11:A508: 3C        .byte $3C    ; <9>
 - - - - - 0x022519 11:A509: 30        .byte $30    ; <ゃ>
 - - - - - 0x02251A 11:A50A: 99        .byte $99
 - - - - - 0x02251B 11:A50B: 97        .byte $97
-- - - - - 0x02251C 11:A50C: F2        .byte con_F2_прыжок
+- - - - - 0x02251C 11:A50C: F2        .byte con_прыжок
 - - - - - 0x02251D 11:A50D: C7 BB     .word off_BBC7
 - D - I - 0x02251F 11:A50F: 3C        .byte $3C    ; <9>
 - D - I - 0x022520 11:A510: 30        .byte $30    ; <ゃ>
 - D - I - 0x022521 11:A511: 9F        .byte $9F
 - D - I - 0x022522 11:A512: 97        .byte $97
-- D - I - 0x022523 11:A513: F2        .byte con_F2_прыжок
+- D - I - 0x022523 11:A513: F2        .byte con_прыжок
 - D - I - 0x022524 11:A514: C7 BB     .word off_BBC7
 - - - - - 0x022526 11:A516: 3C        .byte $3C    ; <9>
 - - - - - 0x022527 11:A517: 30        .byte $30    ; <ゃ>
 - - - - - 0x022528 11:A518: AD        .byte $AD    ; <で>
 - - - - - 0x022529 11:A519: 97        .byte $97
-- - - - - 0x02252A 11:A51A: F2        .byte con_F2_прыжок
+- - - - - 0x02252A 11:A51A: F2        .byte con_прыжок
 - - - - - 0x02252B 11:A51B: C7 BB     .word off_BBC7
 - - - - - 0x02252D 11:A51D: 3C        .byte $3C    ; <9>
 - - - - - 0x02252E 11:A51E: 30        .byte $30    ; <ゃ>
 - - - - - 0x02252F 11:A51F: A0        .byte $A0    ; <が>
 - - - - - 0x022530 11:A520: 97        .byte $97
-- - - - - 0x022531 11:A521: F2        .byte con_F2_прыжок
+- - - - - 0x022531 11:A521: F2        .byte con_прыжок
 - - - - - 0x022532 11:A522: C7 BB     .word off_BBC7
 - D - I - 0x022534 11:A524: 3C        .byte $3C    ; <9>
 - D - I - 0x022535 11:A525: 30        .byte $30    ; <ゃ>
 - D - I - 0x022536 11:A526: AA        .byte $AA    ; <だ>
 - D - I - 0x022537 11:A527: 97        .byte $97
-- D - I - 0x022538 11:A528: F2        .byte con_F2_прыжок
+- D - I - 0x022538 11:A528: F2        .byte con_прыжок
 - D - I - 0x022539 11:A529: C7 BB     .word off_BBC7
 - D - I - 0x02253B 11:A52B: 3C        .byte $3C    ; <9>
 - D - I - 0x02253C 11:A52C: 30        .byte $30    ; <ゃ>
 - D - I - 0x02253D 11:A52D: 9C        .byte $9C
 - D - I - 0x02253E 11:A52E: 97        .byte $97
-- D - I - 0x02253F 11:A52F: F2        .byte con_F2_прыжок
+- D - I - 0x02253F 11:A52F: F2        .byte con_прыжок
 - D - I - 0x022540 11:A530: C7 BB     .word off_BBC7
 - D - I - 0x022542 11:A532: 3C        .byte $3C    ; <9>
 - D - I - 0x022543 11:A533: 30        .byte $30    ; <ゃ>
 - D - I - 0x022544 11:A534: AB        .byte $AB    ; <ぢ>
 - D - I - 0x022545 11:A535: 97        .byte $97
-- D - I - 0x022546 11:A536: F2        .byte con_F2_прыжок
+- D - I - 0x022546 11:A536: F2        .byte con_прыжок
 - D - I - 0x022547 11:A537: C7 BB     .word off_BBC7
 - D - I - 0x022549 11:A539: 3C        .byte $3C    ; <9>
 - D - I - 0x02254A 11:A53A: 30        .byte $30    ; <ゃ>
 - D - I - 0x02254B 11:A53B: 9A        .byte $9A
 - D - I - 0x02254C 11:A53C: 97        .byte $97
-- D - I - 0x02254D 11:A53D: F2        .byte con_F2_прыжок
+- D - I - 0x02254D 11:A53D: F2        .byte con_прыжок
 - D - I - 0x02254E 11:A53E: C7 BB     .word off_BBC7
 - - - - - 0x022550 11:A540: 3C        .byte $3C    ; <9>
 - - - - - 0x022551 11:A541: 30        .byte $30    ; <ゃ>
 - - - - - 0x022552 11:A542: 9B        .byte $9B
 - - - - - 0x022553 11:A543: 97        .byte $97
-- - - - - 0x022554 11:A544: F2        .byte con_F2_прыжок
+- - - - - 0x022554 11:A544: F2        .byte con_прыжок
 - - - - - 0x022555 11:A545: C7 BB     .word off_BBC7
 - - - - - 0x022557 11:A547: 3C        .byte $3C    ; <9>
 - - - - - 0x022558 11:A548: 30        .byte $30    ; <ゃ>
 - - - - - 0x022559 11:A549: A2        .byte $A2    ; <ぐ>
 - - - - - 0x02255A 11:A54A: 97        .byte $97
-- - - - - 0x02255B 11:A54B: F2        .byte con_F2_прыжок
+- - - - - 0x02255B 11:A54B: F2        .byte con_прыжок
 - - - - - 0x02255C 11:A54C: C7 BB     .word off_BBC7
 - - - - - 0x02255E 11:A54E: 3C        .byte $3C    ; <9>
 - - - - - 0x02255F 11:A54F: 30        .byte $30    ; <ゃ>
 - - - - - 0x022560 11:A550: B1        .byte $B1    ; <ぶ>
 - - - - - 0x022561 11:A551: 97        .byte $97
-- - - - - 0x022562 11:A552: F2        .byte con_F2_прыжок
+- - - - - 0x022562 11:A552: F2        .byte con_прыжок
 - - - - - 0x022563 11:A553: C7 BB     .word off_BBC7
 - D - I - 0x022565 11:A555: 3C        .byte $3C    ; <9>
 - D - I - 0x022566 11:A556: 30        .byte $30    ; <ゃ>
 - D - I - 0x022567 11:A557: BC        .byte $BC    ; <ゼ>
 - D - I - 0x022568 11:A558: 97        .byte $97
-- D - I - 0x022569 11:A559: F2        .byte con_F2_прыжок
+- D - I - 0x022569 11:A559: F2        .byte con_прыжок
 - D - I - 0x02256A 11:A55A: C7 BB     .word off_BBC7
 - D - I - 0x02256C 11:A55C: 3C        .byte $3C    ; <9>
 - D - I - 0x02256D 11:A55D: 30        .byte $30    ; <ゃ>
 - D - I - 0x02256E 11:A55E: A9        .byte $A9    ; <ぞ>
 - D - I - 0x02256F 11:A55F: 97        .byte $97
-- D - I - 0x022570 11:A560: F2        .byte con_F2_прыжок
+- D - I - 0x022570 11:A560: F2        .byte con_прыжок
 - D - I - 0x022571 11:A561: C7 BB     .word off_BBC7
 - D - I - 0x022573 11:A563: 3C        .byte $3C    ; <9>
 - D - I - 0x022574 11:A564: 30        .byte $30    ; <ゃ>
 - D - I - 0x022575 11:A565: BB        .byte $BB    ; <ズ>
 - D - I - 0x022576 11:A566: 97        .byte $97
-- D - I - 0x022577 11:A567: F2        .byte con_F2_прыжок
+- D - I - 0x022577 11:A567: F2        .byte con_прыжок
 - D - I - 0x022578 11:A568: C7 BB     .word off_BBC7
 - D - I - 0x02257A 11:A56A: 3C        .byte $3C    ; <9>
 - D - I - 0x02257B 11:A56B: 30        .byte $30    ; <ゃ>
 - D - I - 0x02257C 11:A56C: B8        .byte $B8    ; <ゴ>
 - D - I - 0x02257D 11:A56D: 97        .byte $97
-- D - I - 0x02257E 11:A56E: F2        .byte con_F2_прыжок
+- D - I - 0x02257E 11:A56E: F2        .byte con_прыжок
 - D - I - 0x02257F 11:A56F: C7 BB     .word off_BBC7
 - - - - - 0x022581 11:A571: 3C        .byte $3C    ; <9>
 - - - - - 0x022582 11:A572: 30        .byte $30    ; <ゃ>
 - - - - - 0x022583 11:A573: B3        .byte $B3    ; <ぼ>
 - - - - - 0x022584 11:A574: 97        .byte $97
-- - - - - 0x022585 11:A575: F2        .byte con_F2_прыжок
+- - - - - 0x022585 11:A575: F2        .byte con_прыжок
 - - - - - 0x022586 11:A576: C7 BB     .word off_BBC7
 - - - - - 0x022588 11:A578: 3C        .byte $3C    ; <9>
 - - - - - 0x022589 11:A579: 30        .byte $30    ; <ゃ>
 - - - - - 0x02258A 11:A57A: BA        .byte $BA    ; <ジ>
 - - - - - 0x02258B 11:A57B: 97        .byte $97
-- - - - - 0x02258C 11:A57C: F2        .byte con_F2_прыжок
+- - - - - 0x02258C 11:A57C: F2        .byte con_прыжок
 - - - - - 0x02258D 11:A57D: C7 BB     .word off_BBC7
 - D - I - 0x02258F 11:A57F: 3C        .byte $3C    ; <9>
 - D - I - 0x022590 11:A580: 30        .byte $30    ; <ゃ>
 - D - I - 0x022591 11:A581: B7        .byte $B7    ; <ゲ>
 - D - I - 0x022592 11:A582: 97        .byte $97
-- D - I - 0x022593 11:A583: F2        .byte con_F2_прыжок
+- D - I - 0x022593 11:A583: F2        .byte con_прыжок
 - D - I - 0x022594 11:A584: C7 BB     .word off_BBC7
 - D - I - 0x022596 11:A586: 3C        .byte $3C    ; <9>
 - D - I - 0x022597 11:A587: 30        .byte $30    ; <ゃ>
 - D - I - 0x022598 11:A588: B6        .byte $B6    ; <グ>
 - D - I - 0x022599 11:A589: 97        .byte $97
-- - - - - 0x02259A 11:A58A: F2        .byte con_F2_прыжок
+- - - - - 0x02259A 11:A58A: F2        .byte con_прыжок
 - - - - - 0x02259B 11:A58B: C7 BB     .word off_BBC7
 - D - I - 0x02259D 11:A58D: 3C        .byte $3C    ; <9>
 - D - I - 0x02259E 11:A58E: 30        .byte $30    ; <ゃ>
 - D - I - 0x02259F 11:A58F: B5        .byte $B5    ; <ギ>
 - D - I - 0x0225A0 11:A590: 97        .byte $97
-- D - I - 0x0225A1 11:A591: F2        .byte con_F2_прыжок
+- D - I - 0x0225A1 11:A591: F2        .byte con_прыжок
 - D - I - 0x0225A2 11:A592: C7 BB     .word off_BBC7
 - D - I - 0x0225A4 11:A594: 3C        .byte $3C    ; <9>
 - D - I - 0x0225A5 11:A595: 30        .byte $30    ; <ゃ>
 - D - I - 0x0225A6 11:A596: B4        .byte $B4    ; <ガ>
 - D - I - 0x0225A7 11:A597: 97        .byte $97
-- D - I - 0x0225A8 11:A598: F2        .byte con_F2_прыжок
+- D - I - 0x0225A8 11:A598: F2        .byte con_прыжок
 - D - I - 0x0225A9 11:A599: C7 BB     .word off_BBC7
 - D - I - 0x0225AB 11:A59B: 3C        .byte $3C    ; <9>
 - D - I - 0x0225AC 11:A59C: 30        .byte $30    ; <ゃ>
 - D - I - 0x0225AD 11:A59D: B2        .byte $B2    ; <べ>
 - D - I - 0x0225AE 11:A59E: 97        .byte $97
-- D - I - 0x0225AF 11:A59F: F2        .byte con_F2_прыжок
+- D - I - 0x0225AF 11:A59F: F2        .byte con_прыжок
 - D - I - 0x0225B0 11:A5A0: C7 BB     .word off_BBC7
 - - - - - 0x0225B2 11:A5A2: 3C        .byte $3C    ; <9>
 - - - - - 0x0225B3 11:A5A3: 30        .byte $30    ; <ゃ>
 - - - - - 0x0225B4 11:A5A4: B9        .byte $B9    ; <ザ>
 - - - - - 0x0225B5 11:A5A5: 97        .byte $97
-- - - - - 0x0225B6 11:A5A6: F2        .byte con_F2_прыжок
+- - - - - 0x0225B6 11:A5A6: F2        .byte con_прыжок
 - - - - - 0x0225B7 11:A5A7: C7 BB     .word off_BBC7
 off_A5A9:
 - D - I - 0x0225B9 11:A5A9: F3        .byte $F3
@@ -7707,199 +7712,199 @@ off_A5A9:
 - - - - - 0x0225DF 11:A5CF: 30        .byte $30    ; <ゃ>
 - - - - - 0x0225E0 11:A5D0: 91        .byte $91    ; <V>
 - - - - - 0x0225E1 11:A5D1: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0225E2 11:A5D2: F2        .byte con_F2_прыжок
+- - - - - 0x0225E2 11:A5D2: F2        .byte con_прыжок
 - - - - - 0x0225E3 11:A5D3: C7 BB     .word off_BBC7
 - D - I - 0x0225E5 11:A5D5: 3C        .byte $3C    ; <9>
 - D - I - 0x0225E6 11:A5D6: 30        .byte $30    ; <ゃ>
 - D - I - 0x0225E7 11:A5D7: 96        .byte $96
 - D - I - 0x0225E8 11:A5D8: A2        .byte $A2    ; <ぐ>
-- D - I - 0x0225E9 11:A5D9: F2        .byte con_F2_прыжок
+- D - I - 0x0225E9 11:A5D9: F2        .byte con_прыжок
 - D - I - 0x0225EA 11:A5DA: C7 BB     .word off_BBC7
 - - - - - 0x0225EC 11:A5DC: 3C        .byte $3C    ; <9>
 - - - - - 0x0225ED 11:A5DD: 30        .byte $30    ; <ゃ>
 - - - - - 0x0225EE 11:A5DE: 97        .byte $97
 - - - - - 0x0225EF 11:A5DF: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0225F0 11:A5E0: F2        .byte con_F2_прыжок
+- - - - - 0x0225F0 11:A5E0: F2        .byte con_прыжок
 - - - - - 0x0225F1 11:A5E1: C7 BB     .word off_BBC7
 - - - - - 0x0225F3 11:A5E3: 3C        .byte $3C    ; <9>
 - - - - - 0x0225F4 11:A5E4: 31        .byte $31    ; <ゅ>
 - - - - - 0x0225F5 11:A5E5: 9E        .byte $9E
 - - - - - 0x0225F6 11:A5E6: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0225F7 11:A5E7: F2        .byte con_F2_прыжок
+- - - - - 0x0225F7 11:A5E7: F2        .byte con_прыжок
 - - - - - 0x0225F8 11:A5E8: C7 BB     .word off_BBC7
 - - - - - 0x0225FA 11:A5EA: 3C        .byte $3C    ; <9>
 - - - - - 0x0225FB 11:A5EB: 31        .byte $31    ; <ゅ>
 - - - - - 0x0225FC 11:A5EC: B0        .byte $B0    ; <び>
 - - - - - 0x0225FD 11:A5ED: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0225FE 11:A5EE: F2        .byte con_F2_прыжок
+- - - - - 0x0225FE 11:A5EE: F2        .byte con_прыжок
 - - - - - 0x0225FF 11:A5EF: C7 BB     .word off_BBC7
 - - - - - 0x022601 11:A5F1: 3C        .byte $3C    ; <9>
 - - - - - 0x022602 11:A5F2: 30        .byte $30    ; <ゃ>
 - - - - - 0x022603 11:A5F3: A3        .byte $A3    ; <げ>
 - - - - - 0x022604 11:A5F4: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022605 11:A5F5: F2        .byte con_F2_прыжок
+- - - - - 0x022605 11:A5F5: F2        .byte con_прыжок
 - - - - - 0x022606 11:A5F6: C7 BB     .word off_BBC7
 - - - - - 0x022608 11:A5F8: 3C        .byte $3C    ; <9>
 - - - - - 0x022609 11:A5F9: 30        .byte $30    ; <ゃ>
 - - - - - 0x02260A 11:A5FA: AE        .byte $AE    ; <ど>
 - - - - - 0x02260B 11:A5FB: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02260C 11:A5FC: F2        .byte con_F2_прыжок
+- - - - - 0x02260C 11:A5FC: F2        .byte con_прыжок
 - - - - - 0x02260D 11:A5FD: C7 BB     .word off_BBC7
 - D - I - 0x02260F 11:A5FF: 3C        .byte $3C    ; <9>
 - D - I - 0x022610 11:A600: 30        .byte $30    ; <ゃ>
 - D - I - 0x022611 11:A601: A1        .byte $A1    ; <ぎ>
 - D - I - 0x022612 11:A602: A2        .byte $A2    ; <ぐ>
-- D - I - 0x022613 11:A603: F2        .byte con_F2_прыжок
+- D - I - 0x022613 11:A603: F2        .byte con_прыжок
 - D - I - 0x022614 11:A604: C7 BB     .word off_BBC7
 - - - - - 0x022616 11:A606: 3C        .byte $3C    ; <9>
 - - - - - 0x022617 11:A607: 30        .byte $30    ; <ゃ>
 - - - - - 0x022618 11:A608: AF        .byte $AF    ; <ば>
 - - - - - 0x022619 11:A609: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02261A 11:A60A: F2        .byte con_F2_прыжок
+- - - - - 0x02261A 11:A60A: F2        .byte con_прыжок
 - - - - - 0x02261B 11:A60B: C7 BB     .word off_BBC7
 - - - - - 0x02261D 11:A60D: 3C        .byte $3C    ; <9>
 - - - - - 0x02261E 11:A60E: 30        .byte $30    ; <ゃ>
 - - - - - 0x02261F 11:A60F: 98        .byte $98
 - - - - - 0x022620 11:A610: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022621 11:A611: F2        .byte con_F2_прыжок
+- - - - - 0x022621 11:A611: F2        .byte con_прыжок
 - - - - - 0x022622 11:A612: C7 BB     .word off_BBC7
 - - - - - 0x022624 11:A614: 3C        .byte $3C    ; <9>
 - - - - - 0x022625 11:A615: 30        .byte $30    ; <ゃ>
 - - - - - 0x022626 11:A616: 99        .byte $99
 - - - - - 0x022627 11:A617: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022628 11:A618: F2        .byte con_F2_прыжок
+- - - - - 0x022628 11:A618: F2        .byte con_прыжок
 - - - - - 0x022629 11:A619: C7 BB     .word off_BBC7
 - - - - - 0x02262B 11:A61B: 3C        .byte $3C    ; <9>
 - - - - - 0x02262C 11:A61C: 30        .byte $30    ; <ゃ>
 - - - - - 0x02262D 11:A61D: 9F        .byte $9F
 - - - - - 0x02262E 11:A61E: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02262F 11:A61F: F2        .byte con_F2_прыжок
+- - - - - 0x02262F 11:A61F: F2        .byte con_прыжок
 - - - - - 0x022630 11:A620: C7 BB     .word off_BBC7
 - - - - - 0x022632 11:A622: 3C        .byte $3C    ; <9>
 - - - - - 0x022633 11:A623: 30        .byte $30    ; <ゃ>
 - - - - - 0x022634 11:A624: AD        .byte $AD    ; <で>
 - - - - - 0x022635 11:A625: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022636 11:A626: F2        .byte con_F2_прыжок
+- - - - - 0x022636 11:A626: F2        .byte con_прыжок
 - - - - - 0x022637 11:A627: C7 BB     .word off_BBC7
 - - - - - 0x022639 11:A629: 3C        .byte $3C    ; <9>
 - - - - - 0x02263A 11:A62A: 30        .byte $30    ; <ゃ>
 - - - - - 0x02263B 11:A62B: A0        .byte $A0    ; <が>
 - - - - - 0x02263C 11:A62C: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02263D 11:A62D: F2        .byte con_F2_прыжок
+- - - - - 0x02263D 11:A62D: F2        .byte con_прыжок
 - - - - - 0x02263E 11:A62E: C7 BB     .word off_BBC7
 - - - - - 0x022640 11:A630: 3C        .byte $3C    ; <9>
 - - - - - 0x022641 11:A631: 30        .byte $30    ; <ゃ>
 - - - - - 0x022642 11:A632: AA        .byte $AA    ; <だ>
 - - - - - 0x022643 11:A633: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022644 11:A634: F2        .byte con_F2_прыжок
+- - - - - 0x022644 11:A634: F2        .byte con_прыжок
 - - - - - 0x022645 11:A635: C7 BB     .word off_BBC7
 - - - - - 0x022647 11:A637: 3C        .byte $3C    ; <9>
 - - - - - 0x022648 11:A638: 30        .byte $30    ; <ゃ>
 - - - - - 0x022649 11:A639: 9C        .byte $9C
 - - - - - 0x02264A 11:A63A: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02264B 11:A63B: F2        .byte con_F2_прыжок
+- - - - - 0x02264B 11:A63B: F2        .byte con_прыжок
 - - - - - 0x02264C 11:A63C: C7 BB     .word off_BBC7
 - - - - - 0x02264E 11:A63E: 3C        .byte $3C    ; <9>
 - - - - - 0x02264F 11:A63F: 30        .byte $30    ; <ゃ>
 - - - - - 0x022650 11:A640: AB        .byte $AB    ; <ぢ>
 - - - - - 0x022651 11:A641: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022652 11:A642: F2        .byte con_F2_прыжок
+- - - - - 0x022652 11:A642: F2        .byte con_прыжок
 - - - - - 0x022653 11:A643: C7 BB     .word off_BBC7
 - - - - - 0x022655 11:A645: 3C        .byte $3C    ; <9>
 - - - - - 0x022656 11:A646: 30        .byte $30    ; <ゃ>
 - - - - - 0x022657 11:A647: 9A        .byte $9A
 - - - - - 0x022658 11:A648: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022659 11:A649: F2        .byte con_F2_прыжок
+- - - - - 0x022659 11:A649: F2        .byte con_прыжок
 - - - - - 0x02265A 11:A64A: C7 BB     .word off_BBC7
 - - - - - 0x02265C 11:A64C: 3C        .byte $3C    ; <9>
 - - - - - 0x02265D 11:A64D: 30        .byte $30    ; <ゃ>
 - - - - - 0x02265E 11:A64E: 9B        .byte $9B
 - - - - - 0x02265F 11:A64F: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022660 11:A650: F2        .byte con_F2_прыжок
+- - - - - 0x022660 11:A650: F2        .byte con_прыжок
 - - - - - 0x022661 11:A651: C7 BB     .word off_BBC7
 - - - - - 0x022663 11:A653: 3C        .byte $3C    ; <9>
 - - - - - 0x022664 11:A654: 30        .byte $30    ; <ゃ>
 - - - - - 0x022665 11:A655: A2        .byte $A2    ; <ぐ>
 - - - - - 0x022666 11:A656: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022667 11:A657: F2        .byte con_F2_прыжок
+- - - - - 0x022667 11:A657: F2        .byte con_прыжок
 - - - - - 0x022668 11:A658: C7 BB     .word off_BBC7
 - - - - - 0x02266A 11:A65A: 3C        .byte $3C    ; <9>
 - - - - - 0x02266B 11:A65B: 30        .byte $30    ; <ゃ>
 - - - - - 0x02266C 11:A65C: B1        .byte $B1    ; <ぶ>
 - - - - - 0x02266D 11:A65D: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02266E 11:A65E: F2        .byte con_F2_прыжок
+- - - - - 0x02266E 11:A65E: F2        .byte con_прыжок
 - - - - - 0x02266F 11:A65F: C7 BB     .word off_BBC7
 - - - - - 0x022671 11:A661: 3C        .byte $3C    ; <9>
 - - - - - 0x022672 11:A662: 30        .byte $30    ; <ゃ>
 - - - - - 0x022673 11:A663: BC        .byte $BC    ; <ゼ>
 - - - - - 0x022674 11:A664: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022675 11:A665: F2        .byte con_F2_прыжок
+- - - - - 0x022675 11:A665: F2        .byte con_прыжок
 - - - - - 0x022676 11:A666: C7 BB     .word off_BBC7
 - - - - - 0x022678 11:A668: 3C        .byte $3C    ; <9>
 - - - - - 0x022679 11:A669: 30        .byte $30    ; <ゃ>
 - - - - - 0x02267A 11:A66A: A9        .byte $A9    ; <ぞ>
 - - - - - 0x02267B 11:A66B: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02267C 11:A66C: F2        .byte con_F2_прыжок
+- - - - - 0x02267C 11:A66C: F2        .byte con_прыжок
 - - - - - 0x02267D 11:A66D: C7 BB     .word off_BBC7
 - - - - - 0x02267F 11:A66F: 3C        .byte $3C    ; <9>
 - - - - - 0x022680 11:A670: 30        .byte $30    ; <ゃ>
 - - - - - 0x022681 11:A671: BB        .byte $BB    ; <ズ>
 - - - - - 0x022682 11:A672: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022683 11:A673: F2        .byte con_F2_прыжок
+- - - - - 0x022683 11:A673: F2        .byte con_прыжок
 - - - - - 0x022684 11:A674: C7 BB     .word off_BBC7
 - - - - - 0x022686 11:A676: 3C        .byte $3C    ; <9>
 - - - - - 0x022687 11:A677: 30        .byte $30    ; <ゃ>
 - - - - - 0x022688 11:A678: B8        .byte $B8    ; <ゴ>
 - - - - - 0x022689 11:A679: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02268A 11:A67A: F2        .byte con_F2_прыжок
+- - - - - 0x02268A 11:A67A: F2        .byte con_прыжок
 - - - - - 0x02268B 11:A67B: C7 BB     .word off_BBC7
 - - - - - 0x02268D 11:A67D: 3C        .byte $3C    ; <9>
 - - - - - 0x02268E 11:A67E: 30        .byte $30    ; <ゃ>
 - - - - - 0x02268F 11:A67F: B3        .byte $B3    ; <ぼ>
 - - - - - 0x022690 11:A680: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022691 11:A681: F2        .byte con_F2_прыжок
+- - - - - 0x022691 11:A681: F2        .byte con_прыжок
 - - - - - 0x022692 11:A682: C7 BB     .word off_BBC7
 - - - - - 0x022694 11:A684: 3C        .byte $3C    ; <9>
 - - - - - 0x022695 11:A685: 30        .byte $30    ; <ゃ>
 - - - - - 0x022696 11:A686: BA        .byte $BA    ; <ジ>
 - - - - - 0x022697 11:A687: A2        .byte $A2    ; <ぐ>
-- - - - - 0x022698 11:A688: F2        .byte con_F2_прыжок
+- - - - - 0x022698 11:A688: F2        .byte con_прыжок
 - - - - - 0x022699 11:A689: C7 BB     .word off_BBC7
 - - - - - 0x02269B 11:A68B: 3C        .byte $3C    ; <9>
 - - - - - 0x02269C 11:A68C: 30        .byte $30    ; <ゃ>
 - - - - - 0x02269D 11:A68D: B7        .byte $B7    ; <ゲ>
 - - - - - 0x02269E 11:A68E: A2        .byte $A2    ; <ぐ>
-- - - - - 0x02269F 11:A68F: F2        .byte con_F2_прыжок
+- - - - - 0x02269F 11:A68F: F2        .byte con_прыжок
 - - - - - 0x0226A0 11:A690: C7 BB     .word off_BBC7
 - - - - - 0x0226A2 11:A692: 3C        .byte $3C    ; <9>
 - - - - - 0x0226A3 11:A693: 30        .byte $30    ; <ゃ>
 - - - - - 0x0226A4 11:A694: B6        .byte $B6    ; <グ>
 - - - - - 0x0226A5 11:A695: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0226A6 11:A696: F2        .byte con_F2_прыжок
+- - - - - 0x0226A6 11:A696: F2        .byte con_прыжок
 - - - - - 0x0226A7 11:A697: C7 BB     .word off_BBC7
 - - - - - 0x0226A9 11:A699: 3C        .byte $3C    ; <9>
 - - - - - 0x0226AA 11:A69A: 30        .byte $30    ; <ゃ>
 - - - - - 0x0226AB 11:A69B: B5        .byte $B5    ; <ギ>
 - - - - - 0x0226AC 11:A69C: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0226AD 11:A69D: F2        .byte con_F2_прыжок
+- - - - - 0x0226AD 11:A69D: F2        .byte con_прыжок
 - - - - - 0x0226AE 11:A69E: C7 BB     .word off_BBC7
 - - - - - 0x0226B0 11:A6A0: 3C        .byte $3C    ; <9>
 - - - - - 0x0226B1 11:A6A1: 30        .byte $30    ; <ゃ>
 - - - - - 0x0226B2 11:A6A2: B4        .byte $B4    ; <ガ>
 - - - - - 0x0226B3 11:A6A3: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0226B4 11:A6A4: F2        .byte con_F2_прыжок
+- - - - - 0x0226B4 11:A6A4: F2        .byte con_прыжок
 - - - - - 0x0226B5 11:A6A5: C7 BB     .word off_BBC7
 - - - - - 0x0226B7 11:A6A7: 3C        .byte $3C    ; <9>
 - - - - - 0x0226B8 11:A6A8: 30        .byte $30    ; <ゃ>
 - - - - - 0x0226B9 11:A6A9: B2        .byte $B2    ; <べ>
 - - - - - 0x0226BA 11:A6AA: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0226BB 11:A6AB: F2        .byte con_F2_прыжок
+- - - - - 0x0226BB 11:A6AB: F2        .byte con_прыжок
 - - - - - 0x0226BC 11:A6AC: C7 BB     .word off_BBC7
 - - - - - 0x0226BE 11:A6AE: 3C        .byte $3C    ; <9>
 - - - - - 0x0226BF 11:A6AF: 30        .byte $30    ; <ゃ>
 - - - - - 0x0226C0 11:A6B0: B9        .byte $B9    ; <ザ>
 - - - - - 0x0226C1 11:A6B1: A2        .byte $A2    ; <ぐ>
-- - - - - 0x0226C2 11:A6B2: F2        .byte con_F2_прыжок
+- - - - - 0x0226C2 11:A6B2: F2        .byte con_прыжок
 - - - - - 0x0226C3 11:A6B3: C7 BB     .word off_BBC7
 off_A6B5:
 - D - I - 0x0226C5 11:A6B5: F7        .byte $F7
@@ -7993,7 +7998,7 @@ off_A6FF:
 off_A706:
 - D - I - 0x022716 11:A706: FA        .byte $FA
 - D - I - 0x022717 11:A707: 56 A7     .word off_A756
-- D - I - 0x022719 11:A709: F2        .byte con_F2_прыжок
+- D - I - 0x022719 11:A709: F2        .byte con_прыжок
 - D - I - 0x02271A 11:A70A: F9 A6     .word off_A6F9
 off_A70C:
 - D - I - 0x02271C 11:A70C: F7        .byte $F7
@@ -8070,7 +8075,7 @@ off_A74A:
 - D - I - 0x022760 11:A750: 05        .byte $05    ; <お>
 - D - I - 0x022761 11:A751: F0        .byte $F0
 - D - I - 0x022762 11:A752: F0        .byte $F0
-- D - I - 0x022763 11:A753: F2        .byte con_F2_прыжок
+- D - I - 0x022763 11:A753: F2        .byte con_прыжок
 - D - I - 0x022764 11:A754: C7 BB     .word off_BBC7
 off_A756:
 - D - I - 0x022766 11:A756: F4        .byte $F4
@@ -8121,7 +8126,7 @@ off_A756:
 - D - I - 0x022793 11:A783: 12        .byte $12    ; <つ>
 - D - I - 0x022794 11:A784: E1        .byte $E1
 - D - I - 0x022795 11:A785: AF        .byte $AF    ; <ば>
-- D - I - 0x022796 11:A786: F2        .byte con_F2_прыжок
+- D - I - 0x022796 11:A786: F2        .byte con_прыжок
 - D - I - 0x022797 11:A787: 4A A7     .word off_A74A
 off_A789:
 - - - - - 0x022799 11:A789: F7        .byte $F7
@@ -8151,7 +8156,7 @@ off_A79C:
 - - - - - 0x0227AF 11:A79F: 30        .byte $30    ; <ゃ>
 - - - - - 0x0227B0 11:A7A0: AA        .byte $AA    ; <だ>
 - - - - - 0x0227B1 11:A7A1: D9        .byte $D9
-- - - - - 0x0227B2 11:A7A2: F2        .byte con_F2_прыжок
+- - - - - 0x0227B2 11:A7A2: F2        .byte con_прыжок
 - - - - - 0x0227B3 11:A7A3: 8F A7     .word off_A78F
 off_A7A5:
 - - - - - 0x0227B5 11:A7A5: F7        .byte $F7
@@ -8194,7 +8199,7 @@ off_A7BF:
 - - - - - 0x0227D8 11:A7C8: 30        .byte $30    ; <ゃ>
 - - - - - 0x0227D9 11:A7C9: 99        .byte $99
 - - - - - 0x0227DA 11:A7CA: D7        .byte $D7
-- - - - - 0x0227DB 11:A7CB: F2        .byte con_F2_прыжок
+- - - - - 0x0227DB 11:A7CB: F2        .byte con_прыжок
 - - - - - 0x0227DC 11:A7CC: B1 A7     .word off_A7B1
 off_A7CE:
 - D - I - 0x0227DE 11:A7CE: F7        .byte $F7
@@ -8300,7 +8305,7 @@ off_A820:
 - - - - - 0x02283B 11:A82B: 31        .byte $31    ; <ゅ>
 - - - - - 0x02283C 11:A82C: 9E        .byte $9E
 - - - - - 0x02283D 11:A82D: C4        .byte $C4    ; <ビ>
-- - - - - 0x02283E 11:A82E: F2        .byte con_F2_прыжок
+- - - - - 0x02283E 11:A82E: F2        .byte con_прыжок
 - - - - - 0x02283F 11:A82F: 7B AA     .word off_AA7B
 - - - - - 0x022841 11:A831: F7        .byte $F7
 - - - - - 0x022842 11:A832: 44        .byte $44    ; <エ>
@@ -8308,7 +8313,7 @@ off_A820:
 - - - - - 0x022844 11:A834: 31        .byte $31    ; <ゅ>
 - - - - - 0x022845 11:A835: B0        .byte $B0    ; <び>
 - - - - - 0x022846 11:A836: C4        .byte $C4    ; <ビ>
-- - - - - 0x022847 11:A837: F2        .byte con_F2_прыжок
+- - - - - 0x022847 11:A837: F2        .byte con_прыжок
 - - - - - 0x022848 11:A838: 7B AA     .word off_AA7B
 - - - - - 0x02284A 11:A83A: F7        .byte $F7
 - - - - - 0x02284B 11:A83B: 44        .byte $44    ; <エ>
@@ -8316,7 +8321,7 @@ off_A820:
 - - - - - 0x02284D 11:A83D: 30        .byte $30    ; <ゃ>
 - - - - - 0x02284E 11:A83E: A0        .byte $A0    ; <が>
 - - - - - 0x02284F 11:A83F: C5        .byte $C5    ; <ブ>
-- - - - - 0x022850 11:A840: F2        .byte con_F2_прыжок
+- - - - - 0x022850 11:A840: F2        .byte con_прыжок
 - - - - - 0x022851 11:A841: 7B AA     .word off_AA7B
 - - - - - 0x022853 11:A843: F7        .byte $F7
 - - - - - 0x022854 11:A844: 44        .byte $44    ; <エ>
@@ -8324,7 +8329,7 @@ off_A820:
 - - - - - 0x022856 11:A846: 30        .byte $30    ; <ゃ>
 - - - - - 0x022857 11:A847: AA        .byte $AA    ; <だ>
 - - - - - 0x022858 11:A848: C5        .byte $C5    ; <ブ>
-- - - - - 0x022859 11:A849: F2        .byte con_F2_прыжок
+- - - - - 0x022859 11:A849: F2        .byte con_прыжок
 - - - - - 0x02285A 11:A84A: 7B AA     .word off_AA7B
 - - - - - 0x02285C 11:A84C: F7        .byte $F7
 - - - - - 0x02285D 11:A84D: 44        .byte $44    ; <エ>
@@ -8332,9 +8337,9 @@ off_A820:
 - - - - - 0x02285F 11:A84F: 30        .byte $30    ; <ゃ>
 - - - - - 0x022860 11:A850: B4        .byte $B4    ; <ガ>
 - - - - - 0x022861 11:A851: C6        .byte $C6    ; <ベ>
-- - - - - 0x022862 11:A852: F2        .byte con_F2_прыжок
+- - - - - 0x022862 11:A852: F2        .byte con_прыжок
 - - - - - 0x022863 11:A853: 7B AA     .word off_AA7B
-- - - - - 0x022865 11:A855: F2        .byte con_F2_прыжок
+- - - - - 0x022865 11:A855: F2        .byte con_прыжок
 - - - - - 0x022866 11:A856: 7E AA     .word off_AA7E
 off_A858:
 - D - I - 0x022868 11:A858: FA        .byte $FA
@@ -8439,7 +8444,7 @@ off_A8AB:
 - D - I - 0x0228CA 11:A8BA: FB        .byte $FB
 - - - - - 0x0228CB 11:A8BB: FA        .byte $FA
 - - - - - 0x0228CC 11:A8BC: 8F A8     .word off_A88F
-- - - - - 0x0228CE 11:A8BE: F2        .byte con_F2_прыжок
+- - - - - 0x0228CE 11:A8BE: F2        .byte con_прыжок
 - - - - - 0x0228CF 11:A8BF: A0 A8     .word off_A8A0
 off_A8C1:
 - D - I - 0x0228D1 11:A8C1: FA        .byte $FA
@@ -8453,7 +8458,7 @@ off_A8C1:
 - D - I - 0x0228DA 11:A8CA: 47        .byte $47    ; <キ>
 - D - I - 0x0228DB 11:A8CB: D1        .byte $D1    ; <ポ>
 - D - I - 0x0228DC 11:A8CC: 45        .byte $45    ; <オ>
-- D - I - 0x0228DD 11:A8CD: F2        .byte con_F2_прыжок
+- D - I - 0x0228DD 11:A8CD: F2        .byte con_прыжок
 - D - I - 0x0228DE 11:A8CE: EF AA     .word off_AAEF
 off_A8D0:
 - D - I - 0x0228E0 11:A8D0: F7        .byte $F7
@@ -8521,7 +8526,7 @@ off_A908:
 - - - - - 0x02291B 11:A90B: 30        .byte $30    ; <ゃ>
 - - - - - 0x02291C 11:A90C: B9        .byte $B9    ; <ザ>
 - - - - - 0x02291D 11:A90D: C8        .byte $C8    ; <ぱ>
-- - - - - 0x02291E 11:A90E: F2        .byte con_F2_прыжок
+- - - - - 0x02291E 11:A90E: F2        .byte con_прыжок
 - - - - - 0x02291F 11:A90F: EB A8     .word off_A8EB
 off_A911:
 - - - - - 0x022921 11:A911: F3        .byte $F3
@@ -8551,11 +8556,11 @@ off_A918:
 - - - - - 0x02293A 11:A92A: F0        .byte $F0
 - - - - - 0x02293B 11:A92B: D1        .byte $D1    ; <ポ>
 - - - - - 0x02293C 11:A92C: 45        .byte $45    ; <オ>
-- - - - - 0x02293D 11:A92D: F2        .byte con_F2_прыжок
+- - - - - 0x02293D 11:A92D: F2        .byte con_прыжок
 - - - - - 0x02293E 11:A92E: 18 AB     .word off_AB18
 - - - - - 0x022940 11:A930: FA        .byte $FA
 - - - - - 0x022941 11:A931: 08 A9     .word off_A908
-- - - - - 0x022943 11:A933: F2        .byte con_F2_прыжок
+- - - - - 0x022943 11:A933: F2        .byte con_прыжок
 - - - - - 0x022944 11:A934: 18 A9     .word off_A918
 off_A936:
 - D - I - 0x022946 11:A936: F3        .byte $F3
@@ -8599,31 +8604,31 @@ off_A936:
 - D - I - 0x02296C 11:A95C: 30        .byte $30    ; <ゃ>
 - D - I - 0x02296D 11:A95D: 91        .byte $91    ; <V>
 - D - I - 0x02296E 11:A95E: 98        .byte $98
-- D - I - 0x02296F 11:A95F: F2        .byte con_F2_прыжок
+- D - I - 0x02296F 11:A95F: F2        .byte con_прыжок
 - D - I - 0x022970 11:A960: C7 BB     .word off_BBC7
 - D - I - 0x022972 11:A962: 3C        .byte $3C    ; <9>
 - D - I - 0x022973 11:A963: 30        .byte $30    ; <ゃ>
 - D - I - 0x022974 11:A964: 96        .byte $96
 - D - I - 0x022975 11:A965: 98        .byte $98
-- D - I - 0x022976 11:A966: F2        .byte con_F2_прыжок
+- D - I - 0x022976 11:A966: F2        .byte con_прыжок
 - D - I - 0x022977 11:A967: C7 BB     .word off_BBC7
 - - - - - 0x022979 11:A969: 3C        .byte $3C    ; <9>
 - - - - - 0x02297A 11:A96A: 30        .byte $30    ; <ゃ>
 - - - - - 0x02297B 11:A96B: 97        .byte $97
 - - - - - 0x02297C 11:A96C: 98        .byte $98
-- - - - - 0x02297D 11:A96D: F2        .byte con_F2_прыжок
+- - - - - 0x02297D 11:A96D: F2        .byte con_прыжок
 - - - - - 0x02297E 11:A96E: C7 BB     .word off_BBC7
 - D - I - 0x022980 11:A970: 3C        .byte $3C    ; <9>
 - D - I - 0x022981 11:A971: 31        .byte $31    ; <ゅ>
 - D - I - 0x022982 11:A972: 9E        .byte $9E
 - D - I - 0x022983 11:A973: 9A        .byte $9A
-- D - I - 0x022984 11:A974: F2        .byte con_F2_прыжок
+- D - I - 0x022984 11:A974: F2        .byte con_прыжок
 - D - I - 0x022985 11:A975: C7 BB     .word off_BBC7
 - - - - - 0x022987 11:A977: 3C        .byte $3C    ; <9>
 - - - - - 0x022988 11:A978: 31        .byte $31    ; <ゅ>
 - - - - - 0x022989 11:A979: B0        .byte $B0    ; <び>
 - - - - - 0x02298A 11:A97A: 9A        .byte $9A
-- - - - - 0x02298B 11:A97B: F2        .byte con_F2_прыжок
+- - - - - 0x02298B 11:A97B: F2        .byte con_прыжок
 - - - - - 0x02298C 11:A97C: C7 BB     .word off_BBC7
 - D - I - 0x02298E 11:A97E: F3        .byte $F3
 - D - I - 0x02298F 11:A97F: AB        .byte $AB    ; <ぢ>
@@ -8633,7 +8638,7 @@ off_A936:
 - D - I - 0x022993 11:A983: 30        .byte $30    ; <ゃ>
 - D - I - 0x022994 11:A984: A3        .byte $A3    ; <げ>
 - D - I - 0x022995 11:A985: 98        .byte $98
-- D - I - 0x022996 11:A986: F2        .byte con_F2_прыжок
+- D - I - 0x022996 11:A986: F2        .byte con_прыжок
 - D - I - 0x022997 11:A987: C7 BB     .word off_BBC7
 off_A989:
 - D - I - 0x022999 11:A989: F7        .byte $F7
@@ -8642,169 +8647,169 @@ off_A989:
 - D - I - 0x02299C 11:A98C: 30        .byte $30    ; <ゃ>
 - D - I - 0x02299D 11:A98D: A3        .byte $A3    ; <げ>
 - D - I - 0x02299E 11:A98E: 4F        .byte $4F    ; <ソ>
-- D - I - 0x02299F 11:A98F: F2        .byte con_F2_прыжок
+- D - I - 0x02299F 11:A98F: F2        .byte con_прыжок
 - D - I - 0x0229A0 11:A990: C7 BB     .word off_BBC7
 - - - - - 0x0229A2 11:A992: 3C        .byte $3C    ; <9>
 - - - - - 0x0229A3 11:A993: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229A4 11:A994: AE        .byte $AE    ; <ど>
 - - - - - 0x0229A5 11:A995: 98        .byte $98
-- - - - - 0x0229A6 11:A996: F2        .byte con_F2_прыжок
+- - - - - 0x0229A6 11:A996: F2        .byte con_прыжок
 - - - - - 0x0229A7 11:A997: C7 BB     .word off_BBC7
 - D - I - 0x0229A9 11:A999: 3C        .byte $3C    ; <9>
 - D - I - 0x0229AA 11:A99A: 30        .byte $30    ; <ゃ>
 - D - I - 0x0229AB 11:A99B: A1        .byte $A1    ; <ぎ>
 - D - I - 0x0229AC 11:A99C: 99        .byte $99
-- D - I - 0x0229AD 11:A99D: F2        .byte con_F2_прыжок
+- D - I - 0x0229AD 11:A99D: F2        .byte con_прыжок
 - D - I - 0x0229AE 11:A99E: C7 BB     .word off_BBC7
 - - - - - 0x0229B0 11:A9A0: 3C        .byte $3C    ; <9>
 - - - - - 0x0229B1 11:A9A1: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229B2 11:A9A2: AF        .byte $AF    ; <ば>
 - - - - - 0x0229B3 11:A9A3: 99        .byte $99
-- - - - - 0x0229B4 11:A9A4: F2        .byte con_F2_прыжок
+- - - - - 0x0229B4 11:A9A4: F2        .byte con_прыжок
 - - - - - 0x0229B5 11:A9A5: C7 BB     .word off_BBC7
 - D - I - 0x0229B7 11:A9A7: 3C        .byte $3C    ; <9>
 - D - I - 0x0229B8 11:A9A8: 30        .byte $30    ; <ゃ>
 - D - I - 0x0229B9 11:A9A9: 98        .byte $98
 - D - I - 0x0229BA 11:A9AA: 99        .byte $99
-- D - I - 0x0229BB 11:A9AB: F2        .byte con_F2_прыжок
+- D - I - 0x0229BB 11:A9AB: F2        .byte con_прыжок
 - D - I - 0x0229BC 11:A9AC: C7 BB     .word off_BBC7
 - - - - - 0x0229BE 11:A9AE: 3C        .byte $3C    ; <9>
 - - - - - 0x0229BF 11:A9AF: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229C0 11:A9B0: 99        .byte $99
 - - - - - 0x0229C1 11:A9B1: 99        .byte $99
-- - - - - 0x0229C2 11:A9B2: F2        .byte con_F2_прыжок
+- - - - - 0x0229C2 11:A9B2: F2        .byte con_прыжок
 - - - - - 0x0229C3 11:A9B3: C7 BB     .word off_BBC7
 - D - I - 0x0229C5 11:A9B5: 3C        .byte $3C    ; <9>
 - D - I - 0x0229C6 11:A9B6: 30        .byte $30    ; <ゃ>
 - D - I - 0x0229C7 11:A9B7: 9F        .byte $9F
 - D - I - 0x0229C8 11:A9B8: 99        .byte $99
-- D - I - 0x0229C9 11:A9B9: F2        .byte con_F2_прыжок
+- D - I - 0x0229C9 11:A9B9: F2        .byte con_прыжок
 - D - I - 0x0229CA 11:A9BA: C7 BB     .word off_BBC7
 - - - - - 0x0229CC 11:A9BC: 3C        .byte $3C    ; <9>
 - - - - - 0x0229CD 11:A9BD: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229CE 11:A9BE: AD        .byte $AD    ; <で>
 - - - - - 0x0229CF 11:A9BF: 99        .byte $99
-- - - - - 0x0229D0 11:A9C0: F2        .byte con_F2_прыжок
+- - - - - 0x0229D0 11:A9C0: F2        .byte con_прыжок
 - - - - - 0x0229D1 11:A9C1: C7 BB     .word off_BBC7
 - D - I - 0x0229D3 11:A9C3: 3C        .byte $3C    ; <9>
 - D - I - 0x0229D4 11:A9C4: 30        .byte $30    ; <ゃ>
 - D - I - 0x0229D5 11:A9C5: A0        .byte $A0    ; <が>
 - D - I - 0x0229D6 11:A9C6: E5        .byte $E5
-- D - I - 0x0229D7 11:A9C7: F2        .byte con_F2_прыжок
+- D - I - 0x0229D7 11:A9C7: F2        .byte con_прыжок
 - D - I - 0x0229D8 11:A9C8: C7 BB     .word off_BBC7
 - D - I - 0x0229DA 11:A9CA: 3C        .byte $3C    ; <9>
 - D - I - 0x0229DB 11:A9CB: 30        .byte $30    ; <ゃ>
 - D - I - 0x0229DC 11:A9CC: AA        .byte $AA    ; <だ>
 - D - I - 0x0229DD 11:A9CD: E5        .byte $E5
-- D - I - 0x0229DE 11:A9CE: F2        .byte con_F2_прыжок
+- D - I - 0x0229DE 11:A9CE: F2        .byte con_прыжок
 - D - I - 0x0229DF 11:A9CF: C7 BB     .word off_BBC7
 - D - I - 0x0229E1 11:A9D1: 3C        .byte $3C    ; <9>
 - D - I - 0x0229E2 11:A9D2: 30        .byte $30    ; <ゃ>
 - D - I - 0x0229E3 11:A9D3: 9C        .byte $9C
 - D - I - 0x0229E4 11:A9D4: 99        .byte $99
-- D - I - 0x0229E5 11:A9D5: F2        .byte con_F2_прыжок
+- D - I - 0x0229E5 11:A9D5: F2        .byte con_прыжок
 - D - I - 0x0229E6 11:A9D6: C7 BB     .word off_BBC7
 - - - - - 0x0229E8 11:A9D8: 3C        .byte $3C    ; <9>
 - - - - - 0x0229E9 11:A9D9: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229EA 11:A9DA: AB        .byte $AB    ; <ぢ>
 - - - - - 0x0229EB 11:A9DB: 99        .byte $99
-- - - - - 0x0229EC 11:A9DC: F2        .byte con_F2_прыжок
+- - - - - 0x0229EC 11:A9DC: F2        .byte con_прыжок
 - - - - - 0x0229ED 11:A9DD: C7 BB     .word off_BBC7
 - - - - - 0x0229EF 11:A9DF: 3C        .byte $3C    ; <9>
 - - - - - 0x0229F0 11:A9E0: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229F1 11:A9E1: 9A        .byte $9A
 - - - - - 0x0229F2 11:A9E2: 98        .byte $98
-- - - - - 0x0229F3 11:A9E3: F2        .byte con_F2_прыжок
+- - - - - 0x0229F3 11:A9E3: F2        .byte con_прыжок
 - - - - - 0x0229F4 11:A9E4: C7 BB     .word off_BBC7
 - - - - - 0x0229F6 11:A9E6: 3C        .byte $3C    ; <9>
 - - - - - 0x0229F7 11:A9E7: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229F8 11:A9E8: 9B        .byte $9B
 - - - - - 0x0229F9 11:A9E9: 98        .byte $98
-- - - - - 0x0229FA 11:A9EA: F2        .byte con_F2_прыжок
+- - - - - 0x0229FA 11:A9EA: F2        .byte con_прыжок
 - - - - - 0x0229FB 11:A9EB: C7 BB     .word off_BBC7
 - - - - - 0x0229FD 11:A9ED: 3C        .byte $3C    ; <9>
 - - - - - 0x0229FE 11:A9EE: 30        .byte $30    ; <ゃ>
 - - - - - 0x0229FF 11:A9EF: A2        .byte $A2    ; <ぐ>
 - - - - - 0x022A00 11:A9F0: 98        .byte $98
-- - - - - 0x022A01 11:A9F1: F2        .byte con_F2_прыжок
+- - - - - 0x022A01 11:A9F1: F2        .byte con_прыжок
 - - - - - 0x022A02 11:A9F2: C7 BB     .word off_BBC7
 - - - - - 0x022A04 11:A9F4: 3C        .byte $3C    ; <9>
 - - - - - 0x022A05 11:A9F5: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A06 11:A9F6: B1        .byte $B1    ; <ぶ>
 - - - - - 0x022A07 11:A9F7: 98        .byte $98
-- - - - - 0x022A08 11:A9F8: F2        .byte con_F2_прыжок
+- - - - - 0x022A08 11:A9F8: F2        .byte con_прыжок
 - - - - - 0x022A09 11:A9F9: C7 BB     .word off_BBC7
 - - - - - 0x022A0B 11:A9FB: 3C        .byte $3C    ; <9>
 - - - - - 0x022A0C 11:A9FC: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A0D 11:A9FD: BC        .byte $BC    ; <ゼ>
 - - - - - 0x022A0E 11:A9FE: 9A        .byte $9A
-- - - - - 0x022A0F 11:A9FF: F2        .byte con_F2_прыжок
+- - - - - 0x022A0F 11:A9FF: F2        .byte con_прыжок
 - - - - - 0x022A10 11:AA00: C7 BB     .word off_BBC7
 - - - - - 0x022A12 11:AA02: 3C        .byte $3C    ; <9>
 - - - - - 0x022A13 11:AA03: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A14 11:AA04: A9        .byte $A9    ; <ぞ>
 - - - - - 0x022A15 11:AA05: 99        .byte $99
-- - - - - 0x022A16 11:AA06: F2        .byte con_F2_прыжок
+- - - - - 0x022A16 11:AA06: F2        .byte con_прыжок
 - - - - - 0x022A17 11:AA07: C7 BB     .word off_BBC7
 - D - I - 0x022A19 11:AA09: 3C        .byte $3C    ; <9>
 - D - I - 0x022A1A 11:AA0A: 30        .byte $30    ; <ゃ>
 - D - I - 0x022A1B 11:AA0B: BB        .byte $BB    ; <ズ>
 - D - I - 0x022A1C 11:AA0C: 99        .byte $99
-- D - I - 0x022A1D 11:AA0D: F2        .byte con_F2_прыжок
+- D - I - 0x022A1D 11:AA0D: F2        .byte con_прыжок
 - D - I - 0x022A1E 11:AA0E: C7 BB     .word off_BBC7
 - D - I - 0x022A20 11:AA10: 3C        .byte $3C    ; <9>
 - D - I - 0x022A21 11:AA11: 30        .byte $30    ; <ゃ>
 - D - I - 0x022A22 11:AA12: B8        .byte $B8    ; <ゴ>
 - D - I - 0x022A23 11:AA13: 9A        .byte $9A
-- D - I - 0x022A24 11:AA14: F2        .byte con_F2_прыжок
+- D - I - 0x022A24 11:AA14: F2        .byte con_прыжок
 - D - I - 0x022A25 11:AA15: C7 BB     .word off_BBC7
 - - - - - 0x022A27 11:AA17: 3C        .byte $3C    ; <9>
 - - - - - 0x022A28 11:AA18: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A29 11:AA19: B3        .byte $B3    ; <ぼ>
 - - - - - 0x022A2A 11:AA1A: 99        .byte $99
-- - - - - 0x022A2B 11:AA1B: F2        .byte con_F2_прыжок
+- - - - - 0x022A2B 11:AA1B: F2        .byte con_прыжок
 - - - - - 0x022A2C 11:AA1C: C7 BB     .word off_BBC7
 - D - I - 0x022A2E 11:AA1E: 3C        .byte $3C    ; <9>
 - D - I - 0x022A2F 11:AA1F: 30        .byte $30    ; <ゃ>
 - D - I - 0x022A30 11:AA20: BA        .byte $BA    ; <ジ>
 - D - I - 0x022A31 11:AA21: 98        .byte $98
-- D - I - 0x022A32 11:AA22: F2        .byte con_F2_прыжок
+- D - I - 0x022A32 11:AA22: F2        .byte con_прыжок
 - D - I - 0x022A33 11:AA23: C7 BB     .word off_BBC7
 - D - I - 0x022A35 11:AA25: 3C        .byte $3C    ; <9>
 - D - I - 0x022A36 11:AA26: 30        .byte $30    ; <ゃ>
 - D - I - 0x022A37 11:AA27: B7        .byte $B7    ; <ゲ>
 - D - I - 0x022A38 11:AA28: 98        .byte $98
-- D - I - 0x022A39 11:AA29: F2        .byte con_F2_прыжок
+- D - I - 0x022A39 11:AA29: F2        .byte con_прыжок
 - D - I - 0x022A3A 11:AA2A: C7 BB     .word off_BBC7
 - - - - - 0x022A3C 11:AA2C: 3C        .byte $3C    ; <9>
 - - - - - 0x022A3D 11:AA2D: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A3E 11:AA2E: B6        .byte $B6    ; <グ>
 - - - - - 0x022A3F 11:AA2F: 99        .byte $99
-- - - - - 0x022A40 11:AA30: F2        .byte con_F2_прыжок
+- - - - - 0x022A40 11:AA30: F2        .byte con_прыжок
 - - - - - 0x022A41 11:AA31: C7 BB     .word off_BBC7
 - D - I - 0x022A43 11:AA33: 3C        .byte $3C    ; <9>
 - D - I - 0x022A44 11:AA34: 30        .byte $30    ; <ゃ>
 - D - I - 0x022A45 11:AA35: B5        .byte $B5    ; <ギ>
 - D - I - 0x022A46 11:AA36: 98        .byte $98
-- D - I - 0x022A47 11:AA37: F2        .byte con_F2_прыжок
+- D - I - 0x022A47 11:AA37: F2        .byte con_прыжок
 - D - I - 0x022A48 11:AA38: C7 BB     .word off_BBC7
 - - - - - 0x022A4A 11:AA3A: 3C        .byte $3C    ; <9>
 - - - - - 0x022A4B 11:AA3B: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A4C 11:AA3C: B4        .byte $B4    ; <ガ>
 - - - - - 0x022A4D 11:AA3D: 9A        .byte $9A
-- - - - - 0x022A4E 11:AA3E: F2        .byte con_F2_прыжок
+- - - - - 0x022A4E 11:AA3E: F2        .byte con_прыжок
 - - - - - 0x022A4F 11:AA3F: C7 BB     .word off_BBC7
 - - - - - 0x022A51 11:AA41: 3C        .byte $3C    ; <9>
 - - - - - 0x022A52 11:AA42: 30        .byte $30    ; <ゃ>
 - - - - - 0x022A53 11:AA43: B2        .byte $B2    ; <べ>
 - - - - - 0x022A54 11:AA44: 9A        .byte $9A
-- - - - - 0x022A55 11:AA45: F2        .byte con_F2_прыжок
+- - - - - 0x022A55 11:AA45: F2        .byte con_прыжок
 - - - - - 0x022A56 11:AA46: C7 BB     .word off_BBC7
 - D - I - 0x022A58 11:AA48: 3C        .byte $3C    ; <9>
 - D - I - 0x022A59 11:AA49: 30        .byte $30    ; <ゃ>
 - D - I - 0x022A5A 11:AA4A: B9        .byte $B9    ; <ザ>
 - D - I - 0x022A5B 11:AA4B: 99        .byte $99
-- D - I - 0x022A5C 11:AA4C: F2        .byte con_F2_прыжок
+- D - I - 0x022A5C 11:AA4C: F2        .byte con_прыжок
 - D - I - 0x022A5D 11:AA4D: C7 BB     .word off_BBC7
 off_AA4F:
 - D - I - 0x022A5F 11:AA4F: F6        .byte $F6
@@ -8823,7 +8828,7 @@ off_AA4F:
 - D - I - 0x022A6C 11:AA5C: 6B        .byte $6B    ; <ロ>
 - D - I - 0x022A6D 11:AA5D: F0        .byte $F0
 - D - I - 0x022A6E 11:AA5E: F0        .byte $F0
-- D - I - 0x022A6F 11:AA5F: F2        .byte con_F2_прыжок
+- D - I - 0x022A6F 11:AA5F: F2        .byte con_прыжок
 - D - I - 0x022A70 11:AA60: FE A7     .word off_A7FE
 
 
@@ -8886,7 +8891,7 @@ off_AA89:
 - - - - - 0x022AA6 11:AA96: 31        .byte $31    ; <ゅ>
 - - - - - 0x022AA7 11:AA97: B0        .byte $B0    ; <び>
 - - - - - 0x022AA8 11:AA98: C4        .byte $C4    ; <ビ>
-- - - - - 0x022AA9 11:AA99: F2        .byte con_F2_прыжок
+- - - - - 0x022AA9 11:AA99: F2        .byte con_прыжок
 - - - - - 0x022AAA 11:AA9A: 7B AA     .word off_AA7B
 - - - - - 0x022AAC 11:AA9C: F7        .byte $F7
 - - - - - 0x022AAD 11:AA9D: 44        .byte $44    ; <エ>
@@ -8894,7 +8899,7 @@ off_AA89:
 - - - - - 0x022AAF 11:AA9F: 30        .byte $30    ; <ゃ>
 - - - - - 0x022AB0 11:AAA0: A0        .byte $A0    ; <が>
 - - - - - 0x022AB1 11:AAA1: C5        .byte $C5    ; <ブ>
-- - - - - 0x022AB2 11:AAA2: F2        .byte con_F2_прыжок
+- - - - - 0x022AB2 11:AAA2: F2        .byte con_прыжок
 - - - - - 0x022AB3 11:AAA3: 7B AA     .word off_AA7B
 - - - - - 0x022AB5 11:AAA5: F7        .byte $F7
 - - - - - 0x022AB6 11:AAA6: 44        .byte $44    ; <エ>
@@ -8902,7 +8907,7 @@ off_AA89:
 - - - - - 0x022AB8 11:AAA8: 30        .byte $30    ; <ゃ>
 - - - - - 0x022AB9 11:AAA9: AA        .byte $AA    ; <だ>
 - - - - - 0x022ABA 11:AAAA: C5        .byte $C5    ; <ブ>
-- - - - - 0x022ABB 11:AAAB: F2        .byte con_F2_прыжок
+- - - - - 0x022ABB 11:AAAB: F2        .byte con_прыжок
 - - - - - 0x022ABC 11:AAAC: 7B AA     .word off_AA7B
 - - - - - 0x022ABE 11:AAAE: F7        .byte $F7
 - - - - - 0x022ABF 11:AAAF: 44        .byte $44    ; <エ>
@@ -8910,7 +8915,7 @@ off_AA89:
 - - - - - 0x022AC1 11:AAB1: 30        .byte $30    ; <ゃ>
 - - - - - 0x022AC2 11:AAB2: B4        .byte $B4    ; <ガ>
 - - - - - 0x022AC3 11:AAB3: C6        .byte $C6    ; <ベ>
-- - - - - 0x022AC4 11:AAB4: F2        .byte con_F2_прыжок
+- - - - - 0x022AC4 11:AAB4: F2        .byte con_прыжок
 - - - - - 0x022AC5 11:AAB5: 7B AA     .word off_AA7B
 off_AAB7:
 - D - I - 0x022AC7 11:AAB7: FA        .byte $FA
@@ -8952,7 +8957,7 @@ off_AAD2:
 - D - I - 0x022AEC 11:AADC: FB        .byte $FB
 - - - - - 0x022AED 11:AADD: FA        .byte $FA
 - - - - - 0x022AEE 11:AADE: 8F A8     .word off_A88F
-- - - - - 0x022AF0 11:AAE0: F2        .byte con_F2_прыжок
+- - - - - 0x022AF0 11:AAE0: F2        .byte con_прыжок
 - - - - - 0x022AF1 11:AAE1: D2 AA     .word off_AAD2
 off_AAE3:
 - D - I - 0x022AF3 11:AAE3: FA        .byte $FA
@@ -9031,7 +9036,7 @@ off_AB18:
 - - - - - 0x022B3A 11:AB2A: FB        .byte $FB
 - - - - - 0x022B3B 11:AB2B: FA        .byte $FA
 - - - - - 0x022B3C 11:AB2C: 08 A9     .word off_A908
-- - - - - 0x022B3E 11:AB2E: F2        .byte con_F2_прыжок
+- - - - - 0x022B3E 11:AB2E: F2        .byte con_прыжок
 - - - - - 0x022B3F 11:AB2F: 06 AB     .word off_AB06
 off_AB31:
 - D - I - 0x022B41 11:AB31: F5        .byte $F5
@@ -9108,7 +9113,7 @@ off_AB6B:
 - D - I - 0x022B85 11:AB75: A3        .byte $A3    ; <げ>
 - D - I - 0x022B86 11:AB76: FA        .byte $FA
 - D - I - 0x022B87 11:AB77: C7 BB     .word off_BBC7
-- D - I - 0x022B89 11:AB79: F2        .byte con_F2_прыжок
+- D - I - 0x022B89 11:AB79: F2        .byte con_прыжок
 - D - I - 0x022B8A 11:AB7A: 58 AB     .word off_AB58
 off_AB7C:
 - D - I - 0x022B8C 11:AB7C: F7        .byte $F7
@@ -9222,13 +9227,13 @@ off_ABD4:
 - D - I - 0x022BF3 11:ABE3: 25        .byte $25    ; <ゆ>
 - D - I - 0x022BF4 11:ABE4: 63        .byte $63    ; <モ>
 - D - I - 0x022BF5 11:ABE5: F0        .byte $F0
-- D - I - 0x022BF6 11:ABE6: F2        .byte con_F2_прыжок
+- D - I - 0x022BF6 11:ABE6: F2        .byte con_прыжок
 - D - I - 0x022BF7 11:ABE7: 6B AB     .word off_AB6B
 - - - - - 0x022BF9 11:ABE9: 3C        .byte $3C    ; <9>
 - - - - - 0x022BFA 11:ABEA: 30        .byte $30    ; <ゃ>
 - - - - - 0x022BFB 11:ABEB: 9B        .byte $9B
 - - - - - 0x022BFC 11:ABEC: A5        .byte $A5    ; <ざ>
-- - - - - 0x022BFD 11:ABED: F2        .byte con_F2_прыжок
+- - - - - 0x022BFD 11:ABED: F2        .byte con_прыжок
 - - - - - 0x022BFE 11:ABEE: D4 AB     .word off_ABD4
 off_ABF0:
 - D - I - 0x022C00 11:ABF0: F3        .byte $F3
@@ -9273,13 +9278,13 @@ off_ABF8:
 - D - I - 0x022C26 11:AC16: 25        .byte $25    ; <ゆ>
 - D - I - 0x022C27 11:AC17: 63        .byte $63    ; <モ>
 - D - I - 0x022C28 11:AC18: F0        .byte $F0
-- D - I - 0x022C29 11:AC19: F2        .byte con_F2_прыжок
+- D - I - 0x022C29 11:AC19: F2        .byte con_прыжок
 - D - I - 0x022C2A 11:AC1A: 6B AB     .word off_AB6B
 - D - I - 0x022C2C 11:AC1C: 3C        .byte $3C    ; <9>
 - D - I - 0x022C2D 11:AC1D: 30        .byte $30    ; <ゃ>
 - D - I - 0x022C2E 11:AC1E: AD        .byte $AD    ; <で>
 - D - I - 0x022C2F 11:AC1F: A3        .byte $A3    ; <げ>
-- D - I - 0x022C30 11:AC20: F2        .byte con_F2_прыжок
+- D - I - 0x022C30 11:AC20: F2        .byte con_прыжок
 - D - I - 0x022C31 11:AC21: F8 AB     .word off_ABF8
 off_AC23:
 - D - I - 0x022C33 11:AC23: F3        .byte $F3
@@ -9313,13 +9318,13 @@ off_AC2B:
 - D - I - 0x022C50 11:AC40: 25        .byte $25    ; <ゆ>
 - D - I - 0x022C51 11:AC41: 63        .byte $63    ; <モ>
 - D - I - 0x022C52 11:AC42: F0        .byte $F0
-- D - I - 0x022C53 11:AC43: F2        .byte con_F2_прыжок
+- D - I - 0x022C53 11:AC43: F2        .byte con_прыжок
 - D - I - 0x022C54 11:AC44: 6B AB     .word off_AB6B
 - D - I - 0x022C56 11:AC46: 3C        .byte $3C    ; <9>
 - D - I - 0x022C57 11:AC47: 30        .byte $30    ; <ゃ>
 - D - I - 0x022C58 11:AC48: AF        .byte $AF    ; <ば>
 - D - I - 0x022C59 11:AC49: B1        .byte $B1    ; <ぶ>
-- D - I - 0x022C5A 11:AC4A: F2        .byte con_F2_прыжок
+- D - I - 0x022C5A 11:AC4A: F2        .byte con_прыжок
 - D - I - 0x022C5B 11:AC4B: 2B AC     .word off_AC2B
 off_AC4D:
 - D - I - 0x022C5D 11:AC4D: F3        .byte $F3
@@ -9344,13 +9349,13 @@ off_AC55:
 - D - I - 0x022C71 11:AC61: 25        .byte $25    ; <ゆ>
 - D - I - 0x022C72 11:AC62: 63        .byte $63    ; <モ>
 - D - I - 0x022C73 11:AC63: F0        .byte $F0
-- D - I - 0x022C74 11:AC64: F2        .byte con_F2_прыжок
+- D - I - 0x022C74 11:AC64: F2        .byte con_прыжок
 - D - I - 0x022C75 11:AC65: 6B AB     .word off_AB6B
 - D - I - 0x022C77 11:AC67: 3C        .byte $3C    ; <9>
 - D - I - 0x022C78 11:AC68: 31        .byte $31    ; <ゅ>
 - D - I - 0x022C79 11:AC69: B0        .byte $B0    ; <び>
 - D - I - 0x022C7A 11:AC6A: B2        .byte $B2    ; <べ>
-- D - I - 0x022C7B 11:AC6B: F2        .byte con_F2_прыжок
+- D - I - 0x022C7B 11:AC6B: F2        .byte con_прыжок
 - D - I - 0x022C7C 11:AC6C: 55 AC     .word off_AC55
 off_AC6E:
 - D - I - 0x022C7E 11:AC6E: F3        .byte $F3
@@ -9397,13 +9402,13 @@ off_AC7A:
 - D - I - 0x022CA6 11:AC96: 25        .byte $25    ; <ゆ>
 - D - I - 0x022CA7 11:AC97: 63        .byte $63    ; <モ>
 - D - I - 0x022CA8 11:AC98: F0        .byte $F0
-- D - I - 0x022CA9 11:AC99: F2        .byte con_F2_прыжок
+- D - I - 0x022CA9 11:AC99: F2        .byte con_прыжок
 - D - I - 0x022CAA 11:AC9A: 6B AB     .word off_AB6B
 - D - I - 0x022CAC 11:AC9C: 78        .byte $78    ; <?>
 - D - I - 0x022CAD 11:AC9D: 31        .byte $31    ; <ゅ>
 - D - I - 0x022CAE 11:AC9E: B0        .byte $B0    ; <び>
 - D - I - 0x022CAF 11:AC9F: B3        .byte $B3    ; <ぼ>
-- D - I - 0x022CB0 11:ACA0: F2        .byte con_F2_прыжок
+- D - I - 0x022CB0 11:ACA0: F2        .byte con_прыжок
 - D - I - 0x022CB1 11:ACA1: 7A AC     .word off_AC7A
 - D - I - 0x022CB3 11:ACA3: F3        .byte $F3
 - D - I - 0x022CB4 11:ACA4: B8        .byte $B8    ; <ゴ>
@@ -9415,7 +9420,7 @@ off_AC7A:
 - D - I - 0x022CBA 11:ACAA: 31        .byte $31    ; <ゅ>
 - D - I - 0x022CBB 11:ACAB: 9E        .byte $9E
 - D - I - 0x022CBC 11:ACAC: 9D        .byte $9D
-- D - I - 0x022CBD 11:ACAD: F2        .byte con_F2_прыжок
+- D - I - 0x022CBD 11:ACAD: F2        .byte con_прыжок
 - D - I - 0x022CBE 11:ACAE: 7A AC     .word off_AC7A
 - D - I - 0x022CC0 11:ACB0: F7        .byte $F7
 - D - I - 0x022CC1 11:ACB1: 44        .byte $44    ; <エ>
@@ -9423,7 +9428,7 @@ off_AC7A:
 - D - I - 0x022CC3 11:ACB3: 31        .byte $31    ; <ゅ>
 - D - I - 0x022CC4 11:ACB4: B0        .byte $B0    ; <び>
 - D - I - 0x022CC5 11:ACB5: 9D        .byte $9D
-- D - I - 0x022CC6 11:ACB6: F2        .byte con_F2_прыжок
+- D - I - 0x022CC6 11:ACB6: F2        .byte con_прыжок
 - D - I - 0x022CC7 11:ACB7: 7A AC     .word off_AC7A
 off_ACB9:
 - D - I - 0x022CC9 11:ACB9: F5        .byte $F5
@@ -9513,7 +9518,7 @@ off_AD0C:
 - D - I - 0x022D1C 11:AD0C: F5        .byte $F5
 - D - I - 0x022D1D 11:AD0D: FA        .byte $FA
 - D - I - 0x022D1E 11:AD0E: 13 AD     .word off_AD13
-- D - I - 0x022D20 11:AD10: F2        .byte con_F2_прыжок
+- D - I - 0x022D20 11:AD10: F2        .byte con_прыжок
 - D - I - 0x022D21 11:AD11: A7 B0     .word off_B0A7
 off_AD13:
 - D - I - 0x022D23 11:AD13: F7        .byte $F7
@@ -9570,7 +9575,7 @@ off_AD25:
 - D - I - 0x022D56 11:AD46: 30        .byte $30    ; <ゃ>
 - D - I - 0x022D57 11:AD47: AA        .byte $AA    ; <だ>
 - D - I - 0x022D58 11:AD48: B9        .byte $B9    ; <ザ>
-- D - I - 0x022D59 11:AD49: F2        .byte con_F2_прыжок
+- D - I - 0x022D59 11:AD49: F2        .byte con_прыжок
 - D - I - 0x022D5A 11:AD4A: 25 AD     .word off_AD25
 off_AD4C:
 - D - I - 0x022D5C 11:AD4C: FA        .byte $FA
@@ -9586,7 +9591,7 @@ off_AD4C:
 - D - I - 0x022D68 11:AD58: 25        .byte $25    ; <ゆ>
 - D - I - 0x022D69 11:AD59: 63        .byte $63    ; <モ>
 - D - I - 0x022D6A 11:AD5A: F0        .byte $F0
-- D - I - 0x022D6B 11:AD5B: F2        .byte con_F2_прыжок
+- D - I - 0x022D6B 11:AD5B: F2        .byte con_прыжок
 - D - I - 0x022D6C 11:AD5C: 6B AB     .word off_AB6B
 off_AD5E:
 - D - I - 0x022D6E 11:AD5E: FA        .byte $FA
@@ -9654,13 +9659,13 @@ off_AD89:
 - D - I - 0x022DAE 11:AD9E: 25        .byte $25    ; <ゆ>
 - D - I - 0x022DAF 11:AD9F: 63        .byte $63    ; <モ>
 - D - I - 0x022DB0 11:ADA0: F0        .byte $F0
-- D - I - 0x022DB1 11:ADA1: F2        .byte con_F2_прыжок
+- D - I - 0x022DB1 11:ADA1: F2        .byte con_прыжок
 - D - I - 0x022DB2 11:ADA2: 6B AB     .word off_AB6B
 - D - I - 0x022DB4 11:ADA4: 3C        .byte $3C    ; <9>
 - D - I - 0x022DB5 11:ADA5: 30        .byte $30    ; <ゃ>
 - D - I - 0x022DB6 11:ADA6: BB        .byte $BB    ; <ズ>
 - D - I - 0x022DB7 11:ADA7: BA        .byte $BA    ; <ジ>
-- D - I - 0x022DB8 11:ADA8: F2        .byte con_F2_прыжок
+- D - I - 0x022DB8 11:ADA8: F2        .byte con_прыжок
 - D - I - 0x022DB9 11:ADA9: 89 AD     .word off_AD89
 off_ADAB:
 - D - I - 0x022DBB 11:ADAB: 3C        .byte $3C    ; <9>
@@ -9689,7 +9694,7 @@ off_ADAB:
 - D - I - 0x022DD4 11:ADC4: 25        .byte $25    ; <ゆ>
 - D - I - 0x022DD5 11:ADC5: 63        .byte $63    ; <モ>
 - D - I - 0x022DD6 11:ADC6: F0        .byte $F0
-- D - I - 0x022DD7 11:ADC7: F2        .byte con_F2_прыжок
+- D - I - 0x022DD7 11:ADC7: F2        .byte con_прыжок
 - D - I - 0x022DD8 11:ADC8: 6B AB     .word off_AB6B
 off_ADCA:
 - D - I - 0x022DDA 11:ADCA: FA        .byte $FA
@@ -9705,7 +9710,7 @@ off_ADCA:
 - D - I - 0x022DE6 11:ADD6: 25        .byte $25    ; <ゆ>
 - D - I - 0x022DE7 11:ADD7: 63        .byte $63    ; <モ>
 - D - I - 0x022DE8 11:ADD8: F0        .byte $F0
-- D - I - 0x022DE9 11:ADD9: F2        .byte con_F2_прыжок
+- D - I - 0x022DE9 11:ADD9: F2        .byte con_прыжок
 - D - I - 0x022DEA 11:ADDA: 6B AB     .word off_AB6B
 off_ADDC:
 - D - I - 0x022DEC 11:ADDC: 3C        .byte $3C    ; <9>
@@ -9732,7 +9737,7 @@ off_ADDC:
 - D - I - 0x022E03 11:ADF3: 25        .byte $25    ; <ゆ>
 - D - I - 0x022E04 11:ADF4: 63        .byte $63    ; <モ>
 - D - I - 0x022E05 11:ADF5: F0        .byte $F0
-- D - I - 0x022E06 11:ADF6: F2        .byte con_F2_прыжок
+- D - I - 0x022E06 11:ADF6: F2        .byte con_прыжок
 - D - I - 0x022E07 11:ADF7: 6B AB     .word off_AB6B
 off_ADF9:
 - D - I - 0x022E09 11:ADF9: 3C        .byte $3C    ; <9>
@@ -9752,7 +9757,7 @@ off_ADF9:
 - D - I - 0x022E19 11:AE09: 25        .byte $25    ; <ゆ>
 - D - I - 0x022E1A 11:AE0A: 63        .byte $63    ; <モ>
 - D - I - 0x022E1B 11:AE0B: F0        .byte $F0
-- D - I - 0x022E1C 11:AE0C: F2        .byte con_F2_прыжок
+- D - I - 0x022E1C 11:AE0C: F2        .byte con_прыжок
 - D - I - 0x022E1D 11:AE0D: 6B AB     .word off_AB6B
 off_AE0F:
 - D - I - 0x022E1F 11:AE0F: 3C        .byte $3C    ; <9>
@@ -9788,7 +9793,7 @@ off_AE0F:
 - D - I - 0x022E3E 11:AE2E: 25        .byte $25    ; <ゆ>
 - D - I - 0x022E3F 11:AE2F: 63        .byte $63    ; <モ>
 - D - I - 0x022E40 11:AE30: F0        .byte $F0
-- D - I - 0x022E41 11:AE31: F2        .byte con_F2_прыжок
+- D - I - 0x022E41 11:AE31: F2        .byte con_прыжок
 - D - I - 0x022E42 11:AE32: 6B AB     .word off_AB6B
 off_AE34:
 - D - I - 0x022E44 11:AE34: F7        .byte $F7
@@ -9811,7 +9816,7 @@ off_AE34:
 - D - I - 0x022E56 11:AE46: 25        .byte $25    ; <ゆ>
 - D - I - 0x022E57 11:AE47: 63        .byte $63    ; <モ>
 - D - I - 0x022E58 11:AE48: F0        .byte $F0
-- D - I - 0x022E59 11:AE49: F2        .byte con_F2_прыжок
+- D - I - 0x022E59 11:AE49: F2        .byte con_прыжок
 - D - I - 0x022E5A 11:AE4A: 6B AB     .word off_AB6B
 off_AE4C:
 - D - I - 0x022E5C 11:AE4C: F3        .byte $F3
@@ -9949,7 +9954,7 @@ off_AE96:
 - D - I - 0x022EDE 11:AECE: 12        .byte $12    ; <つ>
 - D - I - 0x022EDF 11:AECF: E1        .byte $E1
 - D - I - 0x022EE0 11:AED0: AF        .byte $AF    ; <ば>
-- D - I - 0x022EE1 11:AED1: F2        .byte con_F2_прыжок
+- D - I - 0x022EE1 11:AED1: F2        .byte con_прыжок
 - D - I - 0x022EE2 11:AED2: 96 AE     .word off_AE96
 off_AED4:
 - D - I - 0x022EE4 11:AED4: F4        .byte $F4
@@ -10108,7 +10113,7 @@ off_AF59:
 - D - I - 0x022F7D 11:AF6D: 24        .byte $24    ; <や>
 - D - I - 0x022F7E 11:AF6E: 66        .byte $66    ; <ヨ>
 - D - I - 0x022F7F 11:AF6F: F0        .byte $F0
-- D - I - 0x022F80 11:AF70: F2        .byte con_F2_прыжок
+- D - I - 0x022F80 11:AF70: F2        .byte con_прыжок
 - D - I - 0x022F81 11:AF71: 6B AB     .word off_AB6B
 off_AF73:
 - D - I - 0x022F83 11:AF73: F6        .byte $F6
@@ -10139,7 +10144,7 @@ off_AF88:
 - D - I - 0x022F9A 11:AF8A: 30        .byte $30    ; <ゃ>
 - D - I - 0x022F9B 11:AF8B: AD        .byte $AD    ; <で>
 - D - I - 0x022F9C 11:AF8C: C2        .byte $C2    ; <ド>
-- D - I - 0x022F9D 11:AF8D: F2        .byte con_F2_прыжок
+- D - I - 0x022F9D 11:AF8D: F2        .byte con_прыжок
 - D - I - 0x022F9E 11:AF8E: 78 AF     .word off_AF78
 off_AF90:
 - D - I - 0x022FA0 11:AF90: F3        .byte $F3
@@ -10159,11 +10164,11 @@ off_AF97:
 - D - I - 0x022FAE 11:AF9E: 24        .byte $24    ; <や>
 - D - I - 0x022FAF 11:AF9F: 66        .byte $66    ; <ヨ>
 - D - I - 0x022FB0 11:AFA0: F0        .byte $F0
-- D - I - 0x022FB1 11:AFA1: F2        .byte con_F2_прыжок
+- D - I - 0x022FB1 11:AFA1: F2        .byte con_прыжок
 - D - I - 0x022FB2 11:AFA2: 6B AB     .word off_AB6B
 - D - I - 0x022FB4 11:AFA4: FA        .byte $FA
 - D - I - 0x022FB5 11:AFA5: 88 AF     .word off_AF88
-- D - I - 0x022FB7 11:AFA7: F2        .byte con_F2_прыжок
+- D - I - 0x022FB7 11:AFA7: F2        .byte con_прыжок
 - D - I - 0x022FB8 11:AFA8: 97 AF     .word off_AF97
 off_AFAA:
 - D - I - 0x022FBA 11:AFAA: F5        .byte $F5
@@ -10238,7 +10243,7 @@ off_AFE5:
 - D - I - 0x022FFB 11:AFEB: 49        .byte $49    ; <ケ>
 - D - I - 0x022FFC 11:AFEC: FB        .byte $FB
 off_AFED:
-- D - I - 0x022FFD 11:AFED: F2        .byte con_F2_прыжок
+- D - I - 0x022FFD 11:AFED: F2        .byte con_прыжок
 - D - I - 0x022FFE 11:AFEE: 2E B2     .word off_B22E
 off_AFF0:
 - D - I - 0x023000 11:AFF0: F3        .byte $F3
@@ -10302,73 +10307,73 @@ off_B01B_76:
 - D - I - 0x023036 11:B026: 30        .byte $30    ; <ゃ>
 - D - I - 0x023037 11:B027: 96        .byte $96
 - D - I - 0x023038 11:B028: B4        .byte $B4    ; <ガ>
-- D - I - 0x023039 11:B029: F2        .byte con_F2_прыжок
+- D - I - 0x023039 11:B029: F2        .byte con_прыжок
 - D - I - 0x02303A 11:B02A: 18 B0     .word off_B018
 - - - - - 0x02303C 11:B02C: 3C        .byte $3C    ; <9>
 - - - - - 0x02303D 11:B02D: 30        .byte $30    ; <ゃ>
 - - - - - 0x02303E 11:B02E: 97        .byte $97
 - - - - - 0x02303F 11:B02F: B4        .byte $B4    ; <ガ>
-- - - - - 0x023040 11:B030: F2        .byte con_F2_прыжок
+- - - - - 0x023040 11:B030: F2        .byte con_прыжок
 - - - - - 0x023041 11:B031: 18 B0     .word off_B018
 - D - I - 0x023043 11:B033: 3C        .byte $3C    ; <9>
 - D - I - 0x023044 11:B034: 31        .byte $31    ; <ゅ>
 - D - I - 0x023045 11:B035: 9E        .byte $9E
 - D - I - 0x023046 11:B036: B4        .byte $B4    ; <ガ>
-- D - I - 0x023047 11:B037: F2        .byte con_F2_прыжок
+- D - I - 0x023047 11:B037: F2        .byte con_прыжок
 - D - I - 0x023048 11:B038: 18 B0     .word off_B018
 - D - I - 0x02304A 11:B03A: 3C        .byte $3C    ; <9>
 - D - I - 0x02304B 11:B03B: 31        .byte $31    ; <ゅ>
 - D - I - 0x02304C 11:B03C: B0        .byte $B0    ; <び>
 - D - I - 0x02304D 11:B03D: B4        .byte $B4    ; <ガ>
-- D - I - 0x02304E 11:B03E: F2        .byte con_F2_прыжок
+- D - I - 0x02304E 11:B03E: F2        .byte con_прыжок
 - D - I - 0x02304F 11:B03F: 18 B0     .word off_B018
 - D - I - 0x023051 11:B041: 3C        .byte $3C    ; <9>
 - D - I - 0x023052 11:B042: 30        .byte $30    ; <ゃ>
 - D - I - 0x023053 11:B043: A1        .byte $A1    ; <ぎ>
 - D - I - 0x023054 11:B044: B4        .byte $B4    ; <ガ>
-- D - I - 0x023055 11:B045: F2        .byte con_F2_прыжок
+- D - I - 0x023055 11:B045: F2        .byte con_прыжок
 - D - I - 0x023056 11:B046: 18 B0     .word off_B018
 - - - - - 0x023058 11:B048: 3C        .byte $3C    ; <9>
 - - - - - 0x023059 11:B049: 30        .byte $30    ; <ゃ>
 - - - - - 0x02305A 11:B04A: AF        .byte $AF    ; <ば>
 - - - - - 0x02305B 11:B04B: B4        .byte $B4    ; <ガ>
-- - - - - 0x02305C 11:B04C: F2        .byte con_F2_прыжок
+- - - - - 0x02305C 11:B04C: F2        .byte con_прыжок
 - - - - - 0x02305D 11:B04D: 18 B0     .word off_B018
 - - - - - 0x02305F 11:B04F: 3C        .byte $3C    ; <9>
 - - - - - 0x023060 11:B050: 30        .byte $30    ; <ゃ>
 - - - - - 0x023061 11:B051: BC        .byte $BC    ; <ゼ>
 - - - - - 0x023062 11:B052: B4        .byte $B4    ; <ガ>
-- - - - - 0x023063 11:B053: F2        .byte con_F2_прыжок
+- - - - - 0x023063 11:B053: F2        .byte con_прыжок
 - - - - - 0x023064 11:B054: 18 B0     .word off_B018
 - - - - - 0x023066 11:B056: 3C        .byte $3C    ; <9>
 - - - - - 0x023067 11:B057: 30        .byte $30    ; <ゃ>
 - - - - - 0x023068 11:B058: A9        .byte $A9    ; <ぞ>
 - - - - - 0x023069 11:B059: B4        .byte $B4    ; <ガ>
-- - - - - 0x02306A 11:B05A: F2        .byte con_F2_прыжок
+- - - - - 0x02306A 11:B05A: F2        .byte con_прыжок
 - - - - - 0x02306B 11:B05B: 18 B0     .word off_B018
 - D - I - 0x02306D 11:B05D: 3C        .byte $3C    ; <9>
 - D - I - 0x02306E 11:B05E: 30        .byte $30    ; <ゃ>
 - D - I - 0x02306F 11:B05F: BB        .byte $BB    ; <ズ>
 - D - I - 0x023070 11:B060: B4        .byte $B4    ; <ガ>
-- D - I - 0x023071 11:B061: F2        .byte con_F2_прыжок
+- D - I - 0x023071 11:B061: F2        .byte con_прыжок
 - D - I - 0x023072 11:B062: 18 B0     .word off_B018
 - - - - - 0x023074 11:B064: 3C        .byte $3C    ; <9>
 - - - - - 0x023075 11:B065: 30        .byte $30    ; <ゃ>
 - - - - - 0x023076 11:B066: B8        .byte $B8    ; <ゴ>
 - - - - - 0x023077 11:B067: B4        .byte $B4    ; <ガ>
-- - - - - 0x023078 11:B068: F2        .byte con_F2_прыжок
+- - - - - 0x023078 11:B068: F2        .byte con_прыжок
 - - - - - 0x023079 11:B069: 18 B0     .word off_B018
 - - - - - 0x02307B 11:B06B: 3C        .byte $3C    ; <9>
 - - - - - 0x02307C 11:B06C: 30        .byte $30    ; <ゃ>
 - - - - - 0x02307D 11:B06D: B7        .byte $B7    ; <ゲ>
 - - - - - 0x02307E 11:B06E: B4        .byte $B4    ; <ガ>
-- - - - - 0x02307F 11:B06F: F2        .byte con_F2_прыжок
+- - - - - 0x02307F 11:B06F: F2        .byte con_прыжок
 - - - - - 0x023080 11:B070: 18 B0     .word off_B018
 - D - I - 0x023082 11:B072: 3C        .byte $3C    ; <9>
 - D - I - 0x023083 11:B073: 30        .byte $30    ; <ゃ>
 - D - I - 0x023084 11:B074: B2        .byte $B2    ; <べ>
 - D - I - 0x023085 11:B075: B4        .byte $B4    ; <ガ>
-- D - I - 0x023086 11:B076: F2        .byte con_F2_прыжок
+- D - I - 0x023086 11:B076: F2        .byte con_прыжок
 - D - I - 0x023087 11:B077: 18 B0     .word off_B018
 off_B079:
 - D - I - 0x023089 11:B079: F3        .byte $F3
@@ -10406,7 +10411,7 @@ off_B082:
 - D - I - 0x0230A9 11:B099: 30        .byte $30    ; <ゃ>
 - D - I - 0x0230AA 11:B09A: AE        .byte $AE    ; <ど>
 - D - I - 0x0230AB 11:B09B: B5        .byte $B5    ; <ギ>
-- D - I - 0x0230AC 11:B09C: F2        .byte con_F2_прыжок
+- D - I - 0x0230AC 11:B09C: F2        .byte con_прыжок
 - D - I - 0x0230AD 11:B09D: 82 B0     .word off_B082
 off_B09F:
 - - - - - 0x0230AF 11:B09F: F5        .byte $F5
@@ -10447,7 +10452,7 @@ off_B0A7:
 - D - I - 0x0230D1 11:B0C1: 41        .byte $41    ; <ア>
 - D - I - 0x0230D2 11:B0C2: 8C        .byte $8C    ; <M>
 - D - I - 0x0230D3 11:B0C3: 00        .byte $00
-- D - I - 0x0230D4 11:B0C4: F2        .byte con_F2_прыжок
+- D - I - 0x0230D4 11:B0C4: F2        .byte con_прыжок
 - D - I - 0x0230D5 11:B0C5: 42 AB     .word off_AB42
 - - - - - 0x0230D7 11:B0C7: FB        .byte $FB
 off_B0C8:
@@ -10636,7 +10641,7 @@ off_B0FB:
 - D - I - 0x02318C 11:B17C: 59        .byte $59    ; <ノ>
 - D - I - 0x02318D 11:B17D: DC        .byte $DC
 - D - I - 0x02318E 11:B17E: 04        .byte $04    ; <え>
-- D - I - 0x02318F 11:B17F: F2        .byte con_F2_прыжок
+- D - I - 0x02318F 11:B17F: F2        .byte con_прыжок
 - D - I - 0x023190 11:B180: C7 BB     .word off_BBC7
 off_B182:
 - D - I - 0x023192 11:B182: FC        .byte $FC
@@ -10711,7 +10716,7 @@ off_B1A0:
 - - - - - 0x0231D4 11:B1C4: 30        .byte $30    ; <ゃ>
 - - - - - 0x0231D5 11:B1C5: 9B        .byte $9B
 - - - - - 0x0231D6 11:B1C6: BC        .byte $BC    ; <ゼ>
-- - - - - 0x0231D7 11:B1C7: F2        .byte con_F2_прыжок
+- - - - - 0x0231D7 11:B1C7: F2        .byte con_прыжок
 - - - - - 0x0231D8 11:B1C8: A0 B1     .word off_B1A0
 off_B1CA:
 - D - I - 0x0231DA 11:B1CA: F3        .byte $F3
@@ -10798,7 +10803,7 @@ off_B1F6:
 - D - I - 0x02322A 11:B21A: 05        .byte $05    ; <お>
 - D - I - 0x02322B 11:B21B: D6        .byte $D6
 - D - I - 0x02322C 11:B21C: 04        .byte $04    ; <え>
-- D - I - 0x02322D 11:B21D: F2        .byte con_F2_прыжок
+- D - I - 0x02322D 11:B21D: F2        .byte con_прыжок
 - D - I - 0x02322E 11:B21E: F6 B1     .word off_B1F6
 - D - I - 0x023230 11:B220: F4        .byte $F4
 - D - I - 0x023231 11:B221: F8        .byte $F8
@@ -10830,7 +10835,7 @@ off_B22E:
 - D - I - 0x02324A 11:B23A: 05        .byte $05    ; <お>
 - D - I - 0x02324B 11:B23B: D8        .byte $D8
 - D - I - 0x02324C 11:B23C: 04        .byte $04    ; <え>
-- D - I - 0x02324D 11:B23D: F2        .byte con_F2_прыжок
+- D - I - 0x02324D 11:B23D: F2        .byte con_прыжок
 - D - I - 0x02324E 11:B23E: F6 B1     .word off_B1F6
 - D - I - 0x023250 11:B240: F4        .byte $F4
 - D - I - 0x023251 11:B241: F8        .byte $F8
@@ -10846,7 +10851,7 @@ off_B22E:
 - D - I - 0x02325B 11:B24B: 30        .byte $30    ; <ゃ>
 - D - I - 0x02325C 11:B24C: AB        .byte $AB    ; <ぢ>
 - D - I - 0x02325D 11:B24D: AD        .byte $AD    ; <で>
-- D - I - 0x02325E 11:B24E: F2        .byte con_F2_прыжок
+- D - I - 0x02325E 11:B24E: F2        .byte con_прыжок
 - D - I - 0x02325F 11:B24F: 2E B2     .word off_B22E
 off_B251:
 - D - I - 0x023261 11:B251: F7        .byte $F7
@@ -10876,7 +10881,7 @@ off_B251:
 - D - I - 0x023279 11:B269: 58        .byte $58    ; <ネ>
 - D - I - 0x02327A 11:B26A: C5        .byte $C5    ; <ブ>
 - D - I - 0x02327B 11:B26B: F0        .byte $F0
-- D - I - 0x02327C 11:B26C: F2        .byte con_F2_прыжок
+- D - I - 0x02327C 11:B26C: F2        .byte con_прыжок
 - D - I - 0x02327D 11:B26D: C7 BB     .word off_BBC7
 off_B26F:
 - D - I - 0x02327F 11:B26F: 3C        .byte $3C    ; <9>
@@ -10919,7 +10924,7 @@ off_B26F:
 - D - I - 0x0232A5 11:B295: 30        .byte $30    ; <ゃ>
 - D - I - 0x0232A6 11:B296: B7        .byte $B7    ; <ゲ>
 - D - I - 0x0232A7 11:B297: BF        .byte $BF    ; <ヂ>
-- D - I - 0x0232A8 11:B298: F2        .byte con_F2_прыжок
+- D - I - 0x0232A8 11:B298: F2        .byte con_прыжок
 - D - I - 0x0232A9 11:B299: C7 BB     .word off_BBC7
 off_B29B:
 - D - I - 0x0232AB 11:B29B: F7        .byte $F7
@@ -10960,7 +10965,7 @@ off_B2AD:
 - - - - - 0x0232CC 11:B2BC: 30        .byte $30    ; <ゃ>
 - - - - - 0x0232CD 11:B2BD: 97        .byte $97
 - - - - - 0x0232CE 11:B2BE: 13        .byte $13    ; <て>
-- - - - - 0x0232CF 11:B2BF: F2        .byte con_F2_прыжок
+- - - - - 0x0232CF 11:B2BF: F2        .byte con_прыжок
 - - - - - 0x0232D0 11:B2C0: AA B2     .word off_B2AA
 off_B2C2:
 - D - I - 0x0232D2 11:B2C2: FC        .byte $FC
@@ -11099,7 +11104,7 @@ off_B33B:
 - D - I - 0x023350 11:B340: FB        .byte $FB
 - D - I - 0x023351 11:B341: FA        .byte $FA
 - D - I - 0x023352 11:B342: 56 A7     .word off_A756
-- D - I - 0x023354 11:B344: F2        .byte con_F2_прыжок
+- D - I - 0x023354 11:B344: F2        .byte con_прыжок
 - D - I - 0x023355 11:B345: 3B B3     .word off_B33B
 off_B347:
 - D - I - 0x023357 11:B347: F3        .byte $F3
@@ -11141,7 +11146,7 @@ off_B368:
 - - - - - 0x02337B 11:B36B: FB        .byte $FB
 - - - - - 0x02337C 11:B36C: FA        .byte $FA
 - - - - - 0x02337D 11:B36D: 56 A7     .word off_A756
-- - - - - 0x02337F 11:B36F: F2        .byte con_F2_прыжок
+- - - - - 0x02337F 11:B36F: F2        .byte con_прыжок
 - - - - - 0x023380 11:B370: 68 B3     .word off_B368
 - D - I - 0x023382 11:B372: F7        .byte $F7
 - D - I - 0x023383 11:B373: 44        .byte $44    ; <エ>
@@ -11170,7 +11175,7 @@ off_B378:
 - D - I - 0x023399 11:B389: 02        .byte $02    ; <い>
 - D - I - 0x02339A 11:B38A: 1C        .byte $1C    ; <ふ>
 - D - I - 0x02339B 11:B38B: F0        .byte $F0
-- D - I - 0x02339C 11:B38C: F2        .byte con_F2_прыжок
+- D - I - 0x02339C 11:B38C: F2        .byte con_прыжок
 - D - I - 0x02339D 11:B38D: 60 B3     .word off_B360
 - - - - - 0x02339F 11:B38F: F7        .byte $F7
 - - - - - 0x0233A0 11:B390: 44        .byte $44    ; <エ>
@@ -11178,7 +11183,7 @@ off_B378:
 - - - - - 0x0233A2 11:B392: 30        .byte $30    ; <ゃ>
 - - - - - 0x0233A3 11:B393: AA        .byte $AA    ; <だ>
 - - - - - 0x0233A4 11:B394: D8        .byte $D8
-- - - - - 0x0233A5 11:B395: F2        .byte con_F2_прыжок
+- - - - - 0x0233A5 11:B395: F2        .byte con_прыжок
 - - - - - 0x0233A6 11:B396: 78 B3     .word off_B378
 - D - I - 0x0233A8 11:B398: F7        .byte $F7
 - D - I - 0x0233A9 11:B399: 44        .byte $44    ; <エ>
@@ -11186,7 +11191,7 @@ off_B378:
 - D - I - 0x0233AB 11:B39B: 30        .byte $30    ; <ゃ>
 - D - I - 0x0233AC 11:B39C: 98        .byte $98
 - D - I - 0x0233AD 11:B39D: D7        .byte $D7
-- D - I - 0x0233AE 11:B39E: F2        .byte con_F2_прыжок
+- D - I - 0x0233AE 11:B39E: F2        .byte con_прыжок
 - D - I - 0x0233AF 11:B39F: B1 A7     .word off_A7B1
 - - - - - 0x0233B1 11:B3A1: F7        .byte $F7
 - - - - - 0x0233B2 11:B3A2: 44        .byte $44    ; <エ>
@@ -11194,7 +11199,7 @@ off_B378:
 - - - - - 0x0233B4 11:B3A4: 30        .byte $30    ; <ゃ>
 - - - - - 0x0233B5 11:B3A5: 99        .byte $99
 - - - - - 0x0233B6 11:B3A6: D7        .byte $D7
-- - - - - 0x0233B7 11:B3A7: F2        .byte con_F2_прыжок
+- - - - - 0x0233B7 11:B3A7: F2        .byte con_прыжок
 - - - - - 0x0233B8 11:B3A8: B1 A7     .word off_A7B1
 off_B3AA:
 - D - I - 0x0233BA 11:B3AA: FA        .byte $FA
@@ -11231,7 +11236,7 @@ off_B3C0:
 - D - I - 0x0233D8 11:B3C8: 31        .byte $31    ; <ゅ>
 - D - I - 0x0233D9 11:B3C9: B0        .byte $B0    ; <び>
 - D - I - 0x0233DA 11:B3CA: C4        .byte $C4    ; <ビ>
-- D - I - 0x0233DB 11:B3CB: F2        .byte con_F2_прыжок
+- D - I - 0x0233DB 11:B3CB: F2        .byte con_прыжок
 - D - I - 0x0233DC 11:B3CC: BD B3     .word off_B3BD
 - - - - - 0x0233DE 11:B3CE: F7        .byte $F7
 - - - - - 0x0233DF 11:B3CF: 44        .byte $44    ; <エ>
@@ -11239,7 +11244,7 @@ off_B3C0:
 - - - - - 0x0233E1 11:B3D1: 30        .byte $30    ; <ゃ>
 - - - - - 0x0233E2 11:B3D2: A0        .byte $A0    ; <が>
 - - - - - 0x0233E3 11:B3D3: C5        .byte $C5    ; <ブ>
-- - - - - 0x0233E4 11:B3D4: F2        .byte con_F2_прыжок
+- - - - - 0x0233E4 11:B3D4: F2        .byte con_прыжок
 - - - - - 0x0233E5 11:B3D5: BD B3     .word off_B3BD
 - D - I - 0x0233E7 11:B3D7: F7        .byte $F7
 - D - I - 0x0233E8 11:B3D8: 44        .byte $44    ; <エ>
@@ -11247,7 +11252,7 @@ off_B3C0:
 - D - I - 0x0233EA 11:B3DA: 30        .byte $30    ; <ゃ>
 - D - I - 0x0233EB 11:B3DB: AA        .byte $AA    ; <だ>
 - D - I - 0x0233EC 11:B3DC: C5        .byte $C5    ; <ブ>
-- - - - - 0x0233ED 11:B3DD: F2        .byte con_F2_прыжок
+- - - - - 0x0233ED 11:B3DD: F2        .byte con_прыжок
 - - - - - 0x0233EE 11:B3DE: BD B3     .word off_B3BD
 - D - I - 0x0233F0 11:B3E0: F7        .byte $F7
 - D - I - 0x0233F1 11:B3E1: 44        .byte $44    ; <エ>
@@ -11255,7 +11260,7 @@ off_B3C0:
 - D - I - 0x0233F3 11:B3E3: 30        .byte $30    ; <ゃ>
 - D - I - 0x0233F4 11:B3E4: B4        .byte $B4    ; <ガ>
 - D - I - 0x0233F5 11:B3E5: C6        .byte $C6    ; <ベ>
-- D - I - 0x0233F6 11:B3E6: F2        .byte con_F2_прыжок
+- D - I - 0x0233F6 11:B3E6: F2        .byte con_прыжок
 - D - I - 0x0233F7 11:B3E7: BD B3     .word off_B3BD
 off_B3E9:
 - D - I - 0x0233F9 11:B3E9: FA        .byte $FA
@@ -11282,7 +11287,7 @@ off_B3FB:
 - D - I - 0x02340F 11:B3FF: FB        .byte $FB
 - D - I - 0x023410 11:B400: FA        .byte $FA
 - D - I - 0x023411 11:B401: 8F A8     .word off_A88F
-- D - I - 0x023413 11:B403: F2        .byte con_F2_прыжок
+- D - I - 0x023413 11:B403: F2        .byte con_прыжок
 - D - I - 0x023414 11:B404: FB B3     .word off_B3FB
 off_B406:
 - D - I - 0x023416 11:B406: FA        .byte $FA
@@ -11315,7 +11320,7 @@ off_B41B:
 - D - I - 0x023431 11:B421: FB        .byte $FB
 - - - - - 0x023432 11:B422: FA        .byte $FA
 - - - - - 0x023433 11:B423: 08 A9     .word off_A908
-- - - - - 0x023435 11:B425: F2        .byte con_F2_прыжок
+- - - - - 0x023435 11:B425: F2        .byte con_прыжок
 - - - - - 0x023436 11:B426: 1B B4     .word off_B41B
 off_B428:
 - D - I - 0x023438 11:B428: F3        .byte $F3
@@ -11656,7 +11661,7 @@ off_B543:
 - D - I - 0x02355E 11:B54E: FB        .byte $FB
 off_B54F:
 - D - I - 0x02355F 11:B54F: F6        .byte $F6
-- D - I - 0x023560 11:B550: F2        .byte con_F2_прыжок
+- D - I - 0x023560 11:B550: F2        .byte con_прыжок
 - D - I - 0x023561 11:B551: 43 B5     .word off_B543
 off_B553:
 - D - I - 0x023563 11:B553: FA        .byte $FA
@@ -11902,19 +11907,19 @@ off_B61D:
 - - - - - 0x02365B 11:B64B: 33        .byte $33    ; <0>
 - - - - - 0x02365C 11:B64C: 94        .byte $94
 - - - - - 0x02365D 11:B64D: 9B        .byte $9B
-- - - - - 0x02365E 11:B64E: F2        .byte con_F2_прыжок
+- - - - - 0x02365E 11:B64E: F2        .byte con_прыжок
 - - - - - 0x02365F 11:B64F: 5F B6     .word off_B65F
 - D - I - 0x023661 11:B651: 78        .byte $78    ; <?>
 - D - I - 0x023662 11:B652: 32        .byte $32    ; <ょ>
 - D - I - 0x023663 11:B653: A4        .byte $A4    ; <ご>
 - D - I - 0x023664 11:B654: 9B        .byte $9B
-- D - I - 0x023665 11:B655: F2        .byte con_F2_прыжок
+- D - I - 0x023665 11:B655: F2        .byte con_прыжок
 - D - I - 0x023666 11:B656: 5F B6     .word off_B65F
 - - - - - 0x023668 11:B658: 78        .byte $78    ; <?>
 - - - - - 0x023669 11:B659: 33        .byte $33    ; <0>
 - - - - - 0x02366A 11:B65A: A6        .byte $A6    ; <じ>
 - - - - - 0x02366B 11:B65B: 9B        .byte $9B
-- - - - - 0x02366C 11:B65C: F2        .byte con_F2_прыжок
+- - - - - 0x02366C 11:B65C: F2        .byte con_прыжок
 - - - - - 0x02366D 11:B65D: 5F B6     .word off_B65F
 off_B65F:
 - D - I - 0x02366F 11:B65F: FA        .byte $FA
@@ -12133,7 +12138,7 @@ off_B72C_2B:
 - D - I - 0x02373D 11:B72D: 46        .byte $46    ; <カ>
 - D - I - 0x02373E 11:B72E: 00        .byte $00
 - D - I - 0x02373F 11:B72F: 65        .byte $65    ; <ユ>
-- D - I - 0x023740 11:B730: F2        .byte con_F2_прыжок
+- D - I - 0x023740 11:B730: F2        .byte con_прыжок
 - D - I - 0x023741 11:B731: C7 BB     .word off_BBC7
 
 
@@ -12215,7 +12220,7 @@ off_B763:
 - D - I - 0x02377D 11:B76D: 69        .byte $69    ; <ル>
 - D - I - 0x02377E 11:B76E: 8D        .byte $8D    ; <P>
 - D - I - 0x02377F 11:B76F: 0A        .byte $0A    ; <こ>
-- D - I - 0x023780 11:B770: F2        .byte con_F2_прыжок
+- D - I - 0x023780 11:B770: F2        .byte con_прыжок
 - D - I - 0x023781 11:B771: 63 B7     .word off_B763
 
 
@@ -12235,13 +12240,13 @@ off_B773_2F:
 - D - I - 0x02378F 11:B77F: 36        .byte $36    ; <3>
 - D - I - 0x023790 11:B780: 8D        .byte $8D    ; <P>
 - D - I - 0x023791 11:B781: 10        .byte $10    ; <た>
-- D - I - 0x023792 11:B782: F2        .byte con_F2_прыжок
+- D - I - 0x023792 11:B782: F2        .byte con_прыжок
 - D - I - 0x023793 11:B783: 63 B7     .word off_B763
 - D - I - 0x023795 11:B785: 5A        .byte $5A    ; <ハ>
 - D - I - 0x023796 11:B786: 36        .byte $36    ; <3>
 - D - I - 0x023797 11:B787: 8D        .byte $8D    ; <P>
 - D - I - 0x023798 11:B788: 0A        .byte $0A    ; <こ>
-- D - I - 0x023799 11:B789: F2        .byte con_F2_прыжок
+- D - I - 0x023799 11:B789: F2        .byte con_прыжок
 - D - I - 0x02379A 11:B78A: 63 B7     .word off_B763
 
 
@@ -12331,7 +12336,7 @@ off_B7C6_38:
 
 
 off_B7CD_35:
-- D - I - 0x0237DD 11:B7CD: F9        .byte con_F9_задержка_звук
+- D - I - 0x0237DD 11:B7CD: F9        .byte con_задержка_звук
 - D - I - 0x0237DE 11:B7CE: EB        .byte $EB
 - D - I - 0x0237DF 11:B7CF: 44        .byte $44    ; <エ>
 
@@ -12419,7 +12424,7 @@ off_B80A_15:
 - D - I - 0x023821 11:B811: 30        .byte $30    ; <ゃ>
 - D - I - 0x023822 11:B812: AF        .byte $AF    ; <ば>
 - D - I - 0x023823 11:B813: 76        .byte $76    ; <ォ>
-- D - I - 0x023824 11:B814: F2        .byte con_F2_прыжок
+- D - I - 0x023824 11:B814: F2        .byte con_прыжок
 - D - I - 0x023825 11:B815: C7 BB     .word off_BBC7
 
 
@@ -12433,7 +12438,7 @@ off_B817_16:
 - D - I - 0x02382C 11:B81C: 30        .byte $30    ; <ゃ>
 - D - I - 0x02382D 11:B81D: B7        .byte $B7    ; <ゲ>
 - D - I - 0x02382E 11:B81E: 77        .byte $77    ; <:>
-- D - I - 0x02382F 11:B81F: F2        .byte con_F2_прыжок
+- D - I - 0x02382F 11:B81F: F2        .byte con_прыжок
 - D - I - 0x023830 11:B820: C7 BB     .word off_BBC7
 off_B822:
 - D - I - 0x023832 11:B822: 01        .byte $01    ; <あ>
@@ -12445,7 +12450,7 @@ off_B822:
 - D - I - 0x023838 11:B828: 32        .byte $32    ; <ょ>
 - D - I - 0x023839 11:B829: A8        .byte $A8    ; <ぜ>
 - D - I - 0x02383A 11:B82A: 79        .byte $79    ; <!>
-- D - I - 0x02383B 11:B82B: F2        .byte con_F2_прыжок
+- D - I - 0x02383B 11:B82B: F2        .byte con_прыжок
 - D - I - 0x02383C 11:B82C: C7 BB     .word off_BBC7
 off_B82E:
 - D - I - 0x02383E 11:B82E: 01        .byte $01    ; <あ>
@@ -12457,7 +12462,7 @@ off_B82E:
 - D - I - 0x023844 11:B834: 32        .byte $32    ; <ょ>
 - D - I - 0x023845 11:B835: A8        .byte $A8    ; <ぜ>
 - D - I - 0x023846 11:B836: 7A        .byte $7A    ; <、>
-- D - I - 0x023847 11:B837: F2        .byte con_F2_прыжок
+- D - I - 0x023847 11:B837: F2        .byte con_прыжок
 - D - I - 0x023848 11:B838: C7 BB     .word off_BBC7
 off_B83A:
 - D - I - 0x02384A 11:B83A: 01        .byte $01    ; <あ>
@@ -12676,7 +12681,7 @@ off_B8A1_17:
 - D - I - 0x02391D 11:B90D: 32        .byte $32    ; <ょ>
 - D - I - 0x02391E 11:B90E: A8        .byte $A8    ; <ぜ>
 - D - I - 0x02391F 11:B90F: 87        .byte $87    ; <G>
-- D - I - 0x023920 11:B910: F2        .byte con_F2_прыжок
+- D - I - 0x023920 11:B910: F2        .byte con_прыжок
 - D - I - 0x023921 11:B911: C7 BB     .word off_BBC7
 off_B913:
 - D - I - 0x023923 11:B913: 3C        .byte $3C    ; <9>
@@ -12693,224 +12698,224 @@ off_B91B:
 - D - I - 0x02392C 11:B91C: 30        .byte $30    ; <ゃ>
 - D - I - 0x02392D 11:B91D: 96        .byte $96
 - D - I - 0x02392E 11:B91E: 8E        .byte $8E    ; <L>
-- D - I - 0x02392F 11:B91F: F2        .byte con_F2_прыжок
+- D - I - 0x02392F 11:B91F: F2        .byte con_прыжок
 - D - I - 0x023930 11:B920: 17 B9     .word off_B917
 off_B922:
 - - - - - 0x023932 11:B922: 3C        .byte $3C    ; <9>
 - - - - - 0x023933 11:B923: 30        .byte $30    ; <ゃ>
 - - - - - 0x023934 11:B924: 97        .byte $97
 - - - - - 0x023935 11:B925: 8E        .byte $8E    ; <L>
-- - - - - 0x023936 11:B926: F2        .byte con_F2_прыжок
+- - - - - 0x023936 11:B926: F2        .byte con_прыжок
 - - - - - 0x023937 11:B927: 17 B9     .word off_B917
 off_B929:
 - D - I - 0x023939 11:B929: 3C        .byte $3C    ; <9>
 - D - I - 0x02393A 11:B92A: 31        .byte $31    ; <ゅ>
 - D - I - 0x02393B 11:B92B: 9E        .byte $9E
 - D - I - 0x02393C 11:B92C: 8E        .byte $8E    ; <L>
-- D - I - 0x02393D 11:B92D: F2        .byte con_F2_прыжок
+- D - I - 0x02393D 11:B92D: F2        .byte con_прыжок
 - D - I - 0x02393E 11:B92E: 17 B9     .word off_B917
 off_B930:
 - - - - - 0x023940 11:B930: 3C        .byte $3C    ; <9>
 - - - - - 0x023941 11:B931: 31        .byte $31    ; <ゅ>
 - - - - - 0x023942 11:B932: B0        .byte $B0    ; <び>
 - - - - - 0x023943 11:B933: 8E        .byte $8E    ; <L>
-- - - - - 0x023944 11:B934: F2        .byte con_F2_прыжок
+- - - - - 0x023944 11:B934: F2        .byte con_прыжок
 - - - - - 0x023945 11:B935: 17 B9     .word off_B917
 off_B937:
 - D - I - 0x023947 11:B937: 3C        .byte $3C    ; <9>
 - D - I - 0x023948 11:B938: 30        .byte $30    ; <ゃ>
 - D - I - 0x023949 11:B939: A3        .byte $A3    ; <げ>
 - D - I - 0x02394A 11:B93A: 8E        .byte $8E    ; <L>
-- D - I - 0x02394B 11:B93B: F2        .byte con_F2_прыжок
+- D - I - 0x02394B 11:B93B: F2        .byte con_прыжок
 - D - I - 0x02394C 11:B93C: 17 B9     .word off_B917
 off_B93E:
 - - - - - 0x02394E 11:B93E: 3C        .byte $3C    ; <9>
 - - - - - 0x02394F 11:B93F: 30        .byte $30    ; <ゃ>
 - - - - - 0x023950 11:B940: AE        .byte $AE    ; <ど>
 - - - - - 0x023951 11:B941: 8E        .byte $8E    ; <L>
-- - - - - 0x023952 11:B942: F2        .byte con_F2_прыжок
+- - - - - 0x023952 11:B942: F2        .byte con_прыжок
 - - - - - 0x023953 11:B943: 17 B9     .word off_B917
 off_B945:
 - D - I - 0x023955 11:B945: 3C        .byte $3C    ; <9>
 - D - I - 0x023956 11:B946: 30        .byte $30    ; <ゃ>
 - D - I - 0x023957 11:B947: A1        .byte $A1    ; <ぎ>
 - D - I - 0x023958 11:B948: 8E        .byte $8E    ; <L>
-- D - I - 0x023959 11:B949: F2        .byte con_F2_прыжок
+- D - I - 0x023959 11:B949: F2        .byte con_прыжок
 - D - I - 0x02395A 11:B94A: 17 B9     .word off_B917
 off_B94C:
 - - - - - 0x02395C 11:B94C: 3C        .byte $3C    ; <9>
 - - - - - 0x02395D 11:B94D: 30        .byte $30    ; <ゃ>
 - - - - - 0x02395E 11:B94E: AF        .byte $AF    ; <ば>
 - - - - - 0x02395F 11:B94F: 8E        .byte $8E    ; <L>
-- - - - - 0x023960 11:B950: F2        .byte con_F2_прыжок
+- - - - - 0x023960 11:B950: F2        .byte con_прыжок
 - - - - - 0x023961 11:B951: 17 B9     .word off_B917
 off_B953:
 - D - I - 0x023963 11:B953: 3C        .byte $3C    ; <9>
 - D - I - 0x023964 11:B954: 30        .byte $30    ; <ゃ>
 - D - I - 0x023965 11:B955: 98        .byte $98
 - D - I - 0x023966 11:B956: 8F        .byte $8F    ; <S>
-- D - I - 0x023967 11:B957: F2        .byte con_F2_прыжок
+- D - I - 0x023967 11:B957: F2        .byte con_прыжок
 - D - I - 0x023968 11:B958: 17 B9     .word off_B917
 off_B95A:
 - D - I - 0x02396A 11:B95A: 3C        .byte $3C    ; <9>
 - D - I - 0x02396B 11:B95B: 30        .byte $30    ; <ゃ>
 - D - I - 0x02396C 11:B95C: 99        .byte $99
 - D - I - 0x02396D 11:B95D: 8F        .byte $8F    ; <S>
-- D - I - 0x02396E 11:B95E: F2        .byte con_F2_прыжок
+- D - I - 0x02396E 11:B95E: F2        .byte con_прыжок
 - D - I - 0x02396F 11:B95F: 17 B9     .word off_B917
 off_B961:
 - D - I - 0x023971 11:B961: 3C        .byte $3C    ; <9>
 - D - I - 0x023972 11:B962: 30        .byte $30    ; <ゃ>
 - D - I - 0x023973 11:B963: 9F        .byte $9F
 - D - I - 0x023974 11:B964: 90        .byte $90    ; <U>
-- D - I - 0x023975 11:B965: F2        .byte con_F2_прыжок
+- D - I - 0x023975 11:B965: F2        .byte con_прыжок
 - D - I - 0x023976 11:B966: 17 B9     .word off_B917
 off_B968:
 - - - - - 0x023978 11:B968: 3C        .byte $3C    ; <9>
 - - - - - 0x023979 11:B969: 30        .byte $30    ; <ゃ>
 - - - - - 0x02397A 11:B96A: AD        .byte $AD    ; <で>
 - - - - - 0x02397B 11:B96B: 90        .byte $90    ; <U>
-- - - - - 0x02397C 11:B96C: F2        .byte con_F2_прыжок
+- - - - - 0x02397C 11:B96C: F2        .byte con_прыжок
 - - - - - 0x02397D 11:B96D: 17 B9     .word off_B917
 off_B96F:
 - D - I - 0x02397F 11:B96F: 3C        .byte $3C    ; <9>
 - D - I - 0x023980 11:B970: 30        .byte $30    ; <ゃ>
 - D - I - 0x023981 11:B971: A0        .byte $A0    ; <が>
 - D - I - 0x023982 11:B972: 91        .byte $91    ; <V>
-- D - I - 0x023983 11:B973: F2        .byte con_F2_прыжок
+- D - I - 0x023983 11:B973: F2        .byte con_прыжок
 - D - I - 0x023984 11:B974: 17 B9     .word off_B917
 off_B976:
 - D - I - 0x023986 11:B976: 3C        .byte $3C    ; <9>
 - D - I - 0x023987 11:B977: 30        .byte $30    ; <ゃ>
 - D - I - 0x023988 11:B978: AA        .byte $AA    ; <だ>
 - D - I - 0x023989 11:B979: 91        .byte $91    ; <V>
-- D - I - 0x02398A 11:B97A: F2        .byte con_F2_прыжок
+- D - I - 0x02398A 11:B97A: F2        .byte con_прыжок
 - D - I - 0x02398B 11:B97B: 17 B9     .word off_B917
 off_B97D:
 - D - I - 0x02398D 11:B97D: 3C        .byte $3C    ; <9>
 - D - I - 0x02398E 11:B97E: 30        .byte $30    ; <ゃ>
 - D - I - 0x02398F 11:B97F: 9C        .byte $9C
 - D - I - 0x023990 11:B980: 92        .byte $92    ; <W>
-- D - I - 0x023991 11:B981: F2        .byte con_F2_прыжок
+- D - I - 0x023991 11:B981: F2        .byte con_прыжок
 - D - I - 0x023992 11:B982: 17 B9     .word off_B917
 off_B984:
 - D - I - 0x023994 11:B984: 3C        .byte $3C    ; <9>
 - D - I - 0x023995 11:B985: 30        .byte $30    ; <ゃ>
 - D - I - 0x023996 11:B986: AB        .byte $AB    ; <ぢ>
 - D - I - 0x023997 11:B987: 92        .byte $92    ; <W>
-- D - I - 0x023998 11:B988: F2        .byte con_F2_прыжок
+- D - I - 0x023998 11:B988: F2        .byte con_прыжок
 - D - I - 0x023999 11:B989: 17 B9     .word off_B917
 off_B98B:
 - - - - - 0x02399B 11:B98B: 3C        .byte $3C    ; <9>
 - - - - - 0x02399C 11:B98C: 30        .byte $30    ; <ゃ>
 - - - - - 0x02399D 11:B98D: 9A        .byte $9A
 - - - - - 0x02399E 11:B98E: 93        .byte $93    ; <Y>
-- - - - - 0x02399F 11:B98F: F2        .byte con_F2_прыжок
+- - - - - 0x02399F 11:B98F: F2        .byte con_прыжок
 - - - - - 0x0239A0 11:B990: 17 B9     .word off_B917
 off_B992:
 - - - - - 0x0239A2 11:B992: 3C        .byte $3C    ; <9>
 - - - - - 0x0239A3 11:B993: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239A4 11:B994: 9B        .byte $9B
 - - - - - 0x0239A5 11:B995: 93        .byte $93    ; <Y>
-- - - - - 0x0239A6 11:B996: F2        .byte con_F2_прыжок
+- - - - - 0x0239A6 11:B996: F2        .byte con_прыжок
 - - - - - 0x0239A7 11:B997: 17 B9     .word off_B917
 off_B999:
 - - - - - 0x0239A9 11:B999: 3C        .byte $3C    ; <9>
 - - - - - 0x0239AA 11:B99A: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239AB 11:B99B: A2        .byte $A2    ; <ぐ>
 - - - - - 0x0239AC 11:B99C: 8E        .byte $8E    ; <L>
-- - - - - 0x0239AD 11:B99D: F2        .byte con_F2_прыжок
+- - - - - 0x0239AD 11:B99D: F2        .byte con_прыжок
 - - - - - 0x0239AE 11:B99E: 17 B9     .word off_B917
 off_B9A0:
 - - - - - 0x0239B0 11:B9A0: 3C        .byte $3C    ; <9>
 - - - - - 0x0239B1 11:B9A1: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239B2 11:B9A2: B1        .byte $B1    ; <ぶ>
 - - - - - 0x0239B3 11:B9A3: 8E        .byte $8E    ; <L>
-- - - - - 0x0239B4 11:B9A4: F2        .byte con_F2_прыжок
+- - - - - 0x0239B4 11:B9A4: F2        .byte con_прыжок
 - - - - - 0x0239B5 11:B9A5: 17 B9     .word off_B917
 off_B9A7:
 - - - - - 0x0239B7 11:B9A7: 3C        .byte $3C    ; <9>
 - - - - - 0x0239B8 11:B9A8: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239B9 11:B9A9: BC        .byte $BC    ; <ゼ>
 - - - - - 0x0239BA 11:B9AA: 8E        .byte $8E    ; <L>
-- - - - - 0x0239BB 11:B9AB: F2        .byte con_F2_прыжок
+- - - - - 0x0239BB 11:B9AB: F2        .byte con_прыжок
 - - - - - 0x0239BC 11:B9AC: 17 B9     .word off_B917
 off_B9AE:
 - - - - - 0x0239BE 11:B9AE: 3C        .byte $3C    ; <9>
 - - - - - 0x0239BF 11:B9AF: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239C0 11:B9B0: A9        .byte $A9    ; <ぞ>
 - - - - - 0x0239C1 11:B9B1: 8E        .byte $8E    ; <L>
-- - - - - 0x0239C2 11:B9B2: F2        .byte con_F2_прыжок
+- - - - - 0x0239C2 11:B9B2: F2        .byte con_прыжок
 - - - - - 0x0239C3 11:B9B3: 17 B9     .word off_B917
 off_B9B5:
 - D - I - 0x0239C5 11:B9B5: 3C        .byte $3C    ; <9>
 - D - I - 0x0239C6 11:B9B6: 30        .byte $30    ; <ゃ>
 - D - I - 0x0239C7 11:B9B7: BB        .byte $BB    ; <ズ>
 - D - I - 0x0239C8 11:B9B8: 8E        .byte $8E    ; <L>
-- D - I - 0x0239C9 11:B9B9: F2        .byte con_F2_прыжок
+- D - I - 0x0239C9 11:B9B9: F2        .byte con_прыжок
 - D - I - 0x0239CA 11:B9BA: 17 B9     .word off_B917
 off_B9BC:
 - - - - - 0x0239CC 11:B9BC: 3C        .byte $3C    ; <9>
 - - - - - 0x0239CD 11:B9BD: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239CE 11:B9BE: B8        .byte $B8    ; <ゴ>
 - - - - - 0x0239CF 11:B9BF: 8E        .byte $8E    ; <L>
-- - - - - 0x0239D0 11:B9C0: F2        .byte con_F2_прыжок
+- - - - - 0x0239D0 11:B9C0: F2        .byte con_прыжок
 - - - - - 0x0239D1 11:B9C1: 17 B9     .word off_B917
 off_B9C3:
 - D - I - 0x0239D3 11:B9C3: 40        .byte $40    ; <「>
 - D - I - 0x0239D4 11:B9C4: 30        .byte $30    ; <ゃ>
 - D - I - 0x0239D5 11:B9C5: B3        .byte $B3    ; <ぼ>
 - D - I - 0x0239D6 11:B9C6: 94        .byte $94
-- D - I - 0x0239D7 11:B9C7: F2        .byte con_F2_прыжок
+- D - I - 0x0239D7 11:B9C7: F2        .byte con_прыжок
 - D - I - 0x0239D8 11:B9C8: 17 B9     .word off_B917
 off_B9CA:
 - D - I - 0x0239DA 11:B9CA: 3C        .byte $3C    ; <9>
 - D - I - 0x0239DB 11:B9CB: 30        .byte $30    ; <ゃ>
 - D - I - 0x0239DC 11:B9CC: BA        .byte $BA    ; <ジ>
 - D - I - 0x0239DD 11:B9CD: 8E        .byte $8E    ; <L>
-- D - I - 0x0239DE 11:B9CE: F2        .byte con_F2_прыжок
+- D - I - 0x0239DE 11:B9CE: F2        .byte con_прыжок
 - D - I - 0x0239DF 11:B9CF: 17 B9     .word off_B917
 off_B9D1:
 - D - I - 0x0239E1 11:B9D1: 3C        .byte $3C    ; <9>
 - D - I - 0x0239E2 11:B9D2: 30        .byte $30    ; <ゃ>
 - D - I - 0x0239E3 11:B9D3: B7        .byte $B7    ; <ゲ>
 - D - I - 0x0239E4 11:B9D4: 8E        .byte $8E    ; <L>
-- D - I - 0x0239E5 11:B9D5: F2        .byte con_F2_прыжок
+- D - I - 0x0239E5 11:B9D5: F2        .byte con_прыжок
 - D - I - 0x0239E6 11:B9D6: 17 B9     .word off_B917
 off_B9D8:
 - - - - - 0x0239E8 11:B9D8: 3C        .byte $3C    ; <9>
 - - - - - 0x0239E9 11:B9D9: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239EA 11:B9DA: B6        .byte $B6    ; <グ>
 - - - - - 0x0239EB 11:B9DB: 8E        .byte $8E    ; <L>
-- - - - - 0x0239EC 11:B9DC: F2        .byte con_F2_прыжок
+- - - - - 0x0239EC 11:B9DC: F2        .byte con_прыжок
 - - - - - 0x0239ED 11:B9DD: 17 B9     .word off_B917
 off_B9DF:
 - - - - - 0x0239EF 11:B9DF: 3C        .byte $3C    ; <9>
 - - - - - 0x0239F0 11:B9E0: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239F1 11:B9E1: B5        .byte $B5    ; <ギ>
 - - - - - 0x0239F2 11:B9E2: 8E        .byte $8E    ; <L>
-- - - - - 0x0239F3 11:B9E3: F2        .byte con_F2_прыжок
+- - - - - 0x0239F3 11:B9E3: F2        .byte con_прыжок
 - - - - - 0x0239F4 11:B9E4: 17 B9     .word off_B917
 off_B9E6:
 - D - I - 0x0239F6 11:B9E6: 3C        .byte $3C    ; <9>
 - D - I - 0x0239F7 11:B9E7: 30        .byte $30    ; <ゃ>
 - D - I - 0x0239F8 11:B9E8: B4        .byte $B4    ; <ガ>
 - D - I - 0x0239F9 11:B9E9: 95        .byte $95
-- D - I - 0x0239FA 11:B9EA: F2        .byte con_F2_прыжок
+- D - I - 0x0239FA 11:B9EA: F2        .byte con_прыжок
 - D - I - 0x0239FB 11:B9EB: 17 B9     .word off_B917
 off_B9ED:
 - - - - - 0x0239FD 11:B9ED: 3C        .byte $3C    ; <9>
 - - - - - 0x0239FE 11:B9EE: 30        .byte $30    ; <ゃ>
 - - - - - 0x0239FF 11:B9EF: B2        .byte $B2    ; <べ>
 - - - - - 0x023A00 11:B9F0: 8E        .byte $8E    ; <L>
-- - - - - 0x023A01 11:B9F1: F2        .byte con_F2_прыжок
+- - - - - 0x023A01 11:B9F1: F2        .byte con_прыжок
 - - - - - 0x023A02 11:B9F2: 17 B9     .word off_B917
 off_B9F4:
 - D - I - 0x023A04 11:B9F4: 40        .byte $40    ; <「>
 - D - I - 0x023A05 11:B9F5: 30        .byte $30    ; <ゃ>
 - D - I - 0x023A06 11:B9F6: B9        .byte $B9    ; <ザ>
 - D - I - 0x023A07 11:B9F7: 94        .byte $94
-- D - I - 0x023A08 11:B9F8: F2        .byte con_F2_прыжок
+- D - I - 0x023A08 11:B9F8: F2        .byte con_прыжок
 - D - I - 0x023A09 11:B9F9: 17 B9     .word off_B917
 off_B9FB:
 - D - I - 0x023A0B 11:B9FB: 01        .byte $01    ; <あ>
@@ -12998,7 +13003,7 @@ off_BA3B_21:
 - D - I - 0x023A55 11:BA45: F0        .byte $F0
 - D - I - 0x023A56 11:BA46: FE        .byte $FE
 - D - I - 0x023A57 11:BA47: 01        .byte $01    ; <あ>
-- D - I - 0x023A58 11:BA48: F2        .byte con_F2_прыжок
+- D - I - 0x023A58 11:BA48: F2        .byte con_прыжок
 - D - I - 0x023A59 11:BA49: 54 BA     .word off_BA54
 - D - I - 0x023A5B 11:BA4B: 0A        .byte $0A    ; <こ>
 - D - I - 0x023A5C 11:BA4C: 37        .byte $37    ; <4>
@@ -13006,7 +13011,7 @@ off_BA3B_21:
 - D - I - 0x023A5E 11:BA4E: F0        .byte $F0
 - D - I - 0x023A5F 11:BA4F: FE        .byte $FE
 - D - I - 0x023A60 11:BA50: 01        .byte $01    ; <あ>
-- D - I - 0x023A61 11:BA51: F2        .byte con_F2_прыжок
+- D - I - 0x023A61 11:BA51: F2        .byte con_прыжок
 - D - I - 0x023A62 11:BA52: 54 BA     .word off_BA54
 off_BA54:
 - D - I - 0x023A64 11:BA54: F3        .byte $F3
@@ -13078,7 +13083,7 @@ off_BA7F:
 - - - - - 0x023AA3 11:BA93: 0F        .byte $0F    ; <そ>
 - - - - - 0x023AA4 11:BA94: 26        .byte $26    ; <よ>
 - - - - - 0x023AA5 11:BA95: F0        .byte $F0
-- - - - - 0x023AA6 11:BA96: F2        .byte con_F2_прыжок
+- - - - - 0x023AA6 11:BA96: F2        .byte con_прыжок
 - - - - - 0x023AA7 11:BA97: 7F BA     .word off_BA7F
 - - - - - 0x023AA9 11:BA99: FB        .byte $FB
 - D - I - 0x023AAA 11:BA9A: F3        .byte $F3
@@ -13171,7 +13176,7 @@ off_BADE:
 - - - - - 0x023B00 11:BAF0: 0F        .byte $0F    ; <そ>
 - - - - - 0x023B01 11:BAF1: 26        .byte $26    ; <よ>
 - - - - - 0x023B02 11:BAF2: F0        .byte $F0
-- - - - - 0x023B03 11:BAF3: F2        .byte con_F2_прыжок
+- - - - - 0x023B03 11:BAF3: F2        .byte con_прыжок
 - - - - - 0x023B04 11:BAF4: DE BA     .word off_BADE
 - - - - - 0x023B06 11:BAF6: FB        .byte $FB
 - - - - - 0x023B07 11:BAF7: F7        .byte $F7
@@ -13180,7 +13185,7 @@ off_BADE:
 - - - - - 0x023B0A 11:BAFA: 40        .byte $40    ; <「>
 - - - - - 0x023B0B 11:BAFB: 59        .byte $59    ; <ノ>
 - - - - - 0x023B0C 11:BAFC: F0        .byte $F0
-- - - - - 0x023B0D 11:BAFD: F2        .byte con_F2_прыжок
+- - - - - 0x023B0D 11:BAFD: F2        .byte con_прыжок
 - - - - - 0x023B0E 11:BAFE: 7F BA     .word off_BA7F
 - - - - - 0x023B10 11:BB00: FB        .byte $FB
 - D - I - 0x023B11 11:BB01: F6        .byte $F6
@@ -13189,20 +13194,20 @@ off_BADE:
 - D - I - 0x023B14 11:BB04: 87        .byte $87    ; <G>
 - D - I - 0x023B15 11:BB05: F0        .byte $F0
 - D - I - 0x023B16 11:BB06: F6        .byte $F6
-- D - I - 0x023B17 11:BB07: F2        .byte con_F2_прыжок
+- D - I - 0x023B17 11:BB07: F2        .byte con_прыжок
 - D - I - 0x023B18 11:BB08: 68 BA     .word off_BA68
 - D - I - 0x023B1A 11:BB0A: 32        .byte $32    ; <ょ>
 - D - I - 0x023B1B 11:BB0B: F0        .byte $F0
 - D - I - 0x023B1C 11:BB0C: 89        .byte $89    ; <I>
 - D - I - 0x023B1D 11:BB0D: F0        .byte $F0
-- D - I - 0x023B1E 11:BB0E: F2        .byte con_F2_прыжок
+- D - I - 0x023B1E 11:BB0E: F2        .byte con_прыжок
 - D - I - 0x023B1F 11:BB0F: 68 BA     .word off_BA68
 - D - I - 0x023B21 11:BB11: 32        .byte $32    ; <ょ>
 - D - I - 0x023B22 11:BB12: F0        .byte $F0
 - D - I - 0x023B23 11:BB13: 87        .byte $87    ; <G>
 - D - I - 0x023B24 11:BB14: F0        .byte $F0
 - D - I - 0x023B25 11:BB15: F4        .byte $F4
-- D - I - 0x023B26 11:BB16: F2        .byte con_F2_прыжок
+- D - I - 0x023B26 11:BB16: F2        .byte con_прыжок
 - D - I - 0x023B27 11:BB17: 68 BA     .word off_BA68
 - D - I - 0x023B29 11:BB19: F6        .byte $F6
 - D - I - 0x023B2A 11:BB1A: 32        .byte $32    ; <ょ>
@@ -13211,7 +13216,7 @@ off_BADE:
 - D - I - 0x023B2D 11:BB1D: F0        .byte $F0
 - D - I - 0x023B2E 11:BB1E: F6        .byte $F6
 - D - I - 0x023B2F 11:BB1F: F4        .byte $F4
-- D - I - 0x023B30 11:BB20: F2        .byte con_F2_прыжок
+- D - I - 0x023B30 11:BB20: F2        .byte con_прыжок
 - D - I - 0x023B31 11:BB21: 63 BA     .word off_BA63
 - D - I - 0x023B33 11:BB23: F6        .byte $F6
 - D - I - 0x023B34 11:BB24: 32        .byte $32    ; <ょ>
@@ -13220,14 +13225,14 @@ off_BADE:
 - D - I - 0x023B37 11:BB27: F0        .byte $F0
 - D - I - 0x023B38 11:BB28: F6        .byte $F6
 - D - I - 0x023B39 11:BB29: F4        .byte $F4
-- D - I - 0x023B3A 11:BB2A: F2        .byte con_F2_прыжок
+- D - I - 0x023B3A 11:BB2A: F2        .byte con_прыжок
 - D - I - 0x023B3B 11:BB2B: 68 BA     .word off_BA68
 - D - I - 0x023B3D 11:BB2D: 32        .byte $32    ; <ょ>
 - D - I - 0x023B3E 11:BB2E: F0        .byte $F0
 - D - I - 0x023B3F 11:BB2F: 88        .byte $88    ; <H>
 - D - I - 0x023B40 11:BB30: F0        .byte $F0
 - D - I - 0x023B41 11:BB31: F4        .byte $F4
-- D - I - 0x023B42 11:BB32: F2        .byte con_F2_прыжок
+- D - I - 0x023B42 11:BB32: F2        .byte con_прыжок
 - D - I - 0x023B43 11:BB33: 68 BA     .word off_BA68
 - D - I - 0x023B45 11:BB35: F6        .byte $F6
 - D - I - 0x023B46 11:BB36: 32        .byte $32    ; <ょ>
@@ -13236,7 +13241,7 @@ off_BADE:
 - D - I - 0x023B49 11:BB39: F0        .byte $F0
 - D - I - 0x023B4A 11:BB3A: F6        .byte $F6
 - D - I - 0x023B4B 11:BB3B: F4        .byte $F4
-- D - I - 0x023B4C 11:BB3C: F2        .byte con_F2_прыжок
+- D - I - 0x023B4C 11:BB3C: F2        .byte con_прыжок
 - D - I - 0x023B4D 11:BB3D: 68 BA     .word off_BA68
 
 
@@ -13250,7 +13255,7 @@ off_BB3F_23:
 - D - I - 0x023B55 11:BB45: F0        .byte $F0
 - D - I - 0x023B56 11:BB46: FE        .byte $FE
 - D - I - 0x023B57 11:BB47: 01        .byte $01    ; <あ>
-- D - I - 0x023B58 11:BB48: F2        .byte con_F2_прыжок
+- D - I - 0x023B58 11:BB48: F2        .byte con_прыжок
 - D - I - 0x023B59 11:BB49: 54 BA     .word off_BA54
 off_BB4B:
 - D - I - 0x023B5B 11:BB4B: 30        .byte $30    ; <ゃ>
@@ -13461,7 +13466,7 @@ off_BBDA:
 - D - I - 0x023C11 11:BC01: 30        .byte $30    ; <ゃ>
 - D - I - 0x023C12 11:BC02: 96        .byte $96
 - D - I - 0x023C13 11:BC03: CA        .byte $CA    ; <ぷ>
-- D - I - 0x023C14 11:BC04: F2        .byte con_F2_прыжок
+- D - I - 0x023C14 11:BC04: F2        .byte con_прыжок
 - D - I - 0x023C15 11:BC05: DA BB     .word off_BBDA
 - - - - - 0x023C17 11:BC07: F4        .byte $F4
 - - - - - 0x023C18 11:BC08: F8        .byte $F8
@@ -13477,7 +13482,7 @@ off_BBDA:
 - - - - - 0x023C22 11:BC12: 30        .byte $30    ; <ゃ>
 - - - - - 0x023C23 11:BC13: A2        .byte $A2    ; <ぐ>
 - - - - - 0x023C24 11:BC14: D0        .byte $D0    ; <ペ>
-- - - - - 0x023C25 11:BC15: F2        .byte con_F2_прыжок
+- - - - - 0x023C25 11:BC15: F2        .byte con_прыжок
 - - - - - 0x023C26 11:BC16: DA BB     .word off_BBDA
 - D - I - 0x023C28 11:BC18: F4        .byte $F4
 - D - I - 0x023C29 11:BC19: F8        .byte $F8
@@ -13493,7 +13498,7 @@ off_BBDA:
 - D - I - 0x023C33 11:BC23: 30        .byte $30    ; <ゃ>
 - D - I - 0x023C34 11:BC24: B1        .byte $B1    ; <ぶ>
 - D - I - 0x023C35 11:BC25: D0        .byte $D0    ; <ペ>
-- D - I - 0x023C36 11:BC26: F2        .byte con_F2_прыжок
+- D - I - 0x023C36 11:BC26: F2        .byte con_прыжок
 - D - I - 0x023C37 11:BC27: DA BB     .word off_BBDA
 - D - I - 0x023C39 11:BC29: F4        .byte $F4
 - D - I - 0x023C3A 11:BC2A: F8        .byte $F8
@@ -13509,7 +13514,7 @@ off_BBDA:
 - D - I - 0x023C44 11:BC34: 30        .byte $30    ; <ゃ>
 - D - I - 0x023C45 11:BC35: 9C        .byte $9C
 - D - I - 0x023C46 11:BC36: D3        .byte $D3
-- D - I - 0x023C47 11:BC37: F2        .byte con_F2_прыжок
+- D - I - 0x023C47 11:BC37: F2        .byte con_прыжок
 - D - I - 0x023C48 11:BC38: DA BB     .word off_BBDA
 - D - I - 0x023C4A 11:BC3A: F4        .byte $F4
 - D - I - 0x023C4B 11:BC3B: F8        .byte $F8
@@ -13525,7 +13530,7 @@ off_BBDA:
 - D - I - 0x023C55 11:BC45: 30        .byte $30    ; <ゃ>
 - D - I - 0x023C56 11:BC46: AB        .byte $AB    ; <ぢ>
 - D - I - 0x023C57 11:BC47: AC        .byte $AC    ; <づ>
-- D - I - 0x023C58 11:BC48: F2        .byte con_F2_прыжок
+- D - I - 0x023C58 11:BC48: F2        .byte con_прыжок
 - D - I - 0x023C59 11:BC49: DA BB     .word off_BBDA
 - D - I - 0x023C5B 11:BC4B: F4        .byte $F4
 - D - I - 0x023C5C 11:BC4C: F8        .byte $F8
@@ -13541,7 +13546,7 @@ off_BBDA:
 - D - I - 0x023C66 11:BC56: 30        .byte $30    ; <ゃ>
 - D - I - 0x023C67 11:BC57: B7        .byte $B7    ; <ゲ>
 - D - I - 0x023C68 11:BC58: CE        .byte $CE    ; <ピ>
-- D - I - 0x023C69 11:BC59: F2        .byte con_F2_прыжок
+- D - I - 0x023C69 11:BC59: F2        .byte con_прыжок
 - D - I - 0x023C6A 11:BC5A: DA BB     .word off_BBDA
 - D - I - 0x023C6C 11:BC5C: F4        .byte $F4
 - D - I - 0x023C6D 11:BC5D: F8        .byte $F8
@@ -13557,7 +13562,7 @@ off_BBDA:
 - D - I - 0x023C77 11:BC67: 30        .byte $30    ; <ゃ>
 - D - I - 0x023C78 11:BC68: B5        .byte $B5    ; <ギ>
 - D - I - 0x023C79 11:BC69: D5        .byte $D5
-- D - I - 0x023C7A 11:BC6A: F2        .byte con_F2_прыжок
+- D - I - 0x023C7A 11:BC6A: F2        .byte con_прыжок
 - D - I - 0x023C7B 11:BC6B: DA BB     .word off_BBDA
 
 
@@ -13580,7 +13585,7 @@ off_BC6D_1A:
 - D - I - 0x023C8B 11:BC7B: 3C        .byte $3C    ; <9>
 - D - I - 0x023C8C 11:BC7C: 7C        .byte $7C    ; <~>
 - D - I - 0x023C8D 11:BC7D: 5A        .byte $5A    ; <ハ>
-- D - I - 0x023C8E 11:BC7E: F2        .byte con_F2_прыжок
+- D - I - 0x023C8E 11:BC7E: F2        .byte con_прыжок
 - D - I - 0x023C8F 11:BC7F: C7 BB     .word off_BBC7
 - D - I - 0x023C91 11:BC81: F5        .byte $F5
 - D - I - 0x023C92 11:BC82: F3        .byte $F3
@@ -13653,7 +13658,7 @@ off_BC6D_1A:
 - D - I - 0x023CD5 11:BCC5: FB        .byte $FB
 - - - - - 0x023CD6 11:BCC6: F7        .byte $F7
 - - - - - 0x023CD7 11:BCC7: 40        .byte $40    ; <「>
-- - - - - 0x023CD8 11:BCC8: F2        .byte con_F2_прыжок
+- - - - - 0x023CD8 11:BCC8: F2        .byte con_прыжок
 - - - - - 0x023CD9 11:BCC9: CD BC     .word off_BCCD
 - D - I - 0x023CDB 11:BCCB: F7        .byte $F7
 - D - I - 0x023CDC 11:BCCC: 22        .byte $22    ; <め>
@@ -13684,7 +13689,7 @@ off_BCCD:
 - D - I - 0x023CF4 11:BCE4: FB        .byte $FB
 - - - - - 0x023CF5 11:BCE5: F7        .byte $F7
 - - - - - 0x023CF6 11:BCE6: 40        .byte $40    ; <「>
-- - - - - 0x023CF7 11:BCE7: F2        .byte con_F2_прыжок
+- - - - - 0x023CF7 11:BCE7: F2        .byte con_прыжок
 - - - - - 0x023CF8 11:BCE8: EC BC     .word off_BCEC
 - D - I - 0x023CFA 11:BCEA: F7        .byte $F7
 - D - I - 0x023CFB 11:BCEB: 22        .byte $22    ; <め>
@@ -13715,7 +13720,7 @@ off_BCEC:
 - D - I - 0x023D13 11:BD03: FB        .byte $FB
 - D - I - 0x023D14 11:BD04: F7        .byte $F7
 - D - I - 0x023D15 11:BD05: 40        .byte $40    ; <「>
-- D - I - 0x023D16 11:BD06: F2        .byte con_F2_прыжок
+- D - I - 0x023D16 11:BD06: F2        .byte con_прыжок
 - D - I - 0x023D17 11:BD07: 0B BD     .word off_BD0B
 - D - I - 0x023D19 11:BD09: F7        .byte $F7
 - D - I - 0x023D1A 11:BD0A: 3F        .byte $3F    ; <•>
@@ -13877,7 +13882,7 @@ off_BD9A_41:
 - D - I - 0x023DAB 11:BD9B: F0        .byte $F0
 - D - I - 0x023DAC 11:BD9C: F0        .byte $F0
 - D - I - 0x023DAD 11:BD9D: EA        .byte $EA
-- D - I - 0x023DAE 11:BD9E: F2        .byte con_F2_прыжок
+- D - I - 0x023DAE 11:BD9E: F2        .byte con_прыжок
 - D - I - 0x023DAF 11:BD9F: C7 BB     .word off_BBC7
 
 
@@ -13896,7 +13901,7 @@ off_BDA6_42:
 - D - I - 0x023DB7 11:BDA7: F0        .byte $F0
 - D - I - 0x023DB8 11:BDA8: F0        .byte $F0
 - D - I - 0x023DB9 11:BDA9: 22        .byte $22    ; <め>
-- D - I - 0x023DBA 11:BDAA: F2        .byte con_F2_прыжок
+- D - I - 0x023DBA 11:BDAA: F2        .byte con_прыжок
 - D - I - 0x023DBB 11:BDAB: C7 BB     .word off_BBC7
 
 
@@ -13942,7 +13947,7 @@ off_BDBD_46:
 - D - I - 0x023DD6 11:BDC6: 4A        .byte $4A    ; <コ>
 - D - I - 0x023DD7 11:BDC7: FA        .byte $FA
 - D - I - 0x023DD8 11:BDC8: 13 AD     .word off_AD13
-- D - I - 0x023DDA 11:BDCA: F2        .byte con_F2_прыжок
+- D - I - 0x023DDA 11:BDCA: F2        .byte con_прыжок
 - D - I - 0x023DDB 11:BDCB: DD BD     .word off_BDDD
 - - - - - 0x023DDD 11:BDCD: F5        .byte $F5
 - - - - - 0x023DDE 11:BDCE: 28        .byte $28    ; <り>
@@ -13981,7 +13986,7 @@ off_BDDD:
 - D - I - 0x023E00 11:BDF0: 27        .byte $27    ; <ら>
 - D - I - 0x023E01 11:BDF1: 51        .byte $51    ; <チ>
 - D - I - 0x023E02 11:BDF2: 00        .byte $00
-- D - I - 0x023E03 11:BDF3: F2        .byte con_F2_прыжок
+- D - I - 0x023E03 11:BDF3: F2        .byte con_прыжок
 - D - I - 0x023E04 11:BDF4: 67 A2     .word off_A267
 off_BDF6:
 - D - I - 0x023E06 11:BDF6: F6        .byte $F6
@@ -14333,7 +14338,7 @@ off_BF05_69:
 - D - I - 0x023F17 11:BF07: 3C        .byte $3C    ; <9>
 - D - I - 0x023F18 11:BF08: 61        .byte $61    ; <ム>
 - D - I - 0x023F19 11:BF09: F0        .byte $F0
-- D - I - 0x023F1A 11:BF0A: F2        .byte con_F2_прыжок
+- D - I - 0x023F1A 11:BF0A: F2        .byte con_прыжок
 - D - I - 0x023F1B 11:BF0B: 39 AB     .word off_AB39
 
 
@@ -14341,7 +14346,7 @@ off_BF05_69:
 off_BF0D_6B:
 - D - I - 0x023F1D 11:BF0D: FA        .byte $FA
 - D - I - 0x023F1E 11:BF0E: 5D A4     .word off_A45D
-- D - I - 0x023F20 11:BF10: F2        .byte con_F2_прыжок
+- D - I - 0x023F20 11:BF10: F2        .byte con_прыжок
 - D - I - 0x023F21 11:BF11: C3 A0     .word off_A0C3
 
 
@@ -14449,7 +14454,7 @@ off_BF61_70:
 - D - I - 0x023F7B 11:BF6B: 12 A2     .word off_A212
 - D - I - 0x023F7D 11:BF6D: FA        .byte $FA
 - D - I - 0x023F7E 11:BF6E: F4 A2     .word off_A2F4
-- D - I - 0x023F80 11:BF70: F2        .byte con_F2_прыжок
+- D - I - 0x023F80 11:BF70: F2        .byte con_прыжок
 - D - I - 0x023F81 11:BF71: 64 A3     .word off_A364
 
 
@@ -14461,7 +14466,7 @@ off_BF73_71:
 - D - I - 0x023F87 11:BF77: F4 A2     .word off_A2F4
 - D - I - 0x023F89 11:BF79: FA        .byte $FA
 - D - I - 0x023F8A 11:BF7A: 8D A0     .word off_A08D
-- D - I - 0x023F8C 11:BF7C: F2        .byte con_F2_прыжок
+- D - I - 0x023F8C 11:BF7C: F2        .byte con_прыжок
 - D - I - 0x023F8D 11:BF7D: B6 A0     .word off_A0B6
 
 
@@ -14556,7 +14561,7 @@ off_BFCB:
 off_BFD2_75:
 - D - I - 0x023FE2 11:BFD2: FA        .byte $FA
 - D - I - 0x023FE3 11:BFD3: AD B2     .word off_B2AD
-- D - I - 0x023FE5 11:BFD5: F2        .byte con_F2_прыжок
+- D - I - 0x023FE5 11:BFD5: F2        .byte con_прыжок
 - D - I - 0x023FE6 11:BFD6: 51 B2     .word off_B251
 
 
