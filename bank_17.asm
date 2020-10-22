@@ -1925,9 +1925,9 @@ con_F0                  = $F0   ; 0
 con_F1                  = $F1   ; 0
 con_jsr_1               = $F2   ; 2
 con_F3                  = $F3   ; 1
-con_F4                  = $F4   ; 0
-con_F5                  = $F5   ; 0
-con_F6                  = $F6   ; 0
+con_mirror_on           = $F4   ; 0
+con_mirror_off          = $F5   ; 0
+con_mirror_toggle       = $F6   ; 0
 con_F7                  = $F7   ; 1
 con_F8                  = $F8   ; 1
 con_задержка_звук       = $F9   ; 2
@@ -2019,12 +2019,12 @@ off_8AB9:
 - D - I - 0x020B21 17:8B11: FE 9D     .word off_9DFE
 - D - I - 0x020B23 17:8B13: FA        .byte con_jsr_2
 - D - I - 0x020B24 17:8B14: 08 A3     .word off_A308
-- D - I - 0x020B26 17:8B16: F6        .byte con_F6
+- D - I - 0x020B26 17:8B16: F6        .byte con_mirror_toggle
 - D - I - 0x020B27 17:8B17: FA        .byte con_jsr_2
 - D - I - 0x020B28 17:8B18: 73 A3     .word off_A373
 - D - I - 0x020B2A 17:8B1A: FA        .byte con_jsr_2
 - D - I - 0x020B2B 17:8B1B: 64 9E     .word off_9E64
-- D - I - 0x020B2D 17:8B1D: F6        .byte con_F6
+- D - I - 0x020B2D 17:8B1D: F6        .byte con_mirror_toggle
 - D - I - 0x020B2E 17:8B1E: F0        .byte con_F0
 - D - I - 0x020B2F 17:8B1F: FA        .byte con_jsr_2
 - D - I - 0x020B30 17:8B20: 8B 9C     .word off_9C8B
@@ -2034,10 +2034,10 @@ off_8AB9:
 - D - I - 0x020B36 17:8B26: EF A2     .word off_A2EF
 - D - I - 0x020B38 17:8B28: FA        .byte con_jsr_2
 - D - I - 0x020B39 17:8B29: 5A A1     .word off_A15A
-- D - I - 0x020B3B 17:8B2B: F6        .byte con_F6
+- D - I - 0x020B3B 17:8B2B: F6        .byte con_mirror_toggle
 - D - I - 0x020B3C 17:8B2C: FA        .byte con_jsr_2
 - D - I - 0x020B3D 17:8B2D: 64 9E     .word off_9E64
-- D - I - 0x020B3F 17:8B2F: F6        .byte con_F6
+- D - I - 0x020B3F 17:8B2F: F6        .byte con_mirror_toggle
 - D - I - 0x020B40 17:8B30: F0        .byte con_F0
 - D - I - 0x020B41 17:8B31: FA        .byte con_jsr_2
 - D - I - 0x020B42 17:8B32: 8B 9C     .word off_9C8B
@@ -2071,12 +2071,12 @@ off_8AB9:
 - D - I - 0x020B6C 17:8B5C: FE 9D     .word off_9DFE
 - D - I - 0x020B6E 17:8B5E: FA        .byte con_jsr_2
 - D - I - 0x020B6F 17:8B5F: 08 A3     .word off_A308
-- D - I - 0x020B71 17:8B61: F6        .byte con_F6
+- D - I - 0x020B71 17:8B61: F6        .byte con_mirror_toggle
 - D - I - 0x020B72 17:8B62: FA        .byte con_jsr_2
 - D - I - 0x020B73 17:8B63: 73 A3     .word off_A373
 - D - I - 0x020B75 17:8B65: FA        .byte con_jsr_2
 - D - I - 0x020B76 17:8B66: 64 9E     .word off_9E64
-- D - I - 0x020B78 17:8B68: F6        .byte con_F6
+- D - I - 0x020B78 17:8B68: F6        .byte con_mirror_toggle
 - D - I - 0x020B79 17:8B69: F0        .byte con_F0
 - D - I - 0x020B7A 17:8B6A: FA        .byte con_jsr_2
 - D - I - 0x020B7B 17:8B6B: 36 A9     .word off_A936
@@ -2088,10 +2088,10 @@ off_8AB9:
 - D - I - 0x020B84 17:8B74: 28 B4     .word off_B428
 - D - I - 0x020B86 17:8B76: FA        .byte con_jsr_2
 - D - I - 0x020B87 17:8B77: C3 A0     .word off_A0C3
-- D - I - 0x020B89 17:8B79: F6        .byte con_F6
+- D - I - 0x020B89 17:8B79: F6        .byte con_mirror_toggle
 - D - I - 0x020B8A 17:8B7A: FA        .byte con_jsr_2
 - D - I - 0x020B8B 17:8B7B: 64 9E     .word off_9E64
-- D - I - 0x020B8D 17:8B7D: F6        .byte con_F6
+- D - I - 0x020B8D 17:8B7D: F6        .byte con_mirror_toggle
 - D - I - 0x020B8E 17:8B7E: F0        .byte con_F0
 - D - I - 0x020B8F 17:8B7F: FA        .byte con_jsr_2
 - D - I - 0x020B90 17:8B80: 36 A9     .word off_A936
@@ -2204,10 +2204,10 @@ off_8AB9:
 - D - I - 0x020C22 17:8C12: FE 9D     .word off_9DFE
 - D - I - 0x020C24 17:8C14: FA        .byte con_jsr_2
 - D - I - 0x020C25 17:8C15: DD A2     .word off_A2DD
-- D - I - 0x020C27 17:8C17: F6        .byte con_F6
+- D - I - 0x020C27 17:8C17: F6        .byte con_mirror_toggle
 - D - I - 0x020C28 17:8C18: FA        .byte con_jsr_2
 - D - I - 0x020C29 17:8C19: 64 9E     .word off_9E64
-- D - I - 0x020C2B 17:8C1B: F6        .byte con_F6
+- D - I - 0x020C2B 17:8C1B: F6        .byte con_mirror_toggle
 - D - I - 0x020C2C 17:8C1C: FA        .byte con_jsr_2
 - D - I - 0x020C2D 17:8C1D: 6E 9F     .word off_9F6E
 - D - I - 0x020C2F 17:8C1F: F2        .byte con_jsr_1
@@ -2220,10 +2220,10 @@ off_8AB9:
 - D - I - 0x020C39 17:8C29: FE 9D     .word off_9DFE
 - D - I - 0x020C3B 17:8C2B: FA        .byte con_jsr_2
 - D - I - 0x020C3C 17:8C2C: DD A2     .word off_A2DD
-- D - I - 0x020C3E 17:8C2E: F6        .byte con_F6
+- D - I - 0x020C3E 17:8C2E: F6        .byte con_mirror_toggle
 - D - I - 0x020C3F 17:8C2F: FA        .byte con_jsr_2
 - D - I - 0x020C40 17:8C30: 64 9E     .word off_9E64
-- D - I - 0x020C42 17:8C32: F6        .byte con_F6
+- D - I - 0x020C42 17:8C32: F6        .byte con_mirror_toggle
 - D - I - 0x020C43 17:8C33: FA        .byte con_jsr_2
 - D - I - 0x020C44 17:8C34: 74 9F     .word off_9F74
 - D - I - 0x020C46 17:8C36: F2        .byte con_jsr_1
@@ -4834,7 +4834,7 @@ off_9A24:
 - D - I - 0x021A37 17:9A27: 49        .byte $49
 - D - I - 0x021A38 17:9A28: 50        .byte $50
 - - - - - 0x021A39 17:9A29: D0        .byte $D0
-- - - - - 0x021A3A 17:9A2A: F5        .byte con_F5
+- - - - - 0x021A3A 17:9A2A: F5        .byte con_mirror_off
 - D - I - 0x021A3B 17:9A2B: FD        .byte con_FD, $00
 - D - I - 0x021A3D 17:9A2D: F3        .byte con_F3, $91
 - D - I - 0x021A3F 17:9A2F: 04        .byte $04
@@ -5142,11 +5142,11 @@ off_9BD5:
 - D - I - 0x021BE8 17:9BD8: F2        .byte con_jsr_1
 - D - I - 0x021BE9 17:9BD9: 88 A3     .word off_A388
 off_9BDB:
-- D - I - 0x021BEB 17:9BDB: F6        .byte con_F6
+- D - I - 0x021BEB 17:9BDB: F6        .byte con_mirror_toggle
 - D - I - 0x021BEC 17:9BDC: F2        .byte con_jsr_1
 - D - I - 0x021BED 17:9BDD: 38 A2     .word off_A238
 off_9BDF:
-- D - I - 0x021BEF 17:9BDF: F6        .byte con_F6
+- D - I - 0x021BEF 17:9BDF: F6        .byte con_mirror_toggle
 - D - I - 0x021BF0 17:9BE0: F2        .byte con_jsr_1
 - D - I - 0x021BF1 17:9BE1: 2E A2     .word off_A22E
 
@@ -5247,7 +5247,7 @@ off_9C36:
 - D - I - 0x021C4B 17:9C3B: B5 A2     .word off_A2B5
 - D - I - 0x021C4D 17:9C3D: BC A2     .word off_A2BC
 off_9C3F:
-- D - I - 0x021C4F 17:9C3F: F5        .byte con_F5
+- D - I - 0x021C4F 17:9C3F: F5        .byte con_mirror_off
 - D - I - 0x021C50 17:9C40: F7        .byte con_F7, $13
 - D - I - 0x021C52 17:9C42: F9        .byte $F9
 - D - I - 0x021C53 17:9C43: 02        .byte $02
@@ -5374,7 +5374,7 @@ off_9CEE_1D:
 - - - - - 0x021D01 17:9CF1: A9        .byte $A9
 - - - - - 0x021D02 17:9CF2: 60        .byte $60
 off_9CF3:
-- D - I - 0x021D03 17:9CF3: F5        .byte con_F5
+- D - I - 0x021D03 17:9CF3: F5        .byte con_mirror_off
 - D - I - 0x021D04 17:9CF4: F3        .byte con_F3, $1D
 - D - I - 0x021D06 17:9CF6: 31 AB     .word off_AB31
 - - - - - 0x021D08 17:9CF8: 31 AB     .word off_AB31
@@ -5582,7 +5582,7 @@ off_9E4F:
 
 
 off_9E57_32:
-- D - I - 0x021E67 17:9E57: F5        .byte con_F5
+- D - I - 0x021E67 17:9E57: F5        .byte con_mirror_off
 - D - I - 0x021E68 17:9E58: F3        .byte con_F3, $41
 - - - - - 0x021E6A 17:9E5A: 96 B7     .word off_B796
 - D - I - 0x021E6C 17:9E5C: 92 B7     .word off_B792
@@ -5772,7 +5772,7 @@ off_9F9C:
 - D - I - 0x021FAE 17:9F9E: 15        .byte $15
 - D - I - 0x021FAF 17:9F9F: 02        .byte $02
 - D - I - 0x021FB0 17:9FA0: 09        .byte $09
-- D - I - 0x021FB1 17:9FA1: F5        .byte con_F5
+- D - I - 0x021FB1 17:9FA1: F5        .byte con_mirror_off
 - D - I - 0x021FB2 17:9FA2: 78        .byte $78
 - D - I - 0x021FB3 17:9FA3: 33        .byte $33
 - D - I - 0x021FB4 17:9FA4: 94        .byte $94
@@ -5814,7 +5814,7 @@ off_9FBF:
 - D - I - 0x021FD5 17:9FC5: E3        .byte $E3
 - D - I - 0x021FD6 17:9FC6: FB        .byte con_rts
 off_9FC7:
-- D - I - 0x021FD7 17:9FC7: F6        .byte con_F6
+- D - I - 0x021FD7 17:9FC7: F6        .byte con_mirror_toggle
 - D - I - 0x021FD8 17:9FC8: FC        .byte con_FC, $04
 - D - I - 0x021FDA 17:9FCA: F9        .byte $F9
 - D - I - 0x021FDB 17:9FCB: 02        .byte $02
@@ -5829,7 +5829,7 @@ off_9FCE:
 - D - I - 0x021FE4 17:9FD4: 0B        .byte $0B
 - D - I - 0x021FE5 17:9FD5: FB        .byte con_rts
 off_9FD6:
-- D - I - 0x021FE6 17:9FD6: F5        .byte con_F5
+- D - I - 0x021FE6 17:9FD6: F5        .byte con_mirror_off
 - D - I - 0x021FE7 17:9FD7: FC        .byte con_FC, $04
 - D - I - 0x021FE9 17:9FD9: 32        .byte $32
 - D - I - 0x021FEA 17:9FDA: 58        .byte $58
@@ -6733,7 +6733,7 @@ off_A335:
 - D - I - 0x022348 11:A338: 00        .byte $00
 - D - I - 0x022349 11:A339: FB        .byte con_rts
 off_A33A:
-- D - I - 0x02234A 11:A33A: F5        .byte con_F5
+- D - I - 0x02234A 11:A33A: F5        .byte con_mirror_off
 - D - I - 0x02234B 11:A33B: F3        .byte con_F3, $A3
 - - - - - 0x02234D 11:A33D: 0A        .byte $0A
 - - - - - 0x02234E 11:A33E: 02        .byte $02
@@ -6765,7 +6765,7 @@ off_A34D:
 - D - I - 0x022369 11:A359: F0        .byte con_F0
 - D - I - 0x02236A 11:A35A: FB        .byte con_rts
 off_A35B:
-- D - I - 0x02236B 11:A35B: F5        .byte con_F5
+- D - I - 0x02236B 11:A35B: F5        .byte con_mirror_off
 - D - I - 0x02236C 11:A35C: F9        .byte $F9
 - D - I - 0x02236D 11:A35D: 02        .byte $02
 - D - I - 0x02236E 11:A35E: 67        .byte $67
@@ -6775,7 +6775,7 @@ off_A35B:
 - D - I - 0x022372 11:A362: 30        .byte $30
 - D - I - 0x022373 11:A363: FB        .byte con_rts
 off_A364:
-- D - I - 0x022374 11:A364: F5        .byte con_F5
+- D - I - 0x022374 11:A364: F5        .byte con_mirror_off
 - D - I - 0x022375 11:A365: A4        .byte $A4
 - D - I - 0x022376 11:A366: 0D        .byte $0D
 - D - I - 0x022377 11:A367: 4F        .byte $4F
@@ -6796,7 +6796,7 @@ off_A373:
 - D - I - 0x022385 11:A375: 52        .byte $52
 - D - I - 0x022386 11:A376: 34        .byte $34
 - D - I - 0x022387 11:A377: FB        .byte con_rts
-- - - - - 0x022388 11:A378: F6        .byte con_F6
+- - - - - 0x022388 11:A378: F6        .byte con_mirror_toggle
 - - - - - 0x022389 11:A379: 37        .byte $37
 - - - - - 0x02238A 11:A37A: 20        .byte $20
 - - - - - 0x02238B 11:A37B: 53        .byte $53
@@ -6855,7 +6855,7 @@ off_A3A3:
 - D - I - 0x0223B9 11:A3A9: 3A        .byte $3A
 - D - I - 0x0223BA 11:A3AA: FB        .byte con_rts
 off_A3AB:
-- D - I - 0x0223BB 11:A3AB: F5        .byte con_F5
+- D - I - 0x0223BB 11:A3AB: F5        .byte con_mirror_off
 - D - I - 0x0223BC 11:A3AC: FC        .byte con_FC, $04
 - D - I - 0x0223BE 11:A3AE: 2D        .byte $2D
 - D - I - 0x0223BF 11:A3AF: 58        .byte $58
@@ -7065,7 +7065,7 @@ off_A470:
 - D - I - 0x0224A3 11:A493: 00        .byte $00
 - D - I - 0x0224A4 11:A494: FB        .byte con_rts
 off_A495:
-- D - I - 0x0224A5 11:A495: F6        .byte con_F6
+- D - I - 0x0224A5 11:A495: F6        .byte con_mirror_toggle
 - D - I - 0x0224A6 11:A496: F3        .byte con_F3, $A8
 - D - I - 0x0224A8 11:A498: 22        .byte $22
 - D - I - 0x0224A9 11:A499: 22        .byte $22
@@ -7553,7 +7553,7 @@ off_A6BC:
 - - - - - 0x0226CE 11:A6BE: 4E        .byte $4E
 - D - I - 0x0226CF 11:A6BF: 37        .byte $37
 - - - - - 0x0226D0 11:A6C0: 46        .byte $46
-- - - - - 0x0226D1 11:A6C1: 4B        .byte $4B
+- - - - - 0x0226D1 11:A6C1: 4B        .byte $4B     ; bzk возможно тут начинается мусор, байты уменьшаются на 1
 - - - - - 0x0226D2 11:A6C2: 4A        .byte $4A
 - - - - - 0x0226D3 11:A6C3: 49        .byte $49
 - - - - - 0x0226D4 11:A6C4: 48        .byte $48
@@ -7566,25 +7566,25 @@ off_A6BC:
 - - - - - 0x0226DB 11:A6CB: 41        .byte $41
 - - - - - 0x0226DC 11:A6CC: 40        .byte $40
 - - - - - 0x0226DD 11:A6CD: 3F        .byte $3F
+
 off_A6CE:
 - D - I - 0x0226DE 11:A6CE: F3        .byte con_F3, $B3
-- D - I - 0x0226E0 11:A6D0: FE        .byte con_FE, $25
+- D - I - 0x0226E0 11:A6D0: FE        .byte $FE
+- - - - - 0x0226E1 11:A6D1: 25        .byte $25
 - - - - - 0x0226E2 11:A6D2: 34        .byte $34
-
-; bzk очевидный мусор, байты уменьшаются на 1
-- - - - - 0x0226E3 11:A6D3: FB        .byte $FB
+- - - - - 0x0226E3 11:A6D3: FB        .byte $FB     ; bzk возможно тут начинается мусор, байты уменьшаются на 1
 - - - - - 0x0226E4 11:A6D4: FA        .byte $FA
 - - - - - 0x0226E5 11:A6D5: F9        .byte $F9
-- - - - - 0x0226E6 11:A6D6: F8        .byte con_F8, $F7
-- - - - - 0x0226E7 11:A6D8: F7        .byte $F6
+- - - - - 0x0226E6 11:A6D6: F8        .byte $F8
+- - - - - 0x0226E6 11:A6D7: F7        .byte $F7
+- - - - - 0x0226E7 11:A6D8: F6        .byte $F6
 - - - - - 0x0226E9 11:A6D9: F5        .byte $F5
 - - - - - 0x0226EA 11:A6DA: F4        .byte $F4
 - - - - - 0x0226EB 11:A6DB: F3        .byte $F3
-- - - - - 0x0226EB 11:A6DC: F3        .byte $F2
+- - - - - 0x0226EB 11:A6DC: F2        .byte $F2
 - - - - - 0x0226ED 11:A6DD: F1        .byte $F1
 - - - - - 0x0226EE 11:A6DE: F0        .byte $F0
 - - - - - 0x0226EF 11:A6DF: EF        .byte $EF
-
 off_A6E0:
 - D - I - 0x0226F0 11:A6E0: F3        .byte con_F3, $B7
 - D - I - 0x0226F2 11:A6E2: 1D        .byte $1D
@@ -7615,7 +7615,7 @@ off_A6F9:
 - D - I - 0x02270A 11:A6FA: 4E        .byte $4E
 - D - I - 0x02270B 11:A6FB: C1        .byte $C1
 - D - I - 0x02270C 11:A6FC: ED        .byte $ED
-- D - I - 0x02270D 11:A6FD: F6        .byte con_F6
+- D - I - 0x02270D 11:A6FD: F6        .byte con_mirror_toggle
 - D - I - 0x02270E 11:A6FE: FB        .byte con_rts
 off_A6FF:
 - D - I - 0x02270F 11:A6FF: F7        .byte con_F7, $02
@@ -7644,7 +7644,7 @@ off_A713:
 - D - I - 0x022728 11:A718: 39        .byte $39
 - D - I - 0x022729 11:A719: FB        .byte con_rts
 off_A71A:
-- D - I - 0x02272A 11:A71A: F4        .byte con_F4
+- D - I - 0x02272A 11:A71A: F4        .byte con_mirror_on
 - D - I - 0x02272B 11:A71B: F8        .byte con_F8, $04
 - D - I - 0x02272D 11:A71D: 3C        .byte $3C
 - D - I - 0x02272E 11:A71E: 4F        .byte $4F
@@ -7658,7 +7658,7 @@ off_A71A:
 - D - I - 0x022737 11:A727: 1D        .byte $1D
 - D - I - 0x022738 11:A728: 1C        .byte $1C
 - D - I - 0x022739 11:A729: F0        .byte con_F0
-- D - I - 0x02273A 11:A72A: F6        .byte con_F6
+- D - I - 0x02273A 11:A72A: F6        .byte con_mirror_toggle
 - D - I - 0x02273B 11:A72B: F8        .byte con_F8, $04
 - D - I - 0x02273D 11:A72D: 3C        .byte $3C
 - D - I - 0x02273E 11:A72E: 30        .byte $30
@@ -7673,7 +7673,7 @@ off_A71A:
 - D - I - 0x022749 11:A739: 23        .byte $23
 - D - I - 0x02274A 11:A73A: 50        .byte $50
 - D - I - 0x02274B 11:A73B: F0        .byte con_F0
-- D - I - 0x02274C 11:A73C: F6        .byte con_F6
+- D - I - 0x02274C 11:A73C: F6        .byte con_mirror_toggle
 - D - I - 0x02274D 11:A73D: F7        .byte con_F7, $10
 - D - I - 0x02274F 11:A73F: F9        .byte $F9
 - D - I - 0x022750 11:A740: 02        .byte $02
@@ -7698,7 +7698,7 @@ off_A74A:
 - D - I - 0x022763 11:A753: F2        .byte con_jsr_1
 - D - I - 0x022764 11:A754: C7 BB     .word off_BBC7
 off_A756:
-- D - I - 0x022766 11:A756: F4        .byte con_F4
+- D - I - 0x022766 11:A756: F4        .byte con_mirror_on
 - D - I - 0x022767 11:A757: F8        .byte con_F8, $04
 - D - I - 0x022769 11:A759: 3C        .byte $3C
 - D - I - 0x02276A 11:A75A: 4F        .byte $4F
@@ -7713,7 +7713,7 @@ off_A756:
 - D - I - 0x022774 11:A764: 1C        .byte $1C
 - D - I - 0x022775 11:A765: F0        .byte con_F0
 - D - I - 0x022776 11:A766: F8        .byte con_F8, $04
-- D - I - 0x022778 11:A768: F6        .byte con_F6
+- D - I - 0x022778 11:A768: F6        .byte con_mirror_toggle
 - D - I - 0x022779 11:A769: 3C        .byte $3C
 - D - I - 0x02277A 11:A76A: 30        .byte $30
 - D - I - 0x02277B 11:A76B: AB        .byte $AB
@@ -7727,7 +7727,7 @@ off_A756:
 - D - I - 0x022785 11:A775: 23        .byte $23
 - D - I - 0x022786 11:A776: 50        .byte $50
 - D - I - 0x022787 11:A777: F0        .byte con_F0
-- D - I - 0x022788 11:A778: F6        .byte con_F6
+- D - I - 0x022788 11:A778: F6        .byte con_mirror_toggle
 - D - I - 0x022789 11:A779: F7        .byte con_F7, $10
 - D - I - 0x02278B 11:A77B: F9        .byte $F9
 - D - I - 0x02278C 11:A77C: 02        .byte $02
@@ -7838,7 +7838,7 @@ off_A7E7:
 - D - I - 0x0227FC 11:A7EC: 44        .byte $44
 - D - I - 0x0227FD 11:A7ED: FB        .byte con_rts
 off_A7EE:
-- D - I - 0x0227FE 11:A7EE: F6        .byte con_F6
+- D - I - 0x0227FE 11:A7EE: F6        .byte con_mirror_toggle
 - D - I - 0x0227FF 11:A7EF: F7        .byte con_F7, $02
 - D - I - 0x022801 11:A7F1: 14        .byte $14
 - D - I - 0x022802 11:A7F2: 22        .byte $22
@@ -7867,7 +7867,7 @@ off_A805:
 - D - I - 0x02281B 11:A80B: 23        .byte $23
 - D - I - 0x02281C 11:A80C: E4        .byte $E4
 - D - I - 0x02281D 11:A80D: 45        .byte $45
-- D - I - 0x02281E 11:A80E: F6        .byte con_F6
+- D - I - 0x02281E 11:A80E: F6        .byte con_mirror_toggle
 - D - I - 0x02281F 11:A80F: FB        .byte con_rts
 off_A810:
 - D - I - 0x022820 11:A810: F7        .byte con_F7, $02
@@ -7945,7 +7945,7 @@ off_A858:
 - D - I - 0x022877 11:A867: F0        .byte con_F0
 - D - I - 0x022878 11:A868: D1        .byte $D1
 - D - I - 0x022879 11:A869: 45        .byte $45
-- D - I - 0x02287A 11:A86A: F6        .byte con_F6
+- D - I - 0x02287A 11:A86A: F6        .byte con_mirror_toggle
 - D - I - 0x02287B 11:A86B: FB        .byte con_rts
 off_A86C:
 - D - I - 0x02287C 11:A86C: F7        .byte con_F7, $02
@@ -8002,7 +8002,7 @@ off_A8A0:
 - D - I - 0x0228B6 11:A8A6: F0        .byte con_F0
 - D - I - 0x0228B7 11:A8A7: F0        .byte con_F0
 - D - I - 0x0228B8 11:A8A8: 45        .byte $45
-- D - I - 0x0228B9 11:A8A9: F6        .byte con_F6
+- D - I - 0x0228B9 11:A8A9: F6        .byte con_mirror_toggle
 - D - I - 0x0228BA 11:A8AA: FB        .byte con_rts
 off_A8AB:
 - D - I - 0x0228BB 11:A8AB: F7        .byte con_F7, $02
@@ -8045,7 +8045,7 @@ off_A8D0:
 - D - I - 0x0228E6 11:A8D6: 47        .byte $47
 - D - I - 0x0228E7 11:A8D7: D0        .byte $D0
 - D - I - 0x0228E8 11:A8D8: 49        .byte $49
-- D - I - 0x0228E9 11:A8D9: F6        .byte con_F6
+- D - I - 0x0228E9 11:A8D9: F6        .byte con_mirror_toggle
 - D - I - 0x0228EA 11:A8DA: F7        .byte con_F7, $0D
 - D - I - 0x0228EC 11:A8DC: F9        .byte $F9
 - D - I - 0x0228ED 11:A8DD: 02        .byte $02
@@ -8054,7 +8054,7 @@ off_A8D0:
 - D - I - 0x0228F0 11:A8E0: 47        .byte $47
 - D - I - 0x0228F1 11:A8E1: D0        .byte $D0
 - D - I - 0x0228F2 11:A8E2: 00        .byte $00
-- D - I - 0x0228F3 11:A8E3: F6        .byte con_F6
+- D - I - 0x0228F3 11:A8E3: F6        .byte con_mirror_toggle
 - D - I - 0x0228F4 11:A8E4: FB        .byte con_rts
 off_A8E5:
 - D - I - 0x0228F5 11:A8E5: F7        .byte con_F7, $44
@@ -8063,7 +8063,7 @@ off_A8E5:
 - D - I - 0x0228F9 11:A8E9: B3        .byte $B3
 - D - I - 0x0228FA 11:A8EA: C8        .byte $C8
 off_A8EB:
-- D - I - 0x0228FB 11:A8EB: F6        .byte con_F6
+- D - I - 0x0228FB 11:A8EB: F6        .byte con_mirror_toggle
 - D - I - 0x0228FC 11:A8EC: F7        .byte con_F7, $14
 - D - I - 0x0228FE 11:A8EE: F9        .byte $F9
 - D - I - 0x0228FF 11:A8EF: 02        .byte $02
@@ -8375,7 +8375,7 @@ off_A989:
 - D - I - 0x022A5C 11:AA4C: F2        .byte con_jsr_1
 - D - I - 0x022A5D 11:AA4D: C7 BB     .word off_BBC7
 off_AA4F:
-- D - I - 0x022A5F 11:AA4F: F6        .byte con_F6
+- D - I - 0x022A5F 11:AA4F: F6        .byte con_mirror_toggle
 - D - I - 0x022A60 11:AA50: F7        .byte con_F7, $02
 - D - I - 0x022A62 11:AA52: 14        .byte $14
 - D - I - 0x022A63 11:AA53: 22        .byte $22
@@ -8403,7 +8403,7 @@ off_AA62:
 - D - I - 0x022A78 11:AA68: 23        .byte $23
 - D - I - 0x022A79 11:AA69: E4        .byte $E4
 - D - I - 0x022A7A 11:AA6A: 46        .byte $46
-- D - I - 0x022A7B 11:AA6B: F6        .byte con_F6
+- D - I - 0x022A7B 11:AA6B: F6        .byte con_mirror_toggle
 - D - I - 0x022A7C 11:AA6C: FB        .byte con_rts
 off_AA6D:
 - - - - - 0x022A7D 11:AA6D: F3        .byte con_F3, $C7
@@ -8429,7 +8429,7 @@ off_AA7E:
 - - - - - 0x022A94 11:AA84: F0        .byte con_F0
 - - - - - 0x022A95 11:AA85: F0        .byte con_F0
 - - - - - 0x022A96 11:AA86: 46        .byte $46
-- - - - - 0x022A97 11:AA87: F6        .byte con_F6
+- - - - - 0x022A97 11:AA87: F6        .byte con_mirror_toggle
 - - - - - 0x022A98 11:AA88: FB        .byte con_rts
 off_AA89:
 - D - I - 0x022A99 11:AA89: F7        .byte con_F7, $3A
@@ -8485,7 +8485,7 @@ off_AAB7:
 - D - I - 0x022AD6 11:AAC6: F0        .byte con_F0
 - D - I - 0x022AD7 11:AAC7: D1        .byte $D1
 - D - I - 0x022AD8 11:AAC8: 46        .byte $46
-- D - I - 0x022AD9 11:AAC9: F6        .byte con_F6
+- D - I - 0x022AD9 11:AAC9: F6        .byte con_mirror_toggle
 - D - I - 0x022ADA 11:AACA: FB        .byte con_rts
 off_AACB:
 - D - I - 0x022ADB 11:AACB: F3        .byte con_F3, $BB
@@ -8501,7 +8501,7 @@ off_AAD2:
 - D - I - 0x022AE8 11:AAD8: F0        .byte con_F0
 - D - I - 0x022AE9 11:AAD9: F0        .byte con_F0
 - D - I - 0x022AEA 11:AADA: 46        .byte $46
-- D - I - 0x022AEB 11:AADB: F6        .byte con_F6
+- D - I - 0x022AEB 11:AADB: F6        .byte con_mirror_toggle
 - D - I - 0x022AEC 11:AADC: FB        .byte con_rts
 - - - - - 0x022AED 11:AADD: FA        .byte con_jsr_2
 - - - - - 0x022AEE 11:AADE: 8F A8     .word off_A88F
@@ -8533,7 +8533,7 @@ off_AAEF:
 - D - I - 0x022B0A 11:AAFA: F0        .byte con_F0
 - D - I - 0x022B0B 11:AAFB: D1        .byte $D1
 - D - I - 0x022B0C 11:AAFC: F0        .byte con_F0
-- D - I - 0x022B0D 11:AAFD: F6        .byte con_F6
+- D - I - 0x022B0D 11:AAFD: F6        .byte con_mirror_toggle
 - D - I - 0x022B0E 11:AAFE: FB        .byte con_rts
 off_AAFF:
 - - - - - 0x022B0F 11:AAFF: F3        .byte con_F3, $BA
@@ -8581,7 +8581,7 @@ off_AB18:
 - - - - - 0x022B3E 11:AB2E: F2        .byte con_jsr_1
 - - - - - 0x022B3F 11:AB2F: 06 AB     .word off_AB06
 off_AB31:
-- D - I - 0x022B41 11:AB31: F5        .byte con_F5
+- D - I - 0x022B41 11:AB31: F5        .byte con_mirror_off
 - D - I - 0x022B42 11:AB32: F9        .byte $F9
 - D - I - 0x022B43 11:AB33: 02        .byte $02
 - D - I - 0x022B44 11:AB34: 19        .byte $19
@@ -8940,13 +8940,13 @@ off_AC7A:
 - D - I - 0x022CC6 11:ACB6: F2        .byte con_jsr_1
 - D - I - 0x022CC7 11:ACB7: 7A AC     .word off_AC7A
 off_ACB9:
-- D - I - 0x022CC9 11:ACB9: F5        .byte con_F5
+- D - I - 0x022CC9 11:ACB9: F5        .byte con_mirror_off
 - D - I - 0x022CCA 11:ACBA: F8        .byte con_F8, $04
 - D - I - 0x022CCC 11:ACBC: 3C        .byte $3C
 - D - I - 0x022CCD 11:ACBD: 30        .byte $30
 - D - I - 0x022CCE 11:ACBE: 91        .byte $91
 - D - I - 0x022CCF 11:ACBF: B6        .byte $B6
-- D - I - 0x022CD0 11:ACC0: F6        .byte con_F6
+- D - I - 0x022CD0 11:ACC0: F6        .byte con_mirror_toggle
 - D - I - 0x022CD1 11:ACC1: F8        .byte con_F8, $04
 - D - I - 0x022CD3 11:ACC3: 3C        .byte $3C
 - D - I - 0x022CD4 11:ACC4: 55        .byte $55
@@ -8960,7 +8960,7 @@ off_ACB9:
 - D - I - 0x022CDD 11:ACCD: 23        .byte $23
 - D - I - 0x022CDE 11:ACCE: 6B        .byte $6B
 - D - I - 0x022CDF 11:ACCF: 00        .byte $00
-- D - I - 0x022CE0 11:ACD0: F6        .byte con_F6
+- D - I - 0x022CE0 11:ACD0: F6        .byte con_mirror_toggle
 - D - I - 0x022CE1 11:ACD1: F9        .byte $F9
 - D - I - 0x022CE2 11:ACD2: 02        .byte $02
 - D - I - 0x022CE3 11:ACD3: 26        .byte $26
@@ -8996,14 +8996,14 @@ off_ACB9:
 - D - I - 0x022D07 11:ACF7: 30        .byte $30
 - D - I - 0x022D08 11:ACF8: 91        .byte $91
 - D - I - 0x022D09 11:ACF9: AF        .byte $AF
-- D - I - 0x022D0A 11:ACFA: F6        .byte con_F6
+- D - I - 0x022D0A 11:ACFA: F6        .byte con_mirror_toggle
 - D - I - 0x022D0B 11:ACFB: F7        .byte con_F7, $1F
 - D - I - 0x022D0D 11:ACFD: F8        .byte con_F8, $04
 - D - I - 0x022D0F 11:ACFF: 3C        .byte $3C
 - D - I - 0x022D10 11:AD00: 55        .byte $55
 - D - I - 0x022D11 11:AD01: 9E        .byte $9E
 - D - I - 0x022D12 11:AD02: B8        .byte $B8
-- D - I - 0x022D13 11:AD03: F6        .byte con_F6
+- D - I - 0x022D13 11:AD03: F6        .byte con_mirror_toggle
 - D - I - 0x022D14 11:AD04: F9        .byte $F9
 - D - I - 0x022D15 11:AD05: 02        .byte $02
 - D - I - 0x022D16 11:AD06: 08        .byte $08
@@ -9013,7 +9013,7 @@ off_ACB9:
 - D - I - 0x022D1A 11:AD0A: 00        .byte $00
 - D - I - 0x022D1B 11:AD0B: FB        .byte con_rts
 off_AD0C:
-- D - I - 0x022D1C 11:AD0C: F5        .byte con_F5
+- D - I - 0x022D1C 11:AD0C: F5        .byte con_mirror_off
 - D - I - 0x022D1D 11:AD0D: FA        .byte con_jsr_2
 - D - I - 0x022D1E 11:AD0E: 13 AD     .word off_AD13
 - D - I - 0x022D20 11:AD10: F2        .byte con_jsr_1
@@ -9323,19 +9323,19 @@ off_AE64:
 - D - I - 0x022E76 11:AE66: 64        .byte $64
 - D - I - 0x022E77 11:AE67: 48        .byte $48
 - D - I - 0x022E78 11:AE68: FB        .byte con_rts
-- D - I - 0x022E79 11:AE69: F5        .byte con_F5
+- D - I - 0x022E79 11:AE69: F5        .byte con_mirror_off
 - D - I - 0x022E7A 11:AE6A: F8        .byte con_F8, $04
 - D - I - 0x022E7C 11:AE6C: 40        .byte $40
 - D - I - 0x022E7D 11:AE6D: 30        .byte $30
 - D - I - 0x022E7E 11:AE6E: 9C        .byte $9C
 - D - I - 0x022E7F 11:AE6F: A8        .byte $A8
-- D - I - 0x022E80 11:AE70: F6        .byte con_F6
+- D - I - 0x022E80 11:AE70: F6        .byte con_mirror_toggle
 - D - I - 0x022E81 11:AE71: F8        .byte con_F8, $04
 - D - I - 0x022E83 11:AE73: 78        .byte $78
 - D - I - 0x022E84 11:AE74: 4F        .byte $4F
 - D - I - 0x022E85 11:AE75: 9C        .byte $9C
 - D - I - 0x022E86 11:AE76: A9        .byte $A9
-- D - I - 0x022E87 11:AE77: F6        .byte con_F6
+- D - I - 0x022E87 11:AE77: F6        .byte con_mirror_toggle
 - D - I - 0x022E88 11:AE78: F9        .byte $F9
 - D - I - 0x022E89 11:AE79: 02        .byte $02
 - D - I - 0x022E8A 11:AE7A: 25        .byte $25
@@ -9343,7 +9343,7 @@ off_AE64:
 - D - I - 0x022E8C 11:AE7C: 1F        .byte $1F
 - D - I - 0x022E8D 11:AE7D: 64        .byte $64
 - D - I - 0x022E8E 11:AE7E: 00        .byte $00
-- D - I - 0x022E8F 11:AE7F: F6        .byte con_F6
+- D - I - 0x022E8F 11:AE7F: F6        .byte con_mirror_toggle
 - D - I - 0x022E90 11:AE80: F9        .byte $F9
 - D - I - 0x022E91 11:AE81: 02        .byte $02
 - D - I - 0x022E92 11:AE82: 28        .byte $28
@@ -9353,7 +9353,7 @@ off_AE64:
 - D - I - 0x022E98 11:AE88: 23        .byte $23
 - D - I - 0x022E99 11:AE89: 76        .byte $76
 - D - I - 0x022E9A 11:AE8A: F0        .byte con_F0
-- D - I - 0x022E9B 11:AE8B: F6        .byte con_F6
+- D - I - 0x022E9B 11:AE8B: F6        .byte con_mirror_toggle
 - D - I - 0x022E9C 11:AE8C: F7        .byte con_F7, $10
 - D - I - 0x022E9E 11:AE8E: 20        .byte $20
 - D - I - 0x022E9F 11:AE8F: 05        .byte $05
@@ -9377,19 +9377,19 @@ off_AE96:
 - D - I - 0x022EB1 11:AEA1: 4B        .byte $4B
 - D - I - 0x022EB2 11:AEA2: 00        .byte $00
 - D - I - 0x022EB3 11:AEA3: FB        .byte con_rts
-- D - I - 0x022EB4 11:AEA4: F5        .byte con_F5
+- D - I - 0x022EB4 11:AEA4: F5        .byte con_mirror_off
 - D - I - 0x022EB5 11:AEA5: F8        .byte con_F8, $04
 - D - I - 0x022EB7 11:AEA7: 40        .byte $40
 - D - I - 0x022EB8 11:AEA8: 30        .byte $30
 - D - I - 0x022EB9 11:AEA9: AB        .byte $AB
 - D - I - 0x022EBA 11:AEAA: A8        .byte $A8
-- D - I - 0x022EBB 11:AEAB: F6        .byte con_F6
+- D - I - 0x022EBB 11:AEAB: F6        .byte con_mirror_toggle
 - D - I - 0x022EBC 11:AEAC: F8        .byte con_F8, $04
 - D - I - 0x022EBE 11:AEAE: 78        .byte $78
 - D - I - 0x022EBF 11:AEAF: 4F        .byte $4F
 - D - I - 0x022EC0 11:AEB0: AB        .byte $AB
 - D - I - 0x022EC1 11:AEB1: A9        .byte $A9
-- D - I - 0x022EC2 11:AEB2: F6        .byte con_F6
+- D - I - 0x022EC2 11:AEB2: F6        .byte con_mirror_toggle
 - D - I - 0x022EC3 11:AEB3: F9        .byte $F9
 - D - I - 0x022EC4 11:AEB4: 02        .byte $02
 - D - I - 0x022EC5 11:AEB5: 25        .byte $25
@@ -9397,7 +9397,7 @@ off_AE96:
 - D - I - 0x022EC7 11:AEB7: 1F        .byte $1F
 - D - I - 0x022EC8 11:AEB8: 64        .byte $64
 - D - I - 0x022EC9 11:AEB9: 00        .byte $00
-- D - I - 0x022ECA 11:AEBA: F6        .byte con_F6
+- D - I - 0x022ECA 11:AEBA: F6        .byte con_mirror_toggle
 - D - I - 0x022ECB 11:AEBB: F9        .byte $F9
 - D - I - 0x022ECC 11:AEBC: 02        .byte $02
 - D - I - 0x022ECD 11:AEBD: 28        .byte $28
@@ -9407,7 +9407,7 @@ off_AE96:
 - D - I - 0x022ED3 11:AEC3: 23        .byte $23
 - D - I - 0x022ED4 11:AEC4: 76        .byte $76
 - D - I - 0x022ED5 11:AEC5: F0        .byte con_F0
-- D - I - 0x022ED6 11:AEC6: F6        .byte con_F6
+- D - I - 0x022ED6 11:AEC6: F6        .byte con_mirror_toggle
 - D - I - 0x022ED7 11:AEC7: F7        .byte con_F7, $10
 - D - I - 0x022ED9 11:AEC9: 20        .byte $20
 - D - I - 0x022EDA 11:AECA: 05        .byte $05
@@ -9420,19 +9420,19 @@ off_AE96:
 - D - I - 0x022EE1 11:AED1: F2        .byte con_jsr_1
 - D - I - 0x022EE2 11:AED2: 96 AE     .word off_AE96
 off_AED4:
-- D - I - 0x022EE4 11:AED4: F4        .byte con_F4
+- D - I - 0x022EE4 11:AED4: F4        .byte con_mirror_on
 - D - I - 0x022EE5 11:AED5: F8        .byte con_F8, $04
 - D - I - 0x022EE7 11:AED7: 40        .byte $40
 - D - I - 0x022EE8 11:AED8: 4F        .byte $4F
 - D - I - 0x022EE9 11:AED9: 9C        .byte $9C
 - D - I - 0x022EEA 11:AEDA: A8        .byte $A8
-- D - I - 0x022EEB 11:AEDB: F6        .byte con_F6
+- D - I - 0x022EEB 11:AEDB: F6        .byte con_mirror_toggle
 - D - I - 0x022EEC 11:AEDC: F8        .byte con_F8, $04
 - D - I - 0x022EEE 11:AEDE: 78        .byte $78
 - D - I - 0x022EEF 11:AEDF: 30        .byte $30
 - D - I - 0x022EF0 11:AEE0: A0        .byte $A0
 - D - I - 0x022EF1 11:AEE1: AE        .byte $AE
-- D - I - 0x022EF2 11:AEE2: F6        .byte con_F6
+- D - I - 0x022EF2 11:AEE2: F6        .byte con_mirror_toggle
 - D - I - 0x022EF3 11:AEE3: F9        .byte $F9
 - D - I - 0x022EF4 11:AEE4: 02        .byte $02
 - D - I - 0x022EF5 11:AEE5: 26        .byte $26
@@ -9441,7 +9441,7 @@ off_AED4:
 - D - I - 0x022EF9 11:AEE9: 22        .byte $22
 - D - I - 0x022EFA 11:AEEA: 6B        .byte $6B
 - D - I - 0x022EFB 11:AEEB: 00        .byte $00
-- D - I - 0x022EFC 11:AEEC: F6        .byte con_F6
+- D - I - 0x022EFC 11:AEEC: F6        .byte con_mirror_toggle
 - D - I - 0x022EFD 11:AEED: FC        .byte con_FC, $03
 - D - I - 0x022EFF 11:AEEF: F9        .byte $F9
 - D - I - 0x022F00 11:AEF0: 02        .byte $02
@@ -9470,26 +9470,26 @@ off_AED4:
 - D - I - 0x022F19 11:AF09: 3C        .byte $3C
 - D - I - 0x022F1A 11:AF0A: C2        .byte $C2
 - D - I - 0x022F1B 11:AF0B: F0        .byte con_F0
-- D - I - 0x022F1C 11:AF0C: F6        .byte con_F6
+- D - I - 0x022F1C 11:AF0C: F6        .byte con_mirror_toggle
 - D - I - 0x022F1D 11:AF0D: F8        .byte con_F8, $04
 - D - I - 0x022F1F 11:AF0F: 3C        .byte $3C
 - D - I - 0x022F20 11:AF10: 4F        .byte $4F
 - D - I - 0x022F21 11:AF11: 9C        .byte $9C
 - D - I - 0x022F22 11:AF12: 13        .byte $13
-- D - I - 0x022F23 11:AF13: F6        .byte con_F6
+- D - I - 0x022F23 11:AF13: F6        .byte con_mirror_toggle
 - D - I - 0x022F24 11:AF14: F8        .byte con_F8, $04
 - D - I - 0x022F26 11:AF16: 3C        .byte $3C
 - D - I - 0x022F27 11:AF17: 30        .byte $30
 - D - I - 0x022F28 11:AF18: 9C        .byte $9C
 - D - I - 0x022F29 11:AF19: AF        .byte $AF
-- D - I - 0x022F2A 11:AF1A: F6        .byte con_F6
+- D - I - 0x022F2A 11:AF1A: F6        .byte con_mirror_toggle
 - D - I - 0x022F2B 11:AF1B: 3C        .byte $3C
 - D - I - 0x022F2C 11:AF1C: 30        .byte $30
 - D - I - 0x022F2D 11:AF1D: A0        .byte $A0
 - D - I - 0x022F2E 11:AF1E: B0        .byte $B0
 - D - I - 0x022F2F 11:AF1F: FA        .byte con_jsr_2
 - D - I - 0x022F30 11:AF20: C7 BB     .word off_BBC7
-- D - I - 0x022F32 11:AF22: F6        .byte con_F6
+- D - I - 0x022F32 11:AF22: F6        .byte con_mirror_toggle
 - D - I - 0x022F33 11:AF23: F7        .byte con_F7, $10
 - D - I - 0x022F35 11:AF25: F9        .byte $F9
 - D - I - 0x022F36 11:AF26: 02        .byte $02
@@ -9521,7 +9521,7 @@ off_AF31:
 - D - I - 0x022F51 11:AF41: 05        .byte $05
 - D - I - 0x022F52 11:AF42: CB        .byte $CB
 - D - I - 0x022F53 11:AF43: EF        .byte $EF
-- D - I - 0x022F54 11:AF44: F6        .byte con_F6
+- D - I - 0x022F54 11:AF44: F6        .byte con_mirror_toggle
 - D - I - 0x022F55 11:AF45: F9        .byte $F9
 - D - I - 0x022F56 11:AF46: 02        .byte $02
 - D - I - 0x022F57 11:AF47: 6D        .byte $6D
@@ -9531,7 +9531,7 @@ off_AF31:
 - D - I - 0x022F5B 11:AF4B: F0        .byte con_F0
 - D - I - 0x022F5C 11:AF4C: FA        .byte con_jsr_2
 - D - I - 0x022F5D 11:AF4D: C7 BB     .word off_BBC7
-- D - I - 0x022F5F 11:AF4F: F6        .byte con_F6
+- D - I - 0x022F5F 11:AF4F: F6        .byte con_mirror_toggle
 - D - I - 0x022F60 11:AF50: FB        .byte con_rts
 off_AF51:
 - D - I - 0x022F61 11:AF51: F9        .byte $F9
@@ -9543,7 +9543,7 @@ off_AF51:
 - D - I - 0x022F67 11:AF57: 47        .byte $47
 - D - I - 0x022F68 11:AF58: FB        .byte con_rts
 off_AF59:
-- D - I - 0x022F69 11:AF59: F5        .byte con_F5
+- D - I - 0x022F69 11:AF59: F5        .byte con_mirror_off
 - D - I - 0x022F6A 11:AF5A: 3C        .byte $3C
 - D - I - 0x022F6B 11:AF5B: 30        .byte $30
 - D - I - 0x022F6C 11:AF5C: 91        .byte $91
@@ -9567,7 +9567,7 @@ off_AF59:
 - D - I - 0x022F80 11:AF70: F2        .byte con_jsr_1
 - D - I - 0x022F81 11:AF71: 6B AB     .word off_AB6B
 off_AF73:
-- D - I - 0x022F83 11:AF73: F6        .byte con_F6
+- D - I - 0x022F83 11:AF73: F6        .byte con_mirror_toggle
 - D - I - 0x022F84 11:AF74: 3C        .byte $3C
 - D - I - 0x022F85 11:AF75: 30        .byte $30
 - D - I - 0x022F86 11:AF76: 9F        .byte $9F
@@ -9588,7 +9588,7 @@ off_AF78:
 - D - I - 0x022F96 11:AF86: 00        .byte $00
 - D - I - 0x022F97 11:AF87: FB        .byte con_rts
 off_AF88:
-- D - I - 0x022F98 11:AF88: F6        .byte con_F6
+- D - I - 0x022F98 11:AF88: F6        .byte con_mirror_toggle
 - D - I - 0x022F99 11:AF89: 3C        .byte $3C
 - D - I - 0x022F9A 11:AF8A: 30        .byte $30
 - D - I - 0x022F9B 11:AF8B: AD        .byte $AD
@@ -9602,7 +9602,7 @@ off_AF90:
 - D - I - 0x022FA4 11:AF94: FA        .byte con_jsr_2
 - D - I - 0x022FA5 11:AF95: 73 AF     .word off_AF73
 off_AF97:
-- D - I - 0x022FA7 11:AF97: F6        .byte con_F6
+- D - I - 0x022FA7 11:AF97: F6        .byte con_mirror_toggle
 - D - I - 0x022FA8 11:AF98: F7        .byte con_F7, $02
 - D - I - 0x022FAA 11:AF9A: F9        .byte $F9
 - D - I - 0x022FAB 11:AF9B: 02        .byte $02
@@ -9618,7 +9618,7 @@ off_AF97:
 - D - I - 0x022FB7 11:AFA7: F2        .byte con_jsr_1
 - D - I - 0x022FB8 11:AFA8: 97 AF     .word off_AF97
 off_AFAA:
-- D - I - 0x022FBA 11:AFAA: F5        .byte con_F5
+- D - I - 0x022FBA 11:AFAA: F5        .byte con_mirror_off
 - D - I - 0x022FBB 11:AFAB: F7        .byte con_F7, $10
 - D - I - 0x022FBD 11:AFAD: F9        .byte $F9
 - D - I - 0x022FBE 11:AFAE: 02        .byte $02
@@ -9651,7 +9651,7 @@ off_AFC6:
 - D - I - 0x022FD7 11:AFC7: 71        .byte $71
 - D - I - 0x022FD8 11:AFC8: 00        .byte $00
 - D - I - 0x022FD9 11:AFC9: 00        .byte $00
-- D - I - 0x022FDA 11:AFCA: F6        .byte con_F6
+- D - I - 0x022FDA 11:AFCA: F6        .byte con_mirror_toggle
 - D - I - 0x022FDB 11:AFCB: 3C        .byte $3C
 - D - I - 0x022FDC 11:AFCC: 30        .byte $30
 - D - I - 0x022FDD 11:AFCD: 91        .byte $91
@@ -9675,7 +9675,7 @@ off_AFC6:
 - D - I - 0x022FF0 11:AFE0: 47        .byte $47
 - D - I - 0x022FF1 11:AFE1: BF        .byte $BF
 - D - I - 0x022FF2 11:AFE2: 49        .byte $49
-- D - I - 0x022FF3 11:AFE3: F6        .byte con_F6
+- D - I - 0x022FF3 11:AFE3: F6        .byte con_mirror_toggle
 - D - I - 0x022FF4 11:AFE4: FB        .byte con_rts
 off_AFE5:
 - D - I - 0x022FF5 11:AFE5: F9        .byte $F9
@@ -9736,7 +9736,7 @@ off_B018:
 
 
 off_B01B_76:
-- D - I - 0x02302B 11:B01B: F6        .byte con_F6
+- D - I - 0x02302B 11:B01B: F6        .byte con_mirror_toggle
 - D - I - 0x02302C 11:B01C: F9        .byte $F9
 - D - I - 0x02302D 11:B01D: 31        .byte $31
 - D - I - 0x02302E 11:B01E: 1A        .byte $1A
@@ -9744,7 +9744,7 @@ off_B01B_76:
 - D - I - 0x023030 11:B020: 4C        .byte $4C
 - D - I - 0x023031 11:B021: BF        .byte $BF
 - D - I - 0x023032 11:B022: 49        .byte $49
-- D - I - 0x023033 11:B023: F6        .byte con_F6
+- D - I - 0x023033 11:B023: F6        .byte con_mirror_toggle
 - D - I - 0x023034 11:B024: FB        .byte con_rts
 - D - I - 0x023035 11:B025: 3C        .byte $3C
 - D - I - 0x023036 11:B026: 30        .byte $30
@@ -9822,7 +9822,7 @@ off_B079:
 - D - I - 0x023089 11:B079: F3        .byte con_F3, $BC
 - D - I - 0x02308B 11:B07B: 02        .byte $02
 - D - I - 0x02308C 11:B07C: 1B        .byte $1B
-- D - I - 0x02308D 11:B07D: F6        .byte con_F6
+- D - I - 0x02308D 11:B07D: F6        .byte con_mirror_toggle
 - D - I - 0x02308E 11:B07E: 3C        .byte $3C
 - D - I - 0x02308F 11:B07F: 30        .byte $30
 - D - I - 0x023090 11:B080: A3        .byte $A3
@@ -9845,9 +9845,9 @@ off_B082:
 - D - I - 0x0230A2 11:B092: 49        .byte $49
 - D - I - 0x0230A3 11:B093: BF        .byte $BF
 - D - I - 0x0230A4 11:B094: 49        .byte $49
-- D - I - 0x0230A5 11:B095: F6        .byte con_F6
+- D - I - 0x0230A5 11:B095: F6        .byte con_mirror_toggle
 - D - I - 0x0230A6 11:B096: FB        .byte con_rts
-- D - I - 0x0230A7 11:B097: F6        .byte con_F6
+- D - I - 0x0230A7 11:B097: F6        .byte con_mirror_toggle
 - D - I - 0x0230A8 11:B098: 3C        .byte $3C
 - D - I - 0x0230A9 11:B099: 30        .byte $30
 - D - I - 0x0230AA 11:B09A: AE        .byte $AE
@@ -9855,7 +9855,7 @@ off_B082:
 - D - I - 0x0230AC 11:B09C: F2        .byte con_jsr_1
 - D - I - 0x0230AD 11:B09D: 82 B0     .word off_B082
 off_B09F:
-- - - - - 0x0230AF 11:B09F: F5        .byte con_F5
+- - - - - 0x0230AF 11:B09F: F5        .byte con_mirror_off
 - - - - - 0x0230B0 11:B0A0: F9        .byte $F9
 - - - - - 0x0230B1 11:B0A1: 19        .byte $19
 - - - - - 0x0230B2 11:B0A2: 2B        .byte $2B
@@ -9947,7 +9947,7 @@ off_B0FB:
 - D - I - 0x02310B 11:B0FB: F3        .byte con_F3, $A5
 - D - I - 0x02310D 11:B0FD: 02        .byte $02
 - D - I - 0x02310E 11:B0FE: 43        .byte $43
-- D - I - 0x02310F 11:B0FF: F5        .byte con_F5
+- D - I - 0x02310F 11:B0FF: F5        .byte con_mirror_off
 - D - I - 0x023110 11:B100: F7        .byte con_F7, $10
 - D - I - 0x023112 11:B102: 28        .byte $28
 - D - I - 0x023113 11:B103: 05        .byte $05
@@ -9966,7 +9966,7 @@ off_B0FB:
 - D - I - 0x023120 11:B110: 8A        .byte $8A
 - D - I - 0x023121 11:B111: FA        .byte con_jsr_2
 - D - I - 0x023122 11:B112: C7 BB     .word off_BBC7
-- D - I - 0x023124 11:B114: F6        .byte con_F6
+- D - I - 0x023124 11:B114: F6        .byte con_mirror_toggle
 - D - I - 0x023125 11:B115: 10        .byte $10
 - D - I - 0x023126 11:B116: 54        .byte $54
 - D - I - 0x023127 11:B117: D5        .byte $D5
@@ -9981,7 +9981,7 @@ off_B0FB:
 - D - I - 0x023130 11:B120: F0        .byte con_F0
 - D - I - 0x023131 11:B121: FA        .byte con_jsr_2
 - D - I - 0x023132 11:B122: C7 BB     .word off_BBC7
-- D - I - 0x023134 11:B124: F6        .byte con_F6
+- D - I - 0x023134 11:B124: F6        .byte con_mirror_toggle
 - D - I - 0x023135 11:B125: 10        .byte $10
 - D - I - 0x023136 11:B126: 54        .byte $54
 - D - I - 0x023137 11:B127: D4        .byte $D4
@@ -10009,13 +10009,13 @@ off_B0FB:
 - D - I - 0x02314E 11:B13E: F0        .byte con_F0
 - D - I - 0x02314F 11:B13F: F0        .byte con_F0
 - D - I - 0x023150 11:B140: 00        .byte $00
-- D - I - 0x023151 11:B141: F5        .byte con_F5
+- D - I - 0x023151 11:B141: F5        .byte con_mirror_off
 - D - I - 0x023152 11:B142: F8        .byte con_F8, $04
 - D - I - 0x023154 11:B144: 3C        .byte $3C
 - D - I - 0x023155 11:B145: 30        .byte $30
 - D - I - 0x023156 11:B146: B5        .byte $B5
 - D - I - 0x023157 11:B147: C1        .byte $C1
-- D - I - 0x023158 11:B148: F6        .byte con_F6
+- D - I - 0x023158 11:B148: F6        .byte con_mirror_toggle
 - D - I - 0x023159 11:B149: F8        .byte con_F8, $04
 - D - I - 0x02315B 11:B14B: 3C        .byte $3C
 - D - I - 0x02315C 11:B14C: 4F        .byte $4F
@@ -10028,7 +10028,7 @@ off_B0FB:
 - D - I - 0x023163 11:B153: 1F        .byte $1F
 - D - I - 0x023164 11:B154: EB        .byte $EB
 - D - I - 0x023165 11:B155: 00        .byte $00
-- D - I - 0x023166 11:B156: F6        .byte con_F6
+- D - I - 0x023166 11:B156: F6        .byte con_mirror_toggle
 - D - I - 0x023167 11:B157: F9        .byte $F9
 - D - I - 0x023168 11:B158: 02        .byte $02
 - D - I - 0x023169 11:B159: 25        .byte $25
@@ -10098,12 +10098,12 @@ off_B198:
 - D - I - 0x0231AF 11:B19F: BC        .byte $BC
 off_B1A0:
 - D - I - 0x0231B0 11:B1A0: F7        .byte con_F7, $02
-- D - I - 0x0231B2 11:B1A2: F6        .byte con_F6
+- D - I - 0x0231B2 11:B1A2: F6        .byte con_mirror_toggle
 - D - I - 0x0231B3 11:B1A3: 14        .byte $14
 - D - I - 0x0231B4 11:B1A4: 24        .byte $24
 - D - I - 0x0231B5 11:B1A5: 6B        .byte $6B
 - D - I - 0x0231B6 11:B1A6: 00        .byte $00
-- D - I - 0x0231B7 11:B1A7: F6        .byte con_F6
+- D - I - 0x0231B7 11:B1A7: F6        .byte con_mirror_toggle
 - D - I - 0x0231B8 11:B1A8: F7        .byte con_F7, $10
 - D - I - 0x0231BA 11:B1AA: 1E        .byte $1E
 - D - I - 0x0231BB 11:B1AB: 05        .byte $05
@@ -10184,13 +10184,13 @@ off_B1F6:
 - D - I - 0x02320D 11:B1FD: DC        .byte $DC
 - D - I - 0x02320E 11:B1FE: F0        .byte con_F0
 - D - I - 0x02320F 11:B1FF: FB        .byte con_rts
-- D - I - 0x023210 11:B200: F4        .byte con_F4
+- D - I - 0x023210 11:B200: F4        .byte con_mirror_on
 - D - I - 0x023211 11:B201: F8        .byte con_F8, $04
 - D - I - 0x023213 11:B203: 3C        .byte $3C
 - D - I - 0x023214 11:B204: 4F        .byte $4F
 - D - I - 0x023215 11:B205: 91        .byte $91
 - D - I - 0x023216 11:B206: AA        .byte $AA
-- D - I - 0x023217 11:B207: F6        .byte con_F6
+- D - I - 0x023217 11:B207: F6        .byte con_mirror_toggle
 - D - I - 0x023218 11:B208: F8        .byte con_F8, $04
 - D - I - 0x02321A 11:B20A: 3C        .byte $3C
 - D - I - 0x02321B 11:B20B: 30        .byte $30
@@ -10211,13 +10211,13 @@ off_B1F6:
 - D - I - 0x02322C 11:B21C: 04        .byte $04
 - D - I - 0x02322D 11:B21D: F2        .byte con_jsr_1
 - D - I - 0x02322E 11:B21E: F6 B1     .word off_B1F6
-- D - I - 0x023230 11:B220: F4        .byte con_F4
+- D - I - 0x023230 11:B220: F4        .byte con_mirror_on
 - D - I - 0x023231 11:B221: F8        .byte con_F8, $04
 - D - I - 0x023233 11:B223: 3C        .byte $3C
 - D - I - 0x023234 11:B224: 4F        .byte $4F
 - D - I - 0x023235 11:B225: 9C        .byte $9C
 - D - I - 0x023236 11:B226: AC        .byte $AC
-- D - I - 0x023237 11:B227: F6        .byte con_F6
+- D - I - 0x023237 11:B227: F6        .byte con_mirror_toggle
 - D - I - 0x023238 11:B228: F8        .byte con_F8, $04
 - D - I - 0x02323A 11:B22A: 3C        .byte $3C
 - D - I - 0x02323B 11:B22B: 30        .byte $30
@@ -10239,13 +10239,13 @@ off_B22E:
 - D - I - 0x02324C 11:B23C: 04        .byte $04
 - D - I - 0x02324D 11:B23D: F2        .byte con_jsr_1
 - D - I - 0x02324E 11:B23E: F6 B1     .word off_B1F6
-- D - I - 0x023250 11:B240: F4        .byte con_F4
+- D - I - 0x023250 11:B240: F4        .byte con_mirror_on
 - D - I - 0x023251 11:B241: F8        .byte con_F8, $04
 - D - I - 0x023253 11:B243: 3C        .byte $3C
 - D - I - 0x023254 11:B244: 4F        .byte $4F
 - D - I - 0x023255 11:B245: AB        .byte $AB
 - D - I - 0x023256 11:B246: AC        .byte $AC
-- D - I - 0x023257 11:B247: F6        .byte con_F6
+- D - I - 0x023257 11:B247: F6        .byte con_mirror_toggle
 - D - I - 0x023258 11:B248: F8        .byte con_F8, $04
 - D - I - 0x02325A 11:B24A: 3C        .byte $3C
 - D - I - 0x02325B 11:B24B: 30        .byte $30
@@ -10484,7 +10484,7 @@ off_B33B:
 - D - I - 0x02334C 11:B33C: 20        .byte $20
 - D - I - 0x02334D 11:B33D: C1        .byte $C1
 - D - I - 0x02334E 11:B33E: ED        .byte $ED
-- D - I - 0x02334F 11:B33F: F6        .byte con_F6
+- D - I - 0x02334F 11:B33F: F6        .byte con_mirror_toggle
 - D - I - 0x023350 11:B340: FB        .byte con_rts
 - D - I - 0x023351 11:B341: FA        .byte con_jsr_2
 - D - I - 0x023352 11:B342: 56 A7     .word off_A756
@@ -10583,7 +10583,7 @@ off_B3AA:
 - D - I - 0x0233BA 11:B3AA: FA        .byte con_jsr_2
 - D - I - 0x0233BB 11:B3AB: 10 A8     .word off_A810
 off_B3AD:
-- D - I - 0x0233BD 11:B3AD: F6        .byte con_F6
+- D - I - 0x0233BD 11:B3AD: F6        .byte con_mirror_toggle
 - D - I - 0x0233BE 11:B3AE: FB        .byte con_rts
 off_B3AF:
 - D - I - 0x0233BF 11:B3AF: F3        .byte con_F3, $C7
@@ -10604,7 +10604,7 @@ off_B3BD:
 off_B3C0:
 - D - I - 0x0233D0 11:B3C0: FA        .byte con_jsr_2
 - D - I - 0x0233D1 11:B3C1: 89 AA     .word off_AA89
-- D - I - 0x0233D3 11:B3C3: F6        .byte con_F6
+- D - I - 0x0233D3 11:B3C3: F6        .byte con_mirror_toggle
 - D - I - 0x0233D4 11:B3C4: FB        .byte con_rts
 - D - I - 0x0233D5 11:B3C5: F7        .byte con_F7, $44
 - D - I - 0x0233D7 11:B3C7: 3C        .byte $3C
@@ -10642,7 +10642,7 @@ off_B3E9:
 - D - I - 0x0233FF 11:B3EF: F0        .byte con_F0
 - D - I - 0x023400 11:B3F0: F0        .byte con_F0
 - D - I - 0x023401 11:B3F1: F0        .byte con_F0
-- D - I - 0x023402 11:B3F2: F6        .byte con_F6
+- D - I - 0x023402 11:B3F2: F6        .byte con_mirror_toggle
 - D - I - 0x023403 11:B3F3: FB        .byte con_rts
 off_B3F4:
 - D - I - 0x023404 11:B3F4: F3        .byte con_F3, $BB
@@ -10653,7 +10653,7 @@ off_B3F4:
 off_B3FB:
 - D - I - 0x02340B 11:B3FB: FA        .byte con_jsr_2
 - D - I - 0x02340C 11:B3FC: AB A8     .word off_A8AB
-- D - I - 0x02340E 11:B3FE: F6        .byte con_F6
+- D - I - 0x02340E 11:B3FE: F6        .byte con_mirror_toggle
 - D - I - 0x02340F 11:B3FF: FB        .byte con_rts
 - D - I - 0x023410 11:B400: FA        .byte con_jsr_2
 - D - I - 0x023411 11:B401: 8F A8     .word off_A88F
@@ -10670,7 +10670,7 @@ off_B406:
 - D - I - 0x02341F 11:B40F: 47        .byte $47
 - D - I - 0x023420 11:B410: D1        .byte $D1
 - D - I - 0x023421 11:B411: F0        .byte con_F0
-- D - I - 0x023422 11:B412: F6        .byte con_F6
+- D - I - 0x023422 11:B412: F6        .byte con_mirror_toggle
 - D - I - 0x023423 11:B413: FB        .byte con_rts
 off_B414:
 - D - I - 0x023424 11:B414: F3        .byte con_F3, $BA
@@ -10803,7 +10803,7 @@ off_B486_1B:
 
 off_B48E_03:
 off_B48E:
-- D - I - 0x02349E 11:B48E: F4        .byte con_F4
+- D - I - 0x02349E 11:B48E: F4        .byte con_mirror_on
 - D - I - 0x02349F 11:B48F: FA        .byte con_jsr_2
 - D - I - 0x0234A0 11:B490: 4B BB     .word off_BB4B
 - D - I - 0x0234A2 11:B492: F9        .byte $F9
@@ -10815,7 +10815,7 @@ off_B48E:
 - D - I - 0x0234A8 11:B498: EB        .byte $EB
 - D - I - 0x0234A9 11:B499: FB        .byte con_rts
 off_B49A:
-- D - I - 0x0234AA 11:B49A: F6        .byte con_F6
+- D - I - 0x0234AA 11:B49A: F6        .byte con_mirror_toggle
 - D - I - 0x0234AB 11:B49B: FA        .byte con_jsr_2
 - D - I - 0x0234AC 11:B49C: 4B BB     .word off_BB4B
 off_B49E:
@@ -10959,7 +10959,7 @@ off_B509:
 - D - I - 0x023527 11:B517: 10        .byte $10
 - D - I - 0x023528 11:B518: 00        .byte $00
 off_B519:
-- D - I - 0x023529 11:B519: F6        .byte con_F6
+- D - I - 0x023529 11:B519: F6        .byte con_mirror_toggle
 - D - I - 0x02352A 11:B51A: F9        .byte $F9
 - D - I - 0x02352B 11:B51B: 02        .byte $02
 - D - I - 0x02352C 11:B51C: 08        .byte $08
@@ -10968,7 +10968,7 @@ off_B519:
 - D - I - 0x023530 11:B520: 43        .byte $43
 - D - I - 0x023531 11:B521: 5F        .byte $5F
 - D - I - 0x023532 11:B522: 00        .byte $00
-- D - I - 0x023533 11:B523: F6        .byte con_F6
+- D - I - 0x023533 11:B523: F6        .byte con_mirror_toggle
 - D - I - 0x023534 11:B524: FB        .byte con_rts
 off_B525:
 - D - I - 0x023535 11:B525: FA        .byte con_jsr_2
@@ -10995,7 +10995,7 @@ off_B532:
 - D - I - 0x02354D 11:B53D: 00        .byte $00
 - D - I - 0x02354E 11:B53E: FB        .byte con_rts
 off_B53F:
-- D - I - 0x02354F 11:B53F: F6        .byte con_F6
+- D - I - 0x02354F 11:B53F: F6        .byte con_mirror_toggle
 - D - I - 0x023550 11:B540: FA        .byte con_jsr_2
 - D - I - 0x023551 11:B541: 8F BB     .word off_BB8F
 off_B543:
@@ -11006,12 +11006,12 @@ off_B543:
 - D - I - 0x023557 11:B547: 56        .byte $56
 - D - I - 0x023558 11:B548: 1D        .byte $1D
 - D - I - 0x023559 11:B549: 00        .byte $00
-- D - I - 0x02355A 11:B54A: F6        .byte con_F6
+- D - I - 0x02355A 11:B54A: F6        .byte con_mirror_toggle
 - D - I - 0x02355B 11:B54B: FA        .byte con_jsr_2
 - D - I - 0x02355C 11:B54C: 8F BB     .word off_BB8F
 - D - I - 0x02355E 11:B54E: FB        .byte con_rts
 off_B54F:
-- D - I - 0x02355F 11:B54F: F6        .byte con_F6
+- D - I - 0x02355F 11:B54F: F6        .byte con_mirror_toggle
 - D - I - 0x023560 11:B550: F2        .byte con_jsr_1
 - D - I - 0x023561 11:B551: 43 B5     .word off_B543
 off_B553:
@@ -11062,11 +11062,11 @@ off_B583:
 - D - I - 0x023593 11:B583: F7        .byte con_F7, $0C
 - D - I - 0x023595 11:B585: FA        .byte con_jsr_2
 - D - I - 0x023596 11:B586: 97 BB     .word off_BB97
-- D - I - 0x023598 11:B588: F6        .byte con_F6
+- D - I - 0x023598 11:B588: F6        .byte con_mirror_toggle
 - D - I - 0x023599 11:B589: F7        .byte con_F7, $0C
 - D - I - 0x02359B 11:B58B: FA        .byte con_jsr_2
 - D - I - 0x02359C 11:B58C: 97 BB     .word off_BB97
-- D - I - 0x02359E 11:B58E: F6        .byte con_F6
+- D - I - 0x02359E 11:B58E: F6        .byte con_mirror_toggle
 - D - I - 0x02359F 11:B58F: F7        .byte con_F7, $16
 - D - I - 0x0235A1 11:B591: F9        .byte $F9
 - D - I - 0x0235A2 11:B592: 02        .byte $02
@@ -11090,11 +11090,11 @@ off_B5A4:
 - D - I - 0x0235B4 11:B5A4: F7        .byte con_F7, $31
 - D - I - 0x0235B6 11:B5A6: FA        .byte con_jsr_2
 - D - I - 0x0235B7 11:B5A7: BF BB     .word off_BBBF
-- D - I - 0x0235B9 11:B5A9: F6        .byte con_F6
+- D - I - 0x0235B9 11:B5A9: F6        .byte con_mirror_toggle
 - D - I - 0x0235BA 11:B5AA: F7        .byte con_F7, $31
 - D - I - 0x0235BC 11:B5AC: FA        .byte con_jsr_2
 - D - I - 0x0235BD 11:B5AD: BF BB     .word off_BBBF
-- D - I - 0x0235BF 11:B5AF: F6        .byte con_F6
+- D - I - 0x0235BF 11:B5AF: F6        .byte con_mirror_toggle
 - D - I - 0x0235C0 11:B5B0: F7        .byte con_F7, $33
 - D - I - 0x0235C2 11:B5B2: F9        .byte $F9
 - D - I - 0x0235C3 11:B5B3: 02        .byte $02
@@ -11186,11 +11186,11 @@ off_B60B:
 - D - I - 0x02361B 11:B60B: F7        .byte con_F7, $3B
 - D - I - 0x02361D 11:B60D: FA        .byte con_jsr_2
 - D - I - 0x02361E 11:B60E: 8F BB     .word off_BB8F
-- D - I - 0x023620 11:B610: F6        .byte con_F6
+- D - I - 0x023620 11:B610: F6        .byte con_mirror_toggle
 - D - I - 0x023621 11:B611: F7        .byte con_F7, $3B
 - D - I - 0x023623 11:B613: FA        .byte con_jsr_2
 - D - I - 0x023624 11:B614: 8F BB     .word off_BB8F
-- D - I - 0x023626 11:B616: F6        .byte con_F6
+- D - I - 0x023626 11:B616: F6        .byte con_mirror_toggle
 - D - I - 0x023627 11:B617: F7        .byte con_F7, $3B
 - D - I - 0x023629 11:B619: FA        .byte con_jsr_2
 - D - I - 0x02362A 11:B61A: AF BB     .word off_BBAF
@@ -11203,10 +11203,10 @@ off_B61D:
 - D - I - 0x023631 11:B621: 1C        .byte $1C
 - D - I - 0x023632 11:B622: 3C        .byte $3C
 - D - I - 0x023633 11:B623: 00        .byte $00
-- D - I - 0x023634 11:B624: F6        .byte con_F6
+- D - I - 0x023634 11:B624: F6        .byte con_mirror_toggle
 - D - I - 0x023635 11:B625: FA        .byte con_jsr_2
 - D - I - 0x023636 11:B626: 8F BB     .word off_BB8F
-- D - I - 0x023638 11:B628: F6        .byte con_F6
+- D - I - 0x023638 11:B628: F6        .byte con_mirror_toggle
 - D - I - 0x023639 11:B629: F7        .byte con_F7, $18
 - D - I - 0x02363B 11:B62B: F9        .byte $F9
 - D - I - 0x02363C 11:B62C: 02        .byte $02
@@ -11229,7 +11229,7 @@ off_B61D:
 - D - I - 0x02364F 11:B63F: F9        .byte $F9
 - D - I - 0x023650 11:B640: 02        .byte $02
 - D - I - 0x023651 11:B641: 43        .byte $43
-- D - I - 0x023652 11:B642: F5        .byte con_F5
+- D - I - 0x023652 11:B642: F5        .byte con_mirror_off
 - D - I - 0x023653 11:B643: F3        .byte con_F3, $C1
 - - - - - 0x023655 11:B645: 2F        .byte $2F
 - - - - - 0x023656 11:B646: 2E        .byte $2E
@@ -11277,10 +11277,10 @@ off_B65F:
 off_B675:
 - D - I - 0x023685 11:B675: FA        .byte con_jsr_2
 - D - I - 0x023686 11:B676: 9F BB     .word off_BB9F
-- D - I - 0x023688 11:B678: F6        .byte con_F6
+- D - I - 0x023688 11:B678: F6        .byte con_mirror_toggle
 - D - I - 0x023689 11:B679: FA        .byte con_jsr_2
 - D - I - 0x02368A 11:B67A: 9F BB     .word off_BB9F
-- D - I - 0x02368C 11:B67C: F6        .byte con_F6
+- D - I - 0x02368C 11:B67C: F6        .byte con_mirror_toggle
 - D - I - 0x02368D 11:B67D: F9        .byte $F9
 - D - I - 0x02368E 11:B67E: 02        .byte $02
 - D - I - 0x02368F 11:B67F: 0F        .byte $0F
@@ -11308,7 +11308,7 @@ off_B690:
 - D - I - 0x0236A4 11:B694: 5A        .byte $5A
 - D - I - 0x0236A5 11:B695: 1A        .byte $1A
 - D - I - 0x0236A6 11:B696: 00        .byte $00
-- D - I - 0x0236A7 11:B697: F6        .byte con_F6
+- D - I - 0x0236A7 11:B697: F6        .byte con_mirror_toggle
 - D - I - 0x0236A8 11:B698: F9        .byte $F9
 - D - I - 0x0236A9 11:B699: 02        .byte $02
 - D - I - 0x0236AA 11:B69A: 06        .byte $06
@@ -11316,7 +11316,7 @@ off_B690:
 - D - I - 0x0236AC 11:B69C: 5A        .byte $5A
 - D - I - 0x0236AD 11:B69D: 1A        .byte $1A
 - D - I - 0x0236AE 11:B69E: 00        .byte $00
-- D - I - 0x0236AF 11:B69F: F6        .byte con_F6
+- D - I - 0x0236AF 11:B69F: F6        .byte con_mirror_toggle
 - D - I - 0x0236B0 11:B6A0: F9        .byte $F9
 - D - I - 0x0236B1 11:B6A1: 02        .byte $02
 - D - I - 0x0236B2 11:B6A2: 0C        .byte $0C
@@ -11353,11 +11353,11 @@ off_B6C0:
 - D - I - 0x0236D0 11:B6C0: F7        .byte con_F7, $0D
 - D - I - 0x0236D2 11:B6C2: FA        .byte con_jsr_2
 - D - I - 0x0236D3 11:B6C3: B7 BB     .word off_BBB7
-- D - I - 0x0236D5 11:B6C5: F6        .byte con_F6
+- D - I - 0x0236D5 11:B6C5: F6        .byte con_mirror_toggle
 - D - I - 0x0236D6 11:B6C6: F7        .byte con_F7, $0D
 - D - I - 0x0236D8 11:B6C8: FA        .byte con_jsr_2
 - D - I - 0x0236D9 11:B6C9: B7 BB     .word off_BBB7
-- D - I - 0x0236DB 11:B6CB: F6        .byte con_F6
+- D - I - 0x0236DB 11:B6CB: F6        .byte con_mirror_toggle
 - D - I - 0x0236DC 11:B6CC: F7        .byte con_F7, $39
 - D - I - 0x0236DE 11:B6CE: F9        .byte $F9
 - D - I - 0x0236DF 11:B6CF: 02        .byte $02
@@ -11386,7 +11386,7 @@ off_B6DE:
 - - - - - 0x0236F4 11:B6E4: 00        .byte $00
 - - - - - 0x0236F5 11:B6E5: FB        .byte con_rts
 off_B6E6:
-- D - I - 0x0236F6 11:B6E6: F6        .byte con_F6
+- D - I - 0x0236F6 11:B6E6: F6        .byte con_mirror_toggle
 - D - I - 0x0236F7 11:B6E7: F9        .byte $F9
 - D - I - 0x0236F8 11:B6E8: 02        .byte $02
 - D - I - 0x0236F9 11:B6E9: 08        .byte $08
@@ -11394,7 +11394,7 @@ off_B6E6:
 - D - I - 0x0236FB 11:B6EB: 13        .byte $13
 - D - I - 0x0236FC 11:B6EC: 1D        .byte $1D
 - D - I - 0x0236FD 11:B6ED: 00        .byte $00
-- D - I - 0x0236FE 11:B6EE: F6        .byte con_F6
+- D - I - 0x0236FE 11:B6EE: F6        .byte con_mirror_toggle
 - D - I - 0x0236FF 11:B6EF: FB        .byte con_rts
 off_B6F0:
 - D - I - 0x023700 11:B6F0: F9        .byte $F9
@@ -11433,7 +11433,7 @@ off_B701:
 off_B712:
 - D - I - 0x023722 11:B712: FA        .byte con_jsr_2
 - D - I - 0x023723 11:B713: AF BB     .word off_BBAF
-- D - I - 0x023725 11:B715: F6        .byte con_F6
+- D - I - 0x023725 11:B715: F6        .byte con_mirror_toggle
 - D - I - 0x023726 11:B716: FA        .byte con_jsr_2
 - D - I - 0x023727 11:B717: A7 BB     .word off_BBA7
 - D - I - 0x023729 11:B719: F7        .byte con_F7, $3A
@@ -11444,7 +11444,7 @@ off_B712:
 - D - I - 0x02372F 11:B71F: 5E        .byte $5E
 - D - I - 0x023730 11:B720: 28        .byte $28
 - D - I - 0x023731 11:B721: 00        .byte $00
-- D - I - 0x023732 11:B722: F6        .byte con_F6
+- D - I - 0x023732 11:B722: F6        .byte con_mirror_toggle
 - D - I - 0x023733 11:B723: FB        .byte con_rts
 off_B724:
 - D - I - 0x023734 11:B724: F9        .byte $F9
@@ -11506,7 +11506,7 @@ off_B749_22:
 
 
 off_B74E_2E:
-- D - I - 0x02375E 11:B74E: F5        .byte con_F5
+- D - I - 0x02375E 11:B74E: F5        .byte con_mirror_off
 - D - I - 0x02375F 11:B74F: 78        .byte $78
 - D - I - 0x023760 11:B750: 36        .byte $36
 - D - I - 0x023761 11:B751: 8B        .byte $8B
@@ -11569,7 +11569,7 @@ off_B773_2F:
 
 
 off_B78C_31:
-- D - I - 0x02379C 11:B78C: F5        .byte con_F5
+- D - I - 0x02379C 11:B78C: F5        .byte con_mirror_off
 - D - I - 0x02379D 11:B78D: 5A        .byte $5A
 - D - I - 0x02379E 11:B78E: 2C        .byte $2C
 - D - I - 0x02379F 11:B78F: 8B        .byte $8B
@@ -11601,7 +11601,7 @@ off_B7A1:
 - D - I - 0x0237B4 11:B7A4: F0        .byte con_F0
 - D - I - 0x0237B5 11:B7A5: FB        .byte con_rts
 off_B7A6:
-- D - I - 0x0237B6 11:B7A6: F5        .byte con_F5
+- D - I - 0x0237B6 11:B7A6: F5        .byte con_mirror_off
 - D - I - 0x0237B7 11:B7A7: F9        .byte $F9
 - D - I - 0x0237B8 11:B7A8: 02        .byte $02
 - D - I - 0x0237B9 11:B7A9: 66        .byte $66
@@ -11671,7 +11671,7 @@ off_B7D5_44:
 
 off_B7DA_1E:
 - D - I - 0x0237EA 11:B7DA: FD        .byte con_FD, $02
-- D - I - 0x0237EC 11:B7DC: F6        .byte con_F6
+- D - I - 0x0237EC 11:B7DC: F6        .byte con_mirror_toggle
 - D - I - 0x0237ED 11:B7DD: F7        .byte con_F7, $01
 - D - I - 0x0237EF 11:B7DF: 07        .byte $07
 - D - I - 0x0237F0 11:B7E0: 45        .byte $45
@@ -11682,7 +11682,7 @@ off_B7DA_1E:
 
 
 off_B7E4_36:
-- D - I - 0x0237F4 11:B7E4: F5        .byte con_F5
+- D - I - 0x0237F4 11:B7E4: F5        .byte con_mirror_off
 - D - I - 0x0237F5 11:B7E5: F9        .byte $F9
 - D - I - 0x0237F6 11:B7E6: 02        .byte $02
 - D - I - 0x0237F7 11:B7E7: 7F        .byte $7F
@@ -11752,7 +11752,7 @@ off_B822:
 - D - I - 0x023833 11:B823: F0        .byte con_F0
 - D - I - 0x023834 11:B824: F0        .byte con_F0
 - D - I - 0x023835 11:B825: 00        .byte $00
-- D - I - 0x023836 11:B826: F5        .byte con_F5
+- D - I - 0x023836 11:B826: F5        .byte con_mirror_off
 - D - I - 0x023837 11:B827: 8C        .byte $8C
 - D - I - 0x023838 11:B828: 32        .byte $32
 - D - I - 0x023839 11:B829: A8        .byte $A8
@@ -11764,7 +11764,7 @@ off_B82E:
 - D - I - 0x02383F 11:B82F: F0        .byte con_F0
 - D - I - 0x023840 11:B830: F0        .byte con_F0
 - D - I - 0x023841 11:B831: 00        .byte $00
-- D - I - 0x023842 11:B832: F5        .byte con_F5
+- D - I - 0x023842 11:B832: F5        .byte con_mirror_off
 - D - I - 0x023843 11:B833: 64        .byte $64
 - D - I - 0x023844 11:B834: 32        .byte $32
 - D - I - 0x023845 11:B835: A8        .byte $A8
@@ -11776,21 +11776,21 @@ off_B83A:
 - D - I - 0x02384B 11:B83B: F0        .byte con_F0
 - D - I - 0x02384C 11:B83C: F0        .byte con_F0
 - D - I - 0x02384D 11:B83D: 00        .byte $00
-- D - I - 0x02384E 11:B83E: F6        .byte con_F6
+- D - I - 0x02384E 11:B83E: F6        .byte con_mirror_toggle
 - D - I - 0x02384F 11:B83F: 5A        .byte $5A
 - D - I - 0x023850 11:B840: 30        .byte $30
 - D - I - 0x023851 11:B841: 91        .byte $91
 - D - I - 0x023852 11:B842: 7B        .byte $7B
 - D - I - 0x023853 11:B843: FA        .byte con_jsr_2
 - D - I - 0x023854 11:B844: C7 BB     .word off_BBC7
-- D - I - 0x023856 11:B846: F6        .byte con_F6
+- D - I - 0x023856 11:B846: F6        .byte con_mirror_toggle
 - D - I - 0x023857 11:B847: FB        .byte con_rts
 off_B848:
 - D - I - 0x023858 11:B848: 01        .byte $01
 - D - I - 0x023859 11:B849: F0        .byte con_F0
 - D - I - 0x02385A 11:B84A: F0        .byte con_F0
 - D - I - 0x02385B 11:B84B: 00        .byte $00
-- D - I - 0x02385C 11:B84C: F6        .byte con_F6
+- D - I - 0x02385C 11:B84C: F6        .byte con_mirror_toggle
 - D - I - 0x02385D 11:B84D: 5A        .byte $5A
 - D - I - 0x02385E 11:B84E: 30        .byte $30
 - D - I - 0x02385F 11:B84F: 91        .byte $91
@@ -11800,14 +11800,14 @@ off_B848:
 - D - I - 0x023863 11:B853: 31        .byte $31
 - D - I - 0x023864 11:B854: FA        .byte con_jsr_2
 - D - I - 0x023865 11:B855: C7 BB     .word off_BBC7
-- D - I - 0x023867 11:B857: F6        .byte con_F6
+- D - I - 0x023867 11:B857: F6        .byte con_mirror_toggle
 - D - I - 0x023868 11:B858: FB        .byte con_rts
 off_B859:
 - D - I - 0x023869 11:B859: 28        .byte $28
 - D - I - 0x02386A 11:B85A: F0        .byte con_F0
 - D - I - 0x02386B 11:B85B: F0        .byte con_F0
 - D - I - 0x02386C 11:B85C: F0        .byte con_F0
-- D - I - 0x02386D 11:B85D: F5        .byte con_F5
+- D - I - 0x02386D 11:B85D: F5        .byte con_mirror_off
 - D - I - 0x02386E 11:B85E: F9        .byte $F9
 - D - I - 0x02386F 11:B85F: 02        .byte $02
 - D - I - 0x023870 11:B860: 46        .byte $46
@@ -11880,7 +11880,7 @@ off_B8A1_17:
 - D - I - 0x0238B2 11:B8A2: 71        .byte $71
 - D - I - 0x0238B3 11:B8A3: 00        .byte $00
 - D - I - 0x0238B4 11:B8A4: 00        .byte $00
-- D - I - 0x0238B5 11:B8A5: F4        .byte con_F4
+- D - I - 0x0238B5 11:B8A5: F4        .byte con_mirror_on
 - D - I - 0x0238B6 11:B8A6: F7        .byte con_F7, $1F
 - D - I - 0x0238B8 11:B8A8: F9        .byte $F9
 - D - I - 0x0238B9 11:B8A9: 02        .byte $02
@@ -11917,12 +11917,12 @@ off_B8A1_17:
 - D - I - 0x0238D9 11:B8C9: 20        .byte $20
 - D - I - 0x0238DA 11:B8CA: ED        .byte $ED
 - D - I - 0x0238DB 11:B8CB: 00        .byte $00
-- D - I - 0x0238DC 11:B8CC: F6        .byte con_F6
+- D - I - 0x0238DC 11:B8CC: F6        .byte con_mirror_toggle
 - D - I - 0x0238DD 11:B8CD: 3C        .byte $3C
 - D - I - 0x0238DE 11:B8CE: 32        .byte $32
 - D - I - 0x0238DF 11:B8CF: A8        .byte $A8
 - D - I - 0x0238E0 11:B8D0: 84        .byte $84
-- D - I - 0x0238E1 11:B8D1: F6        .byte con_F6
+- D - I - 0x0238E1 11:B8D1: F6        .byte con_mirror_toggle
 - D - I - 0x0238E2 11:B8D2: F9        .byte $F9
 - D - I - 0x0238E3 11:B8D3: 31        .byte $31
 - D - I - 0x0238E4 11:B8D4: 2B        .byte $2B
@@ -11934,7 +11934,7 @@ off_B8A1_17:
 - D - I - 0x0238EA 11:B8DA: F0        .byte con_F0
 - D - I - 0x0238EB 11:B8DB: F0        .byte con_F0
 - D - I - 0x0238EC 11:B8DC: F0        .byte con_F0
-- D - I - 0x0238ED 11:B8DD: F6        .byte con_F6
+- D - I - 0x0238ED 11:B8DD: F6        .byte con_mirror_toggle
 - D - I - 0x0238EE 11:B8DE: F9        .byte $F9
 - D - I - 0x0238EF 11:B8DF: 02        .byte $02
 - D - I - 0x0238F0 11:B8E0: 04        .byte $04
@@ -12270,7 +12270,7 @@ off_BA24:
 - D - I - 0x023A3A 11:BA2A: 14        .byte $14
 - D - I - 0x023A3B 11:BA2B: FB        .byte con_rts
 off_BA2C:
-- D - I - 0x023A3C 11:BA2C: F5        .byte con_F5
+- D - I - 0x023A3C 11:BA2C: F5        .byte con_mirror_off
 - D - I - 0x023A3D 11:BA2D: 28        .byte $28
 - D - I - 0x023A3E 11:BA2E: 12        .byte $12
 - D - I - 0x023A3F 11:BA2F: 61        .byte $61
@@ -12420,7 +12420,7 @@ off_BA7F:
 - D - I - 0x023AD9 11:BAC9: 05        .byte $05
 - D - I - 0x023ADA 11:BACA: 00        .byte $00
 - D - I - 0x023ADB 11:BACB: F0        .byte con_F0
-- D - I - 0x023ADC 11:BACC: F6        .byte con_F6
+- D - I - 0x023ADC 11:BACC: F6        .byte con_mirror_toggle
 - D - I - 0x023ADD 11:BACD: F9        .byte $F9
 - D - I - 0x023ADE 11:BACE: 02        .byte $02
 - D - I - 0x023ADF 11:BACF: 7E        .byte $7E
@@ -12469,12 +12469,12 @@ off_BADE:
 - - - - - 0x023B0D 11:BAFD: F2        .byte con_jsr_1
 - - - - - 0x023B0E 11:BAFE: 7F BA     .word off_BA7F
 - - - - - 0x023B10 11:BB00: FB        .byte con_rts
-- D - I - 0x023B11 11:BB01: F6        .byte con_F6
+- D - I - 0x023B11 11:BB01: F6        .byte con_mirror_toggle
 - D - I - 0x023B12 11:BB02: 32        .byte $32
 - D - I - 0x023B13 11:BB03: F0        .byte con_F0
 - D - I - 0x023B14 11:BB04: 87        .byte $87
 - D - I - 0x023B15 11:BB05: F0        .byte con_F0
-- D - I - 0x023B16 11:BB06: F6        .byte con_F6
+- D - I - 0x023B16 11:BB06: F6        .byte con_mirror_toggle
 - D - I - 0x023B17 11:BB07: F2        .byte con_jsr_1
 - D - I - 0x023B18 11:BB08: 68 BA     .word off_BA68
 - D - I - 0x023B1A 11:BB0A: 32        .byte $32
@@ -12487,41 +12487,41 @@ off_BADE:
 - D - I - 0x023B22 11:BB12: F0        .byte con_F0
 - D - I - 0x023B23 11:BB13: 87        .byte $87
 - D - I - 0x023B24 11:BB14: F0        .byte con_F0
-- D - I - 0x023B25 11:BB15: F4        .byte con_F4
+- D - I - 0x023B25 11:BB15: F4        .byte con_mirror_on
 - D - I - 0x023B26 11:BB16: F2        .byte con_jsr_1
 - D - I - 0x023B27 11:BB17: 68 BA     .word off_BA68
-- D - I - 0x023B29 11:BB19: F6        .byte con_F6
+- D - I - 0x023B29 11:BB19: F6        .byte con_mirror_toggle
 - D - I - 0x023B2A 11:BB1A: 32        .byte $32
 - D - I - 0x023B2B 11:BB1B: F0        .byte con_F0
 - D - I - 0x023B2C 11:BB1C: 86        .byte $86
 - D - I - 0x023B2D 11:BB1D: F0        .byte con_F0
-- D - I - 0x023B2E 11:BB1E: F6        .byte con_F6
-- D - I - 0x023B2F 11:BB1F: F4        .byte con_F4
+- D - I - 0x023B2E 11:BB1E: F6        .byte con_mirror_toggle
+- D - I - 0x023B2F 11:BB1F: F4        .byte con_mirror_on
 - D - I - 0x023B30 11:BB20: F2        .byte con_jsr_1
 - D - I - 0x023B31 11:BB21: 63 BA     .word off_BA63
-- D - I - 0x023B33 11:BB23: F6        .byte con_F6
+- D - I - 0x023B33 11:BB23: F6        .byte con_mirror_toggle
 - D - I - 0x023B34 11:BB24: 32        .byte $32
 - D - I - 0x023B35 11:BB25: F0        .byte con_F0
 - D - I - 0x023B36 11:BB26: 89        .byte $89
 - D - I - 0x023B37 11:BB27: F0        .byte con_F0
-- D - I - 0x023B38 11:BB28: F6        .byte con_F6
-- D - I - 0x023B39 11:BB29: F4        .byte con_F4
+- D - I - 0x023B38 11:BB28: F6        .byte con_mirror_toggle
+- D - I - 0x023B39 11:BB29: F4        .byte con_mirror_on
 - D - I - 0x023B3A 11:BB2A: F2        .byte con_jsr_1
 - D - I - 0x023B3B 11:BB2B: 68 BA     .word off_BA68
 - D - I - 0x023B3D 11:BB2D: 32        .byte $32
 - D - I - 0x023B3E 11:BB2E: F0        .byte con_F0
 - D - I - 0x023B3F 11:BB2F: 88        .byte $88
 - D - I - 0x023B40 11:BB30: F0        .byte con_F0
-- D - I - 0x023B41 11:BB31: F4        .byte con_F4
+- D - I - 0x023B41 11:BB31: F4        .byte con_mirror_on
 - D - I - 0x023B42 11:BB32: F2        .byte con_jsr_1
 - D - I - 0x023B43 11:BB33: 68 BA     .word off_BA68
-- D - I - 0x023B45 11:BB35: F6        .byte con_F6
+- D - I - 0x023B45 11:BB35: F6        .byte con_mirror_toggle
 - D - I - 0x023B46 11:BB36: 32        .byte $32
 - D - I - 0x023B47 11:BB37: F0        .byte con_F0
 - D - I - 0x023B48 11:BB38: 88        .byte $88
 - D - I - 0x023B49 11:BB39: F0        .byte con_F0
-- D - I - 0x023B4A 11:BB3A: F6        .byte con_F6
-- D - I - 0x023B4B 11:BB3B: F4        .byte con_F4
+- D - I - 0x023B4A 11:BB3A: F6        .byte con_mirror_toggle
+- D - I - 0x023B4B 11:BB3B: F4        .byte con_mirror_on
 - D - I - 0x023B4C 11:BB3C: F2        .byte con_jsr_1
 - D - I - 0x023B4D 11:BB3D: 68 BA     .word off_BA68
 
@@ -12544,7 +12544,7 @@ off_BB4B:
 - D - I - 0x023B5E 11:BB4E: 00        .byte $00
 - D - I - 0x023B5F 11:BB4F: FB        .byte con_rts
 off_BB50:
-- D - I - 0x023B60 11:BB50: F6        .byte con_F6
+- D - I - 0x023B60 11:BB50: F6        .byte con_mirror_toggle
 - D - I - 0x023B61 11:BB51: F9        .byte $F9
 - D - I - 0x023B62 11:BB52: 02        .byte $02
 - D - I - 0x023B63 11:BB53: 08        .byte $08
@@ -12552,7 +12552,7 @@ off_BB50:
 - D - I - 0x023B65 11:BB55: 53        .byte $53
 - D - I - 0x023B66 11:BB56: 1D        .byte $1D
 - D - I - 0x023B67 11:BB57: 00        .byte $00
-- D - I - 0x023B68 11:BB58: F6        .byte con_F6
+- D - I - 0x023B68 11:BB58: F6        .byte con_mirror_toggle
 - D - I - 0x023B69 11:BB59: FA        .byte con_jsr_2
 - D - I - 0x023B6A 11:BB5A: 7D BB     .word off_BB7D
 - D - I - 0x023B6C 11:BB5C: FB        .byte con_rts
@@ -12602,7 +12602,7 @@ off_BB7D:
 - D - I - 0x023B93 11:BB83: 00        .byte $00
 - D - I - 0x023B94 11:BB84: FB        .byte con_rts
 off_BB85:
-- D - I - 0x023B95 11:BB85: F6        .byte con_F6
+- D - I - 0x023B95 11:BB85: F6        .byte con_mirror_toggle
 - D - I - 0x023B96 11:BB86: F9        .byte $F9
 - D - I - 0x023B97 11:BB87: 02        .byte $02
 - D - I - 0x023B98 11:BB88: 5E        .byte $5E
@@ -12610,7 +12610,7 @@ off_BB85:
 - D - I - 0x023B9A 11:BB8A: 64        .byte $64
 - D - I - 0x023B9B 11:BB8B: 67        .byte $67
 - D - I - 0x023B9C 11:BB8C: 00        .byte $00
-- D - I - 0x023B9D 11:BB8D: F6        .byte con_F6
+- D - I - 0x023B9D 11:BB8D: F6        .byte con_mirror_toggle
 - D - I - 0x023B9E 11:BB8E: FB        .byte con_rts
 off_BB8F:
 - D - I - 0x023B9F 11:BB8F: F9        .byte $F9
@@ -12729,13 +12729,13 @@ off_BBDA:
 - D - I - 0x023C03 11:BBF3: 69        .byte $69
 - D - I - 0x023C04 11:BBF4: 68        .byte $68
 - - - - - 0x023C05 11:BBF5: 01        .byte $01
-- D - I - 0x023C06 11:BBF6: F4        .byte con_F4
+- D - I - 0x023C06 11:BBF6: F4        .byte con_mirror_on
 - D - I - 0x023C07 11:BBF7: F8        .byte con_F8, $04
 - D - I - 0x023C09 11:BBF9: 3C        .byte $3C
 - D - I - 0x023C0A 11:BBFA: 4F        .byte $4F
 - D - I - 0x023C0B 11:BBFB: 91        .byte $91
 - D - I - 0x023C0C 11:BBFC: CB        .byte $CB
-- D - I - 0x023C0D 11:BBFD: F6        .byte con_F6
+- D - I - 0x023C0D 11:BBFD: F6        .byte con_mirror_toggle
 - D - I - 0x023C0E 11:BBFE: F8        .byte con_F8, $04
 - D - I - 0x023C10 11:BC00: 3C        .byte $3C
 - D - I - 0x023C11 11:BC01: 30        .byte $30
@@ -12743,13 +12743,13 @@ off_BBDA:
 - D - I - 0x023C13 11:BC03: CA        .byte $CA
 - D - I - 0x023C14 11:BC04: F2        .byte con_jsr_1
 - D - I - 0x023C15 11:BC05: DA BB     .word off_BBDA
-- - - - - 0x023C17 11:BC07: F4        .byte con_F4
+- - - - - 0x023C17 11:BC07: F4        .byte con_mirror_on
 - - - - - 0x023C18 11:BC08: F8        .byte con_F8, $04
 - - - - - 0x023C1A 11:BC0A: 3C        .byte $3C
 - - - - - 0x023C1B 11:BC0B: 55        .byte $55
 - - - - - 0x023C1C 11:BC0C: 9E        .byte $9E
 - - - - - 0x023C1D 11:BC0D: D1        .byte $D1
-- - - - - 0x023C1E 11:BC0E: F6        .byte con_F6
+- - - - - 0x023C1E 11:BC0E: F6        .byte con_mirror_toggle
 - - - - - 0x023C1F 11:BC0F: F8        .byte con_F8, $04
 - - - - - 0x023C21 11:BC11: 3C        .byte $3C
 - - - - - 0x023C22 11:BC12: 30        .byte $30
@@ -12757,13 +12757,13 @@ off_BBDA:
 - - - - - 0x023C24 11:BC14: D0        .byte $D0
 - - - - - 0x023C25 11:BC15: F2        .byte con_jsr_1
 - - - - - 0x023C26 11:BC16: DA BB     .word off_BBDA
-- D - I - 0x023C28 11:BC18: F4        .byte con_F4
+- D - I - 0x023C28 11:BC18: F4        .byte con_mirror_on
 - D - I - 0x023C29 11:BC19: F8        .byte con_F8, $04
 - D - I - 0x023C2B 11:BC1B: 3C        .byte $3C
 - D - I - 0x023C2C 11:BC1C: 55        .byte $55
 - D - I - 0x023C2D 11:BC1D: B0        .byte $B0
 - D - I - 0x023C2E 11:BC1E: D1        .byte $D1
-- D - I - 0x023C2F 11:BC1F: F6        .byte con_F6
+- D - I - 0x023C2F 11:BC1F: F6        .byte con_mirror_toggle
 - D - I - 0x023C30 11:BC20: F8        .byte con_F8, $04
 - D - I - 0x023C32 11:BC22: 3C        .byte $3C
 - D - I - 0x023C33 11:BC23: 30        .byte $30
@@ -12771,13 +12771,13 @@ off_BBDA:
 - D - I - 0x023C35 11:BC25: D0        .byte $D0
 - D - I - 0x023C36 11:BC26: F2        .byte con_jsr_1
 - D - I - 0x023C37 11:BC27: DA BB     .word off_BBDA
-- D - I - 0x023C39 11:BC29: F4        .byte con_F4
+- D - I - 0x023C39 11:BC29: F4        .byte con_mirror_on
 - D - I - 0x023C3A 11:BC2A: F8        .byte con_F8, $04
 - D - I - 0x023C3C 11:BC2C: 3C        .byte $3C
 - D - I - 0x023C3D 11:BC2D: 4F        .byte $4F
 - D - I - 0x023C3E 11:BC2E: 9C        .byte $9C
 - D - I - 0x023C3F 11:BC2F: AC        .byte $AC
-- D - I - 0x023C40 11:BC30: F6        .byte con_F6
+- D - I - 0x023C40 11:BC30: F6        .byte con_mirror_toggle
 - D - I - 0x023C41 11:BC31: F8        .byte con_F8, $04
 - D - I - 0x023C43 11:BC33: 3C        .byte $3C
 - D - I - 0x023C44 11:BC34: 30        .byte $30
@@ -12785,13 +12785,13 @@ off_BBDA:
 - D - I - 0x023C46 11:BC36: D3        .byte $D3
 - D - I - 0x023C47 11:BC37: F2        .byte con_jsr_1
 - D - I - 0x023C48 11:BC38: DA BB     .word off_BBDA
-- D - I - 0x023C4A 11:BC3A: F4        .byte con_F4
+- D - I - 0x023C4A 11:BC3A: F4        .byte con_mirror_on
 - D - I - 0x023C4B 11:BC3B: F8        .byte con_F8, $04
 - D - I - 0x023C4D 11:BC3D: 3C        .byte $3C
 - D - I - 0x023C4E 11:BC3E: 4F        .byte $4F
 - D - I - 0x023C4F 11:BC3F: AB        .byte $AB
 - D - I - 0x023C50 11:BC40: D3        .byte $D3
-- D - I - 0x023C51 11:BC41: F6        .byte con_F6
+- D - I - 0x023C51 11:BC41: F6        .byte con_mirror_toggle
 - D - I - 0x023C52 11:BC42: F8        .byte con_F8, $04
 - D - I - 0x023C54 11:BC44: 3C        .byte $3C
 - D - I - 0x023C55 11:BC45: 30        .byte $30
@@ -12799,13 +12799,13 @@ off_BBDA:
 - D - I - 0x023C57 11:BC47: AC        .byte $AC
 - D - I - 0x023C58 11:BC48: F2        .byte con_jsr_1
 - D - I - 0x023C59 11:BC49: DA BB     .word off_BBDA
-- D - I - 0x023C5B 11:BC4B: F4        .byte con_F4
+- D - I - 0x023C5B 11:BC4B: F4        .byte con_mirror_on
 - D - I - 0x023C5C 11:BC4C: F8        .byte con_F8, $04
 - D - I - 0x023C5E 11:BC4E: 3C        .byte $3C
 - D - I - 0x023C5F 11:BC4F: 4F        .byte $4F
 - D - I - 0x023C60 11:BC50: B6        .byte $B6
 - D - I - 0x023C61 11:BC51: CD        .byte $CD
-- D - I - 0x023C62 11:BC52: F6        .byte con_F6
+- D - I - 0x023C62 11:BC52: F6        .byte con_mirror_toggle
 - D - I - 0x023C63 11:BC53: F8        .byte con_F8, $04
 - D - I - 0x023C65 11:BC55: 3C        .byte $3C
 - D - I - 0x023C66 11:BC56: 30        .byte $30
@@ -12813,13 +12813,13 @@ off_BBDA:
 - D - I - 0x023C68 11:BC58: CE        .byte $CE
 - D - I - 0x023C69 11:BC59: F2        .byte con_jsr_1
 - D - I - 0x023C6A 11:BC5A: DA BB     .word off_BBDA
-- D - I - 0x023C6C 11:BC5C: F4        .byte con_F4
+- D - I - 0x023C6C 11:BC5C: F4        .byte con_mirror_on
 - D - I - 0x023C6D 11:BC5D: F8        .byte con_F8, $04
 - D - I - 0x023C6F 11:BC5F: 3C        .byte $3C
 - D - I - 0x023C70 11:BC60: 4F        .byte $4F
 - D - I - 0x023C71 11:BC61: B4        .byte $B4
 - D - I - 0x023C72 11:BC62: D4        .byte $D4
-- D - I - 0x023C73 11:BC63: F6        .byte con_F6
+- D - I - 0x023C73 11:BC63: F6        .byte con_mirror_toggle
 - D - I - 0x023C74 11:BC64: F8        .byte con_F8, $04
 - D - I - 0x023C76 11:BC66: 3C        .byte $3C
 - D - I - 0x023C77 11:BC67: 30        .byte $30
@@ -12848,7 +12848,7 @@ off_BC6D_1A:
 - D - I - 0x023C8D 11:BC7D: 5A        .byte $5A
 - D - I - 0x023C8E 11:BC7E: F2        .byte con_jsr_1
 - D - I - 0x023C8F 11:BC7F: C7 BB     .word off_BBC7
-- D - I - 0x023C91 11:BC81: F5        .byte con_F5
+- D - I - 0x023C91 11:BC81: F5        .byte con_mirror_off
 - D - I - 0x023C92 11:BC82: F3        .byte con_F3, $C9
 - D - I - 0x023C94 11:BC84: 12        .byte $12
 - D - I - 0x023C95 11:BC85: 29        .byte $29
@@ -12875,7 +12875,7 @@ off_BC6D_1A:
 - D - I - 0x023CAA 11:BC9A: 36        .byte $36
 - D - I - 0x023CAB 11:BC9B: 95        .byte $95
 - D - I - 0x023CAC 11:BC9C: CC        .byte $CC
-- D - I - 0x023CAD 11:BC9D: F6        .byte con_F6
+- D - I - 0x023CAD 11:BC9D: F6        .byte con_mirror_toggle
 - D - I - 0x023CAE 11:BC9E: F9        .byte $F9
 - D - I - 0x023CAF 11:BC9F: 21        .byte $21
 - D - I - 0x023CB0 11:BCA0: 2C        .byte $2C
@@ -12883,7 +12883,7 @@ off_BC6D_1A:
 - D - I - 0x023CB2 11:BCA2: 01        .byte $01
 - D - I - 0x023CB3 11:BCA3: 92        .byte $92
 - D - I - 0x023CB4 11:BCA4: F0        .byte con_F0
-- D - I - 0x023CB5 11:BCA5: F6        .byte con_F6
+- D - I - 0x023CB5 11:BCA5: F6        .byte con_mirror_toggle
 - D - I - 0x023CB6 11:BCA6: F9        .byte $F9
 - D - I - 0x023CB7 11:BCA7: 21        .byte $21
 - D - I - 0x023CB8 11:BCA8: 2C        .byte $2C
@@ -12899,7 +12899,7 @@ off_BC6D_1A:
 - D - I - 0x023CC2 11:BCB2: 36        .byte $36
 - D - I - 0x023CC3 11:BCB3: 92        .byte $92
 - D - I - 0x023CC4 11:BCB4: CC        .byte $CC
-- D - I - 0x023CC5 11:BCB5: F6        .byte con_F6
+- D - I - 0x023CC5 11:BCB5: F6        .byte con_mirror_toggle
 - D - I - 0x023CC6 11:BCB6: F9        .byte $F9
 - D - I - 0x023CC7 11:BCB7: 21        .byte $21
 - D - I - 0x023CC8 11:BCB8: 2C        .byte $2C
@@ -12907,7 +12907,7 @@ off_BC6D_1A:
 - D - I - 0x023CCA 11:BCBA: 01        .byte $01
 - D - I - 0x023CCB 11:BCBB: 95        .byte $95
 - D - I - 0x023CCC 11:BCBC: F0        .byte con_F0
-- D - I - 0x023CCD 11:BCBD: F6        .byte con_F6
+- D - I - 0x023CCD 11:BCBD: F6        .byte con_mirror_toggle
 - D - I - 0x023CCE 11:BCBE: F9        .byte $F9
 - D - I - 0x023CCF 11:BCBF: 21        .byte $21
 - D - I - 0x023CD0 11:BCC0: 2C        .byte $2C
@@ -12928,7 +12928,7 @@ off_BCCD:
 - D - I - 0x023CE1 11:BCD1: 36        .byte $36
 - D - I - 0x023CE2 11:BCD2: A7        .byte $A7
 - D - I - 0x023CE3 11:BCD3: D2        .byte $D2
-- D - I - 0x023CE4 11:BCD4: F6        .byte con_F6
+- D - I - 0x023CE4 11:BCD4: F6        .byte con_mirror_toggle
 - D - I - 0x023CE5 11:BCD5: F9        .byte $F9
 - D - I - 0x023CE6 11:BCD6: 21        .byte $21
 - D - I - 0x023CE7 11:BCD7: 2C        .byte $2C
@@ -12936,7 +12936,7 @@ off_BCCD:
 - D - I - 0x023CE9 11:BCD9: 01        .byte $01
 - D - I - 0x023CEA 11:BCDA: A5        .byte $A5
 - D - I - 0x023CEB 11:BCDB: F0        .byte con_F0
-- D - I - 0x023CEC 11:BCDC: F6        .byte con_F6
+- D - I - 0x023CEC 11:BCDC: F6        .byte con_mirror_toggle
 - D - I - 0x023CED 11:BCDD: F9        .byte $F9
 - D - I - 0x023CEE 11:BCDE: 21        .byte $21
 - D - I - 0x023CEF 11:BCDF: 2C        .byte $2C
@@ -12957,7 +12957,7 @@ off_BCEC:
 - D - I - 0x023D00 11:BCF0: 36        .byte $36
 - D - I - 0x023D01 11:BCF1: A5        .byte $A5
 - D - I - 0x023D02 11:BCF2: D2        .byte $D2
-- D - I - 0x023D03 11:BCF3: F6        .byte con_F6
+- D - I - 0x023D03 11:BCF3: F6        .byte con_mirror_toggle
 - D - I - 0x023D04 11:BCF4: F9        .byte $F9
 - D - I - 0x023D05 11:BCF5: 21        .byte $21
 - D - I - 0x023D06 11:BCF6: 2C        .byte $2C
@@ -12965,7 +12965,7 @@ off_BCEC:
 - D - I - 0x023D08 11:BCF8: 01        .byte $01
 - D - I - 0x023D09 11:BCF9: A7        .byte $A7
 - D - I - 0x023D0A 11:BCFA: F0        .byte con_F0
-- D - I - 0x023D0B 11:BCFB: F6        .byte con_F6
+- D - I - 0x023D0B 11:BCFB: F6        .byte con_mirror_toggle
 - D - I - 0x023D0C 11:BCFC: F9        .byte $F9
 - D - I - 0x023D0D 11:BCFD: 21        .byte $21
 - D - I - 0x023D0E 11:BCFE: 2C        .byte $2C
@@ -12986,7 +12986,7 @@ off_BD0B:
 - D - I - 0x023D1F 11:BD0F: 36        .byte $36
 - D - I - 0x023D20 11:BD10: EF        .byte $EF
 - D - I - 0x023D21 11:BD11: D6        .byte $D6
-- D - I - 0x023D22 11:BD12: F6        .byte con_F6
+- D - I - 0x023D22 11:BD12: F6        .byte con_mirror_toggle
 - D - I - 0x023D23 11:BD13: F9        .byte $F9
 - D - I - 0x023D24 11:BD14: 21        .byte $21
 - D - I - 0x023D25 11:BD15: 2C        .byte $2C
@@ -12994,7 +12994,7 @@ off_BD0B:
 - D - I - 0x023D27 11:BD17: 01        .byte $01
 - D - I - 0x023D28 11:BD18: EF        .byte $EF
 - D - I - 0x023D29 11:BD19: F0        .byte con_F0
-- D - I - 0x023D2A 11:BD1A: F6        .byte con_F6
+- D - I - 0x023D2A 11:BD1A: F6        .byte con_mirror_toggle
 - D - I - 0x023D2B 11:BD1B: F9        .byte $F9
 - D - I - 0x023D2C 11:BD1C: 21        .byte $21
 - D - I - 0x023D2D 11:BD1D: 2C        .byte $2C
@@ -13010,7 +13010,7 @@ off_BD0B:
 - - - - - 0x023D37 11:BD27: 36        .byte $36
 - - - - - 0x023D38 11:BD28: DF        .byte $DF
 - - - - - 0x023D39 11:BD29: CF        .byte $CF
-- - - - - 0x023D3A 11:BD2A: F6        .byte con_F6
+- - - - - 0x023D3A 11:BD2A: F6        .byte con_mirror_toggle
 - - - - - 0x023D3B 11:BD2B: F9        .byte $F9
 - - - - - 0x023D3C 11:BD2C: 21        .byte $21
 - - - - - 0x023D3D 11:BD2D: 2C        .byte $2C
@@ -13018,7 +13018,7 @@ off_BD0B:
 - - - - - 0x023D3F 11:BD2F: 01        .byte $01
 - - - - - 0x023D40 11:BD30: BE        .byte $BE
 - - - - - 0x023D41 11:BD31: F0        .byte con_F0
-- - - - - 0x023D42 11:BD32: F6        .byte con_F6
+- - - - - 0x023D42 11:BD32: F6        .byte con_mirror_toggle
 - - - - - 0x023D43 11:BD33: F9        .byte $F9
 - - - - - 0x023D44 11:BD34: 21        .byte $21
 - - - - - 0x023D45 11:BD35: 2C        .byte $2C
@@ -13034,7 +13034,7 @@ off_BD0B:
 - - - - - 0x023D4F 11:BD3F: 36        .byte $36
 - - - - - 0x023D50 11:BD40: BE        .byte $BE
 - - - - - 0x023D51 11:BD41: CF        .byte $CF
-- - - - - 0x023D52 11:BD42: F6        .byte con_F6
+- - - - - 0x023D52 11:BD42: F6        .byte con_mirror_toggle
 - - - - - 0x023D53 11:BD43: F9        .byte $F9
 - - - - - 0x023D54 11:BD44: 21        .byte $21
 - - - - - 0x023D55 11:BD45: 2C        .byte $2C
@@ -13042,7 +13042,7 @@ off_BD0B:
 - - - - - 0x023D57 11:BD47: 01        .byte $01
 - - - - - 0x023D58 11:BD48: DF        .byte $DF
 - - - - - 0x023D59 11:BD49: F0        .byte con_F0
-- - - - - 0x023D5A 11:BD4A: F6        .byte con_F6
+- - - - - 0x023D5A 11:BD4A: F6        .byte con_mirror_toggle
 - - - - - 0x023D5B 11:BD4B: F9        .byte $F9
 - - - - - 0x023D5C 11:BD4C: 21        .byte $21
 - - - - - 0x023D5D 11:BD4D: 2C        .byte $2C
@@ -13059,7 +13059,7 @@ off_BD0B:
 - D - I - 0x023D69 11:BD59: 36        .byte $36
 - D - I - 0x023D6A 11:BD5A: A7        .byte $A7
 - D - I - 0x023D6B 11:BD5B: D6        .byte $D6
-- D - I - 0x023D6C 11:BD5C: F6        .byte con_F6
+- D - I - 0x023D6C 11:BD5C: F6        .byte con_mirror_toggle
 - D - I - 0x023D6D 11:BD5D: F9        .byte $F9
 - D - I - 0x023D6E 11:BD5E: 21        .byte $21
 - D - I - 0x023D6F 11:BD5F: 2C        .byte $2C
@@ -13067,7 +13067,7 @@ off_BD0B:
 - D - I - 0x023D71 11:BD61: 01        .byte $01
 - D - I - 0x023D72 11:BD62: EE        .byte $EE
 - D - I - 0x023D73 11:BD63: F0        .byte con_F0
-- D - I - 0x023D74 11:BD64: F6        .byte con_F6
+- D - I - 0x023D74 11:BD64: F6        .byte con_mirror_toggle
 - D - I - 0x023D75 11:BD65: F9        .byte $F9
 - D - I - 0x023D76 11:BD66: 21        .byte $21
 - D - I - 0x023D77 11:BD67: 2C        .byte $2C
@@ -13084,7 +13084,7 @@ off_BD0B:
 - D - I - 0x023D83 11:BD73: 36        .byte $36
 - D - I - 0x023D84 11:BD74: EE        .byte $EE
 - D - I - 0x023D85 11:BD75: D6        .byte $D6
-- D - I - 0x023D86 11:BD76: F6        .byte con_F6
+- D - I - 0x023D86 11:BD76: F6        .byte con_mirror_toggle
 - D - I - 0x023D87 11:BD77: F9        .byte $F9
 - D - I - 0x023D88 11:BD78: 21        .byte $21
 - D - I - 0x023D89 11:BD79: 2C        .byte $2C
@@ -13092,7 +13092,7 @@ off_BD0B:
 - D - I - 0x023D8B 11:BD7B: 01        .byte $01
 - D - I - 0x023D8C 11:BD7C: A7        .byte $A7
 - D - I - 0x023D8D 11:BD7D: F0        .byte con_F0
-- D - I - 0x023D8E 11:BD7E: F6        .byte con_F6
+- D - I - 0x023D8E 11:BD7E: F6        .byte con_mirror_toggle
 - D - I - 0x023D8F 11:BD7F: F9        .byte $F9
 - D - I - 0x023D90 11:BD80: 21        .byte $21
 - D - I - 0x023D91 11:BD81: 2C        .byte $2C
@@ -13157,7 +13157,7 @@ off_BDA6_42:
 
 
 off_BDAD_43:
-- D - I - 0x023DBD 11:BDAD: F5        .byte con_F5
+- D - I - 0x023DBD 11:BDAD: F5        .byte con_mirror_off
 - D - I - 0x023DBE 11:BDAE: 46        .byte $46
 - D - I - 0x023DBF 11:BDAF: 3A        .byte $3A
 - D - I - 0x023DC0 11:BDB0: 8F        .byte $8F
@@ -13189,7 +13189,7 @@ off_BDBD_46:
 - D - I - 0x023DCF 11:BDBF: 03        .byte $03
 - - - - - 0x023DD0 11:BDC0: 02        .byte $02
 - - - - - 0x023DD1 11:BDC1: 0C        .byte $0C
-- D - I - 0x023DD2 11:BDC2: F5        .byte con_F5
+- D - I - 0x023DD2 11:BDC2: F5        .byte con_mirror_off
 - D - I - 0x023DD3 11:BDC3: 78        .byte $78
 - D - I - 0x023DD4 11:BDC4: 30        .byte $30
 - D - I - 0x023DD5 11:BDC5: 91        .byte $91
@@ -13198,7 +13198,7 @@ off_BDBD_46:
 - D - I - 0x023DD8 11:BDC8: 13 AD     .word off_AD13
 - D - I - 0x023DDA 11:BDCA: F2        .byte con_jsr_1
 - D - I - 0x023DDB 11:BDCB: DD BD     .word off_BDDD
-- - - - - 0x023DDD 11:BDCD: F5        .byte con_F5
+- - - - - 0x023DDD 11:BDCD: F5        .byte con_mirror_off
 - - - - - 0x023DDE 11:BDCE: 28        .byte $28
 - - - - - 0x023DDF 11:BDCF: 02        .byte $02
 - - - - - 0x023DE0 11:BDD0: 56        .byte $56
@@ -13237,7 +13237,7 @@ off_BDDD:
 - D - I - 0x023E03 11:BDF3: F2        .byte con_jsr_1
 - D - I - 0x023E04 11:BDF4: 67 A2     .word off_A267
 off_BDF6:
-- D - I - 0x023E06 11:BDF6: F6        .byte con_F6
+- D - I - 0x023E06 11:BDF6: F6        .byte con_mirror_toggle
 - D - I - 0x023E07 11:BDF7: 1D        .byte $1D
 - D - I - 0x023E08 11:BDF8: 71        .byte $71
 - D - I - 0x023E09 11:BDF9: 00        .byte $00
@@ -13253,7 +13253,7 @@ off_BDFC:
 
 
 off_BE01_50___:
-- D - I - 0x023E11 11:BE01: F5        .byte con_F5
+- D - I - 0x023E11 11:BE01: F5        .byte con_mirror_off
 - D - I - 0x023E12 11:BE02: FA        .byte con_jsr_2
 - D - I - 0x023E13 11:BE03: FC BD     .word off_BDFC
 - D - I - 0x023E15 11:BE05: FA        .byte con_jsr_2
@@ -13293,12 +13293,12 @@ off_BE18_52:
 off_BE20_53:
 - D - I - 0x023E30 11:BE20: FA        .byte con_jsr_2
 - D - I - 0x023E31 11:BE21: F6 BD     .word off_BDF6
-- D - I - 0x023E33 11:BE23: F5        .byte con_F5
+- D - I - 0x023E33 11:BE23: F5        .byte con_mirror_off
 - D - I - 0x023E34 11:BE24: 10        .byte $10
 - D - I - 0x023E35 11:BE25: 32        .byte $32
 - D - I - 0x023E36 11:BE26: A4        .byte $A4
 - D - I - 0x023E37 11:BE27: F0        .byte con_F0
-- D - I - 0x023E38 11:BE28: F5        .byte con_F5
+- D - I - 0x023E38 11:BE28: F5        .byte con_mirror_off
 - D - I - 0x023E39 11:BE29: FB        .byte con_rts
 
 
@@ -13389,18 +13389,18 @@ off_BE5A_5A:
 off_BE69_5B:
 - D - I - 0x023E79 11:BE69: FA        .byte con_jsr_2
 - D - I - 0x023E7A 11:BE6A: F6 BD     .word off_BDF6
-- D - I - 0x023E7C 11:BE6C: F5        .byte con_F5
+- D - I - 0x023E7C 11:BE6C: F5        .byte con_mirror_off
 - D - I - 0x023E7D 11:BE6D: 10        .byte $10
 - D - I - 0x023E7E 11:BE6E: 33        .byte $33
 - D - I - 0x023E7F 11:BE6F: A6        .byte $A6
 - D - I - 0x023E80 11:BE70: F0        .byte con_F0
-- D - I - 0x023E81 11:BE71: F5        .byte con_F5
+- D - I - 0x023E81 11:BE71: F5        .byte con_mirror_off
 - D - I - 0x023E82 11:BE72: FB        .byte con_rts
 
 
 
 off_BE73_5C:
-- D - I - 0x023E83 11:BE73: F5        .byte con_F5
+- D - I - 0x023E83 11:BE73: F5        .byte con_mirror_off
 - D - I - 0x023E84 11:BE74: FA        .byte con_jsr_2
 - D - I - 0x023E85 11:BE75: F6 BD     .word off_BDF6
 - D - I - 0x023E87 11:BE77: 10        .byte $10
@@ -13414,12 +13414,12 @@ off_BE73_5C:
 off_BE7C_5D:
 - D - I - 0x023E8C 11:BE7C: FA        .byte con_jsr_2
 - D - I - 0x023E8D 11:BE7D: F6 BD     .word off_BDF6
-- D - I - 0x023E8F 11:BE7F: F5        .byte con_F5
+- D - I - 0x023E8F 11:BE7F: F5        .byte con_mirror_off
 - D - I - 0x023E90 11:BE80: 10        .byte $10
 - D - I - 0x023E91 11:BE81: 32        .byte $32
 - D - I - 0x023E92 11:BE82: A8        .byte $A8
 - D - I - 0x023E93 11:BE83: F0        .byte con_F0
-- D - I - 0x023E94 11:BE84: F5        .byte con_F5
+- D - I - 0x023E94 11:BE84: F5        .byte con_mirror_off
 - D - I - 0x023E95 11:BE85: FB        .byte con_rts
 
 
@@ -13564,7 +13564,7 @@ off_BEF7_68:
 - D - I - 0x023F0A 11:BEFA: 07        .byte $07
 - D - I - 0x023F0B 11:BEFB: 45        .byte $45
 - D - I - 0x023F0C 11:BEFC: F0        .byte con_F0
-- D - I - 0x023F0D 11:BEFD: F5        .byte con_F5
+- D - I - 0x023F0D 11:BEFD: F5        .byte con_mirror_off
 - D - I - 0x023F0E 11:BEFE: F7        .byte con_F7, $13
 - D - I - 0x023F10 11:BF00: 78        .byte $78
 - D - I - 0x023F11 11:BF01: 0A        .byte $0A
@@ -13575,7 +13575,7 @@ off_BEF7_68:
 
 
 off_BF05_69:
-- D - I - 0x023F15 11:BF05: F5        .byte con_F5
+- D - I - 0x023F15 11:BF05: F5        .byte con_mirror_off
 - D - I - 0x023F16 11:BF06: 28        .byte $28
 - D - I - 0x023F17 11:BF07: 3C        .byte $3C
 - D - I - 0x023F18 11:BF08: 61        .byte $61
@@ -13624,19 +13624,19 @@ off_BF23_6D:
 
 
 off_BF2C_6E:
-- D - I - 0x023F3C 11:BF2C: F5        .byte con_F5
+- D - I - 0x023F3C 11:BF2C: F5        .byte con_mirror_off
 - D - I - 0x023F3D 11:BF2D: 32        .byte $32
 - D - I - 0x023F3E 11:BF2E: 1F        .byte $1F
 - D - I - 0x023F3F 11:BF2F: 64        .byte $64
 - D - I - 0x023F40 11:BF30: F0        .byte con_F0
-- D - I - 0x023F41 11:BF31: F6        .byte con_F6
+- D - I - 0x023F41 11:BF31: F6        .byte con_mirror_toggle
 - D - I - 0x023F42 11:BF32: F8        .byte con_F8, $04
 - D - I - 0x023F44 11:BF34: F7        .byte con_F7, $3A
 - D - I - 0x023F46 11:BF36: 32        .byte $32
 - D - I - 0x023F47 11:BF37: 23        .byte $23
 - D - I - 0x023F48 11:BF38: 76        .byte $76
 - D - I - 0x023F49 11:BF39: F0        .byte con_F0
-- D - I - 0x023F4A 11:BF3A: F6        .byte con_F6
+- D - I - 0x023F4A 11:BF3A: F6        .byte con_mirror_toggle
 - D - I - 0x023F4B 11:BF3B: F7        .byte con_F7, $10
 - D - I - 0x023F4D 11:BF3D: 20        .byte $20
 - D - I - 0x023F4E 11:BF3E: 05        .byte $05
@@ -13747,7 +13747,7 @@ off_BF9C_74:
 - D - I - 0x023FB0 11:BFA0: CB BF     .word off_BFCB
 - D - I - 0x023FB2 11:BFA2: FA        .byte con_jsr_2
 - D - I - 0x023FB3 11:BFA3: C1 BF     .word off_BFC1
-- D - I - 0x023FB5 11:BFA5: F6        .byte con_F6
+- D - I - 0x023FB5 11:BFA5: F6        .byte con_mirror_toggle
 - D - I - 0x023FB6 11:BFA6: FA        .byte con_jsr_2
 - D - I - 0x023FB7 11:BFA7: CB BF     .word off_BFCB
 - D - I - 0x023FB9 11:BFA9: FA        .byte con_jsr_2
@@ -13756,7 +13756,7 @@ off_BF9C_74:
 - D - I - 0x023FBD 11:BFAD: CB BF     .word off_BFCB
 - D - I - 0x023FBF 11:BFAF: FA        .byte con_jsr_2
 - D - I - 0x023FC0 11:BFB0: C1 BF     .word off_BFC1
-- D - I - 0x023FC2 11:BFB2: F6        .byte con_F6
+- D - I - 0x023FC2 11:BFB2: F6        .byte con_mirror_toggle
 - D - I - 0x023FC3 11:BFB3: FA        .byte con_jsr_2
 - D - I - 0x023FC4 11:BFB4: CB BF     .word off_BFCB
 - D - I - 0x023FC6 11:BFB6: FA        .byte con_jsr_2
@@ -13799,7 +13799,7 @@ off_BFD2_75:
 
 
 off_BFD8_77:
-- D - I - 0x023FE8 11:BFD8: F5        .byte con_F5
+- D - I - 0x023FE8 11:BFD8: F5        .byte con_mirror_off
 - D - I - 0x023FE9 11:BFD9: E0        .byte $E0
 - D - I - 0x023FEA 11:BFDA: 2D        .byte $2D
 - D - I - 0x023FEB 11:BFDB: 79        .byte $79
