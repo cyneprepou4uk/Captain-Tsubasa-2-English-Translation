@@ -1557,11 +1557,11 @@ ofs_885D_FD_mirror_condition:
 C - J - - 0x02086D 17:885D: A4 3A     LDY ram_003A
 C - - - - 0x02086F 17:885F: E6 3A     INC ram_003A
 C - - - - 0x020871 17:8861: B1 5D     LDA (ram_сценарий_data),Y
-C - - - - 0x020873 17:8863: 20 6A 88  JSR sub_886A
+C - - - - 0x020873 17:8863: 20 6A 88  JSR sub_886A_подпрограмма
 C - - - - 0x020876 17:8866: 8E 2A 05  STX ram_флаг_зеркала_анимации
 C - - - - 0x020879 17:8869: 60        RTS
 
-sub_886A:
+sub_886A_подпрограмма:
 C - - - - 0x02087A 17:886A: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - D - I - 0x02087D 17:886D: 77 88     .word ofs_8877_00_координаты_игрока
 - D - I - 0x02087F 17:886F: AA 88     .word ofs_88AA_01
@@ -1852,8 +1852,8 @@ tbl_89BF_сценарии:
 
 
 
-con_exit_1                  = $F0   ; 
-con_exit_2                  = $F1   ; аналогично F0, но выход без очистки флага зеркала
+con_quit                    = $F0   ; 
+con__quit                   = $F1   ; аналогично F0, но выход без очистки флага зеркала
 con_jmp                     = $F2   ; 
 con_branch                  = $F3   ; 
 con_mirror_on               = $F4   ; 
@@ -1993,7 +1993,7 @@ bra_case_8B10_02:
 - D - I - 0x020B2A 17:8B1A: FA        .byte con_jsr
 - D - I - 0x020B2B 17:8B1B: 64 9E     .word sub_9E64
 - D - I - 0x020B2D 17:8B1D: F6        .byte con_mirror_toggle
-- D - I - 0x020B2E 17:8B1E: F0        .byte con_exit_1
+- D - I - 0x020B2E 17:8B1E: F0        .byte con_quit
 
 bra_case_8B1F_03:
 - D - I - 0x020B2F 17:8B1F: FA        .byte con_jsr
@@ -2009,7 +2009,7 @@ bra_case_8B22_03:
 - D - I - 0x020B3C 17:8B2C: FA        .byte con_jsr
 - D - I - 0x020B3D 17:8B2D: 64 9E     .word sub_9E64
 - D - I - 0x020B3F 17:8B2F: F6        .byte con_mirror_toggle
-- D - I - 0x020B40 17:8B30: F0        .byte con_exit_1
+- D - I - 0x020B40 17:8B30: F0        .byte con_quit
 
 bra_case_8B31_04:
 - D - I - 0x020B41 17:8B31: FA        .byte con_jsr
@@ -2057,7 +2057,7 @@ bra_case_8B55_02:
 - D - I - 0x020B75 17:8B65: FA        .byte con_jsr
 - D - I - 0x020B76 17:8B66: 64 9E     .word sub_9E64
 - D - I - 0x020B78 17:8B68: F6        .byte con_mirror_toggle
-- D - I - 0x020B79 17:8B69: F0        .byte con_exit_1
+- D - I - 0x020B79 17:8B69: F0        .byte con_quit
 
 bra_case_8B6A_03:
 - D - I - 0x020B7A 17:8B6A: FA        .byte con_jsr
@@ -2074,7 +2074,7 @@ bra_case_8B6A_03:
 - D - I - 0x020B8A 17:8B7A: FA        .byte con_jsr
 - D - I - 0x020B8B 17:8B7B: 64 9E     .word sub_9E64
 - D - I - 0x020B8D 17:8B7D: F6        .byte con_mirror_toggle
-- D - I - 0x020B8E 17:8B7E: F0        .byte con_exit_1
+- D - I - 0x020B8E 17:8B7E: F0        .byte con_quit
 
 bra_case_8B7F_04:
 - D - I - 0x020B8F 17:8B7F: FA        .byte con_jsr
@@ -2162,7 +2162,7 @@ bra_case_8BC2_00:
 bra_case_8BD1_02:
 bra_case_8BD1_03:
 bra_case_8BD1_04:
-- D - I - 0x020BE1 17:8BD1: F0        .byte con_exit_1
+- D - I - 0x020BE1 17:8BD1: F0        .byte con_quit
 
 bra_case_8BD2_01:
 - D - I - 0x020BE2 17:8BD2: FA        .byte con_jsr
@@ -2305,7 +2305,7 @@ bra_case_8C6F_00:
 - D - I - 0x020C85 17:8C75: FA        .byte con_jsr
 - D - I - 0x020C86 17:8C76: 76 A1     .word sub_A176
 bra_case_8C78_04:
-- D - I - 0x020C88 17:8C78: F0        .byte con_exit_1
+- D - I - 0x020C88 17:8C78: F0        .byte con_quit
 
 bra_case_8C79_01:
 - D - I - 0x020C89 17:8C79: FA        .byte con_jsr
@@ -2357,7 +2357,7 @@ bra_case_8CA4_00:
 - D - I - 0x020CBA 17:8CAA: FA        .byte con_jsr
 - D - I - 0x020CBB 17:8CAB: 76 A1     .word sub_A176
 bra_case_8CAD_04:
-- D - I - 0x020CBD 17:8CAD: F0        .byte con_exit_1
+- D - I - 0x020CBD 17:8CAD: F0        .byte con_quit
 
 bra_case_8CAE_01:
 - D - I - 0x020CBE 17:8CAE: FA        .byte con_jsr
@@ -2407,7 +2407,7 @@ bra_case_8CDC_00:
 - D - I - 0x020CF2 17:8CE2: FA        .byte con_jsr
 - D - I - 0x020CF3 17:8CE3: E5 9F     .word sub_9FE5
 bra_case_8CE5_04:
-- D - I - 0x020CF5 17:8CE5: F0        .byte con_exit_1
+- D - I - 0x020CF5 17:8CE5: F0        .byte con_quit
 
 bra_case_8CE6_01:
 - D - I - 0x020CF6 17:8CE6: FA        .byte con_jsr
@@ -2485,7 +2485,7 @@ bra_case_8D28_00:
 - D - I - 0x020D44 17:8D34: FA        .byte con_jsr
 - D - I - 0x020D45 17:8D35: 62 9F     .word sub_9F62
 bra_case_8D37_04:
-- D - I - 0x020D47 17:8D37: F0        .byte con_exit_1
+- D - I - 0x020D47 17:8D37: F0        .byte con_quit
 
 loc_8D38:
 bra_case_8D38_00:
@@ -2561,7 +2561,7 @@ bra_case_8D78_00:
 - D - I - 0x020D95 17:8D85: 62 9F     .word sub_9F62
 bra_case_8D87_03:
 bra_case_8D87_04:
-- D - I - 0x020D97 17:8D87: F0        .byte con_exit_1
+- D - I - 0x020D97 17:8D87: F0        .byte con_quit
 
 bra_case_8D88_01:
 - D - I - 0x020D98 17:8D88: FA        .byte con_jsr
@@ -2610,7 +2610,7 @@ bra_case_8DB3_00:
 - D - I - 0x020DCF 17:8DBF: FA        .byte con_jsr
 - D - I - 0x020DD0 17:8DC0: 62 9F     .word sub_9F62
 bra_case_8DC2_04:
-- D - I - 0x020DD2 17:8DC2: F0        .byte con_exit_1
+- D - I - 0x020DD2 17:8DC2: F0        .byte con_quit
 
 bra_case_8DC3_01:
 - - - - - 0x020DD3 17:8DC3: FA        .byte con_jsr
@@ -2680,7 +2680,7 @@ bra_case_8E03_01:
 - D - I - 0x020E1D 17:8E0D: 17 A0     .word sub_A017
 bra_case_8E0F_00:
 bra_case_8E0F_04:
-- D - I - 0x020E1F 17:8E0F: F0        .byte con_exit_1
+- D - I - 0x020E1F 17:8E0F: F0        .byte con_quit
 
 bra_case_8E10_02:
 - D - I - 0x020E20 17:8E10: FA        .byte con_jsr
@@ -2717,7 +2717,7 @@ bra_case_8E29_01:
 - D - I - 0x020E43 17:8E33: 17 A0     .word sub_A017
 bra_case_8E35_00:
 bra_case_8E35_04:
-- D - I - 0x020E45 17:8E35: F0        .byte con_exit_1
+- D - I - 0x020E45 17:8E35: F0        .byte con_quit
 
 bra_case_8E36_02:
 - D - I - 0x020E46 17:8E36: FA        .byte con_jsr
@@ -2754,7 +2754,7 @@ bra_case_8E4F_01:
 - D - I - 0x020E69 17:8E59: E0 9F     .word sub_9FE0
 bra_case_8E5B_00:
 bra_case_8E5B_04:
-- D - I - 0x020E6B 17:8E5B: F0        .byte con_exit_1
+- D - I - 0x020E6B 17:8E5B: F0        .byte con_quit
 
 bra_case_8E5C_02:
 - D - I - 0x020E6C 17:8E5C: FA        .byte con_jsr
@@ -2797,7 +2797,7 @@ bra_case_8E7A_00:
 - D - I - 0x020E94 17:8E84: 62 9F     .word sub_9F62
 bra_case_8E86_03:
 bra_case_8E86_04:
-- D - I - 0x020E96 17:8E86: F0        .byte con_exit_1
+- D - I - 0x020E96 17:8E86: F0        .byte con_quit
 
 bra_case_8E87_01:
 - D - I - 0x020E97 17:8E87: FA        .byte con_jsr
@@ -2842,7 +2842,7 @@ bra_case_8EAC_00:
 - D - I - 0x020EC6 17:8EB6: 62 9F     .word sub_9F62
 bra_case_8EB8_03:
 bra_case_8EB8_04:
-- D - I - 0x020EC8 17:8EB8: F0        .byte con_exit_1
+- D - I - 0x020EC8 17:8EB8: F0        .byte con_quit
 
 bra_case_8EB9_01:
 - - - - - 0x020EC9 17:8EB9: FA        .byte con_jsr
@@ -2886,7 +2886,7 @@ bra_case_8EDE_00:
 - D - I - 0x020EF8 17:8EE8: 62 9F     .word sub_9F62
 bra_case_8EEA_03:
 bra_case_8EEA_04:
-- D - I - 0x020EFA 17:8EEA: F0        .byte con_exit_1
+- D - I - 0x020EFA 17:8EEA: F0        .byte con_quit
 
 bra_case_8EEB_01:
 - - - - - 0x020EFB 17:8EEB: FA        .byte con_jsr
@@ -2969,7 +2969,7 @@ bra_case_8F33_00:
 - D - I - 0x020F49 17:8F39: FA        .byte con_jsr
 - D - I - 0x020F4A 17:8F3A: 1C A0     .word sub_A01C
 bra_case_8F3C_04:
-- D - I - 0x020F4C 17:8F3C: F0        .byte con_exit_1
+- D - I - 0x020F4C 17:8F3C: F0        .byte con_quit
 
 bra_case_8F3D_01:
 - D - I - 0x020F4D 17:8F3D: FA        .byte con_jsr
@@ -3032,7 +3032,7 @@ bra_case_8F77_00:
 - D - I - 0x020F8D 17:8F7D: FA        .byte con_jsr
 - D - I - 0x020F8E 17:8F7E: 1C A0     .word sub_A01C
 bra_case_8F80_04:
-- D - I - 0x020F90 17:8F80: F0        .byte con_exit_1
+- D - I - 0x020F90 17:8F80: F0        .byte con_quit
 
 bra_case_8F81_01:
 - D - I - 0x020F91 17:8F81: FA        .byte con_jsr
@@ -3082,7 +3082,7 @@ bra_case_8FAF_00:
 - D - I - 0x020FC5 17:8FB5: FA        .byte con_jsr
 - D - I - 0x020FC6 17:8FB6: EA 9F     .word sub_9FEA
 bra_case_8FB8_04:
-- D - I - 0x020FC8 17:8FB8: F0        .byte con_exit_1
+- D - I - 0x020FC8 17:8FB8: F0        .byte con_quit
 
 bra_case_8FB9_01:
 - D - I - 0x020FC9 17:8FB9: FA        .byte con_jsr
@@ -3160,7 +3160,7 @@ bra_case_8FFB_00:
 - D - I - 0x021017 17:9007: FA        .byte con_jsr
 - D - I - 0x021018 17:9008: 62 9F     .word sub_9F62
 bra_case_900A_04:
-- D - I - 0x02101A 17:900A: F0        .byte con_exit_1
+- D - I - 0x02101A 17:900A: F0        .byte con_quit
 
 bra_case_900B_01:
 - D - I - 0x02101B 17:900B: FA        .byte con_jsr
@@ -3225,7 +3225,7 @@ bra_case_9042_00:
 - D - I - 0x02105F 17:904F: 62 9F     .word sub_9F62
 bra_case_9051_03:
 bra_case_9051_04:
-- D - I - 0x021061 17:9051: F0        .byte con_exit_1
+- D - I - 0x021061 17:9051: F0        .byte con_quit
 
 bra_case_9052_01:
 - D - I - 0x021062 17:9052: FA        .byte con_jsr
@@ -3280,7 +3280,7 @@ bra_case_9081_00:
 - D - I - 0x02109D 17:908D: FA        .byte con_jsr
 - D - I - 0x02109E 17:908E: 62 9F     .word sub_9F62
 bra_case_9090_04:
-- D - I - 0x0210A0 17:9090: F0        .byte con_exit_1
+- D - I - 0x0210A0 17:9090: F0        .byte con_quit
 
 bra_case_9091_01:
 - - - - - 0x0210A1 17:9091: FA        .byte con_jsr
@@ -3345,7 +3345,7 @@ bra_case_90CD_01:
 - D - I - 0x0210E7 17:90D7: 15 A0     .word sub_A015
 bra_case_90D9_00:
 bra_case_90D9_04:
-- D - I - 0x0210E9 17:90D9: F0        .byte con_exit_1
+- D - I - 0x0210E9 17:90D9: F0        .byte con_quit
 
 bra_case_90DA_02:
 - D - I - 0x0210EA 17:90DA: FA        .byte con_jsr
@@ -3382,7 +3382,7 @@ bra_case_90F3_01:
 - D - I - 0x02110D 17:90FD: 15 A0     .word sub_A015
 bra_case_90FF_00:
 bra_case_90FF_04:
-- D - I - 0x02110F 17:90FF: F0        .byte con_exit_1
+- D - I - 0x02110F 17:90FF: F0        .byte con_quit
 
 bra_case_9100_02:
 - D - I - 0x021110 17:9100: FA        .byte con_jsr
@@ -3419,7 +3419,7 @@ bra_case_9119_01:
 - D - I - 0x021133 17:9123: DE 9F     .word sub_9FDE
 bra_case_9125_00:
 bra_case_9125_04:
-- D - I - 0x021135 17:9125: F0        .byte con_exit_1
+- D - I - 0x021135 17:9125: F0        .byte con_quit
 
 bra_case_9126_02:
 - D - I - 0x021136 17:9126: FA        .byte con_jsr
@@ -3462,7 +3462,7 @@ bra_case_9144_00:
 - D - I - 0x02115E 17:914E: 62 9F     .word sub_9F62
 bra_case_9150_03:
 bra_case_9150_04:
-- D - I - 0x021160 17:9150: F0        .byte con_exit_1
+- D - I - 0x021160 17:9150: F0        .byte con_quit
 
 bra_case_9151_01:
 - - - - - 0x021161 17:9151: FA        .byte con_jsr
@@ -3507,7 +3507,7 @@ bra_case_9176_00:
 - D - I - 0x021190 17:9180: 62 9F     .word sub_9F62
 bra_case_9182_03:
 bra_case_9182_04:
-- D - I - 0x021192 17:9182: F0        .byte con_exit_1
+- D - I - 0x021192 17:9182: F0        .byte con_quit
 
 bra_case_9183_01:
 - - - - - 0x021193 17:9183: FA        .byte con_jsr
@@ -3552,7 +3552,7 @@ bra_case_91A8_00:
 - - - - - 0x0211C2 17:91B2: 62 9F     .word sub_9F62
 bra_case_91B4_03:
 bra_case_91B4_04:
-- - - - - 0x0211C4 17:91B4: F0        .byte con_exit_1
+- - - - - 0x0211C4 17:91B4: F0        .byte con_quit
 
 bra_case_91B5_01:
 - D - I - 0x0211C5 17:91B5: FA        .byte con_jsr
@@ -3620,7 +3620,7 @@ _scenario_91F2_01:
 bra_case_91F8_00:
 - D - I - 0x021208 17:91F8: FA        .byte con_jsr
 - D - I - 0x021209 17:91F9: E2 9D     .word sub_9DE2
-- D - I - 0x02120B 17:91FB: F1        .byte con_exit_2
+- D - I - 0x02120B 17:91FB: F1        .byte con__quit
 
 bra_case_91FC_01:
 - D - I - 0x02120C 17:91FC: F2        .byte con_jmp
@@ -3742,7 +3742,7 @@ bra_case_925F_01:
 - D - I - 0x02126F 17:925F: FA        .byte con_jsr
 - D - I - 0x021270 17:9260: 6E 9F     .word sub_9F6E
 bra_case_9262_00:
-- D - I - 0x021272 17:9262: F0        .byte con_exit_1
+- D - I - 0x021272 17:9262: F0        .byte con_quit
 
 
 
@@ -3766,7 +3766,7 @@ bra_case_926F_01:
 - D - I - 0x021281 17:9271: FA        .byte con_jsr
 - D - I - 0x021282 17:9272: 62 9F     .word sub_9F62
 bra_case_9274_00:
-- D - I - 0x021284 17:9274: F0        .byte con_exit_1
+- D - I - 0x021284 17:9274: F0        .byte con_quit
 
 bra_case_9275_01:
 - D - I - 0x021285 17:9275: F3        .byte con_branch, $81
@@ -3778,7 +3778,7 @@ bra_case_9279_01:
 - D - I - 0x02128B 17:927B: FA        .byte con_jsr
 - D - I - 0x02128C 17:927C: B5 9F     .word sub_9FB5
 bra_case_927E_00:
-- D - I - 0x02128E 17:927E: F0        .byte con_exit_1
+- D - I - 0x02128E 17:927E: F0        .byte con_quit
 
 
 
@@ -3926,7 +3926,7 @@ bra_case_930B_02:
 - D - I - 0x02131C 17:930C: 71 A3     .word sub_A371
 bra_case_930E_00:
 bra_case_930E_01:
-- D - I - 0x02131E 17:930E: F0        .byte con_exit_1
+- D - I - 0x02131E 17:930E: F0        .byte con_quit
 
 bra_long_case_930F_00:
 bra_case_930F_00:
@@ -3948,7 +3948,7 @@ bra_case_9318_04:
 bra_case_931B_01:
 - - - - - 0x02132B 17:931B: FA        .byte con_jsr
 - - - - - 0x02132C 17:931C: 97 A1     .word sub_A197
-- - - - - 0x02132E 17:931E: F0        .byte con_exit_1
+- - - - - 0x02132E 17:931E: F0        .byte con_quit
 
 bra_long_case_931F_00:
 bra_case_931F_00:
@@ -3966,7 +3966,7 @@ bra_case_9325_02:
 bra_case_9328_01:
 - - - - - 0x021338 17:9328: FA        .byte con_jsr
 - - - - - 0x021339 17:9329: 8D A1     .word sub_A18D
-- - - - - 0x02133B 17:932B: F0        .byte con_exit_1
+- - - - - 0x02133B 17:932B: F0        .byte con_quit
 
 
 
@@ -5252,7 +5252,7 @@ bra_case_982D_00:
 - D - I - 0x021842 17:9832: FA        .byte con_jsr
 - D - I - 0x021843 17:9833: 8D A0     .word sub_A08D
 bra_case_9835_01:
-- D - I - 0x021845 17:9835: F0        .byte con_exit_1
+- D - I - 0x021845 17:9835: F0        .byte con_quit
 
 bra_case_9836_01:
 - D - I - 0x021846 17:9836: FA        .byte con_jsr
@@ -5450,7 +5450,7 @@ bra_case_9902_00:
 - D - I - 0x021918 17:9908: F2        .byte con_jmp
 - D - I - 0x021919 17:9909: EA 9F     .word loc_9FEA
 
-- - - - - 0x02191B 17:990B: F0        .byte con_exit_1
+- - - - - 0x02191B 17:990B: F0        .byte con_quit
 
 bra_case_990C_01:
 - D - I - 0x02191C 17:990C: FA        .byte con_jsr
@@ -5551,7 +5551,7 @@ bra_case_9973_00:
 - D - I - 0x02198D 17:997D: DD A2     .word sub_A2DD
 - D - I - 0x02198F 17:997F: FA        .byte con_jsr
 - D - I - 0x021990 17:9980: 62 9F     .word sub_9F62
-- D - I - 0x021992 17:9982: F0        .byte con_exit_1
+- D - I - 0x021992 17:9982: F0        .byte con_quit
 
 bra_case_9983_01:
 - D - I - 0x021993 17:9983: FA        .byte con_jsr
@@ -5656,7 +5656,7 @@ bra_case_99F0_00:
 - - - - - 0x021A0C 17:99FC: FA        .byte con_jsr
 - - - - - 0x021A0D 17:99FD: 62 9F     .word sub_9F62
 bra_case_99FF_03:
-- - - - - 0x021A0F 17:99FF: F0        .byte con_exit_1
+- - - - - 0x021A0F 17:99FF: F0        .byte con_quit
 
 bra_case_9A00_01:
 - - - - - 0x021A10 17:9A00: FA        .byte con_jsr
@@ -5713,7 +5713,7 @@ bra_case_9A33_00:
 - D - I - 0x021A4D 17:9A3D: 76 A1     .word loc_A176
 
 ; bzk мусор
-- - - - - 0x021A4F 17:9A3F: F0        .byte con_exit_1
+- - - - - 0x021A4F 17:9A3F: F0        .byte con_quit
 
 bra_case_9A40_01:
 - D - I - 0x021A50 17:9A40: FA        .byte con_jsr
@@ -5830,7 +5830,7 @@ bra_case_9ABC_00:
 - D - I - 0x021AD9 17:9AC9: DD A2     .word sub_A2DD
 - D - I - 0x021ADB 17:9ACB: FA        .byte con_jsr
 - D - I - 0x021ADC 17:9ACC: 62 9F     .word sub_9F62
-- D - I - 0x021ADE 17:9ACE: F0        .byte con_exit_1
+- D - I - 0x021ADE 17:9ACE: F0        .byte con_quit
 
 bra_case_9ACF_01:
 - D - I - 0x021ADF 17:9ACF: FA        .byte con_jsr
@@ -5942,7 +5942,7 @@ bra_case_9B45_00:
 - - - - - 0x021B64 17:9B54: FA        .byte con_jsr
 - - - - - 0x021B65 17:9B55: 62 9F     .word sub_9F62
 bra_case_9B57_03:
-- - - - - 0x021B67 17:9B57: F0        .byte con_exit_1
+- - - - - 0x021B67 17:9B57: F0        .byte con_quit
 
 bra_case_9B58_01:
 - - - - - 0x021B68 17:9B58: FA        .byte con_jsr
@@ -6036,7 +6036,7 @@ bra_case_9BB5_00:
 - - - - - 0x021BCB 17:9BBB: FA        .byte con_jsr
 - - - - - 0x021BCC 17:9BBC: 62 9F     .word sub_9F62
 bra_case_9BBE_03:
-- - - - - 0x021BCE 17:9BBE: F0        .byte con_exit_1
+- - - - - 0x021BCE 17:9BBE: F0        .byte con_quit
 
 bra_case_9BBF_01:
 - - - - - 0x021BCF 17:9BBF: FA        .byte con_jsr
@@ -6056,7 +6056,7 @@ bra_case_9BCB_02:
 - D - I - 0x021BDC 17:9BCC: FE A2     .word sub_A2FE
 bra_long_case_9BCE_00:
 bra_long_case_9BCE_01:
-- D - I - 0x021BDE 17:9BCE: F0        .byte con_exit_1
+- D - I - 0x021BDE 17:9BCE: F0        .byte con_quit
 
 bra_long_case_9BCF_01:
 - D - I - 0x021BDF 17:9BCF: FA        .byte con_jsr
@@ -6322,7 +6322,7 @@ bra_case_9CE4_00:
 - D - I - 0x021CFA 17:9CEA: 42        .byte con_bg + $42
 - D - I - 0x021CFB 17:9CEB: 82        .byte con_animation + $82
 - D - I - 0x021CFC 17:9CEC: 63        .byte con_cloud + $63
-- D - I - 0x021CFD 17:9CED: F0        .byte con_exit_1
+- D - I - 0x021CFD 17:9CED: F0        .byte con_quit
 
 
 
@@ -6526,7 +6526,7 @@ bra_case_9E34_00:
 - D - I - 0x021E4A 17:9E3A: 42        .byte con_bg + $42
 - D - I - 0x021E4B 17:9E3B: 83        .byte con_animation + $83
 - D - I - 0x021E4C 17:9E3C: 64        .byte con_cloud + $64
-- D - I - 0x021E4D 17:9E3D: F0        .byte con_exit_1
+- D - I - 0x021E4D 17:9E3D: F0        .byte con_quit
 
 
 
