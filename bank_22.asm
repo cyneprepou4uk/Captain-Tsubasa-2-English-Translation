@@ -1280,19 +1280,20 @@ bra_87A3_выход:
 C - - - - 0x0307B3 22:87A3: 60        RTS
 bra_87A4_начать_цикл:
 loc_87A4_цикл:
-; bzk схожий код в 0x030825
+; bzk схожий код в 0x030825, а этот был оптимизирован 23.10.2020
 C D - - - 0x0307B4 22:87A4: A0 00     LDY #$00
-bra_87A6_цикл:
 C - - - - 0x0307B6 22:87A6: B1 7B     LDA (ram_007B),Y
-C - - - - 0x0307B8 22:87A8: C9 F0     CMP #$F0
-C - - - - 0x0307BA 22:87AA: 90 0B     BCC bra_87B7_меньше_F0
-C - - - - 0x0307BC 22:87AC: C9 F0     CMP #$F0
-C - - - - 0x0307BE 22:87AE: F0 22     BEQ bra_87D2_F0_закончить
-C - - - - 0x0307C0 22:87B0: C9 F1     CMP #$F1
-C - - - - 0x0307C2 22:87B2: F0 24     BEQ bra_87D8_F1_прыжок
-- - - - - 0x0307C4 22:87B4: C8        INY
-- - - - - 0x0307C5 22:87B5: D0 EF     BNE bra_87A6_цикл
-bra_87B7_меньше_F0:
+C - - - - 0x0307B8 22:87A8: C9 F0     CMP #$FF
+C - - - - 0x0307BA 22:87AA: 90 0B     BNE bra_87B7_читать_байты
+                                      INY
+                                      LDA (ram_007B),Y
+                                      TAX
+                                      INY
+                                      LDA (ram_007B),Y
+                                      STA ram_007C
+                                      STX ram_007B
+                                      JMP loc_87A4_цикл
+bra_87B7_читать_байты:
 C - - - - 0x0307C7 22:87B7: 8D 35 05  STA $0535
 C - - - - 0x0307CA 22:87BA: C8        INY
 C - - - - 0x0307CB 22:87BB: B1 7B     LDA (ram_007B),Y
@@ -1309,19 +1310,6 @@ C - - - - 0x0307DD 22:87CD: 90 02     BCC bra_87D1_выход
 - - - - - 0x0307DF 22:87CF: E6 7C     INC ram_007C
 bra_87D1_выход:
 C - - - - 0x0307E1 22:87D1: 60        RTS
-bra_87D2_F0_закончить:
-- - - - - 0x0307E2 22:87D2: A9 00     LDA #$00
-- - - - - 0x0307E4 22:87D4: 8D 34 05  STA $0534
-- - - - - 0x0307E7 22:87D7: 60        RTS
-bra_87D8_F1_прыжок:
-C - - - - 0x0307E8 22:87D8: C8        INY
-C - - - - 0x0307E9 22:87D9: B1 7B     LDA (ram_007B),Y
-C - - - - 0x0307EB 22:87DB: AA        TAX
-C - - - - 0x0307EC 22:87DC: C8        INY
-C - - - - 0x0307ED 22:87DD: B1 7B     LDA (ram_007B),Y
-C - - - - 0x0307EF 22:87DF: 85 7C     STA ram_007C
-C - - - - 0x0307F1 22:87E1: 86 7B     STX ram_007B
-C - - - - 0x0307F3 22:87E3: 4C A4 87  JMP loc_87A4_цикл
 
 .export sub_0x0307F6
 sub_0x0307F6:
@@ -10638,7 +10626,8 @@ tbl_AD1C_движущийся_фон:
 - D - - - 0x032D30 22:AD20: 3C AD     .word off_AD3C_03_tackle
 - D - - - 0x032D32 22:AD22: 48 AD     .word off_AD48_04_tiger_razor_skylab_tackle
 
-con_loop = $F1
+con_loop = $FF
+
 off_AD24_01:
 - D - I - 0x032D34 22:AD24: 02        .byte $02
 - D - I - 0x032D35 22:AD25: 3C        .byte $3C
