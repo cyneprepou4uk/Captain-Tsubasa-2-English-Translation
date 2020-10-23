@@ -1941,6 +1941,12 @@ con_FD                  = $FD   ; 1
 con_FE                  = $FE   ; 1
 con_FF                  = $FF   ; 1
 
+con_pause               = $00   ; задержка следующей анимации
+con_bg                  = $00   ; фон
+con_animation           = $00   ; анимация
+con_cloud               = $00   ; облако
+
+
 
 
 _scenario_8AB1_00:
@@ -6219,16 +6225,16 @@ _scenario_9C19_47:
 - D - I - 0x021C2A 17:9C1A: 36 9C     .word sub_9C36
 - D - I - 0x021C2C 17:9C1C: FA        .byte con_jsr
 - D - I - 0x021C2D 17:9C1D: 23 9C     .word sub_9C23
-- D - I - 0x021C2F 17:9C1F: 5A        .byte $5A
-- D - I - 0x021C30 17:9C20: 30        .byte $30
-- D - I - 0x021C31 17:9C21: B7        .byte $B7
-- D - I - 0x021C32 17:9C22: 78        .byte $78
+- D - I - 0x021C2F 17:9C1F: 5A        .byte con_pause + $5A
+- D - I - 0x021C30 17:9C20: 30        .byte con_bg + $30
+- D - I - 0x021C31 17:9C21: B7        .byte con_animation + $B7
+- D - I - 0x021C32 17:9C22: 78        .byte con_cloud + $78
 loc_9C23:
 sub_9C23:
-- D - I - 0x021C33 17:9C23: 01        .byte $01
-- D - I - 0x021C34 17:9C24: F0        .byte con_exit_1
-- D - I - 0x021C35 17:9C25: F0        .byte con_exit_1
-- D - I - 0x021C36 17:9C26: 00        .byte $00
+- D - I - 0x021C33 17:9C23: 01        .byte con_pause + $01
+- D - I - 0x021C34 17:9C24: F0        .byte con_bg + $F0
+- D - I - 0x021C35 17:9C25: F0        .byte con_animation + $F0
+- D - I - 0x021C36 17:9C26: 00        .byte con_cloud + $00
 - D - I - 0x021C37 17:9C27: FB        .byte con_rts
 
 loc_9C28:
@@ -6382,10 +6388,10 @@ _scenario_9CDD_25:
 bra_case_9CE4_00:
 - D - I - 0x021CF4 17:9CE4: FD        .byte con_FD, $03
 - D - I - 0x021CF6 17:9CE6: F9        .byte con_delay_soundID, $02, $12     ; обычный удар с земли
-- D - I - 0x021CF9 17:9CE9: 30        .byte $30
-- D - I - 0x021CFA 17:9CEA: 42        .byte $42
-- D - I - 0x021CFB 17:9CEB: 82        .byte $82
-- D - I - 0x021CFC 17:9CEC: 63        .byte $63
+- D - I - 0x021CF9 17:9CE9: 30        .byte con_pause + $30
+- D - I - 0x021CFA 17:9CEA: 42        .byte con_bg + $42
+- D - I - 0x021CFB 17:9CEB: 82        .byte con_animation + $82
+- D - I - 0x021CFC 17:9CEC: 63        .byte con_cloud + $63
 - D - I - 0x021CFD 17:9CED: F0        .byte con_exit_1
 
 
@@ -6586,10 +6592,10 @@ _scenario_9E2D_26:
 bra_case_9E34_00:
 - D - I - 0x021E44 17:9E34: FD        .byte con_FD, $00
 - D - I - 0x021E46 17:9E36: F9        .byte con_delay_soundID, $09, $2B     ; отбитие мяча
-- D - I - 0x021E49 17:9E39: 37        .byte $37
-- D - I - 0x021E4A 17:9E3A: 42        .byte $42
-- D - I - 0x021E4B 17:9E3B: 83        .byte $83
-- D - I - 0x021E4C 17:9E3C: 64        .byte $64
+- D - I - 0x021E49 17:9E39: 37        .byte con_pause + $37
+- D - I - 0x021E4A 17:9E3A: 42        .byte con_bg + $42
+- D - I - 0x021E4B 17:9E3B: 83        .byte con_animation + $83
+- D - I - 0x021E4C 17:9E3C: 64        .byte con_cloud + $64
 - D - I - 0x021E4D 17:9E3D: F0        .byte con_exit_1
 
 
@@ -6613,10 +6619,10 @@ bra_case_9E45_00:
 loc_9E4F:
 bra_case_9E4F_02:
 - D - I - 0x021E5F 17:9E4F: F9        .byte con_delay_soundID, $15, $2B     ; отбитие мяча
-- D - I - 0x021E62 17:9E52: 3F        .byte $3F
-- D - I - 0x021E63 17:9E53: 2A        .byte $2A
-- D - I - 0x021E64 17:9E54: 19        .byte $19
-- D - I - 0x021E65 17:9E55: 47        .byte $47
+- D - I - 0x021E62 17:9E52: 3F        .byte con_pause + $3F
+- D - I - 0x021E63 17:9E53: 2A        .byte con_bg + $2A
+- D - I - 0x021E64 17:9E54: 19        .byte con_animation + $19
+- D - I - 0x021E65 17:9E55: 47        .byte con_cloud + $47
 - D - I - 0x021E66 17:9E56: FB        .byte con_rts
 
 
@@ -6829,19 +6835,19 @@ sub_9F9C:
 
 bra_case_9FA1_01:
 - D - I - 0x021FB1 17:9FA1: F5        .byte con_mirror_off
-- D - I - 0x021FB2 17:9FA2: 78        .byte $78
-- D - I - 0x021FB3 17:9FA3: 33        .byte $33
-- D - I - 0x021FB4 17:9FA4: 94        .byte $94
-- D - I - 0x021FB5 17:9FA5: A0        .byte $A0
+- D - I - 0x021FB2 17:9FA2: 78        .byte con_pause + $78
+- D - I - 0x021FB3 17:9FA3: 33        .byte con_bg + $33
+- D - I - 0x021FB4 17:9FA4: 94        .byte con_animation + $94
+- D - I - 0x021FB5 17:9FA5: A0        .byte con_cloud + $A0
 - D - I - 0x021FB6 17:9FA6: F2        .byte con_jmp
 - D - I - 0x021FB7 17:9FA7: 23 9C     .word loc_9C23
 
 bra_case_9FA9_02:
 - D - I - 0x021FB9 17:9FA9: F9        .byte con_delay_soundID, $02, $20     ; ???
-- D - I - 0x021FBC 17:9FAC: 78        .byte $78
-- D - I - 0x021FBD 17:9FAD: 48        .byte $48
-- D - I - 0x021FBE 17:9FAE: 75        .byte $75
-- D - I - 0x021FBF 17:9FAF: A1        .byte $A1
+- D - I - 0x021FBC 17:9FAC: 78        .byte con_pause + $78
+- D - I - 0x021FBD 17:9FAD: 48        .byte con_bg + $48
+- D - I - 0x021FBE 17:9FAE: 75        .byte con_animation + $75
+- D - I - 0x021FBF 17:9FAF: A1        .byte con_cloud + $A1
 - D - I - 0x021FC0 17:9FB0: F2        .byte con_jmp
 - D - I - 0x021FC1 17:9FB1: 23 9C     .word loc_9C23
 
@@ -6852,28 +6858,28 @@ bra_case_9FB3_00:
 
 loc_9FB5:
 sub_9FB5:
-- D - I - 0x021FC5 17:9FB5: 32        .byte $32
-- D - I - 0x021FC6 17:9FB6: 1B        .byte $1B
-- D - I - 0x021FC7 17:9FB7: 02        .byte $02
-- D - I - 0x021FC8 17:9FB8: 01        .byte $01
+- D - I - 0x021FC5 17:9FB5: 32        .byte con_pause + $32
+- D - I - 0x021FC6 17:9FB6: 1B        .byte con_bg + $1B
+- D - I - 0x021FC7 17:9FB7: 02        .byte con_animation + $02
+- D - I - 0x021FC8 17:9FB8: 01        .byte con_cloud + $01
 - D - I - 0x021FC9 17:9FB9: FB        .byte con_rts
 
 
 
 _scenario_9FBA_3D:
-- D - I - 0x021FCA 17:9FBA: 78        .byte $78
-- D - I - 0x021FCB 17:9FBB: F0        .byte con_exit_1
-- D - I - 0x021FCC 17:9FBC: F0        .byte con_exit_1
-- D - I - 0x021FCD 17:9FBD: 25        .byte $25
+- D - I - 0x021FCA 17:9FBA: 78        .byte con_pause + $78
+- D - I - 0x021FCB 17:9FBB: F0        .byte con_bg + $F0
+- D - I - 0x021FCC 17:9FBC: F0        .byte con_animation + $F0
+- D - I - 0x021FCD 17:9FBD: 25        .byte con_cloud + $25
 - D - I - 0x021FCE 17:9FBE: FB        .byte con_rts
 
 loc_9FBF:
 - D - I - 0x021FCF 17:9FBF: FA        .byte con_jsr
 - D - I - 0x021FD0 17:9FC0: C7 9F     .word sub_9FC7
-- D - I - 0x021FD2 17:9FC2: 5A        .byte $5A
-- D - I - 0x021FD3 17:9FC3: 58        .byte $58
-- D - I - 0x021FD4 17:9FC4: 03        .byte $03
-- D - I - 0x021FD5 17:9FC5: E3        .byte $E3
+- D - I - 0x021FD2 17:9FC2: 5A        .byte con_pause + $5A
+- D - I - 0x021FD3 17:9FC3: 58        .byte con_bg + $58
+- D - I - 0x021FD4 17:9FC4: 03        .byte con_animation + $03
+- D - I - 0x021FD5 17:9FC5: E3        .byte con_cloud + $E3
 - D - I - 0x021FD6 17:9FC6: FB        .byte con_rts
 
 sub_9FC7:
@@ -6885,19 +6891,19 @@ sub_9FC7:
 loc_9FCE:
 - D - I - 0x021FDE 17:9FCE: FA        .byte con_jsr
 - D - I - 0x021FDF 17:9FCF: C7 9F     .word sub_9FC7
-- D - I - 0x021FE1 17:9FD1: 5A        .byte $5A
-- D - I - 0x021FE2 17:9FD2: 58        .byte $58
-- D - I - 0x021FE3 17:9FD3: 03        .byte $03
-- D - I - 0x021FE4 17:9FD4: 0B        .byte $0B
+- D - I - 0x021FE1 17:9FD1: 5A        .byte con_pause + $5A
+- D - I - 0x021FE2 17:9FD2: 58        .byte con_bg + $58
+- D - I - 0x021FE3 17:9FD3: 03        .byte con_animation + $03
+- D - I - 0x021FE4 17:9FD4: 0B        .byte con_cloud + $0B
 - D - I - 0x021FE5 17:9FD5: FB        .byte con_rts
 
 sub_9FD6:
 - D - I - 0x021FE6 17:9FD6: F5        .byte con_mirror_off
 - D - I - 0x021FE7 17:9FD7: FC        .byte con_FC, $04
-- D - I - 0x021FE9 17:9FD9: 32        .byte $32
-- D - I - 0x021FEA 17:9FDA: 58        .byte $58
-- D - I - 0x021FEB 17:9FDB: 04        .byte $04
-- D - I - 0x021FEC 17:9FDC: 06        .byte $06
+- D - I - 0x021FE9 17:9FD9: 32        .byte con_pause + $32
+- D - I - 0x021FEA 17:9FDA: 58        .byte con_bg + $58
+- D - I - 0x021FEB 17:9FDB: 04        .byte con_animation + $04
+- D - I - 0x021FEC 17:9FDC: 06        .byte con_cloud + $06
 - D - I - 0x021FED 17:9FDD: FB        .byte con_rts
 
 loc_9FDE:
@@ -6905,67 +6911,67 @@ sub_9FDE:
 - D - I - 0x021FEE 17:9FDE: FC        .byte con_FC, $02
 loc_9FE0:
 sub_9FE0:
-- D - I - 0x021FF0 17:9FE0: 2D        .byte $2D
-- D - I - 0x021FF1 17:9FE1: F0        .byte con_exit_1
-- D - I - 0x021FF2 17:9FE2: 05        .byte $05
-- D - I - 0x021FF3 17:9FE3: F0        .byte con_exit_1
+- D - I - 0x021FF0 17:9FE0: 2D        .byte con_pause + $2D
+- D - I - 0x021FF1 17:9FE1: F0        .byte con_bg + $F0
+- D - I - 0x021FF2 17:9FE2: 05        .byte con_animation + $05
+- D - I - 0x021FF3 17:9FE3: F0        .byte con_cloud + $F0
 - D - I - 0x021FF4 17:9FE4: FB        .byte con_rts
 
 sub_9FE5:
-- D - I - 0x021FF5 17:9FE5: 3C        .byte $3C
-- D - I - 0x021FF6 17:9FE6: 6C        .byte $6C
-- D - I - 0x021FF7 17:9FE7: 06        .byte $06
-- D - I - 0x021FF8 17:9FE8: 07        .byte $07
+- D - I - 0x021FF5 17:9FE5: 3C        .byte con_pause + $3C
+- D - I - 0x021FF6 17:9FE6: 6C        .byte con_bg + $6C
+- D - I - 0x021FF7 17:9FE7: 06        .byte con_animation + $06
+- D - I - 0x021FF8 17:9FE8: 07        .byte con_cloud + $07
 - D - I - 0x021FF9 17:9FE9: FB        .byte con_rts
 
 loc_9FEA:
 sub_9FEA:
 - D - I - 0x021FFA 17:9FEA: FC        .byte con_FC, $02
-- D - I - 0x021FFC 17:9FEC: 3C        .byte $3C
-- D - I - 0x021FFD 17:9FED: 57        .byte $57
-- D - I - 0x021FFE 17:9FEE: 07        .byte $07
-- D - I - 0x021FFF 17:9FEF: 07        .byte $07
+- D - I - 0x021FFC 17:9FEC: 3C        .byte con_pause + $3C
+- D - I - 0x021FFD 17:9FED: 57        .byte con_bg + $57
+- D - I - 0x021FFE 17:9FEE: 07        .byte con_animation + $07
+- D - I - 0x021FFF 17:9FEF: 07        .byte con_cloud + $07
 - D - I - 0x022000 17:9FF0: FB        .byte con_rts
 
 sub_9FF1:
 - D - I - 0x022001 17:9FF1: F8        .byte con_F8, $02
 sub_9FF3:
 - D - I - 0x022003 17:9FF3: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
-- D - I - 0x022006 17:9FF6: 14        .byte $14
-- D - I - 0x022007 17:9FF7: F0        .byte con_exit_1
-- D - I - 0x022008 17:9FF8: 08        .byte $08
-- D - I - 0x022009 17:9FF9: F0        .byte con_exit_1
+- D - I - 0x022006 17:9FF6: 14        .byte con_pause + $14
+- D - I - 0x022007 17:9FF7: F0        .byte con_bg + $F0
+- D - I - 0x022008 17:9FF8: 08        .byte con_animation + $08
+- D - I - 0x022009 17:9FF9: F0        .byte con_cloud + $F0
 - D - I - 0x02200A 17:9FFA: FE        .byte con_FE, $01
 - D - I - 0x02200C 17:9FFC: FB        .byte con_rts
 
 sub_9FFD:
 - D - I - 0x02200D 17:9FFD: FC        .byte con_FC, $02
-- D - I - 0x02200F 17:9FFF: 1E        .byte $1E
-- D - I - 0x022010 11:A000: 57        .byte $57
-- D - I - 0x022011 11:A001: 09        .byte $09
-- D - I - 0x022012 11:A002: 08        .byte $08
+- D - I - 0x02200F 17:9FFF: 1E        .byte con_pause + $1E
+- D - I - 0x022010 11:A000: 57        .byte con_bg + $57
+- D - I - 0x022011 11:A001: 09        .byte con_animation + $09
+- D - I - 0x022012 11:A002: 08        .byte con_cloud + $08
 - D - I - 0x022013 11:A003: FB        .byte con_rts
 
 sub_A004:
 - D - I - 0x022014 11:A004: FC        .byte con_FC, $02
-- D - I - 0x022016 11:A006: 1E        .byte $1E
-- D - I - 0x022017 11:A007: 57        .byte $57
-- D - I - 0x022018 11:A008: 09        .byte $09
-- D - I - 0x022019 11:A009: 09        .byte $09
+- D - I - 0x022016 11:A006: 1E        .byte con_pause + $1E
+- D - I - 0x022017 11:A007: 57        .byte con_bg + $57
+- D - I - 0x022018 11:A008: 09        .byte con_animation + $09
+- D - I - 0x022019 11:A009: 09        .byte con_cloud + $09
 - D - I - 0x02201A 11:A00A: FB        .byte con_rts
 
 sub_A00B:
-- D - I - 0x02201B 11:A00B: 1E        .byte $1E
-- D - I - 0x02201C 11:A00C: 6C        .byte $6C
-- D - I - 0x02201D 11:A00D: 09        .byte $09
-- D - I - 0x02201E 11:A00E: 08        .byte $08
+- D - I - 0x02201B 11:A00B: 1E        .byte con_pause + $1E
+- D - I - 0x02201C 11:A00C: 6C        .byte con_bg + $6C
+- D - I - 0x02201D 11:A00D: 09        .byte con_animation + $09
+- D - I - 0x02201E 11:A00E: 08        .byte con_cloud + $08
 - D - I - 0x02201F 11:A00F: FB        .byte con_rts
 
 sub_A010:
-- D - I - 0x022020 11:A010: 1E        .byte $1E
-- D - I - 0x022021 11:A011: 6C        .byte $6C
-- D - I - 0x022022 11:A012: 09        .byte $09
-- D - I - 0x022023 11:A013: 09        .byte $09
+- D - I - 0x022020 11:A010: 1E        .byte con_pause + $1E
+- D - I - 0x022021 11:A011: 6C        .byte con_bg + $6C
+- D - I - 0x022022 11:A012: 09        .byte con_animation + $09
+- D - I - 0x022023 11:A013: 09        .byte con_cloud + $09
 - D - I - 0x022024 11:A014: FB        .byte con_rts
 
 loc_A015:
@@ -6973,277 +6979,277 @@ sub_A015:
 - D - I - 0x022025 11:A015: FC        .byte con_FC, $02
 loc_A017:
 sub_A017:
-- D - I - 0x022027 11:A017: 32        .byte $32
-- D - I - 0x022028 11:A018: F0        .byte con_exit_1
-- D - I - 0x022029 11:A019: 0B        .byte $0B
-- D - I - 0x02202A 11:A01A: F0        .byte con_exit_1
+- D - I - 0x022027 11:A017: 32        .byte con_pause + $32
+- D - I - 0x022028 11:A018: F0        .byte con_bg + $F0
+- D - I - 0x022029 11:A019: 0B        .byte con_animation + $0B
+- D - I - 0x02202A 11:A01A: F0        .byte con_cloud + $F0
 - D - I - 0x02202B 11:A01B: FB        .byte con_rts
 
 sub_A01C:
 - D - I - 0x02202C 11:A01C: FC        .byte con_FC, $02
-- D - I - 0x02202E 11:A01E: 3C        .byte $3C
-- D - I - 0x02202F 11:A01F: 57        .byte $57
-- D - I - 0x022030 11:A020: 0C        .byte $0C
-- D - I - 0x022031 11:A021: 07        .byte $07
+- D - I - 0x02202E 11:A01E: 3C        .byte con_pause + $3C
+- D - I - 0x02202F 11:A01F: 57        .byte con_bg + $57
+- D - I - 0x022030 11:A020: 0C        .byte con_animation + $0C
+- D - I - 0x022031 11:A021: 07        .byte con_cloud + $07
 - D - I - 0x022032 11:A022: FB        .byte con_rts
 
 sub_A023:
 - D - I - 0x022033 11:A023: F8        .byte con_F8, $02
 sub_A025:
 - D - I - 0x022035 11:A025: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
-- D - I - 0x022038 11:A028: 14        .byte $14
-- D - I - 0x022039 11:A029: F0        .byte con_exit_1
-- D - I - 0x02203A 11:A02A: 0D        .byte $0D
-- D - I - 0x02203B 11:A02B: F0        .byte con_exit_1
+- D - I - 0x022038 11:A028: 14        .byte con_pause + $14
+- D - I - 0x022039 11:A029: F0        .byte con_bg + $F0
+- D - I - 0x02203A 11:A02A: 0D        .byte con_animation + $0D
+- D - I - 0x02203B 11:A02B: F0        .byte con_cloud + $F0
 - D - I - 0x02203C 11:A02C: FE        .byte con_FE, $01
 - D - I - 0x02203E 11:A02E: FB        .byte con_rts
 
 sub_A02F:
-- D - I - 0x02203F 11:A02F: 1E        .byte $1E
-- D - I - 0x022040 11:A030: 6C        .byte $6C
-- D - I - 0x022041 11:A031: 35        .byte $35
-- D - I - 0x022042 11:A032: 08        .byte $08
+- D - I - 0x02203F 11:A02F: 1E        .byte con_pause + $1E
+- D - I - 0x022040 11:A030: 6C        .byte con_bg + $6C
+- D - I - 0x022041 11:A031: 35        .byte con_animation + $35
+- D - I - 0x022042 11:A032: 08        .byte con_cloud + $08
 - D - I - 0x022043 11:A033: FB        .byte con_rts
 
 sub_A034:
 - D - I - 0x022044 11:A034: FC        .byte con_FC, $02
-- D - I - 0x022046 11:A036: 1E        .byte $1E
-- D - I - 0x022047 11:A037: 57        .byte $57
-- D - I - 0x022048 11:A038: 35        .byte $35
-- D - I - 0x022049 11:A039: 08        .byte $08
+- D - I - 0x022046 11:A036: 1E        .byte con_pause + $1E
+- D - I - 0x022047 11:A037: 57        .byte con_bg + $57
+- D - I - 0x022048 11:A038: 35        .byte con_animation + $35
+- D - I - 0x022049 11:A039: 08        .byte con_cloud + $08
 - D - I - 0x02204A 11:A03A: FB        .byte con_rts
 
 sub_A03B:
 - D - I - 0x02204B 11:A03B: FC        .byte con_FC, $02
-- D - I - 0x02204D 11:A03D: 1E        .byte $1E
-- D - I - 0x02204E 11:A03E: 57        .byte $57
-- D - I - 0x02204F 11:A03F: 35        .byte $35
-- D - I - 0x022050 11:A040: 09        .byte $09
+- D - I - 0x02204D 11:A03D: 1E        .byte con_pause + $1E
+- D - I - 0x02204E 11:A03E: 57        .byte con_bg + $57
+- D - I - 0x02204F 11:A03F: 35        .byte con_animation + $35
+- D - I - 0x022050 11:A040: 09        .byte con_cloud + $09
 - D - I - 0x022051 11:A041: FB        .byte con_rts
 
 sub_A042:
-- D - I - 0x022052 11:A042: 1E        .byte $1E
-- D - I - 0x022053 11:A043: 6C        .byte $6C
-- D - I - 0x022054 11:A044: 35        .byte $35
-- D - I - 0x022055 11:A045: 08        .byte $08
+- D - I - 0x022052 11:A042: 1E        .byte con_pause + $1E
+- D - I - 0x022053 11:A043: 6C        .byte con_bg + $6C
+- D - I - 0x022054 11:A044: 35        .byte con_animation + $35
+- D - I - 0x022055 11:A045: 08        .byte con_cloud + $08
 - D - I - 0x022056 11:A046: FB        .byte con_rts
 
 sub_A047:
-- D - I - 0x022057 11:A047: 1E        .byte $1E
-- D - I - 0x022058 11:A048: 6C        .byte $6C
-- D - I - 0x022059 11:A049: 35        .byte $35
-- D - I - 0x02205A 11:A04A: 09        .byte $09
+- D - I - 0x022057 11:A047: 1E        .byte con_pause + $1E
+- D - I - 0x022058 11:A048: 6C        .byte con_bg + $6C
+- D - I - 0x022059 11:A049: 35        .byte con_animation + $35
+- D - I - 0x02205A 11:A04A: 09        .byte con_cloud + $09
 - D - I - 0x02205B 11:A04B: FB        .byte con_rts
 
 loc_A04C:
-- D - I - 0x02205C 11:A04C: 32        .byte $32
-- D - I - 0x02205D 11:A04D: 6C        .byte $6C
-- D - I - 0x02205E 11:A04E: 0B        .byte $0B
-- D - I - 0x02205F 11:A04F: F0        .byte con_exit_1
+- D - I - 0x02205C 11:A04C: 32        .byte con_pause + $32
+- D - I - 0x02205D 11:A04D: 6C        .byte con_bg + $6C
+- D - I - 0x02205E 11:A04E: 0B        .byte con_animation + $0B
+- D - I - 0x02205F 11:A04F: F0        .byte con_cloud + $F0
 - D - I - 0x022060 11:A050: FB        .byte con_rts
 
 sub_A051:
 - D - I - 0x022061 11:A051: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
-- D - I - 0x022064 11:A054: 1B        .byte $1B
-- D - I - 0x022065 11:A055: F0        .byte con_exit_1
-- D - I - 0x022066 11:A056: 0D        .byte $0D
-- D - I - 0x022067 11:A057: F0        .byte con_exit_1
+- D - I - 0x022064 11:A054: 1B        .byte con_pause + $1B
+- D - I - 0x022065 11:A055: F0        .byte con_bg + $F0
+- D - I - 0x022066 11:A056: 0D        .byte con_animation + $0D
+- D - I - 0x022067 11:A057: F0        .byte con_cloud + $F0
 - D - I - 0x022068 11:A058: FE        .byte con_FE, $01
 - D - I - 0x02206A 11:A05A: FB        .byte con_rts
 
 bra_long_case_A05B_00:
-- D - I - 0x02206B 11:A05B: 3C        .byte $3C
-- D - I - 0x02206C 11:A05C: 1B        .byte $1B
-- D - I - 0x02206D 11:A05D: 13        .byte $13
-- D - I - 0x02206E 11:A05E: 02        .byte $02
+- D - I - 0x02206B 11:A05B: 3C        .byte con_pause + $3C
+- D - I - 0x02206C 11:A05C: 1B        .byte con_bg + $1B
+- D - I - 0x02206D 11:A05D: 13        .byte con_animation + $13
+- D - I - 0x02206E 11:A05E: 02        .byte con_cloud + $02
 - D - I - 0x02206F 11:A05F: FB        .byte con_rts
 
 bra_long_case_A060_01:
-- D - I - 0x022070 11:A060: 3C        .byte $3C
-- D - I - 0x022071 11:A061: 1B        .byte $1B
-- D - I - 0x022072 11:A062: 14        .byte $14
-- D - I - 0x022073 11:A063: 02        .byte $02
+- D - I - 0x022070 11:A060: 3C        .byte con_pause + $3C
+- D - I - 0x022071 11:A061: 1B        .byte con_bg + $1B
+- D - I - 0x022072 11:A062: 14        .byte con_animation + $14
+- D - I - 0x022073 11:A063: 02        .byte con_cloud + $02
 - D - I - 0x022074 11:A064: FB        .byte con_rts
 
 bra_long_case_A065_00:
-- D - I - 0x022075 11:A065: 3C        .byte $3C
-- D - I - 0x022076 11:A066: 1C        .byte $1C
-- D - I - 0x022077 11:A067: 13        .byte $13
-- D - I - 0x022078 11:A068: 02        .byte $02
+- D - I - 0x022075 11:A065: 3C        .byte con_pause + $3C
+- D - I - 0x022076 11:A066: 1C        .byte con_bg + $1C
+- D - I - 0x022077 11:A067: 13        .byte con_animation + $13
+- D - I - 0x022078 11:A068: 02        .byte con_cloud + $02
 - D - I - 0x022079 11:A069: FB        .byte con_rts
 
 bra_long_case_A06A_01:
-- D - I - 0x02207A 11:A06A: 3C        .byte $3C
-- D - I - 0x02207B 11:A06B: 1C        .byte $1C
-- D - I - 0x02207C 11:A06C: 14        .byte $14
-- D - I - 0x02207D 11:A06D: 02        .byte $02
+- D - I - 0x02207A 11:A06A: 3C        .byte con_pause + $3C
+- D - I - 0x02207B 11:A06B: 1C        .byte con_bg + $1C
+- D - I - 0x02207C 11:A06C: 14        .byte con_animation + $14
+- D - I - 0x02207D 11:A06D: 02        .byte con_cloud + $02
 - D - I - 0x02207E 11:A06E: FB        .byte con_rts
 
 loc_A06F:
 - D - I - 0x02207F 11:A06F: FC        .byte con_FC, $02
 - D - I - 0x022081 11:A071: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
-- D - I - 0x022084 11:A074: 3C        .byte $3C
-- D - I - 0x022085 11:A075: 57        .byte $57
-- D - I - 0x022086 11:A076: 15        .byte $15
-- D - I - 0x022087 11:A077: 03        .byte $03
+- D - I - 0x022084 11:A074: 3C        .byte con_pause + $3C
+- D - I - 0x022085 11:A075: 57        .byte con_bg + $57
+- D - I - 0x022086 11:A076: 15        .byte con_animation + $15
+- D - I - 0x022087 11:A077: 03        .byte con_cloud + $03
 - D - I - 0x022088 11:A078: FB        .byte con_rts
 
 loc_A079:
 - D - I - 0x022089 11:A079: FC        .byte con_FC, $03
 - D - I - 0x02208B 11:A07B: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
-- D - I - 0x02208E 11:A07E: 3C        .byte $3C
-- D - I - 0x02208F 11:A07F: 57        .byte $57
-- D - I - 0x022090 11:A080: 16        .byte $16
-- D - I - 0x022091 11:A081: 0B        .byte $0B
+- D - I - 0x02208E 11:A07E: 3C        .byte con_pause + $3C
+- D - I - 0x02208F 11:A07F: 57        .byte con_bg + $57
+- D - I - 0x022090 11:A080: 16        .byte con_animation + $16
+- D - I - 0x022091 11:A081: 0B        .byte con_cloud + $0B
 - D - I - 0x022092 11:A082: FB        .byte con_rts
 
 loc_A083:
 - D - I - 0x022093 11:A083: F7        .byte con_F7, $07
 - D - I - 0x022095 11:A085: F9        .byte con_delay_soundID, $21, $2A     ; ловля мяча/мяч приклеился
-- D - I - 0x022098 11:A088: 50        .byte $50
-- D - I - 0x022099 11:A089: 40        .byte $40
-- D - I - 0x02209A 11:A08A: 17        .byte $17
-- D - I - 0x02209B 11:A08B: 0B        .byte $0B
+- D - I - 0x022098 11:A088: 50        .byte con_pause + $50
+- D - I - 0x022099 11:A089: 40        .byte con_bg + $40
+- D - I - 0x02209A 11:A08A: 17        .byte con_animation + $17
+- D - I - 0x02209B 11:A08B: 0B        .byte con_cloud + $0B
 - D - I - 0x02209C 11:A08C: FB        .byte con_rts
 
 sub_A08D:
 - D - I - 0x02209D 11:A08D: FC        .byte con_FC, $02
-- D - I - 0x02209F 11:A08F: 32        .byte $32
-- D - I - 0x0220A0 11:A090: 57        .byte $57
-- D - I - 0x0220A1 11:A091: 18        .byte $18
-- D - I - 0x0220A2 11:A092: 0C        .byte $0C
+- D - I - 0x02209F 11:A08F: 32        .byte con_pause + $32
+- D - I - 0x0220A0 11:A090: 57        .byte con_bg + $57
+- D - I - 0x0220A1 11:A091: 18        .byte con_animation + $18
+- D - I - 0x0220A2 11:A092: 0C        .byte con_cloud + $0C
 - D - I - 0x0220A3 11:A093: FB        .byte con_rts
 
 sub_A094:
-- D - I - 0x0220A4 11:A094: 2B        .byte $2B
-- D - I - 0x0220A5 11:A095: 03        .byte $03
-- D - I - 0x0220A6 11:A096: 18        .byte $18
-- D - I - 0x0220A7 11:A097: 0C        .byte $0C
+- D - I - 0x0220A4 11:A094: 2B        .byte con_pause + $2B
+- D - I - 0x0220A5 11:A095: 03        .byte con_bg + $03
+- D - I - 0x0220A6 11:A096: 18        .byte con_animation + $18
+- D - I - 0x0220A7 11:A097: 0C        .byte con_cloud + $0C
 - D - I - 0x0220A8 11:A098: FB        .byte con_rts
 
 sub_A099:
 - D - I - 0x0220A9 11:A099: F9        .byte con_delay_soundID, $02, $2A     ; ловля мяча/мяч приклеился
-- D - I - 0x0220AC 11:A09C: 28        .byte $28
-- D - I - 0x0220AD 11:A09D: 03        .byte $03
-- D - I - 0x0220AE 11:A09E: 03        .byte $03
-- D - I - 0x0220AF 11:A09F: 0D        .byte $0D
+- D - I - 0x0220AC 11:A09C: 28        .byte con_pause + $28
+- D - I - 0x0220AD 11:A09D: 03        .byte con_bg + $03
+- D - I - 0x0220AE 11:A09E: 03        .byte con_animation + $03
+- D - I - 0x0220AF 11:A09F: 0D        .byte con_cloud + $0D
 - D - I - 0x0220B0 11:A0A0: FB        .byte con_rts
 
 sub_A0A1:
-- D - I - 0x0220B1 11:A0A1: 20        .byte $20
-- D - I - 0x0220B2 11:A0A2: 03        .byte $03
-- D - I - 0x0220B3 11:A0A3: 1B        .byte $1B
-- D - I - 0x0220B4 11:A0A4: 0E        .byte $0E
+- D - I - 0x0220B1 11:A0A1: 20        .byte con_pause + $20
+- D - I - 0x0220B2 11:A0A2: 03        .byte con_bg + $03
+- D - I - 0x0220B3 11:A0A3: 1B        .byte con_animation + $1B
+- D - I - 0x0220B4 11:A0A4: 0E        .byte con_cloud + $0E
 - D - I - 0x0220B5 11:A0A5: FB        .byte con_rts
 
 loc_A0A6:
 sub_A0A6:
 - D - I - 0x0220B6 11:A0A6: F9        .byte con_delay_soundID, $21, $2A     ; ловля мяча/мяч приклеился
-- D - I - 0x0220B9 11:A0A9: 46        .byte $46
-- D - I - 0x0220BA 11:A0AA: 03        .byte $03
-- D - I - 0x0220BB 11:A0AB: 1B        .byte $1B
-- D - I - 0x0220BC 11:A0AC: 0E        .byte $0E
+- D - I - 0x0220B9 11:A0A9: 46        .byte con_pause + $46
+- D - I - 0x0220BA 11:A0AA: 03        .byte con_bg + $03
+- D - I - 0x0220BB 11:A0AB: 1B        .byte con_animation + $1B
+- D - I - 0x0220BC 11:A0AC: 0E        .byte con_cloud + $0E
 - D - I - 0x0220BD 11:A0AD: FB        .byte con_rts
 
 sub_A0AE:
 - D - I - 0x0220BE 11:A0AE: F9        .byte con_delay_soundID, $02, $25     ; прыжок
-- D - I - 0x0220C1 11:A0B1: 14        .byte $14
-- D - I - 0x0220C2 11:A0B2: 02        .byte $02
-- D - I - 0x0220C3 11:A0B3: 1C        .byte $1C
-- D - I - 0x0220C4 11:A0B4: 00        .byte $00
+- D - I - 0x0220C1 11:A0B1: 14        .byte con_pause + $14
+- D - I - 0x0220C2 11:A0B2: 02        .byte con_bg + $02
+- D - I - 0x0220C3 11:A0B3: 1C        .byte con_animation + $1C
+- D - I - 0x0220C4 11:A0B4: 00        .byte con_cloud + $00
 - D - I - 0x0220C5 11:A0B5: FB        .byte con_rts
 
 loc_A0B6:
 sub_A0B6:
 - D - I - 0x0220C6 11:A0B6: F9        .byte con_delay_soundID, $19, $2B     ; отбитие мяча/принятие на ногу
-- D - I - 0x0220C9 11:A0B9: 18        .byte $18
-- D - I - 0x0220CA 11:A0BA: 04        .byte $04
-- D - I - 0x0220CB 11:A0BB: 21        .byte $21
-- D - I - 0x0220CC 11:A0BC: 0F        .byte $0F
+- D - I - 0x0220C9 11:A0B9: 18        .byte con_pause + $18
+- D - I - 0x0220CA 11:A0BA: 04        .byte con_bg + $04
+- D - I - 0x0220CB 11:A0BB: 21        .byte con_animation + $21
+- D - I - 0x0220CC 11:A0BC: 0F        .byte con_cloud + $0F
 - D - I - 0x0220CD 11:A0BD: FB        .byte con_rts
 
 sub_A0BE:
-- D - I - 0x0220CE 11:A0BE: 30        .byte $30
-- D - I - 0x0220CF 11:A0BF: 04        .byte $04
-- D - I - 0x0220D0 11:A0C0: 22        .byte $22
-- D - I - 0x0220D1 11:A0C1: 11        .byte $11
+- D - I - 0x0220CE 11:A0BE: 30        .byte con_pause + $30
+- D - I - 0x0220CF 11:A0BF: 04        .byte con_bg + $04
+- D - I - 0x0220D0 11:A0C0: 22        .byte con_animation + $22
+- D - I - 0x0220D1 11:A0C1: 11        .byte con_cloud + $11
 - D - I - 0x0220D2 11:A0C2: FB        .byte con_rts
 
 loc_A0C3:
 sub_A0C3:
 - D - I - 0x0220D3 11:A0C3: FC        .byte con_FC, $02
 - D - I - 0x0220D5 11:A0C5: F9        .byte con_delay_soundID, $02, $2D     ; удар мяча об живот
-- D - I - 0x0220D8 11:A0C8: 46        .byte $46
-- D - I - 0x0220D9 11:A0C9: 57        .byte $57
-- D - I - 0x0220DA 11:A0CA: 15        .byte $15
-- D - I - 0x0220DB 11:A0CB: 05        .byte $05
+- D - I - 0x0220D8 11:A0C8: 46        .byte con_pause + $46
+- D - I - 0x0220D9 11:A0C9: 57        .byte con_bg + $57
+- D - I - 0x0220DA 11:A0CA: 15        .byte con_animation + $15
+- D - I - 0x0220DB 11:A0CB: 05        .byte con_cloud + $05
 - D - I - 0x0220DC 11:A0CC: FB        .byte con_rts
 
 sub_A0CD:
 - D - I - 0x0220DD 11:A0CD: F9        .byte con_delay_soundID, $02, $24     ; полет циклона
-- D - I - 0x0220E0 11:A0D0: 0A        .byte $0A
-- D - I - 0x0220E1 11:A0D1: 13        .byte $13
-- D - I - 0x0220E2 11:A0D2: 23        .byte $23
-- D - I - 0x0220E3 11:A0D3: 12        .byte $12
-- D - I - 0x0220E4 11:A0D4: 0A        .byte $0A
-- D - I - 0x0220E5 11:A0D5: 14        .byte $14
-- D - I - 0x0220E6 11:A0D6: F0        .byte con_exit_1
-- D - I - 0x0220E7 11:A0D7: F0        .byte con_exit_1
-- D - I - 0x0220E8 11:A0D8: 0A        .byte $0A
-- D - I - 0x0220E9 11:A0D9: 15        .byte $15
-- D - I - 0x0220EA 11:A0DA: F0        .byte con_exit_1
-- D - I - 0x0220EB 11:A0DB: F0        .byte con_exit_1
-- D - I - 0x0220EC 11:A0DC: 0A        .byte $0A
-- D - I - 0x0220ED 11:A0DD: 16        .byte $16
-- D - I - 0x0220EE 11:A0DE: F0        .byte con_exit_1
-- D - I - 0x0220EF 11:A0DF: F0        .byte con_exit_1
-- D - I - 0x0220F0 11:A0E0: 0A        .byte $0A
-- D - I - 0x0220F1 11:A0E1: 17        .byte $17
-- D - I - 0x0220F2 11:A0E2: F0        .byte con_exit_1
-- D - I - 0x0220F3 11:A0E3: F0        .byte con_exit_1
-- D - I - 0x0220F4 11:A0E4: 0A        .byte $0A
-- D - I - 0x0220F5 11:A0E5: 18        .byte $18
-- D - I - 0x0220F6 11:A0E6: F0        .byte con_exit_1
-- D - I - 0x0220F7 11:A0E7: F0        .byte con_exit_1
-- D - I - 0x0220F8 11:A0E8: 0A        .byte $0A
-- D - I - 0x0220F9 11:A0E9: 11        .byte $11
-- D - I - 0x0220FA 11:A0EA: F0        .byte con_exit_1
-- D - I - 0x0220FB 11:A0EB: F0        .byte con_exit_1
-- D - I - 0x0220FC 11:A0EC: 0A        .byte $0A
-- D - I - 0x0220FD 11:A0ED: 12        .byte $12
-- D - I - 0x0220FE 11:A0EE: F0        .byte con_exit_1
-- D - I - 0x0220FF 11:A0EF: F0        .byte con_exit_1
-- D - I - 0x022100 11:A0F0: 0A        .byte $0A
-- D - I - 0x022101 11:A0F1: 13        .byte $13
-- D - I - 0x022102 11:A0F2: F0        .byte con_exit_1
-- D - I - 0x022103 11:A0F3: F0        .byte con_exit_1
-- D - I - 0x022104 11:A0F4: 0A        .byte $0A
-- D - I - 0x022105 11:A0F5: 14        .byte $14
-- D - I - 0x022106 11:A0F6: F0        .byte con_exit_1
-- D - I - 0x022107 11:A0F7: F0        .byte con_exit_1
-- D - I - 0x022108 11:A0F8: 0A        .byte $0A
-- D - I - 0x022109 11:A0F9: 15        .byte $15
-- D - I - 0x02210A 11:A0FA: F0        .byte con_exit_1
-- D - I - 0x02210B 11:A0FB: F0        .byte con_exit_1
-- D - I - 0x02210C 11:A0FC: 0A        .byte $0A
-- D - I - 0x02210D 11:A0FD: 16        .byte $16
-- D - I - 0x02210E 11:A0FE: F0        .byte con_exit_1
-- D - I - 0x02210F 11:A0FF: F0        .byte con_exit_1
-- D - I - 0x022110 11:A100: 0A        .byte $0A
-- D - I - 0x022111 11:A101: 17        .byte $17
-- D - I - 0x022112 11:A102: F0        .byte con_exit_1
-- D - I - 0x022113 11:A103: F0        .byte con_exit_1
-- D - I - 0x022114 11:A104: 0A        .byte $0A
-- D - I - 0x022115 11:A105: 18        .byte $18
-- D - I - 0x022116 11:A106: F0        .byte con_exit_1
-- D - I - 0x022117 11:A107: F0        .byte con_exit_1
+- D - I - 0x0220E0 11:A0D0: 0A        .byte con_pause + $0A
+- D - I - 0x0220E1 11:A0D1: 13        .byte con_bg + $13
+- D - I - 0x0220E2 11:A0D2: 23        .byte con_animation + $23
+- D - I - 0x0220E3 11:A0D3: 12        .byte con_cloud + $12
+- D - I - 0x0220E4 11:A0D4: 0A        .byte con_pause + $0A
+- D - I - 0x0220E5 11:A0D5: 14        .byte con_bg + $14
+- D - I - 0x0220E6 11:A0D6: F0        .byte con_animation + $F0
+- D - I - 0x0220E7 11:A0D7: F0        .byte con_cloud + $F0
+- D - I - 0x0220E8 11:A0D8: 0A        .byte con_pause + $0A
+- D - I - 0x0220E9 11:A0D9: 15        .byte con_bg + $15
+- D - I - 0x0220EA 11:A0DA: F0        .byte con_animation + $F0
+- D - I - 0x0220EB 11:A0DB: F0        .byte con_cloud + $F0
+- D - I - 0x0220EC 11:A0DC: 0A        .byte con_pause + $0A
+- D - I - 0x0220ED 11:A0DD: 16        .byte con_bg + $16
+- D - I - 0x0220EE 11:A0DE: F0        .byte con_animation + $F0
+- D - I - 0x0220EF 11:A0DF: F0        .byte con_cloud + $F0
+- D - I - 0x0220F0 11:A0E0: 0A        .byte con_pause + $0A
+- D - I - 0x0220F1 11:A0E1: 17        .byte con_bg + $17
+- D - I - 0x0220F2 11:A0E2: F0        .byte con_animation + $F0
+- D - I - 0x0220F3 11:A0E3: F0        .byte con_cloud + $F0
+- D - I - 0x0220F4 11:A0E4: 0A        .byte con_pause + $0A
+- D - I - 0x0220F5 11:A0E5: 18        .byte con_bg + $18
+- D - I - 0x0220F6 11:A0E6: F0        .byte con_animation + $F0
+- D - I - 0x0220F7 11:A0E7: F0        .byte con_cloud + $F0
+- D - I - 0x0220F8 11:A0E8: 0A        .byte con_pause + $0A
+- D - I - 0x0220F9 11:A0E9: 11        .byte con_bg + $11
+- D - I - 0x0220FA 11:A0EA: F0        .byte con_animation + $F0
+- D - I - 0x0220FB 11:A0EB: F0        .byte con_cloud + $F0
+- D - I - 0x0220FC 11:A0EC: 0A        .byte con_pause + $0A
+- D - I - 0x0220FD 11:A0ED: 12        .byte con_bg + $12
+- D - I - 0x0220FE 11:A0EE: F0        .byte con_animation + $F0
+- D - I - 0x0220FF 11:A0EF: F0        .byte con_cloud + $F0
+- D - I - 0x022100 11:A0F0: 0A        .byte con_pause + $0A
+- D - I - 0x022101 11:A0F1: 13        .byte con_bg + $13
+- D - I - 0x022102 11:A0F2: F0        .byte con_animation + $F0
+- D - I - 0x022103 11:A0F3: F0        .byte con_cloud + $F0
+- D - I - 0x022104 11:A0F4: 0A        .byte con_pause + $0A
+- D - I - 0x022105 11:A0F5: 14        .byte con_bg + $14
+- D - I - 0x022106 11:A0F6: F0        .byte con_animation + $F0
+- D - I - 0x022107 11:A0F7: F0        .byte con_cloud + $F0
+- D - I - 0x022108 11:A0F8: 0A        .byte con_pause + $0A
+- D - I - 0x022109 11:A0F9: 15        .byte con_bg + $15
+- D - I - 0x02210A 11:A0FA: F0        .byte con_animation + $F0
+- D - I - 0x02210B 11:A0FB: F0        .byte con_cloud + $F0
+- D - I - 0x02210C 11:A0FC: 0A        .byte con_pause + $0A
+- D - I - 0x02210D 11:A0FD: 16        .byte con_bg + $16
+- D - I - 0x02210E 11:A0FE: F0        .byte con_animation + $F0
+- D - I - 0x02210F 11:A0FF: F0        .byte con_cloud + $F0
+- D - I - 0x022110 11:A100: 0A        .byte con_pause + $0A
+- D - I - 0x022111 11:A101: 17        .byte con_bg + $17
+- D - I - 0x022112 11:A102: F0        .byte con_animation + $F0
+- D - I - 0x022113 11:A103: F0        .byte con_cloud + $F0
+- D - I - 0x022114 11:A104: 0A        .byte con_pause + $0A
+- D - I - 0x022115 11:A105: 18        .byte con_bg + $18
+- D - I - 0x022116 11:A106: F0        .byte con_animation + $F0
+- D - I - 0x022117 11:A107: F0        .byte con_cloud + $F0
 - D - I - 0x022118 11:A108: FB        .byte con_rts
 
 sub_A109:
-- D - I - 0x022119 11:A109: 28        .byte $28
-- D - I - 0x02211A 11:A10A: 0E        .byte $0E
-- D - I - 0x02211B 11:A10B: 25        .byte $25
-- D - I - 0x02211C 11:A10C: 07        .byte $07
+- D - I - 0x022119 11:A109: 28        .byte con_pause + $28
+- D - I - 0x02211A 11:A10A: 0E        .byte con_bg + $0E
+- D - I - 0x02211B 11:A10B: 25        .byte con_animation + $25
+- D - I - 0x02211C 11:A10C: 07        .byte con_cloud + $07
 - D - I - 0x02211D 11:A10D: FB        .byte con_rts
 
 sub_A10E:
@@ -7253,25 +7259,25 @@ sub_A10E:
 - - - - - 0x022122 11:A112: 06        .byte bra_case_A118_02 - *
 
 bra_case_A113_00:
-- D - I - 0x022123 11:A113: 25        .byte $25
-- D - I - 0x022124 11:A114: 0E        .byte $0E
-- D - I - 0x022125 11:A115: 24        .byte $24
-- D - I - 0x022126 11:A116: 0C        .byte $0C
+- D - I - 0x022123 11:A113: 25        .byte con_pause + $25
+- D - I - 0x022124 11:A114: 0E        .byte con_bg + $0E
+- D - I - 0x022125 11:A115: 24        .byte con_animation + $24
+- D - I - 0x022126 11:A116: 0C        .byte con_cloud + $0C
 - D - I - 0x022127 11:A117: FB        .byte con_rts
 
 bra_case_A118_01:
 bra_case_A118_02:
-- D - I - 0x022128 11:A118: 28        .byte $28
-- D - I - 0x022129 11:A119: 0F        .byte $0F
-- D - I - 0x02212A 11:A11A: 26        .byte $26
-- D - I - 0x02212B 11:A11B: 0C        .byte $0C
+- D - I - 0x022128 11:A118: 28        .byte con_pause + $28
+- D - I - 0x022129 11:A119: 0F        .byte con_bg + $0F
+- D - I - 0x02212A 11:A11A: 26        .byte con_animation + $26
+- D - I - 0x02212B 11:A11B: 0C        .byte con_cloud + $0C
 - D - I - 0x02212C 11:A11C: FB        .byte con_rts
 
 sub_A11D:
-- D - I - 0x02212D 11:A11D: 1E        .byte $1E
-- D - I - 0x02212E 11:A11E: 0E        .byte $0E
-- D - I - 0x02212F 11:A11F: 27        .byte $27
-- D - I - 0x022130 11:A120: 0D        .byte $0D
+- D - I - 0x02212D 11:A11D: 1E        .byte con_pause + $1E
+- D - I - 0x02212E 11:A11E: 0E        .byte con_bg + $0E
+- D - I - 0x02212F 11:A11F: 27        .byte con_animation + $27
+- D - I - 0x022130 11:A120: 0D        .byte con_cloud + $0D
 - D - I - 0x022131 11:A121: FB        .byte con_rts
 
 sub_A122:
@@ -7281,18 +7287,18 @@ sub_A122:
 - - - - - 0x022136 11:A126: 06        .byte bra_case_A12C_02 - *
 
 bra_case_A127_00:
-- D - I - 0x022137 11:A127: 1E        .byte $1E
-- D - I - 0x022138 11:A128: 0E        .byte $0E
-- D - I - 0x022139 11:A129: 2A        .byte $2A
-- D - I - 0x02213A 11:A12A: 0E        .byte $0E
+- D - I - 0x022137 11:A127: 1E        .byte con_pause + $1E
+- D - I - 0x022138 11:A128: 0E        .byte con_bg + $0E
+- D - I - 0x022139 11:A129: 2A        .byte con_animation + $2A
+- D - I - 0x02213A 11:A12A: 0E        .byte con_cloud + $0E
 - D - I - 0x02213B 11:A12B: FB        .byte con_rts
 
 bra_case_A12C_01:
 bra_case_A12C_02:
-- D - I - 0x02213C 11:A12C: 1E        .byte $1E
-- D - I - 0x02213D 11:A12D: 0F        .byte $0F
-- D - I - 0x02213E 11:A12E: 2B        .byte $2B
-- D - I - 0x02213F 11:A12F: 0E        .byte $0E
+- D - I - 0x02213C 11:A12C: 1E        .byte con_pause + $1E
+- D - I - 0x02213D 11:A12D: 0F        .byte con_bg + $0F
+- D - I - 0x02213E 11:A12E: 2B        .byte con_animation + $2B
+- D - I - 0x02213F 11:A12F: 0E        .byte con_cloud + $0E
 - D - I - 0x022140 11:A130: FB        .byte con_rts
 
 sub_A131:
@@ -7303,26 +7309,26 @@ sub_A131:
 
 bra_case_A136_00:
 - D - I - 0x022146 11:A136: F9        .byte con_delay_soundID, $21, $2B     ; отбитие мяча
-- D - I - 0x022149 11:A139: 3A        .byte $3A
-- D - I - 0x02214A 11:A13A: 0E        .byte $0E
-- D - I - 0x02214B 11:A13B: 2A        .byte $2A
-- D - I - 0x02214C 11:A13C: 0E        .byte $0E
+- D - I - 0x022149 11:A139: 3A        .byte con_pause + $3A
+- D - I - 0x02214A 11:A13A: 0E        .byte con_bg + $0E
+- D - I - 0x02214B 11:A13B: 2A        .byte con_animation + $2A
+- D - I - 0x02214C 11:A13C: 0E        .byte con_cloud + $0E
 - D - I - 0x02214D 11:A13D: FB        .byte con_rts
 
 bra_case_A13E_01:
 bra_case_A13E_02:
 - D - I - 0x02214E 11:A13E: F9        .byte con_delay_soundID, $21, $2B     ; отбитие мяча
-- D - I - 0x022151 11:A141: 3A        .byte $3A
-- D - I - 0x022152 11:A142: 0F        .byte $0F
-- D - I - 0x022153 11:A143: 2B        .byte $2B
-- D - I - 0x022154 11:A144: 0E        .byte $0E
+- D - I - 0x022151 11:A141: 3A        .byte con_pause + $3A
+- D - I - 0x022152 11:A142: 0F        .byte con_bg + $0F
+- D - I - 0x022153 11:A143: 2B        .byte con_animation + $2B
+- D - I - 0x022154 11:A144: 0E        .byte con_cloud + $0E
 - D - I - 0x022155 11:A145: FB        .byte con_rts
 
 sub_A146:
-- D - I - 0x022156 11:A146: 28        .byte $28
-- D - I - 0x022157 11:A147: 0E        .byte $0E
-- D - I - 0x022158 11:A148: 2C        .byte $2C
-- D - I - 0x022159 11:A149: 00        .byte $00
+- D - I - 0x022156 11:A146: 28        .byte con_pause + $28
+- D - I - 0x022157 11:A147: 0E        .byte con_bg + $0E
+- D - I - 0x022158 11:A148: 2C        .byte con_animation + $2C
+- D - I - 0x022159 11:A149: 00        .byte con_cloud + $00
 - D - I - 0x02215A 11:A14A: FB        .byte con_rts
 
 sub_A14B:
@@ -7332,79 +7338,79 @@ sub_A14B:
 - - - - - 0x02215F 11:A14F: 06        .byte bra_case_A155_02 - *
 
 bra_case_A150_00:
-- D - I - 0x022160 11:A150: 28        .byte $28
-- D - I - 0x022161 11:A151: 0E        .byte $0E
-- D - I - 0x022162 11:A152: 2C        .byte $2C
-- D - I - 0x022163 11:A153: 15        .byte $15
+- D - I - 0x022160 11:A150: 28        .byte con_pause + $28
+- D - I - 0x022161 11:A151: 0E        .byte con_bg + $0E
+- D - I - 0x022162 11:A152: 2C        .byte con_animation + $2C
+- D - I - 0x022163 11:A153: 15        .byte con_cloud + $15
 - D - I - 0x022164 11:A154: FB        .byte con_rts
 
 bra_case_A155_01:
 bra_case_A155_02:
-- D - I - 0x022165 11:A155: 2A        .byte $2A
-- D - I - 0x022166 11:A156: 0F        .byte $0F
-- D - I - 0x022167 11:A157: 2D        .byte $2D
-- D - I - 0x022168 11:A158: 15        .byte $15
+- D - I - 0x022165 11:A155: 2A        .byte con_pause + $2A
+- D - I - 0x022166 11:A156: 0F        .byte con_bg + $0F
+- D - I - 0x022167 11:A157: 2D        .byte con_animation + $2D
+- D - I - 0x022168 11:A158: 15        .byte con_cloud + $15
 - D - I - 0x022169 11:A159: FB        .byte con_rts
 
 sub_A15A:
 - D - I - 0x02216A 11:A15A: FC        .byte con_FC, $02
 - D - I - 0x02216C 11:A15C: F9        .byte con_delay_soundID, $02, $2D
-- D - I - 0x02216F 11:A15F: 46        .byte $46
-- D - I - 0x022170 11:A160: 57        .byte $57
-- D - I - 0x022171 11:A161: 2E        .byte $2E
-- D - I - 0x022172 11:A162: 05        .byte $05
+- D - I - 0x02216F 11:A15F: 46        .byte con_pause + $46
+- D - I - 0x022170 11:A160: 57        .byte con_bg + $57
+- D - I - 0x022171 11:A161: 2E        .byte con_animation + $2E
+- D - I - 0x022172 11:A162: 05        .byte con_cloud + $05
 - D - I - 0x022173 11:A163: FB        .byte con_rts
 
 loc_A164:
 - D - I - 0x022174 11:A164: FC        .byte con_FC, $02
 - D - I - 0x022176 11:A166: F9        .byte con_delay_soundID, $02, $2D
-- D - I - 0x022179 11:A169: 5A        .byte $5A
-- D - I - 0x02217A 11:A16A: 57        .byte $57
-- D - I - 0x02217B 11:A16B: 2E        .byte $2E
-- D - I - 0x02217C 11:A16C: 16        .byte $16
+- D - I - 0x022179 11:A169: 5A        .byte con_pause + $5A
+- D - I - 0x02217A 11:A16A: 57        .byte con_bg + $57
+- D - I - 0x02217B 11:A16B: 2E        .byte con_animation + $2E
+- D - I - 0x02217C 11:A16C: 16        .byte con_cloud + $16
 - D - I - 0x02217D 11:A16D: FB        .byte con_rts
 
 loc_A16E:
 - D - I - 0x02217E 11:A16E: F9        .byte con_delay_soundID, $02, $2A
-- D - I - 0x022181 11:A171: 46        .byte $46
-- D - I - 0x022182 11:A172: 6C        .byte $6C
-- D - I - 0x022183 11:A173: 2E        .byte $2E
-- D - I - 0x022184 11:A174: 16        .byte $16
+- D - I - 0x022181 11:A171: 46        .byte con_pause + $46
+- D - I - 0x022182 11:A172: 6C        .byte con_bg + $6C
+- D - I - 0x022183 11:A173: 2E        .byte con_animation + $2E
+- D - I - 0x022184 11:A174: 16        .byte con_cloud + $16
 - D - I - 0x022185 11:A175: FB        .byte con_rts
 
 loc_A176:
 sub_A176:
-- D - I - 0x022186 11:A176: 3C        .byte $3C
-- D - I - 0x022187 11:A177: 6C        .byte $6C
-- D - I - 0x022188 11:A178: 31        .byte $31
-- D - I - 0x022189 11:A179: 07        .byte $07
+- D - I - 0x022186 11:A176: 3C        .byte con_pause + $3C
+- D - I - 0x022187 11:A177: 6C        .byte con_bg + $6C
+- D - I - 0x022188 11:A178: 31        .byte con_animation + $31
+- D - I - 0x022189 11:A179: 07        .byte con_cloud + $07
 - D - I - 0x02218A 11:A17A: FB        .byte con_rts
 
 loc_A17B:
 - D - I - 0x02218B 11:A17B: FC        .byte con_FC, $02
 - D - I - 0x02218D 11:A17D: F9        .byte con_delay_soundID, $02, $2D
-- D - I - 0x022190 11:A180: 46        .byte $46
-- D - I - 0x022191 11:A181: 57        .byte $57
-- D - I - 0x022192 11:A182: 30        .byte $30
-- D - I - 0x022193 11:A183: 05        .byte $05
+- D - I - 0x022190 11:A180: 46        .byte con_pause + $46
+- D - I - 0x022191 11:A181: 57        .byte con_bg + $57
+- D - I - 0x022192 11:A182: 30        .byte con_animation + $30
+- D - I - 0x022193 11:A183: 05        .byte con_cloud + $05
 - D - I - 0x022194 11:A184: FB        .byte con_rts
 
 loc_A185:
 - D - I - 0x022195 11:A185: F9        .byte con_delay_soundID, $02, $2B
-- D - I - 0x022198 11:A188: 46        .byte $46
-- D - I - 0x022199 11:A189: 6C        .byte $6C
-- D - I - 0x02219A 11:A18A: 30        .byte $30
-- D - I - 0x02219B 11:A18B: 05        .byte $05
+- D - I - 0x022198 11:A188: 46        .byte con_pause + $46
+- D - I - 0x022199 11:A189: 6C        .byte con_bg + $6C
+- D - I - 0x02219A 11:A18A: 30        .byte con_animation + $30
+- D - I - 0x02219B 11:A18B: 05        .byte con_cloud + $05
 - D - I - 0x02219C 11:A18C: FB        .byte con_rts
 
 loc_A18D:
 sub_A18D:
 - D - I - 0x02219D 11:A18D: F7        .byte con_F7, $02
 - D - I - 0x02219F 11:A18F: F9        .byte con_delay_soundID, $29, $2C
-- D - I - 0x0221A2 11:A192: 46        .byte $46
-- D - I - 0x0221A3 11:A193: 22        .byte $22
-- D - I - 0x0221A4 11:A194: 33        .byte $33
-- D - I - 0x0221A5 11:A195: 17        .byte $17
+- D - I - 0x0221A2 11:A192: 46        .byte con_pause + $46
+- D - I - 0x0221A3 11:A193: 22        .byte con_bg + $22
+- D - I - 0x0221A4 11:A194: 33        .byte con_animation + $33
+- D - I - 0x0221A5 11:A195: 17        .byte con_cloud + $17
 - D - I - 0x0221A6 11:A196: FB        .byte con_rts
 
 
@@ -7413,98 +7419,98 @@ _scenario_A197_78:
 loc_A197:
 sub_A197:
 - D - I - 0x0221A7 11:A197: F9        .byte con_delay_soundID, $21, $2A
-- D - I - 0x0221AA 11:A19A: 2D        .byte $2D
-- D - I - 0x0221AB 11:A19B: 6E        .byte $6E
-- D - I - 0x0221AC 11:A19C: 34        .byte $34
-- D - I - 0x0221AD 11:A19D: 17        .byte $17
+- D - I - 0x0221AA 11:A19A: 2D        .byte con_pause + $2D
+- D - I - 0x0221AB 11:A19B: 6E        .byte con_bg + $6E
+- D - I - 0x0221AC 11:A19C: 34        .byte con_animation + $34
+- D - I - 0x0221AD 11:A19D: 17        .byte con_cloud + $17
 - D - I - 0x0221AE 11:A19E: FB        .byte con_rts
 
 loc_A19F:
 - - - - - 0x0221AF 11:A19F: FC        .byte con_FC, $02
 - - - - - 0x0221B1 11:A1A1: F9        .byte con_delay_soundID, $02, $2D
-- - - - - 0x0221B4 11:A1A4: 41        .byte $41
-- - - - - 0x0221B5 11:A1A5: 57        .byte $57
-- - - - - 0x0221B6 11:A1A6: 30        .byte $30
-- - - - - 0x0221B7 11:A1A7: 19        .byte $19
+- - - - - 0x0221B4 11:A1A4: 41        .byte con_pause + $41
+- - - - - 0x0221B5 11:A1A5: 57        .byte con_bg + $57
+- - - - - 0x0221B6 11:A1A6: 30        .byte con_animation + $30
+- - - - - 0x0221B7 11:A1A7: 19        .byte con_cloud + $19
 - - - - - 0x0221B8 11:A1A8: FB        .byte con_rts
 
 loc_A1A9:
 - D - I - 0x0221B9 11:A1A9: F9        .byte con_delay_soundID, $02, $2B
-- D - I - 0x0221BC 11:A1AC: 5A        .byte $5A
-- D - I - 0x0221BD 11:A1AD: 6C        .byte $6C
-- D - I - 0x0221BE 11:A1AE: 30        .byte $30
-- D - I - 0x0221BF 11:A1AF: 19        .byte $19
+- D - I - 0x0221BC 11:A1AC: 5A        .byte con_pause + $5A
+- D - I - 0x0221BD 11:A1AD: 6C        .byte con_bg + $6C
+- D - I - 0x0221BE 11:A1AE: 30        .byte con_animation + $30
+- D - I - 0x0221BF 11:A1AF: 19        .byte con_cloud + $19
 - D - I - 0x0221C0 11:A1B0: FB        .byte con_rts
 
 sub_A1B1:
 - D - I - 0x0221C1 11:A1B1: FC        .byte con_FC, $02
 - D - I - 0x0221C3 11:A1B3: F9        .byte con_delay_soundID, $1E, $2B
-- D - I - 0x0221C6 11:A1B6: 3A        .byte $3A
-- D - I - 0x0221C7 11:A1B7: 57        .byte $57
-- D - I - 0x0221C8 11:A1B8: 35        .byte $35
-- D - I - 0x0221C9 11:A1B9: 1A        .byte $1A
+- D - I - 0x0221C6 11:A1B6: 3A        .byte con_pause + $3A
+- D - I - 0x0221C7 11:A1B7: 57        .byte con_bg + $57
+- D - I - 0x0221C8 11:A1B8: 35        .byte con_animation + $35
+- D - I - 0x0221C9 11:A1B9: 1A        .byte con_cloud + $1A
 - D - I - 0x0221CA 11:A1BA: FB        .byte con_rts
 
 sub_A1BB:
 - D - I - 0x0221CB 11:A1BB: F9        .byte con_delay_soundID, $1E, $2C
-- D - I - 0x0221CE 11:A1BE: 3A        .byte $3A
-- D - I - 0x0221CF 11:A1BF: 6C        .byte $6C
-- D - I - 0x0221D0 11:A1C0: 35        .byte $35
-- D - I - 0x0221D1 11:A1C1: 1A        .byte $1A
+- D - I - 0x0221CE 11:A1BE: 3A        .byte con_pause + $3A
+- D - I - 0x0221CF 11:A1BF: 6C        .byte con_bg + $6C
+- D - I - 0x0221D0 11:A1C0: 35        .byte con_animation + $35
+- D - I - 0x0221D1 11:A1C1: 1A        .byte con_cloud + $1A
 - D - I - 0x0221D2 11:A1C2: FB        .byte con_rts
 
 sub_A1C3:
 - D - I - 0x0221D3 11:A1C3: F7        .byte con_F7, $02
-- D - I - 0x0221D5 11:A1C5: 32        .byte $32
-- D - I - 0x0221D6 11:A1C6: 23        .byte $23
-- D - I - 0x0221D7 11:A1C7: 37        .byte $37
-- D - I - 0x0221D8 11:A1C8: 1B        .byte $1B
+- D - I - 0x0221D5 11:A1C5: 32        .byte con_pause + $32
+- D - I - 0x0221D6 11:A1C6: 23        .byte con_bg + $23
+- D - I - 0x0221D7 11:A1C7: 37        .byte con_animation + $37
+- D - I - 0x0221D8 11:A1C8: 1B        .byte con_cloud + $1B
 - D - I - 0x0221D9 11:A1C9: FB        .byte con_rts
 
 sub_A1CA:
 - D - I - 0x0221DA 11:A1CA: FC        .byte con_FC, $01
-- D - I - 0x0221DC 11:A1CC: 20        .byte $20
-- D - I - 0x0221DD 11:A1CD: 2E        .byte $2E
-- D - I - 0x0221DE 11:A1CE: 2D        .byte $2D
-- D - I - 0x0221DF 11:A1CF: 1C        .byte $1C
+- D - I - 0x0221DC 11:A1CC: 20        .byte con_pause + $20
+- D - I - 0x0221DD 11:A1CD: 2E        .byte con_bg + $2E
+- D - I - 0x0221DE 11:A1CE: 2D        .byte con_animation + $2D
+- D - I - 0x0221DF 11:A1CF: 1C        .byte con_cloud + $1C
 - D - I - 0x0221E0 11:A1D0: FB        .byte con_rts
 
 sub_A1D1:
 - D - I - 0x0221E1 11:A1D1: FC        .byte con_FC, $01
 - D - I - 0x0221E3 11:A1D3: F9        .byte con_delay_soundID, $21, $2A
-- D - I - 0x0221E6 11:A1D6: 30        .byte $30
-- D - I - 0x0221E7 11:A1D7: 2E        .byte $2E
-- D - I - 0x0221E8 11:A1D8: 2D        .byte $2D
-- D - I - 0x0221E9 11:A1D9: 1C        .byte $1C
+- D - I - 0x0221E6 11:A1D6: 30        .byte con_pause + $30
+- D - I - 0x0221E7 11:A1D7: 2E        .byte con_bg + $2E
+- D - I - 0x0221E8 11:A1D8: 2D        .byte con_animation + $2D
+- D - I - 0x0221E9 11:A1D9: 1C        .byte con_cloud + $1C
 - D - I - 0x0221EA 11:A1DA: FC        .byte con_FC, $01
 - D - I - 0x0221EC 11:A1DC: FB        .byte con_rts
 
 sub_A1DD:
 - D - I - 0x0221ED 11:A1DD: FC        .byte con_FC, $01
-- D - I - 0x0221EF 11:A1DF: 30        .byte $30
-- D - I - 0x0221F0 11:A1E0: 2E        .byte $2E
-- D - I - 0x0221F1 11:A1E1: 26        .byte $26
-- D - I - 0x0221F2 11:A1E2: 1E        .byte $1E
+- D - I - 0x0221EF 11:A1DF: 30        .byte con_pause + $30
+- D - I - 0x0221F0 11:A1E0: 2E        .byte con_bg + $2E
+- D - I - 0x0221F1 11:A1E1: 26        .byte con_animation + $26
+- D - I - 0x0221F2 11:A1E2: 1E        .byte con_cloud + $1E
 - D - I - 0x0221F3 11:A1E3: FB        .byte con_rts
 
 sub_A1E4:
 - D - I - 0x0221F4 11:A1E4: F7        .byte con_F7, $41
 - D - I - 0x0221F6 11:A1E6: F9        .byte con_delay_soundID, $02, $21
-- D - I - 0x0221F9 11:A1E9: E0        .byte $E0
-- D - I - 0x0221FA 11:A1EA: 47        .byte $47
-- D - I - 0x0221FB 11:A1EB: 7D        .byte $7D
-- D - I - 0x0221FC 11:A1EC: 1F        .byte $1F
+- D - I - 0x0221F9 11:A1E9: E0        .byte con_pause + $E0
+- D - I - 0x0221FA 11:A1EA: 47        .byte con_bg + $47
+- D - I - 0x0221FB 11:A1EB: 7D        .byte con_animation + $7D
+- D - I - 0x0221FC 11:A1EC: 1F        .byte con_cloud + $1F
 - D - I - 0x0221FD 11:A1ED: F7        .byte con_F7, $42
-- D - I - 0x0221FF 11:A1EF: 70        .byte $70
-- D - I - 0x022200 11:A1F0: F0        .byte con_exit_1
-- D - I - 0x022201 11:A1F1: F0        .byte con_exit_1
-- D - I - 0x022202 11:A1F2: F0        .byte con_exit_1
+- D - I - 0x0221FF 11:A1EF: 70        .byte con_pause + $70
+- D - I - 0x022200 11:A1F0: F0        .byte con_bg + $F0
+- D - I - 0x022201 11:A1F1: F0        .byte con_animation + $F0
+- D - I - 0x022202 11:A1F2: F0        .byte con_cloud + $F0
 - D - I - 0x022203 11:A1F3: F7        .byte con_F7, $43
 - D - I - 0x022205 11:A1F5: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x022208 11:A1F8: 32        .byte $32
-- D - I - 0x022209 11:A1F9: 05        .byte $05
-- D - I - 0x02220A 11:A1FA: F0        .byte con_exit_1
-- D - I - 0x02220B 11:A1FB: F0        .byte con_exit_1
+- D - I - 0x022208 11:A1F8: 32        .byte con_pause + $32
+- D - I - 0x022209 11:A1F9: 05        .byte con_bg + $05
+- D - I - 0x02220A 11:A1FA: F0        .byte con_animation + $F0
+- D - I - 0x02220B 11:A1FB: F0        .byte con_cloud + $F0
 - D - I - 0x02220C 11:A1FC: FB        .byte con_rts
 
 - - - - - 0x02220D 11:A1FD: FB        .byte con_rts
@@ -7513,111 +7519,111 @@ sub_A1E4:
 sub_A1FF:
 - D - I - 0x02220F 11:A1FF: F7        .byte con_F7, $30
 - D - I - 0x022211 11:A201: F9        .byte con_delay_soundID, $02, $17
-- D - I - 0x022214 11:A204: 96        .byte $96
-- D - I - 0x022215 11:A205: 6A        .byte $6A
-- D - I - 0x022216 11:A206: 3A        .byte $3A
-- D - I - 0x022217 11:A207: 20        .byte $20
+- D - I - 0x022214 11:A204: 96        .byte con_pause + $96
+- D - I - 0x022215 11:A205: 6A        .byte con_bg + $6A
+- D - I - 0x022216 11:A206: 3A        .byte con_animation + $3A
+- D - I - 0x022217 11:A207: 20        .byte con_cloud + $20
 - D - I - 0x022218 11:A208: F9        .byte con_delay_soundID, $02, $1F
 - D - I - 0x02221B 11:A20B: F7        .byte con_F7, $1D
-- D - I - 0x02221D 11:A20D: 80        .byte $80
-- D - I - 0x02221E 11:A20E: 47        .byte $47
-- D - I - 0x02221F 11:A20F: F0        .byte con_exit_1
-- D - I - 0x022220 11:A210: 21        .byte $21
+- D - I - 0x02221D 11:A20D: 80        .byte con_pause + $80
+- D - I - 0x02221E 11:A20E: 47        .byte con_bg + $47
+- D - I - 0x02221F 11:A20F: F0        .byte con_animation + $F0
+- D - I - 0x022220 11:A210: 21        .byte con_cloud + $21
 - D - I - 0x022221 11:A211: FB        .byte con_rts
 
 sub_A212:
 - D - I - 0x022222 11:A212: F9        .byte con_delay_soundID, $21, $1B
-- D - I - 0x022225 11:A215: 40        .byte $40
-- D - I - 0x022226 11:A216: 2B        .byte $2B
-- D - I - 0x022227 11:A217: 3B        .byte $3B
-- D - I - 0x022228 11:A218: 31        .byte $31
+- D - I - 0x022225 11:A215: 40        .byte con_pause + $40
+- D - I - 0x022226 11:A216: 2B        .byte con_bg + $2B
+- D - I - 0x022227 11:A217: 3B        .byte con_animation + $3B
+- D - I - 0x022228 11:A218: 31        .byte con_cloud + $31
 - D - I - 0x022229 11:A219: FB        .byte con_rts
 
 bra_long_case_A21A_00:
-- D - I - 0x02222A 11:A21A: 28        .byte $28
-- D - I - 0x02222B 11:A21B: 1C        .byte $1C
-- D - I - 0x02222C 11:A21C: 3E        .byte $3E
-- D - I - 0x02222D 11:A21D: F0        .byte con_exit_1
+- D - I - 0x02222A 11:A21A: 28        .byte con_pause + $28
+- D - I - 0x02222B 11:A21B: 1C        .byte con_bg + $1C
+- D - I - 0x02222C 11:A21C: 3E        .byte con_animation + $3E
+- D - I - 0x02222D 11:A21D: F0        .byte con_cloud + $F0
 - D - I - 0x02222E 11:A21E: FB        .byte con_rts
 
 bra_long_case_A21F_01:
-- D - I - 0x02222F 11:A21F: 28        .byte $28
-- D - I - 0x022230 11:A220: 1C        .byte $1C
-- D - I - 0x022231 11:A221: 3F        .byte $3F
-- D - I - 0x022232 11:A222: F0        .byte con_exit_1
+- D - I - 0x02222F 11:A21F: 28        .byte con_pause + $28
+- D - I - 0x022230 11:A220: 1C        .byte con_bg + $1C
+- D - I - 0x022231 11:A221: 3F        .byte con_animation + $3F
+- D - I - 0x022232 11:A222: F0        .byte con_cloud + $F0
 - D - I - 0x022233 11:A223: FB        .byte con_rts
 
 bra_long_case_A224_00:
-- D - I - 0x022234 11:A224: 32        .byte $32
-- D - I - 0x022235 11:A225: 1E        .byte $1E
-- D - I - 0x022236 11:A226: 3E        .byte $3E
-- D - I - 0x022237 11:A227: 23        .byte $23
+- D - I - 0x022234 11:A224: 32        .byte con_pause + $32
+- D - I - 0x022235 11:A225: 1E        .byte con_bg + $1E
+- D - I - 0x022236 11:A226: 3E        .byte con_animation + $3E
+- D - I - 0x022237 11:A227: 23        .byte con_cloud + $23
 - D - I - 0x022238 11:A228: FB        .byte con_rts
 
 bra_long_case_A229_01:
-- D - I - 0x022239 11:A229: 32        .byte $32
-- D - I - 0x02223A 11:A22A: 1E        .byte $1E
-- D - I - 0x02223B 11:A22B: 3F        .byte $3F
-- D - I - 0x02223C 11:A22C: 23        .byte $23
+- D - I - 0x022239 11:A229: 32        .byte con_pause + $32
+- D - I - 0x02223A 11:A22A: 1E        .byte con_bg + $1E
+- D - I - 0x02223B 11:A22B: 3F        .byte con_animation + $3F
+- D - I - 0x02223C 11:A22C: 23        .byte con_cloud + $23
 - D - I - 0x02223D 11:A22D: FB        .byte con_rts
 
 loc_A22E:
 - D - I - 0x02223E 11:A22E: F7        .byte con_F7, $02
 - D - I - 0x022240 11:A230: F9        .byte con_delay_soundID, $26, $2C
-- D - I - 0x022243 11:A233: 50        .byte $50
-- D - I - 0x022244 11:A234: 22        .byte $22
-- D - I - 0x022245 11:A235: 38        .byte $38
-- D - I - 0x022246 11:A236: 24        .byte $24
+- D - I - 0x022243 11:A233: 50        .byte con_pause + $50
+- D - I - 0x022244 11:A234: 22        .byte con_bg + $22
+- D - I - 0x022245 11:A235: 38        .byte con_animation + $38
+- D - I - 0x022246 11:A236: 24        .byte con_cloud + $24
 - D - I - 0x022247 11:A237: FB        .byte con_rts
 
 loc_A238:
 - D - I - 0x022248 11:A238: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x02224B 11:A23B: 56        .byte $56
-- D - I - 0x02224C 11:A23C: 6D        .byte $6D
-- D - I - 0x02224D 11:A23D: 39        .byte $39
-- D - I - 0x02224E 11:A23E: 24        .byte $24
+- D - I - 0x02224B 11:A23B: 56        .byte con_pause + $56
+- D - I - 0x02224C 11:A23C: 6D        .byte con_bg + $6D
+- D - I - 0x02224D 11:A23D: 39        .byte con_animation + $39
+- D - I - 0x02224E 11:A23E: 24        .byte con_cloud + $24
 - D - I - 0x02224F 11:A23F: FB        .byte con_rts
 
 loc_A240:
 - D - I - 0x022250 11:A240: F7        .byte con_F7, $11
-- D - I - 0x022252 11:A242: 5A        .byte $5A
-- D - I - 0x022253 11:A243: 05        .byte $05
-- D - I - 0x022254 11:A244: F0        .byte con_exit_1
-- D - I - 0x022255 11:A245: 26        .byte $26
+- D - I - 0x022252 11:A242: 5A        .byte con_pause + $5A
+- D - I - 0x022253 11:A243: 05        .byte con_bg + $05
+- D - I - 0x022254 11:A244: F0        .byte con_animation + $F0
+- D - I - 0x022255 11:A245: 26        .byte con_cloud + $26
 - D - I - 0x022256 11:A246: FB        .byte con_rts
 
 loc_A247:
 - D - I - 0x022257 11:A247: F7        .byte con_F7, $11
-- D - I - 0x022259 11:A249: 5A        .byte $5A
-- D - I - 0x02225A 11:A24A: 05        .byte $05
-- D - I - 0x02225B 11:A24B: F0        .byte con_exit_1
-- D - I - 0x02225C 11:A24C: 1D        .byte $1D
+- D - I - 0x022259 11:A249: 5A        .byte con_pause + $5A
+- D - I - 0x02225A 11:A24A: 05        .byte con_bg + $05
+- D - I - 0x02225B 11:A24B: F0        .byte con_animation + $F0
+- D - I - 0x02225C 11:A24C: 1D        .byte con_cloud + $1D
 - D - I - 0x02225D 11:A24D: FB        .byte con_rts
 
 sub_A24E:
 - D - I - 0x02225E 11:A24E: F7        .byte con_F7, $1F
 - D - I - 0x022260 11:A250: F9        .byte con_delay_soundID, $02, $63
-- D - I - 0x022263 11:A253: 10        .byte $10
-- D - I - 0x022264 11:A254: 06        .byte $06
-- D - I - 0x022265 11:A255: 43        .byte $43
-- D - I - 0x022266 11:A256: 27        .byte $27
+- D - I - 0x022263 11:A253: 10        .byte con_pause + $10
+- D - I - 0x022264 11:A254: 06        .byte con_bg + $06
+- D - I - 0x022265 11:A255: 43        .byte con_animation + $43
+- D - I - 0x022266 11:A256: 27        .byte con_cloud + $27
 - D - I - 0x022267 11:A257: FB        .byte con_rts
 
 loc_A258:
 sub_A258:
-- D - I - 0x022268 11:A258: 37        .byte $37
-- D - I - 0x022269 11:A259: 56        .byte $56
-- D - I - 0x02226A 11:A25A: 42        .byte $42
-- D - I - 0x02226B 11:A25B: F0        .byte con_exit_1
+- D - I - 0x022268 11:A258: 37        .byte con_pause + $37
+- D - I - 0x022269 11:A259: 56        .byte con_bg + $56
+- D - I - 0x02226A 11:A25A: 42        .byte con_animation + $42
+- D - I - 0x02226B 11:A25B: F0        .byte con_cloud + $F0
 - D - I - 0x02226C 11:A25C: FB        .byte con_rts
 
 bra_long_case_A25D_00:
 - D - I - 0x02226D 11:A25D: F7        .byte con_F7, $03
 - D - I - 0x02226F 11:A25F: F9        .byte con_delay_soundID, $02, $60
-- D - I - 0x022272 11:A262: 78        .byte $78
-- D - I - 0x022273 11:A263: 07        .byte $07
-- D - I - 0x022274 11:A264: 44        .byte $44
-- D - I - 0x022275 11:A265: 28        .byte $28
+- D - I - 0x022272 11:A262: 78        .byte con_pause + $78
+- D - I - 0x022273 11:A263: 07        .byte con_bg + $07
+- D - I - 0x022274 11:A264: 44        .byte con_animation + $44
+- D - I - 0x022275 11:A265: 28        .byte con_cloud + $28
 - D - I - 0x022276 11:A266: FB        .byte con_rts
 
 loc_A267:
@@ -7625,36 +7631,36 @@ bra_long_case_A267:
 bra_long_case_A267_01:
 - D - I - 0x022277 11:A267: F7        .byte con_F7, $03
 - D - I - 0x022279 11:A269: F9        .byte con_delay_soundID, $02, $61
-- D - I - 0x02227C 11:A26C: 78        .byte $78
-- D - I - 0x02227D 11:A26D: 07        .byte $07
-- D - I - 0x02227E 11:A26E: 45        .byte $45
-- D - I - 0x02227F 11:A26F: 28        .byte $28
+- D - I - 0x02227C 11:A26C: 78        .byte con_pause + $78
+- D - I - 0x02227D 11:A26D: 07        .byte con_bg + $07
+- D - I - 0x02227E 11:A26E: 45        .byte con_animation + $45
+- D - I - 0x02227F 11:A26F: 28        .byte con_cloud + $28
 - D - I - 0x022280 11:A270: FB        .byte con_rts
 
 bra_long_case_A271_02:
-- D - I - 0x022281 11:A271: A0        .byte $A0
-- D - I - 0x022282 11:A272: 0A        .byte $0A
-- D - I - 0x022283 11:A273: 48        .byte $48
-- D - I - 0x022284 11:A274: 52        .byte $52
+- D - I - 0x022281 11:A271: A0        .byte con_pause + $A0
+- D - I - 0x022282 11:A272: 0A        .byte con_bg + $0A
+- D - I - 0x022283 11:A273: 48        .byte con_animation + $48
+- D - I - 0x022284 11:A274: 52        .byte con_cloud + $52
 loc_A275:
 - D - I - 0x022285 11:A275: F7        .byte con_F7, $13
-- D - I - 0x022287 11:A277: 6E        .byte $6E
-- D - I - 0x022288 11:A278: F0        .byte con_exit_1
-- D - I - 0x022289 11:A279: F0        .byte con_exit_1
-- D - I - 0x02228A 11:A27A: F0        .byte con_exit_1
+- D - I - 0x022287 11:A277: 6E        .byte con_pause + $6E
+- D - I - 0x022288 11:A278: F0        .byte con_bg + $F0
+- D - I - 0x022289 11:A279: F0        .byte con_animation + $F0
+- D - I - 0x02228A 11:A27A: F0        .byte con_cloud + $F0
 - D - I - 0x02228B 11:A27B: F3        .byte con_branch, $A6
 - D - I - 0x02228D 11:A27D: 0B        .byte bra_case_A288_00 - *
 - D - I - 0x02228E 11:A27E: 01        .byte bra_case_A27F_01 - *
 
 bra_case_A27F_01:
-- D - I - 0x02228F 11:A27F: 01        .byte $01
-- D - I - 0x022290 11:A280: F0        .byte con_exit_1
-- D - I - 0x022291 11:A281: F0        .byte con_exit_1
-- D - I - 0x022292 11:A282: 00        .byte $00
-- D - I - 0x022293 11:A283: A0        .byte $A0
-- D - I - 0x022294 11:A284: 30        .byte $30
-- D - I - 0x022295 11:A285: B8        .byte $B8
-- D - I - 0x022296 11:A286: 89        .byte $89
+- D - I - 0x02228F 11:A27F: 01        .byte con_pause + $01
+- D - I - 0x022290 11:A280: F0        .byte con_bg + $F0
+- D - I - 0x022291 11:A281: F0        .byte con_animation + $F0
+- D - I - 0x022292 11:A282: 00        .byte con_cloud + $00
+- D - I - 0x022293 11:A283: A0        .byte con_pause + $A0
+- D - I - 0x022294 11:A284: 30        .byte con_bg + $30
+- D - I - 0x022295 11:A285: B8        .byte con_animation + $B8
+- D - I - 0x022296 11:A286: 89        .byte con_cloud + $89
 - D - I - 0x022297 11:A287: FB        .byte con_rts
 
 bra_case_A288_00:
@@ -7668,27 +7674,26 @@ bra_case_A28C_01:
 - - - - - 0x02229F 11:A28F: 0C        .byte bra_case_A29B_01 - *
 
 bra_case_A290_00:
-- D - I - 0x0222A0 11:A290: 01        .byte $01
-- D - I - 0x0222A1 11:A291: F0        .byte con_exit_1
-- D - I - 0x0222A2 11:A292: F0        .byte con_exit_1
-- D - I - 0x0222A3 11:A293: 00        .byte $00
-- D - I - 0x0222A4 11:A294: D0        .byte $D0
-- D - I - 0x0222A5 11:A295: 30        .byte $30
-- D - I - 0x0222A6 11:A296: A0        .byte $A0
-- D - I - 0x0222A7 11:A297: 9E        .byte $9E
+- D - I - 0x0222A0 11:A290: 01        .byte con_pause + $01
+- D - I - 0x0222A1 11:A291: F0        .byte con_bg + $F0
+- D - I - 0x0222A2 11:A292: F0        .byte con_animation + $F0
+- D - I - 0x0222A3 11:A293: 00        .byte con_cloud + $00
+- D - I - 0x0222A4 11:A294: D0        .byte con_pause + $D0
+- D - I - 0x0222A5 11:A295: 30        .byte con_bg + $30
+- D - I - 0x0222A6 11:A296: A0        .byte con_animation + $A0
+- D - I - 0x0222A7 11:A297: 9E        .byte con_cloud + $9E
 - D - I - 0x0222A8 11:A298: F2        .byte con_jmp
 - D - I - 0x0222A9 11:A299: A3 A2     .word loc_A2A3
 
 bra_case_A29B_01:
-- - - - - 0x0222AB 11:A29B: 01        .byte $01
-- - - - - 0x0222AC 11:A29C: F0        .byte con_exit_1
-- - - - - 0x0222AD 11:A29D: F0        .byte con_exit_1
-- - - - - 0x0222AE 11:A29E: 00        .byte $00
-- - - - - 0x0222AF 11:A29F: D0        .byte $D0
-- - - - - 0x0222B0 11:A2A0: 30        .byte $30
-- - - - - 0x0222B1 11:A2A1: AA        .byte $AA
-- - - - - 0x0222B2 11:A2A2: 9E        .byte $9E
-
+- - - - - 0x0222AB 11:A29B: 01        .byte con_pause + $01
+- - - - - 0x0222AC 11:A29C: F0        .byte con_bg + $F0
+- - - - - 0x0222AD 11:A29D: F0        .byte con_animation + $F0
+- - - - - 0x0222AE 11:A29E: 00        .byte con_cloud + $00
+- - - - - 0x0222AF 11:A29F: D0        .byte con_pause + $D0
+- - - - - 0x0222B0 11:A2A0: 30        .byte con_bg + $30
+- - - - - 0x0222B1 11:A2A1: AA        .byte con_animation + $AA
+- - - - - 0x0222B2 11:A2A2: 9E        .byte con_cloud + $9E
 loc_A2A3:
 - D - I - 0x0222B3 11:A2A3: FA        .byte con_jsr
 - D - I - 0x0222B4 11:A2A4: C7 BB     .word sub_BBC7
@@ -7696,76 +7701,76 @@ bra_case_A2A6_00:
 - D - I - 0x0222B6 11:A2A6: FB        .byte con_rts
 
 bra_long_case_A2A7_01:
-- D - I - 0x0222B7 11:A2A7: A0        .byte $A0
-- D - I - 0x0222B8 11:A2A8: 08        .byte $08
-- D - I - 0x0222B9 11:A2A9: 46        .byte $46
-- D - I - 0x0222BA 11:A2AA: 52        .byte $52
+- D - I - 0x0222B7 11:A2A7: A0        .byte con_pause + $A0
+- D - I - 0x0222B8 11:A2A8: 08        .byte con_bg + $08
+- D - I - 0x0222B9 11:A2A9: 46        .byte con_animation + $46
+- D - I - 0x0222BA 11:A2AA: 52        .byte con_cloud + $52
 - D - I - 0x0222BB 11:A2AB: F2        .byte con_jmp
 - D - I - 0x0222BC 11:A2AC: 75 A2     .word loc_A275
 
 bra_long_case_A2AE_01:
-- D - I - 0x0222BE 11:A2AE: A0        .byte $A0
-- D - I - 0x0222BF 11:A2AF: 09        .byte $09
-- D - I - 0x0222C0 11:A2B0: 47        .byte $47
-- D - I - 0x0222C1 11:A2B1: 52        .byte $52
+- D - I - 0x0222BE 11:A2AE: A0        .byte con_pause + $A0
+- D - I - 0x0222BF 11:A2AF: 09        .byte con_bg + $09
+- D - I - 0x0222C0 11:A2B0: 47        .byte con_animation + $47
+- D - I - 0x0222C1 11:A2B1: 52        .byte con_cloud + $52
 - D - I - 0x0222C2 11:A2B2: F2        .byte con_jmp
 - D - I - 0x0222C3 11:A2B3: 75 A2     .word loc_A275
 
 bra_long_case_A2B5_00:
-- D - I - 0x0222C5 11:A2B5: 82        .byte $82
-- D - I - 0x0222C6 11:A2B6: F0        .byte con_exit_1
-- D - I - 0x0222C7 11:A2B7: F0        .byte con_exit_1
-- D - I - 0x0222C8 11:A2B8: 51        .byte $51
+- D - I - 0x0222C5 11:A2B5: 82        .byte con_pause + $82
+- D - I - 0x0222C6 11:A2B6: F0        .byte con_bg + $F0
+- D - I - 0x0222C7 11:A2B7: F0        .byte con_animation + $F0
+- D - I - 0x0222C8 11:A2B8: 51        .byte con_cloud + $51
 - D - I - 0x0222C9 11:A2B9: F2        .byte con_jmp
 - D - I - 0x0222CA 11:A2BA: 75 A2     .word loc_A275
 
 bra_long_case_A2BC_01:
-- D - I - 0x0222CC 11:A2BC: 82        .byte $82
-- D - I - 0x0222CD 11:A2BD: F0        .byte con_exit_1
-- D - I - 0x0222CE 11:A2BE: F0        .byte con_exit_1
-- D - I - 0x0222CF 11:A2BF: 53        .byte $53
+- D - I - 0x0222CC 11:A2BC: 82        .byte con_pause + $82
+- D - I - 0x0222CD 11:A2BD: F0        .byte con_bg + $F0
+- D - I - 0x0222CE 11:A2BE: F0        .byte con_animation + $F0
+- D - I - 0x0222CF 11:A2BF: 53        .byte con_cloud + $53
 - D - I - 0x0222D0 11:A2C0: F2        .byte con_jmp
 - D - I - 0x0222D1 11:A2C1: 75 A2     .word loc_A275
 
 bra_long_case_A2C3_00:
-- - - - - 0x0222D3 11:A2C3: A0        .byte $A0
-- - - - - 0x0222D4 11:A2C4: 08        .byte $08
-- - - - - 0x0222D5 11:A2C5: 46        .byte $46
-- - - - - 0x0222D6 11:A2C6: 54        .byte $54
+- - - - - 0x0222D3 11:A2C3: A0        .byte con_pause + $A0
+- - - - - 0x0222D4 11:A2C4: 08        .byte con_bg + $08
+- - - - - 0x0222D5 11:A2C5: 46        .byte con_animation + $46
+- - - - - 0x0222D6 11:A2C6: 54        .byte con_cloud + $54
 - - - - - 0x0222D7 11:A2C7: F2        .byte con_jmp
 - - - - - 0x0222D8 11:A2C8: 75 A2     .word loc_A275
 
 bra_long_case_A2CA_01:
-- - - - - 0x0222DA 11:A2CA: A0        .byte $A0
-- - - - - 0x0222DB 11:A2CB: 09        .byte $09
-- - - - - 0x0222DC 11:A2CC: 47        .byte $47
-- - - - - 0x0222DD 11:A2CD: 55        .byte $55
+- - - - - 0x0222DA 11:A2CA: A0        .byte con_pause + $A0
+- - - - - 0x0222DB 11:A2CB: 09        .byte con_bg + $09
+- - - - - 0x0222DC 11:A2CC: 47        .byte con_animation + $47
+- - - - - 0x0222DD 11:A2CD: 55        .byte con_cloud + $55
 - - - - - 0x0222DE 11:A2CE: F2        .byte con_jmp
 - - - - - 0x0222DF 11:A2CF: 75 A2     .word loc_A275
 
 bra_long_case_A2D1_02:
-- D - I - 0x0222E1 11:A2D1: A0        .byte $A0
-- D - I - 0x0222E2 11:A2D2: 0A        .byte $0A
-- D - I - 0x0222E3 11:A2D3: 48        .byte $48
-- D - I - 0x0222E4 11:A2D4: 55        .byte $55
+- D - I - 0x0222E1 11:A2D1: A0        .byte con_pause + $A0
+- D - I - 0x0222E2 11:A2D2: 0A        .byte con_bg + $0A
+- D - I - 0x0222E3 11:A2D3: 48        .byte con_animation + $48
+- D - I - 0x0222E4 11:A2D4: 55        .byte con_cloud + $55
 - D - I - 0x0222E5 11:A2D5: F2        .byte con_jmp
 - D - I - 0x0222E6 11:A2D6: 75 A2     .word loc_A275
 
 sub_A2D8:
-- D - I - 0x0222E8 11:A2D8: 28        .byte $28
-- D - I - 0x0222E9 11:A2D9: 56        .byte $56
-- D - I - 0x0222EA 11:A2DA: 49        .byte $49
-- D - I - 0x0222EB 11:A2DB: 1B        .byte $1B
+- D - I - 0x0222E8 11:A2D8: 28        .byte con_pause + $28
+- D - I - 0x0222E9 11:A2D9: 56        .byte con_bg + $56
+- D - I - 0x0222EA 11:A2DA: 49        .byte con_animation + $49
+- D - I - 0x0222EB 11:A2DB: 1B        .byte con_cloud + $1B
 - D - I - 0x0222EC 11:A2DC: FB        .byte con_rts
 
 sub_A2DD:
 - D - I - 0x0222ED 11:A2DD: F7        .byte con_F7, $0F
 - D - I - 0x0222EF 11:A2DF: F9        .byte con_delay_soundID, $02, $2E
 loc_A2E2:
-- D - I - 0x0222F2 11:A2E2: 21        .byte $21
-- D - I - 0x0222F3 11:A2E3: 05        .byte $05
-- D - I - 0x0222F4 11:A2E4: 00        .byte $00
-- D - I - 0x0222F5 11:A2E5: F0        .byte con_exit_1
+- D - I - 0x0222F2 11:A2E2: 21        .byte con_pause + $21
+- D - I - 0x0222F3 11:A2E3: 05        .byte con_bg + $05
+- D - I - 0x0222F4 11:A2E4: 00        .byte con_animation + $00
+- D - I - 0x0222F5 11:A2E5: F0        .byte con_cloud + $F0
 - D - I - 0x0222F6 11:A2E6: FB        .byte con_rts
 
 sub_A2E7:
@@ -7782,69 +7787,69 @@ sub_A2EF:
 sub_A2F4:
 - D - I - 0x022304 11:A2F4: F7        .byte con_F7, $10
 - D - I - 0x022306 11:A2F6: F9        .byte con_delay_soundID, $02, $65
-- D - I - 0x022309 11:A2F9: 1E        .byte $1E
-- D - I - 0x02230A 11:A2FA: 05        .byte $05
-- D - I - 0x02230B 11:A2FB: 00        .byte $00
-- D - I - 0x02230C 11:A2FC: 29        .byte $29
+- D - I - 0x022309 11:A2F9: 1E        .byte con_pause + $1E
+- D - I - 0x02230A 11:A2FA: 05        .byte con_bg + $05
+- D - I - 0x02230B 11:A2FB: 00        .byte con_animation + $00
+- D - I - 0x02230C 11:A2FC: 29        .byte con_cloud + $29
 - D - I - 0x02230D 11:A2FD: FB        .byte con_rts
 
 sub_A2FE:
 - D - I - 0x02230E 11:A2FE: F7        .byte con_F7, $10
 - D - I - 0x022310 11:A300: F9        .byte con_delay_soundID, $02, $2E
-- D - I - 0x022313 11:A303: 20        .byte $20
-- D - I - 0x022314 11:A304: 05        .byte $05
-- D - I - 0x022315 11:A305: 00        .byte $00
-- D - I - 0x022316 11:A306: 2C        .byte $2C
+- D - I - 0x022313 11:A303: 20        .byte con_pause + $20
+- D - I - 0x022314 11:A304: 05        .byte con_bg + $05
+- D - I - 0x022315 11:A305: 00        .byte con_animation + $00
+- D - I - 0x022316 11:A306: 2C        .byte con_cloud + $2C
 - D - I - 0x022317 11:A307: FB        .byte con_rts
 
 sub_A308:
 - D - I - 0x022318 11:A308: F9        .byte con_delay_soundID, $02, $2E
 - D - I - 0x02231B 11:A30B: F7        .byte con_F7, $10
-- D - I - 0x02231D 11:A30D: 14        .byte $14
-- D - I - 0x02231E 11:A30E: 05        .byte $05
-- D - I - 0x02231F 11:A30F: 00        .byte $00
-- D - I - 0x022320 11:A310: F0        .byte con_exit_1
+- D - I - 0x02231D 11:A30D: 14        .byte con_pause + $14
+- D - I - 0x02231E 11:A30E: 05        .byte con_bg + $05
+- D - I - 0x02231F 11:A30F: 00        .byte con_animation + $00
+- D - I - 0x022320 11:A310: F0        .byte con_cloud + $F0
 - D - I - 0x022321 11:A311: FB        .byte con_rts
 
 sub_A312:
-- D - I - 0x022322 11:A312: 14        .byte $14
-- D - I - 0x022323 11:A313: F0        .byte con_exit_1
-- D - I - 0x022324 11:A314: F0        .byte con_exit_1
-- D - I - 0x022325 11:A315: F0        .byte con_exit_1
+- D - I - 0x022322 11:A312: 14        .byte con_pause + $14
+- D - I - 0x022323 11:A313: F0        .byte con_bg + $F0
+- D - I - 0x022324 11:A314: F0        .byte con_animation + $F0
+- D - I - 0x022325 11:A315: F0        .byte con_cloud + $F0
 - D - I - 0x022326 11:A316: FE        .byte con_FE, $01
 - D - I - 0x022328 11:A318: FB        .byte con_rts
 
 loc_A319:
 - D - I - 0x022329 11:A319: F9        .byte con_delay_soundID, $02, $2A
-- D - I - 0x02232C 11:A31C: 32        .byte $32
-- D - I - 0x02232D 11:A31D: 01        .byte $01
-- D - I - 0x02232E 11:A31E: 4A        .byte $4A
-- D - I - 0x02232F 11:A31F: 2E        .byte $2E
+- D - I - 0x02232C 11:A31C: 32        .byte con_pause + $32
+- D - I - 0x02232D 11:A31D: 01        .byte con_bg + $01
+- D - I - 0x02232E 11:A31E: 4A        .byte con_animation + $4A
+- D - I - 0x02232F 11:A31F: 2E        .byte con_cloud + $2E
 - D - I - 0x022330 11:A320: FB        .byte con_rts
 
 sub_A321:
 - - - - - 0x022331 11:A321: F8        .byte con_F8, $02
 - - - - - 0x022333 11:A323: F9        .byte con_delay_soundID, $02, $2A
-- - - - - 0x022336 11:A326: 14        .byte $14
-- - - - - 0x022337 11:A327: 01        .byte $01
-- - - - - 0x022338 11:A328: 4A        .byte $4A
-- - - - - 0x022339 11:A329: 35        .byte $35
+- - - - - 0x022336 11:A326: 14        .byte con_pause + $14
+- - - - - 0x022337 11:A327: 01        .byte con_bg + $01
+- - - - - 0x022338 11:A328: 4A        .byte con_animation + $4A
+- - - - - 0x022339 11:A329: 35        .byte con_cloud + $35
 - - - - - 0x02233A 11:A32A: FE        .byte con_FE, $01
 - - - - - 0x02233C 11:A32C: FB        .byte con_rts
 
 sub_A32D:
 - D - I - 0x02233D 11:A32D: F9        .byte con_delay_soundID, $02, $03
-- D - I - 0x022340 11:A330: 35        .byte $35
-- D - I - 0x022341 11:A331: 1F        .byte $1F
-- D - I - 0x022342 11:A332: 11        .byte $11
-- D - I - 0x022343 11:A333: 00        .byte $00
+- D - I - 0x022340 11:A330: 35        .byte con_pause + $35
+- D - I - 0x022341 11:A331: 1F        .byte con_bg + $1F
+- D - I - 0x022342 11:A332: 11        .byte con_animation + $11
+- D - I - 0x022343 11:A333: 00        .byte con_cloud + $00
 - D - I - 0x022344 11:A334: FB        .byte con_rts
 
 sub_A335:
-- D - I - 0x022345 11:A335: 32        .byte $32
-- D - I - 0x022346 11:A336: 02        .byte $02
-- D - I - 0x022347 11:A337: 4C        .byte $4C
-- D - I - 0x022348 11:A338: 00        .byte $00
+- D - I - 0x022345 11:A335: 32        .byte con_pause + $32
+- D - I - 0x022346 11:A336: 02        .byte con_bg + $02
+- D - I - 0x022347 11:A337: 4C        .byte con_animation + $4C
+- D - I - 0x022348 11:A338: 00        .byte con_cloud + $00
 - D - I - 0x022349 11:A339: FB        .byte con_rts
 
 bra_long_case_A33A_01:
@@ -7855,169 +7860,171 @@ bra_long_case_A33A_01:
 - D - I - 0x02234F 11:A33F: 08        .byte bra_case_A347_02 - *
 
 bra_case_A340_01:
-- - - - - 0x022350 11:A340: 32        .byte $32
-- - - - - 0x022351 11:A341: 73        .byte $73
-- - - - - 0x022352 11:A342: A6        .byte $A6
-- - - - - 0x022353 11:A343: 9F        .byte $9F
+- - - - - 0x022350 11:A340: 32        .byte con_pause + $32
+- - - - - 0x022351 11:A341: 73        .byte con_bg + $73
+- - - - - 0x022352 11:A342: A6        .byte con_animation + $A6
+- - - - - 0x022353 11:A343: 9F        .byte con_cloud + $9F
 - - - - - 0x022354 11:A344: F2        .byte con_jmp
 - - - - - 0x022355 11:A345: 4B A3     .word loc_A34B
 
 bra_case_A347_00:
 bra_case_A347_02:
-- D - I - 0x022357 11:A347: 32        .byte $32
-- D - I - 0x022358 11:A348: 33        .byte $33
-- D - I - 0x022359 11:A349: A6        .byte $A6
-- D - I - 0x02235A 11:A34A: 9F        .byte $9F
+- D - I - 0x022357 11:A347: 32        .byte con_pause + $32
+- D - I - 0x022358 11:A348: 33        .byte con_bg + $33
+- D - I - 0x022359 11:A349: A6        .byte con_animation + $A6
+- D - I - 0x02235A 11:A34A: 9F        .byte con_cloud + $9F
 loc_A34B:
 - D - I - 0x02235B 11:A34B: FD        .byte con_FD, $03
 sub_A34D:
 bra_long_case_A34D:
 bra_long_case_A34D_00:
-- D - I - 0x02235D 11:A34D: 08        .byte $08
-- D - I - 0x02235E 11:A34E: 0B        .byte $0B
-- D - I - 0x02235F 11:A34F: 00        .byte $00
-- D - I - 0x022360 11:A350: 2F        .byte $2F
+- D - I - 0x02235D 11:A34D: 08        .byte con_pause + $08
+- D - I - 0x02235E 11:A34E: 0B        .byte con_bg + $0B
+- D - I - 0x02235F 11:A34F: 00        .byte con_animation + $00
+- D - I - 0x022360 11:A350: 2F        .byte con_cloud + $2F
 - D - I - 0x022361 11:A351: F7        .byte con_F7, $05
 - D - I - 0x022363 11:A353: F9        .byte con_delay_soundID, $21, $68
-- D - I - 0x022366 11:A356: 2D        .byte $2D
-- D - I - 0x022367 11:A357: F0        .byte con_exit_1
-- D - I - 0x022368 11:A358: 4D        .byte $4D
-- D - I - 0x022369 11:A359: F0        .byte con_exit_1
+- D - I - 0x022366 11:A356: 2D        .byte con_pause + $2D
+- D - I - 0x022367 11:A357: F0        .byte con_bg + $F0
+- D - I - 0x022368 11:A358: 4D        .byte con_animation + $4D
+- D - I - 0x022369 11:A359: F0        .byte con_cloud + $F0
 - D - I - 0x02236A 11:A35A: FB        .byte con_rts
 
 loc_A35B:
 - D - I - 0x02236B 11:A35B: F5        .byte con_mirror_off
 - D - I - 0x02236C 11:A35C: F9        .byte con_delay_soundID, $02, $67
-- D - I - 0x02236F 11:A35F: 70        .byte $70
-- D - I - 0x022370 11:A360: 0C        .byte $0C
-- D - I - 0x022371 11:A361: 4E        .byte $4E
-- D - I - 0x022372 11:A362: 30        .byte $30
+- D - I - 0x02236F 11:A35F: 70        .byte con_pause + $70
+- D - I - 0x022370 11:A360: 0C        .byte con_bg + $0C
+- D - I - 0x022371 11:A361: 4E        .byte con_animation + $4E
+- D - I - 0x022372 11:A362: 30        .byte con_cloud + $30
 - D - I - 0x022373 11:A363: FB        .byte con_rts
 
 loc_A364:
 - D - I - 0x022374 11:A364: F5        .byte con_mirror_off
-- D - I - 0x022375 11:A365: A4        .byte $A4
-- D - I - 0x022376 11:A366: 0D        .byte $0D
-- D - I - 0x022377 11:A367: 4F        .byte $4F
-- D - I - 0x022378 11:A368: 32        .byte $32
+- D - I - 0x022375 11:A365: A4        .byte con_pause + $A4
+- D - I - 0x022376 11:A366: 0D        .byte con_bg + $0D
+- D - I - 0x022377 11:A367: 4F        .byte con_animation + $4F
+- D - I - 0x022378 11:A368: 32        .byte con_cloud + $32
 - D - I - 0x022379 11:A369: FB        .byte con_rts
 
 loc_A36A:
 sub_A36A:
 - D - I - 0x02237A 11:A36A: FD        .byte con_FD, $04
-- D - I - 0x02237C 11:A36C: 3C        .byte $3C
-- D - I - 0x02237D 11:A36D: 20        .byte $20
-- D - I - 0x02237E 11:A36E: 52        .byte $52
-- D - I - 0x02237F 11:A36F: 33        .byte $33
+- D - I - 0x02237C 11:A36C: 3C        .byte con_pause + $3C
+- D - I - 0x02237D 11:A36D: 20        .byte con_bg + $20
+- D - I - 0x02237E 11:A36E: 52        .byte con_animation + $52
+- D - I - 0x02237F 11:A36F: 33        .byte con_cloud + $33
 - D - I - 0x022380 11:A370: FB        .byte con_rts
 
 loc_A371:
 sub_A371:
 - D - I - 0x022381 11:A371: FD        .byte con_FD, $04
 sub_A373:
-- D - I - 0x022383 11:A373: 3C        .byte $3C
-- D - I - 0x022384 11:A374: 1F        .byte $1F
-- D - I - 0x022385 11:A375: 52        .byte $52
-- D - I - 0x022386 11:A376: 34        .byte $34
+- D - I - 0x022383 11:A373: 3C        .byte con_pause + $3C
+- D - I - 0x022384 11:A374: 1F        .byte con_bg + $1F
+- D - I - 0x022385 11:A375: 52        .byte con_animation + $52
+- D - I - 0x022386 11:A376: 34        .byte con_cloud + $34
 - D - I - 0x022387 11:A377: FB        .byte con_rts
+
+; bzk мусор
 - - - - - 0x022388 11:A378: F6        .byte con_mirror_toggle
-- - - - - 0x022389 11:A379: 37        .byte $37
-- - - - - 0x02238A 11:A37A: 20        .byte $20
-- - - - - 0x02238B 11:A37B: 53        .byte $53
-- - - - - 0x02238C 11:A37C: F0        .byte con_exit_1
+- - - - - 0x022389 11:A379: 37        .byte con_pause + $37
+- - - - - 0x02238A 11:A37A: 20        .byte con_bg + $20
+- - - - - 0x02238B 11:A37B: 53        .byte con_animation + $53
+- - - - - 0x02238C 11:A37C: F0        .byte con_cloud + $F0
 - - - - - 0x02238D 11:A37D: FB        .byte con_rts
 
 loc_A37E:
-- - - - - 0x02238E 11:A37E: 30        .byte $30
-- - - - - 0x02238F 11:A37F: 1D        .byte $1D
-- - - - - 0x022390 11:A380: 54        .byte $54
-- - - - - 0x022391 11:A381: F0        .byte con_exit_1
+- - - - - 0x02238E 11:A37E: 30        .byte con_pause + $30
+- - - - - 0x02238F 11:A37F: 1D        .byte con_bg + $1D
+- - - - - 0x022390 11:A380: 54        .byte con_animation + $54
+- - - - - 0x022391 11:A381: F0        .byte con_cloud + $F0
 - - - - - 0x022392 11:A382: FB        .byte con_rts
 
 loc_A383:
-- D - I - 0x022393 11:A383: 40        .byte $40
-- D - I - 0x022394 11:A384: 2A        .byte $2A
-- D - I - 0x022395 11:A385: 55        .byte $55
-- D - I - 0x022396 11:A386: 36        .byte $36
+- D - I - 0x022393 11:A383: 40        .byte con_pause + $40
+- D - I - 0x022394 11:A384: 2A        .byte con_bg + $2A
+- D - I - 0x022395 11:A385: 55        .byte con_animation + $55
+- D - I - 0x022396 11:A386: 36        .byte con_cloud + $36
 - D - I - 0x022397 11:A387: FB        .byte con_rts
 
 loc_A388:
 - D - I - 0x022398 11:A388: FD        .byte con_FD, $04
-- D - I - 0x02239A 11:A38A: 34        .byte $34
-- D - I - 0x02239B 11:A38B: 20        .byte $20
-- D - I - 0x02239C 11:A38C: 70        .byte $70
-- D - I - 0x02239D 11:A38D: 34        .byte $34
+- D - I - 0x02239A 11:A38A: 34        .byte con_pause + $34
+- D - I - 0x02239B 11:A38B: 20        .byte con_bg + $20
+- D - I - 0x02239C 11:A38C: 70        .byte con_animation + $70
+- D - I - 0x02239D 11:A38D: 34        .byte con_cloud + $34
 - D - I - 0x02239E 11:A38E: FB        .byte con_rts
 
 sub_A38F:
-- D - I - 0x02239F 11:A38F: 28        .byte $28
-- D - I - 0x0223A0 11:A390: 28        .byte $28
-- D - I - 0x0223A1 11:A391: 56        .byte $56
-- D - I - 0x0223A2 11:A392: F0        .byte con_exit_1
+- D - I - 0x02239F 11:A38F: 28        .byte con_pause + $28
+- D - I - 0x0223A0 11:A390: 28        .byte con_bg + $28
+- D - I - 0x0223A1 11:A391: 56        .byte con_animation + $56
+- D - I - 0x0223A2 11:A392: F0        .byte con_cloud + $F0
 - D - I - 0x0223A3 11:A393: FB        .byte con_rts
 
 sub_A394:
-- D - I - 0x0223A4 11:A394: 28        .byte $28
-- D - I - 0x0223A5 11:A395: 28        .byte $28
-- D - I - 0x0223A6 11:A396: 56        .byte $56
-- D - I - 0x0223A7 11:A397: 37        .byte $37
+- D - I - 0x0223A4 11:A394: 28        .byte con_pause + $28
+- D - I - 0x0223A5 11:A395: 28        .byte con_bg + $28
+- D - I - 0x0223A6 11:A396: 56        .byte con_animation + $56
+- D - I - 0x0223A7 11:A397: 37        .byte con_cloud + $37
 - D - I - 0x0223A8 11:A398: FB        .byte con_rts
 
 sub_A399:
-- D - I - 0x0223A9 11:A399: 28        .byte $28
-- D - I - 0x0223AA 11:A39A: 28        .byte $28
-- D - I - 0x0223AB 11:A39B: 56        .byte $56
-- D - I - 0x0223AC 11:A39C: 38        .byte $38
+- D - I - 0x0223A9 11:A399: 28        .byte con_pause + $28
+- D - I - 0x0223AA 11:A39A: 28        .byte con_bg + $28
+- D - I - 0x0223AB 11:A39B: 56        .byte con_animation + $56
+- D - I - 0x0223AC 11:A39C: 38        .byte con_cloud + $38
 - D - I - 0x0223AD 11:A39D: FB        .byte con_rts
 
 sub_A39E:
-- D - I - 0x0223AE 11:A39E: 28        .byte $28
-- D - I - 0x0223AF 11:A39F: 28        .byte $28
-- D - I - 0x0223B0 11:A3A0: 56        .byte $56
-- D - I - 0x0223B1 11:A3A1: 39        .byte $39
+- D - I - 0x0223AE 11:A39E: 28        .byte con_pause + $28
+- D - I - 0x0223AF 11:A39F: 28        .byte con_bg + $28
+- D - I - 0x0223B0 11:A3A0: 56        .byte con_animation + $56
+- D - I - 0x0223B1 11:A3A1: 39        .byte con_cloud + $39
 - D - I - 0x0223B2 11:A3A2: FB        .byte con_rts
 
 loc_A3A3:
 - D - I - 0x0223B3 11:A3A3: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0223B6 11:A3A6: 3C        .byte $3C
-- D - I - 0x0223B7 11:A3A7: 2F        .byte $2F
-- D - I - 0x0223B8 11:A3A8: 57        .byte $57
-- D - I - 0x0223B9 11:A3A9: 3A        .byte $3A
+- D - I - 0x0223B6 11:A3A6: 3C        .byte con_pause + $3C
+- D - I - 0x0223B7 11:A3A7: 2F        .byte con_bg + $2F
+- D - I - 0x0223B8 11:A3A8: 57        .byte con_animation + $57
+- D - I - 0x0223B9 11:A3A9: 3A        .byte con_cloud + $3A
 - D - I - 0x0223BA 11:A3AA: FB        .byte con_rts
 
 loc_A3AB:
 - D - I - 0x0223BB 11:A3AB: F5        .byte con_mirror_off
 - D - I - 0x0223BC 11:A3AC: FC        .byte con_FC, $04
-- D - I - 0x0223BE 11:A3AE: 2D        .byte $2D
-- D - I - 0x0223BF 11:A3AF: 58        .byte $58
-- D - I - 0x0223C0 11:A3B0: 04        .byte $04
-- D - I - 0x0223C1 11:A3B1: 3A        .byte $3A
+- D - I - 0x0223BE 11:A3AE: 2D        .byte con_pause + $2D
+- D - I - 0x0223BF 11:A3AF: 58        .byte con_bg + $58
+- D - I - 0x0223C0 11:A3B0: 04        .byte con_animation + $04
+- D - I - 0x0223C1 11:A3B1: 3A        .byte con_cloud + $3A
 - D - I - 0x0223C2 11:A3B2: FB        .byte con_rts
 
 bra_long_case_A3B3_00:
 - D - I - 0x0223C3 11:A3B3: F8        .byte con_F8, $03
 - D - I - 0x0223C5 11:A3B5: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0223C8 11:A3B8: 32        .byte $32
-- D - I - 0x0223C9 11:A3B9: 1D        .byte $1D
-- D - I - 0x0223CA 11:A3BA: 20        .byte $20
-- D - I - 0x0223CB 11:A3BB: 3C        .byte $3C
+- D - I - 0x0223C8 11:A3B8: 32        .byte con_pause + $32
+- D - I - 0x0223C9 11:A3B9: 1D        .byte con_bg + $1D
+- D - I - 0x0223CA 11:A3BA: 20        .byte con_animation + $20
+- D - I - 0x0223CB 11:A3BB: 3C        .byte con_cloud + $3C
 - D - I - 0x0223CC 11:A3BC: FB        .byte con_rts
 
 bra_long_case_A3BD_00:
 - D - I - 0x0223CD 11:A3BD: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0223D0 11:A3C0: 32        .byte $32
-- D - I - 0x0223D1 11:A3C1: 1E        .byte $1E
-- D - I - 0x0223D2 11:A3C2: 1C        .byte $1C
-- D - I - 0x0223D3 11:A3C3: 3D        .byte $3D
+- D - I - 0x0223D0 11:A3C0: 32        .byte con_pause + $32
+- D - I - 0x0223D1 11:A3C1: 1E        .byte con_bg + $1E
+- D - I - 0x0223D2 11:A3C2: 1C        .byte con_animation + $1C
+- D - I - 0x0223D3 11:A3C3: 3D        .byte con_cloud + $3D
 - D - I - 0x0223D4 11:A3C4: FB        .byte con_rts
 
 bra_long_case_A3C5_00:
 - D - I - 0x0223D5 11:A3C5: F8        .byte con_F8, $01
 - D - I - 0x0223D7 11:A3C7: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0223DA 11:A3CA: 32        .byte $32
-- D - I - 0x0223DB 11:A3CB: 1E        .byte $1E
-- D - I - 0x0223DC 11:A3CC: 20        .byte $20
-- D - I - 0x0223DD 11:A3CD: 3E        .byte $3E
+- D - I - 0x0223DA 11:A3CA: 32        .byte con_pause + $32
+- D - I - 0x0223DB 11:A3CB: 1E        .byte con_bg + $1E
+- D - I - 0x0223DC 11:A3CC: 20        .byte con_animation + $20
+- D - I - 0x0223DD 11:A3CD: 3E        .byte con_cloud + $3E
 - D - I - 0x0223DE 11:A3CE: FB        .byte con_rts
 
 sub_A3CF:
@@ -8056,10 +8063,10 @@ bra_case_A3EA_02:
 
 bra_case_A3F0_05:
 - D - I - 0x022400 11:A3F0: F7        .byte con_F7, $44
-- D - I - 0x022402 11:A3F2: 78        .byte $78
-- D - I - 0x022403 11:A3F3: 30        .byte $30
-- D - I - 0x022404 11:A3F4: A0        .byte $A0
-- D - I - 0x022405 11:A3F5: D9        .byte $D9
+- D - I - 0x022402 11:A3F2: 78        .byte con_pause + $78
+- D - I - 0x022403 11:A3F3: 30        .byte con_bg + $30
+- D - I - 0x022404 11:A3F4: A0        .byte con_animation + $A0
+- D - I - 0x022405 11:A3F5: D9        .byte con_cloud + $D9
 - D - I - 0x022406 11:A3F6: FA        .byte con_jsr
 - D - I - 0x022407 11:A3F7: C7 BB     .word sub_BBC7
 loc_A3F9:
@@ -8070,25 +8077,25 @@ bra_case_A3F9_0A:
 bra_case_A3F9_0B:
 - D - I - 0x022409 11:A3F9: FC        .byte con_FC, $02
 - D - I - 0x02240B 11:A3FB: F9        .byte con_delay_soundID, $02, $27
-- D - I - 0x02240E 11:A3FE: 14        .byte $14
-- D - I - 0x02240F 11:A3FF: 59        .byte $59
-- D - I - 0x022410 11:A400: 58        .byte $58
-- D - I - 0x022411 11:A401: EC        .byte $EC
+- D - I - 0x02240E 11:A3FE: 14        .byte con_pause + $14
+- D - I - 0x02240F 11:A3FF: 59        .byte con_bg + $59
+- D - I - 0x022410 11:A400: 58        .byte con_animation + $58
+- D - I - 0x022411 11:A401: EC        .byte con_cloud + $EC
 - D - I - 0x022412 11:A402: FA        .byte con_jsr
 - D - I - 0x022413 11:A403: 6A A4     .word sub_A46A
 - D - I - 0x022415 11:A405: FC        .byte con_FC, $02
-- D - I - 0x022417 11:A407: 0A        .byte $0A
-- D - I - 0x022418 11:A408: 57        .byte $57
-- D - I - 0x022419 11:A409: F0        .byte con_exit_1
-- D - I - 0x02241A 11:A40A: F0        .byte con_exit_1
+- D - I - 0x022417 11:A407: 0A        .byte con_pause + $0A
+- D - I - 0x022418 11:A408: 57        .byte con_bg + $57
+- D - I - 0x022419 11:A409: F0        .byte con_animation + $F0
+- D - I - 0x02241A 11:A40A: F0        .byte con_cloud + $F0
 - D - I - 0x02241B 11:A40B: FB        .byte con_rts
 
 bra_case_A40C_06:
 - D - I - 0x02241C 11:A40C: F7        .byte con_F7, $44
-- D - I - 0x02241E 11:A40E: 78        .byte $78
-- D - I - 0x02241F 11:A40F: 30        .byte $30
-- D - I - 0x022420 11:A410: AA        .byte $AA
-- D - I - 0x022421 11:A411: D9        .byte $D9
+- D - I - 0x02241E 11:A40E: 78        .byte con_pause + $78
+- D - I - 0x02241F 11:A40F: 30        .byte con_bg + $30
+- D - I - 0x022420 11:A410: AA        .byte con_animation + $AA
+- D - I - 0x022421 11:A411: D9        .byte con_cloud + $D9
 - D - I - 0x022422 11:A412: FA        .byte con_jsr
 - D - I - 0x022423 11:A413: C7 BB     .word sub_BBC7
 - D - I - 0x022425 11:A415: F2        .byte con_jmp
@@ -8096,17 +8103,17 @@ bra_case_A40C_06:
 
 bra_case_A418_0C:
 - D - I - 0x022428 11:A418: F7        .byte con_F7, $44
-- D - I - 0x02242A 11:A41A: 78        .byte $78
-- D - I - 0x02242B 11:A41B: 31        .byte $31
-- D - I - 0x02242C 11:A41C: 9E        .byte $9E
-- D - I - 0x02242D 11:A41D: DB        .byte $DB
+- D - I - 0x02242A 11:A41A: 78        .byte con_pause + $78
+- D - I - 0x02242B 11:A41B: 31        .byte con_bg + $31
+- D - I - 0x02242C 11:A41C: 9E        .byte con_animation + $9E
+- D - I - 0x02242D 11:A41D: DB        .byte con_cloud + $DB
 loc_A41E:
 - D - I - 0x02242E 11:A41E: FC        .byte con_FC, $04
 - D - I - 0x022430 11:A420: F9        .byte con_delay_soundID, $02, $27
-- D - I - 0x022433 11:A423: 14        .byte $14
-- D - I - 0x022434 11:A424: 59        .byte $59
-- D - I - 0x022435 11:A425: 58        .byte $58
-- D - I - 0x022436 11:A426: 00        .byte $00
+- D - I - 0x022433 11:A423: 14        .byte con_pause + $14
+- D - I - 0x022434 11:A424: 59        .byte con_bg + $59
+- D - I - 0x022435 11:A425: 58        .byte con_animation + $58
+- D - I - 0x022436 11:A426: 00        .byte con_cloud + $00
 - D - I - 0x022437 11:A427: F8        .byte con_F8, $02
 - D - I - 0x022439 11:A429: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x02243C 11:A42C: F2        .byte con_jmp
@@ -8114,10 +8121,10 @@ loc_A41E:
 
 bra_case_A42F_0D:
 - D - I - 0x02243F 11:A42F: F7        .byte con_F7, $44
-- D - I - 0x022441 11:A431: 78        .byte $78
-- D - I - 0x022442 11:A432: 31        .byte $31
-- D - I - 0x022443 11:A433: B0        .byte $B0
-- D - I - 0x022444 11:A434: DB        .byte $DB
+- D - I - 0x022441 11:A431: 78        .byte con_pause + $78
+- D - I - 0x022442 11:A432: 31        .byte con_bg + $31
+- D - I - 0x022443 11:A433: B0        .byte con_animation + $B0
+- D - I - 0x022444 11:A434: DB        .byte con_cloud + $DB
 - D - I - 0x022445 11:A435: F2        .byte con_jmp
 - D - I - 0x022446 11:A436: 1E A4     .word loc_A41E
 
@@ -8126,35 +8133,35 @@ bra_case_A438_0E:
 bra_case_A438_0F:
 - D - I - 0x022448 11:A438: F7        .byte con_F7, $02
 - D - I - 0x02244A 11:A43A: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x02244D 11:A43D: 20        .byte $20
-- D - I - 0x02244E 11:A43E: 23        .byte $23
-- D - I - 0x02244F 11:A43F: 58        .byte $58
-- D - I - 0x022450 11:A440: 00        .byte $00
+- D - I - 0x02244D 11:A43D: 20        .byte con_pause + $20
+- D - I - 0x02244E 11:A43E: 23        .byte con_bg + $23
+- D - I - 0x02244F 11:A43F: 58        .byte con_animation + $58
+- D - I - 0x022450 11:A440: 00        .byte con_cloud + $00
 - D - I - 0x022451 11:A441: FA        .byte con_jsr
 - D - I - 0x022452 11:A442: A9 A5     .word sub_A5A9
 - D - I - 0x022454 11:A444: FC        .byte con_FC, $03
 - D - I - 0x022456 11:A446: F9        .byte con_delay_soundID, $02, $28
-- D - I - 0x022459 11:A449: 50        .byte $50
-- D - I - 0x02245A 11:A44A: 57        .byte $57
-- D - I - 0x02245B 11:A44B: 50        .byte $50
-- D - I - 0x02245C 11:A44C: 3F        .byte $3F
+- D - I - 0x022459 11:A449: 50        .byte con_pause + $50
+- D - I - 0x02245A 11:A44A: 57        .byte con_bg + $57
+- D - I - 0x02245B 11:A44B: 50        .byte con_animation + $50
+- D - I - 0x02245C 11:A44C: 3F        .byte con_cloud + $3F
 - D - I - 0x02245D 11:A44D: FB        .byte con_rts
 
 bra_case_A44E_04:
 - D - I - 0x02245E 11:A44E: F7        .byte con_F7, $44
-- D - I - 0x022460 11:A450: 78        .byte $78
-- D - I - 0x022461 11:A451: 30        .byte $30
-- D - I - 0x022462 11:A452: AD        .byte $AD
-- D - I - 0x022463 11:A453: DA        .byte $DA
+- D - I - 0x022460 11:A450: 78        .byte con_pause + $78
+- D - I - 0x022461 11:A451: 30        .byte con_bg + $30
+- D - I - 0x022462 11:A452: AD        .byte con_animation + $AD
+- D - I - 0x022463 11:A453: DA        .byte con_cloud + $DA
 - D - I - 0x022464 11:A454: F2        .byte con_jmp
 - D - I - 0x022465 11:A455: 5D A4     .word loc_A45D
 
 bra_case_A457_03:
 - D - I - 0x022467 11:A457: F7        .byte con_F7, $44
-- D - I - 0x022469 11:A459: 78        .byte $78
-- D - I - 0x02246A 11:A45A: 30        .byte $30
-- D - I - 0x02246B 11:A45B: 9F        .byte $9F
-- D - I - 0x02246C 11:A45C: DA        .byte $DA
+- D - I - 0x022469 11:A459: 78        .byte con_pause + $78
+- D - I - 0x02246A 11:A45A: 30        .byte con_bg + $30
+- D - I - 0x02246B 11:A45B: 9F        .byte con_animation + $9F
+- D - I - 0x02246C 11:A45C: DA        .byte con_cloud + $DA
 loc_A45D:
 sub_A45D:
 - D - I - 0x02246D 11:A45D: FA        .byte con_jsr
@@ -8163,10 +8170,10 @@ loc_A460:
 - D - I - 0x022470 11:A460: F9        .byte con_delay_soundID, $02, $28
 loc_A463:
 - D - I - 0x022473 11:A463: FC        .byte con_FC, $04
-- D - I - 0x022475 11:A465: 50        .byte $50
-- D - I - 0x022476 11:A466: 57        .byte $57
-- D - I - 0x022477 11:A467: 50        .byte $50
-- D - I - 0x022478 11:A468: EC        .byte $EC
+- D - I - 0x022475 11:A465: 50        .byte con_pause + $50
+- D - I - 0x022476 11:A466: 57        .byte con_bg + $57
+- D - I - 0x022477 11:A467: 50        .byte con_animation + $50
+- D - I - 0x022478 11:A468: EC        .byte con_cloud + $EC
 - D - I - 0x022479 11:A469: FB        .byte con_rts
 
 sub_A46A:
@@ -8177,28 +8184,28 @@ sub_A46A:
 sub_A470:
 - D - I - 0x022480 11:A470: FC        .byte con_FC, $02
 - D - I - 0x022482 11:A472: F9        .byte con_delay_soundID, $02, $0F
-- D - I - 0x022485 11:A475: 0A        .byte $0A
-- D - I - 0x022486 11:A476: 57        .byte $57
-- D - I - 0x022487 11:A477: 50        .byte $50
-- D - I - 0x022488 11:A478: F0        .byte con_exit_1
+- D - I - 0x022485 11:A475: 0A        .byte con_pause + $0A
+- D - I - 0x022486 11:A476: 57        .byte con_bg + $57
+- D - I - 0x022487 11:A477: 50        .byte con_animation + $50
+- D - I - 0x022488 11:A478: F0        .byte con_cloud + $F0
 - D - I - 0x022489 11:A479: FC        .byte con_FC, $02
 - D - I - 0x02248B 11:A47B: F9        .byte con_delay_soundID, $02, $0F
-- D - I - 0x02248E 11:A47E: 0A        .byte $0A
-- D - I - 0x02248F 11:A47F: 59        .byte $59
-- D - I - 0x022490 11:A480: F0        .byte con_exit_1
-- D - I - 0x022491 11:A481: F0        .byte con_exit_1
+- D - I - 0x02248E 11:A47E: 0A        .byte con_pause + $0A
+- D - I - 0x02248F 11:A47F: 59        .byte con_bg + $59
+- D - I - 0x022490 11:A480: F0        .byte con_animation + $F0
+- D - I - 0x022491 11:A481: F0        .byte con_cloud + $F0
 - D - I - 0x022492 11:A482: FC        .byte con_FC, $02
 - D - I - 0x022494 11:A484: F9        .byte con_delay_soundID, $02, $0F
-- D - I - 0x022497 11:A487: 0A        .byte $0A
-- D - I - 0x022498 11:A488: 58        .byte $58
-- D - I - 0x022499 11:A489: F0        .byte con_exit_1
-- D - I - 0x02249A 11:A48A: F0        .byte con_exit_1
+- D - I - 0x022497 11:A487: 0A        .byte con_pause + $0A
+- D - I - 0x022498 11:A488: 58        .byte con_bg + $58
+- D - I - 0x022499 11:A489: F0        .byte con_animation + $F0
+- D - I - 0x02249A 11:A48A: F0        .byte con_cloud + $F0
 - D - I - 0x02249B 11:A48B: FC        .byte con_FC, $02
 - D - I - 0x02249D 11:A48D: F9        .byte con_delay_soundID, $02, $0F
-- D - I - 0x0224A0 11:A490: 0A        .byte $0A
-- D - I - 0x0224A1 11:A491: 59        .byte $59
-- D - I - 0x0224A2 11:A492: F0        .byte con_exit_1
-- D - I - 0x0224A3 11:A493: 00        .byte $00
+- D - I - 0x0224A0 11:A490: 0A        .byte con_pause + $0A
+- D - I - 0x0224A1 11:A491: 59        .byte con_bg + $59
+- D - I - 0x0224A2 11:A492: F0        .byte con_animation + $F0
+- D - I - 0x0224A3 11:A493: 00        .byte con_cloud + $00
 - D - I - 0x0224A4 11:A494: FB        .byte con_rts
 
 sub_A495:
@@ -8243,42 +8250,42 @@ bra_case_A4BA_00:
 - D - I - 0x0224CA 11:A4BA: FB        .byte con_rts
 
 bra_case_A4BB_01:
-- D - I - 0x0224CB 11:A4BB: 3C        .byte $3C
-- D - I - 0x0224CC 11:A4BC: 30        .byte $30
-- D - I - 0x0224CD 11:A4BD: 91        .byte $91
-- D - I - 0x0224CE 11:A4BE: 97        .byte $97
+- D - I - 0x0224CB 11:A4BB: 3C        .byte con_pause + $3C
+- D - I - 0x0224CC 11:A4BC: 30        .byte con_bg + $30
+- D - I - 0x0224CD 11:A4BD: 91        .byte con_animation + $91
+- D - I - 0x0224CE 11:A4BE: 97        .byte con_cloud + $97
 - D - I - 0x0224CF 11:A4BF: F2        .byte con_jmp
 - D - I - 0x0224D0 11:A4C0: C7 BB     .word loc_BBC7
 
 bra_case_A4C2_02:
-- D - I - 0x0224D2 11:A4C2: 3C        .byte $3C
-- D - I - 0x0224D3 11:A4C3: 30        .byte $30
-- D - I - 0x0224D4 11:A4C4: 96        .byte $96
-- D - I - 0x0224D5 11:A4C5: 97        .byte $97
+- D - I - 0x0224D2 11:A4C2: 3C        .byte con_pause + $3C
+- D - I - 0x0224D3 11:A4C3: 30        .byte con_bg + $30
+- D - I - 0x0224D4 11:A4C4: 96        .byte con_animation + $96
+- D - I - 0x0224D5 11:A4C5: 97        .byte con_cloud + $97
 - D - I - 0x0224D6 11:A4C6: F2        .byte con_jmp
 - D - I - 0x0224D7 11:A4C7: C7 BB     .word loc_BBC7
 
 bra_case_A4C9_03:
-- - - - - 0x0224D9 11:A4C9: 3C        .byte $3C
-- - - - - 0x0224DA 11:A4CA: 30        .byte $30
-- - - - - 0x0224DB 11:A4CB: 97        .byte $97
-- - - - - 0x0224DC 11:A4CC: 97        .byte $97
+- - - - - 0x0224D9 11:A4C9: 3C        .byte con_pause + $3C
+- - - - - 0x0224DA 11:A4CA: 30        .byte con_bg + $30
+- - - - - 0x0224DB 11:A4CB: 97        .byte con_animation + $97
+- - - - - 0x0224DC 11:A4CC: 97        .byte con_cloud + $97
 - - - - - 0x0224DD 11:A4CD: F2        .byte con_jmp
 - - - - - 0x0224DE 11:A4CE: C7 BB     .word loc_BBC7
 
 bra_case_A4D0_04:
-- D - I - 0x0224E0 11:A4D0: 3C        .byte $3C
-- D - I - 0x0224E1 11:A4D1: 31        .byte $31
-- D - I - 0x0224E2 11:A4D2: 9E        .byte $9E
-- D - I - 0x0224E3 11:A4D3: 97        .byte $97
+- D - I - 0x0224E0 11:A4D0: 3C        .byte con_pause + $3C
+- D - I - 0x0224E1 11:A4D1: 31        .byte con_bg + $31
+- D - I - 0x0224E2 11:A4D2: 9E        .byte con_animation + $9E
+- D - I - 0x0224E3 11:A4D3: 97        .byte con_cloud + $97
 - D - I - 0x0224E4 11:A4D4: F2        .byte con_jmp
 - D - I - 0x0224E5 11:A4D5: C7 BB     .word loc_BBC7
 
 bra_case_A4D7_05:
-- D - I - 0x0224E7 11:A4D7: 3C        .byte $3C
-- D - I - 0x0224E8 11:A4D8: 31        .byte $31
-- D - I - 0x0224E9 11:A4D9: B0        .byte $B0
-- D - I - 0x0224EA 11:A4DA: 97        .byte $97
+- D - I - 0x0224E7 11:A4D7: 3C        .byte con_pause + $3C
+- D - I - 0x0224E8 11:A4D8: 31        .byte con_bg + $31
+- D - I - 0x0224E9 11:A4D9: B0        .byte con_animation + $B0
+- D - I - 0x0224EA 11:A4DA: 97        .byte con_cloud + $97
 - D - I - 0x0224EB 11:A4DB: F2        .byte con_jmp
 - D - I - 0x0224EC 11:A4DC: C7 BB     .word loc_BBC7
 
@@ -8288,10 +8295,10 @@ bra_case_A4DE_06:
 - - - - - 0x0224F1 11:A4E1: 08        .byte bra_case_A4E9_01 - *
 
 bra_case_A4E2_00:
-- - - - - 0x0224F2 11:A4E2: 3C        .byte $3C
-- - - - - 0x0224F3 11:A4E3: 30        .byte $30
-- - - - - 0x0224F4 11:A4E4: A3        .byte $A3
-- - - - - 0x0224F5 11:A4E5: 97        .byte $97
+- - - - - 0x0224F2 11:A4E2: 3C        .byte con_pause + $3C
+- - - - - 0x0224F3 11:A4E3: 30        .byte con_bg + $30
+- - - - - 0x0224F4 11:A4E4: A3        .byte con_animation + $A3
+- - - - - 0x0224F5 11:A4E5: 97        .byte con_cloud + $97
 - - - - - 0x0224F6 11:A4E6: F2        .byte con_jmp
 - - - - - 0x0224F7 11:A4E7: C7 BB     .word loc_BBC7
 
@@ -8300,218 +8307,218 @@ bra_case_A4E9_01:
 - - - - - 0x0224FA 11:A4EA: 89 A9     .word loc_A989
 
 bra_case_A4EC_07:
-- - - - - 0x0224FC 11:A4EC: 3C        .byte $3C
-- - - - - 0x0224FD 11:A4ED: 30        .byte $30
-- - - - - 0x0224FE 11:A4EE: AE        .byte $AE
-- - - - - 0x0224FF 11:A4EF: 97        .byte $97
+- - - - - 0x0224FC 11:A4EC: 3C        .byte con_pause + $3C
+- - - - - 0x0224FD 11:A4ED: 30        .byte con_bg + $30
+- - - - - 0x0224FE 11:A4EE: AE        .byte con_animation + $AE
+- - - - - 0x0224FF 11:A4EF: 97        .byte con_cloud + $97
 - - - - - 0x022500 11:A4F0: F2        .byte con_jmp
 - - - - - 0x022501 11:A4F1: C7 BB     .word loc_BBC7
 
 bra_case_A4F3_08:
-- - - - - 0x022503 11:A4F3: 3C        .byte $3C
-- - - - - 0x022504 11:A4F4: 30        .byte $30
-- - - - - 0x022505 11:A4F5: A1        .byte $A1
-- - - - - 0x022506 11:A4F6: 97        .byte $97
+- - - - - 0x022503 11:A4F3: 3C        .byte con_pause + $3C
+- - - - - 0x022504 11:A4F4: 30        .byte con_bg + $30
+- - - - - 0x022505 11:A4F5: A1        .byte con_animation + $A1
+- - - - - 0x022506 11:A4F6: 97        .byte con_cloud + $97
 - - - - - 0x022507 11:A4F7: F2        .byte con_jmp
 - - - - - 0x022508 11:A4F8: C7 BB     .word loc_BBC7
 
 bra_case_A4FA_09:
-- D - I - 0x02250A 11:A4FA: 3C        .byte $3C
-- D - I - 0x02250B 11:A4FB: 30        .byte $30
-- D - I - 0x02250C 11:A4FC: AF        .byte $AF
-- D - I - 0x02250D 11:A4FD: 97        .byte $97
+- D - I - 0x02250A 11:A4FA: 3C        .byte con_pause + $3C
+- D - I - 0x02250B 11:A4FB: 30        .byte con_bg + $30
+- D - I - 0x02250C 11:A4FC: AF        .byte con_animation + $AF
+- D - I - 0x02250D 11:A4FD: 97        .byte con_cloud + $97
 - D - I - 0x02250E 11:A4FE: F2        .byte con_jmp
 - D - I - 0x02250F 11:A4FF: C7 BB     .word loc_BBC7
 
 bra_case_A501_0A:
-- - - - - 0x022511 11:A501: 3C        .byte $3C
-- - - - - 0x022512 11:A502: 30        .byte $30
-- - - - - 0x022513 11:A503: 98        .byte $98
-- - - - - 0x022514 11:A504: 97        .byte $97
+- - - - - 0x022511 11:A501: 3C        .byte con_pause + $3C
+- - - - - 0x022512 11:A502: 30        .byte con_bg + $30
+- - - - - 0x022513 11:A503: 98        .byte con_animation + $98
+- - - - - 0x022514 11:A504: 97        .byte con_cloud + $97
 - - - - - 0x022515 11:A505: F2        .byte con_jmp
 - - - - - 0x022516 11:A506: C7 BB     .word loc_BBC7
 
 bra_case_A508_0B:
-- - - - - 0x022518 11:A508: 3C        .byte $3C
-- - - - - 0x022519 11:A509: 30        .byte $30
-- - - - - 0x02251A 11:A50A: 99        .byte $99
-- - - - - 0x02251B 11:A50B: 97        .byte $97
+- - - - - 0x022518 11:A508: 3C        .byte con_pause + $3C
+- - - - - 0x022519 11:A509: 30        .byte con_bg + $30
+- - - - - 0x02251A 11:A50A: 99        .byte con_animation + $99
+- - - - - 0x02251B 11:A50B: 97        .byte con_cloud + $97
 - - - - - 0x02251C 11:A50C: F2        .byte con_jmp
 - - - - - 0x02251D 11:A50D: C7 BB     .word loc_BBC7
 
 bra_case_A50F_0C:
-- D - I - 0x02251F 11:A50F: 3C        .byte $3C
-- D - I - 0x022520 11:A510: 30        .byte $30
-- D - I - 0x022521 11:A511: 9F        .byte $9F
-- D - I - 0x022522 11:A512: 97        .byte $97
+- D - I - 0x02251F 11:A50F: 3C        .byte con_pause + $3C
+- D - I - 0x022520 11:A510: 30        .byte con_bg + $30
+- D - I - 0x022521 11:A511: 9F        .byte con_animation + $9F
+- D - I - 0x022522 11:A512: 97        .byte con_cloud + $97
 - D - I - 0x022523 11:A513: F2        .byte con_jmp
 - D - I - 0x022524 11:A514: C7 BB     .word loc_BBC7
 
 bra_case_A516_0D:
-- - - - - 0x022526 11:A516: 3C        .byte $3C
-- - - - - 0x022527 11:A517: 30        .byte $30
-- - - - - 0x022528 11:A518: AD        .byte $AD
-- - - - - 0x022529 11:A519: 97        .byte $97
+- - - - - 0x022526 11:A516: 3C        .byte con_pause + $3C
+- - - - - 0x022527 11:A517: 30        .byte con_bg + $30
+- - - - - 0x022528 11:A518: AD        .byte con_animation + $AD
+- - - - - 0x022529 11:A519: 97        .byte con_cloud + $97
 - - - - - 0x02252A 11:A51A: F2        .byte con_jmp
 - - - - - 0x02252B 11:A51B: C7 BB     .word loc_BBC7
 
 bra_case_A51D_0E:
-- - - - - 0x02252D 11:A51D: 3C        .byte $3C
-- - - - - 0x02252E 11:A51E: 30        .byte $30
-- - - - - 0x02252F 11:A51F: A0        .byte $A0
-- - - - - 0x022530 11:A520: 97        .byte $97
+- - - - - 0x02252D 11:A51D: 3C        .byte con_pause + $3C
+- - - - - 0x02252E 11:A51E: 30        .byte con_bg + $30
+- - - - - 0x02252F 11:A51F: A0        .byte con_animation + $A0
+- - - - - 0x022530 11:A520: 97        .byte con_cloud + $97
 - - - - - 0x022531 11:A521: F2        .byte con_jmp
 - - - - - 0x022532 11:A522: C7 BB     .word loc_BBC7
 
 bra_case_A524_0F:
-- D - I - 0x022534 11:A524: 3C        .byte $3C
-- D - I - 0x022535 11:A525: 30        .byte $30
-- D - I - 0x022536 11:A526: AA        .byte $AA
-- D - I - 0x022537 11:A527: 97        .byte $97
+- D - I - 0x022534 11:A524: 3C        .byte con_pause + $3C
+- D - I - 0x022535 11:A525: 30        .byte con_bg + $30
+- D - I - 0x022536 11:A526: AA        .byte con_animation + $AA
+- D - I - 0x022537 11:A527: 97        .byte con_cloud + $97
 - D - I - 0x022538 11:A528: F2        .byte con_jmp
 - D - I - 0x022539 11:A529: C7 BB     .word loc_BBC7
 
 bra_case_A52B_10:
-- D - I - 0x02253B 11:A52B: 3C        .byte $3C
-- D - I - 0x02253C 11:A52C: 30        .byte $30
-- D - I - 0x02253D 11:A52D: 9C        .byte $9C
-- D - I - 0x02253E 11:A52E: 97        .byte $97
+- D - I - 0x02253B 11:A52B: 3C        .byte con_pause + $3C
+- D - I - 0x02253C 11:A52C: 30        .byte con_bg + $30
+- D - I - 0x02253D 11:A52D: 9C        .byte con_animation + $9C
+- D - I - 0x02253E 11:A52E: 97        .byte con_cloud + $97
 - D - I - 0x02253F 11:A52F: F2        .byte con_jmp
 - D - I - 0x022540 11:A530: C7 BB     .word loc_BBC7
 
 bra_case_A532_11:
-- D - I - 0x022542 11:A532: 3C        .byte $3C
-- D - I - 0x022543 11:A533: 30        .byte $30
-- D - I - 0x022544 11:A534: AB        .byte $AB
-- D - I - 0x022545 11:A535: 97        .byte $97
+- D - I - 0x022542 11:A532: 3C        .byte con_pause + $3C
+- D - I - 0x022543 11:A533: 30        .byte con_bg + $30
+- D - I - 0x022544 11:A534: AB        .byte con_animation + $AB
+- D - I - 0x022545 11:A535: 97        .byte con_cloud + $97
 - D - I - 0x022546 11:A536: F2        .byte con_jmp
 - D - I - 0x022547 11:A537: C7 BB     .word loc_BBC7
 
 bra_case_A539_12:
-- D - I - 0x022549 11:A539: 3C        .byte $3C
-- D - I - 0x02254A 11:A53A: 30        .byte $30
-- D - I - 0x02254B 11:A53B: 9A        .byte $9A
-- D - I - 0x02254C 11:A53C: 97        .byte $97
+- D - I - 0x022549 11:A539: 3C        .byte con_pause + $3C
+- D - I - 0x02254A 11:A53A: 30        .byte con_bg + $30
+- D - I - 0x02254B 11:A53B: 9A        .byte con_animation + $9A
+- D - I - 0x02254C 11:A53C: 97        .byte con_cloud + $97
 - D - I - 0x02254D 11:A53D: F2        .byte con_jmp
 - D - I - 0x02254E 11:A53E: C7 BB     .word loc_BBC7
 
 bra_case_A540_13:
-- - - - - 0x022550 11:A540: 3C        .byte $3C
-- - - - - 0x022551 11:A541: 30        .byte $30
-- - - - - 0x022552 11:A542: 9B        .byte $9B
-- - - - - 0x022553 11:A543: 97        .byte $97
+- - - - - 0x022550 11:A540: 3C        .byte con_pause + $3C
+- - - - - 0x022551 11:A541: 30        .byte con_bg + $30
+- - - - - 0x022552 11:A542: 9B        .byte con_animation + $9B
+- - - - - 0x022553 11:A543: 97        .byte con_cloud + $97
 - - - - - 0x022554 11:A544: F2        .byte con_jmp
 - - - - - 0x022555 11:A545: C7 BB     .word loc_BBC7
 
 bra_case_A547_14:
-- - - - - 0x022557 11:A547: 3C        .byte $3C
-- - - - - 0x022558 11:A548: 30        .byte $30
-- - - - - 0x022559 11:A549: A2        .byte $A2
-- - - - - 0x02255A 11:A54A: 97        .byte $97
+- - - - - 0x022557 11:A547: 3C        .byte con_pause + $3C
+- - - - - 0x022558 11:A548: 30        .byte con_bg + $30
+- - - - - 0x022559 11:A549: A2        .byte con_animation + $A2
+- - - - - 0x02255A 11:A54A: 97        .byte con_cloud + $97
 - - - - - 0x02255B 11:A54B: F2        .byte con_jmp
 - - - - - 0x02255C 11:A54C: C7 BB     .word loc_BBC7
 
 bra_case_A54E_15:
-- - - - - 0x02255E 11:A54E: 3C        .byte $3C
-- - - - - 0x02255F 11:A54F: 30        .byte $30
-- - - - - 0x022560 11:A550: B1        .byte $B1
-- - - - - 0x022561 11:A551: 97        .byte $97
+- - - - - 0x02255E 11:A54E: 3C        .byte con_pause + $3C
+- - - - - 0x02255F 11:A54F: 30        .byte con_bg + $30
+- - - - - 0x022560 11:A550: B1        .byte con_animation + $B1
+- - - - - 0x022561 11:A551: 97        .byte con_cloud + $97
 - - - - - 0x022562 11:A552: F2        .byte con_jmp
 - - - - - 0x022563 11:A553: C7 BB     .word loc_BBC7
 
 bra_case_A555_16:
-- D - I - 0x022565 11:A555: 3C        .byte $3C
-- D - I - 0x022566 11:A556: 30        .byte $30
-- D - I - 0x022567 11:A557: BC        .byte $BC
-- D - I - 0x022568 11:A558: 97        .byte $97
+- D - I - 0x022565 11:A555: 3C        .byte con_pause + $3C
+- D - I - 0x022566 11:A556: 30        .byte con_bg + $30
+- D - I - 0x022567 11:A557: BC        .byte con_animation + $BC
+- D - I - 0x022568 11:A558: 97        .byte con_cloud + $97
 - D - I - 0x022569 11:A559: F2        .byte con_jmp
 - D - I - 0x02256A 11:A55A: C7 BB     .word loc_BBC7
 
 bra_case_A55C_17:
-- D - I - 0x02256C 11:A55C: 3C        .byte $3C
-- D - I - 0x02256D 11:A55D: 30        .byte $30
-- D - I - 0x02256E 11:A55E: A9        .byte $A9
-- D - I - 0x02256F 11:A55F: 97        .byte $97
+- D - I - 0x02256C 11:A55C: 3C        .byte con_pause + $3C
+- D - I - 0x02256D 11:A55D: 30        .byte con_bg + $30
+- D - I - 0x02256E 11:A55E: A9        .byte con_animation + $A9
+- D - I - 0x02256F 11:A55F: 97        .byte con_cloud + $97
 - D - I - 0x022570 11:A560: F2        .byte con_jmp
 - D - I - 0x022571 11:A561: C7 BB     .word loc_BBC7
 
 bra_case_A563_18:
-- D - I - 0x022573 11:A563: 3C        .byte $3C
-- D - I - 0x022574 11:A564: 30        .byte $30
-- D - I - 0x022575 11:A565: BB        .byte $BB
-- D - I - 0x022576 11:A566: 97        .byte $97
+- D - I - 0x022573 11:A563: 3C        .byte con_pause + $3C
+- D - I - 0x022574 11:A564: 30        .byte con_bg + $30
+- D - I - 0x022575 11:A565: BB        .byte con_animation + $BB
+- D - I - 0x022576 11:A566: 97        .byte con_cloud + $97
 - D - I - 0x022577 11:A567: F2        .byte con_jmp
 - D - I - 0x022578 11:A568: C7 BB     .word loc_BBC7
 
 bra_case_A56A_19:
-- D - I - 0x02257A 11:A56A: 3C        .byte $3C
-- D - I - 0x02257B 11:A56B: 30        .byte $30
-- D - I - 0x02257C 11:A56C: B8        .byte $B8
-- D - I - 0x02257D 11:A56D: 97        .byte $97
+- D - I - 0x02257A 11:A56A: 3C        .byte con_pause + $3C
+- D - I - 0x02257B 11:A56B: 30        .byte con_bg + $30
+- D - I - 0x02257C 11:A56C: B8        .byte con_animation + $B8
+- D - I - 0x02257D 11:A56D: 97        .byte con_cloud + $97
 - D - I - 0x02257E 11:A56E: F2        .byte con_jmp
 - D - I - 0x02257F 11:A56F: C7 BB     .word loc_BBC7
 
 bra_case_A571_1A:
-- - - - - 0x022581 11:A571: 3C        .byte $3C
-- - - - - 0x022582 11:A572: 30        .byte $30
-- - - - - 0x022583 11:A573: B3        .byte $B3
-- - - - - 0x022584 11:A574: 97        .byte $97
+- - - - - 0x022581 11:A571: 3C        .byte con_pause + $3C
+- - - - - 0x022582 11:A572: 30        .byte con_bg + $30
+- - - - - 0x022583 11:A573: B3        .byte con_animation + $B3
+- - - - - 0x022584 11:A574: 97        .byte con_cloud + $97
 - - - - - 0x022585 11:A575: F2        .byte con_jmp
 - - - - - 0x022586 11:A576: C7 BB     .word loc_BBC7
 
 bra_case_A578_1B:
-- - - - - 0x022588 11:A578: 3C        .byte $3C
-- - - - - 0x022589 11:A579: 30        .byte $30
-- - - - - 0x02258A 11:A57A: BA        .byte $BA
-- - - - - 0x02258B 11:A57B: 97        .byte $97
+- - - - - 0x022588 11:A578: 3C        .byte con_pause + $3C
+- - - - - 0x022589 11:A579: 30        .byte con_bg + $30
+- - - - - 0x02258A 11:A57A: BA        .byte con_animation + $BA
+- - - - - 0x02258B 11:A57B: 97        .byte con_cloud + $97
 - - - - - 0x02258C 11:A57C: F2        .byte con_jmp
 - - - - - 0x02258D 11:A57D: C7 BB     .word loc_BBC7
 
 bra_case_A57F_1C:
-- D - I - 0x02258F 11:A57F: 3C        .byte $3C
-- D - I - 0x022590 11:A580: 30        .byte $30
-- D - I - 0x022591 11:A581: B7        .byte $B7
-- D - I - 0x022592 11:A582: 97        .byte $97
+- D - I - 0x02258F 11:A57F: 3C        .byte con_pause + $3C
+- D - I - 0x022590 11:A580: 30        .byte con_bg + $30
+- D - I - 0x022591 11:A581: B7        .byte con_animation + $B7
+- D - I - 0x022592 11:A582: 97        .byte con_cloud + $97
 - D - I - 0x022593 11:A583: F2        .byte con_jmp
 - D - I - 0x022594 11:A584: C7 BB     .word loc_BBC7
 
 bra_case_A586_1D:
-- D - I - 0x022596 11:A586: 3C        .byte $3C
-- D - I - 0x022597 11:A587: 30        .byte $30
-- D - I - 0x022598 11:A588: B6        .byte $B6
-- D - I - 0x022599 11:A589: 97        .byte $97
+- D - I - 0x022596 11:A586: 3C        .byte con_pause + $3C
+- D - I - 0x022597 11:A587: 30        .byte con_bg + $30
+- D - I - 0x022598 11:A588: B6        .byte con_animation + $B6
+- D - I - 0x022599 11:A589: 97        .byte con_cloud + $97
 - - - - - 0x02259A 11:A58A: F2        .byte con_jmp
 - - - - - 0x02259B 11:A58B: C7 BB     .word loc_BBC7
 
 bra_case_A58D_1E:
-- D - I - 0x02259D 11:A58D: 3C        .byte $3C
-- D - I - 0x02259E 11:A58E: 30        .byte $30
-- D - I - 0x02259F 11:A58F: B5        .byte $B5
-- D - I - 0x0225A0 11:A590: 97        .byte $97
+- D - I - 0x02259D 11:A58D: 3C        .byte con_pause + $3C
+- D - I - 0x02259E 11:A58E: 30        .byte con_bg + $30
+- D - I - 0x02259F 11:A58F: B5        .byte con_animation + $B5
+- D - I - 0x0225A0 11:A590: 97        .byte con_cloud + $97
 - D - I - 0x0225A1 11:A591: F2        .byte con_jmp
 - D - I - 0x0225A2 11:A592: C7 BB     .word loc_BBC7
 
 bra_case_A594_1F:
-- D - I - 0x0225A4 11:A594: 3C        .byte $3C
-- D - I - 0x0225A5 11:A595: 30        .byte $30
-- D - I - 0x0225A6 11:A596: B4        .byte $B4
-- D - I - 0x0225A7 11:A597: 97        .byte $97
+- D - I - 0x0225A4 11:A594: 3C        .byte con_pause + $3C
+- D - I - 0x0225A5 11:A595: 30        .byte con_bg + $30
+- D - I - 0x0225A6 11:A596: B4        .byte con_animation + $B4
+- D - I - 0x0225A7 11:A597: 97        .byte con_cloud + $97
 - D - I - 0x0225A8 11:A598: F2        .byte con_jmp
 - D - I - 0x0225A9 11:A599: C7 BB     .word loc_BBC7
 
 bra_case_A59B_20:
-- D - I - 0x0225AB 11:A59B: 3C        .byte $3C
-- D - I - 0x0225AC 11:A59C: 30        .byte $30
-- D - I - 0x0225AD 11:A59D: B2        .byte $B2
-- D - I - 0x0225AE 11:A59E: 97        .byte $97
+- D - I - 0x0225AB 11:A59B: 3C        .byte con_pause + $3C
+- D - I - 0x0225AC 11:A59C: 30        .byte con_bg + $30
+- D - I - 0x0225AD 11:A59D: B2        .byte con_animation + $B2
+- D - I - 0x0225AE 11:A59E: 97        .byte con_cloud + $97
 - D - I - 0x0225AF 11:A59F: F2        .byte con_jmp
 - D - I - 0x0225B0 11:A5A0: C7 BB     .word loc_BBC7
 
 bra_case_A5A2_21:
-- - - - - 0x0225B2 11:A5A2: 3C        .byte $3C
-- - - - - 0x0225B3 11:A5A3: 30        .byte $30
-- - - - - 0x0225B4 11:A5A4: B9        .byte $B9
-- - - - - 0x0225B5 11:A5A5: 97        .byte $97
+- - - - - 0x0225B2 11:A5A2: 3C        .byte con_pause + $3C
+- - - - - 0x0225B3 11:A5A3: 30        .byte con_bg + $30
+- - - - - 0x0225B4 11:A5A4: B9        .byte con_animation + $B9
+- - - - - 0x0225B5 11:A5A5: 97        .byte con_cloud + $97
 - - - - - 0x0225B6 11:A5A6: F2        .byte con_jmp
 - - - - - 0x0225B7 11:A5A7: C7 BB     .word loc_BBC7
 
@@ -8556,273 +8563,273 @@ bra_case_A5CD_00:
 - D - I - 0x0225DD 11:A5CD: FB        .byte con_rts
 
 bra_case_A5CE_01:
-- - - - - 0x0225DE 11:A5CE: 3C        .byte $3C
-- - - - - 0x0225DF 11:A5CF: 30        .byte $30
-- - - - - 0x0225E0 11:A5D0: 91        .byte $91
-- - - - - 0x0225E1 11:A5D1: A2        .byte $A2
+- - - - - 0x0225DE 11:A5CE: 3C        .byte con_pause + $3C
+- - - - - 0x0225DF 11:A5CF: 30        .byte con_bg + $30
+- - - - - 0x0225E0 11:A5D0: 91        .byte con_animation + $91
+- - - - - 0x0225E1 11:A5D1: A2        .byte con_cloud + $A2
 - - - - - 0x0225E2 11:A5D2: F2        .byte con_jmp
 - - - - - 0x0225E3 11:A5D3: C7 BB     .word loc_BBC7
 
 bra_case_A5D5_02:
-- D - I - 0x0225E5 11:A5D5: 3C        .byte $3C
-- D - I - 0x0225E6 11:A5D6: 30        .byte $30
-- D - I - 0x0225E7 11:A5D7: 96        .byte $96
-- D - I - 0x0225E8 11:A5D8: A2        .byte $A2
+- D - I - 0x0225E5 11:A5D5: 3C        .byte con_pause + $3C
+- D - I - 0x0225E6 11:A5D6: 30        .byte con_bg + $30
+- D - I - 0x0225E7 11:A5D7: 96        .byte con_animation + $96
+- D - I - 0x0225E8 11:A5D8: A2        .byte con_cloud + $A2
 - D - I - 0x0225E9 11:A5D9: F2        .byte con_jmp
 - D - I - 0x0225EA 11:A5DA: C7 BB     .word loc_BBC7
 
 bra_case_A5DC_03:
-- - - - - 0x0225EC 11:A5DC: 3C        .byte $3C
-- - - - - 0x0225ED 11:A5DD: 30        .byte $30
-- - - - - 0x0225EE 11:A5DE: 97        .byte $97
-- - - - - 0x0225EF 11:A5DF: A2        .byte $A2
+- - - - - 0x0225EC 11:A5DC: 3C        .byte con_pause + $3C
+- - - - - 0x0225ED 11:A5DD: 30        .byte con_bg + $30
+- - - - - 0x0225EE 11:A5DE: 97        .byte con_animation + $97
+- - - - - 0x0225EF 11:A5DF: A2        .byte con_cloud + $A2
 - - - - - 0x0225F0 11:A5E0: F2        .byte con_jmp
 - - - - - 0x0225F1 11:A5E1: C7 BB     .word loc_BBC7
 
 bra_case_A5E3_04:
-- - - - - 0x0225F3 11:A5E3: 3C        .byte $3C
-- - - - - 0x0225F4 11:A5E4: 31        .byte $31
-- - - - - 0x0225F5 11:A5E5: 9E        .byte $9E
-- - - - - 0x0225F6 11:A5E6: A2        .byte $A2
+- - - - - 0x0225F3 11:A5E3: 3C        .byte con_pause + $3C
+- - - - - 0x0225F4 11:A5E4: 31        .byte con_bg + $31
+- - - - - 0x0225F5 11:A5E5: 9E        .byte con_animation + $9E
+- - - - - 0x0225F6 11:A5E6: A2        .byte con_cloud + $A2
 - - - - - 0x0225F7 11:A5E7: F2        .byte con_jmp
 - - - - - 0x0225F8 11:A5E8: C7 BB     .word loc_BBC7
 
 bra_case_A5EA_05:
-- - - - - 0x0225FA 11:A5EA: 3C        .byte $3C
-- - - - - 0x0225FB 11:A5EB: 31        .byte $31
-- - - - - 0x0225FC 11:A5EC: B0        .byte $B0
-- - - - - 0x0225FD 11:A5ED: A2        .byte $A2
+- - - - - 0x0225FA 11:A5EA: 3C        .byte con_pause + $3C
+- - - - - 0x0225FB 11:A5EB: 31        .byte con_bg + $31
+- - - - - 0x0225FC 11:A5EC: B0        .byte con_animation + $B0
+- - - - - 0x0225FD 11:A5ED: A2        .byte con_cloud + $A2
 - - - - - 0x0225FE 11:A5EE: F2        .byte con_jmp
 - - - - - 0x0225FF 11:A5EF: C7 BB     .word loc_BBC7
 
 bra_case_A5F1_06:
-- - - - - 0x022601 11:A5F1: 3C        .byte $3C
-- - - - - 0x022602 11:A5F2: 30        .byte $30
-- - - - - 0x022603 11:A5F3: A3        .byte $A3
-- - - - - 0x022604 11:A5F4: A2        .byte $A2
+- - - - - 0x022601 11:A5F1: 3C        .byte con_pause + $3C
+- - - - - 0x022602 11:A5F2: 30        .byte con_bg + $30
+- - - - - 0x022603 11:A5F3: A3        .byte con_animation + $A3
+- - - - - 0x022604 11:A5F4: A2        .byte con_cloud + $A2
 - - - - - 0x022605 11:A5F5: F2        .byte con_jmp
 - - - - - 0x022606 11:A5F6: C7 BB     .word loc_BBC7
 
 bra_case_A5F8_07:
-- - - - - 0x022608 11:A5F8: 3C        .byte $3C
-- - - - - 0x022609 11:A5F9: 30        .byte $30
-- - - - - 0x02260A 11:A5FA: AE        .byte $AE
-- - - - - 0x02260B 11:A5FB: A2        .byte $A2
+- - - - - 0x022608 11:A5F8: 3C        .byte con_pause + $3C
+- - - - - 0x022609 11:A5F9: 30        .byte con_bg + $30
+- - - - - 0x02260A 11:A5FA: AE        .byte con_animation + $AE
+- - - - - 0x02260B 11:A5FB: A2        .byte con_cloud + $A2
 - - - - - 0x02260C 11:A5FC: F2        .byte con_jmp
 - - - - - 0x02260D 11:A5FD: C7 BB     .word loc_BBC7
 
 bra_case_A5FF_08:
-- D - I - 0x02260F 11:A5FF: 3C        .byte $3C
-- D - I - 0x022610 11:A600: 30        .byte $30
-- D - I - 0x022611 11:A601: A1        .byte $A1
-- D - I - 0x022612 11:A602: A2        .byte $A2
+- D - I - 0x02260F 11:A5FF: 3C        .byte con_pause + $3C
+- D - I - 0x022610 11:A600: 30        .byte con_bg + $30
+- D - I - 0x022611 11:A601: A1        .byte con_animation + $A1
+- D - I - 0x022612 11:A602: A2        .byte con_cloud + $A2
 - D - I - 0x022613 11:A603: F2        .byte con_jmp
 - D - I - 0x022614 11:A604: C7 BB     .word loc_BBC7
 
 bra_case_A606_09:
-- - - - - 0x022616 11:A606: 3C        .byte $3C
-- - - - - 0x022617 11:A607: 30        .byte $30
-- - - - - 0x022618 11:A608: AF        .byte $AF
-- - - - - 0x022619 11:A609: A2        .byte $A2
+- - - - - 0x022616 11:A606: 3C        .byte con_pause + $3C
+- - - - - 0x022617 11:A607: 30        .byte con_bg + $30
+- - - - - 0x022618 11:A608: AF        .byte con_animation + $AF
+- - - - - 0x022619 11:A609: A2        .byte con_cloud + $A2
 - - - - - 0x02261A 11:A60A: F2        .byte con_jmp
 - - - - - 0x02261B 11:A60B: C7 BB     .word loc_BBC7
 
 bra_case_A60D_0A:
-- - - - - 0x02261D 11:A60D: 3C        .byte $3C
-- - - - - 0x02261E 11:A60E: 30        .byte $30
-- - - - - 0x02261F 11:A60F: 98        .byte $98
-- - - - - 0x022620 11:A610: A2        .byte $A2
+- - - - - 0x02261D 11:A60D: 3C        .byte con_pause + $3C
+- - - - - 0x02261E 11:A60E: 30        .byte con_bg + $30
+- - - - - 0x02261F 11:A60F: 98        .byte con_animation + $98
+- - - - - 0x022620 11:A610: A2        .byte con_cloud + $A2
 - - - - - 0x022621 11:A611: F2        .byte con_jmp
 - - - - - 0x022622 11:A612: C7 BB     .word loc_BBC7
 
 bra_case_A614_0B:
-- - - - - 0x022624 11:A614: 3C        .byte $3C
-- - - - - 0x022625 11:A615: 30        .byte $30
-- - - - - 0x022626 11:A616: 99        .byte $99
-- - - - - 0x022627 11:A617: A2        .byte $A2
+- - - - - 0x022624 11:A614: 3C        .byte con_pause + $3C
+- - - - - 0x022625 11:A615: 30        .byte con_bg + $30
+- - - - - 0x022626 11:A616: 99        .byte con_animation + $99
+- - - - - 0x022627 11:A617: A2        .byte con_cloud + $A2
 - - - - - 0x022628 11:A618: F2        .byte con_jmp
 - - - - - 0x022629 11:A619: C7 BB     .word loc_BBC7
 
 bra_case_A61B_0C:
-- - - - - 0x02262B 11:A61B: 3C        .byte $3C
-- - - - - 0x02262C 11:A61C: 30        .byte $30
-- - - - - 0x02262D 11:A61D: 9F        .byte $9F
-- - - - - 0x02262E 11:A61E: A2        .byte $A2
+- - - - - 0x02262B 11:A61B: 3C        .byte con_pause + $3C
+- - - - - 0x02262C 11:A61C: 30        .byte con_bg + $30
+- - - - - 0x02262D 11:A61D: 9F        .byte con_animation + $9F
+- - - - - 0x02262E 11:A61E: A2        .byte con_cloud + $A2
 - - - - - 0x02262F 11:A61F: F2        .byte con_jmp
 - - - - - 0x022630 11:A620: C7 BB     .word loc_BBC7
 
 bra_case_A622_0D:
-- - - - - 0x022632 11:A622: 3C        .byte $3C
-- - - - - 0x022633 11:A623: 30        .byte $30
-- - - - - 0x022634 11:A624: AD        .byte $AD
-- - - - - 0x022635 11:A625: A2        .byte $A2
+- - - - - 0x022632 11:A622: 3C        .byte con_pause + $3C
+- - - - - 0x022633 11:A623: 30        .byte con_bg + $30
+- - - - - 0x022634 11:A624: AD        .byte con_animation + $AD
+- - - - - 0x022635 11:A625: A2        .byte con_cloud + $A2
 - - - - - 0x022636 11:A626: F2        .byte con_jmp
 - - - - - 0x022637 11:A627: C7 BB     .word loc_BBC7
 
 bra_case_A629_0E:
-- - - - - 0x022639 11:A629: 3C        .byte $3C
-- - - - - 0x02263A 11:A62A: 30        .byte $30
-- - - - - 0x02263B 11:A62B: A0        .byte $A0
-- - - - - 0x02263C 11:A62C: A2        .byte $A2
+- - - - - 0x022639 11:A629: 3C        .byte con_pause + $3C
+- - - - - 0x02263A 11:A62A: 30        .byte con_bg + $30
+- - - - - 0x02263B 11:A62B: A0        .byte con_animation + $A0
+- - - - - 0x02263C 11:A62C: A2        .byte con_cloud + $A2
 - - - - - 0x02263D 11:A62D: F2        .byte con_jmp
 - - - - - 0x02263E 11:A62E: C7 BB     .word loc_BBC7
 
 bra_case_A630_0F:
-- - - - - 0x022640 11:A630: 3C        .byte $3C
-- - - - - 0x022641 11:A631: 30        .byte $30
-- - - - - 0x022642 11:A632: AA        .byte $AA
-- - - - - 0x022643 11:A633: A2        .byte $A2
+- - - - - 0x022640 11:A630: 3C        .byte con_pause + $3C
+- - - - - 0x022641 11:A631: 30        .byte con_bg + $30
+- - - - - 0x022642 11:A632: AA        .byte con_animation + $AA
+- - - - - 0x022643 11:A633: A2        .byte con_cloud + $A2
 - - - - - 0x022644 11:A634: F2        .byte con_jmp
 - - - - - 0x022645 11:A635: C7 BB     .word loc_BBC7
 
 bra_case_A637_10:
-- - - - - 0x022647 11:A637: 3C        .byte $3C
-- - - - - 0x022648 11:A638: 30        .byte $30
-- - - - - 0x022649 11:A639: 9C        .byte $9C
-- - - - - 0x02264A 11:A63A: A2        .byte $A2
+- - - - - 0x022647 11:A637: 3C        .byte con_pause + $3C
+- - - - - 0x022648 11:A638: 30        .byte con_bg + $30
+- - - - - 0x022649 11:A639: 9C        .byte con_animation + $9C
+- - - - - 0x02264A 11:A63A: A2        .byte con_cloud + $A2
 - - - - - 0x02264B 11:A63B: F2        .byte con_jmp
 - - - - - 0x02264C 11:A63C: C7 BB     .word loc_BBC7
 
 bra_case_A63E_11:
-- - - - - 0x02264E 11:A63E: 3C        .byte $3C
-- - - - - 0x02264F 11:A63F: 30        .byte $30
-- - - - - 0x022650 11:A640: AB        .byte $AB
-- - - - - 0x022651 11:A641: A2        .byte $A2
+- - - - - 0x02264E 11:A63E: 3C        .byte con_pause + $3C
+- - - - - 0x02264F 11:A63F: 30        .byte con_bg + $30
+- - - - - 0x022650 11:A640: AB        .byte con_animation + $AB
+- - - - - 0x022651 11:A641: A2        .byte con_cloud + $A2
 - - - - - 0x022652 11:A642: F2        .byte con_jmp
 - - - - - 0x022653 11:A643: C7 BB     .word loc_BBC7
 
 bra_case_A645_12:
-- - - - - 0x022655 11:A645: 3C        .byte $3C
-- - - - - 0x022656 11:A646: 30        .byte $30
-- - - - - 0x022657 11:A647: 9A        .byte $9A
-- - - - - 0x022658 11:A648: A2        .byte $A2
+- - - - - 0x022655 11:A645: 3C        .byte con_pause + $3C
+- - - - - 0x022656 11:A646: 30        .byte con_bg + $30
+- - - - - 0x022657 11:A647: 9A        .byte con_animation + $9A
+- - - - - 0x022658 11:A648: A2        .byte con_cloud + $A2
 - - - - - 0x022659 11:A649: F2        .byte con_jmp
 - - - - - 0x02265A 11:A64A: C7 BB     .word loc_BBC7
 
 bra_case_A64C_13:
-- - - - - 0x02265C 11:A64C: 3C        .byte $3C
-- - - - - 0x02265D 11:A64D: 30        .byte $30
-- - - - - 0x02265E 11:A64E: 9B        .byte $9B
-- - - - - 0x02265F 11:A64F: A2        .byte $A2
+- - - - - 0x02265C 11:A64C: 3C        .byte con_pause + $3C
+- - - - - 0x02265D 11:A64D: 30        .byte con_bg + $30
+- - - - - 0x02265E 11:A64E: 9B        .byte con_animation + $9B
+- - - - - 0x02265F 11:A64F: A2        .byte con_cloud + $A2
 - - - - - 0x022660 11:A650: F2        .byte con_jmp
 - - - - - 0x022661 11:A651: C7 BB     .word loc_BBC7
 
 bra_case_A653_14:
-- - - - - 0x022663 11:A653: 3C        .byte $3C
-- - - - - 0x022664 11:A654: 30        .byte $30
-- - - - - 0x022665 11:A655: A2        .byte $A2
-- - - - - 0x022666 11:A656: A2        .byte $A2
+- - - - - 0x022663 11:A653: 3C        .byte con_pause + $3C
+- - - - - 0x022664 11:A654: 30        .byte con_bg + $30
+- - - - - 0x022665 11:A655: A2        .byte con_animation + $A2
+- - - - - 0x022666 11:A656: A2        .byte con_cloud + $A2
 - - - - - 0x022667 11:A657: F2        .byte con_jmp
 - - - - - 0x022668 11:A658: C7 BB     .word loc_BBC7
 
 bra_case_A65A_15:
-- - - - - 0x02266A 11:A65A: 3C        .byte $3C
-- - - - - 0x02266B 11:A65B: 30        .byte $30
-- - - - - 0x02266C 11:A65C: B1        .byte $B1
-- - - - - 0x02266D 11:A65D: A2        .byte $A2
+- - - - - 0x02266A 11:A65A: 3C        .byte con_pause + $3C
+- - - - - 0x02266B 11:A65B: 30        .byte con_bg + $30
+- - - - - 0x02266C 11:A65C: B1        .byte con_animation + $B1
+- - - - - 0x02266D 11:A65D: A2        .byte con_cloud + $A2
 - - - - - 0x02266E 11:A65E: F2        .byte con_jmp
 - - - - - 0x02266F 11:A65F: C7 BB     .word loc_BBC7
 
 bra_case_A661_16:
-- - - - - 0x022671 11:A661: 3C        .byte $3C
-- - - - - 0x022672 11:A662: 30        .byte $30
-- - - - - 0x022673 11:A663: BC        .byte $BC
-- - - - - 0x022674 11:A664: A2        .byte $A2
+- - - - - 0x022671 11:A661: 3C        .byte con_pause + $3C
+- - - - - 0x022672 11:A662: 30        .byte con_bg + $30
+- - - - - 0x022673 11:A663: BC        .byte con_animation + $BC
+- - - - - 0x022674 11:A664: A2        .byte con_cloud + $A2
 - - - - - 0x022675 11:A665: F2        .byte con_jmp
 - - - - - 0x022676 11:A666: C7 BB     .word loc_BBC7
 
 bra_case_A668_17:
-- - - - - 0x022678 11:A668: 3C        .byte $3C
-- - - - - 0x022679 11:A669: 30        .byte $30
-- - - - - 0x02267A 11:A66A: A9        .byte $A9
-- - - - - 0x02267B 11:A66B: A2        .byte $A2
+- - - - - 0x022678 11:A668: 3C        .byte con_pause + $3C
+- - - - - 0x022679 11:A669: 30        .byte con_bg + $30
+- - - - - 0x02267A 11:A66A: A9        .byte con_animation + $A9
+- - - - - 0x02267B 11:A66B: A2        .byte con_cloud + $A2
 - - - - - 0x02267C 11:A66C: F2        .byte con_jmp
 - - - - - 0x02267D 11:A66D: C7 BB     .word loc_BBC7
 bra_case_A66F_18:
-- - - - - 0x02267F 11:A66F: 3C        .byte $3C
-- - - - - 0x022680 11:A670: 30        .byte $30
-- - - - - 0x022681 11:A671: BB        .byte $BB
-- - - - - 0x022682 11:A672: A2        .byte $A2
+- - - - - 0x02267F 11:A66F: 3C        .byte con_pause + $3C
+- - - - - 0x022680 11:A670: 30        .byte con_bg + $30
+- - - - - 0x022681 11:A671: BB        .byte con_animation + $BB
+- - - - - 0x022682 11:A672: A2        .byte con_cloud + $A2
 - - - - - 0x022683 11:A673: F2        .byte con_jmp
 - - - - - 0x022684 11:A674: C7 BB     .word loc_BBC7
 
 bra_case_A676_19:
-- - - - - 0x022686 11:A676: 3C        .byte $3C
-- - - - - 0x022687 11:A677: 30        .byte $30
-- - - - - 0x022688 11:A678: B8        .byte $B8
-- - - - - 0x022689 11:A679: A2        .byte $A2
+- - - - - 0x022686 11:A676: 3C        .byte con_pause + $3C
+- - - - - 0x022687 11:A677: 30        .byte con_bg + $30
+- - - - - 0x022688 11:A678: B8        .byte con_animation + $B8
+- - - - - 0x022689 11:A679: A2        .byte con_cloud + $A2
 - - - - - 0x02268A 11:A67A: F2        .byte con_jmp
 - - - - - 0x02268B 11:A67B: C7 BB     .word loc_BBC7
 bra_case_A67D_1A:
-- - - - - 0x02268D 11:A67D: 3C        .byte $3C
-- - - - - 0x02268E 11:A67E: 30        .byte $30
-- - - - - 0x02268F 11:A67F: B3        .byte $B3
-- - - - - 0x022690 11:A680: A2        .byte $A2
+- - - - - 0x02268D 11:A67D: 3C        .byte con_pause + $3C
+- - - - - 0x02268E 11:A67E: 30        .byte con_bg + $30
+- - - - - 0x02268F 11:A67F: B3        .byte con_animation + $B3
+- - - - - 0x022690 11:A680: A2        .byte con_cloud + $A2
 - - - - - 0x022691 11:A681: F2        .byte con_jmp
 - - - - - 0x022692 11:A682: C7 BB     .word loc_BBC7
 
 bra_case_A684_1B:
-- - - - - 0x022694 11:A684: 3C        .byte $3C
-- - - - - 0x022695 11:A685: 30        .byte $30
-- - - - - 0x022696 11:A686: BA        .byte $BA
-- - - - - 0x022697 11:A687: A2        .byte $A2
+- - - - - 0x022694 11:A684: 3C        .byte con_pause + $3C
+- - - - - 0x022695 11:A685: 30        .byte con_bg + $30
+- - - - - 0x022696 11:A686: BA        .byte con_animation + $BA
+- - - - - 0x022697 11:A687: A2        .byte con_cloud + $A2
 - - - - - 0x022698 11:A688: F2        .byte con_jmp
 - - - - - 0x022699 11:A689: C7 BB     .word loc_BBC7
 
 bra_case_A68B_1C:
-- - - - - 0x02269B 11:A68B: 3C        .byte $3C
-- - - - - 0x02269C 11:A68C: 30        .byte $30
-- - - - - 0x02269D 11:A68D: B7        .byte $B7
-- - - - - 0x02269E 11:A68E: A2        .byte $A2
+- - - - - 0x02269B 11:A68B: 3C        .byte con_pause + $3C
+- - - - - 0x02269C 11:A68C: 30        .byte con_bg + $30
+- - - - - 0x02269D 11:A68D: B7        .byte con_animation + $B7
+- - - - - 0x02269E 11:A68E: A2        .byte con_cloud + $A2
 - - - - - 0x02269F 11:A68F: F2        .byte con_jmp
 - - - - - 0x0226A0 11:A690: C7 BB     .word loc_BBC7
 
 bra_case_A692_1D:
-- - - - - 0x0226A2 11:A692: 3C        .byte $3C
-- - - - - 0x0226A3 11:A693: 30        .byte $30
-- - - - - 0x0226A4 11:A694: B6        .byte $B6
-- - - - - 0x0226A5 11:A695: A2        .byte $A2
+- - - - - 0x0226A2 11:A692: 3C        .byte con_pause + $3C
+- - - - - 0x0226A3 11:A693: 30        .byte con_bg + $30
+- - - - - 0x0226A4 11:A694: B6        .byte con_animation + $B6
+- - - - - 0x0226A5 11:A695: A2        .byte con_cloud + $A2
 - - - - - 0x0226A6 11:A696: F2        .byte con_jmp
 - - - - - 0x0226A7 11:A697: C7 BB     .word loc_BBC7
 
 bra_case_A699_1E:
-- - - - - 0x0226A9 11:A699: 3C        .byte $3C
-- - - - - 0x0226AA 11:A69A: 30        .byte $30
-- - - - - 0x0226AB 11:A69B: B5        .byte $B5
-- - - - - 0x0226AC 11:A69C: A2        .byte $A2
+- - - - - 0x0226A9 11:A699: 3C        .byte con_pause + $3C
+- - - - - 0x0226AA 11:A69A: 30        .byte con_bg + $30
+- - - - - 0x0226AB 11:A69B: B5        .byte con_animation + $B5
+- - - - - 0x0226AC 11:A69C: A2        .byte con_cloud + $A2
 - - - - - 0x0226AD 11:A69D: F2        .byte con_jmp
 - - - - - 0x0226AE 11:A69E: C7 BB     .word loc_BBC7
 
 bra_case_A6A0_1F:
-- - - - - 0x0226B0 11:A6A0: 3C        .byte $3C
-- - - - - 0x0226B1 11:A6A1: 30        .byte $30
-- - - - - 0x0226B2 11:A6A2: B4        .byte $B4
-- - - - - 0x0226B3 11:A6A3: A2        .byte $A2
+- - - - - 0x0226B0 11:A6A0: 3C        .byte con_pause + $3C
+- - - - - 0x0226B1 11:A6A1: 30        .byte con_bg + $30
+- - - - - 0x0226B2 11:A6A2: B4        .byte con_animation + $B4
+- - - - - 0x0226B3 11:A6A3: A2        .byte con_cloud + $A2
 - - - - - 0x0226B4 11:A6A4: F2        .byte con_jmp
 - - - - - 0x0226B5 11:A6A5: C7 BB     .word loc_BBC7
 
 bra_case_A6A7_20:
-- - - - - 0x0226B7 11:A6A7: 3C        .byte $3C
-- - - - - 0x0226B8 11:A6A8: 30        .byte $30
-- - - - - 0x0226B9 11:A6A9: B2        .byte $B2
-- - - - - 0x0226BA 11:A6AA: A2        .byte $A2
+- - - - - 0x0226B7 11:A6A7: 3C        .byte con_pause + $3C
+- - - - - 0x0226B8 11:A6A8: 30        .byte con_bg + $30
+- - - - - 0x0226B9 11:A6A9: B2        .byte con_animation + $B2
+- - - - - 0x0226BA 11:A6AA: A2        .byte con_cloud + $A2
 - - - - - 0x0226BB 11:A6AB: F2        .byte con_jmp
 - - - - - 0x0226BC 11:A6AC: C7 BB     .word loc_BBC7
 
 bra_case_A6AE_21:
-- - - - - 0x0226BE 11:A6AE: 3C        .byte $3C
-- - - - - 0x0226BF 11:A6AF: 30        .byte $30
-- - - - - 0x0226C0 11:A6B0: B9        .byte $B9
-- - - - - 0x0226C1 11:A6B1: A2        .byte $A2
+- - - - - 0x0226BE 11:A6AE: 3C        .byte con_pause + $3C
+- - - - - 0x0226BF 11:A6AF: 30        .byte con_bg + $30
+- - - - - 0x0226C0 11:A6B0: B9        .byte con_animation + $B9
+- - - - - 0x0226C1 11:A6B1: A2        .byte con_cloud + $A2
 - - - - - 0x0226C2 11:A6B2: F2        .byte con_jmp
 - - - - - 0x0226C3 11:A6B3: C7 BB     .word loc_BBC7
 
 bra_long_case_A6B5_00:
 - D - I - 0x0226C5 11:A6B5: F7        .byte con_F7, $02
-- D - I - 0x0226C7 11:A6B7: 1E        .byte $1E
-- D - I - 0x0226C8 11:A6B8: 23        .byte $23
-- D - I - 0x0226C9 11:A6B9: 5A        .byte $5A
-- D - I - 0x0226CA 11:A6BA: 00        .byte $00
+- D - I - 0x0226C7 11:A6B7: 1E        .byte con_pause + $1E
+- D - I - 0x0226C8 11:A6B8: 23        .byte con_bg + $23
+- D - I - 0x0226C9 11:A6B9: 5A        .byte con_animation + $5A
+- D - I - 0x0226CA 11:A6BA: 00        .byte con_cloud + $00
 bra_long_case_A6BB_01:
 - D - I - 0x0226CB 11:A6BB: FB        .byte con_rts
 
@@ -8895,10 +8902,10 @@ bra_case_A6F6_01:
 - D - I - 0x022707 11:A6F7: 1A A7     .word sub_A71A
 loc_A6F9:
 sub_A6F9:
-- D - I - 0x022709 11:A6F9: 32        .byte $32
-- D - I - 0x02270A 11:A6FA: 4E        .byte $4E
-- D - I - 0x02270B 11:A6FB: C1        .byte $C1
-- D - I - 0x02270C 11:A6FC: ED        .byte $ED
+- D - I - 0x022709 11:A6F9: 32        .byte con_pause + $32
+- D - I - 0x02270A 11:A6FA: 4E        .byte con_bg + $4E
+- D - I - 0x02270B 11:A6FB: C1        .byte con_animation + $C1
+- D - I - 0x02270C 11:A6FC: ED        .byte con_cloud + $ED
 - D - I - 0x02270D 11:A6FD: F6        .byte con_mirror_toggle
 - D - I - 0x02270E 11:A6FE: FB        .byte con_rts
 
@@ -8918,10 +8925,10 @@ bra_case_A6FF_0D:
 bra_case_A6FF_0E:
 bra_case_A6FF_0F:
 - D - I - 0x02270F 11:A6FF: F7        .byte con_F7, $02
-- D - I - 0x022711 11:A701: 37        .byte $37
-- D - I - 0x022712 11:A702: 23        .byte $23
-- D - I - 0x022713 11:A703: 5B        .byte $5B
-- D - I - 0x022714 11:A704: 41        .byte $41
+- D - I - 0x022711 11:A701: 37        .byte con_pause + $37
+- D - I - 0x022712 11:A702: 23        .byte con_bg + $23
+- D - I - 0x022713 11:A703: 5B        .byte con_animation + $5B
+- D - I - 0x022714 11:A704: 41        .byte con_cloud + $41
 - D - I - 0x022715 11:A705: FB        .byte con_rts
 
 bra_long_case_A706_02:
@@ -8947,170 +8954,170 @@ bra_case_A70C_0D:
 bra_case_A70C_0E:
 bra_case_A70C_0F:
 - D - I - 0x02271C 11:A70C: F7        .byte con_F7, $02
-- D - I - 0x02271E 11:A70E: 1E        .byte $1E
-- D - I - 0x02271F 11:A70F: 22        .byte $22
-- D - I - 0x022720 11:A710: 5A        .byte $5A
-- D - I - 0x022721 11:A711: 38        .byte $38
+- D - I - 0x02271E 11:A70E: 1E        .byte con_pause + $1E
+- D - I - 0x02271F 11:A70F: 22        .byte con_bg + $22
+- D - I - 0x022720 11:A710: 5A        .byte con_animation + $5A
+- D - I - 0x022721 11:A711: 38        .byte con_cloud + $38
 - D - I - 0x022722 11:A712: FB        .byte con_rts
 
 bra_long_case_A713_00___:
 - D - I - 0x022723 11:A713: F7        .byte con_F7, $02
-- D - I - 0x022725 11:A715: 1E        .byte $1E
-- D - I - 0x022726 11:A716: 23        .byte $23
-- D - I - 0x022727 11:A717: 5A        .byte $5A
-- D - I - 0x022728 11:A718: 39        .byte $39
+- D - I - 0x022725 11:A715: 1E        .byte con_pause + $1E
+- D - I - 0x022726 11:A716: 23        .byte con_bg + $23
+- D - I - 0x022727 11:A717: 5A        .byte con_animation + $5A
+- D - I - 0x022728 11:A718: 39        .byte con_cloud + $39
 - D - I - 0x022729 11:A719: FB        .byte con_rts
 
 sub_A71A:
 - D - I - 0x02272A 11:A71A: F4        .byte con_mirror_on
 - D - I - 0x02272B 11:A71B: F8        .byte con_F8, $04
-- D - I - 0x02272D 11:A71D: 3C        .byte $3C
-- D - I - 0x02272E 11:A71E: 4F        .byte $4F
-- D - I - 0x02272F 11:A71F: 9C        .byte $9C
-- D - I - 0x022730 11:A720: AC        .byte $AC
+- D - I - 0x02272D 11:A71D: 3C        .byte con_pause + $3C
+- D - I - 0x02272E 11:A71E: 4F        .byte con_bg + $4F
+- D - I - 0x02272F 11:A71F: 9C        .byte con_animation + $9C
+- D - I - 0x022730 11:A720: AC        .byte con_cloud + $AC
 - D - I - 0x022731 11:A721: F8        .byte con_F8, $04
 - D - I - 0x022733 11:A723: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022736 11:A726: 32        .byte $32
-- D - I - 0x022737 11:A727: 1D        .byte $1D
-- D - I - 0x022738 11:A728: 1C        .byte $1C
-- D - I - 0x022739 11:A729: F0        .byte con_exit_1
+- D - I - 0x022736 11:A726: 32        .byte con_pause + $32
+- D - I - 0x022737 11:A727: 1D        .byte con_bg + $1D
+- D - I - 0x022738 11:A728: 1C        .byte con_animation + $1C
+- D - I - 0x022739 11:A729: F0        .byte con_cloud + $F0
 - D - I - 0x02273A 11:A72A: F6        .byte con_mirror_toggle
 - D - I - 0x02273B 11:A72B: F8        .byte con_F8, $04
-- D - I - 0x02273D 11:A72D: 3C        .byte $3C
-- D - I - 0x02273E 11:A72E: 30        .byte $30
-- D - I - 0x02273F 11:A72F: 9C        .byte $9C
-- D - I - 0x022740 11:A730: D3        .byte $D3
+- D - I - 0x02273D 11:A72D: 3C        .byte con_pause + $3C
+- D - I - 0x02273E 11:A72E: 30        .byte con_bg + $30
+- D - I - 0x02273F 11:A72F: 9C        .byte con_animation + $9C
+- D - I - 0x022740 11:A730: D3        .byte con_cloud + $D3
 - D - I - 0x022741 11:A731: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022744 11:A734: F8        .byte con_F8, $04
 - D - I - 0x022746 11:A736: F7        .byte con_F7, $3A
-- D - I - 0x022748 11:A738: 32        .byte $32
-- D - I - 0x022749 11:A739: 23        .byte $23
-- D - I - 0x02274A 11:A73A: 50        .byte $50
-- D - I - 0x02274B 11:A73B: F0        .byte con_exit_1
+- D - I - 0x022748 11:A738: 32        .byte con_pause + $32
+- D - I - 0x022749 11:A739: 23        .byte con_bg + $23
+- D - I - 0x02274A 11:A73A: 50        .byte con_animation + $50
+- D - I - 0x02274B 11:A73B: F0        .byte con_cloud + $F0
 - D - I - 0x02274C 11:A73C: F6        .byte con_mirror_toggle
 - D - I - 0x02274D 11:A73D: F7        .byte con_F7, $10
 - D - I - 0x02274F 11:A73F: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x022752 11:A742: 20        .byte $20
-- D - I - 0x022753 11:A743: 05        .byte $05
-- D - I - 0x022754 11:A744: 00        .byte $00
-- D - I - 0x022755 11:A745: F0        .byte con_exit_1
-- D - I - 0x022756 11:A746: 2B        .byte $2B
-- D - I - 0x022757 11:A747: 12        .byte $12
-- D - I - 0x022758 11:A748: C0        .byte $C0
-- D - I - 0x022759 11:A749: AF        .byte $AF
+- D - I - 0x022752 11:A742: 20        .byte con_pause + $20
+- D - I - 0x022753 11:A743: 05        .byte con_bg + $05
+- D - I - 0x022754 11:A744: 00        .byte con_animation + $00
+- D - I - 0x022755 11:A745: F0        .byte con_cloud + $F0
+- D - I - 0x022756 11:A746: 2B        .byte con_pause + $2B
+- D - I - 0x022757 11:A747: 12        .byte con_bg + $12
+- D - I - 0x022758 11:A748: C0        .byte con_animation + $C0
+- D - I - 0x022759 11:A749: AF        .byte con_cloud + $AF
 loc_A74A:
 - D - I - 0x02275A 11:A74A: F7        .byte con_F7, $1E
 - D - I - 0x02275C 11:A74C: F9        .byte con_delay_soundID, $02, $6D
-- D - I - 0x02275F 11:A74F: 1E        .byte $1E
-- D - I - 0x022760 11:A750: 05        .byte $05
-- D - I - 0x022761 11:A751: F0        .byte con_exit_1
-- D - I - 0x022762 11:A752: F0        .byte con_exit_1
+- D - I - 0x02275F 11:A74F: 1E        .byte con_pause + $1E
+- D - I - 0x022760 11:A750: 05        .byte con_bg + $05
+- D - I - 0x022761 11:A751: F0        .byte con_animation + $F0
+- D - I - 0x022762 11:A752: F0        .byte con_cloud + $F0
 - D - I - 0x022763 11:A753: F2        .byte con_jmp
 - D - I - 0x022764 11:A754: C7 BB     .word loc_BBC7
 
 sub_A756:
 - D - I - 0x022766 11:A756: F4        .byte con_mirror_on
 - D - I - 0x022767 11:A757: F8        .byte con_F8, $04
-- D - I - 0x022769 11:A759: 3C        .byte $3C
-- D - I - 0x02276A 11:A75A: 4F        .byte $4F
-- D - I - 0x02276B 11:A75B: AB        .byte $AB
-- D - I - 0x02276C 11:A75C: AC        .byte $AC
+- D - I - 0x022769 11:A759: 3C        .byte con_pause + $3C
+- D - I - 0x02276A 11:A75A: 4F        .byte con_bg + $4F
+- D - I - 0x02276B 11:A75B: AB        .byte con_animation + $AB
+- D - I - 0x02276C 11:A75C: AC        .byte con_cloud + $AC
 - D - I - 0x02276D 11:A75D: F8        .byte con_F8, $04
 - D - I - 0x02276F 11:A75F: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022772 11:A762: 32        .byte $32
-- D - I - 0x022773 11:A763: 1D        .byte $1D
-- D - I - 0x022774 11:A764: 1C        .byte $1C
-- D - I - 0x022775 11:A765: F0        .byte con_exit_1
+- D - I - 0x022772 11:A762: 32        .byte con_pause + $32
+- D - I - 0x022773 11:A763: 1D        .byte con_bg + $1D
+- D - I - 0x022774 11:A764: 1C        .byte con_animation + $1C
+- D - I - 0x022775 11:A765: F0        .byte con_cloud + $F0
 - D - I - 0x022776 11:A766: F8        .byte con_F8, $04
 - D - I - 0x022778 11:A768: F6        .byte con_mirror_toggle
-- D - I - 0x022779 11:A769: 3C        .byte $3C
-- D - I - 0x02277A 11:A76A: 30        .byte $30
-- D - I - 0x02277B 11:A76B: AB        .byte $AB
-- D - I - 0x02277C 11:A76C: D3        .byte $D3
+- D - I - 0x022779 11:A769: 3C        .byte con_pause + $3C
+- D - I - 0x02277A 11:A76A: 30        .byte con_bg + $30
+- D - I - 0x02277B 11:A76B: AB        .byte con_animation + $AB
+- D - I - 0x02277C 11:A76C: D3        .byte con_cloud + $D3
 - D - I - 0x02277D 11:A76D: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022780 11:A770: F8        .byte con_F8, $04
 - D - I - 0x022782 11:A772: F7        .byte con_F7, $3A
-- D - I - 0x022784 11:A774: 32        .byte $32
-- D - I - 0x022785 11:A775: 23        .byte $23
-- D - I - 0x022786 11:A776: 50        .byte $50
-- D - I - 0x022787 11:A777: F0        .byte con_exit_1
+- D - I - 0x022784 11:A774: 32        .byte con_pause + $32
+- D - I - 0x022785 11:A775: 23        .byte con_bg + $23
+- D - I - 0x022786 11:A776: 50        .byte con_animation + $50
+- D - I - 0x022787 11:A777: F0        .byte con_cloud + $F0
 - D - I - 0x022788 11:A778: F6        .byte con_mirror_toggle
 - D - I - 0x022789 11:A779: F7        .byte con_F7, $10
 - D - I - 0x02278B 11:A77B: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x02278E 11:A77E: 20        .byte $20
-- D - I - 0x02278F 11:A77F: 05        .byte $05
-- D - I - 0x022790 11:A780: 00        .byte $00
-- D - I - 0x022791 11:A781: F0        .byte con_exit_1
-- D - I - 0x022792 11:A782: 2B        .byte $2B
-- D - I - 0x022793 11:A783: 12        .byte $12
-- D - I - 0x022794 11:A784: E1        .byte $E1
-- D - I - 0x022795 11:A785: AF        .byte $AF
+- D - I - 0x02278E 11:A77E: 20        .byte con_pause + $20
+- D - I - 0x02278F 11:A77F: 05        .byte con_bg + $05
+- D - I - 0x022790 11:A780: 00        .byte con_animation + $00
+- D - I - 0x022791 11:A781: F0        .byte con_cloud + $F0
+- D - I - 0x022792 11:A782: 2B        .byte con_pause + $2B
+- D - I - 0x022793 11:A783: 12        .byte con_bg + $12
+- D - I - 0x022794 11:A784: E1        .byte con_animation + $E1
+- D - I - 0x022795 11:A785: AF        .byte con_cloud + $AF
 - D - I - 0x022796 11:A786: F2        .byte con_jmp
 - D - I - 0x022797 11:A787: 4A A7     .word loc_A74A
 
 bra_long_case_A789_05:
 - - - - - 0x022799 11:A789: F7        .byte con_F7, $44
-- - - - - 0x02279B 11:A78B: 78        .byte $78
-- - - - - 0x02279C 11:A78C: 30        .byte $30
-- - - - - 0x02279D 11:A78D: A0        .byte $A0
-- - - - - 0x02279E 11:A78E: D9        .byte $D9
+- - - - - 0x02279B 11:A78B: 78        .byte con_pause + $78
+- - - - - 0x02279C 11:A78C: 30        .byte con_bg + $30
+- - - - - 0x02279D 11:A78D: A0        .byte con_animation + $A0
+- - - - - 0x02279E 11:A78E: D9        .byte con_cloud + $D9
 loc_A78F:
 - - - - - 0x02279F 11:A78F: FA        .byte con_jsr
 - - - - - 0x0227A0 11:A790: C7 BB     .word sub_BBC7
 bra_long_case_A792_07___:
 - - - - - 0x0227A2 11:A792: F7        .byte con_F7, $33
 - - - - - 0x0227A4 11:A794: F9        .byte con_delay_soundID, $02, $27
-- - - - - 0x0227A7 11:A797: 28        .byte $28
-- - - - - 0x0227A8 11:A798: 6B        .byte $6B
-- - - - - 0x0227A9 11:A799: E3        .byte $E3
-- - - - - 0x0227AA 11:A79A: EC        .byte $EC
+- - - - - 0x0227A7 11:A797: 28        .byte con_pause + $28
+- - - - - 0x0227A8 11:A798: 6B        .byte con_bg + $6B
+- - - - - 0x0227A9 11:A799: E3        .byte con_animation + $E3
+- - - - - 0x0227AA 11:A79A: EC        .byte con_cloud + $EC
 - - - - - 0x0227AB 11:A79B: FB        .byte con_rts
 
 bra_long_case_A79C_06:
 - - - - - 0x0227AC 11:A79C: F7        .byte con_F7, $44
-- - - - - 0x0227AE 11:A79E: 78        .byte $78
-- - - - - 0x0227AF 11:A79F: 30        .byte $30
-- - - - - 0x0227B0 11:A7A0: AA        .byte $AA
-- - - - - 0x0227B1 11:A7A1: D9        .byte $D9
+- - - - - 0x0227AE 11:A79E: 78        .byte con_pause + $78
+- - - - - 0x0227AF 11:A79F: 30        .byte con_bg + $30
+- - - - - 0x0227B0 11:A7A0: AA        .byte con_animation + $AA
+- - - - - 0x0227B1 11:A7A1: D9        .byte con_cloud + $D9
 - - - - - 0x0227B2 11:A7A2: F2        .byte con_jmp
 - - - - - 0x0227B3 11:A7A3: 8F A7     .word loc_A78F
 
 bra_long_case_A7A5_0E:
 - - - - - 0x0227B5 11:A7A5: F7        .byte con_F7, $02
-- - - - - 0x0227B7 11:A7A7: 1E        .byte $1E
-- - - - - 0x0227B8 11:A7A8: 22        .byte $22
-- - - - - 0x0227B9 11:A7A9: 5A        .byte $5A
-- - - - - 0x0227BA 11:A7AA: 00        .byte $00
+- - - - - 0x0227B7 11:A7A7: 1E        .byte con_pause + $1E
+- - - - - 0x0227B8 11:A7A8: 22        .byte con_bg + $22
+- - - - - 0x0227B9 11:A7A9: 5A        .byte con_animation + $5A
+- - - - - 0x0227BA 11:A7AA: 00        .byte con_cloud + $00
 - - - - - 0x0227BB 11:A7AB: F7        .byte con_F7, $44
-- - - - - 0x0227BD 11:A7AD: 3C        .byte $3C
-- - - - - 0x0227BE 11:A7AE: 30        .byte $30
-- - - - - 0x0227BF 11:A7AF: 98        .byte $98
-- - - - - 0x0227C0 11:A7B0: D7        .byte $D7
+- - - - - 0x0227BD 11:A7AD: 3C        .byte con_pause + $3C
+- - - - - 0x0227BE 11:A7AE: 30        .byte con_bg + $30
+- - - - - 0x0227BF 11:A7AF: 98        .byte con_animation + $98
+- - - - - 0x0227C0 11:A7B0: D7        .byte con_cloud + $D7
 loc_A7B1:
 sub_A7B1:
 - D - I - 0x0227C1 11:A7B1: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0227C4 11:A7B4: 28        .byte $28
-- D - I - 0x0227C5 11:A7B5: 4E        .byte $4E
-- D - I - 0x0227C6 11:A7B6: CF        .byte $CF
-- D - I - 0x0227C7 11:A7B7: F0        .byte con_exit_1
+- D - I - 0x0227C4 11:A7B4: 28        .byte con_pause + $28
+- D - I - 0x0227C5 11:A7B5: 4E        .byte con_bg + $4E
+- D - I - 0x0227C6 11:A7B6: CF        .byte con_animation + $CF
+- D - I - 0x0227C7 11:A7B7: F0        .byte con_cloud + $F0
 - D - I - 0x0227C8 11:A7B8: F7        .byte con_F7, $31
-- D - I - 0x0227CA 11:A7BA: 1E        .byte $1E
-- D - I - 0x0227CB 11:A7BB: 48        .byte $48
-- D - I - 0x0227CC 11:A7BC: F0        .byte con_exit_1
-- D - I - 0x0227CD 11:A7BD: 00        .byte $00
+- D - I - 0x0227CA 11:A7BA: 1E        .byte con_pause + $1E
+- D - I - 0x0227CB 11:A7BB: 48        .byte con_bg + $48
+- D - I - 0x0227CC 11:A7BC: F0        .byte con_animation + $F0
+- D - I - 0x0227CD 11:A7BD: 00        .byte con_cloud + $00
 - D - I - 0x0227CE 11:A7BE: FB        .byte con_rts
 
 bra_long_case_A7BF_0F:
 - - - - - 0x0227CF 11:A7BF: F7        .byte con_F7, $02
-- - - - - 0x0227D1 11:A7C1: 1E        .byte $1E
-- - - - - 0x0227D2 11:A7C2: 22        .byte $22
-- - - - - 0x0227D3 11:A7C3: 5A        .byte $5A
-- - - - - 0x0227D4 11:A7C4: 00        .byte $00
+- - - - - 0x0227D1 11:A7C1: 1E        .byte con_pause + $1E
+- - - - - 0x0227D2 11:A7C2: 22        .byte con_bg + $22
+- - - - - 0x0227D3 11:A7C3: 5A        .byte con_animation + $5A
+- - - - - 0x0227D4 11:A7C4: 00        .byte con_cloud + $00
 - - - - - 0x0227D5 11:A7C5: F7        .byte con_F7, $44
-- - - - - 0x0227D7 11:A7C7: 3C        .byte $3C
-- - - - - 0x0227D8 11:A7C8: 30        .byte $30
-- - - - - 0x0227D9 11:A7C9: 99        .byte $99
-- - - - - 0x0227DA 11:A7CA: D7        .byte $D7
+- - - - - 0x0227D7 11:A7C7: 3C        .byte con_pause + $3C
+- - - - - 0x0227D8 11:A7C8: 30        .byte con_bg + $30
+- - - - - 0x0227D9 11:A7C9: 99        .byte con_animation + $99
+- - - - - 0x0227DA 11:A7CA: D7        .byte con_cloud + $D7
 - - - - - 0x0227DB 11:A7CB: F2        .byte con_jmp
 - - - - - 0x0227DC 11:A7CC: B1 A7     .word loc_A7B1
 
@@ -9130,36 +9137,36 @@ bra_case_A7CE_0D:
 bra_case_A7CE_0E:
 bra_case_A7CE_0F:
 - D - I - 0x0227DE 11:A7CE: F7        .byte con_F7, $02
-- D - I - 0x0227E0 11:A7D0: 28        .byte $28
-- D - I - 0x0227E1 11:A7D1: 23        .byte $23
-- D - I - 0x0227E2 11:A7D2: 5A        .byte $5A
-- D - I - 0x0227E3 11:A7D3: 40        .byte $40
+- D - I - 0x0227E0 11:A7D0: 28        .byte con_pause + $28
+- D - I - 0x0227E1 11:A7D1: 23        .byte con_bg + $23
+- D - I - 0x0227E2 11:A7D2: 5A        .byte con_animation + $5A
+- D - I - 0x0227E3 11:A7D3: 40        .byte con_cloud + $40
 - D - I - 0x0227E4 11:A7D4: FB        .byte con_rts
 
 bra_long_case_A7D5_00:
 - D - I - 0x0227E5 11:A7D5: F8        .byte con_F8, $03
 - D - I - 0x0227E7 11:A7D7: F7        .byte con_F7, $02
-- D - I - 0x0227E9 11:A7D9: 37        .byte $37
-- D - I - 0x0227EA 11:A7DA: 23        .byte $23
-- D - I - 0x0227EB 11:A7DB: 5A        .byte $5A
-- D - I - 0x0227EC 11:A7DC: 42        .byte $42
+- D - I - 0x0227E9 11:A7D9: 37        .byte con_pause + $37
+- D - I - 0x0227EA 11:A7DA: 23        .byte con_bg + $23
+- D - I - 0x0227EB 11:A7DB: 5A        .byte con_animation + $5A
+- D - I - 0x0227EC 11:A7DC: 42        .byte con_cloud + $42
 - D - I - 0x0227ED 11:A7DD: FB        .byte con_rts
 
 bra_long_case_A7DE_00:
 - D - I - 0x0227EE 11:A7DE: F8        .byte con_F8, $03
 - D - I - 0x0227F0 11:A7E0: F7        .byte con_F7, $02
-- D - I - 0x0227F2 11:A7E2: 37        .byte $37
-- D - I - 0x0227F3 11:A7E3: 22        .byte $22
-- D - I - 0x0227F4 11:A7E4: 5B        .byte $5B
-- D - I - 0x0227F5 11:A7E5: 43        .byte $43
+- D - I - 0x0227F2 11:A7E2: 37        .byte con_pause + $37
+- D - I - 0x0227F3 11:A7E3: 22        .byte con_bg + $22
+- D - I - 0x0227F4 11:A7E4: 5B        .byte con_animation + $5B
+- D - I - 0x0227F5 11:A7E5: 43        .byte con_cloud + $43
 - D - I - 0x0227F6 11:A7E6: FB        .byte con_rts
 
 bra_long_case_A7E7_00:
 - D - I - 0x0227F7 11:A7E7: F7        .byte con_F7, $02
-- D - I - 0x0227F9 11:A7E9: 37        .byte $37
-- D - I - 0x0227FA 11:A7EA: 23        .byte $23
-- D - I - 0x0227FB 11:A7EB: 5B        .byte $5B
-- D - I - 0x0227FC 11:A7EC: 44        .byte $44
+- D - I - 0x0227F9 11:A7E9: 37        .byte con_pause + $37
+- D - I - 0x0227FA 11:A7EA: 23        .byte con_bg + $23
+- D - I - 0x0227FB 11:A7EB: 5B        .byte con_animation + $5B
+- D - I - 0x0227FC 11:A7EC: 44        .byte con_cloud + $44
 - D - I - 0x0227FD 11:A7ED: FB        .byte con_rts
 
 bra_long_case_A7EE_00:
@@ -9167,47 +9174,47 @@ bra_long_case_A7EE_01:
 bra_long_case_A7EE_03:
 - D - I - 0x0227FE 11:A7EE: F6        .byte con_mirror_toggle
 - D - I - 0x0227FF 11:A7EF: F7        .byte con_F7, $02
-- D - I - 0x022801 11:A7F1: 14        .byte $14
-- D - I - 0x022802 11:A7F2: 22        .byte $22
-- D - I - 0x022803 11:A7F3: 60        .byte $60
-- D - I - 0x022804 11:A7F4: 45        .byte $45
+- D - I - 0x022801 11:A7F1: 14        .byte con_pause + $14
+- D - I - 0x022802 11:A7F2: 22        .byte con_bg + $22
+- D - I - 0x022803 11:A7F3: 60        .byte con_animation + $60
+- D - I - 0x022804 11:A7F4: 45        .byte con_cloud + $45
 - D - I - 0x022805 11:A7F5: F7        .byte con_F7, $24
 - D - I - 0x022807 11:A7F7: F9        .byte con_delay_soundID, $02, $68
-- D - I - 0x02280A 11:A7FA: 10        .byte $10
-- D - I - 0x02280B 11:A7FB: 6B        .byte $6B
-- D - I - 0x02280C 11:A7FC: F0        .byte con_exit_1
-- D - I - 0x02280D 11:A7FD: F0        .byte con_exit_1
+- D - I - 0x02280A 11:A7FA: 10        .byte con_pause + $10
+- D - I - 0x02280B 11:A7FB: 6B        .byte con_bg + $6B
+- D - I - 0x02280C 11:A7FC: F0        .byte con_animation + $F0
+- D - I - 0x02280D 11:A7FD: F0        .byte con_cloud + $F0
 loc_A7FE:
 - D - I - 0x02280E 11:A7FE: F7        .byte con_F7, $02
-- D - I - 0x022810 11:A800: 3C        .byte $3C
-- D - I - 0x022811 11:A801: 22        .byte $22
-- D - I - 0x022812 11:A802: F0        .byte con_exit_1
-- D - I - 0x022813 11:A803: F0        .byte con_exit_1
+- D - I - 0x022810 11:A800: 3C        .byte con_pause + $3C
+- D - I - 0x022811 11:A801: 22        .byte con_bg + $22
+- D - I - 0x022812 11:A802: F0        .byte con_animation + $F0
+- D - I - 0x022813 11:A803: F0        .byte con_cloud + $F0
 - D - I - 0x022814 11:A804: FB        .byte con_rts
 
 bra_long_case_A805_01:
 - D - I - 0x022815 11:A805: FA        .byte con_jsr
 - D - I - 0x022816 11:A806: 10 A8     .word sub_A810
 - D - I - 0x022818 11:A808: F7        .byte con_F7, $02
-- D - I - 0x02281A 11:A80A: 3C        .byte $3C
-- D - I - 0x02281B 11:A80B: 23        .byte $23
-- D - I - 0x02281C 11:A80C: E4        .byte $E4
-- D - I - 0x02281D 11:A80D: 45        .byte $45
+- D - I - 0x02281A 11:A80A: 3C        .byte con_pause + $3C
+- D - I - 0x02281B 11:A80B: 23        .byte con_bg + $23
+- D - I - 0x02281C 11:A80C: E4        .byte con_animation + $E4
+- D - I - 0x02281D 11:A80D: 45        .byte con_cloud + $45
 - D - I - 0x02281E 11:A80E: F6        .byte con_mirror_toggle
 - D - I - 0x02281F 11:A80F: FB        .byte con_rts
 
 sub_A810:
 - D - I - 0x022820 11:A810: F7        .byte con_F7, $02
 - D - I - 0x022822 11:A812: F9        .byte con_delay_soundID, $31, $1E
-- D - I - 0x022825 11:A815: 3F        .byte $3F
-- D - I - 0x022826 11:A816: 23        .byte $23
-- D - I - 0x022827 11:A817: E2        .byte $E2
-- D - I - 0x022828 11:A818: 49        .byte $49
+- D - I - 0x022825 11:A815: 3F        .byte con_pause + $3F
+- D - I - 0x022826 11:A816: 23        .byte con_bg + $23
+- D - I - 0x022827 11:A817: E2        .byte con_animation + $E2
+- D - I - 0x022828 11:A818: 49        .byte con_cloud + $49
 - D - I - 0x022829 11:A819: F7        .byte con_F7, $0A
-- D - I - 0x02282B 11:A81B: 3C        .byte $3C
-- D - I - 0x02282C 11:A81C: 05        .byte $05
-- D - I - 0x02282D 11:A81D: F0        .byte con_exit_1
-- D - I - 0x02282E 11:A81E: F0        .byte con_exit_1
+- D - I - 0x02282B 11:A81B: 3C        .byte con_pause + $3C
+- D - I - 0x02282C 11:A81C: 05        .byte con_bg + $05
+- D - I - 0x02282D 11:A81D: F0        .byte con_animation + $F0
+- D - I - 0x02282E 11:A81E: F0        .byte con_cloud + $F0
 - D - I - 0x02282F 11:A81F: FB        .byte con_rts
 
 bra_long_case_A820_02:
@@ -9221,46 +9228,46 @@ bra_long_case_A820_02:
 
 bra_case_A828_00:
 - - - - - 0x022838 11:A828: F7        .byte con_F7, $44
-- - - - - 0x02283A 11:A82A: 3C        .byte $3C
-- - - - - 0x02283B 11:A82B: 31        .byte $31
-- - - - - 0x02283C 11:A82C: 9E        .byte $9E
-- - - - - 0x02283D 11:A82D: C4        .byte $C4
+- - - - - 0x02283A 11:A82A: 3C        .byte con_pause + $3C
+- - - - - 0x02283B 11:A82B: 31        .byte con_bg + $31
+- - - - - 0x02283C 11:A82C: 9E        .byte con_animation + $9E
+- - - - - 0x02283D 11:A82D: C4        .byte con_cloud + $C4
 - - - - - 0x02283E 11:A82E: F2        .byte con_jmp
 - - - - - 0x02283F 11:A82F: 7B AA     .word loc_AA7B
 
 bra_case_A831_01:
 - - - - - 0x022841 11:A831: F7        .byte con_F7, $44
-- - - - - 0x022843 11:A833: 3C        .byte $3C
-- - - - - 0x022844 11:A834: 31        .byte $31
-- - - - - 0x022845 11:A835: B0        .byte $B0
-- - - - - 0x022846 11:A836: C4        .byte $C4
+- - - - - 0x022843 11:A833: 3C        .byte con_pause + $3C
+- - - - - 0x022844 11:A834: 31        .byte con_bg + $31
+- - - - - 0x022845 11:A835: B0        .byte con_animation + $B0
+- - - - - 0x022846 11:A836: C4        .byte con_cloud + $C4
 - - - - - 0x022847 11:A837: F2        .byte con_jmp
 - - - - - 0x022848 11:A838: 7B AA     .word loc_AA7B
 
 bra_case_A83A_02:
 - - - - - 0x02284A 11:A83A: F7        .byte con_F7, $44
-- - - - - 0x02284C 11:A83C: 78        .byte $78
-- - - - - 0x02284D 11:A83D: 30        .byte $30
-- - - - - 0x02284E 11:A83E: A0        .byte $A0
-- - - - - 0x02284F 11:A83F: C5        .byte $C5
+- - - - - 0x02284C 11:A83C: 78        .byte con_pause + $78
+- - - - - 0x02284D 11:A83D: 30        .byte con_bg + $30
+- - - - - 0x02284E 11:A83E: A0        .byte con_animation + $A0
+- - - - - 0x02284F 11:A83F: C5        .byte con_cloud + $C5
 - - - - - 0x022850 11:A840: F2        .byte con_jmp
 - - - - - 0x022851 11:A841: 7B AA     .word loc_AA7B
 
 bra_case_A843_03:
 - - - - - 0x022853 11:A843: F7        .byte con_F7, $44
-- - - - - 0x022855 11:A845: 78        .byte $78
-- - - - - 0x022856 11:A846: 30        .byte $30
-- - - - - 0x022857 11:A847: AA        .byte $AA
-- - - - - 0x022858 11:A848: C5        .byte $C5
+- - - - - 0x022855 11:A845: 78        .byte con_pause + $78
+- - - - - 0x022856 11:A846: 30        .byte con_bg + $30
+- - - - - 0x022857 11:A847: AA        .byte con_animation + $AA
+- - - - - 0x022858 11:A848: C5        .byte con_cloud + $C5
 - - - - - 0x022859 11:A849: F2        .byte con_jmp
 - - - - - 0x02285A 11:A84A: 7B AA     .word loc_AA7B
 
 bra_case_A84C_04:
 - - - - - 0x02285C 11:A84C: F7        .byte con_F7, $44
-- - - - - 0x02285E 11:A84E: 40        .byte $40
-- - - - - 0x02285F 11:A84F: 30        .byte $30
-- - - - - 0x022860 11:A850: B4        .byte $B4
-- - - - - 0x022861 11:A851: C6        .byte $C6
+- - - - - 0x02285E 11:A84E: 40        .byte con_pause + $40
+- - - - - 0x02285F 11:A84F: 30        .byte con_bg + $30
+- - - - - 0x022860 11:A850: B4        .byte con_animation + $B4
+- - - - - 0x022861 11:A851: C6        .byte con_cloud + $C6
 - - - - - 0x022862 11:A852: F2        .byte con_jmp
 - - - - - 0x022863 11:A853: 7B AA     .word loc_AA7B
 
@@ -9272,55 +9279,55 @@ bra_long_case_A858_03:
 - D - I - 0x022868 11:A858: FA        .byte con_jsr
 - D - I - 0x022869 11:A859: 6C A8     .word sub_A86C
 - D - I - 0x02286B 11:A85B: F7        .byte con_F7, $02
-- D - I - 0x02286D 11:A85D: 3C        .byte $3C
-- D - I - 0x02286E 11:A85E: 23        .byte $23
-- D - I - 0x02286F 11:A85F: F0        .byte con_exit_1
-- D - I - 0x022870 11:A860: 00        .byte $00
+- D - I - 0x02286D 11:A85D: 3C        .byte con_pause + $3C
+- D - I - 0x02286E 11:A85E: 23        .byte con_bg + $23
+- D - I - 0x02286F 11:A85F: F0        .byte con_animation + $F0
+- D - I - 0x022870 11:A860: 00        .byte con_cloud + $00
 - D - I - 0x022871 11:A861: F7        .byte con_F7, $02
 - D - I - 0x022873 11:A863: F9        .byte con_delay_soundID, $02, $11
-- D - I - 0x022876 11:A866: 46        .byte $46
-- D - I - 0x022877 11:A867: F0        .byte con_exit_1
-- D - I - 0x022878 11:A868: D1        .byte $D1
-- D - I - 0x022879 11:A869: 45        .byte $45
+- D - I - 0x022876 11:A866: 46        .byte con_pause + $46
+- D - I - 0x022877 11:A867: F0        .byte con_bg + $F0
+- D - I - 0x022878 11:A868: D1        .byte con_animation + $D1
+- D - I - 0x022879 11:A869: 45        .byte con_cloud + $45
 - D - I - 0x02287A 11:A86A: F6        .byte con_mirror_toggle
 - D - I - 0x02287B 11:A86B: FB        .byte con_rts
 
 sub_A86C:
 - D - I - 0x02287C 11:A86C: F7        .byte con_F7, $02
 - D - I - 0x02287E 11:A86E: F9        .byte con_delay_soundID, $0D, $0C
-- D - I - 0x022881 11:A871: 10        .byte $10
-- D - I - 0x022882 11:A872: 23        .byte $23
-- D - I - 0x022883 11:A873: DD        .byte $DD
-- D - I - 0x022884 11:A874: 00        .byte $00
+- D - I - 0x022881 11:A871: 10        .byte con_pause + $10
+- D - I - 0x022882 11:A872: 23        .byte con_bg + $23
+- D - I - 0x022883 11:A873: DD        .byte con_animation + $DD
+- D - I - 0x022884 11:A874: 00        .byte con_cloud + $00
 - D - I - 0x022885 11:A875: F7        .byte con_F7, $24
-- D - I - 0x022887 11:A877: 46        .byte $46
-- D - I - 0x022888 11:A878: 6B        .byte $6B
-- D - I - 0x022889 11:A879: F0        .byte con_exit_1
-- D - I - 0x02288A 11:A87A: 49        .byte $49
+- D - I - 0x022887 11:A877: 46        .byte con_pause + $46
+- D - I - 0x022888 11:A878: 6B        .byte con_bg + $6B
+- D - I - 0x022889 11:A879: F0        .byte con_animation + $F0
+- D - I - 0x02288A 11:A87A: 49        .byte con_cloud + $49
 - D - I - 0x02288B 11:A87B: F7        .byte con_F7, $14
 - D - I - 0x02288D 11:A87D: F9        .byte con_delay_soundID, $02, $0D
-- D - I - 0x022890 11:A880: 1E        .byte $1E
-- D - I - 0x022891 11:A881: F0        .byte con_exit_1
-- D - I - 0x022892 11:A882: 00        .byte $00
-- D - I - 0x022893 11:A883: F0        .byte con_exit_1
+- D - I - 0x022890 11:A880: 1E        .byte con_pause + $1E
+- D - I - 0x022891 11:A881: F0        .byte con_bg + $F0
+- D - I - 0x022892 11:A882: 00        .byte con_animation + $00
+- D - I - 0x022893 11:A883: F0        .byte con_cloud + $F0
 - D - I - 0x022894 11:A884: FB        .byte con_rts
 
 sub_A885:
 - D - I - 0x022895 11:A885: F7        .byte con_F7, $44
-- D - I - 0x022897 11:A887: 40        .byte $40
-- D - I - 0x022898 11:A888: 30        .byte $30
-- D - I - 0x022899 11:A889: A9        .byte $A9
-- D - I - 0x02289A 11:A88A: C7        .byte $C7
+- D - I - 0x022897 11:A887: 40        .byte con_pause + $40
+- D - I - 0x022898 11:A888: 30        .byte con_bg + $30
+- D - I - 0x022899 11:A889: A9        .byte con_animation + $A9
+- D - I - 0x02289A 11:A88A: C7        .byte con_cloud + $C7
 - D - I - 0x02289B 11:A88B: FA        .byte con_jsr
 - D - I - 0x02289C 11:A88C: C7 BB     .word sub_BBC7
 - D - I - 0x02289E 11:A88E: FB        .byte con_rts
 
 sub_A88F:
 - D - I - 0x02289F 11:A88F: F7        .byte con_F7, $44
-- D - I - 0x0228A1 11:A891: 40        .byte $40
-- D - I - 0x0228A2 11:A892: 30        .byte $30
-- D - I - 0x0228A3 11:A893: BB        .byte $BB
-- D - I - 0x0228A4 11:A894: C7        .byte $C7
+- D - I - 0x0228A1 11:A891: 40        .byte con_pause + $40
+- D - I - 0x0228A2 11:A892: 30        .byte con_bg + $30
+- D - I - 0x0228A3 11:A893: BB        .byte con_animation + $BB
+- D - I - 0x0228A4 11:A894: C7        .byte con_cloud + $C7
 - D - I - 0x0228A5 11:A895: FA        .byte con_jsr
 - D - I - 0x0228A6 11:A896: C7 BB     .word sub_BBC7
 - D - I - 0x0228A8 11:A898: FB        .byte con_rts
@@ -9336,25 +9343,25 @@ loc_A8A0:
 - D - I - 0x0228B0 11:A8A0: FA        .byte con_jsr
 - D - I - 0x0228B1 11:A8A1: AB A8     .word sub_A8AB
 - D - I - 0x0228B3 11:A8A3: F7        .byte con_F7, $02
-- D - I - 0x0228B5 11:A8A5: 46        .byte $46
-- D - I - 0x0228B6 11:A8A6: F0        .byte con_exit_1
-- D - I - 0x0228B7 11:A8A7: F0        .byte con_exit_1
-- D - I - 0x0228B8 11:A8A8: 45        .byte $45
+- D - I - 0x0228B5 11:A8A5: 46        .byte con_pause + $46
+- D - I - 0x0228B6 11:A8A6: F0        .byte con_bg + $F0
+- D - I - 0x0228B7 11:A8A7: F0        .byte con_animation + $F0
+- D - I - 0x0228B8 11:A8A8: 45        .byte con_cloud + $45
 - D - I - 0x0228B9 11:A8A9: F6        .byte con_mirror_toggle
 - D - I - 0x0228BA 11:A8AA: FB        .byte con_rts
 
 sub_A8AB:
 - D - I - 0x0228BB 11:A8AB: F7        .byte con_F7, $02
 - D - I - 0x0228BD 11:A8AD: F9        .byte con_delay_soundID, $0D, $1F
-- D - I - 0x0228C0 11:A8B0: 12        .byte $12
-- D - I - 0x0228C1 11:A8B1: 23        .byte $23
-- D - I - 0x0228C2 11:A8B2: DD        .byte $DD
-- D - I - 0x0228C3 11:A8B3: 49        .byte $49
+- D - I - 0x0228C0 11:A8B0: 12        .byte con_pause + $12
+- D - I - 0x0228C1 11:A8B1: 23        .byte con_bg + $23
+- D - I - 0x0228C2 11:A8B2: DD        .byte con_animation + $DD
+- D - I - 0x0228C3 11:A8B3: 49        .byte con_cloud + $49
 - D - I - 0x0228C4 11:A8B4: F7        .byte con_F7, $24
-- D - I - 0x0228C6 11:A8B6: 48        .byte $48
-- D - I - 0x0228C7 11:A8B7: 6B        .byte $6B
-- D - I - 0x0228C8 11:A8B8: F0        .byte con_exit_1
-- D - I - 0x0228C9 11:A8B9: F0        .byte con_exit_1
+- D - I - 0x0228C6 11:A8B6: 48        .byte con_pause + $48
+- D - I - 0x0228C7 11:A8B7: 6B        .byte con_bg + $6B
+- D - I - 0x0228C8 11:A8B8: F0        .byte con_animation + $F0
+- D - I - 0x0228C9 11:A8B9: F0        .byte con_cloud + $F0
 - D - I - 0x0228CA 11:A8BA: FB        .byte con_rts
 
 bra_case_A8BB_01:
@@ -9367,64 +9374,64 @@ bra_long_case_A8C1_05:
 - D - I - 0x0228D2 11:A8C2: D0 A8     .word sub_A8D0
 - D - I - 0x0228D4 11:A8C4: F7        .byte con_F7, $0D
 - D - I - 0x0228D6 11:A8C6: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x0228D9 11:A8C9: 1E        .byte $1E
-- D - I - 0x0228DA 11:A8CA: 47        .byte $47
-- D - I - 0x0228DB 11:A8CB: D1        .byte $D1
-- D - I - 0x0228DC 11:A8CC: 45        .byte $45
+- D - I - 0x0228D9 11:A8C9: 1E        .byte con_pause + $1E
+- D - I - 0x0228DA 11:A8CA: 47        .byte con_bg + $47
+- D - I - 0x0228DB 11:A8CB: D1        .byte con_animation + $D1
+- D - I - 0x0228DC 11:A8CC: 45        .byte con_cloud + $45
 - D - I - 0x0228DD 11:A8CD: F2        .byte con_jmp
 - D - I - 0x0228DE 11:A8CE: EF AA     .word loc_AAEF
 
 sub_A8D0:
 - D - I - 0x0228E0 11:A8D0: F7        .byte con_F7, $0D
 - D - I - 0x0228E2 11:A8D2: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x0228E5 11:A8D5: 28        .byte $28
-- D - I - 0x0228E6 11:A8D6: 47        .byte $47
-- D - I - 0x0228E7 11:A8D7: D0        .byte $D0
-- D - I - 0x0228E8 11:A8D8: 49        .byte $49
+- D - I - 0x0228E5 11:A8D5: 28        .byte con_pause + $28
+- D - I - 0x0228E6 11:A8D6: 47        .byte con_bg + $47
+- D - I - 0x0228E7 11:A8D7: D0        .byte con_animation + $D0
+- D - I - 0x0228E8 11:A8D8: 49        .byte con_cloud + $49
 - D - I - 0x0228E9 11:A8D9: F6        .byte con_mirror_toggle
 - D - I - 0x0228EA 11:A8DA: F7        .byte con_F7, $0D
 - D - I - 0x0228EC 11:A8DC: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x0228EF 11:A8DF: 28        .byte $28
-- D - I - 0x0228F0 11:A8E0: 47        .byte $47
-- D - I - 0x0228F1 11:A8E1: D0        .byte $D0
-- D - I - 0x0228F2 11:A8E2: 00        .byte $00
+- D - I - 0x0228EF 11:A8DF: 28        .byte con_pause + $28
+- D - I - 0x0228F0 11:A8E0: 47        .byte con_bg + $47
+- D - I - 0x0228F1 11:A8E1: D0        .byte con_animation + $D0
+- D - I - 0x0228F2 11:A8E2: 00        .byte con_cloud + $00
 - D - I - 0x0228F3 11:A8E3: F6        .byte con_mirror_toggle
 - D - I - 0x0228F4 11:A8E4: FB        .byte con_rts
 
 sub_A8E5:
 - D - I - 0x0228F5 11:A8E5: F7        .byte con_F7, $44
-- D - I - 0x0228F7 11:A8E7: 80        .byte $80
-- D - I - 0x0228F8 11:A8E8: 30        .byte $30
-- D - I - 0x0228F9 11:A8E9: B3        .byte $B3
-- D - I - 0x0228FA 11:A8EA: C8        .byte $C8
+- D - I - 0x0228F7 11:A8E7: 80        .byte con_pause + $80
+- D - I - 0x0228F8 11:A8E8: 30        .byte con_bg + $30
+- D - I - 0x0228F9 11:A8E9: B3        .byte con_animation + $B3
+- D - I - 0x0228FA 11:A8EA: C8        .byte con_cloud + $C8
 loc_A8EB:
 - D - I - 0x0228FB 11:A8EB: F6        .byte con_mirror_toggle
 - D - I - 0x0228FC 11:A8EC: F7        .byte con_F7, $14
 - D - I - 0x0228FE 11:A8EE: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x022901 11:A8F1: 17        .byte $17
-- D - I - 0x022902 11:A8F2: 22        .byte $22
-- D - I - 0x022903 11:A8F3: D1        .byte $D1
-- D - I - 0x022904 11:A8F4: C9        .byte $C9
+- D - I - 0x022901 11:A8F1: 17        .byte con_pause + $17
+- D - I - 0x022902 11:A8F2: 22        .byte con_bg + $22
+- D - I - 0x022903 11:A8F3: D1        .byte con_animation + $D1
+- D - I - 0x022904 11:A8F4: C9        .byte con_cloud + $C9
 - D - I - 0x022905 11:A8F5: F7        .byte con_F7, $02
 - D - I - 0x022907 11:A8F7: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x02290A 11:A8FA: 17        .byte $17
-- D - I - 0x02290B 11:A8FB: F0        .byte con_exit_1
-- D - I - 0x02290C 11:A8FC: D2        .byte $D2
-- D - I - 0x02290D 11:A8FD: F0        .byte con_exit_1
+- D - I - 0x02290A 11:A8FA: 17        .byte con_pause + $17
+- D - I - 0x02290B 11:A8FB: F0        .byte con_bg + $F0
+- D - I - 0x02290C 11:A8FC: D2        .byte con_animation + $D2
+- D - I - 0x02290D 11:A8FD: F0        .byte con_cloud + $F0
 - D - I - 0x02290E 11:A8FE: F7        .byte con_F7, $02
 - D - I - 0x022910 11:A900: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x022913 11:A903: 17        .byte $17
-- D - I - 0x022914 11:A904: F0        .byte con_exit_1
-- D - I - 0x022915 11:A905: D1        .byte $D1
-- D - I - 0x022916 11:A906: F0        .byte con_exit_1
+- D - I - 0x022913 11:A903: 17        .byte con_pause + $17
+- D - I - 0x022914 11:A904: F0        .byte con_bg + $F0
+- D - I - 0x022915 11:A905: D1        .byte con_animation + $D1
+- D - I - 0x022916 11:A906: F0        .byte con_cloud + $F0
 - D - I - 0x022917 11:A907: FB        .byte con_rts
 
 sub_A908:
 - - - - - 0x022918 11:A908: F7        .byte con_F7, $44
-- - - - - 0x02291A 11:A90A: 80        .byte $80
-- - - - - 0x02291B 11:A90B: 30        .byte $30
-- - - - - 0x02291C 11:A90C: B9        .byte $B9
-- - - - - 0x02291D 11:A90D: C8        .byte $C8
+- - - - - 0x02291A 11:A90A: 80        .byte con_pause + $80
+- - - - - 0x02291B 11:A90B: 30        .byte con_bg + $30
+- - - - - 0x02291C 11:A90C: B9        .byte con_animation + $B9
+- - - - - 0x02291D 11:A90D: C8        .byte con_cloud + $C8
 - - - - - 0x02291E 11:A90E: F2        .byte con_jmp
 - - - - - 0x02291F 11:A90F: EB A8     .word loc_A8EB
 
@@ -9441,16 +9448,16 @@ loc_A918:
 - - - - - 0x022929 11:A919: C7 BB     .word sub_BBC7
 - - - - - 0x02292B 11:A91B: F7        .byte con_F7, $02
 - - - - - 0x02292D 11:A91D: F9        .byte con_delay_soundID, $02, $26
-- - - - - 0x022930 11:A920: 17        .byte $17
-- - - - - 0x022931 11:A921: F0        .byte con_exit_1
-- - - - - 0x022932 11:A922: D2        .byte $D2
-- - - - - 0x022933 11:A923: 00        .byte $00
+- - - - - 0x022930 11:A920: 17        .byte con_pause + $17
+- - - - - 0x022931 11:A921: F0        .byte con_bg + $F0
+- - - - - 0x022932 11:A922: D2        .byte con_animation + $D2
+- - - - - 0x022933 11:A923: 00        .byte con_cloud + $00
 - - - - - 0x022934 11:A924: F7        .byte con_F7, $02
 - - - - - 0x022936 11:A926: F9        .byte con_delay_soundID, $02, $26
-- - - - - 0x022939 11:A929: 17        .byte $17
-- - - - - 0x02293A 11:A92A: F0        .byte con_exit_1
-- - - - - 0x02293B 11:A92B: D1        .byte $D1
-- - - - - 0x02293C 11:A92C: 45        .byte $45
+- - - - - 0x022939 11:A929: 17        .byte con_pause + $17
+- - - - - 0x02293A 11:A92A: F0        .byte con_bg + $F0
+- - - - - 0x02293B 11:A92B: D1        .byte con_animation + $D1
+- - - - - 0x02293C 11:A92C: 45        .byte con_cloud + $45
 - - - - - 0x02293D 11:A92D: F2        .byte con_jmp
 - - - - - 0x02293E 11:A92E: 18 AB     .word loc_AB18
 
@@ -9501,42 +9508,42 @@ bra_case_A95A_00:
 - D - I - 0x02296A 11:A95A: FB        .byte con_rts
 
 bra_case_A95B_01:
-- D - I - 0x02296B 11:A95B: 3C        .byte $3C
-- D - I - 0x02296C 11:A95C: 30        .byte $30
-- D - I - 0x02296D 11:A95D: 91        .byte $91
-- D - I - 0x02296E 11:A95E: 98        .byte $98
+- D - I - 0x02296B 11:A95B: 3C        .byte con_pause + $3C
+- D - I - 0x02296C 11:A95C: 30        .byte con_bg + $30
+- D - I - 0x02296D 11:A95D: 91        .byte con_animation + $91
+- D - I - 0x02296E 11:A95E: 98        .byte con_cloud + $98
 - D - I - 0x02296F 11:A95F: F2        .byte con_jmp
 - D - I - 0x022970 11:A960: C7 BB     .word loc_BBC7
 
 bra_case_A962_02:
-- D - I - 0x022972 11:A962: 3C        .byte $3C
-- D - I - 0x022973 11:A963: 30        .byte $30
-- D - I - 0x022974 11:A964: 96        .byte $96
-- D - I - 0x022975 11:A965: 98        .byte $98
+- D - I - 0x022972 11:A962: 3C        .byte con_pause + $3C
+- D - I - 0x022973 11:A963: 30        .byte con_bg + $30
+- D - I - 0x022974 11:A964: 96        .byte con_animation + $96
+- D - I - 0x022975 11:A965: 98        .byte con_cloud + $98
 - D - I - 0x022976 11:A966: F2        .byte con_jmp
 - D - I - 0x022977 11:A967: C7 BB     .word loc_BBC7
 
 bra_case_A969_03:
-- - - - - 0x022979 11:A969: 3C        .byte $3C
-- - - - - 0x02297A 11:A96A: 30        .byte $30
-- - - - - 0x02297B 11:A96B: 97        .byte $97
-- - - - - 0x02297C 11:A96C: 98        .byte $98
+- - - - - 0x022979 11:A969: 3C        .byte con_pause + $3C
+- - - - - 0x02297A 11:A96A: 30        .byte con_bg + $30
+- - - - - 0x02297B 11:A96B: 97        .byte con_animation + $97
+- - - - - 0x02297C 11:A96C: 98        .byte con_cloud + $98
 - - - - - 0x02297D 11:A96D: F2        .byte con_jmp
 - - - - - 0x02297E 11:A96E: C7 BB     .word loc_BBC7
 
 bra_case_A970_04:
-- D - I - 0x022980 11:A970: 3C        .byte $3C
-- D - I - 0x022981 11:A971: 31        .byte $31
-- D - I - 0x022982 11:A972: 9E        .byte $9E
-- D - I - 0x022983 11:A973: 9A        .byte $9A
+- D - I - 0x022980 11:A970: 3C        .byte con_pause + $3C
+- D - I - 0x022981 11:A971: 31        .byte con_bg + $31
+- D - I - 0x022982 11:A972: 9E        .byte con_animation + $9E
+- D - I - 0x022983 11:A973: 9A        .byte con_cloud + $9A
 - D - I - 0x022984 11:A974: F2        .byte con_jmp
 - D - I - 0x022985 11:A975: C7 BB     .word loc_BBC7
 
 bra_case_A977_05:
-- - - - - 0x022987 11:A977: 3C        .byte $3C
-- - - - - 0x022988 11:A978: 31        .byte $31
-- - - - - 0x022989 11:A979: B0        .byte $B0
-- - - - - 0x02298A 11:A97A: 9A        .byte $9A
+- - - - - 0x022987 11:A977: 3C        .byte con_pause + $3C
+- - - - - 0x022988 11:A978: 31        .byte con_bg + $31
+- - - - - 0x022989 11:A979: B0        .byte con_animation + $B0
+- - - - - 0x02298A 11:A97A: 9A        .byte con_cloud + $9A
 - - - - - 0x02298B 11:A97B: F2        .byte con_jmp
 - - - - - 0x02298C 11:A97C: C7 BB     .word loc_BBC7
 
@@ -9545,236 +9552,236 @@ bra_case_A97E_06:
 - D - I - 0x022990 11:A980: 02        .byte bra_case_A982_00 - *
 - D - I - 0x022991 11:A981: 08        .byte bra_case_A989_01 - *
 bra_case_A982_00:
-- D - I - 0x022992 11:A982: 3C        .byte $3C
-- D - I - 0x022993 11:A983: 30        .byte $30
-- D - I - 0x022994 11:A984: A3        .byte $A3
-- D - I - 0x022995 11:A985: 98        .byte $98
+- D - I - 0x022992 11:A982: 3C        .byte con_pause + $3C
+- D - I - 0x022993 11:A983: 30        .byte con_bg + $30
+- D - I - 0x022994 11:A984: A3        .byte con_animation + $A3
+- D - I - 0x022995 11:A985: 98        .byte con_cloud + $98
 - D - I - 0x022996 11:A986: F2        .byte con_jmp
 - D - I - 0x022997 11:A987: C7 BB     .word loc_BBC7
 
 loc_A989:
 bra_case_A989_01:
 - D - I - 0x022999 11:A989: F7        .byte con_F7, $35
-- D - I - 0x02299B 11:A98B: 5A        .byte $5A
-- D - I - 0x02299C 11:A98C: 30        .byte $30
-- D - I - 0x02299D 11:A98D: A3        .byte $A3
-- D - I - 0x02299E 11:A98E: 4F        .byte $4F
+- D - I - 0x02299B 11:A98B: 5A        .byte con_pause + $5A
+- D - I - 0x02299C 11:A98C: 30        .byte con_bg + $30
+- D - I - 0x02299D 11:A98D: A3        .byte con_animation + $A3
+- D - I - 0x02299E 11:A98E: 4F        .byte con_cloud + $4F
 - D - I - 0x02299F 11:A98F: F2        .byte con_jmp
 - D - I - 0x0229A0 11:A990: C7 BB     .word loc_BBC7
 
 bra_case_A992_07:
-- - - - - 0x0229A2 11:A992: 3C        .byte $3C
-- - - - - 0x0229A3 11:A993: 30        .byte $30
-- - - - - 0x0229A4 11:A994: AE        .byte $AE
-- - - - - 0x0229A5 11:A995: 98        .byte $98
+- - - - - 0x0229A2 11:A992: 3C        .byte con_pause + $3C
+- - - - - 0x0229A3 11:A993: 30        .byte con_bg + $30
+- - - - - 0x0229A4 11:A994: AE        .byte con_animation + $AE
+- - - - - 0x0229A5 11:A995: 98        .byte con_cloud + $98
 - - - - - 0x0229A6 11:A996: F2        .byte con_jmp
 - - - - - 0x0229A7 11:A997: C7 BB     .word loc_BBC7
 
 bra_case_A999_08:
-- D - I - 0x0229A9 11:A999: 3C        .byte $3C
-- D - I - 0x0229AA 11:A99A: 30        .byte $30
-- D - I - 0x0229AB 11:A99B: A1        .byte $A1
-- D - I - 0x0229AC 11:A99C: 99        .byte $99
+- D - I - 0x0229A9 11:A999: 3C        .byte con_pause + $3C
+- D - I - 0x0229AA 11:A99A: 30        .byte con_bg + $30
+- D - I - 0x0229AB 11:A99B: A1        .byte con_animation + $A1
+- D - I - 0x0229AC 11:A99C: 99        .byte con_cloud + $99
 - D - I - 0x0229AD 11:A99D: F2        .byte con_jmp
 - D - I - 0x0229AE 11:A99E: C7 BB     .word loc_BBC7
 
 bra_case_A9A0_09:
-- - - - - 0x0229B0 11:A9A0: 3C        .byte $3C
-- - - - - 0x0229B1 11:A9A1: 30        .byte $30
-- - - - - 0x0229B2 11:A9A2: AF        .byte $AF
-- - - - - 0x0229B3 11:A9A3: 99        .byte $99
+- - - - - 0x0229B0 11:A9A0: 3C        .byte con_pause + $3C
+- - - - - 0x0229B1 11:A9A1: 30        .byte con_bg + $30
+- - - - - 0x0229B2 11:A9A2: AF        .byte con_animation + $AF
+- - - - - 0x0229B3 11:A9A3: 99        .byte con_cloud + $99
 - - - - - 0x0229B4 11:A9A4: F2        .byte con_jmp
 - - - - - 0x0229B5 11:A9A5: C7 BB     .word loc_BBC7
 
 bra_case_A9A7_0A:
-- D - I - 0x0229B7 11:A9A7: 3C        .byte $3C
-- D - I - 0x0229B8 11:A9A8: 30        .byte $30
-- D - I - 0x0229B9 11:A9A9: 98        .byte $98
-- D - I - 0x0229BA 11:A9AA: 99        .byte $99
+- D - I - 0x0229B7 11:A9A7: 3C        .byte con_pause + $3C
+- D - I - 0x0229B8 11:A9A8: 30        .byte con_bg + $30
+- D - I - 0x0229B9 11:A9A9: 98        .byte con_animation + $98
+- D - I - 0x0229BA 11:A9AA: 99        .byte con_cloud + $99
 - D - I - 0x0229BB 11:A9AB: F2        .byte con_jmp
 - D - I - 0x0229BC 11:A9AC: C7 BB     .word loc_BBC7
 
 bra_case_A9AE_0B:
-- - - - - 0x0229BE 11:A9AE: 3C        .byte $3C
-- - - - - 0x0229BF 11:A9AF: 30        .byte $30
-- - - - - 0x0229C0 11:A9B0: 99        .byte $99
-- - - - - 0x0229C1 11:A9B1: 99        .byte $99
+- - - - - 0x0229BE 11:A9AE: 3C        .byte con_pause + $3C
+- - - - - 0x0229BF 11:A9AF: 30        .byte con_bg + $30
+- - - - - 0x0229C0 11:A9B0: 99        .byte con_animation + $99
+- - - - - 0x0229C1 11:A9B1: 99        .byte con_cloud + $99
 - - - - - 0x0229C2 11:A9B2: F2        .byte con_jmp
 - - - - - 0x0229C3 11:A9B3: C7 BB     .word loc_BBC7
 
 bra_case_A9B5_0C:
-- D - I - 0x0229C5 11:A9B5: 3C        .byte $3C
-- D - I - 0x0229C6 11:A9B6: 30        .byte $30
-- D - I - 0x0229C7 11:A9B7: 9F        .byte $9F
-- D - I - 0x0229C8 11:A9B8: 99        .byte $99
+- D - I - 0x0229C5 11:A9B5: 3C        .byte con_pause + $3C
+- D - I - 0x0229C6 11:A9B6: 30        .byte con_bg + $30
+- D - I - 0x0229C7 11:A9B7: 9F        .byte con_animation + $9F
+- D - I - 0x0229C8 11:A9B8: 99        .byte con_cloud + $99
 - D - I - 0x0229C9 11:A9B9: F2        .byte con_jmp
 - D - I - 0x0229CA 11:A9BA: C7 BB     .word loc_BBC7
 
 bra_case_A9BC_0D:
-- - - - - 0x0229CC 11:A9BC: 3C        .byte $3C
-- - - - - 0x0229CD 11:A9BD: 30        .byte $30
-- - - - - 0x0229CE 11:A9BE: AD        .byte $AD
-- - - - - 0x0229CF 11:A9BF: 99        .byte $99
+- - - - - 0x0229CC 11:A9BC: 3C        .byte con_pause + $3C
+- - - - - 0x0229CD 11:A9BD: 30        .byte con_bg + $30
+- - - - - 0x0229CE 11:A9BE: AD        .byte con_animation + $AD
+- - - - - 0x0229CF 11:A9BF: 99        .byte con_cloud + $99
 - - - - - 0x0229D0 11:A9C0: F2        .byte con_jmp
 - - - - - 0x0229D1 11:A9C1: C7 BB     .word loc_BBC7
 
 bra_case_A9C3_0E:
-- D - I - 0x0229D3 11:A9C3: 3C        .byte $3C
-- D - I - 0x0229D4 11:A9C4: 30        .byte $30
-- D - I - 0x0229D5 11:A9C5: A0        .byte $A0
-- D - I - 0x0229D6 11:A9C6: E5        .byte $E5
+- D - I - 0x0229D3 11:A9C3: 3C        .byte con_pause + $3C
+- D - I - 0x0229D4 11:A9C4: 30        .byte con_bg + $30
+- D - I - 0x0229D5 11:A9C5: A0        .byte con_animation + $A0
+- D - I - 0x0229D6 11:A9C6: E5        .byte con_cloud + $E5
 - D - I - 0x0229D7 11:A9C7: F2        .byte con_jmp
 - D - I - 0x0229D8 11:A9C8: C7 BB     .word loc_BBC7
 
 bra_case_A9CA_0F:
-- D - I - 0x0229DA 11:A9CA: 3C        .byte $3C
-- D - I - 0x0229DB 11:A9CB: 30        .byte $30
-- D - I - 0x0229DC 11:A9CC: AA        .byte $AA
-- D - I - 0x0229DD 11:A9CD: E5        .byte $E5
+- D - I - 0x0229DA 11:A9CA: 3C        .byte con_pause + $3C
+- D - I - 0x0229DB 11:A9CB: 30        .byte con_bg + $30
+- D - I - 0x0229DC 11:A9CC: AA        .byte con_animation + $AA
+- D - I - 0x0229DD 11:A9CD: E5        .byte con_cloud + $E5
 - D - I - 0x0229DE 11:A9CE: F2        .byte con_jmp
 - D - I - 0x0229DF 11:A9CF: C7 BB     .word loc_BBC7
 
 bra_case_A9D1_10:
-- D - I - 0x0229E1 11:A9D1: 3C        .byte $3C
-- D - I - 0x0229E2 11:A9D2: 30        .byte $30
-- D - I - 0x0229E3 11:A9D3: 9C        .byte $9C
-- D - I - 0x0229E4 11:A9D4: 99        .byte $99
+- D - I - 0x0229E1 11:A9D1: 3C        .byte con_pause + $3C
+- D - I - 0x0229E2 11:A9D2: 30        .byte con_bg + $30
+- D - I - 0x0229E3 11:A9D3: 9C        .byte con_animation + $9C
+- D - I - 0x0229E4 11:A9D4: 99        .byte con_cloud + $99
 - D - I - 0x0229E5 11:A9D5: F2        .byte con_jmp
 - D - I - 0x0229E6 11:A9D6: C7 BB     .word loc_BBC7
 
 bra_case_A9D8_11:
-- - - - - 0x0229E8 11:A9D8: 3C        .byte $3C
-- - - - - 0x0229E9 11:A9D9: 30        .byte $30
-- - - - - 0x0229EA 11:A9DA: AB        .byte $AB
-- - - - - 0x0229EB 11:A9DB: 99        .byte $99
+- - - - - 0x0229E8 11:A9D8: 3C        .byte con_pause + $3C
+- - - - - 0x0229E9 11:A9D9: 30        .byte con_bg + $30
+- - - - - 0x0229EA 11:A9DA: AB        .byte con_animation + $AB
+- - - - - 0x0229EB 11:A9DB: 99        .byte con_cloud + $99
 - - - - - 0x0229EC 11:A9DC: F2        .byte con_jmp
 - - - - - 0x0229ED 11:A9DD: C7 BB     .word loc_BBC7
 
 bra_case_A9DF_12:
-- - - - - 0x0229EF 11:A9DF: 3C        .byte $3C
-- - - - - 0x0229F0 11:A9E0: 30        .byte $30
-- - - - - 0x0229F1 11:A9E1: 9A        .byte $9A
-- - - - - 0x0229F2 11:A9E2: 98        .byte $98
+- - - - - 0x0229EF 11:A9DF: 3C        .byte con_pause + $3C
+- - - - - 0x0229F0 11:A9E0: 30        .byte con_bg + $30
+- - - - - 0x0229F1 11:A9E1: 9A        .byte con_animation + $9A
+- - - - - 0x0229F2 11:A9E2: 98        .byte con_cloud + $98
 - - - - - 0x0229F3 11:A9E3: F2        .byte con_jmp
 - - - - - 0x0229F4 11:A9E4: C7 BB     .word loc_BBC7
 
 bra_case_A9E6_13:
-- - - - - 0x0229F6 11:A9E6: 3C        .byte $3C
-- - - - - 0x0229F7 11:A9E7: 30        .byte $30
-- - - - - 0x0229F8 11:A9E8: 9B        .byte $9B
-- - - - - 0x0229F9 11:A9E9: 98        .byte $98
+- - - - - 0x0229F6 11:A9E6: 3C        .byte con_pause + $3C
+- - - - - 0x0229F7 11:A9E7: 30        .byte con_bg + $30
+- - - - - 0x0229F8 11:A9E8: 9B        .byte con_animation + $9B
+- - - - - 0x0229F9 11:A9E9: 98        .byte con_cloud + $98
 - - - - - 0x0229FA 11:A9EA: F2        .byte con_jmp
 - - - - - 0x0229FB 11:A9EB: C7 BB     .word loc_BBC7
 
 bra_case_A9ED_14:
-- - - - - 0x0229FD 11:A9ED: 3C        .byte $3C
-- - - - - 0x0229FE 11:A9EE: 30        .byte $30
-- - - - - 0x0229FF 11:A9EF: A2        .byte $A2
-- - - - - 0x022A00 11:A9F0: 98        .byte $98
+- - - - - 0x0229FD 11:A9ED: 3C        .byte con_pause + $3C
+- - - - - 0x0229FE 11:A9EE: 30        .byte con_bg + $30
+- - - - - 0x0229FF 11:A9EF: A2        .byte con_animation + $A2
+- - - - - 0x022A00 11:A9F0: 98        .byte con_cloud + $98
 - - - - - 0x022A01 11:A9F1: F2        .byte con_jmp
 - - - - - 0x022A02 11:A9F2: C7 BB     .word loc_BBC7
 
 bra_case_A9F4_15:
-- - - - - 0x022A04 11:A9F4: 3C        .byte $3C
-- - - - - 0x022A05 11:A9F5: 30        .byte $30
-- - - - - 0x022A06 11:A9F6: B1        .byte $B1
-- - - - - 0x022A07 11:A9F7: 98        .byte $98
+- - - - - 0x022A04 11:A9F4: 3C        .byte con_pause + $3C
+- - - - - 0x022A05 11:A9F5: 30        .byte con_bg + $30
+- - - - - 0x022A06 11:A9F6: B1        .byte con_animation + $B1
+- - - - - 0x022A07 11:A9F7: 98        .byte con_cloud + $98
 - - - - - 0x022A08 11:A9F8: F2        .byte con_jmp
 - - - - - 0x022A09 11:A9F9: C7 BB     .word loc_BBC7
 
 bra_case_A9FB_16:
-- - - - - 0x022A0B 11:A9FB: 3C        .byte $3C
-- - - - - 0x022A0C 11:A9FC: 30        .byte $30
-- - - - - 0x022A0D 11:A9FD: BC        .byte $BC
-- - - - - 0x022A0E 11:A9FE: 9A        .byte $9A
+- - - - - 0x022A0B 11:A9FB: 3C        .byte con_pause + $3C
+- - - - - 0x022A0C 11:A9FC: 30        .byte con_bg + $30
+- - - - - 0x022A0D 11:A9FD: BC        .byte con_animation + $BC
+- - - - - 0x022A0E 11:A9FE: 9A        .byte con_cloud + $9A
 - - - - - 0x022A0F 11:A9FF: F2        .byte con_jmp
 - - - - - 0x022A10 11:AA00: C7 BB     .word loc_BBC7
 
 bra_case_AA02_17:
-- - - - - 0x022A12 11:AA02: 3C        .byte $3C
-- - - - - 0x022A13 11:AA03: 30        .byte $30
-- - - - - 0x022A14 11:AA04: A9        .byte $A9
-- - - - - 0x022A15 11:AA05: 99        .byte $99
+- - - - - 0x022A12 11:AA02: 3C        .byte con_pause + $3C
+- - - - - 0x022A13 11:AA03: 30        .byte con_bg + $30
+- - - - - 0x022A14 11:AA04: A9        .byte con_animation + $A9
+- - - - - 0x022A15 11:AA05: 99        .byte con_cloud + $99
 - - - - - 0x022A16 11:AA06: F2        .byte con_jmp
 - - - - - 0x022A17 11:AA07: C7 BB     .word loc_BBC7
 
 bra_case_AA09_18:
-- D - I - 0x022A19 11:AA09: 3C        .byte $3C
-- D - I - 0x022A1A 11:AA0A: 30        .byte $30
-- D - I - 0x022A1B 11:AA0B: BB        .byte $BB
-- D - I - 0x022A1C 11:AA0C: 99        .byte $99
+- D - I - 0x022A19 11:AA09: 3C        .byte con_pause + $3C
+- D - I - 0x022A1A 11:AA0A: 30        .byte con_bg + $30
+- D - I - 0x022A1B 11:AA0B: BB        .byte con_animation + $BB
+- D - I - 0x022A1C 11:AA0C: 99        .byte con_cloud + $99
 - D - I - 0x022A1D 11:AA0D: F2        .byte con_jmp
 - D - I - 0x022A1E 11:AA0E: C7 BB     .word loc_BBC7
 
 bra_case_AA10_19:
-- D - I - 0x022A20 11:AA10: 3C        .byte $3C
-- D - I - 0x022A21 11:AA11: 30        .byte $30
-- D - I - 0x022A22 11:AA12: B8        .byte $B8
-- D - I - 0x022A23 11:AA13: 9A        .byte $9A
+- D - I - 0x022A20 11:AA10: 3C        .byte con_pause + $3C
+- D - I - 0x022A21 11:AA11: 30        .byte con_bg + $30
+- D - I - 0x022A22 11:AA12: B8        .byte con_animation + $B8
+- D - I - 0x022A23 11:AA13: 9A        .byte con_cloud + $9A
 - D - I - 0x022A24 11:AA14: F2        .byte con_jmp
 - D - I - 0x022A25 11:AA15: C7 BB     .word loc_BBC7
 
 bra_case_AA17_1A:
-- - - - - 0x022A27 11:AA17: 3C        .byte $3C
-- - - - - 0x022A28 11:AA18: 30        .byte $30
-- - - - - 0x022A29 11:AA19: B3        .byte $B3
-- - - - - 0x022A2A 11:AA1A: 99        .byte $99
+- - - - - 0x022A27 11:AA17: 3C        .byte con_pause + $3C
+- - - - - 0x022A28 11:AA18: 30        .byte con_bg + $30
+- - - - - 0x022A29 11:AA19: B3        .byte con_animation + $B3
+- - - - - 0x022A2A 11:AA1A: 99        .byte con_cloud + $99
 - - - - - 0x022A2B 11:AA1B: F2        .byte con_jmp
 - - - - - 0x022A2C 11:AA1C: C7 BB     .word loc_BBC7
 
 bra_case_AA1E_1B:
-- D - I - 0x022A2E 11:AA1E: 3C        .byte $3C
-- D - I - 0x022A2F 11:AA1F: 30        .byte $30
-- D - I - 0x022A30 11:AA20: BA        .byte $BA
-- D - I - 0x022A31 11:AA21: 98        .byte $98
+- D - I - 0x022A2E 11:AA1E: 3C        .byte con_pause + $3C
+- D - I - 0x022A2F 11:AA1F: 30        .byte con_bg + $30
+- D - I - 0x022A30 11:AA20: BA        .byte con_animation + $BA
+- D - I - 0x022A31 11:AA21: 98        .byte con_cloud + $98
 - D - I - 0x022A32 11:AA22: F2        .byte con_jmp
 - D - I - 0x022A33 11:AA23: C7 BB     .word loc_BBC7
 
 bra_case_AA25_1C:
-- D - I - 0x022A35 11:AA25: 3C        .byte $3C
-- D - I - 0x022A36 11:AA26: 30        .byte $30
-- D - I - 0x022A37 11:AA27: B7        .byte $B7
-- D - I - 0x022A38 11:AA28: 98        .byte $98
+- D - I - 0x022A35 11:AA25: 3C        .byte con_pause + $3C
+- D - I - 0x022A36 11:AA26: 30        .byte con_bg + $30
+- D - I - 0x022A37 11:AA27: B7        .byte con_animation + $B7
+- D - I - 0x022A38 11:AA28: 98        .byte con_cloud + $98
 - D - I - 0x022A39 11:AA29: F2        .byte con_jmp
 - D - I - 0x022A3A 11:AA2A: C7 BB     .word loc_BBC7
 
 bra_case_AA2C_1D:
-- - - - - 0x022A3C 11:AA2C: 3C        .byte $3C
-- - - - - 0x022A3D 11:AA2D: 30        .byte $30
-- - - - - 0x022A3E 11:AA2E: B6        .byte $B6
-- - - - - 0x022A3F 11:AA2F: 99        .byte $99
+- - - - - 0x022A3C 11:AA2C: 3C        .byte con_pause + $3C
+- - - - - 0x022A3D 11:AA2D: 30        .byte con_bg + $30
+- - - - - 0x022A3E 11:AA2E: B6        .byte con_animation + $B6
+- - - - - 0x022A3F 11:AA2F: 99        .byte con_cloud + $99
 - - - - - 0x022A40 11:AA30: F2        .byte con_jmp
 - - - - - 0x022A41 11:AA31: C7 BB     .word loc_BBC7
 
 bra_case_AA33_1E:
-- D - I - 0x022A43 11:AA33: 3C        .byte $3C
-- D - I - 0x022A44 11:AA34: 30        .byte $30
-- D - I - 0x022A45 11:AA35: B5        .byte $B5
-- D - I - 0x022A46 11:AA36: 98        .byte $98
+- D - I - 0x022A43 11:AA33: 3C        .byte con_pause + $3C
+- D - I - 0x022A44 11:AA34: 30        .byte con_bg + $30
+- D - I - 0x022A45 11:AA35: B5        .byte con_animation + $B5
+- D - I - 0x022A46 11:AA36: 98        .byte con_cloud + $98
 - D - I - 0x022A47 11:AA37: F2        .byte con_jmp
 - D - I - 0x022A48 11:AA38: C7 BB     .word loc_BBC7
 
 bra_case_AA3A_1F:
-- - - - - 0x022A4A 11:AA3A: 3C        .byte $3C
-- - - - - 0x022A4B 11:AA3B: 30        .byte $30
-- - - - - 0x022A4C 11:AA3C: B4        .byte $B4
-- - - - - 0x022A4D 11:AA3D: 9A        .byte $9A
+- - - - - 0x022A4A 11:AA3A: 3C        .byte con_pause + $3C
+- - - - - 0x022A4B 11:AA3B: 30        .byte con_bg + $30
+- - - - - 0x022A4C 11:AA3C: B4        .byte con_animation + $B4
+- - - - - 0x022A4D 11:AA3D: 9A        .byte con_cloud + $9A
 - - - - - 0x022A4E 11:AA3E: F2        .byte con_jmp
 - - - - - 0x022A4F 11:AA3F: C7 BB     .word loc_BBC7
 
 bra_case_AA41_20:
-- - - - - 0x022A51 11:AA41: 3C        .byte $3C
-- - - - - 0x022A52 11:AA42: 30        .byte $30
-- - - - - 0x022A53 11:AA43: B2        .byte $B2
-- - - - - 0x022A54 11:AA44: 9A        .byte $9A
+- - - - - 0x022A51 11:AA41: 3C        .byte con_pause + $3C
+- - - - - 0x022A52 11:AA42: 30        .byte con_bg + $30
+- - - - - 0x022A53 11:AA43: B2        .byte con_animation + $B2
+- - - - - 0x022A54 11:AA44: 9A        .byte con_cloud + $9A
 - - - - - 0x022A55 11:AA45: F2        .byte con_jmp
 - - - - - 0x022A56 11:AA46: C7 BB     .word loc_BBC7
 
 bra_case_AA48_21:
-- D - I - 0x022A58 11:AA48: 3C        .byte $3C
-- D - I - 0x022A59 11:AA49: 30        .byte $30
-- D - I - 0x022A5A 11:AA4A: B9        .byte $B9
-- D - I - 0x022A5B 11:AA4B: 99        .byte $99
+- D - I - 0x022A58 11:AA48: 3C        .byte con_pause + $3C
+- D - I - 0x022A59 11:AA49: 30        .byte con_bg + $30
+- D - I - 0x022A5A 11:AA4A: B9        .byte con_animation + $B9
+- D - I - 0x022A5B 11:AA4B: 99        .byte con_cloud + $99
 - D - I - 0x022A5C 11:AA4C: F2        .byte con_jmp
 - D - I - 0x022A5D 11:AA4D: C7 BB     .word loc_BBC7
 
@@ -9783,16 +9790,16 @@ bra_long_case_AA4F_01:
 bra_long_case_AA4F_03:
 - D - I - 0x022A5F 11:AA4F: F6        .byte con_mirror_toggle
 - D - I - 0x022A60 11:AA50: F7        .byte con_F7, $02
-- D - I - 0x022A62 11:AA52: 14        .byte $14
-- D - I - 0x022A63 11:AA53: 22        .byte $22
-- D - I - 0x022A64 11:AA54: 60        .byte $60
-- D - I - 0x022A65 11:AA55: 46        .byte $46
+- D - I - 0x022A62 11:AA52: 14        .byte con_pause + $14
+- D - I - 0x022A63 11:AA53: 22        .byte con_bg + $22
+- D - I - 0x022A64 11:AA54: 60        .byte con_animation + $60
+- D - I - 0x022A65 11:AA55: 46        .byte con_cloud + $46
 - D - I - 0x022A66 11:AA56: F7        .byte con_F7, $33
 - D - I - 0x022A68 11:AA58: F9        .byte con_delay_soundID, $02, $68
-- D - I - 0x022A6B 11:AA5B: 14        .byte $14
-- D - I - 0x022A6C 11:AA5C: 6B        .byte $6B
-- D - I - 0x022A6D 11:AA5D: F0        .byte con_exit_1
-- D - I - 0x022A6E 11:AA5E: F0        .byte con_exit_1
+- D - I - 0x022A6B 11:AA5B: 14        .byte con_pause + $14
+- D - I - 0x022A6C 11:AA5C: 6B        .byte con_bg + $6B
+- D - I - 0x022A6D 11:AA5D: F0        .byte con_animation + $F0
+- D - I - 0x022A6E 11:AA5E: F0        .byte con_cloud + $F0
 - D - I - 0x022A6F 11:AA5F: F2        .byte con_jmp
 - D - I - 0x022A70 11:AA60: FE A7     .word loc_A7FE
 
@@ -9803,10 +9810,10 @@ bra_long_case_AA62_01:
 - D - I - 0x022A72 11:AA62: FA        .byte con_jsr
 - D - I - 0x022A73 11:AA63: 10 A8     .word sub_A810
 - D - I - 0x022A75 11:AA65: F7        .byte con_F7, $02
-- D - I - 0x022A77 11:AA67: 3C        .byte $3C
-- D - I - 0x022A78 11:AA68: 23        .byte $23
-- D - I - 0x022A79 11:AA69: E4        .byte $E4
-- D - I - 0x022A7A 11:AA6A: 46        .byte $46
+- D - I - 0x022A77 11:AA67: 3C        .byte con_pause + $3C
+- D - I - 0x022A78 11:AA68: 23        .byte con_bg + $23
+- D - I - 0x022A79 11:AA69: E4        .byte con_animation + $E4
+- D - I - 0x022A7A 11:AA6A: 46        .byte con_cloud + $46
 - D - I - 0x022A7B 11:AA6B: F6        .byte con_mirror_toggle
 - D - I - 0x022A7C 11:AA6C: FB        .byte con_rts
 
@@ -9821,10 +9828,10 @@ bra_long_case_AA6D_02:
 
 bra_case_AA75_00:
 - - - - - 0x022A85 11:AA75: F7        .byte con_F7, $44
-- - - - - 0x022A87 11:AA77: 40        .byte $40
-- - - - - 0x022A88 11:AA78: 31        .byte $31
-- - - - - 0x022A89 11:AA79: 9E        .byte $9E
-- - - - - 0x022A8A 11:AA7A: C4        .byte $C4
+- - - - - 0x022A87 11:AA77: 40        .byte con_pause + $40
+- - - - - 0x022A88 11:AA78: 31        .byte con_bg + $31
+- - - - - 0x022A89 11:AA79: 9E        .byte con_animation + $9E
+- - - - - 0x022A8A 11:AA7A: C4        .byte con_cloud + $C4
 loc_AA7B:
 - - - - - 0x022A8B 11:AA7B: FA        .byte con_jsr
 - - - - - 0x022A8C 11:AA7C: C7 BB     .word sub_BBC7
@@ -9833,55 +9840,55 @@ bra_case_AA7E_05:
 - - - - - 0x022A8E 11:AA7E: FA        .byte con_jsr
 - - - - - 0x022A8F 11:AA7F: 89 AA     .word sub_AA89
 - - - - - 0x022A91 11:AA81: F7        .byte con_F7, $3A
-- - - - - 0x022A93 11:AA83: 32        .byte $32
-- - - - - 0x022A94 11:AA84: F0        .byte con_exit_1
-- - - - - 0x022A95 11:AA85: F0        .byte con_exit_1
-- - - - - 0x022A96 11:AA86: 46        .byte $46
+- - - - - 0x022A93 11:AA83: 32        .byte con_pause + $32
+- - - - - 0x022A94 11:AA84: F0        .byte con_bg + $F0
+- - - - - 0x022A95 11:AA85: F0        .byte con_animation + $F0
+- - - - - 0x022A96 11:AA86: 46        .byte con_cloud + $46
 - - - - - 0x022A97 11:AA87: F6        .byte con_mirror_toggle
 - - - - - 0x022A98 11:AA88: FB        .byte con_rts
 
 sub_AA89:
 - D - I - 0x022A99 11:AA89: F7        .byte con_F7, $3A
 - D - I - 0x022A9B 11:AA8B: F9        .byte con_delay_soundID, $02, $27
-- D - I - 0x022A9E 11:AA8E: 78        .byte $78
-- D - I - 0x022A9F 11:AA8F: 23        .byte $23
-- D - I - 0x022AA0 11:AA90: D0        .byte $D0
-- D - I - 0x022AA1 11:AA91: 49        .byte $49
+- D - I - 0x022A9E 11:AA8E: 78        .byte con_pause + $78
+- D - I - 0x022A9F 11:AA8F: 23        .byte con_bg + $23
+- D - I - 0x022AA0 11:AA90: D0        .byte con_animation + $D0
+- D - I - 0x022AA1 11:AA91: 49        .byte con_cloud + $49
 - D - I - 0x022AA2 11:AA92: FB        .byte con_rts
 
 bra_case_AA93_01:
 - - - - - 0x022AA3 11:AA93: F7        .byte con_F7, $44
-- - - - - 0x022AA5 11:AA95: 40        .byte $40
-- - - - - 0x022AA6 11:AA96: 31        .byte $31
-- - - - - 0x022AA7 11:AA97: B0        .byte $B0
-- - - - - 0x022AA8 11:AA98: C4        .byte $C4
+- - - - - 0x022AA5 11:AA95: 40        .byte con_pause + $40
+- - - - - 0x022AA6 11:AA96: 31        .byte con_bg + $31
+- - - - - 0x022AA7 11:AA97: B0        .byte con_animation + $B0
+- - - - - 0x022AA8 11:AA98: C4        .byte con_cloud + $C4
 - - - - - 0x022AA9 11:AA99: F2        .byte con_jmp
 - - - - - 0x022AAA 11:AA9A: 7B AA     .word loc_AA7B
 
 bra_case_AA9C_02:
 - - - - - 0x022AAC 11:AA9C: F7        .byte con_F7, $44
-- - - - - 0x022AAE 11:AA9E: 78        .byte $78
-- - - - - 0x022AAF 11:AA9F: 30        .byte $30
-- - - - - 0x022AB0 11:AAA0: A0        .byte $A0
-- - - - - 0x022AB1 11:AAA1: C5        .byte $C5
+- - - - - 0x022AAE 11:AA9E: 78        .byte con_pause + $78
+- - - - - 0x022AAF 11:AA9F: 30        .byte con_bg + $30
+- - - - - 0x022AB0 11:AAA0: A0        .byte con_animation + $A0
+- - - - - 0x022AB1 11:AAA1: C5        .byte con_cloud + $C5
 - - - - - 0x022AB2 11:AAA2: F2        .byte con_jmp
 - - - - - 0x022AB3 11:AAA3: 7B AA     .word loc_AA7B
 
 bra_case_AAA5_03:
 - - - - - 0x022AB5 11:AAA5: F7        .byte con_F7, $44
-- - - - - 0x022AB7 11:AAA7: 78        .byte $78
-- - - - - 0x022AB8 11:AAA8: 30        .byte $30
-- - - - - 0x022AB9 11:AAA9: AA        .byte $AA
-- - - - - 0x022ABA 11:AAAA: C5        .byte $C5
+- - - - - 0x022AB7 11:AAA7: 78        .byte con_pause + $78
+- - - - - 0x022AB8 11:AAA8: 30        .byte con_bg + $30
+- - - - - 0x022AB9 11:AAA9: AA        .byte con_animation + $AA
+- - - - - 0x022ABA 11:AAAA: C5        .byte con_cloud + $C5
 - - - - - 0x022ABB 11:AAAB: F2        .byte con_jmp
 - - - - - 0x022ABC 11:AAAC: 7B AA     .word loc_AA7B
 
 bra_case_AAAE_04:
 - - - - - 0x022ABE 11:AAAE: F7        .byte con_F7, $44
-- - - - - 0x022AC0 11:AAB0: 40        .byte $40
-- - - - - 0x022AC1 11:AAB1: 30        .byte $30
-- - - - - 0x022AC2 11:AAB2: B4        .byte $B4
-- - - - - 0x022AC3 11:AAB3: C6        .byte $C6
+- - - - - 0x022AC0 11:AAB0: 40        .byte con_pause + $40
+- - - - - 0x022AC1 11:AAB1: 30        .byte con_bg + $30
+- - - - - 0x022AC2 11:AAB2: B4        .byte con_animation + $B4
+- - - - - 0x022AC3 11:AAB3: C6        .byte con_cloud + $C6
 - - - - - 0x022AC4 11:AAB4: F2        .byte con_jmp
 - - - - - 0x022AC5 11:AAB5: 7B AA     .word loc_AA7B
 
@@ -9889,16 +9896,16 @@ bra_long_case_AAB7_03:
 - D - I - 0x022AC7 11:AAB7: FA        .byte con_jsr
 - D - I - 0x022AC8 11:AAB8: 6C A8     .word sub_A86C
 - D - I - 0x022ACA 11:AABA: F7        .byte con_F7, $02
-- D - I - 0x022ACC 11:AABC: 3C        .byte $3C
-- D - I - 0x022ACD 11:AABD: 23        .byte $23
-- D - I - 0x022ACE 11:AABE: F0        .byte con_exit_1
-- D - I - 0x022ACF 11:AABF: 00        .byte $00
+- D - I - 0x022ACC 11:AABC: 3C        .byte con_pause + $3C
+- D - I - 0x022ACD 11:AABD: 23        .byte con_bg + $23
+- D - I - 0x022ACE 11:AABE: F0        .byte con_animation + $F0
+- D - I - 0x022ACF 11:AABF: 00        .byte con_cloud + $00
 - D - I - 0x022AD0 11:AAC0: F9        .byte con_delay_soundID, $02, $11
 - D - I - 0x022AD3 11:AAC3: F7        .byte con_F7, $02
-- D - I - 0x022AD5 11:AAC5: 46        .byte $46
-- D - I - 0x022AD6 11:AAC6: F0        .byte con_exit_1
-- D - I - 0x022AD7 11:AAC7: D1        .byte $D1
-- D - I - 0x022AD8 11:AAC8: 46        .byte $46
+- D - I - 0x022AD5 11:AAC5: 46        .byte con_pause + $46
+- D - I - 0x022AD6 11:AAC6: F0        .byte con_bg + $F0
+- D - I - 0x022AD7 11:AAC7: D1        .byte con_animation + $D1
+- D - I - 0x022AD8 11:AAC8: 46        .byte con_cloud + $46
 - D - I - 0x022AD9 11:AAC9: F6        .byte con_mirror_toggle
 - D - I - 0x022ADA 11:AACA: FB        .byte con_rts
 
@@ -9914,10 +9921,10 @@ loc_AAD2:
 - D - I - 0x022AE2 11:AAD2: FA        .byte con_jsr
 - D - I - 0x022AE3 11:AAD3: AB A8     .word sub_A8AB
 - D - I - 0x022AE5 11:AAD5: F7        .byte con_F7, $02
-- D - I - 0x022AE7 11:AAD7: 46        .byte $46
-- D - I - 0x022AE8 11:AAD8: F0        .byte con_exit_1
-- D - I - 0x022AE9 11:AAD9: F0        .byte con_exit_1
-- D - I - 0x022AEA 11:AADA: 46        .byte $46
+- D - I - 0x022AE7 11:AAD7: 46        .byte con_pause + $46
+- D - I - 0x022AE8 11:AAD8: F0        .byte con_bg + $F0
+- D - I - 0x022AE9 11:AAD9: F0        .byte con_animation + $F0
+- D - I - 0x022AEA 11:AADA: 46        .byte con_cloud + $46
 - D - I - 0x022AEB 11:AADB: F6        .byte con_mirror_toggle
 - D - I - 0x022AEC 11:AADC: FB        .byte con_rts
 
@@ -9932,21 +9939,21 @@ bra_long_case_AAE3_05:
 - D - I - 0x022AF4 11:AAE4: D0 A8     .word sub_A8D0
 - D - I - 0x022AF6 11:AAE6: F7        .byte con_F7, $0D
 - D - I - 0x022AF8 11:AAE8: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x022AFB 11:AAEB: 1E        .byte $1E
-- D - I - 0x022AFC 11:AAEC: 47        .byte $47
-- D - I - 0x022AFD 11:AAED: D1        .byte $D1
-- D - I - 0x022AFE 11:AAEE: 46        .byte $46
+- D - I - 0x022AFB 11:AAEB: 1E        .byte con_pause + $1E
+- D - I - 0x022AFC 11:AAEC: 47        .byte con_bg + $47
+- D - I - 0x022AFD 11:AAED: D1        .byte con_animation + $D1
+- D - I - 0x022AFE 11:AAEE: 46        .byte con_cloud + $46
 loc_AAEF:
 - D - I - 0x022AFF 11:AAEF: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x022B02 11:AAF2: 1E        .byte $1E
-- D - I - 0x022B03 11:AAF3: F0        .byte con_exit_1
-- D - I - 0x022B04 11:AAF4: D2        .byte $D2
-- D - I - 0x022B05 11:AAF5: F0        .byte con_exit_1
+- D - I - 0x022B02 11:AAF2: 1E        .byte con_pause + $1E
+- D - I - 0x022B03 11:AAF3: F0        .byte con_bg + $F0
+- D - I - 0x022B04 11:AAF4: D2        .byte con_animation + $D2
+- D - I - 0x022B05 11:AAF5: F0        .byte con_cloud + $F0
 - D - I - 0x022B06 11:AAF6: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x022B09 11:AAF9: 1E        .byte $1E
-- D - I - 0x022B0A 11:AAFA: F0        .byte con_exit_1
-- D - I - 0x022B0B 11:AAFB: D1        .byte $D1
-- D - I - 0x022B0C 11:AAFC: F0        .byte con_exit_1
+- D - I - 0x022B09 11:AAF9: 1E        .byte con_pause + $1E
+- D - I - 0x022B0A 11:AAFA: F0        .byte con_bg + $F0
+- D - I - 0x022B0B 11:AAFB: D1        .byte con_animation + $D1
+- D - I - 0x022B0C 11:AAFC: F0        .byte con_cloud + $F0
 - D - I - 0x022B0D 11:AAFD: F6        .byte con_mirror_toggle
 - D - I - 0x022B0E 11:AAFE: FB        .byte con_rts
 
@@ -9961,29 +9968,29 @@ bra_case_AB03_00:
 loc_AB06:
 - - - - - 0x022B16 11:AB06: F7        .byte con_F7, $02
 - - - - - 0x022B18 11:AB08: F9        .byte con_delay_soundID, $02, $26
-- - - - - 0x022B1B 11:AB0B: 17        .byte $17
-- - - - - 0x022B1C 11:AB0C: F0        .byte con_exit_1
-- - - - - 0x022B1D 11:AB0D: D2        .byte $D2
-- - - - - 0x022B1E 11:AB0E: 00        .byte $00
+- - - - - 0x022B1B 11:AB0B: 17        .byte con_pause + $17
+- - - - - 0x022B1C 11:AB0C: F0        .byte con_bg + $F0
+- - - - - 0x022B1D 11:AB0D: D2        .byte con_animation + $D2
+- - - - - 0x022B1E 11:AB0E: 00        .byte con_cloud + $00
 - - - - - 0x022B1F 11:AB0F: F7        .byte con_F7, $02
 - - - - - 0x022B21 11:AB11: F9        .byte con_delay_soundID, $02, $26
-- - - - - 0x022B24 11:AB14: 17        .byte $17
-- - - - - 0x022B25 11:AB15: F0        .byte con_exit_1
-- - - - - 0x022B26 11:AB16: D1        .byte $D1
-- - - - - 0x022B27 11:AB17: 46        .byte $46
+- - - - - 0x022B24 11:AB14: 17        .byte con_pause + $17
+- - - - - 0x022B25 11:AB15: F0        .byte con_bg + $F0
+- - - - - 0x022B26 11:AB16: D1        .byte con_animation + $D1
+- - - - - 0x022B27 11:AB17: 46        .byte con_cloud + $46
 loc_AB18:
 - - - - - 0x022B28 11:AB18: F7        .byte con_F7, $02
 - - - - - 0x022B2A 11:AB1A: F9        .byte con_delay_soundID, $02, $26
-- - - - - 0x022B2D 11:AB1D: 17        .byte $17
-- - - - - 0x022B2E 11:AB1E: F0        .byte con_exit_1
-- - - - - 0x022B2F 11:AB1F: D2        .byte $D2
-- - - - - 0x022B30 11:AB20: F0        .byte con_exit_1
+- - - - - 0x022B2D 11:AB1D: 17        .byte con_pause + $17
+- - - - - 0x022B2E 11:AB1E: F0        .byte con_bg + $F0
+- - - - - 0x022B2F 11:AB1F: D2        .byte con_animation + $D2
+- - - - - 0x022B30 11:AB20: F0        .byte con_cloud + $F0
 - - - - - 0x022B31 11:AB21: F7        .byte con_F7, $02
 - - - - - 0x022B33 11:AB23: F9        .byte con_delay_soundID, $02, $26
-- - - - - 0x022B36 11:AB26: 17        .byte $17
-- - - - - 0x022B37 11:AB27: F0        .byte con_exit_1
-- - - - - 0x022B38 11:AB28: D1        .byte $D1
-- - - - - 0x022B39 11:AB29: F0        .byte con_exit_1
+- - - - - 0x022B36 11:AB26: 17        .byte con_pause + $17
+- - - - - 0x022B37 11:AB27: F0        .byte con_bg + $F0
+- - - - - 0x022B38 11:AB28: D1        .byte con_animation + $D1
+- - - - - 0x022B39 11:AB29: F0        .byte con_cloud + $F0
 - - - - - 0x022B3A 11:AB2A: FB        .byte con_rts
 
 bra_case_AB2B_01:
@@ -9996,24 +10003,24 @@ sub_AB31:
 bra_long_case_AB31_00___:
 - D - I - 0x022B41 11:AB31: F5        .byte con_mirror_off
 - D - I - 0x022B42 11:AB32: F9        .byte con_delay_soundID, $02, $19
-- D - I - 0x022B45 11:AB35: 28        .byte $28
-- D - I - 0x022B46 11:AB36: 01        .byte $01
-- D - I - 0x022B47 11:AB37: 61        .byte $61
-- D - I - 0x022B48 11:AB38: 47        .byte $47
+- D - I - 0x022B45 11:AB35: 28        .byte con_pause + $28
+- D - I - 0x022B46 11:AB36: 01        .byte con_bg + $01
+- D - I - 0x022B47 11:AB37: 61        .byte con_animation + $61
+- D - I - 0x022B48 11:AB38: 47        .byte con_cloud + $47
 loc_AB39:
 - D - I - 0x022B49 11:AB39: F7        .byte con_F7, $0B
 - D - I - 0x022B4B 11:AB3B: F9        .byte con_delay_soundID, $02, $12
-- D - I - 0x022B4E 11:AB3E: 14        .byte $14
-- D - I - 0x022B4F 11:AB3F: 10        .byte $10
-- D - I - 0x022B50 11:AB40: 62        .byte $62
-- D - I - 0x022B51 11:AB41: F0        .byte con_exit_1
+- D - I - 0x022B4E 11:AB3E: 14        .byte con_pause + $14
+- D - I - 0x022B4F 11:AB3F: 10        .byte con_bg + $10
+- D - I - 0x022B50 11:AB40: 62        .byte con_animation + $62
+- D - I - 0x022B51 11:AB41: F0        .byte con_cloud + $F0
 loc_AB42:
 - D - I - 0x022B52 11:AB42: F7        .byte con_F7, $02
 - D - I - 0x022B54 11:AB44: F9        .byte con_delay_soundID, $02, $03
-- D - I - 0x022B57 11:AB47: 22        .byte $22
-- D - I - 0x022B58 11:AB48: 25        .byte $25
-- D - I - 0x022B59 11:AB49: 63        .byte $63
-- D - I - 0x022B5A 11:AB4A: F0        .byte con_exit_1
+- D - I - 0x022B57 11:AB47: 22        .byte con_pause + $22
+- D - I - 0x022B58 11:AB48: 25        .byte con_bg + $25
+- D - I - 0x022B59 11:AB49: 63        .byte con_animation + $63
+- D - I - 0x022B5A 11:AB4A: F0        .byte con_cloud + $F0
 - D - I - 0x022B5B 11:AB4B: FB        .byte con_rts
 
 bra_long_case_AB4C_03:
@@ -10023,40 +10030,40 @@ bra_long_case_AB4C_03:
 - D - I - 0x022B60 11:AB50: 22        .byte bra_case_AB72_02 - *
 
 bra_case_AB51_01:
-- D - I - 0x022B61 11:AB51: 3C        .byte $3C
-- D - I - 0x022B62 11:AB52: 30        .byte $30
-- D - I - 0x022B63 11:AB53: 91        .byte $91
-- D - I - 0x022B64 11:AB54: A3        .byte $A3
+- D - I - 0x022B61 11:AB51: 3C        .byte con_pause + $3C
+- D - I - 0x022B62 11:AB52: 30        .byte con_bg + $30
+- D - I - 0x022B63 11:AB53: 91        .byte con_animation + $91
+- D - I - 0x022B64 11:AB54: A3        .byte con_cloud + $A3
 - D - I - 0x022B65 11:AB55: FA        .byte con_jsr
 - D - I - 0x022B66 11:AB56: C7 BB     .word sub_BBC7
 loc_AB58:
 bra_case_AB58_00:
 - D - I - 0x022B68 11:AB58: F9        .byte con_delay_soundID, $02, $16
-- D - I - 0x022B6B 11:AB5B: 28        .byte $28
-- D - I - 0x022B6C 11:AB5C: 4A        .byte $4A
-- D - I - 0x022B6D 11:AB5D: 8E        .byte $8E
-- D - I - 0x022B6E 11:AB5E: 49        .byte $49
+- D - I - 0x022B6B 11:AB5B: 28        .byte con_pause + $28
+- D - I - 0x022B6C 11:AB5C: 4A        .byte con_bg + $4A
+- D - I - 0x022B6D 11:AB5D: 8E        .byte con_animation + $8E
+- D - I - 0x022B6E 11:AB5E: 49        .byte con_cloud + $49
 - D - I - 0x022B6F 11:AB5F: FA        .byte con_jsr
 - D - I - 0x022B70 11:AB60: 7C AB     .word sub_AB7C
 - D - I - 0x022B72 11:AB62: F7        .byte con_F7, $02
 - D - I - 0x022B74 11:AB64: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x022B77 11:AB67: 20        .byte $20
-- D - I - 0x022B78 11:AB68: 25        .byte $25
-- D - I - 0x022B79 11:AB69: 63        .byte $63
-- D - I - 0x022B7A 11:AB6A: F0        .byte con_exit_1
+- D - I - 0x022B77 11:AB67: 20        .byte con_pause + $20
+- D - I - 0x022B78 11:AB68: 25        .byte con_bg + $25
+- D - I - 0x022B79 11:AB69: 63        .byte con_animation + $63
+- D - I - 0x022B7A 11:AB6A: F0        .byte con_cloud + $F0
 loc_AB6B:
 - D - I - 0x022B7B 11:AB6B: F7        .byte con_F7, $02
-- D - I - 0x022B7D 11:AB6D: 10        .byte $10
-- D - I - 0x022B7E 11:AB6E: F0        .byte con_exit_1
-- D - I - 0x022B7F 11:AB6F: F0        .byte con_exit_1
-- D - I - 0x022B80 11:AB70: 00        .byte $00
+- D - I - 0x022B7D 11:AB6D: 10        .byte con_pause + $10
+- D - I - 0x022B7E 11:AB6E: F0        .byte con_bg + $F0
+- D - I - 0x022B7F 11:AB6F: F0        .byte con_animation + $F0
+- D - I - 0x022B80 11:AB70: 00        .byte con_cloud + $00
 - D - I - 0x022B81 11:AB71: FB        .byte con_rts
 
 bra_case_AB72_02:
-- D - I - 0x022B82 11:AB72: 3C        .byte $3C
-- D - I - 0x022B83 11:AB73: 30        .byte $30
-- D - I - 0x022B84 11:AB74: B7        .byte $B7
-- D - I - 0x022B85 11:AB75: A3        .byte $A3
+- D - I - 0x022B82 11:AB72: 3C        .byte con_pause + $3C
+- D - I - 0x022B83 11:AB73: 30        .byte con_bg + $30
+- D - I - 0x022B84 11:AB74: B7        .byte con_animation + $B7
+- D - I - 0x022B85 11:AB75: A3        .byte con_cloud + $A3
 - D - I - 0x022B86 11:AB76: FA        .byte con_jsr
 - D - I - 0x022B87 11:AB77: C7 BB     .word sub_BBC7
 - D - I - 0x022B89 11:AB79: F2        .byte con_jmp
@@ -10065,73 +10072,73 @@ bra_case_AB72_02:
 sub_AB7C:
 - D - I - 0x022B8C 11:AB7C: F7        .byte con_F7, $04
 - D - I - 0x022B8E 11:AB7E: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022B91 11:AB81: 10        .byte $10
-- D - I - 0x022B92 11:AB82: 41        .byte $41
-- D - I - 0x022B93 11:AB83: 8C        .byte $8C
-- D - I - 0x022B94 11:AB84: AF        .byte $AF
+- D - I - 0x022B91 11:AB81: 10        .byte con_pause + $10
+- D - I - 0x022B92 11:AB82: 41        .byte con_bg + $41
+- D - I - 0x022B93 11:AB83: 8C        .byte con_animation + $8C
+- D - I - 0x022B94 11:AB84: AF        .byte con_cloud + $AF
 - D - I - 0x022B95 11:AB85: FB        .byte con_rts
 
 sub_AB86:
 - D - I - 0x022B96 11:AB86: F7        .byte con_F7, $04
 - D - I - 0x022B98 11:AB88: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022B9B 11:AB8B: 10        .byte $10
-- D - I - 0x022B9C 11:AB8C: 41        .byte $41
-- D - I - 0x022B9D 11:AB8D: 8C        .byte $8C
-- D - I - 0x022B9E 11:AB8E: E0        .byte $E0
+- D - I - 0x022B9B 11:AB8B: 10        .byte con_pause + $10
+- D - I - 0x022B9C 11:AB8C: 41        .byte con_bg + $41
+- D - I - 0x022B9D 11:AB8D: 8C        .byte con_animation + $8C
+- D - I - 0x022B9E 11:AB8E: E0        .byte con_cloud + $E0
 - D - I - 0x022B9F 11:AB8F: FB        .byte con_rts
 
 sub_AB90:
 - D - I - 0x022BA0 11:AB90: F7        .byte con_F7, $04
 - D - I - 0x022BA2 11:AB92: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022BA5 11:AB95: 10        .byte $10
-- D - I - 0x022BA6 11:AB96: 41        .byte $41
-- D - I - 0x022BA7 11:AB97: 8C        .byte $8C
-- D - I - 0x022BA8 11:AB98: DE        .byte $DE
+- D - I - 0x022BA5 11:AB95: 10        .byte con_pause + $10
+- D - I - 0x022BA6 11:AB96: 41        .byte con_bg + $41
+- D - I - 0x022BA7 11:AB97: 8C        .byte con_animation + $8C
+- D - I - 0x022BA8 11:AB98: DE        .byte con_cloud + $DE
 - D - I - 0x022BA9 11:AB99: FB        .byte con_rts
 
 sub_AB9A:
 - D - I - 0x022BAA 11:AB9A: F7        .byte con_F7, $04
 - D - I - 0x022BAC 11:AB9C: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022BAF 11:AB9F: 10        .byte $10
-- D - I - 0x022BB0 11:ABA0: 41        .byte $41
-- D - I - 0x022BB1 11:ABA1: 8C        .byte $8C
-- D - I - 0x022BB2 11:ABA2: E1        .byte $E1
+- D - I - 0x022BAF 11:AB9F: 10        .byte con_pause + $10
+- D - I - 0x022BB0 11:ABA0: 41        .byte con_bg + $41
+- D - I - 0x022BB1 11:ABA1: 8C        .byte con_animation + $8C
+- D - I - 0x022BB2 11:ABA2: E1        .byte con_cloud + $E1
 - D - I - 0x022BB3 11:ABA3: FB        .byte con_rts
 
 sub_ABA4:
 - D - I - 0x022BB4 11:ABA4: F7        .byte con_F7, $04
 - D - I - 0x022BB6 11:ABA6: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022BB9 11:ABA9: 10        .byte $10
-- D - I - 0x022BBA 11:ABAA: 41        .byte $41
-- D - I - 0x022BBB 11:ABAB: 8C        .byte $8C
-- D - I - 0x022BBC 11:ABAC: 6A        .byte $6A
+- D - I - 0x022BB9 11:ABA9: 10        .byte con_pause + $10
+- D - I - 0x022BBA 11:ABAA: 41        .byte con_bg + $41
+- D - I - 0x022BBB 11:ABAB: 8C        .byte con_animation + $8C
+- D - I - 0x022BBC 11:ABAC: 6A        .byte con_cloud + $6A
 - D - I - 0x022BBD 11:ABAD: FB        .byte con_rts
 
 sub_ABAE:
 - D - I - 0x022BBE 11:ABAE: F7        .byte con_F7, $04
 - D - I - 0x022BC0 11:ABB0: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022BC3 11:ABB3: 10        .byte $10
-- D - I - 0x022BC4 11:ABB4: 41        .byte $41
-- D - I - 0x022BC5 11:ABB5: 8C        .byte $8C
-- D - I - 0x022BC6 11:ABB6: 6B        .byte $6B
+- D - I - 0x022BC3 11:ABB3: 10        .byte con_pause + $10
+- D - I - 0x022BC4 11:ABB4: 41        .byte con_bg + $41
+- D - I - 0x022BC5 11:ABB5: 8C        .byte con_animation + $8C
+- D - I - 0x022BC6 11:ABB6: 6B        .byte con_cloud + $6B
 - D - I - 0x022BC7 11:ABB7: FB        .byte con_rts
 
 sub_ABB8:
-- D - I - 0x022BC8 11:ABB8: 1A        .byte $1A
-- D - I - 0x022BC9 11:ABB9: 3C        .byte $3C
-- D - I - 0x022BCA 11:ABBA: 61        .byte $61
-- D - I - 0x022BCB 11:ABBB: 49        .byte $49
+- D - I - 0x022BC8 11:ABB8: 1A        .byte con_pause + $1A
+- D - I - 0x022BC9 11:ABB9: 3C        .byte con_bg + $3C
+- D - I - 0x022BCA 11:ABBA: 61        .byte con_animation + $61
+- D - I - 0x022BCB 11:ABBB: 49        .byte con_cloud + $49
 - D - I - 0x022BCC 11:ABBC: F7        .byte con_F7, $04
 - D - I - 0x022BCE 11:ABBE: F9        .byte con_delay_soundID, $02, $18
-- D - I - 0x022BD1 11:ABC1: 14        .byte $14
-- D - I - 0x022BD2 11:ABC2: 05        .byte $05
-- D - I - 0x022BD3 11:ABC3: F0        .byte con_exit_1
-- D - I - 0x022BD4 11:ABC4: F0        .byte con_exit_1
+- D - I - 0x022BD1 11:ABC1: 14        .byte con_pause + $14
+- D - I - 0x022BD2 11:ABC2: 05        .byte con_bg + $05
+- D - I - 0x022BD3 11:ABC3: F0        .byte con_animation + $F0
+- D - I - 0x022BD4 11:ABC4: F0        .byte con_cloud + $F0
 - D - I - 0x022BD5 11:ABC5: F7        .byte con_F7, $3C
-- D - I - 0x022BD7 11:ABC7: 34        .byte $34
-- D - I - 0x022BD8 11:ABC8: 3C        .byte $3C
-- D - I - 0x022BD9 11:ABC9: F0        .byte con_exit_1
-- D - I - 0x022BDA 11:ABCA: F0        .byte con_exit_1
+- D - I - 0x022BD7 11:ABC7: 34        .byte con_pause + $34
+- D - I - 0x022BD8 11:ABC8: 3C        .byte con_bg + $3C
+- D - I - 0x022BD9 11:ABC9: F0        .byte con_animation + $F0
+- D - I - 0x022BDA 11:ABCA: F0        .byte con_cloud + $F0
 - D - I - 0x022BDB 11:ABCB: FB        .byte con_rts
 
 bra_long_case_ABCC_05:
@@ -10140,10 +10147,10 @@ bra_long_case_ABCC_05:
 - - - - - 0x022BDF 11:ABCF: 1A        .byte bra_case_ABE9_01 - *
 
 bra_case_ABD0_00:
-- D - I - 0x022BE0 11:ABD0: 3C        .byte $3C
-- D - I - 0x022BE1 11:ABD1: 30        .byte $30
-- D - I - 0x022BE2 11:ABD2: 9A        .byte $9A
-- D - I - 0x022BE3 11:ABD3: A5        .byte $A5
+- D - I - 0x022BE0 11:ABD0: 3C        .byte con_pause + $3C
+- D - I - 0x022BE1 11:ABD1: 30        .byte con_bg + $30
+- D - I - 0x022BE2 11:ABD2: 9A        .byte con_animation + $9A
+- D - I - 0x022BE3 11:ABD3: A5        .byte con_cloud + $A5
 loc_ABD4:
 - D - I - 0x022BE4 11:ABD4: FA        .byte con_jsr
 - D - I - 0x022BE5 11:ABD5: C7 BB     .word sub_BBC7
@@ -10153,18 +10160,18 @@ loc_ABD4:
 - D - I - 0x022BEB 11:ABDB: 86 AB     .word sub_AB86
 - D - I - 0x022BED 11:ABDD: F7        .byte con_F7, $02
 - D - I - 0x022BEF 11:ABDF: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022BF2 11:ABE2: 20        .byte $20
-- D - I - 0x022BF3 11:ABE3: 25        .byte $25
-- D - I - 0x022BF4 11:ABE4: 63        .byte $63
-- D - I - 0x022BF5 11:ABE5: F0        .byte con_exit_1
+- D - I - 0x022BF2 11:ABE2: 20        .byte con_pause + $20
+- D - I - 0x022BF3 11:ABE3: 25        .byte con_bg + $25
+- D - I - 0x022BF4 11:ABE4: 63        .byte con_animation + $63
+- D - I - 0x022BF5 11:ABE5: F0        .byte con_cloud + $F0
 - D - I - 0x022BF6 11:ABE6: F2        .byte con_jmp
 - D - I - 0x022BF7 11:ABE7: 6B AB     .word loc_AB6B
 
 bra_case_ABE9_01:
-- - - - - 0x022BF9 11:ABE9: 3C        .byte $3C
-- - - - - 0x022BFA 11:ABEA: 30        .byte $30
-- - - - - 0x022BFB 11:ABEB: 9B        .byte $9B
-- - - - - 0x022BFC 11:ABEC: A5        .byte $A5
+- - - - - 0x022BF9 11:ABE9: 3C        .byte con_pause + $3C
+- - - - - 0x022BFA 11:ABEA: 30        .byte con_bg + $30
+- - - - - 0x022BFB 11:ABEB: 9B        .byte con_animation + $9B
+- - - - - 0x022BFC 11:ABEC: A5        .byte con_cloud + $A5
 - - - - - 0x022BFD 11:ABED: F2        .byte con_jmp
 - - - - - 0x022BFE 11:ABEE: D4 AB     .word loc_ABD4
 bra_long_case_ABF0_07:
@@ -10172,42 +10179,42 @@ bra_long_case_ABF0_07:
 - D - I - 0x022C02 11:ABF2: 02        .byte bra_case_ABF4_00 - *
 - D - I - 0x022C03 11:ABF3: 29        .byte bra_case_AC1C_01 - *
 bra_case_ABF4_00:
-- D - I - 0x022C04 11:ABF4: 3C        .byte $3C
-- D - I - 0x022C05 11:ABF5: 30        .byte $30
-- D - I - 0x022C06 11:ABF6: 9F        .byte $9F
-- D - I - 0x022C07 11:ABF7: A3        .byte $A3
+- D - I - 0x022C04 11:ABF4: 3C        .byte con_pause + $3C
+- D - I - 0x022C05 11:ABF5: 30        .byte con_bg + $30
+- D - I - 0x022C06 11:ABF6: 9F        .byte con_animation + $9F
+- D - I - 0x022C07 11:ABF7: A3        .byte con_cloud + $A3
 loc_ABF8:
 - D - I - 0x022C08 11:ABF8: F7        .byte con_F7, $0D
 - D - I - 0x022C0A 11:ABFA: F9        .byte con_delay_soundID, $02, $17
-- D - I - 0x022C0D 11:ABFD: 3C        .byte $3C
-- D - I - 0x022C0E 11:ABFE: 6A        .byte $6A
-- D - I - 0x022C0F 11:ABFF: 9D        .byte $9D
-- D - I - 0x022C10 11:AC00: 49        .byte $49
+- D - I - 0x022C0D 11:ABFD: 3C        .byte con_pause + $3C
+- D - I - 0x022C0E 11:ABFE: 6A        .byte con_bg + $6A
+- D - I - 0x022C0F 11:ABFF: 9D        .byte con_animation + $9D
+- D - I - 0x022C10 11:AC00: 49        .byte con_cloud + $49
 - D - I - 0x022C11 11:AC01: F7        .byte con_F7, $15
 - D - I - 0x022C13 11:AC03: F9        .byte con_delay_soundID, $09, $1D
-- D - I - 0x022C16 11:AC06: 20        .byte $20
-- D - I - 0x022C17 11:AC07: 05        .byte $05
-- D - I - 0x022C18 11:AC08: CE        .byte $CE
-- D - I - 0x022C19 11:AC09: F0        .byte con_exit_1
+- D - I - 0x022C16 11:AC06: 20        .byte con_pause + $20
+- D - I - 0x022C17 11:AC07: 05        .byte con_bg + $05
+- D - I - 0x022C18 11:AC08: CE        .byte con_animation + $CE
+- D - I - 0x022C19 11:AC09: F0        .byte con_cloud + $F0
 - D - I - 0x022C1A 11:AC0A: F7        .byte con_F7, $10
-- D - I - 0x022C1C 11:AC0C: 0D        .byte $0D
-- D - I - 0x022C1D 11:AC0D: 05        .byte $05
-- D - I - 0x022C1E 11:AC0E: 00        .byte $00
-- D - I - 0x022C1F 11:AC0F: F0        .byte con_exit_1
+- D - I - 0x022C1C 11:AC0C: 0D        .byte con_pause + $0D
+- D - I - 0x022C1D 11:AC0D: 05        .byte con_bg + $05
+- D - I - 0x022C1E 11:AC0E: 00        .byte con_animation + $00
+- D - I - 0x022C1F 11:AC0F: F0        .byte con_cloud + $F0
 - D - I - 0x022C20 11:AC10: F7        .byte con_F7, $02
 - D - I - 0x022C22 11:AC12: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022C25 11:AC15: 20        .byte $20
-- D - I - 0x022C26 11:AC16: 25        .byte $25
-- D - I - 0x022C27 11:AC17: 63        .byte $63
-- D - I - 0x022C28 11:AC18: F0        .byte con_exit_1
+- D - I - 0x022C25 11:AC15: 20        .byte con_pause + $20
+- D - I - 0x022C26 11:AC16: 25        .byte con_bg + $25
+- D - I - 0x022C27 11:AC17: 63        .byte con_animation + $63
+- D - I - 0x022C28 11:AC18: F0        .byte con_cloud + $F0
 - D - I - 0x022C29 11:AC19: F2        .byte con_jmp
 - D - I - 0x022C2A 11:AC1A: 6B AB     .word loc_AB6B
 
 bra_case_AC1C_01:
-- D - I - 0x022C2C 11:AC1C: 3C        .byte $3C
-- D - I - 0x022C2D 11:AC1D: 30        .byte $30
-- D - I - 0x022C2E 11:AC1E: AD        .byte $AD
-- D - I - 0x022C2F 11:AC1F: A3        .byte $A3
+- D - I - 0x022C2C 11:AC1C: 3C        .byte con_pause + $3C
+- D - I - 0x022C2D 11:AC1D: 30        .byte con_bg + $30
+- D - I - 0x022C2E 11:AC1E: AD        .byte con_animation + $AD
+- D - I - 0x022C2F 11:AC1F: A3        .byte con_cloud + $A3
 - D - I - 0x022C30 11:AC20: F2        .byte con_jmp
 - D - I - 0x022C31 11:AC21: F8 AB     .word loc_ABF8
 
@@ -10217,35 +10224,35 @@ bra_long_case_AC23_0B:
 - D - I - 0x022C36 11:AC26: 20        .byte bra_case_AC46_01 - *
 
 bra_case_AC27_00:
-- D - I - 0x022C37 11:AC27: 3C        .byte $3C
-- D - I - 0x022C38 11:AC28: 30        .byte $30
-- D - I - 0x022C39 11:AC29: A1        .byte $A1
-- D - I - 0x022C3A 11:AC2A: B1        .byte $B1
+- D - I - 0x022C37 11:AC27: 3C        .byte con_pause + $3C
+- D - I - 0x022C38 11:AC28: 30        .byte con_bg + $30
+- D - I - 0x022C39 11:AC29: A1        .byte con_animation + $A1
+- D - I - 0x022C3A 11:AC2A: B1        .byte con_cloud + $B1
 loc_AC2B:
 - D - I - 0x022C3B 11:AC2B: FA        .byte con_jsr
 - D - I - 0x022C3C 11:AC2C: C7 BB     .word sub_BBC7
 - D - I - 0x022C3E 11:AC2E: F7        .byte con_F7, $19
 - D - I - 0x022C40 11:AC30: F9        .byte con_delay_soundID, $02, $15
-- D - I - 0x022C43 11:AC33: 28        .byte $28
-- D - I - 0x022C44 11:AC34: 49        .byte $49
-- D - I - 0x022C45 11:AC35: 8E        .byte $8E
-- D - I - 0x022C46 11:AC36: 49        .byte $49
+- D - I - 0x022C43 11:AC33: 28        .byte con_pause + $28
+- D - I - 0x022C44 11:AC34: 49        .byte con_bg + $49
+- D - I - 0x022C45 11:AC35: 8E        .byte con_animation + $8E
+- D - I - 0x022C46 11:AC36: 49        .byte con_cloud + $49
 - D - I - 0x022C47 11:AC37: FA        .byte con_jsr
 - D - I - 0x022C48 11:AC38: 9A AB     .word sub_AB9A
 - D - I - 0x022C4A 11:AC3A: F7        .byte con_F7, $02
 - D - I - 0x022C4C 11:AC3C: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022C4F 11:AC3F: 20        .byte $20
-- D - I - 0x022C50 11:AC40: 25        .byte $25
-- D - I - 0x022C51 11:AC41: 63        .byte $63
-- D - I - 0x022C52 11:AC42: F0        .byte con_exit_1
+- D - I - 0x022C4F 11:AC3F: 20        .byte con_pause + $20
+- D - I - 0x022C50 11:AC40: 25        .byte con_bg + $25
+- D - I - 0x022C51 11:AC41: 63        .byte con_animation + $63
+- D - I - 0x022C52 11:AC42: F0        .byte con_cloud + $F0
 - D - I - 0x022C53 11:AC43: F2        .byte con_jmp
 - D - I - 0x022C54 11:AC44: 6B AB     .word loc_AB6B
 
 bra_case_AC46_01:
-- D - I - 0x022C56 11:AC46: 3C        .byte $3C
-- D - I - 0x022C57 11:AC47: 30        .byte $30
-- D - I - 0x022C58 11:AC48: AF        .byte $AF
-- D - I - 0x022C59 11:AC49: B1        .byte $B1
+- D - I - 0x022C56 11:AC46: 3C        .byte con_pause + $3C
+- D - I - 0x022C57 11:AC47: 30        .byte con_bg + $30
+- D - I - 0x022C58 11:AC48: AF        .byte con_animation + $AF
+- D - I - 0x022C59 11:AC49: B1        .byte con_cloud + $B1
 - D - I - 0x022C5A 11:AC4A: F2        .byte con_jmp
 - D - I - 0x022C5B 11:AC4B: 2B AC     .word loc_AC2B
 
@@ -10255,10 +10262,10 @@ bra_long_case_AC4D_0C:
 - D - I - 0x022C60 11:AC50: 17        .byte bra_case_AC67_01 - *
 
 bra_case_AC51_00:
-- D - I - 0x022C61 11:AC51: 3C        .byte $3C
-- D - I - 0x022C62 11:AC52: 31        .byte $31
-- D - I - 0x022C63 11:AC53: 9E        .byte $9E
-- D - I - 0x022C64 11:AC54: B2        .byte $B2
+- D - I - 0x022C61 11:AC51: 3C        .byte con_pause + $3C
+- D - I - 0x022C62 11:AC52: 31        .byte con_bg + $31
+- D - I - 0x022C63 11:AC53: 9E        .byte con_animation + $9E
+- D - I - 0x022C64 11:AC54: B2        .byte con_cloud + $B2
 loc_AC55:
 - D - I - 0x022C65 11:AC55: FA        .byte con_jsr
 - D - I - 0x022C66 11:AC56: B8 AB     .word sub_ABB8
@@ -10266,18 +10273,18 @@ loc_AC55:
 - D - I - 0x022C69 11:AC59: A4 AB     .word sub_ABA4
 - D - I - 0x022C6B 11:AC5B: F7        .byte con_F7, $02
 - D - I - 0x022C6D 11:AC5D: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022C70 11:AC60: 20        .byte $20
-- D - I - 0x022C71 11:AC61: 25        .byte $25
-- D - I - 0x022C72 11:AC62: 63        .byte $63
-- D - I - 0x022C73 11:AC63: F0        .byte con_exit_1
+- D - I - 0x022C70 11:AC60: 20        .byte con_pause + $20
+- D - I - 0x022C71 11:AC61: 25        .byte con_bg + $25
+- D - I - 0x022C72 11:AC62: 63        .byte con_animation + $63
+- D - I - 0x022C73 11:AC63: F0        .byte con_cloud + $F0
 - D - I - 0x022C74 11:AC64: F2        .byte con_jmp
 - D - I - 0x022C75 11:AC65: 6B AB     .word loc_AB6B
 
 bra_case_AC67_01:
-- D - I - 0x022C77 11:AC67: 3C        .byte $3C
-- D - I - 0x022C78 11:AC68: 31        .byte $31
-- D - I - 0x022C79 11:AC69: B0        .byte $B0
-- D - I - 0x022C7A 11:AC6A: B2        .byte $B2
+- D - I - 0x022C77 11:AC67: 3C        .byte con_pause + $3C
+- D - I - 0x022C78 11:AC68: 31        .byte con_bg + $31
+- D - I - 0x022C79 11:AC69: B0        .byte con_animation + $B0
+- D - I - 0x022C7A 11:AC6A: B2        .byte con_cloud + $B2
 - D - I - 0x022C7B 11:AC6B: F2        .byte con_jmp
 - D - I - 0x022C7C 11:AC6C: 55 AC     .word loc_AC55
 
@@ -10292,41 +10299,41 @@ bra_case_AC72_00:
 - D - I - 0x022C85 11:AC75: 27        .byte bra_case_AC9C_01 - *
 
 bra_case_AC76_00:
-- D - I - 0x022C86 11:AC76: 78        .byte $78
-- D - I - 0x022C87 11:AC77: 31        .byte $31
-- D - I - 0x022C88 11:AC78: 9E        .byte $9E
-- D - I - 0x022C89 11:AC79: B3        .byte $B3
+- D - I - 0x022C86 11:AC76: 78        .byte con_pause + $78
+- D - I - 0x022C87 11:AC77: 31        .byte con_bg + $31
+- D - I - 0x022C88 11:AC78: 9E        .byte con_animation + $9E
+- D - I - 0x022C89 11:AC79: B3        .byte con_cloud + $B3
 loc_AC7A:
-- D - I - 0x022C8A 11:AC7A: 01        .byte $01
-- D - I - 0x022C8B 11:AC7B: F0        .byte con_exit_1
-- D - I - 0x022C8C 11:AC7C: F0        .byte con_exit_1
-- D - I - 0x022C8D 11:AC7D: 00        .byte $00
+- D - I - 0x022C8A 11:AC7A: 01        .byte con_pause + $01
+- D - I - 0x022C8B 11:AC7B: F0        .byte con_bg + $F0
+- D - I - 0x022C8C 11:AC7C: F0        .byte con_animation + $F0
+- D - I - 0x022C8D 11:AC7D: 00        .byte con_cloud + $00
 - D - I - 0x022C8E 11:AC7E: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022C91 11:AC81: F7        .byte con_F7, $1B
-- D - I - 0x022C93 11:AC83: 28        .byte $28
-- D - I - 0x022C94 11:AC84: 4A        .byte $4A
-- D - I - 0x022C95 11:AC85: 8E        .byte $8E
-- D - I - 0x022C96 11:AC86: 49        .byte $49
+- D - I - 0x022C93 11:AC83: 28        .byte con_pause + $28
+- D - I - 0x022C94 11:AC84: 4A        .byte con_bg + $4A
+- D - I - 0x022C95 11:AC85: 8E        .byte con_animation + $8E
+- D - I - 0x022C96 11:AC86: 49        .byte con_cloud + $49
 - D - I - 0x022C97 11:AC87: F7        .byte con_F7, $04
 - D - I - 0x022C99 11:AC89: F9        .byte con_delay_soundID, $02, $13
-- D - I - 0x022C9C 11:AC8C: 1E        .byte $1E
-- D - I - 0x022C9D 11:AC8D: 41        .byte $41
-- D - I - 0x022C9E 11:AC8E: 8C        .byte $8C
-- D - I - 0x022C9F 11:AC8F: 6A        .byte $6A
+- D - I - 0x022C9C 11:AC8C: 1E        .byte con_pause + $1E
+- D - I - 0x022C9D 11:AC8D: 41        .byte con_bg + $41
+- D - I - 0x022C9E 11:AC8E: 8C        .byte con_animation + $8C
+- D - I - 0x022C9F 11:AC8F: 6A        .byte con_cloud + $6A
 - D - I - 0x022CA0 11:AC90: F7        .byte con_F7, $02
 - D - I - 0x022CA2 11:AC92: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022CA5 11:AC95: 20        .byte $20
-- D - I - 0x022CA6 11:AC96: 25        .byte $25
-- D - I - 0x022CA7 11:AC97: 63        .byte $63
-- D - I - 0x022CA8 11:AC98: F0        .byte con_exit_1
+- D - I - 0x022CA5 11:AC95: 20        .byte con_pause + $20
+- D - I - 0x022CA6 11:AC96: 25        .byte con_bg + $25
+- D - I - 0x022CA7 11:AC97: 63        .byte con_animation + $63
+- D - I - 0x022CA8 11:AC98: F0        .byte con_cloud + $F0
 - D - I - 0x022CA9 11:AC99: F2        .byte con_jmp
 - D - I - 0x022CAA 11:AC9A: 6B AB     .word loc_AB6B
 
 bra_case_AC9C_01:
-- D - I - 0x022CAC 11:AC9C: 78        .byte $78
-- D - I - 0x022CAD 11:AC9D: 31        .byte $31
-- D - I - 0x022CAE 11:AC9E: B0        .byte $B0
-- D - I - 0x022CAF 11:AC9F: B3        .byte $B3
+- D - I - 0x022CAC 11:AC9C: 78        .byte con_pause + $78
+- D - I - 0x022CAD 11:AC9D: 31        .byte con_bg + $31
+- D - I - 0x022CAE 11:AC9E: B0        .byte con_animation + $B0
+- D - I - 0x022CAF 11:AC9F: B3        .byte con_cloud + $B3
 - D - I - 0x022CB0 11:ACA0: F2        .byte con_jmp
 - D - I - 0x022CB1 11:ACA1: 7A AC     .word loc_AC7A
 
@@ -10337,84 +10344,84 @@ bra_case_ACA3_01:
 
 bra_case_ACA7_00:
 - D - I - 0x022CB7 11:ACA7: F7        .byte con_F7, $44
-- D - I - 0x022CB9 11:ACA9: B4        .byte $B4
-- D - I - 0x022CBA 11:ACAA: 31        .byte $31
-- D - I - 0x022CBB 11:ACAB: 9E        .byte $9E
-- D - I - 0x022CBC 11:ACAC: 9D        .byte $9D
+- D - I - 0x022CB9 11:ACA9: B4        .byte con_pause + $B4
+- D - I - 0x022CBA 11:ACAA: 31        .byte con_bg + $31
+- D - I - 0x022CBB 11:ACAB: 9E        .byte con_animation + $9E
+- D - I - 0x022CBC 11:ACAC: 9D        .byte con_cloud + $9D
 - D - I - 0x022CBD 11:ACAD: F2        .byte con_jmp
 - D - I - 0x022CBE 11:ACAE: 7A AC     .word loc_AC7A
 
 bra_case_ACB0_01:
 - D - I - 0x022CC0 11:ACB0: F7        .byte con_F7, $44
-- D - I - 0x022CC2 11:ACB2: B4        .byte $B4
-- D - I - 0x022CC3 11:ACB3: 31        .byte $31
-- D - I - 0x022CC4 11:ACB4: B0        .byte $B0
-- D - I - 0x022CC5 11:ACB5: 9D        .byte $9D
+- D - I - 0x022CC2 11:ACB2: B4        .byte con_pause + $B4
+- D - I - 0x022CC3 11:ACB3: 31        .byte con_bg + $31
+- D - I - 0x022CC4 11:ACB4: B0        .byte con_animation + $B0
+- D - I - 0x022CC5 11:ACB5: 9D        .byte con_cloud + $9D
 - D - I - 0x022CC6 11:ACB6: F2        .byte con_jmp
 - D - I - 0x022CC7 11:ACB7: 7A AC     .word loc_AC7A
 
 bra_long_case_ACB9_11:
 - D - I - 0x022CC9 11:ACB9: F5        .byte con_mirror_off
 - D - I - 0x022CCA 11:ACBA: F8        .byte con_F8, $04
-- D - I - 0x022CCC 11:ACBC: 3C        .byte $3C
-- D - I - 0x022CCD 11:ACBD: 30        .byte $30
-- D - I - 0x022CCE 11:ACBE: 91        .byte $91
-- D - I - 0x022CCF 11:ACBF: B6        .byte $B6
+- D - I - 0x022CCC 11:ACBC: 3C        .byte con_pause + $3C
+- D - I - 0x022CCD 11:ACBD: 30        .byte con_bg + $30
+- D - I - 0x022CCE 11:ACBE: 91        .byte con_animation + $91
+- D - I - 0x022CCF 11:ACBF: B6        .byte con_cloud + $B6
 - D - I - 0x022CD0 11:ACC0: F6        .byte con_mirror_toggle
 - D - I - 0x022CD1 11:ACC1: F8        .byte con_F8, $04
-- D - I - 0x022CD3 11:ACC3: 3C        .byte $3C
-- D - I - 0x022CD4 11:ACC4: 55        .byte $55
-- D - I - 0x022CD5 11:ACC5: 9E        .byte $9E
-- D - I - 0x022CD6 11:ACC6: B7        .byte $B7
+- D - I - 0x022CD3 11:ACC3: 3C        .byte con_pause + $3C
+- D - I - 0x022CD4 11:ACC4: 55        .byte con_bg + $55
+- D - I - 0x022CD5 11:ACC5: 9E        .byte con_animation + $9E
+- D - I - 0x022CD6 11:ACC6: B7        .byte con_cloud + $B7
 - D - I - 0x022CD7 11:ACC7: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022CDA 11:ACCA: F7        .byte con_F7, $02
-- D - I - 0x022CDC 11:ACCC: 1E        .byte $1E
-- D - I - 0x022CDD 11:ACCD: 23        .byte $23
-- D - I - 0x022CDE 11:ACCE: 6B        .byte $6B
-- D - I - 0x022CDF 11:ACCF: 00        .byte $00
+- D - I - 0x022CDC 11:ACCC: 1E        .byte con_pause + $1E
+- D - I - 0x022CDD 11:ACCD: 23        .byte con_bg + $23
+- D - I - 0x022CDE 11:ACCE: 6B        .byte con_animation + $6B
+- D - I - 0x022CDF 11:ACCF: 00        .byte con_cloud + $00
 - D - I - 0x022CE0 11:ACD0: F6        .byte con_mirror_toggle
 - D - I - 0x022CE1 11:ACD1: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022CE4 11:ACD4: F7        .byte con_F7, $02
-- D - I - 0x022CE6 11:ACD6: 1E        .byte $1E
-- D - I - 0x022CE7 11:ACD7: 22        .byte $22
-- D - I - 0x022CE8 11:ACD8: E7        .byte $E7
-- D - I - 0x022CE9 11:ACD9: F0        .byte con_exit_1
+- D - I - 0x022CE6 11:ACD6: 1E        .byte con_pause + $1E
+- D - I - 0x022CE7 11:ACD7: 22        .byte con_bg + $22
+- D - I - 0x022CE8 11:ACD8: E7        .byte con_animation + $E7
+- D - I - 0x022CE9 11:ACD9: F0        .byte con_cloud + $F0
 - D - I - 0x022CEA 11:ACDA: F7        .byte con_F7, $10
 - D - I - 0x022CEC 11:ACDC: F9        .byte con_delay_soundID, $11, $30
-- D - I - 0x022CEF 11:ACDF: 14        .byte $14
-- D - I - 0x022CF0 11:ACE0: 05        .byte $05
-- D - I - 0x022CF1 11:ACE1: 00        .byte $00
-- D - I - 0x022CF2 11:ACE2: 9C        .byte $9C
+- D - I - 0x022CEF 11:ACDF: 14        .byte con_pause + $14
+- D - I - 0x022CF0 11:ACE0: 05        .byte con_bg + $05
+- D - I - 0x022CF1 11:ACE1: 00        .byte con_animation + $00
+- D - I - 0x022CF2 11:ACE2: 9C        .byte con_cloud + $9C
 - D - I - 0x022CF3 11:ACE3: F7        .byte con_F7, $31
-- D - I - 0x022CF5 11:ACE5: 3C        .byte $3C
-- D - I - 0x022CF6 11:ACE6: 5C        .byte $5C
-- D - I - 0x022CF7 11:ACE7: D7        .byte $D7
-- D - I - 0x022CF8 11:ACE8: F0        .byte con_exit_1
+- D - I - 0x022CF5 11:ACE5: 3C        .byte con_pause + $3C
+- D - I - 0x022CF6 11:ACE6: 5C        .byte con_bg + $5C
+- D - I - 0x022CF7 11:ACE7: D7        .byte con_animation + $D7
+- D - I - 0x022CF8 11:ACE8: F0        .byte con_cloud + $F0
 - D - I - 0x022CF9 11:ACE9: F7        .byte con_F7, $23
 - D - I - 0x022CFB 11:ACEB: F9        .byte con_delay_soundID, $02, $0A
-- D - I - 0x022CFE 11:ACEE: 3C        .byte $3C
-- D - I - 0x022CFF 11:ACEF: 27        .byte $27
-- D - I - 0x022D00 11:ACF0: DC        .byte $DC
-- D - I - 0x022D01 11:ACF1: 00        .byte $00
+- D - I - 0x022CFE 11:ACEE: 3C        .byte con_pause + $3C
+- D - I - 0x022CFF 11:ACEF: 27        .byte con_bg + $27
+- D - I - 0x022D00 11:ACF0: DC        .byte con_animation + $DC
+- D - I - 0x022D01 11:ACF1: 00        .byte con_cloud + $00
 - D - I - 0x022D02 11:ACF2: F7        .byte con_F7, $1F
 - D - I - 0x022D04 11:ACF4: F8        .byte con_F8, $04
-- D - I - 0x022D06 11:ACF6: 3C        .byte $3C
-- D - I - 0x022D07 11:ACF7: 30        .byte $30
-- D - I - 0x022D08 11:ACF8: 91        .byte $91
-- D - I - 0x022D09 11:ACF9: AF        .byte $AF
+- D - I - 0x022D06 11:ACF6: 3C        .byte con_pause + $3C
+- D - I - 0x022D07 11:ACF7: 30        .byte con_bg + $30
+- D - I - 0x022D08 11:ACF8: 91        .byte con_animation + $91
+- D - I - 0x022D09 11:ACF9: AF        .byte con_cloud + $AF
 - D - I - 0x022D0A 11:ACFA: F6        .byte con_mirror_toggle
 - D - I - 0x022D0B 11:ACFB: F7        .byte con_F7, $1F
 - D - I - 0x022D0D 11:ACFD: F8        .byte con_F8, $04
-- D - I - 0x022D0F 11:ACFF: 3C        .byte $3C
-- D - I - 0x022D10 11:AD00: 55        .byte $55
-- D - I - 0x022D11 11:AD01: 9E        .byte $9E
-- D - I - 0x022D12 11:AD02: B8        .byte $B8
+- D - I - 0x022D0F 11:ACFF: 3C        .byte con_pause + $3C
+- D - I - 0x022D10 11:AD00: 55        .byte con_bg + $55
+- D - I - 0x022D11 11:AD01: 9E        .byte con_animation + $9E
+- D - I - 0x022D12 11:AD02: B8        .byte con_cloud + $B8
 - D - I - 0x022D13 11:AD03: F6        .byte con_mirror_toggle
 - D - I - 0x022D14 11:AD04: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x022D17 11:AD07: 41        .byte $41
-- D - I - 0x022D18 11:AD08: 1D        .byte $1D
-- D - I - 0x022D19 11:AD09: 1F        .byte $1F
-- D - I - 0x022D1A 11:AD0A: 00        .byte $00
+- D - I - 0x022D17 11:AD07: 41        .byte con_pause + $41
+- D - I - 0x022D18 11:AD08: 1D        .byte con_bg + $1D
+- D - I - 0x022D19 11:AD09: 1F        .byte con_animation + $1F
+- D - I - 0x022D1A 11:AD0A: 00        .byte con_cloud + $00
 - D - I - 0x022D1B 11:AD0B: FB        .byte con_rts
 
 bra_long_case_AD0C_12:
@@ -10427,10 +10434,10 @@ bra_long_case_AD0C_12:
 sub_AD13:
 - D - I - 0x022D23 11:AD13: F7        .byte con_F7, $10
 - D - I - 0x022D25 11:AD15: F9        .byte con_delay_soundID, $02, $12
-- D - I - 0x022D28 11:AD18: 14        .byte $14
-- D - I - 0x022D29 11:AD19: 10        .byte $10
-- D - I - 0x022D2A 11:AD1A: 62        .byte $62
-- D - I - 0x022D2B 11:AD1B: F0        .byte con_exit_1
+- D - I - 0x022D28 11:AD18: 14        .byte con_pause + $14
+- D - I - 0x022D29 11:AD19: 10        .byte con_bg + $10
+- D - I - 0x022D2A 11:AD1A: 62        .byte con_animation + $62
+- D - I - 0x022D2B 11:AD1B: F0        .byte con_cloud + $F0
 - D - I - 0x022D2C 11:AD1C: FB        .byte con_rts
 
 bra_long_case_AD1D_13:
@@ -10439,39 +10446,39 @@ bra_long_case_AD1D_13:
 - D - I - 0x022D30 11:AD20: 25        .byte bra_case_AD45_01 - *
 
 bra_case_AD21_00:
-- D - I - 0x022D31 11:AD21: 78        .byte $78
-- D - I - 0x022D32 11:AD22: 30        .byte $30
-- D - I - 0x022D33 11:AD23: A0        .byte $A0
-- D - I - 0x022D34 11:AD24: 4B        .byte $4B
+- D - I - 0x022D31 11:AD21: 78        .byte con_pause + $78
+- D - I - 0x022D32 11:AD22: 30        .byte con_bg + $30
+- D - I - 0x022D33 11:AD23: A0        .byte con_animation + $A0
+- D - I - 0x022D34 11:AD24: 4B        .byte con_cloud + $4B
 loc_AD25:
 - D - I - 0x022D35 11:AD25: FA        .byte con_jsr
 - D - I - 0x022D36 11:AD26: B8 AB     .word sub_ABB8
 - D - I - 0x022D38 11:AD28: FA        .byte con_jsr
 - D - I - 0x022D39 11:AD29: AE AB     .word sub_ABAE
 - D - I - 0x022D3B 11:AD2B: F9        .byte con_delay_soundID, $02, $0E
-- D - I - 0x022D3E 11:AD2E: 30        .byte $30
-- D - I - 0x022D3F 11:AD2F: 62        .byte $62
-- D - I - 0x022D40 11:AD30: 40        .byte $40
-- D - I - 0x022D41 11:AD31: 00        .byte $00
+- D - I - 0x022D3E 11:AD2E: 30        .byte con_pause + $30
+- D - I - 0x022D3F 11:AD2F: 62        .byte con_bg + $62
+- D - I - 0x022D40 11:AD30: 40        .byte con_animation + $40
+- D - I - 0x022D41 11:AD31: 00        .byte con_cloud + $00
 - D - I - 0x022D42 11:AD32: F7        .byte con_F7, $3D
 - D - I - 0x022D44 11:AD34: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022D47 11:AD37: 28        .byte $28
-- D - I - 0x022D48 11:AD38: 1F        .byte $1F
-- D - I - 0x022D49 11:AD39: 71        .byte $71
-- D - I - 0x022D4A 11:AD3A: 49        .byte $49
+- D - I - 0x022D47 11:AD37: 28        .byte con_pause + $28
+- D - I - 0x022D48 11:AD38: 1F        .byte con_bg + $1F
+- D - I - 0x022D49 11:AD39: 71        .byte con_animation + $71
+- D - I - 0x022D4A 11:AD3A: 49        .byte con_cloud + $49
 - D - I - 0x022D4B 11:AD3B: F7        .byte con_F7, $3D
 - D - I - 0x022D4D 11:AD3D: F9        .byte con_delay_soundID, $21, $1B
-- D - I - 0x022D50 11:AD40: 46        .byte $46
-- D - I - 0x022D51 11:AD41: 51        .byte $51
-- D - I - 0x022D52 11:AD42: E8        .byte $E8
-- D - I - 0x022D53 11:AD43: F0        .byte con_exit_1
+- D - I - 0x022D50 11:AD40: 46        .byte con_pause + $46
+- D - I - 0x022D51 11:AD41: 51        .byte con_bg + $51
+- D - I - 0x022D52 11:AD42: E8        .byte con_animation + $E8
+- D - I - 0x022D53 11:AD43: F0        .byte con_cloud + $F0
 - D - I - 0x022D54 11:AD44: FB        .byte con_rts
 
 bra_case_AD45_01:
-- D - I - 0x022D55 11:AD45: 78        .byte $78
-- D - I - 0x022D56 11:AD46: 30        .byte $30
-- D - I - 0x022D57 11:AD47: AA        .byte $AA
-- D - I - 0x022D58 11:AD48: B9        .byte $B9
+- D - I - 0x022D55 11:AD45: 78        .byte con_pause + $78
+- D - I - 0x022D56 11:AD46: 30        .byte con_bg + $30
+- D - I - 0x022D57 11:AD47: AA        .byte con_animation + $AA
+- D - I - 0x022D58 11:AD48: B9        .byte con_cloud + $B9
 - D - I - 0x022D59 11:AD49: F2        .byte con_jmp
 - D - I - 0x022D5A 11:AD4A: 25 AD     .word loc_AD25
 
@@ -10482,10 +10489,10 @@ bra_long_case_AD4C_14:
 - D - I - 0x022D60 11:AD50: AE AB     .word sub_ABAE
 - D - I - 0x022D62 11:AD52: F7        .byte con_F7, $02
 - D - I - 0x022D64 11:AD54: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022D67 11:AD57: 20        .byte $20
-- D - I - 0x022D68 11:AD58: 25        .byte $25
-- D - I - 0x022D69 11:AD59: 63        .byte $63
-- D - I - 0x022D6A 11:AD5A: F0        .byte con_exit_1
+- D - I - 0x022D67 11:AD57: 20        .byte con_pause + $20
+- D - I - 0x022D68 11:AD58: 25        .byte con_bg + $25
+- D - I - 0x022D69 11:AD59: 63        .byte con_animation + $63
+- D - I - 0x022D6A 11:AD5A: F0        .byte con_cloud + $F0
 - D - I - 0x022D6B 11:AD5B: F2        .byte con_jmp
 - D - I - 0x022D6C 11:AD5C: 6B AB     .word loc_AB6B
 
@@ -10496,23 +10503,23 @@ bra_long_case_AD5E_15:
 - D - I - 0x022D72 11:AD62: 7C AB     .word sub_AB7C
 - D - I - 0x022D74 11:AD64: F7        .byte con_F7, $3E
 - D - I - 0x022D76 11:AD66: FC        .byte con_FC, $02
-- D - I - 0x022D78 11:AD68: 28        .byte $28
-- D - I - 0x022D79 11:AD69: 58        .byte $58
-- D - I - 0x022D7A 11:AD6A: C8        .byte $C8
-- D - I - 0x022D7B 11:AD6B: 00        .byte $00
+- D - I - 0x022D78 11:AD68: 28        .byte con_pause + $28
+- D - I - 0x022D79 11:AD69: 58        .byte con_bg + $58
+- D - I - 0x022D7A 11:AD6A: C8        .byte con_animation + $C8
+- D - I - 0x022D7B 11:AD6B: 00        .byte con_cloud + $00
 - D - I - 0x022D7C 11:AD6C: F7        .byte con_F7, $29
 - D - I - 0x022D7E 11:AD6E: F9        .byte con_delay_soundID, $02, $14
-- D - I - 0x022D81 11:AD71: 1E        .byte $1E
-- D - I - 0x022D82 11:AD72: 47        .byte $47
-- D - I - 0x022D83 11:AD73: E9        .byte $E9
-- D - I - 0x022D84 11:AD74: 04        .byte $04
+- D - I - 0x022D81 11:AD71: 1E        .byte con_pause + $1E
+- D - I - 0x022D82 11:AD72: 47        .byte con_bg + $47
+- D - I - 0x022D83 11:AD73: E9        .byte con_animation + $E9
+- D - I - 0x022D84 11:AD74: 04        .byte con_cloud + $04
 - D - I - 0x022D85 11:AD75: F7        .byte con_F7, $3E
 - D - I - 0x022D87 11:AD77: FC        .byte con_FC, $02
 - D - I - 0x022D89 11:AD79: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x022D8C 11:AD7C: 28        .byte $28
-- D - I - 0x022D8D 11:AD7D: 58        .byte $58
-- D - I - 0x022D8E 11:AD7E: C5        .byte $C5
-- D - I - 0x022D8F 11:AD7F: F0        .byte con_exit_1
+- D - I - 0x022D8C 11:AD7C: 28        .byte con_pause + $28
+- D - I - 0x022D8D 11:AD7D: 58        .byte con_bg + $58
+- D - I - 0x022D8E 11:AD7E: C5        .byte con_animation + $C5
+- D - I - 0x022D8F 11:AD7F: F0        .byte con_cloud + $F0
 - D - I - 0x022D90 11:AD80: FB        .byte con_rts
 
 bra_long_case_AD81_16:
@@ -10521,59 +10528,59 @@ bra_long_case_AD81_16:
 - D - I - 0x022D94 11:AD84: 20        .byte bra_case_ADA4_01 - *
 
 bra_case_AD85_00:
-- D - I - 0x022D95 11:AD85: 3C        .byte $3C
-- D - I - 0x022D96 11:AD86: 30        .byte $30
-- D - I - 0x022D97 11:AD87: A9        .byte $A9
-- D - I - 0x022D98 11:AD88: BA        .byte $BA
+- D - I - 0x022D95 11:AD85: 3C        .byte con_pause + $3C
+- D - I - 0x022D96 11:AD86: 30        .byte con_bg + $30
+- D - I - 0x022D97 11:AD87: A9        .byte con_animation + $A9
+- D - I - 0x022D98 11:AD88: BA        .byte con_cloud + $BA
 loc_AD89:
 - D - I - 0x022D99 11:AD89: FA        .byte con_jsr
 - D - I - 0x022D9A 11:AD8A: C7 BB     .word sub_BBC7
 - D - I - 0x022D9C 11:AD8C: F7        .byte con_F7, $26
 - D - I - 0x022D9E 11:AD8E: F9        .byte con_delay_soundID, $02, $15
-- D - I - 0x022DA1 11:AD91: 28        .byte $28
-- D - I - 0x022DA2 11:AD92: 49        .byte $49
-- D - I - 0x022DA3 11:AD93: 8E        .byte $8E
-- D - I - 0x022DA4 11:AD94: 49        .byte $49
+- D - I - 0x022DA1 11:AD91: 28        .byte con_pause + $28
+- D - I - 0x022DA2 11:AD92: 49        .byte con_bg + $49
+- D - I - 0x022DA3 11:AD93: 8E        .byte con_animation + $8E
+- D - I - 0x022DA4 11:AD94: 49        .byte con_cloud + $49
 - D - I - 0x022DA5 11:AD95: FA        .byte con_jsr
 - D - I - 0x022DA6 11:AD96: 9A AB     .word sub_AB9A
 - D - I - 0x022DA8 11:AD98: F7        .byte con_F7, $02
 - D - I - 0x022DAA 11:AD9A: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022DAD 11:AD9D: 20        .byte $20
-- D - I - 0x022DAE 11:AD9E: 25        .byte $25
-- D - I - 0x022DAF 11:AD9F: 63        .byte $63
-- D - I - 0x022DB0 11:ADA0: F0        .byte con_exit_1
+- D - I - 0x022DAD 11:AD9D: 20        .byte con_pause + $20
+- D - I - 0x022DAE 11:AD9E: 25        .byte con_bg + $25
+- D - I - 0x022DAF 11:AD9F: 63        .byte con_animation + $63
+- D - I - 0x022DB0 11:ADA0: F0        .byte con_cloud + $F0
 - D - I - 0x022DB1 11:ADA1: F2        .byte con_jmp
 - D - I - 0x022DB2 11:ADA2: 6B AB     .word loc_AB6B
 
 bra_case_ADA4_01:
-- D - I - 0x022DB4 11:ADA4: 3C        .byte $3C
-- D - I - 0x022DB5 11:ADA5: 30        .byte $30
-- D - I - 0x022DB6 11:ADA6: BB        .byte $BB
-- D - I - 0x022DB7 11:ADA7: BA        .byte $BA
+- D - I - 0x022DB4 11:ADA4: 3C        .byte con_pause + $3C
+- D - I - 0x022DB5 11:ADA5: 30        .byte con_bg + $30
+- D - I - 0x022DB6 11:ADA6: BB        .byte con_animation + $BB
+- D - I - 0x022DB7 11:ADA7: BA        .byte con_cloud + $BA
 - D - I - 0x022DB8 11:ADA8: F2        .byte con_jmp
 - D - I - 0x022DB9 11:ADA9: 89 AD     .word loc_AD89
 
 bra_long_case_ADAB_17:
-- D - I - 0x022DBB 11:ADAB: 3C        .byte $3C
-- D - I - 0x022DBC 11:ADAC: 30        .byte $30
-- D - I - 0x022DBD 11:ADAD: BC        .byte $BC
-- D - I - 0x022DBE 11:ADAE: BB        .byte $BB
+- D - I - 0x022DBB 11:ADAB: 3C        .byte con_pause + $3C
+- D - I - 0x022DBC 11:ADAC: 30        .byte con_bg + $30
+- D - I - 0x022DBD 11:ADAD: BC        .byte con_animation + $BC
+- D - I - 0x022DBE 11:ADAE: BB        .byte con_cloud + $BB
 - D - I - 0x022DBF 11:ADAF: FA        .byte con_jsr
 - D - I - 0x022DC0 11:ADB0: C7 BB     .word sub_BBC7
 - D - I - 0x022DC2 11:ADB2: F7        .byte con_F7, $0D
 - D - I - 0x022DC4 11:ADB4: F9        .byte con_delay_soundID, $02, $16
-- D - I - 0x022DC7 11:ADB7: 28        .byte $28
-- D - I - 0x022DC8 11:ADB8: 4A        .byte $4A
-- D - I - 0x022DC9 11:ADB9: 8E        .byte $8E
-- D - I - 0x022DCA 11:ADBA: 49        .byte $49
+- D - I - 0x022DC7 11:ADB7: 28        .byte con_pause + $28
+- D - I - 0x022DC8 11:ADB8: 4A        .byte con_bg + $4A
+- D - I - 0x022DC9 11:ADB9: 8E        .byte con_animation + $8E
+- D - I - 0x022DCA 11:ADBA: 49        .byte con_cloud + $49
 - D - I - 0x022DCB 11:ADBB: FA        .byte con_jsr
 - D - I - 0x022DCC 11:ADBC: A4 AB     .word sub_ABA4
 - D - I - 0x022DCE 11:ADBE: F7        .byte con_F7, $02
 - D - I - 0x022DD0 11:ADC0: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x022DD3 11:ADC3: 20        .byte $20
-- D - I - 0x022DD4 11:ADC4: 25        .byte $25
-- D - I - 0x022DD5 11:ADC5: 63        .byte $63
-- D - I - 0x022DD6 11:ADC6: F0        .byte con_exit_1
+- D - I - 0x022DD3 11:ADC3: 20        .byte con_pause + $20
+- D - I - 0x022DD4 11:ADC4: 25        .byte con_bg + $25
+- D - I - 0x022DD5 11:ADC5: 63        .byte con_animation + $63
+- D - I - 0x022DD6 11:ADC6: F0        .byte con_cloud + $F0
 - D - I - 0x022DD7 11:ADC7: F2        .byte con_jmp
 - D - I - 0x022DD8 11:ADC8: 6B AB     .word loc_AB6B
 
@@ -10584,97 +10591,97 @@ bra_long_case_ADCA_18:
 - D - I - 0x022DDE 11:ADCE: 86 AB     .word sub_AB86
 - D - I - 0x022DE0 11:ADD0: F7        .byte con_F7, $02
 - D - I - 0x022DE2 11:ADD2: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x022DE5 11:ADD5: 20        .byte $20
-- D - I - 0x022DE6 11:ADD6: 25        .byte $25
-- D - I - 0x022DE7 11:ADD7: 63        .byte $63
-- D - I - 0x022DE8 11:ADD8: F0        .byte con_exit_1
+- D - I - 0x022DE5 11:ADD5: 20        .byte con_pause + $20
+- D - I - 0x022DE6 11:ADD6: 25        .byte con_bg + $25
+- D - I - 0x022DE7 11:ADD7: 63        .byte con_animation + $63
+- D - I - 0x022DE8 11:ADD8: F0        .byte con_cloud + $F0
 - D - I - 0x022DE9 11:ADD9: F2        .byte con_jmp
 - D - I - 0x022DEA 11:ADDA: 6B AB     .word loc_AB6B
 
 bra_long_case_ADDC_19:
-- D - I - 0x022DEC 11:ADDC: 3C        .byte $3C
-- D - I - 0x022DED 11:ADDD: 30        .byte $30
-- D - I - 0x022DEE 11:ADDE: B5        .byte $B5
-- D - I - 0x022DEF 11:ADDF: BC        .byte $BC
+- D - I - 0x022DEC 11:ADDC: 3C        .byte con_pause + $3C
+- D - I - 0x022DED 11:ADDD: 30        .byte con_bg + $30
+- D - I - 0x022DEE 11:ADDE: B5        .byte con_animation + $B5
+- D - I - 0x022DEF 11:ADDF: BC        .byte con_cloud + $BC
 - D - I - 0x022DF0 11:ADE0: FA        .byte con_jsr
 - D - I - 0x022DF1 11:ADE1: C7 BB     .word sub_BBC7
 - D - I - 0x022DF3 11:ADE3: F9        .byte con_delay_soundID, $02, $17
-- D - I - 0x022DF6 11:ADE6: 3C        .byte $3C
-- D - I - 0x022DF7 11:ADE7: 6A        .byte $6A
-- D - I - 0x022DF8 11:ADE8: 9D        .byte $9D
-- D - I - 0x022DF9 11:ADE9: 49        .byte $49
+- D - I - 0x022DF6 11:ADE6: 3C        .byte con_pause + $3C
+- D - I - 0x022DF7 11:ADE7: 6A        .byte con_bg + $6A
+- D - I - 0x022DF8 11:ADE8: 9D        .byte con_animation + $9D
+- D - I - 0x022DF9 11:ADE9: 49        .byte con_cloud + $49
 - D - I - 0x022DFA 11:ADEA: FA        .byte con_jsr
 - D - I - 0x022DFB 11:ADEB: 90 AB     .word sub_AB90
 - D - I - 0x022DFD 11:ADED: F7        .byte con_F7, $02
 - D - I - 0x022DFF 11:ADEF: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x022E02 11:ADF2: 28        .byte $28
-- D - I - 0x022E03 11:ADF3: 25        .byte $25
-- D - I - 0x022E04 11:ADF4: 63        .byte $63
-- D - I - 0x022E05 11:ADF5: F0        .byte con_exit_1
+- D - I - 0x022E02 11:ADF2: 28        .byte con_pause + $28
+- D - I - 0x022E03 11:ADF3: 25        .byte con_bg + $25
+- D - I - 0x022E04 11:ADF4: 63        .byte con_animation + $63
+- D - I - 0x022E05 11:ADF5: F0        .byte con_cloud + $F0
 - D - I - 0x022E06 11:ADF6: F2        .byte con_jmp
 - D - I - 0x022E07 11:ADF7: 6B AB     .word loc_AB6B
 
 bra_long_case_ADF9_1A:
-- D - I - 0x022E09 11:ADF9: 3C        .byte $3C
-- D - I - 0x022E0A 11:ADFA: 30        .byte $30
-- D - I - 0x022E0B 11:ADFB: B4        .byte $B4
-- D - I - 0x022E0C 11:ADFC: BD        .byte $BD
+- D - I - 0x022E09 11:ADF9: 3C        .byte con_pause + $3C
+- D - I - 0x022E0A 11:ADFA: 30        .byte con_bg + $30
+- D - I - 0x022E0B 11:ADFB: B4        .byte con_animation + $B4
+- D - I - 0x022E0C 11:ADFC: BD        .byte con_cloud + $BD
 - D - I - 0x022E0D 11:ADFD: FA        .byte con_jsr
 - D - I - 0x022E0E 11:ADFE: B8 AB     .word sub_ABB8
 - D - I - 0x022E10 11:AE00: FA        .byte con_jsr
 - D - I - 0x022E11 11:AE01: AE AB     .word sub_ABAE
 - D - I - 0x022E13 11:AE03: F7        .byte con_F7, $02
 - D - I - 0x022E15 11:AE05: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022E18 11:AE08: 28        .byte $28
-- D - I - 0x022E19 11:AE09: 25        .byte $25
-- D - I - 0x022E1A 11:AE0A: 63        .byte $63
-- D - I - 0x022E1B 11:AE0B: F0        .byte con_exit_1
+- D - I - 0x022E18 11:AE08: 28        .byte con_pause + $28
+- D - I - 0x022E19 11:AE09: 25        .byte con_bg + $25
+- D - I - 0x022E1A 11:AE0A: 63        .byte con_animation + $63
+- D - I - 0x022E1B 11:AE0B: F0        .byte con_cloud + $F0
 - D - I - 0x022E1C 11:AE0C: F2        .byte con_jmp
 - D - I - 0x022E1D 11:AE0D: 6B AB     .word loc_AB6B
 
 bra_long_case_AE0F_1B:
-- D - I - 0x022E1F 11:AE0F: 3C        .byte $3C
-- D - I - 0x022E20 11:AE10: 30        .byte $30
-- D - I - 0x022E21 11:AE11: B8        .byte $B8
-- D - I - 0x022E22 11:AE12: BE        .byte $BE
+- D - I - 0x022E1F 11:AE0F: 3C        .byte con_pause + $3C
+- D - I - 0x022E20 11:AE10: 30        .byte con_bg + $30
+- D - I - 0x022E21 11:AE11: B8        .byte con_animation + $B8
+- D - I - 0x022E22 11:AE12: BE        .byte con_cloud + $BE
 - D - I - 0x022E23 11:AE13: FA        .byte con_jsr
 - D - I - 0x022E24 11:AE14: C7 BB     .word sub_BBC7
 - D - I - 0x022E26 11:AE16: F7        .byte con_F7, $1D
 - D - I - 0x022E28 11:AE18: F9        .byte con_delay_soundID, $02, $16
-- D - I - 0x022E2B 11:AE1B: 28        .byte $28
-- D - I - 0x022E2C 11:AE1C: 4A        .byte $4A
-- D - I - 0x022E2D 11:AE1D: 8E        .byte $8E
-- D - I - 0x022E2E 11:AE1E: 49        .byte $49
+- D - I - 0x022E2B 11:AE1B: 28        .byte con_pause + $28
+- D - I - 0x022E2C 11:AE1C: 4A        .byte con_bg + $4A
+- D - I - 0x022E2D 11:AE1D: 8E        .byte con_animation + $8E
+- D - I - 0x022E2E 11:AE1E: 49        .byte con_cloud + $49
 - D - I - 0x022E2F 11:AE1F: F7        .byte con_F7, $04
 - D - I - 0x022E31 11:AE21: F9        .byte con_delay_soundID, $10, $13
-- D - I - 0x022E34 11:AE24: 10        .byte $10
-- D - I - 0x022E35 11:AE25: 41        .byte $41
-- D - I - 0x022E36 11:AE26: 8C        .byte $8C
-- D - I - 0x022E37 11:AE27: 6C        .byte $6C
+- D - I - 0x022E34 11:AE24: 10        .byte con_pause + $10
+- D - I - 0x022E35 11:AE25: 41        .byte con_bg + $41
+- D - I - 0x022E36 11:AE26: 8C        .byte con_animation + $8C
+- D - I - 0x022E37 11:AE27: 6C        .byte con_cloud + $6C
 - D - I - 0x022E38 11:AE28: F7        .byte con_F7, $02
 - D - I - 0x022E3A 11:AE2A: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x022E3D 11:AE2D: 28        .byte $28
-- D - I - 0x022E3E 11:AE2E: 25        .byte $25
-- D - I - 0x022E3F 11:AE2F: 63        .byte $63
-- D - I - 0x022E40 11:AE30: F0        .byte con_exit_1
+- D - I - 0x022E3D 11:AE2D: 28        .byte con_pause + $28
+- D - I - 0x022E3E 11:AE2E: 25        .byte con_bg + $25
+- D - I - 0x022E3F 11:AE2F: 63        .byte con_animation + $63
+- D - I - 0x022E40 11:AE30: F0        .byte con_cloud + $F0
 - D - I - 0x022E41 11:AE31: F2        .byte con_jmp
 - D - I - 0x022E42 11:AE32: 6B AB     .word loc_AB6B
 
 bra_long_case_AE34_22:
 - D - I - 0x022E44 11:AE34: F7        .byte con_F7, $31
 - D - I - 0x022E46 11:AE36: F9        .byte con_delay_soundID, $02, $16
-- D - I - 0x022E49 11:AE39: 28        .byte $28
-- D - I - 0x022E4A 11:AE3A: 4A        .byte $4A
-- D - I - 0x022E4B 11:AE3B: 8E        .byte $8E
-- D - I - 0x022E4C 11:AE3C: 49        .byte $49
+- D - I - 0x022E49 11:AE39: 28        .byte con_pause + $28
+- D - I - 0x022E4A 11:AE3A: 4A        .byte con_bg + $4A
+- D - I - 0x022E4B 11:AE3B: 8E        .byte con_animation + $8E
+- D - I - 0x022E4C 11:AE3C: 49        .byte con_cloud + $49
 - D - I - 0x022E4D 11:AE3D: FA        .byte con_jsr
 - D - I - 0x022E4E 11:AE3E: 9A AB     .word sub_AB9A
 - D - I - 0x022E50 11:AE40: F7        .byte con_F7, $02
 - D - I - 0x022E52 11:AE42: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x022E55 11:AE45: 28        .byte $28
-- D - I - 0x022E56 11:AE46: 25        .byte $25
-- D - I - 0x022E57 11:AE47: 63        .byte $63
-- D - I - 0x022E58 11:AE48: F0        .byte con_exit_1
+- D - I - 0x022E55 11:AE45: 28        .byte con_pause + $28
+- D - I - 0x022E56 11:AE46: 25        .byte con_bg + $25
+- D - I - 0x022E57 11:AE47: 63        .byte con_animation + $63
+- D - I - 0x022E58 11:AE48: F0        .byte con_cloud + $F0
 - D - I - 0x022E59 11:AE49: F2        .byte con_jmp
 - D - I - 0x022E5A 11:AE4A: 6B AB     .word loc_AB6B
 
@@ -10727,197 +10734,197 @@ bra_case_AE64_12:
 bra_case_AE64_13:
 bra_case_AE64_14:
 bra_case_AE64_15:
-- D - I - 0x022E74 11:AE64: 32        .byte $32
-- D - I - 0x022E75 11:AE65: 1F        .byte $1F
-- D - I - 0x022E76 11:AE66: 64        .byte $64
-- D - I - 0x022E77 11:AE67: 48        .byte $48
+- D - I - 0x022E74 11:AE64: 32        .byte con_pause + $32
+- D - I - 0x022E75 11:AE65: 1F        .byte con_bg + $1F
+- D - I - 0x022E76 11:AE66: 64        .byte con_animation + $64
+- D - I - 0x022E77 11:AE67: 48        .byte con_cloud + $48
 - D - I - 0x022E78 11:AE68: FB        .byte con_rts
 
 bra_case_AE69_10:
 - D - I - 0x022E79 11:AE69: F5        .byte con_mirror_off
 - D - I - 0x022E7A 11:AE6A: F8        .byte con_F8, $04
-- D - I - 0x022E7C 11:AE6C: 40        .byte $40
-- D - I - 0x022E7D 11:AE6D: 30        .byte $30
-- D - I - 0x022E7E 11:AE6E: 9C        .byte $9C
-- D - I - 0x022E7F 11:AE6F: A8        .byte $A8
+- D - I - 0x022E7C 11:AE6C: 40        .byte con_pause + $40
+- D - I - 0x022E7D 11:AE6D: 30        .byte con_bg + $30
+- D - I - 0x022E7E 11:AE6E: 9C        .byte con_animation + $9C
+- D - I - 0x022E7F 11:AE6F: A8        .byte con_cloud + $A8
 - D - I - 0x022E80 11:AE70: F6        .byte con_mirror_toggle
 - D - I - 0x022E81 11:AE71: F8        .byte con_F8, $04
-- D - I - 0x022E83 11:AE73: 78        .byte $78
-- D - I - 0x022E84 11:AE74: 4F        .byte $4F
-- D - I - 0x022E85 11:AE75: 9C        .byte $9C
-- D - I - 0x022E86 11:AE76: A9        .byte $A9
+- D - I - 0x022E83 11:AE73: 78        .byte con_pause + $78
+- D - I - 0x022E84 11:AE74: 4F        .byte con_bg + $4F
+- D - I - 0x022E85 11:AE75: 9C        .byte con_animation + $9C
+- D - I - 0x022E86 11:AE76: A9        .byte con_cloud + $A9
 - D - I - 0x022E87 11:AE77: F6        .byte con_mirror_toggle
 - D - I - 0x022E88 11:AE78: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022E8B 11:AE7B: 32        .byte $32
-- D - I - 0x022E8C 11:AE7C: 1F        .byte $1F
-- D - I - 0x022E8D 11:AE7D: 64        .byte $64
-- D - I - 0x022E8E 11:AE7E: 00        .byte $00
+- D - I - 0x022E8B 11:AE7B: 32        .byte con_pause + $32
+- D - I - 0x022E8C 11:AE7C: 1F        .byte con_bg + $1F
+- D - I - 0x022E8D 11:AE7D: 64        .byte con_animation + $64
+- D - I - 0x022E8E 11:AE7E: 00        .byte con_cloud + $00
 - D - I - 0x022E8F 11:AE7F: F6        .byte con_mirror_toggle
 - D - I - 0x022E90 11:AE80: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022E93 11:AE83: F8        .byte con_F8, $04
 - D - I - 0x022E95 11:AE85: F7        .byte con_F7, $3A
-- D - I - 0x022E97 11:AE87: 32        .byte $32
-- D - I - 0x022E98 11:AE88: 23        .byte $23
-- D - I - 0x022E99 11:AE89: 76        .byte $76
-- D - I - 0x022E9A 11:AE8A: F0        .byte con_exit_1
+- D - I - 0x022E97 11:AE87: 32        .byte con_pause + $32
+- D - I - 0x022E98 11:AE88: 23        .byte con_bg + $23
+- D - I - 0x022E99 11:AE89: 76        .byte con_animation + $76
+- D - I - 0x022E9A 11:AE8A: F0        .byte con_cloud + $F0
 - D - I - 0x022E9B 11:AE8B: F6        .byte con_mirror_toggle
 - D - I - 0x022E9C 11:AE8C: F7        .byte con_F7, $10
-- D - I - 0x022E9E 11:AE8E: 20        .byte $20
-- D - I - 0x022E9F 11:AE8F: 05        .byte $05
-- D - I - 0x022EA0 11:AE90: 00        .byte $00
-- D - I - 0x022EA1 11:AE91: F0        .byte con_exit_1
-- D - I - 0x022EA2 11:AE92: 28        .byte $28
-- D - I - 0x022EA3 11:AE93: 12        .byte $12
-- D - I - 0x022EA4 11:AE94: C0        .byte $C0
-- D - I - 0x022EA5 11:AE95: AF        .byte $AF
+- D - I - 0x022E9E 11:AE8E: 20        .byte con_pause + $20
+- D - I - 0x022E9F 11:AE8F: 05        .byte con_bg + $05
+- D - I - 0x022EA0 11:AE90: 00        .byte con_animation + $00
+- D - I - 0x022EA1 11:AE91: F0        .byte con_cloud + $F0
+- D - I - 0x022EA2 11:AE92: 28        .byte con_pause + $28
+- D - I - 0x022EA3 11:AE93: 12        .byte con_bg + $12
+- D - I - 0x022EA4 11:AE94: C0        .byte con_animation + $C0
+- D - I - 0x022EA5 11:AE95: AF        .byte con_cloud + $AF
 loc_AE96:
 - D - I - 0x022EA6 11:AE96: F7        .byte con_F7, $1E
 - D - I - 0x022EA8 11:AE98: F9        .byte con_delay_soundID, $02, $6D
-- D - I - 0x022EAB 11:AE9B: 20        .byte $20
-- D - I - 0x022EAC 11:AE9C: 05        .byte $05
-- D - I - 0x022EAD 11:AE9D: F0        .byte con_exit_1
-- D - I - 0x022EAE 11:AE9E: F0        .byte con_exit_1
-- D - I - 0x022EAF 11:AE9F: 32        .byte $32
-- D - I - 0x022EB0 11:AEA0: 20        .byte $20
-- D - I - 0x022EB1 11:AEA1: 4B        .byte $4B
-- D - I - 0x022EB2 11:AEA2: 00        .byte $00
+- D - I - 0x022EAB 11:AE9B: 20        .byte con_pause + $20
+- D - I - 0x022EAC 11:AE9C: 05        .byte con_bg + $05
+- D - I - 0x022EAD 11:AE9D: F0        .byte con_animation + $F0
+- D - I - 0x022EAE 11:AE9E: F0        .byte con_cloud + $F0
+- D - I - 0x022EAF 11:AE9F: 32        .byte con_pause + $32
+- D - I - 0x022EB0 11:AEA0: 20        .byte con_bg + $20
+- D - I - 0x022EB1 11:AEA1: 4B        .byte con_animation + $4B
+- D - I - 0x022EB2 11:AEA2: 00        .byte con_cloud + $00
 - D - I - 0x022EB3 11:AEA3: FB        .byte con_rts
 
 bra_case_AEA4_11:
 - D - I - 0x022EB4 11:AEA4: F5        .byte con_mirror_off
 - D - I - 0x022EB5 11:AEA5: F8        .byte con_F8, $04
-- D - I - 0x022EB7 11:AEA7: 40        .byte $40
-- D - I - 0x022EB8 11:AEA8: 30        .byte $30
-- D - I - 0x022EB9 11:AEA9: AB        .byte $AB
-- D - I - 0x022EBA 11:AEAA: A8        .byte $A8
+- D - I - 0x022EB7 11:AEA7: 40        .byte con_pause + $40
+- D - I - 0x022EB8 11:AEA8: 30        .byte con_bg + $30
+- D - I - 0x022EB9 11:AEA9: AB        .byte con_animation + $AB
+- D - I - 0x022EBA 11:AEAA: A8        .byte con_cloud + $A8
 - D - I - 0x022EBB 11:AEAB: F6        .byte con_mirror_toggle
 - D - I - 0x022EBC 11:AEAC: F8        .byte con_F8, $04
-- D - I - 0x022EBE 11:AEAE: 78        .byte $78
-- D - I - 0x022EBF 11:AEAF: 4F        .byte $4F
-- D - I - 0x022EC0 11:AEB0: AB        .byte $AB
-- D - I - 0x022EC1 11:AEB1: A9        .byte $A9
+- D - I - 0x022EBE 11:AEAE: 78        .byte con_pause + $78
+- D - I - 0x022EBF 11:AEAF: 4F        .byte con_bg + $4F
+- D - I - 0x022EC0 11:AEB0: AB        .byte con_animation + $AB
+- D - I - 0x022EC1 11:AEB1: A9        .byte con_cloud + $A9
 - D - I - 0x022EC2 11:AEB2: F6        .byte con_mirror_toggle
 - D - I - 0x022EC3 11:AEB3: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022EC6 11:AEB6: 32        .byte $32
-- D - I - 0x022EC7 11:AEB7: 1F        .byte $1F
-- D - I - 0x022EC8 11:AEB8: 64        .byte $64
-- D - I - 0x022EC9 11:AEB9: 00        .byte $00
+- D - I - 0x022EC6 11:AEB6: 32        .byte con_pause + $32
+- D - I - 0x022EC7 11:AEB7: 1F        .byte con_bg + $1F
+- D - I - 0x022EC8 11:AEB8: 64        .byte con_animation + $64
+- D - I - 0x022EC9 11:AEB9: 00        .byte con_cloud + $00
 - D - I - 0x022ECA 11:AEBA: F6        .byte con_mirror_toggle
 - D - I - 0x022ECB 11:AEBB: F9        .byte con_delay_soundID, $02, $28
 - D - I - 0x022ECE 11:AEBE: F8        .byte con_F8, $04
 - D - I - 0x022ED0 11:AEC0: F7        .byte con_F7, $3A
-- D - I - 0x022ED2 11:AEC2: 32        .byte $32
-- D - I - 0x022ED3 11:AEC3: 23        .byte $23
-- D - I - 0x022ED4 11:AEC4: 76        .byte $76
-- D - I - 0x022ED5 11:AEC5: F0        .byte con_exit_1
+- D - I - 0x022ED2 11:AEC2: 32        .byte con_pause + $32
+- D - I - 0x022ED3 11:AEC3: 23        .byte con_bg + $23
+- D - I - 0x022ED4 11:AEC4: 76        .byte con_animation + $76
+- D - I - 0x022ED5 11:AEC5: F0        .byte con_cloud + $F0
 - D - I - 0x022ED6 11:AEC6: F6        .byte con_mirror_toggle
 - D - I - 0x022ED7 11:AEC7: F7        .byte con_F7, $10
-- D - I - 0x022ED9 11:AEC9: 20        .byte $20
-- D - I - 0x022EDA 11:AECA: 05        .byte $05
-- D - I - 0x022EDB 11:AECB: 00        .byte $00
-- D - I - 0x022EDC 11:AECC: F0        .byte con_exit_1
-- D - I - 0x022EDD 11:AECD: 28        .byte $28
-- D - I - 0x022EDE 11:AECE: 12        .byte $12
-- D - I - 0x022EDF 11:AECF: E1        .byte $E1
-- D - I - 0x022EE0 11:AED0: AF        .byte $AF
+- D - I - 0x022ED9 11:AEC9: 20        .byte con_pause + $20
+- D - I - 0x022EDA 11:AECA: 05        .byte con_bg + $05
+- D - I - 0x022EDB 11:AECB: 00        .byte con_animation + $00
+- D - I - 0x022EDC 11:AECC: F0        .byte con_cloud + $F0
+- D - I - 0x022EDD 11:AECD: 28        .byte con_pause + $28
+- D - I - 0x022EDE 11:AECE: 12        .byte con_bg + $12
+- D - I - 0x022EDF 11:AECF: E1        .byte con_animation + $E1
+- D - I - 0x022EE0 11:AED0: AF        .byte con_cloud + $AF
 - D - I - 0x022EE1 11:AED1: F2        .byte con_jmp
 - D - I - 0x022EE2 11:AED2: 96 AE     .word loc_AE96
 
 bra_long_case_AED4_01:
 - D - I - 0x022EE4 11:AED4: F4        .byte con_mirror_on
 - D - I - 0x022EE5 11:AED5: F8        .byte con_F8, $04
-- D - I - 0x022EE7 11:AED7: 40        .byte $40
-- D - I - 0x022EE8 11:AED8: 4F        .byte $4F
-- D - I - 0x022EE9 11:AED9: 9C        .byte $9C
-- D - I - 0x022EEA 11:AEDA: A8        .byte $A8
+- D - I - 0x022EE7 11:AED7: 40        .byte con_pause + $40
+- D - I - 0x022EE8 11:AED8: 4F        .byte con_bg + $4F
+- D - I - 0x022EE9 11:AED9: 9C        .byte con_animation + $9C
+- D - I - 0x022EEA 11:AEDA: A8        .byte con_cloud + $A8
 - D - I - 0x022EEB 11:AEDB: F6        .byte con_mirror_toggle
 - D - I - 0x022EEC 11:AEDC: F8        .byte con_F8, $04
-- D - I - 0x022EEE 11:AEDE: 78        .byte $78
-- D - I - 0x022EEF 11:AEDF: 30        .byte $30
-- D - I - 0x022EF0 11:AEE0: A0        .byte $A0
-- D - I - 0x022EF1 11:AEE1: AE        .byte $AE
+- D - I - 0x022EEE 11:AEDE: 78        .byte con_pause + $78
+- D - I - 0x022EEF 11:AEDF: 30        .byte con_bg + $30
+- D - I - 0x022EF0 11:AEE0: A0        .byte con_animation + $A0
+- D - I - 0x022EF1 11:AEE1: AE        .byte con_cloud + $AE
 - D - I - 0x022EF2 11:AEE2: F6        .byte con_mirror_toggle
 - D - I - 0x022EF3 11:AEE3: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022EF6 11:AEE6: F7        .byte con_F7, $02
-- D - I - 0x022EF8 11:AEE8: 1E        .byte $1E
-- D - I - 0x022EF9 11:AEE9: 22        .byte $22
-- D - I - 0x022EFA 11:AEEA: 6B        .byte $6B
-- D - I - 0x022EFB 11:AEEB: 00        .byte $00
+- D - I - 0x022EF8 11:AEE8: 1E        .byte con_pause + $1E
+- D - I - 0x022EF9 11:AEE9: 22        .byte con_bg + $22
+- D - I - 0x022EFA 11:AEEA: 6B        .byte con_animation + $6B
+- D - I - 0x022EFB 11:AEEB: 00        .byte con_cloud + $00
 - D - I - 0x022EFC 11:AEEC: F6        .byte con_mirror_toggle
 - D - I - 0x022EFD 11:AEED: FC        .byte con_FC, $03
 - D - I - 0x022EFF 11:AEEF: F9        .byte con_delay_soundID, $02, $28
-- D - I - 0x022F02 11:AEF2: 20        .byte $20
-- D - I - 0x022F03 11:AEF3: 59        .byte $59
-- D - I - 0x022F04 11:AEF4: EA        .byte $EA
-- D - I - 0x022F05 11:AEF5: F0        .byte con_exit_1
+- D - I - 0x022F02 11:AEF2: 20        .byte con_pause + $20
+- D - I - 0x022F03 11:AEF3: 59        .byte con_bg + $59
+- D - I - 0x022F04 11:AEF4: EA        .byte con_animation + $EA
+- D - I - 0x022F05 11:AEF5: F0        .byte con_cloud + $F0
 - D - I - 0x022F06 11:AEF6: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x022F09 11:AEF9: F7        .byte con_F7, $02
-- D - I - 0x022F0B 11:AEFB: 1E        .byte $1E
-- D - I - 0x022F0C 11:AEFC: 22        .byte $22
-- D - I - 0x022F0D 11:AEFD: 6B        .byte $6B
-- D - I - 0x022F0E 11:AEFE: F0        .byte con_exit_1
+- D - I - 0x022F0B 11:AEFB: 1E        .byte con_pause + $1E
+- D - I - 0x022F0C 11:AEFC: 22        .byte con_bg + $22
+- D - I - 0x022F0D 11:AEFD: 6B        .byte con_animation + $6B
+- D - I - 0x022F0E 11:AEFE: F0        .byte con_cloud + $F0
 - D - I - 0x022F0F 11:AEFF: F7        .byte con_F7, $0F
-- D - I - 0x022F11 11:AF01: 14        .byte $14
-- D - I - 0x022F12 11:AF02: 05        .byte $05
-- D - I - 0x022F13 11:AF03: 00        .byte $00
-- D - I - 0x022F14 11:AF04: F0        .byte con_exit_1
+- D - I - 0x022F11 11:AF01: 14        .byte con_pause + $14
+- D - I - 0x022F12 11:AF02: 05        .byte con_bg + $05
+- D - I - 0x022F13 11:AF03: 00        .byte con_animation + $00
+- D - I - 0x022F14 11:AF04: F0        .byte con_cloud + $F0
 - D - I - 0x022F15 11:AF05: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x022F18 11:AF08: 1E        .byte $1E
-- D - I - 0x022F19 11:AF09: 3C        .byte $3C
-- D - I - 0x022F1A 11:AF0A: C2        .byte $C2
-- D - I - 0x022F1B 11:AF0B: F0        .byte con_exit_1
+- D - I - 0x022F18 11:AF08: 1E        .byte con_pause + $1E
+- D - I - 0x022F19 11:AF09: 3C        .byte con_bg + $3C
+- D - I - 0x022F1A 11:AF0A: C2        .byte con_animation + $C2
+- D - I - 0x022F1B 11:AF0B: F0        .byte con_cloud + $F0
 - D - I - 0x022F1C 11:AF0C: F6        .byte con_mirror_toggle
 - D - I - 0x022F1D 11:AF0D: F8        .byte con_F8, $04
-- D - I - 0x022F1F 11:AF0F: 3C        .byte $3C
-- D - I - 0x022F20 11:AF10: 4F        .byte $4F
-- D - I - 0x022F21 11:AF11: 9C        .byte $9C
-- D - I - 0x022F22 11:AF12: 13        .byte $13
+- D - I - 0x022F1F 11:AF0F: 3C        .byte con_pause + $3C
+- D - I - 0x022F20 11:AF10: 4F        .byte con_bg + $4F
+- D - I - 0x022F21 11:AF11: 9C        .byte con_animation + $9C
+- D - I - 0x022F22 11:AF12: 13        .byte con_cloud + $13
 - D - I - 0x022F23 11:AF13: F6        .byte con_mirror_toggle
 - D - I - 0x022F24 11:AF14: F8        .byte con_F8, $04
-- D - I - 0x022F26 11:AF16: 3C        .byte $3C
-- D - I - 0x022F27 11:AF17: 30        .byte $30
-- D - I - 0x022F28 11:AF18: 9C        .byte $9C
-- D - I - 0x022F29 11:AF19: AF        .byte $AF
+- D - I - 0x022F26 11:AF16: 3C        .byte con_pause + $3C
+- D - I - 0x022F27 11:AF17: 30        .byte con_bg + $30
+- D - I - 0x022F28 11:AF18: 9C        .byte con_animation + $9C
+- D - I - 0x022F29 11:AF19: AF        .byte con_cloud + $AF
 - D - I - 0x022F2A 11:AF1A: F6        .byte con_mirror_toggle
-- D - I - 0x022F2B 11:AF1B: 3C        .byte $3C
-- D - I - 0x022F2C 11:AF1C: 30        .byte $30
-- D - I - 0x022F2D 11:AF1D: A0        .byte $A0
-- D - I - 0x022F2E 11:AF1E: B0        .byte $B0
+- D - I - 0x022F2B 11:AF1B: 3C        .byte con_pause + $3C
+- D - I - 0x022F2C 11:AF1C: 30        .byte con_bg + $30
+- D - I - 0x022F2D 11:AF1D: A0        .byte con_animation + $A0
+- D - I - 0x022F2E 11:AF1E: B0        .byte con_cloud + $B0
 - D - I - 0x022F2F 11:AF1F: FA        .byte con_jsr
 - D - I - 0x022F30 11:AF20: C7 BB     .word sub_BBC7
 - D - I - 0x022F32 11:AF22: F6        .byte con_mirror_toggle
 - D - I - 0x022F33 11:AF23: F7        .byte con_F7, $10
 - D - I - 0x022F35 11:AF25: F9        .byte con_delay_soundID, $02, $6D
-- D - I - 0x022F38 11:AF28: 1E        .byte $1E
-- D - I - 0x022F39 11:AF29: 05        .byte $05
-- D - I - 0x022F3A 11:AF2A: C2        .byte $C2
-- D - I - 0x022F3B 11:AF2B: EE        .byte $EE
-- D - I - 0x022F3C 11:AF2C: 3C        .byte $3C
-- D - I - 0x022F3D 11:AF2D: 20        .byte $20
-- D - I - 0x022F3E 11:AF2E: C3        .byte $C3
-- D - I - 0x022F3F 11:AF2F: F0        .byte con_exit_1
+- D - I - 0x022F38 11:AF28: 1E        .byte con_pause + $1E
+- D - I - 0x022F39 11:AF29: 05        .byte con_bg + $05
+- D - I - 0x022F3A 11:AF2A: C2        .byte con_animation + $C2
+- D - I - 0x022F3B 11:AF2B: EE        .byte con_cloud + $EE
+- D - I - 0x022F3C 11:AF2C: 3C        .byte con_pause + $3C
+- D - I - 0x022F3D 11:AF2D: 20        .byte con_bg + $20
+- D - I - 0x022F3E 11:AF2E: C3        .byte con_animation + $C3
+- D - I - 0x022F3F 11:AF2F: F0        .byte con_cloud + $F0
 - D - I - 0x022F40 11:AF30: FB        .byte con_rts
 
 bra_long_case_AF31_03:
 - D - I - 0x022F41 11:AF31: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022F44 11:AF34: 37        .byte $37
-- D - I - 0x022F45 11:AF35: 47        .byte $47
-- D - I - 0x022F46 11:AF36: C9        .byte $C9
-- D - I - 0x022F47 11:AF37: 6B        .byte $6B
+- D - I - 0x022F44 11:AF34: 37        .byte con_pause + $37
+- D - I - 0x022F45 11:AF35: 47        .byte con_bg + $47
+- D - I - 0x022F46 11:AF36: C9        .byte con_animation + $C9
+- D - I - 0x022F47 11:AF37: 6B        .byte con_cloud + $6B
 - D - I - 0x022F48 11:AF38: FA        .byte con_jsr
 - D - I - 0x022F49 11:AF39: C7 BB     .word sub_BBC7
 - D - I - 0x022F4B 11:AF3B: F7        .byte con_F7, $0E
 - D - I - 0x022F4D 11:AF3D: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x022F50 11:AF40: 28        .byte $28
-- D - I - 0x022F51 11:AF41: 05        .byte $05
-- D - I - 0x022F52 11:AF42: CB        .byte $CB
-- D - I - 0x022F53 11:AF43: EF        .byte $EF
+- D - I - 0x022F50 11:AF40: 28        .byte con_pause + $28
+- D - I - 0x022F51 11:AF41: 05        .byte con_bg + $05
+- D - I - 0x022F52 11:AF42: CB        .byte con_animation + $CB
+- D - I - 0x022F53 11:AF43: EF        .byte con_cloud + $EF
 - D - I - 0x022F54 11:AF44: F6        .byte con_mirror_toggle
 - D - I - 0x022F55 11:AF45: F9        .byte con_delay_soundID, $02, $6D
-- D - I - 0x022F58 11:AF48: 28        .byte $28
-- D - I - 0x022F59 11:AF49: 20        .byte $20
-- D - I - 0x022F5A 11:AF4A: AC        .byte $AC
-- D - I - 0x022F5B 11:AF4B: F0        .byte con_exit_1
+- D - I - 0x022F58 11:AF48: 28        .byte con_pause + $28
+- D - I - 0x022F59 11:AF49: 20        .byte con_bg + $20
+- D - I - 0x022F5A 11:AF4A: AC        .byte con_animation + $AC
+- D - I - 0x022F5B 11:AF4B: F0        .byte con_cloud + $F0
 - D - I - 0x022F5C 11:AF4C: FA        .byte con_jsr
 - D - I - 0x022F5D 11:AF4D: C7 BB     .word sub_BBC7
 - D - I - 0x022F5F 11:AF4F: F6        .byte con_mirror_toggle
@@ -10925,60 +10932,60 @@ bra_long_case_AF31_03:
 
 bra_long_case_AF51_00:
 - D - I - 0x022F61 11:AF51: F9        .byte con_delay_soundID, $05, $2B
-- D - I - 0x022F64 11:AF54: 3C        .byte $3C
-- D - I - 0x022F65 11:AF55: 72        .byte $72
-- D - I - 0x022F66 11:AF56: 66        .byte $66
-- D - I - 0x022F67 11:AF57: 47        .byte $47
+- D - I - 0x022F64 11:AF54: 3C        .byte con_pause + $3C
+- D - I - 0x022F65 11:AF55: 72        .byte con_bg + $72
+- D - I - 0x022F66 11:AF56: 66        .byte con_animation + $66
+- D - I - 0x022F67 11:AF57: 47        .byte con_cloud + $47
 - D - I - 0x022F68 11:AF58: FB        .byte con_rts
 
 bra_long_case_AF59_01:
 - D - I - 0x022F69 11:AF59: F5        .byte con_mirror_off
-- D - I - 0x022F6A 11:AF5A: 3C        .byte $3C
-- D - I - 0x022F6B 11:AF5B: 30        .byte $30
-- D - I - 0x022F6C 11:AF5C: 91        .byte $91
-- D - I - 0x022F6D 11:AF5D: C2        .byte $C2
+- D - I - 0x022F6A 11:AF5A: 3C        .byte con_pause + $3C
+- D - I - 0x022F6B 11:AF5B: 30        .byte con_bg + $30
+- D - I - 0x022F6C 11:AF5C: 91        .byte con_animation + $91
+- D - I - 0x022F6D 11:AF5D: C2        .byte con_cloud + $C2
 - D - I - 0x022F6E 11:AF5E: F7        .byte con_F7, $10
 - D - I - 0x022F70 11:AF60: F9        .byte con_delay_soundID, $02, $12
-- D - I - 0x022F73 11:AF63: 14        .byte $14
-- D - I - 0x022F74 11:AF64: 10        .byte $10
-- D - I - 0x022F75 11:AF65: 62        .byte $62
-- D - I - 0x022F76 11:AF66: F0        .byte con_exit_1
+- D - I - 0x022F73 11:AF63: 14        .byte con_pause + $14
+- D - I - 0x022F74 11:AF64: 10        .byte con_bg + $10
+- D - I - 0x022F75 11:AF65: 62        .byte con_animation + $62
+- D - I - 0x022F76 11:AF66: F0        .byte con_cloud + $F0
 - D - I - 0x022F77 11:AF67: F7        .byte con_F7, $02
 - D - I - 0x022F79 11:AF69: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x022F7C 11:AF6C: 27        .byte $27
-- D - I - 0x022F7D 11:AF6D: 24        .byte $24
-- D - I - 0x022F7E 11:AF6E: 66        .byte $66
-- D - I - 0x022F7F 11:AF6F: F0        .byte con_exit_1
+- D - I - 0x022F7C 11:AF6C: 27        .byte con_pause + $27
+- D - I - 0x022F7D 11:AF6D: 24        .byte con_bg + $24
+- D - I - 0x022F7E 11:AF6E: 66        .byte con_animation + $66
+- D - I - 0x022F7F 11:AF6F: F0        .byte con_cloud + $F0
 - D - I - 0x022F80 11:AF70: F2        .byte con_jmp
 - D - I - 0x022F81 11:AF71: 6B AB     .word loc_AB6B
 
 sub_AF73:
 - D - I - 0x022F83 11:AF73: F6        .byte con_mirror_toggle
-- D - I - 0x022F84 11:AF74: 3C        .byte $3C
-- D - I - 0x022F85 11:AF75: 30        .byte $30
-- D - I - 0x022F86 11:AF76: 9F        .byte $9F
-- D - I - 0x022F87 11:AF77: C2        .byte $C2
+- D - I - 0x022F84 11:AF74: 3C        .byte con_pause + $3C
+- D - I - 0x022F85 11:AF75: 30        .byte con_bg + $30
+- D - I - 0x022F86 11:AF76: 9F        .byte con_animation + $9F
+- D - I - 0x022F87 11:AF77: C2        .byte con_cloud + $C2
 loc_AF78:
 sub_AF78:
 - D - I - 0x022F88 11:AF78: F7        .byte con_F7, $15
 - D - I - 0x022F8A 11:AF7A: F9        .byte con_delay_soundID, $09, $1D
-- D - I - 0x022F8D 11:AF7D: 20        .byte $20
-- D - I - 0x022F8E 11:AF7E: 05        .byte $05
-- D - I - 0x022F8F 11:AF7F: CE        .byte $CE
-- D - I - 0x022F90 11:AF80: 00        .byte $00
+- D - I - 0x022F8D 11:AF7D: 20        .byte con_pause + $20
+- D - I - 0x022F8E 11:AF7E: 05        .byte con_bg + $05
+- D - I - 0x022F8F 11:AF7F: CE        .byte con_animation + $CE
+- D - I - 0x022F90 11:AF80: 00        .byte con_cloud + $00
 - D - I - 0x022F91 11:AF81: F7        .byte con_F7, $10
-- D - I - 0x022F93 11:AF83: 0D        .byte $0D
-- D - I - 0x022F94 11:AF84: 05        .byte $05
-- D - I - 0x022F95 11:AF85: 00        .byte $00
-- D - I - 0x022F96 11:AF86: 00        .byte $00
+- D - I - 0x022F93 11:AF83: 0D        .byte con_pause + $0D
+- D - I - 0x022F94 11:AF84: 05        .byte con_bg + $05
+- D - I - 0x022F95 11:AF85: 00        .byte con_animation + $00
+- D - I - 0x022F96 11:AF86: 00        .byte con_cloud + $00
 - D - I - 0x022F97 11:AF87: FB        .byte con_rts
 
 sub_AF88:
 - D - I - 0x022F98 11:AF88: F6        .byte con_mirror_toggle
-- D - I - 0x022F99 11:AF89: 3C        .byte $3C
-- D - I - 0x022F9A 11:AF8A: 30        .byte $30
-- D - I - 0x022F9B 11:AF8B: AD        .byte $AD
-- D - I - 0x022F9C 11:AF8C: C2        .byte $C2
+- D - I - 0x022F99 11:AF89: 3C        .byte con_pause + $3C
+- D - I - 0x022F9A 11:AF8A: 30        .byte con_bg + $30
+- D - I - 0x022F9B 11:AF8B: AD        .byte con_animation + $AD
+- D - I - 0x022F9C 11:AF8C: C2        .byte con_cloud + $C2
 - D - I - 0x022F9D 11:AF8D: F2        .byte con_jmp
 - D - I - 0x022F9E 11:AF8E: 78 AF     .word loc_AF78
 
@@ -10994,10 +11001,10 @@ loc_AF97:
 - D - I - 0x022FA7 11:AF97: F6        .byte con_mirror_toggle
 - D - I - 0x022FA8 11:AF98: F7        .byte con_F7, $02
 - D - I - 0x022FAA 11:AF9A: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x022FAD 11:AF9D: 27        .byte $27
-- D - I - 0x022FAE 11:AF9E: 24        .byte $24
-- D - I - 0x022FAF 11:AF9F: 66        .byte $66
-- D - I - 0x022FB0 11:AFA0: F0        .byte con_exit_1
+- D - I - 0x022FAD 11:AF9D: 27        .byte con_pause + $27
+- D - I - 0x022FAE 11:AF9E: 24        .byte con_bg + $24
+- D - I - 0x022FAF 11:AF9F: 66        .byte con_animation + $66
+- D - I - 0x022FB0 11:AFA0: F0        .byte con_cloud + $F0
 - D - I - 0x022FB1 11:AFA1: F2        .byte con_jmp
 - D - I - 0x022FB2 11:AFA2: 6B AB     .word loc_AB6B
 
@@ -11011,61 +11018,61 @@ bra_long_case_AFAA_03:
 - D - I - 0x022FBA 11:AFAA: F5        .byte con_mirror_off
 - D - I - 0x022FBB 11:AFAB: F7        .byte con_F7, $10
 - D - I - 0x022FBD 11:AFAD: F9        .byte con_delay_soundID, $02, $12
-- D - I - 0x022FC0 11:AFB0: 1D        .byte $1D
-- D - I - 0x022FC1 11:AFB1: 10        .byte $10
-- D - I - 0x022FC2 11:AFB2: 62        .byte $62
-- D - I - 0x022FC3 11:AFB3: 49        .byte $49
+- D - I - 0x022FC0 11:AFB0: 1D        .byte con_pause + $1D
+- D - I - 0x022FC1 11:AFB1: 10        .byte con_bg + $10
+- D - I - 0x022FC2 11:AFB2: 62        .byte con_animation + $62
+- D - I - 0x022FC3 11:AFB3: 49        .byte con_cloud + $49
 - D - I - 0x022FC4 11:AFB4: F7        .byte con_F7, $02
 - D - I - 0x022FC6 11:AFB6: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x022FC9 11:AFB9: 37        .byte $37
-- D - I - 0x022FCA 11:AFBA: 24        .byte $24
-- D - I - 0x022FCB 11:AFBB: 66        .byte $66
-- D - I - 0x022FCC 11:AFBC: F0        .byte con_exit_1
+- D - I - 0x022FC9 11:AFB9: 37        .byte con_pause + $37
+- D - I - 0x022FCA 11:AFBA: 24        .byte con_bg + $24
+- D - I - 0x022FCB 11:AFBB: 66        .byte con_animation + $66
+- D - I - 0x022FCC 11:AFBC: F0        .byte con_cloud + $F0
 - D - I - 0x022FCD 11:AFBD: FB        .byte con_rts
 
 bra_long_case_AFBE_02:
 - D - I - 0x022FCE 11:AFBE: F9        .byte con_delay_soundID, $21, $1B
-- D - I - 0x022FD1 11:AFC1: 48        .byte $48
-- D - I - 0x022FD2 11:AFC2: 2A        .byte $2A
-- D - I - 0x022FD3 11:AFC3: 3B        .byte $3B
-- D - I - 0x022FD4 11:AFC4: 47        .byte $47
+- D - I - 0x022FD1 11:AFC1: 48        .byte con_pause + $48
+- D - I - 0x022FD2 11:AFC2: 2A        .byte con_bg + $2A
+- D - I - 0x022FD3 11:AFC3: 3B        .byte con_animation + $3B
+- D - I - 0x022FD4 11:AFC4: 47        .byte con_cloud + $47
 bra_long_case_AFC5_00___:
 - D - I - 0x022FD5 11:AFC5: FB        .byte con_rts
 
 bra_long_case_AFC6_04:
-- D - I - 0x022FD6 11:AFC6: 01        .byte $01
-- D - I - 0x022FD7 11:AFC7: 71        .byte $71
-- D - I - 0x022FD8 11:AFC8: 00        .byte $00
-- D - I - 0x022FD9 11:AFC9: 00        .byte $00
+- D - I - 0x022FD6 11:AFC6: 01        .byte con_pause + $01
+- D - I - 0x022FD7 11:AFC7: 71        .byte con_bg + $71
+- D - I - 0x022FD8 11:AFC8: 00        .byte con_animation + $00
+- D - I - 0x022FD9 11:AFC9: 00        .byte con_cloud + $00
 - D - I - 0x022FDA 11:AFCA: F6        .byte con_mirror_toggle
-- D - I - 0x022FDB 11:AFCB: 3C        .byte $3C
-- D - I - 0x022FDC 11:AFCC: 30        .byte $30
-- D - I - 0x022FDD 11:AFCD: 91        .byte $91
-- D - I - 0x022FDE 11:AFCE: A4        .byte $A4
+- D - I - 0x022FDB 11:AFCB: 3C        .byte con_pause + $3C
+- D - I - 0x022FDC 11:AFCC: 30        .byte con_bg + $30
+- D - I - 0x022FDD 11:AFCD: 91        .byte con_animation + $91
+- D - I - 0x022FDE 11:AFCE: A4        .byte con_cloud + $A4
 - D - I - 0x022FDF 11:AFCF: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x022FE2 11:AFD2: 22        .byte $22
-- D - I - 0x022FE3 11:AFD3: 20        .byte $20
-- D - I - 0x022FE4 11:AFD4: ED        .byte $ED
-- D - I - 0x022FE5 11:AFD5: F0        .byte con_exit_1
+- D - I - 0x022FE2 11:AFD2: 22        .byte con_pause + $22
+- D - I - 0x022FE3 11:AFD3: 20        .byte con_bg + $20
+- D - I - 0x022FE4 11:AFD4: ED        .byte con_animation + $ED
+- D - I - 0x022FE5 11:AFD5: F0        .byte con_cloud + $F0
 - D - I - 0x022FE6 11:AFD6: F7        .byte con_F7, $10
-- D - I - 0x022FE8 11:AFD8: 1C        .byte $1C
-- D - I - 0x022FE9 11:AFD9: 05        .byte $05
-- D - I - 0x022FEA 11:AFDA: 00        .byte $00
-- D - I - 0x022FEB 11:AFDB: 00        .byte $00
+- D - I - 0x022FE8 11:AFD8: 1C        .byte con_pause + $1C
+- D - I - 0x022FE9 11:AFD9: 05        .byte con_bg + $05
+- D - I - 0x022FEA 11:AFDA: 00        .byte con_animation + $00
+- D - I - 0x022FEB 11:AFDB: 00        .byte con_cloud + $00
 - D - I - 0x022FEC 11:AFDC: F9        .byte con_delay_soundID, $31, $2B
-- D - I - 0x022FEF 11:AFDF: 40        .byte $40
-- D - I - 0x022FF0 11:AFE0: 47        .byte $47
-- D - I - 0x022FF1 11:AFE1: BF        .byte $BF
-- D - I - 0x022FF2 11:AFE2: 49        .byte $49
+- D - I - 0x022FEF 11:AFDF: 40        .byte con_pause + $40
+- D - I - 0x022FF0 11:AFE0: 47        .byte con_bg + $47
+- D - I - 0x022FF1 11:AFE1: BF        .byte con_animation + $BF
+- D - I - 0x022FF2 11:AFE2: 49        .byte con_cloud + $49
 - D - I - 0x022FF3 11:AFE3: F6        .byte con_mirror_toggle
 - D - I - 0x022FF4 11:AFE4: FB        .byte con_rts
 
 bra_long_case_AFE5_08:
 - D - I - 0x022FF5 11:AFE5: F9        .byte con_delay_soundID, $21, $1A
-- D - I - 0x022FF8 11:AFE8: 50        .byte $50
-- D - I - 0x022FF9 11:AFE9: 2A        .byte $2A
-- D - I - 0x022FFA 11:AFEA: 3B        .byte $3B
-- D - I - 0x022FFB 11:AFEB: 49        .byte $49
+- D - I - 0x022FF8 11:AFE8: 50        .byte con_pause + $50
+- D - I - 0x022FF9 11:AFE9: 2A        .byte con_bg + $2A
+- D - I - 0x022FFA 11:AFEA: 3B        .byte con_animation + $3B
+- D - I - 0x022FFB 11:AFEB: 49        .byte con_cloud + $49
 - D - I - 0x022FFC 11:AFEC: FB        .byte con_rts
 
 bra_long_case_AFED_0A:
@@ -11110,14 +11117,14 @@ bra_long_case_AFF0_0E:
 - - - - - 0x023023 11:B013: 08        .byte bra_case_B01B_21 - *
 
 bra_case_B014_01:
-- D - I - 0x023024 11:B014: 3C        .byte $3C
-- D - I - 0x023025 11:B015: 30        .byte $30
-- D - I - 0x023026 11:B016: 91        .byte $91
-- D - I - 0x023027 11:B017: B4        .byte $B4
+- D - I - 0x023024 11:B014: 3C        .byte con_pause + $3C
+- D - I - 0x023025 11:B015: 30        .byte con_bg + $30
+- D - I - 0x023026 11:B016: 91        .byte con_animation + $91
+- D - I - 0x023027 11:B017: B4        .byte con_cloud + $B4
 loc_B018:
 - D - I - 0x023028 11:B018: FA        .byte con_jsr
 - D - I - 0x023029 11:B019: C7 BB     .word sub_BBC7
-; продолжение, лучше сделать прыжок
+; bzk продолжение, лучше сделать прыжок
 _scenario_B01B_76:
 bra_case_B01B_00:
 bra_case_B01B_06:
@@ -11142,106 +11149,106 @@ bra_case_B01B_1F:
 bra_case_B01B_21:
 - D - I - 0x02302B 11:B01B: F6        .byte con_mirror_toggle
 - D - I - 0x02302C 11:B01C: F9        .byte con_delay_soundID, $31, $1A
-- D - I - 0x02302F 11:B01F: 64        .byte $64
-- D - I - 0x023030 11:B020: 4C        .byte $4C
-- D - I - 0x023031 11:B021: BF        .byte $BF
-- D - I - 0x023032 11:B022: 49        .byte $49
+- D - I - 0x02302F 11:B01F: 64        .byte con_pause + $64
+- D - I - 0x023030 11:B020: 4C        .byte con_bg + $4C
+- D - I - 0x023031 11:B021: BF        .byte con_animation + $BF
+- D - I - 0x023032 11:B022: 49        .byte con_cloud + $49
 - D - I - 0x023033 11:B023: F6        .byte con_mirror_toggle
 - D - I - 0x023034 11:B024: FB        .byte con_rts
 
 bra_case_B025_02:
-- D - I - 0x023035 11:B025: 3C        .byte $3C
-- D - I - 0x023036 11:B026: 30        .byte $30
-- D - I - 0x023037 11:B027: 96        .byte $96
-- D - I - 0x023038 11:B028: B4        .byte $B4
+- D - I - 0x023035 11:B025: 3C        .byte con_pause + $3C
+- D - I - 0x023036 11:B026: 30        .byte con_bg + $30
+- D - I - 0x023037 11:B027: 96        .byte con_animation + $96
+- D - I - 0x023038 11:B028: B4        .byte con_cloud + $B4
 - D - I - 0x023039 11:B029: F2        .byte con_jmp
 - D - I - 0x02303A 11:B02A: 18 B0     .word loc_B018
 
 bra_case_B02C_03:
-- - - - - 0x02303C 11:B02C: 3C        .byte $3C
-- - - - - 0x02303D 11:B02D: 30        .byte $30
-- - - - - 0x02303E 11:B02E: 97        .byte $97
-- - - - - 0x02303F 11:B02F: B4        .byte $B4
+- - - - - 0x02303C 11:B02C: 3C        .byte con_pause + $3C
+- - - - - 0x02303D 11:B02D: 30        .byte con_bg + $30
+- - - - - 0x02303E 11:B02E: 97        .byte con_animation + $97
+- - - - - 0x02303F 11:B02F: B4        .byte con_cloud + $B4
 - - - - - 0x023040 11:B030: F2        .byte con_jmp
 - - - - - 0x023041 11:B031: 18 B0     .word loc_B018
 
 bra_case_B033_04:
-- D - I - 0x023043 11:B033: 3C        .byte $3C
-- D - I - 0x023044 11:B034: 31        .byte $31
-- D - I - 0x023045 11:B035: 9E        .byte $9E
-- D - I - 0x023046 11:B036: B4        .byte $B4
+- D - I - 0x023043 11:B033: 3C        .byte con_pause + $3C
+- D - I - 0x023044 11:B034: 31        .byte con_bg + $31
+- D - I - 0x023045 11:B035: 9E        .byte con_animation + $9E
+- D - I - 0x023046 11:B036: B4        .byte con_cloud + $B4
 - D - I - 0x023047 11:B037: F2        .byte con_jmp
 - D - I - 0x023048 11:B038: 18 B0     .word loc_B018
 
 bra_case_B03A_05:
-- D - I - 0x02304A 11:B03A: 3C        .byte $3C
-- D - I - 0x02304B 11:B03B: 31        .byte $31
-- D - I - 0x02304C 11:B03C: B0        .byte $B0
-- D - I - 0x02304D 11:B03D: B4        .byte $B4
+- D - I - 0x02304A 11:B03A: 3C        .byte con_pause + $3C
+- D - I - 0x02304B 11:B03B: 31        .byte con_bg + $31
+- D - I - 0x02304C 11:B03C: B0        .byte con_animation + $B0
+- D - I - 0x02304D 11:B03D: B4        .byte con_cloud + $B4
 - D - I - 0x02304E 11:B03E: F2        .byte con_jmp
 - D - I - 0x02304F 11:B03F: 18 B0     .word loc_B018
 
 bra_case_B041_08:
-- D - I - 0x023051 11:B041: 3C        .byte $3C
-- D - I - 0x023052 11:B042: 30        .byte $30
-- D - I - 0x023053 11:B043: A1        .byte $A1
-- D - I - 0x023054 11:B044: B4        .byte $B4
+- D - I - 0x023051 11:B041: 3C        .byte con_pause + $3C
+- D - I - 0x023052 11:B042: 30        .byte con_bg + $30
+- D - I - 0x023053 11:B043: A1        .byte con_animation + $A1
+- D - I - 0x023054 11:B044: B4        .byte con_cloud + $B4
 - D - I - 0x023055 11:B045: F2        .byte con_jmp
 - D - I - 0x023056 11:B046: 18 B0     .word loc_B018
 
 bra_case_B048_09:
-- - - - - 0x023058 11:B048: 3C        .byte $3C
-- - - - - 0x023059 11:B049: 30        .byte $30
-- - - - - 0x02305A 11:B04A: AF        .byte $AF
-- - - - - 0x02305B 11:B04B: B4        .byte $B4
+- - - - - 0x023058 11:B048: 3C        .byte con_pause + $3C
+- - - - - 0x023059 11:B049: 30        .byte con_bg + $30
+- - - - - 0x02305A 11:B04A: AF        .byte con_animation + $AF
+- - - - - 0x02305B 11:B04B: B4        .byte con_cloud + $B4
 - - - - - 0x02305C 11:B04C: F2        .byte con_jmp
 - - - - - 0x02305D 11:B04D: 18 B0     .word loc_B018
 
 bra_case_B04F_16:
-- - - - - 0x02305F 11:B04F: 3C        .byte $3C
-- - - - - 0x023060 11:B050: 30        .byte $30
-- - - - - 0x023061 11:B051: BC        .byte $BC
-- - - - - 0x023062 11:B052: B4        .byte $B4
+- - - - - 0x02305F 11:B04F: 3C        .byte con_pause + $3C
+- - - - - 0x023060 11:B050: 30        .byte con_bg + $30
+- - - - - 0x023061 11:B051: BC        .byte con_animation + $BC
+- - - - - 0x023062 11:B052: B4        .byte con_cloud + $B4
 - - - - - 0x023063 11:B053: F2        .byte con_jmp
 - - - - - 0x023064 11:B054: 18 B0     .word loc_B018
 
 bra_case_B056_17:
-- - - - - 0x023066 11:B056: 3C        .byte $3C
-- - - - - 0x023067 11:B057: 30        .byte $30
-- - - - - 0x023068 11:B058: A9        .byte $A9
-- - - - - 0x023069 11:B059: B4        .byte $B4
+- - - - - 0x023066 11:B056: 3C        .byte con_pause + $3C
+- - - - - 0x023067 11:B057: 30        .byte con_bg + $30
+- - - - - 0x023068 11:B058: A9        .byte con_animation + $A9
+- - - - - 0x023069 11:B059: B4        .byte con_cloud + $B4
 - - - - - 0x02306A 11:B05A: F2        .byte con_jmp
 - - - - - 0x02306B 11:B05B: 18 B0     .word loc_B018
 
 bra_case_B05D_18:
-- D - I - 0x02306D 11:B05D: 3C        .byte $3C
-- D - I - 0x02306E 11:B05E: 30        .byte $30
-- D - I - 0x02306F 11:B05F: BB        .byte $BB
-- D - I - 0x023070 11:B060: B4        .byte $B4
+- D - I - 0x02306D 11:B05D: 3C        .byte con_pause + $3C
+- D - I - 0x02306E 11:B05E: 30        .byte con_bg + $30
+- D - I - 0x02306F 11:B05F: BB        .byte con_animation + $BB
+- D - I - 0x023070 11:B060: B4        .byte con_cloud + $B4
 - D - I - 0x023071 11:B061: F2        .byte con_jmp
 - D - I - 0x023072 11:B062: 18 B0     .word loc_B018
 
 bra_case_B064_19:
-- - - - - 0x023074 11:B064: 3C        .byte $3C
-- - - - - 0x023075 11:B065: 30        .byte $30
-- - - - - 0x023076 11:B066: B8        .byte $B8
-- - - - - 0x023077 11:B067: B4        .byte $B4
+- - - - - 0x023074 11:B064: 3C        .byte con_pause + $3C
+- - - - - 0x023075 11:B065: 30        .byte con_bg + $30
+- - - - - 0x023076 11:B066: B8        .byte con_animation + $B8
+- - - - - 0x023077 11:B067: B4        .byte con_cloud + $B4
 - - - - - 0x023078 11:B068: F2        .byte con_jmp
 - - - - - 0x023079 11:B069: 18 B0     .word loc_B018
 
 bra_case_B06B_1C:
-- - - - - 0x02307B 11:B06B: 3C        .byte $3C
-- - - - - 0x02307C 11:B06C: 30        .byte $30
-- - - - - 0x02307D 11:B06D: B7        .byte $B7
-- - - - - 0x02307E 11:B06E: B4        .byte $B4
+- - - - - 0x02307B 11:B06B: 3C        .byte con_pause + $3C
+- - - - - 0x02307C 11:B06C: 30        .byte con_bg + $30
+- - - - - 0x02307D 11:B06D: B7        .byte con_animation + $B7
+- - - - - 0x02307E 11:B06E: B4        .byte con_cloud + $B4
 - - - - - 0x02307F 11:B06F: F2        .byte con_jmp
 - - - - - 0x023080 11:B070: 18 B0     .word loc_B018
 
 bra_case_B072_20:
-- D - I - 0x023082 11:B072: 3C        .byte $3C
-- D - I - 0x023083 11:B073: 30        .byte $30
-- D - I - 0x023084 11:B074: B2        .byte $B2
-- D - I - 0x023085 11:B075: B4        .byte $B4
+- D - I - 0x023082 11:B072: 3C        .byte con_pause + $3C
+- D - I - 0x023083 11:B073: 30        .byte con_bg + $30
+- D - I - 0x023084 11:B074: B2        .byte con_animation + $B2
+- D - I - 0x023085 11:B075: B4        .byte con_cloud + $B4
 - D - I - 0x023086 11:B076: F2        .byte con_jmp
 - D - I - 0x023087 11:B077: 18 B0     .word loc_B018
 
@@ -11252,66 +11259,66 @@ bra_long_case_B079_0F:
 
 bra_case_B07D_00:
 - D - I - 0x02308D 11:B07D: F6        .byte con_mirror_toggle
-- D - I - 0x02308E 11:B07E: 3C        .byte $3C
-- D - I - 0x02308F 11:B07F: 30        .byte $30
-- D - I - 0x023090 11:B080: A3        .byte $A3
-- D - I - 0x023091 11:B081: B5        .byte $B5
+- D - I - 0x02308E 11:B07E: 3C        .byte con_pause + $3C
+- D - I - 0x02308F 11:B07F: 30        .byte con_bg + $30
+- D - I - 0x023090 11:B080: A3        .byte con_animation + $A3
+- D - I - 0x023091 11:B081: B5        .byte con_cloud + $B5
 loc_B082:
 - D - I - 0x023092 11:B082: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x023095 11:B085: 19        .byte $19
-- D - I - 0x023096 11:B086: 1F        .byte $1F
-- D - I - 0x023097 11:B087: AC        .byte $AC
-- D - I - 0x023098 11:B088: F0        .byte con_exit_1
+- D - I - 0x023095 11:B085: 19        .byte con_pause + $19
+- D - I - 0x023096 11:B086: 1F        .byte con_bg + $1F
+- D - I - 0x023097 11:B087: AC        .byte con_animation + $AC
+- D - I - 0x023098 11:B088: F0        .byte con_cloud + $F0
 - D - I - 0x023099 11:B089: FA        .byte con_jsr
 - D - I - 0x02309A 11:B08A: C7 BB     .word sub_BBC7
 - D - I - 0x02309C 11:B08C: F7        .byte con_F7, $1D
 - D - I - 0x02309E 11:B08E: F9        .byte con_delay_soundID, $31, $2B
-- D - I - 0x0230A1 11:B091: 4B        .byte $4B
-- D - I - 0x0230A2 11:B092: 49        .byte $49
-- D - I - 0x0230A3 11:B093: BF        .byte $BF
-- D - I - 0x0230A4 11:B094: 49        .byte $49
+- D - I - 0x0230A1 11:B091: 4B        .byte con_pause + $4B
+- D - I - 0x0230A2 11:B092: 49        .byte con_bg + $49
+- D - I - 0x0230A3 11:B093: BF        .byte con_animation + $BF
+- D - I - 0x0230A4 11:B094: 49        .byte con_cloud + $49
 - D - I - 0x0230A5 11:B095: F6        .byte con_mirror_toggle
 - D - I - 0x0230A6 11:B096: FB        .byte con_rts
 
 bra_case_B097_01:
 - D - I - 0x0230A7 11:B097: F6        .byte con_mirror_toggle
-- D - I - 0x0230A8 11:B098: 3C        .byte $3C
-- D - I - 0x0230A9 11:B099: 30        .byte $30
-- D - I - 0x0230AA 11:B09A: AE        .byte $AE
-- D - I - 0x0230AB 11:B09B: B5        .byte $B5
+- D - I - 0x0230A8 11:B098: 3C        .byte con_pause + $3C
+- D - I - 0x0230A9 11:B099: 30        .byte con_bg + $30
+- D - I - 0x0230AA 11:B09A: AE        .byte con_animation + $AE
+- D - I - 0x0230AB 11:B09B: B5        .byte con_cloud + $B5
 - D - I - 0x0230AC 11:B09C: F2        .byte con_jmp
 - D - I - 0x0230AD 11:B09D: 82 B0     .word loc_B082
 
 bra_long_case_B09F_12:
 - - - - - 0x0230AF 11:B09F: F5        .byte con_mirror_off
 - - - - - 0x0230B0 11:B0A0: F9        .byte con_delay_soundID, $19, $2B
-- - - - - 0x0230B3 11:B0A3: 3C        .byte $3C
-- - - - - 0x0230B4 11:B0A4: 29        .byte $29
-- - - - - 0x0230B5 11:B0A5: C6        .byte $C6
-- - - - - 0x0230B6 11:B0A6: 00        .byte $00
+- - - - - 0x0230B3 11:B0A3: 3C        .byte con_pause + $3C
+- - - - - 0x0230B4 11:B0A4: 29        .byte con_bg + $29
+- - - - - 0x0230B5 11:B0A5: C6        .byte con_animation + $C6
+- - - - - 0x0230B6 11:B0A6: 00        .byte con_cloud + $00
 loc_B0A7:
 sub_B0A7:
 - D - I - 0x0230B7 11:B0A7: F9        .byte con_delay_soundID, $02, $22
-- D - I - 0x0230BA 11:B0AA: 64        .byte $64
-- D - I - 0x0230BB 11:B0AB: 52        .byte $52
-- D - I - 0x0230BC 11:B0AC: E5        .byte $E5
-- D - I - 0x0230BD 11:B0AD: B5        .byte $B5
+- D - I - 0x0230BA 11:B0AA: 64        .byte con_pause + $64
+- D - I - 0x0230BB 11:B0AB: 52        .byte con_bg + $52
+- D - I - 0x0230BC 11:B0AC: E5        .byte con_animation + $E5
+- D - I - 0x0230BD 11:B0AD: B5        .byte con_cloud + $B5
 - D - I - 0x0230BE 11:B0AE: F7        .byte con_F7, $2F
 - D - I - 0x0230C0 11:B0B0: F9        .byte con_delay_soundID, $02, $1F
-- D - I - 0x0230C3 11:B0B3: 64        .byte $64
-- D - I - 0x0230C4 11:B0B4: 4A        .byte $4A
-- D - I - 0x0230C5 11:B0B5: C7        .byte $C7
-- D - I - 0x0230C6 11:B0B6: F0        .byte con_exit_1
-- D - I - 0x0230C7 11:B0B7: 3C        .byte $3C
-- D - I - 0x0230C8 11:B0B8: 30        .byte $30
-- D - I - 0x0230C9 11:B0B9: 91        .byte $91
-- D - I - 0x0230CA 11:B0BA: AF        .byte $AF
+- D - I - 0x0230C3 11:B0B3: 64        .byte con_pause + $64
+- D - I - 0x0230C4 11:B0B4: 4A        .byte con_bg + $4A
+- D - I - 0x0230C5 11:B0B5: C7        .byte con_animation + $C7
+- D - I - 0x0230C6 11:B0B6: F0        .byte con_cloud + $F0
+- D - I - 0x0230C7 11:B0B7: 3C        .byte con_pause + $3C
+- D - I - 0x0230C8 11:B0B8: 30        .byte con_bg + $30
+- D - I - 0x0230C9 11:B0B9: 91        .byte con_animation + $91
+- D - I - 0x0230CA 11:B0BA: AF        .byte con_cloud + $AF
 - D - I - 0x0230CB 11:B0BB: F9        .byte con_delay_soundID, $11, $23
 - D - I - 0x0230CE 11:B0BE: F7        .byte con_F7, $04
-- D - I - 0x0230D0 11:B0C0: 28        .byte $28
-- D - I - 0x0230D1 11:B0C1: 41        .byte $41
-- D - I - 0x0230D2 11:B0C2: 8C        .byte $8C
-- D - I - 0x0230D3 11:B0C3: 00        .byte $00
+- D - I - 0x0230D0 11:B0C0: 28        .byte con_pause + $28
+- D - I - 0x0230D1 11:B0C1: 41        .byte con_bg + $41
+- D - I - 0x0230D2 11:B0C2: 8C        .byte con_animation + $8C
+- D - I - 0x0230D3 11:B0C3: 00        .byte con_cloud + $00
 - D - I - 0x0230D4 11:B0C4: F2        .byte con_jmp
 - D - I - 0x0230D5 11:B0C5: 42 AB     .word loc_AB42
 
@@ -11322,44 +11329,44 @@ sub_B0A7:
 bra_long_case_B0C8_1C:
 - D - I - 0x0230D8 11:B0C8: F7        .byte con_F7, $1E
 - D - I - 0x0230DA 11:B0CA: F9        .byte con_delay_soundID, $21, $1A
-- D - I - 0x0230DD 11:B0CD: 48        .byte $48
-- D - I - 0x0230DE 11:B0CE: 05        .byte $05
-- D - I - 0x0230DF 11:B0CF: 3B        .byte $3B
-- D - I - 0x0230E0 11:B0D0: 49        .byte $49
+- D - I - 0x0230DD 11:B0CD: 48        .byte con_pause + $48
+- D - I - 0x0230DE 11:B0CE: 05        .byte con_bg + $05
+- D - I - 0x0230DF 11:B0CF: 3B        .byte con_animation + $3B
+- D - I - 0x0230E0 11:B0D0: 49        .byte con_cloud + $49
 - D - I - 0x0230E1 11:B0D1: F7        .byte con_F7, $1E
 - D - I - 0x0230E3 11:B0D3: FB        .byte con_rts
 
 bra_long_case_B0D4_1D:
 - - - - - 0x0230E4 11:B0D4: F7        .byte con_F7, $2A
 - - - - - 0x0230E6 11:B0D6: F9        .byte con_delay_soundID, $21, $1A
-- - - - - 0x0230E9 11:B0D9: 48        .byte $48
-- - - - - 0x0230EA 11:B0DA: 4B        .byte $4B
-- - - - - 0x0230EB 11:B0DB: 3B        .byte $3B
-- - - - - 0x0230EC 11:B0DC: 49        .byte $49
+- - - - - 0x0230E9 11:B0D9: 48        .byte con_pause + $48
+- - - - - 0x0230EA 11:B0DA: 4B        .byte con_bg + $4B
+- - - - - 0x0230EB 11:B0DB: 3B        .byte con_animation + $3B
+- - - - - 0x0230EC 11:B0DC: 49        .byte con_cloud + $49
 - - - - - 0x0230ED 11:B0DD: FB        .byte con_rts
 
 bra_long_case_B0DE_1E:
 - D - I - 0x0230EE 11:B0DE: F7        .byte con_F7, $20
 - D - I - 0x0230F0 11:B0E0: F9        .byte con_delay_soundID, $21, $1A
-- D - I - 0x0230F3 11:B0E3: 56        .byte $56
-- D - I - 0x0230F4 11:B0E4: 48        .byte $48
-- D - I - 0x0230F5 11:B0E5: CA        .byte $CA
-- D - I - 0x0230F6 11:B0E6: 49        .byte $49
+- D - I - 0x0230F3 11:B0E3: 56        .byte con_pause + $56
+- D - I - 0x0230F4 11:B0E4: 48        .byte con_bg + $48
+- D - I - 0x0230F5 11:B0E5: CA        .byte con_animation + $CA
+- D - I - 0x0230F6 11:B0E6: 49        .byte con_cloud + $49
 - D - I - 0x0230F7 11:B0E7: FB        .byte con_rts
 
 bra_long_case_B0E8_1F:
 - D - I - 0x0230F8 11:B0E8: F9        .byte con_delay_soundID, $02, $1A
-- D - I - 0x0230FB 11:B0EB: 1E        .byte $1E
-- D - I - 0x0230FC 11:B0EC: 1D        .byte $1D
-- D - I - 0x0230FD 11:B0ED: 69        .byte $69
-- D - I - 0x0230FE 11:B0EE: 49        .byte $49
+- D - I - 0x0230FB 11:B0EB: 1E        .byte con_pause + $1E
+- D - I - 0x0230FC 11:B0EC: 1D        .byte con_bg + $1D
+- D - I - 0x0230FD 11:B0ED: 69        .byte con_animation + $69
+- D - I - 0x0230FE 11:B0EE: 49        .byte con_cloud + $49
 - D - I - 0x0230FF 11:B0EF: FE        .byte con_FE, $01
 - D - I - 0x023101 11:B0F1: FC        .byte con_FC, $03
 - D - I - 0x023103 11:B0F3: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x023106 11:B0F6: 28        .byte $28
-- D - I - 0x023107 11:B0F7: 58        .byte $58
-- D - I - 0x023108 11:B0F8: 6A        .byte $6A
-- D - I - 0x023109 11:B0F9: F0        .byte con_exit_1
+- D - I - 0x023106 11:B0F6: 28        .byte con_pause + $28
+- D - I - 0x023107 11:B0F7: 58        .byte con_bg + $58
+- D - I - 0x023108 11:B0F8: 6A        .byte con_animation + $6A
+- D - I - 0x023109 11:B0F9: F0        .byte con_cloud + $F0
 - D - I - 0x02310A 11:B0FA: FB        .byte con_rts
 
 bra_long_case_B0FB_21:
@@ -11370,127 +11377,127 @@ bra_long_case_B0FB_21:
 bra_case_B0FF_00:
 - D - I - 0x02310F 11:B0FF: F5        .byte con_mirror_off
 - D - I - 0x023110 11:B100: F7        .byte con_F7, $10
-- D - I - 0x023112 11:B102: 28        .byte $28
-- D - I - 0x023113 11:B103: 05        .byte $05
-- D - I - 0x023114 11:B104: 00        .byte $00
-- D - I - 0x023115 11:B105: 00        .byte $00
+- D - I - 0x023112 11:B102: 28        .byte con_pause + $28
+- D - I - 0x023113 11:B103: 05        .byte con_bg + $05
+- D - I - 0x023114 11:B104: 00        .byte con_animation + $00
+- D - I - 0x023115 11:B105: 00        .byte con_cloud + $00
 - D - I - 0x023116 11:B106: F9        .byte con_delay_soundID, $02, $46
-- D - I - 0x023119 11:B109: 10        .byte $10
-- D - I - 0x02311A 11:B10A: 54        .byte $54
-- D - I - 0x02311B 11:B10B: D4        .byte $D4
-- D - I - 0x02311C 11:B10C: 00        .byte $00
-- D - I - 0x02311D 11:B10D: 78        .byte $78
-- D - I - 0x02311E 11:B10E: 30        .byte $30
-- D - I - 0x02311F 11:B10F: B5        .byte $B5
-- D - I - 0x023120 11:B110: 8A        .byte $8A
+- D - I - 0x023119 11:B109: 10        .byte con_pause + $10
+- D - I - 0x02311A 11:B10A: 54        .byte con_bg + $54
+- D - I - 0x02311B 11:B10B: D4        .byte con_animation + $D4
+- D - I - 0x02311C 11:B10C: 00        .byte con_cloud + $00
+- D - I - 0x02311D 11:B10D: 78        .byte con_pause + $78
+- D - I - 0x02311E 11:B10E: 30        .byte con_bg + $30
+- D - I - 0x02311F 11:B10F: B5        .byte con_animation + $B5
+- D - I - 0x023120 11:B110: 8A        .byte con_cloud + $8A
 - D - I - 0x023121 11:B111: FA        .byte con_jsr
 - D - I - 0x023122 11:B112: C7 BB     .word sub_BBC7
 - D - I - 0x023124 11:B114: F6        .byte con_mirror_toggle
-- D - I - 0x023125 11:B115: 10        .byte $10
-- D - I - 0x023126 11:B116: 54        .byte $54
-- D - I - 0x023127 11:B117: D5        .byte $D5
-- D - I - 0x023128 11:B118: 8B        .byte $8B
-- D - I - 0x023129 11:B119: B8        .byte $B8
-- D - I - 0x02312A 11:B11A: 30        .byte $30
-- D - I - 0x02312B 11:B11B: B4        .byte $B4
-- D - I - 0x02312C 11:B11C: F0        .byte con_exit_1
-- D - I - 0x02312D 11:B11D: C0        .byte $C0
-- D - I - 0x02312E 11:B11E: F0        .byte con_exit_1
-- D - I - 0x02312F 11:B11F: F0        .byte con_exit_1
-- D - I - 0x023130 11:B120: F0        .byte con_exit_1
+- D - I - 0x023125 11:B115: 10        .byte con_pause + $10
+- D - I - 0x023126 11:B116: 54        .byte con_bg + $54
+- D - I - 0x023127 11:B117: D5        .byte con_animation + $D5
+- D - I - 0x023128 11:B118: 8B        .byte con_cloud + $8B
+- D - I - 0x023129 11:B119: B8        .byte con_pause + $B8
+- D - I - 0x02312A 11:B11A: 30        .byte con_bg + $30
+- D - I - 0x02312B 11:B11B: B4        .byte con_animation + $B4
+- D - I - 0x02312C 11:B11C: F0        .byte con_cloud + $F0
+- D - I - 0x02312D 11:B11D: C0        .byte con_pause + $C0
+- D - I - 0x02312E 11:B11E: F0        .byte con_bg + $F0
+- D - I - 0x02312F 11:B11F: F0        .byte con_animation + $F0
+- D - I - 0x023130 11:B120: F0        .byte con_cloud + $F0
 - D - I - 0x023131 11:B121: FA        .byte con_jsr
 - D - I - 0x023132 11:B122: C7 BB     .word sub_BBC7
 - D - I - 0x023134 11:B124: F6        .byte con_mirror_toggle
-- D - I - 0x023135 11:B125: 10        .byte $10
-- D - I - 0x023136 11:B126: 54        .byte $54
-- D - I - 0x023137 11:B127: D4        .byte $D4
-- D - I - 0x023138 11:B128: 8C        .byte $8C
-- D - I - 0x023139 11:B129: B8        .byte $B8
-- D - I - 0x02313A 11:B12A: 30        .byte $30
-- D - I - 0x02313B 11:B12B: B5        .byte $B5
-- D - I - 0x02313C 11:B12C: F0        .byte con_exit_1
-- D - I - 0x02313D 11:B12D: C0        .byte $C0
-- D - I - 0x02313E 11:B12E: F0        .byte con_exit_1
-- D - I - 0x02313F 11:B12F: F0        .byte con_exit_1
-- D - I - 0x023140 11:B130: F0        .byte con_exit_1
+- D - I - 0x023135 11:B125: 10        .byte con_pause + $10
+- D - I - 0x023136 11:B126: 54        .byte con_bg + $54
+- D - I - 0x023137 11:B127: D4        .byte con_animation + $D4
+- D - I - 0x023138 11:B128: 8C        .byte con_cloud + $8C
+- D - I - 0x023139 11:B129: B8        .byte con_pause + $B8
+- D - I - 0x02313A 11:B12A: 30        .byte con_bg + $30
+- D - I - 0x02313B 11:B12B: B5        .byte con_animation + $B5
+- D - I - 0x02313C 11:B12C: F0        .byte con_cloud + $F0
+- D - I - 0x02313D 11:B12D: C0        .byte con_pause + $C0
+- D - I - 0x02313E 11:B12E: F0        .byte con_bg + $F0
+- D - I - 0x02313F 11:B12F: F0        .byte con_animation + $F0
+- D - I - 0x023140 11:B130: F0        .byte con_cloud + $F0
 - D - I - 0x023141 11:B131: F7        .byte con_F7, $1F
 - D - I - 0x023143 11:B133: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x023146 11:B136: 1E        .byte $1E
-- D - I - 0x023147 11:B137: 30        .byte $30
-- D - I - 0x023148 11:B138: B5        .byte $B5
-- D - I - 0x023149 11:B139: 8D        .byte $8D
+- D - I - 0x023146 11:B136: 1E        .byte con_pause + $1E
+- D - I - 0x023147 11:B137: 30        .byte con_bg + $30
+- D - I - 0x023148 11:B138: B5        .byte con_animation + $B5
+- D - I - 0x023149 11:B139: 8D        .byte con_cloud + $8D
 - D - I - 0x02314A 11:B13A: F9        .byte con_delay_soundID, $02, $7F
-- D - I - 0x02314D 11:B13D: 01        .byte $01
-- D - I - 0x02314E 11:B13E: F0        .byte con_exit_1
-- D - I - 0x02314F 11:B13F: F0        .byte con_exit_1
-- D - I - 0x023150 11:B140: 00        .byte $00
+- D - I - 0x02314D 11:B13D: 01        .byte con_pause + $01
+- D - I - 0x02314E 11:B13E: F0        .byte con_bg + $F0
+- D - I - 0x02314F 11:B13F: F0        .byte con_animation + $F0
+- D - I - 0x023150 11:B140: 00        .byte con_cloud + $00
 bra_case_B141_01:
 - D - I - 0x023151 11:B141: F5        .byte con_mirror_off
 - D - I - 0x023152 11:B142: F8        .byte con_F8, $04
-- D - I - 0x023154 11:B144: 3C        .byte $3C
-- D - I - 0x023155 11:B145: 30        .byte $30
-- D - I - 0x023156 11:B146: B5        .byte $B5
-- D - I - 0x023157 11:B147: C1        .byte $C1
+- D - I - 0x023154 11:B144: 3C        .byte con_pause + $3C
+- D - I - 0x023155 11:B145: 30        .byte con_bg + $30
+- D - I - 0x023156 11:B146: B5        .byte con_animation + $B5
+- D - I - 0x023157 11:B147: C1        .byte con_cloud + $C1
 - D - I - 0x023158 11:B148: F6        .byte con_mirror_toggle
 - D - I - 0x023159 11:B149: F8        .byte con_F8, $04
-- D - I - 0x02315B 11:B14B: 3C        .byte $3C
-- D - I - 0x02315C 11:B14C: 4F        .byte $4F
-- D - I - 0x02315D 11:B14D: B4        .byte $B4
-- D - I - 0x02315E 11:B14E: C0        .byte $C0
+- D - I - 0x02315B 11:B14B: 3C        .byte con_pause + $3C
+- D - I - 0x02315C 11:B14C: 4F        .byte con_bg + $4F
+- D - I - 0x02315D 11:B14D: B4        .byte con_animation + $B4
+- D - I - 0x02315E 11:B14E: C0        .byte con_cloud + $C0
 - D - I - 0x02315F 11:B14F: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x023162 11:B152: 28        .byte $28
-- D - I - 0x023163 11:B153: 1F        .byte $1F
-- D - I - 0x023164 11:B154: EB        .byte $EB
-- D - I - 0x023165 11:B155: 00        .byte $00
+- D - I - 0x023162 11:B152: 28        .byte con_pause + $28
+- D - I - 0x023163 11:B153: 1F        .byte con_bg + $1F
+- D - I - 0x023164 11:B154: EB        .byte con_animation + $EB
+- D - I - 0x023165 11:B155: 00        .byte con_cloud + $00
 - D - I - 0x023166 11:B156: F6        .byte con_mirror_toggle
 - D - I - 0x023167 11:B157: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x02316A 11:B15A: 28        .byte $28
-- D - I - 0x02316B 11:B15B: 1F        .byte $1F
-- D - I - 0x02316C 11:B15C: EC        .byte $EC
-- D - I - 0x02316D 11:B15D: F0        .byte con_exit_1
+- D - I - 0x02316A 11:B15A: 28        .byte con_pause + $28
+- D - I - 0x02316B 11:B15B: 1F        .byte con_bg + $1F
+- D - I - 0x02316C 11:B15C: EC        .byte con_animation + $EC
+- D - I - 0x02316D 11:B15D: F0        .byte con_cloud + $F0
 - D - I - 0x02316E 11:B15E: F7        .byte con_F7, $31
 - D - I - 0x023170 11:B160: F9        .byte con_delay_soundID, $02, $24
-- D - I - 0x023173 11:B163: 27        .byte $27
-- D - I - 0x023174 11:B164: 6A        .byte $6A
-- D - I - 0x023175 11:B165: DB        .byte $DB
-- D - I - 0x023176 11:B166: DE        .byte $DE
+- D - I - 0x023173 11:B163: 27        .byte con_pause + $27
+- D - I - 0x023174 11:B164: 6A        .byte con_bg + $6A
+- D - I - 0x023175 11:B165: DB        .byte con_animation + $DB
+- D - I - 0x023176 11:B166: DE        .byte con_cloud + $DE
 - D - I - 0x023177 11:B167: F7        .byte con_F7, $20
-- D - I - 0x023179 11:B169: 5E        .byte $5E
-- D - I - 0x02317A 11:B16A: 49        .byte $49
-- D - I - 0x02317B 11:B16B: F0        .byte con_exit_1
-- D - I - 0x02317C 11:B16C: DE        .byte $DE
+- D - I - 0x023179 11:B169: 5E        .byte con_pause + $5E
+- D - I - 0x02317A 11:B16A: 49        .byte con_bg + $49
+- D - I - 0x02317B 11:B16B: F0        .byte con_animation + $F0
+- D - I - 0x02317C 11:B16C: DE        .byte con_cloud + $DE
 - D - I - 0x02317D 11:B16D: F7        .byte con_F7, $10
 - D - I - 0x02317F 11:B16F: F9        .byte con_delay_soundID, $02, $14
-- D - I - 0x023182 11:B172: 1E        .byte $1E
-- D - I - 0x023183 11:B173: 05        .byte $05
-- D - I - 0x023184 11:B174: 00        .byte $00
-- D - I - 0x023185 11:B175: 00        .byte $00
+- D - I - 0x023182 11:B172: 1E        .byte con_pause + $1E
+- D - I - 0x023183 11:B173: 05        .byte con_bg + $05
+- D - I - 0x023184 11:B174: 00        .byte con_animation + $00
+- D - I - 0x023185 11:B175: 00        .byte con_cloud + $00
 - D - I - 0x023186 11:B176: F9        .byte con_delay_soundID, $02, $09
 - D - I - 0x023189 11:B179: FC        .byte con_FC, $03
-- D - I - 0x02318B 11:B17B: 46        .byte $46
-- D - I - 0x02318C 11:B17C: 59        .byte $59
-- D - I - 0x02318D 11:B17D: DC        .byte $DC
-- D - I - 0x02318E 11:B17E: 04        .byte $04
+- D - I - 0x02318B 11:B17B: 46        .byte con_pause + $46
+- D - I - 0x02318C 11:B17C: 59        .byte con_bg + $59
+- D - I - 0x02318D 11:B17D: DC        .byte con_animation + $DC
+- D - I - 0x02318E 11:B17E: 04        .byte con_cloud + $04
 - D - I - 0x02318F 11:B17F: F2        .byte con_jmp
 - D - I - 0x023190 11:B180: C7 BB     .word loc_BBC7
 
 bra_long_case_B182_01:
 - D - I - 0x023192 11:B182: FC        .byte con_FC, $03
-- D - I - 0x023194 11:B184: 1E        .byte $1E
-- D - I - 0x023195 11:B185: 58        .byte $58
-- D - I - 0x023196 11:B186: 68        .byte $68
-- D - I - 0x023197 11:B187: 47        .byte $47
+- D - I - 0x023194 11:B184: 1E        .byte con_pause + $1E
+- D - I - 0x023195 11:B185: 58        .byte con_bg + $58
+- D - I - 0x023196 11:B186: 68        .byte con_animation + $68
+- D - I - 0x023197 11:B187: 47        .byte con_cloud + $47
 - D - I - 0x023198 11:B188: F7        .byte con_F7, $28
 - D - I - 0x02319A 11:B18A: F9        .byte con_delay_soundID, $02, $14
-- D - I - 0x02319D 11:B18D: 19        .byte $19
-- D - I - 0x02319E 11:B18E: 05        .byte $05
-- D - I - 0x02319F 11:B18F: 69        .byte $69
-- D - I - 0x0231A0 11:B190: F0        .byte con_exit_1
+- D - I - 0x02319D 11:B18D: 19        .byte con_pause + $19
+- D - I - 0x02319E 11:B18E: 05        .byte con_bg + $05
+- D - I - 0x02319F 11:B18F: 69        .byte con_animation + $69
+- D - I - 0x0231A0 11:B190: F0        .byte con_cloud + $F0
 - D - I - 0x0231A1 11:B191: FC        .byte con_FC, $03
-- D - I - 0x0231A3 11:B193: 28        .byte $28
-- D - I - 0x0231A4 11:B194: 58        .byte $58
-- D - I - 0x0231A5 11:B195: 6A        .byte $6A
-- D - I - 0x0231A6 11:B196: F0        .byte con_exit_1
+- D - I - 0x0231A3 11:B193: 28        .byte con_pause + $28
+- D - I - 0x0231A4 11:B194: 58        .byte con_bg + $58
+- D - I - 0x0231A5 11:B195: 6A        .byte con_animation + $6A
+- D - I - 0x0231A6 11:B196: F0        .byte con_cloud + $F0
 bra_long_case_B197_00___:
 - D - I - 0x0231A7 11:B197: FB        .byte con_rts
 
@@ -11500,43 +11507,43 @@ bra_long_case_B198_06:
 - - - - - 0x0231AB 11:B19B: 28        .byte bra_case_B1C3_01 - *
 
 bra_case_B19C_00:
-- D - I - 0x0231AC 11:B19C: 3C        .byte $3C
-- D - I - 0x0231AD 11:B19D: 30        .byte $30
-- D - I - 0x0231AE 11:B19E: 9A        .byte $9A
-- D - I - 0x0231AF 11:B19F: BC        .byte $BC
+- D - I - 0x0231AC 11:B19C: 3C        .byte con_pause + $3C
+- D - I - 0x0231AD 11:B19D: 30        .byte con_bg + $30
+- D - I - 0x0231AE 11:B19E: 9A        .byte con_animation + $9A
+- D - I - 0x0231AF 11:B19F: BC        .byte con_cloud + $BC
 loc_B1A0:
 - D - I - 0x0231B0 11:B1A0: F7        .byte con_F7, $02
 - D - I - 0x0231B2 11:B1A2: F6        .byte con_mirror_toggle
-- D - I - 0x0231B3 11:B1A3: 14        .byte $14
-- D - I - 0x0231B4 11:B1A4: 24        .byte $24
-- D - I - 0x0231B5 11:B1A5: 6B        .byte $6B
-- D - I - 0x0231B6 11:B1A6: 00        .byte $00
+- D - I - 0x0231B3 11:B1A3: 14        .byte con_pause + $14
+- D - I - 0x0231B4 11:B1A4: 24        .byte con_bg + $24
+- D - I - 0x0231B5 11:B1A5: 6B        .byte con_animation + $6B
+- D - I - 0x0231B6 11:B1A6: 00        .byte con_cloud + $00
 - D - I - 0x0231B7 11:B1A7: F6        .byte con_mirror_toggle
 - D - I - 0x0231B8 11:B1A8: F7        .byte con_F7, $10
-- D - I - 0x0231BA 11:B1AA: 1E        .byte $1E
-- D - I - 0x0231BB 11:B1AB: 05        .byte $05
-- D - I - 0x0231BC 11:B1AC: 00        .byte $00
-- D - I - 0x0231BD 11:B1AD: F0        .byte con_exit_1
+- D - I - 0x0231BA 11:B1AA: 1E        .byte con_pause + $1E
+- D - I - 0x0231BB 11:B1AB: 05        .byte con_bg + $05
+- D - I - 0x0231BC 11:B1AC: 00        .byte con_animation + $00
+- D - I - 0x0231BD 11:B1AD: F0        .byte con_cloud + $F0
 - D - I - 0x0231BE 11:B1AE: F7        .byte con_F7, $30
 - D - I - 0x0231C0 11:B1B0: F9        .byte con_delay_soundID, $02, $14
-- D - I - 0x0231C3 11:B1B3: 28        .byte $28
-- D - I - 0x0231C4 11:B1B4: 47        .byte $47
-- D - I - 0x0231C5 11:B1B5: 69        .byte $69
-- D - I - 0x0231C6 11:B1B6: 49        .byte $49
+- D - I - 0x0231C3 11:B1B3: 28        .byte con_pause + $28
+- D - I - 0x0231C4 11:B1B4: 47        .byte con_bg + $47
+- D - I - 0x0231C5 11:B1B5: 69        .byte con_animation + $69
+- D - I - 0x0231C6 11:B1B6: 49        .byte con_cloud + $49
 - D - I - 0x0231C7 11:B1B7: FC        .byte con_FC, $03
 - D - I - 0x0231C9 11:B1B9: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x0231CC 11:B1BC: 28        .byte $28
-- D - I - 0x0231CD 11:B1BD: 58        .byte $58
-- D - I - 0x0231CE 11:B1BE: 6A        .byte $6A
-- D - I - 0x0231CF 11:B1BF: F0        .byte con_exit_1
+- D - I - 0x0231CC 11:B1BC: 28        .byte con_pause + $28
+- D - I - 0x0231CD 11:B1BD: 58        .byte con_bg + $58
+- D - I - 0x0231CE 11:B1BE: 6A        .byte con_animation + $6A
+- D - I - 0x0231CF 11:B1BF: F0        .byte con_cloud + $F0
 - D - I - 0x0231D0 11:B1C0: FE        .byte con_FE, $01
 - D - I - 0x0231D2 11:B1C2: FB        .byte con_rts
 
 bra_case_B1C3_01:
-- - - - - 0x0231D3 11:B1C3: 3C        .byte $3C
-- - - - - 0x0231D4 11:B1C4: 30        .byte $30
-- - - - - 0x0231D5 11:B1C5: 9B        .byte $9B
-- - - - - 0x0231D6 11:B1C6: BC        .byte $BC
+- - - - - 0x0231D3 11:B1C3: 3C        .byte con_pause + $3C
+- - - - - 0x0231D4 11:B1C4: 30        .byte con_bg + $30
+- - - - - 0x0231D5 11:B1C5: 9B        .byte con_animation + $9B
+- - - - - 0x0231D6 11:B1C6: BC        .byte con_cloud + $BC
 - - - - - 0x0231D7 11:B1C7: F2        .byte con_jmp
 - - - - - 0x0231D8 11:B1C8: A0 B1     .word loc_B1A0
 
@@ -11573,55 +11580,55 @@ bra_case_B1DE_10:
 bra_case_B1DE_11:
 - D - I - 0x0231EE 11:B1DE: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x0231F1 11:B1E1: F7        .byte con_F7, $02
-- D - I - 0x0231F3 11:B1E3: 28        .byte $28
-- D - I - 0x0231F4 11:B1E4: 22        .byte $22
-- D - I - 0x0231F5 11:B1E5: 6B        .byte $6B
-- D - I - 0x0231F6 11:B1E6: 8D        .byte $8D
+- D - I - 0x0231F3 11:B1E3: 28        .byte con_pause + $28
+- D - I - 0x0231F4 11:B1E4: 22        .byte con_bg + $22
+- D - I - 0x0231F5 11:B1E5: 6B        .byte con_animation + $6B
+- D - I - 0x0231F6 11:B1E6: 8D        .byte con_cloud + $8D
 - D - I - 0x0231F7 11:B1E7: F7        .byte con_F7, $10
-- D - I - 0x0231F9 11:B1E9: 16        .byte $16
-- D - I - 0x0231FA 11:B1EA: 05        .byte $05
-- D - I - 0x0231FB 11:B1EB: 00        .byte $00
-- D - I - 0x0231FC 11:B1EC: 00        .byte $00
+- D - I - 0x0231F9 11:B1E9: 16        .byte con_pause + $16
+- D - I - 0x0231FA 11:B1EA: 05        .byte con_bg + $05
+- D - I - 0x0231FB 11:B1EB: 00        .byte con_animation + $00
+- D - I - 0x0231FC 11:B1EC: 00        .byte con_cloud + $00
 - D - I - 0x0231FD 11:B1ED: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023200 11:B1F0: F7        .byte con_F7, $36
-- D - I - 0x023202 11:B1F2: 3C        .byte $3C
-- D - I - 0x023203 11:B1F3: 05        .byte $05
-- D - I - 0x023204 11:B1F4: D9        .byte $D9
-- D - I - 0x023205 11:B1F5: 04        .byte $04
+- D - I - 0x023202 11:B1F2: 3C        .byte con_pause + $3C
+- D - I - 0x023203 11:B1F3: 05        .byte con_bg + $05
+- D - I - 0x023204 11:B1F4: D9        .byte con_animation + $D9
+- D - I - 0x023205 11:B1F5: 04        .byte con_cloud + $04
 loc_B1F6:
 - D - I - 0x023206 11:B1F6: F7        .byte con_F7, $23
 - D - I - 0x023208 11:B1F8: F9        .byte con_delay_soundID, $02, $09
-- D - I - 0x02320B 11:B1FB: 46        .byte $46
-- D - I - 0x02320C 11:B1FC: 27        .byte $27
-- D - I - 0x02320D 11:B1FD: DC        .byte $DC
-- D - I - 0x02320E 11:B1FE: F0        .byte con_exit_1
+- D - I - 0x02320B 11:B1FB: 46        .byte con_pause + $46
+- D - I - 0x02320C 11:B1FC: 27        .byte con_bg + $27
+- D - I - 0x02320D 11:B1FD: DC        .byte con_animation + $DC
+- D - I - 0x02320E 11:B1FE: F0        .byte con_cloud + $F0
 - D - I - 0x02320F 11:B1FF: FB        .byte con_rts
 
 bra_case_B200_00:
 bra_case_B200_01:
 - D - I - 0x023210 11:B200: F4        .byte con_mirror_on
 - D - I - 0x023211 11:B201: F8        .byte con_F8, $04
-- D - I - 0x023213 11:B203: 3C        .byte $3C
-- D - I - 0x023214 11:B204: 4F        .byte $4F
-- D - I - 0x023215 11:B205: 91        .byte $91
-- D - I - 0x023216 11:B206: AA        .byte $AA
+- D - I - 0x023213 11:B203: 3C        .byte con_pause + $3C
+- D - I - 0x023214 11:B204: 4F        .byte con_bg + $4F
+- D - I - 0x023215 11:B205: 91        .byte con_animation + $91
+- D - I - 0x023216 11:B206: AA        .byte con_cloud + $AA
 - D - I - 0x023217 11:B207: F6        .byte con_mirror_toggle
 - D - I - 0x023218 11:B208: F8        .byte con_F8, $04
-- D - I - 0x02321A 11:B20A: 3C        .byte $3C
-- D - I - 0x02321B 11:B20B: 30        .byte $30
-- D - I - 0x02321C 11:B20C: 96        .byte $96
-- D - I - 0x02321D 11:B20D: AB        .byte $AB
+- D - I - 0x02321A 11:B20A: 3C        .byte con_pause + $3C
+- D - I - 0x02321B 11:B20B: 30        .byte con_bg + $30
+- D - I - 0x02321C 11:B20C: 96        .byte con_animation + $96
+- D - I - 0x02321D 11:B20D: AB        .byte con_cloud + $AB
 - D - I - 0x02321E 11:B20E: F7        .byte con_F7, $10
-- D - I - 0x023220 11:B210: 16        .byte $16
-- D - I - 0x023221 11:B211: 05        .byte $05
-- D - I - 0x023222 11:B212: 00        .byte $00
-- D - I - 0x023223 11:B213: 00        .byte $00
+- D - I - 0x023220 11:B210: 16        .byte con_pause + $16
+- D - I - 0x023221 11:B211: 05        .byte con_bg + $05
+- D - I - 0x023222 11:B212: 00        .byte con_animation + $00
+- D - I - 0x023223 11:B213: 00        .byte con_cloud + $00
 - D - I - 0x023224 11:B214: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023227 11:B217: F7        .byte con_F7, $36
-- D - I - 0x023229 11:B219: 3C        .byte $3C
-- D - I - 0x02322A 11:B21A: 05        .byte $05
-- D - I - 0x02322B 11:B21B: D6        .byte $D6
-- D - I - 0x02322C 11:B21C: 04        .byte $04
+- D - I - 0x023229 11:B219: 3C        .byte con_pause + $3C
+- D - I - 0x02322A 11:B21A: 05        .byte con_bg + $05
+- D - I - 0x02322B 11:B21B: D6        .byte con_animation + $D6
+- D - I - 0x02322C 11:B21C: 04        .byte con_cloud + $04
 - D - I - 0x02322D 11:B21D: F2        .byte con_jmp
 - D - I - 0x02322E 11:B21E: F6 B1     .word loc_B1F6
 
@@ -11631,29 +11638,29 @@ bra_case_B220_09:
 bra_case_B220_0A:
 - D - I - 0x023230 11:B220: F4        .byte con_mirror_on
 - D - I - 0x023231 11:B221: F8        .byte con_F8, $04
-- D - I - 0x023233 11:B223: 3C        .byte $3C
-- D - I - 0x023234 11:B224: 4F        .byte $4F
-- D - I - 0x023235 11:B225: 9C        .byte $9C
-- D - I - 0x023236 11:B226: AC        .byte $AC
+- D - I - 0x023233 11:B223: 3C        .byte con_pause + $3C
+- D - I - 0x023234 11:B224: 4F        .byte con_bg + $4F
+- D - I - 0x023235 11:B225: 9C        .byte con_animation + $9C
+- D - I - 0x023236 11:B226: AC        .byte con_cloud + $AC
 - D - I - 0x023237 11:B227: F6        .byte con_mirror_toggle
 - D - I - 0x023238 11:B228: F8        .byte con_F8, $04
-- D - I - 0x02323A 11:B22A: 3C        .byte $3C
-- D - I - 0x02323B 11:B22B: 30        .byte $30
-- D - I - 0x02323C 11:B22C: 9C        .byte $9C
-- D - I - 0x02323D 11:B22D: AD        .byte $AD
+- D - I - 0x02323A 11:B22A: 3C        .byte con_pause + $3C
+- D - I - 0x02323B 11:B22B: 30        .byte con_bg + $30
+- D - I - 0x02323C 11:B22C: 9C        .byte con_animation + $9C
+- D - I - 0x02323D 11:B22D: AD        .byte con_cloud + $AD
 loc_B22E:
 bra_long_case_B22E_0A:
 - D - I - 0x02323E 11:B22E: F7        .byte con_F7, $10
-- D - I - 0x023240 11:B230: 16        .byte $16
-- D - I - 0x023241 11:B231: 05        .byte $05
-- D - I - 0x023242 11:B232: 00        .byte $00
-- D - I - 0x023243 11:B233: 00        .byte $00
+- D - I - 0x023240 11:B230: 16        .byte con_pause + $16
+- D - I - 0x023241 11:B231: 05        .byte con_bg + $05
+- D - I - 0x023242 11:B232: 00        .byte con_animation + $00
+- D - I - 0x023243 11:B233: 00        .byte con_cloud + $00
 - D - I - 0x023244 11:B234: F9        .byte con_delay_soundID, $02, $14
 - D - I - 0x023247 11:B237: F7        .byte con_F7, $36
-- D - I - 0x023249 11:B239: 3C        .byte $3C
-- D - I - 0x02324A 11:B23A: 05        .byte $05
-- D - I - 0x02324B 11:B23B: D8        .byte $D8
-- D - I - 0x02324C 11:B23C: 04        .byte $04
+- D - I - 0x023249 11:B239: 3C        .byte con_pause + $3C
+- D - I - 0x02324A 11:B23A: 05        .byte con_bg + $05
+- D - I - 0x02324B 11:B23B: D8        .byte con_animation + $D8
+- D - I - 0x02324C 11:B23C: 04        .byte con_cloud + $04
 - D - I - 0x02324D 11:B23D: F2        .byte con_jmp
 - D - I - 0x02324E 11:B23E: F6 B1     .word loc_B1F6
 
@@ -11661,16 +11668,16 @@ bra_case_B240_0B:
 bra_case_B240_0C:
 - D - I - 0x023250 11:B240: F4        .byte con_mirror_on
 - D - I - 0x023251 11:B241: F8        .byte con_F8, $04
-- D - I - 0x023253 11:B243: 3C        .byte $3C
-- D - I - 0x023254 11:B244: 4F        .byte $4F
-- D - I - 0x023255 11:B245: AB        .byte $AB
-- D - I - 0x023256 11:B246: AC        .byte $AC
+- D - I - 0x023253 11:B243: 3C        .byte con_pause + $3C
+- D - I - 0x023254 11:B244: 4F        .byte con_bg + $4F
+- D - I - 0x023255 11:B245: AB        .byte con_animation + $AB
+- D - I - 0x023256 11:B246: AC        .byte con_cloud + $AC
 - D - I - 0x023257 11:B247: F6        .byte con_mirror_toggle
 - D - I - 0x023258 11:B248: F8        .byte con_F8, $04
-- D - I - 0x02325A 11:B24A: 3C        .byte $3C
-- D - I - 0x02325B 11:B24B: 30        .byte $30
-- D - I - 0x02325C 11:B24C: AB        .byte $AB
-- D - I - 0x02325D 11:B24D: AD        .byte $AD
+- D - I - 0x02325A 11:B24A: 3C        .byte con_pause + $3C
+- D - I - 0x02325B 11:B24B: 30        .byte con_bg + $30
+- D - I - 0x02325C 11:B24C: AB        .byte con_animation + $AB
+- D - I - 0x02325D 11:B24D: AD        .byte con_cloud + $AD
 - D - I - 0x02325E 11:B24E: F2        .byte con_jmp
 - D - I - 0x02325F 11:B24F: 2E B2     .word loc_B22E
 
@@ -11678,58 +11685,58 @@ bra_long_case_B251_10:
 loc_B251:
 - D - I - 0x023261 11:B251: F7        .byte con_F7, $31
 - D - I - 0x023263 11:B253: F9        .byte con_delay_soundID, $02, $16
-- D - I - 0x023266 11:B256: 28        .byte $28
-- D - I - 0x023267 11:B257: 6A        .byte $6A
-- D - I - 0x023268 11:B258: C4        .byte $C4
-- D - I - 0x023269 11:B259: 49        .byte $49
+- D - I - 0x023266 11:B256: 28        .byte con_pause + $28
+- D - I - 0x023267 11:B257: 6A        .byte con_bg + $6A
+- D - I - 0x023268 11:B258: C4        .byte con_animation + $C4
+- D - I - 0x023269 11:B259: 49        .byte con_cloud + $49
 - D - I - 0x02326A 11:B25A: F7        .byte con_F7, $21
 - D - I - 0x02326C 11:B25C: F9        .byte con_delay_soundID, $02, $14
-- D - I - 0x02326F 11:B25F: 16        .byte $16
-- D - I - 0x023270 11:B260: 05        .byte $05
-- D - I - 0x023271 11:B261: 69        .byte $69
-- D - I - 0x023272 11:B262: F0        .byte con_exit_1
+- D - I - 0x02326F 11:B25F: 16        .byte con_pause + $16
+- D - I - 0x023270 11:B260: 05        .byte con_bg + $05
+- D - I - 0x023271 11:B261: 69        .byte con_animation + $69
+- D - I - 0x023272 11:B262: F0        .byte con_cloud + $F0
 - D - I - 0x023273 11:B263: FC        .byte con_FC, $04
 - D - I - 0x023275 11:B265: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x023278 11:B268: 28        .byte $28
-- D - I - 0x023279 11:B269: 58        .byte $58
-- D - I - 0x02327A 11:B26A: C5        .byte $C5
-- D - I - 0x02327B 11:B26B: F0        .byte con_exit_1
+- D - I - 0x023278 11:B268: 28        .byte con_pause + $28
+- D - I - 0x023279 11:B269: 58        .byte con_bg + $58
+- D - I - 0x02327A 11:B26A: C5        .byte con_animation + $C5
+- D - I - 0x02327B 11:B26B: F0        .byte con_cloud + $F0
 - D - I - 0x02327C 11:B26C: F2        .byte con_jmp
 - D - I - 0x02327D 11:B26D: C7 BB     .word loc_BBC7
 
 bra_long_case_B26F_20:
-- D - I - 0x02327F 11:B26F: 3C        .byte $3C
-- D - I - 0x023280 11:B270: 30        .byte $30
-- D - I - 0x023281 11:B271: B7        .byte $B7
-- D - I - 0x023282 11:B272: 13        .byte $13
+- D - I - 0x02327F 11:B26F: 3C        .byte con_pause + $3C
+- D - I - 0x023280 11:B270: 30        .byte con_bg + $30
+- D - I - 0x023281 11:B271: B7        .byte con_animation + $B7
+- D - I - 0x023282 11:B272: 13        .byte con_cloud + $13
 - D - I - 0x023283 11:B273: F7        .byte con_F7, $31
 - D - I - 0x023285 11:B275: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x023288 11:B278: 1B        .byte $1B
-- D - I - 0x023289 11:B279: 48        .byte $48
-- D - I - 0x02328A 11:B27A: CC        .byte $CC
-- D - I - 0x02328B 11:B27B: DE        .byte $DE
+- D - I - 0x023288 11:B278: 1B        .byte con_pause + $1B
+- D - I - 0x023289 11:B279: 48        .byte con_bg + $48
+- D - I - 0x02328A 11:B27A: CC        .byte con_animation + $CC
+- D - I - 0x02328B 11:B27B: DE        .byte con_cloud + $DE
 - D - I - 0x02328C 11:B27C: FA        .byte con_jsr
 - D - I - 0x02328D 11:B27D: C7 BB     .word sub_BBC7
 - D - I - 0x02328F 11:B27F: F7        .byte con_F7, $0E
-- D - I - 0x023291 11:B281: 28        .byte $28
-- D - I - 0x023292 11:B282: 05        .byte $05
-- D - I - 0x023293 11:B283: 00        .byte $00
-- D - I - 0x023294 11:B284: 49        .byte $49
+- D - I - 0x023291 11:B281: 28        .byte con_pause + $28
+- D - I - 0x023292 11:B282: 05        .byte con_bg + $05
+- D - I - 0x023293 11:B283: 00        .byte con_animation + $00
+- D - I - 0x023294 11:B284: 49        .byte con_cloud + $49
 - D - I - 0x023295 11:B285: F7        .byte con_F7, $19
 - D - I - 0x023297 11:B287: F9        .byte con_delay_soundID, $11, $1A
-- D - I - 0x02329A 11:B28A: 28        .byte $28
-- D - I - 0x02329B 11:B28B: 5C        .byte $5C
-- D - I - 0x02329C 11:B28C: CD        .byte $CD
-- D - I - 0x02329D 11:B28D: F0        .byte con_exit_1
-- D - I - 0x02329E 11:B28E: 01        .byte $01
-- D - I - 0x02329F 11:B28F: F0        .byte con_exit_1
-- D - I - 0x0232A0 11:B290: F0        .byte con_exit_1
-- D - I - 0x0232A1 11:B291: 00        .byte $00
+- D - I - 0x02329A 11:B28A: 28        .byte con_pause + $28
+- D - I - 0x02329B 11:B28B: 5C        .byte con_bg + $5C
+- D - I - 0x02329C 11:B28C: CD        .byte con_animation + $CD
+- D - I - 0x02329D 11:B28D: F0        .byte con_cloud + $F0
+- D - I - 0x02329E 11:B28E: 01        .byte con_pause + $01
+- D - I - 0x02329F 11:B28F: F0        .byte con_bg + $F0
+- D - I - 0x0232A0 11:B290: F0        .byte con_animation + $F0
+- D - I - 0x0232A1 11:B291: 00        .byte con_cloud + $00
 - D - I - 0x0232A2 11:B292: F7        .byte con_F7, $1F
-- D - I - 0x0232A4 11:B294: 78        .byte $78
-- D - I - 0x0232A5 11:B295: 30        .byte $30
-- D - I - 0x0232A6 11:B296: B7        .byte $B7
-- D - I - 0x0232A7 11:B297: BF        .byte $BF
+- D - I - 0x0232A4 11:B294: 78        .byte con_pause + $78
+- D - I - 0x0232A5 11:B295: 30        .byte con_bg + $30
+- D - I - 0x0232A6 11:B296: B7        .byte con_animation + $B7
+- D - I - 0x0232A7 11:B297: BF        .byte con_cloud + $BF
 - D - I - 0x0232A8 11:B298: F2        .byte con_jmp
 - D - I - 0x0232A9 11:B299: C7 BB     .word loc_BBC7
 
@@ -11739,67 +11746,67 @@ bra_long_case_B29B_02:
 bra_long_case_B29B_03:
 bra_long_case_B29B_04:
 - D - I - 0x0232AB 11:B29B: F7        .byte con_F7, $02
-- D - I - 0x0232AD 11:B29D: 32        .byte $32
-- D - I - 0x0232AE 11:B29E: 22        .byte $22
-- D - I - 0x0232AF 11:B29F: 6B        .byte $6B
-- D - I - 0x0232B0 11:B2A0: 4C        .byte $4C
+- D - I - 0x0232AD 11:B29D: 32        .byte con_pause + $32
+- D - I - 0x0232AE 11:B29E: 22        .byte con_bg + $22
+- D - I - 0x0232AF 11:B29F: 6B        .byte con_animation + $6B
+- D - I - 0x0232B0 11:B2A0: 4C        .byte con_cloud + $4C
 - D - I - 0x0232B1 11:B2A1: FB        .byte con_rts
 bra_long_case_B2A2_02:
 - D - I - 0x0232B2 11:B2A2: F3        .byte con_branch, $BD
 - D - I - 0x0232B4 11:B2A4: 02        .byte bra_case_B2A6_00 - *
 - - - - - 0x0232B5 11:B2A5: 16        .byte bra_case_B2BB_01 - *
 bra_case_B2A6_00:
-- D - I - 0x0232B6 11:B2A6: 3C        .byte $3C
-- D - I - 0x0232B7 11:B2A7: 30        .byte $30
-- D - I - 0x0232B8 11:B2A8: 96        .byte $96
-- D - I - 0x0232B9 11:B2A9: 13        .byte $13
+- D - I - 0x0232B6 11:B2A6: 3C        .byte con_pause + $3C
+- D - I - 0x0232B7 11:B2A7: 30        .byte con_bg + $30
+- D - I - 0x0232B8 11:B2A8: 96        .byte con_animation + $96
+- D - I - 0x0232B9 11:B2A9: 13        .byte con_cloud + $13
 loc_B2AA:
 - D - I - 0x0232BA 11:B2AA: FA        .byte con_jsr
 - D - I - 0x0232BB 11:B2AB: C7 BB     .word sub_BBC7
 sub_B2AD:
 - D - I - 0x0232BD 11:B2AD: F7        .byte con_F7, $02
-- D - I - 0x0232BF 11:B2AF: 1E        .byte $1E
-- D - I - 0x0232C0 11:B2B0: 24        .byte $24
-- D - I - 0x0232C1 11:B2B1: 6B        .byte $6B
-- D - I - 0x0232C2 11:B2B2: F0        .byte con_exit_1
+- D - I - 0x0232BF 11:B2AF: 1E        .byte con_pause + $1E
+- D - I - 0x0232C0 11:B2B0: 24        .byte con_bg + $24
+- D - I - 0x0232C1 11:B2B1: 6B        .byte con_animation + $6B
+- D - I - 0x0232C2 11:B2B2: F0        .byte con_cloud + $F0
 - D - I - 0x0232C3 11:B2B3: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0232C6 11:B2B6: 28        .byte $28
-- D - I - 0x0232C7 11:B2B7: 20        .byte $20
-- D - I - 0x0232C8 11:B2B8: AC        .byte $AC
-- D - I - 0x0232C9 11:B2B9: 00        .byte $00
+- D - I - 0x0232C6 11:B2B6: 28        .byte con_pause + $28
+- D - I - 0x0232C7 11:B2B7: 20        .byte con_bg + $20
+- D - I - 0x0232C8 11:B2B8: AC        .byte con_animation + $AC
+- D - I - 0x0232C9 11:B2B9: 00        .byte con_cloud + $00
 - D - I - 0x0232CA 11:B2BA: FB        .byte con_rts
 
 bra_case_B2BB_01:
-- - - - - 0x0232CB 11:B2BB: 3C        .byte $3C
-- - - - - 0x0232CC 11:B2BC: 30        .byte $30
-- - - - - 0x0232CD 11:B2BD: 97        .byte $97
-- - - - - 0x0232CE 11:B2BE: 13        .byte $13
+- - - - - 0x0232CB 11:B2BB: 3C        .byte con_pause + $3C
+- - - - - 0x0232CC 11:B2BC: 30        .byte con_bg + $30
+- - - - - 0x0232CD 11:B2BD: 97        .byte con_animation + $97
+- - - - - 0x0232CE 11:B2BE: 13        .byte con_cloud + $13
 - - - - - 0x0232CF 11:B2BF: F2        .byte con_jmp
 - - - - - 0x0232D0 11:B2C0: AA B2     .word loc_B2AA
 
 loc_B2C2:
 - D - I - 0x0232D2 11:B2C2: FC        .byte con_FC, $02
 - D - I - 0x0232D4 11:B2C4: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x0232D7 11:B2C7: 44        .byte $44
-- D - I - 0x0232D8 11:B2C8: 57        .byte $57
-- D - I - 0x0232D9 11:B2C9: 6C        .byte $6C
-- D - I - 0x0232DA 11:B2CA: 4D        .byte $4D
+- D - I - 0x0232D7 11:B2C7: 44        .byte con_pause + $44
+- D - I - 0x0232D8 11:B2C8: 57        .byte con_bg + $57
+- D - I - 0x0232D9 11:B2C9: 6C        .byte con_animation + $6C
+- D - I - 0x0232DA 11:B2CA: 4D        .byte con_cloud + $4D
 - D - I - 0x0232DB 11:B2CB: FB        .byte con_rts
 
 loc_B2CC:
 - D - I - 0x0232DC 11:B2CC: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x0232DF 11:B2CF: 3E        .byte $3E
-- D - I - 0x0232E0 11:B2D0: 29        .byte $29
-- D - I - 0x0232E1 11:B2D1: 6D        .byte $6D
-- D - I - 0x0232E2 11:B2D2: 4D        .byte $4D
+- D - I - 0x0232DF 11:B2CF: 3E        .byte con_pause + $3E
+- D - I - 0x0232E0 11:B2D0: 29        .byte con_bg + $29
+- D - I - 0x0232E1 11:B2D1: 6D        .byte con_animation + $6D
+- D - I - 0x0232E2 11:B2D2: 4D        .byte con_cloud + $4D
 - D - I - 0x0232E3 11:B2D3: FB        .byte con_rts
 
 loc_B2D4:
 - D - I - 0x0232E4 11:B2D4: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x0232E7 11:B2D7: 3E        .byte $3E
-- D - I - 0x0232E8 11:B2D8: 67        .byte $67
-- D - I - 0x0232E9 11:B2D9: 6D        .byte $6D
-- D - I - 0x0232EA 11:B2DA: 4D        .byte $4D
+- D - I - 0x0232E7 11:B2D7: 3E        .byte con_pause + $3E
+- D - I - 0x0232E8 11:B2D8: 67        .byte con_bg + $67
+- D - I - 0x0232E9 11:B2D9: 6D        .byte con_animation + $6D
+- D - I - 0x0232EA 11:B2DA: 4D        .byte con_cloud + $4D
 - D - I - 0x0232EB 11:B2DB: FB        .byte con_rts
 
 sub_B2DC:
@@ -11841,14 +11848,14 @@ bra_case_B2F2_0D:
 bra_case_B2F2_0E:
 bra_case_B2F2_0F:
 - D - I - 0x023302 11:B2F2: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x023305 11:B2F5: 14        .byte $14
-- D - I - 0x023306 11:B2F6: 02        .byte $02
-- D - I - 0x023307 11:B2F7: 1C        .byte $1C
-- D - I - 0x023308 11:B2F8: 37        .byte $37
-- D - I - 0x023309 11:B2F9: 22        .byte $22
-- D - I - 0x02330A 11:B2FA: 56        .byte $56
-- D - I - 0x02330B 11:B2FB: 49        .byte $49
-- D - I - 0x02330C 11:B2FC: F0        .byte con_exit_1
+- D - I - 0x023305 11:B2F5: 14        .byte con_pause + $14
+- D - I - 0x023306 11:B2F6: 02        .byte con_bg + $02
+- D - I - 0x023307 11:B2F7: 1C        .byte con_animation + $1C
+- D - I - 0x023308 11:B2F8: 37        .byte con_cloud + $37
+- D - I - 0x023309 11:B2F9: 22        .byte con_pause + $22
+- D - I - 0x02330A 11:B2FA: 56        .byte con_bg + $56
+- D - I - 0x02330B 11:B2FB: 49        .byte con_animation + $49
+- D - I - 0x02330C 11:B2FC: F0        .byte con_cloud + $F0
 - D - I - 0x02330D 11:B2FD: FB        .byte con_rts
 
 bra_long_case_B2FE_01:
@@ -11887,10 +11894,10 @@ bra_case_B310_0E:
 bra_case_B310_0F:
 - D - I - 0x023320 11:B310: F8        .byte con_F8, $04
 - D - I - 0x023322 11:B312: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x023325 11:B315: 32        .byte $32
-- D - I - 0x023326 11:B316: 1D        .byte $1D
-- D - I - 0x023327 11:B317: 1C        .byte $1C
-- D - I - 0x023328 11:B318: 3B        .byte $3B
+- D - I - 0x023325 11:B315: 32        .byte con_pause + $32
+- D - I - 0x023326 11:B316: 1D        .byte con_bg + $1D
+- D - I - 0x023327 11:B317: 1C        .byte con_animation + $1C
+- D - I - 0x023328 11:B318: 3B        .byte con_cloud + $3B
 - D - I - 0x023329 11:B319: FB        .byte con_rts
 
 bra_long_case_B31A_01:
@@ -11928,14 +11935,14 @@ bra_case_B32C_0D:
 bra_case_B32C_0E:
 bra_case_B32C_0F:
 - D - I - 0x02333C 11:B32C: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x02333F 11:B32F: 14        .byte $14
-- D - I - 0x023340 11:B330: 02        .byte $02
-- D - I - 0x023341 11:B331: 1C        .byte $1C
-- D - I - 0x023342 11:B332: 38        .byte $38
-- D - I - 0x023343 11:B333: 20        .byte $20
-- D - I - 0x023344 11:B334: 29        .byte $29
-- D - I - 0x023345 11:B335: 49        .byte $49
-- D - I - 0x023346 11:B336: F0        .byte con_exit_1
+- D - I - 0x02333F 11:B32F: 14        .byte con_pause + $14
+- D - I - 0x023340 11:B330: 02        .byte con_bg + $02
+- D - I - 0x023341 11:B331: 1C        .byte con_animation + $1C
+- D - I - 0x023342 11:B332: 38        .byte con_cloud + $38
+- D - I - 0x023343 11:B333: 20        .byte con_pause + $20
+- D - I - 0x023344 11:B334: 29        .byte con_bg + $29
+- D - I - 0x023345 11:B335: 49        .byte con_animation + $49
+- D - I - 0x023346 11:B336: F0        .byte con_cloud + $F0
 - D - I - 0x023347 11:B337: FB        .byte con_rts
 
 bra_case_B338_01:
@@ -11943,10 +11950,10 @@ bra_case_B338_01:
 - D - I - 0x023349 11:B339: 1A A7     .word sub_A71A
 loc_B33B:
 sub_B33B:
-- D - I - 0x02334B 11:B33B: 2D        .byte $2D
-- D - I - 0x02334C 11:B33C: 20        .byte $20
-- D - I - 0x02334D 11:B33D: C1        .byte $C1
-- D - I - 0x02334E 11:B33E: ED        .byte $ED
+- D - I - 0x02334B 11:B33B: 2D        .byte con_pause + $2D
+- D - I - 0x02334C 11:B33C: 20        .byte con_bg + $20
+- D - I - 0x02334D 11:B33D: C1        .byte con_animation + $C1
+- D - I - 0x02334E 11:B33E: ED        .byte con_cloud + $ED
 - D - I - 0x02334F 11:B33F: F6        .byte con_mirror_toggle
 - D - I - 0x023350 11:B340: FB        .byte con_rts
 
@@ -11981,15 +11988,15 @@ bra_case_B359_04:
 bra_case_B359_0C:
 bra_case_B359_0D:
 - D - I - 0x023369 11:B359: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x02336C 11:B35C: 14        .byte $14
-- D - I - 0x02336D 11:B35D: 02        .byte $02
-- D - I - 0x02336E 11:B35E: 1C        .byte $1C
-- D - I - 0x02336F 11:B35F: 39        .byte $39
+- D - I - 0x02336C 11:B35C: 14        .byte con_pause + $14
+- D - I - 0x02336D 11:B35D: 02        .byte con_bg + $02
+- D - I - 0x02336E 11:B35E: 1C        .byte con_animation + $1C
+- D - I - 0x02336F 11:B35F: 39        .byte con_cloud + $39
 loc_B360:
-- D - I - 0x023370 11:B360: 20        .byte $20
-- D - I - 0x023371 11:B361: 56        .byte $56
-- D - I - 0x023372 11:B362: 49        .byte $49
-- D - I - 0x023373 11:B363: F0        .byte con_exit_1
+- D - I - 0x023370 11:B360: 20        .byte con_pause + $20
+- D - I - 0x023371 11:B361: 56        .byte con_bg + $56
+- D - I - 0x023372 11:B362: 49        .byte con_animation + $49
+- D - I - 0x023373 11:B363: F0        .byte con_cloud + $F0
 - D - I - 0x023374 11:B364: FB        .byte con_rts
 
 bra_case_B365_01:
@@ -12008,15 +12015,15 @@ bra_case_B36C_02:
 
 bra_case_B372_05:
 - D - I - 0x023382 11:B372: F7        .byte con_F7, $44
-- D - I - 0x023384 11:B374: 48        .byte $48
-- D - I - 0x023385 11:B375: 30        .byte $30
-- D - I - 0x023386 11:B376: A0        .byte $A0
-- D - I - 0x023387 11:B377: D8        .byte $D8
+- D - I - 0x023384 11:B374: 48        .byte con_pause + $48
+- D - I - 0x023385 11:B375: 30        .byte con_bg + $30
+- D - I - 0x023386 11:B376: A0        .byte con_animation + $A0
+- D - I - 0x023387 11:B377: D8        .byte con_cloud + $D8
 loc_B378:
-- D - I - 0x023388 11:B378: 01        .byte $01
-- D - I - 0x023389 11:B379: F0        .byte con_exit_1
-- D - I - 0x02338A 11:B37A: F0        .byte con_exit_1
-- D - I - 0x02338B 11:B37B: 00        .byte $00
+- D - I - 0x023388 11:B378: 01        .byte con_pause + $01
+- D - I - 0x023389 11:B379: F0        .byte con_bg + $F0
+- D - I - 0x02338A 11:B37A: F0        .byte con_animation + $F0
+- D - I - 0x02338B 11:B37B: 00        .byte con_cloud + $00
 bra_case_B37C_07:
 bra_case_B37C_08:
 bra_case_B37C_09:
@@ -12024,42 +12031,42 @@ bra_case_B37C_0A:
 bra_case_B37C_0B:
 - D - I - 0x02338C 11:B37C: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x02338F 11:B37F: F7        .byte con_F7, $33
-- D - I - 0x023391 11:B381: 20        .byte $20
-- D - I - 0x023392 11:B382: 6B        .byte $6B
-- D - I - 0x023393 11:B383: E3        .byte $E3
-- D - I - 0x023394 11:B384: EC        .byte $EC
+- D - I - 0x023391 11:B381: 20        .byte con_pause + $20
+- D - I - 0x023392 11:B382: 6B        .byte con_bg + $6B
+- D - I - 0x023393 11:B383: E3        .byte con_animation + $E3
+- D - I - 0x023394 11:B384: EC        .byte con_cloud + $EC
 - D - I - 0x023395 11:B385: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x023398 11:B388: 14        .byte $14
-- D - I - 0x023399 11:B389: 02        .byte $02
-- D - I - 0x02339A 11:B38A: 1C        .byte $1C
-- D - I - 0x02339B 11:B38B: F0        .byte con_exit_1
+- D - I - 0x023398 11:B388: 14        .byte con_pause + $14
+- D - I - 0x023399 11:B389: 02        .byte con_bg + $02
+- D - I - 0x02339A 11:B38A: 1C        .byte con_animation + $1C
+- D - I - 0x02339B 11:B38B: F0        .byte con_cloud + $F0
 - D - I - 0x02339C 11:B38C: F2        .byte con_jmp
 - D - I - 0x02339D 11:B38D: 60 B3     .word loc_B360
 
 bra_case_B38F_06:
 - - - - - 0x02339F 11:B38F: F7        .byte con_F7, $44
-- - - - - 0x0233A1 11:B391: 48        .byte $48
-- - - - - 0x0233A2 11:B392: 30        .byte $30
-- - - - - 0x0233A3 11:B393: AA        .byte $AA
-- - - - - 0x0233A4 11:B394: D8        .byte $D8
+- - - - - 0x0233A1 11:B391: 48        .byte con_pause + $48
+- - - - - 0x0233A2 11:B392: 30        .byte con_bg + $30
+- - - - - 0x0233A3 11:B393: AA        .byte con_animation + $AA
+- - - - - 0x0233A4 11:B394: D8        .byte con_cloud + $D8
 - - - - - 0x0233A5 11:B395: F2        .byte con_jmp
 - - - - - 0x0233A6 11:B396: 78 B3     .word loc_B378
 
 bra_case_B398_0E:
 - D - I - 0x0233A8 11:B398: F7        .byte con_F7, $44
-- D - I - 0x0233AA 11:B39A: 3C        .byte $3C
-- D - I - 0x0233AB 11:B39B: 30        .byte $30
-- D - I - 0x0233AC 11:B39C: 98        .byte $98
-- D - I - 0x0233AD 11:B39D: D7        .byte $D7
+- D - I - 0x0233AA 11:B39A: 3C        .byte con_pause + $3C
+- D - I - 0x0233AB 11:B39B: 30        .byte con_bg + $30
+- D - I - 0x0233AC 11:B39C: 98        .byte con_animation + $98
+- D - I - 0x0233AD 11:B39D: D7        .byte con_cloud + $D7
 - D - I - 0x0233AE 11:B39E: F2        .byte con_jmp
 - D - I - 0x0233AF 11:B39F: B1 A7     .word loc_A7B1
 
 bra_case_B3A1_0F:
 - - - - - 0x0233B1 11:B3A1: F7        .byte con_F7, $44
-- - - - - 0x0233B3 11:B3A3: 3C        .byte $3C
-- - - - - 0x0233B4 11:B3A4: 30        .byte $30
-- - - - - 0x0233B5 11:B3A5: 99        .byte $99
-- - - - - 0x0233B6 11:B3A6: D7        .byte $D7
+- - - - - 0x0233B3 11:B3A3: 3C        .byte con_pause + $3C
+- - - - - 0x0233B4 11:B3A4: 30        .byte con_bg + $30
+- - - - - 0x0233B5 11:B3A5: 99        .byte con_animation + $99
+- - - - - 0x0233B6 11:B3A6: D7        .byte con_cloud + $D7
 - - - - - 0x0233B7 11:B3A7: F2        .byte con_jmp
 - - - - - 0x0233B8 11:B3A8: B1 A7     .word loc_A7B1
 
@@ -12083,10 +12090,10 @@ bra_long_case_B3AF_02:
 
 bra_case_B3B7_00:
 - D - I - 0x0233C7 11:B3B7: F7        .byte con_F7, $44
-- D - I - 0x0233C9 11:B3B9: 3C        .byte $3C
-- D - I - 0x0233CA 11:B3BA: 31        .byte $31
-- D - I - 0x0233CB 11:B3BB: 9E        .byte $9E
-- D - I - 0x0233CC 11:B3BC: C4        .byte $C4
+- D - I - 0x0233C9 11:B3B9: 3C        .byte con_pause + $3C
+- D - I - 0x0233CA 11:B3BA: 31        .byte con_bg + $31
+- D - I - 0x0233CB 11:B3BB: 9E        .byte con_animation + $9E
+- D - I - 0x0233CC 11:B3BC: C4        .byte con_cloud + $C4
 loc_B3BD:
 - D - I - 0x0233CD 11:B3BD: FA        .byte con_jsr
 - D - I - 0x0233CE 11:B3BE: C7 BB     .word sub_BBC7
@@ -12099,37 +12106,37 @@ bra_case_B3C0_05:
 
 bra_case_B3C5_01:
 - D - I - 0x0233D5 11:B3C5: F7        .byte con_F7, $44
-- D - I - 0x0233D7 11:B3C7: 3C        .byte $3C
-- D - I - 0x0233D8 11:B3C8: 31        .byte $31
-- D - I - 0x0233D9 11:B3C9: B0        .byte $B0
-- D - I - 0x0233DA 11:B3CA: C4        .byte $C4
+- D - I - 0x0233D7 11:B3C7: 3C        .byte con_pause + $3C
+- D - I - 0x0233D8 11:B3C8: 31        .byte con_bg + $31
+- D - I - 0x0233D9 11:B3C9: B0        .byte con_animation + $B0
+- D - I - 0x0233DA 11:B3CA: C4        .byte con_cloud + $C4
 - D - I - 0x0233DB 11:B3CB: F2        .byte con_jmp
 - D - I - 0x0233DC 11:B3CC: BD B3     .word loc_B3BD
 
 bra_case_B3CE_02:
 - - - - - 0x0233DE 11:B3CE: F7        .byte con_F7, $44
-- - - - - 0x0233E0 11:B3D0: 3C        .byte $3C
-- - - - - 0x0233E1 11:B3D1: 30        .byte $30
-- - - - - 0x0233E2 11:B3D2: A0        .byte $A0
-- - - - - 0x0233E3 11:B3D3: C5        .byte $C5
+- - - - - 0x0233E0 11:B3D0: 3C        .byte con_pause + $3C
+- - - - - 0x0233E1 11:B3D1: 30        .byte con_bg + $30
+- - - - - 0x0233E2 11:B3D2: A0        .byte con_animation + $A0
+- - - - - 0x0233E3 11:B3D3: C5        .byte con_cloud + $C5
 - - - - - 0x0233E4 11:B3D4: F2        .byte con_jmp
 - - - - - 0x0233E5 11:B3D5: BD B3     .word loc_B3BD
 
 bra_case_B3D7_03:
 - D - I - 0x0233E7 11:B3D7: F7        .byte con_F7, $44
-- D - I - 0x0233E9 11:B3D9: 3C        .byte $3C
-- D - I - 0x0233EA 11:B3DA: 30        .byte $30
-- D - I - 0x0233EB 11:B3DB: AA        .byte $AA
-- D - I - 0x0233EC 11:B3DC: C5        .byte $C5
+- D - I - 0x0233E9 11:B3D9: 3C        .byte con_pause + $3C
+- D - I - 0x0233EA 11:B3DA: 30        .byte con_bg + $30
+- D - I - 0x0233EB 11:B3DB: AA        .byte con_animation + $AA
+- D - I - 0x0233EC 11:B3DC: C5        .byte con_cloud + $C5
 - - - - - 0x0233ED 11:B3DD: F2        .byte con_jmp
 - - - - - 0x0233EE 11:B3DE: BD B3     .word loc_B3BD
 
 bra_case_B3E0_04:
 - D - I - 0x0233F0 11:B3E0: F7        .byte con_F7, $44
-- D - I - 0x0233F2 11:B3E2: 3C        .byte $3C
-- D - I - 0x0233F3 11:B3E3: 30        .byte $30
-- D - I - 0x0233F4 11:B3E4: B4        .byte $B4
-- D - I - 0x0233F5 11:B3E5: C6        .byte $C6
+- D - I - 0x0233F2 11:B3E2: 3C        .byte con_pause + $3C
+- D - I - 0x0233F3 11:B3E3: 30        .byte con_bg + $30
+- D - I - 0x0233F4 11:B3E4: B4        .byte con_animation + $B4
+- D - I - 0x0233F5 11:B3E5: C6        .byte con_cloud + $C6
 - D - I - 0x0233F6 11:B3E6: F2        .byte con_jmp
 - D - I - 0x0233F7 11:B3E7: BD B3     .word loc_B3BD
 
@@ -12137,10 +12144,10 @@ bra_long_case_B3E9_03:
 - D - I - 0x0233F9 11:B3E9: FA        .byte con_jsr
 - D - I - 0x0233FA 11:B3EA: 6C A8     .word sub_A86C
 - D - I - 0x0233FC 11:B3EC: F7        .byte con_F7, $02
-- D - I - 0x0233FE 11:B3EE: 28        .byte $28
-- D - I - 0x0233FF 11:B3EF: F0        .byte con_exit_1
-- D - I - 0x023400 11:B3F0: F0        .byte con_exit_1
-- D - I - 0x023401 11:B3F1: F0        .byte con_exit_1
+- D - I - 0x0233FE 11:B3EE: 28        .byte con_pause + $28
+- D - I - 0x0233FF 11:B3EF: F0        .byte con_bg + $F0
+- D - I - 0x023400 11:B3F0: F0        .byte con_animation + $F0
+- D - I - 0x023401 11:B3F1: F0        .byte con_cloud + $F0
 - D - I - 0x023402 11:B3F2: F6        .byte con_mirror_toggle
 - D - I - 0x023403 11:B3F3: FB        .byte con_rts
 
@@ -12168,10 +12175,10 @@ bra_long_case_B406_05:
 - D - I - 0x023417 11:B407: D0 A8     .word sub_A8D0
 - D - I - 0x023419 11:B409: F7        .byte con_F7, $0D
 - D - I - 0x02341B 11:B40B: F9        .byte con_delay_soundID, $02, $26
-- D - I - 0x02341E 11:B40E: 1F        .byte $1F
-- D - I - 0x02341F 11:B40F: 47        .byte $47
-- D - I - 0x023420 11:B410: D1        .byte $D1
-- D - I - 0x023421 11:B411: F0        .byte con_exit_1
+- D - I - 0x02341E 11:B40E: 1F        .byte con_pause + $1F
+- D - I - 0x02341F 11:B40F: 47        .byte con_bg + $47
+- D - I - 0x023420 11:B410: D1        .byte con_animation + $D1
+- D - I - 0x023421 11:B411: F0        .byte con_cloud + $F0
 - D - I - 0x023422 11:B412: F6        .byte con_mirror_toggle
 - D - I - 0x023423 11:B413: FB        .byte con_rts
 
@@ -12185,10 +12192,10 @@ bra_case_B418_00:
 - D - I - 0x023429 11:B419: E5 A8     .word sub_A8E5
 loc_B41B:
 - D - I - 0x02342B 11:B41B: F7        .byte con_F7, $02
-- D - I - 0x02342D 11:B41D: 1F        .byte $1F
-- D - I - 0x02342E 11:B41E: F0        .byte con_exit_1
-- D - I - 0x02342F 11:B41F: D2        .byte $D2
-- D - I - 0x023430 11:B420: 00        .byte $00
+- D - I - 0x02342D 11:B41D: 1F        .byte con_pause + $1F
+- D - I - 0x02342E 11:B41E: F0        .byte con_bg + $F0
+- D - I - 0x02342F 11:B41F: D2        .byte con_animation + $D2
+- D - I - 0x023430 11:B420: 00        .byte con_cloud + $00
 - D - I - 0x023431 11:B421: FB        .byte con_rts
 
 bra_case_B422_01:
@@ -12204,78 +12211,78 @@ sub_B428:
 
 bra_case_B42C_01:
 - D - I - 0x02343C 11:B42C: F7        .byte con_F7, $10
-- D - I - 0x02343E 11:B42E: 10        .byte $10
-- D - I - 0x02343F 11:B42F: 05        .byte $05
-- D - I - 0x023440 11:B430: 00        .byte $00
-- D - I - 0x023441 11:B431: F0        .byte con_exit_1
+- D - I - 0x02343E 11:B42E: 10        .byte con_pause + $10
+- D - I - 0x02343F 11:B42F: 05        .byte con_bg + $05
+- D - I - 0x023440 11:B430: 00        .byte con_animation + $00
+- D - I - 0x023441 11:B431: F0        .byte con_cloud + $F0
 bra_case_B432_00:
 - D - I - 0x023442 11:B432: FB        .byte con_rts
 
 bra_long_case_B433_00:
-- D - I - 0x023443 11:B433: 28        .byte $28
-- D - I - 0x023444 11:B434: 1E        .byte $1E
-- D - I - 0x023445 11:B435: 3E        .byte $3E
-- D - I - 0x023446 11:B436: F0        .byte con_exit_1
+- D - I - 0x023443 11:B433: 28        .byte con_pause + $28
+- D - I - 0x023444 11:B434: 1E        .byte con_bg + $1E
+- D - I - 0x023445 11:B435: 3E        .byte con_animation + $3E
+- D - I - 0x023446 11:B436: F0        .byte con_cloud + $F0
 - D - I - 0x023447 11:B437: FB        .byte con_rts
 
 bra_long_case_B438_01:
-- D - I - 0x023448 11:B438: 28        .byte $28
-- D - I - 0x023449 11:B439: 1E        .byte $1E
-- D - I - 0x02344A 11:B43A: 3F        .byte $3F
-- D - I - 0x02344B 11:B43B: F0        .byte con_exit_1
+- D - I - 0x023448 11:B438: 28        .byte con_pause + $28
+- D - I - 0x023449 11:B439: 1E        .byte con_bg + $1E
+- D - I - 0x02344A 11:B43A: 3F        .byte con_animation + $3F
+- D - I - 0x02344B 11:B43B: F0        .byte con_cloud + $F0
 - D - I - 0x02344C 11:B43C: FB        .byte con_rts
 
 loc_B43D:
-- D - I - 0x02344D 11:B43D: 3D        .byte $3D
-- D - I - 0x02344E 11:B43E: 56        .byte $56
-- D - I - 0x02344F 11:B43F: 6E        .byte $6E
-- D - I - 0x023450 11:B440: 4D        .byte $4D
+- D - I - 0x02344D 11:B43D: 3D        .byte con_pause + $3D
+- D - I - 0x02344E 11:B43E: 56        .byte con_bg + $56
+- D - I - 0x02344F 11:B43F: 6E        .byte con_animation + $6E
+- D - I - 0x023450 11:B440: 4D        .byte con_cloud + $4D
 - D - I - 0x023451 11:B441: FB        .byte con_rts
 
 loc_B442:
 - D - I - 0x023452 11:B442: F7        .byte con_F7, $02
-- D - I - 0x023454 11:B444: 3D        .byte $3D
-- D - I - 0x023455 11:B445: 22        .byte $22
-- D - I - 0x023456 11:B446: 6F        .byte $6F
-- D - I - 0x023457 11:B447: 4D        .byte $4D
+- D - I - 0x023454 11:B444: 3D        .byte con_pause + $3D
+- D - I - 0x023455 11:B445: 22        .byte con_bg + $22
+- D - I - 0x023456 11:B446: 6F        .byte con_animation + $6F
+- D - I - 0x023457 11:B447: 4D        .byte con_cloud + $4D
 - D - I - 0x023458 11:B448: FB        .byte con_rts
 
 sub_B449:
-- - - - - 0x023459 11:B449: 28        .byte $28
-- - - - - 0x02345A 11:B44A: 20        .byte $20
-- - - - - 0x02345B 11:B44B: 70        .byte $70
-- - - - - 0x02345C 11:B44C: 00        .byte $00
+- - - - - 0x023459 11:B449: 28        .byte con_pause + $28
+- - - - - 0x02345A 11:B44A: 20        .byte con_bg + $20
+- - - - - 0x02345B 11:B44B: 70        .byte con_animation + $70
+- - - - - 0x02345C 11:B44C: 00        .byte con_cloud + $00
 - - - - - 0x02345D 11:B44D: FB        .byte con_rts
 
 loc_B44E:
 sub_B44E:
-- D - I - 0x02345E 11:B44E: 5A        .byte $5A
-- D - I - 0x02345F 11:B44F: F0        .byte con_exit_1
-- D - I - 0x023460 11:B450: F0        .byte con_exit_1
-- D - I - 0x023461 11:B451: 33        .byte $33
+- D - I - 0x02345E 11:B44E: 5A        .byte con_pause + $5A
+- D - I - 0x02345F 11:B44F: F0        .byte con_bg + $F0
+- D - I - 0x023460 11:B450: F0        .byte con_animation + $F0
+- D - I - 0x023461 11:B451: 33        .byte con_cloud + $33
 - D - I - 0x023462 11:B452: FB        .byte con_rts
 
 bra_long_case_B453_00:
-- D - I - 0x023463 11:B453: 32        .byte $32
-- D - I - 0x023464 11:B454: 1C        .byte $1C
-- D - I - 0x023465 11:B455: 13        .byte $13
-- D - I - 0x023466 11:B456: 02        .byte $02
+- D - I - 0x023463 11:B453: 32        .byte con_pause + $32
+- D - I - 0x023464 11:B454: 1C        .byte con_bg + $1C
+- D - I - 0x023465 11:B455: 13        .byte con_animation + $13
+- D - I - 0x023466 11:B456: 02        .byte con_cloud + $02
 - D - I - 0x023467 11:B457: FB        .byte con_rts
 
 bra_long_case_B458_01:
-- D - I - 0x023468 11:B458: 32        .byte $32
-- D - I - 0x023469 11:B459: 1C        .byte $1C
-- D - I - 0x02346A 11:B45A: 14        .byte $14
-- D - I - 0x02346B 11:B45B: 02        .byte $02
+- D - I - 0x023468 11:B458: 32        .byte con_pause + $32
+- D - I - 0x023469 11:B459: 1C        .byte con_bg + $1C
+- D - I - 0x02346A 11:B45A: 14        .byte con_animation + $14
+- D - I - 0x02346B 11:B45B: 02        .byte con_cloud + $02
 - D - I - 0x02346C 11:B45C: FB        .byte con_rts
 
 loc_B45D:
 sub_B45D:
 - D - I - 0x02346D 11:B45D: FD        .byte con_FD, $04
-- D - I - 0x02346F 11:B45F: 3C        .byte $3C
-- D - I - 0x023470 11:B460: 20        .byte $20
-- D - I - 0x023471 11:B461: 52        .byte $52
-- D - I - 0x023472 11:B462: 50        .byte $50
+- D - I - 0x02346F 11:B45F: 3C        .byte con_pause + $3C
+- D - I - 0x023470 11:B460: 20        .byte con_bg + $20
+- D - I - 0x023471 11:B461: 52        .byte con_animation + $52
+- D - I - 0x023472 11:B462: 50        .byte con_cloud + $50
 - D - I - 0x023473 11:B463: FB        .byte con_rts
 
 ; bzk мусор
@@ -12283,22 +12290,22 @@ sub_B45D:
 
 sub_B465:
 - D - I - 0x023475 11:B465: F7        .byte con_F7, $0F
-- D - I - 0x023477 11:B467: 1E        .byte $1E
-- D - I - 0x023478 11:B468: 05        .byte $05
-- D - I - 0x023479 11:B469: 00        .byte $00
-- D - I - 0x02347A 11:B46A: F0        .byte con_exit_1
+- D - I - 0x023477 11:B467: 1E        .byte con_pause + $1E
+- D - I - 0x023478 11:B468: 05        .byte con_bg + $05
+- D - I - 0x023479 11:B469: 00        .byte con_animation + $00
+- D - I - 0x02347A 11:B46A: F0        .byte con_cloud + $F0
 - D - I - 0x02347B 11:B46B: F7        .byte con_F7, $2A
 - D - I - 0x02347D 11:B46D: F9        .byte con_delay_soundID, $02, $2E
-- D - I - 0x023480 11:B470: 23        .byte $23
-- D - I - 0x023481 11:B471: 6A        .byte $6A
-- D - I - 0x023482 11:B472: BD        .byte $BD
-- D - I - 0x023483 11:B473: 56        .byte $56
+- D - I - 0x023480 11:B470: 23        .byte con_pause + $23
+- D - I - 0x023481 11:B471: 6A        .byte con_bg + $6A
+- D - I - 0x023482 11:B472: BD        .byte con_animation + $BD
+- D - I - 0x023483 11:B473: 56        .byte con_cloud + $56
 - D - I - 0x023484 11:B474: FA        .byte con_jsr
 - D - I - 0x023485 11:B475: C7 BB     .word sub_BBC7
-- D - I - 0x023487 11:B477: 3C        .byte $3C
-- D - I - 0x023488 11:B478: 1F        .byte $1F
-- D - I - 0x023489 11:B479: 13        .byte $13
-- D - I - 0x02348A 11:B47A: 57        .byte $57
+- D - I - 0x023487 11:B477: 3C        .byte con_pause + $3C
+- D - I - 0x023488 11:B478: 1F        .byte con_bg + $1F
+- D - I - 0x023489 11:B479: 13        .byte con_animation + $13
+- D - I - 0x02348A 11:B47A: 57        .byte con_cloud + $57
 - D - I - 0x02348B 11:B47B: FB        .byte con_rts
 
 
@@ -12306,10 +12313,10 @@ sub_B465:
 _scenario_B47C_3A:
 - D - I - 0x02348C 11:B47C: FD        .byte con_FD, $00
 - D - I - 0x02348E 11:B47E: F9        .byte con_delay_soundID, $09, $2B
-- D - I - 0x023491 11:B481: 3C        .byte $3C
-- D - I - 0x023492 11:B482: 72        .byte $72
-- D - I - 0x023493 11:B483: 77        .byte $77
-- D - I - 0x023494 11:B484: 47        .byte $47
+- D - I - 0x023491 11:B481: 3C        .byte con_pause + $3C
+- D - I - 0x023492 11:B482: 72        .byte con_bg + $72
+- D - I - 0x023493 11:B483: 77        .byte con_animation + $77
+- D - I - 0x023494 11:B484: 47        .byte con_cloud + $47
 - D - I - 0x023495 11:B485: FB        .byte con_rts
 
 
@@ -12328,10 +12335,10 @@ bra_long_case_B48E_01:
 - D - I - 0x02349F 11:B48F: FA        .byte con_jsr
 - D - I - 0x0234A0 11:B490: 4B BB     .word sub_BB4B
 - D - I - 0x0234A2 11:B492: F9        .byte con_delay_soundID, $1D, $2C
-- D - I - 0x0234A5 11:B495: 3C        .byte $3C
-- D - I - 0x0234A6 11:B496: 01        .byte $01
-- D - I - 0x0234A7 11:B497: 78        .byte $78
-- D - I - 0x0234A8 11:B498: EB        .byte $EB
+- D - I - 0x0234A5 11:B495: 3C        .byte con_pause + $3C
+- D - I - 0x0234A6 11:B496: 01        .byte con_bg + $01
+- D - I - 0x0234A7 11:B497: 78        .byte con_animation + $78
+- D - I - 0x0234A8 11:B498: EB        .byte con_cloud + $EB
 - D - I - 0x0234A9 11:B499: FB        .byte con_rts
 
 bra_long_case_B49A_00:
@@ -12340,34 +12347,34 @@ bra_long_case_B49A_00:
 - D - I - 0x0234AC 11:B49C: 4B BB     .word sub_BB4B
 loc_B49E:
 - D - I - 0x0234AE 11:B49E: F9        .byte con_delay_soundID, $1D, $2C
-- D - I - 0x0234B1 11:B4A1: 3C        .byte $3C
-- D - I - 0x0234B2 11:B4A2: 01        .byte $01
-- D - I - 0x0234B3 11:B4A3: 78        .byte $78
-- D - I - 0x0234B4 11:B4A4: 58        .byte $58
+- D - I - 0x0234B1 11:B4A1: 3C        .byte con_pause + $3C
+- D - I - 0x0234B2 11:B4A2: 01        .byte con_bg + $01
+- D - I - 0x0234B3 11:B4A3: 78        .byte con_animation + $78
+- D - I - 0x0234B4 11:B4A4: 58        .byte con_cloud + $58
 - D - I - 0x0234B5 11:B4A5: FB        .byte con_rts
 
 loc_B4A6:
 - D - I - 0x0234B6 11:B4A6: F9        .byte con_delay_soundID, $02, $2C
-- D - I - 0x0234B9 11:B4A9: 3C        .byte $3C
-- D - I - 0x0234BA 11:B4AA: 01        .byte $01
-- D - I - 0x0234BB 11:B4AB: 78        .byte $78
-- D - I - 0x0234BC 11:B4AC: 6E        .byte $6E
+- D - I - 0x0234B9 11:B4A9: 3C        .byte con_pause + $3C
+- D - I - 0x0234BA 11:B4AA: 01        .byte con_bg + $01
+- D - I - 0x0234BB 11:B4AB: 78        .byte con_animation + $78
+- D - I - 0x0234BC 11:B4AC: 6E        .byte con_cloud + $6E
 - D - I - 0x0234BD 11:B4AD: FB        .byte con_rts
 
 loc_B4AE:
 - D - I - 0x0234BE 11:B4AE: F9        .byte con_delay_soundID, $11, $2C
-- D - I - 0x0234C1 11:B4B1: 38        .byte $38
-- D - I - 0x0234C2 11:B4B2: 63        .byte $63
-- D - I - 0x0234C3 11:B4B3: 7A        .byte $7A
-- D - I - 0x0234C4 11:B4B4: 6E        .byte $6E
+- D - I - 0x0234C1 11:B4B1: 38        .byte con_pause + $38
+- D - I - 0x0234C2 11:B4B2: 63        .byte con_bg + $63
+- D - I - 0x0234C3 11:B4B3: 7A        .byte con_animation + $7A
+- D - I - 0x0234C4 11:B4B4: 6E        .byte con_cloud + $6E
 - D - I - 0x0234C5 11:B4B5: FB        .byte con_rts
 
 loc_B4B6:
 - D - I - 0x0234C6 11:B4B6: F9        .byte con_delay_soundID, $11, $2C
-- D - I - 0x0234C9 11:B4B9: 38        .byte $38
-- D - I - 0x0234CA 11:B4BA: 63        .byte $63
-- D - I - 0x0234CB 11:B4BB: 7A        .byte $7A
-- D - I - 0x0234CC 11:B4BC: 58        .byte $58
+- D - I - 0x0234C9 11:B4B9: 38        .byte con_pause + $38
+- D - I - 0x0234CA 11:B4BA: 63        .byte con_bg + $63
+- D - I - 0x0234CB 11:B4BB: 7A        .byte con_animation + $7A
+- D - I - 0x0234CC 11:B4BC: 58        .byte con_cloud + $58
 - D - I - 0x0234CD 11:B4BD: FB        .byte con_rts
 
 ; bzk мусор
@@ -12375,17 +12382,17 @@ loc_B4B6:
 
 sub_B4BF:
 - D - I - 0x0234CF 11:B4BF: F9        .byte con_delay_soundID, $0B, $64
-- D - I - 0x0234D2 11:B4C2: 1E        .byte $1E
-- D - I - 0x0234D3 11:B4C3: 39        .byte $39
-- D - I - 0x0234D4 11:B4C4: 7E        .byte $7E
-- D - I - 0x0234D5 11:B4C5: 5C        .byte $5C
+- D - I - 0x0234D2 11:B4C2: 1E        .byte con_pause + $1E
+- D - I - 0x0234D3 11:B4C3: 39        .byte con_bg + $39
+- D - I - 0x0234D4 11:B4C4: 7E        .byte con_animation + $7E
+- D - I - 0x0234D5 11:B4C5: 5C        .byte con_cloud + $5C
 - D - I - 0x0234D6 11:B4C6: FB        .byte con_rts
 
 loc_B4C7:
-- D - I - 0x0234D7 11:B4C7: 46        .byte $46
-- D - I - 0x0234D8 11:B4C8: F0        .byte con_exit_1
-- D - I - 0x0234D9 11:B4C9: F0        .byte con_exit_1
-- D - I - 0x0234DA 11:B4CA: 5D        .byte $5D
+- D - I - 0x0234D7 11:B4C7: 46        .byte con_pause + $46
+- D - I - 0x0234D8 11:B4C8: F0        .byte con_bg + $F0
+- D - I - 0x0234D9 11:B4C9: F0        .byte con_animation + $F0
+- D - I - 0x0234DA 11:B4CA: 5D        .byte con_cloud + $5D
 - D - I - 0x0234DB 11:B4CB: FB        .byte con_rts
 
 
@@ -12393,10 +12400,10 @@ loc_B4C7:
 _scenario_B4CC_28:
 - D - I - 0x0234DC 11:B4CC: FD        .byte con_FD, $00
 - D - I - 0x0234DE 11:B4CE: F9        .byte con_delay_soundID, $09, $2B
-- D - I - 0x0234E1 11:B4D1: 32        .byte $32
-- D - I - 0x0234E2 11:B4D2: 26        .byte $26
-- D - I - 0x0234E3 11:B4D3: 7F        .byte $7F
-- D - I - 0x0234E4 11:B4D4: 60        .byte $60
+- D - I - 0x0234E1 11:B4D1: 32        .byte con_pause + $32
+- D - I - 0x0234E2 11:B4D2: 26        .byte con_bg + $26
+- D - I - 0x0234E3 11:B4D3: 7F        .byte con_animation + $7F
+- D - I - 0x0234E4 11:B4D4: 60        .byte con_cloud + $60
 - D - I - 0x0234E5 11:B4D5: FB        .byte con_rts
 
 
@@ -12404,37 +12411,37 @@ _scenario_B4CC_28:
 _scenario_B4D6_2D:
 - D - I - 0x0234E6 11:B4D6: FD        .byte con_FD, $00
 - D - I - 0x0234E8 11:B4D8: F9        .byte con_delay_soundID, $0D, $64
-- D - I - 0x0234EB 11:B4DB: 3A        .byte $3A
-- D - I - 0x0234EC 11:B4DC: 3C        .byte $3C
-- D - I - 0x0234ED 11:B4DD: 80        .byte $80
-- D - I - 0x0234EE 11:B4DE: 61        .byte $61
+- D - I - 0x0234EB 11:B4DB: 3A        .byte con_pause + $3A
+- D - I - 0x0234EC 11:B4DC: 3C        .byte con_bg + $3C
+- D - I - 0x0234ED 11:B4DD: 80        .byte con_animation + $80
+- D - I - 0x0234EE 11:B4DE: 61        .byte con_cloud + $61
 - D - I - 0x0234EF 11:B4DF: FB        .byte con_rts
 
 
 
 _scenario_B4E0_2A:
 - D - I - 0x0234F0 11:B4E0: FD        .byte con_FD, $00
-- D - I - 0x0234F2 11:B4E2: 30        .byte $30
-- D - I - 0x0234F3 11:B4E3: 3E        .byte $3E
-- D - I - 0x0234F4 11:B4E4: 81        .byte $81
-- D - I - 0x0234F5 11:B4E5: 62        .byte $62
+- D - I - 0x0234F2 11:B4E2: 30        .byte con_pause + $30
+- D - I - 0x0234F3 11:B4E3: 3E        .byte con_bg + $3E
+- D - I - 0x0234F4 11:B4E4: 81        .byte con_animation + $81
+- D - I - 0x0234F5 11:B4E5: 62        .byte con_cloud + $62
 - D - I - 0x0234F6 11:B4E6: FB        .byte con_rts
 
 bra_long_case_B4E7_00:
 sub_B4E7:
 - D - I - 0x0234F7 11:B4E7: F9        .byte con_delay_soundID, $02, $03
-- D - I - 0x0234FA 11:B4EA: 3C        .byte $3C
-- D - I - 0x0234FB 11:B4EB: 1F        .byte $1F
-- D - I - 0x0234FC 11:B4EC: 84        .byte $84
-- D - I - 0x0234FD 11:B4ED: 00        .byte $00
+- D - I - 0x0234FA 11:B4EA: 3C        .byte con_pause + $3C
+- D - I - 0x0234FB 11:B4EB: 1F        .byte con_bg + $1F
+- D - I - 0x0234FC 11:B4EC: 84        .byte con_animation + $84
+- D - I - 0x0234FD 11:B4ED: 00        .byte con_cloud + $00
 - D - I - 0x0234FE 11:B4EE: FB        .byte con_rts
 
 bra_long_case_B4EF_01:
 - D - I - 0x0234FF 11:B4EF: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x023502 11:B4F2: 37        .byte $37
-- D - I - 0x023503 11:B4F3: 2A        .byte $2A
-- D - I - 0x023504 11:B4F4: 1A        .byte $1A
-- D - I - 0x023505 11:B4F5: 00        .byte $00
+- D - I - 0x023502 11:B4F2: 37        .byte con_pause + $37
+- D - I - 0x023503 11:B4F3: 2A        .byte con_bg + $2A
+- D - I - 0x023504 11:B4F4: 1A        .byte con_animation + $1A
+- D - I - 0x023505 11:B4F5: 00        .byte con_cloud + $00
 - D - I - 0x023506 11:B4F6: FB        .byte con_rts
 
 bra_long_case_B4F7_02:
@@ -12445,10 +12452,10 @@ bra_long_case_B4F7_08:
 
 bra_long_case_B4FB_03:
 - D - I - 0x02350B 11:B4FB: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x02350E 11:B4FE: 37        .byte $37
-- D - I - 0x02350F 11:B4FF: 00        .byte $00
-- D - I - 0x023510 11:B500: 01        .byte $01
-- D - I - 0x023511 11:B501: 00        .byte $00
+- D - I - 0x02350E 11:B4FE: 37        .byte con_pause + $37
+- D - I - 0x02350F 11:B4FF: 00        .byte con_bg + $00
+- D - I - 0x023510 11:B500: 01        .byte con_animation + $01
+- D - I - 0x023511 11:B501: 00        .byte con_cloud + $00
 bra_long_case_B502_01:
 - D - I - 0x023512 11:B502: FA        .byte con_jsr
 - D - I - 0x023513 11:B503: 5D BB     .word sub_BB5D
@@ -12459,24 +12466,24 @@ bra_long_case_B502_01:
 bra_long_case_B509_04:
 sub_B509:
 - D - I - 0x023519 11:B509: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x02351C 11:B50C: 2A        .byte $2A
-- D - I - 0x02351D 11:B50D: 00        .byte $00
-- D - I - 0x02351E 11:B50E: 0F        .byte $0F
-- D - I - 0x02351F 11:B50F: 00        .byte $00
+- D - I - 0x02351C 11:B50C: 2A        .byte con_pause + $2A
+- D - I - 0x02351D 11:B50D: 00        .byte con_bg + $00
+- D - I - 0x02351E 11:B50E: 0F        .byte con_animation + $0F
+- D - I - 0x02351F 11:B50F: 00        .byte con_cloud + $00
 - D - I - 0x023520 11:B510: F7        .byte con_F7, $33
 - D - I - 0x023522 11:B512: F9        .byte con_delay_soundID, $02, $05
-- D - I - 0x023525 11:B515: 36        .byte $36
-- D - I - 0x023526 11:B516: 27        .byte $27
-- D - I - 0x023527 11:B517: 10        .byte $10
-- D - I - 0x023528 11:B518: 00        .byte $00
+- D - I - 0x023525 11:B515: 36        .byte con_pause + $36
+- D - I - 0x023526 11:B516: 27        .byte con_bg + $27
+- D - I - 0x023527 11:B517: 10        .byte con_animation + $10
+- D - I - 0x023528 11:B518: 00        .byte con_cloud + $00
 sub_B519:
 - D - I - 0x023529 11:B519: F6        .byte con_mirror_toggle
 - D - I - 0x02352A 11:B51A: F9        .byte con_delay_soundID, $02, $08
 - D - I - 0x02352D 11:B51D: F7        .byte con_F7, $09
-- D - I - 0x02352F 11:B51F: 24        .byte $24
-- D - I - 0x023530 11:B520: 43        .byte $43
-- D - I - 0x023531 11:B521: 5F        .byte $5F
-- D - I - 0x023532 11:B522: 00        .byte $00
+- D - I - 0x02352F 11:B51F: 24        .byte con_pause + $24
+- D - I - 0x023530 11:B520: 43        .byte con_bg + $43
+- D - I - 0x023531 11:B521: 5F        .byte con_animation + $5F
+- D - I - 0x023532 11:B522: 00        .byte con_cloud + $00
 - D - I - 0x023533 11:B523: F6        .byte con_mirror_toggle
 - D - I - 0x023534 11:B524: FB        .byte con_rts
 
@@ -12485,10 +12492,10 @@ bra_long_case_B525_05:
 - D - I - 0x023536 11:B526: 75 BB     .word sub_BB75
 - D - I - 0x023538 11:B528: F7        .byte con_F7, $33
 - D - I - 0x02353A 11:B52A: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x02353D 11:B52D: 2A        .byte $2A
-- D - I - 0x02353E 11:B52E: 27        .byte $27
-- D - I - 0x02353F 11:B52F: 12        .byte $12
-- D - I - 0x023540 11:B530: 00        .byte $00
+- D - I - 0x02353D 11:B52D: 2A        .byte con_pause + $2A
+- D - I - 0x02353E 11:B52E: 27        .byte con_bg + $27
+- D - I - 0x02353F 11:B52F: 12        .byte con_animation + $12
+- D - I - 0x023540 11:B530: 00        .byte con_cloud + $00
 - D - I - 0x023541 11:B531: FB        .byte con_rts
 
 bra_long_case_B532_06:
@@ -12496,10 +12503,10 @@ bra_long_case_B532_06:
 - D - I - 0x023543 11:B533: 75 BB     .word sub_BB75
 - D - I - 0x023545 11:B535: F9        .byte con_delay_soundID, $02, $04
 - D - I - 0x023548 11:B538: F7        .byte con_F7, $30
-- D - I - 0x02354A 11:B53A: 30        .byte $30
-- D - I - 0x02354B 11:B53B: 4B        .byte $4B
-- D - I - 0x02354C 11:B53C: 0F        .byte $0F
-- D - I - 0x02354D 11:B53D: 00        .byte $00
+- D - I - 0x02354A 11:B53A: 30        .byte con_pause + $30
+- D - I - 0x02354B 11:B53B: 4B        .byte con_bg + $4B
+- D - I - 0x02354C 11:B53C: 0F        .byte con_animation + $0F
+- D - I - 0x02354D 11:B53D: 00        .byte con_cloud + $00
 - D - I - 0x02354E 11:B53E: FB        .byte con_rts
 
 bra_long_case_B53F_07:
@@ -12508,10 +12515,10 @@ bra_long_case_B53F_07:
 - D - I - 0x023551 11:B541: 8F BB     .word sub_BB8F
 loc_B543:
 - D - I - 0x023553 11:B543: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x023556 11:B546: 34        .byte $34
-- D - I - 0x023557 11:B547: 56        .byte $56
-- D - I - 0x023558 11:B548: 1D        .byte $1D
-- D - I - 0x023559 11:B549: 00        .byte $00
+- D - I - 0x023556 11:B546: 34        .byte con_pause + $34
+- D - I - 0x023557 11:B547: 56        .byte con_bg + $56
+- D - I - 0x023558 11:B548: 1D        .byte con_animation + $1D
+- D - I - 0x023559 11:B549: 00        .byte con_cloud + $00
 - D - I - 0x02355A 11:B54A: F6        .byte con_mirror_toggle
 - D - I - 0x02355B 11:B54B: FA        .byte con_jsr
 - D - I - 0x02355C 11:B54C: 8F BB     .word sub_BB8F
@@ -12534,20 +12541,20 @@ bra_long_case_B55A_0A:
 - D - I - 0x02356B 11:B55B: A7 BB     .word sub_BBA7
 - D - I - 0x02356D 11:B55D: F7        .byte con_F7, $3A
 - D - I - 0x02356F 11:B55F: F9        .byte con_delay_soundID, $02, $0A
-- D - I - 0x023572 11:B562: 46        .byte $46
-- D - I - 0x023573 11:B563: 24        .byte $24
-- D - I - 0x023574 11:B564: 28        .byte $28
-- D - I - 0x023575 11:B565: 00        .byte $00
+- D - I - 0x023572 11:B562: 46        .byte con_pause + $46
+- D - I - 0x023573 11:B563: 24        .byte con_bg + $24
+- D - I - 0x023574 11:B564: 28        .byte con_animation + $28
+- D - I - 0x023575 11:B565: 00        .byte con_cloud + $00
 - D - I - 0x023576 11:B566: FB        .byte con_rts
 
 bra_long_case_B567_0B:
 - D - I - 0x023577 11:B567: FA        .byte con_jsr
 - D - I - 0x023578 11:B568: 85 BB     .word sub_BB85
 - D - I - 0x02357A 11:B56A: F9        .byte con_delay_soundID, $02, $5E
-- D - I - 0x02357D 11:B56D: 1E        .byte $1E
-- D - I - 0x02357E 11:B56E: 35        .byte $35
-- D - I - 0x02357F 11:B56F: 32        .byte $32
-- D - I - 0x023580 11:B570: 00        .byte $00
+- D - I - 0x02357D 11:B56D: 1E        .byte con_pause + $1E
+- D - I - 0x02357E 11:B56E: 35        .byte con_bg + $35
+- D - I - 0x02357F 11:B56F: 32        .byte con_animation + $32
+- D - I - 0x023580 11:B570: 00        .byte con_cloud + $00
 - D - I - 0x023581 11:B571: FA        .byte con_jsr
 - D - I - 0x023582 11:B572: 85 BB     .word sub_BB85
 - D - I - 0x023584 11:B574: FB        .byte con_rts
@@ -12556,10 +12563,10 @@ bra_long_case_B575_0C:
 - D - I - 0x023585 11:B575: FA        .byte con_jsr
 - D - I - 0x023586 11:B576: 8F BB     .word sub_BB8F
 - D - I - 0x023588 11:B578: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x02358B 11:B57B: 32        .byte $32
-- D - I - 0x02358C 11:B57C: 02        .byte $02
-- D - I - 0x02358D 11:B57D: 36        .byte $36
-- D - I - 0x02358E 11:B57E: 00        .byte $00
+- D - I - 0x02358B 11:B57B: 32        .byte con_pause + $32
+- D - I - 0x02358C 11:B57C: 02        .byte con_bg + $02
+- D - I - 0x02358D 11:B57D: 36        .byte con_animation + $36
+- D - I - 0x02358E 11:B57E: 00        .byte con_cloud + $00
 - D - I - 0x02358F 11:B57F: FA        .byte con_jsr
 - D - I - 0x023590 11:B580: 7D BB     .word sub_BB7D
 - D - I - 0x023592 11:B582: FB        .byte con_rts
@@ -12576,10 +12583,10 @@ sub_B583:
 - D - I - 0x02359E 11:B58E: F6        .byte con_mirror_toggle
 - D - I - 0x02359F 11:B58F: F7        .byte con_F7, $16
 - D - I - 0x0235A1 11:B591: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x0235A4 11:B594: 32        .byte $32
-- D - I - 0x0235A5 11:B595: 49        .byte $49
-- D - I - 0x0235A6 11:B596: 36        .byte $36
-- D - I - 0x0235A7 11:B597: 00        .byte $00
+- D - I - 0x0235A4 11:B594: 32        .byte con_pause + $32
+- D - I - 0x0235A5 11:B595: 49        .byte con_bg + $49
+- D - I - 0x0235A6 11:B596: 36        .byte con_animation + $36
+- D - I - 0x0235A7 11:B597: 00        .byte con_cloud + $00
 - D - I - 0x0235A8 11:B598: FB        .byte con_rts
 
 bra_long_case_B599_0E:
@@ -12605,52 +12612,52 @@ bra_long_case_B5A4_10:
 - D - I - 0x0235BF 11:B5AF: F6        .byte con_mirror_toggle
 - D - I - 0x0235C0 11:B5B0: F7        .byte con_F7, $33
 - D - I - 0x0235C2 11:B5B2: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x0235C5 11:B5B5: 32        .byte $32
-- D - I - 0x0235C6 11:B5B6: 27        .byte $27
-- D - I - 0x0235C7 11:B5B7: 11        .byte $11
-- D - I - 0x0235C8 11:B5B8: 00        .byte $00
+- D - I - 0x0235C5 11:B5B5: 32        .byte con_pause + $32
+- D - I - 0x0235C6 11:B5B6: 27        .byte con_bg + $27
+- D - I - 0x0235C7 11:B5B7: 11        .byte con_animation + $11
+- D - I - 0x0235C8 11:B5B8: 00        .byte con_cloud + $00
 - D - I - 0x0235C9 11:B5B9: FB        .byte con_rts
 
 bra_long_case_B5BA_11:
 - D - I - 0x0235CA 11:B5BA: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x0235CD 11:B5BD: 41        .byte $41
-- D - I - 0x0235CE 11:B5BE: 02        .byte $02
-- D - I - 0x0235CF 11:B5BF: 29        .byte $29
-- D - I - 0x0235D0 11:B5C0: 00        .byte $00
+- D - I - 0x0235CD 11:B5BD: 41        .byte con_pause + $41
+- D - I - 0x0235CE 11:B5BE: 02        .byte con_bg + $02
+- D - I - 0x0235CF 11:B5BF: 29        .byte con_animation + $29
+- D - I - 0x0235D0 11:B5C0: 00        .byte con_cloud + $00
 - D - I - 0x0235D1 11:B5C1: F9        .byte con_delay_soundID, $02, $0A
-- D - I - 0x0235D4 11:B5C4: 3D        .byte $3D
-- D - I - 0x0235D5 11:B5C5: 13        .byte $13
-- D - I - 0x0235D6 11:B5C6: 2F        .byte $2F
-- D - I - 0x0235D7 11:B5C7: 00        .byte $00
+- D - I - 0x0235D4 11:B5C4: 3D        .byte con_pause + $3D
+- D - I - 0x0235D5 11:B5C5: 13        .byte con_bg + $13
+- D - I - 0x0235D6 11:B5C6: 2F        .byte con_animation + $2F
+- D - I - 0x0235D7 11:B5C7: 00        .byte con_cloud + $00
 - D - I - 0x0235D8 11:B5C8: F9        .byte con_delay_soundID, $02, $0A
-- D - I - 0x0235DB 11:B5CB: 46        .byte $46
-- D - I - 0x0235DC 11:B5CC: 5F        .byte $5F
-- D - I - 0x0235DD 11:B5CD: 28        .byte $28
-- D - I - 0x0235DE 11:B5CE: 00        .byte $00
+- D - I - 0x0235DB 11:B5CB: 46        .byte con_pause + $46
+- D - I - 0x0235DC 11:B5CC: 5F        .byte con_bg + $5F
+- D - I - 0x0235DD 11:B5CD: 28        .byte con_animation + $28
+- D - I - 0x0235DE 11:B5CE: 00        .byte con_cloud + $00
 - D - I - 0x0235DF 11:B5CF: FB        .byte con_rts
 
 bra_long_case_B5D0_12:
 - D - I - 0x0235E0 11:B5D0: F9        .byte con_delay_soundID, $02, $24
-- D - I - 0x0235E3 11:B5D3: 38        .byte $38
-- D - I - 0x0235E4 11:B5D4: 35        .byte $35
-- D - I - 0x0235E5 11:B5D5: 10        .byte $10
-- D - I - 0x0235E6 11:B5D6: 00        .byte $00
+- D - I - 0x0235E3 11:B5D3: 38        .byte con_pause + $38
+- D - I - 0x0235E4 11:B5D4: 35        .byte con_bg + $35
+- D - I - 0x0235E5 11:B5D5: 10        .byte con_animation + $10
+- D - I - 0x0235E6 11:B5D6: 00        .byte con_cloud + $00
 - D - I - 0x0235E7 11:B5D7: FA        .byte con_jsr
 - D - I - 0x0235E8 11:B5D8: 5D BB     .word sub_BB5D
 - D - I - 0x0235EA 11:B5DA: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x0235ED 11:B5DD: F7        .byte con_F7, $33
-- D - I - 0x0235EF 11:B5DF: 3C        .byte $3C
-- D - I - 0x0235F0 11:B5E0: 5D        .byte $5D
-- D - I - 0x0235F1 11:B5E1: 51        .byte $51
-- D - I - 0x0235F2 11:B5E2: 00        .byte $00
+- D - I - 0x0235EF 11:B5DF: 3C        .byte con_pause + $3C
+- D - I - 0x0235F0 11:B5E0: 5D        .byte con_bg + $5D
+- D - I - 0x0235F1 11:B5E1: 51        .byte con_animation + $51
+- D - I - 0x0235F2 11:B5E2: 00        .byte con_cloud + $00
 - D - I - 0x0235F3 11:B5E3: FB        .byte con_rts
 
 bra_long_case_B5E4_13:
 - D - I - 0x0235F4 11:B5E4: F9        .byte con_delay_soundID, $02, $0E
-- D - I - 0x0235F7 11:B5E7: 32        .byte $32
-- D - I - 0x0235F8 11:B5E8: 1D        .byte $1D
-- D - I - 0x0235F9 11:B5E9: 0F        .byte $0F
-- D - I - 0x0235FA 11:B5EA: 00        .byte $00
+- D - I - 0x0235F7 11:B5E7: 32        .byte con_pause + $32
+- D - I - 0x0235F8 11:B5E8: 1D        .byte con_bg + $1D
+- D - I - 0x0235F9 11:B5E9: 0F        .byte con_animation + $0F
+- D - I - 0x0235FA 11:B5EA: 00        .byte con_cloud + $00
 - D - I - 0x0235FB 11:B5EB: FB        .byte con_rts
 
 bra_long_case_B5EC_14:
@@ -12658,10 +12665,10 @@ sub_B5EC:
 - D - I - 0x0235FC 11:B5EC: FA        .byte con_jsr
 - D - I - 0x0235FD 11:B5ED: 8F BB     .word sub_BB8F
 - D - I - 0x0235FF 11:B5EF: F9        .byte con_delay_soundID, $02, $0E
-- D - I - 0x023602 11:B5F2: 32        .byte $32
-- D - I - 0x023603 11:B5F3: 62        .byte $62
-- D - I - 0x023604 11:B5F4: 41        .byte $41
-- D - I - 0x023605 11:B5F5: 00        .byte $00
+- D - I - 0x023602 11:B5F2: 32        .byte con_pause + $32
+- D - I - 0x023603 11:B5F3: 62        .byte con_bg + $62
+- D - I - 0x023604 11:B5F4: 41        .byte con_animation + $41
+- D - I - 0x023605 11:B5F5: 00        .byte con_cloud + $00
 - D - I - 0x023606 11:B5F6: FB        .byte con_rts
 
 bra_long_case_B5F7_15:
@@ -12670,10 +12677,10 @@ bra_long_case_B5F7_15:
 - D - I - 0x02360A 11:B5FA: BF BB     .word sub_BBBF
 - D - I - 0x02360C 11:B5FC: F7        .byte con_F7, $31
 - D - I - 0x02360E 11:B5FE: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x023611 11:B601: 34        .byte $34
-- D - I - 0x023612 11:B602: 44        .byte $44
-- D - I - 0x023613 11:B603: 11        .byte $11
-- D - I - 0x023614 11:B604: 00        .byte $00
+- D - I - 0x023611 11:B601: 34        .byte con_pause + $34
+- D - I - 0x023612 11:B602: 44        .byte con_bg + $44
+- D - I - 0x023613 11:B603: 11        .byte con_animation + $11
+- D - I - 0x023614 11:B604: 00        .byte con_cloud + $00
 - D - I - 0x023615 11:B605: F7        .byte con_F7, $31
 - D - I - 0x023617 11:B607: FA        .byte con_jsr
 - D - I - 0x023618 11:B608: BF BB     .word sub_BBBF
@@ -12696,26 +12703,26 @@ sub_B60B:
 
 bra_long_case_B61D_17:
 - D - I - 0x02362D 11:B61D: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x023630 11:B620: 32        .byte $32
-- D - I - 0x023631 11:B621: 1C        .byte $1C
-- D - I - 0x023632 11:B622: 3C        .byte $3C
-- D - I - 0x023633 11:B623: 00        .byte $00
+- D - I - 0x023630 11:B620: 32        .byte con_pause + $32
+- D - I - 0x023631 11:B621: 1C        .byte con_bg + $1C
+- D - I - 0x023632 11:B622: 3C        .byte con_animation + $3C
+- D - I - 0x023633 11:B623: 00        .byte con_cloud + $00
 - D - I - 0x023634 11:B624: F6        .byte con_mirror_toggle
 - D - I - 0x023635 11:B625: FA        .byte con_jsr
 - D - I - 0x023636 11:B626: 8F BB     .word sub_BB8F
 - D - I - 0x023638 11:B628: F6        .byte con_mirror_toggle
 - D - I - 0x023639 11:B629: F7        .byte con_F7, $18
 - D - I - 0x02363B 11:B62B: F9        .byte con_delay_soundID, $02, $0C
-- D - I - 0x02363E 11:B62E: 32        .byte $32
-- D - I - 0x02363F 11:B62F: 5D        .byte $5D
-- D - I - 0x023640 11:B630: 3D        .byte $3D
-- D - I - 0x023641 11:B631: 00        .byte $00
+- D - I - 0x02363E 11:B62E: 32        .byte con_pause + $32
+- D - I - 0x02363F 11:B62F: 5D        .byte con_bg + $5D
+- D - I - 0x023640 11:B630: 3D        .byte con_animation + $3D
+- D - I - 0x023641 11:B631: 00        .byte con_cloud + $00
 - D - I - 0x023642 11:B632: F7        .byte con_F7, $18
 - D - I - 0x023644 11:B634: F9        .byte con_delay_soundID, $02, $0D
-- D - I - 0x023647 11:B637: 20        .byte $20
-- D - I - 0x023648 11:B638: F0        .byte con_exit_1
-- D - I - 0x023649 11:B639: 00        .byte $00
-- D - I - 0x02364A 11:B63A: 00        .byte $00
+- D - I - 0x023647 11:B637: 20        .byte con_pause + $20
+- D - I - 0x023648 11:B638: F0        .byte con_bg + $F0
+- D - I - 0x023649 11:B639: 00        .byte con_animation + $00
+- D - I - 0x02364A 11:B63A: 00        .byte con_cloud + $00
 - D - I - 0x02364B 11:B63B: F3        .byte con_branch, $A7
 - D - I - 0x02364D 11:B63D: 02        .byte bra_case_B63F_00 - *
 - - - - - 0x02364E 11:B63E: 27        .byte bra_case_B665_01 - *
@@ -12731,26 +12738,26 @@ bra_case_B63F_00:
 - - - - - 0x023659 11:B649: 0F        .byte bra_case_B658_04 - *
 
 bra_case_B64A_02:
-- - - - - 0x02365A 11:B64A: 78        .byte $78
-- - - - - 0x02365B 11:B64B: 33        .byte $33
-- - - - - 0x02365C 11:B64C: 94        .byte $94
-- - - - - 0x02365D 11:B64D: 9B        .byte $9B
+- - - - - 0x02365A 11:B64A: 78        .byte con_pause + $78
+- - - - - 0x02365B 11:B64B: 33        .byte con_bg + $33
+- - - - - 0x02365C 11:B64C: 94        .byte con_animation + $94
+- - - - - 0x02365D 11:B64D: 9B        .byte con_cloud + $9B
 - - - - - 0x02365E 11:B64E: F2        .byte con_jmp
 - - - - - 0x02365F 11:B64F: 5F B6     .word loc_B65F
 
 bra_case_B651_03:
-- D - I - 0x023661 11:B651: 78        .byte $78
-- D - I - 0x023662 11:B652: 32        .byte $32
-- D - I - 0x023663 11:B653: A4        .byte $A4
-- D - I - 0x023664 11:B654: 9B        .byte $9B
+- D - I - 0x023661 11:B651: 78        .byte con_pause + $78
+- D - I - 0x023662 11:B652: 32        .byte con_bg + $32
+- D - I - 0x023663 11:B653: A4        .byte con_animation + $A4
+- D - I - 0x023664 11:B654: 9B        .byte con_cloud + $9B
 - D - I - 0x023665 11:B655: F2        .byte con_jmp
 - D - I - 0x023666 11:B656: 5F B6     .word loc_B65F
 
 bra_case_B658_04:
-- - - - - 0x023668 11:B658: 78        .byte $78
-- - - - - 0x023669 11:B659: 33        .byte $33
-- - - - - 0x02366A 11:B65A: A6        .byte $A6
-- - - - - 0x02366B 11:B65B: 9B        .byte $9B
+- - - - - 0x023668 11:B658: 78        .byte con_pause + $78
+- - - - - 0x023669 11:B659: 33        .byte con_bg + $33
+- - - - - 0x02366A 11:B65A: A6        .byte con_animation + $A6
+- - - - - 0x02366B 11:B65B: 9B        .byte con_cloud + $9B
 ; bzk бесполезный прыжок
 - - - - - 0x02366C 11:B65C: F2        .byte con_jmp
 - - - - - 0x02366D 11:B65D: 5F B6     .word loc_B65F
@@ -12761,16 +12768,16 @@ loc_B65F:
 - D - I - 0x023672 11:B662: F9        .byte con_delay_soundID, $02, $7F
 bra_case_B665_01:
 - D - I - 0x023675 11:B665: F7        .byte con_F7, $2E
-- D - I - 0x023677 11:B667: 32        .byte $32
-- D - I - 0x023678 11:B668: 64        .byte $64
-- D - I - 0x023679 11:B669: 00        .byte $00
-- D - I - 0x02367A 11:B66A: 00        .byte $00
+- D - I - 0x023677 11:B667: 32        .byte con_pause + $32
+- D - I - 0x023678 11:B668: 64        .byte con_bg + $64
+- D - I - 0x023679 11:B669: 00        .byte con_animation + $00
+- D - I - 0x02367A 11:B66A: 00        .byte con_cloud + $00
 - D - I - 0x02367B 11:B66B: F9        .byte con_delay_soundID, $02, $11
 - D - I - 0x02367E 11:B66E: F7        .byte con_F7, $12
-- D - I - 0x023680 11:B670: 32        .byte $32
-- D - I - 0x023681 11:B671: F0        .byte con_exit_1
-- D - I - 0x023682 11:B672: 11        .byte $11
-- D - I - 0x023683 11:B673: 00        .byte $00
+- D - I - 0x023680 11:B670: 32        .byte con_pause + $32
+- D - I - 0x023681 11:B671: F0        .byte con_bg + $F0
+- D - I - 0x023682 11:B672: 11        .byte con_animation + $11
+- D - I - 0x023683 11:B673: 00        .byte con_cloud + $00
 bra_case_B674_00:
 bra_case_B674_01:
 - D - I - 0x023684 11:B674: FB        .byte con_rts
@@ -12783,67 +12790,67 @@ bra_long_case_B675_18:
 - D - I - 0x02368A 11:B67A: 9F BB     .word sub_BB9F
 - D - I - 0x02368C 11:B67C: F6        .byte con_mirror_toggle
 - D - I - 0x02368D 11:B67D: F9        .byte con_delay_soundID, $02, $0F
-- D - I - 0x023690 11:B680: 3C        .byte $3C
-- D - I - 0x023691 11:B681: 35        .byte $35
-- D - I - 0x023692 11:B682: 5D        .byte $5D
-- D - I - 0x023693 11:B683: 00        .byte $00
+- D - I - 0x023690 11:B680: 3C        .byte con_pause + $3C
+- D - I - 0x023691 11:B681: 35        .byte con_bg + $35
+- D - I - 0x023692 11:B682: 5D        .byte con_animation + $5D
+- D - I - 0x023693 11:B683: 00        .byte con_cloud + $00
 - D - I - 0x023694 11:B684: FB        .byte con_rts
 
 bra_long_case_B685_19:
 - D - I - 0x023695 11:B685: FA        .byte con_jsr
 - D - I - 0x023696 11:B686: B7 BB     .word sub_BBB7
 - D - I - 0x023698 11:B688: F9        .byte con_delay_soundID, $02, $10
-- D - I - 0x02369B 11:B68B: 37        .byte $37
-- D - I - 0x02369C 11:B68C: 5B        .byte $5B
-- D - I - 0x02369D 11:B68D: 5E        .byte $5E
-- D - I - 0x02369E 11:B68E: 00        .byte $00
+- D - I - 0x02369B 11:B68B: 37        .byte con_pause + $37
+- D - I - 0x02369C 11:B68C: 5B        .byte con_bg + $5B
+- D - I - 0x02369D 11:B68D: 5E        .byte con_animation + $5E
+- D - I - 0x02369E 11:B68E: 00        .byte con_cloud + $00
 - D - I - 0x02369F 11:B68F: FB        .byte con_rts
 
 bra_long_case_B690_1A:
 - D - I - 0x0236A0 11:B690: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x0236A3 11:B693: 30        .byte $30
-- D - I - 0x0236A4 11:B694: 5A        .byte $5A
-- D - I - 0x0236A5 11:B695: 1A        .byte $1A
-- D - I - 0x0236A6 11:B696: 00        .byte $00
+- D - I - 0x0236A3 11:B693: 30        .byte con_pause + $30
+- D - I - 0x0236A4 11:B694: 5A        .byte con_bg + $5A
+- D - I - 0x0236A5 11:B695: 1A        .byte con_animation + $1A
+- D - I - 0x0236A6 11:B696: 00        .byte con_cloud + $00
 - D - I - 0x0236A7 11:B697: F6        .byte con_mirror_toggle
 - D - I - 0x0236A8 11:B698: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x0236AB 11:B69B: 30        .byte $30
-- D - I - 0x0236AC 11:B69C: 5A        .byte $5A
-- D - I - 0x0236AD 11:B69D: 1A        .byte $1A
-- D - I - 0x0236AE 11:B69E: 00        .byte $00
+- D - I - 0x0236AB 11:B69B: 30        .byte con_pause + $30
+- D - I - 0x0236AC 11:B69C: 5A        .byte con_bg + $5A
+- D - I - 0x0236AD 11:B69D: 1A        .byte con_animation + $1A
+- D - I - 0x0236AE 11:B69E: 00        .byte con_cloud + $00
 - D - I - 0x0236AF 11:B69F: F6        .byte con_mirror_toggle
 - D - I - 0x0236B0 11:B6A0: F9        .byte con_delay_soundID, $02, $0C
-- D - I - 0x0236B3 11:B6A3: 0A        .byte $0A
-- D - I - 0x0236B4 11:B6A4: 14        .byte $14
-- D - I - 0x0236B5 11:B6A5: 3D        .byte $3D
-- D - I - 0x0236B6 11:B6A6: 00        .byte $00
-- D - I - 0x0236B7 11:B6A7: 0A        .byte $0A
-- D - I - 0x0236B8 11:B6A8: 15        .byte $15
-- D - I - 0x0236B9 11:B6A9: F0        .byte con_exit_1
-- D - I - 0x0236BA 11:B6AA: F0        .byte con_exit_1
-- D - I - 0x0236BB 11:B6AB: 0A        .byte $0A
-- D - I - 0x0236BC 11:B6AC: 16        .byte $16
-- D - I - 0x0236BD 11:B6AD: F0        .byte con_exit_1
-- D - I - 0x0236BE 11:B6AE: F0        .byte con_exit_1
-- D - I - 0x0236BF 11:B6AF: 0A        .byte $0A
-- D - I - 0x0236C0 11:B6B0: 17        .byte $17
-- D - I - 0x0236C1 11:B6B1: F0        .byte con_exit_1
-- D - I - 0x0236C2 11:B6B2: F0        .byte con_exit_1
-- D - I - 0x0236C3 11:B6B3: 0A        .byte $0A
-- D - I - 0x0236C4 11:B6B4: 18        .byte $18
-- D - I - 0x0236C5 11:B6B5: F0        .byte con_exit_1
-- D - I - 0x0236C6 11:B6B6: F0        .byte con_exit_1
+- D - I - 0x0236B3 11:B6A3: 0A        .byte con_pause + $0A
+- D - I - 0x0236B4 11:B6A4: 14        .byte con_bg + $14
+- D - I - 0x0236B5 11:B6A5: 3D        .byte con_animation + $3D
+- D - I - 0x0236B6 11:B6A6: 00        .byte con_cloud + $00
+- D - I - 0x0236B7 11:B6A7: 0A        .byte con_pause + $0A
+- D - I - 0x0236B8 11:B6A8: 15        .byte con_bg + $15
+- D - I - 0x0236B9 11:B6A9: F0        .byte con_animation + $F0
+- D - I - 0x0236BA 11:B6AA: F0        .byte con_cloud + $F0
+- D - I - 0x0236BB 11:B6AB: 0A        .byte con_pause + $0A
+- D - I - 0x0236BC 11:B6AC: 16        .byte con_bg + $16
+- D - I - 0x0236BD 11:B6AD: F0        .byte con_animation + $F0
+- D - I - 0x0236BE 11:B6AE: F0        .byte con_cloud + $F0
+- D - I - 0x0236BF 11:B6AF: 0A        .byte con_pause + $0A
+- D - I - 0x0236C0 11:B6B0: 17        .byte con_bg + $17
+- D - I - 0x0236C1 11:B6B1: F0        .byte con_animation + $F0
+- D - I - 0x0236C2 11:B6B2: F0        .byte con_cloud + $F0
+- D - I - 0x0236C3 11:B6B3: 0A        .byte con_pause + $0A
+- D - I - 0x0236C4 11:B6B4: 18        .byte con_bg + $18
+- D - I - 0x0236C5 11:B6B5: F0        .byte con_animation + $F0
+- D - I - 0x0236C6 11:B6B6: F0        .byte con_cloud + $F0
 - D - I - 0x0236C7 11:B6B7: FB        .byte con_rts
 
 ; bzk мусор
-- - - - - 0x0236C8 11:B6B8: 0A        .byte $0A
-- - - - - 0x0236C9 11:B6B9: 11        .byte $11
-- - - - - 0x0236CA 11:B6BA: F0        .byte con_exit_1
-- - - - - 0x0236CB 11:B6BB: F0        .byte con_exit_1
-- - - - - 0x0236CC 11:B6BC: 0A        .byte $0A
-- - - - - 0x0236CD 11:B6BD: 12        .byte $12
-- - - - - 0x0236CE 11:B6BE: F0        .byte con_exit_1
-- - - - - 0x0236CF 11:B6BF: F0        .byte con_exit_1
+- - - - - 0x0236C8 11:B6B8: 0A        .byte con_pause + $0A
+- - - - - 0x0236C9 11:B6B9: 11        .byte con_bg + $11
+- - - - - 0x0236CA 11:B6BA: F0        .byte con_animation + $F0
+- - - - - 0x0236CB 11:B6BB: F0        .byte con_cloud + $F0
+- - - - - 0x0236CC 11:B6BC: 0A        .byte con_pause + $0A
+- - - - - 0x0236CD 11:B6BD: 12        .byte con_bg + $12
+- - - - - 0x0236CE 11:B6BE: F0        .byte con_animation + $F0
+- - - - - 0x0236CF 11:B6BF: F0        .byte con_cloud + $F0
 
 bra_long_case_B6C0_1B:
 - D - I - 0x0236D0 11:B6C0: F7        .byte con_F7, $0D
@@ -12856,65 +12863,65 @@ bra_long_case_B6C0_1B:
 - D - I - 0x0236DB 11:B6CB: F6        .byte con_mirror_toggle
 - D - I - 0x0236DC 11:B6CC: F7        .byte con_F7, $39
 - D - I - 0x0236DE 11:B6CE: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x0236E1 11:B6D1: 32        .byte $32
-- D - I - 0x0236E2 11:B6D2: 5A        .byte $5A
-- D - I - 0x0236E3 11:B6D3: 11        .byte $11
-- D - I - 0x0236E4 11:B6D4: 00        .byte $00
+- D - I - 0x0236E1 11:B6D1: 32        .byte con_pause + $32
+- D - I - 0x0236E2 11:B6D2: 5A        .byte con_bg + $5A
+- D - I - 0x0236E3 11:B6D3: 11        .byte con_animation + $11
+- D - I - 0x0236E4 11:B6D4: 00        .byte con_cloud + $00
 - D - I - 0x0236E5 11:B6D5: FB        .byte con_rts
 
 bra_long_case_B6D6_1C:
 sub_B6D6:
 - D - I - 0x0236E6 11:B6D6: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x0236E9 11:B6D9: 20        .byte $20
-- D - I - 0x0236EA 11:B6DA: 13        .byte $13
-- D - I - 0x0236EB 11:B6DB: 12        .byte $12
-- D - I - 0x0236EC 11:B6DC: 00        .byte $00
+- D - I - 0x0236E9 11:B6D9: 20        .byte con_pause + $20
+- D - I - 0x0236EA 11:B6DA: 13        .byte con_bg + $13
+- D - I - 0x0236EB 11:B6DB: 12        .byte con_animation + $12
+- D - I - 0x0236EC 11:B6DC: 00        .byte con_cloud + $00
 - D - I - 0x0236ED 11:B6DD: FB        .byte con_rts
 
 bra_long_case_B6DE_1D:
 - - - - - 0x0236EE 11:B6DE: F9        .byte con_delay_soundID, $02, $04
-- - - - - 0x0236F1 11:B6E1: 1E        .byte $1E
-- - - - - 0x0236F2 11:B6E2: 67        .byte $67
-- - - - - 0x0236F3 11:B6E3: 72        .byte $72
-- - - - - 0x0236F4 11:B6E4: 00        .byte $00
+- - - - - 0x0236F1 11:B6E1: 1E        .byte con_pause + $1E
+- - - - - 0x0236F2 11:B6E2: 67        .byte con_bg + $67
+- - - - - 0x0236F3 11:B6E3: 72        .byte con_animation + $72
+- - - - - 0x0236F4 11:B6E4: 00        .byte con_cloud + $00
 - - - - - 0x0236F5 11:B6E5: FB        .byte con_rts
 
 bra_long_case_B6E6_1E:
 - D - I - 0x0236F6 11:B6E6: F6        .byte con_mirror_toggle
 - D - I - 0x0236F7 11:B6E7: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x0236FA 11:B6EA: 33        .byte $33
-- D - I - 0x0236FB 11:B6EB: 13        .byte $13
-- D - I - 0x0236FC 11:B6EC: 1D        .byte $1D
-- D - I - 0x0236FD 11:B6ED: 00        .byte $00
+- D - I - 0x0236FA 11:B6EA: 33        .byte con_pause + $33
+- D - I - 0x0236FB 11:B6EB: 13        .byte con_bg + $13
+- D - I - 0x0236FC 11:B6EC: 1D        .byte con_animation + $1D
+- D - I - 0x0236FD 11:B6ED: 00        .byte con_cloud + $00
 - D - I - 0x0236FE 11:B6EE: F6        .byte con_mirror_toggle
 - D - I - 0x0236FF 11:B6EF: FB        .byte con_rts
 
 bra_long_case_B6F0_1F:
 - D - I - 0x023700 11:B6F0: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x023703 11:B6F3: 32        .byte $32
-- D - I - 0x023704 11:B6F4: 13        .byte $13
-- D - I - 0x023705 11:B6F5: 40        .byte $40
-- D - I - 0x023706 11:B6F6: 00        .byte $00
+- D - I - 0x023703 11:B6F3: 32        .byte con_pause + $32
+- D - I - 0x023704 11:B6F4: 13        .byte con_bg + $13
+- D - I - 0x023705 11:B6F5: 40        .byte con_animation + $40
+- D - I - 0x023706 11:B6F6: 00        .byte con_cloud + $00
 - D - I - 0x023707 11:B6F7: F7        .byte con_F7, $14
 - D - I - 0x023709 11:B6F9: F9        .byte con_delay_soundID, $02, $0E
-- D - I - 0x02370C 11:B6FC: 23        .byte $23
-- D - I - 0x02370D 11:B6FD: 43        .byte $43
-- D - I - 0x02370E 11:B6FE: 73        .byte $73
-- D - I - 0x02370F 11:B6FF: 00        .byte $00
+- D - I - 0x02370C 11:B6FC: 23        .byte con_pause + $23
+- D - I - 0x02370D 11:B6FD: 43        .byte con_bg + $43
+- D - I - 0x02370E 11:B6FE: 73        .byte con_animation + $73
+- D - I - 0x02370F 11:B6FF: 00        .byte con_cloud + $00
 - D - I - 0x023710 11:B700: FB        .byte con_rts
 
 bra_long_case_B701_20:
 - D - I - 0x023711 11:B701: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x023714 11:B704: 28        .byte $28
-- D - I - 0x023715 11:B705: 68        .byte $68
-- D - I - 0x023716 11:B706: 12        .byte $12
-- D - I - 0x023717 11:B707: 00        .byte $00
+- D - I - 0x023714 11:B704: 28        .byte con_pause + $28
+- D - I - 0x023715 11:B705: 68        .byte con_bg + $68
+- D - I - 0x023716 11:B706: 12        .byte con_animation + $12
+- D - I - 0x023717 11:B707: 00        .byte con_cloud + $00
 - D - I - 0x023718 11:B708: F7        .byte con_F7, $2B
 - D - I - 0x02371A 11:B70A: F9        .byte con_delay_soundID, $02, $05
-- D - I - 0x02371D 11:B70D: 46        .byte $46
-- D - I - 0x02371E 11:B70E: 60        .byte $60
-- D - I - 0x02371F 11:B70F: 74        .byte $74
-- D - I - 0x023720 11:B710: 00        .byte $00
+- D - I - 0x02371D 11:B70D: 46        .byte con_pause + $46
+- D - I - 0x02371E 11:B70E: 60        .byte con_bg + $60
+- D - I - 0x02371F 11:B70F: 74        .byte con_animation + $74
+- D - I - 0x023720 11:B710: 00        .byte con_cloud + $00
 - D - I - 0x023721 11:B711: FB        .byte con_rts
 
 bra_long_case_B712_21:
@@ -12926,39 +12933,39 @@ sub_B712:
 - D - I - 0x023727 11:B717: A7 BB     .word sub_BBA7
 - D - I - 0x023729 11:B719: F7        .byte con_F7, $3A
 - D - I - 0x02372B 11:B71B: F9        .byte con_delay_soundID, $02, $0A
-- D - I - 0x02372E 11:B71E: 46        .byte $46
-- D - I - 0x02372F 11:B71F: 5E        .byte $5E
-- D - I - 0x023730 11:B720: 28        .byte $28
-- D - I - 0x023731 11:B721: 00        .byte $00
+- D - I - 0x02372E 11:B71E: 46        .byte con_pause + $46
+- D - I - 0x02372F 11:B71F: 5E        .byte con_bg + $5E
+- D - I - 0x023730 11:B720: 28        .byte con_animation + $28
+- D - I - 0x023731 11:B721: 00        .byte con_cloud + $00
 - D - I - 0x023732 11:B722: F6        .byte con_mirror_toggle
 - D - I - 0x023733 11:B723: FB        .byte con_rts
 
 bra_long_case_B724_22:
 sub_B724:
 - D - I - 0x023734 11:B724: F9        .byte con_delay_soundID, $02, $0F
-- D - I - 0x023737 11:B727: 3D        .byte $3D
-- D - I - 0x023738 11:B728: 4E        .byte $4E
-- D - I - 0x023739 11:B729: 5D        .byte $5D
-- D - I - 0x02373A 11:B72A: 00        .byte $00
+- D - I - 0x023737 11:B727: 3D        .byte con_pause + $3D
+- D - I - 0x023738 11:B728: 4E        .byte con_bg + $4E
+- D - I - 0x023739 11:B729: 5D        .byte con_animation + $5D
+- D - I - 0x02373A 11:B72A: 00        .byte con_cloud + $00
 - D - I - 0x02373B 11:B72B: FB        .byte con_rts
 
 
 
 _scenario_B72C_2B:
-- D - I - 0x02373C 11:B72C: 78        .byte $78
-- D - I - 0x02373D 11:B72D: 46        .byte $46
-- D - I - 0x02373E 11:B72E: 00        .byte $00
-- D - I - 0x02373F 11:B72F: 65        .byte $65
+- D - I - 0x02373C 11:B72C: 78        .byte con_pause + $78
+- D - I - 0x02373D 11:B72D: 46        .byte con_bg + $46
+- D - I - 0x02373E 11:B72E: 00        .byte con_animation + $00
+- D - I - 0x02373F 11:B72F: 65        .byte con_cloud + $65
 - D - I - 0x023740 11:B730: F2        .byte con_jmp
 - D - I - 0x023741 11:B731: C7 BB     .word loc_BBC7
 
 
 
 _scenario_B733_1F:
-- D - I - 0x023743 11:B733: 96        .byte $96
-- D - I - 0x023744 11:B734: F0        .byte con_exit_1
-- D - I - 0x023745 11:B735: F0        .byte con_exit_1
-- D - I - 0x023746 11:B736: 66        .byte $66
+- D - I - 0x023743 11:B733: 96        .byte con_pause + $96
+- D - I - 0x023744 11:B734: F0        .byte con_bg + $F0
+- D - I - 0x023745 11:B735: F0        .byte con_animation + $F0
+- D - I - 0x023746 11:B736: 66        .byte con_cloud + $66
 - D - I - 0x023747 11:B737: FB        .byte con_rts
 
 
@@ -12971,37 +12978,37 @@ _scenario_B738_20:
 - D - I - 0x02374E 11:B73E: 06        .byte bra_case_B744_01 - *
 
 bra_case_B73F_00:
-- D - I - 0x02374F 11:B73F: B4        .byte $B4
-- D - I - 0x023750 11:B740: 38        .byte $38
-- D - I - 0x023751 11:B741: 85        .byte $85
-- D - I - 0x023752 11:B742: 67        .byte $67
+- D - I - 0x02374F 11:B73F: B4        .byte con_pause + $B4
+- D - I - 0x023750 11:B740: 38        .byte con_bg + $38
+- D - I - 0x023751 11:B741: 85        .byte con_animation + $85
+- D - I - 0x023752 11:B742: 67        .byte con_cloud + $67
 - D - I - 0x023753 11:B743: FB        .byte con_rts
 
 bra_case_B744_01:
-- D - I - 0x023754 11:B744: B4        .byte $B4
-- D - I - 0x023755 11:B745: 37        .byte $37
-- D - I - 0x023756 11:B746: 85        .byte $85
-- D - I - 0x023757 11:B747: 67        .byte $67
+- D - I - 0x023754 11:B744: B4        .byte con_pause + $B4
+- D - I - 0x023755 11:B745: 37        .byte con_bg + $37
+- D - I - 0x023756 11:B746: 85        .byte con_animation + $85
+- D - I - 0x023757 11:B747: 67        .byte con_cloud + $67
 - D - I - 0x023758 11:B748: FB        .byte con_rts
 
 
 
 
 _scenario_B749_22:
-- D - I - 0x023759 11:B749: B0        .byte $B0
-- D - I - 0x02375A 11:B74A: 38        .byte $38
-- D - I - 0x02375B 11:B74B: 85        .byte $85
-- D - I - 0x02375C 11:B74C: 69        .byte $69
+- D - I - 0x023759 11:B749: B0        .byte con_pause + $B0
+- D - I - 0x02375A 11:B74A: 38        .byte con_bg + $38
+- D - I - 0x02375B 11:B74B: 85        .byte con_animation + $85
+- D - I - 0x02375C 11:B74C: 69        .byte con_cloud + $69
 - D - I - 0x02375D 11:B74D: FB        .byte con_rts
 
 
 
 _scenario_B74E_2E:
 - D - I - 0x02375E 11:B74E: F5        .byte con_mirror_off
-- D - I - 0x02375F 11:B74F: 78        .byte $78
-- D - I - 0x023760 11:B750: 36        .byte $36
-- D - I - 0x023761 11:B751: 8B        .byte $8B
-- D - I - 0x023762 11:B752: 6D        .byte $6D
+- D - I - 0x02375F 11:B74F: 78        .byte con_pause + $78
+- D - I - 0x023760 11:B750: 36        .byte con_bg + $36
+- D - I - 0x023761 11:B751: 8B        .byte con_animation + $8B
+- D - I - 0x023762 11:B752: 6D        .byte con_cloud + $6D
 - D - I - 0x023763 11:B753: FB        .byte con_rts
 
 
@@ -13016,28 +13023,28 @@ _scenario_B754_3F:
 - D - I - 0x02376E 11:B75E: 0E        .byte bra_case_B76C_01 - *
 
 bra_case_B75F_00:
-- D - I - 0x02376F 11:B75F: 5A        .byte $5A
-- D - I - 0x023770 11:B760: 69        .byte $69
-- D - I - 0x023771 11:B761: 8D        .byte $8D
-- D - I - 0x023772 11:B762: 10        .byte $10
+- D - I - 0x02376F 11:B75F: 5A        .byte con_pause + $5A
+- D - I - 0x023770 11:B760: 69        .byte con_bg + $69
+- D - I - 0x023771 11:B761: 8D        .byte con_animation + $8D
+- D - I - 0x023772 11:B762: 10        .byte con_cloud + $10
 loc_B763:
 - D - I - 0x023773 11:B763: F3        .byte con_branch, $AC
 - D - I - 0x023775 11:B765: 06        .byte bra_case_B76B_00 - *
 - D - I - 0x023776 11:B766: 01        .byte bra_case_B767_01 - *
 
 bra_case_B767_01:
-- D - I - 0x023777 11:B767: 5A        .byte $5A
-- D - I - 0x023778 11:B768: F0        .byte con_exit_1
-- D - I - 0x023779 11:B769: F0        .byte con_exit_1
-- D - I - 0x02377A 11:B76A: 6D        .byte $6D
+- D - I - 0x023777 11:B767: 5A        .byte con_pause + $5A
+- D - I - 0x023778 11:B768: F0        .byte con_bg + $F0
+- D - I - 0x023779 11:B769: F0        .byte con_animation + $F0
+- D - I - 0x02377A 11:B76A: 6D        .byte con_cloud + $6D
 bra_case_B76B_00:
 - D - I - 0x02377B 11:B76B: FB        .byte con_rts
 
 bra_case_B76C_01:
-- D - I - 0x02377C 11:B76C: 5A        .byte $5A
-- D - I - 0x02377D 11:B76D: 69        .byte $69
-- D - I - 0x02377E 11:B76E: 8D        .byte $8D
-- D - I - 0x02377F 11:B76F: 0A        .byte $0A
+- D - I - 0x02377C 11:B76C: 5A        .byte con_pause + $5A
+- D - I - 0x02377D 11:B76D: 69        .byte con_bg + $69
+- D - I - 0x02377E 11:B76E: 8D        .byte con_animation + $8D
+- D - I - 0x02377F 11:B76F: 0A        .byte con_cloud + $0A
 - D - I - 0x023780 11:B770: F2        .byte con_jmp
 - D - I - 0x023781 11:B771: 63 B7     .word loc_B763
 
@@ -13053,18 +13060,18 @@ _scenario_B773_2F:
 - D - I - 0x02378D 11:B77D: 08        .byte bra_case_B785_01 - *
 
 bra_case_B77E_00:
-- D - I - 0x02378E 11:B77E: 5A        .byte $5A
-- D - I - 0x02378F 11:B77F: 36        .byte $36
-- D - I - 0x023790 11:B780: 8D        .byte $8D
-- D - I - 0x023791 11:B781: 10        .byte $10
+- D - I - 0x02378E 11:B77E: 5A        .byte con_pause + $5A
+- D - I - 0x02378F 11:B77F: 36        .byte con_bg + $36
+- D - I - 0x023790 11:B780: 8D        .byte con_animation + $8D
+- D - I - 0x023791 11:B781: 10        .byte con_cloud + $10
 - D - I - 0x023792 11:B782: F2        .byte con_jmp
 - D - I - 0x023793 11:B783: 63 B7     .word loc_B763
 
 bra_case_B785_01:
-- D - I - 0x023795 11:B785: 5A        .byte $5A
-- D - I - 0x023796 11:B786: 36        .byte $36
-- D - I - 0x023797 11:B787: 8D        .byte $8D
-- D - I - 0x023798 11:B788: 0A        .byte $0A
+- D - I - 0x023795 11:B785: 5A        .byte con_pause + $5A
+- D - I - 0x023796 11:B786: 36        .byte con_bg + $36
+- D - I - 0x023797 11:B787: 8D        .byte con_animation + $8D
+- D - I - 0x023798 11:B788: 0A        .byte con_cloud + $0A
 - D - I - 0x023799 11:B789: F2        .byte con_jmp
 - D - I - 0x02379A 11:B78A: 63 B7     .word loc_B763
 
@@ -13072,103 +13079,103 @@ bra_case_B785_01:
 
 _scenario_B78C_31:
 - D - I - 0x02379C 11:B78C: F5        .byte con_mirror_off
-- D - I - 0x02379D 11:B78D: 5A        .byte $5A
-- D - I - 0x02379E 11:B78E: 2C        .byte $2C
-- D - I - 0x02379F 11:B78F: 8B        .byte $8B
-- D - I - 0x0237A0 11:B790: 6F        .byte $6F
+- D - I - 0x02379D 11:B78D: 5A        .byte con_pause + $5A
+- D - I - 0x02379E 11:B78E: 2C        .byte con_bg + $2C
+- D - I - 0x02379F 11:B78F: 8B        .byte con_animation + $8B
+- D - I - 0x0237A0 11:B790: 6F        .byte con_cloud + $6F
 - D - I - 0x0237A1 11:B791: FB        .byte con_rts
 
 bra_long_case_B792_01:
-- D - I - 0x0237A2 11:B792: 0A        .byte $0A
-- D - I - 0x0237A3 11:B793: 32        .byte $32
-- D - I - 0x0237A4 11:B794: 93        .byte $93
-- D - I - 0x0237A5 11:B795: F0        .byte con_exit_1
+- D - I - 0x0237A2 11:B792: 0A        .byte con_pause + $0A
+- D - I - 0x0237A3 11:B793: 32        .byte con_bg + $32
+- D - I - 0x0237A4 11:B794: 93        .byte con_animation + $93
+- D - I - 0x0237A5 11:B795: F0        .byte con_cloud + $F0
 bra_long_case_B796_00:
 - D - I - 0x0237A6 11:B796: FB        .byte con_rts
 
 bra_long_case_B797_02:
-- D - I - 0x0237A7 11:B797: 0A        .byte $0A
-- D - I - 0x0237A8 11:B798: 33        .byte $33
-- D - I - 0x0237A9 11:B799: 94        .byte $94
-- D - I - 0x0237AA 11:B79A: F0        .byte con_exit_1
+- D - I - 0x0237A7 11:B797: 0A        .byte con_pause + $0A
+- D - I - 0x0237A8 11:B798: 33        .byte con_bg + $33
+- D - I - 0x0237A9 11:B799: 94        .byte con_animation + $94
+- D - I - 0x0237AA 11:B79A: F0        .byte con_cloud + $F0
 - D - I - 0x0237AB 11:B79B: FB        .byte con_rts
 
 bra_long_case_B79C_03:
-- D - I - 0x0237AC 11:B79C: 0A        .byte $0A
-- D - I - 0x0237AD 11:B79D: 32        .byte $32
-- D - I - 0x0237AE 11:B79E: A4        .byte $A4
-- D - I - 0x0237AF 11:B79F: F0        .byte con_exit_1
+- D - I - 0x0237AC 11:B79C: 0A        .byte con_pause + $0A
+- D - I - 0x0237AD 11:B79D: 32        .byte con_bg + $32
+- D - I - 0x0237AE 11:B79E: A4        .byte con_animation + $A4
+- D - I - 0x0237AF 11:B79F: F0        .byte con_cloud + $F0
 - D - I - 0x0237B0 11:B7A0: FB        .byte con_rts
 
 bra_long_case_B7A1_04:
-- D - I - 0x0237B1 11:B7A1: 0A        .byte $0A
-- D - I - 0x0237B2 11:B7A2: 33        .byte $33
-- D - I - 0x0237B3 11:B7A3: A6        .byte $A6
-- D - I - 0x0237B4 11:B7A4: F0        .byte con_exit_1
+- D - I - 0x0237B1 11:B7A1: 0A        .byte con_pause + $0A
+- D - I - 0x0237B2 11:B7A2: 33        .byte con_bg + $33
+- D - I - 0x0237B3 11:B7A3: A6        .byte con_animation + $A6
+- D - I - 0x0237B4 11:B7A4: F0        .byte con_cloud + $F0
 - D - I - 0x0237B5 11:B7A5: FB        .byte con_rts
 
 sub_B7A6:
 - D - I - 0x0237B6 11:B7A6: F5        .byte con_mirror_off
 - D - I - 0x0237B7 11:B7A7: F9        .byte con_delay_soundID, $02, $66
-- D - I - 0x0237BA 11:B7AA: 32        .byte $32
-- D - I - 0x0237BB 11:B7AB: 0C        .byte $0C
-- D - I - 0x0237BC 11:B7AC: 4E        .byte $4E
-- D - I - 0x0237BD 11:B7AD: 70        .byte $70
+- D - I - 0x0237BA 11:B7AA: 32        .byte con_pause + $32
+- D - I - 0x0237BB 11:B7AB: 0C        .byte con_bg + $0C
+- D - I - 0x0237BC 11:B7AC: 4E        .byte con_animation + $4E
+- D - I - 0x0237BD 11:B7AD: 70        .byte con_cloud + $70
 - D - I - 0x0237BE 11:B7AE: FB        .byte con_rts
 
 loc_B7AF:
-- D - I - 0x0237BF 11:B7AF: 60        .byte $60
-- D - I - 0x0237C0 11:B7B0: F0        .byte con_exit_1
-- D - I - 0x0237C1 11:B7B1: F0        .byte con_exit_1
-- D - I - 0x0237C2 11:B7B2: 71        .byte $71
+- D - I - 0x0237BF 11:B7AF: 60        .byte con_pause + $60
+- D - I - 0x0237C0 11:B7B0: F0        .byte con_bg + $F0
+- D - I - 0x0237C1 11:B7B1: F0        .byte con_animation + $F0
+- D - I - 0x0237C2 11:B7B2: 71        .byte con_cloud + $71
 - D - I - 0x0237C3 11:B7B3: F9        .byte con_delay_soundID, $02, $31
-- D - I - 0x0237C6 11:B7B6: C0        .byte $C0
-- D - I - 0x0237C7 11:B7B7: F0        .byte con_exit_1
-- D - I - 0x0237C8 11:B7B8: F0        .byte con_exit_1
-- D - I - 0x0237C9 11:B7B9: F0        .byte con_exit_1
-- D - I - 0x0237CA 11:B7BA: 01        .byte $01
-- D - I - 0x0237CB 11:B7BB: 71        .byte $71
-- D - I - 0x0237CC 11:B7BC: 00        .byte $00
-- D - I - 0x0237CD 11:B7BD: 00        .byte $00
+- D - I - 0x0237C6 11:B7B6: C0        .byte con_pause + $C0
+- D - I - 0x0237C7 11:B7B7: F0        .byte con_bg + $F0
+- D - I - 0x0237C8 11:B7B8: F0        .byte con_animation + $F0
+- D - I - 0x0237C9 11:B7B9: F0        .byte con_cloud + $F0
+- D - I - 0x0237CA 11:B7BA: 01        .byte con_pause + $01
+- D - I - 0x0237CB 11:B7BB: 71        .byte con_bg + $71
+- D - I - 0x0237CC 11:B7BC: 00        .byte con_animation + $00
+- D - I - 0x0237CD 11:B7BD: 00        .byte con_cloud + $00
 - D - I - 0x0237CE 11:B7BE: FB        .byte con_rts
 
 
 
 _scenario_B7BF_37:
 - D - I - 0x0237CF 11:B7BF: F7        .byte con_F7, $1C
-- D - I - 0x0237D1 11:B7C1: 07        .byte $07
-- D - I - 0x0237D2 11:B7C2: 46        .byte $46
-- D - I - 0x0237D3 11:B7C3: 00        .byte $00
-- D - I - 0x0237D4 11:B7C4: F0        .byte con_exit_1
+- D - I - 0x0237D1 11:B7C1: 07        .byte con_pause + $07
+- D - I - 0x0237D2 11:B7C2: 46        .byte con_bg + $46
+- D - I - 0x0237D3 11:B7C3: 00        .byte con_animation + $00
+- D - I - 0x0237D4 11:B7C4: F0        .byte con_cloud + $F0
 - D - I - 0x0237D5 11:B7C5: FB        .byte con_rts
 
 
 
 _scenario_B7C6_38:
 - D - I - 0x0237D6 11:B7C6: F7        .byte con_F7, $17
-- D - I - 0x0237D8 11:B7C8: 01        .byte $01
-- D - I - 0x0237D9 11:B7C9: 34        .byte $34
-- D - I - 0x0237DA 11:B7CA: 00        .byte $00
-- D - I - 0x0237DB 11:B7CB: F0        .byte con_exit_1
+- D - I - 0x0237D8 11:B7C8: 01        .byte con_pause + $01
+- D - I - 0x0237D9 11:B7C9: 34        .byte con_bg + $34
+- D - I - 0x0237DA 11:B7CA: 00        .byte con_animation + $00
+- D - I - 0x0237DB 11:B7CB: F0        .byte con_cloud + $F0
 - D - I - 0x0237DC 11:B7CC: FB        .byte con_rts
 
 
 
 _scenario_B7CD_35:
 - D - I - 0x0237DD 11:B7CD: F9        .byte con_delay_soundID, $EB, $44
-- D - I - 0x0237E0 11:B7D0: 02        .byte $02     ; задержка следующей анимации
-- D - I - 0x0237E1 11:B7D1: 3A        .byte $3A     ; фон
-- D - I - 0x0237E2 11:B7D2: 8F        .byte $8F     ; анимация
-- D - I - 0x0237E3 11:B7D3: 73        .byte $73     ; облако
+- D - I - 0x0237E0 11:B7D0: 02        .byte con_pause + $02
+- D - I - 0x0237E1 11:B7D1: 3A        .byte con_bg + $3A
+- D - I - 0x0237E2 11:B7D2: 8F        .byte con_animation + $8F
+- D - I - 0x0237E3 11:B7D3: 73        .byte con_cloud + $73
 - D - I - 0x0237E4 11:B7D4: FB        .byte con_rts
 
 
 
 _scenario_B7D5_44:
-- D - I - 0x0237E5 11:B7D5: 02        .byte $02
-- D - I - 0x0237E6 11:B7D6: 70        .byte $70
-- D - I - 0x0237E7 11:B7D7: 5C        .byte $5C
-- D - I - 0x0237E8 11:B7D8: F0        .byte con_exit_1
+- D - I - 0x0237E5 11:B7D5: 02        .byte con_pause + $02
+- D - I - 0x0237E6 11:B7D6: 70        .byte con_bg + $70
+- D - I - 0x0237E7 11:B7D7: 5C        .byte con_animation + $5C
+- D - I - 0x0237E8 11:B7D8: F0        .byte con_cloud + $F0
 - D - I - 0x0237E9 11:B7D9: FB        .byte con_rts
 
 
@@ -13177,10 +13184,10 @@ _scenario_B7DA_1E:
 - D - I - 0x0237EA 11:B7DA: FD        .byte con_FD, $02
 - D - I - 0x0237EC 11:B7DC: F6        .byte con_mirror_toggle
 - D - I - 0x0237ED 11:B7DD: F7        .byte con_F7, $01
-- D - I - 0x0237EF 11:B7DF: 07        .byte $07
-- D - I - 0x0237F0 11:B7E0: 45        .byte $45
-- D - I - 0x0237F1 11:B7E1: 90        .byte $90
-- D - I - 0x0237F2 11:B7E2: F0        .byte con_exit_1
+- D - I - 0x0237EF 11:B7DF: 07        .byte con_pause + $07
+- D - I - 0x0237F0 11:B7E0: 45        .byte con_bg + $45
+- D - I - 0x0237F1 11:B7E1: 90        .byte con_animation + $90
+- D - I - 0x0237F2 11:B7E2: F0        .byte con_cloud + $F0
 - D - I - 0x0237F3 11:B7E3: FB        .byte con_rts
 
 
@@ -13188,114 +13195,114 @@ _scenario_B7DA_1E:
 _scenario_B7E4_36:
 - D - I - 0x0237F4 11:B7E4: F5        .byte con_mirror_off
 - D - I - 0x0237F5 11:B7E5: F9        .byte con_delay_soundID, $02, $7F
-- D - I - 0x0237F8 11:B7E8: 10        .byte $10
-- D - I - 0x0237F9 11:B7E9: 3A        .byte $3A
-- D - I - 0x0237FA 11:B7EA: 8F        .byte $8F
-- D - I - 0x0237FB 11:B7EB: F0        .byte con_exit_1
+- D - I - 0x0237F8 11:B7E8: 10        .byte con_pause + $10
+- D - I - 0x0237F9 11:B7E9: 3A        .byte con_bg + $3A
+- D - I - 0x0237FA 11:B7EA: 8F        .byte con_animation + $8F
+- D - I - 0x0237FB 11:B7EB: F0        .byte con_cloud + $F0
 - D - I - 0x0237FC 11:B7EC: F9        .byte con_delay_soundID, $02, $66
-- D - I - 0x0237FF 11:B7EF: 20        .byte $20
-- D - I - 0x023800 11:B7F0: F0        .byte con_exit_1
-- D - I - 0x023801 11:B7F1: F0        .byte con_exit_1
-- D - I - 0x023802 11:B7F2: 74        .byte $74
+- D - I - 0x0237FF 11:B7EF: 20        .byte con_pause + $20
+- D - I - 0x023800 11:B7F0: F0        .byte con_bg + $F0
+- D - I - 0x023801 11:B7F1: F0        .byte con_animation + $F0
+- D - I - 0x023802 11:B7F2: 74        .byte con_cloud + $74
 - D - I - 0x023803 11:B7F3: FD        .byte con_FD, $00
 - D - I - 0x023805 11:B7F5: F9        .byte con_delay_soundID, $09, $2B
-- D - I - 0x023808 11:B7F8: 32        .byte $32
-- D - I - 0x023809 11:B7F9: 72        .byte $72
-- D - I - 0x02380A 11:B7FA: 66        .byte $66
-- D - I - 0x02380B 11:B7FB: F0        .byte con_exit_1
+- D - I - 0x023808 11:B7F8: 32        .byte con_pause + $32
+- D - I - 0x023809 11:B7F9: 72        .byte con_bg + $72
+- D - I - 0x02380A 11:B7FA: 66        .byte con_animation + $66
+- D - I - 0x02380B 11:B7FB: F0        .byte con_cloud + $F0
 - D - I - 0x02380C 11:B7FC: F7        .byte con_F7, $02
-- D - I - 0x02380E 11:B7FE: 32        .byte $32
-- D - I - 0x02380F 11:B7FF: 1F        .byte $1F
-- D - I - 0x023810 11:B800: 4C        .byte $4C
-- D - I - 0x023811 11:B801: F0        .byte con_exit_1
+- D - I - 0x02380E 11:B7FE: 32        .byte con_pause + $32
+- D - I - 0x02380F 11:B7FF: 1F        .byte con_bg + $1F
+- D - I - 0x023810 11:B800: 4C        .byte con_animation + $4C
+- D - I - 0x023811 11:B801: F0        .byte con_cloud + $F0
 - D - I - 0x023812 11:B802: F9        .byte con_delay_soundID, $1D, $2C
-- D - I - 0x023815 11:B805: 3E        .byte $3E
-- D - I - 0x023816 11:B806: 01        .byte $01
-- D - I - 0x023817 11:B807: E6        .byte $E6
-- D - I - 0x023818 11:B808: 75        .byte $75
+- D - I - 0x023815 11:B805: 3E        .byte con_pause + $3E
+- D - I - 0x023816 11:B806: 01        .byte con_bg + $01
+- D - I - 0x023817 11:B807: E6        .byte con_animation + $E6
+- D - I - 0x023818 11:B808: 75        .byte con_cloud + $75
 - D - I - 0x023819 11:B809: FB        .byte con_rts
 
 
 
 _scenario_B80A_15:
-- D - I - 0x02381A 11:B80A: 01        .byte $01
-- D - I - 0x02381B 11:B80B: 71        .byte $71
-- D - I - 0x02381C 11:B80C: 00        .byte $00
-- D - I - 0x02381D 11:B80D: 00        .byte $00
+- D - I - 0x02381A 11:B80A: 01        .byte con_pause + $01
+- D - I - 0x02381B 11:B80B: 71        .byte con_bg + $71
+- D - I - 0x02381C 11:B80C: 00        .byte con_animation + $00
+- D - I - 0x02381D 11:B80D: 00        .byte con_cloud + $00
 - D - I - 0x02381E 11:B80E: F7        .byte con_F7, $1F
-- D - I - 0x023820 11:B810: 80        .byte $80
-- D - I - 0x023821 11:B811: 30        .byte $30
-- D - I - 0x023822 11:B812: AF        .byte $AF
-- D - I - 0x023823 11:B813: 76        .byte $76
+- D - I - 0x023820 11:B810: 80        .byte con_pause + $80
+- D - I - 0x023821 11:B811: 30        .byte con_bg + $30
+- D - I - 0x023822 11:B812: AF        .byte con_animation + $AF
+- D - I - 0x023823 11:B813: 76        .byte con_cloud + $76
 - D - I - 0x023824 11:B814: F2        .byte con_jmp
 - D - I - 0x023825 11:B815: C7 BB     .word loc_BBC7
 
 
 
 _scenario_B817_16:
-- D - I - 0x023827 11:B817: 01        .byte $01
-- D - I - 0x023828 11:B818: 71        .byte $71
-- D - I - 0x023829 11:B819: 00        .byte $00
-- D - I - 0x02382A 11:B81A: 00        .byte $00
-- D - I - 0x02382B 11:B81B: 80        .byte $80
-- D - I - 0x02382C 11:B81C: 30        .byte $30
-- D - I - 0x02382D 11:B81D: B7        .byte $B7
-- D - I - 0x02382E 11:B81E: 77        .byte $77
+- D - I - 0x023827 11:B817: 01        .byte con_pause + $01
+- D - I - 0x023828 11:B818: 71        .byte con_bg + $71
+- D - I - 0x023829 11:B819: 00        .byte con_animation + $00
+- D - I - 0x02382A 11:B81A: 00        .byte con_cloud + $00
+- D - I - 0x02382B 11:B81B: 80        .byte con_pause + $80
+- D - I - 0x02382C 11:B81C: 30        .byte con_bg + $30
+- D - I - 0x02382D 11:B81D: B7        .byte con_animation + $B7
+- D - I - 0x02382E 11:B81E: 77        .byte con_cloud + $77
 - D - I - 0x02382F 11:B81F: F2        .byte con_jmp
 - D - I - 0x023830 11:B820: C7 BB     .word loc_BBC7
 
 loc_B822:
 sub_B822:
-- D - I - 0x023832 11:B822: 01        .byte $01
-- D - I - 0x023833 11:B823: F0        .byte con_exit_1
-- D - I - 0x023834 11:B824: F0        .byte con_exit_1
-- D - I - 0x023835 11:B825: 00        .byte $00
+- D - I - 0x023832 11:B822: 01        .byte con_pause + $01
+- D - I - 0x023833 11:B823: F0        .byte con_bg + $F0
+- D - I - 0x023834 11:B824: F0        .byte con_animation + $F0
+- D - I - 0x023835 11:B825: 00        .byte con_cloud + $00
 - D - I - 0x023836 11:B826: F5        .byte con_mirror_off
-- D - I - 0x023837 11:B827: 8C        .byte $8C
-- D - I - 0x023838 11:B828: 32        .byte $32
-- D - I - 0x023839 11:B829: A8        .byte $A8
-- D - I - 0x02383A 11:B82A: 79        .byte $79
+- D - I - 0x023837 11:B827: 8C        .byte con_pause + $8C
+- D - I - 0x023838 11:B828: 32        .byte con_bg + $32
+- D - I - 0x023839 11:B829: A8        .byte con_animation + $A8
+- D - I - 0x02383A 11:B82A: 79        .byte con_cloud + $79
 - D - I - 0x02383B 11:B82B: F2        .byte con_jmp
 - D - I - 0x02383C 11:B82C: C7 BB     .word loc_BBC7
 
 sub_B82E:
-- D - I - 0x02383E 11:B82E: 01        .byte $01
-- D - I - 0x02383F 11:B82F: F0        .byte con_exit_1
-- D - I - 0x023840 11:B830: F0        .byte con_exit_1
-- D - I - 0x023841 11:B831: 00        .byte $00
+- D - I - 0x02383E 11:B82E: 01        .byte con_pause + $01
+- D - I - 0x02383F 11:B82F: F0        .byte con_bg + $F0
+- D - I - 0x023840 11:B830: F0        .byte con_animation + $F0
+- D - I - 0x023841 11:B831: 00        .byte con_cloud + $00
 - D - I - 0x023842 11:B832: F5        .byte con_mirror_off
-- D - I - 0x023843 11:B833: 64        .byte $64
-- D - I - 0x023844 11:B834: 32        .byte $32
-- D - I - 0x023845 11:B835: A8        .byte $A8
-- D - I - 0x023846 11:B836: 7A        .byte $7A
+- D - I - 0x023843 11:B833: 64        .byte con_pause + $64
+- D - I - 0x023844 11:B834: 32        .byte con_bg + $32
+- D - I - 0x023845 11:B835: A8        .byte con_animation + $A8
+- D - I - 0x023846 11:B836: 7A        .byte con_cloud + $7A
 - D - I - 0x023847 11:B837: F2        .byte con_jmp
 - D - I - 0x023848 11:B838: C7 BB     .word loc_BBC7
 
 loc_B83A:
-- D - I - 0x02384A 11:B83A: 01        .byte $01
-- D - I - 0x02384B 11:B83B: F0        .byte con_exit_1
-- D - I - 0x02384C 11:B83C: F0        .byte con_exit_1
-- D - I - 0x02384D 11:B83D: 00        .byte $00
+- D - I - 0x02384A 11:B83A: 01        .byte con_pause + $01
+- D - I - 0x02384B 11:B83B: F0        .byte con_bg + $F0
+- D - I - 0x02384C 11:B83C: F0        .byte con_animation + $F0
+- D - I - 0x02384D 11:B83D: 00        .byte con_cloud + $00
 - D - I - 0x02384E 11:B83E: F6        .byte con_mirror_toggle
-- D - I - 0x02384F 11:B83F: 5A        .byte $5A
-- D - I - 0x023850 11:B840: 30        .byte $30
-- D - I - 0x023851 11:B841: 91        .byte $91
-- D - I - 0x023852 11:B842: 7B        .byte $7B
+- D - I - 0x02384F 11:B83F: 5A        .byte con_pause + $5A
+- D - I - 0x023850 11:B840: 30        .byte con_bg + $30
+- D - I - 0x023851 11:B841: 91        .byte con_animation + $91
+- D - I - 0x023852 11:B842: 7B        .byte con_cloud + $7B
 - D - I - 0x023853 11:B843: FA        .byte con_jsr
 - D - I - 0x023854 11:B844: C7 BB     .word sub_BBC7
 - D - I - 0x023856 11:B846: F6        .byte con_mirror_toggle
 - D - I - 0x023857 11:B847: FB        .byte con_rts
 
 sub_B848:
-- D - I - 0x023858 11:B848: 01        .byte $01
-- D - I - 0x023859 11:B849: F0        .byte con_exit_1
-- D - I - 0x02385A 11:B84A: F0        .byte con_exit_1
-- D - I - 0x02385B 11:B84B: 00        .byte $00
+- D - I - 0x023858 11:B848: 01        .byte con_pause + $01
+- D - I - 0x023859 11:B849: F0        .byte con_bg + $F0
+- D - I - 0x02385A 11:B84A: F0        .byte con_animation + $F0
+- D - I - 0x02385B 11:B84B: 00        .byte con_cloud + $00
 - D - I - 0x02385C 11:B84C: F6        .byte con_mirror_toggle
-- D - I - 0x02385D 11:B84D: 5A        .byte $5A
-- D - I - 0x02385E 11:B84E: 30        .byte $30
-- D - I - 0x02385F 11:B84F: 91        .byte $91
-- D - I - 0x023860 11:B850: C3        .byte $C3
+- D - I - 0x02385D 11:B84D: 5A        .byte con_pause + $5A
+- D - I - 0x02385E 11:B84E: 30        .byte con_bg + $30
+- D - I - 0x02385F 11:B84F: 91        .byte con_animation + $91
+- D - I - 0x023860 11:B850: C3        .byte con_cloud + $C3
 - D - I - 0x023861 11:B851: F9        .byte con_delay_soundID, $02, $31
 - D - I - 0x023864 11:B854: FA        .byte con_jsr
 - D - I - 0x023865 11:B855: C7 BB     .word sub_BBC7
@@ -13303,170 +13310,170 @@ sub_B848:
 - D - I - 0x023868 11:B858: FB        .byte con_rts
 
 loc_B859:
-- D - I - 0x023869 11:B859: 28        .byte $28
-- D - I - 0x02386A 11:B85A: F0        .byte con_exit_1
-- D - I - 0x02386B 11:B85B: F0        .byte con_exit_1
-- D - I - 0x02386C 11:B85C: F0        .byte con_exit_1
+- D - I - 0x023869 11:B859: 28        .byte con_pause + $28
+- D - I - 0x02386A 11:B85A: F0        .byte con_bg + $F0
+- D - I - 0x02386B 11:B85B: F0        .byte con_animation + $F0
+- D - I - 0x02386C 11:B85C: F0        .byte con_cloud + $F0
 - D - I - 0x02386D 11:B85D: F5        .byte con_mirror_off
 - D - I - 0x02386E 11:B85E: F9        .byte con_delay_soundID, $02, $46
-- D - I - 0x023871 11:B861: EF        .byte $EF
-- D - I - 0x023872 11:B862: 19        .byte $19
-- D - I - 0x023873 11:B863: E0        .byte $E0
-- D - I - 0x023874 11:B864: 00        .byte $00
-- D - I - 0x023875 11:B865: B4        .byte $B4
-- D - I - 0x023876 11:B866: 4D        .byte $4D
-- D - I - 0x023877 11:B867: F0        .byte con_exit_1
-- D - I - 0x023878 11:B868: 7C        .byte $7C
-- D - I - 0x023879 11:B869: B0        .byte $B0
-- D - I - 0x02387A 11:B86A: F0        .byte con_exit_1
-- D - I - 0x02387B 11:B86B: F0        .byte con_exit_1
-- D - I - 0x02387C 11:B86C: F0        .byte con_exit_1
-- D - I - 0x02387D 11:B86D: C8        .byte $C8
-- D - I - 0x02387E 11:B86E: 3F        .byte $3F
-- D - I - 0x02387F 11:B86F: DE        .byte $DE
-- D - I - 0x023880 11:B870: 7D        .byte $7D
-- D - I - 0x023881 11:B871: 83        .byte $83
-- D - I - 0x023882 11:B872: F0        .byte con_exit_1
-- D - I - 0x023883 11:B873: F0        .byte con_exit_1
-- D - I - 0x023884 11:B874: F0        .byte con_exit_1
-- D - I - 0x023885 11:B875: 8C        .byte $8C
-- D - I - 0x023886 11:B876: F0        .byte con_exit_1
-- D - I - 0x023887 11:B877: F0        .byte con_exit_1
-- D - I - 0x023888 11:B878: F0        .byte con_exit_1
-- D - I - 0x023889 11:B879: 9C        .byte $9C
-- D - I - 0x02388A 11:B87A: F0        .byte con_exit_1
-- D - I - 0x02388B 11:B87B: F0        .byte con_exit_1
-- D - I - 0x02388C 11:B87C: 7E        .byte $7E
-- D - I - 0x02388D 11:B87D: 9C        .byte $9C
-- D - I - 0x02388E 11:B87E: F0        .byte con_exit_1
-- D - I - 0x02388F 11:B87F: F0        .byte con_exit_1
-- D - I - 0x023890 11:B880: F0        .byte con_exit_1
+- D - I - 0x023871 11:B861: EF        .byte con_pause + $EF
+- D - I - 0x023872 11:B862: 19        .byte con_bg + $19
+- D - I - 0x023873 11:B863: E0        .byte con_animation + $E0
+- D - I - 0x023874 11:B864: 00        .byte con_cloud + $00
+- D - I - 0x023875 11:B865: B4        .byte con_pause + $B4
+- D - I - 0x023876 11:B866: 4D        .byte con_bg + $4D
+- D - I - 0x023877 11:B867: F0        .byte con_animation + $F0
+- D - I - 0x023878 11:B868: 7C        .byte con_cloud + $7C
+- D - I - 0x023879 11:B869: B0        .byte con_pause + $B0
+- D - I - 0x02387A 11:B86A: F0        .byte con_bg + $F0
+- D - I - 0x02387B 11:B86B: F0        .byte con_animation + $F0
+- D - I - 0x02387C 11:B86C: F0        .byte con_cloud + $F0
+- D - I - 0x02387D 11:B86D: C8        .byte con_pause + $C8
+- D - I - 0x02387E 11:B86E: 3F        .byte con_bg + $3F
+- D - I - 0x02387F 11:B86F: DE        .byte con_animation + $DE
+- D - I - 0x023880 11:B870: 7D        .byte con_cloud + $7D
+- D - I - 0x023881 11:B871: 83        .byte con_pause + $83
+- D - I - 0x023882 11:B872: F0        .byte con_bg + $F0
+- D - I - 0x023883 11:B873: F0        .byte con_animation + $F0
+- D - I - 0x023884 11:B874: F0        .byte con_cloud + $F0
+- D - I - 0x023885 11:B875: 8C        .byte con_pause + $8C
+- D - I - 0x023886 11:B876: F0        .byte con_bg + $F0
+- D - I - 0x023887 11:B877: F0        .byte con_animation + $F0
+- D - I - 0x023888 11:B878: F0        .byte con_cloud + $F0
+- D - I - 0x023889 11:B879: 9C        .byte con_pause + $9C
+- D - I - 0x02388A 11:B87A: F0        .byte con_bg + $F0
+- D - I - 0x02388B 11:B87B: F0        .byte con_animation + $F0
+- D - I - 0x02388C 11:B87C: 7E        .byte con_cloud + $7E
+- D - I - 0x02388D 11:B87D: 9C        .byte con_pause + $9C
+- D - I - 0x02388E 11:B87E: F0        .byte con_bg + $F0
+- D - I - 0x02388F 11:B87F: F0        .byte con_animation + $F0
+- D - I - 0x023890 11:B880: F0        .byte con_cloud + $F0
 - D - I - 0x023891 11:B881: F9        .byte con_delay_soundID, $02, $01
 - D - I - 0x023894 11:B884: F7        .byte con_F7, $06
-- D - I - 0x023896 11:B886: 56        .byte $56
-- D - I - 0x023897 11:B887: F0        .byte con_exit_1
-- D - I - 0x023898 11:B888: F0        .byte con_exit_1
-- D - I - 0x023899 11:B889: 7F        .byte $7F
+- D - I - 0x023896 11:B886: 56        .byte con_pause + $56
+- D - I - 0x023897 11:B887: F0        .byte con_bg + $F0
+- D - I - 0x023898 11:B888: F0        .byte con_animation + $F0
+- D - I - 0x023899 11:B889: 7F        .byte con_cloud + $7F
 - D - I - 0x02389A 11:B88A: F9        .byte con_delay_soundID, $02, $52
 - D - I - 0x02389D 11:B88D: F7        .byte con_F7, $1F
-- D - I - 0x02389F 11:B88F: 90        .byte $90
-- D - I - 0x0238A0 11:B890: 30        .byte $30
-- D - I - 0x0238A1 11:B891: 91        .byte $91
-- D - I - 0x0238A2 11:B892: 80        .byte $80
+- D - I - 0x02389F 11:B88F: 90        .byte con_pause + $90
+- D - I - 0x0238A0 11:B890: 30        .byte con_bg + $30
+- D - I - 0x0238A1 11:B891: 91        .byte con_animation + $91
+- D - I - 0x0238A2 11:B892: 80        .byte con_cloud + $80
 - D - I - 0x0238A3 11:B893: F7        .byte con_F7, $1F
-- D - I - 0x0238A5 11:B895: 90        .byte $90
-- D - I - 0x0238A6 11:B896: F0        .byte con_exit_1
-- D - I - 0x0238A7 11:B897: F0        .byte con_exit_1
-- D - I - 0x0238A8 11:B898: F0        .byte con_exit_1
+- D - I - 0x0238A5 11:B895: 90        .byte con_pause + $90
+- D - I - 0x0238A6 11:B896: F0        .byte con_bg + $F0
+- D - I - 0x0238A7 11:B897: F0        .byte con_animation + $F0
+- D - I - 0x0238A8 11:B898: F0        .byte con_cloud + $F0
 - D - I - 0x0238A9 11:B899: F9        .byte con_delay_soundID, $02, $7F
-- D - I - 0x0238AC 11:B89C: 01        .byte $01
-- D - I - 0x0238AD 11:B89D: F0        .byte con_exit_1
-- D - I - 0x0238AE 11:B89E: F0        .byte con_exit_1
-- D - I - 0x0238AF 11:B89F: 00        .byte $00
+- D - I - 0x0238AC 11:B89C: 01        .byte con_pause + $01
+- D - I - 0x0238AD 11:B89D: F0        .byte con_bg + $F0
+- D - I - 0x0238AE 11:B89E: F0        .byte con_animation + $F0
+- D - I - 0x0238AF 11:B89F: 00        .byte con_cloud + $00
 - D - I - 0x0238B0 11:B8A0: FB        .byte con_rts
 
 
 
 _scenario_B8A1_17:
-- D - I - 0x0238B1 11:B8A1: 01        .byte $01
-- D - I - 0x0238B2 11:B8A2: 71        .byte $71
-- D - I - 0x0238B3 11:B8A3: 00        .byte $00
-- D - I - 0x0238B4 11:B8A4: 00        .byte $00
+- D - I - 0x0238B1 11:B8A1: 01        .byte con_pause + $01
+- D - I - 0x0238B2 11:B8A2: 71        .byte con_bg + $71
+- D - I - 0x0238B3 11:B8A3: 00        .byte con_animation + $00
+- D - I - 0x0238B4 11:B8A4: 00        .byte con_cloud + $00
 - D - I - 0x0238B5 11:B8A5: F4        .byte con_mirror_on
 - D - I - 0x0238B6 11:B8A6: F7        .byte con_F7, $1F
 - D - I - 0x0238B8 11:B8A8: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x0238BB 11:B8AB: 78        .byte $78
-- D - I - 0x0238BC 11:B8AC: 30        .byte $30
-- D - I - 0x0238BD 11:B8AD: 91        .byte $91
-- D - I - 0x0238BE 11:B8AE: 81        .byte $81
+- D - I - 0x0238BB 11:B8AB: 78        .byte con_pause + $78
+- D - I - 0x0238BC 11:B8AC: 30        .byte con_bg + $30
+- D - I - 0x0238BD 11:B8AD: 91        .byte con_animation + $91
+- D - I - 0x0238BE 11:B8AE: 81        .byte con_cloud + $81
 - D - I - 0x0238BF 11:B8AF: FA        .byte con_jsr
 - D - I - 0x0238C0 11:B8B0: C7 BB     .word sub_BBC7
 - D - I - 0x0238C2 11:B8B2: F9        .byte con_delay_soundID, $02, $2B
-- D - I - 0x0238C5 11:B8B5: 28        .byte $28
-- D - I - 0x0238C6 11:B8B6: 01        .byte $01
-- D - I - 0x0238C7 11:B8B7: 66        .byte $66
-- D - I - 0x0238C8 11:B8B8: 82        .byte $82
-- D - I - 0x0238C9 11:B8B9: 29        .byte $29
-- D - I - 0x0238CA 11:B8BA: 20        .byte $20
-- D - I - 0x0238CB 11:B8BB: 4C        .byte $4C
-- D - I - 0x0238CC 11:B8BC: F0        .byte con_exit_1
-- D - I - 0x0238CD 11:B8BD: 01        .byte $01
-- D - I - 0x0238CE 11:B8BE: F0        .byte con_exit_1
-- D - I - 0x0238CF 11:B8BF: F0        .byte con_exit_1
-- D - I - 0x0238D0 11:B8C0: 00        .byte $00
-- D - I - 0x0238D1 11:B8C1: 5A        .byte $5A
-- D - I - 0x0238D2 11:B8C2: 30        .byte $30
-- D - I - 0x0238D3 11:B8C3: 91        .byte $91
-- D - I - 0x0238D4 11:B8C4: 83        .byte $83
+- D - I - 0x0238C5 11:B8B5: 28        .byte con_pause + $28
+- D - I - 0x0238C6 11:B8B6: 01        .byte con_bg + $01
+- D - I - 0x0238C7 11:B8B7: 66        .byte con_animation + $66
+- D - I - 0x0238C8 11:B8B8: 82        .byte con_cloud + $82
+- D - I - 0x0238C9 11:B8B9: 29        .byte con_pause + $29
+- D - I - 0x0238CA 11:B8BA: 20        .byte con_bg + $20
+- D - I - 0x0238CB 11:B8BB: 4C        .byte con_animation + $4C
+- D - I - 0x0238CC 11:B8BC: F0        .byte con_cloud + $F0
+- D - I - 0x0238CD 11:B8BD: 01        .byte con_pause + $01
+- D - I - 0x0238CE 11:B8BE: F0        .byte con_bg + $F0
+- D - I - 0x0238CF 11:B8BF: F0        .byte con_animation + $F0
+- D - I - 0x0238D0 11:B8C0: 00        .byte con_cloud + $00
+- D - I - 0x0238D1 11:B8C1: 5A        .byte con_pause + $5A
+- D - I - 0x0238D2 11:B8C2: 30        .byte con_bg + $30
+- D - I - 0x0238D3 11:B8C3: 91        .byte con_animation + $91
+- D - I - 0x0238D4 11:B8C4: 83        .byte con_cloud + $83
 - D - I - 0x0238D5 11:B8C5: F9        .byte con_delay_soundID, $02, $25
-- D - I - 0x0238D8 11:B8C8: 28        .byte $28
-- D - I - 0x0238D9 11:B8C9: 20        .byte $20
-- D - I - 0x0238DA 11:B8CA: ED        .byte $ED
-- D - I - 0x0238DB 11:B8CB: 00        .byte $00
+- D - I - 0x0238D8 11:B8C8: 28        .byte con_pause + $28
+- D - I - 0x0238D9 11:B8C9: 20        .byte con_bg + $20
+- D - I - 0x0238DA 11:B8CA: ED        .byte con_animation + $ED
+- D - I - 0x0238DB 11:B8CB: 00        .byte con_cloud + $00
 - D - I - 0x0238DC 11:B8CC: F6        .byte con_mirror_toggle
-- D - I - 0x0238DD 11:B8CD: 3C        .byte $3C
-- D - I - 0x0238DE 11:B8CE: 32        .byte $32
-- D - I - 0x0238DF 11:B8CF: A8        .byte $A8
-- D - I - 0x0238E0 11:B8D0: 84        .byte $84
+- D - I - 0x0238DD 11:B8CD: 3C        .byte con_pause + $3C
+- D - I - 0x0238DE 11:B8CE: 32        .byte con_bg + $32
+- D - I - 0x0238DF 11:B8CF: A8        .byte con_animation + $A8
+- D - I - 0x0238E0 11:B8D0: 84        .byte con_cloud + $84
 - D - I - 0x0238E1 11:B8D1: F6        .byte con_mirror_toggle
 - D - I - 0x0238E2 11:B8D2: F9        .byte con_delay_soundID, $31, $2B
-- D - I - 0x0238E5 11:B8D5: 38        .byte $38
-- D - I - 0x0238E6 11:B8D6: 47        .byte $47
-- D - I - 0x0238E7 11:B8D7: BF        .byte $BF
-- D - I - 0x0238E8 11:B8D8: 85        .byte $85
-- D - I - 0x0238E9 11:B8D9: 25        .byte $25
-- D - I - 0x0238EA 11:B8DA: F0        .byte con_exit_1
-- D - I - 0x0238EB 11:B8DB: F0        .byte con_exit_1
-- D - I - 0x0238EC 11:B8DC: F0        .byte con_exit_1
+- D - I - 0x0238E5 11:B8D5: 38        .byte con_pause + $38
+- D - I - 0x0238E6 11:B8D6: 47        .byte con_bg + $47
+- D - I - 0x0238E7 11:B8D7: BF        .byte con_animation + $BF
+- D - I - 0x0238E8 11:B8D8: 85        .byte con_cloud + $85
+- D - I - 0x0238E9 11:B8D9: 25        .byte con_pause + $25
+- D - I - 0x0238EA 11:B8DA: F0        .byte con_bg + $F0
+- D - I - 0x0238EB 11:B8DB: F0        .byte con_animation + $F0
+- D - I - 0x0238EC 11:B8DC: F0        .byte con_cloud + $F0
 - D - I - 0x0238ED 11:B8DD: F6        .byte con_mirror_toggle
 - D - I - 0x0238EE 11:B8DE: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x0238F1 11:B8E1: 32        .byte $32
-- D - I - 0x0238F2 11:B8E2: 63        .byte $63
-- D - I - 0x0238F3 11:B8E3: 0F        .byte $0F
-- D - I - 0x0238F4 11:B8E4: 00        .byte $00
+- D - I - 0x0238F1 11:B8E1: 32        .byte con_pause + $32
+- D - I - 0x0238F2 11:B8E2: 63        .byte con_bg + $63
+- D - I - 0x0238F3 11:B8E3: 0F        .byte con_animation + $0F
+- D - I - 0x0238F4 11:B8E4: 00        .byte con_cloud + $00
 - D - I - 0x0238F5 11:B8E5: FC        .byte con_FC, $04
-- D - I - 0x0238F7 11:B8E7: 32        .byte $32
-- D - I - 0x0238F8 11:B8E8: 58        .byte $58
-- D - I - 0x0238F9 11:B8E9: 04        .byte $04
-- D - I - 0x0238FA 11:B8EA: 86        .byte $86
+- D - I - 0x0238F7 11:B8E7: 32        .byte con_pause + $32
+- D - I - 0x0238F8 11:B8E8: 58        .byte con_bg + $58
+- D - I - 0x0238F9 11:B8E9: 04        .byte con_animation + $04
+- D - I - 0x0238FA 11:B8EA: 86        .byte con_cloud + $86
 - D - I - 0x0238FB 11:B8EB: F7        .byte con_F7, $33
 - D - I - 0x0238FD 11:B8ED: F9        .byte con_delay_soundID, $02, $05
-- D - I - 0x023900 11:B8F0: 36        .byte $36
-- D - I - 0x023901 11:B8F1: 27        .byte $27
-- D - I - 0x023902 11:B8F2: 10        .byte $10
-- D - I - 0x023903 11:B8F3: F0        .byte con_exit_1
+- D - I - 0x023900 11:B8F0: 36        .byte con_pause + $36
+- D - I - 0x023901 11:B8F1: 27        .byte con_bg + $27
+- D - I - 0x023902 11:B8F2: 10        .byte con_animation + $10
+- D - I - 0x023903 11:B8F3: F0        .byte con_cloud + $F0
 - D - I - 0x023904 11:B8F4: FA        .byte con_jsr
 - D - I - 0x023905 11:B8F5: 19 B5     .word sub_B519
-- D - I - 0x023907 11:B8F7: 64        .byte $64
-- D - I - 0x023908 11:B8F8: 32        .byte $32
-- D - I - 0x023909 11:B8F9: A8        .byte $A8
-- D - I - 0x02390A 11:B8FA: 8E        .byte $8E
-- D - I - 0x02390B 11:B8FB: 10        .byte $10
-- D - I - 0x02390C 11:B8FC: 0E        .byte $0E
-- D - I - 0x02390D 11:B8FD: D3        .byte $D3
-- D - I - 0x02390E 11:B8FE: 00        .byte $00
+- D - I - 0x023907 11:B8F7: 64        .byte con_pause + $64
+- D - I - 0x023908 11:B8F8: 32        .byte con_bg + $32
+- D - I - 0x023909 11:B8F9: A8        .byte con_animation + $A8
+- D - I - 0x02390A 11:B8FA: 8E        .byte con_cloud + $8E
+- D - I - 0x02390B 11:B8FB: 10        .byte con_pause + $10
+- D - I - 0x02390C 11:B8FC: 0E        .byte con_bg + $0E
+- D - I - 0x02390D 11:B8FD: D3        .byte con_animation + $D3
+- D - I - 0x02390E 11:B8FE: 00        .byte con_cloud + $00
 - D - I - 0x02390F 11:B8FF: F7        .byte con_F7, $03
 - D - I - 0x023911 11:B901: F9        .byte con_delay_soundID, $02, $61
-- D - I - 0x023914 11:B904: 64        .byte $64
-- D - I - 0x023915 11:B905: 07        .byte $07
-- D - I - 0x023916 11:B906: 45        .byte $45
-- D - I - 0x023917 11:B907: 28        .byte $28
-- D - I - 0x023918 11:B908: 01        .byte $01
-- D - I - 0x023919 11:B909: F0        .byte con_exit_1
-- D - I - 0x02391A 11:B90A: F0        .byte con_exit_1
-- D - I - 0x02391B 11:B90B: 00        .byte $00
-- D - I - 0x02391C 11:B90C: 6E        .byte $6E
-- D - I - 0x02391D 11:B90D: 32        .byte $32
-- D - I - 0x02391E 11:B90E: A8        .byte $A8
-- D - I - 0x02391F 11:B90F: 87        .byte $87
+- D - I - 0x023914 11:B904: 64        .byte con_pause + $64
+- D - I - 0x023915 11:B905: 07        .byte con_bg + $07
+- D - I - 0x023916 11:B906: 45        .byte con_animation + $45
+- D - I - 0x023917 11:B907: 28        .byte con_cloud + $28
+- D - I - 0x023918 11:B908: 01        .byte con_pause + $01
+- D - I - 0x023919 11:B909: F0        .byte con_bg + $F0
+- D - I - 0x02391A 11:B90A: F0        .byte con_animation + $F0
+- D - I - 0x02391B 11:B90B: 00        .byte con_cloud + $00
+- D - I - 0x02391C 11:B90C: 6E        .byte con_pause + $6E
+- D - I - 0x02391D 11:B90D: 32        .byte con_bg + $32
+- D - I - 0x02391E 11:B90E: A8        .byte con_animation + $A8
+- D - I - 0x02391F 11:B90F: 87        .byte con_cloud + $87
 - D - I - 0x023920 11:B910: F2        .byte con_jmp
 - D - I - 0x023921 11:B911: C7 BB     .word loc_BBC7
 
 bra_long_case_B913_01:
-- D - I - 0x023923 11:B913: 3C        .byte $3C
-- D - I - 0x023924 11:B914: 30        .byte $30
-- D - I - 0x023925 11:B915: 91        .byte $91
-- D - I - 0x023926 11:B916: 8E        .byte $8E
+- D - I - 0x023923 11:B913: 3C        .byte con_pause + $3C
+- D - I - 0x023924 11:B914: 30        .byte con_bg + $30
+- D - I - 0x023925 11:B915: 91        .byte con_animation + $91
+- D - I - 0x023926 11:B916: 8E        .byte con_cloud + $8E
 loc_B917:
 - D - I - 0x023927 11:B917: FA        .byte con_jsr
 - D - I - 0x023928 11:B918: C7 BB     .word sub_BBC7
@@ -13474,324 +13481,324 @@ bra_long_case_B91A_00:
 - D - I - 0x02392A 11:B91A: FB        .byte con_rts
 
 bra_long_case_B91B_02:
-- D - I - 0x02392B 11:B91B: 3C        .byte $3C
-- D - I - 0x02392C 11:B91C: 30        .byte $30
-- D - I - 0x02392D 11:B91D: 96        .byte $96
-- D - I - 0x02392E 11:B91E: 8E        .byte $8E
+- D - I - 0x02392B 11:B91B: 3C        .byte con_pause + $3C
+- D - I - 0x02392C 11:B91C: 30        .byte con_bg + $30
+- D - I - 0x02392D 11:B91D: 96        .byte con_animation + $96
+- D - I - 0x02392E 11:B91E: 8E        .byte con_cloud + $8E
 - D - I - 0x02392F 11:B91F: F2        .byte con_jmp
 - D - I - 0x023930 11:B920: 17 B9     .word loc_B917
 
 bra_long_case_B922_03:
-- - - - - 0x023932 11:B922: 3C        .byte $3C
-- - - - - 0x023933 11:B923: 30        .byte $30
-- - - - - 0x023934 11:B924: 97        .byte $97
-- - - - - 0x023935 11:B925: 8E        .byte $8E
+- - - - - 0x023932 11:B922: 3C        .byte con_pause + $3C
+- - - - - 0x023933 11:B923: 30        .byte con_bg + $30
+- - - - - 0x023934 11:B924: 97        .byte con_animation + $97
+- - - - - 0x023935 11:B925: 8E        .byte con_cloud + $8E
 - - - - - 0x023936 11:B926: F2        .byte con_jmp
 - - - - - 0x023937 11:B927: 17 B9     .word loc_B917
 
 bra_long_case_B929_04:
-- D - I - 0x023939 11:B929: 3C        .byte $3C
-- D - I - 0x02393A 11:B92A: 31        .byte $31
-- D - I - 0x02393B 11:B92B: 9E        .byte $9E
-- D - I - 0x02393C 11:B92C: 8E        .byte $8E
+- D - I - 0x023939 11:B929: 3C        .byte con_pause + $3C
+- D - I - 0x02393A 11:B92A: 31        .byte con_bg + $31
+- D - I - 0x02393B 11:B92B: 9E        .byte con_animation + $9E
+- D - I - 0x02393C 11:B92C: 8E        .byte con_cloud + $8E
 - D - I - 0x02393D 11:B92D: F2        .byte con_jmp
 - D - I - 0x02393E 11:B92E: 17 B9     .word loc_B917
 
 bra_long_case_B930_05:
-- - - - - 0x023940 11:B930: 3C        .byte $3C
-- - - - - 0x023941 11:B931: 31        .byte $31
-- - - - - 0x023942 11:B932: B0        .byte $B0
-- - - - - 0x023943 11:B933: 8E        .byte $8E
+- - - - - 0x023940 11:B930: 3C        .byte con_pause + $3C
+- - - - - 0x023941 11:B931: 31        .byte con_bg + $31
+- - - - - 0x023942 11:B932: B0        .byte con_animation + $B0
+- - - - - 0x023943 11:B933: 8E        .byte con_cloud + $8E
 - - - - - 0x023944 11:B934: F2        .byte con_jmp
 - - - - - 0x023945 11:B935: 17 B9     .word loc_B917
 
 bra_long_case_B937_06:
-- D - I - 0x023947 11:B937: 3C        .byte $3C
-- D - I - 0x023948 11:B938: 30        .byte $30
-- D - I - 0x023949 11:B939: A3        .byte $A3
-- D - I - 0x02394A 11:B93A: 8E        .byte $8E
+- D - I - 0x023947 11:B937: 3C        .byte con_pause + $3C
+- D - I - 0x023948 11:B938: 30        .byte con_bg + $30
+- D - I - 0x023949 11:B939: A3        .byte con_animation + $A3
+- D - I - 0x02394A 11:B93A: 8E        .byte con_cloud + $8E
 - D - I - 0x02394B 11:B93B: F2        .byte con_jmp
 - D - I - 0x02394C 11:B93C: 17 B9     .word loc_B917
 
 bra_long_case_B93E_07:
-- - - - - 0x02394E 11:B93E: 3C        .byte $3C
-- - - - - 0x02394F 11:B93F: 30        .byte $30
-- - - - - 0x023950 11:B940: AE        .byte $AE
-- - - - - 0x023951 11:B941: 8E        .byte $8E
+- - - - - 0x02394E 11:B93E: 3C        .byte con_pause + $3C
+- - - - - 0x02394F 11:B93F: 30        .byte con_bg + $30
+- - - - - 0x023950 11:B940: AE        .byte con_animation + $AE
+- - - - - 0x023951 11:B941: 8E        .byte con_cloud + $8E
 - - - - - 0x023952 11:B942: F2        .byte con_jmp
 - - - - - 0x023953 11:B943: 17 B9     .word loc_B917
 
 bra_long_case_B945_08:
-- D - I - 0x023955 11:B945: 3C        .byte $3C
-- D - I - 0x023956 11:B946: 30        .byte $30
-- D - I - 0x023957 11:B947: A1        .byte $A1
-- D - I - 0x023958 11:B948: 8E        .byte $8E
+- D - I - 0x023955 11:B945: 3C        .byte con_pause + $3C
+- D - I - 0x023956 11:B946: 30        .byte con_bg + $30
+- D - I - 0x023957 11:B947: A1        .byte con_animation + $A1
+- D - I - 0x023958 11:B948: 8E        .byte con_cloud + $8E
 - D - I - 0x023959 11:B949: F2        .byte con_jmp
 - D - I - 0x02395A 11:B94A: 17 B9     .word loc_B917
 
 bra_long_case_B94C_09:
-- - - - - 0x02395C 11:B94C: 3C        .byte $3C
-- - - - - 0x02395D 11:B94D: 30        .byte $30
-- - - - - 0x02395E 11:B94E: AF        .byte $AF
-- - - - - 0x02395F 11:B94F: 8E        .byte $8E
+- - - - - 0x02395C 11:B94C: 3C        .byte con_pause + $3C
+- - - - - 0x02395D 11:B94D: 30        .byte con_bg + $30
+- - - - - 0x02395E 11:B94E: AF        .byte con_animation + $AF
+- - - - - 0x02395F 11:B94F: 8E        .byte con_cloud + $8E
 - - - - - 0x023960 11:B950: F2        .byte con_jmp
 - - - - - 0x023961 11:B951: 17 B9     .word loc_B917
 
 bra_long_case_B953_0A:
-- D - I - 0x023963 11:B953: 3C        .byte $3C
-- D - I - 0x023964 11:B954: 30        .byte $30
-- D - I - 0x023965 11:B955: 98        .byte $98
-- D - I - 0x023966 11:B956: 8F        .byte $8F
+- D - I - 0x023963 11:B953: 3C        .byte con_pause + $3C
+- D - I - 0x023964 11:B954: 30        .byte con_bg + $30
+- D - I - 0x023965 11:B955: 98        .byte con_animation + $98
+- D - I - 0x023966 11:B956: 8F        .byte con_cloud + $8F
 - D - I - 0x023967 11:B957: F2        .byte con_jmp
 - D - I - 0x023968 11:B958: 17 B9     .word loc_B917
 
 bra_long_case_B95A_0B:
-- D - I - 0x02396A 11:B95A: 3C        .byte $3C
-- D - I - 0x02396B 11:B95B: 30        .byte $30
-- D - I - 0x02396C 11:B95C: 99        .byte $99
-- D - I - 0x02396D 11:B95D: 8F        .byte $8F
+- D - I - 0x02396A 11:B95A: 3C        .byte con_pause + $3C
+- D - I - 0x02396B 11:B95B: 30        .byte con_bg + $30
+- D - I - 0x02396C 11:B95C: 99        .byte con_animation + $99
+- D - I - 0x02396D 11:B95D: 8F        .byte con_cloud + $8F
 - D - I - 0x02396E 11:B95E: F2        .byte con_jmp
 - D - I - 0x02396F 11:B95F: 17 B9     .word loc_B917
 
 bra_long_case_B961_0C:
-- D - I - 0x023971 11:B961: 3C        .byte $3C
-- D - I - 0x023972 11:B962: 30        .byte $30
-- D - I - 0x023973 11:B963: 9F        .byte $9F
-- D - I - 0x023974 11:B964: 90        .byte $90
+- D - I - 0x023971 11:B961: 3C        .byte con_pause + $3C
+- D - I - 0x023972 11:B962: 30        .byte con_bg + $30
+- D - I - 0x023973 11:B963: 9F        .byte con_animation + $9F
+- D - I - 0x023974 11:B964: 90        .byte con_cloud + $90
 - D - I - 0x023975 11:B965: F2        .byte con_jmp
 - D - I - 0x023976 11:B966: 17 B9     .word loc_B917
 
 bra_long_case_B968_0D:
-- - - - - 0x023978 11:B968: 3C        .byte $3C
-- - - - - 0x023979 11:B969: 30        .byte $30
-- - - - - 0x02397A 11:B96A: AD        .byte $AD
-- - - - - 0x02397B 11:B96B: 90        .byte $90
+- - - - - 0x023978 11:B968: 3C        .byte con_pause + $3C
+- - - - - 0x023979 11:B969: 30        .byte con_bg + $30
+- - - - - 0x02397A 11:B96A: AD        .byte con_animation + $AD
+- - - - - 0x02397B 11:B96B: 90        .byte con_cloud + $90
 - - - - - 0x02397C 11:B96C: F2        .byte con_jmp
 - - - - - 0x02397D 11:B96D: 17 B9     .word loc_B917
 
 bra_long_case_B96F_0E:
-- D - I - 0x02397F 11:B96F: 3C        .byte $3C
-- D - I - 0x023980 11:B970: 30        .byte $30
-- D - I - 0x023981 11:B971: A0        .byte $A0
-- D - I - 0x023982 11:B972: 91        .byte $91
+- D - I - 0x02397F 11:B96F: 3C        .byte con_pause + $3C
+- D - I - 0x023980 11:B970: 30        .byte con_bg + $30
+- D - I - 0x023981 11:B971: A0        .byte con_animation + $A0
+- D - I - 0x023982 11:B972: 91        .byte con_cloud + $91
 - D - I - 0x023983 11:B973: F2        .byte con_jmp
 - D - I - 0x023984 11:B974: 17 B9     .word loc_B917
 
 bra_long_case_B976_0F:
-- D - I - 0x023986 11:B976: 3C        .byte $3C
-- D - I - 0x023987 11:B977: 30        .byte $30
-- D - I - 0x023988 11:B978: AA        .byte $AA
-- D - I - 0x023989 11:B979: 91        .byte $91
+- D - I - 0x023986 11:B976: 3C        .byte con_pause + $3C
+- D - I - 0x023987 11:B977: 30        .byte con_bg + $30
+- D - I - 0x023988 11:B978: AA        .byte con_animation + $AA
+- D - I - 0x023989 11:B979: 91        .byte con_cloud + $91
 - D - I - 0x02398A 11:B97A: F2        .byte con_jmp
 - D - I - 0x02398B 11:B97B: 17 B9     .word loc_B917
 
 bra_long_case_B97D_10:
-- D - I - 0x02398D 11:B97D: 3C        .byte $3C
-- D - I - 0x02398E 11:B97E: 30        .byte $30
-- D - I - 0x02398F 11:B97F: 9C        .byte $9C
-- D - I - 0x023990 11:B980: 92        .byte $92
+- D - I - 0x02398D 11:B97D: 3C        .byte con_pause + $3C
+- D - I - 0x02398E 11:B97E: 30        .byte con_bg + $30
+- D - I - 0x02398F 11:B97F: 9C        .byte con_animation + $9C
+- D - I - 0x023990 11:B980: 92        .byte con_cloud + $92
 - D - I - 0x023991 11:B981: F2        .byte con_jmp
 - D - I - 0x023992 11:B982: 17 B9     .word loc_B917
 
 bra_long_case_B984_11:
-- D - I - 0x023994 11:B984: 3C        .byte $3C
-- D - I - 0x023995 11:B985: 30        .byte $30
-- D - I - 0x023996 11:B986: AB        .byte $AB
-- D - I - 0x023997 11:B987: 92        .byte $92
+- D - I - 0x023994 11:B984: 3C        .byte con_pause + $3C
+- D - I - 0x023995 11:B985: 30        .byte con_bg + $30
+- D - I - 0x023996 11:B986: AB        .byte con_animation + $AB
+- D - I - 0x023997 11:B987: 92        .byte con_cloud + $92
 - D - I - 0x023998 11:B988: F2        .byte con_jmp
 - D - I - 0x023999 11:B989: 17 B9     .word loc_B917
 
 bra_long_case_B98B_12:
-- - - - - 0x02399B 11:B98B: 3C        .byte $3C
-- - - - - 0x02399C 11:B98C: 30        .byte $30
-- - - - - 0x02399D 11:B98D: 9A        .byte $9A
-- - - - - 0x02399E 11:B98E: 93        .byte $93
+- - - - - 0x02399B 11:B98B: 3C        .byte con_pause + $3C
+- - - - - 0x02399C 11:B98C: 30        .byte con_bg + $30
+- - - - - 0x02399D 11:B98D: 9A        .byte con_animation + $9A
+- - - - - 0x02399E 11:B98E: 93        .byte con_cloud + $93
 - - - - - 0x02399F 11:B98F: F2        .byte con_jmp
 - - - - - 0x0239A0 11:B990: 17 B9     .word loc_B917
 
 bra_long_case_B992_13:
-- - - - - 0x0239A2 11:B992: 3C        .byte $3C
-- - - - - 0x0239A3 11:B993: 30        .byte $30
-- - - - - 0x0239A4 11:B994: 9B        .byte $9B
-- - - - - 0x0239A5 11:B995: 93        .byte $93
+- - - - - 0x0239A2 11:B992: 3C        .byte con_pause + $3C
+- - - - - 0x0239A3 11:B993: 30        .byte con_bg + $30
+- - - - - 0x0239A4 11:B994: 9B        .byte con_animation + $9B
+- - - - - 0x0239A5 11:B995: 93        .byte con_cloud + $93
 - - - - - 0x0239A6 11:B996: F2        .byte con_jmp
 - - - - - 0x0239A7 11:B997: 17 B9     .word loc_B917
 
 bra_long_case_B999_14:
-- - - - - 0x0239A9 11:B999: 3C        .byte $3C
-- - - - - 0x0239AA 11:B99A: 30        .byte $30
-- - - - - 0x0239AB 11:B99B: A2        .byte $A2
-- - - - - 0x0239AC 11:B99C: 8E        .byte $8E
+- - - - - 0x0239A9 11:B999: 3C        .byte con_pause + $3C
+- - - - - 0x0239AA 11:B99A: 30        .byte con_bg + $30
+- - - - - 0x0239AB 11:B99B: A2        .byte con_animation + $A2
+- - - - - 0x0239AC 11:B99C: 8E        .byte con_cloud + $8E
 - - - - - 0x0239AD 11:B99D: F2        .byte con_jmp
 - - - - - 0x0239AE 11:B99E: 17 B9     .word loc_B917
 
 bra_long_case_B9A0_15:
-- - - - - 0x0239B0 11:B9A0: 3C        .byte $3C
-- - - - - 0x0239B1 11:B9A1: 30        .byte $30
-- - - - - 0x0239B2 11:B9A2: B1        .byte $B1
-- - - - - 0x0239B3 11:B9A3: 8E        .byte $8E
+- - - - - 0x0239B0 11:B9A0: 3C        .byte con_pause + $3C
+- - - - - 0x0239B1 11:B9A1: 30        .byte con_bg + $30
+- - - - - 0x0239B2 11:B9A2: B1        .byte con_animation + $B1
+- - - - - 0x0239B3 11:B9A3: 8E        .byte con_cloud + $8E
 - - - - - 0x0239B4 11:B9A4: F2        .byte con_jmp
 - - - - - 0x0239B5 11:B9A5: 17 B9     .word loc_B917
 
 bra_long_case_B9A7_16:
-- - - - - 0x0239B7 11:B9A7: 3C        .byte $3C
-- - - - - 0x0239B8 11:B9A8: 30        .byte $30
-- - - - - 0x0239B9 11:B9A9: BC        .byte $BC
-- - - - - 0x0239BA 11:B9AA: 8E        .byte $8E
+- - - - - 0x0239B7 11:B9A7: 3C        .byte con_pause + $3C
+- - - - - 0x0239B8 11:B9A8: 30        .byte con_bg + $30
+- - - - - 0x0239B9 11:B9A9: BC        .byte con_animation + $BC
+- - - - - 0x0239BA 11:B9AA: 8E        .byte con_cloud + $8E
 - - - - - 0x0239BB 11:B9AB: F2        .byte con_jmp
 - - - - - 0x0239BC 11:B9AC: 17 B9     .word loc_B917
 
 bra_long_case_B9AE_17:
-- - - - - 0x0239BE 11:B9AE: 3C        .byte $3C
-- - - - - 0x0239BF 11:B9AF: 30        .byte $30
-- - - - - 0x0239C0 11:B9B0: A9        .byte $A9
-- - - - - 0x0239C1 11:B9B1: 8E        .byte $8E
+- - - - - 0x0239BE 11:B9AE: 3C        .byte con_pause + $3C
+- - - - - 0x0239BF 11:B9AF: 30        .byte con_bg + $30
+- - - - - 0x0239C0 11:B9B0: A9        .byte con_animation + $A9
+- - - - - 0x0239C1 11:B9B1: 8E        .byte con_cloud + $8E
 - - - - - 0x0239C2 11:B9B2: F2        .byte con_jmp
 - - - - - 0x0239C3 11:B9B3: 17 B9     .word loc_B917
 
 bra_long_case_B9B5_18:
-- D - I - 0x0239C5 11:B9B5: 3C        .byte $3C
-- D - I - 0x0239C6 11:B9B6: 30        .byte $30
-- D - I - 0x0239C7 11:B9B7: BB        .byte $BB
-- D - I - 0x0239C8 11:B9B8: 8E        .byte $8E
+- D - I - 0x0239C5 11:B9B5: 3C        .byte con_pause + $3C
+- D - I - 0x0239C6 11:B9B6: 30        .byte con_bg + $30
+- D - I - 0x0239C7 11:B9B7: BB        .byte con_animation + $BB
+- D - I - 0x0239C8 11:B9B8: 8E        .byte con_cloud + $8E
 - D - I - 0x0239C9 11:B9B9: F2        .byte con_jmp
 - D - I - 0x0239CA 11:B9BA: 17 B9     .word loc_B917
 
 bra_long_case_B9BC_19:
-- - - - - 0x0239CC 11:B9BC: 3C        .byte $3C
-- - - - - 0x0239CD 11:B9BD: 30        .byte $30
-- - - - - 0x0239CE 11:B9BE: B8        .byte $B8
-- - - - - 0x0239CF 11:B9BF: 8E        .byte $8E
+- - - - - 0x0239CC 11:B9BC: 3C        .byte con_pause + $3C
+- - - - - 0x0239CD 11:B9BD: 30        .byte con_bg + $30
+- - - - - 0x0239CE 11:B9BE: B8        .byte con_animation + $B8
+- - - - - 0x0239CF 11:B9BF: 8E        .byte con_cloud + $8E
 - - - - - 0x0239D0 11:B9C0: F2        .byte con_jmp
 - - - - - 0x0239D1 11:B9C1: 17 B9     .word loc_B917
 
 bra_long_case_B9C3_1A:
-- D - I - 0x0239D3 11:B9C3: 40        .byte $40
-- D - I - 0x0239D4 11:B9C4: 30        .byte $30
-- D - I - 0x0239D5 11:B9C5: B3        .byte $B3
-- D - I - 0x0239D6 11:B9C6: 94        .byte $94
+- D - I - 0x0239D3 11:B9C3: 40        .byte con_pause + $40
+- D - I - 0x0239D4 11:B9C4: 30        .byte con_bg + $30
+- D - I - 0x0239D5 11:B9C5: B3        .byte con_animation + $B3
+- D - I - 0x0239D6 11:B9C6: 94        .byte con_cloud + $94
 - D - I - 0x0239D7 11:B9C7: F2        .byte con_jmp
 - D - I - 0x0239D8 11:B9C8: 17 B9     .word loc_B917
 
 bra_long_case_B9CA_1B:
-- D - I - 0x0239DA 11:B9CA: 3C        .byte $3C
-- D - I - 0x0239DB 11:B9CB: 30        .byte $30
-- D - I - 0x0239DC 11:B9CC: BA        .byte $BA
-- D - I - 0x0239DD 11:B9CD: 8E        .byte $8E
+- D - I - 0x0239DA 11:B9CA: 3C        .byte con_pause + $3C
+- D - I - 0x0239DB 11:B9CB: 30        .byte con_bg + $30
+- D - I - 0x0239DC 11:B9CC: BA        .byte con_animation + $BA
+- D - I - 0x0239DD 11:B9CD: 8E        .byte con_cloud + $8E
 - D - I - 0x0239DE 11:B9CE: F2        .byte con_jmp
 - D - I - 0x0239DF 11:B9CF: 17 B9     .word loc_B917
 
 bra_long_case_B9D1_1C:
-- D - I - 0x0239E1 11:B9D1: 3C        .byte $3C
-- D - I - 0x0239E2 11:B9D2: 30        .byte $30
-- D - I - 0x0239E3 11:B9D3: B7        .byte $B7
-- D - I - 0x0239E4 11:B9D4: 8E        .byte $8E
+- D - I - 0x0239E1 11:B9D1: 3C        .byte con_pause + $3C
+- D - I - 0x0239E2 11:B9D2: 30        .byte con_bg + $30
+- D - I - 0x0239E3 11:B9D3: B7        .byte con_animation + $B7
+- D - I - 0x0239E4 11:B9D4: 8E        .byte con_cloud + $8E
 - D - I - 0x0239E5 11:B9D5: F2        .byte con_jmp
 - D - I - 0x0239E6 11:B9D6: 17 B9     .word loc_B917
 
 bra_long_case_B9D8_1D:
-- - - - - 0x0239E8 11:B9D8: 3C        .byte $3C
-- - - - - 0x0239E9 11:B9D9: 30        .byte $30
-- - - - - 0x0239EA 11:B9DA: B6        .byte $B6
-- - - - - 0x0239EB 11:B9DB: 8E        .byte $8E
+- - - - - 0x0239E8 11:B9D8: 3C        .byte con_pause + $3C
+- - - - - 0x0239E9 11:B9D9: 30        .byte con_bg + $30
+- - - - - 0x0239EA 11:B9DA: B6        .byte con_animation + $B6
+- - - - - 0x0239EB 11:B9DB: 8E        .byte con_cloud + $8E
 - - - - - 0x0239EC 11:B9DC: F2        .byte con_jmp
 - - - - - 0x0239ED 11:B9DD: 17 B9     .word loc_B917
 
 bra_long_case_B9DF_1E:
-- - - - - 0x0239EF 11:B9DF: 3C        .byte $3C
-- - - - - 0x0239F0 11:B9E0: 30        .byte $30
-- - - - - 0x0239F1 11:B9E1: B5        .byte $B5
-- - - - - 0x0239F2 11:B9E2: 8E        .byte $8E
+- - - - - 0x0239EF 11:B9DF: 3C        .byte con_pause + $3C
+- - - - - 0x0239F0 11:B9E0: 30        .byte con_bg + $30
+- - - - - 0x0239F1 11:B9E1: B5        .byte con_animation + $B5
+- - - - - 0x0239F2 11:B9E2: 8E        .byte con_cloud + $8E
 - - - - - 0x0239F3 11:B9E3: F2        .byte con_jmp
 - - - - - 0x0239F4 11:B9E4: 17 B9     .word loc_B917
 
 bra_long_case_B9E6_1F:
-- D - I - 0x0239F6 11:B9E6: 3C        .byte $3C
-- D - I - 0x0239F7 11:B9E7: 30        .byte $30
-- D - I - 0x0239F8 11:B9E8: B4        .byte $B4
-- D - I - 0x0239F9 11:B9E9: 95        .byte $95
+- D - I - 0x0239F6 11:B9E6: 3C        .byte con_pause + $3C
+- D - I - 0x0239F7 11:B9E7: 30        .byte con_bg + $30
+- D - I - 0x0239F8 11:B9E8: B4        .byte con_animation + $B4
+- D - I - 0x0239F9 11:B9E9: 95        .byte con_cloud + $95
 - D - I - 0x0239FA 11:B9EA: F2        .byte con_jmp
 - D - I - 0x0239FB 11:B9EB: 17 B9     .word loc_B917
 
 bra_long_case_B9ED_20:
-- - - - - 0x0239FD 11:B9ED: 3C        .byte $3C
-- - - - - 0x0239FE 11:B9EE: 30        .byte $30
-- - - - - 0x0239FF 11:B9EF: B2        .byte $B2
-- - - - - 0x023A00 11:B9F0: 8E        .byte $8E
+- - - - - 0x0239FD 11:B9ED: 3C        .byte con_pause + $3C
+- - - - - 0x0239FE 11:B9EE: 30        .byte con_bg + $30
+- - - - - 0x0239FF 11:B9EF: B2        .byte con_animation + $B2
+- - - - - 0x023A00 11:B9F0: 8E        .byte con_cloud + $8E
 - - - - - 0x023A01 11:B9F1: F2        .byte con_jmp
 - - - - - 0x023A02 11:B9F2: 17 B9     .word loc_B917
 
 bra_long_case_B9F4_21:
-- D - I - 0x023A04 11:B9F4: 40        .byte $40
-- D - I - 0x023A05 11:B9F5: 30        .byte $30
-- D - I - 0x023A06 11:B9F6: B9        .byte $B9
-- D - I - 0x023A07 11:B9F7: 94        .byte $94
+- D - I - 0x023A04 11:B9F4: 40        .byte con_pause + $40
+- D - I - 0x023A05 11:B9F5: 30        .byte con_bg + $30
+- D - I - 0x023A06 11:B9F6: B9        .byte con_animation + $B9
+- D - I - 0x023A07 11:B9F7: 94        .byte con_cloud + $94
 - D - I - 0x023A08 11:B9F8: F2        .byte con_jmp
 - D - I - 0x023A09 11:B9F9: 17 B9     .word loc_B917
 
 ofs_B9FB_01:
-- D - I - 0x023A0B 11:B9FB: 01        .byte $01
-- D - I - 0x023A0C 11:B9FC: 71        .byte $71
-- D - I - 0x023A0D 11:B9FD: 00        .byte $00
-- D - I - 0x023A0E 11:B9FE: 00        .byte $00
+- D - I - 0x023A0B 11:B9FB: 01        .byte con_pause + $01
+- D - I - 0x023A0C 11:B9FC: 71        .byte con_bg + $71
+- D - I - 0x023A0D 11:B9FD: 00        .byte con_animation + $00
+- D - I - 0x023A0E 11:B9FE: 00        .byte con_cloud + $00
 - D - I - 0x023A0F 11:B9FF: F7        .byte con_F7, $1F
 - D - I - 0x023A11 11:BA01: F9        .byte con_delay_soundID, $02, $30
-- D - I - 0x023A14 11:BA04: A0        .byte $A0
-- D - I - 0x023A15 11:BA05: 30        .byte $30
-- D - I - 0x023A16 11:BA06: 91        .byte $91
-- D - I - 0x023A17 11:BA07: 96        .byte $96
+- D - I - 0x023A14 11:BA04: A0        .byte con_pause + $A0
+- D - I - 0x023A15 11:BA05: 30        .byte con_bg + $30
+- D - I - 0x023A16 11:BA06: 91        .byte con_animation + $91
+- D - I - 0x023A17 11:BA07: 96        .byte con_cloud + $96
 - D - I - 0x023A18 11:BA08: F7        .byte con_F7, $1F
-- D - I - 0x023A1A 11:BA0A: 80        .byte $80
-- D - I - 0x023A1B 11:BA0B: F0        .byte con_exit_1
-- D - I - 0x023A1C 11:BA0C: F0        .byte con_exit_1
-- D - I - 0x023A1D 11:BA0D: F0        .byte con_exit_1
+- D - I - 0x023A1A 11:BA0A: 80        .byte con_pause + $80
+- D - I - 0x023A1B 11:BA0B: F0        .byte con_bg + $F0
+- D - I - 0x023A1C 11:BA0C: F0        .byte con_animation + $F0
+- D - I - 0x023A1D 11:BA0D: F0        .byte con_cloud + $F0
 - D - I - 0x023A1E 11:BA0E: FA        .byte con_jsr
 - D - I - 0x023A1F 11:BA0F: C7 BB     .word sub_BBC7
 ofs_BA11_00:
 - D - I - 0x023A21 11:BA11: FB        .byte con_rts
 
 loc_BA12:
-- D - I - 0x023A22 11:BA12: 46        .byte $46
-- D - I - 0x023A23 11:BA13: F0        .byte con_exit_1
-- D - I - 0x023A24 11:BA14: F0        .byte con_exit_1
-- D - I - 0x023A25 11:BA15: 5E        .byte $5E
+- D - I - 0x023A22 11:BA12: 46        .byte con_pause + $46
+- D - I - 0x023A23 11:BA13: F0        .byte con_bg + $F0
+- D - I - 0x023A24 11:BA14: F0        .byte con_animation + $F0
+- D - I - 0x023A25 11:BA15: 5E        .byte con_cloud + $5E
 - D - I - 0x023A26 11:BA16: FB        .byte con_rts
 
 loc_BA17:
-- D - I - 0x023A27 11:BA17: 46        .byte $46
-- D - I - 0x023A28 11:BA18: F0        .byte con_exit_1
-- D - I - 0x023A29 11:BA19: F0        .byte con_exit_1
-- D - I - 0x023A2A 11:BA1A: 5F        .byte $5F
+- D - I - 0x023A27 11:BA17: 46        .byte con_pause + $46
+- D - I - 0x023A28 11:BA18: F0        .byte con_bg + $F0
+- D - I - 0x023A29 11:BA19: F0        .byte con_animation + $F0
+- D - I - 0x023A2A 11:BA1A: 5F        .byte con_cloud + $5F
 - D - I - 0x023A2B 11:BA1B: FB        .byte con_rts
 
 bra_long_case_BA1C_01:
 - D - I - 0x023A2C 11:BA1C: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x023A2F 11:BA1F: 4A        .byte $4A
-- D - I - 0x023A30 11:BA20: 63        .byte $63
-- D - I - 0x023A31 11:BA21: 6D        .byte $6D
-- D - I - 0x023A32 11:BA22: 14        .byte $14
+- D - I - 0x023A2F 11:BA1F: 4A        .byte con_pause + $4A
+- D - I - 0x023A30 11:BA20: 63        .byte con_bg + $63
+- D - I - 0x023A31 11:BA21: 6D        .byte con_animation + $6D
+- D - I - 0x023A32 11:BA22: 14        .byte con_cloud + $14
 - D - I - 0x023A33 11:BA23: FB        .byte con_rts
 
 bra_long_case_BA24_00:
 - D - I - 0x023A34 11:BA24: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x023A37 11:BA27: 46        .byte $46
-- D - I - 0x023A38 11:BA28: 01        .byte $01
-- D - I - 0x023A39 11:BA29: 6C        .byte $6C
-- D - I - 0x023A3A 11:BA2A: 14        .byte $14
+- D - I - 0x023A37 11:BA27: 46        .byte con_pause + $46
+- D - I - 0x023A38 11:BA28: 01        .byte con_bg + $01
+- D - I - 0x023A39 11:BA29: 6C        .byte con_animation + $6C
+- D - I - 0x023A3A 11:BA2A: 14        .byte con_cloud + $14
 - D - I - 0x023A3B 11:BA2B: FB        .byte con_rts
 
 sub_BA2C:
 - D - I - 0x023A3C 11:BA2C: F5        .byte con_mirror_off
-- D - I - 0x023A3D 11:BA2D: 28        .byte $28
-- D - I - 0x023A3E 11:BA2E: 12        .byte $12
-- D - I - 0x023A3F 11:BA2F: 61        .byte $61
-- D - I - 0x023A40 11:BA30: 72        .byte $72
+- D - I - 0x023A3D 11:BA2D: 28        .byte con_pause + $28
+- D - I - 0x023A3E 11:BA2E: 12        .byte con_bg + $12
+- D - I - 0x023A3F 11:BA2F: 61        .byte con_animation + $61
+- D - I - 0x023A40 11:BA30: 72        .byte con_cloud + $72
 - D - I - 0x023A41 11:BA31: F7        .byte con_F7, $0B
 - D - I - 0x023A43 11:BA33: F9        .byte con_delay_soundID, $02, $12
-- D - I - 0x023A46 11:BA36: 10        .byte $10
-- D - I - 0x023A47 11:BA37: 10        .byte $10
-- D - I - 0x023A48 11:BA38: 62        .byte $62
-- D - I - 0x023A49 11:BA39: F0        .byte con_exit_1
+- D - I - 0x023A46 11:BA36: 10        .byte con_pause + $10
+- D - I - 0x023A47 11:BA37: 10        .byte con_bg + $10
+- D - I - 0x023A48 11:BA38: 62        .byte con_animation + $62
+- D - I - 0x023A49 11:BA39: F0        .byte con_cloud + $F0
 - D - I - 0x023A4A 11:BA3A: FB        .byte con_rts
 
 
@@ -13804,19 +13811,19 @@ _scenario_BA3B_21:
 - D - I - 0x023A51 11:BA41: 0A        .byte bra_case_BA4B_01 - *
 
 bra_case_BA42_00:
-- D - I - 0x023A52 11:BA42: 0A        .byte $0A
-- D - I - 0x023A53 11:BA43: 38        .byte $38
-- D - I - 0x023A54 11:BA44: 00        .byte $00
-- D - I - 0x023A55 11:BA45: F0        .byte con_exit_1
+- D - I - 0x023A52 11:BA42: 0A        .byte con_pause + $0A
+- D - I - 0x023A53 11:BA43: 38        .byte con_bg + $38
+- D - I - 0x023A54 11:BA44: 00        .byte con_animation + $00
+- D - I - 0x023A55 11:BA45: F0        .byte con_cloud + $F0
 - D - I - 0x023A56 11:BA46: FE        .byte con_FE, $01
 - D - I - 0x023A58 11:BA48: F2        .byte con_jmp
 - D - I - 0x023A59 11:BA49: 54 BA     .word loc_BA54
 
 bra_case_BA4B_01:
-- D - I - 0x023A5B 11:BA4B: 0A        .byte $0A
-- D - I - 0x023A5C 11:BA4C: 37        .byte $37
-- D - I - 0x023A5D 11:BA4D: 00        .byte $00
-- D - I - 0x023A5E 11:BA4E: F0        .byte con_exit_1
+- D - I - 0x023A5B 11:BA4B: 0A        .byte con_pause + $0A
+- D - I - 0x023A5C 11:BA4C: 37        .byte con_bg + $37
+- D - I - 0x023A5D 11:BA4D: 00        .byte con_animation + $00
+- D - I - 0x023A5E 11:BA4E: F0        .byte con_cloud + $F0
 - D - I - 0x023A5F 11:BA4F: FE        .byte con_FE, $01
 ; bzk бесполезный прыжок
 - D - I - 0x023A61 11:BA51: F2        .byte con_jmp
@@ -13835,10 +13842,10 @@ loc_BA54:
 - D - I - 0x023A6E 11:BA5E: 01        .byte bra_case_BA5F_08 - *
 
 bra_case_BA5F_08:
-- D - I - 0x023A6F 11:BA5F: 32        .byte $32
-- D - I - 0x023A70 11:BA60: F0        .byte con_exit_1
-- D - I - 0x023A71 11:BA61: 86        .byte $86
-- D - I - 0x023A72 11:BA62: F0        .byte con_exit_1
+- D - I - 0x023A6F 11:BA5F: 32        .byte con_pause + $32
+- D - I - 0x023A70 11:BA60: F0        .byte con_bg + $F0
+- D - I - 0x023A71 11:BA61: 86        .byte con_animation + $86
+- D - I - 0x023A72 11:BA62: F0        .byte con_cloud + $F0
 loc_BA63:
 - D - I - 0x023A73 11:BA63: F3        .byte con_branch, $BF
 - - - - - 0x023A75 11:BA65: 11        .byte bra_case_BA76_00 - *
@@ -13852,10 +13859,10 @@ loc_BA68:
 - D - I - 0x023A7C 11:BA6C: 72        .byte bra_case_BADE_02 - *
 
 bra_case_BA6D_04:
-- D - I - 0x023A7D 11:BA6D: 32        .byte $32
-- D - I - 0x023A7E 11:BA6E: F0        .byte con_exit_1
-- D - I - 0x023A7F 11:BA6F: 8A        .byte $8A
-- D - I - 0x023A80 11:BA70: F0        .byte con_exit_1
+- D - I - 0x023A7D 11:BA6D: 32        .byte con_pause + $32
+- D - I - 0x023A7E 11:BA6E: F0        .byte con_bg + $F0
+- D - I - 0x023A7F 11:BA6F: 8A        .byte con_animation + $8A
+- D - I - 0x023A80 11:BA70: F0        .byte con_cloud + $F0
 - D - I - 0x023A81 11:BA71: F3        .byte con_branch, $BF
 - - - - - 0x023A83 11:BA73: 84        .byte bra_case_BAF7_00 - *
 - D - I - 0x023A84 11:BA74: 49        .byte bra_case_BABD_01 - *
@@ -13868,10 +13875,10 @@ bra_case_BA76_00:
 - - - - - 0x023A8A 11:BA7A: 18        .byte bra_case_BA92_02 - *
 
 bra_case_BA7B_00:
-- - - - - 0x023A8B 11:BA7B: 28        .byte $28
-- - - - - 0x023A8C 11:BA7C: 0E        .byte $0E
-- - - - - 0x023A8D 11:BA7D: 25        .byte $25
-- - - - - 0x023A8E 11:BA7E: F0        .byte con_exit_1
+- - - - - 0x023A8B 11:BA7B: 28        .byte con_pause + $28
+- - - - - 0x023A8C 11:BA7C: 0E        .byte con_bg + $0E
+- - - - - 0x023A8D 11:BA7D: 25        .byte con_animation + $25
+- - - - - 0x023A8E 11:BA7E: F0        .byte con_cloud + $F0
 loc_BA7F:
 bra_case_BA7F_00:
 - D - I - 0x023A8F 11:BA7F: F7        .byte con_F7, $03
@@ -13881,25 +13888,25 @@ bra_case_BA7F_00:
 - - - - - 0x023A97 11:BA87: 06        .byte bra_case_BA8D_01 - *
 
 bra_case_BA88_00:
-- D - I - 0x023A98 11:BA88: 64        .byte $64
-- D - I - 0x023A99 11:BA89: 07        .byte $07
-- D - I - 0x023A9A 11:BA8A: 44        .byte $44
-- D - I - 0x023A9B 11:BA8B: 28        .byte $28
+- D - I - 0x023A98 11:BA88: 64        .byte con_pause + $64
+- D - I - 0x023A99 11:BA89: 07        .byte con_bg + $07
+- D - I - 0x023A9A 11:BA8A: 44        .byte con_animation + $44
+- D - I - 0x023A9B 11:BA8B: 28        .byte con_cloud + $28
 - D - I - 0x023A9C 11:BA8C: FB        .byte con_rts
 
 bra_case_BA8D_01:
-- - - - - 0x023A9D 11:BA8D: 64        .byte $64
-- - - - - 0x023A9E 11:BA8E: 07        .byte $07
-- - - - - 0x023A9F 11:BA8F: 45        .byte $45
-- - - - - 0x023AA0 11:BA90: 28        .byte $28
+- - - - - 0x023A9D 11:BA8D: 64        .byte con_pause + $64
+- - - - - 0x023A9E 11:BA8E: 07        .byte con_bg + $07
+- - - - - 0x023A9F 11:BA8F: 45        .byte con_animation + $45
+- - - - - 0x023AA0 11:BA90: 28        .byte con_cloud + $28
 - - - - - 0x023AA1 11:BA91: FB        .byte con_rts
 
 bra_case_BA92_01:
 bra_case_BA92_02:
-- - - - - 0x023AA2 11:BA92: 28        .byte $28
-- - - - - 0x023AA3 11:BA93: 0F        .byte $0F
-- - - - - 0x023AA4 11:BA94: 26        .byte $26
-- - - - - 0x023AA5 11:BA95: F0        .byte con_exit_1
+- - - - - 0x023AA2 11:BA92: 28        .byte con_pause + $28
+- - - - - 0x023AA3 11:BA93: 0F        .byte con_bg + $0F
+- - - - - 0x023AA4 11:BA94: 26        .byte con_animation + $26
+- - - - - 0x023AA5 11:BA95: F0        .byte con_cloud + $F0
 - - - - - 0x023AA6 11:BA96: F2        .byte con_jmp
 - - - - - 0x023AA7 11:BA97: 7F BA     .word loc_BA7F
 
@@ -13914,49 +13921,49 @@ bra_case_BA9A_01:
 
 bra_case_BA9F_00:
 - D - I - 0x023AAF 11:BA9F: F9        .byte con_delay_soundID, $21, $2B
-- D - I - 0x023AB2 11:BAA2: 3C        .byte $3C
-- D - I - 0x023AB3 11:BAA3: 0E        .byte $0E
-- D - I - 0x023AB4 11:BAA4: 27        .byte $27
-- D - I - 0x023AB5 11:BAA5: DD        .byte $DD
+- D - I - 0x023AB2 11:BAA2: 3C        .byte con_pause + $3C
+- D - I - 0x023AB3 11:BAA3: 0E        .byte con_bg + $0E
+- D - I - 0x023AB4 11:BAA4: 27        .byte con_animation + $27
+- D - I - 0x023AB5 11:BAA5: DD        .byte con_cloud + $DD
 - D - I - 0x023AB6 11:BAA6: F9        .byte con_delay_soundID, $02, $7E
-- D - I - 0x023AB9 11:BAA9: 01        .byte $01
-- D - I - 0x023ABA 11:BAAA: F0        .byte con_exit_1
-- D - I - 0x023ABB 11:BAAB: F0        .byte con_exit_1
-- D - I - 0x023ABC 11:BAAC: F0        .byte con_exit_1
+- D - I - 0x023AB9 11:BAA9: 01        .byte con_pause + $01
+- D - I - 0x023ABA 11:BAAA: F0        .byte con_bg + $F0
+- D - I - 0x023ABB 11:BAAB: F0        .byte con_animation + $F0
+- D - I - 0x023ABC 11:BAAC: F0        .byte con_cloud + $F0
 - D - I - 0x023ABD 11:BAAD: FB        .byte con_rts
 
 bra_case_BAAE_01:
 bra_case_BAAE_02:
 - - - - - 0x023ABE 11:BAAE: F9        .byte con_delay_soundID, $21, $2B
-- - - - - 0x023AC1 11:BAB1: 3C        .byte $3C
-- - - - - 0x023AC2 11:BAB2: 0F        .byte $0F
-- - - - - 0x023AC3 11:BAB3: 2B        .byte $2B
-- - - - - 0x023AC4 11:BAB4: DD        .byte $DD
+- - - - - 0x023AC1 11:BAB1: 3C        .byte con_pause + $3C
+- - - - - 0x023AC2 11:BAB2: 0F        .byte con_bg + $0F
+- - - - - 0x023AC3 11:BAB3: 2B        .byte con_animation + $2B
+- - - - - 0x023AC4 11:BAB4: DD        .byte con_cloud + $DD
 - - - - - 0x023AC5 11:BAB5: F9        .byte con_delay_soundID, $02, $7E
-- - - - - 0x023AC8 11:BAB8: 01        .byte $01
-- - - - - 0x023AC9 11:BAB9: F0        .byte con_exit_1
-- - - - - 0x023ACA 11:BABA: F0        .byte con_exit_1
-- - - - - 0x023ACB 11:BABB: F0        .byte con_exit_1
+- - - - - 0x023AC8 11:BAB8: 01        .byte con_pause + $01
+- - - - - 0x023AC9 11:BAB9: F0        .byte con_bg + $F0
+- - - - - 0x023ACA 11:BABA: F0        .byte con_animation + $F0
+- - - - - 0x023ACB 11:BABB: F0        .byte con_cloud + $F0
 - - - - - 0x023ACC 11:BABC: FB        .byte con_rts
 
 bra_case_BABD_01:
 - D - I - 0x023ACD 11:BABD: F7        .byte con_F7, $07
 - D - I - 0x023ACF 11:BABF: F9        .byte con_delay_soundID, $21, $2A
-- D - I - 0x023AD2 11:BAC2: 20        .byte $20
-- D - I - 0x023AD3 11:BAC3: 40        .byte $40
-- D - I - 0x023AD4 11:BAC4: 17        .byte $17
-- D - I - 0x023AD5 11:BAC5: DD        .byte $DD
+- D - I - 0x023AD2 11:BAC2: 20        .byte con_pause + $20
+- D - I - 0x023AD3 11:BAC3: 40        .byte con_bg + $40
+- D - I - 0x023AD4 11:BAC4: 17        .byte con_animation + $17
+- D - I - 0x023AD5 11:BAC5: DD        .byte con_cloud + $DD
 - D - I - 0x023AD6 11:BAC6: F7        .byte con_F7, $10
-- D - I - 0x023AD8 11:BAC8: 10        .byte $10
-- D - I - 0x023AD9 11:BAC9: 05        .byte $05
-- D - I - 0x023ADA 11:BACA: 00        .byte $00
-- D - I - 0x023ADB 11:BACB: F0        .byte con_exit_1
+- D - I - 0x023AD8 11:BAC8: 10        .byte con_pause + $10
+- D - I - 0x023AD9 11:BAC9: 05        .byte con_bg + $05
+- D - I - 0x023ADA 11:BACA: 00        .byte con_animation + $00
+- D - I - 0x023ADB 11:BACB: F0        .byte con_cloud + $F0
 - D - I - 0x023ADC 11:BACC: F6        .byte con_mirror_toggle
 - D - I - 0x023ADD 11:BACD: F9        .byte con_delay_soundID, $02, $7E
-- D - I - 0x023AE0 11:BAD0: 3C        .byte $3C
-- D - I - 0x023AE1 11:BAD1: 20        .byte $20
-- D - I - 0x023AE2 11:BAD2: 52        .byte $52
-- D - I - 0x023AE3 11:BAD3: F0        .byte con_exit_1
+- D - I - 0x023AE0 11:BAD0: 3C        .byte con_pause + $3C
+- D - I - 0x023AE1 11:BAD1: 20        .byte con_bg + $20
+- D - I - 0x023AE2 11:BAD2: 52        .byte con_animation + $52
+- D - I - 0x023AE3 11:BAD3: F0        .byte con_cloud + $F0
 - D - I - 0x023AE4 11:BAD4: FB        .byte con_rts
 
 bra_case_BAD5_02:
@@ -13966,78 +13973,78 @@ bra_case_BAD5_02:
 - - - - - 0x023AE9 11:BAD9: 16        .byte bra_case_BAEF_02 - *
 
 bra_case_BADA_00:
-- - - - - 0x023AEA 11:BADA: 28        .byte $28
-- - - - - 0x023AEB 11:BADB: 0E        .byte $0E
-- - - - - 0x023AEC 11:BADC: 25        .byte $25
-- - - - - 0x023AED 11:BADD: F0        .byte con_exit_1
+- - - - - 0x023AEA 11:BADA: 28        .byte con_pause + $28
+- - - - - 0x023AEB 11:BADB: 0E        .byte con_bg + $0E
+- - - - - 0x023AEC 11:BADC: 25        .byte con_animation + $25
+- - - - - 0x023AED 11:BADD: F0        .byte con_cloud + $F0
 loc_BADE:
 bra_case_BADE_02:
 - D - I - 0x023AEE 11:BADE: F7        .byte con_F7, $1F
 - D - I - 0x023AF0 11:BAE0: F9        .byte con_delay_soundID, $02, $63
-- D - I - 0x023AF3 11:BAE3: 10        .byte $10
-- D - I - 0x023AF4 11:BAE4: 06        .byte $06
-- D - I - 0x023AF5 11:BAE5: 43        .byte $43
-- D - I - 0x023AF6 11:BAE6: 18        .byte $18
+- D - I - 0x023AF3 11:BAE3: 10        .byte con_pause + $10
+- D - I - 0x023AF4 11:BAE4: 06        .byte con_bg + $06
+- D - I - 0x023AF5 11:BAE5: 43        .byte con_animation + $43
+- D - I - 0x023AF6 11:BAE6: 18        .byte con_cloud + $18
 - D - I - 0x023AF7 11:BAE7: F9        .byte con_delay_soundID, $02, $7E
-- D - I - 0x023AFA 11:BAEA: 3C        .byte $3C
-- D - I - 0x023AFB 11:BAEB: 1E        .byte $1E
-- D - I - 0x023AFC 11:BAEC: 42        .byte $42
-- D - I - 0x023AFD 11:BAED: F0        .byte con_exit_1
+- D - I - 0x023AFA 11:BAEA: 3C        .byte con_pause + $3C
+- D - I - 0x023AFB 11:BAEB: 1E        .byte con_bg + $1E
+- D - I - 0x023AFC 11:BAEC: 42        .byte con_animation + $42
+- D - I - 0x023AFD 11:BAED: F0        .byte con_cloud + $F0
 - D - I - 0x023AFE 11:BAEE: FB        .byte con_rts
 
 bra_case_BAEF_01:
 bra_case_BAEF_02:
-- - - - - 0x023AFF 11:BAEF: 28        .byte $28
-- - - - - 0x023B00 11:BAF0: 0F        .byte $0F
-- - - - - 0x023B01 11:BAF1: 26        .byte $26
-- - - - - 0x023B02 11:BAF2: F0        .byte con_exit_1
+- - - - - 0x023AFF 11:BAEF: 28        .byte con_pause + $28
+- - - - - 0x023B00 11:BAF0: 0F        .byte con_bg + $0F
+- - - - - 0x023B01 11:BAF1: 26        .byte con_animation + $26
+- - - - - 0x023B02 11:BAF2: F0        .byte con_cloud + $F0
 - - - - - 0x023B03 11:BAF3: F2        .byte con_jmp
 - - - - - 0x023B04 11:BAF4: DE BA     .word loc_BADE
 - - - - - 0x023B06 11:BAF6: FB        .byte con_rts
 
 bra_case_BAF7_00:
 - - - - - 0x023B07 11:BAF7: F7        .byte con_F7, $07
-- - - - - 0x023B09 11:BAF9: 2A        .byte $2A
-- - - - - 0x023B0A 11:BAFA: 40        .byte $40
-- - - - - 0x023B0B 11:BAFB: 59        .byte $59
-- - - - - 0x023B0C 11:BAFC: F0        .byte con_exit_1
+- - - - - 0x023B09 11:BAF9: 2A        .byte con_pause + $2A
+- - - - - 0x023B0A 11:BAFA: 40        .byte con_bg + $40
+- - - - - 0x023B0B 11:BAFB: 59        .byte con_animation + $59
+- - - - - 0x023B0C 11:BAFC: F0        .byte con_cloud + $F0
 - - - - - 0x023B0D 11:BAFD: F2        .byte con_jmp
 - - - - - 0x023B0E 11:BAFE: 7F BA     .word loc_BA7F
 - - - - - 0x023B10 11:BB00: FB        .byte con_rts
 
 bra_case_BB01_06:
 - D - I - 0x023B11 11:BB01: F6        .byte con_mirror_toggle
-- D - I - 0x023B12 11:BB02: 32        .byte $32
-- D - I - 0x023B13 11:BB03: F0        .byte con_exit_1
-- D - I - 0x023B14 11:BB04: 87        .byte $87
-- D - I - 0x023B15 11:BB05: F0        .byte con_exit_1
+- D - I - 0x023B12 11:BB02: 32        .byte con_pause + $32
+- D - I - 0x023B13 11:BB03: F0        .byte con_bg + $F0
+- D - I - 0x023B14 11:BB04: 87        .byte con_animation + $87
+- D - I - 0x023B15 11:BB05: F0        .byte con_cloud + $F0
 - D - I - 0x023B16 11:BB06: F6        .byte con_mirror_toggle
 - D - I - 0x023B17 11:BB07: F2        .byte con_jmp
 - D - I - 0x023B18 11:BB08: 68 BA     .word loc_BA68
 
 bra_case_BB0A_07:
-- D - I - 0x023B1A 11:BB0A: 32        .byte $32
-- D - I - 0x023B1B 11:BB0B: F0        .byte con_exit_1
-- D - I - 0x023B1C 11:BB0C: 89        .byte $89
-- D - I - 0x023B1D 11:BB0D: F0        .byte con_exit_1
+- D - I - 0x023B1A 11:BB0A: 32        .byte con_pause + $32
+- D - I - 0x023B1B 11:BB0B: F0        .byte con_bg + $F0
+- D - I - 0x023B1C 11:BB0C: 89        .byte con_animation + $89
+- D - I - 0x023B1D 11:BB0D: F0        .byte con_cloud + $F0
 - D - I - 0x023B1E 11:BB0E: F2        .byte con_jmp
 - D - I - 0x023B1F 11:BB0F: 68 BA     .word loc_BA68
 
 bra_case_BB11_02:
-- D - I - 0x023B21 11:BB11: 32        .byte $32
-- D - I - 0x023B22 11:BB12: F0        .byte con_exit_1
-- D - I - 0x023B23 11:BB13: 87        .byte $87
-- D - I - 0x023B24 11:BB14: F0        .byte con_exit_1
+- D - I - 0x023B21 11:BB11: 32        .byte con_pause + $32
+- D - I - 0x023B22 11:BB12: F0        .byte con_bg + $F0
+- D - I - 0x023B23 11:BB13: 87        .byte con_animation + $87
+- D - I - 0x023B24 11:BB14: F0        .byte con_cloud + $F0
 - D - I - 0x023B25 11:BB15: F4        .byte con_mirror_on
 - D - I - 0x023B26 11:BB16: F2        .byte con_jmp
 - D - I - 0x023B27 11:BB17: 68 BA     .word loc_BA68
 
 bra_case_BB19_00:
 - D - I - 0x023B29 11:BB19: F6        .byte con_mirror_toggle
-- D - I - 0x023B2A 11:BB1A: 32        .byte $32
-- D - I - 0x023B2B 11:BB1B: F0        .byte con_exit_1
-- D - I - 0x023B2C 11:BB1C: 86        .byte $86
-- D - I - 0x023B2D 11:BB1D: F0        .byte con_exit_1
+- D - I - 0x023B2A 11:BB1A: 32        .byte con_pause + $32
+- D - I - 0x023B2B 11:BB1B: F0        .byte con_bg + $F0
+- D - I - 0x023B2C 11:BB1C: 86        .byte con_animation + $86
+- D - I - 0x023B2D 11:BB1D: F0        .byte con_cloud + $F0
 - D - I - 0x023B2E 11:BB1E: F6        .byte con_mirror_toggle
 - D - I - 0x023B2F 11:BB1F: F4        .byte con_mirror_on
 - D - I - 0x023B30 11:BB20: F2        .byte con_jmp
@@ -14045,30 +14052,30 @@ bra_case_BB19_00:
 
 bra_case_BB23_01:
 - D - I - 0x023B33 11:BB23: F6        .byte con_mirror_toggle
-- D - I - 0x023B34 11:BB24: 32        .byte $32
-- D - I - 0x023B35 11:BB25: F0        .byte con_exit_1
-- D - I - 0x023B36 11:BB26: 89        .byte $89
-- D - I - 0x023B37 11:BB27: F0        .byte con_exit_1
+- D - I - 0x023B34 11:BB24: 32        .byte con_pause + $32
+- D - I - 0x023B35 11:BB25: F0        .byte con_bg + $F0
+- D - I - 0x023B36 11:BB26: 89        .byte con_animation + $89
+- D - I - 0x023B37 11:BB27: F0        .byte con_cloud + $F0
 - D - I - 0x023B38 11:BB28: F6        .byte con_mirror_toggle
 - D - I - 0x023B39 11:BB29: F4        .byte con_mirror_on
 - D - I - 0x023B3A 11:BB2A: F2        .byte con_jmp
 - D - I - 0x023B3B 11:BB2B: 68 BA     .word loc_BA68
 
 bra_case_BB2D_05:
-- D - I - 0x023B3D 11:BB2D: 32        .byte $32
-- D - I - 0x023B3E 11:BB2E: F0        .byte con_exit_1
-- D - I - 0x023B3F 11:BB2F: 88        .byte $88
-- D - I - 0x023B40 11:BB30: F0        .byte con_exit_1
+- D - I - 0x023B3D 11:BB2D: 32        .byte con_pause + $32
+- D - I - 0x023B3E 11:BB2E: F0        .byte con_bg + $F0
+- D - I - 0x023B3F 11:BB2F: 88        .byte con_animation + $88
+- D - I - 0x023B40 11:BB30: F0        .byte con_cloud + $F0
 - D - I - 0x023B41 11:BB31: F4        .byte con_mirror_on
 - D - I - 0x023B42 11:BB32: F2        .byte con_jmp
 - D - I - 0x023B43 11:BB33: 68 BA     .word loc_BA68
 
 bra_case_BB35_03:
 - D - I - 0x023B45 11:BB35: F6        .byte con_mirror_toggle
-- D - I - 0x023B46 11:BB36: 32        .byte $32
-- D - I - 0x023B47 11:BB37: F0        .byte con_exit_1
-- D - I - 0x023B48 11:BB38: 88        .byte $88
-- D - I - 0x023B49 11:BB39: F0        .byte con_exit_1
+- D - I - 0x023B46 11:BB36: 32        .byte con_pause + $32
+- D - I - 0x023B47 11:BB37: F0        .byte con_bg + $F0
+- D - I - 0x023B48 11:BB38: 88        .byte con_animation + $88
+- D - I - 0x023B49 11:BB39: F0        .byte con_cloud + $F0
 - D - I - 0x023B4A 11:BB3A: F6        .byte con_mirror_toggle
 - D - I - 0x023B4B 11:BB3B: F4        .byte con_mirror_on
 - D - I - 0x023B4C 11:BB3C: F2        .byte con_jmp
@@ -14079,10 +14086,10 @@ bra_case_BB35_03:
 _scenario_BB3F_23:
 - D - I - 0x023B4F 11:BB3F: FA        .byte con_jsr
 - D - I - 0x023B50 11:BB40: 2C BA     .word sub_BA2C
-- D - I - 0x023B52 11:BB42: 0A        .byte $0A
-- D - I - 0x023B53 11:BB43: 38        .byte $38
-- D - I - 0x023B54 11:BB44: 00        .byte $00
-- D - I - 0x023B55 11:BB45: F0        .byte con_exit_1
+- D - I - 0x023B52 11:BB42: 0A        .byte con_pause + $0A
+- D - I - 0x023B53 11:BB43: 38        .byte con_bg + $38
+- D - I - 0x023B54 11:BB44: 00        .byte con_animation + $00
+- D - I - 0x023B55 11:BB45: F0        .byte con_cloud + $F0
 - D - I - 0x023B56 11:BB46: FE        .byte con_FE, $01
 - D - I - 0x023B58 11:BB48: F2        .byte con_jmp
 - D - I - 0x023B59 11:BB49: 54 BA     .word loc_BA54
@@ -14093,19 +14100,19 @@ bra_long_case_BB4B_02:
 bra_long_case_BB4B_03:
 bra_long_case_BB4B_04:
 sub_BB4B:
-- D - I - 0x023B5B 11:BB4B: 30        .byte $30
-- D - I - 0x023B5C 11:BB4C: 1F        .byte $1F
-- D - I - 0x023B5D 11:BB4D: 4C        .byte $4C
-- D - I - 0x023B5E 11:BB4E: 00        .byte $00
+- D - I - 0x023B5B 11:BB4B: 30        .byte con_pause + $30
+- D - I - 0x023B5C 11:BB4C: 1F        .byte con_bg + $1F
+- D - I - 0x023B5D 11:BB4D: 4C        .byte con_animation + $4C
+- D - I - 0x023B5E 11:BB4E: 00        .byte con_cloud + $00
 - D - I - 0x023B5F 11:BB4F: FB        .byte con_rts
 
 bra_long_case_BB50_03:
 - D - I - 0x023B60 11:BB50: F6        .byte con_mirror_toggle
 - D - I - 0x023B61 11:BB51: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x023B64 11:BB54: 3C        .byte $3C
-- D - I - 0x023B65 11:BB55: 53        .byte $53
-- D - I - 0x023B66 11:BB56: 1D        .byte $1D
-- D - I - 0x023B67 11:BB57: 00        .byte $00
+- D - I - 0x023B64 11:BB54: 3C        .byte con_pause + $3C
+- D - I - 0x023B65 11:BB55: 53        .byte con_bg + $53
+- D - I - 0x023B66 11:BB56: 1D        .byte con_animation + $1D
+- D - I - 0x023B67 11:BB57: 00        .byte con_cloud + $00
 - D - I - 0x023B68 11:BB58: F6        .byte con_mirror_toggle
 - D - I - 0x023B69 11:BB59: FA        .byte con_jsr
 - D - I - 0x023B6A 11:BB5A: 7D BB     .word sub_BB7D
@@ -14113,126 +14120,126 @@ bra_long_case_BB50_03:
 
 sub_BB5D:
 - D - I - 0x023B6D 11:BB5D: F9        .byte con_delay_soundID, $02, $05
-- D - I - 0x023B70 11:BB60: 32        .byte $32
-- D - I - 0x023B71 11:BB61: 13        .byte $13
-- D - I - 0x023B72 11:BB62: 0E        .byte $0E
-- D - I - 0x023B73 11:BB63: 00        .byte $00
+- D - I - 0x023B70 11:BB60: 32        .byte con_pause + $32
+- D - I - 0x023B71 11:BB61: 13        .byte con_bg + $13
+- D - I - 0x023B72 11:BB62: 0E        .byte con_animation + $0E
+- D - I - 0x023B73 11:BB63: 00        .byte con_cloud + $00
 - D - I - 0x023B74 11:BB64: FB        .byte con_rts
 
 sub_BB65:
 - D - I - 0x023B75 11:BB65: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x023B78 11:BB68: 3C        .byte $3C
-- D - I - 0x023B79 11:BB69: 00        .byte $00
-- D - I - 0x023B7A 11:BB6A: 0F        .byte $0F
-- D - I - 0x023B7B 11:BB6B: 00        .byte $00
+- D - I - 0x023B78 11:BB68: 3C        .byte con_pause + $3C
+- D - I - 0x023B79 11:BB69: 00        .byte con_bg + $00
+- D - I - 0x023B7A 11:BB6A: 0F        .byte con_animation + $0F
+- D - I - 0x023B7B 11:BB6B: 00        .byte con_cloud + $00
 - D - I - 0x023B7C 11:BB6C: FB        .byte con_rts
 
 sub_BB6D:
 - D - I - 0x023B7D 11:BB6D: F9        .byte con_delay_soundID, $02, $04
-- D - I - 0x023B80 11:BB70: 32        .byte $32
-- D - I - 0x023B81 11:BB71: 20        .byte $20
-- D - I - 0x023B82 11:BB72: 0F        .byte $0F
-- D - I - 0x023B83 11:BB73: 00        .byte $00
+- D - I - 0x023B80 11:BB70: 32        .byte con_pause + $32
+- D - I - 0x023B81 11:BB71: 20        .byte con_bg + $20
+- D - I - 0x023B82 11:BB72: 0F        .byte con_animation + $0F
+- D - I - 0x023B83 11:BB73: 00        .byte con_cloud + $00
 - D - I - 0x023B84 11:BB74: FB        .byte con_rts
 
 sub_BB75:
 - D - I - 0x023B85 11:BB75: F9        .byte con_delay_soundID, $02, $07
-- D - I - 0x023B88 11:BB78: 36        .byte $36
-- D - I - 0x023B89 11:BB79: 02        .byte $02
-- D - I - 0x023B8A 11:BB7A: 11        .byte $11
-- D - I - 0x023B8B 11:BB7B: 00        .byte $00
+- D - I - 0x023B88 11:BB78: 36        .byte con_pause + $36
+- D - I - 0x023B89 11:BB79: 02        .byte con_bg + $02
+- D - I - 0x023B8A 11:BB7A: 11        .byte con_animation + $11
+- D - I - 0x023B8B 11:BB7B: 00        .byte con_cloud + $00
 - D - I - 0x023B8C 11:BB7C: FB        .byte con_rts
 
 sub_BB7D:
 - D - I - 0x023B8D 11:BB7D: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x023B90 11:BB80: 32        .byte $32
-- D - I - 0x023B91 11:BB81: 4E        .byte $4E
-- D - I - 0x023B92 11:BB82: 12        .byte $12
-- D - I - 0x023B93 11:BB83: 00        .byte $00
+- D - I - 0x023B90 11:BB80: 32        .byte con_pause + $32
+- D - I - 0x023B91 11:BB81: 4E        .byte con_bg + $4E
+- D - I - 0x023B92 11:BB82: 12        .byte con_animation + $12
+- D - I - 0x023B93 11:BB83: 00        .byte con_cloud + $00
 - D - I - 0x023B94 11:BB84: FB        .byte con_rts
 
 sub_BB85:
 - D - I - 0x023B95 11:BB85: F6        .byte con_mirror_toggle
 - D - I - 0x023B96 11:BB86: F9        .byte con_delay_soundID, $02, $5E
-- D - I - 0x023B99 11:BB89: 1B        .byte $1B
-- D - I - 0x023B9A 11:BB8A: 64        .byte $64
-- D - I - 0x023B9B 11:BB8B: 67        .byte $67
-- D - I - 0x023B9C 11:BB8C: 00        .byte $00
+- D - I - 0x023B99 11:BB89: 1B        .byte con_pause + $1B
+- D - I - 0x023B9A 11:BB8A: 64        .byte con_bg + $64
+- D - I - 0x023B9B 11:BB8B: 67        .byte con_animation + $67
+- D - I - 0x023B9C 11:BB8C: 00        .byte con_cloud + $00
 - D - I - 0x023B9D 11:BB8D: F6        .byte con_mirror_toggle
 - D - I - 0x023B9E 11:BB8E: FB        .byte con_rts
 
 sub_BB8F:
 - D - I - 0x023B9F 11:BB8F: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x023BA2 11:BB92: 30        .byte $30
-- D - I - 0x023BA3 11:BB93: 00        .byte $00
-- D - I - 0x023BA4 11:BB94: 1A        .byte $1A
-- D - I - 0x023BA5 11:BB95: 00        .byte $00
+- D - I - 0x023BA2 11:BB92: 30        .byte con_pause + $30
+- D - I - 0x023BA3 11:BB93: 00        .byte con_bg + $00
+- D - I - 0x023BA4 11:BB94: 1A        .byte con_animation + $1A
+- D - I - 0x023BA5 11:BB95: 00        .byte con_cloud + $00
 - D - I - 0x023BA6 11:BB96: FB        .byte con_rts
 
 sub_BB97:
 - D - I - 0x023BA7 11:BB97: F9        .byte con_delay_soundID, $02, $06
-- D - I - 0x023BAA 11:BB9A: 2A        .byte $2A
-- D - I - 0x023BAB 11:BB9B: 27        .byte $27
-- D - I - 0x023BAC 11:BB9C: 1A        .byte $1A
-- D - I - 0x023BAD 11:BB9D: 00        .byte $00
+- D - I - 0x023BAA 11:BB9A: 2A        .byte con_pause + $2A
+- D - I - 0x023BAB 11:BB9B: 27        .byte con_bg + $27
+- D - I - 0x023BAC 11:BB9C: 1A        .byte con_animation + $1A
+- D - I - 0x023BAD 11:BB9D: 00        .byte con_cloud + $00
 - D - I - 0x023BAE 11:BB9E: FB        .byte con_rts
 
 sub_BB9F:
 - D - I - 0x023BAF 11:BB9F: F9        .byte con_delay_soundID, $02, $08
-- D - I - 0x023BB2 11:BBA2: 3C        .byte $3C
-- D - I - 0x023BB3 11:BBA3: 4B        .byte $4B
-- D - I - 0x023BB4 11:BBA4: 1D        .byte $1D
-- D - I - 0x023BB5 11:BBA5: 00        .byte $00
+- D - I - 0x023BB2 11:BBA2: 3C        .byte con_pause + $3C
+- D - I - 0x023BB3 11:BBA3: 4B        .byte con_bg + $4B
+- D - I - 0x023BB4 11:BBA4: 1D        .byte con_animation + $1D
+- D - I - 0x023BB5 11:BBA5: 00        .byte con_cloud + $00
 - D - I - 0x023BB6 11:BBA6: FB        .byte con_rts
 
 sub_BBA7:
 - D - I - 0x023BB7 11:BBA7: F9        .byte con_delay_soundID, $02, $09
-- D - I - 0x023BBA 11:BBAA: 32        .byte $32
-- D - I - 0x023BBB 11:BBAB: 20        .byte $20
-- D - I - 0x023BBC 11:BBAC: 1E        .byte $1E
-- D - I - 0x023BBD 11:BBAD: 00        .byte $00
+- D - I - 0x023BBA 11:BBAA: 32        .byte con_pause + $32
+- D - I - 0x023BBB 11:BBAB: 20        .byte con_bg + $20
+- D - I - 0x023BBC 11:BBAC: 1E        .byte con_animation + $1E
+- D - I - 0x023BBD 11:BBAD: 00        .byte con_cloud + $00
 - D - I - 0x023BBE 11:BBAE: FB        .byte con_rts
 
 sub_BBAF:
 - D - I - 0x023BBF 11:BBAF: F9        .byte con_delay_soundID, $02, $09
-- D - I - 0x023BC2 11:BBB2: 4B        .byte $4B
-- D - I - 0x023BC3 11:BBB3: 02        .byte $02
-- D - I - 0x023BC4 11:BBB4: 1F        .byte $1F
-- D - I - 0x023BC5 11:BBB5: 00        .byte $00
+- D - I - 0x023BC2 11:BBB2: 4B        .byte con_pause + $4B
+- D - I - 0x023BC3 11:BBB3: 02        .byte con_bg + $02
+- D - I - 0x023BC4 11:BBB4: 1F        .byte con_animation + $1F
+- D - I - 0x023BC5 11:BBB5: 00        .byte con_cloud + $00
 - D - I - 0x023BC6 11:BBB6: FB        .byte con_rts
 
 sub_BBB7:
 - D - I - 0x023BC7 11:BBB7: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x023BCA 11:BBBA: 2D        .byte $2D
-- D - I - 0x023BCB 11:BBBB: 60        .byte $60
-- D - I - 0x023BCC 11:BBBC: 3C        .byte $3C
-- D - I - 0x023BCD 11:BBBD: 00        .byte $00
+- D - I - 0x023BCA 11:BBBA: 2D        .byte con_pause + $2D
+- D - I - 0x023BCB 11:BBBB: 60        .byte con_bg + $60
+- D - I - 0x023BCC 11:BBBC: 3C        .byte con_animation + $3C
+- D - I - 0x023BCD 11:BBBD: 00        .byte con_cloud + $00
 - D - I - 0x023BCE 11:BBBE: FB        .byte con_rts
 
 sub_BBBF:
 - D - I - 0x023BCF 11:BBBF: F9        .byte con_delay_soundID, $02, $0B
-- D - I - 0x023BD2 11:BBC2: 2D        .byte $2D
-- D - I - 0x023BD3 11:BBC3: 48        .byte $48
-- D - I - 0x023BD4 11:BBC4: 3C        .byte $3C
-- D - I - 0x023BD5 11:BBC5: 00        .byte $00
+- D - I - 0x023BD2 11:BBC2: 2D        .byte con_pause + $2D
+- D - I - 0x023BD3 11:BBC3: 48        .byte con_bg + $48
+- D - I - 0x023BD4 11:BBC4: 3C        .byte con_animation + $3C
+- D - I - 0x023BD5 11:BBC5: 00        .byte con_cloud + $00
 - D - I - 0x023BD6 11:BBC6: FB        .byte con_rts
 
 loc_BBC7:
 sub_BBC7:
-- D - I - 0x023BD7 11:BBC7: 01        .byte $01
-- D - I - 0x023BD8 11:BBC8: F0        .byte con_exit_1
-- D - I - 0x023BD9 11:BBC9: F0        .byte con_exit_1
-- D - I - 0x023BDA 11:BBCA: 00        .byte $00
+- D - I - 0x023BD7 11:BBC7: 01        .byte con_pause + $01
+- D - I - 0x023BD8 11:BBC8: F0        .byte con_bg + $F0
+- D - I - 0x023BD9 11:BBC9: F0        .byte con_animation + $F0
+- D - I - 0x023BDA 11:BBCA: 00        .byte con_cloud + $00
 - D - I - 0x023BDB 11:BBCB: FB        .byte con_rts
 
 
 
 _scenario_BBCC_34:
 - D - I - 0x023BDC 11:BBCC: F9        .byte con_delay_soundID, $0D, $64
-- D - I - 0x023BDF 11:BBCF: 30        .byte $30
-- D - I - 0x023BE0 11:BBD0: 3C        .byte $3C
-- D - I - 0x023BE1 11:BBD1: 80        .byte $80
-- D - I - 0x023BE2 11:BBD2: E6        .byte $E6
+- D - I - 0x023BDF 11:BBCF: 30        .byte con_pause + $30
+- D - I - 0x023BE0 11:BBD0: 3C        .byte con_bg + $3C
+- D - I - 0x023BE1 11:BBD1: 80        .byte con_animation + $80
+- D - I - 0x023BE2 11:BBD2: E6        .byte con_cloud + $E6
 - D - I - 0x023BE3 11:BBD3: FB        .byte con_rts
 
 
@@ -14246,10 +14253,10 @@ _scenario_BBD4_19:
 loc_BBDA:
 bra_case_BBDA_00:
 - D - I - 0x023BEA 11:BBDA: F9        .byte con_delay_soundID, $05, $2B
-- D - I - 0x023BED 11:BBDD: 3C        .byte $3C
-- D - I - 0x023BEE 11:BBDE: 72        .byte $72
-- D - I - 0x023BEF 11:BBDF: 66        .byte $66
-- D - I - 0x023BF0 11:BBE0: 59        .byte $59
+- D - I - 0x023BED 11:BBDD: 3C        .byte con_pause + $3C
+- D - I - 0x023BEE 11:BBDE: 72        .byte con_bg + $72
+- D - I - 0x023BEF 11:BBDF: 66        .byte con_animation + $66
+- D - I - 0x023BF0 11:BBE0: 59        .byte con_cloud + $59
 - D - I - 0x023BF1 11:BBE1: FB        .byte con_rts
 
 bra_case_BBE2_01:
@@ -14279,16 +14286,16 @@ bra_case_BBF6_03:
 bra_case_BBF6_11:
 - D - I - 0x023C06 11:BBF6: F4        .byte con_mirror_on
 - D - I - 0x023C07 11:BBF7: F8        .byte con_F8, $04
-- D - I - 0x023C09 11:BBF9: 3C        .byte $3C
-- D - I - 0x023C0A 11:BBFA: 4F        .byte $4F
-- D - I - 0x023C0B 11:BBFB: 91        .byte $91
-- D - I - 0x023C0C 11:BBFC: CB        .byte $CB
+- D - I - 0x023C09 11:BBF9: 3C        .byte con_pause + $3C
+- D - I - 0x023C0A 11:BBFA: 4F        .byte con_bg + $4F
+- D - I - 0x023C0B 11:BBFB: 91        .byte con_animation + $91
+- D - I - 0x023C0C 11:BBFC: CB        .byte con_cloud + $CB
 - D - I - 0x023C0D 11:BBFD: F6        .byte con_mirror_toggle
 - D - I - 0x023C0E 11:BBFE: F8        .byte con_F8, $04
-- D - I - 0x023C10 11:BC00: 3C        .byte $3C
-- D - I - 0x023C11 11:BC01: 30        .byte $30
-- D - I - 0x023C12 11:BC02: 96        .byte $96
-- D - I - 0x023C13 11:BC03: CA        .byte $CA
+- D - I - 0x023C10 11:BC00: 3C        .byte con_pause + $3C
+- D - I - 0x023C11 11:BC01: 30        .byte con_bg + $30
+- D - I - 0x023C12 11:BC02: 96        .byte con_animation + $96
+- D - I - 0x023C13 11:BC03: CA        .byte con_cloud + $CA
 - D - I - 0x023C14 11:BC04: F2        .byte con_jmp
 - D - I - 0x023C15 11:BC05: DA BB     .word loc_BBDA
 
@@ -14296,16 +14303,16 @@ bra_case_BC07_02:
 bra_case_BC07_05:
 - - - - - 0x023C17 11:BC07: F4        .byte con_mirror_on
 - - - - - 0x023C18 11:BC08: F8        .byte con_F8, $04
-- - - - - 0x023C1A 11:BC0A: 3C        .byte $3C
-- - - - - 0x023C1B 11:BC0B: 55        .byte $55
-- - - - - 0x023C1C 11:BC0C: 9E        .byte $9E
-- - - - - 0x023C1D 11:BC0D: D1        .byte $D1
+- - - - - 0x023C1A 11:BC0A: 3C        .byte con_pause + $3C
+- - - - - 0x023C1B 11:BC0B: 55        .byte con_bg + $55
+- - - - - 0x023C1C 11:BC0C: 9E        .byte con_animation + $9E
+- - - - - 0x023C1D 11:BC0D: D1        .byte con_cloud + $D1
 - - - - - 0x023C1E 11:BC0E: F6        .byte con_mirror_toggle
 - - - - - 0x023C1F 11:BC0F: F8        .byte con_F8, $04
-- - - - - 0x023C21 11:BC11: 3C        .byte $3C
-- - - - - 0x023C22 11:BC12: 30        .byte $30
-- - - - - 0x023C23 11:BC13: A2        .byte $A2
-- - - - - 0x023C24 11:BC14: D0        .byte $D0
+- - - - - 0x023C21 11:BC11: 3C        .byte con_pause + $3C
+- - - - - 0x023C22 11:BC12: 30        .byte con_bg + $30
+- - - - - 0x023C23 11:BC13: A2        .byte con_animation + $A2
+- - - - - 0x023C24 11:BC14: D0        .byte con_cloud + $D0
 - - - - - 0x023C25 11:BC15: F2        .byte con_jmp
 - - - - - 0x023C26 11:BC16: DA BB     .word loc_BBDA
 
@@ -14313,16 +14320,16 @@ bra_case_BC18_04:
 bra_case_BC18_06:
 - D - I - 0x023C28 11:BC18: F4        .byte con_mirror_on
 - D - I - 0x023C29 11:BC19: F8        .byte con_F8, $04
-- D - I - 0x023C2B 11:BC1B: 3C        .byte $3C
-- D - I - 0x023C2C 11:BC1C: 55        .byte $55
-- D - I - 0x023C2D 11:BC1D: B0        .byte $B0
-- D - I - 0x023C2E 11:BC1E: D1        .byte $D1
+- D - I - 0x023C2B 11:BC1B: 3C        .byte con_pause + $3C
+- D - I - 0x023C2C 11:BC1C: 55        .byte con_bg + $55
+- D - I - 0x023C2D 11:BC1D: B0        .byte con_animation + $B0
+- D - I - 0x023C2E 11:BC1E: D1        .byte con_cloud + $D1
 - D - I - 0x023C2F 11:BC1F: F6        .byte con_mirror_toggle
 - D - I - 0x023C30 11:BC20: F8        .byte con_F8, $04
-- D - I - 0x023C32 11:BC22: 3C        .byte $3C
-- D - I - 0x023C33 11:BC23: 30        .byte $30
-- D - I - 0x023C34 11:BC24: B1        .byte $B1
-- D - I - 0x023C35 11:BC25: D0        .byte $D0
+- D - I - 0x023C32 11:BC22: 3C        .byte con_pause + $3C
+- D - I - 0x023C33 11:BC23: 30        .byte con_bg + $30
+- D - I - 0x023C34 11:BC24: B1        .byte con_animation + $B1
+- D - I - 0x023C35 11:BC25: D0        .byte con_cloud + $D0
 - D - I - 0x023C36 11:BC26: F2        .byte con_jmp
 - D - I - 0x023C37 11:BC27: DA BB     .word loc_BBDA
 
@@ -14332,16 +14339,16 @@ bra_case_BC29_09:
 bra_case_BC29_0A:
 - D - I - 0x023C39 11:BC29: F4        .byte con_mirror_on
 - D - I - 0x023C3A 11:BC2A: F8        .byte con_F8, $04
-- D - I - 0x023C3C 11:BC2C: 3C        .byte $3C
-- D - I - 0x023C3D 11:BC2D: 4F        .byte $4F
-- D - I - 0x023C3E 11:BC2E: 9C        .byte $9C
-- D - I - 0x023C3F 11:BC2F: AC        .byte $AC
+- D - I - 0x023C3C 11:BC2C: 3C        .byte con_pause + $3C
+- D - I - 0x023C3D 11:BC2D: 4F        .byte con_bg + $4F
+- D - I - 0x023C3E 11:BC2E: 9C        .byte con_animation + $9C
+- D - I - 0x023C3F 11:BC2F: AC        .byte con_cloud + $AC
 - D - I - 0x023C40 11:BC30: F6        .byte con_mirror_toggle
 - D - I - 0x023C41 11:BC31: F8        .byte con_F8, $04
-- D - I - 0x023C43 11:BC33: 3C        .byte $3C
-- D - I - 0x023C44 11:BC34: 30        .byte $30
-- D - I - 0x023C45 11:BC35: 9C        .byte $9C
-- D - I - 0x023C46 11:BC36: D3        .byte $D3
+- D - I - 0x023C43 11:BC33: 3C        .byte con_pause + $3C
+- D - I - 0x023C44 11:BC34: 30        .byte con_bg + $30
+- D - I - 0x023C45 11:BC35: 9C        .byte con_animation + $9C
+- D - I - 0x023C46 11:BC36: D3        .byte con_cloud + $D3
 - D - I - 0x023C47 11:BC37: F2        .byte con_jmp
 - D - I - 0x023C48 11:BC38: DA BB     .word loc_BBDA
 
@@ -14349,16 +14356,16 @@ bra_case_BC3A_0B:
 bra_case_BC3A_0C:
 - D - I - 0x023C4A 11:BC3A: F4        .byte con_mirror_on
 - D - I - 0x023C4B 11:BC3B: F8        .byte con_F8, $04
-- D - I - 0x023C4D 11:BC3D: 3C        .byte $3C
-- D - I - 0x023C4E 11:BC3E: 4F        .byte $4F
-- D - I - 0x023C4F 11:BC3F: AB        .byte $AB
-- D - I - 0x023C50 11:BC40: D3        .byte $D3
+- D - I - 0x023C4D 11:BC3D: 3C        .byte con_pause + $3C
+- D - I - 0x023C4E 11:BC3E: 4F        .byte con_bg + $4F
+- D - I - 0x023C4F 11:BC3F: AB        .byte con_animation + $AB
+- D - I - 0x023C50 11:BC40: D3        .byte con_cloud + $D3
 - D - I - 0x023C51 11:BC41: F6        .byte con_mirror_toggle
 - D - I - 0x023C52 11:BC42: F8        .byte con_F8, $04
-- D - I - 0x023C54 11:BC44: 3C        .byte $3C
-- D - I - 0x023C55 11:BC45: 30        .byte $30
-- D - I - 0x023C56 11:BC46: AB        .byte $AB
-- D - I - 0x023C57 11:BC47: AC        .byte $AC
+- D - I - 0x023C54 11:BC44: 3C        .byte con_pause + $3C
+- D - I - 0x023C55 11:BC45: 30        .byte con_bg + $30
+- D - I - 0x023C56 11:BC46: AB        .byte con_animation + $AB
+- D - I - 0x023C57 11:BC47: AC        .byte con_cloud + $AC
 - D - I - 0x023C58 11:BC48: F2        .byte con_jmp
 - D - I - 0x023C59 11:BC49: DA BB     .word loc_BBDA
 
@@ -14366,16 +14373,16 @@ bra_case_BC4B_0D:
 bra_case_BC4B_0E:
 - D - I - 0x023C5B 11:BC4B: F4        .byte con_mirror_on
 - D - I - 0x023C5C 11:BC4C: F8        .byte con_F8, $04
-- D - I - 0x023C5E 11:BC4E: 3C        .byte $3C
-- D - I - 0x023C5F 11:BC4F: 4F        .byte $4F
-- D - I - 0x023C60 11:BC50: B6        .byte $B6
-- D - I - 0x023C61 11:BC51: CD        .byte $CD
+- D - I - 0x023C5E 11:BC4E: 3C        .byte con_pause + $3C
+- D - I - 0x023C5F 11:BC4F: 4F        .byte con_bg + $4F
+- D - I - 0x023C60 11:BC50: B6        .byte con_animation + $B6
+- D - I - 0x023C61 11:BC51: CD        .byte con_cloud + $CD
 - D - I - 0x023C62 11:BC52: F6        .byte con_mirror_toggle
 - D - I - 0x023C63 11:BC53: F8        .byte con_F8, $04
-- D - I - 0x023C65 11:BC55: 3C        .byte $3C
-- D - I - 0x023C66 11:BC56: 30        .byte $30
-- D - I - 0x023C67 11:BC57: B7        .byte $B7
-- D - I - 0x023C68 11:BC58: CE        .byte $CE
+- D - I - 0x023C65 11:BC55: 3C        .byte con_pause + $3C
+- D - I - 0x023C66 11:BC56: 30        .byte con_bg + $30
+- D - I - 0x023C67 11:BC57: B7        .byte con_animation + $B7
+- D - I - 0x023C68 11:BC58: CE        .byte con_cloud + $CE
 - D - I - 0x023C69 11:BC59: F2        .byte con_jmp
 - D - I - 0x023C6A 11:BC5A: DA BB     .word loc_BBDA
 
@@ -14383,16 +14390,16 @@ bra_case_BC5C_0F:
 bra_case_BC5C_10:
 - D - I - 0x023C6C 11:BC5C: F4        .byte con_mirror_on
 - D - I - 0x023C6D 11:BC5D: F8        .byte con_F8, $04
-- D - I - 0x023C6F 11:BC5F: 3C        .byte $3C
-- D - I - 0x023C70 11:BC60: 4F        .byte $4F
-- D - I - 0x023C71 11:BC61: B4        .byte $B4
-- D - I - 0x023C72 11:BC62: D4        .byte $D4
+- D - I - 0x023C6F 11:BC5F: 3C        .byte con_pause + $3C
+- D - I - 0x023C70 11:BC60: 4F        .byte con_bg + $4F
+- D - I - 0x023C71 11:BC61: B4        .byte con_animation + $B4
+- D - I - 0x023C72 11:BC62: D4        .byte con_cloud + $D4
 - D - I - 0x023C73 11:BC63: F6        .byte con_mirror_toggle
 - D - I - 0x023C74 11:BC64: F8        .byte con_F8, $04
-- D - I - 0x023C76 11:BC66: 3C        .byte $3C
-- D - I - 0x023C77 11:BC67: 30        .byte $30
-- D - I - 0x023C78 11:BC68: B5        .byte $B5
-- D - I - 0x023C79 11:BC69: D5        .byte $D5
+- D - I - 0x023C76 11:BC66: 3C        .byte con_pause + $3C
+- D - I - 0x023C77 11:BC67: 30        .byte con_bg + $30
+- D - I - 0x023C78 11:BC68: B5        .byte con_animation + $B5
+- D - I - 0x023C79 11:BC69: D5        .byte con_cloud + $D5
 - D - I - 0x023C7A 11:BC6A: F2        .byte con_jmp
 - D - I - 0x023C7B 11:BC6B: DA BB     .word loc_BBDA
 
@@ -14405,15 +14412,15 @@ _scenario_BC6D_1A:
 
 bra_case_BC71_00:
 - D - I - 0x023C81 11:BC71: FD        .byte con_FD, $00
-- D - I - 0x023C83 11:BC73: 32        .byte $32
-- D - I - 0x023C84 11:BC74: 20        .byte $20
-- D - I - 0x023C85 11:BC75: 7B        .byte $7B
-- D - I - 0x023C86 11:BC76: F0        .byte con_exit_1
+- D - I - 0x023C83 11:BC73: 32        .byte con_pause + $32
+- D - I - 0x023C84 11:BC74: 20        .byte con_bg + $20
+- D - I - 0x023C85 11:BC75: 7B        .byte con_animation + $7B
+- D - I - 0x023C86 11:BC76: F0        .byte con_cloud + $F0
 - D - I - 0x023C87 11:BC77: F9        .byte con_delay_soundID, $1D, $2C
-- D - I - 0x023C8A 11:BC7A: 3C        .byte $3C
-- D - I - 0x023C8B 11:BC7B: 3C        .byte $3C
-- D - I - 0x023C8C 11:BC7C: 7C        .byte $7C
-- D - I - 0x023C8D 11:BC7D: 5A        .byte $5A
+- D - I - 0x023C8A 11:BC7A: 3C        .byte con_pause + $3C
+- D - I - 0x023C8B 11:BC7B: 3C        .byte con_bg + $3C
+- D - I - 0x023C8C 11:BC7C: 7C        .byte con_animation + $7C
+- D - I - 0x023C8D 11:BC7D: 5A        .byte con_cloud + $5A
 - D - I - 0x023C8E 11:BC7E: F2        .byte con_jmp
 - D - I - 0x023C8F 11:BC7F: C7 BB     .word loc_BBC7
 
@@ -14441,43 +14448,43 @@ bra_case_BC81_01:
 
 bra_case_BC96_00:
 - D - I - 0x023CA6 11:BC96: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CA9 11:BC99: 28        .byte $28
-- D - I - 0x023CAA 11:BC9A: 36        .byte $36
-- D - I - 0x023CAB 11:BC9B: 95        .byte $95
-- D - I - 0x023CAC 11:BC9C: CC        .byte $CC
+- D - I - 0x023CA9 11:BC99: 28        .byte con_pause + $28
+- D - I - 0x023CAA 11:BC9A: 36        .byte con_bg + $36
+- D - I - 0x023CAB 11:BC9B: 95        .byte con_animation + $95
+- D - I - 0x023CAC 11:BC9C: CC        .byte con_cloud + $CC
 - D - I - 0x023CAD 11:BC9D: F6        .byte con_mirror_toggle
 - D - I - 0x023CAE 11:BC9E: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CB1 11:BCA1: 3C        .byte $3C
-- D - I - 0x023CB2 11:BCA2: 01        .byte $01
-- D - I - 0x023CB3 11:BCA3: 92        .byte $92
-- D - I - 0x023CB4 11:BCA4: F0        .byte con_exit_1
+- D - I - 0x023CB1 11:BCA1: 3C        .byte con_pause + $3C
+- D - I - 0x023CB2 11:BCA2: 01        .byte con_bg + $01
+- D - I - 0x023CB3 11:BCA3: 92        .byte con_animation + $92
+- D - I - 0x023CB4 11:BCA4: F0        .byte con_cloud + $F0
 - D - I - 0x023CB5 11:BCA5: F6        .byte con_mirror_toggle
 - D - I - 0x023CB6 11:BCA6: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CB9 11:BCA9: 28        .byte $28
-- D - I - 0x023CBA 11:BCAA: 36        .byte $36
-- D - I - 0x023CBB 11:BCAB: 95        .byte $95
-- D - I - 0x023CBC 11:BCAC: F0        .byte con_exit_1
+- D - I - 0x023CB9 11:BCA9: 28        .byte con_pause + $28
+- D - I - 0x023CBA 11:BCAA: 36        .byte con_bg + $36
+- D - I - 0x023CBB 11:BCAB: 95        .byte con_animation + $95
+- D - I - 0x023CBC 11:BCAC: F0        .byte con_cloud + $F0
 bra_case_BCAD_11:
 - D - I - 0x023CBD 11:BCAD: FB        .byte con_rts
 
 bra_case_BCAE_01:
 - D - I - 0x023CBE 11:BCAE: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CC1 11:BCB1: 3C        .byte $3C
-- D - I - 0x023CC2 11:BCB2: 36        .byte $36
-- D - I - 0x023CC3 11:BCB3: 92        .byte $92
-- D - I - 0x023CC4 11:BCB4: CC        .byte $CC
+- D - I - 0x023CC1 11:BCB1: 3C        .byte con_pause + $3C
+- D - I - 0x023CC2 11:BCB2: 36        .byte con_bg + $36
+- D - I - 0x023CC3 11:BCB3: 92        .byte con_animation + $92
+- D - I - 0x023CC4 11:BCB4: CC        .byte con_cloud + $CC
 - D - I - 0x023CC5 11:BCB5: F6        .byte con_mirror_toggle
 - D - I - 0x023CC6 11:BCB6: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CC9 11:BCB9: 3C        .byte $3C
-- D - I - 0x023CCA 11:BCBA: 01        .byte $01
-- D - I - 0x023CCB 11:BCBB: 95        .byte $95
-- D - I - 0x023CCC 11:BCBC: F0        .byte con_exit_1
+- D - I - 0x023CC9 11:BCB9: 3C        .byte con_pause + $3C
+- D - I - 0x023CCA 11:BCBA: 01        .byte con_bg + $01
+- D - I - 0x023CCB 11:BCBB: 95        .byte con_animation + $95
+- D - I - 0x023CCC 11:BCBC: F0        .byte con_cloud + $F0
 - D - I - 0x023CCD 11:BCBD: F6        .byte con_mirror_toggle
 - D - I - 0x023CCE 11:BCBE: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CD1 11:BCC1: 3C        .byte $3C
-- D - I - 0x023CD2 11:BCC2: 36        .byte $36
-- D - I - 0x023CD3 11:BCC3: 92        .byte $92
-- D - I - 0x023CD4 11:BCC4: F0        .byte con_exit_1
+- D - I - 0x023CD1 11:BCC1: 3C        .byte con_pause + $3C
+- D - I - 0x023CD2 11:BCC2: 36        .byte con_bg + $36
+- D - I - 0x023CD3 11:BCC3: 92        .byte con_animation + $92
+- D - I - 0x023CD4 11:BCC4: F0        .byte con_cloud + $F0
 - D - I - 0x023CD5 11:BCC5: FB        .byte con_rts
 
 bra_case_BCC6_02:
@@ -14490,22 +14497,22 @@ bra_case_BCCB_04:
 - D - I - 0x023CDB 11:BCCB: F7        .byte con_F7, $22
 loc_BCCD:
 - D - I - 0x023CDD 11:BCCD: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CE0 11:BCD0: 3C        .byte $3C
-- D - I - 0x023CE1 11:BCD1: 36        .byte $36
-- D - I - 0x023CE2 11:BCD2: A7        .byte $A7
-- D - I - 0x023CE3 11:BCD3: D2        .byte $D2
+- D - I - 0x023CE0 11:BCD0: 3C        .byte con_pause + $3C
+- D - I - 0x023CE1 11:BCD1: 36        .byte con_bg + $36
+- D - I - 0x023CE2 11:BCD2: A7        .byte con_animation + $A7
+- D - I - 0x023CE3 11:BCD3: D2        .byte con_cloud + $D2
 - D - I - 0x023CE4 11:BCD4: F6        .byte con_mirror_toggle
 - D - I - 0x023CE5 11:BCD5: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CE8 11:BCD8: 3C        .byte $3C
-- D - I - 0x023CE9 11:BCD9: 01        .byte $01
-- D - I - 0x023CEA 11:BCDA: A5        .byte $A5
-- D - I - 0x023CEB 11:BCDB: F0        .byte con_exit_1
+- D - I - 0x023CE8 11:BCD8: 3C        .byte con_pause + $3C
+- D - I - 0x023CE9 11:BCD9: 01        .byte con_bg + $01
+- D - I - 0x023CEA 11:BCDA: A5        .byte con_animation + $A5
+- D - I - 0x023CEB 11:BCDB: F0        .byte con_cloud + $F0
 - D - I - 0x023CEC 11:BCDC: F6        .byte con_mirror_toggle
 - D - I - 0x023CED 11:BCDD: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CF0 11:BCE0: 3C        .byte $3C
-- D - I - 0x023CF1 11:BCE1: 36        .byte $36
-- D - I - 0x023CF2 11:BCE2: A7        .byte $A7
-- D - I - 0x023CF3 11:BCE3: F0        .byte con_exit_1
+- D - I - 0x023CF0 11:BCE0: 3C        .byte con_pause + $3C
+- D - I - 0x023CF1 11:BCE1: 36        .byte con_bg + $36
+- D - I - 0x023CF2 11:BCE2: A7        .byte con_animation + $A7
+- D - I - 0x023CF3 11:BCE3: F0        .byte con_cloud + $F0
 - D - I - 0x023CF4 11:BCE4: FB        .byte con_rts
 
 bra_case_BCE5_05:
@@ -14517,22 +14524,22 @@ bra_case_BCEA_06:
 - D - I - 0x023CFA 11:BCEA: F7        .byte con_F7, $22
 loc_BCEC:
 - D - I - 0x023CFC 11:BCEC: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023CFF 11:BCEF: 3C        .byte $3C
-- D - I - 0x023D00 11:BCF0: 36        .byte $36
-- D - I - 0x023D01 11:BCF1: A5        .byte $A5
-- D - I - 0x023D02 11:BCF2: D2        .byte $D2
+- D - I - 0x023CFF 11:BCEF: 3C        .byte con_pause + $3C
+- D - I - 0x023D00 11:BCF0: 36        .byte con_bg + $36
+- D - I - 0x023D01 11:BCF1: A5        .byte con_animation + $A5
+- D - I - 0x023D02 11:BCF2: D2        .byte con_cloud + $D2
 - D - I - 0x023D03 11:BCF3: F6        .byte con_mirror_toggle
 - D - I - 0x023D04 11:BCF4: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D07 11:BCF7: 3C        .byte $3C
-- D - I - 0x023D08 11:BCF8: 01        .byte $01
-- D - I - 0x023D09 11:BCF9: A7        .byte $A7
-- D - I - 0x023D0A 11:BCFA: F0        .byte con_exit_1
+- D - I - 0x023D07 11:BCF7: 3C        .byte con_pause + $3C
+- D - I - 0x023D08 11:BCF8: 01        .byte con_bg + $01
+- D - I - 0x023D09 11:BCF9: A7        .byte con_animation + $A7
+- D - I - 0x023D0A 11:BCFA: F0        .byte con_cloud + $F0
 - D - I - 0x023D0B 11:BCFB: F6        .byte con_mirror_toggle
 - D - I - 0x023D0C 11:BCFC: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D0F 11:BCFF: 3C        .byte $3C
-- D - I - 0x023D10 11:BD00: 36        .byte $36
-- D - I - 0x023D11 11:BD01: A5        .byte $A5
-- D - I - 0x023D12 11:BD02: F0        .byte con_exit_1
+- D - I - 0x023D0F 11:BCFF: 3C        .byte con_pause + $3C
+- D - I - 0x023D10 11:BD00: 36        .byte con_bg + $36
+- D - I - 0x023D11 11:BD01: A5        .byte con_animation + $A5
+- D - I - 0x023D12 11:BD02: F0        .byte con_cloud + $F0
 - D - I - 0x023D13 11:BD03: FB        .byte con_rts
 
 bra_case_BD04_07:
@@ -14548,157 +14555,157 @@ bra_case_BD09_0C:
 - D - I - 0x023D19 11:BD09: F7        .byte con_F7, $3F
 loc_BD0B:
 - D - I - 0x023D1B 11:BD0B: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D1E 11:BD0E: 3C        .byte $3C
-- D - I - 0x023D1F 11:BD0F: 36        .byte $36
-- D - I - 0x023D20 11:BD10: EF        .byte $EF
-- D - I - 0x023D21 11:BD11: D6        .byte $D6
+- D - I - 0x023D1E 11:BD0E: 3C        .byte con_pause + $3C
+- D - I - 0x023D1F 11:BD0F: 36        .byte con_bg + $36
+- D - I - 0x023D20 11:BD10: EF        .byte con_animation + $EF
+- D - I - 0x023D21 11:BD11: D6        .byte con_cloud + $D6
 - D - I - 0x023D22 11:BD12: F6        .byte con_mirror_toggle
 - D - I - 0x023D23 11:BD13: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D26 11:BD16: 3C        .byte $3C
-- D - I - 0x023D27 11:BD17: 01        .byte $01
-- D - I - 0x023D28 11:BD18: EF        .byte $EF
-- D - I - 0x023D29 11:BD19: F0        .byte con_exit_1
+- D - I - 0x023D26 11:BD16: 3C        .byte con_pause + $3C
+- D - I - 0x023D27 11:BD17: 01        .byte con_bg + $01
+- D - I - 0x023D28 11:BD18: EF        .byte con_animation + $EF
+- D - I - 0x023D29 11:BD19: F0        .byte con_cloud + $F0
 - D - I - 0x023D2A 11:BD1A: F6        .byte con_mirror_toggle
 - D - I - 0x023D2B 11:BD1B: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D2E 11:BD1E: 3C        .byte $3C
-- D - I - 0x023D2F 11:BD1F: 36        .byte $36
-- D - I - 0x023D30 11:BD20: EF        .byte $EF
-- D - I - 0x023D31 11:BD21: F0        .byte con_exit_1
+- D - I - 0x023D2E 11:BD1E: 3C        .byte con_pause + $3C
+- D - I - 0x023D2F 11:BD1F: 36        .byte con_bg + $36
+- D - I - 0x023D30 11:BD20: EF        .byte con_animation + $EF
+- D - I - 0x023D31 11:BD21: F0        .byte con_cloud + $F0
 - D - I - 0x023D32 11:BD22: FB        .byte con_rts
 
 bra_case_BD23_0D:
 - - - - - 0x023D33 11:BD23: F9        .byte con_delay_soundID, $21, $2C
-- - - - - 0x023D36 11:BD26: 3C        .byte $3C
-- - - - - 0x023D37 11:BD27: 36        .byte $36
-- - - - - 0x023D38 11:BD28: DF        .byte $DF
-- - - - - 0x023D39 11:BD29: CF        .byte $CF
+- - - - - 0x023D36 11:BD26: 3C        .byte con_pause + $3C
+- - - - - 0x023D37 11:BD27: 36        .byte con_bg + $36
+- - - - - 0x023D38 11:BD28: DF        .byte con_animation + $DF
+- - - - - 0x023D39 11:BD29: CF        .byte con_cloud + $CF
 - - - - - 0x023D3A 11:BD2A: F6        .byte con_mirror_toggle
 - - - - - 0x023D3B 11:BD2B: F9        .byte con_delay_soundID, $21, $2C
-- - - - - 0x023D3E 11:BD2E: 3C        .byte $3C
-- - - - - 0x023D3F 11:BD2F: 01        .byte $01
-- - - - - 0x023D40 11:BD30: BE        .byte $BE
-- - - - - 0x023D41 11:BD31: F0        .byte con_exit_1
+- - - - - 0x023D3E 11:BD2E: 3C        .byte con_pause + $3C
+- - - - - 0x023D3F 11:BD2F: 01        .byte con_bg + $01
+- - - - - 0x023D40 11:BD30: BE        .byte con_animation + $BE
+- - - - - 0x023D41 11:BD31: F0        .byte con_cloud + $F0
 - - - - - 0x023D42 11:BD32: F6        .byte con_mirror_toggle
 - - - - - 0x023D43 11:BD33: F9        .byte con_delay_soundID, $21, $2C
-- - - - - 0x023D46 11:BD36: 3C        .byte $3C
-- - - - - 0x023D47 11:BD37: 36        .byte $36
-- - - - - 0x023D48 11:BD38: DF        .byte $DF
-- - - - - 0x023D49 11:BD39: F0        .byte con_exit_1
+- - - - - 0x023D46 11:BD36: 3C        .byte con_pause + $3C
+- - - - - 0x023D47 11:BD37: 36        .byte con_bg + $36
+- - - - - 0x023D48 11:BD38: DF        .byte con_animation + $DF
+- - - - - 0x023D49 11:BD39: F0        .byte con_cloud + $F0
 - - - - - 0x023D4A 11:BD3A: FB        .byte con_rts
 
 bra_case_BD3B_0E:
 - - - - - 0x023D4B 11:BD3B: F9        .byte con_delay_soundID, $21, $2C
-- - - - - 0x023D4E 11:BD3E: 3C        .byte $3C
-- - - - - 0x023D4F 11:BD3F: 36        .byte $36
-- - - - - 0x023D50 11:BD40: BE        .byte $BE
-- - - - - 0x023D51 11:BD41: CF        .byte $CF
+- - - - - 0x023D4E 11:BD3E: 3C        .byte con_pause + $3C
+- - - - - 0x023D4F 11:BD3F: 36        .byte con_bg + $36
+- - - - - 0x023D50 11:BD40: BE        .byte con_animation + $BE
+- - - - - 0x023D51 11:BD41: CF        .byte con_cloud + $CF
 - - - - - 0x023D52 11:BD42: F6        .byte con_mirror_toggle
 - - - - - 0x023D53 11:BD43: F9        .byte con_delay_soundID, $21, $2C
-- - - - - 0x023D56 11:BD46: 3C        .byte $3C
-- - - - - 0x023D57 11:BD47: 01        .byte $01
-- - - - - 0x023D58 11:BD48: DF        .byte $DF
-- - - - - 0x023D59 11:BD49: F0        .byte con_exit_1
+- - - - - 0x023D56 11:BD46: 3C        .byte con_pause + $3C
+- - - - - 0x023D57 11:BD47: 01        .byte con_bg + $01
+- - - - - 0x023D58 11:BD48: DF        .byte con_animation + $DF
+- - - - - 0x023D59 11:BD49: F0        .byte con_cloud + $F0
 - - - - - 0x023D5A 11:BD4A: F6        .byte con_mirror_toggle
 - - - - - 0x023D5B 11:BD4B: F9        .byte con_delay_soundID, $21, $2C
-- - - - - 0x023D5E 11:BD4E: 3C        .byte $3C
-- - - - - 0x023D5F 11:BD4F: 36        .byte $36
-- - - - - 0x023D60 11:BD50: BE        .byte $BE
-- - - - - 0x023D61 11:BD51: F0        .byte con_exit_1
+- - - - - 0x023D5E 11:BD4E: 3C        .byte con_pause + $3C
+- - - - - 0x023D5F 11:BD4F: 36        .byte con_bg + $36
+- - - - - 0x023D60 11:BD50: BE        .byte con_animation + $BE
+- - - - - 0x023D61 11:BD51: F0        .byte con_cloud + $F0
 - - - - - 0x023D62 11:BD52: FB        .byte con_rts
 
 bra_case_BD53_0F:
 - D - I - 0x023D63 11:BD53: F7        .byte con_F7, $25
 - D - I - 0x023D65 11:BD55: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D68 11:BD58: 3C        .byte $3C
-- D - I - 0x023D69 11:BD59: 36        .byte $36
-- D - I - 0x023D6A 11:BD5A: A7        .byte $A7
-- D - I - 0x023D6B 11:BD5B: D6        .byte $D6
+- D - I - 0x023D68 11:BD58: 3C        .byte con_pause + $3C
+- D - I - 0x023D69 11:BD59: 36        .byte con_bg + $36
+- D - I - 0x023D6A 11:BD5A: A7        .byte con_animation + $A7
+- D - I - 0x023D6B 11:BD5B: D6        .byte con_cloud + $D6
 - D - I - 0x023D6C 11:BD5C: F6        .byte con_mirror_toggle
 - D - I - 0x023D6D 11:BD5D: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D70 11:BD60: 3C        .byte $3C
-- D - I - 0x023D71 11:BD61: 01        .byte $01
-- D - I - 0x023D72 11:BD62: EE        .byte $EE
-- D - I - 0x023D73 11:BD63: F0        .byte con_exit_1
+- D - I - 0x023D70 11:BD60: 3C        .byte con_pause + $3C
+- D - I - 0x023D71 11:BD61: 01        .byte con_bg + $01
+- D - I - 0x023D72 11:BD62: EE        .byte con_animation + $EE
+- D - I - 0x023D73 11:BD63: F0        .byte con_cloud + $F0
 - D - I - 0x023D74 11:BD64: F6        .byte con_mirror_toggle
 - D - I - 0x023D75 11:BD65: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D78 11:BD68: 3C        .byte $3C
-- D - I - 0x023D79 11:BD69: 36        .byte $36
-- D - I - 0x023D7A 11:BD6A: A7        .byte $A7
-- D - I - 0x023D7B 11:BD6B: F0        .byte con_exit_1
+- D - I - 0x023D78 11:BD68: 3C        .byte con_pause + $3C
+- D - I - 0x023D79 11:BD69: 36        .byte con_bg + $36
+- D - I - 0x023D7A 11:BD6A: A7        .byte con_animation + $A7
+- D - I - 0x023D7B 11:BD6B: F0        .byte con_cloud + $F0
 - D - I - 0x023D7C 11:BD6C: FB        .byte con_rts
 
 bra_case_BD6D_10:
 - D - I - 0x023D7D 11:BD6D: F7        .byte con_F7, $25
 - D - I - 0x023D7F 11:BD6F: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D82 11:BD72: 3C        .byte $3C
-- D - I - 0x023D83 11:BD73: 36        .byte $36
-- D - I - 0x023D84 11:BD74: EE        .byte $EE
-- D - I - 0x023D85 11:BD75: D6        .byte $D6
+- D - I - 0x023D82 11:BD72: 3C        .byte con_pause + $3C
+- D - I - 0x023D83 11:BD73: 36        .byte con_bg + $36
+- D - I - 0x023D84 11:BD74: EE        .byte con_animation + $EE
+- D - I - 0x023D85 11:BD75: D6        .byte con_cloud + $D6
 - D - I - 0x023D86 11:BD76: F6        .byte con_mirror_toggle
 - D - I - 0x023D87 11:BD77: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D8A 11:BD7A: 3C        .byte $3C
-- D - I - 0x023D8B 11:BD7B: 01        .byte $01
-- D - I - 0x023D8C 11:BD7C: A7        .byte $A7
-- D - I - 0x023D8D 11:BD7D: F0        .byte con_exit_1
+- D - I - 0x023D8A 11:BD7A: 3C        .byte con_pause + $3C
+- D - I - 0x023D8B 11:BD7B: 01        .byte con_bg + $01
+- D - I - 0x023D8C 11:BD7C: A7        .byte con_animation + $A7
+- D - I - 0x023D8D 11:BD7D: F0        .byte con_cloud + $F0
 - D - I - 0x023D8E 11:BD7E: F6        .byte con_mirror_toggle
 - D - I - 0x023D8F 11:BD7F: F9        .byte con_delay_soundID, $21, $2C
-- D - I - 0x023D92 11:BD82: 3C        .byte $3C
-- D - I - 0x023D93 11:BD83: 36        .byte $36
-- D - I - 0x023D94 11:BD84: EE        .byte $EE
-- D - I - 0x023D95 11:BD85: D6        .byte $D6
+- D - I - 0x023D92 11:BD82: 3C        .byte con_pause + $3C
+- D - I - 0x023D93 11:BD83: 36        .byte con_bg + $36
+- D - I - 0x023D94 11:BD84: EE        .byte con_animation + $EE
+- D - I - 0x023D95 11:BD85: D6        .byte con_cloud + $D6
 - D - I - 0x023D96 11:BD86: FB        .byte con_rts
 
 bra_long_case_BD87_02:
 - D - I - 0x023D97 11:BD87: FD        .byte con_FD, $01
 - D - I - 0x023D99 11:BD89: F7        .byte con_F7, $02
-- D - I - 0x023D9B 11:BD8B: 28        .byte $28
-- D - I - 0x023D9C 11:BD8C: 23        .byte $23
-- D - I - 0x023D9D 11:BD8D: 5A        .byte $5A
-- D - I - 0x023D9E 11:BD8E: E8        .byte $E8
+- D - I - 0x023D9B 11:BD8B: 28        .byte con_pause + $28
+- D - I - 0x023D9C 11:BD8C: 23        .byte con_bg + $23
+- D - I - 0x023D9D 11:BD8D: 5A        .byte con_animation + $5A
+- D - I - 0x023D9E 11:BD8E: E8        .byte con_cloud + $E8
 - D - I - 0x023D9F 11:BD8F: FB        .byte con_rts
 
 bra_long_case_BD90_01:
-- D - I - 0x023DA0 11:BD90: 60        .byte $60
-- D - I - 0x023DA1 11:BD91: 65        .byte $65
-- D - I - 0x023DA2 11:BD92: DA        .byte $DA
-- D - I - 0x023DA3 11:BD93: E7        .byte $E7
+- D - I - 0x023DA0 11:BD90: 60        .byte con_pause + $60
+- D - I - 0x023DA1 11:BD91: 65        .byte con_bg + $65
+- D - I - 0x023DA2 11:BD92: DA        .byte con_animation + $DA
+- D - I - 0x023DA3 11:BD93: E7        .byte con_cloud + $E7
 - D - I - 0x023DA4 11:BD94: FB        .byte con_rts
 
 
 
 _scenario_BD95_40:
-- D - I - 0x023DA5 11:BD95: 78        .byte $78
-- D - I - 0x023DA6 11:BD96: F0        .byte con_exit_1
-- D - I - 0x023DA7 11:BD97: F0        .byte con_exit_1
-- D - I - 0x023DA8 11:BD98: E9        .byte $E9
+- D - I - 0x023DA5 11:BD95: 78        .byte con_pause + $78
+- D - I - 0x023DA6 11:BD96: F0        .byte con_bg + $F0
+- D - I - 0x023DA7 11:BD97: F0        .byte con_animation + $F0
+- D - I - 0x023DA8 11:BD98: E9        .byte con_cloud + $E9
 - D - I - 0x023DA9 11:BD99: FB        .byte con_rts
 
 
 
 _scenario_BD9A_41:
-- D - I - 0x023DAA 11:BD9A: 78        .byte $78
-- D - I - 0x023DAB 11:BD9B: F0        .byte con_exit_1
-- D - I - 0x023DAC 11:BD9C: F0        .byte con_exit_1
-- D - I - 0x023DAD 11:BD9D: EA        .byte $EA
+- D - I - 0x023DAA 11:BD9A: 78        .byte con_pause + $78
+- D - I - 0x023DAB 11:BD9B: F0        .byte con_bg + $F0
+- D - I - 0x023DAC 11:BD9C: F0        .byte con_animation + $F0
+- D - I - 0x023DAD 11:BD9D: EA        .byte con_cloud + $EA
 - D - I - 0x023DAE 11:BD9E: F2        .byte con_jmp
 - D - I - 0x023DAF 11:BD9F: C7 BB     .word loc_BBC7
 
 
 
 _scenario_BDA1_3B:
-- - - - - 0x023DB1 11:BDA1: 10        .byte $10
-- - - - - 0x023DB2 11:BDA2: F0        .byte con_exit_1
-- - - - - 0x023DB3 11:BDA3: F0        .byte con_exit_1
-- - - - - 0x023DB4 11:BDA4: F0        .byte con_exit_1
+- - - - - 0x023DB1 11:BDA1: 10        .byte con_pause + $10
+- - - - - 0x023DB2 11:BDA2: F0        .byte con_bg + $F0
+- - - - - 0x023DB3 11:BDA3: F0        .byte con_animation + $F0
+- - - - - 0x023DB4 11:BDA4: F0        .byte con_cloud + $F0
 - - - - - 0x023DB5 11:BDA5: FB        .byte con_rts
 
 
 
 _scenario_BDA6_42:
-- D - I - 0x023DB6 11:BDA6: 78        .byte $78
-- D - I - 0x023DB7 11:BDA7: F0        .byte con_exit_1
-- D - I - 0x023DB8 11:BDA8: F0        .byte con_exit_1
-- D - I - 0x023DB9 11:BDA9: 22        .byte $22
+- D - I - 0x023DB6 11:BDA6: 78        .byte con_pause + $78
+- D - I - 0x023DB7 11:BDA7: F0        .byte con_bg + $F0
+- D - I - 0x023DB8 11:BDA8: F0        .byte con_animation + $F0
+- D - I - 0x023DB9 11:BDA9: 22        .byte con_cloud + $22
 - D - I - 0x023DBA 11:BDAA: F2        .byte con_jmp
 - D - I - 0x023DBB 11:BDAB: C7 BB     .word loc_BBC7
 
@@ -14706,28 +14713,28 @@ _scenario_BDA6_42:
 
 _scenario_BDAD_43:
 - D - I - 0x023DBD 11:BDAD: F5        .byte con_mirror_off
-- D - I - 0x023DBE 11:BDAE: 46        .byte $46
-- D - I - 0x023DBF 11:BDAF: 3A        .byte $3A
-- D - I - 0x023DC0 11:BDB0: 8F        .byte $8F
-- D - I - 0x023DC1 11:BDB1: E4        .byte $E4
+- D - I - 0x023DBE 11:BDAE: 46        .byte con_pause + $46
+- D - I - 0x023DBF 11:BDAF: 3A        .byte con_bg + $3A
+- D - I - 0x023DC0 11:BDB0: 8F        .byte con_animation + $8F
+- D - I - 0x023DC1 11:BDB1: E4        .byte con_cloud + $E4
 - D - I - 0x023DC2 11:BDB2: FB        .byte con_rts
 
 
 
 _scenario_BDB3_39:
-- D - I - 0x023DC3 11:BDB3: B0        .byte $B0
-- D - I - 0x023DC4 11:BDB4: 38        .byte $38
-- D - I - 0x023DC5 11:BDB5: 85        .byte $85
-- D - I - 0x023DC6 11:BDB6: 5B        .byte $5B
+- D - I - 0x023DC3 11:BDB3: B0        .byte con_pause + $B0
+- D - I - 0x023DC4 11:BDB4: 38        .byte con_bg + $38
+- D - I - 0x023DC5 11:BDB5: 85        .byte con_animation + $85
+- D - I - 0x023DC6 11:BDB6: 5B        .byte con_cloud + $5B
 - D - I - 0x023DC7 11:BDB7: FB        .byte con_rts
 
 
 
 _scenario_BDB8_45:
-- - - - - 0x023DC8 11:BDB8: B0        .byte $B0
-- - - - - 0x023DC9 11:BDB9: 38        .byte $38
-- - - - - 0x023DCA 11:BDBA: 85        .byte $85
-- - - - - 0x023DCB 11:BDBB: A6        .byte $A6
+- - - - - 0x023DC8 11:BDB8: B0        .byte con_pause + $B0
+- - - - - 0x023DC9 11:BDB9: 38        .byte con_bg + $38
+- - - - - 0x023DCA 11:BDBA: 85        .byte con_animation + $85
+- - - - - 0x023DCB 11:BDBB: A6        .byte con_cloud + $A6
 - - - - - 0x023DCC 11:BDBC: FB        .byte con_rts
 
 
@@ -14741,10 +14748,10 @@ _scenario_BDBD_46:
 bra_case_BDC2_00:
 bra_case_BDC2_01:
 - D - I - 0x023DD2 11:BDC2: F5        .byte con_mirror_off
-- D - I - 0x023DD3 11:BDC3: 78        .byte $78
-- D - I - 0x023DD4 11:BDC4: 30        .byte $30
-- D - I - 0x023DD5 11:BDC5: 91        .byte $91
-- D - I - 0x023DD6 11:BDC6: 4A        .byte $4A
+- D - I - 0x023DD3 11:BDC3: 78        .byte con_pause + $78
+- D - I - 0x023DD4 11:BDC4: 30        .byte con_bg + $30
+- D - I - 0x023DD5 11:BDC5: 91        .byte con_animation + $91
+- D - I - 0x023DD6 11:BDC6: 4A        .byte con_cloud + $4A
 - D - I - 0x023DD7 11:BDC7: FA        .byte con_jsr
 - D - I - 0x023DD8 11:BDC8: 13 AD     .word sub_AD13
 - D - I - 0x023DDA 11:BDCA: F2        .byte con_jmp
@@ -14752,51 +14759,51 @@ bra_case_BDC2_01:
 
 bra_case_BDCD_02:
 - - - - - 0x023DDD 11:BDCD: F5        .byte con_mirror_off
-- - - - - 0x023DDE 11:BDCE: 28        .byte $28
-- - - - - 0x023DDF 11:BDCF: 02        .byte $02
-- - - - - 0x023DE0 11:BDD0: 56        .byte $56
-- - - - - 0x023DE1 11:BDD1: 00        .byte $00
-- - - - - 0x023DE2 11:BDD2: 78        .byte $78
-- - - - - 0x023DE3 11:BDD3: 30        .byte $30
-- - - - - 0x023DE4 11:BDD4: 91        .byte $91
-- - - - - 0x023DE5 11:BDD5: 4A        .byte $4A
+- - - - - 0x023DDE 11:BDCE: 28        .byte con_pause + $28
+- - - - - 0x023DDF 11:BDCF: 02        .byte con_bg + $02
+- - - - - 0x023DE0 11:BDD0: 56        .byte con_animation + $56
+- - - - - 0x023DE1 11:BDD1: 00        .byte con_cloud + $00
+- - - - - 0x023DE2 11:BDD2: 78        .byte con_pause + $78
+- - - - - 0x023DE3 11:BDD3: 30        .byte con_bg + $30
+- - - - - 0x023DE4 11:BDD4: 91        .byte con_animation + $91
+- - - - - 0x023DE5 11:BDD5: 4A        .byte con_cloud + $4A
 - - - - - 0x023DE6 11:BDD6: F9        .byte con_delay_soundID, $19, $2B
-- - - - - 0x023DE9 11:BDD9: 28        .byte $28
-- - - - - 0x023DEA 11:BDDA: 29        .byte $29
-- - - - - 0x023DEB 11:BDDB: C6        .byte $C6
-- - - - - 0x023DEC 11:BDDC: 00        .byte $00
+- - - - - 0x023DE9 11:BDD9: 28        .byte con_pause + $28
+- - - - - 0x023DEA 11:BDDA: 29        .byte con_bg + $29
+- - - - - 0x023DEB 11:BDDB: C6        .byte con_animation + $C6
+- - - - - 0x023DEC 11:BDDC: 00        .byte con_cloud + $00
 loc_BDDD:
 - D - I - 0x023DED 11:BDDD: FA        .byte con_jsr
 - D - I - 0x023DEE 11:BDDE: A7 B0     .word sub_B0A7
 - D - I - 0x023DF0 11:BDE0: F9        .byte con_delay_soundID, $02, $24
-- D - I - 0x023DF3 11:BDE3: 38        .byte $38
-- D - I - 0x023DF4 11:BDE4: 35        .byte $35
-- D - I - 0x023DF5 11:BDE5: 10        .byte $10
-- D - I - 0x023DF6 11:BDE6: 00        .byte $00
+- D - I - 0x023DF3 11:BDE3: 38        .byte con_pause + $38
+- D - I - 0x023DF4 11:BDE4: 35        .byte con_bg + $35
+- D - I - 0x023DF5 11:BDE5: 10        .byte con_animation + $10
+- D - I - 0x023DF6 11:BDE6: 00        .byte con_cloud + $00
 - D - I - 0x023DF7 11:BDE7: FA        .byte con_jsr
 - D - I - 0x023DF8 11:BDE8: 5D BB     .word sub_BB5D
 - D - I - 0x023DFA 11:BDEA: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x023DFD 11:BDED: F7        .byte con_F7, $33
-- D - I - 0x023DFF 11:BDEF: 3C        .byte $3C
-- D - I - 0x023E00 11:BDF0: 27        .byte $27
-- D - I - 0x023E01 11:BDF1: 51        .byte $51
-- D - I - 0x023E02 11:BDF2: 00        .byte $00
+- D - I - 0x023DFF 11:BDEF: 3C        .byte con_pause + $3C
+- D - I - 0x023E00 11:BDF0: 27        .byte con_bg + $27
+- D - I - 0x023E01 11:BDF1: 51        .byte con_animation + $51
+- D - I - 0x023E02 11:BDF2: 00        .byte con_cloud + $00
 - D - I - 0x023E03 11:BDF3: F2        .byte con_jmp
 - D - I - 0x023E04 11:BDF4: 67 A2     .word loc_A267
 
 sub_BDF6:
 - D - I - 0x023E06 11:BDF6: F6        .byte con_mirror_toggle
-- D - I - 0x023E07 11:BDF7: 1D        .byte $1D
-- D - I - 0x023E08 11:BDF8: 71        .byte $71
-- D - I - 0x023E09 11:BDF9: 00        .byte $00
-- D - I - 0x023E0A 11:BDFA: F0        .byte con_exit_1
+- D - I - 0x023E07 11:BDF7: 1D        .byte con_pause + $1D
+- D - I - 0x023E08 11:BDF8: 71        .byte con_bg + $71
+- D - I - 0x023E09 11:BDF9: 00        .byte con_animation + $00
+- D - I - 0x023E0A 11:BDFA: F0        .byte con_cloud + $F0
 - D - I - 0x023E0B 11:BDFB: FB        .byte con_rts
 
 sub_BDFC:
-- D - I - 0x023E0C 11:BDFC: 1D        .byte $1D
-- D - I - 0x023E0D 11:BDFD: 71        .byte $71
-- D - I - 0x023E0E 11:BDFE: 00        .byte $00
-- D - I - 0x023E0F 11:BDFF: F0        .byte con_exit_1
+- D - I - 0x023E0C 11:BDFC: 1D        .byte con_pause + $1D
+- D - I - 0x023E0D 11:BDFD: 71        .byte con_bg + $71
+- D - I - 0x023E0E 11:BDFE: 00        .byte con_animation + $00
+- D - I - 0x023E0F 11:BDFF: F0        .byte con_cloud + $F0
 - D - I - 0x023E10 11:BE00: FB        .byte con_rts
 
 
@@ -14807,10 +14814,10 @@ _scenario_BE01_50___:
 - D - I - 0x023E13 11:BE03: FC BD     .word sub_BDFC
 - D - I - 0x023E15 11:BE05: FA        .byte con_jsr
 - D - I - 0x023E16 11:BE06: F6 BD     .word sub_BDF6
-- D - I - 0x023E18 11:BE08: 10        .byte $10
-- D - I - 0x023E19 11:BE09: 30        .byte $30
-- D - I - 0x023E1A 11:BE0A: 91        .byte $91
-- D - I - 0x023E1B 11:BE0B: F0        .byte con_exit_1
+- D - I - 0x023E18 11:BE08: 10        .byte con_pause + $10
+- D - I - 0x023E19 11:BE09: 30        .byte con_bg + $30
+- D - I - 0x023E1A 11:BE0A: 91        .byte con_animation + $91
+- D - I - 0x023E1B 11:BE0B: F0        .byte con_cloud + $F0
 - D - I - 0x023E1C 11:BE0C: FB        .byte con_rts
 
 
@@ -14820,10 +14827,10 @@ _scenario_BE0D_51:
 - D - I - 0x023E1E 11:BE0E: FC BD     .word sub_BDFC
 - D - I - 0x023E20 11:BE10: FA        .byte con_jsr
 - D - I - 0x023E21 11:BE11: F6 BD     .word sub_BDF6
-- D - I - 0x023E23 11:BE13: 10        .byte $10
-- D - I - 0x023E24 11:BE14: 30        .byte $30
-- D - I - 0x023E25 11:BE15: 97        .byte $97
-- D - I - 0x023E26 11:BE16: F0        .byte con_exit_1
+- D - I - 0x023E23 11:BE13: 10        .byte con_pause + $10
+- D - I - 0x023E24 11:BE14: 30        .byte con_bg + $30
+- D - I - 0x023E25 11:BE15: 97        .byte con_animation + $97
+- D - I - 0x023E26 11:BE16: F0        .byte con_cloud + $F0
 - D - I - 0x023E27 11:BE17: FB        .byte con_rts
 
 
@@ -14831,10 +14838,10 @@ _scenario_BE0D_51:
 _scenario_BE18_52:
 - D - I - 0x023E28 11:BE18: FA        .byte con_jsr
 - D - I - 0x023E29 11:BE19: F6 BD     .word sub_BDF6
-- D - I - 0x023E2B 11:BE1B: 10        .byte $10
-- D - I - 0x023E2C 11:BE1C: 31        .byte $31
-- D - I - 0x023E2D 11:BE1D: 9E        .byte $9E
-- D - I - 0x023E2E 11:BE1E: F0        .byte con_exit_1
+- D - I - 0x023E2B 11:BE1B: 10        .byte con_pause + $10
+- D - I - 0x023E2C 11:BE1C: 31        .byte con_bg + $31
+- D - I - 0x023E2D 11:BE1D: 9E        .byte con_animation + $9E
+- D - I - 0x023E2E 11:BE1E: F0        .byte con_cloud + $F0
 - D - I - 0x023E2F 11:BE1F: FB        .byte con_rts
 
 
@@ -14843,10 +14850,10 @@ _scenario_BE20_53:
 - D - I - 0x023E30 11:BE20: FA        .byte con_jsr
 - D - I - 0x023E31 11:BE21: F6 BD     .word sub_BDF6
 - D - I - 0x023E33 11:BE23: F5        .byte con_mirror_off
-- D - I - 0x023E34 11:BE24: 10        .byte $10
-- D - I - 0x023E35 11:BE25: 32        .byte $32
-- D - I - 0x023E36 11:BE26: A4        .byte $A4
-- D - I - 0x023E37 11:BE27: F0        .byte con_exit_1
+- D - I - 0x023E34 11:BE24: 10        .byte con_pause + $10
+- D - I - 0x023E35 11:BE25: 32        .byte con_bg + $32
+- D - I - 0x023E36 11:BE26: A4        .byte con_animation + $A4
+- D - I - 0x023E37 11:BE27: F0        .byte con_cloud + $F0
 - D - I - 0x023E38 11:BE28: F5        .byte con_mirror_off
 - D - I - 0x023E39 11:BE29: FB        .byte con_rts
 
@@ -14855,10 +14862,10 @@ _scenario_BE20_53:
 _scenario_BE2A_54:
 - D - I - 0x023E3A 11:BE2A: FA        .byte con_jsr
 - D - I - 0x023E3B 11:BE2B: F6 BD     .word sub_BDF6
-- D - I - 0x023E3D 11:BE2D: 10        .byte $10
-- D - I - 0x023E3E 11:BE2E: 30        .byte $30
-- D - I - 0x023E3F 11:BE2F: AF        .byte $AF
-- D - I - 0x023E40 11:BE30: F0        .byte con_exit_1
+- D - I - 0x023E3D 11:BE2D: 10        .byte con_pause + $10
+- D - I - 0x023E3E 11:BE2E: 30        .byte con_bg + $30
+- D - I - 0x023E3F 11:BE2F: AF        .byte con_animation + $AF
+- D - I - 0x023E40 11:BE30: F0        .byte con_cloud + $F0
 - D - I - 0x023E41 11:BE31: FB        .byte con_rts
 
 
@@ -14866,10 +14873,10 @@ _scenario_BE2A_54:
 _scenario_BE32_55:
 - D - I - 0x023E42 11:BE32: FA        .byte con_jsr
 - D - I - 0x023E43 11:BE33: F6 BD     .word sub_BDF6
-- D - I - 0x023E45 11:BE35: 10        .byte $10
-- D - I - 0x023E46 11:BE36: 30        .byte $30
-- D - I - 0x023E47 11:BE37: AE        .byte $AE
-- D - I - 0x023E48 11:BE38: F0        .byte con_exit_1
+- D - I - 0x023E45 11:BE35: 10        .byte con_pause + $10
+- D - I - 0x023E46 11:BE36: 30        .byte con_bg + $30
+- D - I - 0x023E47 11:BE37: AE        .byte con_animation + $AE
+- D - I - 0x023E48 11:BE38: F0        .byte con_cloud + $F0
 - D - I - 0x023E49 11:BE39: FB        .byte con_rts
 
 
@@ -14877,10 +14884,10 @@ _scenario_BE32_55:
 _scenario_BE3A_56:
 - D - I - 0x023E4A 11:BE3A: FA        .byte con_jsr
 - D - I - 0x023E4B 11:BE3B: F6 BD     .word sub_BDF6
-- D - I - 0x023E4D 11:BE3D: 10        .byte $10
-- D - I - 0x023E4E 11:BE3E: 30        .byte $30
-- D - I - 0x023E4F 11:BE3F: 98        .byte $98
-- D - I - 0x023E50 11:BE40: F0        .byte con_exit_1
+- D - I - 0x023E4D 11:BE3D: 10        .byte con_pause + $10
+- D - I - 0x023E4E 11:BE3E: 30        .byte con_bg + $30
+- D - I - 0x023E4F 11:BE3F: 98        .byte con_animation + $98
+- D - I - 0x023E50 11:BE40: F0        .byte con_cloud + $F0
 - D - I - 0x023E51 11:BE41: FB        .byte con_rts
 
 
@@ -14888,10 +14895,10 @@ _scenario_BE3A_56:
 _scenario_BE42_57:
 - D - I - 0x023E52 11:BE42: FA        .byte con_jsr
 - D - I - 0x023E53 11:BE43: F6 BD     .word sub_BDF6
-- D - I - 0x023E55 11:BE45: 10        .byte $10
-- D - I - 0x023E56 11:BE46: 30        .byte $30
-- D - I - 0x023E57 11:BE47: AD        .byte $AD
-- D - I - 0x023E58 11:BE48: F0        .byte con_exit_1
+- D - I - 0x023E55 11:BE45: 10        .byte con_pause + $10
+- D - I - 0x023E56 11:BE46: 30        .byte con_bg + $30
+- D - I - 0x023E57 11:BE47: AD        .byte con_animation + $AD
+- D - I - 0x023E58 11:BE48: F0        .byte con_cloud + $F0
 - D - I - 0x023E59 11:BE49: FB        .byte con_rts
 
 
@@ -14899,10 +14906,10 @@ _scenario_BE42_57:
 _scenario_BE4A_58:
 - D - I - 0x023E5A 11:BE4A: FA        .byte con_jsr
 - D - I - 0x023E5B 11:BE4B: F6 BD     .word sub_BDF6
-- D - I - 0x023E5D 11:BE4D: 10        .byte $10
-- D - I - 0x023E5E 11:BE4E: 30        .byte $30
-- D - I - 0x023E5F 11:BE4F: 9A        .byte $9A
-- D - I - 0x023E60 11:BE50: F0        .byte con_exit_1
+- D - I - 0x023E5D 11:BE4D: 10        .byte con_pause + $10
+- D - I - 0x023E5E 11:BE4E: 30        .byte con_bg + $30
+- D - I - 0x023E5F 11:BE4F: 9A        .byte con_animation + $9A
+- D - I - 0x023E60 11:BE50: F0        .byte con_cloud + $F0
 - D - I - 0x023E61 11:BE51: FB        .byte con_rts
 
 
@@ -14910,10 +14917,10 @@ _scenario_BE4A_58:
 _scenario_BE52_59:
 - D - I - 0x023E62 11:BE52: FA        .byte con_jsr
 - D - I - 0x023E63 11:BE53: F6 BD     .word sub_BDF6
-- D - I - 0x023E65 11:BE55: 10        .byte $10
-- D - I - 0x023E66 11:BE56: 30        .byte $30
-- D - I - 0x023E67 11:BE57: AA        .byte $AA
-- D - I - 0x023E68 11:BE58: F0        .byte con_exit_1
+- D - I - 0x023E65 11:BE55: 10        .byte con_pause + $10
+- D - I - 0x023E66 11:BE56: 30        .byte con_bg + $30
+- D - I - 0x023E67 11:BE57: AA        .byte con_animation + $AA
+- D - I - 0x023E68 11:BE58: F0        .byte con_cloud + $F0
 - D - I - 0x023E69 11:BE59: FB        .byte con_rts
 
 
@@ -14921,16 +14928,16 @@ _scenario_BE52_59:
 _scenario_BE5A_5A:
 - D - I - 0x023E6A 11:BE5A: FA        .byte con_jsr
 - D - I - 0x023E6B 11:BE5B: F6 BD     .word sub_BDF6
-- D - I - 0x023E6D 11:BE5D: 50        .byte $50
-- D - I - 0x023E6E 11:BE5E: 30        .byte $30
-- D - I - 0x023E6F 11:BE5F: AB        .byte $AB
-- D - I - 0x023E70 11:BE60: F0        .byte con_exit_1
+- D - I - 0x023E6D 11:BE5D: 50        .byte con_pause + $50
+- D - I - 0x023E6E 11:BE5E: 30        .byte con_bg + $30
+- D - I - 0x023E6F 11:BE5F: AB        .byte con_animation + $AB
+- D - I - 0x023E70 11:BE60: F0        .byte con_cloud + $F0
 - D - I - 0x023E71 11:BE61: FA        .byte con_jsr
 - D - I - 0x023E72 11:BE62: F6 BD     .word sub_BDF6
-- D - I - 0x023E74 11:BE64: 10        .byte $10
-- D - I - 0x023E75 11:BE65: 30        .byte $30
-- D - I - 0x023E76 11:BE66: AB        .byte $AB
-- D - I - 0x023E77 11:BE67: F0        .byte con_exit_1
+- D - I - 0x023E74 11:BE64: 10        .byte con_pause + $10
+- D - I - 0x023E75 11:BE65: 30        .byte con_bg + $30
+- D - I - 0x023E76 11:BE66: AB        .byte con_animation + $AB
+- D - I - 0x023E77 11:BE67: F0        .byte con_cloud + $F0
 - D - I - 0x023E78 11:BE68: FB        .byte con_rts
 
 
@@ -14939,10 +14946,10 @@ _scenario_BE69_5B:
 - D - I - 0x023E79 11:BE69: FA        .byte con_jsr
 - D - I - 0x023E7A 11:BE6A: F6 BD     .word sub_BDF6
 - D - I - 0x023E7C 11:BE6C: F5        .byte con_mirror_off
-- D - I - 0x023E7D 11:BE6D: 10        .byte $10
-- D - I - 0x023E7E 11:BE6E: 33        .byte $33
-- D - I - 0x023E7F 11:BE6F: A6        .byte $A6
-- D - I - 0x023E80 11:BE70: F0        .byte con_exit_1
+- D - I - 0x023E7D 11:BE6D: 10        .byte con_pause + $10
+- D - I - 0x023E7E 11:BE6E: 33        .byte con_bg + $33
+- D - I - 0x023E7F 11:BE6F: A6        .byte con_animation + $A6
+- D - I - 0x023E80 11:BE70: F0        .byte con_cloud + $F0
 - D - I - 0x023E81 11:BE71: F5        .byte con_mirror_off
 - D - I - 0x023E82 11:BE72: FB        .byte con_rts
 
@@ -14952,10 +14959,10 @@ _scenario_BE73_5C:
 - D - I - 0x023E83 11:BE73: F5        .byte con_mirror_off
 - D - I - 0x023E84 11:BE74: FA        .byte con_jsr
 - D - I - 0x023E85 11:BE75: F6 BD     .word sub_BDF6
-- D - I - 0x023E87 11:BE77: 10        .byte $10
-- D - I - 0x023E88 11:BE78: 30        .byte $30
-- D - I - 0x023E89 11:BE79: A9        .byte $A9
-- D - I - 0x023E8A 11:BE7A: F0        .byte con_exit_1
+- D - I - 0x023E87 11:BE77: 10        .byte con_pause + $10
+- D - I - 0x023E88 11:BE78: 30        .byte con_bg + $30
+- D - I - 0x023E89 11:BE79: A9        .byte con_animation + $A9
+- D - I - 0x023E8A 11:BE7A: F0        .byte con_cloud + $F0
 - D - I - 0x023E8B 11:BE7B: FB        .byte con_rts
 
 
@@ -14964,10 +14971,10 @@ _scenario_BE7C_5D:
 - D - I - 0x023E8C 11:BE7C: FA        .byte con_jsr
 - D - I - 0x023E8D 11:BE7D: F6 BD     .word sub_BDF6
 - D - I - 0x023E8F 11:BE7F: F5        .byte con_mirror_off
-- D - I - 0x023E90 11:BE80: 10        .byte $10
-- D - I - 0x023E91 11:BE81: 32        .byte $32
-- D - I - 0x023E92 11:BE82: A8        .byte $A8
-- D - I - 0x023E93 11:BE83: F0        .byte con_exit_1
+- D - I - 0x023E90 11:BE80: 10        .byte con_pause + $10
+- D - I - 0x023E91 11:BE81: 32        .byte con_bg + $32
+- D - I - 0x023E92 11:BE82: A8        .byte con_animation + $A8
+- D - I - 0x023E93 11:BE83: F0        .byte con_cloud + $F0
 - D - I - 0x023E94 11:BE84: F5        .byte con_mirror_off
 - D - I - 0x023E95 11:BE85: FB        .byte con_rts
 
@@ -14976,10 +14983,10 @@ _scenario_BE7C_5D:
 _scenario_BE86_5E:
 - D - I - 0x023E96 11:BE86: FA        .byte con_jsr
 - D - I - 0x023E97 11:BE87: F6 BD     .word sub_BDF6
-- D - I - 0x023E99 11:BE89: 10        .byte $10
-- D - I - 0x023E9A 11:BE8A: 30        .byte $30
-- D - I - 0x023E9B 11:BE8B: B3        .byte $B3
-- D - I - 0x023E9C 11:BE8C: F0        .byte con_exit_1
+- D - I - 0x023E99 11:BE89: 10        .byte con_pause + $10
+- D - I - 0x023E9A 11:BE8A: 30        .byte con_bg + $30
+- D - I - 0x023E9B 11:BE8B: B3        .byte con_animation + $B3
+- D - I - 0x023E9C 11:BE8C: F0        .byte con_cloud + $F0
 - D - I - 0x023E9D 11:BE8D: FB        .byte con_rts
 
 
@@ -14987,10 +14994,10 @@ _scenario_BE86_5E:
 _scenario_BE8E_5F:
 - D - I - 0x023E9E 11:BE8E: FA        .byte con_jsr
 - D - I - 0x023E9F 11:BE8F: F6 BD     .word sub_BDF6
-- D - I - 0x023EA1 11:BE91: 10        .byte $10
-- D - I - 0x023EA2 11:BE92: 30        .byte $30
-- D - I - 0x023EA3 11:BE93: B5        .byte $B5
-- D - I - 0x023EA4 11:BE94: F0        .byte con_exit_1
+- D - I - 0x023EA1 11:BE91: 10        .byte con_pause + $10
+- D - I - 0x023EA2 11:BE92: 30        .byte con_bg + $30
+- D - I - 0x023EA3 11:BE93: B5        .byte con_animation + $B5
+- D - I - 0x023EA4 11:BE94: F0        .byte con_cloud + $F0
 - D - I - 0x023EA5 11:BE95: FB        .byte con_rts
 
 
@@ -14998,10 +15005,10 @@ _scenario_BE8E_5F:
 _scenario_BE96_60:
 - D - I - 0x023EA6 11:BE96: FA        .byte con_jsr
 - D - I - 0x023EA7 11:BE97: F6 BD     .word sub_BDF6
-- D - I - 0x023EA9 11:BE99: 10        .byte $10
-- D - I - 0x023EAA 11:BE9A: 30        .byte $30
-- D - I - 0x023EAB 11:BE9B: B4        .byte $B4
-- D - I - 0x023EAC 11:BE9C: F0        .byte con_exit_1
+- D - I - 0x023EA9 11:BE99: 10        .byte con_pause + $10
+- D - I - 0x023EAA 11:BE9A: 30        .byte con_bg + $30
+- D - I - 0x023EAB 11:BE9B: B4        .byte con_animation + $B4
+- D - I - 0x023EAC 11:BE9C: F0        .byte con_cloud + $F0
 - D - I - 0x023EAD 11:BE9D: FB        .byte con_rts
 
 
@@ -15009,10 +15016,10 @@ _scenario_BE96_60:
 _scenario_BE9E_61:
 - D - I - 0x023EAE 11:BE9E: FA        .byte con_jsr
 - D - I - 0x023EAF 11:BE9F: F6 BD     .word sub_BDF6
-- D - I - 0x023EB1 11:BEA1: 10        .byte $10
-- D - I - 0x023EB2 11:BEA2: 30        .byte $30
-- D - I - 0x023EB3 11:BEA3: B7        .byte $B7
-- D - I - 0x023EB4 11:BEA4: F0        .byte con_exit_1
+- D - I - 0x023EB1 11:BEA1: 10        .byte con_pause + $10
+- D - I - 0x023EB2 11:BEA2: 30        .byte con_bg + $30
+- D - I - 0x023EB3 11:BEA3: B7        .byte con_animation + $B7
+- D - I - 0x023EB4 11:BEA4: F0        .byte con_cloud + $F0
 - D - I - 0x023EB5 11:BEA5: FB        .byte con_rts
 
 
@@ -15020,10 +15027,10 @@ _scenario_BE9E_61:
 _scenario_BEA6_62:
 - D - I - 0x023EB6 11:BEA6: FA        .byte con_jsr
 - D - I - 0x023EB7 11:BEA7: F6 BD     .word sub_BDF6
-- D - I - 0x023EB9 11:BEA9: 10        .byte $10
-- D - I - 0x023EBA 11:BEAA: 30        .byte $30
-- D - I - 0x023EBB 11:BEAB: B6        .byte $B6
-- D - I - 0x023EBC 11:BEAC: F0        .byte con_exit_1
+- D - I - 0x023EB9 11:BEA9: 10        .byte con_pause + $10
+- D - I - 0x023EBA 11:BEAA: 30        .byte con_bg + $30
+- D - I - 0x023EBB 11:BEAB: B6        .byte con_animation + $B6
+- D - I - 0x023EBC 11:BEAC: F0        .byte con_cloud + $F0
 - D - I - 0x023EBD 11:BEAD: FB        .byte con_rts
 
 
@@ -15031,10 +15038,10 @@ _scenario_BEA6_62:
 _scenario_BEAE_63:
 - D - I - 0x023EBE 11:BEAE: FA        .byte con_jsr
 - D - I - 0x023EBF 11:BEAF: F6 BD     .word sub_BDF6
-- D - I - 0x023EC1 11:BEB1: 10        .byte $10
-- D - I - 0x023EC2 11:BEB2: 30        .byte $30
-- D - I - 0x023EC3 11:BEB3: B8        .byte $B8
-- D - I - 0x023EC4 11:BEB4: F0        .byte con_exit_1
+- D - I - 0x023EC1 11:BEB1: 10        .byte con_pause + $10
+- D - I - 0x023EC2 11:BEB2: 30        .byte con_bg + $30
+- D - I - 0x023EC3 11:BEB3: B8        .byte con_animation + $B8
+- D - I - 0x023EC4 11:BEB4: F0        .byte con_cloud + $F0
 - D - I - 0x023EC5 11:BEB5: FB        .byte con_rts
 
 
@@ -15042,10 +15049,10 @@ _scenario_BEAE_63:
 _scenario_BEB6_64:
 - D - I - 0x023EC6 11:BEB6: FA        .byte con_jsr
 - D - I - 0x023EC7 11:BEB7: F6 BD     .word sub_BDF6
-- D - I - 0x023EC9 11:BEB9: 10        .byte $10
-- D - I - 0x023ECA 11:BEBA: 30        .byte $30
-- D - I - 0x023ECB 11:BEBB: B2        .byte $B2
-- D - I - 0x023ECC 11:BEBC: F0        .byte con_exit_1
+- D - I - 0x023EC9 11:BEB9: 10        .byte con_pause + $10
+- D - I - 0x023ECA 11:BEBA: 30        .byte con_bg + $30
+- D - I - 0x023ECB 11:BEBB: B2        .byte con_animation + $B2
+- D - I - 0x023ECC 11:BEBC: F0        .byte con_cloud + $F0
 - D - I - 0x023ECD 11:BEBD: FB        .byte con_rts
 
 
@@ -15053,30 +15060,30 @@ _scenario_BEB6_64:
 _scenario_BEBE_65:
 - D - I - 0x023ECE 11:BEBE: FA        .byte con_jsr
 - D - I - 0x023ECF 11:BEBF: F6 BD     .word sub_BDF6
-- D - I - 0x023ED1 11:BEC1: 10        .byte $10
-- D - I - 0x023ED2 11:BEC2: 30        .byte $30
-- D - I - 0x023ED3 11:BEC3: BC        .byte $BC
-- D - I - 0x023ED4 11:BEC4: F0        .byte con_exit_1
+- D - I - 0x023ED1 11:BEC1: 10        .byte con_pause + $10
+- D - I - 0x023ED2 11:BEC2: 30        .byte con_bg + $30
+- D - I - 0x023ED3 11:BEC3: BC        .byte con_animation + $BC
+- D - I - 0x023ED4 11:BEC4: F0        .byte con_cloud + $F0
 - D - I - 0x023ED5 11:BEC5: FB        .byte con_rts
 
 
 
 _scenario_BEC6_66:
 - D - I - 0x023ED6 11:BEC6: F7        .byte con_F7, $31
-- D - I - 0x023ED8 11:BEC8: 3A        .byte $3A
-- D - I - 0x023ED9 11:BEC9: 6A        .byte $6A
-- D - I - 0x023EDA 11:BECA: DB        .byte $DB
-- D - I - 0x023EDB 11:BECB: F0        .byte con_exit_1
+- D - I - 0x023ED8 11:BEC8: 3A        .byte con_pause + $3A
+- D - I - 0x023ED9 11:BEC9: 6A        .byte con_bg + $6A
+- D - I - 0x023EDA 11:BECA: DB        .byte con_animation + $DB
+- D - I - 0x023EDB 11:BECB: F0        .byte con_cloud + $F0
 - D - I - 0x023EDC 11:BECC: F7        .byte con_F7, $20
-- D - I - 0x023EDE 11:BECE: 5E        .byte $5E
-- D - I - 0x023EDF 11:BECF: 49        .byte $49
-- D - I - 0x023EE0 11:BED0: F0        .byte con_exit_1
-- D - I - 0x023EE1 11:BED1: F0        .byte con_exit_1
+- D - I - 0x023EDE 11:BECE: 5E        .byte con_pause + $5E
+- D - I - 0x023EDF 11:BECF: 49        .byte con_bg + $49
+- D - I - 0x023EE0 11:BED0: F0        .byte con_animation + $F0
+- D - I - 0x023EE1 11:BED1: F0        .byte con_cloud + $F0
 - D - I - 0x023EE2 11:BED2: F7        .byte con_F7, $10
-- D - I - 0x023EE4 11:BED4: 1E        .byte $1E
-- D - I - 0x023EE5 11:BED5: 05        .byte $05
-- D - I - 0x023EE6 11:BED6: 00        .byte $00
-- D - I - 0x023EE7 11:BED7: F0        .byte con_exit_1
+- D - I - 0x023EE4 11:BED4: 1E        .byte con_pause + $1E
+- D - I - 0x023EE5 11:BED5: 05        .byte con_bg + $05
+- D - I - 0x023EE6 11:BED6: 00        .byte con_animation + $00
+- D - I - 0x023EE7 11:BED7: F0        .byte con_cloud + $F0
 _scenario_BED8_67:
 - D - I - 0x023EE8 11:BED8: FA        .byte con_jsr
 - D - I - 0x023EE9 11:BED9: 12 B7     .word sub_B712
@@ -15090,39 +15097,39 @@ _scenario_BED8_67:
 - D - I - 0x023EF5 11:BEE5: 24 B7     .word sub_B724
 - D - I - 0x023EF7 11:BEE7: FA        .byte con_jsr
 - D - I - 0x023EF8 11:BEE8: EC B5     .word sub_B5EC
-- D - I - 0x023EFA 11:BEEA: 38        .byte $38
-- D - I - 0x023EFB 11:BEEB: 35        .byte $35
-- D - I - 0x023EFC 11:BEEC: 10        .byte $10
-- D - I - 0x023EFD 11:BEED: F0        .byte con_exit_1
+- D - I - 0x023EFA 11:BEEA: 38        .byte con_pause + $38
+- D - I - 0x023EFB 11:BEEB: 35        .byte con_bg + $35
+- D - I - 0x023EFC 11:BEEC: 10        .byte con_animation + $10
+- D - I - 0x023EFD 11:BEED: F0        .byte con_cloud + $F0
 - D - I - 0x023EFE 11:BEEE: FA        .byte con_jsr
 - D - I - 0x023EFF 11:BEEF: 5D BB     .word sub_BB5D
 - D - I - 0x023F01 11:BEF1: F7        .byte con_F7, $33
-- D - I - 0x023F03 11:BEF3: 3C        .byte $3C
-- D - I - 0x023F04 11:BEF4: 27        .byte $27
-- D - I - 0x023F05 11:BEF5: 51        .byte $51
-- D - I - 0x023F06 11:BEF6: F0        .byte con_exit_1
+- D - I - 0x023F03 11:BEF3: 3C        .byte con_pause + $3C
+- D - I - 0x023F04 11:BEF4: 27        .byte con_bg + $27
+- D - I - 0x023F05 11:BEF5: 51        .byte con_animation + $51
+- D - I - 0x023F06 11:BEF6: F0        .byte con_cloud + $F0
 _scenario_BEF7_68:
 - D - I - 0x023F07 11:BEF7: F7        .byte con_F7, $03
-- D - I - 0x023F09 11:BEF9: A0        .byte $A0
-- D - I - 0x023F0A 11:BEFA: 07        .byte $07
-- D - I - 0x023F0B 11:BEFB: 45        .byte $45
-- D - I - 0x023F0C 11:BEFC: F0        .byte con_exit_1
+- D - I - 0x023F09 11:BEF9: A0        .byte con_pause + $A0
+- D - I - 0x023F0A 11:BEFA: 07        .byte con_bg + $07
+- D - I - 0x023F0B 11:BEFB: 45        .byte con_animation + $45
+- D - I - 0x023F0C 11:BEFC: F0        .byte con_cloud + $F0
 - D - I - 0x023F0D 11:BEFD: F5        .byte con_mirror_off
 - D - I - 0x023F0E 11:BEFE: F7        .byte con_F7, $13
-- D - I - 0x023F10 11:BF00: 78        .byte $78
-- D - I - 0x023F11 11:BF01: 0A        .byte $0A
-- D - I - 0x023F12 11:BF02: 48        .byte $48
-- D - I - 0x023F13 11:BF03: F0        .byte con_exit_1
+- D - I - 0x023F10 11:BF00: 78        .byte con_pause + $78
+- D - I - 0x023F11 11:BF01: 0A        .byte con_bg + $0A
+- D - I - 0x023F12 11:BF02: 48        .byte con_animation + $48
+- D - I - 0x023F13 11:BF03: F0        .byte con_cloud + $F0
 - D - I - 0x023F14 11:BF04: FB        .byte con_rts
 
 
 
 _scenario_BF05_69:
 - D - I - 0x023F15 11:BF05: F5        .byte con_mirror_off
-- D - I - 0x023F16 11:BF06: 28        .byte $28
-- D - I - 0x023F17 11:BF07: 3C        .byte $3C
-- D - I - 0x023F18 11:BF08: 61        .byte $61
-- D - I - 0x023F19 11:BF09: F0        .byte con_exit_1
+- D - I - 0x023F16 11:BF06: 28        .byte con_pause + $28
+- D - I - 0x023F17 11:BF07: 3C        .byte con_bg + $3C
+- D - I - 0x023F18 11:BF08: 61        .byte con_animation + $61
+- D - I - 0x023F19 11:BF09: F0        .byte con_cloud + $F0
 - D - I - 0x023F1A 11:BF0A: F2        .byte con_jmp
 - D - I - 0x023F1B 11:BF0B: 39 AB     .word loc_AB39
 
@@ -15140,68 +15147,68 @@ _scenario_BF13_6C:
 - D - I - 0x023F23 11:BF13: FA        .byte con_jsr
 - D - I - 0x023F24 11:BF14: B1 A7     .word sub_A7B1
 - D - I - 0x023F26 11:BF16: F7        .byte con_F7, $0F
-- D - I - 0x023F28 11:BF18: 1E        .byte $1E
-- D - I - 0x023F29 11:BF19: 05        .byte $05
-- D - I - 0x023F2A 11:BF1A: 00        .byte $00
-- D - I - 0x023F2B 11:BF1B: F0        .byte con_exit_1
+- D - I - 0x023F28 11:BF18: 1E        .byte con_pause + $1E
+- D - I - 0x023F29 11:BF19: 05        .byte con_bg + $05
+- D - I - 0x023F2A 11:BF1A: 00        .byte con_animation + $00
+- D - I - 0x023F2B 11:BF1B: F0        .byte con_cloud + $F0
 - D - I - 0x023F2C 11:BF1C: F7        .byte con_F7, $2A
-- D - I - 0x023F2E 11:BF1E: 23        .byte $23
-- D - I - 0x023F2F 11:BF1F: 6A        .byte $6A
-- D - I - 0x023F30 11:BF20: BD        .byte $BD
-- D - I - 0x023F31 11:BF21: F0        .byte con_exit_1
+- D - I - 0x023F2E 11:BF1E: 23        .byte con_pause + $23
+- D - I - 0x023F2F 11:BF1F: 6A        .byte con_bg + $6A
+- D - I - 0x023F30 11:BF20: BD        .byte con_animation + $BD
+- D - I - 0x023F31 11:BF21: F0        .byte con_cloud + $F0
 - D - I - 0x023F32 11:BF22: FB        .byte con_rts
 
 
 
 _scenario_BF23_6D:
-- D - I - 0x023F33 11:BF23: 3C        .byte $3C
-- D - I - 0x023F34 11:BF24: 28        .byte $28
-- D - I - 0x023F35 11:BF25: C6        .byte $C6
-- D - I - 0x023F36 11:BF26: F0        .byte con_exit_1
-- D - I - 0x023F37 11:BF27: 64        .byte $64
-- D - I - 0x023F38 11:BF28: 52        .byte $52
-- D - I - 0x023F39 11:BF29: E5        .byte $E5
-- D - I - 0x023F3A 11:BF2A: F0        .byte con_exit_1
+- D - I - 0x023F33 11:BF23: 3C        .byte con_pause + $3C
+- D - I - 0x023F34 11:BF24: 28        .byte con_bg + $28
+- D - I - 0x023F35 11:BF25: C6        .byte con_animation + $C6
+- D - I - 0x023F36 11:BF26: F0        .byte con_cloud + $F0
+- D - I - 0x023F37 11:BF27: 64        .byte con_pause + $64
+- D - I - 0x023F38 11:BF28: 52        .byte con_bg + $52
+- D - I - 0x023F39 11:BF29: E5        .byte con_animation + $E5
+- D - I - 0x023F3A 11:BF2A: F0        .byte con_cloud + $F0
 - D - I - 0x023F3B 11:BF2B: FB        .byte con_rts
 
 
 
 _scenario_BF2C_6E:
 - D - I - 0x023F3C 11:BF2C: F5        .byte con_mirror_off
-- D - I - 0x023F3D 11:BF2D: 32        .byte $32
-- D - I - 0x023F3E 11:BF2E: 1F        .byte $1F
-- D - I - 0x023F3F 11:BF2F: 64        .byte $64
-- D - I - 0x023F40 11:BF30: F0        .byte con_exit_1
+- D - I - 0x023F3D 11:BF2D: 32        .byte con_pause + $32
+- D - I - 0x023F3E 11:BF2E: 1F        .byte con_bg + $1F
+- D - I - 0x023F3F 11:BF2F: 64        .byte con_animation + $64
+- D - I - 0x023F40 11:BF30: F0        .byte con_cloud + $F0
 - D - I - 0x023F41 11:BF31: F6        .byte con_mirror_toggle
 - D - I - 0x023F42 11:BF32: F8        .byte con_F8, $04
 - D - I - 0x023F44 11:BF34: F7        .byte con_F7, $3A
-- D - I - 0x023F46 11:BF36: 32        .byte $32
-- D - I - 0x023F47 11:BF37: 23        .byte $23
-- D - I - 0x023F48 11:BF38: 76        .byte $76
-- D - I - 0x023F49 11:BF39: F0        .byte con_exit_1
+- D - I - 0x023F46 11:BF36: 32        .byte con_pause + $32
+- D - I - 0x023F47 11:BF37: 23        .byte con_bg + $23
+- D - I - 0x023F48 11:BF38: 76        .byte con_animation + $76
+- D - I - 0x023F49 11:BF39: F0        .byte con_cloud + $F0
 - D - I - 0x023F4A 11:BF3A: F6        .byte con_mirror_toggle
 - D - I - 0x023F4B 11:BF3B: F7        .byte con_F7, $10
-- D - I - 0x023F4D 11:BF3D: 20        .byte $20
-- D - I - 0x023F4E 11:BF3E: 05        .byte $05
-- D - I - 0x023F4F 11:BF3F: 00        .byte $00
-- D - I - 0x023F50 11:BF40: F0        .byte con_exit_1
-- D - I - 0x023F51 11:BF41: 28        .byte $28
-- D - I - 0x023F52 11:BF42: 12        .byte $12
-- D - I - 0x023F53 11:BF43: E1        .byte $E1
-- D - I - 0x023F54 11:BF44: F0        .byte con_exit_1
+- D - I - 0x023F4D 11:BF3D: 20        .byte con_pause + $20
+- D - I - 0x023F4E 11:BF3E: 05        .byte con_bg + $05
+- D - I - 0x023F4F 11:BF3F: 00        .byte con_animation + $00
+- D - I - 0x023F50 11:BF40: F0        .byte con_cloud + $F0
+- D - I - 0x023F51 11:BF41: 28        .byte con_pause + $28
+- D - I - 0x023F52 11:BF42: 12        .byte con_bg + $12
+- D - I - 0x023F53 11:BF43: E1        .byte con_animation + $E1
+- D - I - 0x023F54 11:BF44: F0        .byte con_cloud + $F0
 - D - I - 0x023F55 11:BF45: F7        .byte con_F7, $1E
-- D - I - 0x023F57 11:BF47: 20        .byte $20
-- D - I - 0x023F58 11:BF48: 05        .byte $05
-- D - I - 0x023F59 11:BF49: F0        .byte con_exit_1
-- D - I - 0x023F5A 11:BF4A: F0        .byte con_exit_1
-- D - I - 0x023F5B 11:BF4B: 32        .byte $32
-- D - I - 0x023F5C 11:BF4C: 20        .byte $20
-- D - I - 0x023F5D 11:BF4D: 4B        .byte $4B
-- D - I - 0x023F5E 11:BF4E: F0        .byte con_exit_1
-- D - I - 0x023F5F 11:BF4F: 48        .byte $48
-- D - I - 0x023F60 11:BF50: 2A        .byte $2A
-- D - I - 0x023F61 11:BF51: 3B        .byte $3B
-- D - I - 0x023F62 11:BF52: F0        .byte con_exit_1
+- D - I - 0x023F57 11:BF47: 20        .byte con_pause + $20
+- D - I - 0x023F58 11:BF48: 05        .byte con_bg + $05
+- D - I - 0x023F59 11:BF49: F0        .byte con_animation + $F0
+- D - I - 0x023F5A 11:BF4A: F0        .byte con_cloud + $F0
+- D - I - 0x023F5B 11:BF4B: 32        .byte con_pause + $32
+- D - I - 0x023F5C 11:BF4C: 20        .byte con_bg + $20
+- D - I - 0x023F5D 11:BF4D: 4B        .byte con_animation + $4B
+- D - I - 0x023F5E 11:BF4E: F0        .byte con_cloud + $F0
+- D - I - 0x023F5F 11:BF4F: 48        .byte con_pause + $48
+- D - I - 0x023F60 11:BF50: 2A        .byte con_bg + $2A
+- D - I - 0x023F61 11:BF51: 3B        .byte con_animation + $3B
+- D - I - 0x023F62 11:BF52: F0        .byte con_cloud + $F0
 - D - I - 0x023F63 11:BF53: FB        .byte con_rts
 
 
@@ -15211,10 +15218,10 @@ _scenario_BF54_6F:
 - D - I - 0x023F65 11:BF55: 4D A3     .word sub_A34D
 - D - I - 0x023F67 11:BF57: FC        .byte con_FC, $01
 - D - I - 0x023F69 11:BF59: F9        .byte con_delay_soundID, $21, $2A
-- D - I - 0x023F6C 11:BF5C: 30        .byte $30
-- D - I - 0x023F6D 11:BF5D: 2E        .byte $2E
-- D - I - 0x023F6E 11:BF5E: 2D        .byte $2D
-- D - I - 0x023F6F 11:BF5F: F0        .byte con_exit_1
+- D - I - 0x023F6C 11:BF5C: 30        .byte con_pause + $30
+- D - I - 0x023F6D 11:BF5D: 2E        .byte con_bg + $2E
+- D - I - 0x023F6E 11:BF5E: 2D        .byte con_animation + $2D
+- D - I - 0x023F6F 11:BF5F: F0        .byte con_cloud + $F0
 - D - I - 0x023F70 11:BF60: FB        .byte con_rts
 
 
@@ -15249,23 +15256,23 @@ _scenario_BF73_71:
 
 _scenario_BF7F_72:
 - D - I - 0x023F8F 11:BF7F: F7        .byte con_F7, $33
-- D - I - 0x023F91 11:BF81: 20        .byte $20
-- D - I - 0x023F92 11:BF82: 6B        .byte $6B
-- D - I - 0x023F93 11:BF83: E3        .byte $E3
-- D - I - 0x023F94 11:BF84: F0        .byte con_exit_1
-- D - I - 0x023F95 11:BF85: 14        .byte $14
-- D - I - 0x023F96 11:BF86: 02        .byte $02
-- D - I - 0x023F97 11:BF87: 1C        .byte $1C
-- D - I - 0x023F98 11:BF88: F0        .byte con_exit_1
-- D - I - 0x023F99 11:BF89: 20        .byte $20
-- D - I - 0x023F9A 11:BF8A: 56        .byte $56
-- D - I - 0x023F9B 11:BF8B: 49        .byte $49
-- D - I - 0x023F9C 11:BF8C: F0        .byte con_exit_1
+- D - I - 0x023F91 11:BF81: 20        .byte con_pause + $20
+- D - I - 0x023F92 11:BF82: 6B        .byte con_bg + $6B
+- D - I - 0x023F93 11:BF83: E3        .byte con_animation + $E3
+- D - I - 0x023F94 11:BF84: F0        .byte con_cloud + $F0
+- D - I - 0x023F95 11:BF85: 14        .byte con_pause + $14
+- D - I - 0x023F96 11:BF86: 02        .byte con_bg + $02
+- D - I - 0x023F97 11:BF87: 1C        .byte con_animation + $1C
+- D - I - 0x023F98 11:BF88: F0        .byte con_cloud + $F0
+- D - I - 0x023F99 11:BF89: 20        .byte con_pause + $20
+- D - I - 0x023F9A 11:BF8A: 56        .byte con_bg + $56
+- D - I - 0x023F9B 11:BF8B: 49        .byte con_animation + $49
+- D - I - 0x023F9C 11:BF8C: F0        .byte con_cloud + $F0
 - D - I - 0x023F9D 11:BF8D: F7        .byte con_F7, $1A
-- D - I - 0x023F9F 11:BF8F: 5A        .byte $5A
-- D - I - 0x023FA0 11:BF90: 61        .byte $61
-- D - I - 0x023FA1 11:BF91: 30        .byte $30
-- D - I - 0x023FA2 11:BF92: F0        .byte con_exit_1
+- D - I - 0x023F9F 11:BF8F: 5A        .byte con_pause + $5A
+- D - I - 0x023FA0 11:BF90: 61        .byte con_bg + $61
+- D - I - 0x023FA1 11:BF91: 30        .byte con_animation + $30
+- D - I - 0x023FA2 11:BF92: F0        .byte con_cloud + $F0
 - D - I - 0x023FA3 11:BF93: FB        .byte con_rts
 
 
@@ -15273,10 +15280,10 @@ _scenario_BF7F_72:
 _scenario_BF94_73:
 - D - I - 0x023FA4 11:BF94: FA        .byte con_jsr
 - D - I - 0x023FA5 11:BF95: 2D A3     .word sub_A32D
-- D - I - 0x023FA7 11:BF97: 78        .byte $78
-- D - I - 0x023FA8 11:BF98: 48        .byte $48
-- D - I - 0x023FA9 11:BF99: 75        .byte $75
-- D - I - 0x023FAA 11:BF9A: F0        .byte con_exit_1
+- D - I - 0x023FA7 11:BF97: 78        .byte con_pause + $78
+- D - I - 0x023FA8 11:BF98: 48        .byte con_bg + $48
+- D - I - 0x023FA9 11:BF99: 75        .byte con_animation + $75
+- D - I - 0x023FAA 11:BF9A: F0        .byte con_cloud + $F0
 - D - I - 0x023FAB 11:BF9B: FB        .byte con_rts
 
 
@@ -15304,32 +15311,32 @@ _scenario_BF9C_74:
 - D - I - 0x023FC7 11:BFB7: C6 BF     .word sub_BFC6
 - D - I - 0x023FC9 11:BFB9: FA        .byte con_jsr
 - D - I - 0x023FCA 11:BFBA: CB BF     .word sub_BFCB
-- D - I - 0x023FCC 11:BFBC: 20        .byte $20
-- D - I - 0x023FCD 11:BFBD: 1F        .byte $1F
-- D - I - 0x023FCE 11:BFBE: 02        .byte $02
-- D - I - 0x023FCF 11:BFBF: F0        .byte con_exit_1
+- D - I - 0x023FCC 11:BFBC: 20        .byte con_pause + $20
+- D - I - 0x023FCD 11:BFBD: 1F        .byte con_bg + $1F
+- D - I - 0x023FCE 11:BFBE: 02        .byte con_animation + $02
+- D - I - 0x023FCF 11:BFBF: F0        .byte con_cloud + $F0
 - D - I - 0x023FD0 11:BFC0: FB        .byte con_rts
 
 sub_BFC1:
-- D - I - 0x023FD1 11:BFC1: 28        .byte $28
-- D - I - 0x023FD2 11:BFC2: 1E        .byte $1E
-- D - I - 0x023FD3 11:BFC3: 13        .byte $13
-- D - I - 0x023FD4 11:BFC4: F0        .byte con_exit_1
+- D - I - 0x023FD1 11:BFC1: 28        .byte con_pause + $28
+- D - I - 0x023FD2 11:BFC2: 1E        .byte con_bg + $1E
+- D - I - 0x023FD3 11:BFC3: 13        .byte con_animation + $13
+- D - I - 0x023FD4 11:BFC4: F0        .byte con_cloud + $F0
 - D - I - 0x023FD5 11:BFC5: FB        .byte con_rts
 
 sub_BFC6:
-- D - I - 0x023FD6 11:BFC6: 28        .byte $28
-- D - I - 0x023FD7 11:BFC7: 1E        .byte $1E
-- D - I - 0x023FD8 11:BFC8: 14        .byte $14
-- D - I - 0x023FD9 11:BFC9: F0        .byte con_exit_1
+- D - I - 0x023FD6 11:BFC6: 28        .byte con_pause + $28
+- D - I - 0x023FD7 11:BFC7: 1E        .byte con_bg + $1E
+- D - I - 0x023FD8 11:BFC8: 14        .byte con_animation + $14
+- D - I - 0x023FD9 11:BFC9: F0        .byte con_cloud + $F0
 - D - I - 0x023FDA 11:BFCA: FB        .byte con_rts
 
 sub_BFCB:
 - D - I - 0x023FDB 11:BFCB: F7        .byte con_F7, $0F
-- D - I - 0x023FDD 11:BFCD: 14        .byte $14
-- D - I - 0x023FDE 11:BFCE: 05        .byte $05
-- D - I - 0x023FDF 11:BFCF: 00        .byte $00
-- D - I - 0x023FE0 11:BFD0: F0        .byte con_exit_1
+- D - I - 0x023FDD 11:BFCD: 14        .byte con_pause + $14
+- D - I - 0x023FDE 11:BFCE: 05        .byte con_bg + $05
+- D - I - 0x023FDF 11:BFCF: 00        .byte con_animation + $00
+- D - I - 0x023FE0 11:BFD0: F0        .byte con_cloud + $F0
 - D - I - 0x023FE1 11:BFD1: FB        .byte con_rts
 
 
@@ -15344,8 +15351,8 @@ _scenario_BFD2_75:
 
 _scenario_BFD8_77:
 - D - I - 0x023FE8 11:BFD8: F5        .byte con_mirror_off
-- D - I - 0x023FE9 11:BFD9: E0        .byte $E0
-- D - I - 0x023FEA 11:BFDA: 2D        .byte $2D
-- D - I - 0x023FEB 11:BFDB: 79        .byte $79
-- D - I - 0x023FEC 11:BFDC: F0        .byte con_exit_1
+- D - I - 0x023FE9 11:BFD9: E0        .byte con_pause + $E0
+- D - I - 0x023FEA 11:BFDA: 2D        .byte con_bg + $2D
+- D - I - 0x023FEB 11:BFDB: 79        .byte con_animation + $79
+- D - I - 0x023FEC 11:BFDC: F0        .byte con_cloud + $F0
 - D - I - 0x023FED 11:BFDD: FB        .byte con_rts
