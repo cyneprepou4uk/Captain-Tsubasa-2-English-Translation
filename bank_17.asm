@@ -97,7 +97,7 @@ C - - - - 0x0200BC 17:80AC: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0200D7 17:80C7: 53 88     .word ofs_8853_FC_moving_bg
 - D - I - 0x0200D9 17:80C9: 5D 88     .word ofs_885D_FD_mirror_condition
 - D - I - 0x0200DB 17:80CB: E3 88     .word ofs_88E3_FE
-- D - I - 0x0200DD 17:80CD: ED 88     .word ofs_88ED_FF
+- D - I - 0x0200DD 17:80CD: ED 88     .word ofs_88ED_FF_drive_overhead_tiger
 
 loc_80CF:
 ofs_80CF_F0_выход:
@@ -1647,28 +1647,15 @@ ofs_88E3_FE:
 C - - - - 0x0208F9 17:88E9: 8D 39 05  STA $0539
 C - - - - 0x0208FC 17:88EC: 60        RTS
 
-ofs_88ED_FF:
+ofs_88ED_FF_drive_overhead_tiger:
 ; читает 1 следующий байт
 C - J - - 0x0208FD 17:88ED: A4 3A     LDY ram_003A
 C - - - - 0x0208FF 17:88EF: B1 5D     LDA (ram_сценарий_data),Y
 C - - - - 0x020901 17:88F1: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
-- - - - - 0x020904 17:88F4: FC 88     .word ofs_88FC_00
-- D - I - 0x020906 17:88F6: 0D 89     .word ofs_890D_01_драйв_оверхед
-- - - - - 0x020908 17:88F8: 3D 89     .word ofs_893D_02
-- D - I - 0x02090A 17:88FA: 42 89     .word ofs_8942_03_активация_драйв_тигра
+- D - I - 0x020906 17:88F6: 0D 89     .word ofs_890D_00_драйв_оверхед
+- D - I - 0x02090A 17:88FA: 42 89     .word ofs_8942_01_активация_драйв_тигра
 
-ofs_88FC_00:
-- - - - - 0x02090C 17:88FC: AD 41 04  LDA ram_игрок_с_мячом
-- - - - - 0x02090F 17:88FF: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
-- - - - - 0x020912 17:8902: A0 00     LDY #con_игрок_номер
-- - - - - 0x020914 17:8904: B1 34     LDA (ram_plr_data),Y
-- - - - - 0x020916 17:8906: C9 60     CMP #$60      ; проверка на диаса
-- - - - - 0x020918 17:8908: D0 00     BNE bra_890A
-bra_890A:
-- - - - - 0x02091A 17:890A: E6 3A     INC ram_003A
-- - - - - 0x02091C 17:890C: 60        RTS
-
-ofs_890D_01_драйв_оверхед:
+ofs_890D_00_драйв_оверхед:
 ; X 00-03
 C - J - - 0x02091D 17:890D: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x020920 17:8910: D0 26     BNE bra_8938
@@ -1688,13 +1675,12 @@ C - - - - 0x02093E 17:892E: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x020941 17:8931: F0 05     BEQ bra_8938
 C - - - - 0x020943 17:8933: EE 46 04  INC ram_флаг_драйв_оверхеда
 C - - - - 0x020946 17:8936: D0 02     BNE bra_893A
-ofs_893D_02:
 bra_8938:
 C - - - - 0x020948 17:8938: A2 00     LDX #$00
 bra_893A:
 C - - - - 0x02094A 17:893A: 4C 2F 81  JMP loc_812F
 
-ofs_8942_03_активация_драйв_тигра:
+ofs_8942_01_активация_драйв_тигра:
 ; X 00-01, встречается всего 1 раз
 C - J - - 0x020952 17:8942: A2 00     LDX #$00
 C - - - - 0x020954 17:8944: AD FB 05  LDA ram_команда_с_мячом
@@ -1708,8 +1694,7 @@ C - - - - 0x020961 17:8951: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x020963 17:8953: A8        TAY
 C - - - - 0x020964 17:8954: A2 00     LDX #$00
 C - - - - 0x020966 17:8956: 68        PLA
-; проверка на хюгу
-C - - - - 0x020967 17:8957: C0 1A     CPY #$1A
+C - - - - 0x020967 17:8957: C0 1A     CPY #$1A      ; проверка на хюгу
 C - - - - 0x020969 17:8959: F0 09     BEQ bra_8964_хюга_найден
 C - - - - 0x02096B 17:895B: 18        CLC
 C - - - - 0x02096C 17:895C: 69 01     ADC #$01
@@ -1867,22 +1852,24 @@ tbl_89BF_сценарии:
 
 
 
-con_exit_1                  = $F0   ; 0
-con_exit_2                  = $F1   ; 0 аналогично F0, но выход без очистки флага зеркала
-con_jmp                     = $F2   ; 2
-con_branch                  = $F3   ; 1
-con_mirror_on               = $F4   ; 0
-con_mirror_off              = $F5   ; 0
-con_mirror_toggle           = $F6   ; 0
-con_F7                      = $F7   ; 1
-con_F8                      = $F8   ; 1 байты 01-04
-con_delay_soundID           = $F9   ; 2
-con_jsr                     = $FA   ; 2
-con_rts                     = $FB   ; 0
-con_moving_bg               = $FC   ; 1 байты 01-04
-con_FD_mirror_condition     = $FD   ; 1 байты 00-04
-con_FE                      = $FE   ; 0
-con_FF                      = $FF   ; 1
+con_exit_1                  = $F0   ; 
+con_exit_2                  = $F1   ; аналогично F0, но выход без очистки флага зеркала
+con_jmp                     = $F2   ; 
+con_branch                  = $F3   ; 
+con_mirror_on               = $F4   ; 
+con_mirror_off              = $F5   ; 
+con_mirror_toggle           = $F6   ; 
+con_F7                      = $F7   ; 
+con_F8                      = $F8   ; байты 01-04
+con_delay_soundID           = $F9   ; 
+con_jsr                     = $FA   ; 
+con_rts                     = $FB   ; 
+con_moving_bg               = $FC   ; байты 01-04
+con_FD_mirror_condition     = $FD   ; байты 00-04
+con_FE                      = $FE   ; 
+con_drive                   = $FF   ; 
+    con_overhead                = $00   ;
+    con_tiger                   = $01   ;
     
 con_pause                   = $00   ; задержка следующей анимации
 con_bg                      = $00   ; фон
@@ -4125,7 +4112,7 @@ bra_case_93AE_01:
 - D - I - 0x0213C2 17:93B2: 55 97     .word loc_9755
 
 bra_case_93B4_02:
-- D - I - 0x0213C4 17:93B4: FF        .byte con_FF, $01
+- D - I - 0x0213C4 17:93B4: FF        .byte con_drive, con_overhead
 - D - I - 0x0213C6 17:93B6: BE 93     .word ofs_93BE_00
 - D - I - 0x0213C8 17:93B8: C4 93     .word ofs_93C4_01
 - D - I - 0x0213CA 17:93BA: D0 93     .word ofs_93D0_02
@@ -4175,7 +4162,7 @@ ofs_93DF_03:
 
 loc_93F1:
 bra_case_93F1_03:
-- D - I - 0x021401 17:93F1: FF        .byte con_FF, $01
+- D - I - 0x021401 17:93F1: FF        .byte con_drive, con_overhead
 - D - I - 0x021403 17:93F3: FB 93     .word ofs_93FB_00
 - - - - - 0x021405 17:93F5: 04 94     .word ofs_9404_01
 - - - - - 0x021407 17:93F7: 0D 94     .word ofs_940D_02
@@ -4280,7 +4267,7 @@ bra_case_945A_01:
 - - - - - 0x02146E 17:945E: F3 97     .word loc_97F3
 
 bra_case_9460_02:
-- D - I - 0x021470 17:9460: FF        .byte con_FF, $01
+- D - I - 0x021470 17:9460: FF        .byte con_drive, con_overhead
 - D - I - 0x021472 17:9462: 6A 94     .word ofs_946A_00
 - - - - - 0x021474 17:9464: C4 93     .word ofs_93C4_01
 - - - - - 0x021476 17:9466: D0 93     .word ofs_93D0_02
@@ -6655,7 +6642,7 @@ sub_9EAA:
 - D - I - 0x021EFE 17:9EEE: F4 B9     .word bra_long_case_B9F4_21
 
 loc_9EF0:
-- D - I - 0x021F00 17:9EF0: FF        .byte con_FF, $03
+- D - I - 0x021F00 17:9EF0: FF        .byte con_drive, con_tiger
 - D - I - 0x021F02 17:9EF2: 11 BA     .word ofs_BA11_00
 - D - I - 0x021F04 17:9EF4: FB B9     .word ofs_B9FB_01
 
