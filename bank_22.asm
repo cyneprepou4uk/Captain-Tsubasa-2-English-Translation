@@ -10630,14 +10630,14 @@ off_AD02_EF:
 
 
 tbl_AD1C:
-; везде по 12 байтов, связано с движущимся фоном во время подката
-- D - - - 0x032D2C 22:AD1C: 24 AD     .word off_AD24_00
-- D - - - 0x032D2E 22:AD1E: 30 AD     .word off_AD30_01
-- D - - - 0x032D30 22:AD20: 3C AD     .word off_AD3C_02
-- D - - - 0x032D32 22:AD22: 48 AD     .word off_AD48_03
+; везде по 12 байтов, связано с движущимся фоном во время действий игрока
+- D - - - 0x032D2C 22:AD1C: 24 AD     .word off_AD24_01
+- D - - - 0x032D2E 22:AD1E: 30 AD     .word off_AD30_02
+- D - - - 0x032D30 22:AD20: 3C AD     .word off_AD3C_03_подкат
+- D - - - 0x032D32 22:AD22: 48 AD     .word off_AD48_04
 
-off_AD24_00:
-off_AD24:
+con_loop = $F1
+off_AD24_01:
 - D - I - 0x032D34 22:AD24: 02        .byte $02    ; <い>
 - D - I - 0x032D35 22:AD25: 3C        .byte $3C    ; <9>
 - D - I - 0x032D36 22:AD26: 52        .byte $52    ; <ツ>
@@ -10647,11 +10647,10 @@ off_AD24:
 - D - I - 0x032D3A 22:AD2A: 02        .byte $02    ; <い>
 - D - I - 0x032D3B 22:AD2B: 3C        .byte $3C    ; <9>
 - D - I - 0x032D3C 22:AD2C: 26        .byte $26    ; <よ>
-- D - I - 0x032D3D 22:AD2D: F1        .byte $F1
-- D - I - 0x032D3E 22:AD2E: 24 AD     .word off_AD24
+- D - I - 0x032D3D 22:AD2D: F1        .byte con_loop
+- D - I - 0x032D3E 22:AD2E: 24 AD     .word off_AD24_01
 
-off_AD30_01:
-off_AD30:
+off_AD30_02:
 - D - I - 0x032D40 22:AD30: 06        .byte $06    ; <か>
 - D - I - 0x032D41 22:AD31: 40        .byte $40    ; <「>
 - D - I - 0x032D42 22:AD32: 42        .byte $42    ; <イ>
@@ -10661,11 +10660,10 @@ off_AD30:
 - D - I - 0x032D46 22:AD36: 06        .byte $06    ; <か>
 - D - I - 0x032D47 22:AD37: 44        .byte $44    ; <エ>
 - D - I - 0x032D48 22:AD38: 40        .byte $40    ; <「>
-- D - I - 0x032D49 22:AD39: F1        .byte $F1
-- D - I - 0x032D4A 22:AD3A: 30 AD     .word off_AD30
+- D - I - 0x032D49 22:AD39: F1        .byte con_loop
+- D - I - 0x032D4A 22:AD3A: 30 AD     .word off_AD30_02
 
-off_AD3C_02:
-off_AD3C:
+off_AD3C_03_подкат:
 - D - I - 0x032D4C 22:AD3C: 04        .byte $04    ; <え>
 - D - I - 0x032D4D 22:AD3D: 40        .byte $40    ; <「>
 - D - I - 0x032D4E 22:AD3E: 42        .byte $42    ; <イ>
@@ -10675,11 +10673,10 @@ off_AD3C:
 - D - I - 0x032D52 22:AD42: 04        .byte $04    ; <え>
 - D - I - 0x032D53 22:AD43: 44        .byte $44    ; <エ>
 - D - I - 0x032D54 22:AD44: 40        .byte $40    ; <「>
-- D - I - 0x032D55 22:AD45: F1        .byte $F1
-- D - I - 0x032D56 22:AD46: 3C AD     .word off_AD3C
+- D - I - 0x032D55 22:AD45: F1        .byte con_loop
+- D - I - 0x032D56 22:AD46: 3C AD     .word off_AD3C_03_подкат
 
-off_AD48_03:
-off_AD48:
+off_AD48_04:
 - D - I - 0x032D58 22:AD48: 02        .byte $02    ; <い>
 - D - I - 0x032D59 22:AD49: 40        .byte $40    ; <「>
 - D - I - 0x032D5A 22:AD4A: 42        .byte $42    ; <イ>
@@ -10689,8 +10686,8 @@ off_AD48:
 - D - I - 0x032D5E 22:AD4E: 02        .byte $02    ; <い>
 - D - I - 0x032D5F 22:AD4F: 44        .byte $44    ; <エ>
 - D - I - 0x032D60 22:AD50: 40        .byte $40    ; <「>
-- D - I - 0x032D61 22:AD51: F1        .byte $F1
-- D - I - 0x032D62 22:AD52: 48 AD     .word off_AD48
+- D - I - 0x032D61 22:AD51: F1        .byte con_loop
+- D - I - 0x032D62 22:AD52: 48 AD     .word off_AD48_04
 
 
 
