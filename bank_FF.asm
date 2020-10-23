@@ -5693,7 +5693,7 @@ C - - - - 0x03EC35 FF:EC25: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EC38 FF:EC28: 68        PLA
 C - - - - 0x03EC39 FF:EC29: 20 00 80  JSR sub_0x020016_прочитать_поинтеры_сценария
 C - - - - 0x03EC3C FF:EC2C: A9 00     LDA #$00
-C - - - - 0x03EC3E FF:EC2E: 8D 22 05  STA $0522
+C - - - - 0x03EC3E FF:EC2E: 8D 22 05  STA ram_указатель_стека_сценария
 C - - - - 0x03EC41 FF:EC31: 8D 39 05  STA $0539
 bra_EC34:
 C - - - - 0x03EC44 FF:EC34: AE 19 05  LDX ram_задержка_следующей_анимации
