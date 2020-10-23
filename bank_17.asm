@@ -95,7 +95,7 @@ C - - - - 0x0200BC 17:80AC: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0200D3 17:80C3: 1A 88     .word ofs_881A_FA_внутренняя_подпрограмма_сценария
 - D - I - 0x0200D5 17:80C5: 37 88     .word ofs_8837_FB_возврат_из_сценария
 - D - I - 0x0200D7 17:80C7: 53 88     .word ofs_8853_FC_moving_bg
-- D - I - 0x0200D9 17:80C9: 5D 88     .word ofs_885D_FD
+- D - I - 0x0200D9 17:80C9: 5D 88     .word ofs_885D_FD_mirror_condition
 - D - I - 0x0200DB 17:80CB: E3 88     .word ofs_88E3_FE
 - D - I - 0x0200DD 17:80CD: ED 88     .word ofs_88ED_FF
 
@@ -1552,7 +1552,7 @@ C - - - - 0x020867 17:8857: B1 5D     LDA (ram_сценарий_data),Y
 C - - - - 0x020869 17:8859: 8D 2D 05  STA $052D
 C - - - - 0x02086C 17:885C: 60        RTS
 
-ofs_885D_FD:
+ofs_885D_FD_mirror_condition:
 ; читает 1 следующий байт
 C - J - - 0x02086D 17:885D: A4 3A     LDY ram_003A
 C - - - - 0x02086F 17:885F: E6 3A     INC ram_003A
@@ -1563,19 +1563,19 @@ C - - - - 0x020879 17:8869: 60        RTS
 
 sub_886A:
 C - - - - 0x02087A 17:886A: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
-- D - I - 0x02087D 17:886D: 77 88     .word ofs_8877_00
+- D - I - 0x02087D 17:886D: 77 88     .word ofs_8877_00_координаты_игрока
 - D - I - 0x02087F 17:886F: AA 88     .word ofs_88AA_01
-- D - I - 0x020881 17:8871: B5 88     .word ofs_88B5_02
+- D - I - 0x020881 17:8871: B5 88     .word ofs_88B5_02_команда
 - D - I - 0x020883 17:8873: BF 88     .word ofs_88BF_03
 - D - I - 0x020885 17:8875: D9 88     .word ofs_88D9_04
 
-ofs_8877_00:
+ofs_8877_00_координаты_игрока:
 C - J - - 0x020887 17:8877: A9 00     LDA #$00
 C - - - - 0x020889 17:8879: 85 3B     STA ram_003B
 C - - - - 0x02088B 17:887B: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x02088E 17:887E: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x020891 17:8881: AD 38 06  LDA $0638
-C - - - - 0x020894 17:8884: 20 36 C5  JSR sub_0x03CDD9
+C - - - - 0x020894 17:8884: 20 36 C5  JSR sub_0x03CDD9_проверить_координаты_игрока
 C - - - - 0x020897 17:8887: 98        TYA
 C - - - - 0x020898 17:8888: A0 08     LDY #con_игрок_координата_Y_hi
 C - - - - 0x02089A 17:888A: 38        SEC
@@ -1609,7 +1609,7 @@ C - - - - 0x0208C2 17:88B2: A2 40     LDX #$40
 bra_88B4_выход:
 C - - - - 0x0208C4 17:88B4: 60        RTS
 
-ofs_88B5_02:
+ofs_88B5_02_команда:
 C - J - - 0x0208C5 17:88B5: A2 00     LDX #$00
 C - - - - 0x0208C7 17:88B7: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x0208CA 17:88BA: F0 02     BEQ bra_88BE_выход
@@ -1867,27 +1867,27 @@ tbl_89BF_сценарии:
 
 
 
-con_exit_1              = $F0   ; 0
-con_exit_2              = $F1   ; 0 аналогично F0, но выход без очистки флага зеркала
-con_jmp                 = $F2   ; 2
-con_branch              = $F3   ; 1
-con_mirror_on           = $F4   ; 0
-con_mirror_off          = $F5   ; 0
-con_mirror_toggle       = $F6   ; 0
-con_F7                  = $F7   ; 1
-con_F8                  = $F8   ; 1
-con_delay_soundID       = $F9   ; 2
-con_jsr                 = $FA   ; 2
-con_rts                 = $FB   ; 0
-con_moving_bg           = $FC   ; 1 байты 01-04
-con_FD                  = $FD   ; 1 байты 00-04
-con_FE                  = $FE   ; 0
-con_FF                  = $FF   ; 1
-
-con_pause               = $00   ; задержка следующей анимации
-con_bg                  = $00   ; фон
-con_animation           = $00   ; анимация
-con_cloud               = $00   ; облако
+con_exit_1                  = $F0   ; 0
+con_exit_2                  = $F1   ; 0 аналогично F0, но выход без очистки флага зеркала
+con_jmp                     = $F2   ; 2
+con_branch                  = $F3   ; 1
+con_mirror_on               = $F4   ; 0
+con_mirror_off              = $F5   ; 0
+con_mirror_toggle           = $F6   ; 0
+con_F7                      = $F7   ; 1
+con_F8                      = $F8   ; 1 байты 01-04
+con_delay_soundID           = $F9   ; 2
+con_jsr                     = $FA   ; 2
+con_rts                     = $FB   ; 0
+con_moving_bg               = $FC   ; 1 байты 01-04
+con_FD_mirror_condition     = $FD   ; 1 байты 00-04
+con_FE                      = $FE   ; 0
+con_FF                      = $FF   ; 1
+    
+con_pause                   = $00   ; задержка следующей анимации
+con_bg                      = $00   ; фон
+con_animation               = $00   ; анимация
+con_cloud                   = $00   ; облако
 
 
 
@@ -1899,7 +1899,7 @@ _scenario_8AB1_00:
 - D - I - 0x020AC7 17:8AB7: 4B 8C     .word bra_8C4B_bra_case_02
 
 bra_8AB9_bra_case_00:
-- D - I - 0x020AC9 17:8AB9: FD        .byte con_FD, $01
+- D - I - 0x020AC9 17:8AB9: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x020ACB 17:8ABB: F3        .byte con_branch, $80
 - D - I - 0x020ACD 17:8ABD: 02        .byte bra_case_8ABF_00 - *
 - D - I - 0x020ACE 17:8ABE: 05        .byte bra_case_8AC3_01 - *
@@ -2272,7 +2272,7 @@ bra_case_8C39_04:
 - D - I - 0x020C59 17:8C49: 5B A3     .word loc_A35B
 
 bra_8C4B_bra_case_02:
-- D - I - 0x020C5B 17:8C4B: FD        .byte con_FD, $03
+- D - I - 0x020C5B 17:8C4B: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x020C5D 17:8C4D: F3        .byte con_branch, $00
 - D - I - 0x020C5F 17:8C4F: 53 8C     .word bra_long_case_8C53_00
 - D - I - 0x020C61 17:8C51: F3 8D     .word bra_long_case_8DF3_01
@@ -2926,7 +2926,7 @@ bra_case_8EFA_02:
 - - - - - 0x020F17 17:8F07: 71 A3     .word loc_A371
 
 bra_8F09_bra_case_01:
-- D - I - 0x020F19 17:8F09: FD        .byte con_FD, $03
+- D - I - 0x020F19 17:8F09: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x020F1B 17:8F0B: F3        .byte con_branch, $00
 - D - I - 0x020F1D 17:8F0D: 11 8F     .word bra_long_case_8F11_00
 - D - I - 0x020F1F 17:8F0F: 76 90     .word bra_long_case_9076_01
@@ -3617,7 +3617,7 @@ bra_case_91DF_00:
 
 
 _scenario_91EA_0E:
-- D - I - 0x0211FA 17:91EA: FD        .byte con_FD, $01
+- D - I - 0x0211FA 17:91EA: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x0211FC 17:91EC: F3        .byte con_branch, $04
 - D - I - 0x0211FE 17:91EE: 9B B2     .word bra_long_case_B29B_00
 - D - I - 0x021200 17:91F0: 64 AE     .word bra_long_case_AE64_01
@@ -3625,7 +3625,7 @@ _scenario_91EA_0E:
 
 
 _scenario_91F2_01:
-- D - I - 0x021202 17:91F2: FD        .byte con_FD, $01
+- D - I - 0x021202 17:91F2: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x021204 17:91F4: F3        .byte con_branch, $84
 - D - I - 0x021206 17:91F6: 02        .byte bra_case_91F8_00 - *
 - D - I - 0x021207 17:91F7: 05        .byte bra_case_91FC_01 - *
@@ -3642,7 +3642,7 @@ bra_case_91FC_01:
 
 
 _scenario_91FF_02:
-- D - I - 0x02120F 17:91FF: FD        .byte con_FD, $01
+- D - I - 0x02120F 17:91FF: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x021211 17:9201: F3        .byte con_branch, $86
 - D - I - 0x021213 17:9203: 0C        .byte bra_case_920F_00 - *
 - D - I - 0x021214 17:9204: 43        .byte bra_case_9247_01 - *
@@ -3650,7 +3650,7 @@ _scenario_91FF_02:
 
 
 _scenario_9205_0F:
-- D - I - 0x021215 17:9205: FD        .byte con_FD, $01
+- D - I - 0x021215 17:9205: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x021217 17:9207: F3        .byte con_branch, $43
 - D - I - 0x021219 17:9209: 17 92     .word bra_long_case_9217_00
 - D - I - 0x02121B 17:920B: 17 92     .word bra_long_case_9217_01
@@ -3725,7 +3725,7 @@ bra_case_9244_04:
 - - - - - 0x021255 17:9245: 6D 9C     .word loc_9C6D
 
 bra_case_9247_01:
-- D - I - 0x021257 17:9247: FD        .byte con_FD, $03
+- D - I - 0x021257 17:9247: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021259 17:9249: F3        .byte con_branch, $44
 - D - I - 0x02125B 17:924B: 4F 92     .word bra_long_case_924F_00
 - D - I - 0x02125D 17:924D: 90 BD     .word bra_long_case_BD90_01
@@ -3746,7 +3746,7 @@ bra_case_9256_01:
 
 
 _scenario_9259_05_10:
-- D - I - 0x021269 17:9259: FD        .byte con_FD, $01
+- D - I - 0x021269 17:9259: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x02126B 17:925B: F3        .byte con_branch, $81
 - D - I - 0x02126D 17:925D: 05        .byte bra_case_9262_00 - *
 - D - I - 0x02126E 17:925E: 01        .byte bra_case_925F_01 - *
@@ -3760,7 +3760,7 @@ bra_case_9262_00:
 
 
 _scenario_9263_06:
-- D - I - 0x021273 17:9263: FD        .byte con_FD, $01
+- D - I - 0x021273 17:9263: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x021275 17:9265: F3        .byte con_branch, $86
 - D - I - 0x021277 17:9267: 02        .byte bra_case_9269_00 - *
 - D - I - 0x021278 17:9268: 0D        .byte bra_case_9275_01 - *
@@ -3769,13 +3769,13 @@ _scenario_9263_06:
 
 _scenario_9269_11:
 bra_case_9269_00:
-- D - I - 0x021279 17:9269: FD        .byte con_FD, $01
+- D - I - 0x021279 17:9269: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x02127B 17:926B: F3        .byte con_branch, $81
 - D - I - 0x02127D 17:926D: 07        .byte bra_case_9274_00 - *
 - D - I - 0x02127E 17:926E: 01        .byte bra_case_926F_01 - *
 
 bra_case_926F_01:
-- D - I - 0x02127F 17:926F: FD        .byte con_FD, $01
+- D - I - 0x02127F 17:926F: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x021281 17:9271: FA        .byte con_jsr
 - D - I - 0x021282 17:9272: 62 9F     .word sub_9F62
 bra_case_9274_00:
@@ -3787,7 +3787,7 @@ bra_case_9275_01:
 - D - I - 0x021288 17:9278: 01        .byte bra_case_9279_01 - *
 
 bra_case_9279_01:
-- D - I - 0x021289 17:9279: FD        .byte con_FD, $01
+- D - I - 0x021289 17:9279: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x02128B 17:927B: FA        .byte con_jsr
 - D - I - 0x02128C 17:927C: B5 9F     .word sub_9FB5
 bra_case_927E_00:
@@ -3796,7 +3796,7 @@ bra_case_927E_00:
 
 
 _scenario_927F_12:
-- D - I - 0x02128F 17:927F: FD        .byte con_FD, $03
+- D - I - 0x02128F 17:927F: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021291 17:9281: F3        .byte con_branch, $84
 - D - I - 0x021293 17:9283: 08        .byte bra_case_928B_00 - *
 - D - I - 0x021294 17:9284: 0F        .byte bra_case_9293_01 - *
@@ -3804,7 +3804,7 @@ _scenario_927F_12:
 
 
 _scenario_9285_07:
-- D - I - 0x021295 17:9285: FD        .byte con_FD, $03
+- D - I - 0x021295 17:9285: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021297 17:9287: F3        .byte con_branch, $84
 - D - I - 0x021299 17:9289: 06        .byte bra_case_928F_00 - *
 - D - I - 0x02129A 17:928A: 0D        .byte bra_case_9297_01 - *
@@ -4004,56 +4004,56 @@ bra_case_9336_01:
 
 bra_long_case_933C_00:
 bra_case_933C_01:
-- D - I - 0x02134C 17:933C: FD        .byte con_FD, $00
+- D - I - 0x02134C 17:933C: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x02134E 17:933E: F2        .byte con_jmp
 - D - I - 0x02134F 17:933F: 45 9E     .word loc_9E45
 
 bra_long_case_9341_01:
 bra_case_9341_02:
-- D - I - 0x021351 17:9341: FD        .byte con_FD, $03
+- D - I - 0x021351 17:9341: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021353 17:9343: F2        .byte con_jmp
 - D - I - 0x021354 17:9344: C2 B2     .word loc_B2C2
 
 bra_case_9346_00:
-- D - I - 0x021356 17:9346: FD        .byte con_FD, $03
+- D - I - 0x021356 17:9346: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021358 17:9348: F2        .byte con_jmp
 - D - I - 0x021359 17:9349: 9A 9D     .word loc_9D9A
 
 bra_case_934B_03:
-- D - I - 0x02135B 17:934B: FD        .byte con_FD, $03
+- D - I - 0x02135B 17:934B: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02135D 17:934D: F2        .byte con_jmp
 - D - I - 0x02135E 17:934E: 42 B4     .word loc_B442
 
 bra_long_case_9350_00:
 bra_case_9350_01:
-- D - I - 0x021360 17:9350: FD        .byte con_FD, $00
+- D - I - 0x021360 17:9350: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x021362 17:9352: F2        .byte con_jmp
 - D - I - 0x021363 17:9353: 4F 9E     .word loc_9E4F
 
 bra_case_9355_02:
-- D - I - 0x021365 17:9355: FD        .byte con_FD, $03
+- D - I - 0x021365 17:9355: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021367 17:9357: F2        .byte con_jmp
 - D - I - 0x021368 17:9358: CC B2     .word loc_B2CC
 
 bra_long_case_935A_01:
-- D - I - 0x02136A 17:935A: FD        .byte con_FD, $03
+- D - I - 0x02136A 17:935A: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02136C 17:935C: F2        .byte con_jmp
 - D - I - 0x02136D 17:935D: D4 B2     .word loc_B2D4
 
 bra_case_935F_00:
-- D - I - 0x02136F 17:935F: FD        .byte con_FD, $03
+- D - I - 0x02136F 17:935F: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021371 17:9361: F2        .byte con_jmp
 - D - I - 0x021372 17:9362: 52 9D     .word loc_9D52
 
 bra_case_9364_03:
-- D - I - 0x021374 17:9364: FD        .byte con_FD, $03
+- D - I - 0x021374 17:9364: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021376 17:9366: F2        .byte con_jmp
 - D - I - 0x021377 17:9367: 3D B4     .word loc_B43D
 
 
 
 _scenario_9369_09:
-- D - I - 0x021379 17:9369: FD        .byte con_FD, $03
+- D - I - 0x021379 17:9369: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02137B 17:936B: FA        .byte con_jsr
 - D - I - 0x02137C 17:936C: F6 9E     .word sub_9EF6
 - D - I - 0x02137E 17:936E: F3        .byte con_branch, $0A
@@ -4937,7 +4937,7 @@ bra_case_96DC_00:
 
 
 _scenario_96E3_0C:
-- D - I - 0x0216F3 17:96E3: FD        .byte con_FD, $03
+- D - I - 0x0216F3 17:96E3: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x0216F5 17:96E5: FA        .byte con_jsr
 - D - I - 0x0216F6 17:96E6: F6 9E     .word sub_9EF6
 - D - I - 0x0216F8 17:96E8: F3        .byte con_branch, $92
@@ -4962,7 +4962,7 @@ bra_case_96F0_00:
 _scenario_96F7_0D:
 - D - I - 0x021707 17:96F7: FA        .byte con_jsr
 - D - I - 0x021708 17:96F8: 31 AB     .word sub_AB31
-- D - I - 0x02170A 17:96FA: FD        .byte con_FD, $03
+- D - I - 0x02170A 17:96FA: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02170C 17:96FC: FA        .byte con_jsr
 - D - I - 0x02170D 17:96FD: E7 B4     .word sub_B4E7
 - D - I - 0x02170F 17:96FF: F3        .byte con_branch, $93
@@ -5245,7 +5245,7 @@ bra_case_9816_00:
 bra_case_981D_02:
 - D - I - 0x02182D 17:981D: FA        .byte con_jsr
 - D - I - 0x02182E 17:981E: D6 9F     .word sub_9FD6
-- D - I - 0x021830 17:9820: FD        .byte con_FD, $03
+- D - I - 0x021830 17:9820: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021832 17:9822: F3        .byte con_branch, $81
 - D - I - 0x021834 17:9824: 70        .byte bra_case_9894_00 - *
 - D - I - 0x021835 17:9825: 94        .byte bra_case_98B9_01 - *
@@ -5261,7 +5261,7 @@ bra_case_9826_00:
 bra_case_982D_00:
 - D - I - 0x02183D 17:982D: FA        .byte con_jsr
 - D - I - 0x02183E 17:982E: F3 9C     .word sub_9CF3
-- D - I - 0x021840 17:9830: FD        .byte con_FD, $03
+- D - I - 0x021840 17:9830: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021842 17:9832: FA        .byte con_jsr
 - D - I - 0x021843 17:9833: 8D A0     .word sub_A08D
 bra_case_9835_01:
@@ -5270,7 +5270,7 @@ bra_case_9835_01:
 bra_case_9836_01:
 - D - I - 0x021846 17:9836: FA        .byte con_jsr
 - D - I - 0x021847 17:9837: F3 9C     .word sub_9CF3
-- D - I - 0x021849 17:9839: FD        .byte con_FD, $03
+- D - I - 0x021849 17:9839: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02184B 17:983B: FA        .byte con_jsr
 - D - I - 0x02184C 17:983C: A1 A0     .word sub_A0A1
 - D - I - 0x02184E 17:983E: FA        .byte con_jsr
@@ -5281,7 +5281,7 @@ bra_case_9836_01:
 bra_case_9844_02:
 - D - I - 0x021854 17:9844: FA        .byte con_jsr
 - D - I - 0x021855 17:9845: F3 9C     .word sub_9CF3
-- D - I - 0x021857 17:9847: FD        .byte con_FD, $03
+- D - I - 0x021857 17:9847: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021859 17:9849: FA        .byte con_jsr
 - D - I - 0x02185A 17:984A: 4B A1     .word sub_A14B
 - D - I - 0x02185C 17:984C: FA        .byte con_jsr
@@ -5292,7 +5292,7 @@ bra_case_9844_02:
 bra_case_9852_03:
 - D - I - 0x021862 17:9852: FA        .byte con_jsr
 - D - I - 0x021863 17:9853: F3 9C     .word sub_9CF3
-- D - I - 0x021865 17:9855: FD        .byte con_FD, $03
+- D - I - 0x021865 17:9855: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021867 17:9857: F2        .byte con_jmp
 - D - I - 0x021868 17:9858: A6 A0     .word loc_A0A6
 
@@ -5313,7 +5313,7 @@ bra_case_9860_01:
 bra_case_9867_00:
 - D - I - 0x021877 17:9867: FA        .byte con_jsr
 - D - I - 0x021878 17:9868: F3 9C     .word sub_9CF3
-- D - I - 0x02187A 17:986A: FD        .byte con_FD, $03
+- D - I - 0x02187A 17:986A: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02187C 17:986C: FA        .byte con_jsr
 - D - I - 0x02187D 17:986D: A1 A0     .word sub_A0A1
 - D - I - 0x02187F 17:986F: FA        .byte con_jsr
@@ -5325,7 +5325,7 @@ bra_case_9875_01:
 bra_case_9875_02:
 - - - - - 0x021885 17:9875: FA        .byte con_jsr
 - - - - - 0x021886 17:9876: DD A2     .word sub_A2DD
-- - - - - 0x021888 17:9878: FD        .byte con_FD, $03
+- - - - - 0x021888 17:9878: FD        .byte con_FD_mirror_condition, $03
 - - - - - 0x02188A 17:987A: FA        .byte con_jsr
 - - - - - 0x02188B 17:987B: 6E 9F     .word sub_9F6E
 - - - - - 0x02188D 17:987D: F2        .byte con_jmp
@@ -5334,7 +5334,7 @@ bra_case_9875_02:
 bra_case_9880_03:
 - D - I - 0x021890 17:9880: FA        .byte con_jsr
 - D - I - 0x021891 17:9881: DD A2     .word sub_A2DD
-- D - I - 0x021893 17:9883: FD        .byte con_FD, $03
+- D - I - 0x021893 17:9883: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021895 17:9885: FA        .byte con_jsr
 - D - I - 0x021896 17:9886: 68 9F     .word sub_9F68
 - D - I - 0x021898 17:9888: F2        .byte con_jmp
@@ -5448,7 +5448,7 @@ bra_long_case_98F3_00:
 - - - - - 0x021909 17:98F9: EF        .byte bra_case_99E8_04 - *
 
 bra_case_98FA_00:
-- D - I - 0x02190A 17:98FA: FD        .byte con_FD, $00
+- D - I - 0x02190A 17:98FA: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x02190C 17:98FC: F3        .byte con_branch, $91
 - D - I - 0x02190E 17:98FE: 04        .byte bra_case_9902_00 - *
 - D - I - 0x02190F 17:98FF: 0D        .byte bra_case_990C_01 - *
@@ -5498,7 +5498,7 @@ bra_case_992A_03:
 - D - I - 0x021941 17:9931: 64 A1     .word loc_A164
 
 bra_case_9933_01:
-- D - I - 0x021943 17:9933: FD        .byte con_FD, $03
+- D - I - 0x021943 17:9933: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021945 17:9935: F3        .byte con_branch, $91
 - D - I - 0x021947 17:9937: 04        .byte bra_case_993B_00 - *
 - D - I - 0x021948 17:9938: 0C        .byte bra_case_9944_01 - *
@@ -5546,7 +5546,7 @@ bra_case_9962_03:
 - D - I - 0x021979 17:9969: 64 A1     .word loc_A164
 
 bra_case_996B_02:
-- D - I - 0x02197B 17:996B: FD        .byte con_FD, $03
+- D - I - 0x02197B 17:996B: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02197D 17:996D: F3        .byte con_branch, $91
 - D - I - 0x02197F 17:996F: 04        .byte bra_case_9973_00 - *
 - D - I - 0x021980 17:9970: 13        .byte bra_case_9983_01 - *
@@ -5603,7 +5603,7 @@ bra_case_99A7_03:
 - D - I - 0x0219BE 17:99AE: 64 A1     .word loc_A164
 
 bra_case_99B0_03:
-- - - - - 0x0219C0 17:99B0: FD        .byte con_FD, $00
+- - - - - 0x0219C0 17:99B0: FD        .byte con_FD_mirror_condition, $00
 - - - - - 0x0219C2 17:99B2: F3        .byte con_branch, $91
 - - - - - 0x0219C4 17:99B4: 04        .byte bra_case_99B8_00 - *
 - - - - - 0x0219C5 17:99B5: 0C        .byte bra_case_99C1_01 - *
@@ -5650,7 +5650,7 @@ bra_case_99DF_03:
 - - - - - 0x0219F6 17:99E6: 64 A1     .word loc_A164
 
 bra_case_99E8_04:
-- - - - - 0x0219F8 17:99E8: FD        .byte con_FD, $00
+- - - - - 0x0219F8 17:99E8: FD        .byte con_FD_mirror_condition, $00
 - - - - - 0x0219FA 17:99EA: F3        .byte con_branch, $91
 - - - - - 0x0219FC 17:99EC: 04        .byte bra_case_99F0_00 - *
 - - - - - 0x0219FD 17:99ED: 13        .byte bra_case_9A00_01 - *
@@ -5708,7 +5708,7 @@ bra_long_case_9A24_01:
 - - - - - 0x021A3A 17:9A2A: F5        .byte bra_case_9B1F_04 - *
 
 bra_case_9A2B_00:
-- D - I - 0x021A3B 17:9A2B: FD        .byte con_FD, $00
+- D - I - 0x021A3B 17:9A2B: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x021A3D 17:9A2D: F3        .byte con_branch, $91
 - D - I - 0x021A3F 17:9A2F: 04        .byte bra_case_9A33_00 - *
 - D - I - 0x021A40 17:9A30: 10        .byte bra_case_9A40_01 - *
@@ -5767,7 +5767,7 @@ bra_case_9A64_03:
 - D - I - 0x021A7E 17:9A6E: 85 A1     .word loc_A185
 
 bra_case_9A70_01:
-- D - I - 0x021A80 17:9A70: FD        .byte con_FD, $03
+- D - I - 0x021A80 17:9A70: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021A82 17:9A72: F3        .byte con_branch, $91
 - D - I - 0x021A84 17:9A74: 0C        .byte bra_case_9A80_00 - *
 - D - I - 0x021A85 17:9A75: 17        .byte bra_case_9A8C_01 - *
@@ -5775,7 +5775,7 @@ bra_case_9A70_01:
 - D - I - 0x021A87 17:9A77: 39        .byte bra_case_9AB0_03 - *
 
 bra_case_9A78_02:
-- D - I - 0x021A88 17:9A78: FD        .byte con_FD, $03
+- D - I - 0x021A88 17:9A78: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021A8A 17:9A7A: F3        .byte con_branch, $91
 - D - I - 0x021A8C 17:9A7C: 40        .byte bra_case_9ABC_00 - *
 - D - I - 0x021A8D 17:9A7D: 52        .byte bra_case_9ACF_01 - *
@@ -5878,7 +5878,7 @@ bra_case_9AE4_02:
 - D - I - 0x021B07 17:9AF7: 71 A3     .word loc_A371
 
 bra_case_9AF9_03:
-- - - - - 0x021B09 17:9AF9: FD        .byte con_FD, $00
+- - - - - 0x021B09 17:9AF9: FD        .byte con_FD_mirror_condition, $00
 - - - - - 0x021B0B 17:9AFB: F3        .byte con_branch, $91
 - - - - - 0x021B0D 17:9AFD: 04        .byte bra_case_9B01_00 - *
 - - - - - 0x021B0E 17:9AFE: 0F        .byte bra_case_9B0D_01 - *
@@ -5910,7 +5910,7 @@ bra_case_9B0D_01:
 - - - - - 0x021B2D 17:9B1D: 4C A0     .word loc_A04C
 
 bra_case_9B1F_04:
-- - - - - 0x021B2F 17:9B1F: FD        .byte con_FD, $00
+- - - - - 0x021B2F 17:9B1F: FD        .byte con_FD_mirror_condition, $00
 - - - - - 0x021B31 17:9B21: F3        .byte con_branch, $91
 - - - - - 0x021B33 17:9B23: 22        .byte bra_case_9B45_00 - *
 - - - - - 0x021B34 17:9B24: 34        .byte bra_case_9B58_01 - *
@@ -5992,7 +5992,7 @@ bra_case_9B6D_02:
 
 
 _scenario_9B82_14:
-- D - I - 0x021B92 17:9B82: FD        .byte con_FD, $03
+- D - I - 0x021B92 17:9B82: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021B94 17:9B84: F3        .byte con_branch, $81
 - D - I - 0x021B96 17:9B86: 02        .byte bra_case_9B88_00 - *
 - - - - - 0x021B97 17:9B87: 28        .byte bra_case_9BAF_01 - *
@@ -6096,7 +6096,7 @@ bra_long_case_9BDF_02:
 
 
 _scenario_9BE3_1C:
-- D - I - 0x021BF3 17:9BE3: FD        .byte con_FD, $00
+- D - I - 0x021BF3 17:9BE3: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x021BF5 17:9BE5: FA        .byte con_jsr
 - D - I - 0x021BF6 17:9BE6: 3E 9F     .word sub_9F3E
 - D - I - 0x021BF8 17:9BE8: F3        .byte con_branch, $84
@@ -6146,7 +6146,7 @@ _scenario_9C04_33:
 
 
 _scenario_9C0A_3E:
-- D - I - 0x021C1A 17:9C0A: FD        .byte con_FD, $00
+- D - I - 0x021C1A 17:9C0A: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x021C1C 17:9C0C: FA        .byte con_jsr
 - D - I - 0x021C1D 17:9C0D: 3E 9F     .word sub_9F3E
 - D - I - 0x021C1F 17:9C0F: F3        .byte con_branch, $84
@@ -6329,7 +6329,7 @@ _scenario_9CDD_25:
 - D - I - 0x021CF3 17:9CE3: 10        .byte bra_case_9CF3_01 - *
 
 bra_case_9CE4_00:
-- D - I - 0x021CF4 17:9CE4: FD        .byte con_FD, $03
+- D - I - 0x021CF4 17:9CE4: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021CF6 17:9CE6: F9        .byte con_delay_soundID, $02, $12     ; обычный удар с земли
 - D - I - 0x021CF9 17:9CE9: 30        .byte con_pause + $30
 - D - I - 0x021CFA 17:9CEA: 42        .byte con_bg + $42
@@ -6533,7 +6533,7 @@ _scenario_9E2D_26:
 - D - I - 0x021E43 17:9E33: 12        .byte bra_case_9E45_01 - *
 
 bra_case_9E34_00:
-- D - I - 0x021E44 17:9E34: FD        .byte con_FD, $00
+- D - I - 0x021E44 17:9E34: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x021E46 17:9E36: F9        .byte con_delay_soundID, $09, $2B     ; отбитие мяча
 - D - I - 0x021E49 17:9E39: 37        .byte con_pause + $37
 - D - I - 0x021E4A 17:9E3A: 42        .byte con_bg + $42
@@ -6544,7 +6544,7 @@ bra_case_9E34_00:
 
 
 _scenario_9E3E_18:
-- D - I - 0x021E4E 17:9E3E: FD        .byte con_FD, $00
+- D - I - 0x021E4E 17:9E3E: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x021E50 17:9E40: F3        .byte con_branch, $B4     ; узнать высоту мяча
 - D - I - 0x021E52 17:9E42: 03        .byte bra_case_9E45_00 - *
 - - - - - 0x021E53 17:9E43: 02        .byte bra_case_9E45_01 - *
@@ -6720,7 +6720,7 @@ bra_long_case_9F4A_00:
 
 
 _scenario_9F54_2C:
-- D - I - 0x021F64 17:9F54: FD        .byte con_FD, $03
+- D - I - 0x021F64 17:9F54: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x021F66 17:9F56: F3        .byte con_branch, $04
 - D - I - 0x021F68 17:9F58: 24 BA     .word bra_long_case_BA24_00
 - D - I - 0x021F6A 17:9F5A: 1C BA     .word bra_long_case_BA1C_01
@@ -7817,7 +7817,7 @@ bra_case_A347_02:
 - D - I - 0x022359 11:A349: A6        .byte con_animation + $A6
 - D - I - 0x02235A 11:A34A: 9F        .byte con_cloud + $9F
 loc_A34B:
-- D - I - 0x02235B 11:A34B: FD        .byte con_FD, $03
+- D - I - 0x02235B 11:A34B: FD        .byte con_FD_mirror_condition, $03
 sub_A34D:
 bra_long_case_A34D:
 bra_long_case_A34D_00:
@@ -7852,7 +7852,7 @@ loc_A364:
 
 loc_A36A:
 sub_A36A:
-- D - I - 0x02237A 11:A36A: FD        .byte con_FD, $04
+- D - I - 0x02237A 11:A36A: FD        .byte con_FD_mirror_condition, $04
 - D - I - 0x02237C 11:A36C: 3C        .byte con_pause + $3C
 - D - I - 0x02237D 11:A36D: 20        .byte con_bg + $20
 - D - I - 0x02237E 11:A36E: 52        .byte con_animation + $52
@@ -7861,7 +7861,7 @@ sub_A36A:
 
 loc_A371:
 sub_A371:
-- D - I - 0x022381 11:A371: FD        .byte con_FD, $04
+- D - I - 0x022381 11:A371: FD        .byte con_FD_mirror_condition, $04
 sub_A373:
 - D - I - 0x022383 11:A373: 3C        .byte con_pause + $3C
 - D - I - 0x022384 11:A374: 1F        .byte con_bg + $1F
@@ -7892,7 +7892,7 @@ loc_A383:
 - D - I - 0x022397 11:A387: FB        .byte con_rts
 
 loc_A388:
-- D - I - 0x022398 11:A388: FD        .byte con_FD, $04
+- D - I - 0x022398 11:A388: FD        .byte con_FD_mirror_condition, $04
 - D - I - 0x02239A 11:A38A: 34        .byte con_pause + $34
 - D - I - 0x02239B 11:A38B: 20        .byte con_bg + $20
 - D - I - 0x02239C 11:A38C: 70        .byte con_animation + $70
@@ -12221,7 +12221,7 @@ bra_long_case_B458_01:
 
 loc_B45D:
 sub_B45D:
-- D - I - 0x02346D 11:B45D: FD        .byte con_FD, $04
+- D - I - 0x02346D 11:B45D: FD        .byte con_FD_mirror_condition, $04
 - D - I - 0x02346F 11:B45F: 3C        .byte con_pause + $3C
 - D - I - 0x023470 11:B460: 20        .byte con_bg + $20
 - D - I - 0x023471 11:B461: 52        .byte con_animation + $52
@@ -12254,7 +12254,7 @@ sub_B465:
 
 
 _scenario_B47C_3A:
-- D - I - 0x02348C 11:B47C: FD        .byte con_FD, $00
+- D - I - 0x02348C 11:B47C: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x02348E 11:B47E: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x023491 11:B481: 3C        .byte con_pause + $3C
 - D - I - 0x023492 11:B482: 72        .byte con_bg + $72
@@ -12265,7 +12265,7 @@ _scenario_B47C_3A:
 
 
 _scenario_B486_1B:
-- D - I - 0x023496 11:B486: FD        .byte con_FD, $00
+- D - I - 0x023496 11:B486: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x023498 11:B488: F3        .byte con_branch, $0C
 - D - I - 0x02349A 11:B48A: 9A B4     .word bra_long_case_B49A_00
 - D - I - 0x02349C 11:B48C: 8E B4     .word bra_long_case_B48E_01
@@ -12341,7 +12341,7 @@ loc_B4C7:
 
 
 _scenario_B4CC_28:
-- D - I - 0x0234DC 11:B4CC: FD        .byte con_FD, $00
+- D - I - 0x0234DC 11:B4CC: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x0234DE 11:B4CE: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x0234E1 11:B4D1: 32        .byte con_pause + $32
 - D - I - 0x0234E2 11:B4D2: 26        .byte con_bg + $26
@@ -12352,7 +12352,7 @@ _scenario_B4CC_28:
 
 
 _scenario_B4D6_2D:
-- D - I - 0x0234E6 11:B4D6: FD        .byte con_FD, $00
+- D - I - 0x0234E6 11:B4D6: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x0234E8 11:B4D8: F9        .byte con_delay_soundID, $0D, $64
 - D - I - 0x0234EB 11:B4DB: 3A        .byte con_pause + $3A
 - D - I - 0x0234EC 11:B4DC: 3C        .byte con_bg + $3C
@@ -12363,7 +12363,7 @@ _scenario_B4D6_2D:
 
 
 _scenario_B4E0_2A:
-- D - I - 0x0234F0 11:B4E0: FD        .byte con_FD, $00
+- D - I - 0x0234F0 11:B4E0: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x0234F2 11:B4E2: 30        .byte con_pause + $30
 - D - I - 0x0234F3 11:B4E3: 3E        .byte con_bg + $3E
 - D - I - 0x0234F4 11:B4E4: 81        .byte con_animation + $81
@@ -12957,10 +12957,10 @@ _scenario_B74E_2E:
 
 
 _scenario_B754_3F:
-- D - I - 0x023764 11:B754: FD        .byte con_FD, $00
+- D - I - 0x023764 11:B754: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x023766 11:B756: FA        .byte con_jsr
 - D - I - 0x023767 11:B757: 3E 9F     .word sub_9F3E
-- D - I - 0x023769 11:B759: FD        .byte con_FD, $03
+- D - I - 0x023769 11:B759: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02376B 11:B75B: F3        .byte con_branch, $84
 - D - I - 0x02376D 11:B75D: 02        .byte bra_case_B75F_00 - *
 - D - I - 0x02376E 11:B75E: 0E        .byte bra_case_B76C_01 - *
@@ -12994,10 +12994,10 @@ bra_case_B76C_01:
 
 
 _scenario_B773_2F:
-- D - I - 0x023783 11:B773: FD        .byte con_FD, $00
+- D - I - 0x023783 11:B773: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x023785 11:B775: FA        .byte con_jsr
 - D - I - 0x023786 11:B776: 3E 9F     .word sub_9F3E
-- D - I - 0x023788 11:B778: FD        .byte con_FD, $03
+- D - I - 0x023788 11:B778: FD        .byte con_FD_mirror_condition, $03
 - D - I - 0x02378A 11:B77A: F3        .byte con_branch, $84
 - D - I - 0x02378C 11:B77C: 02        .byte bra_case_B77E_00 - *
 - D - I - 0x02378D 11:B77D: 08        .byte bra_case_B785_01 - *
@@ -13124,7 +13124,7 @@ _scenario_B7D5_44:
 
 
 _scenario_B7DA_1E:
-- D - I - 0x0237EA 11:B7DA: FD        .byte con_FD, $02
+- D - I - 0x0237EA 11:B7DA: FD        .byte con_FD_mirror_condition, $02
 - D - I - 0x0237EC 11:B7DC: F6        .byte con_mirror_toggle
 - D - I - 0x0237ED 11:B7DD: F7        .byte con_F7, $01
 - D - I - 0x0237EF 11:B7DF: 07        .byte con_pause + $07
@@ -13147,7 +13147,7 @@ _scenario_B7E4_36:
 - D - I - 0x023800 11:B7F0: F0        .byte con_bg + $FF
 - D - I - 0x023801 11:B7F1: F0        .byte con_animation + $FF
 - D - I - 0x023802 11:B7F2: 74        .byte con_cloud + $74
-- D - I - 0x023803 11:B7F3: FD        .byte con_FD, $00
+- D - I - 0x023803 11:B7F3: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x023805 11:B7F5: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x023808 11:B7F8: 32        .byte con_pause + $32
 - D - I - 0x023809 11:B7F9: 72        .byte con_bg + $72
@@ -14188,7 +14188,7 @@ _scenario_BBCC_34:
 
 
 _scenario_BBD4_19:
-- D - I - 0x023BE4 11:BBD4: FD        .byte con_FD, $00
+- D - I - 0x023BE4 11:BBD4: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x023BE6 11:BBD6: F3        .byte con_branch, $8C
 - D - I - 0x023BE8 11:BBD8: 02        .byte bra_case_BBDA_00 - *
 - D - I - 0x023BE9 11:BBD9: 09        .byte bra_case_BBE2_01 - *
@@ -14354,7 +14354,7 @@ _scenario_BC6D_1A:
 - D - I - 0x023C80 11:BC70: 11        .byte bra_case_BC81_01 - *
 
 bra_case_BC71_00:
-- D - I - 0x023C81 11:BC71: FD        .byte con_FD, $00
+- D - I - 0x023C81 11:BC71: FD        .byte con_FD_mirror_condition, $00
 - D - I - 0x023C83 11:BC73: 32        .byte con_pause + $32
 - D - I - 0x023C84 11:BC74: 20        .byte con_bg + $20
 - D - I - 0x023C85 11:BC75: 7B        .byte con_animation + $7B
@@ -14599,7 +14599,7 @@ bra_case_BD6D_10:
 - D - I - 0x023D96 11:BD86: FB        .byte con_rts
 
 bra_long_case_BD87_02:
-- D - I - 0x023D97 11:BD87: FD        .byte con_FD, $01
+- D - I - 0x023D97 11:BD87: FD        .byte con_FD_mirror_condition, $01
 - D - I - 0x023D99 11:BD89: F7        .byte con_F7, $02
 - D - I - 0x023D9B 11:BD8B: 28        .byte con_pause + $28
 - D - I - 0x023D9C 11:BD8C: 23        .byte con_bg + $23

@@ -1110,17 +1110,18 @@ tbl_CD89_адреса_игроков:
 
 
 
-.export sub_0x03CDD9
-sub_0x03CDD9:
-sub_CDC9:
+.export sub_0x03CDD9_проверить_координаты_игрока
+sub_0x03CDD9_проверить_координаты_игрока:
+sub_CDC9_проверить_координаты_игрока:
+; на выходе интересует X и Y
 C D - - - 0x03CDD9 FF:CDC9: A2 00     LDX #$00
-bra_CDCB:
+bra_CDCB_цикл:
 C - - - - 0x03CDDB FF:CDCB: C9 0C     CMP #$0C
-C - - - - 0x03CDDD FF:CDCD: 90 05     BCC bra_CDD4
+C - - - - 0x03CDDD FF:CDCD: 90 05     BCC bra_CDD4_продолжить
 C - - - - 0x03CDDF FF:CDCF: E9 0C     SBC #$0C
 C - - - - 0x03CDE1 FF:CDD1: E8        INX
-C - - - - 0x03CDE2 FF:CDD2: D0 F7     BNE bra_CDCB
-bra_CDD4:
+C - - - - 0x03CDE2 FF:CDD2: D0 F7     BNE bra_CDCB_цикл
+bra_CDD4_продолжить:
 C - - - - 0x03CDE4 FF:CDD4: 0A        ASL
 C - - - - 0x03CDE5 FF:CDD5: 0A        ASL
 C - - - - 0x03CDE6 FF:CDD6: 0A        ASL
@@ -3382,7 +3383,7 @@ C - - - - 0x03DC56 FF:DC46: 88        DEY
 C - - - - 0x03DC57 FF:DC47: 30 03     BMI bra_DC4C
 C - - - - 0x03DC59 FF:DC49: BD B3 DC  LDA tbl_DCB3,X
 bra_DC4C:
-C - - - - 0x03DC5C FF:DC4C: 20 C9 CD  JSR sub_CDC9
+C - - - - 0x03DC5C FF:DC4C: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - 0x03DC5F FF:DC4F: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x03DC62 FF:DC52: F0 0A     BEQ bra_DC5E
 C - - - - 0x03DC64 FF:DC54: 98        TYA
@@ -3883,7 +3884,7 @@ C - - - - 0x03DF69 FF:DF59: 60        RTS
 
 sub_DF8B:
 C - - - - 0x03DF9B FF:DF8B: AD 38 06  LDA $0638
-C - - - - 0x03DF9E FF:DF8E: 20 C9 CD  JSR sub_CDC9
+C - - - - 0x03DF9E FF:DF8E: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - 0x03DFA1 FF:DF91: 8A        TXA
 C - - - - 0x03DFA2 FF:DF92: 38        SEC
 C - - - - 0x03DFA3 FF:DF93: ED 35 06  SBC $0635
@@ -5059,7 +5060,7 @@ C - - - - 0x03E7CA FF:E7BA: AD 38 06  LDA $0638
 C - - - - 0x03E7CD FF:E7BD: 8D FE 05  STA $05FE
 bra_E7C0:
 C - - - - 0x03E7D0 FF:E7C0: AD FE 05  LDA $05FE
-C - - - - 0x03E7D3 FF:E7C3: 20 C9 CD  JSR sub_CDC9
+C - - - - 0x03E7D3 FF:E7C3: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - 0x03E7D6 FF:E7C6: 8E 35 06  STX $0635
 C - - - - 0x03E7D9 FF:E7C9: 8C 37 06  STY $0637
 C - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP sub_0x034845
@@ -5084,7 +5085,7 @@ C - - - - 0x03E7F8 FF:E7E8: C9 F0     CMP #$F0
 C - - - - 0x03E7FA FF:E7EA: D0 03     BNE bra_E7EF
 C - - - - 0x03E7FC FF:E7EC: AD FE 05  LDA $05FE
 bra_E7EF:
-C - - - - 0x03E7FF FF:E7EF: 20 C9 CD  JSR sub_CDC9
+C - - - - 0x03E7FF FF:E7EF: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - 0x03E802 FF:E7F2: 8A        TXA
 C - - - - 0x03E803 FF:E7F3: 85 3A     STA ram_003A
 C - - - - 0x03E805 FF:E7F5: 98        TYA
