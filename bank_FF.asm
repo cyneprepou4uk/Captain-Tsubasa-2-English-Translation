@@ -4815,18 +4815,18 @@ C - - - - 0x03E5F9 FF:E5E9: 8D FE 05  STA $05FE
 C - - - - 0x03E5FC FF:E5EC: AD 00 06  LDA ram_колво_нападающих
 C - - - - 0x03E5FF FF:E5EF: F0 1D     BEQ bra_E60E
 C - - - - 0x03E601 FF:E5F1: A9 00     LDA #$00
-C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA $0616
-bra_E5F6:
-C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX $0616
+C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA ram_номер_защитника
+bra_E5F6_цикл:
+C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX ram_номер_защитника
 C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_действие_защиты,X
 C - - - - 0x03E60C FF:E5FC: C9 05     CMP #$05
-C - - - - 0x03E60E FF:E5FE: D0 03     BNE bra_E603
+C - - - - 0x03E60E FF:E5FE: D0 03     BNE bra_E603_достигнут_лимит
 C - - - - 0x03E610 FF:E600: 20 16 E6  JSR sub_E616
-bra_E603:
-C - - - - 0x03E613 FF:E603: EE 16 06  INC $0616
-C - - - - 0x03E616 FF:E606: AD 16 06  LDA $0616
+bra_E603_достигнут_лимит:
+C - - - - 0x03E613 FF:E603: EE 16 06  INC ram_номер_защитника
+C - - - - 0x03E616 FF:E606: AD 16 06  LDA ram_номер_защитника
 C - - - - 0x03E619 FF:E609: CD 00 06  CMP ram_колво_нападающих
-C - - - - 0x03E61C FF:E60C: D0 E8     BNE bra_E5F6
+C - - - - 0x03E61C FF:E60C: D0 E8     BNE bra_E5F6_цикл
 bra_E60E:
 C - - - - 0x03E61E FF:E60E: A9 04     LDA #$04
 C - - - - 0x03E620 FF:E610: 8D 2B 06  STA $062B
