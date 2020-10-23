@@ -1641,10 +1641,8 @@ bra_88E2_выход:
 C - - - - 0x0208F2 17:88E2: 60        RTS
 
 ofs_88E3_FE:
-; читает 1 следующий байт
-C - J - - 0x0208F3 17:88E3: A4 3A     LDY ram_003A
-C - - - - 0x0208F5 17:88E5: E6 3A     INC ram_003A
-C - - - - 0x0208F7 17:88E7: B1 5D     LDA (ram_сценарий_data),Y
+; без чтения следующих байтов
+                                      LDA #$01
 C - - - - 0x0208F9 17:88E9: 8D 39 05  STA $0539
 C - - - - 0x0208FC 17:88EC: 60        RTS
 
@@ -1882,7 +1880,7 @@ con_jsr                 = $FA   ; 2
 con_rts                 = $FB   ; 0
 con_FC                  = $FC   ; 1 байты 01-04
 con_FD                  = $FD   ; 1 байты 00-04
-con_FE                  = $FE   ; 1 байт 01
+con_FE                  = $FE   ; 0
 con_FF                  = $FF   ; 1
 
 con_pause               = $00   ; задержка следующей анимации
@@ -6885,7 +6883,7 @@ sub_9FF3:
 - D - I - 0x022007 17:9FF7: F0        .byte con_bg + $FF
 - D - I - 0x022008 17:9FF8: 08        .byte con_animation + $08
 - D - I - 0x022009 17:9FF9: F0        .byte con_cloud + $FF
-- D - I - 0x02200A 17:9FFA: FE        .byte con_FE, $01
+- D - I - 0x02200A 17:9FFA: FE        .byte con_FE
 - D - I - 0x02200C 17:9FFC: FB        .byte con_rts
 
 sub_9FFD:
@@ -6945,7 +6943,7 @@ sub_A025:
 - D - I - 0x022039 11:A029: F0        .byte con_bg + $FF
 - D - I - 0x02203A 11:A02A: 0D        .byte con_animation + $0D
 - D - I - 0x02203B 11:A02B: F0        .byte con_cloud + $FF
-- D - I - 0x02203C 11:A02C: FE        .byte con_FE, $01
+- D - I - 0x02203C 11:A02C: FE        .byte con_FE
 - D - I - 0x02203E 11:A02E: FB        .byte con_rts
 
 sub_A02F:
@@ -6998,7 +6996,7 @@ sub_A051:
 - D - I - 0x022065 11:A055: F0        .byte con_bg + $FF
 - D - I - 0x022066 11:A056: 0D        .byte con_animation + $0D
 - D - I - 0x022067 11:A057: F0        .byte con_cloud + $FF
-- D - I - 0x022068 11:A058: FE        .byte con_FE, $01
+- D - I - 0x022068 11:A058: FE        .byte con_FE
 - D - I - 0x02206A 11:A05A: FB        .byte con_rts
 
 bra_long_case_A05B_00:
@@ -7760,7 +7758,7 @@ sub_A312:
 - D - I - 0x022323 11:A313: F0        .byte con_bg + $FF
 - D - I - 0x022324 11:A314: F0        .byte con_animation + $FF
 - D - I - 0x022325 11:A315: F0        .byte con_cloud + $FF
-- D - I - 0x022326 11:A316: FE        .byte con_FE, $01
+- D - I - 0x022326 11:A316: FE        .byte con_FE
 - D - I - 0x022328 11:A318: FB        .byte con_rts
 
 loc_A319:
@@ -7778,7 +7776,7 @@ sub_A321:
 - - - - - 0x022337 11:A327: 01        .byte con_bg + $01
 - - - - - 0x022338 11:A328: 4A        .byte con_animation + $4A
 - - - - - 0x022339 11:A329: 35        .byte con_cloud + $35
-- - - - - 0x02233A 11:A32A: FE        .byte con_FE, $01
+- - - - - 0x02233A 11:A32A: FE        .byte con_FE
 - - - - - 0x02233C 11:A32C: FB        .byte con_rts
 
 sub_A32D:
@@ -11304,7 +11302,7 @@ bra_long_case_B0E8_1F:
 - D - I - 0x0230FC 11:B0EC: 1D        .byte con_bg + $1D
 - D - I - 0x0230FD 11:B0ED: 69        .byte con_animation + $69
 - D - I - 0x0230FE 11:B0EE: 49        .byte con_cloud + $49
-- D - I - 0x0230FF 11:B0EF: FE        .byte con_FE, $01
+- D - I - 0x0230FF 11:B0EF: FE        .byte con_FE
 - D - I - 0x023101 11:B0F1: FC        .byte con_FC, $03
 - D - I - 0x023103 11:B0F3: F9        .byte con_delay_soundID, $02, $06
 - D - I - 0x023106 11:B0F6: 28        .byte con_pause + $28
@@ -11480,7 +11478,7 @@ loc_B1A0:
 - D - I - 0x0231CD 11:B1BD: 58        .byte con_bg + $58
 - D - I - 0x0231CE 11:B1BE: 6A        .byte con_animation + $6A
 - D - I - 0x0231CF 11:B1BF: F0        .byte con_cloud + $FF
-- D - I - 0x0231D0 11:B1C0: FE        .byte con_FE, $01
+- D - I - 0x0231D0 11:B1C0: FE        .byte con_FE
 - D - I - 0x0231D2 11:B1C2: FB        .byte con_rts
 
 bra_case_B1C3_01:
@@ -13759,7 +13757,7 @@ bra_case_BA42_00:
 - D - I - 0x023A53 11:BA43: 38        .byte con_bg + $38
 - D - I - 0x023A54 11:BA44: 00        .byte con_animation + $00
 - D - I - 0x023A55 11:BA45: F0        .byte con_cloud + $FF
-- D - I - 0x023A56 11:BA46: FE        .byte con_FE, $01
+- D - I - 0x023A56 11:BA46: FE        .byte con_FE
 - D - I - 0x023A58 11:BA48: F2        .byte con_jmp
 - D - I - 0x023A59 11:BA49: 54 BA     .word loc_BA54
 
@@ -13768,7 +13766,7 @@ bra_case_BA4B_01:
 - D - I - 0x023A5C 11:BA4C: 37        .byte con_bg + $37
 - D - I - 0x023A5D 11:BA4D: 00        .byte con_animation + $00
 - D - I - 0x023A5E 11:BA4E: F0        .byte con_cloud + $FF
-- D - I - 0x023A5F 11:BA4F: FE        .byte con_FE, $01
+- D - I - 0x023A5F 11:BA4F: FE        .byte con_FE
 ; bzk бесполезный прыжок
 - D - I - 0x023A61 11:BA51: F2        .byte con_jmp
 - D - I - 0x023A62 11:BA52: 54 BA     .word loc_BA54
@@ -14034,7 +14032,7 @@ _scenario_BB3F_23:
 - D - I - 0x023B53 11:BB43: 38        .byte con_bg + $38
 - D - I - 0x023B54 11:BB44: 00        .byte con_animation + $00
 - D - I - 0x023B55 11:BB45: F0        .byte con_cloud + $FF
-- D - I - 0x023B56 11:BB46: FE        .byte con_FE, $01
+- D - I - 0x023B56 11:BB46: FE        .byte con_FE
 - D - I - 0x023B58 11:BB48: F2        .byte con_jmp
 - D - I - 0x023B59 11:BB49: 54 BA     .word loc_BA54
 
