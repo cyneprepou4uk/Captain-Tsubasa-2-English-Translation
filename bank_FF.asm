@@ -5639,7 +5639,7 @@ C - - - - 0x03EBCA FF:EBBA: A9 19     LDA #$19
 C - - - - 0x03EBCC FF:EBBC: 85 25     STA ram_для_5115
 C - - - - 0x03EBCE FF:EBBE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EBD1 FF:EBC1: 68        PLA
-C - - - - 0x03EBD2 FF:EBC2: 20 06 80  JSR sub_0x030789
+C - - - - 0x03EBD2 FF:EBC2: 20 06 80  JSR sub_0x030789_движущийся_фон
 C - - - - 0x03EBD5 FF:EBC5: 48        PHA
 C - - - - 0x03EBD8 FF:EBC8: A9 18     LDA #$18
 C - - - - 0x03EBDA FF:EBCA: 85 24     STA ram_для_5114

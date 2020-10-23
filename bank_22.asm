@@ -1254,8 +1254,8 @@ C - - - - 0x030782 22:8772: 85 7A     STA ram_007A
 C - - - - 0x030784 22:8774: 86 79     STX ram_0079
 C - - - - 0x030786 22:8776: 4C 23 87  JMP loc_8723
 
-.export sub_0x030789
-sub_0x030789:
+.export sub_0x030789_движущийся_фон
+sub_0x030789_движущийся_фон:
 C D - - - 0x030789 22:8779: AD 34 05  LDA $0534
 C - - - - 0x03078C 22:877C: F0 25     BEQ bra_87A3_выход
 C - - - - 0x03078E 22:877E: 10 1B     BPL bra_879B
@@ -1266,9 +1266,9 @@ C - - - - 0x030797 22:8787: 38        SEC
 C - - - - 0x030798 22:8788: E9 01     SBC #$01
 C - - - - 0x03079A 22:878A: 0A        ASL
 C - - - - 0x03079B 22:878B: AA        TAX
-C - - - - 0x03079C 22:878C: BD 1C AD  LDA tbl_AD1C,X
+C - - - - 0x03079C 22:878C: BD 1C AD  LDA tbl_AD1C_движущийся_фон,X
 C - - - - 0x03079F 22:878F: 85 7B     STA ram_007B
-C - - - - 0x0307A1 22:8791: BD 1D AD  LDA tbl_AD1C + 1,X
+C - - - - 0x0307A1 22:8791: BD 1D AD  LDA tbl_AD1C_движущийся_фон + 1,X
 C - - - - 0x0307A4 22:8794: 85 7C     STA ram_007C
 C - - - - 0x0307A6 22:8796: A9 00     LDA #$00
 C - - - - 0x0307A8 22:8798: 8D 35 05  STA $0535
@@ -10629,65 +10629,66 @@ off_AD02_EF:
 
 
 
-tbl_AD1C:
+tbl_AD1C_движущийся_фон:
 ; везде по 12 байтов, связано с движущимся фоном во время действий игрока
+; байты 01-04, код вычитает 01
 - D - - - 0x032D2C 22:AD1C: 24 AD     .word off_AD24_01
-- D - - - 0x032D2E 22:AD1E: 30 AD     .word off_AD30_02
-- D - - - 0x032D30 22:AD20: 3C AD     .word off_AD3C_03_подкат
-- D - - - 0x032D32 22:AD22: 48 AD     .word off_AD48_04
+- D - - - 0x032D2E 22:AD1E: 30 AD     .word off_AD30_02_power_tackle___volley
+- D - - - 0x032D30 22:AD20: 3C AD     .word off_AD3C_03_tackle
+- D - - - 0x032D32 22:AD22: 48 AD     .word off_AD48_04_tiger_razor_skylab_tackle
 
 con_loop = $F1
 off_AD24_01:
-- D - I - 0x032D34 22:AD24: 02        .byte $02    ; <い>
-- D - I - 0x032D35 22:AD25: 3C        .byte $3C    ; <9>
-- D - I - 0x032D36 22:AD26: 52        .byte $52    ; <ツ>
-- D - I - 0x032D37 22:AD27: 02        .byte $02    ; <い>
-- D - I - 0x032D38 22:AD28: 3C        .byte $3C    ; <9>
-- D - I - 0x032D39 22:AD29: 20        .byte $20    ; <み>
-- D - I - 0x032D3A 22:AD2A: 02        .byte $02    ; <い>
-- D - I - 0x032D3B 22:AD2B: 3C        .byte $3C    ; <9>
-- D - I - 0x032D3C 22:AD2C: 26        .byte $26    ; <よ>
+- D - I - 0x032D34 22:AD24: 02        .byte $02
+- D - I - 0x032D35 22:AD25: 3C        .byte $3C
+- D - I - 0x032D36 22:AD26: 52        .byte $52
+- D - I - 0x032D37 22:AD27: 02        .byte $02
+- D - I - 0x032D38 22:AD28: 3C        .byte $3C
+- D - I - 0x032D39 22:AD29: 20        .byte $20
+- D - I - 0x032D3A 22:AD2A: 02        .byte $02
+- D - I - 0x032D3B 22:AD2B: 3C        .byte $3C
+- D - I - 0x032D3C 22:AD2C: 26        .byte $26
 - D - I - 0x032D3D 22:AD2D: F1        .byte con_loop
 - D - I - 0x032D3E 22:AD2E: 24 AD     .word off_AD24_01
 
-off_AD30_02:
-- D - I - 0x032D40 22:AD30: 06        .byte $06    ; <か>
-- D - I - 0x032D41 22:AD31: 40        .byte $40    ; <「>
-- D - I - 0x032D42 22:AD32: 42        .byte $42    ; <イ>
-- D - I - 0x032D43 22:AD33: 06        .byte $06    ; <か>
-- D - I - 0x032D44 22:AD34: 42        .byte $42    ; <イ>
-- D - I - 0x032D45 22:AD35: 44        .byte $44    ; <エ>
-- D - I - 0x032D46 22:AD36: 06        .byte $06    ; <か>
-- D - I - 0x032D47 22:AD37: 44        .byte $44    ; <エ>
-- D - I - 0x032D48 22:AD38: 40        .byte $40    ; <「>
+off_AD30_02_power_tackle___volley:
+- D - I - 0x032D40 22:AD30: 06        .byte $06
+- D - I - 0x032D41 22:AD31: 40        .byte $40
+- D - I - 0x032D42 22:AD32: 42        .byte $42
+- D - I - 0x032D43 22:AD33: 06        .byte $06
+- D - I - 0x032D44 22:AD34: 42        .byte $42
+- D - I - 0x032D45 22:AD35: 44        .byte $44
+- D - I - 0x032D46 22:AD36: 06        .byte $06
+- D - I - 0x032D47 22:AD37: 44        .byte $44
+- D - I - 0x032D48 22:AD38: 40        .byte $40
 - D - I - 0x032D49 22:AD39: F1        .byte con_loop
-- D - I - 0x032D4A 22:AD3A: 30 AD     .word off_AD30_02
+- D - I - 0x032D4A 22:AD3A: 30 AD     .word off_AD30_02_power_tackle___volley
 
-off_AD3C_03_подкат:
-- D - I - 0x032D4C 22:AD3C: 04        .byte $04    ; <え>
-- D - I - 0x032D4D 22:AD3D: 40        .byte $40    ; <「>
-- D - I - 0x032D4E 22:AD3E: 42        .byte $42    ; <イ>
-- D - I - 0x032D4F 22:AD3F: 04        .byte $04    ; <え>
-- D - I - 0x032D50 22:AD40: 42        .byte $42    ; <イ>
-- D - I - 0x032D51 22:AD41: 44        .byte $44    ; <エ>
-- D - I - 0x032D52 22:AD42: 04        .byte $04    ; <え>
-- D - I - 0x032D53 22:AD43: 44        .byte $44    ; <エ>
-- D - I - 0x032D54 22:AD44: 40        .byte $40    ; <「>
+off_AD3C_03_tackle:
+- D - I - 0x032D4C 22:AD3C: 04        .byte $04
+- D - I - 0x032D4D 22:AD3D: 40        .byte $40
+- D - I - 0x032D4E 22:AD3E: 42        .byte $42
+- D - I - 0x032D4F 22:AD3F: 04        .byte $04
+- D - I - 0x032D50 22:AD40: 42        .byte $42
+- D - I - 0x032D51 22:AD41: 44        .byte $44
+- D - I - 0x032D52 22:AD42: 04        .byte $04
+- D - I - 0x032D53 22:AD43: 44        .byte $44
+- D - I - 0x032D54 22:AD44: 40        .byte $40
 - D - I - 0x032D55 22:AD45: F1        .byte con_loop
-- D - I - 0x032D56 22:AD46: 3C AD     .word off_AD3C_03_подкат
+- D - I - 0x032D56 22:AD46: 3C AD     .word off_AD3C_03_tackle
 
-off_AD48_04:
-- D - I - 0x032D58 22:AD48: 02        .byte $02    ; <い>
-- D - I - 0x032D59 22:AD49: 40        .byte $40    ; <「>
-- D - I - 0x032D5A 22:AD4A: 42        .byte $42    ; <イ>
-- D - I - 0x032D5B 22:AD4B: 02        .byte $02    ; <い>
-- D - I - 0x032D5C 22:AD4C: 42        .byte $42    ; <イ>
-- D - I - 0x032D5D 22:AD4D: 44        .byte $44    ; <エ>
-- D - I - 0x032D5E 22:AD4E: 02        .byte $02    ; <い>
-- D - I - 0x032D5F 22:AD4F: 44        .byte $44    ; <エ>
-- D - I - 0x032D60 22:AD50: 40        .byte $40    ; <「>
+off_AD48_04_tiger_razor_skylab_tackle:
+- D - I - 0x032D58 22:AD48: 02        .byte $02
+- D - I - 0x032D59 22:AD49: 40        .byte $40
+- D - I - 0x032D5A 22:AD4A: 42        .byte $42
+- D - I - 0x032D5B 22:AD4B: 02        .byte $02
+- D - I - 0x032D5C 22:AD4C: 42        .byte $42
+- D - I - 0x032D5D 22:AD4D: 44        .byte $44
+- D - I - 0x032D5E 22:AD4E: 02        .byte $02
+- D - I - 0x032D5F 22:AD4F: 44        .byte $44
+- D - I - 0x032D60 22:AD50: 40        .byte $40
 - D - I - 0x032D61 22:AD51: F1        .byte con_loop
-- D - I - 0x032D62 22:AD52: 48 AD     .word off_AD48_04
+- D - I - 0x032D62 22:AD52: 48 AD     .word off_AD48_04_tiger_razor_skylab_tackle
 
 
 
