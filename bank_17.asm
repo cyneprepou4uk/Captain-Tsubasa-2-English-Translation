@@ -1869,7 +1869,7 @@ tbl_89BF_сценарии:
 
 
 con_exit_1              = $F0   ; 0
-con_exit_2              = $F1   ; 0
+con_exit_2              = $F1   ; 0 аналогично F0, но выход без очистки флага зеркала
 con_jmp                 = $F2   ; 2
 con_branch              = $F3   ; 1
 con_mirror_on           = $F4   ; 0
@@ -1880,9 +1880,9 @@ con_F8                  = $F8   ; 1
 con_delay_soundID       = $F9   ; 2
 con_jsr                 = $FA   ; 2
 con_rts                 = $FB   ; 0
-con_FC                  = $FC   ; 1
-con_FD                  = $FD   ; 1
-con_FE                  = $FE   ; 1
+con_FC                  = $FC   ; 1 байты 01-04
+con_FD                  = $FD   ; 1 байты 00-04
+con_FE                  = $FE   ; 1 байт 01
 con_FF                  = $FF   ; 1
 
 con_pause               = $00   ; задержка следующей анимации
