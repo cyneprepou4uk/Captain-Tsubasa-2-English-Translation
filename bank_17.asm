@@ -1728,78 +1728,78 @@ bra_898E_выход:
 C - - - - 0x02099E 17:898E: 4C 2F 81  JMP loc_812F
 
 tbl_89BF_сценарии:
-- D - I - 0x0209CF 17:89BF: B1 8A     .word _scenario_8AB1_00
-- D - I - 0x0209D1 17:89C1: F2 91     .word _scenario_91F2_01
-- D - I - 0x0209D3 17:89C3: FF 91     .word _scenario_91FF_02
-- - - - - 0x0209D5 17:89C5: 8E B4     .word _scenario_B48E_03
-- D - I - 0x0209D7 17:89C7: CB 9B     .word _scenario_9BCB_04
-- D - I - 0x0209D9 17:89C9: 59 92     .word _scenario_9259_05_10
-- D - I - 0x0209DB 17:89CB: 63 92     .word _scenario_9263_06
-- D - I - 0x0209DD 17:89CD: 85 92     .word _scenario_9285_07
-- D - I - 0x0209DF 17:89CF: 2C 93     .word _scenario_932C_08     ; игрок дает пас с чужой штрафной
-- D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09
-- D - I - 0x0209E3 17:89D3: 11 98     .word _scenario_9811_0A
-- D - I - 0x0209E5 17:89D5: ED 98     .word _scenario_98ED_0B
-- D - I - 0x0209E7 17:89D7: E3 96     .word _scenario_96E3_0C
-- D - I - 0x0209E9 17:89D9: F7 96     .word _scenario_96F7_0D
-- D - I - 0x0209EB 17:89DB: EA 91     .word _scenario_91EA_0E     ; игрок бежит/прыгает к мячу на штрафной и что-то делает
-- D - I - 0x0209ED 17:89DD: 05 92     .word _scenario_9205_0F
-- D - I - 0x0209EF 17:89DF: 59 92     .word _scenario_9259_05_10
-- D - I - 0x0209F1 17:89E1: 69 92     .word _scenario_9269_11
-- D - I - 0x0209F3 17:89E3: 7F 92     .word _scenario_927F_12
-- D - I - 0x0209F5 17:89E5: D3 91     .word _scenario_91D3_13     ; игрок дает пас со своей штрафной
-- D - I - 0x0209F7 17:89E7: 82 9B     .word _scenario_9B82_14
-- D - I - 0x0209F9 17:89E9: 0A B8     .word _scenario_B80A_15
-- D - I - 0x0209FB 17:89EB: 17 B8     .word _scenario_B817_16
-- D - I - 0x0209FD 17:89ED: A1 B8     .word _scenario_B8A1_17
-- D - I - 0x0209FF 17:89EF: 3E 9E     .word _scenario_9E3E_18     ; игрок дает пас с земли
-- D - I - 0x020A01 17:89F1: D4 BB     .word _scenario_BBD4_19     ; игрок делает перепасовку
-- D - I - 0x020A03 17:89F3: 6D BC     .word _scenario_BC6D_1A     ; мяч летит, прилетел к напарнику и он возвращает перепасовку
-- D - I - 0x020A05 17:89F5: 86 B4     .word _scenario_B486_1B     ; мяч летит, и прилетает к основному игроку после перепасовки
-- D - I - 0x020A07 17:89F7: E3 9B     .word _scenario_9BE3_1C     ; мяч летит и прилетает к игроку, которому дали пас пас с земли
-- D - I - 0x020A09 17:89F9: EE 9C     .word _scenario_9CEE_1D     ; удар с земли (спешал тоже)
-- D - I - 0x020A0B 17:89FB: DA B7     .word _scenario_B7DA_1E     ; игрок бежит по полю
-- D - I - 0x020A0D 17:89FD: 33 B7     .word _scenario_B733_1F
-- D - I - 0x020A0F 17:89FF: 38 B7     .word _scenario_B738_20
-- D - I - 0x020A11 17:8A01: 3B BA     .word _scenario_BA3B_21
-- D - I - 0x020A13 17:8A03: 49 B7     .word _scenario_B749_22
-- D - I - 0x020A15 17:8A05: 3F BB     .word _scenario_BB3F_23
-- D - I - 0x020A17 17:8A07: F2 9B     .word _scenario_9BF2_24
-- D - I - 0x020A19 17:8A09: DD 9C     .word _scenario_9CDD_25
-- D - I - 0x020A1B 17:8A0B: 2D 9E     .word _scenario_9E2D_26
-- D - I - 0x020A1D 17:8A0D: F8 9B     .word _scenario_9BF8_27
-- D - I - 0x020A1F 17:8A0F: CC B4     .word _scenario_B4CC_28
-- D - I - 0x020A21 17:8A11: FE 9B     .word _scenario_9BFE_29
-- D - I - 0x020A23 17:8A13: E0 B4     .word _scenario_B4E0_2A
-- D - I - 0x020A25 17:8A15: 2C B7     .word _scenario_B72C_2B
-- D - I - 0x020A27 17:8A17: 54 9F     .word _scenario_9F54_2C
-- D - I - 0x020A29 17:8A19: D6 B4     .word _scenario_B4D6_2D
-- D - I - 0x020A2B 17:8A1B: 4E B7     .word _scenario_B74E_2E
-- D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F
-- D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30
-- D - I - 0x020A31 17:8A21: 8C B7     .word _scenario_B78C_31
-- D - I - 0x020A33 17:8A23: 57 9E     .word _scenario_9E57_32
-- D - I - 0x020A35 17:8A25: 04 9C     .word _scenario_9C04_33
-- D - I - 0x020A37 17:8A27: CC BB     .word _scenario_BBCC_34     ; мяч ударяется об землю когда некому его поднять
-- D - I - 0x020A39 17:8A29: CD B7     .word _scenario_B7CD_35     ; ожидание разводки
-- D - I - 0x020A3B 17:8A2B: E4 B7     .word _scenario_B7E4_36     ; разводка
-- D - I - 0x020A3D 17:8A2D: BF B7     .word _scenario_B7BF_37
-- D - I - 0x020A3F 17:8A2F: C6 B7     .word _scenario_B7C6_38     ; выбор кому дать пас или с кем перепасоваться
-- D - I - 0x020A41 17:8A31: B3 BD     .word _scenario_BDB3_39
-- D - I - 0x020A43 17:8A33: 7C B4     .word _scenario_B47C_3A
-- - - - - 0x020A45 17:8A35: A1 BD     .word _scenario_BDA1_3B
-- - - - - 0x020A47 17:8A37: 3E 9F     .word _scenario_9F3E_3C
-- D - I - 0x020A49 17:8A39: BA 9F     .word _scenario_9FBA_3D
-- D - I - 0x020A4B 17:8A3B: 0A 9C     .word _scenario_9C0A_3E
-- D - I - 0x020A4D 17:8A3D: 54 B7     .word _scenario_B754_3F     ; мяч прилетел к игроку на чью-то штрафную
-- D - I - 0x020A4F 17:8A3F: 95 BD     .word _scenario_BD95_40
-- D - I - 0x020A51 17:8A41: 9A BD     .word _scenario_BD9A_41
-- D - I - 0x020A53 17:8A43: A6 BD     .word _scenario_BDA6_42
-- D - I - 0x020A55 17:8A45: AD BD     .word _scenario_BDAD_43
-- D - I - 0x020A57 17:8A47: D5 B7     .word _scenario_B7D5_44     ; игрок в меню выбора действия, находясь с мячом на земле
-- - - - - 0x020A59 17:8A49: B8 BD     .word _scenario_BDB8_45
-- D - I - 0x020A5B 17:8A4B: BD BD     .word _scenario_BDBD_46
-- D - I - 0x020A5D 17:8A4D: 19 9C     .word _scenario_9C19_47
+- D - I - 0x0209CF 17:89BF: B1 8A     .word _scenario_8AB1_00       ; 
+- D - I - 0x0209D1 17:89C1: F2 91     .word _scenario_91F2_01       ; 
+- D - I - 0x0209D3 17:89C3: FF 91     .word _scenario_91FF_02       ; 
+- - - - - 0x0209D5 17:89C5: 8E B4     .word _scenario_B48E_03       ; 
+- D - I - 0x0209D7 17:89C7: CB 9B     .word _scenario_9BCB_04       ; 
+- D - I - 0x0209D9 17:89C9: 59 92     .word _scenario_9259_05_10    ; 
+- D - I - 0x0209DB 17:89CB: 63 92     .word _scenario_9263_06       ; 
+- D - I - 0x0209DD 17:89CD: 85 92     .word _scenario_9285_07       ; 
+- D - I - 0x0209DF 17:89CF: 2C 93     .word _scenario_932C_08       ; игрок дает пас с чужой штрафной
+- D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09       ; 
+- D - I - 0x0209E3 17:89D3: 11 98     .word _scenario_9811_0A       ; 
+- D - I - 0x0209E5 17:89D5: ED 98     .word _scenario_98ED_0B       ; 
+- D - I - 0x0209E7 17:89D7: E3 96     .word _scenario_96E3_0C       ; 
+- D - I - 0x0209E9 17:89D9: F7 96     .word _scenario_96F7_0D       ; 
+- D - I - 0x0209EB 17:89DB: EA 91     .word _scenario_91EA_0E       ; игрок бежит/прыгает к мячу на штрафной и что-то делает
+- D - I - 0x0209ED 17:89DD: 05 92     .word _scenario_9205_0F       ; 
+- D - I - 0x0209EF 17:89DF: 59 92     .word _scenario_9259_05_10    ; 
+- D - I - 0x0209F1 17:89E1: 69 92     .word _scenario_9269_11       ; 
+- D - I - 0x0209F3 17:89E3: 7F 92     .word _scenario_927F_12       ; 
+- D - I - 0x0209F5 17:89E5: D3 91     .word _scenario_91D3_13       ; игрок дает пас со своей штрафной
+- D - I - 0x0209F7 17:89E7: 82 9B     .word _scenario_9B82_14       ; 
+- D - I - 0x0209F9 17:89E9: 0A B8     .word _scenario_B80A_15       ; 
+- D - I - 0x0209FB 17:89EB: 17 B8     .word _scenario_B817_16       ; 
+- D - I - 0x0209FD 17:89ED: A1 B8     .word _scenario_B8A1_17       ; 
+- D - I - 0x0209FF 17:89EF: 3E 9E     .word _scenario_9E3E_18       ; игрок дает пас с земли
+- D - I - 0x020A01 17:89F1: D4 BB     .word _scenario_BBD4_19       ; игрок делает перепасовку
+- D - I - 0x020A03 17:89F3: 6D BC     .word _scenario_BC6D_1A       ; мяч летит, прилетел к напарнику и он возвращает перепасовку
+- D - I - 0x020A05 17:89F5: 86 B4     .word _scenario_B486_1B       ; мяч летит, и прилетает к основному игроку после перепасовки
+- D - I - 0x020A07 17:89F7: E3 9B     .word _scenario_9BE3_1C       ; мяч летит и прилетает к игроку, которому дали пас пас с земли
+- D - I - 0x020A09 17:89F9: EE 9C     .word _scenario_9CEE_1D       ; удар с земли (спешал тоже)
+- D - I - 0x020A0B 17:89FB: DA B7     .word _scenario_B7DA_1E       ; игрок бежит по полю
+- D - I - 0x020A0D 17:89FD: 33 B7     .word _scenario_B733_1F       ; 
+- D - I - 0x020A0F 17:89FF: 38 B7     .word _scenario_B738_20       ; 
+- D - I - 0x020A11 17:8A01: 3B BA     .word _scenario_BA3B_21       ; 
+- D - I - 0x020A13 17:8A03: 49 B7     .word _scenario_B749_22       ; 
+- D - I - 0x020A15 17:8A05: 3F BB     .word _scenario_BB3F_23       ; 
+- D - I - 0x020A17 17:8A07: F2 9B     .word _scenario_9BF2_24       ; 
+- D - I - 0x020A19 17:8A09: DD 9C     .word _scenario_9CDD_25       ; 
+- D - I - 0x020A1B 17:8A0B: 2D 9E     .word _scenario_9E2D_26       ; 
+- D - I - 0x020A1D 17:8A0D: F8 9B     .word _scenario_9BF8_27       ; 
+- D - I - 0x020A1F 17:8A0F: CC B4     .word _scenario_B4CC_28       ; 
+- D - I - 0x020A21 17:8A11: FE 9B     .word _scenario_9BFE_29       ; 
+- D - I - 0x020A23 17:8A13: E0 B4     .word _scenario_B4E0_2A       ; 
+- D - I - 0x020A25 17:8A15: 2C B7     .word _scenario_B72C_2B       ; 
+- D - I - 0x020A27 17:8A17: 54 9F     .word _scenario_9F54_2C       ; 
+- D - I - 0x020A29 17:8A19: D6 B4     .word _scenario_B4D6_2D       ; 
+- D - I - 0x020A2B 17:8A1B: 4E B7     .word _scenario_B74E_2E       ; 
+- D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F       ; 
+- D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30       ; 
+- D - I - 0x020A31 17:8A21: 8C B7     .word _scenario_B78C_31       ; 
+- D - I - 0x020A33 17:8A23: 57 9E     .word _scenario_9E57_32       ; 
+- D - I - 0x020A35 17:8A25: 04 9C     .word _scenario_9C04_33       ; 
+- D - I - 0x020A37 17:8A27: CC BB     .word _scenario_BBCC_34       ; мяч ударяется об землю когда некому его поднять
+- D - I - 0x020A39 17:8A29: CD B7     .word _scenario_B7CD_35       ; ожидание разводки
+- D - I - 0x020A3B 17:8A2B: E4 B7     .word _scenario_B7E4_36       ; разводка
+- D - I - 0x020A3D 17:8A2D: BF B7     .word _scenario_B7BF_37       ; 
+- D - I - 0x020A3F 17:8A2F: C6 B7     .word _scenario_B7C6_38       ; выбор кому дать пас или с кем перепасоваться
+- D - I - 0x020A41 17:8A31: B3 BD     .word _scenario_BDB3_39       ; 
+- D - I - 0x020A43 17:8A33: 7C B4     .word _scenario_B47C_3A       ; 
+- - - - - 0x020A45 17:8A35: A1 BD     .word _scenario_BDA1_3B       ; 
+- - - - - 0x020A47 17:8A37: 3E 9F     .word _scenario_9F3E_3C       ; 
+- D - I - 0x020A49 17:8A39: BA 9F     .word _scenario_9FBA_3D       ; недостаточно энергии
+- D - I - 0x020A4B 17:8A3B: 0A 9C     .word _scenario_9C0A_3E       ; 
+- D - I - 0x020A4D 17:8A3D: 54 B7     .word _scenario_B754_3F       ; мяч прилетел к игроку на чью-то штрафную
+- D - I - 0x020A4F 17:8A3F: 95 BD     .word _scenario_BD95_40       ; 
+- D - I - 0x020A51 17:8A41: 9A BD     .word _scenario_BD9A_41       ; 
+- D - I - 0x020A53 17:8A43: A6 BD     .word _scenario_BDA6_42       ; 
+- D - I - 0x020A55 17:8A45: AD BD     .word _scenario_BDAD_43       ; 
+- D - I - 0x020A57 17:8A47: D5 B7     .word _scenario_B7D5_44       ; игрок в меню выбора действия, находясь с мячом на земле
+- - - - - 0x020A59 17:8A49: B8 BD     .word _scenario_BDB8_45       ; 
+- D - I - 0x020A5B 17:8A4B: BD BD     .word _scenario_BDBD_46       ; 
+- D - I - 0x020A5D 17:8A4D: 19 9C     .word _scenario_9C19_47       ; 
 - - - - - 0x020A5F 17:8A4F: 01 BE     .word _scenario_BE01_50___
 - - - - - 0x020A61 17:8A51: 01 BE     .word _scenario_BE01_50___
 - - - - - 0x020A63 17:8A53: 01 BE     .word _scenario_BE01_50___
@@ -1808,47 +1808,47 @@ tbl_89BF_сценарии:
 - - - - - 0x020A69 17:8A59: 01 BE     .word _scenario_BE01_50___
 - - - - - 0x020A6B 17:8A5B: 01 BE     .word _scenario_BE01_50___
 - - - - - 0x020A6D 17:8A5D: 01 BE     .word _scenario_BE01_50___
-- D - I - 0x020A6F 17:8A5F: 01 BE     .word _scenario_BE01_50___
-- D - I - 0x020A71 17:8A61: 0D BE     .word _scenario_BE0D_51
-- D - I - 0x020A73 17:8A63: 18 BE     .word _scenario_BE18_52
-- D - I - 0x020A75 17:8A65: 20 BE     .word _scenario_BE20_53
-- D - I - 0x020A77 17:8A67: 2A BE     .word _scenario_BE2A_54
-- D - I - 0x020A79 17:8A69: 32 BE     .word _scenario_BE32_55
-- D - I - 0x020A7B 17:8A6B: 3A BE     .word _scenario_BE3A_56
-- D - I - 0x020A7D 17:8A6D: 42 BE     .word _scenario_BE42_57
-- D - I - 0x020A7F 17:8A6F: 4A BE     .word _scenario_BE4A_58
-- D - I - 0x020A81 17:8A71: 52 BE     .word _scenario_BE52_59
-- D - I - 0x020A83 17:8A73: 5A BE     .word _scenario_BE5A_5A
-- D - I - 0x020A85 17:8A75: 69 BE     .word _scenario_BE69_5B
-- D - I - 0x020A87 17:8A77: 73 BE     .word _scenario_BE73_5C
-- D - I - 0x020A89 17:8A79: 7C BE     .word _scenario_BE7C_5D
-- D - I - 0x020A8B 17:8A7B: 86 BE     .word _scenario_BE86_5E
-- D - I - 0x020A8D 17:8A7D: 8E BE     .word _scenario_BE8E_5F
-- D - I - 0x020A8F 17:8A7F: 96 BE     .word _scenario_BE96_60
-- D - I - 0x020A91 17:8A81: 9E BE     .word _scenario_BE9E_61
-- D - I - 0x020A93 17:8A83: A6 BE     .word _scenario_BEA6_62
-- D - I - 0x020A95 17:8A85: AE BE     .word _scenario_BEAE_63
-- D - I - 0x020A97 17:8A87: B6 BE     .word _scenario_BEB6_64
-- D - I - 0x020A99 17:8A89: BE BE     .word _scenario_BEBE_65
-- D - I - 0x020A9B 17:8A8B: C6 BE     .word _scenario_BEC6_66
-- - - - - 0x020A9D 17:8A8D: D8 BE     .word _scenario_BED8_67
-- - - - - 0x020A9F 17:8A8F: F7 BE     .word _scenario_BEF7_68
-- D - I - 0x020AA1 17:8A91: 05 BF     .word _scenario_BF05_69
-- D - I - 0x020AA3 17:8A93: 62 AA     .word _scenario_AA62_6A
-- D - I - 0x020AA5 17:8A95: 0D BF     .word _scenario_BF0D_6B
-- D - I - 0x020AA7 17:8A97: 13 BF     .word _scenario_BF13_6C
-- D - I - 0x020AA9 17:8A99: 23 BF     .word _scenario_BF23_6D
-- D - I - 0x020AAB 17:8A9B: 2C BF     .word _scenario_BF2C_6E
-- D - I - 0x020AAD 17:8A9D: 54 BF     .word _scenario_BF54_6F
-- D - I - 0x020AAF 17:8A9F: 61 BF     .word _scenario_BF61_70
-- D - I - 0x020AB1 17:8AA1: 73 BF     .word _scenario_BF73_71
-- D - I - 0x020AB3 17:8AA3: 7F BF     .word _scenario_BF7F_72
-- D - I - 0x020AB5 17:8AA5: 94 BF     .word _scenario_BF94_73
-- D - I - 0x020AB7 17:8AA7: 9C BF     .word _scenario_BF9C_74
-- D - I - 0x020AB9 17:8AA9: D2 BF     .word _scenario_BFD2_75
-- D - I - 0x020ABB 17:8AAB: 1B B0     .word _scenario_B01B_76
-- D - I - 0x020ABD 17:8AAD: D8 BF     .word _scenario_BFD8_77
-- D - I - 0x020ABF 17:8AAF: 97 A1     .word _scenario_A197_78
+- D - I - 0x020A6F 17:8A5F: 01 BE     .word _scenario_BE01_50___    ; 
+- D - I - 0x020A71 17:8A61: 0D BE     .word _scenario_BE0D_51       ; 
+- D - I - 0x020A73 17:8A63: 18 BE     .word _scenario_BE18_52       ; 
+- D - I - 0x020A75 17:8A65: 20 BE     .word _scenario_BE20_53       ; 
+- D - I - 0x020A77 17:8A67: 2A BE     .word _scenario_BE2A_54       ; 
+- D - I - 0x020A79 17:8A69: 32 BE     .word _scenario_BE32_55       ; 
+- D - I - 0x020A7B 17:8A6B: 3A BE     .word _scenario_BE3A_56       ; 
+- D - I - 0x020A7D 17:8A6D: 42 BE     .word _scenario_BE42_57       ; 
+- D - I - 0x020A7F 17:8A6F: 4A BE     .word _scenario_BE4A_58       ; 
+- D - I - 0x020A81 17:8A71: 52 BE     .word _scenario_BE52_59       ; 
+- D - I - 0x020A83 17:8A73: 5A BE     .word _scenario_BE5A_5A       ; 
+- D - I - 0x020A85 17:8A75: 69 BE     .word _scenario_BE69_5B       ; 
+- D - I - 0x020A87 17:8A77: 73 BE     .word _scenario_BE73_5C       ; 
+- D - I - 0x020A89 17:8A79: 7C BE     .word _scenario_BE7C_5D       ; 
+- D - I - 0x020A8B 17:8A7B: 86 BE     .word _scenario_BE86_5E       ; 
+- D - I - 0x020A8D 17:8A7D: 8E BE     .word _scenario_BE8E_5F       ; 
+- D - I - 0x020A8F 17:8A7F: 96 BE     .word _scenario_BE96_60       ; 
+- D - I - 0x020A91 17:8A81: 9E BE     .word _scenario_BE9E_61       ; 
+- D - I - 0x020A93 17:8A83: A6 BE     .word _scenario_BEA6_62       ; 
+- D - I - 0x020A95 17:8A85: AE BE     .word _scenario_BEAE_63       ; 
+- D - I - 0x020A97 17:8A87: B6 BE     .word _scenario_BEB6_64       ; 
+- D - I - 0x020A99 17:8A89: BE BE     .word _scenario_BEBE_65       ; 
+- D - I - 0x020A9B 17:8A8B: C6 BE     .word _scenario_BEC6_66       ; 
+- - - - - 0x020A9D 17:8A8D: D8 BE     .word _scenario_BED8_67       ; 
+- - - - - 0x020A9F 17:8A8F: F7 BE     .word _scenario_BEF7_68       ; 
+- D - I - 0x020AA1 17:8A91: 05 BF     .word _scenario_BF05_69       ; 
+- D - I - 0x020AA3 17:8A93: 62 AA     .word _scenario_AA62_6A       ; 
+- D - I - 0x020AA5 17:8A95: 0D BF     .word _scenario_BF0D_6B       ; 
+- D - I - 0x020AA7 17:8A97: 13 BF     .word _scenario_BF13_6C       ; 
+- D - I - 0x020AA9 17:8A99: 23 BF     .word _scenario_BF23_6D       ; 
+- D - I - 0x020AAB 17:8A9B: 2C BF     .word _scenario_BF2C_6E       ; 
+- D - I - 0x020AAD 17:8A9D: 54 BF     .word _scenario_BF54_6F       ; 
+- D - I - 0x020AAF 17:8A9F: 61 BF     .word _scenario_BF61_70       ; 
+- D - I - 0x020AB1 17:8AA1: 73 BF     .word _scenario_BF73_71       ; 
+- D - I - 0x020AB3 17:8AA3: 7F BF     .word _scenario_BF7F_72       ; 
+- D - I - 0x020AB5 17:8AA5: 94 BF     .word _scenario_BF94_73       ; 
+- D - I - 0x020AB7 17:8AA7: 9C BF     .word _scenario_BF9C_74       ; 
+- D - I - 0x020AB9 17:8AA9: D2 BF     .word _scenario_BFD2_75       ; 
+- D - I - 0x020ABB 17:8AAB: 1B B0     .word _scenario_B01B_76       ; 
+- D - I - 0x020ABD 17:8AAD: D8 BF     .word _scenario_BFD8_77       ; 
+- D - I - 0x020ABF 17:8AAF: 97 A1     .word _scenario_A197_78       ; 
 
 
 
@@ -4643,50 +4643,50 @@ bra_case_95D6_00:
 
 bra_case_95DD_00:
 - D - I - 0x0215ED 17:95DD: FA        .byte con_jsr
-- D - I - 0x0215EE 17:95DE: CD A0     .word sub_A0CD
+- D - I - 0x0215EE 17:95DE: CD A0     .word sub_A0CD_rolling_save
 - D - I - 0x0215F0 17:95E0: F2        .byte con_jmp
 - D - I - 0x0215F1 17:95E1: 0A 97     .word loc_970A
 
 bra_case_95E3_01:
 - - - - - 0x0215F3 17:95E3: FA        .byte con_jsr
-- - - - - 0x0215F4 17:95E4: CD A0     .word sub_A0CD
+- - - - - 0x0215F4 17:95E4: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x0215F6 17:95E6: F2        .byte con_jmp
 - - - - - 0x0215F7 17:95E7: 13 97     .word loc_9713
 
 bra_case_95E9_02:
 - - - - - 0x0215F9 17:95E9: FA        .byte con_jsr
-- - - - - 0x0215FA 17:95EA: CD A0     .word sub_A0CD
+- - - - - 0x0215FA 17:95EA: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x0215FC 17:95EC: F2        .byte con_jmp
 - - - - - 0x0215FD 17:95ED: 1F 97     .word loc_971F
 
 bra_case_95EF_03:
 - - - - - 0x0215FF 17:95EF: FA        .byte con_jsr
-- - - - - 0x021600 17:95F0: CD A0     .word sub_A0CD
+- - - - - 0x021600 17:95F0: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021602 17:95F2: F2        .byte con_jmp
 - - - - - 0x021603 17:95F3: 2E 97     .word loc_972E
 
 bra_case_95F5_04:
 - - - - - 0x021605 17:95F5: FA        .byte con_jsr
-- - - - - 0x021606 17:95F6: CD A0     .word sub_A0CD
+- - - - - 0x021606 17:95F6: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021608 17:95F8: F2        .byte con_jmp
 - - - - - 0x021609 17:95F9: 40 97     .word loc_9740
 
 bra_case_95FB_01:
 - - - - - 0x02160B 17:95FB: FA        .byte con_jsr
-- - - - - 0x02160C 17:95FC: CD A0     .word sub_A0CD
+- - - - - 0x02160C 17:95FC: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x02160E 17:95FE: F2        .byte con_jmp
 - - - - - 0x02160F 17:95FF: 52 97     .word loc_9752
 
 bra_case_9601_02:
 - D - I - 0x021611 17:9601: FA        .byte con_jsr
-- D - I - 0x021612 17:9602: CD A0     .word sub_A0CD
+- D - I - 0x021612 17:9602: CD A0     .word sub_A0CD_rolling_save
 - D - I - 0x021614 17:9604: F2        .byte con_jmp
 - D - I - 0x021615 17:9605: 5E 97     .word loc_975E
 
 loc_9607:
 bra_case_9607_03:
 - D - I - 0x021617 17:9607: FA        .byte con_jsr
-- D - I - 0x021618 17:9608: CD A0     .word sub_A0CD
+- D - I - 0x021618 17:9608: CD A0     .word sub_A0CD_rolling_save
 - D - I - 0x02161A 17:960A: F2        .byte con_jmp
 - D - I - 0x02161B 17:960B: 6D 97     .word loc_976D
 
@@ -4716,43 +4716,43 @@ bra_case_961A_00:
 
 bra_case_9621_00:
 - - - - - 0x021631 17:9621: FA        .byte con_jsr
-- - - - - 0x021632 17:9622: CD A0     .word sub_A0CD
+- - - - - 0x021632 17:9622: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021634 17:9624: F2        .byte con_jmp
 - - - - - 0x021635 17:9625: 87 97     .word loc_9787
 
 bra_case_9627_01:
 - - - - - 0x021637 17:9627: FA        .byte con_jsr
-- - - - - 0x021638 17:9628: CD A0     .word sub_A0CD
+- - - - - 0x021638 17:9628: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x02163A 17:962A: F2        .byte con_jmp
 - - - - - 0x02163B 17:962B: 96 97     .word loc_9796
 
 bra_case_962D_02:
 - - - - - 0x02163D 17:962D: FA        .byte con_jsr
-- - - - - 0x02163E 17:962E: CD A0     .word sub_A0CD
+- - - - - 0x02163E 17:962E: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021640 17:9630: F2        .byte con_jmp
 - - - - - 0x021641 17:9631: A8 97     .word loc_97A8
 
 bra_case_9633_03:
 - - - - - 0x021643 17:9633: FA        .byte con_jsr
-- - - - - 0x021644 17:9634: CD A0     .word sub_A0CD
+- - - - - 0x021644 17:9634: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021646 17:9636: F2        .byte con_jmp
 - - - - - 0x021647 17:9637: C0 97     .word loc_97C0
 
 bra_case_9639_04:
 - - - - - 0x021649 17:9639: FA        .byte con_jsr
-- - - - - 0x02164A 17:963A: CD A0     .word sub_A0CD
+- - - - - 0x02164A 17:963A: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x02164C 17:963C: F2        .byte con_jmp
 - - - - - 0x02164D 17:963D: D8 97     .word loc_97D8
 
 bra_case_963F_01:
 - - - - - 0x02164F 17:963F: FA        .byte con_jsr
-- - - - - 0x021650 17:9640: CD A0     .word sub_A0CD
+- - - - - 0x021650 17:9640: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021652 17:9642: F2        .byte con_jmp
 - - - - - 0x021653 17:9643: F0 97     .word loc_97F0
 
 bra_case_9645_02:
 - - - - - 0x021655 17:9645: FA        .byte con_jsr
-- - - - - 0x021656 17:9646: CD A0     .word sub_A0CD
+- - - - - 0x021656 17:9646: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021658 17:9648: F2        .byte con_jmp
 - - - - - 0x021659 17:9649: 02 98     .word loc_9802
 
@@ -7115,8 +7115,8 @@ sub_A0C3:
 - D - I - 0x0220DB 11:A0CB: 05        .byte con_cloud + $05
 - D - I - 0x0220DC 11:A0CC: FB        .byte con_rts
 
-sub_A0CD:
-- D - I - 0x0220DD 11:A0CD: F9        .byte con_delay_soundID, $02, $24     ; полет циклона
+sub_A0CD_rolling_save:
+- D - I - 0x0220DD 11:A0CD: F9        .byte con_delay_soundID, $02, $24
 - D - I - 0x0220E0 11:A0D0: 0A        .byte con_pause + $0A
 - D - I - 0x0220E1 11:A0D1: 13        .byte con_bg + $13
 - D - I - 0x0220E2 11:A0D2: 23        .byte con_animation + $23
