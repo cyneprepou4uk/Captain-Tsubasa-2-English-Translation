@@ -1800,127 +1800,127 @@ ofs_89B4_F1:
 - - - - - 0x0209CE 17:89BE: 60        RTS
 
 tbl_89BF_сценарии:
-- D - I - 0x0209CF 17:89BF: B1 8A     .word off_8AB1_00
-- D - I - 0x0209D1 17:89C1: F2 91     .word off_91F2_01
-- D - I - 0x0209D3 17:89C3: FF 91     .word off_91FF_02
-- - - - - 0x0209D5 17:89C5: 8E B4     .word off_B48E_03
-- D - I - 0x0209D7 17:89C7: CB 9B     .word off_9BCB_04
-- D - I - 0x0209D9 17:89C9: 59 92     .word off_9259_05_10
-- D - I - 0x0209DB 17:89CB: 63 92     .word off_9263_06
-- D - I - 0x0209DD 17:89CD: 85 92     .word off_9285_07
-- D - I - 0x0209DF 17:89CF: 2C 93     .word off_932C_08     ; игрок дает пас с чужой штрафной
-- D - I - 0x0209E1 17:89D1: 69 93     .word off_9369_09
-- D - I - 0x0209E3 17:89D3: 11 98     .word off_9811_0A
-- D - I - 0x0209E5 17:89D5: ED 98     .word off_98ED_0B
-- D - I - 0x0209E7 17:89D7: E3 96     .word off_96E3_0C
-- D - I - 0x0209E9 17:89D9: F7 96     .word off_96F7_0D
-- D - I - 0x0209EB 17:89DB: EA 91     .word off_91EA_0E     ; игрок бежит/прыгает к мячу на штрафной и что-то делает
-- D - I - 0x0209ED 17:89DD: 05 92     .word off_9205_0F
-- D - I - 0x0209EF 17:89DF: 59 92     .word off_9259_05_10
-- D - I - 0x0209F1 17:89E1: 69 92     .word off_9269_11
-- D - I - 0x0209F3 17:89E3: 7F 92     .word off_927F_12
-- D - I - 0x0209F5 17:89E5: D3 91     .word off_91D3_13     ; игрок дает пас со своей штрафной
-- D - I - 0x0209F7 17:89E7: 82 9B     .word off_9B82_14
-- D - I - 0x0209F9 17:89E9: 0A B8     .word off_B80A_15
-- D - I - 0x0209FB 17:89EB: 17 B8     .word off_B817_16
-- D - I - 0x0209FD 17:89ED: A1 B8     .word off_B8A1_17
-- D - I - 0x0209FF 17:89EF: 3E 9E     .word off_9E3E_18     ; игрок дает пас с земли
-- D - I - 0x020A01 17:89F1: D4 BB     .word off_BBD4_19     ; игрок делает перепасовку
-- D - I - 0x020A03 17:89F3: 6D BC     .word off_BC6D_1A     ; мяч летит, прилетел к напарнику и он возвращает перепасовку
-- D - I - 0x020A05 17:89F5: 86 B4     .word off_B486_1B     ; мяч летит, и прилетает к основному игроку после перепасовки
-- D - I - 0x020A07 17:89F7: E3 9B     .word off_9BE3_1C     ; мяч летит и прилетает к игроку, которому дали пас пас с земли
-- D - I - 0x020A09 17:89F9: EE 9C     .word off_9CEE_1D     ; удар с земли (спешал тоже)
-- D - I - 0x020A0B 17:89FB: DA B7     .word off_B7DA_1E     ; игрок бежит по полю
-- D - I - 0x020A0D 17:89FD: 33 B7     .word off_B733_1F
-- D - I - 0x020A0F 17:89FF: 38 B7     .word off_B738_20
-- D - I - 0x020A11 17:8A01: 3B BA     .word off_BA3B_21
-- D - I - 0x020A13 17:8A03: 49 B7     .word off_B749_22
-- D - I - 0x020A15 17:8A05: 3F BB     .word off_BB3F_23
-- D - I - 0x020A17 17:8A07: F2 9B     .word off_9BF2_24
-- D - I - 0x020A19 17:8A09: DD 9C     .word off_9CDD_25
-- D - I - 0x020A1B 17:8A0B: 2D 9E     .word off_9E2D_26
-- D - I - 0x020A1D 17:8A0D: F8 9B     .word off_9BF8_27
-- D - I - 0x020A1F 17:8A0F: CC B4     .word off_B4CC_28
-- D - I - 0x020A21 17:8A11: FE 9B     .word off_9BFE_29
-- D - I - 0x020A23 17:8A13: E0 B4     .word off_B4E0_2A
-- D - I - 0x020A25 17:8A15: 2C B7     .word off_B72C_2B
-- D - I - 0x020A27 17:8A17: 54 9F     .word off_9F54_2C
-- D - I - 0x020A29 17:8A19: D6 B4     .word off_B4D6_2D
-- D - I - 0x020A2B 17:8A1B: 4E B7     .word off_B74E_2E
-- D - I - 0x020A2D 17:8A1D: 73 B7     .word off_B773_2F
-- D - I - 0x020A2F 17:8A1F: 30 9C     .word off_9C30_30
-- D - I - 0x020A31 17:8A21: 8C B7     .word off_B78C_31
-- D - I - 0x020A33 17:8A23: 57 9E     .word off_9E57_32
-- D - I - 0x020A35 17:8A25: 04 9C     .word off_9C04_33
-- D - I - 0x020A37 17:8A27: CC BB     .word off_BBCC_34     ; мяч ударяется об землю когда некому его поднять
-- D - I - 0x020A39 17:8A29: CD B7     .word off_B7CD_35     ; ожидание разводки
-- D - I - 0x020A3B 17:8A2B: E4 B7     .word off_B7E4_36     ; разводка
-- D - I - 0x020A3D 17:8A2D: BF B7     .word off_B7BF_37
-- D - I - 0x020A3F 17:8A2F: C6 B7     .word off_B7C6_38     ; выбор кому дать пас или с кем перепасоваться
-- D - I - 0x020A41 17:8A31: B3 BD     .word off_BDB3_39
-- D - I - 0x020A43 17:8A33: 7C B4     .word off_B47C_3A
-- - - - - 0x020A45 17:8A35: A1 BD     .word off_BDA1_3B
-- - - - - 0x020A47 17:8A37: 3E 9F     .word off_9F3E_3C
-- D - I - 0x020A49 17:8A39: BA 9F     .word off_9FBA_3D
-- D - I - 0x020A4B 17:8A3B: 0A 9C     .word off_9C0A_3E
-- D - I - 0x020A4D 17:8A3D: 54 B7     .word off_B754_3F     ; мяч прилетел к игроку на чью-то штрафную
-- D - I - 0x020A4F 17:8A3F: 95 BD     .word off_BD95_40
-- D - I - 0x020A51 17:8A41: 9A BD     .word off_BD9A_41
-- D - I - 0x020A53 17:8A43: A6 BD     .word off_BDA6_42
-- D - I - 0x020A55 17:8A45: AD BD     .word off_BDAD_43
-- D - I - 0x020A57 17:8A47: D5 B7     .word off_B7D5_44     ; игрок в меню выбора действия, находясь с мячом на земле
-- - - - - 0x020A59 17:8A49: B8 BD     .word off_BDB8_45
-- D - I - 0x020A5B 17:8A4B: BD BD     .word off_BDBD_46
-- D - I - 0x020A5D 17:8A4D: 19 9C     .word off_9C19_47
-- - - - - 0x020A5F 17:8A4F: 01 BE     .word off_BE01_50___
-- - - - - 0x020A61 17:8A51: 01 BE     .word off_BE01_50___
-- - - - - 0x020A63 17:8A53: 01 BE     .word off_BE01_50___
-- - - - - 0x020A65 17:8A55: 01 BE     .word off_BE01_50___
-- - - - - 0x020A67 17:8A57: 01 BE     .word off_BE01_50___
-- - - - - 0x020A69 17:8A59: 01 BE     .word off_BE01_50___
-- - - - - 0x020A6B 17:8A5B: 01 BE     .word off_BE01_50___
-- - - - - 0x020A6D 17:8A5D: 01 BE     .word off_BE01_50___
-- D - I - 0x020A6F 17:8A5F: 01 BE     .word off_BE01_50___
-- D - I - 0x020A71 17:8A61: 0D BE     .word off_BE0D_51
-- D - I - 0x020A73 17:8A63: 18 BE     .word off_BE18_52
-- D - I - 0x020A75 17:8A65: 20 BE     .word off_BE20_53
-- D - I - 0x020A77 17:8A67: 2A BE     .word off_BE2A_54
-- D - I - 0x020A79 17:8A69: 32 BE     .word off_BE32_55
-- D - I - 0x020A7B 17:8A6B: 3A BE     .word off_BE3A_56
-- D - I - 0x020A7D 17:8A6D: 42 BE     .word off_BE42_57
-- D - I - 0x020A7F 17:8A6F: 4A BE     .word off_BE4A_58
-- D - I - 0x020A81 17:8A71: 52 BE     .word off_BE52_59
-- D - I - 0x020A83 17:8A73: 5A BE     .word off_BE5A_5A
-- D - I - 0x020A85 17:8A75: 69 BE     .word off_BE69_5B
-- D - I - 0x020A87 17:8A77: 73 BE     .word off_BE73_5C
-- D - I - 0x020A89 17:8A79: 7C BE     .word off_BE7C_5D
-- D - I - 0x020A8B 17:8A7B: 86 BE     .word off_BE86_5E
-- D - I - 0x020A8D 17:8A7D: 8E BE     .word off_BE8E_5F
-- D - I - 0x020A8F 17:8A7F: 96 BE     .word off_BE96_60
-- D - I - 0x020A91 17:8A81: 9E BE     .word off_BE9E_61
-- D - I - 0x020A93 17:8A83: A6 BE     .word off_BEA6_62
-- D - I - 0x020A95 17:8A85: AE BE     .word off_BEAE_63
-- D - I - 0x020A97 17:8A87: B6 BE     .word off_BEB6_64
-- D - I - 0x020A99 17:8A89: BE BE     .word off_BEBE_65
-- D - I - 0x020A9B 17:8A8B: C6 BE     .word off_BEC6_66
-- - - - - 0x020A9D 17:8A8D: D8 BE     .word off_BED8_67
-- - - - - 0x020A9F 17:8A8F: F7 BE     .word off_BEF7_68
-- D - I - 0x020AA1 17:8A91: 05 BF     .word off_BF05_69
-- D - I - 0x020AA3 17:8A93: 62 AA     .word off_AA62_6A
-- D - I - 0x020AA5 17:8A95: 0D BF     .word off_BF0D_6B
-- D - I - 0x020AA7 17:8A97: 13 BF     .word off_BF13_6C
-- D - I - 0x020AA9 17:8A99: 23 BF     .word off_BF23_6D
-- D - I - 0x020AAB 17:8A9B: 2C BF     .word off_BF2C_6E
-- D - I - 0x020AAD 17:8A9D: 54 BF     .word off_BF54_6F
-- D - I - 0x020AAF 17:8A9F: 61 BF     .word off_BF61_70
-- D - I - 0x020AB1 17:8AA1: 73 BF     .word off_BF73_71
-- D - I - 0x020AB3 17:8AA3: 7F BF     .word off_BF7F_72
-- D - I - 0x020AB5 17:8AA5: 94 BF     .word off_BF94_73
-- D - I - 0x020AB7 17:8AA7: 9C BF     .word off_BF9C_74
-- D - I - 0x020AB9 17:8AA9: D2 BF     .word off_BFD2_75
-- D - I - 0x020ABB 17:8AAB: 1B B0     .word off_B01B_76
-- D - I - 0x020ABD 17:8AAD: D8 BF     .word off_BFD8_77
-- D - I - 0x020ABF 17:8AAF: 97 A1     .word off_A197_78
+- D - I - 0x0209CF 17:89BF: B1 8A     .word scenario_8AB1_00
+- D - I - 0x0209D1 17:89C1: F2 91     .word scenario_91F2_01
+- D - I - 0x0209D3 17:89C3: FF 91     .word scenario_91FF_02
+- - - - - 0x0209D5 17:89C5: 8E B4     .word scenario_B48E_03
+- D - I - 0x0209D7 17:89C7: CB 9B     .word scenario_9BCB_04
+- D - I - 0x0209D9 17:89C9: 59 92     .word scenario_9259_05_10
+- D - I - 0x0209DB 17:89CB: 63 92     .word scenario_9263_06
+- D - I - 0x0209DD 17:89CD: 85 92     .word scenario_9285_07
+- D - I - 0x0209DF 17:89CF: 2C 93     .word scenario_932C_08     ; игрок дает пас с чужой штрафной
+- D - I - 0x0209E1 17:89D1: 69 93     .word scenario_9369_09
+- D - I - 0x0209E3 17:89D3: 11 98     .word scenario_9811_0A
+- D - I - 0x0209E5 17:89D5: ED 98     .word scenario_98ED_0B
+- D - I - 0x0209E7 17:89D7: E3 96     .word scenario_96E3_0C
+- D - I - 0x0209E9 17:89D9: F7 96     .word scenario_96F7_0D
+- D - I - 0x0209EB 17:89DB: EA 91     .word scenario_91EA_0E     ; игрок бежит/прыгает к мячу на штрафной и что-то делает
+- D - I - 0x0209ED 17:89DD: 05 92     .word scenario_9205_0F
+- D - I - 0x0209EF 17:89DF: 59 92     .word scenario_9259_05_10
+- D - I - 0x0209F1 17:89E1: 69 92     .word scenario_9269_11
+- D - I - 0x0209F3 17:89E3: 7F 92     .word scenario_927F_12
+- D - I - 0x0209F5 17:89E5: D3 91     .word scenario_91D3_13     ; игрок дает пас со своей штрафной
+- D - I - 0x0209F7 17:89E7: 82 9B     .word scenario_9B82_14
+- D - I - 0x0209F9 17:89E9: 0A B8     .word scenario_B80A_15
+- D - I - 0x0209FB 17:89EB: 17 B8     .word scenario_B817_16
+- D - I - 0x0209FD 17:89ED: A1 B8     .word scenario_B8A1_17
+- D - I - 0x0209FF 17:89EF: 3E 9E     .word scenario_9E3E_18     ; игрок дает пас с земли
+- D - I - 0x020A01 17:89F1: D4 BB     .word scenario_BBD4_19     ; игрок делает перепасовку
+- D - I - 0x020A03 17:89F3: 6D BC     .word scenario_BC6D_1A     ; мяч летит, прилетел к напарнику и он возвращает перепасовку
+- D - I - 0x020A05 17:89F5: 86 B4     .word scenario_B486_1B     ; мяч летит, и прилетает к основному игроку после перепасовки
+- D - I - 0x020A07 17:89F7: E3 9B     .word scenario_9BE3_1C     ; мяч летит и прилетает к игроку, которому дали пас пас с земли
+- D - I - 0x020A09 17:89F9: EE 9C     .word scenario_9CEE_1D     ; удар с земли (спешал тоже)
+- D - I - 0x020A0B 17:89FB: DA B7     .word scenario_B7DA_1E     ; игрок бежит по полю
+- D - I - 0x020A0D 17:89FD: 33 B7     .word scenario_B733_1F
+- D - I - 0x020A0F 17:89FF: 38 B7     .word scenario_B738_20
+- D - I - 0x020A11 17:8A01: 3B BA     .word scenario_BA3B_21
+- D - I - 0x020A13 17:8A03: 49 B7     .word scenario_B749_22
+- D - I - 0x020A15 17:8A05: 3F BB     .word scenario_BB3F_23
+- D - I - 0x020A17 17:8A07: F2 9B     .word scenario_9BF2_24
+- D - I - 0x020A19 17:8A09: DD 9C     .word scenario_9CDD_25
+- D - I - 0x020A1B 17:8A0B: 2D 9E     .word scenario_9E2D_26
+- D - I - 0x020A1D 17:8A0D: F8 9B     .word scenario_9BF8_27
+- D - I - 0x020A1F 17:8A0F: CC B4     .word scenario_B4CC_28
+- D - I - 0x020A21 17:8A11: FE 9B     .word scenario_9BFE_29
+- D - I - 0x020A23 17:8A13: E0 B4     .word scenario_B4E0_2A
+- D - I - 0x020A25 17:8A15: 2C B7     .word scenario_B72C_2B
+- D - I - 0x020A27 17:8A17: 54 9F     .word scenario_9F54_2C
+- D - I - 0x020A29 17:8A19: D6 B4     .word scenario_B4D6_2D
+- D - I - 0x020A2B 17:8A1B: 4E B7     .word scenario_B74E_2E
+- D - I - 0x020A2D 17:8A1D: 73 B7     .word scenario_B773_2F
+- D - I - 0x020A2F 17:8A1F: 30 9C     .word scenario_9C30_30
+- D - I - 0x020A31 17:8A21: 8C B7     .word scenario_B78C_31
+- D - I - 0x020A33 17:8A23: 57 9E     .word scenario_9E57_32
+- D - I - 0x020A35 17:8A25: 04 9C     .word scenario_9C04_33
+- D - I - 0x020A37 17:8A27: CC BB     .word scenario_BBCC_34     ; мяч ударяется об землю когда некому его поднять
+- D - I - 0x020A39 17:8A29: CD B7     .word scenario_B7CD_35     ; ожидание разводки
+- D - I - 0x020A3B 17:8A2B: E4 B7     .word scenario_B7E4_36     ; разводка
+- D - I - 0x020A3D 17:8A2D: BF B7     .word scenario_B7BF_37
+- D - I - 0x020A3F 17:8A2F: C6 B7     .word scenario_B7C6_38     ; выбор кому дать пас или с кем перепасоваться
+- D - I - 0x020A41 17:8A31: B3 BD     .word scenario_BDB3_39
+- D - I - 0x020A43 17:8A33: 7C B4     .word scenario_B47C_3A
+- - - - - 0x020A45 17:8A35: A1 BD     .word scenario_BDA1_3B
+- - - - - 0x020A47 17:8A37: 3E 9F     .word scenario_9F3E_3C
+- D - I - 0x020A49 17:8A39: BA 9F     .word scenario_9FBA_3D
+- D - I - 0x020A4B 17:8A3B: 0A 9C     .word scenario_9C0A_3E
+- D - I - 0x020A4D 17:8A3D: 54 B7     .word scenario_B754_3F     ; мяч прилетел к игроку на чью-то штрафную
+- D - I - 0x020A4F 17:8A3F: 95 BD     .word scenario_BD95_40
+- D - I - 0x020A51 17:8A41: 9A BD     .word scenario_BD9A_41
+- D - I - 0x020A53 17:8A43: A6 BD     .word scenario_BDA6_42
+- D - I - 0x020A55 17:8A45: AD BD     .word scenario_BDAD_43
+- D - I - 0x020A57 17:8A47: D5 B7     .word scenario_B7D5_44     ; игрок в меню выбора действия, находясь с мячом на земле
+- - - - - 0x020A59 17:8A49: B8 BD     .word scenario_BDB8_45
+- D - I - 0x020A5B 17:8A4B: BD BD     .word scenario_BDBD_46
+- D - I - 0x020A5D 17:8A4D: 19 9C     .word scenario_9C19_47
+- - - - - 0x020A5F 17:8A4F: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A61 17:8A51: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A63 17:8A53: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A65 17:8A55: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A67 17:8A57: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A69 17:8A59: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A6B 17:8A5B: 01 BE     .word scenario_BE01_50___
+- - - - - 0x020A6D 17:8A5D: 01 BE     .word scenario_BE01_50___
+- D - I - 0x020A6F 17:8A5F: 01 BE     .word scenario_BE01_50___
+- D - I - 0x020A71 17:8A61: 0D BE     .word scenario_BE0D_51
+- D - I - 0x020A73 17:8A63: 18 BE     .word scenario_BE18_52
+- D - I - 0x020A75 17:8A65: 20 BE     .word scenario_BE20_53
+- D - I - 0x020A77 17:8A67: 2A BE     .word scenario_BE2A_54
+- D - I - 0x020A79 17:8A69: 32 BE     .word scenario_BE32_55
+- D - I - 0x020A7B 17:8A6B: 3A BE     .word scenario_BE3A_56
+- D - I - 0x020A7D 17:8A6D: 42 BE     .word scenario_BE42_57
+- D - I - 0x020A7F 17:8A6F: 4A BE     .word scenario_BE4A_58
+- D - I - 0x020A81 17:8A71: 52 BE     .word scenario_BE52_59
+- D - I - 0x020A83 17:8A73: 5A BE     .word scenario_BE5A_5A
+- D - I - 0x020A85 17:8A75: 69 BE     .word scenario_BE69_5B
+- D - I - 0x020A87 17:8A77: 73 BE     .word scenario_BE73_5C
+- D - I - 0x020A89 17:8A79: 7C BE     .word scenario_BE7C_5D
+- D - I - 0x020A8B 17:8A7B: 86 BE     .word scenario_BE86_5E
+- D - I - 0x020A8D 17:8A7D: 8E BE     .word scenario_BE8E_5F
+- D - I - 0x020A8F 17:8A7F: 96 BE     .word scenario_BE96_60
+- D - I - 0x020A91 17:8A81: 9E BE     .word scenario_BE9E_61
+- D - I - 0x020A93 17:8A83: A6 BE     .word scenario_BEA6_62
+- D - I - 0x020A95 17:8A85: AE BE     .word scenario_BEAE_63
+- D - I - 0x020A97 17:8A87: B6 BE     .word scenario_BEB6_64
+- D - I - 0x020A99 17:8A89: BE BE     .word scenario_BEBE_65
+- D - I - 0x020A9B 17:8A8B: C6 BE     .word scenario_BEC6_66
+- - - - - 0x020A9D 17:8A8D: D8 BE     .word scenario_BED8_67
+- - - - - 0x020A9F 17:8A8F: F7 BE     .word scenario_BEF7_68
+- D - I - 0x020AA1 17:8A91: 05 BF     .word scenario_BF05_69
+- D - I - 0x020AA3 17:8A93: 62 AA     .word scenario_AA62_6A
+- D - I - 0x020AA5 17:8A95: 0D BF     .word scenario_BF0D_6B
+- D - I - 0x020AA7 17:8A97: 13 BF     .word scenario_BF13_6C
+- D - I - 0x020AA9 17:8A99: 23 BF     .word scenario_BF23_6D
+- D - I - 0x020AAB 17:8A9B: 2C BF     .word scenario_BF2C_6E
+- D - I - 0x020AAD 17:8A9D: 54 BF     .word scenario_BF54_6F
+- D - I - 0x020AAF 17:8A9F: 61 BF     .word scenario_BF61_70
+- D - I - 0x020AB1 17:8AA1: 73 BF     .word scenario_BF73_71
+- D - I - 0x020AB3 17:8AA3: 7F BF     .word scenario_BF7F_72
+- D - I - 0x020AB5 17:8AA5: 94 BF     .word scenario_BF94_73
+- D - I - 0x020AB7 17:8AA7: 9C BF     .word scenario_BF9C_74
+- D - I - 0x020AB9 17:8AA9: D2 BF     .word scenario_BFD2_75
+- D - I - 0x020ABB 17:8AAB: 1B B0     .word scenario_B01B_76
+- D - I - 0x020ABD 17:8AAD: D8 BF     .word scenario_BFD8_77
+- D - I - 0x020ABF 17:8AAF: 97 A1     .word scenario_A197_78
 
 
 
@@ -1943,7 +1943,7 @@ con_FF                  = $FF   ; 1
 
 
 
-off_8AB1_00:
+scenario_8AB1_00:
 - D - I - 0x020AC1 17:8AB1: F3        .byte con_branch, $34     ; узнать высоту мяча
 - D - I - 0x020AC3 17:8AB3: B9 8A     .word off_8AB9
 - D - I - 0x020AC5 17:8AB5: 09 8F     .word off_8F09
@@ -3478,7 +3478,7 @@ case_91C4_02:
 
 
 
-off_91D3_13:
+scenario_91D3_13:
 - D - I - 0x0211E3 17:91D3: F3        .byte con_branch, $84
 - D - I - 0x0211E5 17:91D5: 0A        .byte case_91DF_00 - *
 - D - I - 0x0211E6 17:91D6: 01        .byte case_91D7_01 - *
@@ -3497,7 +3497,7 @@ case_91DF_00:
 
 
 
-off_91EA_0E:
+scenario_91EA_0E:
 - D - I - 0x0211FA 17:91EA: FD        .byte con_FD, $01
 - D - I - 0x0211FC 17:91EC: F3        .byte con_branch, $04
 - D - I - 0x0211FE 17:91EE: 9B B2     .word off_B29B
@@ -3505,7 +3505,7 @@ off_91EA_0E:
 
 
 
-off_91F2_01:
+scenario_91F2_01:
 - D - I - 0x021202 17:91F2: FD        .byte con_FD, $01
 - D - I - 0x021204 17:91F4: F3        .byte con_branch, $84
 - D - I - 0x021206 17:91F6: 02        .byte case_91F8_00 - *
@@ -3520,7 +3520,7 @@ case_91FC_01:
 
 
 
-off_91FF_02:
+scenario_91FF_02:
 - D - I - 0x02120F 17:91FF: FD        .byte con_FD, $01
 - D - I - 0x021211 17:9201: F3        .byte con_branch, $86
 - D - I - 0x021213 17:9203: 0C        .byte case_920F_00 - *
@@ -3528,7 +3528,7 @@ off_91FF_02:
 
 
 
-off_9205_0F:
+scenario_9205_0F:
 - D - I - 0x021215 17:9205: FD        .byte con_FD, $01
 - D - I - 0x021217 17:9207: F3        .byte con_branch, $43
 - D - I - 0x021219 17:9209: 17 92     .word off_9217
@@ -3605,7 +3605,7 @@ case_9256_01:
 
 
 
-off_9259_05_10:
+scenario_9259_05_10:
 - D - I - 0x021269 17:9259: FD        .byte con_FD, $01
 - D - I - 0x02126B 17:925B: F3        .byte con_branch, $81
 - D - I - 0x02126D 17:925D: 05        .byte case_9262_00 - *
@@ -3618,7 +3618,7 @@ case_9262_00:
 
 
 
-off_9263_06:
+scenario_9263_06:
 - D - I - 0x021273 17:9263: FD        .byte con_FD, $01
 - D - I - 0x021275 17:9265: F3        .byte con_branch, $86
 - D - I - 0x021277 17:9267: 02        .byte case_9269_00 - *
@@ -3626,7 +3626,7 @@ off_9263_06:
 
 
 
-off_9269_11:
+scenario_9269_11:
 case_9269_00:
 - D - I - 0x021279 17:9269: FD        .byte con_FD, $01
 - D - I - 0x02127B 17:926B: F3        .byte con_branch, $81
@@ -3651,7 +3651,7 @@ case_927E_00:
 
 
 
-off_927F_12:
+scenario_927F_12:
 - D - I - 0x02128F 17:927F: FD        .byte con_FD, $03
 - D - I - 0x021291 17:9281: F3        .byte con_branch, $84
 - D - I - 0x021293 17:9283: 08        .byte case_928B_00 - *
@@ -3659,7 +3659,7 @@ off_927F_12:
 
 
 
-off_9285_07:
+scenario_9285_07:
 - D - I - 0x021295 17:9285: FD        .byte con_FD, $03
 - D - I - 0x021297 17:9287: F3        .byte con_branch, $84
 - D - I - 0x021299 17:9289: 06        .byte case_928F_00 - *
@@ -3809,7 +3809,7 @@ case_9328_01:
 
 
 
-off_932C_08:
+scenario_932C_08:
 - D - I - 0x02133C 17:932C: F3        .byte con_branch, $84
 - D - I - 0x02133E 17:932E: 02        .byte case_9330_00 - *
 - D - I - 0x02133F 17:932F: 07        .byte case_9336_01 - *
@@ -3867,7 +3867,7 @@ case_9364_03:
 
 
 
-off_9369_09:
+scenario_9369_09:
 - D - I - 0x021379 17:9369: FD        .byte con_FD, $03
 - D - I - 0x02137B 17:936B: FA        .byte con_jsr_2
 - D - I - 0x02137C 17:936C: F6 9E     .word off_9EF6
@@ -4622,7 +4622,7 @@ case_96DC_00:
 
 
 
-off_96E3_0C:
+scenario_96E3_0C:
 - D - I - 0x0216F3 17:96E3: FD        .byte con_FD, $03
 - D - I - 0x0216F5 17:96E5: FA        .byte con_jsr_2
 - D - I - 0x0216F6 17:96E6: F6 9E     .word off_9EF6
@@ -4643,7 +4643,7 @@ case_96F0_00:
 
 
 
-off_96F7_0D:
+scenario_96F7_0D:
 - D - I - 0x021707 17:96F7: FA        .byte con_jsr_2
 - D - I - 0x021708 17:96F8: 31 AB     .word off_AB31
 - D - I - 0x02170A 17:96FA: FD        .byte con_FD, $03
@@ -4894,7 +4894,7 @@ off_9802:
 
 
 
-off_9811_0A:
+scenario_9811_0A:
 - D - I - 0x021821 17:9811: F3        .byte con_branch, $8E
 - D - I - 0x021823 17:9813: 03        .byte case_9816_00 - *
 - - - - - 0x021824 17:9814: 21        .byte case_9835_01 - *
@@ -5076,7 +5076,7 @@ case_98E1_04:
 
 
 
-off_98ED_0B:
+scenario_98ED_0B:
 - D - I - 0x0218FD 17:98ED: F3        .byte con_branch, $04
 - D - I - 0x0218FF 17:98EF: F3 98     .word off_98F3
 - D - I - 0x021901 17:98F1: 24 9A     .word off_9A24
@@ -5581,7 +5581,7 @@ case_9B6D_02:
 
 
 
-off_9B82_14:
+scenario_9B82_14:
 - D - I - 0x021B92 17:9B82: FD        .byte con_FD, $03
 - D - I - 0x021B94 17:9B84: F3        .byte con_branch, $81
 - D - I - 0x021B96 17:9B86: 02        .byte case_9B88_00 - *
@@ -5645,7 +5645,7 @@ case_9BBF_01:
 
 
 
-off_9BCB_04:
+scenario_9BCB_04:
 case_9BCB_02:
 - D - I - 0x021BDB 17:9BCB: FA        .byte con_jsr_2
 - D - I - 0x021BDC 17:9BCC: FE A2     .word off_A2FE
@@ -5672,7 +5672,7 @@ off_9BDF:
 
 
 
-off_9BE3_1C:
+scenario_9BE3_1C:
 - D - I - 0x021BF3 17:9BE3: FD        .byte con_FD, $00
 - D - I - 0x021BF5 17:9BE5: FA        .byte con_jsr_2
 - D - I - 0x021BF6 17:9BE6: 3E 9F     .word off_9F3E
@@ -5688,7 +5688,7 @@ case_9BEF_01:
 
 
 
-off_9BF2_24:
+scenario_9BF2_24:
 - D - I - 0x021C02 17:9BF2: FA        .byte con_jsr_2
 - D - I - 0x021C03 17:9BF3: BF B4     .word off_B4BF
 - D - I - 0x021C05 17:9BF5: F2        .byte con_jsr_1
@@ -5696,7 +5696,7 @@ off_9BF2_24:
 
 
 
-off_9BF8_27:
+scenario_9BF8_27:
 - D - I - 0x021C08 17:9BF8: FA        .byte con_jsr_2
 - D - I - 0x021C09 17:9BF9: BF B4     .word off_B4BF
 - D - I - 0x021C0B 17:9BFB: F2        .byte con_jsr_1
@@ -5704,7 +5704,7 @@ off_9BF8_27:
 
 
 
-off_9BFE_29:
+scenario_9BFE_29:
 - D - I - 0x021C0E 17:9BFE: FA        .byte con_jsr_2
 - D - I - 0x021C0F 17:9BFF: BF B4     .word off_B4BF
 - D - I - 0x021C11 17:9C01: F2        .byte con_jsr_1
@@ -5712,7 +5712,7 @@ off_9BFE_29:
 
 
 
-off_9C04_33:
+scenario_9C04_33:
 - D - I - 0x021C14 17:9C04: FA        .byte con_jsr_2
 - D - I - 0x021C15 17:9C05: A6 B7     .word off_B7A6
 - D - I - 0x021C17 17:9C07: F2        .byte con_jsr_1
@@ -5720,7 +5720,7 @@ off_9C04_33:
 
 
 
-off_9C0A_3E:
+scenario_9C0A_3E:
 - D - I - 0x021C1A 17:9C0A: FD        .byte con_FD, $00
 - D - I - 0x021C1C 17:9C0C: FA        .byte con_jsr_2
 - D - I - 0x021C1D 17:9C0D: 3E 9F     .word off_9F3E
@@ -5736,7 +5736,7 @@ case_9C16_00:
 
 
 
-off_9C19_47:
+scenario_9C19_47:
 - D - I - 0x021C29 17:9C19: FA        .byte con_jsr_2
 - D - I - 0x021C2A 17:9C1A: 36 9C     .word off_9C36
 - D - I - 0x021C2C 17:9C1C: FA        .byte con_jsr_2
@@ -5759,7 +5759,7 @@ off_9C28:
 
 
 
-off_9C30_30:
+scenario_9C30_30:
 - D - I - 0x021C40 17:9C30: F3        .byte con_branch, $22
 - D - I - 0x021C42 17:9C32: 3F 9C     .word off_9C3F
 - D - I - 0x021C44 17:9C34: 36 9C     .word off_9C36
@@ -5870,7 +5870,7 @@ off_9CCD:
 
 
 
-off_9CDD_25:
+scenario_9CDD_25:
 - D - I - 0x021CED 17:9CDD: FA        .byte con_jsr_2
 - D - I - 0x021CEE 17:9CDE: 23 9C     .word off_9C23
 - D - I - 0x021CF0 17:9CE0: F3        .byte con_branch, $8C
@@ -5887,7 +5887,7 @@ case_9CE4_00:
 
 
 
-off_9CEE_1D:
+scenario_9CEE_1D:
 - D - I - 0x021CFE 17:9CEE: F3        .byte con_branch, $B4     ; узнать высоту мяча
 - D - I - 0x021D00 17:9CF0: 03        .byte case_9CF3_00 - *
 - - - - - 0x021D01 17:9CF1: A9        .byte case_9D9A_01 - *
@@ -6062,7 +6062,7 @@ off_9E1B:
 
 
 
-off_9E2D_26:
+scenario_9E2D_26:
 - D - I - 0x021E3D 17:9E2D: FA        .byte con_jsr_2
 - D - I - 0x021E3E 17:9E2E: 23 9C     .word off_9C23
 - D - I - 0x021E40 17:9E30: F3        .byte con_branch, $8C
@@ -6079,7 +6079,7 @@ case_9E34_00:
 
 
 
-off_9E3E_18:
+scenario_9E3E_18:
 - D - I - 0x021E4E 17:9E3E: FD        .byte con_FD, $00
 - D - I - 0x021E50 17:9E40: F3        .byte con_branch, $B4     ; узнать высоту мяча
 - D - I - 0x021E52 17:9E42: 03        .byte case_9E45_00 - *
@@ -6104,7 +6104,7 @@ case_9E4F_02:
 
 
 
-off_9E57_32:
+scenario_9E57_32:
 - D - I - 0x021E67 17:9E57: F5        .byte con_mirror_off
 - D - I - 0x021E68 17:9E58: F3        .byte con_branch, $41
 - - - - - 0x021E6A 17:9E5A: 96 B7     .word off_B796
@@ -6228,7 +6228,7 @@ off_9EF6:
 
 
 
-off_9F3E_3C:
+scenario_9F3E_3C:
 ; bzk тут должно быть всего 2 поинтера для 10, судя по 0x02037E
 ; но на всякий случай расшифрованы и остальные
 off_9F3E:
@@ -6247,7 +6247,7 @@ off_9F4A:
 
 
 
-off_9F54_2C:
+scenario_9F54_2C:
 - D - I - 0x021F64 17:9F54: FD        .byte con_FD, $03
 - D - I - 0x021F66 17:9F56: F3        .byte con_branch, $04
 - D - I - 0x021F68 17:9F58: 24 BA     .word off_BA24
@@ -6323,7 +6323,7 @@ off_9FB5:
 
 
 
-off_9FBA_3D:
+scenario_9FBA_3D:
 - D - I - 0x021FCA 17:9FBA: 78        .byte $78
 - D - I - 0x021FCB 17:9FBB: F0        .byte con_F0
 - D - I - 0x021FCC 17:9FBC: F0        .byte con_F0
@@ -6801,7 +6801,7 @@ off_A18D:
 
 
 
-off_A197_78:
+scenario_A197_78:
 off_A197:
 - D - I - 0x0221A7 11:A197: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x0221AA 11:A19A: 2D        .byte $2D
@@ -8946,7 +8946,7 @@ off_AA4F:
 
 
 
-off_AA62_6A:
+scenario_AA62_6A:
 off_AA62:
 - D - I - 0x022A72 11:AA62: FA        .byte con_jsr_2
 - D - I - 0x022A73 11:AA63: 10 A8     .word off_A810
@@ -10183,7 +10183,7 @@ off_B018:
 ; продолжение вроде
 
 
-off_B01B_76:
+scenario_B01B_76:
 case_B01B_00:
 case_B01B_06:
 case_B01B_07:
@@ -11270,7 +11270,7 @@ off_B465:
 
 
 
-off_B47C_3A:
+scenario_B47C_3A:
 - D - I - 0x02348C 11:B47C: FD        .byte con_FD, $00
 - D - I - 0x02348E 11:B47E: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x023491 11:B481: 3C        .byte $3C
@@ -11281,7 +11281,7 @@ off_B47C_3A:
 
 
 
-off_B486_1B:
+scenario_B486_1B:
 - D - I - 0x023496 11:B486: FD        .byte con_FD, $00
 - D - I - 0x023498 11:B488: F3        .byte con_branch, $0C
 - D - I - 0x02349A 11:B48A: 9A B4     .word off_B49A
@@ -11289,7 +11289,7 @@ off_B486_1B:
 
 
 
-off_B48E_03:
+scenario_B48E_03:
 off_B48E:
 - D - I - 0x02349E 11:B48E: F4        .byte con_mirror_on
 - D - I - 0x02349F 11:B48F: FA        .byte con_jsr_2
@@ -11349,7 +11349,7 @@ off_B4C7:
 
 
 
-off_B4CC_28:
+scenario_B4CC_28:
 - D - I - 0x0234DC 11:B4CC: FD        .byte con_FD, $00
 - D - I - 0x0234DE 11:B4CE: F9        .byte con_delay_soundID, $09, $2B
 - D - I - 0x0234E1 11:B4D1: 32        .byte $32
@@ -11360,7 +11360,7 @@ off_B4CC_28:
 
 
 
-off_B4D6_2D:
+scenario_B4D6_2D:
 - D - I - 0x0234E6 11:B4D6: FD        .byte con_FD, $00
 - D - I - 0x0234E8 11:B4D8: F9        .byte con_delay_soundID, $0D, $64
 - D - I - 0x0234EB 11:B4DB: 3A        .byte $3A
@@ -11371,7 +11371,7 @@ off_B4D6_2D:
 
 
 
-off_B4E0_2A:
+scenario_B4E0_2A:
 - D - I - 0x0234F0 11:B4E0: FD        .byte con_FD, $00
 - D - I - 0x0234F2 11:B4E2: 30        .byte $30
 - D - I - 0x0234F3 11:B4E3: 3E        .byte $3E
@@ -11851,7 +11851,7 @@ off_B724:
 
 
 
-off_B72C_2B:
+scenario_B72C_2B:
 - D - I - 0x02373C 11:B72C: 78        .byte $78
 - D - I - 0x02373D 11:B72D: 46        .byte $46
 - D - I - 0x02373E 11:B72E: 00        .byte $00
@@ -11861,7 +11861,7 @@ off_B72C_2B:
 
 
 
-off_B733_1F:
+scenario_B733_1F:
 - D - I - 0x023743 11:B733: 96        .byte $96
 - D - I - 0x023744 11:B734: F0        .byte con_F0
 - D - I - 0x023745 11:B735: F0        .byte con_F0
@@ -11870,7 +11870,7 @@ off_B733_1F:
 
 
 
-off_B738_20:
+scenario_B738_20:
 - D - I - 0x023748 11:B738: FA        .byte con_jsr_2
 - D - I - 0x023749 11:B739: C7 BB     .word off_BBC7
 - D - I - 0x02374B 11:B73B: F3        .byte con_branch, $A2
@@ -11891,7 +11891,7 @@ case_B744_01:
 
 
 
-off_B749_22:
+scenario_B749_22:
 - D - I - 0x023759 11:B749: B0        .byte $B0
 - D - I - 0x02375A 11:B74A: 38        .byte $38
 - D - I - 0x02375B 11:B74B: 85        .byte $85
@@ -11900,7 +11900,7 @@ off_B749_22:
 
 
 
-off_B74E_2E:
+scenario_B74E_2E:
 - D - I - 0x02375E 11:B74E: F5        .byte con_mirror_off
 - D - I - 0x02375F 11:B74F: 78        .byte $78
 - D - I - 0x023760 11:B750: 36        .byte $36
@@ -11910,7 +11910,7 @@ off_B74E_2E:
 
 
 
-off_B754_3F:
+scenario_B754_3F:
 - D - I - 0x023764 11:B754: FD        .byte con_FD, $00
 - D - I - 0x023766 11:B756: FA        .byte con_jsr_2
 - D - I - 0x023767 11:B757: 3E 9F     .word off_9F3E
@@ -11944,7 +11944,7 @@ case_B76C_01:
 
 
 
-off_B773_2F:
+scenario_B773_2F:
 - D - I - 0x023783 11:B773: FD        .byte con_FD, $00
 - D - I - 0x023785 11:B775: FA        .byte con_jsr_2
 - D - I - 0x023786 11:B776: 3E 9F     .word off_9F3E
@@ -11969,7 +11969,7 @@ case_B785_01:
 
 
 
-off_B78C_31:
+scenario_B78C_31:
 - D - I - 0x02379C 11:B78C: F5        .byte con_mirror_off
 - D - I - 0x02379D 11:B78D: 5A        .byte $5A
 - D - I - 0x02379E 11:B78E: 2C        .byte $2C
@@ -12027,7 +12027,7 @@ off_B7AF:
 
 
 
-off_B7BF_37:
+scenario_B7BF_37:
 - D - I - 0x0237CF 11:B7BF: F7        .byte con_F7, $1C
 - D - I - 0x0237D1 11:B7C1: 07        .byte $07
 - D - I - 0x0237D2 11:B7C2: 46        .byte $46
@@ -12037,7 +12037,7 @@ off_B7BF_37:
 
 
 
-off_B7C6_38:
+scenario_B7C6_38:
 - D - I - 0x0237D6 11:B7C6: F7        .byte con_F7, $17
 - D - I - 0x0237D8 11:B7C8: 01        .byte $01
 - D - I - 0x0237D9 11:B7C9: 34        .byte $34
@@ -12047,7 +12047,7 @@ off_B7C6_38:
 
 
 
-off_B7CD_35:
+scenario_B7CD_35:
 - D - I - 0x0237DD 11:B7CD: F9        .byte con_delay_soundID, $EB, $44
 - D - I - 0x0237E0 11:B7D0: 02        .byte $02     ; задержка следующей анимации
 - D - I - 0x0237E1 11:B7D1: 3A        .byte $3A     ; фон
@@ -12057,7 +12057,7 @@ off_B7CD_35:
 
 
 
-off_B7D5_44:
+scenario_B7D5_44:
 - D - I - 0x0237E5 11:B7D5: 02        .byte $02
 - D - I - 0x0237E6 11:B7D6: 70        .byte $70
 - D - I - 0x0237E7 11:B7D7: 5C        .byte $5C
@@ -12066,7 +12066,7 @@ off_B7D5_44:
 
 
 
-off_B7DA_1E:
+scenario_B7DA_1E:
 - D - I - 0x0237EA 11:B7DA: FD        .byte con_FD, $02
 - D - I - 0x0237EC 11:B7DC: F6        .byte con_mirror_toggle
 - D - I - 0x0237ED 11:B7DD: F7        .byte con_F7, $01
@@ -12078,7 +12078,7 @@ off_B7DA_1E:
 
 
 
-off_B7E4_36:
+scenario_B7E4_36:
 - D - I - 0x0237F4 11:B7E4: F5        .byte con_mirror_off
 - D - I - 0x0237F5 11:B7E5: F9        .byte con_delay_soundID, $02, $7F
 - D - I - 0x0237F8 11:B7E8: 10        .byte $10
@@ -12110,7 +12110,7 @@ off_B7E4_36:
 
 
 
-off_B80A_15:
+scenario_B80A_15:
 - D - I - 0x02381A 11:B80A: 01        .byte $01
 - D - I - 0x02381B 11:B80B: 71        .byte $71
 - D - I - 0x02381C 11:B80C: 00        .byte $00
@@ -12125,7 +12125,7 @@ off_B80A_15:
 
 
 
-off_B817_16:
+scenario_B817_16:
 - D - I - 0x023827 11:B817: 01        .byte $01
 - D - I - 0x023828 11:B818: 71        .byte $71
 - D - I - 0x023829 11:B819: 00        .byte $00
@@ -12254,7 +12254,7 @@ off_B859:
 
 
 
-off_B8A1_17:
+scenario_B8A1_17:
 - D - I - 0x0238B1 11:B8A1: 01        .byte $01
 - D - I - 0x0238B2 11:B8A2: 71        .byte $71
 - D - I - 0x0238B3 11:B8A3: 00        .byte $00
@@ -12644,7 +12644,7 @@ off_BA2C:
 
 
 
-off_BA3B_21:
+scenario_BA3B_21:
 - D - I - 0x023A4B 11:BA3B: FA        .byte con_jsr_2
 - D - I - 0x023A4C 11:BA3C: 2C BA     .word off_BA2C
 - D - I - 0x023A4E 11:BA3E: F3        .byte con_branch, $A2
@@ -12895,7 +12895,7 @@ case_BB35_03:
 
 
 
-off_BB3F_23:
+scenario_BB3F_23:
 - D - I - 0x023B4F 11:BB3F: FA        .byte con_jsr_2
 - D - I - 0x023B50 11:BB40: 2C BA     .word off_BA2C
 - D - I - 0x023B52 11:BB42: 0A        .byte $0A
@@ -13024,7 +13024,7 @@ off_BBC7:
 
 
 
-off_BBCC_34:
+scenario_BBCC_34:
 - D - I - 0x023BDC 11:BBCC: F9        .byte con_delay_soundID, $0D, $64
 - D - I - 0x023BDF 11:BBCF: 30        .byte $30
 - D - I - 0x023BE0 11:BBD0: 3C        .byte $3C
@@ -13034,7 +13034,7 @@ off_BBCC_34:
 
 
 
-off_BBD4_19:
+scenario_BBD4_19:
 - D - I - 0x023BE4 11:BBD4: FD        .byte con_FD, $00
 - D - I - 0x023BE6 11:BBD6: F3        .byte con_branch, $8C
 - D - I - 0x023BE8 11:BBD8: 02        .byte case_BBDA_00 - *
@@ -13186,7 +13186,7 @@ case_BC5C_10:
 
 
 
-off_BC6D_1A:
+scenario_BC6D_1A:
 - D - I - 0x023C7D 11:BC6D: F3        .byte con_branch, $8C
 - D - I - 0x023C7F 11:BC6F: 02        .byte case_BC71_00 - *
 - D - I - 0x023C80 11:BC70: 11        .byte case_BC81_01 - *
@@ -13438,7 +13438,7 @@ off_BD90:
 
 
 
-off_BD95_40:
+scenario_BD95_40:
 - D - I - 0x023DA5 11:BD95: 78        .byte $78
 - D - I - 0x023DA6 11:BD96: F0        .byte con_F0
 - D - I - 0x023DA7 11:BD97: F0        .byte con_F0
@@ -13447,7 +13447,7 @@ off_BD95_40:
 
 
 
-off_BD9A_41:
+scenario_BD9A_41:
 - D - I - 0x023DAA 11:BD9A: 78        .byte $78
 - D - I - 0x023DAB 11:BD9B: F0        .byte con_F0
 - D - I - 0x023DAC 11:BD9C: F0        .byte con_F0
@@ -13457,7 +13457,7 @@ off_BD9A_41:
 
 
 
-off_BDA1_3B:
+scenario_BDA1_3B:
 - - - - - 0x023DB1 11:BDA1: 10        .byte $10
 - - - - - 0x023DB2 11:BDA2: F0        .byte con_F0
 - - - - - 0x023DB3 11:BDA3: F0        .byte con_F0
@@ -13466,7 +13466,7 @@ off_BDA1_3B:
 
 
 
-off_BDA6_42:
+scenario_BDA6_42:
 - D - I - 0x023DB6 11:BDA6: 78        .byte $78
 - D - I - 0x023DB7 11:BDA7: F0        .byte con_F0
 - D - I - 0x023DB8 11:BDA8: F0        .byte con_F0
@@ -13476,7 +13476,7 @@ off_BDA6_42:
 
 
 
-off_BDAD_43:
+scenario_BDAD_43:
 - D - I - 0x023DBD 11:BDAD: F5        .byte con_mirror_off
 - D - I - 0x023DBE 11:BDAE: 46        .byte $46
 - D - I - 0x023DBF 11:BDAF: 3A        .byte $3A
@@ -13486,7 +13486,7 @@ off_BDAD_43:
 
 
 
-off_BDB3_39:
+scenario_BDB3_39:
 - D - I - 0x023DC3 11:BDB3: B0        .byte $B0
 - D - I - 0x023DC4 11:BDB4: 38        .byte $38
 - D - I - 0x023DC5 11:BDB5: 85        .byte $85
@@ -13495,7 +13495,7 @@ off_BDB3_39:
 
 
 
-off_BDB8_45:
+scenario_BDB8_45:
 - - - - - 0x023DC8 11:BDB8: B0        .byte $B0
 - - - - - 0x023DC9 11:BDB9: 38        .byte $38
 - - - - - 0x023DCA 11:BDBA: 85        .byte $85
@@ -13504,7 +13504,7 @@ off_BDB8_45:
 
 
 
-off_BDBD_46:
+scenario_BDBD_46:
 - D - I - 0x023DCD 11:BDBD: F3        .byte con_branch, $B4     ; узнать высоту мяча
 - D - I - 0x023DCF 11:BDBF: 03        .byte case_BDC2_00 - *
 - - - - - 0x023DD0 11:BDC0: 02        .byte case_BDC2_01 - *
@@ -13569,7 +13569,7 @@ off_BDFC:
 
 
 
-off_BE01_50___:
+scenario_BE01_50___:
 - D - I - 0x023E11 11:BE01: F5        .byte con_mirror_off
 - D - I - 0x023E12 11:BE02: FA        .byte con_jsr_2
 - D - I - 0x023E13 11:BE03: FC BD     .word off_BDFC
@@ -13583,7 +13583,7 @@ off_BE01_50___:
 
 
 
-off_BE0D_51:
+scenario_BE0D_51:
 - D - I - 0x023E1D 11:BE0D: FA        .byte con_jsr_2
 - D - I - 0x023E1E 11:BE0E: FC BD     .word off_BDFC
 - D - I - 0x023E20 11:BE10: FA        .byte con_jsr_2
@@ -13596,7 +13596,7 @@ off_BE0D_51:
 
 
 
-off_BE18_52:
+scenario_BE18_52:
 - D - I - 0x023E28 11:BE18: FA        .byte con_jsr_2
 - D - I - 0x023E29 11:BE19: F6 BD     .word off_BDF6
 - D - I - 0x023E2B 11:BE1B: 10        .byte $10
@@ -13607,7 +13607,7 @@ off_BE18_52:
 
 
 
-off_BE20_53:
+scenario_BE20_53:
 - D - I - 0x023E30 11:BE20: FA        .byte con_jsr_2
 - D - I - 0x023E31 11:BE21: F6 BD     .word off_BDF6
 - D - I - 0x023E33 11:BE23: F5        .byte con_mirror_off
@@ -13620,7 +13620,7 @@ off_BE20_53:
 
 
 
-off_BE2A_54:
+scenario_BE2A_54:
 - D - I - 0x023E3A 11:BE2A: FA        .byte con_jsr_2
 - D - I - 0x023E3B 11:BE2B: F6 BD     .word off_BDF6
 - D - I - 0x023E3D 11:BE2D: 10        .byte $10
@@ -13631,7 +13631,7 @@ off_BE2A_54:
 
 
 
-off_BE32_55:
+scenario_BE32_55:
 - D - I - 0x023E42 11:BE32: FA        .byte con_jsr_2
 - D - I - 0x023E43 11:BE33: F6 BD     .word off_BDF6
 - D - I - 0x023E45 11:BE35: 10        .byte $10
@@ -13642,7 +13642,7 @@ off_BE32_55:
 
 
 
-off_BE3A_56:
+scenario_BE3A_56:
 - D - I - 0x023E4A 11:BE3A: FA        .byte con_jsr_2
 - D - I - 0x023E4B 11:BE3B: F6 BD     .word off_BDF6
 - D - I - 0x023E4D 11:BE3D: 10        .byte $10
@@ -13653,7 +13653,7 @@ off_BE3A_56:
 
 
 
-off_BE42_57:
+scenario_BE42_57:
 - D - I - 0x023E52 11:BE42: FA        .byte con_jsr_2
 - D - I - 0x023E53 11:BE43: F6 BD     .word off_BDF6
 - D - I - 0x023E55 11:BE45: 10        .byte $10
@@ -13664,7 +13664,7 @@ off_BE42_57:
 
 
 
-off_BE4A_58:
+scenario_BE4A_58:
 - D - I - 0x023E5A 11:BE4A: FA        .byte con_jsr_2
 - D - I - 0x023E5B 11:BE4B: F6 BD     .word off_BDF6
 - D - I - 0x023E5D 11:BE4D: 10        .byte $10
@@ -13675,7 +13675,7 @@ off_BE4A_58:
 
 
 
-off_BE52_59:
+scenario_BE52_59:
 - D - I - 0x023E62 11:BE52: FA        .byte con_jsr_2
 - D - I - 0x023E63 11:BE53: F6 BD     .word off_BDF6
 - D - I - 0x023E65 11:BE55: 10        .byte $10
@@ -13686,7 +13686,7 @@ off_BE52_59:
 
 
 
-off_BE5A_5A:
+scenario_BE5A_5A:
 - D - I - 0x023E6A 11:BE5A: FA        .byte con_jsr_2
 - D - I - 0x023E6B 11:BE5B: F6 BD     .word off_BDF6
 - D - I - 0x023E6D 11:BE5D: 50        .byte $50
@@ -13703,7 +13703,7 @@ off_BE5A_5A:
 
 
 
-off_BE69_5B:
+scenario_BE69_5B:
 - D - I - 0x023E79 11:BE69: FA        .byte con_jsr_2
 - D - I - 0x023E7A 11:BE6A: F6 BD     .word off_BDF6
 - D - I - 0x023E7C 11:BE6C: F5        .byte con_mirror_off
@@ -13716,7 +13716,7 @@ off_BE69_5B:
 
 
 
-off_BE73_5C:
+scenario_BE73_5C:
 - D - I - 0x023E83 11:BE73: F5        .byte con_mirror_off
 - D - I - 0x023E84 11:BE74: FA        .byte con_jsr_2
 - D - I - 0x023E85 11:BE75: F6 BD     .word off_BDF6
@@ -13728,7 +13728,7 @@ off_BE73_5C:
 
 
 
-off_BE7C_5D:
+scenario_BE7C_5D:
 - D - I - 0x023E8C 11:BE7C: FA        .byte con_jsr_2
 - D - I - 0x023E8D 11:BE7D: F6 BD     .word off_BDF6
 - D - I - 0x023E8F 11:BE7F: F5        .byte con_mirror_off
@@ -13741,7 +13741,7 @@ off_BE7C_5D:
 
 
 
-off_BE86_5E:
+scenario_BE86_5E:
 - D - I - 0x023E96 11:BE86: FA        .byte con_jsr_2
 - D - I - 0x023E97 11:BE87: F6 BD     .word off_BDF6
 - D - I - 0x023E99 11:BE89: 10        .byte $10
@@ -13752,7 +13752,7 @@ off_BE86_5E:
 
 
 
-off_BE8E_5F:
+scenario_BE8E_5F:
 - D - I - 0x023E9E 11:BE8E: FA        .byte con_jsr_2
 - D - I - 0x023E9F 11:BE8F: F6 BD     .word off_BDF6
 - D - I - 0x023EA1 11:BE91: 10        .byte $10
@@ -13763,7 +13763,7 @@ off_BE8E_5F:
 
 
 
-off_BE96_60:
+scenario_BE96_60:
 - D - I - 0x023EA6 11:BE96: FA        .byte con_jsr_2
 - D - I - 0x023EA7 11:BE97: F6 BD     .word off_BDF6
 - D - I - 0x023EA9 11:BE99: 10        .byte $10
@@ -13774,7 +13774,7 @@ off_BE96_60:
 
 
 
-off_BE9E_61:
+scenario_BE9E_61:
 - D - I - 0x023EAE 11:BE9E: FA        .byte con_jsr_2
 - D - I - 0x023EAF 11:BE9F: F6 BD     .word off_BDF6
 - D - I - 0x023EB1 11:BEA1: 10        .byte $10
@@ -13785,7 +13785,7 @@ off_BE9E_61:
 
 
 
-off_BEA6_62:
+scenario_BEA6_62:
 - D - I - 0x023EB6 11:BEA6: FA        .byte con_jsr_2
 - D - I - 0x023EB7 11:BEA7: F6 BD     .word off_BDF6
 - D - I - 0x023EB9 11:BEA9: 10        .byte $10
@@ -13796,7 +13796,7 @@ off_BEA6_62:
 
 
 
-off_BEAE_63:
+scenario_BEAE_63:
 - D - I - 0x023EBE 11:BEAE: FA        .byte con_jsr_2
 - D - I - 0x023EBF 11:BEAF: F6 BD     .word off_BDF6
 - D - I - 0x023EC1 11:BEB1: 10        .byte $10
@@ -13807,7 +13807,7 @@ off_BEAE_63:
 
 
 
-off_BEB6_64:
+scenario_BEB6_64:
 - D - I - 0x023EC6 11:BEB6: FA        .byte con_jsr_2
 - D - I - 0x023EC7 11:BEB7: F6 BD     .word off_BDF6
 - D - I - 0x023EC9 11:BEB9: 10        .byte $10
@@ -13818,7 +13818,7 @@ off_BEB6_64:
 
 
 
-off_BEBE_65:
+scenario_BEBE_65:
 - D - I - 0x023ECE 11:BEBE: FA        .byte con_jsr_2
 - D - I - 0x023ECF 11:BEBF: F6 BD     .word off_BDF6
 - D - I - 0x023ED1 11:BEC1: 10        .byte $10
@@ -13829,7 +13829,7 @@ off_BEBE_65:
 
 
 
-off_BEC6_66:
+scenario_BEC6_66:
 - D - I - 0x023ED6 11:BEC6: F7        .byte con_F7, $31
 - D - I - 0x023ED8 11:BEC8: 3A        .byte $3A
 - D - I - 0x023ED9 11:BEC9: 6A        .byte $6A
@@ -13848,7 +13848,7 @@ off_BEC6_66:
 
 
 
-off_BED8_67:
+scenario_BED8_67:
 - D - I - 0x023EE8 11:BED8: FA        .byte con_jsr_2
 - D - I - 0x023EE9 11:BED9: 12 B7     .word off_B712
 - D - I - 0x023EEB 11:BEDB: FA        .byte con_jsr_2
@@ -13875,7 +13875,7 @@ off_BED8_67:
 
 
 
-off_BEF7_68:
+scenario_BEF7_68:
 - D - I - 0x023F07 11:BEF7: F7        .byte con_F7, $03
 - D - I - 0x023F09 11:BEF9: A0        .byte $A0
 - D - I - 0x023F0A 11:BEFA: 07        .byte $07
@@ -13891,7 +13891,7 @@ off_BEF7_68:
 
 
 
-off_BF05_69:
+scenario_BF05_69:
 - D - I - 0x023F15 11:BF05: F5        .byte con_mirror_off
 - D - I - 0x023F16 11:BF06: 28        .byte $28
 - D - I - 0x023F17 11:BF07: 3C        .byte $3C
@@ -13902,7 +13902,7 @@ off_BF05_69:
 
 
 
-off_BF0D_6B:
+scenario_BF0D_6B:
 - D - I - 0x023F1D 11:BF0D: FA        .byte con_jsr_2
 - D - I - 0x023F1E 11:BF0E: 5D A4     .word off_A45D
 - D - I - 0x023F20 11:BF10: F2        .byte con_jsr_1
@@ -13910,7 +13910,7 @@ off_BF0D_6B:
 
 
 
-off_BF13_6C:
+scenario_BF13_6C:
 - D - I - 0x023F23 11:BF13: FA        .byte con_jsr_2
 - D - I - 0x023F24 11:BF14: B1 A7     .word off_A7B1
 - D - I - 0x023F26 11:BF16: F7        .byte con_F7, $0F
@@ -13927,7 +13927,7 @@ off_BF13_6C:
 
 
 
-off_BF23_6D:
+scenario_BF23_6D:
 - D - I - 0x023F33 11:BF23: 3C        .byte $3C
 - D - I - 0x023F34 11:BF24: 28        .byte $28
 - D - I - 0x023F35 11:BF25: C6        .byte $C6
@@ -13940,7 +13940,7 @@ off_BF23_6D:
 
 
 
-off_BF2C_6E:
+scenario_BF2C_6E:
 - D - I - 0x023F3C 11:BF2C: F5        .byte con_mirror_off
 - D - I - 0x023F3D 11:BF2D: 32        .byte $32
 - D - I - 0x023F3E 11:BF2E: 1F        .byte $1F
@@ -13980,7 +13980,7 @@ off_BF2C_6E:
 
 
 
-off_BF54_6F:
+scenario_BF54_6F:
 - D - I - 0x023F64 11:BF54: FA        .byte con_jsr_2
 - D - I - 0x023F65 11:BF55: 4D A3     .word off_A34D
 - D - I - 0x023F67 11:BF57: FC        .byte con_FC, $01
@@ -13993,7 +13993,7 @@ off_BF54_6F:
 
 
 
-off_BF61_70:
+scenario_BF61_70:
 - D - I - 0x023F71 11:BF61: FA        .byte con_jsr_2
 - D - I - 0x023F72 11:BF62: E7 B4     .word off_B4E7
 - D - I - 0x023F74 11:BF64: FA        .byte con_jsr_2
@@ -14009,7 +14009,7 @@ off_BF61_70:
 
 
 
-off_BF73_71:
+scenario_BF73_71:
 - D - I - 0x023F83 11:BF73: FA        .byte con_jsr_2
 - D - I - 0x023F84 11:BF74: D6 9F     .word off_9FD6
 - D - I - 0x023F86 11:BF76: FA        .byte con_jsr_2
@@ -14021,7 +14021,7 @@ off_BF73_71:
 
 
 
-off_BF7F_72:
+scenario_BF7F_72:
 - D - I - 0x023F8F 11:BF7F: F7        .byte con_F7, $33
 - D - I - 0x023F91 11:BF81: 20        .byte $20
 - D - I - 0x023F92 11:BF82: 6B        .byte $6B
@@ -14044,7 +14044,7 @@ off_BF7F_72:
 
 
 
-off_BF94_73:
+scenario_BF94_73:
 - D - I - 0x023FA4 11:BF94: FA        .byte con_jsr_2
 - D - I - 0x023FA5 11:BF95: 2D A3     .word off_A32D
 - D - I - 0x023FA7 11:BF97: 78        .byte $78
@@ -14055,7 +14055,7 @@ off_BF94_73:
 
 
 
-off_BF9C_74:
+scenario_BF9C_74:
 - D - I - 0x023FAC 11:BF9C: FA        .byte con_jsr_2
 - D - I - 0x023FAD 11:BF9D: C0 B3     .word off_B3C0
 - D - I - 0x023FAF 11:BF9F: FA        .byte con_jsr_2
@@ -14105,7 +14105,7 @@ off_BFCB:
 
 
 
-off_BFD2_75:
+scenario_BFD2_75:
 - D - I - 0x023FE2 11:BFD2: FA        .byte con_jsr_2
 - D - I - 0x023FE3 11:BFD3: AD B2     .word off_B2AD
 - D - I - 0x023FE5 11:BFD5: F2        .byte con_jsr_1
@@ -14113,7 +14113,7 @@ off_BFD2_75:
 
 
 
-off_BFD8_77:
+scenario_BFD8_77:
 - D - I - 0x023FE8 11:BFD8: F5        .byte con_mirror_off
 - D - I - 0x023FE9 11:BFD9: E0        .byte $E0
 - D - I - 0x023FEA 11:BFDA: 2D        .byte $2D
