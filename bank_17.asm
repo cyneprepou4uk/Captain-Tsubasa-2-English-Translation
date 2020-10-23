@@ -3666,35 +3666,39 @@ off_9285_07:
 - D - I - 0x02129A 17:928A: 0D        .byte case_9297_01 - *
 case_928B_00:
 - D - I - 0x02129B 17:928B: F3        .byte con_F3, $81
-- D - I - 0x02129D 17:928D: 0E        .byte $0E
-- - - - - 0x02129E 17:928E: 17        .byte $17
+- D - I - 0x02129D 17:928D: 0E        .byte case_929B_00 - *
+- - - - - 0x02129E 17:928E: 17        .byte case_92A5_01 - *
 case_928F_00:
 - D - I - 0x02129F 17:928F: F3        .byte con_F3, $81
-- D - I - 0x0212A1 17:9291: 4A        .byte $4A
-- D - I - 0x0212A2 17:9292: 50        .byte $50
+- D - I - 0x0212A1 17:9291: 4A        .byte case_92DB_00 - *
+- D - I - 0x0212A2 17:9292: 50        .byte case_92E2_01 - *
 case_9293_01:
 - D - I - 0x0212A3 17:9293: F3        .byte con_F3, $81
-- D - I - 0x0212A5 17:9295: 1A        .byte $1A
-- D - I - 0x0212A6 17:9296: 23        .byte $23
+- D - I - 0x0212A5 17:9295: 1A        .byte case_92AF_00 - *
+- D - I - 0x0212A6 17:9296: 23        .byte case_92B9_01 - *
 case_9297_01:
 - D - I - 0x0212A7 17:9297: F3        .byte con_F3, $81
-- D - I - 0x0212A9 17:9299: 50        .byte $50
-- D - I - 0x0212AA 17:929A: 56        .byte $56
+- D - I - 0x0212A9 17:9299: 50        .byte case_92E9_00 - *
+- D - I - 0x0212AA 17:929A: 56        .byte case_92F0_01 - *
+case_929B_00:
 - D - I - 0x0212AB 17:929B: F3        .byte con_F3, $14
 - D - I - 0x0212AD 17:929D: CE 9B     .word off_9BCE
 - D - I - 0x0212AF 17:929F: CE 9B     .word off_9BCE
 - D - I - 0x0212B1 17:92A1: 0B 93     .word off_930B
 - D - I - 0x0212B3 17:92A3: C3 92     .word off_92C3
+case_92A5_01:
 - - - - - 0x0212B5 17:92A5: F3        .byte con_F3, $14
 - - - - - 0x0212B7 17:92A7: CE 9B     .word off_9BCE
 - - - - - 0x0212B9 17:92A9: CE 9B     .word off_9BCE
 - - - - - 0x0212BB 17:92AB: 0B 93     .word off_930B
 - - - - - 0x0212BD 17:92AD: C9 92     .word off_92C9
+case_92AF_00:
 - D - I - 0x0212BF 17:92AF: F3        .byte con_F3, $14
 - D - I - 0x0212C1 17:92B1: CE 9B     .word off_9BCE
 - D - I - 0x0212C3 17:92B3: CE 9B     .word off_9BCE
 - D - I - 0x0212C5 17:92B5: 0B 93     .word off_930B
 - D - I - 0x0212C7 17:92B7: CF 92     .word off_92CF
+case_92B9_01:
 - D - I - 0x0212C9 17:92B9: F3        .byte con_F3, $14
 - - - - - 0x0212CB 17:92BB: CE 9B     .word off_9BCE
 - - - - - 0x0212CD 17:92BD: CE 9B     .word off_9BCE
@@ -3716,69 +3720,89 @@ off_92D5:
 - D - I - 0x0212E5 17:92D5: F3        .byte con_F3, $15
 - - - - - 0x0212E7 17:92D7: 0F 93     .word off_930F
 - D - I - 0x0212E9 17:92D9: CF 9B     .word off_9BCF
+case_92DB_00:
 - D - I - 0x0212EB 17:92DB: F3        .byte con_F3, $87
-- D - I - 0x0212ED 17:92DD: 31        .byte $31
-- D - I - 0x0212EE 17:92DE: 30        .byte $30
-- D - I - 0x0212EF 17:92DF: 2C        .byte $2C
-- D - I - 0x0212F0 17:92E0: 17        .byte $17
-- D - I - 0x0212F1 17:92E1: 37        .byte $37
+- D - I - 0x0212ED 17:92DD: 31        .byte case_930E_00 - *
+- D - I - 0x0212EE 17:92DE: 30        .byte case_930E_01 - *
+- D - I - 0x0212EF 17:92DF: 2C        .byte case_930B_02 - *
+- D - I - 0x0212F0 17:92E0: 17        .byte case_92F7_03 - *
+- D - I - 0x0212F1 17:92E1: 37        .byte case_9318_04 - *
+case_92E2_01:
 - D - I - 0x0212F2 17:92E2: F3        .byte con_F3, $87
-- - - - - 0x0212F4 17:92E4: 2A        .byte $2A
-- - - - - 0x0212F5 17:92E5: 29        .byte $29
-- D - I - 0x0212F6 17:92E6: 25        .byte $25
-- - - - - 0x0212F7 17:92E7: 15        .byte $15
-- - - - - 0x0212F8 17:92E8: 30        .byte $30
+- - - - - 0x0212F4 17:92E4: 2A        .byte case_930E_00 - *
+- - - - - 0x0212F5 17:92E5: 29        .byte case_930E_01 - *
+- D - I - 0x0212F6 17:92E6: 25        .byte case_930B_02 - *
+- - - - - 0x0212F7 17:92E7: 15        .byte case_92FC_03 - *
+- - - - - 0x0212F8 17:92E8: 30        .byte case_9318_04 - *
+case_92E9_00:
 - D - I - 0x0212F9 17:92E9: F3        .byte con_F3, $87
-- D - I - 0x0212FB 17:92EB: 23        .byte $23
-- D - I - 0x0212FC 17:92EC: 22        .byte $22
-- D - I - 0x0212FD 17:92ED: 1E        .byte $1E
-- D - I - 0x0212FE 17:92EE: 13        .byte $13
-- D - I - 0x0212FF 17:92EF: 29        .byte $29
+- D - I - 0x0212FB 17:92EB: 23        .byte case_930E_00 - *
+- D - I - 0x0212FC 17:92EC: 22        .byte case_930E_01 - *
+- D - I - 0x0212FD 17:92ED: 1E        .byte case_930B_02 - *
+- D - I - 0x0212FE 17:92EE: 13        .byte case_9301_03 - *
+- D - I - 0x0212FF 17:92EF: 29        .byte case_9318_04 - *
+case_92F0_01:
 - D - I - 0x021300 17:92F0: F3        .byte con_F3, $87
-- D - I - 0x021302 17:92F2: 1C        .byte $1C
-- D - I - 0x021303 17:92F3: 1B        .byte $1B
-- - - - - 0x021304 17:92F4: 17        .byte $17
-- D - I - 0x021305 17:92F5: 11        .byte $11
-- - - - - 0x021306 17:92F6: 22        .byte $22
+- D - I - 0x021302 17:92F2: 1C        .byte case_930E_00 - *
+- D - I - 0x021303 17:92F3: 1B        .byte case_930E_01 - *
+- - - - - 0x021304 17:92F4: 17        .byte case_930B_02 - *
+- D - I - 0x021305 17:92F5: 11        .byte case_9306_03 - *
+- - - - - 0x021306 17:92F6: 22        .byte case_9318_04 - *
+case_92F7_03:
 - D - I - 0x021307 17:92F7: F3        .byte con_F3, $88
-- - - - - 0x021309 17:92F9: 26        .byte $26
-- D - I - 0x02130A 17:92FA: 28        .byte $28
-- D - I - 0x02130B 17:92FB: 2A        .byte $2A
+- - - - - 0x021309 17:92F9: 26        .byte case_931F_00 - *
+- D - I - 0x02130A 17:92FA: 28        .byte case_9322_01 - *
+- D - I - 0x02130B 17:92FB: 2A        .byte case_9325_02 - *
+case_92FC_03:
 - - - - - 0x02130C 17:92FC: F3        .byte con_F3, $88
-- - - - - 0x02130E 17:92FE: 11        .byte $11
-- - - - - 0x02130F 17:92FF: 29        .byte $29
-- - - - - 0x021310 17:9300: 15        .byte $15
+- - - - - 0x02130E 17:92FE: 11        .byte case_930F_00 - *
+- - - - - 0x02130F 17:92FF: 29        .byte case_9328_01 - *
+- - - - - 0x021310 17:9300: 15        .byte case_9315_02 - *
+case_9301_03:
 - D - I - 0x021311 17:9301: F3        .byte con_F3, $88
-- D - I - 0x021313 17:9303: 0C        .byte $0C
-- D - I - 0x021314 17:9304: 0E        .byte $0E
-- D - I - 0x021315 17:9305: 10        .byte $10
+- D - I - 0x021313 17:9303: 0C        .byte case_930F_00 - *
+- D - I - 0x021314 17:9304: 0E        .byte case_9312_01 - *
+- D - I - 0x021315 17:9305: 10        .byte case_9315_02 - *
+case_9306_03:
 - D - I - 0x021316 17:9306: F3        .byte con_F3, $88
-- - - - - 0x021318 17:9308: 07        .byte $07
-- - - - - 0x021319 17:9309: 12        .byte $12
-- D - I - 0x02131A 17:930A: 0B        .byte $0B
+- - - - - 0x021318 17:9308: 07        .byte case_930F_00 - *
+- - - - - 0x021319 17:9309: 12        .byte case_931B_01 - *
+- D - I - 0x02131A 17:930A: 0B        .byte case_9315_02 - *
 off_930B:
+case_930B_02:
 - D - I - 0x02131B 17:930B: FA        .byte con_jsr_2
 - D - I - 0x02131C 17:930C: 71 A3     .word off_A371
+case_930E_00:
+case_930E_01:
 - D - I - 0x02131E 17:930E: F0        .byte con_F0
 off_930F:
+case_930F_00:
 - D - I - 0x02131F 17:930F: F2        .byte con_jsr_1
 - D - I - 0x021320 17:9310: 6E A1     .word off_A16E
+case_9312_01:
 - D - I - 0x021322 17:9312: F2        .byte con_jsr_1
 - D - I - 0x021323 17:9313: 97 A1     .word off_A197
+case_9315_02:
 - D - I - 0x021325 17:9315: F2        .byte con_jsr_1
 - D - I - 0x021326 17:9316: 83 A0     .word off_A083
+case_9318_04:
 - D - I - 0x021328 17:9318: F2        .byte con_jsr_1
 - D - I - 0x021329 17:9319: 5B A3     .word off_A35B
+case_931B_01:
 - - - - - 0x02132B 17:931B: FA        .byte con_jsr_2
 - - - - - 0x02132C 17:931C: 97 A1     .word off_A197
 - - - - - 0x02132E 17:931E: F0        .byte con_F0
 off_931F:
+case_931F_00:
 - - - - - 0x02132F 17:931F: F2        .byte con_jsr_1
 - - - - - 0x021330 17:9320: 64 A1     .word off_A164
+case_9322_01:
 - D - I - 0x021332 17:9322: F2        .byte con_jsr_1
 - D - I - 0x021333 17:9323: 8D A1     .word off_A18D
+case_9325_02:
 - D - I - 0x021335 17:9325: F2        .byte con_jsr_1
 - D - I - 0x021336 17:9326: 79 A0     .word off_A079
+case_9328_01:
 - - - - - 0x021338 17:9328: FA        .byte con_jsr_2
 - - - - - 0x021339 17:9329: 8D A1     .word off_A18D
 - - - - - 0x02133B 17:932B: F0        .byte con_F0
@@ -3787,36 +3811,44 @@ off_931F:
 
 off_932C_08:
 - D - I - 0x02133C 17:932C: F3        .byte con_F3, $84
-- D - I - 0x02133E 17:932E: 02        .byte $02
-- D - I - 0x02133F 17:932F: 07        .byte $07
+- D - I - 0x02133E 17:932E: 02        .byte case_9330_00 - *
+- D - I - 0x02133F 17:932F: 07        .byte case_9336_01 - *
+case_9330_00:
 - D - I - 0x021340 17:9330: F3        .byte con_F3, $89
-- D - I - 0x021342 17:9332: 14        .byte $14
-- D - I - 0x021343 17:9333: 09        .byte $09
-- D - I - 0x021344 17:9334: 0D        .byte $0D
-- D - I - 0x021345 17:9335: 16        .byte $16
+- D - I - 0x021342 17:9332: 14        .byte case_9346_00 - *
+- D - I - 0x021343 17:9333: 09        .byte case_933C_01 - *
+- D - I - 0x021344 17:9334: 0D        .byte case_9341_02 - *
+- D - I - 0x021345 17:9335: 16        .byte case_934B_03 - *
+case_9336_01:
 - D - I - 0x021346 17:9336: F3        .byte con_F3, $89
-- D - I - 0x021348 17:9338: 27        .byte $27
-- D - I - 0x021349 17:9339: 17        .byte $17
-- D - I - 0x02134A 17:933A: 1B        .byte $1B
-- D - I - 0x02134B 17:933B: 29        .byte $29
+- D - I - 0x021348 17:9338: 27        .byte case_935F_00 - *
+- D - I - 0x021349 17:9339: 17        .byte case_9350_01 - *
+- D - I - 0x02134A 17:933A: 1B        .byte case_9355_02 - *
+- D - I - 0x02134B 17:933B: 29        .byte case_9364_03 - *
 off_933C:
+case_933C_01:
 - D - I - 0x02134C 17:933C: FD        .byte con_FD, $00
 - D - I - 0x02134E 17:933E: F2        .byte con_jsr_1
 - D - I - 0x02134F 17:933F: 45 9E     .word off_9E45
 off_9341:
+case_9341_02:
 - D - I - 0x021351 17:9341: FD        .byte con_FD, $03
 - D - I - 0x021353 17:9343: F2        .byte con_jsr_1
 - D - I - 0x021354 17:9344: C2 B2     .word off_B2C2
+case_9346_00:
 - D - I - 0x021356 17:9346: FD        .byte con_FD, $03
 - D - I - 0x021358 17:9348: F2        .byte con_jsr_1
 - D - I - 0x021359 17:9349: 9A 9D     .word off_9D9A
+case_934B_03:
 - D - I - 0x02135B 17:934B: FD        .byte con_FD, $03
 - D - I - 0x02135D 17:934D: F2        .byte con_jsr_1
 - D - I - 0x02135E 17:934E: 42 B4     .word off_B442
 off_9350:
+case_9350_01:
 - D - I - 0x021360 17:9350: FD        .byte con_FD, $00
 - D - I - 0x021362 17:9352: F2        .byte con_jsr_1
 - D - I - 0x021363 17:9353: 4F 9E     .word off_9E4F
+case_9355_02:
 - D - I - 0x021365 17:9355: FD        .byte con_FD, $03
 - D - I - 0x021367 17:9357: F2        .byte con_jsr_1
 - D - I - 0x021368 17:9358: CC B2     .word off_B2CC
@@ -3824,9 +3856,11 @@ off_935A:
 - D - I - 0x02136A 17:935A: FD        .byte con_FD, $03
 - D - I - 0x02136C 17:935C: F2        .byte con_jsr_1
 - D - I - 0x02136D 17:935D: D4 B2     .word off_B2D4
+case_935F_00:
 - D - I - 0x02136F 17:935F: FD        .byte con_FD, $03
 - D - I - 0x021371 17:9361: F2        .byte con_jsr_1
 - D - I - 0x021372 17:9362: 52 9D     .word off_9D52
+case_9364_03:
 - D - I - 0x021374 17:9364: FD        .byte con_FD, $03
 - D - I - 0x021376 17:9366: F2        .byte con_jsr_1
 - D - I - 0x021377 17:9367: 3D B4     .word off_B43D
@@ -3849,43 +3883,52 @@ off_9376:
 - D - I - 0x02138D 17:937D: 28 94     .word off_9428
 off_937F:
 - D - I - 0x02138F 17:937F: F3        .byte con_F3, $8B
-- D - I - 0x021391 17:9381: 08        .byte $08
-- D - I - 0x021392 17:9382: 03        .byte $03
-- D - I - 0x021393 17:9383: 31        .byte $31
-- D - I - 0x021394 17:9384: 6D        .byte $6D
+- D - I - 0x021391 17:9381: 08        .byte case_9389_00 - *
+- D - I - 0x021392 17:9382: 03        .byte case_9385_01 - *
+- D - I - 0x021393 17:9383: 31        .byte case_93B4_02 - *
+- D - I - 0x021394 17:9384: 6D        .byte case_93F1_03 - *
+case_9385_01:
 - D - I - 0x021395 17:9385: F3        .byte con_F3, $8C
-- D - I - 0x021397 17:9387: 02        .byte $02
-- D - I - 0x021398 17:9388: 26        .byte $26
+- D - I - 0x021397 17:9387: 02        .byte case_9389_00 - *
+- D - I - 0x021398 17:9388: 26        .byte case_93AE_01 - *
+case_9389_00:
 - D - I - 0x021399 17:9389: F3        .byte con_F3, $8D
-- D - I - 0x02139B 17:938B: 05        .byte $05
-- D - I - 0x02139C 17:938C: 0A        .byte $0A
-- D - I - 0x02139D 17:938D: 0F        .byte $0F
-- D - I - 0x02139E 17:938E: 14        .byte $14
-- D - I - 0x02139F 17:938F: 19        .byte $19
+- D - I - 0x02139B 17:938B: 05        .byte case_9390_00 - *
+- D - I - 0x02139C 17:938C: 0A        .byte case_9396_01 - *
+- D - I - 0x02139D 17:938D: 0F        .byte case_939C_02 - *
+- D - I - 0x02139E 17:938E: 14        .byte case_93A2_03 - *
+- D - I - 0x02139F 17:938F: 19        .byte case_93A8_04 - *
+case_9390_00:
 - D - I - 0x0213A0 17:9390: FA        .byte con_jsr_2
 - D - I - 0x0213A1 17:9391: 0E A1     .word off_A10E
 - D - I - 0x0213A3 17:9393: F2        .byte con_jsr_1
 - D - I - 0x0213A4 17:9394: 0D 97     .word off_970D
+case_9396_01:
 - D - I - 0x0213A6 17:9396: FA        .byte con_jsr_2
 - D - I - 0x0213A7 17:9397: 0E A1     .word off_A10E
 - D - I - 0x0213A9 17:9399: F2        .byte con_jsr_1
 - D - I - 0x0213AA 17:939A: 16 97     .word off_9716
+case_939C_02:
 - D - I - 0x0213AC 17:939C: FA        .byte con_jsr_2
 - D - I - 0x0213AD 17:939D: 0E A1     .word off_A10E
 - D - I - 0x0213AF 17:939F: F2        .byte con_jsr_1
 - D - I - 0x0213B0 17:93A0: 22 97     .word off_9722
+case_93A2_03:
 - D - I - 0x0213B2 17:93A2: FA        .byte con_jsr_2
 - D - I - 0x0213B3 17:93A3: 0E A1     .word off_A10E
 - D - I - 0x0213B5 17:93A5: F2        .byte con_jsr_1
 - D - I - 0x0213B6 17:93A6: 31 97     .word off_9731
+case_93A8_04:
 - D - I - 0x0213B8 17:93A8: FA        .byte con_jsr_2
 - D - I - 0x0213B9 17:93A9: 0E A1     .word off_A10E
 - D - I - 0x0213BB 17:93AB: F2        .byte con_jsr_1
 - D - I - 0x0213BC 17:93AC: 43 97     .word off_9743
+case_93AE_01:
 - D - I - 0x0213BE 17:93AE: FA        .byte con_jsr_2
 - D - I - 0x0213BF 17:93AF: 0E A1     .word off_A10E
 - D - I - 0x0213C1 17:93B1: F2        .byte con_jsr_1
 - D - I - 0x0213C2 17:93B2: 55 97     .word off_9755
+case_93B4_02:
 - D - I - 0x0213C4 17:93B4: FF        .byte con_FF, $01
 - D - I - 0x0213C6 17:93B6: BE 93     .word off_93BE
 - D - I - 0x0213C8 17:93B8: C4 93     .word off_93C4
@@ -3930,6 +3973,7 @@ off_93DF:
 - - - - - 0x0213FE 17:93EE: F2        .byte con_jsr_1
 - - - - - 0x0213FF 17:93EF: 59 B8     .word off_B859
 off_93F1:
+case_93F1_03:
 - D - I - 0x021401 17:93F1: FF        .byte con_FF, $01
 - D - I - 0x021403 17:93F3: FB 93     .word off_93FB
 - - - - - 0x021405 17:93F5: 04 94     .word off_9404
@@ -3971,45 +4015,55 @@ off_9419:
 - D - I - 0x021436 17:9426: 59 B8     .word off_B859
 off_9428:
 - D - I - 0x021438 17:9428: F3        .byte con_F3, $8B
-- D - I - 0x02143A 17:942A: 0B        .byte $0B
-- - - - - 0x02143B 17:942B: 06        .byte $06
-- D - I - 0x02143C 17:942C: 34        .byte $34
-- - - - - 0x02143D 17:942D: 01        .byte $01
+- D - I - 0x02143A 17:942A: 0B        .byte case_9435_00 - *
+- - - - - 0x02143B 17:942B: 06        .byte case_9431_01 - *
+- D - I - 0x02143C 17:942C: 34        .byte case_9460_02 - *
+- - - - - 0x02143D 17:942D: 01        .byte case_942E_03 - *
+case_942E_03:
 - - - - - 0x02143E 17:942E: F2        .byte con_jsr_1
 - - - - - 0x02143F 17:942F: F1 93     .word off_93F1
+case_9431_01:
 - - - - - 0x021441 17:9431: F3        .byte con_F3, $8C
-- - - - - 0x021443 17:9433: 02        .byte $02
-- - - - - 0x021444 17:9434: 26        .byte $26
+- - - - - 0x021443 17:9433: 02        .byte case_9435_00 - *
+- - - - - 0x021444 17:9434: 26        .byte case_945A_01 - *
+case_9435_00:
 - D - I - 0x021445 17:9435: F3        .byte con_F3, $8D
-- D - I - 0x021447 17:9437: 05        .byte $05
-- D - I - 0x021448 17:9438: 0A        .byte $0A
-- - - - - 0x021449 17:9439: 0F        .byte $0F
-- - - - - 0x02144A 17:943A: 14        .byte $14
-- D - I - 0x02144B 17:943B: 19        .byte $19
+- D - I - 0x021447 17:9437: 05        .byte case_943C_00 - *
+- D - I - 0x021448 17:9438: 0A        .byte case_9442_01 - *
+- - - - - 0x021449 17:9439: 0F        .byte case_9448_02 - *
+- - - - - 0x02144A 17:943A: 14        .byte case_944E_03 - *
+- D - I - 0x02144B 17:943B: 19        .byte case_9454_04 - *
+case_943C_00:
 - D - I - 0x02144C 17:943C: FA        .byte con_jsr_2
 - D - I - 0x02144D 17:943D: 22 A1     .word off_A122
 - D - I - 0x02144F 17:943F: F2        .byte con_jsr_1
 - D - I - 0x021450 17:9440: 8A 97     .word off_978A
+case_9442_01:
 - D - I - 0x021452 17:9442: FA        .byte con_jsr_2
 - D - I - 0x021453 17:9443: 22 A1     .word off_A122
 - D - I - 0x021455 17:9445: F2        .byte con_jsr_1
 - D - I - 0x021456 17:9446: 99 97     .word off_9799
+case_9448_02:
 - - - - - 0x021458 17:9448: FA        .byte con_jsr_2
 - - - - - 0x021459 17:9449: 22 A1     .word off_A122
 - - - - - 0x02145B 17:944B: F2        .byte con_jsr_1
 - - - - - 0x02145C 17:944C: AB 97     .word off_97AB
+case_944E_03:
 - - - - - 0x02145E 17:944E: FA        .byte con_jsr_2
 - - - - - 0x02145F 17:944F: 22 A1     .word off_A122
 - - - - - 0x021461 17:9451: F2        .byte con_jsr_1
 - - - - - 0x021462 17:9452: C3 97     .word off_97C3
+case_9454_04:
 - D - I - 0x021464 17:9454: FA        .byte con_jsr_2
 - D - I - 0x021465 17:9455: 22 A1     .word off_A122
 - D - I - 0x021467 17:9457: F2        .byte con_jsr_1
 - D - I - 0x021468 17:9458: DB 97     .word off_97DB
+case_945A_01:
 - - - - - 0x02146A 17:945A: FA        .byte con_jsr_2
 - - - - - 0x02146B 17:945B: 22 A1     .word off_A122
 - - - - - 0x02146D 17:945D: F2        .byte con_jsr_1
 - - - - - 0x02146E 17:945E: F3 97     .word off_97F3
+case_9460_02:
 - D - I - 0x021470 17:9460: FF        .byte con_FF, $01
 - D - I - 0x021472 17:9462: 6A 94     .word off_946A
 - - - - - 0x021474 17:9464: C4 93     .word off_93C4
@@ -4022,58 +4076,68 @@ off_946A:
 - D - I - 0x02147E 17:946E: BC 95     .word off_95BC
 off_9470:
 - D - I - 0x021480 17:9470: F3        .byte con_F3, $81
-- D - I - 0x021482 17:9472: 02        .byte $02
-- D - I - 0x021483 17:9473: 5D        .byte $5D
+- D - I - 0x021482 17:9472: 02        .byte case_9474_00 - *
+- D - I - 0x021483 17:9473: 5D        .byte case_94D0_01 - *
+case_9474_00:
 - D - I - 0x021484 17:9474: F3        .byte con_F3, $8B
-- D - I - 0x021486 17:9476: 08        .byte $08
-- D - I - 0x021487 17:9477: 03        .byte $03
-- D - I - 0x021488 17:9478: 43        .byte $43
-- D - I - 0x021489 17:9479: 4E        .byte $4E
+- D - I - 0x021486 17:9476: 08        .byte case_947E_00 - *
+- D - I - 0x021487 17:9477: 03        .byte case_947A_01 - *
+- D - I - 0x021488 17:9478: 43        .byte case_94BB_02 - *
+- D - I - 0x021489 17:9479: 4E        .byte case_94C7_03 - *
+case_947A_01:
 - D - I - 0x02148A 17:947A: F3        .byte con_F3, $8C
-- D - I - 0x02148C 17:947C: 02        .byte $02
-- - - - - 0x02148D 17:947D: 35        .byte $35
+- D - I - 0x02148C 17:947C: 02        .byte case_947E_00 - *
+- - - - - 0x02148D 17:947D: 35        .byte case_94B2_01 - *
+case_947E_00:
 - D - I - 0x02148E 17:947E: F3        .byte con_F3, $8D
-- D - I - 0x021490 17:9480: 05        .byte $05
-- D - I - 0x021491 17:9481: 0D        .byte $0D
-- D - I - 0x021492 17:9482: 15        .byte $15
-- D - I - 0x021493 17:9483: 1D        .byte $1D
-- D - I - 0x021494 17:9484: 25        .byte $25
+- D - I - 0x021490 17:9480: 05        .byte case_9485_00 - *
+- D - I - 0x021491 17:9481: 0D        .byte case_948E_01 - *
+- D - I - 0x021492 17:9482: 15        .byte case_9497_02 - *
+- D - I - 0x021493 17:9483: 1D        .byte case_94A0_03 - *
+- D - I - 0x021494 17:9484: 25        .byte case_94A9_04 - *
+case_9485_00:
 - D - I - 0x021495 17:9485: FA        .byte con_jsr_2
 - D - I - 0x021496 17:9486: 5B 9C     .word off_9C5B
 - D - I - 0x021498 17:9488: FA        .byte con_jsr_2
 - D - I - 0x021499 17:9489: DD A1     .word off_A1DD
 - D - I - 0x02149B 17:948B: F2        .byte con_jsr_1
 - D - I - 0x02149C 17:948C: 0D 97     .word off_970D
+case_948E_01:
 - D - I - 0x02149E 17:948E: FA        .byte con_jsr_2
 - D - I - 0x02149F 17:948F: 5B 9C     .word off_9C5B
 - D - I - 0x0214A1 17:9491: FA        .byte con_jsr_2
 - D - I - 0x0214A2 17:9492: DD A1     .word off_A1DD
 - D - I - 0x0214A4 17:9494: F2        .byte con_jsr_1
 - D - I - 0x0214A5 17:9495: 16 97     .word off_9716
+case_9497_02:
 - D - I - 0x0214A7 17:9497: FA        .byte con_jsr_2
 - D - I - 0x0214A8 17:9498: 5B 9C     .word off_9C5B
 - D - I - 0x0214AA 17:949A: FA        .byte con_jsr_2
 - D - I - 0x0214AB 17:949B: DD A1     .word off_A1DD
 - D - I - 0x0214AD 17:949D: F2        .byte con_jsr_1
 - D - I - 0x0214AE 17:949E: 22 97     .word off_9722
+case_94A0_03:
 - D - I - 0x0214B0 17:94A0: FA        .byte con_jsr_2
 - D - I - 0x0214B1 17:94A1: 5B 9C     .word off_9C5B
 - D - I - 0x0214B3 17:94A3: FA        .byte con_jsr_2
 - D - I - 0x0214B4 17:94A4: DD A1     .word off_A1DD
 - D - I - 0x0214B6 17:94A6: F2        .byte con_jsr_1
 - D - I - 0x0214B7 17:94A7: 31 97     .word off_9731
+case_94A9_04:
 - D - I - 0x0214B9 17:94A9: FA        .byte con_jsr_2
 - D - I - 0x0214BA 17:94AA: 5B 9C     .word off_9C5B
 - D - I - 0x0214BC 17:94AC: FA        .byte con_jsr_2
 - D - I - 0x0214BD 17:94AD: DD A1     .word off_A1DD
 - D - I - 0x0214BF 17:94AF: F2        .byte con_jsr_1
 - D - I - 0x0214C0 17:94B0: 43 97     .word off_9743
+case_94B2_01:
 - - - - - 0x0214C2 17:94B2: FA        .byte con_jsr_2
 - - - - - 0x0214C3 17:94B3: 5B 9C     .word off_9C5B
 - - - - - 0x0214C5 17:94B5: FA        .byte con_jsr_2
 - - - - - 0x0214C6 17:94B6: DD A1     .word off_A1DD
 - - - - - 0x0214C8 17:94B8: F2        .byte con_jsr_1
 - - - - - 0x0214C9 17:94B9: 55 97     .word off_9755
+case_94BB_02:
 - D - I - 0x0214CB 17:94BB: FA        .byte con_jsr_2
 - D - I - 0x0214CC 17:94BC: 5B 9C     .word off_9C5B
 - D - I - 0x0214CE 17:94BE: FA        .byte con_jsr_2
@@ -4083,64 +4147,76 @@ off_9470:
 - D - I - 0x0214D4 17:94C4: F2        .byte con_jsr_1
 - D - I - 0x0214D5 17:94C5: 71 A3     .word off_A371
 off_94C7:
+case_94C7_03:
 - D - I - 0x0214D7 17:94C7: FA        .byte con_jsr_2
 - D - I - 0x0214D8 17:94C8: 5B 9C     .word off_9C5B
 - D - I - 0x0214DA 17:94CA: FA        .byte con_jsr_2
 - D - I - 0x0214DB 17:94CB: D1 A1     .word off_A1D1
 - D - I - 0x0214DD 17:94CD: F2        .byte con_jsr_1
 - D - I - 0x0214DE 17:94CE: 4E B4     .word off_B44E
+case_94D0_01:
 - D - I - 0x0214E0 17:94D0: F3        .byte con_F3, $8B
-- D - I - 0x0214E2 17:94D2: 0B        .byte $0B
-- - - - - 0x0214E3 17:94D3: 06        .byte $06
-- - - - - 0x0214E4 17:94D4: 46        .byte $46
-- - - - - 0x0214E5 17:94D5: 01        .byte $01
+- D - I - 0x0214E2 17:94D2: 0B        .byte case_94DD_00 - *
+- - - - - 0x0214E3 17:94D3: 06        .byte case_94D9_01 - *
+- - - - - 0x0214E4 17:94D4: 46        .byte case_951A_02 - *
+- - - - - 0x0214E5 17:94D5: 01        .byte case_94D6_03 - *
+case_94D6_03:
 - - - - - 0x0214E6 17:94D6: F2        .byte con_jsr_1
 - - - - - 0x0214E7 17:94D7: C7 94     .word off_94C7
+case_94D9_01:
 - - - - - 0x0214E9 17:94D9: F3        .byte con_F3, $8C
-- - - - - 0x0214EB 17:94DB: 02        .byte $02
-- - - - - 0x0214EC 17:94DC: 35        .byte $35
+- - - - - 0x0214EB 17:94DB: 02        .byte case_94DD_00 - *
+- - - - - 0x0214EC 17:94DC: 35        .byte case_9511_01 - *
+case_94DD_00:
 - D - I - 0x0214ED 17:94DD: F3        .byte con_F3, $8D
-- D - I - 0x0214EF 17:94DF: 05        .byte $05
-- - - - - 0x0214F0 17:94E0: 0D        .byte $0D
-- - - - - 0x0214F1 17:94E1: 15        .byte $15
-- - - - - 0x0214F2 17:94E2: 1D        .byte $1D
-- - - - - 0x0214F3 17:94E3: 25        .byte $25
+- D - I - 0x0214EF 17:94DF: 05        .byte case_94E4_00 - *
+- - - - - 0x0214F0 17:94E0: 0D        .byte case_94ED_01 - *
+- - - - - 0x0214F1 17:94E1: 15        .byte case_94F6_02 - *
+- - - - - 0x0214F2 17:94E2: 1D        .byte case_94FF_03 - *
+- - - - - 0x0214F3 17:94E3: 25        .byte case_9508_04 - *
+case_94E4_00:
 - D - I - 0x0214F4 17:94E4: FA        .byte con_jsr_2
 - D - I - 0x0214F5 17:94E5: 5B 9C     .word off_9C5B
 - D - I - 0x0214F7 17:94E7: FA        .byte con_jsr_2
 - D - I - 0x0214F8 17:94E8: CA A1     .word off_A1CA
 - D - I - 0x0214FA 17:94EA: F2        .byte con_jsr_1
 - D - I - 0x0214FB 17:94EB: 8A 97     .word off_978A
+case_94ED_01:
 - - - - - 0x0214FD 17:94ED: FA        .byte con_jsr_2
 - - - - - 0x0214FE 17:94EE: 5B 9C     .word off_9C5B
 - - - - - 0x021500 17:94F0: FA        .byte con_jsr_2
 - - - - - 0x021501 17:94F1: CA A1     .word off_A1CA
 - - - - - 0x021503 17:94F3: F2        .byte con_jsr_1
 - - - - - 0x021504 17:94F4: 99 97     .word off_9799
+case_94F6_02:
 - - - - - 0x021506 17:94F6: FA        .byte con_jsr_2
 - - - - - 0x021507 17:94F7: 5B 9C     .word off_9C5B
 - - - - - 0x021509 17:94F9: FA        .byte con_jsr_2
 - - - - - 0x02150A 17:94FA: CA A1     .word off_A1CA
 - - - - - 0x02150C 17:94FC: F2        .byte con_jsr_1
 - - - - - 0x02150D 17:94FD: AB 97     .word off_97AB
+case_94FF_03:
 - - - - - 0x02150F 17:94FF: FA        .byte con_jsr_2
 - - - - - 0x021510 17:9500: 5B 9C     .word off_9C5B
 - - - - - 0x021512 17:9502: FA        .byte con_jsr_2
 - - - - - 0x021513 17:9503: CA A1     .word off_A1CA
 - - - - - 0x021515 17:9505: F2        .byte con_jsr_1
 - - - - - 0x021516 17:9506: C3 97     .word off_97C3
+case_9508_04:
 - - - - - 0x021518 17:9508: FA        .byte con_jsr_2
 - - - - - 0x021519 17:9509: 5B 9C     .word off_9C5B
 - - - - - 0x02151B 17:950B: FA        .byte con_jsr_2
 - - - - - 0x02151C 17:950C: CA A1     .word off_A1CA
 - - - - - 0x02151E 17:950E: F2        .byte con_jsr_1
 - - - - - 0x02151F 17:950F: DB 97     .word off_97DB
+case_9511_01:
 - - - - - 0x021521 17:9511: FA        .byte con_jsr_2
 - - - - - 0x021522 17:9512: 5B 9C     .word off_9C5B
 - - - - - 0x021524 17:9514: FA        .byte con_jsr_2
 - - - - - 0x021525 17:9515: CA A1     .word off_A1CA
 - - - - - 0x021527 17:9517: F2        .byte con_jsr_1
 - - - - - 0x021528 17:9518: F3 97     .word off_97F3
+case_951A_02:
 - - - - - 0x02152A 17:951A: FA        .byte con_jsr_2
 - - - - - 0x02152B 17:951B: 5B 9C     .word off_9C5B
 - - - - - 0x02152D 17:951D: FA        .byte con_jsr_2
@@ -4161,46 +4237,56 @@ off_9533:
 - D - I - 0x021543 17:9533: FA        .byte con_jsr_2
 - D - I - 0x021544 17:9534: 9C 9F     .word off_9F9C
 - D - I - 0x021546 17:9536: F3        .byte con_F3, $81
-- D - I - 0x021548 17:9538: 02        .byte $02
-- D - I - 0x021549 17:9539: 48        .byte $48
+- D - I - 0x021548 17:9538: 02        .byte case_953A_00 - *
+- D - I - 0x021549 17:9539: 48        .byte case_9581_01 - *
+case_953A_00:
 - D - I - 0x02154A 17:953A: F3        .byte con_F3, $8B
-- D - I - 0x02154C 17:953C: 08        .byte $08
-- D - I - 0x02154D 17:953D: 03        .byte $03
-- D - I - 0x02154E 17:953E: 31        .byte $31
-- D - I - 0x02154F 17:953F: 3C        .byte $3C
+- D - I - 0x02154C 17:953C: 08        .byte case_9544_00 - *
+- D - I - 0x02154D 17:953D: 03        .byte case_9540_01 - *
+- D - I - 0x02154E 17:953E: 31        .byte case_956F_02 - *
+- D - I - 0x02154F 17:953F: 3C        .byte case_957B_03 - *
+case_9540_01:
 - D - I - 0x021550 17:9540: F3        .byte con_F3, $8C
-- D - I - 0x021552 17:9542: 02        .byte $02
-- D - I - 0x021553 17:9543: 26        .byte $26
+- D - I - 0x021552 17:9542: 02        .byte case_9544_00 - *
+- D - I - 0x021553 17:9543: 26        .byte case_9569_01 - *
+case_9544_00:
 - D - I - 0x021554 17:9544: F3        .byte con_F3, $8D
-- D - I - 0x021556 17:9546: 05        .byte $05
-- D - I - 0x021557 17:9547: 0A        .byte $0A
-- D - I - 0x021558 17:9548: 0F        .byte $0F
-- D - I - 0x021559 17:9549: 14        .byte $14
-- D - I - 0x02155A 17:954A: 19        .byte $19
+- D - I - 0x021556 17:9546: 05        .byte case_954B_00 - *
+- D - I - 0x021557 17:9547: 0A        .byte case_9551_01 - *
+- D - I - 0x021558 17:9548: 0F        .byte case_9557_02 - *
+- D - I - 0x021559 17:9549: 14        .byte case_955D_03 - *
+- D - I - 0x02155A 17:954A: 19        .byte case_9563_04 - *
+case_954B_00:
 - D - I - 0x02155B 17:954B: FA        .byte con_jsr_2
 - D - I - 0x02155C 17:954C: 94 A0     .word off_A094
 - D - I - 0x02155E 17:954E: F2        .byte con_jsr_1
 - D - I - 0x02155F 17:954F: 0D 97     .word off_970D
+case_9551_01:
 - D - I - 0x021561 17:9551: FA        .byte con_jsr_2
 - D - I - 0x021562 17:9552: 94 A0     .word off_A094
 - D - I - 0x021564 17:9554: F2        .byte con_jsr_1
 - D - I - 0x021565 17:9555: 16 97     .word off_9716
+case_9557_02:
 - D - I - 0x021567 17:9557: FA        .byte con_jsr_2
 - D - I - 0x021568 17:9558: 94 A0     .word off_A094
 - D - I - 0x02156A 17:955A: F2        .byte con_jsr_1
 - D - I - 0x02156B 17:955B: 22 97     .word off_9722
+case_955D_03:
 - D - I - 0x02156D 17:955D: FA        .byte con_jsr_2
 - D - I - 0x02156E 17:955E: 94 A0     .word off_A094
 - D - I - 0x021570 17:9560: F2        .byte con_jsr_1
 - D - I - 0x021571 17:9561: 31 97     .word off_9731
+case_9563_04:
 - D - I - 0x021573 17:9563: FA        .byte con_jsr_2
 - D - I - 0x021574 17:9564: 94 A0     .word off_A094
 - D - I - 0x021576 17:9566: F2        .byte con_jsr_1
 - D - I - 0x021577 17:9567: 43 97     .word off_9743
+case_9569_01:
 - D - I - 0x021579 17:9569: FA        .byte con_jsr_2
 - D - I - 0x02157A 17:956A: 94 A0     .word off_A094
 - D - I - 0x02157C 17:956C: F2        .byte con_jsr_1
 - D - I - 0x02157D 17:956D: 55 97     .word off_9755
+case_956F_02:
 - D - I - 0x02157F 17:956F: FA        .byte con_jsr_2
 - D - I - 0x021580 17:9570: A1 A0     .word off_A0A1
 off_9572:
@@ -4211,50 +4297,62 @@ off_9572:
 - D - I - 0x021588 17:9578: F2        .byte con_jsr_1
 - D - I - 0x021589 17:9579: F0 9E     .word off_9EF0
 off_957B:
+case_957B_03:
 - D - I - 0x02158B 17:957B: FA        .byte con_jsr_2
 - D - I - 0x02158C 17:957C: A6 A0     .word off_A0A6
 - D - I - 0x02158E 17:957E: F2        .byte con_jsr_1
 - D - I - 0x02158F 17:957F: 70 97     .word off_9770
+case_9581_01:
 - D - I - 0x021591 17:9581: F3        .byte con_F3, $8B
-- D - I - 0x021593 17:9583: 0B        .byte $0B
-- D - I - 0x021594 17:9584: 06        .byte $06
-- - - - - 0x021595 17:9585: 34        .byte $34
-- - - - - 0x021596 17:9586: 01        .byte $01
+- D - I - 0x021593 17:9583: 0B        .byte case_958E_00 - *
+- D - I - 0x021594 17:9584: 06        .byte case_958A_01 - *
+- - - - - 0x021595 17:9585: 34        .byte case_95B9_02 - *
+- - - - - 0x021596 17:9586: 01        .byte case_9587_03 - *
+case_9587_03:
 - - - - - 0x021597 17:9587: F2        .byte con_jsr_1
 - - - - - 0x021598 17:9588: 7B 95     .word off_957B
+case_958A_01:
 - D - I - 0x02159A 17:958A: F3        .byte con_F3, $8C
-- - - - - 0x02159C 17:958C: 02        .byte $02
-- D - I - 0x02159D 17:958D: 26        .byte $26
+- - - - - 0x02159C 17:958C: 02        .byte case_958E_00 - *
+- D - I - 0x02159D 17:958D: 26        .byte case_95B3_01 - *
+case_958E_00:
 - D - I - 0x02159E 17:958E: F3        .byte con_F3, $8D
-- D - I - 0x0215A0 17:9590: 05        .byte $05
-- D - I - 0x0215A1 17:9591: 0A        .byte $0A
-- - - - - 0x0215A2 17:9592: 0F        .byte $0F
-- - - - - 0x0215A3 17:9593: 14        .byte $14
-- - - - - 0x0215A4 17:9594: 19        .byte $19
+- D - I - 0x0215A0 17:9590: 05        .byte case_9595_00 - *
+- D - I - 0x0215A1 17:9591: 0A        .byte case_959B_01 - *
+- - - - - 0x0215A2 17:9592: 0F        .byte case_95A1_02 - *
+- - - - - 0x0215A3 17:9593: 14        .byte case_95A7_03 - *
+- - - - - 0x0215A4 17:9594: 19        .byte case_95AD_04 - *
+case_9595_00:
 - D - I - 0x0215A5 17:9595: FA        .byte con_jsr_2
 - D - I - 0x0215A6 17:9596: A1 A0     .word off_A0A1
 - D - I - 0x0215A8 17:9598: F2        .byte con_jsr_1
 - D - I - 0x0215A9 17:9599: 8A 97     .word off_978A
+case_959B_01:
 - D - I - 0x0215AB 17:959B: FA        .byte con_jsr_2
 - D - I - 0x0215AC 17:959C: A1 A0     .word off_A0A1
 - D - I - 0x0215AE 17:959E: F2        .byte con_jsr_1
 - D - I - 0x0215AF 17:959F: 99 97     .word off_9799
+case_95A1_02:
 - - - - - 0x0215B1 17:95A1: FA        .byte con_jsr_2
 - - - - - 0x0215B2 17:95A2: A1 A0     .word off_A0A1
 - - - - - 0x0215B4 17:95A4: F2        .byte con_jsr_1
 - - - - - 0x0215B5 17:95A5: AB 97     .word off_97AB
+case_95A7_03:
 - - - - - 0x0215B7 17:95A7: FA        .byte con_jsr_2
 - - - - - 0x0215B8 17:95A8: A1 A0     .word off_A0A1
 - - - - - 0x0215BA 17:95AA: F2        .byte con_jsr_1
 - - - - - 0x0215BB 17:95AB: C3 97     .word off_97C3
+case_95AD_04:
 - - - - - 0x0215BD 17:95AD: FA        .byte con_jsr_2
 - - - - - 0x0215BE 17:95AE: A1 A0     .word off_A0A1
 - - - - - 0x0215C0 17:95B0: F2        .byte con_jsr_1
 - - - - - 0x0215C1 17:95B1: DB 97     .word off_97DB
+case_95B3_01:
 - D - I - 0x0215C3 17:95B3: FA        .byte con_jsr_2
 - D - I - 0x0215C4 17:95B4: A1 A0     .word off_A0A1
 - D - I - 0x0215C6 17:95B6: F2        .byte con_jsr_1
 - D - I - 0x0215C7 17:95B7: F3 97     .word off_97F3
+case_95B9_02:
 - - - - - 0x0215C9 17:95B9: FA        .byte con_jsr_2
 - - - - - 0x0215CA 17:95BA: A1 A0     .word off_A0A1
 off_95BC:
@@ -4268,212 +4366,259 @@ off_95BC:
 - D - I - 0x0215D6 17:95C6: F0 9E     .word off_9EF0
 off_95C8:
 - D - I - 0x0215D8 17:95C8: F3        .byte con_F3, $81
-- D - I - 0x0215DA 17:95CA: 02        .byte $02
-- - - - - 0x0215DB 17:95CB: 42        .byte $42
+- D - I - 0x0215DA 17:95CA: 02        .byte case_95CC_00 - *
+- - - - - 0x0215DB 17:95CB: 42        .byte case_960D_01 - *
+case_95CC_00:
 - D - I - 0x0215DC 17:95CC: F3        .byte con_F3, $8B
-- D - I - 0x0215DE 17:95CE: 08        .byte $08
-- - - - - 0x0215DF 17:95CF: 03        .byte $03
-- D - I - 0x0215E0 17:95D0: 31        .byte $31
-- D - I - 0x0215E1 17:95D1: 36        .byte $36
+- D - I - 0x0215DE 17:95CE: 08        .byte case_95D6_00 - *
+- - - - - 0x0215DF 17:95CF: 03        .byte case_95D2_01 - *
+- D - I - 0x0215E0 17:95D0: 31        .byte case_9601_02 - *
+- D - I - 0x0215E1 17:95D1: 36        .byte case_9607_03 - *
+case_95D2_01:
 - - - - - 0x0215E2 17:95D2: F3        .byte con_F3, $8C
-- - - - - 0x0215E4 17:95D4: 02        .byte $02
-- - - - - 0x0215E5 17:95D5: 26        .byte $26
+- - - - - 0x0215E4 17:95D4: 02        .byte case_95D6_00 - *
+- - - - - 0x0215E5 17:95D5: 26        .byte case_95FB_01 - *
+case_95D6_00:
 - D - I - 0x0215E6 17:95D6: F3        .byte con_F3, $8D
-- D - I - 0x0215E8 17:95D8: 05        .byte $05
-- - - - - 0x0215E9 17:95D9: 0A        .byte $0A
-- - - - - 0x0215EA 17:95DA: 0F        .byte $0F
-- - - - - 0x0215EB 17:95DB: 14        .byte $14
-- - - - - 0x0215EC 17:95DC: 19        .byte $19
+- D - I - 0x0215E8 17:95D8: 05        .byte case_95DD_00 - *
+- - - - - 0x0215E9 17:95D9: 0A        .byte case_95E3_01 - *
+- - - - - 0x0215EA 17:95DA: 0F        .byte case_95E9_02 - *
+- - - - - 0x0215EB 17:95DB: 14        .byte case_95EF_03 - *
+- - - - - 0x0215EC 17:95DC: 19        .byte case_95F5_04 - *
+case_95DD_00:
 - D - I - 0x0215ED 17:95DD: FA        .byte con_jsr_2
 - D - I - 0x0215EE 17:95DE: CD A0     .word off_A0CD
 - D - I - 0x0215F0 17:95E0: F2        .byte con_jsr_1
 - D - I - 0x0215F1 17:95E1: 0A 97     .word off_970A
+case_95E3_01:
 - - - - - 0x0215F3 17:95E3: FA        .byte con_jsr_2
 - - - - - 0x0215F4 17:95E4: CD A0     .word off_A0CD
 - - - - - 0x0215F6 17:95E6: F2        .byte con_jsr_1
 - - - - - 0x0215F7 17:95E7: 13 97     .word off_9713
+case_95E9_02:
 - - - - - 0x0215F9 17:95E9: FA        .byte con_jsr_2
 - - - - - 0x0215FA 17:95EA: CD A0     .word off_A0CD
 - - - - - 0x0215FC 17:95EC: F2        .byte con_jsr_1
 - - - - - 0x0215FD 17:95ED: 1F 97     .word off_971F
+case_95EF_03:
 - - - - - 0x0215FF 17:95EF: FA        .byte con_jsr_2
 - - - - - 0x021600 17:95F0: CD A0     .word off_A0CD
 - - - - - 0x021602 17:95F2: F2        .byte con_jsr_1
 - - - - - 0x021603 17:95F3: 2E 97     .word off_972E
+case_95F5_04:
 - - - - - 0x021605 17:95F5: FA        .byte con_jsr_2
 - - - - - 0x021606 17:95F6: CD A0     .word off_A0CD
 - - - - - 0x021608 17:95F8: F2        .byte con_jsr_1
 - - - - - 0x021609 17:95F9: 40 97     .word off_9740
+case_95FB_01:
 - - - - - 0x02160B 17:95FB: FA        .byte con_jsr_2
 - - - - - 0x02160C 17:95FC: CD A0     .word off_A0CD
 - - - - - 0x02160E 17:95FE: F2        .byte con_jsr_1
 - - - - - 0x02160F 17:95FF: 52 97     .word off_9752
+case_9601_02:
 - D - I - 0x021611 17:9601: FA        .byte con_jsr_2
 - D - I - 0x021612 17:9602: CD A0     .word off_A0CD
 - D - I - 0x021614 17:9604: F2        .byte con_jsr_1
 - D - I - 0x021615 17:9605: 5E 97     .word off_975E
 off_9607:
+case_9607_03:
 - D - I - 0x021617 17:9607: FA        .byte con_jsr_2
 - D - I - 0x021618 17:9608: CD A0     .word off_A0CD
 - D - I - 0x02161A 17:960A: F2        .byte con_jsr_1
 - D - I - 0x02161B 17:960B: 6D 97     .word off_976D
+case_960D_01:
 - - - - - 0x02161D 17:960D: F3        .byte con_F3, $8B
-- - - - - 0x02161F 17:960F: 0B        .byte $0B
-- - - - - 0x021620 17:9610: 06        .byte $06
-- - - - - 0x021621 17:9611: 34        .byte $34
-- - - - - 0x021622 17:9612: 01        .byte $01
+- - - - - 0x02161F 17:960F: 0B        .byte case_961A_00 - *
+- - - - - 0x021620 17:9610: 06        .byte case_9616_01 - *
+- - - - - 0x021621 17:9611: 34        .byte case_9645_02 - *
+- - - - - 0x021622 17:9612: 01        .byte case_9613_03 - *
+case_9613_03:
 - - - - - 0x021623 17:9613: F2        .byte con_jsr_1
 - - - - - 0x021624 17:9614: 07 96     .word off_9607
+case_9616_01:
 - - - - - 0x021626 17:9616: F3        .byte con_F3, $8C
-- - - - - 0x021628 17:9618: 02        .byte $02
-- - - - - 0x021629 17:9619: 26        .byte $26
+- - - - - 0x021628 17:9618: 02        .byte case_961A_00 - *
+- - - - - 0x021629 17:9619: 26        .byte case_963F_01 - *
+case_961A_00:
 - - - - - 0x02162A 17:961A: F3        .byte con_F3, $8D
-- - - - - 0x02162C 17:961C: 05        .byte $05
-- - - - - 0x02162D 17:961D: 0A        .byte $0A
-- - - - - 0x02162E 17:961E: 0F        .byte $0F
-- - - - - 0x02162F 17:961F: 14        .byte $14
-- - - - - 0x021630 17:9620: 19        .byte $19
+- - - - - 0x02162C 17:961C: 05        .byte case_9621_00 - *
+- - - - - 0x02162D 17:961D: 0A        .byte case_9627_01 - *
+- - - - - 0x02162E 17:961E: 0F        .byte case_962D_02 - *
+- - - - - 0x02162F 17:961F: 14        .byte case_9633_03 - *
+- - - - - 0x021630 17:9620: 19        .byte case_9639_04 - *
+case_9621_00:
 - - - - - 0x021631 17:9621: FA        .byte con_jsr_2
 - - - - - 0x021632 17:9622: CD A0     .word off_A0CD
 - - - - - 0x021634 17:9624: F2        .byte con_jsr_1
 - - - - - 0x021635 17:9625: 87 97     .word off_9787
+case_9627_01:
 - - - - - 0x021637 17:9627: FA        .byte con_jsr_2
 - - - - - 0x021638 17:9628: CD A0     .word off_A0CD
 - - - - - 0x02163A 17:962A: F2        .byte con_jsr_1
 - - - - - 0x02163B 17:962B: 96 97     .word off_9796
+case_962D_02:
 - - - - - 0x02163D 17:962D: FA        .byte con_jsr_2
 - - - - - 0x02163E 17:962E: CD A0     .word off_A0CD
 - - - - - 0x021640 17:9630: F2        .byte con_jsr_1
 - - - - - 0x021641 17:9631: A8 97     .word off_97A8
+case_9633_03:
 - - - - - 0x021643 17:9633: FA        .byte con_jsr_2
 - - - - - 0x021644 17:9634: CD A0     .word off_A0CD
 - - - - - 0x021646 17:9636: F2        .byte con_jsr_1
 - - - - - 0x021647 17:9637: C0 97     .word off_97C0
+case_9639_04:
 - - - - - 0x021649 17:9639: FA        .byte con_jsr_2
 - - - - - 0x02164A 17:963A: CD A0     .word off_A0CD
 - - - - - 0x02164C 17:963C: F2        .byte con_jsr_1
 - - - - - 0x02164D 17:963D: D8 97     .word off_97D8
+case_963F_01:
 - - - - - 0x02164F 17:963F: FA        .byte con_jsr_2
 - - - - - 0x021650 17:9640: CD A0     .word off_A0CD
 - - - - - 0x021652 17:9642: F2        .byte con_jsr_1
 - - - - - 0x021653 17:9643: F0 97     .word off_97F0
+case_9645_02:
 - - - - - 0x021655 17:9645: FA        .byte con_jsr_2
 - - - - - 0x021656 17:9646: CD A0     .word off_A0CD
 - - - - - 0x021658 17:9648: F2        .byte con_jsr_1
 - - - - - 0x021659 17:9649: 02 98     .word off_9802
 off_964B:
 - D - I - 0x02165B 17:964B: F3        .byte con_F3, $81
-- D - I - 0x02165D 17:964D: 02        .byte $02
-- - - - - 0x02165E 17:964E: 42        .byte $42
+- D - I - 0x02165D 17:964D: 02        .byte case_964F_00 - *
+- - - - - 0x02165E 17:964E: 42        .byte case_9690_01 - *
+case_964F_00:
 - D - I - 0x02165F 17:964F: F3        .byte con_F3, $8B
-- D - I - 0x021661 17:9651: 08        .byte $08
-- - - - - 0x021662 17:9652: 03        .byte $03
-- D - I - 0x021663 17:9653: 31        .byte $31
-- D - I - 0x021664 17:9654: 36        .byte $36
+- D - I - 0x021661 17:9651: 08        .byte case_9659_00 - *
+- - - - - 0x021662 17:9652: 03        .byte case_9655_01 - *
+- D - I - 0x021663 17:9653: 31        .byte case_9684_02 - *
+- D - I - 0x021664 17:9654: 36        .byte case_968A_03 - *
+case_9655_01:
 - - - - - 0x021665 17:9655: F3        .byte con_F3, $8C
-- - - - - 0x021667 17:9657: 02        .byte $02
-- - - - - 0x021668 17:9658: 26        .byte $26
+- - - - - 0x021667 17:9657: 02        .byte case_9659_00 - *
+- - - - - 0x021668 17:9658: 26        .byte case_967E_01 - *
+case_9659_00:
 - D - I - 0x021669 17:9659: F3        .byte con_F3, $8D
-- D - I - 0x02166B 17:965B: 05        .byte $05
-- - - - - 0x02166C 17:965C: 0A        .byte $0A
-- - - - - 0x02166D 17:965D: 0F        .byte $0F
-- - - - - 0x02166E 17:965E: 14        .byte $14
-- - - - - 0x02166F 17:965F: 19        .byte $19
+- D - I - 0x02166B 17:965B: 05        .byte case_9660_00 - *
+- - - - - 0x02166C 17:965C: 0A        .byte case_9666_01 - *
+- - - - - 0x02166D 17:965D: 0F        .byte case_966C_02 - *
+- - - - - 0x02166E 17:965E: 14        .byte case_9672_03 - *
+- - - - - 0x02166F 17:965F: 19        .byte case_9678_04 - *
+case_9660_00:
 - D - I - 0x021670 17:9660: FA        .byte con_jsr_2
 - D - I - 0x021671 17:9661: FF A1     .word off_A1FF
 - D - I - 0x021673 17:9663: F2        .byte con_jsr_1
 - D - I - 0x021674 17:9664: 0A 97     .word off_970A
+case_9666_01:
 - - - - - 0x021676 17:9666: FA        .byte con_jsr_2
 - - - - - 0x021677 17:9667: FF A1     .word off_A1FF
 - - - - - 0x021679 17:9669: F2        .byte con_jsr_1
 - - - - - 0x02167A 17:966A: 13 97     .word off_9713
+case_966C_02:
 - - - - - 0x02167C 17:966C: FA        .byte con_jsr_2
 - - - - - 0x02167D 17:966D: FF A1     .word off_A1FF
 - - - - - 0x02167F 17:966F: F2        .byte con_jsr_1
 - - - - - 0x021680 17:9670: 1F 97     .word off_971F
+case_9672_03:
 - - - - - 0x021682 17:9672: FA        .byte con_jsr_2
 - - - - - 0x021683 17:9673: FF A1     .word off_A1FF
 - - - - - 0x021685 17:9675: F2        .byte con_jsr_1
 - - - - - 0x021686 17:9676: 2E 97     .word off_972E
+case_9678_04:
 - - - - - 0x021688 17:9678: FA        .byte con_jsr_2
 - - - - - 0x021689 17:9679: FF A1     .word off_A1FF
 - - - - - 0x02168B 17:967B: F2        .byte con_jsr_1
 - - - - - 0x02168C 17:967C: 40 97     .word off_9740
+case_967E_01:
 - - - - - 0x02168E 17:967E: FA        .byte con_jsr_2
 - - - - - 0x02168F 17:967F: FF A1     .word off_A1FF
 - - - - - 0x021691 17:9681: F2        .byte con_jsr_1
 - - - - - 0x021692 17:9682: 52 97     .word off_9752
+case_9684_02:
 - D - I - 0x021694 17:9684: FA        .byte con_jsr_2
 - D - I - 0x021695 17:9685: FF A1     .word off_A1FF
 - D - I - 0x021697 17:9687: F2        .byte con_jsr_1
 - D - I - 0x021698 17:9688: 5E 97     .word off_975E
 off_968A:
+case_968A_03:
 - D - I - 0x02169A 17:968A: FA        .byte con_jsr_2
 - D - I - 0x02169B 17:968B: FF A1     .word off_A1FF
 - D - I - 0x02169D 17:968D: F2        .byte con_jsr_1
 - D - I - 0x02169E 17:968E: 6D 97     .word off_976D
+case_9690_01:
 - - - - - 0x0216A0 17:9690: F3        .byte con_F3, $8B
-- - - - - 0x0216A2 17:9692: 0B        .byte $0B
-- - - - - 0x0216A3 17:9693: 06        .byte $06
-- - - - - 0x0216A4 17:9694: 34        .byte $34
-- - - - - 0x0216A5 17:9695: 01        .byte $01
+- - - - - 0x0216A2 17:9692: 0B        .byte case_969D_00 - *
+- - - - - 0x0216A3 17:9693: 06        .byte case_9699_01 - *
+- - - - - 0x0216A4 17:9694: 34        .byte case_96C8_02 - *
+- - - - - 0x0216A5 17:9695: 01        .byte case_9696_03 - *
+case_9696_03:
 - - - - - 0x0216A6 17:9696: F2        .byte con_jsr_1
 - - - - - 0x0216A7 17:9697: 8A 96     .word off_968A
+case_9699_01:
 - - - - - 0x0216A9 17:9699: F3        .byte con_F3, $8C
-- - - - - 0x0216AB 17:969B: 02        .byte $02
-- - - - - 0x0216AC 17:969C: 26        .byte $26
+- - - - - 0x0216AB 17:969B: 02        .byte case_969D_00 - *
+- - - - - 0x0216AC 17:969C: 26        .byte case_96C2_01 - *
+case_969D_00:
 - - - - - 0x0216AD 17:969D: F3        .byte con_F3, $8D
-- - - - - 0x0216AF 17:969F: 05        .byte $05
-- - - - - 0x0216B0 17:96A0: 0A        .byte $0A
-- - - - - 0x0216B1 17:96A1: 0F        .byte $0F
-- - - - - 0x0216B2 17:96A2: 14        .byte $14
-- - - - - 0x0216B3 17:96A3: 19        .byte $19
+- - - - - 0x0216AF 17:969F: 05        .byte case_96A4_00 - *
+- - - - - 0x0216B0 17:96A0: 0A        .byte case_96AA_01 - *
+- - - - - 0x0216B1 17:96A1: 0F        .byte case_96B0_02 - *
+- - - - - 0x0216B2 17:96A2: 14        .byte case_96B6_03 - *
+- - - - - 0x0216B3 17:96A3: 19        .byte case_96BC_04 - *
+case_96A4_00:
 - - - - - 0x0216B4 17:96A4: FA        .byte con_jsr_2
 - - - - - 0x0216B5 17:96A5: FF A1     .word off_A1FF
 - - - - - 0x0216B7 17:96A7: F2        .byte con_jsr_1
 - - - - - 0x0216B8 17:96A8: 87 97     .word off_9787
+case_96AA_01:
 - - - - - 0x0216BA 17:96AA: FA        .byte con_jsr_2
 - - - - - 0x0216BB 17:96AB: FF A1     .word off_A1FF
 - - - - - 0x0216BD 17:96AD: F2        .byte con_jsr_1
 - - - - - 0x0216BE 17:96AE: 96 97     .word off_9796
+case_96B0_02:
 - - - - - 0x0216C0 17:96B0: FA        .byte con_jsr_2
 - - - - - 0x0216C1 17:96B1: FF A1     .word off_A1FF
 - - - - - 0x0216C3 17:96B3: F2        .byte con_jsr_1
 - - - - - 0x0216C4 17:96B4: A8 97     .word off_97A8
+case_96B6_03:
 - - - - - 0x0216C6 17:96B6: FA        .byte con_jsr_2
 - - - - - 0x0216C7 17:96B7: FF A1     .word off_A1FF
 - - - - - 0x0216C9 17:96B9: F2        .byte con_jsr_1
 - - - - - 0x0216CA 17:96BA: C0 97     .word off_97C0
+case_96BC_04:
 - - - - - 0x0216CC 17:96BC: FA        .byte con_jsr_2
 - - - - - 0x0216CD 17:96BD: FF A1     .word off_A1FF
 - - - - - 0x0216CF 17:96BF: F2        .byte con_jsr_1
 - - - - - 0x0216D0 17:96C0: D8 97     .word off_97D8
+case_96C2_01:
 - - - - - 0x0216D2 17:96C2: FA        .byte con_jsr_2
 - - - - - 0x0216D3 17:96C3: FF A1     .word off_A1FF
 - - - - - 0x0216D5 17:96C5: F2        .byte con_jsr_1
 - - - - - 0x0216D6 17:96C6: F0 97     .word off_97F0
+case_96C8_02:
 - - - - - 0x0216D8 17:96C8: FA        .byte con_jsr_2
 - - - - - 0x0216D9 17:96C9: FF A1     .word off_A1FF
 - - - - - 0x0216DB 17:96CB: F2        .byte con_jsr_1
 - - - - - 0x0216DC 17:96CC: 02 98     .word off_9802
 off_96CE:
 - D - I - 0x0216DE 17:96CE: F3        .byte con_F3, $81
-- D - I - 0x0216E0 17:96D0: 02        .byte $02
-- D - I - 0x0216E1 17:96D1: 78        .byte $78
+- D - I - 0x0216E0 17:96D0: 02        .byte case_96D2_00 - *
+- D - I - 0x0216E1 17:96D1: 78        .byte case_9749_01 - *
+case_96D2_00:
 - D - I - 0x0216E2 17:96D2: F3        .byte con_F3, $8B
-- D - I - 0x0216E4 17:96D4: 08        .byte $08
-- - - - - 0x0216E5 17:96D5: 03        .byte $03
-- D - I - 0x0216E6 17:96D6: 85        .byte $85
-- D - I - 0x0216E7 17:96D7: 93        .byte $93
+- D - I - 0x0216E4 17:96D4: 08        .byte case_96DC_00 - *
+- - - - - 0x0216E5 17:96D5: 03        .byte case_96D8_01 - *
+- D - I - 0x0216E6 17:96D6: 85        .byte case_975B_02 - *
+- D - I - 0x0216E7 17:96D7: 93        .byte case_976A_03 - *
+case_96D8_01:
 - - - - - 0x0216E8 17:96D8: F3        .byte con_F3, $8C
-- - - - - 0x0216EA 17:96DA: 02        .byte $02
-- - - - - 0x0216EB 17:96DB: 74        .byte $74
+- - - - - 0x0216EA 17:96DA: 02        .byte case_96DC_00 - *
+- - - - - 0x0216EB 17:96DB: 74        .byte case_974F_01 - *
+case_96DC_00:
 - D - I - 0x0216EC 17:96DC: F3        .byte con_F3, $8D
-- D - I - 0x0216EE 17:96DE: 29        .byte $29
-- - - - - 0x0216EF 17:96DF: 31        .byte $31
-- - - - - 0x0216F0 17:96E0: 3C        .byte $3C
-- - - - - 0x0216F1 17:96E1: 4A        .byte $4A
-- - - - - 0x0216F2 17:96E2: 5B        .byte $5B
+- D - I - 0x0216EE 17:96DE: 29        .byte case_9707_00 - *
+- - - - - 0x0216EF 17:96DF: 31        .byte case_9710_01 - *
+- - - - - 0x0216F0 17:96E0: 3C        .byte case_971C_02 - *
+- - - - - 0x0216F1 17:96E1: 4A        .byte case_972B_03 - *
+- - - - - 0x0216F2 17:96E2: 5B        .byte case_973D_04 - *
 
 
 
@@ -4482,17 +4627,19 @@ off_96E3_0C:
 - D - I - 0x0216F5 17:96E5: FA        .byte con_jsr_2
 - D - I - 0x0216F6 17:96E6: F6 9E     .word off_9EF6
 - D - I - 0x0216F8 17:96E8: F3        .byte con_F3, $92
-- D - I - 0x0216FA 17:96EA: 06        .byte $06
-- - - - - 0x0216FB 17:96EB: 01        .byte $01
+- D - I - 0x0216FA 17:96EA: 06        .byte case_96F0_00 - *
+- - - - - 0x0216FB 17:96EB: 01        .byte case_96EC_01 - *
+case_96EC_01:
 - - - - - 0x0216FC 17:96EC: F3        .byte con_F3, $8C
-- - - - - 0x0216FE 17:96EE: 02        .byte $02
-- - - - - 0x0216FF 17:96EF: 66        .byte $66
+- - - - - 0x0216FE 17:96EE: 02        .byte case_96F0_00 - *
+- - - - - 0x0216FF 17:96EF: 66        .byte case_9755_01 - *
+case_96F0_00:
 - D - I - 0x021700 17:96F0: F3        .byte con_F3, $8D
-- D - I - 0x021702 17:96F2: 1B        .byte $1B
-- D - I - 0x021703 17:96F3: 23        .byte $23
-- D - I - 0x021704 17:96F4: 2E        .byte $2E
-- D - I - 0x021705 17:96F5: 3C        .byte $3C
-- D - I - 0x021706 17:96F6: 4D        .byte $4D
+- D - I - 0x021702 17:96F2: 1B        .byte case_970D_00 - *
+- D - I - 0x021703 17:96F3: 23        .byte case_9716_01 - *
+- D - I - 0x021704 17:96F4: 2E        .byte case_9722_02 - *
+- D - I - 0x021705 17:96F5: 3C        .byte case_9731_03 - *
+- D - I - 0x021706 17:96F6: 4D        .byte case_9743_04 - *
 
 
 
@@ -4503,47 +4650,56 @@ off_96F7_0D:
 - D - I - 0x02170C 17:96FC: FA        .byte con_jsr_2
 - D - I - 0x02170D 17:96FD: E7 B4     .word off_B4E7
 - D - I - 0x02170F 17:96FF: F3        .byte con_F3, $93
-- D - I - 0x021711 17:9701: 03        .byte $03
-- D - I - 0x021712 17:9702: 41        .byte $41
-- D - I - 0x021713 17:9703: 1F        .byte $1F
+- D - I - 0x021711 17:9701: 03        .byte case_9704_00 - *
+- D - I - 0x021712 17:9702: 41        .byte case_9743_01 - *
+- D - I - 0x021713 17:9703: 1F        .byte case_9722_02 - *
+case_9704_00:
 - D - I - 0x021714 17:9704: F2        .byte con_jsr_1
 - D - I - 0x021715 17:9705: 28 9C     .word off_9C28
+case_9707_00:
 - D - I - 0x021717 17:9707: FA        .byte con_jsr_2
 - D - I - 0x021718 17:9708: E4 A1     .word off_A1E4
 off_970A:
 - D - I - 0x02171A 17:970A: FA        .byte con_jsr_2
 - D - I - 0x02171B 17:970B: 09 A1     .word off_A109
 off_970D:
+case_970D_00:
 - D - I - 0x02171D 17:970D: F2        .byte con_jsr_1
 - D - I - 0x02171E 17:970E: 28 9C     .word off_9C28
+case_9710_01:
 - - - - - 0x021720 17:9710: FA        .byte con_jsr_2
 - - - - - 0x021721 17:9711: E4 A1     .word off_A1E4
 off_9713:
 - - - - - 0x021723 17:9713: FA        .byte con_jsr_2
 - - - - - 0x021724 17:9714: 09 A1     .word off_A109
 off_9716:
+case_9716_01:
 - D - I - 0x021726 17:9716: FA        .byte con_jsr_2
 - D - I - 0x021727 17:9717: 4E A2     .word off_A24E
 - D - I - 0x021729 17:9719: F2        .byte con_jsr_1
 - D - I - 0x02172A 17:971A: 58 A2     .word off_A258
+case_971C_02:
 - - - - - 0x02172C 17:971C: FA        .byte con_jsr_2
 - - - - - 0x02172D 17:971D: E4 A1     .word off_A1E4
 off_971F:
 - - - - - 0x02172F 17:971F: FA        .byte con_jsr_2
 - - - - - 0x021730 17:9720: 09 A1     .word off_A109
 off_9722:
+case_9722_02:
 - D - I - 0x021732 17:9722: FA        .byte con_jsr_2
 - D - I - 0x021733 17:9723: B6 A0     .word off_A0B6
 - D - I - 0x021735 17:9725: FA        .byte con_jsr_2
 - D - I - 0x021736 17:9726: 12 A3     .word off_A312
 - D - I - 0x021738 17:9728: F2        .byte con_jsr_1
 - D - I - 0x021739 17:9729: 71 A3     .word off_A371
+case_972B_03:
 - - - - - 0x02173B 17:972B: FA        .byte con_jsr_2
 - - - - - 0x02173C 17:972C: E4 A1     .word off_A1E4
 off_972E:
 - - - - - 0x02173E 17:972E: FA        .byte con_jsr_2
 - - - - - 0x02173F 17:972F: 09 A1     .word off_A109
 off_9731:
+case_9731_03:
 - D - I - 0x021741 17:9731: FA        .byte con_jsr_2
 - D - I - 0x021742 17:9732: 4E A2     .word off_A24E
 - D - I - 0x021744 17:9734: FA        .byte con_jsr_2
@@ -4552,31 +4708,38 @@ off_9731:
 - D - I - 0x021748 17:9738: 12 A2     .word off_A212
 - D - I - 0x02174A 17:973A: F2        .byte con_jsr_1
 - D - I - 0x02174B 17:973B: 28 9C     .word off_9C28
+case_973D_04:
 - - - - - 0x02174D 17:973D: FA        .byte con_jsr_2
 - - - - - 0x02174E 17:973E: E4 A1     .word off_A1E4
 off_9740:
 - - - - - 0x021750 17:9740: FA        .byte con_jsr_2
 - - - - - 0x021751 17:9741: 09 A1     .word off_A109
 off_9743:
+case_9743_04:
+case_9743_01:
 - D - I - 0x021753 17:9743: FA        .byte con_jsr_2
 - D - I - 0x021754 17:9744: BE A0     .word off_A0BE
 - D - I - 0x021756 17:9746: F2        .byte con_jsr_1
 - D - I - 0x021757 17:9747: 28 9C     .word off_9C28
+case_9749_01:
 - D - I - 0x021759 17:9749: F3        .byte con_F3, $8B
-- D - I - 0x02175B 17:974B: 32        .byte $32
-- - - - - 0x02175C 17:974C: 2D        .byte $2D
-- - - - - 0x02175D 17:974D: B2        .byte $B2
-- - - - - 0x02175E 17:974E: 28        .byte $28
+- D - I - 0x02175B 17:974B: 32        .byte case_977D_00 - *
+- - - - - 0x02175C 17:974C: 2D        .byte case_9779_01 - *
+- - - - - 0x02175D 17:974D: B2        .byte case_97FF_02 - *
+- - - - - 0x02175E 17:974E: 28        .byte case_9776_03 - *
+case_974F_01:
 - - - - - 0x02175F 17:974F: FA        .byte con_jsr_2
 - - - - - 0x021760 17:9750: E4 A1     .word off_A1E4
 off_9752:
 - - - - - 0x021762 17:9752: FA        .byte con_jsr_2
 - - - - - 0x021763 17:9753: 09 A1     .word off_A109
 off_9755:
+case_9755_01:
 - D - I - 0x021765 17:9755: FA        .byte con_jsr_2
 - D - I - 0x021766 17:9756: F4 A2     .word off_A2F4
 - D - I - 0x021768 17:9758: F2        .byte con_jsr_1
 - D - I - 0x021769 17:9759: 64 A3     .word off_A364
+case_975B_02:
 - D - I - 0x02176B 17:975B: FA        .byte con_jsr_2
 - D - I - 0x02176C 17:975C: E4 A1     .word off_A1E4
 off_975E:
@@ -4589,6 +4752,7 @@ off_975E:
 - D - I - 0x021777 17:9767: F2        .byte con_jsr_1
 - D - I - 0x021778 17:9768: F0 9E     .word off_9EF0
 off_976A:
+case_976A_03:
 - D - I - 0x02177A 17:976A: FA        .byte con_jsr_2
 - D - I - 0x02177B 17:976B: E4 A1     .word off_A1E4
 off_976D:
@@ -4599,17 +4763,21 @@ off_9770:
 - D - I - 0x021781 17:9771: 4E B4     .word off_B44E
 - D - I - 0x021783 17:9773: F2        .byte con_jsr_1
 - D - I - 0x021784 17:9774: F0 9E     .word off_9EF0
+case_9776_03:
 - - - - - 0x021786 17:9776: F2        .byte con_jsr_1
 - - - - - 0x021787 17:9777: 6A 97     .word off_976A
+case_9779_01:
 - - - - - 0x021789 17:9779: F3        .byte con_F3, $8C
-- - - - - 0x02178B 17:977B: 02        .byte $02
-- - - - - 0x02178C 17:977C: 71        .byte $71
+- - - - - 0x02178B 17:977B: 02        .byte case_977D_00 - *
+- - - - - 0x02178C 17:977C: 71        .byte case_97ED_01 - *
+case_977D_00:
 - D - I - 0x02178D 17:977D: F3        .byte con_F3, $8D
-- D - I - 0x02178F 17:977F: 05        .byte $05
-- - - - - 0x021790 17:9780: 13        .byte $13
-- - - - - 0x021791 17:9781: 24        .byte $24
-- - - - - 0x021792 17:9782: 3B        .byte $3B
-- - - - - 0x021793 17:9783: 52        .byte $52
+- D - I - 0x02178F 17:977F: 05        .byte case_9784_00 - *
+- - - - - 0x021790 17:9780: 13        .byte case_9793_01 - *
+- - - - - 0x021791 17:9781: 24        .byte case_97A5_02 - *
+- - - - - 0x021792 17:9782: 3B        .byte case_97BD_03 - *
+- - - - - 0x021793 17:9783: 52        .byte case_97D5_04 - *
+case_9784_00:
 - D - I - 0x021794 17:9784: FA        .byte con_jsr_2
 - D - I - 0x021795 17:9785: E4 A1     .word off_A1E4
 off_9787:
@@ -4622,6 +4790,7 @@ off_978A:
 - D - I - 0x02179E 17:978E: B5 9F     .word off_9FB5
 - D - I - 0x0217A0 17:9790: F2        .byte con_jsr_1
 - D - I - 0x0217A1 17:9791: 28 9C     .word off_9C28
+case_9793_01:
 - - - - - 0x0217A3 17:9793: FA        .byte con_jsr_2
 - - - - - 0x0217A4 17:9794: E4 A1     .word off_A1E4
 off_9796:
@@ -4636,6 +4805,7 @@ off_9799:
 - D - I - 0x0217B0 17:97A0: 4E A2     .word off_A24E
 - D - I - 0x0217B2 17:97A2: F2        .byte con_jsr_1
 - D - I - 0x0217B3 17:97A3: 58 A2     .word off_A258
+case_97A5_02:
 - - - - - 0x0217B5 17:97A5: FA        .byte con_jsr_2
 - - - - - 0x0217B6 17:97A6: E4 A1     .word off_A1E4
 off_97A8:
@@ -4654,6 +4824,7 @@ off_97AB:
 - - - - - 0x0217C8 17:97B8: 1B 9E     .word off_9E1B
 - - - - - 0x0217CA 17:97BA: F2        .byte con_jsr_1
 - - - - - 0x0217CB 17:97BB: 71 A3     .word off_A371
+case_97BD_03:
 - - - - - 0x0217CD 17:97BD: FA        .byte con_jsr_2
 - - - - - 0x0217CE 17:97BE: E4 A1     .word off_A1E4
 off_97C0:
@@ -4672,6 +4843,7 @@ off_97C3:
 - - - - - 0x0217E0 17:97D0: 12 A2     .word off_A212
 - - - - - 0x0217E2 17:97D2: F2        .byte con_jsr_1
 - - - - - 0x0217E3 17:97D3: 28 9C     .word off_9C28
+case_97D5_04:
 - - - - - 0x0217E5 17:97D5: FA        .byte con_jsr_2
 - - - - - 0x0217E6 17:97D6: E4 A1     .word off_A1E4
 off_97D8:
@@ -4690,6 +4862,7 @@ off_97DB:
 - D - I - 0x0217F8 17:97E8: 1B 9E     .word off_9E1B
 - D - I - 0x0217FA 17:97EA: F2        .byte con_jsr_1
 - D - I - 0x0217FB 17:97EB: 28 9C     .word off_9C28
+case_97ED_01:
 - - - - - 0x0217FD 17:97ED: FA        .byte con_jsr_2
 - - - - - 0x0217FE 17:97EE: E4 A1     .word off_A1E4
 off_97F0:
@@ -4704,6 +4877,7 @@ off_97F3:
 - D - I - 0x02180A 17:97FA: F4 A2     .word off_A2F4
 - D - I - 0x02180C 17:97FC: F2        .byte con_jsr_1
 - D - I - 0x02180D 17:97FD: 64 A3     .word off_A364
+case_97FF_02:
 - - - - - 0x02180F 17:97FF: FA        .byte con_jsr_2
 - - - - - 0x021810 17:9800: E4 A1     .word off_A1E4
 off_9802:
@@ -4722,32 +4896,38 @@ off_9802:
 
 off_9811_0A:
 - D - I - 0x021821 17:9811: F3        .byte con_F3, $8E
-- D - I - 0x021823 17:9813: 03        .byte $03
-- - - - - 0x021824 17:9814: 21        .byte $21
-- D - I - 0x021825 17:9815: 08        .byte $08
+- D - I - 0x021823 17:9813: 03        .byte case_9816_00 - *
+- - - - - 0x021824 17:9814: 21        .byte case_9835_01 - *
+- D - I - 0x021825 17:9815: 08        .byte case_981D_02 - *
+case_9816_00:
 - D - I - 0x021826 17:9816: FA        .byte con_jsr_2
 - D - I - 0x021827 17:9817: D6 9F     .word off_9FD6
 - D - I - 0x021829 17:9819: F3        .byte con_F3, $81
-- D - I - 0x02182B 17:981B: 0B        .byte $0B
-- D - I - 0x02182C 17:981C: 44        .byte $44
+- D - I - 0x02182B 17:981B: 0B        .byte case_9826_00 - *
+- D - I - 0x02182C 17:981C: 44        .byte case_9860_01 - *
+case_981D_02:
 - D - I - 0x02182D 17:981D: FA        .byte con_jsr_2
 - D - I - 0x02182E 17:981E: D6 9F     .word off_9FD6
 - D - I - 0x021830 17:9820: FD        .byte con_FD, $03
 - D - I - 0x021832 17:9822: F3        .byte con_F3, $81
-- D - I - 0x021834 17:9824: 70        .byte $70
-- D - I - 0x021835 17:9825: 94        .byte $94
+- D - I - 0x021834 17:9824: 70        .byte case_9894_00 - *
+- D - I - 0x021835 17:9825: 94        .byte case_98B9_01 - *
+case_9826_00:
 - D - I - 0x021836 17:9826: F3        .byte con_F3, $8F
-- D - I - 0x021838 17:9828: 05        .byte $05
-- D - I - 0x021839 17:9829: 0D        .byte $0D
-- D - I - 0x02183A 17:982A: 1A        .byte $1A
-- D - I - 0x02183B 17:982B: 27        .byte $27
-- - - - - 0x02183C 17:982C: 2E        .byte $2E
+- D - I - 0x021838 17:9828: 05        .byte case_982D_00 - *
+- D - I - 0x021839 17:9829: 0D        .byte case_9836_01 - *
+- D - I - 0x02183A 17:982A: 1A        .byte case_9844_02 - *
+- D - I - 0x02183B 17:982B: 27        .byte case_9852_03 - *
+- - - - - 0x02183C 17:982C: 2E        .byte case_985A_04 - *
+case_982D_00:
 - D - I - 0x02183D 17:982D: FA        .byte con_jsr_2
 - D - I - 0x02183E 17:982E: F3 9C     .word off_9CF3
 - D - I - 0x021840 17:9830: FD        .byte con_FD, $03
 - D - I - 0x021842 17:9832: FA        .byte con_jsr_2
 - D - I - 0x021843 17:9833: 8D A0     .word off_A08D
+case_9835_01:
 - D - I - 0x021845 17:9835: F0        .byte con_F0
+case_9836_01:
 - D - I - 0x021846 17:9836: FA        .byte con_jsr_2
 - D - I - 0x021847 17:9837: F3 9C     .word off_9CF3
 - D - I - 0x021849 17:9839: FD        .byte con_FD, $03
@@ -4757,6 +4937,7 @@ off_9811_0A:
 - D - I - 0x02184F 17:983F: 08 A3     .word off_A308
 - D - I - 0x021851 17:9841: F2        .byte con_jsr_1
 - D - I - 0x021852 17:9842: 5D B4     .word off_B45D
+case_9844_02:
 - D - I - 0x021854 17:9844: FA        .byte con_jsr_2
 - D - I - 0x021855 17:9845: F3 9C     .word off_9CF3
 - D - I - 0x021857 17:9847: FD        .byte con_FD, $03
@@ -4766,21 +4947,25 @@ off_9811_0A:
 - D - I - 0x02185D 17:984D: 08 A3     .word off_A308
 - D - I - 0x02185F 17:984F: F2        .byte con_jsr_1
 - D - I - 0x021860 17:9850: 5D B4     .word off_B45D
+case_9852_03:
 - D - I - 0x021862 17:9852: FA        .byte con_jsr_2
 - D - I - 0x021863 17:9853: F3 9C     .word off_9CF3
 - D - I - 0x021865 17:9855: FD        .byte con_FD, $03
 - D - I - 0x021867 17:9857: F2        .byte con_jsr_1
 - D - I - 0x021868 17:9858: A6 A0     .word off_A0A6
+case_985A_04:
 - - - - - 0x02186A 17:985A: FA        .byte con_jsr_2
 - - - - - 0x02186B 17:985B: DD A2     .word off_A2DD
 - - - - - 0x02186D 17:985D: F2        .byte con_jsr_1
 - - - - - 0x02186E 17:985E: 5B A3     .word off_A35B
+case_9860_01:
 - D - I - 0x021870 17:9860: F3        .byte con_F3, $8F
-- D - I - 0x021872 17:9862: 05        .byte $05
-- - - - - 0x021873 17:9863: 12        .byte $12
-- - - - - 0x021874 17:9864: 11        .byte $11
-- D - I - 0x021875 17:9865: 1B        .byte $1B
-- - - - - 0x021876 17:9866: 25        .byte $25
+- D - I - 0x021872 17:9862: 05        .byte case_9867_00 - *
+- - - - - 0x021873 17:9863: 12        .byte case_9875_01 - *
+- - - - - 0x021874 17:9864: 11        .byte case_9875_02 - *
+- D - I - 0x021875 17:9865: 1B        .byte case_9880_03 - *
+- - - - - 0x021876 17:9866: 25        .byte case_988B_04 - *
+case_9867_00:
 - D - I - 0x021877 17:9867: FA        .byte con_jsr_2
 - D - I - 0x021878 17:9868: F3 9C     .word off_9CF3
 - D - I - 0x02187A 17:986A: FD        .byte con_FD, $03
@@ -4790,6 +4975,8 @@ off_9811_0A:
 - D - I - 0x021880 17:9870: DD A2     .word off_A2DD
 - D - I - 0x021882 17:9872: F2        .byte con_jsr_1
 - D - I - 0x021883 17:9873: B5 9F     .word off_9FB5
+case_9875_01:
+case_9875_02:
 - - - - - 0x021885 17:9875: FA        .byte con_jsr_2
 - - - - - 0x021886 17:9876: DD A2     .word off_A2DD
 - - - - - 0x021888 17:9878: FD        .byte con_FD, $03
@@ -4797,6 +4984,7 @@ off_9811_0A:
 - - - - - 0x02188B 17:987B: 6E 9F     .word off_9F6E
 - - - - - 0x02188D 17:987D: F2        .byte con_jsr_1
 - - - - - 0x02188E 17:987E: 71 A3     .word off_A371
+case_9880_03:
 - D - I - 0x021890 17:9880: FA        .byte con_jsr_2
 - D - I - 0x021891 17:9881: DD A2     .word off_A2DD
 - D - I - 0x021893 17:9883: FD        .byte con_FD, $03
@@ -4804,50 +4992,61 @@ off_9811_0A:
 - D - I - 0x021896 17:9886: 68 9F     .word off_9F68
 - D - I - 0x021898 17:9888: F2        .byte con_jsr_1
 - D - I - 0x021899 17:9889: BF 9F     .word off_9FBF
+case_988B_04:
 - - - - - 0x02189B 17:988B: FA        .byte con_jsr_2
 - - - - - 0x02189C 17:988C: DD A2     .word off_A2DD
 - - - - - 0x02189E 17:988E: FA        .byte con_jsr_2
 - - - - - 0x02189F 17:988F: 6E 9F     .word off_9F6E
 - - - - - 0x0218A1 17:9891: F2        .byte con_jsr_1
 - - - - - 0x0218A2 17:9892: 5B A3     .word off_A35B
+case_9894_00:
 - D - I - 0x0218A4 17:9894: F3        .byte con_F3, $8F
-- D - I - 0x0218A6 17:9896: 05        .byte $05
-- D - I - 0x0218A7 17:9897: 07        .byte $07
-- D - I - 0x0218A8 17:9898: 06        .byte $06
-- D - I - 0x0218A9 17:9899: 0E        .byte $0E
-- D - I - 0x0218AA 17:989A: 16        .byte $16
+- D - I - 0x0218A6 17:9896: 05        .byte case_989B_00 - *
+- D - I - 0x0218A7 17:9897: 07        .byte case_989E_01 - *
+- D - I - 0x0218A8 17:9898: 06        .byte case_989E_02 - *
+- D - I - 0x0218A9 17:9899: 0E        .byte case_98A7_03 - *
+- D - I - 0x0218AA 17:989A: 16        .byte case_98B0_04 - *
+case_989B_00:
 - D - I - 0x0218AB 17:989B: F2        .byte con_jsr_1
 - D - I - 0x0218AC 17:989C: C0 9C     .word off_9CC0
+case_989E_01:
+case_989E_02:
 - D - I - 0x0218AE 17:989E: FA        .byte con_jsr_2
 - D - I - 0x0218AF 17:989F: FE 9D     .word off_9DFE
 - D - I - 0x0218B1 17:98A1: FA        .byte con_jsr_2
 - D - I - 0x0218B2 17:98A2: 08 A3     .word off_A308
 - D - I - 0x0218B4 17:98A4: F2        .byte con_jsr_1
 - D - I - 0x0218B5 17:98A5: 71 A3     .word off_A371
+case_98A7_03:
 - D - I - 0x0218B7 17:98A7: FA        .byte con_jsr_2
 - D - I - 0x0218B8 17:98A8: FE 9D     .word off_9DFE
 - D - I - 0x0218BA 17:98AA: FA        .byte con_jsr_2
 - D - I - 0x0218BB 17:98AB: EF A2     .word off_A2EF
 - D - I - 0x0218BD 17:98AD: F2        .byte con_jsr_1
 - D - I - 0x0218BE 17:98AE: CE 9F     .word off_9FCE
+case_98B0_04:
 - D - I - 0x0218C0 17:98B0: FA        .byte con_jsr_2
 - D - I - 0x0218C1 17:98B1: FE 9D     .word off_9DFE
 - D - I - 0x0218C3 17:98B3: FA        .byte con_jsr_2
 - D - I - 0x0218C4 17:98B4: DD A2     .word off_A2DD
 - D - I - 0x0218C6 17:98B6: F2        .byte con_jsr_1
 - D - I - 0x0218C7 17:98B7: 5B A3     .word off_A35B
+case_98B9_01:
 - D - I - 0x0218C9 17:98B9: F3        .byte con_F3, $8F
-- - - - - 0x0218CB 17:98BB: 05        .byte $05
-- D - I - 0x0218CC 17:98BC: 0D        .byte $0D
-- D - I - 0x0218CD 17:98BD: 0C        .byte $0C
-- D - I - 0x0218CE 17:98BE: 17        .byte $17
-- - - - - 0x0218CF 17:98BF: 22        .byte $22
+- - - - - 0x0218CB 17:98BB: 05        .byte case_98C0_00 - *
+- D - I - 0x0218CC 17:98BC: 0D        .byte case_98C9_01 - *
+- D - I - 0x0218CD 17:98BD: 0C        .byte case_98C9_02 - *
+- D - I - 0x0218CE 17:98BE: 17        .byte case_98D5_03 - *
+- - - - - 0x0218CF 17:98BF: 22        .byte case_98E1_04 - *
+case_98C0_00:
 - - - - - 0x0218D0 17:98C0: FA        .byte con_jsr_2
 - - - - - 0x0218D1 17:98C1: FE 9D     .word off_9DFE
 - - - - - 0x0218D3 17:98C3: FA        .byte con_jsr_2
 - - - - - 0x0218D4 17:98C4: DD A2     .word off_A2DD
 - - - - - 0x0218D6 17:98C6: F2        .byte con_jsr_1
 - - - - - 0x0218D7 17:98C7: B5 9F     .word off_9FB5
+case_98C9_01:
+case_98C9_02:
 - D - I - 0x0218D9 17:98C9: FA        .byte con_jsr_2
 - D - I - 0x0218DA 17:98CA: FE 9D     .word off_9DFE
 - D - I - 0x0218DC 17:98CC: FA        .byte con_jsr_2
@@ -4856,6 +5055,7 @@ off_9811_0A:
 - D - I - 0x0218E0 17:98D0: 6E 9F     .word off_9F6E
 - D - I - 0x0218E2 17:98D2: F2        .byte con_jsr_1
 - D - I - 0x0218E3 17:98D3: 71 A3     .word off_A371
+case_98D5_03:
 - D - I - 0x0218E5 17:98D5: FA        .byte con_jsr_2
 - D - I - 0x0218E6 17:98D6: FE 9D     .word off_9DFE
 - D - I - 0x0218E8 17:98D8: FA        .byte con_jsr_2
@@ -4864,6 +5064,7 @@ off_9811_0A:
 - D - I - 0x0218EC 17:98DC: 68 9F     .word off_9F68
 - D - I - 0x0218EE 17:98DE: F2        .byte con_jsr_1
 - D - I - 0x0218EF 17:98DF: BF 9F     .word off_9FBF
+case_98E1_04:
 - - - - - 0x0218F1 17:98E1: FA        .byte con_jsr_2
 - - - - - 0x0218F2 17:98E2: FE 9D     .word off_9DFE
 - - - - - 0x0218F4 17:98E4: FA        .byte con_jsr_2
@@ -4881,17 +5082,19 @@ off_98ED_0B:
 - D - I - 0x021901 17:98F1: 24 9A     .word off_9A24
 off_98F3:
 - D - I - 0x021903 17:98F3: F3        .byte con_F3, $90
-- D - I - 0x021905 17:98F5: 05        .byte $05
-- D - I - 0x021906 17:98F6: 3D        .byte $3D
-- D - I - 0x021907 17:98F7: 74        .byte $74
-- - - - - 0x021908 17:98F8: B8        .byte $B8
-- - - - - 0x021909 17:98F9: EF        .byte $EF
+- D - I - 0x021905 17:98F5: 05        .byte case_98FA_00 - *
+- D - I - 0x021906 17:98F6: 3D        .byte case_9933_01 - *
+- D - I - 0x021907 17:98F7: 74        .byte case_996B_02 - *
+- - - - - 0x021908 17:98F8: B8        .byte case_99B0_03 - *
+- - - - - 0x021909 17:98F9: EF        .byte case_99E8_04 - *
+case_98FA_00:
 - D - I - 0x02190A 17:98FA: FD        .byte con_FD, $00
 - D - I - 0x02190C 17:98FC: F3        .byte con_F3, $91
-- D - I - 0x02190E 17:98FE: 04        .byte $04
-- D - I - 0x02190F 17:98FF: 0D        .byte $0D
-- D - I - 0x021910 17:9900: 1B        .byte $1B
-- D - I - 0x021911 17:9901: 29        .byte $29
+- D - I - 0x02190E 17:98FE: 04        .byte case_9902_00 - *
+- D - I - 0x02190F 17:98FF: 0D        .byte case_990C_01 - *
+- D - I - 0x021910 17:9900: 1B        .byte case_991B_02 - *
+- D - I - 0x021911 17:9901: 29        .byte case_992A_03 - *
+case_9902_00:
 - D - I - 0x021912 17:9902: FA        .byte con_jsr_2
 - D - I - 0x021913 17:9903: 35 A3     .word off_A335
 - D - I - 0x021915 17:9905: FA        .byte con_jsr_2
@@ -4899,6 +5102,7 @@ off_98F3:
 - D - I - 0x021918 17:9908: F2        .byte con_jsr_1
 - D - I - 0x021919 17:9909: EA 9F     .word off_9FEA
 - - - - - 0x02191B 17:990B: F0        .byte con_F0
+case_990C_01:
 - D - I - 0x02191C 17:990C: FA        .byte con_jsr_2
 - D - I - 0x02191D 17:990D: 35 A3     .word off_A335
 - D - I - 0x02191F 17:990F: FA        .byte con_jsr_2
@@ -4909,6 +5113,7 @@ off_98F3:
 - D - I - 0x021926 17:9916: F3 9F     .word off_9FF3
 - D - I - 0x021928 17:9918: F2        .byte con_jsr_1
 - D - I - 0x021929 17:9919: DE 9F     .word off_9FDE
+case_991B_02:
 - D - I - 0x02192B 17:991B: FA        .byte con_jsr_2
 - D - I - 0x02192C 17:991C: 35 A3     .word off_A335
 - D - I - 0x02192E 17:991E: FA        .byte con_jsr_2
@@ -4919,24 +5124,28 @@ off_98F3:
 - D - I - 0x021935 17:9925: F1 9F     .word off_9FF1
 - D - I - 0x021937 17:9927: F2        .byte con_jsr_1
 - D - I - 0x021938 17:9928: 71 A3     .word off_A371
+case_992A_03:
 - D - I - 0x02193A 17:992A: FA        .byte con_jsr_2
 - D - I - 0x02193B 17:992B: 35 A3     .word off_A335
 - D - I - 0x02193D 17:992D: FA        .byte con_jsr_2
 - D - I - 0x02193E 17:992E: C3 A1     .word off_A1C3
 - D - I - 0x021940 17:9930: F2        .byte con_jsr_1
 - D - I - 0x021941 17:9931: 64 A1     .word off_A164
+case_9933_01:
 - D - I - 0x021943 17:9933: FD        .byte con_FD, $03
 - D - I - 0x021945 17:9935: F3        .byte con_F3, $91
-- D - I - 0x021947 17:9937: 04        .byte $04
-- D - I - 0x021948 17:9938: 0C        .byte $0C
-- D - I - 0x021949 17:9939: 1A        .byte $1A
-- D - I - 0x02194A 17:993A: 28        .byte $28
+- D - I - 0x021947 17:9937: 04        .byte case_993B_00 - *
+- D - I - 0x021948 17:9938: 0C        .byte case_9944_01 - *
+- D - I - 0x021949 17:9939: 1A        .byte case_9953_02 - *
+- D - I - 0x02194A 17:993A: 28        .byte case_9962_03 - *
+case_993B_00:
 - D - I - 0x02194B 17:993B: FA        .byte con_jsr_2
 - D - I - 0x02194C 17:993C: 2D A3     .word off_A32D
 - D - I - 0x02194E 17:993E: FA        .byte con_jsr_2
 - D - I - 0x02194F 17:993F: C3 A1     .word off_A1C3
 - D - I - 0x021951 17:9941: F2        .byte con_jsr_1
 - D - I - 0x021952 17:9942: EA 9F     .word off_9FEA
+case_9944_01:
 - D - I - 0x021954 17:9944: FA        .byte con_jsr_2
 - D - I - 0x021955 17:9945: 2D A3     .word off_A32D
 - D - I - 0x021957 17:9947: FA        .byte con_jsr_2
@@ -4947,6 +5156,7 @@ off_98F3:
 - D - I - 0x02195E 17:994E: F3 9F     .word off_9FF3
 - D - I - 0x021960 17:9950: F2        .byte con_jsr_1
 - D - I - 0x021961 17:9951: DE 9F     .word off_9FDE
+case_9953_02:
 - D - I - 0x021963 17:9953: FA        .byte con_jsr_2
 - D - I - 0x021964 17:9954: 2D A3     .word off_A32D
 - D - I - 0x021966 17:9956: FA        .byte con_jsr_2
@@ -4957,18 +5167,21 @@ off_98F3:
 - D - I - 0x02196D 17:995D: F1 9F     .word off_9FF1
 - D - I - 0x02196F 17:995F: F2        .byte con_jsr_1
 - D - I - 0x021970 17:9960: 71 A3     .word off_A371
+case_9962_03:
 - D - I - 0x021972 17:9962: FA        .byte con_jsr_2
 - D - I - 0x021973 17:9963: 2D A3     .word off_A32D
 - D - I - 0x021975 17:9965: FA        .byte con_jsr_2
 - D - I - 0x021976 17:9966: C3 A1     .word off_A1C3
 - D - I - 0x021978 17:9968: F2        .byte con_jsr_1
 - D - I - 0x021979 17:9969: 64 A1     .word off_A164
+case_996B_02:
 - D - I - 0x02197B 17:996B: FD        .byte con_FD, $03
 - D - I - 0x02197D 17:996D: F3        .byte con_F3, $91
-- D - I - 0x02197F 17:996F: 04        .byte $04
-- D - I - 0x021980 17:9970: 13        .byte $13
-- D - I - 0x021981 17:9971: 24        .byte $24
-- D - I - 0x021982 17:9972: 35        .byte $35
+- D - I - 0x02197F 17:996F: 04        .byte case_9973_00 - *
+- D - I - 0x021980 17:9970: 13        .byte case_9983_01 - *
+- D - I - 0x021981 17:9971: 24        .byte case_9995_02 - *
+- D - I - 0x021982 17:9972: 35        .byte case_99A7_03 - *
+case_9973_00:
 - D - I - 0x021983 17:9973: FA        .byte con_jsr_2
 - D - I - 0x021984 17:9974: 2D A3     .word off_A32D
 - D - I - 0x021986 17:9976: FA        .byte con_jsr_2
@@ -4980,6 +5193,7 @@ off_98F3:
 - D - I - 0x02198F 17:997F: FA        .byte con_jsr_2
 - D - I - 0x021990 17:9980: 62 9F     .word off_9F62
 - D - I - 0x021992 17:9982: F0        .byte con_F0
+case_9983_01:
 - D - I - 0x021993 17:9983: FA        .byte con_jsr_2
 - D - I - 0x021994 17:9984: 2D A3     .word off_A32D
 - D - I - 0x021996 17:9986: FA        .byte con_jsr_2
@@ -4992,6 +5206,7 @@ off_98F3:
 - D - I - 0x0219A0 17:9990: 5C 9F     .word off_9F5C
 - D - I - 0x0219A2 17:9992: F2        .byte con_jsr_1
 - D - I - 0x0219A3 17:9993: 40 A2     .word off_A240
+case_9995_02:
 - D - I - 0x0219A5 17:9995: FA        .byte con_jsr_2
 - D - I - 0x0219A6 17:9996: 2D A3     .word off_A32D
 - D - I - 0x0219A8 17:9998: FA        .byte con_jsr_2
@@ -5004,24 +5219,28 @@ off_98F3:
 - D - I - 0x0219B2 17:99A2: 5C 9F     .word off_9F5C
 - D - I - 0x0219B4 17:99A4: F2        .byte con_jsr_1
 - D - I - 0x0219B5 17:99A5: 71 A3     .word off_A371
+case_99A7_03:
 - D - I - 0x0219B7 17:99A7: FA        .byte con_jsr_2
 - D - I - 0x0219B8 17:99A8: 2D A3     .word off_A32D
 - D - I - 0x0219BA 17:99AA: FA        .byte con_jsr_2
 - D - I - 0x0219BB 17:99AB: C3 A1     .word off_A1C3
 - D - I - 0x0219BD 17:99AD: F2        .byte con_jsr_1
 - D - I - 0x0219BE 17:99AE: 64 A1     .word off_A164
+case_99B0_03:
 - - - - - 0x0219C0 17:99B0: FD        .byte con_FD, $00
 - - - - - 0x0219C2 17:99B2: F3        .byte con_F3, $91
-- - - - - 0x0219C4 17:99B4: 04        .byte $04
-- - - - - 0x0219C5 17:99B5: 0C        .byte $0C
-- - - - - 0x0219C6 17:99B6: 1A        .byte $1A
-- - - - - 0x0219C7 17:99B7: 28        .byte $28
+- - - - - 0x0219C4 17:99B4: 04        .byte case_99B8_00 - *
+- - - - - 0x0219C5 17:99B5: 0C        .byte case_99C1_01 - *
+- - - - - 0x0219C6 17:99B6: 1A        .byte case_99D0_02 - *
+- - - - - 0x0219C7 17:99B7: 28        .byte case_99DF_03 - *
+case_99B8_00:
 - - - - - 0x0219C8 17:99B8: FA        .byte con_jsr_2
 - - - - - 0x0219C9 17:99B9: 49 B4     .word off_B449
 - - - - - 0x0219CB 17:99BB: FA        .byte con_jsr_2
 - - - - - 0x0219CC 17:99BC: C3 A1     .word off_A1C3
 - - - - - 0x0219CE 17:99BE: F2        .byte con_jsr_1
 - - - - - 0x0219CF 17:99BF: EA 9F     .word off_9FEA
+case_99C1_01:
 - - - - - 0x0219D1 17:99C1: FA        .byte con_jsr_2
 - - - - - 0x0219D2 17:99C2: 49 B4     .word off_B449
 - - - - - 0x0219D4 17:99C4: FA        .byte con_jsr_2
@@ -5032,6 +5251,7 @@ off_98F3:
 - - - - - 0x0219DB 17:99CB: F3 9F     .word off_9FF3
 - - - - - 0x0219DD 17:99CD: F2        .byte con_jsr_1
 - - - - - 0x0219DE 17:99CE: DE 9F     .word off_9FDE
+case_99D0_02:
 - - - - - 0x0219E0 17:99D0: FA        .byte con_jsr_2
 - - - - - 0x0219E1 17:99D1: 49 B4     .word off_B449
 - - - - - 0x0219E3 17:99D3: FA        .byte con_jsr_2
@@ -5042,18 +5262,21 @@ off_98F3:
 - - - - - 0x0219EA 17:99DA: F1 9F     .word off_9FF1
 - - - - - 0x0219EC 17:99DC: F2        .byte con_jsr_1
 - - - - - 0x0219ED 17:99DD: 71 A3     .word off_A371
+case_99DF_03:
 - - - - - 0x0219EF 17:99DF: FA        .byte con_jsr_2
 - - - - - 0x0219F0 17:99E0: 49 B4     .word off_B449
 - - - - - 0x0219F2 17:99E2: FA        .byte con_jsr_2
 - - - - - 0x0219F3 17:99E3: C3 A1     .word off_A1C3
 - - - - - 0x0219F5 17:99E5: F2        .byte con_jsr_1
 - - - - - 0x0219F6 17:99E6: 64 A1     .word off_A164
+case_99E8_04:
 - - - - - 0x0219F8 17:99E8: FD        .byte con_FD, $00
 - - - - - 0x0219FA 17:99EA: F3        .byte con_F3, $91
-- - - - - 0x0219FC 17:99EC: 04        .byte $04
-- - - - - 0x0219FD 17:99ED: 13        .byte $13
-- - - - - 0x0219FE 17:99EE: 24        .byte $24
-- - - - - 0x0219FF 17:99EF: 10        .byte $10
+- - - - - 0x0219FC 17:99EC: 04        .byte case_99F0_00 - *
+- - - - - 0x0219FD 17:99ED: 13        .byte case_9A00_01 - *
+- - - - - 0x0219FE 17:99EE: 24        .byte case_9A12_02 - *
+- - - - - 0x0219FF 17:99EF: 10        .byte case_99FF_03 - *
+case_99F0_00:
 - - - - - 0x021A00 17:99F0: FA        .byte con_jsr_2
 - - - - - 0x021A01 17:99F1: 49 B4     .word off_B449
 - - - - - 0x021A03 17:99F3: FA        .byte con_jsr_2
@@ -5064,7 +5287,9 @@ off_98F3:
 - - - - - 0x021A0A 17:99FA: E7 A2     .word off_A2E7
 - - - - - 0x021A0C 17:99FC: FA        .byte con_jsr_2
 - - - - - 0x021A0D 17:99FD: 62 9F     .word off_9F62
+case_99FF_03:
 - - - - - 0x021A0F 17:99FF: F0        .byte con_F0
+case_9A00_01:
 - - - - - 0x021A10 17:9A00: FA        .byte con_jsr_2
 - - - - - 0x021A11 17:9A01: 49 B4     .word off_B449
 - - - - - 0x021A13 17:9A03: FA        .byte con_jsr_2
@@ -5077,6 +5302,7 @@ off_98F3:
 - - - - - 0x021A1D 17:9A0D: 5C 9F     .word off_9F5C
 - - - - - 0x021A1F 17:9A0F: F2        .byte con_jsr_1
 - - - - - 0x021A20 17:9A10: 40 A2     .word off_A240
+case_9A12_02:
 - - - - - 0x021A22 17:9A12: FA        .byte con_jsr_2
 - - - - - 0x021A23 17:9A13: 49 B4     .word off_B449
 - - - - - 0x021A25 17:9A15: FA        .byte con_jsr_2
@@ -5091,17 +5317,19 @@ off_98F3:
 - - - - - 0x021A32 17:9A22: 71 A3     .word off_A371
 off_9A24:
 - D - I - 0x021A34 17:9A24: F3        .byte con_F3, $90
-- D - I - 0x021A36 17:9A26: 05        .byte $05
-- D - I - 0x021A37 17:9A27: 49        .byte $49
-- D - I - 0x021A38 17:9A28: 50        .byte $50
-- - - - - 0x021A39 17:9A29: D0        .byte $D0
+- D - I - 0x021A36 17:9A26: 05        .byte case_9A2B_00 - *
+- D - I - 0x021A37 17:9A27: 49        .byte case_9A70_01 - *
+- D - I - 0x021A38 17:9A28: 50        .byte case_9A78_02 - *
+- - - - - 0x021A39 17:9A29: D0        .byte case_9AF9_03 - *
 - - - - - 0x021A3A 17:9A2A: F5        .byte con_mirror_off
+case_9A2B_00:
 - D - I - 0x021A3B 17:9A2B: FD        .byte con_FD, $00
 - D - I - 0x021A3D 17:9A2D: F3        .byte con_F3, $91
-- D - I - 0x021A3F 17:9A2F: 04        .byte $04
-- D - I - 0x021A40 17:9A30: 10        .byte $10
-- D - I - 0x021A41 17:9A31: 21        .byte $21
-- D - I - 0x021A42 17:9A32: 32        .byte $32
+- D - I - 0x021A3F 17:9A2F: 04        .byte case_9A33_00 - *
+- D - I - 0x021A40 17:9A30: 10        .byte case_9A40_01 - *
+- D - I - 0x021A41 17:9A31: 21        .byte case_9A52_02 - *
+- D - I - 0x021A42 17:9A32: 32        .byte case_9A64_03 - *
+case_9A33_00:
 - D - I - 0x021A43 17:9A33: FA        .byte con_jsr_2
 - D - I - 0x021A44 17:9A34: 35 A3     .word off_A335
 - D - I - 0x021A46 17:9A36: FA        .byte con_jsr_2
@@ -5111,6 +5339,7 @@ off_9A24:
 - D - I - 0x021A4C 17:9A3C: F2        .byte con_jsr_1
 - D - I - 0x021A4D 17:9A3D: 76 A1     .word off_A176
 - - - - - 0x021A4F 17:9A3F: F0        .byte con_F0
+case_9A40_01:
 - D - I - 0x021A50 17:9A40: FA        .byte con_jsr_2
 - D - I - 0x021A51 17:9A41: 35 A3     .word off_A335
 - D - I - 0x021A53 17:9A43: FA        .byte con_jsr_2
@@ -5123,6 +5352,7 @@ off_9A24:
 - D - I - 0x021A5D 17:9A4D: 51 A0     .word off_A051
 - D - I - 0x021A5F 17:9A4F: F2        .byte con_jsr_1
 - D - I - 0x021A60 17:9A50: 4C A0     .word off_A04C
+case_9A52_02:
 - D - I - 0x021A62 17:9A52: FA        .byte con_jsr_2
 - D - I - 0x021A63 17:9A53: 35 A3     .word off_A335
 - D - I - 0x021A65 17:9A55: FA        .byte con_jsr_2
@@ -5135,6 +5365,7 @@ off_9A24:
 - D - I - 0x021A6F 17:9A5F: 23 A0     .word off_A023
 - D - I - 0x021A71 17:9A61: F2        .byte con_jsr_1
 - D - I - 0x021A72 17:9A62: 71 A3     .word off_A371
+case_9A64_03:
 - D - I - 0x021A74 17:9A64: FA        .byte con_jsr_2
 - D - I - 0x021A75 17:9A65: 35 A3     .word off_A335
 - D - I - 0x021A77 17:9A67: FA        .byte con_jsr_2
@@ -5143,18 +5374,21 @@ off_9A24:
 - D - I - 0x021A7B 17:9A6B: D8 A2     .word off_A2D8
 - D - I - 0x021A7D 17:9A6D: F2        .byte con_jsr_1
 - D - I - 0x021A7E 17:9A6E: 85 A1     .word off_A185
+case_9A70_01:
 - D - I - 0x021A80 17:9A70: FD        .byte con_FD, $03
 - D - I - 0x021A82 17:9A72: F3        .byte con_F3, $91
-- D - I - 0x021A84 17:9A74: 0C        .byte $0C
-- D - I - 0x021A85 17:9A75: 17        .byte $17
-- D - I - 0x021A86 17:9A76: 28        .byte $28
-- D - I - 0x021A87 17:9A77: 39        .byte $39
+- D - I - 0x021A84 17:9A74: 0C        .byte case_9A80_00 - *
+- D - I - 0x021A85 17:9A75: 17        .byte case_9A8C_01 - *
+- D - I - 0x021A86 17:9A76: 28        .byte case_9A9E_02 - *
+- D - I - 0x021A87 17:9A77: 39        .byte case_9AB0_03 - *
+case_9A78_02:
 - D - I - 0x021A88 17:9A78: FD        .byte con_FD, $03
 - D - I - 0x021A8A 17:9A7A: F3        .byte con_F3, $91
-- D - I - 0x021A8C 17:9A7C: 40        .byte $40
-- D - I - 0x021A8D 17:9A7D: 52        .byte $52
-- D - I - 0x021A8E 17:9A7E: 66        .byte $66
-- - - - - 0x021A8F 17:9A7F: 31        .byte $31
+- D - I - 0x021A8C 17:9A7C: 40        .byte case_9ABC_00 - *
+- D - I - 0x021A8D 17:9A7D: 52        .byte case_9ACF_01 - *
+- D - I - 0x021A8E 17:9A7E: 66        .byte case_9AE4_02 - *
+- - - - - 0x021A8F 17:9A7F: 31        .byte case_9AB0_03 - *
+case_9A80_00:
 - D - I - 0x021A90 17:9A80: FA        .byte con_jsr_2
 - D - I - 0x021A91 17:9A81: 2D A3     .word off_A32D
 - D - I - 0x021A93 17:9A83: FA        .byte con_jsr_2
@@ -5163,6 +5397,7 @@ off_9A24:
 - D - I - 0x021A97 17:9A87: D8 A2     .word off_A2D8
 - D - I - 0x021A99 17:9A89: F2        .byte con_jsr_1
 - D - I - 0x021A9A 17:9A8A: 76 A1     .word off_A176
+case_9A8C_01:
 - D - I - 0x021A9C 17:9A8C: FA        .byte con_jsr_2
 - D - I - 0x021A9D 17:9A8D: 2D A3     .word off_A32D
 - D - I - 0x021A9F 17:9A8F: FA        .byte con_jsr_2
@@ -5175,6 +5410,7 @@ off_9A24:
 - D - I - 0x021AA9 17:9A99: 51 A0     .word off_A051
 - D - I - 0x021AAB 17:9A9B: F2        .byte con_jsr_1
 - D - I - 0x021AAC 17:9A9C: 4C A0     .word off_A04C
+case_9A9E_02:
 - D - I - 0x021AAE 17:9A9E: FA        .byte con_jsr_2
 - D - I - 0x021AAF 17:9A9F: 2D A3     .word off_A32D
 - D - I - 0x021AB1 17:9AA1: FA        .byte con_jsr_2
@@ -5187,6 +5423,7 @@ off_9A24:
 - D - I - 0x021ABB 17:9AAB: 23 A0     .word off_A023
 - D - I - 0x021ABD 17:9AAD: F2        .byte con_jsr_1
 - D - I - 0x021ABE 17:9AAE: 71 A3     .word off_A371
+case_9AB0_03:
 - D - I - 0x021AC0 17:9AB0: FA        .byte con_jsr_2
 - D - I - 0x021AC1 17:9AB1: 2D A3     .word off_A32D
 - D - I - 0x021AC3 17:9AB3: FA        .byte con_jsr_2
@@ -5195,6 +5432,7 @@ off_9A24:
 - D - I - 0x021AC7 17:9AB7: D8 A2     .word off_A2D8
 - D - I - 0x021AC9 17:9AB9: F2        .byte con_jsr_1
 - D - I - 0x021ACA 17:9ABA: 85 A1     .word off_A185
+case_9ABC_00:
 - D - I - 0x021ACC 17:9ABC: FA        .byte con_jsr_2
 - D - I - 0x021ACD 17:9ABD: 2D A3     .word off_A32D
 - D - I - 0x021ACF 17:9ABF: FA        .byte con_jsr_2
@@ -5208,6 +5446,7 @@ off_9A24:
 - D - I - 0x021ADB 17:9ACB: FA        .byte con_jsr_2
 - D - I - 0x021ADC 17:9ACC: 62 9F     .word off_9F62
 - D - I - 0x021ADE 17:9ACE: F0        .byte con_F0
+case_9ACF_01:
 - D - I - 0x021ADF 17:9ACF: FA        .byte con_jsr_2
 - D - I - 0x021AE0 17:9AD0: 2D A3     .word off_A32D
 - D - I - 0x021AE2 17:9AD2: FA        .byte con_jsr_2
@@ -5222,6 +5461,7 @@ off_9A24:
 - D - I - 0x021AEF 17:9ADF: 5C 9F     .word off_9F5C
 - D - I - 0x021AF1 17:9AE1: F2        .byte con_jsr_1
 - D - I - 0x021AF2 17:9AE2: 40 A2     .word off_A240
+case_9AE4_02:
 - D - I - 0x021AF4 17:9AE4: FA        .byte con_jsr_2
 - D - I - 0x021AF5 17:9AE5: 2D A3     .word off_A32D
 - D - I - 0x021AF7 17:9AE7: FA        .byte con_jsr_2
@@ -5236,12 +5476,14 @@ off_9A24:
 - D - I - 0x021B04 17:9AF4: 5C 9F     .word off_9F5C
 - D - I - 0x021B06 17:9AF6: F2        .byte con_jsr_1
 - D - I - 0x021B07 17:9AF7: 71 A3     .word off_A371
+case_9AF9_03:
 - - - - - 0x021B09 17:9AF9: FD        .byte con_FD, $00
 - - - - - 0x021B0B 17:9AFB: F3        .byte con_F3, $91
-- - - - - 0x021B0D 17:9AFD: 04        .byte $04
-- - - - - 0x021B0E 17:9AFE: 0F        .byte $0F
-- - - - - 0x021B0F 17:9AFF: 28        .byte $28
-- - - - - 0x021B10 17:9B00: 39        .byte $39
+- - - - - 0x021B0D 17:9AFD: 04        .byte case_9B01_00 - *
+- - - - - 0x021B0E 17:9AFE: 0F        .byte case_9B0D_01 - *
+- - - - - 0x021B0F 17:9AFF: 28        .byte case_9B27_02 - *
+- - - - - 0x021B10 17:9B00: 39        .byte case_9B39_03 - *
+case_9B01_00:
 - - - - - 0x021B11 17:9B01: FA        .byte con_jsr_2
 - - - - - 0x021B12 17:9B02: 49 B4     .word off_B449
 - - - - - 0x021B14 17:9B04: FA        .byte con_jsr_2
@@ -5250,6 +5492,7 @@ off_9A24:
 - - - - - 0x021B18 17:9B08: D8 A2     .word off_A2D8
 - - - - - 0x021B1A 17:9B0A: F2        .byte con_jsr_1
 - - - - - 0x021B1B 17:9B0B: 76 A1     .word off_A176
+case_9B0D_01:
 - - - - - 0x021B1D 17:9B0D: FA        .byte con_jsr_2
 - - - - - 0x021B1E 17:9B0E: 49 B4     .word off_B449
 - - - - - 0x021B20 17:9B10: FA        .byte con_jsr_2
@@ -5264,10 +5507,11 @@ off_9A24:
 - - - - - 0x021B2D 17:9B1D: 4C A0     .word off_A04C
 - - - - - 0x021B2F 17:9B1F: FD        .byte con_FD, $00
 - - - - - 0x021B31 17:9B21: F3        .byte con_F3, $91
-- - - - - 0x021B33 17:9B23: 22        .byte $22
-- - - - - 0x021B34 17:9B24: 34        .byte $34
-- - - - - 0x021B35 17:9B25: 48        .byte $48
-- - - - - 0x021B36 17:9B26: 31        .byte $31
+- - - - - 0x021B33 17:9B23: 22        .byte case_9B45_00 - *
+- - - - - 0x021B34 17:9B24: 34        .byte case_9B58_01 - *
+- - - - - 0x021B35 17:9B25: 48        .byte case_9B6D_02 - *
+- - - - - 0x021B36 17:9B26: 31        .byte case_9B57_03 - *
+case_9B27_02:
 - - - - - 0x021B37 17:9B27: FA        .byte con_jsr_2
 - - - - - 0x021B38 17:9B28: 49 B4     .word off_B449
 - - - - - 0x021B3A 17:9B2A: FA        .byte con_jsr_2
@@ -5280,6 +5524,7 @@ off_9A24:
 - - - - - 0x021B44 17:9B34: 23 A0     .word off_A023
 - - - - - 0x021B46 17:9B36: F2        .byte con_jsr_1
 - - - - - 0x021B47 17:9B37: 71 A3     .word off_A371
+case_9B39_03:
 - - - - - 0x021B49 17:9B39: FA        .byte con_jsr_2
 - - - - - 0x021B4A 17:9B3A: 49 B4     .word off_B449
 - - - - - 0x021B4C 17:9B3C: FA        .byte con_jsr_2
@@ -5288,6 +5533,7 @@ off_9A24:
 - - - - - 0x021B50 17:9B40: D8 A2     .word off_A2D8
 - - - - - 0x021B52 17:9B42: F2        .byte con_jsr_1
 - - - - - 0x021B53 17:9B43: 85 A1     .word off_A185
+case_9B45_00:
 - - - - - 0x021B55 17:9B45: FA        .byte con_jsr_2
 - - - - - 0x021B56 17:9B46: 49 B4     .word off_B449
 - - - - - 0x021B58 17:9B48: FA        .byte con_jsr_2
@@ -5300,7 +5546,9 @@ off_9A24:
 - - - - - 0x021B62 17:9B52: E7 A2     .word off_A2E7
 - - - - - 0x021B64 17:9B54: FA        .byte con_jsr_2
 - - - - - 0x021B65 17:9B55: 62 9F     .word off_9F62
+case_9B57_03:
 - - - - - 0x021B67 17:9B57: F0        .byte con_F0
+case_9B58_01:
 - - - - - 0x021B68 17:9B58: FA        .byte con_jsr_2
 - - - - - 0x021B69 17:9B59: 49 B4     .word off_B449
 - - - - - 0x021B6B 17:9B5B: FA        .byte con_jsr_2
@@ -5315,6 +5563,7 @@ off_9A24:
 - - - - - 0x021B78 17:9B68: 5C 9F     .word off_9F5C
 - - - - - 0x021B7A 17:9B6A: F2        .byte con_jsr_1
 - - - - - 0x021B7B 17:9B6B: 40 A2     .word off_A240
+case_9B6D_02:
 - - - - - 0x021B7D 17:9B6D: FA        .byte con_jsr_2
 - - - - - 0x021B7E 17:9B6E: 49 B4     .word off_B449
 - - - - - 0x021B80 17:9B70: FA        .byte con_jsr_2
@@ -5335,47 +5584,56 @@ off_9A24:
 off_9B82_14:
 - D - I - 0x021B92 17:9B82: FD        .byte con_FD, $03
 - D - I - 0x021B94 17:9B84: F3        .byte con_F3, $81
-- D - I - 0x021B96 17:9B86: 02        .byte $02
-- - - - - 0x021B97 17:9B87: 28        .byte $28
+- D - I - 0x021B96 17:9B86: 02        .byte case_9B88_00 - *
+- - - - - 0x021B97 17:9B87: 28        .byte case_9BAF_01 - *
+case_9B88_00:
 - D - I - 0x021B98 17:9B88: F3        .byte con_F3, $97
-- D - I - 0x021B9A 17:9B8A: 04        .byte $04
-- - - - - 0x021B9B 17:9B8B: 09        .byte $09
-- D - I - 0x021B9C 17:9B8C: 11        .byte $11
-- D - I - 0x021B9D 17:9B8D: 19        .byte $19
+- D - I - 0x021B9A 17:9B8A: 04        .byte case_9B8E_00 - *
+- - - - - 0x021B9B 17:9B8B: 09        .byte case_9B94_01 - *
+- D - I - 0x021B9C 17:9B8C: 11        .byte case_9B9D_02 - *
+- D - I - 0x021B9D 17:9B8D: 19        .byte case_9BA6_03 - *
+case_9B8E_00:
 - D - I - 0x021B9E 17:9B8E: FA        .byte con_jsr_2
 - D - I - 0x021B9F 17:9B8F: 2D A3     .word off_A32D
 - D - I - 0x021BA1 17:9B91: F2        .byte con_jsr_1
 - D - I - 0x021BA2 17:9B92: 83 A3     .word off_A383
+case_9B94_01:
 - - - - - 0x021BA4 17:9B94: FA        .byte con_jsr_2
 - - - - - 0x021BA5 17:9B95: 2D A3     .word off_A32D
 - - - - - 0x021BA7 17:9B97: FA        .byte con_jsr_2
 - - - - - 0x021BA8 17:9B98: 21 A3     .word off_A321
 - - - - - 0x021BAA 17:9B9A: F2        .byte con_jsr_1
 - - - - - 0x021BAB 17:9B9B: 7E A3     .word off_A37E
+case_9B9D_02:
 - D - I - 0x021BAD 17:9B9D: FA        .byte con_jsr_2
 - D - I - 0x021BAE 17:9B9E: 2D A3     .word off_A32D
 - D - I - 0x021BB0 17:9BA0: FA        .byte con_jsr_2
 - D - I - 0x021BB1 17:9BA1: 08 A3     .word off_A308
 - D - I - 0x021BB3 17:9BA3: F2        .byte con_jsr_1
 - D - I - 0x021BB4 17:9BA4: 71 A3     .word off_A371
+case_9BA6_03:
 - D - I - 0x021BB6 17:9BA6: FA        .byte con_jsr_2
 - D - I - 0x021BB7 17:9BA7: 2D A3     .word off_A32D
 - D - I - 0x021BB9 17:9BA9: FA        .byte con_jsr_2
 - D - I - 0x021BBA 17:9BAA: EF A2     .word off_A2EF
 - D - I - 0x021BBC 17:9BAC: F2        .byte con_jsr_1
 - D - I - 0x021BBD 17:9BAD: 19 A3     .word off_A319
+case_9BAF_01:
 - - - - - 0x021BBF 17:9BAF: F3        .byte con_F3, $97
-- - - - - 0x021BC1 17:9BB1: 04        .byte $04
-- - - - - 0x021BC2 17:9BB2: 0D        .byte $0D
-- - - - - 0x021BC3 17:9BB3: 18        .byte $18
-- - - - - 0x021BC4 17:9BB4: 0A        .byte $0A
+- - - - - 0x021BC1 17:9BB1: 04        .byte case_9BB5_00 - *
+- - - - - 0x021BC2 17:9BB2: 0D        .byte case_9BBF_01 - *
+- - - - - 0x021BC3 17:9BB3: 18        .byte case_9BCB_02 - *
+- - - - - 0x021BC4 17:9BB4: 0A        .byte case_9BBE_03 - *
+case_9BB5_00:
 - - - - - 0x021BC5 17:9BB5: FA        .byte con_jsr_2
 - - - - - 0x021BC6 17:9BB6: 2D A3     .word off_A32D
 - - - - - 0x021BC8 17:9BB8: FA        .byte con_jsr_2
 - - - - - 0x021BC9 17:9BB9: DD A2     .word off_A2DD
 - - - - - 0x021BCB 17:9BBB: FA        .byte con_jsr_2
 - - - - - 0x021BCC 17:9BBC: 62 9F     .word off_9F62
+case_9BBE_03:
 - - - - - 0x021BCE 17:9BBE: F0        .byte con_F0
+case_9BBF_01:
 - - - - - 0x021BCF 17:9BBF: FA        .byte con_jsr_2
 - - - - - 0x021BD0 17:9BC0: 2D A3     .word off_A32D
 - - - - - 0x021BD2 17:9BC2: FA        .byte con_jsr_2
@@ -5388,6 +5646,7 @@ off_9B82_14:
 
 
 off_9BCB_04:
+case_9BCB_02:
 - D - I - 0x021BDB 17:9BCB: FA        .byte con_jsr_2
 - D - I - 0x021BDC 17:9BCC: FE A2     .word off_A2FE
 off_9BCE:
@@ -5418,10 +5677,12 @@ off_9BE3_1C:
 - D - I - 0x021BF5 17:9BE5: FA        .byte con_jsr_2
 - D - I - 0x021BF6 17:9BE6: 3E 9F     .word off_9F3E
 - D - I - 0x021BF8 17:9BE8: F3        .byte con_F3, $84
-- D - I - 0x021BFA 17:9BEA: 02        .byte $02
-- D - I - 0x021BFB 17:9BEB: 04        .byte $04
+- D - I - 0x021BFA 17:9BEA: 02        .byte case_9BEC_00 - *
+- D - I - 0x021BFB 17:9BEB: 04        .byte case_9BEF_01 - *
+case_9BEC_00:
 - D - I - 0x021BFC 17:9BEC: F2        .byte con_jsr_1
 - D - I - 0x021BFD 17:9BED: 9E B4     .word off_B49E
+case_9BEF_01:
 - D - I - 0x021BFF 17:9BEF: F2        .byte con_jsr_1
 - D - I - 0x021C00 17:9BF0: B6 B4     .word off_B4B6
 
@@ -5464,10 +5725,12 @@ off_9C0A_3E:
 - D - I - 0x021C1C 17:9C0C: FA        .byte con_jsr_2
 - D - I - 0x021C1D 17:9C0D: 3E 9F     .word off_9F3E
 - D - I - 0x021C1F 17:9C0F: F3        .byte con_F3, $84
-- D - I - 0x021C21 17:9C11: 05        .byte $05
-- D - I - 0x021C22 17:9C12: 01        .byte $01
+- D - I - 0x021C21 17:9C11: 05        .byte case_9C16_00 - *
+- D - I - 0x021C22 17:9C12: 01        .byte case_9C13_01 - *
+case_9C13_01:
 - D - I - 0x021C23 17:9C13: F2        .byte con_jsr_1
 - D - I - 0x021C24 17:9C14: AE B4     .word off_B4AE
+case_9C16_00:
 - D - I - 0x021C26 17:9C16: F2        .byte con_jsr_1
 - D - I - 0x021C27 17:9C17: A6 B4     .word off_B4A6
 
@@ -5611,8 +5874,9 @@ off_9CDD_25:
 - D - I - 0x021CED 17:9CDD: FA        .byte con_jsr_2
 - D - I - 0x021CEE 17:9CDE: 23 9C     .word off_9C23
 - D - I - 0x021CF0 17:9CE0: F3        .byte con_F3, $8C
-- D - I - 0x021CF2 17:9CE2: 02        .byte $02
-- D - I - 0x021CF3 17:9CE3: 10        .byte $10
+- D - I - 0x021CF2 17:9CE2: 02        .byte case_9CE4_00 - *
+- D - I - 0x021CF3 17:9CE3: 10        .byte case_9CF3_01 - *
+case_9CE4_00:
 - D - I - 0x021CF4 17:9CE4: FD        .byte con_FD, $03
 - D - I - 0x021CF6 17:9CE6: F9        .byte con_delay_soundID, $02, $12     ; обычный удар с земли
 - D - I - 0x021CF9 17:9CE9: 30        .byte $30
@@ -5625,10 +5889,12 @@ off_9CDD_25:
 
 off_9CEE_1D:
 - D - I - 0x021CFE 17:9CEE: F3        .byte con_F3, $B4     ; узнать высоту мяча
-- D - I - 0x021D00 17:9CF0: 03        .byte $03
-- - - - - 0x021D01 17:9CF1: A9        .byte $A9
-- - - - - 0x021D02 17:9CF2: 60        .byte $60
+- D - I - 0x021D00 17:9CF0: 03        .byte case_9CF3_00 - *
+- - - - - 0x021D01 17:9CF1: A9        .byte case_9D9A_01 - *
+- - - - - 0x021D02 17:9CF2: 60        .byte case_9D52_02 - *
 off_9CF3:
+case_9CF3_01:
+case_9CF3_00:
 - D - I - 0x021D03 17:9CF3: F5        .byte con_mirror_off
 - D - I - 0x021D04 17:9CF4: F3        .byte con_F3, $1D
 - D - I - 0x021D06 17:9CF6: 31 AB     .word off_AB31
@@ -5680,6 +5946,7 @@ off_9D46:
 - D - I - 0x021D5E 17:9D4E: 31 AF     .word off_AF31
 - D - I - 0x021D60 17:9D50: 64 AE     .word off_AE64
 off_9D52:
+case_9D52_02:
 - D - I - 0x021D62 17:9D52: F3        .byte con_F3, $1D
 - - - - - 0x021D64 17:9D54: C5 AF     .word off_AFC5
 - - - - - 0x021D66 17:9D56: C5 AF     .word off_AFC5
@@ -5717,6 +5984,7 @@ off_9D52:
 - D - I - 0x021DA6 17:9D96: FB B0     .word off_B0FB
 - - - - - 0x021DA8 17:9D98: C5 AF     .word off_AFC5
 off_9D9A:
+case_9D9A_01:
 - D - I - 0x021DAA 17:9D9A: F3        .byte con_F3, $1D
 - - - - - 0x021DAC 17:9D9C: 97 B1     .word off_B197
 - D - I - 0x021DAE 17:9D9E: 82 B1     .word off_B182
@@ -5798,8 +6066,9 @@ off_9E2D_26:
 - D - I - 0x021E3D 17:9E2D: FA        .byte con_jsr_2
 - D - I - 0x021E3E 17:9E2E: 23 9C     .word off_9C23
 - D - I - 0x021E40 17:9E30: F3        .byte con_F3, $8C
-- D - I - 0x021E42 17:9E32: 02        .byte $02
-- D - I - 0x021E43 17:9E33: 12        .byte $12
+- D - I - 0x021E42 17:9E32: 02        .byte case_9E34_00 - *
+- D - I - 0x021E43 17:9E33: 12        .byte case_9E45_01 - *
+case_9E34_00:
 - D - I - 0x021E44 17:9E34: FD        .byte con_FD, $00
 - D - I - 0x021E46 17:9E36: F9        .byte con_delay_soundID, $09, $2B     ; отбитие мяча
 - D - I - 0x021E49 17:9E39: 37        .byte $37
@@ -5813,16 +6082,19 @@ off_9E2D_26:
 off_9E3E_18:
 - D - I - 0x021E4E 17:9E3E: FD        .byte con_FD, $00
 - D - I - 0x021E50 17:9E40: F3        .byte con_F3, $B4     ; узнать высоту мяча
-- D - I - 0x021E52 17:9E42: 03        .byte $03
-- - - - - 0x021E53 17:9E43: 02        .byte $02
-- - - - - 0x021E54 17:9E44: 0B        .byte $0B
+- D - I - 0x021E52 17:9E42: 03        .byte case_9E45_00 - *
+- - - - - 0x021E53 17:9E43: 02        .byte case_9E45_01 - *
+- - - - - 0x021E54 17:9E44: 0B        .byte case_9E4F_02 - *
 off_9E45:
+case_9E45_01:
+case_9E45_00:
 - D - I - 0x021E55 17:9E45: F3        .byte con_F3, $1E
 - D - I - 0x021E57 17:9E47: 51 AF     .word off_AF51
 - D - I - 0x021E59 17:9E49: 59 AF     .word off_AF59
 - D - I - 0x021E5B 17:9E4B: 90 AF     .word off_AF90
 - D - I - 0x021E5D 17:9E4D: AA AF     .word off_AFAA
 off_9E4F:
+case_9E4F_02:
 - D - I - 0x021E5F 17:9E4F: F9        .byte con_delay_soundID, $15, $2B     ; отбитие мяча
 - D - I - 0x021E62 17:9E52: 3F        .byte $3F
 - D - I - 0x021E63 17:9E53: 2A        .byte $2A
@@ -6020,9 +6292,10 @@ off_9F7A:
 - - - - - 0x021FAA 17:9F9A: BF A7     .word off_A7BF
 off_9F9C:
 - D - I - 0x021FAC 17:9F9C: F3        .byte con_F3, $AF
-- D - I - 0x021FAE 17:9F9E: 15        .byte $15
-- D - I - 0x021FAF 17:9F9F: 02        .byte $02
-- D - I - 0x021FB0 17:9FA0: 09        .byte $09
+- D - I - 0x021FAE 17:9F9E: 15        .byte case_9FB3_00 - *
+- D - I - 0x021FAF 17:9F9F: 02        .byte case_9FA1_01 - *
+- D - I - 0x021FB0 17:9FA0: 09        .byte case_9FA9_02 - *
+case_9FA1_01:
 - D - I - 0x021FB1 17:9FA1: F5        .byte con_mirror_off
 - D - I - 0x021FB2 17:9FA2: 78        .byte $78
 - D - I - 0x021FB3 17:9FA3: 33        .byte $33
@@ -6030,6 +6303,7 @@ off_9F9C:
 - D - I - 0x021FB5 17:9FA5: A0        .byte $A0
 - D - I - 0x021FB6 17:9FA6: F2        .byte con_jsr_1
 - D - I - 0x021FB7 17:9FA7: 23 9C     .word off_9C23
+case_9FA9_02:
 - D - I - 0x021FB9 17:9FA9: F9        .byte con_delay_soundID, $02, $20     ; ???
 - D - I - 0x021FBC 17:9FAC: 78        .byte $78
 - D - I - 0x021FBD 17:9FAD: 48        .byte $48
@@ -6037,6 +6311,7 @@ off_9F9C:
 - D - I - 0x021FBF 17:9FAF: A1        .byte $A1
 - D - I - 0x021FC0 17:9FB0: F2        .byte con_jsr_1
 - D - I - 0x021FC1 17:9FB1: 23 9C     .word off_9C23
+case_9FB3_00:
 - D - I - 0x021FC3 17:9FB3: FB        .byte con_rts
 - - - - - 0x021FC4 17:9FB4: FB        .byte con_rts
 off_9FB5:
@@ -6387,14 +6662,17 @@ off_A109:
 - D - I - 0x02211D 11:A10D: FB        .byte con_rts
 off_A10E:
 - D - I - 0x02211E 11:A10E: F3        .byte con_F3, $A0
-- D - I - 0x022120 11:A110: 03        .byte $03
-- D - I - 0x022121 11:A111: 07        .byte $07
-- - - - - 0x022122 11:A112: 06        .byte $06
+- D - I - 0x022120 11:A110: 03        .byte case_A113_00 - *
+- D - I - 0x022121 11:A111: 07        .byte case_A118_01 - *
+- - - - - 0x022122 11:A112: 06        .byte case_A118_02 - *
+case_A113_00:
 - D - I - 0x022123 11:A113: 25        .byte $25
 - D - I - 0x022124 11:A114: 0E        .byte $0E
 - D - I - 0x022125 11:A115: 24        .byte $24
 - D - I - 0x022126 11:A116: 0C        .byte $0C
 - D - I - 0x022127 11:A117: FB        .byte con_rts
+case_A118_01:
+case_A118_02:
 - D - I - 0x022128 11:A118: 28        .byte $28
 - D - I - 0x022129 11:A119: 0F        .byte $0F
 - D - I - 0x02212A 11:A11A: 26        .byte $26
@@ -6408,14 +6686,17 @@ off_A11D:
 - D - I - 0x022131 11:A121: FB        .byte con_rts
 off_A122:
 - D - I - 0x022132 11:A122: F3        .byte con_F3, $A0
-- D - I - 0x022134 11:A124: 03        .byte $03
-- D - I - 0x022135 11:A125: 07        .byte $07
-- - - - - 0x022136 11:A126: 06        .byte $06
+- D - I - 0x022134 11:A124: 03        .byte case_A127_00 - *
+- D - I - 0x022135 11:A125: 07        .byte case_A12C_01 - *
+- - - - - 0x022136 11:A126: 06        .byte case_A12C_02 - *
+case_A127_00:
 - D - I - 0x022137 11:A127: 1E        .byte $1E
 - D - I - 0x022138 11:A128: 0E        .byte $0E
 - D - I - 0x022139 11:A129: 2A        .byte $2A
 - D - I - 0x02213A 11:A12A: 0E        .byte $0E
 - D - I - 0x02213B 11:A12B: FB        .byte con_rts
+case_A12C_01:
+case_A12C_02:
 - D - I - 0x02213C 11:A12C: 1E        .byte $1E
 - D - I - 0x02213D 11:A12D: 0F        .byte $0F
 - D - I - 0x02213E 11:A12E: 2B        .byte $2B
@@ -6423,15 +6704,18 @@ off_A122:
 - D - I - 0x022140 11:A130: FB        .byte con_rts
 off_A131:
 - D - I - 0x022141 11:A131: F3        .byte con_F3, $A0
-- D - I - 0x022143 11:A133: 03        .byte $03
-- D - I - 0x022144 11:A134: 0A        .byte $0A
-- - - - - 0x022145 11:A135: 09        .byte $09
+- D - I - 0x022143 11:A133: 03        .byte case_A136_00 - *
+- D - I - 0x022144 11:A134: 0A        .byte case_A13E_01 - *
+- - - - - 0x022145 11:A135: 09        .byte case_A13E_02 - *
+case_A136_00:
 - D - I - 0x022146 11:A136: F9        .byte con_delay_soundID, $21, $2B     ; отбитие мяча
 - D - I - 0x022149 11:A139: 3A        .byte $3A
 - D - I - 0x02214A 11:A13A: 0E        .byte $0E
 - D - I - 0x02214B 11:A13B: 2A        .byte $2A
 - D - I - 0x02214C 11:A13C: 0E        .byte $0E
 - D - I - 0x02214D 11:A13D: FB        .byte con_rts
+case_A13E_01:
+case_A13E_02:
 - D - I - 0x02214E 11:A13E: F9        .byte con_delay_soundID, $21, $2B     ; отбитие мяча
 - D - I - 0x022151 11:A141: 3A        .byte $3A
 - D - I - 0x022152 11:A142: 0F        .byte $0F
@@ -6446,14 +6730,17 @@ off_A146:
 - D - I - 0x02215A 11:A14A: FB        .byte con_rts
 off_A14B:
 - D - I - 0x02215B 11:A14B: F3        .byte con_F3, $A0
-- D - I - 0x02215D 11:A14D: 03        .byte $03
-- D - I - 0x02215E 11:A14E: 07        .byte $07
-- - - - - 0x02215F 11:A14F: 06        .byte $06
+- D - I - 0x02215D 11:A14D: 03        .byte case_A150_00 - *
+- D - I - 0x02215E 11:A14E: 07        .byte case_A155_01 - *
+- - - - - 0x02215F 11:A14F: 06        .byte case_A155_02 - *
+case_A150_00:
 - D - I - 0x022160 11:A150: 28        .byte $28
 - D - I - 0x022161 11:A151: 0E        .byte $0E
 - D - I - 0x022162 11:A152: 2C        .byte $2C
 - D - I - 0x022163 11:A153: 15        .byte $15
 - D - I - 0x022164 11:A154: FB        .byte con_rts
+case_A155_01:
+case_A155_02:
 - D - I - 0x022165 11:A155: 2A        .byte $2A
 - D - I - 0x022166 11:A156: 0F        .byte $0F
 - D - I - 0x022167 11:A157: 2D        .byte $2D
@@ -6719,8 +7006,9 @@ off_A275:
 - D - I - 0x022289 11:A279: F0        .byte con_F0
 - D - I - 0x02228A 11:A27A: F0        .byte con_F0
 - D - I - 0x02228B 11:A27B: F3        .byte con_F3, $A6
-- D - I - 0x02228D 11:A27D: 0B        .byte $0B
-- D - I - 0x02228E 11:A27E: 01        .byte $01
+- D - I - 0x02228D 11:A27D: 0B        .byte case_A288_00 - *
+- D - I - 0x02228E 11:A27E: 01        .byte case_A27F_01 - *
+case_A27F_01:
 - D - I - 0x02228F 11:A27F: 01        .byte $01
 - D - I - 0x022290 11:A280: F0        .byte con_F0
 - D - I - 0x022291 11:A281: F0        .byte con_F0
@@ -6730,12 +7018,15 @@ off_A275:
 - D - I - 0x022295 11:A285: B8        .byte $B8
 - D - I - 0x022296 11:A286: 89        .byte $89
 - D - I - 0x022297 11:A287: FB        .byte con_rts
+case_A288_00:
 - D - I - 0x022298 11:A288: F3        .byte con_F3, $AD
-- D - I - 0x02229A 11:A28A: 1C        .byte $1C
-- D - I - 0x02229B 11:A28B: 01        .byte $01
+- D - I - 0x02229A 11:A28A: 1C        .byte case_A2A6_00 - *
+- D - I - 0x02229B 11:A28B: 01        .byte case_A28C_01 - *
+case_A28C_01:
 - D - I - 0x02229C 11:A28C: F3        .byte con_F3, $98     ; проверка на джито
-- D - I - 0x02229E 11:A28E: 02        .byte $02
-- - - - - 0x02229F 11:A28F: 0C        .byte $0C
+- D - I - 0x02229E 11:A28E: 02        .byte case_A290_00 - *
+- - - - - 0x02229F 11:A28F: 0C        .byte case_A29B_01 - *
+case_A290_00:
 - D - I - 0x0222A0 11:A290: 01        .byte $01
 - D - I - 0x0222A1 11:A291: F0        .byte con_F0
 - D - I - 0x0222A2 11:A292: F0        .byte con_F0
@@ -6746,6 +7037,7 @@ off_A275:
 - D - I - 0x0222A7 11:A297: 9E        .byte $9E
 - D - I - 0x0222A8 11:A298: F2        .byte con_jsr_1
 - D - I - 0x0222A9 11:A299: A3 A2     .word off_A2A3
+case_A29B_01:
 - - - - - 0x0222AB 11:A29B: 01        .byte $01
 - - - - - 0x0222AC 11:A29C: F0        .byte con_F0
 - - - - - 0x0222AD 11:A29D: F0        .byte con_F0
@@ -6757,6 +7049,7 @@ off_A275:
 off_A2A3:
 - D - I - 0x0222B3 11:A2A3: FA        .byte con_jsr_2
 - D - I - 0x0222B4 11:A2A4: C7 BB     .word off_BBC7
+case_A2A6_00:
 - D - I - 0x0222B6 11:A2A6: FB        .byte con_rts
 off_A2A7:
 - D - I - 0x0222B7 11:A2A7: A0        .byte $A0
@@ -6894,15 +7187,18 @@ off_A335:
 off_A33A:
 - D - I - 0x02234A 11:A33A: F5        .byte con_mirror_off
 - D - I - 0x02234B 11:A33B: F3        .byte con_F3, $A3
-- - - - - 0x02234D 11:A33D: 0A        .byte $0A
-- - - - - 0x02234E 11:A33E: 02        .byte $02
-- D - I - 0x02234F 11:A33F: 08        .byte $08
+- - - - - 0x02234D 11:A33D: 0A        .byte case_A347_00 - *
+- - - - - 0x02234E 11:A33E: 02        .byte case_A340_01 - *
+- D - I - 0x02234F 11:A33F: 08        .byte case_A347_02 - *
+case_A340_01:
 - - - - - 0x022350 11:A340: 32        .byte $32
 - - - - - 0x022351 11:A341: 73        .byte $73
 - - - - - 0x022352 11:A342: A6        .byte $A6
 - - - - - 0x022353 11:A343: 9F        .byte $9F
 - - - - - 0x022354 11:A344: F2        .byte con_jsr_1
 - - - - - 0x022355 11:A345: 4B A3     .word off_A34B
+case_A347_00:
+case_A347_02:
 - D - I - 0x022357 11:A347: 32        .byte $32
 - D - I - 0x022358 11:A348: 33        .byte $33
 - D - I - 0x022359 11:A349: A6        .byte $A6
@@ -7040,22 +7336,23 @@ off_A3C5:
 - D - I - 0x0223DE 11:A3CE: FB        .byte con_rts
 off_A3CF:
 - D - I - 0x0223DF 11:A3CF: F3        .byte con_F3, $B3
-- D - I - 0x0223E1 11:A3D1: 67        .byte $67
-- D - I - 0x0223E2 11:A3D2: 0F        .byte $0F
-- D - I - 0x0223E3 11:A3D3: 17        .byte $17
-- D - I - 0x0223E4 11:A3D4: 83        .byte $83
-- D - I - 0x0223E5 11:A3D5: 79        .byte $79
-- D - I - 0x0223E6 11:A3D6: 1A        .byte $1A
-- D - I - 0x0223E7 11:A3D7: 35        .byte $35
-- D - I - 0x0223E8 11:A3D8: 21        .byte $21
-- - - - - 0x0223E9 11:A3D9: 20        .byte $20
-- - - - - 0x0223EA 11:A3DA: 1F        .byte $1F
-- D - I - 0x0223EB 11:A3DB: 1E        .byte $1E
-- - - - - 0x0223EC 11:A3DC: 1D        .byte $1D
-- D - I - 0x0223ED 11:A3DD: 3B        .byte $3B
-- D - I - 0x0223EE 11:A3DE: 51        .byte $51
-- - - - - 0x0223EF 11:A3DF: 59        .byte $59
-- - - - - 0x0223F0 11:A3E0: 58        .byte $58
+- D - I - 0x0223E1 11:A3D1: 67        .byte case_A438_00 - *
+- D - I - 0x0223E2 11:A3D2: 0F        .byte case_A3E1_01 - *
+- D - I - 0x0223E3 11:A3D3: 17        .byte case_A3EA_02 - *
+- D - I - 0x0223E4 11:A3D4: 83        .byte case_A457_03 - *
+- D - I - 0x0223E5 11:A3D5: 79        .byte case_A44E_04 - *
+- D - I - 0x0223E6 11:A3D6: 1A        .byte case_A3F0_05 - *
+- D - I - 0x0223E7 11:A3D7: 35        .byte case_A40C_06 - *
+- D - I - 0x0223E8 11:A3D8: 21        .byte case_A3F9_07 - *
+- - - - - 0x0223E9 11:A3D9: 20        .byte case_A3F9_08 - *
+- - - - - 0x0223EA 11:A3DA: 1F        .byte case_A3F9_09 - *
+- D - I - 0x0223EB 11:A3DB: 1E        .byte case_A3F9_0A - *
+- - - - - 0x0223EC 11:A3DC: 1D        .byte case_A3F9_0B - *
+- D - I - 0x0223ED 11:A3DD: 3B        .byte case_A418_0C - *
+- D - I - 0x0223EE 11:A3DE: 51        .byte case_A42F_0D - *
+- - - - - 0x0223EF 11:A3DF: 59        .byte case_A438_0E - *
+- - - - - 0x0223F0 11:A3E0: 58        .byte case_A438_0F - *
+case_A3E1_01:
 - D - I - 0x0223F1 11:A3E1: FA        .byte con_jsr_2
 - D - I - 0x0223F2 11:A3E2: 1A A7     .word off_A71A
 off_A3E4:
@@ -7063,10 +7360,12 @@ off_A3E4:
 - D - I - 0x0223F5 11:A3E5: F9 A6     .word off_A6F9
 - D - I - 0x0223F7 11:A3E7: F2        .byte con_jsr_1
 - D - I - 0x0223F8 11:A3E8: 60 A4     .word off_A460
+case_A3EA_02:
 - D - I - 0x0223FA 11:A3EA: FA        .byte con_jsr_2
 - D - I - 0x0223FB 11:A3EB: 56 A7     .word off_A756
 - D - I - 0x0223FD 11:A3ED: F2        .byte con_jsr_1
 - D - I - 0x0223FE 11:A3EE: E4 A3     .word off_A3E4
+case_A3F0_05:
 - D - I - 0x022400 11:A3F0: F7        .byte con_F7, $44
 - D - I - 0x022402 11:A3F2: 78        .byte $78
 - D - I - 0x022403 11:A3F3: 30        .byte $30
@@ -7075,6 +7374,11 @@ off_A3E4:
 - D - I - 0x022406 11:A3F6: FA        .byte con_jsr_2
 - D - I - 0x022407 11:A3F7: C7 BB     .word off_BBC7
 off_A3F9:
+case_A3F9_07:
+case_A3F9_08:
+case_A3F9_09:
+case_A3F9_0A:
+case_A3F9_0B:
 - D - I - 0x022409 11:A3F9: FC        .byte con_FC, $02
 - D - I - 0x02240B 11:A3FB: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x02240E 11:A3FE: 14        .byte $14
@@ -7089,6 +7393,7 @@ off_A3F9:
 - D - I - 0x022419 11:A409: F0        .byte con_F0
 - D - I - 0x02241A 11:A40A: F0        .byte con_F0
 - D - I - 0x02241B 11:A40B: FB        .byte con_rts
+case_A40C_06:
 - D - I - 0x02241C 11:A40C: F7        .byte con_F7, $44
 - D - I - 0x02241E 11:A40E: 78        .byte $78
 - D - I - 0x02241F 11:A40F: 30        .byte $30
@@ -7098,6 +7403,7 @@ off_A3F9:
 - D - I - 0x022423 11:A413: C7 BB     .word off_BBC7
 - D - I - 0x022425 11:A415: F2        .byte con_jsr_1
 - D - I - 0x022426 11:A416: F9 A3     .word off_A3F9
+case_A418_0C:
 - D - I - 0x022428 11:A418: F7        .byte con_F7, $44
 - D - I - 0x02242A 11:A41A: 78        .byte $78
 - D - I - 0x02242B 11:A41B: 31        .byte $31
@@ -7114,6 +7420,7 @@ off_A41E:
 - D - I - 0x022439 11:A429: F9        .byte con_delay_soundID, $02, $30
 - D - I - 0x02243C 11:A42C: F2        .byte con_jsr_1
 - D - I - 0x02243D 11:A42D: 63 A4     .word off_A463
+case_A42F_0D:
 - D - I - 0x02243F 11:A42F: F7        .byte con_F7, $44
 - D - I - 0x022441 11:A431: 78        .byte $78
 - D - I - 0x022442 11:A432: 31        .byte $31
@@ -7121,6 +7428,9 @@ off_A41E:
 - D - I - 0x022444 11:A434: DB        .byte $DB
 - D - I - 0x022445 11:A435: F2        .byte con_jsr_1
 - D - I - 0x022446 11:A436: 1E A4     .word off_A41E
+case_A438_00:
+case_A438_0E:
+case_A438_0F:
 - D - I - 0x022448 11:A438: F7        .byte con_F7, $02
 - D - I - 0x02244A 11:A43A: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x02244D 11:A43D: 20        .byte $20
@@ -7136,6 +7446,7 @@ off_A41E:
 - D - I - 0x02245B 11:A44B: 50        .byte $50
 - D - I - 0x02245C 11:A44C: 3F        .byte $3F
 - D - I - 0x02245D 11:A44D: FB        .byte con_rts
+case_A44E_04:
 - D - I - 0x02245E 11:A44E: F7        .byte con_F7, $44
 - D - I - 0x022460 11:A450: 78        .byte $78
 - D - I - 0x022461 11:A451: 30        .byte $30
@@ -7143,6 +7454,7 @@ off_A41E:
 - D - I - 0x022463 11:A453: DA        .byte $DA
 - D - I - 0x022464 11:A454: F2        .byte con_jsr_1
 - D - I - 0x022465 11:A455: 5D A4     .word off_A45D
+case_A457_03:
 - D - I - 0x022467 11:A457: F7        .byte con_F7, $44
 - D - I - 0x022469 11:A459: 78        .byte $78
 - D - I - 0x02246A 11:A45A: 30        .byte $30
@@ -7194,238 +7506,274 @@ off_A470:
 off_A495:
 - D - I - 0x0224A5 11:A495: F6        .byte con_mirror_toggle
 - D - I - 0x0224A6 11:A496: F3        .byte con_F3, $A8
-- D - I - 0x0224A8 11:A498: 22        .byte $22
-- D - I - 0x0224A9 11:A499: 22        .byte $22
-- D - I - 0x0224AA 11:A49A: 28        .byte $28
-- - - - - 0x0224AB 11:A49B: 2E        .byte $2E
-- D - I - 0x0224AC 11:A49C: 34        .byte $34
-- D - I - 0x0224AD 11:A49D: 3A        .byte $3A
-- - - - - 0x0224AE 11:A49E: 40        .byte $40
-- - - - - 0x0224AF 11:A49F: 4D        .byte $4D
-- - - - - 0x0224B0 11:A4A0: 53        .byte $53
-- D - I - 0x0224B1 11:A4A1: 59        .byte $59
-- - - - - 0x0224B2 11:A4A2: 5F        .byte $5F
-- - - - - 0x0224B3 11:A4A3: 65        .byte $65
-- D - I - 0x0224B4 11:A4A4: 6B        .byte $6B
-- - - - - 0x0224B5 11:A4A5: 71        .byte $71
-- - - - - 0x0224B6 11:A4A6: 77        .byte $77
-- D - I - 0x0224B7 11:A4A7: 7D        .byte $7D
-- D - I - 0x0224B8 11:A4A8: 83        .byte $83
-- D - I - 0x0224B9 11:A4A9: 89        .byte $89
-- D - I - 0x0224BA 11:A4AA: 8F        .byte $8F
-- - - - - 0x0224BB 11:A4AB: 95        .byte $95
-- - - - - 0x0224BC 11:A4AC: 9B        .byte $9B
-- - - - - 0x0224BD 11:A4AD: A1        .byte $A1
-- D - I - 0x0224BE 11:A4AE: A7        .byte $A7
-- D - I - 0x0224BF 11:A4AF: AD        .byte $AD
-- D - I - 0x0224C0 11:A4B0: B3        .byte $B3
-- D - I - 0x0224C1 11:A4B1: B9        .byte $B9
-- - - - - 0x0224C2 11:A4B2: BF        .byte $BF
-- - - - - 0x0224C3 11:A4B3: C5        .byte $C5
-- D - I - 0x0224C4 11:A4B4: CB        .byte $CB
-- D - I - 0x0224C5 11:A4B5: D1        .byte $D1
-- D - I - 0x0224C6 11:A4B6: D7        .byte $D7
-- D - I - 0x0224C7 11:A4B7: DD        .byte $DD
-- D - I - 0x0224C8 11:A4B8: E3        .byte $E3
-- - - - - 0x0224C9 11:A4B9: E9        .byte $E9
+- D - I - 0x0224A8 11:A498: 22        .byte case_A4BA_00 - *
+- D - I - 0x0224A9 11:A499: 22        .byte case_A4BB_01 - *
+- D - I - 0x0224AA 11:A49A: 28        .byte case_A4C2_02 - *
+- - - - - 0x0224AB 11:A49B: 2E        .byte case_A4C9_03 - *
+- D - I - 0x0224AC 11:A49C: 34        .byte case_A4D0_04 - *
+- D - I - 0x0224AD 11:A49D: 3A        .byte case_A4D7_05 - *
+- - - - - 0x0224AE 11:A49E: 40        .byte case_A4DE_06 - *
+- - - - - 0x0224AF 11:A49F: 4D        .byte case_A4EC_07 - *
+- - - - - 0x0224B0 11:A4A0: 53        .byte case_A4F3_08 - *
+- D - I - 0x0224B1 11:A4A1: 59        .byte case_A4FA_09 - *
+- - - - - 0x0224B2 11:A4A2: 5F        .byte case_A501_0A - *
+- - - - - 0x0224B3 11:A4A3: 65        .byte case_A508_0B - *
+- D - I - 0x0224B4 11:A4A4: 6B        .byte case_A50F_0C - *
+- - - - - 0x0224B5 11:A4A5: 71        .byte case_A516_0D - *
+- - - - - 0x0224B6 11:A4A6: 77        .byte case_A51D_0E - *
+- D - I - 0x0224B7 11:A4A7: 7D        .byte case_A524_0F - *
+- D - I - 0x0224B8 11:A4A8: 83        .byte case_A52B_10 - *
+- D - I - 0x0224B9 11:A4A9: 89        .byte case_A532_11 - *
+- D - I - 0x0224BA 11:A4AA: 8F        .byte case_A539_12 - *
+- - - - - 0x0224BB 11:A4AB: 95        .byte case_A540_13 - *
+- - - - - 0x0224BC 11:A4AC: 9B        .byte case_A547_14 - *
+- - - - - 0x0224BD 11:A4AD: A1        .byte case_A54E_15 - *
+- D - I - 0x0224BE 11:A4AE: A7        .byte case_A555_16 - *
+- D - I - 0x0224BF 11:A4AF: AD        .byte case_A55C_17 - *
+- D - I - 0x0224C0 11:A4B0: B3        .byte case_A563_18 - *
+- D - I - 0x0224C1 11:A4B1: B9        .byte case_A56A_19 - *
+- - - - - 0x0224C2 11:A4B2: BF        .byte case_A571_1A - *
+- - - - - 0x0224C3 11:A4B3: C5        .byte case_A578_1B - *
+- D - I - 0x0224C4 11:A4B4: CB        .byte case_A57F_1C - *
+- D - I - 0x0224C5 11:A4B5: D1        .byte case_A586_1D - *
+- D - I - 0x0224C6 11:A4B6: D7        .byte case_A58D_1E - *
+- D - I - 0x0224C7 11:A4B7: DD        .byte case_A594_1F - *
+- D - I - 0x0224C8 11:A4B8: E3        .byte case_A59B_20 - *
+- - - - - 0x0224C9 11:A4B9: E9        .byte case_A5A2_21 - *
+case_A4BA_00:
 - D - I - 0x0224CA 11:A4BA: FB        .byte con_rts
+case_A4BB_01:
 - D - I - 0x0224CB 11:A4BB: 3C        .byte $3C
 - D - I - 0x0224CC 11:A4BC: 30        .byte $30
 - D - I - 0x0224CD 11:A4BD: 91        .byte $91
 - D - I - 0x0224CE 11:A4BE: 97        .byte $97
 - D - I - 0x0224CF 11:A4BF: F2        .byte con_jsr_1
 - D - I - 0x0224D0 11:A4C0: C7 BB     .word off_BBC7
+case_A4C2_02:
 - D - I - 0x0224D2 11:A4C2: 3C        .byte $3C
 - D - I - 0x0224D3 11:A4C3: 30        .byte $30
 - D - I - 0x0224D4 11:A4C4: 96        .byte $96
 - D - I - 0x0224D5 11:A4C5: 97        .byte $97
 - D - I - 0x0224D6 11:A4C6: F2        .byte con_jsr_1
 - D - I - 0x0224D7 11:A4C7: C7 BB     .word off_BBC7
+case_A4C9_03:
 - - - - - 0x0224D9 11:A4C9: 3C        .byte $3C
 - - - - - 0x0224DA 11:A4CA: 30        .byte $30
 - - - - - 0x0224DB 11:A4CB: 97        .byte $97
 - - - - - 0x0224DC 11:A4CC: 97        .byte $97
 - - - - - 0x0224DD 11:A4CD: F2        .byte con_jsr_1
 - - - - - 0x0224DE 11:A4CE: C7 BB     .word off_BBC7
+case_A4D0_04:
 - D - I - 0x0224E0 11:A4D0: 3C        .byte $3C
 - D - I - 0x0224E1 11:A4D1: 31        .byte $31
 - D - I - 0x0224E2 11:A4D2: 9E        .byte $9E
 - D - I - 0x0224E3 11:A4D3: 97        .byte $97
 - D - I - 0x0224E4 11:A4D4: F2        .byte con_jsr_1
 - D - I - 0x0224E5 11:A4D5: C7 BB     .word off_BBC7
+case_A4D7_05:
 - D - I - 0x0224E7 11:A4D7: 3C        .byte $3C
 - D - I - 0x0224E8 11:A4D8: 31        .byte $31
 - D - I - 0x0224E9 11:A4D9: B0        .byte $B0
 - D - I - 0x0224EA 11:A4DA: 97        .byte $97
 - D - I - 0x0224EB 11:A4DB: F2        .byte con_jsr_1
 - D - I - 0x0224EC 11:A4DC: C7 BB     .word off_BBC7
+case_A4DE_06:
 - - - - - 0x0224EE 11:A4DE: F3        .byte con_F3, $AB
-- - - - - 0x0224F0 11:A4E0: 02        .byte $02
-- - - - - 0x0224F1 11:A4E1: 08        .byte $08
+- - - - - 0x0224F0 11:A4E0: 02        .byte case_A4E2_00 - *
+- - - - - 0x0224F1 11:A4E1: 08        .byte case_A4E9_01 - *
+case_A4E2_00:
 - - - - - 0x0224F2 11:A4E2: 3C        .byte $3C
 - - - - - 0x0224F3 11:A4E3: 30        .byte $30
 - - - - - 0x0224F4 11:A4E4: A3        .byte $A3
 - - - - - 0x0224F5 11:A4E5: 97        .byte $97
 - - - - - 0x0224F6 11:A4E6: F2        .byte con_jsr_1
 - - - - - 0x0224F7 11:A4E7: C7 BB     .word off_BBC7
+case_A4E9_01:
 - - - - - 0x0224F9 11:A4E9: F2        .byte con_jsr_1
 - - - - - 0x0224FA 11:A4EA: 89 A9     .word off_A989
+case_A4EC_07:
 - - - - - 0x0224FC 11:A4EC: 3C        .byte $3C
 - - - - - 0x0224FD 11:A4ED: 30        .byte $30
 - - - - - 0x0224FE 11:A4EE: AE        .byte $AE
 - - - - - 0x0224FF 11:A4EF: 97        .byte $97
 - - - - - 0x022500 11:A4F0: F2        .byte con_jsr_1
 - - - - - 0x022501 11:A4F1: C7 BB     .word off_BBC7
+case_A4F3_08:
 - - - - - 0x022503 11:A4F3: 3C        .byte $3C
 - - - - - 0x022504 11:A4F4: 30        .byte $30
 - - - - - 0x022505 11:A4F5: A1        .byte $A1
 - - - - - 0x022506 11:A4F6: 97        .byte $97
 - - - - - 0x022507 11:A4F7: F2        .byte con_jsr_1
 - - - - - 0x022508 11:A4F8: C7 BB     .word off_BBC7
+case_A4FA_09:
 - D - I - 0x02250A 11:A4FA: 3C        .byte $3C
 - D - I - 0x02250B 11:A4FB: 30        .byte $30
 - D - I - 0x02250C 11:A4FC: AF        .byte $AF
 - D - I - 0x02250D 11:A4FD: 97        .byte $97
 - D - I - 0x02250E 11:A4FE: F2        .byte con_jsr_1
 - D - I - 0x02250F 11:A4FF: C7 BB     .word off_BBC7
+case_A501_0A:
 - - - - - 0x022511 11:A501: 3C        .byte $3C
 - - - - - 0x022512 11:A502: 30        .byte $30
 - - - - - 0x022513 11:A503: 98        .byte $98
 - - - - - 0x022514 11:A504: 97        .byte $97
 - - - - - 0x022515 11:A505: F2        .byte con_jsr_1
 - - - - - 0x022516 11:A506: C7 BB     .word off_BBC7
+case_A508_0B:
 - - - - - 0x022518 11:A508: 3C        .byte $3C
 - - - - - 0x022519 11:A509: 30        .byte $30
 - - - - - 0x02251A 11:A50A: 99        .byte $99
 - - - - - 0x02251B 11:A50B: 97        .byte $97
 - - - - - 0x02251C 11:A50C: F2        .byte con_jsr_1
 - - - - - 0x02251D 11:A50D: C7 BB     .word off_BBC7
+case_A50F_0C:
 - D - I - 0x02251F 11:A50F: 3C        .byte $3C
 - D - I - 0x022520 11:A510: 30        .byte $30
 - D - I - 0x022521 11:A511: 9F        .byte $9F
 - D - I - 0x022522 11:A512: 97        .byte $97
 - D - I - 0x022523 11:A513: F2        .byte con_jsr_1
 - D - I - 0x022524 11:A514: C7 BB     .word off_BBC7
+case_A516_0D:
 - - - - - 0x022526 11:A516: 3C        .byte $3C
 - - - - - 0x022527 11:A517: 30        .byte $30
 - - - - - 0x022528 11:A518: AD        .byte $AD
 - - - - - 0x022529 11:A519: 97        .byte $97
 - - - - - 0x02252A 11:A51A: F2        .byte con_jsr_1
 - - - - - 0x02252B 11:A51B: C7 BB     .word off_BBC7
+case_A51D_0E:
 - - - - - 0x02252D 11:A51D: 3C        .byte $3C
 - - - - - 0x02252E 11:A51E: 30        .byte $30
 - - - - - 0x02252F 11:A51F: A0        .byte $A0
 - - - - - 0x022530 11:A520: 97        .byte $97
 - - - - - 0x022531 11:A521: F2        .byte con_jsr_1
 - - - - - 0x022532 11:A522: C7 BB     .word off_BBC7
+case_A524_0F:
 - D - I - 0x022534 11:A524: 3C        .byte $3C
 - D - I - 0x022535 11:A525: 30        .byte $30
 - D - I - 0x022536 11:A526: AA        .byte $AA
 - D - I - 0x022537 11:A527: 97        .byte $97
 - D - I - 0x022538 11:A528: F2        .byte con_jsr_1
 - D - I - 0x022539 11:A529: C7 BB     .word off_BBC7
+case_A52B_10:
 - D - I - 0x02253B 11:A52B: 3C        .byte $3C
 - D - I - 0x02253C 11:A52C: 30        .byte $30
 - D - I - 0x02253D 11:A52D: 9C        .byte $9C
 - D - I - 0x02253E 11:A52E: 97        .byte $97
 - D - I - 0x02253F 11:A52F: F2        .byte con_jsr_1
 - D - I - 0x022540 11:A530: C7 BB     .word off_BBC7
+case_A532_11:
 - D - I - 0x022542 11:A532: 3C        .byte $3C
 - D - I - 0x022543 11:A533: 30        .byte $30
 - D - I - 0x022544 11:A534: AB        .byte $AB
 - D - I - 0x022545 11:A535: 97        .byte $97
 - D - I - 0x022546 11:A536: F2        .byte con_jsr_1
 - D - I - 0x022547 11:A537: C7 BB     .word off_BBC7
+case_A539_12:
 - D - I - 0x022549 11:A539: 3C        .byte $3C
 - D - I - 0x02254A 11:A53A: 30        .byte $30
 - D - I - 0x02254B 11:A53B: 9A        .byte $9A
 - D - I - 0x02254C 11:A53C: 97        .byte $97
 - D - I - 0x02254D 11:A53D: F2        .byte con_jsr_1
 - D - I - 0x02254E 11:A53E: C7 BB     .word off_BBC7
+case_A540_13:
 - - - - - 0x022550 11:A540: 3C        .byte $3C
 - - - - - 0x022551 11:A541: 30        .byte $30
 - - - - - 0x022552 11:A542: 9B        .byte $9B
 - - - - - 0x022553 11:A543: 97        .byte $97
 - - - - - 0x022554 11:A544: F2        .byte con_jsr_1
 - - - - - 0x022555 11:A545: C7 BB     .word off_BBC7
+case_A547_14:
 - - - - - 0x022557 11:A547: 3C        .byte $3C
 - - - - - 0x022558 11:A548: 30        .byte $30
 - - - - - 0x022559 11:A549: A2        .byte $A2
 - - - - - 0x02255A 11:A54A: 97        .byte $97
 - - - - - 0x02255B 11:A54B: F2        .byte con_jsr_1
 - - - - - 0x02255C 11:A54C: C7 BB     .word off_BBC7
+case_A54E_15:
 - - - - - 0x02255E 11:A54E: 3C        .byte $3C
 - - - - - 0x02255F 11:A54F: 30        .byte $30
 - - - - - 0x022560 11:A550: B1        .byte $B1
 - - - - - 0x022561 11:A551: 97        .byte $97
 - - - - - 0x022562 11:A552: F2        .byte con_jsr_1
 - - - - - 0x022563 11:A553: C7 BB     .word off_BBC7
+case_A555_16:
 - D - I - 0x022565 11:A555: 3C        .byte $3C
 - D - I - 0x022566 11:A556: 30        .byte $30
 - D - I - 0x022567 11:A557: BC        .byte $BC
 - D - I - 0x022568 11:A558: 97        .byte $97
 - D - I - 0x022569 11:A559: F2        .byte con_jsr_1
 - D - I - 0x02256A 11:A55A: C7 BB     .word off_BBC7
+case_A55C_17:
 - D - I - 0x02256C 11:A55C: 3C        .byte $3C
 - D - I - 0x02256D 11:A55D: 30        .byte $30
 - D - I - 0x02256E 11:A55E: A9        .byte $A9
 - D - I - 0x02256F 11:A55F: 97        .byte $97
 - D - I - 0x022570 11:A560: F2        .byte con_jsr_1
 - D - I - 0x022571 11:A561: C7 BB     .word off_BBC7
+case_A563_18:
 - D - I - 0x022573 11:A563: 3C        .byte $3C
 - D - I - 0x022574 11:A564: 30        .byte $30
 - D - I - 0x022575 11:A565: BB        .byte $BB
 - D - I - 0x022576 11:A566: 97        .byte $97
 - D - I - 0x022577 11:A567: F2        .byte con_jsr_1
 - D - I - 0x022578 11:A568: C7 BB     .word off_BBC7
+case_A56A_19:
 - D - I - 0x02257A 11:A56A: 3C        .byte $3C
 - D - I - 0x02257B 11:A56B: 30        .byte $30
 - D - I - 0x02257C 11:A56C: B8        .byte $B8
 - D - I - 0x02257D 11:A56D: 97        .byte $97
 - D - I - 0x02257E 11:A56E: F2        .byte con_jsr_1
 - D - I - 0x02257F 11:A56F: C7 BB     .word off_BBC7
+case_A571_1A:
 - - - - - 0x022581 11:A571: 3C        .byte $3C
 - - - - - 0x022582 11:A572: 30        .byte $30
 - - - - - 0x022583 11:A573: B3        .byte $B3
 - - - - - 0x022584 11:A574: 97        .byte $97
 - - - - - 0x022585 11:A575: F2        .byte con_jsr_1
 - - - - - 0x022586 11:A576: C7 BB     .word off_BBC7
+case_A578_1B:
 - - - - - 0x022588 11:A578: 3C        .byte $3C
 - - - - - 0x022589 11:A579: 30        .byte $30
 - - - - - 0x02258A 11:A57A: BA        .byte $BA
 - - - - - 0x02258B 11:A57B: 97        .byte $97
 - - - - - 0x02258C 11:A57C: F2        .byte con_jsr_1
 - - - - - 0x02258D 11:A57D: C7 BB     .word off_BBC7
+case_A57F_1C:
 - D - I - 0x02258F 11:A57F: 3C        .byte $3C
 - D - I - 0x022590 11:A580: 30        .byte $30
 - D - I - 0x022591 11:A581: B7        .byte $B7
 - D - I - 0x022592 11:A582: 97        .byte $97
 - D - I - 0x022593 11:A583: F2        .byte con_jsr_1
 - D - I - 0x022594 11:A584: C7 BB     .word off_BBC7
+case_A586_1D:
 - D - I - 0x022596 11:A586: 3C        .byte $3C
 - D - I - 0x022597 11:A587: 30        .byte $30
 - D - I - 0x022598 11:A588: B6        .byte $B6
 - D - I - 0x022599 11:A589: 97        .byte $97
 - - - - - 0x02259A 11:A58A: F2        .byte con_jsr_1
 - - - - - 0x02259B 11:A58B: C7 BB     .word off_BBC7
+case_A58D_1E:
 - D - I - 0x02259D 11:A58D: 3C        .byte $3C
 - D - I - 0x02259E 11:A58E: 30        .byte $30
 - D - I - 0x02259F 11:A58F: B5        .byte $B5
 - D - I - 0x0225A0 11:A590: 97        .byte $97
 - D - I - 0x0225A1 11:A591: F2        .byte con_jsr_1
 - D - I - 0x0225A2 11:A592: C7 BB     .word off_BBC7
+case_A594_1F:
 - D - I - 0x0225A4 11:A594: 3C        .byte $3C
 - D - I - 0x0225A5 11:A595: 30        .byte $30
 - D - I - 0x0225A6 11:A596: B4        .byte $B4
 - D - I - 0x0225A7 11:A597: 97        .byte $97
 - D - I - 0x0225A8 11:A598: F2        .byte con_jsr_1
 - D - I - 0x0225A9 11:A599: C7 BB     .word off_BBC7
+case_A59B_20:
 - D - I - 0x0225AB 11:A59B: 3C        .byte $3C
 - D - I - 0x0225AC 11:A59C: 30        .byte $30
 - D - I - 0x0225AD 11:A59D: B2        .byte $B2
 - D - I - 0x0225AE 11:A59E: 97        .byte $97
 - D - I - 0x0225AF 11:A59F: F2        .byte con_jsr_1
 - D - I - 0x0225B0 11:A5A0: C7 BB     .word off_BBC7
+case_A5A2_21:
 - - - - - 0x0225B2 11:A5A2: 3C        .byte $3C
 - - - - - 0x0225B3 11:A5A3: 30        .byte $30
 - - - - - 0x0225B4 11:A5A4: B9        .byte $B9
@@ -7434,233 +7782,267 @@ off_A495:
 - - - - - 0x0225B7 11:A5A7: C7 BB     .word off_BBC7
 off_A5A9:
 - D - I - 0x0225B9 11:A5A9: F3        .byte con_F3, $AA
-- D - I - 0x0225BB 11:A5AB: 22        .byte $22
-- - - - - 0x0225BC 11:A5AC: 22        .byte $22
-- D - I - 0x0225BD 11:A5AD: 28        .byte $28
-- - - - - 0x0225BE 11:A5AE: 2E        .byte $2E
-- - - - - 0x0225BF 11:A5AF: 34        .byte $34
-- - - - - 0x0225C0 11:A5B0: 3A        .byte $3A
-- - - - - 0x0225C1 11:A5B1: 40        .byte $40
-- - - - - 0x0225C2 11:A5B2: 46        .byte $46
-- D - I - 0x0225C3 11:A5B3: 4C        .byte $4C
-- - - - - 0x0225C4 11:A5B4: 52        .byte $52
-- - - - - 0x0225C5 11:A5B5: 58        .byte $58
-- - - - - 0x0225C6 11:A5B6: 5E        .byte $5E
-- - - - - 0x0225C7 11:A5B7: 64        .byte $64
-- - - - - 0x0225C8 11:A5B8: 6A        .byte $6A
-- - - - - 0x0225C9 11:A5B9: 70        .byte $70
-- - - - - 0x0225CA 11:A5BA: 76        .byte $76
-- - - - - 0x0225CB 11:A5BB: 7C        .byte $7C
-- - - - - 0x0225CC 11:A5BC: 82        .byte $82
-- - - - - 0x0225CD 11:A5BD: 88        .byte $88
-- - - - - 0x0225CE 11:A5BE: 8E        .byte $8E
-- - - - - 0x0225CF 11:A5BF: 94        .byte $94
-- - - - - 0x0225D0 11:A5C0: 9A        .byte $9A
-- - - - - 0x0225D1 11:A5C1: A0        .byte $A0
-- - - - - 0x0225D2 11:A5C2: A6        .byte $A6
-- - - - - 0x0225D3 11:A5C3: AC        .byte $AC
-- - - - - 0x0225D4 11:A5C4: B2        .byte $B2
-- - - - - 0x0225D5 11:A5C5: B8        .byte $B8
-- - - - - 0x0225D6 11:A5C6: BE        .byte $BE
-- - - - - 0x0225D7 11:A5C7: C4        .byte $C4
-- - - - - 0x0225D8 11:A5C8: CA        .byte $CA
-- - - - - 0x0225D9 11:A5C9: D0        .byte $D0
-- - - - - 0x0225DA 11:A5CA: D6        .byte $D6
-- - - - - 0x0225DB 11:A5CB: DC        .byte $DC
-- - - - - 0x0225DC 11:A5CC: E2        .byte $E2
+- D - I - 0x0225BB 11:A5AB: 22        .byte case_A5CD_00 - *
+- - - - - 0x0225BC 11:A5AC: 22        .byte case_A5CE_01 - *
+- D - I - 0x0225BD 11:A5AD: 28        .byte case_A5D5_02 - *
+- - - - - 0x0225BE 11:A5AE: 2E        .byte case_A5DC_03 - *
+- - - - - 0x0225BF 11:A5AF: 34        .byte case_A5E3_04 - *
+- - - - - 0x0225C0 11:A5B0: 3A        .byte case_A5EA_05 - *
+- - - - - 0x0225C1 11:A5B1: 40        .byte case_A5F1_06 - *
+- - - - - 0x0225C2 11:A5B2: 46        .byte case_A5F8_07 - *
+- D - I - 0x0225C3 11:A5B3: 4C        .byte case_A5FF_08 - *
+- - - - - 0x0225C4 11:A5B4: 52        .byte case_A606_09 - *
+- - - - - 0x0225C5 11:A5B5: 58        .byte case_A60D_0A - *
+- - - - - 0x0225C6 11:A5B6: 5E        .byte case_A614_0B - *
+- - - - - 0x0225C7 11:A5B7: 64        .byte case_A61B_0C - *
+- - - - - 0x0225C8 11:A5B8: 6A        .byte case_A622_0D - *
+- - - - - 0x0225C9 11:A5B9: 70        .byte case_A629_0E - *
+- - - - - 0x0225CA 11:A5BA: 76        .byte case_A630_0F - *
+- - - - - 0x0225CB 11:A5BB: 7C        .byte case_A637_10 - *
+- - - - - 0x0225CC 11:A5BC: 82        .byte case_A63E_11 - *
+- - - - - 0x0225CD 11:A5BD: 88        .byte case_A645_12 - *
+- - - - - 0x0225CE 11:A5BE: 8E        .byte case_A64C_13 - *
+- - - - - 0x0225CF 11:A5BF: 94        .byte case_A653_14 - *
+- - - - - 0x0225D0 11:A5C0: 9A        .byte case_A65A_15 - *
+- - - - - 0x0225D1 11:A5C1: A0        .byte case_A661_16 - *
+- - - - - 0x0225D2 11:A5C2: A6        .byte case_A668_17 - *
+- - - - - 0x0225D3 11:A5C3: AC        .byte case_A66F_18 - *
+- - - - - 0x0225D4 11:A5C4: B2        .byte case_A676_19 - *
+- - - - - 0x0225D5 11:A5C5: B8        .byte case_A67D_1A - *
+- - - - - 0x0225D6 11:A5C6: BE        .byte case_A684_1B - *
+- - - - - 0x0225D7 11:A5C7: C4        .byte case_A68B_1C - *
+- - - - - 0x0225D8 11:A5C8: CA        .byte case_A692_1D - *
+- - - - - 0x0225D9 11:A5C9: D0        .byte case_A699_1E - *
+- - - - - 0x0225DA 11:A5CA: D6        .byte case_A6A0_1F - *
+- - - - - 0x0225DB 11:A5CB: DC        .byte case_A6A7_20 - *
+- - - - - 0x0225DC 11:A5CC: E2        .byte case_A6AE_21 - *
+case_A5CD_00:
 - D - I - 0x0225DD 11:A5CD: FB        .byte con_rts
+case_A5CE_01:
 - - - - - 0x0225DE 11:A5CE: 3C        .byte $3C
 - - - - - 0x0225DF 11:A5CF: 30        .byte $30
 - - - - - 0x0225E0 11:A5D0: 91        .byte $91
 - - - - - 0x0225E1 11:A5D1: A2        .byte $A2
 - - - - - 0x0225E2 11:A5D2: F2        .byte con_jsr_1
 - - - - - 0x0225E3 11:A5D3: C7 BB     .word off_BBC7
+case_A5D5_02:
 - D - I - 0x0225E5 11:A5D5: 3C        .byte $3C
 - D - I - 0x0225E6 11:A5D6: 30        .byte $30
 - D - I - 0x0225E7 11:A5D7: 96        .byte $96
 - D - I - 0x0225E8 11:A5D8: A2        .byte $A2
 - D - I - 0x0225E9 11:A5D9: F2        .byte con_jsr_1
 - D - I - 0x0225EA 11:A5DA: C7 BB     .word off_BBC7
+case_A5DC_03:
 - - - - - 0x0225EC 11:A5DC: 3C        .byte $3C
 - - - - - 0x0225ED 11:A5DD: 30        .byte $30
 - - - - - 0x0225EE 11:A5DE: 97        .byte $97
 - - - - - 0x0225EF 11:A5DF: A2        .byte $A2
 - - - - - 0x0225F0 11:A5E0: F2        .byte con_jsr_1
 - - - - - 0x0225F1 11:A5E1: C7 BB     .word off_BBC7
+case_A5E3_04:
 - - - - - 0x0225F3 11:A5E3: 3C        .byte $3C
 - - - - - 0x0225F4 11:A5E4: 31        .byte $31
 - - - - - 0x0225F5 11:A5E5: 9E        .byte $9E
 - - - - - 0x0225F6 11:A5E6: A2        .byte $A2
 - - - - - 0x0225F7 11:A5E7: F2        .byte con_jsr_1
 - - - - - 0x0225F8 11:A5E8: C7 BB     .word off_BBC7
+case_A5EA_05:
 - - - - - 0x0225FA 11:A5EA: 3C        .byte $3C
 - - - - - 0x0225FB 11:A5EB: 31        .byte $31
 - - - - - 0x0225FC 11:A5EC: B0        .byte $B0
 - - - - - 0x0225FD 11:A5ED: A2        .byte $A2
 - - - - - 0x0225FE 11:A5EE: F2        .byte con_jsr_1
 - - - - - 0x0225FF 11:A5EF: C7 BB     .word off_BBC7
+case_A5F1_06:
 - - - - - 0x022601 11:A5F1: 3C        .byte $3C
 - - - - - 0x022602 11:A5F2: 30        .byte $30
 - - - - - 0x022603 11:A5F3: A3        .byte $A3
 - - - - - 0x022604 11:A5F4: A2        .byte $A2
 - - - - - 0x022605 11:A5F5: F2        .byte con_jsr_1
 - - - - - 0x022606 11:A5F6: C7 BB     .word off_BBC7
+case_A5F8_07:
 - - - - - 0x022608 11:A5F8: 3C        .byte $3C
 - - - - - 0x022609 11:A5F9: 30        .byte $30
 - - - - - 0x02260A 11:A5FA: AE        .byte $AE
 - - - - - 0x02260B 11:A5FB: A2        .byte $A2
 - - - - - 0x02260C 11:A5FC: F2        .byte con_jsr_1
 - - - - - 0x02260D 11:A5FD: C7 BB     .word off_BBC7
+case_A5FF_08:
 - D - I - 0x02260F 11:A5FF: 3C        .byte $3C
 - D - I - 0x022610 11:A600: 30        .byte $30
 - D - I - 0x022611 11:A601: A1        .byte $A1
 - D - I - 0x022612 11:A602: A2        .byte $A2
 - D - I - 0x022613 11:A603: F2        .byte con_jsr_1
 - D - I - 0x022614 11:A604: C7 BB     .word off_BBC7
+case_A606_09:
 - - - - - 0x022616 11:A606: 3C        .byte $3C
 - - - - - 0x022617 11:A607: 30        .byte $30
 - - - - - 0x022618 11:A608: AF        .byte $AF
 - - - - - 0x022619 11:A609: A2        .byte $A2
 - - - - - 0x02261A 11:A60A: F2        .byte con_jsr_1
 - - - - - 0x02261B 11:A60B: C7 BB     .word off_BBC7
+case_A60D_0A:
 - - - - - 0x02261D 11:A60D: 3C        .byte $3C
 - - - - - 0x02261E 11:A60E: 30        .byte $30
 - - - - - 0x02261F 11:A60F: 98        .byte $98
 - - - - - 0x022620 11:A610: A2        .byte $A2
 - - - - - 0x022621 11:A611: F2        .byte con_jsr_1
 - - - - - 0x022622 11:A612: C7 BB     .word off_BBC7
+case_A614_0B:
 - - - - - 0x022624 11:A614: 3C        .byte $3C
 - - - - - 0x022625 11:A615: 30        .byte $30
 - - - - - 0x022626 11:A616: 99        .byte $99
 - - - - - 0x022627 11:A617: A2        .byte $A2
 - - - - - 0x022628 11:A618: F2        .byte con_jsr_1
 - - - - - 0x022629 11:A619: C7 BB     .word off_BBC7
+case_A61B_0C:
 - - - - - 0x02262B 11:A61B: 3C        .byte $3C
 - - - - - 0x02262C 11:A61C: 30        .byte $30
 - - - - - 0x02262D 11:A61D: 9F        .byte $9F
 - - - - - 0x02262E 11:A61E: A2        .byte $A2
 - - - - - 0x02262F 11:A61F: F2        .byte con_jsr_1
 - - - - - 0x022630 11:A620: C7 BB     .word off_BBC7
+case_A622_0D:
 - - - - - 0x022632 11:A622: 3C        .byte $3C
 - - - - - 0x022633 11:A623: 30        .byte $30
 - - - - - 0x022634 11:A624: AD        .byte $AD
 - - - - - 0x022635 11:A625: A2        .byte $A2
 - - - - - 0x022636 11:A626: F2        .byte con_jsr_1
 - - - - - 0x022637 11:A627: C7 BB     .word off_BBC7
+case_A629_0E:
 - - - - - 0x022639 11:A629: 3C        .byte $3C
 - - - - - 0x02263A 11:A62A: 30        .byte $30
 - - - - - 0x02263B 11:A62B: A0        .byte $A0
 - - - - - 0x02263C 11:A62C: A2        .byte $A2
 - - - - - 0x02263D 11:A62D: F2        .byte con_jsr_1
 - - - - - 0x02263E 11:A62E: C7 BB     .word off_BBC7
+case_A630_0F:
 - - - - - 0x022640 11:A630: 3C        .byte $3C
 - - - - - 0x022641 11:A631: 30        .byte $30
 - - - - - 0x022642 11:A632: AA        .byte $AA
 - - - - - 0x022643 11:A633: A2        .byte $A2
 - - - - - 0x022644 11:A634: F2        .byte con_jsr_1
 - - - - - 0x022645 11:A635: C7 BB     .word off_BBC7
+case_A637_10:
 - - - - - 0x022647 11:A637: 3C        .byte $3C
 - - - - - 0x022648 11:A638: 30        .byte $30
 - - - - - 0x022649 11:A639: 9C        .byte $9C
 - - - - - 0x02264A 11:A63A: A2        .byte $A2
 - - - - - 0x02264B 11:A63B: F2        .byte con_jsr_1
 - - - - - 0x02264C 11:A63C: C7 BB     .word off_BBC7
+case_A63E_11:
 - - - - - 0x02264E 11:A63E: 3C        .byte $3C
 - - - - - 0x02264F 11:A63F: 30        .byte $30
 - - - - - 0x022650 11:A640: AB        .byte $AB
 - - - - - 0x022651 11:A641: A2        .byte $A2
 - - - - - 0x022652 11:A642: F2        .byte con_jsr_1
 - - - - - 0x022653 11:A643: C7 BB     .word off_BBC7
+case_A645_12:
 - - - - - 0x022655 11:A645: 3C        .byte $3C
 - - - - - 0x022656 11:A646: 30        .byte $30
 - - - - - 0x022657 11:A647: 9A        .byte $9A
 - - - - - 0x022658 11:A648: A2        .byte $A2
 - - - - - 0x022659 11:A649: F2        .byte con_jsr_1
 - - - - - 0x02265A 11:A64A: C7 BB     .word off_BBC7
+case_A64C_13:
 - - - - - 0x02265C 11:A64C: 3C        .byte $3C
 - - - - - 0x02265D 11:A64D: 30        .byte $30
 - - - - - 0x02265E 11:A64E: 9B        .byte $9B
 - - - - - 0x02265F 11:A64F: A2        .byte $A2
 - - - - - 0x022660 11:A650: F2        .byte con_jsr_1
 - - - - - 0x022661 11:A651: C7 BB     .word off_BBC7
+case_A653_14:
 - - - - - 0x022663 11:A653: 3C        .byte $3C
 - - - - - 0x022664 11:A654: 30        .byte $30
 - - - - - 0x022665 11:A655: A2        .byte $A2
 - - - - - 0x022666 11:A656: A2        .byte $A2
 - - - - - 0x022667 11:A657: F2        .byte con_jsr_1
 - - - - - 0x022668 11:A658: C7 BB     .word off_BBC7
+case_A65A_15:
 - - - - - 0x02266A 11:A65A: 3C        .byte $3C
 - - - - - 0x02266B 11:A65B: 30        .byte $30
 - - - - - 0x02266C 11:A65C: B1        .byte $B1
 - - - - - 0x02266D 11:A65D: A2        .byte $A2
 - - - - - 0x02266E 11:A65E: F2        .byte con_jsr_1
 - - - - - 0x02266F 11:A65F: C7 BB     .word off_BBC7
+case_A661_16:
 - - - - - 0x022671 11:A661: 3C        .byte $3C
 - - - - - 0x022672 11:A662: 30        .byte $30
 - - - - - 0x022673 11:A663: BC        .byte $BC
 - - - - - 0x022674 11:A664: A2        .byte $A2
 - - - - - 0x022675 11:A665: F2        .byte con_jsr_1
 - - - - - 0x022676 11:A666: C7 BB     .word off_BBC7
+case_A668_17:
 - - - - - 0x022678 11:A668: 3C        .byte $3C
 - - - - - 0x022679 11:A669: 30        .byte $30
 - - - - - 0x02267A 11:A66A: A9        .byte $A9
 - - - - - 0x02267B 11:A66B: A2        .byte $A2
 - - - - - 0x02267C 11:A66C: F2        .byte con_jsr_1
 - - - - - 0x02267D 11:A66D: C7 BB     .word off_BBC7
+case_A66F_18:
 - - - - - 0x02267F 11:A66F: 3C        .byte $3C
 - - - - - 0x022680 11:A670: 30        .byte $30
 - - - - - 0x022681 11:A671: BB        .byte $BB
 - - - - - 0x022682 11:A672: A2        .byte $A2
 - - - - - 0x022683 11:A673: F2        .byte con_jsr_1
 - - - - - 0x022684 11:A674: C7 BB     .word off_BBC7
+case_A676_19:
 - - - - - 0x022686 11:A676: 3C        .byte $3C
 - - - - - 0x022687 11:A677: 30        .byte $30
 - - - - - 0x022688 11:A678: B8        .byte $B8
 - - - - - 0x022689 11:A679: A2        .byte $A2
 - - - - - 0x02268A 11:A67A: F2        .byte con_jsr_1
 - - - - - 0x02268B 11:A67B: C7 BB     .word off_BBC7
+case_A67D_1A:
 - - - - - 0x02268D 11:A67D: 3C        .byte $3C
 - - - - - 0x02268E 11:A67E: 30        .byte $30
 - - - - - 0x02268F 11:A67F: B3        .byte $B3
 - - - - - 0x022690 11:A680: A2        .byte $A2
 - - - - - 0x022691 11:A681: F2        .byte con_jsr_1
 - - - - - 0x022692 11:A682: C7 BB     .word off_BBC7
+case_A684_1B:
 - - - - - 0x022694 11:A684: 3C        .byte $3C
 - - - - - 0x022695 11:A685: 30        .byte $30
 - - - - - 0x022696 11:A686: BA        .byte $BA
 - - - - - 0x022697 11:A687: A2        .byte $A2
 - - - - - 0x022698 11:A688: F2        .byte con_jsr_1
 - - - - - 0x022699 11:A689: C7 BB     .word off_BBC7
+case_A68B_1C:
 - - - - - 0x02269B 11:A68B: 3C        .byte $3C
 - - - - - 0x02269C 11:A68C: 30        .byte $30
 - - - - - 0x02269D 11:A68D: B7        .byte $B7
 - - - - - 0x02269E 11:A68E: A2        .byte $A2
 - - - - - 0x02269F 11:A68F: F2        .byte con_jsr_1
 - - - - - 0x0226A0 11:A690: C7 BB     .word off_BBC7
+case_A692_1D:
 - - - - - 0x0226A2 11:A692: 3C        .byte $3C
 - - - - - 0x0226A3 11:A693: 30        .byte $30
 - - - - - 0x0226A4 11:A694: B6        .byte $B6
 - - - - - 0x0226A5 11:A695: A2        .byte $A2
 - - - - - 0x0226A6 11:A696: F2        .byte con_jsr_1
 - - - - - 0x0226A7 11:A697: C7 BB     .word off_BBC7
+case_A699_1E:
 - - - - - 0x0226A9 11:A699: 3C        .byte $3C
 - - - - - 0x0226AA 11:A69A: 30        .byte $30
 - - - - - 0x0226AB 11:A69B: B5        .byte $B5
 - - - - - 0x0226AC 11:A69C: A2        .byte $A2
 - - - - - 0x0226AD 11:A69D: F2        .byte con_jsr_1
 - - - - - 0x0226AE 11:A69E: C7 BB     .word off_BBC7
+case_A6A0_1F:
 - - - - - 0x0226B0 11:A6A0: 3C        .byte $3C
 - - - - - 0x0226B1 11:A6A1: 30        .byte $30
 - - - - - 0x0226B2 11:A6A2: B4        .byte $B4
 - - - - - 0x0226B3 11:A6A3: A2        .byte $A2
 - - - - - 0x0226B4 11:A6A4: F2        .byte con_jsr_1
 - - - - - 0x0226B5 11:A6A5: C7 BB     .word off_BBC7
+case_A6A7_20:
 - - - - - 0x0226B7 11:A6A7: 3C        .byte $3C
 - - - - - 0x0226B8 11:A6A8: 30        .byte $30
 - - - - - 0x0226B9 11:A6A9: B2        .byte $B2
 - - - - - 0x0226BA 11:A6AA: A2        .byte $A2
 - - - - - 0x0226BB 11:A6AB: F2        .byte con_jsr_1
 - - - - - 0x0226BC 11:A6AC: C7 BB     .word off_BBC7
+case_A6AE_21:
 - - - - - 0x0226BE 11:A6AE: 3C        .byte $3C
 - - - - - 0x0226BF 11:A6AF: 30        .byte $30
 - - - - - 0x0226C0 11:A6B0: B9        .byte $B9
@@ -7677,62 +8059,66 @@ off_A6BB:
 - D - I - 0x0226CB 11:A6BB: FB        .byte con_rts
 off_A6BC:
 - D - I - 0x0226CC 11:A6BC: F3        .byte con_F3, $B3
-- - - - - 0x0226CE 11:A6BE: 4E        .byte $4E
-- D - I - 0x0226CF 11:A6BF: 37        .byte $37
-- - - - - 0x0226D0 11:A6C0: 46        .byte $46
-- - - - - 0x0226D1 11:A6C1: 4B        .byte $4B     ; bzk возможно тут начинается мусор, байты уменьшаются на 1
-- - - - - 0x0226D2 11:A6C2: 4A        .byte $4A
-- - - - - 0x0226D3 11:A6C3: 49        .byte $49
-- - - - - 0x0226D4 11:A6C4: 48        .byte $48
-- - - - - 0x0226D5 11:A6C5: 47        .byte $47
-- - - - - 0x0226D6 11:A6C6: 46        .byte $46
-- - - - - 0x0226D7 11:A6C7: 45        .byte $45
-- - - - - 0x0226D8 11:A6C8: 44        .byte $44
-- - - - - 0x0226D9 11:A6C9: 43        .byte $43
-- - - - - 0x0226DA 11:A6CA: 42        .byte $42
-- - - - - 0x0226DB 11:A6CB: 41        .byte $41
-- - - - - 0x0226DC 11:A6CC: 40        .byte $40
-- - - - - 0x0226DD 11:A6CD: 3F        .byte $3F
+- - - - - 0x0226CE 11:A6BE: 4E        .byte case_A70C_00 - *
+- D - I - 0x0226CF 11:A6BF: 37        .byte case_A6F6_01 - *
+- - - - - 0x0226D0 11:A6C0: 46        .byte case_A706_02 - *
+- - - - - 0x0226D1 11:A6C1: 4B        .byte case_A70C_03 - *
+- - - - - 0x0226D2 11:A6C2: 4A        .byte case_A70C_04 - *
+- - - - - 0x0226D3 11:A6C3: 49        .byte case_A70C_05 - *
+- - - - - 0x0226D4 11:A6C4: 48        .byte case_A70C_06 - *
+- - - - - 0x0226D5 11:A6C5: 47        .byte case_A70C_07 - *
+- - - - - 0x0226D6 11:A6C6: 46        .byte case_A70C_08 - *
+- - - - - 0x0226D7 11:A6C7: 45        .byte case_A70C_09 - *
+- - - - - 0x0226D8 11:A6C8: 44        .byte case_A70C_0A - *
+- - - - - 0x0226D9 11:A6C9: 43        .byte case_A70C_0B - *
+- - - - - 0x0226DA 11:A6CA: 42        .byte case_A70C_0C - *
+- - - - - 0x0226DB 11:A6CB: 41        .byte case_A70C_0D - *
+- - - - - 0x0226DC 11:A6CC: 40        .byte case_A70C_0E - *
+- - - - - 0x0226DD 11:A6CD: 3F        .byte case_A70C_0F - *
 
 off_A6CE:
 - D - I - 0x0226DE 11:A6CE: F3        .byte con_F3, $B3
-- D - I - 0x0226E0 11:A6D0: FE        .byte $FE
-- - - - - 0x0226E1 11:A6D1: 25        .byte $25
-- - - - - 0x0226E2 11:A6D2: 34        .byte $34
-- - - - - 0x0226E3 11:A6D3: FB        .byte $FB     ; bzk возможно тут начинается мусор, байты уменьшаются на 1
-- - - - - 0x0226E4 11:A6D4: FA        .byte $FA
-- - - - - 0x0226E5 11:A6D5: F9        .byte con_delay_soundID, $F8, $F7
-- - - - - 0x0226E7 11:A6D8: F6        .byte $F6
-- - - - - 0x0226E9 11:A6D9: F5        .byte $F5
-- - - - - 0x0226EA 11:A6DA: F4        .byte $F4
-- - - - - 0x0226EB 11:A6DB: F3        .byte $F3
-- - - - - 0x0226EB 11:A6DC: F2        .byte $F2
-- - - - - 0x0226ED 11:A6DD: F1        .byte $F1
-- - - - - 0x0226EE 11:A6DE: F0        .byte $F0
-- - - - - 0x0226EF 11:A6DF: EF        .byte $EF
+- D - I - 0x0226E0 11:A6D0: FE        .byte case_A7CE_00 - *
+- - - - - 0x0226E1 11:A6D1: 25        .byte case_A6F6_01 - *
+- - - - - 0x0226E2 11:A6D2: 34        .byte case_A706_02 - *
+- - - - - 0x0226E3 11:A6D3: FB        .byte case_A7CE_03 - *
+- - - - - 0x0226E4 11:A6D4: FA        .byte case_A7CE_04 - *
+- - - - - 0x0226E4 11:A6D5: F9        .byte case_A7CE_05 - *
+- - - - - 0x0226E4 11:A6D6: F8        .byte case_A7CE_06 - *
+- - - - - 0x0226E4 11:A6D7: F7        .byte case_A7CE_07 - *
+- - - - - 0x0226E7 11:A6D8: F6        .byte case_A7CE_08 - *
+- - - - - 0x0226E9 11:A6D9: F5        .byte case_A7CE_09 - *
+- - - - - 0x0226EA 11:A6DA: F4        .byte case_A7CE_0A - *
+- - - - - 0x0226EB 11:A6DB: F3        .byte case_A7CE_0B - *
+- - - - - 0x0226EB 11:A6DC: F2        .byte case_A7CE_0C - *
+- - - - - 0x0226ED 11:A6DD: F1        .byte case_A7CE_0D - *
+- - - - - 0x0226EE 11:A6DE: F0        .byte case_A7CE_0E - *
+- - - - - 0x0226EF 11:A6DF: EF        .byte case_A7CE_0F - *
 off_A6E0:
 - D - I - 0x0226F0 11:A6E0: F3        .byte con_F3, $B7
-- D - I - 0x0226F2 11:A6E2: 1D        .byte $1D
-- D - I - 0x0226F3 11:A6E3: 01        .byte $01
+- D - I - 0x0226F2 11:A6E2: 1D        .byte case_A6FF_00 - *
+- D - I - 0x0226F3 11:A6E3: 01        .byte case_A6E4_01 - *
 off_A6E4:
+case_A6E4_01:
 - D - I - 0x0226F4 11:A6E4: F3        .byte con_F3, $B3
-- D - I - 0x0226F6 11:A6E6: 19        .byte $19
-- D - I - 0x0226F7 11:A6E7: 0F        .byte $0F
-- D - I - 0x0226F8 11:A6E8: 1E        .byte $1E
-- D - I - 0x0226F9 11:A6E9: 16        .byte $16
-- - - - - 0x0226FA 11:A6EA: 15        .byte $15
-- D - I - 0x0226FB 11:A6EB: 14        .byte $14
-- D - I - 0x0226FC 11:A6EC: 13        .byte $13
-- - - - - 0x0226FD 11:A6ED: 12        .byte $12
-- D - I - 0x0226FE 11:A6EE: 11        .byte $11
-- - - - - 0x0226FF 11:A6EF: 10        .byte $10
-- D - I - 0x022700 11:A6F0: 0F        .byte $0F
-- D - I - 0x022701 11:A6F1: 0E        .byte $0E
-- D - I - 0x022702 11:A6F2: 0D        .byte $0D
-- D - I - 0x022703 11:A6F3: 0C        .byte $0C
-- D - I - 0x022704 11:A6F4: 0B        .byte $0B
-- D - I - 0x022705 11:A6F5: 0A        .byte $0A
+- D - I - 0x0226F6 11:A6E6: 19        .byte case_A6FF_00 - *
+- D - I - 0x0226F7 11:A6E7: 0F        .byte case_A6F6_01 - *
+- D - I - 0x0226F8 11:A6E8: 1E        .byte case_A706_02 - *
+- D - I - 0x0226F9 11:A6E9: 16        .byte case_A6FF_03 - *
+- - - - - 0x0226FA 11:A6EA: 15        .byte case_A6FF_04 - *
+- D - I - 0x0226FB 11:A6EB: 14        .byte case_A6FF_05 - *
+- D - I - 0x0226FC 11:A6EC: 13        .byte case_A6FF_06 - *
+- - - - - 0x0226FD 11:A6ED: 12        .byte case_A6FF_07 - *
+- D - I - 0x0226FE 11:A6EE: 11        .byte case_A6FF_08 - *
+- - - - - 0x0226FF 11:A6EF: 10        .byte case_A6FF_09 - *
+- D - I - 0x022700 11:A6F0: 0F        .byte case_A6FF_0A - *
+- D - I - 0x022701 11:A6F1: 0E        .byte case_A6FF_0B - *
+- D - I - 0x022702 11:A6F2: 0D        .byte case_A6FF_0C - *
+- D - I - 0x022703 11:A6F3: 0C        .byte case_A6FF_0D - *
+- D - I - 0x022704 11:A6F4: 0B        .byte case_A6FF_0E - *
+- D - I - 0x022705 11:A6F5: 0A        .byte case_A6FF_0F - *
 off_A6F6:
+case_A6F6_01:
 - D - I - 0x022706 11:A6F6: FA        .byte con_jsr_2
 - D - I - 0x022707 11:A6F7: 1A A7     .word off_A71A
 off_A6F9:
@@ -7743,6 +8129,20 @@ off_A6F9:
 - D - I - 0x02270D 11:A6FD: F6        .byte con_mirror_toggle
 - D - I - 0x02270E 11:A6FE: FB        .byte con_rts
 off_A6FF:
+case_A6FF_00:
+case_A6FF_03:
+case_A6FF_04:
+case_A6FF_05:
+case_A6FF_06:
+case_A6FF_07:
+case_A6FF_08:
+case_A6FF_09:
+case_A6FF_0A:
+case_A6FF_0B:
+case_A6FF_0C:
+case_A6FF_0D:
+case_A6FF_0E:
+case_A6FF_0F:
 - D - I - 0x02270F 11:A6FF: F7        .byte con_F7, $02
 - D - I - 0x022711 11:A701: 37        .byte $37
 - D - I - 0x022712 11:A702: 23        .byte $23
@@ -7750,11 +8150,26 @@ off_A6FF:
 - D - I - 0x022714 11:A704: 41        .byte $41
 - D - I - 0x022715 11:A705: FB        .byte con_rts
 off_A706:
+case_A706_02:
 - D - I - 0x022716 11:A706: FA        .byte con_jsr_2
 - D - I - 0x022717 11:A707: 56 A7     .word off_A756
 - D - I - 0x022719 11:A709: F2        .byte con_jsr_1
 - D - I - 0x02271A 11:A70A: F9 A6     .word off_A6F9
 off_A70C:
+case_A70C_00:
+case_A70C_03:
+case_A70C_04:
+case_A70C_05:
+case_A70C_06:
+case_A70C_07:
+case_A70C_08:
+case_A70C_09:
+case_A70C_0A:
+case_A70C_0B:
+case_A70C_0C:
+case_A70C_0D:
+case_A70C_0E:
+case_A70C_0F:
 - D - I - 0x02271C 11:A70C: F7        .byte con_F7, $02
 - D - I - 0x02271E 11:A70E: 1E        .byte $1E
 - D - I - 0x02271F 11:A70F: 22        .byte $22
@@ -7915,6 +8330,20 @@ off_A7BF:
 - - - - - 0x0227DB 11:A7CB: F2        .byte con_jsr_1
 - - - - - 0x0227DC 11:A7CC: B1 A7     .word off_A7B1
 off_A7CE:
+case_A7CE_00:
+case_A7CE_03:
+case_A7CE_04:
+case_A7CE_05:
+case_A7CE_06:
+case_A7CE_07:
+case_A7CE_08:
+case_A7CE_09:
+case_A7CE_0A:
+case_A7CE_0B:
+case_A7CE_0C:
+case_A7CE_0D:
+case_A7CE_0E:
+case_A7CE_0F:
 - D - I - 0x0227DE 11:A7CE: F7        .byte con_F7, $02
 - D - I - 0x0227E0 11:A7D0: 28        .byte $28
 - D - I - 0x0227E1 11:A7D1: 23        .byte $23
@@ -7989,12 +8418,13 @@ off_A810:
 - D - I - 0x02282F 11:A81F: FB        .byte con_rts
 off_A820:
 - - - - - 0x022830 11:A820: F3        .byte con_F3, $C7
-- - - - - 0x022832 11:A822: 06        .byte $06
-- - - - - 0x022833 11:A823: 0E        .byte $0E
-- - - - - 0x022834 11:A824: 16        .byte $16
-- - - - - 0x022835 11:A825: 1E        .byte $1E
-- - - - - 0x022836 11:A826: 26        .byte $26
-- - - - - 0x022837 11:A827: 2E        .byte $2E
+- - - - - 0x022832 11:A822: 06        .byte case_A828_00 - *
+- - - - - 0x022833 11:A823: 0E        .byte case_A831_01 - *
+- - - - - 0x022834 11:A824: 16        .byte case_A83A_02 - *
+- - - - - 0x022835 11:A825: 1E        .byte case_A843_03 - *
+- - - - - 0x022836 11:A826: 26        .byte case_A84C_04 - *
+- - - - - 0x022837 11:A827: 2E        .byte case_A855_05 - *
+case_A828_00:
 - - - - - 0x022838 11:A828: F7        .byte con_F7, $44
 - - - - - 0x02283A 11:A82A: 3C        .byte $3C
 - - - - - 0x02283B 11:A82B: 31        .byte $31
@@ -8002,6 +8432,7 @@ off_A820:
 - - - - - 0x02283D 11:A82D: C4        .byte $C4
 - - - - - 0x02283E 11:A82E: F2        .byte con_jsr_1
 - - - - - 0x02283F 11:A82F: 7B AA     .word off_AA7B
+case_A831_01:
 - - - - - 0x022841 11:A831: F7        .byte con_F7, $44
 - - - - - 0x022843 11:A833: 3C        .byte $3C
 - - - - - 0x022844 11:A834: 31        .byte $31
@@ -8009,6 +8440,7 @@ off_A820:
 - - - - - 0x022846 11:A836: C4        .byte $C4
 - - - - - 0x022847 11:A837: F2        .byte con_jsr_1
 - - - - - 0x022848 11:A838: 7B AA     .word off_AA7B
+case_A83A_02:
 - - - - - 0x02284A 11:A83A: F7        .byte con_F7, $44
 - - - - - 0x02284C 11:A83C: 78        .byte $78
 - - - - - 0x02284D 11:A83D: 30        .byte $30
@@ -8016,6 +8448,7 @@ off_A820:
 - - - - - 0x02284F 11:A83F: C5        .byte $C5
 - - - - - 0x022850 11:A840: F2        .byte con_jsr_1
 - - - - - 0x022851 11:A841: 7B AA     .word off_AA7B
+case_A843_03:
 - - - - - 0x022853 11:A843: F7        .byte con_F7, $44
 - - - - - 0x022855 11:A845: 78        .byte $78
 - - - - - 0x022856 11:A846: 30        .byte $30
@@ -8023,6 +8456,7 @@ off_A820:
 - - - - - 0x022858 11:A848: C5        .byte $C5
 - - - - - 0x022859 11:A849: F2        .byte con_jsr_1
 - - - - - 0x02285A 11:A84A: 7B AA     .word off_AA7B
+case_A84C_04:
 - - - - - 0x02285C 11:A84C: F7        .byte con_F7, $44
 - - - - - 0x02285E 11:A84E: 40        .byte $40
 - - - - - 0x02285F 11:A84F: 30        .byte $30
@@ -8030,6 +8464,7 @@ off_A820:
 - - - - - 0x022861 11:A851: C6        .byte $C6
 - - - - - 0x022862 11:A852: F2        .byte con_jsr_1
 - - - - - 0x022863 11:A853: 7B AA     .word off_AA7B
+case_A855_05:
 - - - - - 0x022865 11:A855: F2        .byte con_jsr_1
 - - - - - 0x022866 11:A856: 7E AA     .word off_AA7E
 off_A858:
@@ -8087,8 +8522,9 @@ off_A88F:
 - D - I - 0x0228A8 11:A898: FB        .byte con_rts
 off_A899:
 - D - I - 0x0228A9 11:A899: F3        .byte con_F3, $BB
-- D - I - 0x0228AB 11:A89B: 02        .byte $02
-- - - - - 0x0228AC 11:A89C: 1F        .byte $1F
+- D - I - 0x0228AB 11:A89B: 02        .byte case_A89D_00 - *
+- - - - - 0x0228AC 11:A89C: 1F        .byte case_A8BB_01 - *
+case_A89D_00:
 - D - I - 0x0228AD 11:A89D: FA        .byte con_jsr_2
 - D - I - 0x0228AE 11:A89E: 85 A8     .word off_A885
 off_A8A0:
@@ -8114,6 +8550,7 @@ off_A8AB:
 - D - I - 0x0228C8 11:A8B8: F0        .byte con_F0
 - D - I - 0x0228C9 11:A8B9: F0        .byte con_F0
 - D - I - 0x0228CA 11:A8BA: FB        .byte con_rts
+case_A8BB_01:
 - - - - - 0x0228CB 11:A8BB: FA        .byte con_jsr_2
 - - - - - 0x0228CC 11:A8BC: 8F A8     .word off_A88F
 - - - - - 0x0228CE 11:A8BE: F2        .byte con_jsr_1
@@ -8182,8 +8619,9 @@ off_A908:
 - - - - - 0x02291F 11:A90F: EB A8     .word off_A8EB
 off_A911:
 - - - - - 0x022921 11:A911: F3        .byte con_F3, $BA
-- - - - - 0x022923 11:A913: 02        .byte $02
-- - - - - 0x022924 11:A914: 1C        .byte $1C
+- - - - - 0x022923 11:A913: 02        .byte case_A915_00 - *
+- - - - - 0x022924 11:A914: 1C        .byte case_A930_01 - *
+case_A915_00:
 - - - - - 0x022925 11:A915: FA        .byte con_jsr_2
 - - - - - 0x022926 11:A916: E5 A8     .word off_A8E5
 off_A918:
@@ -8203,80 +8641,89 @@ off_A918:
 - - - - - 0x02293C 11:A92C: 45        .byte $45
 - - - - - 0x02293D 11:A92D: F2        .byte con_jsr_1
 - - - - - 0x02293E 11:A92E: 18 AB     .word off_AB18
+case_A930_01:
 - - - - - 0x022940 11:A930: FA        .byte con_jsr_2
 - - - - - 0x022941 11:A931: 08 A9     .word off_A908
 - - - - - 0x022943 11:A933: F2        .byte con_jsr_1
 - - - - - 0x022944 11:A934: 18 A9     .word off_A918
 off_A936:
 - D - I - 0x022946 11:A936: F3        .byte con_F3, $A9
-- D - I - 0x022948 11:A938: 22        .byte $22
-- D - I - 0x022949 11:A939: 22        .byte $22
-- D - I - 0x02294A 11:A93A: 28        .byte $28
-- - - - - 0x02294B 11:A93B: 2E        .byte $2E
-- D - I - 0x02294C 11:A93C: 34        .byte $34
-- - - - - 0x02294D 11:A93D: 3A        .byte $3A
-- D - I - 0x02294E 11:A93E: 40        .byte $40
-- - - - - 0x02294F 11:A93F: 53        .byte $53
-- D - I - 0x022950 11:A940: 59        .byte $59
-- - - - - 0x022951 11:A941: 5F        .byte $5F
-- D - I - 0x022952 11:A942: 65        .byte $65
-- - - - - 0x022953 11:A943: 6B        .byte $6B
-- D - I - 0x022954 11:A944: 71        .byte $71
-- - - - - 0x022955 11:A945: 77        .byte $77
-- D - I - 0x022956 11:A946: 7D        .byte $7D
-- D - I - 0x022957 11:A947: 83        .byte $83
-- D - I - 0x022958 11:A948: 89        .byte $89
-- - - - - 0x022959 11:A949: 8F        .byte $8F
-- - - - - 0x02295A 11:A94A: 95        .byte $95
-- - - - - 0x02295B 11:A94B: 9B        .byte $9B
-- - - - - 0x02295C 11:A94C: A1        .byte $A1
-- - - - - 0x02295D 11:A94D: A7        .byte $A7
-- - - - - 0x02295E 11:A94E: AD        .byte $AD
-- - - - - 0x02295F 11:A94F: B3        .byte $B3
-- D - I - 0x022960 11:A950: B9        .byte $B9
-- D - I - 0x022961 11:A951: BF        .byte $BF
-- - - - - 0x022962 11:A952: C5        .byte $C5
-- D - I - 0x022963 11:A953: CB        .byte $CB
-- D - I - 0x022964 11:A954: D1        .byte $D1
-- - - - - 0x022965 11:A955: D7        .byte $D7
-- D - I - 0x022966 11:A956: DD        .byte $DD
-- - - - - 0x022967 11:A957: E3        .byte $E3
-- - - - - 0x022968 11:A958: E9        .byte $E9
-- D - I - 0x022969 11:A959: EF        .byte $EF
-- D - I - 0x02296A 11:A95A: FB        .byte con_rts
+- D - I - 0x022948 11:A938: 22        .byte case_A95A_00 - *
+- D - I - 0x022949 11:A939: 22        .byte case_A95B_01 - *
+- D - I - 0x02294A 11:A93A: 28        .byte case_A962_02 - *
+- - - - - 0x02294B 11:A93B: 2E        .byte case_A969_03 - *
+- D - I - 0x02294C 11:A93C: 34        .byte case_A970_04 - *
+- - - - - 0x02294D 11:A93D: 3A        .byte case_A977_05 - *
+- D - I - 0x02294E 11:A93E: 40        .byte case_A97E_06 - *
+- - - - - 0x02294F 11:A93F: 53        .byte case_A992_07 - *
+- D - I - 0x022950 11:A940: 59        .byte case_A999_08 - *
+- - - - - 0x022951 11:A941: 5F        .byte case_A9A0_09 - *
+- D - I - 0x022952 11:A942: 65        .byte case_A9A7_0A - *
+- - - - - 0x022953 11:A943: 6B        .byte case_A9AE_0B - *
+- D - I - 0x022954 11:A944: 71        .byte case_A9B5_0C - *
+- - - - - 0x022955 11:A945: 77        .byte case_A9BC_0D - *
+- D - I - 0x022956 11:A946: 7D        .byte case_A9C3_0E - *
+- D - I - 0x022957 11:A947: 83        .byte case_A9CA_0F - *
+- D - I - 0x022958 11:A948: 89        .byte case_A9D1_10 - *
+- - - - - 0x022959 11:A949: 8F        .byte case_A9D8_11 - *
+- - - - - 0x02295A 11:A94A: 95        .byte case_A9DF_12 - *
+- - - - - 0x02295B 11:A94B: 9B        .byte case_A9E6_13 - *
+- - - - - 0x02295C 11:A94C: A1        .byte case_A9ED_14 - *
+- - - - - 0x02295D 11:A94D: A7        .byte case_A9F4_15 - *
+- - - - - 0x02295E 11:A94E: AD        .byte case_A9FB_16 - *
+- - - - - 0x02295F 11:A94F: B3        .byte case_AA02_17 - *
+- D - I - 0x022960 11:A950: B9        .byte case_AA09_18 - *
+- D - I - 0x022961 11:A951: BF        .byte case_AA10_19 - *
+- - - - - 0x022962 11:A952: C5        .byte case_AA17_1A - *
+- D - I - 0x022963 11:A953: CB        .byte case_AA1E_1B - *
+- D - I - 0x022964 11:A954: D1        .byte case_AA25_1C - *
+- - - - - 0x022965 11:A955: D7        .byte case_AA2C_1D - *
+- D - I - 0x022966 11:A956: DD        .byte case_AA33_1E - *
+- - - - - 0x022967 11:A957: E3        .byte case_AA3A_1F - *
+- - - - - 0x022968 11:A958: E9        .byte case_AA41_20 - *
+- D - I - 0x022969 11:A959: EF        .byte case_AA48_21 - *
+case_A95A_00:
+- D - I - 0x02296A 11:A95A: FB        .byte $FB
+case_A95B_01:
 - D - I - 0x02296B 11:A95B: 3C        .byte $3C
 - D - I - 0x02296C 11:A95C: 30        .byte $30
 - D - I - 0x02296D 11:A95D: 91        .byte $91
 - D - I - 0x02296E 11:A95E: 98        .byte $98
 - D - I - 0x02296F 11:A95F: F2        .byte con_jsr_1
 - D - I - 0x022970 11:A960: C7 BB     .word off_BBC7
+case_A962_02:
 - D - I - 0x022972 11:A962: 3C        .byte $3C
 - D - I - 0x022973 11:A963: 30        .byte $30
 - D - I - 0x022974 11:A964: 96        .byte $96
 - D - I - 0x022975 11:A965: 98        .byte $98
 - D - I - 0x022976 11:A966: F2        .byte con_jsr_1
 - D - I - 0x022977 11:A967: C7 BB     .word off_BBC7
+case_A969_03:
 - - - - - 0x022979 11:A969: 3C        .byte $3C
 - - - - - 0x02297A 11:A96A: 30        .byte $30
 - - - - - 0x02297B 11:A96B: 97        .byte $97
 - - - - - 0x02297C 11:A96C: 98        .byte $98
 - - - - - 0x02297D 11:A96D: F2        .byte con_jsr_1
 - - - - - 0x02297E 11:A96E: C7 BB     .word off_BBC7
+case_A970_04:
 - D - I - 0x022980 11:A970: 3C        .byte $3C
 - D - I - 0x022981 11:A971: 31        .byte $31
 - D - I - 0x022982 11:A972: 9E        .byte $9E
 - D - I - 0x022983 11:A973: 9A        .byte $9A
 - D - I - 0x022984 11:A974: F2        .byte con_jsr_1
 - D - I - 0x022985 11:A975: C7 BB     .word off_BBC7
+case_A977_05:
 - - - - - 0x022987 11:A977: 3C        .byte $3C
 - - - - - 0x022988 11:A978: 31        .byte $31
 - - - - - 0x022989 11:A979: B0        .byte $B0
 - - - - - 0x02298A 11:A97A: 9A        .byte $9A
 - - - - - 0x02298B 11:A97B: F2        .byte con_jsr_1
 - - - - - 0x02298C 11:A97C: C7 BB     .word off_BBC7
+case_A97E_06:
 - D - I - 0x02298E 11:A97E: F3        .byte con_F3, $AB
-- D - I - 0x022990 11:A980: 02        .byte $02
-- D - I - 0x022991 11:A981: 08        .byte $08
+- D - I - 0x022990 11:A980: 02        .byte case_A982_00 - *
+- D - I - 0x022991 11:A981: 08        .byte case_A989_01 - *
+case_A982_00:
 - D - I - 0x022992 11:A982: 3C        .byte $3C
 - D - I - 0x022993 11:A983: 30        .byte $30
 - D - I - 0x022994 11:A984: A3        .byte $A3
@@ -8284,6 +8731,7 @@ off_A936:
 - D - I - 0x022996 11:A986: F2        .byte con_jsr_1
 - D - I - 0x022997 11:A987: C7 BB     .word off_BBC7
 off_A989:
+case_A989_01:
 - D - I - 0x022999 11:A989: F7        .byte con_F7, $35
 - D - I - 0x02299B 11:A98B: 5A        .byte $5A
 - D - I - 0x02299C 11:A98C: 30        .byte $30
@@ -8291,162 +8739,189 @@ off_A989:
 - D - I - 0x02299E 11:A98E: 4F        .byte $4F
 - D - I - 0x02299F 11:A98F: F2        .byte con_jsr_1
 - D - I - 0x0229A0 11:A990: C7 BB     .word off_BBC7
+case_A992_07:
 - - - - - 0x0229A2 11:A992: 3C        .byte $3C
 - - - - - 0x0229A3 11:A993: 30        .byte $30
 - - - - - 0x0229A4 11:A994: AE        .byte $AE
 - - - - - 0x0229A5 11:A995: 98        .byte $98
 - - - - - 0x0229A6 11:A996: F2        .byte con_jsr_1
 - - - - - 0x0229A7 11:A997: C7 BB     .word off_BBC7
+case_A999_08:
 - D - I - 0x0229A9 11:A999: 3C        .byte $3C
 - D - I - 0x0229AA 11:A99A: 30        .byte $30
 - D - I - 0x0229AB 11:A99B: A1        .byte $A1
 - D - I - 0x0229AC 11:A99C: 99        .byte $99
 - D - I - 0x0229AD 11:A99D: F2        .byte con_jsr_1
 - D - I - 0x0229AE 11:A99E: C7 BB     .word off_BBC7
+case_A9A0_09:
 - - - - - 0x0229B0 11:A9A0: 3C        .byte $3C
 - - - - - 0x0229B1 11:A9A1: 30        .byte $30
 - - - - - 0x0229B2 11:A9A2: AF        .byte $AF
 - - - - - 0x0229B3 11:A9A3: 99        .byte $99
 - - - - - 0x0229B4 11:A9A4: F2        .byte con_jsr_1
 - - - - - 0x0229B5 11:A9A5: C7 BB     .word off_BBC7
+case_A9A7_0A:
 - D - I - 0x0229B7 11:A9A7: 3C        .byte $3C
 - D - I - 0x0229B8 11:A9A8: 30        .byte $30
 - D - I - 0x0229B9 11:A9A9: 98        .byte $98
 - D - I - 0x0229BA 11:A9AA: 99        .byte $99
 - D - I - 0x0229BB 11:A9AB: F2        .byte con_jsr_1
 - D - I - 0x0229BC 11:A9AC: C7 BB     .word off_BBC7
+case_A9AE_0B:
 - - - - - 0x0229BE 11:A9AE: 3C        .byte $3C
 - - - - - 0x0229BF 11:A9AF: 30        .byte $30
 - - - - - 0x0229C0 11:A9B0: 99        .byte $99
 - - - - - 0x0229C1 11:A9B1: 99        .byte $99
 - - - - - 0x0229C2 11:A9B2: F2        .byte con_jsr_1
 - - - - - 0x0229C3 11:A9B3: C7 BB     .word off_BBC7
+case_A9B5_0C:
 - D - I - 0x0229C5 11:A9B5: 3C        .byte $3C
 - D - I - 0x0229C6 11:A9B6: 30        .byte $30
 - D - I - 0x0229C7 11:A9B7: 9F        .byte $9F
 - D - I - 0x0229C8 11:A9B8: 99        .byte $99
 - D - I - 0x0229C9 11:A9B9: F2        .byte con_jsr_1
 - D - I - 0x0229CA 11:A9BA: C7 BB     .word off_BBC7
+case_A9BC_0D:
 - - - - - 0x0229CC 11:A9BC: 3C        .byte $3C
 - - - - - 0x0229CD 11:A9BD: 30        .byte $30
 - - - - - 0x0229CE 11:A9BE: AD        .byte $AD
 - - - - - 0x0229CF 11:A9BF: 99        .byte $99
 - - - - - 0x0229D0 11:A9C0: F2        .byte con_jsr_1
 - - - - - 0x0229D1 11:A9C1: C7 BB     .word off_BBC7
+case_A9C3_0E:
 - D - I - 0x0229D3 11:A9C3: 3C        .byte $3C
 - D - I - 0x0229D4 11:A9C4: 30        .byte $30
 - D - I - 0x0229D5 11:A9C5: A0        .byte $A0
 - D - I - 0x0229D6 11:A9C6: E5        .byte $E5
 - D - I - 0x0229D7 11:A9C7: F2        .byte con_jsr_1
 - D - I - 0x0229D8 11:A9C8: C7 BB     .word off_BBC7
+case_A9CA_0F:
 - D - I - 0x0229DA 11:A9CA: 3C        .byte $3C
 - D - I - 0x0229DB 11:A9CB: 30        .byte $30
 - D - I - 0x0229DC 11:A9CC: AA        .byte $AA
 - D - I - 0x0229DD 11:A9CD: E5        .byte $E5
 - D - I - 0x0229DE 11:A9CE: F2        .byte con_jsr_1
 - D - I - 0x0229DF 11:A9CF: C7 BB     .word off_BBC7
+case_A9D1_10:
 - D - I - 0x0229E1 11:A9D1: 3C        .byte $3C
 - D - I - 0x0229E2 11:A9D2: 30        .byte $30
 - D - I - 0x0229E3 11:A9D3: 9C        .byte $9C
 - D - I - 0x0229E4 11:A9D4: 99        .byte $99
 - D - I - 0x0229E5 11:A9D5: F2        .byte con_jsr_1
 - D - I - 0x0229E6 11:A9D6: C7 BB     .word off_BBC7
+case_A9D8_11:
 - - - - - 0x0229E8 11:A9D8: 3C        .byte $3C
 - - - - - 0x0229E9 11:A9D9: 30        .byte $30
 - - - - - 0x0229EA 11:A9DA: AB        .byte $AB
 - - - - - 0x0229EB 11:A9DB: 99        .byte $99
 - - - - - 0x0229EC 11:A9DC: F2        .byte con_jsr_1
 - - - - - 0x0229ED 11:A9DD: C7 BB     .word off_BBC7
+case_A9DF_12:
 - - - - - 0x0229EF 11:A9DF: 3C        .byte $3C
 - - - - - 0x0229F0 11:A9E0: 30        .byte $30
 - - - - - 0x0229F1 11:A9E1: 9A        .byte $9A
 - - - - - 0x0229F2 11:A9E2: 98        .byte $98
 - - - - - 0x0229F3 11:A9E3: F2        .byte con_jsr_1
 - - - - - 0x0229F4 11:A9E4: C7 BB     .word off_BBC7
+case_A9E6_13:
 - - - - - 0x0229F6 11:A9E6: 3C        .byte $3C
 - - - - - 0x0229F7 11:A9E7: 30        .byte $30
 - - - - - 0x0229F8 11:A9E8: 9B        .byte $9B
 - - - - - 0x0229F9 11:A9E9: 98        .byte $98
 - - - - - 0x0229FA 11:A9EA: F2        .byte con_jsr_1
 - - - - - 0x0229FB 11:A9EB: C7 BB     .word off_BBC7
+case_A9ED_14:
 - - - - - 0x0229FD 11:A9ED: 3C        .byte $3C
 - - - - - 0x0229FE 11:A9EE: 30        .byte $30
 - - - - - 0x0229FF 11:A9EF: A2        .byte $A2
 - - - - - 0x022A00 11:A9F0: 98        .byte $98
 - - - - - 0x022A01 11:A9F1: F2        .byte con_jsr_1
 - - - - - 0x022A02 11:A9F2: C7 BB     .word off_BBC7
+case_A9F4_15:
 - - - - - 0x022A04 11:A9F4: 3C        .byte $3C
 - - - - - 0x022A05 11:A9F5: 30        .byte $30
 - - - - - 0x022A06 11:A9F6: B1        .byte $B1
 - - - - - 0x022A07 11:A9F7: 98        .byte $98
 - - - - - 0x022A08 11:A9F8: F2        .byte con_jsr_1
 - - - - - 0x022A09 11:A9F9: C7 BB     .word off_BBC7
+case_A9FB_16:
 - - - - - 0x022A0B 11:A9FB: 3C        .byte $3C
 - - - - - 0x022A0C 11:A9FC: 30        .byte $30
 - - - - - 0x022A0D 11:A9FD: BC        .byte $BC
 - - - - - 0x022A0E 11:A9FE: 9A        .byte $9A
 - - - - - 0x022A0F 11:A9FF: F2        .byte con_jsr_1
 - - - - - 0x022A10 11:AA00: C7 BB     .word off_BBC7
+case_AA02_17:
 - - - - - 0x022A12 11:AA02: 3C        .byte $3C
 - - - - - 0x022A13 11:AA03: 30        .byte $30
 - - - - - 0x022A14 11:AA04: A9        .byte $A9
 - - - - - 0x022A15 11:AA05: 99        .byte $99
 - - - - - 0x022A16 11:AA06: F2        .byte con_jsr_1
 - - - - - 0x022A17 11:AA07: C7 BB     .word off_BBC7
+case_AA09_18:
 - D - I - 0x022A19 11:AA09: 3C        .byte $3C
 - D - I - 0x022A1A 11:AA0A: 30        .byte $30
 - D - I - 0x022A1B 11:AA0B: BB        .byte $BB
 - D - I - 0x022A1C 11:AA0C: 99        .byte $99
 - D - I - 0x022A1D 11:AA0D: F2        .byte con_jsr_1
 - D - I - 0x022A1E 11:AA0E: C7 BB     .word off_BBC7
+case_AA10_19:
 - D - I - 0x022A20 11:AA10: 3C        .byte $3C
 - D - I - 0x022A21 11:AA11: 30        .byte $30
 - D - I - 0x022A22 11:AA12: B8        .byte $B8
 - D - I - 0x022A23 11:AA13: 9A        .byte $9A
 - D - I - 0x022A24 11:AA14: F2        .byte con_jsr_1
 - D - I - 0x022A25 11:AA15: C7 BB     .word off_BBC7
+case_AA17_1A:
 - - - - - 0x022A27 11:AA17: 3C        .byte $3C
 - - - - - 0x022A28 11:AA18: 30        .byte $30
 - - - - - 0x022A29 11:AA19: B3        .byte $B3
 - - - - - 0x022A2A 11:AA1A: 99        .byte $99
 - - - - - 0x022A2B 11:AA1B: F2        .byte con_jsr_1
 - - - - - 0x022A2C 11:AA1C: C7 BB     .word off_BBC7
+case_AA1E_1B:
 - D - I - 0x022A2E 11:AA1E: 3C        .byte $3C
 - D - I - 0x022A2F 11:AA1F: 30        .byte $30
 - D - I - 0x022A30 11:AA20: BA        .byte $BA
 - D - I - 0x022A31 11:AA21: 98        .byte $98
 - D - I - 0x022A32 11:AA22: F2        .byte con_jsr_1
 - D - I - 0x022A33 11:AA23: C7 BB     .word off_BBC7
+case_AA25_1C:
 - D - I - 0x022A35 11:AA25: 3C        .byte $3C
 - D - I - 0x022A36 11:AA26: 30        .byte $30
 - D - I - 0x022A37 11:AA27: B7        .byte $B7
 - D - I - 0x022A38 11:AA28: 98        .byte $98
 - D - I - 0x022A39 11:AA29: F2        .byte con_jsr_1
 - D - I - 0x022A3A 11:AA2A: C7 BB     .word off_BBC7
+case_AA2C_1D:
 - - - - - 0x022A3C 11:AA2C: 3C        .byte $3C
 - - - - - 0x022A3D 11:AA2D: 30        .byte $30
 - - - - - 0x022A3E 11:AA2E: B6        .byte $B6
 - - - - - 0x022A3F 11:AA2F: 99        .byte $99
 - - - - - 0x022A40 11:AA30: F2        .byte con_jsr_1
 - - - - - 0x022A41 11:AA31: C7 BB     .word off_BBC7
+case_AA33_1E:
 - D - I - 0x022A43 11:AA33: 3C        .byte $3C
 - D - I - 0x022A44 11:AA34: 30        .byte $30
 - D - I - 0x022A45 11:AA35: B5        .byte $B5
 - D - I - 0x022A46 11:AA36: 98        .byte $98
 - D - I - 0x022A47 11:AA37: F2        .byte con_jsr_1
 - D - I - 0x022A48 11:AA38: C7 BB     .word off_BBC7
+case_AA3A_1F:
 - - - - - 0x022A4A 11:AA3A: 3C        .byte $3C
 - - - - - 0x022A4B 11:AA3B: 30        .byte $30
 - - - - - 0x022A4C 11:AA3C: B4        .byte $B4
 - - - - - 0x022A4D 11:AA3D: 9A        .byte $9A
 - - - - - 0x022A4E 11:AA3E: F2        .byte con_jsr_1
 - - - - - 0x022A4F 11:AA3F: C7 BB     .word off_BBC7
+case_AA41_20:
 - - - - - 0x022A51 11:AA41: 3C        .byte $3C
 - - - - - 0x022A52 11:AA42: 30        .byte $30
 - - - - - 0x022A53 11:AA43: B2        .byte $B2
 - - - - - 0x022A54 11:AA44: 9A        .byte $9A
 - - - - - 0x022A55 11:AA45: F2        .byte con_jsr_1
 - - - - - 0x022A56 11:AA46: C7 BB     .word off_BBC7
+case_AA48_21:
 - D - I - 0x022A58 11:AA48: 3C        .byte $3C
 - D - I - 0x022A59 11:AA49: 30        .byte $30
 - D - I - 0x022A5A 11:AA4A: B9        .byte $B9
@@ -8484,12 +8959,13 @@ off_AA62:
 - D - I - 0x022A7C 11:AA6C: FB        .byte con_rts
 off_AA6D:
 - - - - - 0x022A7D 11:AA6D: F3        .byte con_F3, $C7
-- - - - - 0x022A7F 11:AA6F: 06        .byte $06
-- - - - - 0x022A80 11:AA70: 23        .byte $23
-- - - - - 0x022A81 11:AA71: 2B        .byte $2B
-- - - - - 0x022A82 11:AA72: 33        .byte $33
-- - - - - 0x022A83 11:AA73: 3B        .byte $3B
-- - - - - 0x022A84 11:AA74: 0A        .byte $0A
+- - - - - 0x022A7F 11:AA6F: 06        .byte case_AA75_00 - *
+- - - - - 0x022A80 11:AA70: 23        .byte case_AA93_01 - *
+- - - - - 0x022A81 11:AA71: 2B        .byte case_AA9C_02 - *
+- - - - - 0x022A82 11:AA72: 33        .byte case_AAA5_03 - *
+- - - - - 0x022A83 11:AA73: 3B        .byte case_AAAE_04 - *
+- - - - - 0x022A84 11:AA74: 0A        .byte case_AA7E_05 - *
+case_AA75_00:
 - - - - - 0x022A85 11:AA75: F7        .byte con_F7, $44
 - - - - - 0x022A87 11:AA77: 40        .byte $40
 - - - - - 0x022A88 11:AA78: 31        .byte $31
@@ -8499,6 +8975,7 @@ off_AA7B:
 - - - - - 0x022A8B 11:AA7B: FA        .byte con_jsr_2
 - - - - - 0x022A8C 11:AA7C: C7 BB     .word off_BBC7
 off_AA7E:
+case_AA7E_05:
 - - - - - 0x022A8E 11:AA7E: FA        .byte con_jsr_2
 - - - - - 0x022A8F 11:AA7F: 89 AA     .word off_AA89
 - - - - - 0x022A91 11:AA81: F7        .byte con_F7, $3A
@@ -8516,6 +8993,7 @@ off_AA89:
 - D - I - 0x022AA0 11:AA90: D0        .byte $D0
 - D - I - 0x022AA1 11:AA91: 49        .byte $49
 - D - I - 0x022AA2 11:AA92: FB        .byte con_rts
+case_AA93_01:
 - - - - - 0x022AA3 11:AA93: F7        .byte con_F7, $44
 - - - - - 0x022AA5 11:AA95: 40        .byte $40
 - - - - - 0x022AA6 11:AA96: 31        .byte $31
@@ -8523,6 +9001,7 @@ off_AA89:
 - - - - - 0x022AA8 11:AA98: C4        .byte $C4
 - - - - - 0x022AA9 11:AA99: F2        .byte con_jsr_1
 - - - - - 0x022AAA 11:AA9A: 7B AA     .word off_AA7B
+case_AA9C_02:
 - - - - - 0x022AAC 11:AA9C: F7        .byte con_F7, $44
 - - - - - 0x022AAE 11:AA9E: 78        .byte $78
 - - - - - 0x022AAF 11:AA9F: 30        .byte $30
@@ -8530,6 +9009,7 @@ off_AA89:
 - - - - - 0x022AB1 11:AAA1: C5        .byte $C5
 - - - - - 0x022AB2 11:AAA2: F2        .byte con_jsr_1
 - - - - - 0x022AB3 11:AAA3: 7B AA     .word off_AA7B
+case_AAA5_03:
 - - - - - 0x022AB5 11:AAA5: F7        .byte con_F7, $44
 - - - - - 0x022AB7 11:AAA7: 78        .byte $78
 - - - - - 0x022AB8 11:AAA8: 30        .byte $30
@@ -8537,6 +9017,7 @@ off_AA89:
 - - - - - 0x022ABA 11:AAAA: C5        .byte $C5
 - - - - - 0x022ABB 11:AAAB: F2        .byte con_jsr_1
 - - - - - 0x022ABC 11:AAAC: 7B AA     .word off_AA7B
+case_AAAE_04:
 - - - - - 0x022ABE 11:AAAE: F7        .byte con_F7, $44
 - - - - - 0x022AC0 11:AAB0: 40        .byte $40
 - - - - - 0x022AC1 11:AAB1: 30        .byte $30
@@ -8562,8 +9043,9 @@ off_AAB7:
 - D - I - 0x022ADA 11:AACA: FB        .byte con_rts
 off_AACB:
 - D - I - 0x022ADB 11:AACB: F3        .byte con_F3, $BB
-- D - I - 0x022ADD 11:AACD: 02        .byte $02
-- - - - - 0x022ADE 11:AACE: 0F        .byte $0F
+- D - I - 0x022ADD 11:AACD: 02        .byte case_AACF_00 - *
+- - - - - 0x022ADE 11:AACE: 0F        .byte case_AADD_01 - *
+case_AACF_00:
 - D - I - 0x022ADF 11:AACF: FA        .byte con_jsr_2
 - D - I - 0x022AE0 11:AAD0: 85 A8     .word off_A885
 off_AAD2:
@@ -8576,6 +9058,7 @@ off_AAD2:
 - D - I - 0x022AEA 11:AADA: 46        .byte $46
 - D - I - 0x022AEB 11:AADB: F6        .byte con_mirror_toggle
 - D - I - 0x022AEC 11:AADC: FB        .byte con_rts
+case_AADD_01:
 - - - - - 0x022AED 11:AADD: FA        .byte con_jsr_2
 - - - - - 0x022AEE 11:AADE: 8F A8     .word off_A88F
 - - - - - 0x022AF0 11:AAE0: F2        .byte con_jsr_1
@@ -8604,8 +9087,9 @@ off_AAEF:
 - D - I - 0x022B0E 11:AAFE: FB        .byte con_rts
 off_AAFF:
 - - - - - 0x022B0F 11:AAFF: F3        .byte con_F3, $BA
-- - - - - 0x022B11 11:AB01: 02        .byte $02
-- - - - - 0x022B12 11:AB02: 29        .byte $29
+- - - - - 0x022B11 11:AB01: 02        .byte case_AB03_00 - *
+- - - - - 0x022B12 11:AB02: 29        .byte case_AB2B_01 - *
+case_AB03_00:
 - - - - - 0x022B13 11:AB03: FA        .byte con_jsr_2
 - - - - - 0x022B14 11:AB04: E5 A8     .word off_A8E5
 off_AB06:
@@ -8635,6 +9119,7 @@ off_AB18:
 - - - - - 0x022B38 11:AB28: D1        .byte $D1
 - - - - - 0x022B39 11:AB29: F0        .byte con_F0
 - - - - - 0x022B3A 11:AB2A: FB        .byte con_rts
+case_AB2B_01:
 - - - - - 0x022B3B 11:AB2B: FA        .byte con_jsr_2
 - - - - - 0x022B3C 11:AB2C: 08 A9     .word off_A908
 - - - - - 0x022B3E 11:AB2E: F2        .byte con_jsr_1
@@ -8663,9 +9148,10 @@ off_AB42:
 - D - I - 0x022B5B 11:AB4B: FB        .byte con_rts
 off_AB4C:
 - D - I - 0x022B5C 11:AB4C: F3        .byte con_F3, $B0
-- D - I - 0x022B5E 11:AB4E: 0A        .byte $0A
-- D - I - 0x022B5F 11:AB4F: 02        .byte $02
-- D - I - 0x022B60 11:AB50: 22        .byte $22
+- D - I - 0x022B5E 11:AB4E: 0A        .byte case_AB58_00 - *
+- D - I - 0x022B5F 11:AB4F: 02        .byte case_AB51_01 - *
+- D - I - 0x022B60 11:AB50: 22        .byte case_AB72_02 - *
+case_AB51_01:
 - D - I - 0x022B61 11:AB51: 3C        .byte $3C
 - D - I - 0x022B62 11:AB52: 30        .byte $30
 - D - I - 0x022B63 11:AB53: 91        .byte $91
@@ -8673,6 +9159,7 @@ off_AB4C:
 - D - I - 0x022B65 11:AB55: FA        .byte con_jsr_2
 - D - I - 0x022B66 11:AB56: C7 BB     .word off_BBC7
 off_AB58:
+case_AB58_00:
 - D - I - 0x022B68 11:AB58: F9        .byte con_delay_soundID, $02, $16
 - D - I - 0x022B6B 11:AB5B: 28        .byte $28
 - D - I - 0x022B6C 11:AB5C: 4A        .byte $4A
@@ -8693,6 +9180,7 @@ off_AB6B:
 - D - I - 0x022B7F 11:AB6F: F0        .byte con_F0
 - D - I - 0x022B80 11:AB70: 00        .byte $00
 - D - I - 0x022B81 11:AB71: FB        .byte con_rts
+case_AB72_02:
 - D - I - 0x022B82 11:AB72: 3C        .byte $3C
 - D - I - 0x022B83 11:AB73: 30        .byte $30
 - D - I - 0x022B84 11:AB74: B7        .byte $B7
@@ -8768,8 +9256,9 @@ off_ABB8:
 - D - I - 0x022BDB 11:ABCB: FB        .byte con_rts
 off_ABCC:
 - D - I - 0x022BDC 11:ABCC: F3        .byte con_F3, $B1
-- D - I - 0x022BDE 11:ABCE: 02        .byte $02
-- - - - - 0x022BDF 11:ABCF: 1A        .byte $1A
+- D - I - 0x022BDE 11:ABCE: 02        .byte case_ABD0_00 - *
+- - - - - 0x022BDF 11:ABCF: 1A        .byte case_ABE9_01 - *
+case_ABD0_00:
 - D - I - 0x022BE0 11:ABD0: 3C        .byte $3C
 - D - I - 0x022BE1 11:ABD1: 30        .byte $30
 - D - I - 0x022BE2 11:ABD2: 9A        .byte $9A
@@ -8789,6 +9278,7 @@ off_ABD4:
 - D - I - 0x022BF5 11:ABE5: F0        .byte con_F0
 - D - I - 0x022BF6 11:ABE6: F2        .byte con_jsr_1
 - D - I - 0x022BF7 11:ABE7: 6B AB     .word off_AB6B
+case_ABE9_01:
 - - - - - 0x022BF9 11:ABE9: 3C        .byte $3C
 - - - - - 0x022BFA 11:ABEA: 30        .byte $30
 - - - - - 0x022BFB 11:ABEB: 9B        .byte $9B
@@ -8797,8 +9287,9 @@ off_ABD4:
 - - - - - 0x022BFE 11:ABEE: D4 AB     .word off_ABD4
 off_ABF0:
 - D - I - 0x022C00 11:ABF0: F3        .byte con_F3, $B2
-- D - I - 0x022C02 11:ABF2: 02        .byte $02
-- D - I - 0x022C03 11:ABF3: 29        .byte $29
+- D - I - 0x022C02 11:ABF2: 02        .byte case_ABF4_00 - *
+- D - I - 0x022C03 11:ABF3: 29        .byte case_AC1C_01 - *
+case_ABF4_00:
 - D - I - 0x022C04 11:ABF4: 3C        .byte $3C
 - D - I - 0x022C05 11:ABF5: 30        .byte $30
 - D - I - 0x022C06 11:ABF6: 9F        .byte $9F
@@ -8829,6 +9320,7 @@ off_ABF8:
 - D - I - 0x022C28 11:AC18: F0        .byte con_F0
 - D - I - 0x022C29 11:AC19: F2        .byte con_jsr_1
 - D - I - 0x022C2A 11:AC1A: 6B AB     .word off_AB6B
+case_AC1C_01:
 - D - I - 0x022C2C 11:AC1C: 3C        .byte $3C
 - D - I - 0x022C2D 11:AC1D: 30        .byte $30
 - D - I - 0x022C2E 11:AC1E: AD        .byte $AD
@@ -8837,8 +9329,9 @@ off_ABF8:
 - D - I - 0x022C31 11:AC21: F8 AB     .word off_ABF8
 off_AC23:
 - D - I - 0x022C33 11:AC23: F3        .byte con_F3, $B9
-- D - I - 0x022C35 11:AC25: 02        .byte $02
-- D - I - 0x022C36 11:AC26: 20        .byte $20
+- D - I - 0x022C35 11:AC25: 02        .byte case_AC27_00 - *
+- D - I - 0x022C36 11:AC26: 20        .byte case_AC46_01 - *
+case_AC27_00:
 - D - I - 0x022C37 11:AC27: 3C        .byte $3C
 - D - I - 0x022C38 11:AC28: 30        .byte $30
 - D - I - 0x022C39 11:AC29: A1        .byte $A1
@@ -8862,6 +9355,7 @@ off_AC2B:
 - D - I - 0x022C52 11:AC42: F0        .byte con_F0
 - D - I - 0x022C53 11:AC43: F2        .byte con_jsr_1
 - D - I - 0x022C54 11:AC44: 6B AB     .word off_AB6B
+case_AC46_01:
 - D - I - 0x022C56 11:AC46: 3C        .byte $3C
 - D - I - 0x022C57 11:AC47: 30        .byte $30
 - D - I - 0x022C58 11:AC48: AF        .byte $AF
@@ -8870,8 +9364,9 @@ off_AC2B:
 - D - I - 0x022C5B 11:AC4B: 2B AC     .word off_AC2B
 off_AC4D:
 - D - I - 0x022C5D 11:AC4D: F3        .byte con_F3, $B8
-- D - I - 0x022C5F 11:AC4F: 02        .byte $02
-- D - I - 0x022C60 11:AC50: 17        .byte $17
+- D - I - 0x022C5F 11:AC4F: 02        .byte case_AC51_00 - *
+- D - I - 0x022C60 11:AC50: 17        .byte case_AC67_01 - *
+case_AC51_00:
 - D - I - 0x022C61 11:AC51: 3C        .byte $3C
 - D - I - 0x022C62 11:AC52: 31        .byte $31
 - D - I - 0x022C63 11:AC53: 9E        .byte $9E
@@ -8889,6 +9384,7 @@ off_AC55:
 - D - I - 0x022C73 11:AC63: F0        .byte con_F0
 - D - I - 0x022C74 11:AC64: F2        .byte con_jsr_1
 - D - I - 0x022C75 11:AC65: 6B AB     .word off_AB6B
+case_AC67_01:
 - D - I - 0x022C77 11:AC67: 3C        .byte $3C
 - D - I - 0x022C78 11:AC68: 31        .byte $31
 - D - I - 0x022C79 11:AC69: B0        .byte $B0
@@ -8897,11 +9393,13 @@ off_AC55:
 - D - I - 0x022C7C 11:AC6C: 55 AC     .word off_AC55
 off_AC6E:
 - D - I - 0x022C7E 11:AC6E: F3        .byte con_F3, $AC
-- D - I - 0x022C80 11:AC70: 02        .byte $02
-- D - I - 0x022C81 11:AC71: 32        .byte $32
+- D - I - 0x022C80 11:AC70: 02        .byte case_AC72_00 - *
+- D - I - 0x022C81 11:AC71: 32        .byte case_ACA3_01 - *
+case_AC72_00:
 - D - I - 0x022C82 11:AC72: F3        .byte con_F3, $B8
-- D - I - 0x022C84 11:AC74: 02        .byte $02
-- D - I - 0x022C85 11:AC75: 27        .byte $27
+- D - I - 0x022C84 11:AC74: 02        .byte case_AC76_00 - *
+- D - I - 0x022C85 11:AC75: 27        .byte case_AC9C_01 - *
+case_AC76_00:
 - D - I - 0x022C86 11:AC76: 78        .byte $78
 - D - I - 0x022C87 11:AC77: 31        .byte $31
 - D - I - 0x022C88 11:AC78: 9E        .byte $9E
@@ -8931,15 +9429,18 @@ off_AC7A:
 - D - I - 0x022CA8 11:AC98: F0        .byte con_F0
 - D - I - 0x022CA9 11:AC99: F2        .byte con_jsr_1
 - D - I - 0x022CAA 11:AC9A: 6B AB     .word off_AB6B
+case_AC9C_01:
 - D - I - 0x022CAC 11:AC9C: 78        .byte $78
 - D - I - 0x022CAD 11:AC9D: 31        .byte $31
 - D - I - 0x022CAE 11:AC9E: B0        .byte $B0
 - D - I - 0x022CAF 11:AC9F: B3        .byte $B3
 - D - I - 0x022CB0 11:ACA0: F2        .byte con_jsr_1
 - D - I - 0x022CB1 11:ACA1: 7A AC     .word off_AC7A
+case_ACA3_01:
 - D - I - 0x022CB3 11:ACA3: F3        .byte con_F3, $B8
-- D - I - 0x022CB5 11:ACA5: 02        .byte $02
-- D - I - 0x022CB6 11:ACA6: 0A        .byte $0A
+- D - I - 0x022CB5 11:ACA5: 02        .byte case_ACA7_00 - *
+- D - I - 0x022CB6 11:ACA6: 0A        .byte case_ACB0_01 - *
+case_ACA7_00:
 - D - I - 0x022CB7 11:ACA7: F7        .byte con_F7, $44
 - D - I - 0x022CB9 11:ACA9: B4        .byte $B4
 - D - I - 0x022CBA 11:ACAA: 31        .byte $31
@@ -8947,6 +9448,7 @@ off_AC7A:
 - D - I - 0x022CBC 11:ACAC: 9D        .byte $9D
 - D - I - 0x022CBD 11:ACAD: F2        .byte con_jsr_1
 - D - I - 0x022CBE 11:ACAE: 7A AC     .word off_AC7A
+case_ACB0_01:
 - D - I - 0x022CC0 11:ACB0: F7        .byte con_F7, $44
 - D - I - 0x022CC2 11:ACB2: B4        .byte $B4
 - D - I - 0x022CC3 11:ACB3: 31        .byte $31
@@ -9033,8 +9535,9 @@ off_AD13:
 - D - I - 0x022D2C 11:AD1C: FB        .byte con_rts
 off_AD1D:
 - D - I - 0x022D2D 11:AD1D: F3        .byte con_F3, $98     ; проверка на джито
-- D - I - 0x022D2F 11:AD1F: 02        .byte $02
-- D - I - 0x022D30 11:AD20: 25        .byte $25
+- D - I - 0x022D2F 11:AD1F: 02        .byte case_AD21_00 - *
+- D - I - 0x022D30 11:AD20: 25        .byte case_AD45_01 - *
+case_AD21_00:
 - D - I - 0x022D31 11:AD21: 78        .byte $78
 - D - I - 0x022D32 11:AD22: 30        .byte $30
 - D - I - 0x022D33 11:AD23: A0        .byte $A0
@@ -9062,6 +9565,7 @@ off_AD25:
 - D - I - 0x022D52 11:AD42: E8        .byte $E8
 - D - I - 0x022D53 11:AD43: F0        .byte con_F0
 - D - I - 0x022D54 11:AD44: FB        .byte con_rts
+case_AD45_01:
 - D - I - 0x022D55 11:AD45: 78        .byte $78
 - D - I - 0x022D56 11:AD46: 30        .byte $30
 - D - I - 0x022D57 11:AD47: AA        .byte $AA
@@ -9108,8 +9612,9 @@ off_AD5E:
 - D - I - 0x022D90 11:AD80: FB        .byte con_rts
 off_AD81:
 - D - I - 0x022D91 11:AD81: F3        .byte con_F3, $BB
-- D - I - 0x022D93 11:AD83: 02        .byte $02
-- D - I - 0x022D94 11:AD84: 20        .byte $20
+- D - I - 0x022D93 11:AD83: 02        .byte case_AD85_00 - *
+- D - I - 0x022D94 11:AD84: 20        .byte case_ADA4_01 - *
+case_AD85_00:
 - D - I - 0x022D95 11:AD85: 3C        .byte $3C
 - D - I - 0x022D96 11:AD86: 30        .byte $30
 - D - I - 0x022D97 11:AD87: A9        .byte $A9
@@ -9133,6 +9638,7 @@ off_AD89:
 - D - I - 0x022DB0 11:ADA0: F0        .byte con_F0
 - D - I - 0x022DB1 11:ADA1: F2        .byte con_jsr_1
 - D - I - 0x022DB2 11:ADA2: 6B AB     .word off_AB6B
+case_ADA4_01:
 - D - I - 0x022DB4 11:ADA4: 3C        .byte $3C
 - D - I - 0x022DB5 11:ADA5: 30        .byte $30
 - D - I - 0x022DB6 11:ADA6: BB        .byte $BB
@@ -9260,34 +9766,55 @@ off_AE34:
 - D - I - 0x022E5A 11:AE4A: 6B AB     .word off_AB6B
 off_AE4C:
 - D - I - 0x022E5C 11:AE4C: F3        .byte con_F3, $C0
-- - - - - 0x022E5E 11:AE4E: 16        .byte $16
-- - - - - 0x022E5F 11:AE4F: 15        .byte $15
-- - - - - 0x022E60 11:AE50: 14        .byte $14
-- - - - - 0x022E61 11:AE51: 13        .byte $13
-- - - - - 0x022E62 11:AE52: 12        .byte $12
-- - - - - 0x022E63 11:AE53: 11        .byte $11
-- - - - - 0x022E64 11:AE54: 10        .byte $10
-- - - - - 0x022E65 11:AE55: 0F        .byte $0F
-- - - - - 0x022E66 11:AE56: 0E        .byte $0E
-- - - - - 0x022E67 11:AE57: 0D        .byte $0D
-- - - - - 0x022E68 11:AE58: 0C        .byte $0C
-- - - - - 0x022E69 11:AE59: 0B        .byte $0B
-- - - - - 0x022E6A 11:AE5A: 0A        .byte $0A
-- - - - - 0x022E6B 11:AE5B: 09        .byte $09
-- - - - - 0x022E6C 11:AE5C: 08        .byte $08
-- - - - - 0x022E6D 11:AE5D: 07        .byte $07
-- D - I - 0x022E6E 11:AE5E: 0B        .byte $0B
-- D - I - 0x022E6F 11:AE5F: 45        .byte $45
-- - - - - 0x022E70 11:AE60: 04        .byte $04
-- - - - - 0x022E71 11:AE61: 03        .byte $03
-- - - - - 0x022E72 11:AE62: 02        .byte $02
-- - - - - 0x022E73 11:AE63: 01        .byte $01
+- - - - - 0x022E5E 11:AE4E: 16        .byte case_AE64_00 - *
+- - - - - 0x022E5F 11:AE4F: 15        .byte case_AE64_01 - *
+- - - - - 0x022E60 11:AE50: 14        .byte case_AE64_02 - *
+- - - - - 0x022E61 11:AE51: 13        .byte case_AE64_03 - *
+- - - - - 0x022E62 11:AE52: 12        .byte case_AE64_04 - *
+- - - - - 0x022E63 11:AE53: 11        .byte case_AE64_05 - *
+- - - - - 0x022E64 11:AE54: 10        .byte case_AE64_06 - *
+- - - - - 0x022E65 11:AE55: 0F        .byte case_AE64_07 - *
+- - - - - 0x022E66 11:AE56: 0E        .byte case_AE64_08 - *
+- - - - - 0x022E67 11:AE57: 0D        .byte case_AE64_09 - *
+- - - - - 0x022E68 11:AE58: 0C        .byte case_AE64_0A - *
+- - - - - 0x022E69 11:AE59: 0B        .byte case_AE64_0B - *
+- - - - - 0x022E6A 11:AE5A: 0A        .byte case_AE64_0C - *
+- - - - - 0x022E6B 11:AE5B: 09        .byte case_AE64_0D - *
+- - - - - 0x022E6C 11:AE5C: 08        .byte case_AE64_0E - *
+- - - - - 0x022E6D 11:AE5D: 07        .byte case_AE64_0F - *
+- D - I - 0x022E6E 11:AE5E: 0B        .byte case_AE69_10 - *
+- D - I - 0x022E6F 11:AE5F: 45        .byte case_AEA4_11 - *
+- - - - - 0x022E70 11:AE60: 04        .byte case_AE64_12 - *
+- - - - - 0x022E71 11:AE61: 03        .byte case_AE64_13 - *
+- - - - - 0x022E72 11:AE62: 02        .byte case_AE64_14 - *
+- - - - - 0x022E73 11:AE63: 01        .byte case_AE64_15 - *
 off_AE64:
+case_AE64_00:
+case_AE64_01:
+case_AE64_02:
+case_AE64_03:
+case_AE64_04:
+case_AE64_05:
+case_AE64_06:
+case_AE64_07:
+case_AE64_08:
+case_AE64_09:
+case_AE64_0A:
+case_AE64_0B:
+case_AE64_0C:
+case_AE64_0D:
+case_AE64_0E:
+case_AE64_0F:
+case_AE64_12:
+case_AE64_13:
+case_AE64_14:
+case_AE64_15:
 - D - I - 0x022E74 11:AE64: 32        .byte $32
 - D - I - 0x022E75 11:AE65: 1F        .byte $1F
 - D - I - 0x022E76 11:AE66: 64        .byte $64
 - D - I - 0x022E77 11:AE67: 48        .byte $48
 - D - I - 0x022E78 11:AE68: FB        .byte con_rts
+case_AE69_10:
 - D - I - 0x022E79 11:AE69: F5        .byte con_mirror_off
 - D - I - 0x022E7A 11:AE6A: F8        .byte con_F8, $04
 - D - I - 0x022E7C 11:AE6C: 40        .byte $40
@@ -9336,6 +9863,7 @@ off_AE96:
 - D - I - 0x022EB1 11:AEA1: 4B        .byte $4B
 - D - I - 0x022EB2 11:AEA2: 00        .byte $00
 - D - I - 0x022EB3 11:AEA3: FB        .byte con_rts
+case_AEA4_11:
 - D - I - 0x022EB4 11:AEA4: F5        .byte con_mirror_off
 - D - I - 0x022EB5 11:AEA5: F8        .byte con_F8, $04
 - D - I - 0x022EB7 11:AEA7: 40        .byte $40
@@ -9528,8 +10056,9 @@ off_AF88:
 - D - I - 0x022F9E 11:AF8E: 78 AF     .word off_AF78
 off_AF90:
 - D - I - 0x022FA0 11:AF90: F3        .byte con_F3, $B2
-- D - I - 0x022FA2 11:AF92: 02        .byte $02
-- D - I - 0x022FA3 11:AF93: 11        .byte $11
+- D - I - 0x022FA2 11:AF92: 02        .byte case_AF94_00 - *
+- D - I - 0x022FA3 11:AF93: 11        .byte case_AFA4_01 - *
+case_AF94_00:
 - D - I - 0x022FA4 11:AF94: FA        .byte con_jsr_2
 - D - I - 0x022FA5 11:AF95: 73 AF     .word off_AF73
 off_AF97:
@@ -9542,6 +10071,7 @@ off_AF97:
 - D - I - 0x022FB0 11:AFA0: F0        .byte con_F0
 - D - I - 0x022FB1 11:AFA1: F2        .byte con_jsr_1
 - D - I - 0x022FB2 11:AFA2: 6B AB     .word off_AB6B
+case_AFA4_01:
 - D - I - 0x022FB4 11:AFA4: FA        .byte con_jsr_2
 - D - I - 0x022FB5 11:AFA5: 88 AF     .word off_AF88
 - D - I - 0x022FB7 11:AFA7: F2        .byte con_jsr_1
@@ -9608,40 +10138,41 @@ off_AFED:
 - D - I - 0x022FFE 11:AFEE: 2E B2     .word off_B22E
 off_AFF0:
 - D - I - 0x023000 11:AFF0: F3        .byte con_F3, $C0
-- D - I - 0x023002 11:AFF2: 29        .byte $29
-- D - I - 0x023003 11:AFF3: 21        .byte $21
-- D - I - 0x023004 11:AFF4: 31        .byte $31
-- - - - - 0x023005 11:AFF5: 37        .byte $37
-- D - I - 0x023006 11:AFF6: 3D        .byte $3D
-- D - I - 0x023007 11:AFF7: 43        .byte $43
-- - - - - 0x023008 11:AFF8: 23        .byte $23
-- - - - - 0x023009 11:AFF9: 22        .byte $22
-- D - I - 0x02300A 11:AFFA: 47        .byte $47
-- - - - - 0x02300B 11:AFFB: 4D        .byte $4D
-- - - - - 0x02300C 11:AFFC: 1F        .byte $1F
-- - - - - 0x02300D 11:AFFD: 1E        .byte $1E
-- - - - - 0x02300E 11:AFFE: 1D        .byte $1D
-- - - - - 0x02300F 11:AFFF: 1C        .byte $1C
-- - - - - 0x023010 11:B000: 1B        .byte $1B
-- - - - - 0x023011 11:B001: 1A        .byte $1A
-- - - - - 0x023012 11:B002: 19        .byte $19
-- - - - - 0x023013 11:B003: 18        .byte $18
-- - - - - 0x023014 11:B004: 17        .byte $17
-- - - - - 0x023015 11:B005: 16        .byte $16
-- - - - - 0x023016 11:B006: 15        .byte $15
-- - - - - 0x023017 11:B007: 14        .byte $14
-- - - - - 0x023018 11:B008: 47        .byte $47
-- - - - - 0x023019 11:B009: 4D        .byte $4D
-- D - I - 0x02301A 11:B00A: 53        .byte $53
-- - - - - 0x02301B 11:B00B: 59        .byte $59
-- - - - - 0x02301C 11:B00C: 0F        .byte $0F
-- - - - - 0x02301D 11:B00D: 0E        .byte $0E
-- - - - - 0x02301E 11:B00E: 5D        .byte $5D
-- - - - - 0x02301F 11:B00F: 0C        .byte $0C
-- - - - - 0x023020 11:B010: 0B        .byte $0B
-- - - - - 0x023021 11:B011: 0A        .byte $0A
-- D - I - 0x023022 11:B012: 60        .byte $60
-- - - - - 0x023023 11:B013: 08        .byte $08
+- D - I - 0x023002 11:AFF2: 29        .byte case_B01B_00 - *
+- D - I - 0x023003 11:AFF3: 21        .byte case_B014_01 - *
+- D - I - 0x023004 11:AFF4: 31        .byte case_B025_02 - *
+- - - - - 0x023005 11:AFF5: 37        .byte case_B02C_03 - *
+- D - I - 0x023006 11:AFF6: 3D        .byte case_B033_04 - *
+- D - I - 0x023007 11:AFF7: 43        .byte case_B03A_05 - *
+- - - - - 0x023008 11:AFF8: 23        .byte case_B01B_06 - *
+- - - - - 0x023009 11:AFF9: 22        .byte case_B01B_07 - *
+- D - I - 0x02300A 11:AFFA: 47        .byte case_B041_08 - *
+- - - - - 0x02300B 11:AFFB: 4D        .byte case_B048_09 - *
+- - - - - 0x02300C 11:AFFC: 1F        .byte case_B01B_0A - *
+- - - - - 0x02300D 11:AFFD: 1E        .byte case_B01B_0B - *
+- - - - - 0x02300E 11:AFFE: 1D        .byte case_B01B_0C - *
+- - - - - 0x02300F 11:AFFF: 1C        .byte case_B01B_0D - *
+- - - - - 0x023010 11:B000: 1B        .byte case_B01B_0E - *
+- - - - - 0x023011 11:B001: 1A        .byte case_B01B_0F - *
+- - - - - 0x023012 11:B002: 19        .byte case_B01B_10 - *
+- - - - - 0x023013 11:B003: 18        .byte case_B01B_11 - *
+- - - - - 0x023014 11:B004: 17        .byte case_B01B_12 - *
+- - - - - 0x023015 11:B005: 16        .byte case_B01B_13 - *
+- - - - - 0x023016 11:B006: 15        .byte case_B01B_14 - *
+- - - - - 0x023017 11:B007: 14        .byte case_B01B_15 - *
+- - - - - 0x023018 11:B008: 47        .byte case_B04F_16 - *
+- - - - - 0x023019 11:B009: 4D        .byte case_B056_17 - *
+- D - I - 0x02301A 11:B00A: 53        .byte case_B05D_18 - *
+- - - - - 0x02301B 11:B00B: 59        .byte case_B064_19 - *
+- - - - - 0x02301C 11:B00C: 0F        .byte case_B01B_1A - *
+- - - - - 0x02301D 11:B00D: 0E        .byte case_B01B_1B - *
+- - - - - 0x02301E 11:B00E: 5D        .byte case_B06B_1C - *
+- - - - - 0x02301F 11:B00F: 0C        .byte case_B01B_1D - *
+- - - - - 0x023020 11:B010: 0B        .byte case_B01B_1E - *
+- - - - - 0x023021 11:B011: 0A        .byte case_B01B_1F - *
+- D - I - 0x023022 11:B012: 60        .byte case_B072_20 - *
+- - - - - 0x023023 11:B013: 08        .byte case_B01B_21 - *
+case_B014_01:
 - D - I - 0x023024 11:B014: 3C        .byte $3C
 - D - I - 0x023025 11:B015: 30        .byte $30
 - D - I - 0x023026 11:B016: 91        .byte $91
@@ -9653,6 +10184,27 @@ off_B018:
 
 
 off_B01B_76:
+case_B01B_00:
+case_B01B_06:
+case_B01B_07:
+case_B01B_0A:
+case_B01B_0B:
+case_B01B_0C:
+case_B01B_0D:
+case_B01B_0E:
+case_B01B_0F:
+case_B01B_10:
+case_B01B_11:
+case_B01B_12:
+case_B01B_13:
+case_B01B_14:
+case_B01B_15:
+case_B01B_1A:
+case_B01B_1B:
+case_B01B_1D:
+case_B01B_1E:
+case_B01B_1F:
+case_B01B_21:
 - D - I - 0x02302B 11:B01B: F6        .byte con_mirror_toggle
 - D - I - 0x02302C 11:B01C: F9        .byte con_delay_soundID, $31, $1A
 - D - I - 0x02302F 11:B01F: 64        .byte $64
@@ -9661,72 +10213,84 @@ off_B01B_76:
 - D - I - 0x023032 11:B022: 49        .byte $49
 - D - I - 0x023033 11:B023: F6        .byte con_mirror_toggle
 - D - I - 0x023034 11:B024: FB        .byte con_rts
+case_B025_02:
 - D - I - 0x023035 11:B025: 3C        .byte $3C
 - D - I - 0x023036 11:B026: 30        .byte $30
 - D - I - 0x023037 11:B027: 96        .byte $96
 - D - I - 0x023038 11:B028: B4        .byte $B4
 - D - I - 0x023039 11:B029: F2        .byte con_jsr_1
 - D - I - 0x02303A 11:B02A: 18 B0     .word off_B018
+case_B02C_03:
 - - - - - 0x02303C 11:B02C: 3C        .byte $3C
 - - - - - 0x02303D 11:B02D: 30        .byte $30
 - - - - - 0x02303E 11:B02E: 97        .byte $97
 - - - - - 0x02303F 11:B02F: B4        .byte $B4
 - - - - - 0x023040 11:B030: F2        .byte con_jsr_1
 - - - - - 0x023041 11:B031: 18 B0     .word off_B018
+case_B033_04:
 - D - I - 0x023043 11:B033: 3C        .byte $3C
 - D - I - 0x023044 11:B034: 31        .byte $31
 - D - I - 0x023045 11:B035: 9E        .byte $9E
 - D - I - 0x023046 11:B036: B4        .byte $B4
 - D - I - 0x023047 11:B037: F2        .byte con_jsr_1
 - D - I - 0x023048 11:B038: 18 B0     .word off_B018
+case_B03A_05:
 - D - I - 0x02304A 11:B03A: 3C        .byte $3C
 - D - I - 0x02304B 11:B03B: 31        .byte $31
 - D - I - 0x02304C 11:B03C: B0        .byte $B0
 - D - I - 0x02304D 11:B03D: B4        .byte $B4
 - D - I - 0x02304E 11:B03E: F2        .byte con_jsr_1
 - D - I - 0x02304F 11:B03F: 18 B0     .word off_B018
+case_B041_08:
 - D - I - 0x023051 11:B041: 3C        .byte $3C
 - D - I - 0x023052 11:B042: 30        .byte $30
 - D - I - 0x023053 11:B043: A1        .byte $A1
 - D - I - 0x023054 11:B044: B4        .byte $B4
 - D - I - 0x023055 11:B045: F2        .byte con_jsr_1
 - D - I - 0x023056 11:B046: 18 B0     .word off_B018
+case_B048_09:
 - - - - - 0x023058 11:B048: 3C        .byte $3C
 - - - - - 0x023059 11:B049: 30        .byte $30
 - - - - - 0x02305A 11:B04A: AF        .byte $AF
 - - - - - 0x02305B 11:B04B: B4        .byte $B4
 - - - - - 0x02305C 11:B04C: F2        .byte con_jsr_1
 - - - - - 0x02305D 11:B04D: 18 B0     .word off_B018
+case_B04F_16:
 - - - - - 0x02305F 11:B04F: 3C        .byte $3C
 - - - - - 0x023060 11:B050: 30        .byte $30
 - - - - - 0x023061 11:B051: BC        .byte $BC
 - - - - - 0x023062 11:B052: B4        .byte $B4
 - - - - - 0x023063 11:B053: F2        .byte con_jsr_1
 - - - - - 0x023064 11:B054: 18 B0     .word off_B018
+case_B056_17:
 - - - - - 0x023066 11:B056: 3C        .byte $3C
 - - - - - 0x023067 11:B057: 30        .byte $30
 - - - - - 0x023068 11:B058: A9        .byte $A9
 - - - - - 0x023069 11:B059: B4        .byte $B4
 - - - - - 0x02306A 11:B05A: F2        .byte con_jsr_1
 - - - - - 0x02306B 11:B05B: 18 B0     .word off_B018
+case_B05D_18:
 - D - I - 0x02306D 11:B05D: 3C        .byte $3C
 - D - I - 0x02306E 11:B05E: 30        .byte $30
 - D - I - 0x02306F 11:B05F: BB        .byte $BB
 - D - I - 0x023070 11:B060: B4        .byte $B4
 - D - I - 0x023071 11:B061: F2        .byte con_jsr_1
 - D - I - 0x023072 11:B062: 18 B0     .word off_B018
+case_B064_19:
 - - - - - 0x023074 11:B064: 3C        .byte $3C
 - - - - - 0x023075 11:B065: 30        .byte $30
 - - - - - 0x023076 11:B066: B8        .byte $B8
 - - - - - 0x023077 11:B067: B4        .byte $B4
 - - - - - 0x023078 11:B068: F2        .byte con_jsr_1
 - - - - - 0x023079 11:B069: 18 B0     .word off_B018
+case_B06B_1C:
 - - - - - 0x02307B 11:B06B: 3C        .byte $3C
 - - - - - 0x02307C 11:B06C: 30        .byte $30
 - - - - - 0x02307D 11:B06D: B7        .byte $B7
 - - - - - 0x02307E 11:B06E: B4        .byte $B4
 - - - - - 0x02307F 11:B06F: F2        .byte con_jsr_1
 - - - - - 0x023080 11:B070: 18 B0     .word off_B018
+case_B072_20:
 - D - I - 0x023082 11:B072: 3C        .byte $3C
 - D - I - 0x023083 11:B073: 30        .byte $30
 - D - I - 0x023084 11:B074: B2        .byte $B2
@@ -9735,8 +10299,9 @@ off_B01B_76:
 - D - I - 0x023087 11:B077: 18 B0     .word off_B018
 off_B079:
 - D - I - 0x023089 11:B079: F3        .byte con_F3, $BC
-- D - I - 0x02308B 11:B07B: 02        .byte $02
-- D - I - 0x02308C 11:B07C: 1B        .byte $1B
+- D - I - 0x02308B 11:B07B: 02        .byte case_B07D_00 - *
+- D - I - 0x02308C 11:B07C: 1B        .byte case_B097_01 - *
+case_B07D_00:
 - D - I - 0x02308D 11:B07D: F6        .byte con_mirror_toggle
 - D - I - 0x02308E 11:B07E: 3C        .byte $3C
 - D - I - 0x02308F 11:B07F: 30        .byte $30
@@ -9758,6 +10323,7 @@ off_B082:
 - D - I - 0x0230A4 11:B094: 49        .byte $49
 - D - I - 0x0230A5 11:B095: F6        .byte con_mirror_toggle
 - D - I - 0x0230A6 11:B096: FB        .byte con_rts
+case_B097_01:
 - D - I - 0x0230A7 11:B097: F6        .byte con_mirror_toggle
 - D - I - 0x0230A8 11:B098: 3C        .byte $3C
 - D - I - 0x0230A9 11:B099: 30        .byte $30
@@ -9838,8 +10404,9 @@ off_B0E8:
 - D - I - 0x02310A 11:B0FA: FB        .byte con_rts
 off_B0FB:
 - D - I - 0x02310B 11:B0FB: F3        .byte con_F3, $A5
-- D - I - 0x02310D 11:B0FD: 02        .byte $02
-- D - I - 0x02310E 11:B0FE: 43        .byte $43
+- D - I - 0x02310D 11:B0FD: 02        .byte case_B0FF_00 - *
+- D - I - 0x02310E 11:B0FE: 43        .byte case_B141_01 - *
+case_B0FF_00:
 - D - I - 0x02310F 11:B0FF: F5        .byte con_mirror_off
 - D - I - 0x023110 11:B100: F7        .byte con_F7, $10
 - D - I - 0x023112 11:B102: 28        .byte $28
@@ -9896,6 +10463,7 @@ off_B0FB:
 - D - I - 0x02314E 11:B13E: F0        .byte con_F0
 - D - I - 0x02314F 11:B13F: F0        .byte con_F0
 - D - I - 0x023150 11:B140: 00        .byte $00
+case_B141_01:
 - D - I - 0x023151 11:B141: F5        .byte con_mirror_off
 - D - I - 0x023152 11:B142: F8        .byte con_F8, $04
 - D - I - 0x023154 11:B144: 3C        .byte $3C
@@ -9965,8 +10533,9 @@ off_B197:
 - D - I - 0x0231A7 11:B197: FB        .byte con_rts
 off_B198:
 - D - I - 0x0231A8 11:B198: F3        .byte con_F3, $B1
-- D - I - 0x0231AA 11:B19A: 02        .byte $02
-- - - - - 0x0231AB 11:B19B: 28        .byte $28
+- D - I - 0x0231AA 11:B19A: 02        .byte case_B19C_00 - *
+- - - - - 0x0231AB 11:B19B: 28        .byte case_B1C3_01 - *
+case_B19C_00:
 - D - I - 0x0231AC 11:B19C: 3C        .byte $3C
 - D - I - 0x0231AD 11:B19D: 30        .byte $30
 - D - I - 0x0231AE 11:B19E: 9A        .byte $9A
@@ -9998,6 +10567,7 @@ off_B1A0:
 - D - I - 0x0231CF 11:B1BF: F0        .byte con_F0
 - D - I - 0x0231D0 11:B1C0: FE        .byte con_FE, $01
 - D - I - 0x0231D2 11:B1C2: FB        .byte con_rts
+case_B1C3_01:
 - - - - - 0x0231D3 11:B1C3: 3C        .byte $3C
 - - - - - 0x0231D4 11:B1C4: 30        .byte $30
 - - - - - 0x0231D5 11:B1C5: 9B        .byte $9B
@@ -10006,24 +10576,34 @@ off_B1A0:
 - - - - - 0x0231D8 11:B1C8: A0 B1     .word off_B1A0
 off_B1CA:
 - D - I - 0x0231DA 11:B1CA: F3        .byte con_F3, $C9
-- D - I - 0x0231DC 11:B1CC: 34        .byte $34
-- - - - - 0x0231DD 11:B1CD: 33        .byte $33
-- - - - - 0x0231DE 11:B1CE: 10        .byte $10
-- - - - - 0x0231DF 11:B1CF: 0F        .byte $0F
-- - - - - 0x0231E0 11:B1D0: 0E        .byte $0E
-- - - - - 0x0231E1 11:B1D1: 0D        .byte $0D
-- - - - - 0x0231E2 11:B1D2: 0C        .byte $0C
-- D - I - 0x0231E3 11:B1D3: 4D        .byte $4D
-- D - I - 0x0231E4 11:B1D4: 4C        .byte $4C
-- - - - - 0x0231E5 11:B1D5: 4B        .byte $4B
-- - - - - 0x0231E6 11:B1D6: 4A        .byte $4A
-- D - I - 0x0231E7 11:B1D7: 69        .byte $69
-- D - I - 0x0231E8 11:B1D8: 68        .byte $68
-- - - - - 0x0231E9 11:B1D9: 05        .byte $05
-- - - - - 0x0231EA 11:B1DA: 04        .byte $04
-- - - - - 0x0231EB 11:B1DB: 03        .byte $03
-- - - - - 0x0231EC 11:B1DC: 02        .byte $02
-- D - I - 0x0231ED 11:B1DD: 01        .byte $01
+- D - I - 0x0231DC 11:B1CC: 34        .byte case_B200_00 - *
+- - - - - 0x0231DD 11:B1CD: 33        .byte case_B200_01 - *
+- - - - - 0x0231DE 11:B1CE: 10        .byte case_B1DE_02 - *
+- - - - - 0x0231DF 11:B1CF: 0F        .byte case_B1DE_03 - *
+- - - - - 0x0231E0 11:B1D0: 0E        .byte case_B1DE_04 - *
+- - - - - 0x0231E1 11:B1D1: 0D        .byte case_B1DE_05 - *
+- - - - - 0x0231E2 11:B1D2: 0C        .byte case_B1DE_06 - *
+- D - I - 0x0231E3 11:B1D3: 4D        .byte case_B220_07 - *
+- D - I - 0x0231E4 11:B1D4: 4C        .byte case_B220_08 - *
+- - - - - 0x0231E5 11:B1D5: 4B        .byte case_B220_09 - *
+- - - - - 0x0231E6 11:B1D6: 4A        .byte case_B220_0A - *
+- D - I - 0x0231E7 11:B1D7: 69        .byte case_B240_0B - *
+- D - I - 0x0231E8 11:B1D8: 68        .byte case_B240_0C - *
+- - - - - 0x0231E9 11:B1D9: 05        .byte case_B1DE_0D - *
+- - - - - 0x0231EA 11:B1DA: 04        .byte case_B1DE_0E - *
+- - - - - 0x0231EB 11:B1DB: 03        .byte case_B1DE_0F - *
+- - - - - 0x0231EC 11:B1DC: 02        .byte case_B1DE_10 - *
+- D - I - 0x0231ED 11:B1DD: 01        .byte case_B1DE_11 - *
+case_B1DE_02:
+case_B1DE_03:
+case_B1DE_04:
+case_B1DE_05:
+case_B1DE_06:
+case_B1DE_0D:
+case_B1DE_0E:
+case_B1DE_0F:
+case_B1DE_10:
+case_B1DE_11:
 - D - I - 0x0231EE 11:B1DE: F9        .byte con_delay_soundID, $02, $26
 - D - I - 0x0231F1 11:B1E1: F7        .byte con_F7, $02
 - D - I - 0x0231F3 11:B1E3: 28        .byte $28
@@ -10049,6 +10629,8 @@ off_B1F6:
 - D - I - 0x02320D 11:B1FD: DC        .byte $DC
 - D - I - 0x02320E 11:B1FE: F0        .byte con_F0
 - D - I - 0x02320F 11:B1FF: FB        .byte con_rts
+case_B200_00:
+case_B200_01:
 - D - I - 0x023210 11:B200: F4        .byte con_mirror_on
 - D - I - 0x023211 11:B201: F8        .byte con_F8, $04
 - D - I - 0x023213 11:B203: 3C        .byte $3C
@@ -10074,6 +10656,10 @@ off_B1F6:
 - D - I - 0x02322C 11:B21C: 04        .byte $04
 - D - I - 0x02322D 11:B21D: F2        .byte con_jsr_1
 - D - I - 0x02322E 11:B21E: F6 B1     .word off_B1F6
+case_B220_07:
+case_B220_08:
+case_B220_09:
+case_B220_0A:
 - D - I - 0x023230 11:B220: F4        .byte con_mirror_on
 - D - I - 0x023231 11:B221: F8        .byte con_F8, $04
 - D - I - 0x023233 11:B223: 3C        .byte $3C
@@ -10100,6 +10686,8 @@ off_B22E:
 - D - I - 0x02324C 11:B23C: 04        .byte $04
 - D - I - 0x02324D 11:B23D: F2        .byte con_jsr_1
 - D - I - 0x02324E 11:B23E: F6 B1     .word off_B1F6
+case_B240_0B:
+case_B240_0C:
 - D - I - 0x023250 11:B240: F4        .byte con_mirror_on
 - D - I - 0x023251 11:B241: F8        .byte con_F8, $04
 - D - I - 0x023253 11:B243: 3C        .byte $3C
@@ -10179,8 +10767,9 @@ off_B29B:
 - D - I - 0x0232B1 11:B2A1: FB        .byte con_rts
 off_B2A2:
 - D - I - 0x0232B2 11:B2A2: F3        .byte con_F3, $BD
-- D - I - 0x0232B4 11:B2A4: 02        .byte $02
-- - - - - 0x0232B5 11:B2A5: 16        .byte $16
+- D - I - 0x0232B4 11:B2A4: 02        .byte case_B2A6_00 - *
+- - - - - 0x0232B5 11:B2A5: 16        .byte case_B2BB_01 - *
+case_B2A6_00:
 - D - I - 0x0232B6 11:B2A6: 3C        .byte $3C
 - D - I - 0x0232B7 11:B2A7: 30        .byte $30
 - D - I - 0x0232B8 11:B2A8: 96        .byte $96
@@ -10200,6 +10789,7 @@ off_B2AD:
 - D - I - 0x0232C8 11:B2B8: AC        .byte $AC
 - D - I - 0x0232C9 11:B2B9: 00        .byte $00
 - D - I - 0x0232CA 11:B2BA: FB        .byte con_rts
+case_B2BB_01:
 - - - - - 0x0232CB 11:B2BB: 3C        .byte $3C
 - - - - - 0x0232CC 11:B2BC: 30        .byte $30
 - - - - - 0x0232CD 11:B2BD: 97        .byte $97
@@ -10230,25 +10820,40 @@ off_B2D4:
 - D - I - 0x0232EB 11:B2DB: FB        .byte con_rts
 off_B2DC:
 - D - I - 0x0232EC 11:B2DC: F3        .byte con_F3, $B7
-- D - I - 0x0232EE 11:B2DE: 14        .byte $14
-- D - I - 0x0232EF 11:B2DF: 01        .byte $01
+- D - I - 0x0232EE 11:B2DE: 14        .byte case_B2F2_00 - *
+- D - I - 0x0232EF 11:B2DF: 01        .byte case_B2E0_01 - *
+case_B2E0_01:
 - D - I - 0x0232F0 11:B2E0: F3        .byte con_F3, $B3
-- D - I - 0x0232F2 11:B2E2: 10        .byte $10
-- D - I - 0x0232F3 11:B2E3: 55        .byte $55
-- D - I - 0x0232F4 11:B2E4: 5D        .byte $5D
-- D - I - 0x0232F5 11:B2E5: 0D        .byte $0D
-- - - - - 0x0232F6 11:B2E6: 0C        .byte $0C
-- D - I - 0x0232F7 11:B2E7: 0B        .byte $0B
-- - - - - 0x0232F8 11:B2E8: 0A        .byte $0A
-- - - - - 0x0232F9 11:B2E9: 09        .byte $09
-- D - I - 0x0232FA 11:B2EA: 08        .byte $08
-- - - - - 0x0232FB 11:B2EB: 07        .byte $07
-- D - I - 0x0232FC 11:B2EC: 06        .byte $06
-- - - - - 0x0232FD 11:B2ED: 05        .byte $05
-- D - I - 0x0232FE 11:B2EE: 04        .byte $04
-- D - I - 0x0232FF 11:B2EF: 03        .byte $03
-- - - - - 0x023300 11:B2F0: 02        .byte $02
-- - - - - 0x023301 11:B2F1: 01        .byte $01
+- D - I - 0x0232F2 11:B2E2: 10        .byte case_B2F2_00 - *
+- D - I - 0x0232F3 11:B2E3: 55        .byte case_B338_01 - *
+- D - I - 0x0232F4 11:B2E4: 5D        .byte case_B341_02 - *
+- D - I - 0x0232F5 11:B2E5: 0D        .byte case_B2F2_03 - *
+- - - - - 0x0232F6 11:B2E6: 0C        .byte case_B2F2_04 - *
+- D - I - 0x0232F7 11:B2E7: 0B        .byte case_B2F2_05 - *
+- - - - - 0x0232F8 11:B2E8: 0A        .byte case_B2F2_06 - *
+- - - - - 0x0232F9 11:B2E9: 09        .byte case_B2F2_07 - *
+- D - I - 0x0232FA 11:B2EA: 08        .byte case_B2F2_08 - *
+- - - - - 0x0232FB 11:B2EB: 07        .byte case_B2F2_09 - *
+- D - I - 0x0232FC 11:B2EC: 06        .byte case_B2F2_0A - *
+- - - - - 0x0232FD 11:B2ED: 05        .byte case_B2F2_0B - *
+- D - I - 0x0232FE 11:B2EE: 04        .byte case_B2F2_0C - *
+- D - I - 0x0232FF 11:B2EF: 03        .byte case_B2F2_0D - *
+- - - - - 0x023300 11:B2F0: 02        .byte case_B2F2_0E - *
+- - - - - 0x023301 11:B2F1: 01        .byte case_B2F2_0F - *
+case_B2F2_00:
+case_B2F2_03:
+case_B2F2_04:
+case_B2F2_05:
+case_B2F2_06:
+case_B2F2_07:
+case_B2F2_08:
+case_B2F2_09:
+case_B2F2_0A:
+case_B2F2_0B:
+case_B2F2_0C:
+case_B2F2_0D:
+case_B2F2_0E:
+case_B2F2_0F:
 - D - I - 0x023302 11:B2F2: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023305 11:B2F5: 14        .byte $14
 - D - I - 0x023306 11:B2F6: 02        .byte $02
@@ -10261,23 +10866,37 @@ off_B2DC:
 - D - I - 0x02330D 11:B2FD: FB        .byte con_rts
 off_B2FE:
 - D - I - 0x02330E 11:B2FE: F3        .byte con_F3, $B3
-- D - I - 0x023310 11:B300: 10        .byte $10
-- D - I - 0x023311 11:B301: 37        .byte $37
-- - - - - 0x023312 11:B302: 3F        .byte $3F
-- - - - - 0x023313 11:B303: 0D        .byte $0D
-- - - - - 0x023314 11:B304: 0C        .byte $0C
-- - - - - 0x023315 11:B305: 0B        .byte $0B
-- - - - - 0x023316 11:B306: 0A        .byte $0A
-- - - - - 0x023317 11:B307: 09        .byte $09
-- - - - - 0x023318 11:B308: 08        .byte $08
-- - - - - 0x023319 11:B309: 07        .byte $07
-- - - - - 0x02331A 11:B30A: 06        .byte $06
-- - - - - 0x02331B 11:B30B: 05        .byte $05
-- D - I - 0x02331C 11:B30C: 04        .byte $04
-- - - - - 0x02331D 11:B30D: 03        .byte $03
-- - - - - 0x02331E 11:B30E: 02        .byte $02
-- - - - - 0x02331F 11:B30F: 01        .byte $01
+- D - I - 0x023310 11:B300: 10        .byte case_B310_00 - *
+- D - I - 0x023311 11:B301: 37        .byte case_B338_01 - *
+- - - - - 0x023312 11:B302: 3F        .byte case_B341_02 - *
+- - - - - 0x023313 11:B303: 0D        .byte case_B310_03 - *
+- - - - - 0x023314 11:B304: 0C        .byte case_B310_04 - *
+- - - - - 0x023315 11:B305: 0B        .byte case_B310_05 - *
+- - - - - 0x023316 11:B306: 0A        .byte case_B310_06 - *
+- - - - - 0x023317 11:B307: 09        .byte case_B310_07 - *
+- - - - - 0x023318 11:B308: 08        .byte case_B310_08 - *
+- - - - - 0x023319 11:B309: 07        .byte case_B310_09 - *
+- - - - - 0x02331A 11:B30A: 06        .byte case_B310_0A - *
+- - - - - 0x02331B 11:B30B: 05        .byte case_B310_0B - *
+- D - I - 0x02331C 11:B30C: 04        .byte case_B310_0C - *
+- - - - - 0x02331D 11:B30D: 03        .byte case_B310_0D - *
+- - - - - 0x02331E 11:B30E: 02        .byte case_B310_0E - *
+- - - - - 0x02331F 11:B30F: 01        .byte case_B310_0F - *
 off_B310:
+case_B310_00:
+case_B310_03:
+case_B310_04:
+case_B310_05:
+case_B310_06:
+case_B310_07:
+case_B310_08:
+case_B310_09:
+case_B310_0A:
+case_B310_0B:
+case_B310_0C:
+case_B310_0D:
+case_B310_0E:
+case_B310_0F:
 - D - I - 0x023320 11:B310: F8        .byte con_F8, $04
 - D - I - 0x023322 11:B312: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x023325 11:B315: 32        .byte $32
@@ -10287,23 +10906,37 @@ off_B310:
 - D - I - 0x023329 11:B319: FB        .byte con_rts
 off_B31A:
 - D - I - 0x02332A 11:B31A: F3        .byte con_F3, $B3
-- - - - - 0x02332C 11:B31C: 10        .byte $10
-- - - - - 0x02332D 11:B31D: 1B        .byte $1B
-- D - I - 0x02332E 11:B31E: 23        .byte $23
-- - - - - 0x02332F 11:B31F: 0D        .byte $0D
-- - - - - 0x023330 11:B320: 0C        .byte $0C
-- - - - - 0x023331 11:B321: 0B        .byte $0B
-- - - - - 0x023332 11:B322: 0A        .byte $0A
-- - - - - 0x023333 11:B323: 09        .byte $09
-- - - - - 0x023334 11:B324: 08        .byte $08
-- - - - - 0x023335 11:B325: 07        .byte $07
-- - - - - 0x023336 11:B326: 06        .byte $06
-- - - - - 0x023337 11:B327: 05        .byte $05
-- - - - - 0x023338 11:B328: 04        .byte $04
-- - - - - 0x023339 11:B329: 03        .byte $03
-- - - - - 0x02333A 11:B32A: 02        .byte $02
-- - - - - 0x02333B 11:B32B: 01        .byte $01
+- - - - - 0x02332C 11:B31C: 10        .byte case_B32C_00 - *
+- - - - - 0x02332D 11:B31D: 1B        .byte case_B338_01 - *
+- D - I - 0x02332E 11:B31E: 23        .byte case_B341_02 - *
+- - - - - 0x02332F 11:B31F: 0D        .byte case_B32C_03 - *
+- - - - - 0x023330 11:B320: 0C        .byte case_B32C_04 - *
+- - - - - 0x023331 11:B321: 0B        .byte case_B32C_05 - *
+- - - - - 0x023332 11:B322: 0A        .byte case_B32C_06 - *
+- - - - - 0x023333 11:B323: 09        .byte case_B32C_07 - *
+- - - - - 0x023334 11:B324: 08        .byte case_B32C_08 - *
+- - - - - 0x023335 11:B325: 07        .byte case_B32C_09 - *
+- - - - - 0x023336 11:B326: 06        .byte case_B32C_0A - *
+- - - - - 0x023337 11:B327: 05        .byte case_B32C_0B - *
+- - - - - 0x023338 11:B328: 04        .byte case_B32C_0C - *
+- - - - - 0x023339 11:B329: 03        .byte case_B32C_0D - *
+- - - - - 0x02333A 11:B32A: 02        .byte case_B32C_0E - *
+- - - - - 0x02333B 11:B32B: 01        .byte case_B32C_0F - *
 off_B32C:
+case_B32C_00:
+case_B32C_03:
+case_B32C_04:
+case_B32C_05:
+case_B32C_06:
+case_B32C_07:
+case_B32C_08:
+case_B32C_09:
+case_B32C_0A:
+case_B32C_0B:
+case_B32C_0C:
+case_B32C_0D:
+case_B32C_0E:
+case_B32C_0F:
 - D - I - 0x02333C 11:B32C: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x02333F 11:B32F: 14        .byte $14
 - D - I - 0x023340 11:B330: 02        .byte $02
@@ -10314,6 +10947,7 @@ off_B32C:
 - D - I - 0x023345 11:B335: 49        .byte $49
 - D - I - 0x023346 11:B336: F0        .byte con_F0
 - D - I - 0x023347 11:B337: FB        .byte con_rts
+case_B338_01:
 - D - I - 0x023348 11:B338: FA        .byte con_jsr_2
 - D - I - 0x023349 11:B339: 1A A7     .word off_A71A
 off_B33B:
@@ -10323,28 +10957,34 @@ off_B33B:
 - D - I - 0x02334E 11:B33E: ED        .byte $ED
 - D - I - 0x02334F 11:B33F: F6        .byte con_mirror_toggle
 - D - I - 0x023350 11:B340: FB        .byte con_rts
+case_B341_02:
 - D - I - 0x023351 11:B341: FA        .byte con_jsr_2
 - D - I - 0x023352 11:B342: 56 A7     .word off_A756
 - D - I - 0x023354 11:B344: F2        .byte con_jsr_1
 - D - I - 0x023355 11:B345: 3B B3     .word off_B33B
 off_B347:
 - D - I - 0x023357 11:B347: F3        .byte con_F3, $B3
-- D - I - 0x023359 11:B349: 10        .byte $10
-- - - - - 0x02335A 11:B34A: 1B        .byte $1B
-- - - - - 0x02335B 11:B34B: 21        .byte $21
-- - - - - 0x02335C 11:B34C: 0D        .byte $0D
-- - - - - 0x02335D 11:B34D: 0C        .byte $0C
-- D - I - 0x02335E 11:B34E: 24        .byte $24
-- - - - - 0x02335F 11:B34F: 40        .byte $40
-- D - I - 0x023360 11:B350: 2C        .byte $2C
-- D - I - 0x023361 11:B351: 2B        .byte $2B
-- - - - - 0x023362 11:B352: 2A        .byte $2A
-- D - I - 0x023363 11:B353: 29        .byte $29
-- - - - - 0x023364 11:B354: 28        .byte $28
-- - - - - 0x023365 11:B355: 04        .byte $04
-- - - - - 0x023366 11:B356: 03        .byte $03
-- D - I - 0x023367 11:B357: 41        .byte $41
-- - - - - 0x023368 11:B358: 49        .byte $49
+- D - I - 0x023359 11:B349: 10        .byte case_B359_00 - *
+- - - - - 0x02335A 11:B34A: 1B        .byte case_B365_01 - *
+- - - - - 0x02335B 11:B34B: 21        .byte case_B36C_02 - *
+- - - - - 0x02335C 11:B34C: 0D        .byte case_B359_03 - *
+- - - - - 0x02335D 11:B34D: 0C        .byte case_B359_04 - *
+- D - I - 0x02335E 11:B34E: 24        .byte case_B372_05 - *
+- - - - - 0x02335F 11:B34F: 40        .byte case_B38F_06 - *
+- D - I - 0x023360 11:B350: 2C        .byte case_B37C_07 - *
+- D - I - 0x023361 11:B351: 2B        .byte case_B37C_08 - *
+- - - - - 0x023362 11:B352: 2A        .byte case_B37C_09 - *
+- D - I - 0x023363 11:B353: 29        .byte case_B37C_0A - *
+- - - - - 0x023364 11:B354: 28        .byte case_B37C_0B - *
+- - - - - 0x023365 11:B355: 04        .byte case_B359_0C - *
+- - - - - 0x023366 11:B356: 03        .byte case_B359_0D - *
+- D - I - 0x023367 11:B357: 41        .byte case_B398_0E - *
+- - - - - 0x023368 11:B358: 49        .byte case_B3A1_0F - *
+case_B359_00:
+case_B359_03:
+case_B359_04:
+case_B359_0C:
+case_B359_0D:
 - D - I - 0x023369 11:B359: F9        .byte con_delay_soundID, $02, $25
 - D - I - 0x02336C 11:B35C: 14        .byte $14
 - D - I - 0x02336D 11:B35D: 02        .byte $02
@@ -10356,16 +10996,19 @@ off_B360:
 - D - I - 0x023372 11:B362: 49        .byte $49
 - D - I - 0x023373 11:B363: F0        .byte con_F0
 - D - I - 0x023374 11:B364: FB        .byte con_rts
+case_B365_01:
 - - - - - 0x023375 11:B365: FA        .byte con_jsr_2
 - - - - - 0x023376 11:B366: 1A A7     .word off_A71A
 off_B368:
 - - - - - 0x023378 11:B368: FA        .byte con_jsr_2
 - - - - - 0x023379 11:B369: 3B B3     .word off_B33B
 - - - - - 0x02337B 11:B36B: FB        .byte con_rts
+case_B36C_02:
 - - - - - 0x02337C 11:B36C: FA        .byte con_jsr_2
 - - - - - 0x02337D 11:B36D: 56 A7     .word off_A756
 - - - - - 0x02337F 11:B36F: F2        .byte con_jsr_1
 - - - - - 0x023380 11:B370: 68 B3     .word off_B368
+case_B372_05:
 - D - I - 0x023382 11:B372: F7        .byte con_F7, $44
 - D - I - 0x023384 11:B374: 48        .byte $48
 - D - I - 0x023385 11:B375: 30        .byte $30
@@ -10376,6 +11019,11 @@ off_B378:
 - D - I - 0x023389 11:B379: F0        .byte con_F0
 - D - I - 0x02338A 11:B37A: F0        .byte con_F0
 - D - I - 0x02338B 11:B37B: 00        .byte $00
+case_B37C_07:
+case_B37C_08:
+case_B37C_09:
+case_B37C_0A:
+case_B37C_0B:
 - D - I - 0x02338C 11:B37C: F9        .byte con_delay_soundID, $02, $27
 - D - I - 0x02338F 11:B37F: F7        .byte con_F7, $33
 - D - I - 0x023391 11:B381: 20        .byte $20
@@ -10389,6 +11037,7 @@ off_B378:
 - D - I - 0x02339B 11:B38B: F0        .byte con_F0
 - D - I - 0x02339C 11:B38C: F2        .byte con_jsr_1
 - D - I - 0x02339D 11:B38D: 60 B3     .word off_B360
+case_B38F_06:
 - - - - - 0x02339F 11:B38F: F7        .byte con_F7, $44
 - - - - - 0x0233A1 11:B391: 48        .byte $48
 - - - - - 0x0233A2 11:B392: 30        .byte $30
@@ -10396,6 +11045,7 @@ off_B378:
 - - - - - 0x0233A4 11:B394: D8        .byte $D8
 - - - - - 0x0233A5 11:B395: F2        .byte con_jsr_1
 - - - - - 0x0233A6 11:B396: 78 B3     .word off_B378
+case_B398_0E:
 - D - I - 0x0233A8 11:B398: F7        .byte con_F7, $44
 - D - I - 0x0233AA 11:B39A: 3C        .byte $3C
 - D - I - 0x0233AB 11:B39B: 30        .byte $30
@@ -10403,6 +11053,7 @@ off_B378:
 - D - I - 0x0233AD 11:B39D: D7        .byte $D7
 - D - I - 0x0233AE 11:B39E: F2        .byte con_jsr_1
 - D - I - 0x0233AF 11:B39F: B1 A7     .word off_A7B1
+case_B3A1_0F:
 - - - - - 0x0233B1 11:B3A1: F7        .byte con_F7, $44
 - - - - - 0x0233B3 11:B3A3: 3C        .byte $3C
 - - - - - 0x0233B4 11:B3A4: 30        .byte $30
@@ -10418,12 +11069,13 @@ off_B3AD:
 - D - I - 0x0233BE 11:B3AE: FB        .byte con_rts
 off_B3AF:
 - D - I - 0x0233BF 11:B3AF: F3        .byte con_F3, $C7
-- D - I - 0x0233C1 11:B3B1: 06        .byte $06
-- D - I - 0x0233C2 11:B3B2: 13        .byte $13
-- - - - - 0x0233C3 11:B3B3: 1B        .byte $1B
-- D - I - 0x0233C4 11:B3B4: 23        .byte $23
-- D - I - 0x0233C5 11:B3B5: 2B        .byte $2B
-- D - I - 0x0233C6 11:B3B6: 0A        .byte $0A
+- D - I - 0x0233C1 11:B3B1: 06        .byte case_B3B7_00 - *
+- D - I - 0x0233C2 11:B3B2: 13        .byte case_B3C5_01 - *
+- - - - - 0x0233C3 11:B3B3: 1B        .byte case_B3CE_02 - *
+- D - I - 0x0233C4 11:B3B4: 23        .byte case_B3D7_03 - *
+- D - I - 0x0233C5 11:B3B5: 2B        .byte case_B3E0_04 - *
+- D - I - 0x0233C6 11:B3B6: 0A        .byte case_B3C0_05 - *
+case_B3B7_00:
 - D - I - 0x0233C7 11:B3B7: F7        .byte con_F7, $44
 - D - I - 0x0233C9 11:B3B9: 3C        .byte $3C
 - D - I - 0x0233CA 11:B3BA: 31        .byte $31
@@ -10433,10 +11085,12 @@ off_B3BD:
 - D - I - 0x0233CD 11:B3BD: FA        .byte con_jsr_2
 - D - I - 0x0233CE 11:B3BE: C7 BB     .word off_BBC7
 off_B3C0:
+case_B3C0_05:
 - D - I - 0x0233D0 11:B3C0: FA        .byte con_jsr_2
 - D - I - 0x0233D1 11:B3C1: 89 AA     .word off_AA89
 - D - I - 0x0233D3 11:B3C3: F6        .byte con_mirror_toggle
 - D - I - 0x0233D4 11:B3C4: FB        .byte con_rts
+case_B3C5_01:
 - D - I - 0x0233D5 11:B3C5: F7        .byte con_F7, $44
 - D - I - 0x0233D7 11:B3C7: 3C        .byte $3C
 - D - I - 0x0233D8 11:B3C8: 31        .byte $31
@@ -10444,6 +11098,7 @@ off_B3C0:
 - D - I - 0x0233DA 11:B3CA: C4        .byte $C4
 - D - I - 0x0233DB 11:B3CB: F2        .byte con_jsr_1
 - D - I - 0x0233DC 11:B3CC: BD B3     .word off_B3BD
+case_B3CE_02:
 - - - - - 0x0233DE 11:B3CE: F7        .byte con_F7, $44
 - - - - - 0x0233E0 11:B3D0: 3C        .byte $3C
 - - - - - 0x0233E1 11:B3D1: 30        .byte $30
@@ -10451,6 +11106,7 @@ off_B3C0:
 - - - - - 0x0233E3 11:B3D3: C5        .byte $C5
 - - - - - 0x0233E4 11:B3D4: F2        .byte con_jsr_1
 - - - - - 0x0233E5 11:B3D5: BD B3     .word off_B3BD
+case_B3D7_03:
 - D - I - 0x0233E7 11:B3D7: F7        .byte con_F7, $44
 - D - I - 0x0233E9 11:B3D9: 3C        .byte $3C
 - D - I - 0x0233EA 11:B3DA: 30        .byte $30
@@ -10458,6 +11114,7 @@ off_B3C0:
 - D - I - 0x0233EC 11:B3DC: C5        .byte $C5
 - - - - - 0x0233ED 11:B3DD: F2        .byte con_jsr_1
 - - - - - 0x0233EE 11:B3DE: BD B3     .word off_B3BD
+case_B3E0_04:
 - D - I - 0x0233F0 11:B3E0: F7        .byte con_F7, $44
 - D - I - 0x0233F2 11:B3E2: 3C        .byte $3C
 - D - I - 0x0233F3 11:B3E3: 30        .byte $30
@@ -10477,8 +11134,9 @@ off_B3E9:
 - D - I - 0x023403 11:B3F3: FB        .byte con_rts
 off_B3F4:
 - D - I - 0x023404 11:B3F4: F3        .byte con_F3, $BB
-- D - I - 0x023406 11:B3F6: 02        .byte $02
-- D - I - 0x023407 11:B3F7: 09        .byte $09
+- D - I - 0x023406 11:B3F6: 02        .byte case_B3F8_00 - *
+- D - I - 0x023407 11:B3F7: 09        .byte case_B400_01 - *
+case_B3F8_00:
 - D - I - 0x023408 11:B3F8: FA        .byte con_jsr_2
 - D - I - 0x023409 11:B3F9: 85 A8     .word off_A885
 off_B3FB:
@@ -10486,6 +11144,7 @@ off_B3FB:
 - D - I - 0x02340C 11:B3FC: AB A8     .word off_A8AB
 - D - I - 0x02340E 11:B3FE: F6        .byte con_mirror_toggle
 - D - I - 0x02340F 11:B3FF: FB        .byte con_rts
+case_B400_01:
 - D - I - 0x023410 11:B400: FA        .byte con_jsr_2
 - D - I - 0x023411 11:B401: 8F A8     .word off_A88F
 - D - I - 0x023413 11:B403: F2        .byte con_jsr_1
@@ -10503,8 +11162,9 @@ off_B406:
 - D - I - 0x023423 11:B413: FB        .byte con_rts
 off_B414:
 - D - I - 0x023424 11:B414: F3        .byte con_F3, $BA
-- D - I - 0x023426 11:B416: 02        .byte $02
-- - - - - 0x023427 11:B417: 0B        .byte $0B
+- D - I - 0x023426 11:B416: 02        .byte case_B418_00 - *
+- - - - - 0x023427 11:B417: 0B        .byte case_B422_01 - *
+case_B418_00:
 - D - I - 0x023428 11:B418: FA        .byte con_jsr_2
 - D - I - 0x023429 11:B419: E5 A8     .word off_A8E5
 off_B41B:
@@ -10514,19 +11174,22 @@ off_B41B:
 - D - I - 0x02342F 11:B41F: D2        .byte $D2
 - D - I - 0x023430 11:B420: 00        .byte $00
 - D - I - 0x023431 11:B421: FB        .byte con_rts
+case_B422_01:
 - - - - - 0x023432 11:B422: FA        .byte con_jsr_2
 - - - - - 0x023433 11:B423: 08 A9     .word off_A908
 - - - - - 0x023435 11:B425: F2        .byte con_jsr_1
 - - - - - 0x023436 11:B426: 1B B4     .word off_B41B
 off_B428:
 - D - I - 0x023438 11:B428: F3        .byte con_F3, $8C
-- D - I - 0x02343A 11:B42A: 08        .byte $08
-- D - I - 0x02343B 11:B42B: 01        .byte $01
+- D - I - 0x02343A 11:B42A: 08        .byte case_B432_00 - *
+- D - I - 0x02343B 11:B42B: 01        .byte case_B42C_01 - *
+case_B42C_01:
 - D - I - 0x02343C 11:B42C: F7        .byte con_F7, $10
 - D - I - 0x02343E 11:B42E: 10        .byte $10
 - D - I - 0x02343F 11:B42F: 05        .byte $05
 - D - I - 0x023440 11:B430: 00        .byte $00
 - D - I - 0x023441 11:B431: F0        .byte con_F0
+case_B432_00:
 - D - I - 0x023442 11:B432: FB        .byte con_rts
 off_B433:
 - D - I - 0x023443 11:B433: 28        .byte $28
@@ -10983,28 +11646,32 @@ off_B61D:
 - D - I - 0x023649 11:B639: 00        .byte $00
 - D - I - 0x02364A 11:B63A: 00        .byte $00
 - D - I - 0x02364B 11:B63B: F3        .byte con_F3, $A7
-- D - I - 0x02364D 11:B63D: 02        .byte $02
-- - - - - 0x02364E 11:B63E: 27        .byte $27
+- D - I - 0x02364D 11:B63D: 02        .byte case_B63F_00 - *
+- - - - - 0x02364E 11:B63E: 27        .byte case_B665_01 - *
+case_B63F_00:
 - D - I - 0x02364F 11:B63F: F9        .byte con_delay_soundID, $02, $43
 - D - I - 0x023652 11:B642: F5        .byte con_mirror_off
 - D - I - 0x023653 11:B643: F3        .byte con_F3, $C1
-- - - - - 0x023655 11:B645: 2F        .byte $2F
-- - - - - 0x023656 11:B646: 2E        .byte $2E
-- - - - - 0x023657 11:B647: 03        .byte $03
-- D - I - 0x023658 11:B648: 09        .byte $09
-- - - - - 0x023659 11:B649: 0F        .byte $0F
+- - - - - 0x023655 11:B645: 2F        .byte case_B674_00 - *
+- - - - - 0x023656 11:B646: 2E        .byte case_B674_01 - *
+- - - - - 0x023657 11:B647: 03        .byte case_B64A_02 - *
+- D - I - 0x023658 11:B648: 09        .byte case_B651_03 - *
+- - - - - 0x023659 11:B649: 0F        .byte case_B658_04 - *
+case_B64A_02:
 - - - - - 0x02365A 11:B64A: 78        .byte $78
 - - - - - 0x02365B 11:B64B: 33        .byte $33
 - - - - - 0x02365C 11:B64C: 94        .byte $94
 - - - - - 0x02365D 11:B64D: 9B        .byte $9B
 - - - - - 0x02365E 11:B64E: F2        .byte con_jsr_1
 - - - - - 0x02365F 11:B64F: 5F B6     .word off_B65F
+case_B651_03:
 - D - I - 0x023661 11:B651: 78        .byte $78
 - D - I - 0x023662 11:B652: 32        .byte $32
 - D - I - 0x023663 11:B653: A4        .byte $A4
 - D - I - 0x023664 11:B654: 9B        .byte $9B
 - D - I - 0x023665 11:B655: F2        .byte con_jsr_1
 - D - I - 0x023666 11:B656: 5F B6     .word off_B65F
+case_B658_04:
 - - - - - 0x023668 11:B658: 78        .byte $78
 - - - - - 0x023669 11:B659: 33        .byte $33
 - - - - - 0x02366A 11:B65A: A6        .byte $A6
@@ -11015,6 +11682,7 @@ off_B65F:
 - D - I - 0x02366F 11:B65F: FA        .byte con_jsr_2
 - D - I - 0x023670 11:B660: C7 BB     .word off_BBC7
 - D - I - 0x023672 11:B662: F9        .byte con_delay_soundID, $02, $7F
+case_B665_01:
 - D - I - 0x023675 11:B665: F7        .byte con_F7, $2E
 - D - I - 0x023677 11:B667: 32        .byte $32
 - D - I - 0x023678 11:B668: 64        .byte $64
@@ -11026,6 +11694,8 @@ off_B65F:
 - D - I - 0x023681 11:B671: F0        .byte con_F0
 - D - I - 0x023682 11:B672: 11        .byte $11
 - D - I - 0x023683 11:B673: 00        .byte $00
+case_B674_00:
+case_B674_01:
 - D - I - 0x023684 11:B674: FB        .byte con_rts
 off_B675:
 - D - I - 0x023685 11:B675: FA        .byte con_jsr_2
@@ -11204,13 +11874,15 @@ off_B738_20:
 - D - I - 0x023748 11:B738: FA        .byte con_jsr_2
 - D - I - 0x023749 11:B739: C7 BB     .word off_BBC7
 - D - I - 0x02374B 11:B73B: F3        .byte con_F3, $A2
-- D - I - 0x02374D 11:B73D: 02        .byte $02
-- D - I - 0x02374E 11:B73E: 06        .byte $06
+- D - I - 0x02374D 11:B73D: 02        .byte case_B73F_00 - *
+- D - I - 0x02374E 11:B73E: 06        .byte case_B744_01 - *
+case_B73F_00:
 - D - I - 0x02374F 11:B73F: B4        .byte $B4
 - D - I - 0x023750 11:B740: 38        .byte $38
 - D - I - 0x023751 11:B741: 85        .byte $85
 - D - I - 0x023752 11:B742: 67        .byte $67
 - D - I - 0x023753 11:B743: FB        .byte con_rts
+case_B744_01:
 - D - I - 0x023754 11:B744: B4        .byte $B4
 - D - I - 0x023755 11:B745: 37        .byte $37
 - D - I - 0x023756 11:B746: 85        .byte $85
@@ -11244,21 +11916,25 @@ off_B754_3F:
 - D - I - 0x023767 11:B757: 3E 9F     .word off_9F3E
 - D - I - 0x023769 11:B759: FD        .byte con_FD, $03
 - D - I - 0x02376B 11:B75B: F3        .byte con_F3, $84
-- D - I - 0x02376D 11:B75D: 02        .byte $02
-- D - I - 0x02376E 11:B75E: 0E        .byte $0E
+- D - I - 0x02376D 11:B75D: 02        .byte case_B75F_00 - *
+- D - I - 0x02376E 11:B75E: 0E        .byte case_B76C_01 - *
+case_B75F_00:
 - D - I - 0x02376F 11:B75F: 5A        .byte $5A
 - D - I - 0x023770 11:B760: 69        .byte $69
 - D - I - 0x023771 11:B761: 8D        .byte $8D
 - D - I - 0x023772 11:B762: 10        .byte $10
 off_B763:
 - D - I - 0x023773 11:B763: F3        .byte con_F3, $AC
-- D - I - 0x023775 11:B765: 06        .byte $06
-- D - I - 0x023776 11:B766: 01        .byte $01
+- D - I - 0x023775 11:B765: 06        .byte case_B76B_00 - *
+- D - I - 0x023776 11:B766: 01        .byte case_B767_01 - *
+case_B767_01:
 - D - I - 0x023777 11:B767: 5A        .byte $5A
 - D - I - 0x023778 11:B768: F0        .byte con_F0
 - D - I - 0x023779 11:B769: F0        .byte con_F0
 - D - I - 0x02377A 11:B76A: 6D        .byte $6D
+case_B76B_00:
 - D - I - 0x02377B 11:B76B: FB        .byte con_rts
+case_B76C_01:
 - D - I - 0x02377C 11:B76C: 5A        .byte $5A
 - D - I - 0x02377D 11:B76D: 69        .byte $69
 - D - I - 0x02377E 11:B76E: 8D        .byte $8D
@@ -11274,14 +11950,16 @@ off_B773_2F:
 - D - I - 0x023786 11:B776: 3E 9F     .word off_9F3E
 - D - I - 0x023788 11:B778: FD        .byte con_FD, $03
 - D - I - 0x02378A 11:B77A: F3        .byte con_F3, $84
-- D - I - 0x02378C 11:B77C: 02        .byte $02
-- D - I - 0x02378D 11:B77D: 08        .byte $08
+- D - I - 0x02378C 11:B77C: 02        .byte case_B77E_00 - *
+- D - I - 0x02378D 11:B77D: 08        .byte case_B785_01 - *
+case_B77E_00:
 - D - I - 0x02378E 11:B77E: 5A        .byte $5A
 - D - I - 0x02378F 11:B77F: 36        .byte $36
 - D - I - 0x023790 11:B780: 8D        .byte $8D
 - D - I - 0x023791 11:B781: 10        .byte $10
 - D - I - 0x023792 11:B782: F2        .byte con_jsr_1
 - D - I - 0x023793 11:B783: 63 B7     .word off_B763
+case_B785_01:
 - D - I - 0x023795 11:B785: 5A        .byte $5A
 - D - I - 0x023796 11:B786: 36        .byte $36
 - D - I - 0x023797 11:B787: 8D        .byte $8D
@@ -11970,8 +12648,9 @@ off_BA3B_21:
 - D - I - 0x023A4B 11:BA3B: FA        .byte con_jsr_2
 - D - I - 0x023A4C 11:BA3C: 2C BA     .word off_BA2C
 - D - I - 0x023A4E 11:BA3E: F3        .byte con_F3, $A2
-- D - I - 0x023A50 11:BA40: 02        .byte $02
-- D - I - 0x023A51 11:BA41: 0A        .byte $0A
+- D - I - 0x023A50 11:BA40: 02        .byte case_BA42_00 - *
+- D - I - 0x023A51 11:BA41: 0A        .byte case_BA4B_01 - *
+case_BA42_00:
 - D - I - 0x023A52 11:BA42: 0A        .byte $0A
 - D - I - 0x023A53 11:BA43: 38        .byte $38
 - D - I - 0x023A54 11:BA44: 00        .byte $00
@@ -11979,6 +12658,7 @@ off_BA3B_21:
 - D - I - 0x023A56 11:BA46: FE        .byte con_FE, $01
 - D - I - 0x023A58 11:BA48: F2        .byte con_jsr_1
 - D - I - 0x023A59 11:BA49: 54 BA     .word off_BA54
+case_BA4B_01:
 - D - I - 0x023A5B 11:BA4B: 0A        .byte $0A
 - D - I - 0x023A5C 11:BA4C: 37        .byte $37
 - D - I - 0x023A5D 11:BA4D: 00        .byte $00
@@ -11988,61 +12668,70 @@ off_BA3B_21:
 - D - I - 0x023A62 11:BA52: 54 BA     .word off_BA54
 off_BA54:
 - D - I - 0x023A64 11:BA54: F3        .byte con_F3, $BE
-- D - I - 0x023A66 11:BA56: C3        .byte $C3
-- D - I - 0x023A67 11:BA57: CC        .byte $CC
-- D - I - 0x023A68 11:BA58: B9        .byte $B9
-- D - I - 0x023A69 11:BA59: DC        .byte $DC
-- D - I - 0x023A6A 11:BA5A: 13        .byte $13
-- D - I - 0x023A6B 11:BA5B: D2        .byte $D2
-- D - I - 0x023A6C 11:BA5C: A5        .byte $A5
-- D - I - 0x023A6D 11:BA5D: AD        .byte $AD
-- D - I - 0x023A6E 11:BA5E: 01        .byte $01
+- D - I - 0x023A66 11:BA56: C3        .byte case_BB19_00 - *
+- D - I - 0x023A67 11:BA57: CC        .byte case_BB23_01 - *
+- D - I - 0x023A68 11:BA58: B9        .byte case_BB11_02 - *
+- D - I - 0x023A69 11:BA59: DC        .byte case_BB35_03 - *
+- D - I - 0x023A6A 11:BA5A: 13        .byte case_BA6D_04 - *
+- D - I - 0x023A6B 11:BA5B: D2        .byte case_BB2D_05 - *
+- D - I - 0x023A6C 11:BA5C: A5        .byte case_BB01_06 - *
+- D - I - 0x023A6D 11:BA5D: AD        .byte case_BB0A_07 - *
+- D - I - 0x023A6E 11:BA5E: 01        .byte case_BA5F_08 - *
+case_BA5F_08:
 - D - I - 0x023A6F 11:BA5F: 32        .byte $32
 - D - I - 0x023A70 11:BA60: F0        .byte con_F0
 - D - I - 0x023A71 11:BA61: 86        .byte $86
 - D - I - 0x023A72 11:BA62: F0        .byte con_F0
 off_BA63:
 - D - I - 0x023A73 11:BA63: F3        .byte con_F3, $BF
-- - - - - 0x023A75 11:BA65: 11        .byte $11
-- D - I - 0x023A76 11:BA66: 34        .byte $34
-- - - - - 0x023A77 11:BA67: 6E        .byte $6E
+- - - - - 0x023A75 11:BA65: 11        .byte case_BA76_00 - *
+- D - I - 0x023A76 11:BA66: 34        .byte case_BA9A_01 - *
+- - - - - 0x023A77 11:BA67: 6E        .byte case_BAD5_02 - *
 off_BA68:
 - D - I - 0x023A78 11:BA68: F3        .byte con_F3, $BF
-- D - I - 0x023A7A 11:BA6A: 15        .byte $15
-- - - - - 0x023A7B 11:BA6B: 2F        .byte $2F
-- D - I - 0x023A7C 11:BA6C: 72        .byte $72
+- D - I - 0x023A7A 11:BA6A: 15        .byte case_BA7F_00 - *
+- - - - - 0x023A7B 11:BA6B: 2F        .byte case_BA9A_01 - *
+- D - I - 0x023A7C 11:BA6C: 72        .byte case_BADE_02 - *
+case_BA6D_04:
 - D - I - 0x023A7D 11:BA6D: 32        .byte $32
 - D - I - 0x023A7E 11:BA6E: F0        .byte con_F0
 - D - I - 0x023A7F 11:BA6F: 8A        .byte $8A
 - D - I - 0x023A80 11:BA70: F0        .byte con_F0
 - D - I - 0x023A81 11:BA71: F3        .byte con_F3, $BF
-- - - - - 0x023A83 11:BA73: 84        .byte $84
-- D - I - 0x023A84 11:BA74: 49        .byte $49
-- - - - - 0x023A85 11:BA75: 60        .byte $60
+- - - - - 0x023A83 11:BA73: 84        .byte case_BAF7_00 - *
+- D - I - 0x023A84 11:BA74: 49        .byte case_BABD_01 - *
+- - - - - 0x023A85 11:BA75: 60        .byte case_BAD5_02 - *
+case_BA76_00:
 - - - - - 0x023A86 11:BA76: F3        .byte con_F3, $A0
-- - - - - 0x023A88 11:BA78: 03        .byte $03
-- - - - - 0x023A89 11:BA79: 19        .byte $19
-- - - - - 0x023A8A 11:BA7A: 18        .byte $18
+- - - - - 0x023A88 11:BA78: 03        .byte case_BA7B_00 - *
+- - - - - 0x023A89 11:BA79: 19        .byte case_BA92_01 - *
+- - - - - 0x023A8A 11:BA7A: 18        .byte case_BA92_02 - *
+case_BA7B_00:
 - - - - - 0x023A8B 11:BA7B: 28        .byte $28
 - - - - - 0x023A8C 11:BA7C: 0E        .byte $0E
 - - - - - 0x023A8D 11:BA7D: 25        .byte $25
 - - - - - 0x023A8E 11:BA7E: F0        .byte con_F0
 off_BA7F:
+case_BA7F_00:
 - D - I - 0x023A8F 11:BA7F: F7        .byte con_F7, $03
 - D - I - 0x023A91 11:BA81: F9        .byte con_delay_soundID, $02, $5D
 - D - I - 0x023A94 11:BA84: F3        .byte con_F3, $A1
-- D - I - 0x023A96 11:BA86: 02        .byte $02
-- - - - - 0x023A97 11:BA87: 06        .byte $06
+- D - I - 0x023A96 11:BA86: 02        .byte case_BA88_00 - *
+- - - - - 0x023A97 11:BA87: 06        .byte case_BA8D_01 - *
+case_BA88_00:
 - D - I - 0x023A98 11:BA88: 64        .byte $64
 - D - I - 0x023A99 11:BA89: 07        .byte $07
 - D - I - 0x023A9A 11:BA8A: 44        .byte $44
 - D - I - 0x023A9B 11:BA8B: 28        .byte $28
 - D - I - 0x023A9C 11:BA8C: FB        .byte con_rts
+case_BA8D_01:
 - - - - - 0x023A9D 11:BA8D: 64        .byte $64
 - - - - - 0x023A9E 11:BA8E: 07        .byte $07
 - - - - - 0x023A9F 11:BA8F: 45        .byte $45
 - - - - - 0x023AA0 11:BA90: 28        .byte $28
 - - - - - 0x023AA1 11:BA91: FB        .byte con_rts
+case_BA92_01:
+case_BA92_02:
 - - - - - 0x023AA2 11:BA92: 28        .byte $28
 - - - - - 0x023AA3 11:BA93: 0F        .byte $0F
 - - - - - 0x023AA4 11:BA94: 26        .byte $26
@@ -12050,10 +12739,12 @@ off_BA7F:
 - - - - - 0x023AA6 11:BA96: F2        .byte con_jsr_1
 - - - - - 0x023AA7 11:BA97: 7F BA     .word off_BA7F
 - - - - - 0x023AA9 11:BA99: FB        .byte con_rts
+case_BA9A_01:
 - D - I - 0x023AAA 11:BA9A: F3        .byte con_F3, $A0
-- D - I - 0x023AAC 11:BA9C: 03        .byte $03
-- - - - - 0x023AAD 11:BA9D: 11        .byte $11
-- - - - - 0x023AAE 11:BA9E: 10        .byte $10
+- D - I - 0x023AAC 11:BA9C: 03        .byte case_BA9F_00 - *
+- - - - - 0x023AAD 11:BA9D: 11        .byte case_BAAE_01 - *
+- - - - - 0x023AAE 11:BA9E: 10        .byte case_BAAE_02 - *
+case_BA9F_00:
 - D - I - 0x023AAF 11:BA9F: F9        .byte con_delay_soundID, $21, $2B
 - D - I - 0x023AB2 11:BAA2: 3C        .byte $3C
 - D - I - 0x023AB3 11:BAA3: 0E        .byte $0E
@@ -12065,6 +12756,8 @@ off_BA7F:
 - D - I - 0x023ABB 11:BAAB: F0        .byte con_F0
 - D - I - 0x023ABC 11:BAAC: F0        .byte con_F0
 - D - I - 0x023ABD 11:BAAD: FB        .byte con_rts
+case_BAAE_01:
+case_BAAE_02:
 - - - - - 0x023ABE 11:BAAE: F9        .byte con_delay_soundID, $21, $2B
 - - - - - 0x023AC1 11:BAB1: 3C        .byte $3C
 - - - - - 0x023AC2 11:BAB2: 0F        .byte $0F
@@ -12076,6 +12769,7 @@ off_BA7F:
 - - - - - 0x023ACA 11:BABA: F0        .byte con_F0
 - - - - - 0x023ACB 11:BABB: F0        .byte con_F0
 - - - - - 0x023ACC 11:BABC: FB        .byte con_rts
+case_BABD_01:
 - D - I - 0x023ACD 11:BABD: F7        .byte con_F7, $07
 - D - I - 0x023ACF 11:BABF: F9        .byte con_delay_soundID, $21, $2A
 - D - I - 0x023AD2 11:BAC2: 20        .byte $20
@@ -12094,15 +12788,18 @@ off_BA7F:
 - D - I - 0x023AE2 11:BAD2: 52        .byte $52
 - D - I - 0x023AE3 11:BAD3: F0        .byte con_F0
 - D - I - 0x023AE4 11:BAD4: FB        .byte con_rts
+case_BAD5_02:
 - - - - - 0x023AE5 11:BAD5: F3        .byte con_F3, $A0
-- - - - - 0x023AE7 11:BAD7: 03        .byte $03
-- - - - - 0x023AE8 11:BAD8: 17        .byte $17
-- - - - - 0x023AE9 11:BAD9: 16        .byte $16
+- - - - - 0x023AE7 11:BAD7: 03        .byte case_BADA_00 - *
+- - - - - 0x023AE8 11:BAD8: 17        .byte case_BAEF_01 - *
+- - - - - 0x023AE9 11:BAD9: 16        .byte case_BAEF_02 - *
+case_BADA_00:
 - - - - - 0x023AEA 11:BADA: 28        .byte $28
 - - - - - 0x023AEB 11:BADB: 0E        .byte $0E
 - - - - - 0x023AEC 11:BADC: 25        .byte $25
 - - - - - 0x023AED 11:BADD: F0        .byte con_F0
 off_BADE:
+case_BADE_02:
 - D - I - 0x023AEE 11:BADE: F7        .byte con_F7, $1F
 - D - I - 0x023AF0 11:BAE0: F9        .byte con_delay_soundID, $02, $63
 - D - I - 0x023AF3 11:BAE3: 10        .byte $10
@@ -12115,6 +12812,8 @@ off_BADE:
 - D - I - 0x023AFC 11:BAEC: 42        .byte $42
 - D - I - 0x023AFD 11:BAED: F0        .byte con_F0
 - D - I - 0x023AFE 11:BAEE: FB        .byte con_rts
+case_BAEF_01:
+case_BAEF_02:
 - - - - - 0x023AFF 11:BAEF: 28        .byte $28
 - - - - - 0x023B00 11:BAF0: 0F        .byte $0F
 - - - - - 0x023B01 11:BAF1: 26        .byte $26
@@ -12122,6 +12821,7 @@ off_BADE:
 - - - - - 0x023B03 11:BAF3: F2        .byte con_jsr_1
 - - - - - 0x023B04 11:BAF4: DE BA     .word off_BADE
 - - - - - 0x023B06 11:BAF6: FB        .byte con_rts
+case_BAF7_00:
 - - - - - 0x023B07 11:BAF7: F7        .byte con_F7, $07
 - - - - - 0x023B09 11:BAF9: 2A        .byte $2A
 - - - - - 0x023B0A 11:BAFA: 40        .byte $40
@@ -12130,6 +12830,7 @@ off_BADE:
 - - - - - 0x023B0D 11:BAFD: F2        .byte con_jsr_1
 - - - - - 0x023B0E 11:BAFE: 7F BA     .word off_BA7F
 - - - - - 0x023B10 11:BB00: FB        .byte con_rts
+case_BB01_06:
 - D - I - 0x023B11 11:BB01: F6        .byte con_mirror_toggle
 - D - I - 0x023B12 11:BB02: 32        .byte $32
 - D - I - 0x023B13 11:BB03: F0        .byte con_F0
@@ -12138,12 +12839,14 @@ off_BADE:
 - D - I - 0x023B16 11:BB06: F6        .byte con_mirror_toggle
 - D - I - 0x023B17 11:BB07: F2        .byte con_jsr_1
 - D - I - 0x023B18 11:BB08: 68 BA     .word off_BA68
+case_BB0A_07:
 - D - I - 0x023B1A 11:BB0A: 32        .byte $32
 - D - I - 0x023B1B 11:BB0B: F0        .byte con_F0
 - D - I - 0x023B1C 11:BB0C: 89        .byte $89
 - D - I - 0x023B1D 11:BB0D: F0        .byte con_F0
 - D - I - 0x023B1E 11:BB0E: F2        .byte con_jsr_1
 - D - I - 0x023B1F 11:BB0F: 68 BA     .word off_BA68
+case_BB11_02:
 - D - I - 0x023B21 11:BB11: 32        .byte $32
 - D - I - 0x023B22 11:BB12: F0        .byte con_F0
 - D - I - 0x023B23 11:BB13: 87        .byte $87
@@ -12151,6 +12854,7 @@ off_BADE:
 - D - I - 0x023B25 11:BB15: F4        .byte con_mirror_on
 - D - I - 0x023B26 11:BB16: F2        .byte con_jsr_1
 - D - I - 0x023B27 11:BB17: 68 BA     .word off_BA68
+case_BB19_00:
 - D - I - 0x023B29 11:BB19: F6        .byte con_mirror_toggle
 - D - I - 0x023B2A 11:BB1A: 32        .byte $32
 - D - I - 0x023B2B 11:BB1B: F0        .byte con_F0
@@ -12160,6 +12864,7 @@ off_BADE:
 - D - I - 0x023B2F 11:BB1F: F4        .byte con_mirror_on
 - D - I - 0x023B30 11:BB20: F2        .byte con_jsr_1
 - D - I - 0x023B31 11:BB21: 63 BA     .word off_BA63
+case_BB23_01:
 - D - I - 0x023B33 11:BB23: F6        .byte con_mirror_toggle
 - D - I - 0x023B34 11:BB24: 32        .byte $32
 - D - I - 0x023B35 11:BB25: F0        .byte con_F0
@@ -12169,6 +12874,7 @@ off_BADE:
 - D - I - 0x023B39 11:BB29: F4        .byte con_mirror_on
 - D - I - 0x023B3A 11:BB2A: F2        .byte con_jsr_1
 - D - I - 0x023B3B 11:BB2B: 68 BA     .word off_BA68
+case_BB2D_05:
 - D - I - 0x023B3D 11:BB2D: 32        .byte $32
 - D - I - 0x023B3E 11:BB2E: F0        .byte con_F0
 - D - I - 0x023B3F 11:BB2F: 88        .byte $88
@@ -12176,6 +12882,7 @@ off_BADE:
 - D - I - 0x023B41 11:BB31: F4        .byte con_mirror_on
 - D - I - 0x023B42 11:BB32: F2        .byte con_jsr_1
 - D - I - 0x023B43 11:BB33: 68 BA     .word off_BA68
+case_BB35_03:
 - D - I - 0x023B45 11:BB35: F6        .byte con_mirror_toggle
 - D - I - 0x023B46 11:BB36: 32        .byte $32
 - D - I - 0x023B47 11:BB37: F0        .byte con_F0
@@ -12330,34 +13037,40 @@ off_BBCC_34:
 off_BBD4_19:
 - D - I - 0x023BE4 11:BBD4: FD        .byte con_FD, $00
 - D - I - 0x023BE6 11:BBD6: F3        .byte con_F3, $8C
-- D - I - 0x023BE8 11:BBD8: 02        .byte $02
-- D - I - 0x023BE9 11:BBD9: 09        .byte $09
+- D - I - 0x023BE8 11:BBD8: 02        .byte case_BBDA_00 - *
+- D - I - 0x023BE9 11:BBD9: 09        .byte case_BBE2_01 - *
 off_BBDA:
+case_BBDA_00:
 - D - I - 0x023BEA 11:BBDA: F9        .byte con_delay_soundID, $05, $2B
 - D - I - 0x023BED 11:BBDD: 3C        .byte $3C
 - D - I - 0x023BEE 11:BBDE: 72        .byte $72
 - D - I - 0x023BEF 11:BBDF: 66        .byte $66
 - D - I - 0x023BF0 11:BBE0: 59        .byte $59
 - D - I - 0x023BF1 11:BBE1: FB        .byte con_rts
+case_BBE2_01:
 - D - I - 0x023BF2 11:BBE2: F3        .byte con_F3, $C9
-- D - I - 0x023BF4 11:BBE4: 12        .byte $12
-- D - I - 0x023BF5 11:BBE5: 11        .byte $11
-- - - - - 0x023BF6 11:BBE6: 21        .byte $21
-- - - - - 0x023BF7 11:BBE7: 0F        .byte $0F
-- D - I - 0x023BF8 11:BBE8: 30        .byte $30
-- - - - - 0x023BF9 11:BBE9: 1E        .byte $1E
-- D - I - 0x023BFA 11:BBEA: 2E        .byte $2E
-- D - I - 0x023BFB 11:BBEB: 3E        .byte $3E
-- D - I - 0x023BFC 11:BBEC: 3D        .byte $3D
-- - - - - 0x023BFD 11:BBED: 3C        .byte $3C
-- D - I - 0x023BFE 11:BBEE: 3B        .byte $3B
-- D - I - 0x023BFF 11:BBEF: 4B        .byte $4B
-- D - I - 0x023C00 11:BBF0: 4A        .byte $4A
-- D - I - 0x023C01 11:BBF1: 5A        .byte $5A
-- - - - - 0x023C02 11:BBF2: 59        .byte $59
-- D - I - 0x023C03 11:BBF3: 69        .byte $69
-- D - I - 0x023C04 11:BBF4: 68        .byte $68
-- - - - - 0x023C05 11:BBF5: 01        .byte $01
+- D - I - 0x023BF4 11:BBE4: 12        .byte case_BBF6_00 - *
+- D - I - 0x023BF5 11:BBE5: 11        .byte case_BBF6_01 - *
+- - - - - 0x023BF6 11:BBE6: 21        .byte case_BC07_02 - *
+- - - - - 0x023BF7 11:BBE7: 0F        .byte case_BBF6_03 - *
+- D - I - 0x023BF8 11:BBE8: 30        .byte case_BC18_04 - *
+- - - - - 0x023BF9 11:BBE9: 1E        .byte case_BC07_05 - *
+- D - I - 0x023BFA 11:BBEA: 2E        .byte case_BC18_06 - *
+- D - I - 0x023BFB 11:BBEB: 3E        .byte case_BC29_07 - *
+- D - I - 0x023BFC 11:BBEC: 3D        .byte case_BC29_08 - *
+- - - - - 0x023BFD 11:BBED: 3C        .byte case_BC29_09 - *
+- D - I - 0x023BFE 11:BBEE: 3B        .byte case_BC29_0A - *
+- D - I - 0x023BFF 11:BBEF: 4B        .byte case_BC3A_0B - *
+- D - I - 0x023C00 11:BBF0: 4A        .byte case_BC3A_0C - *
+- D - I - 0x023C01 11:BBF1: 5A        .byte case_BC4B_0D - *
+- - - - - 0x023C02 11:BBF2: 59        .byte case_BC4B_0E - *
+- D - I - 0x023C03 11:BBF3: 69        .byte case_BC5C_0F - *
+- D - I - 0x023C04 11:BBF4: 68        .byte case_BC5C_10 - *
+- - - - - 0x023C05 11:BBF5: 01        .byte case_BBF6_11 - *
+case_BBF6_00:
+case_BBF6_01:
+case_BBF6_03:
+case_BBF6_11:
 - D - I - 0x023C06 11:BBF6: F4        .byte con_mirror_on
 - D - I - 0x023C07 11:BBF7: F8        .byte con_F8, $04
 - D - I - 0x023C09 11:BBF9: 3C        .byte $3C
@@ -12372,6 +13085,8 @@ off_BBDA:
 - D - I - 0x023C13 11:BC03: CA        .byte $CA
 - D - I - 0x023C14 11:BC04: F2        .byte con_jsr_1
 - D - I - 0x023C15 11:BC05: DA BB     .word off_BBDA
+case_BC07_02:
+case_BC07_05:
 - - - - - 0x023C17 11:BC07: F4        .byte con_mirror_on
 - - - - - 0x023C18 11:BC08: F8        .byte con_F8, $04
 - - - - - 0x023C1A 11:BC0A: 3C        .byte $3C
@@ -12386,6 +13101,8 @@ off_BBDA:
 - - - - - 0x023C24 11:BC14: D0        .byte $D0
 - - - - - 0x023C25 11:BC15: F2        .byte con_jsr_1
 - - - - - 0x023C26 11:BC16: DA BB     .word off_BBDA
+case_BC18_04:
+case_BC18_06:
 - D - I - 0x023C28 11:BC18: F4        .byte con_mirror_on
 - D - I - 0x023C29 11:BC19: F8        .byte con_F8, $04
 - D - I - 0x023C2B 11:BC1B: 3C        .byte $3C
@@ -12400,6 +13117,10 @@ off_BBDA:
 - D - I - 0x023C35 11:BC25: D0        .byte $D0
 - D - I - 0x023C36 11:BC26: F2        .byte con_jsr_1
 - D - I - 0x023C37 11:BC27: DA BB     .word off_BBDA
+case_BC29_07:
+case_BC29_08:
+case_BC29_09:
+case_BC29_0A:
 - D - I - 0x023C39 11:BC29: F4        .byte con_mirror_on
 - D - I - 0x023C3A 11:BC2A: F8        .byte con_F8, $04
 - D - I - 0x023C3C 11:BC2C: 3C        .byte $3C
@@ -12414,6 +13135,8 @@ off_BBDA:
 - D - I - 0x023C46 11:BC36: D3        .byte $D3
 - D - I - 0x023C47 11:BC37: F2        .byte con_jsr_1
 - D - I - 0x023C48 11:BC38: DA BB     .word off_BBDA
+case_BC3A_0B:
+case_BC3A_0C:
 - D - I - 0x023C4A 11:BC3A: F4        .byte con_mirror_on
 - D - I - 0x023C4B 11:BC3B: F8        .byte con_F8, $04
 - D - I - 0x023C4D 11:BC3D: 3C        .byte $3C
@@ -12428,6 +13151,8 @@ off_BBDA:
 - D - I - 0x023C57 11:BC47: AC        .byte $AC
 - D - I - 0x023C58 11:BC48: F2        .byte con_jsr_1
 - D - I - 0x023C59 11:BC49: DA BB     .word off_BBDA
+case_BC4B_0D:
+case_BC4B_0E:
 - D - I - 0x023C5B 11:BC4B: F4        .byte con_mirror_on
 - D - I - 0x023C5C 11:BC4C: F8        .byte con_F8, $04
 - D - I - 0x023C5E 11:BC4E: 3C        .byte $3C
@@ -12442,6 +13167,8 @@ off_BBDA:
 - D - I - 0x023C68 11:BC58: CE        .byte $CE
 - D - I - 0x023C69 11:BC59: F2        .byte con_jsr_1
 - D - I - 0x023C6A 11:BC5A: DA BB     .word off_BBDA
+case_BC5C_0F:
+case_BC5C_10:
 - D - I - 0x023C6C 11:BC5C: F4        .byte con_mirror_on
 - D - I - 0x023C6D 11:BC5D: F8        .byte con_F8, $04
 - D - I - 0x023C6F 11:BC5F: 3C        .byte $3C
@@ -12461,8 +13188,9 @@ off_BBDA:
 
 off_BC6D_1A:
 - D - I - 0x023C7D 11:BC6D: F3        .byte con_F3, $8C
-- D - I - 0x023C7F 11:BC6F: 02        .byte $02
-- D - I - 0x023C80 11:BC70: 11        .byte $11
+- D - I - 0x023C7F 11:BC6F: 02        .byte case_BC71_00 - *
+- D - I - 0x023C80 11:BC70: 11        .byte case_BC81_01 - *
+case_BC71_00:
 - D - I - 0x023C81 11:BC71: FD        .byte con_FD, $00
 - D - I - 0x023C83 11:BC73: 32        .byte $32
 - D - I - 0x023C84 11:BC74: 20        .byte $20
@@ -12475,26 +13203,28 @@ off_BC6D_1A:
 - D - I - 0x023C8D 11:BC7D: 5A        .byte $5A
 - D - I - 0x023C8E 11:BC7E: F2        .byte con_jsr_1
 - D - I - 0x023C8F 11:BC7F: C7 BB     .word off_BBC7
+case_BC81_01:
 - D - I - 0x023C91 11:BC81: F5        .byte con_mirror_off
 - D - I - 0x023C92 11:BC82: F3        .byte con_F3, $C9
-- D - I - 0x023C94 11:BC84: 12        .byte $12
-- D - I - 0x023C95 11:BC85: 29        .byte $29
-- - - - - 0x023C96 11:BC86: 40        .byte $40
-- - - - - 0x023C97 11:BC87: 3F        .byte $3F
-- D - I - 0x023C98 11:BC88: 43        .byte $43
-- - - - - 0x023C99 11:BC89: 5C        .byte $5C
-- D - I - 0x023C9A 11:BC8A: 60        .byte $60
-- D - I - 0x023C9B 11:BC8B: 79        .byte $79
-- D - I - 0x023C9C 11:BC8C: 78        .byte $78
-- - - - - 0x023C9D 11:BC8D: 77        .byte $77
-- D - I - 0x023C9E 11:BC8E: 76        .byte $76
-- D - I - 0x023C9F 11:BC8F: 7A        .byte $7A
-- D - I - 0x023CA0 11:BC90: 79        .byte $79
-- - - - - 0x023CA1 11:BC91: 92        .byte $92
-- - - - - 0x023CA2 11:BC92: A9        .byte $A9
-- D - I - 0x023CA3 11:BC93: C0        .byte $C0
-- D - I - 0x023CA4 11:BC94: D9        .byte $D9
-- - - - - 0x023CA5 11:BC95: 18        .byte $18
+- D - I - 0x023C94 11:BC84: 12        .byte case_BC96_00 - *
+- D - I - 0x023C95 11:BC85: 29        .byte case_BCAE_01 - *
+- - - - - 0x023C96 11:BC86: 40        .byte case_BCC6_02 - *
+- - - - - 0x023C97 11:BC87: 3F        .byte case_BCC6_03 - *
+- D - I - 0x023C98 11:BC88: 43        .byte case_BCCB_04 - *
+- - - - - 0x023C99 11:BC89: 5C        .byte case_BCE5_05 - *
+- D - I - 0x023C9A 11:BC8A: 60        .byte case_BCEA_06 - *
+- D - I - 0x023C9B 11:BC8B: 79        .byte case_BD04_07 - *
+- D - I - 0x023C9C 11:BC8C: 78        .byte case_BD04_08 - *
+- - - - - 0x023C9D 11:BC8D: 77        .byte case_BD04_09 - *
+- D - I - 0x023C9E 11:BC8E: 76        .byte case_BD04_0A - *
+- D - I - 0x023C9F 11:BC8F: 7A        .byte case_BD09_0B - *
+- D - I - 0x023CA0 11:BC90: 79        .byte case_BD09_0C - *
+- - - - - 0x023CA1 11:BC91: 92        .byte case_BD23_0D - *
+- - - - - 0x023CA2 11:BC92: A9        .byte case_BD3B_0E - *
+- D - I - 0x023CA3 11:BC93: C0        .byte case_BD53_0F - *
+- D - I - 0x023CA4 11:BC94: D9        .byte case_BD6D_10 - *
+- - - - - 0x023CA5 11:BC95: 18        .byte case_BCAD_11 - *
+case_BC96_00:
 - D - I - 0x023CA6 11:BC96: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CA9 11:BC99: 28        .byte $28
 - D - I - 0x023CAA 11:BC9A: 36        .byte $36
@@ -12512,7 +13242,9 @@ off_BC6D_1A:
 - D - I - 0x023CBA 11:BCAA: 36        .byte $36
 - D - I - 0x023CBB 11:BCAB: 95        .byte $95
 - D - I - 0x023CBC 11:BCAC: F0        .byte con_F0
+case_BCAD_11:
 - D - I - 0x023CBD 11:BCAD: FB        .byte con_rts
+case_BCAE_01:
 - D - I - 0x023CBE 11:BCAE: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023CC1 11:BCB1: 3C        .byte $3C
 - D - I - 0x023CC2 11:BCB2: 36        .byte $36
@@ -12531,9 +13263,12 @@ off_BC6D_1A:
 - D - I - 0x023CD3 11:BCC3: 92        .byte $92
 - D - I - 0x023CD4 11:BCC4: F0        .byte con_F0
 - D - I - 0x023CD5 11:BCC5: FB        .byte con_rts
+case_BCC6_02:
+case_BCC6_03:
 - - - - - 0x023CD6 11:BCC6: F7        .byte con_F7, $40
 - - - - - 0x023CD8 11:BCC8: F2        .byte con_jsr_1
 - - - - - 0x023CD9 11:BCC9: CD BC     .word off_BCCD
+case_BCCB_04:
 - D - I - 0x023CDB 11:BCCB: F7        .byte con_F7, $22
 off_BCCD:
 - D - I - 0x023CDD 11:BCCD: F9        .byte con_delay_soundID, $21, $2C
@@ -12554,9 +13289,11 @@ off_BCCD:
 - D - I - 0x023CF2 11:BCE2: A7        .byte $A7
 - D - I - 0x023CF3 11:BCE3: F0        .byte con_F0
 - D - I - 0x023CF4 11:BCE4: FB        .byte con_rts
+case_BCE5_05:
 - - - - - 0x023CF5 11:BCE5: F7        .byte con_F7, $40
 - - - - - 0x023CF7 11:BCE7: F2        .byte con_jsr_1
 - - - - - 0x023CF8 11:BCE8: EC BC     .word off_BCEC
+case_BCEA_06:
 - D - I - 0x023CFA 11:BCEA: F7        .byte con_F7, $22
 off_BCEC:
 - D - I - 0x023CFC 11:BCEC: F9        .byte con_delay_soundID, $21, $2C
@@ -12577,9 +13314,15 @@ off_BCEC:
 - D - I - 0x023D11 11:BD01: A5        .byte $A5
 - D - I - 0x023D12 11:BD02: F0        .byte con_F0
 - D - I - 0x023D13 11:BD03: FB        .byte con_rts
+case_BD04_07:
+case_BD04_08:
+case_BD04_09:
+case_BD04_0A:
 - D - I - 0x023D14 11:BD04: F7        .byte con_F7, $40
 - D - I - 0x023D16 11:BD06: F2        .byte con_jsr_1
 - D - I - 0x023D17 11:BD07: 0B BD     .word off_BD0B
+case_BD09_0B:
+case_BD09_0C:
 - D - I - 0x023D19 11:BD09: F7        .byte con_F7, $3F
 off_BD0B:
 - D - I - 0x023D1B 11:BD0B: F9        .byte con_delay_soundID, $21, $2C
@@ -12600,6 +13343,7 @@ off_BD0B:
 - D - I - 0x023D30 11:BD20: EF        .byte $EF
 - D - I - 0x023D31 11:BD21: F0        .byte con_F0
 - D - I - 0x023D32 11:BD22: FB        .byte con_rts
+case_BD23_0D:
 - - - - - 0x023D33 11:BD23: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D36 11:BD26: 3C        .byte $3C
 - - - - - 0x023D37 11:BD27: 36        .byte $36
@@ -12618,6 +13362,7 @@ off_BD0B:
 - - - - - 0x023D48 11:BD38: DF        .byte $DF
 - - - - - 0x023D49 11:BD39: F0        .byte con_F0
 - - - - - 0x023D4A 11:BD3A: FB        .byte con_rts
+case_BD3B_0E:
 - - - - - 0x023D4B 11:BD3B: F9        .byte con_delay_soundID, $21, $2C
 - - - - - 0x023D4E 11:BD3E: 3C        .byte $3C
 - - - - - 0x023D4F 11:BD3F: 36        .byte $36
@@ -12636,6 +13381,7 @@ off_BD0B:
 - - - - - 0x023D60 11:BD50: BE        .byte $BE
 - - - - - 0x023D61 11:BD51: F0        .byte con_F0
 - - - - - 0x023D62 11:BD52: FB        .byte con_rts
+case_BD53_0F:
 - D - I - 0x023D63 11:BD53: F7        .byte con_F7, $25
 - D - I - 0x023D65 11:BD55: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D68 11:BD58: 3C        .byte $3C
@@ -12655,6 +13401,7 @@ off_BD0B:
 - D - I - 0x023D7A 11:BD6A: A7        .byte $A7
 - D - I - 0x023D7B 11:BD6B: F0        .byte con_F0
 - D - I - 0x023D7C 11:BD6C: FB        .byte con_rts
+case_BD6D_10:
 - D - I - 0x023D7D 11:BD6D: F7        .byte con_F7, $25
 - D - I - 0x023D7F 11:BD6F: F9        .byte con_delay_soundID, $21, $2C
 - D - I - 0x023D82 11:BD72: 3C        .byte $3C
@@ -12759,9 +13506,11 @@ off_BDB8_45:
 
 off_BDBD_46:
 - D - I - 0x023DCD 11:BDBD: F3        .byte con_F3, $B4     ; узнать высоту мяча
-- D - I - 0x023DCF 11:BDBF: 03        .byte $03
-- - - - - 0x023DD0 11:BDC0: 02        .byte $02
-- - - - - 0x023DD1 11:BDC1: 0C        .byte $0C
+- D - I - 0x023DCF 11:BDBF: 03        .byte case_BDC2_00 - *
+- - - - - 0x023DD0 11:BDC0: 02        .byte case_BDC2_01 - *
+- - - - - 0x023DD1 11:BDC1: 0C        .byte case_BDCD_02 - *
+case_BDC2_00:
+case_BDC2_01:
 - D - I - 0x023DD2 11:BDC2: F5        .byte con_mirror_off
 - D - I - 0x023DD3 11:BDC3: 78        .byte $78
 - D - I - 0x023DD4 11:BDC4: 30        .byte $30
@@ -12771,6 +13520,7 @@ off_BDBD_46:
 - D - I - 0x023DD8 11:BDC8: 13 AD     .word off_AD13
 - D - I - 0x023DDA 11:BDCA: F2        .byte con_jsr_1
 - D - I - 0x023DDB 11:BDCB: DD BD     .word off_BDDD
+case_BDCD_02:
 - - - - - 0x023DDD 11:BDCD: F5        .byte con_mirror_off
 - - - - - 0x023DDE 11:BDCE: 28        .byte $28
 - - - - - 0x023DDF 11:BDCF: 02        .byte $02
