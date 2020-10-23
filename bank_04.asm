@@ -17,7 +17,7 @@ tbl_0x40004_вид_меню:
     .word off_B528_09_2_specials
     .word off_B539_0A_3_specials
     .word off_B54E_0B_4_specials
-    .word off_B567_0C_две_опции_нападения
+    .word off_B567_0C_2_defensive_specials
     .word off_B578_0D_gk_dive
     .word $0000      ; unused, тут была копия 0F
     .word off_B58D_0F_pass_select_a_teammate
@@ -95,7 +95,7 @@ con_stats_reciever                      = $E3
     con_rec_clearing                        = $0B           ; unused
 con_specials_list                       = $E4           ; список спешалов (00-03)
 con_defender_actions                    = $E5           ; действия игроков защиты (00-03)
-con_E6                                  = $E6           ; + 00 (???) или 01 (???)
+con_defender_special                    = $E6           ; + 00 (обычная защита) или 01 (спешал)
 con_def_name_pos                        = $E7           ; позиция и имя защитника
 con_stats_defense                       = $E8           ; статы защитника при владении мячом у компьютера + числовая величина параметра
     con_def_stamina                         = $00
@@ -719,28 +719,42 @@ off_B54E_0B_4_specials:
 
 
 
-off_B567_0C_две_опции_нападения:
+off_B567_0C_2_defensive_specials:
 ; подкат, перехват, блок
-- D - I - 0x033577 22:B567: 28 22     .word $2228
+    .word $2268
+; X * Y зачищаемой области
+    .byte $13
+    .byte $05
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $13
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $02
+    .word @special_1
+    .byte $04
+    .byte $02
+    .word @special_2
 
-- D - I - 0x033579 22:B569: 10        .byte $10
-- D - I - 0x03357A 22:B56A: 06        .byte $06
+@txt:
+    .text " Specials "
+    .byte con_закончить
 
-- D - I - 0x03357B 22:B56B: 00        .byte $00
-- D - I - 0x03357C 22:B56C: 01        .byte $01
+@special_1:
+    .byte con_defender_special, $00
+    .byte con_закончить
 
-- D - I - 0x03357D 22:B56D: 10        .byte $10
-- D - I - 0x03357E 22:B56E: 05        .byte $05
-
-- D - I - 0x03357F 22:B56F: 02        .byte $02
-
-- D - I - 0x033580 22:B570: 03        .byte $03
-- D - I - 0x033581 22:B571: 02        .byte $02
-- D - I - 0x033582 22:B572: 94 BC     .word off_BC94
-- D - I - 0x033584 22:B574: 05        .byte $05
-- D - I - 0x033585 22:B575: 02        .byte $02
-- D - I - 0x033586 22:B576: 97 BC     .word off_BC97
-
+@special_2:
+    .byte con_defender_special, $01
+    .byte con_закончить
 
 
 
@@ -3651,14 +3665,6 @@ off_BBBF_41_pk_and_score:
 
 
 
-
-off_BC94:
-    .byte con_E6, $00
-    .byte con_закончить
-
-off_BC97:
-    .byte con_E6, $01
-    .byte con_закончить
 
 off_BCD3:
 - D - I - 0x033CE3 22:BCD3: CD        .byte $CD
