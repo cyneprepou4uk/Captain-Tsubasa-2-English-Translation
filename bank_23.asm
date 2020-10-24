@@ -5122,15 +5122,15 @@ C - - - - 0x036255 23:A245: C8        INY
 C - - - - 0x036256 23:A246: B1 63     LDA (ram_0063),Y
 C - - - - 0x036258 23:A248: 0A        ASL
 C - - - - 0x036259 23:A249: AA        TAX
-C - - - - 0x03625A 23:A24A: BD 2A A4  LDA tbl_A42A_байты_для_nametable,X
+C - - - - 0x03625A 23:A24A: BD 2A A4  LDA tbl_A42A_атрибуты_nametable,X
 C - - - - 0x03625D 23:A24D: 85 3A     STA ram_003A
-C - - - - 0x03625F 23:A24F: BD 2B A4  LDA tbl_A42A_байты_для_nametable + 1,X
+C - - - - 0x03625F 23:A24F: BD 2B A4  LDA tbl_A42A_атрибуты_nametable + 1,X
 C - - - - 0x036262 23:A252: 85 3B     STA ram_003B
 C - - - - 0x036264 23:A254: A0 00     LDY #$00
 C - - - - 0x036266 23:A256: A2 00     LDX #$00
 bra_A258:
 C - - - - 0x036268 23:A258: B1 3A     LDA (ram_003A),Y
-C - - - - 0x03626A 23:A25A: F0 22     BEQ bra_A27E
+C - - - - 0x03626A 23:A25A: F0 22     BEQ bra_A27E_закончить_чтение_атрибутов
 C - - - - 0x03626C 23:A25C: 9D A5 04  STA $04A5,X
 C - - - - 0x03626F 23:A25F: 85 3C     STA ram_003C
 C - - - - 0x036271 23:A261: C8        INY
@@ -5151,7 +5151,7 @@ C - - - - 0x036287 23:A277: C8        INY
 C - - - - 0x036288 23:A278: C6 3C     DEC ram_003C
 C - - - - 0x03628A 23:A27A: D0 F5     BNE bra_A271_цикл
 C - - - - 0x03628C 23:A27C: F0 DA     BEQ bra_A258
-bra_A27E:
+bra_A27E_закончить_чтение_атрибутов:
 C - - - - 0x03628E 23:A27E: 9D A5 04  STA $04A5,X
 C - - - - 0x036291 23:A281: A9 80     LDA #$80
 C - - - - 0x036293 23:A283: 8D 15 05  STA $0515
@@ -5182,6 +5182,8 @@ tbl_A292:
 - D - - - 0x0362BA 23:A2AA: F4 A3     .word off_A3F4_0C
 - D - - - 0x0362BC 23:A2AC: 25 A4     .word off_A425_0D
 
+    con_loop = $FF
+    
 off_A2AE_00:
 - D - I - 0x0362BE 23:A2AE: 05        .byte $05    ; <お>
 - D - I - 0x0362BF 23:A2AF: 00        .byte $00
@@ -5209,7 +5211,7 @@ off_A2AE_00:
 - D - I - 0x0362D5 23:A2C5: 01        .byte $01    ; <あ>
 - D - I - 0x0362D6 23:A2C6: 05        .byte $05    ; <お>
 - D - I - 0x0362D7 23:A2C7: 00        .byte $00
-- D - I - 0x0362D8 23:A2C8: FF        .byte $FF
+- D - I - 0x0362D8 23:A2C8: FF        .byte con_loop
 - D - I - 0x0362D9 23:A2C9: AE A2     .word off_A2AE_00
 
 off_A2CB_01:
@@ -5239,7 +5241,7 @@ off_A2CB_01:
 - D - I - 0x0362F2 23:A2E2: 01        .byte $01    ; <あ>
 - D - I - 0x0362F3 23:A2E3: 05        .byte $05    ; <お>
 - D - I - 0x0362F4 23:A2E4: 04        .byte $04    ; <え>
-- D - I - 0x0362F5 23:A2E5: FF        .byte $FF
+- D - I - 0x0362F5 23:A2E5: FF        .byte con_loop
 - D - I - 0x0362F6 23:A2E6: CB A2     .word off_A2CB_01
 
 off_A2E8_02:
@@ -5261,7 +5263,7 @@ off_A2E8_02:
 - D - I - 0x036307 23:A2F7: 06        .byte $06    ; <か>
 - D - I - 0x036308 23:A2F8: 04        .byte $04    ; <え>
 - D - I - 0x036309 23:A2F9: 05        .byte $05    ; <お>
-- D - I - 0x03630A 23:A2FA: FF        .byte $FF
+- D - I - 0x03630A 23:A2FA: FF        .byte con_loop
 - D - I - 0x03630B 23:A2FB: E8 A2     .word off_A2E8_02
 
 off_A2FD_03:
@@ -5291,7 +5293,7 @@ off_A2FD_03:
 - D - I - 0x036324 23:A314: 09        .byte $09    ; <け>
 - D - I - 0x036325 23:A315: 05        .byte $05    ; <お>
 - D - I - 0x036326 23:A316: 08        .byte $08    ; <く>
-- D - I - 0x036327 23:A317: FF        .byte $FF
+- D - I - 0x036327 23:A317: FF        .byte con_loop
 - D - I - 0x036328 23:A318: FD A2     .word off_A2FD_03
 
 off_A31A_04:
@@ -5329,7 +5331,7 @@ off_A31A_04:
 - D - I - 0x036349 23:A339: 03        .byte $03    ; <う>
 - D - I - 0x03634A 23:A33A: 04        .byte $04    ; <え>
 - D - I - 0x03634B 23:A33B: 02        .byte $02    ; <い>
-- D - I - 0x03634C 23:A33C: FF        .byte $FF
+- D - I - 0x03634C 23:A33C: FF        .byte con_loop
 - D - I - 0x03634D 23:A33D: 1A A3     .word off_A31A_04
 
 off_A33F_05:
@@ -5361,7 +5363,7 @@ off_A33F_05:
 - D - I - 0x036368 23:A358: 11        .byte $11    ; <ち>
 - D - I - 0x036369 23:A359: 05        .byte $05    ; <お>
 - D - I - 0x03636A 23:A35A: 10        .byte $10    ; <た>
-- D - I - 0x03636B 23:A35B: FF        .byte $FF
+- D - I - 0x03636B 23:A35B: FF        .byte con_loop
 - D - I - 0x03636C 23:A35C: 3F A3     .word off_A33F_05
 
 off_A35E_06:
@@ -5376,7 +5378,7 @@ off_A364:
 - D - I - 0x036375 23:A365: 12        .byte $12    ; <つ>
 - D - I - 0x036376 23:A366: 05        .byte $05    ; <お>
 - D - I - 0x036377 23:A367: 13        .byte $13    ; <て>
-- D - I - 0x036378 23:A368: FF        .byte $FF
+- D - I - 0x036378 23:A368: FF        .byte con_loop
 - D - I - 0x036379 23:A369: 64 A3     .word off_A364
 
 off_A36B_07:
@@ -5384,13 +5386,13 @@ off_A36B_07:
 - D - I - 0x03637C 23:A36C: 14        .byte $14    ; <と>
 - D - I - 0x03637D 23:A36D: 08        .byte $08    ; <く>
 - D - I - 0x03637E 23:A36E: 15        .byte $15    ; <な>
-- D - I - 0x03637F 23:A36F: FF        .byte $FF
+- D - I - 0x03637F 23:A36F: FF        .byte con_loop
 - D - I - 0x036380 23:A370: 6B A3     .word off_A36B_07
 
 off_A372_08:
 - D - I - 0x036382 23:A372: 80        .byte $80
 - D - I - 0x036383 23:A373: 00        .byte $00
-- D - I - 0x036384 23:A374: FF        .byte $FF
+- D - I - 0x036384 23:A374: FF        .byte con_loop
 - D - I - 0x036385 23:A375: 72 A3     .word off_A372_08
 
 off_A377_09:
@@ -5418,7 +5420,7 @@ off_A377_09:
 - D - I - 0x03639C 23:A38C: 19        .byte $19    ; <の>
 - D - I - 0x03639D 23:A38D: 03        .byte $03    ; <う>
 - D - I - 0x03639E 23:A38E: 18        .byte $18    ; <ね>
-- D - I - 0x03639F 23:A38F: FF        .byte $FF
+- D - I - 0x03639F 23:A38F: FF        .byte con_loop
 - D - I - 0x0363A0 23:A390: 77 A3     .word off_A377_09
 
 off_A392_0A:
@@ -5476,7 +5478,7 @@ off_A392_0A:
 - D - I - 0x0363D5 23:A3C5: 1C        .byte $1C    ; <ふ>
 - D - I - 0x0363D6 23:A3C6: 07        .byte $07    ; <き>
 - D - I - 0x0363D7 23:A3C7: 1B        .byte $1B    ; <ひ>
-- D - I - 0x0363D8 23:A3C8: FF        .byte $FF
+- D - I - 0x0363D8 23:A3C8: FF        .byte con_loop
 - D - I - 0x0363D9 23:A3C9: 92 A3     .word off_A392_0A
 
 off_A3CB_0B:
@@ -5518,7 +5520,7 @@ off_A3CB_0B:
 - D - I - 0x0363FE 23:A3EE: 1D        .byte $1D    ; <へ>
 - D - I - 0x0363FF 23:A3EF: 07        .byte $07    ; <き>
 - D - I - 0x036400 23:A3F0: 1B        .byte $1B    ; <ひ>
-- D - I - 0x036401 23:A3F1: FF        .byte $FF
+- D - I - 0x036401 23:A3F1: FF        .byte con_loop
 - D - I - 0x036402 23:A3F2: CB A3     .word off_A3CB_0B
 
 off_A3F4_0C:
@@ -5568,19 +5570,18 @@ off_A3F4_0C:
 - D - I - 0x03642F 23:A41F: 03        .byte $03    ; <う>
 - D - I - 0x036430 23:A420: 05        .byte $05    ; <お>
 - D - I - 0x036431 23:A421: 02        .byte $02    ; <い>
-- D - I - 0x036432 23:A422: FF        .byte $FF
+- D - I - 0x036432 23:A422: FF        .byte con_loop
 - D - I - 0x036433 23:A423: F4 A3     .word off_A3F4_0C
 
 off_A425_0D:
 - D - I - 0x036435 23:A425: EF        .byte $EF
 - D - I - 0x036436 23:A426: 00        .byte $00
-- - - - - 0x036437 23:A427: FF        .byte $FF
-- - - - - 0x036438 23:A428: 25        .byte $25    ; <ゆ>
-- - - - - 0x036439 23:A429: A4        .byte $A4    ; <ご>
+- - - - - 0x036437 23:A427: FF        .byte con_loop
+- - - - - 0x036438 23:A428: 25 A4     .word off_A425_0D
 
 
 
-tbl_A42A_байты_для_nametable:
+tbl_A42A_атрибуты_nametable:
     .word off_A46A_00
     .word off_A48F_01
     .word off_A494_02
@@ -5614,6 +5615,8 @@ tbl_A42A_байты_для_nametable:
     .word off_A663_1E
     .word off_A688_1F
 
+    con_done = $00
+
 off_A46A_00:
     .byte $04
     .word $22C8
@@ -5639,7 +5642,7 @@ off_A46A_00:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5648,7 +5651,7 @@ off_A48F_01:
     .word $22EA
     .byte $DA
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5657,7 +5660,7 @@ off_A494_02:
     .word $22EA
     .byte $F1
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5666,7 +5669,7 @@ off_A499_03:
     .word $22EA
     .byte $D8
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5695,7 +5698,7 @@ off_A49E_04:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5724,7 +5727,7 @@ off_A4C3_05:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5733,7 +5736,7 @@ off_A4E8_06:
     .word $22EA
     .byte $D9
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5742,7 +5745,7 @@ off_A4ED_07:
     .word $22EA
     .byte $F2
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5771,7 +5774,7 @@ off_A4F2_08:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5780,7 +5783,7 @@ off_A517_09:
     .word $22EA
     .byte $DB
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5789,7 +5792,7 @@ off_A51C_0A:
     .word $22EA
     .byte $F0
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5818,7 +5821,7 @@ off_A521_0B:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5827,7 +5830,7 @@ off_A546_0C:
     .word $22EA
     .byte $F3
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5856,7 +5859,7 @@ off_A54B_0F:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5869,7 +5872,7 @@ off_A570_10:
     .word $22E9
     .byte $E3, $DB
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5882,7 +5885,7 @@ off_A57A_11:
     .word $22E9
     .byte $F5, $F0
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5911,7 +5914,7 @@ off_A584_12:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5928,7 +5931,7 @@ off_A5A9_13:
     .word $2329
     .byte $AE
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5957,7 +5960,7 @@ off_A5B8_14:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5970,7 +5973,7 @@ off_A5DD_15:
     .word $22EB
     .byte $FB
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -5999,7 +6002,7 @@ off_A5E6_16:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6013,7 +6016,7 @@ off_A60B_17:
     .byte $DF
     .byte $DB
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6026,7 +6029,7 @@ off_A615_18:
     .word $22E9
     .byte $F5, $DB
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6039,7 +6042,7 @@ off_A61F_19:
     .word $22E9
     .byte $F5, $F0
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6068,7 +6071,7 @@ off_A629_1A:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6077,7 +6080,7 @@ off_A64E_1B:
     .word $22E9
     .byte $E9, $F7, $ED
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6086,7 +6089,7 @@ off_A655_1C:
     .word $22E9
     .byte $D1, $D4, $D5
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6095,7 +6098,7 @@ off_A65C_1D:
     .word $22E9
     .byte $D1, $D7, $D5
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6124,7 +6127,7 @@ off_A663_1E:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
@@ -6153,7 +6156,7 @@ off_A688_1F:
     .word $23F2
     .byte $05
     
-    .byte $00
+    .byte con_done
 
 
 
