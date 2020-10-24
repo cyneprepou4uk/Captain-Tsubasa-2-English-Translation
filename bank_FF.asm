@@ -1822,8 +1822,7 @@ C - - - - 0x03D1DF FF:D1CF: 20 7F EF  JSR sub_EF7F_отрисовка_меню_�
 C - - - - 0x03D1E2 FF:D1D2: 2C 3E 06  BIT ram_флаг_loss
 C - - - - 0x03D1E5 FF:D1D5: 30 14     BMI bra_D1EB_сейчас_не_loss
 C - - - - 0x03D1E7 FF:D1D7: AD F7 05  LDA ram_время_lo
-; 5 минут
-C - - - - 0x03D1EA FF:D1DA: C9 1E     CMP #$1E
+C - - - - 0x03D1EA FF:D1DA: C9 1E     CMP #$1E      ; 5 минут
 C - - - - 0x03D1EC FF:D1DC: B0 0D     BCS bra_D1EB_сейчас_не_loss
 C - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA #$80
 C - - - - 0x03D1F3 FF:D1E3: 8D 3E 06  STA ram_флаг_loss
