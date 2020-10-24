@@ -71,6 +71,7 @@ tbl_0x40004_вид_меню:
     .word off_BB69_3F_pk_players_list
     .word off_BB9E_40_pk_order
     .word off_BBBF_41_pk_and_score
+    .word off_BC00_42_booth_for_charlie
 
 
 
@@ -144,34 +145,27 @@ off_B453_00_period_number_and_time:
 ; id of the window outline
     .byte $00 * $09
 ; адрес ppu
-    .word $2240
+    .word $2281
 ; X * Y зачищаемой области (вне этой области текст не запишется)
 ; size of cleared space
     ; beyond this area nothing will be drawn later
     ; it's like allotting a fixed area for a window
-    .byte $07
-    .byte $03
+    .byte $05
+    .byte $00
 ; смещение окна X, Y        (window offset)
     ; окно по X должно быть минимум на 01 меньше очистки чтобы увидеть нижнюю границу
     ; а также X предположительно не может быть < 03
     .byte $00
     .byte $00
 ; размер окна X, Y          (window size)
-    .byte $07
-    .byte $03
+    .byte $05
+    .byte $00
 ; количество поинтеров      (number of following pointers)
-    .byte $02
+    .byte $01
 ; смещение текста Y, X + поинтеры на текст      (text offset + pointers)
     .byte $00
-    .byte $01
-    .word @period
-    .byte $02
-    .byte $05
+    .byte $04
     .word @time
-
-@period:
-    .byte con_period_number
-    .byte con_закончить
 
 @time:
     .byte con_time
@@ -184,44 +178,37 @@ off_B453_00_period_number_and_time:
 
 off_B464_01_team_names_and_score:
 ; номер набора контура окна
-    .byte $00 * $09
+    .byte $02 * $09
 ; адрес ppu
-    .word $22C0
+    .word $2361
 ; X * Y зачищаемой области
-    .byte $07
-    .byte $04
+    .byte $05
+    .byte $00
 ; смещение окна X, Y
     .byte $00
     .byte $00
 ; размер окна X, Y
-    .byte $07
-    .byte $04
+    .byte $05
+    .byte $00
 ; количество поинтеров
-    .byte $04
+    .byte $03
 ; смещение текста Y, X + поинтеры на текст
+    .byte $00
     .byte $01
-    .byte $01
-    .word @team_left
-    .byte $01
-    .byte $05
     .word @score_left
+    .byte $00
+    .byte $02
+    .word @dash
+    .byte $00
     .byte $03
-    .byte $01
-    .word @team_right
-    .byte $03
-    .byte $05
     .word @score_right
-
-@team_left:
-    .byte con_team_name, $00
-    .byte con_закончить
-
-@team_right:
-    .byte con_team_name, $01
-    .byte con_закончить
 
 @score_left:
     .byte con_score, $00
+    .byte con_закончить
+    
+@dash:
+    .text "-"
     .byte con_закончить
 
 @score_right:
@@ -3850,6 +3837,36 @@ off_BBBF_41_pk_and_score:
 
 @score_right:
     .byte con_score, $01
+    .byte con_закончить
+
+
+
+
+
+
+off_BC00_42_booth_for_charlie:
+; номер набора контура окна
+    .byte $00 * $09
+; адрес ppu
+    .word $2240
+; X * Y зачищаемой области
+    .byte $07
+    .byte $0A
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $07
+    .byte $0A
+; количество поинтеров
+    .byte $01
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $01
+    .word @period
+
+@period:
+    .byte con_period_number
     .byte con_закончить
 
 

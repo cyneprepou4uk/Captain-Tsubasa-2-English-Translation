@@ -3154,6 +3154,8 @@ C - - - - 0x03DACD FF:DABD: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DAD0 FF:DAC0: 68        PLA
 C - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x03505E
 C - - - - 0x03DAD4 FF:DAC4: 20 24 DB  JSR sub_DB24
+                                      LDA #$42      ; booth_for_charlie
+                                      JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DAD7 FF:DAC7: A9 00     LDA #$00      ; period_number_and_time
 C - - - - 0x03DAD9 FF:DAC9: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DADC FF:DACC: A9 01     LDA #$01      ; team_names_and_score
