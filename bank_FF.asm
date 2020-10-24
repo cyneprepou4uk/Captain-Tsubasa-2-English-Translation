@@ -3141,6 +3141,7 @@ C - - - - 0x03DAA5 FF:DA95: 4C 0C D7  JMP loc_D70C
 .export loc_0x03DABA
 loc_0x03DABA:
 loc_DAAA:
+; срабатывает до первой разводки тайма, и каждый раз перед разводкой после гола
 C D - - - 0x03DABA FF:DAAA: A9 01     LDA #con_музыка_выключить_все
 C - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - 0x03DABF FF:DAAF: 20 4F CF  JSR sub_CF4F
