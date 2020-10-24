@@ -1837,19 +1837,21 @@ C - - - - 0x030B81 22:8B71: 60        RTS
 
 
 tbl_8B72_текст_периода_матча:
+;00
     .byte $FF
     .text "1st"
     .byte $FF
-    
+;01
     .byte $FF
     .text "2nd"
     .byte $FF
-    
+;02
     .text "E.T.1"
-    
+;03
     .text "E.T.2"
-    
-    .text "P.K."
+;04
+    .byte $FF
+    .text $90, $91, $92     ; P.K.
     .byte $FF
 
 

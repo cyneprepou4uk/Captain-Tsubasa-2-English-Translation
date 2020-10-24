@@ -3817,8 +3817,8 @@ off_BBBF_41_pk_and_score:
     .byte $05
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
-    .byte $02
-    .word @txt
+    .byte $01
+    .word @номер_тайма
     .byte $02
     .byte $01
     .word @team_left
@@ -3832,8 +3832,8 @@ off_BBBF_41_pk_and_score:
     .byte $05
     .word @score_right
 
-@txt:
-    .byte $90, $91, $92     ; P.K.
+@номер_тайма:
+    .byte con_period_number
     .byte con_закончить
 
 @team_left:
