@@ -1393,8 +1393,8 @@ C - - - - 0x03CF7D FF:CF6D: C9 16     CMP #$16
 C - - - - 0x03CF7F FF:CF6F: D0 E0     BNE bra_CF51
 C - - - - 0x03CF81 FF:CF71: 60        RTS
 
-.export sub_0x03CF82
-sub_0x03CF82:
+.export sub_0x03CF82_отрисовка_чарли_на_фоне
+sub_0x03CF82_отрисовка_чарли_на_фоне:
 C D - - - 0x03CF82 FF:CF72: 48        PHA
 C - - - - 0x03CF85 FF:CF75: A9 1A     LDA #$1A
 C - - - - 0x03CF87 FF:CF77: 85 24     STA ram_для_5114
@@ -1402,7 +1402,7 @@ C - - - - 0x03CF89 FF:CF79: A9 1B     LDA #$1B
 C - - - - 0x03CF8B FF:CF7B: 85 25     STA ram_для_5115
 C - - - - 0x03CF8D FF:CF7D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03CF90 FF:CF80: 68        PLA
-C - - - - 0x03CF91 FF:CF81: 20 2A 80  JSR sub_0x0361FB
+C - - - - 0x03CF91 FF:CF81: 20 2A 80  JSR sub_0x0361FB_отрисовка_чарли_на_фоне
 C - - - - 0x03CF94 FF:CF84: A9 18     LDA #$18
 C - - - - 0x03CF96 FF:CF86: 85 24     STA ram_для_5114
 C - - - - 0x03CF98 FF:CF88: A9 19     LDA #$19
