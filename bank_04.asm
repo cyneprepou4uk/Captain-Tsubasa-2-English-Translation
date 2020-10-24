@@ -180,7 +180,7 @@ off_B464_01_team_names_and_score:
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
-    .word $2361
+    .word $22C1
 ; X * Y зачищаемой области
     .byte $05
     .byte $00
@@ -206,7 +206,7 @@ off_B464_01_team_names_and_score:
 @score_left:
     .byte con_score, $00
     .byte con_закончить
-    
+
 @dash:
     .text "-"
     .byte con_закончить

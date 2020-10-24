@@ -5618,29 +5618,25 @@ tbl_A42A_ppu_байты_анимаций_чарли:
     con_done = $00
 
 off_A46A_00:
-    .byte $04
-    .word $22C8
-    .byte $00, $B4, $B5, $E0
+    .byte $03
+    .word $2302
+    .byte $B4, $B5, $E0
     
-    .byte $04
-    .word $22E8
-    .byte $00, $B6, $B7, $E2
+    .byte $03
+    .word $2322
+    .byte $B6, $B7, $E2
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $BE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $BE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -5648,7 +5644,7 @@ off_A46A_00:
 
 off_A48F_01:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $DA
     
     .byte con_done
@@ -5657,7 +5653,7 @@ off_A48F_01:
 
 off_A494_02:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $F1
     
     .byte con_done
@@ -5666,7 +5662,7 @@ off_A494_02:
 
 off_A499_03:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $D8
     
     .byte con_done
@@ -5674,58 +5670,50 @@ off_A499_03:
 
 
 off_A49E_04:
-    .byte $04
-    .word $22C8
-    .byte $00, $EB, $EE, $EF
+    .byte $03
+    .word $2302
+    .byte $EB, $EE, $EF
     
-    .byte $04
-    .word $22E8
-    .byte $00, $B6, $B7, $E2
+    .byte $03
+    .word $2322
+    .byte $B6, $B7, $E2
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $BE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $BE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
 
 
 off_A4C3_05:
-    .byte $04
-    .word $22C8
-    .byte $00, $B4, $E4, $E5
+    .byte $03
+    .word $2302
+    .byte $B4, $E4, $E5
     
-    .byte $04
-    .word $22E8
-    .byte $00, $B6, $E6, $E7
+    .byte $03
+    .word $2322
+    .byte $B6, $E6, $E7
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $BE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $BE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -5733,7 +5721,7 @@ off_A4C3_05:
 
 off_A4E8_06:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $D9
     
     .byte con_done
@@ -5742,7 +5730,7 @@ off_A4E8_06:
 
 off_A4ED_07:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $F2
     
     .byte con_done
@@ -5750,29 +5738,25 @@ off_A4ED_07:
 
 
 off_A4F2_08:
-    .byte $04
-    .word $22C8
-    .byte $00, $B4, $B5, $E0
+    .byte $03
+    .word $2302
+    .byte $B4, $B5, $E0
     
-    .byte $04
-    .word $22E8
-    .byte $00, $E9, $EC, $ED
+    .byte $03
+    .word $2322
+    .byte $E9, $EC, $ED
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $BE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $BE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -5780,7 +5764,7 @@ off_A4F2_08:
 
 off_A517_09:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $DB
     
     .byte con_done
@@ -5789,7 +5773,7 @@ off_A517_09:
 
 off_A51C_0A:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $F0
     
     .byte con_done
@@ -5797,29 +5781,25 @@ off_A51C_0A:
 
 
 off_A521_0B:
-    .byte $04
-    .word $22C8
-    .byte $00, $EB, $EE, $EF
+    .byte $03
+    .word $2302
+    .byte $EB, $EE, $EF
     
-    .byte $04
-    .word $22E8
-    .byte $00, $B6, $DA, $E2
+    .byte $03
+    .word $2322
+    .byte $B6, $DA, $E2
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $BE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $BE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -5827,7 +5807,7 @@ off_A521_0B:
 
 off_A546_0C:
     .byte $01
-    .word $22EA
+    .word $2323
     .byte $F3
     
     .byte con_done
@@ -5835,29 +5815,25 @@ off_A546_0C:
 
 
 off_A54B_0F:
-    .byte $04
-    .word $22C8
-    .byte $00, $F4, $B5, $E0
+    .byte $03
+    .word $2302
+    .byte $F4, $B5, $E0
     
-    .byte $04
-    .word $22E8
-    .byte $00, $F5, $EC, $ED
+    .byte $03
+    .word $2322
+    .byte $F5, $EC, $ED
     
-    .byte $04
-    .word $2308
-    .byte $00, $B0, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $B0, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $AE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $AE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -5865,11 +5841,11 @@ off_A54B_0F:
 
 off_A570_10:
     .byte $01
-    .word $22C9
+    .word $2303
     .byte $E1
     
     .byte $02
-    .word $22E9
+    .word $2323
     .byte $E3, $DB
     
     .byte con_done
@@ -5878,11 +5854,11 @@ off_A570_10:
 
 off_A57A_11:
     .byte $01
-    .word $22C9
+    .word $2303
     .byte $F4
     
     .byte $02
-    .word $22E9
+    .word $2323
     .byte $F5, $F0
     
     .byte con_done
@@ -5890,45 +5866,41 @@ off_A57A_11:
 
 
 off_A584_12:
-    .byte $04
-    .word $22C8
-    .byte $00, $00, $00, $00
+    .byte $03
+    .word $2302
+    .byte $00, $00, $00
     
-    .byte $04
-    .word $22E8
-    .byte $00, $00, $B2, $B3
+    .byte $03
+    .word $2322
+    .byte $00, $B2, $B3
     
-    .byte $04
-    .word $2308
-    .byte $00, $AD, $B8, $B9
+    .byte $03
+    .word $2342
+    .byte $AD, $B8, $B9
     
-    .byte $04
-    .word $2328
-    .byte $00, $AF, $BA, $BB
+    .byte $03
+    .word $2362
+    .byte $AF, $BA, $BB
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
 
 
 off_A5A9_13:
-    .byte $03
-    .word $22E9
-    .byte $A6, $A7, $00
+    .byte $02
+    .word $2323
+    .byte $A6, $A7
     
     .byte $01
-    .word $2309
+    .word $2343
     .byte $AC
     
     .byte $01
-    .word $2329
+    .word $2363
     .byte $AE
     
     .byte con_done
@@ -5936,29 +5908,25 @@ off_A5A9_13:
 
 
 off_A5B8_14:
-    .byte $04
-    .word $22C8
-    .byte $00, $00, $00, $F8
+    .byte $03
+    .word $2302
+    .byte $00, $00, $F8
     
-    .byte $04
-    .word $22E8
-    .byte $00, $00, $00, $FA
+    .byte $03
+    .word $2322
+    .byte $00, $00, $FA
     
-    .byte $04
-    .word $2308
-    .byte $00, $AD, $B8, $B9
+    .byte $03
+    .word $2342
+    .byte $AD, $B8, $B9
     
-    .byte $04
-    .word $2328
-    .byte $00, $AF, $BA, $BB
+    .byte $03
+    .word $2362
+    .byte $AF, $BA, $BB
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -5966,11 +5934,11 @@ off_A5B8_14:
 
 off_A5DD_15:
     .byte $01
-    .word $22CB
+    .word $2304
     .byte $F9
     
     .byte $01
-    .word $22EB
+    .word $2324
     .byte $FB
     
     .byte con_done
@@ -5978,29 +5946,25 @@ off_A5DD_15:
 
 
 off_A5E6_16:
-    .byte $04
-    .word $22C8
-    .byte $00, $DC, $B5, $E0
+    .byte $03
+    .word $2302
+    .byte $DC, $B5, $E0
     
-    .byte $04
-    .word $22E8
-    .byte $00, $DF, $EC, $ED
+    .byte $03
+    .word $2322
+    .byte $DF, $EC, $ED
     
-    .byte $04
-    .word $2308
-    .byte $00, $B0, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $B0, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $AE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $AE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -6008,11 +5972,11 @@ off_A5E6_16:
 
 off_A60B_17:
     .byte $01
-    .word $22C9
+    .word $2303
     .byte $DD
     
     .byte $02
-    .word $22E9
+    .word $2323
     .byte $DF
     .byte $DB
     
@@ -6022,11 +5986,11 @@ off_A60B_17:
 
 off_A615_18:
     .byte $01
-    .word $22C9
+    .word $2303
     .byte $DD
     
     .byte $02
-    .word $22E9
+    .word $2323
     .byte $F5, $DB
     
     .byte con_done
@@ -6035,11 +5999,11 @@ off_A615_18:
 
 off_A61F_19:
     .byte $01
-    .word $22C9
+    .word $2303
     .byte $DE
     
     .byte $02
-    .word $22E9
+    .word $2323
     .byte $F5, $F0
     
     .byte con_done
@@ -6047,29 +6011,25 @@ off_A61F_19:
 
 
 off_A629_1A:
-    .byte $04
-    .word $22C8
-    .byte $00, $B4, $B5, $E0
+    .byte $03
+    .word $2302
+    .byte $B4, $B5, $E0
     
-    .byte $04
-    .word $22E8
-    .byte $00, $E9, $EC, $ED
+    .byte $03
+    .word $2322
+    .byte $E9, $EC, $ED
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $D6, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $D6, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $AE, $D3, $EA
+    .byte $03
+    .word $2362
+    .byte $AE, $D3, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
@@ -6077,7 +6037,7 @@ off_A629_1A:
 
 off_A64E_1B:
     .byte $03
-    .word $22E9
+    .word $2322
     .byte $E9, $F7, $ED
     
     .byte con_done
@@ -6086,7 +6046,7 @@ off_A64E_1B:
 
 off_A655_1C:
     .byte $03
-    .word $22E9
+    .word $2322
     .byte $D1, $D4, $D5
     
     .byte con_done
@@ -6095,7 +6055,7 @@ off_A655_1C:
 
 off_A65C_1D:
     .byte $03
-    .word $22E9
+    .word $2322
     .byte $D1, $D7, $D5
     
     .byte con_done
@@ -6103,58 +6063,50 @@ off_A65C_1D:
 
 
 off_A663_1E:
-    .byte $04
-    .word $22C8
-    .byte $00, $B4, $B5, $E0
+    .byte $03
+    .word $2302
+    .byte $B4, $B5, $E0
     
-    .byte $04
-    .word $22E8
-    .byte $00, $E9, $EC, $ED
+    .byte $03
+    .word $2322
+    .byte $E9, $EC, $ED
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $BD, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $BD, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $BE, $BF, $EA
+    .byte $03
+    .word $2362
+    .byte $BE, $BF, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
 
 
 off_A688_1F:
-    .byte $04
-    .word $22C8
-    .byte $00, $EB, $EE, $EF
+    .byte $03
+    .word $2302
+    .byte $EB, $EE, $EF
     
-    .byte $04
-    .word $22E8
-    .byte $00, $B6, $DA, $E2
+    .byte $03
+    .word $2322
+    .byte $B6, $DA, $E2
     
-    .byte $04
-    .word $2308
-    .byte $00, $BC, $D6, $E8
+    .byte $03
+    .word $2342
+    .byte $BC, $D6, $E8
     
-    .byte $04
-    .word $2328
-    .byte $00, $AE, $D3, $EA
+    .byte $03
+    .word $2362
+    .byte $AE, $D3, $EA
     
-    .byte $01
-    .word $23EA
-    .byte $50
-    
-    .byte $01
-    .word $23F2
-    .byte $05
+    .byte $02
+    .word $23F0
+    .byte $55, $55
     
     .byte con_done
 
