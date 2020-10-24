@@ -164,16 +164,16 @@ off_B453_00_period_number_and_time:
 ; смещение текста Y, X + поинтеры на текст      (text offset + pointers)
     .byte $00
     .byte $01
-    .word @номер_тайма
+    .word @period
     .byte $02
     .byte $05
-    .word @время_тайма
+    .word @time
 
-@номер_тайма:
+@period:
     .byte con_period_number
     .byte con_закончить
 
-@время_тайма:
+@time:
     .byte con_time
     .byte con_закончить
 
@@ -3818,7 +3818,7 @@ off_BBBF_41_pk_and_score:
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $01
-    .word @номер_тайма
+    .word @period
     .byte $02
     .byte $01
     .word @team_left
@@ -3832,7 +3832,7 @@ off_BBBF_41_pk_and_score:
     .byte $05
     .word @score_right
 
-@номер_тайма:
+@period:
     .byte con_period_number
     .byte con_закончить
 
