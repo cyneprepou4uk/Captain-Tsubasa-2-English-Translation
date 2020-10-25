@@ -41,6 +41,473 @@ bra_F31C_не_увеличивать_старший_байт:
     STA ram_0031
     RTS
 
+tbl_teams_with_clones:
+    .word team_Fluminense
+    .word team_Corinthians
+    .word team_Gremio
+    .word team_Palmeiras
+    .word team_Santos
+    .word team_Flamengo
+    .word team_Kunimi
+    .word team_Akita
+    .word team_Tatsunami
+    .word team_Musashi
+    .word team_Furano
+    .word team_Toho
+    .word team_AS_Roma
+    .word team_Uruguay
+    .word team_Hamburger_SV
+    .word team_Japan
+    .word team_Syria
+    .word team_China
+    .word team_Iran
+    .word team_North_Korea
+    .word team_Saudi_Arabia
+    .word team_South_Korea
+    .word team_Turkey
+    .word team_Poland
+    .word team_England
+    .word team_Soviet_Union
+    .word team_France
+    .word team_Mexico
+    .word team_Italy
+    .word team_Netherlands
+    .word team_Argentina
+    .word team_West_Germany
+    .word team_Brazil
+
+team_Fluminense:
+    .word Fluminense_clone_01
+    .word Fluminense_clone_02
+    .word Fluminense_clone_03
+    .word Fluminense_clone_04
+    .word Fluminense_clone_05
+    .word Fluminense_clone_06
+    .word Fluminense_clone_07
+    .word Fluminense_clone_08
+    .word Fluminense_clone_09
+    .word Fluminense_clone_10
+    .word Fluminense_clone_11
+
+team_Corinthians:
+    .word Corinthians_clone_01
+    .word Corinthians_clone_02
+    .word Corinthians_clone_03
+    .word Corinthians_clone_04
+    .word Corinthians_clone_05
+    .word Corinthians_clone_06
+    .word Corinthians_clone_07
+    .word Corinthians_clone_08
+    .word Corinthians_clone_09
+    .word Corinthians_clone_10
+    .word Corinthians_clone_11
+
+team_Gremio:
+    .word Gremio_clone_01
+    .word Gremio_clone_02
+    .word Gremio_clone_03
+    .word Gremio_clone_04
+    .word Gremio_clone_05
+    .word Gremio_clone_06
+    .word Gremio_clone_07
+    .word Gremio_clone_08
+    .word Gremio_clone_09
+    .word Gremio_clone_10
+    .word Gremio_clone_11
+
+team_Palmeiras:
+    .word Palmeiras_clone_01
+    .word Palmeiras_clone_02
+    .word Palmeiras_clone_03
+    .word Palmeiras_clone_04
+    .word Palmeiras_clone_05
+    .word Palmeiras_clone_06
+    .word Palmeiras_clone_07
+    .word Palmeiras_clone_08
+    .word Palmeiras_clone_09
+    .word Palmeiras_clone_10
+    .word Palmeiras_clone_11
+
+team_Santos:
+    .word Santos_clone_01
+    .word Santos_clone_02
+    .word Santos_clone_03
+    .word Santos_clone_04
+    .word Santos_clone_05
+    .word Santos_clone_06
+    .word Santos_clone_07
+    .word Santos_clone_08
+    .word Santos_clone_09
+    .word Santos_clone_10
+    .word Santos_clone_11
+
+team_Flamengo:
+    .word Flamengo_clone_01
+    .word Flamengo_clone_02
+    .word Flamengo_clone_03
+    .word Flamengo_clone_04
+    .word Flamengo_clone_05
+    .word Flamengo_clone_06
+    .word Flamengo_clone_07
+    .word Flamengo_clone_08
+    .word Flamengo_clone_09
+    .word Flamengo_clone_10
+    .word Flamengo_clone_11
+
+team_Kunimi:
+    .word Kunimi_clone_01
+    .word Kunimi_clone_02
+    .word Kunimi_clone_03
+    .word Kunimi_clone_04
+    .word Kunimi_clone_05
+    .word Kunimi_clone_06
+    .word Kunimi_clone_07
+    .word Kunimi_clone_08
+    .word Kunimi_clone_09
+    .word Kunimi_clone_10
+    .word Kunimi_clone_11
+
+team_Akita:
+    .word Akita_clone_01
+    .word Akita_clone_02
+    .word Akita_clone_03
+    .word Akita_clone_04
+    .word Akita_clone_05
+    .word Akita_clone_06
+    .word Akita_clone_07
+    .word Akita_clone_08
+    .word Akita_clone_09
+    .word Akita_clone_10
+    .word Akita_clone_11
+
+team_Tatsunami:
+    .word Tatsunami_clone_01
+    .word Tatsunami_clone_02
+    .word Tatsunami_clone_03
+    .word Tatsunami_clone_04
+    .word Tatsunami_clone_05
+    .word Tatsunami_clone_06
+    .word Tatsunami_clone_07
+    .word Tatsunami_clone_08
+    .word Tatsunami_clone_09
+    .word Tatsunami_clone_10
+    .word Tatsunami_clone_11
+
+team_Musashi:
+    .word Musashi_clone_01
+    .word Musashi_clone_02
+    .word Musashi_clone_03
+    .word Musashi_clone_04
+    .word Musashi_clone_05
+    .word Musashi_clone_06
+    .word Musashi_clone_07
+    .word Musashi_clone_08
+    .word Musashi_clone_09
+    .word Musashi_clone_10
+    .word Musashi_clone_11
+
+team_Furano:
+    .word Furano_clone_01
+    .word Furano_clone_02
+    .word Furano_clone_03
+    .word Furano_clone_04
+    .word Furano_clone_05
+    .word Furano_clone_06
+    .word Furano_clone_07
+    .word Furano_clone_08
+    .word Furano_clone_09
+    .word Furano_clone_10
+    .word Furano_clone_11
+
+team_Toho:
+    .word Toho_clone_01
+    .word Toho_clone_02
+    .word Toho_clone_03
+    .word Toho_clone_04
+    .word Toho_clone_05
+    .word Toho_clone_06
+    .word Toho_clone_07
+    .word Toho_clone_08
+    .word Toho_clone_09
+    .word Toho_clone_10
+    .word Toho_clone_11
+
+team_AS_Roma:
+    .word AS_Roma_clone_01
+    .word AS_Roma_clone_02
+    .word AS_Roma_clone_03
+    .word AS_Roma_clone_04
+    .word AS_Roma_clone_05
+    .word AS_Roma_clone_06
+    .word AS_Roma_clone_07
+    .word AS_Roma_clone_08
+    .word AS_Roma_clone_09
+    .word AS_Roma_clone_10
+    .word AS_Roma_clone_11
+
+team_Uruguay:
+    .word Uruguay_clone_01
+    .word Uruguay_clone_02
+    .word Uruguay_clone_03
+    .word Uruguay_clone_04
+    .word Uruguay_clone_05
+    .word Uruguay_clone_06
+    .word Uruguay_clone_07
+    .word Uruguay_clone_08
+    .word Uruguay_clone_09
+    .word Uruguay_clone_10
+    .word Uruguay_clone_11
+
+team_Hamburger_SV:
+    .word Hamburger_SV_clone_01
+    .word Hamburger_SV_clone_02
+    .word Hamburger_SV_clone_03
+    .word Hamburger_SV_clone_04
+    .word Hamburger_SV_clone_05
+    .word Hamburger_SV_clone_06
+    .word Hamburger_SV_clone_07
+    .word Hamburger_SV_clone_08
+    .word Hamburger_SV_clone_09
+    .word Hamburger_SV_clone_10
+    .word Hamburger_SV_clone_11
+
+team_Japan:
+    .word Japan_clone_01
+    .word Japan_clone_02
+    .word Japan_clone_03
+    .word Japan_clone_04
+    .word Japan_clone_05
+    .word Japan_clone_06
+    .word Japan_clone_07
+    .word Japan_clone_08
+    .word Japan_clone_09
+    .word Japan_clone_10
+    .word Japan_clone_11
+
+team_Syria:
+    .word Syria_clone_01
+    .word Syria_clone_02
+    .word Syria_clone_03
+    .word Syria_clone_04
+    .word Syria_clone_05
+    .word Syria_clone_06
+    .word Syria_clone_07
+    .word Syria_clone_08
+    .word Syria_clone_09
+    .word Syria_clone_10
+    .word Syria_clone_11
+
+team_China:
+    .word China_clone_01
+    .word China_clone_02
+    .word China_clone_03
+    .word China_clone_04
+    .word China_clone_05
+    .word China_clone_06
+    .word China_clone_07
+    .word China_clone_08
+    .word China_clone_09
+    .word China_clone_10
+    .word China_clone_11
+
+team_Iran:
+    .word Iran_clone_01
+    .word Iran_clone_02
+    .word Iran_clone_03
+    .word Iran_clone_04
+    .word Iran_clone_05
+    .word Iran_clone_06
+    .word Iran_clone_07
+    .word Iran_clone_08
+    .word Iran_clone_09
+    .word Iran_clone_10
+    .word Iran_clone_11
+
+team_North_Korea:
+    .word North_Korea_clone_01
+    .word North_Korea_clone_02
+    .word North_Korea_clone_03
+    .word North_Korea_clone_04
+    .word North_Korea_clone_05
+    .word North_Korea_clone_06
+    .word North_Korea_clone_07
+    .word North_Korea_clone_08
+    .word North_Korea_clone_09
+    .word North_Korea_clone_10
+    .word North_Korea_clone_11
+
+team_Saudi_Arabia:
+    .word Saudi_Arabia_clone_01
+    .word Saudi_Arabia_clone_02
+    .word Saudi_Arabia_clone_03
+    .word Saudi_Arabia_clone_04
+    .word Saudi_Arabia_clone_05
+    .word Saudi_Arabia_clone_06
+    .word Saudi_Arabia_clone_07
+    .word Saudi_Arabia_clone_08
+    .word Saudi_Arabia_clone_09
+    .word Saudi_Arabia_clone_10
+    .word Saudi_Arabia_clone_11
+
+team_South_Korea:
+    .word South_Korea_clone_01
+    .word South_Korea_clone_02
+    .word South_Korea_clone_03
+    .word South_Korea_clone_04
+    .word South_Korea_clone_05
+    .word South_Korea_clone_06
+    .word South_Korea_clone_07
+    .word South_Korea_clone_08
+    .word South_Korea_clone_09
+    .word South_Korea_clone_10
+    .word South_Korea_clone_11
+
+team_Turkey:
+    .word Turkey_clone_01
+    .word Turkey_clone_02
+    .word Turkey_clone_03
+    .word Turkey_clone_04
+    .word Turkey_clone_05
+    .word Turkey_clone_06
+    .word Turkey_clone_07
+    .word Turkey_clone_08
+    .word Turkey_clone_09
+    .word Turkey_clone_10
+    .word Turkey_clone_11
+
+team_Poland:
+    .word Poland_clone_01
+    .word Poland_clone_02
+    .word Poland_clone_03
+    .word Poland_clone_04
+    .word Poland_clone_05
+    .word Poland_clone_06
+    .word Poland_clone_07
+    .word Poland_clone_08
+    .word Poland_clone_09
+    .word Poland_clone_10
+    .word Poland_clone_11
+
+team_England:
+    .word England_clone_01
+    .word England_clone_02
+    .word England_clone_03
+    .word England_clone_04
+    .word England_clone_05
+    .word England_clone_06
+    .word England_clone_07
+    .word England_clone_08
+    .word England_clone_09
+    .word England_clone_10
+    .word England_clone_11
+
+team_Soviet_Union:
+    .word Soviet_Union_clone_01
+    .word Soviet_Union_clone_02
+    .word Soviet_Union_clone_03
+    .word Soviet_Union_clone_04
+    .word Soviet_Union_clone_05
+    .word Soviet_Union_clone_06
+    .word Soviet_Union_clone_07
+    .word Soviet_Union_clone_08
+    .word Soviet_Union_clone_09
+    .word Soviet_Union_clone_10
+    .word Soviet_Union_clone_11
+
+team_France:
+    .word France_clone_01
+    .word France_clone_02
+    .word France_clone_03
+    .word France_clone_04
+    .word France_clone_05
+    .word France_clone_06
+    .word France_clone_07
+    .word France_clone_08
+    .word France_clone_09
+    .word France_clone_10
+    .word France_clone_11
+
+team_Mexico:
+    .word Mexico_clone_01
+    .word Mexico_clone_02
+    .word Mexico_clone_03
+    .word Mexico_clone_04
+    .word Mexico_clone_05
+    .word Mexico_clone_06
+    .word Mexico_clone_07
+    .word Mexico_clone_08
+    .word Mexico_clone_09
+    .word Mexico_clone_10
+    .word Mexico_clone_11
+
+team_Italy:
+    .word Italy_clone_01
+    .word Italy_clone_02
+    .word Italy_clone_03
+    .word Italy_clone_04
+    .word Italy_clone_05
+    .word Italy_clone_06
+    .word Italy_clone_07
+    .word Italy_clone_08
+    .word Italy_clone_09
+    .word Italy_clone_10
+    .word Italy_clone_11
+
+team_Netherlands:
+    .word Netherlands_clone_01
+    .word Netherlands_clone_02
+    .word Netherlands_clone_03
+    .word Netherlands_clone_04
+    .word Netherlands_clone_05
+    .word Netherlands_clone_06
+    .word Netherlands_clone_07
+    .word Netherlands_clone_08
+    .word Netherlands_clone_09
+    .word Netherlands_clone_10
+    .word Netherlands_clone_11
+
+team_Argentina:
+    .word Argentina_clone_01
+    .word Argentina_clone_02
+    .word Argentina_clone_03
+    .word Argentina_clone_04
+    .word Argentina_clone_05
+    .word Argentina_clone_06
+    .word Argentina_clone_07
+    .word Argentina_clone_08
+    .word Argentina_clone_09
+    .word Argentina_clone_10
+    .word Argentina_clone_11
+
+team_West_Germany:
+    .word West_Germany_clone_01
+    .word West_Germany_clone_02
+    .word West_Germany_clone_03
+    .word West_Germany_clone_04
+    .word West_Germany_clone_05
+    .word West_Germany_clone_06
+    .word West_Germany_clone_07
+    .word West_Germany_clone_08
+    .word West_Germany_clone_09
+    .word West_Germany_clone_10
+    .word West_Germany_clone_11
+
+team_Brazil:
+    .word Brazil_clone_01
+    .word Brazil_clone_02
+    .word Brazil_clone_03
+    .word Brazil_clone_04
+    .word Brazil_clone_05
+    .word Brazil_clone_06
+    .word Brazil_clone_07
+    .word Brazil_clone_08
+    .word Brazil_clone_09
+    .word Brazil_clone_10
+    .word Brazil_clone_11
+
+
+
+
 
 
 tbl_dictionary:
@@ -461,6 +928,50 @@ txt_79_opponent_team_Fluminense:
     .text "Fluminense"
     .byte $FC
 
+Fluminense_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Fluminense_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Fluminense_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Fluminense_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Fluminense_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Fluminense_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Fluminense_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Fluminense_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Fluminense_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Fluminense_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Fluminense_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 
 
 
@@ -468,6 +979,50 @@ txt_79_opponent_team_Fluminense:
 
 txt_7A_opponent_team_Corinthians:
     .text "Corinthians"
+    .byte $FC
+
+Corinthians_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Corinthians_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Corinthians_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Corinthians_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Corinthians_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Corinthians_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Corinthians_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Corinthians_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Corinthians_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Corinthians_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Corinthians_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_23_opponent_player_Satrustegui:
@@ -487,6 +1042,50 @@ txt_7B_opponent_team_Gremio:
     .text "Gremio"
     .byte $FC
 
+Gremio_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Gremio_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Gremio_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Gremio_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Gremio_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Gremio_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Gremio_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Gremio_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Gremio_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Gremio_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Gremio_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_25_opponent_player_Danil_Silva:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
@@ -502,6 +1101,50 @@ txt_26_opponent_player_Meon:
 
 txt_7C_opponent_team_Palmeiras:
     .text "Palmeiras"
+    .byte $FC
+
+Palmeiras_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Palmeiras_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Palmeiras_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Palmeiras_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Palmeiras_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Palmeiras_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Palmeiras_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Palmeiras_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Palmeiras_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Palmeiras_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Palmeiras_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_27_opponent_player_Toninho:
@@ -521,6 +1164,50 @@ txt_7D_opponent_team_Santos:
     .text "Santos"
     .byte $FC
 
+Santos_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Santos_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Santos_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Santos_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Santos_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Santos_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Santos_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Santos_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Santos_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Santos_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Santos_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_29_opponent_player_Zagallo:
     .text "Zagallo"
     .byte $FC
@@ -536,6 +1223,50 @@ txt_2A_opponent_player_Dirceu:
 
 txt_7E_opponent_team_Flamengo:
     .text "Flamengo"
+    .byte $FC
+
+Flamengo_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Flamengo_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Flamengo_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Flamengo_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Flamengo_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Flamengo_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Flamengo_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Flamengo_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Flamengo_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Flamengo_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Flamengo_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_2B_opponent_player_Carlos:
@@ -559,6 +1290,50 @@ txt_7F_opponent_team_Kunimi:
     .text "Kunimi"
     .byte $FC
 
+Kunimi_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Kunimi_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Kunimi_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Kunimi_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Kunimi_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Kunimi_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Kunimi_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Kunimi_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Kunimi_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Kunimi_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Kunimi_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_2E_opponent_player_Jitou:
     .text "Jitou"
     .byte $FC
@@ -574,6 +1349,50 @@ txt_2F_opponent_player_Sano:
 
 txt_80_opponent_team_Akita:
     .text "Akita"
+    .byte $FC
+
+Akita_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Akita_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Akita_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Akita_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Akita_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Akita_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Akita_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Akita_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Akita_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Akita_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Akita_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_30_opponent_player_Masao:
@@ -593,6 +1412,50 @@ txt_81_opponent_team_Tatsunami:
     .text "Tatsunami"
     .byte $FC
 
+Tatsunami_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Tatsunami_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Tatsunami_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Tatsunami_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Tatsunami_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Tatsunami_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Tatsunami_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Tatsunami_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Tatsunami_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Tatsunami_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Tatsunami_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_32_opponent_player_Souda:
     .text "Souda"
     .byte $FC
@@ -610,6 +1473,50 @@ txt_82_opponent_team_Musashi:
     .text "Musashi"
     .byte $FC
 
+Musashi_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Musashi_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Musashi_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Musashi_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Musashi_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Musashi_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Musashi_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Musashi_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Musashi_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Musashi_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Musashi_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_34_opponent_player_Misugi:      ; bench player
     .text "Misugi"
     .byte $FC
@@ -623,6 +1530,50 @@ txt_83_opponent_team_Furano:
     .text "Furano"
     .byte $FC
 
+Furano_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Furano_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Furano_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Furano_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Furano_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Furano_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Furano_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Furano_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Furano_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Furano_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Furano_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_35_opponent_player_Matsuyama:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
@@ -634,6 +1585,50 @@ txt_35_opponent_player_Matsuyama:
 
 txt_84_opponent_team_Toho:
     .text "Toho"
+    .byte $FC
+
+Toho_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Toho_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Toho_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Toho_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Toho_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Toho_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Toho_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Toho_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Toho_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Toho_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Toho_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_36_opponent_player_Hyuga:
@@ -661,6 +1656,50 @@ txt_85_opponent_team_AS_Roma:
     .text "AS Roma"
     .byte $FC
 
+AS_Roma_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+AS_Roma_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+AS_Roma_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+AS_Roma_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+AS_Roma_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+AS_Roma_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+AS_Roma_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+AS_Roma_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+AS_Roma_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+AS_Roma_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+AS_Roma_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_3A_opponent_player_Rampion_:
     .text "Rampion"
     .byte $FC
@@ -672,6 +1711,50 @@ txt_3A_opponent_player_Rampion_:
 
 txt_86_opponent_team_Uruguay:
     .text "Uruguay"
+    .byte $FC
+
+Uruguay_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Uruguay_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Uruguay_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Uruguay_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Uruguay_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Uruguay_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Uruguay_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Uruguay_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Uruguay_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Uruguay_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Uruguay_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_3B_opponent_player_Victorino:
@@ -689,6 +1772,50 @@ txt_3C_opponent_player_Danil_Silva:
 
 txt_87_opponent_team_Hamburger_SV:
     .text "Hamburger SV"
+    .byte $FC
+
+Hamburger_SV_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Hamburger_SV_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Hamburger_SV_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Hamburger_SV_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Hamburger_SV_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Hamburger_SV_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Hamburger_SV_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Hamburger_SV_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Hamburger_SV_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Hamburger_SV_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Hamburger_SV_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_3D_opponent_player_Kappelman:
@@ -714,6 +1841,50 @@ txt_40_opponent_player_Wakabayashi:
 
 txt_88_opponent_team_Japan:
     .text "Japan"
+    .byte $FC
+
+Japan_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Japan_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Japan_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Japan_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Japan_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Japan_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Japan_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Japan_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Japan_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Japan_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Japan_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_41_opponent_player_Hyuga:
@@ -773,6 +1944,50 @@ txt_89_opponent_team_Syria:
     .text "Syria"
     .byte $FC
 
+Syria_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Syria_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Syria_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Syria_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Syria_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Syria_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Syria_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Syria_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Syria_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Syria_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Syria_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 
 
 
@@ -780,6 +1995,50 @@ txt_89_opponent_team_Syria:
 
 txt_8A_opponent_team_China:
     .text "China"
+    .byte $FC
+
+China_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+China_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+China_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+China_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+China_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+China_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+China_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+China_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+China_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+China_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+China_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_4D_opponent_player_Li_Han_ne:
@@ -799,6 +2058,50 @@ txt_8B_opponent_team_Iran:
     .text "Iran"
     .byte $FC
 
+Iran_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Iran_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Iran_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Iran_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Iran_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Iran_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Iran_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Iran_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Iran_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Iran_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Iran_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 
 
 
@@ -806,6 +2109,50 @@ txt_8B_opponent_team_Iran:
 
 txt_8C_opponent_team_North_Korea:
     .text "North Korea"
+    .byte $FC
+
+North_Korea_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+North_Korea_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+North_Korea_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+North_Korea_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+North_Korea_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+North_Korea_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+North_Korea_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+North_Korea_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+North_Korea_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+North_Korea_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+North_Korea_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 
@@ -817,6 +2164,50 @@ txt_8D_opponent_team_Saudi_Arabia:
     .text "Saudi Arabia"
     .byte $FC
 
+Saudi_Arabia_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Saudi_Arabia_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Saudi_Arabia_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Saudi_Arabia_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Saudi_Arabia_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Saudi_Arabia_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Saudi_Arabia_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Saudi_Arabia_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Saudi_Arabia_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Saudi_Arabia_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Saudi_Arabia_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 
 
 
@@ -824,6 +2215,50 @@ txt_8D_opponent_team_Saudi_Arabia:
 
 txt_8E_opponent_team_South_Korea:
     .text "South Korea"
+    .byte $FC
+
+South_Korea_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+South_Korea_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+South_Korea_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+South_Korea_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+South_Korea_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+South_Korea_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+South_Korea_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+South_Korea_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+South_Korea_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+South_Korea_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+South_Korea_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_4F_opponent_player_Sha:
@@ -843,6 +2278,50 @@ txt_8F_opponent_team_Turkey:
     .text "Turkey"
     .byte $FC
 
+Turkey_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Turkey_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Turkey_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Turkey_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Turkey_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Turkey_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Turkey_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Turkey_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Turkey_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Turkey_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Turkey_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 
 
 
@@ -850,6 +2329,50 @@ txt_8F_opponent_team_Turkey:
 
 txt_90_opponent_team_Poland:
     .text "Poland"
+    .byte $FC
+
+Poland_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Poland_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Poland_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Poland_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Poland_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Poland_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Poland_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Poland_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Poland_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Poland_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Poland_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_51_opponent_player_Macher:
@@ -866,6 +2389,50 @@ txt_52_opponent_player_Djazic:
 
 txt_91_opponent_team_England:
     .text "England"
+    .byte $FC
+
+England_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+England_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+England_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+England_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+England_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+England_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+England_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+England_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+England_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+England_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+England_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_53_opponent_player_Lorimar:
@@ -885,6 +2452,50 @@ txt_92_opponent_team_Soviet_Union:
     .text "Soviet Union"
     .byte $FC
 
+Soviet_Union_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Soviet_Union_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Soviet_Union_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Soviet_Union_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Soviet_Union_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Soviet_Union_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Soviet_Union_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Soviet_Union_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Soviet_Union_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Soviet_Union_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Soviet_Union_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_55_opponent_player_Belaev:
     .text "Belaev"
     .byte $FC
@@ -900,6 +2511,50 @@ txt_56_opponent_player_Rashin:
 
 txt_93_opponent_team_France:
     .text "France"
+    .byte $FC
+
+France_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+France_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+France_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+France_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+France_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+France_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+France_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+France_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+France_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+France_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+France_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_57_opponent_player_Napoleon:
@@ -919,6 +2574,50 @@ txt_94_opponent_team_Mexico:
     .text "Mexico"
     .byte $FC
 
+Mexico_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Mexico_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Mexico_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Mexico_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Mexico_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Mexico_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Mexico_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Mexico_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Mexico_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Mexico_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Mexico_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_59_opponent_player_Espana:
     .text "Espana"
     .byte $FC
@@ -930,6 +2629,50 @@ txt_59_opponent_player_Espana:
 
 txt_95_opponent_team_Italy:
     .text "Italy"
+    .byte $FC
+
+Italy_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Italy_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Italy_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Italy_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Italy_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Italy_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Italy_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Italy_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Italy_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Italy_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Italy_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_5A_opponent_player_Rampion_:
@@ -949,6 +2692,50 @@ txt_96_opponent_team_Netherlands:
     .text "Netherlands"
     .byte $FC
 
+Netherlands_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Netherlands_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Netherlands_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Netherlands_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Netherlands_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Netherlands_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Netherlands_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Netherlands_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Netherlands_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Netherlands_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Netherlands_clone_11:
+    .text "Clone 11"
+    .byte $FC
+
 txt_5C_opponent_player_Islas:
     .text "Islas"
     .byte $FC
@@ -964,6 +2751,50 @@ txt_5D_opponent_player_Libuta:
 
 txt_97_opponent_team_Argentina:
     .text "Argentina"
+    .byte $FC
+
+Argentina_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Argentina_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Argentina_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Argentina_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Argentina_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Argentina_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Argentina_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Argentina_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Argentina_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Argentina_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Argentina_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_5E_opponent_player_Pasqal:
@@ -993,6 +2824,50 @@ txt_62_opponent_player_Galvan:
 
 txt_98_opponent_team_West_Germany:
     .text "West Germany"
+    .byte $FC
+
+West_Germany_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+West_Germany_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+West_Germany_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+West_Germany_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+West_Germany_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+West_Germany_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+West_Germany_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+West_Germany_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+West_Germany_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+West_Germany_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+West_Germany_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_63_opponent_player_Schneider:
@@ -1030,6 +2905,50 @@ txt_69_opponent_player_Muller:
 
 txt_99_opponent_team_Brazil:
     .text "Brazil"
+    .byte $FC
+
+Brazil_clone_01:
+    .text "Clone 01"
+    .byte $FC
+
+Brazil_clone_02:
+    .text "Clone 02"
+    .byte $FC
+
+Brazil_clone_03:
+    .text "Clone 03"
+    .byte $FC
+
+Brazil_clone_04:
+    .text "Clone 04"
+    .byte $FC
+
+Brazil_clone_05:
+    .text "Clone 05"
+    .byte $FC
+
+Brazil_clone_06:
+    .text "Clone 06"
+    .byte $FC
+
+Brazil_clone_07:
+    .text "Clone 07"
+    .byte $FC
+
+Brazil_clone_08:
+    .text "Clone 08"
+    .byte $FC
+
+Brazil_clone_09:
+    .text "Clone 09"
+    .byte $FC
+
+Brazil_clone_10:
+    .text "Clone 10"
+    .byte $FC
+
+Brazil_clone_11:
+    .text "Clone 11"
     .byte $FC
 
 txt_6A_opponent_player_Carlos:
