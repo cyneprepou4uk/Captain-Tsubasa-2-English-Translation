@@ -4403,17 +4403,17 @@ tbl_BC48_адрес_ppu_спешалов:
     .word $2704
 
 tbl_BC58_адрес_ppu_для_имен_игроков:
-    .word $2243
-    .word $224C
-    .word $2255
-    .word $2283
-    .word $228C
-    .word $2295
-    .word $22C3
-    .word $22CC
-    .word $22D5
-    .word $2303
-    .word $230C
+    .word $2263
+    .word $226C
+    .word $2275
+    .word $22A3
+    .word $22AC
+    .word $22B5
+    .word $22E3
+    .word $22EC
+    .word $22F5
+    .word $2323
+    .word $232C
 
 tbl_BC6E_символы_пароля:
 ; читается из 3х мест
