@@ -36,6 +36,7 @@ files_list = {
     "bank_30.asm",
     "bank_31.asm",
     "bank_32.asm",
+    "bank_33.asm",
     "bank_FF.asm",
     "bank_ram.inc",
 }
