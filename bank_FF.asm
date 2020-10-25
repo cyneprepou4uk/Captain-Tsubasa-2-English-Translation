@@ -1085,61 +1085,61 @@ C - - - - 0x03CD84 FF:CD74: 68        PLA
 C - - - - 0x03CD85 FF:CD75: AA        TAX
 C - - - - 0x03CD86 FF:CD76: 60        RTS
 
-.export sub_0x03CD87
-sub_0x03CD87:
-sub_CD77:
-C D - - - 0x03CD87 FF:CD77: AD FB 05  LDA ram_команда_с_мячом
-C - - - - 0x03CD8A FF:CD7A: 49 0B     EOR #$0B
+.export sub_0x03CD87_адрес_игрока_команды_без_мяча
+sub_0x03CD87_адрес_игрока_команды_без_мяча:
+sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча:
+    LDA ram_команда_с_мячом
+    EOR #$0B
 .export sub_0x03CD8C_адрес_игрока
 sub_0x03CD8C_адрес_игрока:
 .export loc_0x03CD8C_адрес_игрока
 loc_0x03CD8C_адрес_игрока:
 sub_CD7C_адрес_игрока:
-C D - - - 0x03CD8C FF:CD7C: 0A        ASL
-C - - - - 0x03CD8D FF:CD7D: A8        TAY
-C - - - - 0x03CD8E FF:CD7E: B9 89 CD  LDA tbl_CD89_адреса_игроков,Y
-C - - - - 0x03CD91 FF:CD81: 85 34     STA ram_plr_data
-C - - - - 0x03CD93 FF:CD83: B9 8A CD  LDA tbl_CD89_адреса_игроков + 1,Y
-C - - - - 0x03CD96 FF:CD86: 85 35     STA ram_plr_data + 1
-C - - - - 0x03CD98 FF:CD88: 60        RTS
+    ASL
+    TAY
+    LDA tbl_CD89_адреса_игроков,Y
+    STA ram_plr_data
+    LDA tbl_CD89_адреса_игроков + 1,Y
+    STA ram_plr_data + 1
+    RTS
 
 
 
 tbl_CD89_адреса_игроков:
-- D - - - 0x03CD99 FF:CD89: 00 03     .word ram_player_GK
-- D - - - 0x03CD9B FF:CD8B: 0C 03     .word ram_player_2
-- D - - - 0x03CD9D FF:CD8D: 18 03     .word ram_player_3
-- D - - - 0x03CD9F FF:CD8F: 24 03     .word ram_player_4
-- D - - - 0x03CDA1 FF:CD91: 30 03     .word ram_player_5
-- D - - - 0x03CDA3 FF:CD93: 3C 03     .word ram_player_6
-- D - - - 0x03CDA5 FF:CD95: 48 03     .word ram_player_7
-- D - - - 0x03CDA7 FF:CD97: 54 03     .word ram_player_8
-- D - - - 0x03CDA9 FF:CD99: 60 03     .word ram_player_9
-- D - - - 0x03CDAB FF:CD9B: 6C 03     .word ram_player_10
-- D - - - 0x03CDAD FF:CD9D: 78 03     .word ram_player_11
-
-- D - - - 0x03CDAF FF:CD9F: 84 03     .word ram_opponent_GK
-- D - - - 0x03CDB1 FF:CDA1: 90 03     .word ram_opponent_2
-- D - - - 0x03CDB3 FF:CDA3: 9C 03     .word ram_opponent_3
-- D - - - 0x03CDB5 FF:CDA5: A8 03     .word ram_opponent_4
-- D - - - 0x03CDB7 FF:CDA7: B4 03     .word ram_opponent_5
-- D - - - 0x03CDB9 FF:CDA9: C0 03     .word ram_opponent_6
-- D - - - 0x03CDBB FF:CDAB: CC 03     .word ram_opponent_7
-- D - - - 0x03CDBD FF:CDAD: D8 03     .word ram_opponent_8
-- D - - - 0x03CDBF FF:CDAF: E4 03     .word ram_opponent_9
-- D - - - 0x03CDC1 FF:CDB1: F0 03     .word ram_opponent_10
-- D - - - 0x03CDC3 FF:CDB3: FC 03     .word ram_opponent_11
-
-- D - - - 0x03CDC5 FF:CDB5: 08 04     .word ram_sub_1
-- D - - - 0x03CDC7 FF:CDB7: 0C 04     .word ram_sub_2
-- D - - - 0x03CDC9 FF:CDB9: 10 04     .word ram_sub_3
-- D - - - 0x03CDCB FF:CDBB: 14 04     .word ram_sub_4
-- D - - - 0x03CDCD FF:CDBD: 18 04     .word ram_sub_5
-- D - - - 0x03CDCF FF:CDBF: 1C 04     .word ram_sub_6
-- D - - - 0x03CDD1 FF:CDC1: 20 04     .word ram_sub_7
-- D - - - 0x03CDD3 FF:CDC3: 24 04     .word ram_sub_8
-- D - - - 0x03CDD5 FF:CDC5: 28 04     .word ram_sub_GK_1
-- D - - - 0x03CDD7 FF:CDC7: 2C 04     .word ram_sub_GK_2
+    .word ram_player_GK
+    .word ram_player_2
+    .word ram_player_3
+    .word ram_player_4
+    .word ram_player_5
+    .word ram_player_6
+    .word ram_player_7
+    .word ram_player_8
+    .word ram_player_9
+    .word ram_player_10
+    .word ram_player_11
+    
+    .word ram_opponent_GK
+    .word ram_opponent_2
+    .word ram_opponent_3
+    .word ram_opponent_4
+    .word ram_opponent_5
+    .word ram_opponent_6
+    .word ram_opponent_7
+    .word ram_opponent_8
+    .word ram_opponent_9
+    .word ram_opponent_10
+    .word ram_opponent_11
+    
+    .word ram_bench_1
+    .word ram_bench_2
+    .word ram_bench_3
+    .word ram_bench_4
+    .word ram_bench_5
+    .word ram_bench_6
+    .word ram_bench_7
+    .word ram_bench_8
+    .word ram_bench_GK_1
+    .word ram_bench_GK_2
 
 
 
@@ -2015,7 +2015,7 @@ C - - - - 0x03D2EA FF:D2DA: F0 2D     BEQ bra_D309
 C - - - - 0x03D2EC FF:D2DC: C9 02     CMP #$02
 C - - - - 0x03D2EE FF:D2DE: D0 0D     BNE bra_D2ED
 ; bzk прыжок чтобы вычислить адрес кипера, тут можно сразу проверить адрес кипера без косвенной адресации
-C - - - - 0x03D2F0 FF:D2E0: 20 77 CD  JSR sub_CD77
+C - - - - 0x03D2F0 FF:D2E0: 20 77 CD  JSR sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча
 C - - - - 0x03D2F3 FF:D2E3: A0 00     LDY #con_игрок_номер
 C - - - - 0x03D2F5 FF:D2E5: B1 34     LDA (ram_plr_data),Y
 ; проверка на кипера вакашимазу, чтобы отобразить ему действие прыжка от штанги при нажатии вниз
@@ -2433,7 +2433,7 @@ sub_D573:
 C - - - - 0x03D583 FF:D573: A9 00     LDA #$00
 C - - - - 0x03D585 FF:D575: 8D 2D 06  STA $062D
 C - - - - 0x03D588 FF:D578: 8D 28 06  STA ram_индекс_буфера
-C - - - - 0x03D58B FF:D57B: 20 77 CD  JSR sub_CD77
+C - - - - 0x03D58B FF:D57B: 20 77 CD  JSR sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча
 C - - - - 0x03D58E FF:D57E: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03D590 FF:D580: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D592 FF:D582: F0 08     BEQ bra_D58C
@@ -3585,7 +3585,7 @@ C - - - - 0x03DD24 FF:DD14: A9 2D     LDA #$2D
 C - - - - 0x03DD26 FF:DD16: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DD29 FF:DD19: 4C 1B 80  JMP loc_0x034BF5
 bra_DD1C:
-C - - - - 0x03DD2C FF:DD1C: 20 77 CD  JSR sub_CD77
+C - - - - 0x03DD2C FF:DD1C: 20 77 CD  JSR sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча
 C - - - - 0x03DD2F FF:DD1F: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03DD31 FF:DD21: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03DD33 FF:DD23: D0 11     BNE bra_DD36
@@ -4317,7 +4317,7 @@ C - - - - 0x03E289 FF:E279: 20 7F EF  JSR sub_EF7F_отрисовка_меню_�
 C - - - - 0x03E28C FF:E27C: 60        RTS
 
 sub_E27D:
-C - - - - 0x03E28D FF:E27D: 20 77 CD  JSR sub_CD77
+C - - - - 0x03E28D FF:E27D: 20 77 CD  JSR sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча
 C - - - - 0x03E290 FF:E280: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03E292 FF:E282: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E294 FF:E284: D0 1C     BNE bra_E2A2_выход
@@ -4805,7 +4805,7 @@ ofs_0x03E5A6:
 C D - - - 0x03E5A6 FF:E596: AD E2 00  LDA ram_рандом_2
 C - - - - 0x03E5A9 FF:E599: C9 E0     CMP #$E0
 C - - - - 0x03E5AB FF:E59B: B0 1D     BCS bra_E5BA
-C - - - - 0x03E5AD FF:E59D: 20 77 CD  JSR sub_CD77
+C - - - - 0x03E5AD FF:E59D: 20 77 CD  JSR sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча
 C - - - - 0x03E5B0 FF:E5A0: A0 07     LDY #con_игрок_координата_Y_lo
 C - - - - 0x03E5B2 FF:E5A2: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E5B4 FF:E5A4: 18        CLC
