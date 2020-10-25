@@ -101,7 +101,7 @@ tbl_F329_слова:         ; таблица с именами игроков, 
     .word txt_37_opponent_player_Sorimachi
     .word txt_38_opponent_player_Sawada
     .word txt_39_opponent_player_Wakashimazu
-    .word txt_3A_opponent_player_Rampion
+    .word txt_3A_opponent_player_Rampion_
     .word txt_3B_opponent_player_Victorino
     .word txt_3C_opponent_player_Danil_Silva
     .word txt_3D_opponent_player_Kappelman
@@ -133,7 +133,7 @@ tbl_F329_слова:         ; таблица с именами игроков, 
     .word txt_57_opponent_player_Napoleon
     .word txt_58_opponent_player_Pierre
     .word txt_59_opponent_player_Espana
-    .word txt_5A_opponent_player_Rampion
+    .word txt_5A_opponent_player_Rampion_
     .word txt_5B_opponent_player_Hernandez
     .word txt_5C_opponent_player_Islas
     .word txt_5D_opponent_player_Libuta
@@ -284,6 +284,15 @@ tbl_F329_слова:         ; таблица с именами игроков, 
     .word off_FAC4_EE
     .word off_FAC8_EF
 
+
+
+
+
+
+txt_76_our_team_sao_paulo:
+    .text "Sao Paulo"
+    .byte $FC
+
 txt_01_our_player_Tsubasa:
     .text "Tsubasa"
     .byte $FC
@@ -328,6 +337,15 @@ txt_0B_our_player_Platon:
     .text "Platon"
     .byte $FC
 
+
+
+
+
+
+txt_77_our_team_nankatsu:
+    .text "Nankatsu"
+    .byte $FC
+
 txt_0C_our_player_Urabe:
     .text "Urabe"
     .byte $FC
@@ -370,6 +388,15 @@ txt_15_our_player_Nitta:
 
 txt_16_our_player_Kisugi:
     .text "Kisugi"
+    .byte $FC
+
+
+
+
+
+
+txt_78_our_team_japan:
+    .text "Japan"
     .byte $FC
 
 txt_17_our_player_Masao:
@@ -420,12 +447,39 @@ txt_22_our_player_Wakashimazu:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
+
+
+
+
+
+txt_79_opponent_team_fluminense:
+    .text "Fluminense"
+    .byte $FC
+
+
+
+
+
+
+txt_7A_opponent_team_corinthians:
+    .text "Corinthians"
+    .byte $FC
+
 txt_23_opponent_player_Satrustegui:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
 txt_24_opponent_player_Ribeiro:
     .text "Ribeiro"
+    .byte $FC
+
+
+
+
+
+
+txt_7B_opponent_team_gremio:
+    .text "Gremio"
     .byte $FC
 
 txt_25_opponent_player_Danil_Silva:
@@ -436,6 +490,15 @@ txt_26_opponent_player_Meon:
     .text "Meon"
     .byte $FC
 
+
+
+
+
+
+txt_7C_opponent_team_palmeiras:
+    .text "Palmeiras"
+    .byte $FC
+
 txt_27_opponent_player_Toninho:
     .text "Toninho"
     .byte $FC
@@ -444,12 +507,30 @@ txt_28_opponent_player_Nei:
     .text "Nei"
     .byte $FC
 
+
+
+
+
+
+txt_7D_opponent_team_santos:
+    .text "Santos"
+    .byte $FC
+
 txt_29_opponent_player_Zagallo:
     .text "Zagallo"
     .byte $FC
 
 txt_2A_opponent_player_Dirceu:
     .text "Dirceu"
+    .byte $FC
+
+
+
+
+
+
+txt_7E_opponent_team_flamengo:
+    .text "Flamengo"
     .byte $FC
 
 txt_2B_opponent_player_Carlos:
@@ -464,12 +545,30 @@ txt_2D_opponent_player_Jetorio:
     .text "Jetorio"
     .byte $FC
 
+
+
+
+
+
+txt_7F_opponent_team_kunimi:
+    .text "Kunimi"
+    .byte $FC
+
 txt_2E_opponent_player_Jitou:
     .text "Jitou"
     .byte $FC
 
 txt_2F_opponent_player_Sano:
     .text "Sano"
+    .byte $FC
+
+
+
+
+
+
+txt_80_opponent_team_akita:
+    .text "Akita"
     .byte $FC
 
 txt_30_opponent_player_Masao:
@@ -480,6 +579,15 @@ txt_31_opponent_player_Kazuo:
     .text "Kazuo"
     .byte $FC
 
+
+
+
+
+
+txt_81_opponent_team_tatsunami:
+    .text "Tatsunami"
+    .byte $FC
+
 txt_32_opponent_player_Souda:
     .text "Souda"
     .byte $FC
@@ -488,12 +596,39 @@ txt_33_opponent_player_Nakanishi:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-txt_34_opponent_player_Misugi:
+
+
+
+
+
+txt_82_opponent_team_musashi:
+    .text "Musashi"
+    .byte $FC
+
+txt_34_opponent_player_Misugi:      ; bench player
     .text "Misugi"
+    .byte $FC
+
+
+
+
+
+
+txt_83_opponent_team_furano:
+    .text "Furano"
     .byte $FC
 
 txt_35_opponent_player_Matsuyama:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
+    .byte $FC
+
+
+
+
+
+
+txt_84_opponent_team_toho:
+    .text "Toho"
     .byte $FC
 
 txt_36_opponent_player_Hyuga:
@@ -512,8 +647,26 @@ txt_39_opponent_player_Wakashimazu:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
-txt_3A_opponent_player_Rampion:
+
+
+
+
+
+txt_85_opponent_team_as_roma:
+    .text "AS Roma"
+    .byte $FC
+
+txt_3A_opponent_player_Rampion_:
     .text "Rampion"
+    .byte $FC
+
+
+
+
+
+
+txt_86_opponent_team_uruguay:
+    .text "Uruguay"
     .byte $FC
 
 txt_3B_opponent_player_Victorino:
@@ -522,6 +675,15 @@ txt_3B_opponent_player_Victorino:
 
 txt_3C_opponent_player_Danil_Silva:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
+    .byte $FC
+
+
+
+
+
+
+txt_87_opponent_team_hamburger_sv:
+    .text "Hamburger SV"
     .byte $FC
 
 txt_3D_opponent_player_Kappelman:
@@ -540,6 +702,15 @@ txt_40_opponent_player_Wakabayashi:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
+
+
+
+
+
+txt_88_opponent_team_japan:
+    .text "Japan"
+    .byte $FC
+
 txt_41_opponent_player_Hyuga:
     .text "Hyuga"
     .byte $FC
@@ -556,7 +727,7 @@ txt_44_opponent_player_Misaki:
     .text "Misaki"
     .byte $FC
 
-txt_45_opponent_player_Misugi:
+txt_45_opponent_player_Misugi:      ; bench player
     .text "Misugi"
     .byte $FC
 
@@ -588,12 +759,66 @@ txt_4C_opponent_player_Wakashimazu:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
+
+
+
+
+
+txt_89_opponent_team_syria:
+    .text "Syria"
+    .byte $FC
+
+
+
+
+
+
+txt_8A_opponent_team_china:
+    .text "China"
+    .byte $FC
+
 txt_4D_opponent_player_Li_Han_ne:
     .byte $01, $02, $03, $04, $05, $06, $07             ; Li Han-ne
     .byte $FC
 
 txt_4E_opponent_player_Li_Ban_kun:
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F        ; Li Ban-kun
+    .byte $FC
+
+
+
+
+
+
+txt_8B_opponent_team_iran:
+    .text "Iran"
+    .byte $FC
+
+
+
+
+
+
+txt_8C_opponent_team_north_korea:
+    .text "North Korea"
+    .byte $FC
+
+
+
+
+
+
+txt_8D_opponent_team_saudi_arabia:
+    .text "Saudi Arabia"
+    .byte $FC
+
+
+
+
+
+
+txt_8E_opponent_team_south_korea:
+    .text "South Korea"
     .byte $FC
 
 txt_4F_opponent_player_Sha:
@@ -604,12 +829,38 @@ txt_50_opponent_player_Kim:
     .text "Kim"
     .byte $FC
 
+
+
+
+
+
+txt_8F_opponent_team_turkey:
+    .text "Turkey"
+    .byte $FC
+
+
+
+
+
+
+txt_90_opponent_team_poland:
+    .text "Poland"
+    .byte $FC
+
 txt_51_opponent_player_Macher:
     .text "Macher"
     .byte $FC
 
 txt_52_opponent_player_Djazic:
     .text "Djazic"
+    .byte $FC
+
+
+
+
+
+txt_91_opponent_team_england:
+    .text "England"
     .byte $FC
 
 txt_53_opponent_player_Lorimar:
@@ -620,12 +871,30 @@ txt_54_opponent_player_Robson:
     .text "Robson"
     .byte $FC
 
+
+
+
+
+
+txt_92_opponent_team_soviet_union:
+    .text "Soviet Union"
+    .byte $FC
+
 txt_55_opponent_player_Belaev:
     .text "Belaev"
     .byte $FC
 
 txt_56_opponent_player_Rashin:
     .text "Rashin"
+    .byte $FC
+
+
+
+
+
+
+txt_93_opponent_team_france:
+    .text "France"
     .byte $FC
 
 txt_57_opponent_player_Napoleon:
@@ -636,16 +905,43 @@ txt_58_opponent_player_Pierre:
     .text "Pierre"
     .byte $FC
 
+
+
+
+
+
+txt_94_opponent_team_mexico:
+    .text "Mexico"
+    .byte $FC
+
 txt_59_opponent_player_Espana:
     .text "Espana"
     .byte $FC
 
-txt_5A_opponent_player_Rampion:
+
+
+
+
+
+txt_95_opponent_team_italy:
+    .text "Italy"
+    .byte $FC
+
+txt_5A_opponent_player_Rampion_:
     .text "Rampion"
     .byte $FC
 
 txt_5B_opponent_player_Hernandez:
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
+    .byte $FC
+
+
+
+
+
+
+txt_96_opponent_team_netherlands:
+    .text "Netherlands"
     .byte $FC
 
 txt_5C_opponent_player_Islas:
@@ -654,6 +950,15 @@ txt_5C_opponent_player_Islas:
 
 txt_5D_opponent_player_Libuta:
     .text "Libuta"
+    .byte $FC
+
+
+
+
+
+
+txt_97_opponent_team_argentina:
+    .text "Argentina"
     .byte $FC
 
 txt_5E_opponent_player_Pasqal:
@@ -674,6 +979,15 @@ txt_61_opponent_player_Babington:
 
 txt_62_opponent_player_Galvan:
     .text "Galvan"
+    .byte $FC
+
+
+
+
+
+
+txt_98_opponent_team_west_germany:
+    .text "West Germany"
     .byte $FC
 
 txt_63_opponent_player_Schneider:
@@ -702,6 +1016,15 @@ txt_68_opponent_player_Kappelman:
 
 txt_69_opponent_player_Muller:
     .text "Muller"
+    .byte $FC
+
+
+
+
+
+
+txt_99_opponent_team_brazil:
+    .text "Brazil"
     .byte $FC
 
 txt_6A_opponent_player_Carlos:
@@ -752,149 +1075,10 @@ txt_75_opponent_player_Coimbra:
     .text "Coimbra"
     .byte $FC
 
-txt_76_our_team_sao_paulo:
-    .text "Sao Paulo"
-    .byte $FC
 
-txt_77_our_team_nankatsu:
-    .text "Nankatsu"
-    .byte $FC
 
-txt_78_our_team_japan:
-    .text "Japan"
-    .byte $FC
 
-txt_79_opponent_team_fluminense:
-    .text "Fluminense"
-    .byte $FC
 
-txt_7A_opponent_team_corinthians:
-    .text "Corinthians"
-    .byte $FC
-
-txt_7B_opponent_team_gremio:
-    .text "Gremio"
-    .byte $FC
-
-txt_7C_opponent_team_palmeiras:
-    .text "Palmeiras"
-    .byte $FC
-
-txt_7D_opponent_team_santos:
-    .text "Santos"
-    .byte $FC
-
-txt_7E_opponent_team_flamengo:
-    .text "Flamengo"
-    .byte $FC
-
-txt_7F_opponent_team_kunimi:
-    .text "Kunimi"
-    .byte $FC
-
-txt_80_opponent_team_akita:
-    .text "Akita"
-    .byte $FC
-
-txt_81_opponent_team_tatsunami:
-    .text "Tatsunami"
-    .byte $FC
-
-txt_82_opponent_team_musashi:
-    .text "Musashi"
-    .byte $FC
-
-txt_83_opponent_team_furano:
-    .text "Furano"
-    .byte $FC
-
-txt_84_opponent_team_toho:
-    .text "Toho"
-    .byte $FC
-
-txt_85_opponent_team_as_roma:
-    .text "AS Roma"
-    .byte $FC
-
-txt_86_opponent_team_uruguay:
-    .text "Uruguay"
-    .byte $FC
-
-txt_87_opponent_team_hamburger_sv:
-    .text "Hamburger SV"
-    .byte $FC
-
-txt_88_opponent_team_japan:
-    .text "Japan"
-    .byte $FC
-
-txt_89_opponent_team_syria:
-    .text "Syria"
-    .byte $FC
-
-txt_8A_opponent_team_china:
-    .text "China"
-    .byte $FC
-
-txt_8B_opponent_team_iran:
-    .text "Iran"
-    .byte $FC
-
-txt_8C_opponent_team_north_korea:
-    .text "North Korea"
-    .byte $FC
-
-txt_8D_opponent_team_saudi_arabia:
-    .text "Saudi Arabia"
-    .byte $FC
-
-txt_8E_opponent_team_south_korea:
-    .text "South Korea"
-    .byte $FC
-
-txt_8F_opponent_team_turkey:
-    .text "Turkey"
-    .byte $FC
-
-txt_90_opponent_team_poland:
-    .text "Poland"
-    .byte $FC
-
-txt_91_opponent_team_england:
-    .text "England"
-    .byte $FC
-
-txt_92_opponent_team_soviet_union:
-    .text "Soviet Union"
-    .byte $FC
-
-txt_93_opponent_team_france:
-    .text "France"
-    .byte $FC
-
-txt_94_opponent_team_mexico:
-    .text "Mexico"
-    .byte $FC
-
-txt_95_opponent_team_italy:
-    .text "Italy"
-    .byte $FC
-
-txt_96_opponent_team_netherlands:
-    .text "Netherlands"
-    .byte $FC
-
-txt_97_opponent_team_argentina:
-    .text "Argentina"
-    .byte $FC
-
-txt_98_opponent_team_west_germany:
-    .text "West Germany"
-    .byte $FC
-
-txt_99_opponent_team_brazil:
-    .text "Brazil"
-    .byte $FC
 
 off_F813_9A:        ; shoot
     .text "9A "     ; <シュート>
