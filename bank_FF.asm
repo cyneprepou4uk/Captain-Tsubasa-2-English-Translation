@@ -3175,15 +3175,11 @@ C - - - - 0x03DACD FF:DABD: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DAD0 FF:DAC0: 68        PLA
 C - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x03505E
 C - - - - 0x03DAD4 FF:DAC4: 20 24 DB  JSR sub_DB24
-                                      LDA #$42      ; booth_for_charlie
-                                      JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - 0x03DAD7 FF:DAC7: A9 00     LDA #$00      ; period_number_and_time
-C - - - - 0x03DAD9 FF:DAC9: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - 0x03DADC FF:DACC: A9 01     LDA #$01      ; team_names_and_score
-C - - - - 0x03DADE FF:DACE: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DAE1 FF:DAD1: AD 29 06  LDA ram_флаг_разводки
 C - - - - 0x03DAE4 FF:DAD4: C9 04     CMP #$04
-C - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9
+C - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9_пропуск_отрисовки_и_ожидания_разводки
+                                      LDA #$42      ; booth_for_charlie_time_score_period_number
+                                      JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #$35
 C - - - - 0x03DAEA FF:DADA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_DADD_ожидание_разводки:
@@ -3192,7 +3188,7 @@ C - - - - 0x03DAEF FF:DADF: 20 0F CB  JSR sub_CB0F
 C - - - - 0x03DAF2 FF:DAE2: AD 1C 00  LDA ram_удержанные
 C - - - - 0x03DAF5 FF:DAE5: 29 C0     AND #con_btn_B + con_btn_A
 C - - - - 0x03DAF7 FF:DAE7: F0 F4     BEQ bra_DADD_ожидание_разводки
-bra_DAE9:
+bra_DAE9_пропуск_отрисовки_и_ожидания_разводки:
 C - - - - 0x03DAF9 FF:DAE9: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x03DAFC FF:DAEC: 18        CLC
 C - - - - 0x03DAFD FF:DAED: 69 08     ADC #$08

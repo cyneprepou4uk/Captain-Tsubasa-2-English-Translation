@@ -71,7 +71,7 @@ tbl_0x40004_вид_меню:
     .word off_BB69_3F_pk_players_list
     .word off_BB9E_40_pk_order
     .word off_BBBF_41_pk_and_score
-    .word off_BC00_42_booth_for_charlie
+    .word off_BC00_42_booth_for_charlie_time_score_period_number
 
 
 
@@ -143,7 +143,7 @@ con_закончить                           = $FC
 off_B453_00_period_number_and_time:
 ; номер набора контура окна
 ; id of the window outline
-    .byte $00 * $09
+    .byte $02 * $09
 ; адрес ppu
     .word $2281
 ; X * Y зачищаемой области (вне этой области текст не запишется)
@@ -3844,29 +3844,57 @@ off_BBBF_41_pk_and_score:
 
 
 
-off_BC00_42_booth_for_charlie:
+off_BC00_42_booth_for_charlie_time_score_period_number:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2240
+    .word $2220
 ; X * Y зачищаемой области
     .byte $07
-    .byte $0A
+    .byte $0C
 ; смещение окна X, Y
     .byte $00
-    .byte $00
+    .byte $01
 ; размер окна X, Y
     .byte $07
     .byte $0A
 ; количество поинтеров
-    .byte $01
+    .byte $05
 ; смещение текста Y, X + поинтеры на текст
-    .byte $00
+    .byte $01
     .byte $01
     .word @period
+    .byte $03
+    .byte $05
+    .word @time
+    .byte $05
+    .byte $02
+    .word @score_left
+    .byte $05
+    .byte $03
+    .word @dash
+    .byte $05
+    .byte $04
+    .word @score_right
 
 @period:
     .byte con_period_number
+    .byte con_закончить
+
+@time:
+    .byte con_time
+    .byte con_закончить
+
+@score_left:
+    .byte con_score, $00
+    .byte con_закончить
+
+@dash:
+    .text "-"
+    .byte con_закончить
+
+@score_right:
+    .byte con_score, $01
     .byte con_закончить
 
 
