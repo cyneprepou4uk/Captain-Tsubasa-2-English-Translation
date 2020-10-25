@@ -1972,7 +1972,7 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte con_animation, $01, $3C
     .byte con_pause, $0A
     .byte con_speed, $04
-    .byte con_offset, $05
+    .byte con_offset, $07
     .text "@Listen,"
     .byte con_pause, $1E
     .text " Tsubasa"
@@ -1983,13 +1983,11 @@ off_AB61_06_роберто_говорит_о_джаиро:
     .byte con_pause, $3C
     .byte con_line
     .byte con_speed, $04
-    .byte con_offset, $06
-    .text "Carlos,"
+    .byte con_offset, $08
+    .text "Carlos is really,"
     .byte con_pause, $1E
-    .text " he's really,"
-    .byte con_pause, $14
     .byte con_line
-    .byte con_offset, $06
+    .byte con_offset, $08
     .text "really good.@"
     .byte con_pause, $50
     .byte con_clear_1
@@ -1997,10 +1995,10 @@ off_AB61_06_роберто_говорит_о_джаиро:
     
     
     
-    .byte con_offset, $06
+    .byte con_offset, $07
     .text "@Much better than"
     .byte con_line
-    .byte con_offset, $07
+    .byte con_offset, $08
     .text "I anticipated.@"
     .byte con_pause, $50
     .byte con_clear_1
