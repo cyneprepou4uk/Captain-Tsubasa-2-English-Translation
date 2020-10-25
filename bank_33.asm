@@ -6,20 +6,14 @@
 sub_0x40005_таблица_слов:
     TYA
     BNE @это_не_клон
-    LDA #$EB
+    LDA #< tbl_teams_with_clones
     STA ram_0030
-    LDA #$05
+    LDA #> tbl_teams_with_clones
     STA ram_0031
-    RTS
-@это_не_клон:
-    LDY #< tbl_dictionary
-    STY ram_0030
-    LDY #> tbl_dictionary
-    STY ram_0031
+    LDA ram_команда_соперника
+    SEC
+    SBC #$03
     ASL
-    BCC bra_F31C_не_увеличивать_старший_байт
-    INC ram_0031
-bra_F31C_не_увеличивать_старший_байт:
     TAY
     LDA (ram_0030),Y
     PHA
@@ -28,6 +22,37 @@ bra_F31C_не_увеличивать_старший_байт:
     STA ram_0031
     PLA
     STA ram_0030
+    LDA ram_копия_номера_игрока
+    SEC
+    SBC #$0B
+    ASL
+    TAY
+    LDA (ram_0030),Y
+    PHA
+    INY
+    LDA (ram_0030),Y
+    STA ram_0031
+    PLA
+    STA ram_0030
+    JMP loc_копирование_текста
+@это_не_клон:
+    LDY #< tbl_dictionary
+    STY ram_0030
+    LDY #> tbl_dictionary
+    STY ram_0031
+    ASL
+    BCC @не_увеличивать_старший_байт
+    INC ram_0031
+@не_увеличивать_старший_байт:
+    TAY
+    LDA (ram_0030),Y
+    PHA
+    INY
+    LDA (ram_0030),Y
+    STA ram_0031
+    PLA
+    STA ram_0030
+loc_копирование_текста:
     LDY #$00
 @цикл_копирования_текста:
     LDA (ram_0030),Y
