@@ -37,7 +37,8 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_30 - катсцены
 ; bank_31 - катсцены
 ; bank_32 - катсцены
-; bank_FF - NMI, IRQ, RESET, имена игроков
+; bank_33 - словарь
+; bank_FF - NMI, IRQ, RESET
 
 
 

@@ -1,5 +1,6 @@
 .segment "BANK_33"
 .include "copy_bank_ram.inc"
+; имена игроков, команды, спешалы, словарь
 
 .export sub_0x40005_таблица_слов
 sub_0x40005_таблица_слов:
@@ -11,9 +12,9 @@ sub_0x40005_таблица_слов:
     STA ram_0031
     RTS
 @это_не_клон:
-    LDY #< tbl_F329_слова
+    LDY #< tbl_dictionary
     STY ram_0030
-    LDY #> tbl_F329_слова
+    LDY #> tbl_dictionary
     STY ram_0031
     ASL
     BCC bra_F31C_не_увеличивать_старший_байт
@@ -42,7 +43,7 @@ bra_F31C_не_увеличивать_старший_байт:
 
 
 
-tbl_F329_слова:         ; таблица с именами игроков, командами, спешалами и сокращений текста
+tbl_dictionary:
     .word ram_имя_клона
     .word txt_01_our_player_Tsubasa
     .word txt_02_our_player_Renato
@@ -78,6 +79,7 @@ tbl_F329_слова:         ; таблица с именами игроков, 
     .word txt_20_our_player_Misugi
     .word txt_21_our_player_Wakabayashi
     .word txt_22_our_player_Wakashimazu
+    
     .word txt_23_opponent_player_Satrustegui
     .word txt_24_opponent_player_Ribeiro
     .word txt_25_opponent_player_Danil_Silva
@@ -161,42 +163,45 @@ tbl_F329_слова:         ; таблица с именами игроков, 
     .word txt_73_opponent_player_Jetorio
     .word txt_74_opponent_player_Gertise
     .word txt_75_opponent_player_Coimbra
-    .word txt_76_our_team_sao_paulo
-    .word txt_77_our_team_nankatsu
-    .word txt_78_our_team_japan
-    .word txt_79_opponent_team_fluminense
-    .word txt_7A_opponent_team_corinthians
-    .word txt_7B_opponent_team_gremio
-    .word txt_7C_opponent_team_palmeiras
-    .word txt_7D_opponent_team_santos
-    .word txt_7E_opponent_team_flamengo
-    .word txt_7F_opponent_team_kunimi
-    .word txt_80_opponent_team_akita
-    .word txt_81_opponent_team_tatsunami
-    .word txt_82_opponent_team_musashi
-    .word txt_83_opponent_team_furano
-    .word txt_84_opponent_team_toho
-    .word txt_85_opponent_team_as_roma
-    .word txt_86_opponent_team_uruguay
-    .word txt_87_opponent_team_hamburger_sv
-    .word txt_88_opponent_team_japan
-    .word txt_89_opponent_team_syria
-    .word txt_8A_opponent_team_china
-    .word txt_8B_opponent_team_iran
-    .word txt_8C_opponent_team_north_korea
-    .word txt_8D_opponent_team_saudi_arabia
-    .word txt_8E_opponent_team_south_korea
-    .word txt_8F_opponent_team_turkey
-    .word txt_90_opponent_team_poland
-    .word txt_91_opponent_team_england
-    .word txt_92_opponent_team_soviet_union
-    .word txt_93_opponent_team_france
-    .word txt_94_opponent_team_mexico
-    .word txt_95_opponent_team_italy
-    .word txt_96_opponent_team_netherlands
-    .word txt_97_opponent_team_argentina
-    .word txt_98_opponent_team_west_germany
-    .word txt_99_opponent_team_brazil
+    
+    .word txt_76_our_team_Sao_Paulo
+    .word txt_77_our_team_Nankatsu
+    .word txt_78_our_team_Japan
+    
+    .word txt_79_opponent_team_Fluminense
+    .word txt_7A_opponent_team_Corinthians
+    .word txt_7B_opponent_team_Gremio
+    .word txt_7C_opponent_team_Palmeiras
+    .word txt_7D_opponent_team_Santos
+    .word txt_7E_opponent_team_Flamengo
+    .word txt_7F_opponent_team_Kunimi
+    .word txt_80_opponent_team_Akita
+    .word txt_81_opponent_team_Tatsunami
+    .word txt_82_opponent_team_Musashi
+    .word txt_83_opponent_team_Furano
+    .word txt_84_opponent_team_Toho
+    .word txt_85_opponent_team_AS_Roma
+    .word txt_86_opponent_team_Uruguay
+    .word txt_87_opponent_team_Hamburger_SV
+    .word txt_88_opponent_team_Japan
+    .word txt_89_opponent_team_Syria
+    .word txt_8A_opponent_team_China
+    .word txt_8B_opponent_team_Iran
+    .word txt_8C_opponent_team_North_Korea
+    .word txt_8D_opponent_team_Saudi_Arabia
+    .word txt_8E_opponent_team_South_Korea
+    .word txt_8F_opponent_team_Turkey
+    .word txt_90_opponent_team_Poland
+    .word txt_91_opponent_team_England
+    .word txt_92_opponent_team_Soviet_Union
+    .word txt_93_opponent_team_France
+    .word txt_94_opponent_team_Mexico
+    .word txt_95_opponent_team_Italy
+    .word txt_96_opponent_team_Netherlands
+    .word txt_97_opponent_team_Argentina
+    .word txt_98_opponent_team_West_Germany
+    .word txt_99_opponent_team_Brazil
+    
     .word off_F813_9A
     .word off_F818_9B
     .word off_F820_9C
@@ -289,7 +294,7 @@ tbl_F329_слова:         ; таблица с именами игроков, 
 
 
 
-txt_76_our_team_sao_paulo:
+txt_76_our_team_Sao_Paulo:
     .text "Sao Paulo"
     .byte $FC
 
@@ -342,7 +347,7 @@ txt_0B_our_player_Platon:
 
 
 
-txt_77_our_team_nankatsu:
+txt_77_our_team_Nankatsu:
     .text "Nankatsu"
     .byte $FC
 
@@ -395,7 +400,7 @@ txt_16_our_player_Kisugi:
 
 
 
-txt_78_our_team_japan:
+txt_78_our_team_Japan:
     .text "Japan"
     .byte $FC
 
@@ -452,7 +457,7 @@ txt_22_our_player_Wakashimazu:
 
 
 
-txt_79_opponent_team_fluminense:
+txt_79_opponent_team_Fluminense:
     .text "Fluminense"
     .byte $FC
 
@@ -461,7 +466,7 @@ txt_79_opponent_team_fluminense:
 
 
 
-txt_7A_opponent_team_corinthians:
+txt_7A_opponent_team_Corinthians:
     .text "Corinthians"
     .byte $FC
 
@@ -478,7 +483,7 @@ txt_24_opponent_player_Ribeiro:
 
 
 
-txt_7B_opponent_team_gremio:
+txt_7B_opponent_team_Gremio:
     .text "Gremio"
     .byte $FC
 
@@ -495,7 +500,7 @@ txt_26_opponent_player_Meon:
 
 
 
-txt_7C_opponent_team_palmeiras:
+txt_7C_opponent_team_Palmeiras:
     .text "Palmeiras"
     .byte $FC
 
@@ -512,7 +517,7 @@ txt_28_opponent_player_Nei:
 
 
 
-txt_7D_opponent_team_santos:
+txt_7D_opponent_team_Santos:
     .text "Santos"
     .byte $FC
 
@@ -529,7 +534,7 @@ txt_2A_opponent_player_Dirceu:
 
 
 
-txt_7E_opponent_team_flamengo:
+txt_7E_opponent_team_Flamengo:
     .text "Flamengo"
     .byte $FC
 
@@ -550,7 +555,7 @@ txt_2D_opponent_player_Jetorio:
 
 
 
-txt_7F_opponent_team_kunimi:
+txt_7F_opponent_team_Kunimi:
     .text "Kunimi"
     .byte $FC
 
@@ -567,7 +572,7 @@ txt_2F_opponent_player_Sano:
 
 
 
-txt_80_opponent_team_akita:
+txt_80_opponent_team_Akita:
     .text "Akita"
     .byte $FC
 
@@ -584,7 +589,7 @@ txt_31_opponent_player_Kazuo:
 
 
 
-txt_81_opponent_team_tatsunami:
+txt_81_opponent_team_Tatsunami:
     .text "Tatsunami"
     .byte $FC
 
@@ -601,7 +606,7 @@ txt_33_opponent_player_Nakanishi:
 
 
 
-txt_82_opponent_team_musashi:
+txt_82_opponent_team_Musashi:
     .text "Musashi"
     .byte $FC
 
@@ -614,7 +619,7 @@ txt_34_opponent_player_Misugi:      ; bench player
 
 
 
-txt_83_opponent_team_furano:
+txt_83_opponent_team_Furano:
     .text "Furano"
     .byte $FC
 
@@ -627,7 +632,7 @@ txt_35_opponent_player_Matsuyama:
 
 
 
-txt_84_opponent_team_toho:
+txt_84_opponent_team_Toho:
     .text "Toho"
     .byte $FC
 
@@ -652,7 +657,7 @@ txt_39_opponent_player_Wakashimazu:
 
 
 
-txt_85_opponent_team_as_roma:
+txt_85_opponent_team_AS_Roma:
     .text "AS Roma"
     .byte $FC
 
@@ -665,7 +670,7 @@ txt_3A_opponent_player_Rampion_:
 
 
 
-txt_86_opponent_team_uruguay:
+txt_86_opponent_team_Uruguay:
     .text "Uruguay"
     .byte $FC
 
@@ -682,7 +687,7 @@ txt_3C_opponent_player_Danil_Silva:
 
 
 
-txt_87_opponent_team_hamburger_sv:
+txt_87_opponent_team_Hamburger_SV:
     .text "Hamburger SV"
     .byte $FC
 
@@ -707,7 +712,7 @@ txt_40_opponent_player_Wakabayashi:
 
 
 
-txt_88_opponent_team_japan:
+txt_88_opponent_team_Japan:
     .text "Japan"
     .byte $FC
 
@@ -764,7 +769,7 @@ txt_4C_opponent_player_Wakashimazu:
 
 
 
-txt_89_opponent_team_syria:
+txt_89_opponent_team_Syria:
     .text "Syria"
     .byte $FC
 
@@ -773,7 +778,7 @@ txt_89_opponent_team_syria:
 
 
 
-txt_8A_opponent_team_china:
+txt_8A_opponent_team_China:
     .text "China"
     .byte $FC
 
@@ -790,7 +795,7 @@ txt_4E_opponent_player_Li_Ban_kun:
 
 
 
-txt_8B_opponent_team_iran:
+txt_8B_opponent_team_Iran:
     .text "Iran"
     .byte $FC
 
@@ -799,7 +804,7 @@ txt_8B_opponent_team_iran:
 
 
 
-txt_8C_opponent_team_north_korea:
+txt_8C_opponent_team_North_Korea:
     .text "North Korea"
     .byte $FC
 
@@ -808,7 +813,7 @@ txt_8C_opponent_team_north_korea:
 
 
 
-txt_8D_opponent_team_saudi_arabia:
+txt_8D_opponent_team_Saudi_Arabia:
     .text "Saudi Arabia"
     .byte $FC
 
@@ -817,7 +822,7 @@ txt_8D_opponent_team_saudi_arabia:
 
 
 
-txt_8E_opponent_team_south_korea:
+txt_8E_opponent_team_South_Korea:
     .text "South Korea"
     .byte $FC
 
@@ -834,7 +839,7 @@ txt_50_opponent_player_Kim:
 
 
 
-txt_8F_opponent_team_turkey:
+txt_8F_opponent_team_Turkey:
     .text "Turkey"
     .byte $FC
 
@@ -843,7 +848,7 @@ txt_8F_opponent_team_turkey:
 
 
 
-txt_90_opponent_team_poland:
+txt_90_opponent_team_Poland:
     .text "Poland"
     .byte $FC
 
@@ -859,7 +864,7 @@ txt_52_opponent_player_Djazic:
 
 
 
-txt_91_opponent_team_england:
+txt_91_opponent_team_England:
     .text "England"
     .byte $FC
 
@@ -876,7 +881,7 @@ txt_54_opponent_player_Robson:
 
 
 
-txt_92_opponent_team_soviet_union:
+txt_92_opponent_team_Soviet_Union:
     .text "Soviet Union"
     .byte $FC
 
@@ -893,7 +898,7 @@ txt_56_opponent_player_Rashin:
 
 
 
-txt_93_opponent_team_france:
+txt_93_opponent_team_France:
     .text "France"
     .byte $FC
 
@@ -910,7 +915,7 @@ txt_58_opponent_player_Pierre:
 
 
 
-txt_94_opponent_team_mexico:
+txt_94_opponent_team_Mexico:
     .text "Mexico"
     .byte $FC
 
@@ -923,7 +928,7 @@ txt_59_opponent_player_Espana:
 
 
 
-txt_95_opponent_team_italy:
+txt_95_opponent_team_Italy:
     .text "Italy"
     .byte $FC
 
@@ -940,7 +945,7 @@ txt_5B_opponent_player_Hernandez:
 
 
 
-txt_96_opponent_team_netherlands:
+txt_96_opponent_team_Netherlands:
     .text "Netherlands"
     .byte $FC
 
@@ -957,7 +962,7 @@ txt_5D_opponent_player_Libuta:
 
 
 
-txt_97_opponent_team_argentina:
+txt_97_opponent_team_Argentina:
     .text "Argentina"
     .byte $FC
 
@@ -986,7 +991,7 @@ txt_62_opponent_player_Galvan:
 
 
 
-txt_98_opponent_team_west_germany:
+txt_98_opponent_team_West_Germany:
     .text "West Germany"
     .byte $FC
 
@@ -1023,7 +1028,7 @@ txt_69_opponent_player_Muller:
 
 
 
-txt_99_opponent_team_brazil:
+txt_99_opponent_team_Brazil:
     .text "Brazil"
     .byte $FC
 
