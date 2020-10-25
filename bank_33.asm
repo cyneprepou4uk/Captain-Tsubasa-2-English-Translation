@@ -11,9 +11,9 @@ sub_0x40005_таблица_слов:
     STA ram_0031
     RTS
 @это_не_клон:
-    LDY #< tbl_F329_таблица_сжатых_слов
+    LDY #< tbl_F329_слова
     STY ram_0030
-    LDY #> tbl_F329_таблица_сжатых_слов
+    LDY #> tbl_F329_слова
     STY ram_0031
     ASL
     BCC bra_F31C_не_увеличивать_старший_байт
@@ -42,129 +42,128 @@ bra_F31C_не_увеличивать_старший_байт:
 
 
 
-tbl_F329_таблица_сжатых_слов:
-; таблица с именами игроков, командами, спешалами и сокращений текста
+tbl_F329_слова:         ; таблица с именами игроков, командами, спешалами и сокращений текста
     .word ram_имя_клона
-    .word off_F509_01_цубаса
-    .word off_F50D_02_ренато
-    .word off_F512_03_лима
-    .word off_F515_04_марини
-    .word off_F51A_05_амарал
-    .word off_F51F_06_дотор
-    .word off_F524_07_батиста
-    .word off_F529_08_тахамата
-    .word off_F52E_09_бабинтон
-    .word off_F534_0A_гил
-    .word off_F537_0B_платон
-    .word off_F53C_0C_урабэ
-    .word off_F540_0D_кишида
-    .word off_F544_0E_накаяма
-    .word off_F549_0F_морисаки
-    .word off_F54E_10_такасуги
-    .word off_F553_11_мисаки
-    .word off_F557_12_изава
-    .word off_F55B_13_таки
-    .word off_F55E_14_ишизаки
-    .word off_F563_15_нитта
-    .word off_F567_16_кисуги
-    .word off_F56B_17_масао
-    .word off_F56F_18_казуо
-    .word off_F573_19_сано
-    .word off_F576_1A_хюга
-    .word off_F57B_1B_сода
-    .word off_F57F_1C_джито
-    .word off_F583_1D_мацуяма
-    .word off_F588_1E_соримачи
-    .word off_F58D_1F_савада
-    .word off_F591_20_мисуги
-    .word off_F595_21_вакабаяши
-    .word off_F59B_22_вакашимазу
-    .word off_F5A1_23_сатрустеги
-    .word off_F5A8_24_рибейро
-    .word off_F5AD_25_данил_сильва
-    .word off_F5B3_26_меон
-    .word off_F5B7_27_тониньо
-    .word off_F5BD_28_ней
-    .word off_F5C0_29_загалло
-    .word off_F5C4_2A_дирсеу
-    .word off_F5CA_2B_карлос
-    .word off_F5CF_2C_сантамария
-    .word off_F5D6_2D_джеторио
-    .word off_F5DD_2E_джито
-    .word off_F5E1_2F_сано
-    .word off_F5E4_30_масао
-    .word off_F5E8_31_казуо
-    .word off_F5EC_32_сода
-    .word off_F5F0_33_наканиши
-    .word off_F5F5_34_мисуги
-    .word off_F5F9_35_мацуяма
-    .word off_F5FE_36_хюга
-    .word off_F603_37_соримачи
-    .word off_F608_38_савада
-    .word off_F60C_39_вакашимазу
-    .word off_F612_3A_рампион
-    .word off_F618_3B_викторино
-    .word off_F61F_3C_данил_сильва
-    .word off_F625_3D_капельман
-    .word off_F62B_3E_кальц
-    .word off_F62F_3F_метза
-    .word off_F634_40_вакабаяши
-    .word off_F63A_41_хюга
-    .word off_F63F_42_нитта
-    .word off_F643_43_сано
-    .word off_F646_44_мисаки
-    .word off_F64A_45_мисуги
-    .word off_F64E_46_масао
-    .word off_F652_47_казуо
-    .word off_F656_48_джито
-    .word off_F65A_49_ишизаки
-    .word off_F65F_4A_сода
-    .word off_F663_4B_мацуяма
-    .word off_F668_4C_вакашимазу
-    .word off_F66E_4D_ли_хан
-    .word off_F674_4E_ли_банкун
-    .word off_F67B_4F_ша
-    .word off_F67E_50_ким
-    .word off_F681_51_мачер
-    .word off_F686_52_дзажик
-    .word off_F68C_53_лоримар
-    .word off_F691_54_робсон
-    .word off_F696_55_беляев
-    .word off_F69B_56_рашин
-    .word off_F69F_57_наполеон
-    .word off_F6A5_58_пьер
-    .word off_F6AA_59_эспана
-    .word off_F6B1_5A_рампион
-    .word off_F6B7_5B_эрнандес
-    .word off_F6BE_5C_ислас
-    .word off_F6C3_5D_либута
-    .word off_F6C7_5E_паскаль
-    .word off_F6CC_5F_сатрустеги
-    .word off_F6D3_60_диас
-    .word off_F6D8_61_бабинтон
-    .word off_F6DE_62_гальван
-    .word off_F6E3_63_шнайдер
-    .word off_F6EA_64_маргус
-    .word off_F6EF_65_кальц
-    .word off_F6F3_66_метза
-    .word off_F6F8_67_шестер
-    .word off_F6FE_68_капельман
-    .word off_F704_69_мюллер
-    .word off_F70A_6A_карлос
-    .word off_F70F_6B_загалло
-    .word off_F713_6C_рибейро
-    .word off_F718_6D_ней
-    .word off_F71B_6E_сантамария
-    .word off_F722_6F_тониньо
-    .word off_F728_70_дотор
-    .word off_F72D_71_амарал
-    .word off_F732_72_дирсеу
-    .word off_F738_73_джеторио
-    .word off_F73F_74_гертис
-    .word off_F745_75_коимбра
-    .word txt_76_my_team_sao_paulo
-    .word txt_77_my_team_nankatsu
-    .word txt_78_my_team_japan
+    .word txt_01_our_player_Tsubasa
+    .word txt_02_our_player_Renato
+    .word txt_03_our_player_Lima
+    .word txt_04_our_player_Marini
+    .word txt_05_our_player_Amaral
+    .word txt_06_our_player_Dotor
+    .word txt_07_our_player_Batista
+    .word txt_08_our_player_Tahamata
+    .word txt_09_our_player_Babington
+    .word txt_0A_our_player_Gil
+    .word txt_0B_our_player_Platon
+    .word txt_0C_our_player_Urabe
+    .word txt_0D_our_player_Kishida
+    .word txt_0E_our_player_Nakayama
+    .word txt_0F_our_player_Morisaki
+    .word txt_10_our_player_Takasugi
+    .word txt_11_our_player_Misaki
+    .word txt_12_our_player_Izawa
+    .word txt_13_our_player_Taki
+    .word txt_14_our_player_Ishizaki
+    .word txt_15_our_player_Nitta
+    .word txt_16_our_player_Kisugi
+    .word txt_17_our_player_Masao
+    .word txt_18_our_player_Kazuo
+    .word txt_19_our_player_Sano
+    .word txt_1A_our_player_Hyuga
+    .word txt_1B_our_player_Souda
+    .word txt_1C_our_player_Jitou
+    .word txt_1D_our_player_Matsuyama
+    .word txt_1E_our_player_Sorimachi
+    .word txt_1F_our_player_Sawada
+    .word txt_20_our_player_Misugi
+    .word txt_21_our_player_Wakabayashi
+    .word txt_22_our_player_Wakashimazu
+    .word txt_23_opponent_player_Satrustegui
+    .word txt_24_opponent_player_Ribeiro
+    .word txt_25_opponent_player_Danil_Silva
+    .word txt_26_opponent_player_Meon
+    .word txt_27_opponent_player_Toninho
+    .word txt_28_opponent_player_Nei
+    .word txt_29_opponent_player_Zagallo
+    .word txt_2A_opponent_player_Dirceu
+    .word txt_2B_opponent_player_Carlos
+    .word txt_2C_opponent_player_Santamaria
+    .word txt_2D_opponent_player_Jetorio
+    .word txt_2E_opponent_player_Jitou
+    .word txt_2F_opponent_player_Sano
+    .word txt_30_opponent_player_Masao
+    .word txt_31_opponent_player_Kazuo
+    .word txt_32_opponent_player_Souda
+    .word txt_33_opponent_player_Nakanishi
+    .word txt_34_opponent_player_Misugi
+    .word txt_35_opponent_player_Matsuyama
+    .word txt_36_opponent_player_Hyuga
+    .word txt_37_opponent_player_Sorimachi
+    .word txt_38_opponent_player_Sawada
+    .word txt_39_opponent_player_Wakashimazu
+    .word txt_3A_opponent_player_Rampion
+    .word txt_3B_opponent_player_Victorino
+    .word txt_3C_opponent_player_Danil_Silva
+    .word txt_3D_opponent_player_Kappelman
+    .word txt_3E_opponent_player_Kaltz
+    .word txt_3F_opponent_player_Metza
+    .word txt_40_opponent_player_Wakabayashi
+    .word txt_41_opponent_player_Hyuga
+    .word txt_42_opponent_player_Nitta
+    .word txt_43_opponent_player_Sano
+    .word txt_44_opponent_player_Misaki
+    .word txt_45_opponent_player_Misugi
+    .word txt_46_opponent_player_Masao
+    .word txt_47_opponent_player_Kazuo
+    .word txt_48_opponent_player_Jitou
+    .word txt_49_opponent_player_Ishizaki
+    .word txt_4A_opponent_player_Souda
+    .word txt_4B_opponent_player_Matsuyama
+    .word txt_4C_opponent_player_Wakashimazu
+    .word txt_4D_opponent_player_Li_Han_ne
+    .word txt_4E_opponent_player_Li_Ban_kun
+    .word txt_4F_opponent_player_Sha
+    .word txt_50_opponent_player_Kim
+    .word txt_51_opponent_player_Macher
+    .word txt_52_opponent_player_Djazic
+    .word txt_53_opponent_player_Lorimar
+    .word txt_54_opponent_player_Robson
+    .word txt_55_opponent_player_Belaev
+    .word txt_56_opponent_player_Rashin
+    .word txt_57_opponent_player_Napoleon
+    .word txt_58_opponent_player_Pierre
+    .word txt_59_opponent_player_Espana
+    .word txt_5A_opponent_player_Rampion
+    .word txt_5B_opponent_player_Hernandez
+    .word txt_5C_opponent_player_Islas
+    .word txt_5D_opponent_player_Libuta
+    .word txt_5E_opponent_player_Pasqal
+    .word txt_5F_opponent_player_Satrustegui
+    .word txt_60_opponent_player_Diaz
+    .word txt_61_opponent_player_Babington
+    .word txt_62_opponent_player_Galvan
+    .word txt_63_opponent_player_Schneider
+    .word txt_64_opponent_player_Margus
+    .word txt_65_opponent_player_Kaltz
+    .word txt_66_opponent_player_Metza
+    .word txt_67_opponent_player_Schester
+    .word txt_68_opponent_player_Kappelman
+    .word txt_69_opponent_player_Muller
+    .word txt_6A_opponent_player_Carlos
+    .word txt_6B_opponent_player_Zagallo
+    .word txt_6C_opponent_player_Ribeiro
+    .word txt_6D_opponent_player_Nei
+    .word txt_6E_opponent_player_Santamaria
+    .word txt_6F_opponent_player_Toninho
+    .word txt_70_opponent_player_Dotor
+    .word txt_71_opponent_player_Amaral
+    .word txt_72_opponent_player_Dirceu
+    .word txt_73_opponent_player_Jetorio
+    .word txt_74_opponent_player_Gertise
+    .word txt_75_opponent_player_Coimbra
+    .word txt_76_our_team_sao_paulo
+    .word txt_77_our_team_nankatsu
+    .word txt_78_our_team_japan
     .word txt_79_opponent_team_fluminense
     .word txt_7A_opponent_team_corinthians
     .word txt_7B_opponent_team_gremio
@@ -285,509 +284,483 @@ tbl_F329_таблица_сжатых_слов:
     .word off_FAC4_EE
     .word off_FAC8_EF
 
-off_F509_01_цубаса:
+txt_01_our_player_Tsubasa:
     .text "Tsubasa"
     .byte $FC
 
-off_F50D_02_ренато:
+txt_02_our_player_Renato:
     .text "Renato"
     .byte $FC
 
-off_F512_03_лима:
+txt_03_our_player_Lima:
     .text "Lima"
     .byte $FC
 
-off_F515_04_марини:
+txt_04_our_player_Marini:
     .text "Marini"
     .byte $FC
 
-off_F51A_05_амарал:
+txt_05_our_player_Amaral:
     .text "Amaral"
     .byte $FC
 
-off_F51F_06_дотор:
+txt_06_our_player_Dotor:
     .text "Dotor"
     .byte $FC
 
-off_F524_07_батиста:
+txt_07_our_player_Batista:
     .text "Batista"
     .byte $FC
 
-off_F529_08_тахамата:
+txt_08_our_player_Tahamata:
     .text "Tahamata"
     .byte $FC
 
-off_F52E_09_бабинтон:
-; Babington
+txt_09_our_player_Babington:
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
     .byte $FC
 
-off_F534_0A_гил:
+txt_0A_our_player_Gil:
     .text "Gil"
     .byte $FC
 
-off_F537_0B_платон:
+txt_0B_our_player_Platon:
     .text "Platon"
     .byte $FC
 
-off_F53C_0C_урабэ:
+txt_0C_our_player_Urabe:
     .text "Urabe"
     .byte $FC
 
-off_F540_0D_кишида:
+txt_0D_our_player_Kishida:
     .text "Kishida"
     .byte $FC
 
-off_F544_0E_накаяма:
+txt_0E_our_player_Nakayama:
     .text "Nakayama"
     .byte $FC
 
-off_F549_0F_морисаки:
+txt_0F_our_player_Morisaki:
     .text "Morisaki"
     .byte $FC
 
-off_F54E_10_такасуги:
+txt_10_our_player_Takasugi:
     .text "Takasugi"
     .byte $FC
 
-off_F553_11_мисаки:
+txt_11_our_player_Misaki:
     .text "Misaki"
     .byte $FC
 
-off_F557_12_изава:
+txt_12_our_player_Izawa:
     .text "Izawa"
     .byte $FC
 
-off_F55B_13_таки:
+txt_13_our_player_Taki:
     .text "Taki"
     .byte $FC
 
-off_F55E_14_ишизаки:
+txt_14_our_player_Ishizaki:
     .text "Ishizaki"
     .byte $FC
 
-off_F563_15_нитта:
+txt_15_our_player_Nitta:
     .text "Nitta"
     .byte $FC
 
-off_F567_16_кисуги:
+txt_16_our_player_Kisugi:
     .text "Kisugi"
     .byte $FC
 
-off_F56B_17_масао:
+txt_17_our_player_Masao:
     .text "Masao"
     .byte $FC
 
-off_F56F_18_казуо:
+txt_18_our_player_Kazuo:
     .text "Kazuo"
     .byte $FC
 
-off_F573_19_сано:
+txt_19_our_player_Sano:
     .text "Sano"
     .byte $FC
 
-off_F576_1A_хюга:
+txt_1A_our_player_Hyuga:
     .text "Hyuga"
     .byte $FC
 
-off_F57B_1B_сода:
+txt_1B_our_player_Souda:
     .text "Souda"
     .byte $FC
 
-off_F57F_1C_джито:
+txt_1C_our_player_Jitou:
     .text "Jitou"
     .byte $FC
 
-off_F583_1D_мацуяма:
-; Matsuyama
+txt_1D_our_player_Matsuyama:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-off_F588_1E_соримачи:
-; Sorimachi
+txt_1E_our_player_Sorimachi:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
 
-off_F58D_1F_савада:
+txt_1F_our_player_Sawada:
     .text "Sawada"
     .byte $FC
 
-off_F591_20_мисуги:
+txt_20_our_player_Misugi:
     .text "Misugi"
     .byte $FC
 
-off_F595_21_вакабаяши:
-; Wakabayashi
+txt_21_our_player_Wakabayashi:
     .byte $60, $21, $22, $23, $24, $25, $26, $27
     .byte $FC
 
-off_F59B_22_вакашимазу:
-; Wakashimazu
+txt_22_our_player_Wakashimazu:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
-off_F5A1_23_сатрустеги:
-; Satrustegui
+txt_23_opponent_player_Satrustegui:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-off_F5A8_24_рибейро:
+txt_24_opponent_player_Ribeiro:
     .text "Ribeiro"
     .byte $FC
 
-off_F5AD_25_данил_сильва:
-; Danil Silva
+txt_25_opponent_player_Danil_Silva:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
 
-off_F5B3_26_меон:
+txt_26_opponent_player_Meon:
     .text "Meon"
     .byte $FC
 
-off_F5B7_27_тониньо:
+txt_27_opponent_player_Toninho:
     .text "Toninho"
     .byte $FC
 
-off_F5BD_28_ней:
+txt_28_opponent_player_Nei:
     .text "Nei"
     .byte $FC
 
-off_F5C0_29_загалло:
+txt_29_opponent_player_Zagallo:
     .text "Zagallo"
     .byte $FC
 
-off_F5C4_2A_дирсеу:
+txt_2A_opponent_player_Dirceu:
     .text "Dirceu"
     .byte $FC
 
-off_F5CA_2B_карлос:
+txt_2B_opponent_player_Carlos:
     .text "Carlos"
     .byte $FC
 
-off_F5CF_2C_сантамария:
-; Santamaria
+txt_2C_opponent_player_Santamaria:
     .byte $60, $21, $22, $23, $24, $25, $26, $27
     .byte $FC
 
-off_F5D6_2D_джеторио:
+txt_2D_opponent_player_Jetorio:
     .text "Jetorio"
     .byte $FC
 
-off_F5DD_2E_джито:
+txt_2E_opponent_player_Jitou:
     .text "Jitou"
     .byte $FC
 
-off_F5E1_2F_сано:
+txt_2F_opponent_player_Sano:
     .text "Sano"
     .byte $FC
 
-off_F5E4_30_масао:
+txt_30_opponent_player_Masao:
     .text "Masao"
     .byte $FC
 
-off_F5E8_31_казуо:
+txt_31_opponent_player_Kazuo:
     .text "Kazuo"
     .byte $FC
 
-off_F5EC_32_сода:
+txt_32_opponent_player_Souda:
     .text "Souda"
     .byte $FC
 
-off_F5F0_33_наканиши:
-; Nakanishi
+txt_33_opponent_player_Nakanishi:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-off_F5F5_34_мисуги:
+txt_34_opponent_player_Misugi:
     .text "Misugi"
     .byte $FC
 
-off_F5F9_35_мацуяма:
-; Matsuyama
+txt_35_opponent_player_Matsuyama:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
 
-off_F5FE_36_хюга:
+txt_36_opponent_player_Hyuga:
     .text "Hyuga"
     .byte $FC
 
-off_F603_37_соримачи:
-; Sorimachi
+txt_37_opponent_player_Sorimachi:
     .byte $60, $21, $22, $23, $24, $25, $26, $27
     .byte $FC
 
-off_F608_38_савада:
+txt_38_opponent_player_Sawada:
     .text "Sawada"
     .byte $FC
 
-off_F60C_39_вакашимазу:
-; Wakashimazu
+txt_39_opponent_player_Wakashimazu:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
-off_F612_3A_рампион:
+txt_3A_opponent_player_Rampion:
     .text "Rampion"
     .byte $FC
 
-off_F618_3B_викторино:
-; Victorino
+txt_3B_opponent_player_Victorino:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
-off_F61F_3C_данил_сильва:
-; Danil Silva
+txt_3C_opponent_player_Danil_Silva:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
 
-off_F625_3D_капельман:
-; Kappelman
+txt_3D_opponent_player_Kappelman:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
 
-off_F62B_3E_кальц:
+txt_3E_opponent_player_Kaltz:
     .text "Kaltz"
     .byte $FC
 
-off_F62F_3F_метза:
+txt_3F_opponent_player_Metza:
     .text "Metza"
     .byte $FC
 
-off_F634_40_вакабаяши:
-; Wakabayashi
+txt_40_opponent_player_Wakabayashi:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-off_F63A_41_хюга:
+txt_41_opponent_player_Hyuga:
     .text "Hyuga"
     .byte $FC
 
-off_F63F_42_нитта:
+txt_42_opponent_player_Nitta:
     .text "Nitta"
     .byte $FC
 
-off_F643_43_сано:
+txt_43_opponent_player_Sano:
     .text "Sano"
     .byte $FC
 
-off_F646_44_мисаки:
+txt_44_opponent_player_Misaki:
     .text "Misaki"
     .byte $FC
 
-off_F64A_45_мисуги:
+txt_45_opponent_player_Misugi:
     .text "Misugi"
     .byte $FC
 
-off_F64E_46_масао:
+txt_46_opponent_player_Masao:
     .text "Masao"
     .byte $FC
 
-off_F652_47_казуо:
+txt_47_opponent_player_Kazuo:
     .text "Kazuo"
     .byte $FC
 
-off_F656_48_джито:
+txt_48_opponent_player_Jitou:
     .text "Jitou"
     .byte $FC
 
-off_F65A_49_ишизаки:
+txt_49_opponent_player_Ishizaki:
     .text "Ishizaki"
     .byte $FC
 
-off_F65F_4A_сода:
+txt_4A_opponent_player_Souda:
     .text "Souda"
     .byte $FC
 
-off_F663_4B_мацуяма:
-; Matsuyama
+txt_4B_opponent_player_Matsuyama:
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-off_F668_4C_вакашимазу:
-; Wakashimazu
+txt_4C_opponent_player_Wakashimazu:
     .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
-off_F66E_4D_ли_хан:
-; Li Han-ne
-    .byte $01, $02, $03, $04, $05, $06, $07
+txt_4D_opponent_player_Li_Han_ne:
+    .byte $01, $02, $03, $04, $05, $06, $07             ; Li Han-ne
     .byte $FC
 
-off_F674_4E_ли_банкун:
-; Li Ban-kun
-    .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
+txt_4E_opponent_player_Li_Ban_kun:
+    .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F        ; Li Ban-kun
     .byte $FC
 
-off_F67B_4F_ша:
+txt_4F_opponent_player_Sha:
     .text "Sha"
     .byte $FC
 
-off_F67E_50_ким:
+txt_50_opponent_player_Kim:
     .text "Kim"
     .byte $FC
 
-off_F681_51_мачер:
+txt_51_opponent_player_Macher:
     .text "Macher"
     .byte $FC
 
-off_F686_52_дзажик:
+txt_52_opponent_player_Djazic:
     .text "Djazic"
     .byte $FC
 
-off_F68C_53_лоримар:
+txt_53_opponent_player_Lorimar:
     .text "Lorimar"
     .byte $FC
 
-off_F691_54_робсон:
+txt_54_opponent_player_Robson:
     .text "Robson"
     .byte $FC
 
-off_F696_55_беляев:
+txt_55_opponent_player_Belaev:
     .text "Belaev"
     .byte $FC
 
-off_F69B_56_рашин:
+txt_56_opponent_player_Rashin:
     .text "Rashin"
     .byte $FC
 
-off_F69F_57_наполеон:
+txt_57_opponent_player_Napoleon:
     .text "Napoleon"
     .byte $FC
 
-off_F6A5_58_пьер:
+txt_58_opponent_player_Pierre:
     .text "Pierre"
     .byte $FC
 
-off_F6AA_59_эспана:
+txt_59_opponent_player_Espana:
     .text "Espana"
     .byte $FC
 
-off_F6B1_5A_рампион:
+txt_5A_opponent_player_Rampion:
     .text "Rampion"
     .byte $FC
 
-off_F6B7_5B_эрнандес:
-; Hernandez
+txt_5B_opponent_player_Hernandez:
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
     .byte $FC
 
-off_F6BE_5C_ислас:
+txt_5C_opponent_player_Islas:
     .text "Islas"
     .byte $FC
 
-off_F6C3_5D_либута:
+txt_5D_opponent_player_Libuta:
     .text "Libuta"
     .byte $FC
 
-off_F6C7_5E_паскаль:
+txt_5E_opponent_player_Pasqal:
     .text "Pasqal"
     .byte $FC
 
-off_F6CC_5F_сатрустеги:
-; Satrustegui
+txt_5F_opponent_player_Satrustegui:
     .byte $40, $01, $02, $03, $04, $05, $06, $07
     .byte $FC
 
-off_F6D3_60_диас:
+txt_60_opponent_player_Diaz:
     .text "Diaz"
     .byte $FC
 
-off_F6D8_61_бабинтон:
-; Babington
+txt_61_opponent_player_Babington:
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
     .byte $FC
 
-off_F6DE_62_гальван:
+txt_62_opponent_player_Galvan:
     .text "Galvan"
     .byte $FC
 
-off_F6E3_63_шнайдер:
-; Schneider
+txt_63_opponent_player_Schneider:
     .byte $40, $01, $02, $03, $04, $05, $06, $07
     .byte $FC
 
-off_F6EA_64_маргус:
+txt_64_opponent_player_Margus:
     .text "Margus"
     .byte $FC
 
-off_F6EF_65_кальц:
+txt_65_opponent_player_Kaltz:
     .text "Kaltz"
     .byte $FC
 
-off_F6F3_66_метза:
+txt_66_opponent_player_Metza:
     .text "Metza"
     .byte $FC
 
-off_F6F8_67_шестер:
+txt_67_opponent_player_Schester:
     .text "Schester"
     .byte $FC
 
-off_F6FE_68_капельман:
-; Kappelman
+txt_68_opponent_player_Kappelman:
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
     .byte $FC
 
-off_F704_69_мюллер:
+txt_69_opponent_player_Muller:
     .text "Muller"
     .byte $FC
 
-off_F70A_6A_карлос:
+txt_6A_opponent_player_Carlos:
     .text "Carlos"
     .byte $FC
 
-off_F70F_6B_загалло:
+txt_6B_opponent_player_Zagallo:
     .text "Zagallo"
     .byte $FC
 
-off_F713_6C_рибейро:
+txt_6C_opponent_player_Ribeiro:
     .text "Ribeiro"
     .byte $FC
 
-off_F718_6D_ней:
+txt_6D_opponent_player_Nei:
     .text "Nei"
     .byte $FC
 
-off_F71B_6E_сантамария:
-; Santamaria
+txt_6E_opponent_player_Santamaria:
     .byte $40, $01, $02, $03, $04, $05, $06, $07
     .byte $FC
 
-off_F722_6F_тониньо:
+txt_6F_opponent_player_Toninho:
     .text "Toninho"
     .byte $FC
 
-off_F728_70_дотор:
+txt_70_opponent_player_Dotor:
     .text "Dotor"
     .byte $FC
 
-off_F72D_71_амарал:
+txt_71_opponent_player_Amaral:
     .text "Amaral"
     .byte $FC
 
-off_F732_72_дирсеу:
+txt_72_opponent_player_Dirceu:
     .text "Dirceu"
     .byte $FC
 
-off_F738_73_джеторио:
+txt_73_opponent_player_Jetorio:
     .text "Jetorio"
     .byte $FC
 
-off_F73F_74_гертис:
+txt_74_opponent_player_Gertise:
     .text "Gertise"
     .byte $FC
 
-off_F745_75_коимбра:
+txt_75_opponent_player_Coimbra:
     .text "Coimbra"
     .byte $FC
 
-txt_76_my_team_sao_paulo:
+txt_76_our_team_sao_paulo:
     .text "Sao Paulo"
     .byte $FC
 
-txt_77_my_team_nankatsu:
+txt_77_our_team_nankatsu:
     .text "Nankatsu"
     .byte $FC
 
-txt_78_my_team_japan:
+txt_78_our_team_japan:
     .text "Japan"
     .byte $FC
 
