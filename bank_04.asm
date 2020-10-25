@@ -1666,7 +1666,7 @@ off_B71E_20_show_1_opponent:
     .word @opponent_1
 
 @txt:
-    .text "Opponents"
+    .text "Opponent"
     .byte con_закончить
 
 @opponent_1:
@@ -2622,7 +2622,7 @@ off_B900_32_display_name_opponent_at_the_top:
     .byte $01
 ; смещение текста Y, X + поинтеры на текст
     .byte $01
-    .byte $02
+    .byte $03
     .word @имя_игрока_с_мячом
 
 @имя_игрока_с_мячом:
