@@ -542,7 +542,7 @@ team_Brazil:
 
 
 tbl_dictionary:
-    .word ram_имя_клона
+    .word $0000
     .word txt_01_our_player_Tsubasa
     .word txt_02_our_player_Renato
     .word txt_03_our_player_Lima
