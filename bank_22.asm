@@ -1712,20 +1712,20 @@ ofs_8A93_E6:
 C - J - - 0x030AA3 22:8A93: A4 40     LDY ram_0040
 C - - - - 0x030AA5 22:8A95: E6 40     INC ram_0040
 C - - - - 0x030AA7 22:8A97: B1 3E     LDA (ram_003E),Y
-C - - - - 0x030AA9 22:8A99: F0 04     BEQ bra_8A9F
+C - - - - 0x030AA9 22:8A99: F0 04     BEQ bra_8A9F_это_не_спешал
 C - - - - 0x030AAB 22:8A9B: AA        TAX
 C - - - - 0x030AAC 22:8A9C: BD 30 04  LDA $0430,X
-bra_8A9F:
+bra_8A9F_это_не_спешал:
 C - - - - 0x030AAF 22:8A9F: AE 1E 06  LDX $061E
 C - - - - 0x030AB2 22:8AA2: BC 0B 06  LDY ram_действие_защиты,X
 C - - - - 0x030AB5 22:8AA5: 18        CLC
-C - - - - 0x030AB6 22:8AA6: 79 AC 8A  ADC tbl_8AAC,Y
-C - - - - 0x030AB9 22:8AA9: 4C 6C 8D  JMP loc_8D6C
+C - - - - 0x030AB6 22:8AA6: 79 AC 8A  ADC tbl_8AAC_спешал_защиты,Y
+C - - - - 0x030AB9 22:8AA9: 4C 6C 8D  JMP loc_8D6C_вывести_слово
 
-tbl_8AAC:
-- D - - - 0x030ABC 22:8AAC: CD        .byte $CD    ; <パ>
-- D - - - 0x030ABD 22:8AAD: D1        .byte $D1    ; <ポ>
-- D - - - 0x030ABE 22:8AAE: D7        .byte $D7
+tbl_8AAC_спешал_защиты:
+    .byte $CD       ; block <ブロック>
+    .byte $D1       ; tackle <タックル>
+    .byte $D7       ; passcut <パスカット>
 
 ofs_8AAF_E7_имя_защитника_и_позиция:
 C - J - - 0x030ABF 22:8AAF: AE 1E 06  LDX $061E
@@ -2107,7 +2107,7 @@ C D - - - 0x030D2A 22:8D1A: 85 47     STA ram_0047
 C - - - - 0x030D2C 22:8D1C: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x030D2F 22:8D1F: A0 00     LDY #con_игрок_номер
 C - - - - 0x030D31 22:8D21: B1 34     LDA (ram_plr_data),Y
-loc_8D6C:
+loc_8D6C_вывести_слово:
 C D - - - 0x030D7C 22:8D6C: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - 0x030D7F 22:8D6F: A0 00     LDY #$00
 bra_8D71_цикл:

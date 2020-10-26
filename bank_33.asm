@@ -2919,7 +2919,7 @@ off_F9D6_CC:        ; unused
     .text "CC "     ; <エッフェルこうげき>
     .byte $FC
 
-off_F9E0_CD:
+off_F9E0_CD:        ; block
     .text "CD "     ; <ブロック>
     .byte $FC
 
@@ -2935,7 +2935,7 @@ off_F9F8_D0:        ; power block
     .text "D0 "     ; <パワーブロック>
     .byte $FC
 
-off_FA00_D1:
+off_FA00_D1:        ; tackle
     .text "D1 "     ; <タックル>
     .byte $FC
 
@@ -2959,7 +2959,7 @@ off_FA29_D6:        ; unused
     .text "D6 "     ; <タックル>
     .byte $FC
 
-off_FA2E_D7:
+off_FA2E_D7:        ; パスカット
     .text "D7 "     ; <パスカット>
     .byte $FC
 
