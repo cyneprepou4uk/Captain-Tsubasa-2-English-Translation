@@ -101,7 +101,7 @@ tbl_teams_with_clones:
     .word team_West_Germany
     .word team_Brazil
 
-team_Fluminense:
+team_Fluminense:        ; https://captaintsubasa.fandom.com/wiki/Fluminense_(Tecmo)
     .word Fluminense_clone_01
     .word Fluminense_clone_02
     .word Fluminense_clone_03
@@ -114,7 +114,7 @@ team_Fluminense:
     .word Fluminense_clone_10
     .word Fluminense_clone_11
 
-team_Corinthians:
+team_Corinthians:       ; https://captaintsubasa.fandom.com/wiki/Corinthians_Youth_(Tecmo)
     .word Corinthians_clone_01
     .word Corinthians_clone_02
     .word Corinthians_clone_03
@@ -123,12 +123,12 @@ team_Corinthians:
     .word Corinthians_clone_06
     .word Corinthians_clone_07
     .word Corinthians_clone_08
-    .word Corinthians_clone_09
-    .word Corinthians_clone_10
+    .word $0000
+    .word $0000
     .word Corinthians_clone_11
 
-team_Gremio:
-    .word Gremio_clone_01
+team_Gremio:            ; https://captaintsubasa.fandom.com/wiki/Gremio_Youth_(Tecmo)
+    .word $0000
     .word Gremio_clone_02
     .word Gremio_clone_03
     .word Gremio_clone_04
@@ -136,7 +136,7 @@ team_Gremio:
     .word Gremio_clone_06
     .word Gremio_clone_07
     .word Gremio_clone_08
-    .word Gremio_clone_09
+    .word $0000
     .word Gremio_clone_10
     .word Gremio_clone_11
 
@@ -149,34 +149,34 @@ team_Palmeiras:
     .word Palmeiras_clone_06
     .word Palmeiras_clone_07
     .word Palmeiras_clone_08
-    .word Palmeiras_clone_09
+    .word $0000
     .word Palmeiras_clone_10
-    .word Palmeiras_clone_11
+    .word $0000
 
 team_Santos:
     .word Santos_clone_01
     .word Santos_clone_02
     .word Santos_clone_03
-    .word Santos_clone_04
+    .word $0000
     .word Santos_clone_05
     .word Santos_clone_06
     .word Santos_clone_07
     .word Santos_clone_08
-    .word Santos_clone_09
+    .word $0000
     .word Santos_clone_10
     .word Santos_clone_11
 
 team_Flamengo:
     .word Flamengo_clone_01
-    .word Flamengo_clone_02
+    .word $0000
     .word Flamengo_clone_03
     .word Flamengo_clone_04
     .word Flamengo_clone_05
-    .word Flamengo_clone_06
+    .word $0000
     .word Flamengo_clone_07
     .word Flamengo_clone_08
     .word Flamengo_clone_09
-    .word Flamengo_clone_10
+    .word $0000
     .word Flamengo_clone_11
 
 team_Kunimi:
@@ -958,7 +958,7 @@ Fluminense_clone_01:
     .byte $FC
 
 Fluminense_clone_02:
-    .text "Clone 02"
+    .text "Enrique"
     .byte $FC
 
 Fluminense_clone_03:
@@ -966,35 +966,35 @@ Fluminense_clone_03:
     .byte $FC
 
 Fluminense_clone_04:
-    .text "Clone 04"
+    .text "Adrian"
     .byte $FC
 
 Fluminense_clone_05:
-    .text "Clone 05"
+    .text "Barba"
     .byte $FC
 
 Fluminense_clone_06:
-    .text "Clone 06"
+    .text "Perez"
     .byte $FC
 
 Fluminense_clone_07:
-    .text "Clone 07"
+    .text "Moreras"
     .byte $FC
 
 Fluminense_clone_08:
-    .text "Clone 08"
+    .text "Goycoche"
     .byte $FC
 
 Fluminense_clone_09:
-    .text "Clone 09"
+    .text "Dragan"
     .byte $FC
 
 Fluminense_clone_10:
-    .text "Clone 10"
+    .text "Ongania"
     .byte $FC
 
 Fluminense_clone_11:
-    .text "Clone 11"
+    .text "Milla"
     .byte $FC
 
 
@@ -1007,55 +1007,47 @@ txt_7A_opponent_team_Corinthians:
     .byte $FC
 
 Corinthians_clone_01:
-    .text "Clone 01"
+    .text "Pujet"
     .byte $FC
 
 Corinthians_clone_02:
-    .text "Clone 02"
+    .text "De Rada"
     .byte $FC
 
 Corinthians_clone_03:
-    .text "Clone 03"
+    .text "Vives"
     .byte $FC
 
 Corinthians_clone_04:
-    .text "Clone 04"
+    .text "Miyaji"
     .byte $FC
 
 Corinthians_clone_05:
-    .text "Clone 05"
+    .text "Nita"
     .byte $FC
 
 Corinthians_clone_06:
-    .text "Clone 06"
+    .text "Nabairo"
     .byte $FC
 
 Corinthians_clone_07:
-    .text "Clone 07"
+    .text "Genoth"
     .byte $FC
 
 Corinthians_clone_08:
-    .text "Clone 08"
+    .text "Magish"
     .byte $FC
 
-Corinthians_clone_09:
-    .text "Clone 09"
-    .byte $FC
-
-Corinthians_clone_10:
-    .text "Clone 10"
-    .byte $FC
-
-Corinthians_clone_11:
-    .text "Clone 11"
-    .byte $FC
-
-txt_23_opponent_player_Satrustegui:
+txt_23_opponent_player_Satrustegui:     ; 09
     .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
-txt_24_opponent_player_Ribeiro:
+txt_24_opponent_player_Ribeiro:         ; 10
     .text "Ribeiro"
+    .byte $FC
+
+Corinthians_clone_11:
+    .text "Raia"
     .byte $FC
 
 
@@ -1067,56 +1059,48 @@ txt_7B_opponent_team_Gremio:
     .text "Gremio"
     .byte $FC
 
-Gremio_clone_01:
-    .text "Clone 01"
+txt_26_opponent_player_Meon:        ; 01
+    .text "Meon"
     .byte $FC
 
 Gremio_clone_02:
-    .text "Clone 02"
+    .text "Cochran"
     .byte $FC
 
 Gremio_clone_03:
-    .text "Clone 03"
+    .text "Dio"
     .byte $FC
 
 Gremio_clone_04:
-    .text "Clone 04"
+    .text "Takiha"
     .byte $FC
 
 Gremio_clone_05:
-    .text "Clone 05"
+    .text "Jasma"
     .byte $FC
 
 Gremio_clone_06:
-    .text "Clone 06"
+    .text "Tapies"
     .byte $FC
 
 Gremio_clone_07:
-    .text "Clone 07"
+    .text "Faria"
     .byte $FC
 
 Gremio_clone_08:
-    .text "Clone 08"
+    .text "Klimt"
     .byte $FC
 
-Gremio_clone_09:
-    .text "Clone 09"
-    .byte $FC
-
-Gremio_clone_10:
-    .text "Clone 10"
-    .byte $FC
-
-Gremio_clone_11:
-    .text "Clone 11"
-    .byte $FC
-
-txt_25_opponent_player_Danil_Silva:
+txt_25_opponent_player_Danil_Silva:     ; 09
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
     .byte $FC
 
-txt_26_opponent_player_Meon:
-    .text "Meon"
+Gremio_clone_10:
+    .text "Spinoza"
+    .byte $FC
+
+Gremio_clone_11:
+    .text "Madero"
     .byte $FC
 
 
@@ -1133,50 +1117,42 @@ Palmeiras_clone_01:
     .byte $FC
 
 Palmeiras_clone_02:
-    .text "Clone 02"
+    .text "Mira"
     .byte $FC
 
 Palmeiras_clone_03:
-    .text "Clone 03"
+    .text "Blanco"
     .byte $FC
 
 Palmeiras_clone_04:
-    .text "Clone 04"
+    .text "Keegan"
     .byte $FC
 
 Palmeiras_clone_05:
-    .text "Clone 05"
+    .text "Oluges"
     .byte $FC
 
 Palmeiras_clone_06:
-    .text "Clone 06"
+    .text "Caceres"
     .byte $FC
 
 Palmeiras_clone_07:
-    .text "Clone 07"
+    .text "Buendia"
     .byte $FC
 
 Palmeiras_clone_08:
-    .text "Clone 08"
+    .text "Rincon"
     .byte $FC
 
-Palmeiras_clone_09:
-    .text "Clone 09"
-    .byte $FC
-
-Palmeiras_clone_10:
-    .text "Clone 10"
-    .byte $FC
-
-Palmeiras_clone_11:
-    .text "Clone 11"
-    .byte $FC
-
-txt_27_opponent_player_Toninho:
+txt_27_opponent_player_Toninho:     ; 09
     .text "Toninho"
     .byte $FC
 
-txt_28_opponent_player_Nei:
+Palmeiras_clone_10:
+    .text "Guerrero"
+    .byte $FC
+
+txt_28_opponent_player_Nei:         ; 11
     .text "Nei"
     .byte $FC
 
@@ -1201,8 +1177,8 @@ Santos_clone_03:
     .text "Clone 03"
     .byte $FC
 
-Santos_clone_04:
-    .text "Clone 04"
+txt_2A_opponent_player_Dirceu:      ; 04
+    .text "Dirceu"
     .byte $FC
 
 Santos_clone_05:
@@ -1221,8 +1197,8 @@ Santos_clone_08:
     .text "Clone 08"
     .byte $FC
 
-Santos_clone_09:
-    .text "Clone 09"
+txt_29_opponent_player_Zagallo:     ; 09
+    .text "Zagallo"
     .byte $FC
 
 Santos_clone_10:
@@ -1231,14 +1207,6 @@ Santos_clone_10:
 
 Santos_clone_11:
     .text "Clone 11"
-    .byte $FC
-
-txt_29_opponent_player_Zagallo:
-    .text "Zagallo"
-    .byte $FC
-
-txt_2A_opponent_player_Dirceu:
-    .text "Dirceu"
     .byte $FC
 
 
@@ -1251,59 +1219,47 @@ txt_7E_opponent_team_Flamengo:
     .byte $FC
 
 Flamengo_clone_01:
-    .text "Clone 01"
+    .text "Lasley"
     .byte $FC
 
-Flamengo_clone_02:
-    .text "Clone 02"
+txt_2D_opponent_player_Jetorio:     ; 02
+    .text "Jetorio"
     .byte $FC
 
 Flamengo_clone_03:
-    .text "Clone 03"
+    .text "Sanos"
     .byte $FC
 
 Flamengo_clone_04:
-    .text "Clone 04"
+    .text "Sorilha"
     .byte $FC
 
 Flamengo_clone_05:
-    .text "Clone 05"
-    .byte $FC
-
-Flamengo_clone_06:
-    .text "Clone 06"
-    .byte $FC
-
-Flamengo_clone_07:
-    .text "Clone 07"
-    .byte $FC
-
-Flamengo_clone_08:
-    .text "Clone 08"
-    .byte $FC
-
-Flamengo_clone_09:
-    .text "Clone 09"
-    .byte $FC
-
-Flamengo_clone_10:
-    .text "Clone 10"
-    .byte $FC
-
-Flamengo_clone_11:
-    .text "Clone 11"
-    .byte $FC
-
-txt_2B_opponent_player_Carlos:
-    .text "Carlos"
+    .text "Biao"
     .byte $FC
 
 txt_2C_opponent_player_Santamaria:
     .byte $60, $21, $22, $23, $24, $25, $26, $27
     .byte $FC
 
-txt_2D_opponent_player_Jetorio:
-    .text "Jetorio"
+Flamengo_clone_07:
+    .text "Tarutz"
+    .byte $FC
+
+Flamengo_clone_08:
+    .text "Isies"
+    .byte $FC
+
+Flamengo_clone_09:
+    .text "Wirsen"
+    .byte $FC
+
+txt_2B_opponent_player_Carlos:
+    .text "Carlos"
+    .byte $FC
+
+Flamengo_clone_11:
+    .text "Falla"
     .byte $FC
 
 
