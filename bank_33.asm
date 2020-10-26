@@ -101,6 +101,9 @@ tbl_teams_with_clones:
     .word team_West_Germany
     .word team_Brazil
 
+; запасные бразильские имена https://captaintsubasa.fandom.com/wiki/Category:Brazil%27s_clubs
+; запасные арабские имена https://parenting.firstcry.com/articles/100-unique-arabic-baby-names-for-boys/
+
 team_Fluminense:        ; https://captaintsubasa.fandom.com/wiki/Fluminense_(Tecmo)
     .word Fluminense_clone_01
     .word Fluminense_clone_02
@@ -140,7 +143,7 @@ team_Gremio:            ; https://captaintsubasa.fandom.com/wiki/Gremio_Youth_(T
     .word Gremio_clone_10
     .word Gremio_clone_11
 
-team_Palmeiras:
+team_Palmeiras:         ; https://captaintsubasa.fandom.com/wiki/Palmeiras_(Tecmo)
     .word Palmeiras_clone_01
     .word Palmeiras_clone_02
     .word Palmeiras_clone_03
@@ -153,7 +156,7 @@ team_Palmeiras:
     .word Palmeiras_clone_10
     .word $0000
 
-team_Santos:
+team_Santos:            ; https://captaintsubasa.fandom.com/wiki/Barcelona_(Tecmo)
     .word Santos_clone_01
     .word Santos_clone_02
     .word Santos_clone_03
@@ -166,7 +169,7 @@ team_Santos:
     .word Santos_clone_10
     .word Santos_clone_11
 
-team_Flamengo:
+team_Flamengo:          ; https://captaintsubasa.fandom.com/wiki/Flamengo_Youth_(Tecmo)
     .word Flamengo_clone_01
     .word $0000
     .word Flamengo_clone_03
@@ -309,7 +312,7 @@ team_Japan:
     .word $0000
     .word $0000
 
-team_Syria:
+team_Syria:             ; http://www.firstnamesbaby.com/Names-By-Country/Syrian/Boy/
     .word Syria_clone_01
     .word Syria_clone_02
     .word Syria_clone_03
@@ -322,7 +325,7 @@ team_Syria:
     .word Syria_clone_10
     .word Syria_clone_11
 
-team_China:
+team_China:             ; https://captaintsubasa.fandom.com/wiki/China_Youth_(Tecmo)
     .word China_clone_01
     .word China_clone_02
     .word China_clone_03
@@ -335,7 +338,7 @@ team_China:
     .word China_clone_10
     .word $0000
 
-team_Iran:
+team_Iran:              ; https://www.behindthename.com/names/gender/masculine/usage/persian
     .word Iran_clone_01
     .word Iran_clone_02
     .word Iran_clone_03
@@ -348,7 +351,7 @@ team_Iran:
     .word Iran_clone_10
     .word Iran_clone_11
 
-team_North_Korea:
+team_North_Korea:       ; https://captaintsubasa.fandom.com/wiki/South_Korea_(Tecmo)
     .word North_Korea_clone_01
     .word North_Korea_clone_02
     .word North_Korea_clone_03
@@ -361,6 +364,9 @@ team_North_Korea:
     .word North_Korea_clone_10
     .word North_Korea_clone_11
 
+; https://captaintsubasa.fandom.com/wiki/Saudi_Arabia_Youth
+; https://captaintsubasa.fandom.com/wiki/Saudi_Arabia_(Middle_school)
+; https://captaintsubasa.fandom.com/wiki/Saudi_Arabia_(Tecmo)
 team_Saudi_Arabia:
     .word Saudi_Arabia_clone_01
     .word Saudi_Arabia_clone_02
@@ -374,7 +380,7 @@ team_Saudi_Arabia:
     .word Saudi_Arabia_clone_10
     .word Saudi_Arabia_clone_11
 
-team_South_Korea:
+team_South_Korea:       ; https://captaintsubasa.fandom.com/wiki/South_Korea_Youth_(Tecmo)
     .word South_Korea_clone_01
     .word South_Korea_clone_02
     .word South_Korea_clone_03
@@ -387,7 +393,7 @@ team_South_Korea:
     .word $0000
     .word South_Korea_clone_11
 
-team_Turkey:
+team_Turkey:            ; https://parenting.firstcry.com/articles/50-turkish-baby-names-for-boys/
     .word Turkey_clone_01
     .word Turkey_clone_02
     .word Turkey_clone_03
@@ -400,7 +406,7 @@ team_Turkey:
     .word Turkey_clone_10
     .word Turkey_clone_11
 
-team_Poland:
+team_Poland:            ; https://www.behindthename.com/names/gender/masculine/usage/polish
     .word $0000
     .word Poland_clone_02
     .word Poland_clone_03
@@ -413,7 +419,7 @@ team_Poland:
     .word Poland_clone_10
     .word $0000
 
-team_England:
+team_England:           ; https://captaintsubasa.fandom.com/wiki/England_Jr._Youth_(RoNC)
     .word England_clone_01
     .word England_clone_02
     .word England_clone_03
@@ -426,7 +432,7 @@ team_England:
     .word England_clone_10
     .word England_clone_11
 
-team_Soviet_Union:
+team_Soviet_Union:      ; https://en.wikipedia.org/wiki/List_of_surnames_in_Russia
     .word $0000
     .word Soviet_Union_clone_02
     .word Soviet_Union_clone_03
@@ -622,7 +628,7 @@ tbl_dictionary:
     .word txt_52_opponent_player_Djazic
     .word txt_53_opponent_player_Lorimar
     .word txt_54_opponent_player_Robson
-    .word txt_55_opponent_player_Belaev
+    .word txt_55_opponent_player_Belyaev
     .word txt_56_opponent_player_Rashin
     .word txt_57_opponent_player_Napoleon
     .word txt_58_opponent_player_Pierre
@@ -954,7 +960,7 @@ txt_79_opponent_team_Fluminense:
     .byte $FC
 
 Fluminense_clone_01:
-    .text "Clone 01"
+    .text "Oluges"
     .byte $FC
 
 Fluminense_clone_02:
@@ -962,7 +968,7 @@ Fluminense_clone_02:
     .byte $FC
 
 Fluminense_clone_03:
-    .text "Clone 03"
+    .text "Rene"
     .byte $FC
 
 Fluminense_clone_04:
@@ -1113,7 +1119,7 @@ txt_7C_opponent_team_Palmeiras:
     .byte $FC
 
 Palmeiras_clone_01:
-    .text "Clone 01"
+    .text "Jaigo"
     .byte $FC
 
 Palmeiras_clone_02:
@@ -1129,7 +1135,7 @@ Palmeiras_clone_04:
     .byte $FC
 
 Palmeiras_clone_05:
-    .text "Oluges"
+    .text "Awollo"
     .byte $FC
 
 Palmeiras_clone_06:
@@ -1166,15 +1172,15 @@ txt_7D_opponent_team_Santos:
     .byte $FC
 
 Santos_clone_01:
-    .text "Clone 01"
+    .text "Jose"
     .byte $FC
 
 Santos_clone_02:
-    .text "Clone 02"
+    .text "Emilio"
     .byte $FC
 
 Santos_clone_03:
-    .text "Clone 03"
+    .text "Gonzales"
     .byte $FC
 
 txt_2A_opponent_player_Dirceu:          ; 04
@@ -1182,19 +1188,19 @@ txt_2A_opponent_player_Dirceu:          ; 04
     .byte $FC
 
 Santos_clone_05:
-    .text "Clone 05"
+    .text "Protasos"
     .byte $FC
 
 Santos_clone_06:
-    .text "Clone 06"
+    .text "Fleming"
     .byte $FC
 
 Santos_clone_07:
-    .text "Clone 07"
+    .text "Cesar"
     .byte $FC
 
 Santos_clone_08:
-    .text "Clone 08"
+    .text "Franco"
     .byte $FC
 
 txt_29_opponent_player_Zagallo:         ; 09
@@ -1202,11 +1208,11 @@ txt_29_opponent_player_Zagallo:         ; 09
     .byte $FC
 
 Santos_clone_10:
-    .text "Clone 10"
+    .text "Ludovico"
     .byte $FC
 
 Santos_clone_11:
-    .text "Clone 11"
+    .text "Zamora"
     .byte $FC
 
 
@@ -1235,7 +1241,7 @@ Flamengo_clone_04:
     .byte $FC
 
 Flamengo_clone_05:
-    .text "Biao"
+    .text "Fabian"
     .byte $FC
 
 txt_2C_opponent_player_Santamaria:      ; 06
@@ -1545,19 +1551,19 @@ txt_39_opponent_player_Wakashimazu:     ; 01
     .byte $FC
 
 Toho_clone_02:
-    .text "Clone 02"
+    .text "Furuta"
     .byte $FC
 
 Toho_clone_03:
-    .text "Clone 03"
+    .text "Koike"
     .byte $FC
 
 Toho_clone_04:
-    .text "Clone 04"
+    .text "Imai"
     .byte $FC
 
 Toho_clone_05:
-    .text "Clone 05"
+    .text "Kawabe"
     .byte $FC
 
 txt_38_opponent_player_Sawada:          ; 06
@@ -1565,11 +1571,11 @@ txt_38_opponent_player_Sawada:          ; 06
     .byte $FC
 
 Toho_clone_07:
-    .text "Clone 07"
+    .text "Matsuki"
     .byte $FC
 
 Toho_clone_08:
-    .text "Clone 08"
+    .text "Shimano"
     .byte $FC
 
 txt_36_opponent_player_Hyuga:           ; 09
@@ -1581,7 +1587,7 @@ txt_37_opponent_player_Sorimachi:       ; 10
     .byte $FC
 
 Toho_clone_11:
-    .text "Clone 11"
+    .text "Yoshida"
     .byte $FC
 
 
@@ -1810,47 +1816,47 @@ txt_89_opponent_team_Syria:
     .byte $FC
 
 Syria_clone_01:
-    .text "Clone 01"
+    .text "Darwish"
     .byte $FC
 
 Syria_clone_02:
-    .text "Clone 02"
+    .text "Kareem"
     .byte $FC
 
 Syria_clone_03:
-    .text "Clone 03"
+    .text "Nidal"
     .byte $FC
 
 Syria_clone_04:
-    .text "Clone 04"
+    .text "Latif"
     .byte $FC
 
 Syria_clone_05:
-    .text "Clone 05"
+    .text "Qamar"
     .byte $FC
 
 Syria_clone_06:
-    .text "Clone 06"
+    .text "Ghalib"
     .byte $FC
 
 Syria_clone_07:
-    .text "Clone 07"
+    .text "Jericho"
     .byte $FC
 
 Syria_clone_08:
-    .text "Clone 08"
+    .text "Najjar"
     .byte $FC
 
 Syria_clone_09:
-    .text "Clone 09"
+    .text "Xavier"
     .byte $FC
 
 Syria_clone_10:
-    .text "Clone 10"
+    .text "Ismael"
     .byte $FC
 
 Syria_clone_11:
-    .text "Clone 11"
+    .text "Fahad"
     .byte $FC
 
 
@@ -1863,35 +1869,35 @@ txt_8A_opponent_team_China:
     .byte $FC
 
 China_clone_01:
-    .text "Clone 01"
+    .text "Lu"
     .byte $FC
 
 China_clone_02:
-    .text "Clone 02"
+    .text "Liu"
     .byte $FC
 
 China_clone_03:
-    .text "Clone 03"
+    .text "Zhuo"
     .byte $FC
 
 China_clone_04:
-    .text "Clone 04"
+    .text "Yang"
     .byte $FC
 
 China_clone_05:
-    .text "Clone 05"
+    .text "Shan"
     .byte $FC
 
 China_clone_06:
-    .text "Clone 06"
+    .text "Shen"
     .byte $FC
 
 China_clone_07:
-    .text "Clone 07"
+    .text "Zhou"
     .byte $FC
 
 China_clone_08:
-    .text "Clone 08"
+    .text "Yuan"
     .byte $FC
 
 txt_4D_opponent_player_Li_Han_ne:
@@ -1899,7 +1905,7 @@ txt_4D_opponent_player_Li_Han_ne:
     .byte $FC
 
 China_clone_10:
-    .text "Clone 10"
+    .text "Zheng"
     .byte $FC
 
 txt_4E_opponent_player_Li_Ban_kun:
@@ -1916,47 +1922,47 @@ txt_8B_opponent_team_Iran:
     .byte $FC
 
 Iran_clone_01:
-    .text "Clone 01"
+    .text "Farrokh"
     .byte $FC
 
 Iran_clone_02:
-    .text "Clone 02"
+    .text "Esmail"
     .byte $FC
 
 Iran_clone_03:
-    .text "Clone 03"
+    .text "Bakhtiar"
     .byte $FC
 
 Iran_clone_04:
-    .text "Clone 04"
+    .text "Rostam"
     .byte $FC
 
 Iran_clone_05:
-    .text "Clone 05"
+    .text "Golshan"
     .byte $FC
 
 Iran_clone_06:
-    .text "Clone 06"
+    .text "Amir"
     .byte $FC
 
 Iran_clone_07:
-    .text "Clone 07"
+    .text "Shahram"
     .byte $FC
 
 Iran_clone_08:
-    .text "Clone 08"
+    .text "Hassan"
     .byte $FC
 
 Iran_clone_09:
-    .text "Clone 09"
+    .text "Dariush"
     .byte $FC
 
 Iran_clone_10:
-    .text "Clone 10"
+    .text "Isa"
     .byte $FC
 
 Iran_clone_11:
-    .text "Clone 11"
+    .text "Zartosht"
     .byte $FC
 
 
@@ -1969,47 +1975,47 @@ txt_8C_opponent_team_North_Korea:
     .byte $FC
 
 North_Korea_clone_01:
-    .text "Clone 01"
+    .text "Bum"
     .byte $FC
 
 North_Korea_clone_02:
-    .text "Clone 02"
+    .text "Yun"
     .byte $FC
 
 North_Korea_clone_03:
-    .text "Clone 03"
+    .text "Soo"
     .byte $FC
 
 North_Korea_clone_04:
-    .text "Clone 04"
+    .text "Yong"
     .byte $FC
 
 North_Korea_clone_05:
-    .text "Clone 05"
+    .text "Tae"
     .byte $FC
 
 North_Korea_clone_06:
-    .text "Clone 06"
+    .text "Young"
     .byte $FC
 
 North_Korea_clone_07:
-    .text "Clone 07"
+    .text "Jung"
     .byte $FC
 
 North_Korea_clone_08:
-    .text "Clone 08"
+    .text "Jeo"
     .byte $FC
 
 North_Korea_clone_09:
-    .text "Clone 09"
+    .text "Soon"
     .byte $FC
 
 North_Korea_clone_10:
-    .text "Clone 10"
+    .text "Byung"
     .byte $FC
 
 North_Korea_clone_11:
-    .text "Clone 11"
+    .text "Joon"
     .byte $FC
 
 
@@ -2075,35 +2081,35 @@ txt_8E_opponent_team_South_Korea:
     .byte $FC
 
 South_Korea_clone_01:
-    .text "Clone 01"
+    .text "Han"
     .byte $FC
 
 South_Korea_clone_02:
-    .text "Clone 02"
+    .text "Joo"
     .byte $FC
 
 South_Korea_clone_03:
-    .text "Clone 03"
+    .text "Sohn"
     .byte $FC
 
 South_Korea_clone_04:
-    .text "Clone 04"
+    .text "Yuh"
     .byte $FC
 
 South_Korea_clone_05:
-    .text "Clone 05"
+    .text "Noh"
     .byte $FC
 
 South_Korea_clone_06:
-    .text "Clone 06"
+    .text "Yang"
     .byte $FC
 
 South_Korea_clone_07:
-    .text "Clone 07"
+    .text "Song"
     .byte $FC
 
 South_Korea_clone_08:
-    .text "Clone 08"
+    .text "Wun"
     .byte $FC
 
 txt_4F_opponent_player_Sha:             ; 09
@@ -2115,7 +2121,7 @@ txt_50_opponent_player_Kim:             ; 10
     .byte $FC
 
 South_Korea_clone_11:
-    .text "Clone 11"
+    .text "Won"
     .byte $FC
 
 
@@ -2128,47 +2134,47 @@ txt_8F_opponent_team_Turkey:
     .byte $FC
 
 Turkey_clone_01:
-    .text "Clone 01"
+    .text "Latafat"
     .byte $FC
 
 Turkey_clone_02:
-    .text "Clone 02"
+    .text "Efe"
     .byte $FC
 
 Turkey_clone_03:
-    .text "Clone 03"
+    .text "Tabeeb"
     .byte $FC
 
 Turkey_clone_04:
-    .text "Clone 04"
+    .text "Yusuf"
     .byte $FC
 
 Turkey_clone_05:
-    .text "Clone 05"
+    .text "Demir"
     .byte $FC
 
 Turkey_clone_06:
-    .text "Clone 06"
+    .text "Ibrahim"
     .byte $FC
 
 Turkey_clone_07:
-    .text "Clone 07"
+    .text "Cetin"
     .byte $FC
 
 Turkey_clone_08:
-    .text "Clone 08"
+    .text "Rifaat"
     .byte $FC
 
 Turkey_clone_09:
-    .text "Clone 09"
+    .text "Zehab"
     .byte $FC
 
 Turkey_clone_10:
-    .text "Clone 10"
+    .text "Burak"
     .byte $FC
 
 Turkey_clone_11:
-    .text "Clone 11"
+    .text "Kahraman"
     .byte $FC
 
 
@@ -2185,39 +2191,39 @@ txt_52_opponent_player_Djazic:          ; 01
     .byte $FC
 
 Poland_clone_02:
-    .text "Clone 02"
+    .text "Ziemowit"
     .byte $FC
 
 Poland_clone_03:
-    .text "Clone 03"
+    .text "Waldek"
     .byte $FC
 
 Poland_clone_04:
-    .text "Clone 04"
+    .text "Serafin"
     .byte $FC
 
 Poland_clone_05:
-    .text "Clone 05"
+    .text "Radoslaw"
     .byte $FC
 
 Poland_clone_06:
-    .text "Clone 06"
+    .text "Szczesny"
     .byte $FC
 
 Poland_clone_07:
-    .text "Clone 07"
+    .text "Czeslaw"
     .byte $FC
 
 Poland_clone_08:
-    .text "Clone 08"
+    .text "Alojzy"
     .byte $FC
 
 Poland_clone_09:
-    .text "Clone 09"
+    .text "Gawel"
     .byte $FC
 
 Poland_clone_10:
-    .text "Clone 10"
+    .text "Milosz"
     .byte $FC
 
 txt_51_opponent_player_Macher:          ; 11
@@ -2233,15 +2239,15 @@ txt_91_opponent_team_England:
     .byte $FC
 
 England_clone_01:
-    .text "Clone 01"
+    .text "Beck"
     .byte $FC
 
 England_clone_02:
-    .text "Clone 02"
+    .text "Gardner"
     .byte $FC
 
 England_clone_03:
-    .text "Clone 03"
+    .text "Seagal"
     .byte $FC
 
 txt_54_opponent_player_Robson:          ; 04
@@ -2249,19 +2255,19 @@ txt_54_opponent_player_Robson:          ; 04
     .byte $FC
 
 England_clone_05:
-    .text "Clone 05"
+    .text "Adams"
     .byte $FC
 
 England_clone_06:
-    .text "Clone 06"
+    .text "Joel"
     .byte $FC
 
 England_clone_07:
-    .text "Clone 07"
+    .text "Carnegie"
     .byte $FC
 
 England_clone_08:
-    .text "Clone 08"
+    .text "Harley"
     .byte $FC
 
 txt_53_opponent_player_Lorimar:         ; 09
@@ -2269,11 +2275,11 @@ txt_53_opponent_player_Lorimar:         ; 09
     .byte $FC
 
 England_clone_10:
-    .text "Clone 10"
+    .text "McCoy"
     .byte $FC
 
 England_clone_11:
-    .text "Clone 11"
+    .text "Wright"
     .byte $FC
 
 
@@ -2317,8 +2323,8 @@ Soviet_Union_clone_08:
     .text "Clone 08"
     .byte $FC
 
-txt_55_opponent_player_Belaev:          ; 09
-    .text "Belaev"
+txt_55_opponent_player_Belyaev:         ; 09
+    .text "Belyaev"
     .byte $FC
 
 Soviet_Union_clone_10:
@@ -2741,7 +2747,7 @@ off_F850_A1:        ; razor shot
     .text "A1 "     ; <カミソリシュート>
     .byte $FC
 
-off_F859_A2:        ; skylb hurricane
+off_F859_A2:        ; skylab hurricane
     .text "A2 "     ; <スカイラブハリケーン>
     .byte $FC
 
@@ -2825,7 +2831,7 @@ off_F920_B6:
     .text "B6 "     ; <ダイナマイトヘッド>
     .byte $FC
 
-off_F92A_B7:          ; unused
+off_F92A_B7:        ; unused
     .text "B7 "     ; <キャノンヘッド>
     .byte $FC
 
@@ -2909,7 +2915,7 @@ off_F9CD_CB:        ; gemini attack
     .text "CB "     ; <ジェミニアタック>
     .byte $FC
 
-off_F9D6_CC:          ; unused
+off_F9D6_CC:        ; unused
     .text "CC "     ; <エッフェルこうげき>
     .byte $FC
 
@@ -2949,7 +2955,7 @@ off_FA20_D5:        ; tiger tackle
     .text "D5 "     ; <タイガータックル>
     .byte $FC
 
-off_FA29_D6:          ; unused
+off_FA29_D6:        ; unused
     .text "D6 "     ; <タックル>
     .byte $FC
 
@@ -2973,19 +2979,19 @@ off_FA48_DB:
     .text "DB "     ; <クリアー>
     .byte $FC
 
-off_FA4D_DC:          ; unused
+off_FA4D_DC:        ; unused
     .text "DC "     ; <クリアー>
     .byte $FC
 
-off_FA52_DD:          ; unused
+off_FA52_DD:        ; unused
     .text "DD "     ; <せりあい>
     .byte $FC
 
-off_FA57_DE:          ; unused
+off_FA57_DE:        ; unused
     .text "DE "     ; <せりあい>
     .byte $FC
 
-off_FA5C_DF:          ; unused
+off_FA5C_DF:        ; unused
     .text "DF "     ; <フォロー>
     .byte $FC
 
@@ -2993,15 +2999,15 @@ off_FA61_E0:
     .text "E0 "     ; <キャッチング>
     .byte $FC
 
-off_FA68_E1:          ; unused
+off_FA68_E1:        ; unused
     .text "E1 "     ; <ローリングセーブ>
     .byte $FC
 
-off_FA71_E2:          ; unused
+off_FA71_E2:        ; unused
     .text "E2 "     ; <ぶんしんセーブ>
     .byte $FC
 
-off_FA79_E3:          ; unused
+off_FA79_E3:        ; unused
     .text "E3 "     ; <だいかいてんセーブ>
     .byte $FC
 
