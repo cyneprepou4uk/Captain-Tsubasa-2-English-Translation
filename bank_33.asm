@@ -183,12 +183,12 @@ team_Kunimi:
     .word Kunimi_clone_01
     .word Kunimi_clone_02
     .word Kunimi_clone_03
-    .word Kunimi_clone_04
+    .word $0000
     .word Kunimi_clone_05
     .word Kunimi_clone_06
     .word Kunimi_clone_07
     .word Kunimi_clone_08
-    .word Kunimi_clone_09
+    .word $0000
     .word Kunimi_clone_10
     .word Kunimi_clone_11
 
@@ -201,15 +201,15 @@ team_Akita:
     .word Akita_clone_06
     .word Akita_clone_07
     .word Akita_clone_08
-    .word Akita_clone_09
+    .word $0000
     .word Akita_clone_10
-    .word Akita_clone_11
+    .word $0000
 
 team_Tatsunami:
-    .word Tatsunami_clone_01
+    .word $0000
     .word Tatsunami_clone_02
     .word Tatsunami_clone_03
-    .word Tatsunami_clone_04
+    .word $0000
     .word Tatsunami_clone_05
     .word Tatsunami_clone_06
     .word Tatsunami_clone_07
@@ -218,7 +218,7 @@ team_Tatsunami:
     .word Tatsunami_clone_10
     .word Tatsunami_clone_11
 
-team_Musashi:
+team_Musashi:           ; https://captaintsubasa.fandom.com/wiki/Musashi_FC
     .word Musashi_clone_01
     .word Musashi_clone_02
     .word Musashi_clone_03
@@ -231,7 +231,7 @@ team_Musashi:
     .word Musashi_clone_10
     .word Musashi_clone_11
 
-team_Furano:
+team_Furano:            ; https://captaintsubasa.fandom.com/wiki/Furano_middle_school
     .word Furano_clone_01
     .word Furano_clone_02
     .word Furano_clone_03
@@ -241,20 +241,20 @@ team_Furano:
     .word Furano_clone_07
     .word Furano_clone_08
     .word Furano_clone_09
-    .word Furano_clone_10
+    .word $0000
     .word Furano_clone_11
 
 team_Toho:
-    .word Toho_clone_01
+    .word $0000
     .word Toho_clone_02
     .word Toho_clone_03
     .word Toho_clone_04
     .word Toho_clone_05
-    .word Toho_clone_06
+    .word $0000
     .word Toho_clone_07
     .word Toho_clone_08
-    .word Toho_clone_09
-    .word Toho_clone_10
+    .word $0000
+    .word $0000
     .word Toho_clone_11
 
 team_AS_Roma:
@@ -1283,8 +1283,8 @@ Kunimi_clone_03:
     .text "Clone 03"
     .byte $FC
 
-Kunimi_clone_04:
-    .text "Clone 04"
+txt_2E_opponent_player_Jitou:       ; 04
+    .text "Jitou"
     .byte $FC
 
 Kunimi_clone_05:
@@ -1303,8 +1303,8 @@ Kunimi_clone_08:
     .text "Clone 08"
     .byte $FC
 
-Kunimi_clone_09:
-    .text "Clone 09"
+txt_2F_opponent_player_Sano:        ; 09
+    .text "Sano"
     .byte $FC
 
 Kunimi_clone_10:
@@ -1313,14 +1313,6 @@ Kunimi_clone_10:
 
 Kunimi_clone_11:
     .text "Clone 11"
-    .byte $FC
-
-txt_2E_opponent_player_Jitou:
-    .text "Jitou"
-    .byte $FC
-
-txt_2F_opponent_player_Sano:
-    .text "Sano"
     .byte $FC
 
 
@@ -1364,23 +1356,15 @@ Akita_clone_08:
     .text "Clone 08"
     .byte $FC
 
-Akita_clone_09:
-    .text "Clone 09"
+txt_30_opponent_player_Masao:       ; 09
+    .text "Masao"
     .byte $FC
 
 Akita_clone_10:
     .text "Clone 10"
     .byte $FC
 
-Akita_clone_11:
-    .text "Clone 11"
-    .byte $FC
-
-txt_30_opponent_player_Masao:
-    .text "Masao"
-    .byte $FC
-
-txt_31_opponent_player_Kazuo:
+txt_31_opponent_player_Kazuo:       ; 11
     .text "Kazuo"
     .byte $FC
 
@@ -1393,8 +1377,8 @@ txt_81_opponent_team_Tatsunami:
     .text "Tatsunami"
     .byte $FC
 
-Tatsunami_clone_01:
-    .text "Clone 01"
+txt_33_opponent_player_Nakanishi:       ; 01
+    .byte $10, $11, $12, $13, $14, $15, $16, $17
     .byte $FC
 
 Tatsunami_clone_02:
@@ -1405,8 +1389,8 @@ Tatsunami_clone_03:
     .text "Clone 03"
     .byte $FC
 
-Tatsunami_clone_04:
-    .text "Clone 04"
+txt_32_opponent_player_Souda:
+    .text "Souda"
     .byte $FC
 
 Tatsunami_clone_05:
@@ -1437,14 +1421,6 @@ Tatsunami_clone_11:
     .text "Clone 11"
     .byte $FC
 
-txt_32_opponent_player_Souda:
-    .text "Souda"
-    .byte $FC
-
-txt_33_opponent_player_Nakanishi:
-    .byte $10, $11, $12, $13, $14, $15, $16, $17
-    .byte $FC
-
 
 
 
@@ -1455,50 +1431,50 @@ txt_82_opponent_team_Musashi:
     .byte $FC
 
 Musashi_clone_01:
-    .text "Clone 01"
+    .text "Tazawa"
     .byte $FC
 
 Musashi_clone_02:
-    .text "Clone 02"
+    .text "Kanda"
     .byte $FC
 
 Musashi_clone_03:
-    .text "Clone 03"
+    .text "Yamamoto"
     .byte $FC
 
 Musashi_clone_04:
-    .text "Clone 04"
+    .text "Sano"
     .byte $FC
 
 Musashi_clone_05:
-    .text "Clone 05"
+    .text "Kido"
     .byte $FC
 
 Musashi_clone_06:
-    .text "Clone 06"
+    .text "Nakajima"
     .byte $FC
 
 Musashi_clone_07:
-    .text "Clone 07"
+    .text "Mukai"
     .byte $FC
 
 Musashi_clone_08:
-    .text "Clone 08"
+    .text "Ichinose"
     .byte $FC
 
 Musashi_clone_09:
-    .text "Clone 09"
+    .text "Honma"
     .byte $FC
 
 Musashi_clone_10:
-    .text "Clone 10"
+    .text "Sanada"
     .byte $FC
 
 Musashi_clone_11:
-    .text "Clone 11"
+    .text "Kojima"
     .byte $FC
 
-txt_34_opponent_player_Misugi:      ; bench player
+txt_34_opponent_player_Misugi:      ; bench 10
     .text "Misugi"
     .byte $FC
 
@@ -1512,15 +1488,15 @@ txt_83_opponent_team_Furano:
     .byte $FC
 
 Furano_clone_01:
-    .text "Clone 01"
+    .text "Kato"
     .byte $FC
 
 Furano_clone_02:
-    .text "Clone 02"
+    .text "Kondo"
     .byte $FC
 
 Furano_clone_03:
-    .text "Clone 03"
+    .text "Matsuda"
     .byte $FC
 
 Furano_clone_04:
@@ -1528,35 +1504,31 @@ Furano_clone_04:
     .byte $FC
 
 Furano_clone_05:
-    .text "Clone 05"
+    .text "Sase"
     .byte $FC
 
 Furano_clone_06:
-    .text "Clone 06"
+    .text "Honda"
     .byte $FC
 
 Furano_clone_07:
-    .text "Clone 07"
+    .text "Nakagawa"
     .byte $FC
 
 Furano_clone_08:
-    .text "Clone 08"
+    .text "Yamamuro"
     .byte $FC
 
 Furano_clone_09:
-    .text "Clone 09"
-    .byte $FC
-
-Furano_clone_10:
-    .text "Clone 10"
-    .byte $FC
-
-Furano_clone_11:
-    .text "Clone 11"
+    .text "Kaneda"
     .byte $FC
 
 txt_35_opponent_player_Matsuyama:
     .byte $18, $19, $1A, $1B, $1C, $1D, $1E, $1F
+    .byte $FC
+
+Furano_clone_11:
+    .text "Oda"
     .byte $FC
 
 
@@ -1568,8 +1540,8 @@ txt_84_opponent_team_Toho:
     .text "Toho"
     .byte $FC
 
-Toho_clone_01:
-    .text "Clone 01"
+txt_39_opponent_player_Wakashimazu:     ; 01
+    .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
 Toho_clone_02:
@@ -1588,8 +1560,8 @@ Toho_clone_05:
     .text "Clone 05"
     .byte $FC
 
-Toho_clone_06:
-    .text "Clone 06"
+txt_38_opponent_player_Sawada:      ; 06
+    .text "Sawada"
     .byte $FC
 
 Toho_clone_07:
@@ -1600,32 +1572,16 @@ Toho_clone_08:
     .text "Clone 08"
     .byte $FC
 
-Toho_clone_09:
-    .text "Clone 09"
+txt_36_opponent_player_Hyuga:       ; 09
+    .text "Hyuga"
     .byte $FC
 
-Toho_clone_10:
-    .text "Clone 10"
+txt_37_opponent_player_Sorimachi:   ; 10
+    .byte $60, $21, $22, $23, $24, $25, $26, $27
     .byte $FC
 
 Toho_clone_11:
     .text "Clone 11"
-    .byte $FC
-
-txt_36_opponent_player_Hyuga:
-    .text "Hyuga"
-    .byte $FC
-
-txt_37_opponent_player_Sorimachi:
-    .byte $60, $21, $22, $23, $24, $25, $26, $27
-    .byte $FC
-
-txt_38_opponent_player_Sawada:
-    .text "Sawada"
-    .byte $FC
-
-txt_39_opponent_player_Wakashimazu:
-    .byte $28, $29, $2A, $2B, $2C, $2D, $2E, $2F
     .byte $FC
 
 
