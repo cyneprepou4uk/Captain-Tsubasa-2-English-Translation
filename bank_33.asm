@@ -2296,31 +2296,31 @@ txt_56_opponent_player_Rashin:          ; 01
     .byte $FC
 
 Soviet_Union_clone_02:
-    .text "Clone 02"
+    .text "Sobolev"
     .byte $FC
 
 Soviet_Union_clone_03:
-    .text "Clone 03"
+    .text "Kalinin"
     .byte $FC
 
 Soviet_Union_clone_04:
-    .text "Clone 04"
+    .text "Rzhevsky"
     .byte $FC
 
 Soviet_Union_clone_05:
-    .text "Clone 05"
+    .text "Telitsyn"
     .byte $FC
 
 Soviet_Union_clone_06:
-    .text "Clone 06"
+    .text "Aksyonov"
     .byte $FC
 
 Soviet_Union_clone_07:
-    .text "Clone 07"
+    .text "Lyutiy"
     .byte $FC
 
 Soviet_Union_clone_08:
-    .text "Clone 08"
+    .text "Boykov"
     .byte $FC
 
 txt_55_opponent_player_Belyaev:         ; 09
@@ -2328,11 +2328,11 @@ txt_55_opponent_player_Belyaev:         ; 09
     .byte $FC
 
 Soviet_Union_clone_10:
-    .text "Clone 10"
+    .text "Yermakov"
     .byte $FC
 
 Soviet_Union_clone_11:
-    .text "Clone 11"
+    .text "Korneyev"
     .byte $FC
 
 
