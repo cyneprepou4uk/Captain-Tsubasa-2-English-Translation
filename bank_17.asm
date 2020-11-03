@@ -267,7 +267,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201D9 17:81C9: C7 84     .word ofs_84C7_2B_AB_проверка_на_100_хп
 - D - I - 0x0201DB 17:81CB: E7 84     .word ofs_84E7_2C_AC
 - D - I - 0x0201DD 17:81CD: EF 84     .word ofs_84EF_2D_AD
-- D - I - 0x0201DF 17:81CF: FC 84     .word ofs_84FC_2E_AE_сообщение_вакашимазу_перед_прыжком
+- D - I - 0x0201DF 17:81CF: FC 84     .word ofs_84FC_2E_AE
 - D - I - 0x0201E1 17:81D1: 0B 85     .word ofs_850B_2F_AF_киперы_с_критами
 - D - I - 0x0201E3 17:81D3: 27 85     .word ofs_8527_30_B0_диас_цубаса
 - D - I - 0x0201E5 17:81D5: 3A 85     .word ofs_853A_31_B1_нитта
@@ -632,6 +632,8 @@ C - - - - 0x0203B0 17:83A0: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x0203B3 17:83A3: 60        RTS
 
 ofs_83A8_15_95:
+; 00 - 
+; 01 - 
 C - J - - 0x0203B8 17:83A8: AC 3D 04  LDY $043D
 C - - - - 0x0203BB 17:83AB: BE AF 83  LDX tbl_83AF,Y
 C - - - - 0x0203BE 17:83AE: 60        RTS
@@ -644,6 +646,9 @@ tbl_83AF:
     .byte $01
 
 ofs_83B4_16_96:
+; 00 - 
+; 01 - 
+; 02 - 
 C - J - - 0x0203C4 17:83B4: AC 3B 04  LDY ram_действие_атаки
 C - - - - 0x0203C7 17:83B7: BE BB 83  LDX tbl_83BB,Y
 C - - - - 0x0203CA 17:83BA: 60        RTS
@@ -671,6 +676,10 @@ bra_83D5_выход:
 C - - - - 0x0203E5 17:83D5: 60        RTS
 
 ofs_83E4_1B_9B:
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
 C - J - - 0x0203F4 17:83E4: AD 3E 04  LDA $043E
 C - - - - 0x0203F7 17:83E7: 29 7F     AND #$7F
 C - - - - 0x0203F9 17:83E9: AA        TAX
@@ -743,6 +752,9 @@ C - - - - 0x020416 17:8406: AA        TAX
 C - - - - 0x020417 17:8407: 4C 11 82  JMP loc_8211
 
 ofs_840E_20_A0:
+; 00 - 
+; 01 - 
+; 02 - 
 C - J - - 0x02041E 17:840E: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x020421 17:8411: 49 0B     EOR #$0B
 C - - - - 0x020423 17:8413: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
@@ -797,8 +809,8 @@ bra_8456_выход:
 C - - - - 0x020466 17:8456: 60        RTS
 
 ofs_8457_26_A6:
-; 00 - ?
-; 01 - ?
+; 00 - 
+; 01 - 
 C - J - - 0x020467 17:8457: A2 00     LDX #$00
 C - - - - 0x020469 17:8459: AD 2B 00  LDA ram_команда_соперника
 C - - - - 0x02046C 17:845C: C9 22     CMP #$22
@@ -982,6 +994,8 @@ bra_84E6_выход:
 C - - - - 0x0204F6 17:84E6: 60        RTS
 
 ofs_84E7_2C_AC:
+; 00 - 
+; 01 - 
 C - J - - 0x0204F7 17:84E7: AE 00 06  LDX ram_колво_нападающих
 C - - - - 0x0204FA 17:84EA: F0 02     BEQ bra_84EE_выход
 C - - - - 0x0204FC 17:84EC: A2 01     LDX #$01
@@ -989,6 +1003,8 @@ bra_84EE_выход:
 C - - - - 0x0204FE 17:84EE: 60        RTS
 
 ofs_84EF_2D_AD:
+; 00 - 
+; 01 - 
 C - J - - 0x0204FF 17:84EF: A2 00     LDX #$00
 C - - - - 0x020501 17:84F1: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x020504 17:84F4: 29 7F     AND #$7F
@@ -998,7 +1014,9 @@ C - - - - 0x02050A 17:84FA: E8        INX
 bra_84FB_выход:
 C - - - - 0x02050B 17:84FB: 60        RTS
 
-ofs_84FC_2E_AE_сообщение_вакашимазу_перед_прыжком:
+ofs_84FC_2E_AE:
+; 00 - 
+; 01 - 
 C - J - - 0x02050C 17:84FC: 20 51 C5  JSR sub_0x03CD87_адрес_игрока_команды_без_мяча
 C - - - - 0x02050F 17:84FF: A2 00     LDX #$00
 C - - - - 0x020511 17:8501: A0 07     LDY #con_игрок_координата_Y_lo
@@ -1048,6 +1066,8 @@ bra_8539_выход:
 C - - - - 0x020549 17:8539: 60        RTS
 
 ofs_853A_31_B1_нитта:
+; 00 - это нитта
+; 01 - это не нитта
 C - J - - 0x02054A 17:853A: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x02054D 17:853D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x020550 17:8540: C9 15     CMP #$15      ; нитта
@@ -1057,6 +1077,8 @@ bra_8545_выход:
 C - - - - 0x020555 17:8545: 60        RTS
 
 ofs_8546_32_B2_сода:
+; 00 - это сода
+; 01 - это не сода
 C - J - - 0x020556 17:8546: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x020559 17:8549: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x02055C 17:854C: C9 1B     CMP #$1B      ; сода
@@ -1068,7 +1090,22 @@ bra_8555_выход:
 C - - - - 0x020565 17:8555: 60        RTS
 
 ofs_8556_33_B3:
-; X 00-0F
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
+; 04 - 
+; 05 - 
+; 06 - 
+; 07 - 
+; 08 - 
+; 09 - 
+; 0A - 
+; 0B - 
+; 0C - 
+; 0D - 
+; 0E - 
+; 0F - 
 C - J - - 0x020566 17:8556: AD 3E 04  LDA $043E
 C - - - - 0x020569 17:8559: 29 7F     AND #$7F
 C - - - - 0x02056B 17:855B: AA        TAX
@@ -1082,10 +1119,16 @@ bra_856B_выход:
 C - - - - 0x02057B 17:856B: 60        RTS
 
 ofs_856C_34_B4_узнать_высоту_мяча:
+; 00 - мяч у атакующего на земле
+; 01 - летит низкий мяч
+; 02 - летит высокий мяч
 C - J - - 0x02057C 17:856C: AE 4E 04  LDX ram_высота_мяча
 C - - - - 0x02057F 17:856F: 60        RTS
 
 ofs_8570_35_B5:
+; 00 - 
+; 01 - 
+; 02 - 
 C - J - - 0x020580 17:8570: AD 3D 04  LDA $043D
 C - - - - 0x020583 17:8573: 29 0F     AND #$0F
 C - - - - 0x020585 17:8575: A8        TAY
@@ -1093,18 +1136,18 @@ C - - - - 0x020586 17:8576: BE 7A 85  LDX tbl_857A,Y
 C - - - - 0x020589 17:8579: 60        RTS
 
 tbl_857A:
-- - - - - 0x02058A 17:857A: FF        .byte $FF
-- - - - - 0x02058B 17:857B: FF        .byte $FF
-- D - - - 0x02058C 17:857C: 00        .byte $00
-- D - - - 0x02058D 17:857D: 01        .byte $01
-- - - - - 0x02058E 17:857E: FF        .byte $FF
-- D - - - 0x02058F 17:857F: 02        .byte $02
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $00
+    .byte $01
+    .byte $FF       ; unused
+    .byte $02
 
 ofs_8580_36_B6:
-; 00 - ?
-; 01 - ?
-; 02 - ?
-; 03 - ?
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
 C - J - - 0x020590 17:8580: AD 3E 04  LDA $043E
 C - - - - 0x020593 17:8583: 29 7F     AND #$7F
 C - - - - 0x020595 17:8585: AA        TAX
@@ -1170,8 +1213,8 @@ bra_85C9_выход:
 C - - - - 0x0205D9 17:85C9: 60        RTS
 
 ofs_85CA_3C_BC_мисуги:
-; 00 - это мисуги:
-; 01 - это не мисуги:
+; 00 - это мисуги
+; 01 - это не мисуги
 C - J - - 0x0205DA 17:85CA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0205DD 17:85CD: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x0205E0 17:85D0: C9 20     CMP #$20      ; мисуги из японии (наша команда)
@@ -1194,6 +1237,15 @@ bra_85E5_выход:
 C - - - - 0x0205F5 17:85E5: 60        RTS
 
 ofs_85E6_3E_BE:
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
+; 04 - 
+; 05 - 
+; 06 - 
+; 07 - 
+; 08 - 
 C - J - - 0x0205F6 17:85E6: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x0205F9 17:85E9: 38        SEC
 C - - - - 0x0205FA 17:85EA: E9 07     SBC #$07
@@ -1275,26 +1327,32 @@ tbl_8623_наши_киперы:
     .byte $22       ; вакашимазу
 
 ofs_8627_42_C2:
-; X 00-01
+; 00 - 
+; 01 - 
 C - J - - 0x020637 17:8627: AD E2 00  LDA ram_рандом_2
 C - - - - 0x02063A 17:862A: 29 01     AND #$01
 C - - - - 0x02063C 17:862C: AA        TAX
 C - - - - 0x02063D 17:862D: 60        RTS
 
 ofs_862E_43_C3:
+; 00 - 
+; 01 - 
+; 02 - 
 C - J - - 0x02063E 17:862E: AC 3D 04  LDY $043D
 C - - - - 0x020641 17:8631: BE 35 86  LDX tbl_8635,Y
 C - - - - 0x020644 17:8634: 60        RTS
 
 tbl_8635:
-- - - - - 0x020645 17:8635: FF        .byte $FF
-- - - - - 0x020646 17:8636: FF        .byte $FF
-- D - - - 0x020647 17:8637: 00        .byte $00
-- - - - - 0x020648 17:8638: FF        .byte $FF
-- D - - - 0x020649 17:8639: 01        .byte $01
-- D - - - 0x02064A 17:863A: 02        .byte $02
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $00
+    .byte $FF       ; unused
+    .byte $01
+    .byte $02
 
 ofs_863B_44_C4:
+; 00 - 
+; 01 - 
 C - J - - 0x02064B 17:863B: AD 3D 04  LDA $043D
 C - - - - 0x02064E 17:863E: 29 0F     AND #$0F
 C - - - - 0x020650 17:8640: A8        TAY
@@ -1302,13 +1360,15 @@ C - - - - 0x020651 17:8641: BE 45 86  LDX tbl_8645,Y
 C - - - - 0x020654 17:8644: 60        RTS
 
 tbl_8645:
-- - - - - 0x020655 17:8645: FF        .byte $FF
-- - - - - 0x020656 17:8646: FF        .byte $FF
-- - - - - 0x020657 17:8647: FF        .byte $FF
-- D - - - 0x020658 17:8648: 00        .byte $00
-- D - - - 0x020659 17:8649: 01        .byte $01
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $00
+    .byte $01
 
 ofs_864A_45_C5:
+; 00 - 
+; 01 - 
 C - J - - 0x02065A 17:864A: A2 00     LDX #$00
 C - - - - 0x02065C 17:864C: AD 12 06  LDA ram_результат_защитника
 C - - - - 0x02065F 17:864F: C9 03     CMP #$03
@@ -1370,33 +1430,30 @@ C - - - - 0x0206B0 17:86A0: A9 01     LDA #$01
 C - - - - 0x0206B2 17:86A2: 20 11 82  JSR sub_8211
 C - - - - 0x0206B5 17:86A5: 60        RTS
 
-
-
 tbl_86A6_игрок:
-; первый байт - номер игрока, второй байт - X
-- D - - - 0x0206B6 17:86A6: 1A        .byte $1A     ; хюга из нашей японии
-- D - - - 0x0206B7 17:86A7: 00        .byte $00
-
-- D - - - 0x0206B8 17:86A8: 41        .byte $41     ; хюга соперник из японии
-- D - - - 0x0206B9 17:86A9: 00        .byte $00
-
-- D - - - 0x0206BA 17:86AA: 36        .byte $36     ; хюга из тохо
-- D - - - 0x0206BB 17:86AB: 01        .byte $01
-
-- D - - - 0x0206BC 17:86AC: 1C        .byte $1C     ; джито из нашей японии
-- - - - - 0x0206BD 17:86AD: 02        .byte $02
-
-- D - - - 0x0206BE 17:86AE: 48        .byte $48     ; джито соперник из японии
-- - - - - 0x0206BF 17:86AF: 02        .byte $02
-
-- D - - - 0x0206C0 17:86B0: 2E        .byte $2E     ; джито из куними
-- D - - - 0x0206C1 17:86B1: 03        .byte $03
-
-- D - - - 0x0206C2 17:86B2: 57        .byte $57     ; наполеон
-- D - - - 0x0206C3 17:86B3: 04        .byte $04
-
-- - - - - 0x0206C4 17:86B4: 00        .byte $00     ; игрок без рожи
-- D - - - 0x0206C5 17:86B5: 05        .byte $05
+    .byte $1A       ; хюга из нашей японии
+    .byte $00       ; X     
+    
+    .byte $41       ; хюга соперник из японии
+    .byte $00       ; X
+    
+    .byte $36       ; хюга из тохо
+    .byte $01       ; X
+    
+    .byte $1C       ; джито из нашей японии
+    .byte $02       ; X
+    
+    .byte $48       ; джито соперник из японии
+    .byte $02       ; X
+    
+    .byte $2E       ; джито из куними
+    .byte $03       ; X
+    
+    .byte $57       ; наполеон
+    .byte $04       ; X
+    
+    .byte $00       ; игрок без рожи, unused так как не читается в цикле
+    .byte $05       ; X
 
 
 
@@ -1419,10 +1476,10 @@ bra_86C7_выход:
 C - - - - 0x0206D7 17:86C7: 60        RTS
 
 tbl_86C8:
-- D - - - 0x0206D8 17:86C8: 08        .byte $08
-- D - - - 0x0206D9 17:86C9: 0A        .byte $0A
-- D - - - 0x0206DA 17:86CA: 10        .byte $10
-- D - - - 0x0206DB 17:86CB: 1F        .byte $1F
+    .byte $08
+    .byte $0A
+    .byte $10
+    .byte $1F
 
 ofs_86CC_49_C9_комбо_перепасовка:
 C - J - - 0x0206DC 17:86CC: AD 41 04  LDA ram_игрок_с_мячом
@@ -10317,11 +10374,11 @@ sub_ABB8:
 - D - I - 0x022BDB 11:ABCB: FB        .byte con_rts
 
 bra_long_case_ABCC_05:
-- D - I - 0x022BDC 11:ABCC: F3        .byte con_branch, $B1
-- D - I - 0x022BDE 11:ABCE: 02        .byte bra_case_ABD0_00 - *
-- - - - - 0x022BDF 11:ABCF: 1A        .byte bra_case_ABE9_01 - *
+- D - I - 0x022BDC 11:ABCC: F3        .byte con_branch, $B1     ; проверка на нитту
+- D - I - 0x022BDE 11:ABCE: 02        .byte bra_case_ABD0_00_это_нитта - *
+- - - - - 0x022BDF 11:ABCF: 1A        .byte bra_case_ABE9_01_это_не_нитта - *
 
-bra_case_ABD0_00:
+bra_case_ABD0_00_это_нитта:
 - D - I - 0x022BE0 11:ABD0: 3C        .byte con_pause + $3C
 - D - I - 0x022BE1 11:ABD1: 30        .byte con_bg + $30
 - D - I - 0x022BE2 11:ABD2: 9A        .byte con_animation + $9A
@@ -10342,7 +10399,7 @@ loc_ABD4:
 - D - I - 0x022BF6 11:ABE6: F2        .byte con_jmp
 - D - I - 0x022BF7 11:ABE7: 6B AB     .word loc_AB6B
 
-bra_case_ABE9_01:
+bra_case_ABE9_01_это_не_нитта:
 - - - - - 0x022BF9 11:ABE9: 3C        .byte con_pause + $3C
 - - - - - 0x022BFA 11:ABEA: 30        .byte con_bg + $30
 - - - - - 0x022BFB 11:ABEB: 9B        .byte con_animation + $9B
@@ -10350,10 +10407,10 @@ bra_case_ABE9_01:
 - - - - - 0x022BFD 11:ABED: F2        .byte con_jmp
 - - - - - 0x022BFE 11:ABEE: D4 AB     .word loc_ABD4
 bra_long_case_ABF0_07:
-- D - I - 0x022C00 11:ABF0: F3        .byte con_branch, $B2
-- D - I - 0x022C02 11:ABF2: 02        .byte bra_case_ABF4_00 - *
-- D - I - 0x022C03 11:ABF3: 29        .byte bra_case_AC1C_01 - *
-bra_case_ABF4_00:
+- D - I - 0x022C00 11:ABF0: F3        .byte con_branch, $B2     ; проверка на соду
+- D - I - 0x022C02 11:ABF2: 02        .byte bra_case_ABF4_00_это_сода - *
+- D - I - 0x022C03 11:ABF3: 29        .byte bra_case_AC1C_01_это_не_сода - *
+bra_case_ABF4_00_это_сода:
 - D - I - 0x022C04 11:ABF4: 3C        .byte con_pause + $3C
 - D - I - 0x022C05 11:ABF5: 30        .byte con_bg + $30
 - D - I - 0x022C06 11:ABF6: 9F        .byte con_animation + $9F
@@ -10385,7 +10442,7 @@ loc_ABF8:
 - D - I - 0x022C29 11:AC19: F2        .byte con_jmp
 - D - I - 0x022C2A 11:AC1A: 6B AB     .word loc_AB6B
 
-bra_case_AC1C_01:
+bra_case_AC1C_01_это_не_сода:
 - D - I - 0x022C2C 11:AC1C: 3C        .byte con_pause + $3C
 - D - I - 0x022C2D 11:AC1D: 30        .byte con_bg + $30
 - D - I - 0x022C2E 11:AC1E: AD        .byte con_animation + $AD
@@ -11165,11 +11222,11 @@ sub_AF88:
 - D - I - 0x022F9E 11:AF8E: 78 AF     .word loc_AF78
 
 bra_long_case_AF90_02:
-- D - I - 0x022FA0 11:AF90: F3        .byte con_branch, $B2
-- D - I - 0x022FA2 11:AF92: 02        .byte bra_case_AF94_00 - *
-- D - I - 0x022FA3 11:AF93: 11        .byte bra_case_AFA4_01 - *
+- D - I - 0x022FA0 11:AF90: F3        .byte con_branch, $B2     ; проверка на соду
+- D - I - 0x022FA2 11:AF92: 02        .byte bra_case_AF94_00_это_сода - *
+- D - I - 0x022FA3 11:AF93: 11        .byte bra_case_AFA4_01_это_не_сода - *
 
-bra_case_AF94_00:
+bra_case_AF94_00_это_сода:
 - D - I - 0x022FA4 11:AF94: FA        .byte con_jsr
 - D - I - 0x022FA5 11:AF95: 73 AF     .word sub_AF73
 loc_AF97:
@@ -11183,7 +11240,7 @@ loc_AF97:
 - D - I - 0x022FB1 11:AFA1: F2        .byte con_jmp
 - D - I - 0x022FB2 11:AFA2: 6B AB     .word loc_AB6B
 
-bra_case_AFA4_01:
+bra_case_AFA4_01_это_не_сода:
 - D - I - 0x022FB4 11:AFA4: FA        .byte con_jsr
 - D - I - 0x022FB5 11:AFA5: 88 AF     .word sub_AF88
 - D - I - 0x022FB7 11:AFA7: F2        .byte con_jmp
@@ -11677,11 +11734,11 @@ bra_long_case_B197_00___:
 - D - I - 0x0231A7 11:B197: FB        .byte con_rts
 
 bra_long_case_B198_06:
-- D - I - 0x0231A8 11:B198: F3        .byte con_branch, $B1
-- D - I - 0x0231AA 11:B19A: 02        .byte bra_case_B19C_00 - *
-- - - - - 0x0231AB 11:B19B: 28        .byte bra_case_B1C3_01 - *
+- D - I - 0x0231A8 11:B198: F3        .byte con_branch, $B1     ; проверка на нитту
+- D - I - 0x0231AA 11:B19A: 02        .byte bra_case_B19C_00_это_нитта - *
+- - - - - 0x0231AB 11:B19B: 28        .byte bra_case_B1C3_01_это_не_нитта - *
 
-bra_case_B19C_00:
+bra_case_B19C_00_это_нитта:
 - D - I - 0x0231AC 11:B19C: 3C        .byte con_pause + $3C
 - D - I - 0x0231AD 11:B19D: 30        .byte con_bg + $30
 - D - I - 0x0231AE 11:B19E: 9A        .byte con_animation + $9A
@@ -11714,7 +11771,7 @@ loc_B1A0:
 - D - I - 0x0231D0 11:B1C0: FE        .byte con_FE
 - D - I - 0x0231D2 11:B1C2: FB        .byte con_rts
 
-bra_case_B1C3_01:
+bra_case_B1C3_01_это_не_нитта:
 - - - - - 0x0231D3 11:B1C3: 3C        .byte con_pause + $3C
 - - - - - 0x0231D4 11:B1C4: 30        .byte con_bg + $30
 - - - - - 0x0231D5 11:B1C5: 9B        .byte con_animation + $9B
