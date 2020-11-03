@@ -515,8 +515,8 @@ team_West_Germany:      ; https://captaintsubasa.fandom.com/wiki/Germany_(Tecmo)
     .word West_Germany_clone_02
     .word West_Germany_clone_03
     .word West_Germany_clone_04
-    .word West_Germany_clone_05
     .word $0000
+    .word West_Germany_clone_06
     .word $0000
     .word $0000
     .word $0000
@@ -2625,12 +2625,12 @@ West_Germany_clone_04:
     .text "Jurgen"
     .byte $FC
 
-West_Germany_clone_05:
-    .text "Mayer"
+txt_66_opponent_player_Metza:           ; 05
+    .text "Metza"
     .byte $FC
 
-txt_66_opponent_player_Metza:           ; 06
-    .text "Metza"
+West_Germany_clone_06:
+    .text "Mayer"
     .byte $FC
 
 txt_68_opponent_player_Kappelman:       ; 07
