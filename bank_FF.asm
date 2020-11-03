@@ -1407,7 +1407,7 @@ C - - - - 0x03CF6D FF:CF5D: F0 04     BEQ bra_CF63_это_кипер
 C - - - - 0x03CF6F FF:CF5F: C9 0B     CMP #$0B
 C - - - - 0x03CF71 FF:CF61: D0 06     BNE bra_CF69
 bra_CF63_это_кипер:
-C - - - - 0x03CF73 FF:CF63: A0 07     LDY #con_величина_ослабленности
+C - - - - 0x03CF73 FF:CF63: A0 07     LDY #con_величина_дисбаланса
 C - - - - 0x03CF75 FF:CF65: A9 00     LDA #$00
 C - - - - 0x03CF77 FF:CF67: 91 34     STA (ram_plr_data),Y
 bra_CF69:
@@ -1942,7 +1942,7 @@ bra_D272_не_overflow:
 C - - - - 0x03D282 FF:D272: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03D284 FF:D274: 60        RTS
 bra_D275_кипер_в_воротах:
-C - - - - 0x03D285 FF:D275: A0 07     LDY #con_величина_ослабленности
+C - - - - 0x03D285 FF:D275: A0 07     LDY #con_величина_дисбаланса
 C - - - - 0x03D287 FF:D277: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D289 FF:D279: F0 1E     BEQ bra_D299_выход
 C - - - - 0x03D28B FF:D27B: A0 06     LDY #$06
@@ -1953,7 +1953,7 @@ C - - - - 0x03D291 FF:D281: 10 14     BPL bra_D297
 C - - - - 0x03D293 FF:D283: 18        CLC
 C - - - - 0x03D294 FF:D284: 69 03     ADC #$03
 C - - - - 0x03D296 FF:D286: 48        PHA
-C - - - - 0x03D297 FF:D287: A0 07     LDY #con_величина_ослабленности
+C - - - - 0x03D297 FF:D287: A0 07     LDY #con_величина_дисбаланса
 C - - - - 0x03D299 FF:D289: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D29B FF:D28B: 38        SEC
 C - - - - 0x03D29C FF:D28C: E9 19     SBC #$19
@@ -3431,7 +3431,7 @@ C - - - - 0x03DC7C FF:DC6C: C9 0B     CMP #$0B
 C - - - - 0x03DC7E FF:DC6E: D0 06     BNE bra_DC76_не_кипер
 bra_DC70_кипер:
 C - - - - 0x03DC80 FF:DC70: A9 00     LDA #$00
-C - - - - 0x03DC82 FF:DC72: A0 07     LDY #con_величина_ослабленности
+C - - - - 0x03DC82 FF:DC72: A0 07     LDY #con_величина_дисбаланса
 C - - - - 0x03DC84 FF:DC74: 91 34     STA (ram_plr_data),Y
 bra_DC76_не_кипер:
 C - - - - 0x03DC86 FF:DC76: 68        PLA
