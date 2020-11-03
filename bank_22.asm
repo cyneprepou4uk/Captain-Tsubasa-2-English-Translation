@@ -4160,8 +4160,7 @@ off_962A_21:
 
 off_9640_22:
 - D - I - 0x031650 22:9640: F2        .byte con_очистить_облако
-- D - I - 0x031651 22:9641: F4        .byte con_выбор_облака
-- D - I - 0x031652 22:9642: 07        .byte $07
+- D - I - 0x031651 22:9641: F4        .byte con_выбор_облака, $07
 - - - - - 0x031653 22:9643: 62 96     .word off_9662
 - D - I - 0x031655 22:9645: 49 96     .word off_9649
 - D - I - 0x031657 22:9647: 63 96     .word off_9663
@@ -4452,8 +4451,7 @@ off_974E_30:
 
 
 off_975F_31:
-    .byte con_выбор_облака
-    .byte $01
+    .byte con_выбор_облака, $01
     .word off_9765
     .word off_977B
 
@@ -4609,8 +4607,7 @@ off_97FE_36:
 
 
 off_9810_37:
-- D - I - 0x031820 22:9810: F4        .byte con_выбор_облака
-- D - I - 0x031821 22:9811: 01        .byte $01
+- D - I - 0x031820 22:9810: F4        .byte con_выбор_облака, $01
 - D - I - 0x031822 22:9812: 16 98     .word off_9816
 - D - I - 0x031824 22:9814: 24 98     .word off_9824
 
@@ -5595,8 +5592,7 @@ off_9B88_68:
 
 
 off_9B92_69:
-- D - I - 0x031BA2 22:9B92: F4        .byte con_выбор_облака
-- D - I - 0x031BA3 22:9B93: 06        .byte $06
+- D - I - 0x031BA2 22:9B92: F4        .byte con_выбор_облака, $06
 - D - I - 0x031BA4 22:9B94: 9C 9B     .word off_9B9C
 - D - I - 0x031BA6 22:9B96: 9C 9B     .word off_9B9C
 - - - - - 0x031BA8 22:9B98: AF 9B     .word off_9BAF
@@ -5690,22 +5686,19 @@ off_9BD7_6C:
 
 off_9BE3_6D:
 - D - I - 0x031BF3 22:9BE3: F2        .byte con_очистить_облако
-- D - I - 0x031BF4 22:9BE4: F4        .byte con_выбор_облака
-- D - I - 0x031BF5 22:9BE5: 01        .byte $01
+- D - I - 0x031BF4 22:9BE4: F4        .byte con_выбор_облака, $01
 - D - I - 0x031BF6 22:9BE6: EA 9B     .word off_9BEA
 - D - I - 0x031BF8 22:9BE8: F4 9B     .word off_9BF4
 
 off_9BEA:
-- D - I - 0x031BFA 22:9BEA: F4        .byte con_выбор_облака
-- D - I - 0x031BFB 22:9BEB: 02        .byte $02
+- D - I - 0x031BFA 22:9BEA: F4        .byte con_выбор_облака, $02
 - D - I - 0x031BFC 22:9BEC: FE 9B     .word off_9BFE
 - D - I - 0x031BFE 22:9BEE: 09 9C     .word off_9C09
 - D - I - 0x031C00 22:9BF0: 1C 9C     .word off_9C1C
 - - - - - 0x031C02 22:9BF2: 08 9C     .word off_9C08
 
 off_9BF4:
-- D - I - 0x031C04 22:9BF4: F4        .byte con_выбор_облака
-- D - I - 0x031C05 22:9BF5: 02        .byte $02
+- D - I - 0x031C04 22:9BF4: F4        .byte con_выбор_облака, $02
 - D - I - 0x031C06 22:9BF6: 37 9C     .word off_9C37
 - D - I - 0x031C08 22:9BF8: 46 9C     .word off_9C46
 - D - I - 0x031C0A 22:9BFA: 59 9C     .word off_9C59
@@ -5910,8 +5903,7 @@ off_9C92_70:
 
 
 off_9CAA_71:
-- D - I - 0x031CBA 22:9CAA: F4        .byte con_выбор_облака
-- D - I - 0x031CBB 22:9CAB: 05        .byte $05
+- D - I - 0x031CBA 22:9CAA: F4        .byte con_выбор_облака, $05
 - D - I - 0x031CBC 22:9CAC: CC 9C     .word off_9CCC
 - D - I - 0x031CBE 22:9CAE: E6 9C     .word off_9CE6
 - D - I - 0x031CC0 22:9CB0: 00 9D     .word off_9D00
@@ -6583,8 +6575,7 @@ off_9F31_72:
 
 
 off_9F42_73:
-- D - I - 0x031F52 22:9F42: F4        .byte con_выбор_облака
-- D - I - 0x031F53 22:9F43: 04        .byte $04
+- D - I - 0x031F52 22:9F42: F4        .byte con_выбор_облака, $04
 - D - I - 0x031F54 22:9F44: 52 9F     .word off_9F52_ожидание_1
 - D - I - 0x031F56 22:9F46: E1 9F     .word off_9FE1_ожидание_2
 - D - I - 0x031F58 22:9F48: 8B A0     .word off_A08B_ожидание_3
@@ -7789,8 +7780,7 @@ off_A3A6_цикл:
 
 
 off_A3BD_74:
-- D - I - 0x0323CD 22:A3BD: F4        .byte con_выбор_облака
-- D - I - 0x0323CE 22:A3BE: 03        .byte $03
+- D - I - 0x0323CD 22:A3BD: F4        .byte con_выбор_облака, $03
 - D - I - 0x0323CF 22:A3BF: C9 A3     .word off_A3C9    ; первая разводка
 - D - I - 0x0323D1 22:A3C1: E3 A3     .word off_A3E3    ; начало 2го тайма
 - D - I - 0x0323D3 22:A3C3: F7 A3     .word off_A3F7    ; начало овертайма
@@ -10094,8 +10084,7 @@ off_AB4B_DB:
 
 
 off_AB66_DC_DD:
-    .byte con_выбор_облака
-    .byte $01
+    .byte con_выбор_облака, $01
     .word off_AB6C
     .word off_AB80
 
@@ -10393,8 +10382,7 @@ off_AC6A_E9:
 
 off_AC7D_EA:
 - D - I - 0x032C8D 22:AC7D: F2        .byte con_очистить_облако
-- D - I - 0x032C8E 22:AC7E: F4        .byte con_выбор_облака
-- D - I - 0x032C8F 22:AC7F: 07        .byte $07
+- D - I - 0x032C8E 22:AC7E: F4        .byte con_выбор_облака, $07
 - - - - - 0x032C90 22:AC80: 99 AC     .word off_AC99
 - D - I - 0x032C92 22:AC82: 86 AC     .word off_AC86
 - D - I - 0x032C94 22:AC84: 9A AC     .word off_AC9A
