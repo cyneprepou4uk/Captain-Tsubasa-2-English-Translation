@@ -1403,11 +1403,11 @@ C - - - - 0x03CF67 FF:CF57: A9 00     LDA #$00
 C - - - - 0x03CF69 FF:CF59: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03CF6B FF:CF5B: 68        PLA
 C - - - - 0x03CF6C FF:CF5C: 48        PHA
-C - - - - 0x03CF6D FF:CF5D: F0 04     BEQ bra_CF63
+C - - - - 0x03CF6D FF:CF5D: F0 04     BEQ bra_CF63_это_кипер
 C - - - - 0x03CF6F FF:CF5F: C9 0B     CMP #$0B
 C - - - - 0x03CF71 FF:CF61: D0 06     BNE bra_CF69
-bra_CF63:
-C - - - - 0x03CF73 FF:CF63: A0 07     LDY #con_игрок_координата_Y_lo
+bra_CF63_это_кипер:
+C - - - - 0x03CF73 FF:CF63: A0 07     LDY #con_величина_ослабленности
 C - - - - 0x03CF75 FF:CF65: A9 00     LDA #$00
 C - - - - 0x03CF77 FF:CF67: 91 34     STA (ram_plr_data),Y
 bra_CF69:
@@ -3430,10 +3430,8 @@ C - - - - 0x03DC7A FF:DC6A: F0 04     BEQ bra_DC70_кипер
 C - - - - 0x03DC7C FF:DC6C: C9 0B     CMP #$0B
 C - - - - 0x03DC7E FF:DC6E: D0 06     BNE bra_DC76_не_кипер
 bra_DC70_кипер:
-; у киперов зачем-то обнуляется младшая координата вертикали
-; bzk в идеале нужно обнулить и горизонталь, и не только у киперов
 C - - - - 0x03DC80 FF:DC70: A9 00     LDA #$00
-C - - - - 0x03DC82 FF:DC72: A0 07     LDY #con_игрок_координата_Y_lo
+C - - - - 0x03DC82 FF:DC72: A0 07     LDY #con_величина_ослабленности
 C - - - - 0x03DC84 FF:DC74: 91 34     STA (ram_plr_data),Y
 bra_DC76_не_кипер:
 C - - - - 0x03DC86 FF:DC76: 68        PLA
