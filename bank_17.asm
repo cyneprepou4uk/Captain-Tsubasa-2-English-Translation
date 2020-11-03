@@ -255,7 +255,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201C1 17:81B1: 0A 84     .word ofs_840A_1F_9F
 - D - I - 0x0201C3 17:81B3: 0E 84     .word ofs_840E_20_A0
 - D - I - 0x0201C5 17:81B5: 2B 84     .word ofs_842B_21_A1_порвана_ли_сетка
-- D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2
+- D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2_у_чьей_команды_мяч
 - D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3_за_какую_команду_играешь
 - - - - - 0x0201CB 17:81BB: 42 84     .word $0000       ; unused, байты не найдены, была проверка на диаса
 - D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5_коимбра_уже_бил_или_нет
@@ -286,7 +286,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201FF 17:81EF: E6 85     .word ofs_85E6_3E_BE
 - D - I - 0x020201 17:81F1: FE 85     .word ofs_85FE_3F_BF
 - D - I - 0x020203 17:81F3: 02 86     .word ofs_8602_40_C0_игрок_с_рожей
-- D - I - 0x020205 17:81F5: 10 86     .word ofs_8610_41_C1
+- D - I - 0x020205 17:81F5: 10 86     .word ofs_8610_41_C1_какая_у_кипера_рожа
 - D - I - 0x020207 17:81F7: 27 86     .word ofs_8627_42_C2
 - D - I - 0x020209 17:81F9: 2E 86     .word ofs_862E_43_C3
 - D - I - 0x02020B 17:81FB: 3B 86     .word ofs_863B_44_C4
@@ -710,7 +710,9 @@ C - - - - 0x020444 17:8434: E8        INX
 bra_8435_выход:
 C - - - - 0x020445 17:8435: 60        RTS
 
-ofs_8436_22_A2:
+ofs_8436_22_A2_у_чьей_команды_мяч:
+; 00 - у команды слева
+; 01 - у команды справа
 C - J - - 0x020446 17:8436: AE FB 05  LDX ram_команда_с_мячом
 C - - - - 0x020449 17:8439: F0 02     BEQ bra_843D_выход
 C - - - - 0x02044B 17:843B: A2 01     LDX #$01
@@ -1055,25 +1057,29 @@ C - - - - 0x020619 17:8609: BE F4 86  LDX tbl_86F4_игроки_с_рожами,
 C - - - - 0x02061C 17:860C: 20 11 82  JSR sub_8211
 C - - - - 0x02061F 17:860F: 60        RTS
 
-ofs_8610_41_C1:
-; X 00-04
+ofs_8610_41_C1_какая_у_кипера_рожа:
+; 00 - кипер без рожи
+; 01 - ренато
+; 02 - морисаки
+; 03 - вакабаяши
+; 04 - вакашимазу
 C - J - - 0x020620 17:8610: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x020623 17:8613: 49 0B     EOR #$0B
 C - - - - 0x020625 17:8615: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x020628 17:8618: A2 04     LDX #$04
-bra_861A:
-C - - - - 0x02062A 17:861A: DD 22 86  CMP tbl_8623 - 1,X
+bra_861A_цикл_поиска_кипера:
+C - - - - 0x02062A 17:861A: DD 22 86  CMP tbl_8623_наши_киперы - 1,X
 C - - - - 0x02062D 17:861D: F0 03     BEQ bra_8622_выход
 C - - - - 0x02062F 17:861F: CA        DEX
-C - - - - 0x020630 17:8620: D0 F8     BNE bra_861A
+C - - - - 0x020630 17:8620: D0 F8     BNE bra_861A_цикл_поиска_кипера
 bra_8622_выход:
 C - - - - 0x020632 17:8622: 60        RTS
 
-tbl_8623:
-- D - - - 0x020633 17:8623: 02        .byte $02
-- D - - - 0x020634 17:8624: 0F        .byte $0F
-- D - - - 0x020635 17:8625: 21        .byte $21
-- D - - - 0x020636 17:8626: 22        .byte $22
+tbl_8623_наши_киперы:
+    .byte $02       ; ренато
+    .byte $0F       ; морисаки
+    .byte $21       ; вакабаяши
+    .byte $22       ; вакашимазу
 
 ofs_8627_42_C2:
 ; X 00-01
@@ -6209,18 +6215,18 @@ loc_9C28:
 
 
 _scenario_9C30_30:
-- D - I - 0x021C40 17:9C30: F3        .byte con_branch, $22     ; bzk можно + 80
-- D - I - 0x021C42 17:9C32: 3F 9C     .word bra_long_case_9C3F_00
-- D - I - 0x021C44 17:9C34: 36 9C     .word bra_long_case_9C36_01
+- D - I - 0x021C40 17:9C30: F3        .byte con_branch, $22     ; у чьей команды мяч
+- D - I - 0x021C42 17:9C32: 3F 9C     .word bra_long_case_9C3F_00_мяч_у_команды_слева
+- D - I - 0x021C44 17:9C34: 36 9C     .word bra_long_case_9C36_01_мяч_у_команды_справа
 
 sub_9C36:
-bra_long_case_9C36_01:
+bra_long_case_9C36_01_мяч_у_команды_справа:
 - D - I - 0x021C46 17:9C36: F9        .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
 - D - I - 0x021C49 17:9C39: F3        .byte con_branch, $21     ; порвана ли сетка
 - D - I - 0x021C4B 17:9C3B: B5 A2     .word bra_long_case_A2B5_00_сетка_не_порвана
 - D - I - 0x021C4D 17:9C3D: BC A2     .word bra_long_case_A2BC_01_сетка_порвана
 
-bra_long_case_9C3F_00:
+bra_long_case_9C3F_00_мяч_у_команды_слева:
 - D - I - 0x021C4F 17:9C3F: F5        .byte con_mirror_off
 - D - I - 0x021C50 17:9C40: F7        .byte con_F7, $13
 - D - I - 0x021C52 17:9C42: F9        .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
@@ -6592,12 +6598,12 @@ bra_case_9E4F_02_летит_высокий_мяч:
 
 _scenario_9E57_32:
 - D - I - 0x021E67 17:9E57: F5        .byte con_mirror_off
-- D - I - 0x021E68 17:9E58: F3        .byte con_branch, $41
-- - - - - 0x021E6A 17:9E5A: 96 B7     .word bra_long_case_B796_00
-- D - I - 0x021E6C 17:9E5C: 92 B7     .word bra_long_case_B792_01
-- D - I - 0x021E6E 17:9E5E: 97 B7     .word bra_long_case_B797_02
-- D - I - 0x021E70 17:9E60: 9C B7     .word bra_long_case_B79C_03
-- D - I - 0x021E72 17:9E62: A1 B7     .word bra_long_case_B7A1_04
+- D - I - 0x021E68 17:9E58: F3        .byte con_branch, $41     ; какая у кипера рожа
+- - - - - 0x021E6A 17:9E5A: 96 B7     .word bra_long_case_B796_00_кипер_без_рожи
+- D - I - 0x021E6C 17:9E5C: 92 B7     .word bra_long_case_B792_01_кипер_ренато
+- D - I - 0x021E6E 17:9E5E: 97 B7     .word bra_long_case_B797_02_кипер_морисаки
+- D - I - 0x021E70 17:9E60: 9C B7     .word bra_long_case_B79C_03_кипер_вакабаяши
+- D - I - 0x021E72 17:9E62: A1 B7     .word bra_long_case_B7A1_04_кипер_вакашимазу
 
 sub_9E64:
 - D - I - 0x021E74 17:9E64: F3        .byte con_branch, $28
@@ -12697,14 +12703,14 @@ bra_long_case_B61D_17:
 bra_case_B63F_00_коимбра_еще_не_бил:
 - D - I - 0x02364F 11:B63F: F9        .byte con_soundID_delay, $43, $02
 - D - I - 0x023652 11:B642: F5        .byte con_mirror_off
-- D - I - 0x023653 11:B643: F3        .byte con_branch, $C1
-- - - - - 0x023655 11:B645: 2F        .byte bra_case_B674_00 - *
-- - - - - 0x023656 11:B646: 2E        .byte bra_case_B674_01 - *
-- - - - - 0x023657 11:B647: 03        .byte bra_case_B64A_02 - *
-- D - I - 0x023658 11:B648: 09        .byte bra_case_B651_03 - *
-- - - - - 0x023659 11:B649: 0F        .byte bra_case_B658_04 - *
+- D - I - 0x023653 11:B643: F3        .byte con_branch, $C1     ; какая у кипера рожа
+- - - - - 0x023655 11:B645: 2F        .byte bra_case_B674_00_кипер_без_рожи - *
+- - - - - 0x023656 11:B646: 2E        .byte bra_case_B674_01_кипер_ренато - *
+- - - - - 0x023657 11:B647: 03        .byte bra_case_B64A_02_кипер_морисаки - *
+- D - I - 0x023658 11:B648: 09        .byte bra_case_B651_03_кипер_вакабаяши - *
+- - - - - 0x023659 11:B649: 0F        .byte bra_case_B658_04_кипер_вакашимазу - *
 
-bra_case_B64A_02:
+bra_case_B64A_02_кипер_морисаки:
 - - - - - 0x02365A 11:B64A: 78        .byte con_pause + $78
 - - - - - 0x02365B 11:B64B: 33        .byte con_bg + $33
 - - - - - 0x02365C 11:B64C: 94        .byte con_animation + $94
@@ -12712,7 +12718,7 @@ bra_case_B64A_02:
 - - - - - 0x02365E 11:B64E: F2        .byte con_jmp
 - - - - - 0x02365F 11:B64F: 5F B6     .word loc_B65F
 
-bra_case_B651_03:
+bra_case_B651_03_кипер_вакабаяши:
 - D - I - 0x023661 11:B651: 78        .byte con_pause + $78
 - D - I - 0x023662 11:B652: 32        .byte con_bg + $32
 - D - I - 0x023663 11:B653: A4        .byte con_animation + $A4
@@ -12720,7 +12726,7 @@ bra_case_B651_03:
 - D - I - 0x023665 11:B655: F2        .byte con_jmp
 - D - I - 0x023666 11:B656: 5F B6     .word loc_B65F
 
-bra_case_B658_04:
+bra_case_B658_04_кипер_вакашимазу:
 - - - - - 0x023668 11:B658: 78        .byte con_pause + $78
 - - - - - 0x023669 11:B659: 33        .byte con_bg + $33
 - - - - - 0x02366A 11:B65A: A6        .byte con_animation + $A6
@@ -12745,8 +12751,8 @@ bra_case_B665_01_коимбра_уже_бил:
 - D - I - 0x023681 11:B671: F0        .byte con_bg + con_skip
 - D - I - 0x023682 11:B672: 11        .byte con_animation + $11
 - D - I - 0x023683 11:B673: 00        .byte con_cloud + con_clear
-bra_case_B674_00:
-bra_case_B674_01:
+bra_case_B674_00_кипер_без_рожи:
+bra_case_B674_01_кипер_ренато:
 - D - I - 0x023684 11:B674: FB        .byte con_rts
 
 bra_long_case_B675_18:
@@ -12940,18 +12946,18 @@ _scenario_B733_1F:
 _scenario_B738_20:
 - D - I - 0x023748 11:B738: FA        .byte con_jsr
 - D - I - 0x023749 11:B739: C7 BB     .word sub_BBC7
-- D - I - 0x02374B 11:B73B: F3        .byte con_branch, $A2
-- D - I - 0x02374D 11:B73D: 02        .byte bra_case_B73F_00 - *
-- D - I - 0x02374E 11:B73E: 06        .byte bra_case_B744_01 - *
+- D - I - 0x02374B 11:B73B: F3        .byte con_branch, $A2     ; у чьей команды мяч
+- D - I - 0x02374D 11:B73D: 02        .byte bra_case_B73F_00_мяч_у_команды_слева - *
+- D - I - 0x02374E 11:B73E: 06        .byte bra_case_B744_01_мяч_у_команды_справа - *
 
-bra_case_B73F_00:
+bra_case_B73F_00_мяч_у_команды_слева:
 - D - I - 0x02374F 11:B73F: B4        .byte con_pause + $B4
 - D - I - 0x023750 11:B740: 38        .byte con_bg + $38
 - D - I - 0x023751 11:B741: 85        .byte con_animation + $85
 - D - I - 0x023752 11:B742: 67        .byte con_cloud + $67
 - D - I - 0x023753 11:B743: FB        .byte con_rts
 
-bra_case_B744_01:
+bra_case_B744_01_мяч_у_команды_справа:
 - D - I - 0x023754 11:B744: B4        .byte con_pause + $B4
 - D - I - 0x023755 11:B745: 37        .byte con_bg + $37
 - D - I - 0x023756 11:B746: 85        .byte con_animation + $85
@@ -13052,29 +13058,29 @@ _scenario_B78C_31:
 - D - I - 0x0237A0 11:B790: 6F        .byte con_cloud + $6F
 - D - I - 0x0237A1 11:B791: FB        .byte con_rts
 
-bra_long_case_B792_01:
+bra_long_case_B792_01_кипер_ренато:
 - D - I - 0x0237A2 11:B792: 0A        .byte con_pause + $0A
 - D - I - 0x0237A3 11:B793: 32        .byte con_bg + $32
 - D - I - 0x0237A4 11:B794: 93        .byte con_animation + $93
 - D - I - 0x0237A5 11:B795: F0        .byte con_cloud + con_skip
-bra_long_case_B796_00:
+bra_long_case_B796_00_кипер_без_рожи:
 - D - I - 0x0237A6 11:B796: FB        .byte con_rts
 
-bra_long_case_B797_02:
+bra_long_case_B797_02_кипер_морисаки:
 - D - I - 0x0237A7 11:B797: 0A        .byte con_pause + $0A
 - D - I - 0x0237A8 11:B798: 33        .byte con_bg + $33
 - D - I - 0x0237A9 11:B799: 94        .byte con_animation + $94
 - D - I - 0x0237AA 11:B79A: F0        .byte con_cloud + con_skip
 - D - I - 0x0237AB 11:B79B: FB        .byte con_rts
 
-bra_long_case_B79C_03:
+bra_long_case_B79C_03_кипер_вакабаяши:
 - D - I - 0x0237AC 11:B79C: 0A        .byte con_pause + $0A
 - D - I - 0x0237AD 11:B79D: 32        .byte con_bg + $32
 - D - I - 0x0237AE 11:B79E: A4        .byte con_animation + $A4
 - D - I - 0x0237AF 11:B79F: F0        .byte con_cloud + con_skip
 - D - I - 0x0237B0 11:B7A0: FB        .byte con_rts
 
-bra_long_case_B7A1_04:
+bra_long_case_B7A1_04_кипер_вакашимазу:
 - D - I - 0x0237B1 11:B7A1: 0A        .byte con_pause + $0A
 - D - I - 0x0237B2 11:B7A2: 33        .byte con_bg + $33
 - D - I - 0x0237B3 11:B7A3: A6        .byte con_animation + $A6
@@ -13773,11 +13779,11 @@ sub_BA2C:
 _scenario_BA3B_21:
 - D - I - 0x023A4B 11:BA3B: FA        .byte con_jsr
 - D - I - 0x023A4C 11:BA3C: 2C BA     .word sub_BA2C
-- D - I - 0x023A4E 11:BA3E: F3        .byte con_branch, $A2
-- D - I - 0x023A50 11:BA40: 02        .byte bra_case_BA42_00 - *
-- D - I - 0x023A51 11:BA41: 0A        .byte bra_case_BA4B_01 - *
+- D - I - 0x023A4E 11:BA3E: F3        .byte con_branch, $A2     ; у чьей команды мяч
+- D - I - 0x023A50 11:BA40: 02        .byte bra_case_BA42_00_мяч_у_команды_слева - *
+- D - I - 0x023A51 11:BA41: 0A        .byte bra_case_BA4B_01_мяч_у_команды_справа - *
 
-bra_case_BA42_00:
+bra_case_BA42_00_мяч_у_команды_слева:
 - D - I - 0x023A52 11:BA42: 0A        .byte con_pause + $0A
 - D - I - 0x023A53 11:BA43: 38        .byte con_bg + $38
 - D - I - 0x023A54 11:BA44: 00        .byte con_animation + $00
@@ -13786,7 +13792,7 @@ bra_case_BA42_00:
 - D - I - 0x023A58 11:BA48: F2        .byte con_jmp
 - D - I - 0x023A59 11:BA49: 54 BA     .word loc_BA54
 
-bra_case_BA4B_01:
+bra_case_BA4B_01_мяч_у_команды_справа:
 - D - I - 0x023A5B 11:BA4B: 0A        .byte con_pause + $0A
 - D - I - 0x023A5C 11:BA4C: 37        .byte con_bg + $37
 - D - I - 0x023A5D 11:BA4D: 00        .byte con_animation + $00
