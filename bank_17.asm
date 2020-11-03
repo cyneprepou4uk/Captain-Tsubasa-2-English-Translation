@@ -224,9 +224,9 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x020183 17:8173: 1C 82     .word ofs_821C_00_80_защитник_клон_или_нет
 - D - I - 0x020185 17:8175: 2C 82     .word ofs_822C_01_81_выживет_ли_защитник
 - D - I - 0x020187 17:8177: 51 82     .word ofs_8251_02_82
-- D - I - 0x020189 17:8179: 55 82     .word ofs_8255_03_83
+- D - I - 0x020189 17:8179: 55 82     .word ofs_8255_03_83_результат_действия_защитника
 - D - I - 0x02018B 17:817B: 59 82     .word ofs_8259_04_84
-- D - I - 0x02018D 17:817D: 60 82     .word ofs_8260_05_85
+- D - I - 0x02018D 17:817D: 60 82     .word ofs_8260_05_85_порядковый_номер_защитника
 - D - I - 0x02018F 17:817F: 64 82     .word ofs_8264_06_86
 - D - I - 0x020191 17:8181: 71 82     .word ofs_8271_07_87
 - D - I - 0x020193 17:8183: 75 82     .word ofs_8275_08_88
@@ -351,19 +351,30 @@ ofs_8251_02_82:
 C - J - - 0x020261 17:8251: AE 3D 04  LDX $043D
 C - - - - 0x020264 17:8254: 60        RTS
 
-ofs_8255_03_83:
+ofs_8255_03_83_результат_действия_защитника:
+; 00 - атакующий легко обведет/защитник не напорется на летящий мяч
+; 01 - атакующий с трудом обведет/защитник коснется летящего мяча
+; 02 - защитник выбьет мяч у атакующего/отобьет мяч в воздухе/кипер еле отобьет
+; 03 - защитник отберет мяч/кипер словит или легко отобьет
+; 04 - нарушение по вине защитника
 C - J - - 0x020265 17:8255: AE 12 06  LDX ram_результат_защитника
 C - - - - 0x020268 17:8258: 60        RTS
 
 ofs_8259_04_84:
-; X 00-01
+; 00 - мяч у атакующего/низний мяч
+; 01 - высокий мяч
 C - J - - 0x020269 17:8259: AE 4E 04  LDX ram_высота_мяча
 C - - - - 0x02026C 17:825C: F0 01     BEQ bra_825F_выход
 C - - - - 0x02026E 17:825E: CA        DEX
 bra_825F_выход:
 C - - - - 0x02026F 17:825F: 60        RTS
 
-ofs_8260_05_85:
+ofs_8260_05_85_порядковый_номер_защитника:
+; 00 - защитник 1
+; 01 - защитник 2
+; 02 - защитник 3
+; 03 - защитник 4
+; 04 - защитник 5
 C - J - - 0x020270 17:8260: AE 16 06  LDX ram_номер_защитника
 C - - - - 0x020273 17:8263: 60        RTS
 
@@ -402,13 +413,12 @@ C - - - - 0x02029D 17:828D: BE 91 82  LDX tbl_8291,Y
 C - - - - 0x0202A0 17:8290: 60        RTS
 
 tbl_8291:
-- D - - - 0x0202A1 17:8291: 00        .byte $00
-- D - - - 0x0202A2 17:8292: 01        .byte $01
-- - - - - 0x0202A3 17:8293: FF        .byte $FF
-- - - - - 0x0202A4 17:8294: FF        .byte $FF
-- D - - - 0x0202A5 17:8295: 02        .byte $02
-- D - - - 0x0202A6 17:8296: 03        .byte $03
-
+    .byte $00
+    .byte $01
+    .byte $FF   ; unused
+    .byte $FF   ; unused
+    .byte $02
+    .byte $03
 
 ofs_8297_0A_8A:
 ; предположительно X 00-02
@@ -1918,7 +1928,7 @@ bra_case_8ACC_00_защитник_выживет:
 - D - I - 0x020AE0 17:8AD0: 24        .byte bra_case_8AF4_02 - *
 
 bra_case_8AD1_00:
-- D - I - 0x020AE1 17:8AD1: F3        .byte con_branch, $83
+- D - I - 0x020AE1 17:8AD1: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020AE3 17:8AD3: 28        .byte bra_case_8AFB_00 - *
 - D - I - 0x020AE4 17:8AD4: 30        .byte bra_case_8B04_01 - *
 - D - I - 0x020AE5 17:8AD5: 38        .byte bra_case_8B0D_02 - *
@@ -1926,7 +1936,7 @@ bra_case_8AD1_00:
 - D - I - 0x020AE7 17:8AD7: 5A        .byte bra_case_8B31_04 - *
 
 bra_case_8AD8_02:
-- D - I - 0x020AE8 17:8AD8: F3        .byte con_branch, $83
+- D - I - 0x020AE8 17:8AD8: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020AEA 17:8ADA: 21        .byte bra_case_8AFB_00 - *
 - D - I - 0x020AEB 17:8ADB: 29        .byte bra_case_8B04_01 - *
 - D - I - 0x020AEC 17:8ADC: 31        .byte bra_case_8B0D_02 - *
@@ -1934,7 +1944,7 @@ bra_case_8AD8_02:
 - D - I - 0x020AEE 17:8ADE: 53        .byte bra_case_8B31_04 - *
 
 bra_case_8ADF_01:
-- D - I - 0x020AEF 17:8ADF: F3        .byte con_branch, $83
+- D - I - 0x020AEF 17:8ADF: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020AF1 17:8AE1: 5C        .byte bra_case_8B3D_00 - *
 - D - I - 0x020AF2 17:8AE2: 67        .byte bra_case_8B49_01 - *
 - D - I - 0x020AF3 17:8AE3: 72        .byte bra_case_8B55_02 - *
@@ -1942,7 +1952,7 @@ bra_case_8ADF_01:
 - D - I - 0x020AF5 17:8AE5: 9A        .byte bra_case_8B7F_04 - *
 
 bra_case_8AE6_00:
-- D - I - 0x020AF6 17:8AE6: F3        .byte con_branch, $83
+- D - I - 0x020AF6 17:8AE6: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020AF8 17:8AE8: 16        .byte bra_case_8AFE_00 - *
 - D - I - 0x020AF9 17:8AE9: 1E        .byte bra_case_8B07_01 - *
 - D - I - 0x020AFA 17:8AEA: 26        .byte bra_case_8B10_02 - *
@@ -1950,7 +1960,7 @@ bra_case_8AE6_00:
 - D - I - 0x020AFC 17:8AEC: 48        .byte bra_case_8B34_04 - *
 
 bra_case_8AED_01:
-- D - I - 0x020AFD 17:8AED: F3        .byte con_branch, $83
+- D - I - 0x020AFD 17:8AED: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020AFF 17:8AEF: 4E        .byte bra_case_8B3D_00 - *
 - D - I - 0x020B00 17:8AF0: 59        .byte bra_case_8B49_01 - *
 - D - I - 0x020B01 17:8AF1: 64        .byte bra_case_8B55_02 - *
@@ -1958,7 +1968,7 @@ bra_case_8AED_01:
 - D - I - 0x020B03 17:8AF3: 8C        .byte bra_case_8B7F_04 - *
 
 bra_case_8AF4_02:
-- D - I - 0x020B04 17:8AF4: F3        .byte con_branch, $83
+- D - I - 0x020B04 17:8AF4: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020B06 17:8AF6: 08        .byte bra_case_8AFE_00 - *
 - D - I - 0x020B07 17:8AF7: 10        .byte bra_case_8B07_01 - *
 - D - I - 0x020B08 17:8AF8: 18        .byte bra_case_8B10_02 - *
@@ -2105,7 +2115,7 @@ bra_case_8B93_01_защитник_убьется:
 - D - I - 0x020BA7 17:8B97: 1D        .byte bra_case_8BB4_02 - *
 
 bra_case_8B98_00:
-- D - I - 0x020BA8 17:8B98: F3        .byte con_branch, $83
+- D - I - 0x020BA8 17:8B98: F3        .byte con_branch, $83     ; результат действия защитника
 - - - - - 0x020BAA 17:8B9A: 28        .byte bra_case_8BC2_00 - *
 - D - I - 0x020BAB 17:8B9B: 37        .byte bra_case_8BD2_01 - *
 - - - - - 0x020BAC 17:8B9C: 35        .byte bra_case_8BD1_02 - *
@@ -2113,7 +2123,7 @@ bra_case_8B98_00:
 - - - - - 0x020BAE 17:8B9E: 33        .byte bra_case_8BD1_04 - *
 
 bra_case_8B9F_02:
-- D - I - 0x020BAF 17:8B9F: F3        .byte con_branch, $83
+- D - I - 0x020BAF 17:8B9F: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020BB1 17:8BA1: 21        .byte bra_case_8BC2_00 - *
 - D - I - 0x020BB2 17:8BA2: 30        .byte bra_case_8BD2_01 - *
 - - - - - 0x020BB3 17:8BA3: 2E        .byte bra_case_8BD1_02 - *
@@ -2121,7 +2131,7 @@ bra_case_8B9F_02:
 - - - - - 0x020BB5 17:8BA5: 2C        .byte bra_case_8BD1_04 - *
 
 bra_case_8BA6_01:
-- D - I - 0x020BB6 17:8BA6: F3        .byte con_branch, $83
+- D - I - 0x020BB6 17:8BA6: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020BB8 17:8BA8: 3C        .byte bra_case_8BE4_00 - *
 - D - I - 0x020BB9 17:8BA9: 4D        .byte bra_case_8BF6_01 - *
 - D - I - 0x020BBA 17:8BAA: 61        .byte bra_case_8C0B_02 - *
@@ -2129,7 +2139,7 @@ bra_case_8BA6_01:
 - D - I - 0x020BBC 17:8BAC: 8D        .byte bra_case_8C39_04 - *
 
 bra_case_8BAD_00:
-- D - I - 0x020BBD 17:8BAD: F3        .byte con_branch, $83
+- D - I - 0x020BBD 17:8BAD: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020BBF 17:8BAF: 13        .byte bra_case_8BC2_00 - *
 - D - I - 0x020BC0 17:8BB0: 22        .byte bra_case_8BD2_01 - *
 - - - - - 0x020BC1 17:8BB1: 20        .byte bra_case_8BD1_02 - *
@@ -2137,7 +2147,7 @@ bra_case_8BAD_00:
 - - - - - 0x020BC3 17:8BB3: 1E        .byte bra_case_8BD1_04 - *
 
 bra_case_8BB4_02:
-- D - I - 0x020BC4 17:8BB4: F3        .byte con_branch, $83
+- D - I - 0x020BC4 17:8BB4: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020BC6 17:8BB6: 0C        .byte bra_case_8BC2_00 - *
 - - - - - 0x020BC7 17:8BB7: 1B        .byte bra_case_8BD2_01 - *
 - - - - - 0x020BC8 17:8BB8: 19        .byte bra_case_8BD1_02 - *
@@ -2145,7 +2155,7 @@ bra_case_8BB4_02:
 - - - - - 0x020BCA 17:8BBA: 17        .byte bra_case_8BD1_04 - *
 
 bra_case_8BBB_01:
-- D - I - 0x020BCB 17:8BBB: F3        .byte con_branch, $83
+- D - I - 0x020BCB 17:8BBB: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020BCD 17:8BBD: 27        .byte bra_case_8BE4_00 - *
 - D - I - 0x020BCE 17:8BBE: 38        .byte bra_case_8BF6_01 - *
 - D - I - 0x020BCF 17:8BBF: 4C        .byte bra_case_8C0B_02 - *
@@ -2280,7 +2290,7 @@ bra_case_8C57_00:
 - D - I - 0x020C6B 17:8C5B: 7A        .byte bra_case_8CD5_02 - *
 
 bra_case_8C5C_00:
-- D - I - 0x020C6C 17:8C5C: F3        .byte con_branch, $83
+- D - I - 0x020C6C 17:8C5C: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020C6E 17:8C5E: 11        .byte bra_case_8C6F_00 - *
 - D - I - 0x020C6F 17:8C5F: 1A        .byte bra_case_8C79_01 - *
 - D - I - 0x020C70 17:8C60: 03        .byte bra_case_8C63_02 - *
@@ -2346,7 +2356,7 @@ bra_case_8C97_01:
 - D - I - 0x020CAB 17:8C9B: 67 8F     .word loc_8F67
 
 bra_case_8C9D_01:
-- D - I - 0x020CAD 17:8C9D: F3        .byte con_branch, $83
+- D - I - 0x020CAD 17:8C9D: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020CAF 17:8C9F: 05        .byte bra_case_8CA4_00 - *
 - D - I - 0x020CB0 17:8CA0: 0E        .byte bra_case_8CAE_01 - *
 - D - I - 0x020CB1 17:8CA1: 1C        .byte bra_case_8CBD_02 - *
@@ -2396,7 +2406,7 @@ bra_case_8CCC_03:
 - D - I - 0x020CE3 17:8CD3: 85 A1     .word loc_A185
 
 bra_case_8CD5_02:
-- D - I - 0x020CE5 17:8CD5: F3        .byte con_branch, $83
+- D - I - 0x020CE5 17:8CD5: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020CE7 17:8CD7: 05        .byte bra_case_8CDC_00 - *
 - D - I - 0x020CE8 17:8CD8: 0E        .byte bra_case_8CE6_01 - *
 - D - I - 0x020CE9 17:8CD9: 1C        .byte bra_case_8CF5_02 - *
@@ -2452,7 +2462,7 @@ bra_case_8D0D_01:
 - D - I - 0x020D21 17:8D11: 9B        .byte bra_case_8DAC_02 - *
 
 bra_case_8D12_00:
-- D - I - 0x020D22 17:8D12: F3        .byte con_branch, $83
+- D - I - 0x020D22 17:8D12: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020D24 17:8D14: 14        .byte bra_case_8D28_00 - *
 - - - - - 0x020D25 17:8D15: 2C        .byte bra_case_8D41_01 - *
 - - - - - 0x020D26 17:8D16: 03        .byte bra_case_8D19_02 - *
@@ -2545,7 +2555,7 @@ bra_case_8D65_03:
 - D - I - 0x020D7F 17:8D6F: A9 A1     .word loc_A1A9
 
 bra_case_8D71_01:
-- D - I - 0x020D81 17:8D71: F3        .byte con_branch, $83
+- D - I - 0x020D81 17:8D71: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020D83 17:8D73: 05        .byte bra_case_8D78_00 - *
 - D - I - 0x020D84 17:8D74: 14        .byte bra_case_8D88_01 - *
 - - - - - 0x020D85 17:8D75: 25        .byte bra_case_8D9A_02 - *
@@ -2596,7 +2606,7 @@ bra_case_8D9A_02:
 - - - - - 0x020DBA 17:8DAA: 71 A3     .word loc_A371
 
 bra_case_8DAC_02:
-- D - I - 0x020DBC 17:8DAC: F3        .byte con_branch, $83
+- D - I - 0x020DBC 17:8DAC: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020DBE 17:8DAE: 05        .byte bra_case_8DB3_00 - *
 - - - - - 0x020DBF 17:8DAF: 14        .byte bra_case_8DC3_01 - *
 - - - - - 0x020DC0 17:8DB0: 25        .byte bra_case_8DD5_02 - *
@@ -2666,7 +2676,7 @@ bra_case_8DF7_00:
 - D - I - 0x020E0B 17:8DFB: 4D        .byte bra_case_8E48_02 - *
 
 bra_case_8DFC_00:
-- D - I - 0x020E0C 17:8DFC: F3        .byte con_branch, $83
+- D - I - 0x020E0C 17:8DFC: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020E0E 17:8DFE: 11        .byte bra_case_8E0F_00 - *
 - D - I - 0x020E0F 17:8DFF: 04        .byte bra_case_8E03_01 - *
 - D - I - 0x020E10 17:8E00: 10        .byte bra_case_8E10_02 - *
@@ -2703,7 +2713,7 @@ bra_case_8E1C_03:
 - - - - - 0x020E30 17:8E20: A9 A1     .word loc_A1A9
 
 bra_case_8E22_01:
-- D - I - 0x020E32 17:8E22: F3        .byte con_branch, $83
+- D - I - 0x020E32 17:8E22: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020E34 17:8E24: 11        .byte bra_case_8E35_00 - *
 - D - I - 0x020E35 17:8E25: 04        .byte bra_case_8E29_01 - *
 - D - I - 0x020E36 17:8E26: 10        .byte bra_case_8E36_02 - *
@@ -2740,7 +2750,7 @@ bra_case_8E42_03:
 - - - - - 0x020E56 17:8E46: 85 A1     .word loc_A185
 
 bra_case_8E48_02:
-- D - I - 0x020E58 17:8E48: F3        .byte con_branch, $83
+- D - I - 0x020E58 17:8E48: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020E5A 17:8E4A: 11        .byte bra_case_8E5B_00 - *
 - D - I - 0x020E5B 17:8E4B: 04        .byte bra_case_8E4F_01 - *
 - D - I - 0x020E5C 17:8E4C: 10        .byte bra_case_8E5C_02 - *
@@ -2783,7 +2793,7 @@ bra_case_8E6E_01:
 - D - I - 0x020E82 17:8E72: 65        .byte bra_case_8ED7_02 - *
 
 bra_case_8E73_00:
-- D - I - 0x020E83 17:8E73: F3        .byte con_branch, $83
+- D - I - 0x020E83 17:8E73: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020E85 17:8E75: 05        .byte bra_case_8E7A_00 - *
 - D - I - 0x020E86 17:8E76: 11        .byte bra_case_8E87_01 - *
 - - - - - 0x020E87 17:8E77: 1F        .byte bra_case_8E96_02 - *
@@ -2828,7 +2838,7 @@ bra_case_8E96_02:
 - - - - - 0x020EB3 17:8EA3: 71 A3     .word loc_A371
 
 bra_case_8EA5_01:
-- D - I - 0x020EB5 17:8EA5: F3        .byte con_branch, $83
+- D - I - 0x020EB5 17:8EA5: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020EB7 17:8EA7: 05        .byte bra_case_8EAC_00 - *
 - - - - - 0x020EB8 17:8EA8: 11        .byte bra_case_8EB9_01 - *
 - - - - - 0x020EB9 17:8EA9: 1F        .byte bra_case_8EC8_02 - *
@@ -2873,7 +2883,7 @@ bra_case_8EC8_02:
 - - - - - 0x020EE5 17:8ED5: 71 A3     .word loc_A371
 
 bra_case_8ED7_02:
-- D - I - 0x020EE7 17:8ED7: F3        .byte con_branch, $83
+- D - I - 0x020EE7 17:8ED7: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020EE9 17:8ED9: 05        .byte bra_case_8EDE_00 - *
 - - - - - 0x020EEA 17:8EDA: 11        .byte bra_case_8EEB_01 - *
 - - - - - 0x020EEB 17:8EDB: 1F        .byte bra_case_8EFA_02 - *
@@ -2934,7 +2944,7 @@ bra_case_8F15_00:
 - D - I - 0x020F29 17:8F19: 8F        .byte bra_case_8FA8_02 - *
 
 bra_case_8F1A_00:
-- D - I - 0x020F2A 17:8F1A: F3        .byte con_branch, $83
+- D - I - 0x020F2A 17:8F1A: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020F2C 17:8F1C: 17        .byte bra_case_8F33_00 - *
 - D - I - 0x020F2D 17:8F1D: 20        .byte bra_case_8F3D_01 - *
 - D - I - 0x020F2E 17:8F1E: 03        .byte bra_case_8F21_02 - *
@@ -3017,7 +3027,7 @@ loc_8F67:
 - D - I - 0x020F7B 17:8F6B: 71 A3     .word loc_A371
 
 bra_case_8F6D_01:
-- D - I - 0x020F7D 17:8F6D: F3        .byte con_branch, $83
+- D - I - 0x020F7D 17:8F6D: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020F7F 17:8F6F: 08        .byte bra_case_8F77_00 - *
 - D - I - 0x020F80 17:8F70: 11        .byte bra_case_8F81_01 - *
 - D - I - 0x020F81 17:8F71: 1F        .byte bra_case_8F90_02 - *
@@ -3071,7 +3081,7 @@ bra_case_8F9F_03:
 - D - I - 0x020FB6 17:8FA6: 7B A1     .word loc_A17B
 
 bra_case_8FA8_02:
-- D - I - 0x020FB8 17:8FA8: F3        .byte con_branch, $83
+- D - I - 0x020FB8 17:8FA8: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020FBA 17:8FAA: 05        .byte bra_case_8FAF_00 - *
 - D - I - 0x020FBB 17:8FAB: 0E        .byte bra_case_8FB9_01 - *
 - D - I - 0x020FBC 17:8FAC: 1C        .byte bra_case_8FC8_02 - *
@@ -3127,7 +3137,7 @@ bra_case_8FE0_01:
 - D - I - 0x020FF4 17:8FE4: 96        .byte bra_case_907A_02 - *
 
 bra_case_8FE5_00:
-- D - I - 0x020FF5 17:8FE5: F3        .byte con_branch, $83
+- D - I - 0x020FF5 17:8FE5: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020FF7 17:8FE7: 14        .byte bra_case_8FFB_00 - *
 - D - I - 0x020FF8 17:8FE8: 23        .byte bra_case_900B_01 - *
 - - - - - 0x020FF9 17:8FE9: 03        .byte bra_case_8FEC_02 - *
@@ -3209,7 +3219,7 @@ bra_case_902F_03:
 - - - - - 0x021049 17:9039: 9F A1     .word loc_A19F
 
 bra_case_903B_01:
-- D - I - 0x02104B 17:903B: F3        .byte con_branch, $83
+- D - I - 0x02104B 17:903B: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x02104D 17:903D: 05        .byte bra_case_9042_00 - *
 - D - I - 0x02104E 17:903E: 14        .byte bra_case_9052_01 - *
 - - - - - 0x02104F 17:903F: 25        .byte bra_case_9064_02 - *
@@ -3265,7 +3275,7 @@ bra_long_case_9076_01_игрок_без_мяча_клон:
 - D - I - 0x021089 17:9079: BF        .byte bra_case_9138_01 - *
 
 bra_case_907A_02:
-- D - I - 0x02108A 17:907A: F3        .byte con_branch, $83
+- D - I - 0x02108A 17:907A: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x02108C 17:907C: 05        .byte bra_case_9081_00 - *
 - - - - - 0x02108D 17:907D: 14        .byte bra_case_9091_01 - *
 - - - - - 0x02108E 17:907E: 25        .byte bra_case_90A3_02 - *
@@ -3331,7 +3341,7 @@ bra_case_90C1_00:
 - D - I - 0x0210D5 17:90C5: 4D        .byte bra_case_9112_02 - *
 
 bra_case_90C6_00:
-- D - I - 0x0210D6 17:90C6: F3        .byte con_branch, $83
+- D - I - 0x0210D6 17:90C6: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x0210D8 17:90C8: 11        .byte bra_case_90D9_00 - *
 - D - I - 0x0210D9 17:90C9: 04        .byte bra_case_90CD_01 - *
 - D - I - 0x0210DA 17:90CA: 10        .byte bra_case_90DA_02 - *
@@ -3368,7 +3378,7 @@ bra_case_90E6_03:
 - - - - - 0x0210FA 17:90EA: 9F A1     .word loc_A19F
 
 bra_case_90EC_01:
-- D - I - 0x0210FC 17:90EC: F3        .byte con_branch, $83
+- D - I - 0x0210FC 17:90EC: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x0210FE 17:90EE: 11        .byte bra_case_90FF_00 - *
 - D - I - 0x0210FF 17:90EF: 04        .byte bra_case_90F3_01 - *
 - D - I - 0x021100 17:90F0: 10        .byte bra_case_9100_02 - *
@@ -3405,7 +3415,7 @@ bra_case_910C_03:
 - D - I - 0x021120 17:9110: 7B A1     .word loc_A17B
 
 bra_case_9112_02:
-- D - I - 0x021122 17:9112: F3        .byte con_branch, $83
+- D - I - 0x021122 17:9112: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x021124 17:9114: 11        .byte bra_case_9125_00 - *
 - D - I - 0x021125 17:9115: 04        .byte bra_case_9119_01 - *
 - D - I - 0x021126 17:9116: 10        .byte bra_case_9126_02 - *
@@ -3448,7 +3458,7 @@ bra_case_9138_01:
 - D - I - 0x02114C 17:913C: 65        .byte bra_case_91A1_02 - *
 
 bra_case_913D_00:
-- D - I - 0x02114D 17:913D: F3        .byte con_branch, $83
+- D - I - 0x02114D 17:913D: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x02114F 17:913F: 05        .byte bra_case_9144_00 - *
 - - - - - 0x021150 17:9140: 11        .byte bra_case_9151_01 - *
 - - - - - 0x021151 17:9141: 1F        .byte bra_case_9160_02 - *
@@ -3493,7 +3503,7 @@ bra_case_9160_02:
 - - - - - 0x02117D 17:916D: 71 A3     .word loc_A371
 
 bra_case_916F_01:
-- D - I - 0x02117F 17:916F: F3        .byte con_branch, $83
+- D - I - 0x02117F 17:916F: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x021181 17:9171: 05        .byte bra_case_9176_00 - *
 - - - - - 0x021182 17:9172: 11        .byte bra_case_9183_01 - *
 - - - - - 0x021183 17:9173: 1F        .byte bra_case_9192_02 - *
@@ -3538,7 +3548,7 @@ bra_case_9192_02:
 - - - - - 0x0211AF 17:919F: 71 A3     .word loc_A371
 
 bra_case_91A1_02:
-- D - I - 0x0211B1 17:91A1: F3        .byte con_branch, $83
+- D - I - 0x0211B1 17:91A1: F3        .byte con_branch, $83     ; результат действия защитника
 - - - - - 0x0211B3 17:91A3: 05        .byte bra_case_91A8_00 - *
 - D - I - 0x0211B4 17:91A4: 11        .byte bra_case_91B5_01 - *
 - - - - - 0x0211B5 17:91A5: 1F        .byte bra_case_91C4_02 - *
@@ -3660,58 +3670,58 @@ bra_long_case_9217_01:
 - D - I - 0x02122A 17:921A: 17        .byte bra_case_9231_01 - *
 
 bra_case_921B_00:
-- D - I - 0x02122B 17:921B: F3        .byte con_branch, $85
-- D - I - 0x02122D 17:921D: 05        .byte bra_case_9222_00 - *
-- D - I - 0x02122E 17:921E: 07        .byte bra_case_9225_01 - *
-- D - I - 0x02122F 17:921F: 09        .byte bra_case_9228_02 - *
-- D - I - 0x021230 17:9220: 0B        .byte bra_case_922B_03 - *
-- - - - - 0x021231 17:9221: 0D        .byte bra_case_922E_04 - *
+- D - I - 0x02122B 17:921B: F3        .byte con_branch, $85     ; порядковый номер защитника
+- D - I - 0x02122D 17:921D: 05        .byte bra_case_9222_00_защитник_1 - *
+- D - I - 0x02122E 17:921E: 07        .byte bra_case_9225_01_защитник_2 - *
+- D - I - 0x02122F 17:921F: 09        .byte bra_case_9228_02_защитник_3 - *
+- D - I - 0x021230 17:9220: 0B        .byte bra_case_922B_03_защитник_4 - *
+- - - - - 0x021231 17:9221: 0D        .byte bra_case_922E_04_защитник_5 - *
 
-bra_case_9222_00:
+bra_case_9222_00_защитник_1:
 - D - I - 0x021232 17:9222: F2        .byte con_jmp
 - D - I - 0x021233 17:9223: 85 9C     .word loc_9C85
 
-bra_case_9225_01:
+bra_case_9225_01_защитник_2:
 - D - I - 0x021235 17:9225: F2        .byte con_jmp
 - D - I - 0x021236 17:9226: 91 9C     .word loc_9C91
 
-bra_case_9228_02:
+bra_case_9228_02_защитник_3:
 - D - I - 0x021238 17:9228: F2        .byte con_jmp
 - D - I - 0x021239 17:9229: 9D 9C     .word loc_9C9D
 
-bra_case_922B_03:
+bra_case_922B_03_защитник_4:
 - D - I - 0x02123B 17:922B: F2        .byte con_jmp
 - D - I - 0x02123C 17:922C: 97 9C     .word loc_9C97
 
-bra_case_922E_04:
+bra_case_922E_04_защитник_5:
 - - - - - 0x02123E 17:922E: F2        .byte con_jmp
 - - - - - 0x02123F 17:922F: 91 9C     .word loc_9C91
 
 bra_case_9231_01:
-- D - I - 0x021241 17:9231: F3        .byte con_branch, $85
-- D - I - 0x021243 17:9233: 05        .byte bra_case_9238_00 - *
-- D - I - 0x021244 17:9234: 07        .byte bra_case_923B_01 - *
-- D - I - 0x021245 17:9235: 09        .byte bra_case_923E_02 - *
-- D - I - 0x021246 17:9236: 0B        .byte bra_case_9241_03 - *
-- - - - - 0x021247 17:9237: 0D        .byte bra_case_9244_04 - *
+- D - I - 0x021241 17:9231: F3        .byte con_branch, $85     ; порядковый номер защитника
+- D - I - 0x021243 17:9233: 05        .byte bra_case_9238_00_защитник_1 - *
+- D - I - 0x021244 17:9234: 07        .byte bra_case_923B_01_защитник_2 - *
+- D - I - 0x021245 17:9235: 09        .byte bra_case_923E_02_защитник_3 - *
+- D - I - 0x021246 17:9236: 0B        .byte bra_case_9241_03_защитник_4 - *
+- - - - - 0x021247 17:9237: 0D        .byte bra_case_9244_04_защитник_5 - *
 
-bra_case_9238_00:
+bra_case_9238_00_защитник_1:
 - D - I - 0x021248 17:9238: F2        .byte con_jmp
 - D - I - 0x021249 17:9239: 61 9C     .word loc_9C61
 
-bra_case_923B_01:
+bra_case_923B_01_защитник_2:
 - D - I - 0x02124B 17:923B: F2        .byte con_jmp
 - D - I - 0x02124C 17:923C: 6D 9C     .word loc_9C6D
 
-bra_case_923E_02:
+bra_case_923E_02_защитник_3:
 - D - I - 0x02124E 17:923E: F2        .byte con_jmp
 - D - I - 0x02124F 17:923F: 73 9C     .word loc_9C73
 
-bra_case_9241_03:
+bra_case_9241_03_защитник_4:
 - D - I - 0x021251 17:9241: F2        .byte con_jmp
 - D - I - 0x021252 17:9242: 67 9C     .word loc_9C67
 
-bra_case_9244_04:
+bra_case_9244_04_защитник_5:
 - - - - - 0x021254 17:9244: F2        .byte con_jmp
 - - - - - 0x021255 17:9245: 6D 9C     .word loc_9C6D
 
