@@ -1660,12 +1660,12 @@ C D - - - 0x034BF5 23:8BE5: 20 06 C6  JSR sub_0x03E084
 C - - - - 0x034BF8 23:8BE8: 20 42 8C  JSR sub_8C42
 C - - - - 0x034BFB 23:8BEB: B0 25     BCS bra_8C12
 C - - - - 0x034BFD 23:8BED: A9 00     LDA #$00
-C - - - - 0x034BFF 23:8BEF: 20 48 C5  JSR sub_0x03CEA9
+C - - - - 0x034BFF 23:8BEF: 20 48 C5  JSR sub_0x03CEA9_вычислить_управляемого
 C - - - - 0x034C02 23:8BF2: 85 3A     STA ram_003A
 C - - - - 0x034C04 23:8BF4: A5 47     LDA ram_0047
 C - - - - 0x034C06 23:8BF6: 48        PHA
 C - - - - 0x034C07 23:8BF7: A9 0B     LDA #$0B
-C - - - - 0x034C09 23:8BF9: 20 48 C5  JSR sub_0x03CEA9
+C - - - - 0x034C09 23:8BF9: 20 48 C5  JSR sub_0x03CEA9_вычислить_управляемого
 C - - - - 0x034C0C 23:8BFC: AA        TAX
 C - - - - 0x034C0D 23:8BFD: 68        PLA
 C - - - - 0x034C0E 23:8BFE: C5 47     CMP ram_0047

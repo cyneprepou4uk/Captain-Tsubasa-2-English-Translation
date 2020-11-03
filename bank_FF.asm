@@ -1292,9 +1292,10 @@ C - - - - 0x03CEA3 FF:CE93: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 sub_CE96_непрямой_прыжок:
 C - - - - 0x03CEA6 FF:CE96: 6C 36 00  JMP (ram_0036)
 
-.export sub_0x03CEA9
-sub_0x03CEA9:
-sub_CE99:
+.export sub_0x03CEA9_вычислить_управляемого
+sub_0x03CEA9_вычислить_управляемого:
+sub_CE99_вычислить_управляемого:
+; может использоваться когда бот принимает пас, и надо определить базового управляемого
 C D - - - 0x03CEA9 FF:CE99: 85 46     STA ram_0046
 C - - - - 0x03CEAB FF:CE9B: E6 46     INC ram_0046
 C - - - - 0x03CEAD FF:CE9D: A9 08     LDA #$08
@@ -3895,7 +3896,7 @@ C - - - - 0x03DF58 FF:DF48: 18        CLC
 C - - - - 0x03DF59 FF:DF49: 60        RTS
 
 sub_DF4A:
-C - - - - 0x03DF5A FF:DF4A: 20 99 CE  JSR sub_CE99
+C - - - - 0x03DF5A FF:DF4A: 20 99 CE  JSR sub_CE99_вычислить_управляемого
 C - - - - 0x03DF5D FF:DF4D: 48        PHA
 C - - - - 0x03DF5E FF:DF4E: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DF61 FF:DF51: AD FE 05  LDA $05FE
@@ -4144,7 +4145,7 @@ C - - - - 0x03E132 FF:E122: 4C 42 E1  JMP loc_E142
 bra_E125:
 C - - - - 0x03E135 FF:E125: A9 00     LDA #$00
 C - - - - 0x03E137 FF:E127: 8D 42 04  STA ram_игрок_без_мяча
-C - - - - 0x03E13A FF:E12A: 20 99 CE  JSR sub_CE99
+C - - - - 0x03E13A FF:E12A: 20 99 CE  JSR sub_CE99_вычислить_управляемого
 C - - - - 0x03E13D FF:E12D: 8D FD 05  STA ram_управляемый
 C - - - - 0x03E140 FF:E130: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E143 FF:E133: 20 7C CD  JSR sub_CD7C_адрес_игрока
