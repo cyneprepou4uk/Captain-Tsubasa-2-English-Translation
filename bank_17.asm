@@ -4071,7 +4071,7 @@ bra_case_9275_01_это_кипер:
 bra_case_9279_01_защитник_убьется:
 - D - I - 0x021289 17:9279: FD        .byte con_mirror_condition, $01
 - D - I - 0x02128B 17:927B: FA        .byte con_jsr
-- D - I - 0x02128C 17:927C: B5 9F     .word sub_9FB5
+- D - I - 0x02128C 17:927C: B5 9F     .word sub_9FB5_убийство_кипера
 bra_case_927E_00_защитник_выживет:
 - D - I - 0x02128E 17:927E: F0        .byte con_quit
 
@@ -4747,7 +4747,7 @@ bra_case_951A_02:
 - - - - - 0x021530 17:9520: FA        .byte con_jsr
 - - - - - 0x021531 17:9521: DD A2     .word sub_A2DD
 - - - - - 0x021533 17:9523: FA        .byte con_jsr
-- - - - - 0x021534 17:9524: B5 9F     .word sub_9FB5
+- - - - - 0x021534 17:9524: B5 9F     .word sub_9FB5_убийство_кипера
 - - - - - 0x021536 17:9526: F2        .byte con_jmp
 - - - - - 0x021537 17:9527: 71 A3     .word loc_A371
 
@@ -4906,7 +4906,7 @@ loc_95BC:
 - D - I - 0x0215CC 17:95BC: FA        .byte con_jsr
 - D - I - 0x0215CD 17:95BD: DD A2     .word sub_A2DD
 - D - I - 0x0215CF 17:95BF: FA        .byte con_jsr
-- D - I - 0x0215D0 17:95C0: B5 9F     .word sub_9FB5
+- D - I - 0x0215D0 17:95C0: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x0215D2 17:95C2: FA        .byte con_jsr
 - D - I - 0x0215D3 17:95C3: 71 A3     .word sub_A371
 - D - I - 0x0215D5 17:95C5: F2        .byte con_jmp
@@ -5400,7 +5400,7 @@ loc_978A:
 - D - I - 0x02179A 17:978A: FA        .byte con_jsr
 - D - I - 0x02179B 17:978B: DD A2     .word sub_A2DD
 - D - I - 0x02179D 17:978D: FA        .byte con_jsr
-- D - I - 0x02179E 17:978E: B5 9F     .word sub_9FB5
+- D - I - 0x02179E 17:978E: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x0217A0 17:9790: F2        .byte con_jmp
 - D - I - 0x0217A1 17:9791: 28 9C     .word loc_9C28
 
@@ -5414,7 +5414,7 @@ loc_9799:
 - D - I - 0x0217A9 17:9799: FA        .byte con_jsr
 - D - I - 0x0217AA 17:979A: DD A2     .word sub_A2DD
 - D - I - 0x0217AC 17:979C: FA        .byte con_jsr
-- D - I - 0x0217AD 17:979D: B5 9F     .word sub_9FB5
+- D - I - 0x0217AD 17:979D: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x0217AF 17:979F: FA        .byte con_jsr
 - D - I - 0x0217B0 17:97A0: 4E A2     .word sub_A24E_штанга
 - D - I - 0x0217B2 17:97A2: F2        .byte con_jmp
@@ -5430,7 +5430,7 @@ loc_97AB:
 - - - - - 0x0217BB 17:97AB: FA        .byte con_jsr
 - - - - - 0x0217BC 17:97AC: DD A2     .word sub_A2DD
 - - - - - 0x0217BE 17:97AE: FA        .byte con_jsr
-- - - - - 0x0217BF 17:97AF: B5 9F     .word sub_9FB5
+- - - - - 0x0217BF 17:97AF: B5 9F     .word sub_9FB5_убийство_кипера
 - - - - - 0x0217C1 17:97B1: FA        .byte con_jsr
 - - - - - 0x0217C2 17:97B2: B6 A0     .word sub_A0B6
 - - - - - 0x0217C4 17:97B4: FA        .byte con_jsr
@@ -5450,7 +5450,7 @@ loc_97C3:
 - - - - - 0x0217D3 17:97C3: FA        .byte con_jsr
 - - - - - 0x0217D4 17:97C4: DD A2     .word sub_A2DD
 - - - - - 0x0217D6 17:97C6: FA        .byte con_jsr
-- - - - - 0x0217D7 17:97C7: B5 9F     .word sub_9FB5
+- - - - - 0x0217D7 17:97C7: B5 9F     .word sub_9FB5_убийство_кипера
 - - - - - 0x0217D9 17:97C9: FA        .byte con_jsr
 - - - - - 0x0217DA 17:97CA: 4E A2     .word sub_A24E_штанга
 - - - - - 0x0217DC 17:97CC: FA        .byte con_jsr
@@ -5470,7 +5470,7 @@ loc_97DB:
 - D - I - 0x0217EB 17:97DB: FA        .byte con_jsr
 - D - I - 0x0217EC 17:97DC: DD A2     .word sub_A2DD
 - D - I - 0x0217EE 17:97DE: FA        .byte con_jsr
-- D - I - 0x0217EF 17:97DF: B5 9F     .word sub_9FB5
+- D - I - 0x0217EF 17:97DF: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x0217F1 17:97E1: FA        .byte con_jsr
 - D - I - 0x0217F2 17:97E2: B6 A0     .word sub_A0B6
 - D - I - 0x0217F4 17:97E4: FA        .byte con_jsr
@@ -5490,7 +5490,7 @@ loc_97F3:
 - D - I - 0x021803 17:97F3: FA        .byte con_jsr
 - D - I - 0x021804 17:97F4: DD A2     .word sub_A2DD
 - D - I - 0x021806 17:97F6: FA        .byte con_jsr
-- D - I - 0x021807 17:97F7: B5 9F     .word sub_9FB5
+- D - I - 0x021807 17:97F7: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x021809 17:97F9: FA        .byte con_jsr
 - D - I - 0x02180A 17:97FA: F4 A2     .word sub_A2F4
 - D - I - 0x02180C 17:97FC: F2        .byte con_jmp
@@ -5505,7 +5505,7 @@ loc_9802:
 - - - - - 0x021815 17:9805: FA        .byte con_jsr
 - - - - - 0x021816 17:9806: DD A2     .word sub_A2DD
 - - - - - 0x021818 17:9808: FA        .byte con_jsr
-- - - - - 0x021819 17:9809: B5 9F     .word sub_9FB5
+- - - - - 0x021819 17:9809: B5 9F     .word sub_9FB5_убийство_кипера
 - - - - - 0x02181B 17:980B: FA        .byte con_jsr
 - - - - - 0x02181C 17:980C: 71 A3     .word sub_A371
 - - - - - 0x02181E 17:980E: F2        .byte con_jmp
@@ -5603,7 +5603,7 @@ bra_case_9867_00:
 - D - I - 0x02187F 17:986F: FA        .byte con_jsr
 - D - I - 0x021880 17:9870: DD A2     .word sub_A2DD
 - D - I - 0x021882 17:9872: F2        .byte con_jmp
-- D - I - 0x021883 17:9873: B5 9F     .word loc_9FB5
+- D - I - 0x021883 17:9873: B5 9F     .word loc_9FB5_убийство_кипера
 
 bra_case_9875_01:
 bra_case_9875_02:
@@ -5683,7 +5683,7 @@ bra_case_98C0_00:
 - - - - - 0x0218D3 17:98C3: FA        .byte con_jsr
 - - - - - 0x0218D4 17:98C4: DD A2     .word sub_A2DD
 - - - - - 0x0218D6 17:98C6: F2        .byte con_jmp
-- - - - - 0x0218D7 17:98C7: B5 9F     .word loc_9FB5
+- - - - - 0x0218D7 17:98C7: B5 9F     .word loc_9FB5_убийство_кипера
 
 bra_case_98C9_01:
 bra_case_98C9_02:
@@ -7084,8 +7084,8 @@ bra_case_9FB3_00_кипер_без_крита:
 ; bzk мусор
 - - - - - 0x021FC4 17:9FB4: FB        .byte con_rts
 
-loc_9FB5:
-sub_9FB5:
+loc_9FB5_убийство_кипера:
+sub_9FB5_убийство_кипера:
 - D - I - 0x021FC5 17:9FB5: 32        .byte con_pause + $32
 - D - I - 0x021FC6 17:9FB6: 1B        .byte con_bg + $1B
 - D - I - 0x021FC7 17:9FB7: 02        .byte con_animation + $02
@@ -11552,7 +11552,6 @@ sub_B0A7:
 - D - I - 0x0230D3 11:B0C3: 00        .byte con_cloud + con_clear
 - D - I - 0x0230D4 11:B0C4: F2        .byte con_jmp
 - D - I - 0x0230D5 11:B0C5: 42 AB     .word loc_AB42
-
 
 ; bzk мусор
 - - - - - 0x0230D7 11:B0C7: FB        .byte con_rts
