@@ -230,7 +230,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x02018F 17:817F: 64 82     .word ofs_8264_06_86_защитник_это_кипер_или_нет
 - D - I - 0x020191 17:8181: 71 82     .word $0000       ; unused, было аналогично 03_83
 - D - I - 0x020193 17:8183: 75 82     .word ofs_8275_08_88
-- D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89_действие_атаки
+- D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89_действие_атаки_на_земле
 - D - I - 0x020197 17:8187: 97 82     .word ofs_8297_0A_8A
 - D - I - 0x020199 17:8189: 9B 82     .word $0000       ; unused, было аналогично 03_83
 - D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C
@@ -395,6 +395,9 @@ bra_8270_выход:
 C - - - - 0x020280 17:8270: 60        RTS
 
 ofs_8275_08_88:
+; 00 - 
+; 01 - 
+; 02 - это кипер
 C - J - - 0x020285 17:8275: A2 02     LDX #$02
 C - - - - 0x020287 17:8277: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - 0x02028A 17:827A: F0 0D     BEQ bra_8289_выход
@@ -408,7 +411,7 @@ C - - - - 0x020298 17:8288: CA        DEX
 bra_8289_выход:
 C - - - - 0x020299 17:8289: 60        RTS
 
-ofs_828A_09_89_действие_атаки:
+ofs_828A_09_89_действие_атаки_на_земле:
 ; 00 - shoot
 ; 01 - pass
 ; 02 - dribble
@@ -609,7 +612,11 @@ ofs_8380_12_92:
 ofs_83A4_14_94:
 ofs_83C2_17_97:
 ofs_85FE_3F_BF:
-; предположительно X 00-03
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
+; 04 - 
 C - - - - 0x020397 17:8387: AE 12 06  LDX ram_результат_защитника
 C - - - - 0x02039A 17:838A: 60        RTS
 
@@ -635,11 +642,11 @@ C - - - - 0x0203BB 17:83AB: BE AF 83  LDX tbl_83AF,Y
 C - - - - 0x0203BE 17:83AE: 60        RTS
 
 tbl_83AF:
-- - - - - 0x0203BF 17:83AF: FF        .byte $FF
-- - - - - 0x0203C0 17:83B0: FF        .byte $FF
-- D - - - 0x0203C1 17:83B1: 00        .byte $00
-- - - - - 0x0203C2 17:83B2: FF        .byte $FF
-- D - - - 0x0203C3 17:83B3: 01        .byte $01
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $00
+    .byte $FF       ; unused
+    .byte $01
 
 ofs_83B4_16_96:
 C - J - - 0x0203C4 17:83B4: AC 3B 04  LDY ram_действие_атаки
@@ -647,13 +654,13 @@ C - - - - 0x0203C7 17:83B7: BE BB 83  LDX tbl_83BB,Y
 C - - - - 0x0203CA 17:83BA: 60        RTS
 
 tbl_83BB:
-- - - - - 0x0203CB 17:83BB: FF        .byte $FF
-- D - - - 0x0203CC 17:83BC: 00        .byte $00
-- - - - - 0x0203CD 17:83BD: FF        .byte $FF
-- - - - - 0x0203CE 17:83BE: FF        .byte $FF
-- D - - - 0x0203CF 17:83BF: 01        .byte $01
-- - - - - 0x0203D0 17:83C0: FF        .byte $FF
-- D - - - 0x0203D1 17:83C1: 02        .byte $02
+    .byte $FF       ; unused
+    .byte $00
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $01
+    .byte $FF       ; unused
+    .byte $02
 
 ofs_83C6_18_98_джито:
 ; 00 - это джито
@@ -958,7 +965,7 @@ bra_84C6_выход:
 C - - - - 0x0204D6 17:84C6: 60        RTS
 
 ofs_84C7_2B_AB_проверка_на_100_хп:
-; 00 - больше или равно 100 хп
+; 00 - есть 100 хп
 ; 01 - меньше 100 хп
 C - J - - 0x0204D7 17:84C7: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0204DA 17:84CA: AE FB 05  LDX ram_команда_с_мячом
@@ -4214,14 +4221,14 @@ _scenario_932C_08:
 - D - I - 0x02133F 17:932F: 07        .byte bra_case_9336_01 - *
 
 bra_case_9330_00:
-- D - I - 0x021340 17:9330: F3        .byte con_branch, $89     ; действие атаки
+- D - I - 0x021340 17:9330: F3        .byte con_branch, $89     ; действие атаки на земле
 - D - I - 0x021342 17:9332: 14        .byte bra_case_9346_00_удар - *
 - D - I - 0x021343 17:9333: 09        .byte bra_case_933C_01_пас - *
 - D - I - 0x021344 17:9334: 0D        .byte bra_case_9341_02_дриблинг - *
 - D - I - 0x021345 17:9335: 16        .byte bra_case_934B_03_перепасовка - *
 
 bra_case_9336_01:
-- D - I - 0x021346 17:9336: F3        .byte con_branch, $89     ; действие атаки
+- D - I - 0x021346 17:9336: F3        .byte con_branch, $89     ; действие атаки на земле
 - D - I - 0x021348 17:9338: 27        .byte bra_case_935F_00_удар - *
 - D - I - 0x021349 17:9339: 17        .byte bra_case_9350_01_пас - *
 - D - I - 0x02134A 17:933A: 1B        .byte bra_case_9355_02_дриблинг - *
@@ -6614,7 +6621,7 @@ bra_case_9CF3_00_мяч_у_атакующего_на_земле:
 - D - I - 0x021D4A 17:9D3A: 34 AE     .word bra_long_case_AE34_22
 
 loc_9D3C:
-- D - I - 0x021D4C 17:9D3C: F3        .byte con_branch, $09     ; действие атаки
+- D - I - 0x021D4C 17:9D3C: F3        .byte con_branch, $09     ; действие атаки на земле
 - D - I - 0x021D4E 17:9D3E: 46 9D     .word bra_long_case_9D46_00_удар
 - D - I - 0x021D50 17:9D40: 64 AE     .word bra_long_case_AE64_01_пас
 - D - I - 0x021D52 17:9D42: 64 AE     .word bra_long_case_AE64_02_дриблинг
@@ -8461,10 +8468,10 @@ bra_case_A4D7_05:
 
 bra_case_A4DE_06:
 - - - - - 0x0224EE 11:A4DE: F3        .byte con_branch, $AB     ; проверка на 100 хп
-- - - - - 0x0224F0 11:A4E0: 02        .byte bra_case_A4E2_00 - *
-- - - - - 0x0224F1 11:A4E1: 08        .byte bra_case_A4E9_01 - *
+- - - - - 0x0224F0 11:A4E0: 02        .byte bra_case_A4E2_00_есть_100_хп - *
+- - - - - 0x0224F1 11:A4E1: 08        .byte bra_case_A4E9_01_меньше_100_хп - *
 
-bra_case_A4E2_00:
+bra_case_A4E2_00_есть_100_хп:
 - - - - - 0x0224F2 11:A4E2: 3C        .byte con_pause + $3C
 - - - - - 0x0224F3 11:A4E3: 30        .byte con_bg + $30
 - - - - - 0x0224F4 11:A4E4: A3        .byte con_animation + $A3
@@ -8472,7 +8479,7 @@ bra_case_A4E2_00:
 - - - - - 0x0224F6 11:A4E6: F2        .byte con_jmp
 - - - - - 0x0224F7 11:A4E7: C7 BB     .word loc_BBC7
 
-bra_case_A4E9_01:
+bra_case_A4E9_01_меньше_100_хп:
 - - - - - 0x0224F9 11:A4E9: F2        .byte con_jmp
 - - - - - 0x0224FA 11:A4EA: 89 A9     .word loc_A989
 
@@ -9719,10 +9726,10 @@ bra_case_A977_05:
 
 bra_case_A97E_06:
 - D - I - 0x02298E 11:A97E: F3        .byte con_branch, $AB     ; проверка на 100 хп
-- D - I - 0x022990 11:A980: 02        .byte bra_case_A982_00 - *
-- D - I - 0x022991 11:A981: 08        .byte bra_case_A989_01 - *
+- D - I - 0x022990 11:A980: 02        .byte bra_case_A982_00_есть_100_хп - *
+- D - I - 0x022991 11:A981: 08        .byte bra_case_A989_01_меньше_100_хп - *
 
-bra_case_A982_00:
+bra_case_A982_00_есть_100_хп:
 - D - I - 0x022992 11:A982: 3C        .byte con_pause + $3C
 - D - I - 0x022993 11:A983: 30        .byte con_bg + $30
 - D - I - 0x022994 11:A984: A3        .byte con_animation + $A3
@@ -9731,7 +9738,7 @@ bra_case_A982_00:
 - D - I - 0x022997 11:A987: C7 BB     .word loc_BBC7
 
 loc_A989:
-bra_case_A989_01:
+bra_case_A989_01_меньше_100_хп:
 - D - I - 0x022999 11:A989: F7        .byte con_F7, $35
 - D - I - 0x02299B 11:A98B: 5A        .byte con_pause + $5A
 - D - I - 0x02299C 11:A98C: 30        .byte con_bg + $30
