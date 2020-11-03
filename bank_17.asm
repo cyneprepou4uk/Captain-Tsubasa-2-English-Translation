@@ -258,9 +258,9 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2
 - D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3
 - - - - - 0x0201CB 17:81BB: 42 84     .word $0000       ; unused, байты не найдены, была проверка на диаса
-- D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_27_A5_A7
+- D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5
 - D - I - 0x0201CF 17:81BF: 57 84     .word ofs_8457_26_A6
-- D - I - 0x0201D1 17:81C1: 4E 84     .word ofs_844E_25_27_A5_A7
+- D - I - 0x0201D1 17:81C1: 4E 84     .word $0000       ; unused, было аналогично 25_A5
 - D - I - 0x0201D3 17:81C3: 7E 84     .word ofs_847E_28_A8_оба_игрока_с_рожами
 - D - I - 0x0201D5 17:81C5: 98 84     .word ofs_8498_29_A9_оба_игрока_с_рожами
 - D - I - 0x0201D7 17:81C7: B2 84     .word ofs_84B2_2A_AA_игрок_с_рожей
@@ -639,11 +639,13 @@ tbl_83BB:
 - D - - - 0x0203D1 17:83C1: 02        .byte $02
 
 ofs_83C6_18_98_джито:
+; 00 - это джито
+; 01 - это не джито
 C - J - - 0x0203D6 17:83C6: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0203D9 17:83C9: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - 0x0203DC 17:83CC: C9 1C     CMP #$1C
+C - - - - 0x0203DC 17:83CC: C9 1C     CMP #$1C      ; джито из японии
 C - - - - 0x0203DE 17:83CE: F0 05     BEQ bra_83D5_выход
-C - - - - 0x0203E0 17:83D0: C9 48     CMP #$48
+C - - - - 0x0203E0 17:83D0: C9 48     CMP #$48      ; джито соперник из японии
 C - - - - 0x0203E2 17:83D2: F0 01     BEQ bra_83D5_выход
 C - - - - 0x0203E4 17:83D4: E8        INX
 bra_83D5_выход:
@@ -718,7 +720,7 @@ ofs_843E_23_A3:
 C - J - - 0x02044E 17:843E: AE 2A 00  LDX ram_твоя_команда
 C - - - - 0x020451 17:8441: 60        RTS
 
-ofs_844E_25_27_A5_A7:
+ofs_844E_25_A5:
 C - J - - 0x02045E 17:844E: AE 47 04  LDX ram_флаг_удара_коимбры
 C - - - - 0x020461 17:8451: D0 03     BNE bra_8456_выход
 C - - - - 0x020463 17:8453: EE 47 04  INC ram_флаг_удара_коимбры
@@ -859,6 +861,9 @@ bra_8526_выход:
 C - - - - 0x020536 17:8526: 60        RTS
 
 ofs_8527_30_B0_диас_цубаса:
+; 00 - это не диас и не цубаса
+; 01 - это цубаса
+; 02 - это диас
 C - J - - 0x020537 17:8527: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x02053A 17:852A: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x02053D 17:852D: A2 02     LDX #$02
@@ -7619,10 +7624,10 @@ bra_case_A288_00:
 
 bra_case_A28C_01:
 - D - I - 0x02229C 11:A28C: F3        .byte con_branch, $98     ; проверка на джито
-- D - I - 0x02229E 11:A28E: 02        .byte bra_case_A290_00 - *
-- - - - - 0x02229F 11:A28F: 0C        .byte bra_case_A29B_01 - *
+- D - I - 0x02229E 11:A28E: 02        .byte bra_case_A290_00_это_джито - *
+- - - - - 0x02229F 11:A28F: 0C        .byte bra_case_A29B_01_это_не_джито - *
 
-bra_case_A290_00:
+bra_case_A290_00_это_джито:
 - D - I - 0x0222A0 11:A290: 01        .byte con_pause + $01
 - D - I - 0x0222A1 11:A291: F0        .byte con_bg + con_skip
 - D - I - 0x0222A2 11:A292: F0        .byte con_animation + con_skip
@@ -7634,7 +7639,7 @@ bra_case_A290_00:
 - D - I - 0x0222A8 11:A298: F2        .byte con_jmp
 - D - I - 0x0222A9 11:A299: A3 A2     .word loc_A2A3
 
-bra_case_A29B_01:
+bra_case_A29B_01_это_не_джито:
 - - - - - 0x0222AB 11:A29B: 01        .byte con_pause + $01
 - - - - - 0x0222AC 11:A29C: F0        .byte con_bg + con_skip
 - - - - - 0x0222AD 11:A29D: F0        .byte con_animation + con_skip
@@ -9974,12 +9979,12 @@ loc_AB42:
 - D - I - 0x022B5B 11:AB4B: FB        .byte con_rts
 
 bra_long_case_AB4C_03:
-- D - I - 0x022B5C 11:AB4C: F3        .byte con_branch, $B0
-- D - I - 0x022B5E 11:AB4E: 0A        .byte bra_case_AB58_00 - *
-- D - I - 0x022B5F 11:AB4F: 02        .byte bra_case_AB51_01 - *
-- D - I - 0x022B60 11:AB50: 22        .byte bra_case_AB72_02 - *
+- D - I - 0x022B5C 11:AB4C: F3        .byte con_branch, $B0     ; проверка на цубасу или диаса
+- D - I - 0x022B5E 11:AB4E: 0A        .byte bra_case_AB58_00_это_не_цубаса_и_не_диас - *
+- D - I - 0x022B5F 11:AB4F: 02        .byte bra_case_AB51_01_это_цубаса - *
+- D - I - 0x022B60 11:AB50: 22        .byte bra_case_AB72_02_это_диас - *
 
-bra_case_AB51_01:
+bra_case_AB51_01_это_цубаса:
 - D - I - 0x022B61 11:AB51: 3C        .byte con_pause + $3C
 - D - I - 0x022B62 11:AB52: 30        .byte con_bg + $30
 - D - I - 0x022B63 11:AB53: 91        .byte con_animation + $91
@@ -9987,7 +9992,7 @@ bra_case_AB51_01:
 - D - I - 0x022B65 11:AB55: FA        .byte con_jsr
 - D - I - 0x022B66 11:AB56: C7 BB     .word sub_BBC7
 loc_AB58:
-bra_case_AB58_00:
+bra_case_AB58_00_это_не_цубаса_и_не_диас:
 - D - I - 0x022B68 11:AB58: F9        .byte con_soundID_delay, $16, $02
 - D - I - 0x022B6B 11:AB5B: 28        .byte con_pause + $28
 - D - I - 0x022B6C 11:AB5C: 4A        .byte con_bg + $4A
@@ -10009,7 +10014,9 @@ loc_AB6B:
 - D - I - 0x022B80 11:AB70: 00        .byte con_cloud + con_clear
 - D - I - 0x022B81 11:AB71: FB        .byte con_rts
 
-bra_case_AB72_02:
+bra_case_AB72_02_это_диас:
+; bzk проверка на диаса не обязательная, код один и тот же
+    ; однако если я буду менять номер облака для них, возможно и понадобится
 - D - I - 0x022B82 11:AB72: 3C        .byte con_pause + $3C
 - D - I - 0x022B83 11:AB73: 30        .byte con_bg + $30
 - D - I - 0x022B84 11:AB74: B7        .byte con_animation + $B7
@@ -10392,10 +10399,10 @@ sub_AD13:
 
 bra_long_case_AD1D_13:
 - D - I - 0x022D2D 11:AD1D: F3        .byte con_branch, $98     ; проверка на джито
-- D - I - 0x022D2F 11:AD1F: 02        .byte bra_case_AD21_00 - *
-- D - I - 0x022D30 11:AD20: 25        .byte bra_case_AD45_01 - *
+- D - I - 0x022D2F 11:AD1F: 02        .byte bra_case_AD21_00_это_джито - *
+- D - I - 0x022D30 11:AD20: 25        .byte bra_case_AD45_01_это_не_джито - *
 
-bra_case_AD21_00:
+bra_case_AD21_00_это_джито:
 - D - I - 0x022D31 11:AD21: 78        .byte con_pause + $78
 - D - I - 0x022D32 11:AD22: 30        .byte con_bg + $30
 - D - I - 0x022D33 11:AD23: A0        .byte con_animation + $A0
@@ -10424,7 +10431,7 @@ loc_AD25:
 - D - I - 0x022D53 11:AD43: F0        .byte con_cloud + con_skip
 - D - I - 0x022D54 11:AD44: FB        .byte con_rts
 
-bra_case_AD45_01:
+bra_case_AD45_01_это_не_джито:
 - D - I - 0x022D55 11:AD45: 78        .byte con_pause + $78
 - D - I - 0x022D56 11:AD46: 30        .byte con_bg + $30
 - D - I - 0x022D57 11:AD47: AA        .byte con_animation + $AA
@@ -12675,7 +12682,7 @@ bra_long_case_B61D_17:
 - D - I - 0x023648 11:B638: F0        .byte con_bg + con_skip
 - D - I - 0x023649 11:B639: 00        .byte con_animation + $00
 - D - I - 0x02364A 11:B63A: 00        .byte con_cloud + con_clear
-- D - I - 0x02364B 11:B63B: F3        .byte con_branch, $A7
+- D - I - 0x02364B 11:B63B: F3        .byte con_branch, $A5
 - D - I - 0x02364D 11:B63D: 02        .byte bra_case_B63F_00 - *
 - - - - - 0x02364E 11:B63E: 27        .byte bra_case_B665_01 - *
 
