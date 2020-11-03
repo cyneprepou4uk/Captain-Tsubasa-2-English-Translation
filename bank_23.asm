@@ -5978,13 +5978,12 @@ off_A5E6_16:
 
 off_A60B_17:
     .byte $01
-    .word $2303
+    .word $2302
     .byte $DD
     
     .byte $02
-    .word $2323
-    .byte $DF
-    .byte $DB
+    .word $2322
+    .byte $DF, $DB
     
     .byte con_done
 
@@ -5992,11 +5991,11 @@ off_A60B_17:
 
 off_A615_18:
     .byte $01
-    .word $2303
+    .word $2302
     .byte $DD
     
     .byte $02
-    .word $2323
+    .word $2322
     .byte $F5, $DB
     
     .byte con_done
@@ -6005,11 +6004,11 @@ off_A615_18:
 
 off_A61F_19:
     .byte $01
-    .word $2303
+    .word $2302
     .byte $DE
     
     .byte $02
-    .word $2323
+    .word $2322
     .byte $F5, $F0
     
     .byte con_done
