@@ -254,11 +254,11 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201BF 17:81AF: 01 84     .word ofs_8401_1E_9E
 - D - I - 0x0201C1 17:81B1: 0A 84     .word ofs_840A_1F_9F
 - D - I - 0x0201C3 17:81B3: 0E 84     .word ofs_840E_20_A0
-- D - I - 0x0201C5 17:81B5: 2B 84     .word ofs_842B_21_A1
+- D - I - 0x0201C5 17:81B5: 2B 84     .word ofs_842B_21_A1_порвана_ли_сетка
 - D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2
-- D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3
+- D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3_за_какую_команду_играешь
 - - - - - 0x0201CB 17:81BB: 42 84     .word $0000       ; unused, байты не найдены, была проверка на диаса
-- D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5
+- D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5_коимбра_уже_бил_или_нет
 - D - I - 0x0201CF 17:81BF: 57 84     .word ofs_8457_26_A6
 - D - I - 0x0201D1 17:81C1: 4E 84     .word $0000       ; unused, было аналогично 25_A5
 - D - I - 0x0201D3 17:81C3: 7E 84     .word ofs_847E_28_A8_оба_игрока_с_рожами
@@ -699,7 +699,9 @@ C - - - - 0x020439 17:8429: CA        DEX
 bra_842A_выход:
 C - - - - 0x02043A 17:842A: 60        RTS
 
-ofs_842B_21_A1:
+ofs_842B_21_A1_порвана_ли_сетка:
+; 00 - не порвана
+; 01 - порвана
 C - J - - 0x02043B 17:842B: A2 00     LDX #$00
 C - - - - 0x02043D 17:842D: AD 1C 06  LDA $061C
 C - - - - 0x020440 17:8430: C9 60     CMP #$60
@@ -715,12 +717,16 @@ C - - - - 0x02044B 17:843B: A2 01     LDX #$01
 bra_843D_выход:
 C - - - - 0x02044D 17:843D: 60        RTS
 
-ofs_843E_23_A3:
-; предположительно X 00-02
+ofs_843E_23_A3_за_какую_команду_играешь:
+; 00 - за сан-паулу
+; 01 - за нанкацу
+; 02 - за японию
 C - J - - 0x02044E 17:843E: AE 2A 00  LDX ram_твоя_команда
 C - - - - 0x020451 17:8441: 60        RTS
 
-ofs_844E_25_A5:
+ofs_844E_25_A5_коимбра_уже_бил_или_нет:
+; 00 - еще не бил
+; 01 - уже бил
 C - J - - 0x02045E 17:844E: AE 47 04  LDX ram_флаг_удара_коимбры
 C - - - - 0x020461 17:8451: D0 03     BNE bra_8456_выход
 C - - - - 0x020463 17:8453: EE 47 04  INC ram_флаг_удара_коимбры
@@ -728,6 +734,8 @@ bra_8456_выход:
 C - - - - 0x020466 17:8456: 60        RTS
 
 ofs_8457_26_A6:
+; 00 - ?
+; 01 - ?
 C - J - - 0x020467 17:8457: A2 00     LDX #$00
 C - - - - 0x020469 17:8459: AD 2B 00  LDA ram_команда_соперника
 C - - - - 0x02046C 17:845C: C9 22     CMP #$22
@@ -6194,9 +6202,9 @@ sub_9C23:
 
 loc_9C28:
 - D - I - 0x021C38 17:9C28: F7        .byte con_F7, $03
-- D - I - 0x021C3A 17:9C2A: F3        .byte con_branch, $21
-- D - I - 0x021C3C 17:9C2C: 5D A2     .word bra_long_case_A25D_00_goal
-- D - I - 0x021C3E 17:9C2E: 67 A2     .word bra_long_case_A267_01_goal
+- D - I - 0x021C3A 17:9C2A: F3        .byte con_branch, $21     ; порвана ли сетка
+- D - I - 0x021C3C 17:9C2C: 5D A2     .word bra_long_case_A25D_00_сетка_не_порвана
+- D - I - 0x021C3E 17:9C2E: 67 A2     .word bra_long_case_A267_01_сетка_порвана
 
 
 
@@ -6208,29 +6216,29 @@ _scenario_9C30_30:
 sub_9C36:
 bra_long_case_9C36_01:
 - D - I - 0x021C46 17:9C36: F9        .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
-- D - I - 0x021C49 17:9C39: F3        .byte con_branch, $21
-- D - I - 0x021C4B 17:9C3B: B5 A2     .word bra_long_case_A2B5_00_нашей_команде_забили
-- D - I - 0x021C4D 17:9C3D: BC A2     .word bra_long_case_A2BC_01_нашей_команде_порвали_сетку
+- D - I - 0x021C49 17:9C39: F3        .byte con_branch, $21     ; порвана ли сетка
+- D - I - 0x021C4B 17:9C3B: B5 A2     .word bra_long_case_A2B5_00_сетка_не_порвана
+- D - I - 0x021C4D 17:9C3D: BC A2     .word bra_long_case_A2BC_01_сетка_порвана
 
 bra_long_case_9C3F_00:
 - D - I - 0x021C4F 17:9C3F: F5        .byte con_mirror_off
 - D - I - 0x021C50 17:9C40: F7        .byte con_F7, $13
 - D - I - 0x021C52 17:9C42: F9        .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
-- D - I - 0x021C55 17:9C45: F3        .byte con_branch, $21
-- D - I - 0x021C57 17:9C47: 4B 9C     .word bra_long_case_9C4B_00
-- D - I - 0x021C59 17:9C49: 53 9C     .word bra_long_case_9C53_01
+- D - I - 0x021C55 17:9C45: F3        .byte con_branch, $21     ; порвана ли сетка
+- D - I - 0x021C57 17:9C47: 4B 9C     .word bra_long_case_9C4B_00_сетка_не_порвана
+- D - I - 0x021C59 17:9C49: 53 9C     .word bra_long_case_9C53_01_сетка_порвана
 
-bra_long_case_9C4B_00:
-- D - I - 0x021C5B 17:9C4B: F3        .byte con_branch, $23
-- D - I - 0x021C5D 17:9C4D: A7 A2     .word bra_long_case_A2A7_01_наша_команда_забила
-- D - I - 0x021C5F 17:9C4F: AE A2     .word bra_long_case_A2AE_01_наша_команда_забила
-- D - I - 0x021C61 17:9C51: 71 A2     .word bra_long_case_A271_02_наша_команда_забила
+bra_long_case_9C4B_00_сетка_не_порвана:
+- D - I - 0x021C5B 17:9C4B: F3        .byte con_branch, $23     ; за какую команду играешь
+- D - I - 0x021C5D 17:9C4D: A7 A2     .word bra_long_case_A2A7_00_за_сан_паулу
+- D - I - 0x021C5F 17:9C4F: AE A2     .word bra_long_case_A2AE_01_за_нанкацу
+- D - I - 0x021C61 17:9C51: 71 A2     .word bra_long_case_A271_02_за_японию
 
-bra_long_case_9C53_01:
-- D - I - 0x021C63 17:9C53: F3        .byte con_branch, $23
-- - - - - 0x021C65 17:9C55: C3 A2     .word bra_long_case_A2C3_00_наша_команда_порвала_сетку
-- - - - - 0x021C67 17:9C57: CA A2     .word bra_long_case_A2CA_01_япония_порвала_сетку
-- D - I - 0x021C69 17:9C59: D1 A2     .word bra_long_case_A2D1_02_япония_порвала_сетку
+bra_long_case_9C53_01_сетка_порвана:
+- D - I - 0x021C63 17:9C53: F3        .byte con_branch, $23     ; за какую команду играешь
+- - - - - 0x021C65 17:9C55: C3 A2     .word bra_long_case_A2C3_00_за_сан_паулу
+- - - - - 0x021C67 17:9C57: CA A2     .word bra_long_case_A2CA_01_за_нанкацу
+- D - I - 0x021C69 17:9C59: D1 A2     .word bra_long_case_A2D1_02_за_японию
 
 sub_9C5B:
 - D - I - 0x021C6B 17:9C5B: F3        .byte con_branch, $2E
@@ -7572,7 +7580,7 @@ sub_A258:
 - D - I - 0x02226B 11:A25B: F0        .byte con_cloud + con_skip
 - D - I - 0x02226C 11:A25C: FB        .byte con_rts
 
-bra_long_case_A25D_00_goal:
+bra_long_case_A25D_00_сетка_не_порвана:
 - D - I - 0x02226D 11:A25D: F7        .byte con_F7, $03
 - D - I - 0x02226F 11:A25F: F9        .byte con_soundID_delay, $60, $02
 - D - I - 0x022272 11:A262: 78        .byte con_pause + $78
@@ -7582,7 +7590,7 @@ bra_long_case_A25D_00_goal:
 - D - I - 0x022276 11:A266: FB        .byte con_rts
 
 loc_A267_goal:
-bra_long_case_A267_01_goal:
+bra_long_case_A267_01_сетка_порвана:
 - D - I - 0x022277 11:A267: F7        .byte con_F7, $03
 - D - I - 0x022279 11:A269: F9        .byte con_soundID_delay, $61, $02
 - D - I - 0x02227C 11:A26C: 78        .byte con_pause + $78
@@ -7591,7 +7599,7 @@ bra_long_case_A267_01_goal:
 - D - I - 0x02227F 11:A26F: 28        .byte con_cloud + $28
 - D - I - 0x022280 11:A270: FB        .byte con_rts
 
-bra_long_case_A271_02_наша_команда_забила:
+bra_long_case_A271_02_за_японию:
 - D - I - 0x022281 11:A271: A0        .byte con_pause + $A0
 - D - I - 0x022282 11:A272: 0A        .byte con_bg + $0A
 - D - I - 0x022283 11:A273: 48        .byte con_animation + $48
@@ -7654,7 +7662,7 @@ loc_A2A3:
 bra_case_A2A6_00:
 - D - I - 0x0222B6 11:A2A6: FB        .byte con_rts
 
-bra_long_case_A2A7_01_наша_команда_забила:
+bra_long_case_A2A7_00_за_сан_паулу:
 - D - I - 0x0222B7 11:A2A7: A0        .byte con_pause + $A0
 - D - I - 0x0222B8 11:A2A8: 08        .byte con_bg + $08
 - D - I - 0x0222B9 11:A2A9: 46        .byte con_animation + $46
@@ -7662,7 +7670,7 @@ bra_long_case_A2A7_01_наша_команда_забила:
 - D - I - 0x0222BB 11:A2AB: F2        .byte con_jmp
 - D - I - 0x0222BC 11:A2AC: 75 A2     .word loc_A275
 
-bra_long_case_A2AE_01_наша_команда_забила:
+bra_long_case_A2AE_01_за_нанкацу:
 - D - I - 0x0222BE 11:A2AE: A0        .byte con_pause + $A0
 - D - I - 0x0222BF 11:A2AF: 09        .byte con_bg + $09
 - D - I - 0x0222C0 11:A2B0: 47        .byte con_animation + $47
@@ -7670,7 +7678,7 @@ bra_long_case_A2AE_01_наша_команда_забила:
 - D - I - 0x0222C2 11:A2B2: F2        .byte con_jmp
 - D - I - 0x0222C3 11:A2B3: 75 A2     .word loc_A275
 
-bra_long_case_A2B5_00_нашей_команде_забили:
+bra_long_case_A2B5_00_сетка_не_порвана:
 - D - I - 0x0222C5 11:A2B5: 82        .byte con_pause + $82
 - D - I - 0x0222C6 11:A2B6: F0        .byte con_bg + con_skip
 - D - I - 0x0222C7 11:A2B7: F0        .byte con_animation + con_skip
@@ -7678,7 +7686,7 @@ bra_long_case_A2B5_00_нашей_команде_забили:
 - D - I - 0x0222C9 11:A2B9: F2        .byte con_jmp
 - D - I - 0x0222CA 11:A2BA: 75 A2     .word loc_A275
 
-bra_long_case_A2BC_01_нашей_команде_порвали_сетку:
+bra_long_case_A2BC_01_сетка_порвана:
 - D - I - 0x0222CC 11:A2BC: 82        .byte con_pause + $82
 - D - I - 0x0222CD 11:A2BD: F0        .byte con_bg + con_skip
 - D - I - 0x0222CE 11:A2BE: F0        .byte con_animation + con_skip
@@ -7686,7 +7694,7 @@ bra_long_case_A2BC_01_нашей_команде_порвали_сетку:
 - D - I - 0x0222D0 11:A2C0: F2        .byte con_jmp
 - D - I - 0x0222D1 11:A2C1: 75 A2     .word loc_A275
 
-bra_long_case_A2C3_00_наша_команда_порвала_сетку:
+bra_long_case_A2C3_00_за_сан_паулу:
 - - - - - 0x0222D3 11:A2C3: A0        .byte con_pause + $A0
 - - - - - 0x0222D4 11:A2C4: 08        .byte con_bg + $08
 - - - - - 0x0222D5 11:A2C5: 46        .byte con_animation + $46
@@ -7694,7 +7702,7 @@ bra_long_case_A2C3_00_наша_команда_порвала_сетку:
 - - - - - 0x0222D7 11:A2C7: F2        .byte con_jmp
 - - - - - 0x0222D8 11:A2C8: 75 A2     .word loc_A275
 
-bra_long_case_A2CA_01_япония_порвала_сетку:
+bra_long_case_A2CA_01_за_нанкацу:
 - - - - - 0x0222DA 11:A2CA: A0        .byte con_pause + $A0
 - - - - - 0x0222DB 11:A2CB: 09        .byte con_bg + $09
 - - - - - 0x0222DC 11:A2CC: 47        .byte con_animation + $47
@@ -7702,7 +7710,7 @@ bra_long_case_A2CA_01_япония_порвала_сетку:
 - - - - - 0x0222DE 11:A2CE: F2        .byte con_jmp
 - - - - - 0x0222DF 11:A2CF: 75 A2     .word loc_A275
 
-bra_long_case_A2D1_02_япония_порвала_сетку:
+bra_long_case_A2D1_02_за_японию:
 - D - I - 0x0222E1 11:A2D1: A0        .byte con_pause + $A0
 - D - I - 0x0222E2 11:A2D2: 0A        .byte con_bg + $0A
 - D - I - 0x0222E3 11:A2D3: 48        .byte con_animation + $48
@@ -7808,12 +7816,12 @@ sub_A335:
 
 bra_long_case_A33A_01:
 - D - I - 0x02234A 11:A33A: F5        .byte con_mirror_off
-- D - I - 0x02234B 11:A33B: F3        .byte con_branch, $A3
-- - - - - 0x02234D 11:A33D: 0A        .byte bra_case_A347_00 - *
-- - - - - 0x02234E 11:A33E: 02        .byte bra_case_A340_01 - *
-- D - I - 0x02234F 11:A33F: 08        .byte bra_case_A347_02 - *
+- D - I - 0x02234B 11:A33B: F3        .byte con_branch, $A3     ; за какую команду играешь
+- - - - - 0x02234D 11:A33D: 0A        .byte bra_case_A347_00_за_сан_паулу - *
+- - - - - 0x02234E 11:A33E: 02        .byte bra_case_A340_01_за_нанкацу - *
+- D - I - 0x02234F 11:A33F: 08        .byte bra_case_A347_02_за_японию - *
 
-bra_case_A340_01:
+bra_case_A340_01_за_нанкацу:
 - - - - - 0x022350 11:A340: 32        .byte con_pause + $32
 - - - - - 0x022351 11:A341: 73        .byte con_bg + $73
 - - - - - 0x022352 11:A342: A6        .byte con_animation + $A6
@@ -7821,8 +7829,8 @@ bra_case_A340_01:
 - - - - - 0x022354 11:A344: F2        .byte con_jmp
 - - - - - 0x022355 11:A345: 4B A3     .word loc_A34B
 
-bra_case_A347_00:
-bra_case_A347_02:
+bra_case_A347_00_за_сан_паулу:
+bra_case_A347_02_за_японию:
 - D - I - 0x022357 11:A347: 32        .byte con_pause + $32
 - D - I - 0x022358 11:A348: 33        .byte con_bg + $33
 - D - I - 0x022359 11:A349: A6        .byte con_animation + $A6
@@ -11327,11 +11335,11 @@ bra_long_case_B0E8_1F:
 - D - I - 0x02310A 11:B0FA: FB        .byte con_rts
 
 bra_long_case_B0FB_21:
-- D - I - 0x02310B 11:B0FB: F3        .byte con_branch, $A5
-- D - I - 0x02310D 11:B0FD: 02        .byte bra_case_B0FF_00 - *
-- D - I - 0x02310E 11:B0FE: 43        .byte bra_case_B141_01 - *
+- D - I - 0x02310B 11:B0FB: F3        .byte con_branch, $A5     ; коимбра уже бил или нет
+- D - I - 0x02310D 11:B0FD: 02        .byte bra_case_B0FF_00_коимбра_еще_не_бил - *
+- D - I - 0x02310E 11:B0FE: 43        .byte bra_case_B141_01_коимбра_уже_бил - *
 
-bra_case_B0FF_00:
+bra_case_B0FF_00_коимбра_еще_не_бил:
 - D - I - 0x02310F 11:B0FF: F5        .byte con_mirror_off
 - D - I - 0x023110 11:B100: F7        .byte con_F7, $10
 - D - I - 0x023112 11:B102: 28        .byte con_pause + $28
@@ -11388,7 +11396,7 @@ bra_case_B0FF_00:
 - D - I - 0x02314E 11:B13E: F0        .byte con_bg + con_skip
 - D - I - 0x02314F 11:B13F: F0        .byte con_animation + con_skip
 - D - I - 0x023150 11:B140: 00        .byte con_cloud + con_clear
-bra_case_B141_01:
+bra_case_B141_01_коимбра_уже_бил:
 - D - I - 0x023151 11:B141: F5        .byte con_mirror_off
 - D - I - 0x023152 11:B142: F8        .byte con_F8, $04
 - D - I - 0x023154 11:B144: 3C        .byte con_pause + $3C
@@ -12682,11 +12690,11 @@ bra_long_case_B61D_17:
 - D - I - 0x023648 11:B638: F0        .byte con_bg + con_skip
 - D - I - 0x023649 11:B639: 00        .byte con_animation + $00
 - D - I - 0x02364A 11:B63A: 00        .byte con_cloud + con_clear
-- D - I - 0x02364B 11:B63B: F3        .byte con_branch, $A5
-- D - I - 0x02364D 11:B63D: 02        .byte bra_case_B63F_00 - *
-- - - - - 0x02364E 11:B63E: 27        .byte bra_case_B665_01 - *
+- D - I - 0x02364B 11:B63B: F3        .byte con_branch, $A5     ; коимбра уже бил или нет
+- D - I - 0x02364D 11:B63D: 02        .byte bra_case_B63F_00_коимбра_еще_не_бил - *
+- - - - - 0x02364E 11:B63E: 27        .byte bra_case_B665_01_коимбра_уже_бил - *
 
-bra_case_B63F_00:
+bra_case_B63F_00_коимбра_еще_не_бил:
 - D - I - 0x02364F 11:B63F: F9        .byte con_soundID_delay, $43, $02
 - D - I - 0x023652 11:B642: F5        .byte con_mirror_off
 - D - I - 0x023653 11:B643: F3        .byte con_branch, $C1
@@ -12725,7 +12733,7 @@ loc_B65F:
 - D - I - 0x02366F 11:B65F: FA        .byte con_jsr
 - D - I - 0x023670 11:B660: C7 BB     .word sub_BBC7
 - D - I - 0x023672 11:B662: F9        .byte con_soundID_delay, $7F, $02
-bra_case_B665_01:
+bra_case_B665_01_коимбра_уже_бил:
 - D - I - 0x023675 11:B665: F7        .byte con_F7, $2E
 - D - I - 0x023677 11:B667: 32        .byte con_pause + $32
 - D - I - 0x023678 11:B668: 64        .byte con_bg + $64
@@ -13842,18 +13850,18 @@ loc_BA7F:
 bra_case_BA7F_00:
 - D - I - 0x023A8F 11:BA7F: F7        .byte con_F7, $03
 - D - I - 0x023A91 11:BA81: F9        .byte con_soundID_delay, $5D, $02
-- D - I - 0x023A94 11:BA84: F3        .byte con_branch, $A1
-- D - I - 0x023A96 11:BA86: 02        .byte bra_case_BA88_00_goal - *
-- - - - - 0x023A97 11:BA87: 06        .byte bra_case_BA8D_01_goal - *
+- D - I - 0x023A94 11:BA84: F3        .byte con_branch, $A1     ; порвана ли сетка
+- D - I - 0x023A96 11:BA86: 02        .byte bra_case_BA88_00_сетка_не_порвана - *
+- - - - - 0x023A97 11:BA87: 06        .byte bra_case_BA8D_01_сетка_порвана - *
 
-bra_case_BA88_00_goal:
+bra_case_BA88_00_сетка_не_порвана:
 - D - I - 0x023A98 11:BA88: 64        .byte con_pause + $64
 - D - I - 0x023A99 11:BA89: 07        .byte con_bg + $07
 - D - I - 0x023A9A 11:BA8A: 44        .byte con_animation + $44
 - D - I - 0x023A9B 11:BA8B: 28        .byte con_cloud + $28
 - D - I - 0x023A9C 11:BA8C: FB        .byte con_rts
 
-bra_case_BA8D_01_goal:
+bra_case_BA8D_01_сетка_порвана:
 - - - - - 0x023A9D 11:BA8D: 64        .byte con_pause + $64
 - - - - - 0x023A9E 11:BA8E: 07        .byte con_bg + $07
 - - - - - 0x023A9F 11:BA8F: 45        .byte con_animation + $45
