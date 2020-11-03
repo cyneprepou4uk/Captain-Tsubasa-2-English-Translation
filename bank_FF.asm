@@ -1932,17 +1932,17 @@ loc_D263:
 C D - - - 0x03D273 FF:D263: AA        TAX
 C - - - - 0x03D274 FF:D264: A0 0A     LDY #con_игрок_бездействие
 C - - - - 0x03D276 FF:D266: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x03D278 FF:D268: F0 0B     BEQ bra_D275
+C - - - - 0x03D278 FF:D268: F0 0B     BEQ bra_D275_кипер_в_воротах
 C - - - - 0x03D27A FF:D26A: 8A        TXA
 C - - - - 0x03D27B FF:D26B: 18        CLC
 C - - - - 0x03D27C FF:D26C: 71 34     ADC (ram_plr_data),Y
-C - - - - 0x03D27E FF:D26E: 10 02     BPL bra_D272
+C - - - - 0x03D27E FF:D26E: 10 02     BPL bra_D272_не_overflow
 C - - - - 0x03D280 FF:D270: A9 00     LDA #$00
-bra_D272:
+bra_D272_не_overflow:
 C - - - - 0x03D282 FF:D272: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03D284 FF:D274: 60        RTS
-bra_D275:
-C - - - - 0x03D285 FF:D275: A0 07     LDY #con_игрок_координата_Y_lo
+bra_D275_кипер_в_воротах:
+C - - - - 0x03D285 FF:D275: A0 07     LDY #con_величина_ослабленности
 C - - - - 0x03D287 FF:D277: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D289 FF:D279: F0 1E     BEQ bra_D299_выход
 C - - - - 0x03D28B FF:D27B: A0 06     LDY #$06
@@ -1953,7 +1953,7 @@ C - - - - 0x03D291 FF:D281: 10 14     BPL bra_D297
 C - - - - 0x03D293 FF:D283: 18        CLC
 C - - - - 0x03D294 FF:D284: 69 03     ADC #$03
 C - - - - 0x03D296 FF:D286: 48        PHA
-C - - - - 0x03D297 FF:D287: A0 07     LDY #con_игрок_координата_Y_lo
+C - - - - 0x03D297 FF:D287: A0 07     LDY #con_величина_ослабленности
 C - - - - 0x03D299 FF:D289: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D29B FF:D28B: 38        SEC
 C - - - - 0x03D29C FF:D28C: E9 19     SBC #$19
