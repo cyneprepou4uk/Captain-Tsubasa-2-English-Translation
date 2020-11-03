@@ -230,7 +230,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x02018F 17:817F: 64 82     .word ofs_8264_06_86_защитник_это_кипер_или_нет
 - D - I - 0x020191 17:8181: 71 82     .word $0000       ; unused, было аналогично 03_83
 - D - I - 0x020193 17:8183: 75 82     .word ofs_8275_08_88
-- D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89
+- D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89_действие_атаки
 - D - I - 0x020197 17:8187: 97 82     .word ofs_8297_0A_8A
 - D - I - 0x020199 17:8189: 9B 82     .word $0000       ; unused, было аналогично 03_83
 - D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C
@@ -408,7 +408,11 @@ C - - - - 0x020298 17:8288: CA        DEX
 bra_8289_выход:
 C - - - - 0x020299 17:8289: 60        RTS
 
-ofs_828A_09_89:
+ofs_828A_09_89_действие_атаки:
+; 00 - shoot
+; 01 - pass
+; 02 - dribble
+; 03 - 1-2 pass
 C - J - - 0x02029A 17:828A: AC 3B 04  LDY ram_действие_атаки
 C - - - - 0x02029D 17:828D: BE 91 82  LDX tbl_8291,Y
 C - - - - 0x0202A0 17:8290: 60        RTS
@@ -422,12 +426,15 @@ tbl_8291:
     .byte $03
 
 ofs_8297_0A_8A:
-; предположительно X 00-02
+; 00 - 
+; 01 - 
+; 02 - 
 C - J - - 0x0202A7 17:8297: AE 3D 04  LDX $043D
 C - - - - 0x0202AA 17:829A: 60        RTS
 
 ofs_829F_0C_8C:
-; X 00-01
+; 00 - 
+; 01 - 
 C - J - - 0x0202AF 17:829F: A2 00     LDX #$00
 C - - - - 0x0202B1 17:82A1: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x0202B4 17:82A4: D0 0B     BNE bra_82B1
@@ -446,6 +453,11 @@ bra_82B9_выход:
 C - - - - 0x0202C9 17:82B9: 60        RTS
 
 ofs_82BA_0D_8D:
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
+; 04 - 
 C - J - - 0x0202CA 17:82BA: AD 43 04  LDA $0443
 C - - - - 0x0202CD 17:82BD: C9 06     CMP #$06
 C - - - - 0x0202CF 17:82BF: F0 19     BEQ bra_82DA
@@ -573,8 +585,11 @@ C - J - - 0x020376 17:8366: AE 3B 04  LDX ram_действие_атаки
 C - - - - 0x020379 17:8369: 60        RTS
 
 ofs_836E_10_90:
-; X 00-01
-; возможно в пределах 00-04 судя по 0x021F4E
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
+; 04 - 
 C - J - - 0x02037E 17:836E: A2 00     LDX #$00
 C - - - - 0x020380 17:8370: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x020383 17:8373: C9 01     CMP #$01
@@ -1382,7 +1397,11 @@ tbl_86A6_игрок:
 
 
 ofs_86B6_48_C8:
-; X 00-04
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
+; 04 - 
 C - J - - 0x0206C6 17:86B6: A2 00     LDX #$00
 C - - - - 0x0206C8 17:86B8: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x0206CB 17:86BB: 29 7F     AND #$7F
@@ -3824,7 +3843,7 @@ _scenario_91EA_0E:
 - D - I - 0x0211FA 17:91EA: FD        .byte con_mirror_condition, $01
 - D - I - 0x0211FC 17:91EC: F3        .byte con_branch, $04     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x0211FE 17:91EE: 9B B2     .word bra_long_case_B29B_00
-- D - I - 0x021200 17:91F0: 64 AE     .word bra_long_case_AE64_01
+- D - I - 0x021200 17:91F0: 64 AE     .word bra_long_case_AE64_01_пас
 
 
 
@@ -4193,48 +4212,48 @@ _scenario_932C_08:
 - D - I - 0x02133F 17:932F: 07        .byte bra_case_9336_01 - *
 
 bra_case_9330_00:
-- D - I - 0x021340 17:9330: F3        .byte con_branch, $89
-- D - I - 0x021342 17:9332: 14        .byte bra_case_9346_00 - *
-- D - I - 0x021343 17:9333: 09        .byte bra_case_933C_01 - *
-- D - I - 0x021344 17:9334: 0D        .byte bra_case_9341_02 - *
-- D - I - 0x021345 17:9335: 16        .byte bra_case_934B_03 - *
+- D - I - 0x021340 17:9330: F3        .byte con_branch, $89     ; действие атаки
+- D - I - 0x021342 17:9332: 14        .byte bra_case_9346_00_удар - *
+- D - I - 0x021343 17:9333: 09        .byte bra_case_933C_01_пас - *
+- D - I - 0x021344 17:9334: 0D        .byte bra_case_9341_02_дриблинг - *
+- D - I - 0x021345 17:9335: 16        .byte bra_case_934B_03_перепасовка - *
 
 bra_case_9336_01:
-- D - I - 0x021346 17:9336: F3        .byte con_branch, $89
-- D - I - 0x021348 17:9338: 27        .byte bra_case_935F_00 - *
-- D - I - 0x021349 17:9339: 17        .byte bra_case_9350_01 - *
-- D - I - 0x02134A 17:933A: 1B        .byte bra_case_9355_02 - *
-- D - I - 0x02134B 17:933B: 29        .byte bra_case_9364_03 - *
+- D - I - 0x021346 17:9336: F3        .byte con_branch, $89     ; действие атаки
+- D - I - 0x021348 17:9338: 27        .byte bra_case_935F_00_удар - *
+- D - I - 0x021349 17:9339: 17        .byte bra_case_9350_01_пас - *
+- D - I - 0x02134A 17:933A: 1B        .byte bra_case_9355_02_дриблинг - *
+- D - I - 0x02134B 17:933B: 29        .byte bra_case_9364_03_перепасовка - *
 
 bra_long_case_933C_00:
-bra_case_933C_01:
+bra_case_933C_01_пас:
 - D - I - 0x02134C 17:933C: FD        .byte con_mirror_condition, $00
 - D - I - 0x02134E 17:933E: F2        .byte con_jmp
 - D - I - 0x02134F 17:933F: 45 9E     .word loc_9E45
 
 bra_long_case_9341_01:
-bra_case_9341_02:
+bra_case_9341_02_дриблинг:
 - D - I - 0x021351 17:9341: FD        .byte con_mirror_condition, $03
 - D - I - 0x021353 17:9343: F2        .byte con_jmp
 - D - I - 0x021354 17:9344: C2 B2     .word loc_B2C2
 
-bra_case_9346_00:
+bra_case_9346_00_удар:
 - D - I - 0x021356 17:9346: FD        .byte con_mirror_condition, $03
 - D - I - 0x021358 17:9348: F2        .byte con_jmp
 - D - I - 0x021359 17:9349: 9A 9D     .word loc_9D9A
 
-bra_case_934B_03:
+bra_case_934B_03_перепасовка:
 - D - I - 0x02135B 17:934B: FD        .byte con_mirror_condition, $03
 - D - I - 0x02135D 17:934D: F2        .byte con_jmp
 - D - I - 0x02135E 17:934E: 42 B4     .word loc_B442
 
 bra_long_case_9350_00:
-bra_case_9350_01:
+bra_case_9350_01_пас:
 - D - I - 0x021360 17:9350: FD        .byte con_mirror_condition, $00
 - D - I - 0x021362 17:9352: F2        .byte con_jmp
 - D - I - 0x021363 17:9353: 4F 9E     .word loc_9E4F
 
-bra_case_9355_02:
+bra_case_9355_02_дриблинг:
 - D - I - 0x021365 17:9355: FD        .byte con_mirror_condition, $03
 - D - I - 0x021367 17:9357: F2        .byte con_jmp
 - D - I - 0x021368 17:9358: CC B2     .word loc_B2CC
@@ -4244,12 +4263,12 @@ bra_long_case_935A_01:
 - D - I - 0x02136C 17:935C: F2        .byte con_jmp
 - D - I - 0x02136D 17:935D: D4 B2     .word loc_B2D4
 
-bra_case_935F_00:
+bra_case_935F_00_удар:
 - D - I - 0x02136F 17:935F: FD        .byte con_mirror_condition, $03
 - D - I - 0x021371 17:9361: F2        .byte con_jmp
 - D - I - 0x021372 17:9362: 52 9D     .word loc_9D52
 
-bra_case_9364_03:
+bra_case_9364_03_перепасовка:
 - D - I - 0x021374 17:9364: FD        .byte con_mirror_condition, $03
 - D - I - 0x021376 17:9366: F2        .byte con_jmp
 - D - I - 0x021377 17:9367: 3D B4     .word loc_B43D
@@ -6593,17 +6612,17 @@ bra_case_9CF3_00_мяч_у_атакующего_на_земле:
 - D - I - 0x021D4A 17:9D3A: 34 AE     .word bra_long_case_AE34_22
 
 loc_9D3C:
-- D - I - 0x021D4C 17:9D3C: F3        .byte con_branch, $09
-- D - I - 0x021D4E 17:9D3E: 46 9D     .word bra_long_case_9D46_00
-- D - I - 0x021D50 17:9D40: 64 AE     .word bra_long_case_AE64_01
-- D - I - 0x021D52 17:9D42: 64 AE     .word bra_long_case_AE64_02
-- D - I - 0x021D54 17:9D44: 64 AE     .word bra_long_case_AE64_03
+- D - I - 0x021D4C 17:9D3C: F3        .byte con_branch, $09     ; действие атаки
+- D - I - 0x021D4E 17:9D3E: 46 9D     .word bra_long_case_9D46_00_удар
+- D - I - 0x021D50 17:9D40: 64 AE     .word bra_long_case_AE64_01_пас
+- D - I - 0x021D52 17:9D42: 64 AE     .word bra_long_case_AE64_02_дриблинг
+- D - I - 0x021D54 17:9D44: 64 AE     .word bra_long_case_AE64_03_перепасовка
 
-bra_long_case_9D46_00:
+bra_long_case_9D46_00_удар:
 - D - I - 0x021D56 17:9D46: F3        .byte con_branch, $48
 - D - I - 0x021D58 17:9D48: 4C AE     .word bra_long_case_AE4C_00
 - D - I - 0x021D5A 17:9D4A: D4 AE     .word bra_long_case_AED4_01
-- - - - - 0x021D5C 17:9D4C: 64 AE     .word bra_long_case_AE64_02
+- - - - - 0x021D5C 17:9D4C: 64 AE     .word bra_long_case_AE64_02_дриблинг
 - D - I - 0x021D5E 17:9D4E: 31 AF     .word bra_long_case_AF31_03
 - D - I - 0x021D60 17:9D50: 64 AE     .word bra_long_case_AE64_04
 
@@ -10862,9 +10881,9 @@ bra_long_case_AE4C_00:
 - - - - - 0x022E72 11:AE62: 02        .byte bra_case_AE64_14 - *
 - - - - - 0x022E73 11:AE63: 01        .byte bra_case_AE64_15 - *
 
-bra_long_case_AE64_01:
-bra_long_case_AE64_02:
-bra_long_case_AE64_03:
+bra_long_case_AE64_01_пас:
+bra_long_case_AE64_02_дриблинг:
+bra_long_case_AE64_03_перепасовка:
 bra_long_case_AE64_04:
 bra_case_AE64_00:
 bra_case_AE64_01:
