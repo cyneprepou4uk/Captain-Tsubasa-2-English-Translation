@@ -999,7 +999,7 @@ Fluminense_clone_10:
     .text "Ongania"
     .byte $FC
 
-Fluminense_clone_11:
+Fluminense_clone_11:    ; bzk
     .text "Milla"
     .byte $FC
 
@@ -1448,7 +1448,7 @@ Musashi_clone_03:
     .text "Yamamoto"
     .byte $FC
 
-Musashi_clone_04:
+Musashi_clone_04:    ; bzk
     .text "Sano"
     .byte $FC
 
