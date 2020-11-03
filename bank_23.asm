@@ -188,17 +188,17 @@ C - - - - 0x0341AB 23:819B: 60        RTS
 ofs_819C_01:
 C - J - - 0x0341AC 23:819C: 20 BA 8B  JSR sub_8BBA
 C - - - - 0x0341AF 23:819F: 38        SEC
-C - - - - 0x0341B0 23:81A0: AD 1C 06  LDA $061C
+C - - - - 0x0341B0 23:81A0: AD 1C 06  LDA ram_сила_действия_lo
 C - - - - 0x0341B3 23:81A3: ED 19 06  SBC $0619
 C - - - - 0x0341B6 23:81A6: AA        TAX
-C - - - - 0x0341B7 23:81A7: AD 1D 06  LDA $061D
+C - - - - 0x0341B7 23:81A7: AD 1D 06  LDA ram_сила_действия_hi
 C - - - - 0x0341BA 23:81AA: E9 00     SBC #$00
 C - - - - 0x0341BC 23:81AC: 10 04     BPL bra_81B2
 - - - - - 0x0341BE 23:81AE: A2 00     LDX #$00
 - - - - - 0x0341C0 23:81B0: A9 00     LDA #$00
 bra_81B2:
-C - - - - 0x0341C2 23:81B2: 8E 1C 06  STX $061C
-C - - - - 0x0341C5 23:81B5: 8D 1D 06  STA $061D
+C - - - - 0x0341C2 23:81B2: 8E 1C 06  STX ram_сила_действия_lo
+C - - - - 0x0341C5 23:81B5: 8D 1D 06  STA ram_сила_действия_hi
 C - - - - 0x0341C8 23:81B8: 38        SEC
 C - - - - 0x0341C9 23:81B9: 4C 95 90  JMP loc_9095
 
@@ -2181,9 +2181,9 @@ C - - - - 0x034EFC 23:8EEC: A5 71     LDA ram_0071
 C - - - - 0x034EFE 23:8EEE: 4A        LSR
 C - - - - 0x034EFF 23:8EEF: 4A        LSR
 C - - - - 0x034F00 23:8EF0: 8D 19 06  STA $0619
-C - - - - 0x034F03 23:8EF3: AD 1D 06  LDA $061D
+C - - - - 0x034F03 23:8EF3: AD 1D 06  LDA ram_сила_действия_hi
 C - - - - 0x034F06 23:8EF6: 85 70     STA ram_0070
-C - - - - 0x034F08 23:8EF8: AD 1C 06  LDA $061C
+C - - - - 0x034F08 23:8EF8: AD 1C 06  LDA ram_сила_действия_lo
 C - - - - 0x034F0B 23:8EFB: 0A        ASL
 C - - - - 0x034F0C 23:8EFC: 26 70     ROL ram_0070
 C - - - - 0x034F0E 23:8EFE: 0A        ASL
@@ -2209,9 +2209,9 @@ C - - - - 0x034F2E 23:8F1E: 60        RTS
 
 sub_8F1F:
 C - - - - 0x034F2F 23:8F1F: 20 06 8D  JSR sub_8D06
-C - - - - 0x034F32 23:8F22: AD 1C 06  LDA $061C
+C - - - - 0x034F32 23:8F22: AD 1C 06  LDA ram_сила_действия_lo
 C - - - - 0x034F35 23:8F25: 85 67     STA ram_0067
-C - - - - 0x034F37 23:8F27: AD 1D 06  LDA $061D
+C - - - - 0x034F37 23:8F27: AD 1D 06  LDA ram_сила_действия_hi
 C - - - - 0x034F3A 23:8F2A: 85 68     STA ram_0068
 C - - - - 0x034F3C 23:8F2C: A9 C0     LDA #$C0
 C - - - - 0x034F3E 23:8F2E: 85 69     STA ram_0069
@@ -2319,9 +2319,9 @@ C - - - - 0x034FF1 23:8FE1: A5 33     LDA ram_0033
 C - - - - 0x034FF3 23:8FE3: 85 6A     STA ram_006A
 C - - - - 0x034FF5 23:8FE5: 20 21 C5  JSR sub_0x03CD1D
 C - - - - 0x034FF8 23:8FE8: A5 6C     LDA ram_006C
-C - - - - 0x034FFA 23:8FEA: 8D 1C 06  STA $061C
+C - - - - 0x034FFA 23:8FEA: 8D 1C 06  STA ram_сила_действия_lo
 C - - - - 0x034FFD 23:8FED: A5 6D     LDA ram_006D
-C - - - - 0x034FFF 23:8FEF: 8D 1D 06  STA $061D
+C - - - - 0x034FFF 23:8FEF: 8D 1D 06  STA ram_сила_действия_hi
 C - - - - 0x035002 23:8FF2: 60        RTS
 
 sub_8FF3:
