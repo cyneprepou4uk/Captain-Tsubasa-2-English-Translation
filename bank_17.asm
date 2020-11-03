@@ -252,7 +252,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201BB 17:81AB: EB 83     .word ofs_83EB_1C_9C_спешал_дриблинг
 - D - I - 0x0201BD 17:81AD: F5 83     .word ofs_83F5_1D_9D_спешал_удар
 - D - I - 0x0201BF 17:81AF: 01 84     .word ofs_8401_1E_9E
-- D - I - 0x0201C1 17:81B1: 0A 84     .word ofs_840A_1F_9F
+- D - I - 0x0201C1 17:81B1: 0A 84     .word $0000       ; unused, было аналогично 0E_8E
 - D - I - 0x0201C3 17:81B3: 0E 84     .word ofs_840E_20_A0
 - D - I - 0x0201C5 17:81B5: 2B 84     .word ofs_842B_21_A1_порвана_ли_сетка
 - D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2_у_чьей_команды_мяч
@@ -579,8 +579,10 @@ C - - - - 0x020372 17:8362: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x020375 17:8365: 60        RTS
 
 ofs_8366_0E_8E:
-ofs_840A_1F_9F:
-; предположительно X 00-03
+; 00 - 
+; 01 - 
+; 02 - 
+; 03 - 
 C - J - - 0x020376 17:8366: AE 3B 04  LDX ram_действие_атаки
 C - - - - 0x020379 17:8369: 60        RTS
 
@@ -6508,7 +6510,7 @@ loc_9C9D:
 sub_9CA3:
 - D - I - 0x021CB3 17:9CA3: FA        .byte con_jsr
 - D - I - 0x021CB4 17:9CA4: 95 A4     .word sub_A495
-- D - I - 0x021CB6 17:9CA6: F3        .byte con_branch, $1F
+- D - I - 0x021CB6 17:9CA6: F3        .byte con_branch, $0E
 - D - I - 0x021CB8 17:9CA8: EE A7     .word bra_long_case_A7EE_00
 - D - I - 0x021CBA 17:9CAA: EE A7     .word bra_long_case_A7EE_01
 - D - I - 0x021CBC 17:9CAC: B0 9C     .word bra_long_case_9CB0_02
@@ -6528,7 +6530,7 @@ loc_9CC0:
 sub_9CC0:
 - D - I - 0x021CD0 17:9CC0: FA        .byte con_jsr
 - D - I - 0x021CD1 17:9CC1: 95 A4     .word sub_A495
-- D - I - 0x021CD3 17:9CC3: F3        .byte con_branch, $1F
+- D - I - 0x021CD3 17:9CC3: F3        .byte con_branch, $0E
 - D - I - 0x021CD5 17:9CC5: 4F AA     .word bra_long_case_AA4F_00
 - D - I - 0x021CD7 17:9CC7: 4F AA     .word bra_long_case_AA4F_01
 - D - I - 0x021CD9 17:9CC9: CD 9C     .word bra_long_case_9CCD_02
@@ -6727,7 +6729,7 @@ sub_9DF8:
 sub_9DFE:
 - D - I - 0x021E0E 17:9DFE: FA        .byte con_jsr
 - D - I - 0x021E0F 17:9DFF: 95 A4     .word sub_A495
-- D - I - 0x021E11 17:9E01: F3        .byte con_branch, $1F
+- D - I - 0x021E11 17:9E01: F3        .byte con_branch, $0E
 - D - I - 0x021E13 17:9E03: AD B3     .word bra_long_case_B3AD_00
 - D - I - 0x021E15 17:9E05: AD B3     .word bra_long_case_B3AD_01
 - D - I - 0x021E17 17:9E07: 0B 9E     .word bra_long_case_9E0B_02
