@@ -231,7 +231,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89_действие_атаки_на_земле
 - D - I - 0x020197 17:8187: 97 82     .word $0000       ; unused, было аналогично 02_8A для киперов
 - D - I - 0x020199 17:8189: 9B 82     .word $0000       ; unused, было аналогично 03_83
-- D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C
+- D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C_порвется_ли_мяч
 - D - I - 0x02019D 17:818D: BA 82     .word ofs_82BA_0D_8D
 - D - I - 0x02019F 17:818F: 66 83     .word ofs_8366_0E_8E
 - D - I - 0x0201A1 17:8191: 6A 83     .word ofs_836A_0F_8F
@@ -287,7 +287,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x020205 17:81F5: 10 86     .word ofs_8610_41_C1_какая_у_кипера_рожа
 - D - I - 0x020207 17:81F7: 27 86     .word ofs_8627_42_C2
 - D - I - 0x020209 17:81F9: 2E 86     .word ofs_862E_43_C3
-- D - I - 0x02020B 17:81FB: 3B 86     .word ofs_863B_44_C4
+- D - I - 0x02020B 17:81FB: 3B 86     .word ofs_863B_44_C4_делает_ли_кипер_dive
 - D - I - 0x02020D 17:81FD: 4A 86     .word ofs_864A_45_C5
 - D - I - 0x02020F 17:81FF: 77 86     .word ofs_8677_46_C6
 - D - I - 0x020211 17:8201: 8A 86     .word ofs_868A_47_C7_кто_делает_силовой_дриблинг
@@ -426,22 +426,23 @@ tbl_8291:
     .byte $02
     .byte $03
 
-ofs_829F_0C_8C:
-; 00 - 
-; 01 - 
+ofs_829F_0C_8C_порвется_ли_мяч:
+; 00 - мяч не порвется
+; 01 - мяч порвется
 C - J - - 0x0202AF 17:829F: A2 00     LDX #$00
 C - - - - 0x0202B1 17:82A1: AD 3B 04  LDA ram_действие_атаки
-C - - - - 0x0202B4 17:82A4: D0 0B     BNE bra_82B1
+C - - - - 0x0202B4 17:82A4: D0 0B     BNE bra_82B8_это_не_удар
 C - - - - 0x0202B6 17:82A6: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x0202B9 17:82A9: 29 7F     AND #$7F
 C - - - - 0x0202BB 17:82AB: C9 03     CMP #$03
-C - - - - 0x0202BD 17:82AD: 90 0A     BCC bra_82B9_выход
-C - - - - 0x0202BF 17:82AF: B0 07     BCS bra_82B8
-bra_82B1:
+C - - - - 0x0202BD 17:82AD: 90 0A     BCC bra_82B9_выход        ; это не спешал
+C - - - - 0x0202BF 17:82AF: B0 07     BCS bra_82B8_это_спешал
+bra_82B8_это_не_удар:
+; bzk хз зачем эта дальнейшая проверка, разве можно забить не ударом, но каким-то другим спешалом?
 C - - - - 0x0202C1 17:82B1: AD 3C 04  LDA ram_подтип_действия
 C - - - - 0x0202C4 17:82B4: 29 7F     AND #$7F
 C - - - - 0x0202C6 17:82B6: F0 01     BEQ bra_82B9_выход
-bra_82B8:
+bra_82B8_это_спешал:
 C - - - - 0x0202C8 17:82B8: E8        INX
 bra_82B9_выход:
 C - - - - 0x0202C9 17:82B9: 60        RTS
@@ -1350,9 +1351,9 @@ tbl_8635:
     .byte $01
     .byte $02
 
-ofs_863B_44_C4:
-; 00 - 
-; 01 - 
+ofs_863B_44_C4_делает_ли_кипер_dive:
+; 00 - кипер делает dive
+; 01 - кипер ждет в воротах
 C - J - - 0x02064B 17:863B: AD 3D 04  LDA $043D
 C - - - - 0x02064E 17:863E: 29 0F     AND #$0F
 C - - - - 0x020650 17:8640: A8        TAY
@@ -2031,10 +2032,10 @@ tbl_89BF_сценарии:
 - D - I - 0x0209DB 17:89CB: 63 92     .word _scenario_9263_06       ; 
 - D - I - 0x0209DD 17:89CD: 85 92     .word _scenario_9285_07       ; 
 - D - I - 0x0209DF 17:89CF: 2C 93     .word _scenario_932C_08       ; игрок дает пас с чужой штрафной
-- D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09       ; конечный полет мяча и действие кипера
+- D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09       ; конечный полет удара и действие кипера
 - D - I - 0x0209E3 17:89D3: 11 98     .word _scenario_9811_0A       ; кипер против игрока на земле
 - D - I - 0x0209E5 17:89D5: ED 98     .word _scenario_98ED_0B       ; 
-- D - I - 0x0209E7 17:89D7: E3 96     .word _scenario_96E3_0C       ; 
+- D - I - 0x0209E7 17:89D7: E3 96     .word _scenario_96E3_0C       ; конечный полет удара в пустые ворота
 - D - I - 0x0209E9 17:89D9: F7 96     .word _scenario_96F7_0D       ; игрок автоматически бьет когда обвел кипера
 - D - I - 0x0209EB 17:89DB: EA 91     .word _scenario_91EA_0E       ; игрок бежит/прыгает к мячу на штрафной и что-то делает
 - D - I - 0x0209ED 17:89DD: 05 92     .word _scenario_9205_0F       ; 
@@ -2271,7 +2272,7 @@ bra_case_8B31_04_нарушение:
 - D - I - 0x020B47 17:8B37: FA        .byte con_jsr
 - D - I - 0x020B48 17:8B38: DD A2     .word sub_A2DD
 - D - I - 0x020B4A 17:8B3A: F2        .byte con_jmp
-- D - I - 0x020B4B 17:8B3B: 5B A3     .word loc_A35B
+- D - I - 0x020B4B 17:8B3B: 5B A3     .word loc_A35B_нарушение
 
 bra_case_8B3D_00_атакующий_легко_обводит:
 - D - I - 0x020B4D 17:8B3D: FA        .byte con_jsr
@@ -2337,7 +2338,7 @@ bra_case_8B7F_04_нарушение:
 - D - I - 0x020B98 17:8B88: FA        .byte con_jsr
 - D - I - 0x020B99 17:8B89: DD A2     .word sub_A2DD
 - D - I - 0x020B9B 17:8B8B: F2        .byte con_jmp
-- D - I - 0x020B9C 17:8B8C: 5B A3     .word loc_A35B
+- D - I - 0x020B9C 17:8B8C: 5B A3     .word loc_A35B_нарушение
 
 bra_case_8B8E_01_защитник_убьется:
 - D - I - 0x020B9E 17:8B8E: F3        .byte con_branch, $82     ; действие защитника
@@ -2477,7 +2478,7 @@ bra_case_8C39_04_нарушение:
 - D - I - 0x020C55 17:8C45: FA        .byte con_jsr
 - D - I - 0x020C56 17:8C46: 6E 9F     .word sub_9F6E
 - D - I - 0x020C58 17:8C48: F2        .byte con_jmp
-- D - I - 0x020C59 17:8C49: 5B A3     .word loc_A35B
+- D - I - 0x020C59 17:8C49: 5B A3     .word loc_A35B_нарушение
 
 bra_long_case_8C4B_02_летит_высокий_мяч:
 - D - I - 0x020C5B 17:8C4B: FD        .byte con_mirror_condition, $03
@@ -3391,22 +3392,22 @@ bra_case_9244_04_защитник_5:
 
 bra_case_9247_01_это_кипер:
 - D - I - 0x021257 17:9247: FD        .byte con_mirror_condition, $03
-- D - I - 0x021259 17:9249: F3        .byte con_branch, $44
-- D - I - 0x02125B 17:924B: 4F 92     .word bra_long_case_924F_00
-- D - I - 0x02125D 17:924D: 90 BD     .word bra_long_case_BD90_01
+- D - I - 0x021259 17:9249: F3        .byte con_branch, $44     ; делает ли кипер dive
+- D - I - 0x02125B 17:924B: 4F 92     .word bra_long_case_924F_00_кипер_делает_dive
+- D - I - 0x02125D 17:924D: 90 BD     .word bra_long_case_BD90_01_кипер_ждет_в_воротах
 
-bra_long_case_924F_00:
+bra_long_case_924F_00_кипер_делает_dive:
 - D - I - 0x02125F 17:924F: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x021261 17:9251: 02        .byte bra_case_9253_00 - *
 - D - I - 0x021262 17:9252: 04        .byte bra_case_9256_01 - *
 
 bra_case_9253_00:
 - D - I - 0x021263 17:9253: F2        .byte con_jmp
-- D - I - 0x021264 17:9254: AB A3     .word loc_A3AB
+- D - I - 0x021264 17:9254: AB A3     .word loc_A3AB_кипер_делает_нижний_dive
 
 bra_case_9256_01:
 - D - I - 0x021266 17:9256: F2        .byte con_jmp
-- D - I - 0x021267 17:9257: A3 A3     .word loc_A3A3
+- D - I - 0x021267 17:9257: A3 A3     .word loc_A3A3_кипер_делает_верхний_dive
 
 
 
@@ -3621,7 +3622,7 @@ bra_case_9315_02:
 
 bra_case_9318_04_нарушение:
 - D - I - 0x021328 17:9318: F2        .byte con_jmp
-- D - I - 0x021329 17:9319: 5B A3     .word loc_A35B
+- D - I - 0x021329 17:9319: 5B A3     .word loc_A35B_нарушение
 
 bra_case_931B_01:
 - - - - - 0x02132B 17:931B: FA        .byte con_jsr
@@ -3720,7 +3721,7 @@ bra_case_9364_03_перепасовка:
 _scenario_9369_09:
 - D - I - 0x021379 17:9369: FD        .byte con_mirror_condition, $03
 - D - I - 0x02137B 17:936B: FA        .byte con_jsr
-- D - I - 0x02137C 17:936C: F6 9E     .word sub_9EF6
+- D - I - 0x02137C 17:936C: F6 9E     .word sub_9EF6_выбор_анимации_полета_удара
 - D - I - 0x02137E 17:936E: F3        .byte con_branch, $02     ; действие защитника (кипера)
 - D - I - 0x021380 17:9370: 29 95     .word bra_long_case_9529_00_словить
 - D - I - 0x021382 17:9372: 76 93     .word bra_long_case_9376_01_отбить
@@ -4605,23 +4606,23 @@ bra_case_96DC_00:
 _scenario_96E3_0C:
 - D - I - 0x0216F3 17:96E3: FD        .byte con_mirror_condition, $03
 - D - I - 0x0216F5 17:96E5: FA        .byte con_jsr
-- D - I - 0x0216F6 17:96E6: F6 9E     .word sub_9EF6
-- D - I - 0x0216F8 17:96E8: F3        .byte con_branch, $8F
-- D - I - 0x0216FA 17:96EA: 06        .byte bra_case_96F0_00 - *
-- - - - - 0x0216FB 17:96EB: 01        .byte bra_case_96EC_01 - *
+- D - I - 0x0216F6 17:96E6: F6 9E     .word sub_9EF6_выбор_анимации_полета_удара
+- D - I - 0x0216F8 17:96E8: F3        .byte con_branch, $8F     ; ? порвется ли мяч
+- D - I - 0x0216FA 17:96EA: 06        .byte bra_case_96F0_00_мяч_не_порвется - *
+- - - - - 0x0216FB 17:96EB: 01        .byte bra_case_96EC_01_мяч_порвется - *
 
-bra_case_96EC_01:
-- - - - - 0x0216FC 17:96EC: F3        .byte con_branch, $8C
-- - - - - 0x0216FE 17:96EE: 02        .byte bra_case_96F0_00 - *
-- - - - - 0x0216FF 17:96EF: 66        .byte bra_case_9755_01 - *
+bra_case_96EC_01_мяч_порвется:
+- - - - - 0x0216FC 17:96EC: F3        .byte con_branch, $8C     ; ? порвется ли мяч
+- - - - - 0x0216FE 17:96EE: 02        .byte bra_case_96F0_00_мяч_не_порвется - *
+- - - - - 0x0216FF 17:96EF: 66        .byte bra_case_9755_01_мяч_порвется - *
 
-bra_case_96F0_00:
+bra_case_96F0_00_мяч_не_порвется:
 - D - I - 0x021700 17:96F0: F3        .byte con_branch, $8D
-- D - I - 0x021702 17:96F2: 1B        .byte bra_case_970D_00 - *
-- D - I - 0x021703 17:96F3: 23        .byte bra_case_9716_01 - *
+- D - I - 0x021702 17:96F2: 1B        .byte bra_case_970D_00_гол - *
+- D - I - 0x021703 17:96F3: 23        .byte bra_case_9716_01_штанга - *
 - D - I - 0x021704 17:96F4: 2E        .byte bra_case_9722_02_защитник_отобьет - *
-- D - I - 0x021705 17:96F5: 3C        .byte bra_case_9731_03 - *
-- D - I - 0x021706 17:96F6: 4D        .byte bra_case_9743_04 - *
+- D - I - 0x021705 17:96F5: 3C        .byte bra_case_9731_03_штанга_и_добивание - *
+- D - I - 0x021706 17:96F6: 4D        .byte bra_case_9743_04_защитник_промахнется - *
 
 
 
@@ -4647,7 +4648,7 @@ loc_970A:
 - D - I - 0x02171A 17:970A: FA        .byte con_jsr
 - D - I - 0x02171B 17:970B: 09 A1     .word sub_A109
 loc_970D:
-bra_case_970D_00:
+bra_case_970D_00_гол:
 - D - I - 0x02171D 17:970D: F2        .byte con_jmp
 - D - I - 0x02171E 17:970E: 28 9C     .word loc_9C28
 
@@ -4658,7 +4659,7 @@ loc_9713:
 - - - - - 0x021723 17:9713: FA        .byte con_jsr
 - - - - - 0x021724 17:9714: 09 A1     .word sub_A109
 loc_9716:
-bra_case_9716_01:
+bra_case_9716_01_штанга:
 - D - I - 0x021726 17:9716: FA        .byte con_jsr
 - D - I - 0x021727 17:9717: 4E A2     .word sub_A24E_штанга
 - D - I - 0x021729 17:9719: F2        .byte con_jmp
@@ -4673,7 +4674,7 @@ loc_971F:
 loc_9722:
 bra_case_9722_02_защитник_отобьет:
 - D - I - 0x021732 17:9722: FA        .byte con_jsr
-- D - I - 0x021733 17:9723: B6 A0     .word sub_A0B6
+- D - I - 0x021733 17:9723: B6 A0     .word sub_A0B6_защитник_спасает_ворота
 - D - I - 0x021735 17:9725: FA        .byte con_jsr
 - D - I - 0x021736 17:9726: 12 A3     .word sub_A312
 - D - I - 0x021738 17:9728: F2        .byte con_jmp
@@ -4686,7 +4687,7 @@ loc_972E:
 - - - - - 0x02173E 17:972E: FA        .byte con_jsr
 - - - - - 0x02173F 17:972F: 09 A1     .word sub_A109
 loc_9731:
-bra_case_9731_03:
+bra_case_9731_03_штанга_и_добивание:
 - D - I - 0x021741 17:9731: FA        .byte con_jsr
 - D - I - 0x021742 17:9732: 4E A2     .word sub_A24E_штанга
 - D - I - 0x021744 17:9734: FA        .byte con_jsr
@@ -4703,7 +4704,7 @@ loc_9740:
 - - - - - 0x021750 17:9740: FA        .byte con_jsr
 - - - - - 0x021751 17:9741: 09 A1     .word sub_A109
 loc_9743:
-bra_case_9743_04:
+bra_case_9743_04_защитник_промахнется:
 bra_case_9743_01_защитник_промахнется:
 - D - I - 0x021753 17:9743: FA        .byte con_jsr
 - D - I - 0x021754 17:9744: BE A0     .word sub_A0BE
@@ -4724,7 +4725,7 @@ loc_9752:
 - - - - - 0x021762 17:9752: FA        .byte con_jsr
 - - - - - 0x021763 17:9753: 09 A1     .word sub_A109
 loc_9755:
-bra_case_9755_01:
+bra_case_9755_01_мяч_порвется:
 - D - I - 0x021765 17:9755: FA        .byte con_jsr
 - D - I - 0x021766 17:9756: F4 A2     .word sub_A2F4_сообщение_oops_на_мигающем_белом_фоне
 - D - I - 0x021768 17:9758: F2        .byte con_jmp
@@ -4815,7 +4816,7 @@ loc_97AB:
 - - - - - 0x0217BE 17:97AE: FA        .byte con_jsr
 - - - - - 0x0217BF 17:97AF: B5 9F     .word sub_9FB5_убийство_кипера
 - - - - - 0x0217C1 17:97B1: FA        .byte con_jsr
-- - - - - 0x0217C2 17:97B2: B6 A0     .word sub_A0B6
+- - - - - 0x0217C2 17:97B2: B6 A0     .word sub_A0B6_защитник_спасает_ворота
 - - - - - 0x0217C4 17:97B4: FA        .byte con_jsr
 - - - - - 0x0217C5 17:97B5: E7 A2     .word sub_A2E7
 - - - - - 0x0217C7 17:97B7: FA        .byte con_jsr
@@ -4855,7 +4856,7 @@ loc_97DB:
 - D - I - 0x0217EE 17:97DE: FA        .byte con_jsr
 - D - I - 0x0217EF 17:97DF: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x0217F1 17:97E1: FA        .byte con_jsr
-- D - I - 0x0217F2 17:97E2: B6 A0     .word sub_A0B6
+- D - I - 0x0217F2 17:97E2: B6 A0     .word sub_A0B6_защитник_спасает_ворота
 - D - I - 0x0217F4 17:97E4: FA        .byte con_jsr
 - D - I - 0x0217F5 17:97E5: E7 A2     .word sub_A2E7
 - D - I - 0x0217F7 17:97E7: FA        .byte con_jsr
@@ -4967,7 +4968,7 @@ bra_case_985A_04:
 - - - - - 0x02186A 17:985A: FA        .byte con_jsr
 - - - - - 0x02186B 17:985B: DD A2     .word sub_A2DD
 - - - - - 0x02186D 17:985D: F2        .byte con_jmp
-- - - - - 0x02186E 17:985E: 5B A3     .word loc_A35B
+- - - - - 0x02186E 17:985E: 5B A3     .word loc_A35B_нарушение
 
 bra_case_9860_01_защитник_убьется:
 - D - I - 0x021870 17:9860: F3        .byte con_branch, $8F
@@ -5013,7 +5014,7 @@ bra_case_988B_04:
 - - - - - 0x02189E 17:988E: FA        .byte con_jsr
 - - - - - 0x02189F 17:988F: 6E 9F     .word sub_9F6E
 - - - - - 0x0218A1 17:9891: F2        .byte con_jmp
-- - - - - 0x0218A2 17:9892: 5B A3     .word loc_A35B
+- - - - - 0x0218A2 17:9892: 5B A3     .word loc_A35B_нарушение
 
 bra_case_9894_00_защитник_выживет:
 - D - I - 0x0218A4 17:9894: F3        .byte con_branch, $8F
@@ -5050,7 +5051,7 @@ bra_case_98B0_04:
 - D - I - 0x0218C3 17:98B3: FA        .byte con_jsr
 - D - I - 0x0218C4 17:98B4: DD A2     .word sub_A2DD
 - D - I - 0x0218C6 17:98B6: F2        .byte con_jmp
-- D - I - 0x0218C7 17:98B7: 5B A3     .word loc_A35B
+- D - I - 0x0218C7 17:98B7: 5B A3     .word loc_A35B_нарушение
 
 bra_case_98B9_01_защитник_убьется:
 - D - I - 0x0218C9 17:98B9: F3        .byte con_branch, $8F
@@ -5097,7 +5098,7 @@ bra_case_98E1_04:
 - - - - - 0x0218F7 17:98E7: FA        .byte con_jsr
 - - - - - 0x0218F8 17:98E8: 6E 9F     .word sub_9F6E
 - - - - - 0x0218FA 17:98EA: F2        .byte con_jmp
-- - - - - 0x0218FB 17:98EB: 5B A3     .word loc_A35B
+- - - - - 0x0218FB 17:98EB: 5B A3     .word loc_A35B_нарушение
 
 
 
@@ -5672,13 +5673,13 @@ bra_case_9B8E_00:
 - D - I - 0x021B9E 17:9B8E: FA        .byte con_jsr
 - D - I - 0x021B9F 17:9B8F: 2D A3     .word sub_A32D
 - D - I - 0x021BA1 17:9B91: F2        .byte con_jmp
-- D - I - 0x021BA2 17:9B92: 83 A3     .word loc_A383
+- D - I - 0x021BA2 17:9B92: 83 A3     .word loc_A383_удар_огибает_стеночку
 
 bra_case_9B94_01:
 - - - - - 0x021BA4 17:9B94: FA        .byte con_jsr
 - - - - - 0x021BA5 17:9B95: 2D A3     .word sub_A32D
 - - - - - 0x021BA7 17:9B97: FA        .byte con_jsr
-- - - - - 0x021BA8 17:9B98: 21 A3     .word sub_A321
+- - - - - 0x021BA8 17:9B98: 21 A3     .word sub_A321_стенка_была_задета
 - - - - - 0x021BAA 17:9B9A: F2        .byte con_jmp
 - - - - - 0x021BAB 17:9B9B: 7E A3     .word loc_A37E
 
@@ -5696,7 +5697,7 @@ bra_case_9BA6_03:
 - D - I - 0x021BB9 17:9BA9: FA        .byte con_jsr
 - D - I - 0x021BBA 17:9BAA: EF A2     .word sub_A2EF
 - D - I - 0x021BBC 17:9BAC: F2        .byte con_jmp
-- D - I - 0x021BBD 17:9BAD: 19 A3     .word loc_A319
+- D - I - 0x021BBD 17:9BAD: 19 A3     .word loc_A319_стенка_заблокировала_удар
 
 bra_case_9BAF_01_защитник_убьется:
 - - - - - 0x021BBF 17:9BAF: F3        .byte con_branch, $8F
@@ -6323,7 +6324,7 @@ loc_9EF0:
 - D - I - 0x021F02 17:9EF2: 11 BA     .word ofs_BA11_00
 - D - I - 0x021F04 17:9EF4: FB B9     .word ofs_B9FB_01
 
-sub_9EF6:
+sub_9EF6_выбор_анимации_полета_удара:
 - D - I - 0x021F06 17:9EF6: F3        .byte con_branch, $1D     ; спешал удар
 - D - I - 0x021F08 17:9EF8: E7 B4     .word bra_long_case_B4E7_00_shot
 - D - I - 0x021F0A 17:9EFA: EF B4     .word bra_long_case_B4EF_01_header
@@ -6760,8 +6761,8 @@ sub_A0AE:
 - D - I - 0x0220C4 11:A0B4: 00        .byte con_cloud + con_clear
 - D - I - 0x0220C5 11:A0B5: FB        .byte con_rts
 
-loc_A0B6:
-sub_A0B6:
+loc_A0B6_защитник_спасает_ворота:
+sub_A0B6_защитник_спасает_ворота:
 - D - I - 0x0220C6 11:A0B6: F9        .byte con_soundID_delay, $2B, $19     ; отбитие мяча/принятие на ногу
 - D - I - 0x0220C9 11:A0B9: 18        .byte con_pause + $18
 - D - I - 0x0220CA 11:A0BA: 04        .byte con_bg + $04
@@ -7419,7 +7420,7 @@ sub_A312:
 - D - I - 0x022326 11:A316: FE        .byte con_FE
 - D - I - 0x022328 11:A318: FB        .byte con_rts
 
-loc_A319:
+loc_A319_стенка_заблокировала_удар:
 - D - I - 0x022329 11:A319: F9        .byte con_soundID_delay, $2A, $02
 - D - I - 0x02232C 11:A31C: 32        .byte con_pause + $32
 - D - I - 0x02232D 11:A31D: 01        .byte con_bg + $01
@@ -7427,7 +7428,7 @@ loc_A319:
 - D - I - 0x02232F 11:A31F: 2E        .byte con_cloud + $2E
 - D - I - 0x022330 11:A320: FB        .byte con_rts
 
-sub_A321:
+sub_A321_стенка_была_задета:
 - - - - - 0x022331 11:A321: F8        .byte con_F8, $02
 - - - - - 0x022333 11:A323: F9        .byte con_soundID_delay, $2A, $02
 - - - - - 0x022336 11:A326: 14        .byte con_pause + $14
@@ -7460,6 +7461,7 @@ bra_long_case_A33A_01:
 - D - I - 0x02234F 11:A33F: 08        .byte bra_case_A347_02_за_японию - *
 
 bra_case_A340_01_за_нанкацу:
+; антикрит вакашимазу
 - - - - - 0x022350 11:A340: 32        .byte con_pause + $32
 - - - - - 0x022351 11:A341: 73        .byte con_bg + $73
 - - - - - 0x022352 11:A342: A6        .byte con_animation + $A6
@@ -7469,14 +7471,16 @@ bra_case_A340_01_за_нанкацу:
 
 bra_case_A347_00_за_сан_паулу:
 bra_case_A347_02_за_японию:
+; антикрит вакашимазу
 - D - I - 0x022357 11:A347: 32        .byte con_pause + $32
 - D - I - 0x022358 11:A348: 33        .byte con_bg + $33
 - D - I - 0x022359 11:A349: A6        .byte con_animation + $A6
 - D - I - 0x02235A 11:A34A: 9F        .byte con_cloud + $9F
 loc_A34B:
 - D - I - 0x02235B 11:A34B: FD        .byte con_mirror_condition, $03
-sub_A34D:
+sub_A34D_отскок_вакашимазу_от_штанги:
 bra_long_case_A34D_00:
+; вакашимазу отталкивается от штанги
 - D - I - 0x02235D 11:A34D: 08        .byte con_pause + $08
 - D - I - 0x02235E 11:A34E: 0B        .byte con_bg + $0B
 - D - I - 0x02235F 11:A34F: 00        .byte con_animation + $00
@@ -7489,7 +7493,7 @@ bra_long_case_A34D_00:
 - D - I - 0x022369 11:A359: F0        .byte con_cloud + con_skip
 - D - I - 0x02236A 11:A35A: FB        .byte con_rts
 
-loc_A35B:
+loc_A35B_нарушение:
 - D - I - 0x02236B 11:A35B: F5        .byte con_mirror_off
 - D - I - 0x02236C 11:A35C: F9        .byte con_soundID_delay, $67, $02
 - D - I - 0x02236F 11:A35F: 70        .byte con_pause + $70
@@ -7532,7 +7536,7 @@ loc_A37E:
 - - - - - 0x022391 11:A381: F0        .byte con_cloud + con_skip
 - - - - - 0x022392 11:A382: FB        .byte con_rts
 
-loc_A383:
+loc_A383_удар_огибает_стеночку:
 - D - I - 0x022393 11:A383: 40        .byte con_pause + $40
 - D - I - 0x022394 11:A384: 2A        .byte con_bg + $2A
 - D - I - 0x022395 11:A385: 55        .byte con_animation + $55
@@ -7554,7 +7558,7 @@ sub_A38F:
 - D - I - 0x0223A2 11:A392: F0        .byte con_cloud + con_skip
 - D - I - 0x0223A3 11:A393: FB        .byte con_rts
 
-loc_A3A3:
+loc_A3A3_кипер_делает_верхний_dive:
 - D - I - 0x0223B3 11:A3A3: F9        .byte con_soundID_delay, $25, $02
 - D - I - 0x0223B6 11:A3A6: 3C        .byte con_pause + $3C
 - D - I - 0x0223B7 11:A3A7: 2F        .byte con_bg + $2F
@@ -7562,7 +7566,7 @@ loc_A3A3:
 - D - I - 0x0223B9 11:A3A9: 3A        .byte con_cloud + $3A
 - D - I - 0x0223BA 11:A3AA: FB        .byte con_rts
 
-loc_A3AB:
+loc_A3AB_кипер_делает_нижний_dive:
 - D - I - 0x0223BB 11:A3AB: F5        .byte con_mirror_off
 - D - I - 0x0223BC 11:A3AC: FC        .byte con_moving_bg, $04
 - D - I - 0x0223BE 11:A3AE: 2D        .byte con_pause + $2D
@@ -14217,7 +14221,7 @@ bra_long_case_BD87_02:
 - D - I - 0x023D9E 11:BD8E: E8        .byte con_cloud + $E8
 - D - I - 0x023D9F 11:BD8F: FB        .byte con_rts
 
-bra_long_case_BD90_01:
+bra_long_case_BD90_01_кипер_ждет_в_воротах:
 - D - I - 0x023DA0 11:BD90: 60        .byte con_pause + $60
 - D - I - 0x023DA1 11:BD91: 65        .byte con_bg + $65
 - D - I - 0x023DA2 11:BD92: DA        .byte con_animation + $DA
@@ -14771,7 +14775,7 @@ _scenario_BF2C_6E:
 
 _scenario_BF54_6F:
 - D - I - 0x023F64 11:BF54: FA        .byte con_jsr
-- D - I - 0x023F65 11:BF55: 4D A3     .word sub_A34D
+- D - I - 0x023F65 11:BF55: 4D A3     .word sub_A34D_отскок_вакашимазу_от_штанги
 - D - I - 0x023F67 11:BF57: FC        .byte con_moving_bg, $01
 - D - I - 0x023F69 11:BF59: F9        .byte con_soundID_delay, $2A, $21
 - D - I - 0x023F6C 11:BF5C: 30        .byte con_pause + $30
@@ -14806,7 +14810,7 @@ _scenario_BF73_71:
 - D - I - 0x023F89 11:BF79: FA        .byte con_jsr
 - D - I - 0x023F8A 11:BF7A: 8D A0     .word sub_A08D
 - D - I - 0x023F8C 11:BF7C: F2        .byte con_jmp
-- D - I - 0x023F8D 11:BF7D: B6 A0     .word loc_A0B6
+- D - I - 0x023F8D 11:BF7D: B6 A0     .word loc_A0B6_защитник_спасает_ворота
 
 
 
