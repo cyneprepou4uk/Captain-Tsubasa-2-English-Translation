@@ -2459,8 +2459,6 @@ C - - - - 0x03D5C7 FF:D5B7: 85 11     STA ram_0011
 C - - - - 0x03D5C9 FF:D5B9: 85 12     STA ram_0012
 C - - - - 0x03D5CB FF:D5BB: A9 02     LDA #$02
 C - - - - 0x03D5CD FF:D5BD: 20 0F CB  JSR sub_CB0F
-C - - - - 0x03D5D0 FF:D5C0: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
-; bzk зачем тут 2 одинаковых jsr?
 loc_D5C3:
 C D - - - 0x03D5D3 FF:D5C3: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D5D6 FF:D5C6: AD FB 05  LDA ram_команда_с_мячом
