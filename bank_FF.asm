@@ -2445,7 +2445,7 @@ C - - - - 0x03D5AF FF:D59F: F0 11     BEQ bra_D5B2
 C - - - - 0x03D5B1 FF:D5A1: C9 0B     CMP #$0B
 C - - - - 0x03D5B3 FF:D5A3: F0 0D     BEQ bra_D5B2
 bra_D5A5:
-C - - - - 0x03D5B5 FF:D5A5: A0 07     LDY #con_игрок_координата_Y_lo
+C - - - - 0x03D5B5 FF:D5A5: A0 07     LDY #con_величина_дисбаланса
 C - - - - 0x03D5B7 FF:D5A7: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D5B9 FF:D5A9: C9 18     CMP #$18
 C - - - - 0x03D5BB FF:D5AB: 90 05     BCC bra_D5B2
@@ -4627,9 +4627,9 @@ C - - - - 0x03E4BB FF:E4AB: A9 07     LDA #$07
 C - - - - 0x03E4BD FF:E4AD: 20 D7 E4  JSR sub_E4D7
 bra_E4B0:
 C - - - - 0x03E4C0 FF:E4B0: AD 00 06  LDA ram_колво_нападающих
-C - - - - 0x03E4C3 FF:E4B3: D0 01     BNE bra_E4B6
+C - - - - 0x03E4C3 FF:E4B3: D0 01     BNE bra_E4B6_есть_напавшие
 C - - - - 0x03E4C5 FF:E4B5: 60        RTS
-bra_E4B6:
+bra_E4B6_есть_напавшие:
 C - - - - 0x03E4C6 FF:E4B6: A9 00     LDA #$00
 C - - - - 0x03E4C8 FF:E4B8: 8D 2D 06  STA $062D
 C - - - - 0x03E4CB FF:E4BB: 8D 15 06  STA $0615

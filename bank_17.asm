@@ -2069,8 +2069,8 @@ tbl_89BF_сценарии:
 - D - I - 0x020A25 17:8A15: 2C B7     .word _scenario_B72C_2B       ; 
 - D - I - 0x020A27 17:8A17: 54 9F     .word _scenario_9F54_2C       ; 
 - D - I - 0x020A29 17:8A19: D6 B4     .word _scenario_B4D6_2D       ; 
-- D - I - 0x020A2B 17:8A1B: 4E B7     .word _scenario_B74E_2E       ; на твоего игрока напали когда он находится на земле
-- D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F       ; 
+- D - I - 0x020A2B 17:8A1B: 4E B7     .word _scenario_B74E_2E       ; на игрока напали когда он находится на земле
+- D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F       ; на игрока напали когда он находится на штрафнойц
 - D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30       ; 
 - D - I - 0x020A31 17:8A21: 8C B7     .word _scenario_B78C_31       ; 
 - D - I - 0x020A33 17:8A23: 57 9E     .word _scenario_9E57_32       ; 
