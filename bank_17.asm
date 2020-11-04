@@ -11501,7 +11501,6 @@ bra_case_B338_01_masao_kazuo:
 - D - I - 0x023348 11:B338: FA        .byte con_jsr
 - D - I - 0x023349 11:B339: 1A A7     .word sub_A71A
 loc_B33B:
-sub_B33B:
 - D - I - 0x02334B 11:B33B: 2D        .byte con_pause + $2D
 - D - I - 0x02334C 11:B33C: 20        .byte con_bg + $20
 - D - I - 0x02334D 11:B33D: C1        .byte con_animation + $C1
@@ -11555,9 +11554,8 @@ bra_case_B365_01_masao_kazuo:
 - - - - - 0x023375 11:B365: FA        .byte con_jsr
 - - - - - 0x023376 11:B366: 1A A7     .word sub_A71A
 loc_B368:
-- - - - - 0x023378 11:B368: FA        .byte con_jsr
-- - - - - 0x023379 11:B369: 3B B3     .word sub_B33B
-- - - - - 0x02337B 11:B36B: FB        .byte con_rts
+- - - - - 0x023378 11:B368: FA        .byte con_jmp
+- - - - - 0x023379 11:B369: 3B B3     .word loc_B33B
 
 bra_case_B36C_02_masao_kazuo:
 - - - - - 0x02337C 11:B36C: FA        .byte con_jsr
@@ -13511,7 +13509,6 @@ bra_case_BAEF_02:
 - - - - - 0x023B02 11:BAF2: F0        .byte con_cloud + con_skip
 - - - - - 0x023B03 11:BAF3: F2        .byte con_jmp
 - - - - - 0x023B04 11:BAF4: DE BA     .word loc_BADE_штанга_при_ударе_11м
-- - - - - 0x023B06 11:BAF6: FB        .byte con_rts
 
 bra_case_BAF7_00:
 - - - - - 0x023B07 11:BAF7: F7        .byte con_F7, $07
@@ -13521,7 +13518,6 @@ bra_case_BAF7_00:
 - - - - - 0x023B0C 11:BAFC: F0        .byte con_cloud + con_skip
 - - - - - 0x023B0D 11:BAFD: F2        .byte con_jmp
 - - - - - 0x023B0E 11:BAFE: 7F BA     .word loc_BA7F
-- - - - - 0x023B10 11:BB00: FB        .byte con_rts
 
 bra_case_BB01_06:
 - D - I - 0x023B11 11:BB01: F6        .byte con_mirror_toggle
