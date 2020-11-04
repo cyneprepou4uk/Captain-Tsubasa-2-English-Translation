@@ -1977,7 +1977,7 @@ C - - - - 0x03D2B3 FF:D2A3: AE 21 06  LDX $0621
 C - - - - 0x03D2B6 FF:D2A6: BD 5C D3  LDA tbl_D35F_статы_кипера - 3,X
 C - - - - 0x03D2B9 FF:D2A9: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D2BC FF:D2AC: A9 00     LDA #$00
-C - - - - 0x03D2BE FF:D2AE: 8D 3E 04  STA $043E
+C - - - - 0x03D2BE FF:D2AE: 8D 3E 04  STA ram_подтип_действия_защиты
 C - - - - 0x03D2C1 FF:D2B1: 8D 1E 06  STA $061E
 bra_D2B4:
 loc_D2B4:
@@ -2015,7 +2015,7 @@ C - - - - 0x03D2F7 FF:D2E7: C9 22     CMP #$22
 C - - - - 0x03D2F9 FF:D2E9: D0 1E     BNE bra_D309
 C - - - - 0x03D2FB FF:D2EB: A9 02     LDA #$02
 bra_D2ED:
-C - - - - 0x03D2FD FF:D2ED: 8D 3D 04  STA $043D
+C - - - - 0x03D2FD FF:D2ED: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x03D300 FF:D2F0: A6 3A     LDX ram_003A
 C - - - - 0x03D302 FF:D2F2: AD 1E 06  LDA $061E
 C - - - - 0x03D305 FF:D2F5: 8E 1E 06  STX $061E
@@ -2058,7 +2058,7 @@ C - - - - 0x03D34C FF:D33C: 8D 1F 06  STA $061F
 C - - - - 0x03D34F FF:D33F: AD 1E 06  LDA $061E
 C - - - - 0x03D352 FF:D342: 49 40     EOR #$40
 C - - - - 0x03D354 FF:D344: 8D 1E 06  STA $061E
-C - - - - 0x03D357 FF:D347: AC 3D 04  LDY $043D
+C - - - - 0x03D357 FF:D347: AC 3D 04  LDY ram_действие_защиты
 C - - - - 0x03D35A FF:D34A: B9 48 D5  LDA tbl_D548,Y
 C - - - - 0x03D35D FF:D34D: 2C 1E 06  BIT $061E
 C - - - - 0x03D360 FF:D350: 70 02     BVS bra_D354
@@ -2117,7 +2117,7 @@ C - - - - 0x03D38E FF:D37E: 20 46 CC  JSR sub_CC46_очистить_нижнюю
 C - - - - 0x03D391 FF:D381: A2 03     LDX #$03
 C - - - - 0x03D393 FF:D383: A9 FF     LDA #$FF
 bra_D385:
-C - - - - 0x03D395 FF:D385: 9D 0B 06  STA ram_действие_защиты,X
+C - - - - 0x03D395 FF:D385: 9D 0B 06  STA ram_ХЗ_действие_защиты,X
 C - - - - 0x03D398 FF:D388: CA        DEX
 C - - - - 0x03D399 FF:D389: 10 FA     BPL bra_D385
 C - - - - 0x03D39B FF:D38B: A9 00     LDA #$00
@@ -2145,10 +2145,10 @@ C - - - - 0x03D3C8 FF:D3B8: EC 00 06  CPX ram_колво_нападающих
 C - - - - 0x03D3CB FF:D3BB: D0 03     BNE bra_D3C0
 C - - - - 0x03D3CD FF:D3BD: 4C 46 CC  JMP loc_CC46_очистить_нижнюю_половину_экрана
 bra_D3C0:
-C - - - - 0x03D3D0 FF:D3C0: BD 0B 06  LDA ram_действие_защиты,X
+C - - - - 0x03D3D0 FF:D3C0: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
 C - - - - 0x03D3D3 FF:D3C3: C9 FF     CMP #$FF
 C - - - - 0x03D3D5 FF:D3C5: F0 71     BEQ bra_D438
-C - - - - 0x03D3D7 FF:D3C7: 8D 3D 04  STA $043D
+C - - - - 0x03D3D7 FF:D3C7: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x03D3DA FF:D3CA: AA        TAX
 C - - - - 0x03D3DB FF:D3CB: AC 1E 06  LDY $061E
 C - - - - 0x03D3DE FF:D3CE: B9 01 06  LDA ram_номер_нападающего,Y
@@ -2172,7 +2172,7 @@ C - - - - 0x03D405 FF:D3F5: 08        PHP
 C - - - - 0x03D406 FF:D3F6: B0 14     BCS bra_D40C
 C - - - - 0x03D408 FF:D3F8: 4A        LSR
 C - - - - 0x03D409 FF:D3F9: 48        PHA
-C - - - - 0x03D40A FF:D3FA: 8D 3E 04  STA $043E
+C - - - - 0x03D40A FF:D3FA: 8D 3E 04  STA ram_подтип_действия_защиты
 C - - - - 0x03D40D FF:D3FD: 20 46 D7  JSR sub_D746
 C - - - - 0x03D410 FF:D400: 68        PLA
 C - - - - 0x03D411 FF:D401: 90 09     BCC bra_D40C
@@ -2246,9 +2246,9 @@ bra_D488:
 C - - - - 0x03D498 FF:D488: C9 FF     CMP #$FF
 C - - - - 0x03D49A FF:D48A: F0 13     BEQ bra_D49F
 C - - - - 0x03D49C FF:D48C: AE 1E 06  LDX $061E
-C - - - - 0x03D49F FF:D48F: DD 0B 06  CMP ram_действие_защиты,X
+C - - - - 0x03D49F FF:D48F: DD 0B 06  CMP ram_ХЗ_действие_защиты,X
 C - - - - 0x03D4A2 FF:D492: F0 0B     BEQ bra_D49F
-C - - - - 0x03D4A4 FF:D494: 9D 0B 06  STA ram_действие_защиты,X
+C - - - - 0x03D4A4 FF:D494: 9D 0B 06  STA ram_ХЗ_действие_защиты,X
 C - - - - 0x03D4A7 FF:D497: A9 00     LDA #$00
 C - - - - 0x03D4A9 FF:D499: 9D 06 06  STA $0606,X
 C - - - - 0x03D4AC FF:D49C: 8D 1F 06  STA $061F
@@ -2307,7 +2307,7 @@ C - - - - 0x03D511 FF:D501: D0 F2     BNE bra_D4F5
 C - - - - 0x03D513 FF:D503: 60        RTS
 
 sub_D504:
-C - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_действие_защиты,X
+C - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
 C - - - - 0x03D517 FF:D507: C9 FF     CMP #$FF
 C - - - - 0x03D519 FF:D509: D0 03     BNE bra_D50E
 C - - - - 0x03D51B FF:D50B: A9 1D     LDA #$1D
@@ -2581,7 +2581,7 @@ sub_D67C:
 C - - - - 0x03D68C FF:D67C: AE 3B 04  LDX ram_действие_атаки
 C - - - - 0x03D68F FF:D67F: BD DE D6  LDA tbl_D6DE,X
 C - - - - 0x03D692 FF:D682: A2 00     LDX #$00
-C - - - - 0x03D694 FF:D684: 8E 3C 04  STX ram_подтип_действия
+C - - - - 0x03D694 FF:D684: 8E 3C 04  STX ram_подтип_действия_атаки
 C - - - - 0x03D697 FF:D687: 20 3D E9  JSR sub_E93D_отображение_выбранного_действия
 C - - - - 0x03D69A FF:D68A: AE 3B 04  LDX ram_действие_атаки
 C - - - - 0x03D69D FF:D68D: E0 02     CPX #$02
@@ -2610,7 +2610,7 @@ C - - - - 0x03D6CC FF:D6BC: 60        RTS
 bra_D6BD:
 C - - - - 0x03D6CD FF:D6BD: 4A        LSR
 bra_D6BE:
-C - - - - 0x03D6CE FF:D6BE: 8D 3C 04  STA ram_подтип_действия
+C - - - - 0x03D6CE FF:D6BE: 8D 3C 04  STA ram_подтип_действия_атаки
 C - - - - 0x03D6D1 FF:D6C1: 20 17 D7  JSR sub_D717
 bra_D6C4:
 C - - - - 0x03D6D4 FF:D6C4: AD 3B 04  LDA ram_действие_атаки
@@ -2715,7 +2715,7 @@ C - - - - 0x03D73E FF:D72E: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x03D743 FF:D733: F0 09     BEQ bra_D73E
 C - - - - 0x03D745 FF:D735: C9 03     CMP #$03
 C - - - - 0x03D747 FF:D737: F0 05     BEQ bra_D73E
-C - - - - 0x03D749 FF:D739: AD 3C 04  LDA ram_подтип_действия
+C - - - - 0x03D749 FF:D739: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x03D74C FF:D73C: F0 07     BEQ bra_D745_выход
 bra_D73E:
 C - - - - 0x03D74E FF:D73E: A9 3D     LDA #$3D
@@ -2736,7 +2736,7 @@ C - - - - 0x03D764 FF:D754: 68        PLA
 C - - - - 0x03D765 FF:D755: 20 15 80  JSR sub_0x038025
 C - - - - 0x03D768 FF:D758: 20 6B D7  JSR sub_D76B
 C - - - - 0x03D76B FF:D75B: 10 0C     BPL bra_D769
-C - - - - 0x03D76D FF:D75D: AD 3E 04  LDA $043E
+C - - - - 0x03D76D FF:D75D: AD 3E 04  LDA ram_подтип_действия_защиты
 C - - - - 0x03D770 FF:D760: F0 07     BEQ bra_D769
 C - - - - 0x03D772 FF:D762: A9 3D     LDA #$3D
 C - - - - 0x03D774 FF:D764: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -2773,11 +2773,11 @@ C - - - - 0x03D7A0 FF:D790: 8A        TXA
 C - - - - 0x03D7A1 FF:D791: 60        RTS
 
 ofs_D792_F0:
-C - J - - 0x03D7A2 FF:D792: AD 3C 04  LDA ram_подтип_действия
+C - J - - 0x03D7A2 FF:D792: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x03D7A5 FF:D795: C9 03     CMP #$03
 C - - - - 0x03D7A7 FF:D797: B0 06     BCS bra_D79F
 C - - - - 0x03D7A9 FF:D799: AE 4E 04  LDX ram_высота_мяча
-C - - - - 0x03D7AC FF:D79C: 8E 3C 04  STX ram_подтип_действия
+C - - - - 0x03D7AC FF:D79C: 8E 3C 04  STX ram_подтип_действия_атаки
 bra_D79F:
 C - - - - 0x03D7AF FF:D79F: C9 12     CMP #$12
 C - - - - 0x03D7B1 FF:D7A1: D0 36     BNE bra_D7D9
@@ -3037,7 +3037,7 @@ C - - - - 0x03D987 FF:D977: 60        RTS
 ofs_D979_F3:
 C - J - - 0x03D989 FF:D979: A9 38     LDA #$38
 C - - - - 0x03D98B FF:D97B: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - 0x03D98E FF:D97E: AD 3C 04  LDA ram_подтип_действия
+C - - - - 0x03D98E FF:D97E: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x03D991 FF:D981: F0 03     BEQ bra_D986
 C - - - - 0x03D993 FF:D983: 4C 0C D7  JMP loc_D70C
 bra_D986:
@@ -3623,7 +3623,7 @@ C - - - - 0x03DD53 FF:DD43: 9A        TXS
 C - - - - 0x03DD54 FF:DD44: 4C 18 80  JMP loc_0x034903
 
 sub_DD47:
-C - - - - 0x03DD57 FF:DD47: AD 3C 04  LDA ram_подтип_действия
+C - - - - 0x03DD57 FF:DD47: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x03DD5A FF:DD4A: D0 22     BNE bra_DD6E
 C - - - - 0x03DD5C FF:DD4C: AD 35 06  LDA $0635
 C - - - - 0x03DD5F FF:DD4F: AE FB 05  LDX ram_команда_с_мячом
@@ -3782,7 +3782,7 @@ C - - - - 0x03DE38 FF:DE28: 20 DF DC  JSR sub_DCDF
 C - - - - 0x03DE3B FF:DE2B: A9 01     LDA #$01
 C - - - - 0x03DE3D FF:DE2D: 8D 3B 04  STA ram_действие_атаки
 C - - - - 0x03DE40 FF:DE30: A9 00     LDA #$00
-C - - - - 0x03DE42 FF:DE32: 8D 3C 04  STA ram_подтип_действия
+C - - - - 0x03DE42 FF:DE32: 8D 3C 04  STA ram_подтип_действия_атаки
 C - - - - 0x03DE45 FF:DE35: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
 C - - - - 0x03DE48 FF:DE38: A9 3A     LDA #$3A
 C - - - - 0x03DE4A FF:DE3A: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -4783,7 +4783,7 @@ C - - - - 0x03E564 FF:E554: F0 3A     BEQ bra_E590
 C - - - - 0x03E566 FF:E556: A2 00     LDX #$00
 C - - - - 0x03E568 FF:E558: A0 00     LDY #$00
 bra_E55A:
-C - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_действие_защиты,X
+C - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
 C - - - - 0x03E56D FF:E55D: C9 05     CMP #$05
 C - - - - 0x03E56F FF:E55F: D0 0D     BNE bra_E56E
 C - - - - 0x03E571 FF:E561: BD 01 06  LDA ram_номер_нападающего,X
@@ -4863,7 +4863,7 @@ C - - - - 0x03E601 FF:E5F1: A9 00     LDA #$00
 C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA ram_номер_защитника
 bra_E5F6_цикл:
 C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX ram_номер_защитника
-C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_действие_защиты,X
+C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
 C - - - - 0x03E60C FF:E5FC: C9 05     CMP #$05
 C - - - - 0x03E60E FF:E5FE: D0 03     BNE bra_E603_достигнут_лимит
 C - - - - 0x03E610 FF:E600: 20 16 E6  JSR sub_E616
@@ -4881,11 +4881,11 @@ sub_E616:
 C - - - - 0x03E626 FF:E616: A9 01     LDA #$01
 C - - - - 0x03E628 FF:E618: 8D 3B 04  STA ram_действие_атаки
 C - - - - 0x03E62B FF:E61B: A9 00     LDA #$00
-C - - - - 0x03E62D FF:E61D: 8D 3C 04  STA ram_подтип_действия
+C - - - - 0x03E62D FF:E61D: 8D 3C 04  STA ram_подтип_действия_атаки
 C - - - - 0x03E630 FF:E620: A9 02     LDA #$02
-C - - - - 0x03E632 FF:E622: 8D 3D 04  STA $043D
+C - - - - 0x03E632 FF:E622: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x03E635 FF:E625: A9 00     LDA #$00
-C - - - - 0x03E637 FF:E627: 8D 3E 04  STA $043E
+C - - - - 0x03E637 FF:E627: 8D 3E 04  STA ram_подтип_действия_защиты
 C - - - - 0x03E63A FF:E62A: BD 01 06  LDA ram_номер_нападающего,X
 C - - - - 0x03E63D FF:E62D: F0 48     BEQ bra_E677_выход
 C - - - - 0x03E63F FF:E62F: C9 0B     CMP #$0B

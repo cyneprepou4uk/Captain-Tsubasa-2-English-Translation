@@ -1726,11 +1726,11 @@ C - - - - 0x002CD0 02:ACC0: 8D 4E 04  STA ram_высота_мяча
 C - - - - 0x002CD3 02:ACC3: A0 02     LDY #$02
 C - - - - 0x002CD5 02:ACC5: B1 5C     LDA (ram_005C),Y
 C - - - - 0x002CD7 02:ACC7: 8D 3B 04  STA ram_действие_атаки
-C - - - - 0x002CDA 02:ACCA: 8D 3D 04  STA $043D
+C - - - - 0x002CDA 02:ACCA: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x002CDD 02:ACCD: C8        INY
 C - - - - 0x002CDE 02:ACCE: B1 5C     LDA (ram_005C),Y
-C - - - - 0x002CE0 02:ACD0: 8D 3C 04  STA ram_подтип_действия
-C - - - - 0x002CE3 02:ACD3: 8D 3E 04  STA $043E
+C - - - - 0x002CE0 02:ACD0: 8D 3C 04  STA ram_подтип_действия_атаки
+C - - - - 0x002CE3 02:ACD3: 8D 3E 04  STA ram_подтип_действия_защиты
 C - - - - 0x002CE6 02:ACD6: A5 5F     LDA ram_005F      ; хранит номер игрока в меню статов
 C - - - - 0x002CE8 02:ACD8: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x002CEB 02:ACDB: 8D 42 04  STA ram_игрок_без_мяча
