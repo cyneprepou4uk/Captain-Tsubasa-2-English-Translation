@@ -2222,7 +2222,7 @@ bra_case_8AFB_00_атакующий_легко_обводит:
 - D - I - 0x020B0B 17:8AFB: FA        .byte con_jsr
 - D - I - 0x020B0C 17:8AFC: 8B 9C     .word sub_9C8B
 - D - I - 0x020B0E 17:8AFE: FA        .byte con_jsr
-- D - I - 0x020B0F 17:8AFF: C0 9C     .word sub_9CC0
+- D - I - 0x020B0F 17:8AFF: C0 9C     .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
 - D - I - 0x020B11 17:8B01: F2        .byte con_jmp
 - D - I - 0x020B12 17:8B02: AA 9E     .word loc_9EAA
 
@@ -2230,7 +2230,7 @@ bra_case_8B04_01_атакующий_с_трудом_обводит:
 - D - I - 0x020B14 17:8B04: FA        .byte con_jsr
 - D - I - 0x020B15 17:8B05: 8B 9C     .word sub_9C8B
 - D - I - 0x020B17 17:8B07: FA        .byte con_jsr
-- D - I - 0x020B18 17:8B08: A3 9C     .word sub_9CA3
+- D - I - 0x020B18 17:8B08: A3 9C     .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
 - D - I - 0x020B1A 17:8B0A: F2        .byte con_jmp
 - D - I - 0x020B1B 17:8B0B: AA 9E     .word loc_9EAA
 
@@ -2280,7 +2280,7 @@ bra_case_8B3D_00_атакующий_легко_обводит:
 - D - I - 0x020B50 17:8B40: FA        .byte con_jsr
 - D - I - 0x020B51 17:8B41: CF A3     .word sub_A3CF_kurae_если_не_спешал
 - D - I - 0x020B53 17:8B43: FA        .byte con_jsr
-- D - I - 0x020B54 17:8B44: C0 9C     .word sub_9CC0
+- D - I - 0x020B54 17:8B44: C0 9C     .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
 - D - I - 0x020B56 17:8B46: F2        .byte con_jmp
 - D - I - 0x020B57 17:8B47: AA 9E     .word loc_9EAA
 
@@ -2290,7 +2290,7 @@ bra_case_8B49_01_атакующий_с_трудом_обводит:
 - D - I - 0x020B5C 17:8B4C: FA        .byte con_jsr
 - D - I - 0x020B5D 17:8B4D: CF A3     .word sub_A3CF_kurae_если_не_спешал
 - D - I - 0x020B5F 17:8B4F: FA        .byte con_jsr
-- D - I - 0x020B60 17:8B50: A3 9C     .word sub_9CA3
+- D - I - 0x020B60 17:8B50: A3 9C     .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
 - D - I - 0x020B62 17:8B52: F2        .byte con_jmp
 - D - I - 0x020B63 17:8B53: AA 9E     .word loc_9EAA
 
@@ -5035,7 +5035,7 @@ bra_case_9894_00_защитник_выживет:
 
 bra_case_989B_00:
 - D - I - 0x0218AB 17:989B: F2        .byte con_jmp
-- D - I - 0x0218AC 17:989C: C0 9C     .word loc_9CC0
+- D - I - 0x0218AC 17:989C: C0 9C     .word loc_9CC0_выбор_анимации_дриблинга_легкой_обводки
 
 bra_case_989E_01:
 bra_case_989E_02:
@@ -5949,7 +5949,7 @@ loc_9C9D:
 - D - I - 0x021CAF 17:9C9F: E7 A7     .word bra_long_case_A7E7_00
 - D - I - 0x021CB1 17:9CA1: CE A6     .word bra_long_case_A6CE_01
 
-sub_9CA3:
+sub_9CA3_выбор_анимации_дриблинга_трудной_обводки:
 - D - I - 0x021CB3 17:9CA3: FA        .byte con_jsr
 - D - I - 0x021CB4 17:9CA4: 95 A4     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
 - D - I - 0x021CB6 17:9CA6: F3        .byte con_branch, $0E     ; действие атаки на земле
@@ -5968,8 +5968,8 @@ bra_long_case_9CB0_02_dribble:
 - D - I - 0x021CCC 17:9CBC: C1 A8     .word bra_long_case_A8C1_05_high_speed_dribble
 - - - - - 0x021CCE 17:9CBE: 11 A9     .word bra_long_case_A911_06_hedgehog_dribble
 
-loc_9CC0:
-sub_9CC0:
+loc_9CC0_выбор_анимации_дриблинга_легкой_обводки:
+sub_9CC0_выбор_анимации_дриблинга_легкой_обводки:
 - D - I - 0x021CD0 17:9CC0: FA        .byte con_jsr
 - D - I - 0x021CD1 17:9CC1: 95 A4     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
 - D - I - 0x021CD3 17:9CC3: F3        .byte con_branch, $0E     ; действие атаки на земле
@@ -8728,6 +8728,7 @@ bra_long_case_A7EE_00_shoot:
 bra_long_case_A7EE_00_dribble:
 bra_long_case_A7EE_01_pass:
 bra_long_case_A7EE_03_1_2_pass:
+; трудная обводка
 - D - I - 0x0227FE 11:A7EE: F6        .byte con_mirror_toggle
 - D - I - 0x0227FF 11:A7EF: F7        .byte con_F7, $02
 - D - I - 0x022801 11:A7F1: 14        .byte con_pause + $14
@@ -8750,7 +8751,7 @@ loc_A7FE:
 
 bra_long_case_A805_01_heel_lift:
 - D - I - 0x022815 11:A805: FA        .byte con_jsr
-- D - I - 0x022816 11:A806: 10 A8     .word sub_A810
+- D - I - 0x022816 11:A806: 10 A8     .word sub_A810_анимация_heel_lift
 - D - I - 0x022818 11:A808: F7        .byte con_F7, $02
 - D - I - 0x02281A 11:A80A: 3C        .byte con_pause + $3C
 - D - I - 0x02281B 11:A80B: 23        .byte con_bg + $23
@@ -8759,7 +8760,7 @@ bra_long_case_A805_01_heel_lift:
 - D - I - 0x02281E 11:A80E: F6        .byte con_mirror_toggle
 - D - I - 0x02281F 11:A80F: FB        .byte con_rts
 
-sub_A810:
+sub_A810_анимация_heel_lift:
 - D - I - 0x022820 11:A810: F7        .byte con_F7, $02
 - D - I - 0x022822 11:A812: F9        .byte con_soundID_delay, $1E, $31
 - D - I - 0x022825 11:A815: 3F        .byte con_pause + $3F
@@ -9346,6 +9347,7 @@ bra_long_case_AA4F_00_shoot:
 bra_long_case_AA4F_00_dribble:
 bra_long_case_AA4F_01_pass:
 bra_long_case_AA4F_03_1_2_pass:
+; легкая обводка
 - D - I - 0x022A5F 11:AA4F: F6        .byte con_mirror_toggle
 - D - I - 0x022A60 11:AA50: F7        .byte con_F7, $02
 - D - I - 0x022A62 11:AA52: 14        .byte con_pause + $14
@@ -9366,7 +9368,7 @@ bra_long_case_AA4F_03_1_2_pass:
 _scenario_AA62_6A:
 bra_long_case_AA62_01_heel_lift:
 - D - I - 0x022A72 11:AA62: FA        .byte con_jsr
-- D - I - 0x022A73 11:AA63: 10 A8     .word sub_A810
+- D - I - 0x022A73 11:AA63: 10 A8     .word sub_A810_анимация_heel_lift
 - D - I - 0x022A75 11:AA65: F7        .byte con_F7, $02
 - D - I - 0x022A77 11:AA67: 3C        .byte con_pause + $3C
 - D - I - 0x022A78 11:AA68: 23        .byte con_bg + $23
@@ -11623,7 +11625,7 @@ bra_case_B3A1_0F:
 
 bra_long_case_B3AA_01_heel_lift:
 - D - I - 0x0233BA 11:B3AA: FA        .byte con_jsr
-- D - I - 0x0233BB 11:B3AB: 10 A8     .word sub_A810
+- D - I - 0x0233BB 11:B3AB: 10 A8     .word sub_A810_анимация_heel_lift
 bra_long_case_B3AD_00_shoot:
 bra_long_case_B3AD_00_dribble:
 bra_long_case_B3AD_01_pass:
