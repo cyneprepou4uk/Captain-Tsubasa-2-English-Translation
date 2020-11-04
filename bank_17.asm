@@ -7119,9 +7119,6 @@ sub_A1E4_dark_illusion:
 - D - I - 0x02220B 11:A1FB: F0        .byte con_cloud + con_skip
 - D - I - 0x02220C 11:A1FC: FB        .byte con_rts
 
-- - - - - 0x02220D 11:A1FD: FB        .byte con_rts
-- - - - - 0x02220E 11:A1FE: FB        .byte con_rts
-
 sub_A1FF:
 - D - I - 0x02220F 11:A1FF: F7        .byte con_F7, $30
 - D - I - 0x022211 11:A201: F9        .byte con_soundID_delay, $17, $02
