@@ -1090,22 +1090,22 @@ bra_8555_выход:
 C - - - - 0x020565 17:8555: 60        RTS
 
 ofs_8556_33_B3:
-; 00 - 
-; 01 - 
-; 02 - 
-; 03 - 
-; 04 - 
-; 05 - 
-; 06 - 
-; 07 - 
-; 08 - 
-; 09 - 
-; 0A - 
-; 0B - 
-; 0C - 
-; 0D - 
-; 0E - 
-; 0F - 
+; 00 - игрок без защитного спешала
+; 01 - масао/казуо
+; 02 - масао/казуо
+; 03 - сода
+; 04 - сода
+; 05 - джито
+; 06 - джито
+; 07 - дирсеу
+; 08 - дирсеу
+; 09 - робсон
+; 0A - либута
+; 0B - гальван
+; 0C - хюга
+; 0D - хюга
+; 0E - ишизаки
+; 0F - ишизаки
 C - J - - 0x020566 17:8556: AD 3E 04  LDA $043E
 C - - - - 0x020569 17:8559: 29 7F     AND #$7F
 C - - - - 0x02056B 17:855B: AA        TAX
@@ -7584,24 +7584,24 @@ bra_long_case_A3C5_00:
 
 sub_A3CF:
 - D - I - 0x0223DF 11:A3CF: F3        .byte con_branch, $B3
-- D - I - 0x0223E1 11:A3D1: 67        .byte bra_case_A438_00 - *
-- D - I - 0x0223E2 11:A3D2: 0F        .byte bra_case_A3E1_01 - *
-- D - I - 0x0223E3 11:A3D3: 17        .byte bra_case_A3EA_02 - *
-- D - I - 0x0223E4 11:A3D4: 83        .byte bra_case_A457_03 - *
-- D - I - 0x0223E5 11:A3D5: 79        .byte bra_case_A44E_04 - *
-- D - I - 0x0223E6 11:A3D6: 1A        .byte bra_case_A3F0_05 - *
-- D - I - 0x0223E7 11:A3D7: 35        .byte bra_case_A40C_06 - *
-- D - I - 0x0223E8 11:A3D8: 21        .byte bra_case_A3F9_07 - *
-- - - - - 0x0223E9 11:A3D9: 20        .byte bra_case_A3F9_08 - *
-- - - - - 0x0223EA 11:A3DA: 1F        .byte bra_case_A3F9_09 - *
-- D - I - 0x0223EB 11:A3DB: 1E        .byte bra_case_A3F9_0A - *
-- - - - - 0x0223EC 11:A3DC: 1D        .byte bra_case_A3F9_0B - *
-- D - I - 0x0223ED 11:A3DD: 3B        .byte bra_case_A418_0C - *
-- D - I - 0x0223EE 11:A3DE: 51        .byte bra_case_A42F_0D - *
-- - - - - 0x0223EF 11:A3DF: 59        .byte bra_case_A438_0E - *
-- - - - - 0x0223F0 11:A3E0: 58        .byte bra_case_A438_0F - *
+- D - I - 0x0223E1 11:A3D1: 67        .byte bra_case_A438_00_игрок_без_защитного_спешала - *
+- D - I - 0x0223E2 11:A3D2: 0F        .byte bra_case_A3E1_01_масао_казуо - *
+- D - I - 0x0223E3 11:A3D3: 17        .byte bra_case_A3EA_02_масао_казуо - *
+- D - I - 0x0223E4 11:A3D4: 83        .byte bra_case_A457_03_сода - *
+- D - I - 0x0223E5 11:A3D5: 79        .byte bra_case_A44E_04_сода - *
+- D - I - 0x0223E6 11:A3D6: 1A        .byte bra_case_A3F0_05_джито - *
+- D - I - 0x0223E7 11:A3D7: 35        .byte bra_case_A40C_06_джито - *
+- D - I - 0x0223E8 11:A3D8: 21        .byte bra_case_A3F9_07_дирсеу - *
+- - - - - 0x0223E9 11:A3D9: 20        .byte bra_case_A3F9_08_дирсеу - *
+- - - - - 0x0223EA 11:A3DA: 1F        .byte bra_case_A3F9_09_робсон - *
+- D - I - 0x0223EB 11:A3DB: 1E        .byte bra_case_A3F9_0A_либута - *
+- - - - - 0x0223EC 11:A3DC: 1D        .byte bra_case_A3F9_0B_гальван - *
+- D - I - 0x0223ED 11:A3DD: 3B        .byte bra_case_A418_0C_хюга - *
+- D - I - 0x0223EE 11:A3DE: 51        .byte bra_case_A42F_0D_хюга - *
+- - - - - 0x0223EF 11:A3DF: 59        .byte bra_case_A438_0E_ишизаки - *
+- - - - - 0x0223F0 11:A3E0: 58        .byte bra_case_A438_0F_ишизаки - *
 
-bra_case_A3E1_01:
+bra_case_A3E1_01_масао_казуо:
 - D - I - 0x0223F1 11:A3E1: FA        .byte con_jsr
 - D - I - 0x0223F2 11:A3E2: 1A A7     .word sub_A71A
 loc_A3E4:
@@ -7610,13 +7610,13 @@ loc_A3E4:
 - D - I - 0x0223F7 11:A3E7: F2        .byte con_jmp
 - D - I - 0x0223F8 11:A3E8: 60 A4     .word loc_A460
 
-bra_case_A3EA_02:
+bra_case_A3EA_02_масао_казуо:
 - D - I - 0x0223FA 11:A3EA: FA        .byte con_jsr
 - D - I - 0x0223FB 11:A3EB: 56 A7     .word sub_A756
 - D - I - 0x0223FD 11:A3ED: F2        .byte con_jmp
 - D - I - 0x0223FE 11:A3EE: E4 A3     .word loc_A3E4
 
-bra_case_A3F0_05:
+bra_case_A3F0_05_джито:
 - D - I - 0x022400 11:A3F0: F7        .byte con_F7, $44
 - D - I - 0x022402 11:A3F2: 78        .byte con_pause + $78
 - D - I - 0x022403 11:A3F3: 30        .byte con_bg + $30
@@ -7625,11 +7625,11 @@ bra_case_A3F0_05:
 - D - I - 0x022406 11:A3F6: FA        .byte con_jsr
 - D - I - 0x022407 11:A3F7: C7 BB     .word sub_BBC7_очистка
 loc_A3F9:
-bra_case_A3F9_07:
-bra_case_A3F9_08:
-bra_case_A3F9_09:
-bra_case_A3F9_0A:
-bra_case_A3F9_0B:
+bra_case_A3F9_07_дирсеу:
+bra_case_A3F9_08_дирсеу:
+bra_case_A3F9_09_робсон:
+bra_case_A3F9_0A_либута:
+bra_case_A3F9_0B_гальван:
 - D - I - 0x022409 11:A3F9: FC        .byte con_moving_bg, $02
 - D - I - 0x02240B 11:A3FB: F9        .byte con_soundID_delay, $27, $02
 - D - I - 0x02240E 11:A3FE: 14        .byte con_pause + $14
@@ -7645,7 +7645,7 @@ bra_case_A3F9_0B:
 - D - I - 0x02241A 11:A40A: F0        .byte con_cloud + con_skip
 - D - I - 0x02241B 11:A40B: FB        .byte con_rts
 
-bra_case_A40C_06:
+bra_case_A40C_06_джито:
 - D - I - 0x02241C 11:A40C: F7        .byte con_F7, $44
 - D - I - 0x02241E 11:A40E: 78        .byte con_pause + $78
 - D - I - 0x02241F 11:A40F: 30        .byte con_bg + $30
@@ -7656,7 +7656,7 @@ bra_case_A40C_06:
 - D - I - 0x022425 11:A415: F2        .byte con_jmp
 - D - I - 0x022426 11:A416: F9 A3     .word loc_A3F9
 
-bra_case_A418_0C:
+bra_case_A418_0C_хюга:
 - D - I - 0x022428 11:A418: F7        .byte con_F7, $44
 - D - I - 0x02242A 11:A41A: 78        .byte con_pause + $78
 - D - I - 0x02242B 11:A41B: 31        .byte con_bg + $31
@@ -7674,7 +7674,7 @@ loc_A41E:
 - D - I - 0x02243C 11:A42C: F2        .byte con_jmp
 - D - I - 0x02243D 11:A42D: 63 A4     .word loc_A463
 
-bra_case_A42F_0D:
+bra_case_A42F_0D_хюга:
 - D - I - 0x02243F 11:A42F: F7        .byte con_F7, $44
 - D - I - 0x022441 11:A431: 78        .byte con_pause + $78
 - D - I - 0x022442 11:A432: 31        .byte con_bg + $31
@@ -7683,9 +7683,9 @@ bra_case_A42F_0D:
 - D - I - 0x022445 11:A435: F2        .byte con_jmp
 - D - I - 0x022446 11:A436: 1E A4     .word loc_A41E
 
-bra_case_A438_00:
-bra_case_A438_0E:
-bra_case_A438_0F:
+bra_case_A438_00_игрок_без_защитного_спешала:
+bra_case_A438_0E_ишизаки:
+bra_case_A438_0F_ишизаки:
 - D - I - 0x022448 11:A438: F7        .byte con_F7, $02
 - D - I - 0x02244A 11:A43A: F9        .byte con_soundID_delay, $26, $02
 - D - I - 0x02244D 11:A43D: 20        .byte con_pause + $20
@@ -7693,7 +7693,7 @@ bra_case_A438_0F:
 - D - I - 0x02244F 11:A43F: 58        .byte con_animation + $58
 - D - I - 0x022450 11:A440: 00        .byte con_cloud + con_clear
 - D - I - 0x022451 11:A441: FA        .byte con_jsr
-- D - I - 0x022452 11:A442: A9 A5     .word sub_A5A9
+- D - I - 0x022452 11:A442: A9 A5     .word sub_A5A9_kurae
 - D - I - 0x022454 11:A444: FC        .byte con_moving_bg, $03
 - D - I - 0x022456 11:A446: F9        .byte con_soundID_delay, $28, $02
 - D - I - 0x022459 11:A449: 50        .byte con_pause + $50
@@ -7702,7 +7702,7 @@ bra_case_A438_0F:
 - D - I - 0x02245C 11:A44C: 3F        .byte con_cloud + $3F
 - D - I - 0x02245D 11:A44D: FB        .byte con_rts
 
-bra_case_A44E_04:
+bra_case_A44E_04_сода:
 - D - I - 0x02245E 11:A44E: F7        .byte con_F7, $44
 - D - I - 0x022460 11:A450: 78        .byte con_pause + $78
 - D - I - 0x022461 11:A451: 30        .byte con_bg + $30
@@ -7711,7 +7711,7 @@ bra_case_A44E_04:
 - D - I - 0x022464 11:A454: F2        .byte con_jmp
 - D - I - 0x022465 11:A455: 5D A4     .word loc_A45D
 
-bra_case_A457_03:
+bra_case_A457_03_сода:
 - D - I - 0x022467 11:A457: F7        .byte con_F7, $44
 - D - I - 0x022469 11:A459: 78        .byte con_pause + $78
 - D - I - 0x02246A 11:A45A: 30        .byte con_bg + $30
@@ -8077,7 +8077,7 @@ bra_case_A5A2_21_кальц:
 - - - - - 0x0225B6 11:A5A6: F2        .byte con_jmp
 - - - - - 0x0225B7 11:A5A7: C7 BB     .word loc_BBC7_очистка
 
-sub_A5A9:
+sub_A5A9_kurae:
 - D - I - 0x0225B9 11:A5A9: F3        .byte con_branch, $AA
 - D - I - 0x0225BB 11:A5AB: 22        .byte bra_case_A5CD_00_игрок_без_рожи - *
 - - - - - 0x0225BC 11:A5AC: 22        .byte bra_case_A5CE_01_цубаса - *
@@ -8390,69 +8390,69 @@ bra_long_case_A6BB_01:
 
 bra_long_case_A6BC_01:
 - D - I - 0x0226CC 11:A6BC: F3        .byte con_branch, $B3
-- - - - - 0x0226CE 11:A6BE: 4E        .byte bra_case_A70C_00 - *
-- D - I - 0x0226CF 11:A6BF: 37        .byte bra_case_A6F6_01 - *
-- - - - - 0x0226D0 11:A6C0: 46        .byte bra_case_A706_02 - *
-- - - - - 0x0226D1 11:A6C1: 4B        .byte bra_case_A70C_03 - *
-- - - - - 0x0226D2 11:A6C2: 4A        .byte bra_case_A70C_04 - *
-- - - - - 0x0226D3 11:A6C3: 49        .byte bra_case_A70C_05 - *
-- - - - - 0x0226D4 11:A6C4: 48        .byte bra_case_A70C_06 - *
-- - - - - 0x0226D5 11:A6C5: 47        .byte bra_case_A70C_07 - *
-- - - - - 0x0226D6 11:A6C6: 46        .byte bra_case_A70C_08 - *
-- - - - - 0x0226D7 11:A6C7: 45        .byte bra_case_A70C_09 - *
-- - - - - 0x0226D8 11:A6C8: 44        .byte bra_case_A70C_0A - *
-- - - - - 0x0226D9 11:A6C9: 43        .byte bra_case_A70C_0B - *
-- - - - - 0x0226DA 11:A6CA: 42        .byte bra_case_A70C_0C - *
-- - - - - 0x0226DB 11:A6CB: 41        .byte bra_case_A70C_0D - *
-- - - - - 0x0226DC 11:A6CC: 40        .byte bra_case_A70C_0E - *
-- - - - - 0x0226DD 11:A6CD: 3F        .byte bra_case_A70C_0F - *
+- - - - - 0x0226CE 11:A6BE: 4E        .byte bra_case_A70C_00_игрок_без_защитного_спешала - *
+- D - I - 0x0226CF 11:A6BF: 37        .byte bra_case_A6F6_01_масао_казуо - *
+- - - - - 0x0226D0 11:A6C0: 46        .byte bra_case_A706_02_масао_казуо - *
+- - - - - 0x0226D1 11:A6C1: 4B        .byte bra_case_A70C_03_сода - *
+- - - - - 0x0226D2 11:A6C2: 4A        .byte bra_case_A70C_04_сода - *
+- - - - - 0x0226D3 11:A6C3: 49        .byte bra_case_A70C_05_джито - *
+- - - - - 0x0226D4 11:A6C4: 48        .byte bra_case_A70C_06_джито - *
+- - - - - 0x0226D5 11:A6C5: 47        .byte bra_case_A70C_07_дирсеу - *
+- - - - - 0x0226D6 11:A6C6: 46        .byte bra_case_A70C_08_дирсеу - *
+- - - - - 0x0226D7 11:A6C7: 45        .byte bra_case_A70C_09_робсон - *
+- - - - - 0x0226D8 11:A6C8: 44        .byte bra_case_A70C_0A_либута - *
+- - - - - 0x0226D9 11:A6C9: 43        .byte bra_case_A70C_0B_гальван - *
+- - - - - 0x0226DA 11:A6CA: 42        .byte bra_case_A70C_0C_хюга - *
+- - - - - 0x0226DB 11:A6CB: 41        .byte bra_case_A70C_0D_хюга - *
+- - - - - 0x0226DC 11:A6CC: 40        .byte bra_case_A70C_0E_ишизаки - *
+- - - - - 0x0226DD 11:A6CD: 3F        .byte bra_case_A70C_0F_ишизаки - *
 
 bra_long_case_A6CE_01:
 - D - I - 0x0226DE 11:A6CE: F3        .byte con_branch, $B3
-- D - I - 0x0226E0 11:A6D0: FE        .byte bra_case_A7CE_00 - *
-- - - - - 0x0226E1 11:A6D1: 25        .byte bra_case_A6F6_01 - *
-- - - - - 0x0226E2 11:A6D2: 34        .byte bra_case_A706_02 - *
-- - - - - 0x0226E3 11:A6D3: FB        .byte bra_case_A7CE_03 - *
-- - - - - 0x0226E4 11:A6D4: FA        .byte bra_case_A7CE_04 - *
-- - - - - 0x0226E4 11:A6D5: F9        .byte bra_case_A7CE_05 - *
-- - - - - 0x0226E4 11:A6D6: F8        .byte bra_case_A7CE_06 - *
-- - - - - 0x0226E4 11:A6D7: F7        .byte bra_case_A7CE_07 - *
-- - - - - 0x0226E7 11:A6D8: F6        .byte bra_case_A7CE_08 - *
-- - - - - 0x0226E9 11:A6D9: F5        .byte bra_case_A7CE_09 - *
-- - - - - 0x0226EA 11:A6DA: F4        .byte bra_case_A7CE_0A - *
-- - - - - 0x0226EB 11:A6DB: F3        .byte bra_case_A7CE_0B - *
-- - - - - 0x0226EB 11:A6DC: F2        .byte bra_case_A7CE_0C - *
-- - - - - 0x0226ED 11:A6DD: F1        .byte bra_case_A7CE_0D - *
-- - - - - 0x0226EE 11:A6DE: F0        .byte bra_case_A7CE_0E - *
-- - - - - 0x0226EF 11:A6DF: EF        .byte bra_case_A7CE_0F - *
+- D - I - 0x0226E0 11:A6D0: FE        .byte bra_case_A7CE_00_игрок_без_защитного_спешала - *
+- - - - - 0x0226E1 11:A6D1: 25        .byte bra_case_A6F6_01_масао_казуо - *
+- - - - - 0x0226E2 11:A6D2: 34        .byte bra_case_A706_02_масао_казуо - *
+- - - - - 0x0226E3 11:A6D3: FB        .byte bra_case_A7CE_03_сода - *
+- - - - - 0x0226E4 11:A6D4: FA        .byte bra_case_A7CE_04_сода - *
+- - - - - 0x0226E4 11:A6D5: F9        .byte bra_case_A7CE_05_джито - *
+- - - - - 0x0226E4 11:A6D6: F8        .byte bra_case_A7CE_06_джито - *
+- - - - - 0x0226E4 11:A6D7: F7        .byte bra_case_A7CE_07_дирсеу - *
+- - - - - 0x0226E7 11:A6D8: F6        .byte bra_case_A7CE_08_дирсеу - *
+- - - - - 0x0226E9 11:A6D9: F5        .byte bra_case_A7CE_09_робсон - *
+- - - - - 0x0226EA 11:A6DA: F4        .byte bra_case_A7CE_0A_либута - *
+- - - - - 0x0226EB 11:A6DB: F3        .byte bra_case_A7CE_0B_гальван - *
+- - - - - 0x0226EB 11:A6DC: F2        .byte bra_case_A7CE_0C_хюга - *
+- - - - - 0x0226ED 11:A6DD: F1        .byte bra_case_A7CE_0D_хюга - *
+- - - - - 0x0226EE 11:A6DE: F0        .byte bra_case_A7CE_0E_ишизаки - *
+- - - - - 0x0226EF 11:A6DF: EF        .byte bra_case_A7CE_0F_ишизаки - *
 
 sub_A6E0:
 - D - I - 0x0226F0 11:A6E0: F3        .byte con_branch, $B7
-- D - I - 0x0226F2 11:A6E2: 1D        .byte bra_case_A6FF_00 - *
+- D - I - 0x0226F2 11:A6E2: 1D        .byte bra_case_A6FF_00_игрок_без_защитного_спешала - *
 - D - I - 0x0226F3 11:A6E3: 01        .byte bra_case_A6E4_01 - *
 
 bra_long_case_A6E4_01:
 bra_case_A6E4_01:
 - D - I - 0x0226F4 11:A6E4: F3        .byte con_branch, $B3
-- D - I - 0x0226F6 11:A6E6: 19        .byte bra_case_A6FF_00 - *
-- D - I - 0x0226F7 11:A6E7: 0F        .byte bra_case_A6F6_01 - *
-- D - I - 0x0226F8 11:A6E8: 1E        .byte bra_case_A706_02 - *
-- D - I - 0x0226F9 11:A6E9: 16        .byte bra_case_A6FF_03 - *
-- - - - - 0x0226FA 11:A6EA: 15        .byte bra_case_A6FF_04 - *
-- D - I - 0x0226FB 11:A6EB: 14        .byte bra_case_A6FF_05 - *
-- D - I - 0x0226FC 11:A6EC: 13        .byte bra_case_A6FF_06 - *
-- - - - - 0x0226FD 11:A6ED: 12        .byte bra_case_A6FF_07 - *
-- D - I - 0x0226FE 11:A6EE: 11        .byte bra_case_A6FF_08 - *
-- - - - - 0x0226FF 11:A6EF: 10        .byte bra_case_A6FF_09 - *
-- D - I - 0x022700 11:A6F0: 0F        .byte bra_case_A6FF_0A - *
-- D - I - 0x022701 11:A6F1: 0E        .byte bra_case_A6FF_0B - *
-- D - I - 0x022702 11:A6F2: 0D        .byte bra_case_A6FF_0C - *
-- D - I - 0x022703 11:A6F3: 0C        .byte bra_case_A6FF_0D - *
-- D - I - 0x022704 11:A6F4: 0B        .byte bra_case_A6FF_0E - *
-- D - I - 0x022705 11:A6F5: 0A        .byte bra_case_A6FF_0F - *
+- D - I - 0x0226F6 11:A6E6: 19        .byte bra_case_A6FF_00_игрок_без_защитного_спешала - *
+- D - I - 0x0226F7 11:A6E7: 0F        .byte bra_case_A6F6_01_масао_казуо - *
+- D - I - 0x0226F8 11:A6E8: 1E        .byte bra_case_A706_02_масао_казуо - *
+- D - I - 0x0226F9 11:A6E9: 16        .byte bra_case_A6FF_03_сода - *
+- - - - - 0x0226FA 11:A6EA: 15        .byte bra_case_A6FF_04_сода - *
+- D - I - 0x0226FB 11:A6EB: 14        .byte bra_case_A6FF_05_джито - *
+- D - I - 0x0226FC 11:A6EC: 13        .byte bra_case_A6FF_06_джито - *
+- - - - - 0x0226FD 11:A6ED: 12        .byte bra_case_A6FF_07_дирсеу - *
+- D - I - 0x0226FE 11:A6EE: 11        .byte bra_case_A6FF_08_дирсеу - *
+- - - - - 0x0226FF 11:A6EF: 10        .byte bra_case_A6FF_09_робсон - *
+- D - I - 0x022700 11:A6F0: 0F        .byte bra_case_A6FF_0A_либута - *
+- D - I - 0x022701 11:A6F1: 0E        .byte bra_case_A6FF_0B_гальван - *
+- D - I - 0x022702 11:A6F2: 0D        .byte bra_case_A6FF_0C_хюга - *
+- D - I - 0x022703 11:A6F3: 0C        .byte bra_case_A6FF_0D_хюга - *
+- D - I - 0x022704 11:A6F4: 0B        .byte bra_case_A6FF_0E_ишизаки - *
+- D - I - 0x022705 11:A6F5: 0A        .byte bra_case_A6FF_0F_ишизаки - *
 
 bra_long_case_A6F6_01:
-bra_case_A6F6_01:
+bra_case_A6F6_01_масао_казуо:
 - D - I - 0x022706 11:A6F6: FA        .byte con_jsr
 - D - I - 0x022707 11:A6F7: 1A A7     .word sub_A71A
 loc_A6F9:
@@ -8465,20 +8465,20 @@ sub_A6F9:
 - D - I - 0x02270E 11:A6FE: FB        .byte con_rts
 
 bra_long_case_A6FF_00:
-bra_case_A6FF_00:
-bra_case_A6FF_03:
-bra_case_A6FF_04:
-bra_case_A6FF_05:
-bra_case_A6FF_06:
-bra_case_A6FF_07:
-bra_case_A6FF_08:
-bra_case_A6FF_09:
-bra_case_A6FF_0A:
-bra_case_A6FF_0B:
-bra_case_A6FF_0C:
-bra_case_A6FF_0D:
-bra_case_A6FF_0E:
-bra_case_A6FF_0F:
+bra_case_A6FF_00_игрок_без_защитного_спешала:
+bra_case_A6FF_03_сода:
+bra_case_A6FF_04_сода:
+bra_case_A6FF_05_джито:
+bra_case_A6FF_06_джито:
+bra_case_A6FF_07_дирсеу:
+bra_case_A6FF_08_дирсеу:
+bra_case_A6FF_09_робсон:
+bra_case_A6FF_0A_либута:
+bra_case_A6FF_0B_гальван:
+bra_case_A6FF_0C_хюга:
+bra_case_A6FF_0D_хюга:
+bra_case_A6FF_0E_ишизаки:
+bra_case_A6FF_0F_ишизаки:
 - D - I - 0x02270F 11:A6FF: F7        .byte con_F7, $02
 - D - I - 0x022711 11:A701: 37        .byte con_pause + $37
 - D - I - 0x022712 11:A702: 23        .byte con_bg + $23
@@ -8487,27 +8487,27 @@ bra_case_A6FF_0F:
 - D - I - 0x022715 11:A705: FB        .byte con_rts
 
 bra_long_case_A706_02:
-bra_case_A706_02:
+bra_case_A706_02_масао_казуо:
 - D - I - 0x022716 11:A706: FA        .byte con_jsr
 - D - I - 0x022717 11:A707: 56 A7     .word sub_A756
 - D - I - 0x022719 11:A709: F2        .byte con_jmp
 - D - I - 0x02271A 11:A70A: F9 A6     .word loc_A6F9
 
 bra_long_case_A70C_00:
-bra_case_A70C_00:
-bra_case_A70C_03:
-bra_case_A70C_04:
-bra_case_A70C_05:
-bra_case_A70C_06:
-bra_case_A70C_07:
-bra_case_A70C_08:
-bra_case_A70C_09:
-bra_case_A70C_0A:
-bra_case_A70C_0B:
-bra_case_A70C_0C:
-bra_case_A70C_0D:
-bra_case_A70C_0E:
-bra_case_A70C_0F:
+bra_case_A70C_00_игрок_без_защитного_спешала:
+bra_case_A70C_03_сода:
+bra_case_A70C_04_сода:
+bra_case_A70C_05_джито:
+bra_case_A70C_06_джито:
+bra_case_A70C_07_дирсеу:
+bra_case_A70C_08_дирсеу:
+bra_case_A70C_09_робсон:
+bra_case_A70C_0A_либута:
+bra_case_A70C_0B_гальван:
+bra_case_A70C_0C_хюга:
+bra_case_A70C_0D_хюга:
+bra_case_A70C_0E_ишизаки:
+bra_case_A70C_0F_ишизаки:
 - D - I - 0x02271C 11:A70C: F7        .byte con_F7, $02
 - D - I - 0x02271E 11:A70E: 1E        .byte con_pause + $1E
 - D - I - 0x02271F 11:A70F: 22        .byte con_bg + $22
@@ -8677,20 +8677,20 @@ bra_long_case_A7BF_0F:
 - - - - - 0x0227DC 11:A7CC: B1 A7     .word loc_A7B1
 
 bra_long_case_A7CE_00:
-bra_case_A7CE_00:
-bra_case_A7CE_03:
-bra_case_A7CE_04:
-bra_case_A7CE_05:
-bra_case_A7CE_06:
-bra_case_A7CE_07:
-bra_case_A7CE_08:
-bra_case_A7CE_09:
-bra_case_A7CE_0A:
-bra_case_A7CE_0B:
-bra_case_A7CE_0C:
-bra_case_A7CE_0D:
-bra_case_A7CE_0E:
-bra_case_A7CE_0F:
+bra_case_A7CE_00_игрок_без_защитного_спешала:
+bra_case_A7CE_03_сода:
+bra_case_A7CE_04_сода:
+bra_case_A7CE_05_джито:
+bra_case_A7CE_06_джито:
+bra_case_A7CE_07_дирсеу:
+bra_case_A7CE_08_дирсеу:
+bra_case_A7CE_09_робсон:
+bra_case_A7CE_0A_либута:
+bra_case_A7CE_0B_гальван:
+bra_case_A7CE_0C_хюга:
+bra_case_A7CE_0D_хюга:
+bra_case_A7CE_0E_ишизаки:
+bra_case_A7CE_0F_ишизаки:
 - D - I - 0x0227DE 11:A7CE: F7        .byte con_F7, $02
 - D - I - 0x0227E0 11:A7D0: 28        .byte con_pause + $28
 - D - I - 0x0227E1 11:A7D1: 23        .byte con_bg + $23
@@ -11362,42 +11362,42 @@ loc_B2D4:
 
 sub_B2DC:
 - D - I - 0x0232EC 11:B2DC: F3        .byte con_branch, $B7
-- D - I - 0x0232EE 11:B2DE: 14        .byte bra_case_B2F2_00 - *
+- D - I - 0x0232EE 11:B2DE: 14        .byte bra_case_B2F2_00_игрок_без_защитного_спешала - *
 - D - I - 0x0232EF 11:B2DF: 01        .byte bra_case_B2E0_01 - *
 
 bra_case_B2E0_01:
 - D - I - 0x0232F0 11:B2E0: F3        .byte con_branch, $B3
-- D - I - 0x0232F2 11:B2E2: 10        .byte bra_case_B2F2_00 - *
-- D - I - 0x0232F3 11:B2E3: 55        .byte bra_case_B338_01 - *
-- D - I - 0x0232F4 11:B2E4: 5D        .byte bra_case_B341_02 - *
-- D - I - 0x0232F5 11:B2E5: 0D        .byte bra_case_B2F2_03 - *
-- - - - - 0x0232F6 11:B2E6: 0C        .byte bra_case_B2F2_04 - *
-- D - I - 0x0232F7 11:B2E7: 0B        .byte bra_case_B2F2_05 - *
-- - - - - 0x0232F8 11:B2E8: 0A        .byte bra_case_B2F2_06 - *
-- - - - - 0x0232F9 11:B2E9: 09        .byte bra_case_B2F2_07 - *
-- D - I - 0x0232FA 11:B2EA: 08        .byte bra_case_B2F2_08 - *
-- - - - - 0x0232FB 11:B2EB: 07        .byte bra_case_B2F2_09 - *
-- D - I - 0x0232FC 11:B2EC: 06        .byte bra_case_B2F2_0A - *
-- - - - - 0x0232FD 11:B2ED: 05        .byte bra_case_B2F2_0B - *
-- D - I - 0x0232FE 11:B2EE: 04        .byte bra_case_B2F2_0C - *
-- D - I - 0x0232FF 11:B2EF: 03        .byte bra_case_B2F2_0D - *
-- - - - - 0x023300 11:B2F0: 02        .byte bra_case_B2F2_0E - *
-- - - - - 0x023301 11:B2F1: 01        .byte bra_case_B2F2_0F - *
+- D - I - 0x0232F2 11:B2E2: 10        .byte bra_case_B2F2_00_игрок_без_защитного_спешала - *
+- D - I - 0x0232F3 11:B2E3: 55        .byte bra_case_B338_01_масао_казуо - *
+- D - I - 0x0232F4 11:B2E4: 5D        .byte bra_case_B341_02_масао_казуо - *
+- D - I - 0x0232F5 11:B2E5: 0D        .byte bra_case_B2F2_03_сода - *
+- - - - - 0x0232F6 11:B2E6: 0C        .byte bra_case_B2F2_04_сода - *
+- D - I - 0x0232F7 11:B2E7: 0B        .byte bra_case_B2F2_05_джито - *
+- - - - - 0x0232F8 11:B2E8: 0A        .byte bra_case_B2F2_06_джито - *
+- - - - - 0x0232F9 11:B2E9: 09        .byte bra_case_B2F2_07_дирсеу - *
+- D - I - 0x0232FA 11:B2EA: 08        .byte bra_case_B2F2_08_дирсеу - *
+- - - - - 0x0232FB 11:B2EB: 07        .byte bra_case_B2F2_09_робсон - *
+- D - I - 0x0232FC 11:B2EC: 06        .byte bra_case_B2F2_0A_либута - *
+- - - - - 0x0232FD 11:B2ED: 05        .byte bra_case_B2F2_0B_гальван - *
+- D - I - 0x0232FE 11:B2EE: 04        .byte bra_case_B2F2_0C_хюга - *
+- D - I - 0x0232FF 11:B2EF: 03        .byte bra_case_B2F2_0D_хюга - *
+- - - - - 0x023300 11:B2F0: 02        .byte bra_case_B2F2_0E_ишизаки - *
+- - - - - 0x023301 11:B2F1: 01        .byte bra_case_B2F2_0F_ишизаки - *
 
-bra_case_B2F2_00:
-bra_case_B2F2_03:
-bra_case_B2F2_04:
-bra_case_B2F2_05:
-bra_case_B2F2_06:
-bra_case_B2F2_07:
-bra_case_B2F2_08:
-bra_case_B2F2_09:
-bra_case_B2F2_0A:
-bra_case_B2F2_0B:
-bra_case_B2F2_0C:
-bra_case_B2F2_0D:
-bra_case_B2F2_0E:
-bra_case_B2F2_0F:
+bra_case_B2F2_00_игрок_без_защитного_спешала:
+bra_case_B2F2_03_сода:
+bra_case_B2F2_04_сода:
+bra_case_B2F2_05_джито:
+bra_case_B2F2_06_джито:
+bra_case_B2F2_07_дирсеу:
+bra_case_B2F2_08_дирсеу:
+bra_case_B2F2_09_робсон:
+bra_case_B2F2_0A_либута:
+bra_case_B2F2_0B_гальван:
+bra_case_B2F2_0C_хюга:
+bra_case_B2F2_0D_хюга:
+bra_case_B2F2_0E_ишизаки:
+bra_case_B2F2_0F_ишизаки:
 - D - I - 0x023302 11:B2F2: F9        .byte con_soundID_delay, $25, $02
 - D - I - 0x023305 11:B2F5: 14        .byte con_pause + $14
 - D - I - 0x023306 11:B2F6: 02        .byte con_bg + $02
@@ -11411,38 +11411,38 @@ bra_case_B2F2_0F:
 
 bra_long_case_B2FE_01:
 - D - I - 0x02330E 11:B2FE: F3        .byte con_branch, $B3
-- D - I - 0x023310 11:B300: 10        .byte bra_case_B310_00 - *
-- D - I - 0x023311 11:B301: 37        .byte bra_case_B338_01 - *
-- - - - - 0x023312 11:B302: 3F        .byte bra_case_B341_02 - *
-- - - - - 0x023313 11:B303: 0D        .byte bra_case_B310_03 - *
-- - - - - 0x023314 11:B304: 0C        .byte bra_case_B310_04 - *
-- - - - - 0x023315 11:B305: 0B        .byte bra_case_B310_05 - *
-- - - - - 0x023316 11:B306: 0A        .byte bra_case_B310_06 - *
-- - - - - 0x023317 11:B307: 09        .byte bra_case_B310_07 - *
-- - - - - 0x023318 11:B308: 08        .byte bra_case_B310_08 - *
-- - - - - 0x023319 11:B309: 07        .byte bra_case_B310_09 - *
-- - - - - 0x02331A 11:B30A: 06        .byte bra_case_B310_0A - *
-- - - - - 0x02331B 11:B30B: 05        .byte bra_case_B310_0B - *
-- D - I - 0x02331C 11:B30C: 04        .byte bra_case_B310_0C - *
-- - - - - 0x02331D 11:B30D: 03        .byte bra_case_B310_0D - *
-- - - - - 0x02331E 11:B30E: 02        .byte bra_case_B310_0E - *
-- - - - - 0x02331F 11:B30F: 01        .byte bra_case_B310_0F - *
+- D - I - 0x023310 11:B300: 10        .byte bra_case_B310_00_игрок_без_защитного_спешала - *
+- D - I - 0x023311 11:B301: 37        .byte bra_case_B338_01_масао_казуо - *
+- - - - - 0x023312 11:B302: 3F        .byte bra_case_B341_02_масао_казуо - *
+- - - - - 0x023313 11:B303: 0D        .byte bra_case_B310_03_сода - *
+- - - - - 0x023314 11:B304: 0C        .byte bra_case_B310_04_сода - *
+- - - - - 0x023315 11:B305: 0B        .byte bra_case_B310_05_джито - *
+- - - - - 0x023316 11:B306: 0A        .byte bra_case_B310_06_джито - *
+- - - - - 0x023317 11:B307: 09        .byte bra_case_B310_07_дирсеу - *
+- - - - - 0x023318 11:B308: 08        .byte bra_case_B310_08_дирсеу - *
+- - - - - 0x023319 11:B309: 07        .byte bra_case_B310_09_робсон - *
+- - - - - 0x02331A 11:B30A: 06        .byte bra_case_B310_0A_либута - *
+- - - - - 0x02331B 11:B30B: 05        .byte bra_case_B310_0B_гальван - *
+- D - I - 0x02331C 11:B30C: 04        .byte bra_case_B310_0C_хюга - *
+- - - - - 0x02331D 11:B30D: 03        .byte bra_case_B310_0D_хюга - *
+- - - - - 0x02331E 11:B30E: 02        .byte bra_case_B310_0E_ишизаки - *
+- - - - - 0x02331F 11:B30F: 01        .byte bra_case_B310_0F_ишизаки - *
 
 bra_long_case_B310_00:
-bra_case_B310_00:
-bra_case_B310_03:
-bra_case_B310_04:
-bra_case_B310_05:
-bra_case_B310_06:
-bra_case_B310_07:
-bra_case_B310_08:
-bra_case_B310_09:
-bra_case_B310_0A:
-bra_case_B310_0B:
-bra_case_B310_0C:
-bra_case_B310_0D:
-bra_case_B310_0E:
-bra_case_B310_0F:
+bra_case_B310_00_игрок_без_защитного_спешала:
+bra_case_B310_03_сода:
+bra_case_B310_04_сода:
+bra_case_B310_05_джито:
+bra_case_B310_06_джито:
+bra_case_B310_07_дирсеу:
+bra_case_B310_08_дирсеу:
+bra_case_B310_09_робсон:
+bra_case_B310_0A_либута:
+bra_case_B310_0B_гальван:
+bra_case_B310_0C_хюга:
+bra_case_B310_0D_хюга:
+bra_case_B310_0E_ишизаки:
+bra_case_B310_0F_ишизаки:
 - D - I - 0x023320 11:B310: F8        .byte con_F8, $04
 - D - I - 0x023322 11:B312: F9        .byte con_soundID_delay, $25, $02
 - D - I - 0x023325 11:B315: 32        .byte con_pause + $32
@@ -11453,38 +11453,38 @@ bra_case_B310_0F:
 
 bra_long_case_B31A_01:
 - D - I - 0x02332A 11:B31A: F3        .byte con_branch, $B3
-- - - - - 0x02332C 11:B31C: 10        .byte bra_case_B32C_00 - *
-- - - - - 0x02332D 11:B31D: 1B        .byte bra_case_B338_01 - *
-- D - I - 0x02332E 11:B31E: 23        .byte bra_case_B341_02 - *
-- - - - - 0x02332F 11:B31F: 0D        .byte bra_case_B32C_03 - *
-- - - - - 0x023330 11:B320: 0C        .byte bra_case_B32C_04 - *
-- - - - - 0x023331 11:B321: 0B        .byte bra_case_B32C_05 - *
-- - - - - 0x023332 11:B322: 0A        .byte bra_case_B32C_06 - *
-- - - - - 0x023333 11:B323: 09        .byte bra_case_B32C_07 - *
-- - - - - 0x023334 11:B324: 08        .byte bra_case_B32C_08 - *
-- - - - - 0x023335 11:B325: 07        .byte bra_case_B32C_09 - *
-- - - - - 0x023336 11:B326: 06        .byte bra_case_B32C_0A - *
-- - - - - 0x023337 11:B327: 05        .byte bra_case_B32C_0B - *
-- - - - - 0x023338 11:B328: 04        .byte bra_case_B32C_0C - *
-- - - - - 0x023339 11:B329: 03        .byte bra_case_B32C_0D - *
-- - - - - 0x02333A 11:B32A: 02        .byte bra_case_B32C_0E - *
-- - - - - 0x02333B 11:B32B: 01        .byte bra_case_B32C_0F - *
+- - - - - 0x02332C 11:B31C: 10        .byte bra_case_B32C_00_игрок_без_защитного_спешала - *
+- - - - - 0x02332D 11:B31D: 1B        .byte bra_case_B338_01_масао_казуо - *
+- D - I - 0x02332E 11:B31E: 23        .byte bra_case_B341_02_масао_казуо - *
+- - - - - 0x02332F 11:B31F: 0D        .byte bra_case_B32C_03_сода - *
+- - - - - 0x023330 11:B320: 0C        .byte bra_case_B32C_04_сода - *
+- - - - - 0x023331 11:B321: 0B        .byte bra_case_B32C_05_джито - *
+- - - - - 0x023332 11:B322: 0A        .byte bra_case_B32C_06_джито - *
+- - - - - 0x023333 11:B323: 09        .byte bra_case_B32C_07_дирсеу - *
+- - - - - 0x023334 11:B324: 08        .byte bra_case_B32C_08_дирсеу - *
+- - - - - 0x023335 11:B325: 07        .byte bra_case_B32C_09_робсон - *
+- - - - - 0x023336 11:B326: 06        .byte bra_case_B32C_0A_либута - *
+- - - - - 0x023337 11:B327: 05        .byte bra_case_B32C_0B_гальван - *
+- - - - - 0x023338 11:B328: 04        .byte bra_case_B32C_0C_хюга - *
+- - - - - 0x023339 11:B329: 03        .byte bra_case_B32C_0D_хюга - *
+- - - - - 0x02333A 11:B32A: 02        .byte bra_case_B32C_0E_ишизаки - *
+- - - - - 0x02333B 11:B32B: 01        .byte bra_case_B32C_0F_ишизаки - *
 
 bra_long_case_B32C_00:
-bra_case_B32C_00:
-bra_case_B32C_03:
-bra_case_B32C_04:
-bra_case_B32C_05:
-bra_case_B32C_06:
-bra_case_B32C_07:
-bra_case_B32C_08:
-bra_case_B32C_09:
-bra_case_B32C_0A:
-bra_case_B32C_0B:
-bra_case_B32C_0C:
-bra_case_B32C_0D:
-bra_case_B32C_0E:
-bra_case_B32C_0F:
+bra_case_B32C_00_игрок_без_защитного_спешала:
+bra_case_B32C_03_сода:
+bra_case_B32C_04_сода:
+bra_case_B32C_05_джито:
+bra_case_B32C_06_джито:
+bra_case_B32C_07_дирсеу:
+bra_case_B32C_08_дирсеу:
+bra_case_B32C_09_робсон:
+bra_case_B32C_0A_либута:
+bra_case_B32C_0B_гальван:
+bra_case_B32C_0C_хюга:
+bra_case_B32C_0D_хюга:
+bra_case_B32C_0E_ишизаки:
+bra_case_B32C_0F_ишизаки:
 - D - I - 0x02333C 11:B32C: F9        .byte con_soundID_delay, $25, $02
 - D - I - 0x02333F 11:B32F: 14        .byte con_pause + $14
 - D - I - 0x023340 11:B330: 02        .byte con_bg + $02
@@ -11496,7 +11496,7 @@ bra_case_B32C_0F:
 - D - I - 0x023346 11:B336: F0        .byte con_cloud + con_skip
 - D - I - 0x023347 11:B337: FB        .byte con_rts
 
-bra_case_B338_01:
+bra_case_B338_01_масао_казуо:
 - D - I - 0x023348 11:B338: FA        .byte con_jsr
 - D - I - 0x023349 11:B339: 1A A7     .word sub_A71A
 loc_B33B:
@@ -11508,7 +11508,7 @@ sub_B33B:
 - D - I - 0x02334F 11:B33F: F6        .byte con_mirror_toggle
 - D - I - 0x023350 11:B340: FB        .byte con_rts
 
-bra_case_B341_02:
+bra_case_B341_02_масао_казуо:
 - D - I - 0x023351 11:B341: FA        .byte con_jsr
 - D - I - 0x023352 11:B342: 56 A7     .word sub_A756
 - D - I - 0x023354 11:B344: F2        .byte con_jmp
@@ -11516,28 +11516,28 @@ bra_case_B341_02:
 
 sub_B347:
 - D - I - 0x023357 11:B347: F3        .byte con_branch, $B3
-- D - I - 0x023359 11:B349: 10        .byte bra_case_B359_00 - *
-- - - - - 0x02335A 11:B34A: 1B        .byte bra_case_B365_01 - *
-- - - - - 0x02335B 11:B34B: 21        .byte bra_case_B36C_02 - *
-- - - - - 0x02335C 11:B34C: 0D        .byte bra_case_B359_03 - *
-- - - - - 0x02335D 11:B34D: 0C        .byte bra_case_B359_04 - *
-- D - I - 0x02335E 11:B34E: 24        .byte bra_case_B372_05 - *
-- - - - - 0x02335F 11:B34F: 40        .byte bra_case_B38F_06 - *
-- D - I - 0x023360 11:B350: 2C        .byte bra_case_B37C_07 - *
-- D - I - 0x023361 11:B351: 2B        .byte bra_case_B37C_08 - *
-- - - - - 0x023362 11:B352: 2A        .byte bra_case_B37C_09 - *
-- D - I - 0x023363 11:B353: 29        .byte bra_case_B37C_0A - *
-- - - - - 0x023364 11:B354: 28        .byte bra_case_B37C_0B - *
-- - - - - 0x023365 11:B355: 04        .byte bra_case_B359_0C - *
-- - - - - 0x023366 11:B356: 03        .byte bra_case_B359_0D - *
+- D - I - 0x023359 11:B349: 10        .byte bra_case_B359_00_игрок_без_защитного_спешала - *
+- - - - - 0x02335A 11:B34A: 1B        .byte bra_case_B365_01_масао_казуо - *
+- - - - - 0x02335B 11:B34B: 21        .byte bra_case_B36C_02_масао_казуо - *
+- - - - - 0x02335C 11:B34C: 0D        .byte bra_case_B359_03_сода - *
+- - - - - 0x02335D 11:B34D: 0C        .byte bra_case_B359_04_сода - *
+- D - I - 0x02335E 11:B34E: 24        .byte bra_case_B372_05_джито - *
+- - - - - 0x02335F 11:B34F: 40        .byte bra_case_B38F_06_джито - *
+- D - I - 0x023360 11:B350: 2C        .byte bra_case_B37C_07_дирсеу - *
+- D - I - 0x023361 11:B351: 2B        .byte bra_case_B37C_08_дирсеу - *
+- - - - - 0x023362 11:B352: 2A        .byte bra_case_B37C_09_робсон - *
+- D - I - 0x023363 11:B353: 29        .byte bra_case_B37C_0A_либута - *
+- - - - - 0x023364 11:B354: 28        .byte bra_case_B37C_0B_гальван - *
+- - - - - 0x023365 11:B355: 04        .byte bra_case_B359_0C_хюга - *
+- - - - - 0x023366 11:B356: 03        .byte bra_case_B359_0D_хюга - *
 - D - I - 0x023367 11:B357: 41        .byte bra_case_B398_0E - *
 - - - - - 0x023368 11:B358: 49        .byte bra_case_B3A1_0F - *
 
-bra_case_B359_00:
-bra_case_B359_03:
-bra_case_B359_04:
-bra_case_B359_0C:
-bra_case_B359_0D:
+bra_case_B359_00_игрок_без_защитного_спешала:
+bra_case_B359_03_сода:
+bra_case_B359_04_сода:
+bra_case_B359_0C_хюга:
+bra_case_B359_0D_хюга:
 - D - I - 0x023369 11:B359: F9        .byte con_soundID_delay, $25, $02
 - D - I - 0x02336C 11:B35C: 14        .byte con_pause + $14
 - D - I - 0x02336D 11:B35D: 02        .byte con_bg + $02
@@ -11550,7 +11550,7 @@ loc_B360:
 - D - I - 0x023373 11:B363: F0        .byte con_cloud + con_skip
 - D - I - 0x023374 11:B364: FB        .byte con_rts
 
-bra_case_B365_01:
+bra_case_B365_01_масао_казуо:
 - - - - - 0x023375 11:B365: FA        .byte con_jsr
 - - - - - 0x023376 11:B366: 1A A7     .word sub_A71A
 loc_B368:
@@ -11558,13 +11558,13 @@ loc_B368:
 - - - - - 0x023379 11:B369: 3B B3     .word sub_B33B
 - - - - - 0x02337B 11:B36B: FB        .byte con_rts
 
-bra_case_B36C_02:
+bra_case_B36C_02_масао_казуо:
 - - - - - 0x02337C 11:B36C: FA        .byte con_jsr
 - - - - - 0x02337D 11:B36D: 56 A7     .word sub_A756
 - - - - - 0x02337F 11:B36F: F2        .byte con_jmp
 - - - - - 0x023380 11:B370: 68 B3     .word loc_B368
 
-bra_case_B372_05:
+bra_case_B372_05_джито:
 - D - I - 0x023382 11:B372: F7        .byte con_F7, $44
 - D - I - 0x023384 11:B374: 48        .byte con_pause + $48
 - D - I - 0x023385 11:B375: 30        .byte con_bg + $30
@@ -11573,11 +11573,11 @@ bra_case_B372_05:
 loc_B378:
                                       .byte con_jsr
                                       .word sub_BBC7_очистка
-bra_case_B37C_07:
-bra_case_B37C_08:
-bra_case_B37C_09:
-bra_case_B37C_0A:
-bra_case_B37C_0B:
+bra_case_B37C_07_дирсеу:
+bra_case_B37C_08_дирсеу:
+bra_case_B37C_09_робсон:
+bra_case_B37C_0A_либута:
+bra_case_B37C_0B_гальван:
 - D - I - 0x02338C 11:B37C: F9        .byte con_soundID_delay, $27, $02
 - D - I - 0x02338F 11:B37F: F7        .byte con_F7, $33
 - D - I - 0x023391 11:B381: 20        .byte con_pause + $20
@@ -11592,7 +11592,7 @@ bra_case_B37C_0B:
 - D - I - 0x02339C 11:B38C: F2        .byte con_jmp
 - D - I - 0x02339D 11:B38D: 60 B3     .word loc_B360
 
-bra_case_B38F_06:
+bra_case_B38F_06_джито:
 - - - - - 0x02339F 11:B38F: F7        .byte con_F7, $44
 - - - - - 0x0233A1 11:B391: 48        .byte con_pause + $48
 - - - - - 0x0233A2 11:B392: 30        .byte con_bg + $30
