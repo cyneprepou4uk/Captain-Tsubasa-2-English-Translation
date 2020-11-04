@@ -2064,7 +2064,7 @@ tbl_89BF_сценарии:
 - D - I - 0x020A27 17:8A17: 54 9F     .word _scenario_9F54_2C       ; 
 - D - I - 0x020A29 17:8A19: D6 B4     .word _scenario_B4D6_2D       ; 
 - D - I - 0x020A2B 17:8A1B: 4E B7     .word _scenario_B74E_2E       ; на игрока напали когда он находится на земле
-- D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F       ; на игрока напали когда он находится на штрафнойц
+- D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F       ; на игрока напали когда он находится на штрафной
 - D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30       ; гол
 - D - I - 0x020A31 17:8A21: 8C B7     .word _scenario_B78C_31       ; 
 - D - I - 0x020A33 17:8A23: 57 9E     .word _scenario_9E57_32       ; 
@@ -2082,7 +2082,7 @@ tbl_89BF_сценарии:
 - D - I - 0x020A4B 17:8A3B: 0A 9C     .word _scenario_9C0A_3E       ; 
 - D - I - 0x020A4D 17:8A3D: 54 B7     .word _scenario_B754_3F       ; мяч прилетел к игроку на чью-то штрафную
 - D - I - 0x020A4F 17:8A3F: 95 BD     .word _scenario_BD95_40       ; 
-- D - I - 0x020A51 17:8A41: 9A BD     .word _scenario_BD9A_41       ; аналогично 44, но предварительно отображается сообщение о кипере down
+- D - I - 0x020A51 17:8A41: 9A BD     .word _scenario_BD9A_41       ; аналогично 44, но предварительно отображается сообщение о балансе кипера
 - D - I - 0x020A53 17:8A43: A6 BD     .word _scenario_BDA6_42       ; 
 - D - I - 0x020A55 17:8A45: AD BD     .word _scenario_BDAD_43       ; 
 - D - I - 0x020A57 17:8A47: D5 B7     .word _scenario_B7D5_44       ; игрок в меню выбора действия, находясь с мячом на земле
@@ -2964,10 +2964,6 @@ bra_case_8F6D_01_подкат:
 - D - I - 0x020F82 17:8F72: 2D        .byte bra_case_8F9F_03 - *
 - - - - - 0x020F83 17:8F73: 0D        .byte bra_case_8F80_04_нарушение - *
 
-; bzk мусор
-- - - - - 0x020F84 17:8F74: FA        .byte con_jsr
-- - - - - 0x020F85 17:8F75: DC B2     .word sub_B2DC
-
 bra_case_8F77_00:
 - D - I - 0x020F87 17:8F77: FA        .byte con_jsr
 - D - I - 0x020F88 17:8F78: E0 A6     .word sub_A6E0
@@ -3277,10 +3273,6 @@ bra_case_91DF_00:
 - D - I - 0x0211F1 17:91E1: 3C 93     .word bra_long_case_933C_00
 - D - I - 0x0211F3 17:91E3: 41 93     .word bra_long_case_9341_01
 - D - I - 0x0211F5 17:91E5: DF 9B     .word bra_long_case_9BDF_02
-
-; bzk мусор
-- - - - - 0x0211F7 17:91E7: F2        .byte con_jmp
-- - - - - 0x0211F8 17:91E8: 40 A2     .word loc_A240
 
 
 
@@ -5395,9 +5387,6 @@ bra_case_9A33_00:
 - D - I - 0x021A4C 17:9A3C: F2        .byte con_jmp
 - D - I - 0x021A4D 17:9A3D: 76 A1     .word loc_A176
 
-; bzk мусор
-- - - - - 0x021A4F 17:9A3F: F0        .byte con_quit
-
 bra_case_9A40_01:
 - D - I - 0x021A50 17:9A40: FA        .byte con_jsr
 - D - I - 0x021A51 17:9A41: 35 A3     .word sub_A335
@@ -6467,9 +6456,6 @@ bra_case_9FA9_02_крит_вакабаяши:
 bra_case_9FB3_00_кипер_без_крита:
 - D - I - 0x021FC3 17:9FB3: FB        .byte con_rts
 
-; bzk мусор
-- - - - - 0x021FC4 17:9FB4: FB        .byte con_rts
-
 loc_9FB5_убийство_кипера:
 sub_9FB5_убийство_кипера:
 - D - I - 0x021FC5 17:9FB5: 32        .byte con_pause + $32
@@ -7533,14 +7519,6 @@ sub_A373:
 - D - I - 0x022385 11:A375: 52        .byte con_animation + $52
 - D - I - 0x022386 11:A376: 34        .byte con_cloud + $34
 - D - I - 0x022387 11:A377: FB        .byte con_rts
-
-; bzk мусор
-- - - - - 0x022388 11:A378: F6        .byte con_mirror_toggle
-- - - - - 0x022389 11:A379: 37        .byte con_pause + $37
-- - - - - 0x02238A 11:A37A: 20        .byte con_bg + $20
-- - - - - 0x02238B 11:A37B: 53        .byte con_animation + $53
-- - - - - 0x02238C 11:A37C: F0        .byte con_cloud + con_skip
-- - - - - 0x02238D 11:A37D: FB        .byte con_rts
 
 loc_A37E:
 - - - - - 0x02238E 11:A37E: 30        .byte con_pause + $30
@@ -10913,9 +10891,6 @@ sub_B0A7:
 - D - I - 0x0230D4 11:B0C4: F2        .byte con_jmp
 - D - I - 0x0230D5 11:B0C5: 42 AB     .word loc_AB42
 
-; bzk мусор
-- - - - - 0x0230D7 11:B0C7: FB        .byte con_rts
-
 bra_long_case_B0C8_1C:
 - D - I - 0x0230D8 11:B0C8: F7        .byte con_F7, $1E
 - D - I - 0x0230DA 11:B0CA: F9        .byte con_soundID_delay, $1A, $21
@@ -11877,9 +11852,6 @@ sub_B45D:
 - D - I - 0x023472 11:B462: 50        .byte con_cloud + $50
 - D - I - 0x023473 11:B463: FB        .byte con_rts
 
-; bzk мусор
-- - - - - 0x023474 11:B464: FB        .byte con_rts
-
 sub_B465:
 - D - I - 0x023475 11:B465: F7        .byte con_F7, $0F
 - D - I - 0x023477 11:B467: 1E        .byte con_pause + $1E
@@ -11968,9 +11940,6 @@ loc_B4B6:
 - D - I - 0x0234CB 11:B4BB: 7A        .byte con_animation + $7A
 - D - I - 0x0234CC 11:B4BC: 58        .byte con_cloud + $58
 - D - I - 0x0234CD 11:B4BD: FB        .byte con_rts
-
-; bzk мусор
-- - - - - 0x0234CE 11:B4BE: FB        .byte con_rts
 
 sub_B4BF:
 - D - I - 0x0234CF 11:B4BF: F9        .byte con_soundID_delay, $64, $0B
@@ -12433,16 +12402,6 @@ bra_long_case_B690_1A:
 - D - I - 0x0236C5 11:B6B5: F0        .byte con_animation + con_skip
 - D - I - 0x0236C6 11:B6B6: F0        .byte con_cloud + con_skip
 - D - I - 0x0236C7 11:B6B7: FB        .byte con_rts
-
-; bzk мусор
-- - - - - 0x0236C8 11:B6B8: 0A        .byte con_pause + $0A
-- - - - - 0x0236C9 11:B6B9: 11        .byte con_bg + $11
-- - - - - 0x0236CA 11:B6BA: F0        .byte con_animation + con_skip
-- - - - - 0x0236CB 11:B6BB: F0        .byte con_cloud + con_skip
-- - - - - 0x0236CC 11:B6BC: 0A        .byte con_pause + $0A
-- - - - - 0x0236CD 11:B6BD: 12        .byte con_bg + $12
-- - - - - 0x0236CE 11:B6BE: F0        .byte con_animation + con_skip
-- - - - - 0x0236CF 11:B6BF: F0        .byte con_cloud + con_skip
 
 bra_long_case_B6C0_1B:
 - D - I - 0x0236D0 11:B6C0: F7        .byte con_F7, $0D
@@ -13501,9 +13460,6 @@ bra_case_BA92_02:
 - - - - - 0x023AA5 11:BA95: F0        .byte con_cloud + con_skip
 - - - - - 0x023AA6 11:BA96: F2        .byte con_jmp
 - - - - - 0x023AA7 11:BA97: 7F BA     .word loc_BA7F
-
-; bzk мусор
-- - - - - 0x023AA9 11:BA99: FB        .byte con_rts
 
 bra_case_BA9A_01:
 - D - I - 0x023AAA 11:BA9A: F3        .byte con_branch, $A0
