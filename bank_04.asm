@@ -72,6 +72,10 @@ tbl_0x40004_вид_меню:
     .word off_BB9E_40_pk_order
     .word off_BBBF_41_pk_and_score
     .word off_BC00_42_booth_for_charlie_time_score_period_number
+    .word off_BC01_43_show_1_defender
+    .word off_BC02_44_show_2_defenders
+    .word off_BC03_45_show_3_defenders
+    .word off_BC04_46_show_4_defenders
 
 
 
@@ -124,7 +128,7 @@ con_period_number                       = $EF           ; номер тайма,
 con_time                                = $F0           ; время тайма
 con_menu_name                           = $F1           ; имена из меню, 00-0A основные, 16-1F запасные
 con_control_plr_name                    = $F2           ; имя управляемого игрока
-; unused                                = $F3
+con_opp_def_name                        = $F3           ; имя защитника из списка напавших соперников
 con_plr_with_ball_name                  = $F4           ; имя игрока с мячом
 con_plr_stamina                         = $F5           ; 00-0A основные, 16-1F запасные
 con_pk_players_list                     = $F6
@@ -3897,6 +3901,195 @@ off_BC00_42_booth_for_charlie_time_score_period_number:
     .byte con_score, $01
     .byte con_закончить
 
+
+
+
+
+
+off_BC01_43_show_1_defender:
+; номер набора контура окна
+    .byte $00 * $09
+; адрес ppu
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0D
+    .byte $03
+; количество поинтеров
+    .byte $02
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @defender_1
+
+@txt:
+    .text "Defender"
+    .byte con_закончить
+
+@defender_1:
+    .byte con_opp_def_name, $00
+    .byte con_закончить
+
+
+
+
+
+
+off_BC02_44_show_2_defenders:
+; номер набора контура окна
+    .byte $00 * $09
+; адрес ppu
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0D
+    .byte $05
+; количество поинтеров
+    .byte $03
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @defender_1
+    .byte $04
+    .byte $03
+    .word @defender_2
+
+@txt:
+    .text "Defenders"
+    .byte con_закончить
+
+@defender_1:
+    .byte con_opp_def_name, $00
+    .byte con_закончить
+
+@defender_2:
+    .byte con_opp_def_name, $01
+    .byte con_закончить
+
+
+
+
+
+
+off_BC03_45_show_3_defenders:
+; номер набора контура окна
+    .byte $00 * $09
+; адрес ppu
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0D
+    .byte $07
+; количество поинтеров
+    .byte $04
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @defender_1
+    .byte $04
+    .byte $03
+    .word @defender_2
+    .byte $06
+    .byte $03
+    .word @defender_3
+
+@txt:
+    .text "Defenders"
+    .byte con_закончить
+
+@defender_1:
+    .byte con_opp_def_name, $00
+    .byte con_закончить
+
+@defender_2:
+    .byte con_opp_def_name, $01
+    .byte con_закончить
+
+@defender_3:
+    .byte con_opp_def_name, $02
+    .byte con_закончить
+
+
+
+
+
+
+off_BC04_46_show_4_defenders:
+; номер набора контура окна
+    .byte $00 * $09
+; адрес ppu
+    .word $2252
+; X * Y зачищаемой области
+    .byte $0E
+    .byte $09
+; смещение окна X, Y
+    .byte $00
+    .byte $00
+; размер окна X, Y
+    .byte $0D
+    .byte $09
+; количество поинтеров
+    .byte $05
+; смещение текста Y, X + поинтеры на текст
+    .byte $00
+    .byte $02
+    .word @txt
+    .byte $02
+    .byte $03
+    .word @defender_1
+    .byte $04
+    .byte $03
+    .word @defender_2
+    .byte $06
+    .byte $03
+    .word @defender_3
+    .byte $08
+    .byte $03
+    .word @defender_4
+
+@txt:
+    .text "Defenders"
+    .byte con_закончить
+
+@defender_1:
+    .byte con_opp_def_name, $00
+    .byte con_закончить
+
+@defender_2:
+    .byte con_opp_def_name, $01
+    .byte con_закончить
+
+@defender_3:
+    .byte con_opp_def_name, $02
+    .byte con_закончить
+
+@defender_4:
+    .byte con_opp_def_name, $03
+    .byte con_закончить
 
 
 

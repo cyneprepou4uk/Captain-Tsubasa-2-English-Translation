@@ -2467,18 +2467,42 @@ C - - - - 0x03D5D6 FF:D5C6: AD FB 05  LDA ram_команда_с_мячом
 C - - - - 0x03D5D9 FF:D5C9: F0 03     BEQ bra_D5CE
 C - - - - 0x03D5DB FF:D5CB: 4C 6E D3  JMP loc_D36E
 bra_D5CE:
-C - - - - 0x03D5DE FF:D5CE: AE 21 06  LDX $0621
-C - - - - 0x03D5E1 FF:D5D1: BD 06 D7  LDA tbl_D706,X
-C - - - - 0x03D5E4 FF:D5D4: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - 0x03D5E7 FF:D5D7: AE 21 06  LDX $0621
-C - - - - 0x03D5EA FF:D5DA: BD 00 D7  LDA tbl_D700,X
-C - - - - 0x03D5ED FF:D5DD: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D5F0 FF:D5E0: A9 00     LDA #$00
 C - - - - 0x03D5F2 FF:D5E2: 8D 1E 06  STA $061E
-bra_D5E5:
+C - - - - 0x03D5DE FF:D5CE: AE 21 06  LDX $0621
+C - - - - 0x03D5E1 FF:D5D1: BD 06 D7  LDA tbl_D706_окно_action,X
+C - - - - 0x03D5E4 FF:D5D4: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
+loc_D5D7:
+C - - - - 0x03D5E7 FF:D5D7: AE 21 06  LDX $0621
+C - - - - 0x03D5EA FF:D5DA: BD 00 D7  LDA tbl_D700_статы,X
+C - - - - 0x03D5ED FF:D5DD: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 loc_D5E5:
 C D - - - 0x03D5F5 FF:D5E5: A9 01     LDA #$01
 C - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F
+                                      LDA $0621
+                                      CMP #$05      ; не показывать список в пенальти
+                                      BEQ @читать_другие_кнопки
+                                      LDA ram_удержанные
+                                      AND #con_btn_Select
+                                      BEQ @читать_другие_кнопки
+                                      LDX ram_колво_нападающих
+                                      CPX #$05
+                                      BNE @меньше_4х_защитников
+                                      DEX      ; максимум отображать 4 защитника
+@меньше_4х_защитников:
+                                      DEX
+                                      TXA
+                                      CLC
+                                      ADC #$43      ; show_?_defenders
+                                      JSR sub_EF7F_отрисовка_меню_во_время_матча
+@продолжать_отображение_соперников:
+                                      LDA #$01
+                                      JSR sub_CB0F
+                                      LDA ram_удержанные
+                                      AND #con_btn_Select
+                                      BNE @продолжать_отображение_соперников
+                                      JMP loc_D5D7
+@читать_другие_кнопки:
 C - - - - 0x03D5FA FF:D5EA: A9 0F     LDA #con_btns_Dpad
 C - - - - 0x03D5FC FF:D5EC: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D5FF FF:D5EF: F0 35     BEQ bra_D626
@@ -2523,7 +2547,9 @@ C - - - - 0x03D642 FF:D632: 20 7C D6  JSR sub_D67C
 C - - - - 0x03D645 FF:D635: 4C C3 D5  JMP loc_D5C3
 bra_D638:
 C - - - - 0x03D648 FF:D638: 2C 1E 06  BIT $061E
-C - - - - 0x03D64B FF:D63B: 10 A8     BPL bra_D5E5
+C - - - - 0x03D64B FF:D63B: 10 A8     BMI bra_D63D
+                                      JMP loc_D5E5
+bra_D63D:
 C - - - - 0x03D64D FF:D63D: A9 20     LDA #$20
 C - - - - 0x03D64F FF:D63F: 2C 1E 06  BIT $061E
 C - - - - 0x03D652 FF:D642: D0 0B     BNE bra_D64F
@@ -2651,7 +2677,7 @@ tbl_D6E8_действие_при_владении_мячом:
 
 
 
-tbl_D700:
+tbl_D700_статы:
     .byte $03       ; player_dribble_pass_shoot
     .byte $04       ; player_trap_pass_shot
     .byte $05       ; player_trap_pass_clearing
@@ -2659,7 +2685,7 @@ tbl_D700:
     .byte $03       ; player_dribble_pass_shoot
     .byte $03       ; player_dribble_pass_shoot
 
-tbl_D706:
+tbl_D706_окно_action:
     .byte $02       ; player_action_window
     .byte $02       ; player_action_window
     .byte $02       ; player_action_window
