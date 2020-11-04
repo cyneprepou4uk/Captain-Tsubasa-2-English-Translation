@@ -4784,7 +4784,7 @@ C - - - - 0x03E566 FF:E556: A2 00     LDX #$00
 C - - - - 0x03E568 FF:E558: A0 00     LDY #$00
 bra_E55A:
 C - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_действие_защитника,X
-C - - - - 0x03E56D FF:E55D: C9 05     CMP #$05
+C - - - - 0x03E56D FF:E55D: C9 05     CMP #$05      ; mark
 C - - - - 0x03E56F FF:E55F: D0 0D     BNE bra_E56E
 C - - - - 0x03E571 FF:E561: BD 01 06  LDA ram_номер_нападающего,X
 C - - - - 0x03E574 FF:E564: F0 08     BEQ bra_E56E

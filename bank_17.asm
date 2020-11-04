@@ -679,13 +679,13 @@ C - - - - 0x0203F9 17:83E9: AA        TAX
 C - - - - 0x0203FA 17:83EA: 60        RTS
 
 ofs_83EB_1C_9C_спешал_дриблинг:
-; 00 - 
-; 01 - 
-; 02 - силовой дриблинг
-; 03 - 
-; 04 - 
-; 05 - 
-; 06 - 
+; 00 - dribble
+; 01 - heel lift
+; 02 - forcible dribble
+; 03 - vanishing feint
+; 04 - clone dribble
+; 05 - high speed dribble
+; 06 - hedgehog dribble
 C - J - - 0x0203FB 17:83EB: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x0203FE 17:83EE: 29 7F     AND #$7F
 C - - - - 0x020400 17:83F0: AA        TAX
@@ -5953,40 +5953,40 @@ sub_9CA3:
 - D - I - 0x021CB3 17:9CA3: FA        .byte con_jsr
 - D - I - 0x021CB4 17:9CA4: 95 A4     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
 - D - I - 0x021CB6 17:9CA6: F3        .byte con_branch, $0E
-- D - I - 0x021CB8 17:9CA8: EE A7     .word bra_long_case_A7EE_00
+- D - I - 0x021CB8 17:9CA8: EE A7     .word bra_long_case_A7EE_00_dribble
 - D - I - 0x021CBA 17:9CAA: EE A7     .word bra_long_case_A7EE_01
 - D - I - 0x021CBC 17:9CAC: B0 9C     .word bra_long_case_9CB0_02
 - D - I - 0x021CBE 17:9CAE: EE A7     .word bra_long_case_A7EE_03
 
 bra_long_case_9CB0_02:
 - D - I - 0x021CC0 17:9CB0: F3        .byte con_branch, $1C     ; спешал дриблинг
-- D - I - 0x021CC2 17:9CB2: EE A7     .word bra_long_case_A7EE_00
-- D - I - 0x021CC4 17:9CB4: 05 A8     .word bra_long_case_A805_01
-- - - - - 0x021CC6 17:9CB6: 20 A8     .word bra_long_case_A820_02
-- D - I - 0x021CC8 17:9CB8: 58 A8     .word bra_long_case_A858_03
-- D - I - 0x021CCA 17:9CBA: 99 A8     .word bra_long_case_A899_04
-- D - I - 0x021CCC 17:9CBC: C1 A8     .word bra_long_case_A8C1_05
-- - - - - 0x021CCE 17:9CBE: 11 A9     .word bra_long_case_A911_06
+- D - I - 0x021CC2 17:9CB2: EE A7     .word bra_long_case_A7EE_00_dribble
+- D - I - 0x021CC4 17:9CB4: 05 A8     .word bra_long_case_A805_01_heel_lift
+- - - - - 0x021CC6 17:9CB6: 20 A8     .word bra_long_case_A820_02_forcible_dribble
+- D - I - 0x021CC8 17:9CB8: 58 A8     .word bra_long_case_A858_03_vanishing_feint
+- D - I - 0x021CCA 17:9CBA: 99 A8     .word bra_long_case_A899_04_clone_dribble
+- D - I - 0x021CCC 17:9CBC: C1 A8     .word bra_long_case_A8C1_05_high_speed_dribble
+- - - - - 0x021CCE 17:9CBE: 11 A9     .word bra_long_case_A911_06_hedgehog_dribble
 
 loc_9CC0:
 sub_9CC0:
 - D - I - 0x021CD0 17:9CC0: FA        .byte con_jsr
 - D - I - 0x021CD1 17:9CC1: 95 A4     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
 - D - I - 0x021CD3 17:9CC3: F3        .byte con_branch, $0E
-- D - I - 0x021CD5 17:9CC5: 4F AA     .word bra_long_case_AA4F_00
+- D - I - 0x021CD5 17:9CC5: 4F AA     .word bra_long_case_AA4F_00_dribble
 - D - I - 0x021CD7 17:9CC7: 4F AA     .word bra_long_case_AA4F_01
 - D - I - 0x021CD9 17:9CC9: CD 9C     .word bra_long_case_9CCD_02
 - D - I - 0x021CDB 17:9CCB: 4F AA     .word bra_long_case_AA4F_03
 
 bra_long_case_9CCD_02:
 - D - I - 0x021CDD 17:9CCD: F3        .byte con_branch, $1C     ; спешал дриблинг
-- D - I - 0x021CDF 17:9CCF: 4F AA     .word bra_long_case_AA4F_00
-- D - I - 0x021CE1 17:9CD1: 62 AA     .word bra_long_case_AA62_01
-- - - - - 0x021CE3 17:9CD3: 6D AA     .word bra_long_case_AA6D_02
-- D - I - 0x021CE5 17:9CD5: B7 AA     .word bra_long_case_AAB7_03
-- D - I - 0x021CE7 17:9CD7: CB AA     .word bra_long_case_AACB_04
-- D - I - 0x021CE9 17:9CD9: E3 AA     .word bra_long_case_AAE3_05
-- - - - - 0x021CEB 17:9CDB: FF AA     .word bra_long_case_AAFF_06
+- D - I - 0x021CDF 17:9CCF: 4F AA     .word bra_long_case_AA4F_00_dribble
+- D - I - 0x021CE1 17:9CD1: 62 AA     .word bra_long_case_AA62_01_heel_lift
+- - - - - 0x021CE3 17:9CD3: 6D AA     .word bra_long_case_AA6D_02_forcible_dribble
+- D - I - 0x021CE5 17:9CD5: B7 AA     .word bra_long_case_AAB7_03_vanishing_feint
+- D - I - 0x021CE7 17:9CD7: CB AA     .word bra_long_case_AACB_04_clone_dribble
+- D - I - 0x021CE9 17:9CD9: E3 AA     .word bra_long_case_AAE3_05_high_speed_dribble
+- - - - - 0x021CEB 17:9CDB: FF AA     .word bra_long_case_AAFF_06_hedgehog_dribble
 
 
 
@@ -6172,20 +6172,20 @@ sub_9DFE:
 - D - I - 0x021E0E 17:9DFE: FA        .byte con_jsr
 - D - I - 0x021E0F 17:9DFF: 95 A4     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
 - D - I - 0x021E11 17:9E01: F3        .byte con_branch, $0E
-- D - I - 0x021E13 17:9E03: AD B3     .word bra_long_case_B3AD_00
+- D - I - 0x021E13 17:9E03: AD B3     .word bra_long_case_B3AD_00_dribble
 - D - I - 0x021E15 17:9E05: AD B3     .word bra_long_case_B3AD_01
 - D - I - 0x021E17 17:9E07: 0B 9E     .word bra_long_case_9E0B_02
 - D - I - 0x021E19 17:9E09: AD B3     .word bra_long_case_B3AD_03
 
 bra_long_case_9E0B_02:
 - D - I - 0x021E1B 17:9E0B: F3        .byte con_branch, $1C     ; спешал дриблинг
-- D - I - 0x021E1D 17:9E0D: AD B3     .word bra_long_case_B3AD_00
-- D - I - 0x021E1F 17:9E0F: AA B3     .word bra_long_case_B3AA_01
-- D - I - 0x021E21 17:9E11: AF B3     .word bra_long_case_B3AF_02
-- D - I - 0x021E23 17:9E13: E9 B3     .word bra_long_case_B3E9_03
-- D - I - 0x021E25 17:9E15: F4 B3     .word bra_long_case_B3F4_04
-- D - I - 0x021E27 17:9E17: 06 B4     .word bra_long_case_B406_05
-- D - I - 0x021E29 17:9E19: 14 B4     .word bra_long_case_B414_06
+- D - I - 0x021E1D 17:9E0D: AD B3     .word bra_long_case_B3AD_00_dribble
+- D - I - 0x021E1F 17:9E0F: AA B3     .word bra_long_case_B3AA_01_heel_lift
+- D - I - 0x021E21 17:9E11: AF B3     .word bra_long_case_B3AF_02_forcible_dribble
+- D - I - 0x021E23 17:9E13: E9 B3     .word bra_long_case_B3E9_03_vanishing_feint
+- D - I - 0x021E25 17:9E15: F4 B3     .word bra_long_case_B3F4_04_clone_dribble
+- D - I - 0x021E27 17:9E17: 06 B4     .word bra_long_case_B406_05_high_speed_dribble
+- D - I - 0x021E29 17:9E19: 14 B4     .word bra_long_case_B414_06_hedgehog_dribble
 
 sub_9E1B_защитник_убился_об_удар:
 - D - I - 0x021E2B 17:9E1B: F3        .byte con_branch, $42
@@ -8724,7 +8724,7 @@ bra_long_case_A7E7_00:
 - D - I - 0x0227FC 11:A7EC: 44        .byte con_cloud + $44
 - D - I - 0x0227FD 11:A7ED: FB        .byte con_rts
 
-bra_long_case_A7EE_00:
+bra_long_case_A7EE_00_dribble:
 bra_long_case_A7EE_01:
 bra_long_case_A7EE_03:
 - D - I - 0x0227FE 11:A7EE: F6        .byte con_mirror_toggle
@@ -8747,7 +8747,7 @@ loc_A7FE:
 - D - I - 0x022813 11:A803: F0        .byte con_cloud + con_skip
 - D - I - 0x022814 11:A804: FB        .byte con_rts
 
-bra_long_case_A805_01:
+bra_long_case_A805_01_heel_lift:
 - D - I - 0x022815 11:A805: FA        .byte con_jsr
 - D - I - 0x022816 11:A806: 10 A8     .word sub_A810
 - D - I - 0x022818 11:A808: F7        .byte con_F7, $02
@@ -8772,7 +8772,7 @@ sub_A810:
 - D - I - 0x02282E 11:A81E: F0        .byte con_cloud + con_skip
 - D - I - 0x02282F 11:A81F: FB        .byte con_rts
 
-bra_long_case_A820_02:
+bra_long_case_A820_02_forcible_dribble:
 - - - - - 0x022830 11:A820: F3        .byte con_branch, $C7     ; кто делает силовой дриблинг
 - - - - - 0x022832 11:A822: 06        .byte bra_case_A828_00_hyuga_из_японии - *
 - - - - - 0x022833 11:A823: 0E        .byte bra_case_A831_01_hyuga_из_тохо - *
@@ -8830,7 +8830,7 @@ bra_case_A855_05_игрок_без_рожи:
 - - - - - 0x022865 11:A855: F2        .byte con_jmp
 - - - - - 0x022866 11:A856: 7E AA     .word loc_AA7E
 
-bra_long_case_A858_03:
+bra_long_case_A858_03_vanishing_feint:
 - D - I - 0x022868 11:A858: FA        .byte con_jsr
 - D - I - 0x022869 11:A859: 6C A8     .word sub_A86C
 - D - I - 0x02286B 11:A85B: F7        .byte con_F7, $02
@@ -8887,7 +8887,7 @@ sub_A88F:
 - D - I - 0x0228A6 11:A896: C7 BB     .word sub_BBC7_очистка
 - D - I - 0x0228A8 11:A898: FB        .byte con_rts
 
-bra_long_case_A899_04:
+bra_long_case_A899_04_clone_dribble:
 - D - I - 0x0228A9 11:A899: F3        .byte con_branch, $BB     ; проверка на carlosа
 - D - I - 0x0228AB 11:A89B: 02        .byte bra_case_A89D_00_это_carlos - *
 - - - - - 0x0228AC 11:A89C: 1F        .byte bra_case_A8BB_01_это_не_carlos - *
@@ -8924,7 +8924,7 @@ bra_case_A8BB_01_это_не_carlos:
 - - - - - 0x0228CC 11:A8BC: 8F A8     .word sub_A88F
 - - - - - 0x0228CE 11:A8BE: F2        .byte con_jmp
 - - - - - 0x0228CF 11:A8BF: A0 A8     .word loc_A8A0
-bra_long_case_A8C1_05:
+bra_long_case_A8C1_05_high_speed_dribble:
 - D - I - 0x0228D1 11:A8C1: FA        .byte con_jsr
 - D - I - 0x0228D2 11:A8C2: D0 A8     .word sub_A8D0
 - D - I - 0x0228D4 11:A8C4: F7        .byte con_F7, $0D
@@ -8990,7 +8990,7 @@ sub_A908:
 - - - - - 0x02291E 11:A90E: F2        .byte con_jmp
 - - - - - 0x02291F 11:A90F: EB A8     .word loc_A8EB
 
-bra_long_case_A911_06:
+bra_long_case_A911_06_hedgehog_dribble:
 - - - - - 0x022921 11:A911: F3        .byte con_branch, $BA     ; проверка на kaltzа
 - - - - - 0x022923 11:A913: 02        .byte bra_case_A915_00_это_kaltz - *
 - - - - - 0x022924 11:A914: 1C        .byte bra_case_A930_01_это_не_kaltz - *
@@ -9341,7 +9341,7 @@ bra_case_AA48_21_kaltz:
 - D - I - 0x022A5C 11:AA4C: F2        .byte con_jmp
 - D - I - 0x022A5D 11:AA4D: C7 BB     .word loc_BBC7_очистка
 
-bra_long_case_AA4F_00:
+bra_long_case_AA4F_00_dribble:
 bra_long_case_AA4F_01:
 bra_long_case_AA4F_03:
 - D - I - 0x022A5F 11:AA4F: F6        .byte con_mirror_toggle
@@ -9362,7 +9362,7 @@ bra_long_case_AA4F_03:
 
 
 _scenario_AA62_6A:
-bra_long_case_AA62_01:
+bra_long_case_AA62_01_heel_lift:
 - D - I - 0x022A72 11:AA62: FA        .byte con_jsr
 - D - I - 0x022A73 11:AA63: 10 A8     .word sub_A810
 - D - I - 0x022A75 11:AA65: F7        .byte con_F7, $02
@@ -9373,7 +9373,7 @@ bra_long_case_AA62_01:
 - D - I - 0x022A7B 11:AA6B: F6        .byte con_mirror_toggle
 - D - I - 0x022A7C 11:AA6C: FB        .byte con_rts
 
-bra_long_case_AA6D_02:
+bra_long_case_AA6D_02_forcible_dribble:
 - - - - - 0x022A7D 11:AA6D: F3        .byte con_branch, $C7     ; кто делает силовой дриблинг
 - - - - - 0x022A7F 11:AA6F: 06        .byte bra_case_AA75_00_hyuga_из_японии - *
 - - - - - 0x022A80 11:AA70: 23        .byte bra_case_AA93_01_hyuga_из_тохо - *
@@ -9448,7 +9448,7 @@ bra_case_AAAE_04_napoleon:
 - - - - - 0x022AC4 11:AAB4: F2        .byte con_jmp
 - - - - - 0x022AC5 11:AAB5: 7B AA     .word loc_AA7B
 
-bra_long_case_AAB7_03:
+bra_long_case_AAB7_03_vanishing_feint:
 - D - I - 0x022AC7 11:AAB7: FA        .byte con_jsr
 - D - I - 0x022AC8 11:AAB8: 6C A8     .word sub_A86C
 - D - I - 0x022ACA 11:AABA: F7        .byte con_F7, $02
@@ -9465,7 +9465,7 @@ bra_long_case_AAB7_03:
 - D - I - 0x022AD9 11:AAC9: F6        .byte con_mirror_toggle
 - D - I - 0x022ADA 11:AACA: FB        .byte con_rts
 
-bra_long_case_AACB_04:
+bra_long_case_AACB_04_clone_dribble:
 - D - I - 0x022ADB 11:AACB: F3        .byte con_branch, $BB     ; проверка на carlosа
 - D - I - 0x022ADD 11:AACD: 02        .byte bra_case_AACF_00_это_carlos - *
 - - - - - 0x022ADE 11:AACE: 0F        .byte bra_case_AADD_01_это_не_carlos - *
@@ -9490,7 +9490,7 @@ bra_case_AADD_01_это_не_carlos:
 - - - - - 0x022AF0 11:AAE0: F2        .byte con_jmp
 - - - - - 0x022AF1 11:AAE1: D2 AA     .word loc_AAD2
 
-bra_long_case_AAE3_05:
+bra_long_case_AAE3_05_high_speed_dribble:
 - D - I - 0x022AF3 11:AAE3: FA        .byte con_jsr
 - D - I - 0x022AF4 11:AAE4: D0 A8     .word sub_A8D0
 - D - I - 0x022AF6 11:AAE6: F7        .byte con_F7, $0D
@@ -9513,7 +9513,7 @@ loc_AAEF:
 - D - I - 0x022B0D 11:AAFD: F6        .byte con_mirror_toggle
 - D - I - 0x022B0E 11:AAFE: FB        .byte con_rts
 
-bra_long_case_AAFF_06:
+bra_long_case_AAFF_06_hedgehog_dribble:
 - - - - - 0x022B0F 11:AAFF: F3        .byte con_branch, $BA     ; проверка на kaltzа
 - - - - - 0x022B11 11:AB01: 02        .byte bra_case_AB03_00_это_kaltz - *
 - - - - - 0x022B12 11:AB02: 29        .byte bra_case_AB2B_01_это_не_kaltz - *
@@ -11619,16 +11619,16 @@ bra_case_B3A1_0F:
 - - - - - 0x0233B7 11:B3A7: F2        .byte con_jmp
 - - - - - 0x0233B8 11:B3A8: B1 A7     .word loc_A7B1
 
-bra_long_case_B3AA_01:
+bra_long_case_B3AA_01_heel_lift:
 - D - I - 0x0233BA 11:B3AA: FA        .byte con_jsr
 - D - I - 0x0233BB 11:B3AB: 10 A8     .word sub_A810
-bra_long_case_B3AD_00:
+bra_long_case_B3AD_00_dribble:
 bra_long_case_B3AD_01:
 bra_long_case_B3AD_03:
 - D - I - 0x0233BD 11:B3AD: F6        .byte con_mirror_toggle
 - D - I - 0x0233BE 11:B3AE: FB        .byte con_rts
 
-bra_long_case_B3AF_02:
+bra_long_case_B3AF_02_forcible_dribble:
 - D - I - 0x0233BF 11:B3AF: F3        .byte con_branch, $C7     ; кто делает силовой дриблинг
 - D - I - 0x0233C1 11:B3B1: 06        .byte bra_case_B3B7_00_hyuga_из_японии - *
 - D - I - 0x0233C2 11:B3B2: 13        .byte bra_case_B3C5_01_hyuga_из_тохо - *
@@ -11689,7 +11689,7 @@ bra_case_B3E0_04_napoleon:
 - D - I - 0x0233F6 11:B3E6: F2        .byte con_jmp
 - D - I - 0x0233F7 11:B3E7: BD B3     .word loc_B3BD
 
-bra_long_case_B3E9_03:
+bra_long_case_B3E9_03_vanishing_feint:
 - D - I - 0x0233F9 11:B3E9: FA        .byte con_jsr
 - D - I - 0x0233FA 11:B3EA: 6C A8     .word sub_A86C
 - D - I - 0x0233FC 11:B3EC: F7        .byte con_F7, $02
@@ -11700,7 +11700,7 @@ bra_long_case_B3E9_03:
 - D - I - 0x023402 11:B3F2: F6        .byte con_mirror_toggle
 - D - I - 0x023403 11:B3F3: FB        .byte con_rts
 
-bra_long_case_B3F4_04:
+bra_long_case_B3F4_04_clone_dribble:
 - D - I - 0x023404 11:B3F4: F3        .byte con_branch, $BB     ; проверка на carlosа
 - D - I - 0x023406 11:B3F6: 02        .byte bra_case_B3F8_00_это_carlos - *
 - D - I - 0x023407 11:B3F7: 09        .byte bra_case_B400_01_это_не_carlos - *
@@ -11719,7 +11719,7 @@ bra_case_B400_01_это_не_carlos:
 - D - I - 0x023413 11:B403: F2        .byte con_jmp
 - D - I - 0x023414 11:B404: FB B3     .word loc_B3FB
 
-bra_long_case_B406_05:
+bra_long_case_B406_05_high_speed_dribble:
 - D - I - 0x023416 11:B406: FA        .byte con_jsr
 - D - I - 0x023417 11:B407: D0 A8     .word sub_A8D0
 - D - I - 0x023419 11:B409: F7        .byte con_F7, $0D
@@ -11731,7 +11731,7 @@ bra_long_case_B406_05:
 - D - I - 0x023422 11:B412: F6        .byte con_mirror_toggle
 - D - I - 0x023423 11:B413: FB        .byte con_rts
 
-bra_long_case_B414_06:
+bra_long_case_B414_06_hedgehog_dribble:
 - D - I - 0x023424 11:B414: F3        .byte con_branch, $BA     ; проверка на kaltzа
 - D - I - 0x023426 11:B416: 02        .byte bra_case_B418_00_это_kaltz - *
 - - - - - 0x023427 11:B417: 0B        .byte bra_case_B422_01_это_не_kaltz - *
