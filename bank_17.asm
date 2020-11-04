@@ -604,7 +604,7 @@ C - J - - 0x020394 17:8384: 20 8B 83  JSR sub_838B_действие_защитн
 ofs_836A_0F_8F:
 ; 00 - 
 ; 01 - 
-; 02 - 
+; 02 - ? штанга
 ; 03 - 
 ; 04 - 
 C - - - - 0x020397 17:8387: AE 12 06  LDX ram_результат_защитника
@@ -3997,7 +3997,7 @@ bra_case_9485_00:
 - D - I - 0x021495 17:9485: FA        .byte con_jsr
 - D - I - 0x021496 17:9486: 5B 9C     .word sub_9C5B
 - D - I - 0x021498 17:9488: FA        .byte con_jsr
-- D - I - 0x021499 17:9489: DD A1     .word sub_A1DD
+- D - I - 0x021499 17:9489: DD A1     .word sub_A1DD_triangle_jump
 - D - I - 0x02149B 17:948B: F2        .byte con_jmp
 - D - I - 0x02149C 17:948C: 0D 97     .word loc_970D
 
@@ -4005,7 +4005,7 @@ bra_case_948E_01:
 - D - I - 0x02149E 17:948E: FA        .byte con_jsr
 - D - I - 0x02149F 17:948F: 5B 9C     .word sub_9C5B
 - D - I - 0x0214A1 17:9491: FA        .byte con_jsr
-- D - I - 0x0214A2 17:9492: DD A1     .word sub_A1DD
+- D - I - 0x0214A2 17:9492: DD A1     .word sub_A1DD_triangle_jump
 - D - I - 0x0214A4 17:9494: F2        .byte con_jmp
 - D - I - 0x0214A5 17:9495: 16 97     .word loc_9716
 
@@ -4013,7 +4013,7 @@ bra_case_9497_02:
 - D - I - 0x0214A7 17:9497: FA        .byte con_jsr
 - D - I - 0x0214A8 17:9498: 5B 9C     .word sub_9C5B
 - D - I - 0x0214AA 17:949A: FA        .byte con_jsr
-- D - I - 0x0214AB 17:949B: DD A1     .word sub_A1DD
+- D - I - 0x0214AB 17:949B: DD A1     .word sub_A1DD_triangle_jump
 - D - I - 0x0214AD 17:949D: F2        .byte con_jmp
 - D - I - 0x0214AE 17:949E: 22 97     .word loc_9722
 
@@ -4021,7 +4021,7 @@ bra_case_94A0_03:
 - D - I - 0x0214B0 17:94A0: FA        .byte con_jsr
 - D - I - 0x0214B1 17:94A1: 5B 9C     .word sub_9C5B
 - D - I - 0x0214B3 17:94A3: FA        .byte con_jsr
-- D - I - 0x0214B4 17:94A4: DD A1     .word sub_A1DD
+- D - I - 0x0214B4 17:94A4: DD A1     .word sub_A1DD_triangle_jump
 - D - I - 0x0214B6 17:94A6: F2        .byte con_jmp
 - D - I - 0x0214B7 17:94A7: 31 97     .word loc_9731
 
@@ -4029,7 +4029,7 @@ bra_case_94A9_04:
 - D - I - 0x0214B9 17:94A9: FA        .byte con_jsr
 - D - I - 0x0214BA 17:94AA: 5B 9C     .word sub_9C5B
 - D - I - 0x0214BC 17:94AC: FA        .byte con_jsr
-- D - I - 0x0214BD 17:94AD: DD A1     .word sub_A1DD
+- D - I - 0x0214BD 17:94AD: DD A1     .word sub_A1DD_triangle_jump
 - D - I - 0x0214BF 17:94AF: F2        .byte con_jmp
 - D - I - 0x0214C0 17:94B0: 43 97     .word loc_9743
 
@@ -4037,7 +4037,7 @@ bra_case_94B2_01:
 - - - - - 0x0214C2 17:94B2: FA        .byte con_jsr
 - - - - - 0x0214C3 17:94B3: 5B 9C     .word sub_9C5B
 - - - - - 0x0214C5 17:94B5: FA        .byte con_jsr
-- - - - - 0x0214C6 17:94B6: DD A1     .word sub_A1DD
+- - - - - 0x0214C6 17:94B6: DD A1     .word sub_A1DD_triangle_jump
 - - - - - 0x0214C8 17:94B8: F2        .byte con_jmp
 - - - - - 0x0214C9 17:94B9: 55 97     .word loc_9755
 
@@ -4045,7 +4045,7 @@ bra_case_94BB_02:
 - D - I - 0x0214CB 17:94BB: FA        .byte con_jsr
 - D - I - 0x0214CC 17:94BC: 5B 9C     .word sub_9C5B
 - D - I - 0x0214CE 17:94BE: FA        .byte con_jsr
-- D - I - 0x0214CF 17:94BF: CA A1     .word sub_A1CA
+- D - I - 0x0214CF 17:94BF: CA A1     .word sub_A1CA_triangle_jump
 - D - I - 0x0214D1 17:94C1: FA        .byte con_jsr
 - D - I - 0x0214D2 17:94C2: 08 A3     .word sub_A308
 - D - I - 0x0214D4 17:94C4: F2        .byte con_jmp
@@ -4056,7 +4056,7 @@ bra_case_94C7_03:
 - D - I - 0x0214D7 17:94C7: FA        .byte con_jsr
 - D - I - 0x0214D8 17:94C8: 5B 9C     .word sub_9C5B
 - D - I - 0x0214DA 17:94CA: FA        .byte con_jsr
-- D - I - 0x0214DB 17:94CB: D1 A1     .word sub_A1D1
+- D - I - 0x0214DB 17:94CB: D1 A1     .word sub_A1D1_triangle_jump
 - D - I - 0x0214DD 17:94CD: F2        .byte con_jmp
 - D - I - 0x0214DE 17:94CE: 4E B4     .word loc_B44E_кипер_идеально_засейвил
 
@@ -4088,7 +4088,7 @@ bra_case_94E4_00:
 - D - I - 0x0214F4 17:94E4: FA        .byte con_jsr
 - D - I - 0x0214F5 17:94E5: 5B 9C     .word sub_9C5B
 - D - I - 0x0214F7 17:94E7: FA        .byte con_jsr
-- D - I - 0x0214F8 17:94E8: CA A1     .word sub_A1CA
+- D - I - 0x0214F8 17:94E8: CA A1     .word sub_A1CA_triangle_jump
 - D - I - 0x0214FA 17:94EA: F2        .byte con_jmp
 - D - I - 0x0214FB 17:94EB: 8A 97     .word loc_978A
 
@@ -4096,7 +4096,7 @@ bra_case_94ED_01:
 - - - - - 0x0214FD 17:94ED: FA        .byte con_jsr
 - - - - - 0x0214FE 17:94EE: 5B 9C     .word sub_9C5B
 - - - - - 0x021500 17:94F0: FA        .byte con_jsr
-- - - - - 0x021501 17:94F1: CA A1     .word sub_A1CA
+- - - - - 0x021501 17:94F1: CA A1     .word sub_A1CA_triangle_jump
 - - - - - 0x021503 17:94F3: F2        .byte con_jmp
 - - - - - 0x021504 17:94F4: 99 97     .word loc_9799
 
@@ -4104,7 +4104,7 @@ bra_case_94F6_02:
 - - - - - 0x021506 17:94F6: FA        .byte con_jsr
 - - - - - 0x021507 17:94F7: 5B 9C     .word sub_9C5B
 - - - - - 0x021509 17:94F9: FA        .byte con_jsr
-- - - - - 0x02150A 17:94FA: CA A1     .word sub_A1CA
+- - - - - 0x02150A 17:94FA: CA A1     .word sub_A1CA_triangle_jump
 - - - - - 0x02150C 17:94FC: F2        .byte con_jmp
 - - - - - 0x02150D 17:94FD: AB 97     .word loc_97AB
 
@@ -4112,7 +4112,7 @@ bra_case_94FF_03:
 - - - - - 0x02150F 17:94FF: FA        .byte con_jsr
 - - - - - 0x021510 17:9500: 5B 9C     .word sub_9C5B
 - - - - - 0x021512 17:9502: FA        .byte con_jsr
-- - - - - 0x021513 17:9503: CA A1     .word sub_A1CA
+- - - - - 0x021513 17:9503: CA A1     .word sub_A1CA_triangle_jump
 - - - - - 0x021515 17:9505: F2        .byte con_jmp
 - - - - - 0x021516 17:9506: C3 97     .word loc_97C3
 
@@ -4120,7 +4120,7 @@ bra_case_9508_04:
 - - - - - 0x021518 17:9508: FA        .byte con_jsr
 - - - - - 0x021519 17:9509: 5B 9C     .word sub_9C5B
 - - - - - 0x02151B 17:950B: FA        .byte con_jsr
-- - - - - 0x02151C 17:950C: CA A1     .word sub_A1CA
+- - - - - 0x02151C 17:950C: CA A1     .word sub_A1CA_triangle_jump
 - - - - - 0x02151E 17:950E: F2        .byte con_jmp
 - - - - - 0x02151F 17:950F: DB 97     .word loc_97DB
 
@@ -4128,7 +4128,7 @@ bra_case_9511_01:
 - - - - - 0x021521 17:9511: FA        .byte con_jsr
 - - - - - 0x021522 17:9512: 5B 9C     .word sub_9C5B
 - - - - - 0x021524 17:9514: FA        .byte con_jsr
-- - - - - 0x021525 17:9515: CA A1     .word sub_A1CA
+- - - - - 0x021525 17:9515: CA A1     .word sub_A1CA_triangle_jump
 - - - - - 0x021527 17:9517: F2        .byte con_jmp
 - - - - - 0x021528 17:9518: F3 97     .word loc_97F3
 
@@ -4136,7 +4136,7 @@ bra_case_951A_02:
 - - - - - 0x02152A 17:951A: FA        .byte con_jsr
 - - - - - 0x02152B 17:951B: 5B 9C     .word sub_9C5B
 - - - - - 0x02152D 17:951D: FA        .byte con_jsr
-- - - - - 0x02152E 17:951E: CA A1     .word sub_A1CA
+- - - - - 0x02152E 17:951E: CA A1     .word sub_A1CA_triangle_jump
 - - - - - 0x021530 17:9520: FA        .byte con_jsr
 - - - - - 0x021531 17:9521: DD A2     .word sub_A2DD
 - - - - - 0x021533 17:9523: FA        .byte con_jsr
@@ -7073,7 +7073,7 @@ sub_A1C3:
 - D - I - 0x0221D8 11:A1C8: 1B        .byte con_cloud + $1B
 - D - I - 0x0221D9 11:A1C9: FB        .byte con_rts
 
-sub_A1CA:
+sub_A1CA_triangle_jump:
 - D - I - 0x0221DA 11:A1CA: FC        .byte con_moving_bg, $01
 - D - I - 0x0221DC 11:A1CC: 20        .byte con_pause + $20
 - D - I - 0x0221DD 11:A1CD: 2E        .byte con_bg + $2E
@@ -7081,7 +7081,7 @@ sub_A1CA:
 - D - I - 0x0221DF 11:A1CF: 1C        .byte con_cloud + $1C
 - D - I - 0x0221E0 11:A1D0: FB        .byte con_rts
 
-sub_A1D1:
+sub_A1D1_triangle_jump:
 - D - I - 0x0221E1 11:A1D1: FC        .byte con_moving_bg, $01
 - D - I - 0x0221E3 11:A1D3: F9        .byte con_soundID_delay, $2A, $21
 - D - I - 0x0221E6 11:A1D6: 30        .byte con_pause + $30
@@ -7091,7 +7091,7 @@ sub_A1D1:
 - D - I - 0x0221EA 11:A1DA: FC        .byte con_moving_bg, $01
 - D - I - 0x0221EC 11:A1DC: FB        .byte con_rts
 
-sub_A1DD:
+sub_A1DD_triangle_jump:
 - D - I - 0x0221ED 11:A1DD: FC        .byte con_moving_bg, $01
 - D - I - 0x0221EF 11:A1DF: 30        .byte con_pause + $30
 - D - I - 0x0221F0 11:A1E0: 2E        .byte con_bg + $2E
@@ -13488,7 +13488,7 @@ bra_case_BADA_00:
 - - - - - 0x023AEB 11:BADB: 0E        .byte con_bg + $0E
 - - - - - 0x023AEC 11:BADC: 25        .byte con_animation + $25
 - - - - - 0x023AED 11:BADD: F0        .byte con_cloud + con_skip
-loc_BADE:
+loc_BADE_штанга_при_ударе_11м:
 bra_case_BADE_02:
 - D - I - 0x023AEE 11:BADE: F7        .byte con_F7, $1F
 - D - I - 0x023AF0 11:BAE0: F9        .byte con_soundID_delay, $63, $02
@@ -13510,7 +13510,7 @@ bra_case_BAEF_02:
 - - - - - 0x023B01 11:BAF1: 26        .byte con_animation + $26
 - - - - - 0x023B02 11:BAF2: F0        .byte con_cloud + con_skip
 - - - - - 0x023B03 11:BAF3: F2        .byte con_jmp
-- - - - - 0x023B04 11:BAF4: DE BA     .word loc_BADE
+- - - - - 0x023B04 11:BAF4: DE BA     .word loc_BADE_штанга_при_ударе_11м
 - - - - - 0x023B06 11:BAF6: FB        .byte con_rts
 
 bra_case_BAF7_00:
