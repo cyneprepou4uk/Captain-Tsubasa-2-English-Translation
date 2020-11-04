@@ -5841,18 +5841,13 @@ _scenario_9C19_47:
 - D - I - 0x021C29 17:9C19: FA        .byte con_jsr
 - D - I - 0x021C2A 17:9C1A: 36 9C     .word sub_9C36
 - D - I - 0x021C2C 17:9C1C: FA        .byte con_jsr
-- D - I - 0x021C2D 17:9C1D: 23 9C     .word sub_9C23_очистка
+- D - I - 0x021C2D 17:9C1D: 23 9C     .word sub_BBC7_очистка
 - D - I - 0x021C2F 17:9C1F: 5A        .byte con_pause + $5A
 - D - I - 0x021C30 17:9C20: 30        .byte con_bg + $30
 - D - I - 0x021C31 17:9C21: B7        .byte con_animation + $B7
 - D - I - 0x021C32 17:9C22: 78        .byte con_cloud + $78
-loc_9C23_очистка:
-sub_9C23_очистка:
-- D - I - 0x021C33 17:9C23: 01        .byte con_pause + $01
-- D - I - 0x021C34 17:9C24: F0        .byte con_bg + con_skip
-- D - I - 0x021C35 17:9C25: F0        .byte con_animation + con_skip
-- D - I - 0x021C36 17:9C26: 00        .byte con_cloud + con_clear
-- D - I - 0x021C37 17:9C27: FB        .byte con_rts
+                                      .byte con_jmp
+                                      .word loc_BBC7_очистка
 
 loc_9C28_проверка_на_рваную_сетку:
 - D - I - 0x021C38 17:9C28: F7        .byte con_F7, $03
@@ -5997,7 +5992,7 @@ bra_long_case_9CCD_02:
 
 _scenario_9CDD_25:
 - D - I - 0x021CED 17:9CDD: FA        .byte con_jsr
-- D - I - 0x021CEE 17:9CDE: 23 9C     .word sub_9C23_очистка
+- D - I - 0x021CEE 17:9CDE: 23 9C     .word sub_BBC7_очистка
 - D - I - 0x021CF0 17:9CE0: F3        .byte con_branch, $8C
 - D - I - 0x021CF2 17:9CE2: 02        .byte bra_case_9CE4_00 - *
 - D - I - 0x021CF3 17:9CE3: 10        .byte bra_case_9CF3_01 - *
@@ -6201,7 +6196,7 @@ sub_9E1B_защитник_убился_об_удар:
 
 _scenario_9E2D_26:
 - D - I - 0x021E3D 17:9E2D: FA        .byte con_jsr
-- D - I - 0x021E3E 17:9E2E: 23 9C     .word sub_9C23_очистка
+- D - I - 0x021E3E 17:9E2E: 23 9C     .word sub_BBC7_очистка
 - D - I - 0x021E40 17:9E30: F3        .byte con_branch, $8C
 - D - I - 0x021E42 17:9E32: 02        .byte bra_case_9E34_00 - *
 - D - I - 0x021E43 17:9E33: 12        .byte bra_case_9E45_01_летит_низкий_мяч - *
@@ -6457,7 +6452,7 @@ bra_case_9FA1_01_крит_морисаки:
 - D - I - 0x021FB4 17:9FA4: 94        .byte con_animation + $94
 - D - I - 0x021FB5 17:9FA5: A0        .byte con_cloud + $A0
 - D - I - 0x021FB6 17:9FA6: F2        .byte con_jmp
-- D - I - 0x021FB7 17:9FA7: 23 9C     .word loc_9C23_очистка
+- D - I - 0x021FB7 17:9FA7: 23 9C     .word loc_BBC7_очистка
 
 bra_case_9FA9_02_крит_вакабаяши:
 - D - I - 0x021FB9 17:9FA9: F9        .byte con_soundID_delay, $20, $02     ; ???
@@ -6466,7 +6461,7 @@ bra_case_9FA9_02_крит_вакабаяши:
 - D - I - 0x021FBE 17:9FAE: 75        .byte con_animation + $75
 - D - I - 0x021FBF 17:9FAF: A1        .byte con_cloud + $A1
 - D - I - 0x021FC0 17:9FB0: F2        .byte con_jmp
-- D - I - 0x021FC1 17:9FB1: 23 9C     .word loc_9C23_очистка
+- D - I - 0x021FC1 17:9FB1: 23 9C     .word loc_BBC7_очистка
 
 bra_case_9FB3_00_кипер_без_крита:
 - D - I - 0x021FC3 17:9FB3: FB        .byte con_rts
@@ -7263,10 +7258,8 @@ loc_A275:
 - D - I - 0x02228E 11:A27E: 01        .byte bra_case_A27F_01_германия_проигрывает - *
 
 bra_case_A27F_01_германия_проигрывает:
-- D - I - 0x02228F 11:A27F: 01        .byte con_pause + $01
-- D - I - 0x022290 11:A280: F0        .byte con_bg + con_skip
-- D - I - 0x022291 11:A281: F0        .byte con_animation + con_skip
-- D - I - 0x022292 11:A282: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x022293 11:A283: A0        .byte con_pause + $A0
 - D - I - 0x022294 11:A284: 30        .byte con_bg + $30
 - D - I - 0x022295 11:A285: B8        .byte con_animation + $B8
@@ -7284,10 +7277,8 @@ bra_case_A28C_01_гол_забили_джито_с_сано:
 - - - - - 0x02229F 11:A28F: 0C        .byte bra_case_A29B_01_это_джито_из_куними - *
 
 bra_case_A290_00_это_джито_из_японии:
-- D - I - 0x0222A0 11:A290: 01        .byte con_pause + $01
-- D - I - 0x0222A1 11:A291: F0        .byte con_bg + con_skip
-- D - I - 0x0222A2 11:A292: F0        .byte con_animation + con_skip
-- D - I - 0x0222A3 11:A293: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x0222A4 11:A294: D0        .byte con_pause + $D0
 - D - I - 0x0222A5 11:A295: 30        .byte con_bg + $30
 - D - I - 0x0222A6 11:A296: A0        .byte con_animation + $A0
@@ -7296,10 +7287,8 @@ bra_case_A290_00_это_джито_из_японии:
 - D - I - 0x0222A9 11:A299: A3 A2     .word loc_A2A3
 
 bra_case_A29B_01_это_джито_из_куними:
-- - - - - 0x0222AB 11:A29B: 01        .byte con_pause + $01
-- - - - - 0x0222AC 11:A29C: F0        .byte con_bg + con_skip
-- - - - - 0x0222AD 11:A29D: F0        .byte con_animation + con_skip
-- - - - - 0x0222AE 11:A29E: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - - - - - 0x0222AF 11:A29F: D0        .byte con_pause + $D0
 - - - - - 0x0222B0 11:A2A0: 30        .byte con_bg + $30
 - - - - - 0x0222B1 11:A2A1: AA        .byte con_animation + $AA
@@ -9874,10 +9863,8 @@ bra_case_AC76_00_это_хюга:
 - D - I - 0x022C88 11:AC78: 9E        .byte con_animation + $9E
 - D - I - 0x022C89 11:AC79: B3        .byte con_cloud + $B3
 loc_AC7A:
-- D - I - 0x022C8A 11:AC7A: 01        .byte con_pause + $01
-- D - I - 0x022C8B 11:AC7B: F0        .byte con_bg + con_skip
-- D - I - 0x022C8C 11:AC7C: F0        .byte con_animation + con_skip
-- D - I - 0x022C8D 11:AC7D: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x022C8E 11:AC7E: F9        .byte con_soundID_delay, $16, $02
 - D - I - 0x022C91 11:AC81: F7        .byte con_F7, $1B
 - D - I - 0x022C93 11:AC83: 28        .byte con_pause + $28
@@ -10993,10 +10980,8 @@ bra_case_B0FF_00_коимбра_еще_не_бил:
 - D - I - 0x023148 11:B138: B5        .byte con_animation + $B5
 - D - I - 0x023149 11:B139: 8D        .byte con_cloud + $8D
 - D - I - 0x02314A 11:B13A: F9        .byte con_soundID_delay, $7F, $02
-- D - I - 0x02314D 11:B13D: 01        .byte con_pause + $01
-- D - I - 0x02314E 11:B13E: F0        .byte con_bg + con_skip
-- D - I - 0x02314F 11:B13F: F0        .byte con_animation + con_skip
-- D - I - 0x023150 11:B140: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 bra_case_B141_01_коимбра_уже_бил:
 - D - I - 0x023151 11:B141: F5        .byte con_mirror_off
 - D - I - 0x023152 11:B142: F8        .byte con_F8, $04
@@ -11294,10 +11279,8 @@ bra_long_case_B26F_20_foward_somersault:
 - D - I - 0x02329B 11:B28B: 5C        .byte con_bg + $5C
 - D - I - 0x02329C 11:B28C: CD        .byte con_animation + $CD
 - D - I - 0x02329D 11:B28D: F0        .byte con_cloud + con_skip
-- D - I - 0x02329E 11:B28E: 01        .byte con_pause + $01
-- D - I - 0x02329F 11:B28F: F0        .byte con_bg + con_skip
-- D - I - 0x0232A0 11:B290: F0        .byte con_animation + con_skip
-- D - I - 0x0232A1 11:B291: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x0232A2 11:B292: F7        .byte con_F7, $1F
 - D - I - 0x0232A4 11:B294: 78        .byte con_pause + $78
 - D - I - 0x0232A5 11:B295: 30        .byte con_bg + $30
@@ -11588,10 +11571,8 @@ bra_case_B372_05:
 - D - I - 0x023386 11:B376: A0        .byte con_animation + $A0
 - D - I - 0x023387 11:B377: D8        .byte con_cloud + $D8
 loc_B378:
-- D - I - 0x023388 11:B378: 01        .byte con_pause + $01
-- D - I - 0x023389 11:B379: F0        .byte con_bg + con_skip
-- D - I - 0x02338A 11:B37A: F0        .byte con_animation + con_skip
-- D - I - 0x02338B 11:B37B: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 bra_case_B37C_07:
 bra_case_B37C_08:
 bra_case_B37C_09:
@@ -12805,10 +12786,8 @@ _scenario_B817_16:
 
 loc_B822:
 sub_B822:
-- D - I - 0x023832 11:B822: 01        .byte con_pause + $01
-- D - I - 0x023833 11:B823: F0        .byte con_bg + con_skip
-- D - I - 0x023834 11:B824: F0        .byte con_animation + con_skip
-- D - I - 0x023835 11:B825: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x023836 11:B826: F5        .byte con_mirror_off
 - D - I - 0x023837 11:B827: 8C        .byte con_pause + $8C
 - D - I - 0x023838 11:B828: 32        .byte con_bg + $32
@@ -12818,10 +12797,8 @@ sub_B822:
 - D - I - 0x02383C 11:B82C: C7 BB     .word loc_BBC7_очистка
 
 sub_B82E:
-- D - I - 0x02383E 11:B82E: 01        .byte con_pause + $01
-- D - I - 0x02383F 11:B82F: F0        .byte con_bg + con_skip
-- D - I - 0x023840 11:B830: F0        .byte con_animation + con_skip
-- D - I - 0x023841 11:B831: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x023842 11:B832: F5        .byte con_mirror_off
 - D - I - 0x023843 11:B833: 64        .byte con_pause + $64
 - D - I - 0x023844 11:B834: 32        .byte con_bg + $32
@@ -12831,10 +12808,8 @@ sub_B82E:
 - D - I - 0x023848 11:B838: C7 BB     .word loc_BBC7_очистка
 
 loc_B83A:
-- D - I - 0x02384A 11:B83A: 01        .byte con_pause + $01
-- D - I - 0x02384B 11:B83B: F0        .byte con_bg + con_skip
-- D - I - 0x02384C 11:B83C: F0        .byte con_animation + con_skip
-- D - I - 0x02384D 11:B83D: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x02384E 11:B83E: F6        .byte con_mirror_toggle
 - D - I - 0x02384F 11:B83F: 5A        .byte con_pause + $5A
 - D - I - 0x023850 11:B840: 30        .byte con_bg + $30
@@ -12846,10 +12821,8 @@ loc_B83A:
 - D - I - 0x023857 11:B847: FB        .byte con_rts
 
 sub_B848:
-- D - I - 0x023858 11:B848: 01        .byte con_pause + $01
-- D - I - 0x023859 11:B849: F0        .byte con_bg + con_skip
-- D - I - 0x02385A 11:B84A: F0        .byte con_animation + con_skip
-- D - I - 0x02385B 11:B84B: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x02385C 11:B84C: F6        .byte con_mirror_toggle
 - D - I - 0x02385D 11:B84D: 5A        .byte con_pause + $5A
 - D - I - 0x02385E 11:B84E: 30        .byte con_bg + $30
@@ -12918,11 +12891,8 @@ loc_B859_катсцена_озарения:
 - D - I - 0x0238A7 11:B897: F0        .byte con_animation + con_skip
 - D - I - 0x0238A8 11:B898: F0        .byte con_cloud + con_skip
 - D - I - 0x0238A9 11:B899: F9        .byte con_soundID_delay, $7F, $02
-- D - I - 0x0238AC 11:B89C: 01        .byte con_pause + $01
-- D - I - 0x0238AD 11:B89D: F0        .byte con_bg + con_skip
-- D - I - 0x0238AE 11:B89E: F0        .byte con_animation + con_skip
-- D - I - 0x0238AF 11:B89F: 00        .byte con_cloud + con_clear
-- D - I - 0x0238B0 11:B8A0: FB        .byte con_rts
+                                      .byte con_jmp
+                                      .word loc_BBC7_очистка
 
 
 
@@ -12949,10 +12919,8 @@ _scenario_B8A1_17:
 - D - I - 0x0238CA 11:B8BA: 20        .byte con_bg + $20
 - D - I - 0x0238CB 11:B8BB: 4C        .byte con_animation + $4C
 - D - I - 0x0238CC 11:B8BC: F0        .byte con_cloud + con_skip
-- D - I - 0x0238CD 11:B8BD: 01        .byte con_pause + $01
-- D - I - 0x0238CE 11:B8BE: F0        .byte con_bg + con_skip
-- D - I - 0x0238CF 11:B8BF: F0        .byte con_animation + con_skip
-- D - I - 0x0238D0 11:B8C0: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x0238D1 11:B8C1: 5A        .byte con_pause + $5A
 - D - I - 0x0238D2 11:B8C2: 30        .byte con_bg + $30
 - D - I - 0x0238D3 11:B8C3: 91        .byte con_animation + $91
@@ -13010,10 +12978,8 @@ _scenario_B8A1_17:
 - D - I - 0x023915 11:B905: 07        .byte con_bg + $07
 - D - I - 0x023916 11:B906: 45        .byte con_animation + $45
 - D - I - 0x023917 11:B907: 28        .byte con_cloud + $28
-- D - I - 0x023918 11:B908: 01        .byte con_pause + $01
-- D - I - 0x023919 11:B909: F0        .byte con_bg + con_skip
-- D - I - 0x02391A 11:B90A: F0        .byte con_animation + con_skip
-- D - I - 0x02391B 11:B90B: 00        .byte con_cloud + con_clear
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
 - D - I - 0x02391C 11:B90C: 6E        .byte con_pause + $6E
 - D - I - 0x02391D 11:B90D: 32        .byte con_bg + $32
 - D - I - 0x02391E 11:B90E: A8        .byte con_animation + $A8
@@ -13475,11 +13441,8 @@ bra_case_BA9F_00:
 - D - I - 0x023AB4 11:BAA4: 27        .byte con_animation + $27
 - D - I - 0x023AB5 11:BAA5: DD        .byte con_cloud + $DD
 - D - I - 0x023AB6 11:BAA6: F9        .byte con_soundID_delay, $7E, $02
-- D - I - 0x023AB9 11:BAA9: 01        .byte con_pause + $01
-- D - I - 0x023ABA 11:BAAA: F0        .byte con_bg + con_skip
-- D - I - 0x023ABB 11:BAAB: F0        .byte con_animation + con_skip
-- D - I - 0x023ABC 11:BAAC: F0        .byte con_cloud + con_skip
-- D - I - 0x023ABD 11:BAAD: FB        .byte con_rts
+                                      .byte con_jmp
+                                      .word loc_BBC7_очистка
 
 bra_case_BAAE_01:
 bra_case_BAAE_02:
@@ -13489,11 +13452,8 @@ bra_case_BAAE_02:
 - - - - - 0x023AC3 11:BAB3: 2B        .byte con_animation + $2B
 - - - - - 0x023AC4 11:BAB4: DD        .byte con_cloud + $DD
 - - - - - 0x023AC5 11:BAB5: F9        .byte con_soundID_delay, $7E, $02
-- - - - - 0x023AC8 11:BAB8: 01        .byte con_pause + $01
-- - - - - 0x023AC9 11:BAB9: F0        .byte con_bg + con_skip
-- - - - - 0x023ACA 11:BABA: F0        .byte con_animation + con_skip
-- - - - - 0x023ACB 11:BABB: F0        .byte con_cloud + con_skip
-- - - - - 0x023ACC 11:BABC: FB        .byte con_rts
+                                      .byte con_jmp
+                                      .word loc_BBC7_очистка
 
 bra_case_BABD_01:
 - D - I - 0x023ACD 11:BABD: F7        .byte con_F7, $07
