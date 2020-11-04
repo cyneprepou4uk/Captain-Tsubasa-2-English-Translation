@@ -4230,7 +4230,7 @@ bra_case_957B_03:
 - D - I - 0x02158B 17:957B: FA        .byte con_jsr
 - D - I - 0x02158C 17:957C: A6 A0     .word sub_A0A6
 - D - I - 0x02158E 17:957E: F2        .byte con_jmp
-- D - I - 0x02158F 17:957F: 70 97     .word loc_9770
+- D - I - 0x02158F 17:957F: 70 97     .word loc_9770_сообщение_об_идеальном_сейве
 
 bra_case_9581_01_защитник_убьется:
 - D - I - 0x021591 17:9581: F3        .byte con_branch, $83     ; результат действия защитника
@@ -4377,7 +4377,7 @@ bra_case_9607_03:
 - D - I - 0x021617 17:9607: FA        .byte con_jsr
 - D - I - 0x021618 17:9608: CD A0     .word sub_A0CD_rolling_save
 - D - I - 0x02161A 17:960A: F2        .byte con_jmp
-- D - I - 0x02161B 17:960B: 6D 97     .word loc_976D
+- D - I - 0x02161B 17:960B: 6D 97     .word loc_976D_кипер_ловит_мяч
 
 bra_case_960D_01_защитник_убьется:
 - - - - - 0x02161D 17:960D: F3        .byte con_branch, $83     ; результат действия защитника
@@ -4517,7 +4517,7 @@ bra_case_968A_03:
 - D - I - 0x02169A 17:968A: FA        .byte con_jsr
 - D - I - 0x02169B 17:968B: FF A1     .word sub_A1FF
 - D - I - 0x02169D 17:968D: F2        .byte con_jmp
-- D - I - 0x02169E 17:968E: 6D 97     .word loc_976D
+- D - I - 0x02169E 17:968E: 6D 97     .word loc_976D_кипер_ловит_мяч
 
 bra_case_9690_01_защитник_убьется:
 - - - - - 0x0216A0 17:9690: F3        .byte con_branch, $83     ; результат действия защитника
@@ -4652,7 +4652,7 @@ bra_case_9704_00_защитник_не_появится:
 
 bra_case_9707_00:
 - D - I - 0x021717 17:9707: FA        .byte con_jsr
-- D - I - 0x021718 17:9708: E4 A1     .word sub_A1E4
+- D - I - 0x021718 17:9708: E4 A1     .word sub_A1E4_dark_illusion
 loc_970A:
 - D - I - 0x02171A 17:970A: FA        .byte con_jsr
 - D - I - 0x02171B 17:970B: 09 A1     .word sub_A109
@@ -4663,7 +4663,7 @@ bra_case_970D_00_гол:
 
 bra_case_9710_01:
 - - - - - 0x021720 17:9710: FA        .byte con_jsr
-- - - - - 0x021721 17:9711: E4 A1     .word sub_A1E4
+- - - - - 0x021721 17:9711: E4 A1     .word sub_A1E4_dark_illusion
 loc_9713:
 - - - - - 0x021723 17:9713: FA        .byte con_jsr
 - - - - - 0x021724 17:9714: 09 A1     .word sub_A109
@@ -4676,7 +4676,7 @@ bra_case_9716_01_штанга:
 
 bra_case_971C_02:
 - - - - - 0x02172C 17:971C: FA        .byte con_jsr
-- - - - - 0x02172D 17:971D: E4 A1     .word sub_A1E4
+- - - - - 0x02172D 17:971D: E4 A1     .word sub_A1E4_dark_illusion
 loc_971F:
 - - - - - 0x02172F 17:971F: FA        .byte con_jsr
 - - - - - 0x021730 17:9720: 09 A1     .word sub_A109
@@ -4691,7 +4691,7 @@ bra_case_9722_02_защитник_отобьет:
 
 bra_case_972B_03:
 - - - - - 0x02173B 17:972B: FA        .byte con_jsr
-- - - - - 0x02173C 17:972C: E4 A1     .word sub_A1E4
+- - - - - 0x02173C 17:972C: E4 A1     .word sub_A1E4_dark_illusion
 loc_972E:
 - - - - - 0x02173E 17:972E: FA        .byte con_jsr
 - - - - - 0x02173F 17:972F: 09 A1     .word sub_A109
@@ -4708,7 +4708,7 @@ bra_case_9731_03_штанга_и_добивание:
 
 bra_case_973D_04:
 - - - - - 0x02174D 17:973D: FA        .byte con_jsr
-- - - - - 0x02174E 17:973E: E4 A1     .word sub_A1E4
+- - - - - 0x02174E 17:973E: E4 A1     .word sub_A1E4_dark_illusion
 loc_9740:
 - - - - - 0x021750 17:9740: FA        .byte con_jsr
 - - - - - 0x021751 17:9741: 09 A1     .word sub_A109
@@ -4729,7 +4729,7 @@ bra_case_9749_01_защитник_убьется:
 
 bra_case_974F_01:
 - - - - - 0x02175F 17:974F: FA        .byte con_jsr
-- - - - - 0x021760 17:9750: E4 A1     .word sub_A1E4
+- - - - - 0x021760 17:9750: E4 A1     .word sub_A1E4_dark_illusion
 loc_9752:
 - - - - - 0x021762 17:9752: FA        .byte con_jsr
 - - - - - 0x021763 17:9753: 09 A1     .word sub_A109
@@ -4742,7 +4742,7 @@ bra_case_9755_01_мяч_порвется:
 
 bra_case_975B_02:
 - D - I - 0x02176B 17:975B: FA        .byte con_jsr
-- D - I - 0x02176C 17:975C: E4 A1     .word sub_A1E4
+- D - I - 0x02176C 17:975C: E4 A1     .word sub_A1E4_dark_illusion
 loc_975E:
 - D - I - 0x02176E 17:975E: FA        .byte con_jsr
 - D - I - 0x02176F 17:975F: 46 A1     .word sub_A146
@@ -4756,11 +4756,11 @@ loc_975E:
 loc_976A:
 bra_case_976A_03:
 - D - I - 0x02177A 17:976A: FA        .byte con_jsr
-- D - I - 0x02177B 17:976B: E4 A1     .word sub_A1E4
-loc_976D:
+- D - I - 0x02177B 17:976B: E4 A1     .word sub_A1E4_dark_illusion
+loc_976D_кипер_ловит_мяч:
 - D - I - 0x02177D 17:976D: FA        .byte con_jsr
-- D - I - 0x02177E 17:976E: 99 A0     .word sub_A099
-loc_9770:
+- D - I - 0x02177E 17:976E: 99 A0     .word sub_A099_анимация_кипер_ловит_мяч
+loc_9770_сообщение_об_идеальном_сейве:
 - D - I - 0x021780 17:9770: FA        .byte con_jsr
 - D - I - 0x021781 17:9771: 4E B4     .word sub_B44E_кипер_идеально_засейвил
 - D - I - 0x021783 17:9773: F2        .byte con_jmp
@@ -4785,10 +4785,10 @@ bra_case_977D_00:
 
 bra_case_9784_00:
 - D - I - 0x021794 17:9784: FA        .byte con_jsr
-- D - I - 0x021795 17:9785: E4 A1     .word sub_A1E4
+- D - I - 0x021795 17:9785: E4 A1     .word sub_A1E4_dark_illusion
 loc_9787:
 - D - I - 0x021797 17:9787: FA        .byte con_jsr
-- D - I - 0x021798 17:9788: 1D A1     .word sub_A11D
+- D - I - 0x021798 17:9788: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 loc_978A:
 - D - I - 0x02179A 17:978A: FA        .byte con_jsr
 - D - I - 0x02179B 17:978B: DD A2     .word sub_A2DD
@@ -4799,10 +4799,10 @@ loc_978A:
 
 bra_case_9793_01:
 - - - - - 0x0217A3 17:9793: FA        .byte con_jsr
-- - - - - 0x0217A4 17:9794: E4 A1     .word sub_A1E4
+- - - - - 0x0217A4 17:9794: E4 A1     .word sub_A1E4_dark_illusion
 loc_9796:
 - - - - - 0x0217A6 17:9796: FA        .byte con_jsr
-- - - - - 0x0217A7 17:9797: 1D A1     .word sub_A11D
+- - - - - 0x0217A7 17:9797: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 loc_9799:
 - D - I - 0x0217A9 17:9799: FA        .byte con_jsr
 - D - I - 0x0217AA 17:979A: DD A2     .word sub_A2DD
@@ -4815,10 +4815,10 @@ loc_9799:
 
 bra_case_97A5_02:
 - - - - - 0x0217B5 17:97A5: FA        .byte con_jsr
-- - - - - 0x0217B6 17:97A6: E4 A1     .word sub_A1E4
+- - - - - 0x0217B6 17:97A6: E4 A1     .word sub_A1E4_dark_illusion
 loc_97A8:
 - - - - - 0x0217B8 17:97A8: FA        .byte con_jsr
-- - - - - 0x0217B9 17:97A9: 1D A1     .word sub_A11D
+- - - - - 0x0217B9 17:97A9: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 loc_97AB:
 - - - - - 0x0217BB 17:97AB: FA        .byte con_jsr
 - - - - - 0x0217BC 17:97AC: DD A2     .word sub_A2DD
@@ -4835,10 +4835,10 @@ loc_97AB:
 
 bra_case_97BD_03:
 - - - - - 0x0217CD 17:97BD: FA        .byte con_jsr
-- - - - - 0x0217CE 17:97BE: E4 A1     .word sub_A1E4
+- - - - - 0x0217CE 17:97BE: E4 A1     .word sub_A1E4_dark_illusion
 loc_97C0:
 - - - - - 0x0217D0 17:97C0: FA        .byte con_jsr
-- - - - - 0x0217D1 17:97C1: 1D A1     .word sub_A11D
+- - - - - 0x0217D1 17:97C1: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 loc_97C3:
 - - - - - 0x0217D3 17:97C3: FA        .byte con_jsr
 - - - - - 0x0217D4 17:97C4: DD A2     .word sub_A2DD
@@ -4855,10 +4855,10 @@ loc_97C3:
 
 bra_case_97D5_04:
 - - - - - 0x0217E5 17:97D5: FA        .byte con_jsr
-- - - - - 0x0217E6 17:97D6: E4 A1     .word sub_A1E4
+- - - - - 0x0217E6 17:97D6: E4 A1     .word sub_A1E4_dark_illusion
 loc_97D8:
 - - - - - 0x0217E8 17:97D8: FA        .byte con_jsr
-- - - - - 0x0217E9 17:97D9: 1D A1     .word sub_A11D
+- - - - - 0x0217E9 17:97D9: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 loc_97DB:
 - D - I - 0x0217EB 17:97DB: FA        .byte con_jsr
 - D - I - 0x0217EC 17:97DC: DD A2     .word sub_A2DD
@@ -4875,10 +4875,10 @@ loc_97DB:
 
 bra_case_97ED_01:
 - - - - - 0x0217FD 17:97ED: FA        .byte con_jsr
-- - - - - 0x0217FE 17:97EE: E4 A1     .word sub_A1E4
+- - - - - 0x0217FE 17:97EE: E4 A1     .word sub_A1E4_dark_illusion
 loc_97F0:
 - - - - - 0x021800 17:97F0: FA        .byte con_jsr
-- - - - - 0x021801 17:97F1: 1D A1     .word sub_A11D
+- - - - - 0x021801 17:97F1: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 loc_97F3:
 - D - I - 0x021803 17:97F3: FA        .byte con_jsr
 - D - I - 0x021804 17:97F4: DD A2     .word sub_A2DD
@@ -4891,10 +4891,10 @@ loc_97F3:
 
 bra_case_97FF_02:
 - - - - - 0x02180F 17:97FF: FA        .byte con_jsr
-- - - - - 0x021810 17:9800: E4 A1     .word sub_A1E4
+- - - - - 0x021810 17:9800: E4 A1     .word sub_A1E4_dark_illusion
 loc_9802:
 - - - - - 0x021812 17:9802: FA        .byte con_jsr
-- - - - - 0x021813 17:9803: 1D A1     .word sub_A11D
+- - - - - 0x021813 17:9803: 1D A1     .word sub_A11D_анимация_кипер_легко_отбивает
 - - - - - 0x021815 17:9805: FA        .byte con_jsr
 - - - - - 0x021816 17:9806: DD A2     .word sub_A2DD
 - - - - - 0x021818 17:9808: FA        .byte con_jsr
@@ -6733,7 +6733,7 @@ sub_A094:
 - D - I - 0x0220A7 11:A097: 0C        .byte con_cloud + $0C
 - D - I - 0x0220A8 11:A098: FB        .byte con_rts
 
-sub_A099:
+sub_A099_анимация_кипер_ловит_мяч:
 - D - I - 0x0220A9 11:A099: F9        .byte con_soundID_delay, $2A, $02     ; ловля мяча/мяч приклеился
 - D - I - 0x0220AC 11:A09C: 28        .byte con_pause + $28
 - D - I - 0x0220AD 11:A09D: 03        .byte con_bg + $03
@@ -6879,7 +6879,7 @@ bra_case_A118_02:
 - D - I - 0x02212B 11:A11B: 0C        .byte con_cloud + $0C
 - D - I - 0x02212C 11:A11C: FB        .byte con_rts
 
-sub_A11D:
+sub_A11D_анимация_кипер_легко_отбивает:
 - D - I - 0x02212D 11:A11D: 1E        .byte con_pause + $1E
 - D - I - 0x02212E 11:A11E: 0E        .byte con_bg + $0E
 - D - I - 0x02212F 11:A11F: 27        .byte con_animation + $27
@@ -7099,7 +7099,7 @@ sub_A1DD:
 - D - I - 0x0221F2 11:A1E2: 1E        .byte con_cloud + $1E
 - D - I - 0x0221F3 11:A1E3: FB        .byte con_rts
 
-sub_A1E4:
+sub_A1E4_dark_illusion:
 - D - I - 0x0221F4 11:A1E4: F7        .byte con_F7, $41
 - D - I - 0x0221F6 11:A1E6: F9        .byte con_soundID_delay, $21, $02
 - D - I - 0x0221F9 11:A1E9: E0        .byte con_pause + $E0
