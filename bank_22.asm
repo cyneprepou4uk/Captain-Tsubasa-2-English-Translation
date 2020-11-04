@@ -1710,7 +1710,7 @@ C - - - - 0x030AAB 22:8A9B: AA        TAX
 C - - - - 0x030AAC 22:8A9C: BD 30 04  LDA $0430,X
 bra_8A9F_это_не_спешал:
 C - - - - 0x030AAF 22:8A9F: AE 1E 06  LDX $061E
-C - - - - 0x030AB2 22:8AA2: BC 0B 06  LDY ram_ХЗ_действие_защиты,X
+C - - - - 0x030AB2 22:8AA2: BC 0B 06  LDY ram_действие_защитника,X
 C - - - - 0x030AB5 22:8AA5: 18        CLC
 C - - - - 0x030AB6 22:8AA6: 79 AC 8A  ADC tbl_8AAC_спешал_защиты,Y
 C - - - - 0x030AB9 22:8AA9: 4C 6C 8D  JMP loc_8D6C_вывести_слово

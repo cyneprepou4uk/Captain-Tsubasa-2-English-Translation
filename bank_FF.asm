@@ -2117,7 +2117,7 @@ C - - - - 0x03D38E FF:D37E: 20 46 CC  JSR sub_CC46_очистить_нижнюю
 C - - - - 0x03D391 FF:D381: A2 03     LDX #$03
 C - - - - 0x03D393 FF:D383: A9 FF     LDA #$FF
 bra_D385:
-C - - - - 0x03D395 FF:D385: 9D 0B 06  STA ram_ХЗ_действие_защиты,X
+C - - - - 0x03D395 FF:D385: 9D 0B 06  STA ram_действие_защитника,X
 C - - - - 0x03D398 FF:D388: CA        DEX
 C - - - - 0x03D399 FF:D389: 10 FA     BPL bra_D385
 C - - - - 0x03D39B FF:D38B: A9 00     LDA #$00
@@ -2145,7 +2145,7 @@ C - - - - 0x03D3C8 FF:D3B8: EC 00 06  CPX ram_колво_нападающих
 C - - - - 0x03D3CB FF:D3BB: D0 03     BNE bra_D3C0
 C - - - - 0x03D3CD FF:D3BD: 4C 46 CC  JMP loc_CC46_очистить_нижнюю_половину_экрана
 bra_D3C0:
-C - - - - 0x03D3D0 FF:D3C0: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
+C - - - - 0x03D3D0 FF:D3C0: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03D3D3 FF:D3C3: C9 FF     CMP #$FF
 C - - - - 0x03D3D5 FF:D3C5: F0 71     BEQ bra_D438
 C - - - - 0x03D3D7 FF:D3C7: 8D 3D 04  STA ram_действие_защиты
@@ -2177,7 +2177,7 @@ C - - - - 0x03D40D FF:D3FD: 20 46 D7  JSR sub_D746
 C - - - - 0x03D410 FF:D400: 68        PLA
 C - - - - 0x03D411 FF:D401: 90 09     BCC bra_D40C
 C - - - - 0x03D413 FF:D403: AE 1E 06  LDX $061E
-C - - - - 0x03D416 FF:D406: 9D 06 06  STA $0606,X
+C - - - - 0x03D416 FF:D406: 9D 06 06  STA ram_подтип_действия_защитника,X
 C - - - - 0x03D419 FF:D409: EE 1E 06  INC $061E
 bra_D40C:
 C - - - - 0x03D41C FF:D40C: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
@@ -2193,7 +2193,7 @@ C - - - - 0x03D430 FF:D420: B0 16     BCS bra_D438
 C - - - - 0x03D432 FF:D422: 90 0C     BCC bra_D430
 bra_D424:
 C - - - - 0x03D434 FF:D424: AE 1E 06  LDX $061E
-C - - - - 0x03D437 FF:D427: 9D 06 06  STA $0606,X
+C - - - - 0x03D437 FF:D427: 9D 06 06  STA ram_подтип_действия_защитника,X
 C - - - - 0x03D43A FF:D42A: 20 E4 D4  JSR sub_D4E4
 C - - - - 0x03D43D FF:D42D: EE 1E 06  INC $061E
 bra_D430:
@@ -2246,11 +2246,11 @@ bra_D488:
 C - - - - 0x03D498 FF:D488: C9 FF     CMP #$FF
 C - - - - 0x03D49A FF:D48A: F0 13     BEQ bra_D49F
 C - - - - 0x03D49C FF:D48C: AE 1E 06  LDX $061E
-C - - - - 0x03D49F FF:D48F: DD 0B 06  CMP ram_ХЗ_действие_защиты,X
+C - - - - 0x03D49F FF:D48F: DD 0B 06  CMP ram_действие_защитника,X
 C - - - - 0x03D4A2 FF:D492: F0 0B     BEQ bra_D49F
-C - - - - 0x03D4A4 FF:D494: 9D 0B 06  STA ram_ХЗ_действие_защиты,X
+C - - - - 0x03D4A4 FF:D494: 9D 0B 06  STA ram_действие_защитника,X
 C - - - - 0x03D4A7 FF:D497: A9 00     LDA #$00
-C - - - - 0x03D4A9 FF:D499: 9D 06 06  STA $0606,X
+C - - - - 0x03D4A9 FF:D499: 9D 06 06  STA ram_подтип_действия_защитника,X
 C - - - - 0x03D4AC FF:D49C: 8D 1F 06  STA $061F
 bra_D49F:
 C - - - - 0x03D4AF FF:D49F: AD 1E 06  LDA $061E
@@ -2307,7 +2307,7 @@ C - - - - 0x03D511 FF:D501: D0 F2     BNE bra_D4F5
 C - - - - 0x03D513 FF:D503: 60        RTS
 
 sub_D504:
-C - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
+C - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03D517 FF:D507: C9 FF     CMP #$FF
 C - - - - 0x03D519 FF:D509: D0 03     BNE bra_D50E
 C - - - - 0x03D51B FF:D50B: A9 1D     LDA #$1D
@@ -2325,7 +2325,7 @@ C - - - - 0x03D52A FF:D51A: B9 2B D5  LDA tbl_D52B,Y
 C - - - - 0x03D52D FF:D51D: 85 3A     STA ram_003A
 C - - - - 0x03D52F FF:D51F: B9 2C D5  LDA tbl_D52B + 1,Y
 C - - - - 0x03D532 FF:D522: 85 3B     STA ram_003B
-C - - - - 0x03D534 FF:D524: BD 06 06  LDA $0606,X
+C - - - - 0x03D534 FF:D524: BD 06 06  LDA ram_подтип_действия_защитника,X
 C - - - - 0x03D537 FF:D527: A8        TAY
 C - - - - 0x03D538 FF:D528: B1 3A     LDA (ram_003A),Y
 C - - - - 0x03D53A FF:D52A: 60        RTS
@@ -4783,7 +4783,7 @@ C - - - - 0x03E564 FF:E554: F0 3A     BEQ bra_E590
 C - - - - 0x03E566 FF:E556: A2 00     LDX #$00
 C - - - - 0x03E568 FF:E558: A0 00     LDY #$00
 bra_E55A:
-C - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
+C - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03E56D FF:E55D: C9 05     CMP #$05
 C - - - - 0x03E56F FF:E55F: D0 0D     BNE bra_E56E
 C - - - - 0x03E571 FF:E561: BD 01 06  LDA ram_номер_нападающего,X
@@ -4863,7 +4863,7 @@ C - - - - 0x03E601 FF:E5F1: A9 00     LDA #$00
 C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA ram_номер_защитника
 bra_E5F6_цикл:
 C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX ram_номер_защитника
-C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_ХЗ_действие_защиты,X
+C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03E60C FF:E5FC: C9 05     CMP #$05
 C - - - - 0x03E60E FF:E5FE: D0 03     BNE bra_E603_достигнут_лимит
 C - - - - 0x03E610 FF:E600: 20 16 E6  JSR sub_E616
