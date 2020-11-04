@@ -2172,11 +2172,11 @@ con_cloud                   = $00   ; облако
 
 _scenario_8AB1_00:
 - D - I - 0x020AC1 17:8AB1: F3        .byte con_branch, $34     ; узнать высоту мяча
-- D - I - 0x020AC3 17:8AB3: B9 8A     .word bra_8AB9_bra_case_00_мяч_у_атакующего_на_земле
-- D - I - 0x020AC5 17:8AB5: 09 8F     .word bra_8F09_bra_case_01_летит_низкий_мяч
-- D - I - 0x020AC7 17:8AB7: 4B 8C     .word bra_8C4B_bra_case_02_летит_высокий_мяч
+- D - I - 0x020AC3 17:8AB3: B9 8A     .word bra_long_case_8AB9_00_мяч_у_атакующего_на_земле
+- D - I - 0x020AC5 17:8AB5: 09 8F     .word bra_long_case_8F09_01_летит_низкий_мяч
+- D - I - 0x020AC7 17:8AB7: 4B 8C     .word bra_long_case_8C4B_02_летит_высокий_мяч
 
-bra_8AB9_bra_case_00_мяч_у_атакующего_на_земле:
+bra_long_case_8AB9_00_мяч_у_атакующего_на_земле:
 - D - I - 0x020AC9 17:8AB9: FD        .byte con_mirror_condition, $01
 - D - I - 0x020ACF 17:8ABF: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x020AD1 17:8AC1: 06        .byte bra_case_8AC7_00_защитник_выживет - *
@@ -2474,7 +2474,7 @@ bra_case_8C39_04_нарушение:
 - D - I - 0x020C58 17:8C48: F2        .byte con_jmp
 - D - I - 0x020C59 17:8C49: 5B A3     .word loc_A35B
 
-bra_8C4B_bra_case_02_летит_высокий_мяч:
+bra_long_case_8C4B_02_летит_высокий_мяч:
 - D - I - 0x020C5B 17:8C4B: FD        .byte con_mirror_condition, $03
 - D - I - 0x020C63 17:8C53: F3        .byte con_branch, $C6
 - D - I - 0x020C65 17:8C55: 02        .byte bra_case_8C57_00 - *
@@ -2861,7 +2861,7 @@ bra_case_8DE7_03:
 - - - - - 0x020E00 17:8DF0: F2        .byte con_jmp
 - - - - - 0x020E01 17:8DF1: 6E A1     .word loc_A16E
 
-bra_8F09_bra_case_01_летит_низкий_мяч:
+bra_long_case_8F09_01_летит_низкий_мяч:
 - D - I - 0x020F19 17:8F09: FD        .byte con_mirror_condition, $03
 - D - I - 0x020F21 17:8F11: F3        .byte con_branch, $C6
 - D - I - 0x020F23 17:8F13: 02        .byte bra_case_8F15_00 - *
