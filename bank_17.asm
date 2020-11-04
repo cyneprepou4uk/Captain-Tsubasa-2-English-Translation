@@ -829,7 +829,7 @@ bra_847D_выход:
 C - - - - 0x02048D 17:847D: 60        RTS
 
 ofs_847E_28_A8_оба_игрока_с_рожами:
-; 00 - клон
+; 00 - игрок без рожи
 ; 01 - цубаса
 ; 02 - мисаки
 ; 03 - мисаки
@@ -877,7 +877,7 @@ bra_8497_выход:
 C - - - - 0x0204A7 17:8497: 60        RTS
 
 ofs_8498_29_A9_оба_игрока_с_рожами:
-; 00 - клон
+; 00 - игрок без рожи
 ; 01 - цубаса
 ; 02 - мисаки
 ; 03 - мисаки
@@ -925,7 +925,7 @@ bra_84B1_выход:
 C - - - - 0x0204C1 17:84B1: 60        RTS
 
 ofs_84B2_2A_AA_игрок_с_рожей:
-; 00 - клон
+; 00 - игрок без рожи
 ; 01 - цубаса
 ; 02 - мисаки
 ; 03 - мисаки
@@ -1261,7 +1261,7 @@ C - - - - 0x02060C 17:85FC: AA        TAX
 C - - - - 0x02060D 17:85FD: 60        RTS
 
 ofs_8602_40_C0_игрок_с_рожей:
-; 00 - клон
+; 00 - игрок без рожи
 ; 01 - цубаса
 ; 02 - мисаки
 ; 03 - мисаки
@@ -6245,7 +6245,7 @@ _scenario_9E57_32:
 
 sub_9E64:
 - D - I - 0x021E74 17:9E64: F3        .byte con_branch, $28
-- D - I - 0x021E76 17:9E66: 1A B9     .word bra_long_case_B91A_00_клон
+- D - I - 0x021E76 17:9E66: 1A B9     .word bra_long_case_B91A_00_игрок_без_рожи
 - D - I - 0x021E78 17:9E68: 13 B9     .word bra_long_case_B913_01_цубаса
 - D - I - 0x021E7A 17:9E6A: 1B B9     .word bra_long_case_B91B_02_мисаки
 - - - - - 0x021E7C 17:9E6C: 22 B9     .word bra_long_case_B922_03_мисаки
@@ -6283,7 +6283,7 @@ sub_9E64:
 loc_9EAA:
 sub_9EAA:
 - D - I - 0x021EBA 17:9EAA: F3        .byte con_branch, $29
-- D - I - 0x021EBC 17:9EAC: 1A B9     .word bra_long_case_B91A_00_клон
+- D - I - 0x021EBC 17:9EAC: 1A B9     .word bra_long_case_B91A_00_игрок_без_рожи
 - D - I - 0x021EBE 17:9EAE: 13 B9     .word bra_long_case_B913_01_цубаса
 - D - I - 0x021EC0 17:9EB0: 1B B9     .word bra_long_case_B91B_02_мисаки
 - - - - - 0x021EC2 17:9EB2: 22 B9     .word bra_long_case_B922_03_мисаки
@@ -7781,7 +7781,7 @@ sub_A470:
 sub_A495:
 - D - I - 0x0224A5 11:A495: F6        .byte con_mirror_toggle
 - D - I - 0x0224A6 11:A496: F3        .byte con_branch, $A8
-- D - I - 0x0224A8 11:A498: 22        .byte bra_case_A4BA_00_клон - *
+- D - I - 0x0224A8 11:A498: 22        .byte bra_case_A4BA_00_игрок_без_рожи - *
 - D - I - 0x0224A9 11:A499: 22        .byte bra_case_A4BB_01_цубаса - *
 - D - I - 0x0224AA 11:A49A: 28        .byte bra_case_A4C2_02_мисаки - *
 - - - - - 0x0224AB 11:A49B: 2E        .byte bra_case_A4C9_03_мисаки - *
@@ -7816,7 +7816,7 @@ sub_A495:
 - D - I - 0x0224C8 11:A4B8: E3        .byte bra_case_A59B_20_викторино - *
 - - - - - 0x0224C9 11:A4B9: E9        .byte bra_case_A5A2_21_кальц - *
 
-bra_case_A4BA_00_клон:
+bra_case_A4BA_00_игрок_без_рожи:
 - D - I - 0x0224CA 11:A4BA: FB        .byte con_rts
 
 bra_case_A4BB_01_цубаса:
@@ -8094,7 +8094,7 @@ bra_case_A5A2_21_кальц:
 
 sub_A5A9:
 - D - I - 0x0225B9 11:A5A9: F3        .byte con_branch, $AA
-- D - I - 0x0225BB 11:A5AB: 22        .byte bra_case_A5CD_00_клон - *
+- D - I - 0x0225BB 11:A5AB: 22        .byte bra_case_A5CD_00_игрок_без_рожи - *
 - - - - - 0x0225BC 11:A5AC: 22        .byte bra_case_A5CE_01_цубаса - *
 - D - I - 0x0225BD 11:A5AD: 28        .byte bra_case_A5D5_02_мисаки - *
 - - - - - 0x0225BE 11:A5AE: 2E        .byte bra_case_A5DC_03_мисаки - *
@@ -8129,7 +8129,7 @@ sub_A5A9:
 - - - - - 0x0225DB 11:A5CB: DC        .byte bra_case_A6A7_20_викторино - *
 - - - - - 0x0225DC 11:A5CC: E2        .byte bra_case_A6AE_21_кальц - *
 
-bra_case_A5CD_00_клон:
+bra_case_A5CD_00_игрок_без_рожи:
 - D - I - 0x0225DD 11:A5CD: FB        .byte con_rts
 
 bra_case_A5CE_01_цубаса:
@@ -9039,7 +9039,7 @@ bra_case_A930_01_это_не_кальц:
 
 sub_A936:
 - D - I - 0x022946 11:A936: F3        .byte con_branch, $A9
-- D - I - 0x022948 11:A938: 22        .byte bra_case_A95A_00_клон - *
+- D - I - 0x022948 11:A938: 22        .byte bra_case_A95A_00_игрок_без_рожи - *
 - D - I - 0x022949 11:A939: 22        .byte bra_case_A95B_01_цубаса - *
 - D - I - 0x02294A 11:A93A: 28        .byte bra_case_A962_02_мисаки - *
 - - - - - 0x02294B 11:A93B: 2E        .byte bra_case_A969_03_мисаки - *
@@ -9074,7 +9074,7 @@ sub_A936:
 - - - - - 0x022968 11:A958: E9        .byte bra_case_AA41_20_викторино - *
 - D - I - 0x022969 11:A959: EF        .byte bra_case_AA48_21_кальц - *
 
-bra_case_A95A_00_клон:
+bra_case_A95A_00_игрок_без_рожи:
 - D - I - 0x02296A 11:A95A: FB        .byte con_rts
 
 bra_case_A95B_01_цубаса:
@@ -10261,7 +10261,7 @@ bra_long_case_AE34_22_double_eel:
 
 bra_long_case_AE4C_00:
 - D - I - 0x022E5C 11:AE4C: F3        .byte con_branch, $C0
-- - - - - 0x022E5E 11:AE4E: 16        .byte bra_case_AE64_00_клон - *
+- - - - - 0x022E5E 11:AE4E: 16        .byte bra_case_AE64_00_игрок_без_рожи - *
 - - - - - 0x022E5F 11:AE4F: 15        .byte bra_case_AE64_01_цубаса - *
 - - - - - 0x022E60 11:AE50: 14        .byte bra_case_AE64_02_мисаки - *
 - - - - - 0x022E61 11:AE51: 13        .byte bra_case_AE64_03_мисаки - *
@@ -10288,7 +10288,7 @@ bra_long_case_AE64_01_пас:
 bra_long_case_AE64_02_дриблинг:
 bra_long_case_AE64_03_перепасовка:
 bra_long_case_AE64_04:
-bra_case_AE64_00_клон:
+bra_case_AE64_00_игрок_без_рожи:
 bra_case_AE64_01_цубаса:
 bra_case_AE64_02_мисаки:
 bra_case_AE64_03_мисаки:
@@ -10655,7 +10655,7 @@ bra_long_case_AFED_0A_skylab_twin_shot:
 
 bra_long_case_AFF0_0E_overhead:
 - D - I - 0x023000 11:AFF0: F3        .byte con_branch, $C0
-- D - I - 0x023002 11:AFF2: 29        .byte bra_case_B01B_00_клон - *
+- D - I - 0x023002 11:AFF2: 29        .byte bra_case_B01B_00_игрок_без_рожи - *
 - D - I - 0x023003 11:AFF3: 21        .byte bra_case_B014_01_цубаса - *
 - D - I - 0x023004 11:AFF4: 31        .byte bra_case_B025_02_мисаки - *
 - - - - - 0x023005 11:AFF5: 37        .byte bra_case_B02C_03_мисаки - *
@@ -10700,7 +10700,7 @@ loc_B018:
 - D - I - 0x023029 11:B019: C7 BB     .word sub_BBC7
 ; bzk продолжение, лучше сделать прыжок
 _scenario_B01B_76:
-bra_case_B01B_00_клон:
+bra_case_B01B_00_игрок_без_рожи:
 bra_case_B01B_06_мисуги:
 bra_case_B01B_07_мисуги:
 bra_case_B01B_0A_ишизаки:
@@ -13033,7 +13033,7 @@ bra_long_case_B913_01_цубаса:
 loc_B917:
 - D - I - 0x023927 11:B917: FA        .byte con_jsr
 - D - I - 0x023928 11:B918: C7 BB     .word sub_BBC7
-bra_long_case_B91A_00_клон:
+bra_long_case_B91A_00_игрок_без_рожи:
 - D - I - 0x02392A 11:B91A: FB        .byte con_rts
 
 bra_long_case_B91B_02_мисаки:
