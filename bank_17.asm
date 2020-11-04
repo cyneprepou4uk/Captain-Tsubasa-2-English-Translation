@@ -2212,74 +2212,74 @@ bra_case_8ACC_00_защитник_выживет:
 
 bra_case_8AD1_00_блок:
 - D - I - 0x020AE1 17:8AD1: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020AE3 17:8AD3: 28        .byte bra_case_8AFB_00 - *
-- D - I - 0x020AE4 17:8AD4: 30        .byte bra_case_8B04_01 - *
-- D - I - 0x020AE5 17:8AD5: 38        .byte bra_case_8B0D_02 - *
-- D - I - 0x020AE6 17:8AD6: 49        .byte bra_case_8B1F_03 - *
+- D - I - 0x020AE3 17:8AD3: 28        .byte bra_case_8AFB_00_атакующий_легко_обводит - *
+- D - I - 0x020AE4 17:8AD4: 30        .byte bra_case_8B04_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020AE5 17:8AD5: 38        .byte bra_case_8B0D_02_защитник_выбьет_мяч - *
+- D - I - 0x020AE6 17:8AD6: 49        .byte bra_case_8B1F_03_защитник_заберет_мяч - *
 - D - I - 0x020AE7 17:8AD7: 5A        .byte bra_case_8B31_04_нарушение - *
 
 bra_case_8AD8_02_перехват:
 - D - I - 0x020AE8 17:8AD8: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020AEA 17:8ADA: 21        .byte bra_case_8AFB_00 - *
-- D - I - 0x020AEB 17:8ADB: 29        .byte bra_case_8B04_01 - *
-- D - I - 0x020AEC 17:8ADC: 31        .byte bra_case_8B0D_02 - *
-- D - I - 0x020AED 17:8ADD: 42        .byte bra_case_8B1F_03 - *
+- D - I - 0x020AEA 17:8ADA: 21        .byte bra_case_8AFB_00_атакующий_легко_обводит - *
+- D - I - 0x020AEB 17:8ADB: 29        .byte bra_case_8B04_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020AEC 17:8ADC: 31        .byte bra_case_8B0D_02_защитник_выбьет_мяч - *
+- D - I - 0x020AED 17:8ADD: 42        .byte bra_case_8B1F_03_защитник_заберет_мяч - *
 - D - I - 0x020AEE 17:8ADE: 53        .byte bra_case_8B31_04_нарушение - *
 
 bra_case_8ADF_01_подкат:
 - D - I - 0x020AEF 17:8ADF: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020AF1 17:8AE1: 5C        .byte bra_case_8B3D_00 - *
-- D - I - 0x020AF2 17:8AE2: 67        .byte bra_case_8B49_01 - *
-- D - I - 0x020AF3 17:8AE3: 72        .byte bra_case_8B55_02 - *
-- D - I - 0x020AF4 17:8AE4: 86        .byte bra_case_8B6A_03 - *
+- D - I - 0x020AF1 17:8AE1: 5C        .byte bra_case_8B3D_00_атакующий_легко_обводит - *
+- D - I - 0x020AF2 17:8AE2: 67        .byte bra_case_8B49_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020AF3 17:8AE3: 72        .byte bra_case_8B55_02_защитник_выбьет_мяч - *
+- D - I - 0x020AF4 17:8AE4: 86        .byte bra_case_8B6A_03_защитник_заберет_мяч - *
 - D - I - 0x020AF5 17:8AE5: 9A        .byte bra_case_8B7F_04_нарушение - *
 
 bra_case_8AE6_00_блок:
 - D - I - 0x020AF6 17:8AE6: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020AF8 17:8AE8: 16        .byte bra_case_8AFE_00 - *
-- D - I - 0x020AF9 17:8AE9: 1E        .byte bra_case_8B07_01 - *
-- D - I - 0x020AFA 17:8AEA: 26        .byte bra_case_8B10_02 - *
-- D - I - 0x020AFB 17:8AEB: 37        .byte bra_case_8B22_03 - *
+- D - I - 0x020AF8 17:8AE8: 16        .byte bra_case_8AFE_00_атакующий_легко_обводит - *
+- D - I - 0x020AF9 17:8AE9: 1E        .byte bra_case_8B07_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020AFA 17:8AEA: 26        .byte bra_case_8B10_02_защитник_выбьет_мяч - *
+- D - I - 0x020AFB 17:8AEB: 37        .byte bra_case_8B22_03_защитник_заберет_мяч - *
 - D - I - 0x020AFC 17:8AEC: 48        .byte bra_case_8B34_04_нарушение - *
 
 bra_case_8AED_01_подкат:
 - D - I - 0x020AFD 17:8AED: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020AFF 17:8AEF: 4E        .byte bra_case_8B3D_00 - *
-- D - I - 0x020B00 17:8AF0: 59        .byte bra_case_8B49_01 - *
-- D - I - 0x020B01 17:8AF1: 64        .byte bra_case_8B55_02 - *
-- D - I - 0x020B02 17:8AF2: 78        .byte bra_case_8B6A_03 - *
+- D - I - 0x020AFF 17:8AEF: 4E        .byte bra_case_8B3D_00_атакующий_легко_обводит - *
+- D - I - 0x020B00 17:8AF0: 59        .byte bra_case_8B49_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020B01 17:8AF1: 64        .byte bra_case_8B55_02_защитник_выбьет_мяч - *
+- D - I - 0x020B02 17:8AF2: 78        .byte bra_case_8B6A_03_защитник_заберет_мяч - *
 - D - I - 0x020B03 17:8AF3: 8C        .byte bra_case_8B7F_04_нарушение - *
 
 bra_case_8AF4_02_перехват:
 - D - I - 0x020B04 17:8AF4: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020B06 17:8AF6: 08        .byte bra_case_8AFE_00 - *
-- D - I - 0x020B07 17:8AF7: 10        .byte bra_case_8B07_01 - *
-- D - I - 0x020B08 17:8AF8: 18        .byte bra_case_8B10_02 - *
-- D - I - 0x020B09 17:8AF9: 29        .byte bra_case_8B22_03 - *
+- D - I - 0x020B06 17:8AF6: 08        .byte bra_case_8AFE_00_атакующий_легко_обводит - *
+- D - I - 0x020B07 17:8AF7: 10        .byte bra_case_8B07_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020B08 17:8AF8: 18        .byte bra_case_8B10_02_защитник_выбьет_мяч - *
+- D - I - 0x020B09 17:8AF9: 29        .byte bra_case_8B22_03_защитник_заберет_мяч - *
 - D - I - 0x020B0A 17:8AFA: 3A        .byte bra_case_8B34_04_нарушение - *
 
-bra_case_8AFB_00:
+bra_case_8AFB_00_атакующий_легко_обводит:
 - D - I - 0x020B0B 17:8AFB: FA        .byte con_jsr
 - D - I - 0x020B0C 17:8AFC: 8B 9C     .word sub_9C8B
-bra_case_8AFE_00:
+bra_case_8AFE_00_атакующий_легко_обводит:
 - D - I - 0x020B0E 17:8AFE: FA        .byte con_jsr
 - D - I - 0x020B0F 17:8AFF: C0 9C     .word sub_9CC0
 - D - I - 0x020B11 17:8B01: F2        .byte con_jmp
 - D - I - 0x020B12 17:8B02: AA 9E     .word loc_9EAA
 
-bra_case_8B04_01:
+bra_case_8B04_01_атакующий_с_трудом_обводит:
 - D - I - 0x020B14 17:8B04: FA        .byte con_jsr
 - D - I - 0x020B15 17:8B05: 8B 9C     .word sub_9C8B
-bra_case_8B07_01:
+bra_case_8B07_01_атакующий_с_трудом_обводит:
 - D - I - 0x020B17 17:8B07: FA        .byte con_jsr
 - D - I - 0x020B18 17:8B08: A3 9C     .word sub_9CA3
 - D - I - 0x020B1A 17:8B0A: F2        .byte con_jmp
 - D - I - 0x020B1B 17:8B0B: AA 9E     .word loc_9EAA
 
-bra_case_8B0D_02:
+bra_case_8B0D_02_защитник_выбьет_мяч:
 - D - I - 0x020B1D 17:8B0D: FA        .byte con_jsr
 - D - I - 0x020B1E 17:8B0E: 8B 9C     .word sub_9C8B
-bra_case_8B10_02:
+bra_case_8B10_02_защитник_выбьет_мяч:
 - D - I - 0x020B20 17:8B10: FA        .byte con_jsr
 - D - I - 0x020B21 17:8B11: FE 9D     .word sub_9DFE
 - D - I - 0x020B23 17:8B13: FA        .byte con_jsr
@@ -2292,10 +2292,10 @@ bra_case_8B10_02:
 - D - I - 0x020B2D 17:8B1D: F6        .byte con_mirror_toggle
 - D - I - 0x020B2E 17:8B1E: F0        .byte con_quit
 
-bra_case_8B1F_03:
+bra_case_8B1F_03_защитник_заберет_мяч:
 - D - I - 0x020B2F 17:8B1F: FA        .byte con_jsr
 - D - I - 0x020B30 17:8B20: 8B 9C     .word sub_9C8B
-bra_case_8B22_03:
+bra_case_8B22_03_защитник_заберет_мяч:
 - D - I - 0x020B32 17:8B22: FA        .byte con_jsr
 - D - I - 0x020B33 17:8B23: FE 9D     .word sub_9DFE
 - D - I - 0x020B35 17:8B25: FA        .byte con_jsr
@@ -2319,7 +2319,7 @@ bra_case_8B34_04_нарушение:
 - D - I - 0x020B4A 17:8B3A: F2        .byte con_jmp
 - D - I - 0x020B4B 17:8B3B: 5B A3     .word loc_A35B
 
-bra_case_8B3D_00:
+bra_case_8B3D_00_атакующий_легко_обводит:
 - D - I - 0x020B4D 17:8B3D: FA        .byte con_jsr
 - D - I - 0x020B4E 17:8B3E: 36 A9     .word sub_A936
 - D - I - 0x020B50 17:8B40: FA        .byte con_jsr
@@ -2329,7 +2329,7 @@ bra_case_8B3D_00:
 - D - I - 0x020B56 17:8B46: F2        .byte con_jmp
 - D - I - 0x020B57 17:8B47: AA 9E     .word loc_9EAA
 
-bra_case_8B49_01:
+bra_case_8B49_01_атакующий_с_трудом_обводит:
 - D - I - 0x020B59 17:8B49: FA        .byte con_jsr
 - D - I - 0x020B5A 17:8B4A: 36 A9     .word sub_A936
 - D - I - 0x020B5C 17:8B4C: FA        .byte con_jsr
@@ -2339,7 +2339,7 @@ bra_case_8B49_01:
 - D - I - 0x020B62 17:8B52: F2        .byte con_jmp
 - D - I - 0x020B63 17:8B53: AA 9E     .word loc_9EAA
 
-bra_case_8B55_02:
+bra_case_8B55_02_защитник_выбьет_мяч:
 - D - I - 0x020B65 17:8B55: FA        .byte con_jsr
 - D - I - 0x020B66 17:8B56: 36 A9     .word sub_A936
 - D - I - 0x020B68 17:8B58: FA        .byte con_jsr
@@ -2356,7 +2356,7 @@ bra_case_8B55_02:
 - D - I - 0x020B78 17:8B68: F6        .byte con_mirror_toggle
 - D - I - 0x020B79 17:8B69: F0        .byte con_quit
 
-bra_case_8B6A_03:
+bra_case_8B6A_03_защитник_заберет_мяч:
 - D - I - 0x020B7A 17:8B6A: FA        .byte con_jsr
 - D - I - 0x020B7B 17:8B6B: 36 A9     .word sub_A936
 - D - I - 0x020B7D 17:8B6D: FA        .byte con_jsr
@@ -2399,53 +2399,53 @@ bra_case_8B93_01_защитник_убьется:
 
 bra_case_8B98_00_блок:
 - D - I - 0x020BA8 17:8B98: F3        .byte con_branch, $83     ; результат действия защитника
-- - - - - 0x020BAA 17:8B9A: 28        .byte bra_case_8BC2_00 - *
-- D - I - 0x020BAB 17:8B9B: 37        .byte bra_case_8BD2_01 - *
-- - - - - 0x020BAC 17:8B9C: 35        .byte bra_case_8BD1_02 - *
-- - - - - 0x020BAD 17:8B9D: 34        .byte bra_case_8BD1_03 - *
+- - - - - 0x020BAA 17:8B9A: 28        .byte bra_case_8BC2_00_атакующий_легко_обводит - *
+- D - I - 0x020BAB 17:8B9B: 37        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
+- - - - - 0x020BAC 17:8B9C: 35        .byte bra_case_8BD1_02_защитник_выбьет_мяч - *
+- - - - - 0x020BAD 17:8B9D: 34        .byte bra_case_8BD1_03_защитник_заберет_мяч - *
 - - - - - 0x020BAE 17:8B9E: 33        .byte bra_case_8BD1_04_нарушение - *
 
 bra_case_8B9F_02_перехват:
 - D - I - 0x020BAF 17:8B9F: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020BB1 17:8BA1: 21        .byte bra_case_8BC2_00 - *
-- D - I - 0x020BB2 17:8BA2: 30        .byte bra_case_8BD2_01 - *
-- - - - - 0x020BB3 17:8BA3: 2E        .byte bra_case_8BD1_02 - *
-- - - - - 0x020BB4 17:8BA4: 2D        .byte bra_case_8BD1_03 - *
+- D - I - 0x020BB1 17:8BA1: 21        .byte bra_case_8BC2_00_атакующий_легко_обводит - *
+- D - I - 0x020BB2 17:8BA2: 30        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
+- - - - - 0x020BB3 17:8BA3: 2E        .byte bra_case_8BD1_02_защитник_выбьет_мяч - *
+- - - - - 0x020BB4 17:8BA4: 2D        .byte bra_case_8BD1_03_защитник_заберет_мяч - *
 - - - - - 0x020BB5 17:8BA5: 2C        .byte bra_case_8BD1_04_нарушение - *
 
 bra_case_8BA6_01_подкат:
 - D - I - 0x020BB6 17:8BA6: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020BB8 17:8BA8: 3C        .byte bra_case_8BE4_00 - *
-- D - I - 0x020BB9 17:8BA9: 4D        .byte bra_case_8BF6_01 - *
-- D - I - 0x020BBA 17:8BAA: 61        .byte bra_case_8C0B_02 - *
-- D - I - 0x020BBB 17:8BAB: 77        .byte bra_case_8C22_03 - *
+- D - I - 0x020BB8 17:8BA8: 3C        .byte bra_case_8BE4_00_атакующий_легко_обводит - *
+- D - I - 0x020BB9 17:8BA9: 4D        .byte bra_case_8BF6_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020BBA 17:8BAA: 61        .byte bra_case_8C0B_02_защитник_выбьет_мяч - *
+- D - I - 0x020BBB 17:8BAB: 77        .byte bra_case_8C22_03_защитник_заберет_мяч - *
 - D - I - 0x020BBC 17:8BAC: 8D        .byte bra_case_8C39_04_нарушение - *
 
 bra_case_8BAD_00_блок:
 - D - I - 0x020BBD 17:8BAD: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020BBF 17:8BAF: 13        .byte bra_case_8BC2_00 - *
-- D - I - 0x020BC0 17:8BB0: 22        .byte bra_case_8BD2_01 - *
-- - - - - 0x020BC1 17:8BB1: 20        .byte bra_case_8BD1_02 - *
-- - - - - 0x020BC2 17:8BB2: 1F        .byte bra_case_8BD1_03 - *
+- D - I - 0x020BBF 17:8BAF: 13        .byte bra_case_8BC2_00_атакующий_легко_обводит - *
+- D - I - 0x020BC0 17:8BB0: 22        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
+- - - - - 0x020BC1 17:8BB1: 20        .byte bra_case_8BD1_02_защитник_выбьет_мяч - *
+- - - - - 0x020BC2 17:8BB2: 1F        .byte bra_case_8BD1_03_защитник_заберет_мяч - *
 - - - - - 0x020BC3 17:8BB3: 1E        .byte bra_case_8BD1_04_нарушение - *
 
 bra_case_8BB4_02_перехват:
 - D - I - 0x020BC4 17:8BB4: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020BC6 17:8BB6: 0C        .byte bra_case_8BC2_00 - *
-- - - - - 0x020BC7 17:8BB7: 1B        .byte bra_case_8BD2_01 - *
-- - - - - 0x020BC8 17:8BB8: 19        .byte bra_case_8BD1_02 - *
-- - - - - 0x020BC9 17:8BB9: 18        .byte bra_case_8BD1_03 - *
+- D - I - 0x020BC6 17:8BB6: 0C        .byte bra_case_8BC2_00_атакующий_легко_обводит - *
+- - - - - 0x020BC7 17:8BB7: 1B        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
+- - - - - 0x020BC8 17:8BB8: 19        .byte bra_case_8BD1_02_защитник_выбьет_мяч - *
+- - - - - 0x020BC9 17:8BB9: 18        .byte bra_case_8BD1_03_защитник_заберет_мяч - *
 - - - - - 0x020BCA 17:8BBA: 17        .byte bra_case_8BD1_04_нарушение - *
 
 bra_case_8BBB_01_подкат:
 - D - I - 0x020BCB 17:8BBB: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020BCD 17:8BBD: 27        .byte bra_case_8BE4_00 - *
-- D - I - 0x020BCE 17:8BBE: 38        .byte bra_case_8BF6_01 - *
-- D - I - 0x020BCF 17:8BBF: 4C        .byte bra_case_8C0B_02 - *
-- D - I - 0x020BD0 17:8BC0: 62        .byte bra_case_8C22_03 - *
+- D - I - 0x020BCD 17:8BBD: 27        .byte bra_case_8BE4_00_атакующий_легко_обводит - *
+- D - I - 0x020BCE 17:8BBE: 38        .byte bra_case_8BF6_01_атакующий_с_трудом_обводит - *
+- D - I - 0x020BCF 17:8BBF: 4C        .byte bra_case_8C0B_02_защитник_выбьет_мяч - *
+- D - I - 0x020BD0 17:8BC0: 62        .byte bra_case_8C22_03_защитник_заберет_мяч - *
 - D - I - 0x020BD1 17:8BC1: 78        .byte bra_case_8C39_04_нарушение - *
 
-bra_case_8BC2_00:
+bra_case_8BC2_00_атакующий_легко_обводит:
 - D - I - 0x020BD2 17:8BC2: FA        .byte con_jsr
 - D - I - 0x020BD3 17:8BC3: 8B 9C     .word sub_9C8B
 - D - I - 0x020BD5 17:8BC5: FA        .byte con_jsr
@@ -2456,12 +2456,12 @@ bra_case_8BC2_00:
 - D - I - 0x020BDC 17:8BCC: AA 9E     .word sub_9EAA
 - D - I - 0x020BDE 17:8BCE: FA        .byte con_jsr
 - D - I - 0x020BDF 17:8BCF: 62 9F     .word sub_9F62
-bra_case_8BD1_02:
-bra_case_8BD1_03:
+bra_case_8BD1_02_защитник_выбьет_мяч:
+bra_case_8BD1_03_защитник_заберет_мяч:
 bra_case_8BD1_04_нарушение:
 - D - I - 0x020BE1 17:8BD1: F0        .byte con_quit
 
-bra_case_8BD2_01:
+bra_case_8BD2_01_атакующий_с_трудом_обводит:
 - D - I - 0x020BE2 17:8BD2: FA        .byte con_jsr
 - D - I - 0x020BE3 17:8BD3: 8B 9C     .word sub_9C8B
 - D - I - 0x020BE5 17:8BD5: FA        .byte con_jsr
@@ -2475,7 +2475,7 @@ bra_case_8BD2_01:
 - D - I - 0x020BF1 17:8BE1: F2        .byte con_jmp
 - D - I - 0x020BF2 17:8BE2: 47 A2     .word loc_A247
 
-bra_case_8BE4_00:
+bra_case_8BE4_00_атакующий_легко_обводит:
 - D - I - 0x020BF4 17:8BE4: FA        .byte con_jsr
 - D - I - 0x020BF5 17:8BE5: 36 A9     .word sub_A936
 - D - I - 0x020BF7 17:8BE7: FA        .byte con_jsr
@@ -2489,7 +2489,7 @@ bra_case_8BE4_00:
 - D - I - 0x020C03 17:8BF3: F2        .byte con_jmp
 - D - I - 0x020C04 17:8BF4: 62 9F     .word loc_9F62
 
-bra_case_8BF6_01:
+bra_case_8BF6_01_атакующий_с_трудом_обводит:
 - D - I - 0x020C06 17:8BF6: FA        .byte con_jsr
 - D - I - 0x020C07 17:8BF7: 36 A9     .word sub_A936
 - D - I - 0x020C09 17:8BF9: FA        .byte con_jsr
@@ -2505,7 +2505,7 @@ bra_case_8BF6_01:
 - D - I - 0x020C18 17:8C08: F2        .byte con_jmp
 - D - I - 0x020C19 17:8C09: 47 A2     .word loc_A247
 
-bra_case_8C0B_02:
+bra_case_8C0B_02_защитник_выбьет_мяч:
 - D - I - 0x020C1B 17:8C0B: FA        .byte con_jsr
 - D - I - 0x020C1C 17:8C0C: 36 A9     .word sub_A936
 - D - I - 0x020C1E 17:8C0E: FA        .byte con_jsr
@@ -2523,7 +2523,7 @@ bra_case_8C0B_02:
 - D - I - 0x020C2F 17:8C1F: F2        .byte con_jmp
 - D - I - 0x020C30 17:8C20: 71 A3     .word loc_A371
 
-bra_case_8C22_03:
+bra_case_8C22_03_защитник_заберет_мяч:
 - D - I - 0x020C32 17:8C22: FA        .byte con_jsr
 - D - I - 0x020C33 17:8C23: 36 A9     .word sub_A936
 - D - I - 0x020C35 17:8C25: FA        .byte con_jsr
