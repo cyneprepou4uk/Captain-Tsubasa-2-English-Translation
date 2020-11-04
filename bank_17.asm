@@ -3398,16 +3398,25 @@ bra_case_9247_01_это_кипер:
 
 bra_long_case_924F_00_кипер_делает_dive:
 - D - I - 0x02125F 17:924F: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
-- D - I - 0x021261 17:9251: 02        .byte bra_case_9253_00 - *
-- D - I - 0x021262 17:9252: 04        .byte bra_case_9256_01 - *
+- D - I - 0x021261 17:9251: 02        .byte bra_case_9253_00_нижний_dive - *
+- D - I - 0x021262 17:9252: 04        .byte bra_case_9256_01_верхний_dive - *
 
-bra_case_9253_00:
-- D - I - 0x021263 17:9253: F2        .byte con_jmp
-- D - I - 0x021264 17:9254: AB A3     .word loc_A3AB_кипер_делает_нижний_dive
+bra_case_9253_00_нижний_dive:
+- D - I - 0x0223BB 11:A3AB: F5        .byte con_mirror_off
+- D - I - 0x0223BC 11:A3AC: FC        .byte con_moving_bg, $04
+- D - I - 0x0223BE 11:A3AE: 2D        .byte con_pause + $2D
+- D - I - 0x0223BF 11:A3AF: 58        .byte con_bg + $58
+- D - I - 0x0223C0 11:A3B0: 04        .byte con_animation + $04
+- D - I - 0x0223C1 11:A3B1: 3A        .byte con_cloud + $3A
+- D - I - 0x0223C2 11:A3B2: FB        .byte con_rts
 
-bra_case_9256_01:
-- D - I - 0x021266 17:9256: F2        .byte con_jmp
-- D - I - 0x021267 17:9257: A3 A3     .word loc_A3A3_кипер_делает_верхний_dive
+bra_case_9256_01_верхний_dive:
+- D - I - 0x0223B3 11:A3A3: F9        .byte con_soundID_delay, $25, $02
+- D - I - 0x0223B6 11:A3A6: 3C        .byte con_pause + $3C
+- D - I - 0x0223B7 11:A3A7: 2F        .byte con_bg + $2F
+- D - I - 0x0223B8 11:A3A8: 57        .byte con_animation + $57
+- D - I - 0x0223B9 11:A3A9: 3A        .byte con_cloud + $3A
+- D - I - 0x0223BA 11:A3AA: FB        .byte con_rts
 
 
 
@@ -7557,23 +7566,6 @@ sub_A38F:
 - D - I - 0x0223A1 11:A391: 56        .byte con_animation + $56
 - D - I - 0x0223A2 11:A392: F0        .byte con_cloud + con_skip
 - D - I - 0x0223A3 11:A393: FB        .byte con_rts
-
-loc_A3A3_кипер_делает_верхний_dive:
-- D - I - 0x0223B3 11:A3A3: F9        .byte con_soundID_delay, $25, $02
-- D - I - 0x0223B6 11:A3A6: 3C        .byte con_pause + $3C
-- D - I - 0x0223B7 11:A3A7: 2F        .byte con_bg + $2F
-- D - I - 0x0223B8 11:A3A8: 57        .byte con_animation + $57
-- D - I - 0x0223B9 11:A3A9: 3A        .byte con_cloud + $3A
-- D - I - 0x0223BA 11:A3AA: FB        .byte con_rts
-
-loc_A3AB_кипер_делает_нижний_dive:
-- D - I - 0x0223BB 11:A3AB: F5        .byte con_mirror_off
-- D - I - 0x0223BC 11:A3AC: FC        .byte con_moving_bg, $04
-- D - I - 0x0223BE 11:A3AE: 2D        .byte con_pause + $2D
-- D - I - 0x0223BF 11:A3AF: 58        .byte con_bg + $58
-- D - I - 0x0223C0 11:A3B0: 04        .byte con_animation + $04
-- D - I - 0x0223C1 11:A3B1: 3A        .byte con_cloud + $3A
-- D - I - 0x0223C2 11:A3B2: FB        .byte con_rts
 
 bra_long_case_A3B3_00:
 - D - I - 0x0223C3 11:A3B3: F8        .byte con_F8, $03
