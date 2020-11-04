@@ -346,9 +346,9 @@ bra_8250_выход:
 C - - - - 0x020260 17:8250: 60        RTS
 
 ofs_8251_02_82_номер_действия_защитника:
-; 00 - block
-; 01 - tackle
-; 02 - pass cut
+; 00 - block / catch
+; 01 - tackle / punch
+; 02 - pass cut / triangle jump
 C - J - - 0x020261 17:8251: AE 3D 04  LDX $043D
 C - - - - 0x020264 17:8254: 60        RTS
 
@@ -4342,12 +4342,12 @@ _scenario_9369_09:
 - D - I - 0x021379 17:9369: FD        .byte con_mirror_condition, $03
 - D - I - 0x02137B 17:936B: FA        .byte con_jsr
 - D - I - 0x02137C 17:936C: F6 9E     .word sub_9EF6
-- D - I - 0x02137E 17:936E: F3        .byte con_branch, $0A
-- D - I - 0x021380 17:9370: 29 95     .word bra_long_case_9529_00
-- D - I - 0x021382 17:9372: 76 93     .word bra_long_case_9376_01
-- D - I - 0x021384 17:9374: 70 94     .word bra_long_case_9470_02
+- D - I - 0x02137E 17:936E: F3        .byte con_branch, $0A     ; действие защитника (кипера)
+- D - I - 0x021380 17:9370: 29 95     .word bra_long_case_9529_00_словить
+- D - I - 0x021382 17:9372: 76 93     .word bra_long_case_9376_01_отбить
+- D - I - 0x021384 17:9374: 70 94     .word bra_long_case_9470_02_от_штанги
 
-bra_long_case_9376_01:
+bra_long_case_9376_01_отбить:
 - D - I - 0x021386 17:9376: FA        .byte con_jsr
 - D - I - 0x021387 17:9377: 9C 9F     .word sub_9F9C_крит_кипера
 - D - I - 0x021389 17:9379: F3        .byte con_branch, $45
@@ -4579,7 +4579,7 @@ ofs_946A_00:
 - D - I - 0x02147D 17:946D: F2        .byte con_jmp
 - D - I - 0x02147E 17:946E: BC 95     .word loc_95BC
 
-bra_long_case_9470_02:
+bra_long_case_9470_02_от_штанги:
 - D - I - 0x021480 17:9470: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x021482 17:9472: 02        .byte bra_case_9474_00_защитник_выживет - *
 - D - I - 0x021483 17:9473: 5D        .byte bra_case_94D0_01_защитник_убьется - *
@@ -4755,7 +4755,7 @@ bra_case_951A_02:
 - - - - - 0x021536 17:9526: F2        .byte con_jmp
 - - - - - 0x021537 17:9527: 71 A3     .word loc_A371
 
-bra_long_case_9529_00:
+bra_long_case_9529_00_словить:
 - D - I - 0x021539 17:9529: F3        .byte con_branch, $36
 - D - I - 0x02153B 17:952B: 33 95     .word bra_long_case_9533_00
 - D - I - 0x02153D 17:952D: C8 95     .word bra_long_case_95C8_01
