@@ -273,7 +273,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201E9 17:81D9: 56 85     .word ofs_8556_33_B3_игроки_с_защитным_спешалом
 - D - I - 0x0201EB 17:81DB: 6C 85     .word ofs_856C_34_B4_узнать_высоту_мяча
 - D - I - 0x0201ED 17:81DD: 70 85     .word ofs_8570_35_B5
-- D - I - 0x0201EF 17:81DF: 80 85     .word ofs_8580_36_B6
+- D - I - 0x0201EF 17:81DF: 80 85     .word ofs_8580_36_B6_спешал_catch
 - D - I - 0x0201F1 17:81E1: 87 85     .word ofs_8587_37_B7
 - D - I - 0x0201F3 17:81E3: 92 85     .word ofs_8592_38_B8_hyuga
 - D - I - 0x0201F5 17:81E5: A2 85     .word ofs_85A2_39_B9_matsuyama
@@ -1143,11 +1143,11 @@ tbl_857A:
     .byte $FF       ; unused
     .byte $02
 
-ofs_8580_36_B6:
-; 00 - 
-; 01 - 
-; 02 - 
-; 03 - 
+ofs_8580_36_B6_спешал_catch:
+; 00 - catch
+; 01 - rolling save
+; 02 - clone save
+; 03 - dark illusion
 C - J - - 0x020590 17:8580: AD 3E 04  LDA ram_подтип_действия_защиты
 C - - - - 0x020593 17:8583: 29 7F     AND #$7F
 C - - - - 0x020595 17:8585: AA        TAX
@@ -1861,7 +1861,7 @@ C - - - - 0x02087A 17:886A: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x02087D 17:886D: 77 88     .word ofs_8877_00_координаты_игрока
 - D - I - 0x02087F 17:886F: AA 88     .word ofs_88AA_01_номер_защитника
 - D - I - 0x020881 17:8871: B5 88     .word ofs_88B5_02_команда
-- D - I - 0x020883 17:8873: BF 88     .word ofs_88BF_03
+- D - I - 0x020883 17:8873: BF 88     .word ofs_88BF_03_сторона_полета_мяча
 - D - I - 0x020885 17:8875: D9 88     .word ofs_88D9_04
 
 ofs_8877_00_координаты_игрока:
@@ -1912,7 +1912,7 @@ C - - - - 0x0208CC 17:88BC: A2 40     LDX #$40
 bra_88BE_выход:
 C - - - - 0x0208CE 17:88BE: 60        RTS
 
-ofs_88BF_03:
+ofs_88BF_03_сторона_полета_мяча:
 C - J - - 0x0208CF 17:88BF: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0208D2 17:88C2: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x0208D5 17:88C5: A0 08     LDY #con_игрок_координата_Y_hi
@@ -2183,7 +2183,7 @@ _scenario_8AB1_00:
 - D - I - 0x020AC7 17:8AB7: 4B 8C     .word bra_long_case_8C4B_02_летит_высокий_мяч
 
 bra_long_case_8AB9_00_мяч_у_атакующего_на_земле:
-- D - I - 0x020AC9 17:8AB9: FD        .byte con_mirror_condition, $01
+- D - I - 0x020AC9 17:8AB9: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x020ACF 17:8ABF: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x020AD1 17:8AC1: 06        .byte bra_case_8AC7_00_защитник_выживет - *
 - D - I - 0x020AD2 17:8AC2: CC        .byte bra_case_8B8E_01_защитник_убьется - *
@@ -2481,7 +2481,7 @@ bra_case_8C39_04_нарушение:
 - D - I - 0x020C59 17:8C49: 5B A3     .word loc_A35B_нарушение
 
 bra_long_case_8C4B_02_летит_высокий_мяч:
-- D - I - 0x020C5B 17:8C4B: FD        .byte con_mirror_condition, $03
+- D - I - 0x020C5B 17:8C4B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x020C63 17:8C53: F3        .byte con_branch, $C6
 - D - I - 0x020C65 17:8C55: 02        .byte bra_case_8C57_00 - *
 - D - I - 0x020C66 17:8C56: B7        .byte bra_case_8D0D_01 - *
@@ -2868,7 +2868,7 @@ bra_case_8DE7_03:
 - - - - - 0x020E01 17:8DF1: 6E A1     .word loc_A16E
 
 bra_long_case_8F09_01_летит_низкий_мяч:
-- D - I - 0x020F19 17:8F09: FD        .byte con_mirror_condition, $03
+- D - I - 0x020F19 17:8F09: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x020F21 17:8F11: F3        .byte con_branch, $C6
 - D - I - 0x020F23 17:8F13: 02        .byte bra_case_8F15_00 - *
 - D - I - 0x020F24 17:8F14: CC        .byte bra_case_8FE0_01 - *
@@ -3283,7 +3283,7 @@ bra_case_91DF_00:
 
 
 _scenario_91EA_0E:
-- D - I - 0x0211FA 17:91EA: FD        .byte con_mirror_condition, $01
+- D - I - 0x0211FA 17:91EA: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x0211FC 17:91EC: F3        .byte con_branch, $04     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x0211FE 17:91EE: 9B B2     .word bra_long_case_B29B_00
 - D - I - 0x021200 17:91F0: 64 AE     .word bra_long_case_AE64_01_pass
@@ -3291,7 +3291,7 @@ _scenario_91EA_0E:
 
 
 _scenario_91F2_01:
-- D - I - 0x021202 17:91F2: FD        .byte con_mirror_condition, $01
+- D - I - 0x021202 17:91F2: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x021204 17:91F4: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x021206 17:91F6: 02        .byte bra_case_91F8_00 - *
 - D - I - 0x021207 17:91F7: 05        .byte bra_case_91FC_01 - *
@@ -3308,7 +3308,7 @@ bra_case_91FC_01:
 
 
 _scenario_91FF_02:
-- D - I - 0x02120F 17:91FF: FD        .byte con_mirror_condition, $01
+- D - I - 0x02120F 17:91FF: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x021211 17:9201: F3        .byte con_branch, $86     ; защитник кипер или нет
 - D - I - 0x021213 17:9203: 0C        .byte bra_case_920F_00_это_не_кипер - *
 - D - I - 0x021214 17:9204: 43        .byte bra_case_9247_01_это_кипер - *
@@ -3316,7 +3316,7 @@ _scenario_91FF_02:
 
 
 _scenario_9205_0F:
-- D - I - 0x021215 17:9205: FD        .byte con_mirror_condition, $01
+- D - I - 0x021215 17:9205: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x021217 17:9207: F3        .byte con_branch, $43
 - D - I - 0x021219 17:9209: 17 92     .word bra_long_case_9217_00
 - D - I - 0x02121B 17:920B: 17 92     .word bra_long_case_9217_01
@@ -3391,7 +3391,7 @@ bra_case_9244_04_защитник_5:
 - - - - - 0x021255 17:9245: 6D 9C     .word loc_9C6D
 
 bra_case_9247_01_это_кипер:
-- D - I - 0x021257 17:9247: FD        .byte con_mirror_condition, $03
+- D - I - 0x021257 17:9247: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021259 17:9249: F3        .byte con_branch, $44     ; делает ли кипер dive
 - D - I - 0x02125B 17:924B: 4F 92     .word bra_long_case_924F_00_кипер_делает_dive
 - D - I - 0x02125D 17:924D: 90 BD     .word bra_long_case_BD90_01_кипер_ждет_в_воротах
@@ -3421,7 +3421,7 @@ bra_case_9256_01_верхний_dive:
 
 
 _scenario_9259_05_10:
-- D - I - 0x021269 17:9259: FD        .byte con_mirror_condition, $01
+- D - I - 0x021269 17:9259: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x02126B 17:925B: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x02126D 17:925D: 05        .byte bra_case_9262_00_защитник_выживет - *
 - D - I - 0x02126E 17:925E: 01        .byte bra_case_925F_01_защитник_убьется - *
@@ -3435,7 +3435,7 @@ bra_case_9262_00_защитник_выживет:
 
 
 _scenario_9263_06:
-- D - I - 0x021273 17:9263: FD        .byte con_mirror_condition, $01
+- D - I - 0x021273 17:9263: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x021275 17:9265: F3        .byte con_branch, $86     ; защитник кипер или нет
 - D - I - 0x021277 17:9267: 02        .byte bra_case_9269_00_это_не_кипер - *
 - D - I - 0x021278 17:9268: 0D        .byte bra_case_9275_01_это_кипер - *
@@ -3444,13 +3444,13 @@ _scenario_9263_06:
 
 _scenario_9269_11:
 bra_case_9269_00_это_не_кипер:
-- D - I - 0x021279 17:9269: FD        .byte con_mirror_condition, $01
+- D - I - 0x021279 17:9269: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x02127B 17:926B: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x02127D 17:926D: 07        .byte bra_case_9274_00_защитник_выживет - *
 - D - I - 0x02127E 17:926E: 01        .byte bra_case_926F_01_защитник_убьется - *
 
 bra_case_926F_01_защитник_убьется:
-- D - I - 0x02127F 17:926F: FD        .byte con_mirror_condition, $01
+- D - I - 0x02127F 17:926F: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x021281 17:9271: FA        .byte con_jsr
 - D - I - 0x021282 17:9272: 62 9F     .word sub_9F62
 bra_case_9274_00_защитник_выживет:
@@ -3462,7 +3462,7 @@ bra_case_9275_01_это_кипер:
 - D - I - 0x021288 17:9278: 01        .byte bra_case_9279_01_защитник_убьется - *
 
 bra_case_9279_01_защитник_убьется:
-- D - I - 0x021289 17:9279: FD        .byte con_mirror_condition, $01
+- D - I - 0x021289 17:9279: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x02128B 17:927B: FA        .byte con_jsr
 - D - I - 0x02128C 17:927C: B5 9F     .word sub_9FB5_убийство_кипера
 bra_case_927E_00_защитник_выживет:
@@ -3471,7 +3471,7 @@ bra_case_927E_00_защитник_выживет:
 
 
 _scenario_927F_12:
-- D - I - 0x02128F 17:927F: FD        .byte con_mirror_condition, $03
+- D - I - 0x02128F 17:927F: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021291 17:9281: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x021293 17:9283: 08        .byte bra_case_928B_00 - *
 - D - I - 0x021294 17:9284: 0F        .byte bra_case_9293_01 - *
@@ -3479,7 +3479,7 @@ _scenario_927F_12:
 
 
 _scenario_9285_07:
-- D - I - 0x021295 17:9285: FD        .byte con_mirror_condition, $03
+- D - I - 0x021295 17:9285: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021297 17:9287: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x021299 17:9289: 06        .byte bra_case_928F_00 - *
 - D - I - 0x02129A 17:928A: 0D        .byte bra_case_9297_01 - *
@@ -3685,17 +3685,17 @@ bra_case_933C_01_pass:
 
 bra_long_case_9341_01:
 bra_case_9341_02_trap:
-- D - I - 0x021351 17:9341: FD        .byte con_mirror_condition, $03
+- D - I - 0x021351 17:9341: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021353 17:9343: F2        .byte con_jmp
 - D - I - 0x021354 17:9344: C2 B2     .word loc_B2C2
 
 bra_case_9346_00_shoot:
-- D - I - 0x021356 17:9346: FD        .byte con_mirror_condition, $03
+- D - I - 0x021356 17:9346: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021358 17:9348: F2        .byte con_jmp
 - D - I - 0x021359 17:9349: 9A 9D     .word loc_9D9A
 
 bra_case_934B_03_through:
-- D - I - 0x02135B 17:934B: FD        .byte con_mirror_condition, $03
+- D - I - 0x02135B 17:934B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02135D 17:934D: F2        .byte con_jmp
 - D - I - 0x02135E 17:934E: 42 B4     .word loc_B442
 
@@ -3706,29 +3706,29 @@ bra_case_9350_01_pass:
 - D - I - 0x021363 17:9353: 4F 9E     .word loc_9E4F
 
 bra_case_9355_02_dribble:
-- D - I - 0x021365 17:9355: FD        .byte con_mirror_condition, $03
+- D - I - 0x021365 17:9355: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021367 17:9357: F2        .byte con_jmp
 - D - I - 0x021368 17:9358: CC B2     .word loc_B2CC
 
 bra_long_case_935A_01:
-- D - I - 0x02136A 17:935A: FD        .byte con_mirror_condition, $03
+- D - I - 0x02136A 17:935A: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02136C 17:935C: F2        .byte con_jmp
 - D - I - 0x02136D 17:935D: D4 B2     .word loc_B2D4
 
 bra_case_935F_00_shoot:
-- D - I - 0x02136F 17:935F: FD        .byte con_mirror_condition, $03
+- D - I - 0x02136F 17:935F: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021371 17:9361: F2        .byte con_jmp
 - D - I - 0x021372 17:9362: 52 9D     .word loc_9D52
 
 bra_case_9364_03_1_2_pass:
-- D - I - 0x021374 17:9364: FD        .byte con_mirror_condition, $03
+- D - I - 0x021374 17:9364: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021376 17:9366: F2        .byte con_jmp
 - D - I - 0x021377 17:9367: 3D B4     .word loc_B43D
 
 
 
 _scenario_9369_09:
-- D - I - 0x021379 17:9369: FD        .byte con_mirror_condition, $03
+- D - I - 0x021379 17:9369: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02137B 17:936B: FA        .byte con_jsr
 - D - I - 0x02137C 17:936C: F6 9E     .word sub_9EF6_выбор_анимации_полета_удара
 - D - I - 0x02137E 17:936E: F3        .byte con_branch, $02     ; действие защитника (кипера)
@@ -4146,12 +4146,12 @@ bra_case_951A_02:
 
 bra_long_case_9529_00_словить:
 - D - I - 0x021539 17:9529: F3        .byte con_branch, $36
-- D - I - 0x02153B 17:952B: 33 95     .word bra_long_case_9533_00
-- D - I - 0x02153D 17:952D: C8 95     .word bra_long_case_95C8_01
-- D - I - 0x02153F 17:952F: 4B 96     .word bra_long_case_964B_02
-- D - I - 0x021541 17:9531: CE 96     .word bra_long_case_96CE_03
+- D - I - 0x02153B 17:952B: 33 95     .word bra_long_case_9533_00_catch
+- D - I - 0x02153D 17:952D: C8 95     .word bra_long_case_95C8_01_rolling_save
+- D - I - 0x02153F 17:952F: 4B 96     .word bra_long_case_964B_02_clone_save
+- D - I - 0x021541 17:9531: CE 96     .word bra_long_case_96CE_03_dark_illusion
 
-bra_long_case_9533_00:
+bra_long_case_9533_00_catch:
 - D - I - 0x021543 17:9533: FA        .byte con_jsr
 - D - I - 0x021544 17:9534: 9C 9F     .word sub_9F9C_крит_кипера
 - D - I - 0x021546 17:9536: F3        .byte con_branch, $81     ; выживет ли защитник
@@ -4305,7 +4305,7 @@ loc_95BC:
 - D - I - 0x0215D5 17:95C5: F2        .byte con_jmp
 - D - I - 0x0215D6 17:95C6: F0 9E     .word loc_9EF0
 
-bra_long_case_95C8_01:
+bra_long_case_95C8_01_rolling_save:
 - D - I - 0x0215D8 17:95C8: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x0215DA 17:95CA: 02        .byte bra_case_95CC_00_защитник_выживет - *
 - - - - - 0x0215DB 17:95CB: 42        .byte bra_case_960D_01_защитник_убьется - *
@@ -4445,7 +4445,7 @@ bra_case_9645_02:
 - - - - - 0x021658 17:9648: F2        .byte con_jmp
 - - - - - 0x021659 17:9649: 02 98     .word loc_9802
 
-bra_long_case_964B_02:
+bra_long_case_964B_02_clone_save:
 - D - I - 0x02165B 17:964B: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x02165D 17:964D: 02        .byte bra_case_964F_00_защитник_выживет - *
 - - - - - 0x02165E 17:964E: 42        .byte bra_case_9690_01_защитник_убьется - *
@@ -4585,7 +4585,7 @@ bra_case_96C8_02:
 - - - - - 0x0216DB 17:96CB: F2        .byte con_jmp
 - - - - - 0x0216DC 17:96CC: 02 98     .word loc_9802
 
-bra_long_case_96CE_03:
+bra_long_case_96CE_03_dark_illusion:
 - D - I - 0x0216DE 17:96CE: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x0216E0 17:96D0: 02        .byte bra_case_96D2_00_защитник_выживет - *
 - D - I - 0x0216E1 17:96D1: 78        .byte bra_case_9749_01_защитник_убьется - *
@@ -4613,7 +4613,7 @@ bra_case_96DC_00:
 
 
 _scenario_96E3_0C:
-- D - I - 0x0216F3 17:96E3: FD        .byte con_mirror_condition, $03
+- D - I - 0x0216F3 17:96E3: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x0216F5 17:96E5: FA        .byte con_jsr
 - D - I - 0x0216F6 17:96E6: F6 9E     .word sub_9EF6_выбор_анимации_полета_удара
 - D - I - 0x0216F8 17:96E8: F3        .byte con_branch, $8F     ; ? порвется ли мяч
@@ -4638,7 +4638,7 @@ bra_case_96F0_00_мяч_не_порвется:
 _scenario_96F7_0D:
 - D - I - 0x021707 17:96F7: FA        .byte con_jsr
 - D - I - 0x021708 17:96F8: 31 AB     .word sub_AB31
-- D - I - 0x02170A 17:96FA: FD        .byte con_mirror_condition, $03
+- D - I - 0x02170A 17:96FA: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02170C 17:96FC: FA        .byte con_jsr
 - D - I - 0x02170D 17:96FD: E7 B4     .word sub_B4E7
 - D - I - 0x02170F 17:96FF: F3        .byte con_branch, $93     ; появится ли спасающий ворота защитник
@@ -4922,7 +4922,7 @@ bra_case_9816_00_shoot:
 bra_case_981D_02_dribble:
 - D - I - 0x02182D 17:981D: FA        .byte con_jsr
 - D - I - 0x02182E 17:981E: D6 9F     .word sub_9FD6
-- D - I - 0x021830 17:9820: FD        .byte con_mirror_condition, $03
+- D - I - 0x021830 17:9820: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021832 17:9822: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x021834 17:9824: 70        .byte bra_case_9894_00_защитник_выживет - *
 - D - I - 0x021835 17:9825: 94        .byte bra_case_98B9_01_защитник_убьется - *
@@ -4938,7 +4938,7 @@ bra_case_9826_00_защитник_выживет:
 bra_case_982D_00:
 - D - I - 0x02183D 17:982D: FA        .byte con_jsr
 - D - I - 0x02183E 17:982E: F3 9C     .word sub_9CF3
-- D - I - 0x021840 17:9830: FD        .byte con_mirror_condition, $03
+- D - I - 0x021840 17:9830: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021842 17:9832: FA        .byte con_jsr
 - D - I - 0x021843 17:9833: 8D A0     .word sub_A08D
 bra_case_9835_01_pass:
@@ -4947,7 +4947,7 @@ bra_case_9835_01_pass:
 bra_case_9836_01:
 - D - I - 0x021846 17:9836: FA        .byte con_jsr
 - D - I - 0x021847 17:9837: F3 9C     .word sub_9CF3
-- D - I - 0x021849 17:9839: FD        .byte con_mirror_condition, $03
+- D - I - 0x021849 17:9839: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02184B 17:983B: FA        .byte con_jsr
 - D - I - 0x02184C 17:983C: A1 A0     .word sub_A0A1
 - D - I - 0x02184E 17:983E: FA        .byte con_jsr
@@ -4958,7 +4958,7 @@ bra_case_9836_01:
 bra_case_9844_02:
 - D - I - 0x021854 17:9844: FA        .byte con_jsr
 - D - I - 0x021855 17:9845: F3 9C     .word sub_9CF3
-- D - I - 0x021857 17:9847: FD        .byte con_mirror_condition, $03
+- D - I - 0x021857 17:9847: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021859 17:9849: FA        .byte con_jsr
 - D - I - 0x02185A 17:984A: 4B A1     .word sub_A14B
 - D - I - 0x02185C 17:984C: FA        .byte con_jsr
@@ -4969,7 +4969,7 @@ bra_case_9844_02:
 bra_case_9852_03:
 - D - I - 0x021862 17:9852: FA        .byte con_jsr
 - D - I - 0x021863 17:9853: F3 9C     .word sub_9CF3
-- D - I - 0x021865 17:9855: FD        .byte con_mirror_condition, $03
+- D - I - 0x021865 17:9855: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021867 17:9857: F2        .byte con_jmp
 - D - I - 0x021868 17:9858: A6 A0     .word loc_A0A6
 
@@ -4990,7 +4990,7 @@ bra_case_9860_01_защитник_убьется:
 bra_case_9867_00:
 - D - I - 0x021877 17:9867: FA        .byte con_jsr
 - D - I - 0x021878 17:9868: F3 9C     .word sub_9CF3
-- D - I - 0x02187A 17:986A: FD        .byte con_mirror_condition, $03
+- D - I - 0x02187A 17:986A: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02187C 17:986C: FA        .byte con_jsr
 - D - I - 0x02187D 17:986D: A1 A0     .word sub_A0A1
 - D - I - 0x02187F 17:986F: FA        .byte con_jsr
@@ -5002,7 +5002,7 @@ bra_case_9875_01:
 bra_case_9875_02:
 - - - - - 0x021885 17:9875: FA        .byte con_jsr
 - - - - - 0x021886 17:9876: DD A2     .word sub_A2DD
-- - - - - 0x021888 17:9878: FD        .byte con_mirror_condition, $03
+- - - - - 0x021888 17:9878: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - - - - - 0x02188A 17:987A: FA        .byte con_jsr
 - - - - - 0x02188B 17:987B: 6E 9F     .word sub_9F6E
 - - - - - 0x02188D 17:987D: F2        .byte con_jmp
@@ -5011,7 +5011,7 @@ bra_case_9875_02:
 bra_case_9880_03:
 - D - I - 0x021890 17:9880: FA        .byte con_jsr
 - D - I - 0x021891 17:9881: DD A2     .word sub_A2DD
-- D - I - 0x021893 17:9883: FD        .byte con_mirror_condition, $03
+- D - I - 0x021893 17:9883: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021895 17:9885: FA        .byte con_jsr
 - D - I - 0x021896 17:9886: 68 9F     .word sub_9F68
 - D - I - 0x021898 17:9888: F2        .byte con_jmp
@@ -5175,7 +5175,7 @@ bra_case_992A_03:
 - D - I - 0x021941 17:9931: 64 A1     .word loc_A164
 
 bra_case_9933_01:
-- D - I - 0x021943 17:9933: FD        .byte con_mirror_condition, $03
+- D - I - 0x021943 17:9933: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021945 17:9935: F3        .byte con_branch, $8F
 - D - I - 0x021947 17:9937: 04        .byte bra_case_993B_00 - *
 - D - I - 0x021948 17:9938: 0C        .byte bra_case_9944_01 - *
@@ -5223,7 +5223,7 @@ bra_case_9962_03:
 - D - I - 0x021979 17:9969: 64 A1     .word loc_A164
 
 bra_case_996B_02:
-- D - I - 0x02197B 17:996B: FD        .byte con_mirror_condition, $03
+- D - I - 0x02197B 17:996B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02197D 17:996D: F3        .byte con_branch, $8F
 - D - I - 0x02197F 17:996F: 04        .byte bra_case_9973_00 - *
 - D - I - 0x021980 17:9970: 13        .byte bra_case_9983_01 - *
@@ -5441,7 +5441,7 @@ bra_case_9A64_03:
 - D - I - 0x021A7E 17:9A6E: 85 A1     .word loc_A185
 
 bra_case_9A70_01:
-- D - I - 0x021A80 17:9A70: FD        .byte con_mirror_condition, $03
+- D - I - 0x021A80 17:9A70: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021A82 17:9A72: F3        .byte con_branch, $8F
 - D - I - 0x021A84 17:9A74: 0C        .byte bra_case_9A80_00 - *
 - D - I - 0x021A85 17:9A75: 17        .byte bra_case_9A8C_01 - *
@@ -5449,7 +5449,7 @@ bra_case_9A70_01:
 - D - I - 0x021A87 17:9A77: 39        .byte bra_case_9AB0_03 - *
 
 bra_case_9A78_02:
-- D - I - 0x021A88 17:9A78: FD        .byte con_mirror_condition, $03
+- D - I - 0x021A88 17:9A78: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021A8A 17:9A7A: F3        .byte con_branch, $8F
 - D - I - 0x021A8C 17:9A7C: 40        .byte bra_case_9ABC_00 - *
 - D - I - 0x021A8D 17:9A7D: 52        .byte bra_case_9ACF_01 - *
@@ -5666,7 +5666,7 @@ bra_case_9B6D_02:
 
 
 _scenario_9B82_14:
-- D - I - 0x021B92 17:9B82: FD        .byte con_mirror_condition, $03
+- D - I - 0x021B92 17:9B82: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021B94 17:9B84: F3        .byte con_branch, $81     ; выживет ли защитник
 - D - I - 0x021B96 17:9B86: 02        .byte bra_case_9B88_00_защитник_выживет - *
 - - - - - 0x021B97 17:9B87: 28        .byte bra_case_9BAF_01_защитник_убьется - *
@@ -5998,7 +5998,7 @@ _scenario_9CDD_25:
 - D - I - 0x021CF3 17:9CE3: 10        .byte bra_case_9CF3_01 - *
 
 bra_case_9CE4_00:
-- D - I - 0x021CF4 17:9CE4: FD        .byte con_mirror_condition, $03
+- D - I - 0x021CF4 17:9CE4: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021CF6 17:9CE6: F9        .byte con_soundID_delay, $12, $02     ; обычный удар с земли
 - D - I - 0x021CF9 17:9CE9: 30        .byte con_pause + $30
 - D - I - 0x021CFA 17:9CEA: 42        .byte con_bg + $42
@@ -6389,7 +6389,7 @@ bra_long_case_9F4A_00:
 
 
 _scenario_9F54_2C:
-- D - I - 0x021F64 17:9F54: FD        .byte con_mirror_condition, $03
+- D - I - 0x021F64 17:9F54: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021F66 17:9F56: F3        .byte con_branch, $04     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x021F68 17:9F58: 24 BA     .word bra_long_case_BA24_00
 - D - I - 0x021F6A 17:9F5A: 1C BA     .word bra_long_case_BA1C_01
@@ -7475,7 +7475,7 @@ bra_case_A347_02_за_японию:
 - D - I - 0x022359 11:A349: A6        .byte con_animation + $A6
 - D - I - 0x02235A 11:A34A: 9F        .byte con_cloud + $9F
 loc_A34B:
-- D - I - 0x02235B 11:A34B: FD        .byte con_mirror_condition, $03
+- D - I - 0x02235B 11:A34B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 sub_A34D_отскок_вакашимазу_от_штанги:
 bra_long_case_A34D_00:
 ; вакашимазу отталкивается от штанги
@@ -12555,7 +12555,7 @@ _scenario_B754_3F:
 - D - I - 0x023764 11:B754: FD        .byte con_mirror_condition, $00
 - D - I - 0x023766 11:B756: FA        .byte con_jsr
 - D - I - 0x023767 11:B757: 3E 9F     .word sub_9F3E
-- D - I - 0x023769 11:B759: FD        .byte con_mirror_condition, $03
+- D - I - 0x023769 11:B759: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02376B 11:B75B: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x02376D 11:B75D: 02        .byte bra_case_B75F_00 - *
 - D - I - 0x02376E 11:B75E: 0E        .byte bra_case_B76C_01 - *
@@ -12592,7 +12592,7 @@ _scenario_B773_2F:
 - D - I - 0x023783 11:B773: FD        .byte con_mirror_condition, $00
 - D - I - 0x023785 11:B775: FA        .byte con_jsr
 - D - I - 0x023786 11:B776: 3E 9F     .word sub_9F3E
-- D - I - 0x023788 11:B778: FD        .byte con_mirror_condition, $03
+- D - I - 0x023788 11:B778: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02378A 11:B77A: F3        .byte con_branch, $84     ; мяч у атакующего/низкий, или высокий
 - D - I - 0x02378C 11:B77C: 02        .byte bra_case_B77E_00 - *
 - D - I - 0x02378D 11:B77D: 08        .byte bra_case_B785_01 - *
@@ -12719,7 +12719,7 @@ _scenario_B7D5_44:
 
 
 _scenario_B7DA_1E:
-- D - I - 0x0237EA 11:B7DA: FD        .byte con_mirror_condition, $02
+- D - I - 0x0237EA 11:B7DA: FD        .byte con_mirror_condition, $02       ; команда
 - D - I - 0x0237EC 11:B7DC: F6        .byte con_mirror_toggle
 - D - I - 0x0237ED 11:B7DD: F7        .byte con_F7, $01
 - D - I - 0x0237EF 11:B7DF: 07        .byte con_pause + $07
@@ -14170,7 +14170,7 @@ bra_case_BD6D_10:
 - D - I - 0x023D96 11:BD86: FB        .byte con_rts
 
 bra_long_case_BD87_02:
-- D - I - 0x023D97 11:BD87: FD        .byte con_mirror_condition, $01
+- D - I - 0x023D97 11:BD87: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x023D99 11:BD89: F7        .byte con_F7, $02
 - D - I - 0x023D9B 11:BD8B: 28        .byte con_pause + $28
 - D - I - 0x023D9C 11:BD8C: 23        .byte con_bg + $23
