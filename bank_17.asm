@@ -2057,8 +2057,8 @@ tbl_89BF_сценарии:
 - D - I - 0x020A0D 17:89FD: 33 B7     .word _scenario_B733_1F       ; 
 - D - I - 0x020A0F 17:89FF: 38 B7     .word _scenario_B738_20       ; 
 - D - I - 0x020A11 17:8A01: 3B BA     .word _scenario_BA3B_21       ; 
-- D - I - 0x020A13 17:8A03: 49 B7     .word _scenario_B749_22       ; 
-- D - I - 0x020A15 17:8A05: 3F BB     .word _scenario_BB3F_23       ; 
+- D - I - 0x020A13 17:8A03: 49 B7     .word _scenario_B749_22       ; в пенальти сообщение о бьющем игроке, затем выбор действия игроку/киперу
+- D - I - 0x020A15 17:8A05: 3F BB     .word _scenario_BB3F_23       ; в пенальти игрок бьет, затем результат удара и действия кипера
 - D - I - 0x020A17 17:8A07: F2 9B     .word _scenario_9BF2_24       ; 
 - D - I - 0x020A19 17:8A09: DD 9C     .word _scenario_9CDD_25       ; 
 - D - I - 0x020A1B 17:8A0B: 2D 9E     .word _scenario_9E2D_26       ; 
@@ -2074,13 +2074,13 @@ tbl_89BF_сценарии:
 - D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30       ; гол
 - D - I - 0x020A31 17:8A21: 8C B7     .word _scenario_B78C_31       ; 
 - D - I - 0x020A33 17:8A23: 57 9E     .word _scenario_9E57_32       ; 
-- D - I - 0x020A35 17:8A25: 04 9C     .word _scenario_9C04_33       ; 
+- D - I - 0x020A35 17:8A25: 04 9C     .word _scenario_9C04_33       ; сообщение о завершении тайма/матча/пк
 - D - I - 0x020A37 17:8A27: CC BB     .word _scenario_BBCC_34       ; мяч ударяется об землю когда некому его поднять
 - D - I - 0x020A39 17:8A29: CD B7     .word _scenario_B7CD_35       ; ожидание разводки
 - D - I - 0x020A3B 17:8A2B: E4 B7     .word _scenario_B7E4_36       ; разводка
 - D - I - 0x020A3D 17:8A2D: BF B7     .word _scenario_B7BF_37       ; 
 - D - I - 0x020A3F 17:8A2F: C6 B7     .word _scenario_B7C6_38       ; выбор кому дать пас или с кем перепасоваться
-- D - I - 0x020A41 17:8A31: B3 BD     .word _scenario_BDB3_39       ; 
+- D - I - 0x020A41 17:8A31: B3 BD     .word _scenario_BDB3_39       ; сообщение о том что начались пенальти
 - D - I - 0x020A43 17:8A33: 7C B4     .word _scenario_B47C_3A       ; 
 - - - - - 0x020A45 17:8A35: A1 BD     .word _scenario_BDA1_3B       ; 
 - - - - - 0x020A47 17:8A37: 3E 9F     .word _scenario_9F3E_3C       ; 
@@ -2092,7 +2092,7 @@ tbl_89BF_сценарии:
 - D - I - 0x020A53 17:8A43: A6 BD     .word _scenario_BDA6_42       ; 
 - D - I - 0x020A55 17:8A45: AD BD     .word _scenario_BDAD_43       ; 
 - D - I - 0x020A57 17:8A47: D5 B7     .word _scenario_B7D5_44       ; игрок в меню выбора действия, находясь с мячом на земле
-- - - - - 0x020A59 17:8A49: B8 BD     .word _scenario_BDB8_45       ; 
+- - - - - 0x020A59 17:8A49: B8 BD     .word _scenario_BDB8_45       ; sudden death в пенальти
 - D - I - 0x020A5B 17:8A4B: BD BD     .word _scenario_BDBD_46       ; 
 - D - I - 0x020A5D 17:8A4D: 19 9C     .word _scenario_9C19_47       ; diaz выебывается после гола
 - - - - - 0x020A5F 17:8A4F: 01 BE     .word _scenario_BE01_50___
