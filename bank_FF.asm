@@ -3263,7 +3263,7 @@ C - - - - 0x03DB4F FF:DB3F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DB52 FF:DB42: 68        PLA
 C - - - - 0x03DB53 FF:DB43: 20 03 80  JSR sub_0x038013
 C - - - - 0x03DB56 FF:DB46: A9 00     LDA #$00
-C - - - - 0x03DB58 FF:DB48: 8D 47 04  STA ram_флаг_удара_коимбры
+C - - - - 0x03DB58 FF:DB48: 8D 47 04  STA ram_флаг_удара_франции_коимбры
 C - - - - 0x03DB5B FF:DB4B: A2 00     LDX #$00
 C - - - - 0x03DB5D FF:DB4D: AD 2B 00  LDA ram_команда_соперника
 C - - - - 0x03DB60 FF:DB50: C9 03     CMP #$03

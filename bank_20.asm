@@ -1610,246 +1610,246 @@ tbl_88F0:
 
 
 tbl_8968_анимации_сценариев:
-- D - I - 0x028978 20:8968: 48 8B     .word off_8B48_00     ; 
-- D - I - 0x02897A 20:896A: 5C 8B     .word off_8B5C_01     ; 
-- D - I - 0x02897C 20:896C: 6A 8B     .word off_8B6A_02     ; 
-- D - I - 0x02897E 20:896E: 78 8B     .word off_8B78_03     ; 
-- D - I - 0x028980 20:8970: 86 8B     .word off_8B86_04     ; 
-- D - I - 0x028982 20:8972: 94 8B     .word off_8B94_05     ; 
-- D - I - 0x028984 20:8974: B4 8B     .word off_8BB4_06     ; 
-- D - I - 0x028986 20:8976: CA 8B     .word off_8BCA_07     ; 
-- D - I - 0x028988 20:8978: E0 8B     .word off_8BE0_08     ; 
-- D - I - 0x02898A 20:897A: EE 8B     .word off_8BEE_09     ; 
-- - - - - 0x02898C 20:897C: 04 8C     .word off_8C04_0A     ; unused байтов в сценарии не найдено
-- D - I - 0x02898E 20:897E: 12 8C     .word off_8C12_0B     ; 
-- D - I - 0x028990 20:8980: 28 8C     .word off_8C28_0C     ; 
-- D - I - 0x028992 20:8982: 3C 8C     .word off_8C3C_0D     ; 
-- D - I - 0x028994 20:8984: 4A 8C     .word off_8C4A_0E     ; 
-- D - I - 0x028996 20:8986: 61 8C     .word off_8C61_0F     ; 
-- D - I - 0x028998 20:8988: 78 8C     .word off_8C78_10     ; 
-- D - I - 0x02899A 20:898A: 86 8C     .word off_8C86_11     ; 
-- D - I - 0x02899C 20:898C: 94 8C     .word off_8C94_12     ; 
-- D - I - 0x02899E 20:898E: A2 8C     .word off_8CA2_13     ; 
-- D - I - 0x0289A0 20:8990: B9 8C     .word off_8CB9_14     ; 
-- D - I - 0x0289A2 20:8992: D0 8C     .word off_8CD0_15     ; 
-- D - I - 0x0289A4 20:8994: DE 8C     .word off_8CDE_16     ; 
-- D - I - 0x0289A6 20:8996: EC 8C     .word off_8CEC_17     ; 
-- D - I - 0x0289A8 20:8998: 09 8D     .word off_8D09_18     ; 
-- D - I - 0x0289AA 20:899A: 1F 8D     .word off_8D1F_19     ; 
-- D - I - 0x0289AC 20:899C: 52 8D     .word off_8D52_1A     ; 
-- D - I - 0x0289AE 20:899E: 60 8D     .word off_8D60_1B     ; 
-- D - I - 0x0289B0 20:89A0: 89 8D     .word off_8D89_1C     ; 
-- D - I - 0x0289B2 20:89A2: 97 8D     .word off_8D97_1D     ; 
-- D - I - 0x0289B4 20:89A4: A5 8D     .word off_8DA5_1E     ; 
-- D - I - 0x0289B6 20:89A6: B3 8D     .word off_8DB3_1F     ; 
-- D - I - 0x0289B8 20:89A8: C1 8D     .word off_8DC1_20     ; 
-- D - I - 0x0289BA 20:89AA: CF 8D     .word off_8DCF_21     ; 
-- D - I - 0x0289BC 20:89AC: 05 8E     .word off_8E05_22     ; 
-- D - I - 0x0289BE 20:89AE: 1B 8E     .word off_8E1B_23     ; 
-- D - I - 0x0289C0 20:89B0: 32 8E     .word off_8E32_24     ; 
-- D - I - 0x0289C2 20:89B2: 5B 8E     .word off_8E5B_25     ; 
-- D - I - 0x0289C4 20:89B4: 7A 8E     .word off_8E7A_26     ; 
-- D - I - 0x0289C6 20:89B6: 8E 8E     .word off_8E8E_27     ; 
-- D - I - 0x0289C8 20:89B8: C6 8E     .word off_8EC6_28     ; 
-- D - I - 0x0289CA 20:89BA: E5 8E     .word off_8EE5_29     ; 
-- D - I - 0x0289CC 20:89BC: F3 8E     .word off_8EF3_2A     ; 
-- D - I - 0x0289CE 20:89BE: 29 8F     .word off_8F29_2B     ; 
-- D - I - 0x0289D0 20:89C0: 53 8F     .word off_8F53_2C     ; 
-- D - I - 0x0289D2 20:89C2: 7C 8F     .word off_8F7C_2D     ; 
-- D - I - 0x0289D4 20:89C4: 99 8F     .word off_8F99_2E     ; 
-- D - I - 0x0289D6 20:89C6: A7 8F     .word off_8FA7_2F     ; 
-- D - I - 0x0289D8 20:89C8: BE 8F     .word off_8FBE_30     ; 
-- D - I - 0x0289DA 20:89CA: CC 8F     .word off_8FCC_31     ; 
-- D - I - 0x0289DC 20:89CC: E2 8F     .word off_8FE2_32     ; 
-- D - I - 0x0289DE 20:89CE: F9 8F     .word off_8FF9_33     ; 
-- D - I - 0x0289E0 20:89D0: 3A 90     .word off_903A_34     ; 
-- D - I - 0x0289E2 20:89D2: 6F 90     .word off_906F_35     ; 
-- D - I - 0x0289E4 20:89D4: A5 90     .word off_90A5_36     ; 
-- D - I - 0x0289E6 20:89D6: B3 90     .word off_90B3_37     ; 
-- D - I - 0x0289E8 20:89D8: CD 90     .word off_90CD_38     ; 
-- D - I - 0x0289EA 20:89DA: D2 90     .word off_90D2_39     ; 
-- D - I - 0x0289EC 20:89DC: D7 90     .word off_90D7_3A     ; 
-- D - I - 0x0289EE 20:89DE: 0C 91     .word off_910C_3B     ; 
-- D - I - 0x0289F0 20:89E0: 41 91     .word off_9141_3C     ; 
-- D - I - 0x0289F2 20:89E2: 52 91     .word off_9152_3D     ; 
-- D - I - 0x0289F4 20:89E4: 60 91     .word off_9160_3E     ; 
-- D - I - 0x0289F6 20:89E6: 77 91     .word off_9177_3F     ; 
-- D - I - 0x0289F8 20:89E8: 8E 91     .word off_918E_40     ; 
-- D - I - 0x0289FA 20:89EA: A5 91     .word off_91A5_41     ; 
-- D - I - 0x0289FC 20:89EC: BC 91     .word off_91BC_42     ; 
-- D - I - 0x0289FE 20:89EE: CA 91     .word off_91CA_43     ; 
-- D - I - 0x028A00 20:89F0: D8 91     .word off_91D8_44     ; 
-- D - I - 0x028A02 20:89F2: E6 91     .word off_91E6_45     ; 
-- D - I - 0x028A04 20:89F4: F4 91     .word off_91F4_46     ; 
-- D - I - 0x028A06 20:89F6: 02 92     .word off_9202_47     ; 
-- D - I - 0x028A08 20:89F8: 10 92     .word off_9210_48     ; 
-- D - I - 0x028A0A 20:89FA: 1E 92     .word off_921E_49     ; 
-- D - I - 0x028A0C 20:89FC: 32 92     .word off_9232_4A     ; 
-- D - I - 0x028A0E 20:89FE: 40 92     .word off_9240_4B     ; 
-- D - I - 0x028A10 20:8A00: 45 92     .word off_9245_4C     ; 
-- D - I - 0x028A12 20:8A02: 53 92     .word off_9253_4D     ; 
-- D - I - 0x028A14 20:8A04: 61 92     .word off_9261_4E     ; 
-- D - I - 0x028A16 20:8A06: 6F 92     .word off_926F_4F     ; 
-- D - I - 0x028A18 20:8A08: 7D 92     .word off_927D_50     ; 
-- D - I - 0x028A1A 20:8A0A: 8B 92     .word off_928B_51     ; 
-- D - I - 0x028A1C 20:8A0C: 9F 92     .word off_929F_52     ; 
-- - - - - 0x028A1E 20:8A0E: AD 92     .word off_92AD_53     ; unused байтов в сценарии не найдено
-- - - - - 0x028A20 20:8A10: BB 92     .word off_92BB_54     ; найден 1 случай в сценарии
-- D - I - 0x028A22 20:8A12: C9 92     .word off_92C9_55     ; 
-- D - I - 0x028A24 20:8A14: D7 92     .word off_92D7_56     ; 
-- D - I - 0x028A26 20:8A16: E5 92     .word off_92E5_57     ; 
-- D - I - 0x028A28 20:8A18: F3 92     .word off_92F3_58     ; 
-- - - - - 0x028A2A 20:8A1A: 0D 93     .word off_930D_59     ; 
-- D - I - 0x028A2C 20:8A1C: 23 93     .word off_9323_5A     ; 
-- D - I - 0x028A2E 20:8A1E: 3D 93     .word off_933D_5B     ; 
-- D - I - 0x028A30 20:8A20: 57 93     .word off_9357_5C     ; 
-- D - I - 0x028A32 20:8A22: 71 93     .word off_9371_5D     ; 
-- D - I - 0x028A34 20:8A24: 7F 93     .word off_937F_5E     ; 
-- D - I - 0x028A36 20:8A26: 8D 93     .word off_938D_5F     ; 
-- D - I - 0x028A38 20:8A28: A4 93     .word off_93A4_60     ; 
-- D - I - 0x028A3A 20:8A2A: EC 93     .word off_93EC_61     ; 
-- D - I - 0x028A3C 20:8A2C: 03 94     .word off_9403_62     ; 
-- D - I - 0x028A3E 20:8A2E: 11 94     .word off_9411_63     ; 
-- D - I - 0x028A40 20:8A30: 25 94     .word off_9425_64     ; 
-- - - - - 0x028A42 20:8A32: 33 94     .word off_9433_65     ; unused байтов в сценарии не найдено
-- D - I - 0x028A44 20:8A34: 41 94     .word off_9441_66     ; 
-- D - I - 0x028A46 20:8A36: 56 94     .word off_9456_67     ; 
-- D - I - 0x028A48 20:8A38: 6A 94     .word off_946A_68     ; 
-- D - I - 0x028A4A 20:8A3A: 7E 94     .word off_947E_69     ; 
-- D - I - 0x028A4C 20:8A3C: 8C 94     .word off_948C_6A     ; 
-- D - I - 0x028A4E 20:8A3E: A2 94     .word off_94A2_6B     ; 
-- D - I - 0x028A50 20:8A40: BC 94     .word off_94BC_6C     ; 
-- D - I - 0x028A52 20:8A42: F4 94     .word off_94F4_6D     ; 
-- D - I - 0x028A54 20:8A44: 2C 95     .word off_952C_6E     ; 
-- D - I - 0x028A56 20:8A46: 49 95     .word off_9549_6F     ; 
-- D - I - 0x028A58 20:8A48: 79 95     .word off_9579_70     ; 
-- D - I - 0x028A5A 20:8A4A: 87 95     .word off_9587_71     ; 
-- - - - - 0x028A5C 20:8A4C: 98 95     .word off_9598_72     ; найден 1 случай в сценарии
-- D - I - 0x028A5E 20:8A4E: A6 95     .word off_95A6_73     ; 
-- D - I - 0x028A60 20:8A50: B4 95     .word off_95B4_74     ; 
-- D - I - 0x028A62 20:8A52: E6 95     .word off_95E6_75     ; 
-- D - I - 0x028A64 20:8A54: F5 95     .word off_95F5_76     ; 
-- D - I - 0x028A66 20:8A56: 03 96     .word off_9603_77     ; 
-- D - I - 0x028A68 20:8A58: 18 96     .word off_9618_78     ; 
-- D - I - 0x028A6A 20:8A5A: 51 96     .word off_9651_79     ; 
-- D - I - 0x028A6C 20:8A5C: 5F 96     .word off_965F_7A     ; 
-- D - I - 0x028A6E 20:8A5E: 89 96     .word off_9689_7B     ; 
-- D - I - 0x028A70 20:8A60: 97 96     .word off_9697_7C     ; 
-- D - I - 0x028A72 20:8A62: D2 96     .word off_96D2_7D     ; 
-- D - I - 0x028A74 20:8A64: 3B 97     .word off_973B_7E     ; 
-- D - I - 0x028A76 20:8A66: 49 97     .word off_9749_7F     ; 
-- D - I - 0x028A78 20:8A68: 60 97     .word off_9760_80     ; 
-- D - I - 0x028A7A 20:8A6A: 6E 97     .word off_976E_81     ; 
-- D - I - 0x028A7C 20:8A6C: 84 97     .word off_9784_82     ; 
-- D - I - 0x028A7E 20:8A6E: 98 97     .word off_9798_83     ; 
-- D - I - 0x028A80 20:8A70: AF 97     .word off_97AF_84     ; 
-- D - I - 0x028A82 20:8A72: BD 97     .word off_97BD_85     ; 
-- D - I - 0x028A84 20:8A74: D1 97     .word off_97D1_86     ; 
-- D - I - 0x028A86 20:8A76: E7 97     .word off_97E7_87     ; 
-- D - I - 0x028A88 20:8A78: F7 97     .word off_97F7_88     ; 
-- D - I - 0x028A8A 20:8A7A: 07 98     .word off_9807_89     ; 
-- D - I - 0x028A8C 20:8A7C: 17 98     .word off_9817_8A     ; 
-- D - I - 0x028A8E 20:8A7E: 27 98     .word off_9827_8B     ; 
-- D - I - 0x028A90 20:8A80: 35 98     .word off_9835_8C     ; 
-- D - I - 0x028A92 20:8A82: 63 98     .word off_9863_8D     ; 
-- D - I - 0x028A94 20:8A84: 71 98     .word off_9871_8E     ; 
-- D - I - 0x028A96 20:8A86: 85 98     .word off_9885_8F     ; 
-- D - I - 0x028A98 20:8A88: AB 98     .word off_98AB_90     ; 
-- D - I - 0x028A9A 20:8A8A: C5 98     .word off_98C5_91     ; 
-- D - I - 0x028A9C 20:8A8C: D4 98     .word off_98D4_92     ; 
-- D - I - 0x028A9E 20:8A8E: 13 99     .word off_9913_93     ; 
-- D - I - 0x028AA0 20:8A90: 22 99     .word off_9922_94     ; 
-- D - I - 0x028AA2 20:8A92: 31 99     .word off_9931_95     ; 
-- D - I - 0x028AA4 20:8A94: 6C 99     .word off_996C_96     ; 
-- D - I - 0x028AA6 20:8A96: 7B 99     .word off_997B_97     ; 
-- D - I - 0x028AA8 20:8A98: 81 99     .word off_9981_98     ; 
-- D - I - 0x028AAA 20:8A9A: 90 99     .word off_9990_99     ; 
-- D - I - 0x028AAC 20:8A9C: 96 99     .word off_9996_9A     ; 
-- - - - - 0x028AAE 20:8A9E: A5 99     .word off_99A5_9B     ; найдено несколько случаев, что-то связанное с ниттой
-- D - I - 0x028AB0 20:8AA0: AB 99     .word off_99AB_9C     ; 
-- D - I - 0x028AB2 20:8AA2: B1 99     .word off_99B1_9D     ; 
-- D - I - 0x028AB4 20:8AA4: D4 99     .word off_99D4_9E     ; 
-- D - I - 0x028AB6 20:8AA6: DA 99     .word off_99DA_9F     ; 
-- D - I - 0x028AB8 20:8AA8: E0 99     .word off_99E0_A0     ; 
-- D - I - 0x028ABA 20:8AAA: E6 99     .word off_99E6_A1     ; 
-- - - - - 0x028ABC 20:8AAC: EC 99     .word off_99EC_A2     ; найдено несколько случаев, что-то связанное с савадой
-- D - I - 0x028ABE 20:8AAE: F2 99     .word off_99F2_A3     ; 
-- D - I - 0x028AC0 20:8AB0: F8 99     .word off_99F8_A4     ; 
-- D - I - 0x028AC2 20:8AB2: 07 9A     .word off_9A07_A5     ; 
-- D - I - 0x028AC4 20:8AB4: 42 9A     .word off_9A42_A6     ; 
-- D - I - 0x028AC6 20:8AB6: 50 9A     .word off_9A50_A7     ; 
-- D - I - 0x028AC8 20:8AB8: 8B 9A     .word off_9A8B_A8     ; 
-- D - I - 0x028ACA 20:8ABA: 9A 9A     .word off_9A9A_A9     ; 
-- D - I - 0x028ACC 20:8ABC: A0 9A     .word off_9AA0_AA     ; 
-- D - I - 0x028ACE 20:8ABE: AF 9A     .word off_9AAF_AB     ; 
-- D - I - 0x028AD0 20:8AC0: BE 9A     .word off_9ABE_AC     ; 
-- D - I - 0x028AD2 20:8AC2: D5 9A     .word off_9AD5_AD     ; 
-- D - I - 0x028AD4 20:8AC4: E4 9A     .word off_9AE4_AE     ; 
-- D - I - 0x028AD6 20:8AC6: F3 9A     .word off_9AF3_AF     ; 
-- D - I - 0x028AD8 20:8AC8: 02 9B     .word off_9B02_B0     ; 
-- D - I - 0x028ADA 20:8ACA: 11 9B     .word off_9B11_B1     ; 
-- D - I - 0x028ADC 20:8ACC: 20 9B     .word off_9B20_B2     ; 
-- D - I - 0x028ADE 20:8ACE: 2F 9B     .word off_9B2F_B3     ; 
-- D - I - 0x028AE0 20:8AD0: 35 9B     .word off_9B35_B4     ; 
-- D - I - 0x028AE2 20:8AD2: 44 9B     .word off_9B44_B5     ; 
-- D - I - 0x028AE4 20:8AD4: 53 9B     .word off_9B53_B6     ; 
-- D - I - 0x028AE6 20:8AD6: 62 9B     .word off_9B62_B7     ; 
-- D - I - 0x028AE8 20:8AD8: 71 9B     .word off_9B71_B8     ; 
-- D - I - 0x028AEA 20:8ADA: 80 9B     .word off_9B80_B9     ; 
-- D - I - 0x028AEC 20:8ADC: 8F 9B     .word off_9B8F_BA     ; 
-- D - I - 0x028AEE 20:8ADE: 9E 9B     .word off_9B9E_BB     ; 
-- D - I - 0x028AF0 20:8AE0: AD 9B     .word off_9BAD_BC     ; 
-- D - I - 0x028AF2 20:8AE2: BC 9B     .word off_9BBC_BD     ; 
-- - - - - 0x028AF4 20:8AE4: CB 9B     .word off_9BCB_BE     ; найдено 3 случая
-- D - I - 0x028AF6 20:8AE6: 06 9C     .word off_9C06_BF     ; 
-- D - I - 0x028AF8 20:8AE8: 38 9C     .word off_9C38_C0     ; 
-- D - I - 0x028AFA 20:8AEA: 46 9C     .word off_9C46_C1     ; 
-- D - I - 0x028AFC 20:8AEC: 54 9C     .word off_9C54_C2     ; 
-- D - I - 0x028AFE 20:8AEE: 62 9C     .word off_9C62_C3     ; 
-- D - I - 0x028B00 20:8AF0: 70 9C     .word off_9C70_C4     ; 
-- D - I - 0x028B02 20:8AF2: 93 9C     .word off_9C93_C5     ; 
-- D - I - 0x028B04 20:8AF4: AD 9C     .word off_9CAD_C6     ; 
-- D - I - 0x028B06 20:8AF6: D7 9C     .word off_9CD7_C7     ; 
-- D - I - 0x028B08 20:8AF8: FB 9C     .word off_9CFB_C8     ; 
-- D - I - 0x028B0A 20:8AFA: 0F 9D     .word off_9D0F_C9     ; 
-- D - I - 0x028B0C 20:8AFC: 34 9D     .word off_9D34_CA     ; 
-- D - I - 0x028B0E 20:8AFE: 79 9D     .word off_9D79_CB     ; 
-- D - I - 0x028B10 20:8B00: 87 9D     .word off_9D87_CC     ; 
-- D - I - 0x028B12 20:8B02: A4 9D     .word off_9DA4_CD     ; 
-- D - I - 0x028B14 20:8B04: B8 9D     .word off_9DB8_CE     ; 
-- D - I - 0x028B16 20:8B06: E9 9D     .word off_9DE9_CF     ; 
-- D - I - 0x028B18 20:8B08: 07 9E     .word off_9E07_D0     ; 
-- D - I - 0x028B1A 20:8B0A: 21 9E     .word off_9E21_D1     ; 
-- D - I - 0x028B1C 20:8B0C: 3B 9E     .word off_9E3B_D2     ; 
-- D - I - 0x028B1E 20:8B0E: 55 9E     .word off_9E55_D3     ; 
-- D - I - 0x028B20 20:8B10: 6B 9E     .word off_9E6B_D4     ; 
-- D - I - 0x028B22 20:8B12: 7A 9E     .word off_9E7A_D5     ; 
-- D - I - 0x028B24 20:8B14: 89 9E     .word off_9E89_D6     ; 
-- D - I - 0x028B26 20:8B16: 97 9E     .word off_9E97_D7     ; 
-- D - I - 0x028B28 20:8B18: A5 9E     .word off_9EA5_D8     ; 
-- D - I - 0x028B2A 20:8B1A: B3 9E     .word off_9EB3_D9     ; 
-- D - I - 0x028B2C 20:8B1C: C1 9E     .word off_9EC1_DA     ; 
-- D - I - 0x028B2E 20:8B1E: CF 9E     .word off_9ECF_DB     ; 
-- D - I - 0x028B30 20:8B20: 1F 9F     .word off_9F1F_DC     ; 
-- D - I - 0x028B32 20:8B22: 3C 9F     .word off_9F3C_DD     ; 
-- D - I - 0x028B34 20:8B24: 56 9F     .word off_9F56_DE     ; 
-- - - - - 0x028B36 20:8B26: 6D 9F     .word off_9F6D_DF     ; найдено 3 случая
-- D - I - 0x028B38 20:8B28: A8 9F     .word off_9FA8_E0     ; 
-- D - I - 0x028B3A 20:8B2A: C4 9F     .word off_9FC4_E1     ; 
-- D - I - 0x028B3C 20:8B2C: C9 9F     .word off_9FC9_E2     ; 
-- D - I - 0x028B3E 20:8B2E: 4C A0     .word off_A04C_E3     ; 
-- D - I - 0x028B40 20:8B30: 66 A0     .word off_A066_E4     ; 
-- D - I - 0x028B42 20:8B32: 8F A0     .word off_A08F_E5     ; 
-- D - I - 0x028B44 20:8B34: A3 A0     .word off_A0A3_E6     ; 
-- D - I - 0x028B46 20:8B36: A8 A0     .word off_A0A8_E7     ; 
-- D - I - 0x028B48 20:8B38: BE A0     .word off_A0BE_E8     ; 
-- D - I - 0x028B4A 20:8B3A: EA A0     .word off_A0EA_E9     ; 
-- D - I - 0x028B4C 20:8B3C: F8 A0     .word off_A0F8_EA     ; 
-- D - I - 0x028B4E 20:8B3E: 06 A1     .word off_A106_EB     ; 
-- D - I - 0x028B50 20:8B40: 1D A1     .word off_A11D_EC     ; 
-- D - I - 0x028B52 20:8B42: 30 A1     .word off_A130_ED     ; 
-- D - I - 0x028B54 20:8B44: 3E A1     .word off_A13E_EE     ; 
-- D - I - 0x028B56 20:8B46: 79 A1     .word off_A179_EF     ; 
+- D - I - 0x028978 20:8968: 48 8B     .word off_8B48_00     ; мерцающий экран (белый или красный)
+- D - I - 0x02897A 20:896A: 5C 8B     .word off_8B5C_01     ; полет drive shot
+- D - I - 0x02897C 20:896C: 6A 8B     .word off_8B6A_02     ; дохлый кипер в воздухе
+- D - I - 0x02897E 20:896E: 78 8B     .word off_8B78_03     ; кипер моментально ловит мяч и медленно движется
+- D - I - 0x028980 20:8970: 86 8B     .word off_8B86_04     ; кипер делает нижний dive
+- D - I - 0x028982 20:8972: 94 8B     .word off_8B94_05     ; после касания мяча ногой в воздухе, который летит дальше
+- D - I - 0x028984 20:8974: B4 8B     .word off_8BB4_06     ; игрок не дотягивается ногой до мяча в воздухе, который пролетает над ним
+- D - I - 0x028986 20:8976: CA 8B     .word off_8BCA_07     ; игрок не дотягивается ногой до мяча в воздухе, который пролетает под ним
+- D - I - 0x028988 20:8978: E0 8B     .word off_8BE0_08     ; мяч приклеивается к ноге игрока когда мяч был в полете
+- D - I - 0x02898A 20:897A: EE 8B     .word off_8BEE_09     ; мяч летит и касается ноги игрока
+- - - - - 0x02898C 20:897C: 04 8C     .word off_8C04_0A     ; ! unused байтов в сценарии не найдено, полет мяча дугой
+- D - I - 0x02898E 20:897E: 12 8C     .word off_8C12_0B     ; после касания мяча телом в воздухе, который летит дальше
+- D - I - 0x028990 20:8980: 28 8C     .word off_8C28_0C     ; игрок не дотягивается телом до мяча в воздухе, который пролетает под ним
+- D - I - 0x028992 20:8982: 3C 8C     .word off_8C3C_0D     ; мяч приклеивается к телу игрока когда мяч был в полете
+- D - I - 0x028994 20:8984: 4A 8C     .word off_8C4A_0E     ; полет drive shot / cyclone
+- D - I - 0x028996 20:8986: 61 8C     .word off_8C61_0F     ; полет drive overhead / falcon volley / sano combo / volley / skylab hurricane
+- D - I - 0x028998 20:8988: 78 8C     .word off_8C78_10     ; полет drive overhead / cyclone
+- D - I - 0x02899A 20:898A: 86 8C     .word off_8C86_11     ; полет удара, а также ??? jumping volley / booster shot / mach shot? / fire shot / falcon shot / falcon volley
+- D - I - 0x02899C 20:898C: 94 8C     .word off_8C94_12     ; полет falcon shot / dynamite header / foward somersault / tiger shot
+- D - I - 0x02899E 20:898E: A2 8C     .word off_8CA2_13     ; дохлый игрок воздухе (большой)
+- D - I - 0x0289A0 20:8990: B9 8C     .word off_8CB9_14     ; дохлый игрок воздухе (поменьше)
+- D - I - 0x0289A2 20:8992: D0 8C     .word off_8CD0_15     ; игрок приклеивает мяч к ноге после подката
+- D - I - 0x0289A4 20:8994: DE 8C     .word off_8CDE_16     ; кипер моментально ловит мяч и быстро движется вниз (предположительно после нижнего dive)
+- D - I - 0x0289A6 20:8996: EC 8C     .word off_8CEC_17     ; кипер ловит летящий мяч (предположительно после верхнего dive и пк)
+- D - I - 0x0289A8 20:8998: 09 8D     .word off_8D09_18     ; кипер пытается словить мяч но не дотягивается
+- D - I - 0x0289AA 20:899A: 1F 8D     .word off_8D1F_19     ; игрок делает пас головой в воздухе
+- D - I - 0x0289AC 20:899C: 52 8D     .word off_8D52_1A     ; полет header / cannon shot / razor shot / tiger shot
+- D - I - 0x0289AE 20:899E: 60 8D     .word off_8D60_1B     ; кипер ловит летящий мяч (обычная ловля)
+- D - I - 0x0289B0 20:89A0: 89 8D     .word off_8D89_1C     ; игрок прыгает в воздух (вблизи, быстро)
+- D - I - 0x0289B2 20:89A2: 97 8D     .word off_8D97_1D     ; полет rocket header / razor shot / sidewinder shot
+- D - I - 0x0289B4 20:89A4: A5 8D     .word off_8DA5_1E     ; полет twin shot / skylab twin shot
+- D - I - 0x0289B6 20:89A6: B3 8D     .word off_8DB3_1F     ; полет twin shot / drive tiger
+- D - I - 0x0289B8 20:89A8: C1 8D     .word off_8DC1_20     ; игрок прыгает в воздух (вблизи, медленно)
+- D - I - 0x0289BA 20:89AA: CF 8D     .word off_8DCF_21     ; защитник в воротах отбивает мяч
+- D - I - 0x0289BC 20:89AC: 05 8E     .word off_8E05_22     ; защитник в воротах промахивается
+- D - I - 0x0289BE 20:89AE: 1B 8E     .word off_8E1B_23     ; rolling save
+- D - I - 0x0289C0 20:89B0: 32 8E     .word off_8E32_24     ; кипер пытается отбить мяч но не дотягивается
+- D - I - 0x0289C2 20:89B2: 5B 8E     .word off_8E5B_25     ; кипер пытается отбить мяч после спешала но не дотягивается
+- D - I - 0x0289C4 20:89B4: 7A 8E     .word off_8E7A_26     ; triangle jump не дотягивается
+- D - I - 0x0289C6 20:89B6: 8E 8E     .word off_8E8E_27     ; кипер легко отбивает мяч ближним кулаком
+- D - I - 0x0289C8 20:89B8: C6 8E     .word off_8EC6_28     ; полет drive tiger / slider cannon / skylab twin shot
+- D - I - 0x0289CA 20:89BA: E5 8E     .word off_8EE5_29     ; полет drive tiger
+- D - I - 0x0289CC 20:89BC: F3 8E     .word off_8EF3_2A     ; кипер легко отбивает мяч дальним кулаком
+- D - I - 0x0289CE 20:89BE: 29 8F     .word off_8F29_2B     ; кипер вакашимазу легко отбивает мяч верхним прыжком
+- D - I - 0x0289D0 20:89C0: 53 8F     .word off_8F53_2C     ; кипер напаривается кулаком на мяч
+- D - I - 0x0289D2 20:89C2: 7C 8F     .word off_8F7C_2D     ; triangle jump ловит мяч
+- D - I - 0x0289D4 20:89C4: 99 8F     .word off_8F99_2E     ; мяч приклеивается к ноге игрока после отбора мяча у другого игрока блоком или перехватом
+- D - I - 0x0289D6 20:89C6: A7 8F     .word off_8FA7_2F     ; полет drive tiger
+- D - I - 0x0289D8 20:89C8: BE 8F     .word off_8FBE_30     ; мяч приклеивается к телу игрока при заборе спешал блоком когда мяч был в полете
+- D - I - 0x0289DA 20:89CA: CC 8F     .word off_8FCC_31     ; игрок не дотягивается телом до мяча в воздухе, который пролетает над ним
+- D - I - 0x0289DC 20:89CC: E2 8F     .word off_8FE2_32     ; полет eagle shot
+- D - I - 0x0289DE 20:89CE: F9 8F     .word off_8FF9_33     ; игрок делает нижний clear ногой
+- D - I - 0x0289E0 20:89D0: 3A 90     .word off_903A_34     ; игрок делает верхний clear головой
+- D - I - 0x0289E2 20:89D2: 6F 90     .word off_906F_35     ; игрок делает нижний clear телом
+- D - I - 0x0289E4 20:89D4: A5 90     .word off_90A5_36     ; полет tiger shot / neo-tiger shot
+- D - I - 0x0289E6 20:89D6: B3 90     .word off_90B3_37     ; игрок бежит для перехвата нижнего мяча
+- D - I - 0x0289E8 20:89D8: CD 90     .word off_90CD_38     ; игрок делает нижний clear ногой (почти аналогично 33)
+- D - I - 0x0289EA 20:89DA: D2 90     .word off_90D2_39     ; игрок делает верхний clear головой (почти аналогично 34)
+- D - I - 0x0289EC 20:89DC: D7 90     .word off_90D7_3A     ; clone save
+- D - I - 0x0289EE 20:89DE: 0C 91     .word off_910C_3B     ; удар головой header
+- D - I - 0x0289F0 20:89E0: 41 91     .word off_9141_3C     ; полет mach shot / slider shot / fire shot / jumping volley / booster shot
+- D - I - 0x0289F2 20:89E2: 52 91     .word off_9152_3D     ; полет mach shot / cannon shot
+- D - I - 0x0289F4 20:89E4: 60 91     .word off_9160_3E     ; дохлый игрок воздухе (большой, зеркально 13)
+- D - I - 0x0289F6 20:89E6: 77 91     .word off_9177_3F     ; дохлый игрок воздухе (поменьше, зеркально 14)
+- D - I - 0x0289F8 20:89E8: 8E 91     .word off_918E_40     ; полет rising dragon kick / sano kombo
+- D - I - 0x0289FA 20:89EA: A5 91     .word off_91A5_41     ; полет banana shot
+- D - I - 0x0289FC 20:89EC: BC 91     .word off_91BC_42     ; отскок от штанги
+- D - I - 0x0289FE 20:89EE: CA 91     .word off_91CA_43     ; попадание в штангу
+- D - I - 0x028A00 20:89F0: D8 91     .word off_91D8_44     ; мяч в сетке
+- D - I - 0x028A02 20:89F2: E6 91     .word off_91E6_45     ; мяч рвет сетку
+- D - I - 0x028A04 20:89F4: F4 91     .word off_91F4_46     ; куски тел портрета сан-паулу после гола
+- D - I - 0x028A06 20:89F6: 02 92     .word off_9202_47     ; куски тел портрета нанкацу после гола
+- D - I - 0x028A08 20:89F8: 10 92     .word off_9210_48     ; куски тел портрета японии после гола
+- D - I - 0x028A0A 20:89FA: 1E 92     .word off_921E_49     ; игрок прыгает к летящему мячу
+- D - I - 0x028A0C 20:89FC: 32 92     .word off_9232_4A     ; игрок в стеночке приклеивает к себе мяч
+- D - I - 0x028A0E 20:89FE: 40 92     .word off_9240_4B     ; полет masao / kazuo с тонкими ногами
+- D - I - 0x028A10 20:8A00: 45 92     .word off_9245_4C     ; полет паса
+- D - I - 0x028A12 20:8A02: 53 92     .word off_9253_4D     ; вакашимазу отталкивается ногами от штанги
+- D - I - 0x028A14 20:8A04: 61 92     .word off_9261_4E     ; рефери поднимает руку и свистит
+- D - I - 0x028A16 20:8A06: 6F 92     .word off_926F_4F     ; рваный мяч падает на землю
+- D - I - 0x028A18 20:8A08: 7D 92     .word off_927D_50     ; анимация подката
+- D - I - 0x028A1A 20:8A0A: 8B 92     .word off_928B_51     ; полет cyclone
+- D - I - 0x028A1C 20:8A0C: 9F 92     .word off_929F_52     ; мяч улетает в сторону после выбивания откуда-то
+- - - - - 0x028A1E 20:8A0E: AD 92     .word off_92AD_53     ; ! unused байтов в сценарии не найдено, какой-то полет мяча
+- - - - - 0x028A20 20:8A10: BB 92     .word off_92BB_54     ; полет мяча дальше после задевания стенки (мяч продолжает лететь в ворота)
+- D - I - 0x028A22 20:8A12: C9 92     .word off_92C9_55     ; полет мяча при огибании стеночки
+- D - I - 0x028A24 20:8A14: D7 92     .word off_92D7_56     ; полет мяча когда игрок делает пас/удар после нападения на него, и игроки собираются его перехватить
+- D - I - 0x028A26 20:8A16: E5 92     .word off_92E5_57     ; кипер делает верхний dive
+- D - I - 0x028A28 20:8A18: F3 92     .word off_92F3_58     ; игрок разгоняется для подката
+- - - - - 0x028A2A 20:8A1A: 0D 93     .word off_930D_59     ; кипер не может словить мяч в пк
+- D - I - 0x028A2C 20:8A1C: 23 93     .word off_9323_5A     ; ХЗ игрок бежит
+- D - I - 0x028A2E 20:8A1E: 3D 93     .word off_933D_5B     ; игрок медленно бежит (когда он нападает на игрока с мячом)
+- D - I - 0x028A30 20:8A20: 57 93     .word off_9357_5C     ; игрок завис вблизи с мячом на земле в режиме выбора действия
+- D - I - 0x028A32 20:8A22: 71 93     .word off_9371_5D     ; полет sidewinder shot / double eel
+- D - I - 0x028A34 20:8A24: 7F 93     .word off_937F_5E     ; полет slider shot
+- D - I - 0x028A36 20:8A26: 8D 93     .word off_938D_5F     ; полет drive overhead
+- D - I - 0x028A38 20:8A28: A4 93     .word off_93A4_60     ; dribble
+- D - I - 0x028A3A 20:8A2A: EC 93     .word off_93EC_61     ; игрок замахивается для обычного удара / удара с красным экраном
+- D - I - 0x028A3C 20:8A2C: 03 94     .word off_9403_62     ; удар по мячу обычным ударом
+- D - I - 0x028A3E 20:8A2E: 11 94     .word off_9411_63     ; мяч улетает от игрока после удара по нему
+- D - I - 0x028A40 20:8A30: 25 94     .word off_9425_64     ; игрок прыгает в воздух (вблизи, средняя скорость)
+- - - - - 0x028A42 20:8A32: 33 94     .word off_9433_65     ; ! unused байтов в сценарии не найдено, какой-то полет мяча
+- D - I - 0x028A44 20:8A34: 41 94     .word off_9441_66     ; игрок делает пас с земли
+- D - I - 0x028A46 20:8A36: 56 94     .word off_9456_67     ; полет eagle shot
+- D - I - 0x028A48 20:8A38: 6A 94     .word off_946A_68     ; игрок подлетает к мячу для замаха volley
+- D - I - 0x028A4A 20:8A3A: 7E 94     .word off_947E_69     ; удар по мячу volley
+- D - I - 0x028A4C 20:8A3C: 8C 94     .word off_948C_6A     ; игрок уже ударил volley, мяч улетает от него
+- D - I - 0x028A4E 20:8A3E: A2 94     .word off_94A2_6B     ; ХЗ игрок бежит / tsubasa бежит к drive tiger / masao kazuo бежит для skylb twin shot
+- D - I - 0x028A50 20:8A40: BC 94     .word off_94BC_6C     ; игрок принимает ничейный низкий мяч на ногу
+- D - I - 0x028A52 20:8A42: F4 94     .word off_94F4_6D     ; игрок принимает ничейный высокий мяч на тело
+- D - I - 0x028A54 20:8A44: 2C 95     .word off_952C_6E     ; игрок делает верхний through
+- D - I - 0x028A56 20:8A46: 49 95     .word off_9549_6F     ; игрок делает нижний through
+- D - I - 0x028A58 20:8A48: 79 95     .word off_9579_70     ; ХЗ полет мяча
+- D - I - 0x028A5A 20:8A4A: 87 95     .word off_9587_71     ; игрок прыгает в воздух (вблизи, средняя скорость, почти идентично 64)
+- - - - - 0x028A5C 20:8A4C: 98 95     .word off_9598_72     ; ! найден 1 случай в сценарии, какой-то полет мяча
+- D - I - 0x028A5E 20:8A4E: A6 95     .word off_95A6_73     ; полет rising dragon kick
+- D - I - 0x028A60 20:8A50: B4 95     .word off_95B4_74     ; полет foward somersault
+- D - I - 0x028A62 20:8A52: E6 95     .word off_95E6_75     ; лицо вакабаяши во время крита
+- D - I - 0x028A64 20:8A54: F5 95     .word off_95F5_76     ; подкат masao / kazuo
+- D - I - 0x028A66 20:8A56: 03 96     .word off_9603_77     ; кипер делает пас после ловли мяча
+- D - I - 0x028A68 20:8A58: 18 96     .word off_9618_78     ; игрок принимает возвращаемую перепасовку на ногу
+- D - I - 0x028A6A 20:8A5A: 51 96     .word off_9651_79     ; глаза tsubasa в одной точке
+- D - I - 0x028A6C 20:8A5C: 5F 96     .word off_965F_7A     ; игрок принимает верхний пас на грудь
+- D - I - 0x028A6E 20:8A5E: 89 96     .word off_9689_7B     ; мяч быстро летит во время перепасовки
+- D - I - 0x028A70 20:8A60: 97 96     .word off_9697_7C     ; игрок возвращает перепасовку
+- D - I - 0x028A72 20:8A62: D2 96     .word off_96D2_7D     ; dark illusion
+- D - I - 0x028A74 20:8A64: 3B 97     .word off_973B_7E     ; мяч закатывается в аут
+- D - I - 0x028A76 20:8A66: 49 97     .word off_9749_7F     ; кипер делает пас во время goal kick
+- D - I - 0x028A78 20:8A68: 60 97     .word off_9760_80     ; мяч отскакивает от земли
+- D - I - 0x028A7A 20:8A6A: 6E 97     .word off_976E_81     ; игрок выбрасывает мяч руками во время throw in
+- D - I - 0x028A7C 20:8A6C: 84 97     .word off_9784_82     ; игрок бьет крученый удар во время corner kick
+- D - I - 0x028A7E 20:8A6E: 98 97     .word off_9798_83     ; игрок делает пас во время corner kick
+- D - I - 0x028A80 20:8A70: AF 97     .word off_97AF_84     ; полет shoot финальный
+- D - I - 0x028A82 20:8A72: BD 97     .word off_97BD_85     ; мяч стоит перед кипером на 11м penalty kick
+- D - I - 0x028A84 20:8A74: D1 97     .word off_97D1_86     ; в пк кипер прыгает в сторону мяча влево/вправо
+- D - I - 0x028A86 20:8A76: E7 97     .word off_97E7_87     ; в пк кипер прыгает в сторону, мяч летит совсем в другой угол
+- D - I - 0x028A88 20:8A78: F7 97     .word off_97F7_88     ; в пк кипер прыгает в сторону, мяч летит прямо
+- D - I - 0x028A8A 20:8A7A: 07 98     .word off_9807_89     ; в пк кипер стоит прямо, мяч после удара летит влево / вправо
+- D - I - 0x028A8C 20:8A7C: 17 98     .word off_9817_8A     ; в пк кипер стоит прямо, мяч после удара летит прямо
+- D - I - 0x028A8E 20:8A7E: 27 98     .word off_9827_8B     ; игрок завис вдалеке с мячом на земле когда на него напали
+- D - I - 0x028A90 20:8A80: 35 98     .word off_9835_8C     ; удар по мячу спешалом
+- D - I - 0x028A92 20:8A82: 63 98     .word off_9863_8D     ; игрок завис вдалеке с мячом в воздухе на штрафнойц
+- D - I - 0x028A94 20:8A84: 71 98     .word off_9871_8E     ; замах drive shot
+- D - I - 0x028A96 20:8A86: 85 98     .word off_9885_8F     ; рефери смотрит на часы
+- D - I - 0x028A98 20:8A88: AB 98     .word off_98AB_90     ; бег игрока с мячом по полю во время передвижения
+- D - I - 0x028A9A 20:8A8A: C5 98     .word off_98C5_91     ; лицо tsubasa
+- D - I - 0x028A9C 20:8A8C: D4 98     .word off_98D4_92     ; tsubasa возвращает перепасовку
+- D - I - 0x028A9E 20:8A8E: 13 99     .word off_9913_93     ; лицо renato
+- D - I - 0x028AA0 20:8A90: 22 99     .word off_9922_94     ; лицо morisaki
+- D - I - 0x028AA2 20:8A92: 31 99     .word off_9931_95     ; misaki возвращает перепасовку
+- D - I - 0x028AA4 20:8A94: 6C 99     .word off_996C_96     ; лицо misaki
+- D - I - 0x028AA6 20:8A96: 7B 99     .word off_997B_97     ; лицо misaki
+- D - I - 0x028AA8 20:8A98: 81 99     .word off_9981_98     ; лицо ishizaki
+- D - I - 0x028AAA 20:8A9A: 90 99     .word off_9990_99     ; лицо ishizaki
+- D - I - 0x028AAC 20:8A9C: 96 99     .word off_9996_9A     ; лицо nitta
+- - - - - 0x028AAE 20:8A9E: A5 99     .word off_99A5_9B     ; лицо nitta
+- D - I - 0x028AB0 20:8AA0: AB 99     .word off_99AB_9C     ; лицо masao / kazuo
+- D - I - 0x028AB2 20:8AA2: B1 99     .word off_99B1_9D     ; замах slider shot / razor shot
+- D - I - 0x028AB4 20:8AA4: D4 99     .word off_99D4_9E     ; лицо hyuga
+- D - I - 0x028AB6 20:8AA6: DA 99     .word off_99DA_9F     ; лицо souda
+- D - I - 0x028AB8 20:8AA8: E0 99     .word off_99E0_A0     ; лицо jitou
+- D - I - 0x028ABA 20:8AAA: E6 99     .word off_99E6_A1     ; лицо matsuyama
+- - - - - 0x028ABC 20:8AAC: EC 99     .word off_99EC_A2     ; лицо sawada
+- D - I - 0x028ABE 20:8AAE: F2 99     .word off_99F2_A3     ; лицо misugi
+- D - I - 0x028AC0 20:8AB0: F8 99     .word off_99F8_A4     ; лицо wakabayashi
+- D - I - 0x028AC2 20:8AB2: 07 9A     .word off_9A07_A5     ; hyuga возвращает перепасовку
+- D - I - 0x028AC4 20:8AB4: 42 9A     .word off_9A42_A6     ; лицо wakashimazu
+- D - I - 0x028AC6 20:8AB6: 50 9A     .word off_9A50_A7     ; sawada / napoleon возвращает перепасовку
+- D - I - 0x028AC8 20:8AB8: 8B 9A     .word off_9A8B_A8     ; лицо meon
+- D - I - 0x028ACA 20:8ABA: 9A 9A     .word off_9A9A_A9     ; лицо carlos
+- D - I - 0x028ACC 20:8ABC: A0 9A     .word off_9AA0_AA     ; лицо jitou
+- D - I - 0x028ACE 20:8ABE: AF 9A     .word off_9AAF_AB     ; лицо masao / kazuo
+- D - I - 0x028AD0 20:8AC0: BE 9A     .word off_9ABE_AC     ; игрок прыгает в воздух (вблизи, средняя скорость, чуть правее 64 и 71)
+- D - I - 0x028AD2 20:8AC2: D5 9A     .word off_9AD5_AD     ; лицо souda
+- D - I - 0x028AD4 20:8AC4: E4 9A     .word off_9AE4_AE     ; лицо misugi
+- D - I - 0x028AD6 20:8AC6: F3 9A     .word off_9AF3_AF     ; лицо matsuyama
+- D - I - 0x028AD8 20:8AC8: 02 9B     .word off_9B02_B0     ; лицо hyuga
+- D - I - 0x028ADA 20:8ACA: 11 9B     .word off_9B11_B1     ; лицо sawada
+- D - I - 0x028ADC 20:8ACC: 20 9B     .word off_9B20_B2     ; лицо victorino
+- D - I - 0x028ADE 20:8ACE: 2F 9B     .word off_9B2F_B3     ; лицо kaltz
+- D - I - 0x028AE0 20:8AD0: 35 9B     .word off_9B35_B4     ; лицо napoleon
+- D - I - 0x028AE2 20:8AD2: 44 9B     .word off_9B44_B5     ; лицо pierre
+- D - I - 0x028AE4 20:8AD4: 53 9B     .word off_9B53_B6     ; лицо pascal
+- D - I - 0x028AE6 20:8AD6: 62 9B     .word off_9B62_B7     ; лицо diaz
+- D - I - 0x028AE8 20:8AD8: 71 9B     .word off_9B71_B8     ; лицо schneider
+- D - I - 0x028AEA 20:8ADA: 80 9B     .word off_9B80_B9     ; лицо kaltz
+- D - I - 0x028AEC 20:8ADC: 8F 9B     .word off_9B8F_BA     ; лицо schester
+- D - I - 0x028AEE 20:8ADE: 9E 9B     .word off_9B9E_BB     ; лицо carlos бразилия
+- D - I - 0x028AF0 20:8AE0: AD 9B     .word off_9BAD_BC     ; лицо coimbra
+- D - I - 0x028AF2 20:8AE2: BC 9B     .word off_9BBC_BD     ; лицо ishizaki face block 
+- - - - - 0x028AF4 20:8AE4: CB 9B     .word off_9BCB_BE     ; diaz возвращает перепасовку
+- D - I - 0x028AF6 20:8AE6: 06 9C     .word off_9C06_BF     ; overhead
+- D - I - 0x028AF8 20:8AE8: 38 9C     .word off_9C38_C0     ; masao kazuo стоят один на другом
+- D - I - 0x028AFA 20:8AEA: 46 9C     .word off_9C46_C1     ; полет masao / kazuo с тонкими ногами (аналогично 4B)
+- D - I - 0x028AFC 20:8AEC: 54 9C     .word off_9C54_C2     ; masao kazuo стоят на jitou
+- D - I - 0x028AFE 20:8AEE: 62 9C     .word off_9C62_C3     ; masao kazuo летят вдвоем
+- D - I - 0x028B00 20:8AF0: 70 9C     .word off_9C70_C4     ; замах jumping volley
+- D - I - 0x028B02 20:8AF2: 93 9C     .word off_9C93_C5     ; мяч улетает от игрока после jumping volley / booster shot
+- D - I - 0x028B04 20:8AF4: AD 9C     .word off_9CAD_C6     ; tsubasa подкидывает грудью мяч перед cyclone
+- D - I - 0x028B06 20:8AF6: D7 9C     .word off_9CD7_C7     ; замах cyclone
+- D - I - 0x028B08 20:8AF8: FB 9C     .word off_9CFB_C8     ; замах booster shot toninho
+- D - I - 0x028B0A 20:8AFA: 0F 9D     .word off_9D0F_C9     ; замах rising dragon kick
+- D - I - 0x028B0C 20:8AFC: 34 9D     .word off_9D34_CA     ; замах rocket header
+- D - I - 0x028B0E 20:8AFE: 79 9D     .word off_9D79_CB     ; li brothers стоят перед rising dragon kick
+- D - I - 0x028B10 20:8B00: 87 9D     .word off_9D87_CC     ; diaz перед foward somersault
+- D - I - 0x028B12 20:8B02: A4 9D     .word off_9DA4_CD     ; foward somersault
+- D - I - 0x028B14 20:8B04: B8 9D     .word off_9DB8_CE     ; замах razor pass / pazor shot / razor tackle (палка пибика)
+- D - I - 0x028B16 20:8B06: E9 9D     .word off_9DE9_CF     ; ishizaki летит перед face block
+- D - I - 0x028B18 20:8B08: 07 9E     .word off_9E07_D0     ; forcible dribble
+- D - I - 0x028B1A 20:8B0A: 21 9E     .word off_9E21_D1     ; high speed dribble / vanishing feint / hedgehog dribble
+- D - I - 0x028B1C 20:8B0C: 3B 9E     .word off_9E3B_D2     ; high speed dribble / vanishing feint / hedgehog dribble
+- D - I - 0x028B1E 20:8B0E: 55 9E     .word off_9E55_D3     ; meon не может отбить drove overhead
+- D - I - 0x028B20 20:8B10: 6B 9E     .word off_9E6B_D4     ; лицо pierre перед slider cannon (озарение)
+- D - I - 0x028B22 20:8B12: 7A 9E     .word off_9E7A_D5     ; лицо napoleon перед slider cannon (озарение)
+- D - I - 0x028B24 20:8B14: 89 9E     .word off_9E89_D6     ; golden twin shot
+- D - I - 0x028B26 20:8B16: 97 9E     .word off_9E97_D7     ; drive tiger twin shot
+- D - I - 0x028B28 20:8B18: A5 9E     .word off_9EA5_D8     ; skylab twin shot
+- D - I - 0x028B2A 20:8B1A: B3 9E     .word off_9EB3_D9     ; korea twin shot
+- D - I - 0x028B2C 20:8B1C: C1 9E     .word off_9EC1_DA     ; кипер ждет в воротах вместо dive
+- D - I - 0x028B2E 20:8B1E: CF 9E     .word off_9ECF_DB     ; замах slider cannon
+- D - I - 0x028B30 20:8B20: 1F 9F     .word off_9F1F_DC     ; после удара twin shot
+- D - I - 0x028B32 20:8B22: 3C 9F     .word off_9F3C_DD     ; clone dribble
+- D - I - 0x028B34 20:8B24: 56 9F     .word off_9F56_DE     ; глаза tsubasa в медленном движении
+- - - - - 0x028B36 20:8B26: 6D 9F     .word off_9F6D_DF     ; pascal возвращает перепасовку
+- D - I - 0x028B38 20:8B28: A8 9F     .word off_9FA8_E0     ; tsubasa стоит спиной
+- D - I - 0x028B3A 20:8B2A: C4 9F     .word off_9FC4_E1     ; masao kazuo зеленые один на другом
+- D - I - 0x028B3C 20:8B2C: C9 9F     .word off_9FC9_E2     ; heel lift
+- D - I - 0x028B3E 20:8B2E: 4C A0     .word off_A04C_E3     ; ? бег игрока перед power block
+- D - I - 0x028B40 20:8B30: 66 A0     .word off_A066_E4     ; heel lift мяч приземляется к tsubasa
+- D - I - 0x028B42 20:8B32: 8F A0     .word off_A08F_E5     ; мяч подлетает вверх перед ударом по нему cyclone
+- D - I - 0x028B44 20:8B34: A3 A0     .word off_A0A3_E6     ; игрок принимает нижний пас на ногу (почти идентично 78)
+- D - I - 0x028B46 20:8B36: A8 A0     .word off_A0A8_E7     ; hyuga бежит к drive tiger
+- D - I - 0x028B48 20:8B38: BE A0     .word off_A0BE_E8     ; sano бьет головой в sano combo
+- D - I - 0x028B4A 20:8B3A: EA A0     .word off_A0EA_E9     ; удар booster shot toninho
+- D - I - 0x028B4C 20:8B3C: F8 A0     .word off_A0F8_EA     ; jitou готовится делать skylab twin shot
+- D - I - 0x028B4E 20:8B3E: 06 A1     .word off_A106_EB     ; pierre прыгает для slider cannon
+- D - I - 0x028B50 20:8B40: 1D A1     .word off_A11D_EC     ; napoleon прыгает для slider cannon
+- D - I - 0x028B52 20:8B42: 30 A1     .word off_A130_ED     ; tsubasa прыгает для drive overhead
+- D - I - 0x028B54 20:8B44: 3E A1     .word off_A13E_EE     ; pierre возвращает перепасовку
+- D - I - 0x028B56 20:8B46: 79 A1     .word off_A179_EF     ; masao kazuo возвращает перепасовку
 
 off_8B48_00:
 - D - I - 0x028B58 20:8B48: F5        .byte $F5
@@ -4701,6 +4701,8 @@ off_9587_71:
 - D - I - 0x0295A2 20:9592: CB        .byte $CB    ; <ぺ>
 - D - I - 0x0295A3 20:9593: 00        .byte $00
 - D - I - 0x0295A4 20:9594: F0        .byte $F0
+
+; bzk мусор?
 - - - - - 0x0295A5 20:9595: F8        .byte $F8
 - - - - - 0x0295A6 20:9596: A7 8B     .word off_8BA7
 
