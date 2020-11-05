@@ -231,7 +231,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89_действие_атаки_на_штрафной
 - D - I - 0x020197 17:8187: 97 82     .word $0000       ; unused, было аналогично 02_8A для киперов
 - D - I - 0x020199 17:8189: 9B 82     .word $0000       ; unused, было аналогично 03_83
-- D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C_порвется_ли_мяч
+- D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C
 - D - I - 0x02019D 17:818D: BA 82     .word ofs_82BA_0D_8D
 - D - I - 0x02019F 17:818F: 66 83     .word ofs_8366_0E_8E_действие_атаки_на_земле
 - D - I - 0x0201A1 17:8191: 6A 83     .word ofs_836A_0F_8F
@@ -285,7 +285,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x020201 17:81F1: FE 85     .word $0000       ; unused, было аналогично 0F_8F
 - D - I - 0x020203 17:81F3: 02 86     .word ofs_8602_40_C0_игрок_с_рожей
 - D - I - 0x020205 17:81F5: 10 86     .word ofs_8610_41_C1_какая_у_кипера_рожа
-- D - I - 0x020207 17:81F7: 27 86     .word ofs_8627_42_C2
+- D - I - 0x020207 17:81F7: 27 86     .word ofs_8627_42_C2_2_варианта_рандома
 - D - I - 0x020209 17:81F9: 2E 86     .word ofs_862E_43_C3
 - D - I - 0x02020B 17:81FB: 3B 86     .word ofs_863B_44_C4_делает_ли_кипер_dive
 - D - I - 0x02020D 17:81FD: 4A 86     .word ofs_864A_45_C5
@@ -426,9 +426,9 @@ tbl_8291:
     .byte $02   ; trap
     .byte $03   ; through
 
-ofs_829F_0C_8C_порвется_ли_мяч:
-; 00 - мяч не порвется
-; 01 - мяч порвется
+ofs_829F_0C_8C:
+; 00 - 
+; 01 - 
 C - J - - 0x0202AF 17:829F: A2 00     LDX #$00
 C - - - - 0x0202B1 17:82A1: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x0202B4 17:82A4: D0 0B     BNE bra_82B8_это_не_удар
@@ -1327,9 +1327,9 @@ tbl_8623_наши_киперы:
     .byte $21       ; вакабаяши
     .byte $22       ; вакашимазу
 
-ofs_8627_42_C2:
-; 00 - 
-; 01 - 
+ofs_8627_42_C2_2_варианта_рандома:
+; 00 - рандом 1
+; 01 - рандом 2
 C - J - - 0x020637 17:8627: AD E2 00  LDA ram_рандом_2
 C - - - - 0x02063A 17:862A: 29 01     AND #$01
 C - - - - 0x02063C 17:862C: AA        TAX
@@ -2380,7 +2380,7 @@ bra_case_8BC2_00_атакующий_легко_обводит:
 - D - I - 0x020BDB 17:8BCB: FA        .byte con_jsr
 - D - I - 0x020BDC 17:8BCC: AA 9E     .word sub_9EAA
 - D - I - 0x020BDE 17:8BCE: FA        .byte con_jsr
-- D - I - 0x020BDF 17:8BCF: 62 9F     .word sub_9F62
+- D - I - 0x020BDF 17:8BCF: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_8BD1_02_защитник_выбьет_мяч:
 bra_case_8BD1_03_защитник_заберет_мяч:
 bra_case_8BD1_04_нарушение:
@@ -2396,7 +2396,7 @@ bra_case_8BD2_01_атакующий_с_трудом_обводит:
 - D - I - 0x020BEB 17:8BDB: FA        .byte con_jsr
 - D - I - 0x020BEC 17:8BDC: AA 9E     .word sub_9EAA
 - D - I - 0x020BEE 17:8BDE: FA        .byte con_jsr
-- D - I - 0x020BEF 17:8BDF: 5C 9F     .word sub_9F5C
+- D - I - 0x020BEF 17:8BDF: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020BF1 17:8BE1: F2        .byte con_jmp
 - D - I - 0x020BF2 17:8BE2: 47 A2     .word loc_A247
 
@@ -2412,7 +2412,7 @@ bra_case_8BE4_00_атакующий_легко_обводит:
 - D - I - 0x020C00 17:8BF0: FA        .byte con_jsr
 - D - I - 0x020C01 17:8BF1: AA 9E     .word sub_9EAA
 - D - I - 0x020C03 17:8BF3: F2        .byte con_jmp
-- D - I - 0x020C04 17:8BF4: 62 9F     .word loc_9F62
+- D - I - 0x020C04 17:8BF4: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
 bra_case_8BF6_01_атакующий_с_трудом_обводит:
 - D - I - 0x020C06 17:8BF6: FA        .byte con_jsr
@@ -2426,7 +2426,7 @@ bra_case_8BF6_01_атакующий_с_трудом_обводит:
 - D - I - 0x020C12 17:8C02: FA        .byte con_jsr
 - D - I - 0x020C13 17:8C03: AA 9E     .word sub_9EAA
 - D - I - 0x020C15 17:8C05: FA        .byte con_jsr
-- D - I - 0x020C16 17:8C06: 5C 9F     .word sub_9F5C
+- D - I - 0x020C16 17:8C06: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020C18 17:8C08: F2        .byte con_jmp
 - D - I - 0x020C19 17:8C09: 47 A2     .word loc_A247
 
@@ -2444,7 +2444,7 @@ bra_case_8C0B_02_защитник_выбьет_мяч:
 - D - I - 0x020C29 17:8C19: 64 9E     .word sub_9E64
 - D - I - 0x020C2B 17:8C1B: F6        .byte con_mirror_toggle
 - D - I - 0x020C2C 17:8C1C: FA        .byte con_jsr
-- D - I - 0x020C2D 17:8C1D: 6E 9F     .word sub_9F6E
+- D - I - 0x020C2D 17:8C1D: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020C2F 17:8C1F: F2        .byte con_jmp
 - D - I - 0x020C30 17:8C20: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -2462,7 +2462,7 @@ bra_case_8C22_03_защитник_заберет_мяч:
 - D - I - 0x020C40 17:8C30: 64 9E     .word sub_9E64
 - D - I - 0x020C42 17:8C32: F6        .byte con_mirror_toggle
 - D - I - 0x020C43 17:8C33: FA        .byte con_jsr
-- D - I - 0x020C44 17:8C34: 74 9F     .word sub_9F74
+- D - I - 0x020C44 17:8C34: 74 9F     .word sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения
 - D - I - 0x020C46 17:8C36: F2        .byte con_jmp
 - D - I - 0x020C47 17:8C37: 6F A0     .word loc_A06F
 
@@ -2476,7 +2476,7 @@ bra_case_8C39_04_нарушение:
 - D - I - 0x020C52 17:8C42: FA        .byte con_jsr
 - D - I - 0x020C53 17:8C43: DD A2     .word sub_A2DD
 - D - I - 0x020C55 17:8C45: FA        .byte con_jsr
-- D - I - 0x020C56 17:8C46: 6E 9F     .word sub_9F6E
+- D - I - 0x020C56 17:8C46: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020C58 17:8C48: F2        .byte con_jmp
 - D - I - 0x020C59 17:8C49: 5B A3     .word loc_A35B_нарушение
 
@@ -2700,7 +2700,7 @@ bra_case_8D28_00:
 - D - I - 0x020D41 17:8D31: FA        .byte con_jsr
 - D - I - 0x020D42 17:8D32: DD A2     .word sub_A2DD
 - D - I - 0x020D44 17:8D34: FA        .byte con_jsr
-- D - I - 0x020D45 17:8D35: 62 9F     .word sub_9F62
+- D - I - 0x020D45 17:8D35: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_8D37_04_нарушение:
 - D - I - 0x020D47 17:8D37: F0        .byte con_quit
 
@@ -2725,7 +2725,7 @@ bra_case_8D41_01:
 - - - - - 0x020D5A 17:8D4A: FA        .byte con_jsr
 - - - - - 0x020D5B 17:8D4B: DD A2     .word sub_A2DD
 - - - - - 0x020D5D 17:8D4D: FA        .byte con_jsr
-- - - - - 0x020D5E 17:8D4E: 5C 9F     .word sub_9F5C
+- - - - - 0x020D5E 17:8D4E: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x020D60 17:8D50: F2        .byte con_jmp
 - - - - - 0x020D61 17:8D51: 40 A2     .word loc_A240
 
@@ -2741,7 +2741,7 @@ bra_case_8D53_03_power_block:
 - - - - - 0x020D6C 17:8D5C: FA        .byte con_jsr
 - - - - - 0x020D6D 17:8D5D: DD A2     .word sub_A2DD
 - - - - - 0x020D6F 17:8D5F: FA        .byte con_jsr
-- - - - - 0x020D70 17:8D60: 5C 9F     .word sub_9F5C
+- - - - - 0x020D70 17:8D60: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x020D72 17:8D62: F2        .byte con_jmp
 - - - - - 0x020D73 17:8D63: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -2775,7 +2775,7 @@ bra_case_8D78_00:
 - D - I - 0x020D91 17:8D81: FA        .byte con_jsr
 - D - I - 0x020D92 17:8D82: DD A2     .word sub_A2DD
 - D - I - 0x020D94 17:8D84: FA        .byte con_jsr
-- D - I - 0x020D95 17:8D85: 62 9F     .word sub_9F62
+- D - I - 0x020D95 17:8D85: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_8D87_03:
 bra_case_8D87_04_нарушение:
 - D - I - 0x020D97 17:8D87: F0        .byte con_quit
@@ -2790,7 +2790,7 @@ bra_case_8D88_01:
 - D - I - 0x020DA1 17:8D91: FA        .byte con_jsr
 - D - I - 0x020DA2 17:8D92: DD A2     .word sub_A2DD
 - D - I - 0x020DA4 17:8D94: FA        .byte con_jsr
-- D - I - 0x020DA5 17:8D95: 5C 9F     .word sub_9F5C
+- D - I - 0x020DA5 17:8D95: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020DA7 17:8D97: F2        .byte con_jmp
 - D - I - 0x020DA8 17:8D98: 40 A2     .word loc_A240
 
@@ -2804,7 +2804,7 @@ bra_case_8D9A_02:
 - - - - - 0x020DB3 17:8DA3: FA        .byte con_jsr
 - - - - - 0x020DB4 17:8DA4: DD A2     .word sub_A2DD
 - - - - - 0x020DB6 17:8DA6: FA        .byte con_jsr
-- - - - - 0x020DB7 17:8DA7: 5C 9F     .word sub_9F5C
+- - - - - 0x020DB7 17:8DA7: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x020DB9 17:8DA9: F2        .byte con_jmp
 - - - - - 0x020DBA 17:8DAA: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -2825,7 +2825,7 @@ bra_case_8DB3_00:
 - D - I - 0x020DCC 17:8DBC: FA        .byte con_jsr
 - D - I - 0x020DCD 17:8DBD: DD A2     .word sub_A2DD
 - D - I - 0x020DCF 17:8DBF: FA        .byte con_jsr
-- D - I - 0x020DD0 17:8DC0: 62 9F     .word sub_9F62
+- D - I - 0x020DD0 17:8DC0: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_8DC2_04_нарушение:
 - D - I - 0x020DD2 17:8DC2: F0        .byte con_quit
 
@@ -2839,7 +2839,7 @@ bra_case_8DC3_01:
 - - - - - 0x020DDC 17:8DCC: FA        .byte con_jsr
 - - - - - 0x020DDD 17:8DCD: DD A2     .word sub_A2DD
 - - - - - 0x020DDF 17:8DCF: FA        .byte con_jsr
-- - - - - 0x020DE0 17:8DD0: 5C 9F     .word sub_9F5C
+- - - - - 0x020DE0 17:8DD0: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x020DE2 17:8DD2: F2        .byte con_jmp
 - - - - - 0x020DE3 17:8DD3: 40 A2     .word loc_A240
 
@@ -2853,7 +2853,7 @@ bra_case_8DD5_02:
 - - - - - 0x020DEE 17:8DDE: FA        .byte con_jsr
 - - - - - 0x020DEF 17:8DDF: DD A2     .word sub_A2DD
 - - - - - 0x020DF1 17:8DE1: FA        .byte con_jsr
-- - - - - 0x020DF2 17:8DE2: 5C 9F     .word sub_9F5C
+- - - - - 0x020DF2 17:8DE2: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x020DF4 17:8DE4: F2        .byte con_jmp
 - - - - - 0x020DF5 17:8DE5: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -3104,7 +3104,7 @@ bra_case_8FFB_00:
 - D - I - 0x021014 17:9004: FA        .byte con_jsr
 - D - I - 0x021015 17:9005: DD A2     .word sub_A2DD
 - D - I - 0x021017 17:9007: FA        .byte con_jsr
-- D - I - 0x021018 17:9008: 62 9F     .word sub_9F62
+- D - I - 0x021018 17:9008: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_900A_04_нарушение:
 - D - I - 0x02101A 17:900A: F0        .byte con_quit
 
@@ -3118,7 +3118,7 @@ bra_case_900B_01:
 - D - I - 0x021024 17:9014: FA        .byte con_jsr
 - D - I - 0x021025 17:9015: DD A2     .word sub_A2DD
 - D - I - 0x021027 17:9017: FA        .byte con_jsr
-- D - I - 0x021028 17:9018: 5C 9F     .word sub_9F5C
+- D - I - 0x021028 17:9018: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x02102A 17:901A: F2        .byte con_jmp
 - D - I - 0x02102B 17:901B: 40 A2     .word loc_A240
 
@@ -3134,7 +3134,7 @@ bra_case_901D_03_power_block:
 - - - - - 0x021036 17:9026: FA        .byte con_jsr
 - - - - - 0x021037 17:9027: DD A2     .word sub_A2DD
 - - - - - 0x021039 17:9029: FA        .byte con_jsr
-- - - - - 0x02103A 17:902A: 5C 9F     .word sub_9F5C
+- - - - - 0x02103A 17:902A: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x02103C 17:902C: F2        .byte con_jmp
 - - - - - 0x02103D 17:902D: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -3168,7 +3168,7 @@ bra_case_9042_00:
 - D - I - 0x02105B 17:904B: FA        .byte con_jsr
 - D - I - 0x02105C 17:904C: DD A2     .word sub_A2DD
 - D - I - 0x02105E 17:904E: FA        .byte con_jsr
-- D - I - 0x02105F 17:904F: 62 9F     .word sub_9F62
+- D - I - 0x02105F 17:904F: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_9051_03:
 bra_case_9051_04_нарушение:
 - D - I - 0x021061 17:9051: F0        .byte con_quit
@@ -3183,7 +3183,7 @@ bra_case_9052_01:
 - D - I - 0x02106B 17:905B: FA        .byte con_jsr
 - D - I - 0x02106C 17:905C: DD A2     .word sub_A2DD
 - D - I - 0x02106E 17:905E: FA        .byte con_jsr
-- D - I - 0x02106F 17:905F: 5C 9F     .word sub_9F5C
+- D - I - 0x02106F 17:905F: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x021071 17:9061: F2        .byte con_jmp
 - D - I - 0x021072 17:9062: 40 A2     .word loc_A240
 
@@ -3197,7 +3197,7 @@ bra_case_9064_02:
 - - - - - 0x02107D 17:906D: FA        .byte con_jsr
 - - - - - 0x02107E 17:906E: DD A2     .word sub_A2DD
 - - - - - 0x021080 17:9070: FA        .byte con_jsr
-- - - - - 0x021081 17:9071: 5C 9F     .word sub_9F5C
+- - - - - 0x021081 17:9071: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x021083 17:9073: F2        .byte con_jmp
 - - - - - 0x021084 17:9074: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -3219,7 +3219,7 @@ bra_case_9081_00:
 - D - I - 0x02109A 17:908A: FA        .byte con_jsr
 - D - I - 0x02109B 17:908B: DD A2     .word sub_A2DD
 - D - I - 0x02109D 17:908D: FA        .byte con_jsr
-- D - I - 0x02109E 17:908E: 62 9F     .word sub_9F62
+- D - I - 0x02109E 17:908E: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_9090_04_нарушение:
 - D - I - 0x0210A0 17:9090: F0        .byte con_quit
 
@@ -3233,7 +3233,7 @@ bra_case_9091_01:
 - - - - - 0x0210AA 17:909A: FA        .byte con_jsr
 - - - - - 0x0210AB 17:909B: DD A2     .word sub_A2DD
 - - - - - 0x0210AD 17:909D: FA        .byte con_jsr
-- - - - - 0x0210AE 17:909E: 5C 9F     .word sub_9F5C
+- - - - - 0x0210AE 17:909E: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x0210B0 17:90A0: F2        .byte con_jmp
 - - - - - 0x0210B1 17:90A1: 40 A2     .word loc_A240
 
@@ -3247,7 +3247,7 @@ bra_case_90A3_02:
 - - - - - 0x0210BC 17:90AC: FA        .byte con_jsr
 - - - - - 0x0210BD 17:90AD: DD A2     .word sub_A2DD
 - - - - - 0x0210BF 17:90AF: FA        .byte con_jsr
-- - - - - 0x0210C0 17:90B0: 5C 9F     .word sub_9F5C
+- - - - - 0x0210C0 17:90B0: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x0210C2 17:90B2: F2        .byte con_jmp
 - - - - - 0x0210C3 17:90B3: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -3427,7 +3427,7 @@ _scenario_9259_05_10:
 
 bra_case_925F_01_защитник_убьется:
 - D - I - 0x02126F 17:925F: FA        .byte con_jsr
-- D - I - 0x021270 17:9260: 6E 9F     .word sub_9F6E
+- D - I - 0x021270 17:9260: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_9262_00_защитник_выживет:
 - D - I - 0x021272 17:9262: F0        .byte con_quit
 
@@ -3451,7 +3451,7 @@ bra_case_9269_00_это_не_кипер:
 bra_case_926F_01_защитник_убьется:
 - D - I - 0x02127F 17:926F: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - 0x021281 17:9271: FA        .byte con_jsr
-- D - I - 0x021282 17:9272: 62 9F     .word sub_9F62
+- D - I - 0x021282 17:9272: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_9274_00_защитник_выживет:
 - D - I - 0x021284 17:9274: F0        .byte con_quit
 
@@ -4828,7 +4828,7 @@ loc_97AB:
 - - - - - 0x0217C4 17:97B4: FA        .byte con_jsr
 - - - - - 0x0217C5 17:97B5: E7 A2     .word sub_A2E7
 - - - - - 0x0217C7 17:97B7: FA        .byte con_jsr
-- - - - - 0x0217C8 17:97B8: 1B 9E     .word sub_9E1B_защитник_убился_об_удар
+- - - - - 0x0217C8 17:97B8: 1B 9E     .word sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x0217CA 17:97BA: F2        .byte con_jmp
 - - - - - 0x0217CB 17:97BB: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -4868,7 +4868,7 @@ loc_97DB:
 - D - I - 0x0217F4 17:97E4: FA        .byte con_jsr
 - D - I - 0x0217F5 17:97E5: E7 A2     .word sub_A2E7
 - D - I - 0x0217F7 17:97E7: FA        .byte con_jsr
-- D - I - 0x0217F8 17:97E8: 1B 9E     .word sub_9E1B_защитник_убился_об_удар
+- D - I - 0x0217F8 17:97E8: 1B 9E     .word sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x0217FA 17:97EA: F2        .byte con_jmp
 - D - I - 0x0217FB 17:97EB: 28 9C     .word loc_9C28_проверка_на_рваную_сетку
 
@@ -5003,7 +5003,7 @@ bra_case_9875_02:
 - - - - - 0x021886 17:9876: DD A2     .word sub_A2DD
 - - - - - 0x021888 17:9878: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - - - - - 0x02188A 17:987A: FA        .byte con_jsr
-- - - - - 0x02188B 17:987B: 6E 9F     .word sub_9F6E
+- - - - - 0x02188B 17:987B: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x02188D 17:987D: F2        .byte con_jmp
 
 - - - - - 0x02188E 17:987E: 71 A3     .word loc_A371_мяч_улетает_в_сторону
@@ -5012,7 +5012,7 @@ bra_case_9880_03:
 - D - I - 0x021891 17:9881: DD A2     .word sub_A2DD
 - D - I - 0x021893 17:9883: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021895 17:9885: FA        .byte con_jsr
-- D - I - 0x021896 17:9886: 68 9F     .word sub_9F68
+- D - I - 0x021896 17:9886: 68 9F     .word sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения
 - D - I - 0x021898 17:9888: F2        .byte con_jmp
 - D - I - 0x021899 17:9889: BF 9F     .word loc_9FBF
 
@@ -5020,7 +5020,7 @@ bra_case_988B_04:
 - - - - - 0x02189B 17:988B: FA        .byte con_jsr
 - - - - - 0x02189C 17:988C: DD A2     .word sub_A2DD
 - - - - - 0x02189E 17:988E: FA        .byte con_jsr
-- - - - - 0x02189F 17:988F: 6E 9F     .word sub_9F6E
+- - - - - 0x02189F 17:988F: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x0218A1 17:9891: F2        .byte con_jmp
 - - - - - 0x0218A2 17:9892: 5B A3     .word loc_A35B_нарушение
 
@@ -5084,7 +5084,7 @@ bra_case_98C9_02:
 - D - I - 0x0218DC 17:98CC: FA        .byte con_jsr
 - D - I - 0x0218DD 17:98CD: DD A2     .word sub_A2DD
 - D - I - 0x0218DF 17:98CF: FA        .byte con_jsr
-- D - I - 0x0218E0 17:98D0: 6E 9F     .word sub_9F6E
+- D - I - 0x0218E0 17:98D0: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x0218E2 17:98D2: F2        .byte con_jmp
 - D - I - 0x0218E3 17:98D3: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -5094,7 +5094,7 @@ bra_case_98D5_03:
 - D - I - 0x0218E8 17:98D8: FA        .byte con_jsr
 - D - I - 0x0218E9 17:98D9: DD A2     .word sub_A2DD
 - D - I - 0x0218EB 17:98DB: FA        .byte con_jsr
-- D - I - 0x0218EC 17:98DC: 68 9F     .word sub_9F68
+- D - I - 0x0218EC 17:98DC: 68 9F     .word sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения
 - D - I - 0x0218EE 17:98DE: F2        .byte con_jmp
 - D - I - 0x0218EF 17:98DF: BF 9F     .word loc_9FBF
 
@@ -5104,7 +5104,7 @@ bra_case_98E1_04:
 - - - - - 0x0218F4 17:98E4: FA        .byte con_jsr
 - - - - - 0x0218F5 17:98E5: DD A2     .word sub_A2DD
 - - - - - 0x0218F7 17:98E7: FA        .byte con_jsr
-- - - - - 0x0218F8 17:98E8: 6E 9F     .word sub_9F6E
+- - - - - 0x0218F8 17:98E8: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x0218FA 17:98EA: F2        .byte con_jmp
 - - - - - 0x0218FB 17:98EB: 5B A3     .word loc_A35B_нарушение
 
@@ -5239,7 +5239,7 @@ bra_case_9973_00:
 - D - I - 0x02198C 17:997C: FA        .byte con_jsr
 - D - I - 0x02198D 17:997D: DD A2     .word sub_A2DD
 - D - I - 0x02198F 17:997F: FA        .byte con_jsr
-- D - I - 0x021990 17:9980: 62 9F     .word sub_9F62
+- D - I - 0x021990 17:9980: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x021992 17:9982: F0        .byte con_quit
 
 bra_case_9983_01:
@@ -5252,7 +5252,7 @@ bra_case_9983_01:
 - D - I - 0x02199C 17:998C: FA        .byte con_jsr
 - D - I - 0x02199D 17:998D: DD A2     .word sub_A2DD
 - D - I - 0x02199F 17:998F: FA        .byte con_jsr
-- D - I - 0x0219A0 17:9990: 5C 9F     .word sub_9F5C
+- D - I - 0x0219A0 17:9990: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x0219A2 17:9992: F2        .byte con_jmp
 - D - I - 0x0219A3 17:9993: 40 A2     .word loc_A240
 
@@ -5266,7 +5266,7 @@ bra_case_9995_02:
 - D - I - 0x0219AE 17:999E: FA        .byte con_jsr
 - D - I - 0x0219AF 17:999F: E7 A2     .word sub_A2E7
 - D - I - 0x0219B1 17:99A1: FA        .byte con_jsr
-- D - I - 0x0219B2 17:99A2: 5C 9F     .word sub_9F5C
+- D - I - 0x0219B2 17:99A2: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x0219B4 17:99A4: F2        .byte con_jmp
 - D - I - 0x0219B5 17:99A5: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -5343,7 +5343,7 @@ bra_case_99F0_00:
 - - - - - 0x021A09 17:99F9: FA        .byte con_jsr
 - - - - - 0x021A0A 17:99FA: E7 A2     .word sub_A2E7
 - - - - - 0x021A0C 17:99FC: FA        .byte con_jsr
-- - - - - 0x021A0D 17:99FD: 62 9F     .word sub_9F62
+- - - - - 0x021A0D 17:99FD: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_99FF_03:
 - - - - - 0x021A0F 17:99FF: F0        .byte con_quit
 
@@ -5357,7 +5357,7 @@ bra_case_9A00_01:
 - - - - - 0x021A19 17:9A09: FA        .byte con_jsr
 - - - - - 0x021A1A 17:9A0A: E7 A2     .word sub_A2E7
 - - - - - 0x021A1C 17:9A0C: FA        .byte con_jsr
-- - - - - 0x021A1D 17:9A0D: 5C 9F     .word sub_9F5C
+- - - - - 0x021A1D 17:9A0D: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x021A1F 17:9A0F: F2        .byte con_jmp
 - - - - - 0x021A20 17:9A10: 40 A2     .word loc_A240
 
@@ -5371,7 +5371,7 @@ bra_case_9A12_02:
 - - - - - 0x021A2B 17:9A1B: FA        .byte con_jsr
 - - - - - 0x021A2C 17:9A1C: E7 A2     .word sub_A2E7
 - - - - - 0x021A2E 17:9A1E: FA        .byte con_jsr
-- - - - - 0x021A2F 17:9A1F: 5C 9F     .word sub_9F5C
+- - - - - 0x021A2F 17:9A1F: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x021A31 17:9A21: F2        .byte con_jmp
 - - - - - 0x021A32 17:9A22: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -5515,7 +5515,7 @@ bra_case_9ABC_00:
 - D - I - 0x021AD8 17:9AC8: FA        .byte con_jsr
 - D - I - 0x021AD9 17:9AC9: DD A2     .word sub_A2DD
 - D - I - 0x021ADB 17:9ACB: FA        .byte con_jsr
-- D - I - 0x021ADC 17:9ACC: 62 9F     .word sub_9F62
+- D - I - 0x021ADC 17:9ACC: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x021ADE 17:9ACE: F0        .byte con_quit
 
 bra_case_9ACF_01:
@@ -5530,7 +5530,7 @@ bra_case_9ACF_01:
 - D - I - 0x021AEB 17:9ADB: FA        .byte con_jsr
 - D - I - 0x021AEC 17:9ADC: DD A2     .word sub_A2DD
 - D - I - 0x021AEE 17:9ADE: FA        .byte con_jsr
-- D - I - 0x021AEF 17:9ADF: 5C 9F     .word sub_9F5C
+- D - I - 0x021AEF 17:9ADF: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x021AF1 17:9AE1: F2        .byte con_jmp
 - D - I - 0x021AF2 17:9AE2: 40 A2     .word loc_A240
 
@@ -5546,7 +5546,7 @@ bra_case_9AE4_02:
 - D - I - 0x021B00 17:9AF0: FA        .byte con_jsr
 - D - I - 0x021B01 17:9AF1: E7 A2     .word sub_A2E7
 - D - I - 0x021B03 17:9AF3: FA        .byte con_jsr
-- D - I - 0x021B04 17:9AF4: 5C 9F     .word sub_9F5C
+- D - I - 0x021B04 17:9AF4: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x021B06 17:9AF6: F2        .byte con_jmp
 - D - I - 0x021B07 17:9AF7: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -5626,7 +5626,7 @@ bra_case_9B45_00:
 - - - - - 0x021B61 17:9B51: FA        .byte con_jsr
 - - - - - 0x021B62 17:9B52: E7 A2     .word sub_A2E7
 - - - - - 0x021B64 17:9B54: FA        .byte con_jsr
-- - - - - 0x021B65 17:9B55: 62 9F     .word sub_9F62
+- - - - - 0x021B65 17:9B55: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_9B57_03:
 - - - - - 0x021B67 17:9B57: F0        .byte con_quit
 
@@ -5642,7 +5642,7 @@ bra_case_9B58_01:
 - - - - - 0x021B74 17:9B64: FA        .byte con_jsr
 - - - - - 0x021B75 17:9B65: E7 A2     .word sub_A2E7
 - - - - - 0x021B77 17:9B67: FA        .byte con_jsr
-- - - - - 0x021B78 17:9B68: 5C 9F     .word sub_9F5C
+- - - - - 0x021B78 17:9B68: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x021B7A 17:9B6A: F2        .byte con_jmp
 - - - - - 0x021B7B 17:9B6B: 40 A2     .word loc_A240
 
@@ -5658,7 +5658,7 @@ bra_case_9B6D_02:
 - - - - - 0x021B89 17:9B79: FA        .byte con_jsr
 - - - - - 0x021B8A 17:9B7A: E7 A2     .word sub_A2E7
 - - - - - 0x021B8C 17:9B7C: FA        .byte con_jsr
-- - - - - 0x021B8D 17:9B7D: 5C 9F     .word sub_9F5C
+- - - - - 0x021B8D 17:9B7D: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x021B8F 17:9B7F: F2        .byte con_jmp
 - - - - - 0x021B90 17:9B80: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -5720,7 +5720,7 @@ bra_case_9BB5_00:
 - - - - - 0x021BC8 17:9BB8: FA        .byte con_jsr
 - - - - - 0x021BC9 17:9BB9: DD A2     .word sub_A2DD
 - - - - - 0x021BCB 17:9BBB: FA        .byte con_jsr
-- - - - - 0x021BCC 17:9BBC: 62 9F     .word sub_9F62
+- - - - - 0x021BCC 17:9BBC: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_9BBE_03:
 - - - - - 0x021BCE 17:9BBE: F0        .byte con_quit
 
@@ -5730,7 +5730,7 @@ bra_case_9BBF_01:
 - - - - - 0x021BD2 17:9BC2: FA        .byte con_jsr
 - - - - - 0x021BD3 17:9BC3: DD A2     .word sub_A2DD
 - - - - - 0x021BD5 17:9BC5: FA        .byte con_jsr
-- - - - - 0x021BD6 17:9BC6: 5C 9F     .word sub_9F5C
+- - - - - 0x021BD6 17:9BC6: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - - - - - 0x021BD8 17:9BC8: F2        .byte con_jmp
 - - - - - 0x021BD9 17:9BC9: 40 A2     .word loc_A240
 
@@ -6219,10 +6219,10 @@ bra_long_case_9E0B_02_dribble:
 - D - I - 0x021E27 17:9E17: 06 B4     .word bra_long_case_B406_05_high_speed_dribble
 - D - I - 0x021E29 17:9E19: 14 B4     .word bra_long_case_B414_06_hedgehog_dribble
 
-sub_9E1B_защитник_убился_об_удар:
-- D - I - 0x021E2B 17:9E1B: F3        .byte con_branch, $42
-- D - I - 0x021E2D 17:9E1D: 53 B4     .word bra_long_case_B453_00
-- D - I - 0x021E2F 17:9E1F: 58 B4     .word bra_long_case_B458_01
+sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением:
+- D - I - 0x021E2B 17:9E1B: F3        .byte con_branch, $42     ; 2 варианта рандома
+- D - I - 0x021E2D 17:9E1D: 53 B4     .word bra_long_case_B453_00_рандом_1
+- D - I - 0x021E2F 17:9E1F: 58 B4     .word bra_long_case_B458_01_рандом_2
 
 
 
@@ -6426,31 +6426,31 @@ _scenario_9F54_2C:
 - D - I - 0x021F68 17:9F58: 24 BA     .word bra_long_case_BA24_00
 - D - I - 0x021F6A 17:9F5A: 1C BA     .word bra_long_case_BA1C_01
 
-sub_9F5C:
-- D - I - 0x021F6C 17:9F5C: F3        .byte con_branch, $42
-- D - I - 0x021F6E 17:9F5E: 5B A0     .word bra_long_case_A05B_00
-- D - I - 0x021F70 17:9F60: 60 A0     .word bra_long_case_A060_01
+sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением:
+- D - I - 0x021F6C 17:9F5C: F3        .byte con_branch, $42     ; 2 варианта рандома
+- D - I - 0x021F6E 17:9F5E: 5B A0     .word bra_long_case_A05B_00_рандом_1
+- D - I - 0x021F70 17:9F60: 60 A0     .word bra_long_case_A060_01_рандом_2
 
-loc_9F62:
-sub_9F62:
-- D - I - 0x021F72 17:9F62: F3        .byte con_branch, $42
-- D - I - 0x021F74 17:9F64: 65 A0     .word bra_long_case_A065_00
-- D - I - 0x021F76 17:9F66: 6A A0     .word bra_long_case_A06A_01
+loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
+sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
+- D - I - 0x021F72 17:9F62: F3        .byte con_branch, $42     ; 2 варианта рандома
+- D - I - 0x021F74 17:9F64: 65 A0     .word bra_long_case_A065_00_рандом_1
+- D - I - 0x021F76 17:9F66: 6A A0     .word bra_long_case_A06A_01_рандом_2
 
-sub_9F68:
-- D - I - 0x021F78 17:9F68: F3        .byte con_branch, $42
-- D - I - 0x021F7A 17:9F6A: 1A A2     .word bra_long_case_A21A_00
-- D - I - 0x021F7C 17:9F6C: 1F A2     .word bra_long_case_A21F_01
+sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения:
+- D - I - 0x021F78 17:9F68: F3        .byte con_branch, $42     ; 2 варианта рандома
+- D - I - 0x021F7A 17:9F6A: 1A A2     .word bra_long_case_A21A_00_рандом_1
+- D - I - 0x021F7C 17:9F6C: 1F A2     .word bra_long_case_A21F_01_рандом_2
 
-sub_9F6E:
-- D - I - 0x021F7E 17:9F6E: F3        .byte con_branch, $42
-- D - I - 0x021F80 17:9F70: 24 A2     .word bra_long_case_A224_00
-- D - I - 0x021F82 17:9F72: 29 A2     .word bra_long_case_A229_01
+sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением:
+- D - I - 0x021F7E 17:9F6E: F3        .byte con_branch, $42     ; 2 варианта рандома
+- D - I - 0x021F80 17:9F70: 24 A2     .word bra_long_case_A224_00_рандом_1
+- D - I - 0x021F82 17:9F72: 29 A2     .word bra_long_case_A229_01_рандом_2
 
-sub_9F74:
-- D - I - 0x021F84 17:9F74: F3        .byte con_branch, $42
-- D - I - 0x021F86 17:9F76: 33 B4     .word bra_long_case_B433_00
-- D - I - 0x021F88 17:9F78: 38 B4     .word bra_long_case_B438_01
+sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения:
+- D - I - 0x021F84 17:9F74: F3        .byte con_branch, $42     ; 2 варианта рандома
+- D - I - 0x021F86 17:9F76: 33 B4     .word bra_long_case_B433_00_рандом_1
+- D - I - 0x021F88 17:9F78: 38 B4     .word bra_long_case_B438_01_рандом_2
 
 sub_9F7A_спешал_блок:
 - D - I - 0x021F8A 17:9F7A: F3        .byte con_branch, $33     ; защитный спешал
@@ -6695,28 +6695,28 @@ sub_A051:
 - D - I - 0x022068 11:A058: FE        .byte con_FE
 - D - I - 0x02206A 11:A05A: FB        .byte con_rts
 
-bra_long_case_A05B_00:
+bra_long_case_A05B_00_рандом_1:
 - D - I - 0x02206B 11:A05B: 3C        .byte con_pause + $3C
 - D - I - 0x02206C 11:A05C: 1B        .byte con_bg + $1B
 - D - I - 0x02206D 11:A05D: 13        .byte con_animation + $13
 - D - I - 0x02206E 11:A05E: 02        .byte con_cloud + $02
 - D - I - 0x02206F 11:A05F: FB        .byte con_rts
 
-bra_long_case_A060_01:
+bra_long_case_A060_01_рандом_2:
 - D - I - 0x022070 11:A060: 3C        .byte con_pause + $3C
 - D - I - 0x022071 11:A061: 1B        .byte con_bg + $1B
 - D - I - 0x022072 11:A062: 14        .byte con_animation + $14
 - D - I - 0x022073 11:A063: 02        .byte con_cloud + $02
 - D - I - 0x022074 11:A064: FB        .byte con_rts
 
-bra_long_case_A065_00:
+bra_long_case_A065_00_рандом_1:
 - D - I - 0x022075 11:A065: 3C        .byte con_pause + $3C
 - D - I - 0x022076 11:A066: 1C        .byte con_bg + $1C
 - D - I - 0x022077 11:A067: 13        .byte con_animation + $13
 - D - I - 0x022078 11:A068: 02        .byte con_cloud + $02
 - D - I - 0x022079 11:A069: FB        .byte con_rts
 
-bra_long_case_A06A_01:
+bra_long_case_A06A_01_рандом_2:
 - D - I - 0x02207A 11:A06A: 3C        .byte con_pause + $3C
 - D - I - 0x02207B 11:A06B: 1C        .byte con_bg + $1C
 - D - I - 0x02207C 11:A06C: 14        .byte con_animation + $14
@@ -7174,28 +7174,28 @@ sub_A212:
 - D - I - 0x022228 11:A218: 31        .byte con_cloud + $31
 - D - I - 0x022229 11:A219: FB        .byte con_rts
 
-bra_long_case_A21A_00:
+bra_long_case_A21A_00_рандом_1:
 - D - I - 0x02222A 11:A21A: 28        .byte con_pause + $28
 - D - I - 0x02222B 11:A21B: 1C        .byte con_bg + $1C
 - D - I - 0x02222C 11:A21C: 3E        .byte con_animation + $3E
 - D - I - 0x02222D 11:A21D: F0        .byte con_cloud + con_skip
 - D - I - 0x02222E 11:A21E: FB        .byte con_rts
 
-bra_long_case_A21F_01:
+bra_long_case_A21F_01_рандом_2:
 - D - I - 0x02222F 11:A21F: 28        .byte con_pause + $28
 - D - I - 0x022230 11:A220: 1C        .byte con_bg + $1C
 - D - I - 0x022231 11:A221: 3F        .byte con_animation + $3F
 - D - I - 0x022232 11:A222: F0        .byte con_cloud + con_skip
 - D - I - 0x022233 11:A223: FB        .byte con_rts
 
-bra_long_case_A224_00:
+bra_long_case_A224_00_рандом_1:
 - D - I - 0x022234 11:A224: 32        .byte con_pause + $32
 - D - I - 0x022235 11:A225: 1E        .byte con_bg + $1E
 - D - I - 0x022236 11:A226: 3E        .byte con_animation + $3E
 - D - I - 0x022237 11:A227: 23        .byte con_cloud + $23
 - D - I - 0x022238 11:A228: FB        .byte con_rts
 
-bra_long_case_A229_01:
+bra_long_case_A229_01_рандом_2:
 - D - I - 0x022239 11:A229: 32        .byte con_pause + $32
 - D - I - 0x02223A 11:A22A: 1E        .byte con_bg + $1E
 - D - I - 0x02223B 11:A22B: 3F        .byte con_animation + $3F
@@ -11799,14 +11799,14 @@ bra_case_B42C_01:
 bra_case_B432_00:
 - D - I - 0x023442 11:B432: FB        .byte con_rts
 
-bra_long_case_B433_00:
+bra_long_case_B433_00_рандом_1:
 - D - I - 0x023443 11:B433: 28        .byte con_pause + $28
 - D - I - 0x023444 11:B434: 1E        .byte con_bg + $1E
 - D - I - 0x023445 11:B435: 3E        .byte con_animation + $3E
 - D - I - 0x023446 11:B436: F0        .byte con_cloud + con_skip
 - D - I - 0x023447 11:B437: FB        .byte con_rts
 
-bra_long_case_B438_01:
+bra_long_case_B438_01_рандом_2:
 - D - I - 0x023448 11:B438: 28        .byte con_pause + $28
 - D - I - 0x023449 11:B439: 1E        .byte con_bg + $1E
 - D - I - 0x02344A 11:B43A: 3F        .byte con_animation + $3F
@@ -11843,14 +11843,14 @@ sub_B44E_кипер_идеально_засейвил:
 - D - I - 0x023461 11:B451: 33        .byte con_cloud + $33
 - D - I - 0x023462 11:B452: FB        .byte con_rts
 
-bra_long_case_B453_00:
+bra_long_case_B453_00_рандом_1:
 - D - I - 0x023463 11:B453: 32        .byte con_pause + $32
 - D - I - 0x023464 11:B454: 1C        .byte con_bg + $1C
 - D - I - 0x023465 11:B455: 13        .byte con_animation + $13
 - D - I - 0x023466 11:B456: 02        .byte con_cloud + $02
 - D - I - 0x023467 11:B457: FB        .byte con_rts
 
-bra_long_case_B458_01:
+bra_long_case_B458_01_рандом_2:
 - D - I - 0x023468 11:B458: 32        .byte con_pause + $32
 - D - I - 0x023469 11:B459: 1C        .byte con_bg + $1C
 - D - I - 0x02346A 11:B45A: 14        .byte con_animation + $14
