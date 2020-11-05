@@ -7192,14 +7192,14 @@ bra_long_case_A224_00_рандом_1:
 - D - I - 0x022234 11:A224: 32        .byte con_pause + $32
 - D - I - 0x022235 11:A225: 1E        .byte con_bg + $1E
 - D - I - 0x022236 11:A226: 3E        .byte con_animation + $3E
-- D - I - 0x022237 11:A227: 23        .byte con_cloud + $23
+- D - I - 0x022237 11:A227: 23        .byte con_cloud + $02
 - D - I - 0x022238 11:A228: FB        .byte con_rts
 
 bra_long_case_A229_01_рандом_2:
 - D - I - 0x022239 11:A229: 32        .byte con_pause + $32
 - D - I - 0x02223A 11:A22A: 1E        .byte con_bg + $1E
 - D - I - 0x02223B 11:A22B: 3F        .byte con_animation + $3F
-- D - I - 0x02223C 11:A22C: 23        .byte con_cloud + $23
+- D - I - 0x02223C 11:A22C: 23        .byte con_cloud + $02
 - D - I - 0x02223D 11:A22D: FB        .byte con_rts
 
 loc_A22E:
