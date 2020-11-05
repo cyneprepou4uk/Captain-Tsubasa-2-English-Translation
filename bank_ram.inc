@@ -24,7 +24,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_17 - сценарии
 ; bank_18 - 
 ; bank_19 - титры финальной катсцены
-; bank_20 - 
+; bank_20 - анимации сценариев
 ; bank_21 - 
 ; bank_22 - фразы облаков, графика облаков, меню во время игры (код)
 ; bank_23 - чарли во время игры

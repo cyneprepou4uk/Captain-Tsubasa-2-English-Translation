@@ -9,9 +9,9 @@ C - - - - 0x028024 20:8014: 10 51     BPL bra_8067
 C - - - - 0x028026 20:8016: A2 01     LDX #$01
 C - - - - 0x028028 20:8018: 8E 3A 05  STX $053A
 C - - - - 0x02802B 20:801B: AD 3C 05  LDA ram_номер_анимации
-C - - - - 0x02802E 20:801E: A2 68     LDX #< tbl_8968
+C - - - - 0x02802E 20:801E: A2 68     LDX #< tbl_8968_анимации_сценариев
 C - - - - 0x028030 20:8020: 86 4C     STX ram_004C
-C - - - - 0x028032 20:8022: A2 89     LDX #> tbl_8968
+C - - - - 0x028032 20:8022: A2 89     LDX #> tbl_8968_анимации_сценариев
 C - - - - 0x028036 20:8026: 0A        ASL
 C - - - - 0x028037 20:8027: 90 02     BCC bra_802A
 C - - - - 0x028039 20:8029: E6 4D     INX
@@ -1612,247 +1612,247 @@ tbl_88F0:
 
 
 
-tbl_8968:
-- D - I - 0x028978 20:8968: 48 8B     .word off_8B48_00
-- D - I - 0x02897A 20:896A: 5C 8B     .word off_8B5C_01
-- D - I - 0x02897C 20:896C: 6A 8B     .word off_8B6A_02
-- D - I - 0x02897E 20:896E: 78 8B     .word off_8B78_03
-- D - I - 0x028980 20:8970: 86 8B     .word off_8B86_04
-- D - I - 0x028982 20:8972: 94 8B     .word off_8B94_05
-- D - I - 0x028984 20:8974: B4 8B     .word off_8BB4_06
-- D - I - 0x028986 20:8976: CA 8B     .word off_8BCA_07
-- D - I - 0x028988 20:8978: E0 8B     .word off_8BE0_08
-- D - I - 0x02898A 20:897A: EE 8B     .word off_8BEE_09
-- - - - - 0x02898C 20:897C: 04 8C     .word off_8C04_0A
-- D - I - 0x02898E 20:897E: 12 8C     .word off_8C12_0B
-- D - I - 0x028990 20:8980: 28 8C     .word off_8C28_0C
-- D - I - 0x028992 20:8982: 3C 8C     .word off_8C3C_0D
-- D - I - 0x028994 20:8984: 4A 8C     .word off_8C4A_0E
-- D - I - 0x028996 20:8986: 61 8C     .word off_8C61_0F
-- D - I - 0x028998 20:8988: 78 8C     .word off_8C78_10
-- D - I - 0x02899A 20:898A: 86 8C     .word off_8C86_11
-- D - I - 0x02899C 20:898C: 94 8C     .word off_8C94_12
-- D - I - 0x02899E 20:898E: A2 8C     .word off_8CA2_13
-- D - I - 0x0289A0 20:8990: B9 8C     .word off_8CB9_14
-- D - I - 0x0289A2 20:8992: D0 8C     .word off_8CD0_15
-- D - I - 0x0289A4 20:8994: DE 8C     .word off_8CDE_16
-- D - I - 0x0289A6 20:8996: EC 8C     .word off_8CEC_17
-- D - I - 0x0289A8 20:8998: 09 8D     .word off_8D09_18
-- D - I - 0x0289AA 20:899A: 1F 8D     .word off_8D1F_19
-- D - I - 0x0289AC 20:899C: 52 8D     .word off_8D52_1A
-- D - I - 0x0289AE 20:899E: 60 8D     .word off_8D60_1B
-- D - I - 0x0289B0 20:89A0: 89 8D     .word off_8D89_1C
-- D - I - 0x0289B2 20:89A2: 97 8D     .word off_8D97_1D
-- D - I - 0x0289B4 20:89A4: A5 8D     .word off_8DA5_1E
-- D - I - 0x0289B6 20:89A6: B3 8D     .word off_8DB3_1F
-- D - I - 0x0289B8 20:89A8: C1 8D     .word off_8DC1_20
-- D - I - 0x0289BA 20:89AA: CF 8D     .word off_8DCF_21
-- D - I - 0x0289BC 20:89AC: 05 8E     .word off_8E05_22
-- D - I - 0x0289BE 20:89AE: 1B 8E     .word off_8E1B_23
-- D - I - 0x0289C0 20:89B0: 32 8E     .word off_8E32_24
-- D - I - 0x0289C2 20:89B2: 5B 8E     .word off_8E5B_25
-- D - I - 0x0289C4 20:89B4: 7A 8E     .word off_8E7A_26
-- D - I - 0x0289C6 20:89B6: 8E 8E     .word off_8E8E_27
-- D - I - 0x0289C8 20:89B8: C6 8E     .word off_8EC6_28
-- D - I - 0x0289CA 20:89BA: E5 8E     .word off_8EE5_29
-- D - I - 0x0289CC 20:89BC: F3 8E     .word off_8EF3_2A
-- D - I - 0x0289CE 20:89BE: 29 8F     .word off_8F29_2B
-- D - I - 0x0289D0 20:89C0: 53 8F     .word off_8F53_2C
-- D - I - 0x0289D2 20:89C2: 7C 8F     .word off_8F7C_2D
-- D - I - 0x0289D4 20:89C4: 99 8F     .word off_8F99_2E
-- D - I - 0x0289D6 20:89C6: A7 8F     .word off_8FA7_2F
-- D - I - 0x0289D8 20:89C8: BE 8F     .word off_8FBE_30
-- D - I - 0x0289DA 20:89CA: CC 8F     .word off_8FCC_31
-- D - I - 0x0289DC 20:89CC: E2 8F     .word off_8FE2_32
-- D - I - 0x0289DE 20:89CE: F9 8F     .word off_8FF9_33
-- D - I - 0x0289E0 20:89D0: 3A 90     .word off_903A_34
-- D - I - 0x0289E2 20:89D2: 6F 90     .word off_906F_35
-- D - I - 0x0289E4 20:89D4: A5 90     .word off_90A5_36
-- D - I - 0x0289E6 20:89D6: B3 90     .word off_90B3_37
-- D - I - 0x0289E8 20:89D8: CD 90     .word off_90CD_38
-- D - I - 0x0289EA 20:89DA: D2 90     .word off_90D2_39
-- D - I - 0x0289EC 20:89DC: D7 90     .word off_90D7_3A
-- D - I - 0x0289EE 20:89DE: 0C 91     .word off_910C_3B
-- D - I - 0x0289F0 20:89E0: 41 91     .word off_9141_3C
-- D - I - 0x0289F2 20:89E2: 52 91     .word off_9152_3D
-- D - I - 0x0289F4 20:89E4: 60 91     .word off_9160_3E
-- D - I - 0x0289F6 20:89E6: 77 91     .word off_9177_3F
-- D - I - 0x0289F8 20:89E8: 8E 91     .word off_918E_40
-- D - I - 0x0289FA 20:89EA: A5 91     .word off_91A5_41
-- D - I - 0x0289FC 20:89EC: BC 91     .word off_91BC_42
-- D - I - 0x0289FE 20:89EE: CA 91     .word off_91CA_43
-- D - I - 0x028A00 20:89F0: D8 91     .word off_91D8_44
-- D - I - 0x028A02 20:89F2: E6 91     .word off_91E6_45
-- D - I - 0x028A04 20:89F4: F4 91     .word off_91F4_46
-- D - I - 0x028A06 20:89F6: 02 92     .word off_9202_47
-- D - I - 0x028A08 20:89F8: 10 92     .word off_9210_48
-- D - I - 0x028A0A 20:89FA: 1E 92     .word off_921E_49
-- D - I - 0x028A0C 20:89FC: 32 92     .word off_9232_4A
-- D - I - 0x028A0E 20:89FE: 40 92     .word off_9240_4B
-- D - I - 0x028A10 20:8A00: 45 92     .word off_9245_4C
-- D - I - 0x028A12 20:8A02: 53 92     .word off_9253_4D
-- D - I - 0x028A14 20:8A04: 61 92     .word off_9261_4E
-- D - I - 0x028A16 20:8A06: 6F 92     .word off_926F_4F
-- D - I - 0x028A18 20:8A08: 7D 92     .word off_927D_50
-- D - I - 0x028A1A 20:8A0A: 8B 92     .word off_928B_51
-- D - I - 0x028A1C 20:8A0C: 9F 92     .word off_929F_52
-- - - - - 0x028A1E 20:8A0E: AD 92     .word off_92AD_53
-- - - - - 0x028A20 20:8A10: BB 92     .word off_92BB_54
-- D - I - 0x028A22 20:8A12: C9 92     .word off_92C9_55
-- D - I - 0x028A24 20:8A14: D7 92     .word off_92D7_56
-- D - I - 0x028A26 20:8A16: E5 92     .word off_92E5_57
-- D - I - 0x028A28 20:8A18: F3 92     .word off_92F3_58
-- - - - - 0x028A2A 20:8A1A: 0D 93     .word off_930D_59
-- D - I - 0x028A2C 20:8A1C: 23 93     .word off_9323_5A
-- D - I - 0x028A2E 20:8A1E: 3D 93     .word off_933D_5B
-- D - I - 0x028A30 20:8A20: 57 93     .word off_9357_5C
-- D - I - 0x028A32 20:8A22: 71 93     .word off_9371_5D
-- D - I - 0x028A34 20:8A24: 7F 93     .word off_937F_5E
-- D - I - 0x028A36 20:8A26: 8D 93     .word off_938D_5F
-- D - I - 0x028A38 20:8A28: A4 93     .word off_93A4_60
-- D - I - 0x028A3A 20:8A2A: EC 93     .word off_93EC_61
-- D - I - 0x028A3C 20:8A2C: 03 94     .word off_9403_62
-- D - I - 0x028A3E 20:8A2E: 11 94     .word off_9411_63
-- D - I - 0x028A40 20:8A30: 25 94     .word off_9425_64
-- - - - - 0x028A42 20:8A32: 33 94     .word off_9433_65
-- D - I - 0x028A44 20:8A34: 41 94     .word off_9441_66
-- D - I - 0x028A46 20:8A36: 56 94     .word off_9456_67
-- D - I - 0x028A48 20:8A38: 6A 94     .word off_946A_68
-- D - I - 0x028A4A 20:8A3A: 7E 94     .word off_947E_69
-- D - I - 0x028A4C 20:8A3C: 8C 94     .word off_948C_6A
-- D - I - 0x028A4E 20:8A3E: A2 94     .word off_94A2_6B
-- D - I - 0x028A50 20:8A40: BC 94     .word off_94BC_6C
-- D - I - 0x028A52 20:8A42: F4 94     .word off_94F4_6D
-- D - I - 0x028A54 20:8A44: 2C 95     .word off_952C_6E
-- D - I - 0x028A56 20:8A46: 49 95     .word off_9549_6F
-- D - I - 0x028A58 20:8A48: 79 95     .word off_9579_70
-- D - I - 0x028A5A 20:8A4A: 87 95     .word off_9587_71
-- - - - - 0x028A5C 20:8A4C: 98 95     .word off_9598_72
-- D - I - 0x028A5E 20:8A4E: A6 95     .word off_95A6_73
-- D - I - 0x028A60 20:8A50: B4 95     .word off_95B4_74
-- D - I - 0x028A62 20:8A52: E6 95     .word off_95E6_75
-- D - I - 0x028A64 20:8A54: F5 95     .word off_95F5_76
-- D - I - 0x028A66 20:8A56: 03 96     .word off_9603_77
-- D - I - 0x028A68 20:8A58: 18 96     .word off_9618_78
-- D - I - 0x028A6A 20:8A5A: 51 96     .word off_9651_79
-- D - I - 0x028A6C 20:8A5C: 5F 96     .word off_965F_7A
-- D - I - 0x028A6E 20:8A5E: 89 96     .word off_9689_7B
-- D - I - 0x028A70 20:8A60: 97 96     .word off_9697_7C
-- D - I - 0x028A72 20:8A62: D2 96     .word off_96D2_7D
-- D - I - 0x028A74 20:8A64: 3B 97     .word off_973B_7E
-- D - I - 0x028A76 20:8A66: 49 97     .word off_9749_7F
-- D - I - 0x028A78 20:8A68: 60 97     .word off_9760_80
-- D - I - 0x028A7A 20:8A6A: 6E 97     .word off_976E_81
-- D - I - 0x028A7C 20:8A6C: 84 97     .word off_9784_82
-- D - I - 0x028A7E 20:8A6E: 98 97     .word off_9798_83
-- D - I - 0x028A80 20:8A70: AF 97     .word off_97AF_84
-- D - I - 0x028A82 20:8A72: BD 97     .word off_97BD_85
-- D - I - 0x028A84 20:8A74: D1 97     .word off_97D1_86
-- D - I - 0x028A86 20:8A76: E7 97     .word off_97E7_87
-- D - I - 0x028A88 20:8A78: F7 97     .word off_97F7_88
-- D - I - 0x028A8A 20:8A7A: 07 98     .word off_9807_89
-- D - I - 0x028A8C 20:8A7C: 17 98     .word off_9817_8A
-- D - I - 0x028A8E 20:8A7E: 27 98     .word off_9827_8B
-- D - I - 0x028A90 20:8A80: 35 98     .word off_9835_8C
-- D - I - 0x028A92 20:8A82: 63 98     .word off_9863_8D
-- D - I - 0x028A94 20:8A84: 71 98     .word off_9871_8E
-- D - I - 0x028A96 20:8A86: 85 98     .word off_9885_8F
-- D - I - 0x028A98 20:8A88: AB 98     .word off_98AB_90
-- D - I - 0x028A9A 20:8A8A: C5 98     .word off_98C5_91
-- D - I - 0x028A9C 20:8A8C: D4 98     .word off_98D4_92
-- D - I - 0x028A9E 20:8A8E: 13 99     .word off_9913_93
-- D - I - 0x028AA0 20:8A90: 22 99     .word off_9922_94
-- D - I - 0x028AA2 20:8A92: 31 99     .word off_9931_95
-- D - I - 0x028AA4 20:8A94: 6C 99     .word off_996C_96
-- D - I - 0x028AA6 20:8A96: 7B 99     .word off_997B_97
-- D - I - 0x028AA8 20:8A98: 81 99     .word off_9981_98
-- D - I - 0x028AAA 20:8A9A: 90 99     .word off_9990_99
-- D - I - 0x028AAC 20:8A9C: 96 99     .word off_9996_9A
-- - - - - 0x028AAE 20:8A9E: A5 99     .word off_99A5_9B
-- D - I - 0x028AB0 20:8AA0: AB 99     .word off_99AB_9C
-- D - I - 0x028AB2 20:8AA2: B1 99     .word off_99B1_9D
-- D - I - 0x028AB4 20:8AA4: D4 99     .word off_99D4_9E
-- D - I - 0x028AB6 20:8AA6: DA 99     .word off_99DA_9F
-- D - I - 0x028AB8 20:8AA8: E0 99     .word off_99E0_A0
-- D - I - 0x028ABA 20:8AAA: E6 99     .word off_99E6_A1
-- - - - - 0x028ABC 20:8AAC: EC 99     .word off_99EC_A2
-- D - I - 0x028ABE 20:8AAE: F2 99     .word off_99F2_A3
-- D - I - 0x028AC0 20:8AB0: F8 99     .word off_99F8_A4
-- D - I - 0x028AC2 20:8AB2: 07 9A     .word off_9A07_A5
-- D - I - 0x028AC4 20:8AB4: 42 9A     .word off_9A42_A6
-- D - I - 0x028AC6 20:8AB6: 50 9A     .word off_9A50_A7
-- D - I - 0x028AC8 20:8AB8: 8B 9A     .word off_9A8B_A8
-- D - I - 0x028ACA 20:8ABA: 9A 9A     .word off_9A9A_A9
-- D - I - 0x028ACC 20:8ABC: A0 9A     .word off_9AA0_AA
-- D - I - 0x028ACE 20:8ABE: AF 9A     .word off_9AAF_AB
-- D - I - 0x028AD0 20:8AC0: BE 9A     .word off_9ABE_AC
-- D - I - 0x028AD2 20:8AC2: D5 9A     .word off_9AD5_AD
-- D - I - 0x028AD4 20:8AC4: E4 9A     .word off_9AE4_AE
-- D - I - 0x028AD6 20:8AC6: F3 9A     .word off_9AF3_AF
-- D - I - 0x028AD8 20:8AC8: 02 9B     .word off_9B02_B0
-- D - I - 0x028ADA 20:8ACA: 11 9B     .word off_9B11_B1
-- D - I - 0x028ADC 20:8ACC: 20 9B     .word off_9B20_B2
-- D - I - 0x028ADE 20:8ACE: 2F 9B     .word off_9B2F_B3
-- D - I - 0x028AE0 20:8AD0: 35 9B     .word off_9B35_B4
-- D - I - 0x028AE2 20:8AD2: 44 9B     .word off_9B44_B5
-- D - I - 0x028AE4 20:8AD4: 53 9B     .word off_9B53_B6
-- D - I - 0x028AE6 20:8AD6: 62 9B     .word off_9B62_B7
-- D - I - 0x028AE8 20:8AD8: 71 9B     .word off_9B71_B8
-- D - I - 0x028AEA 20:8ADA: 80 9B     .word off_9B80_B9
-- D - I - 0x028AEC 20:8ADC: 8F 9B     .word off_9B8F_BA
-- D - I - 0x028AEE 20:8ADE: 9E 9B     .word off_9B9E_BB
-- D - I - 0x028AF0 20:8AE0: AD 9B     .word off_9BAD_BC
-- D - I - 0x028AF2 20:8AE2: BC 9B     .word off_9BBC_BD
-- - - - - 0x028AF4 20:8AE4: CB 9B     .word off_9BCB_BE
-- D - I - 0x028AF6 20:8AE6: 06 9C     .word off_9C06_BF
-- D - I - 0x028AF8 20:8AE8: 38 9C     .word off_9C38_C0
-- D - I - 0x028AFA 20:8AEA: 46 9C     .word off_9C46_C1
-- D - I - 0x028AFC 20:8AEC: 54 9C     .word off_9C54_C2
-- D - I - 0x028AFE 20:8AEE: 62 9C     .word off_9C62_C3
-- D - I - 0x028B00 20:8AF0: 70 9C     .word off_9C70_C4
-- D - I - 0x028B02 20:8AF2: 93 9C     .word off_9C93_C5
-- D - I - 0x028B04 20:8AF4: AD 9C     .word off_9CAD_C6
-- D - I - 0x028B06 20:8AF6: D7 9C     .word off_9CD7_C7
-- D - I - 0x028B08 20:8AF8: FB 9C     .word off_9CFB_C8
-- D - I - 0x028B0A 20:8AFA: 0F 9D     .word off_9D0F_C9
-- D - I - 0x028B0C 20:8AFC: 34 9D     .word off_9D34_CA
-- D - I - 0x028B0E 20:8AFE: 79 9D     .word off_9D79_CB
-- D - I - 0x028B10 20:8B00: 87 9D     .word off_9D87_CC
-- D - I - 0x028B12 20:8B02: A4 9D     .word off_9DA4_CD
-- D - I - 0x028B14 20:8B04: B8 9D     .word off_9DB8_CE
-- D - I - 0x028B16 20:8B06: E9 9D     .word off_9DE9_CF
-- D - I - 0x028B18 20:8B08: 07 9E     .word off_9E07_D0
-- D - I - 0x028B1A 20:8B0A: 21 9E     .word off_9E21_D1
-- D - I - 0x028B1C 20:8B0C: 3B 9E     .word off_9E3B_D2
-- D - I - 0x028B1E 20:8B0E: 55 9E     .word off_9E55_D3
-- D - I - 0x028B20 20:8B10: 6B 9E     .word off_9E6B_D4
-- D - I - 0x028B22 20:8B12: 7A 9E     .word off_9E7A_D5
-- D - I - 0x028B24 20:8B14: 89 9E     .word off_9E89_D6
-- D - I - 0x028B26 20:8B16: 97 9E     .word off_9E97_D7
-- D - I - 0x028B28 20:8B18: A5 9E     .word off_9EA5_D8
-- D - I - 0x028B2A 20:8B1A: B3 9E     .word off_9EB3_D9
-- D - I - 0x028B2C 20:8B1C: C1 9E     .word off_9EC1_DA
-- D - I - 0x028B2E 20:8B1E: CF 9E     .word off_9ECF_DB
-- D - I - 0x028B30 20:8B20: 1F 9F     .word off_9F1F_DC
-- D - I - 0x028B32 20:8B22: 3C 9F     .word off_9F3C_DD
-- D - I - 0x028B34 20:8B24: 56 9F     .word off_9F56_DE
-- - - - - 0x028B36 20:8B26: 6D 9F     .word off_9F6D_DF
-- D - I - 0x028B38 20:8B28: A8 9F     .word off_9FA8_E0
-- D - I - 0x028B3A 20:8B2A: C4 9F     .word off_9FC4_E1
-- D - I - 0x028B3C 20:8B2C: C9 9F     .word off_9FC9_E2
-- D - I - 0x028B3E 20:8B2E: 4C A0     .word off_A04C_E3
-- D - I - 0x028B40 20:8B30: 66 A0     .word off_A066_E4
-- D - I - 0x028B42 20:8B32: 8F A0     .word off_A08F_E5
-- D - I - 0x028B44 20:8B34: A3 A0     .word off_A0A3_E6
-- D - I - 0x028B46 20:8B36: A8 A0     .word off_A0A8_E7
-- D - I - 0x028B48 20:8B38: BE A0     .word off_A0BE_E8
-- D - I - 0x028B4A 20:8B3A: EA A0     .word off_A0EA_E9
-- D - I - 0x028B4C 20:8B3C: F8 A0     .word off_A0F8_EA
-- D - I - 0x028B4E 20:8B3E: 06 A1     .word off_A106_EB
-- D - I - 0x028B50 20:8B40: 1D A1     .word off_A11D_EC
-- D - I - 0x028B52 20:8B42: 30 A1     .word off_A130_ED
-- D - I - 0x028B54 20:8B44: 3E A1     .word off_A13E_EE
-- D - I - 0x028B56 20:8B46: 79 A1     .word off_A179_EF
+tbl_8968_анимации_сценариев:
+- D - I - 0x028978 20:8968: 48 8B     .word off_8B48_00     ; 
+- D - I - 0x02897A 20:896A: 5C 8B     .word off_8B5C_01     ; 
+- D - I - 0x02897C 20:896C: 6A 8B     .word off_8B6A_02     ; 
+- D - I - 0x02897E 20:896E: 78 8B     .word off_8B78_03     ; 
+- D - I - 0x028980 20:8970: 86 8B     .word off_8B86_04     ; 
+- D - I - 0x028982 20:8972: 94 8B     .word off_8B94_05     ; 
+- D - I - 0x028984 20:8974: B4 8B     .word off_8BB4_06     ; 
+- D - I - 0x028986 20:8976: CA 8B     .word off_8BCA_07     ; 
+- D - I - 0x028988 20:8978: E0 8B     .word off_8BE0_08     ; 
+- D - I - 0x02898A 20:897A: EE 8B     .word off_8BEE_09     ; 
+- - - - - 0x02898C 20:897C: 04 8C     .word off_8C04_0A     ; unused байтов в сценарии не найдено
+- D - I - 0x02898E 20:897E: 12 8C     .word off_8C12_0B     ; 
+- D - I - 0x028990 20:8980: 28 8C     .word off_8C28_0C     ; 
+- D - I - 0x028992 20:8982: 3C 8C     .word off_8C3C_0D     ; 
+- D - I - 0x028994 20:8984: 4A 8C     .word off_8C4A_0E     ; 
+- D - I - 0x028996 20:8986: 61 8C     .word off_8C61_0F     ; 
+- D - I - 0x028998 20:8988: 78 8C     .word off_8C78_10     ; 
+- D - I - 0x02899A 20:898A: 86 8C     .word off_8C86_11     ; 
+- D - I - 0x02899C 20:898C: 94 8C     .word off_8C94_12     ; 
+- D - I - 0x02899E 20:898E: A2 8C     .word off_8CA2_13     ; 
+- D - I - 0x0289A0 20:8990: B9 8C     .word off_8CB9_14     ; 
+- D - I - 0x0289A2 20:8992: D0 8C     .word off_8CD0_15     ; 
+- D - I - 0x0289A4 20:8994: DE 8C     .word off_8CDE_16     ; 
+- D - I - 0x0289A6 20:8996: EC 8C     .word off_8CEC_17     ; 
+- D - I - 0x0289A8 20:8998: 09 8D     .word off_8D09_18     ; 
+- D - I - 0x0289AA 20:899A: 1F 8D     .word off_8D1F_19     ; 
+- D - I - 0x0289AC 20:899C: 52 8D     .word off_8D52_1A     ; 
+- D - I - 0x0289AE 20:899E: 60 8D     .word off_8D60_1B     ; 
+- D - I - 0x0289B0 20:89A0: 89 8D     .word off_8D89_1C     ; 
+- D - I - 0x0289B2 20:89A2: 97 8D     .word off_8D97_1D     ; 
+- D - I - 0x0289B4 20:89A4: A5 8D     .word off_8DA5_1E     ; 
+- D - I - 0x0289B6 20:89A6: B3 8D     .word off_8DB3_1F     ; 
+- D - I - 0x0289B8 20:89A8: C1 8D     .word off_8DC1_20     ; 
+- D - I - 0x0289BA 20:89AA: CF 8D     .word off_8DCF_21     ; 
+- D - I - 0x0289BC 20:89AC: 05 8E     .word off_8E05_22     ; 
+- D - I - 0x0289BE 20:89AE: 1B 8E     .word off_8E1B_23     ; 
+- D - I - 0x0289C0 20:89B0: 32 8E     .word off_8E32_24     ; 
+- D - I - 0x0289C2 20:89B2: 5B 8E     .word off_8E5B_25     ; 
+- D - I - 0x0289C4 20:89B4: 7A 8E     .word off_8E7A_26     ; 
+- D - I - 0x0289C6 20:89B6: 8E 8E     .word off_8E8E_27     ; 
+- D - I - 0x0289C8 20:89B8: C6 8E     .word off_8EC6_28     ; 
+- D - I - 0x0289CA 20:89BA: E5 8E     .word off_8EE5_29     ; 
+- D - I - 0x0289CC 20:89BC: F3 8E     .word off_8EF3_2A     ; 
+- D - I - 0x0289CE 20:89BE: 29 8F     .word off_8F29_2B     ; 
+- D - I - 0x0289D0 20:89C0: 53 8F     .word off_8F53_2C     ; 
+- D - I - 0x0289D2 20:89C2: 7C 8F     .word off_8F7C_2D     ; 
+- D - I - 0x0289D4 20:89C4: 99 8F     .word off_8F99_2E     ; 
+- D - I - 0x0289D6 20:89C6: A7 8F     .word off_8FA7_2F     ; 
+- D - I - 0x0289D8 20:89C8: BE 8F     .word off_8FBE_30     ; 
+- D - I - 0x0289DA 20:89CA: CC 8F     .word off_8FCC_31     ; 
+- D - I - 0x0289DC 20:89CC: E2 8F     .word off_8FE2_32     ; 
+- D - I - 0x0289DE 20:89CE: F9 8F     .word off_8FF9_33     ; 
+- D - I - 0x0289E0 20:89D0: 3A 90     .word off_903A_34     ; 
+- D - I - 0x0289E2 20:89D2: 6F 90     .word off_906F_35     ; 
+- D - I - 0x0289E4 20:89D4: A5 90     .word off_90A5_36     ; 
+- D - I - 0x0289E6 20:89D6: B3 90     .word off_90B3_37     ; 
+- D - I - 0x0289E8 20:89D8: CD 90     .word off_90CD_38     ; 
+- D - I - 0x0289EA 20:89DA: D2 90     .word off_90D2_39     ; 
+- D - I - 0x0289EC 20:89DC: D7 90     .word off_90D7_3A     ; 
+- D - I - 0x0289EE 20:89DE: 0C 91     .word off_910C_3B     ; 
+- D - I - 0x0289F0 20:89E0: 41 91     .word off_9141_3C     ; 
+- D - I - 0x0289F2 20:89E2: 52 91     .word off_9152_3D     ; 
+- D - I - 0x0289F4 20:89E4: 60 91     .word off_9160_3E     ; 
+- D - I - 0x0289F6 20:89E6: 77 91     .word off_9177_3F     ; 
+- D - I - 0x0289F8 20:89E8: 8E 91     .word off_918E_40     ; 
+- D - I - 0x0289FA 20:89EA: A5 91     .word off_91A5_41     ; 
+- D - I - 0x0289FC 20:89EC: BC 91     .word off_91BC_42     ; 
+- D - I - 0x0289FE 20:89EE: CA 91     .word off_91CA_43     ; 
+- D - I - 0x028A00 20:89F0: D8 91     .word off_91D8_44     ; 
+- D - I - 0x028A02 20:89F2: E6 91     .word off_91E6_45     ; 
+- D - I - 0x028A04 20:89F4: F4 91     .word off_91F4_46     ; 
+- D - I - 0x028A06 20:89F6: 02 92     .word off_9202_47     ; 
+- D - I - 0x028A08 20:89F8: 10 92     .word off_9210_48     ; 
+- D - I - 0x028A0A 20:89FA: 1E 92     .word off_921E_49     ; 
+- D - I - 0x028A0C 20:89FC: 32 92     .word off_9232_4A     ; 
+- D - I - 0x028A0E 20:89FE: 40 92     .word off_9240_4B     ; 
+- D - I - 0x028A10 20:8A00: 45 92     .word off_9245_4C     ; 
+- D - I - 0x028A12 20:8A02: 53 92     .word off_9253_4D     ; 
+- D - I - 0x028A14 20:8A04: 61 92     .word off_9261_4E     ; 
+- D - I - 0x028A16 20:8A06: 6F 92     .word off_926F_4F     ; 
+- D - I - 0x028A18 20:8A08: 7D 92     .word off_927D_50     ; 
+- D - I - 0x028A1A 20:8A0A: 8B 92     .word off_928B_51     ; 
+- D - I - 0x028A1C 20:8A0C: 9F 92     .word off_929F_52     ; 
+- - - - - 0x028A1E 20:8A0E: AD 92     .word off_92AD_53     ; unused байтов в сценарии не найдено
+- - - - - 0x028A20 20:8A10: BB 92     .word off_92BB_54     ; найден 1 случай в сценарии
+- D - I - 0x028A22 20:8A12: C9 92     .word off_92C9_55     ; 
+- D - I - 0x028A24 20:8A14: D7 92     .word off_92D7_56     ; 
+- D - I - 0x028A26 20:8A16: E5 92     .word off_92E5_57     ; 
+- D - I - 0x028A28 20:8A18: F3 92     .word off_92F3_58     ; 
+- - - - - 0x028A2A 20:8A1A: 0D 93     .word off_930D_59     ; 
+- D - I - 0x028A2C 20:8A1C: 23 93     .word off_9323_5A     ; 
+- D - I - 0x028A2E 20:8A1E: 3D 93     .word off_933D_5B     ; 
+- D - I - 0x028A30 20:8A20: 57 93     .word off_9357_5C     ; 
+- D - I - 0x028A32 20:8A22: 71 93     .word off_9371_5D     ; 
+- D - I - 0x028A34 20:8A24: 7F 93     .word off_937F_5E     ; 
+- D - I - 0x028A36 20:8A26: 8D 93     .word off_938D_5F     ; 
+- D - I - 0x028A38 20:8A28: A4 93     .word off_93A4_60     ; 
+- D - I - 0x028A3A 20:8A2A: EC 93     .word off_93EC_61     ; 
+- D - I - 0x028A3C 20:8A2C: 03 94     .word off_9403_62     ; 
+- D - I - 0x028A3E 20:8A2E: 11 94     .word off_9411_63     ; 
+- D - I - 0x028A40 20:8A30: 25 94     .word off_9425_64     ; 
+- - - - - 0x028A42 20:8A32: 33 94     .word off_9433_65     ; unused байтов в сценарии не найдено
+- D - I - 0x028A44 20:8A34: 41 94     .word off_9441_66     ; 
+- D - I - 0x028A46 20:8A36: 56 94     .word off_9456_67     ; 
+- D - I - 0x028A48 20:8A38: 6A 94     .word off_946A_68     ; 
+- D - I - 0x028A4A 20:8A3A: 7E 94     .word off_947E_69     ; 
+- D - I - 0x028A4C 20:8A3C: 8C 94     .word off_948C_6A     ; 
+- D - I - 0x028A4E 20:8A3E: A2 94     .word off_94A2_6B     ; 
+- D - I - 0x028A50 20:8A40: BC 94     .word off_94BC_6C     ; 
+- D - I - 0x028A52 20:8A42: F4 94     .word off_94F4_6D     ; 
+- D - I - 0x028A54 20:8A44: 2C 95     .word off_952C_6E     ; 
+- D - I - 0x028A56 20:8A46: 49 95     .word off_9549_6F     ; 
+- D - I - 0x028A58 20:8A48: 79 95     .word off_9579_70     ; 
+- D - I - 0x028A5A 20:8A4A: 87 95     .word off_9587_71     ; 
+- - - - - 0x028A5C 20:8A4C: 98 95     .word off_9598_72     ; найден 1 случай в сценарии
+- D - I - 0x028A5E 20:8A4E: A6 95     .word off_95A6_73     ; 
+- D - I - 0x028A60 20:8A50: B4 95     .word off_95B4_74     ; 
+- D - I - 0x028A62 20:8A52: E6 95     .word off_95E6_75     ; 
+- D - I - 0x028A64 20:8A54: F5 95     .word off_95F5_76     ; 
+- D - I - 0x028A66 20:8A56: 03 96     .word off_9603_77     ; 
+- D - I - 0x028A68 20:8A58: 18 96     .word off_9618_78     ; 
+- D - I - 0x028A6A 20:8A5A: 51 96     .word off_9651_79     ; 
+- D - I - 0x028A6C 20:8A5C: 5F 96     .word off_965F_7A     ; 
+- D - I - 0x028A6E 20:8A5E: 89 96     .word off_9689_7B     ; 
+- D - I - 0x028A70 20:8A60: 97 96     .word off_9697_7C     ; 
+- D - I - 0x028A72 20:8A62: D2 96     .word off_96D2_7D     ; 
+- D - I - 0x028A74 20:8A64: 3B 97     .word off_973B_7E     ; 
+- D - I - 0x028A76 20:8A66: 49 97     .word off_9749_7F     ; 
+- D - I - 0x028A78 20:8A68: 60 97     .word off_9760_80     ; 
+- D - I - 0x028A7A 20:8A6A: 6E 97     .word off_976E_81     ; 
+- D - I - 0x028A7C 20:8A6C: 84 97     .word off_9784_82     ; 
+- D - I - 0x028A7E 20:8A6E: 98 97     .word off_9798_83     ; 
+- D - I - 0x028A80 20:8A70: AF 97     .word off_97AF_84     ; 
+- D - I - 0x028A82 20:8A72: BD 97     .word off_97BD_85     ; 
+- D - I - 0x028A84 20:8A74: D1 97     .word off_97D1_86     ; 
+- D - I - 0x028A86 20:8A76: E7 97     .word off_97E7_87     ; 
+- D - I - 0x028A88 20:8A78: F7 97     .word off_97F7_88     ; 
+- D - I - 0x028A8A 20:8A7A: 07 98     .word off_9807_89     ; 
+- D - I - 0x028A8C 20:8A7C: 17 98     .word off_9817_8A     ; 
+- D - I - 0x028A8E 20:8A7E: 27 98     .word off_9827_8B     ; 
+- D - I - 0x028A90 20:8A80: 35 98     .word off_9835_8C     ; 
+- D - I - 0x028A92 20:8A82: 63 98     .word off_9863_8D     ; 
+- D - I - 0x028A94 20:8A84: 71 98     .word off_9871_8E     ; 
+- D - I - 0x028A96 20:8A86: 85 98     .word off_9885_8F     ; 
+- D - I - 0x028A98 20:8A88: AB 98     .word off_98AB_90     ; 
+- D - I - 0x028A9A 20:8A8A: C5 98     .word off_98C5_91     ; 
+- D - I - 0x028A9C 20:8A8C: D4 98     .word off_98D4_92     ; 
+- D - I - 0x028A9E 20:8A8E: 13 99     .word off_9913_93     ; 
+- D - I - 0x028AA0 20:8A90: 22 99     .word off_9922_94     ; 
+- D - I - 0x028AA2 20:8A92: 31 99     .word off_9931_95     ; 
+- D - I - 0x028AA4 20:8A94: 6C 99     .word off_996C_96     ; 
+- D - I - 0x028AA6 20:8A96: 7B 99     .word off_997B_97     ; 
+- D - I - 0x028AA8 20:8A98: 81 99     .word off_9981_98     ; 
+- D - I - 0x028AAA 20:8A9A: 90 99     .word off_9990_99     ; 
+- D - I - 0x028AAC 20:8A9C: 96 99     .word off_9996_9A     ; 
+- - - - - 0x028AAE 20:8A9E: A5 99     .word off_99A5_9B     ; найдено несколько случаев, что-то связанное с ниттой
+- D - I - 0x028AB0 20:8AA0: AB 99     .word off_99AB_9C     ; 
+- D - I - 0x028AB2 20:8AA2: B1 99     .word off_99B1_9D     ; 
+- D - I - 0x028AB4 20:8AA4: D4 99     .word off_99D4_9E     ; 
+- D - I - 0x028AB6 20:8AA6: DA 99     .word off_99DA_9F     ; 
+- D - I - 0x028AB8 20:8AA8: E0 99     .word off_99E0_A0     ; 
+- D - I - 0x028ABA 20:8AAA: E6 99     .word off_99E6_A1     ; 
+- - - - - 0x028ABC 20:8AAC: EC 99     .word off_99EC_A2     ; найдено несколько случаев, что-то связанное с савадой
+- D - I - 0x028ABE 20:8AAE: F2 99     .word off_99F2_A3     ; 
+- D - I - 0x028AC0 20:8AB0: F8 99     .word off_99F8_A4     ; 
+- D - I - 0x028AC2 20:8AB2: 07 9A     .word off_9A07_A5     ; 
+- D - I - 0x028AC4 20:8AB4: 42 9A     .word off_9A42_A6     ; 
+- D - I - 0x028AC6 20:8AB6: 50 9A     .word off_9A50_A7     ; 
+- D - I - 0x028AC8 20:8AB8: 8B 9A     .word off_9A8B_A8     ; 
+- D - I - 0x028ACA 20:8ABA: 9A 9A     .word off_9A9A_A9     ; 
+- D - I - 0x028ACC 20:8ABC: A0 9A     .word off_9AA0_AA     ; 
+- D - I - 0x028ACE 20:8ABE: AF 9A     .word off_9AAF_AB     ; 
+- D - I - 0x028AD0 20:8AC0: BE 9A     .word off_9ABE_AC     ; 
+- D - I - 0x028AD2 20:8AC2: D5 9A     .word off_9AD5_AD     ; 
+- D - I - 0x028AD4 20:8AC4: E4 9A     .word off_9AE4_AE     ; 
+- D - I - 0x028AD6 20:8AC6: F3 9A     .word off_9AF3_AF     ; 
+- D - I - 0x028AD8 20:8AC8: 02 9B     .word off_9B02_B0     ; 
+- D - I - 0x028ADA 20:8ACA: 11 9B     .word off_9B11_B1     ; 
+- D - I - 0x028ADC 20:8ACC: 20 9B     .word off_9B20_B2     ; 
+- D - I - 0x028ADE 20:8ACE: 2F 9B     .word off_9B2F_B3     ; 
+- D - I - 0x028AE0 20:8AD0: 35 9B     .word off_9B35_B4     ; 
+- D - I - 0x028AE2 20:8AD2: 44 9B     .word off_9B44_B5     ; 
+- D - I - 0x028AE4 20:8AD4: 53 9B     .word off_9B53_B6     ; 
+- D - I - 0x028AE6 20:8AD6: 62 9B     .word off_9B62_B7     ; 
+- D - I - 0x028AE8 20:8AD8: 71 9B     .word off_9B71_B8     ; 
+- D - I - 0x028AEA 20:8ADA: 80 9B     .word off_9B80_B9     ; 
+- D - I - 0x028AEC 20:8ADC: 8F 9B     .word off_9B8F_BA     ; 
+- D - I - 0x028AEE 20:8ADE: 9E 9B     .word off_9B9E_BB     ; 
+- D - I - 0x028AF0 20:8AE0: AD 9B     .word off_9BAD_BC     ; 
+- D - I - 0x028AF2 20:8AE2: BC 9B     .word off_9BBC_BD     ; 
+- - - - - 0x028AF4 20:8AE4: CB 9B     .word off_9BCB_BE     ; найдено 3 случая
+- D - I - 0x028AF6 20:8AE6: 06 9C     .word off_9C06_BF     ; 
+- D - I - 0x028AF8 20:8AE8: 38 9C     .word off_9C38_C0     ; 
+- D - I - 0x028AFA 20:8AEA: 46 9C     .word off_9C46_C1     ; 
+- D - I - 0x028AFC 20:8AEC: 54 9C     .word off_9C54_C2     ; 
+- D - I - 0x028AFE 20:8AEE: 62 9C     .word off_9C62_C3     ; 
+- D - I - 0x028B00 20:8AF0: 70 9C     .word off_9C70_C4     ; 
+- D - I - 0x028B02 20:8AF2: 93 9C     .word off_9C93_C5     ; 
+- D - I - 0x028B04 20:8AF4: AD 9C     .word off_9CAD_C6     ; 
+- D - I - 0x028B06 20:8AF6: D7 9C     .word off_9CD7_C7     ; 
+- D - I - 0x028B08 20:8AF8: FB 9C     .word off_9CFB_C8     ; 
+- D - I - 0x028B0A 20:8AFA: 0F 9D     .word off_9D0F_C9     ; 
+- D - I - 0x028B0C 20:8AFC: 34 9D     .word off_9D34_CA     ; 
+- D - I - 0x028B0E 20:8AFE: 79 9D     .word off_9D79_CB     ; 
+- D - I - 0x028B10 20:8B00: 87 9D     .word off_9D87_CC     ; 
+- D - I - 0x028B12 20:8B02: A4 9D     .word off_9DA4_CD     ; 
+- D - I - 0x028B14 20:8B04: B8 9D     .word off_9DB8_CE     ; 
+- D - I - 0x028B16 20:8B06: E9 9D     .word off_9DE9_CF     ; 
+- D - I - 0x028B18 20:8B08: 07 9E     .word off_9E07_D0     ; 
+- D - I - 0x028B1A 20:8B0A: 21 9E     .word off_9E21_D1     ; 
+- D - I - 0x028B1C 20:8B0C: 3B 9E     .word off_9E3B_D2     ; 
+- D - I - 0x028B1E 20:8B0E: 55 9E     .word off_9E55_D3     ; 
+- D - I - 0x028B20 20:8B10: 6B 9E     .word off_9E6B_D4     ; 
+- D - I - 0x028B22 20:8B12: 7A 9E     .word off_9E7A_D5     ; 
+- D - I - 0x028B24 20:8B14: 89 9E     .word off_9E89_D6     ; 
+- D - I - 0x028B26 20:8B16: 97 9E     .word off_9E97_D7     ; 
+- D - I - 0x028B28 20:8B18: A5 9E     .word off_9EA5_D8     ; 
+- D - I - 0x028B2A 20:8B1A: B3 9E     .word off_9EB3_D9     ; 
+- D - I - 0x028B2C 20:8B1C: C1 9E     .word off_9EC1_DA     ; 
+- D - I - 0x028B2E 20:8B1E: CF 9E     .word off_9ECF_DB     ; 
+- D - I - 0x028B30 20:8B20: 1F 9F     .word off_9F1F_DC     ; 
+- D - I - 0x028B32 20:8B22: 3C 9F     .word off_9F3C_DD     ; 
+- D - I - 0x028B34 20:8B24: 56 9F     .word off_9F56_DE     ; 
+- - - - - 0x028B36 20:8B26: 6D 9F     .word off_9F6D_DF     ; найдено 3 случая
+- D - I - 0x028B38 20:8B28: A8 9F     .word off_9FA8_E0     ; 
+- D - I - 0x028B3A 20:8B2A: C4 9F     .word off_9FC4_E1     ; 
+- D - I - 0x028B3C 20:8B2C: C9 9F     .word off_9FC9_E2     ; 
+- D - I - 0x028B3E 20:8B2E: 4C A0     .word off_A04C_E3     ; 
+- D - I - 0x028B40 20:8B30: 66 A0     .word off_A066_E4     ; 
+- D - I - 0x028B42 20:8B32: 8F A0     .word off_A08F_E5     ; 
+- D - I - 0x028B44 20:8B34: A3 A0     .word off_A0A3_E6     ; 
+- D - I - 0x028B46 20:8B36: A8 A0     .word off_A0A8_E7     ; 
+- D - I - 0x028B48 20:8B38: BE A0     .word off_A0BE_E8     ; 
+- D - I - 0x028B4A 20:8B3A: EA A0     .word off_A0EA_E9     ; 
+- D - I - 0x028B4C 20:8B3C: F8 A0     .word off_A0F8_EA     ; 
+- D - I - 0x028B4E 20:8B3E: 06 A1     .word off_A106_EB     ; 
+- D - I - 0x028B50 20:8B40: 1D A1     .word off_A11D_EC     ; 
+- D - I - 0x028B52 20:8B42: 30 A1     .word off_A130_ED     ; 
+- D - I - 0x028B54 20:8B44: 3E A1     .word off_A13E_EE     ; 
+- D - I - 0x028B56 20:8B46: 79 A1     .word off_A179_EF     ; 
 
 off_8B48_00:
 - D - I - 0x028B58 20:8B48: F5        .byte $F5
