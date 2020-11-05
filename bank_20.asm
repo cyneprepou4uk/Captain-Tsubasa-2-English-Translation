@@ -10,20 +10,20 @@ C - - - - 0x028026 20:8016: A2 01     LDX #$01
 C - - - - 0x028028 20:8018: 8E 3A 05  STX $053A
 C - - - - 0x02802B 20:801B: AD 3C 05  LDA ram_номер_анимации
 C - - - - 0x02802E 20:801E: A2 68     LDX #< tbl_8968_анимации_сценариев
-C - - - - 0x028030 20:8020: 86 4C     STX ram_004C
+C - - - - 0x028030 20:8020: 86 4C     STX ram_anim_data
 C - - - - 0x028032 20:8022: A2 89     LDX #> tbl_8968_анимации_сценариев
 C - - - - 0x028036 20:8026: 0A        ASL
 C - - - - 0x028037 20:8027: 90 02     BCC bra_802A
 C - - - - 0x028039 20:8029: E6 4D     INX
 bra_802A:
-C - - - - 0x028034 20:802A: 86 4D     STX ram_004D
+C - - - - 0x028034 20:802A: 86 4D     STX ram_anim_data + 1
 C - - - - 0x02803B 20:802B: A8        TAY
-C - - - - 0x02803C 20:802C: B1 4C     LDA (ram_004C),Y
+C - - - - 0x02803C 20:802C: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x02803E 20:802E: AA        TAX
 C - - - - 0x02803F 20:802F: C8        INY
-C - - - - 0x028040 20:8030: B1 4C     LDA (ram_004C),Y
-C - - - - 0x028042 20:8032: 86 4C     STX ram_004C
-C - - - - 0x028044 20:8034: 85 4D     STA ram_004D
+C - - - - 0x028040 20:8030: B1 4C     LDA (ram_anim_data),Y
+C - - - - 0x028042 20:8032: 86 4C     STX ram_anim_data
+C - - - - 0x028044 20:8034: 85 4D     STA ram_anim_data + 1
 C - - - - 0x028046 20:8036: A2 00     LDX #$00
 bra_8038:
 C - - - - 0x028048 20:8038: A9 00     LDA #$00
@@ -54,7 +54,7 @@ C - - - - 0x02807C 20:806C: 60        RTS
 bra_806D:
 loc_806D_цикл:
 C D - - - 0x02807D 20:806D: A0 00     LDY #$00
-C - - - - 0x02807F 20:806F: B1 4C     LDA (ram_004C),Y
+C - - - - 0x02807F 20:806F: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028081 20:8071: C9 F0     CMP #$F0
 C - - - - 0x028083 20:8073: 90 06     BCC bra_807B_EF_и_ниже
 C - - - - 0x028085 20:8075: 20 84 80  JSR sub_8084_управляющие_байты
@@ -62,7 +62,7 @@ C - - - - 0x028088 20:8078: 4C 6D 80  JMP loc_806D_цикл
 bra_807B_EF_и_ниже:
 C - - - - 0x02808B 20:807B: 8D 3B 05  STA $053B
 C - - - - 0x02808E 20:807E: A9 01     LDA #$01
-C - - - - 0x028090 20:8080: 20 CF 83  JSR sub_83CF
+C - - - - 0x028090 20:8080: 20 CF 83  JSR sub_83CF_сместить_указатель
 bra_8083_выход:
 C - - - - 0x028093 20:8083: 60        RTS
 
@@ -92,7 +92,7 @@ C - - - - 0x0280B9 20:80A9: 60        RTS
 
 ofs_80AA_F1:
 C - J - - 0x0280BA 20:80AA: A0 05     LDY #$05
-C - - - - 0x0280BC 20:80AC: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0280BC 20:80AC: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0280BE 20:80AE: 29 1C     AND #$1C
 C - - - - 0x0280C0 20:80B0: 4A        LSR
 C - - - - 0x0280C1 20:80B1: AA        TAX
@@ -108,7 +108,7 @@ C - - - - 0x0280D1 20:80C1: C8        INY
 C - - - - 0x0280D2 20:80C2: C0 15     CPY #$15
 C - - - - 0x0280D4 20:80C4: D0 F9     BNE bra_80BF
 C - - - - 0x0280D6 20:80C6: A0 01     LDY #$01
-C - - - - 0x0280D8 20:80C8: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0280D8 20:80C8: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0280DA 20:80CA: A2 B4     LDX #< tbl_A1B4
 C - - - - 0x0280DC 20:80CC: 86 3E     STX ram_003E
 C - - - - 0x0280DE 20:80CE: A2 A1     LDX #> tbl_A1B4
@@ -128,7 +128,7 @@ C - - - - 0x0280F1 20:80E1: 88        DEY
 C - - - - 0x0280F2 20:80E2: 8A        TXA
 C - - - - 0x0280F3 20:80E3: 91 3A     STA (ram_003A),Y
 C - - - - 0x0280F5 20:80E5: A0 02     LDY #$02
-C - - - - 0x0280F7 20:80E7: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0280F7 20:80E7: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0280F9 20:80E9: A2 47     LDX #< tbl_AC47
 C - - - - 0x0280FB 20:80EB: 86 3E     STX ram_003E
 C - - - - 0x0280FD 20:80ED: A2 AC     LDX #> tbl_AC47
@@ -148,15 +148,15 @@ C - - - - 0x028110 20:8100: 88        DEY
 C - - - - 0x028111 20:8101: 8A        TXA
 C - - - - 0x028112 20:8102: 91 3A     STA (ram_003A),Y
 C - - - - 0x028114 20:8104: A0 03     LDY #$03
-C - - - - 0x028116 20:8106: B1 4C     LDA (ram_004C),Y
+C - - - - 0x028116 20:8106: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028118 20:8108: A0 08     LDY #$08
 C - - - - 0x02811A 20:810A: 91 3A     STA (ram_003A),Y
 C - - - - 0x02811C 20:810C: A0 04     LDY #$04
-C - - - - 0x02811E 20:810E: B1 4C     LDA (ram_004C),Y
+C - - - - 0x02811E 20:810E: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028120 20:8110: A0 0C     LDY #$0C
 C - - - - 0x028122 20:8112: 91 3A     STA (ram_003A),Y
 C - - - - 0x028124 20:8114: A0 05     LDY #$05
-C - - - - 0x028126 20:8116: B1 4C     LDA (ram_004C),Y
+C - - - - 0x028126 20:8116: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028128 20:8118: AA        TAX
 C - - - - 0x028129 20:8119: 29 03     AND #$03
 C - - - - 0x02812B 20:811B: 85 3C     STA ram_003C
@@ -165,7 +165,7 @@ C - - - - 0x02812F 20:811F: 09 80     ORA #$80
 C - - - - 0x028131 20:8121: A0 00     LDY #$00
 C - - - - 0x028133 20:8123: 91 3A     STA (ram_003A),Y
 C - - - - 0x028135 20:8125: A9 06     LDA #$06
-C - - - - 0x028137 20:8127: 20 CF 83  JSR sub_83CF
+C - - - - 0x028137 20:8127: 20 CF 83  JSR sub_83CF_сместить_указатель
 C - - - - 0x02813A 20:812A: 60        RTS
 
 ofs_812B_F2:
@@ -173,28 +173,28 @@ ofs_812B_F2:
 - - - - - 0x02813D 20:812D: 8D 3E 05  STA $053E
 - - - - - 0x028140 20:8130: A9 01     LDA #$01
 - - - - - 0x028142 20:8132: 8D 3D 05  STA $053D
-- - - - - 0x028145 20:8135: 4C CF 83  JMP loc_83CF
+- - - - - 0x028145 20:8135: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_8138_F3:
 - - - - - 0x028148 20:8138: A9 00     LDA #$00
 - - - - - 0x02814A 20:813A: 8D 3D 05  STA $053D
 - - - - - 0x02814D 20:813D: A9 01     LDA #$01
-- - - - - 0x02814F 20:813F: 4C CF 83  JMP loc_83CF
+- - - - - 0x02814F 20:813F: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_8142_F4:
 C - J - - 0x028152 20:8142: A0 01     LDY #$01
-bra_8144:
-C - - - - 0x028154 20:8144: B1 4C     LDA (ram_004C),Y
+bra_8144_цикл:
+C - - - - 0x028154 20:8144: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028156 20:8146: 99 93 04  STA $0493,Y
 C - - - - 0x028159 20:8149: C8        INY
 C - - - - 0x02815A 20:814A: C0 05     CPY #$05
-C - - - - 0x02815C 20:814C: D0 F6     BNE bra_8144
+C - - - - 0x02815C 20:814C: D0 F6     BNE bra_8144_цикл
 C - - - - 0x02815E 20:814E: A9 05     LDA #$05
-C - - - - 0x028160 20:8150: 4C CF 83  JMP loc_83CF
+C - - - - 0x028160 20:8150: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_8153_F5:
 C - J - - 0x028163 20:8153: A0 01     LDY #$01
-C - - - - 0x028165 20:8155: B1 4C     LDA (ram_004C),Y
+C - - - - 0x028165 20:8155: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028167 20:8157: 10 06     BPL bra_815F
 C - - - - 0x028169 20:8159: 20 BA 81  JSR sub_81BA
 C - - - - 0x02816C 20:815C: 4C 64 81  JMP loc_8164
@@ -204,55 +204,55 @@ C - - - - 0x028171 20:8161: 20 30 C5  JSR sub_0x03CC12
 loc_8164:
 C D - - - 0x028174 20:8164: 20 33 C5  JSR sub_0x03CCE3
 C - - - - 0x02817A 20:816A: A9 02     LDA #$02
-C - - - - 0x02817C 20:816C: 4C CF 83  JMP loc_83CF
+C - - - - 0x02817C 20:816C: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_816F_F8:
 C - J - - 0x02817F 20:816F: A0 01     LDY #$01
-C - - - - 0x028181 20:8171: B1 4C     LDA (ram_004C),Y
+C - - - - 0x028181 20:8171: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028183 20:8173: AA        TAX
 C - - - - 0x028184 20:8174: C8        INY
-C - - - - 0x028185 20:8175: B1 4C     LDA (ram_004C),Y
-C - - - - 0x028187 20:8177: 86 4C     STX ram_004C
-C - - - - 0x028189 20:8179: 85 4D     STA ram_004D
+C - - - - 0x028185 20:8175: B1 4C     LDA (ram_anim_data),Y
+C - - - - 0x028187 20:8177: 86 4C     STX ram_anim_data
+C - - - - 0x028189 20:8179: 85 4D     STA ram_anim_data + 1
 C - - - - 0x02818B 20:817B: 60        RTS
 
 ofs_817C_F9:
 C - J - - 0x02818C 20:817C: A0 01     LDY #$01
-C - - - - 0x02818E 20:817E: B1 4C     LDA (ram_004C),Y
+C - - - - 0x02818E 20:817E: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028190 20:8180: 8D 42 05  STA $0542
 C - - - - 0x028193 20:8183: C8        INY
 C - - - - 0x028194 20:8184: 98        TYA
 C - - - - 0x028195 20:8185: 18        CLC
-C - - - - 0x028196 20:8186: 65 4C     ADC ram_004C
+C - - - - 0x028196 20:8186: 65 4C     ADC ram_anim_data
 C - - - - 0x028198 20:8188: 85 4E     STA ram_004E
-C - - - - 0x02819A 20:818A: A5 4D     LDA ram_004D
+C - - - - 0x02819A 20:818A: A5 4D     LDA ram_anim_data + 1
 C - - - - 0x02819C 20:818C: 69 00     ADC #$00
 C - - - - 0x02819E 20:818E: 85 4F     STA ram_004F
 C - - - - 0x0281A0 20:8190: A9 02     LDA #$02
-C - - - - 0x0281A2 20:8192: 4C CF 83  JMP loc_83CF
+C - - - - 0x0281A2 20:8192: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_8195_FA:
 C - J - - 0x0281A5 20:8195: A9 01     LDA #$01
 C - - - - 0x0281A7 20:8197: CE 42 05  DEC $0542
 C - - - - 0x0281AA 20:819A: F0 0A     BEQ bra_81A6
 C - - - - 0x0281AC 20:819C: A5 4E     LDA ram_004E
-C - - - - 0x0281AE 20:819E: 85 4C     STA ram_004C
+C - - - - 0x0281AE 20:819E: 85 4C     STA ram_anim_data
 C - - - - 0x0281B0 20:81A0: A5 4F     LDA ram_004F
-C - - - - 0x0281B2 20:81A2: 85 4D     STA ram_004D
+C - - - - 0x0281B2 20:81A2: 85 4D     STA ram_anim_data + 1
 C - - - - 0x0281B4 20:81A4: A9 00     LDA #$00
 bra_81A6:
-C - - - - 0x0281B6 20:81A6: 4C CF 83  JMP loc_83CF
+C - - - - 0x0281B6 20:81A6: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_81A9_FB:
 C - J - - 0x0281B9 20:81A9: A0 01     LDY #$01
 bra_81AB:
-C - - - - 0x0281BB 20:81AB: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0281BB 20:81AB: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0281BD 20:81AD: 99 42 05  STA $0542,Y
 C - - - - 0x0281C0 20:81B0: C8        INY
 C - - - - 0x0281C1 20:81B1: C0 04     CPY #$04
 C - - - - 0x0281C3 20:81B3: D0 F6     BNE bra_81AB
 C - - - - 0x0281C5 20:81B5: A9 04     LDA #$04
-C - - - - 0x0281C7 20:81B7: 4C CF 83  JMP loc_83CF
+C - - - - 0x0281C7 20:81B7: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 sub_81BA:
 C - - - - 0x0281CA 20:81BA: 29 7F     AND #$7F
@@ -423,7 +423,7 @@ C - - - - 0x0282CB 20:82BB: 60        RTS
 
 ofs_82BC_04:
 C - J - - 0x0282CC 20:82BC: A0 02     LDY #$02
-C - - - - 0x0282CE 20:82BE: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0282CE 20:82BE: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0282D0 20:82C0: 10 03     BPL bra_82C5
 C - - - - 0x0282D2 20:82C2: 20 16 83  JSR sub_8316
 bra_82C5:
@@ -454,7 +454,7 @@ C - - - - 0x0282FC 20:82EC: E8        INX
 C - - - - 0x0282FD 20:82ED: E0 20     CPX #$20
 C - - - - 0x0282FF 20:82EF: D0 EE     BNE bra_82DF
 C - - - - 0x028301 20:82F1: A9 01     LDA #$01
-C - - - - 0x028303 20:82F3: 4C CF 83  JMP loc_83CF
+C - - - - 0x028303 20:82F3: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 tbl_82F6:
 - D - - - 0x028306 20:82F6: 0F        .byte $0F    ; <そ>
@@ -600,30 +600,30 @@ tbl_83A6:
 
 ofs_83AE_F6:
 C - J - - 0x0283BE 20:83AE: A0 01     LDY #$01
-C - - - - 0x0283C0 20:83B0: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0283C0 20:83B0: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0283C2 20:83B2: AA        TAX
 C - - - - 0x0283C3 20:83B3: A9 00     LDA #$00
 C - - - - 0x0283C5 20:83B5: 9D 47 05  STA $0547,X
 C - - - - 0x0283C8 20:83B8: A9 02     LDA #$02
-C - - - - 0x0283CA 20:83BA: 4C CF 83  JMP loc_83CF
+C - - - - 0x0283CA 20:83BA: 4C CF 83  JMP loc_83CF_сместить_указатель
 
 ofs_83BD_F7:
 C - J - - 0x0283CD 20:83BD: A0 01     LDY #$01
-C - - - - 0x0283CF 20:83BF: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0283CF 20:83BF: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0283D1 20:83C1: 8D 40 05  STA $0540
 C - - - - 0x0283D4 20:83C4: C8        INY
-C - - - - 0x0283D5 20:83C5: B1 4C     LDA (ram_004C),Y
+C - - - - 0x0283D5 20:83C5: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0283D7 20:83C7: 8D 41 05  STA $0541
 C - - - - 0x0283DA 20:83CA: A9 03     LDA #$03
-C - - - - 0x0283DC 20:83CC: 4C CF 83  JMP loc_83CF
+C - - - - 0x0283DC 20:83CC: 4C CF 83  JMP loc_83CF_сместить_указатель
 
-sub_83CF:
-loc_83CF:
+sub_83CF_сместить_указатель:
+loc_83CF_сместить_указатель:
 C D - - - 0x0283DF 20:83CF: 18        CLC
-C - - - - 0x0283E0 20:83D0: 65 4C     ADC ram_004C
-C - - - - 0x0283E2 20:83D2: 85 4C     STA ram_004C
+C - - - - 0x0283E0 20:83D0: 65 4C     ADC ram_anim_data
+C - - - - 0x0283E2 20:83D2: 85 4C     STA ram_anim_data
 C - - - - 0x0283E4 20:83D4: 90 02     BCC bra_83D8_выход
-C - - - - 0x0283E6 20:83D6: E6 4D     INC ram_004D
+C - - - - 0x0283E6 20:83D6: E6 4D     INC ram_anim_data + 1
 bra_83D8_выход:
 C - - - - 0x0283E8 20:83D8: 60        RTS
 
