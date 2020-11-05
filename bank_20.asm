@@ -4719,10 +4719,6 @@ off_9587_71:
 - D - I - 0x0295A3 20:9593: 00        .byte $00
 - D - I - 0x0295A4 20:9594: F0        .byte con_F0
 
-; bzk мусор?
-- - - - - 0x0295A5 20:9595: F8        .byte con_F8
-- - - - - 0x0295A6 20:9596: A7 8B     .word off_8BA7
-
 off_9598_72:
 - - - - - 0x0295A8 20:9598: F5        .byte con_F5
 - - - - - 0x0295A9 20:9599: 09        .byte $09    ; <け>
@@ -7844,9 +7840,6 @@ off_A0BE_E8:
 - D - I - 0x02A0F3 20:A0E3: 08        .byte $08    ; <く>
 - D - I - 0x02A0F4 20:A0E4: F8        .byte con_F8
 - D - I - 0x02A0F5 20:A0E5: 32 91     .word off_9132
-; bzk мусор
-- - - - - 0x02A0F7 20:A0E7: F8        .byte con_F8
-- - - - - 0x02A0F8 20:A0E8: 4E 8E     .word off_8E4E
 
 off_A0EA_E9:
 - D - I - 0x02A0FA 20:A0EA: F5        .byte con_F5
