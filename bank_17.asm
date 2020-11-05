@@ -3297,9 +3297,8 @@ _scenario_91F2_01:
 - D - I - 0x021207 17:91F7: 05        .byte bra_case_91FC_01 - *
 
 bra_case_91F8_00:
-- D - I - 0x021208 17:91F8: FA        .byte con_jsr
-- D - I - 0x021209 17:91F9: E2 9D     .word sub_9DE2
-- D - I - 0x02120B 17:91FB: F1        .byte con__quit
+- D - I - 0x021208 17:91F8: FA        .byte con_jmp
+- D - I - 0x021209 17:91F9: E2 9D     .word loc_9DE2
 
 bra_case_91FC_01:
 - D - I - 0x02120C 17:91FC: F2        .byte con_jmp
@@ -6181,7 +6180,7 @@ bra_case_9D9A_01_летит_низкий_мяч:
 - D - I - 0x021DEE 17:9DDE: FB B0     .word bra_long_case_B0FB_21_slider_cannon
 - - - - - 0x021DF0 17:9DE0: 97 B1     .word bra_long_case_B197_00___
 
-sub_9DE2:
+loc_9DE2:
 - D - I - 0x021DF2 17:9DE2: F3        .byte con_branch, $09     ; действие атаки на штрафной
 - D - I - 0x021DF4 17:9DE4: EC 9D     .word bra_long_case_9DEC_00_shoot
 - D - I - 0x021DF6 17:9DE6: 9B B2     .word bra_long_case_B29B_01_pass
