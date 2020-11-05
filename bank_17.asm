@@ -2059,9 +2059,9 @@ tbl_89BF_сценарии:
 - D - I - 0x020A11 17:8A01: 3B BA     .word _scenario_BA3B_21       ; 
 - D - I - 0x020A13 17:8A03: 49 B7     .word _scenario_B749_22       ; в пенальти сообщение о бьющем игроке, затем выбор действия игроку/киперу
 - D - I - 0x020A15 17:8A05: 3F BB     .word _scenario_BB3F_23       ; в пенальти игрок бьет, затем результат удара и действия кипера
-- D - I - 0x020A17 17:8A07: F2 9B     .word _scenario_9BF2_24       ; 
-- D - I - 0x020A19 17:8A09: DD 9C     .word _scenario_9CDD_25       ; 
-- D - I - 0x020A1B 17:8A0B: 2D 9E     .word _scenario_9E2D_26       ; 
+- D - I - 0x020A17 17:8A07: F2 9B     .word _scenario_9BF2_24       ; сообщение corner kick
+- D - I - 0x020A19 17:8A09: DD 9C     .word _scenario_9CDD_25       ; сообщение goal kick
+- D - I - 0x020A1B 17:8A0B: 2D 9E     .word _scenario_9E2D_26       ; сообщение throw in
 - D - I - 0x020A1D 17:8A0D: F8 9B     .word _scenario_9BF8_27       ; 
 - D - I - 0x020A1F 17:8A0F: CC B4     .word _scenario_B4CC_28       ; 
 - D - I - 0x020A21 17:8A11: FE 9B     .word _scenario_9BFE_29       ; 
@@ -5789,33 +5789,66 @@ bra_case_9BEF_01:
 
 _scenario_9BF2_24:
 - D - I - 0x021C02 17:9BF2: FA        .byte con_jsr
-- D - I - 0x021C03 17:9BF3: BF B4     .word sub_B4BF
-- D - I - 0x021C05 17:9BF5: F2        .byte con_jmp
-- D - I - 0x021C06 17:9BF6: C7 B4     .word loc_B4C7
+- D - I - 0x021C03 17:9BF3: BF B4     .word sub_B4BF_мяч_улетает_в_аут
+- D - I - 0x0234D7 11:B4C7: 46        .byte con_pause + $46
+- D - I - 0x0234D8 11:B4C8: F0        .byte con_bg + con_skip
+- D - I - 0x0234D9 11:B4C9: F0        .byte con_animation + con_skip
+- D - I - 0x0234DA 11:B4CA: 5D        .byte con_cloud + $5D
+- D - I - 0x0234DB 11:B4CB: FB        .byte con_rts
 
 
 
 _scenario_9BF8_27:
 - D - I - 0x021C08 17:9BF8: FA        .byte con_jsr
-- D - I - 0x021C09 17:9BF9: BF B4     .word sub_B4BF
-- D - I - 0x021C0B 17:9BFB: F2        .byte con_jmp
-- D - I - 0x021C0C 17:9BFC: 12 BA     .word loc_BA12
+- D - I - 0x021C09 17:9BF9: BF B4     .word sub_B4BF_мяч_улетает_в_аут
+- D - I - 0x023A22 11:BA12: 46        .byte con_pause + $46
+- D - I - 0x023A23 11:BA13: F0        .byte con_bg + con_skip
+- D - I - 0x023A24 11:BA14: F0        .byte con_animation + con_skip
+- D - I - 0x023A25 11:BA15: 5E        .byte con_cloud + $5E
+- D - I - 0x023A26 11:BA16: FB        .byte con_rts
 
 
 
 _scenario_9BFE_29:
 - D - I - 0x021C0E 17:9BFE: FA        .byte con_jsr
-- D - I - 0x021C0F 17:9BFF: BF B4     .word sub_B4BF
-- D - I - 0x021C11 17:9C01: F2        .byte con_jmp
-- D - I - 0x021C12 17:9C02: 17 BA     .word loc_BA17
+- D - I - 0x021C0F 17:9BFF: BF B4     .word sub_B4BF_мяч_улетает_в_аут
+- D - I - 0x023A27 11:BA17: 46        .byte con_pause + $46
+- D - I - 0x023A28 11:BA18: F0        .byte con_bg + con_skip
+- D - I - 0x023A29 11:BA19: F0        .byte con_animation + con_skip
+- D - I - 0x023A2A 11:BA1A: 5F        .byte con_cloud + $5F
+- D - I - 0x023A2B 11:BA1B: FB        .byte con_rts
+
+sub_B4BF_мяч_улетает_в_аут:
+- D - I - 0x0234CF 11:B4BF: F9        .byte con_soundID_delay, $64, $0B
+- D - I - 0x0234D2 11:B4C2: 1E        .byte con_pause + $1E
+- D - I - 0x0234D3 11:B4C3: 39        .byte con_bg + $39
+- D - I - 0x0234D4 11:B4C4: 7E        .byte con_animation + $7E
+- D - I - 0x0234D5 11:B4C5: 5C        .byte con_cloud + $5C
+- D - I - 0x0234D6 11:B4C6: FB        .byte con_rts
 
 
 
 _scenario_9C04_33:
-- D - I - 0x021C14 17:9C04: FA        .byte con_jsr
-- D - I - 0x021C15 17:9C05: A6 B7     .word sub_B7A6
-- D - I - 0x021C17 17:9C07: F2        .byte con_jmp
-- D - I - 0x021C18 17:9C08: AF B7     .word loc_B7AF
+- D - I - 0x0237B6 11:B7A6: F5        .byte con_mirror_off
+- D - I - 0x0237B7 11:B7A7: F9        .byte con_soundID_delay, $66, $02
+- D - I - 0x0237BA 11:B7AA: 32        .byte con_pause + $32
+- D - I - 0x0237BB 11:B7AB: 0C        .byte con_bg + $0C
+- D - I - 0x0237BC 11:B7AC: 4E        .byte con_animation + $4E
+- D - I - 0x0237BD 11:B7AD: 70        .byte con_cloud + $70
+- D - I - 0x0237BF 11:B7AF: 60        .byte con_pause + $60
+- D - I - 0x0237C0 11:B7B0: F0        .byte con_bg + con_skip
+- D - I - 0x0237C1 11:B7B1: F0        .byte con_animation + con_skip
+- D - I - 0x0237C2 11:B7B2: 71        .byte con_cloud + $71
+- D - I - 0x0237C3 11:B7B3: F9        .byte con_soundID_delay, $31, $02
+- D - I - 0x0237C6 11:B7B6: C0        .byte con_pause + $C0
+- D - I - 0x0237C7 11:B7B7: F0        .byte con_bg + con_skip
+- D - I - 0x0237C8 11:B7B8: F0        .byte con_animation + con_skip
+- D - I - 0x0237C9 11:B7B9: F0        .byte con_cloud + con_skip
+- D - I - 0x0237CA 11:B7BA: 01        .byte con_pause + $01
+- D - I - 0x0237CB 11:B7BB: 71        .byte con_bg + $71
+- D - I - 0x0237CC 11:B7BC: 00        .byte con_animation + $00
+- D - I - 0x0237CD 11:B7BD: 00        .byte con_cloud + con_clear
+- D - I - 0x0237CE 11:B7BE: FB        .byte con_rts
 
 
 
@@ -11923,21 +11956,6 @@ loc_B4B6:
 - D - I - 0x0234CC 11:B4BC: 58        .byte con_cloud + $58
 - D - I - 0x0234CD 11:B4BD: FB        .byte con_rts
 
-sub_B4BF:
-- D - I - 0x0234CF 11:B4BF: F9        .byte con_soundID_delay, $64, $0B
-- D - I - 0x0234D2 11:B4C2: 1E        .byte con_pause + $1E
-- D - I - 0x0234D3 11:B4C3: 39        .byte con_bg + $39
-- D - I - 0x0234D4 11:B4C4: 7E        .byte con_animation + $7E
-- D - I - 0x0234D5 11:B4C5: 5C        .byte con_cloud + $5C
-- D - I - 0x0234D6 11:B4C6: FB        .byte con_rts
-
-loc_B4C7:
-- D - I - 0x0234D7 11:B4C7: 46        .byte con_pause + $46
-- D - I - 0x0234D8 11:B4C8: F0        .byte con_bg + con_skip
-- D - I - 0x0234D9 11:B4C9: F0        .byte con_animation + con_skip
-- D - I - 0x0234DA 11:B4CA: 5D        .byte con_cloud + $5D
-- D - I - 0x0234DB 11:B4CB: FB        .byte con_rts
-
 
 
 _scenario_B4CC_28:
@@ -12647,31 +12665,6 @@ bra_long_case_B7A1_04_кипер_вакашимазу:
 - D - I - 0x0237B4 11:B7A4: F0        .byte con_cloud + con_skip
 - D - I - 0x0237B5 11:B7A5: FB        .byte con_rts
 
-sub_B7A6:
-- D - I - 0x0237B6 11:B7A6: F5        .byte con_mirror_off
-- D - I - 0x0237B7 11:B7A7: F9        .byte con_soundID_delay, $66, $02
-- D - I - 0x0237BA 11:B7AA: 32        .byte con_pause + $32
-- D - I - 0x0237BB 11:B7AB: 0C        .byte con_bg + $0C
-- D - I - 0x0237BC 11:B7AC: 4E        .byte con_animation + $4E
-- D - I - 0x0237BD 11:B7AD: 70        .byte con_cloud + $70
-- D - I - 0x0237BE 11:B7AE: FB        .byte con_rts
-
-loc_B7AF:
-- D - I - 0x0237BF 11:B7AF: 60        .byte con_pause + $60
-- D - I - 0x0237C0 11:B7B0: F0        .byte con_bg + con_skip
-- D - I - 0x0237C1 11:B7B1: F0        .byte con_animation + con_skip
-- D - I - 0x0237C2 11:B7B2: 71        .byte con_cloud + $71
-- D - I - 0x0237C3 11:B7B3: F9        .byte con_soundID_delay, $31, $02
-- D - I - 0x0237C6 11:B7B6: C0        .byte con_pause + $C0
-- D - I - 0x0237C7 11:B7B7: F0        .byte con_bg + con_skip
-- D - I - 0x0237C8 11:B7B8: F0        .byte con_animation + con_skip
-- D - I - 0x0237C9 11:B7B9: F0        .byte con_cloud + con_skip
-- D - I - 0x0237CA 11:B7BA: 01        .byte con_pause + $01
-- D - I - 0x0237CB 11:B7BB: 71        .byte con_bg + $71
-- D - I - 0x0237CC 11:B7BC: 00        .byte con_animation + $00
-- D - I - 0x0237CD 11:B7BD: 00        .byte con_cloud + con_clear
-- D - I - 0x0237CE 11:B7BE: FB        .byte con_rts
-
 
 
 _scenario_B7BF_37:
@@ -13274,20 +13267,6 @@ ofs_B9FB_01:
 - D - I - 0x023A1F 11:BA0F: C7 BB     .word sub_BBC7_очистка
 ofs_BA11_00:
 - D - I - 0x023A21 11:BA11: FB        .byte con_rts
-
-loc_BA12:
-- D - I - 0x023A22 11:BA12: 46        .byte con_pause + $46
-- D - I - 0x023A23 11:BA13: F0        .byte con_bg + con_skip
-- D - I - 0x023A24 11:BA14: F0        .byte con_animation + con_skip
-- D - I - 0x023A25 11:BA15: 5E        .byte con_cloud + $5E
-- D - I - 0x023A26 11:BA16: FB        .byte con_rts
-
-loc_BA17:
-- D - I - 0x023A27 11:BA17: 46        .byte con_pause + $46
-- D - I - 0x023A28 11:BA18: F0        .byte con_bg + con_skip
-- D - I - 0x023A29 11:BA19: F0        .byte con_animation + con_skip
-- D - I - 0x023A2A 11:BA1A: 5F        .byte con_cloud + $5F
-- D - I - 0x023A2B 11:BA1B: FB        .byte con_rts
 
 bra_long_case_BA1C_01:
 - D - I - 0x023A2C 11:BA1C: F9        .byte con_soundID_delay, $2B, $21
