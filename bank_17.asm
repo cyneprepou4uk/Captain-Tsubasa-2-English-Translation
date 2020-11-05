@@ -256,7 +256,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2_у_чьей_команды_мяч
 - D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3_за_какую_команду_играешь
 - - - - - 0x0201CB 17:81BB: 42 84     .word $0000       ; unused, байты не найдены, была проверка на diazа
-- D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5_coimbra_уже_бил_или_нет
+- D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5_coimbra_france_уже_били_или_нет
 - D - I - 0x0201CF 17:81BF: 57 84     .word ofs_8457_26_A6_проигрывает_ли_германия
 - D - I - 0x0201D1 17:81C1: 4E 84     .word $0000       ; unused, было аналогично 25_A5
 - D - I - 0x0201D3 17:81C3: 7E 84     .word ofs_847E_28_A8_оба_игрока_с_рожами
@@ -790,15 +790,15 @@ bra_843D_выход:
 C - - - - 0x02044D 17:843D: 60        RTS
 
 ofs_843E_23_A3_за_какую_команду_играешь:
-; 00 - за сан-паулу
-; 01 - за нанкацу
-; 02 - за японию
+; 00 - за sao paulo
+; 01 - за nankatsu
+; 02 - за japan
 C - J - - 0x02044E 17:843E: AE 2A 00  LDX ram_твоя_команда
 C - - - - 0x020451 17:8441: 60        RTS
 
-ofs_844E_25_A5_coimbra_уже_бил_или_нет:
-; 00 - еще не бил
-; 01 - уже бил
+ofs_844E_25_A5_coimbra_france_уже_били_или_нет:
+; 00 - удар уже бы
+; 01 - удара еще не было
 C - J - - 0x02045E 17:844E: AE 47 04  LDX ram_флаг_удара_франции_коимбры
 C - - - - 0x020461 17:8451: D0 03     BNE bra_8456_выход
 C - - - - 0x020463 17:8453: EE 47 04  INC ram_флаг_удара_франции_коимбры
@@ -816,7 +816,7 @@ C - - - - 0x020470 17:8460: A0 00     LDY #$00
 C - - - - 0x020472 17:8462: AD 28 00  LDA ram_голы
 C - - - - 0x020475 17:8465: 38        SEC
 C - - - - 0x020476 17:8466: ED 29 00  SBC ram_голы + 1
-C - - - - 0x020479 17:8469: 90 0F     BCC bra_847A      ; япония проигрывает
+C - - - - 0x020479 17:8469: 90 0F     BCC bra_847A      ; japan проигрывает
 C - - - - 0x02047B 17:846B: F0 0D     BEQ bra_847A      ; ничья
 C - - - - 0x02047D 17:846D: A0 80     LDY #$80
 C - - - - 0x02047F 17:846F: A9 CA     LDA #$CA
@@ -1230,7 +1230,7 @@ ofs_85DA_3D_BD_misaki:
 ; 01 - это не misaki:
 C - J - - 0x0205EA 17:85DA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0205ED 17:85DD: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - 0x0205F0 17:85E0: C9 11     CMP #$11      ; misaki из нанкацу
+C - - - - 0x0205F0 17:85E0: C9 11     CMP #$11      ; misaki из nankatsu
 C - - - - 0x0205F2 17:85E2: F0 01     BEQ bra_85E5_выход
 - - - - - 0x0205F4 17:85E4: E8        INX
 bra_85E5_выход:
@@ -2032,7 +2032,7 @@ tbl_89BF_сценарии:
 - D - I - 0x0209DB 17:89CB: 63 92     .word _scenario_9263_06       ; 
 - D - I - 0x0209DD 17:89CD: 85 92     .word _scenario_9285_07       ; 
 - D - I - 0x0209DF 17:89CF: 2C 93     .word _scenario_932C_08       ; игрок дает пас с чужой штрафной
-- D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09       ; конечный полет удара и действие кипера
+- D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09       ; конечный полет удара и действие кипера, возможный гол
 - D - I - 0x0209E3 17:89D3: 11 98     .word _scenario_9811_0A       ; кипер против игрока на земле
 - D - I - 0x0209E5 17:89D5: ED 98     .word _scenario_98ED_0B       ; 
 - D - I - 0x0209E7 17:89D7: E3 96     .word _scenario_96E3_0C       ; конечный полет удара в пустые ворота
@@ -2071,7 +2071,7 @@ tbl_89BF_сценарии:
 - D - I - 0x020A29 17:8A19: D6 B4     .word _scenario_B4D6_2D       ; 
 - D - I - 0x020A2B 17:8A1B: 4E B7     .word _scenario_B74E_2E       ; на игрока напали когда он находится на земле
 - D - I - 0x020A2D 17:8A1D: 73 B7     .word _scenario_B773_2F       ; на игрока напали когда он находится на штрафной
-- D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30       ; гол
+- D - I - 0x020A2F 17:8A1F: 30 9C     .word _scenario_9C30_30       ; сообщение после гола
 - D - I - 0x020A31 17:8A21: 8C B7     .word _scenario_B78C_31       ; 
 - D - I - 0x020A33 17:8A23: 57 9E     .word _scenario_9E57_32       ; 
 - D - I - 0x020A35 17:8A25: 04 9C     .word _scenario_9C04_33       ; сообщение о завершении тайма/матча/пк
@@ -5911,15 +5911,15 @@ bra_long_case_9C3F_00_мяч_у_команды_слева:
 
 bra_long_case_9C4B_00_сетка_не_порвана:
 - D - I - 0x021C5B 17:9C4B: F3        .byte con_branch, $23     ; за какую команду играешь
-- D - I - 0x021C5D 17:9C4D: A7 A2     .word bra_long_case_A2A7_00_за_сан_паулу
-- D - I - 0x021C5F 17:9C4F: AE A2     .word bra_long_case_A2AE_01_за_нанкацу
-- D - I - 0x021C61 17:9C51: 71 A2     .word bra_long_case_A271_02_за_японию
+- D - I - 0x021C5D 17:9C4D: A7 A2     .word bra_long_case_A2A7_00_за_sao_paulo
+- D - I - 0x021C5F 17:9C4F: AE A2     .word bra_long_case_A2AE_01_за_nankatsu
+- D - I - 0x021C61 17:9C51: 71 A2     .word bra_long_case_A271_02_за_japan
 
 bra_long_case_9C53_01_сетка_порвана:
 - D - I - 0x021C63 17:9C53: F3        .byte con_branch, $23     ; за какую команду играешь
-- - - - - 0x021C65 17:9C55: C3 A2     .word bra_long_case_A2C3_00_за_сан_паулу
-- - - - - 0x021C67 17:9C57: CA A2     .word bra_long_case_A2CA_01_за_нанкацу
-- D - I - 0x021C69 17:9C59: D1 A2     .word bra_long_case_A2D1_02_за_японию
+- - - - - 0x021C65 17:9C55: C3 A2     .word bra_long_case_A2C3_00_за_sao_paulo
+- - - - - 0x021C67 17:9C57: CA A2     .word bra_long_case_A2CA_01_за_nankatsu
+- D - I - 0x021C69 17:9C59: D1 A2     .word bra_long_case_A2D1_02_за_japan
 
 sub_9C5B:
 - D - I - 0x021C6B 17:9C5B: F3        .byte con_branch, $2E
@@ -7271,7 +7271,7 @@ bra_long_case_A267_01_сетка_порвана:
 - D - I - 0x02227F 11:A26F: 28        .byte con_cloud + $28
 - D - I - 0x022280 11:A270: FB        .byte con_rts
 
-bra_long_case_A271_02_за_японию:
+bra_long_case_A271_02_за_japan:
 - D - I - 0x022281 11:A271: A0        .byte con_pause + $A0
 - D - I - 0x022282 11:A272: 0A        .byte con_bg + $0A
 - D - I - 0x022283 11:A273: 48        .byte con_animation + $48
@@ -7328,7 +7328,7 @@ loc_A2A3:
 bra_case_A2A6_00_гол_забит_другим_ударом:
 - D - I - 0x0222B6 11:A2A6: FB        .byte con_rts
 
-bra_long_case_A2A7_00_за_сан_паулу:
+bra_long_case_A2A7_00_за_sao_paulo:
 - D - I - 0x0222B7 11:A2A7: A0        .byte con_pause + $A0
 - D - I - 0x0222B8 11:A2A8: 08        .byte con_bg + $08
 - D - I - 0x0222B9 11:A2A9: 46        .byte con_animation + $46
@@ -7336,7 +7336,7 @@ bra_long_case_A2A7_00_за_сан_паулу:
 - D - I - 0x0222BB 11:A2AB: F2        .byte con_jmp
 - D - I - 0x0222BC 11:A2AC: 75 A2     .word loc_A275
 
-bra_long_case_A2AE_01_за_нанкацу:
+bra_long_case_A2AE_01_за_nankatsu:
 - D - I - 0x0222BE 11:A2AE: A0        .byte con_pause + $A0
 - D - I - 0x0222BF 11:A2AF: 09        .byte con_bg + $09
 - D - I - 0x0222C0 11:A2B0: 47        .byte con_animation + $47
@@ -7360,7 +7360,7 @@ bra_long_case_A2BC_01_сетка_порвана:
 - D - I - 0x0222D0 11:A2C0: F2        .byte con_jmp
 - D - I - 0x0222D1 11:A2C1: 75 A2     .word loc_A275
 
-bra_long_case_A2C3_00_за_сан_паулу:
+bra_long_case_A2C3_00_за_sao_paulo:
 - - - - - 0x0222D3 11:A2C3: A0        .byte con_pause + $A0
 - - - - - 0x0222D4 11:A2C4: 08        .byte con_bg + $08
 - - - - - 0x0222D5 11:A2C5: 46        .byte con_animation + $46
@@ -7368,7 +7368,7 @@ bra_long_case_A2C3_00_за_сан_паулу:
 - - - - - 0x0222D7 11:A2C7: F2        .byte con_jmp
 - - - - - 0x0222D8 11:A2C8: 75 A2     .word loc_A275
 
-bra_long_case_A2CA_01_за_нанкацу:
+bra_long_case_A2CA_01_за_nankatsu:
 - - - - - 0x0222DA 11:A2CA: A0        .byte con_pause + $A0
 - - - - - 0x0222DB 11:A2CB: 09        .byte con_bg + $09
 - - - - - 0x0222DC 11:A2CC: 47        .byte con_animation + $47
@@ -7376,7 +7376,7 @@ bra_long_case_A2CA_01_за_нанкацу:
 - - - - - 0x0222DE 11:A2CE: F2        .byte con_jmp
 - - - - - 0x0222DF 11:A2CF: 75 A2     .word loc_A275
 
-bra_long_case_A2D1_02_за_японию:
+bra_long_case_A2D1_02_за_japan:
 - D - I - 0x0222E1 11:A2D1: A0        .byte con_pause + $A0
 - D - I - 0x0222E2 11:A2D2: 0A        .byte con_bg + $0A
 - D - I - 0x0222E3 11:A2D3: 48        .byte con_animation + $48
@@ -7483,11 +7483,11 @@ sub_A335_полет_нижнего_мяча:
 bra_long_case_A33A_01:
 - D - I - 0x02234A 11:A33A: F5        .byte con_mirror_off
 - D - I - 0x02234B 11:A33B: F3        .byte con_branch, $A3     ; за какую команду играешь
-- - - - - 0x02234D 11:A33D: 0A        .byte bra_case_A347_00_за_сан_паулу - *
-- - - - - 0x02234E 11:A33E: 02        .byte bra_case_A340_01_за_нанкацу - *
-- D - I - 0x02234F 11:A33F: 08        .byte bra_case_A347_02_за_японию - *
+- - - - - 0x02234D 11:A33D: 0A        .byte bra_case_A347_00_за_sao_paulo - *
+- - - - - 0x02234E 11:A33E: 02        .byte bra_case_A340_01_за_nankatsu - *
+- D - I - 0x02234F 11:A33F: 08        .byte bra_case_A347_02_за_japan - *
 
-bra_case_A340_01_за_нанкацу:
+bra_case_A340_01_за_nankatsu:
 ; антикрит вакашимазу
 - - - - - 0x022350 11:A340: 32        .byte con_pause + $32
 - - - - - 0x022351 11:A341: 73        .byte con_bg + $73
@@ -7496,8 +7496,8 @@ bra_case_A340_01_за_нанкацу:
 - - - - - 0x022354 11:A344: F2        .byte con_jmp
 - - - - - 0x022355 11:A345: 4B A3     .word loc_A34B
 
-bra_case_A347_00_за_сан_паулу:
-bra_case_A347_02_за_японию:
+bra_case_A347_00_за_sao_paulo:
+bra_case_A347_02_за_japan:
 ; антикрит вакашимазу
 - D - I - 0x022357 11:A347: 32        .byte con_pause + $32
 - D - I - 0x022358 11:A348: 33        .byte con_bg + $33
