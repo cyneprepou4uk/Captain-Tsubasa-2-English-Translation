@@ -3826,8 +3826,7 @@ off_9FA8_E0:
 - D - I - 0x029FBA 20:9FAA: F4        .byte con_F4, $74, $75, $7B, $67
 - D - I - 0x029FBF 20:9FAF: F1        .byte con_F1, $00, $81, $00, $D3, $01
 - D - I - 0x029FC5 20:9FB5: EF        .byte $EF
-- D - I - 0x029FC6 20:9FB6: F5        .byte $F5
-- D - I - 0x029FC7 20:9FB7: 0C        .byte $0C
+- D - I - 0x029FC6 20:9FB6: F5        .byte con_F5, $0C
 - D - I - 0x029FC8 20:9FB8: F4        .byte con_F4, $6C, $6D, $6E, $6F
 - D - I - 0x029FCD 20:9FBD: F1        .byte con_F1, $D5, $78, $F8, $D3, $00
 - D - I - 0x029FD3 20:9FC3: F0        .byte con_F0
