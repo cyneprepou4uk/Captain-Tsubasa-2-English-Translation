@@ -1910,15 +1910,9 @@ off_8B94_05:
 - D - I - 0x028BB1 20:8BA1: F1        .byte con_F1, $01, $06, $F8, $BB, $04
 off_8BA7:
 - D - I - 0x028BB7 20:8BA7: 01        .byte $01
-- D - I - 0x028BB8 20:8BA8: FB        .byte $FB
-- D - I - 0x028BB9 20:8BA9: 01        .byte $01
-- D - I - 0x028BBA 20:8BAA: 23        .byte $23
-- D - I - 0x028BBB 20:8BAB: 45        .byte $45
+- D - I - 0x028BB8 20:8BA8: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028BBC 20:8BAC: 01        .byte $01
-- D - I - 0x028BBD 20:8BAD: FB        .byte $FB
-- D - I - 0x028BBE 20:8BAE: 10        .byte $10
-- D - I - 0x028BBF 20:8BAF: 23        .byte $23
-- D - I - 0x028BC0 20:8BB0: 45        .byte $45
+- D - I - 0x028BBD 20:8BAD: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x028BC1 20:8BB1: F8        .byte con_F8
 - D - I - 0x028BC2 20:8BB2: A7 8B     .word off_8BA7
 
@@ -2085,18 +2079,11 @@ off_8D60_1B:
 - D - I - 0x028D72 20:8D62: F4        .byte con_F4, $18, $19, $1A, $1B
 - D - I - 0x028D77 20:8D67: F1        .byte con_F1, $49, $15, $40, $CB, $00
 - D - I - 0x028D7D 20:8D6D: F1        .byte con_F1, $A5, $14, $DC, $C6, $04
-- D - I - 0x028D83 20:8D73: F9        .byte $F9
-- D - I - 0x028D84 20:8D74: 0F        .byte $0F
+- D - I - 0x028D83 20:8D73: F9        .byte con_F9, $0F
 - D - I - 0x028D85 20:8D75: 01        .byte $01
-- D - I - 0x028D86 20:8D76: FB        .byte $FB
-- D - I - 0x028D87 20:8D77: 10        .byte $10
-- D - I - 0x028D88 20:8D78: 23        .byte $23
-- D - I - 0x028D89 20:8D79: 45        .byte $45
+- D - I - 0x028D86 20:8D76: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x028D8A 20:8D7A: 01        .byte $01
-- D - I - 0x028D8B 20:8D7B: FB        .byte $FB
-- D - I - 0x028D8C 20:8D7C: 01        .byte $01
-- D - I - 0x028D8D 20:8D7D: 23        .byte $23
-- D - I - 0x028D8E 20:8D7E: 45        .byte $45
+- D - I - 0x028D8B 20:8D7B: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028D8F 20:8D7F: FA        .byte $FA
 - D - I - 0x028D90 20:8D80: F6        .byte con_F6, $00
 - D - I - 0x028D92 20:8D82: F1        .byte con_F1, $4A, $40, $08, $BB, $05
@@ -2137,18 +2124,11 @@ off_8DCF_21:
 - D - I - 0x028DE1 20:8DD1: F4        .byte con_F4, $28, $29, $2A, $0B
 - D - I - 0x028DE6 20:8DD6: F1        .byte con_F1, $4C, $12, $70, $CB, $00
 - D - I - 0x028DEC 20:8DDC: F1        .byte con_F1, $4B, $10, $23, $C0, $05
-- D - I - 0x028DF2 20:8DE2: F9        .byte $F9
-- D - I - 0x028DF3 20:8DE3: 0C        .byte $0C
+- D - I - 0x028DF2 20:8DE2: F9        .byte con_F9, $0C
 - D - I - 0x028DF4 20:8DE4: 01        .byte $01
-- D - I - 0x028DF5 20:8DE5: FB        .byte $FB
-- D - I - 0x028DF6 20:8DE6: 10        .byte $10
-- D - I - 0x028DF7 20:8DE7: 23        .byte $23
-- D - I - 0x028DF8 20:8DE8: 45        .byte $45
+- D - I - 0x028DF5 20:8DE5: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x028DF9 20:8DE9: 01        .byte $01
-- D - I - 0x028DFA 20:8DEA: FB        .byte $FB
-- D - I - 0x028DFB 20:8DEB: 01        .byte $01
-- D - I - 0x028DFC 20:8DEC: 23        .byte $23
-- D - I - 0x028DFD 20:8DED: 45        .byte $45
+- D - I - 0x028DFA 20:8DEA: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028DFE 20:8DEE: FA        .byte $FA
 - D - I - 0x028DFF 20:8DEF: F6        .byte con_F6, $00
 - D - I - 0x028E01 20:8DF1: F1        .byte con_F1, $00, $37, $20, $BB, $05
@@ -2182,15 +2162,9 @@ off_8E32_24:
 - D - I - 0x028E58 20:8E48: F1        .byte con_F1, $4A, $80, $E8, $BB, $08
 off_8E4E:
 - D - I - 0x028E5E 20:8E4E: 01        .byte $01
-- D - I - 0x028E5F 20:8E4F: FB        .byte $FB
-- D - I - 0x028E60 20:8E50: 01        .byte $01
-- D - I - 0x028E61 20:8E51: 23        .byte $23
-- D - I - 0x028E62 20:8E52: 45        .byte $45
+- D - I - 0x028E5F 20:8E4F: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028E63 20:8E53: 01        .byte $01
-- D - I - 0x028E64 20:8E54: FB        .byte $FB
-- D - I - 0x028E65 20:8E55: 02        .byte $02
-- D - I - 0x028E66 20:8E56: 13        .byte $13
-- D - I - 0x028E67 20:8E57: 45        .byte $45
+- D - I - 0x028E64 20:8E54: FB        .byte con_FB, $02, $13, $45
 - D - I - 0x028E68 20:8E58: F8        .byte con_F8
 - D - I - 0x028E69 20:8E59: 4E 8E     .word off_8E4E
 
@@ -2216,18 +2190,11 @@ off_8E8E_27:
 - D - I - 0x028EA0 20:8E90: F4        .byte con_F4, $18, $19, $1A, $1B
 - D - I - 0x028EA5 20:8E95: F1        .byte con_F1, $17, $15, $39, $7E, $00
 - D - I - 0x028EAB 20:8E9B: F1        .byte con_F1, $52, $17, $02, $BD, $05
-- D - I - 0x028EB1 20:8EA1: F9        .byte $F9
-- D - I - 0x028EB2 20:8EA2: 0F        .byte $0F
+- D - I - 0x028EB1 20:8EA1: F9        .byte con_F9, $0F
 - D - I - 0x028EB3 20:8EA3: 01        .byte $01
-- D - I - 0x028EB4 20:8EA4: FB        .byte $FB
-- D - I - 0x028EB5 20:8EA5: 10        .byte $10
-- D - I - 0x028EB6 20:8EA6: 23        .byte $23
-- D - I - 0x028EB7 20:8EA7: 45        .byte $45
+- D - I - 0x028EB4 20:8EA4: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x028EB8 20:8EA8: 01        .byte $01
-- D - I - 0x028EB9 20:8EA9: FB        .byte $FB
-- D - I - 0x028EBA 20:8EAA: 01        .byte $01
-- D - I - 0x028EBB 20:8EAB: 23        .byte $23
-- D - I - 0x028EBC 20:8EAC: 45        .byte $45
+- D - I - 0x028EB9 20:8EA9: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028EBD 20:8EAD: FA        .byte $FA
 - D - I - 0x028EBE 20:8EAE: F6        .byte con_F6, $00
 - D - I - 0x028EC0 20:8EB0: F1        .byte con_F1, $00, $CE, $F4, $C3, $04
@@ -2259,18 +2226,11 @@ off_8EF3_2A:
 - D - I - 0x028F05 20:8EF5: F4        .byte con_F4, $18, $19, $1A, $1B
 - D - I - 0x028F0A 20:8EFA: F1        .byte con_F1, $17, $15, $56, $7C, $00
 - D - I - 0x028F10 20:8F00: F1        .byte con_F1, $08, $80, $E6, $BC, $04
-- D - I - 0x028F16 20:8F06: F9        .byte $F9
-- D - I - 0x028F17 20:8F07: 0F        .byte $0F
+- D - I - 0x028F16 20:8F06: F9        .byte con_F9, $0F
 - D - I - 0x028F18 20:8F08: 01        .byte $01
-- D - I - 0x028F19 20:8F09: FB        .byte $FB
-- D - I - 0x028F1A 20:8F0A: 10        .byte $10
-- D - I - 0x028F1B 20:8F0B: 23        .byte $23
-- D - I - 0x028F1C 20:8F0C: 45        .byte $45
+- D - I - 0x028F19 20:8F09: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x028F1D 20:8F0D: 01        .byte $01
-- D - I - 0x028F1E 20:8F0E: FB        .byte $FB
-- D - I - 0x028F1F 20:8F0F: 01        .byte $01
-- D - I - 0x028F20 20:8F10: 23        .byte $23
-- D - I - 0x028F21 20:8F11: 45        .byte $45
+- D - I - 0x028F1E 20:8F0E: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028F22 20:8F12: FA        .byte $FA
 - D - I - 0x028F23 20:8F13: F6        .byte con_F6, $00
 - D - I - 0x028F25 20:8F15: F1        .byte con_F1, $00, $7F, $F8, $C3, $04
@@ -2297,18 +2257,11 @@ off_8F53_2C:
 - D - I - 0x028F65 20:8F55: F4        .byte con_F4, $18, $19, $1A, $1B
 - D - I - 0x028F6A 20:8F5A: F1        .byte con_F1, $17, $15, $56, $7C, $00
 - D - I - 0x028F70 20:8F60: F1        .byte con_F1, $08, $80, $E6, $BC, $04
-- D - I - 0x028F76 20:8F66: F9        .byte $F9
-- D - I - 0x028F77 20:8F67: 0F        .byte $0F
+- D - I - 0x028F76 20:8F66: F9        .byte con_F9, $0F
 - D - I - 0x028F78 20:8F68: 01        .byte $01
-- D - I - 0x028F79 20:8F69: FB        .byte $FB
-- D - I - 0x028F7A 20:8F6A: 10        .byte $10
-- D - I - 0x028F7B 20:8F6B: 23        .byte $23
-- D - I - 0x028F7C 20:8F6C: 45        .byte $45
+- D - I - 0x028F79 20:8F69: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x028F7D 20:8F6D: 01        .byte $01
-- D - I - 0x028F7E 20:8F6E: FB        .byte $FB
-- D - I - 0x028F7F 20:8F6F: 01        .byte $01
-- D - I - 0x028F80 20:8F70: 23        .byte $23
-- D - I - 0x028F81 20:8F71: 45        .byte $45
+- D - I - 0x028F7E 20:8F6E: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x028F82 20:8F72: FA        .byte $FA
 - D - I - 0x028F83 20:8F73: F6        .byte con_F6, $00
 - D - I - 0x028F85 20:8F75: F1        .byte con_F1, $00, $7F, $F8, $C3, $04
@@ -2402,18 +2355,11 @@ off_906F_35:
 - D - I - 0x029081 20:9071: F4        .byte con_F4, $24, $25, $26, $4F
 - D - I - 0x029086 20:9076: F1        .byte con_F1, $0C, $0A, $48, $FC, $00
 - D - I - 0x02908C 20:907C: F1        .byte con_F1, $DA, $09, $10, $B3, $05
-- D - I - 0x029092 20:9082: F9        .byte $F9
-- D - I - 0x029093 20:9083: 0F        .byte $0F
+- D - I - 0x029092 20:9082: F9        .byte con_F9, $0F
 - D - I - 0x029094 20:9084: 01        .byte $01
-- D - I - 0x029095 20:9085: FB        .byte $FB
-- D - I - 0x029096 20:9086: 10        .byte $10
-- D - I - 0x029097 20:9087: 23        .byte $23
-- D - I - 0x029098 20:9088: 45        .byte $45
+- D - I - 0x029095 20:9085: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x029099 20:9089: 01        .byte $01
-- D - I - 0x02909A 20:908A: FB        .byte $FB
-- D - I - 0x02909B 20:908B: 01        .byte $01
-- D - I - 0x02909C 20:908C: 23        .byte $23
-- D - I - 0x02909D 20:908D: 45        .byte $45
+- D - I - 0x02909A 20:908A: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x02909E 20:908E: FA        .byte $FA
 - D - I - 0x02909F 20:908F: F6        .byte con_F6, $00
 - D - I - 0x0290A1 20:9091: F1        .byte con_F1, $00, $3B, $FA, $BB, $04
@@ -2820,18 +2766,11 @@ off_94BC_6C:
 - D - I - 0x0294CE 20:94BE: F4        .byte con_F4, $24, $25, $26, $4F
 - D - I - 0x0294D3 20:94C3: F1        .byte con_F1, $1A, $07, $4C, $76, $00
 - D - I - 0x0294D9 20:94C9: F1        .byte con_F1, $A0, $06, $10, $B3, $05
-- D - I - 0x0294DF 20:94CF: F9        .byte $F9
-- D - I - 0x0294E0 20:94D0: 0F        .byte $0F
+- D - I - 0x0294DF 20:94CF: F9        .byte con_F9, $0F
 - D - I - 0x0294E1 20:94D1: 01        .byte $01
-- D - I - 0x0294E2 20:94D2: FB        .byte $FB
-- D - I - 0x0294E3 20:94D3: 10        .byte $10
-- D - I - 0x0294E4 20:94D4: 23        .byte $23
-- D - I - 0x0294E5 20:94D5: 45        .byte $45
+- D - I - 0x0294E2 20:94D2: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x0294E6 20:94D6: 01        .byte $01
-- D - I - 0x0294E7 20:94D7: FB        .byte $FB
-- D - I - 0x0294E8 20:94D8: 01        .byte $01
-- D - I - 0x0294E9 20:94D9: 23        .byte $23
-- D - I - 0x0294EA 20:94DA: 45        .byte $45
+- D - I - 0x0294E7 20:94D7: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x0294EB 20:94DB: FA        .byte $FA
 - D - I - 0x0294EC 20:94DC: F6        .byte con_F6, $00
 - D - I - 0x0294EE 20:94DE: F1        .byte con_F1, $00, $39, $F9, $BB, $04
@@ -2846,18 +2785,11 @@ off_94F4_6D:
 - D - I - 0x029506 20:94F6: F4        .byte con_F4, $24, $25, $26, $4F
 - D - I - 0x02950B 20:94FB: F1        .byte con_F1, $A2, $0A, $5F, $7B, $00
 - D - I - 0x029511 20:9501: F1        .byte con_F1, $A0, $09, $10, $B3, $05
-- D - I - 0x029517 20:9507: F9        .byte $F9
-- D - I - 0x029518 20:9508: 0F        .byte $0F
+- D - I - 0x029517 20:9507: F9        .byte con_F9, $0F
 - D - I - 0x029519 20:9509: 01        .byte $01
-- D - I - 0x02951A 20:950A: FB        .byte $FB
-- D - I - 0x02951B 20:950B: 10        .byte $10
-- D - I - 0x02951C 20:950C: 23        .byte $23
-- D - I - 0x02951D 20:950D: 45        .byte $45
+- D - I - 0x02951A 20:950A: FB        .byte con_FB, $10, $23, $45
 - D - I - 0x02951E 20:950E: 01        .byte $01
-- D - I - 0x02951F 20:950F: FB        .byte $FB
-- D - I - 0x029520 20:9510: 01        .byte $01
-- D - I - 0x029521 20:9511: 23        .byte $23
-- D - I - 0x029522 20:9512: 45        .byte $45
+- D - I - 0x02951F 20:950F: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x029523 20:9513: FA        .byte $FA
 - D - I - 0x029524 20:9514: F6        .byte con_F6, $00
 - D - I - 0x029526 20:9516: F1        .byte con_F1, $00, $3B, $F9, $BB, $04
@@ -3693,15 +3625,9 @@ off_9D34_CA:
 - D - I - 0x029D76 20:9D66: F1        .byte con_F1, $41, $22, $FC, $BB, $08
 off_9D6C:
 - D - I - 0x029D7C 20:9D6C: 01        .byte $01
-- D - I - 0x029D7D 20:9D6D: FB        .byte $FB
-- D - I - 0x029D7E 20:9D6E: 01        .byte $01
-- D - I - 0x029D7F 20:9D6F: 23        .byte $23
-- D - I - 0x029D80 20:9D70: 45        .byte $45
+- D - I - 0x029D7D 20:9D6D: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x029D81 20:9D71: 01        .byte $01
-- D - I - 0x029D82 20:9D72: FB        .byte $FB
-- D - I - 0x029D83 20:9D73: 01        .byte $01
-- D - I - 0x029D84 20:9D74: 32        .byte $32
-- D - I - 0x029D85 20:9D75: 45        .byte $45
+- D - I - 0x029D82 20:9D72: FB        .byte con_FB, $01, $32, $45
 - D - I - 0x029D86 20:9D76: F8        .byte con_F8
 - D - I - 0x029D87 20:9D77: 6C 9D     .word off_9D6C
 
@@ -3922,18 +3848,11 @@ off_9FC9_E2:
 - D - I - 0x029FF9 20:9FE9: F1        .byte con_F1, $DD, $4D, $20, $C3, $05
 - D - I - 0x029FFF 20:9FEF: F1        .byte con_F1, $DD, $4B, $20, $C3, $01
 - D - I - 0x02A005 20:9FF5: F1        .byte con_F1, $D7, $49, $08, $EB, $0D
-- D - I - 0x02A00B 20:9FFB: F9        .byte $F9
-- D - I - 0x02A00C 20:9FFC: 0F        .byte $0F
+- D - I - 0x02A00B 20:9FFB: F9        .byte con_F9, $0F
 - D - I - 0x02A00D 20:9FFD: 01        .byte $01
-- D - I - 0x02A00E 20:9FFE: FB        .byte $FB
-- D - I - 0x02A00F 20:9FFF: 01        .byte $01
-- D - I - 0x02A010 20:A000: 23        .byte $23
-- D - I - 0x02A011 20:A001: 45        .byte $45
+- D - I - 0x02A00E 20:9FFE: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x02A012 20:A002: 01        .byte $01
-- D - I - 0x02A013 20:A003: FB        .byte $FB
-- D - I - 0x02A014 20:A004: 03        .byte $03
-- D - I - 0x02A015 20:A005: 12        .byte $12
-- D - I - 0x02A016 20:A006: 45        .byte $45
+- D - I - 0x02A013 20:A003: FB        .byte con_FB, $03, $12, $45
 - D - I - 0x02A017 20:A007: FA        .byte $FA
 - D - I - 0x02A018 20:A008: F6        .byte con_F6, $2A
 - D - I - 0x02A01A 20:A00A: F6        .byte con_F6, $3F
@@ -3950,25 +3869,13 @@ off_9FC9_E2:
 - D - I - 0x02A03F 20:A02F: F1        .byte con_F1, $C8, $EA, $50, $E3, $15
 off_A035:
 - D - I - 0x02A045 20:A035: 01        .byte $01
-- D - I - 0x02A046 20:A036: FB        .byte $FB
-- D - I - 0x02A047 20:A037: 01        .byte $01
-- D - I - 0x02A048 20:A038: 34        .byte $34
-- D - I - 0x02A049 20:A039: 52        .byte $52
+- D - I - 0x02A046 20:A036: FB        .byte con_FB, $01, $34, $52
 - D - I - 0x02A04A 20:A03A: 01        .byte $01
-- D - I - 0x02A04B 20:A03B: FB        .byte $FB
-- D - I - 0x02A04C 20:A03C: 01        .byte $01
-- D - I - 0x02A04D 20:A03D: 45        .byte $45
-- D - I - 0x02A04E 20:A03E: 23        .byte $23
+- D - I - 0x02A04B 20:A03B: FB        .byte con_FB, $01, $45, $23
 - D - I - 0x02A04F 20:A03F: 01        .byte $01
-- D - I - 0x02A050 20:A040: FB        .byte $FB
-- D - I - 0x02A051 20:A041: 01        .byte $01
-- D - I - 0x02A052 20:A042: 52        .byte $52
-- D - I - 0x02A053 20:A043: 34        .byte $34
+- D - I - 0x02A050 20:A040: FB        .byte con_FB, $01, $52, $34
 - D - I - 0x02A054 20:A044: 01        .byte $01
-- D - I - 0x02A055 20:A045: FB        .byte $FB
-- D - I - 0x02A056 20:A046: 01        .byte $01
-- D - I - 0x02A057 20:A047: 23        .byte $23
-- D - I - 0x02A058 20:A048: 45        .byte $45
+- D - I - 0x02A055 20:A045: FB        .byte con_FB, $01, $23, $45
 - D - I - 0x02A059 20:A049: F8        .byte con_F8
 - D - I - 0x02A05A 20:A04A: 35 A0     .word off_A035
 
