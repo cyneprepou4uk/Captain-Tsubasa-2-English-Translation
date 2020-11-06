@@ -2197,7 +2197,7 @@ C - - - - 0x034F18 23:8F08: 26 70     ROL ram_0070
 C - - - - 0x034F1A 23:8F0A: 0A        ASL
 C - - - - 0x034F1B 23:8F0B: 26 70     ROL ram_0070
 C - - - - 0x034F1D 23:8F0D: 85 6F     STA ram_006F
-C - - - - 0x034F1F 23:8F0F: 20 1E C5  JSR sub_0x03CD4C
+C - - - - 0x034F1F 23:8F0F: 20 1E C5  JSR sub_0x03CD4C_получить_младший_разряд_числа
 C - - - - 0x034F22 23:8F12: A5 6F     LDA ram_006F
 C - - - - 0x034F24 23:8F14: A4 70     LDY ram_0070
 C - - - - 0x034F26 23:8F16: F0 02     BEQ bra_8F1A
@@ -2222,7 +2222,7 @@ C - - - - 0x034F47 23:8F37: A5 6B     LDA ram_006B
 C - - - - 0x034F49 23:8F39: 85 6F     STA ram_006F
 C - - - - 0x034F4B 23:8F3B: A5 6C     LDA ram_006C
 C - - - - 0x034F4D 23:8F3D: 85 70     STA ram_0070
-C - - - - 0x034F4F 23:8F3F: 20 1E C5  JSR sub_0x03CD4C
+C - - - - 0x034F4F 23:8F3F: 20 1E C5  JSR sub_0x03CD4C_получить_младший_разряд_числа
 C - - - - 0x034F52 23:8F42: A5 6F     LDA ram_006F
 C - - - - 0x034F54 23:8F44: A4 70     LDY ram_0070
 C - - - - 0x034F56 23:8F46: F0 02     BEQ bra_8F4A
