@@ -2359,7 +2359,7 @@ off_B85F_2D_pk_dive:
     .word @txt
 
 @txt:
-    .text "Dive"
+    .text $87, $88, $89, $8A, $8B       ; Dive
     .byte con_закончить
 
 
