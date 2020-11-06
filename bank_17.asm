@@ -2031,7 +2031,7 @@ tbl_89BF_сценарии:
 - D - I - 0x0209D9 17:89C9: 59 92     .word _scenario_9259_05_10    ; 
 - D - I - 0x0209DB 17:89CB: 63 92     .word _scenario_9263_06       ; 
 - D - I - 0x0209DD 17:89CD: 85 92     .word _scenario_9285_07       ; 
-- D - I - 0x0209DF 17:89CF: 2C 93     .word _scenario_932C_08       ; игрок дает пас с чужой штрафной
+- D - I - 0x0209DF 17:89CF: 2C 93     .word _scenario_932C_08       ; действие игрока на чужой штрафной
 - D - I - 0x0209E1 17:89D1: 69 93     .word _scenario_9369_09       ; конечный полет удара и действие кипера, возможный гол
 - D - I - 0x0209E3 17:89D3: 11 98     .word _scenario_9811_0A       ; кипер против игрока на земле
 - D - I - 0x0209E5 17:89D5: ED 98     .word _scenario_98ED_0B       ; 
@@ -3691,7 +3691,7 @@ bra_case_9341_02_trap:
 bra_case_9346_00_shoot:
 - D - I - 0x021356 17:9346: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021358 17:9348: F2        .byte con_jmp
-- D - I - 0x021359 17:9349: 9A 9D     .word loc_9D9A
+- D - I - 0x021359 17:9349: 9A 9D     .word loc_9D9A_выбор_анимации_удара_по_низкому_мячу
 
 bra_case_934B_03_through:
 - D - I - 0x02135B 17:934B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
@@ -3717,7 +3717,7 @@ bra_long_case_935A_01:
 bra_case_935F_00_shoot:
 - D - I - 0x02136F 17:935F: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021371 17:9361: F2        .byte con_jmp
-- D - I - 0x021372 17:9362: 52 9D     .word loc_9D52
+- D - I - 0x021372 17:9362: 52 9D     .word loc_9D52_выбор_анимации_удара_по_высокому_мячу
 
 bra_case_9364_03_1_2_pass:
 - D - I - 0x021374 17:9364: FD        .byte con_mirror_condition, $03       ; куда летит мяч
@@ -6102,7 +6102,7 @@ bra_long_case_9D46_00_shoot:
 - D - I - 0x021D5E 17:9D4E: 31 AF     .word bra_long_case_AF31_03
 - D - I - 0x021D60 17:9D50: 64 AE     .word bra_long_case_AE64_04
 
-loc_9D52:
+loc_9D52_выбор_анимации_удара_по_высокому_мячу:
 bra_case_9D52_02_летит_высокий_мяч:
 - D - I - 0x021D62 17:9D52: F3        .byte con_branch, $1D     ; спешал удар
 - - - - - 0x021D64 17:9D54: C5 AF     .word bra_long_case_AFC5_00___
@@ -6141,7 +6141,7 @@ bra_case_9D52_02_летит_высокий_мяч:
 - D - I - 0x021DA6 17:9D96: FB B0     .word bra_long_case_B0FB_21_slider_cannon
 - - - - - 0x021DA8 17:9D98: C5 AF     .word bra_long_case_AFC5_00___
 
-loc_9D9A:
+loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
 bra_case_9D9A_01_летит_низкий_мяч:
 - D - I - 0x021DAA 17:9D9A: F3        .byte con_branch, $1D     ; спешал удар
 - - - - - 0x021DAC 17:9D9C: 97 B1     .word bra_long_case_B197_00___
