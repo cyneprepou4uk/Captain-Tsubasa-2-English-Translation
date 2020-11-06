@@ -4133,7 +4133,7 @@ off_AE37_5E_серые_трибуны_2_катсцена_01:
 off_AE4B_5F_тренер_на_экране_meeting:
 ; комменты в 0x000B4B
 - D - I - 0x00EE5B 08:AE4B: 3C        .byte $3C     ; номер банка chr 1
-- D - I - 0x00EE5C 08:AE4C: 02        .byte $8E     ; номер банка chr 2
+- D - I - 0x00EE5C 08:AE4C: 02        .byte $C2     ; номер банка chr 2
 - D - I - 0x00EE5D 08:AE4D: 00        .byte $00     ; палитра
 - D - I - 0x00EE5E 08:AE4E: 03        .byte $03     ; множитель счетчика количества байтов для чтения
 - D - I - 0x00EE5F 08:AE4F: 10        .byte $10     ; счетчик количества байтов для чтения
@@ -4198,7 +4198,7 @@ off_AE4B_5F_тренер_на_экране_meeting:
 
 off_AE83_60_meeting:
 - D - I - 0x00EE93 08:AE83: 3C        .byte $3C
-- D - I - 0x00EE94 08:AE84: 02        .byte $8E
+- D - I - 0x00EE94 08:AE84: 02        .byte $C2
 - D - I - 0x00EE95 08:AE85: 00        .byte $00
 - D - I - 0x00EE96 08:AE86: 03        .byte $03
 - D - I - 0x00EE97 08:AE87: 10        .byte $10
@@ -4260,7 +4260,7 @@ off_AE83_60_meeting:
 
 off_AEBB_61_halftime:
 - D - I - 0x00EECB 08:AEBB: 3C        .byte $3C
-- D - I - 0x00EECC 08:AEBC: 02        .byte $8E
+- D - I - 0x00EECC 08:AEBC: 02        .byte $C2
 - D - I - 0x00EECD 08:AEBD: 00        .byte $00
 - D - I - 0x00EECE 08:AEBE: 03        .byte $03
 - D - I - 0x00EECF 08:AEBF: 08        .byte $08

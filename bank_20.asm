@@ -1525,7 +1525,7 @@ tbl_88F0:
 - D - - - 0x028922 20:8912: 0E        .byte $0E    ; Wakashimazu
 - D - - - 0x028923 20:8913: 03        .byte $03    ; Satrustegui
 - D - - - 0x028924 20:8914: 01        .byte $01    ; Ribeiro
-- D - - - 0x028925 20:8915: 0B        .byte $0B    ; Danil_Silva
+- D - - - 0x028925 20:8915: 0B        .byte $0B    ; Da Silva
 - D - - - 0x028926 20:8916: 0F        .byte $0F    ; Meon
 - D - - - 0x028927 20:8917: 06        .byte $06    ; Toninho
 - D - - - 0x028928 20:8918: 02        .byte $02    ; Nei
@@ -1548,7 +1548,7 @@ tbl_88F0:
 - D - - - 0x028939 20:8929: 0E        .byte $0E    ; Wakashimazu
 - D - - - 0x02893A 20:892A: 09        .byte $09    ; Rampion
 - D - - - 0x02893B 20:892B: 02        .byte $02    ; Victorino
-- D - - - 0x02893C 20:892C: 0B        .byte $0B    ; Danil_Silva
+- D - - - 0x02893C 20:892C: 0B        .byte $0B    ; Da Silva
 - D - - - 0x02893D 20:892D: 01        .byte $01    ; Kappelman
 - D - - - 0x02893E 20:892E: 04        .byte $04    ; Kaltz
 - D - - - 0x02893F 20:892F: 02        .byte $02    ; Metza

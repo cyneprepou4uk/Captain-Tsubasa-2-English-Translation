@@ -378,8 +378,9 @@ C - - - - 0x03C89F FF:C88F: 2C 02 20  BIT $2002
 C - - - - 0x03C8A2 FF:C892: A9 00     LDA #$00
 C - - - - 0x03C8A4 FF:C894: 8D 05 20  STA $2005
 C - - - - 0x03C8A7 FF:C897: 8D 05 20  STA $2005
-                                      LDX ram_матч
-                                      LDA tbl_0x040000_банки_CHR_с_сокращенными_именами,X
+                                      LDA ram_матч
+                                      ASL
+                                      ADC #$80
                                       TAX
 C - - - - 0x03C8B2 FF:C8A2: 8D 01 80  STX $5120
                                       INX
@@ -5803,8 +5804,9 @@ C - - - - 0x03ECCA FF:ECBA: 10 0E     BPL bra_ECCA
 C - - - - 0x03ECCC FF:ECBC: 29 7F     AND #$7F
 C - - - - 0x03ECCE FF:ECBE: 8D 26 05  STA $0526
                                       BNE bra_ECC1
-                                      LDX ram_матч
-                                      LDA tbl_0x040000_банки_CHR_с_сокращенными_именами,X
+                                      LDA ram_матч
+                                      ASL
+                                      ADC #$80
 bra_ECC1:
 C - - - - 0x03ECD1 FF:ECC1: 8D 90 04  STA $0490
 C - - - - 0x03ECD4 FF:ECC4: AD 27 05  LDA $0527
@@ -7052,7 +7054,6 @@ tbl_FB4C:
 - D - - - 0x03FBD8 FF:FBC8: FF 00     .word $00FF
 - D - - - 0x03FBDA FF:FBCA: 00 01     .word $0100
 
-
 tbl_FBCC:
 - D - I - 0x03FBDC FF:FBCC: 00        .byte $00
 - D - I - 0x03FBDD FF:FBCD: 00        .byte $00
@@ -7378,50 +7379,6 @@ tbl_FBCC:
 - D - I - 0x03FD1D FF:FD0D: 0F        .byte $0F    ; <そ>
 - D - I - 0x03FD1E FF:FD0E: 36        .byte $36    ; <3>
 - D - I - 0x03FD1F FF:FD0F: 30        .byte $30    ; <ゃ>
-
-
-
-.export tbl_0x040000_банки_CHR_с_сокращенными_именами
-tbl_0x040000_банки_CHR_с_сокращенными_именами:
-; выбирается в зависимости от номера комады
-    .byte $80        ; 00
-    .byte $80        ; 01
-    .byte $80        ; 02
-    .byte $80        ; 03
-    .byte $80        ; 04
-    .byte $80        ; 05
-    
-    .byte $82        ; 06
-    .byte $82        ; 07
-    .byte $82        ; 08
-    .byte $82        ; 09
-    .byte $82        ; 0A
-    .byte $82        ; 0B
-    
-    .byte $80        ; 0C
-    .byte $80        ; 0D
-    .byte $84        ; 0E
-    .byte $82        ; 0F
-    
-    .byte $86        ; 10
-    .byte $88        ; 11
-    .byte $86        ; 12
-    .byte $86        ; 13
-    .byte $86        ; 14
-    .byte $86        ; 15
-    
-    .byte $86        ; 16
-    .byte $86        ; 17
-    .byte $86        ; 18
-    .byte $86        ; 19
-    .byte $86        ; 1A
-    
-    .byte $86        ; 1B
-    .byte $8A        ; 1C
-    .byte $86        ; 1D
-    .byte $8C        ; 1E
-    .byte $86        ; 1F
-    .byte $8A        ; 20
 
 
 

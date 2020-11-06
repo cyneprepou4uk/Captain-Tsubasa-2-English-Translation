@@ -163,7 +163,7 @@ off_B236_25_тренер_02:
     .byte con_base_offset
     .word $2266
     .byte con_offset, $81
-    .text "@The Uruguayan Danil", con_line
+    .text "@The Uruguayan Da", con_line
     .text "Silva is playing with", con_line
     .text "the typical speed of", con_line
     .text "a South American.@"
@@ -525,10 +525,10 @@ off_B61E_30_тренер_0D:
     .byte con_base_offset
     .word $2266
     .byte con_offset, $81
-    .text "@The two forwards are", con_line
-    .text "Victorino and Danil", con_line
-    .text "Silva - the one", con_line
-    .text "from Gremio.@"
+    .text "@The two forwards", con_line
+    .text "are Victorino and", con_line
+    .text "Da Silva - the", con_line
+    .text "one from Gremio.@"
     .byte con_ball
     .byte con_clear_3
     
