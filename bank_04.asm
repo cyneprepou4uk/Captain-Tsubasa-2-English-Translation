@@ -803,7 +803,7 @@ off_B578_0D_gk_dive:
     .word $2252
 ; X * Y зачищаемой области
     .byte $0E
-    .byte $05
+    .byte $07
 ; смещение окна X, Y
     .byte $00
     .byte $00
