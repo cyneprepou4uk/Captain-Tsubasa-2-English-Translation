@@ -70,12 +70,13 @@ tbl_0x40004_вид_меню:
     .word off_BB5C_3E_pk_shootout_select_taker
     .word off_BB69_3F_pk_players_list
     .word off_BB9E_40_pk_order
-    .word off_BBBF_41_pk_and_score
-    .word off_BC00_42_booth_for_charlie_time_score_period_number
-    .word off_BC01_43_show_1_defender
-    .word off_BC02_44_show_2_defenders
-    .word off_BC03_45_show_3_defenders
-    .word off_BC04_46_show_4_defenders
+    .word off_BBBF_41_pk_score
+    .word off_BC02_42_booth_for_charlie_time_score_period_number
+    .word off_BC03_43_booth_for_charlie_pk_period_number
+    .word off_BC04_44_show_1_defender
+    .word off_BC05_45_show_2_defenders
+    .word off_BC06_46_show_3_defenders
+    .word off_BC07_47_show_4_defenders
 
 
 
@@ -3824,42 +3825,35 @@ off_BB9E_40_pk_order:
 
 
 
-off_BBBF_41_pk_and_score:
+off_BBBF_41_pk_score:
 ; номер набора контура окна
-    .byte $00 * $09
+    .byte $02 * $09
 ; адрес ppu
-    .word $2240
+    .word $2281
 ; X * Y зачищаемой области
-    .byte $07
     .byte $05
+    .byte $02
 ; смещение окна X, Y
     .byte $00
     .byte $00
 ; размер окна X, Y
-    .byte $07
     .byte $05
+    .byte $02
 ; количество поинтеров
-    .byte $05
+    .byte $04
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
-    .byte $01
-    .word @period
-    .byte $02
-    .byte $01
+    .byte $00
     .word @team_left
-    .byte $02
-    .byte $05
+    .byte $00
+    .byte $04
     .word @score_left
-    .byte $04
-    .byte $01
+    .byte $02
+    .byte $00
     .word @team_right
+    .byte $02
     .byte $04
-    .byte $05
     .word @score_right
-
-@period:
-    .byte con_period_number
-    .byte con_закончить
 
 @team_left:
     .byte con_team_name, $00
@@ -3882,7 +3876,7 @@ off_BBBF_41_pk_and_score:
 
 
 
-off_BC00_42_booth_for_charlie_time_score_period_number:
+off_BC02_42_booth_for_charlie_time_score_period_number:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -3940,7 +3934,37 @@ off_BC00_42_booth_for_charlie_time_score_period_number:
 
 
 
-off_BC01_43_show_1_defender:
+off_BC03_43_booth_for_charlie_pk_period_number:
+; номер набора контура окна
+    .byte $00 * $09
+; адрес ppu
+    .word $2220
+; X * Y зачищаемой области
+    .byte $07
+    .byte $0C
+; смещение окна X, Y
+    .byte $00
+    .byte $01
+; размер окна X, Y
+    .byte $07
+    .byte $0A
+; количество поинтеров
+    .byte $01
+; смещение текста Y, X + поинтеры на текст
+    .byte $01
+    .byte $01
+    .word @period
+
+@period:
+    .byte con_period_number
+    .byte con_закончить
+
+
+
+
+
+
+off_BC04_44_show_1_defender:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -3977,7 +4001,7 @@ off_BC01_43_show_1_defender:
 
 
 
-off_BC02_44_show_2_defenders:
+off_BC05_45_show_2_defenders:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -4021,7 +4045,7 @@ off_BC02_44_show_2_defenders:
 
 
 
-off_BC03_45_show_3_defenders:
+off_BC06_46_show_3_defenders:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -4072,7 +4096,7 @@ off_BC03_45_show_3_defenders:
 
 
 
-off_BC04_46_show_4_defenders:
+off_BC07_47_show_4_defenders:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu

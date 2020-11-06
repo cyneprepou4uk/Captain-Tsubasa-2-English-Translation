@@ -2508,7 +2508,7 @@ C - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F
                                       DEX
                                       TXA
                                       CLC
-                                      ADC #$43      ; show_?_defenders
+                                      ADC #$44      ; show_?_defenders
                                       JSR sub_EF7F_отрисовка_меню_во_время_матча
 @продолжать_отображение_соперников:
                                       LDA #$01
