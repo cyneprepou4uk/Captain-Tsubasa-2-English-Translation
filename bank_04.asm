@@ -133,7 +133,7 @@ con_plr_with_ball_name                  = $F4           ; имя игрока с
 con_plr_stamina                         = $F5           ; 00-0A основные, 16-1F запасные
 con_pk_players_list                     = $F6
 con_control_plr_number                  = $F7           ; номер игрока с мячом
-; unused                                = $F8
+con_ball_height_arrow                   = $F8           ; стрелочка с указанием высоты мяча
 ; unused                                = $F9
 ; unused                                = $FA
 ; unused                                = $FB
@@ -239,16 +239,22 @@ off_B47D_02_player_action_window:
     .byte $0B
     .byte $04
 ; количество поинтеров
-    .byte $01
+    .byte $02
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
+    .byte $04
+    .byte $04
+    .word @arrow
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_закончить
 
+@arrow:
+    .byte con_ball_height_arrow
+    .byte con_закончить
 
 
 
@@ -990,7 +996,7 @@ off_B5C8_12_1_player_action_window:
     .byte $0B
     .byte $03
 ; количество поинтеров
-    .byte $02
+    .byte $03
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
@@ -998,6 +1004,9 @@ off_B5C8_12_1_player_action_window:
     .byte $01
     .byte $01
     .word @name_1
+    .byte $03
+    .byte $04
+    .word @arrow
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
@@ -1005,6 +1014,10 @@ off_B5C8_12_1_player_action_window:
 
 @name_1:
     .byte con_defender_actions, $00
+    .byte con_закончить
+
+@arrow:
+    .byte con_ball_height_arrow
     .byte con_закончить
 
 
@@ -1027,7 +1040,7 @@ off_B5D9_13_2_players_action_window:
     .byte $0B
     .byte $05
 ; количество поинтеров
-    .byte $03
+    .byte $04
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
@@ -1038,6 +1051,9 @@ off_B5D9_13_2_players_action_window:
     .byte $03
     .byte $01
     .word @name_2
+    .byte $05
+    .byte $04
+    .word @arrow
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
@@ -1049,6 +1065,10 @@ off_B5D9_13_2_players_action_window:
 
 @name_2:
     .byte con_defender_actions, $01
+    .byte con_закончить
+
+@arrow:
+    .byte con_ball_height_arrow
     .byte con_закончить
 
 
@@ -1071,7 +1091,7 @@ off_B5EE_14_3_players_action_window:
     .byte $0B
     .byte $07
 ; количество поинтеров
-    .byte $04
+    .byte $05
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
@@ -1085,6 +1105,9 @@ off_B5EE_14_3_players_action_window:
     .byte $05
     .byte $01
     .word @name_3
+    .byte $07
+    .byte $04
+    .word @arrow
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
@@ -1100,6 +1123,10 @@ off_B5EE_14_3_players_action_window:
 
 @name_3:
     .byte con_defender_actions, $02
+    .byte con_закончить
+
+@arrow:
+    .byte con_ball_height_arrow
     .byte con_закончить
 
 
@@ -1122,7 +1149,7 @@ off_B607_15_4_players_action_window:
     .byte $0B
     .byte $09
 ; количество поинтеров
-    .byte $05
+    .byte $06
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
@@ -1139,6 +1166,9 @@ off_B607_15_4_players_action_window:
     .byte $07
     .byte $01
     .word @name_4
+    .byte $09
+    .byte $04
+    .word @arrow
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
@@ -1158,6 +1188,10 @@ off_B607_15_4_players_action_window:
 
 @name_4:
     .byte con_defender_actions, $03
+    .byte con_закончить
+
+@arrow:
+    .byte con_ball_height_arrow
     .byte con_закончить
 
 
