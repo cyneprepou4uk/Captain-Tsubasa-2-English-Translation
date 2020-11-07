@@ -213,33 +213,31 @@ C - - - - 0x0021B1 02:A1A1: 85 ED     STA ram_00ED
 C - - - - 0x0021B3 02:A1A3: 4C 01 A2  JMP loc_A201
 
 loc_A1A6:
-bra_A1A6:
+bra_A1A6_в_итоге_ничего_не_нажато:
 C D - - - 0x0021B6 02:A1A6: A9 01     LDA #$01
 C - - - - 0x0021B8 02:A1A8: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0021BB 02:A1AB: 20 D0 A3  JSR sub_A3D0
 C - - - - 0x0021BE 02:A1AE: 24 1E     BIT ram_одноразовые
-; con_btn_A
-; bzk тут зачем-то учитывается возможность одновременного нажатия А + Б в одноразовом адресе
-C - - - - 0x0021C0 02:A1B0: 10 03     BPL bra_A1B5
-C - - - - 0x0021C2 02:A1B2: 4C 31 A2  JMP loc_A231
-bra_A1B5:
-C - - - - 0x0021C5 02:A1B5: 50 03     BVC bra_A1BA
-C - - - - 0x0021C7 02:A1B7: 4C 60 A2  JMP loc_A260
-bra_A1BA:
+C - - - - 0x0021C0 02:A1B0: 10 03     BPL bra_A1B5_A_не_нажата       ; con_btn_A
+C - - - - 0x0021C2 02:A1B2: 4C 31 A2  JMP loc_A231_A_нажата
+bra_A1B5_A_не_нажата:
+C - - - - 0x0021C5 02:A1B5: 50 03     BVC bra_A1BA_B_не_нажата       ; con_btn_B
+C - - - - 0x0021C7 02:A1B7: 4C 60 A2  JMP loc_A260_B_нажата
+bra_A1BA_B_не_нажата:
 C - - - - 0x0021CA 02:A1BA: A5 1E     LDA ram_одноразовые
 C - - - - 0x0021CC 02:A1BC: 29 20     AND #con_btn_Select
-C - - - - 0x0021CE 02:A1BE: F0 03     BEQ bra_A1C3
-C - - - - 0x0021D0 02:A1C0: 4C 52 A2  JMP loc_A252
-bra_A1C3:
+C - - - - 0x0021CE 02:A1BE: F0 03     BEQ bra_A1C3_select_не_нажата
+C - - - - 0x0021D0 02:A1C0: 4C 52 A2  JMP loc_A252_select_нажата
+bra_A1C3_select_не_нажата:
 C - - - - 0x0021D3 02:A1C3: A5 1E     LDA ram_одноразовые
 C - - - - 0x0021D5 02:A1C5: 29 10     AND #con_btn_Start
-C - - - - 0x0021D7 02:A1C7: F0 03     BEQ bra_A1CC
-C - - - - 0x0021D9 02:A1C9: 4C 6C A2  JMP loc_A26C
-bra_A1CC:
+C - - - - 0x0021D7 02:A1C7: F0 03     BEQ bra_A1CC_start_не_нажата
+C - - - - 0x0021D9 02:A1C9: 4C 6C A2  JMP loc_A26C_start_нажата
+bra_A1CC_start_не_нажата:
 C - - - - 0x0021DC 02:A1CC: A5 1C     LDA ram_удержанные
 C - - - - 0x0021DE 02:A1CE: 29 0F     AND #con_btns_Dpad
-C - - - - 0x0021E0 02:A1D0: F0 D4     BEQ bra_A1A6
-C - - - - 0x0021E2 02:A1D2: A0 14     LDY #$14
+C - - - - 0x0021E0 02:A1D0: F0 D4     BEQ bra_A1A6_в_итоге_ничего_не_нажато
+C - - - - 0x0021E2 02:A1D2: A0 14     LDY #$14      ; если нажата кнопка d-pad, то писать таймер удержания кнопки
 loc_A1D4:
 C D - - - 0x0021E4 02:A1D4: 84 EA     STY ram_00EA
 C - - - - 0x0021E6 02:A1D6: A6 EC     LDX ram_00EC
@@ -249,23 +247,23 @@ C - - - - 0x0021ED 02:A1DD: 20 D8 A4  JSR sub_A4D8
 C - - - - 0x0021F0 02:A1E0: A5 1C     LDA ram_удержанные
 C - - - - 0x0021F2 02:A1E2: 29 0F     AND #con_btns_Dpad
 C - - - - 0x0021F4 02:A1E4: AA        TAX
-C - - - - 0x0021F5 02:A1E5: BD ED B2  LDA tbl_B2ED,X
-C - - - - 0x0021F8 02:A1E8: 30 0D     BMI bra_A1F7
+C - - - - 0x0021F5 02:A1E5: BD ED B2  LDA tbl_B2ED_смещение_курсора,X
+C - - - - 0x0021F8 02:A1E8: 30 0D     BMI bra_A1F7_сместить_назад
 C - - - - 0x0021FA 02:A1EA: 18        CLC
 C - - - - 0x0021FB 02:A1EB: 65 EC     ADC ram_00EC
 C - - - - 0x0021FD 02:A1ED: C9 41     CMP #$41
-C - - - - 0x0021FF 02:A1EF: 90 10     BCC bra_A201
+C - - - - 0x0021FF 02:A1EF: 90 10     BCC bra_A201_не_overflow
 C - - - - 0x002201 02:A1F1: 38        SEC
 C - - - - 0x002202 02:A1F2: E9 41     SBC #$41
 C - - - - 0x002204 02:A1F4: 4C 01 A2  JMP loc_A201
-bra_A1F7:
+bra_A1F7_сместить_назад:
 C - - - - 0x002207 02:A1F7: 18        CLC
 C - - - - 0x002208 02:A1F8: 65 EC     ADC ram_00EC
 C - - - - 0x00220A 02:A1FA: C9 41     CMP #$41
-C - - - - 0x00220C 02:A1FC: 90 03     BCC bra_A201
+C - - - - 0x00220C 02:A1FC: 90 03     BCC bra_A201_не_overflow
 C - - - - 0x00220E 02:A1FE: 18        CLC
 C - - - - 0x00220F 02:A1FF: 69 41     ADC #$41
-bra_A201:
+bra_A201_не_overflow:
 loc_A201:
 C D - - - 0x002211 02:A201: 85 EC     STA ram_00EC
 C - - - - 0x002213 02:A203: AA        TAX
@@ -292,7 +290,7 @@ C - - - - 0x002238 02:A228: C6 EA     DEC ram_00EA
 C - - - - 0x00223A 02:A22A: D0 EB     BNE bra_A217_цикл
 C - - - - 0x00223C 02:A22C: A0 08     LDY #$08
 C - - - - 0x00223E 02:A22E: 4C D4 A1  JMP loc_A1D4
-loc_A231:
+loc_A231_A_нажата:
 C D - - - 0x002241 02:A231: A6 EC     LDX ram_00EC
 C - - - - 0x002243 02:A233: BD 55 B2  LDA tbl_B255,X
 C - - - - 0x002246 02:A236: C9 FF     CMP #$FF
@@ -307,7 +305,7 @@ C - - - - 0x002258 02:A248: A2 21     LDX #$21
 C - - - - 0x00225A 02:A24A: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер
 C - - - - 0x00225D 02:A24D: A9 12     LDA #$12
 C - - - - 0x00225F 02:A24F: 8D 01 07  STA ram_звук + 1
-loc_A252:
+loc_A252_select_нажата:
 C D - - - 0x002262 02:A252: A6 ED     LDX ram_00ED
 C - - - - 0x002264 02:A254: E8        INX
 C - - - - 0x002265 02:A255: E0 12     CPX #$12
@@ -316,7 +314,7 @@ C - - - - 0x002269 02:A259: A2 00     LDX #$00
 bra_A25B:
 C - - - - 0x00226B 02:A25B: 86 ED     STX ram_00ED
 C - - - - 0x00226D 02:A25D: 4C A6 A1  JMP loc_A1A6
-loc_A260:
+loc_A260_B_нажата:
 C D - - - 0x002270 02:A260: A6 ED     LDX ram_00ED
 C - - - - 0x002272 02:A262: CA        DEX
 C - - - - 0x002273 02:A263: 10 02     BPL bra_A267
@@ -325,7 +323,7 @@ bra_A267:
 C - - - - 0x002277 02:A267: 86 ED     STX ram_00ED
 C - - - - 0x002279 02:A269: 4C A6 A1  JMP loc_A1A6
 bra_A26C:
-loc_A26C:
+loc_A26C_start_нажата:
 C D - - - 0x00227C 02:A26C: A6 EC     LDX ram_00EC
 C - - - - 0x00227E 02:A26E: BD E8 B1  LDA tbl_B1E8,X
 C - - - - 0x002281 02:A271: A0 00     LDY #$00
@@ -849,7 +847,7 @@ C D - - - 0x00265C 02:A64C: 20 A0 98  JSR sub_0x0018B0_очистка_двух_n
 C - - - - 0x00265F 02:A64F: 20 7F 9B  JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
 loc_A652:
 C D - - - 0x002662 02:A652: A6 26     LDX ram_матч
-C - - - - 0x002664 02:A654: BD 93 B3  LDA tbl_B393_cutscene_advice,X
+C - - - - 0x002664 02:A654: BD 93 B3  LDA tbl_B393_cutscene_coach_advice,X
                                       CLC
                                       ADC #$44
 C - - - - 0x002667 02:A657: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
@@ -876,7 +874,7 @@ C - J - - 0x00268B 02:A67B: A6 26     LDA ram_матч
                                       CLC
                                       ADC #$23
 C - - - - 0x002690 02:A680: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
-bra_A683:
+bra_A683_кнопка_не_нажата:
 C - - - - 0x002693 02:A683: A9 01     LDA #$01
 C - - - - 0x002695 02:A685: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002698 02:A688: A5 4D     LDA ram_004D
@@ -884,7 +882,7 @@ C - - - - 0x00269A 02:A68A: 05 4E     ORA ram_004E
 C - - - - 0x00269C 02:A68C: F0 D4     BEQ bra_A662
 C - - - - 0x00269E 02:A68E: A5 1E     LDA ram_одноразовые
 C - - - - 0x0026A0 02:A690: 29 10     AND #con_btn_Start
-C - - - - 0x0026A2 02:A692: F0 EF     BEQ bra_A683
+C - - - - 0x0026A2 02:A692: F0 EF     BEQ bra_A683_кнопка_не_нажата
 C - - - - 0x0026A4 02:A694: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - 0x0026A7 02:A697: A9 02     LDA #$02
 C - - - - 0x0026A9 02:A699: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
@@ -2425,6 +2423,7 @@ C - - - - 0x0030DF 02:B0CF: BD D8 B0  LDA tbl_B0D7 + 1,X
 C - - - - 0x0030E2 02:B0D2: 85 E7     STA ram_00E7
 C - - - - 0x0030E4 02:B0D4: 6C E6 00  JMP (ram_00E6)
 
+; bzk почистить мусор
 tbl_B0D7:
     .word ofs_B0F7_00_запись_в_буфер_без_смещения
     .word ofs_B102_01_запись_в_буфер_со_смещением
@@ -2723,23 +2722,23 @@ off_B201_фраза_верный_пароль:
 
 
 
-tbl_B2ED:
-- - - - - 0x0032FD 02:B2ED: 00        .byte $00
-- D - - - 0x0032FE 02:B2EE: 01        .byte $01    ; <あ>
-- D - - - 0x0032FF 02:B2EF: FF        .byte $FF
-- - - - - 0x003300 02:B2F0: 00        .byte $00
-- D - - - 0x003301 02:B2F1: 0D        .byte $0D    ; <す>
-- - - - - 0x003302 02:B2F2: 0E        .byte $0E    ; <せ>
-- - - - - 0x003303 02:B2F3: 0C        .byte $0C    ; <し>
-- - - - - 0x003304 02:B2F4: 00        .byte $00
-- D - - - 0x003305 02:B2F5: F3        .byte $F3
-- - - - - 0x003306 02:B2F6: F4        .byte $F4
-- - - - - 0x003307 02:B2F7: F2        .byte $F2
-- - - - - 0x003308 02:B2F8: 00        .byte $00
-- - - - - 0x003309 02:B2F9: 00        .byte $00
-- - - - - 0x00330A 02:B2FA: 00        .byte $00
-- - - - - 0x00330B 02:B2FB: 00        .byte $00
-- - - - - 0x00330C 02:B2FC: 00        .byte $00
+tbl_B2ED_смещение_курсора:
+    .byte $00
+    .byte $01     ; right
+    .byte $FF     ; left
+    .byte $00
+    .byte $0D     ; down
+    .byte $0E     ; down + right
+    .byte $0C     ; down + left
+    .byte $00
+    .byte $F3     ; up
+    .byte $F4     ; up + right
+    .byte $F2     ; up + left
+    .byte $00
+    .byte $00
+    .byte $00
+    .byte $00
+    .byte $00
 
 tbl_B2FD:
 - D - - - 0x00330D 02:B2FD: 40        .byte $40    ; <「>
@@ -2751,7 +2750,7 @@ tbl_B2FD:
 - D - - - 0x003313 02:B303: 00        .byte $00
 - D - - - 0x003314 02:B304: 50        .byte $50    ; <タ>
 
-tbl_B393_cutscene_advice:
+tbl_B393_cutscene_coach_advice:
     .byte $00, $00, $00, $00, $00, $00
     .byte $01, $01, $01, $01, $01, $01
     .byte $00, $00, $00, $00
