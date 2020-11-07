@@ -780,7 +780,7 @@ C - - - - 0x0025C7 02:A5B7: BD F9 B3  LDA tbl_B3F9_cutscene_level_up,X
                                       CLC
                                       ADC #$5B
 C - - - - 0x0025CA 02:A5BA: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
-C - - - - 0x0025CD 02:A5BD: 20 A9 82  JSR sub_0x0002B9
+C - - - - 0x0025CD 02:A5BD: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - 0x0025D0 02:A5C0: A9 00     LDA #$00
 C - - - - 0x0025D2 02:A5C2: 85 ED     STA ram_00ED
 C - - - - 0x0025D4 02:A5C4: 85 EA     STA ram_00EA
@@ -858,7 +858,7 @@ C - - - - 0x002664 02:A654: BD 93 B3  LDA tbl_B393_cutscene_advice,X
                                       CLC
                                       ADC #$44
 C - - - - 0x002667 02:A657: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
-C - - - - 0x00266A 02:A65A: 20 A9 82  JSR sub_0x0002B9
+C - - - - 0x00266A 02:A65A: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - 0x00266D 02:A65D: A9 01     LDA #$01
 C - - - - 0x00266F 02:A65F: 20 20 89  JSR sub_0x000930
 bra_A662:
@@ -903,13 +903,13 @@ C - - - - 0x0026B4 02:A6A4: BD D7 B3  LDA tbl_B3D7_cutscene_score_memo,X
                                       ADC #$55
                                       PHA
 C - - - - 0x0026B7 02:A6A7: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
-C - - - - 0x0026BA 02:A6AA: 20 A9 82  JSR sub_0x0002B9
+C - - - - 0x0026BA 02:A6AA: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - 0x0026BD 02:A6AD: 20 1E A0  JSR sub_A01E_генерация_пароля
 C - - - - 0x0026C0 02:A6B0: A9 4E     PLA
                                       CLC
                                       ADC #$01
 C - - - - 0x0026C2 02:A6B2: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
-C - - - - 0x0026C5 02:A6B5: 20 A9 82  JSR sub_0x0002B9
+C - - - - 0x0026C5 02:A6B5: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - 0x0026C8 02:A6B8: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - 0x0026CB 02:A6BB: 4C 4C A6  JMP loc_A64C
 
@@ -923,7 +923,7 @@ C - - - - 0x0026D6 02:A6C6: BD 1B B4  LDA tbl_B41B_cutscene_team_before_match,X
                                       CLC
                                       ADC #$5E
 C - - - - 0x0026D9 02:A6C9: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
-C - - - - 0x0026DC 02:A6CC: 20 A9 82  JSR sub_0x0002B9
+C - - - - 0x0026DC 02:A6CC: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - 0x0026DF 02:A6CF: 4C 15 A7  JSR sub_0x001BB0
                                       RTS
 
@@ -958,7 +958,7 @@ loc_A6E8_цикл:
     ADC #$49
     JSR sub_0x000474_воспроизвести_катсцену
 loc_A6F9_продолжить:
-    JSR sub_0x0002B9
+    JSR sub_0x0002B9_ожидание_завершения_катсцены
     LDY #< tbl_ADD6_курсор_в_перерыве
     LDX #> tbl_ADD6_курсор_в_перерыве
     JSR sub_0x001C4A_отобразить_курсор
