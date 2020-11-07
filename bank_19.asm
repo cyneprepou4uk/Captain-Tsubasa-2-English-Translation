@@ -4716,8 +4716,8 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_brightness, $01
     .byte con_animation, $59
     .byte con_brightness, $00
-    .byte con_offset, $69, $22
-    .text "Jitou Hiroshi"
+    .byte con_offset, $6A, $22
+    .text "Jito Hiroshi"
     .byte con_endline
     .byte con_brightness, $02
     .byte con_timer, $68
@@ -4742,7 +4742,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_animation, $57
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
-    .text "Souda Makoto"
+    .text "Soda Makoto"
     .byte con_endline
     .byte con_brightness, $02
     .byte con_timer, $68

@@ -305,7 +305,7 @@ off_B3D1_29_тренер_06:
     .byte con_base_offset
     .word $2266
     .byte con_offset, $81
-    .text "@Their defender, Jitou,", con_line
+    .text "@Their defender, Jito,", con_line
     .text "uses his physical", con_line
     .text "strength,"
     .byte con_ball
@@ -366,7 +366,7 @@ off_B46B_2B_тренер_08:
     .byte con_base_offset
     .word $2265
     .byte con_offset, $81
-    .text "@Their defender, Souda,", con_line
+    .text "@Their defender, Soda,", con_line
     .text "is tough as nails. And", con_line
     .text "the goalie, Nakanishi,", con_line
     .text "is a brick wall.@"

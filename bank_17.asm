@@ -243,7 +243,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201AD 17:819D: A8 83     .word ofs_83A8_15_95
 - D - I - 0x0201AF 17:819F: B4 83     .word ofs_83B4_16_96
 - D - I - 0x0201B1 17:81A1: C2 83     .word $0000       ; unused, было аналогично 0F_8F
-- D - I - 0x0201B3 17:81A3: C6 83     .word ofs_83C6_18_98_проверка_на_jitou_из_японии
+- D - I - 0x0201B3 17:81A3: C6 83     .word ofs_83C6_18_98_проверка_на_jito_из_японии
 - - - - - 0x0201B5 17:81A5: D6 83     .word $0000       ; unused, байты не найдены
 - - - - - 0x0201B7 17:81A7: DD 83     .word $0000       ; unused, байты не найдены
 - D - I - 0x0201B9 17:81A9: E4 83     .word ofs_83E4_1B_9B_спешал_блок
@@ -264,12 +264,12 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201D7 17:81C7: B2 84     .word ofs_84B2_2A_AA_игрок_с_рожей
 - D - I - 0x0201D9 17:81C9: C7 84     .word ofs_84C7_2B_AB_проверка_на_100_хп
 - D - I - 0x0201DB 17:81CB: E7 84     .word ofs_84E7_2C_AC
-- D - I - 0x0201DD 17:81CD: EF 84     .word ofs_84EF_2D_AD_забил_ли_jitou_гол_с_сано
+- D - I - 0x0201DD 17:81CD: EF 84     .word ofs_84EF_2D_AD_забил_ли_jito_гол_с_сано
 - D - I - 0x0201DF 17:81CF: FC 84     .word ofs_84FC_2E_AE
 - D - I - 0x0201E1 17:81D1: 0B 85     .word ofs_850B_2F_AF_киперы_с_критами
 - D - I - 0x0201E3 17:81D3: 27 85     .word ofs_8527_30_B0_diaz_tsubasa
 - D - I - 0x0201E5 17:81D5: 3A 85     .word ofs_853A_31_B1_nitta
-- D - I - 0x0201E7 17:81D7: 46 85     .word ofs_8546_32_B2_souda
+- D - I - 0x0201E7 17:81D7: 46 85     .word ofs_8546_32_B2_soda
 - D - I - 0x0201E9 17:81D9: 56 85     .word ofs_8556_33_B3_игроки_с_защитным_спешалом
 - D - I - 0x0201EB 17:81DB: 6C 85     .word ofs_856C_34_B4_узнать_высоту_мяча
 - D - I - 0x0201ED 17:81DD: 70 85     .word ofs_8570_35_B5
@@ -655,14 +655,14 @@ tbl_83BB:
     .byte $FF       ; unused
     .byte $02
 
-ofs_83C6_18_98_проверка_на_jitou_из_японии:
-; 00 - это jitou из японии
-; 01 - это jitou из куними
+ofs_83C6_18_98_проверка_на_jito_из_японии:
+; 00 - это jito из японии
+; 01 - это jito из куними
 C - J - - 0x0203D6 17:83C6: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0203D9 17:83C9: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - 0x0203DC 17:83CC: C9 1C     CMP #$1C      ; jitou из японии
+C - - - - 0x0203DC 17:83CC: C9 1C     CMP #$1C      ; jito из японии
 C - - - - 0x0203DE 17:83CE: F0 05     BEQ bra_83D5_выход
-C - - - - 0x0203E0 17:83D0: C9 48     CMP #$48      ; jitou соперник из японии
+C - - - - 0x0203E0 17:83D0: C9 48     CMP #$48      ; jito соперник из японии
 C - - - - 0x0203E2 17:83D2: F0 01     BEQ bra_83D5_выход
 C - - - - 0x0203E4 17:83D4: E8        INX
 bra_83D5_выход:
@@ -842,10 +842,10 @@ ofs_847E_28_A8_оба_игрока_с_рожами:
 ; 09 - matsuyama
 ; 0A - ishizaki
 ; 0B - ishizaki
-; 0C - souda
-; 0D - souda
-; 0E - jitou
-; 0F - jitou
+; 0C - soda
+; 0D - soda
+; 0E - jito
+; 0F - jito
 ; 10 - masao/kazuo
 ; 11 - masao/kazuo
 ; 12 - nitta
@@ -890,10 +890,10 @@ ofs_8498_29_A9_оба_игрока_с_рожами:
 ; 09 - matsuyama
 ; 0A - ishizaki
 ; 0B - ishizaki
-; 0C - souda
-; 0D - souda
-; 0E - jitou
-; 0F - jitou
+; 0C - soda
+; 0D - soda
+; 0E - jito
+; 0F - jito
 ; 10 - masao/kazuo
 ; 11 - masao/kazuo
 ; 12 - nitta
@@ -938,10 +938,10 @@ ofs_84B2_2A_AA_игрок_с_рожей:
 ; 09 - matsuyama
 ; 0A - ishizaki
 ; 0B - ishizaki
-; 0C - souda
-; 0D - souda
-; 0E - jitou
-; 0F - jitou
+; 0C - soda
+; 0D - soda
+; 0E - jito
+; 0F - jito
 ; 10 - masao/kazuo
 ; 11 - masao/kazuo
 ; 12 - nitta
@@ -1002,9 +1002,9 @@ C - - - - 0x0204FC 17:84EC: A2 01     LDX #$01
 bra_84EE_выход:
 C - - - - 0x0204FE 17:84EE: 60        RTS
 
-ofs_84EF_2D_AD_забил_ли_jitou_гол_с_сано:
+ofs_84EF_2D_AD_забил_ли_jito_гол_с_сано:
 ; 00 - гол забит другим ударом
-; 01 - гол забили jitou с сано
+; 01 - гол забили jito с сано
 C - J - - 0x0204FF 17:84EF: A2 00     LDX #$00
 C - - - - 0x020501 17:84F1: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x020504 17:84F4: 29 7F     AND #$7F
@@ -1076,14 +1076,14 @@ C - - - - 0x020552 17:8542: F0 01     BEQ bra_8545_выход
 bra_8545_выход:
 C - - - - 0x020555 17:8545: 60        RTS
 
-ofs_8546_32_B2_souda:
-; 00 - это souda
-; 01 - это не souda
+ofs_8546_32_B2_soda:
+; 00 - это soda
+; 01 - это не soda
 C - J - - 0x020556 17:8546: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x020559 17:8549: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - 0x02055C 17:854C: C9 1B     CMP #$1B      ; souda
+C - - - - 0x02055C 17:854C: C9 1B     CMP #$1B      ; soda
 C - - - - 0x02055E 17:854E: F0 05     BEQ bra_8555_выход
-C - - - - 0x020560 17:8550: C9 4A     CMP #$4A      ; souda
+C - - - - 0x020560 17:8550: C9 4A     CMP #$4A      ; soda
 C - - - - 0x020562 17:8552: F0 01     BEQ bra_8555_выход
 C - - - - 0x020564 17:8554: E8        INX
 bra_8555_выход:
@@ -1093,10 +1093,10 @@ ofs_8556_33_B3_игроки_с_защитным_спешалом:
 ; 00 - игрок без защитного спешала
 ; 01 - masao/kazuo
 ; 02 - masao/kazuo
-; 03 - souda
-; 04 - souda
-; 05 - jitou
-; 06 - jitou
+; 03 - soda
+; 04 - soda
+; 05 - jito
+; 06 - jito
 ; 07 - dirceu
 ; 08 - dirceu
 ; 09 - robson
@@ -1274,10 +1274,10 @@ ofs_8602_40_C0_игрок_с_рожей:
 ; 09 - matsuyama
 ; 0A - ishizaki
 ; 0B - ishizaki
-; 0C - souda
-; 0D - souda
-; 0E - jitou
-; 0F - jitou
+; 0C - soda
+; 0D - soda
+; 0E - jito
+; 0F - jito
 ; 10 - masao/kazuo
 ; 11 - masao/kazuo
 ; 12 - nitta
@@ -1411,8 +1411,8 @@ C - - - - 0x020699 17:8689: 60        RTS
 ofs_868A_47_C7_кто_делает_силовой_дриблинг:
 ; 00 - hyuga из японии
 ; 01 - hyuga из тохо
-; 02 - jitou из японии
-; 03 - jitou из куними
+; 02 - jito из японии
+; 03 - jito из куними
 ; 04 - napoleon
 ; 05 - игрок без рожи
 C - J - - 0x02069A 17:868A: AD 41 04  LDA ram_игрок_с_мячом
@@ -1441,13 +1441,13 @@ tbl_86A6_игрок:
     .byte $36       ; hyuga из тохо
     .byte $01       ; X
     
-    .byte $1C       ; jitou из нашей японии
+    .byte $1C       ; jito из нашей японии
     .byte $02       ; X
     
-    .byte $48       ; jitou соперник из японии
+    .byte $48       ; jito соперник из японии
     .byte $02       ; X
     
-    .byte $2E       ; jitou из куними
+    .byte $2E       ; jito из куними
     .byte $03       ; X
     
     .byte $57       ; napoleon
@@ -1543,8 +1543,8 @@ tbl_86F4_игроки_с_рожами:
 - D - - - 0x02071C 17:870C: 10        .byte $10        ; kazuo
 - D - - - 0x02071D 17:870D: 00        .byte $00        ; 19
 - D - - - 0x02071E 17:870E: 04        .byte $04        ; hyuga
-- D - - - 0x02071F 17:870F: 0C        .byte $0C        ; souda
-- D - - - 0x020720 17:8710: 0E        .byte $0E        ; jitou
+- D - - - 0x02071F 17:870F: 0C        .byte $0C        ; soda
+- D - - - 0x020720 17:8710: 0E        .byte $0E        ; jito
 - D - - - 0x020721 17:8711: 08        .byte $08        ; matsuyama
 - - - - - 0x020722 17:8712: 00        .byte $00        ; 1E
 - - - - - 0x020723 17:8713: 14        .byte $14        ; sawada
@@ -1562,11 +1562,11 @@ tbl_86F4_игроки_с_рожами:
 - D - - - 0x02072F 17:871F: 17        .byte $17        ; carlos
 - D - - - 0x020730 17:8720: 00        .byte $00        ; 2C
 - - - - - 0x020731 17:8721: 00        .byte $00        ; 2D
-- D - - - 0x020732 17:8722: 0F        .byte $0F        ; jitou
+- D - - - 0x020732 17:8722: 0F        .byte $0F        ; jito
 - D - - - 0x020733 17:8723: 00        .byte $00        ; 2F
 - D - - - 0x020734 17:8724: 11        .byte $11        ; masao
 - D - - - 0x020735 17:8725: 11        .byte $11        ; kazuo
-- D - - - 0x020736 17:8726: 0D        .byte $0D        ; souda
+- D - - - 0x020736 17:8726: 0D        .byte $0D        ; soda
 - - - - - 0x020737 17:8727: 00        .byte $00        ; 33
 - D - - - 0x020738 17:8728: 07        .byte $07        ; misugi
 - D - - - 0x020739 17:8729: 09        .byte $09        ; matsuyama
@@ -1588,9 +1588,9 @@ tbl_86F4_игроки_с_рожами:
 - - - - - 0x020749 17:8739: 06        .byte $06        ; misugi
 - D - - - 0x02074A 17:873A: 10        .byte $10        ; masao
 - D - - - 0x02074B 17:873B: 10        .byte $10        ; kazuo
-- D - - - 0x02074C 17:873C: 0E        .byte $0E        ; jitou
+- D - - - 0x02074C 17:873C: 0E        .byte $0E        ; jito
 - D - - - 0x02074D 17:873D: 0B        .byte $0B        ; ishizaki
-- - - - - 0x02074E 17:873E: 0C        .byte $0C        ; souda
+- - - - - 0x02074E 17:873E: 0C        .byte $0C        ; soda
 - D - - - 0x02074F 17:873F: 08        .byte $08        ; matsuyama
 - - - - - 0x020750 17:8740: 00        .byte $00        ; 4C
 - D - - - 0x020751 17:8741: 00        .byte $00        ; 4D
@@ -1663,8 +1663,8 @@ tbl_876A_игроки_с_защитным_спешалом:
 - D - - - 0x020792 17:8782: 01        .byte $01        ; kazuo
 - - - - - 0x020793 17:8783: 00        .byte $00        ; 19
 - D - - - 0x020794 17:8784: 0C        .byte $0C        ; hyuga
-- D - - - 0x020795 17:8785: 03        .byte $03        ; souda
-- D - - - 0x020796 17:8786: 05        .byte $05        ; jitou
+- D - - - 0x020795 17:8785: 03        .byte $03        ; soda
+- D - - - 0x020796 17:8786: 05        .byte $05        ; jito
 - - - - - 0x020797 17:8787: 00        .byte $00        ; 1D
 - - - - - 0x020798 17:8788: 00        .byte $00        ; 1E
 - - - - - 0x020799 17:8789: 00        .byte $00        ; 1F
@@ -1682,11 +1682,11 @@ tbl_876A_игроки_с_защитным_спешалом:
 - - - - - 0x0207A5 17:8795: 00        .byte $00        ; 2B
 - - - - - 0x0207A6 17:8796: 00        .byte $00        ; 2C
 - - - - - 0x0207A7 17:8797: 00        .byte $00        ; 2D
-- D - - - 0x0207A8 17:8798: 06        .byte $06        ; jitou
+- D - - - 0x0207A8 17:8798: 06        .byte $06        ; jito
 - - - - - 0x0207A9 17:8799: 00        .byte $00        ; 2F
 - D - - - 0x0207AA 17:879A: 02        .byte $02        ; masao
 - - - - - 0x0207AB 17:879B: 02        .byte $02        ; kazuo
-- D - - - 0x0207AC 17:879C: 04        .byte $04        ; souda
+- D - - - 0x0207AC 17:879C: 04        .byte $04        ; soda
 - - - - - 0x0207AD 17:879D: 00        .byte $00        ; 33
 - - - - - 0x0207AE 17:879E: 00        .byte $00        ; 34
 - - - - - 0x0207AF 17:879F: 00        .byte $00        ; 35
@@ -1708,9 +1708,9 @@ tbl_876A_игроки_с_защитным_спешалом:
 - - - - - 0x0207BF 17:87AF: 00        .byte $00        ; 45
 - - - - - 0x0207C0 17:87B0: 01        .byte $01        ; masao
 - - - - - 0x0207C1 17:87B1: 01        .byte $01        ; kazuo
-- D - - - 0x0207C2 17:87B2: 05        .byte $05        ; jitou
+- D - - - 0x0207C2 17:87B2: 05        .byte $05        ; jito
 - D - - - 0x0207C3 17:87B3: 0F        .byte $0F        ; ishizaki
-- D - - - 0x0207C4 17:87B4: 03        .byte $03        ; souda
+- D - - - 0x0207C4 17:87B4: 03        .byte $03        ; soda
 - - - - - 0x0207C5 17:87B5: 00        .byte $00        ; 4B
 - - - - - 0x0207C6 17:87B6: 00        .byte $00        ; 4C
 - - - - - 0x0207C7 17:87B7: 00        .byte $00        ; 4D
@@ -6294,10 +6294,10 @@ sub_9E64:
 - - - - - 0x021E88 17:9E78: 4C B9     .word bra_long_case_B94C_09_matsuyama
 - - - - - 0x021E8A 17:9E7A: 53 B9     .word bra_long_case_B953_0A_ishizaki
 - - - - - 0x021E8C 17:9E7C: 5A B9     .word bra_long_case_B95A_0B_ishizaki
-- D - I - 0x021E8E 17:9E7E: 61 B9     .word bra_long_case_B961_0C_souda
-- - - - - 0x021E90 17:9E80: 68 B9     .word bra_long_case_B968_0D_souda
-- - - - - 0x021E92 17:9E82: 6F B9     .word bra_long_case_B96F_0E_jitou
-- - - - - 0x021E94 17:9E84: 76 B9     .word bra_long_case_B976_0F_jitou
+- D - I - 0x021E8E 17:9E7E: 61 B9     .word bra_long_case_B961_0C_soda
+- - - - - 0x021E90 17:9E80: 68 B9     .word bra_long_case_B968_0D_soda
+- - - - - 0x021E92 17:9E82: 6F B9     .word bra_long_case_B96F_0E_jito
+- - - - - 0x021E94 17:9E84: 76 B9     .word bra_long_case_B976_0F_jito
 - D - I - 0x021E96 17:9E86: 7D B9     .word bra_long_case_B97D_10_masao_kazuo
 - - - - - 0x021E98 17:9E88: 84 B9     .word bra_long_case_B984_11_masao_kazuo
 - - - - - 0x021E9A 17:9E8A: 8B B9     .word bra_long_case_B98B_12_nitta
@@ -6332,10 +6332,10 @@ sub_9EAA:
 - - - - - 0x021ECE 17:9EBE: 4C B9     .word bra_long_case_B94C_09_matsuyama
 - D - I - 0x021ED0 17:9EC0: 53 B9     .word bra_long_case_B953_0A_ishizaki
 - D - I - 0x021ED2 17:9EC2: 5A B9     .word bra_long_case_B95A_0B_ishizaki
-- D - I - 0x021ED4 17:9EC4: 61 B9     .word bra_long_case_B961_0C_souda
-- - - - - 0x021ED6 17:9EC6: 68 B9     .word bra_long_case_B968_0D_souda
-- D - I - 0x021ED8 17:9EC8: 6F B9     .word bra_long_case_B96F_0E_jitou
-- D - I - 0x021EDA 17:9ECA: 76 B9     .word bra_long_case_B976_0F_jitou
+- D - I - 0x021ED4 17:9EC4: 61 B9     .word bra_long_case_B961_0C_soda
+- - - - - 0x021ED6 17:9EC6: 68 B9     .word bra_long_case_B968_0D_soda
+- D - I - 0x021ED8 17:9EC8: 6F B9     .word bra_long_case_B96F_0E_jito
+- D - I - 0x021EDA 17:9ECA: 76 B9     .word bra_long_case_B976_0F_jito
 - - - - - 0x021EDC 17:9ECC: 7D B9     .word bra_long_case_B97D_10_masao_kazuo
 - D - I - 0x021EDE 17:9ECE: 84 B9     .word bra_long_case_B984_11_masao_kazuo
 - - - - - 0x021EE0 17:9ED0: 8B B9     .word bra_long_case_B98B_12_nitta
@@ -6459,8 +6459,8 @@ sub_9F7A_спешал_блок:
 - - - - - 0x021F90 17:9F80: 06 A7     .word bra_long_case_A706_02_masao_kazuo
 - - - - - 0x021F92 17:9F82: 13 A7     .word bra_long_case_A713_00___без_защитного_спешала
 - - - - - 0x021F94 17:9F84: 13 A7     .word bra_long_case_A713_00___без_защитного_спешала
-- - - - - 0x021F96 17:9F86: 89 A7     .word bra_long_case_A789_05_jitou
-- - - - - 0x021F98 17:9F88: 9C A7     .word bra_long_case_A79C_06_jitou
+- - - - - 0x021F96 17:9F86: 89 A7     .word bra_long_case_A789_05_jito
+- - - - - 0x021F98 17:9F88: 9C A7     .word bra_long_case_A79C_06_jito
 - - - - - 0x021F9A 17:9F8A: 92 A7     .word bra_long_case_A792_07___dirceu
 - - - - - 0x021F9C 17:9F8C: 92 A7     .word bra_long_case_A792_07___dirceu
 - - - - - 0x021F9E 17:9F8E: 92 A7     .word bra_long_case_A792_07___dirceu
@@ -7296,16 +7296,16 @@ bra_case_A27F_01_германия_проигрывает:
 - D - I - 0x022297 11:A287: FB        .byte con_rts
 
 bra_case_A288_00_германия_не_проигрывает:
-- D - I - 0x022298 11:A288: F3        .byte con_branch, $AD     ; забил ли гол jitou с сано
+- D - I - 0x022298 11:A288: F3        .byte con_branch, $AD     ; забил ли гол jito с сано
 - D - I - 0x02229A 11:A28A: 1C        .byte bra_case_A2A6_00_гол_забит_другим_ударом - *
-- D - I - 0x02229B 11:A28B: 01        .byte bra_case_A28C_01_гол_забили_jitou_с_сано - *
+- D - I - 0x02229B 11:A28B: 01        .byte bra_case_A28C_01_гол_забили_jito_с_сано - *
 
-bra_case_A28C_01_гол_забили_jitou_с_сано:
-- D - I - 0x02229C 11:A28C: F3        .byte con_branch, $98     ; проверка на jitou из японии
-- D - I - 0x02229E 11:A28E: 02        .byte bra_case_A290_00_это_jitou_из_японии - *
-- - - - - 0x02229F 11:A28F: 0C        .byte bra_case_A29B_01_это_jitou_из_куними - *
+bra_case_A28C_01_гол_забили_jito_с_сано:
+- D - I - 0x02229C 11:A28C: F3        .byte con_branch, $98     ; проверка на jito из японии
+- D - I - 0x02229E 11:A28E: 02        .byte bra_case_A290_00_это_jito_из_японии - *
+- - - - - 0x02229F 11:A28F: 0C        .byte bra_case_A29B_01_это_jito_из_куними - *
 
-bra_case_A290_00_это_jitou_из_японии:
+bra_case_A290_00_это_jito_из_японии:
                                       .byte con_jsr
                                       .word sub_BBC7_очистка
 - D - I - 0x0222A4 11:A294: D0        .byte con_pause + $D0
@@ -7315,7 +7315,7 @@ bra_case_A290_00_это_jitou_из_японии:
 - D - I - 0x0222A8 11:A298: F2        .byte con_jmp
 - D - I - 0x0222A9 11:A299: A3 A2     .word loc_A2A3
 
-bra_case_A29B_01_это_jitou_из_куними:
+bra_case_A29B_01_это_jito_из_куними:
                                       .byte con_jsr
                                       .word sub_BBC7_очистка
 - - - - - 0x0222AF 11:A29F: D0        .byte con_pause + $D0
@@ -7616,10 +7616,10 @@ sub_A3CF_kurae_если_не_спешал:
 - D - I - 0x0223E1 11:A3D1: 67        .byte bra_case_A438_00_игрок_без_защитного_спешала - *
 - D - I - 0x0223E2 11:A3D2: 0F        .byte bra_case_A3E1_01_masao_kazuo - *
 - D - I - 0x0223E3 11:A3D3: 17        .byte bra_case_A3EA_02_masao_kazuo - *
-- D - I - 0x0223E4 11:A3D4: 83        .byte bra_case_A457_03_souda - *
-- D - I - 0x0223E5 11:A3D5: 79        .byte bra_case_A44E_04_souda - *
-- D - I - 0x0223E6 11:A3D6: 1A        .byte bra_case_A3F0_05_jitou - *
-- D - I - 0x0223E7 11:A3D7: 35        .byte bra_case_A40C_06_jitou - *
+- D - I - 0x0223E4 11:A3D4: 83        .byte bra_case_A457_03_soda - *
+- D - I - 0x0223E5 11:A3D5: 79        .byte bra_case_A44E_04_soda - *
+- D - I - 0x0223E6 11:A3D6: 1A        .byte bra_case_A3F0_05_jito - *
+- D - I - 0x0223E7 11:A3D7: 35        .byte bra_case_A40C_06_jito - *
 - D - I - 0x0223E8 11:A3D8: 21        .byte bra_case_A3F9_07_dirceu - *
 - - - - - 0x0223E9 11:A3D9: 20        .byte bra_case_A3F9_08_dirceu - *
 - - - - - 0x0223EA 11:A3DA: 1F        .byte bra_case_A3F9_09_robson - *
@@ -7645,7 +7645,7 @@ bra_case_A3EA_02_masao_kazuo:
 - D - I - 0x0223FD 11:A3ED: F2        .byte con_jmp
 - D - I - 0x0223FE 11:A3EE: E4 A3     .word loc_A3E4
 
-bra_case_A3F0_05_jitou:
+bra_case_A3F0_05_jito:
 - D - I - 0x022400 11:A3F0: F7        .byte con_F7, $44
 - D - I - 0x022402 11:A3F2: 78        .byte con_pause + $78
 - D - I - 0x022403 11:A3F3: 30        .byte con_bg + $30
@@ -7674,7 +7674,7 @@ bra_case_A3F9_0B_galvan:
 - D - I - 0x02241A 11:A40A: F0        .byte con_cloud + con_skip
 - D - I - 0x02241B 11:A40B: FB        .byte con_rts
 
-bra_case_A40C_06_jitou:
+bra_case_A40C_06_jito:
 - D - I - 0x02241C 11:A40C: F7        .byte con_F7, $44
 - D - I - 0x02241E 11:A40E: 78        .byte con_pause + $78
 - D - I - 0x02241F 11:A40F: 30        .byte con_bg + $30
@@ -7731,7 +7731,7 @@ bra_case_A438_0F_ishizaki:
 - D - I - 0x02245C 11:A44C: 3F        .byte con_cloud + $3F
 - D - I - 0x02245D 11:A44D: FB        .byte con_rts
 
-bra_case_A44E_04_souda:
+bra_case_A44E_04_soda:
 - D - I - 0x02245E 11:A44E: F7        .byte con_F7, $44
 - D - I - 0x022460 11:A450: 78        .byte con_pause + $78
 - D - I - 0x022461 11:A451: 30        .byte con_bg + $30
@@ -7740,7 +7740,7 @@ bra_case_A44E_04_souda:
 - D - I - 0x022464 11:A454: F2        .byte con_jmp
 - D - I - 0x022465 11:A455: 5D A4     .word loc_A45D
 
-bra_case_A457_03_souda:
+bra_case_A457_03_soda:
 - D - I - 0x022467 11:A457: F7        .byte con_F7, $44
 - D - I - 0x022469 11:A459: 78        .byte con_pause + $78
 - D - I - 0x02246A 11:A45A: 30        .byte con_bg + $30
@@ -7807,10 +7807,10 @@ sub_A495_сообщение_игрока_при_ответе_на_нападен
 - D - I - 0x0224B1 11:A4A1: 59        .byte bra_case_A4FA_09_matsuyama - *
 - - - - - 0x0224B2 11:A4A2: 5F        .byte bra_case_A501_0A_ishizaki - *
 - - - - - 0x0224B3 11:A4A3: 65        .byte bra_case_A508_0B_ishizaki - *
-- D - I - 0x0224B4 11:A4A4: 6B        .byte bra_case_A50F_0C_souda - *
-- - - - - 0x0224B5 11:A4A5: 71        .byte bra_case_A516_0D_souda - *
-- - - - - 0x0224B6 11:A4A6: 77        .byte bra_case_A51D_0E_jitou - *
-- D - I - 0x0224B7 11:A4A7: 7D        .byte bra_case_A524_0F_jitou - *
+- D - I - 0x0224B4 11:A4A4: 6B        .byte bra_case_A50F_0C_soda - *
+- - - - - 0x0224B5 11:A4A5: 71        .byte bra_case_A516_0D_soda - *
+- - - - - 0x0224B6 11:A4A6: 77        .byte bra_case_A51D_0E_jito - *
+- D - I - 0x0224B7 11:A4A7: 7D        .byte bra_case_A524_0F_jito - *
 - D - I - 0x0224B8 11:A4A8: 83        .byte bra_case_A52B_10_masao_kazuo - *
 - D - I - 0x0224B9 11:A4A9: 89        .byte bra_case_A532_11_masao_kazuo - *
 - D - I - 0x0224BA 11:A4AA: 8F        .byte bra_case_A539_12_nitta - *
@@ -7930,7 +7930,7 @@ bra_case_A508_0B_ishizaki:
 - - - - - 0x02251C 11:A50C: F2        .byte con_jmp
 - - - - - 0x02251D 11:A50D: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A50F_0C_souda:
+bra_case_A50F_0C_soda:
 - D - I - 0x02251F 11:A50F: 3C        .byte con_pause + $3C
 - D - I - 0x022520 11:A510: 30        .byte con_bg + $30
 - D - I - 0x022521 11:A511: 9F        .byte con_animation + $9F
@@ -7938,7 +7938,7 @@ bra_case_A50F_0C_souda:
 - D - I - 0x022523 11:A513: F2        .byte con_jmp
 - D - I - 0x022524 11:A514: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A516_0D_souda:
+bra_case_A516_0D_soda:
 - - - - - 0x022526 11:A516: 3C        .byte con_pause + $3C
 - - - - - 0x022527 11:A517: 30        .byte con_bg + $30
 - - - - - 0x022528 11:A518: AD        .byte con_animation + $AD
@@ -7946,7 +7946,7 @@ bra_case_A516_0D_souda:
 - - - - - 0x02252A 11:A51A: F2        .byte con_jmp
 - - - - - 0x02252B 11:A51B: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A51D_0E_jitou:
+bra_case_A51D_0E_jito:
 - - - - - 0x02252D 11:A51D: 3C        .byte con_pause + $3C
 - - - - - 0x02252E 11:A51E: 30        .byte con_bg + $30
 - - - - - 0x02252F 11:A51F: A0        .byte con_animation + $A0
@@ -7954,7 +7954,7 @@ bra_case_A51D_0E_jitou:
 - - - - - 0x022531 11:A521: F2        .byte con_jmp
 - - - - - 0x022532 11:A522: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A524_0F_jitou:
+bra_case_A524_0F_jito:
 - D - I - 0x022534 11:A524: 3C        .byte con_pause + $3C
 - D - I - 0x022535 11:A525: 30        .byte con_bg + $30
 - D - I - 0x022536 11:A526: AA        .byte con_animation + $AA
@@ -8120,10 +8120,10 @@ sub_A5A9_kurae:
 - - - - - 0x0225C4 11:A5B4: 52        .byte bra_case_A606_09_matsuyama - *
 - - - - - 0x0225C5 11:A5B5: 58        .byte bra_case_A60D_0A_ishizaki - *
 - - - - - 0x0225C6 11:A5B6: 5E        .byte bra_case_A614_0B_ishizaki - *
-- - - - - 0x0225C7 11:A5B7: 64        .byte bra_case_A61B_0C_souda - *
-- - - - - 0x0225C8 11:A5B8: 6A        .byte bra_case_A622_0D_souda - *
-- - - - - 0x0225C9 11:A5B9: 70        .byte bra_case_A629_0E_jitou - *
-- - - - - 0x0225CA 11:A5BA: 76        .byte bra_case_A630_0F_jitou - *
+- - - - - 0x0225C7 11:A5B7: 64        .byte bra_case_A61B_0C_soda - *
+- - - - - 0x0225C8 11:A5B8: 6A        .byte bra_case_A622_0D_soda - *
+- - - - - 0x0225C9 11:A5B9: 70        .byte bra_case_A629_0E_jito - *
+- - - - - 0x0225CA 11:A5BA: 76        .byte bra_case_A630_0F_jito - *
 - - - - - 0x0225CB 11:A5BB: 7C        .byte bra_case_A637_10_masao_kazuo - *
 - - - - - 0x0225CC 11:A5BC: 82        .byte bra_case_A63E_11_masao_kazuo - *
 - - - - - 0x0225CD 11:A5BD: 88        .byte bra_case_A645_12_nitta - *
@@ -8234,7 +8234,7 @@ bra_case_A614_0B_ishizaki:
 - - - - - 0x022628 11:A618: F2        .byte con_jmp
 - - - - - 0x022629 11:A619: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A61B_0C_souda:
+bra_case_A61B_0C_soda:
 - - - - - 0x02262B 11:A61B: 3C        .byte con_pause + $3C
 - - - - - 0x02262C 11:A61C: 30        .byte con_bg + $30
 - - - - - 0x02262D 11:A61D: 9F        .byte con_animation + $9F
@@ -8242,7 +8242,7 @@ bra_case_A61B_0C_souda:
 - - - - - 0x02262F 11:A61F: F2        .byte con_jmp
 - - - - - 0x022630 11:A620: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A622_0D_souda:
+bra_case_A622_0D_soda:
 - - - - - 0x022632 11:A622: 3C        .byte con_pause + $3C
 - - - - - 0x022633 11:A623: 30        .byte con_bg + $30
 - - - - - 0x022634 11:A624: AD        .byte con_animation + $AD
@@ -8250,7 +8250,7 @@ bra_case_A622_0D_souda:
 - - - - - 0x022636 11:A626: F2        .byte con_jmp
 - - - - - 0x022637 11:A627: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A629_0E_jitou:
+bra_case_A629_0E_jito:
 - - - - - 0x022639 11:A629: 3C        .byte con_pause + $3C
 - - - - - 0x02263A 11:A62A: 30        .byte con_bg + $30
 - - - - - 0x02263B 11:A62B: A0        .byte con_animation + $A0
@@ -8258,7 +8258,7 @@ bra_case_A629_0E_jitou:
 - - - - - 0x02263D 11:A62D: F2        .byte con_jmp
 - - - - - 0x02263E 11:A62E: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A630_0F_jitou:
+bra_case_A630_0F_jito:
 - - - - - 0x022640 11:A630: 3C        .byte con_pause + $3C
 - - - - - 0x022641 11:A631: 30        .byte con_bg + $30
 - - - - - 0x022642 11:A632: AA        .byte con_animation + $AA
@@ -8422,10 +8422,10 @@ bra_long_case_A6BC_01:
 - - - - - 0x0226CE 11:A6BE: 4E        .byte bra_case_A70C_00_игрок_без_защитного_спешала - *
 - D - I - 0x0226CF 11:A6BF: 37        .byte bra_case_A6F6_01_masao_kazuo - *
 - - - - - 0x0226D0 11:A6C0: 46        .byte bra_case_A706_02_masao_kazuo - *
-- - - - - 0x0226D1 11:A6C1: 4B        .byte bra_case_A70C_03_souda - *
-- - - - - 0x0226D2 11:A6C2: 4A        .byte bra_case_A70C_04_souda - *
-- - - - - 0x0226D3 11:A6C3: 49        .byte bra_case_A70C_05_jitou - *
-- - - - - 0x0226D4 11:A6C4: 48        .byte bra_case_A70C_06_jitou - *
+- - - - - 0x0226D1 11:A6C1: 4B        .byte bra_case_A70C_03_soda - *
+- - - - - 0x0226D2 11:A6C2: 4A        .byte bra_case_A70C_04_soda - *
+- - - - - 0x0226D3 11:A6C3: 49        .byte bra_case_A70C_05_jito - *
+- - - - - 0x0226D4 11:A6C4: 48        .byte bra_case_A70C_06_jito - *
 - - - - - 0x0226D5 11:A6C5: 47        .byte bra_case_A70C_07_dirceu - *
 - - - - - 0x0226D6 11:A6C6: 46        .byte bra_case_A70C_08_dirceu - *
 - - - - - 0x0226D7 11:A6C7: 45        .byte bra_case_A70C_09_robson - *
@@ -8441,10 +8441,10 @@ bra_long_case_A6CE_01:
 - D - I - 0x0226E0 11:A6D0: FE        .byte bra_case_A7CE_00_игрок_без_защитного_спешала - *
 - - - - - 0x0226E1 11:A6D1: 25        .byte bra_case_A6F6_01_masao_kazuo - *
 - - - - - 0x0226E2 11:A6D2: 34        .byte bra_case_A706_02_masao_kazuo - *
-- - - - - 0x0226E3 11:A6D3: FB        .byte bra_case_A7CE_03_souda - *
-- - - - - 0x0226E4 11:A6D4: FA        .byte bra_case_A7CE_04_souda - *
-- - - - - 0x0226E4 11:A6D5: F9        .byte bra_case_A7CE_05_jitou - *
-- - - - - 0x0226E4 11:A6D6: F8        .byte bra_case_A7CE_06_jitou - *
+- - - - - 0x0226E3 11:A6D3: FB        .byte bra_case_A7CE_03_soda - *
+- - - - - 0x0226E4 11:A6D4: FA        .byte bra_case_A7CE_04_soda - *
+- - - - - 0x0226E4 11:A6D5: F9        .byte bra_case_A7CE_05_jito - *
+- - - - - 0x0226E4 11:A6D6: F8        .byte bra_case_A7CE_06_jito - *
 - - - - - 0x0226E4 11:A6D7: F7        .byte bra_case_A7CE_07_dirceu - *
 - - - - - 0x0226E7 11:A6D8: F6        .byte bra_case_A7CE_08_dirceu - *
 - - - - - 0x0226E9 11:A6D9: F5        .byte bra_case_A7CE_09_robson - *
@@ -8466,10 +8466,10 @@ bra_case_A6E4_01:
 - D - I - 0x0226F6 11:A6E6: 19        .byte bra_case_A6FF_00_игрок_без_защитного_спешала - *
 - D - I - 0x0226F7 11:A6E7: 0F        .byte bra_case_A6F6_01_masao_kazuo - *
 - D - I - 0x0226F8 11:A6E8: 1E        .byte bra_case_A706_02_masao_kazuo - *
-- D - I - 0x0226F9 11:A6E9: 16        .byte bra_case_A6FF_03_souda - *
-- - - - - 0x0226FA 11:A6EA: 15        .byte bra_case_A6FF_04_souda - *
-- D - I - 0x0226FB 11:A6EB: 14        .byte bra_case_A6FF_05_jitou - *
-- D - I - 0x0226FC 11:A6EC: 13        .byte bra_case_A6FF_06_jitou - *
+- D - I - 0x0226F9 11:A6E9: 16        .byte bra_case_A6FF_03_soda - *
+- - - - - 0x0226FA 11:A6EA: 15        .byte bra_case_A6FF_04_soda - *
+- D - I - 0x0226FB 11:A6EB: 14        .byte bra_case_A6FF_05_jito - *
+- D - I - 0x0226FC 11:A6EC: 13        .byte bra_case_A6FF_06_jito - *
 - - - - - 0x0226FD 11:A6ED: 12        .byte bra_case_A6FF_07_dirceu - *
 - D - I - 0x0226FE 11:A6EE: 11        .byte bra_case_A6FF_08_dirceu - *
 - - - - - 0x0226FF 11:A6EF: 10        .byte bra_case_A6FF_09_robson - *
@@ -8495,10 +8495,10 @@ sub_A6F9:
 
 bra_long_case_A6FF_00:
 bra_case_A6FF_00_игрок_без_защитного_спешала:
-bra_case_A6FF_03_souda:
-bra_case_A6FF_04_souda:
-bra_case_A6FF_05_jitou:
-bra_case_A6FF_06_jitou:
+bra_case_A6FF_03_soda:
+bra_case_A6FF_04_soda:
+bra_case_A6FF_05_jito:
+bra_case_A6FF_06_jito:
 bra_case_A6FF_07_dirceu:
 bra_case_A6FF_08_dirceu:
 bra_case_A6FF_09_robson:
@@ -8524,10 +8524,10 @@ bra_case_A706_02_masao_kazuo:
 
 bra_long_case_A70C_00:
 bra_case_A70C_00_игрок_без_защитного_спешала:
-bra_case_A70C_03_souda:
-bra_case_A70C_04_souda:
-bra_case_A70C_05_jitou:
-bra_case_A70C_06_jitou:
+bra_case_A70C_03_soda:
+bra_case_A70C_04_soda:
+bra_case_A70C_05_jito:
+bra_case_A70C_06_jito:
 bra_case_A70C_07_dirceu:
 bra_case_A70C_08_dirceu:
 bra_case_A70C_09_robson:
@@ -8639,7 +8639,7 @@ sub_A756:
 - D - I - 0x022796 11:A786: F2        .byte con_jmp
 - D - I - 0x022797 11:A787: 4A A7     .word loc_A74A
 
-bra_long_case_A789_05_jitou:
+bra_long_case_A789_05_jito:
 - - - - - 0x022799 11:A789: F7        .byte con_F7, $44
 - - - - - 0x02279B 11:A78B: 78        .byte con_pause + $78
 - - - - - 0x02279C 11:A78C: 30        .byte con_bg + $30
@@ -8657,7 +8657,7 @@ bra_long_case_A792_07___dirceu:
 - - - - - 0x0227AA 11:A79A: EC        .byte con_cloud + $EC
 - - - - - 0x0227AB 11:A79B: FB        .byte con_rts
 
-bra_long_case_A79C_06_jitou:
+bra_long_case_A79C_06_jito:
 - - - - - 0x0227AC 11:A79C: F7        .byte con_F7, $44
 - - - - - 0x0227AE 11:A79E: 78        .byte con_pause + $78
 - - - - - 0x0227AF 11:A79F: 30        .byte con_bg + $30
@@ -8707,10 +8707,10 @@ bra_long_case_A7BF_0F_ishizaki:
 
 bra_long_case_A7CE_00:
 bra_case_A7CE_00_игрок_без_защитного_спешала:
-bra_case_A7CE_03_souda:
-bra_case_A7CE_04_souda:
-bra_case_A7CE_05_jitou:
-bra_case_A7CE_06_jitou:
+bra_case_A7CE_03_soda:
+bra_case_A7CE_04_soda:
+bra_case_A7CE_05_jito:
+bra_case_A7CE_06_jito:
 bra_case_A7CE_07_dirceu:
 bra_case_A7CE_08_dirceu:
 bra_case_A7CE_09_robson:
@@ -8807,8 +8807,8 @@ bra_long_case_A820_02_forcible_dribble:
 - - - - - 0x022830 11:A820: F3        .byte con_branch, $C7     ; кто делает силовой дриблинг
 - - - - - 0x022832 11:A822: 06        .byte bra_case_A828_00_hyuga_из_японии - *
 - - - - - 0x022833 11:A823: 0E        .byte bra_case_A831_01_hyuga_из_тохо - *
-- - - - - 0x022834 11:A824: 16        .byte bra_case_A83A_02_jitou_из_японии - *
-- - - - - 0x022835 11:A825: 1E        .byte bra_case_A843_03_jitou_из_куними - *
+- - - - - 0x022834 11:A824: 16        .byte bra_case_A83A_02_jito_из_японии - *
+- - - - - 0x022835 11:A825: 1E        .byte bra_case_A843_03_jito_из_куними - *
 - - - - - 0x022836 11:A826: 26        .byte bra_case_A84C_04_napoleon - *
 - - - - - 0x022837 11:A827: 2E        .byte bra_case_A855_05_игрок_без_рожи - *
 
@@ -8830,7 +8830,7 @@ bra_case_A831_01_hyuga_из_тохо:
 - - - - - 0x022847 11:A837: F2        .byte con_jmp
 - - - - - 0x022848 11:A838: 7B AA     .word loc_AA7B
 
-bra_case_A83A_02_jitou_из_японии:
+bra_case_A83A_02_jito_из_японии:
 - - - - - 0x02284A 11:A83A: F7        .byte con_F7, $44
 - - - - - 0x02284C 11:A83C: 78        .byte con_pause + $78
 - - - - - 0x02284D 11:A83D: 30        .byte con_bg + $30
@@ -8839,7 +8839,7 @@ bra_case_A83A_02_jitou_из_японии:
 - - - - - 0x022850 11:A840: F2        .byte con_jmp
 - - - - - 0x022851 11:A841: 7B AA     .word loc_AA7B
 
-bra_case_A843_03_jitou_из_куними:
+bra_case_A843_03_jito_из_куними:
 - - - - - 0x022853 11:A843: F7        .byte con_F7, $44
 - - - - - 0x022855 11:A845: 78        .byte con_pause + $78
 - - - - - 0x022856 11:A846: 30        .byte con_bg + $30
@@ -9067,10 +9067,10 @@ sub_A936_сообщение_игрока_при_нападении:
 - - - - - 0x022951 11:A941: 5F        .byte bra_case_A9A0_09_matsuyama - *
 - D - I - 0x022952 11:A942: 65        .byte bra_case_A9A7_0A_ishizaki - *
 - - - - - 0x022953 11:A943: 6B        .byte bra_case_A9AE_0B_ishizaki - *
-- D - I - 0x022954 11:A944: 71        .byte bra_case_A9B5_0C_souda - *
-- - - - - 0x022955 11:A945: 77        .byte bra_case_A9BC_0D_souda - *
-- D - I - 0x022956 11:A946: 7D        .byte bra_case_A9C3_0E_jitou - *
-- D - I - 0x022957 11:A947: 83        .byte bra_case_A9CA_0F_jitou - *
+- D - I - 0x022954 11:A944: 71        .byte bra_case_A9B5_0C_soda - *
+- - - - - 0x022955 11:A945: 77        .byte bra_case_A9BC_0D_soda - *
+- D - I - 0x022956 11:A946: 7D        .byte bra_case_A9C3_0E_jito - *
+- D - I - 0x022957 11:A947: 83        .byte bra_case_A9CA_0F_jito - *
 - D - I - 0x022958 11:A948: 89        .byte bra_case_A9D1_10_masao_kazuo - *
 - - - - - 0x022959 11:A949: 8F        .byte bra_case_A9D8_11_masao_kazuo - *
 - - - - - 0x02295A 11:A94A: 95        .byte bra_case_A9DF_12_nitta - *
@@ -9196,7 +9196,7 @@ bra_case_A9AE_0B_ishizaki:
 - - - - - 0x0229C2 11:A9B2: F2        .byte con_jmp
 - - - - - 0x0229C3 11:A9B3: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A9B5_0C_souda:
+bra_case_A9B5_0C_soda:
 - D - I - 0x0229C5 11:A9B5: 3C        .byte con_pause + $3C
 - D - I - 0x0229C6 11:A9B6: 30        .byte con_bg + $30
 - D - I - 0x0229C7 11:A9B7: 9F        .byte con_animation + $9F
@@ -9204,7 +9204,7 @@ bra_case_A9B5_0C_souda:
 - D - I - 0x0229C9 11:A9B9: F2        .byte con_jmp
 - D - I - 0x0229CA 11:A9BA: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A9BC_0D_souda:
+bra_case_A9BC_0D_soda:
 - - - - - 0x0229CC 11:A9BC: 3C        .byte con_pause + $3C
 - - - - - 0x0229CD 11:A9BD: 30        .byte con_bg + $30
 - - - - - 0x0229CE 11:A9BE: AD        .byte con_animation + $AD
@@ -9212,7 +9212,7 @@ bra_case_A9BC_0D_souda:
 - - - - - 0x0229D0 11:A9C0: F2        .byte con_jmp
 - - - - - 0x0229D1 11:A9C1: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A9C3_0E_jitou:
+bra_case_A9C3_0E_jito:
 - D - I - 0x0229D3 11:A9C3: 3C        .byte con_pause + $3C
 - D - I - 0x0229D4 11:A9C4: 30        .byte con_bg + $30
 - D - I - 0x0229D5 11:A9C5: A0        .byte con_animation + $A0
@@ -9220,7 +9220,7 @@ bra_case_A9C3_0E_jitou:
 - D - I - 0x0229D7 11:A9C7: F2        .byte con_jmp
 - D - I - 0x0229D8 11:A9C8: C7 BB     .word loc_BBC7_очистка
 
-bra_case_A9CA_0F_jitou:
+bra_case_A9CA_0F_jito:
 - D - I - 0x0229DA 11:A9CA: 3C        .byte con_pause + $3C
 - D - I - 0x0229DB 11:A9CB: 30        .byte con_bg + $30
 - D - I - 0x0229DC 11:A9CC: AA        .byte con_animation + $AA
@@ -9410,8 +9410,8 @@ bra_long_case_AA6D_02_forcible_dribble:
 - - - - - 0x022A7D 11:AA6D: F3        .byte con_branch, $C7     ; кто делает силовой дриблинг
 - - - - - 0x022A7F 11:AA6F: 06        .byte bra_case_AA75_00_hyuga_из_японии - *
 - - - - - 0x022A80 11:AA70: 23        .byte bra_case_AA93_01_hyuga_из_тохо - *
-- - - - - 0x022A81 11:AA71: 2B        .byte bra_case_AA9C_02_jitou_из_японии - *
-- - - - - 0x022A82 11:AA72: 33        .byte bra_case_AAA5_03_jitou_из_куними - *
+- - - - - 0x022A81 11:AA71: 2B        .byte bra_case_AA9C_02_jito_из_японии - *
+- - - - - 0x022A82 11:AA72: 33        .byte bra_case_AAA5_03_jito_из_куними - *
 - - - - - 0x022A83 11:AA73: 3B        .byte bra_case_AAAE_04_napoleon - *
 - - - - - 0x022A84 11:AA74: 0A        .byte bra_case_AA7E_05_игрок_без_рожи - *
 
@@ -9454,7 +9454,7 @@ bra_case_AA93_01_hyuga_из_тохо:
 - - - - - 0x022AA9 11:AA99: F2        .byte con_jmp
 - - - - - 0x022AAA 11:AA9A: 7B AA     .word loc_AA7B
 
-bra_case_AA9C_02_jitou_из_японии:
+bra_case_AA9C_02_jito_из_японии:
 - - - - - 0x022AAC 11:AA9C: F7        .byte con_F7, $44
 - - - - - 0x022AAE 11:AA9E: 78        .byte con_pause + $78
 - - - - - 0x022AAF 11:AA9F: 30        .byte con_bg + $30
@@ -9463,7 +9463,7 @@ bra_case_AA9C_02_jitou_из_японии:
 - - - - - 0x022AB2 11:AAA2: F2        .byte con_jmp
 - - - - - 0x022AB3 11:AAA3: 7B AA     .word loc_AA7B
 
-bra_case_AAA5_03_jitou_из_куними:
+bra_case_AAA5_03_jito_из_куними:
 - - - - - 0x022AB5 11:AAA5: F7        .byte con_F7, $44
 - - - - - 0x022AB7 11:AAA7: 78        .byte con_pause + $78
 - - - - - 0x022AB8 11:AAA8: 30        .byte con_bg + $30
@@ -9767,10 +9767,10 @@ bra_case_ABE9_01_это_не_nitta:
 - - - - - 0x022BFE 11:ABEE: D4 AB     .word loc_ABD4
 bra_long_case_ABF0_07_razor_shot:
 - D - I - 0x022C00 11:ABF0: F3        .byte con_branch, $B2     ; проверка на соду
-- D - I - 0x022C02 11:ABF2: 02        .byte bra_case_ABF4_00_это_souda - *
-- D - I - 0x022C03 11:ABF3: 29        .byte bra_case_AC1C_01_это_не_souda - *
+- D - I - 0x022C02 11:ABF2: 02        .byte bra_case_ABF4_00_это_soda - *
+- D - I - 0x022C03 11:ABF3: 29        .byte bra_case_AC1C_01_это_не_soda - *
 
-bra_case_ABF4_00_это_souda:
+bra_case_ABF4_00_это_soda:
 - D - I - 0x022C04 11:ABF4: 3C        .byte con_pause + $3C
 - D - I - 0x022C05 11:ABF5: 30        .byte con_bg + $30
 - D - I - 0x022C06 11:ABF6: 9F        .byte con_animation + $9F
@@ -9802,7 +9802,7 @@ loc_ABF8:
 - D - I - 0x022C29 11:AC19: F2        .byte con_jmp
 - D - I - 0x022C2A 11:AC1A: 6B AB     .word loc_AB6B
 
-bra_case_AC1C_01_это_не_souda:
+bra_case_AC1C_01_это_не_soda:
 - D - I - 0x022C2C 11:AC1C: 3C        .byte con_pause + $3C
 - D - I - 0x022C2D 11:AC1D: 30        .byte con_bg + $30
 - D - I - 0x022C2E 11:AC1E: AD        .byte con_animation + $AD
@@ -10031,11 +10031,11 @@ sub_AD13:
 - D - I - 0x022D2C 11:AD1C: FB        .byte con_rts
 
 bra_long_case_AD1D_13_sano_combo:
-- D - I - 0x022D2D 11:AD1D: F3        .byte con_branch, $98     ; проверка на jitou из японии
-- D - I - 0x022D2F 11:AD1F: 02        .byte bra_case_AD21_00_это_jitou_из_японии - *
-- D - I - 0x022D30 11:AD20: 25        .byte bra_case_AD45_01_это_jitou_из_куними - *
+- D - I - 0x022D2D 11:AD1D: F3        .byte con_branch, $98     ; проверка на jito из японии
+- D - I - 0x022D2F 11:AD1F: 02        .byte bra_case_AD21_00_это_jito_из_японии - *
+- D - I - 0x022D30 11:AD20: 25        .byte bra_case_AD45_01_это_jito_из_куними - *
 
-bra_case_AD21_00_это_jitou_из_японии:
+bra_case_AD21_00_это_jito_из_японии:
 - D - I - 0x022D31 11:AD21: 78        .byte con_pause + $78
 - D - I - 0x022D32 11:AD22: 30        .byte con_bg + $30
 - D - I - 0x022D33 11:AD23: A0        .byte con_animation + $A0
@@ -10064,7 +10064,7 @@ loc_AD25:
 - D - I - 0x022D53 11:AD43: F0        .byte con_cloud + con_skip
 - D - I - 0x022D54 11:AD44: FB        .byte con_rts
 
-bra_case_AD45_01_это_jitou_из_куними:
+bra_case_AD45_01_это_jito_из_куними:
 - D - I - 0x022D55 11:AD45: 78        .byte con_pause + $78
 - D - I - 0x022D56 11:AD46: 30        .byte con_bg + $30
 - D - I - 0x022D57 11:AD47: AA        .byte con_animation + $AA
@@ -10289,10 +10289,10 @@ bra_long_case_AE4C_00:
 - - - - - 0x022E67 11:AE57: 0D        .byte bra_case_AE64_09_matsuyama - *
 - - - - - 0x022E68 11:AE58: 0C        .byte bra_case_AE64_0A_ishizaki - *
 - - - - - 0x022E69 11:AE59: 0B        .byte bra_case_AE64_0B_ishizaki - *
-- - - - - 0x022E6A 11:AE5A: 0A        .byte bra_case_AE64_0C_souda - *
-- - - - - 0x022E6B 11:AE5B: 09        .byte bra_case_AE64_0D_souda - *
-- - - - - 0x022E6C 11:AE5C: 08        .byte bra_case_AE64_0E_jitou - *
-- - - - - 0x022E6D 11:AE5D: 07        .byte bra_case_AE64_0F_jitou - *
+- - - - - 0x022E6A 11:AE5A: 0A        .byte bra_case_AE64_0C_soda - *
+- - - - - 0x022E6B 11:AE5B: 09        .byte bra_case_AE64_0D_soda - *
+- - - - - 0x022E6C 11:AE5C: 08        .byte bra_case_AE64_0E_jito - *
+- - - - - 0x022E6D 11:AE5D: 07        .byte bra_case_AE64_0F_jito - *
 - D - I - 0x022E6E 11:AE5E: 0B        .byte bra_case_AE69_10_masao_kazuo - *
 - D - I - 0x022E6F 11:AE5F: 45        .byte bra_case_AEA4_11_masao_kazuo - *
 - - - - - 0x022E70 11:AE60: 04        .byte bra_case_AE64_12_nitta - *
@@ -10316,10 +10316,10 @@ bra_case_AE64_08_matsuyama:
 bra_case_AE64_09_matsuyama:
 bra_case_AE64_0A_ishizaki:
 bra_case_AE64_0B_ishizaki:
-bra_case_AE64_0C_souda:
-bra_case_AE64_0D_souda:
-bra_case_AE64_0E_jitou:
-bra_case_AE64_0F_jitou:
+bra_case_AE64_0C_soda:
+bra_case_AE64_0D_soda:
+bra_case_AE64_0E_jito:
+bra_case_AE64_0F_jito:
 bra_case_AE64_12_nitta:
 bra_case_AE64_13_nitta:
 bra_case_AE64_14_sawada:
@@ -10581,10 +10581,10 @@ sub_AF88:
 
 bra_long_case_AF90_02:
 - D - I - 0x022FA0 11:AF90: F3        .byte con_branch, $B2     ; проверка на соду
-- D - I - 0x022FA2 11:AF92: 02        .byte bra_case_AF94_00_это_souda - *
-- D - I - 0x022FA3 11:AF93: 11        .byte bra_case_AFA4_01_это_не_souda - *
+- D - I - 0x022FA2 11:AF92: 02        .byte bra_case_AF94_00_это_soda - *
+- D - I - 0x022FA3 11:AF93: 11        .byte bra_case_AFA4_01_это_не_soda - *
 
-bra_case_AF94_00_это_souda:
+bra_case_AF94_00_это_soda:
 - D - I - 0x022FA4 11:AF94: FA        .byte con_jsr
 - D - I - 0x022FA5 11:AF95: 73 AF     .word sub_AF73
 loc_AF97:
@@ -10598,7 +10598,7 @@ loc_AF97:
 - D - I - 0x022FB1 11:AFA1: F2        .byte con_jmp
 - D - I - 0x022FB2 11:AFA2: 6B AB     .word loc_AB6B
 
-bra_case_AFA4_01_это_не_souda:
+bra_case_AFA4_01_это_не_soda:
 - D - I - 0x022FB4 11:AFA4: FA        .byte con_jsr
 - D - I - 0x022FB5 11:AFA5: 88 AF     .word sub_AF88
 - D - I - 0x022FB7 11:AFA7: F2        .byte con_jmp
@@ -10683,10 +10683,10 @@ bra_long_case_AFF0_0E_overhead:
 - - - - - 0x02300B 11:AFFB: 4D        .byte bra_case_B048_09_matsuyama - *
 - - - - - 0x02300C 11:AFFC: 1F        .byte bra_case_B01B_0A_ishizaki - *
 - - - - - 0x02300D 11:AFFD: 1E        .byte bra_case_B01B_0B_ishizaki - *
-- - - - - 0x02300E 11:AFFE: 1D        .byte bra_case_B01B_0C_souda - *
-- - - - - 0x02300F 11:AFFF: 1C        .byte bra_case_B01B_0D_souda - *
-- - - - - 0x023010 11:B000: 1B        .byte bra_case_B01B_0E_jitou - *
-- - - - - 0x023011 11:B001: 1A        .byte bra_case_B01B_0F_jitou - *
+- - - - - 0x02300E 11:AFFE: 1D        .byte bra_case_B01B_0C_soda - *
+- - - - - 0x02300F 11:AFFF: 1C        .byte bra_case_B01B_0D_soda - *
+- - - - - 0x023010 11:B000: 1B        .byte bra_case_B01B_0E_jito - *
+- - - - - 0x023011 11:B001: 1A        .byte bra_case_B01B_0F_jito - *
 - - - - - 0x023012 11:B002: 19        .byte bra_case_B01B_10_masao_kazuo - *
 - - - - - 0x023013 11:B003: 18        .byte bra_case_B01B_11_masao_kazuo - *
 - - - - - 0x023014 11:B004: 17        .byte bra_case_B01B_12_nitta - *
@@ -10721,10 +10721,10 @@ bra_case_B01B_06_misugi:
 bra_case_B01B_07_misugi:
 bra_case_B01B_0A_ishizaki:
 bra_case_B01B_0B_ishizaki:
-bra_case_B01B_0C_souda:
-bra_case_B01B_0D_souda:
-bra_case_B01B_0E_jitou:
-bra_case_B01B_0F_jitou:
+bra_case_B01B_0C_soda:
+bra_case_B01B_0D_soda:
+bra_case_B01B_0E_jito:
+bra_case_B01B_0F_jito:
 bra_case_B01B_10_masao_kazuo:
 bra_case_B01B_11_masao_kazuo:
 bra_case_B01B_12_nitta:
@@ -11403,10 +11403,10 @@ bra_case_B2E0_01:
 - D - I - 0x0232F2 11:B2E2: 10        .byte bra_case_B2F2_00_игрок_без_защитного_спешала - *
 - D - I - 0x0232F3 11:B2E3: 55        .byte bra_case_B338_01_masao_kazuo - *
 - D - I - 0x0232F4 11:B2E4: 5D        .byte bra_case_B341_02_masao_kazuo - *
-- D - I - 0x0232F5 11:B2E5: 0D        .byte bra_case_B2F2_03_souda - *
-- - - - - 0x0232F6 11:B2E6: 0C        .byte bra_case_B2F2_04_souda - *
-- D - I - 0x0232F7 11:B2E7: 0B        .byte bra_case_B2F2_05_jitou - *
-- - - - - 0x0232F8 11:B2E8: 0A        .byte bra_case_B2F2_06_jitou - *
+- D - I - 0x0232F5 11:B2E5: 0D        .byte bra_case_B2F2_03_soda - *
+- - - - - 0x0232F6 11:B2E6: 0C        .byte bra_case_B2F2_04_soda - *
+- D - I - 0x0232F7 11:B2E7: 0B        .byte bra_case_B2F2_05_jito - *
+- - - - - 0x0232F8 11:B2E8: 0A        .byte bra_case_B2F2_06_jito - *
 - - - - - 0x0232F9 11:B2E9: 09        .byte bra_case_B2F2_07_dirceu - *
 - D - I - 0x0232FA 11:B2EA: 08        .byte bra_case_B2F2_08_dirceu - *
 - - - - - 0x0232FB 11:B2EB: 07        .byte bra_case_B2F2_09_robson - *
@@ -11418,10 +11418,10 @@ bra_case_B2E0_01:
 - - - - - 0x023301 11:B2F1: 01        .byte bra_case_B2F2_0F_ishizaki - *
 
 bra_case_B2F2_00_игрок_без_защитного_спешала:
-bra_case_B2F2_03_souda:
-bra_case_B2F2_04_souda:
-bra_case_B2F2_05_jitou:
-bra_case_B2F2_06_jitou:
+bra_case_B2F2_03_soda:
+bra_case_B2F2_04_soda:
+bra_case_B2F2_05_jito:
+bra_case_B2F2_06_jito:
 bra_case_B2F2_07_dirceu:
 bra_case_B2F2_08_dirceu:
 bra_case_B2F2_09_robson:
@@ -11447,10 +11447,10 @@ bra_long_case_B2FE_01:
 - D - I - 0x023310 11:B300: 10        .byte bra_case_B310_00_игрок_без_защитного_спешала - *
 - D - I - 0x023311 11:B301: 37        .byte bra_case_B338_01_masao_kazuo - *
 - - - - - 0x023312 11:B302: 3F        .byte bra_case_B341_02_masao_kazuo - *
-- - - - - 0x023313 11:B303: 0D        .byte bra_case_B310_03_souda - *
-- - - - - 0x023314 11:B304: 0C        .byte bra_case_B310_04_souda - *
-- - - - - 0x023315 11:B305: 0B        .byte bra_case_B310_05_jitou - *
-- - - - - 0x023316 11:B306: 0A        .byte bra_case_B310_06_jitou - *
+- - - - - 0x023313 11:B303: 0D        .byte bra_case_B310_03_soda - *
+- - - - - 0x023314 11:B304: 0C        .byte bra_case_B310_04_soda - *
+- - - - - 0x023315 11:B305: 0B        .byte bra_case_B310_05_jito - *
+- - - - - 0x023316 11:B306: 0A        .byte bra_case_B310_06_jito - *
 - - - - - 0x023317 11:B307: 09        .byte bra_case_B310_07_dirceu - *
 - - - - - 0x023318 11:B308: 08        .byte bra_case_B310_08_dirceu - *
 - - - - - 0x023319 11:B309: 07        .byte bra_case_B310_09_robson - *
@@ -11463,10 +11463,10 @@ bra_long_case_B2FE_01:
 
 bra_long_case_B310_00:
 bra_case_B310_00_игрок_без_защитного_спешала:
-bra_case_B310_03_souda:
-bra_case_B310_04_souda:
-bra_case_B310_05_jitou:
-bra_case_B310_06_jitou:
+bra_case_B310_03_soda:
+bra_case_B310_04_soda:
+bra_case_B310_05_jito:
+bra_case_B310_06_jito:
 bra_case_B310_07_dirceu:
 bra_case_B310_08_dirceu:
 bra_case_B310_09_robson:
@@ -11489,10 +11489,10 @@ bra_long_case_B31A_01:
 - - - - - 0x02332C 11:B31C: 10        .byte bra_case_B32C_00_игрок_без_защитного_спешала - *
 - - - - - 0x02332D 11:B31D: 1B        .byte bra_case_B338_01_masao_kazuo - *
 - D - I - 0x02332E 11:B31E: 23        .byte bra_case_B341_02_masao_kazuo - *
-- - - - - 0x02332F 11:B31F: 0D        .byte bra_case_B32C_03_souda - *
-- - - - - 0x023330 11:B320: 0C        .byte bra_case_B32C_04_souda - *
-- - - - - 0x023331 11:B321: 0B        .byte bra_case_B32C_05_jitou - *
-- - - - - 0x023332 11:B322: 0A        .byte bra_case_B32C_06_jitou - *
+- - - - - 0x02332F 11:B31F: 0D        .byte bra_case_B32C_03_soda - *
+- - - - - 0x023330 11:B320: 0C        .byte bra_case_B32C_04_soda - *
+- - - - - 0x023331 11:B321: 0B        .byte bra_case_B32C_05_jito - *
+- - - - - 0x023332 11:B322: 0A        .byte bra_case_B32C_06_jito - *
 - - - - - 0x023333 11:B323: 09        .byte bra_case_B32C_07_dirceu - *
 - - - - - 0x023334 11:B324: 08        .byte bra_case_B32C_08_dirceu - *
 - - - - - 0x023335 11:B325: 07        .byte bra_case_B32C_09_robson - *
@@ -11505,10 +11505,10 @@ bra_long_case_B31A_01:
 
 bra_long_case_B32C_00:
 bra_case_B32C_00_игрок_без_защитного_спешала:
-bra_case_B32C_03_souda:
-bra_case_B32C_04_souda:
-bra_case_B32C_05_jitou:
-bra_case_B32C_06_jitou:
+bra_case_B32C_03_soda:
+bra_case_B32C_04_soda:
+bra_case_B32C_05_jito:
+bra_case_B32C_06_jito:
 bra_case_B32C_07_dirceu:
 bra_case_B32C_08_dirceu:
 bra_case_B32C_09_robson:
@@ -11551,10 +11551,10 @@ sub_B347:
 - D - I - 0x023359 11:B349: 10        .byte bra_case_B359_00_игрок_без_защитного_спешала - *
 - - - - - 0x02335A 11:B34A: 1B        .byte bra_case_B365_01_masao_kazuo - *
 - - - - - 0x02335B 11:B34B: 21        .byte bra_case_B36C_02_masao_kazuo - *
-- - - - - 0x02335C 11:B34C: 0D        .byte bra_case_B359_03_souda - *
-- - - - - 0x02335D 11:B34D: 0C        .byte bra_case_B359_04_souda - *
-- D - I - 0x02335E 11:B34E: 24        .byte bra_case_B372_05_jitou - *
-- - - - - 0x02335F 11:B34F: 40        .byte bra_case_B38F_06_jitou - *
+- - - - - 0x02335C 11:B34C: 0D        .byte bra_case_B359_03_soda - *
+- - - - - 0x02335D 11:B34D: 0C        .byte bra_case_B359_04_soda - *
+- D - I - 0x02335E 11:B34E: 24        .byte bra_case_B372_05_jito - *
+- - - - - 0x02335F 11:B34F: 40        .byte bra_case_B38F_06_jito - *
 - D - I - 0x023360 11:B350: 2C        .byte bra_case_B37C_07_dirceu - *
 - D - I - 0x023361 11:B351: 2B        .byte bra_case_B37C_08_dirceu - *
 - - - - - 0x023362 11:B352: 2A        .byte bra_case_B37C_09_robson - *
@@ -11566,8 +11566,8 @@ sub_B347:
 - - - - - 0x023368 11:B358: 49        .byte bra_case_B3A1_0F - *
 
 bra_case_B359_00_игрок_без_защитного_спешала:
-bra_case_B359_03_souda:
-bra_case_B359_04_souda:
+bra_case_B359_03_soda:
+bra_case_B359_04_soda:
 bra_case_B359_0C_hyuga:
 bra_case_B359_0D_hyuga:
 - D - I - 0x023369 11:B359: F9        .byte con_soundID_delay, $25, $02
@@ -11595,7 +11595,7 @@ bra_case_B36C_02_masao_kazuo:
 - - - - - 0x02337F 11:B36F: F2        .byte con_jmp
 - - - - - 0x023380 11:B370: 68 B3     .word loc_B368
 
-bra_case_B372_05_jitou:
+bra_case_B372_05_jito:
 - D - I - 0x023382 11:B372: F7        .byte con_F7, $44
 - D - I - 0x023384 11:B374: 48        .byte con_pause + $48
 - D - I - 0x023385 11:B375: 30        .byte con_bg + $30
@@ -11623,7 +11623,7 @@ bra_case_B37C_0B_galvan:
 - D - I - 0x02339C 11:B38C: F2        .byte con_jmp
 - D - I - 0x02339D 11:B38D: 60 B3     .word loc_B360
 
-bra_case_B38F_06_jitou:
+bra_case_B38F_06_jito:
 - - - - - 0x02339F 11:B38F: F7        .byte con_F7, $44
 - - - - - 0x0233A1 11:B391: 48        .byte con_pause + $48
 - - - - - 0x0233A2 11:B392: 30        .byte con_bg + $30
@@ -11664,8 +11664,8 @@ bra_long_case_B3AF_02_forcible_dribble:
 - D - I - 0x0233BF 11:B3AF: F3        .byte con_branch, $C7     ; кто делает силовой дриблинг
 - D - I - 0x0233C1 11:B3B1: 06        .byte bra_case_B3B7_00_hyuga_из_японии - *
 - D - I - 0x0233C2 11:B3B2: 13        .byte bra_case_B3C5_01_hyuga_из_тохо - *
-- - - - - 0x0233C3 11:B3B3: 1B        .byte bra_case_B3CE_02_jitou_из_японии - *
-- D - I - 0x0233C4 11:B3B4: 23        .byte bra_case_B3D7_03_jitou_из_куними - *
+- - - - - 0x0233C3 11:B3B3: 1B        .byte bra_case_B3CE_02_jito_из_японии - *
+- D - I - 0x0233C4 11:B3B4: 23        .byte bra_case_B3D7_03_jito_из_куними - *
 - D - I - 0x0233C5 11:B3B5: 2B        .byte bra_case_B3E0_04_napoleon - *
 - D - I - 0x0233C6 11:B3B6: 0A        .byte bra_case_B3C0_05_игрок_без_рожи - *
 
@@ -11694,7 +11694,7 @@ bra_case_B3C5_01_hyuga_из_тохо:
 - D - I - 0x0233DB 11:B3CB: F2        .byte con_jmp
 - D - I - 0x0233DC 11:B3CC: BD B3     .word loc_B3BD
 
-bra_case_B3CE_02_jitou_из_японии:
+bra_case_B3CE_02_jito_из_японии:
 - - - - - 0x0233DE 11:B3CE: F7        .byte con_F7, $44
 - - - - - 0x0233E0 11:B3D0: 3C        .byte con_pause + $3C
 - - - - - 0x0233E1 11:B3D1: 30        .byte con_bg + $30
@@ -11703,7 +11703,7 @@ bra_case_B3CE_02_jitou_из_японии:
 - - - - - 0x0233E4 11:B3D4: F2        .byte con_jmp
 - - - - - 0x0233E5 11:B3D5: BD B3     .word loc_B3BD
 
-bra_case_B3D7_03_jitou_из_куними:
+bra_case_B3D7_03_jito_из_куними:
 - D - I - 0x0233E7 11:B3D7: F7        .byte con_F7, $44
 - D - I - 0x0233E9 11:B3D9: 3C        .byte con_pause + $3C
 - D - I - 0x0233EA 11:B3DA: 30        .byte con_bg + $30
@@ -13070,7 +13070,7 @@ bra_long_case_B95A_0B_ishizaki:
 - D - I - 0x02396E 11:B95E: F2        .byte con_jmp
 - D - I - 0x02396F 11:B95F: 17 B9     .word loc_B917
 
-bra_long_case_B961_0C_souda:
+bra_long_case_B961_0C_soda:
 - D - I - 0x023971 11:B961: 3C        .byte con_pause + $3C
 - D - I - 0x023972 11:B962: 30        .byte con_bg + $30
 - D - I - 0x023973 11:B963: 9F        .byte con_animation + $9F
@@ -13078,7 +13078,7 @@ bra_long_case_B961_0C_souda:
 - D - I - 0x023975 11:B965: F2        .byte con_jmp
 - D - I - 0x023976 11:B966: 17 B9     .word loc_B917
 
-bra_long_case_B968_0D_souda:
+bra_long_case_B968_0D_soda:
 - - - - - 0x023978 11:B968: 3C        .byte con_pause + $3C
 - - - - - 0x023979 11:B969: 30        .byte con_bg + $30
 - - - - - 0x02397A 11:B96A: AD        .byte con_animation + $AD
@@ -13086,7 +13086,7 @@ bra_long_case_B968_0D_souda:
 - - - - - 0x02397C 11:B96C: F2        .byte con_jmp
 - - - - - 0x02397D 11:B96D: 17 B9     .word loc_B917
 
-bra_long_case_B96F_0E_jitou:
+bra_long_case_B96F_0E_jito:
 - D - I - 0x02397F 11:B96F: 3C        .byte con_pause + $3C
 - D - I - 0x023980 11:B970: 30        .byte con_bg + $30
 - D - I - 0x023981 11:B971: A0        .byte con_animation + $A0
@@ -13094,7 +13094,7 @@ bra_long_case_B96F_0E_jitou:
 - D - I - 0x023983 11:B973: F2        .byte con_jmp
 - D - I - 0x023984 11:B974: 17 B9     .word loc_B917
 
-bra_long_case_B976_0F_jitou:
+bra_long_case_B976_0F_jito:
 - D - I - 0x023986 11:B976: 3C        .byte con_pause + $3C
 - D - I - 0x023987 11:B977: 30        .byte con_bg + $30
 - D - I - 0x023988 11:B978: AA        .byte con_animation + $AA

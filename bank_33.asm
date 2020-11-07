@@ -566,8 +566,8 @@ tbl_dictionary:
     .word txt_18_our_player_Kazuo
     .word txt_19_our_player_Sano
     .word txt_1A_our_player_Hyuga
-    .word txt_1B_our_player_Souda
-    .word txt_1C_our_player_Jitou
+    .word txt_1B_our_player_Soda
+    .word txt_1C_our_player_Jito
     .word txt_1D_our_player_Matsuyama
     .word txt_1E_our_player_Sorimachi
     .word txt_1F_our_player_Sawada
@@ -586,11 +586,11 @@ tbl_dictionary:
     .word txt_2B_opponent_player_Carlos
     .word txt_2C_opponent_player_Santamaria
     .word txt_2D_opponent_player_Jetorio
-    .word txt_2E_opponent_player_Jitou
+    .word txt_2E_opponent_player_Jito
     .word txt_2F_opponent_player_Sano
     .word txt_30_opponent_player_Masao
     .word txt_31_opponent_player_Kazuo
-    .word txt_32_opponent_player_Souda
+    .word txt_32_opponent_player_Soda
     .word txt_33_opponent_player_Nakanishi
     .word txt_34_opponent_player_Misugi
     .word txt_35_opponent_player_Matsuyama
@@ -612,9 +612,9 @@ tbl_dictionary:
     .word txt_45_opponent_player_Misugi
     .word txt_46_opponent_player_Masao
     .word txt_47_opponent_player_Kazuo
-    .word txt_48_opponent_player_Jitou
+    .word txt_48_opponent_player_Jito
     .word txt_49_opponent_player_Ishizaki
-    .word txt_4A_opponent_player_Souda
+    .word txt_4A_opponent_player_Soda
     .word txt_4B_opponent_player_Matsuyama
     .word txt_4C_opponent_player_Wakashimazu
     .word txt_4D_opponent_player_Li_Han_ne
@@ -903,12 +903,12 @@ txt_22_our_player_Wakashimazu:          ; 01
     .byte $60, $21, $22, $23, $24, $25, $26, $27
     .byte $FC
 
-txt_1B_our_player_Souda:                ; 02
-    .text "Souda"
+txt_1B_our_player_Soda:                ; 02
+    .text "Soda"
     .byte $FC
 
-txt_1C_our_player_Jitou:                ; 03
-    .text "Jitou"
+txt_1C_our_player_Jito:                ; 03
+    .text "Jito"
     .byte $FC
 
 ; txt_14_our_player_Ishizaki:           ; 04
@@ -1322,8 +1322,8 @@ Kunimi_clone_03:
     .text "Koshino"
     .byte $FC
 
-txt_2E_opponent_player_Jitou:           ; 04
-    .text "Jitou"
+txt_2E_opponent_player_Jito:           ; 04
+    .text "Jito"
     .byte $FC
 
 Kunimi_clone_05:
@@ -1428,8 +1428,8 @@ Tatsunami_clone_03:
     .text "Ezaki"
     .byte $FC
 
-txt_32_opponent_player_Souda:           ; 04
-    .text "Souda"
+txt_32_opponent_player_Soda:           ; 04
+    .text "Soda"
     .byte $FC
 
 Tatsunami_clone_05:
@@ -1795,12 +1795,12 @@ txt_4C_opponent_player_Wakashimazu:     ; 01
     .byte $08, $09, $0A, $0B, $0C, $0D, $0E, $0F
     .byte $FC
 
-txt_48_opponent_player_Jitou:           ; 02
-    .text "Jitou"
+txt_48_opponent_player_Jito:           ; 02
+    .text "Jito"
     .byte $FC
 
-txt_4A_opponent_player_Souda:           ; 03
-    .text "Souda"
+txt_4A_opponent_player_Soda:           ; 03
+    .text "Soda"
     .byte $FC
 
 txt_49_opponent_player_Ishizaki:        ; 04

@@ -1515,8 +1515,8 @@ tbl_88F0:
 - D - - - 0x028918 20:8908: 03        .byte $03    ; Kazuo
 - D - - - 0x028919 20:8909: 01        .byte $01    ; Sano
 - D - - - 0x02891A 20:890A: 07        .byte $07    ; Hyuga
-- D - - - 0x02891B 20:890B: 04        .byte $04    ; Souda
-- D - - - 0x02891C 20:890C: 04        .byte $04    ; Jitou
+- D - - - 0x02891B 20:890B: 04        .byte $04    ; Soda
+- D - - - 0x02891C 20:890C: 04        .byte $04    ; Jito
 - D - - - 0x02891D 20:890D: 02        .byte $02    ; Matsuyama
 - - - - - 0x02891E 20:890E: 02        .byte $02    ; Sorimachi
 - - - - - 0x02891F 20:890F: 04        .byte $04    ; Sawada
@@ -1534,11 +1534,11 @@ tbl_88F0:
 - D - - - 0x02892B 20:891B: 0A        .byte $0A    ; Carlos
 - D - - - 0x02892C 20:891C: 09        .byte $09    ; Santamaria
 - D - - - 0x02892D 20:891D: 08        .byte $08    ; Jetorio
-- D - - - 0x02892E 20:891E: 04        .byte $04    ; Jitou
+- D - - - 0x02892E 20:891E: 04        .byte $04    ; Jito
 - D - - - 0x02892F 20:891F: 01        .byte $01    ; Sano
 - D - - - 0x028930 20:8920: 03        .byte $03    ; Masao
 - D - - - 0x028931 20:8921: 03        .byte $03    ; Kazuo
-- D - - - 0x028932 20:8922: 04        .byte $04    ; Souda
+- D - - - 0x028932 20:8922: 04        .byte $04    ; Soda
 - D - - - 0x028933 20:8923: 11        .byte $11    ; Nakanishi
 - D - - - 0x028934 20:8924: 02        .byte $02    ; Misugi
 - D - - - 0x028935 20:8925: 02        .byte $02    ; Matsuyama
@@ -1560,9 +1560,9 @@ tbl_88F0:
 - D - - - 0x028945 20:8935: 02        .byte $02    ; Misugi
 - D - - - 0x028946 20:8936: 03        .byte $03    ; Masao
 - D - - - 0x028947 20:8937: 03        .byte $03    ; Kazuo
-- D - - - 0x028948 20:8938: 04        .byte $04    ; Jitou
+- D - - - 0x028948 20:8938: 04        .byte $04    ; Jito
 - D - - - 0x028949 20:8939: 06        .byte $06    ; Ishizaki
-- D - - - 0x02894A 20:893A: 04        .byte $04    ; Souda
+- D - - - 0x02894A 20:893A: 04        .byte $04    ; Soda
 - D - - - 0x02894B 20:893B: 02        .byte $02    ; Matsuyama
 - D - - - 0x02894C 20:893C: 0E        .byte $0E    ; Wakashimazu
 - D - - - 0x02894D 20:893D: 06        .byte $06    ; Li Han-ne
@@ -1769,8 +1769,8 @@ tbl_8968_анимации_сценариев:
 - D - I - 0x028AB0 20:8AA0: AB 99     .word off_99AB_9C     ; лицо masao / kazuo
 - D - I - 0x028AB2 20:8AA2: B1 99     .word off_99B1_9D     ; замах slider shot / razor shot
 - D - I - 0x028AB4 20:8AA4: D4 99     .word off_99D4_9E     ; лицо hyuga
-- D - I - 0x028AB6 20:8AA6: DA 99     .word off_99DA_9F     ; лицо souda
-- D - I - 0x028AB8 20:8AA8: E0 99     .word off_99E0_A0     ; лицо jitou
+- D - I - 0x028AB6 20:8AA6: DA 99     .word off_99DA_9F     ; лицо soda
+- D - I - 0x028AB8 20:8AA8: E0 99     .word off_99E0_A0     ; лицо jito
 - D - I - 0x028ABA 20:8AAA: E6 99     .word off_99E6_A1     ; лицо matsuyama
 - - - - - 0x028ABC 20:8AAC: EC 99     .word off_99EC_A2     ; лицо sawada
 - D - I - 0x028ABE 20:8AAE: F2 99     .word off_99F2_A3     ; лицо misugi
@@ -1780,10 +1780,10 @@ tbl_8968_анимации_сценариев:
 - D - I - 0x028AC6 20:8AB6: 50 9A     .word off_9A50_A7     ; sawada / napoleon возвращает перепасовку
 - D - I - 0x028AC8 20:8AB8: 8B 9A     .word off_9A8B_A8     ; лицо meon
 - D - I - 0x028ACA 20:8ABA: 9A 9A     .word off_9A9A_A9     ; лицо carlos
-- D - I - 0x028ACC 20:8ABC: A0 9A     .word off_9AA0_AA     ; лицо jitou
+- D - I - 0x028ACC 20:8ABC: A0 9A     .word off_9AA0_AA     ; лицо jito
 - D - I - 0x028ACE 20:8ABE: AF 9A     .word off_9AAF_AB     ; лицо masao / kazuo
 - D - I - 0x028AD0 20:8AC0: BE 9A     .word off_9ABE_AC     ; игрок прыгает в воздух (вблизи, средняя скорость, чуть правее 64 и 71)
-- D - I - 0x028AD2 20:8AC2: D5 9A     .word off_9AD5_AD     ; лицо souda
+- D - I - 0x028AD2 20:8AC2: D5 9A     .word off_9AD5_AD     ; лицо soda
 - D - I - 0x028AD4 20:8AC4: E4 9A     .word off_9AE4_AE     ; лицо misugi
 - D - I - 0x028AD6 20:8AC6: F3 9A     .word off_9AF3_AF     ; лицо matsuyama
 - D - I - 0x028AD8 20:8AC8: 02 9B     .word off_9B02_B0     ; лицо hyuga
@@ -1804,7 +1804,7 @@ tbl_8968_анимации_сценариев:
 - D - I - 0x028AF6 20:8AE6: 06 9C     .word off_9C06_BF     ; overhead
 - D - I - 0x028AF8 20:8AE8: 38 9C     .word off_9C38_C0     ; masao kazuo стоят один на другом
 - D - I - 0x028AFA 20:8AEA: 46 9C     .word off_9C46_C1     ; полет masao / kazuo с тонкими ногами (аналогично 4B)
-- D - I - 0x028AFC 20:8AEC: 54 9C     .word off_9C54_C2     ; masao kazuo стоят на jitou
+- D - I - 0x028AFC 20:8AEC: 54 9C     .word off_9C54_C2     ; masao kazuo стоят на jito
 - D - I - 0x028AFE 20:8AEE: 62 9C     .word off_9C62_C3     ; masao kazuo летят вдвоем
 - D - I - 0x028B00 20:8AF0: 70 9C     .word off_9C70_C4     ; замах jumping volley
 - D - I - 0x028B02 20:8AF2: 93 9C     .word off_9C93_C5     ; мяч улетает от игрока после jumping volley / booster shot
@@ -1844,7 +1844,7 @@ tbl_8968_анимации_сценариев:
 - D - I - 0x028B46 20:8B36: A8 A0     .word off_A0A8_E7     ; hyuga бежит к drive tiger
 - D - I - 0x028B48 20:8B38: BE A0     .word off_A0BE_E8     ; sano бьет головой в sano combo
 - D - I - 0x028B4A 20:8B3A: EA A0     .word off_A0EA_E9     ; удар booster shot toninho
-- D - I - 0x028B4C 20:8B3C: F8 A0     .word off_A0F8_EA     ; jitou готовится делать skylab twin shot
+- D - I - 0x028B4C 20:8B3C: F8 A0     .word off_A0F8_EA     ; jito готовится делать skylab twin shot
 - D - I - 0x028B4E 20:8B3E: 06 A1     .word off_A106_EB     ; pierre прыгает для slider cannon
 - D - I - 0x028B50 20:8B40: 1D A1     .word off_A11D_EC     ; napoleon прыгает для slider cannon
 - D - I - 0x028B52 20:8B42: 30 A1     .word off_A130_ED     ; tsubasa прыгает для drive overhead
