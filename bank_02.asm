@@ -86,7 +86,7 @@ C - - - - 0x0020C5 02:A0B5: 20 38 A4  JSR sub_A438
 C - - - - 0x0020C8 02:A0B8: A2 FF     LDX #$FF
 bra_A0BA_цикл:
 C - - - - 0x0020CA 02:A0BA: E8        INX
-C - - - - 0x0020CB 02:A0BB: DD 55 B2  CMP tbl_B255,X
+C - - - - 0x0020CB 02:A0BB: DD 55 B2  CMP tbl_B255_байт_буквы_алфавита,X
 C - - - - 0x0020CE 02:A0BE: D0 FA     BNE bra_A0BA_цикл
 C - - - - 0x0020D0 02:A0C0: A5 ED     LDA ram_00ED
 C - - - - 0x0020D2 02:A0C2: C9 0F     CMP #$0F
@@ -216,23 +216,23 @@ loc_A1A6:
 bra_A1A6_в_итоге_ничего_не_нажато:
 C D - - - 0x0021B6 02:A1A6: A9 01     LDA #$01
 C - - - - 0x0021B8 02:A1A8: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x0021BB 02:A1AB: 20 D0 A3  JSR sub_A3D0
+C - - - - 0x0021BB 02:A1AB: 20 D0 A3  JSR sub_A3D0_мигание_курсора
 C - - - - 0x0021BE 02:A1AE: 24 1E     BIT ram_одноразовые
 C - - - - 0x0021C0 02:A1B0: 10 03     BPL bra_A1B5_A_не_нажата       ; con_btn_A
-C - - - - 0x0021C2 02:A1B2: 4C 31 A2  JMP loc_A231_A_нажата
+C - - - - 0x0021C2 02:A1B2: 4C 31 A2  JMP loc_A231_ввести_букву
 bra_A1B5_A_не_нажата:
 C - - - - 0x0021C5 02:A1B5: 50 03     BVC bra_A1BA_B_не_нажата       ; con_btn_B
-C - - - - 0x0021C7 02:A1B7: 4C 60 A2  JMP loc_A260_B_нажата
+C - - - - 0x0021C7 02:A1B7: 4C 60 A2  JMP loc_A260_сместить_курсор_пароля_влево
 bra_A1BA_B_не_нажата:
 C - - - - 0x0021CA 02:A1BA: A5 1E     LDA ram_одноразовые
 C - - - - 0x0021CC 02:A1BC: 29 20     AND #con_btn_Select
 C - - - - 0x0021CE 02:A1BE: F0 03     BEQ bra_A1C3_select_не_нажата
-C - - - - 0x0021D0 02:A1C0: 4C 52 A2  JMP loc_A252_select_нажата
+C - - - - 0x0021D0 02:A1C0: 4C 52 A2  JMP loc_A252_сместить_курсор_пароля_вправо
 bra_A1C3_select_не_нажата:
 C - - - - 0x0021D3 02:A1C3: A5 1E     LDA ram_одноразовые
 C - - - - 0x0021D5 02:A1C5: 29 10     AND #con_btn_Start
 C - - - - 0x0021D7 02:A1C7: F0 03     BEQ bra_A1CC_start_не_нажата
-C - - - - 0x0021D9 02:A1C9: 4C 6C A2  JMP loc_A26C_start_нажата
+C - - - - 0x0021D9 02:A1C9: 4C 6C A2  JMP loc_A26C_проверить_введенный_пароль
 bra_A1CC_start_не_нажата:
 C - - - - 0x0021DC 02:A1CC: A5 1C     LDA ram_удержанные
 C - - - - 0x0021DE 02:A1CE: 29 0F     AND #con_btns_Dpad
@@ -247,7 +247,7 @@ C - - - - 0x0021ED 02:A1DD: 20 D8 A4  JSR sub_A4D8
 C - - - - 0x0021F0 02:A1E0: A5 1C     LDA ram_удержанные
 C - - - - 0x0021F2 02:A1E2: 29 0F     AND #con_btns_Dpad
 C - - - - 0x0021F4 02:A1E4: AA        TAX
-C - - - - 0x0021F5 02:A1E5: BD ED B2  LDA tbl_B2ED_смещение_курсора,X
+C - - - - 0x0021F5 02:A1E5: BD ED B2  LDA tbl_B2ED_смещение_курсора_алфавита,X
 C - - - - 0x0021F8 02:A1E8: 30 0D     BMI bra_A1F7_сместить_назад
 C - - - - 0x0021FA 02:A1EA: 18        CLC
 C - - - - 0x0021FB 02:A1EB: 65 EC     ADC ram_00EC
@@ -280,7 +280,7 @@ C - - - - 0x002224 02:A214: 20 D8 A4  JSR sub_A4D8
 bra_A217_цикл:
 C - - - - 0x002227 02:A217: A9 01     LDA #$01
 C - - - - 0x002229 02:A219: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x00222C 02:A21C: 20 D0 A3  JSR sub_A3D0
+C - - - - 0x00222C 02:A21C: 20 D0 A3  JSR sub_A3D0_мигание_курсора
 C - - - - 0x00222F 02:A21F: A5 1C     LDA ram_удержанные
 C - - - - 0x002231 02:A221: 29 0F     AND #con_btns_Dpad
 C - - - - 0x002233 02:A223: D0 03     BNE bra_A228
@@ -290,14 +290,14 @@ C - - - - 0x002238 02:A228: C6 EA     DEC ram_00EA
 C - - - - 0x00223A 02:A22A: D0 EB     BNE bra_A217_цикл
 C - - - - 0x00223C 02:A22C: A0 08     LDY #$08
 C - - - - 0x00223E 02:A22E: 4C D4 A1  JMP loc_A1D4
-loc_A231_A_нажата:
+loc_A231_ввести_букву:
 C D - - - 0x002241 02:A231: A6 EC     LDX ram_00EC
-C - - - - 0x002243 02:A233: BD 55 B2  LDA tbl_B255,X
-C - - - - 0x002246 02:A236: C9 FF     CMP #$FF
-C - - - - 0x002248 02:A238: F0 32     BEQ bra_A26C
+C - - - - 0x002243 02:A233: BD 55 B2  LDA tbl_B255_байт_буквы_алфавита,X
+C - - - - 0x002246 02:A236: C9 FF     CMP #$FF      ; символ GO
+C - - - - 0x002248 02:A238: F0 32     BEQ bra_A26C_проверить_введенный_пароль
 C - - - - 0x00224A 02:A23A: 8A        TXA
 C - - - - 0x00224B 02:A23B: A4 ED     LDY ram_00ED
-C - - - - 0x00224D 02:A23D: 99 64 06  STA $0664,Y
+C - - - - 0x00224D 02:A23D: 99 64 06  STA ram_байт_введенного_пароля,Y
 C - - - - 0x002250 02:A240: BD 6E BC  LDA tbl_BC6E_символы_пароля,X
 C - - - - 0x002253 02:A243: A6 ED     LDX ram_00ED
 C - - - - 0x002255 02:A245: BC 41 B2  LDY tbl_B241_lo_адрес_ppu_введенных_символов,X
@@ -305,41 +305,41 @@ C - - - - 0x002258 02:A248: A2 21     LDX #$21
 C - - - - 0x00225A 02:A24A: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер
 C - - - - 0x00225D 02:A24D: A9 12     LDA #$12
 C - - - - 0x00225F 02:A24F: 8D 01 07  STA ram_звук + 1
-loc_A252_select_нажата:
+loc_A252_сместить_курсор_пароля_вправо:
 C D - - - 0x002262 02:A252: A6 ED     LDX ram_00ED
 C - - - - 0x002264 02:A254: E8        INX
 C - - - - 0x002265 02:A255: E0 12     CPX #$12
-C - - - - 0x002267 02:A257: 90 02     BCC bra_A25B
+C - - - - 0x002267 02:A257: 90 02     BCC bra_A25B_не_overflow
 C - - - - 0x002269 02:A259: A2 00     LDX #$00
-bra_A25B:
+bra_A25B_не_overflow:
 C - - - - 0x00226B 02:A25B: 86 ED     STX ram_00ED
 C - - - - 0x00226D 02:A25D: 4C A6 A1  JMP loc_A1A6
-loc_A260_B_нажата:
+loc_A260_сместить_курсор_пароля_влево:
 C D - - - 0x002270 02:A260: A6 ED     LDX ram_00ED
 C - - - - 0x002272 02:A262: CA        DEX
-C - - - - 0x002273 02:A263: 10 02     BPL bra_A267
+C - - - - 0x002273 02:A263: 10 02     BPL bra_A267_не_overflow
 C - - - - 0x002275 02:A265: A2 11     LDX #$11
-bra_A267:
+bra_A267_не_overflow:
 C - - - - 0x002277 02:A267: 86 ED     STX ram_00ED
 C - - - - 0x002279 02:A269: 4C A6 A1  JMP loc_A1A6
-bra_A26C:
-loc_A26C_start_нажата:
+bra_A26C_проверить_введенный_пароль:
+loc_A26C_проверить_введенный_пароль:
 C D - - - 0x00227C 02:A26C: A6 EC     LDX ram_00EC
 C - - - - 0x00227E 02:A26E: BD E8 B1  LDA tbl_B1E8,X
 C - - - - 0x002281 02:A271: A0 00     LDY #$00
 C - - - - 0x002283 02:A273: 20 D8 A4  JSR sub_A4D8
-C - - - - 0x002286 02:A276: AE 73 06  LDX $0673
-C - - - - 0x002289 02:A279: BD 55 B2  LDA tbl_B255,X
+C - - - - 0x002286 02:A276: AE 73 06  LDX ram_байт_введенного_пароля + $0F
+C - - - - 0x002289 02:A279: BD 55 B2  LDA tbl_B255_байт_буквы_алфавита,X
 C - - - - 0x00228C 02:A27C: 29 30     AND #$30
 C - - - - 0x00228E 02:A27E: 85 EB     STA ram_00EB
-C - - - - 0x002290 02:A280: AE 75 06  LDX $0675
-C - - - - 0x002293 02:A283: BD 55 B2  LDA tbl_B255,X
+C - - - - 0x002290 02:A280: AE 75 06  LDX ram_байт_введенного_пароля + $11
+C - - - - 0x002293 02:A283: BD 55 B2  LDA tbl_B255_байт_буквы_алфавита,X
 C - - - - 0x002296 02:A286: 29 0F     AND #$0F
 C - - - - 0x002298 02:A288: 05 EB     ORA ram_00EB
 C - - - - 0x00229A 02:A28A: 85 EB     STA ram_00EB
 C - - - - 0x00229C 02:A28C: A2 00     LDX #$00
 bra_A28E_цикл:
-C - - - - 0x00229E 02:A28E: BD 64 06  LDA $0664,X
+C - - - - 0x00229E 02:A28E: BD 64 06  LDA ram_байт_введенного_пароля,X
 C - - - - 0x0022A1 02:A291: E0 0F     CPX #$0F
 C - - - - 0x0022A3 02:A293: B0 07     BCS bra_A29C
 C - - - - 0x0022A5 02:A295: E6 EB     INC ram_00EB
@@ -348,7 +348,7 @@ C - - - - 0x0022A8 02:A298: E5 EB     SBC ram_00EB
 C - - - - 0x0022AA 02:A29A: 29 3F     AND #$3F
 bra_A29C:
 C - - - - 0x0022AC 02:A29C: A8        TAY
-C - - - - 0x0022AD 02:A29D: B9 55 B2  LDA tbl_B255,Y
+C - - - - 0x0022AD 02:A29D: B9 55 B2  LDA tbl_B255_байт_буквы_алфавита,Y
 C - - - - 0x0022B0 02:A2A0: 20 74 A4  JSR sub_A474
 C - - - - 0x0022B3 02:A2A3: E8        INX
 C - - - - 0x0022B4 02:A2A4: E0 12     CPX #$12
@@ -536,7 +536,7 @@ bra_A3B6_цикл:
 - - - - - 0x0023DD 02:A3CD: D0 E7     BNE bra_A3B6_цикл
 - - - - - 0x0023DF 02:A3CF: 60        RTS
 
-sub_A3D0:
+sub_A3D0_мигание_курсора:
 C - - - - 0x0023E0 02:A3D0: A5 3A     LDA ram_003A
 C - - - - 0x0023E2 02:A3D2: 29 04     AND #$04
 C - - - - 0x0023E4 02:A3D4: F0 23     BEQ bra_A3F9_отобразить_введенный_символ
@@ -864,12 +864,12 @@ C - - - - 0x00267E 02:A66E: A2 A6     LDX #> tbl_A673_опции
 C - - - - 0x002680 02:A670: 4C 28 9C  JMP loc_0x001C38_непрямой_прыжок
 
 tbl_A673_опции:
-- D - I - 0x002683 02:A673: 7B A6     .word ofs_A67B_00_совет
-- D - I - 0x002685 02:A675: 9F A6     .word ofs_A69F_01_пароль
-- D - I - 0x002687 02:A677: BE A6     .word ofs_A6BE_02_команда
-- D - I - 0x002689 02:A679: C4 A6     .word ofs_A6C4_03_матч
+- D - I - 0x002683 02:A673: 7B A6     .word ofs_A67B_00_advice
+- D - I - 0x002685 02:A675: 9F A6     .word ofs_A69F_01_score_memo
+- D - I - 0x002687 02:A677: BE A6     .word ofs_A6BE_02_options
+- D - I - 0x002689 02:A679: C4 A6     .word ofs_A6C4_03_kickoff
 
-ofs_A67B_00_совет:
+ofs_A67B_00_advice:
 C - J - - 0x00268B 02:A67B: A6 26     LDA ram_матч
                                       CLC
                                       ADC #$23
@@ -888,7 +888,7 @@ C - - - - 0x0026A7 02:A697: A9 02     LDA #$02
 C - - - - 0x0026A9 02:A699: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0026AC 02:A69C: 4C 52 A6  JMP loc_A652
 
-ofs_A69F_01_пароль:
+ofs_A69F_01_score_memo:
 C - J - - 0x0026AF 02:A69F: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - 0x0026B2 02:A6A2: A6 26     LDX ram_матч
 C - - - - 0x0026B4 02:A6A4: BD D7 B3  LDA tbl_B3D7_cutscene_score_memo,X
@@ -906,11 +906,11 @@ C - - - - 0x0026C5 02:A6B5: 20 A9 82  JSR sub_0x0002B9_ожидание_заве
 C - - - - 0x0026C8 02:A6B8: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - 0x0026CB 02:A6BB: 4C 4C A6  JMP loc_A64C
 
-ofs_A6BE_02_команда:
+ofs_A6BE_02_options:
 C - J - - 0x0026CE 02:A6BE: 20 21 A7  JSR sub_A721_экран_с_опциями_команды
 C - - - - 0x0026D1 02:A6C1: 4C 4C A6  JMP loc_A64C
 
-ofs_A6C4_03_матч:
+ofs_A6C4_03_kickoff:
 C - J - - 0x0026D4 02:A6C4: A6 26     LDX ram_матч
 C - - - - 0x0026D6 02:A6C6: BD 1B B4  LDA tbl_B41B_cutscene_team_before_match,X
                                       CLC
@@ -2613,7 +2613,7 @@ tbl_B241_lo_адрес_ppu_введенных_символов:
     .byte $2B, $2C, $2D, $2E, $2F,      $31, $32, $33, $34, $35
     .byte $6B, $6C, $6D, $6E, $6F,      $71, $72, $73
 
-tbl_B255:
+tbl_B255_байт_буквы_алфавита:
     .byte $0A, $31, $04, $13, $3B, $21, $02, $1A, $39, $06, $0F, $2A, $22
     .byte $1C, $09, $11, $34, $15, $23, $16, $01, $3C, $19, $28, $30, $27
     .byte $10, $20, $26, $03, $2F, $0D, $1D, $2B, $05, $2D, $3E, $0E, $24
@@ -2722,7 +2722,7 @@ off_B201_фраза_верный_пароль:
 
 
 
-tbl_B2ED_смещение_курсора:
+tbl_B2ED_смещение_курсора_алфавита:
     .byte $00
     .byte $01     ; right
     .byte $FF     ; left
