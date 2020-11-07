@@ -1116,8 +1116,8 @@ tbl_86C8:
 - D - - - 0x0306DC 22:86CC: 00        .byte $00
 - D - - - 0x0306DD 22:86CD: 02        .byte $02
 
-- - - - - 0x0306DE 22:86CE: 00        .byte $00
-- - - - - 0x0306DF 22:86CF: 03        .byte $03
+- - - - - 0x0306DE 22:86CE: 00        .byte $00     ; unused
+- - - - - 0x0306DF 22:86CF: 03        .byte $03     ; unused
 
 - D - - - 0x0306E0 22:86D0: 01        .byte $01
 - D - - - 0x0306E1 22:86D1: 01        .byte $01
@@ -1152,8 +1152,8 @@ tbl_86C8:
 - D - - - 0x0306F4 22:86E4: 04        .byte $04
 - D - - - 0x0306F5 22:86E5: 06        .byte $06
 
-- - - - - 0x0306F6 22:86E6: 04        .byte $04
-- - - - - 0x0306F7 22:86E7: 07        .byte $07
+- - - - - 0x0306F6 22:86E6: 04        .byte $04     ; unused
+- - - - - 0x0306F7 22:86E7: 07        .byte $07     ; unused
 
 
 
@@ -2208,1145 +2208,705 @@ tbl_8DC2_тайлы_облаков:
 
 
 off_8DE0_00:
-- D - I - 0x030DF0 22:8DE0: 2C        .byte $2C
-- D - I - 0x030DF1 22:8DE1: 22        .byte $22
-- D - I - 0x030DF2 22:8DE2: 14        .byte $14
-
-- D - I - 0x030DF3 22:8DE3: 94        .byte $94
-- D - I - 0x030DF4 22:8DE4: 94        .byte $94
-- D - I - 0x030DF5 22:8DE5: 82        .byte $82
-- D - I - 0x030DF6 22:8DE6: 10        .byte $10
-- D - I - 0x030DF7 22:8DE7: 9C        .byte $9C
-- D - I - 0x030DF8 22:8DE8: A8        .byte $A8
-- D - I - 0x030DF9 22:8DE9: A8        .byte $A8
-- D - I - 0x030DFA 22:8DEA: A0        .byte $A0
-- D - I - 0x030DFB 22:8DEB: A8        .byte $A8
-- D - I - 0x030DFC 22:8DEC: A8        .byte $A8
-- D - I - 0x030DFD 22:8DED: A0        .byte $A0
-- D - I - 0x030DFE 22:8DEE: A8        .byte $A8
-- D - I - 0x030DFF 22:8DEF: A8        .byte $A8
-- D - I - 0x030E00 22:8DF0: A8        .byte $A8
-- D - I - 0x030E01 22:8DF1: A0        .byte $A0
-- D - I - 0x030E02 22:8DF2: A8        .byte $A8
-- D - I - 0x030E03 22:8DF3: A0        .byte $A0
-- D - I - 0x030E04 22:8DF4: A8        .byte $A8
-- D - I - 0x030E05 22:8DF5: A8        .byte $A8
-- D - I - 0x030E06 22:8DF6: 9D        .byte $9D
-- D - I - 0x030E07 22:8DF7: 82        .byte $82
-- D - I - 0x030E08 22:8DF8: 03        .byte $03
-- D - I - 0x030E09 22:8DF9: 00        .byte $00
-- D - I - 0x030E0A 22:8DFA: 9C        .byte $9C
-- D - I - 0x030E0B 22:8DFB: 98        .byte $98
-- D - I - 0x030E0C 22:8DFC: 8E        .byte $8E
-- D - I - 0x030E0D 22:8DFD: 03        .byte $03
-- D - I - 0x030E0E 22:8DFE: 99        .byte $99
-- D - I - 0x030E0F 22:8DFF: 9D        .byte $9D
-- D - I - 0x030E10 22:8E00: 00        .byte $00
-- D - I - 0x030E11 22:8E01: 02        .byte $02
-- D - I - 0x030E12 22:8E02: 00        .byte $00
-- D - I - 0x030E13 22:8E03: AA        .byte $AA
-- D - I - 0x030E14 22:8E04: 90        .byte $90
-- D - I - 0x030E15 22:8E05: 02        .byte $02
-- D - I - 0x030E16 22:8E06: AB        .byte $AB
-- D - I - 0x030E17 22:8E07: 00        .byte $00
-- D - I - 0x030E18 22:8E08: 02        .byte $02
-- D - I - 0x030E19 22:8E09: A4        .byte $A4
-- D - I - 0x030E1A 22:8E0A: A5        .byte $A5
-- D - I - 0x030E1B 22:8E0B: 90        .byte $90
-- D - I - 0x030E1C 22:8E0C: 02        .byte $02
-- D - I - 0x030E1D 22:8E0D: AB        .byte $AB
-- D - I - 0x030E1E 22:8E0E: 00        .byte $00
-- D - I - 0x030E1F 22:8E0F: 02        .byte $02
-- D - I - 0x030E20 22:8E10: 00        .byte $00
-- D - I - 0x030E21 22:8E11: AA        .byte $AA
-- D - I - 0x030E22 22:8E12: 90        .byte $90
-- D - I - 0x030E23 22:8E13: 02        .byte $02
-- D - I - 0x030E24 22:8E14: AB        .byte $AB
-- D - I - 0x030E25 22:8E15: 00        .byte $00
-- D - I - 0x030E26 22:8E16: 03        .byte $03
-- D - I - 0x030E27 22:8E17: 00        .byte $00
-- D - I - 0x030E28 22:8E18: 9E        .byte $9E
-- D - I - 0x030E29 22:8E19: 9A        .byte $9A
-- D - I - 0x030E2A 22:8E1A: 8E        .byte $8E
-- D - I - 0x030E2B 22:8E1B: 03        .byte $03
-- D - I - 0x030E2C 22:8E1C: 9B        .byte $9B
-- D - I - 0x030E2D 22:8E1D: 9F        .byte $9F
-- D - I - 0x030E2E 22:8E1E: 00        .byte $00
-- D - I - 0x030E2F 22:8E1F: 14        .byte $14
-- D - I - 0x030E30 22:8E20: 00        .byte $00
-- D - I - 0x030E31 22:8E21: 00        .byte $00
-- D - I - 0x030E32 22:8E22: 9E        .byte $9E
-- D - I - 0x030E33 22:8E23: A9        .byte $A9
-- D - I - 0x030E34 22:8E24: A2        .byte $A2
-- D - I - 0x030E35 22:8E25: A9        .byte $A9
-- D - I - 0x030E36 22:8E26: A9        .byte $A9
-- D - I - 0x030E37 22:8E27: A2        .byte $A2
-- D - I - 0x030E38 22:8E28: A9        .byte $A9
-- D - I - 0x030E39 22:8E29: A9        .byte $A9
-- D - I - 0x030E3A 22:8E2A: A9        .byte $A9
-- D - I - 0x030E3B 22:8E2B: A2        .byte $A2
-- D - I - 0x030E3C 22:8E2C: A9        .byte $A9
-- D - I - 0x030E3D 22:8E2D: A9        .byte $A9
-- D - I - 0x030E3E 22:8E2E: A9        .byte $A9
-- D - I - 0x030E3F 22:8E2F: A2        .byte $A2
-- D - I - 0x030E40 22:8E30: A9        .byte $A9
-- D - I - 0x030E41 22:8E31: 9F        .byte $9F
-- D - I - 0x030E42 22:8E32: 00        .byte $00
-- D - I - 0x030E43 22:8E33: 00        .byte $00
-- D - I - 0x030E44 22:8E34: 94        .byte $94
-- D - I - 0x030E45 22:8E35: 94        .byte $94
-- D - I - 0x030E46 22:8E36: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $94
+    .byte $82
+    .byte $10
+    .byte $9C, $A8, $A8, $A0, $A8, $A8, $A0, $A8, $A8, $A8, $A0, $A8, $A0, $A8, $A8, $9D
+    
+    .byte $82
+    .byte $03
+    .byte $00, $9C, $98
+    
+    .byte $8E
+    .byte $03
+    .byte $99, $9D, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $A4, $A5
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $03
+    .byte $00, $9E, $9A
+    
+    .byte $8E
+    .byte $03
+    .byte $9B, $9F, $00
+    
+    .byte $14
+    .byte $00, $00, $9E, $A9, $A2, $A9, $A9, $A2, $A9, $A9, $A9, $A2, $A9, $A9, $A9, $A2, $A9, $9F, $00, $00
+    
+    .byte $94
+    .byte $94
+    .byte $94
 
 
 
 off_8E37_01:
-- D - I - 0x030E47 22:8E37: 2C        .byte $2C
-- D - I - 0x030E48 22:8E38: 22        .byte $22
-- D - I - 0x030E49 22:8E39: 14        .byte $14
-
-- D - I - 0x030E4A 22:8E3A: 94        .byte $94
-- D - I - 0x030E4B 22:8E3B: 94        .byte $94
-- D - I - 0x030E4C 22:8E3C: 83        .byte $83
-- D - I - 0x030E4D 22:8E3D: 0E        .byte $0E
-- D - I - 0x030E4E 22:8E3E: 9C        .byte $9C
-- D - I - 0x030E4F 22:8E3F: A8        .byte $A8
-- D - I - 0x030E50 22:8E40: A0        .byte $A0
-- D - I - 0x030E51 22:8E41: A8        .byte $A8
-- D - I - 0x030E52 22:8E42: A0        .byte $A0
-- D - I - 0x030E53 22:8E43: A8        .byte $A8
-- D - I - 0x030E54 22:8E44: A8        .byte $A8
-- D - I - 0x030E55 22:8E45: A0        .byte $A0
-- D - I - 0x030E56 22:8E46: A8        .byte $A8
-- D - I - 0x030E57 22:8E47: A0        .byte $A0
-- D - I - 0x030E58 22:8E48: A8        .byte $A8
-- D - I - 0x030E59 22:8E49: A8        .byte $A8
-- D - I - 0x030E5A 22:8E4A: A0        .byte $A0
-- D - I - 0x030E5B 22:8E4B: 9D        .byte $9D
-- D - I - 0x030E5C 22:8E4C: 83        .byte $83
-- D - I - 0x030E5D 22:8E4D: 04        .byte $04
-- D - I - 0x030E5E 22:8E4E: 00        .byte $00
-- D - I - 0x030E5F 22:8E4F: 00        .byte $00
-- D - I - 0x030E60 22:8E50: 9C        .byte $9C
-- D - I - 0x030E61 22:8E51: 98        .byte $98
-- D - I - 0x030E62 22:8E52: 8C        .byte $8C
-- D - I - 0x030E63 22:8E53: 04        .byte $04
-- D - I - 0x030E64 22:8E54: 99        .byte $99
-- D - I - 0x030E65 22:8E55: A0        .byte $A0
-- D - I - 0x030E66 22:8E56: 9D        .byte $9D
-- D - I - 0x030E67 22:8E57: 00        .byte $00
-- D - I - 0x030E68 22:8E58: 03        .byte $03
-- D - I - 0x030E69 22:8E59: 00        .byte $00
-- D - I - 0x030E6A 22:8E5A: 9C        .byte $9C
-- D - I - 0x030E6B 22:8E5B: 98        .byte $98
-- D - I - 0x030E6C 22:8E5C: 8F        .byte $8F
-- D - I - 0x030E6D 22:8E5D: 02        .byte $02
-- D - I - 0x030E6E 22:8E5E: A1        .byte $A1
-- D - I - 0x030E6F 22:8E5F: 00        .byte $00
-- D - I - 0x030E70 22:8E60: 02        .byte $02
-- D - I - 0x030E71 22:8E61: A4        .byte $A4
-- D - I - 0x030E72 22:8E62: A5        .byte $A5
-- D - I - 0x030E73 22:8E63: 90        .byte $90
-- D - I - 0x030E74 22:8E64: 02        .byte $02
-- D - I - 0x030E75 22:8E65: AB        .byte $AB
-- D - I - 0x030E76 22:8E66: 00        .byte $00
-- D - I - 0x030E77 22:8E67: 02        .byte $02
-- D - I - 0x030E78 22:8E68: 00        .byte $00
-- D - I - 0x030E79 22:8E69: AA        .byte $AA
-- D - I - 0x030E7A 22:8E6A: 90        .byte $90
-- D - I - 0x030E7B 22:8E6B: 02        .byte $02
-- D - I - 0x030E7C 22:8E6C: A1        .byte $A1
-- D - I - 0x030E7D 22:8E6D: 00        .byte $00
-- D - I - 0x030E7E 22:8E6E: 03        .byte $03
-- D - I - 0x030E7F 22:8E6F: 00        .byte $00
-- D - I - 0x030E80 22:8E70: 9E        .byte $9E
-- D - I - 0x030E81 22:8E71: 9A        .byte $9A
-- D - I - 0x030E82 22:8E72: 8F        .byte $8F
-- D - I - 0x030E83 22:8E73: 02        .byte $02
-- D - I - 0x030E84 22:8E74: AB        .byte $AB
-- D - I - 0x030E85 22:8E75: 00        .byte $00
-- D - I - 0x030E86 22:8E76: 04        .byte $04
-- D - I - 0x030E87 22:8E77: 00        .byte $00
-- D - I - 0x030E88 22:8E78: 00        .byte $00
-- D - I - 0x030E89 22:8E79: 9E        .byte $9E
-- D - I - 0x030E8A 22:8E7A: 9A        .byte $9A
-- D - I - 0x030E8B 22:8E7B: 8E        .byte $8E
-- D - I - 0x030E8C 22:8E7C: 02        .byte $02
-- D - I - 0x030E8D 22:8E7D: A1        .byte $A1
-- D - I - 0x030E8E 22:8E7E: 00        .byte $00
-- D - I - 0x030E8F 22:8E7F: 83        .byte $83
-- D - I - 0x030E90 22:8E80: 11        .byte $11
-- D - I - 0x030E91 22:8E81: 9E        .byte $9E
-- D - I - 0x030E92 22:8E82: A2        .byte $A2
-- D - I - 0x030E93 22:8E83: A9        .byte $A9
-- D - I - 0x030E94 22:8E84: A2        .byte $A2
-- D - I - 0x030E95 22:8E85: A9        .byte $A9
-- D - I - 0x030E96 22:8E86: A9        .byte $A9
-- D - I - 0x030E97 22:8E87: A2        .byte $A2
-- D - I - 0x030E98 22:8E88: A9        .byte $A9
-- D - I - 0x030E99 22:8E89: A9        .byte $A9
-- D - I - 0x030E9A 22:8E8A: A2        .byte $A2
-- D - I - 0x030E9B 22:8E8B: A9        .byte $A9
-- D - I - 0x030E9C 22:8E8C: A2        .byte $A2
-- D - I - 0x030E9D 22:8E8D: A9        .byte $A9
-- D - I - 0x030E9E 22:8E8E: A9        .byte $A9
-- D - I - 0x030E9F 22:8E8F: A2        .byte $A2
-- D - I - 0x030EA0 22:8E90: 9F        .byte $9F
-- D - I - 0x030EA1 22:8E91: 00        .byte $00
-- D - I - 0x030EA2 22:8E92: 94        .byte $94
-- D - I - 0x030EA3 22:8E93: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $94
+    .byte $83
+    .byte $0E
+    .byte $9C, $A8, $A0, $A8, $A0, $A8, $A8, $A0, $A8, $A0, $A8, $A8, $A0, $9D
+    
+    .byte $83
+    .byte $04
+    .byte $00, $00, $9C, $98
+    
+    .byte $8C
+    .byte $04
+    .byte $99, $A0, $9D, $00
+    
+    .byte $03
+    .byte $00, $9C, $98
+    
+    .byte $8F
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $02
+    .byte $A4, $A5
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $90
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $03
+    .byte $00, $9E, $9A
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $04
+    .byte $00, $00, $9E, $9A
+    
+    .byte $8E
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $83
+    .byte $11
+    .byte $9E, $A2, $A9, $A2, $A9, $A9, $A2, $A9, $A9, $A2, $A9, $A2, $A9, $A9, $A2, $9F, $00
+    
+    .byte $94
+    .byte $94
 
 
 
 off_8E94_02:
-- D - I - 0x030EA4 22:8E94: 2C        .byte $2C
-- D - I - 0x030EA5 22:8E95: 22        .byte $22
-- D - I - 0x030EA6 22:8E96: 14        .byte $14
-
-- D - I - 0x030EA7 22:8E97: 94        .byte $94
-- D - I - 0x030EA8 22:8E98: 82        .byte $82
-- D - I - 0x030EA9 22:8E99: 12        .byte $12
-- D - I - 0x030EAA 22:8E9A: 9C        .byte $9C
-- D - I - 0x030EAB 22:8E9B: A0        .byte $A0
-- D - I - 0x030EAC 22:8E9C: A8        .byte $A8
-- D - I - 0x030EAD 22:8E9D: A8        .byte $A8
-- D - I - 0x030EAE 22:8E9E: A0        .byte $A0
-- D - I - 0x030EAF 22:8E9F: A0        .byte $A0
-- D - I - 0x030EB0 22:8EA0: A8        .byte $A8
-- D - I - 0x030EB1 22:8EA1: A8        .byte $A8
-- D - I - 0x030EB2 22:8EA2: A0        .byte $A0
-- D - I - 0x030EB3 22:8EA3: A8        .byte $A8
-- D - I - 0x030EB4 22:8EA4: A8        .byte $A8
-- D - I - 0x030EB5 22:8EA5: A0        .byte $A0
-- D - I - 0x030EB6 22:8EA6: A8        .byte $A8
-- D - I - 0x030EB7 22:8EA7: A0        .byte $A0
-- D - I - 0x030EB8 22:8EA8: A0        .byte $A0
-- D - I - 0x030EB9 22:8EA9: A8        .byte $A8
-- D - I - 0x030EBA 22:8EAA: 9D        .byte $9D
-- D - I - 0x030EBB 22:8EAB: 00        .byte $00
-- D - I - 0x030EBC 22:8EAC: 03        .byte $03
-- D - I - 0x030EBD 22:8EAD: 00        .byte $00
-- D - I - 0x030EBE 22:8EAE: 9C        .byte $9C
-- D - I - 0x030EBF 22:8EAF: 98        .byte $98
-- D - I - 0x030EC0 22:8EB0: 8F        .byte $8F
-- D - I - 0x030EC1 22:8EB1: 02        .byte $02
-- D - I - 0x030EC2 22:8EB2: AB        .byte $AB
-- D - I - 0x030EC3 22:8EB3: 00        .byte $00
-- D - I - 0x030EC4 22:8EB4: 02        .byte $02
-- D - I - 0x030EC5 22:8EB5: 00        .byte $00
-- D - I - 0x030EC6 22:8EB6: AA        .byte $AA
-- D - I - 0x030EC7 22:8EB7: 90        .byte $90
-- D - I - 0x030EC8 22:8EB8: 02        .byte $02
-- D - I - 0x030EC9 22:8EB9: AB        .byte $AB
-- D - I - 0x030ECA 22:8EBA: 00        .byte $00
-- D - I - 0x030ECB 22:8EBB: 02        .byte $02
-- D - I - 0x030ECC 22:8EBC: 00        .byte $00
-- D - I - 0x030ECD 22:8EBD: A3        .byte $A3
-- D - I - 0x030ECE 22:8EBE: 90        .byte $90
-- D - I - 0x030ECF 22:8EBF: 02        .byte $02
-- D - I - 0x030ED0 22:8EC0: A1        .byte $A1
-- D - I - 0x030ED1 22:8EC1: 00        .byte $00
-- D - I - 0x030ED2 22:8EC2: 02        .byte $02
-- D - I - 0x030ED3 22:8EC3: A4        .byte $A4
-- D - I - 0x030ED4 22:8EC4: A5        .byte $A5
-- D - I - 0x030ED5 22:8EC5: 90        .byte $90
-- D - I - 0x030ED6 22:8EC6: 02        .byte $02
-- D - I - 0x030ED7 22:8EC7: AB        .byte $AB
-- D - I - 0x030ED8 22:8EC8: 00        .byte $00
-- D - I - 0x030ED9 22:8EC9: 02        .byte $02
-- D - I - 0x030EDA 22:8ECA: 00        .byte $00
-- D - I - 0x030EDB 22:8ECB: AA        .byte $AA
-- D - I - 0x030EDC 22:8ECC: 90        .byte $90
-- D - I - 0x030EDD 22:8ECD: 02        .byte $02
-- D - I - 0x030EDE 22:8ECE: A1        .byte $A1
-- D - I - 0x030EDF 22:8ECF: 00        .byte $00
-- D - I - 0x030EE0 22:8ED0: 03        .byte $03
-- D - I - 0x030EE1 22:8ED1: 00        .byte $00
-- D - I - 0x030EE2 22:8ED2: 9E        .byte $9E
-- D - I - 0x030EE3 22:8ED3: 9A        .byte $9A
-- D - I - 0x030EE4 22:8ED4: 8F        .byte $8F
-- D - I - 0x030EE5 22:8ED5: 02        .byte $02
-- D - I - 0x030EE6 22:8ED6: AB        .byte $AB
-- D - I - 0x030EE7 22:8ED7: 00        .byte $00
-- D - I - 0x030EE8 22:8ED8: 04        .byte $04
-- D - I - 0x030EE9 22:8ED9: 00        .byte $00
-- D - I - 0x030EEA 22:8EDA: 00        .byte $00
-- D - I - 0x030EEB 22:8EDB: 9E        .byte $9E
-- D - I - 0x030EEC 22:8EDC: 9A        .byte $9A
-- D - I - 0x030EED 22:8EDD: 8C        .byte $8C
-- D - I - 0x030EEE 22:8EDE: 04        .byte $04
-- D - I - 0x030EEF 22:8EDF: 9B        .byte $9B
-- D - I - 0x030EF0 22:8EE0: A9        .byte $A9
-- D - I - 0x030EF1 22:8EE1: 9F        .byte $9F
-- D - I - 0x030EF2 22:8EE2: 00        .byte $00
-- D - I - 0x030EF3 22:8EE3: 83        .byte $83
-- D - I - 0x030EF4 22:8EE4: 0E        .byte $0E
-- D - I - 0x030EF5 22:8EE5: 9E        .byte $9E
-- D - I - 0x030EF6 22:8EE6: A2        .byte $A2
-- D - I - 0x030EF7 22:8EE7: A9        .byte $A9
-- D - I - 0x030EF8 22:8EE8: A9        .byte $A9
-- D - I - 0x030EF9 22:8EE9: A2        .byte $A2
-- D - I - 0x030EFA 22:8EEA: A2        .byte $A2
-- D - I - 0x030EFB 22:8EEB: A9        .byte $A9
-- D - I - 0x030EFC 22:8EEC: A9        .byte $A9
-- D - I - 0x030EFD 22:8EED: A9        .byte $A9
-- D - I - 0x030EFE 22:8EEE: A2        .byte $A2
-- D - I - 0x030EFF 22:8EEF: A9        .byte $A9
-- D - I - 0x030F00 22:8EF0: A9        .byte $A9
-- D - I - 0x030F01 22:8EF1: A9        .byte $A9
-- D - I - 0x030F02 22:8EF2: 9F        .byte $9F
-- D - I - 0x030F03 22:8EF3: 83        .byte $83
-- D - I - 0x030F04 22:8EF4: 94        .byte $94
-- D - I - 0x030F05 22:8EF5: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $82
+    .byte $12
+    .byte $9C, $A0, $A8, $A8, $A0, $A0, $A8, $A8, $A0, $A8, $A8, $A0, $A8, $A0, $A0, $A8, $9D, $00
+    
+    .byte $03
+    .byte $00, $9C, $98
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $00, $A3
+    
+    .byte $90
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $02
+    .byte $A4, $A5
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $90
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $03
+    .byte $00, $9E, $9A
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $04
+    .byte $00, $00, $9E, $9A
+    
+    .byte $8C
+    .byte $04
+    .byte $9B, $A9, $9F, $00
+    
+    .byte $83
+    .byte $0E
+    .byte $9E, $A2, $A9, $A9, $A2, $A2, $A9, $A9, $A9, $A2, $A9, $A9, $A9, $9F
+    
+    .byte $83
+    .byte $94
+    .byte $94
 
 
 
-off_8EF6_03:
-- - - - - 0x030F06 22:8EF6: 2C        .byte $2C
-- - - - - 0x030F07 22:8EF7: 22        .byte $22
-- - - - - 0x030F08 22:8EF8: 14        .byte $14
-
-- - - - - 0x030F09 22:8EF9: 94        .byte $94
-- - - - - 0x030F0A 22:8EFA: 14        .byte $14
-- - - - - 0x030F0B 22:8EFB: 00        .byte $00
-- - - - - 0x030F0C 22:8EFC: 00        .byte $00
-- - - - - 0x030F0D 22:8EFD: 00        .byte $00
-- - - - - 0x030F0E 22:8EFE: 9C        .byte $9C
-- - - - - 0x030F0F 22:8EFF: A8        .byte $A8
-- - - - - 0x030F10 22:8F00: A0        .byte $A0
-- - - - - 0x030F11 22:8F01: A8        .byte $A8
-- - - - - 0x030F12 22:8F02: A8        .byte $A8
-- - - - - 0x030F13 22:8F03: A0        .byte $A0
-- - - - - 0x030F14 22:8F04: A8        .byte $A8
-- - - - - 0x030F15 22:8F05: A8        .byte $A8
-- - - - - 0x030F16 22:8F06: A0        .byte $A0
-- - - - - 0x030F17 22:8F07: A0        .byte $A0
-- - - - - 0x030F18 22:8F08: A8        .byte $A8
-- - - - - 0x030F19 22:8F09: A8        .byte $A8
-- - - - - 0x030F1A 22:8F0A: A0        .byte $A0
-- - - - - 0x030F1B 22:8F0B: A8        .byte $A8
-- - - - - 0x030F1C 22:8F0C: A0        .byte $A0
-- - - - - 0x030F1D 22:8F0D: 9D        .byte $9D
-- - - - - 0x030F1E 22:8F0E: 00        .byte $00
-- - - - - 0x030F1F 22:8F0F: 04        .byte $04
-- - - - - 0x030F20 22:8F10: 00        .byte $00
-- - - - - 0x030F21 22:8F11: 00        .byte $00
-- - - - - 0x030F22 22:8F12: 9C        .byte $9C
-- - - - - 0x030F23 22:8F13: 98        .byte $98
-- - - - - 0x030F24 22:8F14: 8E        .byte $8E
-- - - - - 0x030F25 22:8F15: 02        .byte $02
-- - - - - 0x030F26 22:8F16: A1        .byte $A1
-- - - - - 0x030F27 22:8F17: 00        .byte $00
-- - - - - 0x030F28 22:8F18: 03        .byte $03
-- - - - - 0x030F29 22:8F19: 00        .byte $00
-- - - - - 0x030F2A 22:8F1A: 00        .byte $00
-- - - - - 0x030F2B 22:8F1B: AA        .byte $AA
-- - - - - 0x030F2C 22:8F1C: 8F        .byte $8F
-- - - - - 0x030F2D 22:8F1D: 02        .byte $02
-- - - - - 0x030F2E 22:8F1E: AB        .byte $AB
-- - - - - 0x030F2F 22:8F1F: 00        .byte $00
-- - - - - 0x030F30 22:8F20: 03        .byte $03
-- - - - - 0x030F31 22:8F21: 00        .byte $00
-- - - - - 0x030F32 22:8F22: 9C        .byte $9C
-- - - - - 0x030F33 22:8F23: 98        .byte $98
-- - - - - 0x030F34 22:8F24: 8F        .byte $8F
-- - - - - 0x030F35 22:8F25: 02        .byte $02
-- - - - - 0x030F36 22:8F26: AB        .byte $AB
-- - - - - 0x030F37 22:8F27: 00        .byte $00
-- - - - - 0x030F38 22:8F28: 02        .byte $02
-- - - - - 0x030F39 22:8F29: A4        .byte $A4
-- - - - - 0x030F3A 22:8F2A: A5        .byte $A5
-- - - - - 0x030F3B 22:8F2B: 90        .byte $90
-- - - - - 0x030F3C 22:8F2C: 02        .byte $02
-- - - - - 0x030F3D 22:8F2D: A1        .byte $A1
-- - - - - 0x030F3E 22:8F2E: 00        .byte $00
-- - - - - 0x030F3F 22:8F2F: 02        .byte $02
-- - - - - 0x030F40 22:8F30: 00        .byte $00
-- - - - - 0x030F41 22:8F31: AA        .byte $AA
-- - - - - 0x030F42 22:8F32: 90        .byte $90
-- - - - - 0x030F43 22:8F33: 02        .byte $02
-- - - - - 0x030F44 22:8F34: A1        .byte $A1
-- - - - - 0x030F45 22:8F35: 00        .byte $00
-- - - - - 0x030F46 22:8F36: 03        .byte $03
-- - - - - 0x030F47 22:8F37: 00        .byte $00
-- - - - - 0x030F48 22:8F38: 9E        .byte $9E
-- - - - - 0x030F49 22:8F39: 9A        .byte $9A
-- - - - - 0x030F4A 22:8F3A: 8F        .byte $8F
-- - - - - 0x030F4B 22:8F3B: 02        .byte $02
-- - - - - 0x030F4C 22:8F3C: AB        .byte $AB
-- - - - - 0x030F4D 22:8F3D: 00        .byte $00
-- - - - - 0x030F4E 22:8F3E: 03        .byte $03
-- - - - - 0x030F4F 22:8F3F: 00        .byte $00
-- - - - - 0x030F50 22:8F40: 00        .byte $00
-- - - - - 0x030F51 22:8F41: A3        .byte $A3
-- - - - - 0x030F52 22:8F42: 8F        .byte $8F
-- - - - - 0x030F53 22:8F43: 02        .byte $02
-- - - - - 0x030F54 22:8F44: A1        .byte $A1
-- - - - - 0x030F55 22:8F45: 00        .byte $00
-- - - - - 0x030F56 22:8F46: 03        .byte $03
-- - - - - 0x030F57 22:8F47: 00        .byte $00
-- - - - - 0x030F58 22:8F48: 00        .byte $00
-- - - - - 0x030F59 22:8F49: AA        .byte $AA
-- - - - - 0x030F5A 22:8F4A: 8F        .byte $8F
-- - - - - 0x030F5B 22:8F4B: 02        .byte $02
-- - - - - 0x030F5C 22:8F4C: AB        .byte $AB
-- - - - - 0x030F5D 22:8F4D: 00        .byte $00
-- - - - - 0x030F5E 22:8F4E: 05        .byte $05
-- - - - - 0x030F5F 22:8F4F: 00        .byte $00
-- - - - - 0x030F60 22:8F50: 00        .byte $00
-- - - - - 0x030F61 22:8F51: 9E        .byte $9E
-- - - - - 0x030F62 22:8F52: A2        .byte $A2
-- - - - - 0x030F63 22:8F53: 9A        .byte $9A
-- - - - - 0x030F64 22:8F54: 8C        .byte $8C
-- - - - - 0x030F65 22:8F55: 03        .byte $03
-- - - - - 0x030F66 22:8F56: 9B        .byte $9B
-- - - - - 0x030F67 22:8F57: 9F        .byte $9F
-- - - - - 0x030F68 22:8F58: 00        .byte $00
-- - - - - 0x030F69 22:8F59: 84        .byte $84
-- - - - - 0x030F6A 22:8F5A: 10        .byte $10
-- - - - - 0x030F6B 22:8F5B: 9E        .byte $9E
-- - - - - 0x030F6C 22:8F5C: A9        .byte $A9
-- - - - - 0x030F6D 22:8F5D: A9        .byte $A9
-- - - - - 0x030F6E 22:8F5E: A2        .byte $A2
-- - - - - 0x030F6F 22:8F5F: A9        .byte $A9
-- - - - - 0x030F70 22:8F60: A9        .byte $A9
-- - - - - 0x030F71 22:8F61: A2        .byte $A2
-- - - - - 0x030F72 22:8F62: A9        .byte $A9
-- - - - - 0x030F73 22:8F63: A9        .byte $A9
-- - - - - 0x030F74 22:8F64: A2        .byte $A2
-- - - - - 0x030F75 22:8F65: A2        .byte $A2
-- - - - - 0x030F76 22:8F66: A9        .byte $A9
-- - - - - 0x030F77 22:8F67: A9        .byte $A9
-- - - - - 0x030F78 22:8F68: 9F        .byte $9F
-- - - - - 0x030F79 22:8F69: 00        .byte $00
-- - - - - 0x030F7A 22:8F6A: 00        .byte $00
+off_8EF6_03:    ; unused
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $14
+    .byte $00, $00, $00, $9C, $A8, $A0, $A8, $A8, $A0, $A8, $A8, $A0, $A0, $A8, $A8, $A0, $A8, $A0, $9D, $00
+    
+    .byte $04
+    .byte $00, $00, $9C, $98
+    
+    .byte $8E
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $03
+    .byte $00, $00, $AA
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $03
+    .byte $00, $9C, $98
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $A4, $A5
+    
+    .byte $90
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $90
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $03
+    .byte $00, $9E, $9A
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $03
+    .byte $00, $00, $A3
+    
+    .byte $8F
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $03
+    .byte $00, $00, $AA
+    
+    .byte $8F
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $05
+    .byte $00, $00, $9E, $A2, $9A
+    
+    .byte $8C
+    .byte $03
+    .byte $9B, $9F, $00
+    
+    .byte $84
+    .byte $10
+    .byte $9E, $A9, $A9, $A2, $A9, $A9, $A2, $A9, $A9, $A2, $A2, $A9, $A9, $9F, $00, $00
 
 
 
 off_8F6B_04:
-- D - I - 0x030F7B 22:8F6B: 2C        .byte $2C
-- D - I - 0x030F7C 22:8F6C: 22        .byte $22
-- D - I - 0x030F7D 22:8F6D: 14        .byte $14
-
-- D - I - 0x030F7E 22:8F6E: 94        .byte $94
-- D - I - 0x030F7F 22:8F6F: 94        .byte $94
-- D - I - 0x030F80 22:8F70: 14        .byte $14
-- D - I - 0x030F81 22:8F71: 00        .byte $00
-- D - I - 0x030F82 22:8F72: 00        .byte $00
-- D - I - 0x030F83 22:8F73: 9B        .byte $9B
-- D - I - 0x030F84 22:8F74: A9        .byte $A9
-- D - I - 0x030F85 22:8F75: A2        .byte $A2
-- D - I - 0x030F86 22:8F76: A9        .byte $A9
-- D - I - 0x030F87 22:8F77: A2        .byte $A2
-- D - I - 0x030F88 22:8F78: A9        .byte $A9
-- D - I - 0x030F89 22:8F79: A9        .byte $A9
-- D - I - 0x030F8A 22:8F7A: A2        .byte $A2
-- D - I - 0x030F8B 22:8F7B: A9        .byte $A9
-- D - I - 0x030F8C 22:8F7C: A9        .byte $A9
-- D - I - 0x030F8D 22:8F7D: A9        .byte $A9
-- D - I - 0x030F8E 22:8F7E: A2        .byte $A2
-- D - I - 0x030F8F 22:8F7F: A9        .byte $A9
-- D - I - 0x030F90 22:8F80: A2        .byte $A2
-- D - I - 0x030F91 22:8F81: A2        .byte $A2
-- D - I - 0x030F92 22:8F82: A9        .byte $A9
-- D - I - 0x030F93 22:8F83: 9A        .byte $9A
-- D - I - 0x030F94 22:8F84: 00        .byte $00
-- D - I - 0x030F95 22:8F85: 03        .byte $03
-- D - I - 0x030F96 22:8F86: 00        .byte $00
-- D - I - 0x030F97 22:8F87: 9B        .byte $9B
-- D - I - 0x030F98 22:8F88: 9F        .byte $9F
-- D - I - 0x030F99 22:8F89: 8F        .byte $8F
-- D - I - 0x030F9A 22:8F8A: 02        .byte $02
-- D - I - 0x030F9B 22:8F8B: 9E        .byte $9E
-- D - I - 0x030F9C 22:8F8C: 9A        .byte $9A
-- D - I - 0x030F9D 22:8F8D: 02        .byte $02
-- D - I - 0x030F9E 22:8F8E: 00        .byte $00
-- D - I - 0x030F9F 22:8F8F: AB        .byte $AB
-- D - I - 0x030FA0 22:8F90: 91        .byte $91
-- D - I - 0x030FA1 22:8F91: 01        .byte $01
-- D - I - 0x030FA2 22:8F92: AA        .byte $AA
-- D - I - 0x030FA3 22:8F93: 02        .byte $02
-- D - I - 0x030FA4 22:8F94: 00        .byte $00
-- D - I - 0x030FA5 22:8F95: A1        .byte $A1
-- D - I - 0x030FA6 22:8F96: 91        .byte $91
-- D - I - 0x030FA7 22:8F97: 01        .byte $01
-- D - I - 0x030FA8 22:8F98: A3        .byte $A3
-- D - I - 0x030FA9 22:8F99: 02        .byte $02
-- D - I - 0x030FAA 22:8F9A: 00        .byte $00
-- D - I - 0x030FAB 22:8F9B: AB        .byte $AB
-- D - I - 0x030FAC 22:8F9C: 91        .byte $91
-- D - I - 0x030FAD 22:8F9D: 01        .byte $01
-- D - I - 0x030FAE 22:8F9E: AA        .byte $AA
-- D - I - 0x030FAF 22:8F9F: 03        .byte $03
-- D - I - 0x030FB0 22:8FA0: 00        .byte $00
-- D - I - 0x030FB1 22:8FA1: 99        .byte $99
-- D - I - 0x030FB2 22:8FA2: 9D        .byte $9D
-- D - I - 0x030FB3 22:8FA3: 8F        .byte $8F
-- D - I - 0x030FB4 22:8FA4: 02        .byte $02
-- D - I - 0x030FB5 22:8FA5: 9C        .byte $9C
-- D - I - 0x030FB6 22:8FA6: 98        .byte $98
-- D - I - 0x030FB7 22:8FA7: 14        .byte $14
-- D - I - 0x030FB8 22:8FA8: 00        .byte $00
-- D - I - 0x030FB9 22:8FA9: 00        .byte $00
-- D - I - 0x030FBA 22:8FAA: 99        .byte $99
-- D - I - 0x030FBB 22:8FAB: A8        .byte $A8
-- D - I - 0x030FBC 22:8FAC: A0        .byte $A0
-- D - I - 0x030FBD 22:8FAD: A8        .byte $A8
-- D - I - 0x030FBE 22:8FAE: A0        .byte $A0
-- D - I - 0x030FBF 22:8FAF: A8        .byte $A8
-- D - I - 0x030FC0 22:8FB0: A8        .byte $A8
-- D - I - 0x030FC1 22:8FB1: A0        .byte $A0
-- D - I - 0x030FC2 22:8FB2: A8        .byte $A8
-- D - I - 0x030FC3 22:8FB3: A8        .byte $A8
-- D - I - 0x030FC4 22:8FB4: A8        .byte $A8
-- D - I - 0x030FC5 22:8FB5: A0        .byte $A0
-- D - I - 0x030FC6 22:8FB6: A8        .byte $A8
-- D - I - 0x030FC7 22:8FB7: A0        .byte $A0
-- D - I - 0x030FC8 22:8FB8: A8        .byte $A8
-- D - I - 0x030FC9 22:8FB9: A0        .byte $A0
-- D - I - 0x030FCA 22:8FBA: 98        .byte $98
-- D - I - 0x030FCB 22:8FBB: 00        .byte $00
-- D - I - 0x030FCC 22:8FBC: 94        .byte $94
-- D - I - 0x030FCD 22:8FBD: 94        .byte $94
-- D - I - 0x030FCE 22:8FBE: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $94
+    .byte $14
+    .byte $00, $00, $9B, $A9, $A2, $A9, $A2, $A9, $A9, $A2, $A9, $A9, $A9, $A2, $A9, $A2, $A2, $A9, $9A, $00
+    
+    .byte $03
+    .byte $00, $9B, $9F
+    
+    .byte $8F
+    .byte $02
+    .byte $9E, $9A
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $A3
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $03
+    .byte $00, $99, $9D
+    
+    .byte $8F
+    .byte $02
+    .byte $9C, $98
+    
+    .byte $14
+    .byte $00, $00, $99, $A8, $A0, $A8, $A0, $A8, $A8, $A0, $A8, $A8, $A8, $A0, $A8, $A0, $A8, $A0, $98, $00
+    
+    .byte $94
+    .byte $94
+    .byte $94
 
 
 
 off_8FBF_05:
-- D - I - 0x030FCF 22:8FBF: 2C        .byte $2C
-- D - I - 0x030FD0 22:8FC0: 22        .byte $22
-- D - I - 0x030FD1 22:8FC1: 14        .byte $14
-
-- D - I - 0x030FD2 22:8FC2: 94        .byte $94
-- D - I - 0x030FD3 22:8FC3: 94        .byte $94
-- D - I - 0x030FD4 22:8FC4: 14        .byte $14
-- D - I - 0x030FD5 22:8FC5: 00        .byte $00
-- D - I - 0x030FD6 22:8FC6: 00        .byte $00
-- D - I - 0x030FD7 22:8FC7: 9B        .byte $9B
-- D - I - 0x030FD8 22:8FC8: A9        .byte $A9
-- D - I - 0x030FD9 22:8FC9: A2        .byte $A2
-- D - I - 0x030FDA 22:8FCA: A2        .byte $A2
-- D - I - 0x030FDB 22:8FCB: A9        .byte $A9
-- D - I - 0x030FDC 22:8FCC: A2        .byte $A2
-- D - I - 0x030FDD 22:8FCD: A9        .byte $A9
-- D - I - 0x030FDE 22:8FCE: A9        .byte $A9
-- D - I - 0x030FDF 22:8FCF: A2        .byte $A2
-- D - I - 0x030FE0 22:8FD0: A9        .byte $A9
-- D - I - 0x030FE1 22:8FD1: A2        .byte $A2
-- D - I - 0x030FE2 22:8FD2: A9        .byte $A9
-- D - I - 0x030FE3 22:8FD3: A2        .byte $A2
-- D - I - 0x030FE4 22:8FD4: A9        .byte $A9
-- D - I - 0x030FE5 22:8FD5: A2        .byte $A2
-- D - I - 0x030FE6 22:8FD6: A9        .byte $A9
-- D - I - 0x030FE7 22:8FD7: 9A        .byte $9A
-- D - I - 0x030FE8 22:8FD8: 00        .byte $00
-- D - I - 0x030FE9 22:8FD9: 03        .byte $03
-- D - I - 0x030FEA 22:8FDA: 00        .byte $00
-- D - I - 0x030FEB 22:8FDB: 9B        .byte $9B
-- D - I - 0x030FEC 22:8FDC: 9F        .byte $9F
-- D - I - 0x030FED 22:8FDD: 8F        .byte $8F
-- D - I - 0x030FEE 22:8FDE: 02        .byte $02
-- D - I - 0x030FEF 22:8FDF: 9E        .byte $9E
-- D - I - 0x030FF0 22:8FE0: 9A        .byte $9A
-- D - I - 0x030FF1 22:8FE1: 02        .byte $02
-- D - I - 0x030FF2 22:8FE2: 9B        .byte $9B
-- D - I - 0x030FF3 22:8FE3: 9F        .byte $9F
-- D - I - 0x030FF4 22:8FE4: 91        .byte $91
-- D - I - 0x030FF5 22:8FE5: 01        .byte $01
-- D - I - 0x030FF6 22:8FE6: A3        .byte $A3
-- D - I - 0x030FF7 22:8FE7: 01        .byte $01
-- D - I - 0x030FF8 22:8FE8: A1        .byte $A1
-- D - I - 0x030FF9 22:8FE9: 92        .byte $92
-- D - I - 0x030FFA 22:8FEA: 01        .byte $01
-- D - I - 0x030FFB 22:8FEB: AA        .byte $AA
-- D - I - 0x030FFC 22:8FEC: 01        .byte $01
-- D - I - 0x030FFD 22:8FED: AB        .byte $AB
-- D - I - 0x030FFE 22:8FEE: 92        .byte $92
-- D - I - 0x030FFF 22:8FEF: 01        .byte $01
-- D - I - 0x031000 22:8FF0: A3        .byte $A3
-- D - I - 0x031001 22:8FF1: 02        .byte $02
-- D - I - 0x031002 22:8FF2: 99        .byte $99
-- D - I - 0x031003 22:8FF3: 9D        .byte $9D
-- D - I - 0x031004 22:8FF4: 91        .byte $91
-- D - I - 0x031005 22:8FF5: 01        .byte $01
-- D - I - 0x031006 22:8FF6: AA        .byte $AA
-- D - I - 0x031007 22:8FF7: 03        .byte $03
-- D - I - 0x031008 22:8FF8: 00        .byte $00
-- D - I - 0x031009 22:8FF9: 99        .byte $99
-- D - I - 0x03100A 22:8FFA: 9D        .byte $9D
-- D - I - 0x03100B 22:8FFB: 90        .byte $90
-- D - I - 0x03100C 22:8FFC: 01        .byte $01
-- D - I - 0x03100D 22:8FFD: A3        .byte $A3
-- D - I - 0x03100E 22:8FFE: 14        .byte $14
-- D - I - 0x03100F 22:8FFF: 00        .byte $00
-- D - I - 0x031010 22:9000: 00        .byte $00
-- D - I - 0x031011 22:9001: 99        .byte $99
-- D - I - 0x031012 22:9002: A8        .byte $A8
-- D - I - 0x031013 22:9003: A8        .byte $A8
-- D - I - 0x031014 22:9004: A0        .byte $A0
-- D - I - 0x031015 22:9005: A8        .byte $A8
-- D - I - 0x031016 22:9006: A0        .byte $A0
-- D - I - 0x031017 22:9007: A8        .byte $A8
-- D - I - 0x031018 22:9008: A8        .byte $A8
-- D - I - 0x031019 22:9009: A0        .byte $A0
-- D - I - 0x03101A 22:900A: A8        .byte $A8
-- D - I - 0x03101B 22:900B: A0        .byte $A0
-- D - I - 0x03101C 22:900C: A8        .byte $A8
-- D - I - 0x03101D 22:900D: A8        .byte $A8
-- D - I - 0x03101E 22:900E: A0        .byte $A0
-- D - I - 0x03101F 22:900F: A8        .byte $A8
-- D - I - 0x031020 22:9010: A0        .byte $A0
-- D - I - 0x031021 22:9011: A8        .byte $A8
-- D - I - 0x031022 22:9012: 98        .byte $98
-- D - I - 0x031023 22:9013: 94        .byte $94
-- D - I - 0x031024 22:9014: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $94
+    .byte $14
+    .byte $00, $00, $9B, $A9, $A2, $A2, $A9, $A2, $A9, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $9A, $00
+    
+    .byte $03
+    .byte $00, $9B, $9F
+    
+    .byte $8F
+    .byte $02
+    .byte $9E, $9A
+    
+    .byte $02
+    .byte $9B, $9F
+    
+    .byte $91
+    .byte $01
+    .byte $A3
+    
+    .byte $01
+    .byte $A1
+    
+    .byte $92
+    .byte $01
+    .byte $AA
+    
+    .byte $01
+    .byte $AB
+    
+    .byte $92
+    .byte $01
+    .byte $A3
+    
+    .byte $02
+    .byte $99, $9D
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $03
+    .byte $00, $99, $9D
+    
+    .byte $90
+    .byte $01
+    .byte $A3
+    
+    .byte $14
+    .byte $00, $00, $99, $A8, $A8, $A0, $A8, $A0, $A8, $A8, $A0, $A8, $A0, $A8, $A8, $A0, $A8, $A0, $A8, $98
+    
+    .byte $94
+    .byte $94
 
 
 
 off_9015_06:
-- D - I - 0x031025 22:9015: 2C        .byte $2C
-- D - I - 0x031026 22:9016: 22        .byte $22
-- D - I - 0x031027 22:9017: 14        .byte $14
-
-- D - I - 0x031028 22:9018: 94        .byte $94
-- D - I - 0x031029 22:9019: 14        .byte $14
-- D - I - 0x03102A 22:901A: 00        .byte $00
-- D - I - 0x03102B 22:901B: 00        .byte $00
-- D - I - 0x03102C 22:901C: 9B        .byte $9B
-- D - I - 0x03102D 22:901D: A2        .byte $A2
-- D - I - 0x03102E 22:901E: A9        .byte $A9
-- D - I - 0x03102F 22:901F: A2        .byte $A2
-- D - I - 0x031030 22:9020: A9        .byte $A9
-- D - I - 0x031031 22:9021: A2        .byte $A2
-- D - I - 0x031032 22:9022: A2        .byte $A2
-- D - I - 0x031033 22:9023: A9        .byte $A9
-- D - I - 0x031034 22:9024: A9        .byte $A9
-- D - I - 0x031035 22:9025: A9        .byte $A9
-- D - I - 0x031036 22:9026: A2        .byte $A2
-- D - I - 0x031037 22:9027: A9        .byte $A9
-- D - I - 0x031038 22:9028: A9        .byte $A9
-- D - I - 0x031039 22:9029: A2        .byte $A2
-- D - I - 0x03103A 22:902A: A9        .byte $A9
-- D - I - 0x03103B 22:902B: A2        .byte $A2
-- D - I - 0x03103C 22:902C: 9A        .byte $9A
-- D - I - 0x03103D 22:902D: 00        .byte $00
-- D - I - 0x03103E 22:902E: 03        .byte $03
-- D - I - 0x03103F 22:902F: 00        .byte $00
-- D - I - 0x031040 22:9030: 9B        .byte $9B
-- D - I - 0x031041 22:9031: 9F        .byte $9F
-- D - I - 0x031042 22:9032: 8F        .byte $8F
-- D - I - 0x031043 22:9033: 02        .byte $02
-- D - I - 0x031044 22:9034: 9E        .byte $9E
-- D - I - 0x031045 22:9035: 9A        .byte $9A
-- D - I - 0x031046 22:9036: 02        .byte $02
-- D - I - 0x031047 22:9037: 00        .byte $00
-- D - I - 0x031048 22:9038: AB        .byte $AB
-- D - I - 0x031049 22:9039: 91        .byte $91
-- D - I - 0x03104A 22:903A: 01        .byte $01
-- D - I - 0x03104B 22:903B: AA        .byte $AA
-- D - I - 0x03104C 22:903C: 02        .byte $02
-- D - I - 0x03104D 22:903D: 00        .byte $00
-- D - I - 0x03104E 22:903E: A1        .byte $A1
-- D - I - 0x03104F 22:903F: 91        .byte $91
-- D - I - 0x031050 22:9040: 01        .byte $01
-- D - I - 0x031051 22:9041: A3        .byte $A3
-- D - I - 0x031052 22:9042: 02        .byte $02
-- D - I - 0x031053 22:9043: 00        .byte $00
-- D - I - 0x031054 22:9044: A1        .byte $A1
-- D - I - 0x031055 22:9045: 91        .byte $91
-- D - I - 0x031056 22:9046: 01        .byte $01
-- D - I - 0x031057 22:9047: AA        .byte $AA
-- D - I - 0x031058 22:9048: 02        .byte $02
-- D - I - 0x031059 22:9049: 00        .byte $00
-- D - I - 0x03105A 22:904A: AB        .byte $AB
-- D - I - 0x03105B 22:904B: 91        .byte $91
-- D - I - 0x03105C 22:904C: 01        .byte $01
-- D - I - 0x03105D 22:904D: A3        .byte $A3
-- D - I - 0x03105E 22:904E: 02        .byte $02
-- D - I - 0x03105F 22:904F: 00        .byte $00
-- D - I - 0x031060 22:9050: A1        .byte $A1
-- D - I - 0x031061 22:9051: 91        .byte $91
-- D - I - 0x031062 22:9052: 01        .byte $01
-- D - I - 0x031063 22:9053: AA        .byte $AA
-- D - I - 0x031064 22:9054: 03        .byte $03
-- D - I - 0x031065 22:9055: 00        .byte $00
-- D - I - 0x031066 22:9056: 99        .byte $99
-- D - I - 0x031067 22:9057: 9D        .byte $9D
-- D - I - 0x031068 22:9058: 8F        .byte $8F
-- D - I - 0x031069 22:9059: 02        .byte $02
-- D - I - 0x03106A 22:905A: 9C        .byte $9C
-- D - I - 0x03106B 22:905B: 98        .byte $98
-- D - I - 0x03106C 22:905C: 14        .byte $14
-- D - I - 0x03106D 22:905D: 00        .byte $00
-- D - I - 0x03106E 22:905E: 00        .byte $00
-- D - I - 0x03106F 22:905F: 99        .byte $99
-- D - I - 0x031070 22:9060: A0        .byte $A0
-- D - I - 0x031071 22:9061: A8        .byte $A8
-- D - I - 0x031072 22:9062: A8        .byte $A8
-- D - I - 0x031073 22:9063: A8        .byte $A8
-- D - I - 0x031074 22:9064: A0        .byte $A0
-- D - I - 0x031075 22:9065: A8        .byte $A8
-- D - I - 0x031076 22:9066: A0        .byte $A0
-- D - I - 0x031077 22:9067: A8        .byte $A8
-- D - I - 0x031078 22:9068: A0        .byte $A0
-- D - I - 0x031079 22:9069: A0        .byte $A0
-- D - I - 0x03107A 22:906A: A8        .byte $A8
-- D - I - 0x03107B 22:906B: A0        .byte $A0
-- D - I - 0x03107C 22:906C: A8        .byte $A8
-- D - I - 0x03107D 22:906D: A0        .byte $A0
-- D - I - 0x03107E 22:906E: A8        .byte $A8
-- D - I - 0x03107F 22:906F: 98        .byte $98
-- D - I - 0x031080 22:9070: 00        .byte $00
-- D - I - 0x031081 22:9071: 94        .byte $94
-- D - I - 0x031082 22:9072: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $14
+    .byte $00, $00, $9B, $A2, $A9, $A2, $A9, $A2, $A2, $A9, $A9, $A9, $A2, $A9, $A9, $A2, $A9, $A2, $9A, $00
+    
+    .byte $03
+    .byte $00, $9B, $9F
+    
+    .byte $8F
+    .byte $02
+    .byte $9E, $9A
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $A3
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $91
+    .byte $01
+    .byte $A3
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $03
+    .byte $00, $99, $9D
+    
+    .byte $8F
+    .byte $02
+    .byte $9C, $98
+    
+    .byte $14
+    .byte $00, $00, $99, $A0, $A8, $A8, $A8, $A0, $A8, $A0, $A8, $A0, $A0, $A8, $A0, $A8, $A0, $A8, $98, $00
+    
+    .byte $94
+    .byte $94
 
 
 
 off_9073_07:
-- D - I - 0x031083 22:9073: 2C        .byte $2C
-- D - I - 0x031084 22:9074: 22        .byte $22
-- D - I - 0x031085 22:9075: 14        .byte $14
-
-- D - I - 0x031086 22:9076: 94        .byte $94
-- D - I - 0x031087 22:9077: 14        .byte $14
-- D - I - 0x031088 22:9078: 00        .byte $00
-- D - I - 0x031089 22:9079: 00        .byte $00
-- D - I - 0x03108A 22:907A: 00        .byte $00
-- D - I - 0x03108B 22:907B: 9B        .byte $9B
-- D - I - 0x03108C 22:907C: A9        .byte $A9
-- D - I - 0x03108D 22:907D: A2        .byte $A2
-- D - I - 0x03108E 22:907E: A9        .byte $A9
-- D - I - 0x03108F 22:907F: A2        .byte $A2
-- D - I - 0x031090 22:9080: A9        .byte $A9
-- D - I - 0x031091 22:9081: A9        .byte $A9
-- D - I - 0x031092 22:9082: A2        .byte $A2
-- D - I - 0x031093 22:9083: A9        .byte $A9
-- D - I - 0x031094 22:9084: A9        .byte $A9
-- D - I - 0x031095 22:9085: A2        .byte $A2
-- D - I - 0x031096 22:9086: A2        .byte $A2
-- D - I - 0x031097 22:9087: A9        .byte $A9
-- D - I - 0x031098 22:9088: A9        .byte $A9
-- D - I - 0x031099 22:9089: A2        .byte $A2
-- D - I - 0x03109A 22:908A: 9A        .byte $9A
-- D - I - 0x03109B 22:908B: 00        .byte $00
-- D - I - 0x03109C 22:908C: 04        .byte $04
-- D - I - 0x03109D 22:908D: 00        .byte $00
-- D - I - 0x03109E 22:908E: 00        .byte $00
-- D - I - 0x03109F 22:908F: 9B        .byte $9B
-- D - I - 0x0310A0 22:9090: 9F        .byte $9F
-- D - I - 0x0310A1 22:9091: 8E        .byte $8E
-- D - I - 0x0310A2 22:9092: 02        .byte $02
-- D - I - 0x0310A3 22:9093: 9E        .byte $9E
-- D - I - 0x0310A4 22:9094: 9A        .byte $9A
-- D - I - 0x0310A5 22:9095: 03        .byte $03
-- D - I - 0x0310A6 22:9096: 00        .byte $00
-- D - I - 0x0310A7 22:9097: 9B        .byte $9B
-- D - I - 0x0310A8 22:9098: 9F        .byte $9F
-- D - I - 0x0310A9 22:9099: 90        .byte $90
-- D - I - 0x0310AA 22:909A: 01        .byte $01
-- D - I - 0x0310AB 22:909B: AA        .byte $AA
-- D - I - 0x0310AC 22:909C: 02        .byte $02
-- D - I - 0x0310AD 22:909D: 00        .byte $00
-- D - I - 0x0310AE 22:909E: A1        .byte $A1
-- D - I - 0x0310AF 22:909F: 91        .byte $91
-- D - I - 0x0310B0 22:90A0: 01        .byte $01
-- D - I - 0x0310B1 22:90A1: A3        .byte $A3
-- D - I - 0x0310B2 22:90A2: 02        .byte $02
-- D - I - 0x0310B3 22:90A3: 00        .byte $00
-- D - I - 0x0310B4 22:90A4: AB        .byte $AB
-- D - I - 0x0310B5 22:90A5: 91        .byte $91
-- D - I - 0x0310B6 22:90A6: 01        .byte $01
-- D - I - 0x0310B7 22:90A7: AA        .byte $AA
-- D - I - 0x0310B8 22:90A8: 02        .byte $02
-- D - I - 0x0310B9 22:90A9: 00        .byte $00
-- D - I - 0x0310BA 22:90AA: A1        .byte $A1
-- D - I - 0x0310BB 22:90AB: 91        .byte $91
-- D - I - 0x0310BC 22:90AC: 01        .byte $01
-- D - I - 0x0310BD 22:90AD: AA        .byte $AA
-- D - I - 0x0310BE 22:90AE: 02        .byte $02
-- D - I - 0x0310BF 22:90AF: 00        .byte $00
-- D - I - 0x0310C0 22:90B0: AB        .byte $AB
-- D - I - 0x0310C1 22:90B1: 91        .byte $91
-- D - I - 0x0310C2 22:90B2: 01        .byte $01
-- D - I - 0x0310C3 22:90B3: A3        .byte $A3
-- D - I - 0x0310C4 22:90B4: 02        .byte $02
-- D - I - 0x0310C5 22:90B5: 00        .byte $00
-- D - I - 0x0310C6 22:90B6: A1        .byte $A1
-- D - I - 0x0310C7 22:90B7: 91        .byte $91
-- D - I - 0x0310C8 22:90B8: 01        .byte $01
-- D - I - 0x0310C9 22:90B9: AA        .byte $AA
-- D - I - 0x0310CA 22:90BA: 03        .byte $03
-- D - I - 0x0310CB 22:90BB: 00        .byte $00
-- D - I - 0x0310CC 22:90BC: 99        .byte $99
-- D - I - 0x0310CD 22:90BD: 9D        .byte $9D
-- D - I - 0x0310CE 22:90BE: 90        .byte $90
-- D - I - 0x0310CF 22:90BF: 01        .byte $01
-- D - I - 0x0310D0 22:90C0: A3        .byte $A3
-- D - I - 0x0310D1 22:90C1: 04        .byte $04
-- D - I - 0x0310D2 22:90C2: 00        .byte $00
-- D - I - 0x0310D3 22:90C3: 00        .byte $00
-- D - I - 0x0310D4 22:90C4: 99        .byte $99
-- D - I - 0x0310D5 22:90C5: 9D        .byte $9D
-- D - I - 0x0310D6 22:90C6: 8E        .byte $8E
-- D - I - 0x0310D7 22:90C7: 02        .byte $02
-- D - I - 0x0310D8 22:90C8: 9C        .byte $9C
-- D - I - 0x0310D9 22:90C9: 98        .byte $98
-- D - I - 0x0310DA 22:90CA: 14        .byte $14
-- D - I - 0x0310DB 22:90CB: 00        .byte $00
-- D - I - 0x0310DC 22:90CC: 00        .byte $00
-- D - I - 0x0310DD 22:90CD: 00        .byte $00
-- D - I - 0x0310DE 22:90CE: 99        .byte $99
-- D - I - 0x0310DF 22:90CF: A8        .byte $A8
-- D - I - 0x0310E0 22:90D0: A0        .byte $A0
-- D - I - 0x0310E1 22:90D1: A8        .byte $A8
-- D - I - 0x0310E2 22:90D2: A8        .byte $A8
-- D - I - 0x0310E3 22:90D3: A0        .byte $A0
-- D - I - 0x0310E4 22:90D4: A8        .byte $A8
-- D - I - 0x0310E5 22:90D5: A8        .byte $A8
-- D - I - 0x0310E6 22:90D6: A0        .byte $A0
-- D - I - 0x0310E7 22:90D7: A0        .byte $A0
-- D - I - 0x0310E8 22:90D8: A8        .byte $A8
-- D - I - 0x0310E9 22:90D9: A8        .byte $A8
-- D - I - 0x0310EA 22:90DA: A0        .byte $A0
-- D - I - 0x0310EB 22:90DB: A8        .byte $A8
-- D - I - 0x0310EC 22:90DC: A0        .byte $A0
-- D - I - 0x0310ED 22:90DD: 98        .byte $98
-- D - I - 0x0310EE 22:90DE: 00        .byte $00
-
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $14
+    .byte $00, $00, $00, $9B, $A9, $A2, $A9, $A2, $A9, $A9, $A2, $A9, $A9, $A2, $A2, $A9, $A9, $A2, $9A, $00
+    
+    .byte $04
+    .byte $00, $00, $9B, $9F
+    
+    .byte $8E
+    .byte $02
+    .byte $9E, $9A
+    
+    .byte $03
+    .byte $00, $9B, $9F
+    
+    .byte $90
+    .byte $01
+    .byte $AA
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $A3
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $91
+    .byte $01
+    .byte $A3
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $91
+    .byte $01
+    .byte $AA
+    
+    .byte $03
+    .byte $00, $99, $9D
+    
+    .byte $90
+    .byte $01
+    .byte $A3
+    
+    .byte $04
+    .byte $00, $00, $99, $9D
+    
+    .byte $8E
+    .byte $02
+    .byte $9C, $98
+    
+    .byte $14
+    .byte $00, $00, $00, $99, $A8, $A0, $A8, $A8, $A0, $A8, $A8, $A0, $A0, $A8, $A8, $A0, $A8, $A0, $98, $00
 
 
 off_90DF_08:
-- D - I - 0x0310EF 22:90DF: 2C        .byte $2C
-- D - I - 0x0310F0 22:90E0: 22        .byte $22
-- D - I - 0x0310F1 22:90E1: 14        .byte $14
-
-- D - I - 0x0310F2 22:90E2: 94        .byte $94
-- D - I - 0x0310F3 22:90E3: 94        .byte $94
-- D - I - 0x0310F4 22:90E4: 14        .byte $14
-- D - I - 0x0310F5 22:90E5: 00        .byte $00
-- D - I - 0x0310F6 22:90E6: 00        .byte $00
-- D - I - 0x0310F7 22:90E7: 00        .byte $00
-- D - I - 0x0310F8 22:90E8: 9C        .byte $9C
-- D - I - 0x0310F9 22:90E9: A0        .byte $A0
-- D - I - 0x0310FA 22:90EA: A8        .byte $A8
-- D - I - 0x0310FB 22:90EB: A0        .byte $A0
-- D - I - 0x0310FC 22:90EC: A8        .byte $A8
-- D - I - 0x0310FD 22:90ED: A0        .byte $A0
-- D - I - 0x0310FE 22:90EE: A8        .byte $A8
-- D - I - 0x0310FF 22:90EF: A8        .byte $A8
-- D - I - 0x031100 22:90F0: A0        .byte $A0
-- D - I - 0x031101 22:90F1: A8        .byte $A8
-- D - I - 0x031102 22:90F2: A0        .byte $A0
-- D - I - 0x031103 22:90F3: A0        .byte $A0
-- D - I - 0x031104 22:90F4: A8        .byte $A8
-- D - I - 0x031105 22:90F5: A0        .byte $A0
-- D - I - 0x031106 22:90F6: 9D        .byte $9D
-- D - I - 0x031107 22:90F7: 00        .byte $00
-- D - I - 0x031108 22:90F8: 00        .byte $00
-- D - I - 0x031109 22:90F9: 04        .byte $04
-- D - I - 0x03110A 22:90FA: 00        .byte $00
-- D - I - 0x03110B 22:90FB: 9C        .byte $9C
-- D - I - 0x03110C 22:90FC: A0        .byte $A0
-- D - I - 0x03110D 22:90FD: 98        .byte $98
-- D - I - 0x03110E 22:90FE: 8D        .byte $8D
-- D - I - 0x03110F 22:90FF: 03        .byte $03
-- D - I - 0x031110 22:9100: 99        .byte $99
-- D - I - 0x031111 22:9101: 9D        .byte $9D
-- D - I - 0x031112 22:9102: 00        .byte $00
-- D - I - 0x031113 22:9103: 02        .byte $02
-- D - I - 0x031114 22:9104: 00        .byte $00
-- D - I - 0x031115 22:9105: A3        .byte $A3
-- D - I - 0x031116 22:9106: 90        .byte $90
-- D - I - 0x031117 22:9107: 02        .byte $02
-- D - I - 0x031118 22:9108: AB        .byte $AB
-- D - I - 0x031119 22:9109: 00        .byte $00
-- D - I - 0x03111A 22:910A: 02        .byte $02
-- D - I - 0x03111B 22:910B: 96        .byte $96
-- D - I - 0x03111C 22:910C: 97        .byte $97
-- D - I - 0x03111D 22:910D: 90        .byte $90
-- D - I - 0x03111E 22:910E: 02        .byte $02
-- D - I - 0x03111F 22:910F: A1        .byte $A1
-- D - I - 0x031120 22:9110: 00        .byte $00
-- D - I - 0x031121 22:9111: 02        .byte $02
-- D - I - 0x031122 22:9112: 00        .byte $00
-- D - I - 0x031123 22:9113: A3        .byte $A3
-- D - I - 0x031124 22:9114: 90        .byte $90
-- D - I - 0x031125 22:9115: 02        .byte $02
-- D - I - 0x031126 22:9116: AB        .byte $AB
-- D - I - 0x031127 22:9117: 00        .byte $00
-- D - I - 0x031128 22:9118: 03        .byte $03
-- D - I - 0x031129 22:9119: 00        .byte $00
-- D - I - 0x03112A 22:911A: 9E        .byte $9E
-- D - I - 0x03112B 22:911B: 9A        .byte $9A
-- D - I - 0x03112C 22:911C: 8F        .byte $8F
-- D - I - 0x03112D 22:911D: 02        .byte $02
-- D - I - 0x03112E 22:911E: A1        .byte $A1
-- D - I - 0x03112F 22:911F: 00        .byte $00
-- D - I - 0x031130 22:9120: 03        .byte $03
-- D - I - 0x031131 22:9121: 00        .byte $00
-- D - I - 0x031132 22:9122: 00        .byte $00
-- D - I - 0x031133 22:9123: A3        .byte $A3
-- D - I - 0x031134 22:9124: 8E        .byte $8E
-- D - I - 0x031135 22:9125: 03        .byte $03
-- D - I - 0x031136 22:9126: 9B        .byte $9B
-- D - I - 0x031137 22:9127: 9F        .byte $9F
-- D - I - 0x031138 22:9128: 00        .byte $00
-- D - I - 0x031139 22:9129: 14        .byte $14
-- D - I - 0x03113A 22:912A: 00        .byte $00
-- D - I - 0x03113B 22:912B: 00        .byte $00
-- D - I - 0x03113C 22:912C: 9E        .byte $9E
-- D - I - 0x03113D 22:912D: A2        .byte $A2
-- D - I - 0x03113E 22:912E: A9        .byte $A9
-- D - I - 0x03113F 22:912F: A2        .byte $A2
-- D - I - 0x031140 22:9130: A9        .byte $A9
-- D - I - 0x031141 22:9131: A2        .byte $A2
-- D - I - 0x031142 22:9132: A9        .byte $A9
-- D - I - 0x031143 22:9133: A9        .byte $A9
-- D - I - 0x031144 22:9134: A2        .byte $A2
-- D - I - 0x031145 22:9135: A2        .byte $A2
-- D - I - 0x031146 22:9136: A9        .byte $A9
-- D - I - 0x031147 22:9137: A2        .byte $A2
-- D - I - 0x031148 22:9138: A2        .byte $A2
-- D - I - 0x031149 22:9139: A9        .byte $A9
-- D - I - 0x03114A 22:913A: A2        .byte $A2
-- D - I - 0x03114B 22:913B: 9F        .byte $9F
-- D - I - 0x03114C 22:913C: 00        .byte $00
-- D - I - 0x03114D 22:913D: 00        .byte $00
-- D - I - 0x03114E 22:913E: 94        .byte $94
-- D - I - 0x03114F 22:913F: 94        .byte $94
+    .word $222C
+    .byte $14
+    
+    .byte $94
+    .byte $94
+    .byte $14
+    .byte $00, $00, $00, $9C, $A0, $A8, $A0, $A8, $A0, $A8, $A8, $A0, $A8, $A0, $A0, $A8, $A0, $9D, $00, $00
+    
+    .byte $04
+    .byte $00, $9C, $A0, $98
+    
+    .byte $8D
+    .byte $03
+    .byte $99, $9D, $00
+    
+    .byte $02
+    .byte $00, $A3
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $02
+    .byte $96, $97
+    
+    .byte $90
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $02
+    .byte $00, $A3
+    
+    .byte $90
+    .byte $02
+    .byte $AB, $00
+    
+    .byte $03
+    .byte $00, $9E, $9A
+    
+    .byte $8F
+    .byte $02
+    .byte $A1, $00
+    
+    .byte $03
+    .byte $00, $00, $A3
+    
+    .byte $8E
+    .byte $03
+    .byte $9B, $9F, $00
+    
+    .byte $14
+    .byte $00, $00, $9E, $A2, $A9, $A2, $A9, $A2, $A9, $A9, $A2, $A2, $A9, $A2, $A2, $A9, $A2, $9F, $00, $00
+    
+    .byte $94
+    .byte $94
 
 
 
 off_9140_09_0A_0B:
-- D - I - 0x031150 22:9140: 28        .byte $28
-- D - I - 0x031151 22:9141: 22        .byte $22
-- D - I - 0x031152 22:9142: 18        .byte $18
-
-- D - I - 0x031153 22:9143: 98        .byte $98
-- D - I - 0x031154 22:9144: 18        .byte $18
-- D - I - 0x031155 22:9145: 00        .byte $00
-- D - I - 0x031156 22:9146: 9C        .byte $9C
-- D - I - 0x031157 22:9147: A8        .byte $A8
-- D - I - 0x031158 22:9148: A8        .byte $A8
-- D - I - 0x031159 22:9149: A8        .byte $A8
-- D - I - 0x03115A 22:914A: A8        .byte $A8
-- D - I - 0x03115B 22:914B: A8        .byte $A8
-- D - I - 0x03115C 22:914C: A8        .byte $A8
-- D - I - 0x03115D 22:914D: A8        .byte $A8
-- D - I - 0x03115E 22:914E: A8        .byte $A8
-- D - I - 0x03115F 22:914F: A8        .byte $A8
-- D - I - 0x031160 22:9150: A8        .byte $A8
-- D - I - 0x031161 22:9151: A8        .byte $A8
-- D - I - 0x031162 22:9152: A8        .byte $A8
-- D - I - 0x031163 22:9153: A8        .byte $A8
-- D - I - 0x031164 22:9154: A8        .byte $A8
-- D - I - 0x031165 22:9155: A8        .byte $A8
-- D - I - 0x031166 22:9156: A8        .byte $A8
-- D - I - 0x031167 22:9157: A8        .byte $A8
-- D - I - 0x031168 22:9158: A8        .byte $A8
-- D - I - 0x031169 22:9159: A8        .byte $A8
-- D - I - 0x03116A 22:915A: 9D        .byte $9D
-- D - I - 0x03116B 22:915B: 00        .byte $00
-- D - I - 0x03116C 22:915C: 00        .byte $00
-- D - I - 0x03116D 22:915D: 02        .byte $02
-- D - I - 0x03116E 22:915E: 00        .byte $00
-- D - I - 0x03116F 22:915F: AA        .byte $AA
-- D - I - 0x031170 22:9160: 93        .byte $93
-- D - I - 0x031171 22:9161: 03        .byte $03
-- D - I - 0x031172 22:9162: AB        .byte $AB
-- D - I - 0x031173 22:9163: 00        .byte $00
-- D - I - 0x031174 22:9164: 00        .byte $00
-- D - I - 0x031175 22:9165: 02        .byte $02
-- D - I - 0x031176 22:9166: 00        .byte $00
-- D - I - 0x031177 22:9167: AA        .byte $AA
-- D - I - 0x031178 22:9168: 93        .byte $93
-- D - I - 0x031179 22:9169: 03        .byte $03
-- D - I - 0x03117A 22:916A: AB        .byte $AB
-- D - I - 0x03117B 22:916B: 00        .byte $00
-- D - I - 0x03117C 22:916C: 00        .byte $00
-- D - I - 0x03117D 22:916D: 02        .byte $02
-- D - I - 0x03117E 22:916E: 00        .byte $00
-- D - I - 0x03117F 22:916F: AA        .byte $AA
-- D - I - 0x031180 22:9170: 93        .byte $93
-- D - I - 0x031181 22:9171: 03        .byte $03
-- D - I - 0x031182 22:9172: AB        .byte $AB
-- D - I - 0x031183 22:9173: 00        .byte $00
-- D - I - 0x031184 22:9174: 00        .byte $00
-- D - I - 0x031185 22:9175: 02        .byte $02
-- D - I - 0x031186 22:9176: 00        .byte $00
-- D - I - 0x031187 22:9177: AA        .byte $AA
-- D - I - 0x031188 22:9178: 93        .byte $93
-- D - I - 0x031189 22:9179: 03        .byte $03
-- D - I - 0x03118A 22:917A: AB        .byte $AB
-- D - I - 0x03118B 22:917B: 00        .byte $00
-- D - I - 0x03118C 22:917C: 00        .byte $00
-- D - I - 0x03118D 22:917D: 02        .byte $02
-- D - I - 0x03118E 22:917E: 00        .byte $00
-- D - I - 0x03118F 22:917F: AA        .byte $AA
-- D - I - 0x031190 22:9180: 93        .byte $93
-- D - I - 0x031191 22:9181: 03        .byte $03
-- D - I - 0x031192 22:9182: AB        .byte $AB
-- D - I - 0x031193 22:9183: 00        .byte $00
-- D - I - 0x031194 22:9184: 00        .byte $00
-- D - I - 0x031195 22:9185: 02        .byte $02
-- D - I - 0x031196 22:9186: 00        .byte $00
-- D - I - 0x031197 22:9187: AA        .byte $AA
-- D - I - 0x031198 22:9188: 93        .byte $93
-- D - I - 0x031199 22:9189: 03        .byte $03
-- D - I - 0x03119A 22:918A: AB        .byte $AB
-- D - I - 0x03119B 22:918B: 00        .byte $00
-- D - I - 0x03119C 22:918C: 00        .byte $00
-- D - I - 0x03119D 22:918D: 02        .byte $02
-- D - I - 0x03119E 22:918E: 00        .byte $00
-- D - I - 0x03119F 22:918F: AA        .byte $AA
-- D - I - 0x0311A0 22:9190: 93        .byte $93
-- D - I - 0x0311A1 22:9191: 03        .byte $03
-- D - I - 0x0311A2 22:9192: AB        .byte $AB
-- D - I - 0x0311A3 22:9193: 00        .byte $00
-- D - I - 0x0311A4 22:9194: 00        .byte $00
-- D - I - 0x0311A5 22:9195: 18        .byte $18
-- D - I - 0x0311A6 22:9196: 00        .byte $00
-- D - I - 0x0311A7 22:9197: 9E        .byte $9E
-- D - I - 0x0311A8 22:9198: A9        .byte $A9
-- D - I - 0x0311A9 22:9199: A9        .byte $A9
-- D - I - 0x0311AA 22:919A: A9        .byte $A9
-- D - I - 0x0311AB 22:919B: A9        .byte $A9
-- D - I - 0x0311AC 22:919C: A9        .byte $A9
-- D - I - 0x0311AD 22:919D: A9        .byte $A9
-- D - I - 0x0311AE 22:919E: A9        .byte $A9
-- D - I - 0x0311AF 22:919F: A9        .byte $A9
-- D - I - 0x0311B0 22:91A0: A9        .byte $A9
-- D - I - 0x0311B1 22:91A1: A9        .byte $A9
-- D - I - 0x0311B2 22:91A2: A9        .byte $A9
-- D - I - 0x0311B3 22:91A3: A9        .byte $A9
-- D - I - 0x0311B4 22:91A4: A9        .byte $A9
-- D - I - 0x0311B5 22:91A5: A9        .byte $A9
-- D - I - 0x0311B6 22:91A6: A9        .byte $A9
-- D - I - 0x0311B7 22:91A7: A9        .byte $A9
-- D - I - 0x0311B8 22:91A8: A9        .byte $A9
-- D - I - 0x0311B9 22:91A9: A9        .byte $A9
-- D - I - 0x0311BA 22:91AA: A9        .byte $A9
-- D - I - 0x0311BB 22:91AB: 9F        .byte $9F
-- D - I - 0x0311BC 22:91AC: 00        .byte $00
-- D - I - 0x0311BD 22:91AD: 00        .byte $00
-- D - I - 0x0311BE 22:91AE: 98        .byte $98
-- D - I - 0x0311BF 22:91AF: 98        .byte $98
+    .word $2228
+    .byte $18
+    
+    .byte $98
+    .byte $18
+    .byte $00, $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $02
+    .byte $00, $AA
+    
+    .byte $93
+    .byte $03
+    .byte $AB, $00, $00
+    
+    .byte $18
+    .byte $00, $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $00, $00
+    
+    .byte $98
+    .byte $98
 
 
 
 off_91B0_0C_0D_0E:
-- D - I - 0x0311C0 22:91B0: 28        .byte $28
-- D - I - 0x0311C1 22:91B1: 22        .byte $22
-- D - I - 0x0311C2 22:91B2: 18        .byte $18
-
-- D - I - 0x0311C3 22:91B3: 98        .byte $98
-- D - I - 0x0311C4 22:91B4: 18        .byte $18
-- D - I - 0x0311C5 22:91B5: 00        .byte $00
-- D - I - 0x0311C6 22:91B6: 9B        .byte $9B
-- D - I - 0x0311C7 22:91B7: A9        .byte $A9
-- D - I - 0x0311C8 22:91B8: A2        .byte $A2
-- D - I - 0x0311C9 22:91B9: A9        .byte $A9
-- D - I - 0x0311CA 22:91BA: A2        .byte $A2
-- D - I - 0x0311CB 22:91BB: A9        .byte $A9
-- D - I - 0x0311CC 22:91BC: A2        .byte $A2
-- D - I - 0x0311CD 22:91BD: A9        .byte $A9
-- D - I - 0x0311CE 22:91BE: A2        .byte $A2
-- D - I - 0x0311CF 22:91BF: A9        .byte $A9
-- D - I - 0x0311D0 22:91C0: A2        .byte $A2
-- D - I - 0x0311D1 22:91C1: A9        .byte $A9
-- D - I - 0x0311D2 22:91C2: A2        .byte $A2
-- D - I - 0x0311D3 22:91C3: A9        .byte $A9
-- D - I - 0x0311D4 22:91C4: A2        .byte $A2
-- D - I - 0x0311D5 22:91C5: A9        .byte $A9
-- D - I - 0x0311D6 22:91C6: A2        .byte $A2
-- D - I - 0x0311D7 22:91C7: A9        .byte $A9
-- D - I - 0x0311D8 22:91C8: A2        .byte $A2
-- D - I - 0x0311D9 22:91C9: A9        .byte $A9
-- D - I - 0x0311DA 22:91CA: 9A        .byte $9A
-- D - I - 0x0311DB 22:91CB: 00        .byte $00
-- D - I - 0x0311DC 22:91CC: 00        .byte $00
-- D - I - 0x0311DD 22:91CD: 02        .byte $02
-- D - I - 0x0311DE 22:91CE: 00        .byte $00
-- D - I - 0x0311DF 22:91CF: AB        .byte $AB
-- D - I - 0x0311E0 22:91D0: 93        .byte $93
-- D - I - 0x0311E1 22:91D1: 03        .byte $03
-- D - I - 0x0311E2 22:91D2: AA        .byte $AA
-- D - I - 0x0311E3 22:91D3: 00        .byte $00
-- D - I - 0x0311E4 22:91D4: 00        .byte $00
-- D - I - 0x0311E5 22:91D5: 02        .byte $02
-- D - I - 0x0311E6 22:91D6: 00        .byte $00
-- D - I - 0x0311E7 22:91D7: A1        .byte $A1
-- D - I - 0x0311E8 22:91D8: 93        .byte $93
-- D - I - 0x0311E9 22:91D9: 03        .byte $03
-- D - I - 0x0311EA 22:91DA: A3        .byte $A3
-- D - I - 0x0311EB 22:91DB: 00        .byte $00
-- D - I - 0x0311EC 22:91DC: 00        .byte $00
-- D - I - 0x0311ED 22:91DD: 02        .byte $02
-- D - I - 0x0311EE 22:91DE: 00        .byte $00
-- D - I - 0x0311EF 22:91DF: AB        .byte $AB
-- D - I - 0x0311F0 22:91E0: 93        .byte $93
-- D - I - 0x0311F1 22:91E1: 03        .byte $03
-- D - I - 0x0311F2 22:91E2: AA        .byte $AA
-- D - I - 0x0311F3 22:91E3: 00        .byte $00
-- D - I - 0x0311F4 22:91E4: 00        .byte $00
-- D - I - 0x0311F5 22:91E5: 02        .byte $02
-- D - I - 0x0311F6 22:91E6: 00        .byte $00
-- D - I - 0x0311F7 22:91E7: A1        .byte $A1
-- D - I - 0x0311F8 22:91E8: 93        .byte $93
-- D - I - 0x0311F9 22:91E9: 03        .byte $03
-- D - I - 0x0311FA 22:91EA: A3        .byte $A3
-- D - I - 0x0311FB 22:91EB: 00        .byte $00
-- D - I - 0x0311FC 22:91EC: 00        .byte $00
-- D - I - 0x0311FD 22:91ED: 02        .byte $02
-- D - I - 0x0311FE 22:91EE: 00        .byte $00
-- D - I - 0x0311FF 22:91EF: AB        .byte $AB
-- D - I - 0x031200 22:91F0: 93        .byte $93
-- D - I - 0x031201 22:91F1: 03        .byte $03
-- D - I - 0x031202 22:91F2: AA        .byte $AA
-- D - I - 0x031203 22:91F3: 00        .byte $00
-- D - I - 0x031204 22:91F4: 00        .byte $00
-- D - I - 0x031205 22:91F5: 02        .byte $02
-- D - I - 0x031206 22:91F6: 00        .byte $00
-- D - I - 0x031207 22:91F7: A1        .byte $A1
-- D - I - 0x031208 22:91F8: 93        .byte $93
-- D - I - 0x031209 22:91F9: 03        .byte $03
-- D - I - 0x03120A 22:91FA: A3        .byte $A3
-- D - I - 0x03120B 22:91FB: 00        .byte $00
-- D - I - 0x03120C 22:91FC: 00        .byte $00
-- D - I - 0x03120D 22:91FD: 02        .byte $02
-- D - I - 0x03120E 22:91FE: 00        .byte $00
-- D - I - 0x03120F 22:91FF: AB        .byte $AB
-- D - I - 0x031210 22:9200: 93        .byte $93
-- D - I - 0x031211 22:9201: 03        .byte $03
-- D - I - 0x031212 22:9202: AA        .byte $AA
-- D - I - 0x031213 22:9203: 00        .byte $00
-- D - I - 0x031214 22:9204: 00        .byte $00
-- D - I - 0x031215 22:9205: 18        .byte $18
-- D - I - 0x031216 22:9206: 00        .byte $00
-- D - I - 0x031217 22:9207: 99        .byte $99
-- D - I - 0x031218 22:9208: A8        .byte $A8
-- D - I - 0x031219 22:9209: A0        .byte $A0
-- D - I - 0x03121A 22:920A: A8        .byte $A8
-- D - I - 0x03121B 22:920B: A0        .byte $A0
-- D - I - 0x03121C 22:920C: A8        .byte $A8
-- D - I - 0x03121D 22:920D: A0        .byte $A0
-- D - I - 0x03121E 22:920E: A8        .byte $A8
-- D - I - 0x03121F 22:920F: A0        .byte $A0
-- D - I - 0x031220 22:9210: A8        .byte $A8
-- D - I - 0x031221 22:9211: A0        .byte $A0
-- D - I - 0x031222 22:9212: A8        .byte $A8
-- D - I - 0x031223 22:9213: A0        .byte $A0
-- D - I - 0x031224 22:9214: A8        .byte $A8
-- D - I - 0x031225 22:9215: A0        .byte $A0
-- D - I - 0x031226 22:9216: A8        .byte $A8
-- D - I - 0x031227 22:9217: A0        .byte $A0
-- D - I - 0x031228 22:9218: A8        .byte $A8
-- D - I - 0x031229 22:9219: A0        .byte $A0
-- D - I - 0x03122A 22:921A: A8        .byte $A8
-- D - I - 0x03122B 22:921B: 98        .byte $98
-- D - I - 0x03122C 22:921C: 00        .byte $00
-- D - I - 0x03122D 22:921D: 00        .byte $00
-- D - I - 0x03122E 22:921E: 98        .byte $98
-- D - I - 0x03122F 22:921F: 98        .byte $98
+    .word $2228
+    .byte $18
+    
+    .byte $98
+    .byte $18
+    .byte $00, $9B, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $9A, $00, $00
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $93
+    .byte $03
+    .byte $AA, $00, $00
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $93
+    .byte $03
+    .byte $A3, $00, $00
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $93
+    .byte $03
+    .byte $AA, $00, $00
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $93
+    .byte $03
+    .byte $A3, $00, $00
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $93
+    .byte $03
+    .byte $AA, $00, $00
+    
+    .byte $02
+    .byte $00, $A1
+    
+    .byte $93
+    .byte $03
+    .byte $A3, $00, $00
+    
+    .byte $02
+    .byte $00, $AB
+    
+    .byte $93
+    .byte $03
+    .byte $AA, $00, $00
+    
+    .byte $18
+    .byte $00, $99, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $98, $00, $00
+    
+    .byte $98
+    .byte $98
 
 
 
