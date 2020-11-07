@@ -5645,7 +5645,7 @@ off_A46A_00:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5697,7 +5697,7 @@ off_A49E_04:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5722,7 +5722,7 @@ off_A4C3_05:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5765,7 +5765,7 @@ off_A4F2_08:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5808,7 +5808,7 @@ off_A521_0B:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5842,7 +5842,7 @@ off_A54B_0F:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5893,7 +5893,7 @@ off_A584_12:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5935,7 +5935,7 @@ off_A5B8_14:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -5973,7 +5973,7 @@ off_A5E6_16:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -6037,7 +6037,7 @@ off_A629_1A:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -6089,7 +6089,7 @@ off_A663_1E:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
@@ -6114,7 +6114,7 @@ off_A688_1F:
     
     .byte $02
     .word $23F0
-    .byte $55, $11
+    .byte $44, $11
     
     .byte con_done
 
