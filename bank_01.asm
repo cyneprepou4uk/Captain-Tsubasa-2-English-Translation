@@ -74,7 +74,14 @@ C - - - - 0x000068 01:8058: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - 0x00006B 01:805B: 20 7F 9B  JSR sub_9B7F_очистить_обе_памяти_спрайтов
 C - - - - 0x00006E 01:805E: 20 A0 98  JSR sub_98A0_очистка_двух_nametable
 C - - - - 0x000071 01:8061: A9 0D     LDA #$0D
-C - - - - 0x000073 01:8063: 20 97 82  JSR sub_8297
+                                      STA ram_00E7
+                                      LDA #$01
+                                      STA ram_00E6
+                                      LDA #$E5
+                                      STA ram_004D
+                                      LDA #$00
+                                      STA ram_004E
+                                      JSR sub_9085
 C - - - - 0x000076 01:8066: A9 00     LDA #$00
 C - - - - 0x000078 01:8068: 85 7B     STA ram_007B
 C - - - - 0x00007A 01:806A: A9 17     LDA #$17
@@ -363,17 +370,6 @@ C - - - - 0x00029C 01:828C: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - 0x00029F 01:828F: A2 01     LDX #$01
 C - - - - 0x0002A1 01:8291: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
 C - - - - 0x0002A4 01:8294: 4C 0C A0  JMP loc_0x0026E2_перерыв
-
-sub_8297:
-C - - - - 0x0002A7 01:8297: 85 E7     STA ram_00E7
-C - - - - 0x0002A9 01:8299: A9 01     LDA #$01
-C - - - - 0x0002AB 01:829B: 85 E6     STA ram_00E6
-C - - - - 0x0002AD 01:829D: A9 E5     LDA #$E5
-C - - - - 0x0002AF 01:829F: 85 4D     STA ram_004D
-C - - - - 0x0002B1 01:82A1: A9 00     LDA #$00
-C - - - - 0x0002B3 01:82A3: 85 4E     STA ram_004E
-C - - - - 0x0002B5 01:82A5: 20 85 90  JSR sub_9085
-C - - - - 0x0002B8 01:82A8: 60        RTS
 
 .export sub_0x0002B9_ожидание_завершения_катсцены
 sub_0x0002B9_ожидание_завершения_катсцены:
@@ -4785,26 +4781,13 @@ C - - - - 0x001DFD 01:9DED: 60        RTS
 .export sub_0x001DFE_умножить_A_на_X
 sub_0x001DFE_умножить_A_на_X:
 sub_9DEE_умножить_A_на_X:
-; bzk заменить на регистр MMC5
-C - - - - 0x001DFE 01:9DEE: 85 ED     STA ram_00ED
-C - - - - 0x001E00 01:9DF0: A9 00     LDA #$00
-C - - - - 0x001E02 01:9DF2: 85 EC     STA ram_00EC
-C - - - - 0x001E04 01:9DF4: A0 08     LDY #$08
-bra_9DF6_цикл:
-C - - - - 0x001E06 01:9DF6: 06 EC     ASL ram_00EC
-C - - - - 0x001E08 01:9DF8: 26 ED     ROL ram_00ED
-C - - - - 0x001E0A 01:9DFA: 90 0C     BCC bra_9E08
-C - - - - 0x001E0C 01:9DFC: 8A        TXA
-C - - - - 0x001E0D 01:9DFD: 18        CLC
-C - - - - 0x001E0E 01:9DFE: 65 EC     ADC ram_00EC
-C - - - - 0x001E10 01:9E00: 85 EC     STA ram_00EC
-C - - - - 0x001E12 01:9E02: A5 ED     LDA ram_00ED
-C - - - - 0x001E14 01:9E04: 69 00     ADC #$00
-C - - - - 0x001E16 01:9E06: 85 ED     STA ram_00ED
-bra_9E08:
-C - - - - 0x001E18 01:9E08: 88        DEY
-C - - - - 0x001E19 01:9E09: D0 EB     BNE bra_9DF6_цикл
-C - - - - 0x001E1B 01:9E0B: 60        RTS
+    STA $5205
+    STX $5206
+    LDA $5205
+    STA ram_00EC
+    LDA $5206
+    STA ram_00ED
+    RTS
 
 .export sub_0x001E1C
 sub_0x001E1C:
