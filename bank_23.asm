@@ -5191,7 +5191,7 @@ tbl_A292_номера_ppu_байтов_для_анимаций_чарли:
 - D - - - 0x0362BA 23:A2AA: F4 A3     .word off_A3F4_0C
 - D - - - 0x0362BC 23:A2AC: 25 A4     .word off_A425_0D
 
-    con_loop = $FF
+con_loop = $FF
 
 off_A2AE_00:
 - D - I - 0x0362BE 23:A2AE: 05        .byte $05    ; <お>
@@ -5850,11 +5850,11 @@ off_A54B_0F:
 
 off_A570_10:
     .byte $01
-    .word $2303
+    .word $2302
     .byte $E1
     
     .byte $02
-    .word $2323
+    .word $2322
     .byte $E3, $DB
     
     .byte con_done
@@ -5863,11 +5863,11 @@ off_A570_10:
 
 off_A57A_11:
     .byte $01
-    .word $2303
+    .word $2302
     .byte $F4
     
     .byte $02
-    .word $2323
+    .word $2322
     .byte $F5, $F0
     
     .byte con_done
