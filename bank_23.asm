@@ -5900,16 +5900,16 @@ off_A584_12:
 
 
 off_A5A9_13:
-    .byte $02
-    .word $2323
-    .byte $A6, $A7
+    .byte $03
+    .word $2322
+    .byte $A6, $A7, $00
     
     .byte $01
-    .word $2343
+    .word $2342
     .byte $AC
     
     .byte $01
-    .word $2363
+    .word $2362
     .byte $AE
     
     .byte con_done
