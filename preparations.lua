@@ -208,6 +208,12 @@ for _, f in ipairs(files_list) do                               --execute this l
         local line = file_temp_copy:read("*line")                                   --read line from the file
         if line == nil then break end                                               --exit the loop if there is no more lines in the file
         local find_start, find_end = string.find(line, ".text "..[["]])             --check if there is any lines that contain .text "
+        local f_start, _ = string.find(line, ";")                                   --check if there is a comment symbol
+        if f_start ~= nil and find_start ~= nil then                                --if both comment and text are found
+            if f_start < find_start then                                            --if comment symbol is placed before the text
+                find_start = nil                                                    --pretend that there is no text here to translate
+            end
+        end
         
         if find_start ~= nil then                                                   --start the loop if found (if not, then just copy the whole line as is)
             local text = string.sub(line, find_end + 1)                             --copy all game text from the current line
