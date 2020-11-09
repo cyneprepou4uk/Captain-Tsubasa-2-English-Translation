@@ -26,7 +26,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_19 - титры финальной катсцены
 ; bank_20 - анимации сценариев
 ; bank_21 - 
-; bank_22 - фразы облаков, тайлы облаков, меню во время игры (код)
+; bank_22 - тайлы облаков, меню во время игры (код)
 ; bank_23 - чарли во время игры
 ; bank_24 - стоимость энергии на спешалы
 ; bank_25 - VS экран
@@ -38,6 +38,8 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_31 - катсцены
 ; bank_32 - катсцены
 ; bank_33 - словарь
+; bank_34 - фразы облаков
+; bank_35 - фразы облаков
 ; bank_FF - NMI, IRQ, RESET
 
 
