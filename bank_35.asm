@@ -76,7 +76,7 @@ off_9F52_ожидание_1:
 
     .byte con_pause + $B4
     .byte con_charlie + $01
-    .byte con_window + $01
+    .byte con_window + $02
     .byte con_start_line + $00
     .text "                    ", con_line
     .text "  This booth's so   ", con_line
@@ -85,7 +85,7 @@ off_9F52_ожидание_1:
 
     .byte con_pause + $B4
     .byte con_charlie + $04
-    .byte con_window + $00
+    .byte con_window + $01
     .byte con_start_line + $01
     .text "      *sigh*        ", con_line
     .text "   Are we really    ", con_line
@@ -93,7 +93,7 @@ off_9F52_ожидание_1:
 
     .byte con_pause + $B4
     .byte con_charlie + $00
-    .byte con_window + $01
+    .byte con_window + $02
     .byte con_start_line + $01
     .text "                    ", con_line
     .text " Uuh, so sleepy...  ", con_line
