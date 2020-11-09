@@ -84,7 +84,7 @@ off_9F52_ожидание_1:
     .text "                    ", con_line
 
     .byte con_pause + $B4
-    .byte con_charlie + $04
+    .byte con_charlie + $02
     .byte con_window + $01
     .byte con_start_line + $01
     .text "      *sigh*        ", con_line
@@ -166,7 +166,7 @@ off_9FE1_ожидание_2:
     .text "                    ", con_line
 
     .byte con_pause + $B4
-    .byte con_charlie + $02
+    .byte con_charlie + $01
     .byte con_window + $01
     .byte con_start_line + $00
     .text "                    ", con_line
@@ -188,7 +188,7 @@ off_A06C_peace_чарли_полное:
     .byte con_window + $02
     .byte con_start_line + $01
     .text "                    ", con_line
-    .text "       Peace!       ", con_line
+    .text "      Peace!        ", con_line
     .text "                    ", con_line
 off_A06D_peace_чарли_частичное:
     .byte con_pause + $45
@@ -205,7 +205,7 @@ off_A06D_peace_чарли_частичное:
     .byte con_window + $02
     .byte con_start_line + $01
     .text "                    ", con_line
-    .text "       Peace!       ", con_line
+    .text "      Peace!        ", con_line
     .text "                    ", con_line
     
     .byte con_jump
@@ -224,7 +224,7 @@ off_A08B_ожидание_3:
     .text "    press @A@...    ", con_line
     
     .byte con_pause + $E0
-    .byte con_charlie + $0C
+    .byte con_charlie + $02
     .byte con_window + $03
     .byte con_start_line + $01
     .text "  Oh, my stomach's  ", con_line
@@ -232,7 +232,7 @@ off_A08B_ожидание_3:
     .text " where's that menu? ", con_line
 
     .byte con_pause + $B4
-    .byte con_charlie + $0B
+    .byte con_charlie + $0A
     .byte con_window + $00
     .byte con_start_line + $00
     .text " Hello, Raiken? I'd ", con_line
@@ -268,7 +268,7 @@ off_A08B_ожидание_3:
     .text "                    ", con_line
 
     .byte con_pause + $B4
-    .byte con_charlie + $03
+    .byte con_charlie + $0B
     .byte con_window + $01
     .byte con_start_line + $00
     .text "                    ", con_line
@@ -415,7 +415,7 @@ off_A225_ожидание_5:
     .text "  it to this point. ", con_line
     .byte con_pause + $B4
     
-    .byte con_charlie + $0C
+    .byte con_charlie + $00
     .byte con_window + $00
     .byte con_start_line + $00
     .text "                    ", con_line
@@ -474,7 +474,7 @@ off_A292_ожидание_6:
     .text "                    ", con_line
     .byte con_pause + $B4
     
-    .byte con_charlie + $03
+    .byte con_charlie + $0B
     .byte con_window + $02
     .byte con_start_line + $01
     .text "   I guess we'll    ", con_line
@@ -486,7 +486,7 @@ off_A292_ожидание_6:
     .byte con_window + $01
     .byte con_start_line + $01
     .text "                    ", con_line
-    .text "    Sweet dreams!   ", con_line
+    .text "   Sweet dreams!    ", con_line
     .text "                    ", con_line
 
     .byte con_jump
@@ -498,7 +498,7 @@ off_A302_ожидание_7:
     .byte $F5, $02
     .byte con_pause + $E8
     
-    .byte con_charlie + $01
+    .byte con_charlie + $0C
     .byte con_window + $02
     .byte con_start_line + $00
     .text "   We've reached    ", con_line
@@ -508,7 +508,7 @@ off_A302_ожидание_7:
     .byte con_pause + $B4
     
     .byte con_charlie + $09
-    .byte con_window + $06
+    .byte con_window + $01
     .byte con_start_line + $01
     .text "   I'm rooting for  ", con_line
     .text "  you to win so you ", con_line
@@ -516,7 +516,7 @@ off_A302_ожидание_7:
     .byte con_pause + $B4
     
     .byte con_charlie + $03
-    .byte con_window + $01
+    .byte con_window + $00
     .byte con_start_line + $01
     .text "   See? I can be    ", con_line
     .text "  a nice guy when   ", con_line
@@ -524,24 +524,24 @@ off_A302_ожидание_7:
     .byte con_pause + $B4
     
     .byte con_charlie + $02
-    .byte con_window + $00
+    .byte con_window + $03
     .byte con_start_line + $00
     .text "                    ", con_line
-    .text "    ...you don't    ", con_line
-    .text "      think so?     ", con_line
+    .text "   ...you don't     ", con_line
+    .text "     think so?      ", con_line
     .text "                    ", con_line
     .byte con_pause + $B4
     
-    .byte con_charlie + $03
-    .byte con_window + $00
+    .byte con_charlie + $05
+    .byte con_window + $02
     .byte con_start_line + $01
     .text "                    ", con_line
     .text "   Anyway_charge!  ", con_line
     .text "                    ", con_line
     .byte con_pause + $B4
     
-    .byte con_charlie + $01
-    .byte con_window + $04
+    .byte con_charlie + $05
+    .byte con_window + $01
     .byte con_start_line + $00
     .text "                    ", con_line
     .text "    Go forth and    ", con_line
@@ -549,8 +549,8 @@ off_A302_ожидание_7:
     .text "                    ", con_line
     .byte con_pause + $B4
     
-    .byte con_charlie + $01
-    .byte con_window + $06
+    .byte con_charlie + $0A
+    .byte con_window + $02
     .byte con_start_line + $01
     .text "                    ", con_line
     .text "     Kick off!!     ", con_line
@@ -559,7 +559,7 @@ off_A3A6_цикл:
     .byte con_pause + $B4
     
     .byte con_charlie + $09
-    .byte con_window + $05
+    .byte con_window + $00
     .byte con_start_line + $00
     .text "                    ", con_line
     .text "     Go Ja-pan!     ", con_line
