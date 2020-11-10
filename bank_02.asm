@@ -3715,81 +3715,88 @@ tbl_B9C8_количество_замен_для_японии:
     .text "Subs:"
 
 tbl_B9D3:
-- D - - - 0x0039E3 02:B9D3: 00        .byte $00
-- D - - - 0x0039E4 02:B9D4: 0C        .byte $0C    ; <し>
-- D - - - 0x0039E5 02:B9D5: 23        .byte $23    ; <も>
+    .byte tbl_B9D6_sao_paulo - tbl_B9D3 - $03
+    .byte tbl_B9D6_nankatsu  - tbl_B9D3 - $03
+    .byte tbl_B9D6_japan     - tbl_B9D3 - $03
 
 tbl_B9D6:
-- - - - - 0x0039E6 02:B9D6: 00        .byte $00
-- D - - - 0x0039E7 02:B9D7: 00        .byte $00
-- D - - - 0x0039E8 02:B9D8: 01        .byte $01    ; <あ>
-- D - - - 0x0039E9 02:B9D9: 12        .byte $12    ; <つ>
-- D - - - 0x0039EA 02:B9DA: 12        .byte $12    ; <つ>
-- D - - - 0x0039EB 02:B9DB: 03        .byte $03    ; <う>
-- D - - - 0x0039EC 02:B9DC: 04        .byte $04    ; <え>
-- D - - - 0x0039ED 02:B9DD: 05        .byte $05    ; <お>
-- D - - - 0x0039EE 02:B9DE: 06        .byte $06    ; <か>
-- D - - - 0x0039EF 02:B9DF: 07        .byte $07    ; <き>
-- D - - - 0x0039F0 02:B9E0: 08        .byte $08    ; <く>
-- D - - - 0x0039F1 02:B9E1: 09        .byte $09    ; <け>
-- - - - - 0x0039F2 02:B9E2: 00        .byte $00
-- - - - - 0x0039F3 02:B9E3: 00        .byte $00
-- - - - - 0x0039F4 02:B9E4: 00        .byte $00
-- - - - - 0x0039F5 02:B9E5: 00        .byte $00
-- - - - - 0x0039F6 02:B9E6: 00        .byte $00
-- - - - - 0x0039F7 02:B9E7: 00        .byte $00
-- - - - - 0x0039F8 02:B9E8: 00        .byte $00
-- - - - - 0x0039F9 02:B9E9: 00        .byte $00
-- - - - - 0x0039FA 02:B9EA: 00        .byte $00
-- - - - - 0x0039FB 02:B9EB: 00        .byte $00
-- - - - - 0x0039FC 02:B9EC: 00        .byte $00
-- - - - - 0x0039FD 02:B9ED: 00        .byte $00
-- D - - - 0x0039FE 02:B9EE: 00        .byte $00
-- D - - - 0x0039FF 02:B9EF: 21        .byte $21    ; <む>
-- D - - - 0x003A00 02:B9F0: 21        .byte $21    ; <む>
-- D - - - 0x003A01 02:B9F1: 02        .byte $02    ; <い>
-- D - - - 0x003A02 02:B9F2: 03        .byte $03    ; <う>
-- D - - - 0x003A03 02:B9F3: 04        .byte $04    ; <え>
-- D - - - 0x003A04 02:B9F4: 05        .byte $05    ; <お>
-- D - - - 0x003A05 02:B9F5: 06        .byte $06    ; <か>
-- D - - - 0x003A06 02:B9F6: 07        .byte $07    ; <き>
-- D - - - 0x003A07 02:B9F7: 08        .byte $08    ; <く>
-- D - - - 0x003A08 02:B9F8: 09        .byte $09    ; <け>
-- - - - - 0x003A09 02:B9F9: 00        .byte $00
-- D - - - 0x003A0A 02:B9FA: 00        .byte $00
-- - - - - 0x003A0B 02:B9FB: 00        .byte $00
-- - - - - 0x003A0C 02:B9FC: 00        .byte $00
-- - - - - 0x003A0D 02:B9FD: 00        .byte $00
-- - - - - 0x003A0E 02:B9FE: 00        .byte $00
-- - - - - 0x003A0F 02:B9FF: 00        .byte $00
-- - - - - 0x003A10 02:BA00: 00        .byte $00
-- - - - - 0x003A11 02:BA01: 00        .byte $00
-- - - - - 0x003A12 02:BA02: 00        .byte $00
-- - - - - 0x003A13 02:BA03: 00        .byte $00
-- - - - - 0x003A14 02:BA04: 00        .byte $00
-- - - - - 0x003A15 02:BA05: 00        .byte $00
-- - - - - 0x003A16 02:BA06: 00        .byte $00
-- - - - - 0x003A17 02:BA07: 00        .byte $00
-- D - - - 0x003A18 02:BA08: 31        .byte $31    ; <ゅ>
-- D - - - 0x003A19 02:BA09: 31        .byte $31    ; <ゅ>
-- D - - - 0x003A1A 02:BA0A: 02        .byte $02    ; <い>
-- D - - - 0x003A1B 02:BA0B: 31        .byte $31    ; <ゅ>
-- D - - - 0x003A1C 02:BA0C: 31        .byte $31    ; <ゅ>
-- D - - - 0x003A1D 02:BA0D: 03        .byte $03    ; <う>
-- D - - - 0x003A1E 02:BA0E: 44        .byte $44    ; <エ>
-- D - - - 0x003A1F 02:BA0F: 31        .byte $31    ; <ゅ>
-- D - - - 0x003A20 02:BA10: 44        .byte $44    ; <エ>
-- D - - - 0x003A21 02:BA11: 44        .byte $44    ; <エ>
-- D - - - 0x003A22 02:BA12: 55        .byte $55    ; <ナ>
-- D - - - 0x003A23 02:BA13: 06        .byte $06    ; <か>
-- D - - - 0x003A24 02:BA14: 55        .byte $55    ; <ナ>
-- D - - - 0x003A25 02:BA15: 44        .byte $44    ; <エ>
-- D - - - 0x003A26 02:BA16: 07        .byte $07    ; <き>
-- D - - - 0x003A27 02:BA17: 55        .byte $55    ; <ナ>
-- D - - - 0x003A28 02:BA18: 55        .byte $55    ; <ナ>
-- D - - - 0x003A29 02:BA19: 44        .byte $44    ; <エ>
-- D - - - 0x003A2A 02:BA1A: 08        .byte $08    ; <く>
-- D - - - 0x003A2B 02:BA1B: 09        .byte $09    ; <け>
+tbl_B9D6_sao_paulo:
+- - - - - 0x0039E6 02:B9D6: 00        .byte $00    ; unused клон
+- D - - - 0x0039E7 02:B9D7: 00        .byte $00    ; Tsubasa
+- D - - - 0x0039E8 02:B9D8: 01        .byte $01    ; Renato
+- D - - - 0x0039E9 02:B9D9: 12        .byte $12    ; Lima
+- D - - - 0x0039EA 02:B9DA: 12        .byte $12    ; Marini
+- D - - - 0x0039EB 02:B9DB: 03        .byte $03    ; Amaral
+- D - - - 0x0039EC 02:B9DC: 04        .byte $04    ; Dotor
+- D - - - 0x0039ED 02:B9DD: 05        .byte $05    ; Batista
+- D - - - 0x0039EE 02:B9DE: 06        .byte $06    ; Tahamat
+- D - - - 0x0039EF 02:B9DF: 07        .byte $07    ; Babingt
+- D - - - 0x0039F0 02:B9E0: 08        .byte $08    ; Gil
+- D - - - 0x0039F1 02:B9E1: 09        .byte $09    ; Platon
+
+tbl_B9D6_nankatsu:
+- - - - - 0x0039F2 02:B9E2: 00        .byte $00    ; unused клон
+- - - - - 0x0039F3 02:B9E3: 00        .byte $00    ; unused
+- - - - - 0x0039F4 02:B9E4: 00        .byte $00    ; unused
+- - - - - 0x0039F5 02:B9E5: 00        .byte $00    ; unused
+- - - - - 0x0039F6 02:B9E6: 00        .byte $00    ; unused
+- - - - - 0x0039F7 02:B9E7: 00        .byte $00    ; unused
+- - - - - 0x0039F8 02:B9E8: 00        .byte $00    ; unused
+- - - - - 0x0039F9 02:B9E9: 00        .byte $00    ; unused
+- - - - - 0x0039FA 02:B9EA: 00        .byte $00    ; unused
+- - - - - 0x0039FB 02:B9EB: 00        .byte $00    ; unused
+- - - - - 0x0039FC 02:B9EC: 00        .byte $00    ; unused
+- - - - - 0x0039FD 02:B9ED: 00        .byte $00    ; unused
+- D - - - 0x0039FE 02:B9EE: 00        .byte $00    ; Urabe
+- D - - - 0x0039FF 02:B9EF: 21        .byte $21    ; Kishida
+- D - - - 0x003A00 02:B9F0: 21        .byte $21    ; Nakayama
+- D - - - 0x003A01 02:B9F1: 02        .byte $02    ; Morisaki
+- D - - - 0x003A02 02:B9F2: 03        .byte $03    ; Takasugi
+- D - - - 0x003A03 02:B9F3: 04        .byte $04    ; Misaki
+- D - - - 0x003A04 02:B9F4: 05        .byte $05    ; Izawa
+- D - - - 0x003A05 02:B9F5: 06        .byte $06    ; Taki
+- D - - - 0x003A06 02:B9F6: 07        .byte $07    ; Ishizaki
+- D - - - 0x003A07 02:B9F7: 08        .byte $08    ; Nitta
+- D - - - 0x003A08 02:B9F8: 09        .byte $09    ; Kisugi
+
+tbl_B9D6_japan:
+- - - - - 0x003A09 02:B9F9: 00        .byte $00    ; unused клон
+- D - - - 0x003A0A 02:B9FA: 00        .byte $00    ; Tsubasa
+- - - - - 0x003A0B 02:B9FB: 00        .byte $00    ; unused
+- - - - - 0x003A0C 02:B9FC: 00        .byte $00    ; unused
+- - - - - 0x003A0D 02:B9FD: 00        .byte $00    ; unused
+- - - - - 0x003A0E 02:B9FE: 00        .byte $00    ; unused
+- - - - - 0x003A0F 02:B9FF: 00        .byte $00    ; unused
+- - - - - 0x003A10 02:BA00: 00        .byte $00    ; unused
+- - - - - 0x003A11 02:BA01: 00        .byte $00    ; unused
+- - - - - 0x003A12 02:BA02: 00        .byte $00    ; unused
+- - - - - 0x003A13 02:BA03: 00        .byte $00    ; unused
+- - - - - 0x003A14 02:BA04: 00        .byte $00    ; unused
+- - - - - 0x003A15 02:BA05: 00        .byte $00    ; unused
+- - - - - 0x003A16 02:BA06: 00        .byte $00    ; unused
+- - - - - 0x003A17 02:BA07: 00        .byte $00    ; unused
+- D - - - 0x003A18 02:BA08: 31        .byte $31    ; Morisaki
+- D - - - 0x003A19 02:BA09: 31        .byte $31    ; Takasugi
+- D - - - 0x003A1A 02:BA0A: 02        .byte $02    ; Misaki
+- D - - - 0x003A1B 02:BA0B: 31        .byte $31    ; Izawa
+- D - - - 0x003A1C 02:BA0C: 31        .byte $31    ; Taki
+- D - - - 0x003A1D 02:BA0D: 03        .byte $03    ; Ishizaki
+- D - - - 0x003A1E 02:BA0E: 44        .byte $44    ; Nitta
+- D - - - 0x003A1F 02:BA0F: 31        .byte $31    ; Kisugi
+- D - - - 0x003A20 02:BA10: 44        .byte $44    ; Masao
+- D - - - 0x003A21 02:BA11: 44        .byte $44    ; Kazuo
+- D - - - 0x003A22 02:BA12: 55        .byte $55    ; Sano
+- D - - - 0x003A23 02:BA13: 06        .byte $06    ; Hyuga
+- D - - - 0x003A24 02:BA14: 55        .byte $55    ; Soda
+- D - - - 0x003A25 02:BA15: 44        .byte $44    ; Jito
+- D - - - 0x003A26 02:BA16: 07        .byte $07    ; Matsuyama
+- D - - - 0x003A27 02:BA17: 55        .byte $55    ; Sorimachi
+- D - - - 0x003A28 02:BA18: 55        .byte $55    ; Sawada
+- D - - - 0x003A29 02:BA19: 44        .byte $44    ; Misugi
+- D - - - 0x003A2A 02:BA1A: 08        .byte $08    ; Wakabayashi
+- D - - - 0x003A2B 02:BA1B: 09        .byte $09    ; Wakashimazu
+
+
 
 tbl_BA1C:
 - D - - - 0x003A2C 02:BA1C: 30        .byte $30    ; <ゃ>
