@@ -14095,15 +14095,15 @@ off_BAF6_00:
 
 
 off_BB00_01:
-- D - I - 0x03BB10 24:BB00: 03        .byte $03
-- - - - - 0x03BB11 24:BB01: 00        .byte $00
-- D - I - 0x03BB12 24:BB02: 79        .byte $79
-- D - I - 0x03BB13 24:BB03: 7A        .byte $7A
-- D - I - 0x03BB14 24:BB04: 7A        .byte $7A
-- D - I - 0x03BB15 24:BB05: 7B        .byte $7B
-- D - I - 0x03BB16 24:BB06: A0        .byte $A0
-- D - I - 0x03BB17 24:BB07: 1E        .byte $1E
-- D - I - 0x03BB18 24:BB08: 1E        .byte $1E
+- D - I - 0x03BB10 24:BB00: 03        .byte $03     ; защита + расстановка
+- - - - - 0x03BB11 24:BB01: 00        .byte $00     ; unused
+- D - I - 0x03BB12 24:BB02: 79        .byte $79     ; 02 GK
+- D - I - 0x03BB13 24:BB03: 7A        .byte $7A     ; 03 DF
+- D - I - 0x03BB14 24:BB04: 7A        .byte $7A     ; 04 MF
+- D - I - 0x03BB15 24:BB05: 7B        .byte $7B     ; 05 FW
+- D - I - 0x03BB16 24:BB06: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BB17 24:BB07: 1E        .byte $1E     ; 07 0x03855B
+- D - I - 0x03BB18 24:BB08: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BB19 24:BB09: 0A        .byte $0A
 - D - I - 0x03BB1A 24:BB0A: 24        .byte $24
@@ -14116,15 +14116,15 @@ off_BB00_01:
 
 
 off_BB0E_02:
-- D - I - 0x03BB1E 24:BB0E: 21        .byte $21
-- - - - - 0x03BB1F 24:BB0F: 00        .byte $00
-- - - - - 0x03BB20 24:BB10: 76        .byte $76
-- D - I - 0x03BB21 24:BB11: 7C        .byte $7C
-- D - I - 0x03BB22 24:BB12: 7D        .byte $7D
-- D - I - 0x03BB23 24:BB13: 7D        .byte $7D
-- - - - - 0x03BB24 24:BB14: A0        .byte $A0
-- - - - - 0x03BB25 24:BB15: 1F        .byte $1F
-- - - - - 0x03BB26 24:BB16: 1E        .byte $1E
+- D - I - 0x03BB1E 24:BB0E: 21        .byte $21     ; защита + расстановка
+- - - - - 0x03BB1F 24:BB0F: 00        .byte $00     ; unused
+- - - - - 0x03BB20 24:BB10: 76        .byte $76     ; 02 GK
+- D - I - 0x03BB21 24:BB11: 7C        .byte $7C     ; 03 DF
+- D - I - 0x03BB22 24:BB12: 7D        .byte $7D     ; 04 MF
+- D - I - 0x03BB23 24:BB13: 7D        .byte $7D     ; 05 FW
+- - - - - 0x03BB24 24:BB14: A0        .byte $A0     ; 06 0x03853E
+- - - - - 0x03BB25 24:BB15: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BB26 24:BB16: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BB27 24:BB17: 09        .byte $09
 - D - I - 0x03BB28 24:BB18: 25        .byte $25
@@ -14137,15 +14137,15 @@ off_BB0E_02:
 
 
 off_BB1C_03:
-- D - I - 0x03BB2C 24:BB1C: 20        .byte $20
-- - - - - 0x03BB2D 24:BB1D: 00        .byte $00
-- D - I - 0x03BB2E 24:BB1E: 7E        .byte $7E
-- D - I - 0x03BB2F 24:BB1F: 7F        .byte $7F
-- D - I - 0x03BB30 24:BB20: 80        .byte $80
-- D - I - 0x03BB31 24:BB21: 80        .byte $80
-- - - - - 0x03BB32 24:BB22: B0        .byte $B0
-- - - - - 0x03BB33 24:BB23: 1F        .byte $1F
-- - - - - 0x03BB34 24:BB24: 1E        .byte $1E
+- D - I - 0x03BB2C 24:BB1C: 20        .byte $20     ; защита + расстановка
+- - - - - 0x03BB2D 24:BB1D: 00        .byte $00     ; unused
+- D - I - 0x03BB2E 24:BB1E: 7E        .byte $7E     ; 02 GK
+- D - I - 0x03BB2F 24:BB1F: 7F        .byte $7F     ; 03 DF
+- D - I - 0x03BB30 24:BB20: 80        .byte $80     ; 04 MF
+- D - I - 0x03BB31 24:BB21: 80        .byte $80     ; 05 FW
+- - - - - 0x03BB32 24:BB22: B0        .byte $B0     ; 06 0x03853E
+- - - - - 0x03BB33 24:BB23: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BB34 24:BB24: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BB35 24:BB25: 09        .byte $09
 - D - I - 0x03BB36 24:BB26: 27        .byte $27
@@ -14158,15 +14158,15 @@ off_BB1C_03:
 
 
 off_BB2A_04:
-- D - I - 0x03BB3A 24:BB2A: 21        .byte $21
-- - - - - 0x03BB3B 24:BB2B: 00        .byte $00
-- D - I - 0x03BB3C 24:BB2C: 81        .byte $81
-- D - I - 0x03BB3D 24:BB2D: 82        .byte $82
-- D - I - 0x03BB3E 24:BB2E: 83        .byte $83
-- D - I - 0x03BB3F 24:BB2F: 83        .byte $83
-- - - - - 0x03BB40 24:BB30: 91        .byte $91
-- - - - - 0x03BB41 24:BB31: 1F        .byte $1F
-- - - - - 0x03BB42 24:BB32: 1D        .byte $1D
+- D - I - 0x03BB3A 24:BB2A: 21        .byte $21     ; защита + расстановка
+- - - - - 0x03BB3B 24:BB2B: 00        .byte $00     ; unused
+- D - I - 0x03BB3C 24:BB2C: 81        .byte $81     ; 02 GK
+- D - I - 0x03BB3D 24:BB2D: 82        .byte $82     ; 03 DF
+- D - I - 0x03BB3E 24:BB2E: 83        .byte $83     ; 04 MF
+- D - I - 0x03BB3F 24:BB2F: 83        .byte $83     ; 05 FW
+- - - - - 0x03BB40 24:BB30: 91        .byte $91     ; 06 0x03853E
+- - - - - 0x03BB41 24:BB31: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BB42 24:BB32: 1D        .byte $1D     ; 08 0x038593
 
 - D - I - 0x03BB43 24:BB33: 09        .byte $09
 - D - I - 0x03BB44 24:BB34: 29        .byte $29
@@ -14179,15 +14179,15 @@ off_BB2A_04:
 
 
 off_BB38_05:
-- D - I - 0x03BB48 24:BB38: 03        .byte $03
-- - - - - 0x03BB49 24:BB39: 00        .byte $00
-- D - I - 0x03BB4A 24:BB3A: 84        .byte $84
-- D - I - 0x03BB4B 24:BB3B: 85        .byte $85
-- D - I - 0x03BB4C 24:BB3C: 86        .byte $86
-- D - I - 0x03BB4D 24:BB3D: 86        .byte $86
-- D - I - 0x03BB4E 24:BB3E: 60        .byte $60
-- D - I - 0x03BB4F 24:BB3F: 1E        .byte $1E
-- D - I - 0x03BB50 24:BB40: 1F        .byte $1F
+- D - I - 0x03BB48 24:BB38: 03        .byte $03     ; защита + расстановка
+- - - - - 0x03BB49 24:BB39: 00        .byte $00     ; unused
+- D - I - 0x03BB4A 24:BB3A: 84        .byte $84     ; 02 GK
+- D - I - 0x03BB4B 24:BB3B: 85        .byte $85     ; 03 DF
+- D - I - 0x03BB4C 24:BB3C: 86        .byte $86     ; 04 MF
+- D - I - 0x03BB4D 24:BB3D: 86        .byte $86     ; 05 FW
+- D - I - 0x03BB4E 24:BB3E: 60        .byte $60     ; 06 0x03853E
+- D - I - 0x03BB4F 24:BB3F: 1E        .byte $1E     ; 07 0x03855B
+- D - I - 0x03BB50 24:BB40: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BB51 24:BB41: 0A        .byte $0A
 - D - I - 0x03BB52 24:BB42: 2B        .byte $2B
@@ -14203,15 +14203,15 @@ off_BB38_05:
 
 
 off_BB48_06:
-- D - I - 0x03BB58 24:BB48: 00        .byte $00
-- - - - - 0x03BB59 24:BB49: 00        .byte $00
-- D - I - 0x03BB5A 24:BB4A: 87        .byte $87
-- D - I - 0x03BB5B 24:BB4B: 88        .byte $88
-- D - I - 0x03BB5C 24:BB4C: 89        .byte $89
-- D - I - 0x03BB5D 24:BB4D: 89        .byte $89
-- D - I - 0x03BB5E 24:BB4E: 91        .byte $91
-- D - I - 0x03BB5F 24:BB4F: 1F        .byte $1F
-- D - I - 0x03BB60 24:BB50: 1D        .byte $1D
+- D - I - 0x03BB58 24:BB48: 00        .byte $00     ; защита + расстановка
+- - - - - 0x03BB59 24:BB49: 00        .byte $00     ; unused
+- D - I - 0x03BB5A 24:BB4A: 87        .byte $87     ; 02 GK
+- D - I - 0x03BB5B 24:BB4B: 88        .byte $88     ; 03 DF
+- D - I - 0x03BB5C 24:BB4C: 89        .byte $89     ; 04 MF
+- D - I - 0x03BB5D 24:BB4D: 89        .byte $89     ; 05 FW
+- D - I - 0x03BB5E 24:BB4E: 91        .byte $91     ; 06 0x03853E
+- D - I - 0x03BB5F 24:BB4F: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BB60 24:BB50: 1D        .byte $1D     ; 08 0x038593
 
 - D - I - 0x03BB61 24:BB51: 04        .byte $04
 - D - I - 0x03BB62 24:BB52: 2E        .byte $2E
@@ -14224,15 +14224,15 @@ off_BB48_06:
 
 
 off_BB56_07:
-- D - I - 0x03BB66 24:BB56: 21        .byte $21
-- - - - - 0x03BB67 24:BB57: 00        .byte $00
-- D - I - 0x03BB68 24:BB58: 8A        .byte $8A
-- D - I - 0x03BB69 24:BB59: 8B        .byte $8B
-- D - I - 0x03BB6A 24:BB5A: 8C        .byte $8C
-- D - I - 0x03BB6B 24:BB5B: 8C        .byte $8C
-- - - - - 0x03BB6C 24:BB5C: A0        .byte $A0
-- - - - - 0x03BB6D 24:BB5D: 1F        .byte $1F
-- - - - - 0x03BB6E 24:BB5E: 1E        .byte $1E
+- D - I - 0x03BB66 24:BB56: 21        .byte $21     ; защита + расстановка
+- - - - - 0x03BB67 24:BB57: 00        .byte $00     ; unused
+- D - I - 0x03BB68 24:BB58: 8A        .byte $8A     ; 02 GK
+- D - I - 0x03BB69 24:BB59: 8B        .byte $8B     ; 03 DF
+- D - I - 0x03BB6A 24:BB5A: 8C        .byte $8C     ; 04 MF
+- D - I - 0x03BB6B 24:BB5B: 8C        .byte $8C     ; 05 FW
+- - - - - 0x03BB6C 24:BB5C: A0        .byte $A0     ; 06 0x03853E
+- - - - - 0x03BB6D 24:BB5D: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BB6E 24:BB5E: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BB6F 24:BB5F: 09        .byte $09
 - D - I - 0x03BB70 24:BB60: 30        .byte $30
@@ -14245,15 +14245,15 @@ off_BB56_07:
 
 
 off_BB64_08:
-- D - I - 0x03BB74 24:BB64: 01        .byte $01
-- - - - - 0x03BB75 24:BB65: 00        .byte $00
-- - - - - 0x03BB76 24:BB66: 76        .byte $76
-- D - I - 0x03BB77 24:BB67: 8D        .byte $8D
-- D - I - 0x03BB78 24:BB68: 8D        .byte $8D
-- D - I - 0x03BB79 24:BB69: 8E        .byte $8E
-- D - I - 0x03BB7A 24:BB6A: 40        .byte $40
-- D - I - 0x03BB7B 24:BB6B: 1E        .byte $1E
-- - - - - 0x03BB7C 24:BB6C: 1E        .byte $1E
+- D - I - 0x03BB74 24:BB64: 01        .byte $01     ; защита + расстановка
+- - - - - 0x03BB75 24:BB65: 00        .byte $00     ; unused
+- - - - - 0x03BB76 24:BB66: 76        .byte $76     ; 02 GK
+- D - I - 0x03BB77 24:BB67: 8D        .byte $8D     ; 03 DF
+- D - I - 0x03BB78 24:BB68: 8D        .byte $8D     ; 04 MF
+- D - I - 0x03BB79 24:BB69: 8E        .byte $8E     ; 05 FW
+- D - I - 0x03BB7A 24:BB6A: 40        .byte $40     ; 06 0x03853E
+- D - I - 0x03BB7B 24:BB6B: 1E        .byte $1E     ; 07 0x03855B
+- - - - - 0x03BB7C 24:BB6C: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BB7D 24:BB6D: 04        .byte $04
 - D - I - 0x03BB7E 24:BB6E: 32        .byte $32
@@ -14266,30 +14266,30 @@ off_BB64_08:
 
 
 off_BB72_09:
-- D - I - 0x03BB82 24:BB72: 02        .byte $02
-- - - - - 0x03BB83 24:BB73: 00        .byte $00
-- D - I - 0x03BB84 24:BB74: 8F        .byte $8F
-- D - I - 0x03BB85 24:BB75: 90        .byte $90
-- D - I - 0x03BB86 24:BB76: 91        .byte $91
-- D - I - 0x03BB87 24:BB77: 91        .byte $91
-- - - - - 0x03BB88 24:BB78: 70        .byte $70
-- - - - - 0x03BB89 24:BB79: 1F        .byte $1F
-- - - - - 0x03BB8A 24:BB7A: 1C        .byte $1C
+- D - I - 0x03BB82 24:BB72: 02        .byte $02     ; защита + расстановка
+- - - - - 0x03BB83 24:BB73: 00        .byte $00     ; unused
+- D - I - 0x03BB84 24:BB74: 8F        .byte $8F     ; 02 GK
+- D - I - 0x03BB85 24:BB75: 90        .byte $90     ; 03 DF
+- D - I - 0x03BB86 24:BB76: 91        .byte $91     ; 04 MF
+- D - I - 0x03BB87 24:BB77: 91        .byte $91     ; 05 FW
+- - - - - 0x03BB88 24:BB78: 70        .byte $70     ; 06 0x03853E
+- - - - - 0x03BB89 24:BB79: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BB8A 24:BB7A: 1C        .byte $1C     ; 08 0x038593
 
 - D - I - 0x03BB8B 24:BB7B: 0F        .byte con_закончить
 
 
 
 off_BB7C_0A:
-- D - I - 0x03BB8C 24:BB7C: 00        .byte $00
-- - - - - 0x03BB8D 24:BB7D: 00        .byte $00
-- D - I - 0x03BB8E 24:BB7E: 92        .byte $92
-- D - I - 0x03BB8F 24:BB7F: 93        .byte $93
-- D - I - 0x03BB90 24:BB80: 94        .byte $94
-- D - I - 0x03BB91 24:BB81: 94        .byte $94
-- D - I - 0x03BB92 24:BB82: 70        .byte $70
-- D - I - 0x03BB93 24:BB83: 1F        .byte $1F
-- - - - - 0x03BB94 24:BB84: 1F        .byte $1F
+- D - I - 0x03BB8C 24:BB7C: 00        .byte $00     ; защита + расстановка
+- - - - - 0x03BB8D 24:BB7D: 00        .byte $00     ; unused
+- D - I - 0x03BB8E 24:BB7E: 92        .byte $92     ; 02 GK
+- D - I - 0x03BB8F 24:BB7F: 93        .byte $93     ; 03 DF
+- D - I - 0x03BB90 24:BB80: 94        .byte $94     ; 04 MF
+- D - I - 0x03BB91 24:BB81: 94        .byte $94     ; 05 FW
+- D - I - 0x03BB92 24:BB82: 70        .byte $70     ; 06 0x03853E
+- D - I - 0x03BB93 24:BB83: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BB94 24:BB84: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BB95 24:BB85: 0A        .byte $0A
 - D - I - 0x03BB96 24:BB86: 35        .byte $35
@@ -14299,15 +14299,15 @@ off_BB7C_0A:
 
 
 off_BB88_0B:
-- D - I - 0x03BB98 24:BB88: 03        .byte $03
-- - - - - 0x03BB99 24:BB89: 00        .byte $00
-- - - - - 0x03BB9A 24:BB8A: 76        .byte $76
-- D - I - 0x03BB9B 24:BB8B: 95        .byte $95
-- D - I - 0x03BB9C 24:BB8C: 96        .byte $96
-- D - I - 0x03BB9D 24:BB8D: 96        .byte $96
-- D - I - 0x03BB9E 24:BB8E: 60        .byte $60
-- D - I - 0x03BB9F 24:BB8F: 1F        .byte $1F
-- D - I - 0x03BBA0 24:BB90: 1E        .byte $1E
+- D - I - 0x03BB98 24:BB88: 03        .byte $03     ; защита + расстановка
+- - - - - 0x03BB99 24:BB89: 00        .byte $00     ; unused
+- - - - - 0x03BB9A 24:BB8A: 76        .byte $76     ; 02 GK
+- D - I - 0x03BB9B 24:BB8B: 95        .byte $95     ; 03 DF
+- D - I - 0x03BB9C 24:BB8C: 96        .byte $96     ; 04 MF
+- D - I - 0x03BB9D 24:BB8D: 96        .byte $96     ; 05 FW
+- D - I - 0x03BB9E 24:BB8E: 60        .byte $60     ; 06 0x03853E
+- D - I - 0x03BB9F 24:BB8F: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BBA0 24:BB90: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BBA1 24:BB91: 09        .byte $09
 - D - I - 0x03BBA2 24:BB92: 36        .byte $36
@@ -14326,15 +14326,15 @@ off_BB88_0B:
 
 
 off_BB9A_0C:
-- D - I - 0x03BBAA 24:BB9A: 20        .byte $20
-- - - - - 0x03BBAB 24:BB9B: 00        .byte $00
-- D - I - 0x03BBAC 24:BB9C: 97        .byte $97
-- D - I - 0x03BBAD 24:BB9D: 98        .byte $98
-- D - I - 0x03BBAE 24:BB9E: 99        .byte $99
-- D - I - 0x03BBAF 24:BB9F: 99        .byte $99
-- - - - - 0x03BBB0 24:BBA0: A0        .byte $A0
-- - - - - 0x03BBB1 24:BBA1: 1F        .byte $1F
-- - - - - 0x03BBB2 24:BBA2: 1E        .byte $1E
+- D - I - 0x03BBAA 24:BB9A: 20        .byte $20     ; защита + расстановка
+- - - - - 0x03BBAB 24:BB9B: 00        .byte $00     ; unused
+- D - I - 0x03BBAC 24:BB9C: 97        .byte $97     ; 02 GK
+- D - I - 0x03BBAD 24:BB9D: 98        .byte $98     ; 03 DF
+- D - I - 0x03BBAE 24:BB9E: 99        .byte $99     ; 04 MF
+- D - I - 0x03BBAF 24:BB9F: 99        .byte $99     ; 05 FW
+- - - - - 0x03BBB0 24:BBA0: A0        .byte $A0     ; 06 0x03853E
+- - - - - 0x03BBB1 24:BBA1: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BBB2 24:BBA2: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BBB3 24:BBA3: 09        .byte $09
 - D - I - 0x03BBB4 24:BBA4: 3A        .byte $3A
@@ -14344,15 +14344,15 @@ off_BB9A_0C:
 
 
 off_BBA6_0D:
-- D - I - 0x03BBB6 24:BBA6: 01        .byte $01
-- - - - - 0x03BBB7 24:BBA7: 00        .byte $00
-- D - I - 0x03BBB8 24:BBA8: 9A        .byte $9A
-- D - I - 0x03BBB9 24:BBA9: 9B        .byte $9B
-- D - I - 0x03BBBA 24:BBAA: 9C        .byte $9C
-- D - I - 0x03BBBB 24:BBAB: 9C        .byte $9C
-- D - I - 0x03BBBC 24:BBAC: A0        .byte $A0
-- D - I - 0x03BBBD 24:BBAD: 1F        .byte $1F
-- D - I - 0x03BBBE 24:BBAE: 1F        .byte $1F
+- D - I - 0x03BBB6 24:BBA6: 01        .byte $01     ; защита + расстановка
+- - - - - 0x03BBB7 24:BBA7: 00        .byte $00     ; unused
+- D - I - 0x03BBB8 24:BBA8: 9A        .byte $9A     ; 02 GK
+- D - I - 0x03BBB9 24:BBA9: 9B        .byte $9B     ; 03 DF
+- D - I - 0x03BBBA 24:BBAA: 9C        .byte $9C     ; 04 MF
+- D - I - 0x03BBBB 24:BBAB: 9C        .byte $9C     ; 05 FW
+- D - I - 0x03BBBC 24:BBAC: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BBBD 24:BBAD: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BBBE 24:BBAE: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BBBF 24:BBAF: 0B        .byte $0B
 - D - I - 0x03BBC0 24:BBB0: 3B        .byte $3B
@@ -14365,15 +14365,15 @@ off_BBA6_0D:
 
 
 off_BBB4_0E:
-- D - I - 0x03BBC4 24:BBB4: 03        .byte $03
-- - - - - 0x03BBC5 24:BBB5: 00        .byte $00
-- - - - - 0x03BBC6 24:BBB6: 76        .byte $76
-- D - I - 0x03BBC7 24:BBB7: 9D        .byte $9D
-- D - I - 0x03BBC8 24:BBB8: 9E        .byte $9E
-- D - I - 0x03BBC9 24:BBB9: 9E        .byte $9E
-- D - I - 0x03BBCA 24:BBBA: 70        .byte $70
-- D - I - 0x03BBCB 24:BBBB: 1E        .byte $1E
-- - - - - 0x03BBCC 24:BBBC: 1E        .byte $1E
+- D - I - 0x03BBC4 24:BBB4: 03        .byte $03     ; защита + расстановка
+- - - - - 0x03BBC5 24:BBB5: 00        .byte $00     ; unused
+- - - - - 0x03BBC6 24:BBB6: 76        .byte $76     ; 02 GK
+- D - I - 0x03BBC7 24:BBB7: 9D        .byte $9D     ; 03 DF
+- D - I - 0x03BBC8 24:BBB8: 9E        .byte $9E     ; 04 MF
+- D - I - 0x03BBC9 24:BBB9: 9E        .byte $9E     ; 05 FW
+- D - I - 0x03BBCA 24:BBBA: 70        .byte $70     ; 06 0x03853E
+- D - I - 0x03BBCB 24:BBBB: 1E        .byte $1E     ; 07 0x03855B
+- - - - - 0x03BBCC 24:BBBC: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BBCD 24:BBBD: 07        .byte $07
 - D - I - 0x03BBCE 24:BBBE: 3D        .byte $3D
@@ -14392,15 +14392,15 @@ off_BBB4_0E:
 
 
 off_BBC6_0F:
-- D - I - 0x03BBD6 24:BBC6: 01        .byte $01
-- - - - - 0x03BBD7 24:BBC7: 00        .byte $00
-- - - - - 0x03BBD8 24:BBC8: 76        .byte $76
-- - - - - 0x03BBD9 24:BBC9: 77        .byte $77
-- - - - - 0x03BBDA 24:BBCA: 78        .byte $78
-- - - - - 0x03BBDB 24:BBCB: 79        .byte $79
-- D - I - 0x03BBDC 24:BBCC: 30        .byte $30
-- D - I - 0x03BBDD 24:BBCD: 1F        .byte $1F
-- D - I - 0x03BBDE 24:BBCE: 1B        .byte $1B
+- D - I - 0x03BBD6 24:BBC6: 01        .byte $01     ; защита + расстановка
+- - - - - 0x03BBD7 24:BBC7: 00        .byte $00     ; unused
+- - - - - 0x03BBD8 24:BBC8: 76        .byte $76     ; 02 GK
+- - - - - 0x03BBD9 24:BBC9: 77        .byte $77     ; 03 DF
+- - - - - 0x03BBDA 24:BBCA: 78        .byte $78     ; 04 MF
+- - - - - 0x03BBDB 24:BBCB: 79        .byte $79     ; 05 FW
+- D - I - 0x03BBDC 24:BBCC: 30        .byte $30     ; 06 0x03853E
+- D - I - 0x03BBDD 24:BBCD: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BBDE 24:BBCE: 1B        .byte $1B     ; 08 0x038593
 
 - D - I - 0x03BBDF 24:BBCF: 09        .byte $09
 - D - I - 0x03BBE0 24:BBD0: 41        .byte $41
@@ -14440,30 +14440,30 @@ off_BBC6_0F:
 
 
 off_BBE6_10:
-- D - I - 0x03BBF6 24:BBE6: 23        .byte $23
-- - - - - 0x03BBF7 24:BBE7: 00        .byte $00
-- D - I - 0x03BBF8 24:BBE8: 9F        .byte $9F
-- D - I - 0x03BBF9 24:BBE9: A0        .byte $A0
-- D - I - 0x03BBFA 24:BBEA: A0        .byte $A0
-- D - I - 0x03BBFB 24:BBEB: A1        .byte $A1
-- D - I - 0x03BBFC 24:BBEC: A0        .byte $A0
-- D - I - 0x03BBFD 24:BBED: 1F        .byte $1F
-- D - I - 0x03BBFE 24:BBEE: 1F        .byte $1F
+- D - I - 0x03BBF6 24:BBE6: 23        .byte $23     ; защита + расстановка
+- - - - - 0x03BBF7 24:BBE7: 00        .byte $00     ; unused
+- D - I - 0x03BBF8 24:BBE8: 9F        .byte $9F     ; 02 GK
+- D - I - 0x03BBF9 24:BBE9: A0        .byte $A0     ; 03 DF
+- D - I - 0x03BBFA 24:BBEA: A0        .byte $A0     ; 04 MF
+- D - I - 0x03BBFB 24:BBEB: A1        .byte $A1     ; 05 FW
+- D - I - 0x03BBFC 24:BBEC: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BBFD 24:BBED: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BBFE 24:BBEE: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BBFF 24:BBEF: 0F        .byte con_закончить
 
 
 
 off_BBF0_11:
-- D - I - 0x03BC00 24:BBF0: 01        .byte $01
-- - - - - 0x03BC01 24:BBF1: 00        .byte $00
-- D - I - 0x03BC02 24:BBF2: A2        .byte $A2
-- D - I - 0x03BC03 24:BBF3: A3        .byte $A3
-- D - I - 0x03BC04 24:BBF4: A4        .byte $A4
-- D - I - 0x03BC05 24:BBF5: A4        .byte $A4
-- D - I - 0x03BC06 24:BBF6: A0        .byte $A0
-- D - I - 0x03BC07 24:BBF7: 1F        .byte $1F
-- D - I - 0x03BC08 24:BBF8: 1E        .byte $1E
+- D - I - 0x03BC00 24:BBF0: 01        .byte $01     ; защита + расстановка
+- - - - - 0x03BC01 24:BBF1: 00        .byte $00     ; unused
+- D - I - 0x03BC02 24:BBF2: A2        .byte $A2     ; 02 GK
+- D - I - 0x03BC03 24:BBF3: A3        .byte $A3     ; 03 DF
+- D - I - 0x03BC04 24:BBF4: A4        .byte $A4     ; 04 MF
+- D - I - 0x03BC05 24:BBF5: A4        .byte $A4     ; 05 FW
+- D - I - 0x03BC06 24:BBF6: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BC07 24:BBF7: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BC08 24:BBF8: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BC09 24:BBF9: 0B        .byte $0B
 - D - I - 0x03BC0A 24:BBFA: 4D        .byte $4D
@@ -14476,60 +14476,60 @@ off_BBF0_11:
 
 
 off_BBFE_12:
-- D - I - 0x03BC0E 24:BBFE: 00        .byte $00
-- D - I - 0x03BC0F 24:BBFF: 00        .byte $00
-- D - I - 0x03BC10 24:BC00: A5        .byte $A5
-- D - I - 0x03BC11 24:BC01: A6        .byte $A6
-- D - I - 0x03BC12 24:BC02: A7        .byte $A7
-- D - I - 0x03BC13 24:BC03: A7        .byte $A7
-- D - I - 0x03BC14 24:BC04: A1        .byte $A1
-- D - I - 0x03BC15 24:BC05: 1F        .byte $1F
-- - - - - 0x03BC16 24:BC06: 1D        .byte $1D
+- D - I - 0x03BC0E 24:BBFE: 00        .byte $00     ; защита + расстановка
+- D - I - 0x03BC0F 24:BBFF: 00        .byte $00     ; unused
+- D - I - 0x03BC10 24:BC00: A5        .byte $A5     ; 02 GK
+- D - I - 0x03BC11 24:BC01: A6        .byte $A6     ; 03 DF
+- D - I - 0x03BC12 24:BC02: A7        .byte $A7     ; 04 MF
+- D - I - 0x03BC13 24:BC03: A7        .byte $A7     ; 05 FW
+- D - I - 0x03BC14 24:BC04: A1        .byte $A1     ; 06 0x03853E
+- D - I - 0x03BC15 24:BC05: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BC16 24:BC06: 1D        .byte $1D     ; 08 0x038593
 
 - D - I - 0x03BC17 24:BC07: 0F        .byte con_закончить
 
 
 
 off_BC08_13:
-- D - I - 0x03BC18 24:BC08: 02        .byte $02
-- - - - - 0x03BC19 24:BC09: 00        .byte $00
-- D - I - 0x03BC1A 24:BC0A: A8        .byte $A8
-- D - I - 0x03BC1B 24:BC0B: A9        .byte $A9
-- D - I - 0x03BC1C 24:BC0C: AA        .byte $AA
-- D - I - 0x03BC1D 24:BC0D: AA        .byte $AA
-- D - I - 0x03BC1E 24:BC0E: A0        .byte $A0
-- D - I - 0x03BC1F 24:BC0F: 00        .byte $00
-- D - I - 0x03BC20 24:BC10: 00        .byte $00
+- D - I - 0x03BC18 24:BC08: 02        .byte $02     ; защита + расстановка
+- - - - - 0x03BC19 24:BC09: 00        .byte $00     ; unused
+- D - I - 0x03BC1A 24:BC0A: A8        .byte $A8     ; 02 GK
+- D - I - 0x03BC1B 24:BC0B: A9        .byte $A9     ; 03 DF
+- D - I - 0x03BC1C 24:BC0C: AA        .byte $AA     ; 04 MF
+- D - I - 0x03BC1D 24:BC0D: AA        .byte $AA     ; 05 FW
+- D - I - 0x03BC1E 24:BC0E: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BC1F 24:BC0F: 00        .byte $00     ; 07 0x03855B
+- D - I - 0x03BC20 24:BC10: 00        .byte $00     ; 08 0x038593
 
 - D - I - 0x03BC21 24:BC11: 0F        .byte con_закончить
 
 
 
 off_BC12_14:
-- D - I - 0x03BC22 24:BC12: 13        .byte $13
-- - - - - 0x03BC23 24:BC13: 00        .byte $00
-- D - I - 0x03BC24 24:BC14: AB        .byte $AB
-- D - I - 0x03BC25 24:BC15: AC        .byte $AC
-- D - I - 0x03BC26 24:BC16: AD        .byte $AD
-- D - I - 0x03BC27 24:BC17: AD        .byte $AD
-- D - I - 0x03BC28 24:BC18: A0        .byte $A0
-- D - I - 0x03BC29 24:BC19: 1F        .byte $1F
-- D - I - 0x03BC2A 24:BC1A: 1F        .byte $1F
+- D - I - 0x03BC22 24:BC12: 13        .byte $13     ; защита + расстановка
+- - - - - 0x03BC23 24:BC13: 00        .byte $00     ; unused
+- D - I - 0x03BC24 24:BC14: AB        .byte $AB     ; 02 GK
+- D - I - 0x03BC25 24:BC15: AC        .byte $AC     ; 03 DF
+- D - I - 0x03BC26 24:BC16: AD        .byte $AD     ; 04 MF
+- D - I - 0x03BC27 24:BC17: AD        .byte $AD     ; 05 FW
+- D - I - 0x03BC28 24:BC18: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BC29 24:BC19: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BC2A 24:BC1A: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BC2B 24:BC1B: 0F        .byte con_закончить
 
 
 
 off_BC1C_15:
-- D - I - 0x03BC2C 24:BC1C: 00        .byte $00
-- - - - - 0x03BC2D 24:BC1D: 00        .byte $00
-- D - I - 0x03BC2E 24:BC1E: AE        .byte $AE
-- D - I - 0x03BC2F 24:BC1F: AF        .byte $AF
-- D - I - 0x03BC30 24:BC20: B0        .byte $B0
-- D - I - 0x03BC31 24:BC21: B0        .byte $B0
-- D - I - 0x03BC32 24:BC22: 70        .byte $70
-- D - I - 0x03BC33 24:BC23: 1F        .byte $1F
-- D - I - 0x03BC34 24:BC24: 1C        .byte $1C
+- D - I - 0x03BC2C 24:BC1C: 00        .byte $00     ; защита + расстановка
+- - - - - 0x03BC2D 24:BC1D: 00        .byte $00     ; unused
+- D - I - 0x03BC2E 24:BC1E: AE        .byte $AE     ; 02 GK
+- D - I - 0x03BC2F 24:BC1F: AF        .byte $AF     ; 03 DF
+- D - I - 0x03BC30 24:BC20: B0        .byte $B0     ; 04 MF
+- D - I - 0x03BC31 24:BC21: B0        .byte $B0     ; 05 FW
+- D - I - 0x03BC32 24:BC22: 70        .byte $70     ; 06 0x03853E
+- D - I - 0x03BC33 24:BC23: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BC34 24:BC24: 1C        .byte $1C     ; 08 0x038593
 
 - D - I - 0x03BC35 24:BC25: 09        .byte $09
 - D - I - 0x03BC36 24:BC26: 4F        .byte $4F
@@ -14542,30 +14542,30 @@ off_BC1C_15:
 
 
 off_BC2A_16:
-- D - I - 0x03BC3A 24:BC2A: 23        .byte $23
-- - - - - 0x03BC3B 24:BC2B: 00        .byte $00
-- D - I - 0x03BC3C 24:BC2C: B1        .byte $B1
-- D - I - 0x03BC3D 24:BC2D: B2        .byte $B2
-- D - I - 0x03BC3E 24:BC2E: B2        .byte $B2
-- D - I - 0x03BC3F 24:BC2F: B2        .byte $B2
-- - - - - 0x03BC40 24:BC30: A0        .byte $A0
-- D - I - 0x03BC41 24:BC31: 1F        .byte $1F
-- - - - - 0x03BC42 24:BC32: 1F        .byte $1F
+- D - I - 0x03BC3A 24:BC2A: 23        .byte $23     ; защита + расстановка
+- - - - - 0x03BC3B 24:BC2B: 00        .byte $00     ; unused
+- D - I - 0x03BC3C 24:BC2C: B1        .byte $B1     ; 02 GK
+- D - I - 0x03BC3D 24:BC2D: B2        .byte $B2     ; 03 DF
+- D - I - 0x03BC3E 24:BC2E: B2        .byte $B2     ; 04 MF
+- D - I - 0x03BC3F 24:BC2F: B2        .byte $B2     ; 05 FW
+- - - - - 0x03BC40 24:BC30: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BC41 24:BC31: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BC42 24:BC32: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BC43 24:BC33: 0F        .byte con_закончить
 
 
 
 off_BC34_17:
-- D - I - 0x03BC44 24:BC34: 21        .byte $21
-- - - - - 0x03BC45 24:BC35: 00        .byte $00
-- - - - - 0x03BC46 24:BC36: 76        .byte $76
-- D - I - 0x03BC47 24:BC37: B3        .byte $B3
-- D - I - 0x03BC48 24:BC38: B4        .byte $B4
-- D - I - 0x03BC49 24:BC39: B4        .byte $B4
-- - - - - 0x03BC4A 24:BC3A: A0        .byte $A0
-- - - - - 0x03BC4B 24:BC3B: 1F        .byte $1F
-- - - - - 0x03BC4C 24:BC3C: 1F        .byte $1F
+- D - I - 0x03BC44 24:BC34: 21        .byte $21     ; защита + расстановка
+- - - - - 0x03BC45 24:BC35: 00        .byte $00     ; unused
+- - - - - 0x03BC46 24:BC36: 76        .byte $76     ; 02 GK
+- D - I - 0x03BC47 24:BC37: B3        .byte $B3     ; 03 DF
+- D - I - 0x03BC48 24:BC38: B4        .byte $B4     ; 04 MF
+- D - I - 0x03BC49 24:BC39: B4        .byte $B4     ; 05 FW
+- - - - - 0x03BC4A 24:BC3A: A0        .byte $A0     ; 06 0x03853E
+- - - - - 0x03BC4B 24:BC3B: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BC4C 24:BC3C: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BC4D 24:BC3D: 0B        .byte $0B
 - D - I - 0x03BC4E 24:BC3E: 51        .byte $51
@@ -14578,15 +14578,15 @@ off_BC34_17:
 
 
 off_BC42_18:
-- D - I - 0x03BC52 24:BC42: 00        .byte $00
-- - - - - 0x03BC53 24:BC43: 00        .byte $00
-- D - I - 0x03BC54 24:BC44: B5        .byte $B5
-- D - I - 0x03BC55 24:BC45: B6        .byte $B6
-- D - I - 0x03BC56 24:BC46: B7        .byte $B7
-- D - I - 0x03BC57 24:BC47: B7        .byte $B7
-- D - I - 0x03BC58 24:BC48: A1        .byte $A1
-- D - I - 0x03BC59 24:BC49: 1F        .byte $1F
-- D - I - 0x03BC5A 24:BC4A: 1D        .byte $1D
+- D - I - 0x03BC52 24:BC42: 00        .byte $00     ; защита + расстановка
+- - - - - 0x03BC53 24:BC43: 00        .byte $00     ; unused
+- D - I - 0x03BC54 24:BC44: B5        .byte $B5     ; 02 GK
+- D - I - 0x03BC55 24:BC45: B6        .byte $B6     ; 03 DF
+- D - I - 0x03BC56 24:BC46: B7        .byte $B7     ; 04 MF
+- D - I - 0x03BC57 24:BC47: B7        .byte $B7     ; 05 FW
+- D - I - 0x03BC58 24:BC48: A1        .byte $A1     ; 06 0x03853E
+- D - I - 0x03BC59 24:BC49: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BC5A 24:BC4A: 1D        .byte $1D     ; 08 0x038593
 
 - D - I - 0x03BC5B 24:BC4B: 09        .byte $09
 - D - I - 0x03BC5C 24:BC4C: 53        .byte $53
@@ -14599,15 +14599,15 @@ off_BC42_18:
 
 
 off_BC50_19:
-- D - I - 0x03BC60 24:BC50: 12        .byte $12
-- - - - - 0x03BC61 24:BC51: 00        .byte $00
-- - - - - 0x03BC62 24:BC52: 76        .byte $76
-- D - I - 0x03BC63 24:BC53: B8        .byte $B8
-- D - I - 0x03BC64 24:BC54: B9        .byte $B9
-- D - I - 0x03BC65 24:BC55: B9        .byte $B9
-- D - I - 0x03BC66 24:BC56: A0        .byte $A0
-- D - I - 0x03BC67 24:BC57: 1F        .byte $1F
-- D - I - 0x03BC68 24:BC58: 1E        .byte $1E
+- D - I - 0x03BC60 24:BC50: 12        .byte $12     ; защита + расстановка
+- - - - - 0x03BC61 24:BC51: 00        .byte $00     ; unused
+- - - - - 0x03BC62 24:BC52: 76        .byte $76     ; 02 GK
+- D - I - 0x03BC63 24:BC53: B8        .byte $B8     ; 03 DF
+- D - I - 0x03BC64 24:BC54: B9        .byte $B9     ; 04 MF
+- D - I - 0x03BC65 24:BC55: B9        .byte $B9     ; 05 FW
+- D - I - 0x03BC66 24:BC56: A0        .byte $A0     ; 06 0x03853E
+- D - I - 0x03BC67 24:BC57: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BC68 24:BC58: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BC69 24:BC59: 09        .byte $09
 - D - I - 0x03BC6A 24:BC5A: 55        .byte $55
@@ -14620,15 +14620,15 @@ off_BC50_19:
 
 
 off_BC5E_1A:
-- D - I - 0x03BC6E 24:BC5E: 11        .byte $11
-- - - - - 0x03BC6F 24:BC5F: 00        .byte $00
-- D - I - 0x03BC70 24:BC60: BA        .byte $BA
-- D - I - 0x03BC71 24:BC61: BB        .byte $BB
-- D - I - 0x03BC72 24:BC62: BC        .byte $BC
-- D - I - 0x03BC73 24:BC63: BC        .byte $BC
-- - - - - 0x03BC74 24:BC64: 70        .byte $70
-- - - - - 0x03BC75 24:BC65: 1F        .byte $1F
-- - - - - 0x03BC76 24:BC66: 1E        .byte $1E
+- D - I - 0x03BC6E 24:BC5E: 11        .byte $11     ; защита + расстановка
+- - - - - 0x03BC6F 24:BC5F: 00        .byte $00     ; unused
+- D - I - 0x03BC70 24:BC60: BA        .byte $BA     ; 02 GK
+- D - I - 0x03BC71 24:BC61: BB        .byte $BB     ; 03 DF
+- D - I - 0x03BC72 24:BC62: BC        .byte $BC     ; 04 MF
+- D - I - 0x03BC73 24:BC63: BC        .byte $BC     ; 05 FW
+- - - - - 0x03BC74 24:BC64: 70        .byte $70     ; 06 0x03853E
+- - - - - 0x03BC75 24:BC65: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BC76 24:BC66: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BC77 24:BC67: 09        .byte $09
 - D - I - 0x03BC78 24:BC68: 57        .byte $57
@@ -14641,15 +14641,15 @@ off_BC5E_1A:
 
 
 off_BC6C_1B:
-- D - I - 0x03BC7C 24:BC6C: 20        .byte $20
-- - - - - 0x03BC7D 24:BC6D: 00        .byte $00
-- D - I - 0x03BC7E 24:BC6E: BD        .byte $BD
-- D - I - 0x03BC7F 24:BC6F: BE        .byte $BE
-- D - I - 0x03BC80 24:BC70: BF        .byte $BF
-- D - I - 0x03BC81 24:BC71: BF        .byte $BF
-- D - I - 0x03BC82 24:BC72: 70        .byte $70
-- D - I - 0x03BC83 24:BC73: 1F        .byte $1F
-- D - I - 0x03BC84 24:BC74: 1C        .byte $1C
+- D - I - 0x03BC7C 24:BC6C: 20        .byte $20     ; защита + расстановка
+- - - - - 0x03BC7D 24:BC6D: 00        .byte $00     ; unused
+- D - I - 0x03BC7E 24:BC6E: BD        .byte $BD     ; 02 GK
+- D - I - 0x03BC7F 24:BC6F: BE        .byte $BE     ; 03 DF
+- D - I - 0x03BC80 24:BC70: BF        .byte $BF     ; 04 MF
+- D - I - 0x03BC81 24:BC71: BF        .byte $BF     ; 05 FW
+- D - I - 0x03BC82 24:BC72: 70        .byte $70     ; 06 0x03853E
+- D - I - 0x03BC83 24:BC73: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BC84 24:BC74: 1C        .byte $1C     ; 08 0x038593
 
 - D - I - 0x03BC85 24:BC75: 0A        .byte $0A
 - D - I - 0x03BC86 24:BC76: 59        .byte $59
@@ -14659,15 +14659,15 @@ off_BC6C_1B:
 
 
 off_BC78_1C:
-- D - I - 0x03BC88 24:BC78: 21        .byte $21
-- - - - - 0x03BC89 24:BC79: 00        .byte $00
-- - - - - 0x03BC8A 24:BC7A: 76        .byte $76
-- D - I - 0x03BC8B 24:BC7B: C0        .byte $C0
-- D - I - 0x03BC8C 24:BC7C: C1        .byte $C1
-- D - I - 0x03BC8D 24:BC7D: C1        .byte $C1
-- - - - - 0x03BC8E 24:BC7E: A0        .byte $A0
-- - - - - 0x03BC8F 24:BC7F: 1F        .byte $1F
-- - - - - 0x03BC90 24:BC80: 1E        .byte $1E
+- D - I - 0x03BC88 24:BC78: 21        .byte $21     ; защита + расстановка
+- - - - - 0x03BC89 24:BC79: 00        .byte $00     ; unused
+- - - - - 0x03BC8A 24:BC7A: 76        .byte $76     ; 02 GK
+- D - I - 0x03BC8B 24:BC7B: C0        .byte $C0     ; 03 DF
+- D - I - 0x03BC8C 24:BC7C: C1        .byte $C1     ; 04 MF
+- D - I - 0x03BC8D 24:BC7D: C1        .byte $C1     ; 05 FW
+- - - - - 0x03BC8E 24:BC7E: A0        .byte $A0     ; 06 0x03853E
+- - - - - 0x03BC8F 24:BC7F: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BC90 24:BC80: 1E        .byte $1E     ; 08 0x038593
 
 - D - I - 0x03BC91 24:BC81: 09        .byte $09
 - D - I - 0x03BC92 24:BC82: 5A        .byte $5A
@@ -14680,15 +14680,15 @@ off_BC78_1C:
 
 
 off_BC86_1D:
-- D - I - 0x03BC96 24:BC86: 10        .byte $10
-- - - - - 0x03BC97 24:BC87: 00        .byte $00
-- D - I - 0x03BC98 24:BC88: C2        .byte $C2
-- D - I - 0x03BC99 24:BC89: C3        .byte $C3
-- D - I - 0x03BC9A 24:BC8A: C4        .byte $C4
-- D - I - 0x03BC9B 24:BC8B: C4        .byte $C4
-- - - - - 0x03BC9C 24:BC8C: 71        .byte $71
-- - - - - 0x03BC9D 24:BC8D: 1F        .byte $1F
-- - - - - 0x03BC9E 24:BC8E: 1D        .byte $1D
+- D - I - 0x03BC96 24:BC86: 10        .byte $10     ; защита + расстановка
+- - - - - 0x03BC97 24:BC87: 00        .byte $00     ; unused
+- D - I - 0x03BC98 24:BC88: C2        .byte $C2     ; 02 GK
+- D - I - 0x03BC99 24:BC89: C3        .byte $C3     ; 03 DF
+- D - I - 0x03BC9A 24:BC8A: C4        .byte $C4     ; 04 MF
+- D - I - 0x03BC9B 24:BC8B: C4        .byte $C4     ; 05 FW
+- - - - - 0x03BC9C 24:BC8C: 71        .byte $71     ; 06 0x03853E
+- - - - - 0x03BC9D 24:BC8D: 1F        .byte $1F     ; 07 0x03855B
+- - - - - 0x03BC9E 24:BC8E: 1D        .byte $1D     ; 08 0x038593
 
 - D - I - 0x03BC9F 24:BC8F: 09        .byte $09
 - D - I - 0x03BCA0 24:BC90: 5C        .byte $5C
@@ -14701,15 +14701,15 @@ off_BC86_1D:
 
 
 off_BC94_1E:
-- D - I - 0x03BCA4 24:BC94: 02        .byte $02
-- - - - - 0x03BCA5 24:BC95: 00        .byte $00
-- D - I - 0x03BCA6 24:BC96: C5        .byte $C5
-- D - I - 0x03BCA7 24:BC97: C6        .byte $C6
-- D - I - 0x03BCA8 24:BC98: C6        .byte $C6
-- D - I - 0x03BCA9 24:BC99: C6        .byte $C6
-- D - I - 0x03BCAA 24:BC9A: B0        .byte $B0
-- D - I - 0x03BCAB 24:BC9B: 1F        .byte $1F
-- D - I - 0x03BCAC 24:BC9C: 1A        .byte $1A
+- D - I - 0x03BCA4 24:BC94: 02        .byte $02     ; защита + расстановка
+- - - - - 0x03BCA5 24:BC95: 00        .byte $00     ; unused
+- D - I - 0x03BCA6 24:BC96: C5        .byte $C5     ; 02 GK
+- D - I - 0x03BCA7 24:BC97: C6        .byte $C6     ; 03 DF
+- D - I - 0x03BCA8 24:BC98: C6        .byte $C6     ; 04 MF
+- D - I - 0x03BCA9 24:BC99: C6        .byte $C6     ; 05 FW
+- D - I - 0x03BCAA 24:BC9A: B0        .byte $B0     ; 06 0x03853E
+- D - I - 0x03BCAB 24:BC9B: 1F        .byte $1F     ; 07 0x03855B
+- D - I - 0x03BCAC 24:BC9C: 1A        .byte $1A     ; 08 0x038593
 
 - D - I - 0x03BCAD 24:BC9D: 0B        .byte $0B
 - D - I - 0x03BCAE 24:BC9E: 5E        .byte $5E
@@ -14731,15 +14731,15 @@ off_BC94_1E:
 
 
 off_BCA8_1F:
-- D - I - 0x03BCB8 24:BCA8: 02        .byte $02
-- - - - - 0x03BCB9 24:BCA9: 00        .byte $00
-- - - - - 0x03BCBA 24:BCAA: 76        .byte $76
-- D - I - 0x03BCBB 24:BCAB: C7        .byte $C7
-- D - I - 0x03BCBC 24:BCAC: C7        .byte $C7
-- - - - - 0x03BCBD 24:BCAD: C7        .byte $C7
-- D - I - 0x03BCBE 24:BCAE: 70        .byte $70
-- D - I - 0x03BCBF 24:BCAF: 1E        .byte $1E
-- - - - - 0x03BCC0 24:BCB0: 1F        .byte $1F
+- D - I - 0x03BCB8 24:BCA8: 02        .byte $02     ; защита + расстановка
+- - - - - 0x03BCB9 24:BCA9: 00        .byte $00     ; unused
+- - - - - 0x03BCBA 24:BCAA: 76        .byte $76     ; 02 GK
+- D - I - 0x03BCBB 24:BCAB: C7        .byte $C7     ; 03 DF
+- D - I - 0x03BCBC 24:BCAC: C7        .byte $C7     ; 04 MF
+- - - - - 0x03BCBD 24:BCAD: C7        .byte $C7     ; 05 FW
+- D - I - 0x03BCBE 24:BCAE: 70        .byte $70     ; 06 0x03853E
+- D - I - 0x03BCBF 24:BCAF: 1E        .byte $1E     ; 07 0x03855B
+- - - - - 0x03BCC0 24:BCB0: 1F        .byte $1F     ; 08 0x038593
 
 - D - I - 0x03BCC1 24:BCB1: 0B        .byte $0B
 - D - I - 0x03BCC2 24:BCB2: 63        .byte $63
@@ -14767,15 +14767,15 @@ off_BCA8_1F:
 
 
 off_BCC0_20:
-- D - I - 0x03BCD0 24:BCC0: 03        .byte $03
-- - - - - 0x03BCD1 24:BCC1: 00        .byte $00
-- - - - - 0x03BCD2 24:BCC2: 76        .byte $76
-- - - - - 0x03BCD3 24:BCC3: 77        .byte $77
-- - - - - 0x03BCD4 24:BCC4: 78        .byte $78
-- - - - - 0x03BCD5 24:BCC5: 79        .byte $79
-- D - I - 0x03BCD6 24:BCC6: 61        .byte $61
-- D - I - 0x03BCD7 24:BCC7: 1E        .byte $1E
-- - - - - 0x03BCD8 24:BCC8: 28        .byte $28
+- D - I - 0x03BCD0 24:BCC0: 03        .byte $03     ; защита + расстановка
+- - - - - 0x03BCD1 24:BCC1: 00        .byte $00     ; unused
+- - - - - 0x03BCD2 24:BCC2: 76        .byte $76     ; 02 GK
+- - - - - 0x03BCD3 24:BCC3: 77        .byte $77     ; 03 DF
+- - - - - 0x03BCD4 24:BCC4: 78        .byte $78     ; 04 MF
+- - - - - 0x03BCD5 24:BCC5: 79        .byte $79     ; 05 FW
+- D - I - 0x03BCD6 24:BCC6: 61        .byte $61     ; 06 0x03853E
+- D - I - 0x03BCD7 24:BCC7: 1E        .byte $1E     ; 07 0x03855B
+- - - - - 0x03BCD8 24:BCC8: 28        .byte $28     ; 08 0x038593
 
 - D - I - 0x03BCD9 24:BCC9: 09        .byte $09
 - D - I - 0x03BCDA 24:BCCA: 6A        .byte $6A
