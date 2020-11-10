@@ -4781,6 +4781,8 @@ C - - - - 0x001DFD 01:9DED: 60        RTS
 .export sub_0x001DFE_умножить_A_на_X
 sub_0x001DFE_умножить_A_на_X:
 sub_9DEE_умножить_A_на_X:
+; 00EC = lo
+; 00ED = hi
     STA $5205
     STX $5206
     LDA $5205
