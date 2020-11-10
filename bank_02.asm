@@ -2328,9 +2328,9 @@ bra_B034:
 C - - - - 0x003044 02:B034: CA        DEX
 C - - - - 0x003045 02:B035: CA        DEX
 C - - - - 0x003046 02:B036: A5 E6     LDA ram_00E6
-C - - - - 0x003048 02:B038: DD 90 BA  CMP tbl_BA90,X
+C - - - - 0x003048 02:B038: DD 90 BA  CMP tbl_BA90_опыт_для_достижения_уровня,X
 C - - - - 0x00304B 02:B03B: A5 E7     LDA ram_00E7
-C - - - - 0x00304D 02:B03D: FD 91 BA  SBC tbl_BA90 + 1,X
+C - - - - 0x00304D 02:B03D: FD 91 BA  SBC tbl_BA90_опыт_для_достижения_уровня + 1,X
 C - - - - 0x003050 02:B040: 90 F2     BCC bra_B034
 C - - - - 0x003052 02:B042: 8A        TXA
 C - - - - 0x003053 02:B043: 4A        LSR
@@ -2339,9 +2339,9 @@ C - - - - 0x003054 02:B044: 60        RTS
 sub_B045:
 C - - - - 0x003055 02:B045: 0A        ASL
 C - - - - 0x003056 02:B046: AA        TAX
-C - - - - 0x003057 02:B047: BD 90 BA  LDA tbl_BA90,X
+C - - - - 0x003057 02:B047: BD 90 BA  LDA tbl_BA90_опыт_для_достижения_уровня,X
 C - - - - 0x00305A 02:B04A: A8        TAY
-C - - - - 0x00305B 02:B04B: BD 91 BA  LDA tbl_BA90 + 1,X
+C - - - - 0x00305B 02:B04B: BD 91 BA  LDA tbl_BA90_опыт_для_достижения_уровня + 1,X
 C - - - - 0x00305E 02:B04E: AA        TAX
 C - - - - 0x00305F 02:B04F: 60        RTS
 
@@ -3880,72 +3880,72 @@ tbl_BA4C_опыт_за_победу_над_командой:
 
 
 
-tbl_BA90:
+tbl_BA90_опыт_для_достижения_уровня:
 ; предположительно количество опыта для набора уровня
-- D - - - 0x003AA0 02:BA90: 00 00     .word $0000
-- D - - - 0x003AA2 02:BA92: 60 00     .word $0060
-- D - - - 0x003AA4 02:BA94: D0 00     .word $00D0
-- D - - - 0x003AA6 02:BA96: 50 01     .word $0150
-- D - - - 0x003AA8 02:BA98: 10 02     .word $0210
-- D - - - 0x003AAA 02:BA9A: 00 03     .word $0300
-- D - - - 0x003AAC 02:BA9C: F8 03     .word $03F8
-- D - - - 0x003AAE 02:BA9E: 00 05     .word $0500
-- D - - - 0x003AB0 02:BAA0: 28 06     .word $0628
-- D - - - 0x003AB2 02:BAA2: 80 07     .word $0780
-- D - - - 0x003AB4 02:BAA4: 00 09     .word $0900
-- D - - - 0x003AB6 02:BAA6: 90 0A     .word $0A90
-- D - - - 0x003AB8 02:BAA8: 30 0C     .word $0C30
-- D - - - 0x003ABA 02:BAAA: E0 0D     .word $0DE0
-- D - - - 0x003ABC 02:BAAC: A0 0F     .word $0FA0
-- D - - - 0x003ABE 02:BAAE: 70 11     .word $1170
-- D - - - 0x003AC0 02:BAB0: 50 13     .word $1350
-- D - - - 0x003AC2 02:BAB2: 50 15     .word $1550
-- D - - - 0x003AC4 02:BAB4: 70 17     .word $1770
-- D - - - 0x003AC6 02:BAB6: B0 19     .word $19B0
-- D - - - 0x003AC8 02:BAB8: 00 1C     .word $1C00
-- D - - - 0x003ACA 02:BABA: 60 1E     .word $1E60
-- D - - - 0x003ACC 02:BABC: D0 20     .word $20D0
-- D - - - 0x003ACE 02:BABE: 48 23     .word $2348
-- D - - - 0x003AD0 02:BAC0: C8 25     .word $25C8
-- D - - - 0x003AD2 02:BAC2: 50 28     .word $2850
-- D - - - 0x003AD4 02:BAC4: E0 2A     .word $2AE0
-- D - - - 0x003AD6 02:BAC6: 78 2D     .word $2D78
-- D - - - 0x003AD8 02:BAC8: 18 30     .word $3018
-- D - - - 0x003ADA 02:BACA: C8 32     .word $32C8
-- D - - - 0x003ADC 02:BACC: 88 35     .word $3588
-- D - - - 0x003ADE 02:BACE: 58 38     .word $3858
-- D - - - 0x003AE0 02:BAD0: 30 3B     .word $3B30
-- D - - - 0x003AE2 02:BAD2: 10 3E     .word $3E10
-- D - - - 0x003AE4 02:BAD4: F8 40     .word $40F8
-- D - - - 0x003AE6 02:BAD6: 40 44     .word $4440
-- D - - - 0x003AE8 02:BAD8: 90 47     .word $4790
-- D - - - 0x003AEA 02:BADA: E8 4A     .word $4AE8
-- D - - - 0x003AEC 02:BADC: 48 4E     .word $4E48
-- D - - - 0x003AEE 02:BADE: B0 51     .word $51B0
-- D - - - 0x003AF0 02:BAE0: 20 55     .word $5520
-- D - - - 0x003AF2 02:BAE2: 00 59     .word $5900
-- D - - - 0x003AF4 02:BAE4: 20 5D     .word $5D20
-- D - - - 0x003AF6 02:BAE6: 50 61     .word $6150
-- D - - - 0x003AF8 02:BAE8: 90 65     .word $6590
-- D - - - 0x003AFA 02:BAEA: E0 69     .word $69E0
-- D - - - 0x003AFC 02:BAEC: 40 6E     .word $6E40
-- D - - - 0x003AFE 02:BAEE: 00 73     .word $7300
-- D - - - 0x003B00 02:BAF0: E0 77     .word $77E0
-- D - - - 0x003B02 02:BAF2: D0 7C     .word $7CD0
-- D - - - 0x003B04 02:BAF4: 00 82     .word $8200
-- D - - - 0x003B06 02:BAF6: 80 87     .word $8780
-- D - - - 0x003B08 02:BAF8: 80 8D     .word $8D80
-- D - - - 0x003B0A 02:BAFA: E0 93     .word $93E0
-- D - - - 0x003B0C 02:BAFC: D0 9A     .word $9AD0
-- D - - - 0x003B0E 02:BAFE: E0 A1     .word $A1E0
-- D - - - 0x003B10 02:BB00: C0 A9     .word $A9C0
-- D - - - 0x003B12 02:BB02: C0 B1     .word $B1C0
-- D - - - 0x003B14 02:BB04: D0 B9     .word $B9D0
-- D - - - 0x003B16 02:BB06: 04 C2     .word $C204
-- D - - - 0x003B18 02:BB08: 80 CB     .word $CB80
-- D - - - 0x003B1A 02:BB0A: A0 D7     .word $D7A0
-- D - - - 0x003B1C 02:BB0C: 00 E8     .word $E800
-- D - - - 0x003B1E 02:BB0E: FF FF     .word $FFFF
+    .word $0000     ; 1
+    .word $0060     ; 2
+    .word $00D0     ; 3
+    .word $0150     ; 4
+    .word $0210     ; 5
+    .word $0300     ; 6
+    .word $03F8     ; 7
+    .word $0500     ; 8
+    .word $0628     ; 9
+    .word $0780     ; 10
+    .word $0900     ; 11
+    .word $0A90     ; 12
+    .word $0C30     ; 13
+    .word $0DE0     ; 14
+    .word $0FA0     ; 15
+    .word $1170     ; 16
+    .word $1350     ; 17
+    .word $1550     ; 18
+    .word $1770     ; 19
+    .word $19B0     ; 20
+    .word $1C00     ; 21
+    .word $1E60     ; 22
+    .word $20D0     ; 23
+    .word $2348     ; 24
+    .word $25C8     ; 25
+    .word $2850     ; 26
+    .word $2AE0     ; 27
+    .word $2D78     ; 28
+    .word $3018     ; 29
+    .word $32C8     ; 30
+    .word $3588     ; 31
+    .word $3858     ; 32
+    .word $3B30     ; 33
+    .word $3E10     ; 34
+    .word $40F8     ; 35
+    .word $4440     ; 36
+    .word $4790     ; 37
+    .word $4AE8     ; 38
+    .word $4E48     ; 39
+    .word $51B0     ; 40
+    .word $5520     ; 41
+    .word $5900     ; 42
+    .word $5D20     ; 43
+    .word $6150     ; 44
+    .word $6590     ; 45
+    .word $69E0     ; 46
+    .word $6E40     ; 47
+    .word $7300     ; 48
+    .word $77E0     ; 49
+    .word $7CD0     ; 50
+    .word $8200     ; 51
+    .word $8780     ; 52
+    .word $8D80     ; 53
+    .word $93E0     ; 54
+    .word $9AD0     ; 55
+    .word $A1E0     ; 56
+    .word $A9C0     ; 57
+    .word $B1C0     ; 58
+    .word $B9D0     ; 59
+    .word $C204     ; 60
+    .word $CB80     ; 61
+    .word $D7A0     ; 62
+    .word $E800     ; 63
+    .word $FFFF     ; 64
 
 tbl_BB10_нанкацу:
 - D - I - 0x003B20 02:BB10: 0A        .byte $0A    ; <こ>
