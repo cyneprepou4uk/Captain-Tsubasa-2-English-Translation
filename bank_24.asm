@@ -82,7 +82,7 @@ C - - - - 0x038055 24:8045: 48        PHA
 C - - - - 0x038056 24:8046: 38        SEC
 C - - - - 0x038057 24:8047: E9 0B     SBC #$0B
 C - - - - 0x038059 24:8049: A8        TAY
-C - - - - 0x03805A 24:804A: B9 8E 81  LDA tbl_818E_позиция,Y
+C - - - - 0x03805A 24:804A: B9 8E 81  LDA tbl_818E_индекс_для_параметров_команды,Y
 C - - - - 0x03805D 24:804D: A8        TAY
 C - - - - 0x03805E 24:804E: B1 38     LDA (ram_enemy_data),Y
 bra_8050_это_не_клон:
@@ -294,7 +294,7 @@ C D - - - 0x03819B 24:818B: 68        PLA
 C - - - - 0x03819C 24:818C: 68        PLA
 C - - - - 0x03819D 24:818D: 60        RTS
 
-tbl_818E_позиция:
+tbl_818E_индекс_для_параметров_команды:
     .byte $02    ; GK 1
     .byte $03    ; DF 2
     .byte $03    ; DF 3
@@ -1951,7 +1951,7 @@ C - - - - 0x038B69 24:8B59: 4A        LSR
 C - - - - 0x038B6A 24:8B5A: 8D 2F 00  STA ram_защита_справа
 C - - - - 0x038B6D 24:8B5D: A0 09     LDY #$09
 C - - - - 0x038B6F 24:8B5F: 84 3A     STY ram_003A
-loc_8B61_цикл:
+loc_8B61_цикл_чтения_таблицы:
 C D - - - 0x038B71 24:8B61: A4 3A     LDY ram_003A
 C - - - - 0x038B73 24:8B63: B1 38     LDA (ram_enemy_data),Y
 C - - - - 0x038B75 24:8B65: C9 0F     CMP #$0F
@@ -1967,7 +1967,7 @@ C - - - - 0x038B84 24:8B74: C8        INY
 C - - - - 0x038B85 24:8B75: 84 3A     STY ram_003A
 C - - - - 0x038B87 24:8B77: A0 00     LDY #con_игрок_номер
 C - - - - 0x038B89 24:8B79: 91 34     STA (ram_plr_data),Y
-C - - - - 0x038B8B 24:8B7B: 4C 61 8B  JMP loc_8B61_цикл
+C - - - - 0x038B8B 24:8B7B: 4C 61 8B  JMP loc_8B61_цикл_чтения_таблицы
 bra_8B7E_закончить_чтение_таблицы:
 C - - - - 0x038B8E 24:8B7E: AE 46 04  LDX ram_флаг_драйв_оверхеда
 C - - - - 0x038B91 24:8B81: E0 05     CPX #$05
@@ -14089,15 +14089,17 @@ tbl_BAB2_параметры_команды_соперников:
 ; 05 - возможно поведение MF
 ; 06 - возможно поведение FW
 
-con_закончить = $0F
+con_закончить       = $0F
+con_defense         = $00
+con_formation       = $00
 
 off_BAF6_00:
-- D - I - 0x03BB06 24:BAF6: 00        .byte $00
-- - - - - 0x03BB07 24:BAF7: 00        .byte $00
-- D - I - 0x03BB08 24:BAF8: 76        .byte $76
-- D - I - 0x03BB09 24:BAF9: 77        .byte $77
-- D - I - 0x03BB0A 24:BAFA: 77        .byte $77
-- D - I - 0x03BB0B 24:BAFB: 78        .byte $78
+- D - I - 0x03BB06 24:BAF6: 00        .byte $00     ; защита + расстановка
+- - - - - 0x03BB07 24:BAF7: 00        .byte $00     ; unused
+- D - I - 0x03BB08 24:BAF8: 76        .byte $76     ; GK
+- D - I - 0x03BB09 24:BAF9: 77        .byte $77     ; DF
+- D - I - 0x03BB0A 24:BAFA: 77        .byte $77     ; MF
+- D - I - 0x03BB0B 24:BAFB: 78        .byte $78     ; FW
 - D - I - 0x03BB0C 24:BAFC: A0        .byte $A0
 - D - I - 0x03BB0D 24:BAFD: 1F        .byte $1F
 - D - I - 0x03BB0E 24:BAFE: 1F        .byte $1F
