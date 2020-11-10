@@ -2146,7 +2146,7 @@ C - - - - 0x03D3A5 FF:D395: AE 1E 06  LDX $061E
 C - - - - 0x03D3A8 FF:D398: BC 01 06  LDY ram_номер_защитника,X
 C - - - - 0x03D3AB FF:D39B: F0 06     BEQ bra_D3A3
 C - - - - 0x03D3AD FF:D39D: AE 21 06  LDX $0621
-C - - - - 0x03D3B0 FF:D3A0: BD 52 D5  LDA tbl_D552,X
+C - - - - 0x03D3B0 FF:D3A0: BD 52 D5  LDA tbl_D552_меню_статов,X
 bra_D3A3:
 C - - - - 0x03D3B3 FF:D3A3: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 loc_D3A6:
@@ -2326,16 +2326,16 @@ C - - - - 0x03D513 FF:D503: 60        RTS
 sub_D504:
 C - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03D517 FF:D507: C9 FF     CMP #$FF
-C - - - - 0x03D519 FF:D509: D0 03     BNE bra_D50E
+C - - - - 0x03D519 FF:D509: D0 03     BNE bra_D50E_действие_было_выбрано
 C - - - - 0x03D51B FF:D50B: A9 1D     LDA #$1D
 C - - - - 0x03D51D FF:D50D: 60        RTS
-bra_D50E:
+bra_D50E_действие_было_выбрано:
 C - - - - 0x03D51E FF:D50E: BC 01 06  LDY ram_номер_защитника,X
-C - - - - 0x03D521 FF:D511: D0 05     BNE bra_D518
+C - - - - 0x03D521 FF:D511: D0 05     BNE bra_D518_это_не_клон
 C - - - - 0x03D523 FF:D513: A8        TAY
 C - - - - 0x03D524 FF:D514: B9 48 D5  LDA tbl_D548,Y
 C - - - - 0x03D527 FF:D517: 60        RTS
-bra_D518:
+bra_D518_это_не_клон:
 C - - - - 0x03D528 FF:D518: 0A        ASL
 C - - - - 0x03D529 FF:D519: A8        TAY
 C - - - - 0x03D52A FF:D51A: B9 2B D5  LDA tbl_D52B,Y
@@ -2395,7 +2395,7 @@ tbl_D548:
 - D - - - 0x03D560 FF:D550: 1F        .byte $1F    ; <ま>
 - - - - - 0x03D561 FF:D551: 20        .byte $20    ; <み>
 
-tbl_D552:
+tbl_D552_меню_статов:
     .byte $16       ; defender_tackle_block_passcut
     .byte $18       ; player_clearing_passcut
     .byte $17       ; player_interfere_passcut
@@ -2403,27 +2403,27 @@ tbl_D552:
 
 
 tbl_D555_действие_против_соперника:
-; вправо, влево, вниз, вверх
+; right, left, down, up
 ; при нападении на игрока на земле
-- D - - - 0x03D565 FF:D555: 00        .byte $00 ; блок
-- D - - - 0x03D566 FF:D556: 02        .byte $02 ; passcut
+- D - - - 0x03D565 FF:D555: 00        .byte $00 ; block
+- D - - - 0x03D566 FF:D556: 02        .byte $02 ; pass cut
 - D - - - 0x03D567 FF:D557: 06        .byte $06 ; wait
-- D - - - 0x03D568 FF:D558: 01        .byte $01 ; подкат
+- D - - - 0x03D568 FF:D558: 01        .byte $01 ; tackle
 ; соперник в нашей штрафной и ты на него нападаешь
 - D - - - 0x03D569 FF:D559: 03        .byte $03 ; compete
-- D - - - 0x03D56A FF:D55A: 02        .byte $02 ; passcut
+- D - - - 0x03D56A FF:D55A: 02        .byte $02 ; pass cut
 - D - - - 0x03D56B FF:D55B: 06        .byte $06 ; wait
 - D - - - 0x03D56C FF:D55C: 05        .byte $05 ; mark
 ; соперник в своей штрафной и ты на него нападаешь
 - D - - - 0x03D56D FF:D55D: 04        .byte $04 ; clear
-- D - - - 0x03D56E FF:D55E: 02        .byte $02 ; passcut
+- D - - - 0x03D56E FF:D55E: 02        .byte $02 ; pass cut
 - D - - - 0x03D56F FF:D55F: 06        .byte $06 ; wait
 - D - - - 0x03D570 FF:D560: 05        .byte $05 ; mark
 
 
 
 tbl_D561_действие_кипера_если_соперник_принимает_мяч_в_штрафной:
-; вправо, влево, вниз, вверх
+; right, left, down, up
 - D - - - 0x03D571 FF:D561: 04        .byte $04 ; wait
 - D - - - 0x03D572 FF:D562: 04        .byte $04 ; wait
 - D - - - 0x03D573 FF:D563: FF        .byte $FF ; 
@@ -2658,37 +2658,37 @@ tbl_D6DE:
 
 
 tbl_D6E8_действие_при_владении_мячом:
-; вправо, влево, вниз, вверх
+; right, left, down, up
 ; на земле
-- D - - - 0x03D6F8 FF:D6E8: 00        .byte $00 ; удар
-- D - - - 0x03D6F9 FF:D6E9: 01        .byte $01 ; пас
-- D - - - 0x03D6FA FF:D6EA: 03        .byte $03 ; 1-2
-- D - - - 0x03D6FB FF:D6EB: 02        .byte $02 ; дриблинг
+- D - - - 0x03D6F8 FF:D6E8: 00        .byte $00 ; shoot
+- D - - - 0x03D6F9 FF:D6E9: 01        .byte $01 ; pass
+- D - - - 0x03D6FA FF:D6EA: 03        .byte $03 ; 1-2 pass
+- D - - - 0x03D6FB FF:D6EB: 02        .byte $02 ; dribble
 ; мяч в штрафной соперника
-- D - - - 0x03D6FC FF:D6EC: 00        .byte $00 ; удар
-- D - - - 0x03D6FD FF:D6ED: 01        .byte $01 ; пас
-- D - - - 0x03D6FE FF:D6EE: 05        .byte $05 ; наебка
-- D - - - 0x03D6FF FF:D6EF: 04        .byte $04 ; трап
+- D - - - 0x03D6FC FF:D6EC: 00        .byte $00 ; shoot
+- D - - - 0x03D6FD FF:D6ED: 01        .byte $01 ; pass
+- D - - - 0x03D6FE FF:D6EE: 05        .byte $05 ; through
+- D - - - 0x03D6FF FF:D6EF: 04        .byte $04 ; trap
 ; мяч в своей штрафной
 - D - - - 0x03D700 FF:D6F0: 06        .byte $06 ; clear
-- D - - - 0x03D701 FF:D6F1: 01        .byte $01 ; пас
+- D - - - 0x03D701 FF:D6F1: 01        .byte $01 ; pass
 - D - - - 0x03D702 FF:D6F2: FF        .byte $FF ; 
-- D - - - 0x03D703 FF:D6F3: 04        .byte $04 ; трап
+- D - - - 0x03D703 FF:D6F3: 04        .byte $04 ; trap
 ; нападение на кипера соперника
-- D - - - 0x03D704 FF:D6F4: 00        .byte $00 ; удар
-- - - - - 0x03D705 FF:D6F5: 01        .byte $01 ; пас
+- D - - - 0x03D704 FF:D6F4: 00        .byte $00 ; shoot
+- - - - - 0x03D705 FF:D6F5: 01        .byte $01 ; pass
 - - - - - 0x03D706 FF:D6F6: FF        .byte $FF ; 
-- D - - - 0x03D707 FF:D6F7: 02        .byte $02 ; дриблинг
+- D - - - 0x03D707 FF:D6F7: 02        .byte $02 ; dribble
 ; ???
-- D - - - 0x03D708 FF:D6F8: 00        .byte $00 ; удар
-- D - - - 0x03D709 FF:D6F9: 01        .byte $01 ; пас
+- D - - - 0x03D708 FF:D6F8: 00        .byte $00 ; shoot
+- D - - - 0x03D709 FF:D6F9: 01        .byte $01 ; pass
 - - - - - 0x03D70A FF:D6FA: FF        .byte $FF ; 
 - - - - - 0x03D70B FF:D6FB: FF        .byte $FF ; 
 ; ты пробиваешь пенальти, выбор стороны удара
-- D - - - 0x03D70C FF:D6FC: 09        .byte $09 ; вправо
-- D - - - 0x03D70D FF:D6FD: 07        .byte $07 ; влево
+- D - - - 0x03D70C FF:D6FC: 09        .byte $09 ; right
+- D - - - 0x03D70D FF:D6FD: 07        .byte $07 ; left
 - D - - - 0x03D70E FF:D6FE: FF        .byte $FF ; 
-- D - - - 0x03D70F FF:D6FF: 08        .byte $08 ; прямо
+- D - - - 0x03D70F FF:D6FF: 08        .byte $08 ; center
 
 
 
