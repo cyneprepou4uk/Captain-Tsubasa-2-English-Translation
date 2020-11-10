@@ -4815,25 +4815,6 @@ C - - - - 0x001E42 01:9E32: CA        DEX
 C - - - - 0x001E43 01:9E33: D0 DF     BNE bra_9E14_цикл
 C - - - - 0x001E45 01:9E35: 60        RTS
 
-sub_9E36:
-; bzk переместить пониже
-C - - - - 0x001E46 01:9E36: A9 00     LDA #$00
-C - - - - 0x001E48 01:9E38: 85 EA     STA ram_00EA
-C - - - - 0x001E4A 01:9E3A: A2 08     LDX #$08
-bra_9E3C_цикл:
-C - - - - 0x001E4C 01:9E3C: 06 ED     ASL ram_00ED
-C - - - - 0x001E4E 01:9E3E: 26 EA     ROL ram_00EA
-C - - - - 0x001E50 01:9E40: A5 EA     LDA ram_00EA
-C - - - - 0x001E52 01:9E42: 38        SEC
-C - - - - 0x001E53 01:9E43: E5 EC     SBC ram_00EC
-C - - - - 0x001E55 01:9E45: 90 04     BCC bra_9E4B
-C - - - - 0x001E57 01:9E47: 85 EA     STA ram_00EA
-C - - - - 0x001E59 01:9E49: E6 ED     INC ram_00ED
-bra_9E4B:
-C - - - - 0x001E5B 01:9E4B: CA        DEX
-C - - - - 0x001E5C 01:9E4C: D0 EE     BNE bra_9E3C_цикл
-C - - - - 0x001E5E 01:9E4E: 60        RTS
-
 .export sub_0x001E5F
 sub_0x001E5F:
 C - - - - 0x001E5F 01:9E4F: A9 0A     LDA #$0A
@@ -4886,6 +4867,24 @@ C - - - - 0x001EAB 01:9E9B: 85 ED     STA ram_00ED
 C - - - - 0x001EAD 01:9E9D: A5 EB     LDA ram_00EB
 C - - - - 0x001EAF 01:9E9F: 85 EC     STA ram_00EC
 C - - - - 0x001EB1 01:9EA1: 60        RTS
+
+sub_9E36:
+C - - - - 0x001E46 01:9E36: A9 00     LDA #$00
+C - - - - 0x001E48 01:9E38: 85 EA     STA ram_00EA
+C - - - - 0x001E4A 01:9E3A: A2 08     LDX #$08
+bra_9E3C_цикл:
+C - - - - 0x001E4C 01:9E3C: 06 ED     ASL ram_00ED
+C - - - - 0x001E4E 01:9E3E: 26 EA     ROL ram_00EA
+C - - - - 0x001E50 01:9E40: A5 EA     LDA ram_00EA
+C - - - - 0x001E52 01:9E42: 38        SEC
+C - - - - 0x001E53 01:9E43: E5 EC     SBC ram_00EC
+C - - - - 0x001E55 01:9E45: 90 04     BCC bra_9E4B
+C - - - - 0x001E57 01:9E47: 85 EA     STA ram_00EA
+C - - - - 0x001E59 01:9E49: E6 ED     INC ram_00ED
+bra_9E4B:
+C - - - - 0x001E5B 01:9E4B: CA        DEX
+C - - - - 0x001E5C 01:9E4C: D0 EE     BNE bra_9E3C_цикл
+C - - - - 0x001E5E 01:9E4E: 60        RTS
 
 tbl_9EA2:
 ; 64 байта
