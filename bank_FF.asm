@@ -2143,7 +2143,7 @@ C - - - - 0x03D3A0 FF:D390: 20 EA D4  JSR sub_D4EA
 loc_D393:
 C D - - - 0x03D3A3 FF:D393: A9 0D     LDA #$0D
 C - - - - 0x03D3A5 FF:D395: AE 1E 06  LDX $061E
-C - - - - 0x03D3A8 FF:D398: BC 01 06  LDY ram_номер_нападающего,X
+C - - - - 0x03D3A8 FF:D398: BC 01 06  LDY ram_номер_защитника,X
 C - - - - 0x03D3AB FF:D39B: F0 06     BEQ bra_D3A3
 C - - - - 0x03D3AD FF:D39D: AE 21 06  LDX $0621
 C - - - - 0x03D3B0 FF:D3A0: BD 52 D5  LDA tbl_D552,X
@@ -2168,7 +2168,7 @@ C - - - - 0x03D3D5 FF:D3C5: F0 71     BEQ bra_D438
 C - - - - 0x03D3D7 FF:D3C7: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x03D3DA FF:D3CA: AA        TAX
 C - - - - 0x03D3DB FF:D3CB: AC 1E 06  LDY $061E
-C - - - - 0x03D3DE FF:D3CE: B9 01 06  LDA ram_номер_нападающего,Y
+C - - - - 0x03D3DE FF:D3CE: B9 01 06  LDA ram_номер_защитника,Y
 C - - - - 0x03D3E1 FF:D3D1: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x03D3E4 FF:D3D4: 48        PHA
 C - - - - 0x03D3E7 FF:D3D7: A9 1C     LDA #$1C
@@ -2255,7 +2255,7 @@ C - - - - 0x03D485 FF:D475: 65 3A     ADC ram_003A
 C - - - - 0x03D487 FF:D477: AA        TAX
 C - - - - 0x03D488 FF:D478: BD 55 D5  LDA tbl_D555_действие_против_соперника,X
 C - - - - 0x03D48B FF:D47B: AC 1E 06  LDY $061E
-C - - - - 0x03D48E FF:D47E: BE 01 06  LDX ram_номер_нападающего,Y
+C - - - - 0x03D48E FF:D47E: BE 01 06  LDX ram_номер_защитника,Y
 C - - - - 0x03D491 FF:D481: D0 05     BNE bra_D488
 C - - - - 0x03D493 FF:D483: A6 3A     LDX ram_003A
 C - - - - 0x03D495 FF:D485: BD 61 D5  LDA tbl_D561_действие_кипера_если_соперник_принимает_мяч_в_штрафной,X
@@ -2330,7 +2330,7 @@ C - - - - 0x03D519 FF:D509: D0 03     BNE bra_D50E
 C - - - - 0x03D51B FF:D50B: A9 1D     LDA #$1D
 C - - - - 0x03D51D FF:D50D: 60        RTS
 bra_D50E:
-C - - - - 0x03D51E FF:D50E: BC 01 06  LDY ram_номер_нападающего,X
+C - - - - 0x03D51E FF:D50E: BC 01 06  LDY ram_номер_защитника,X
 C - - - - 0x03D521 FF:D511: D0 05     BNE bra_D518
 C - - - - 0x03D523 FF:D513: A8        TAY
 C - - - - 0x03D524 FF:D514: B9 48 D5  LDA tbl_D548,Y
@@ -2457,7 +2457,7 @@ C - - - - 0x03D5A3 FF:D593: C9 01     CMP #$01
 C - - - - 0x03D5A5 FF:D595: D0 0E     BNE bra_D5A5
 C - - - - 0x03D5A7 FF:D597: AD 00 06  LDA ram_колво_нападающих
 C - - - - 0x03D5AA FF:D59A: F0 09     BEQ bra_D5A5
-C - - - - 0x03D5AC FF:D59C: AD 01 06  LDA ram_номер_нападающего
+C - - - - 0x03D5AC FF:D59C: AD 01 06  LDA ram_номер_защитника
 C - - - - 0x03D5AF FF:D59F: F0 11     BEQ bra_D5B2
 C - - - - 0x03D5B1 FF:D5A1: C9 0B     CMP #$0B
 C - - - - 0x03D5B3 FF:D5A3: F0 0D     BEQ bra_D5B2
@@ -4786,7 +4786,7 @@ C - - - - 0x03E54F FF:E53F: E0 04     CPX #$04
 C - - - - 0x03E551 FF:E541: B0 08     BCS bra_E54B_выход
 bra_E543:
 C - - - - 0x03E553 FF:E543: A5 41     LDA ram_0041
-C - - - - 0x03E555 FF:E545: 9D 01 06  STA ram_номер_нападающего,X
+C - - - - 0x03E555 FF:E545: 9D 01 06  STA ram_номер_защитника,X
 C - - - - 0x03E558 FF:E548: EE 00 06  INC ram_колво_нападающих
 bra_E54B_выход:
 C - - - - 0x03E55B FF:E54B: 60        RTS
@@ -4803,11 +4803,11 @@ bra_E55A:
 C - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03E56D FF:E55D: C9 05     CMP #$05      ; mark
 C - - - - 0x03E56F FF:E55F: D0 0D     BNE bra_E56E
-C - - - - 0x03E571 FF:E561: BD 01 06  LDA ram_номер_нападающего,X
+C - - - - 0x03E571 FF:E561: BD 01 06  LDA ram_номер_защитника,X
 C - - - - 0x03E574 FF:E564: F0 08     BEQ bra_E56E
 C - - - - 0x03E576 FF:E566: C9 0B     CMP #$0B
 C - - - - 0x03E578 FF:E568: F0 04     BEQ bra_E56E
-C - - - - 0x03E57A FF:E56A: 99 01 06  STA ram_номер_нападающего,Y
+C - - - - 0x03E57A FF:E56A: 99 01 06  STA ram_номер_защитника,Y
 C - - - - 0x03E57D FF:E56D: C8        INY
 bra_E56E:
 C - - - - 0x03E57E FF:E56E: E8        INX
@@ -4877,16 +4877,16 @@ C - - - - 0x03E5F9 FF:E5E9: 8D FE 05  STA $05FE
 C - - - - 0x03E5FC FF:E5EC: AD 00 06  LDA ram_колво_нападающих
 C - - - - 0x03E5FF FF:E5EF: F0 1D     BEQ bra_E60E
 C - - - - 0x03E601 FF:E5F1: A9 00     LDA #$00
-C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA ram_номер_защитника
+C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA ram_индекс_защитника
 bra_E5F6_цикл:
-C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX ram_номер_защитника
+C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX ram_индекс_защитника
 C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03E60C FF:E5FC: C9 05     CMP #$05
 C - - - - 0x03E60E FF:E5FE: D0 03     BNE bra_E603_достигнут_лимит
 C - - - - 0x03E610 FF:E600: 20 16 E6  JSR sub_E616
 bra_E603_достигнут_лимит:
-C - - - - 0x03E613 FF:E603: EE 16 06  INC ram_номер_защитника
-C - - - - 0x03E616 FF:E606: AD 16 06  LDA ram_номер_защитника
+C - - - - 0x03E613 FF:E603: EE 16 06  INC ram_индекс_защитника
+C - - - - 0x03E616 FF:E606: AD 16 06  LDA ram_индекс_защитника
 C - - - - 0x03E619 FF:E609: CD 00 06  CMP ram_колво_нападающих
 C - - - - 0x03E61C FF:E60C: D0 E8     BNE bra_E5F6_цикл
 bra_E60E:
@@ -4903,7 +4903,7 @@ C - - - - 0x03E630 FF:E620: A9 02     LDA #$02
 C - - - - 0x03E632 FF:E622: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x03E635 FF:E625: A9 00     LDA #$00
 C - - - - 0x03E637 FF:E627: 8D 3E 04  STA ram_подтип_действия_защиты
-C - - - - 0x03E63A FF:E62A: BD 01 06  LDA ram_номер_нападающего,X
+C - - - - 0x03E63A FF:E62A: BD 01 06  LDA ram_номер_защитника,X
 C - - - - 0x03E63D FF:E62D: F0 48     BEQ bra_E677_выход
 C - - - - 0x03E63F FF:E62F: C9 0B     CMP #$0B
 C - - - - 0x03E641 FF:E631: F0 44     BEQ bra_E677_выход
