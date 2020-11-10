@@ -2206,33 +2206,33 @@ C - - - - 0x002F84 02:AF74: C0 04     CPY #$04
 C - - - - 0x002F86 02:AF76: D0 F1     BNE bra_AF69
 C - - - - 0x002F88 02:AF78: 60        RTS
 
-.export sub_0x002F89
-sub_0x002F89:
+.export sub_0x002F89_начислить_опыт_за_победу
+sub_0x002F89_начислить_опыт_за_победу:
 C D - - - 0x002F89 02:AF79: A5 26     LDA ram_матч
 C - - - - 0x002F8B 02:AF7B: 0A        ASL
 C - - - - 0x002F8C 02:AF7C: AA        TAX
-C - - - - 0x002F8D 02:AF7D: BD 4C BA  LDA tbl_BA4C,X
+C - - - - 0x002F8D 02:AF7D: BD 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,X
 C - - - - 0x002F90 02:AF80: 85 E6     STA ram_00E6
-C - - - - 0x002F92 02:AF82: BD 4D BA  LDA tbl_BA4C + 1,X
+C - - - - 0x002F92 02:AF82: BD 4D BA  LDA tbl_BA4C_опыт_за_победу_над_командой + 1,X
 C - - - - 0x002F95 02:AF85: 85 E7     STA ram_00E7
-C - - - - 0x002F97 02:AF87: 4C 9E AF  JMP loc_AF9E
+C - - - - 0x002F97 02:AF87: 4C 9E AF  JMP loc_AF9E_начислить_опыт
 
-.export sub_0x002F9A
-sub_0x002F9A:
+.export sub_0x002F9A_начислить_опыт_за_поражение
+sub_0x002F9A_начислить_опыт_за_поражение:
 C D - - - 0x002F9A 02:AF8A: A5 26     LDA ram_матч
 C - - - - 0x002F9C 02:AF8C: 0A        ASL
 C - - - - 0x002F9D 02:AF8D: AA        TAX
-C - - - - 0x002F9E 02:AF8E: BD 4C BA  LDA tbl_BA4C,X
+C - - - - 0x002F9E 02:AF8E: BD 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,X
 C - - - - 0x002FA1 02:AF91: 85 E6     STA ram_00E6
-C - - - - 0x002FA3 02:AF93: BD 4D BA  LDA tbl_BA4C + 1,X
-C - - - - 0x002FA6 02:AF96: 4A        LSR
+C - - - - 0x002FA3 02:AF93: BD 4D BA  LDA tbl_BA4C_опыт_за_победу_над_командой + 1,X
+C - - - - 0x002FA6 02:AF96: 4A        LSR               ; поделить на 4
 C - - - - 0x002FA7 02:AF97: 66 E6     ROR ram_00E6
 C - - - - 0x002FA9 02:AF99: 4A        LSR
 C - - - - 0x002FAA 02:AF9A: 66 E6     ROR ram_00E6
 C - - - - 0x002FAC 02:AF9C: 85 E7     STA ram_00E7
-loc_AF9E:
+loc_AF9E_начислить_опыт:
 C D - - - 0x002FAE 02:AF9E: A2 00     LDX #$00
-bra_AFA0:
+bra_AFA0_цикл:
 C - - - - 0x002FB0 02:AFA0: BD 54 04  LDA ram_опыт_lo,X
 C - - - - 0x002FB3 02:AFA3: 18        CLC
 C - - - - 0x002FB4 02:AFA4: 65 E6     ADC ram_00E6
@@ -2248,7 +2248,7 @@ bra_AFBB_не_overflow:
 C - - - - 0x002FCB 02:AFBB: E8        INX
 C - - - - 0x002FCC 02:AFBC: E8        INX
 C - - - - 0x002FCD 02:AFBD: E0 16     CPX #$16
-C - - - - 0x002FCF 02:AFBF: 90 DF     BCC bra_AFA0
+C - - - - 0x002FCF 02:AFBF: 90 DF     BCC bra_AFA0_цикл
 C - - - - 0x002FD1 02:AFC1: 60        RTS
 
 .export sub_0x002FD2_начислить_опыт
@@ -2269,9 +2269,9 @@ C - - - - 0x002FE3 02:AFD3: AA        TAX
 C - - - - 0x002FE4 02:AFD4: A5 26     LDA ram_матч
 C - - - - 0x002FE6 02:AFD6: 0A        ASL
 C - - - - 0x002FE7 02:AFD7: A8        TAY
-C - - - - 0x002FE8 02:AFD8: B9 4D BA  LDA tbl_BA4C + 1,Y
+C - - - - 0x002FE8 02:AFD8: B9 4D BA  LDA tbl_BA4C_опыт_за_победу_над_командой + 1,Y
 C - - - - 0x002FEB 02:AFDB: 85 ED     STA ram_00ED
-C - - - - 0x002FED 02:AFDD: B9 4C BA  LDA tbl_BA4C,Y
+C - - - - 0x002FED 02:AFDD: B9 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,Y
 C - - - - 0x002FF0 02:AFE0: 66 ED     ROR ram_00ED      ; поделить на 4
 C - - - - 0x002FF2 02:AFE2: 4A        LSR
 C - - - - 0x002FF3 02:AFE3: 66 ED     ROR ram_00ED
@@ -2314,7 +2314,7 @@ C - - - - 0x003032 02:B022: 60        RTS
 sub_B023:
 C - - - - 0x003033 02:B023: A6 2A     LDX ram_твоя_команда
 C - - - - 0x003035 02:B025: 18        CLC
-C - - - - 0x003036 02:B026: 7D D3 B9  ADC tbl_B9D3,X
+C - - - - 0x003036 02:B026: 7D D3 B9  ADC tbl_B9D3_команда,X
 C - - - - 0x003039 02:B029: AA        TAX
 C - - - - 0x00303A 02:B02A: BD D6 B9  LDA tbl_B9D6,X
 C - - - - 0x00303D 02:B02D: 60        RTS
@@ -3716,12 +3716,14 @@ tbl_B9C8_количество_замен_для_японии:
     .word $224D
     .text "Subs:"
 
-tbl_B9D3:
-    .byte tbl_sao_paulo_B9D6 - tbl_B9D3 - $03
-    .byte tbl_nankatsu__B9D6 - tbl_B9D3 - $03
-    .byte tbl_japan_____B9D6 - tbl_B9D3 - $03
+tbl_B9D3_команда:
+    .byte tbl_sao_paulo_B9D6 - tbl_B9D3_команда - $03
+    .byte tbl_nankatsu__B9D6 - tbl_B9D3_команда - $03
+    .byte tbl_japan_____B9D6 - tbl_B9D3_команда - $03
 
 tbl_B9D6:
+; байт AND 0F * 2 = адрес опыта игрока
+; байт AND F0 
 tbl_sao_paulo_B9D6:
     .byte $00       ; unused клон
     .byte $00       ; Tsubasa
@@ -3858,23 +3860,26 @@ tbl_BA1C:
 
 
 
-tbl_BA4C:
+tbl_BA4C_опыт_за_победу_над_командой:
 - D - - - 0x003A5C 02:BA4C: 52 00     .word $0052 ; 00
 - D - - - 0x003A5E 02:BA4E: 54 00     .word $0054 ; 01
 - D - - - 0x003A60 02:BA50: 56 00     .word $0056 ; 02
 - D - - - 0x003A62 02:BA52: 58 00     .word $0058 ; 03
 - D - - - 0x003A64 02:BA54: 5A 00     .word $005A ; 04
 - D - - - 0x003A66 02:BA56: 00 00     .word $0000 ; 05
+
 - D - - - 0x003A68 02:BA58: 6D 00     .word $006D ; 06
 - D - - - 0x003A6A 02:BA5A: 7B 00     .word $007B ; 07
 - D - - - 0x003A6C 02:BA5C: 8E 00     .word $008E ; 08
 - D - - - 0x003A6E 02:BA5E: 9A 00     .word $009A ; 09
 - D - - - 0x003A70 02:BA60: A0 00     .word $00A0 ; 0A
 - D - - - 0x003A72 02:BA62: 00 00     .word $0000 ; 0B
+
 - D - - - 0x003A74 02:BA64: B1 00     .word $00B1 ; 0C
 - D - - - 0x003A76 02:BA66: BD 00     .word $00BD ; 0D
 - D - - - 0x003A78 02:BA68: D5 00     .word $00D5 ; 0E
 - D - - - 0x003A7A 02:BA6A: 00 00     .word $0000 ; 0F
+
 - D - - - 0x003A7C 02:BA6C: C8 00     .word $00C8 ; 10
 - D - - - 0x003A7E 02:BA6E: E7 00     .word $00E7 ; 11
 - D - - - 0x003A80 02:BA70: EA 00     .word $00EA ; 12
@@ -3882,16 +3887,20 @@ tbl_BA4C:
 - D - - - 0x003A84 02:BA74: F0 00     .word $00F0 ; 14
 - D - - - 0x003A86 02:BA76: F2 00     .word $00F2 ; 15
 - D - - - 0x003A88 02:BA78: F2 00     .word $00F2 ; 16
+
 - D - - - 0x003A8A 02:BA7A: F5 00     .word $00F5 ; 17
 - D - - - 0x003A8C 02:BA7C: F8 00     .word $00F8 ; 18
 - D - - - 0x003A8E 02:BA7E: FE 00     .word $00FE ; 19
 - D - - - 0x003A90 02:BA80: 0A 01     .word $010A ; 1A
+
 - D - - - 0x003A92 02:BA82: 0A 01     .word $010A ; 1B
 - D - - - 0x003A94 02:BA84: 0D 01     .word $010D ; 1C
 - D - - - 0x003A96 02:BA86: 10 01     .word $0110 ; 1D
 - D - - - 0x003A98 02:BA88: 37 01     .word $0137 ; 1E
 - D - - - 0x003A9A 02:BA8A: 3D 01     .word $013D ; 1F
 - D - - - 0x003A9C 02:BA8C: 45 01     .word $0145 ; 20
+
+
 
 tbl_BA90:
 ; предположительно количество опыта для набора уровня
