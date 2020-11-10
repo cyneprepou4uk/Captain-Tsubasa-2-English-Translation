@@ -343,7 +343,7 @@ off_B731_0F_мисаки_победил_хюгу:
     .text "Nankatsu's captain"
     .byte con_line
     .byte con_offset, $09
-    .text "Misaki Tarou has"
+    .text "Misaki Taro has"
     .byte con_line
     .byte con_offset, $09
     .text "been handed the"

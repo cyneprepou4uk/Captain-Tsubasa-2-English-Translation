@@ -216,7 +216,7 @@ off_A020_00_самая_первая_заставка:
     .byte con_pause, $28
     .byte con_speed, $01
     .byte con_offset, $0A
-    .text "Misaki Tarou"
+    .text "Misaki Taro"
     .byte con_line
     .byte con_line
     .byte con_offset, $06

@@ -4875,7 +4875,7 @@ con_endline                 = $E7   ; закончить чтение текст
     .byte con_animation, $51
     .byte con_brightness, $00
     .byte con_offset, $6A, $22
-    .text "Misaki Tarou"
+    .text "Misaki Taro"
     .byte con_endline
     .byte con_brightness, $02
     .byte con_timer, $68
