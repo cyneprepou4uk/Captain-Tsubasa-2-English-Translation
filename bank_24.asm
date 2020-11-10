@@ -1784,7 +1784,7 @@ C - - - - 0x038A7A 24:8A6A: D0 08     BNE bra_8A74
 C - - - - 0x038A7C 24:8A6C: 68        PLA
 C - - - - 0x038A7D 24:8A6D: 48        PHA
 C - - - - 0x038A7E 24:8A6E: AA        TAX
-C - - - - 0x038A7F 24:8A6F: BC 9D 8A  LDY tbl_8AA8_индекс_для_параметров_команды - $0B,X
+C - - - - 0x038A7F 24:8A6F: BC 9D 8A  LDY tbl_818E_индекс_для_параметров_команды - $0B,X
 C - - - - 0x038A82 24:8A72: B1 38     LDA (ram_enemy_data),Y
 bra_8A74:
 C - - - - 0x038A84 24:8A74: AA        TAX
@@ -1822,19 +1822,6 @@ C - - - - 0x038AB2 24:8AA2: 69 96     ADC #> tbl_9662
 C - - - - 0x038AB4 24:8AA4: 85 3B     STA ram_003B
 C - - - - 0x038AB6 24:8AA6: 68        PLA
 C - - - - 0x038AB7 24:8AA7: 60        RTS
-
-tbl_8AA8_индекс_для_параметров_команды:
-- D - - - 0x038AB8 24:8AA8: 02        .byte $02    ; GK
-- D - - - 0x038AB9 24:8AA9: 03        .byte $03    ; DF 2
-- D - - - 0x038ABA 24:8AAA: 03        .byte $03    ; DF 3
-- D - - - 0x038ABB 24:8AAB: 03        .byte $03    ; DF 4
-- D - - - 0x038ABC 24:8AAC: 03        .byte $03    ; DF 5
-- D - - - 0x038ABD 24:8AAD: 04        .byte $04    ; MF 6
-- D - - - 0x038ABE 24:8AAE: 05        .byte $05    ; FW 7
-- D - - - 0x038ABF 24:8AAF: 04        .byte $04    ; MF 8
-- D - - - 0x038AC0 24:8AB0: 05        .byte $05    ; FW 9
-- D - - - 0x038AC1 24:8AB1: 04        .byte $04    ; MF 10
-- D - - - 0x038AC2 24:8AB2: 05        .byte $05    ; FW 11
 
 sub_8AB3:
 C - - - - 0x038AC3 24:8AB3: AD 35 06  LDA $0635
