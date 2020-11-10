@@ -5375,9 +5375,11 @@ loc_E93D_отображение_выбранного_действия:
 C D - - - 0x03E94D FF:E93D: 48        PHA
 C - - - - 0x03E94E FF:E93E: 8A        TXA
 C - - - - 0x03E94F FF:E93F: 48        PHA
+                                      JMP loc_E945
 bra_E940_ожидание_освобождения_буфера:
 C - - - - 0x03E950 FF:E940: A9 01     LDA #$01
 C - - - - 0x03E952 FF:E942: 20 0F CB  JSR sub_CB0F
+loc_E945:
 C - - - - 0x03E955 FF:E945: AD 15 05  LDA $0515
 C - - - - 0x03E958 FF:E948: D0 F6     BNE bra_E940_ожидание_освобождения_буфера
 C - - - - 0x03E95A FF:E94A: A9 01     LDA #$01
