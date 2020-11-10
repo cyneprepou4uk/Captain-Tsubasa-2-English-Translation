@@ -5148,10 +5148,8 @@ C - - - - 0x03E7FA FF:E7EA: D0 03     BNE bra_E7EF
 C - - - - 0x03E7FC FF:E7EC: AD FE 05  LDA $05FE
 bra_E7EF:
 C - - - - 0x03E7FF FF:E7EF: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
-C - - - - 0x03E802 FF:E7F2: 8A        TXA
-C - - - - 0x03E803 FF:E7F3: 85 3A     STA ram_003A
-C - - - - 0x03E805 FF:E7F5: 98        TYA
-C - - - - 0x03E806 FF:E7F6: 85 3B     STA ram_003B
+C - - - - 0x03E803 FF:E7F3: 85 3A     STX ram_003A
+C - - - - 0x03E806 FF:E7F6: 85 3B     STY ram_003B
 C - - - - 0x03E808 FF:E7F8: A9 00     LDA #$00
 C - - - - 0x03E80A FF:E7FA: 85 3C     STA ram_003C
 C - - - - 0x03E80C FF:E7FC: A0 06     LDY #con_игрок_координата_X_hi
