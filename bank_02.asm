@@ -456,9 +456,9 @@ bra_A352:
 - - - - - 0x002364 02:A354: 0A        ASL
 - - - - - 0x002365 02:A355: AA        TAX
 - - - - - 0x002366 02:A356: A5 EC     LDA ram_00EC
-- - - - - 0x002368 02:A358: 9D 54 04  STA $0454,X
+- - - - - 0x002368 02:A358: 9D 54 04  STA ram_опыт_lo,X
 - - - - - 0x00236B 02:A35B: A5 ED     LDA ram_00ED
-- - - - - 0x00236D 02:A35D: 9D 55 04  STA $0455,X
+- - - - - 0x00236D 02:A35D: 9D 55 04  STA ram_опыт_hi,X
 - - - - - 0x002370 02:A360: E6 E6     INC ram_00E6
 - - - - - 0x002372 02:A362: A5 E6     LDA ram_00E6
 - - - - - 0x002374 02:A364: C9 0A     CMP #$0A
@@ -2233,18 +2233,18 @@ C - - - - 0x002FAC 02:AF9C: 85 E7     STA ram_00E7
 loc_AF9E:
 C D - - - 0x002FAE 02:AF9E: A2 00     LDX #$00
 bra_AFA0:
-C - - - - 0x002FB0 02:AFA0: BD 54 04  LDA $0454,X
+C - - - - 0x002FB0 02:AFA0: BD 54 04  LDA ram_опыт_lo,X
 C - - - - 0x002FB3 02:AFA3: 18        CLC
 C - - - - 0x002FB4 02:AFA4: 65 E6     ADC ram_00E6
-C - - - - 0x002FB6 02:AFA6: 9D 54 04  STA $0454,X
-C - - - - 0x002FB9 02:AFA9: BD 55 04  LDA $0455,X
+C - - - - 0x002FB6 02:AFA6: 9D 54 04  STA ram_опыт_lo,X
+C - - - - 0x002FB9 02:AFA9: BD 55 04  LDA ram_опыт_hi,X
 C - - - - 0x002FBC 02:AFAC: 65 E7     ADC ram_00E7
-C - - - - 0x002FBE 02:AFAE: 9D 55 04  STA $0455,X
-C - - - - 0x002FC1 02:AFB1: 90 08     BCC bra_AFBB
+C - - - - 0x002FBE 02:AFAE: 9D 55 04  STA ram_опыт_hi,X
+C - - - - 0x002FC1 02:AFB1: 90 08     BCC bra_AFBB_не_overflow
 - - - - - 0x002FC3 02:AFB3: A9 FF     LDA #$FF
-- - - - - 0x002FC5 02:AFB5: 9D 54 04  STA $0454,X
-- - - - - 0x002FC8 02:AFB8: 9D 55 04  STA $0455,X
-bra_AFBB:
+- - - - - 0x002FC5 02:AFB5: 9D 54 04  STA ram_опыт_lo,X
+- - - - - 0x002FC8 02:AFB8: 9D 55 04  STA ram_опыт_hi,X
+bra_AFBB_не_overflow:
 C - - - - 0x002FCB 02:AFBB: E8        INX
 C - - - - 0x002FCC 02:AFBC: E8        INX
 C - - - - 0x002FCD 02:AFBD: E0 16     CPX #$16
@@ -2285,17 +2285,17 @@ C - - - - 0x003001 02:AFF1: A5 EB     LDA ram_00EB      ; число из таб
 C - - - - 0x003003 02:AFF3: 29 0F     AND #$0F
 C - - - - 0x003005 02:AFF5: 0A        ASL
 C - - - - 0x003006 02:AFF6: AA        TAX
-C - - - - 0x003007 02:AFF7: BD 54 04  LDA $0454,X
+C - - - - 0x003007 02:AFF7: BD 54 04  LDA ram_опыт_lo,X
 C - - - - 0x00300A 02:AFFA: 18        CLC
 C - - - - 0x00300B 02:AFFB: 65 ED     ADC ram_00ED
-C - - - - 0x00300D 02:AFFD: 9D 54 04  STA $0454,X
-C - - - - 0x003010 02:B000: BD 55 04  LDA $0455,X
+C - - - - 0x00300D 02:AFFD: 9D 54 04  STA ram_опыт_lo,X
+C - - - - 0x003010 02:B000: BD 55 04  LDA ram_опыт_hi,X
 C - - - - 0x003013 02:B003: 69 00     ADC #$00
-C - - - - 0x003015 02:B005: 9D 55 04  STA $0455,X
+C - - - - 0x003015 02:B005: 9D 55 04  STA ram_опыт_hi,X
 C - - - - 0x003018 02:B008: 90 08     BCC bra_B012_выход
 - - - - - 0x00301A 02:B00A: A9 FF     LDA #$FF      ; если overflow
-- - - - - 0x00301C 02:B00C: 9D 54 04  STA $0454,X
-- - - - - 0x00301F 02:B00F: 9D 55 04  STA $0455,X
+- - - - - 0x00301C 02:B00C: 9D 54 04  STA ram_опыт_lo,X
+- - - - - 0x00301F 02:B00F: 9D 55 04  STA ram_опыт_hi,X
 bra_B012_выход:
 C - - - - 0x003022 02:B012: 60        RTS
 
@@ -2305,9 +2305,9 @@ sub_B016:
 C - - - - 0x003026 02:B016: 29 0F     AND #$0F
 C - - - - 0x003028 02:B018: 0A        ASL
 C - - - - 0x003029 02:B019: AA        TAX
-C - - - - 0x00302A 02:B01A: BD 54 04  LDA $0454,X
+C - - - - 0x00302A 02:B01A: BD 54 04  LDA ram_опыт_lo,X
 C - - - - 0x00302D 02:B01D: A8        TAY
-C - - - - 0x00302E 02:B01E: BD 55 04  LDA $0455,X
+C - - - - 0x00302E 02:B01E: BD 55 04  LDA ram_опыт_hi,X
 C - - - - 0x003031 02:B021: AA        TAX
 C - - - - 0x003032 02:B022: 60        RTS
 
@@ -2368,7 +2368,7 @@ C D - - - 0x003080 02:B070: 84 E6     STY ram_00E6
 C - - - - 0x003082 02:B072: 86 E7     STX ram_00E7
 C - - - - 0x003084 02:B074: A0 EC     LDY #$EC
 bra_B076_цикл_копирования:
-C - - - - 0x003086 02:B076: B9 68 03  LDA $0454 - $EC,Y
+C - - - - 0x003086 02:B076: B9 68 03  LDA ram_опыт_lo - $EC,Y
 C - - - - 0x003089 02:B079: 99 6A 05  STA $0656 - $EC,Y
 C - - - - 0x00308C 02:B07C: C8        INY
 C - - - - 0x00308D 02:B07D: D0 F7     BNE bra_B076_цикл_копирования
@@ -2381,9 +2381,9 @@ C - - - - 0x003095 02:B085: B1 E6     LDA (ram_00E6),Y
 C - - - - 0x003097 02:B087: AA        TAX
 C - - - - 0x003098 02:B088: A4 E9     LDY ram_00E9
 C - - - - 0x00309A 02:B08A: BD 56 06  LDA $0656,X
-C - - - - 0x00309D 02:B08D: 99 54 04  STA $0454,Y
+C - - - - 0x00309D 02:B08D: 99 54 04  STA ram_опыт_lo,Y
 C - - - - 0x0030A0 02:B090: BD 57 06  LDA $0657,X
-C - - - - 0x0030A3 02:B093: 99 55 04  STA $0455,Y
+C - - - - 0x0030A3 02:B093: 99 55 04  STA ram_опыт_hi,Y
 C - - - - 0x0030A6 02:B096: E6 E9     INC ram_00E9
 C - - - - 0x0030A8 02:B098: E6 E9     INC ram_00E9
 C - - - - 0x0030AA 02:B09A: A5 E9     LDA ram_00E9
