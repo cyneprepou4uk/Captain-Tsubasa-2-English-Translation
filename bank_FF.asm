@@ -4192,7 +4192,7 @@ C - - - - 0x03E146 FF:E136: A9 05     LDA #$05
 C - - - - 0x03E148 FF:E138: A0 09     LDY #con_игрок_09
 C - - - - 0x03E14A FF:E13A: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03E14C FF:E13C: AD FE 05  LDA $05FE
-C - - - - 0x03E14F FF:E13F: 8D 17 06  STA $0617
+C - - - - 0x03E14F FF:E13F: 8D 17 06  STA ram_колво_активных_защитников
 bra_E142:
 loc_E142:
 C D - - - 0x03E152 FF:E142: 20 67 E2  JSR sub_E267
@@ -4234,9 +4234,9 @@ C - - - - 0x03E199 FF:E189: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E19C FF:E18C: C9 0B     CMP #$0B
 C - - - - 0x03E19E FF:E18E: 90 57     BCC bra_E1E7
 C - - - - 0x03E1A0 FF:E190: AD FE 05  LDA $05FE
-C - - - - 0x03E1A3 FF:E193: CD 17 06  CMP $0617
+C - - - - 0x03E1A3 FF:E193: CD 17 06  CMP ram_колво_активных_защитников
 C - - - - 0x03E1A6 FF:E196: F0 4F     BEQ bra_E1E7
-C - - - - 0x03E1A8 FF:E198: 8D 17 06  STA $0617
+C - - - - 0x03E1A8 FF:E198: 8D 17 06  STA ram_колво_активных_защитников
 C - - - - 0x03E1AB FF:E19B: A9 00     LDA #$00
 C - - - - 0x03E1AD FF:E19D: 8D 21 06  STA $0621
 C - - - - 0x03E1B0 FF:E1A0: 48        PHA
