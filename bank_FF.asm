@@ -6197,7 +6197,7 @@ C - - - - 0x03EF96 FF:EF86: 98        TYA
 C - - - - 0x03EF97 FF:EF87: 48        PHA
 C - - - - 0x03EF9A FF:EF8A: A9 18     LDA #$18
 C - - - - 0x03EF9C FF:EF8C: 85 24     STA ram_для_5114
-C - - - - 0x03EF9E FF:EF8E: A9 19     LDA #$83
+C - - - - 0x03EF9E FF:EF8E: A9 19     LDA #$19
 C - - - - 0x03EFA0 FF:EF90: 85 25     STA ram_для_5115
 C - - - - 0x03EFA2 FF:EF92: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03EFA5 FF:EF95: 68        PLA
