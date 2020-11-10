@@ -3279,7 +3279,7 @@ C - - - - 0x03DB4B FF:DB3B: A9 1D     LDA #$1D
 C - - - - 0x03DB4D FF:DB3D: 85 25     STA ram_для_5115
 C - - - - 0x03DB4F FF:DB3F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - 0x03DB52 FF:DB42: 68        PLA
-C - - - - 0x03DB53 FF:DB43: 20 03 80  JSR sub_0x038013
+C - - - - 0x03DB53 FF:DB43: 20 03 80  JSR sub_0x038013_подготовить_параметры_для_команды_соперников
 C - - - - 0x03DB56 FF:DB46: A9 00     LDA #$00
 C - - - - 0x03DB58 FF:DB48: 8D 47 04  STA ram_флаг_удара_франции_коимбры
 C - - - - 0x03DB5B FF:DB4B: A2 00     LDX #$00
@@ -3290,7 +3290,7 @@ C - - - - 0x03DB64 FF:DB54: 2C E2 00  BIT ram_рандом_2
 C - - - - 0x03DB67 FF:DB57: 10 02     BPL bra_DB5B
 C - - - - 0x03DB69 FF:DB59: A2 0B     LDX #$0B
 bra_DB5B:
-C - - - - 0x03DB6B FF:DB5B: 8E 4F 04  STX $044F
+C - - - - 0x03DB6B FF:DB5B: 8E 4F 04  STX ram_чья_команда_разводит_первой
 C - - - - 0x03DB6E FF:DB5E: 8E FB 05  STX ram_команда_с_мячом
 C - - - - 0x03DB71 FF:DB61: 60        RTS
 
@@ -3394,13 +3394,13 @@ tbl_DBEA:
 
 sub_DBF3:
 ofs_DBF3_03:
-C - - - - 0x03DC03 FF:DBF3: AD 4F 04  LDA $044F
+C - - - - 0x03DC03 FF:DBF3: AD 4F 04  LDA ram_чья_команда_разводит_первой
 C - - - - 0x03DC06 FF:DBF6: 49 0B     EOR #$0B
 C - - - - 0x03DC08 FF:DBF8: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03DC0B FF:DBFB: 60        RTS
 
 ofs_DBFC_02:
-C - J - - 0x03DC0C FF:DBFC: AD 4F 04  LDA $044F
+C - J - - 0x03DC0C FF:DBFC: AD 4F 04  LDA ram_чья_команда_разводит_первой
 C - - - - 0x03DC0F FF:DBFF: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03DC12 FF:DC02: 60        RTS
 
