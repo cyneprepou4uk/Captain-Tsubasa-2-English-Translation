@@ -487,7 +487,7 @@ C - - - - 0x0043F0 03:A3E0: 20 A9 82  JSR sub_0x0002B9_ожидание_заве
 C - - - - 0x0043F3 03:A3E3: A0 F8     LDY #$F8
 bra_A3E5_цикл:
 C - - - - 0x0043F5 03:A3E5: B9 84 A3  LDA tbl_A47C - $F8,Y
-C - - - - 0x0043F8 03:A3E8: 99 60 04  STA $0460,Y
+C - - - - 0x0043F8 03:A3E8: 99 60 04  STA $0558 - $F8,Y
 C - - - - 0x0043FB 03:A3EB: C8        INY
 C - - - - 0x0043FC 03:A3EC: D0 F7     BNE bra_A3E5_цикл
 C - - - - 0x0043FE 03:A3EE: A9 00     LDA #$00
@@ -946,11 +946,11 @@ C - - - - 0x004700 03:A6F0: A2 08     LDX #$08
 C - - - - 0x004702 03:A6F2: A9 FE     LDA #$FE
 C - - - - 0x004704 03:A6F4: 20 2C A7  JSR sub_A72C
 C - - - - 0x004707 03:A6F7: A0 FC     LDY #$FC
-bra_A6F9:
+bra_A6F9_цикл:
 C - - - - 0x004709 03:A6F9: B9 7B A6  LDA tbl_A777 - $FC,Y
-C - - - - 0x00470C 03:A6FC: 99 60 04  STA $0460,Y
+C - - - - 0x00470C 03:A6FC: 99 60 04  STA $055C - $FC,Y
 C - - - - 0x00470F 03:A6FF: C8        INY
-C - - - - 0x004710 03:A700: D0 F7     BNE bra_A6F9
+C - - - - 0x004710 03:A700: D0 F7     BNE bra_A6F9_цикл
 C - - - - 0x004712 03:A702: A0 B8     LDY #$B8
 C - - - - 0x004714 03:A704: A2 1C     LDX #$1C
 C - - - - 0x004716 03:A706: A9 02     LDA #$02
