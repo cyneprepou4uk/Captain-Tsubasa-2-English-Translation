@@ -1710,8 +1710,7 @@ tbl_D0AC_мелодии_команд:
 .export sub_0x03D0E1_попытка_убить_мисуги
 sub_0x03D0E1_попытка_убить_мисуги:
 C D - - - 0x03D0E1 FF:D0D1: AD 2A 00  LDA ram_твоя_команда
-; проверка на японию
-C - - - - 0x03D0E4 FF:D0D4: C9 02     CMP #$02
+C - - - - 0x03D0E4 FF:D0D4: C9 02     CMP #$02      ; japan
 C - - - - 0x03D0E6 FF:D0D6: D0 37     BNE bra_D10F_выход
 C - - - - 0x03D0E8 FF:D0D8: A9 00     LDA #$00
 bra_D0DA_цикл_поиска_мисуги:
@@ -1726,8 +1725,7 @@ C - - - - 0x03D0F4 FF:D0E4: A0 00     LDY #con_игрок_номер
 C - - - - 0x03D0F6 FF:D0E6: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03D0F8 FF:D0E8: AA        TAX
 C - - - - 0x03D0F9 FF:D0E9: 68        PLA
-; проверка на мисуги
-C - - - - 0x03D0FA FF:D0EA: E0 20     CPX #$20
+C - - - - 0x03D0FA FF:D0EA: E0 20     CPX #$20      ; misugi
 C - - - - 0x03D0FC FF:D0EC: F0 08     BEQ bra_D0F6_мисуги_найден
 C - - - - 0x03D0FE FF:D0EE: 18        CLC
 C - - - - 0x03D0FF FF:D0EF: 69 01     ADC #$01
@@ -2030,8 +2028,7 @@ C - - - - 0x03D2EE FF:D2DE: D0 0D     BNE bra_D2ED
 C - - - - 0x03D2F0 FF:D2E0: 20 77 CD  JSR sub_CD77_адрес_игрока_адрес_игрока_команды_без_мяча
 C - - - - 0x03D2F3 FF:D2E3: A0 00     LDY #con_игрок_номер
 C - - - - 0x03D2F5 FF:D2E5: B1 34     LDA (ram_plr_data),Y
-; проверка на кипера вакашимазу, чтобы отобразить ему действие прыжка от штанги при нажатии вниз
-C - - - - 0x03D2F7 FF:D2E7: C9 22     CMP #$22
+C - - - - 0x03D2F7 FF:D2E7: C9 22     CMP #$22      ; wakashimazu чтобы отобразить ему действие прыжка от штанги при нажатии вниз
 C - - - - 0x03D2F9 FF:D2E9: D0 1E     BNE bra_D309
 C - - - - 0x03D2FB FF:D2EB: A9 02     LDA #$02
 bra_D2ED:
@@ -4410,7 +4407,7 @@ C - - - - 0x03E2F2 FF:E2E2: A2 01     LDX #$01
 C - - - - 0x03E2F4 FF:E2E4: B1 34     LDA (ram_plr_data),Y      ; con_игрок_энергия_lo
 C - - - - 0x03E2F6 FF:E2E6: C8        INY
 C - - - - 0x03E2F7 FF:E2E7: 11 34     ORA (ram_plr_data),Y      ; con_игрок_энергия_hi
-C - - - - 0x03E2F9 FF:E2E9: F0 22     BEQ bra_E30D_не_регенерировать      ; проверка на дохлого мисуги
+C - - - - 0x03E2F9 FF:E2E9: F0 22     BEQ bra_E30D_не_регенерировать      ; проверка на дохлого misugi
 C - - - - 0x03E2FB FF:E2EB: 88        DEY
 bra_E2EC_это_не_мисуги:
 C - - - - 0x03E2FC FF:E2EC: 8A        TXA

@@ -255,7 +255,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0201C5 17:81B5: 2B 84     .word ofs_842B_21_A1_порвана_ли_сетка
 - D - I - 0x0201C7 17:81B7: 36 84     .word ofs_8436_22_A2_у_чьей_команды_мяч
 - D - I - 0x0201C9 17:81B9: 3E 84     .word ofs_843E_23_A3_за_какую_команду_играешь
-- - - - - 0x0201CB 17:81BB: 42 84     .word $0000       ; unused, байты не найдены, была проверка на diazа
+- - - - - 0x0201CB 17:81BB: 42 84     .word $0000       ; unused, байты не найдены, была проверка на diaz
 - D - I - 0x0201CD 17:81BD: 4E 84     .word ofs_844E_25_A5_coimbra_france_уже_били_или_нет
 - D - I - 0x0201CF 17:81BF: 57 84     .word ofs_8457_26_A6_проигрывает_ли_германия
 - D - I - 0x0201D1 17:81C1: 4E 84     .word $0000       ; unused, было аналогично 25_A5
@@ -1989,7 +1989,7 @@ C - - - - 0x020961 17:8951: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x020963 17:8953: A8        TAY
 C - - - - 0x020964 17:8954: A2 00     LDX #$00
 C - - - - 0x020966 17:8956: 68        PLA
-C - - - - 0x020967 17:8957: C0 1A     CPY #$1A      ; проверка на хюгу
+C - - - - 0x020967 17:8957: C0 1A     CPY #$1A      ; hyuga
 C - - - - 0x020969 17:8959: F0 09     BEQ bra_8964_hyuga_найден
 C - - - - 0x02096B 17:895B: 18        CLC
 C - - - - 0x02096C 17:895C: 69 01     ADC #$01
@@ -8919,7 +8919,7 @@ sub_A88F:
 - D - I - 0x0228A8 11:A898: FB        .byte con_rts
 
 bra_long_case_A899_04_clone_dribble:
-- D - I - 0x0228A9 11:A899: F3        .byte con_branch, $BB     ; проверка на carlosа
+- D - I - 0x0228A9 11:A899: F3        .byte con_branch, $BB     ; проверка на carlos
 - D - I - 0x0228AB 11:A89B: 02        .byte bra_case_A89D_00_это_carlos - *
 - - - - - 0x0228AC 11:A89C: 1F        .byte bra_case_A8BB_01_это_не_carlos - *
 bra_case_A89D_00_это_carlos:
@@ -9022,7 +9022,7 @@ sub_A908:
 - - - - - 0x02291F 11:A90F: EB A8     .word loc_A8EB
 
 bra_long_case_A911_06_hedgehog_dribble:
-- - - - - 0x022921 11:A911: F3        .byte con_branch, $BA     ; проверка на kaltzа
+- - - - - 0x022921 11:A911: F3        .byte con_branch, $BA     ; проверка на kaltz
 - - - - - 0x022923 11:A913: 02        .byte bra_case_A915_00_это_kaltz - *
 - - - - - 0x022924 11:A914: 1C        .byte bra_case_A930_01_это_не_kaltz - *
 
@@ -9499,7 +9499,7 @@ bra_long_case_AAB7_03_vanishing_feint:
 - D - I - 0x022ADA 11:AACA: FB        .byte con_rts
 
 bra_long_case_AACB_04_clone_dribble:
-- D - I - 0x022ADB 11:AACB: F3        .byte con_branch, $BB     ; проверка на carlosа
+- D - I - 0x022ADB 11:AACB: F3        .byte con_branch, $BB     ; проверка на carlos
 - D - I - 0x022ADD 11:AACD: 02        .byte bra_case_AACF_00_это_carlos - *
 - - - - - 0x022ADE 11:AACE: 0F        .byte bra_case_AADD_01_это_не_carlos - *
 
@@ -9547,7 +9547,7 @@ loc_AAEF:
 - D - I - 0x022B0E 11:AAFE: FB        .byte con_rts
 
 bra_long_case_AAFF_06_hedgehog_dribble:
-- - - - - 0x022B0F 11:AAFF: F3        .byte con_branch, $BA     ; проверка на kaltzа
+- - - - - 0x022B0F 11:AAFF: F3        .byte con_branch, $BA     ; проверка на kaltz
 - - - - - 0x022B11 11:AB01: 02        .byte bra_case_AB03_00_это_kaltz - *
 - - - - - 0x022B12 11:AB02: 29        .byte bra_case_AB2B_01_это_не_kaltz - *
 
@@ -9613,7 +9613,7 @@ loc_AB42:
 - D - I - 0x022B5B 11:AB4B: FB        .byte con_rts
 
 bra_long_case_AB4C_03_drive_shot:
-- D - I - 0x022B5C 11:AB4C: F3        .byte con_branch, $B0     ; проверка на цубасу или diazа
+- D - I - 0x022B5C 11:AB4C: F3        .byte con_branch, $B0     ; проверка на tsubasa или diaz
 - D - I - 0x022B5E 11:AB4E: 0A        .byte bra_case_AB58_00_это_не_tsubasa_и_не_diaz - *
 - D - I - 0x022B5F 11:AB4F: 02        .byte bra_case_AB51_01_это_tsubasa - *
 - D - I - 0x022B60 11:AB50: 22        .byte bra_case_AB72_02_это_diaz - *
@@ -9649,7 +9649,7 @@ loc_AB6B:
 - D - I - 0x022B81 11:AB71: FB        .byte con_rts
 
 bra_case_AB72_02_это_diaz:
-; bzk проверка на diazа не обязательная, код один и тот же
+; bzk проверка на diaz не обязательная, код один и тот же
     ; однако если я буду менять номер облака для них, возможно и понадобится
 - D - I - 0x022B82 11:AB72: 3C        .byte con_pause + $3C
 - D - I - 0x022B83 11:AB73: 30        .byte con_bg + $30
@@ -9733,7 +9733,7 @@ sub_ABB8:
 - D - I - 0x022BDB 11:ABCB: FB        .byte con_rts
 
 bra_long_case_ABCC_05_falcon_shot:
-- D - I - 0x022BDC 11:ABCC: F3        .byte con_branch, $B1     ; проверка на нитту
+- D - I - 0x022BDC 11:ABCC: F3        .byte con_branch, $B1     ; проверка на nitta
 - D - I - 0x022BDE 11:ABCE: 02        .byte bra_case_ABD0_00_это_nitta - *
 - - - - - 0x022BDF 11:ABCF: 1A        .byte bra_case_ABE9_01_это_не_nitta - *
 
@@ -9766,7 +9766,7 @@ bra_case_ABE9_01_это_не_nitta:
 - - - - - 0x022BFD 11:ABED: F2        .byte con_jmp
 - - - - - 0x022BFE 11:ABEE: D4 AB     .word loc_ABD4
 bra_long_case_ABF0_07_razor_shot:
-- D - I - 0x022C00 11:ABF0: F3        .byte con_branch, $B2     ; проверка на соду
+- D - I - 0x022C00 11:ABF0: F3        .byte con_branch, $B2     ; проверка на soda
 - D - I - 0x022C02 11:ABF2: 02        .byte bra_case_ABF4_00_это_soda - *
 - D - I - 0x022C03 11:ABF3: 29        .byte bra_case_AC1C_01_это_не_soda - *
 
@@ -9811,7 +9811,7 @@ bra_case_AC1C_01_это_не_soda:
 - D - I - 0x022C31 11:AC21: F8 AB     .word loc_ABF8
 
 bra_long_case_AC23_0B_eagle_shot:
-- D - I - 0x022C33 11:AC23: F3        .byte con_branch, $B9     ; проверка на мацуяму
+- D - I - 0x022C33 11:AC23: F3        .byte con_branch, $B9     ; проверка на matsuyama
 - D - I - 0x022C35 11:AC25: 02        .byte bra_case_AC27_00_это_matsuyama - *
 - D - I - 0x022C36 11:AC26: 20        .byte bra_case_AC46_01_это_не_matsuyama - *
 
@@ -9849,7 +9849,7 @@ bra_case_AC46_01_это_не_matsuyama:
 - D - I - 0x022C5B 11:AC4B: 2B AC     .word loc_AC2B
 
 bra_long_case_AC4D_0C_tiger_shot:
-- D - I - 0x022C5D 11:AC4D: F3        .byte con_branch, $B8     ; проверка на хюгу
+- D - I - 0x022C5D 11:AC4D: F3        .byte con_branch, $B8     ; проверка на hyuga
 - D - I - 0x022C5F 11:AC4F: 02        .byte bra_case_AC51_00_это_hyuga - *
 - D - I - 0x022C60 11:AC50: 17        .byte bra_case_AC67_01_это_не_hyuga - *
 
@@ -9886,7 +9886,7 @@ bra_long_case_AC6E_0D_neo_tiger_shot:
 - D - I - 0x022C81 11:AC71: 32        .byte bra_case_ACA3_01 - *
 
 bra_case_AC72_00:
-- D - I - 0x022C82 11:AC72: F3        .byte con_branch, $B8     ; проверка на хюгу
+- D - I - 0x022C82 11:AC72: F3        .byte con_branch, $B8     ; проверка на hyuga
 - D - I - 0x022C84 11:AC74: 02        .byte bra_case_AC76_00_это_hyuga - *
 - D - I - 0x022C85 11:AC75: 27        .byte bra_case_AC9C_01_это_не_hyuga - *
 
@@ -9928,7 +9928,7 @@ bra_case_AC9C_01_это_не_hyuga:
 - D - I - 0x022CB1 11:ACA1: 7A AC     .word loc_AC7A
 
 bra_case_ACA3_01:
-- D - I - 0x022CB3 11:ACA3: F3        .byte con_branch, $B8     ; проверка на хюгу
+- D - I - 0x022CB3 11:ACA3: F3        .byte con_branch, $B8     ; проверка на hyuga
 - D - I - 0x022CB5 11:ACA5: 02        .byte bra_case_ACA7_00_это_hyuga - *
 - D - I - 0x022CB6 11:ACA6: 0A        .byte bra_case_ACB0_01_это_не_hyuga - *
 
@@ -10113,7 +10113,7 @@ bra_long_case_AD5E_15_booster_shot:
 - D - I - 0x022D90 11:AD80: FB        .byte con_rts
 
 bra_long_case_AD81_16_mirage_shot:
-- D - I - 0x022D91 11:AD81: F3        .byte con_branch, $BB     ; проверка на carlosа
+- D - I - 0x022D91 11:AD81: F3        .byte con_branch, $BB     ; проверка на carlos
 - D - I - 0x022D93 11:AD83: 02        .byte bra_case_AD85_00_это_carlos - *
 - D - I - 0x022D94 11:AD84: 20        .byte bra_case_ADA4_01_это_не_carlos - *
 
@@ -10580,7 +10580,7 @@ sub_AF88:
 - D - I - 0x022F9E 11:AF8E: 78 AF     .word loc_AF78
 
 bra_long_case_AF90_02:
-- D - I - 0x022FA0 11:AF90: F3        .byte con_branch, $B2     ; проверка на соду
+- D - I - 0x022FA0 11:AF90: F3        .byte con_branch, $B2     ; проверка на soda
 - D - I - 0x022FA2 11:AF92: 02        .byte bra_case_AF94_00_это_soda - *
 - D - I - 0x022FA3 11:AF93: 11        .byte bra_case_AFA4_01_это_не_soda - *
 
@@ -11086,7 +11086,7 @@ bra_long_case_B197_00___:
 - D - I - 0x0231A7 11:B197: FB        .byte con_rts
 
 bra_long_case_B198_06_falcon_volley:
-- D - I - 0x0231A8 11:B198: F3        .byte con_branch, $B1     ; проверка на нитту
+- D - I - 0x0231A8 11:B198: F3        .byte con_branch, $B1     ; проверка на nitta
 - D - I - 0x0231AA 11:B19A: 02        .byte bra_case_B19C_00_это_nitta - *
 - - - - - 0x0231AB 11:B19B: 28        .byte bra_case_B1C3_01_это_не_nitta - *
 
@@ -11733,7 +11733,7 @@ bra_long_case_B3E9_03_vanishing_feint:
 - D - I - 0x023403 11:B3F3: FB        .byte con_rts
 
 bra_long_case_B3F4_04_clone_dribble:
-- D - I - 0x023404 11:B3F4: F3        .byte con_branch, $BB     ; проверка на carlosа
+- D - I - 0x023404 11:B3F4: F3        .byte con_branch, $BB     ; проверка на carlos
 - D - I - 0x023406 11:B3F6: 02        .byte bra_case_B3F8_00_это_carlos - *
 - D - I - 0x023407 11:B3F7: 09        .byte bra_case_B400_01_это_не_carlos - *
 bra_case_B3F8_00_это_carlos:
@@ -11764,7 +11764,7 @@ bra_long_case_B406_05_high_speed_dribble:
 - D - I - 0x023423 11:B413: FB        .byte con_rts
 
 bra_long_case_B414_06_hedgehog_dribble:
-- D - I - 0x023424 11:B414: F3        .byte con_branch, $BA     ; проверка на kaltzа
+- D - I - 0x023424 11:B414: F3        .byte con_branch, $BA     ; проверка на kaltz
 - D - I - 0x023426 11:B416: 02        .byte bra_case_B418_00_это_kaltz - *
 - - - - - 0x023427 11:B417: 0B        .byte bra_case_B422_01_это_не_kaltz - *
 
