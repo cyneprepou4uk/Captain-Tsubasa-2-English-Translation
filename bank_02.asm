@@ -1732,9 +1732,9 @@ C - - - - 0x002CEB 02:ACDB: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x002CEE 02:ACDE: C8        INY
 C - - - - 0x002CEF 02:ACDF: B1 5C     LDA (ram_005C),Y
 C - - - - 0x002CF1 02:ACE1: 20 4B C5  JSR sub_0x03CE7E_прыжки_в_начале_банка_24
-C - - - - 0x002CF4 02:ACE4: AD 3F 04  LDA $043F
+C - - - - 0x002CF4 02:ACE4: AD 3F 04  LDA ram_затрата_энергии_lo
 C - - - - 0x002CF7 02:ACE7: 85 EC     STA ram_00EC
-C - - - - 0x002CF9 02:ACE9: AD 40 04  LDA $0440
+C - - - - 0x002CF9 02:ACE9: AD 40 04  LDA ram_затрата_энергии_hi
 C - - - - 0x002CFC 02:ACEC: 85 ED     STA ram_00ED
 C - - - - 0x002CFE 02:ACEE: 20 4F 9E  JSR sub_0x001E5F
 C - - - - 0x002D01 02:ACF1: A5 E8     LDA ram_00E8

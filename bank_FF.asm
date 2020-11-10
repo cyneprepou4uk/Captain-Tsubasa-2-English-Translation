@@ -2770,10 +2770,10 @@ sub_D76B:
 C - - - - 0x03D77B FF:D76B: 38        SEC
 C - - - - 0x03D77C FF:D76C: A0 01     LDY #con_игрок_энергия_lo
 C - - - - 0x03D77E FF:D76E: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x03D780 FF:D770: ED 3F 04  SBC $043F
+C - - - - 0x03D780 FF:D770: ED 3F 04  SBC ram_затрата_энергии_lo
 C - - - - 0x03D783 FF:D773: C8        INY
 C - - - - 0x03D784 FF:D774: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x03D786 FF:D776: ED 40 04  SBC $0440
+C - - - - 0x03D786 FF:D776: ED 40 04  SBC ram_затрата_энергии_hi
 C - - - - 0x03D789 FF:D779: 60        RTS
 
 sub_D77A:
