@@ -14092,555 +14092,555 @@ tbl_BAB2_параметры_команды_соперников:
 off_BAF6_00:
 - D - I - 0x03BB06 24:BAF6: 00        .byte $00
 - - - - - 0x03BB07 24:BAF7: 00        .byte $00
-- D - I - 0x03BB08 24:BAF8: 76        .byte $76    ; <ォ>
-- D - I - 0x03BB09 24:BAF9: 77        .byte $77    ; <:>
-- D - I - 0x03BB0A 24:BAFA: 77        .byte $77    ; <:>
-- D - I - 0x03BB0B 24:BAFB: 78        .byte $78    ; <?>
-- D - I - 0x03BB0C 24:BAFC: A0        .byte $A0    ; <が>
-- D - I - 0x03BB0D 24:BAFD: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BB0E 24:BAFE: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BB0F 24:BAFF: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB08 24:BAF8: 76        .byte $76
+- D - I - 0x03BB09 24:BAF9: 77        .byte $77
+- D - I - 0x03BB0A 24:BAFA: 77        .byte $77
+- D - I - 0x03BB0B 24:BAFB: 78        .byte $78
+- D - I - 0x03BB0C 24:BAFC: A0        .byte $A0
+- D - I - 0x03BB0D 24:BAFD: 1F        .byte $1F
+- D - I - 0x03BB0E 24:BAFE: 1F        .byte $1F
+- D - I - 0x03BB0F 24:BAFF: 0F        .byte $0F
 
 off_BB00_01:
-- D - I - 0x03BB10 24:BB00: 03        .byte $03    ; <う>
+- D - I - 0x03BB10 24:BB00: 03        .byte $03
 - - - - - 0x03BB11 24:BB01: 00        .byte $00
-- D - I - 0x03BB12 24:BB02: 79        .byte $79    ; <!>
-- D - I - 0x03BB13 24:BB03: 7A        .byte $7A    ; <、>
-- D - I - 0x03BB14 24:BB04: 7A        .byte $7A    ; <、>
-- D - I - 0x03BB15 24:BB05: 7B        .byte $7B    ; <。>
-- D - I - 0x03BB16 24:BB06: A0        .byte $A0    ; <が>
-- D - I - 0x03BB17 24:BB07: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB18 24:BB08: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB19 24:BB09: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BB1A 24:BB0A: 24        .byte $24    ; <や>
-- D - I - 0x03BB1B 24:BB0B: 09        .byte $09    ; <け>
-- D - I - 0x03BB1C 24:BB0C: 23        .byte $23    ; <も>
-- D - I - 0x03BB1D 24:BB0D: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB12 24:BB02: 79        .byte $79
+- D - I - 0x03BB13 24:BB03: 7A        .byte $7A
+- D - I - 0x03BB14 24:BB04: 7A        .byte $7A
+- D - I - 0x03BB15 24:BB05: 7B        .byte $7B
+- D - I - 0x03BB16 24:BB06: A0        .byte $A0
+- D - I - 0x03BB17 24:BB07: 1E        .byte $1E
+- D - I - 0x03BB18 24:BB08: 1E        .byte $1E
+- D - I - 0x03BB19 24:BB09: 0A        .byte $0A
+- D - I - 0x03BB1A 24:BB0A: 24        .byte $24
+- D - I - 0x03BB1B 24:BB0B: 09        .byte $09
+- D - I - 0x03BB1C 24:BB0C: 23        .byte $23
+- D - I - 0x03BB1D 24:BB0D: 0F        .byte $0F
 
 off_BB0E_02:
-- D - I - 0x03BB1E 24:BB0E: 21        .byte $21    ; <む>
+- D - I - 0x03BB1E 24:BB0E: 21        .byte $21
 - - - - - 0x03BB1F 24:BB0F: 00        .byte $00
-- - - - - 0x03BB20 24:BB10: 76        .byte $76    ; <ォ>
-- D - I - 0x03BB21 24:BB11: 7C        .byte $7C    ; <~>
-- D - I - 0x03BB22 24:BB12: 7D        .byte $7D    ; <ー>
-- D - I - 0x03BB23 24:BB13: 7D        .byte $7D    ; <ー>
-- - - - - 0x03BB24 24:BB14: A0        .byte $A0    ; <が>
-- - - - - 0x03BB25 24:BB15: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BB26 24:BB16: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB27 24:BB17: 09        .byte $09    ; <け>
-- D - I - 0x03BB28 24:BB18: 25        .byte $25    ; <ゆ>
-- D - I - 0x03BB29 24:BB19: 01        .byte $01    ; <あ>
-- D - I - 0x03BB2A 24:BB1A: 26        .byte $26    ; <よ>
-- D - I - 0x03BB2B 24:BB1B: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BB20 24:BB10: 76        .byte $76
+- D - I - 0x03BB21 24:BB11: 7C        .byte $7C
+- D - I - 0x03BB22 24:BB12: 7D        .byte $7D
+- D - I - 0x03BB23 24:BB13: 7D        .byte $7D
+- - - - - 0x03BB24 24:BB14: A0        .byte $A0
+- - - - - 0x03BB25 24:BB15: 1F        .byte $1F
+- - - - - 0x03BB26 24:BB16: 1E        .byte $1E
+- D - I - 0x03BB27 24:BB17: 09        .byte $09
+- D - I - 0x03BB28 24:BB18: 25        .byte $25
+- D - I - 0x03BB29 24:BB19: 01        .byte $01
+- D - I - 0x03BB2A 24:BB1A: 26        .byte $26
+- D - I - 0x03BB2B 24:BB1B: 0F        .byte $0F
 
 off_BB1C_03:
-- D - I - 0x03BB2C 24:BB1C: 20        .byte $20    ; <み>
+- D - I - 0x03BB2C 24:BB1C: 20        .byte $20
 - - - - - 0x03BB2D 24:BB1D: 00        .byte $00
-- D - I - 0x03BB2E 24:BB1E: 7E        .byte $7E    ; <.>
-- D - I - 0x03BB2F 24:BB1F: 7F        .byte $7F    ; <,>
+- D - I - 0x03BB2E 24:BB1E: 7E        .byte $7E
+- D - I - 0x03BB2F 24:BB1F: 7F        .byte $7F
 - D - I - 0x03BB30 24:BB20: 80        .byte $80
 - D - I - 0x03BB31 24:BB21: 80        .byte $80
-- - - - - 0x03BB32 24:BB22: B0        .byte $B0    ; <び>
-- - - - - 0x03BB33 24:BB23: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BB34 24:BB24: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB35 24:BB25: 09        .byte $09    ; <け>
-- D - I - 0x03BB36 24:BB26: 27        .byte $27    ; <ら>
-- D - I - 0x03BB37 24:BB27: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BB38 24:BB28: 28        .byte $28    ; <り>
-- D - I - 0x03BB39 24:BB29: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BB32 24:BB22: B0        .byte $B0
+- - - - - 0x03BB33 24:BB23: 1F        .byte $1F
+- - - - - 0x03BB34 24:BB24: 1E        .byte $1E
+- D - I - 0x03BB35 24:BB25: 09        .byte $09
+- D - I - 0x03BB36 24:BB26: 27        .byte $27
+- D - I - 0x03BB37 24:BB27: 0B        .byte $0B
+- D - I - 0x03BB38 24:BB28: 28        .byte $28
+- D - I - 0x03BB39 24:BB29: 0F        .byte $0F
 
 off_BB2A_04:
-- D - I - 0x03BB3A 24:BB2A: 21        .byte $21    ; <む>
+- D - I - 0x03BB3A 24:BB2A: 21        .byte $21
 - - - - - 0x03BB3B 24:BB2B: 00        .byte $00
-- D - I - 0x03BB3C 24:BB2C: 81        .byte $81    ; <A>
-- D - I - 0x03BB3D 24:BB2D: 82        .byte $82    ; <B>
-- D - I - 0x03BB3E 24:BB2E: 83        .byte $83    ; <C>
-- D - I - 0x03BB3F 24:BB2F: 83        .byte $83    ; <C>
-- - - - - 0x03BB40 24:BB30: 91        .byte $91    ; <V>
-- - - - - 0x03BB41 24:BB31: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BB42 24:BB32: 1D        .byte $1D    ; <へ>
-- D - I - 0x03BB43 24:BB33: 09        .byte $09    ; <け>
-- D - I - 0x03BB44 24:BB34: 29        .byte $29    ; <る>
-- D - I - 0x03BB45 24:BB35: 04        .byte $04    ; <え>
-- D - I - 0x03BB46 24:BB36: 2A        .byte $2A    ; <れ>
-- D - I - 0x03BB47 24:BB37: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB3C 24:BB2C: 81        .byte $81
+- D - I - 0x03BB3D 24:BB2D: 82        .byte $82
+- D - I - 0x03BB3E 24:BB2E: 83        .byte $83
+- D - I - 0x03BB3F 24:BB2F: 83        .byte $83
+- - - - - 0x03BB40 24:BB30: 91        .byte $91
+- - - - - 0x03BB41 24:BB31: 1F        .byte $1F
+- - - - - 0x03BB42 24:BB32: 1D        .byte $1D
+- D - I - 0x03BB43 24:BB33: 09        .byte $09
+- D - I - 0x03BB44 24:BB34: 29        .byte $29
+- D - I - 0x03BB45 24:BB35: 04        .byte $04
+- D - I - 0x03BB46 24:BB36: 2A        .byte $2A
+- D - I - 0x03BB47 24:BB37: 0F        .byte $0F
 
 off_BB38_05:
-- D - I - 0x03BB48 24:BB38: 03        .byte $03    ; <う>
+- D - I - 0x03BB48 24:BB38: 03        .byte $03
 - - - - - 0x03BB49 24:BB39: 00        .byte $00
-- D - I - 0x03BB4A 24:BB3A: 84        .byte $84    ; <D>
-- D - I - 0x03BB4B 24:BB3B: 85        .byte $85    ; <E>
-- D - I - 0x03BB4C 24:BB3C: 86        .byte $86    ; <F>
-- D - I - 0x03BB4D 24:BB3D: 86        .byte $86    ; <F>
-- D - I - 0x03BB4E 24:BB3E: 60        .byte $60    ; <ミ>
-- D - I - 0x03BB4F 24:BB3F: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB50 24:BB40: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BB51 24:BB41: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BB52 24:BB42: 2B        .byte $2B    ; <ろ>
-- D - I - 0x03BB53 24:BB43: 06        .byte $06    ; <か>
-- D - I - 0x03BB54 24:BB44: 2C        .byte $2C    ; <わ>
-- D - I - 0x03BB55 24:BB45: 02        .byte $02    ; <い>
-- D - I - 0x03BB56 24:BB46: 2D        .byte $2D    ; <を>
-- D - I - 0x03BB57 24:BB47: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB4A 24:BB3A: 84        .byte $84
+- D - I - 0x03BB4B 24:BB3B: 85        .byte $85
+- D - I - 0x03BB4C 24:BB3C: 86        .byte $86
+- D - I - 0x03BB4D 24:BB3D: 86        .byte $86
+- D - I - 0x03BB4E 24:BB3E: 60        .byte $60
+- D - I - 0x03BB4F 24:BB3F: 1E        .byte $1E
+- D - I - 0x03BB50 24:BB40: 1F        .byte $1F
+- D - I - 0x03BB51 24:BB41: 0A        .byte $0A
+- D - I - 0x03BB52 24:BB42: 2B        .byte $2B
+- D - I - 0x03BB53 24:BB43: 06        .byte $06
+- D - I - 0x03BB54 24:BB44: 2C        .byte $2C
+- D - I - 0x03BB55 24:BB45: 02        .byte $02
+- D - I - 0x03BB56 24:BB46: 2D        .byte $2D
+- D - I - 0x03BB57 24:BB47: 0F        .byte $0F
 
 off_BB48_06:
 - D - I - 0x03BB58 24:BB48: 00        .byte $00
 - - - - - 0x03BB59 24:BB49: 00        .byte $00
-- D - I - 0x03BB5A 24:BB4A: 87        .byte $87    ; <G>
-- D - I - 0x03BB5B 24:BB4B: 88        .byte $88    ; <H>
-- D - I - 0x03BB5C 24:BB4C: 89        .byte $89    ; <I>
-- D - I - 0x03BB5D 24:BB4D: 89        .byte $89    ; <I>
-- D - I - 0x03BB5E 24:BB4E: 91        .byte $91    ; <V>
-- D - I - 0x03BB5F 24:BB4F: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BB60 24:BB50: 1D        .byte $1D    ; <へ>
-- D - I - 0x03BB61 24:BB51: 04        .byte $04    ; <え>
-- D - I - 0x03BB62 24:BB52: 2E        .byte $2E    ; <ん>
-- D - I - 0x03BB63 24:BB53: 09        .byte $09    ; <け>
-- D - I - 0x03BB64 24:BB54: 2F        .byte $2F    ; <っ>
-- D - I - 0x03BB65 24:BB55: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB5A 24:BB4A: 87        .byte $87
+- D - I - 0x03BB5B 24:BB4B: 88        .byte $88
+- D - I - 0x03BB5C 24:BB4C: 89        .byte $89
+- D - I - 0x03BB5D 24:BB4D: 89        .byte $89
+- D - I - 0x03BB5E 24:BB4E: 91        .byte $91
+- D - I - 0x03BB5F 24:BB4F: 1F        .byte $1F
+- D - I - 0x03BB60 24:BB50: 1D        .byte $1D
+- D - I - 0x03BB61 24:BB51: 04        .byte $04
+- D - I - 0x03BB62 24:BB52: 2E        .byte $2E
+- D - I - 0x03BB63 24:BB53: 09        .byte $09
+- D - I - 0x03BB64 24:BB54: 2F        .byte $2F
+- D - I - 0x03BB65 24:BB55: 0F        .byte $0F
 
 off_BB56_07:
-- D - I - 0x03BB66 24:BB56: 21        .byte $21    ; <む>
+- D - I - 0x03BB66 24:BB56: 21        .byte $21
 - - - - - 0x03BB67 24:BB57: 00        .byte $00
-- D - I - 0x03BB68 24:BB58: 8A        .byte $8A    ; <N>
-- D - I - 0x03BB69 24:BB59: 8B        .byte $8B    ; <K>
-- D - I - 0x03BB6A 24:BB5A: 8C        .byte $8C    ; <M>
-- D - I - 0x03BB6B 24:BB5B: 8C        .byte $8C    ; <M>
-- - - - - 0x03BB6C 24:BB5C: A0        .byte $A0    ; <が>
-- - - - - 0x03BB6D 24:BB5D: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BB6E 24:BB5E: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB6F 24:BB5F: 09        .byte $09    ; <け>
-- D - I - 0x03BB70 24:BB60: 30        .byte $30    ; <ゃ>
-- D - I - 0x03BB71 24:BB61: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BB72 24:BB62: 31        .byte $31    ; <ゅ>
-- D - I - 0x03BB73 24:BB63: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB68 24:BB58: 8A        .byte $8A
+- D - I - 0x03BB69 24:BB59: 8B        .byte $8B
+- D - I - 0x03BB6A 24:BB5A: 8C        .byte $8C
+- D - I - 0x03BB6B 24:BB5B: 8C        .byte $8C
+- - - - - 0x03BB6C 24:BB5C: A0        .byte $A0
+- - - - - 0x03BB6D 24:BB5D: 1F        .byte $1F
+- - - - - 0x03BB6E 24:BB5E: 1E        .byte $1E
+- D - I - 0x03BB6F 24:BB5F: 09        .byte $09
+- D - I - 0x03BB70 24:BB60: 30        .byte $30
+- D - I - 0x03BB71 24:BB61: 0B        .byte $0B
+- D - I - 0x03BB72 24:BB62: 31        .byte $31
+- D - I - 0x03BB73 24:BB63: 0F        .byte $0F
 
 off_BB64_08:
-- D - I - 0x03BB74 24:BB64: 01        .byte $01    ; <あ>
+- D - I - 0x03BB74 24:BB64: 01        .byte $01
 - - - - - 0x03BB75 24:BB65: 00        .byte $00
-- - - - - 0x03BB76 24:BB66: 76        .byte $76    ; <ォ>
-- D - I - 0x03BB77 24:BB67: 8D        .byte $8D    ; <P>
-- D - I - 0x03BB78 24:BB68: 8D        .byte $8D    ; <P>
-- D - I - 0x03BB79 24:BB69: 8E        .byte $8E    ; <L>
-- D - I - 0x03BB7A 24:BB6A: 40        .byte $40    ; <「>
-- D - I - 0x03BB7B 24:BB6B: 1E        .byte $1E    ; <ほ>
-- - - - - 0x03BB7C 24:BB6C: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BB7D 24:BB6D: 04        .byte $04    ; <え>
-- D - I - 0x03BB7E 24:BB6E: 32        .byte $32    ; <ょ>
-- D - I - 0x03BB7F 24:BB6F: 01        .byte $01    ; <あ>
-- D - I - 0x03BB80 24:BB70: 33        .byte $33    ; <0>
-- D - I - 0x03BB81 24:BB71: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BB76 24:BB66: 76        .byte $76
+- D - I - 0x03BB77 24:BB67: 8D        .byte $8D
+- D - I - 0x03BB78 24:BB68: 8D        .byte $8D
+- D - I - 0x03BB79 24:BB69: 8E        .byte $8E
+- D - I - 0x03BB7A 24:BB6A: 40        .byte $40
+- D - I - 0x03BB7B 24:BB6B: 1E        .byte $1E
+- - - - - 0x03BB7C 24:BB6C: 1E        .byte $1E
+- D - I - 0x03BB7D 24:BB6D: 04        .byte $04
+- D - I - 0x03BB7E 24:BB6E: 32        .byte $32
+- D - I - 0x03BB7F 24:BB6F: 01        .byte $01
+- D - I - 0x03BB80 24:BB70: 33        .byte $33
+- D - I - 0x03BB81 24:BB71: 0F        .byte $0F
 
 off_BB72_09:
-- D - I - 0x03BB82 24:BB72: 02        .byte $02    ; <い>
+- D - I - 0x03BB82 24:BB72: 02        .byte $02
 - - - - - 0x03BB83 24:BB73: 00        .byte $00
-- D - I - 0x03BB84 24:BB74: 8F        .byte $8F    ; <S>
-- D - I - 0x03BB85 24:BB75: 90        .byte $90    ; <U>
-- D - I - 0x03BB86 24:BB76: 91        .byte $91    ; <V>
-- D - I - 0x03BB87 24:BB77: 91        .byte $91    ; <V>
-- - - - - 0x03BB88 24:BB78: 70        .byte $70    ; <ャ>
-- - - - - 0x03BB89 24:BB79: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BB8A 24:BB7A: 1C        .byte $1C    ; <ふ>
-- D - I - 0x03BB8B 24:BB7B: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB84 24:BB74: 8F        .byte $8F
+- D - I - 0x03BB85 24:BB75: 90        .byte $90
+- D - I - 0x03BB86 24:BB76: 91        .byte $91
+- D - I - 0x03BB87 24:BB77: 91        .byte $91
+- - - - - 0x03BB88 24:BB78: 70        .byte $70
+- - - - - 0x03BB89 24:BB79: 1F        .byte $1F
+- - - - - 0x03BB8A 24:BB7A: 1C        .byte $1C
+- D - I - 0x03BB8B 24:BB7B: 0F        .byte $0F
 
 off_BB7C_0A:
 - D - I - 0x03BB8C 24:BB7C: 00        .byte $00
 - - - - - 0x03BB8D 24:BB7D: 00        .byte $00
-- D - I - 0x03BB8E 24:BB7E: 92        .byte $92    ; <W>
-- D - I - 0x03BB8F 24:BB7F: 93        .byte $93    ; <Y>
+- D - I - 0x03BB8E 24:BB7E: 92        .byte $92
+- D - I - 0x03BB8F 24:BB7F: 93        .byte $93
 - D - I - 0x03BB90 24:BB80: 94        .byte $94
 - D - I - 0x03BB91 24:BB81: 94        .byte $94
-- D - I - 0x03BB92 24:BB82: 70        .byte $70    ; <ャ>
-- D - I - 0x03BB93 24:BB83: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BB94 24:BB84: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BB95 24:BB85: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BB96 24:BB86: 35        .byte $35    ; <2>
-- D - I - 0x03BB97 24:BB87: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB92 24:BB82: 70        .byte $70
+- D - I - 0x03BB93 24:BB83: 1F        .byte $1F
+- - - - - 0x03BB94 24:BB84: 1F        .byte $1F
+- D - I - 0x03BB95 24:BB85: 0A        .byte $0A
+- D - I - 0x03BB96 24:BB86: 35        .byte $35
+- D - I - 0x03BB97 24:BB87: 0F        .byte $0F
 
 off_BB88_0B:
-- D - I - 0x03BB98 24:BB88: 03        .byte $03    ; <う>
+- D - I - 0x03BB98 24:BB88: 03        .byte $03
 - - - - - 0x03BB99 24:BB89: 00        .byte $00
-- - - - - 0x03BB9A 24:BB8A: 76        .byte $76    ; <ォ>
+- - - - - 0x03BB9A 24:BB8A: 76        .byte $76
 - D - I - 0x03BB9B 24:BB8B: 95        .byte $95
 - D - I - 0x03BB9C 24:BB8C: 96        .byte $96
 - D - I - 0x03BB9D 24:BB8D: 96        .byte $96
-- D - I - 0x03BB9E 24:BB8E: 60        .byte $60    ; <ミ>
-- D - I - 0x03BB9F 24:BB8F: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BBA0 24:BB90: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BBA1 24:BB91: 09        .byte $09    ; <け>
-- D - I - 0x03BBA2 24:BB92: 36        .byte $36    ; <3>
-- D - I - 0x03BBA3 24:BB93: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BBA4 24:BB94: 37        .byte $37    ; <4>
-- D - I - 0x03BBA5 24:BB95: 06        .byte $06    ; <か>
-- D - I - 0x03BBA6 24:BB96: 38        .byte $38    ; <5>
-- D - I - 0x03BBA7 24:BB97: 01        .byte $01    ; <あ>
-- D - I - 0x03BBA8 24:BB98: 39        .byte $39    ; <6>
-- D - I - 0x03BBA9 24:BB99: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BB9E 24:BB8E: 60        .byte $60
+- D - I - 0x03BB9F 24:BB8F: 1F        .byte $1F
+- D - I - 0x03BBA0 24:BB90: 1E        .byte $1E
+- D - I - 0x03BBA1 24:BB91: 09        .byte $09
+- D - I - 0x03BBA2 24:BB92: 36        .byte $36
+- D - I - 0x03BBA3 24:BB93: 0A        .byte $0A
+- D - I - 0x03BBA4 24:BB94: 37        .byte $37
+- D - I - 0x03BBA5 24:BB95: 06        .byte $06
+- D - I - 0x03BBA6 24:BB96: 38        .byte $38
+- D - I - 0x03BBA7 24:BB97: 01        .byte $01
+- D - I - 0x03BBA8 24:BB98: 39        .byte $39
+- D - I - 0x03BBA9 24:BB99: 0F        .byte $0F
 
 off_BB9A_0C:
-- D - I - 0x03BBAA 24:BB9A: 20        .byte $20    ; <み>
+- D - I - 0x03BBAA 24:BB9A: 20        .byte $20
 - - - - - 0x03BBAB 24:BB9B: 00        .byte $00
 - D - I - 0x03BBAC 24:BB9C: 97        .byte $97
 - D - I - 0x03BBAD 24:BB9D: 98        .byte $98
 - D - I - 0x03BBAE 24:BB9E: 99        .byte $99
 - D - I - 0x03BBAF 24:BB9F: 99        .byte $99
-- - - - - 0x03BBB0 24:BBA0: A0        .byte $A0    ; <が>
-- - - - - 0x03BBB1 24:BBA1: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BBB2 24:BBA2: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BBB3 24:BBA3: 09        .byte $09    ; <け>
-- D - I - 0x03BBB4 24:BBA4: 3A        .byte $3A    ; <7>
-- D - I - 0x03BBB5 24:BBA5: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BBB0 24:BBA0: A0        .byte $A0
+- - - - - 0x03BBB1 24:BBA1: 1F        .byte $1F
+- - - - - 0x03BBB2 24:BBA2: 1E        .byte $1E
+- D - I - 0x03BBB3 24:BBA3: 09        .byte $09
+- D - I - 0x03BBB4 24:BBA4: 3A        .byte $3A
+- D - I - 0x03BBB5 24:BBA5: 0F        .byte $0F
 
 off_BBA6_0D:
-- D - I - 0x03BBB6 24:BBA6: 01        .byte $01    ; <あ>
+- D - I - 0x03BBB6 24:BBA6: 01        .byte $01
 - - - - - 0x03BBB7 24:BBA7: 00        .byte $00
 - D - I - 0x03BBB8 24:BBA8: 9A        .byte $9A
 - D - I - 0x03BBB9 24:BBA9: 9B        .byte $9B
 - D - I - 0x03BBBA 24:BBAA: 9C        .byte $9C
 - D - I - 0x03BBBB 24:BBAB: 9C        .byte $9C
-- D - I - 0x03BBBC 24:BBAC: A0        .byte $A0    ; <が>
-- D - I - 0x03BBBD 24:BBAD: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BBBE 24:BBAE: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BBBF 24:BBAF: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BBC0 24:BBB0: 3B        .byte $3B    ; <8>
-- D - I - 0x03BBC1 24:BBB1: 09        .byte $09    ; <け>
-- D - I - 0x03BBC2 24:BBB2: 3C        .byte $3C    ; <9>
-- D - I - 0x03BBC3 24:BBB3: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BBBC 24:BBAC: A0        .byte $A0
+- D - I - 0x03BBBD 24:BBAD: 1F        .byte $1F
+- D - I - 0x03BBBE 24:BBAE: 1F        .byte $1F
+- D - I - 0x03BBBF 24:BBAF: 0B        .byte $0B
+- D - I - 0x03BBC0 24:BBB0: 3B        .byte $3B
+- D - I - 0x03BBC1 24:BBB1: 09        .byte $09
+- D - I - 0x03BBC2 24:BBB2: 3C        .byte $3C
+- D - I - 0x03BBC3 24:BBB3: 0F        .byte $0F
 
 off_BBB4_0E:
-- D - I - 0x03BBC4 24:BBB4: 03        .byte $03    ; <う>
+- D - I - 0x03BBC4 24:BBB4: 03        .byte $03
 - - - - - 0x03BBC5 24:BBB5: 00        .byte $00
-- - - - - 0x03BBC6 24:BBB6: 76        .byte $76    ; <ォ>
+- - - - - 0x03BBC6 24:BBB6: 76        .byte $76
 - D - I - 0x03BBC7 24:BBB7: 9D        .byte $9D
 - D - I - 0x03BBC8 24:BBB8: 9E        .byte $9E
 - D - I - 0x03BBC9 24:BBB9: 9E        .byte $9E
-- D - I - 0x03BBCA 24:BBBA: 70        .byte $70    ; <ャ>
-- D - I - 0x03BBCB 24:BBBB: 1E        .byte $1E    ; <ほ>
-- - - - - 0x03BBCC 24:BBBC: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BBCD 24:BBBD: 07        .byte $07    ; <き>
-- D - I - 0x03BBCE 24:BBBE: 3D        .byte $3D    ; <+>
-- D - I - 0x03BBCF 24:BBBF: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BBD0 24:BBC0: 3E        .byte $3E    ; <Jr>
-- D - I - 0x03BBD1 24:BBC1: 06        .byte $06    ; <か>
-- D - I - 0x03BBD2 24:BBC2: 3F        .byte $3F    ; <•>
-- D - I - 0x03BBD3 24:BBC3: 01        .byte $01    ; <あ>
-- D - I - 0x03BBD4 24:BBC4: 40        .byte $40    ; <「>
-- D - I - 0x03BBD5 24:BBC5: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BBCA 24:BBBA: 70        .byte $70
+- D - I - 0x03BBCB 24:BBBB: 1E        .byte $1E
+- - - - - 0x03BBCC 24:BBBC: 1E        .byte $1E
+- D - I - 0x03BBCD 24:BBBD: 07        .byte $07
+- D - I - 0x03BBCE 24:BBBE: 3D        .byte $3D
+- D - I - 0x03BBCF 24:BBBF: 0A        .byte $0A
+- D - I - 0x03BBD0 24:BBC0: 3E        .byte $3E
+- D - I - 0x03BBD1 24:BBC1: 06        .byte $06
+- D - I - 0x03BBD2 24:BBC2: 3F        .byte $3F
+- D - I - 0x03BBD3 24:BBC3: 01        .byte $01
+- D - I - 0x03BBD4 24:BBC4: 40        .byte $40
+- D - I - 0x03BBD5 24:BBC5: 0F        .byte $0F
 
 off_BBC6_0F:
-- D - I - 0x03BBD6 24:BBC6: 01        .byte $01    ; <あ>
+- D - I - 0x03BBD6 24:BBC6: 01        .byte $01
 - - - - - 0x03BBD7 24:BBC7: 00        .byte $00
-- - - - - 0x03BBD8 24:BBC8: 76        .byte $76    ; <ォ>
-- - - - - 0x03BBD9 24:BBC9: 77        .byte $77    ; <:>
-- - - - - 0x03BBDA 24:BBCA: 78        .byte $78    ; <?>
-- - - - - 0x03BBDB 24:BBCB: 79        .byte $79    ; <!>
-- D - I - 0x03BBDC 24:BBCC: 30        .byte $30    ; <ゃ>
-- D - I - 0x03BBDD 24:BBCD: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BBDE 24:BBCE: 1B        .byte $1B    ; <ひ>
-- D - I - 0x03BBDF 24:BBCF: 09        .byte $09    ; <け>
-- D - I - 0x03BBE0 24:BBD0: 41        .byte $41    ; <ア>
-- D - I - 0x03BBE1 24:BBD1: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BBE2 24:BBD2: 42        .byte $42    ; <イ>
-- D - I - 0x03BBE3 24:BBD3: 06        .byte $06    ; <か>
-- D - I - 0x03BBE4 24:BBD4: 43        .byte $43    ; <ウ>
-- D - I - 0x03BBE5 24:BBD5: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BBE6 24:BBD6: 44        .byte $44    ; <エ>
-- D - I - 0x03BBE7 24:BBD7: 08        .byte $08    ; <く>
-- D - I - 0x03BBE8 24:BBD8: 46        .byte $46    ; <カ>
-- D - I - 0x03BBE9 24:BBD9: 07        .byte $07    ; <き>
-- D - I - 0x03BBEA 24:BBDA: 47        .byte $47    ; <キ>
-- D - I - 0x03BBEB 24:BBDB: 02        .byte $02    ; <い>
-- D - I - 0x03BBEC 24:BBDC: 48        .byte $48    ; <ク>
-- D - I - 0x03BBED 24:BBDD: 04        .byte $04    ; <え>
-- D - I - 0x03BBEE 24:BBDE: 49        .byte $49    ; <ケ>
-- D - I - 0x03BBEF 24:BBDF: 03        .byte $03    ; <う>
-- D - I - 0x03BBF0 24:BBE0: 4A        .byte $4A    ; <コ>
-- D - I - 0x03BBF1 24:BBE1: 05        .byte $05    ; <お>
-- D - I - 0x03BBF2 24:BBE2: 4B        .byte $4B    ; <サ>
-- D - I - 0x03BBF3 24:BBE3: 01        .byte $01    ; <あ>
-- D - I - 0x03BBF4 24:BBE4: 4C        .byte $4C    ; <シ>
-- D - I - 0x03BBF5 24:BBE5: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BBD8 24:BBC8: 76        .byte $76
+- - - - - 0x03BBD9 24:BBC9: 77        .byte $77
+- - - - - 0x03BBDA 24:BBCA: 78        .byte $78
+- - - - - 0x03BBDB 24:BBCB: 79        .byte $79
+- D - I - 0x03BBDC 24:BBCC: 30        .byte $30
+- D - I - 0x03BBDD 24:BBCD: 1F        .byte $1F
+- D - I - 0x03BBDE 24:BBCE: 1B        .byte $1B
+- D - I - 0x03BBDF 24:BBCF: 09        .byte $09
+- D - I - 0x03BBE0 24:BBD0: 41        .byte $41
+- D - I - 0x03BBE1 24:BBD1: 0B        .byte $0B
+- D - I - 0x03BBE2 24:BBD2: 42        .byte $42
+- D - I - 0x03BBE3 24:BBD3: 06        .byte $06
+- D - I - 0x03BBE4 24:BBD4: 43        .byte $43
+- D - I - 0x03BBE5 24:BBD5: 0A        .byte $0A
+- D - I - 0x03BBE6 24:BBD6: 44        .byte $44
+- D - I - 0x03BBE7 24:BBD7: 08        .byte $08
+- D - I - 0x03BBE8 24:BBD8: 46        .byte $46
+- D - I - 0x03BBE9 24:BBD9: 07        .byte $07
+- D - I - 0x03BBEA 24:BBDA: 47        .byte $47
+- D - I - 0x03BBEB 24:BBDB: 02        .byte $02
+- D - I - 0x03BBEC 24:BBDC: 48        .byte $48
+- D - I - 0x03BBED 24:BBDD: 04        .byte $04
+- D - I - 0x03BBEE 24:BBDE: 49        .byte $49
+- D - I - 0x03BBEF 24:BBDF: 03        .byte $03
+- D - I - 0x03BBF0 24:BBE0: 4A        .byte $4A
+- D - I - 0x03BBF1 24:BBE1: 05        .byte $05
+- D - I - 0x03BBF2 24:BBE2: 4B        .byte $4B
+- D - I - 0x03BBF3 24:BBE3: 01        .byte $01
+- D - I - 0x03BBF4 24:BBE4: 4C        .byte $4C
+- D - I - 0x03BBF5 24:BBE5: 0F        .byte $0F
 
 off_BBE6_10:
-- D - I - 0x03BBF6 24:BBE6: 23        .byte $23    ; <も>
+- D - I - 0x03BBF6 24:BBE6: 23        .byte $23
 - - - - - 0x03BBF7 24:BBE7: 00        .byte $00
 - D - I - 0x03BBF8 24:BBE8: 9F        .byte $9F
-- D - I - 0x03BBF9 24:BBE9: A0        .byte $A0    ; <が>
-- D - I - 0x03BBFA 24:BBEA: A0        .byte $A0    ; <が>
-- D - I - 0x03BBFB 24:BBEB: A1        .byte $A1    ; <ぎ>
-- D - I - 0x03BBFC 24:BBEC: A0        .byte $A0    ; <が>
-- D - I - 0x03BBFD 24:BBED: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BBFE 24:BBEE: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BBFF 24:BBEF: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BBF9 24:BBE9: A0        .byte $A0
+- D - I - 0x03BBFA 24:BBEA: A0        .byte $A0
+- D - I - 0x03BBFB 24:BBEB: A1        .byte $A1
+- D - I - 0x03BBFC 24:BBEC: A0        .byte $A0
+- D - I - 0x03BBFD 24:BBED: 1F        .byte $1F
+- D - I - 0x03BBFE 24:BBEE: 1F        .byte $1F
+- D - I - 0x03BBFF 24:BBEF: 0F        .byte $0F
 
 off_BBF0_11:
-- D - I - 0x03BC00 24:BBF0: 01        .byte $01    ; <あ>
+- D - I - 0x03BC00 24:BBF0: 01        .byte $01
 - - - - - 0x03BC01 24:BBF1: 00        .byte $00
-- D - I - 0x03BC02 24:BBF2: A2        .byte $A2    ; <ぐ>
-- D - I - 0x03BC03 24:BBF3: A3        .byte $A3    ; <げ>
-- D - I - 0x03BC04 24:BBF4: A4        .byte $A4    ; <ご>
-- D - I - 0x03BC05 24:BBF5: A4        .byte $A4    ; <ご>
-- D - I - 0x03BC06 24:BBF6: A0        .byte $A0    ; <が>
-- D - I - 0x03BC07 24:BBF7: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC08 24:BBF8: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BC09 24:BBF9: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BC0A 24:BBFA: 4D        .byte $4D    ; <ス>
-- D - I - 0x03BC0B 24:BBFB: 09        .byte $09    ; <け>
-- D - I - 0x03BC0C 24:BBFC: 4E        .byte $4E    ; <セ>
-- D - I - 0x03BC0D 24:BBFD: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC02 24:BBF2: A2        .byte $A2
+- D - I - 0x03BC03 24:BBF3: A3        .byte $A3
+- D - I - 0x03BC04 24:BBF4: A4        .byte $A4
+- D - I - 0x03BC05 24:BBF5: A4        .byte $A4
+- D - I - 0x03BC06 24:BBF6: A0        .byte $A0
+- D - I - 0x03BC07 24:BBF7: 1F        .byte $1F
+- D - I - 0x03BC08 24:BBF8: 1E        .byte $1E
+- D - I - 0x03BC09 24:BBF9: 0B        .byte $0B
+- D - I - 0x03BC0A 24:BBFA: 4D        .byte $4D
+- D - I - 0x03BC0B 24:BBFB: 09        .byte $09
+- D - I - 0x03BC0C 24:BBFC: 4E        .byte $4E
+- D - I - 0x03BC0D 24:BBFD: 0F        .byte $0F
 
 off_BBFE_12:
 - D - I - 0x03BC0E 24:BBFE: 00        .byte $00
 - D - I - 0x03BC0F 24:BBFF: 00        .byte $00
-- D - I - 0x03BC10 24:BC00: A5        .byte $A5    ; <ざ>
-- D - I - 0x03BC11 24:BC01: A6        .byte $A6    ; <じ>
-- D - I - 0x03BC12 24:BC02: A7        .byte $A7    ; <ず>
-- D - I - 0x03BC13 24:BC03: A7        .byte $A7    ; <ず>
-- D - I - 0x03BC14 24:BC04: A1        .byte $A1    ; <ぎ>
-- D - I - 0x03BC15 24:BC05: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BC16 24:BC06: 1D        .byte $1D    ; <へ>
-- D - I - 0x03BC17 24:BC07: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC10 24:BC00: A5        .byte $A5
+- D - I - 0x03BC11 24:BC01: A6        .byte $A6
+- D - I - 0x03BC12 24:BC02: A7        .byte $A7
+- D - I - 0x03BC13 24:BC03: A7        .byte $A7
+- D - I - 0x03BC14 24:BC04: A1        .byte $A1
+- D - I - 0x03BC15 24:BC05: 1F        .byte $1F
+- - - - - 0x03BC16 24:BC06: 1D        .byte $1D
+- D - I - 0x03BC17 24:BC07: 0F        .byte $0F
 
 off_BC08_13:
-- D - I - 0x03BC18 24:BC08: 02        .byte $02    ; <い>
+- D - I - 0x03BC18 24:BC08: 02        .byte $02
 - - - - - 0x03BC19 24:BC09: 00        .byte $00
-- D - I - 0x03BC1A 24:BC0A: A8        .byte $A8    ; <ぜ>
-- D - I - 0x03BC1B 24:BC0B: A9        .byte $A9    ; <ぞ>
-- D - I - 0x03BC1C 24:BC0C: AA        .byte $AA    ; <だ>
-- D - I - 0x03BC1D 24:BC0D: AA        .byte $AA    ; <だ>
-- D - I - 0x03BC1E 24:BC0E: A0        .byte $A0    ; <が>
+- D - I - 0x03BC1A 24:BC0A: A8        .byte $A8
+- D - I - 0x03BC1B 24:BC0B: A9        .byte $A9
+- D - I - 0x03BC1C 24:BC0C: AA        .byte $AA
+- D - I - 0x03BC1D 24:BC0D: AA        .byte $AA
+- D - I - 0x03BC1E 24:BC0E: A0        .byte $A0
 - D - I - 0x03BC1F 24:BC0F: 00        .byte $00
 - D - I - 0x03BC20 24:BC10: 00        .byte $00
-- D - I - 0x03BC21 24:BC11: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC21 24:BC11: 0F        .byte $0F
 
 off_BC12_14:
-- D - I - 0x03BC22 24:BC12: 13        .byte $13    ; <て>
+- D - I - 0x03BC22 24:BC12: 13        .byte $13
 - - - - - 0x03BC23 24:BC13: 00        .byte $00
-- D - I - 0x03BC24 24:BC14: AB        .byte $AB    ; <ぢ>
-- D - I - 0x03BC25 24:BC15: AC        .byte $AC    ; <づ>
-- D - I - 0x03BC26 24:BC16: AD        .byte $AD    ; <で>
-- D - I - 0x03BC27 24:BC17: AD        .byte $AD    ; <で>
-- D - I - 0x03BC28 24:BC18: A0        .byte $A0    ; <が>
-- D - I - 0x03BC29 24:BC19: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC2A 24:BC1A: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC2B 24:BC1B: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC24 24:BC14: AB        .byte $AB
+- D - I - 0x03BC25 24:BC15: AC        .byte $AC
+- D - I - 0x03BC26 24:BC16: AD        .byte $AD
+- D - I - 0x03BC27 24:BC17: AD        .byte $AD
+- D - I - 0x03BC28 24:BC18: A0        .byte $A0
+- D - I - 0x03BC29 24:BC19: 1F        .byte $1F
+- D - I - 0x03BC2A 24:BC1A: 1F        .byte $1F
+- D - I - 0x03BC2B 24:BC1B: 0F        .byte $0F
 
 off_BC1C_15:
 - D - I - 0x03BC2C 24:BC1C: 00        .byte $00
 - - - - - 0x03BC2D 24:BC1D: 00        .byte $00
-- D - I - 0x03BC2E 24:BC1E: AE        .byte $AE    ; <ど>
-- D - I - 0x03BC2F 24:BC1F: AF        .byte $AF    ; <ば>
-- D - I - 0x03BC30 24:BC20: B0        .byte $B0    ; <び>
-- D - I - 0x03BC31 24:BC21: B0        .byte $B0    ; <び>
-- D - I - 0x03BC32 24:BC22: 70        .byte $70    ; <ャ>
-- D - I - 0x03BC33 24:BC23: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC34 24:BC24: 1C        .byte $1C    ; <ふ>
-- D - I - 0x03BC35 24:BC25: 09        .byte $09    ; <け>
-- D - I - 0x03BC36 24:BC26: 4F        .byte $4F    ; <ソ>
-- D - I - 0x03BC37 24:BC27: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BC38 24:BC28: 50        .byte $50    ; <タ>
-- D - I - 0x03BC39 24:BC29: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC2E 24:BC1E: AE        .byte $AE
+- D - I - 0x03BC2F 24:BC1F: AF        .byte $AF
+- D - I - 0x03BC30 24:BC20: B0        .byte $B0
+- D - I - 0x03BC31 24:BC21: B0        .byte $B0
+- D - I - 0x03BC32 24:BC22: 70        .byte $70
+- D - I - 0x03BC33 24:BC23: 1F        .byte $1F
+- D - I - 0x03BC34 24:BC24: 1C        .byte $1C
+- D - I - 0x03BC35 24:BC25: 09        .byte $09
+- D - I - 0x03BC36 24:BC26: 4F        .byte $4F
+- D - I - 0x03BC37 24:BC27: 0A        .byte $0A
+- D - I - 0x03BC38 24:BC28: 50        .byte $50
+- D - I - 0x03BC39 24:BC29: 0F        .byte $0F
 
 off_BC2A_16:
-- D - I - 0x03BC3A 24:BC2A: 23        .byte $23    ; <も>
+- D - I - 0x03BC3A 24:BC2A: 23        .byte $23
 - - - - - 0x03BC3B 24:BC2B: 00        .byte $00
-- D - I - 0x03BC3C 24:BC2C: B1        .byte $B1    ; <ぶ>
-- D - I - 0x03BC3D 24:BC2D: B2        .byte $B2    ; <べ>
-- D - I - 0x03BC3E 24:BC2E: B2        .byte $B2    ; <べ>
-- D - I - 0x03BC3F 24:BC2F: B2        .byte $B2    ; <べ>
-- - - - - 0x03BC40 24:BC30: A0        .byte $A0    ; <が>
-- D - I - 0x03BC41 24:BC31: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BC42 24:BC32: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC43 24:BC33: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC3C 24:BC2C: B1        .byte $B1
+- D - I - 0x03BC3D 24:BC2D: B2        .byte $B2
+- D - I - 0x03BC3E 24:BC2E: B2        .byte $B2
+- D - I - 0x03BC3F 24:BC2F: B2        .byte $B2
+- - - - - 0x03BC40 24:BC30: A0        .byte $A0
+- D - I - 0x03BC41 24:BC31: 1F        .byte $1F
+- - - - - 0x03BC42 24:BC32: 1F        .byte $1F
+- D - I - 0x03BC43 24:BC33: 0F        .byte $0F
 
 off_BC34_17:
-- D - I - 0x03BC44 24:BC34: 21        .byte $21    ; <む>
+- D - I - 0x03BC44 24:BC34: 21        .byte $21
 - - - - - 0x03BC45 24:BC35: 00        .byte $00
-- - - - - 0x03BC46 24:BC36: 76        .byte $76    ; <ォ>
-- D - I - 0x03BC47 24:BC37: B3        .byte $B3    ; <ぼ>
-- D - I - 0x03BC48 24:BC38: B4        .byte $B4    ; <ガ>
-- D - I - 0x03BC49 24:BC39: B4        .byte $B4    ; <ガ>
-- - - - - 0x03BC4A 24:BC3A: A0        .byte $A0    ; <が>
-- - - - - 0x03BC4B 24:BC3B: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BC4C 24:BC3C: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC4D 24:BC3D: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BC4E 24:BC3E: 51        .byte $51    ; <チ>
-- D - I - 0x03BC4F 24:BC3F: 01        .byte $01    ; <あ>
-- D - I - 0x03BC50 24:BC40: 52        .byte $52    ; <ツ>
-- D - I - 0x03BC51 24:BC41: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BC46 24:BC36: 76        .byte $76
+- D - I - 0x03BC47 24:BC37: B3        .byte $B3
+- D - I - 0x03BC48 24:BC38: B4        .byte $B4
+- D - I - 0x03BC49 24:BC39: B4        .byte $B4
+- - - - - 0x03BC4A 24:BC3A: A0        .byte $A0
+- - - - - 0x03BC4B 24:BC3B: 1F        .byte $1F
+- - - - - 0x03BC4C 24:BC3C: 1F        .byte $1F
+- D - I - 0x03BC4D 24:BC3D: 0B        .byte $0B
+- D - I - 0x03BC4E 24:BC3E: 51        .byte $51
+- D - I - 0x03BC4F 24:BC3F: 01        .byte $01
+- D - I - 0x03BC50 24:BC40: 52        .byte $52
+- D - I - 0x03BC51 24:BC41: 0F        .byte $0F
 
 off_BC42_18:
 - D - I - 0x03BC52 24:BC42: 00        .byte $00
 - - - - - 0x03BC53 24:BC43: 00        .byte $00
-- D - I - 0x03BC54 24:BC44: B5        .byte $B5    ; <ギ>
-- D - I - 0x03BC55 24:BC45: B6        .byte $B6    ; <グ>
-- D - I - 0x03BC56 24:BC46: B7        .byte $B7    ; <ゲ>
-- D - I - 0x03BC57 24:BC47: B7        .byte $B7    ; <ゲ>
-- D - I - 0x03BC58 24:BC48: A1        .byte $A1    ; <ぎ>
-- D - I - 0x03BC59 24:BC49: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC5A 24:BC4A: 1D        .byte $1D    ; <へ>
-- D - I - 0x03BC5B 24:BC4B: 09        .byte $09    ; <け>
-- D - I - 0x03BC5C 24:BC4C: 53        .byte $53    ; <テ>
-- D - I - 0x03BC5D 24:BC4D: 04        .byte $04    ; <え>
-- D - I - 0x03BC5E 24:BC4E: 54        .byte $54    ; <ト>
-- D - I - 0x03BC5F 24:BC4F: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC54 24:BC44: B5        .byte $B5
+- D - I - 0x03BC55 24:BC45: B6        .byte $B6
+- D - I - 0x03BC56 24:BC46: B7        .byte $B7
+- D - I - 0x03BC57 24:BC47: B7        .byte $B7
+- D - I - 0x03BC58 24:BC48: A1        .byte $A1
+- D - I - 0x03BC59 24:BC49: 1F        .byte $1F
+- D - I - 0x03BC5A 24:BC4A: 1D        .byte $1D
+- D - I - 0x03BC5B 24:BC4B: 09        .byte $09
+- D - I - 0x03BC5C 24:BC4C: 53        .byte $53
+- D - I - 0x03BC5D 24:BC4D: 04        .byte $04
+- D - I - 0x03BC5E 24:BC4E: 54        .byte $54
+- D - I - 0x03BC5F 24:BC4F: 0F        .byte $0F
 
 off_BC50_19:
-- D - I - 0x03BC60 24:BC50: 12        .byte $12    ; <つ>
+- D - I - 0x03BC60 24:BC50: 12        .byte $12
 - - - - - 0x03BC61 24:BC51: 00        .byte $00
-- - - - - 0x03BC62 24:BC52: 76        .byte $76    ; <ォ>
-- D - I - 0x03BC63 24:BC53: B8        .byte $B8    ; <ゴ>
-- D - I - 0x03BC64 24:BC54: B9        .byte $B9    ; <ザ>
-- D - I - 0x03BC65 24:BC55: B9        .byte $B9    ; <ザ>
-- D - I - 0x03BC66 24:BC56: A0        .byte $A0    ; <が>
-- D - I - 0x03BC67 24:BC57: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC68 24:BC58: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BC69 24:BC59: 09        .byte $09    ; <け>
-- D - I - 0x03BC6A 24:BC5A: 55        .byte $55    ; <ナ>
-- D - I - 0x03BC6B 24:BC5B: 01        .byte $01    ; <あ>
-- D - I - 0x03BC6C 24:BC5C: 56        .byte $56    ; <ニ>
-- D - I - 0x03BC6D 24:BC5D: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BC62 24:BC52: 76        .byte $76
+- D - I - 0x03BC63 24:BC53: B8        .byte $B8
+- D - I - 0x03BC64 24:BC54: B9        .byte $B9
+- D - I - 0x03BC65 24:BC55: B9        .byte $B9
+- D - I - 0x03BC66 24:BC56: A0        .byte $A0
+- D - I - 0x03BC67 24:BC57: 1F        .byte $1F
+- D - I - 0x03BC68 24:BC58: 1E        .byte $1E
+- D - I - 0x03BC69 24:BC59: 09        .byte $09
+- D - I - 0x03BC6A 24:BC5A: 55        .byte $55
+- D - I - 0x03BC6B 24:BC5B: 01        .byte $01
+- D - I - 0x03BC6C 24:BC5C: 56        .byte $56
+- D - I - 0x03BC6D 24:BC5D: 0F        .byte $0F
 
 off_BC5E_1A:
-- D - I - 0x03BC6E 24:BC5E: 11        .byte $11    ; <ち>
+- D - I - 0x03BC6E 24:BC5E: 11        .byte $11
 - - - - - 0x03BC6F 24:BC5F: 00        .byte $00
-- D - I - 0x03BC70 24:BC60: BA        .byte $BA    ; <ジ>
-- D - I - 0x03BC71 24:BC61: BB        .byte $BB    ; <ズ>
-- D - I - 0x03BC72 24:BC62: BC        .byte $BC    ; <ゼ>
-- D - I - 0x03BC73 24:BC63: BC        .byte $BC    ; <ゼ>
-- - - - - 0x03BC74 24:BC64: 70        .byte $70    ; <ャ>
-- - - - - 0x03BC75 24:BC65: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BC76 24:BC66: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BC77 24:BC67: 09        .byte $09    ; <け>
-- D - I - 0x03BC78 24:BC68: 57        .byte $57    ; <ヌ>
-- D - I - 0x03BC79 24:BC69: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BC7A 24:BC6A: 58        .byte $58    ; <ネ>
-- D - I - 0x03BC7B 24:BC6B: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC70 24:BC60: BA        .byte $BA
+- D - I - 0x03BC71 24:BC61: BB        .byte $BB
+- D - I - 0x03BC72 24:BC62: BC        .byte $BC
+- D - I - 0x03BC73 24:BC63: BC        .byte $BC
+- - - - - 0x03BC74 24:BC64: 70        .byte $70
+- - - - - 0x03BC75 24:BC65: 1F        .byte $1F
+- - - - - 0x03BC76 24:BC66: 1E        .byte $1E
+- D - I - 0x03BC77 24:BC67: 09        .byte $09
+- D - I - 0x03BC78 24:BC68: 57        .byte $57
+- D - I - 0x03BC79 24:BC69: 0A        .byte $0A
+- D - I - 0x03BC7A 24:BC6A: 58        .byte $58
+- D - I - 0x03BC7B 24:BC6B: 0F        .byte $0F
 
 off_BC6C_1B:
-- D - I - 0x03BC7C 24:BC6C: 20        .byte $20    ; <み>
+- D - I - 0x03BC7C 24:BC6C: 20        .byte $20
 - - - - - 0x03BC7D 24:BC6D: 00        .byte $00
-- D - I - 0x03BC7E 24:BC6E: BD        .byte $BD    ; <ゾ>
-- D - I - 0x03BC7F 24:BC6F: BE        .byte $BE    ; <ダ>
-- D - I - 0x03BC80 24:BC70: BF        .byte $BF    ; <ヂ>
-- D - I - 0x03BC81 24:BC71: BF        .byte $BF    ; <ヂ>
-- D - I - 0x03BC82 24:BC72: 70        .byte $70    ; <ャ>
-- D - I - 0x03BC83 24:BC73: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BC84 24:BC74: 1C        .byte $1C    ; <ふ>
-- D - I - 0x03BC85 24:BC75: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BC86 24:BC76: 59        .byte $59    ; <ノ>
-- D - I - 0x03BC87 24:BC77: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC7E 24:BC6E: BD        .byte $BD
+- D - I - 0x03BC7F 24:BC6F: BE        .byte $BE
+- D - I - 0x03BC80 24:BC70: BF        .byte $BF
+- D - I - 0x03BC81 24:BC71: BF        .byte $BF
+- D - I - 0x03BC82 24:BC72: 70        .byte $70
+- D - I - 0x03BC83 24:BC73: 1F        .byte $1F
+- D - I - 0x03BC84 24:BC74: 1C        .byte $1C
+- D - I - 0x03BC85 24:BC75: 0A        .byte $0A
+- D - I - 0x03BC86 24:BC76: 59        .byte $59
+- D - I - 0x03BC87 24:BC77: 0F        .byte $0F
 
 off_BC78_1C:
-- D - I - 0x03BC88 24:BC78: 21        .byte $21    ; <む>
+- D - I - 0x03BC88 24:BC78: 21        .byte $21
 - - - - - 0x03BC89 24:BC79: 00        .byte $00
-- - - - - 0x03BC8A 24:BC7A: 76        .byte $76    ; <ォ>
-- D - I - 0x03BC8B 24:BC7B: C0        .byte $C0    ; <ヅ>
-- D - I - 0x03BC8C 24:BC7C: C1        .byte $C1    ; <デ>
-- D - I - 0x03BC8D 24:BC7D: C1        .byte $C1    ; <デ>
-- - - - - 0x03BC8E 24:BC7E: A0        .byte $A0    ; <が>
-- - - - - 0x03BC8F 24:BC7F: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BC90 24:BC80: 1E        .byte $1E    ; <ほ>
-- D - I - 0x03BC91 24:BC81: 09        .byte $09    ; <け>
-- D - I - 0x03BC92 24:BC82: 5A        .byte $5A    ; <ハ>
-- D - I - 0x03BC93 24:BC83: 01        .byte $01    ; <あ>
-- D - I - 0x03BC94 24:BC84: 5B        .byte $5B    ; <ヒ>
-- D - I - 0x03BC95 24:BC85: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BC8A 24:BC7A: 76        .byte $76
+- D - I - 0x03BC8B 24:BC7B: C0        .byte $C0
+- D - I - 0x03BC8C 24:BC7C: C1        .byte $C1
+- D - I - 0x03BC8D 24:BC7D: C1        .byte $C1
+- - - - - 0x03BC8E 24:BC7E: A0        .byte $A0
+- - - - - 0x03BC8F 24:BC7F: 1F        .byte $1F
+- - - - - 0x03BC90 24:BC80: 1E        .byte $1E
+- D - I - 0x03BC91 24:BC81: 09        .byte $09
+- D - I - 0x03BC92 24:BC82: 5A        .byte $5A
+- D - I - 0x03BC93 24:BC83: 01        .byte $01
+- D - I - 0x03BC94 24:BC84: 5B        .byte $5B
+- D - I - 0x03BC95 24:BC85: 0F        .byte $0F
 
 off_BC86_1D:
-- D - I - 0x03BC96 24:BC86: 10        .byte $10    ; <た>
+- D - I - 0x03BC96 24:BC86: 10        .byte $10
 - - - - - 0x03BC97 24:BC87: 00        .byte $00
-- D - I - 0x03BC98 24:BC88: C2        .byte $C2    ; <ド>
-- D - I - 0x03BC99 24:BC89: C3        .byte $C3    ; <バ>
-- D - I - 0x03BC9A 24:BC8A: C4        .byte $C4    ; <ビ>
-- D - I - 0x03BC9B 24:BC8B: C4        .byte $C4    ; <ビ>
-- - - - - 0x03BC9C 24:BC8C: 71        .byte $71    ; <ュ>
-- - - - - 0x03BC9D 24:BC8D: 1F        .byte $1F    ; <ま>
-- - - - - 0x03BC9E 24:BC8E: 1D        .byte $1D    ; <へ>
-- D - I - 0x03BC9F 24:BC8F: 09        .byte $09    ; <け>
-- D - I - 0x03BCA0 24:BC90: 5C        .byte $5C    ; <フ>
-- D - I - 0x03BCA1 24:BC91: 04        .byte $04    ; <え>
-- D - I - 0x03BCA2 24:BC92: 5D        .byte $5D    ; <ヘ>
-- D - I - 0x03BCA3 24:BC93: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BC98 24:BC88: C2        .byte $C2
+- D - I - 0x03BC99 24:BC89: C3        .byte $C3
+- D - I - 0x03BC9A 24:BC8A: C4        .byte $C4
+- D - I - 0x03BC9B 24:BC8B: C4        .byte $C4
+- - - - - 0x03BC9C 24:BC8C: 71        .byte $71
+- - - - - 0x03BC9D 24:BC8D: 1F        .byte $1F
+- - - - - 0x03BC9E 24:BC8E: 1D        .byte $1D
+- D - I - 0x03BC9F 24:BC8F: 09        .byte $09
+- D - I - 0x03BCA0 24:BC90: 5C        .byte $5C
+- D - I - 0x03BCA1 24:BC91: 04        .byte $04
+- D - I - 0x03BCA2 24:BC92: 5D        .byte $5D
+- D - I - 0x03BCA3 24:BC93: 0F        .byte $0F
 
 off_BC94_1E:
-- D - I - 0x03BCA4 24:BC94: 02        .byte $02    ; <い>
+- D - I - 0x03BCA4 24:BC94: 02        .byte $02
 - - - - - 0x03BCA5 24:BC95: 00        .byte $00
-- D - I - 0x03BCA6 24:BC96: C5        .byte $C5    ; <ブ>
-- D - I - 0x03BCA7 24:BC97: C6        .byte $C6    ; <ベ>
-- D - I - 0x03BCA8 24:BC98: C6        .byte $C6    ; <ベ>
-- D - I - 0x03BCA9 24:BC99: C6        .byte $C6    ; <ベ>
-- D - I - 0x03BCAA 24:BC9A: B0        .byte $B0    ; <び>
-- D - I - 0x03BCAB 24:BC9B: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BCAC 24:BC9C: 1A        .byte $1A    ; <は>
-- D - I - 0x03BCAD 24:BC9D: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BCAE 24:BC9E: 5E        .byte $5E    ; <ホ>
-- D - I - 0x03BCAF 24:BC9F: 09        .byte $09    ; <け>
-- D - I - 0x03BCB0 24:BCA0: 5F        .byte $5F    ; <マ>
-- D - I - 0x03BCB1 24:BCA1: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BCB2 24:BCA2: 60        .byte $60    ; <ミ>
-- D - I - 0x03BCB3 24:BCA3: 08        .byte $08    ; <く>
-- D - I - 0x03BCB4 24:BCA4: 61        .byte $61    ; <ム>
-- D - I - 0x03BCB5 24:BCA5: 04        .byte $04    ; <え>
-- D - I - 0x03BCB6 24:BCA6: 62        .byte $62    ; <メ>
-- D - I - 0x03BCB7 24:BCA7: 0F        .byte $0F    ; <そ>
+- D - I - 0x03BCA6 24:BC96: C5        .byte $C5
+- D - I - 0x03BCA7 24:BC97: C6        .byte $C6
+- D - I - 0x03BCA8 24:BC98: C6        .byte $C6
+- D - I - 0x03BCA9 24:BC99: C6        .byte $C6
+- D - I - 0x03BCAA 24:BC9A: B0        .byte $B0
+- D - I - 0x03BCAB 24:BC9B: 1F        .byte $1F
+- D - I - 0x03BCAC 24:BC9C: 1A        .byte $1A
+- D - I - 0x03BCAD 24:BC9D: 0B        .byte $0B
+- D - I - 0x03BCAE 24:BC9E: 5E        .byte $5E
+- D - I - 0x03BCAF 24:BC9F: 09        .byte $09
+- D - I - 0x03BCB0 24:BCA0: 5F        .byte $5F
+- D - I - 0x03BCB1 24:BCA1: 0A        .byte $0A
+- D - I - 0x03BCB2 24:BCA2: 60        .byte $60
+- D - I - 0x03BCB3 24:BCA3: 08        .byte $08
+- D - I - 0x03BCB4 24:BCA4: 61        .byte $61
+- D - I - 0x03BCB5 24:BCA5: 04        .byte $04
+- D - I - 0x03BCB6 24:BCA6: 62        .byte $62
+- D - I - 0x03BCB7 24:BCA7: 0F        .byte $0F
 
 off_BCA8_1F:
-- D - I - 0x03BCB8 24:BCA8: 02        .byte $02    ; <い>
+- D - I - 0x03BCB8 24:BCA8: 02        .byte $02
 - - - - - 0x03BCB9 24:BCA9: 00        .byte $00
-- - - - - 0x03BCBA 24:BCAA: 76        .byte $76    ; <ォ>
-- D - I - 0x03BCBB 24:BCAB: C7        .byte $C7    ; <ボ>
-- D - I - 0x03BCBC 24:BCAC: C7        .byte $C7    ; <ボ>
-- - - - - 0x03BCBD 24:BCAD: C7        .byte $C7    ; <ボ>
-- D - I - 0x03BCBE 24:BCAE: 70        .byte $70    ; <ャ>
-- D - I - 0x03BCBF 24:BCAF: 1E        .byte $1E    ; <ほ>
-- - - - - 0x03BCC0 24:BCB0: 1F        .byte $1F    ; <ま>
-- D - I - 0x03BCC1 24:BCB1: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BCC2 24:BCB2: 63        .byte $63    ; <モ>
-- D - I - 0x03BCC3 24:BCB3: 09        .byte $09    ; <け>
-- D - I - 0x03BCC4 24:BCB4: 64        .byte $64    ; <ヤ>
-- D - I - 0x03BCC5 24:BCB5: 08        .byte $08    ; <く>
-- D - I - 0x03BCC6 24:BCB6: 65        .byte $65    ; <ユ>
-- D - I - 0x03BCC7 24:BCB7: 05        .byte $05    ; <お>
-- D - I - 0x03BCC8 24:BCB8: 66        .byte $66    ; <ヨ>
-- D - I - 0x03BCC9 24:BCB9: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BCCA 24:BCBA: 67        .byte $67    ; <ラ>
-- D - I - 0x03BCCB 24:BCBB: 07        .byte $07    ; <き>
-- D - I - 0x03BCCC 24:BCBC: 68        .byte $68    ; <リ>
-- D - I - 0x03BCCD 24:BCBD: 01        .byte $01    ; <あ>
-- D - I - 0x03BCCE 24:BCBE: 69        .byte $69    ; <ル>
-- D - I - 0x03BCCF 24:BCBF: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BCBA 24:BCAA: 76        .byte $76
+- D - I - 0x03BCBB 24:BCAB: C7        .byte $C7
+- D - I - 0x03BCBC 24:BCAC: C7        .byte $C7
+- - - - - 0x03BCBD 24:BCAD: C7        .byte $C7
+- D - I - 0x03BCBE 24:BCAE: 70        .byte $70
+- D - I - 0x03BCBF 24:BCAF: 1E        .byte $1E
+- - - - - 0x03BCC0 24:BCB0: 1F        .byte $1F
+- D - I - 0x03BCC1 24:BCB1: 0B        .byte $0B
+- D - I - 0x03BCC2 24:BCB2: 63        .byte $63
+- D - I - 0x03BCC3 24:BCB3: 09        .byte $09
+- D - I - 0x03BCC4 24:BCB4: 64        .byte $64
+- D - I - 0x03BCC5 24:BCB5: 08        .byte $08
+- D - I - 0x03BCC6 24:BCB6: 65        .byte $65
+- D - I - 0x03BCC7 24:BCB7: 05        .byte $05
+- D - I - 0x03BCC8 24:BCB8: 66        .byte $66
+- D - I - 0x03BCC9 24:BCB9: 0A        .byte $0A
+- D - I - 0x03BCCA 24:BCBA: 67        .byte $67
+- D - I - 0x03BCCB 24:BCBB: 07        .byte $07
+- D - I - 0x03BCCC 24:BCBC: 68        .byte $68
+- D - I - 0x03BCCD 24:BCBD: 01        .byte $01
+- D - I - 0x03BCCE 24:BCBE: 69        .byte $69
+- D - I - 0x03BCCF 24:BCBF: 0F        .byte $0F
 
 off_BCC0_20:
-- D - I - 0x03BCD0 24:BCC0: 03        .byte $03    ; <う>
+- D - I - 0x03BCD0 24:BCC0: 03        .byte $03
 - - - - - 0x03BCD1 24:BCC1: 00        .byte $00
-- - - - - 0x03BCD2 24:BCC2: 76        .byte $76    ; <ォ>
-- - - - - 0x03BCD3 24:BCC3: 77        .byte $77    ; <:>
-- - - - - 0x03BCD4 24:BCC4: 78        .byte $78    ; <?>
-- - - - - 0x03BCD5 24:BCC5: 79        .byte $79    ; <!>
-- D - I - 0x03BCD6 24:BCC6: 61        .byte $61    ; <ム>
-- D - I - 0x03BCD7 24:BCC7: 1E        .byte $1E    ; <ほ>
-- - - - - 0x03BCD8 24:BCC8: 28        .byte $28    ; <り>
-- D - I - 0x03BCD9 24:BCC9: 09        .byte $09    ; <け>
-- D - I - 0x03BCDA 24:BCCA: 6A        .byte $6A    ; <レ>
-- D - I - 0x03BCDB 24:BCCB: 07        .byte $07    ; <き>
-- D - I - 0x03BCDC 24:BCCC: 6B        .byte $6B    ; <ロ>
-- D - I - 0x03BCDD 24:BCCD: 0A        .byte $0A    ; <こ>
-- D - I - 0x03BCDE 24:BCCE: 6C        .byte $6C    ; <ワ>
-- D - I - 0x03BCDF 24:BCCF: 0B        .byte $0B    ; <さ>
-- D - I - 0x03BCE0 24:BCD0: 6D        .byte $6D    ; <ヲ>
-- D - I - 0x03BCE1 24:BCD1: 06        .byte $06    ; <か>
-- D - I - 0x03BCE2 24:BCD2: 6E        .byte $6E    ; <ン>
-- D - I - 0x03BCE3 24:BCD3: 08        .byte $08    ; <く>
-- D - I - 0x03BCE4 24:BCD4: 6F        .byte $6F    ; <ッ>
-- D - I - 0x03BCE5 24:BCD5: 03        .byte $03    ; <う>
-- D - I - 0x03BCE6 24:BCD6: 70        .byte $70    ; <ャ>
-- D - I - 0x03BCE7 24:BCD7: 04        .byte $04    ; <え>
-- D - I - 0x03BCE8 24:BCD8: 71        .byte $71    ; <ュ>
-- D - I - 0x03BCE9 24:BCD9: 05        .byte $05    ; <お>
-- D - I - 0x03BCEA 24:BCDA: 72        .byte $72    ; <ョ>
-- D - I - 0x03BCEB 24:BCDB: 02        .byte $02    ; <い>
-- D - I - 0x03BCEC 24:BCDC: 73        .byte $73    ; <ヮ>
-- D - I - 0x03BCED 24:BCDD: 01        .byte $01    ; <あ>
-- D - I - 0x03BCEE 24:BCDE: 74        .byte $74    ; <ィ>
-- D - I - 0x03BCEF 24:BCDF: 0F        .byte $0F    ; <そ>
+- - - - - 0x03BCD2 24:BCC2: 76        .byte $76
+- - - - - 0x03BCD3 24:BCC3: 77        .byte $77
+- - - - - 0x03BCD4 24:BCC4: 78        .byte $78
+- - - - - 0x03BCD5 24:BCC5: 79        .byte $79
+- D - I - 0x03BCD6 24:BCC6: 61        .byte $61
+- D - I - 0x03BCD7 24:BCC7: 1E        .byte $1E
+- - - - - 0x03BCD8 24:BCC8: 28        .byte $28
+- D - I - 0x03BCD9 24:BCC9: 09        .byte $09
+- D - I - 0x03BCDA 24:BCCA: 6A        .byte $6A
+- D - I - 0x03BCDB 24:BCCB: 07        .byte $07
+- D - I - 0x03BCDC 24:BCCC: 6B        .byte $6B
+- D - I - 0x03BCDD 24:BCCD: 0A        .byte $0A
+- D - I - 0x03BCDE 24:BCCE: 6C        .byte $6C
+- D - I - 0x03BCDF 24:BCCF: 0B        .byte $0B
+- D - I - 0x03BCE0 24:BCD0: 6D        .byte $6D
+- D - I - 0x03BCE1 24:BCD1: 06        .byte $06
+- D - I - 0x03BCE2 24:BCD2: 6E        .byte $6E
+- D - I - 0x03BCE3 24:BCD3: 08        .byte $08
+- D - I - 0x03BCE4 24:BCD4: 6F        .byte $6F
+- D - I - 0x03BCE5 24:BCD5: 03        .byte $03
+- D - I - 0x03BCE6 24:BCD6: 70        .byte $70
+- D - I - 0x03BCE7 24:BCD7: 04        .byte $04
+- D - I - 0x03BCE8 24:BCD8: 71        .byte $71
+- D - I - 0x03BCE9 24:BCD9: 05        .byte $05
+- D - I - 0x03BCEA 24:BCDA: 72        .byte $72
+- D - I - 0x03BCEB 24:BCDB: 02        .byte $02
+- D - I - 0x03BCEC 24:BCDC: 73        .byte $73
+- D - I - 0x03BCED 24:BCDD: 01        .byte $01
+- D - I - 0x03BCEE 24:BCDE: 74        .byte $74
+- D - I - 0x03BCEF 24:BCDF: 0F        .byte $0F

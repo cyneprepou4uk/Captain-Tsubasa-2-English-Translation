@@ -28,7 +28,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_21 - 
 ; bank_22 - тайлы облаков, меню во время игры (код)
 ; bank_23 - чарли во время игры
-; bank_24 - стоимость энергии на спешалы
+; bank_24 - стоимость энергии на спешалы, игроки в командах
 ; bank_25 - VS экран
 ; bank_26 - катсцены
 ; bank_27 - катсцены
