@@ -1411,7 +1411,7 @@ sub_89B4_управляющие_байты_меню:
     .word ofs_8C04_F6_список_игроков_в_пенальти
     .word ofs_8C47_F7_номер_управляемого
     .word ofs_8C44_F8_стрелочка_высоты_мяча
-    .word $0000       ; unused
+    .word ofs_8C45_F9_индикатор_если_соперник_не_клон
     .word $0000       ; unused
     .word $0000       ; unused
     .word ofs_8C52_FC_закончить
@@ -1826,6 +1826,43 @@ tbl_8C45_стрелочка:
     .byte $20, $94, $20     ; down
     .byte $20, $95, $20     ; up
 
+ofs_8C45_F9_индикатор_если_соперник_не_клон:
+.scope
+    LDY ram_0040
+    INC ram_0040
+    LDA (ram_003E),Y
+    BMI @это_индикатор_защитника
+    JSR sub_узнать_индекс_принимающего
+    BCS @требуется_вывести_тайл_если_не_клон
+    RTS
+@это_индикатор_защитника:
+    AND #$7F
+    TAX
+    LDA ram_номер_защитника,X
+@требуется_вывести_тайл_если_не_клон:
+    JSR sub_0x03CD8C_адрес_игрока
+    LDY #con_игрок_номер
+    LDA (ram_plr_data),Y
+    BEQ @это_клон
+    LDA #$3F        ; тайл *
+    JMP loc_8C85_запись_тайла_в_буфер
+@это_клон:
+    RTS
+
+sub_узнать_индекс_принимающего:
+    TAX
+    LDA $0431,X
+    INX
+    CPX $0430
+    BCC @принимающий_существует
+    BEQ @принимающий_существует
+    CLC
+    RTS
+@принимающий_существует:
+    SEC
+    RTS
+.endscope
+
 ofs_8C52_FC_закончить:
 C - J - - 0x030C62 22:8C52: 68        PLA
 C - - - - 0x030C63 22:8C53: 68        PLA
@@ -1861,6 +1898,7 @@ C - - - - 0x030C92 22:8C82: C6 3D     DEC ram_003D
 bra_8C84_выход:
 C - - - - 0x030C94 22:8C84: 60        RTS
 
+loc_8C85_запись_тайла_в_буфер:
 sub_8C85_запись_тайла_в_буфер:
 ; на вход подается тайл в A
 ; тут была проверка на Y, который является дополнительным японским тайлом над символом (94 или 95)
@@ -4270,7 +4308,7 @@ con_plr_stamina                         = $F5           ; 00-0A основные
 con_pk_players_list                     = $F6
 con_control_plr_number                  = $F7           ; номер игрока с мячом
 con_ball_height_arrow                   = $F8           ; стрелочка с указанием высоты мяча
-; unused                                = $F9
+con_not_a_clone_indicator               = $F9           ; 00-03, +00 = индикатор принимающего, +80 = индикатор защитника
 ; unused                                = $FA
 ; unused                                = $FB
 con_закончить                           = $FC
@@ -5830,17 +5868,24 @@ off_B71E_20_show_1_opponent:
     .byte $0D
     .byte $03
 ; количество поинтеров
-    .byte $02
+    .byte $03
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
+    .byte $02
+    .byte $01
+    .word @indicator_1
     .byte $02
     .byte $03
     .word @opponent_1
 
 @txt:
     .text "Opponent"
+    .byte con_закончить
+
+@indicator_1:
+    .byte con_not_a_clone_indicator, $00
     .byte con_закончить
 
 @opponent_1:
@@ -5867,14 +5912,20 @@ off_B72F_21_show_2_opponents:
     .byte $0D
     .byte $05
 ; количество поинтеров
-    .byte $03
+    .byte $05
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
     .byte $02
+    .byte $01
+    .word @indicator_1
+    .byte $02
     .byte $03
     .word @opponent_1
+    .byte $04
+    .byte $01
+    .word @indicator_2
     .byte $04
     .byte $03
     .word @opponent_2
@@ -5883,8 +5934,16 @@ off_B72F_21_show_2_opponents:
     .text "Opponents"
     .byte con_закончить
 
+@indicator_1:
+    .byte con_not_a_clone_indicator, $00
+    .byte con_закончить
+
 @opponent_1:
     .byte con_rec_name_opponent, $00
+    .byte con_закончить
+
+@indicator_2:
+    .byte con_not_a_clone_indicator, $01
     .byte con_закончить
 
 @opponent_2:
@@ -5911,17 +5970,26 @@ off_B744_22_show_3_opponents:
     .byte $0D
     .byte $07
 ; количество поинтеров
-    .byte $04
+    .byte $07
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
     .byte $02
+    .byte $01
+    .word @indicator_1
+    .byte $02
     .byte $03
     .word @opponent_1
     .byte $04
+    .byte $01
+    .word @indicator_2
+    .byte $04
     .byte $03
     .word @opponent_2
+    .byte $06
+    .byte $01
+    .word @indicator_3
     .byte $06
     .byte $03
     .word @opponent_3
@@ -5930,12 +5998,24 @@ off_B744_22_show_3_opponents:
     .text "Opponents"
     .byte con_закончить
 
+@indicator_1:
+    .byte con_not_a_clone_indicator, $00
+    .byte con_закончить
+
 @opponent_1:
     .byte con_rec_name_opponent, $00
     .byte con_закончить
 
+@indicator_2:
+    .byte con_not_a_clone_indicator, $01
+    .byte con_закончить
+
 @opponent_2:
     .byte con_rec_name_opponent, $01
+    .byte con_закончить
+
+@indicator_3:
+    .byte con_not_a_clone_indicator, $02
     .byte con_закончить
 
 @opponent_3:
@@ -5962,20 +6042,32 @@ off_B75D_23_show_4_opponents:
     .byte $0D
     .byte $09
 ; количество поинтеров
-    .byte $05
+    .byte $09
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
     .byte $02
+    .byte $01
+    .word @indicator_1
+    .byte $02
     .byte $03
     .word @opponent_1
+    .byte $04
+    .byte $01
+    .word @indicator_2
     .byte $04
     .byte $03
     .word @opponent_2
     .byte $06
+    .byte $01
+    .word @indicator_3
+    .byte $06
     .byte $03
     .word @opponent_3
+    .byte $08
+    .byte $01
+    .word @indicator_4
     .byte $08
     .byte $03
     .word @opponent_4
@@ -5984,16 +6076,32 @@ off_B75D_23_show_4_opponents:
     .text "Opponents"
     .byte con_закончить
 
+@indicator_1:
+    .byte con_not_a_clone_indicator, $00
+    .byte con_закончить
+
 @opponent_1:
     .byte con_rec_name_opponent, $00
+    .byte con_закончить
+
+@indicator_2:
+    .byte con_not_a_clone_indicator, $01
     .byte con_закончить
 
 @opponent_2:
     .byte con_rec_name_opponent, $01
     .byte con_закончить
 
+@indicator_3:
+    .byte con_not_a_clone_indicator, $02
+    .byte con_закончить
+
 @opponent_3:
     .byte con_rec_name_opponent, $02
+    .byte con_закончить
+
+@indicator_4:
+    .byte con_not_a_clone_indicator, $03
     .byte con_закончить
 
 @opponent_4:
@@ -8114,17 +8222,24 @@ off_BC04_44_show_1_defender:
     .byte $0D
     .byte $03
 ; количество поинтеров
-    .byte $02
+    .byte $03
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
+    .byte $02
+    .byte $01
+    .word @indicator_1
     .byte $02
     .byte $03
     .word @defender_1
 
 @txt:
     .text "Defender"
+    .byte con_закончить
+
+@indicator_1:
+    .byte con_not_a_clone_indicator, $80
     .byte con_закончить
 
 @defender_1:
@@ -8151,14 +8266,20 @@ off_BC05_45_show_2_defenders:
     .byte $0D
     .byte $05
 ; количество поинтеров
-    .byte $03
+    .byte $05
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
     .byte $02
+    .byte $01
+    .word @indicator_1
+    .byte $02
     .byte $03
     .word @defender_1
+    .byte $04
+    .byte $01
+    .word @indicator_2
     .byte $04
     .byte $03
     .word @defender_2
@@ -8167,8 +8288,16 @@ off_BC05_45_show_2_defenders:
     .text "Defenders"
     .byte con_закончить
 
+@indicator_1:
+    .byte con_not_a_clone_indicator, $80
+    .byte con_закончить
+
 @defender_1:
     .byte con_opp_def_name, $00
+    .byte con_закончить
+
+@indicator_2:
+    .byte con_not_a_clone_indicator, $81
     .byte con_закончить
 
 @defender_2:
@@ -8195,17 +8324,26 @@ off_BC06_46_show_3_defenders:
     .byte $0D
     .byte $07
 ; количество поинтеров
-    .byte $04
+    .byte $07
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
     .byte $02
+    .byte $01
+    .word @indicator_1
+    .byte $02
     .byte $03
     .word @defender_1
     .byte $04
+    .byte $01
+    .word @indicator_2
+    .byte $04
     .byte $03
     .word @defender_2
+    .byte $06
+    .byte $01
+    .word @indicator_3
     .byte $06
     .byte $03
     .word @defender_3
@@ -8214,12 +8352,24 @@ off_BC06_46_show_3_defenders:
     .text "Defenders"
     .byte con_закончить
 
+@indicator_1:
+    .byte con_not_a_clone_indicator, $80
+    .byte con_закончить
+
 @defender_1:
     .byte con_opp_def_name, $00
     .byte con_закончить
 
+@indicator_2:
+    .byte con_not_a_clone_indicator, $81
+    .byte con_закончить
+
 @defender_2:
     .byte con_opp_def_name, $01
+    .byte con_закончить
+
+@indicator_3:
+    .byte con_not_a_clone_indicator, $82
     .byte con_закончить
 
 @defender_3:
@@ -8246,20 +8396,32 @@ off_BC07_47_show_4_defenders:
     .byte $0D
     .byte $09
 ; количество поинтеров
-    .byte $05
+    .byte $09
 ; смещение текста Y, X + поинтеры на текст
     .byte $00
     .byte $02
     .word @txt
     .byte $02
+    .byte $01
+    .word @indicator_1
+    .byte $02
     .byte $03
     .word @defender_1
+    .byte $04
+    .byte $01
+    .word @indicator_2
     .byte $04
     .byte $03
     .word @defender_2
     .byte $06
+    .byte $01
+    .word @indicator_3
+    .byte $06
     .byte $03
     .word @defender_3
+    .byte $08
+    .byte $01
+    .word @indicator_4
     .byte $08
     .byte $03
     .word @defender_4
@@ -8268,16 +8430,32 @@ off_BC07_47_show_4_defenders:
     .text "Defenders"
     .byte con_закончить
 
+@indicator_1:
+    .byte con_not_a_clone_indicator, $80
+    .byte con_закончить
+
 @defender_1:
     .byte con_opp_def_name, $00
+    .byte con_закончить
+
+@indicator_2:
+    .byte con_not_a_clone_indicator, $81
     .byte con_закончить
 
 @defender_2:
     .byte con_opp_def_name, $01
     .byte con_закончить
 
+@indicator_3:
+    .byte con_not_a_clone_indicator, $82
+    .byte con_закончить
+
 @defender_3:
     .byte con_opp_def_name, $02
+    .byte con_закончить
+
+@indicator_4:
+    .byte con_not_a_clone_indicator, $83
     .byte con_закончить
 
 @defender_4:
