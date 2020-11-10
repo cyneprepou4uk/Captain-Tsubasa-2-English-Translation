@@ -14062,12 +14062,12 @@ tbl_BAB2_параметры_команды_соперников:
     .word off_BCC0_20_Brazil
 
 con_закончить       = $FF
-con_defense         = $00
 con_formation       = $00
+con_defense         = $00
 
 off_BAF6_00_Fluminense:
-- D - I - 0x03BB06 24:BAF6: 00        .byte $00     ; расстановка
-- - - - - 0x03BB07 24:BAF7: 00        .byte $00     ; защита
+- D - I - 0x03BB06 24:BAF6: 00        .byte con_formation + $00
+- - - - - 0x03BB07 24:BAF7: 00        .byte con_defense + $00
 - D - I - 0x03BB08 24:BAF8: 76        .byte $76     ; 02 GK 0x038A7F 0x03805A
 - D - I - 0x03BB09 24:BAF9: 77        .byte $77     ; 03 DF 0x038A7F 0x03805A
 - D - I - 0x03BB0A 24:BAFA: 77        .byte $77     ; 04 MF 0x038A7F 0x03805A
@@ -14081,8 +14081,8 @@ off_BAF6_00_Fluminense:
 
 
 off_BB00_01_Corinthians:
-- D - I - 0x03BB10 24:BB00: 03        .byte $03     ; расстановка
-- - - - - 0x03BB11 24:BB01: 00        .byte $00     ; защита
+- D - I - 0x03BB10 24:BB00: 03        .byte con_formation + $03
+- - - - - 0x03BB11 24:BB01: 00        .byte con_defense + $00
 - D - I - 0x03BB12 24:BB02: 79        .byte $79     ; 02 GK
 - D - I - 0x03BB13 24:BB03: 7A        .byte $7A     ; 03 DF
 - D - I - 0x03BB14 24:BB04: 7A        .byte $7A     ; 04 MF
@@ -14102,8 +14102,8 @@ off_BB00_01_Corinthians:
 
 
 off_BB0E_02_Gremio:
-- D - I - 0x03BB1E 24:BB0E: 21        .byte $01     ; расстановка
-- - - - - 0x03BB1F 24:BB0F: 00        .byte $02     ; защита
+- D - I - 0x03BB1E 24:BB0E: 21        .byte con_formation + $01
+- - - - - 0x03BB1F 24:BB0F: 00        .byte con_defense + $02
 - - - - - 0x03BB20 24:BB10: 76        .byte $76     ; 02 GK
 - D - I - 0x03BB21 24:BB11: 7C        .byte $7C     ; 03 DF
 - D - I - 0x03BB22 24:BB12: 7D        .byte $7D     ; 04 MF
@@ -14123,8 +14123,8 @@ off_BB0E_02_Gremio:
 
 
 off_BB1C_03_Palmeiras:
-- D - I - 0x03BB2C 24:BB1C: 20        .byte $00     ; расстановка
-- - - - - 0x03BB2D 24:BB1D: 00        .byte $02     ; защита
+- D - I - 0x03BB2C 24:BB1C: 20        .byte con_formation + $00
+- - - - - 0x03BB2D 24:BB1D: 00        .byte con_defense + $02
 - D - I - 0x03BB2E 24:BB1E: 7E        .byte $7E     ; 02 GK
 - D - I - 0x03BB2F 24:BB1F: 7F        .byte $7F     ; 03 DF
 - D - I - 0x03BB30 24:BB20: 80        .byte $80     ; 04 MF
@@ -14144,8 +14144,8 @@ off_BB1C_03_Palmeiras:
 
 
 off_BB2A_04_Santos:
-- D - I - 0x03BB3A 24:BB2A: 21        .byte $01     ; расстановка
-- - - - - 0x03BB3B 24:BB2B: 00        .byte $02     ; защита
+- D - I - 0x03BB3A 24:BB2A: 21        .byte con_formation + $01
+- - - - - 0x03BB3B 24:BB2B: 00        .byte con_defense + $02
 - D - I - 0x03BB3C 24:BB2C: 81        .byte $81     ; 02 GK
 - D - I - 0x03BB3D 24:BB2D: 82        .byte $82     ; 03 DF
 - D - I - 0x03BB3E 24:BB2E: 83        .byte $83     ; 04 MF
@@ -14165,8 +14165,8 @@ off_BB2A_04_Santos:
 
 
 off_BB38_05_Flamengo:
-- D - I - 0x03BB48 24:BB38: 03        .byte $03     ; расстановка
-- - - - - 0x03BB49 24:BB39: 00        .byte $00     ; защита
+- D - I - 0x03BB48 24:BB38: 03        .byte con_formation + $03
+- - - - - 0x03BB49 24:BB39: 00        .byte con_defense + $00
 - D - I - 0x03BB4A 24:BB3A: 84        .byte $84     ; 02 GK
 - D - I - 0x03BB4B 24:BB3B: 85        .byte $85     ; 03 DF
 - D - I - 0x03BB4C 24:BB3C: 86        .byte $86     ; 04 MF
@@ -14189,8 +14189,8 @@ off_BB38_05_Flamengo:
 
 
 off_BB48_06_Kunimi:
-- D - I - 0x03BB58 24:BB48: 00        .byte $00     ; расстановка
-- - - - - 0x03BB59 24:BB49: 00        .byte $00     ; защита
+- D - I - 0x03BB58 24:BB48: 00        .byte con_formation + $00
+- - - - - 0x03BB59 24:BB49: 00        .byte con_defense + $00
 - D - I - 0x03BB5A 24:BB4A: 87        .byte $87     ; 02 GK
 - D - I - 0x03BB5B 24:BB4B: 88        .byte $88     ; 03 DF
 - D - I - 0x03BB5C 24:BB4C: 89        .byte $89     ; 04 MF
@@ -14210,8 +14210,8 @@ off_BB48_06_Kunimi:
 
 
 off_BB56_07_Akita:
-- D - I - 0x03BB66 24:BB56: 21        .byte $01     ; расстановка
-- - - - - 0x03BB67 24:BB57: 00        .byte $02     ; защита
+- D - I - 0x03BB66 24:BB56: 21        .byte con_formation + $01
+- - - - - 0x03BB67 24:BB57: 00        .byte con_defense + $02
 - D - I - 0x03BB68 24:BB58: 8A        .byte $8A     ; 02 GK
 - D - I - 0x03BB69 24:BB59: 8B        .byte $8B     ; 03 DF
 - D - I - 0x03BB6A 24:BB5A: 8C        .byte $8C     ; 04 MF
@@ -14231,8 +14231,8 @@ off_BB56_07_Akita:
 
 
 off_BB64_08_Tatsunami:
-- D - I - 0x03BB74 24:BB64: 01        .byte $01     ; расстановка
-- - - - - 0x03BB75 24:BB65: 00        .byte $00     ; защита
+- D - I - 0x03BB74 24:BB64: 01        .byte con_formation + $01
+- - - - - 0x03BB75 24:BB65: 00        .byte con_defense + $00
 - - - - - 0x03BB76 24:BB66: 76        .byte $76     ; 02 GK
 - D - I - 0x03BB77 24:BB67: 8D        .byte $8D     ; 03 DF
 - D - I - 0x03BB78 24:BB68: 8D        .byte $8D     ; 04 MF
@@ -14252,8 +14252,8 @@ off_BB64_08_Tatsunami:
 
 
 off_BB72_09_Musashi:
-- D - I - 0x03BB82 24:BB72: 02        .byte $02     ; расстановка
-- - - - - 0x03BB83 24:BB73: 00        .byte $00     ; защита
+- D - I - 0x03BB82 24:BB72: 02        .byte con_formation + $02
+- - - - - 0x03BB83 24:BB73: 00        .byte con_defense + $00
 - D - I - 0x03BB84 24:BB74: 8F        .byte $8F     ; 02 GK
 - D - I - 0x03BB85 24:BB75: 90        .byte $90     ; 03 DF
 - D - I - 0x03BB86 24:BB76: 91        .byte $91     ; 04 MF
@@ -14267,8 +14267,8 @@ off_BB72_09_Musashi:
 
 
 off_BB7C_0A_Furano:
-- D - I - 0x03BB8C 24:BB7C: 00        .byte $00     ; расстановка
-- - - - - 0x03BB8D 24:BB7D: 00        .byte $00     ; защита
+- D - I - 0x03BB8C 24:BB7C: 00        .byte con_formation + $00
+- - - - - 0x03BB8D 24:BB7D: 00        .byte con_defense + $00
 - D - I - 0x03BB8E 24:BB7E: 92        .byte $92     ; 02 GK
 - D - I - 0x03BB8F 24:BB7F: 93        .byte $93     ; 03 DF
 - D - I - 0x03BB90 24:BB80: 94        .byte $94     ; 04 MF
@@ -14285,8 +14285,8 @@ off_BB7C_0A_Furano:
 
 
 off_BB88_0B_Toho:
-- D - I - 0x03BB98 24:BB88: 03        .byte $03     ; расстановка
-- - - - - 0x03BB99 24:BB89: 00        .byte $00     ; защита
+- D - I - 0x03BB98 24:BB88: 03        .byte con_formation + $03
+- - - - - 0x03BB99 24:BB89: 00        .byte con_defense + $00
 - - - - - 0x03BB9A 24:BB8A: 76        .byte $76     ; 02 GK
 - D - I - 0x03BB9B 24:BB8B: 95        .byte $95     ; 03 DF
 - D - I - 0x03BB9C 24:BB8C: 96        .byte $96     ; 04 MF
@@ -14312,8 +14312,8 @@ off_BB88_0B_Toho:
 
 
 off_BB9A_0C_AS_Roma:
-- D - I - 0x03BBAA 24:BB9A: 20        .byte $00     ; расстановка
-- - - - - 0x03BBAB 24:BB9B: 00        .byte $02     ; защита
+- D - I - 0x03BBAA 24:BB9A: 20        .byte con_formation + $00
+- - - - - 0x03BBAB 24:BB9B: 00        .byte con_defense + $02
 - D - I - 0x03BBAC 24:BB9C: 97        .byte $97     ; 02 GK
 - D - I - 0x03BBAD 24:BB9D: 98        .byte $98     ; 03 DF
 - D - I - 0x03BBAE 24:BB9E: 99        .byte $99     ; 04 MF
@@ -14330,8 +14330,8 @@ off_BB9A_0C_AS_Roma:
 
 
 off_BBA6_0D_Uruguay:
-- D - I - 0x03BBB6 24:BBA6: 01        .byte $01     ; расстановка
-- - - - - 0x03BBB7 24:BBA7: 00        .byte $00     ; защита
+- D - I - 0x03BBB6 24:BBA6: 01        .byte con_formation + $01
+- - - - - 0x03BBB7 24:BBA7: 00        .byte con_defense + $00
 - D - I - 0x03BBB8 24:BBA8: 9A        .byte $9A     ; 02 GK
 - D - I - 0x03BBB9 24:BBA9: 9B        .byte $9B     ; 03 DF
 - D - I - 0x03BBBA 24:BBAA: 9C        .byte $9C     ; 04 MF
@@ -14351,8 +14351,8 @@ off_BBA6_0D_Uruguay:
 
 
 off_BBB4_0E_Hamburger_SV:
-- D - I - 0x03BBC4 24:BBB4: 03        .byte $03     ; расстановка
-- - - - - 0x03BBC5 24:BBB5: 00        .byte $00     ; защита
+- D - I - 0x03BBC4 24:BBB4: 03        .byte con_formation + $03
+- - - - - 0x03BBC5 24:BBB5: 00        .byte con_defense + $00
 - - - - - 0x03BBC6 24:BBB6: 76        .byte $76     ; 02 GK
 - D - I - 0x03BBC7 24:BBB7: 9D        .byte $9D     ; 03 DF
 - D - I - 0x03BBC8 24:BBB8: 9E        .byte $9E     ; 04 MF
@@ -14378,8 +14378,8 @@ off_BBB4_0E_Hamburger_SV:
 
 
 off_BBC6_0F_Japan:
-- D - I - 0x03BBD6 24:BBC6: 01        .byte $01     ; расстановка
-- - - - - 0x03BBD7 24:BBC7: 00        .byte $00     ; защита
+- D - I - 0x03BBD6 24:BBC6: 01        .byte con_formation + $01
+- - - - - 0x03BBD7 24:BBC7: 00        .byte con_defense + $00
 - - - - - 0x03BBD8 24:BBC8: 76        .byte $76     ; 02 GK
 - - - - - 0x03BBD9 24:BBC9: 77        .byte $77     ; 03 DF
 - - - - - 0x03BBDA 24:BBCA: 78        .byte $78     ; 04 MF
@@ -14426,8 +14426,8 @@ off_BBC6_0F_Japan:
 
 
 off_BBE6_10_Syria:
-- D - I - 0x03BBF6 24:BBE6: 23        .byte $03     ; расстановка
-- - - - - 0x03BBF7 24:BBE7: 00        .byte $02     ; защита
+- D - I - 0x03BBF6 24:BBE6: 23        .byte con_formation + $03
+- - - - - 0x03BBF7 24:BBE7: 00        .byte con_defense + $02
 - D - I - 0x03BBF8 24:BBE8: 9F        .byte $9F     ; 02 GK
 - D - I - 0x03BBF9 24:BBE9: A0        .byte $A0     ; 03 DF
 - D - I - 0x03BBFA 24:BBEA: A0        .byte $A0     ; 04 MF
@@ -14441,8 +14441,8 @@ off_BBE6_10_Syria:
 
 
 off_BBF0_11_China:
-- D - I - 0x03BC00 24:BBF0: 01        .byte $01     ; расстановка
-- - - - - 0x03BC01 24:BBF1: 00        .byte $00     ; защита
+- D - I - 0x03BC00 24:BBF0: 01        .byte con_formation + $01
+- - - - - 0x03BC01 24:BBF1: 00        .byte con_defense + $00
 - D - I - 0x03BC02 24:BBF2: A2        .byte $A2     ; 02 GK
 - D - I - 0x03BC03 24:BBF3: A3        .byte $A3     ; 03 DF
 - D - I - 0x03BC04 24:BBF4: A4        .byte $A4     ; 04 MF
@@ -14462,8 +14462,8 @@ off_BBF0_11_China:
 
 
 off_BBFE_12_Iran:
-- D - I - 0x03BC0E 24:BBFE: 00        .byte $00     ; расстановка
-- D - I - 0x03BC0F 24:BBFF: 00        .byte $00     ; защита
+- D - I - 0x03BC0E 24:BBFE: 00        .byte con_formation + $00
+- D - I - 0x03BC0F 24:BBFF: 00        .byte con_defense + $00
 - D - I - 0x03BC10 24:BC00: A5        .byte $A5     ; 02 GK
 - D - I - 0x03BC11 24:BC01: A6        .byte $A6     ; 03 DF
 - D - I - 0x03BC12 24:BC02: A7        .byte $A7     ; 04 MF
@@ -14477,8 +14477,8 @@ off_BBFE_12_Iran:
 
 
 off_BC08_13_North_Korea:
-- D - I - 0x03BC18 24:BC08: 02        .byte $02     ; расстановка
-- - - - - 0x03BC19 24:BC09: 00        .byte $00     ; защита
+- D - I - 0x03BC18 24:BC08: 02        .byte con_formation + $02
+- - - - - 0x03BC19 24:BC09: 00        .byte con_defense + $00
 - D - I - 0x03BC1A 24:BC0A: A8        .byte $A8     ; 02 GK
 - D - I - 0x03BC1B 24:BC0B: A9        .byte $A9     ; 03 DF
 - D - I - 0x03BC1C 24:BC0C: AA        .byte $AA     ; 04 MF
@@ -14492,8 +14492,8 @@ off_BC08_13_North_Korea:
 
 
 off_BC12_14_Saudi_Arabia:
-- D - I - 0x03BC22 24:BC12: 13        .byte $03     ; расстановка
-- - - - - 0x03BC23 24:BC13: 00        .byte $01     ; защита
+- D - I - 0x03BC22 24:BC12: 13        .byte con_formation + $03
+- - - - - 0x03BC23 24:BC13: 00        .byte con_defense + $01
 - D - I - 0x03BC24 24:BC14: AB        .byte $AB     ; 02 GK
 - D - I - 0x03BC25 24:BC15: AC        .byte $AC     ; 03 DF
 - D - I - 0x03BC26 24:BC16: AD        .byte $AD     ; 04 MF
@@ -14507,8 +14507,8 @@ off_BC12_14_Saudi_Arabia:
 
 
 off_BC1C_15_South_Korea:
-- D - I - 0x03BC2C 24:BC1C: 00        .byte $00     ; расстановка
-- - - - - 0x03BC2D 24:BC1D: 00        .byte $00     ; защита
+- D - I - 0x03BC2C 24:BC1C: 00        .byte con_formation + $00
+- - - - - 0x03BC2D 24:BC1D: 00        .byte con_defense + $00
 - D - I - 0x03BC2E 24:BC1E: AE        .byte $AE     ; 02 GK
 - D - I - 0x03BC2F 24:BC1F: AF        .byte $AF     ; 03 DF
 - D - I - 0x03BC30 24:BC20: B0        .byte $B0     ; 04 MF
@@ -14528,8 +14528,8 @@ off_BC1C_15_South_Korea:
 
 
 off_BC2A_16_Turkey:
-- D - I - 0x03BC3A 24:BC2A: 23        .byte $03     ; расстановка
-- - - - - 0x03BC3B 24:BC2B: 00        .byte $02     ; защита
+- D - I - 0x03BC3A 24:BC2A: 23        .byte con_formation + $03
+- - - - - 0x03BC3B 24:BC2B: 00        .byte con_defense + $02
 - D - I - 0x03BC3C 24:BC2C: B1        .byte $B1     ; 02 GK
 - D - I - 0x03BC3D 24:BC2D: B2        .byte $B2     ; 03 DF
 - D - I - 0x03BC3E 24:BC2E: B2        .byte $B2     ; 04 MF
@@ -14543,8 +14543,8 @@ off_BC2A_16_Turkey:
 
 
 off_BC34_17_Poland:
-- D - I - 0x03BC44 24:BC34: 21        .byte $01     ; расстановка
-- - - - - 0x03BC45 24:BC35: 00        .byte $02     ; защита
+- D - I - 0x03BC44 24:BC34: 21        .byte con_formation + $01
+- - - - - 0x03BC45 24:BC35: 00        .byte con_defense + $02
 - - - - - 0x03BC46 24:BC36: 76        .byte $76     ; 02 GK
 - D - I - 0x03BC47 24:BC37: B3        .byte $B3     ; 03 DF
 - D - I - 0x03BC48 24:BC38: B4        .byte $B4     ; 04 MF
@@ -14564,8 +14564,8 @@ off_BC34_17_Poland:
 
 
 off_BC42_18_England:
-- D - I - 0x03BC52 24:BC42: 00        .byte $00     ; расстановка
-- - - - - 0x03BC53 24:BC43: 00        .byte $00     ; защита
+- D - I - 0x03BC52 24:BC42: 00        .byte con_formation + $00
+- - - - - 0x03BC53 24:BC43: 00        .byte con_defense + $00
 - D - I - 0x03BC54 24:BC44: B5        .byte $B5     ; 02 GK
 - D - I - 0x03BC55 24:BC45: B6        .byte $B6     ; 03 DF
 - D - I - 0x03BC56 24:BC46: B7        .byte $B7     ; 04 MF
@@ -14585,8 +14585,8 @@ off_BC42_18_England:
 
 
 off_BC50_19_Soviet_Union:
-- D - I - 0x03BC60 24:BC50: 12        .byte $02     ; расстановка
-- - - - - 0x03BC61 24:BC51: 00        .byte $01     ; защита
+- D - I - 0x03BC60 24:BC50: 12        .byte con_formation + $02
+- - - - - 0x03BC61 24:BC51: 00        .byte con_defense + $01
 - - - - - 0x03BC62 24:BC52: 76        .byte $76     ; 02 GK
 - D - I - 0x03BC63 24:BC53: B8        .byte $B8     ; 03 DF
 - D - I - 0x03BC64 24:BC54: B9        .byte $B9     ; 04 MF
@@ -14606,8 +14606,8 @@ off_BC50_19_Soviet_Union:
 
 
 off_BC5E_1A_France:
-- D - I - 0x03BC6E 24:BC5E: 11        .byte $01     ; расстановка
-- - - - - 0x03BC6F 24:BC5F: 00        .byte $01     ; защита
+- D - I - 0x03BC6E 24:BC5E: 11        .byte con_formation + $01
+- - - - - 0x03BC6F 24:BC5F: 00        .byte con_defense + $01
 - D - I - 0x03BC70 24:BC60: BA        .byte $BA     ; 02 GK
 - D - I - 0x03BC71 24:BC61: BB        .byte $BB     ; 03 DF
 - D - I - 0x03BC72 24:BC62: BC        .byte $BC     ; 04 MF
@@ -14627,8 +14627,8 @@ off_BC5E_1A_France:
 
 
 off_BC6C_1B_Mexico:
-- D - I - 0x03BC7C 24:BC6C: 20        .byte $00     ; расстановка
-- - - - - 0x03BC7D 24:BC6D: 00        .byte $02     ; защита
+- D - I - 0x03BC7C 24:BC6C: 20        .byte con_formation + $00
+- - - - - 0x03BC7D 24:BC6D: 00        .byte con_defense + $02
 - D - I - 0x03BC7E 24:BC6E: BD        .byte $BD     ; 02 GK
 - D - I - 0x03BC7F 24:BC6F: BE        .byte $BE     ; 03 DF
 - D - I - 0x03BC80 24:BC70: BF        .byte $BF     ; 04 MF
@@ -14645,8 +14645,8 @@ off_BC6C_1B_Mexico:
 
 
 off_BC78_1C_Italy:
-- D - I - 0x03BC88 24:BC78: 21        .byte $01     ; расстановка
-- - - - - 0x03BC89 24:BC79: 00        .byte $02     ; защита
+- D - I - 0x03BC88 24:BC78: 21        .byte con_formation + $01
+- - - - - 0x03BC89 24:BC79: 00        .byte con_defense + $02
 - - - - - 0x03BC8A 24:BC7A: 76        .byte $76     ; 02 GK
 - D - I - 0x03BC8B 24:BC7B: C0        .byte $C0     ; 03 DF
 - D - I - 0x03BC8C 24:BC7C: C1        .byte $C1     ; 04 MF
@@ -14666,8 +14666,8 @@ off_BC78_1C_Italy:
 
 
 off_BC86_1D_Netherlands:
-- D - I - 0x03BC96 24:BC86: 10        .byte $00     ; расстановка
-- - - - - 0x03BC97 24:BC87: 00        .byte $01     ; защита
+- D - I - 0x03BC96 24:BC86: 10        .byte con_formation + $00
+- - - - - 0x03BC97 24:BC87: 00        .byte con_defense + $01
 - D - I - 0x03BC98 24:BC88: C2        .byte $C2     ; 02 GK
 - D - I - 0x03BC99 24:BC89: C3        .byte $C3     ; 03 DF
 - D - I - 0x03BC9A 24:BC8A: C4        .byte $C4     ; 04 MF
@@ -14687,8 +14687,8 @@ off_BC86_1D_Netherlands:
 
 
 off_BC94_1E_Argentina:
-- D - I - 0x03BCA4 24:BC94: 02        .byte $02     ; расстановка
-- - - - - 0x03BCA5 24:BC95: 00        .byte $00     ; защита
+- D - I - 0x03BCA4 24:BC94: 02        .byte con_formation + $02
+- - - - - 0x03BCA5 24:BC95: 00        .byte con_defense + $00
 - D - I - 0x03BCA6 24:BC96: C5        .byte $C5     ; 02 GK
 - D - I - 0x03BCA7 24:BC97: C6        .byte $C6     ; 03 DF
 - D - I - 0x03BCA8 24:BC98: C6        .byte $C6     ; 04 MF
@@ -14717,8 +14717,8 @@ off_BC94_1E_Argentina:
 
 
 off_BCA8_1F_West_Germany:
-- D - I - 0x03BCB8 24:BCA8: 02        .byte $02     ; расстановка
-- - - - - 0x03BCB9 24:BCA9: 00        .byte $00     ; защита
+- D - I - 0x03BCB8 24:BCA8: 02        .byte con_formation + $02
+- - - - - 0x03BCB9 24:BCA9: 00        .byte con_defense + $00
 - - - - - 0x03BCBA 24:BCAA: 76        .byte $76     ; 02 GK
 - D - I - 0x03BCBB 24:BCAB: C7        .byte $C7     ; 03 DF
 - D - I - 0x03BCBC 24:BCAC: C7        .byte $C7     ; 04 MF
@@ -14753,8 +14753,8 @@ off_BCA8_1F_West_Germany:
 
 
 off_BCC0_20_Brazil:
-- D - I - 0x03BCD0 24:BCC0: 03        .byte $03     ; расстановка
-- - - - - 0x03BCD1 24:BCC1: 00        .byte $00     ; защита
+- D - I - 0x03BCD0 24:BCC0: 03        .byte con_formation + $03
+- - - - - 0x03BCD1 24:BCC1: 00        .byte con_defense + $00
 - - - - - 0x03BCD2 24:BCC2: 76        .byte $76     ; 02 GK
 - - - - - 0x03BCD3 24:BCC3: 77        .byte $77     ; 03 DF
 - - - - - 0x03BCD4 24:BCC4: 78        .byte $78     ; 04 MF
