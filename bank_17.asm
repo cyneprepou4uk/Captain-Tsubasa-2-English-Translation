@@ -12318,10 +12318,6 @@ bra_case_B658_04_кипер_вакашимазу:
 - - - - - 0x023669 11:B659: 33        .byte con_bg + $33
 - - - - - 0x02366A 11:B65A: A6        .byte con_animation + $A6
 - - - - - 0x02366B 11:B65B: 9B        .byte con_cloud + $9B
-; bzk бесполезный прыжок
-- - - - - 0x02366C 11:B65C: F2        .byte con_jmp
-- - - - - 0x02366D 11:B65D: 5F B6     .word loc_B65F
-
 loc_B65F:
 - D - I - 0x02366F 11:B65F: FA        .byte con_jsr
 - D - I - 0x023670 11:B660: C7 BB     .word sub_BBC7_очистка
