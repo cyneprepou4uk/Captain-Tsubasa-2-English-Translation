@@ -1572,7 +1572,7 @@ C - - - - 0x002BC4 02:ABB4: A0 03     LDY #con_игрок_уровень
 C - - - - 0x002BC6 02:ABB6: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x002BC8 02:ABB8: 18        CLC
 C - - - - 0x002BC9 02:ABB9: 69 01     ADC #$01
-C - - - - 0x002BCB 02:ABBB: 20 7C 9E  JSR sub_0x001E8C
+C - - - - 0x002BCB 02:ABBB: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
 C - - - - 0x002BCE 02:ABBE: A0 AB     LDY #$AB      ; адрес ppu для номера уровня
 C - - - - 0x002BD0 02:ABC0: A2 20     LDX #$20
 C - - - - 0x002BD2 02:ABC2: 20 8E 9D  JSR sub_0x001D9E_запись_в_буфер_уровня_игрока
@@ -1621,7 +1621,7 @@ C - - - - 0x002C1C 02:AC0C: F0 20     BEQ bra_AC2E_закончить_запис
 C - - - - 0x002C1E 02:AC0E: A5 5F     LDA ram_005F
 C - - - - 0x002C20 02:AC10: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
 C - - - - 0x002C23 02:AC13: A5 32     LDA ram_0032
-C - - - - 0x002C25 02:AC15: 20 7C 9E  JSR sub_0x001E8C
+C - - - - 0x002C25 02:AC15: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
 C - - - - 0x002C28 02:AC18: A4 E6     LDY ram_00E6
 C - - - - 0x002C2A 02:AC1A: B9 82 B9  LDA tbl_B981_позиция_числовых_статов_полевого + 1,Y
 C - - - - 0x002C2D 02:AC1D: BE 83 B9  LDX tbl_B981_позиция_числовых_статов_полевого + 2,Y

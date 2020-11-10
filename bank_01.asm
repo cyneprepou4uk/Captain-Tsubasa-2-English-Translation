@@ -4845,46 +4845,48 @@ C - - - - 0x001E88 01:9E78: 68        PLA
 C - - - - 0x001E89 01:9E79: 85 E8     STA ram_00E8
 C - - - - 0x001E8B 01:9E7B: 60        RTS
 
-.export sub_0x001E8C
-sub_0x001E8C:
-C - - - - 0x001E8C 01:9E7C: 85 ED     STA ram_00ED
-C - - - - 0x001E8E 01:9E7E: A9 0A     LDA #$0A
-C - - - - 0x001E90 01:9E80: 85 EC     STA ram_00EC
-C - - - - 0x001E92 01:9E82: 20 36 9E  JSR sub_9E36
-C - - - - 0x001E95 01:9E85: A5 EA     LDA ram_00EA
-C - - - - 0x001E97 01:9E87: 85 EB     STA ram_00EB
-C - - - - 0x001E99 01:9E89: 20 36 9E  JSR sub_9E36
-C - - - - 0x001E9C 01:9E8C: A5 EA     LDA ram_00EA
-C - - - - 0x001E9E 01:9E8E: 0A        ASL
-C - - - - 0x001E9F 01:9E8F: 0A        ASL
-C - - - - 0x001EA0 01:9E90: 0A        ASL
-C - - - - 0x001EA1 01:9E91: 0A        ASL
-C - - - - 0x001EA2 01:9E92: 05 EB     ORA ram_00EB
-C - - - - 0x001EA4 01:9E94: 85 EB     STA ram_00EB
-C - - - - 0x001EA6 01:9E96: 20 36 9E  JSR sub_9E36
-C - - - - 0x001EA9 01:9E99: A5 EA     LDA ram_00EA
-C - - - - 0x001EAB 01:9E9B: 85 ED     STA ram_00ED
-C - - - - 0x001EAD 01:9E9D: A5 EB     LDA ram_00EB
-C - - - - 0x001EAF 01:9E9F: 85 EC     STA ram_00EC
-C - - - - 0x001EB1 01:9EA1: 60        RTS
+.export sub_0x001E8C_перевод_из_HEX_в_DEC
+sub_0x001E8C_перевод_из_HEX_в_DEC:
+; на вход в A подается байт, который нужно перевести в DEC
+; на выходе DEC число будет храниться в 00EC (сотни) и 00ED (десятки + единицы)
+    STA ram_00ED
+    LDA #$0A
+    STA ram_00EC
+    JSR sub_9E36_конвертация
+    LDA ram_00EA
+    STA ram_00EB
+    JSR sub_9E36_конвертация
+    LDA ram_00EA
+    ASL
+    ASL
+    ASL
+    ASL
+    ORA ram_00EB
+    STA ram_00EB
+    JSR sub_9E36_конвертация
+    LDA ram_00EA
+    STA ram_00ED
+    LDA ram_00EB
+    STA ram_00EC
+    RTS
 
-sub_9E36:
-C - - - - 0x001E46 01:9E36: A9 00     LDA #$00
-C - - - - 0x001E48 01:9E38: 85 EA     STA ram_00EA
-C - - - - 0x001E4A 01:9E3A: A2 08     LDX #$08
+sub_9E36_конвертация:
+    LDA #$00
+    STA ram_00EA
+    LDX #$08
 bra_9E3C_цикл:
-C - - - - 0x001E4C 01:9E3C: 06 ED     ASL ram_00ED
-C - - - - 0x001E4E 01:9E3E: 26 EA     ROL ram_00EA
-C - - - - 0x001E50 01:9E40: A5 EA     LDA ram_00EA
-C - - - - 0x001E52 01:9E42: 38        SEC
-C - - - - 0x001E53 01:9E43: E5 EC     SBC ram_00EC
-C - - - - 0x001E55 01:9E45: 90 04     BCC bra_9E4B
-C - - - - 0x001E57 01:9E47: 85 EA     STA ram_00EA
-C - - - - 0x001E59 01:9E49: E6 ED     INC ram_00ED
+    ASL ram_00ED
+    ROL ram_00EA
+    LDA ram_00EA
+    SEC
+    SBC ram_00EC
+    BCC bra_9E4B
+    STA ram_00EA
+    INC ram_00ED
 bra_9E4B:
-C - - - - 0x001E5B 01:9E4B: CA        DEX
-C - - - - 0x001E5C 01:9E4C: D0 EE     BNE bra_9E3C_цикл
-C - - - - 0x001E5E 01:9E4E: 60        RTS
+    DEX
+    BNE bra_9E3C_цикл
+    RTS
 
 tbl_9EA2:
 ; 64 байта
