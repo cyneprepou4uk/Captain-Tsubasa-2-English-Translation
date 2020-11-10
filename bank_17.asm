@@ -13317,10 +13317,6 @@ bra_case_BA4B_01_мяч_у_команды_справа:
 - D - I - 0x023A5D 11:BA4D: 00        .byte con_animation + $00
 - D - I - 0x023A5E 11:BA4E: F0        .byte con_cloud + con_skip
 - D - I - 0x023A5F 11:BA4F: FE        .byte con_FE
-; bzk бесполезный прыжок
-- D - I - 0x023A61 11:BA51: F2        .byte con_jmp
-- D - I - 0x023A62 11:BA52: 54 BA     .word loc_BA54
-
 loc_BA54:
 - D - I - 0x023A64 11:BA54: F3        .byte con_branch, $BE
 - D - I - 0x023A66 11:BA56: C3        .byte bra_case_BB19_00 - *
