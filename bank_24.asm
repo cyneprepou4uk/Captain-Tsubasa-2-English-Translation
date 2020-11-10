@@ -1044,7 +1044,7 @@ C - - - - 0x03856C 24:855C: 85 3D     STA ram_003D
 C - - - - 0x03856E 24:855E: A9 00     LDA #$00
 C - - - - 0x038570 24:8560: 8D 3C 04  STA ram_подтип_действия_атаки
 C - - - - 0x038573 24:8563: 85 3E     STA ram_003E
-C - - - - 0x038575 24:8565: 20 0B 8B  JSR sub_8B0B
+C - - - - 0x038575 24:8565: 20 0B 8B  JSR sub_8B0B_рандом_действия
 C - - - - 0x038578 24:8568: 8D 3B 04  STA ram_действие_атаки
 C - - - - 0x03857E 24:856E: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 - - - - - 0x038581 24:8571: DF 87     .word ofs_87DF_00
@@ -1121,7 +1121,7 @@ C - - - - 0x0385F4 24:85E4: 85 3C     STA ram_003C
 C - - - - 0x0385F6 24:85E6: 8A        TXA
 C - - - - 0x0385F7 24:85E7: 69 BA     ADC #> tbl_BA2E
 C - - - - 0x0385F9 24:85E9: 85 3D     STA ram_003D
-C - - - - 0x0385FB 24:85EB: 20 0B 8B  JSR sub_8B0B
+C - - - - 0x0385FB 24:85EB: 20 0B 8B  JSR sub_8B0B_рандом_действия
 C - - - - 0x0385FE 24:85EE: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x038601 24:85F1: AA        TAX
 C - - - - 0x038602 24:85F2: AD 42 04  LDA ram_игрок_без_мяча
@@ -1223,7 +1223,7 @@ C - - - - 0x0386A8 24:8698: 85 3C     STA ram_003C
 C - - - - 0x0386AA 24:869A: 8A        TXA
 C - - - - 0x0386AB 24:869B: 69 B8     ADC #> tbl_B8AE
 C - - - - 0x0386AD 24:869D: 85 3D     STA ram_003D
-C - - - - 0x0386AF 24:869F: 20 0B 8B  JSR sub_8B0B
+C - - - - 0x0386AF 24:869F: 20 0B 8B  JSR sub_8B0B_рандом_действия
 C - - - - 0x0386B2 24:86A2: 8D 3D 04  STA ram_действие_защиты
 C - - - - 0x0386B5 24:86A5: A9 00     LDA #$00
 C - - - - 0x0386B7 24:86A7: 8D 3E 04  STA ram_подтип_действия_защиты
@@ -1371,7 +1371,7 @@ C - - - - 0x0387B6 24:87A6: 85 3C     STA ram_003C
 C - - - - 0x0387B8 24:87A8: 8A        TXA
 C - - - - 0x0387B9 24:87A9: 69 B1     ADC #> tbl_B12E
 C - - - - 0x0387BB 24:87AB: 85 3D     STA ram_003D
-C - - - - 0x0387BD 24:87AD: 20 0B 8B  JSR sub_8B0B
+C - - - - 0x0387BD 24:87AD: 20 0B 8B  JSR sub_8B0B_рандом_действия
 C - - - - 0x0387C0 24:87B0: 8D 3B 04  STA ram_действие_атаки
 C - - - - 0x0387C3 24:87B3: A9 00     LDA #$00
 C - - - - 0x0387C5 24:87B5: 8D 3C 04  STA ram_подтип_действия_атаки
@@ -1779,13 +1779,13 @@ C - - - - 0x038A72 24:8A62: 48        PHA
 C - - - - 0x038A73 24:8A63: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x038A76 24:8A66: A0 00     LDY #con_игрок_номер
 C - - - - 0x038A78 24:8A68: B1 34     LDA (ram_plr_data),Y
-C - - - - 0x038A7A 24:8A6A: D0 08     BNE bra_8A74
+C - - - - 0x038A7A 24:8A6A: D0 08     BNE bra_8A74_это_не_клон
 C - - - - 0x038A7C 24:8A6C: 68        PLA
 C - - - - 0x038A7D 24:8A6D: 48        PHA
 C - - - - 0x038A7E 24:8A6E: AA        TAX
 C - - - - 0x038A7F 24:8A6F: BC 9D 8A  LDY tbl_818E_индекс_для_параметров_команды - $0B,X
 C - - - - 0x038A82 24:8A72: B1 38     LDA (ram_enemy_data),Y
-bra_8A74:
+bra_8A74_это_не_клон:
 C - - - - 0x038A84 24:8A74: AA        TAX
 C - - - - 0x038A85 24:8A75: A0 01     LDY #con_игрок_энергия_lo
 C - - - - 0x038A87 24:8A77: B1 34     LDA (ram_plr_data),Y
@@ -1863,7 +1863,7 @@ C - - - - 0x038AF9 24:8AE9: B1 3A     LDA (ram_003A),Y
 sub_8AEB:
 C - - - - 0x038AFB 24:8AEB: A0 00     LDY #$00
 C - - - - 0x038AFD 24:8AED: 84 3D     STY ram_003D
-C - - - - 0x038AFF 24:8AEF: 0A        ASL
+C - - - - 0x038AFF 24:8AEF: 0A        ASL       ; умножить на 16
 C - - - - 0x038B00 24:8AF0: 26 3D     ROL ram_003D
 C - - - - 0x038B02 24:8AF2: 0A        ASL
 C - - - - 0x038B03 24:8AF3: 26 3D     ROL ram_003D
@@ -1873,7 +1873,7 @@ C - - - - 0x038B08 24:8AF8: 0A        ASL
 C - - - - 0x038B09 24:8AF9: 26 3D     ROL ram_003D
 C - - - - 0x038B0B 24:8AFB: 85 3C     STA ram_003C
 C - - - - 0x038B0D 24:8AFD: A6 3D     LDX ram_003D
-C - - - - 0x038B0F 24:8AFF: 0A        ASL
+C - - - - 0x038B0F 24:8AFF: 0A        ASL       ; умножить на 3
 C - - - - 0x038B10 24:8B00: 26 3D     ROL ram_003D
 C - - - - 0x038B12 24:8B02: 65 3C     ADC ram_003C
 C - - - - 0x038B14 24:8B04: 85 3C     STA ram_003C
@@ -1882,7 +1882,7 @@ C - - - - 0x038B17 24:8B07: 65 3D     ADC ram_003D
 C - - - - 0x038B19 24:8B09: AA        TAX
 C - - - - 0x038B1A 24:8B0A: 60        RTS
 
-sub_8B0B:
+sub_8B0B_рандом_действия:
 C - - - - 0x038B1B 24:8B0B: AD E2 00  LDA ram_рандом_2
 C - - - - 0x038B1E 24:8B0E: 29 07     AND #$07
 C - - - - 0x038B20 24:8B10: 4A        LSR
@@ -14089,7 +14089,10 @@ off_BAF6_00:
 - D - I - 0x03BB0C 24:BAFC: A0        .byte $A0     ; 06 0x03853E
 - D - I - 0x03BB0D 24:BAFD: 1F        .byte $1F     ; 07 0x03855B
 - D - I - 0x03BB0E 24:BAFE: 1F        .byte $1F     ; 08 0x038593
+
 - D - I - 0x03BB0F 24:BAFF: 0F        .byte con_закончить
+
+
 
 off_BB00_01:
 - D - I - 0x03BB10 24:BB00: 03        .byte $03
@@ -14101,11 +14104,16 @@ off_BB00_01:
 - D - I - 0x03BB16 24:BB06: A0        .byte $A0
 - D - I - 0x03BB17 24:BB07: 1E        .byte $1E
 - D - I - 0x03BB18 24:BB08: 1E        .byte $1E
+
 - D - I - 0x03BB19 24:BB09: 0A        .byte $0A
 - D - I - 0x03BB1A 24:BB0A: 24        .byte $24
+
 - D - I - 0x03BB1B 24:BB0B: 09        .byte $09
 - D - I - 0x03BB1C 24:BB0C: 23        .byte $23
+
 - D - I - 0x03BB1D 24:BB0D: 0F        .byte con_закончить
+
+
 
 off_BB0E_02:
 - D - I - 0x03BB1E 24:BB0E: 21        .byte $21
@@ -14117,11 +14125,16 @@ off_BB0E_02:
 - - - - - 0x03BB24 24:BB14: A0        .byte $A0
 - - - - - 0x03BB25 24:BB15: 1F        .byte $1F
 - - - - - 0x03BB26 24:BB16: 1E        .byte $1E
+
 - D - I - 0x03BB27 24:BB17: 09        .byte $09
 - D - I - 0x03BB28 24:BB18: 25        .byte $25
+
 - D - I - 0x03BB29 24:BB19: 01        .byte $01
 - D - I - 0x03BB2A 24:BB1A: 26        .byte $26
+
 - D - I - 0x03BB2B 24:BB1B: 0F        .byte con_закончить
+
+
 
 off_BB1C_03:
 - D - I - 0x03BB2C 24:BB1C: 20        .byte $20
@@ -14133,11 +14146,16 @@ off_BB1C_03:
 - - - - - 0x03BB32 24:BB22: B0        .byte $B0
 - - - - - 0x03BB33 24:BB23: 1F        .byte $1F
 - - - - - 0x03BB34 24:BB24: 1E        .byte $1E
+
 - D - I - 0x03BB35 24:BB25: 09        .byte $09
 - D - I - 0x03BB36 24:BB26: 27        .byte $27
+
 - D - I - 0x03BB37 24:BB27: 0B        .byte $0B
 - D - I - 0x03BB38 24:BB28: 28        .byte $28
+
 - D - I - 0x03BB39 24:BB29: 0F        .byte con_закончить
+
+
 
 off_BB2A_04:
 - D - I - 0x03BB3A 24:BB2A: 21        .byte $21
@@ -14149,11 +14167,16 @@ off_BB2A_04:
 - - - - - 0x03BB40 24:BB30: 91        .byte $91
 - - - - - 0x03BB41 24:BB31: 1F        .byte $1F
 - - - - - 0x03BB42 24:BB32: 1D        .byte $1D
+
 - D - I - 0x03BB43 24:BB33: 09        .byte $09
 - D - I - 0x03BB44 24:BB34: 29        .byte $29
+
 - D - I - 0x03BB45 24:BB35: 04        .byte $04
 - D - I - 0x03BB46 24:BB36: 2A        .byte $2A
+
 - D - I - 0x03BB47 24:BB37: 0F        .byte con_закончить
+
+
 
 off_BB38_05:
 - D - I - 0x03BB48 24:BB38: 03        .byte $03
@@ -14165,13 +14188,19 @@ off_BB38_05:
 - D - I - 0x03BB4E 24:BB3E: 60        .byte $60
 - D - I - 0x03BB4F 24:BB3F: 1E        .byte $1E
 - D - I - 0x03BB50 24:BB40: 1F        .byte $1F
+
 - D - I - 0x03BB51 24:BB41: 0A        .byte $0A
 - D - I - 0x03BB52 24:BB42: 2B        .byte $2B
+
 - D - I - 0x03BB53 24:BB43: 06        .byte $06
 - D - I - 0x03BB54 24:BB44: 2C        .byte $2C
+
 - D - I - 0x03BB55 24:BB45: 02        .byte $02
 - D - I - 0x03BB56 24:BB46: 2D        .byte $2D
+
 - D - I - 0x03BB57 24:BB47: 0F        .byte con_закончить
+
+
 
 off_BB48_06:
 - D - I - 0x03BB58 24:BB48: 00        .byte $00
@@ -14183,11 +14212,16 @@ off_BB48_06:
 - D - I - 0x03BB5E 24:BB4E: 91        .byte $91
 - D - I - 0x03BB5F 24:BB4F: 1F        .byte $1F
 - D - I - 0x03BB60 24:BB50: 1D        .byte $1D
+
 - D - I - 0x03BB61 24:BB51: 04        .byte $04
 - D - I - 0x03BB62 24:BB52: 2E        .byte $2E
+
 - D - I - 0x03BB63 24:BB53: 09        .byte $09
 - D - I - 0x03BB64 24:BB54: 2F        .byte $2F
+
 - D - I - 0x03BB65 24:BB55: 0F        .byte con_закончить
+
+
 
 off_BB56_07:
 - D - I - 0x03BB66 24:BB56: 21        .byte $21
@@ -14199,11 +14233,16 @@ off_BB56_07:
 - - - - - 0x03BB6C 24:BB5C: A0        .byte $A0
 - - - - - 0x03BB6D 24:BB5D: 1F        .byte $1F
 - - - - - 0x03BB6E 24:BB5E: 1E        .byte $1E
+
 - D - I - 0x03BB6F 24:BB5F: 09        .byte $09
 - D - I - 0x03BB70 24:BB60: 30        .byte $30
+
 - D - I - 0x03BB71 24:BB61: 0B        .byte $0B
 - D - I - 0x03BB72 24:BB62: 31        .byte $31
+
 - D - I - 0x03BB73 24:BB63: 0F        .byte con_закончить
+
+
 
 off_BB64_08:
 - D - I - 0x03BB74 24:BB64: 01        .byte $01
@@ -14215,11 +14254,16 @@ off_BB64_08:
 - D - I - 0x03BB7A 24:BB6A: 40        .byte $40
 - D - I - 0x03BB7B 24:BB6B: 1E        .byte $1E
 - - - - - 0x03BB7C 24:BB6C: 1E        .byte $1E
+
 - D - I - 0x03BB7D 24:BB6D: 04        .byte $04
 - D - I - 0x03BB7E 24:BB6E: 32        .byte $32
+
 - D - I - 0x03BB7F 24:BB6F: 01        .byte $01
 - D - I - 0x03BB80 24:BB70: 33        .byte $33
+
 - D - I - 0x03BB81 24:BB71: 0F        .byte con_закончить
+
+
 
 off_BB72_09:
 - D - I - 0x03BB82 24:BB72: 02        .byte $02
@@ -14231,7 +14275,10 @@ off_BB72_09:
 - - - - - 0x03BB88 24:BB78: 70        .byte $70
 - - - - - 0x03BB89 24:BB79: 1F        .byte $1F
 - - - - - 0x03BB8A 24:BB7A: 1C        .byte $1C
+
 - D - I - 0x03BB8B 24:BB7B: 0F        .byte con_закончить
+
+
 
 off_BB7C_0A:
 - D - I - 0x03BB8C 24:BB7C: 00        .byte $00
@@ -14243,9 +14290,13 @@ off_BB7C_0A:
 - D - I - 0x03BB92 24:BB82: 70        .byte $70
 - D - I - 0x03BB93 24:BB83: 1F        .byte $1F
 - - - - - 0x03BB94 24:BB84: 1F        .byte $1F
+
 - D - I - 0x03BB95 24:BB85: 0A        .byte $0A
 - D - I - 0x03BB96 24:BB86: 35        .byte $35
+
 - D - I - 0x03BB97 24:BB87: 0F        .byte con_закончить
+
+
 
 off_BB88_0B:
 - D - I - 0x03BB98 24:BB88: 03        .byte $03
@@ -14257,15 +14308,22 @@ off_BB88_0B:
 - D - I - 0x03BB9E 24:BB8E: 60        .byte $60
 - D - I - 0x03BB9F 24:BB8F: 1F        .byte $1F
 - D - I - 0x03BBA0 24:BB90: 1E        .byte $1E
+
 - D - I - 0x03BBA1 24:BB91: 09        .byte $09
 - D - I - 0x03BBA2 24:BB92: 36        .byte $36
+
 - D - I - 0x03BBA3 24:BB93: 0A        .byte $0A
 - D - I - 0x03BBA4 24:BB94: 37        .byte $37
+
 - D - I - 0x03BBA5 24:BB95: 06        .byte $06
 - D - I - 0x03BBA6 24:BB96: 38        .byte $38
+
 - D - I - 0x03BBA7 24:BB97: 01        .byte $01
 - D - I - 0x03BBA8 24:BB98: 39        .byte $39
+
 - D - I - 0x03BBA9 24:BB99: 0F        .byte con_закончить
+
+
 
 off_BB9A_0C:
 - D - I - 0x03BBAA 24:BB9A: 20        .byte $20
@@ -14277,9 +14335,13 @@ off_BB9A_0C:
 - - - - - 0x03BBB0 24:BBA0: A0        .byte $A0
 - - - - - 0x03BBB1 24:BBA1: 1F        .byte $1F
 - - - - - 0x03BBB2 24:BBA2: 1E        .byte $1E
+
 - D - I - 0x03BBB3 24:BBA3: 09        .byte $09
 - D - I - 0x03BBB4 24:BBA4: 3A        .byte $3A
+
 - D - I - 0x03BBB5 24:BBA5: 0F        .byte con_закончить
+
+
 
 off_BBA6_0D:
 - D - I - 0x03BBB6 24:BBA6: 01        .byte $01
@@ -14291,11 +14353,16 @@ off_BBA6_0D:
 - D - I - 0x03BBBC 24:BBAC: A0        .byte $A0
 - D - I - 0x03BBBD 24:BBAD: 1F        .byte $1F
 - D - I - 0x03BBBE 24:BBAE: 1F        .byte $1F
+
 - D - I - 0x03BBBF 24:BBAF: 0B        .byte $0B
 - D - I - 0x03BBC0 24:BBB0: 3B        .byte $3B
+
 - D - I - 0x03BBC1 24:BBB1: 09        .byte $09
 - D - I - 0x03BBC2 24:BBB2: 3C        .byte $3C
+
 - D - I - 0x03BBC3 24:BBB3: 0F        .byte con_закончить
+
+
 
 off_BBB4_0E:
 - D - I - 0x03BBC4 24:BBB4: 03        .byte $03
@@ -14307,15 +14374,22 @@ off_BBB4_0E:
 - D - I - 0x03BBCA 24:BBBA: 70        .byte $70
 - D - I - 0x03BBCB 24:BBBB: 1E        .byte $1E
 - - - - - 0x03BBCC 24:BBBC: 1E        .byte $1E
+
 - D - I - 0x03BBCD 24:BBBD: 07        .byte $07
 - D - I - 0x03BBCE 24:BBBE: 3D        .byte $3D
+
 - D - I - 0x03BBCF 24:BBBF: 0A        .byte $0A
 - D - I - 0x03BBD0 24:BBC0: 3E        .byte $3E
+
 - D - I - 0x03BBD1 24:BBC1: 06        .byte $06
 - D - I - 0x03BBD2 24:BBC2: 3F        .byte $3F
+
 - D - I - 0x03BBD3 24:BBC3: 01        .byte $01
 - D - I - 0x03BBD4 24:BBC4: 40        .byte $40
+
 - D - I - 0x03BBD5 24:BBC5: 0F        .byte con_закончить
+
+
 
 off_BBC6_0F:
 - D - I - 0x03BBD6 24:BBC6: 01        .byte $01
@@ -14327,29 +14401,43 @@ off_BBC6_0F:
 - D - I - 0x03BBDC 24:BBCC: 30        .byte $30
 - D - I - 0x03BBDD 24:BBCD: 1F        .byte $1F
 - D - I - 0x03BBDE 24:BBCE: 1B        .byte $1B
+
 - D - I - 0x03BBDF 24:BBCF: 09        .byte $09
 - D - I - 0x03BBE0 24:BBD0: 41        .byte $41
+
 - D - I - 0x03BBE1 24:BBD1: 0B        .byte $0B
 - D - I - 0x03BBE2 24:BBD2: 42        .byte $42
+
 - D - I - 0x03BBE3 24:BBD3: 06        .byte $06
 - D - I - 0x03BBE4 24:BBD4: 43        .byte $43
+
 - D - I - 0x03BBE5 24:BBD5: 0A        .byte $0A
 - D - I - 0x03BBE6 24:BBD6: 44        .byte $44
+
 - D - I - 0x03BBE7 24:BBD7: 08        .byte $08
 - D - I - 0x03BBE8 24:BBD8: 46        .byte $46
+
 - D - I - 0x03BBE9 24:BBD9: 07        .byte $07
 - D - I - 0x03BBEA 24:BBDA: 47        .byte $47
+
 - D - I - 0x03BBEB 24:BBDB: 02        .byte $02
 - D - I - 0x03BBEC 24:BBDC: 48        .byte $48
+
 - D - I - 0x03BBED 24:BBDD: 04        .byte $04
 - D - I - 0x03BBEE 24:BBDE: 49        .byte $49
+
 - D - I - 0x03BBEF 24:BBDF: 03        .byte $03
 - D - I - 0x03BBF0 24:BBE0: 4A        .byte $4A
+
 - D - I - 0x03BBF1 24:BBE1: 05        .byte $05
 - D - I - 0x03BBF2 24:BBE2: 4B        .byte $4B
+
 - D - I - 0x03BBF3 24:BBE3: 01        .byte $01
 - D - I - 0x03BBF4 24:BBE4: 4C        .byte $4C
+
 - D - I - 0x03BBF5 24:BBE5: 0F        .byte con_закончить
+
+
 
 off_BBE6_10:
 - D - I - 0x03BBF6 24:BBE6: 23        .byte $23
@@ -14361,7 +14449,10 @@ off_BBE6_10:
 - D - I - 0x03BBFC 24:BBEC: A0        .byte $A0
 - D - I - 0x03BBFD 24:BBED: 1F        .byte $1F
 - D - I - 0x03BBFE 24:BBEE: 1F        .byte $1F
+
 - D - I - 0x03BBFF 24:BBEF: 0F        .byte con_закончить
+
+
 
 off_BBF0_11:
 - D - I - 0x03BC00 24:BBF0: 01        .byte $01
@@ -14373,11 +14464,16 @@ off_BBF0_11:
 - D - I - 0x03BC06 24:BBF6: A0        .byte $A0
 - D - I - 0x03BC07 24:BBF7: 1F        .byte $1F
 - D - I - 0x03BC08 24:BBF8: 1E        .byte $1E
+
 - D - I - 0x03BC09 24:BBF9: 0B        .byte $0B
 - D - I - 0x03BC0A 24:BBFA: 4D        .byte $4D
+
 - D - I - 0x03BC0B 24:BBFB: 09        .byte $09
 - D - I - 0x03BC0C 24:BBFC: 4E        .byte $4E
+
 - D - I - 0x03BC0D 24:BBFD: 0F        .byte con_закончить
+
+
 
 off_BBFE_12:
 - D - I - 0x03BC0E 24:BBFE: 00        .byte $00
@@ -14389,7 +14485,10 @@ off_BBFE_12:
 - D - I - 0x03BC14 24:BC04: A1        .byte $A1
 - D - I - 0x03BC15 24:BC05: 1F        .byte $1F
 - - - - - 0x03BC16 24:BC06: 1D        .byte $1D
+
 - D - I - 0x03BC17 24:BC07: 0F        .byte con_закончить
+
+
 
 off_BC08_13:
 - D - I - 0x03BC18 24:BC08: 02        .byte $02
@@ -14401,7 +14500,10 @@ off_BC08_13:
 - D - I - 0x03BC1E 24:BC0E: A0        .byte $A0
 - D - I - 0x03BC1F 24:BC0F: 00        .byte $00
 - D - I - 0x03BC20 24:BC10: 00        .byte $00
+
 - D - I - 0x03BC21 24:BC11: 0F        .byte con_закончить
+
+
 
 off_BC12_14:
 - D - I - 0x03BC22 24:BC12: 13        .byte $13
@@ -14413,7 +14515,10 @@ off_BC12_14:
 - D - I - 0x03BC28 24:BC18: A0        .byte $A0
 - D - I - 0x03BC29 24:BC19: 1F        .byte $1F
 - D - I - 0x03BC2A 24:BC1A: 1F        .byte $1F
+
 - D - I - 0x03BC2B 24:BC1B: 0F        .byte con_закончить
+
+
 
 off_BC1C_15:
 - D - I - 0x03BC2C 24:BC1C: 00        .byte $00
@@ -14425,11 +14530,16 @@ off_BC1C_15:
 - D - I - 0x03BC32 24:BC22: 70        .byte $70
 - D - I - 0x03BC33 24:BC23: 1F        .byte $1F
 - D - I - 0x03BC34 24:BC24: 1C        .byte $1C
+
 - D - I - 0x03BC35 24:BC25: 09        .byte $09
 - D - I - 0x03BC36 24:BC26: 4F        .byte $4F
+
 - D - I - 0x03BC37 24:BC27: 0A        .byte $0A
 - D - I - 0x03BC38 24:BC28: 50        .byte $50
+
 - D - I - 0x03BC39 24:BC29: 0F        .byte con_закончить
+
+
 
 off_BC2A_16:
 - D - I - 0x03BC3A 24:BC2A: 23        .byte $23
@@ -14441,7 +14551,10 @@ off_BC2A_16:
 - - - - - 0x03BC40 24:BC30: A0        .byte $A0
 - D - I - 0x03BC41 24:BC31: 1F        .byte $1F
 - - - - - 0x03BC42 24:BC32: 1F        .byte $1F
+
 - D - I - 0x03BC43 24:BC33: 0F        .byte con_закончить
+
+
 
 off_BC34_17:
 - D - I - 0x03BC44 24:BC34: 21        .byte $21
@@ -14453,11 +14566,16 @@ off_BC34_17:
 - - - - - 0x03BC4A 24:BC3A: A0        .byte $A0
 - - - - - 0x03BC4B 24:BC3B: 1F        .byte $1F
 - - - - - 0x03BC4C 24:BC3C: 1F        .byte $1F
+
 - D - I - 0x03BC4D 24:BC3D: 0B        .byte $0B
 - D - I - 0x03BC4E 24:BC3E: 51        .byte $51
+
 - D - I - 0x03BC4F 24:BC3F: 01        .byte $01
 - D - I - 0x03BC50 24:BC40: 52        .byte $52
+
 - D - I - 0x03BC51 24:BC41: 0F        .byte con_закончить
+
+
 
 off_BC42_18:
 - D - I - 0x03BC52 24:BC42: 00        .byte $00
@@ -14469,11 +14587,16 @@ off_BC42_18:
 - D - I - 0x03BC58 24:BC48: A1        .byte $A1
 - D - I - 0x03BC59 24:BC49: 1F        .byte $1F
 - D - I - 0x03BC5A 24:BC4A: 1D        .byte $1D
+
 - D - I - 0x03BC5B 24:BC4B: 09        .byte $09
 - D - I - 0x03BC5C 24:BC4C: 53        .byte $53
+
 - D - I - 0x03BC5D 24:BC4D: 04        .byte $04
 - D - I - 0x03BC5E 24:BC4E: 54        .byte $54
+
 - D - I - 0x03BC5F 24:BC4F: 0F        .byte con_закончить
+
+
 
 off_BC50_19:
 - D - I - 0x03BC60 24:BC50: 12        .byte $12
@@ -14485,11 +14608,16 @@ off_BC50_19:
 - D - I - 0x03BC66 24:BC56: A0        .byte $A0
 - D - I - 0x03BC67 24:BC57: 1F        .byte $1F
 - D - I - 0x03BC68 24:BC58: 1E        .byte $1E
+
 - D - I - 0x03BC69 24:BC59: 09        .byte $09
 - D - I - 0x03BC6A 24:BC5A: 55        .byte $55
+
 - D - I - 0x03BC6B 24:BC5B: 01        .byte $01
 - D - I - 0x03BC6C 24:BC5C: 56        .byte $56
+
 - D - I - 0x03BC6D 24:BC5D: 0F        .byte con_закончить
+
+
 
 off_BC5E_1A:
 - D - I - 0x03BC6E 24:BC5E: 11        .byte $11
@@ -14501,11 +14629,16 @@ off_BC5E_1A:
 - - - - - 0x03BC74 24:BC64: 70        .byte $70
 - - - - - 0x03BC75 24:BC65: 1F        .byte $1F
 - - - - - 0x03BC76 24:BC66: 1E        .byte $1E
+
 - D - I - 0x03BC77 24:BC67: 09        .byte $09
 - D - I - 0x03BC78 24:BC68: 57        .byte $57
+
 - D - I - 0x03BC79 24:BC69: 0A        .byte $0A
 - D - I - 0x03BC7A 24:BC6A: 58        .byte $58
+
 - D - I - 0x03BC7B 24:BC6B: 0F        .byte con_закончить
+
+
 
 off_BC6C_1B:
 - D - I - 0x03BC7C 24:BC6C: 20        .byte $20
@@ -14517,9 +14650,13 @@ off_BC6C_1B:
 - D - I - 0x03BC82 24:BC72: 70        .byte $70
 - D - I - 0x03BC83 24:BC73: 1F        .byte $1F
 - D - I - 0x03BC84 24:BC74: 1C        .byte $1C
+
 - D - I - 0x03BC85 24:BC75: 0A        .byte $0A
 - D - I - 0x03BC86 24:BC76: 59        .byte $59
+
 - D - I - 0x03BC87 24:BC77: 0F        .byte con_закончить
+
+
 
 off_BC78_1C:
 - D - I - 0x03BC88 24:BC78: 21        .byte $21
@@ -14531,11 +14668,16 @@ off_BC78_1C:
 - - - - - 0x03BC8E 24:BC7E: A0        .byte $A0
 - - - - - 0x03BC8F 24:BC7F: 1F        .byte $1F
 - - - - - 0x03BC90 24:BC80: 1E        .byte $1E
+
 - D - I - 0x03BC91 24:BC81: 09        .byte $09
 - D - I - 0x03BC92 24:BC82: 5A        .byte $5A
+
 - D - I - 0x03BC93 24:BC83: 01        .byte $01
 - D - I - 0x03BC94 24:BC84: 5B        .byte $5B
+
 - D - I - 0x03BC95 24:BC85: 0F        .byte con_закончить
+
+
 
 off_BC86_1D:
 - D - I - 0x03BC96 24:BC86: 10        .byte $10
@@ -14547,11 +14689,16 @@ off_BC86_1D:
 - - - - - 0x03BC9C 24:BC8C: 71        .byte $71
 - - - - - 0x03BC9D 24:BC8D: 1F        .byte $1F
 - - - - - 0x03BC9E 24:BC8E: 1D        .byte $1D
+
 - D - I - 0x03BC9F 24:BC8F: 09        .byte $09
 - D - I - 0x03BCA0 24:BC90: 5C        .byte $5C
+
 - D - I - 0x03BCA1 24:BC91: 04        .byte $04
 - D - I - 0x03BCA2 24:BC92: 5D        .byte $5D
+
 - D - I - 0x03BCA3 24:BC93: 0F        .byte con_закончить
+
+
 
 off_BC94_1E:
 - D - I - 0x03BCA4 24:BC94: 02        .byte $02
@@ -14563,17 +14710,25 @@ off_BC94_1E:
 - D - I - 0x03BCAA 24:BC9A: B0        .byte $B0
 - D - I - 0x03BCAB 24:BC9B: 1F        .byte $1F
 - D - I - 0x03BCAC 24:BC9C: 1A        .byte $1A
+
 - D - I - 0x03BCAD 24:BC9D: 0B        .byte $0B
 - D - I - 0x03BCAE 24:BC9E: 5E        .byte $5E
+
 - D - I - 0x03BCAF 24:BC9F: 09        .byte $09
 - D - I - 0x03BCB0 24:BCA0: 5F        .byte $5F
+
 - D - I - 0x03BCB1 24:BCA1: 0A        .byte $0A
 - D - I - 0x03BCB2 24:BCA2: 60        .byte $60
+
 - D - I - 0x03BCB3 24:BCA3: 08        .byte $08
 - D - I - 0x03BCB4 24:BCA4: 61        .byte $61
+
 - D - I - 0x03BCB5 24:BCA5: 04        .byte $04
 - D - I - 0x03BCB6 24:BCA6: 62        .byte $62
+
 - D - I - 0x03BCB7 24:BCA7: 0F        .byte con_закончить
+
+
 
 off_BCA8_1F:
 - D - I - 0x03BCB8 24:BCA8: 02        .byte $02
@@ -14585,21 +14740,31 @@ off_BCA8_1F:
 - D - I - 0x03BCBE 24:BCAE: 70        .byte $70
 - D - I - 0x03BCBF 24:BCAF: 1E        .byte $1E
 - - - - - 0x03BCC0 24:BCB0: 1F        .byte $1F
+
 - D - I - 0x03BCC1 24:BCB1: 0B        .byte $0B
 - D - I - 0x03BCC2 24:BCB2: 63        .byte $63
+
 - D - I - 0x03BCC3 24:BCB3: 09        .byte $09
 - D - I - 0x03BCC4 24:BCB4: 64        .byte $64
+
 - D - I - 0x03BCC5 24:BCB5: 08        .byte $08
 - D - I - 0x03BCC6 24:BCB6: 65        .byte $65
+
 - D - I - 0x03BCC7 24:BCB7: 05        .byte $05
 - D - I - 0x03BCC8 24:BCB8: 66        .byte $66
+
 - D - I - 0x03BCC9 24:BCB9: 0A        .byte $0A
 - D - I - 0x03BCCA 24:BCBA: 67        .byte $67
+
 - D - I - 0x03BCCB 24:BCBB: 07        .byte $07
 - D - I - 0x03BCCC 24:BCBC: 68        .byte $68
+
 - D - I - 0x03BCCD 24:BCBD: 01        .byte $01
 - D - I - 0x03BCCE 24:BCBE: 69        .byte $69
+
 - D - I - 0x03BCCF 24:BCBF: 0F        .byte con_закончить
+
+
 
 off_BCC0_20:
 - D - I - 0x03BCD0 24:BCC0: 03        .byte $03
@@ -14611,26 +14776,38 @@ off_BCC0_20:
 - D - I - 0x03BCD6 24:BCC6: 61        .byte $61
 - D - I - 0x03BCD7 24:BCC7: 1E        .byte $1E
 - - - - - 0x03BCD8 24:BCC8: 28        .byte $28
+
 - D - I - 0x03BCD9 24:BCC9: 09        .byte $09
 - D - I - 0x03BCDA 24:BCCA: 6A        .byte $6A
+
 - D - I - 0x03BCDB 24:BCCB: 07        .byte $07
 - D - I - 0x03BCDC 24:BCCC: 6B        .byte $6B
+
 - D - I - 0x03BCDD 24:BCCD: 0A        .byte $0A
 - D - I - 0x03BCDE 24:BCCE: 6C        .byte $6C
+
 - D - I - 0x03BCDF 24:BCCF: 0B        .byte $0B
 - D - I - 0x03BCE0 24:BCD0: 6D        .byte $6D
+
 - D - I - 0x03BCE1 24:BCD1: 06        .byte $06
 - D - I - 0x03BCE2 24:BCD2: 6E        .byte $6E
+
 - D - I - 0x03BCE3 24:BCD3: 08        .byte $08
 - D - I - 0x03BCE4 24:BCD4: 6F        .byte $6F
+
 - D - I - 0x03BCE5 24:BCD5: 03        .byte $03
 - D - I - 0x03BCE6 24:BCD6: 70        .byte $70
+
 - D - I - 0x03BCE7 24:BCD7: 04        .byte $04
 - D - I - 0x03BCE8 24:BCD8: 71        .byte $71
+
 - D - I - 0x03BCE9 24:BCD9: 05        .byte $05
 - D - I - 0x03BCEA 24:BCDA: 72        .byte $72
+
 - D - I - 0x03BCEB 24:BCDB: 02        .byte $02
 - D - I - 0x03BCEC 24:BCDC: 73        .byte $73
+
 - D - I - 0x03BCED 24:BCDD: 01        .byte $01
 - D - I - 0x03BCEE 24:BCDE: 74        .byte $74
+
 - D - I - 0x03BCEF 24:BCDF: 0F        .byte con_закончить
