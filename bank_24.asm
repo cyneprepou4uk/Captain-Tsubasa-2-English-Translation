@@ -1936,8 +1936,7 @@ C - - - - 0x038B6F 24:8B5F: 84 3A     STY ram_003A
 loc_8B61_цикл_чтения_таблицы:
 C D - - - 0x038B71 24:8B61: A4 3A     LDY ram_003A
 C - - - - 0x038B73 24:8B63: B1 38     LDA (ram_enemy_data),Y
-C - - - - 0x038B75 24:8B65: C9 0F     CMP #$0F
-; bzk закончить чтение таблицы если попадется 0F, лучше заменить на FF и подправить таблицы
+C - - - - 0x038B75 24:8B65: C9 0F     CMP #$FF
 C - - - - 0x038B77 24:8B67: F0 15     BEQ bra_8B7E_закончить_чтение_таблицы
 C - - - - 0x038B79 24:8B69: 18        CLC
 C - - - - 0x038B7A 24:8B6A: 69 0A     ADC #$0A
@@ -14063,7 +14062,7 @@ tbl_BAB2_параметры_команды_соперников:
     .word off_BCA8_1F_West_Germany
     .word off_BCC0_20_Brazil
 
-con_закончить       = $0F
+con_закончить       = $FF
 con_defense         = $00
 con_formation       = $00
 
