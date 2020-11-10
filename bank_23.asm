@@ -5005,7 +5005,7 @@ C - - - - 0x0361A9 23:A199: E8        INX
 C - - - - 0x0361AA 23:A19A: C8        INY
 C - - - - 0x0361AB 23:A19B: 20 39 C5  JSR sub_0x03CDF2
 bra_A19E:
-C - - - - 0x0361AE 23:A19E: A0 09     LDY #con_игрок_09
+C - - - - 0x0361AE 23:A19E: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x0361B0 23:A1A0: 91 34     STA (ram_plr_data),Y
 C - - - - 0x0361B2 23:A1A2: 68        PLA
 C - - - - 0x0361B3 23:A1A3: 48        PHA
@@ -5039,7 +5039,7 @@ C - - - - 0x0361E1 23:A1D1: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x0361E3 23:A1D3: A8        TAY
 C - - - - 0x0361E4 23:A1D4: 20 39 C5  JSR sub_0x03CDF2
 bra_A1D7:
-C - - - - 0x0361E7 23:A1D7: A0 09     LDY #con_игрок_09
+C - - - - 0x0361E7 23:A1D7: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x0361E9 23:A1D9: 91 34     STA (ram_plr_data),Y
 bra_A1DB_выход:
 C - - - - 0x0361EB 23:A1DB: 60        RTS

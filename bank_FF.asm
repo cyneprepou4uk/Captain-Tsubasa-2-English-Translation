@@ -3939,7 +3939,7 @@ C - - - - 0x03DF5A FF:DF4A: 20 99 CE  JSR sub_CE99_вычислить_управ
 C - - - - 0x03DF5D FF:DF4D: 48        PHA
 C - - - - 0x03DF5E FF:DF4E: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03DF61 FF:DF51: AD FE 05  LDA $05FE
-C - - - - 0x03DF64 FF:DF54: A0 09     LDY #con_игрок_09
+C - - - - 0x03DF64 FF:DF54: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x03DF66 FF:DF56: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03DF68 FF:DF58: 68        PLA
 C - - - - 0x03DF69 FF:DF59: 60        RTS
@@ -4189,7 +4189,7 @@ C - - - - 0x03E13D FF:E12D: 8D FD 05  STA ram_управляемый
 C - - - - 0x03E140 FF:E130: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E143 FF:E133: 20 7C CD  JSR sub_CD7C_адрес_игрока
 C - - - - 0x03E146 FF:E136: A9 05     LDA #$05
-C - - - - 0x03E148 FF:E138: A0 09     LDY #con_игрок_09
+C - - - - 0x03E148 FF:E138: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x03E14A FF:E13A: 91 34     STA (ram_plr_data),Y
 C - - - - 0x03E14C FF:E13C: AD FE 05  LDA $05FE
 C - - - - 0x03E14F FF:E13F: 8D 17 06  STA ram_колво_активных_защитников
@@ -4627,7 +4627,7 @@ bra_E462:
 C - - - - 0x03E472 FF:E462: A2 21     LDX #$21
 C - - - - 0x03E474 FF:E464: 90 0C     BCC bra_E472
 C - - - - 0x03E476 FF:E466: A2 22     LDX #$22
-C - - - - 0x03E478 FF:E468: A0 09     LDY #con_игрок_09
+C - - - - 0x03E478 FF:E468: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x03E47A FF:E46A: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E47C FF:E46C: C9 F0     CMP #$F0
 C - - - - 0x03E47E FF:E46E: D0 02     BNE bra_E472
@@ -5136,12 +5136,12 @@ C - - - - 0x03E7E5 FF:E7D5: A0 08     LDY #con_игрок_координата_Y
 C - - - - 0x03E7E7 FF:E7D7: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E7E9 FF:E7D9: A8        TAY
 C - - - - 0x03E7EA FF:E7DA: 20 E2 CD  JSR sub_CDE2
-C - - - - 0x03E7ED FF:E7DD: A0 09     LDY #con_игрок_09
+C - - - - 0x03E7ED FF:E7DD: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x03E7EF FF:E7DF: D1 34     CMP (ram_plr_data),Y
 C - - - - 0x03E7F1 FF:E7E1: D0 01     BNE bra_E7E4
 C - - - - 0x03E7F3 FF:E7E3: 60        RTS
 bra_E7E4:
-C - - - - 0x03E7F4 FF:E7E4: A0 09     LDY #con_игрок_09
+C - - - - 0x03E7F4 FF:E7E4: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x03E7F6 FF:E7E6: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E7F8 FF:E7E8: C9 F0     CMP #$F0
 C - - - - 0x03E7FA FF:E7EA: D0 03     BNE bra_E7EF
@@ -5223,7 +5223,7 @@ C - - - - 0x03E879 FF:E869: A0 08     LDY #con_игрок_координата_Y
 C - - - - 0x03E87B FF:E86B: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x03E87D FF:E86D: A8        TAY
 C - - - - 0x03E87E FF:E86E: 20 E2 CD  JSR sub_CDE2
-C - - - - 0x03E881 FF:E871: A0 09     LDY #con_игрок_09
+C - - - - 0x03E881 FF:E871: A0 09     LDY #con_игрок_параметр_09
 C - - - - 0x03E883 FF:E873: D1 34     CMP (ram_plr_data),Y
 C - - - - 0x03E885 FF:E875: F0 21     BEQ bra_E898
 C - - - - 0x03E887 FF:E877: AA        TAX
