@@ -4232,7 +4232,7 @@ bra_E186:
 C - - - - 0x03E196 FF:E186: 20 EC E6  JSR sub_E6EC
 C - - - - 0x03E199 FF:E189: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E19C FF:E18C: C9 0B     CMP #$0B
-C - - - - 0x03E19E FF:E18E: 90 57     BCC bra_E1E7
+C - - - - 0x03E19E FF:E18E: 90 57     BCC bra_E1E7      ; игрок из нашей команды
 C - - - - 0x03E1A0 FF:E190: AD FE 05  LDA $05FE
 C - - - - 0x03E1A3 FF:E193: CD 17 06  CMP ram_колво_активных_защитников
 C - - - - 0x03E1A6 FF:E196: F0 4F     BEQ bra_E1E7
