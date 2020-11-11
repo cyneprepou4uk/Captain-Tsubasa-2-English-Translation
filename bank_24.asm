@@ -366,36 +366,36 @@ C - - - - 0x03820D 24:81FD: 8D 43 04  STA $0443
 C - - - - 0x038210 24:8200: 4C 78 82  JMP loc_8278
 
 tbl_8206:
-- D - - - 0x038216 24:8206: 01        .byte $01    ; <あ>
-- D - - - 0x038217 24:8207: 07        .byte $07    ; <き>
-- D - - - 0x038218 24:8208: 0F        .byte $0F    ; <そ>
-- D - - - 0x038219 24:8209: 02        .byte $02    ; <い>
-- D - - - 0x03821A 24:820A: 08        .byte $08    ; <く>
-- D - - - 0x03821B 24:820B: 10        .byte $10    ; <た>
-- D - - - 0x03821C 24:820C: 03        .byte $03    ; <う>
-- - - - - 0x03821D 24:820D: FF        .byte $FF
-- - - - - 0x03821E 24:820E: FF        .byte $FF
-- D - - - 0x03821F 24:820F: 02        .byte $02    ; <い>
-- - - - - 0x038220 24:8210: FF        .byte $FF
-- - - - - 0x038221 24:8211: FF        .byte $FF
-- - - - - 0x038222 24:8212: FF        .byte $FF
-- D - - - 0x038223 24:8213: 09        .byte $09    ; <け>
-- D - - - 0x038224 24:8214: 11        .byte $11    ; <ち>
-- - - - - 0x038225 24:8215: FF        .byte $FF
-- D - - - 0x038226 24:8216: 0A        .byte $0A    ; <こ>
-- D - - - 0x038227 24:8217: 12        .byte $12    ; <つ>
-- - - - - 0x038228 24:8218: FF        .byte $FF
-- D - - - 0x038229 24:8219: 0B        .byte $0B    ; <さ>
-- D - - - 0x03822A 24:821A: 13        .byte $13    ; <て>
-- D - - - 0x03822B 24:821B: 01        .byte $01    ; <あ>
-- - - - - 0x03822C 24:821C: FF        .byte $FF
-- - - - - 0x03822D 24:821D: FF        .byte $FF
-- D - - - 0x03822E 24:821E: 01        .byte $01    ; <あ>
-- - - - - 0x03822F 24:821F: FF        .byte $FF
-- - - - - 0x038230 24:8220: FF        .byte $FF
-- D - - - 0x038231 24:8221: 01        .byte $01    ; <あ>
-- - - - - 0x038232 24:8222: FF        .byte $FF
-- - - - - 0x038233 24:8223: FF        .byte $FF
+    .byte $01       ; 
+    .byte $07       ; 
+    .byte $0F       ; 
+    .byte $02       ; 
+    .byte $08       ; 
+    .byte $10       ; 
+    .byte $03       ; 
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $02       ; 
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $09       ; 
+    .byte $11       ; 
+    .byte $FF       ; unused
+    .byte $0A       ; 
+    .byte $12       ; 
+    .byte $FF       ; unused
+    .byte $0B       ; 
+    .byte $13       ; 
+    .byte $01       ; 
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $01       ; 
+    .byte $FF       ; unused
+    .byte $FF       ; unused
+    .byte $01       ; 
+    .byte $FF       ; unused
+    .byte $FF       ; unused
 
 loc_8224_07:
 C D - - - 0x038234 24:8224: AD 3D 04  LDA ram_действие_защиты
