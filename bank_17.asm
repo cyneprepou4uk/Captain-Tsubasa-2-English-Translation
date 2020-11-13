@@ -2976,17 +2976,14 @@ bra_case_8F6D_01_tackle:
 - D - I - 0x020F80 17:8F70: 11        .byte bra_case_8F81_01 - *
 - D - I - 0x020F81 17:8F71: 1F        .byte bra_case_8F90_02 - *
 - D - I - 0x020F82 17:8F72: 2D        .byte bra_case_8F9F_03 - *
-- - - - - 0x020F83 17:8F73: 0D        .byte bra_case_8F80_04_нарушение - *
 
 bra_case_8F77_00:
 - D - I - 0x020F87 17:8F77: FA        .byte con_jsr
 - D - I - 0x020F88 17:8F78: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x020F8A 17:8F7A: FA        .byte con_jsr
 - D - I - 0x020F8B 17:8F7B: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
-- D - I - 0x020F8D 17:8F7D: FA        .byte con_jsr
-- D - I - 0x020F8E 17:8F7E: 1C A0     .word sub_A01C_защитник_промахивается_телом_по_низкому_мячу
-bra_case_8F80_04_нарушение:
-- D - I - 0x020F90 17:8F80: F0        .byte con_quit
+- D - I - 0x020F8D 17:8F7D: FA        .byte con_jmp
+- D - I - 0x020F8E 17:8F7E: 1C A0     .word loc_A01C_защитник_промахивается_телом_по_низкому_мячу
 
 bra_case_8F81_01:
 - D - I - 0x020F91 17:8F81: FA        .byte con_jsr
@@ -6613,6 +6610,7 @@ loc_A017_мяч_летит_дальше_после_касания_защитин
 - D - I - 0x02202A 11:A01A: F0        .byte con_cloud + con_skip
 - D - I - 0x02202B 11:A01B: FB        .byte con_rts
 
+loc_A01C_защитник_промахивается_телом_по_низкому_мячу:
 sub_A01C_защитник_промахивается_телом_по_низкому_мячу:
 - D - I - 0x02202C 11:A01C: FC        .byte con_moving_bg, $02
 - D - I - 0x02202E 11:A01E: 3C        .byte con_pause + $3C
