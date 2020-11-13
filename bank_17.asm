@@ -2627,7 +2627,7 @@ bra_case_8CDC_00:
 - D - I - 0x020CEC 17:8CDC: FA        .byte con_jsr
 - D - I - 0x020CED 17:8CDD: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CEF 17:8CDF: FA        .byte con_jsr
-- D - I - 0x020CF0 17:8CE0: F8 9D     .word sub_9DF8
+- D - I - 0x020CF0 17:8CE0: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - D - I - 0x020CF2 17:8CE2: FA        .byte con_jsr
 - D - I - 0x020CF3 17:8CE3: E5 9F     .word sub_9FE5
 bra_case_8CE5_04_нарушение:
@@ -2637,7 +2637,7 @@ bra_case_8CE6_01:
 - D - I - 0x020CF6 17:8CE6: FA        .byte con_jsr
 - D - I - 0x020CF7 17:8CE7: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CF9 17:8CE9: FA        .byte con_jsr
-- D - I - 0x020CFA 17:8CEA: F8 9D     .word sub_9DF8
+- D - I - 0x020CFA 17:8CEA: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - D - I - 0x020CFC 17:8CEC: FA        .byte con_jsr
 - D - I - 0x020CFD 17:8CED: 0B A0     .word sub_A00B
 - D - I - 0x020CFF 17:8CEF: FA        .byte con_jsr
@@ -2649,7 +2649,7 @@ bra_case_8CF5_02:
 - D - I - 0x020D05 17:8CF5: FA        .byte con_jsr
 - D - I - 0x020D06 17:8CF6: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020D08 17:8CF8: FA        .byte con_jsr
-- D - I - 0x020D09 17:8CF9: F8 9D     .word sub_9DF8
+- D - I - 0x020D09 17:8CF9: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - D - I - 0x020D0B 17:8CFB: FA        .byte con_jsr
 - D - I - 0x020D0C 17:8CFC: 10 A0     .word sub_A010
 - D - I - 0x020D0E 17:8CFE: FA        .byte con_jsr
@@ -2661,7 +2661,7 @@ bra_case_8D04_03:
 - D - I - 0x020D14 17:8D04: FA        .byte con_jsr
 - D - I - 0x020D15 17:8D05: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020D17 17:8D07: FA        .byte con_jsr
-- D - I - 0x020D18 17:8D08: F8 9D     .word sub_9DF8
+- D - I - 0x020D18 17:8D08: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - D - I - 0x020D1A 17:8D0A: F2        .byte con_jmp
 - D - I - 0x020D1B 17:8D0B: 6E A1     .word loc_A16E
 
@@ -2826,7 +2826,7 @@ bra_case_8DB3_00:
 - D - I - 0x020DC3 17:8DB3: FA        .byte con_jsr
 - D - I - 0x020DC4 17:8DB4: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020DC6 17:8DB6: FA        .byte con_jsr
-- D - I - 0x020DC7 17:8DB7: F8 9D     .word sub_9DF8
+- D - I - 0x020DC7 17:8DB7: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - D - I - 0x020DC9 17:8DB9: FA        .byte con_jsr
 - D - I - 0x020DCA 17:8DBA: 10 A0     .word sub_A010
 - D - I - 0x020DCC 17:8DBC: FA        .byte con_jsr
@@ -2840,7 +2840,7 @@ bra_case_8DC3_01:
 - - - - - 0x020DD3 17:8DC3: FA        .byte con_jsr
 - - - - - 0x020DD4 17:8DC4: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - - - - - 0x020DD6 17:8DC6: FA        .byte con_jsr
-- - - - - 0x020DD7 17:8DC7: F8 9D     .word sub_9DF8
+- - - - - 0x020DD7 17:8DC7: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - - - - - 0x020DD9 17:8DC9: FA        .byte con_jsr
 - - - - - 0x020DDA 17:8DCA: 10 A0     .word sub_A010
 - - - - - 0x020DDC 17:8DCC: FA        .byte con_jsr
@@ -2854,7 +2854,7 @@ bra_case_8DD5_02:
 - - - - - 0x020DE5 17:8DD5: FA        .byte con_jsr
 - - - - - 0x020DE6 17:8DD6: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - - - - - 0x020DE8 17:8DD8: FA        .byte con_jsr
-- - - - - 0x020DE9 17:8DD9: F8 9D     .word sub_9DF8
+- - - - - 0x020DE9 17:8DD9: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - - - - - 0x020DEB 17:8DDB: FA        .byte con_jsr
 - - - - - 0x020DEC 17:8DDC: 10 A0     .word sub_A010
 - - - - - 0x020DEE 17:8DDE: FA        .byte con_jsr
@@ -2868,7 +2868,7 @@ bra_case_8DE7_03:
 - - - - - 0x020DF7 17:8DE7: FA        .byte con_jsr
 - - - - - 0x020DF8 17:8DE8: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - - - - - 0x020DFA 17:8DEA: FA        .byte con_jsr
-- - - - - 0x020DFB 17:8DEB: F8 9D     .word sub_9DF8
+- - - - - 0x020DFB 17:8DEB: F8 9D     .word sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом
 - - - - - 0x020DFD 17:8DED: FA        .byte con_jsr
 - - - - - 0x020DFE 17:8DEE: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - - - - - 0x020E00 17:8DF0: F2        .byte con_jmp
@@ -6216,7 +6216,7 @@ bra_long_case_9DEC_00_shoot:
 - - - - - 0x021E04 17:9DF4: 9B B2     .word bra_long_case_B29B_03_through
 - D - I - 0x021E06 17:9DF6: 9B B2     .word bra_long_case_B29B_04
 
-sub_9DF8:
+sub_9DF8_игрок_прыгает_к_летящему_мячу_с_перехватом:
 - D - I - 0x021E08 17:9DF8: F3        .byte con_branch, $37
 - D - I - 0x021E0A 17:9DFA: 2C B3     .word bra_long_case_B32C_00
 - D - I - 0x021E0C 17:9DFC: 1A B3     .word bra_long_case_B31A_01
