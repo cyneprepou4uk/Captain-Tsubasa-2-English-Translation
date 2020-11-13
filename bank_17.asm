@@ -7244,6 +7244,14 @@ sub_A24E_штанга_со_звуком:
 - D - I - 0x022266 11:A256: 27        .byte con_cloud + $27
 - D - I - 0x022267 11:A257: FB        .byte con_rts
 
+sub_A24F_штанга_без_звука:
+    .byte con_F7, $1F
+    .byte con_pause + $10
+    .byte con_bg + $06
+    .byte con_animation + $43
+    .byte con_cloud + $27
+    .byte con_rts
+
 loc_A258:
 sub_A258:
 - D - I - 0x022268 11:A258: 37        .byte con_pause + $37
@@ -14710,7 +14718,7 @@ _scenario_BF61_70:
 - D - I - 0x023F71 11:BF61: FA        .byte con_jsr
 - D - I - 0x023F72 11:BF62: E7 B4     .word sub_B4E7
 - D - I - 0x023F74 11:BF64: FA        .byte con_jsr
-- D - I - 0x023F75 11:BF65: 4E A2     .word sub_A24E_штанга_со_звуком
+- D - I - 0x023F75 11:BF65: 4E A2     .word sub_A24F_штанга_без_звука
 - D - I - 0x023F77 11:BF67: FA        .byte con_jsr
 - D - I - 0x023F78 11:BF68: 58 A2     .word sub_A258
 - D - I - 0x023F7A 11:BF6A: FA        .byte con_jsr
