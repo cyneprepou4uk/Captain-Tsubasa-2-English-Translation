@@ -4669,7 +4669,7 @@ loc_9713:
 loc_9716:
 bra_case_9716_01_штанга:
 - D - I - 0x021726 17:9716: FA        .byte con_jsr
-- D - I - 0x021727 17:9717: 4E A2     .word sub_A24E_штанга
+- D - I - 0x021727 17:9717: 4E A2     .word sub_A24E_штанга_со_звуком
 - D - I - 0x021729 17:9719: F2        .byte con_jmp
 - D - I - 0x02172A 17:971A: 58 A2     .word loc_A258
 
@@ -4697,7 +4697,7 @@ loc_972E:
 loc_9731:
 bra_case_9731_03_штанга_и_добивание:
 - D - I - 0x021741 17:9731: FA        .byte con_jsr
-- D - I - 0x021742 17:9732: 4E A2     .word sub_A24E_штанга
+- D - I - 0x021742 17:9732: 4E A2     .word sub_A24E_штанга_со_звуком
 - D - I - 0x021744 17:9734: FA        .byte con_jsr
 - D - I - 0x021745 17:9735: 58 A2     .word sub_A258
 - D - I - 0x021747 17:9737: FA        .byte con_jsr
@@ -4808,7 +4808,7 @@ loc_9799:
 - D - I - 0x0217AC 17:979C: FA        .byte con_jsr
 - D - I - 0x0217AD 17:979D: B5 9F     .word sub_9FB5_убийство_кипера
 - D - I - 0x0217AF 17:979F: FA        .byte con_jsr
-- D - I - 0x0217B0 17:97A0: 4E A2     .word sub_A24E_штанга
+- D - I - 0x0217B0 17:97A0: 4E A2     .word sub_A24E_штанга_со_звуком
 - D - I - 0x0217B2 17:97A2: F2        .byte con_jmp
 - D - I - 0x0217B3 17:97A3: 58 A2     .word loc_A258
 
@@ -4844,7 +4844,7 @@ loc_97C3:
 - - - - - 0x0217D6 17:97C6: FA        .byte con_jsr
 - - - - - 0x0217D7 17:97C7: B5 9F     .word sub_9FB5_убийство_кипера
 - - - - - 0x0217D9 17:97C9: FA        .byte con_jsr
-- - - - - 0x0217DA 17:97CA: 4E A2     .word sub_A24E_штанга
+- - - - - 0x0217DA 17:97CA: 4E A2     .word sub_A24E_штанга_со_звуком
 - - - - - 0x0217DC 17:97CC: FA        .byte con_jsr
 - - - - - 0x0217DD 17:97CD: 58 A2     .word sub_A258
 - - - - - 0x0217DF 17:97CF: FA        .byte con_jsr
@@ -7235,7 +7235,7 @@ loc_A247:
 - D - I - 0x02225C 11:A24C: 1D        .byte con_cloud + $1D
 - D - I - 0x02225D 11:A24D: FB        .byte con_rts
 
-sub_A24E_штанга:
+sub_A24E_штанга_со_звуком:
 - D - I - 0x02225E 11:A24E: F7        .byte con_F7, $1F
 - D - I - 0x022260 11:A250: F9        .byte con_soundID_delay, $63, $02
 - D - I - 0x022263 11:A253: 10        .byte con_pause + $10
@@ -14710,7 +14710,7 @@ _scenario_BF61_70:
 - D - I - 0x023F71 11:BF61: FA        .byte con_jsr
 - D - I - 0x023F72 11:BF62: E7 B4     .word sub_B4E7
 - D - I - 0x023F74 11:BF64: FA        .byte con_jsr
-- D - I - 0x023F75 11:BF65: 4E A2     .word sub_A24E_штанга
+- D - I - 0x023F75 11:BF65: 4E A2     .word sub_A24E_штанга_со_звуком
 - D - I - 0x023F77 11:BF67: FA        .byte con_jsr
 - D - I - 0x023F78 11:BF68: 58 A2     .word sub_A258
 - D - I - 0x023F7A 11:BF6A: FA        .byte con_jsr
