@@ -2505,7 +2505,6 @@ bra_case_8C5C_00_block:
 - D - I - 0x020C6F 17:8C5F: 1A        .byte bra_case_8C79_01_коснется - *
 - D - I - 0x020C70 17:8C60: 03        .byte bra_case_8C63_02_отобьет - *
 - D - I - 0x020C71 17:8C61: 08        .byte bra_case_8C69_03_словит - *
-- - - - - 0x020C72 17:8C62: 16        .byte bra_case_8C78_04_нарушение - *
 
 bra_case_8C63_02_отобьет:
 - D - I - 0x020C73 17:8C63: F3        .byte con_branch, $9B
@@ -2526,10 +2525,8 @@ bra_case_8C6F_00_промахнется:
 - D - I - 0x020C80 17:8C70: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020C82 17:8C72: FA        .byte con_jsr
 - D - I - 0x020C83 17:8C73: 47 B3     .word sub_B347_игрок_прыгает_к_летящему_мячу_блоком
-- D - I - 0x020C85 17:8C75: FA        .byte con_jsr
-- D - I - 0x020C86 17:8C76: 76 A1     .word sub_A176_защитник_в_воздухе_не_касается_мяча_телом
-bra_case_8C78_04_нарушение:
-- D - I - 0x020C88 17:8C78: F0        .byte con_quit
+- D - I - 0x020C85 17:8C75: FA        .byte con_jmp
+- D - I - 0x020C86 17:8C76: 76 A1     .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
 
 bra_case_8C79_01_коснется:
 - D - I - 0x020C89 17:8C79: FA        .byte con_jsr
