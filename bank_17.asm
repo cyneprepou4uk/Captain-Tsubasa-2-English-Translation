@@ -2103,47 +2103,47 @@ tbl_89BF_сценарии:
 - - - - - 0x020A69 17:8A59: 01 BE     .word _scenario_BE01_50___
 - - - - - 0x020A6B 17:8A5B: 01 BE     .word _scenario_BE01_50___
 - - - - - 0x020A6D 17:8A5D: 01 BE     .word _scenario_BE01_50___
-- D - I - 0x020A6F 17:8A5F: 01 BE     .word _scenario_BE01_50___    ; титры лицо 22 tsubasa
-- D - I - 0x020A71 17:8A61: 0D BE     .word _scenario_BE0D_51       ; титры лицо 18 misaki
-- D - I - 0x020A73 17:8A63: 18 BE     .word _scenario_BE18_52       ; титры лицо 20 hyuga
-- D - I - 0x020A75 17:8A65: 20 BE     .word _scenario_BE20_53       ; титры лицо 21 wakabayashi
-- D - I - 0x020A77 17:8A67: 2A BE     .word _scenario_BE2A_54       ; титры лицо  8 matsuyama
-- D - I - 0x020A79 17:8A69: 32 BE     .word _scenario_BE32_55       ; титры лицо  7 misugi
-- D - I - 0x020A7B 17:8A6B: 3A BE     .word _scenario_BE3A_56       ; титры лицо  3 ishizaki
-- D - I - 0x020A7D 17:8A6D: 42 BE     .word _scenario_BE42_57       ; титры лицо  6 soda
-- D - I - 0x020A7F 17:8A6F: 4A BE     .word _scenario_BE4A_58       ; титры лицо  9 nitta
-- D - I - 0x020A81 17:8A71: 52 BE     .word _scenario_BE52_59       ; титры лицо  4 jito
-- D - I - 0x020A83 17:8A73: 5A BE     .word _scenario_BE5A_5A       ; титры лицо  5 masao и kazuo
-- D - I - 0x020A85 17:8A75: 69 BE     .word _scenario_BE69_5B       ; титры лицо 19 wakashimazu
-- D - I - 0x020A87 17:8A77: 73 BE     .word _scenario_BE73_5C       ; титры лицо  1 carlos
-- D - I - 0x020A89 17:8A79: 7C BE     .word _scenario_BE7C_5D       ; титры лицо  2 meon
-- D - I - 0x020A8B 17:8A7B: 86 BE     .word _scenario_BE86_5E       ; титры лицо 11 kaltz
-- D - I - 0x020A8D 17:8A7D: 8E BE     .word _scenario_BE8E_5F       ; титры лицо 12 pierre
-- D - I - 0x020A8F 17:8A7F: 96 BE     .word _scenario_BE96_60       ; титры лицо 13 napoleon
-- D - I - 0x020A91 17:8A81: 9E BE     .word _scenario_BE9E_61       ; титры лицо 14 diaz
-- D - I - 0x020A93 17:8A83: A6 BE     .word _scenario_BEA6_62       ; титры лицо 15 pascal
-- D - I - 0x020A95 17:8A85: AE BE     .word _scenario_BEAE_63       ; титры лицо 16 schneider
-- D - I - 0x020A97 17:8A87: B6 BE     .word _scenario_BEB6_64       ; титры лицо 10 victorino
-- D - I - 0x020A99 17:8A89: BE BE     .word _scenario_BEBE_65       ; титры лицо 17 coimbra
-- D - I - 0x020A9B 17:8A8B: C6 BE     .word _scenario_BEC6_66       ; титры долгая анимация удара и портрет в конце 
+- D - I - 0x020A6F 17:8A5F: 01 BE     .word _scenario_BE01_50___    ; credits face 22 tsubasa
+- D - I - 0x020A71 17:8A61: 0D BE     .word _scenario_BE0D_51       ; credits face 18 misaki
+- D - I - 0x020A73 17:8A63: 18 BE     .word _scenario_BE18_52       ; credits face 20 hyuga
+- D - I - 0x020A75 17:8A65: 20 BE     .word _scenario_BE20_53       ; credits face 21 wakabayashi
+- D - I - 0x020A77 17:8A67: 2A BE     .word _scenario_BE2A_54       ; credits face  8 matsuyama
+- D - I - 0x020A79 17:8A69: 32 BE     .word _scenario_BE32_55       ; credits face  7 misugi
+- D - I - 0x020A7B 17:8A6B: 3A BE     .word _scenario_BE3A_56       ; credits face  3 ishizaki
+- D - I - 0x020A7D 17:8A6D: 42 BE     .word _scenario_BE42_57       ; credits face  6 soda
+- D - I - 0x020A7F 17:8A6F: 4A BE     .word _scenario_BE4A_58       ; credits face  9 nitta
+- D - I - 0x020A81 17:8A71: 52 BE     .word _scenario_BE52_59       ; credits face  4 jito
+- D - I - 0x020A83 17:8A73: 5A BE     .word _scenario_BE5A_5A       ; credits face  5 masao и kazuo
+- D - I - 0x020A85 17:8A75: 69 BE     .word _scenario_BE69_5B       ; credits face 19 wakashimazu
+- D - I - 0x020A87 17:8A77: 73 BE     .word _scenario_BE73_5C       ; credits face  1 carlos
+- D - I - 0x020A89 17:8A79: 7C BE     .word _scenario_BE7C_5D       ; credits face  2 meon
+- D - I - 0x020A8B 17:8A7B: 86 BE     .word _scenario_BE86_5E       ; credits face 11 kaltz
+- D - I - 0x020A8D 17:8A7D: 8E BE     .word _scenario_BE8E_5F       ; credits face 12 pierre
+- D - I - 0x020A8F 17:8A7F: 96 BE     .word _scenario_BE96_60       ; credits face 13 napoleon
+- D - I - 0x020A91 17:8A81: 9E BE     .word _scenario_BE9E_61       ; credits face 14 diaz
+- D - I - 0x020A93 17:8A83: A6 BE     .word _scenario_BEA6_62       ; credits face 15 pascal
+- D - I - 0x020A95 17:8A85: AE BE     .word _scenario_BEAE_63       ; credits face 16 schneider
+- D - I - 0x020A97 17:8A87: B6 BE     .word _scenario_BEB6_64       ; credits face 10 victorino
+- D - I - 0x020A99 17:8A89: BE BE     .word _scenario_BEBE_65       ; credits face 17 coimbra
+- D - I - 0x020A9B 17:8A8B: C6 BE     .word _scenario_BEC6_66       ; credits долгая анимация удара и портрет в конце 
 - - - - - 0x020A9D 17:8A8D: D8 BE     .word _scenario_BED8_67       ; 
 - - - - - 0x020A9F 17:8A8F: F7 BE     .word _scenario_BEF7_68       ; 
-- D - I - 0x020AA1 17:8A91: 05 BF     .word _scenario_BF05_69       ; титры  1 tsubasa shoot
-- D - I - 0x020AA3 17:8A93: 62 AA     .word _scenario_AA62_6A       ; титры 11 tsubasa heel lift
-- D - I - 0x020AA5 17:8A95: 0D BF     .word _scenario_BF0D_6B       ; титры  3 soda razor tackle
-- D - I - 0x020AA7 17:8A97: 13 BF     .word _scenario_BF13_6C       ; титры  4 ishizaki face block
-- D - I - 0x020AA9 17:8A99: 23 BF     .word _scenario_BF23_6D       ; титры  5 tsubasa cyclone launch
-- D - I - 0x020AAB 17:8A9B: 2C BF     .word _scenario_BF2C_6E       ; титры  6 tachibana skylab hurricane
-- D - I - 0x020AAD 17:8A9D: 54 BF     .word _scenario_BF54_6F       ; титры  7 wakashimazu triangle jump
-- D - I - 0x020AAF 17:8A9F: 61 BF     .word _scenario_BF61_70       ; титры  8 штанга + добивание urabe + мяч лопается
-- D - I - 0x020AB1 17:8AA1: 73 BF     .word _scenario_BF73_71       ; титры  9 кипер пропускает + matsuyama спасает ворота
-- D - I - 0x020AB3 17:8AA3: 7F BF     .word _scenario_BF7F_72       ; титры 10 jito power block
-- D - I - 0x020AB5 17:8AA5: 94 BF     .word _scenario_BF94_73       ; титры 12 wakabayshi critical
-- D - I - 0x020AB7 17:8AA7: 9C BF     .word _scenario_BF9C_74       ; титры 13 hyuga forcible dribble
-- D - I - 0x020AB9 17:8AA9: D2 BF     .word _scenario_BFD2_75       ; титры 14 misaki jumping volley
-- D - I - 0x020ABB 17:8AAB: 1B B0     .word _scenario_B01B_76       ; титры 15 misaki overhead kick
-- D - I - 0x020ABD 17:8AAD: D8 BF     .word _scenario_BFD8_77       ; титры 16 tsubasa крупным планом
-- D - I - 0x020ABF 17:8AAF: 97 A1     .word _scenario_A197_78       ; титры  2 nitta high clear
+- D - I - 0x020AA1 17:8A91: 05 BF     .word _scenario_BF05_69       ; credits  1 tsubasa shoot
+- D - I - 0x020AA3 17:8A93: 62 AA     .word _scenario_AA62_6A       ; credits 11 tsubasa heel lift
+- D - I - 0x020AA5 17:8A95: 0D BF     .word _scenario_BF0D_6B       ; credits  3 soda razor tackle
+- D - I - 0x020AA7 17:8A97: 13 BF     .word _scenario_BF13_6C       ; credits  4 ishizaki face block
+- D - I - 0x020AA9 17:8A99: 23 BF     .word _scenario_BF23_6D       ; credits  5 tsubasa cyclone launch
+- D - I - 0x020AAB 17:8A9B: 2C BF     .word _scenario_BF2C_6E       ; credits  6 tachibana skylab hurricane
+- D - I - 0x020AAD 17:8A9D: 54 BF     .word _scenario_BF54_6F       ; credits  7 wakashimazu triangle jump
+- D - I - 0x020AAF 17:8A9F: 61 BF     .word _scenario_BF61_70       ; credits  8 штанга + добивание urabe + мяч лопается
+- D - I - 0x020AB1 17:8AA1: 73 BF     .word _scenario_BF73_71       ; credits  9 кипер пропускает + matsuyama спасает ворота
+- D - I - 0x020AB3 17:8AA3: 7F BF     .word _scenario_BF7F_72       ; credits 10 jito power block
+- D - I - 0x020AB5 17:8AA5: 94 BF     .word _scenario_BF94_73       ; credits 12 wakabayshi critical
+- D - I - 0x020AB7 17:8AA7: 9C BF     .word _scenario_BF9C_74       ; credits 13 hyuga forcible dribble
+- D - I - 0x020AB9 17:8AA9: D2 BF     .word _scenario_BFD2_75       ; credits 14 misaki jumping volley
+- D - I - 0x020ABB 17:8AAB: 1B B0     .word _scenario_B01B_76       ; credits 15 misaki overhead kick
+- D - I - 0x020ABD 17:8AAD: D8 BF     .word _scenario_BFD8_77       ; credits 16 tsubasa крупным планом
+- D - I - 0x020ABF 17:8AAF: 97 A1     .word _scenario_A197_78       ; credits  2 nitta high clear
 
 
 
