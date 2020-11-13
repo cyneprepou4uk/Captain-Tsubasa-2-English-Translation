@@ -3588,7 +3588,7 @@ bra_case_9312_01:
 
 bra_case_9315_02:
 - D - I - 0x021325 17:9315: F2        .byte con_jmp
-- D - I - 0x021326 17:9316: 83 A0     .word loc_A083_кипер_ловит_мяч_вид_сверху
+- D - I - 0x021326 17:9316: 83 A0     .word loc_A083_кипер_ловит_мяч_после_верхнего_dive
 
 bra_case_9318_04_нарушение:
 - D - I - 0x021328 17:9318: F2        .byte con_jmp
@@ -3596,7 +3596,7 @@ bra_case_9318_04_нарушение:
 
 bra_case_931B_01:
 - - - - - 0x02132B 17:931B: FA        .byte con_jmp
-- - - - - 0x02132C 17:931C: 97 A1     .word loc_A197
+- - - - - 0x02132C 17:931C: 97 A1     .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
 
 bra_long_case_931F_00:
 bra_case_931F_00:
@@ -3609,7 +3609,7 @@ bra_case_9322_01:
 
 bra_case_9325_02:
 - D - I - 0x021335 17:9325: F2        .byte con_jmp
-- D - I - 0x021336 17:9326: 79 A0     .word loc_A079
+- D - I - 0x021336 17:9326: 79 A0     .word loc_A079_кипер_ловит_мяч_после_нижнего_dive
 
 bra_case_9328_01:
 - - - - - 0x021338 17:9328: FA        .byte con_jmp
@@ -3640,13 +3640,13 @@ bra_long_case_933C_00:
 bra_case_933C_01_pass:
 - D - I - 0x02134C 17:933C: FD        .byte con_mirror_condition, $00
 - D - I - 0x02134E 17:933E: F2        .byte con_jmp
-- D - I - 0x02134F 17:933F: 45 9E     .word loc_9E45
+- D - I - 0x02134F 17:933F: 45 9E     .word loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу
 
 bra_long_case_9341_01:
 bra_case_9341_02_trap:
 - D - I - 0x021351 17:9341: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021353 17:9343: F2        .byte con_jmp
-- D - I - 0x021354 17:9344: C2 B2     .word loc_B2C2
+- D - I - 0x021354 17:9344: C2 B2     .word loc_B2C2_игрок_принимает_низкий_мяч_на_ногу
 
 bra_case_9346_00_shoot:
 - D - I - 0x021356 17:9346: FD        .byte con_mirror_condition, $03       ; куда летит мяч
@@ -3656,23 +3656,23 @@ bra_case_9346_00_shoot:
 bra_case_934B_03_through:
 - D - I - 0x02135B 17:934B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02135D 17:934D: F2        .byte con_jmp
-- D - I - 0x02135E 17:934E: 42 B4     .word loc_B442
+- D - I - 0x02135E 17:934E: 42 B4     .word loc_B442_игрок_делает_нижний_through
 
 bra_long_case_9350_00:
 bra_case_9350_01_pass:
 - D - I - 0x021360 17:9350: FD        .byte con_mirror_condition, $00
 - D - I - 0x021362 17:9352: F2        .byte con_jmp
-- D - I - 0x021363 17:9353: 4F 9E     .word loc_9E4F
+- D - I - 0x021363 17:9353: 4F 9E     .word loc_9E4F_пас_головой_в_воздухе
 
 bra_case_9355_02_dribble:
 - D - I - 0x021365 17:9355: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021367 17:9357: F2        .byte con_jmp
-- D - I - 0x021368 17:9358: CC B2     .word loc_B2CC
+- D - I - 0x021368 17:9358: CC B2     .word loc_B2CC_игрок_принимает_высокий_мяч_на_живот_фон_облака
 
 bra_long_case_935A_01:
 - D - I - 0x02136A 17:935A: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02136C 17:935C: F2        .byte con_jmp
-- D - I - 0x02136D 17:935D: D4 B2     .word loc_B2D4
+- D - I - 0x02136D 17:935D: D4 B2     .word loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители
 
 bra_case_935F_00_shoot:
 - D - I - 0x02136F 17:935F: FD        .byte con_mirror_condition, $03       ; куда летит мяч
@@ -3682,7 +3682,7 @@ bra_case_935F_00_shoot:
 bra_case_9364_03_1_2_pass:
 - D - I - 0x021374 17:9364: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021376 17:9366: F2        .byte con_jmp
-- D - I - 0x021377 17:9367: 3D B4     .word loc_B43D
+- D - I - 0x021377 17:9367: 3D B4     .word loc_B43D_игрок_делает_верхний_through
 
 
 
@@ -6206,16 +6206,16 @@ _scenario_9E3E_18:
 - - - - - 0x021E53 17:9E43: 02        .byte bra_case_9E45_01_летит_низкий_мяч - *
 - - - - - 0x021E54 17:9E44: 0B        .byte bra_case_9E4F_02_летит_высокий_мяч - *
 
-loc_9E45:
+loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу:
 bra_case_9E45_01_летит_низкий_мяч:
 bra_case_9E45_00_мяч_у_атакующего_на_земле:
 - D - I - 0x021E55 17:9E45: F3        .byte con_branch, $1E
-- D - I - 0x021E57 17:9E47: 51 AF     .word bra_long_case_AF51_00
-- D - I - 0x021E59 17:9E49: 59 AF     .word bra_long_case_AF59_01
-- D - I - 0x021E5B 17:9E4B: 90 AF     .word bra_long_case_AF90_02
-- D - I - 0x021E5D 17:9E4D: AA AF     .word bra_long_case_AFAA_03
+- D - I - 0x021E57 17:9E47: 51 AF     .word bra_long_case_AF51_00_pass
+- D - I - 0x021E59 17:9E49: 59 AF     .word bra_long_case_AF59_01_drive_pass
+- D - I - 0x021E5B 17:9E4B: 90 AF     .word bra_long_case_AF90_02_razor_pass
+- D - I - 0x021E5D 17:9E4D: AA AF     .word bra_long_case_AFAA_03_topspin_pass
 
-loc_9E4F:
+loc_9E4F_пас_головой_в_воздухе:
 bra_case_9E4F_02_летит_высокий_мяч:
 - D - I - 0x021E5F 17:9E4F: F9        .byte con_soundID_delay, $2B, $15     ; отбитие мяча
 - D - I - 0x021E62 17:9E52: 3F        .byte con_pause + $3F
@@ -6670,7 +6670,7 @@ bra_long_case_A06A_01_рандом_2:
 - D - I - 0x02207D 11:A06D: 02        .byte con_cloud + $02
 - D - I - 0x02207E 11:A06E: FB        .byte con_rts
 
-loc_A079:
+loc_A079_кипер_ловит_мяч_после_нижнего_dive:
 - D - I - 0x022089 11:A079: FC        .byte con_moving_bg, $03
 - D - I - 0x02208B 11:A07B: F9        .byte con_soundID_delay, $2A, $02     ; ловля мяча/мяч приклеился
 - D - I - 0x02208E 11:A07E: 3C        .byte con_pause + $3C
@@ -6679,7 +6679,7 @@ loc_A079:
 - D - I - 0x022091 11:A081: 0B        .byte con_cloud + $0B
 - D - I - 0x022092 11:A082: FB        .byte con_rts
 
-loc_A083_кипер_ловит_мяч_вид_сверху:
+loc_A083_кипер_ловит_мяч_после_верхнего_dive:
 - D - I - 0x022093 11:A083: F7        .byte con_F7, $07
 - D - I - 0x022095 11:A085: F9        .byte con_soundID_delay, $2A, $21     ; ловля мяча/мяч приклеился
 - D - I - 0x022098 11:A088: 50        .byte con_pause + $50
@@ -6975,7 +6975,6 @@ loc_A18D_игрок_делает_clear_ногой:
 
 _scenario_A197_78:
 loc_A197_защитник_делает_clear_головой_из_своей_штрафной:
-loc_A197:
 - D - I - 0x0221A7 11:A197: F9        .byte con_soundID_delay, $2A, $21
 - D - I - 0x0221AA 11:A19A: 2D        .byte con_pause + $2D
 - D - I - 0x0221AB 11:A19B: 6E        .byte con_bg + $6E
@@ -10445,7 +10444,7 @@ bra_long_case_AF31_03:
 - D - I - 0x022F5F 11:AF4F: F6        .byte con_mirror_toggle
 - D - I - 0x022F60 11:AF50: FB        .byte con_rts
 
-bra_long_case_AF51_00:
+bra_long_case_AF51_00_pass:
 - D - I - 0x022F61 11:AF51: F9        .byte con_soundID_delay, $2B, $05
 - D - I - 0x022F64 11:AF54: 3C        .byte con_pause + $3C
 - D - I - 0x022F65 11:AF55: 72        .byte con_bg + $72
@@ -10453,7 +10452,7 @@ bra_long_case_AF51_00:
 - D - I - 0x022F67 11:AF57: 47        .byte con_cloud + $47
 - D - I - 0x022F68 11:AF58: FB        .byte con_rts
 
-bra_long_case_AF59_01:
+bra_long_case_AF59_01_drive_pass:
 - D - I - 0x022F69 11:AF59: F5        .byte con_mirror_off
 - D - I - 0x022F6A 11:AF5A: 3C        .byte con_pause + $3C
 - D - I - 0x022F6B 11:AF5B: 30        .byte con_bg + $30
@@ -10504,7 +10503,7 @@ sub_AF88:
 - D - I - 0x022F9D 11:AF8D: F2        .byte con_jmp
 - D - I - 0x022F9E 11:AF8E: 78 AF     .word loc_AF78
 
-bra_long_case_AF90_02:
+bra_long_case_AF90_02_razor_pass:
 - D - I - 0x022FA0 11:AF90: F3        .byte con_branch, $B2     ; проверка на soda
 - D - I - 0x022FA2 11:AF92: 02        .byte bra_case_AF94_00_это_soda - *
 - D - I - 0x022FA3 11:AF93: 11        .byte bra_case_AFA4_01_это_не_soda - *
@@ -10529,7 +10528,7 @@ bra_case_AFA4_01_это_не_soda:
 - D - I - 0x022FB7 11:AFA7: F2        .byte con_jmp
 - D - I - 0x022FB8 11:AFA8: 97 AF     .word loc_AF97
 
-bra_long_case_AFAA_03:
+bra_long_case_AFAA_03_topspin_pass:
 - D - I - 0x022FBA 11:AFAA: F5        .byte con_mirror_off
 - D - I - 0x022FBB 11:AFAB: F7        .byte con_F7, $10
 - D - I - 0x022FBD 11:AFAD: F9        .byte con_soundID_delay, $12, $02
@@ -11293,7 +11292,7 @@ bra_case_B2BB_01_это_misaki_из_japan:
 - - - - - 0x0232CF 11:B2BF: F2        .byte con_jmp
 - - - - - 0x0232D0 11:B2C0: AA B2     .word loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley
 
-loc_B2C2:
+loc_B2C2_игрок_принимает_низкий_мяч_на_ногу:
 - D - I - 0x0232D2 11:B2C2: FC        .byte con_moving_bg, $02
 - D - I - 0x0232D4 11:B2C4: F9        .byte con_soundID_delay, $2B, $21
 - D - I - 0x0232D7 11:B2C7: 44        .byte con_pause + $44
@@ -11302,7 +11301,7 @@ loc_B2C2:
 - D - I - 0x0232DA 11:B2CA: 4D        .byte con_cloud + $4D
 - D - I - 0x0232DB 11:B2CB: FB        .byte con_rts
 
-loc_B2CC:
+loc_B2CC_игрок_принимает_высокий_мяч_на_живот_фон_облака:
 - D - I - 0x0232DC 11:B2CC: F9        .byte con_soundID_delay, $2B, $21
 - D - I - 0x0232DF 11:B2CF: 3E        .byte con_pause + $3E
 - D - I - 0x0232E0 11:B2D0: 29        .byte con_bg + $29
@@ -11310,7 +11309,7 @@ loc_B2CC:
 - D - I - 0x0232E2 11:B2D2: 4D        .byte con_cloud + $4D
 - D - I - 0x0232E3 11:B2D3: FB        .byte con_rts
 
-loc_B2D4:
+loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители:
 - D - I - 0x0232E4 11:B2D4: F9        .byte con_soundID_delay, $2B, $21
 - D - I - 0x0232E7 11:B2D7: 3E        .byte con_pause + $3E
 - D - I - 0x0232E8 11:B2D8: 67        .byte con_bg + $67
@@ -11738,14 +11737,14 @@ bra_long_case_B438_01_рандом_2:
 - D - I - 0x02344B 11:B43B: F0        .byte con_cloud + con_skip
 - D - I - 0x02344C 11:B43C: FB        .byte con_rts
 
-loc_B43D:
+loc_B43D_игрок_делает_верхний_through:
 - D - I - 0x02344D 11:B43D: 3D        .byte con_pause + $3D
 - D - I - 0x02344E 11:B43E: 56        .byte con_bg + $56
 - D - I - 0x02344F 11:B43F: 6E        .byte con_animation + $6E
 - D - I - 0x023450 11:B440: 4D        .byte con_cloud + $4D
 - D - I - 0x023451 11:B441: FB        .byte con_rts
 
-loc_B442:
+loc_B442_игрок_делает_нижний_through:
 - D - I - 0x023452 11:B442: F7        .byte con_F7, $02
 - D - I - 0x023454 11:B444: 3D        .byte con_pause + $3D
 - D - I - 0x023455 11:B445: 22        .byte con_bg + $22
