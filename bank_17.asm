@@ -2858,10 +2858,18 @@ bra_case_8F15_00:
 
 bra_case_8F1A_00_block:
 - D - I - 0x020F2A 17:8F1A: F3        .byte con_branch, $83     ; результат действия защитника
+<<<<<<< HEAD
 - D - I - 0x020F2C 17:8F1C: 17        .byte bra_case_8F33_00_промахнется - *
 - D - I - 0x020F2D 17:8F1D: 20        .byte bra_case_8F3D_01_коснется - *
 - D - I - 0x020F2E 17:8F1E: 03        .byte bra_case_8F21_02_отобьет - *
 - - - - - 0x020F2F 17:8F1F: 0B        .byte bra_case_8F2A_03_словит - *
+=======
+- D - I - 0x020F2C 17:8F1C: 17        .byte bra_case_8F33_00 - *
+- D - I - 0x020F2D 17:8F1D: 20        .byte bra_case_8F3D_01 - *
+- D - I - 0x020F2E 17:8F1E: 03        .byte bra_case_8F21_02 - *
+- - - - - 0x020F2F 17:8F1F: 0B        .byte bra_case_8F2A_03 - *
+- - - - - 0x020F30 17:8F20: 1C        .byte bra_case_8F3C_04_нарушение - *
+>>>>>>> parent of 6a46499... мусор
 
 bra_case_8F21_02_отобьет:
 - D - I - 0x020F31 17:8F21: F3        .byte con_branch, $9B
@@ -2892,8 +2900,10 @@ bra_case_8F33_00_промахнется:
 - D - I - 0x020F44 17:8F34: 7A 9F     .word sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком
 - D - I - 0x020F46 17:8F36: FA        .byte con_jsr
 - D - I - 0x020F47 17:8F37: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
-- D - I - 0x020F49 17:8F39: FA        .byte con_jmp
-- D - I - 0x020F4A 17:8F3A: 1C A0     .word loc_A01C_защитник_промахивается_телом_по_низкому_мячу
+- D - I - 0x020F49 17:8F39: FA        .byte con_jsr
+- D - I - 0x020F4A 17:8F3A: 1C A0     .word sub_A01C_защитник_промахивается_телом_по_низкому_мячу
+bra_case_8F3C_04_нарушение:
+- D - I - 0x020F4C 17:8F3C: F0        .byte con_quit
 
 bra_case_8F3D_01_коснется:
 - D - I - 0x020F4D 17:8F3D: FA        .byte con_jsr
@@ -6570,6 +6580,7 @@ loc_A017_мяч_летит_дальше_после_касания_защитин
 - D - I - 0x02202B 11:A01B: FB        .byte con_rts
 
 loc_A01C_защитник_промахивается_телом_по_низкому_мячу:
+sub_A01C_защитник_промахивается_телом_по_низкому_мячу:
 - D - I - 0x02202C 11:A01C: FC        .byte con_moving_bg, $02
 - D - I - 0x02202E 11:A01E: 3C        .byte con_pause + $3C
 - D - I - 0x02202F 11:A01F: 57        .byte con_bg + $57
