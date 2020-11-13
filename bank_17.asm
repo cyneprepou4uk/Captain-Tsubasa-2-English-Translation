@@ -2549,7 +2549,7 @@ bra_case_8C88_03_power_block:
 - D - I - 0x020CA4 17:8C94: F2        .byte con_jmp
 - D - I - 0x020CA5 17:8C95: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-loc_8C97:
+loc_8C97_ishizaki_face_block_полная_анимация:
 bra_case_8C97_01_face_block:
 - D - I - 0x020CA7 17:8C97: FA        .byte con_jsr
 - D - I - 0x020CA8 17:8C98: 47 B3     .word sub_B347_игрок_прыгает_к_летящему_мячу_блоком
@@ -2662,20 +2662,20 @@ bra_case_8D0D_01:
 
 bra_case_8D12_00_block:
 - D - I - 0x020D22 17:8D12: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020D24 17:8D14: 14        .byte bra_case_8D28_00 - *
-- - - - - 0x020D25 17:8D15: 2C        .byte bra_case_8D41_01 - *
-- - - - - 0x020D26 17:8D16: 03        .byte bra_case_8D19_02 - *
-- D - I - 0x020D27 17:8D17: 08        .byte bra_case_8D1F_03 - *
+- D - I - 0x020D24 17:8D14: 14        .byte bra_case_8D28_00_промахнется - *
+- - - - - 0x020D25 17:8D15: 2C        .byte bra_case_8D41_01_коснется - *
+- - - - - 0x020D26 17:8D16: 03        .byte bra_case_8D19_02_отобьет - *
+- D - I - 0x020D27 17:8D17: 08        .byte bra_case_8D1F_03_словит - *
 - - - - - 0x020D28 17:8D18: 1F        .byte bra_case_8D37_04_нарушение - *
 
-bra_case_8D19_02:
+bra_case_8D19_02_отобьет:
 - - - - - 0x020D29 17:8D19: F3        .byte con_branch, $9B
 - - - - - 0x020D2B 17:8D1B: 38        .byte bra_case_8D53_00_block - *
 - - - - - 0x020D2C 17:8D1C: 09        .byte bra_case_8D25_01_face_block - *
 - - - - - 0x020D2D 17:8D1D: 36        .byte bra_case_8D53_02_skylab_block - *
 - - - - - 0x020D2E 17:8D1E: 35        .byte bra_case_8D53_03_power_block - *
 
-bra_case_8D1F_03:
+bra_case_8D1F_03_словит:
 - D - I - 0x020D2F 17:8D1F: F3        .byte con_branch, $9B
 - - - - - 0x020D31 17:8D21: 44        .byte bra_case_8D65_00_block - *
 - - - - - 0x020D32 17:8D22: 03        .byte bra_case_8D25_01_face_block - *
@@ -2684,9 +2684,9 @@ bra_case_8D1F_03:
 
 bra_case_8D25_01_face_block:
 - - - - - 0x020D35 17:8D25: F2        .byte con_jmp
-- - - - - 0x020D36 17:8D26: 97 8C     .word loc_8C97
+- - - - - 0x020D36 17:8D26: 97 8C     .word loc_8C97_ishizaki_face_block_полная_анимация
 
-bra_case_8D28_00:
+bra_case_8D28_00_промахнется:
 - D - I - 0x020D38 17:8D28: FA        .byte con_jsr
 - D - I - 0x020D39 17:8D29: 79 9C     .word sub_9C79_защитник_бежит_по_земле
 - D - I - 0x020D3B 17:8D2B: FA        .byte con_jsr
@@ -2711,7 +2711,7 @@ bra_case_8D38_03_power_block:
 - - - - - 0x020D4E 17:8D3E: F2        .byte con_jmp
 - - - - - 0x020D4F 17:8D3F: A9 A1     .word loc_A1A9
 
-bra_case_8D41_01:
+bra_case_8D41_01_коснется:
 - - - - - 0x020D51 17:8D41: FA        .byte con_jsr
 - - - - - 0x020D52 17:8D42: 79 9C     .word sub_9C79_защитник_бежит_по_земле
 - - - - - 0x020D54 17:8D44: FA        .byte con_jsr
@@ -3078,19 +3078,19 @@ bra_case_8FE0_01:
 
 bra_case_8FE5_00_block:
 - D - I - 0x020FF5 17:8FE5: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020FF7 17:8FE7: 14        .byte bra_case_8FFB_00 - *
-- D - I - 0x020FF8 17:8FE8: 23        .byte bra_case_900B_01 - *
-- - - - - 0x020FF9 17:8FE9: 03        .byte bra_case_8FEC_02 - *
-- - - - - 0x020FFA 17:8FEA: 08        .byte bra_case_8FF2_03 - *
+- D - I - 0x020FF7 17:8FE7: 14        .byte bra_case_8FFB_00_промахнется - *
+- D - I - 0x020FF8 17:8FE8: 23        .byte bra_case_900B_01_коснется - *
+- - - - - 0x020FF9 17:8FE9: 03        .byte bra_case_8FEC_02_отобьет - *
+- - - - - 0x020FFA 17:8FEA: 08        .byte bra_case_8FF2_03_словит - *
 
-bra_case_8FEC_02:
+bra_case_8FEC_02_отобьет:
 - - - - - 0x020FFC 17:8FEC: F3        .byte con_branch, $9B
 - - - - - 0x020FFE 17:8FEE: 2F        .byte bra_case_901D_00_block - *
 - - - - - 0x020FFF 17:8FEF: 09        .byte bra_case_8FF8_01_face_block - *
 - - - - - 0x021000 17:8FF0: 2D        .byte bra_case_901D_02_skylab_block - *
 - - - - - 0x021001 17:8FF1: 2C        .byte bra_case_901D_03_power_block - *
 
-bra_case_8FF2_03:
+bra_case_8FF2_03_словит:
 - - - - - 0x021002 17:8FF2: F3        .byte con_branch, $9B
 - - - - - 0x021004 17:8FF4: 3B        .byte bra_case_902F_00_block - *
 - - - - - 0x021005 17:8FF5: 03        .byte bra_case_8FF8_01_face_block - *
@@ -3099,9 +3099,9 @@ bra_case_8FF2_03:
 
 bra_case_8FF8_01_face_block:
 - - - - - 0x021008 17:8FF8: F2        .byte con_jmp
-- - - - - 0x021009 17:8FF9: 97 8C     .word loc_8C97
+- - - - - 0x021009 17:8FF9: 97 8C     .word loc_8C97_ishizaki_face_block_полная_анимация
 
-bra_case_8FFB_00:
+bra_case_8FFB_00_промахнется:
 - D - I - 0x02100B 17:8FFB: FA        .byte con_jsr
 - D - I - 0x02100C 17:8FFC: 7A 9F     .word sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком
 - D - I - 0x02100E 17:8FFE: FA        .byte con_jsr
@@ -3113,7 +3113,7 @@ bra_case_8FFB_00:
 - D - I - 0x021017 17:9007: FA        .byte con_jmp
 - D - I - 0x021018 17:9008: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
-bra_case_900B_01:
+bra_case_900B_01_коснется:
 - D - I - 0x02101B 17:900B: FA        .byte con_jsr
 - D - I - 0x02101C 17:900C: 7A 9F     .word sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком
 - D - I - 0x02101E 17:900E: FA        .byte con_jsr
