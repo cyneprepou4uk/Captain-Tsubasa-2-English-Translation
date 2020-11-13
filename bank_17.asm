@@ -2248,13 +2248,8 @@ bra_case_8B1F_03_защитник_заберет_мяч:
 - D - I - 0x020B33 17:8B23: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
 - D - I - 0x020B35 17:8B25: FA        .byte con_jsr
 - D - I - 0x020B36 17:8B26: EF A2     .word sub_A2EF_белое_мерцание_без_звука
-                                      .byte con_moving_bg, $02
-                                      .byte con_soundID_delay, $2D, $02
-                                      .byte con_pause + $46
-                                      .byte con_bg + $57
-                                      .byte con_animation + $2E
-                                      .byte con_cloud + $05
-- D - I - 0x020B3B 17:8B2B: F6        .byte con_mirror_toggle
+                                      .byte con_jsr
+                                      .word sub_BF00_защитник_отбирает_ногой_мяч_у_атакующего
 - D - I - 0x020B3C 17:8B2C: FA        .byte con_jsr
 - D - I - 0x020B3D 17:8B2D: 64 9E     .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
 - D - I - 0x020B3F 17:8B2F: F6        .byte con_mirror_toggle
@@ -2459,13 +2454,8 @@ bra_case_8C22_03_защитник_заберет_мяч:
 - D - I - 0x020C42 17:8C32: F6        .byte con_mirror_toggle
 - D - I - 0x020C43 17:8C33: FA        .byte con_jsr
 - D - I - 0x020C44 17:8C34: 74 9F     .word sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения
-                                      .byte con_moving_bg, $02      ; успешный отбор мяча подкатом
-                                      .byte con_soundID_delay, $2D, $02
-                                      .byte con_pause + $3C
-                                      .byte con_bg + $57
-                                      .byte con_animation + $15
-                                      .byte con_cloud + $03
-                                      .byte con_rts
+                                      .byte con_jmp
+                                      .word loc_BF01_успешный_отбор_мяча_подкатом
 
 bra_case_8C39_04_нарушение:
 - D - I - 0x020C49 17:8C39: FA        .byte con_jsr
@@ -2615,12 +2605,8 @@ bra_case_8CDC_00_промахнется:
 - D - I - 0x020CED 17:8CDD: 79 9C     .word sub_9C79_защитник_бежит_по_земле
 - D - I - 0x020CEF 17:8CDF: FA        .byte con_jsr
 - D - I - 0x020CF0 17:8CE0: F8 9D     .word sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом
-; защитник промахивается ногой по высокому мячу
-                                      .byte con_pause + $3C
-                                      .byte con_bg + $6C
-                                      .byte con_animation + $06
-                                      .byte con_cloud + $07
-                                      .byte con_rts
+                                      .byte con_jmp
+                                      .word loc_BF02_защитник_промахивается_ногой_по_высокому_мячу
 
 bra_case_8CE6_01_коснется:
 - D - I - 0x020CF6 17:8CE6: FA        .byte con_jsr
@@ -2947,23 +2933,8 @@ bra_case_8F64_01_face_block:
 - - - - - 0x020F74 17:8F64: FA        .byte con_jsr
 - - - - - 0x020F75 17:8F65: 7A 9F     .word sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком
 loc_8F67_ishizaki_face_block_в_процессе:
-                                      .byte con_F7, $0F
-                                      .byte con_pause + $1E
-                                      .byte con_bg + $05
-                                      .byte con_animation + $00
-                                      .byte con_cloud + con_skip
-                                      .byte con_F7, $2A
-                                      .byte con_soundID_delay, $2E, $02
-                                      .byte con_pause + $23
-                                      .byte con_bg + $6A
-                                      .byte con_animation + $BD
-                                      .byte con_cloud + $56
                                       .byte con_jsr
-                                      .word sub_BBC7_очистка
-                                      .byte con_pause + $3C
-                                      .byte con_bg + $1F
-                                      .byte con_animation + $13
-                                      .byte con_cloud + $57
+                                      .word sub_BF03_ishizaki_face_block_в_процессе
 - D - I - 0x020F7A 17:8F6A: F2        .byte con_jmp
 - D - I - 0x020F7B 17:8F6B: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -4365,7 +4336,7 @@ bra_case_9601_02:
 - D - I - 0x021611 17:9601: FA        .byte con_jsr
 - D - I - 0x021612 17:9602: CD A0     .word sub_A0CD_rolling_save
 - D - I - 0x021614 17:9604: F2        .byte con_jmp
-- D - I - 0x021615 17:9605: 5E 97     .word loc_975E
+- D - I - 0x021615 17:9605: 5E 97     .word loc_975E_кипер_с_трудом_отбивает_кулаком
 
 loc_9607:
 bra_case_9607_03:
@@ -4505,7 +4476,7 @@ bra_case_9684_02:
 - D - I - 0x021694 17:9684: FA        .byte con_jsr
 - D - I - 0x021695 17:9685: FF A1     .word sub_A1FF
 - D - I - 0x021697 17:9687: F2        .byte con_jmp
-- D - I - 0x021698 17:9688: 5E 97     .word loc_975E
+- D - I - 0x021698 17:9688: 5E 97     .word loc_975E_кипер_с_трудом_отбивает_кулаком
 
 loc_968A:
 bra_case_968A_03:
@@ -4738,11 +4709,9 @@ bra_case_9755_01_мяч_порвется:
 bra_case_975B_02:
 - D - I - 0x02176B 17:975B: FA        .byte con_jsr
 - D - I - 0x02176C 17:975C: E4 A1     .word sub_A1E4_dark_illusion
-loc_975E:
-                                      .byte con_pause + $28
-                                      .byte con_bg + $0E
-                                      .byte con_animation + $2C
-                                      .byte con_cloud + con_clear
+loc_975E_кипер_с_трудом_отбивает_кулаком:
+                                      .byte con_jsr
+                                      .word sub_BF04_кипер_собирается_напороться_кулаком_на_мяч
 - D - I - 0x021771 17:9761: FA        .byte con_jsr
 - D - I - 0x021772 17:9762: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x021774 17:9764: FA        .byte con_jsr
@@ -14778,3 +14747,57 @@ _scenario_BFD8_77:
 - D - I - 0x023FEB 11:BFDB: 79        .byte con_animation + $79
 - D - I - 0x023FEC 11:BFDC: F0        .byte con_cloud + con_skip
 - D - I - 0x023FED 11:BFDD: FB        .byte con_rts
+
+
+sub_BF00_защитник_отбирает_ногой_мяч_у_атакующего:
+    .byte con_moving_bg, $02
+    .byte con_soundID_delay, $2D, $02
+    .byte con_pause + $46
+    .byte con_bg + $57
+    .byte con_animation + $2E
+    .byte con_cloud + $05
+    .byte con_mirror_toggle
+    .byte con_rts
+
+loc_BF01_успешный_отбор_мяча_подкатом:
+    .byte con_moving_bg, $02
+    .byte con_soundID_delay, $2D, $02
+    .byte con_pause + $3C
+    .byte con_bg + $57
+    .byte con_animation + $15
+    .byte con_cloud + $03
+    .byte con_rts
+
+loc_BF02_защитник_промахивается_ногой_по_высокому_мячу:
+    .byte con_pause + $3C
+    .byte con_bg + $6C
+    .byte con_animation + $06
+    .byte con_cloud + $07
+    .byte con_rts
+
+sub_BF03_ishizaki_face_block_в_процессе:
+    .byte con_F7, $0F
+    .byte con_pause + $1E
+    .byte con_bg + $05
+    .byte con_animation + $00
+    .byte con_cloud + con_skip
+    .byte con_F7, $2A
+    .byte con_soundID_delay, $2E, $02
+    .byte con_pause + $23
+    .byte con_bg + $6A
+    .byte con_animation + $BD
+    .byte con_cloud + $56
+    .byte con_jsr
+    .word sub_BBC7_очистка
+    .byte con_pause + $3C
+    .byte con_bg + $1F
+    .byte con_animation + $13
+    .byte con_cloud + $57
+    .byte con_rts
+
+sub_BF04_кипер_собирается_напороться_кулаком_на_мяч:
+    .byte con_pause + $28
+    .byte con_bg + $0E
+    .byte con_animation + $2C
+    .byte con_cloud + con_clear
+    .byte con_rts
