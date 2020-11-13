@@ -3031,13 +3031,13 @@ bra_case_8F9F_03:
 
 bra_case_8FA8_02_pass_cut:
 - D - I - 0x020FB8 17:8FA8: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020FBA 17:8FAA: 05        .byte bra_case_8FAF_00 - *
-- D - I - 0x020FBB 17:8FAB: 0E        .byte bra_case_8FB9_01 - *
-- D - I - 0x020FBC 17:8FAC: 1C        .byte bra_case_8FC8_02 - *
-- D - I - 0x020FBD 17:8FAD: 2A        .byte bra_case_8FD7_03 - *
+- D - I - 0x020FBA 17:8FAA: 05        .byte bra_case_8FAF_00_промахнется - *
+- D - I - 0x020FBB 17:8FAB: 0E        .byte bra_case_8FB9_01_коснется - *
+- D - I - 0x020FBC 17:8FAC: 1C        .byte bra_case_8FC8_02_отобьет - *
+- D - I - 0x020FBD 17:8FAD: 2A        .byte bra_case_8FD7_03_словит - *
 - - - - - 0x020FBE 17:8FAE: 0A        .byte bra_case_8FB8_04_нарушение - *
 
-bra_case_8FAF_00:
+bra_case_8FAF_00_промахнется:
 - D - I - 0x020FBF 17:8FAF: FA        .byte con_jsr
 - D - I - 0x020FC0 17:8FB0: 7F 9C     .word sub_9C7F_игрок_бежит_по_земле
 - D - I - 0x020FC2 17:8FB2: FA        .byte con_jsr
@@ -3047,7 +3047,7 @@ bra_case_8FAF_00:
 bra_case_8FB8_04_нарушение:
 - D - I - 0x020FC8 17:8FB8: F0        .byte con_quit
 
-bra_case_8FB9_01:
+bra_case_8FB9_01_коснется:
 - D - I - 0x020FC9 17:8FB9: FA        .byte con_jsr
 - D - I - 0x020FCA 17:8FBA: 7F 9C     .word sub_9C7F_игрок_бежит_по_земле
 - D - I - 0x020FCC 17:8FBC: FA        .byte con_jsr
@@ -3057,9 +3057,9 @@ bra_case_8FB9_01:
 - D - I - 0x020FD2 17:8FC2: FA        .byte con_jsr
 - D - I - 0x020FD3 17:8FC3: F3 9F     .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
 - D - I - 0x020FD5 17:8FC5: F2        .byte con_jmp
-- D - I - 0x020FD6 17:8FC6: DE 9F     .word loc_9FDE
+- D - I - 0x020FD6 17:8FC6: DE 9F     .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
 
-bra_case_8FC8_02:
+bra_case_8FC8_02_отобьет:
 - D - I - 0x020FD8 17:8FC8: FA        .byte con_jsr
 - D - I - 0x020FD9 17:8FC9: 7F 9C     .word sub_9C7F_игрок_бежит_по_земле
 - D - I - 0x020FDB 17:8FCB: FA        .byte con_jsr
@@ -3071,7 +3071,7 @@ bra_case_8FC8_02:
 - D - I - 0x020FE4 17:8FD4: F2        .byte con_jmp
 - D - I - 0x020FE5 17:8FD5: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-bra_case_8FD7_03:
+bra_case_8FD7_03_словит:
 - D - I - 0x020FE7 17:8FD7: FA        .byte con_jsr
 - D - I - 0x020FE8 17:8FD8: 7F 9C     .word sub_9C7F_игрок_бежит_по_земле
 - D - I - 0x020FEA 17:8FDA: FA        .byte con_jsr
@@ -5166,7 +5166,7 @@ bra_case_990C_01:
 - D - I - 0x021925 17:9915: FA        .byte con_jsr
 - D - I - 0x021926 17:9916: F3 9F     .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
 - D - I - 0x021928 17:9918: F2        .byte con_jmp
-- D - I - 0x021929 17:9919: DE 9F     .word loc_9FDE
+- D - I - 0x021929 17:9919: DE 9F     .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
 
 bra_case_991B_02:
 - D - I - 0x02192B 17:991B: FA        .byte con_jsr
@@ -5214,7 +5214,7 @@ bra_case_9944_01:
 - D - I - 0x02195D 17:994D: FA        .byte con_jsr
 - D - I - 0x02195E 17:994E: F3 9F     .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
 - D - I - 0x021960 17:9950: F2        .byte con_jmp
-- D - I - 0x021961 17:9951: DE 9F     .word loc_9FDE
+- D - I - 0x021961 17:9951: DE 9F     .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
 
 bra_case_9953_02:
 - D - I - 0x021963 17:9953: FA        .byte con_jsr
@@ -5318,7 +5318,7 @@ bra_case_99C1_01:
 - - - - - 0x0219DA 17:99CA: FA        .byte con_jsr
 - - - - - 0x0219DB 17:99CB: F3 9F     .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
 - - - - - 0x0219DD 17:99CD: F2        .byte con_jmp
-- - - - - 0x0219DE 17:99CE: DE 9F     .word loc_9FDE
+- - - - - 0x0219DE 17:99CE: DE 9F     .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
 
 bra_case_99D0_02:
 - - - - - 0x0219E0 17:99D0: FA        .byte con_jsr
@@ -6563,7 +6563,7 @@ sub_9FD6:
 - D - I - 0x021FEC 17:9FDC: 06        .byte con_cloud + $06
 - D - I - 0x021FED 17:9FDD: FB        .byte con_rts
 
-loc_9FDE:
+loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником:
 - D - I - 0x021FEE 17:9FDE: FC        .byte con_moving_bg, $02
 loc_9FE0_высокий_мяч_летит_дальше_после_касания_ногой_защитником:
 - D - I - 0x021FF0 17:9FE0: 2D        .byte con_pause + $2D
