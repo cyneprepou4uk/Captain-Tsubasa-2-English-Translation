@@ -3082,7 +3082,6 @@ bra_case_8FE5_00_block:
 - D - I - 0x020FF8 17:8FE8: 23        .byte bra_case_900B_01 - *
 - - - - - 0x020FF9 17:8FE9: 03        .byte bra_case_8FEC_02 - *
 - - - - - 0x020FFA 17:8FEA: 08        .byte bra_case_8FF2_03 - *
-- - - - - 0x020FFB 17:8FEB: 1F        .byte bra_case_900A_04_нарушение - *
 
 bra_case_8FEC_02:
 - - - - - 0x020FFC 17:8FEC: F3        .byte con_branch, $9B
@@ -3111,10 +3110,8 @@ bra_case_8FFB_00:
 - D - I - 0x021012 17:9002: 3B A0     .word sub_A03B_защиник_собирается_отбить_телом_низкий_мяч
 - D - I - 0x021014 17:9004: FA        .byte con_jsr
 - D - I - 0x021015 17:9005: DD A2     .word sub_A2DD_ярко_красное_мерцание
-- D - I - 0x021017 17:9007: FA        .byte con_jsr
-- D - I - 0x021018 17:9008: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-bra_case_900A_04_нарушение:
-- D - I - 0x02101A 17:900A: F0        .byte con_quit
+- D - I - 0x021017 17:9007: FA        .byte con_jmp
+- D - I - 0x021018 17:9008: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
 bra_case_900B_01:
 - D - I - 0x02101B 17:900B: FA        .byte con_jsr
