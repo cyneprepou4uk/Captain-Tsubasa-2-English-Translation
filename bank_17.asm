@@ -2980,7 +2980,7 @@ bra_case_8F6D_01_tackle:
 
 bra_case_8F77_00:
 - D - I - 0x020F87 17:8F77: FA        .byte con_jsr
-- D - I - 0x020F88 17:8F78: E0 A6     .word sub_A6E0
+- D - I - 0x020F88 17:8F78: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x020F8A 17:8F7A: FA        .byte con_jsr
 - D - I - 0x020F8B 17:8F7B: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020F8D 17:8F7D: FA        .byte con_jsr
@@ -2990,7 +2990,7 @@ bra_case_8F80_04_нарушение:
 
 bra_case_8F81_01:
 - D - I - 0x020F91 17:8F81: FA        .byte con_jsr
-- D - I - 0x020F92 17:8F82: E0 A6     .word sub_A6E0
+- D - I - 0x020F92 17:8F82: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x020F94 17:8F84: FA        .byte con_jsr
 - D - I - 0x020F95 17:8F85: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020F97 17:8F87: FA        .byte con_jsr
@@ -3002,7 +3002,7 @@ bra_case_8F81_01:
 
 bra_case_8F90_02:
 - D - I - 0x020FA0 17:8F90: FA        .byte con_jsr
-- D - I - 0x020FA1 17:8F91: E0 A6     .word sub_A6E0
+- D - I - 0x020FA1 17:8F91: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x020FA3 17:8F93: FA        .byte con_jsr
 - D - I - 0x020FA4 17:8F94: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FA6 17:8F96: FA        .byte con_jsr
@@ -3014,7 +3014,7 @@ bra_case_8F90_02:
 
 bra_case_8F9F_03:
 - D - I - 0x020FAF 17:8F9F: FA        .byte con_jsr
-- D - I - 0x020FB0 17:8FA0: E0 A6     .word sub_A6E0
+- D - I - 0x020FB0 17:8FA0: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x020FB2 17:8FA2: FA        .byte con_jsr
 - D - I - 0x020FB3 17:8FA3: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FB5 17:8FA5: F2        .byte con_jmp
@@ -3162,7 +3162,7 @@ bra_case_903B_01_tackle:
 
 bra_case_9042_00:
 - D - I - 0x021052 17:9042: FA        .byte con_jsr
-- D - I - 0x021053 17:9043: E0 A6     .word sub_A6E0
+- D - I - 0x021053 17:9043: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x021055 17:9045: FA        .byte con_jsr
 - D - I - 0x021056 17:9046: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x021058 17:9048: FA        .byte con_jsr
@@ -3177,7 +3177,7 @@ bra_case_9051_04_нарушение:
 
 bra_case_9052_01:
 - D - I - 0x021062 17:9052: FA        .byte con_jsr
-- D - I - 0x021063 17:9053: E0 A6     .word sub_A6E0
+- D - I - 0x021063 17:9053: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - D - I - 0x021065 17:9055: FA        .byte con_jsr
 - D - I - 0x021066 17:9056: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x021068 17:9058: FA        .byte con_jsr
@@ -3191,7 +3191,7 @@ bra_case_9052_01:
 
 bra_case_9064_02:
 - - - - - 0x021074 17:9064: FA        .byte con_jsr
-- - - - - 0x021075 17:9065: E0 A6     .word sub_A6E0
+- - - - - 0x021075 17:9065: E0 A6     .word sub_A6E0_защитник_бежит_к_низкому_мячу
 - - - - - 0x021077 17:9067: FA        .byte con_jsr
 - - - - - 0x021078 17:9068: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - - - - - 0x02107A 17:906A: FA        .byte con_jsr
@@ -5181,7 +5181,7 @@ bra_case_9933_01:
 
 bra_case_993B_00:
 - D - I - 0x02194B 17:993B: FA        .byte con_jsr
-- D - I - 0x02194C 17:993C: 2D A3     .word sub_A32D
+- D - I - 0x02194C 17:993C: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x02194E 17:993E: FA        .byte con_jsr
 - D - I - 0x02194F 17:993F: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x021951 17:9941: F2        .byte con_jmp
@@ -5189,7 +5189,7 @@ bra_case_993B_00:
 
 bra_case_9944_01:
 - D - I - 0x021954 17:9944: FA        .byte con_jsr
-- D - I - 0x021955 17:9945: 2D A3     .word sub_A32D
+- D - I - 0x021955 17:9945: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021957 17:9947: FA        .byte con_jsr
 - D - I - 0x021958 17:9948: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x02195A 17:994A: FA        .byte con_jsr
@@ -5201,7 +5201,7 @@ bra_case_9944_01:
 
 bra_case_9953_02:
 - D - I - 0x021963 17:9953: FA        .byte con_jsr
-- D - I - 0x021964 17:9954: 2D A3     .word sub_A32D
+- D - I - 0x021964 17:9954: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021966 17:9956: FA        .byte con_jsr
 - D - I - 0x021967 17:9957: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x021969 17:9959: FA        .byte con_jsr
@@ -5213,7 +5213,7 @@ bra_case_9953_02:
 
 bra_case_9962_03:
 - D - I - 0x021972 17:9962: FA        .byte con_jsr
-- D - I - 0x021973 17:9963: 2D A3     .word sub_A32D
+- D - I - 0x021973 17:9963: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021975 17:9965: FA        .byte con_jsr
 - D - I - 0x021976 17:9966: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x021978 17:9968: F2        .byte con_jmp
@@ -5222,14 +5222,14 @@ bra_case_9962_03:
 bra_case_996B_02:
 - D - I - 0x02197B 17:996B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02197D 17:996D: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x02197F 17:996F: 04        .byte bra_case_9973_00 - *
-- D - I - 0x021980 17:9970: 13        .byte bra_case_9983_01 - *
-- D - I - 0x021981 17:9971: 24        .byte bra_case_9995_02 - *
-- D - I - 0x021982 17:9972: 35        .byte bra_case_99A7_03 - *
+- D - I - 0x02197F 17:996F: 04        .byte bra_case_9973_00_промахнется - *
+- D - I - 0x021980 17:9970: 13        .byte bra_case_9983_01_коснется - *
+- D - I - 0x021981 17:9971: 24        .byte bra_case_9995_02_отобьет - *
+- D - I - 0x021982 17:9972: 35        .byte bra_case_99A7_03_словит - *
 
-bra_case_9973_00:
+bra_case_9973_00_промахнется:
 - D - I - 0x021983 17:9973: FA        .byte con_jsr
-- D - I - 0x021984 17:9974: 2D A3     .word sub_A32D
+- D - I - 0x021984 17:9974: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021986 17:9976: FA        .byte con_jsr
 - D - I - 0x021987 17:9977: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x021989 17:9979: FA        .byte con_jsr
@@ -5240,9 +5240,9 @@ bra_case_9973_00:
 - D - I - 0x021990 17:9980: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x021992 17:9982: F0        .byte con_quit
 
-bra_case_9983_01:
+bra_case_9983_01_коснется:
 - D - I - 0x021993 17:9983: FA        .byte con_jsr
-- D - I - 0x021994 17:9984: 2D A3     .word sub_A32D
+- D - I - 0x021994 17:9984: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021996 17:9986: FA        .byte con_jsr
 - D - I - 0x021997 17:9987: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x021999 17:9989: FA        .byte con_jsr
@@ -5254,9 +5254,9 @@ bra_case_9983_01:
 - D - I - 0x0219A2 17:9992: F2        .byte con_jmp
 - D - I - 0x0219A3 17:9993: 40 A2     .word loc_A240
 
-bra_case_9995_02:
+bra_case_9995_02_отобьет:
 - D - I - 0x0219A5 17:9995: FA        .byte con_jsr
-- D - I - 0x0219A6 17:9996: 2D A3     .word sub_A32D
+- D - I - 0x0219A6 17:9996: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x0219A8 17:9998: FA        .byte con_jsr
 - D - I - 0x0219A9 17:9999: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x0219AB 17:999B: FA        .byte con_jsr
@@ -5268,9 +5268,9 @@ bra_case_9995_02:
 - D - I - 0x0219B4 17:99A4: F2        .byte con_jmp
 - D - I - 0x0219B5 17:99A5: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-bra_case_99A7_03:
+bra_case_99A7_03_словит:
 - D - I - 0x0219B7 17:99A7: FA        .byte con_jsr
-- D - I - 0x0219B8 17:99A8: 2D A3     .word sub_A32D
+- D - I - 0x0219B8 17:99A8: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x0219BA 17:99AA: FA        .byte con_jsr
 - D - I - 0x0219BB 17:99AB: C3 A1     .word sub_A1C3_защитник_бежит_к_низкому_мячу
 - D - I - 0x0219BD 17:99AD: F2        .byte con_jmp
@@ -5455,7 +5455,7 @@ bra_case_9A78_02:
 
 bra_case_9A80_00:
 - D - I - 0x021A90 17:9A80: FA        .byte con_jsr
-- D - I - 0x021A91 17:9A81: 2D A3     .word sub_A32D
+- D - I - 0x021A91 17:9A81: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021A93 17:9A83: FA        .byte con_jsr
 - D - I - 0x021A94 17:9A84: AE A0     .word sub_A0AE
 - D - I - 0x021A96 17:9A86: FA        .byte con_jsr
@@ -5465,7 +5465,7 @@ bra_case_9A80_00:
 
 bra_case_9A8C_01:
 - D - I - 0x021A9C 17:9A8C: FA        .byte con_jsr
-- D - I - 0x021A9D 17:9A8D: 2D A3     .word sub_A32D
+- D - I - 0x021A9D 17:9A8D: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021A9F 17:9A8F: FA        .byte con_jsr
 - D - I - 0x021AA0 17:9A90: AE A0     .word sub_A0AE
 - D - I - 0x021AA2 17:9A92: FA        .byte con_jsr
@@ -5479,7 +5479,7 @@ bra_case_9A8C_01:
 
 bra_case_9A9E_02:
 - D - I - 0x021AAE 17:9A9E: FA        .byte con_jsr
-- D - I - 0x021AAF 17:9A9F: 2D A3     .word sub_A32D
+- D - I - 0x021AAF 17:9A9F: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021AB1 17:9AA1: FA        .byte con_jsr
 - D - I - 0x021AB2 17:9AA2: AE A0     .word sub_A0AE
 - D - I - 0x021AB4 17:9AA4: FA        .byte con_jsr
@@ -5493,7 +5493,7 @@ bra_case_9A9E_02:
 
 bra_case_9AB0_03:
 - D - I - 0x021AC0 17:9AB0: FA        .byte con_jsr
-- D - I - 0x021AC1 17:9AB1: 2D A3     .word sub_A32D
+- D - I - 0x021AC1 17:9AB1: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021AC3 17:9AB3: FA        .byte con_jsr
 - D - I - 0x021AC4 17:9AB4: AE A0     .word sub_A0AE
 - D - I - 0x021AC6 17:9AB6: FA        .byte con_jsr
@@ -5503,7 +5503,7 @@ bra_case_9AB0_03:
 
 bra_case_9ABC_00:
 - D - I - 0x021ACC 17:9ABC: FA        .byte con_jsr
-- D - I - 0x021ACD 17:9ABD: 2D A3     .word sub_A32D
+- D - I - 0x021ACD 17:9ABD: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021ACF 17:9ABF: FA        .byte con_jsr
 - D - I - 0x021AD0 17:9AC0: AE A0     .word sub_A0AE
 - D - I - 0x021AD2 17:9AC2: FA        .byte con_jsr
@@ -5518,7 +5518,7 @@ bra_case_9ABC_00:
 
 bra_case_9ACF_01:
 - D - I - 0x021ADF 17:9ACF: FA        .byte con_jsr
-- D - I - 0x021AE0 17:9AD0: 2D A3     .word sub_A32D
+- D - I - 0x021AE0 17:9AD0: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021AE2 17:9AD2: FA        .byte con_jsr
 - D - I - 0x021AE3 17:9AD3: AE A0     .word sub_A0AE
 - D - I - 0x021AE5 17:9AD5: FA        .byte con_jsr
@@ -5534,7 +5534,7 @@ bra_case_9ACF_01:
 
 bra_case_9AE4_02:
 - D - I - 0x021AF4 17:9AE4: FA        .byte con_jsr
-- D - I - 0x021AF5 17:9AE5: 2D A3     .word sub_A32D
+- D - I - 0x021AF5 17:9AE5: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021AF7 17:9AE7: FA        .byte con_jsr
 - D - I - 0x021AF8 17:9AE8: AE A0     .word sub_A0AE
 - D - I - 0x021AFA 17:9AEA: FA        .byte con_jsr
@@ -5677,13 +5677,13 @@ bra_case_9B88_00_защитник_выживет:
 
 bra_case_9B8E_00:
 - D - I - 0x021B9E 17:9B8E: FA        .byte con_jsr
-- D - I - 0x021B9F 17:9B8F: 2D A3     .word sub_A32D
+- D - I - 0x021B9F 17:9B8F: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021BA1 17:9B91: F2        .byte con_jmp
 - D - I - 0x021BA2 17:9B92: 83 A3     .word loc_A383_удар_огибает_стеночку
 
 bra_case_9B94_01:
 - - - - - 0x021BA4 17:9B94: FA        .byte con_jsr
-- - - - - 0x021BA5 17:9B95: 2D A3     .word sub_A32D
+- - - - - 0x021BA5 17:9B95: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - - - - - 0x021BA7 17:9B97: FA        .byte con_jsr
 - - - - - 0x021BA8 17:9B98: 21 A3     .word sub_A321_стенка_была_задета
 - - - - - 0x021BAA 17:9B9A: F2        .byte con_jmp
@@ -5691,7 +5691,7 @@ bra_case_9B94_01:
 
 bra_case_9B9D_02:
 - D - I - 0x021BAD 17:9B9D: FA        .byte con_jsr
-- D - I - 0x021BAE 17:9B9E: 2D A3     .word sub_A32D
+- D - I - 0x021BAE 17:9B9E: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021BB0 17:9BA0: FA        .byte con_jsr
 - D - I - 0x021BB1 17:9BA1: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x021BB3 17:9BA3: F2        .byte con_jmp
@@ -5699,7 +5699,7 @@ bra_case_9B9D_02:
 
 bra_case_9BA6_03:
 - D - I - 0x021BB6 17:9BA6: FA        .byte con_jsr
-- D - I - 0x021BB7 17:9BA7: 2D A3     .word sub_A32D
+- D - I - 0x021BB7 17:9BA7: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021BB9 17:9BA9: FA        .byte con_jsr
 - D - I - 0x021BBA 17:9BAA: EF A2     .word sub_A2EF_белое_мерцание_без_звука
 - D - I - 0x021BBC 17:9BAC: F2        .byte con_jmp
@@ -5714,7 +5714,7 @@ bra_case_9BAF_01_защитник_убьется:
 
 bra_case_9BB5_00:
 - - - - - 0x021BC5 17:9BB5: FA        .byte con_jsr
-- - - - - 0x021BC6 17:9BB6: 2D A3     .word sub_A32D
+- - - - - 0x021BC6 17:9BB6: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - - - - - 0x021BC8 17:9BB8: FA        .byte con_jsr
 - - - - - 0x021BC9 17:9BB9: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - - - - - 0x021BCB 17:9BBB: FA        .byte con_jsr
@@ -5724,7 +5724,7 @@ bra_case_9BBE_03:
 
 bra_case_9BBF_01:
 - - - - - 0x021BCF 17:9BBF: FA        .byte con_jsr
-- - - - - 0x021BD0 17:9BC0: 2D A3     .word sub_A32D
+- - - - - 0x021BD0 17:9BC0: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - - - - - 0x021BD2 17:9BC2: FA        .byte con_jsr
 - - - - - 0x021BD3 17:9BC3: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - - - - - 0x021BD5 17:9BC5: FA        .byte con_jsr
@@ -7433,7 +7433,7 @@ sub_A321_стенка_была_задета:
 - - - - - 0x02233A 11:A32A: FE        .byte con_FE
 - - - - - 0x02233C 11:A32C: FB        .byte con_rts
 
-sub_A32D:
+sub_A32D_полет_удара_со_звуком:
 - D - I - 0x02233D 11:A32D: F9        .byte con_soundID_delay, $03, $02
 - D - I - 0x022340 11:A330: 35        .byte con_pause + $35
 - D - I - 0x022341 11:A331: 1F        .byte con_bg + $1F
@@ -8423,7 +8423,7 @@ bra_long_case_A6CE_01:
 - - - - - 0x0226EE 11:A6DE: F0        .byte bra_case_A7CE_0E_ishizaki - *
 - - - - - 0x0226EF 11:A6DF: EF        .byte bra_case_A7CE_0F_ishizaki - *
 
-sub_A6E0:
+sub_A6E0_защитник_бежит_к_низкому_мячу:
 - D - I - 0x0226F0 11:A6E0: F3        .byte con_branch, $B7
 - D - I - 0x0226F2 11:A6E2: 1D        .byte bra_case_A6FF_00_игрок_без_защитного_спешала - *
 - D - I - 0x0226F3 11:A6E3: 01        .byte bra_case_A6E4_01 - *
@@ -14707,7 +14707,7 @@ _scenario_BF7F_72:
 
 _scenario_BF94_73:
 - D - I - 0x023FA4 11:BF94: FA        .byte con_jsr
-- D - I - 0x023FA5 11:BF95: 2D A3     .word sub_A32D
+- D - I - 0x023FA5 11:BF95: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x023FA7 11:BF97: 78        .byte con_pause + $78
 - D - I - 0x023FA8 11:BF98: 48        .byte con_bg + $48
 - D - I - 0x023FA9 11:BF99: 75        .byte con_animation + $75
