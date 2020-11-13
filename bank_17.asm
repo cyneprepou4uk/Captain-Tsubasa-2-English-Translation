@@ -2501,27 +2501,27 @@ bra_case_8C57_00:
 
 bra_case_8C5C_00_block:
 - D - I - 0x020C6C 17:8C5C: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020C6E 17:8C5E: 11        .byte bra_case_8C6F_00 - *
-- D - I - 0x020C6F 17:8C5F: 1A        .byte bra_case_8C79_01 - *
-- D - I - 0x020C70 17:8C60: 03        .byte bra_case_8C63_02 - *
-- D - I - 0x020C71 17:8C61: 08        .byte bra_case_8C69_03 - *
+- D - I - 0x020C6E 17:8C5E: 11        .byte bra_case_8C6F_00_промахнется - *
+- D - I - 0x020C6F 17:8C5F: 1A        .byte bra_case_8C79_01_коснется - *
+- D - I - 0x020C70 17:8C60: 03        .byte bra_case_8C63_02_отобьет - *
+- D - I - 0x020C71 17:8C61: 08        .byte bra_case_8C69_03_словит - *
 - - - - - 0x020C72 17:8C62: 16        .byte bra_case_8C78_04_нарушение - *
 
-bra_case_8C63_02:
+bra_case_8C63_02_отобьет:
 - D - I - 0x020C73 17:8C63: F3        .byte con_branch, $9B
 - D - I - 0x020C75 17:8C65: 23        .byte bra_case_8C88_00_block - *
 - - - - - 0x020C76 17:8C66: 31        .byte bra_case_8C97_01_face_block - *
 - - - - - 0x020C77 17:8C67: 21        .byte bra_case_8C88_02_skylab_block - *
 - D - I - 0x020C78 17:8C68: 20        .byte bra_case_8C88_03_power_block - *
 
-bra_case_8C69_03:
+bra_case_8C69_03_словит:
 - D - I - 0x020C79 17:8C69: F3        .byte con_branch, $9B
 - - - - - 0x020C7B 17:8C6B: CD        .byte bra_case_8D38_00_block - *
 - D - I - 0x020C7C 17:8C6C: 2B        .byte bra_case_8C97_01_face_block - *
 - - - - - 0x020C7D 17:8C6D: CB        .byte bra_case_8D38_02_skylab_block - *
 - - - - - 0x020C7E 17:8C6E: CA        .byte bra_case_8D38_03_power_block - *
 
-bra_case_8C6F_00:
+bra_case_8C6F_00_промахнется:
 - D - I - 0x020C7F 17:8C6F: FA        .byte con_jsr
 - D - I - 0x020C80 17:8C70: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020C82 17:8C72: FA        .byte con_jsr
@@ -2531,7 +2531,7 @@ bra_case_8C6F_00:
 bra_case_8C78_04_нарушение:
 - D - I - 0x020C88 17:8C78: F0        .byte con_quit
 
-bra_case_8C79_01:
+bra_case_8C79_01_коснется:
 - D - I - 0x020C89 17:8C79: FA        .byte con_jsr
 - D - I - 0x020C8A 17:8C7A: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020C8C 17:8C7C: FA        .byte con_jsr
@@ -2567,13 +2567,13 @@ bra_case_8C97_01_face_block:
 
 bra_case_8C9D_01_tackle:
 - D - I - 0x020CAD 17:8C9D: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020CAF 17:8C9F: 05        .byte bra_case_8CA4_00 - *
-- D - I - 0x020CB0 17:8CA0: 0E        .byte bra_case_8CAE_01 - *
-- D - I - 0x020CB1 17:8CA1: 1C        .byte bra_case_8CBD_02 - *
-- D - I - 0x020CB2 17:8CA2: 2A        .byte bra_case_8CCC_03 - *
+- D - I - 0x020CAF 17:8C9F: 05        .byte bra_case_8CA4_00_промахнется - *
+- D - I - 0x020CB0 17:8CA0: 0E        .byte bra_case_8CAE_01_коснется - *
+- D - I - 0x020CB1 17:8CA1: 1C        .byte bra_case_8CBD_02_отобьет - *
+- D - I - 0x020CB2 17:8CA2: 2A        .byte bra_case_8CCC_03_словит - *
 - - - - - 0x020CB3 17:8CA3: 0A        .byte bra_case_8CAD_04_нарушение - *
 
-bra_case_8CA4_00:
+bra_case_8CA4_00_промахнется:
 - D - I - 0x020CB4 17:8CA4: FA        .byte con_jsr
 - D - I - 0x020CB5 17:8CA5: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CB7 17:8CA7: FA        .byte con_jsr
@@ -2583,7 +2583,7 @@ bra_case_8CA4_00:
 bra_case_8CAD_04_нарушение:
 - D - I - 0x020CBD 17:8CAD: F0        .byte con_quit
 
-bra_case_8CAE_01:
+bra_case_8CAE_01_коснется:
 - D - I - 0x020CBE 17:8CAE: FA        .byte con_jsr
 - D - I - 0x020CBF 17:8CAF: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CC1 17:8CB1: FA        .byte con_jsr
@@ -2595,7 +2595,7 @@ bra_case_8CAE_01:
 - D - I - 0x020CCA 17:8CBA: F2        .byte con_jmp
 - D - I - 0x020CCB 17:8CBB: 17 A0     .word loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом
 
-bra_case_8CBD_02:
+bra_case_8CBD_02_отобьет:
 - D - I - 0x020CCD 17:8CBD: FA        .byte con_jsr
 - D - I - 0x020CCE 17:8CBE: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CD0 17:8CC0: FA        .byte con_jsr
@@ -2607,7 +2607,7 @@ bra_case_8CBD_02:
 - D - I - 0x020CD9 17:8CC9: F2        .byte con_jmp
 - D - I - 0x020CDA 17:8CCA: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-bra_case_8CCC_03:
+bra_case_8CCC_03_словит:
 - D - I - 0x020CDC 17:8CCC: FA        .byte con_jsr
 - D - I - 0x020CDD 17:8CCD: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CDF 17:8CCF: FA        .byte con_jsr
@@ -2617,12 +2617,12 @@ bra_case_8CCC_03:
 
 bra_case_8CD5_02_pass_cut:
 - D - I - 0x020CE5 17:8CD5: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020CE7 17:8CD7: 05        .byte bra_case_8CDC_00 - *
-- D - I - 0x020CE8 17:8CD8: 0E        .byte bra_case_8CE6_01 - *
-- D - I - 0x020CE9 17:8CD9: 1C        .byte bra_case_8CF5_02 - *
-- D - I - 0x020CEA 17:8CDA: 2A        .byte bra_case_8D04_03 - *
+- D - I - 0x020CE7 17:8CD7: 05        .byte bra_case_8CDC_00_промахнется - *
+- D - I - 0x020CE8 17:8CD8: 0E        .byte bra_case_8CE6_01_коснется - *
+- D - I - 0x020CE9 17:8CD9: 1C        .byte bra_case_8CF5_02_отобьет - *
+- D - I - 0x020CEA 17:8CDA: 2A        .byte bra_case_8D04_03_словит - *
 
-bra_case_8CDC_00:
+bra_case_8CDC_00_промахнется:
 - D - I - 0x020CEC 17:8CDC: FA        .byte con_jsr
 - D - I - 0x020CED 17:8CDD: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CEF 17:8CDF: FA        .byte con_jsr
@@ -2634,7 +2634,7 @@ bra_case_8CDC_00:
                                       .byte con_cloud + $07
                                       .byte con_rts
 
-bra_case_8CE6_01:
+bra_case_8CE6_01_коснется:
 - D - I - 0x020CF6 17:8CE6: FA        .byte con_jsr
 - D - I - 0x020CF7 17:8CE7: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020CF9 17:8CE9: FA        .byte con_jsr
@@ -2646,7 +2646,7 @@ bra_case_8CE6_01:
 - D - I - 0x020D02 17:8CF2: F2        .byte con_jmp
 - D - I - 0x020D03 17:8CF3: E0 9F     .word loc_9FE0
 
-bra_case_8CF5_02:
+bra_case_8CF5_02_отобьет:
 - D - I - 0x020D05 17:8CF5: FA        .byte con_jsr
 - D - I - 0x020D06 17:8CF6: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020D08 17:8CF8: FA        .byte con_jsr
@@ -2658,7 +2658,7 @@ bra_case_8CF5_02:
 - D - I - 0x020D11 17:8D01: F2        .byte con_jmp
 - D - I - 0x020D12 17:8D02: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-bra_case_8D04_03:
+bra_case_8D04_03_словит:
 - D - I - 0x020D14 17:8D04: FA        .byte con_jsr
 - D - I - 0x020D15 17:8D05: 79 9C     .word sub_9C79_игрок_бежит_по_земле
 - D - I - 0x020D17 17:8D07: FA        .byte con_jsr
@@ -5421,7 +5421,7 @@ bra_case_9A33_00:
 - D - I - 0x021A49 17:9A39: FA        .byte con_jsr
 - D - I - 0x021A4A 17:9A3A: D8 A2     .word sub_A2D8
 - D - I - 0x021A4C 17:9A3C: F2        .byte con_jmp
-- D - I - 0x021A4D 17:9A3D: 76 A1     .word loc_A176
+- D - I - 0x021A4D 17:9A3D: 76 A1     .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
 
 bra_case_9A40_01:
 - D - I - 0x021A50 17:9A40: FA        .byte con_jsr
@@ -5485,7 +5485,7 @@ bra_case_9A80_00:
 - D - I - 0x021A96 17:9A86: FA        .byte con_jsr
 - D - I - 0x021A97 17:9A87: D8 A2     .word sub_A2D8
 - D - I - 0x021A99 17:9A89: F2        .byte con_jmp
-- D - I - 0x021A9A 17:9A8A: 76 A1     .word loc_A176
+- D - I - 0x021A9A 17:9A8A: 76 A1     .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
 
 bra_case_9A8C_01:
 - D - I - 0x021A9C 17:9A8C: FA        .byte con_jsr
@@ -5588,7 +5588,7 @@ bra_case_9B01_00:
 - - - - - 0x021B17 17:9B07: FA        .byte con_jsr
 - - - - - 0x021B18 17:9B08: D8 A2     .word sub_A2D8
 - - - - - 0x021B1A 17:9B0A: F2        .byte con_jmp
-- - - - - 0x021B1B 17:9B0B: 76 A1     .word loc_A176
+- - - - - 0x021B1B 17:9B0B: 76 A1     .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
 
 bra_case_9B0D_01:
 - - - - - 0x021B1D 17:9B0D: FA        .byte con_jsr
@@ -7006,7 +7006,7 @@ loc_A16E:
 - D - I - 0x022184 11:A174: 16        .byte con_cloud + $16
 - D - I - 0x022185 11:A175: FB        .byte con_rts
 
-loc_A176:
+loc_A176_защитник_в_воздухе_не_касается_мяча_телом:
 sub_A176_защитник_в_воздухе_не_касается_мяча_телом:
 - D - I - 0x022186 11:A176: 3C        .byte con_pause + $3C
 - D - I - 0x022187 11:A177: 6C        .byte con_bg + $6C
