@@ -2563,7 +2563,7 @@ bra_case_8C97_01_face_block:
 - D - I - 0x020CA7 17:8C97: FA        .byte con_jsr
 - D - I - 0x020CA8 17:8C98: 47 B3     .word sub_B347_игрок_прыгает_к_летящему_мячу_блоком
 - D - I - 0x020CAA 17:8C9A: F2        .byte con_jmp
-- D - I - 0x020CAB 17:8C9B: 67 8F     .word loc_8F67
+- D - I - 0x020CAB 17:8C9B: 67 8F     .word loc_8F67_ishizaki_face_block_в_процессе
 
 bra_case_8C9D_01_tackle:
 - D - I - 0x020CAD 17:8C9D: F3        .byte con_branch, $83     ; результат действия защитника
@@ -2963,9 +2963,24 @@ bra_case_8F5B_00_block:
 bra_case_8F64_01_face_block:
 - - - - - 0x020F74 17:8F64: FA        .byte con_jsr
 - - - - - 0x020F75 17:8F65: 7A 9F     .word sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком
-loc_8F67:
-- D - I - 0x020F77 17:8F67: FA        .byte con_jsr
-- D - I - 0x020F78 17:8F68: 65 B4     .word sub_B465_ishizaki_face_block_в_процессе
+loc_8F67_ishizaki_face_block_в_процессе:
+                                      .byte con_F7, $0F
+                                      .byte con_pause + $1E
+                                      .byte con_bg + $05
+                                      .byte con_animation + $00
+                                      .byte con_cloud + con_skip
+                                      .byte con_F7, $2A
+                                      .byte con_soundID_delay, $2E, $02
+                                      .byte con_pause + $23
+                                      .byte con_bg + $6A
+                                      .byte con_animation + $BD
+                                      .byte con_cloud + $56
+                                      .byte con_jsr
+                                      .word sub_BBC7_очистка
+                                      .byte con_pause + $3C
+                                      .byte con_bg + $1F
+                                      .byte con_animation + $13
+                                      .byte con_cloud + $57
 - D - I - 0x020F7A 17:8F6A: F2        .byte con_jmp
 - D - I - 0x020F7B 17:8F6B: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -11851,26 +11866,6 @@ sub_B45D:
 - D - I - 0x023471 11:B461: 52        .byte con_animation + $52
 - D - I - 0x023472 11:B462: 50        .byte con_cloud + $50
 - D - I - 0x023473 11:B463: FB        .byte con_rts
-
-sub_B465_ishizaki_face_block_в_процессе:
-- D - I - 0x023475 11:B465: F7        .byte con_F7, $0F
-- D - I - 0x023477 11:B467: 1E        .byte con_pause + $1E
-- D - I - 0x023478 11:B468: 05        .byte con_bg + $05
-- D - I - 0x023479 11:B469: 00        .byte con_animation + $00
-- D - I - 0x02347A 11:B46A: F0        .byte con_cloud + con_skip
-- D - I - 0x02347B 11:B46B: F7        .byte con_F7, $2A
-- D - I - 0x02347D 11:B46D: F9        .byte con_soundID_delay, $2E, $02
-- D - I - 0x023480 11:B470: 23        .byte con_pause + $23
-- D - I - 0x023481 11:B471: 6A        .byte con_bg + $6A
-- D - I - 0x023482 11:B472: BD        .byte con_animation + $BD
-- D - I - 0x023483 11:B473: 56        .byte con_cloud + $56
-- D - I - 0x023484 11:B474: FA        .byte con_jsr
-- D - I - 0x023485 11:B475: C7 BB     .word sub_BBC7_очистка
-- D - I - 0x023487 11:B477: 3C        .byte con_pause + $3C
-- D - I - 0x023488 11:B478: 1F        .byte con_bg + $1F
-- D - I - 0x023489 11:B479: 13        .byte con_animation + $13
-- D - I - 0x02348A 11:B47A: 57        .byte con_cloud + $57
-- D - I - 0x02348B 11:B47B: FB        .byte con_rts
 
 
 
