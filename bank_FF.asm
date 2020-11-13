@@ -606,7 +606,7 @@ C - - - - 0x03CA58 FF:CA48: A9 45     LDA #$45
 C - - - - 0x03CA5A FF:CA4A: 8D 45 05  STA $0545
 loc_CA4D:
 C D - - - 0x03CA5D FF:CA4D: A9 01     LDA #$01
-C - - - - 0x03CA5F FF:CA4F: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03CA5F FF:CA4F: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03CA62 FF:CA52: 20 9F EE  JSR sub_EE9F
 C - - - - 0x03CA65 FF:CA55: 20 CA E3  JSR sub_E3CA
 C - - - - 0x03CA68 FF:CA58: 4C 4D CA  JMP loc_CA4D
@@ -696,9 +696,9 @@ C - - - - 0x03CB1A FF:CB0A: F6 00     INC ram_0000,X
 bra_CB0C_выход:
 C - - - - 0x03CB1C FF:CB0C: 60        RTS
 
-.export sub_0x03CB1F
-sub_0x03CB1F:
-sub_CB0F:
+.export sub_0x03CB1F_задержка
+sub_0x03CB1F_задержка:
+sub_CB0F_задержка:
 C D - - - 0x03CB1F FF:CB0F: 85 7F     STA ram_007F
 C - - - - 0x03CB21 FF:CB11: 8A        TXA
 C - - - - 0x03CB22 FF:CB12: 48        PHA
@@ -788,7 +788,7 @@ C D - - - 0x03CBC0 FF:CBB0: 8D 18 05  STA ram_сценарий
 C - - - - 0x03CBC3 FF:CBB3: A9 80     LDA #$80
 C - - - - 0x03CBC5 FF:CBB5: 8D 16 05  STA ram_флаг_сценария_ХЗ
 C - - - - 0x03CBCC FF:CBBC: A9 00     LDA #$00
-C - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03CBD1 FF:CBC1: 60        RTS
 
 .export sub_0x03CC01_запись_звука
@@ -882,7 +882,7 @@ sub_CC46_очистить_нижнюю_половину_экрана:
 bra_CC47:
 @ожидание_освобождения_буфера_1:
     LDA #$01
-    JSR sub_CB0F
+    JSR sub_CB0F_задержка
     LDA $0515
     BNE @ожидание_освобождения_буфера_1
     LDA #$01
@@ -918,7 +918,7 @@ bra_CC4D_цикл_очистки_экрана:
     STA $0515
 @ожидание_освобождения_буфера_2:
     LDA #$01
-    JSR sub_CB0F
+    JSR sub_CB0F_задержка
     LDA $0515
     BNE @ожидание_освобождения_буфера_2
     LDA #$01
@@ -936,7 +936,7 @@ bra_CC4D_цикл_очистки_экрана:
     LDA #$81
     STA $0515
     LDA #$01
-    JSR sub_CB0F
+    JSR sub_CB0F_задержка
     RTS
 
 tbl_CC46_2006_lo:
@@ -1470,7 +1470,7 @@ sub_CF8F_курсор_меню_после_гола:
     STA ram_спрайт_атрибут + $FC
 bra_CFA4_цикл_ожидания_нажатия:
     LDA #$01
-    JSR sub_CB0F
+    JSR sub_CB0F_задержка
     LDA ram_номер_опции
     ASL
     ASL
@@ -2000,7 +2000,7 @@ C - - - - 0x03D2C1 FF:D2B1: 8D 1E 06  STA $061E
 bra_D2B4:
 loc_D2B4:
 C D - - - 0x03D2C4 FF:D2B4: A9 01     LDA #$01
-C - - - - 0x03D2C6 FF:D2B6: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D2C6 FF:D2B6: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03D2C9 FF:D2B9: A9 0F     LDA #con_btns_Dpad
 C - - - - 0x03D2CB FF:D2BB: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D2CE FF:D2BE: F0 49     BEQ bra_D309
@@ -2151,7 +2151,7 @@ bra_D3A3:
 C - - - - 0x03D3B3 FF:D3A3: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 loc_D3A6:
 C D - - - 0x03D3B6 FF:D3A6: A9 01     LDA #$01
-C - - - - 0x03D3B8 FF:D3A8: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D3B8 FF:D3A8: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03D3BB FF:D3AB: A9 80     LDA #con_btn_A
 C - - - - 0x03D3BD FF:D3AD: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D3C0 FF:D3B0: D0 03     BNE bra_D3B5
@@ -2475,7 +2475,7 @@ C - - - - 0x03D5C5 FF:D5B5: A9 00     LDA #$00
 C - - - - 0x03D5C7 FF:D5B7: 85 11     STA ram_0011
 C - - - - 0x03D5C9 FF:D5B9: 85 12     STA ram_0012
 C - - - - 0x03D5CB FF:D5BB: A9 02     LDA #$02
-C - - - - 0x03D5CD FF:D5BD: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D5CD FF:D5BD: 20 0F CB  JSR sub_CB0F_задержка
 loc_D5C3:
 C D - - - 0x03D5D3 FF:D5C3: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D5D6 FF:D5C6: AD FB 05  LDA ram_команда_с_мячом
@@ -2493,7 +2493,7 @@ C - - - - 0x03D5EA FF:D5DA: BD 00 D7  LDA tbl_D700_статы,X
 C - - - - 0x03D5ED FF:D5DD: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 loc_D5E5:
 C D - - - 0x03D5F5 FF:D5E5: A9 01     LDA #$01
-C - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F_задержка
                                       LDA $0621
                                       CMP #$05      ; не показывать список в пенальти
                                       BEQ @читать_другие_кнопки
@@ -2513,7 +2513,7 @@ C - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F
                                       JSR sub_EF7F_отрисовка_меню_во_время_матча
 @продолжать_отображение_соперников:
                                       LDA #$01
-                                      JSR sub_CB0F
+                                      JSR sub_CB0F_задержка
                                       LDA ram_удержанные
                                       AND #con_btn_Select
                                       BNE @продолжать_отображение_соперников
@@ -2849,7 +2849,7 @@ C - - - - 0x03D814 FF:D804: AD FE 05  LDA $05FE
 C - - - - 0x03D817 FF:D807: 8D 24 06  STA $0624
 bra_D80A:
 C - - - - 0x03D81A FF:D80A: A9 01     LDA #$01
-C - - - - 0x03D81C FF:D80C: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D81C FF:D80C: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03D81F FF:D80F: AD 1C 00  LDA ram_удержанные
 C - - - - 0x03D822 FF:D812: 29 0F     AND #con_btns_Dpad
 C - - - - 0x03D824 FF:D814: F0 21     BEQ bra_D837
@@ -2913,7 +2913,7 @@ C - - - - 0x03D883 FF:D873: 8D 25 06  STA $0625
 C - - - - 0x03D886 FF:D876: 4C B5 D8  JMP loc_D8B5
 bra_D879:
 C - - - - 0x03D889 FF:D879: A9 01     LDA #$01
-C - - - - 0x03D88B FF:D87B: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D88B FF:D87B: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03D88E FF:D87E: A9 40     LDA #con_btn_B
 C - - - - 0x03D890 FF:D880: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D893 FF:D883: F0 0A     BEQ bra_D88F
@@ -3085,7 +3085,7 @@ C - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #$11      ; no_players_nearby
 C - - - - 0x03D9C8 FF:D9B8: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D9BB:
 C - - - - 0x03D9CB FF:D9BB: A9 01     LDA #$01
-C - - - - 0x03D9CD FF:D9BD: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D9CD FF:D9BD: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03D9D0 FF:D9C0: A9 C0     LDA #con_btn_B + con_btn_A
 C - - - - 0x03D9D2 FF:D9C2: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D9D5 FF:D9C5: F0 F4     BEQ bra_D9BB
@@ -3101,7 +3101,7 @@ C - - - - 0x03D9E7 FF:D9D7: A9 00     LDA #$00
 C - - - - 0x03D9E9 FF:D9D9: 4C 03 DA  JMP loc_DA03
 bra_D9DC:
 C - - - - 0x03D9EC FF:D9DC: A9 01     LDA #$01
-C - - - - 0x03D9EE FF:D9DE: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03D9EE FF:D9DE: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03D9F1 FF:D9E1: A9 03     LDA #con_btn_Right + con_btn_Left
 C - - - - 0x03D9F3 FF:D9E3: 2D 1E 00  AND ram_одноразовые
 C - - - - 0x03D9F6 FF:D9E6: F0 2A     BEQ bra_DA12
@@ -3187,7 +3187,7 @@ C - - - - 0x03DA7F FF:DA6F: A9 00     LDA #$00
 C - - - - 0x03DA81 FF:DA71: 8D 24 06  STA $0624
 bra_DA74:
 C - - - - 0x03DA84 FF:DA74: A9 01     LDA #$01
-C - - - - 0x03DA86 FF:DA76: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03DA86 FF:DA76: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03DA89 FF:DA79: AE 24 06  LDX $0624
 C - - - - 0x03DA8C FF:DA7C: E8        INX
 C - - - - 0x03DA8D FF:DA7D: E0 10     CPX #$10
@@ -3230,7 +3230,7 @@ C - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #$35
 C - - - - 0x03DAEA FF:DADA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_DADD_ожидание_разводки:
 C - - - - 0x03DAED FF:DADD: A9 01     LDA #$01
-C - - - - 0x03DAEF FF:DADF: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03DAEF FF:DADF: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03DAF2 FF:DAE2: AD 1C 00  LDA ram_удержанные
 C - - - - 0x03DAF5 FF:DAE5: 29 C0     AND #con_btn_B + con_btn_A
 C - - - - 0x03DAF7 FF:DAE7: F0 F4     BEQ bra_DADD_ожидание_разводки
@@ -4099,7 +4099,7 @@ C - - - - 0x03E091 FF:E081: A9 00     LDA #$00
 bra_E083:
 C - - - - 0x03E093 FF:E083: 48        PHA
 C - - - - 0x03E094 FF:E084: A9 01     LDA #$01
-C - - - - 0x03E096 FF:E086: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03E096 FF:E086: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03E099 FF:E089: 68        PLA
 C - - - - 0x03E09A FF:E08A: 48        PHA
 C - - - - 0x03E09B FF:E08B: F0 44     BEQ bra_E0D1
@@ -4199,7 +4199,7 @@ loc_E142:
 C D - - - 0x03E152 FF:E142: 20 67 E2  JSR sub_E267
 loc_E145:
 C D - - - 0x03E155 FF:E145: A9 01     LDA #$01
-C - - - - 0x03E157 FF:E147: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03E157 FF:E147: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03E15A FF:E14A: 20 49 E3  JSR sub_E349
 C - - - - 0x03E15D FF:E14D: AD 14 06  LDA $0614
 C - - - - 0x03E160 FF:E150: F0 06     BEQ bra_E158
@@ -4581,7 +4581,7 @@ C - - - - 0x03E41A FF:E40A: A9 00     LDA #$00
 loc_E40C:
 C D - - - 0x03E41C FF:E40C: 48        PHA
 C - - - - 0x03E41D FF:E40D: A9 01     LDA #$01
-C - - - - 0x03E41F FF:E40F: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03E41F FF:E40F: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03E422 FF:E412: 20 49 E3  JSR sub_E349
 C - - - - 0x03E425 FF:E415: 68        PLA
 C - - - - 0x03E426 FF:E416: 48        PHA
@@ -4951,7 +4951,7 @@ C - - - - 0x03E68B FF:E67B: 49 0B     EOR #$0B
 C - - - - 0x03E68D FF:E67D: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03E690 FF:E680: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
 C - - - - 0x03E693 FF:E683: A9 02     LDA #$02
-C - - - - 0x03E695 FF:E685: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03E695 FF:E685: 20 0F CB  JSR sub_CB0F_задержка
 .export ofs_0x03E698
 ofs_0x03E698:
 C D - - - 0x03E698 FF:E688: A9 00     LDA #$00
@@ -5090,7 +5090,7 @@ C - - - - 0x03E77D FF:E76D: 8E 3B 06  STX $063B
 C - - - - 0x03E780 FF:E770: 8C 3C 06  STY $063C
 loc_E773:
 C D - - - 0x03E783 FF:E773: A9 01     LDA #$01
-C - - - - 0x03E785 FF:E775: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03E785 FF:E775: 20 0F CB  JSR sub_CB0F_задержка
 bra_E778:
 C - - - - 0x03E788 FF:E778: AD 39 06  LDA $0639
 C - - - - 0x03E78B FF:E77B: 18        CLC
@@ -5379,7 +5379,7 @@ C - - - - 0x03E94F FF:E93F: 48        PHA
                                       JMP loc_E945
 bra_E940_ожидание_освобождения_буфера:
 C - - - - 0x03E950 FF:E940: A9 01     LDA #$01
-C - - - - 0x03E952 FF:E942: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03E952 FF:E942: 20 0F CB  JSR sub_CB0F_задержка
 loc_E945:
 C - - - - 0x03E955 FF:E945: AD 15 05  LDA $0515
 C - - - - 0x03E958 FF:E948: D0 F6     BNE bra_E940_ожидание_освобождения_буфера
@@ -5677,7 +5677,7 @@ loc_EB86:
 ofs_EB86_minus:
 ofs_EB86 = ofs_EB86_minus - 1
 C D - - - 0x03EB96 FF:EB86: A9 01     LDA #$01
-C - - - - 0x03EB98 FF:EB88: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03EB98 FF:EB88: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03EB9B FF:EB8B: A5 21     LDA ram_для_2001
 C - - - - 0x03EB9D FF:EB8D: 29 1E     AND #$1E
 C - - - - 0x03EB9F FF:EB8F: AE 39 05  LDX $0539
@@ -6216,15 +6216,15 @@ C - - - - 0x03EFB7 FF:EFA7: 90 01     BCC bra_EFAA
 C - - - - 0x03EFB9 FF:EFA9: 60        RTS
 bra_EFAA:
 C - - - - 0x03EFBA FF:EFAA: AD 00 06  LDA ram_колво_защитников
-C - - - - 0x03EFBD FF:EFAD: D0 03     BNE bra_EFB2
-C - - - - 0x03EFBF FF:EFAF: 4C F6 EF  JMP loc_EFF6
-bra_EFB2:
+C - - - - 0x03EFBD FF:EFAD: D0 03     BNE bra_EFB2_есть_защитники
+C - - - - 0x03EFBF FF:EFAF: 4C F6 EF  JMP loc_EFF6_никто_не_напал
+bra_EFB2_есть_защитники:
 C - - - - 0x03EFC2 FF:EFB2: A9 00     LDA #$00
-bra_EFB4:
+bra_EFB4_цикл:
 C - - - - 0x03EFC4 FF:EFB4: 48        PHA
 bra_EFB5_ожидание_освобождения_буфера:
 C - - - - 0x03EFC5 FF:EFB5: A9 01     LDA #$01
-C - - - - 0x03EFC7 FF:EFB7: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03EFC7 FF:EFB7: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03EFCA FF:EFBA: AD 15 05  LDA $0515
 C - - - - 0x03EFCD FF:EFBD: D0 F6     BNE bra_EFB5_ожидание_освобождения_буфера
 C - - - - 0x03EFCF FF:EFBF: A9 01     LDA #$01
@@ -6238,62 +6238,62 @@ C - - - - 0x03EFDD FF:EFCD: A9 05     LDA #$05
 bra_EFCF:
 C - - - - 0x03EFDF FF:EFCF: 0A        ASL
 C - - - - 0x03EFE0 FF:EFD0: AA        TAX
-C - - - - 0x03EFE1 FF:EFD1: BD 06 F2  LDA tbl_F206,X
+C - - - - 0x03EFE1 FF:EFD1: BD 06 F2  LDA tbl_F206_тень_защитника,X
 C - - - - 0x03EFE4 FF:EFD4: 85 3A     STA ram_003A
-C - - - - 0x03EFE6 FF:EFD6: BD 07 F2  LDA tbl_F206 + 1,X
+C - - - - 0x03EFE6 FF:EFD6: BD 07 F2  LDA tbl_F206_тень_защитника + 1,X
 C - - - - 0x03EFE9 FF:EFD9: 85 3B     STA ram_003B
 C - - - - 0x03EFEB FF:EFDB: A9 00     LDA #$00
 C - - - - 0x03EFED FF:EFDD: 85 3C     STA ram_003C
 C - - - - 0x03EFEF FF:EFDF: A9 21     LDA #$21
 C - - - - 0x03EFF1 FF:EFE1: 85 3D     STA ram_003D
 C - - - - 0x03EFF3 FF:EFE3: A2 00     LDX #$00
-C - - - - 0x03EFF5 FF:EFE5: 20 14 F1  JSR sub_F114
+C - - - - 0x03EFF5 FF:EFE5: 20 14 F1  JSR sub_F114_тень_защитника_или_миникарта_в_буфер
 C - - - - 0x03EFF8 FF:EFE8: A9 04     LDA #$04
-C - - - - 0x03EFFA FF:EFEA: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03EFFA FF:EFEA: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03EFFD FF:EFED: 68        PLA
 C - - - - 0x03EFFE FF:EFEE: 18        CLC
 C - - - - 0x03EFFF FF:EFEF: 69 01     ADC #$01
 C - - - - 0x03F001 FF:EFF1: CD 00 06  CMP ram_колво_защитников
-C - - - - 0x03F004 FF:EFF4: D0 BE     BNE bra_EFB4
-loc_EFF6:
+C - - - - 0x03F004 FF:EFF4: D0 BE     BNE bra_EFB4_цикл
+loc_EFF6_никто_не_напал:
 C D - - - 0x03F006 FF:EFF6: AE 21 06  LDX $0621
 C - - - - 0x03F009 FF:EFF9: BD 0F F0  LDA tbl_F00F,X
-C - - - - 0x03F00C FF:EFFC: 8D 3D 06  STA $063D
+C - - - - 0x03F00C FF:EFFC: 8D 3D 06  STA ram_положение_миникарты
 C - - - - 0x03F00F FF:EFFF: 8A        TXA
 C - - - - 0x03F010 FF:F000: D0 11     BNE bra_F013
 C - - - - 0x03F012 FF:F002: AD 00 06  LDA ram_колво_защитников
 C - - - - 0x03F015 FF:F005: D0 0C     BNE bra_F013
 C - - - - 0x03F017 FF:F007: A9 02     LDA #$02
-C - - - - 0x03F019 FF:F009: 8D 3D 06  STA $063D
+C - - - - 0x03F019 FF:F009: 8D 3D 06  STA ram_положение_миникарты
 bra_F013:
-.export sub_0x03F023
-sub_0x03F023:
+.export sub_0x03F023_отрисовка_миникарты
+sub_0x03F023_отрисовка_миникарты:
 C D - - - 0x03F023 FF:F013: A9 00     LDA #$00
-loc_F015:
+loc_F015_цикл:
 C D - - - 0x03F025 FF:F015: 48        PHA
 bra_F016_ожидание_освобождения_буфера:
 C - - - - 0x03F026 FF:F016: A9 01     LDA #$01
-C - - - - 0x03F028 FF:F018: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03F028 FF:F018: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03F02B FF:F01B: AD 15 05  LDA $0515
 C - - - - 0x03F02E FF:F01E: D0 F6     BNE bra_F016_ожидание_освобождения_буфера
 C - - - - 0x03F030 FF:F020: A9 01     LDA #$01
 C - - - - 0x03F032 FF:F022: 8D 15 05  STA $0515
-C - - - - 0x03F035 FF:F025: AD 3D 06  LDA $063D
+C - - - - 0x03F035 FF:F025: AD 3D 06  LDA ram_положение_миникарты
 C - - - - 0x03F038 FF:F028: 0A        ASL
 C - - - - 0x03F039 FF:F029: 0A        ASL
 C - - - - 0x03F03A FF:F02A: A8        TAY
-C - - - - 0x03F03B FF:F02B: B9 5A F1  LDA tbl_F15A,Y
+C - - - - 0x03F03B FF:F02B: B9 5A F1  LDA tbl_F15A_ppu_адрес_байтов_nametable,Y
 C - - - - 0x03F03E FF:F02E: 85 3C     STA ram_003C
-C - - - - 0x03F040 FF:F030: B9 5B F1  LDA tbl_F15A + 1,Y
+C - - - - 0x03F040 FF:F030: B9 5B F1  LDA tbl_F15A_ppu_адрес_байтов_nametable + 1,Y
 C - - - - 0x03F043 FF:F033: 85 3D     STA ram_003D
 C - - - - 0x03F045 FF:F035: 68        PLA
 C - - - - 0x03F046 FF:F036: 48        PHA
 C - - - - 0x03F047 FF:F037: AA        TAX
 C - - - - 0x03F048 FF:F038: 18        CLC
-C - - - - 0x03F049 FF:F039: B9 5C F1  LDA tbl_F15A + 2,Y
-C - - - - 0x03F04C FF:F03C: 7D 0E F1  ADC tbl_F10E,X
+C - - - - 0x03F049 FF:F039: B9 5C F1  LDA tbl_F15C_ppu_адрес_атрибутов,Y
+C - - - - 0x03F04C FF:F03C: 7D 0E F1  ADC tbl_F10E_смещение_ppu_адреса_атрибутов,X
 C - - - - 0x03F04F FF:F03F: 8D A6 04  STA $04A6
-C - - - - 0x03F052 FF:F042: AD 3D 06  LDA $063D
+C - - - - 0x03F052 FF:F042: AD 3D 06  LDA ram_положение_миникарты
 C - - - - 0x03F055 FF:F045: C9 03     CMP #$03
 C - - - - 0x03F057 FF:F047: F0 18     BEQ bra_F061
 C - - - - 0x03F059 FF:F049: AD CE 05  LDA $05CE
@@ -6305,15 +6305,15 @@ C - - - - 0x03F067 FF:F057: 4A        LSR
 C - - - - 0x03F068 FF:F058: 4A        LSR
 C - - - - 0x03F069 FF:F059: 4A        LSR
 C - - - - 0x03F06A FF:F05A: 4A        LSR
-C - - - - 0x03F06B FF:F05B: 19 5D F1  ORA tbl_F15A + 3,Y
+C - - - - 0x03F06B FF:F05B: 19 5D F1  ORA tbl_F15C_ppu_адрес_атрибутов + 1,Y
 C - - - - 0x03F06E FF:F05E: 4C 64 F0  JMP loc_F064
 bra_F061:
-C - - - - 0x03F071 FF:F061: B9 5D F1  LDA tbl_F15A + 3,Y
+C - - - - 0x03F071 FF:F061: B9 5D F1  LDA tbl_F15C_ppu_адрес_атрибутов + 1,Y
 loc_F064:
 C D - - - 0x03F074 FF:F064: 8D A7 04  STA $04A7
 C - - - - 0x03F077 FF:F067: A9 01     LDA #$01
 C - - - - 0x03F079 FF:F069: 8D A5 04  STA $04A5
-C - - - - 0x03F07C FF:F06C: AD 3D 06  LDA $063D
+C - - - - 0x03F07C FF:F06C: AD 3D 06  LDA ram_положение_миникарты
 C - - - - 0x03F07F FF:F06F: 0A        ASL
 C - - - - 0x03F080 FF:F070: 85 3B     STA ram_003B
 C - - - - 0x03F082 FF:F072: 0A        ASL
@@ -6322,31 +6322,31 @@ C - - - - 0x03F085 FF:F075: 85 3B     STA ram_003B
 C - - - - 0x03F087 FF:F077: 8A        TXA
 C - - - - 0x03F088 FF:F078: 65 3B     ADC ram_003B
 C - - - - 0x03F08A FF:F07A: AA        TAX
-C - - - - 0x03F08B FF:F07B: BD 6A F1  LDA tbl_F16A,X
+C - - - - 0x03F08B FF:F07B: BD 6A F1  LDA tbl_F16A_атрибуты_фона_миникарты,X
 C - - - - 0x03F08E FF:F07E: 8D A8 04  STA $04A8
 C - - - - 0x03F091 FF:F081: 68        PLA
 C - - - - 0x03F092 FF:F082: 48        PHA
 C - - - - 0x03F093 FF:F083: 0A        ASL
 C - - - - 0x03F094 FF:F084: AA        TAX
-C - - - - 0x03F095 FF:F085: BD 82 F1  LDA tbl_F182,X
+C - - - - 0x03F095 FF:F085: BD 82 F1  LDA tbl_F182_часть_тайлов_миникарты,X
 C - - - - 0x03F098 FF:F088: 85 3A     STA ram_003A
-C - - - - 0x03F09A FF:F08A: BD 83 F1  LDA tbl_F182 + 1,X
+C - - - - 0x03F09A FF:F08A: BD 83 F1  LDA tbl_F182_часть_тайлов_миникарты + 1,X
 C - - - - 0x03F09D FF:F08D: 85 3B     STA ram_003B
 C - - - - 0x03F09F FF:F08F: A2 04     LDX #$04
-C - - - - 0x03F0A1 FF:F091: 20 14 F1  JSR sub_F114
+C - - - - 0x03F0A1 FF:F091: 20 14 F1  JSR sub_F114_тень_защитника_или_миникарта_в_буфер
 C - - - - 0x03F0A4 FF:F094: 68        PLA
 C - - - - 0x03F0A5 FF:F095: 18        CLC
 C - - - - 0x03F0A6 FF:F096: 69 01     ADC #$01
 C - - - - 0x03F0A8 FF:F098: C9 06     CMP #$06
-C - - - - 0x03F0AA FF:F09A: F0 03     BEQ bra_F09F
-C - - - - 0x03F0AC FF:F09C: 4C 15 F0  JMP loc_F015
-bra_F09F:
-C - - - - 0x03F0AF FF:F09F: AD 3D 06  LDA $063D
-C - - - - 0x03F0B2 FF:F0A2: C9 03     CMP #$03
+C - - - - 0x03F0AA FF:F09A: F0 03     BEQ bra_F09F_продолжить
+C - - - - 0x03F0AC FF:F09C: 4C 15 F0  JMP loc_F015_цикл
+bra_F09F_продолжить:
+C - - - - 0x03F0AF FF:F09F: AD 3D 06  LDA ram_положение_миникарты
+C - - - - 0x03F0B2 FF:F0A2: C9 03     CMP #$03      ; миникарта formation
 C - - - - 0x03F0B4 FF:F0A4: F0 67     BEQ bra_F10D_выход
 bra_F0A6_ожидание_освобождения_буфера:
 C - - - - 0x03F0B6 FF:F0A6: A9 01     LDA #$01
-C - - - - 0x03F0B8 FF:F0A8: 20 0F CB  JSR sub_CB0F
+C - - - - 0x03F0B8 FF:F0A8: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - 0x03F0BB FF:F0AB: AD 15 05  LDA $0515
 C - - - - 0x03F0BE FF:F0AE: D0 F6     BNE bra_F0A6_ожидание_освобождения_буфера
 C - - - - 0x03F0C0 FF:F0B0: A9 01     LDA #$01
@@ -6358,7 +6358,7 @@ C - - - - 0x03F0CC FF:F0BC: 8D A8 04  STA $04A8
 C - - - - 0x03F0CF FF:F0BF: A9 00     LDA #$00
 C - - - - 0x03F0D1 FF:F0C1: 85 3B     STA ram_003B
 C - - - - 0x03F0D3 FF:F0C3: 8D A9 04  STA $04A9
-C - - - - 0x03F0D6 FF:F0C6: AD 3D 06  LDA $063D
+C - - - - 0x03F0D6 FF:F0C6: AD 3D 06  LDA ram_положение_миникарты
 C - - - - 0x03F0D9 FF:F0C9: 0A        ASL
 C - - - - 0x03F0DA FF:F0CA: 0A        ASL
 C - - - - 0x03F0DB FF:F0CB: AA        TAX
@@ -6379,13 +6379,13 @@ C - - - - 0x03F0F2 FF:F0E2: 4A        LSR
 C - - - - 0x03F0F3 FF:F0E3: 18        CLC
 C - - - - 0x03F0F4 FF:F0E4: 65 3A     ADC ram_003A
 C - - - - 0x03F0F6 FF:F0E6: 85 3A     STA ram_003A
-C - - - - 0x03F0F8 FF:F0E8: 90 02     BCC bra_F0EC
+C - - - - 0x03F0F8 FF:F0E8: 90 02     BCC bra_F0EC_не_overflow
 - - - - - 0x03F0FA FF:F0EA: E6 3B     INC ram_003B
-bra_F0EC:
+bra_F0EC_не_overflow:
 C - - - - 0x03F0FC FF:F0EC: 18        CLC
-C - - - - 0x03F0FD FF:F0ED: 7D 5A F1  ADC tbl_F15A,X
+C - - - - 0x03F0FD FF:F0ED: 7D 5A F1  ADC tbl_F15A_ppu_адрес_байтов_nametable,X
 C - - - - 0x03F100 FF:F0F0: 8D A6 04  STA $04A6
-C - - - - 0x03F103 FF:F0F3: BD 5B F1  LDA tbl_F15A + 1,X
+C - - - - 0x03F103 FF:F0F3: BD 5B F1  LDA tbl_F15A_ppu_адрес_байтов_nametable + 1,X
 C - - - - 0x03F106 FF:F0F6: 65 3B     ADC ram_003B
 C - - - - 0x03F108 FF:F0F8: 8D A7 04  STA $04A7
 C - - - - 0x03F10B FF:F0FB: AD CE 05  LDA $05CE
@@ -6403,23 +6403,23 @@ C - - - - 0x03F11D FF:F10D: 60        RTS
 tbl_F00F:
 - D - - - 0x03F01F FF:F00F: 00        .byte $00
 - D - - - 0x03F020 FF:F010: 00        .byte $00
-- D - - - 0x03F021 FF:F011: 01        .byte $01    ; <あ>
+- D - - - 0x03F021 FF:F011: 01        .byte $01
 - D - - - 0x03F022 FF:F012: 00        .byte $00
 
-tbl_F10E:
-- D - - - 0x03F11E FF:F10E: 00        .byte $00
-- D - - - 0x03F11F FF:F10F: 01        .byte $01    ; <あ>
-- D - - - 0x03F120 FF:F110: 02        .byte $02    ; <い>
-- D - - - 0x03F121 FF:F111: 08        .byte $08    ; <く>
-- D - - - 0x03F122 FF:F112: 09        .byte $09    ; <け>
-- D - - - 0x03F123 FF:F113: 0A        .byte $0A    ; <こ>
+tbl_F10E_смещение_ppu_адреса_атрибутов:
+    .byte $00
+    .byte $01
+    .byte $02
+    .byte $08
+    .byte $09
+    .byte $0A
 
-sub_F114:
+sub_F114_тень_защитника_или_миникарта_в_буфер:
 C - - - - 0x03F124 FF:F114: A0 00     LDY #$00
-bra_F116:
+bra_F116_цикл:
 C - - - - 0x03F126 FF:F116: B1 3A     LDA (ram_003A),Y
 C - - - - 0x03F128 FF:F118: 9D A5 04  STA $04A5,X
-C - - - - 0x03F12B FF:F11B: F0 37     BEQ bra_F154
+C - - - - 0x03F12B FF:F11B: F0 37     BEQ bra_F154_закончить
 C - - - - 0x03F12D FF:F11D: 85 3E     STA ram_003E
 C - - - - 0x03F12F FF:F11F: C8        INY
 C - - - - 0x03F130 FF:F120: B1 3A     LDA (ram_003A),Y
@@ -6448,72 +6448,54 @@ C - - - - 0x03F153 FF:F143: C8        INY
 C - - - - 0x03F154 FF:F144: E8        INX
 C - - - - 0x03F155 FF:F145: E8        INX
 C - - - - 0x03F156 FF:F146: E8        INX
-bra_F147:
+bra_F147_цикл_чтения_тайлов:
 C - - - - 0x03F157 FF:F147: B1 3A     LDA (ram_003A),Y
 C - - - - 0x03F159 FF:F149: 9D A5 04  STA $04A5,X
 C - - - - 0x03F15C FF:F14C: C8        INY
 C - - - - 0x03F15D FF:F14D: E8        INX
 C - - - - 0x03F15E FF:F14E: C6 3E     DEC ram_003E
-C - - - - 0x03F160 FF:F150: D0 F5     BNE bra_F147
-C - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116
-bra_F154:
+C - - - - 0x03F160 FF:F150: D0 F5     BNE bra_F147_цикл_чтения_тайлов
+C - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_цикл
+bra_F154_закончить:
 C - - - - 0x03F164 FF:F154: A9 80     LDA #$80
 C - - - - 0x03F166 FF:F156: 8D 15 05  STA $0515
 C - - - - 0x03F169 FF:F159: 60        RTS
 
-; первые 2 байта читаются из 2х мест
-tbl_F15A:
-- D - - - 0x03F16A FF:F15A: 42        .byte $42    ; <イ>
-- D - - - 0x03F16B FF:F15B: 20        .byte $20    ; <み>
-- D - - - 0x03F16C FF:F15C: C0        .byte $C0    ; <ヅ>
-- D - - - 0x03F16D FF:F15D: 23        .byte $23    ; <も>
-
-- D - - - 0x03F16E FF:F15E: 42        .byte $42    ; <イ>
-- D - - - 0x03F16F FF:F15F: 20        .byte $20    ; <み>
-- D - - - 0x03F170 FF:F160: C0        .byte $C0    ; <ヅ>
-- D - - - 0x03F171 FF:F161: 23        .byte $23    ; <も>
-
-- D - - - 0x03F172 FF:F162: 42        .byte $42    ; <イ>
-- D - - - 0x03F173 FF:F163: 20        .byte $20    ; <み>
-- D - - - 0x03F174 FF:F164: C0        .byte $C0    ; <ヅ>
-- D - - - 0x03F175 FF:F165: 23        .byte $23    ; <も>
-
-- D - - - 0x03F176 FF:F166: B4        .byte $B4    ; <ガ>
-- D - - - 0x03F177 FF:F167: 22        .byte $22    ; <め>
-- D - - - 0x03F178 FF:F168: ED        .byte $ED
-- D - - - 0x03F179 FF:F169: 23        .byte $23    ; <も>
+tbl_F15A_ppu_адрес_байтов_nametable:
+    .word $2042
+tbl_F15C_ppu_адрес_атрибутов:
+    .word $23C0
+    
+    .word $2042
+    .word $23C0
+    
+    .word $2042
+    .word $23C0
+    
+    .word $22B4
+    .word $23ED
 
 
 
-tbl_F16A:
-- D - - - 0x03F17A FF:F16A: 3A        .byte $3A    ; <7>
-- D - - - 0x03F17B FF:F16B: 0A        .byte $0A    ; <こ>
-- D - - - 0x03F17C FF:F16C: 0A        .byte $0A    ; <こ>
-- D - - - 0x03F17D FF:F16D: 03        .byte $03    ; <う>
-- D - - - 0x03F17E FF:F16E: 00        .byte $00
-- D - - - 0x03F17F FF:F16F: 00        .byte $00
-- D - - - 0x03F180 FF:F170: 3F        .byte $3F    ; <•>
-- D - - - 0x03F181 FF:F171: 0F        .byte $0F    ; <そ>
-- D - - - 0x03F182 FF:F172: 0F        .byte $0F    ; <そ>
-- D - - - 0x03F183 FF:F173: 03        .byte $03    ; <う>
-- D - - - 0x03F184 FF:F174: 00        .byte $00
-- D - - - 0x03F185 FF:F175: 00        .byte $00
-- D - - - 0x03F186 FF:F176: 2A        .byte $2A    ; <れ>
-- D - - - 0x03F187 FF:F177: 0A        .byte $0A    ; <こ>
-- D - - - 0x03F188 FF:F178: 0A        .byte $0A    ; <こ>
-- D - - - 0x03F189 FF:F179: 22        .byte $22    ; <め>
-- D - - - 0x03F18A FF:F17A: 00        .byte $00
-- D - - - 0x03F18B FF:F17B: 00        .byte $00
-- D - - - 0x03F18C FF:F17C: 00        .byte $00
-- D - - - 0x03F18D FF:F17D: 00        .byte $00
-- D - - - 0x03F18E FF:F17E: 00        .byte $00
-- D - - - 0x03F18F FF:F17F: 00        .byte $00
-- D - - - 0x03F190 FF:F180: 00        .byte $00
-- D - - - 0x03F191 FF:F181: 00        .byte $00
+tbl_F16A_атрибуты_фона_миникарты:
+; атрибуты читаются по кускам, по 1 байту за раз
+; первые 3 байта = верхние атрибуты, вторые 3 = нижние атрибуты
+    .byte $3A, $0A, $0A
+    .byte $03, $00, $00
+    
+    .byte $3F, $0F, $0F
+    .byte $03, $00, $00
+    
+    .byte $2A, $0A, $0A
+    .byte $22, $00, $00
+    
+    .byte $00, $00, $00
+    .byte $00, $00, $00
 
 
 
-tbl_F182:
+tbl_F182_часть_тайлов_миникарты:
+; миникарта рисуется по кускам
 - D - - - 0x03F192 FF:F182: 8E F1     .word off_F18E_00
 - D - - - 0x03F194 FF:F184: 99 F1     .word off_F199_01
 - D - - - 0x03F196 FF:F186: A8 F1     .word off_F1A8_02
@@ -6522,411 +6504,322 @@ tbl_F182:
 - D - - - 0x03F19C FF:F18C: E9 F1     .word off_F1E9_05
 
 off_F18E_00:
-- D - I - 0x03F19E FF:F18E: 02        .byte $02    ; <い>
+- D - I - 0x03F19E FF:F18E: 02        .byte $02
 - D - I - 0x03F19F FF:F18F: 00        .byte $00
 - D - I - 0x03F1A0 FF:F190: 00        .byte $00
-- D - I - 0x03F1A1 FF:F191: 98        .byte $98
-- D - I - 0x03F1A2 FF:F192: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1A3 FF:F193: 02        .byte $02    ; <い>
-- D - I - 0x03F1A4 FF:F194: 20        .byte $20    ; <み>
+                                      .byte $98, $AC
+                                      
+- D - I - 0x03F1A3 FF:F193: 02        .byte $02
+- D - I - 0x03F1A4 FF:F194: 20        .byte $20
 - D - I - 0x03F1A5 FF:F195: 00        .byte $00
-- D - I - 0x03F1A6 FF:F196: 98        .byte $98
-- D - I - 0x03F1A7 FF:F197: 99        .byte $99
+                                      .byte $98, $99
+                                      
 - D - I - 0x03F1A8 FF:F198: 00        .byte $00
 
+
+
 off_F199_01:
-- D - I - 0x03F1A9 FF:F199: 04        .byte $04    ; <え>
-- D - I - 0x03F1AA FF:F19A: 02        .byte $02    ; <い>
+- D - I - 0x03F1A9 FF:F199: 04        .byte $04
+- D - I - 0x03F1AA FF:F19A: 02        .byte $02
 - D - I - 0x03F1AB FF:F19B: 00        .byte $00
-- D - I - 0x03F1AC FF:F19C: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1AD FF:F19D: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1AE FF:F19E: 99        .byte $99
-- D - I - 0x03F1AF FF:F19F: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1B0 FF:F1A0: 04        .byte $04    ; <え>
-- D - I - 0x03F1B1 FF:F1A1: 22        .byte $22    ; <め>
+                                      .byte $AC, $AC, $99, $AC
+                                      
+- D - I - 0x03F1B0 FF:F1A0: 04        .byte $04
+- D - I - 0x03F1B1 FF:F1A1: 22        .byte $22
 - D - I - 0x03F1B2 FF:F1A2: 00        .byte $00
-- D - I - 0x03F1B3 FF:F1A3: A0        .byte $A0    ; <が>
-- D - I - 0x03F1B4 FF:F1A4: A0        .byte $A0    ; <が>
-- D - I - 0x03F1B5 FF:F1A5: AF        .byte $AF    ; <ば>
-- D - I - 0x03F1B6 FF:F1A6: A0        .byte $A0    ; <が>
+                                      .byte $A0, $A0, $AF, $A0
+                                      
 - D - I - 0x03F1B7 FF:F1A7: 00        .byte $00
 
+
+
 off_F1A8_02:
-- D - I - 0x03F1B8 FF:F1A8: 04        .byte $04    ; <え>
-- D - I - 0x03F1B9 FF:F1A9: 06        .byte $06    ; <か>
+- D - I - 0x03F1B8 FF:F1A8: 04        .byte $04
+- D - I - 0x03F1B9 FF:F1A9: 06        .byte $06
 - D - I - 0x03F1BA FF:F1AA: 00        .byte $00
-- D - I - 0x03F1BB FF:F1AB: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1BC FF:F1AC: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1BD FF:F1AD: AC        .byte $AC    ; <づ>
-- D - I - 0x03F1BE FF:F1AE: 99        .byte $99
-- D - I - 0x03F1BF FF:F1AF: 04        .byte $04    ; <え>
-- D - I - 0x03F1C0 FF:F1B0: 26        .byte $26    ; <よ>
+                                      .byte $AC, $AC, $AC, $99
+                                      
+- D - I - 0x03F1BF FF:F1AF: 04        .byte $04
+- D - I - 0x03F1C0 FF:F1B0: 26        .byte $26
 - D - I - 0x03F1C1 FF:F1B1: 00        .byte $00
-- D - I - 0x03F1C2 FF:F1B2: A0        .byte $A0    ; <が>
-- D - I - 0x03F1C3 FF:F1B3: A0        .byte $A0    ; <が>
-- D - I - 0x03F1C4 FF:F1B4: 98        .byte $98
-- D - I - 0x03F1C5 FF:F1B5: 99        .byte $99
+                                      .byte $A0, $A0, $98, $99
+                                      
 - D - I - 0x03F1C6 FF:F1B6: 00        .byte $00
 
+
+
 off_F1B7_03:
-- D - I - 0x03F1C7 FF:F1B7: 02        .byte $02    ; <い>
-- D - I - 0x03F1C8 FF:F1B8: 40        .byte $40    ; <「>
+- D - I - 0x03F1C7 FF:F1B7: 02        .byte $02
+- D - I - 0x03F1C8 FF:F1B8: 40        .byte $40
 - D - I - 0x03F1C9 FF:F1B9: 00        .byte $00
-- D - I - 0x03F1CA FF:F1BA: A1        .byte $A1    ; <ぎ>
-- D - I - 0x03F1CB FF:F1BB: AF        .byte $AF    ; <ば>
-- D - I - 0x03F1CC FF:F1BC: 02        .byte $02    ; <い>
-- D - I - 0x03F1CD FF:F1BD: 60        .byte $60    ; <ミ>
+                                      .byte $A1, $AF
+                                      
+- D - I - 0x03F1CC FF:F1BC: 02        .byte $02
+- D - I - 0x03F1CD FF:F1BD: 60        .byte $60
 - D - I - 0x03F1CE FF:F1BE: 00        .byte $00
-- D - I - 0x03F1CF FF:F1BF: A3        .byte $A3    ; <げ>
-- D - I - 0x03F1D0 FF:F1C0: AF        .byte $AF    ; <ば>
-- D - I - 0x03F1D1 FF:F1C1: 02        .byte $02    ; <い>
+                                      .byte $A3, $AF
+                                      
+- D - I - 0x03F1D1 FF:F1C1: 02        .byte $02
 - D - I - 0x03F1D2 FF:F1C2: 80        .byte $80
 - D - I - 0x03F1D3 FF:F1C3: 00        .byte $00
-- D - I - 0x03F1D4 FF:F1C4: 9A        .byte $9A
-- D - I - 0x03F1D5 FF:F1C5: 9B        .byte $9B
-- D - I - 0x03F1D6 FF:F1C6: 02        .byte $02    ; <い>
-- D - I - 0x03F1D7 FF:F1C7: A0        .byte $A0    ; <が>
+                                      .byte $9A, $9B
+                                      
+- D - I - 0x03F1D6 FF:F1C6: 02        .byte $02
+- D - I - 0x03F1D7 FF:F1C7: A0        .byte $A0
 - D - I - 0x03F1D8 FF:F1C8: 00        .byte $00
-- D - I - 0x03F1D9 FF:F1C9: 9A        .byte $9A
-- D - I - 0x03F1DA FF:F1CA: AD        .byte $AD    ; <で>
+                                      .byte $9A, $AD
+                                      
 - D - I - 0x03F1DB FF:F1CB: 00        .byte $00
 
+
+
 off_F1CC_04:
-- D - I - 0x03F1DC FF:F1CC: 04        .byte $04    ; <え>
-- D - I - 0x03F1DD FF:F1CD: 42        .byte $42    ; <イ>
+- D - I - 0x03F1DC FF:F1CC: 04        .byte $04
+- D - I - 0x03F1DD FF:F1CD: 42        .byte $42
 - D - I - 0x03F1DE FF:F1CE: 00        .byte $00
-- D - I - 0x03F1DF FF:F1CF: A0        .byte $A0    ; <が>
-- D - I - 0x03F1E0 FF:F1D0: A0        .byte $A0    ; <が>
-- D - I - 0x03F1E1 FF:F1D1: A4        .byte $A4    ; <ご>
-- D - I - 0x03F1E2 FF:F1D2: A5        .byte $A5    ; <ざ>
-- D - I - 0x03F1E3 FF:F1D3: 04        .byte $04    ; <え>
-- D - I - 0x03F1E4 FF:F1D4: 62        .byte $62    ; <メ>
+                                      .byte $A0, $A0, $A4, $A5
+                                      
+- D - I - 0x03F1E3 FF:F1D3: 04        .byte $04
+- D - I - 0x03F1E4 FF:F1D4: 62        .byte $62
 - D - I - 0x03F1E5 FF:F1D5: 00        .byte $00
-- D - I - 0x03F1E6 FF:F1D6: A0        .byte $A0    ; <が>
-- D - I - 0x03F1E7 FF:F1D7: A0        .byte $A0    ; <が>
-- D - I - 0x03F1E8 FF:F1D8: A6        .byte $A6    ; <じ>
-- D - I - 0x03F1E9 FF:F1D9: A7        .byte $A7    ; <ず>
-- D - I - 0x03F1EA FF:F1DA: 04        .byte $04    ; <え>
-- D - I - 0x03F1EB FF:F1DB: 82        .byte $82    ; <B>
+                                      .byte $A0, $A0, $A6, $A7
+                                      
+- D - I - 0x03F1EA FF:F1DA: 04        .byte $04
+- D - I - 0x03F1EB FF:F1DB: 82        .byte $82
 - D - I - 0x03F1EC FF:F1DC: 00        .byte $00
-- D - I - 0x03F1ED FF:F1DD: A0        .byte $A0    ; <が>
-- D - I - 0x03F1EE FF:F1DE: A0        .byte $A0    ; <が>
-- D - I - 0x03F1EF FF:F1DF: AF        .byte $AF    ; <ば>
-- D - I - 0x03F1F0 FF:F1E0: A0        .byte $A0    ; <が>
-- D - I - 0x03F1F1 FF:F1E1: 04        .byte $04    ; <え>
-- D - I - 0x03F1F2 FF:F1E2: A2        .byte $A2    ; <ぐ>
+                                      .byte $A0, $A0, $AF, $A0
+                                      
+- D - I - 0x03F1F1 FF:F1E1: 04        .byte $04
+- D - I - 0x03F1F2 FF:F1E2: A2        .byte $A2
 - D - I - 0x03F1F3 FF:F1E3: 00        .byte $00
-- D - I - 0x03F1F4 FF:F1E4: AD        .byte $AD    ; <で>
-- D - I - 0x03F1F5 FF:F1E5: AD        .byte $AD    ; <で>
-- D - I - 0x03F1F6 FF:F1E6: 9B        .byte $9B
-- D - I - 0x03F1F7 FF:F1E7: AD        .byte $AD    ; <で>
+                                      .byte $AD, $AD, $9B, $AD
+                                      
 - D - I - 0x03F1F8 FF:F1E8: 00        .byte $00
 
+
+
 off_F1E9_05:
-- D - I - 0x03F1F9 FF:F1E9: 04        .byte $04    ; <え>
-- D - I - 0x03F1FA FF:F1EA: 46        .byte $46    ; <カ>
+- D - I - 0x03F1F9 FF:F1E9: 04        .byte $04
+- D - I - 0x03F1FA FF:F1EA: 46        .byte $46
 - D - I - 0x03F1FB FF:F1EB: 00        .byte $00
-- D - I - 0x03F1FC FF:F1EC: A0        .byte $A0    ; <が>
-- D - I - 0x03F1FD FF:F1ED: A0        .byte $A0    ; <が>
-- D - I - 0x03F1FE FF:F1EE: AE        .byte $AE    ; <ど>
-- D - I - 0x03F1FF FF:F1EF: A1        .byte $A1    ; <ぎ>
-- D - I - 0x03F200 FF:F1F0: 04        .byte $04    ; <え>
-- D - I - 0x03F201 FF:F1F1: 66        .byte $66    ; <ヨ>
+                                      .byte $A0, $A0, $AE, $A1
+                                      
+- D - I - 0x03F200 FF:F1F0: 04        .byte $04
+- D - I - 0x03F201 FF:F1F1: 66        .byte $66
 - D - I - 0x03F202 FF:F1F2: 00        .byte $00
-- D - I - 0x03F203 FF:F1F3: A0        .byte $A0    ; <が>
-- D - I - 0x03F204 FF:F1F4: A0        .byte $A0    ; <が>
-- D - I - 0x03F205 FF:F1F5: AE        .byte $AE    ; <ど>
-- D - I - 0x03F206 FF:F1F6: A3        .byte $A3    ; <げ>
-- D - I - 0x03F207 FF:F1F7: 04        .byte $04    ; <え>
-- D - I - 0x03F208 FF:F1F8: 86        .byte $86    ; <F>
+                                      .byte $A0, $A0, $AE, $A3
+                                      
+- D - I - 0x03F207 FF:F1F7: 04        .byte $04
+- D - I - 0x03F208 FF:F1F8: 86        .byte $86
 - D - I - 0x03F209 FF:F1F9: 00        .byte $00
-- D - I - 0x03F20A FF:F1FA: A0        .byte $A0    ; <が>
-- D - I - 0x03F20B FF:F1FB: A0        .byte $A0    ; <が>
-- D - I - 0x03F20C FF:F1FC: 9A        .byte $9A
-- D - I - 0x03F20D FF:F1FD: 9B        .byte $9B
-- D - I - 0x03F20E FF:F1FE: 04        .byte $04    ; <え>
-- D - I - 0x03F20F FF:F1FF: A6        .byte $A6    ; <じ>
+                                      .byte $A0, $A0, $9A, $9B
+                                      
+- D - I - 0x03F20E FF:F1FE: 04        .byte $04
+- D - I - 0x03F20F FF:F1FF: A6        .byte $A6
 - D - I - 0x03F210 FF:F200: 00        .byte $00
-- D - I - 0x03F211 FF:F201: AD        .byte $AD    ; <で>
-- D - I - 0x03F212 FF:F202: AD        .byte $AD    ; <で>
-- D - I - 0x03F213 FF:F203: AD        .byte $AD    ; <で>
-- D - I - 0x03F214 FF:F204: 9B        .byte $9B
+                                      .byte $AD, $AD, $AD, $9B
+                                      
 - D - I - 0x03F215 FF:F205: 00        .byte $00
 
 
 
-tbl_F206:
-- D - - - 0x03F216 FF:F206: 12 F2     .word off_F212_00
-- D - - - 0x03F218 FF:F208: 2E F2     .word off_F22E_01
-- D - - - 0x03F21A FF:F20A: 51 F2     .word off_F251_02
-- D - - - 0x03F21C FF:F20C: 77 F2     .word off_F277_03
-- D - - - 0x03F21E FF:F20E: AD F2     .word off_F2AD_04
-- D - - - 0x03F220 FF:F210: ED F2     .word off_F2ED_05
-
+tbl_F206_тень_защитника:
+    .word off_F212_00
+    .word off_F22E_01
+    .word off_F251_02
+    .word off_F277_03
+    .word off_F2AD_04
+    .word off_F2ED_05
+    
 off_F212_00:
-- D - I - 0x03F222 FF:F212: 04        .byte $04    ; <え>
-- D - I - 0x03F223 FF:F213: 4E        .byte $4E    ; <セ>
+- D - I - 0x03F222 FF:F212: 04        .byte $04
+- D - I - 0x03F223 FF:F213: 4E        .byte $4E
 - D - I - 0x03F224 FF:F214: 00        .byte $00
-- D - I - 0x03F225 FF:F215: 94        .byte $94
-- D - I - 0x03F226 FF:F216: 95        .byte $95
-- D - I - 0x03F227 FF:F217: C0        .byte $C0    ; <ヅ>
-- D - I - 0x03F228 FF:F218: C1        .byte $C1    ; <デ>
-- D - I - 0x03F229 FF:F219: 05        .byte $05    ; <お>
-- D - I - 0x03F22A FF:F21A: 6E        .byte $6E    ; <ン>
+                                      .byte $94, $95, $C0, $C1
+                                      
+- D - I - 0x03F229 FF:F219: 05        .byte $05
+- D - I - 0x03F22A FF:F21A: 6E        .byte $6E
 - D - I - 0x03F22B FF:F21B: 00        .byte $00
-- D - I - 0x03F22C FF:F21C: 96        .byte $96
-- D - I - 0x03F22D FF:F21D: 97        .byte $97
-- D - I - 0x03F22E FF:F21E: 80        .byte $80
-- D - I - 0x03F22F FF:F21F: C2        .byte $C2    ; <ド>
-- D - I - 0x03F230 FF:F220: E0        .byte $E0
-- D - I - 0x03F231 FF:F221: 03        .byte $03    ; <う>
-- D - I - 0x03F232 FF:F222: 8F        .byte $8F    ; <S>
+                                      .byte $96, $97, $80, $C2, $E0
+                                      
+- D - I - 0x03F231 FF:F221: 03        .byte $03
+- D - I - 0x03F232 FF:F222: 8F        .byte $8F
 - D - I - 0x03F233 FF:F223: 00        .byte $00
-- D - I - 0x03F234 FF:F224: 9D        .byte $9D
-- D - I - 0x03F235 FF:F225: 80        .byte $80
-- D - I - 0x03F236 FF:F226: C8        .byte $C8    ; <ぱ>
-- D - I - 0x03F237 FF:F227: 03        .byte $03    ; <う>
-- D - I - 0x03F238 FF:F228: AF        .byte $AF    ; <ば>
+                                      .byte $9D, $80, $C8
+                                      
+- D - I - 0x03F237 FF:F227: 03        .byte $03
+- D - I - 0x03F238 FF:F228: AF        .byte $AF
 - D - I - 0x03F239 FF:F229: 00        .byte $00
-- D - I - 0x03F23A FF:F22A: 9F        .byte $9F
-- D - I - 0x03F23B FF:F22B: CA        .byte $CA    ; <ぷ>
-- D - I - 0x03F23C FF:F22C: E2        .byte $E2
+                                      .byte $9F, $CA, $E2
+                                      
 - D - I - 0x03F23D FF:F22D: 00        .byte $00
 
+
+
 off_F22E_01:
-- D - I - 0x03F23E FF:F22E: 05        .byte $05    ; <お>
-- D - I - 0x03F23F FF:F22F: 34        .byte $34    ; <1>
+- D - I - 0x03F23E FF:F22E: 05        .byte $05
+- D - I - 0x03F23F FF:F22F: 34        .byte $34
 - D - I - 0x03F240 FF:F230: 00        .byte $00
-- D - I - 0x03F241 FF:F231: C3        .byte $C3    ; <バ>
-- D - I - 0x03F242 FF:F232: C6        .byte $C6    ; <ベ>
-- D - I - 0x03F243 FF:F233: C4        .byte $C4    ; <ビ>
-- D - I - 0x03F244 FF:F234: C5        .byte $C5    ; <ブ>
-- D - I - 0x03F245 FF:F235: C7        .byte $C7    ; <ボ>
-- D - I - 0x03F246 FF:F236: 04        .byte $04    ; <え>
-- D - I - 0x03F247 FF:F237: 53        .byte $53    ; <テ>
+                                      .byte $C3, $C6, $C4, $C5, $C7
+                                      
+- D - I - 0x03F246 FF:F236: 04        .byte $04
+- D - I - 0x03F247 FF:F237: 53        .byte $53
 - D - I - 0x03F248 FF:F238: 00        .byte $00
-- D - I - 0x03F249 FF:F239: BD        .byte $BD    ; <ゾ>
-- D - I - 0x03F24A FF:F23A: C9        .byte $C9    ; <ぴ>
-- D - I - 0x03F24B FF:F23B: 80        .byte $80
-- D - I - 0x03F24C FF:F23C: CC        .byte $CC    ; <ぽ>
-- D - I - 0x03F24D FF:F23D: 04        .byte $04    ; <え>
-- D - I - 0x03F24E FF:F23E: 73        .byte $73    ; <ヮ>
+                                      .byte $BD, $C9, $80, $CC
+                                      
+- D - I - 0x03F24D FF:F23D: 04        .byte $04
+- D - I - 0x03F24E FF:F23E: 73        .byte $73
 - D - I - 0x03F24F FF:F23F: 00        .byte $00
-- D - I - 0x03F250 FF:F240: BF        .byte $BF    ; <ヂ>
-- D - I - 0x03F251 FF:F241: CB        .byte $CB    ; <ぺ>
-- D - I - 0x03F252 FF:F242: 80        .byte $80
-- D - I - 0x03F253 FF:F243: CE        .byte $CE    ; <ピ>
-- D - I - 0x03F254 FF:F244: 03        .byte $03    ; <う>
+                                      .byte $BF, $CB, $80, $CE
+                                      
+- D - I - 0x03F254 FF:F244: 03        .byte $03
 - D - I - 0x03F255 FF:F245: 94        .byte $94
 - D - I - 0x03F256 FF:F246: 00        .byte $00
-- D - I - 0x03F257 FF:F247: E1        .byte $E1
-- D - I - 0x03F258 FF:F248: BE        .byte $BE    ; <ダ>
-- D - I - 0x03F259 FF:F249: E4        .byte $E4
-- D - I - 0x03F25A FF:F24A: 03        .byte $03    ; <う>
-- D - I - 0x03F25B FF:F24B: B4        .byte $B4    ; <ガ>
+                                      .byte $E1, $BE, $E4
+                                      
+- D - I - 0x03F25A FF:F24A: 03        .byte $03
+- D - I - 0x03F25B FF:F24B: B4        .byte $B4
 - D - I - 0x03F25C FF:F24C: 00        .byte $00
-- D - I - 0x03F25D FF:F24D: E3        .byte $E3
-- D - I - 0x03F25E FF:F24E: E6        .byte $E6
-- D - I - 0x03F25F FF:F24F: E7        .byte $E7
+                                      .byte $E3, $E6, $E7
+                                      
 - D - I - 0x03F260 FF:F250: 00        .byte $00
 
+
+
 off_F251_02:
-- D - I - 0x03F261 FF:F251: 03        .byte $03    ; <う>
-- D - I - 0x03F262 FF:F252: 2A        .byte $2A    ; <れ>
+- D - I - 0x03F261 FF:F251: 03        .byte $03
+- D - I - 0x03F262 FF:F252: 2A        .byte $2A
 - D - I - 0x03F263 FF:F253: 00        .byte $00
-- D - I - 0x03F264 FF:F254: A8        .byte $A8    ; <ぜ>
-- D - I - 0x03F265 FF:F255: A9        .byte $A9    ; <ぞ>
-- D - I - 0x03F266 FF:F256: 9C        .byte $9C
-- D - I - 0x03F267 FF:F257: 04        .byte $04    ; <え>
-- D - I - 0x03F268 FF:F258: 49        .byte $49    ; <ケ>
+                                      .byte $A8, $A9, $9C
+                                      
+- D - I - 0x03F267 FF:F257: 04        .byte $04
+- D - I - 0x03F268 FF:F258: 49        .byte $49
 - D - I - 0x03F269 FF:F259: 00        .byte $00
-- D - I - 0x03F26A FF:F25A: AA        .byte $AA    ; <だ>
-- D - I - 0x03F26B FF:F25B: 80        .byte $80
-- D - I - 0x03F26C FF:F25C: AB        .byte $AB    ; <ぢ>
-- D - I - 0x03F26D FF:F25D: 9E        .byte $9E
-- D - I - 0x03F26E FF:F25E: 05        .byte $05    ; <お>
-- D - I - 0x03F26F FF:F25F: 69        .byte $69    ; <ル>
+                                      .byte $AA, $80, $AB, $9E
+                                      
+- D - I - 0x03F26E FF:F25E: 05        .byte $05
+- D - I - 0x03F26F FF:F25F: 69        .byte $69
 - D - I - 0x03F270 FF:F260: 00        .byte $00
-- D - I - 0x03F271 FF:F261: B0        .byte $B0    ; <び>
-- D - I - 0x03F272 FF:F262: 80        .byte $80
-- D - I - 0x03F273 FF:F263: B1        .byte $B1    ; <ぶ>
-- D - I - 0x03F274 FF:F264: B4        .byte $B4    ; <ガ>
-- D - I - 0x03F275 FF:F265: B5        .byte $B5    ; <ギ>
-- D - I - 0x03F276 FF:F266: 06        .byte $06    ; <か>
-- D - I - 0x03F277 FF:F267: 88        .byte $88    ; <H>
+                                      .byte $B0, $80, $B1, $B4, $B5
+                                      
+- D - I - 0x03F276 FF:F266: 06        .byte $06
+- D - I - 0x03F277 FF:F267: 88        .byte $88
 - D - I - 0x03F278 FF:F268: 00        .byte $00
-- D - I - 0x03F279 FF:F269: B2        .byte $B2    ; <べ>
-- D - I - 0x03F27A FF:F26A: B3        .byte $B3    ; <ぼ>
-- D - I - 0x03F27B FF:F26B: 80        .byte $80
-- D - I - 0x03F27C FF:F26C: BC        .byte $BC    ; <ゼ>
-- D - I - 0x03F27D FF:F26D: B6        .byte $B6    ; <グ>
-- D - I - 0x03F27E FF:F26E: B7        .byte $B7    ; <ゲ>
-- D - I - 0x03F27F FF:F26F: 04        .byte $04    ; <え>
-- D - I - 0x03F280 FF:F270: A8        .byte $A8    ; <ぜ>
+                                      .byte $B2, $B3, $80, $BC, $B6, $B7
+                                      
+- D - I - 0x03F27F FF:F26F: 04        .byte $04
+- D - I - 0x03F280 FF:F270: A8        .byte $A8
 - D - I - 0x03F281 FF:F271: 00        .byte $00
-- D - I - 0x03F282 FF:F272: B8        .byte $B8    ; <ゴ>
-- D - I - 0x03F283 FF:F273: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F284 FF:F274: B9        .byte $B9    ; <ザ>
-- D - I - 0x03F285 FF:F275: BB        .byte $BB    ; <ズ>
+                                      .byte $B8, $BA, $B9, $BB
+                                      
 - D - I - 0x03F286 FF:F276: 00        .byte $00
 
+
+
 off_F277_03:
-- D - I - 0x03F287 FF:F277: 05        .byte $05    ; <お>
-- D - I - 0x03F288 FF:F278: 1A        .byte $1A    ; <は>
+- D - I - 0x03F287 FF:F277: 05        .byte $05
+- D - I - 0x03F288 FF:F278: 1A        .byte $1A
 - D - I - 0x03F289 FF:F279: 00        .byte $00
-- D - I - 0x03F28A FF:F27A: D0        .byte $D0    ; <ペ>
-- D - I - 0x03F28B FF:F27B: D1        .byte $D1    ; <ポ>
-- D - I - 0x03F28C FF:F27C: D4        .byte $D4
-- D - I - 0x03F28D FF:F27D: D5        .byte $D5
-- D - I - 0x03F28E FF:F27E: FB        .byte $FB
-- D - I - 0x03F28F FF:F27F: 07        .byte $07    ; <き>
-- D - I - 0x03F290 FF:F280: 39        .byte $39    ; <6>
+                                      .byte $D0, $D1, $D4, $D5, $FB
+                                      
+- D - I - 0x03F28F FF:F27F: 07        .byte $07
+- D - I - 0x03F290 FF:F280: 39        .byte $39
 - D - I - 0x03F291 FF:F281: 00        .byte $00
-- D - I - 0x03F292 FF:F282: CD        .byte $CD    ; <パ>
-- D - I - 0x03F293 FF:F283: D2        .byte $D2
-- D - I - 0x03F294 FF:F284: D3        .byte $D3
-- D - I - 0x03F295 FF:F285: 80        .byte $80
-- D - I - 0x03F296 FF:F286: 80        .byte $80
-- D - I - 0x03F297 FF:F287: D6        .byte $D6
-- D - I - 0x03F298 FF:F288: D7        .byte $D7
-- D - I - 0x03F299 FF:F289: 06        .byte $06    ; <か>
-- D - I - 0x03F29A FF:F28A: 59        .byte $59    ; <ノ>
+                                      .byte $CD, $D2, $D3, $80, $80, $D6, $D7
+                                      
+- D - I - 0x03F299 FF:F289: 06        .byte $06
+- D - I - 0x03F29A FF:F28A: 59        .byte $59
 - D - I - 0x03F29B FF:F28B: 00        .byte $00
-- D - I - 0x03F29C FF:F28C: CF        .byte $CF    ; <プ>
-- D - I - 0x03F29D FF:F28D: D8        .byte $D8
-- D - I - 0x03F29E FF:F28E: 80        .byte $80
-- D - I - 0x03F29F FF:F28F: 80        .byte $80
-- D - I - 0x03F2A0 FF:F290: 80        .byte $80
-- D - I - 0x03F2A1 FF:F291: D9        .byte $D9
-- D - I - 0x03F2A2 FF:F292: 07        .byte $07    ; <き>
-- D - I - 0x03F2A3 FF:F293: 79        .byte $79    ; <!>
+                                      .byte $CF, $D8, $80, $80, $80, $D9
+                                      
+- D - I - 0x03F2A2 FF:F292: 07        .byte $07
+- D - I - 0x03F2A3 FF:F293: 79        .byte $79
 - D - I - 0x03F2A4 FF:F294: 00        .byte $00
-- D - I - 0x03F2A5 FF:F295: E5        .byte $E5
-- D - I - 0x03F2A6 FF:F296: DA        .byte $DA
-- D - I - 0x03F2A7 FF:F297: FC        .byte $FC
-- D - I - 0x03F2A8 FF:F298: FD        .byte $FD
-- D - I - 0x03F2A9 FF:F299: 80        .byte $80
-- D - I - 0x03F2AA FF:F29A: 80        .byte $80
-- D - I - 0x03F2AB FF:F29B: DC        .byte $DC
-- D - I - 0x03F2AC FF:F29C: 05        .byte $05    ; <お>
+                                      .byte $E5, $DA, $FC, $FD, $80, $80, $DC
+                                      
+- D - I - 0x03F2AC FF:F29C: 05        .byte $05
 - D - I - 0x03F2AD FF:F29D: 9B        .byte $9B
 - D - I - 0x03F2AE FF:F29E: 00        .byte $00
-- D - I - 0x03F2AF FF:F29F: DB        .byte $DB
-- D - I - 0x03F2B0 FF:F2A0: DD        .byte $DD
-- D - I - 0x03F2B1 FF:F2A1: 80        .byte $80
-- D - I - 0x03F2B2 FF:F2A2: 80        .byte $80
-- D - I - 0x03F2B3 FF:F2A3: 80        .byte $80
-- D - I - 0x03F2B4 FF:F2A4: 05        .byte $05    ; <お>
-- D - I - 0x03F2B5 FF:F2A5: BB        .byte $BB    ; <ズ>
+                                      .byte $DB, $DD, $80, $80, $80
+                                      
+- D - I - 0x03F2B4 FF:F2A4: 05        .byte $05
+- D - I - 0x03F2B5 FF:F2A5: BB        .byte $BB
 - D - I - 0x03F2B6 FF:F2A6: 00        .byte $00
-- D - I - 0x03F2B7 FF:F2A7: 9F        .byte $9F
-- D - I - 0x03F2B8 FF:F2A8: 80        .byte $80
-- D - I - 0x03F2B9 FF:F2A9: BA        .byte $BA    ; <ジ>
-- D - I - 0x03F2BA FF:F2AA: DE        .byte $DE
-- D - I - 0x03F2BB FF:F2AB: DF        .byte $DF
+                                      .byte $9F, $80, $BA, $DE, $DF
+                                      
 - D - I - 0x03F2BC FF:F2AC: 00        .byte $00
 
+
+
 off_F2AD_04:
-- D - I - 0x03F2BD FF:F2AD: 04        .byte $04    ; <え>
-- D - I - 0x03F2BE FF:F2AE: 01        .byte $01    ; <あ>
+- D - I - 0x03F2BD FF:F2AD: 04        .byte $04
+- D - I - 0x03F2BE FF:F2AE: 01        .byte $01
 - D - I - 0x03F2BF FF:F2AF: 00        .byte $00
-- D - I - 0x03F2C0 FF:F2B0: 84        .byte $84    ; <D>
-- D - I - 0x03F2C1 FF:F2B1: 85        .byte $85    ; <E>
-- D - I - 0x03F2C2 FF:F2B2: 90        .byte $90    ; <U>
-- D - I - 0x03F2C3 FF:F2B3: 91        .byte $91    ; <V>
-- D - I - 0x03F2C4 FF:F2B4: 05        .byte $05    ; <お>
-- D - I - 0x03F2C5 FF:F2B5: 20        .byte $20    ; <み>
+                                      .byte $84, $85, $90, $91
+                                      
+- D - I - 0x03F2C4 FF:F2B4: 05        .byte $05
+- D - I - 0x03F2C5 FF:F2B5: 20        .byte $20
 - D - I - 0x03F2C6 FF:F2B6: 00        .byte $00
-- D - I - 0x03F2C7 FF:F2B7: 82        .byte $82    ; <B>
-- D - I - 0x03F2C8 FF:F2B8: 80        .byte $80
-- D - I - 0x03F2C9 FF:F2B9: 80        .byte $80
-- D - I - 0x03F2CA FF:F2BA: 80        .byte $80
-- D - I - 0x03F2CB FF:F2BB: 93        .byte $93    ; <Y>
-- D - I - 0x03F2CC FF:F2BC: 06        .byte $06    ; <か>
-- D - I - 0x03F2CD FF:F2BD: 40        .byte $40    ; <「>
+                                      .byte $82, $80, $80, $80, $93
+                                      
+- D - I - 0x03F2CC FF:F2BC: 06        .byte $06
+- D - I - 0x03F2CD FF:F2BD: 40        .byte $40
 - D - I - 0x03F2CE FF:F2BE: 00        .byte $00
-- D - I - 0x03F2CF FF:F2BF: 80        .byte $80
-- D - I - 0x03F2D0 FF:F2C0: 80        .byte $80
-- D - I - 0x03F2D1 FF:F2C1: 80        .byte $80
-- D - I - 0x03F2D2 FF:F2C2: 80        .byte $80
-- D - I - 0x03F2D3 FF:F2C3: 80        .byte $80
-- D - I - 0x03F2D4 FF:F2C4: 88        .byte $88    ; <H>
-- D - I - 0x03F2D5 FF:F2C5: 02        .byte $02    ; <い>
-- D - I - 0x03F2D6 FF:F2C6: 47        .byte $47    ; <キ>
+                                      .byte $80, $80, $80, $80, $80, $88
+                                      
+- D - I - 0x03F2D5 FF:F2C5: 02        .byte $02
+- D - I - 0x03F2D6 FF:F2C6: 47        .byte $47
 - D - I - 0x03F2D7 FF:F2C7: 00        .byte $00
-- D - I - 0x03F2D8 FF:F2C8: 83        .byte $83    ; <C>
-- D - I - 0x03F2D9 FF:F2C9: 86        .byte $86    ; <F>
-- D - I - 0x03F2DA FF:F2CA: 09        .byte $09    ; <け>
-- D - I - 0x03F2DB FF:F2CB: 60        .byte $60    ; <ミ>
+                                      .byte $83, $86
+                                      
+- D - I - 0x03F2DA FF:F2CA: 09        .byte $09
+- D - I - 0x03F2DB FF:F2CB: 60        .byte $60
 - D - I - 0x03F2DC FF:F2CC: 00        .byte $00
-- D - I - 0x03F2DD FF:F2CD: 80        .byte $80
-- D - I - 0x03F2DE FF:F2CE: 80        .byte $80
-- D - I - 0x03F2DF FF:F2CF: 80        .byte $80
-- D - I - 0x03F2E0 FF:F2D0: 80        .byte $80
-- D - I - 0x03F2E1 FF:F2D1: 80        .byte $80
-- D - I - 0x03F2E2 FF:F2D2: 80        .byte $80
-- D - I - 0x03F2E3 FF:F2D3: 8A        .byte $8A    ; <N>
-- D - I - 0x03F2E4 FF:F2D4: 89        .byte $89    ; <I>
-- D - I - 0x03F2E5 FF:F2D5: 8C        .byte $8C    ; <M>
-- D - I - 0x03F2E6 FF:F2D6: 08        .byte $08    ; <く>
+                                      .byte $80, $80, $80, $80, $80, $80, $8A, $89, $8C
+                                      
+- D - I - 0x03F2E6 FF:F2D6: 08        .byte $08
 - D - I - 0x03F2E7 FF:F2D7: 80        .byte $80
 - D - I - 0x03F2E8 FF:F2D8: 00        .byte $00
-- D - I - 0x03F2E9 FF:F2D9: 80        .byte $80
-- D - I - 0x03F2EA FF:F2DA: 80        .byte $80
-- D - I - 0x03F2EB FF:F2DB: 80        .byte $80
-- D - I - 0x03F2EC FF:F2DC: 80        .byte $80
-- D - I - 0x03F2ED FF:F2DD: 80        .byte $80
-- D - I - 0x03F2EE FF:F2DE: 8D        .byte $8D    ; <P>
-- D - I - 0x03F2EF FF:F2DF: 80        .byte $80
-- D - I - 0x03F2F0 FF:F2E0: 8B        .byte $8B    ; <K>
-- D - I - 0x03F2F1 FF:F2E1: 08        .byte $08    ; <く>
-- D - I - 0x03F2F2 FF:F2E2: A0        .byte $A0    ; <が>
+                                      .byte $80, $80, $80, $80, $80, $8D, $80, $8B
+                                      
+- D - I - 0x03F2F1 FF:F2E1: 08        .byte $08
+- D - I - 0x03F2F2 FF:F2E2: A0        .byte $A0
 - D - I - 0x03F2F3 FF:F2E3: 00        .byte $00
-- D - I - 0x03F2F4 FF:F2E4: 80        .byte $80
-- D - I - 0x03F2F5 FF:F2E5: 80        .byte $80
-- D - I - 0x03F2F6 FF:F2E6: 80        .byte $80
-- D - I - 0x03F2F7 FF:F2E7: 80        .byte $80
-- D - I - 0x03F2F8 FF:F2E8: 8E        .byte $8E    ; <L>
-- D - I - 0x03F2F9 FF:F2E9: 8F        .byte $8F    ; <S>
-- D - I - 0x03F2FA FF:F2EA: 87        .byte $87    ; <G>
-- D - I - 0x03F2FB FF:F2EB: 92        .byte $92    ; <W>
+                                      .byte $80, $80, $80, $80, $8E, $8F, $87, $92
+                                      
 - D - I - 0x03F2FC FF:F2EC: 00        .byte $00
 
+
+
 off_F2ED_05:
-- D - I - 0x03F2FD FF:F2ED: 02        .byte $02    ; <い>
-- D - I - 0x03F2FE FF:F2EE: 4F        .byte $4F    ; <ソ>
+- D - I - 0x03F2FD FF:F2ED: 02        .byte $02
+- D - I - 0x03F2FE FF:F2EE: 4F        .byte $4F
 - D - I - 0x03F2FF FF:F2EF: 00        .byte $00
-- D - I - 0x03F300 FF:F2F0: D4        .byte $D4
-- D - I - 0x03F301 FF:F2F1: D5        .byte $D5
-- D - I - 0x03F302 FF:F2F2: 04        .byte $04    ; <え>
-- D - I - 0x03F303 FF:F2F3: 6D        .byte $6D    ; <ヲ>
+                                      .byte $D4, $D5
+                                      
+- D - I - 0x03F302 FF:F2F2: 04        .byte $04
+- D - I - 0x03F303 FF:F2F3: 6D        .byte $6D
 - D - I - 0x03F304 FF:F2F4: 00        .byte $00
-- D - I - 0x03F305 FF:F2F5: D2        .byte $D2
-- D - I - 0x03F306 FF:F2F6: D3        .byte $D3
-- D - I - 0x03F307 FF:F2F7: 00        .byte $00
-- D - I - 0x03F308 FF:F2F8: D7        .byte $D7
-- D - I - 0x03F309 FF:F2F9: 01        .byte $01    ; <あ>
-- D - I - 0x03F30A FF:F2FA: 72        .byte $72    ; <ョ>
+                                      .byte $D2, $D3, $00, $D7
+                                      
+- D - I - 0x03F309 FF:F2F9: 01        .byte $01
+- D - I - 0x03F30A FF:F2FA: 72        .byte $72
 - D - I - 0x03F30B FF:F2FB: 00        .byte $00
-- D - I - 0x03F30C FF:F2FC: D6        .byte $D6
-- D - I - 0x03F30D FF:F2FD: 06        .byte $06    ; <か>
-- D - I - 0x03F30E FF:F2FE: 8D        .byte $8D    ; <P>
+                                      .byte $D6
+                                      
+- D - I - 0x03F30D FF:F2FD: 06        .byte $06
+- D - I - 0x03F30E FF:F2FE: 8D        .byte $8D
 - D - I - 0x03F30F FF:F2FF: 00        .byte $00
-- D - I - 0x03F310 FF:F300: D8        .byte $D8
-- D - I - 0x03F311 FF:F301: 00        .byte $00
-- D - I - 0x03F312 FF:F302: 00        .byte $00
-- D - I - 0x03F313 FF:F303: DD        .byte $DD
-- D - I - 0x03F314 FF:F304: D9        .byte $D9
-- D - I - 0x03F315 FF:F305: DC        .byte $DC
-- D - I - 0x03F316 FF:F306: 05        .byte $05    ; <お>
-- D - I - 0x03F317 FF:F307: AD        .byte $AD    ; <で>
+                                      .byte $D8, $00, $00, $DD, $D9, $DC
+                                      
+- D - I - 0x03F316 FF:F306: 05        .byte $05
+- D - I - 0x03F317 FF:F307: AD        .byte $AD
 - D - I - 0x03F318 FF:F308: 00        .byte $00
-- D - I - 0x03F319 FF:F309: DA        .byte $DA
-- D - I - 0x03F31A FF:F30A: DB        .byte $DB
-- D - I - 0x03F31B FF:F30B: DE        .byte $DE
-- D - I - 0x03F31C FF:F30C: DF        .byte $DF
-- D - I - 0x03F31D FF:F30D: D1        .byte $D1    ; <ポ>
+                                      .byte $DA, $DB, $DE, $DF, $D1
+                                      
 - D - I - 0x03F31E FF:F30E: 00        .byte $00
+
+
 
 .export sub_0x03F31F_таблица_слов
 sub_0x03F31F_таблица_слов:
