@@ -4670,7 +4670,7 @@ bra_case_9716_01_штанга:
 - D - I - 0x021726 17:9716: FA        .byte con_jsr
 - D - I - 0x021727 17:9717: 4E A2     .word sub_A24E_штанга_со_звуком
 - D - I - 0x021729 17:9719: F2        .byte con_jmp
-- D - I - 0x02172A 17:971A: 58 A2     .word loc_A258
+- D - I - 0x02172A 17:971A: 58 A2     .word loc_A258_полет_мяча_после_отскока_от_штанги
 
 bra_case_971C_02:
 - - - - - 0x02172C 17:971C: FA        .byte con_jsr
@@ -4807,7 +4807,7 @@ loc_9799:
 - D - I - 0x0217AF 17:979F: FA        .byte con_jsr
 - D - I - 0x0217B0 17:97A0: 4E A2     .word sub_A24E_штанга_со_звуком
 - D - I - 0x0217B2 17:97A2: F2        .byte con_jmp
-- D - I - 0x0217B3 17:97A3: 58 A2     .word loc_A258
+- D - I - 0x0217B3 17:97A3: 58 A2     .word loc_A258_полет_мяча_после_отскока_от_штанги
 
 bra_case_97A5_02:
 - - - - - 0x0217B5 17:97A5: FA        .byte con_jsr
@@ -7240,7 +7240,7 @@ sub_A24F_штанга_без_звука:
     .byte con_jmp
     .word loc_A253_штанга
 
-loc_A258:
+loc_A258_полет_мяча_после_отскока_от_штанги:
 sub_A258_полет_мяча_после_отскока_от_штанги:
 - D - I - 0x022268 11:A258: 37        .byte con_pause + $37
 - D - I - 0x022269 11:A259: 56        .byte con_bg + $56
@@ -7272,7 +7272,7 @@ bra_long_case_A271_02_за_japan:
 - D - I - 0x022282 11:A272: 0A        .byte con_bg + $0A
 - D - I - 0x022283 11:A273: 48        .byte con_animation + $48
 - D - I - 0x022284 11:A274: 52        .byte con_cloud + $52
-loc_A275:
+loc_A275_мерцание_фона_с_портретом_игроков:
 - D - I - 0x022285 11:A275: F7        .byte con_F7, $13
 - D - I - 0x022287 11:A277: 6E        .byte con_pause + $6E
 - D - I - 0x022288 11:A278: F0        .byte con_bg + con_skip
@@ -7330,7 +7330,7 @@ bra_long_case_A2A7_00_за_sao_paulo:
 - D - I - 0x0222B9 11:A2A9: 46        .byte con_animation + $46
 - D - I - 0x0222BA 11:A2AA: 52        .byte con_cloud + $52
 - D - I - 0x0222BB 11:A2AB: F2        .byte con_jmp
-- D - I - 0x0222BC 11:A2AC: 75 A2     .word loc_A275
+- D - I - 0x0222BC 11:A2AC: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 bra_long_case_A2AE_01_за_nankatsu:
 - D - I - 0x0222BE 11:A2AE: A0        .byte con_pause + $A0
@@ -7338,7 +7338,7 @@ bra_long_case_A2AE_01_за_nankatsu:
 - D - I - 0x0222C0 11:A2B0: 47        .byte con_animation + $47
 - D - I - 0x0222C1 11:A2B1: 52        .byte con_cloud + $52
 - D - I - 0x0222C2 11:A2B2: F2        .byte con_jmp
-- D - I - 0x0222C3 11:A2B3: 75 A2     .word loc_A275
+- D - I - 0x0222C3 11:A2B3: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 bra_long_case_A2B5_00_сетка_не_порвана:
 - D - I - 0x0222C5 11:A2B5: 82        .byte con_pause + $82
@@ -7346,7 +7346,7 @@ bra_long_case_A2B5_00_сетка_не_порвана:
 - D - I - 0x0222C7 11:A2B7: F0        .byte con_animation + con_skip
 - D - I - 0x0222C8 11:A2B8: 51        .byte con_cloud + $51
 - D - I - 0x0222C9 11:A2B9: F2        .byte con_jmp
-- D - I - 0x0222CA 11:A2BA: 75 A2     .word loc_A275
+- D - I - 0x0222CA 11:A2BA: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 bra_long_case_A2BC_01_сетка_порвана:
 - D - I - 0x0222CC 11:A2BC: 82        .byte con_pause + $82
@@ -7354,7 +7354,7 @@ bra_long_case_A2BC_01_сетка_порвана:
 - D - I - 0x0222CE 11:A2BE: F0        .byte con_animation + con_skip
 - D - I - 0x0222CF 11:A2BF: 53        .byte con_cloud + $53
 - D - I - 0x0222D0 11:A2C0: F2        .byte con_jmp
-- D - I - 0x0222D1 11:A2C1: 75 A2     .word loc_A275
+- D - I - 0x0222D1 11:A2C1: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 bra_long_case_A2C3_00_за_sao_paulo:
 - - - - - 0x0222D3 11:A2C3: A0        .byte con_pause + $A0
@@ -7362,7 +7362,7 @@ bra_long_case_A2C3_00_за_sao_paulo:
 - - - - - 0x0222D5 11:A2C5: 46        .byte con_animation + $46
 - - - - - 0x0222D6 11:A2C6: 54        .byte con_cloud + $54
 - - - - - 0x0222D7 11:A2C7: F2        .byte con_jmp
-- - - - - 0x0222D8 11:A2C8: 75 A2     .word loc_A275
+- - - - - 0x0222D8 11:A2C8: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 bra_long_case_A2CA_01_за_nankatsu:
 - - - - - 0x0222DA 11:A2CA: A0        .byte con_pause + $A0
@@ -7370,7 +7370,7 @@ bra_long_case_A2CA_01_за_nankatsu:
 - - - - - 0x0222DC 11:A2CC: 47        .byte con_animation + $47
 - - - - - 0x0222DD 11:A2CD: 55        .byte con_cloud + $55
 - - - - - 0x0222DE 11:A2CE: F2        .byte con_jmp
-- - - - - 0x0222DF 11:A2CF: 75 A2     .word loc_A275
+- - - - - 0x0222DF 11:A2CF: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 bra_long_case_A2D1_02_за_japan:
 - D - I - 0x0222E1 11:A2D1: A0        .byte con_pause + $A0
@@ -7378,7 +7378,7 @@ bra_long_case_A2D1_02_за_japan:
 - D - I - 0x0222E3 11:A2D3: 48        .byte con_animation + $48
 - D - I - 0x0222E4 11:A2D4: 55        .byte con_cloud + $55
 - D - I - 0x0222E5 11:A2D5: F2        .byte con_jmp
-- D - I - 0x0222E6 11:A2D6: 75 A2     .word loc_A275
+- D - I - 0x0222E6 11:A2D6: 75 A2     .word loc_A275_мерцание_фона_с_портретом_игроков
 
 sub_A2D8:
 - D - I - 0x0222E8 11:A2D8: 28        .byte con_pause + $28
