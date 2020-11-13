@@ -4641,27 +4641,11 @@ C - - - - 0x02745D 19:B44D: 60        RTS
 tbl_0x02745E_финальная_надпись_TECMO:
     .byte $09
     .word $216E
-    .byte $28
-    .byte $29
-    .byte $2C
-    .byte $2D
-    .byte $38
-    .byte $37
-    .byte $39
-    .byte $3C
-    .byte $3D
+    .byte $28, $29, $2C, $2D, $38, $37, $39, $3C, $3D
     
     .byte $09
     .word $218E
-    .byte $2A
-    .byte $2B
-    .byte $2E
-    .byte $2F
-    .byte $3A
-    .byte $2A
-    .byte $3B
-    .byte $3E
-    .byte $3F
+    .byte $2A, $2B, $2E, $2F, $3A, $2A, $3B, $3E, $3F
     
     .byte $00
 
