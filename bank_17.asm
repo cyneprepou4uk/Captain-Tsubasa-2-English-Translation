@@ -229,7 +229,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x020195 17:8185: 8A 82     .word ofs_828A_09_89_действие_атаки_на_штрафной
 - D - I - 0x020197 17:8187: 97 82     .word $0000       ; unused, было аналогично 02_8A для киперов
 - D - I - 0x020199 17:8189: 9B 82     .word $0000       ; unused, было аналогично 03_83
-- D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C
+- D - I - 0x02019B 17:818B: 9F 82     .word ofs_829F_0C_8C_обычный_или_спешал
 - D - I - 0x02019D 17:818D: BA 82     .word ofs_82BA_0D_8D
 - D - I - 0x02019F 17:818F: 66 83     .word ofs_8366_0E_8E_действие_атаки_на_земле
 - D - I - 0x0201A1 17:8191: 6A 83     .word ofs_836A_0F_8F
@@ -424,7 +424,7 @@ tbl_8291:
     .byte $02   ; trap
     .byte $03   ; through
 
-ofs_829F_0C_8C:
+ofs_829F_0C_8C_обычный_или_спешал:
 ; 00 - 
 ; 01 - 
 C - J - - 0x0202AF 17:829F: A2 00     LDX #$00
@@ -2321,9 +2321,9 @@ bra_case_8B6A_03_защитник_заберет_мяч:
 - D - I - 0x020B80 17:8B70: FA        .byte con_jsr
 - D - I - 0x020B81 17:8B71: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
 - D - I - 0x020B83 17:8B73: FA        .byte con_jsr
-- D - I - 0x020B84 17:8B74: 28 B4     .word sub_B428
+- D - I - 0x020B84 17:8B74: 28 B4     .word sub_B428_белое_мерцание_если_защитник_делал_спешал
 - D - I - 0x020B86 17:8B76: FA        .byte con_jsr
-- D - I - 0x020B87 17:8B77: C3 A0     .word sub_A0C3
+- D - I - 0x020B87 17:8B77: C3 A0     .word sub_A0C3_успешный_отбор_мяча_подкатом
 - D - I - 0x020B89 17:8B79: F6        .byte con_mirror_toggle
 - D - I - 0x020B8A 17:8B7A: FA        .byte con_jsr
 - D - I - 0x020B8B 17:8B7B: 64 9E     .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
@@ -2380,7 +2380,7 @@ bra_case_8BC2_00_атакующий_легко_обводит:
 - D - I - 0x020BD8 17:8BC8: FA        .byte con_jsr
 - D - I - 0x020BD9 17:8BC9: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020BDB 17:8BCB: FA        .byte con_jsr
-- D - I - 0x020BDC 17:8BCC: AA 9E     .word sub_9EAA
+- D - I - 0x020BDC 17:8BCC: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020BDE 17:8BCE: FA        .byte con_jsr
 - D - I - 0x020BDF 17:8BCF: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 bra_case_8BD1_02_защитник_выбьет_мяч:
@@ -2396,11 +2396,11 @@ bra_case_8BD2_01_атакующий_с_трудом_обводит:
 - D - I - 0x020BE8 17:8BD8: FA        .byte con_jsr
 - D - I - 0x020BE9 17:8BD9: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020BEB 17:8BDB: FA        .byte con_jsr
-- D - I - 0x020BEC 17:8BDC: AA 9E     .word sub_9EAA
+- D - I - 0x020BEC 17:8BDC: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020BEE 17:8BDE: FA        .byte con_jsr
 - D - I - 0x020BEF 17:8BDF: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020BF1 17:8BE1: F2        .byte con_jmp
-- D - I - 0x020BF2 17:8BE2: 47 A2     .word loc_A247
+- D - I - 0x020BF2 17:8BE2: 47 A2     .word loc_A247_серый_экран_атакующий_замедлился
 
 bra_case_8BE4_00_атакующий_легко_обводит:
 - D - I - 0x020BF4 17:8BE4: FA        .byte con_jsr
@@ -2412,7 +2412,7 @@ bra_case_8BE4_00_атакующий_легко_обводит:
 - D - I - 0x020BFD 17:8BED: FA        .byte con_jsr
 - D - I - 0x020BFE 17:8BEE: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C00 17:8BF0: FA        .byte con_jsr
-- D - I - 0x020C01 17:8BF1: AA 9E     .word sub_9EAA
+- D - I - 0x020C01 17:8BF1: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020C03 17:8BF3: F2        .byte con_jmp
 - D - I - 0x020C04 17:8BF4: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
@@ -2426,11 +2426,11 @@ bra_case_8BF6_01_атакующий_с_трудом_обводит:
 - D - I - 0x020C0F 17:8BFF: FA        .byte con_jsr
 - D - I - 0x020C10 17:8C00: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C12 17:8C02: FA        .byte con_jsr
-- D - I - 0x020C13 17:8C03: AA 9E     .word sub_9EAA
+- D - I - 0x020C13 17:8C03: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020C15 17:8C05: FA        .byte con_jsr
 - D - I - 0x020C16 17:8C06: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020C18 17:8C08: F2        .byte con_jmp
-- D - I - 0x020C19 17:8C09: 47 A2     .word loc_A247
+- D - I - 0x020C19 17:8C09: 47 A2     .word loc_A247_серый_экран_атакующий_замедлился
 
 bra_case_8C0B_02_защитник_выбьет_мяч:
 - D - I - 0x020C1B 17:8C0B: FA        .byte con_jsr
@@ -3752,7 +3752,7 @@ bra_long_case_937F_00:
 - D - I - 0x021394 17:9384: 6D        .byte bra_case_93F1_03 - *
 
 bra_case_9385_01:
-- D - I - 0x021395 17:9385: F3        .byte con_branch, $8C
+- D - I - 0x021395 17:9385: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x021397 17:9387: 02        .byte bra_case_9389_00 - *
 - D - I - 0x021398 17:9388: 26        .byte bra_case_93AE_01 - *
 
@@ -3908,7 +3908,7 @@ bra_case_942E_03:
 - - - - - 0x02143F 17:942F: F1 93     .word loc_93F1
 
 bra_case_9431_01:
-- - - - - 0x021441 17:9431: F3        .byte con_branch, $8C
+- - - - - 0x021441 17:9431: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x021443 17:9433: 02        .byte bra_case_9435_00 - *
 - - - - - 0x021444 17:9434: 26        .byte bra_case_945A_01 - *
 
@@ -3982,7 +3982,7 @@ bra_case_9474_00_защитник_выживет:
 - D - I - 0x021489 17:9479: 4E        .byte bra_case_94C7_03 - *
 
 bra_case_947A_01:
-- D - I - 0x02148A 17:947A: F3        .byte con_branch, $8C
+- D - I - 0x02148A 17:947A: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x02148C 17:947C: 02        .byte bra_case_947E_00 - *
 - - - - - 0x02148D 17:947D: 35        .byte bra_case_94B2_01_мяч_порвется - *
 
@@ -4074,7 +4074,7 @@ bra_case_94D6_03:
 - - - - - 0x0214E7 17:94D7: C7 94     .word loc_94C7
 
 bra_case_94D9_01:
-- - - - - 0x0214E9 17:94D9: F3        .byte con_branch, $8C
+- - - - - 0x0214E9 17:94D9: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x0214EB 17:94DB: 02        .byte bra_case_94DD_00 - *
 - - - - - 0x0214EC 17:94DC: 35        .byte bra_case_9511_01 - *
 
@@ -4168,7 +4168,7 @@ bra_case_953A_00_защитник_выживет:
 - D - I - 0x02154F 17:953F: 3C        .byte bra_case_957B_03 - *
 
 bra_case_9540_01:
-- D - I - 0x021550 17:9540: F3        .byte con_branch, $8C
+- D - I - 0x021550 17:9540: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x021552 17:9542: 02        .byte bra_case_9544_00 - *
 - D - I - 0x021553 17:9543: 26        .byte bra_case_9569_01 - *
 
@@ -4246,7 +4246,7 @@ bra_case_9587_03:
 - - - - - 0x021598 17:9588: 7B 95     .word loc_957B
 
 bra_case_958A_01:
-- D - I - 0x02159A 17:958A: F3        .byte con_branch, $8C
+- D - I - 0x02159A 17:958A: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x02159C 17:958C: 02        .byte bra_case_958E_00 - *
 - D - I - 0x02159D 17:958D: 26        .byte bra_case_95B3_01 - *
 
@@ -4320,7 +4320,7 @@ bra_case_95CC_00_защитник_выживет:
 - D - I - 0x0215E1 17:95D1: 36        .byte bra_case_9607_03 - *
 
 bra_case_95D2_01:
-- - - - - 0x0215E2 17:95D2: F3        .byte con_branch, $8C
+- - - - - 0x0215E2 17:95D2: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x0215E4 17:95D4: 02        .byte bra_case_95D6_00 - *
 - - - - - 0x0215E5 17:95D5: 26        .byte bra_case_95FB_01 - *
 
@@ -4393,7 +4393,7 @@ bra_case_9613_03:
 - - - - - 0x021624 17:9614: 07 96     .word loc_9607
 
 bra_case_9616_01:
-- - - - - 0x021626 17:9616: F3        .byte con_branch, $8C
+- - - - - 0x021626 17:9616: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x021628 17:9618: 02        .byte bra_case_961A_00 - *
 - - - - - 0x021629 17:9619: 26        .byte bra_case_963F_01 - *
 
@@ -4460,7 +4460,7 @@ bra_case_964F_00_защитник_выживет:
 - D - I - 0x021664 17:9654: 36        .byte bra_case_968A_03 - *
 
 bra_case_9655_01:
-- - - - - 0x021665 17:9655: F3        .byte con_branch, $8C
+- - - - - 0x021665 17:9655: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x021667 17:9657: 02        .byte bra_case_9659_00 - *
 - - - - - 0x021668 17:9658: 26        .byte bra_case_967E_01 - *
 
@@ -4533,7 +4533,7 @@ bra_case_9696_03:
 - - - - - 0x0216A7 17:9697: 8A 96     .word loc_968A
 
 bra_case_9699_01:
-- - - - - 0x0216A9 17:9699: F3        .byte con_branch, $8C
+- - - - - 0x0216A9 17:9699: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x0216AB 17:969B: 02        .byte bra_case_969D_00 - *
 - - - - - 0x0216AC 17:969C: 26        .byte bra_case_96C2_01 - *
 
@@ -4600,7 +4600,7 @@ bra_case_96D2_00_защитник_выживет:
 - D - I - 0x0216E7 17:96D7: 93        .byte bra_case_976A_03 - *
 
 bra_case_96D8_01:
-- - - - - 0x0216E8 17:96D8: F3        .byte con_branch, $8C
+- - - - - 0x0216E8 17:96D8: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x0216EA 17:96DA: 02        .byte bra_case_96DC_00 - *
 - - - - - 0x0216EB 17:96DB: 74        .byte bra_case_974F_01 - *
 
@@ -4623,7 +4623,7 @@ _scenario_96E3_0C:
 - - - - - 0x0216FB 17:96EB: 01        .byte bra_case_96EC_01_мяч_порвется - *
 
 bra_case_96EC_01_мяч_порвется:
-- - - - - 0x0216FC 17:96EC: F3        .byte con_branch, $8C     ; ? порвется ли мяч
+- - - - - 0x0216FC 17:96EC: F3        .byte con_branch, $8C     ; обычный или спешал     ; ? порвется ли мяч
 - - - - - 0x0216FE 17:96EE: 02        .byte bra_case_96F0_00_мяч_не_порвется - *
 - - - - - 0x0216FF 17:96EF: 66        .byte bra_case_9755_01_мяч_порвется - *
 
@@ -4771,7 +4771,7 @@ loc_9770_сообщение_об_идеальном_сейве:
 - D - I - 0x021784 17:9774: F0 9E     .word loc_9EF0_попытка_включить_drive_tiger
 
 bra_case_9779_01:
-- - - - - 0x021789 17:9779: F3        .byte con_branch, $8C
+- - - - - 0x021789 17:9779: F3        .byte con_branch, $8C     ; обычный или спешал
 - - - - - 0x02178B 17:977B: 02        .byte bra_case_977D_00 - *
 - - - - - 0x02178C 17:977C: 71        .byte bra_case_97ED_01 - *
 
@@ -6026,7 +6026,7 @@ bra_long_case_9CCD_02_dribble:
 _scenario_9CDD_25:
 - D - I - 0x021CED 17:9CDD: FA        .byte con_jsr
 - D - I - 0x021CEE 17:9CDE: 23 9C     .word sub_BBC7_очистка
-- D - I - 0x021CF0 17:9CE0: F3        .byte con_branch, $8C
+- D - I - 0x021CF0 17:9CE0: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x021CF2 17:9CE2: 02        .byte bra_case_9CE4_00 - *
 - D - I - 0x021CF3 17:9CE3: 10        .byte bra_case_9CF3_01 - *
 
@@ -6230,7 +6230,7 @@ sub_9E1B_рандом_анимации_отпизженного_игрока_с_
 _scenario_9E2D_26:
 - D - I - 0x021E3D 17:9E2D: FA        .byte con_jsr
 - D - I - 0x021E3E 17:9E2E: 23 9C     .word sub_BBC7_очистка
-- D - I - 0x021E40 17:9E30: F3        .byte con_branch, $8C
+- D - I - 0x021E40 17:9E30: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x021E42 17:9E32: 02        .byte bra_case_9E34_00 - *
 - D - I - 0x021E43 17:9E33: 12        .byte bra_case_9E45_01_летит_низкий_мяч - *
 
@@ -6319,7 +6319,7 @@ sub_9E64_рожа_атакующего_с_сообщением_неудачи:
 - - - - - 0x021EB8 17:9EA8: F4 B9     .word bra_long_case_B9F4_21_kaltz
 
 loc_9EAA_рожа_защитника_с_сообщением_неудачи:
-sub_9EAA:
+sub_9EAA_рожа_защитника_с_сообщением_неудачи:
 - D - I - 0x021EBA 17:9EAA: F3        .byte con_branch, $29
 - D - I - 0x021EBC 17:9EAC: 1A B9     .word bra_long_case_B91A_00_игрок_без_рожи
 - D - I - 0x021EBE 17:9EAE: 13 B9     .word bra_long_case_B913_01_tsubasa
@@ -6814,8 +6814,8 @@ sub_A0BE_защитник_промахивается:
 - D - I - 0x0220D1 11:A0C1: 11        .byte con_cloud + $11
 - D - I - 0x0220D2 11:A0C2: FB        .byte con_rts
 
-loc_A0C3:
-sub_A0C3:
+loc_A0C3_успешный_отбор_мяча_подкатом:
+sub_A0C3_успешный_отбор_мяча_подкатом:
 - D - I - 0x0220D3 11:A0C3: FC        .byte con_moving_bg, $02
 - D - I - 0x0220D5 11:A0C5: F9        .byte con_soundID_delay, $2D, $02     ; удар мяча об живот
 - D - I - 0x0220D8 11:A0C8: 46        .byte con_pause + $46
@@ -7212,7 +7212,7 @@ loc_A240:
 - D - I - 0x022255 11:A245: 26        .byte con_cloud + $26
 - D - I - 0x022256 11:A246: FB        .byte con_rts
 
-loc_A247:
+loc_A247_серый_экран_атакующий_замедлился:
 - D - I - 0x022257 11:A247: F7        .byte con_F7, $11
 - D - I - 0x022259 11:A249: 5A        .byte con_pause + $5A
 - D - I - 0x02225A 11:A24A: 05        .byte con_bg + $05
@@ -7737,7 +7737,7 @@ bra_case_A457_03_soda:
 - D - I - 0x02246B 11:A45B: 9F        .byte con_animation + $9F
 - D - I - 0x02246C 11:A45C: DA        .byte con_cloud + $DA
 loc_A45D:
-sub_A45D:
+sub_A45D_soda_razor_tackle:
 - D - I - 0x02246D 11:A45D: FA        .byte con_jsr
 - D - I - 0x02246E 11:A45E: 78 AF     .word sub_AF78
 loc_A460:
@@ -11775,8 +11775,8 @@ bra_case_B422_01_это_не_kaltz:
 - - - - - 0x023435 11:B425: F2        .byte con_jmp
 - - - - - 0x023436 11:B426: 1B B4     .word loc_B41B
 
-sub_B428:
-- D - I - 0x023438 11:B428: F3        .byte con_branch, $8C
+sub_B428_белое_мерцание_если_защитник_делал_спешал:
+- D - I - 0x023438 11:B428: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x02343A 11:B42A: 08        .byte bra_case_B432_00 - *
 - D - I - 0x02343B 11:B42B: 01        .byte bra_case_B42C_01 - *
 
@@ -11891,7 +11891,7 @@ _scenario_B47C_3A:
 
 _scenario_B486_1B:
 - D - I - 0x023496 11:B486: FD        .byte con_mirror_condition, $00
-- D - I - 0x023498 11:B488: F3        .byte con_branch, $0C
+- D - I - 0x023498 11:B488: F3        .byte con_branch, $0C     ; обычный или спешал
 - D - I - 0x02349A 11:B48A: 9A B4     .word bra_long_case_B49A_00
 - D - I - 0x02349C 11:B48C: 8E B4     .word bra_long_case_B48E_01
 
@@ -13713,7 +13713,7 @@ _scenario_BBCC_34:
 
 _scenario_BBD4_19:
 - D - I - 0x023BE4 11:BBD4: FD        .byte con_mirror_condition, $00
-- D - I - 0x023BE6 11:BBD6: F3        .byte con_branch, $8C
+- D - I - 0x023BE6 11:BBD6: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x023BE8 11:BBD8: 02        .byte bra_case_BBDA_00 - *
 - D - I - 0x023BE9 11:BBD9: 09        .byte bra_case_BBE2_01 - *
 
@@ -13873,7 +13873,7 @@ bra_case_BC5C_10:
 
 
 _scenario_BC6D_1A:
-- D - I - 0x023C7D 11:BC6D: F3        .byte con_branch, $8C
+- D - I - 0x023C7D 11:BC6D: F3        .byte con_branch, $8C     ; обычный или спешал
 - D - I - 0x023C7F 11:BC6F: 02        .byte bra_case_BC71_00 - *
 - D - I - 0x023C80 11:BC70: 11        .byte bra_case_BC81_01 - *
 
@@ -14607,9 +14607,9 @@ _scenario_BF05_69:
 
 _scenario_BF0D_6B:
 - D - I - 0x023F1D 11:BF0D: FA        .byte con_jsr
-- D - I - 0x023F1E 11:BF0E: 5D A4     .word sub_A45D
+- D - I - 0x023F1E 11:BF0E: 5D A4     .word sub_A45D_soda_razor_tackle
 - D - I - 0x023F20 11:BF10: F2        .byte con_jmp
-- D - I - 0x023F21 11:BF11: C3 A0     .word loc_A0C3
+- D - I - 0x023F21 11:BF11: C3 A0     .word loc_A0C3_успешный_отбор_мяча_подкатом
 
 
 
