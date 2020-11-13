@@ -5151,8 +5151,6 @@ bra_case_9902_00:
 - D - I - 0x021918 17:9908: F2        .byte con_jmp
 - D - I - 0x021919 17:9909: EA 9F     .word loc_9FEA
 
-- - - - - 0x02191B 17:990B: F0        .byte con_quit
-
 bra_case_990C_01:
 - D - I - 0x02191C 17:990C: FA        .byte con_jsr
 - D - I - 0x02191D 17:990D: 35 A3     .word sub_A335_полет_нижнего_мяча
