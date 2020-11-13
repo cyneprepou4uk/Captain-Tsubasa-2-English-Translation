@@ -3168,12 +3168,12 @@ bra_case_9064_02_умрет_и_отобьет:
 
 bra_case_907A_02_pass_cut:
 - D - I - 0x02108A 17:907A: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x02108C 17:907C: 05        .byte bra_case_9081_00 - *
-- - - - - 0x02108D 17:907D: 14        .byte bra_case_9091_01 - *
-- - - - - 0x02108E 17:907E: 25        .byte bra_case_90A3_02 - *
-- - - - - 0x02108F 17:907F: 36        .byte bra_case_90B5_03 - *
+- D - I - 0x02108C 17:907C: 05        .byte bra_case_9081_00_умрет - *
+- - - - - 0x02108D 17:907D: 14        .byte bra_case_9091_01_умрет_и_серый_экран - *
+- - - - - 0x02108E 17:907E: 25        .byte bra_case_90A3_02_умрет_и_отобьет - *
+- - - - - 0x02108F 17:907F: 36        .byte bra_case_90B5_03_словит - *
 
-bra_case_9081_00:
+bra_case_9081_00_умрет:
 - D - I - 0x021091 17:9081: FA        .byte con_jsr
 - D - I - 0x021092 17:9082: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
 - D - I - 0x021094 17:9084: FA        .byte con_jsr
@@ -3185,7 +3185,7 @@ bra_case_9081_00:
 - D - I - 0x02109D 17:908D: FA        .byte con_jmp
 - D - I - 0x02109E 17:908E: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
-bra_case_9091_01:
+bra_case_9091_01_умрет_и_серый_экран:
 - - - - - 0x0210A1 17:9091: FA        .byte con_jsr
 - - - - - 0x0210A2 17:9092: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
 - - - - - 0x0210A4 17:9094: FA        .byte con_jsr
@@ -3199,7 +3199,7 @@ bra_case_9091_01:
 - - - - - 0x0210B0 17:90A0: F2        .byte con_jmp
 - - - - - 0x0210B1 17:90A1: 40 A2     .word loc_A240_серый_экран_после_касания_высого_мяча_телом
 
-bra_case_90A3_02:
+bra_case_90A3_02_умрет_и_отобьет:
 - - - - - 0x0210B3 17:90A3: FA        .byte con_jsr
 - - - - - 0x0210B4 17:90A4: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
 - - - - - 0x0210B6 17:90A6: FA        .byte con_jsr
@@ -3213,7 +3213,7 @@ bra_case_90A3_02:
 - - - - - 0x0210C2 17:90B2: F2        .byte con_jmp
 - - - - - 0x0210C3 17:90B3: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-bra_case_90B5_03:
+bra_case_90B5_03_словит:
 - - - - - 0x0210C5 17:90B5: FA        .byte con_jsr
 - - - - - 0x0210C6 17:90B6: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
 - - - - - 0x0210C8 17:90B8: FA        .byte con_jsr
@@ -3261,7 +3261,7 @@ _scenario_91F2_01:
 bra_case_91F8_00:
 - D - I - 0x021208 17:91F8: FA        .byte con_jmp
 - D - I - 0x021209 17:91F9: E2 9D     .word loc_9DE2
-
+; bzk переименовать
 bra_case_91FC_01:
 - D - I - 0x02120C 17:91FC: F2        .byte con_jmp
 - D - I - 0x02120D 17:91FD: 3C 9D     .word loc_9D3C
@@ -3305,23 +3305,23 @@ bra_case_921B_00:
 
 bra_case_9222_00_защитник_1:
 - D - I - 0x021232 17:9222: F2        .byte con_jmp
-- D - I - 0x021233 17:9223: 85 9C     .word loc_9C85_защитник_бежит_по_земле
+- D - I - 0x021233 17:9223: 85 9C     .word loc_9C85_защитник_бежит_по_земле_1й
 
 bra_case_9225_01_защитник_2:
 - D - I - 0x021235 17:9225: F2        .byte con_jmp
-- D - I - 0x021236 17:9226: 91 9C     .word loc_9C91_защитник_бежит_по_земле
+- D - I - 0x021236 17:9226: 91 9C     .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
 
 bra_case_9228_02_защитник_3:
 - D - I - 0x021238 17:9228: F2        .byte con_jmp
-- D - I - 0x021239 17:9229: 9D 9C     .word loc_9C9D_защитник_бежит_по_земле
+- D - I - 0x021239 17:9229: 9D 9C     .word loc_9C9D_защитник_бежит_по_земле_3й
 
 bra_case_922B_03_защитник_4:
 - D - I - 0x02123B 17:922B: F2        .byte con_jmp
-- D - I - 0x02123C 17:922C: 97 9C     .word loc_9C97_защитник_бежит_по_земле
+- D - I - 0x02123C 17:922C: 97 9C     .word loc_9C97_защитник_бежит_по_земле_4й
 
 bra_case_922E_04_защитник_5:
 - - - - - 0x02123E 17:922E: F2        .byte con_jmp
-- - - - - 0x02123F 17:922F: 91 9C     .word loc_9C91_защитник_бежит_по_земле
+- - - - - 0x02123F 17:922F: 91 9C     .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
 
 bra_case_9231_01:
 - D - I - 0x021241 17:9231: F3        .byte con_branch, $85     ; порядковый номер защитника
@@ -3333,23 +3333,23 @@ bra_case_9231_01:
 
 bra_case_9238_00_защитник_1:
 - D - I - 0x021248 17:9238: F2        .byte con_jmp
-- D - I - 0x021249 17:9239: 61 9C     .word loc_9C61_защитник_прыгает_в_воздух
+- D - I - 0x021249 17:9239: 61 9C     .word loc_9C61_защитник_прыгает_в_воздух_1й
 
 bra_case_923B_01_защитник_2:
 - D - I - 0x02124B 17:923B: F2        .byte con_jmp
-- D - I - 0x02124C 17:923C: 6D 9C     .word loc_9C6D_защитник_прыгает_в_воздух
+- D - I - 0x02124C 17:923C: 6D 9C     .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
 
 bra_case_923E_02_защитник_3:
 - D - I - 0x02124E 17:923E: F2        .byte con_jmp
-- D - I - 0x02124F 17:923F: 73 9C     .word loc_9C73_защитник_прыгает_в_воздух
+- D - I - 0x02124F 17:923F: 73 9C     .word loc_9C73_защитник_прыгает_в_воздух_3й
 
 bra_case_9241_03_защитник_4:
 - D - I - 0x021251 17:9241: F2        .byte con_jmp
-- D - I - 0x021252 17:9242: 67 9C     .word loc_9C67_защитник_прыгает_в_воздух
+- D - I - 0x021252 17:9242: 67 9C     .word loc_9C67_защитник_прыгает_в_воздух_4й
 
 bra_case_9244_04_защитник_5:
 - - - - - 0x021254 17:9244: F2        .byte con_jmp
-- - - - - 0x021255 17:9245: 6D 9C     .word loc_9C6D_защитник_прыгает_в_воздух
+- - - - - 0x021255 17:9245: 6D 9C     .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
 
 bra_case_9247_01_это_кипер:
 - D - I - 0x021257 17:9247: FD        .byte con_mirror_condition, $03       ; куда летит мяч
@@ -3584,11 +3584,11 @@ bra_case_930F_00:
 
 bra_case_9312_01:
 - D - I - 0x021322 17:9312: F2        .byte con_jmp
-- D - I - 0x021323 17:9313: 97 A1     .word loc_A197
+- D - I - 0x021323 17:9313: 97 A1     .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
 
 bra_case_9315_02:
 - D - I - 0x021325 17:9315: F2        .byte con_jmp
-- D - I - 0x021326 17:9316: 83 A0     .word loc_A083
+- D - I - 0x021326 17:9316: 83 A0     .word loc_A083_кипер_ловит_мяч_вид_сверху
 
 bra_case_9318_04_нарушение:
 - D - I - 0x021328 17:9318: F2        .byte con_jmp
@@ -5882,22 +5882,22 @@ sub_9C5B_wakashimazu_отскок_от_штанги:
 - D - I - 0x021C6D 17:9C5D: 4D A3     .word bra_long_case_A34D_00
 - D - I - 0x021C6F 17:9C5F: 3A A3     .word bra_long_case_A33A_01
 
-loc_9C61_защитник_прыгает_в_воздух:
+loc_9C61_защитник_прыгает_в_воздух_1й:
 - D - I - 0x021C71 17:9C61: F3        .byte con_branch, $37
 - D - I - 0x021C73 17:9C63: 10 B3     .word bra_long_case_B310_00
 - D - I - 0x021C75 17:9C65: FE B2     .word bra_long_case_B2FE_01
 
-loc_9C67_защитник_прыгает_в_воздух:
+loc_9C67_защитник_прыгает_в_воздух_4й:
 - D - I - 0x021C77 17:9C67: F3        .byte con_branch, $37
 - D - I - 0x021C79 17:9C69: B3 A3     .word bra_long_case_A3B3_00
 - - - - - 0x021C7B 17:9C6B: FE B2     .word bra_long_case_B2FE_01
 
-loc_9C6D_защитник_прыгает_в_воздух:
+loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й:
 - D - I - 0x021C7D 17:9C6D: F3        .byte con_branch, $37
 - D - I - 0x021C7F 17:9C6F: BD A3     .word bra_long_case_A3BD_00
 - - - - - 0x021C81 17:9C71: FE B2     .word bra_long_case_B2FE_01
 
-loc_9C73_защитник_прыгает_в_воздух:
+loc_9C73_защитник_прыгает_в_воздух_3й:
 - D - I - 0x021C83 17:9C73: F3        .byte con_branch, $37
 - D - I - 0x021C85 17:9C75: C5 A3     .word bra_long_case_A3C5_00
 - - - - - 0x021C87 17:9C77: FE B2     .word bra_long_case_B2FE_01
@@ -5912,7 +5912,7 @@ sub_9C7F_защитник_бежит_по_земле:
 - D - I - 0x021C91 17:9C81: 0C A7     .word bra_long_case_A70C_00
 - D - I - 0x021C93 17:9C83: BC A6     .word bra_long_case_A6BC_01
 
-loc_9C85_защитник_бежит_по_земле:
+loc_9C85_защитник_бежит_по_земле_1й:
 - D - I - 0x021C95 17:9C85: F3        .byte con_branch, $37
 - D - I - 0x021C97 17:9C87: CE A7     .word bra_long_case_A7CE_00
 - - - - - 0x021C99 17:9C89: CE A6     .word bra_long_case_A6CE_01
@@ -5922,17 +5922,17 @@ sub_9C8B_игрок_бежит_по_земле:
 - D - I - 0x021C9D 17:9C8D: FF A6     .word bra_long_case_A6FF_00
 - D - I - 0x021C9F 17:9C8F: E4 A6     .word bra_long_case_A6E4_01
 
-loc_9C91_защитник_бежит_по_земле:
+loc_9C91_защитник_бежит_по_земле_2й_и_5й:
 - D - I - 0x021CA1 17:9C91: F3        .byte con_branch, $37
 - D - I - 0x021CA3 17:9C93: D5 A7     .word bra_long_case_A7D5_00
 - D - I - 0x021CA5 17:9C95: CE A6     .word bra_long_case_A6CE_01
 
-loc_9C97_защитник_бежит_по_земле:
+loc_9C97_защитник_бежит_по_земле_4й:
 - D - I - 0x021CA7 17:9C97: F3        .byte con_branch, $37
 - D - I - 0x021CA9 17:9C99: DE A7     .word bra_long_case_A7DE_00
 - - - - - 0x021CAB 17:9C9B: CE A6     .word bra_long_case_A6CE_01
 
-loc_9C9D_защитник_бежит_по_земле:
+loc_9C9D_защитник_бежит_по_земле_3й:
 - D - I - 0x021CAD 17:9C9D: F3        .byte con_branch, $37
 - D - I - 0x021CAF 17:9C9F: E7 A7     .word bra_long_case_A7E7_00
 - D - I - 0x021CB1 17:9CA1: CE A6     .word bra_long_case_A6CE_01
@@ -6680,7 +6680,7 @@ loc_A079:
 - D - I - 0x022091 11:A081: 0B        .byte con_cloud + $0B
 - D - I - 0x022092 11:A082: FB        .byte con_rts
 
-loc_A083:
+loc_A083_кипер_ловит_мяч_вид_сверху:
 - D - I - 0x022093 11:A083: F7        .byte con_F7, $07
 - D - I - 0x022095 11:A085: F9        .byte con_soundID_delay, $2A, $21     ; ловля мяча/мяч приклеился
 - D - I - 0x022098 11:A088: 50        .byte con_pause + $50
@@ -6975,7 +6975,7 @@ loc_A18D_игрок_делает_clear_ногой:
 
 
 _scenario_A197_78:
-loc_A197:
+loc_A197_защитник_делает_clear_головой_из_своей_штрафной:
 sub_A197:
 - D - I - 0x0221A7 11:A197: F9        .byte con_soundID_delay, $2A, $21
 - D - I - 0x0221AA 11:A19A: 2D        .byte con_pause + $2D
