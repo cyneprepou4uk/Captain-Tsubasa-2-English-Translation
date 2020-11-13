@@ -2254,8 +2254,12 @@ bra_case_8B1F_03_защитник_заберет_мяч:
 - D - I - 0x020B33 17:8B23: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
 - D - I - 0x020B35 17:8B25: FA        .byte con_jsr
 - D - I - 0x020B36 17:8B26: EF A2     .word sub_A2EF_белое_мерцание_без_звука
-- D - I - 0x020B38 17:8B28: FA        .byte con_jsr
-- D - I - 0x020B39 17:8B29: 5A A1     .word sub_A15A
+                                      .byte con_moving_bg, $02
+                                      .byte con_soundID_delay, $2D, $02
+                                      .byte con_pause + $46
+                                      .byte con_bg + $57
+                                      .byte con_animation + $2E
+                                      .byte con_cloud + $05
 - D - I - 0x020B3B 17:8B2B: F6        .byte con_mirror_toggle
 - D - I - 0x020B3C 17:8B2C: FA        .byte con_jsr
 - D - I - 0x020B3D 17:8B2D: 64 9E     .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
@@ -6979,15 +6983,6 @@ bra_case_A155_02:
 - D - I - 0x022167 11:A157: 2D        .byte con_animation + $2D
 - D - I - 0x022168 11:A158: 15        .byte con_cloud + $15
 - D - I - 0x022169 11:A159: FB        .byte con_rts
-
-sub_A15A:
-- D - I - 0x02216A 11:A15A: FC        .byte con_moving_bg, $02
-- D - I - 0x02216C 11:A15C: F9        .byte con_soundID_delay, $2D, $02
-- D - I - 0x02216F 11:A15F: 46        .byte con_pause + $46
-- D - I - 0x022170 11:A160: 57        .byte con_bg + $57
-- D - I - 0x022171 11:A161: 2E        .byte con_animation + $2E
-- D - I - 0x022172 11:A162: 05        .byte con_cloud + $05
-- D - I - 0x022173 11:A163: FB        .byte con_rts
 
 loc_A164:
 - D - I - 0x022174 11:A164: FC        .byte con_moving_bg, $02
