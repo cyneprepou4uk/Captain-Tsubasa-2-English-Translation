@@ -4742,8 +4742,10 @@ bra_case_975B_02:
 - D - I - 0x02176B 17:975B: FA        .byte con_jsr
 - D - I - 0x02176C 17:975C: E4 A1     .word sub_A1E4_dark_illusion
 loc_975E:
-- D - I - 0x02176E 17:975E: FA        .byte con_jsr
-- D - I - 0x02176F 17:975F: 46 A1     .word sub_A146
+                                      .byte con_pause + $28
+                                      .byte con_bg + $0E
+                                      .byte con_animation + $2C
+                                      .byte con_cloud + con_clear
 - D - I - 0x021771 17:9761: FA        .byte con_jsr
 - D - I - 0x021772 17:9762: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x021774 17:9764: FA        .byte con_jsr
@@ -6960,13 +6962,6 @@ bra_case_A13E_02:
 - D - I - 0x022153 11:A143: 2B        .byte con_animation + $2B
 - D - I - 0x022154 11:A144: 0E        .byte con_cloud + $0E
 - D - I - 0x022155 11:A145: FB        .byte con_rts
-
-sub_A146:
-- D - I - 0x022156 11:A146: 28        .byte con_pause + $28
-- D - I - 0x022157 11:A147: 0E        .byte con_bg + $0E
-- D - I - 0x022158 11:A148: 2C        .byte con_animation + $2C
-- D - I - 0x022159 11:A149: 00        .byte con_cloud + con_clear
-- D - I - 0x02215A 11:A14A: FB        .byte con_rts
 
 sub_A14B_кипер_дотягивается_до_мяча_кулаком:
 - D - I - 0x02215B 11:A14B: F3        .byte con_branch, $A0
