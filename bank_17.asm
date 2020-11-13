@@ -3595,9 +3595,8 @@ bra_case_9318_04_нарушение:
 - D - I - 0x021329 17:9319: 5B A3     .word loc_A35B_нарушение
 
 bra_case_931B_01:
-- - - - - 0x02132B 17:931B: FA        .byte con_jsr
-- - - - - 0x02132C 17:931C: 97 A1     .word sub_A197
-- - - - - 0x02132E 17:931E: F0        .byte con_quit
+- - - - - 0x02132B 17:931B: FA        .byte con_jmp
+- - - - - 0x02132C 17:931C: 97 A1     .word loc_A197
 
 bra_long_case_931F_00:
 bra_case_931F_00:
@@ -6976,7 +6975,7 @@ loc_A18D_игрок_делает_clear_ногой:
 
 _scenario_A197_78:
 loc_A197_защитник_делает_clear_головой_из_своей_штрафной:
-sub_A197:
+loc_A197:
 - D - I - 0x0221A7 11:A197: F9        .byte con_soundID_delay, $2A, $21
 - D - I - 0x0221AA 11:A19A: 2D        .byte con_pause + $2D
 - D - I - 0x0221AB 11:A19B: 6E        .byte con_bg + $6E
