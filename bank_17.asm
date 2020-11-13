@@ -4753,8 +4753,8 @@ loc_975E:
 - D - I - 0x021777 17:9767: F2        .byte con_jmp
 - D - I - 0x021778 17:9768: F0 9E     .word loc_9EF0_попытка_включить_drive_tiger
 
-loc_976A:
 bra_case_976A_03:
+bra_case_9776_03:
 - D - I - 0x02177A 17:976A: FA        .byte con_jsr
 - D - I - 0x02177B 17:976B: E4 A1     .word sub_A1E4_dark_illusion
 loc_976D_кипер_ловит_мяч:
@@ -4765,10 +4765,6 @@ loc_9770_сообщение_об_идеальном_сейве:
 - D - I - 0x021781 17:9771: 4E B4     .word sub_B44E_кипер_идеально_засейвил
 - D - I - 0x021783 17:9773: F2        .byte con_jmp
 - D - I - 0x021784 17:9774: F0 9E     .word loc_9EF0_попытка_включить_drive_tiger
-
-bra_case_9776_03:
-- - - - - 0x021786 17:9776: F2        .byte con_jmp
-- - - - - 0x021787 17:9777: 6A 97     .word loc_976A
 
 bra_case_9779_01:
 - - - - - 0x021789 17:9779: F3        .byte con_branch, $8C
