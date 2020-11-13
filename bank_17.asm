@@ -2793,7 +2793,6 @@ bra_case_8DAC_02_pass_cut:
 - - - - - 0x020DBF 17:8DAF: 14        .byte bra_case_8DC3_01 - *
 - - - - - 0x020DC0 17:8DB0: 25        .byte bra_case_8DD5_02 - *
 - - - - - 0x020DC1 17:8DB1: 36        .byte bra_case_8DE7_03 - *
-- - - - - 0x020DC2 17:8DB2: 10        .byte bra_case_8DC2_04_нарушение - *
 
 bra_case_8DB3_00:
 - D - I - 0x020DC3 17:8DB3: FA        .byte con_jsr
@@ -2804,10 +2803,8 @@ bra_case_8DB3_00:
 - D - I - 0x020DCA 17:8DBA: 10 A0     .word sub_A010
 - D - I - 0x020DCC 17:8DBC: FA        .byte con_jsr
 - D - I - 0x020DCD 17:8DBD: DD A2     .word sub_A2DD_ярко_красное_мерцание
-- D - I - 0x020DCF 17:8DBF: FA        .byte con_jsr
-- D - I - 0x020DD0 17:8DC0: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-bra_case_8DC2_04_нарушение:
-- D - I - 0x020DD2 17:8DC2: F0        .byte con_quit
+- D - I - 0x020DCF 17:8DBF: FA        .byte con_jmp
+- D - I - 0x020DD0 17:8DC0: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
 bra_case_8DC3_01:
 - - - - - 0x020DD3 17:8DC3: FA        .byte con_jsr
