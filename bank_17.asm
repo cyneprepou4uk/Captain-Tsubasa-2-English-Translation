@@ -2958,14 +2958,14 @@ bra_case_8F5B_00_block:
 - - - - - 0x020F6E 17:8F5E: FA        .byte con_jsr
 - - - - - 0x020F6F 17:8F5F: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - - - - - 0x020F71 17:8F61: F2        .byte con_jmp
-- - - - - 0x020F72 17:8F62: 9F A1     .word loc_A19F
+- - - - - 0x020F72 17:8F62: 9F A1     .word loc_A19F_защитник_забирает_низкий_мяч_телом
 
 bra_case_8F64_01_face_block:
 - - - - - 0x020F74 17:8F64: FA        .byte con_jsr
 - - - - - 0x020F75 17:8F65: 7A 9F     .word sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком
 loc_8F67:
 - D - I - 0x020F77 17:8F67: FA        .byte con_jsr
-- D - I - 0x020F78 17:8F68: 65 B4     .word sub_B465
+- D - I - 0x020F78 17:8F68: 65 B4     .word sub_B465_ishizaki_face_block_в_процессе
 - D - I - 0x020F7A 17:8F6A: F2        .byte con_jmp
 - D - I - 0x020F7B 17:8F6B: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
@@ -3155,7 +3155,7 @@ bra_case_902F_03_power_block:
 - - - - - 0x021045 17:9035: FA        .byte con_jsr
 - - - - - 0x021046 17:9036: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - - - - - 0x021048 17:9038: F2        .byte con_jmp
-- - - - - 0x021049 17:9039: 9F A1     .word loc_A19F
+- - - - - 0x021049 17:9039: 9F A1     .word loc_A19F_защитник_забирает_низкий_мяч_телом
 
 bra_case_903B_01_tackle:
 - D - I - 0x02104B 17:903B: F3        .byte con_branch, $83     ; результат действия защитника
@@ -7044,7 +7044,7 @@ sub_A197:
 - D - I - 0x0221AD 11:A19D: 17        .byte con_cloud + $17
 - D - I - 0x0221AE 11:A19E: FB        .byte con_rts
 
-loc_A19F:
+loc_A19F_защитник_забирает_низкий_мяч_телом:
 - - - - - 0x0221AF 11:A19F: FC        .byte con_moving_bg, $02
 - - - - - 0x0221B1 11:A1A1: F9        .byte con_soundID_delay, $2D, $02
 - - - - - 0x0221B4 11:A1A4: 41        .byte con_pause + $41
@@ -11852,7 +11852,7 @@ sub_B45D:
 - D - I - 0x023472 11:B462: 50        .byte con_cloud + $50
 - D - I - 0x023473 11:B463: FB        .byte con_rts
 
-sub_B465:
+sub_B465_ishizaki_face_block_в_процессе:
 - D - I - 0x023475 11:B465: F7        .byte con_F7, $0F
 - D - I - 0x023477 11:B467: 1E        .byte con_pause + $1E
 - D - I - 0x023478 11:B468: 05        .byte con_bg + $05
