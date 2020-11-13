@@ -3668,9 +3668,8 @@ bra_case_9325_02:
 - D - I - 0x021336 17:9326: 79 A0     .word loc_A079
 
 bra_case_9328_01:
-- - - - - 0x021338 17:9328: FA        .byte con_jsr
-- - - - - 0x021339 17:9329: 8D A1     .word sub_A18D_игрок_делает_clear_ногой
-- - - - - 0x02133B 17:932B: F0        .byte con_quit
+- - - - - 0x021338 17:9328: FA        .byte con_jmp
+- - - - - 0x021339 17:9329: 8D A1     .word loc_A18D_игрок_делает_clear_ногой
 
 
 
@@ -7025,7 +7024,6 @@ loc_A185_защитник_ловит_высокий_мяч_телом:
 - D - I - 0x02219C 11:A18C: FB        .byte con_rts
 
 loc_A18D_игрок_делает_clear_ногой:
-sub_A18D_игрок_делает_clear_ногой:
 - D - I - 0x02219D 11:A18D: F7        .byte con_F7, $02
 - D - I - 0x02219F 11:A18F: F9        .byte con_soundID_delay, $2C, $29
 - D - I - 0x0221A2 11:A192: 46        .byte con_pause + $46
