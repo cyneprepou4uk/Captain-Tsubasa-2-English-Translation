@@ -7236,6 +7236,7 @@ loc_A247:
 sub_A24E_штанга_со_звуком:
 - D - I - 0x02225E 11:A24E: F7        .byte con_F7, $1F
 - D - I - 0x022260 11:A250: F9        .byte con_soundID_delay, $63, $02
+loc_A253_штанга:
 - D - I - 0x022263 11:A253: 10        .byte con_pause + $10
 - D - I - 0x022264 11:A254: 06        .byte con_bg + $06
 - D - I - 0x022265 11:A255: 43        .byte con_animation + $43
@@ -7244,11 +7245,8 @@ sub_A24E_штанга_со_звуком:
 
 sub_A24F_штанга_без_звука:
     .byte con_F7, $1F
-    .byte con_pause + $10
-    .byte con_bg + $06
-    .byte con_animation + $43
-    .byte con_cloud + $27
-    .byte con_rts
+    .byte con_jmp
+    .word loc_A253_штанга
 
 loc_A258:
 sub_A258:
