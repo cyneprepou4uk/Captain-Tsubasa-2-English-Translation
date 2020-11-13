@@ -2470,7 +2470,7 @@ C - - - - 0x03D5BD FF:D5AD: A9 41     LDA #$41
 C - - - - 0x03D5BF FF:D5AF: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_D5B2:
 loc_D5B2:
-C D - - - 0x03D5C2 FF:D5B2: 20 A2 EF  JSR sub_EFA2
+C D - - - 0x03D5C2 FF:D5B2: 20 A2 EF  JSR sub_EFA2_нарисовать_тень_защитников_и_миникарту
 C - - - - 0x03D5C5 FF:D5B5: A9 00     LDA #$00
 C - - - - 0x03D5C7 FF:D5B7: 85 11     STA ram_0011
 C - - - - 0x03D5C9 FF:D5B9: 85 12     STA ram_0012
@@ -4721,7 +4721,6 @@ C - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x03404C
 .segment "BANK_FF"
 .incbin "DPCM.bin"
 
-
 .export sub_0x03E4E7
 sub_0x03E4E7:
 sub_E4D7:
@@ -6209,7 +6208,7 @@ C - - - - 0x03EFAC FF:EF9C: 68        PLA
 C - - - - 0x03EFAD FF:EF9D: 85 24     STA ram_для_5114
 C - - - - 0x03EFAF FF:EF9F: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
 
-sub_EFA2:
+sub_EFA2_нарисовать_тень_защитников_и_миникарту:
 C - - - - 0x03EFB2 FF:EFA2: AD 21 06  LDA $0621
 C - - - - 0x03EFB5 FF:EFA5: C9 04     CMP #$04
 C - - - - 0x03EFB7 FF:EFA7: 90 01     BCC bra_EFAA
@@ -6257,7 +6256,7 @@ C - - - - 0x03F001 FF:EFF1: CD 00 06  CMP ram_колво_защитников
 C - - - - 0x03F004 FF:EFF4: D0 BE     BNE bra_EFB4_цикл
 loc_EFF6_никто_не_напал:
 C D - - - 0x03F006 FF:EFF6: AE 21 06  LDX $0621
-C - - - - 0x03F009 FF:EFF9: BD 0F F0  LDA tbl_F00F,X
+C - - - - 0x03F009 FF:EFF9: BD 0F F0  LDA tbl_F00F_выбор_миникарты,X
 C - - - - 0x03F00C FF:EFFC: 8D 3D 06  STA ram_положение_миникарты
 C - - - - 0x03F00F FF:EFFF: 8A        TXA
 C - - - - 0x03F010 FF:F000: D0 11     BNE bra_F013
@@ -6295,7 +6294,7 @@ C - - - - 0x03F04C FF:F03C: 7D 0E F1  ADC tbl_F10E_смещение_ppu_адре
 C - - - - 0x03F04F FF:F03F: 8D A6 04  STA $04A6
 C - - - - 0x03F052 FF:F042: AD 3D 06  LDA ram_положение_миникарты
 C - - - - 0x03F055 FF:F045: C9 03     CMP #$03
-C - - - - 0x03F057 FF:F047: F0 18     BEQ bra_F061
+C - - - - 0x03F057 FF:F047: F0 18     BEQ bra_F061_миникарта_для_formation
 C - - - - 0x03F059 FF:F049: AD CE 05  LDA $05CE
 C - - - - 0x03F05C FF:F04C: 29 20     AND #$20
 C - - - - 0x03F05E FF:F04E: 0D A6 04  ORA $04A6
@@ -6307,7 +6306,7 @@ C - - - - 0x03F069 FF:F059: 4A        LSR
 C - - - - 0x03F06A FF:F05A: 4A        LSR
 C - - - - 0x03F06B FF:F05B: 19 5D F1  ORA tbl_F15C_ppu_адрес_атрибутов + 1,Y
 C - - - - 0x03F06E FF:F05E: 4C 64 F0  JMP loc_F064
-bra_F061:
+bra_F061_миникарта_для_formation:
 C - - - - 0x03F071 FF:F061: B9 5D F1  LDA tbl_F15C_ppu_адрес_атрибутов + 1,Y
 loc_F064:
 C D - - - 0x03F074 FF:F064: 8D A7 04  STA $04A7
@@ -6400,11 +6399,11 @@ C - - - - 0x03F11A FF:F10A: 8D 15 05  STA $0515
 bra_F10D_выход:
 C - - - - 0x03F11D FF:F10D: 60        RTS
 
-tbl_F00F:
-- D - - - 0x03F01F FF:F00F: 00        .byte $00
-- D - - - 0x03F020 FF:F010: 00        .byte $00
-- D - - - 0x03F021 FF:F011: 01        .byte $01
-- D - - - 0x03F022 FF:F012: 00        .byte $00
+tbl_F00F_выбор_миникарты:
+    .byte $00
+    .byte $00
+    .byte $01
+    .byte $00
 
 tbl_F10E_смещение_ppu_адреса_атрибутов:
     .byte $00
