@@ -3724,8 +3724,8 @@ tbl__B9D3:
     .byte tbl_japan_____B9D6 - tbl__B9D3 - $03
 
 tbl_B9D6_указатели_опыта_игрока:
-; байт AND 0F = указатель на адрес адрес опыта в оперативке
-; байт AND F0 = указатель на множитель опыта из другой таблицы
+; AND 0F = указатель на адрес адрес опыта в оперативке
+; AND F0 = указатель на множитель опыта из другой таблицы
 tbl_sao_paulo_B9D6:
     .byte $00       ; unused клон
     .byte $00       ; Tsubasa
@@ -3754,8 +3754,8 @@ tbl_nankatsu__B9D6:
     .byte $00       ; unused
     .byte $00       ; unused
     .byte $00       ; Urabe
-    .byte $21       ; Kishida
-    .byte $21       ; Nakayama
+    .byte $11       ; Kishida
+    .byte $11       ; Nakayama
     .byte $02       ; Morisaki
     .byte $03       ; Takasugi
     .byte $04       ; Misaki
@@ -3781,24 +3781,24 @@ tbl_japan_____B9D6:
     .byte $00       ; unused
     .byte $00       ; unused
     .byte $00       ; unused
-    .byte $31       ; Morisaki
-    .byte $31       ; Takasugi
+    .byte $21       ; Morisaki
+    .byte $21       ; Takasugi
     .byte $02       ; Misaki
-    .byte $31       ; Izawa
-    .byte $31       ; Taki
+    .byte $21       ; Izawa
+    .byte $21       ; Taki
     .byte $03       ; Ishizaki
-    .byte $44       ; Nitta
-    .byte $31       ; Kisugi
-    .byte $44       ; Masao
-    .byte $44       ; Kazuo
-    .byte $55       ; Sano
+    .byte $24       ; Nitta
+    .byte $21       ; Kisugi
+    .byte $24       ; Masao
+    .byte $24       ; Kazuo
+    .byte $35       ; Sano
     .byte $06       ; Hyuga
-    .byte $55       ; Soda
-    .byte $44       ; Jito
+    .byte $35       ; Soda
+    .byte $24       ; Jito
     .byte $07       ; Matsuyama
-    .byte $55       ; Sorimachi
-    .byte $55       ; Sawada
-    .byte $44       ; Misugi
+    .byte $35       ; Sorimachi
+    .byte $35       ; Sawada
+    .byte $24       ; Misugi
     .byte $08       ; Wakabayashi
     .byte $09       ; Wakashimazu
 
@@ -3816,21 +3816,11 @@ tbl_BA1C_множитель_опыта:
     .byte $02       ; выиграть борьбу на чужой штрафной
     .byte $06       ; засейвить кипером
 ; +20
-    .byte $20       ; забить гол
-    .byte $08       ; обвести игрока/игрок не смог перехватить твой пас/удар
+    .byte $18       ; забить гол
+    .byte $04       ; обвести игрока/игрок не смог перехватить твой пас/удар
     .byte $02       ; выиграть борьбу на чужой штрафной
-    .byte $06       ; засейвить кипером
+    .byte $04       ; засейвить кипером
 ; +30
-    .byte $18       ; забить гол
-    .byte $04       ; обвести игрока/игрок не смог перехватить твой пас/удар
-    .byte $02       ; выиграть борьбу на чужой штрафной
-    .byte $04       ; засейвить кипером
-; +40
-    .byte $18       ; забить гол
-    .byte $04       ; обвести игрока/игрок не смог перехватить твой пас/удар
-    .byte $02       ; выиграть борьбу на чужой штрафной
-    .byte $04       ; засейвить кипером
-; +50
     .byte $1A       ; забить гол
     .byte $06       ; обвести игрока/игрок не смог перехватить твой пас/удар
     .byte $02       ; выиграть борьбу на чужой штрафной
