@@ -7309,7 +7309,7 @@ bra_case_A290_00_это_jito_из_японии:
 - D - I - 0x0222A6 11:A296: A0        .byte con_animation + $A0
 - D - I - 0x0222A7 11:A297: 9E        .byte con_cloud + $9E
 - D - I - 0x0222A8 11:A298: F2        .byte con_jmp
-- D - I - 0x0222A9 11:A299: A3 A2     .word loc_A2A3
+- D - I - 0x0222A9 11:A299: A3 A2     .word loc_BBC7_очистка
 
 bra_case_A29B_01_это_jito_из_куними:
                                       .byte con_jsr
@@ -7318,7 +7318,6 @@ bra_case_A29B_01_это_jito_из_куними:
 - - - - - 0x0222B0 11:A2A0: 30        .byte con_bg + $30
 - - - - - 0x0222B1 11:A2A1: AA        .byte con_animation + $AA
 - - - - - 0x0222B2 11:A2A2: 9E        .byte con_cloud + $9E
-loc_A2A3:
 - D - I - 0x0222B3 11:A2A3: FA        .byte con_jsr
 - D - I - 0x0222B4 11:A2A4: C7 BB     .word sub_BBC7_очистка
 bra_case_A2A6_00_гол_забит_другим_ударом:
