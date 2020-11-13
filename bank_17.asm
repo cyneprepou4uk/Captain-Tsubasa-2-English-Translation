@@ -2465,8 +2465,13 @@ bra_case_8C22_03_защитник_заберет_мяч:
 - D - I - 0x020C42 17:8C32: F6        .byte con_mirror_toggle
 - D - I - 0x020C43 17:8C33: FA        .byte con_jsr
 - D - I - 0x020C44 17:8C34: 74 9F     .word sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения
-- D - I - 0x020C46 17:8C36: F2        .byte con_jmp
-- D - I - 0x020C47 17:8C37: 6F A0     .word loc_A06F
+                                      .byte con_moving_bg, $02      ; успешный отбор мяча подкатом
+                                      .byte con_soundID_delay, $2D, $02
+                                      .byte con_pause + $3C
+                                      .byte con_bg + $57
+                                      .byte con_animation + $15
+                                      .byte con_cloud + $03
+                                      .byte con_rts
 
 bra_case_8C39_04_нарушение:
 - D - I - 0x020C49 17:8C39: FA        .byte con_jsr
@@ -6723,15 +6728,6 @@ bra_long_case_A06A_01_рандом_2:
 - D - I - 0x02207C 11:A06C: 14        .byte con_animation + $14
 - D - I - 0x02207D 11:A06D: 02        .byte con_cloud + $02
 - D - I - 0x02207E 11:A06E: FB        .byte con_rts
-
-loc_A06F:
-- D - I - 0x02207F 11:A06F: FC        .byte con_moving_bg, $02
-- D - I - 0x022081 11:A071: F9        .byte con_soundID_delay, $2D, $02     ; удар мяча об живот
-- D - I - 0x022084 11:A074: 3C        .byte con_pause + $3C
-- D - I - 0x022085 11:A075: 57        .byte con_bg + $57
-- D - I - 0x022086 11:A076: 15        .byte con_animation + $15
-- D - I - 0x022087 11:A077: 03        .byte con_cloud + $03
-- D - I - 0x022088 11:A078: FB        .byte con_rts
 
 loc_A079:
 - D - I - 0x022089 11:A079: FC        .byte con_moving_bg, $03
