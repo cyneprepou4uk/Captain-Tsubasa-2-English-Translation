@@ -3736,7 +3736,7 @@ bra_case_9390_00_гол:
 - D - I - 0x0213A0 17:9390: FA        .byte con_jsr
 - D - I - 0x0213A1 17:9391: 0E A1     .word sub_A10E_кипер_не_дотягивается_кулаком_до_мяча
 - D - I - 0x0213A3 17:9393: F2        .byte con_jmp
-- D - I - 0x0213A4 17:9394: 0D 97     .word loc_970D_гол
+- D - I - 0x0213A4 17:9394: 0D 97     .word loc_9C28_проверка_на_рваную_сетку
 
 bra_case_9396_01_штанга:
 - D - I - 0x0213A6 17:9396: FA        .byte con_jsr
@@ -3969,7 +3969,7 @@ bra_case_9485_00_гол:
 - D - I - 0x021498 17:9488: FA        .byte con_jsr
 - D - I - 0x021499 17:9489: DD A1     .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x02149B 17:948B: F2        .byte con_jmp
-- D - I - 0x02149C 17:948C: 0D 97     .word loc_970D_гол
+- D - I - 0x02149C 17:948C: 0D 97     .word loc_9C28_проверка_на_рваную_сетку
 
 bra_case_948E_01_штанга:
 - D - I - 0x02149E 17:948E: FA        .byte con_jsr
@@ -4152,7 +4152,7 @@ bra_case_954B_00:
 - D - I - 0x02155B 17:954B: FA        .byte con_jsr
 - D - I - 0x02155C 17:954C: 94 A0     .word sub_A094
 - D - I - 0x02155E 17:954E: F2        .byte con_jmp
-- D - I - 0x02155F 17:954F: 0D 97     .word loc_970D_гол
+- D - I - 0x02155F 17:954F: 0D 97     .word loc_9C28_проверка_на_рваную_сетку
 
 bra_case_9551_01:
 - D - I - 0x021561 17:9551: FA        .byte con_jsr
@@ -4626,7 +4626,6 @@ bra_case_9707_00:
 loc_970A:
 - D - I - 0x02171A 17:970A: FA        .byte con_jsr
 - D - I - 0x02171B 17:970B: 09 A1     .word sub_A109_кипер_промахивается_кулаком_после_спешала
-loc_970D_гол:
 bra_case_970D_00_гол:
 - D - I - 0x02171D 17:970D: F2        .byte con_jmp
 - D - I - 0x02171E 17:970E: 28 9C     .word loc_9C28_проверка_на_рваную_сетку
