@@ -3777,13 +3777,13 @@ bra_case_93B4_02:
 
 ofs_93BE_00_кипер_с_трудом_обивает:
 - D - I - 0x0213CE 17:93BE: FA        .byte con_jsr
-- D - I - 0x0213CF 17:93BF: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком
+- D - I - 0x0213CF 17:93BF: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
 - D - I - 0x0213D1 17:93C1: F2        .byte con_jmp
 - D - I - 0x0213D2 17:93C2: 72 95     .word loc_9572_белое_мерцание_мяч_улетает_попытка_включить_drive_tiger
 
 ofs_93C4_01_drive_shot_бесполезен:
 - D - I - 0x0213D4 17:93C4: FA        .byte con_jsr
-- D - I - 0x0213D5 17:93C5: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком
+- D - I - 0x0213D5 17:93C5: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
 - D - I - 0x0213D7 17:93C7: FA        .byte con_jsr
 - D - I - 0x0213D8 17:93C8: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x0213DA 17:93CA: FA        .byte con_jsr
@@ -3795,7 +3795,7 @@ ofs_93D0_02:
 - D - I - 0x0213E0 17:93D0: FA        .byte con_jsr
 - D - I - 0x0213E1 17:93D1: 2E B8     .word sub_B82E_meon_говорит_что_с_трудом_отбил_удар
 - D - I - 0x0213E3 17:93D3: FA        .byte con_jsr
-- D - I - 0x0213E4 17:93D4: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком
+- D - I - 0x0213E4 17:93D4: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
 - D - I - 0x0213E6 17:93D6: FA        .byte con_jsr
 - D - I - 0x0213E7 17:93D7: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x0213E9 17:93D9: FA        .byte con_jsr
@@ -3808,7 +3808,7 @@ ofs_93DF_03:
 - - - - - 0x0213EF 17:93DF: FA        .byte con_jsr
 - - - - - 0x0213F0 17:93E0: 2E B8     .word sub_B82E_meon_говорит_что_с_трудом_отбил_удар
 - - - - - 0x0213F2 17:93E2: FA        .byte con_jsr
-- - - - - 0x0213F3 17:93E3: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком
+- - - - - 0x0213F3 17:93E3: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
 - - - - - 0x0213F5 17:93E5: FA        .byte con_jsr
 - - - - - 0x0213F6 17:93E6: 08 A3     .word sub_A308_белое_мерцание
 - - - - - 0x0213F8 17:93E8: FA        .byte con_jsr
@@ -4926,7 +4926,7 @@ bra_case_9844_02:
 - D - I - 0x021855 17:9845: F3 9C     .word sub_9CF3
 - D - I - 0x021857 17:9847: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021859 17:9849: FA        .byte con_jsr
-- D - I - 0x02185A 17:984A: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком
+- D - I - 0x02185A 17:984A: 4B A1     .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
 - D - I - 0x02185C 17:984C: FA        .byte con_jsr
 - D - I - 0x02185D 17:984D: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x02185F 17:984F: F2        .byte con_jmp
@@ -6910,7 +6910,7 @@ bra_case_A13E_02_gertise:
 - D - I - 0x022154 11:A144: 0E        .byte con_cloud + $0E
 - D - I - 0x022155 11:A145: FB        .byte con_rts
 
-sub_A14B_кипер_дотягивается_до_мяча_кулаком:
+sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise:
 - D - I - 0x02215B 11:A14B: F3        .byte con_branch, $A0     ; проверка на wakashimazu и gertise
 - D - I - 0x02215D 11:A14D: 03        .byte bra_case_A150_00_другой_кипер - *
 - D - I - 0x02215E 11:A14E: 07        .byte bra_case_A155_01_wakashimazu - *
