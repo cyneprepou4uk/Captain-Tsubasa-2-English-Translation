@@ -2349,6 +2349,14 @@ bra_case_8B9F_02_pass_cut:
 - D - I - 0x020BAB 17:8B9B: 37        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
 
 bra_case_8BA6_01_tackle:
+                                      .byte con_jsr
+                                      .word sub_A936_сообщение_игрока_при_нападении
+                                      .byte con_jsr
+                                      .word sub_A3CF_kurae_если_не_спешал
+                                      .byte con_jsr
+                                      .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                      .byte con_jsr
+                                      .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020BB6 17:8BA6: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020BB8 17:8BA8: 3C        .byte bra_case_8BE4_00_атакующий_легко_обводит - *
 - D - I - 0x020BB9 17:8BA9: 4D        .byte bra_case_8BF6_01_атакующий_с_трудом_обводит - *
@@ -2368,28 +2376,12 @@ bra_case_8BD2_01_атакующий_с_трудом_обводит:
 - D - I - 0x020BF2 17:8BE2: 47 A2     .word loc_A247_серый_экран_атакующий_замедлился
 
 bra_case_8BE4_00_атакующий_легко_обводит:
-- D - I - 0x020BF4 17:8BE4: FA        .byte con_jsr
-- D - I - 0x020BF5 17:8BE5: 36 A9     .word sub_A936_сообщение_игрока_при_нападении
-- D - I - 0x020BF7 17:8BE7: FA        .byte con_jsr
-- D - I - 0x020BF8 17:8BE8: CF A3     .word sub_A3CF_kurae_если_не_спешал
-- D - I - 0x020BFA 17:8BEA: FA        .byte con_jsr
-- D - I - 0x020BFB 17:8BEB: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020BFD 17:8BED: FA        .byte con_jsr
-- D - I - 0x020BFE 17:8BEE: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C00 17:8BF0: FA        .byte con_jsr
 - D - I - 0x020C01 17:8BF1: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020C03 17:8BF3: F2        .byte con_jmp
 - D - I - 0x020C04 17:8BF4: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
 bra_case_8BF6_01_атакующий_с_трудом_обводит:
-- D - I - 0x020C06 17:8BF6: FA        .byte con_jsr
-- D - I - 0x020C07 17:8BF7: 36 A9     .word sub_A936_сообщение_игрока_при_нападении
-- D - I - 0x020C09 17:8BF9: FA        .byte con_jsr
-- D - I - 0x020C0A 17:8BFA: CF A3     .word sub_A3CF_kurae_если_не_спешал
-- D - I - 0x020C0C 17:8BFC: FA        .byte con_jsr
-- D - I - 0x020C0D 17:8BFD: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020C0F 17:8BFF: FA        .byte con_jsr
-- D - I - 0x020C10 17:8C00: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C12 17:8C02: FA        .byte con_jsr
 - D - I - 0x020C13 17:8C03: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020C15 17:8C05: FA        .byte con_jsr
@@ -2398,14 +2390,6 @@ bra_case_8BF6_01_атакующий_с_трудом_обводит:
 - D - I - 0x020C19 17:8C09: 47 A2     .word loc_A247_серый_экран_атакующий_замедлился
 
 bra_case_8C0B_02_защитник_выбьет_мяч:
-- D - I - 0x020C1B 17:8C0B: FA        .byte con_jsr
-- D - I - 0x020C1C 17:8C0C: 36 A9     .word sub_A936_сообщение_игрока_при_нападении
-- D - I - 0x020C1E 17:8C0E: FA        .byte con_jsr
-- D - I - 0x020C1F 17:8C0F: CF A3     .word sub_A3CF_kurae_если_не_спешал
-- D - I - 0x020C21 17:8C11: FA        .byte con_jsr
-- D - I - 0x020C22 17:8C12: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020C24 17:8C14: FA        .byte con_jsr
-- D - I - 0x020C25 17:8C15: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C27 17:8C17: F6        .byte con_mirror_toggle
 - D - I - 0x020C28 17:8C18: FA        .byte con_jsr
 - D - I - 0x020C29 17:8C19: 64 9E     .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
@@ -2416,14 +2400,6 @@ bra_case_8C0B_02_защитник_выбьет_мяч:
 - D - I - 0x020C30 17:8C20: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
 bra_case_8C22_03_защитник_заберет_мяч:
-- D - I - 0x020C32 17:8C22: FA        .byte con_jsr
-- D - I - 0x020C33 17:8C23: 36 A9     .word sub_A936_сообщение_игрока_при_нападении
-- D - I - 0x020C35 17:8C25: FA        .byte con_jsr
-- D - I - 0x020C36 17:8C26: CF A3     .word sub_A3CF_kurae_если_не_спешал
-- D - I - 0x020C38 17:8C28: FA        .byte con_jsr
-- D - I - 0x020C39 17:8C29: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020C3B 17:8C2B: FA        .byte con_jsr
-- D - I - 0x020C3C 17:8C2C: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C3E 17:8C2E: F6        .byte con_mirror_toggle
 - D - I - 0x020C3F 17:8C2F: FA        .byte con_jsr
 - D - I - 0x020C40 17:8C30: 64 9E     .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
@@ -2434,14 +2410,6 @@ bra_case_8C22_03_защитник_заберет_мяч:
                                       .word loc_BF01_успешный_отбор_мяча_подкатом
 
 bra_case_8C39_04_нарушение:
-- D - I - 0x020C49 17:8C39: FA        .byte con_jsr
-- D - I - 0x020C4A 17:8C3A: 36 A9     .word sub_A936_сообщение_игрока_при_нападении
-- D - I - 0x020C4C 17:8C3C: FA        .byte con_jsr
-- D - I - 0x020C4D 17:8C3D: CF A3     .word sub_A3CF_kurae_если_не_спешал
-- D - I - 0x020C4F 17:8C3F: FA        .byte con_jsr
-- D - I - 0x020C50 17:8C40: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020C52 17:8C42: FA        .byte con_jsr
-- D - I - 0x020C53 17:8C43: DD A2     .word sub_A2DD_ярко_красное_мерцание
 - D - I - 0x020C55 17:8C45: FA        .byte con_jsr
 - D - I - 0x020C56 17:8C46: 6E 9F     .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020C58 17:8C48: F2        .byte con_jmp
