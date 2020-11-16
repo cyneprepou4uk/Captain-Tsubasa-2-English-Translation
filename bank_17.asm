@@ -2351,20 +2351,18 @@ bra_case_8B8E_01_защитник_убьется:
 - D - I - 0x020BA2 17:8B92: 0D        .byte bra_case_8B9F_02_pass_cut - *
 
 bra_case_8B98_00_block:
+bra_case_8B9F_02_pass_cut:
+                                      .byte con_jsr
+                                      .word sub_9C8B_игрок_бежит_по_земле
+                                      .byte con_jsr
+                                      .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                      .byte con_jsr
+                                      .word sub_A2DD_ярко_красное_мерцание
+                                      .byte con_jsr
+                                      .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020BA8 17:8B98: F3        .byte con_branch, $83     ; результат действия защитника
 - - - - - 0x020BAA 17:8B9A: 28        .byte bra_case_8BC2_00_атакующий_легко_обводит - *
 - D - I - 0x020BAB 17:8B9B: 37        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
-- - - - - 0x020BAC 17:8B9C: 35        .byte bra_case_8BD1_02_защитник_выбьет_мяч - *
-- - - - - 0x020BAD 17:8B9D: 34        .byte bra_case_8BD1_03_защитник_заберет_мяч - *
-- - - - - 0x020BAE 17:8B9E: 33        .byte bra_case_8BD1_04_нарушение - *
-
-bra_case_8B9F_02_pass_cut:
-- D - I - 0x020BAF 17:8B9F: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020BB1 17:8BA1: 21        .byte bra_case_8BC2_00_атакующий_легко_обводит - *
-- D - I - 0x020BB2 17:8BA2: 30        .byte bra_case_8BD2_01_атакующий_с_трудом_обводит - *
-- - - - - 0x020BB3 17:8BA3: 2E        .byte bra_case_8BD1_02_защитник_выбьет_мяч - *
-- - - - - 0x020BB4 17:8BA4: 2D        .byte bra_case_8BD1_03_защитник_заберет_мяч - *
-- - - - - 0x020BB5 17:8BA5: 2C        .byte bra_case_8BD1_04_нарушение - *
 
 bra_case_8BA6_01_tackle:
 - D - I - 0x020BB6 17:8BA6: F3        .byte con_branch, $83     ; результат действия защитника
@@ -2375,30 +2373,11 @@ bra_case_8BA6_01_tackle:
 - D - I - 0x020BBC 17:8BAC: 8D        .byte bra_case_8C39_04_нарушение - *
 
 bra_case_8BC2_00_атакующий_легко_обводит:
-- D - I - 0x020BD2 17:8BC2: FA        .byte con_jsr
-- D - I - 0x020BD3 17:8BC3: 8B 9C     .word sub_9C8B_игрок_бежит_по_земле
-- D - I - 0x020BD5 17:8BC5: FA        .byte con_jsr
-- D - I - 0x020BD6 17:8BC6: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020BD8 17:8BC8: FA        .byte con_jsr
-- D - I - 0x020BD9 17:8BC9: DD A2     .word sub_A2DD_ярко_красное_мерцание
-- D - I - 0x020BDB 17:8BCB: FA        .byte con_jsr
-- D - I - 0x020BDC 17:8BCC: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020BDE 17:8BCE: FA        .byte con_jsr
 - D - I - 0x020BDF 17:8BCF: 62 9F     .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-bra_case_8BD1_02_защитник_выбьет_мяч:
-bra_case_8BD1_03_защитник_заберет_мяч:
-bra_case_8BD1_04_нарушение:
 - D - I - 0x020BE1 17:8BD1: F0        .byte con_quit
 
 bra_case_8BD2_01_атакующий_с_трудом_обводит:
-- D - I - 0x020BE2 17:8BD2: FA        .byte con_jsr
-- D - I - 0x020BE3 17:8BD3: 8B 9C     .word sub_9C8B_игрок_бежит_по_земле
-- D - I - 0x020BE5 17:8BD5: FA        .byte con_jsr
-- D - I - 0x020BE6 17:8BD6: FE 9D     .word sub_9DFE_рожа_атакующего_перед_дриблингом
-- D - I - 0x020BE8 17:8BD8: FA        .byte con_jsr
-- D - I - 0x020BE9 17:8BD9: DD A2     .word sub_A2DD_ярко_красное_мерцание
-- D - I - 0x020BEB 17:8BDB: FA        .byte con_jsr
-- D - I - 0x020BEC 17:8BDC: AA 9E     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
 - D - I - 0x020BEE 17:8BDE: FA        .byte con_jsr
 - D - I - 0x020BEF 17:8BDF: 5C 9F     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
 - D - I - 0x020BF1 17:8BE1: F2        .byte con_jmp
