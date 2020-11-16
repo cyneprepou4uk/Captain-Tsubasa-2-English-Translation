@@ -5088,12 +5088,13 @@ bra_case_99DF_03_словит:
 bra_case_99E8_04:
 - - - - - 0x0219F8 17:99E8: FD        .byte con_mirror_condition, $00
 - - - - - 0x0219FA 17:99EA: F3        .byte con_branch, $83     ; результат действия защитника
-- - - - - 0x0219FC 17:99EC: 04        .byte bra_case_99F0_00 - *
-- - - - - 0x0219FD 17:99ED: 13        .byte bra_case_9A00_01 - *
-- - - - - 0x0219FE 17:99EE: 24        .byte bra_case_9A12_02 - *
+- - - - - 0x0219FC 17:99EC: 04        .byte bra_case_99F0_00_умрет - *
+- - - - - 0x0219FD 17:99ED: 13        .byte bra_case_9A00_01_умрет_и_серый_экран - *
+- - - - - 0x0219FE 17:99EE: 24        .byte bra_case_9A12_02_умрет_и_отобьет - *
 - - - - - 0x0219FF 17:99EF: 10        .byte bra_case_99FF_03 - *
+; bzk по идее может и словить с темно красным мерцанием, надо смотреть код, бывает ли такая ситуация
 
-bra_case_99F0_00:
+bra_case_99F0_00_умрет:
 - - - - - 0x021A00 17:99F0: FA        .byte con_jsr
 - - - - - 0x021A01 17:99F1: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x021A03 17:99F3: FA        .byte con_jsr
@@ -5107,7 +5108,7 @@ bra_case_99F0_00:
 bra_case_99FF_03:
 - - - - - 0x021A0F 17:99FF: F0        .byte con_quit
 
-bra_case_9A00_01:
+bra_case_9A00_01_умрет_и_серый_экран:
 - - - - - 0x021A10 17:9A00: FA        .byte con_jsr
 - - - - - 0x021A11 17:9A01: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x021A13 17:9A03: FA        .byte con_jsr
@@ -5121,7 +5122,7 @@ bra_case_9A00_01:
 - - - - - 0x021A1F 17:9A0F: F2        .byte con_jmp
 - - - - - 0x021A20 17:9A10: 40 A2     .word loc_A240_серый_экран_после_касания_высого_мяча_телом
 
-bra_case_9A12_02:
+bra_case_9A12_02_умрет_и_отобьет:
 - - - - - 0x021A22 17:9A12: FA        .byte con_jsr
 - - - - - 0x021A23 17:9A13: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x021A25 17:9A15: FA        .byte con_jsr
