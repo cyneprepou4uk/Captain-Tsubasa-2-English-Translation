@@ -11940,7 +11940,7 @@ bra_long_case_B4EF_01_header:
 bra_long_case_B4F7_02_volley:
 bra_long_case_B4F7_08_skylab_hurricane:
 - D - I - 0x023507 11:B4F7: FA        .byte con_jsr
-- D - I - 0x023508 11:B4F8: 65 BB     .word sub_BB65
+- D - I - 0x023508 11:B4F8: 65 BB     .word sub_BB65_одна_из_анимаций_drive_shot
 - D - I - 0x02350A 11:B4FA: FB        .byte con_rts
 
 bra_long_case_B4FB_03_drive_shot:
@@ -11951,9 +11951,9 @@ bra_long_case_B4FB_03_drive_shot:
 - D - I - 0x023511 11:B501: 00        .byte con_cloud + con_clear
 bra_long_case_B502_01:
 - D - I - 0x023512 11:B502: FA        .byte con_jsr
-- D - I - 0x023513 11:B503: 5D BB     .word sub_BB5D
+- D - I - 0x023513 11:B503: 5D BB     .word sub_BB5D_одна_из_анимаций_drive_shot
 - D - I - 0x023515 11:B505: FA        .byte con_jsr
-- D - I - 0x023516 11:B506: 65 BB     .word sub_BB65
+- D - I - 0x023516 11:B506: 65 BB     .word sub_BB65_одна_из_анимаций_drive_shot
 - D - I - 0x023518 11:B508: FB        .byte con_rts
 
 bra_long_case_B509_04_drive_overhead:
@@ -12136,7 +12136,7 @@ bra_long_case_B5D0_12_cyclone:
 - D - I - 0x0235E5 11:B5D5: 10        .byte con_animation + $10
 - D - I - 0x0235E6 11:B5D6: 00        .byte con_cloud + con_clear
 - D - I - 0x0235E7 11:B5D7: FA        .byte con_jsr
-- D - I - 0x0235E8 11:B5D8: 5D BB     .word sub_BB5D
+- D - I - 0x0235E8 11:B5D8: 5D BB     .word sub_BB5D_одна_из_анимаций_drive_shot
 - D - I - 0x0235EA 11:B5DA: F9        .byte con_soundID_delay, $24, $02
 - D - I - 0x0235ED 11:B5DD: F7        .byte con_F7, $33
 - D - I - 0x0235EF 11:B5DF: 3C        .byte con_pause + $3C
@@ -13528,7 +13528,7 @@ bra_long_case_BB50_03:
 - D - I - 0x023B6A 11:BB5A: 7D BB     .word sub_BB7D
 - D - I - 0x023B6C 11:BB5C: FB        .byte con_rts
 
-sub_BB5D:
+sub_BB5D_одна_из_анимаций_drive_shot:
 - D - I - 0x023B6D 11:BB5D: F9        .byte con_soundID_delay, $05, $02
 - D - I - 0x023B70 11:BB60: 32        .byte con_pause + $32
 - D - I - 0x023B71 11:BB61: 13        .byte con_bg + $13
@@ -13536,7 +13536,7 @@ sub_BB5D:
 - D - I - 0x023B73 11:BB63: 00        .byte con_cloud + con_clear
 - D - I - 0x023B74 11:BB64: FB        .byte con_rts
 
-sub_BB65:
+sub_BB65_одна_из_анимаций_drive_shot:
 - D - I - 0x023B75 11:BB65: F9        .byte con_soundID_delay, $04, $02
 - D - I - 0x023B78 11:BB68: 3C        .byte con_pause + $3C
 - D - I - 0x023B79 11:BB69: 00        .byte con_bg + $00
@@ -14191,7 +14191,7 @@ loc_BDDD:
 - D - I - 0x023DF5 11:BDE5: 10        .byte con_animation + $10
 - D - I - 0x023DF6 11:BDE6: 00        .byte con_cloud + con_clear
 - D - I - 0x023DF7 11:BDE7: FA        .byte con_jsr
-- D - I - 0x023DF8 11:BDE8: 5D BB     .word sub_BB5D
+- D - I - 0x023DF8 11:BDE8: 5D BB     .word sub_BB5D_одна_из_анимаций_drive_shot
 - D - I - 0x023DFA 11:BDEA: F9        .byte con_soundID_delay, $24, $02
 - D - I - 0x023DFD 11:BDED: F7        .byte con_F7, $33
 - D - I - 0x023DFF 11:BDEF: 3C        .byte con_pause + $3C
@@ -14515,7 +14515,7 @@ _scenario_BED8_67:
 - D - I - 0x023EFC 11:BEEC: 10        .byte con_animation + $10
 - D - I - 0x023EFD 11:BEED: F0        .byte con_cloud + con_skip
 - D - I - 0x023EFE 11:BEEE: FA        .byte con_jsr
-- D - I - 0x023EFF 11:BEEF: 5D BB     .word sub_BB5D
+- D - I - 0x023EFF 11:BEEF: 5D BB     .word sub_BB5D_одна_из_анимаций_drive_shot
 - D - I - 0x023F01 11:BEF1: F7        .byte con_F7, $33
 - D - I - 0x023F03 11:BEF3: 3C        .byte con_pause + $3C
 - D - I - 0x023F04 11:BEF4: 27        .byte con_bg + $27
