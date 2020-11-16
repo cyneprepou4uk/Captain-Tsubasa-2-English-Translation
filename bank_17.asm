@@ -4373,6 +4373,8 @@ bra_case_9699_01_коснется:
 
 bra_case_969D_00_промах:
 bra_case_969D_00_мяч_не_порвется:
+                                      .byte con_jsr
+                                      .word sub_A1FF_clone_save
 - - - - - 0x0216AD 17:969D: F3        .byte con_branch, $8D
 - - - - - 0x0216AF 17:969F: 05        .byte bra_case_96A4_00_гол - *
 - - - - - 0x0216B0 17:96A0: 0A        .byte bra_case_96AA_01_штанга - *
@@ -4381,32 +4383,22 @@ bra_case_969D_00_мяч_не_порвется:
 - - - - - 0x0216B3 17:96A3: 19        .byte bra_case_96BC_04_защитник_промахнется_и_гол - *
 
 bra_case_96A4_00_гол:
-- - - - - 0x0216B4 17:96A4: FA        .byte con_jsr
-- - - - - 0x0216B5 17:96A5: FF A1     .word sub_A1FF_clone_save
 - - - - - 0x0216B7 17:96A7: F2        .byte con_jmp
 - - - - - 0x0216B8 17:96A8: 87 97     .word loc_9787_кипер_убивается_после_спешала_и_гол
 
 bra_case_96AA_01_штанга:
-- - - - - 0x0216BA 17:96AA: FA        .byte con_jsr
-- - - - - 0x0216BB 17:96AB: FF A1     .word sub_A1FF_clone_save
 - - - - - 0x0216BD 17:96AD: F2        .byte con_jmp
 - - - - - 0x0216BE 17:96AE: 96 97     .word loc_9796_кипер_убивается_после_спешала_и_штанга
 
 bra_case_96B0_02_защитник_спасает:
-- - - - - 0x0216C0 17:96B0: FA        .byte con_jsr
-- - - - - 0x0216C1 17:96B1: FF A1     .word sub_A1FF_clone_save
 - - - - - 0x0216C3 17:96B3: F2        .byte con_jmp
 - - - - - 0x0216C4 17:96B4: A8 97     .word loc_97A8_кипер_убивается_после_спешала_и_защитник_спасает
 
 bra_case_96B6_03_штанга_и_добивание:
-- - - - - 0x0216C6 17:96B6: FA        .byte con_jsr
-- - - - - 0x0216C7 17:96B7: FF A1     .word sub_A1FF_clone_save
 - - - - - 0x0216C9 17:96B9: F2        .byte con_jmp
 - - - - - 0x0216CA 17:96BA: C0 97     .word loc_97C0_кипер_убивается_после_спешала_и_добивание_от_штанги
 
 bra_case_96BC_04_защитник_промахнется_и_гол:
-- - - - - 0x0216CC 17:96BC: FA        .byte con_jsr
-- - - - - 0x0216CD 17:96BD: FF A1     .word sub_A1FF_clone_save
 - - - - - 0x0216CF 17:96BF: F2        .byte con_jmp
 - - - - - 0x0216D0 17:96C0: D8 97     .word loc_97D8_кипер_убивается_после_спешала_и_защитник_убивается_и_гол
 
