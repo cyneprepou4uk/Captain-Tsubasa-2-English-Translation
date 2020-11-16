@@ -3837,6 +3837,10 @@ bra_case_94D9_01:
 - - - - - 0x0214EC 17:94DC: 35        .byte bra_case_9511_01_мяч_порвется - *
 
 bra_case_94DD_00:
+                                      .byte con_jsr
+                                      .word sub_9C5B_wakashimazu_отскок_от_штанги
+                                      .byte con_jsr
+                                      .word sub_A1CA_triangle_jump_ловит_мяч
 - D - I - 0x0214ED 17:94DD: F3        .byte con_branch, $8D
 - D - I - 0x0214EF 17:94DF: 05        .byte bra_case_94E4_00_гол - *
 - - - - - 0x0214F0 17:94E0: 0D        .byte bra_case_94ED_01_штанга - *
@@ -3845,42 +3849,22 @@ bra_case_94DD_00:
 - - - - - 0x0214F3 17:94E3: 25        .byte bra_case_9508_04_убийство_кипера_и_защитника_и_гол - *
 
 bra_case_94E4_00_гол:
-- D - I - 0x0214F4 17:94E4: FA        .byte con_jsr
-- D - I - 0x0214F5 17:94E5: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- D - I - 0x0214F7 17:94E7: FA        .byte con_jsr
-- D - I - 0x0214F8 17:94E8: CA A1     .word sub_A1CA_triangle_jump_ловит_мяч
 - D - I - 0x0214FA 17:94EA: F2        .byte con_jmp
 - D - I - 0x0214FB 17:94EB: 8A 97     .word loc_978A_убийство_кипера_и_гол
 
 bra_case_94ED_01_штанга:
-- - - - - 0x0214FD 17:94ED: FA        .byte con_jsr
-- - - - - 0x0214FE 17:94EE: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- - - - - 0x021500 17:94F0: FA        .byte con_jsr
-- - - - - 0x021501 17:94F1: CA A1     .word sub_A1CA_triangle_jump_ловит_мяч
 - - - - - 0x021503 17:94F3: F2        .byte con_jmp
 - - - - - 0x021504 17:94F4: 99 97     .word loc_9799_убийство_кипера_и_штанга
 
 bra_case_94F6_02_защитник_спасает:
-- - - - - 0x021506 17:94F6: FA        .byte con_jsr
-- - - - - 0x021507 17:94F7: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- - - - - 0x021509 17:94F9: FA        .byte con_jsr
-- - - - - 0x02150A 17:94FA: CA A1     .word sub_A1CA_triangle_jump_ловит_мяч
 - - - - - 0x02150C 17:94FC: F2        .byte con_jmp
 - - - - - 0x02150D 17:94FD: AB 97     .word loc_97AB_убийство_кипера_и_защитник_спасает
 
 bra_case_94FF_03_штанга_и_добивание:
-- - - - - 0x02150F 17:94FF: FA        .byte con_jsr
-- - - - - 0x021510 17:9500: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- - - - - 0x021512 17:9502: FA        .byte con_jsr
-- - - - - 0x021513 17:9503: CA A1     .word sub_A1CA_triangle_jump_ловит_мяч
 - - - - - 0x021515 17:9505: F2        .byte con_jmp
 - - - - - 0x021516 17:9506: C3 97     .word loc_97C3_убийство_кипера_и_добивание_от_штанги
 
 bra_case_9508_04_убийство_кипера_и_защитника_и_гол:
-- - - - - 0x021518 17:9508: FA        .byte con_jsr
-- - - - - 0x021519 17:9509: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- - - - - 0x02151B 17:950B: FA        .byte con_jsr
-- - - - - 0x02151C 17:950C: CA A1     .word sub_A1CA_triangle_jump_ловит_мяч
 - - - - - 0x02151E 17:950E: F2        .byte con_jmp
 - - - - - 0x02151F 17:950F: DB 97     .word loc_97DB_убийство_кипера_и_защитника_и_гол
 
