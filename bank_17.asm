@@ -5126,7 +5126,13 @@ bra_long_case_9A24_01:
 - - - - - 0x021A3A 17:9A2A: F5        .byte bra_case_9B1F_04 - *
 
 bra_case_9A2B_00:
-- D - I - 0x021A3B 17:9A2B: FD        .byte con_mirror_condition, $00
+                                      .byte con_mirror_condition, $00
+                                      .byte con_jsr
+                                      .word sub_A335_полет_нижнего_мяча
+                                      .byte con_jsr
+                                      .word sub_A0AE_защитник_прыгает_без_движения_фона
+                                      .byte con_jsr
+                                      .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
 - D - I - 0x021A3D 17:9A2D: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x021A3F 17:9A2F: 04        .byte bra_case_9A33_00_промахнется - *
 - D - I - 0x021A40 17:9A30: 10        .byte bra_case_9A40_01_коснется - *
@@ -5134,22 +5140,10 @@ bra_case_9A2B_00:
 - D - I - 0x021A42 17:9A32: 32        .byte bra_case_9A64_03_словит - *
 
 bra_case_9A33_00_промахнется:
-- D - I - 0x021A43 17:9A33: FA        .byte con_jsr
-- D - I - 0x021A44 17:9A34: 35 A3     .word sub_A335_полет_нижнего_мяча
-- D - I - 0x021A46 17:9A36: FA        .byte con_jsr
-- D - I - 0x021A47 17:9A37: AE A0     .word sub_A0AE_защитник_прыгает_без_движения_фона
-- D - I - 0x021A49 17:9A39: FA        .byte con_jsr
-- D - I - 0x021A4A 17:9A3A: D8 A2     .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
 - D - I - 0x021A4C 17:9A3C: F2        .byte con_jmp
 - D - I - 0x021A4D 17:9A3D: 76 A1     .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
 
 bra_case_9A40_01_коснется:
-- D - I - 0x021A50 17:9A40: FA        .byte con_jsr
-- D - I - 0x021A51 17:9A41: 35 A3     .word sub_A335_полет_нижнего_мяча
-- D - I - 0x021A53 17:9A43: FA        .byte con_jsr
-- D - I - 0x021A54 17:9A44: AE A0     .word sub_A0AE_защитник_прыгает_без_движения_фона
-- D - I - 0x021A56 17:9A46: FA        .byte con_jsr
-- D - I - 0x021A57 17:9A47: D8 A2     .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
 - D - I - 0x021A59 17:9A49: FA        .byte con_jsr
 - D - I - 0x021A5A 17:9A4A: 2F A0     .word sub_A02F_защитник_собирается_коснуться_телом_верхнего_мяча
 - D - I - 0x021A5C 17:9A4C: FA        .byte con_jsr
@@ -5158,12 +5152,6 @@ bra_case_9A40_01_коснется:
 - D - I - 0x021A60 17:9A50: 4C A0     .word loc_A04C_высокий_мяч_летит_дальше_после_касания_тела_защитника
 
 bra_case_9A52_02_отобьет:
-- D - I - 0x021A62 17:9A52: FA        .byte con_jsr
-- D - I - 0x021A63 17:9A53: 35 A3     .word sub_A335_полет_нижнего_мяча
-- D - I - 0x021A65 17:9A55: FA        .byte con_jsr
-- D - I - 0x021A66 17:9A56: AE A0     .word sub_A0AE_защитник_прыгает_без_движения_фона
-- D - I - 0x021A68 17:9A58: FA        .byte con_jsr
-- D - I - 0x021A69 17:9A59: D8 A2     .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
 - D - I - 0x021A6B 17:9A5B: FA        .byte con_jsr
 - D - I - 0x021A6C 17:9A5C: 47 A0     .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
 - D - I - 0x021A6E 17:9A5E: FA        .byte con_jsr
@@ -5172,12 +5160,6 @@ bra_case_9A52_02_отобьет:
 - D - I - 0x021A72 17:9A62: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
 bra_case_9A64_03_словит:
-- D - I - 0x021A74 17:9A64: FA        .byte con_jsr
-- D - I - 0x021A75 17:9A65: 35 A3     .word sub_A335_полет_нижнего_мяча
-- D - I - 0x021A77 17:9A67: FA        .byte con_jsr
-- D - I - 0x021A78 17:9A68: AE A0     .word sub_A0AE_защитник_прыгает_без_движения_фона
-- D - I - 0x021A7A 17:9A6A: FA        .byte con_jsr
-- D - I - 0x021A7B 17:9A6B: D8 A2     .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
 - D - I - 0x021A7D 17:9A6D: F2        .byte con_jmp
 - D - I - 0x021A7E 17:9A6E: 85 A1     .word loc_A185_защитник_ловит_высокий_мяч_телом
 
