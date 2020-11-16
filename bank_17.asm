@@ -290,7 +290,7 @@ C - - - - 0x020180 17:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x02020F 17:81FF: 77 86     .word ofs_8677_46_C6
 - D - I - 0x020211 17:8201: 8A 86     .word ofs_868A_47_C7_кто_делает_силовой_дриблинг
 - D - I - 0x020213 17:8203: B6 86     .word ofs_86B6_48_C8
-- D - I - 0x020215 17:8205: CC 86     .word ofs_86CC_49_C9_спешал_перепасовка
+- D - I - 0x020215 17:8205: CC 86     .word ofs_86CC_49_C9_спешал_перепасовка_и_twin_shot
 
 sub_8207_узнать_номер_игрока___X_00:
 C - - - - 0x020217 17:8207: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
@@ -1068,8 +1068,8 @@ bra_8539_выход:
 C - - - - 0x020549 17:8539: 60        RTS
 
 ofs_853A_31_B1_nitta:
-; 00 - это nitta
-; 01 - это не nitta
+; 00 - это nitta из japan (наш)
+; 01 - это nitta из japan (соперник)
 C - J - - 0x02054A 17:853A: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x02054D 17:853D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x020550 17:8540: C9 15     CMP #$15      ; nitta
@@ -1484,7 +1484,7 @@ tbl_86C8:
     .byte $10
     .byte $1F
 
-ofs_86CC_49_C9_спешал_перепасовка:
+ofs_86CC_49_C9_спешал_перепасовка_и_twin_shot:
 ; 00 - tsubasa
 ; 01 - misaki
 ; 02 - hyuga
@@ -1502,7 +1502,7 @@ ofs_86CC_49_C9_спешал_перепасовка:
 ; 0E - pascal
 ; 0F - pierre
 ; 10 - napoleon
-; 11 - иггрок без спешал перепасовки
+; 11 - игрок без спешал перепасовки/twin shot без рож игроков (korea)
 C - J - - 0x0206DC 17:86CC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x0206DF 17:86CF: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - 0x0206E2 17:86D2: A2 00     LDX #$00
@@ -4360,7 +4360,7 @@ bra_case_9601_02:
 - D - I - 0x021614 17:9604: F2        .byte con_jmp
 - D - I - 0x021615 17:9605: 5E 97     .word loc_975E_кипер_с_трудом_отбивает_кулаком
 
-loc_9607:
+loc_9607_rolling_save_и_ловля_мяча:
 bra_case_9607_03:
 - D - I - 0x021617 17:9607: FA        .byte con_jsr
 - D - I - 0x021618 17:9608: CD A0     .word sub_A0CD_rolling_save
@@ -4368,58 +4368,59 @@ bra_case_9607_03:
 - D - I - 0x02161B 17:960B: 6D 97     .word loc_976D_кипер_ловит_мяч
 
 bra_case_960D_01_защитник_убьется:
-- - - - - 0x02161D 17:960D: F3        .byte con_branch, $83     ; результат действия защитника
-- - - - - 0x02161F 17:960F: 0B        .byte bra_case_961A_00 - *
-- - - - - 0x021620 17:9610: 06        .byte bra_case_9616_01 - *
-- - - - - 0x021621 17:9611: 34        .byte bra_case_9645_02 - *
-- - - - - 0x021622 17:9612: 01        .byte bra_case_9613_03 - *
+- - - - - 0x02161D 17:960D: F3        .byte con_branch, $83     ; результат действия кипера
+- - - - - 0x02161F 17:960F: 0B        .byte bra_case_961A_00_промах - *
+- - - - - 0x021620 17:9610: 06        .byte bra_case_9616_01_касание - *
+- - - - - 0x021621 17:9611: 34        .byte bra_case_9645_02_отбивание - *
+- - - - - 0x021622 17:9612: 01        .byte bra_case_9613_03_идеальный_сейв - *
 
-bra_case_9613_03:
+bra_case_9613_03_идеальный_сейв:
 - - - - - 0x021623 17:9613: F2        .byte con_jmp
-- - - - - 0x021624 17:9614: 07 96     .word loc_9607
+- - - - - 0x021624 17:9614: 07 96     .word loc_9607_rolling_save_и_ловля_мяча
 
-bra_case_9616_01:
+bra_case_9616_01_касание:
 - - - - - 0x021626 17:9616: F3        .byte con_branch, $8C     ; обычный или спешал
-- - - - - 0x021628 17:9618: 02        .byte bra_case_961A_00 - *
+- - - - - 0x021628 17:9618: 02        .byte bra_case_961A_00_мяч_не_порвется - *
 - - - - - 0x021629 17:9619: 26        .byte bra_case_963F_01_мяч_порвется - *
 
-bra_case_961A_00:
+bra_case_961A_00_промах:
+bra_case_961A_00_мяч_не_порвется:
 - - - - - 0x02162A 17:961A: F3        .byte con_branch, $8D
-- - - - - 0x02162C 17:961C: 05        .byte bra_case_9621_00 - *
-- - - - - 0x02162D 17:961D: 0A        .byte bra_case_9627_01 - *
-- - - - - 0x02162E 17:961E: 0F        .byte bra_case_962D_02 - *
-- - - - - 0x02162F 17:961F: 14        .byte bra_case_9633_03 - *
-- - - - - 0x021630 17:9620: 19        .byte bra_case_9639_04 - *
+- - - - - 0x02162C 17:961C: 05        .byte bra_case_9621_00_гол - *
+- - - - - 0x02162D 17:961D: 0A        .byte bra_case_9627_01_штанга - *
+- - - - - 0x02162E 17:961E: 0F        .byte bra_case_962D_02_защитник_спасает - *
+- - - - - 0x02162F 17:961F: 14        .byte bra_case_9633_03_штанга_и_добивание - *
+- - - - - 0x021630 17:9620: 19        .byte bra_case_9639_04_защитник_промахнется_и_гол - *
 
-bra_case_9621_00:
+bra_case_9621_00_гол:
 - - - - - 0x021631 17:9621: FA        .byte con_jsr
 - - - - - 0x021632 17:9622: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021634 17:9624: F2        .byte con_jmp
-- - - - - 0x021635 17:9625: 87 97     .word loc_9787
+- - - - - 0x021635 17:9625: 87 97     .word loc_9787_кипер_убивается_после_спешала_и_гол
 
-bra_case_9627_01:
+bra_case_9627_01_штанга:
 - - - - - 0x021637 17:9627: FA        .byte con_jsr
 - - - - - 0x021638 17:9628: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x02163A 17:962A: F2        .byte con_jmp
-- - - - - 0x02163B 17:962B: 96 97     .word loc_9796
+- - - - - 0x02163B 17:962B: 96 97     .word loc_9796_кипер_убивается_после_спешала_и_штанга
 
-bra_case_962D_02:
+bra_case_962D_02_защитник_спасает:
 - - - - - 0x02163D 17:962D: FA        .byte con_jsr
 - - - - - 0x02163E 17:962E: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021640 17:9630: F2        .byte con_jmp
-- - - - - 0x021641 17:9631: A8 97     .word loc_97A8
+- - - - - 0x021641 17:9631: A8 97     .word loc_97A8_кипер_убивается_после_спешала_и_защитник_спасает
 
-bra_case_9633_03:
+bra_case_9633_03_штанга_и_добивание:
 - - - - - 0x021643 17:9633: FA        .byte con_jsr
 - - - - - 0x021644 17:9634: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021646 17:9636: F2        .byte con_jmp
-- - - - - 0x021647 17:9637: C0 97     .word loc_97C0
+- - - - - 0x021647 17:9637: C0 97     .word loc_97C0_кипер_убивается_после_спешала_и_добивание_от_штанги
 
-bra_case_9639_04:
+bra_case_9639_04_защитник_промахнется_и_гол:
 - - - - - 0x021649 17:9639: FA        .byte con_jsr
 - - - - - 0x02164A 17:963A: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x02164C 17:963C: F2        .byte con_jmp
-- - - - - 0x02164D 17:963D: D8 97     .word loc_97D8
+- - - - - 0x02164D 17:963D: D8 97     .word loc_97D8_кипер_убивается_после_спешала_и_защитник_убивается_и_гол
 
 bra_case_963F_01_мяч_порвется:
 - - - - - 0x02164F 17:963F: FA        .byte con_jsr
@@ -4427,11 +4428,11 @@ bra_case_963F_01_мяч_порвется:
 - - - - - 0x021652 17:9642: F2        .byte con_jmp
 - - - - - 0x021653 17:9643: F0 97     .word loc_97F0_кипер_убивается_после_своего_спешала_и_мяч_порвется
 
-bra_case_9645_02:
+bra_case_9645_02_отбивание:
 - - - - - 0x021655 17:9645: FA        .byte con_jsr
 - - - - - 0x021656 17:9646: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021658 17:9648: F2        .byte con_jmp
-- - - - - 0x021659 17:9649: 02 98     .word loc_9802
+- - - - - 0x021659 17:9649: 02 98     .word loc_9802_кипер_убивается_после_спешала_и_отбивает
 
 bra_long_case_964B_02_clone_save:
 - D - I - 0x02165B 17:964B: F3        .byte con_branch, $81     ; выживет ли защитник
@@ -4535,31 +4536,31 @@ bra_case_96A4_00:
 - - - - - 0x0216B4 17:96A4: FA        .byte con_jsr
 - - - - - 0x0216B5 17:96A5: FF A1     .word sub_A1FF
 - - - - - 0x0216B7 17:96A7: F2        .byte con_jmp
-- - - - - 0x0216B8 17:96A8: 87 97     .word loc_9787
+- - - - - 0x0216B8 17:96A8: 87 97     .word loc_9787_кипер_убивается_после_спешала_и_гол
 
 bra_case_96AA_01:
 - - - - - 0x0216BA 17:96AA: FA        .byte con_jsr
 - - - - - 0x0216BB 17:96AB: FF A1     .word sub_A1FF
 - - - - - 0x0216BD 17:96AD: F2        .byte con_jmp
-- - - - - 0x0216BE 17:96AE: 96 97     .word loc_9796
+- - - - - 0x0216BE 17:96AE: 96 97     .word loc_9796_кипер_убивается_после_спешала_и_штанга
 
 bra_case_96B0_02:
 - - - - - 0x0216C0 17:96B0: FA        .byte con_jsr
 - - - - - 0x0216C1 17:96B1: FF A1     .word sub_A1FF
 - - - - - 0x0216C3 17:96B3: F2        .byte con_jmp
-- - - - - 0x0216C4 17:96B4: A8 97     .word loc_97A8
+- - - - - 0x0216C4 17:96B4: A8 97     .word loc_97A8_кипер_убивается_после_спешала_и_защитник_спасает
 
 bra_case_96B6_03:
 - - - - - 0x0216C6 17:96B6: FA        .byte con_jsr
 - - - - - 0x0216C7 17:96B7: FF A1     .word sub_A1FF
 - - - - - 0x0216C9 17:96B9: F2        .byte con_jmp
-- - - - - 0x0216CA 17:96BA: C0 97     .word loc_97C0
+- - - - - 0x0216CA 17:96BA: C0 97     .word loc_97C0_кипер_убивается_после_спешала_и_добивание_от_штанги
 
 bra_case_96BC_04:
 - - - - - 0x0216CC 17:96BC: FA        .byte con_jsr
 - - - - - 0x0216CD 17:96BD: FF A1     .word sub_A1FF
 - - - - - 0x0216CF 17:96BF: F2        .byte con_jmp
-- - - - - 0x0216D0 17:96C0: D8 97     .word loc_97D8
+- - - - - 0x0216D0 17:96C0: D8 97     .word loc_97D8_кипер_убивается_после_спешала_и_защитник_убивается_и_гол
 
 bra_case_96C2_01_мяч_порвется:
 - - - - - 0x0216D2 17:96C2: FA        .byte con_jsr
@@ -4571,7 +4572,7 @@ bra_case_96C8_02:
 - - - - - 0x0216D8 17:96C8: FA        .byte con_jsr
 - - - - - 0x0216D9 17:96C9: FF A1     .word sub_A1FF
 - - - - - 0x0216DB 17:96CB: F2        .byte con_jmp
-- - - - - 0x0216DC 17:96CC: 02 98     .word loc_9802
+- - - - - 0x0216DC 17:96CC: 02 98     .word loc_9802_кипер_убивается_после_спешала_и_отбивает
 
 bra_long_case_96CE_03_dark_illusion:
 - D - I - 0x0216DE 17:96CE: F3        .byte con_branch, $81     ; выживет ли защитник
@@ -4769,7 +4770,7 @@ bra_case_977D_00:
 bra_case_9784_00:
 - D - I - 0x021794 17:9784: FA        .byte con_jsr
 - D - I - 0x021795 17:9785: E4 A1     .word sub_A1E4_dark_illusion
-loc_9787:
+loc_9787_кипер_убивается_после_спешала_и_гол:
 - D - I - 0x021797 17:9787: FA        .byte con_jsr
 - D - I - 0x021798 17:9788: 1D A1     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
 loc_978A_убийство_кипера_и_гол:
@@ -4783,7 +4784,7 @@ loc_978A_убийство_кипера_и_гол:
 bra_case_9793_01:
 - - - - - 0x0217A3 17:9793: FA        .byte con_jsr
 - - - - - 0x0217A4 17:9794: E4 A1     .word sub_A1E4_dark_illusion
-loc_9796:
+loc_9796_кипер_убивается_после_спешала_и_штанга:
 - - - - - 0x0217A6 17:9796: FA        .byte con_jsr
 - - - - - 0x0217A7 17:9797: 1D A1     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
 loc_9799_убийство_кипера_и_штанга:
@@ -4799,7 +4800,7 @@ loc_9799_убийство_кипера_и_штанга:
 bra_case_97A5_02:
 - - - - - 0x0217B5 17:97A5: FA        .byte con_jsr
 - - - - - 0x0217B6 17:97A6: E4 A1     .word sub_A1E4_dark_illusion
-loc_97A8:
+loc_97A8_кипер_убивается_после_спешала_и_защитник_спасает:
 - - - - - 0x0217B8 17:97A8: FA        .byte con_jsr
 - - - - - 0x0217B9 17:97A9: 1D A1     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
 loc_97AB_убийство_кипера_и_защитник_спасает:
@@ -4819,7 +4820,7 @@ loc_97AB_убийство_кипера_и_защитник_спасает:
 bra_case_97BD_03:
 - - - - - 0x0217CD 17:97BD: FA        .byte con_jsr
 - - - - - 0x0217CE 17:97BE: E4 A1     .word sub_A1E4_dark_illusion
-loc_97C0:
+loc_97C0_кипер_убивается_после_спешала_и_добивание_от_штанги:
 - - - - - 0x0217D0 17:97C0: FA        .byte con_jsr
 - - - - - 0x0217D1 17:97C1: 1D A1     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
 loc_97C3_убийство_кипера_и_добивание_от_штанги:
@@ -4839,7 +4840,7 @@ loc_97C3_убийство_кипера_и_добивание_от_штанги:
 bra_case_97D5_04:
 - - - - - 0x0217E5 17:97D5: FA        .byte con_jsr
 - - - - - 0x0217E6 17:97D6: E4 A1     .word sub_A1E4_dark_illusion
-loc_97D8:
+loc_97D8_кипер_убивается_после_спешала_и_защитник_убивается_и_гол:
 - - - - - 0x0217E8 17:97D8: FA        .byte con_jsr
 - - - - - 0x0217E9 17:97D9: 1D A1     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
 loc_97DB_убийство_кипера_и_защитника_и_гол:
@@ -4875,7 +4876,7 @@ loc_97F3_мяч_порвется:
 bra_case_97FF_02:
 - - - - - 0x02180F 17:97FF: FA        .byte con_jsr
 - - - - - 0x021810 17:9800: E4 A1     .word sub_A1E4_dark_illusion
-loc_9802:
+loc_9802_кипер_убивается_после_спешала_и_отбивает:
 - - - - - 0x021812 17:9802: FA        .byte con_jsr
 - - - - - 0x021813 17:9803: 1D A1     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
 - - - - - 0x021815 17:9805: FA        .byte con_jsr
@@ -11038,15 +11039,15 @@ bra_long_case_B197_00___:
 
 bra_long_case_B198_06_falcon_volley:
 - D - I - 0x0231A8 11:B198: F3        .byte con_branch, $B1     ; проверка на nitta
-- D - I - 0x0231AA 11:B19A: 02        .byte bra_case_B19C_00_это_nitta - *
-- - - - - 0x0231AB 11:B19B: 28        .byte bra_case_B1C3_01_это_не_nitta - *
+- D - I - 0x0231AA 11:B19A: 02        .byte bra_case_B19C_00_это_наш_nitta - *
+- - - - - 0x0231AB 11:B19B: 28        .byte bra_case_B1C3_01_это_соперник_nitta - *
 
-bra_case_B19C_00_это_nitta:
+bra_case_B19C_00_это_наш_nitta:
 - D - I - 0x0231AC 11:B19C: 3C        .byte con_pause + $3C
 - D - I - 0x0231AD 11:B19D: 30        .byte con_bg + $30
 - D - I - 0x0231AE 11:B19E: 9A        .byte con_animation + $9A
 - D - I - 0x0231AF 11:B19F: BC        .byte con_cloud + $BC
-loc_B1A0:
+loc_B1A0_falcon_volley:
 - D - I - 0x0231B0 11:B1A0: F7        .byte con_F7, $02
 - D - I - 0x0231B2 11:B1A2: F6        .byte con_mirror_toggle
 - D - I - 0x0231B3 11:B1A3: 14        .byte con_pause + $14
@@ -11074,16 +11075,16 @@ loc_B1A0:
 - D - I - 0x0231D0 11:B1C0: FE        .byte con_FE
 - D - I - 0x0231D2 11:B1C2: FB        .byte con_rts
 
-bra_case_B1C3_01_это_не_nitta:
+bra_case_B1C3_01_это_соперник_nitta:
 - - - - - 0x0231D3 11:B1C3: 3C        .byte con_pause + $3C
 - - - - - 0x0231D4 11:B1C4: 30        .byte con_bg + $30
 - - - - - 0x0231D5 11:B1C5: 9B        .byte con_animation + $9B
 - - - - - 0x0231D6 11:B1C6: BC        .byte con_cloud + $BC
 - - - - - 0x0231D7 11:B1C7: F2        .byte con_jmp
-- - - - - 0x0231D8 11:B1C8: A0 B1     .word loc_B1A0
+- - - - - 0x0231D8 11:B1C8: A0 B1     .word loc_B1A0_falcon_volley
 
 bra_long_case_B1CA_09_twin_shot:
-- D - I - 0x0231DA 11:B1CA: F3        .byte con_branch, $C9     ; спешал перепасовка
+- D - I - 0x0231DA 11:B1CA: F3        .byte con_branch, $C9     ; twin shot
 - D - I - 0x0231DC 11:B1CC: 34        .byte bra_case_B200_00_tsubasa - *
 - - - - - 0x0231DD 11:B1CD: 33        .byte bra_case_B200_01_misaki - *
 - - - - - 0x0231DE 11:B1CE: 10        .byte bra_case_B1DE_02_hyuga - *
@@ -11101,7 +11102,7 @@ bra_long_case_B1CA_09_twin_shot:
 - - - - - 0x0231EA 11:B1DA: 04        .byte bra_case_B1DE_0E_pascal - *
 - - - - - 0x0231EB 11:B1DB: 03        .byte bra_case_B1DE_0F_pierre - *
 - - - - - 0x0231EC 11:B1DC: 02        .byte bra_case_B1DE_10_napoleon - *
-- D - I - 0x0231ED 11:B1DD: 01        .byte bra_case_B1DE_11_игрок_без_спешал_перепасовки - *
+- D - I - 0x0231ED 11:B1DD: 01        .byte bra_case_B1DE_11_twin_shot_без_рож_у_korea - *
 
 bra_case_B1DE_02_hyuga:
 bra_case_B1DE_03_hyuga:
@@ -11112,7 +11113,7 @@ bra_case_B1DE_0D_diaz:
 bra_case_B1DE_0E_pascal:
 bra_case_B1DE_0F_pierre:
 bra_case_B1DE_10_napoleon:
-bra_case_B1DE_11_игрок_без_спешал_перепасовки:
+bra_case_B1DE_11_twin_shot_без_рож_у_korea:
 - D - I - 0x0231EE 11:B1DE: F9        .byte con_soundID_delay, $26, $02
 - D - I - 0x0231F1 11:B1E1: F7        .byte con_F7, $02
 - D - I - 0x0231F3 11:B1E3: 28        .byte con_pause + $28
@@ -11130,7 +11131,7 @@ bra_case_B1DE_11_игрок_без_спешал_перепасовки:
 - D - I - 0x023203 11:B1F3: 05        .byte con_bg + $05
 - D - I - 0x023204 11:B1F4: D9        .byte con_animation + $D9
 - D - I - 0x023205 11:B1F5: 04        .byte con_cloud + $04
-loc_B1F6:
+loc_B1F6_мяч_улетает_от_игроков_после_twin_shot:
 - D - I - 0x023206 11:B1F6: F7        .byte con_F7, $23
 - D - I - 0x023208 11:B1F8: F9        .byte con_soundID_delay, $09, $02
 - D - I - 0x02320B 11:B1FB: 46        .byte con_pause + $46
@@ -11165,7 +11166,7 @@ bra_case_B200_01_misaki:
 - D - I - 0x02322B 11:B21B: D6        .byte con_animation + $D6
 - D - I - 0x02322C 11:B21C: 04        .byte con_cloud + $04
 - D - I - 0x02322D 11:B21D: F2        .byte con_jmp
-- D - I - 0x02322E 11:B21E: F6 B1     .word loc_B1F6
+- D - I - 0x02322E 11:B21E: F6 B1     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
 
 bra_case_B220_07_masao:
 bra_case_B220_08_kazuo:
@@ -11197,7 +11198,7 @@ bra_long_case_B22E_0A_skylab_twin_shot:
 - D - I - 0x02324B 11:B23B: D8        .byte con_animation + $D8
 - D - I - 0x02324C 11:B23C: 04        .byte con_cloud + $04
 - D - I - 0x02324D 11:B23D: F2        .byte con_jmp
-- D - I - 0x02324E 11:B23E: F6 B1     .word loc_B1F6
+- D - I - 0x02324E 11:B23E: F6 B1     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
 
 bra_case_B240_0B_masao:
 bra_case_B240_0C_kazuo:
