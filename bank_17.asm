@@ -2693,12 +2693,12 @@ bra_case_8DAC_02_pass_cut:
                                       .byte con_jsr
                                       .word sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом
 - D - I - 0x020DBC 17:8DAC: F3        .byte con_branch, $83     ; результат действия защитника
-- D - I - 0x020DBE 17:8DAE: 05        .byte bra_case_8DB3_00_промахнется - *
-- - - - - 0x020DBF 17:8DAF: 14        .byte bra_case_8DC3_01_коснется - *
-- - - - - 0x020DC0 17:8DB0: 25        .byte bra_case_8DD5_02_отобьет - *
+- D - I - 0x020DBE 17:8DAE: 05        .byte bra_case_8DB3_00_умрет - *
+- - - - - 0x020DBF 17:8DAF: 14        .byte bra_case_8DC3_01_умрет_и_серый_экран - *
+- - - - - 0x020DC0 17:8DB0: 25        .byte bra_case_8DD5_02_умрет_и_отобьет - *
 - - - - - 0x020DC1 17:8DB1: 36        .byte bra_case_8DE7_03_словит - *
 
-bra_case_8DB3_00_промахнется:
+bra_case_8DB3_00_умрет:
 - D - I - 0x020DC9 17:8DB9: FA        .byte con_jsr
 - D - I - 0x020DCA 17:8DBA: 10 A0     .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
 - D - I - 0x020DCC 17:8DBC: FA        .byte con_jsr
@@ -2706,7 +2706,7 @@ bra_case_8DB3_00_промахнется:
 - D - I - 0x020DCF 17:8DBF: FA        .byte con_jmp
 - D - I - 0x020DD0 17:8DC0: 62 9F     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
-bra_case_8DC3_01_коснется:
+bra_case_8DC3_01_умрет_и_серый_экран:
 - - - - - 0x020DD9 17:8DC9: FA        .byte con_jsr
 - - - - - 0x020DDA 17:8DCA: 10 A0     .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
 - - - - - 0x020DDC 17:8DCC: FA        .byte con_jsr
@@ -2716,7 +2716,7 @@ bra_case_8DC3_01_коснется:
 - - - - - 0x020DE2 17:8DD2: F2        .byte con_jmp
 - - - - - 0x020DE3 17:8DD3: 40 A2     .word loc_A240_серый_экран_после_касания_высого_мяча_телом
 
-bra_case_8DD5_02_отобьет:
+bra_case_8DD5_02_умрет_и_отобьет:
 - - - - - 0x020DEB 17:8DDB: FA        .byte con_jsr
 - - - - - 0x020DEC 17:8DDC: 10 A0     .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
 - - - - - 0x020DEE 17:8DDE: FA        .byte con_jsr
