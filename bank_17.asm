@@ -4933,11 +4933,11 @@ bra_long_case_98F3_00:
 - - - - - 0x021909 17:98F9: EF        .byte bra_case_99E8_04 - *
 
 bra_case_98FA_00:
+                                      .byte con_mirror_condition, $00
                                       .byte con_jsr
                                       .word sub_A335_полет_нижнего_мяча
                                       .byte con_jsr
                                       .word sub_A1C3_защитник_бежит_к_низкому_мячу
-- D - I - 0x02190A 17:98FA: FD        .byte con_mirror_condition, $00
 - D - I - 0x02190C 17:98FC: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x02190E 17:98FE: 04        .byte bra_case_9902_00_промахнется - *
 - D - I - 0x02190F 17:98FF: 0D        .byte bra_case_990C_01_коснется - *
@@ -4969,11 +4969,11 @@ bra_case_992A_03_словит:
 - D - I - 0x021941 17:9931: 64 A1     .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
 bra_case_9933_01:
+                                      .byte con_mirror_condition, $03       ; куда летит мяч
                                       .byte con_jsr
                                       .word sub_A32D_полет_удара_со_звуком
                                       .byte con_jsr
                                       .word sub_A1C3_защитник_бежит_к_низкому_мячу
-- D - I - 0x021943 17:9933: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x021945 17:9935: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x021947 17:9937: 04        .byte bra_case_993B_00_промахнется - *
 - D - I - 0x021948 17:9938: 0C        .byte bra_case_9944_01_коснется - *
@@ -5005,11 +5005,11 @@ bra_case_9962_03_словит:
 - D - I - 0x021979 17:9969: 64 A1     .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
 bra_case_996B_02:
+                                      .byte con_mirror_condition, $03       ; куда летит мяч
                                       .byte con_jsr
                                       .word sub_A32D_полет_удара_со_звуком
                                       .byte con_jsr
                                       .word sub_A1C3_защитник_бежит_к_низкому_мячу
-- D - I - 0x02197B 17:996B: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - 0x02197D 17:996D: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x02197F 17:996F: 04        .byte bra_case_9973_00_промахнется - *
 - D - I - 0x021980 17:9970: 13        .byte bra_case_9983_01_коснется - *
@@ -5050,11 +5050,11 @@ bra_case_99A7_03_словит:
 - D - I - 0x0219BE 17:99AE: 64 A1     .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
 bra_case_99B0_03:
+                                      .byte con_mirror_condition, $00
                                       .byte con_jsr
                                       .word sub_B449_полет_мяча_дугой
                                       .byte con_jsr
                                       .word sub_A1C3_защитник_бежит_к_низкому_мячу
-- - - - - 0x0219C0 17:99B0: FD        .byte con_mirror_condition, $00
 - - - - - 0x0219C2 17:99B2: F3        .byte con_branch, $83     ; результат действия защитника
 - - - - - 0x0219C4 17:99B4: 04        .byte bra_case_99B8_00_промахнется - *
 - - - - - 0x0219C5 17:99B5: 0C        .byte bra_case_99C1_01_коснется - *
