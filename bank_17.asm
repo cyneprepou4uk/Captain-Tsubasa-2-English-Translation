@@ -4173,6 +4173,8 @@ bra_case_95D2_01:
 - - - - - 0x0215E5 17:95D5: 26        .byte bra_case_95FB_01_мяч_порвется - *
 
 bra_case_95D6_00:
+                                      .byte con_jsr
+                                      .word sub_A0CD_rolling_save
 - D - I - 0x0215E6 17:95D6: F3        .byte con_branch, $8D
 - D - I - 0x0215E8 17:95D8: 05        .byte bra_case_95DD_00_гол - *
 - - - - - 0x0215E9 17:95D9: 0A        .byte bra_case_95E3_01_штанга - *
@@ -4181,32 +4183,22 @@ bra_case_95D6_00:
 - - - - - 0x0215EC 17:95DC: 19        .byte bra_case_95F5_04_защитник_промахнется_и_гол - *
 
 bra_case_95DD_00_гол:
-- D - I - 0x0215ED 17:95DD: FA        .byte con_jsr
-- D - I - 0x0215EE 17:95DE: CD A0     .word sub_A0CD_rolling_save
 - D - I - 0x0215F0 17:95E0: F2        .byte con_jmp
 - D - I - 0x0215F1 17:95E1: 0A 97     .word loc_970A_кипер_промахивается_кулаком_после_спешаша_и_гол
 
 bra_case_95E3_01_штанга:
-- - - - - 0x0215F3 17:95E3: FA        .byte con_jsr
-- - - - - 0x0215F4 17:95E4: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x0215F6 17:95E6: F2        .byte con_jmp
 - - - - - 0x0215F7 17:95E7: 13 97     .word loc_9713_кипер_промахивается_кулаком_после_спешаша_и_штанга
 
 bra_case_95E9_02_защитник_спасает:
-- - - - - 0x0215F9 17:95E9: FA        .byte con_jsr
-- - - - - 0x0215FA 17:95EA: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x0215FC 17:95EC: F2        .byte con_jmp
 - - - - - 0x0215FD 17:95ED: 1F 97     .word loc_971F_кипер_промахивается_кулаком_после_спешаша_и_защитник_спасает
 
 bra_case_95EF_03_штанга_и_добивание:
-- - - - - 0x0215FF 17:95EF: FA        .byte con_jsr
-- - - - - 0x021600 17:95F0: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021602 17:95F2: F2        .byte con_jmp
 - - - - - 0x021603 17:95F3: 2E 97     .word loc_972E_кипер_промахивается_кулаком_после_спешаша_и_добивание_от_штанги
 
 bra_case_95F5_04_защитник_промахнется_и_гол:
-- - - - - 0x021605 17:95F5: FA        .byte con_jsr
-- - - - - 0x021606 17:95F6: CD A0     .word sub_A0CD_rolling_save
 - - - - - 0x021608 17:95F8: F2        .byte con_jmp
 - - - - - 0x021609 17:95F9: 40 97     .word loc_9740_кипер_промахивается_кулаком_после_спешаша_и_защитник_промахивается_и_гол
 
