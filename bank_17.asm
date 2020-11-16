@@ -2539,6 +2539,10 @@ bra_case_8C97_01_face_block:
 - D - I - 0x020CAB 17:8C9B: 67 8F     .word loc_8F67_ishizaki_face_block_в_процессе
 
 bra_case_8C9D_01_tackle:
+                                      .byte con_jsr
+                                      .word sub_9C79_защитник_бежит_по_земле
+                                      .byte con_jsr
+                                      .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
 - D - I - 0x020CAD 17:8C9D: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020CAF 17:8C9F: 05        .byte bra_case_8CA4_00_промахнется - *
 - D - I - 0x020CB0 17:8CA0: 0E        .byte bra_case_8CAE_01_коснется - *
@@ -2546,18 +2550,10 @@ bra_case_8C9D_01_tackle:
 - D - I - 0x020CB2 17:8CA2: 2A        .byte bra_case_8CCC_03_словит - *
 
 bra_case_8CA4_00_промахнется:
-- D - I - 0x020CB4 17:8CA4: FA        .byte con_jsr
-- D - I - 0x020CB5 17:8CA5: 79 9C     .word sub_9C79_защитник_бежит_по_земле
-- D - I - 0x020CB7 17:8CA7: FA        .byte con_jsr
-- D - I - 0x020CB8 17:8CA8: DC B2     .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
 - D - I - 0x020CBA 17:8CAA: FA        .byte con_jmp
 - D - I - 0x020CBB 17:8CAB: 76 A1     .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
 
 bra_case_8CAE_01_коснется:
-- D - I - 0x020CBE 17:8CAE: FA        .byte con_jsr
-- D - I - 0x020CBF 17:8CAF: 79 9C     .word sub_9C79_защитник_бежит_по_земле
-- D - I - 0x020CC1 17:8CB1: FA        .byte con_jsr
-- D - I - 0x020CC2 17:8CB2: DC B2     .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
 - D - I - 0x020CC4 17:8CB4: FA        .byte con_jsr
 - D - I - 0x020CC5 17:8CB5: 42 A0     .word sub_A042_защитник_в_воздухе_собирается_коснуться_мяча_телом
 - D - I - 0x020CC7 17:8CB7: FA        .byte con_jsr
@@ -2566,10 +2562,6 @@ bra_case_8CAE_01_коснется:
 - D - I - 0x020CCB 17:8CBB: 17 A0     .word loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом
 
 bra_case_8CBD_02_отобьет:
-- D - I - 0x020CCD 17:8CBD: FA        .byte con_jsr
-- D - I - 0x020CCE 17:8CBE: 79 9C     .word sub_9C79_защитник_бежит_по_земле
-- D - I - 0x020CD0 17:8CC0: FA        .byte con_jsr
-- D - I - 0x020CD1 17:8CC1: DC B2     .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
 - D - I - 0x020CD3 17:8CC3: FA        .byte con_jsr
 - D - I - 0x020CD4 17:8CC4: 47 A0     .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
 - D - I - 0x020CD6 17:8CC6: FA        .byte con_jsr
@@ -2578,10 +2570,6 @@ bra_case_8CBD_02_отобьет:
 - D - I - 0x020CDA 17:8CCA: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
 bra_case_8CCC_03_словит:
-- D - I - 0x020CDC 17:8CCC: FA        .byte con_jsr
-- D - I - 0x020CDD 17:8CCD: 79 9C     .word sub_9C79_защитник_бежит_по_земле
-- D - I - 0x020CDF 17:8CCF: FA        .byte con_jsr
-- D - I - 0x020CE0 17:8CD0: DC B2     .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
 - D - I - 0x020CE2 17:8CD2: F2        .byte con_jmp
 - D - I - 0x020CE3 17:8CD3: 85 A1     .word loc_A185_защитник_ловит_высокий_мяч_телом
 
