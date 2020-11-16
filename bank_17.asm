@@ -5337,6 +5337,8 @@ _scenario_9B82_14:
 - - - - - 0x021B97 17:9B87: 28        .byte bra_case_9BAF_01_защитник_убьется - *
 
 bra_case_9B88_00_защитник_выживет:
+                                      .byte con_jsr
+                                      .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021B98 17:9B88: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x021B9A 17:9B8A: 04        .byte bra_case_9B8E_00_промахнется - *
 - - - - - 0x021B9B 17:9B8B: 09        .byte bra_case_9B94_01_коснется - *
@@ -5344,30 +5346,22 @@ bra_case_9B88_00_защитник_выживет:
 - D - I - 0x021B9D 17:9B8D: 19        .byte bra_case_9BA6_03_словит - *
 
 bra_case_9B8E_00_промахнется:
-- D - I - 0x021B9E 17:9B8E: FA        .byte con_jsr
-- D - I - 0x021B9F 17:9B8F: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021BA1 17:9B91: F2        .byte con_jmp
 - D - I - 0x021BA2 17:9B92: 83 A3     .word loc_A383_удар_огибает_стеночку
 
 bra_case_9B94_01_коснется:
-- - - - - 0x021BA4 17:9B94: FA        .byte con_jsr
-- - - - - 0x021BA5 17:9B95: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - - - - - 0x021BA7 17:9B97: FA        .byte con_jsr
 - - - - - 0x021BA8 17:9B98: 21 A3     .word sub_A321_стенка_была_задета
 - - - - - 0x021BAA 17:9B9A: F2        .byte con_jmp
 - - - - - 0x021BAB 17:9B9B: 7E A3     .word loc_A37E_мяч_летит_дальше_после_задевания_стенки
 
 bra_case_9B9D_02_отобьет:
-- D - I - 0x021BAD 17:9B9D: FA        .byte con_jsr
-- D - I - 0x021BAE 17:9B9E: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021BB0 17:9BA0: FA        .byte con_jsr
 - D - I - 0x021BB1 17:9BA1: 08 A3     .word sub_A308_белое_мерцание
 - D - I - 0x021BB3 17:9BA3: F2        .byte con_jmp
 - D - I - 0x021BB4 17:9BA4: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
 bra_case_9BA6_03_словит:
-- D - I - 0x021BB6 17:9BA6: FA        .byte con_jsr
-- D - I - 0x021BB7 17:9BA7: 2D A3     .word sub_A32D_полет_удара_со_звуком
 - D - I - 0x021BB9 17:9BA9: FA        .byte con_jsr
 - D - I - 0x021BBA 17:9BAA: EF A2     .word sub_A2EF_белое_мерцание_без_звука
 - D - I - 0x021BBC 17:9BAC: F2        .byte con_jmp
