@@ -3762,7 +3762,10 @@ bra_case_947A_01:
 - - - - - 0x02148D 17:947D: 35        .byte bra_case_94B2_01_мяч_порвется - *
 
 bra_case_947E_00:
-; вакашимазу отскакивает от штанги и не дотягивается, мяч не порвется
+                                      .byte con_jsr
+                                      .word sub_9C5B_wakashimazu_отскок_от_штанги
+                                      .byte con_jsr
+                                      .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x02148E 17:947E: F3        .byte con_branch, $8D
 - D - I - 0x021490 17:9480: 05        .byte bra_case_9485_00_гол - *
 - D - I - 0x021491 17:9481: 0D        .byte bra_case_948E_01_штанга - *
@@ -3771,42 +3774,22 @@ bra_case_947E_00:
 - D - I - 0x021494 17:9484: 25        .byte bra_case_94A9_04_защитник_промахнется_и_гол - *
 
 bra_case_9485_00_гол:
-- D - I - 0x021495 17:9485: FA        .byte con_jsr
-- D - I - 0x021496 17:9486: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- D - I - 0x021498 17:9488: FA        .byte con_jsr
-- D - I - 0x021499 17:9489: DD A1     .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x02149B 17:948B: F2        .byte con_jmp
 - D - I - 0x02149C 17:948C: 0D 97     .word loc_9C28_гол_и_проверка_на_рваную_сетку
 
 bra_case_948E_01_штанга:
-- D - I - 0x02149E 17:948E: FA        .byte con_jsr
-- D - I - 0x02149F 17:948F: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- D - I - 0x0214A1 17:9491: FA        .byte con_jsr
-- D - I - 0x0214A2 17:9492: DD A1     .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x0214A4 17:9494: F2        .byte con_jmp
 - D - I - 0x0214A5 17:9495: 16 97     .word loc_9716_штанга
 
 bra_case_9497_02_защитник_спасает:
-- D - I - 0x0214A7 17:9497: FA        .byte con_jsr
-- D - I - 0x0214A8 17:9498: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- D - I - 0x0214AA 17:949A: FA        .byte con_jsr
-- D - I - 0x0214AB 17:949B: DD A1     .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x0214AD 17:949D: F2        .byte con_jmp
 - D - I - 0x0214AE 17:949E: 22 97     .word loc_9722_защитник_спасает
 
 bra_case_94A0_03_штанга_и_добивание:
-- D - I - 0x0214B0 17:94A0: FA        .byte con_jsr
-- D - I - 0x0214B1 17:94A1: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- D - I - 0x0214B3 17:94A3: FA        .byte con_jsr
-- D - I - 0x0214B4 17:94A4: DD A1     .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x0214B6 17:94A6: F2        .byte con_jmp
 - D - I - 0x0214B7 17:94A7: 31 97     .word loc_9731_штанга_и_добивание
 
 bra_case_94A9_04_защитник_промахнется_и_гол:
-- D - I - 0x0214B9 17:94A9: FA        .byte con_jsr
-- D - I - 0x0214BA 17:94AA: 5B 9C     .word sub_9C5B_wakashimazu_отскок_от_штанги
-- D - I - 0x0214BC 17:94AC: FA        .byte con_jsr
-- D - I - 0x0214BD 17:94AD: DD A1     .word sub_A1DD_triangle_jump_не_достает_до_мяча
 - D - I - 0x0214BF 17:94AF: F2        .byte con_jmp
 - D - I - 0x0214C0 17:94B0: 43 97     .word loc_9743_защитник_промахнется_и_гол
 
