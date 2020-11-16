@@ -12506,7 +12506,7 @@ bra_case_B75F_00:
 - D - I - 0x023770 11:B760: 69        .byte con_bg + $69
 - D - I - 0x023771 11:B761: 8D        .byte con_animation + $8D
 - D - I - 0x023772 11:B762: 10        .byte con_cloud + $10
-loc_B763:
+loc_B763_проверка_на_наличие_защитников:
 - D - I - 0x023773 11:B763: F3        .byte con_branch, $AC     ; напали ли защитники
 - D - I - 0x023775 11:B765: 06        .byte bra_case_B76B_00_нет_защитников - *
 - D - I - 0x023776 11:B766: 01        .byte bra_case_B767_01_есть_защитники - *
@@ -12525,7 +12525,7 @@ bra_case_B76C_01:
 - D - I - 0x02377E 11:B76E: 8D        .byte con_animation + $8D
 - D - I - 0x02377F 11:B76F: 0A        .byte con_cloud + $0A
 - D - I - 0x023780 11:B770: F2        .byte con_jmp
-- D - I - 0x023781 11:B771: 63 B7     .word loc_B763
+- D - I - 0x023781 11:B771: 63 B7     .word loc_B763_проверка_на_наличие_защитников
 
 
 
@@ -12544,7 +12544,7 @@ bra_case_B77E_00:
 - D - I - 0x023790 11:B780: 8D        .byte con_animation + $8D
 - D - I - 0x023791 11:B781: 10        .byte con_cloud + $10
 - D - I - 0x023792 11:B782: F2        .byte con_jmp
-- D - I - 0x023793 11:B783: 63 B7     .word loc_B763
+- D - I - 0x023793 11:B783: 63 B7     .word loc_B763_проверка_на_наличие_защитников
 
 bra_case_B785_01:
 - D - I - 0x023795 11:B785: 5A        .byte con_pause + $5A
@@ -12552,7 +12552,7 @@ bra_case_B785_01:
 - D - I - 0x023797 11:B787: 8D        .byte con_animation + $8D
 - D - I - 0x023798 11:B788: 0A        .byte con_cloud + $0A
 - D - I - 0x023799 11:B789: F2        .byte con_jmp
-- D - I - 0x02379A 11:B78A: 63 B7     .word loc_B763
+- D - I - 0x02379A 11:B78A: 63 B7     .word loc_B763_проверка_на_наличие_защитников
 
 
 
