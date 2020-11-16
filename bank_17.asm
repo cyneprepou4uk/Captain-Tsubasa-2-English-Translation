@@ -5052,11 +5052,12 @@ bra_case_99A7_03_словит:
 bra_case_99B0_03:
 - - - - - 0x0219C0 17:99B0: FD        .byte con_mirror_condition, $00
 - - - - - 0x0219C2 17:99B2: F3        .byte con_branch, $83     ; результат действия защитника
-- - - - - 0x0219C4 17:99B4: 04        .byte bra_case_99B8_00 - *
-- - - - - 0x0219C5 17:99B5: 0C        .byte bra_case_99C1_01 - *
-- - - - - 0x0219C6 17:99B6: 1A        .byte bra_case_99D0_02 - *
-- - - - - 0x0219C7 17:99B7: 28        .byte bra_case_99DF_03 - *
-bra_case_99B8_00:
+- - - - - 0x0219C4 17:99B4: 04        .byte bra_case_99B8_00_промахнется - *
+- - - - - 0x0219C5 17:99B5: 0C        .byte bra_case_99C1_01_коснется - *
+- - - - - 0x0219C6 17:99B6: 1A        .byte bra_case_99D0_02_отобьет - *
+- - - - - 0x0219C7 17:99B7: 28        .byte bra_case_99DF_03_словит - *
+
+bra_case_99B8_00_промахнется:
 - - - - - 0x0219C8 17:99B8: FA        .byte con_jsr
 - - - - - 0x0219C9 17:99B9: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x0219CB 17:99BB: FA        .byte con_jsr
@@ -5064,7 +5065,7 @@ bra_case_99B8_00:
 - - - - - 0x0219CE 17:99BE: F2        .byte con_jmp
 - - - - - 0x0219CF 17:99BF: EA 9F     .word loc_9FEA_защитник_промахивается_ногой_по_низкому_мячу
 
-bra_case_99C1_01:
+bra_case_99C1_01_коснется:
 - - - - - 0x0219D1 17:99C1: FA        .byte con_jsr
 - - - - - 0x0219D2 17:99C2: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x0219D4 17:99C4: FA        .byte con_jsr
@@ -5076,7 +5077,7 @@ bra_case_99C1_01:
 - - - - - 0x0219DD 17:99CD: F2        .byte con_jmp
 - - - - - 0x0219DE 17:99CE: DE 9F     .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
 
-bra_case_99D0_02:
+bra_case_99D0_02_отобьет:
 - - - - - 0x0219E0 17:99D0: FA        .byte con_jsr
 - - - - - 0x0219E1 17:99D1: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x0219E3 17:99D3: FA        .byte con_jsr
@@ -5088,7 +5089,7 @@ bra_case_99D0_02:
 - - - - - 0x0219EC 17:99DC: F2        .byte con_jmp
 - - - - - 0x0219ED 17:99DD: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
-bra_case_99DF_03:
+bra_case_99DF_03_словит:
 - - - - - 0x0219EF 17:99DF: FA        .byte con_jsr
 - - - - - 0x0219F0 17:99E0: 49 B4     .word sub_B449_полет_мяча_дугой
 - - - - - 0x0219F2 17:99E2: FA        .byte con_jsr
