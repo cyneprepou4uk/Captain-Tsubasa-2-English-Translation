@@ -2924,6 +2924,10 @@ bra_case_8F9F_03_словит:
 - D - I - 0x020FB6 17:8FA6: 7B A1     .word loc_A17B_защитник_ловит_низкий_мяч_телом
 
 bra_case_8FA8_02_pass_cut:
+                                      .byte con_jsr
+                                      .word sub_9C7F_защитник_бежит_по_земле
+                                      .byte con_jsr
+                                      .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FB8 17:8FA8: F3        .byte con_branch, $83     ; результат действия защитника
 - D - I - 0x020FBA 17:8FAA: 05        .byte bra_case_8FAF_00_промахнется - *
 - D - I - 0x020FBB 17:8FAB: 0E        .byte bra_case_8FB9_01_коснется - *
@@ -2931,18 +2935,10 @@ bra_case_8FA8_02_pass_cut:
 - D - I - 0x020FBD 17:8FAD: 2A        .byte bra_case_8FD7_03_словит - *
 
 bra_case_8FAF_00_промахнется:
-- D - I - 0x020FBF 17:8FAF: FA        .byte con_jsr
-- D - I - 0x020FC0 17:8FB0: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
-- D - I - 0x020FC2 17:8FB2: FA        .byte con_jsr
-- D - I - 0x020FC3 17:8FB3: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FC5 17:8FB5: FA        .byte con_jmp
 - D - I - 0x020FC6 17:8FB6: EA 9F     .word loc_9FEA_защитник_промахивается_ногой_по_низкому_мячу
 
 bra_case_8FB9_01_коснется:
-- D - I - 0x020FC9 17:8FB9: FA        .byte con_jsr
-- D - I - 0x020FCA 17:8FBA: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
-- D - I - 0x020FCC 17:8FBC: FA        .byte con_jsr
-- D - I - 0x020FCD 17:8FBD: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FCF 17:8FBF: FA        .byte con_jsr
 - D - I - 0x020FD0 17:8FC0: FD 9F     .word sub_9FFD_защитник_собирается_коснуться_ногой_низкого_мяча
 - D - I - 0x020FD2 17:8FC2: FA        .byte con_jsr
@@ -2951,10 +2947,6 @@ bra_case_8FB9_01_коснется:
 - D - I - 0x020FD6 17:8FC6: DE 9F     .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
 
 bra_case_8FC8_02_отобьет:
-- D - I - 0x020FD8 17:8FC8: FA        .byte con_jsr
-- D - I - 0x020FD9 17:8FC9: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
-- D - I - 0x020FDB 17:8FCB: FA        .byte con_jsr
-- D - I - 0x020FDC 17:8FCC: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FDE 17:8FCE: FA        .byte con_jsr
 - D - I - 0x020FDF 17:8FCF: 04 A0     .word sub_A004_защитник_собирается_отбить_ногой_низкий_мяч
 - D - I - 0x020FE1 17:8FD1: FA        .byte con_jsr
@@ -2963,10 +2955,6 @@ bra_case_8FC8_02_отобьет:
 - D - I - 0x020FE5 17:8FD5: 71 A3     .word loc_A371_мяч_улетает_в_сторону
 
 bra_case_8FD7_03_словит:
-- D - I - 0x020FE7 17:8FD7: FA        .byte con_jsr
-- D - I - 0x020FE8 17:8FD8: 7F 9C     .word sub_9C7F_защитник_бежит_по_земле
-- D - I - 0x020FEA 17:8FDA: FA        .byte con_jsr
-- D - I - 0x020FEB 17:8FDB: 8F A3     .word sub_A38F_полет_низкого_мяча_к_защитнику
 - D - I - 0x020FED 17:8FDD: F2        .byte con_jmp
 - D - I - 0x020FEE 17:8FDE: 64 A1     .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
