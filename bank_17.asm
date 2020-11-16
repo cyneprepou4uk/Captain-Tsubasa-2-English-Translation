@@ -11939,9 +11939,8 @@ bra_long_case_B4EF_01_header:
 
 bra_long_case_B4F7_02_volley:
 bra_long_case_B4F7_08_skylab_hurricane:
-- D - I - 0x023507 11:B4F7: FA        .byte con_jsr
-- D - I - 0x023508 11:B4F8: 65 BB     .word sub_BB65_одна_из_анимаций_drive_shot
-- D - I - 0x02350A 11:B4FA: FB        .byte con_rts
+- D - I - 0x023507 11:B4F7: FA        .byte con_jmp
+- D - I - 0x023508 11:B4F8: 65 BB     .word loc_BB65_одна_из_анимаций_drive_shot
 
 bra_long_case_B4FB_03_drive_shot:
 - D - I - 0x02350B 11:B4FB: F9        .byte con_soundID_delay, $04, $02
@@ -11952,9 +11951,8 @@ bra_long_case_B4FB_03_drive_shot:
 bra_long_case_B502_01:
 - D - I - 0x023512 11:B502: FA        .byte con_jsr
 - D - I - 0x023513 11:B503: 5D BB     .word sub_BB5D_одна_из_анимаций_drive_shot
-- D - I - 0x023515 11:B505: FA        .byte con_jsr
-- D - I - 0x023516 11:B506: 65 BB     .word sub_BB65_одна_из_анимаций_drive_shot
-- D - I - 0x023518 11:B508: FB        .byte con_rts
+- D - I - 0x023515 11:B505: FA        .byte con_jmp
+- D - I - 0x023516 11:B506: 65 BB     .word loc_BB65_одна_из_анимаций_drive_shot
 
 bra_long_case_B509_04_drive_overhead:
 sub_B509:
@@ -13536,7 +13534,7 @@ sub_BB5D_одна_из_анимаций_drive_shot:
 - D - I - 0x023B73 11:BB63: 00        .byte con_cloud + con_clear
 - D - I - 0x023B74 11:BB64: FB        .byte con_rts
 
-sub_BB65_одна_из_анимаций_drive_shot:
+loc_BB65_одна_из_анимаций_drive_shot:
 - D - I - 0x023B75 11:BB65: F9        .byte con_soundID_delay, $04, $02
 - D - I - 0x023B78 11:BB68: 3C        .byte con_pause + $3C
 - D - I - 0x023B79 11:BB69: 00        .byte con_bg + $00
