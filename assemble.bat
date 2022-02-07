@@ -152,7 +152,7 @@ if %size% EQU 786448 (
 ) else (
     echo.
     echo --------------------------------------------------
-    echo Something's wrong, check log for more information.
+    echo Something's wrong, check log for more information. 
     if exist !ct2.bak (
         echo.
         copy !ct2.bak !ct2.nes

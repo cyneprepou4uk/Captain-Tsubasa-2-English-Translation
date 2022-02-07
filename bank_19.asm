@@ -4106,9 +4106,9 @@
 .export loc_0x027010
 loc_0x027010:
 C D - - - 0x027010 19:B000: A9 00     LDA #$00
-C - - - - 0x027012 19:B002: 8D 90 04  STA $0490
+C - - - - 0x027012 19:B002: 8D 90 04  STA ram_0490
 C - - - - 0x027015 19:B005: A9 02     LDA #$02
-C - - - - 0x027017 19:B007: 8D 91 04  STA $0491
+C - - - - 0x027017 19:B007: 8D 91 04  STA ram_0491
 C - - - - 0x02701A 19:B00A: 8D 87 00  STA ram_0087
 C - - - - 0x02701D 19:B00D: A9 67     LDA #< tbl_B467_титры
 C - - - - 0x02701F 19:B00F: 85 88     STA ram_0088
@@ -4121,7 +4121,7 @@ C - - - - 0x02702C 19:B01C: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - 0x02702F 19:B01F: A9 14     LDA #$14
 C - - - - 0x027031 19:B021: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - 0x027034 19:B024: A9 80     LDA #$80
-C - - - - 0x027036 19:B026: 8D 3F 06  STA $063F
+C - - - - 0x027036 19:B026: 8D 3F 06  STA ram_063F
 C - - - - 0x027039 19:B029: A9 00     LDA #$00
 C - - - - 0x02703B 19:B02B: 85 8A     STA ram_008A
 loc_B02D:
@@ -4137,31 +4137,31 @@ C - - - - 0x02704D 19:B03D: 20 43 B0  JSR sub_B043
 C - - - - 0x027050 19:B040: 4C 2D B0  JMP loc_B02D
 
 sub_B043:
-C - - - - 0x027053 19:B043: 2C 3F 06  BIT $063F
+C - - - - 0x027053 19:B043: 2C 3F 06  BIT ram_063F
 C - - - - 0x027056 19:B046: 50 03     BVC bra_B04B
 C - - - - 0x027058 19:B048: 4C AF B0  JMP loc_B0AF_скрытие_букв_спрайтами
 bra_B04B:
 C - - - - 0x02705B 19:B04B: A9 01     LDA #$01
 C - - - - 0x02705D 19:B04D: 20 15 C5  JSR sub_0x03CB1F_задержка
-C - - - - 0x027060 19:B050: AD 15 05  LDA $0515
+C - - - - 0x027060 19:B050: AD 15 05  LDA ram_0515
 C - - - - 0x027063 19:B053: D0 F6     BNE bra_B04B
 C - - - - 0x027065 19:B055: A9 01     LDA #$01
-C - - - - 0x027067 19:B057: 8D 15 05  STA $0515
+C - - - - 0x027067 19:B057: 8D 15 05  STA ram_0515
 C - - - - 0x02706A 19:B05A: A2 47     LDX #$47
 C - - - - 0x02706C 19:B05C: A9 00     LDA #$00
 bra_B05E_очистка_буфера:
-C - - - - 0x02706E 19:B05E: 9D A5 04  STA $04A5,X
+C - - - - 0x02706E 19:B05E: 9D A5 04  STA ram_04A5,X
 C - - - - 0x027071 19:B061: CA        DEX
 C - - - - 0x027072 19:B062: 10 FA     BPL bra_B05E_очистка_буфера
 ; количество символов в буфере
 C - - - - 0x027074 19:B064: A9 20     LDA #$20
-C - - - - 0x027076 19:B066: 8D A5 04  STA $04A5
+C - - - - 0x027076 19:B066: 8D A5 04  STA ram_04A5
 C - - - - 0x02707F 19:B06F: A5 8B     LDA ram_008B
-C - - - - 0x02708B 19:B07B: 8D A7 04  STA $04A7
+C - - - - 0x02708B 19:B07B: 8D A7 04  STA ram_04A7
 C - - - - 0x02709C 19:B08C: A5 8B     LDA ram_0086
                                       PHA
                                       AND #$E0
-                                      STA $04A6
+                                      STA ram_04A6
                                       PLA
                                       AND #$1F
                                       TAX
@@ -4170,13 +4170,13 @@ C - - - - 0x0270A2 19:B092: A4 8A     LDY ram_008A
 C - - - - 0x0270A4 19:B094: B1 88     LDA (ram_0088),Y
 C - - - - 0x0270A6 19:B096: C9 E0     CMP #$E0
 C - - - - 0x0270A8 19:B098: B0 0F     BCS bra_B0A9_E0_и_выше
-C - - - - 0x0270B1 19:B0A1: 9D A8 04  STA $04A8,X
+C - - - - 0x0270B1 19:B0A1: 9D A8 04  STA ram_04A8,X
 C - - - - 0x0270B4 19:B0A4: E8        INX
 C - - - - 0x0270B5 19:B0A5: E6 8A     INC ram_008A
 C - - - - 0x0270B7 19:B0A7: D0 E9     BNE bra_B092_запись_текста_в_буфер
 bra_B0A9_E0_и_выше:
 C - - - - 0x0270B9 19:B0A9: A9 80     LDA #$80
-C - - - - 0x0270BB 19:B0AB: 8D 15 05  STA $0515
+C - - - - 0x0270BB 19:B0AB: 8D 15 05  STA ram_0515
 C - - - - 0x0270BE 19:B0AE: 60        RTS
 
 loc_B0AF_скрытие_букв_спрайтами:
@@ -4191,25 +4191,25 @@ C - - - - 0x0270CA 19:B0BA: 48        PHA
 bra_B0BB:
 C - - - - 0x0270CB 19:B0BB: A9 01     LDA #$01
 C - - - - 0x0270CD 19:B0BD: 20 15 C5  JSR sub_0x03CB1F_задержка
-C - - - - 0x0270D0 19:B0C0: AD 15 05  LDA $0515
+C - - - - 0x0270D0 19:B0C0: AD 15 05  LDA ram_0515
 C - - - - 0x0270D3 19:B0C3: D0 F6     BNE bra_B0BB
 C - - - - 0x0270D5 19:B0C5: A9 01     LDA #$01
-C - - - - 0x0270D7 19:B0C7: 8D 15 05  STA $0515
+C - - - - 0x0270D7 19:B0C7: 8D 15 05  STA ram_0515
 ; закрытие буфера
 C - - - - 0x0270DA 19:B0CA: A2 00     LDX #$00
-C - - - - 0x0270DC 19:B0CC: 8E AD 04  STX $04A9
+C - - - - 0x0270DC 19:B0CC: 8E AD 04  STX ram_04A9
 ; bzk бесполезный адрес 003A
 C - - - - 0x0270DF 19:B0CF: 86 3A     STX ram_003A
 C - - - - 0x0270E1 19:B0D1: E8        INX
-C - - - - 0x0270E2 19:B0D2: 8E A5 04  STX $04A5
+C - - - - 0x0270E2 19:B0D2: 8E A5 04  STX ram_04A5
 C - - - - 0x0270E8 19:B0D8: A5 8B     LDA ram_008B
-C - - - - 0x0270F4 19:B0E4: 8D A7 04  STA $04A7
+C - - - - 0x0270F4 19:B0E4: 8D A7 04  STA ram_04A7
 C - - - - 0x0270FA 19:B0EA: A5 8B     LDA ram_0086
-C - - - - 0x027102 19:B0F2: 8D A6 04  STA $04A6
+C - - - - 0x027102 19:B0F2: 8D A6 04  STA ram_04A6
 C - - - - 0x02710B 19:B0FB: 68        PLA
-C - - - - 0x02710F 19:B0FF: 8D AC 04  STA $04A8
+C - - - - 0x02710F 19:B0FF: 8D AC 04  STA ram_04A8
 C - - - - 0x027115 19:B105: A9 80     LDA #$80
-C - - - - 0x027117 19:B107: 8D 15 05  STA $0515
+C - - - - 0x027117 19:B107: 8D 15 05  STA ram_0515
                                       LDA #$00
 bra_B10C_задержка_следующей_буквы:
 C - - - - 0x02711C 19:B10C: 48        PHA
@@ -4235,11 +4235,11 @@ ram_temp = ram_003A
                                       ASL
                                       CLC
                                       ADC ram_temp
-                                      STA ram_спрайт_X + $FC
+                                      STA ram_spr_X + $FC
                                       LDA #$01
-                                      STA ram_спрайт_тайл + $FC
+                                      STA ram_spr_T + $FC
                                       LDA #$00
-                                      STA ram_спрайт_атрибут + $FC
+                                      STA ram_spr_A + $FC
                                       LDA ram_0086
                                       AND #$E0
                                       LSR
@@ -4254,7 +4254,7 @@ ram_temp = ram_003A
 @пропуск:
                                       CLC
                                       ADC #$88
-                                      STA ram_спрайт_Y + $FC
+                                      STA ram_spr_Y + $FC
                                       RTS
 .endscope
 
@@ -4301,7 +4301,7 @@ C - - - - 0x0271CE 19:B1BE: 85 11     STA ram_0011
 C - - - - 0x0271D0 19:B1C0: 85 12     STA ram_0012
 C - - - - 0x0271D4 19:B1C4: 85 0D     STA ram_000D
 C - - - - 0x0271D6 19:B1C6: 85 0E     STA ram_000E
-C - - - - 0x0271DA 19:B1CA: 8D D2 05  STA $05D2
+C - - - - 0x0271DA 19:B1CA: 8D D2 05  STA ram_05D2
 C - - - - 0x0271DD 19:B1CD: AA        TAX
 bra_B1CE:
 C - - - - 0x0271DE 19:B1CE: A9 FF     LDA #$FF
@@ -4322,44 +4322,44 @@ sub_очистить_текст:
 ; 04A8 - тайл
 ; 04AD - конец буфера
     LDA #$01
-    STA $0515
+    STA ram_0515
     LDA #$40
-    STA $04A5
+    STA ram_04A5
     LDA #$22
-    STA $04A7
+    STA ram_04A7
     LDA #$00
-    STA $04A6
-    STA $04A8
-    STA $04A9
-    STA $05F4       ; bzk возможно не обязательно, было скопировано из 0x03CC56
+    STA ram_04A6
+    STA ram_04A8
+    STA ram_04A9
+    STA ram_05F4       ; bzk возможно не обязательно, было скопировано из 0x03CC56
     LDA #$06        ; счетчик цикла
 @цикл_очистки_экрана:
     PHA
 @ожидание_очистки:
     LDA #$81
-    STA $0515
+    STA ram_0515
     LDA #$01
     JSR sub_0x03CB1F_задержка
-    LDA $0515
+    LDA ram_0515
     BNE @ожидание_очистки
     LDA #$01
-    STA $0515
-    LDA $04A6
+    STA ram_0515
+    LDA ram_04A6
     CLC
     ADC #$40        ; увеличение адреса на 40, начиная с 2200
-    STA $04A6
+    STA ram_04A6
     BCC @пропуск
-    INC $04A7
+    INC ram_04A7
 @пропуск:
     PLA
     SEC
     SBC #$01
     BPL @цикл_очистки_экрана
-    LSR $04A5       ; 40 / 2 = 20
+    LSR ram_04A5       ; 40 / 2 = 20
     LDA #$E0        ; очистка второй половины атрибутов
-    STA $04A6
+    STA ram_04A6
     LDA #$81
-    STA $0515
+    STA ram_0515
     LDA #$01
     JSR sub_0x03CB1F_задержка
     RTS
@@ -4424,9 +4424,9 @@ C - - - - 0x02723A 19:B22A: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x027243 19:B233: DB B2     .word ofs_B2DB_02_отображение_текста
 
 ofs_B235_E6_toggle_открывать_текст_движением_спрайта:
-C - J - - 0x027245 19:B235: AD 3F 06  LDA $063F
+C - J - - 0x027245 19:B235: AD 3F 06  LDA ram_063F
 C - - - - 0x027248 19:B238: 09 40     ORA #$40
-C - - - - 0x02724A 19:B23A: 8D 3F 06  STA $063F
+C - - - - 0x02724A 19:B23A: 8D 3F 06  STA ram_063F
 C - - - - 0x02724D 19:B23D: 60        RTS
 
 ofs_B23E_00_осветление_экрана:
@@ -4501,7 +4501,7 @@ C - - - - 0x02731F 19:B30F: 60        RTS
 
 ofs_B333_E7_закончить_чтение_строки:
 C - J - - 0x027343 19:B333: A9 80     LDA #$80
-C - - - - 0x027345 19:B335: 8D 15 05  STA $0515
+C - - - - 0x027345 19:B335: 8D 15 05  STA ram_0515
 C - - - - 0x027348 19:B338: 60        RTS
 
 ofs_B218_E3_заяц:
@@ -4537,9 +4537,9 @@ C - - - - 0x02739D 19:B38D: 9D 94 04  STA ram_0468 + $2C,X
 C - - - - 0x0273A0 19:B390: CA        DEX
 C - - - - 0x0273A1 19:B391: 10 F7     BPL bra_B38A_цикл
 C - - - - 0x0273A3 19:B393: A9 7C     LDA #$7C
-C - - - - 0x0273A5 19:B395: 8D 90 04  STA $0490
+C - - - - 0x0273A5 19:B395: 8D 90 04  STA ram_0490
 C - - - - 0x0273A8 19:B398: A9 7E     LDA #$7E
-C - - - - 0x0273AA 19:B39A: 8D 91 04  STA $0491
+C - - - - 0x0273AA 19:B39A: 8D 91 04  STA ram_0491
 C - - - - 0x0273AD 19:B39D: A9 FF     LDA #$FF
 C - - - - 0x0273AF 19:B39F: 8D 57 05  STA ram_046B + $EC
 C - - - - 0x0273B2 19:B3A2: 8D 58 05  STA ram_0468 + $F0
@@ -4599,26 +4599,26 @@ C - - - - 0x02741B 19:B40B: 86 8A     STX ram_008A
 bra_B40D_ожидание_освобождения_буфера:
 C - - - - 0x02741D 19:B40D: A9 01     LDA #$01
 C - - - - 0x02741F 19:B40F: 20 15 C5  JSR sub_0x03CB1F_задержка
-C - - - - 0x027422 19:B412: AD 15 05  LDA $0515
+C - - - - 0x027422 19:B412: AD 15 05  LDA ram_0515
 C - - - - 0x027425 19:B415: D0 F6     BNE bra_B40D_ожидание_освобождения_буфера
 C - - - - 0x027427 19:B417: A9 01     LDA #$01
-C - - - - 0x027429 19:B419: 8D 15 05  STA $0515
+C - - - - 0x027429 19:B419: 8D 15 05  STA ram_0515
 C - - - - 0x02742C 19:B41C: A2 24     LDX #$24
 C - - - - 0x02742E 19:B41E: A9 00     LDA #$00
 bra_B420:
-C - - - - 0x027430 19:B420: 9D A5 04  STA $04A5,X
+C - - - - 0x027430 19:B420: 9D A5 04  STA ram_04A5,X
 C - - - - 0x027433 19:B423: CA        DEX
 C - - - - 0x027434 19:B424: 10 FA     BPL bra_B420
 C - - - - 0x027436 19:B426: A9 20     LDA #$20
-C - - - - 0x027438 19:B428: 8D A5 04  STA $04A5
+C - - - - 0x027438 19:B428: 8D A5 04  STA ram_04A5
 C - - - - 0x02743B 19:B42B: A6 8A     LDX ram_008A
-C - - - - 0x02743D 19:B42D: 8E A6 04  STX $04A6
+C - - - - 0x02743D 19:B42D: 8E A6 04  STX ram_04A6
 C - - - - 0x027440 19:B430: 68        PLA
 C - - - - 0x027441 19:B431: 48        PHA
 C - - - - 0x027442 19:B432: 05 8B     ORA ram_008B
-C - - - - 0x027444 19:B434: 8D A7 04  STA $04A7
+C - - - - 0x027444 19:B434: 8D A7 04  STA ram_04A7
 C - - - - 0x027447 19:B437: A9 80     LDA #$80
-C - - - - 0x027449 19:B439: 8D 15 05  STA $0515
+C - - - - 0x027449 19:B439: 8D 15 05  STA ram_0515
 C - - - - 0x02744C 19:B43C: 8A        TXA
 C - - - - 0x02744D 19:B43D: 18        CLC
 C - - - - 0x02744E 19:B43E: 69 20     ADC #$20

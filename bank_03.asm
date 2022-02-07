@@ -16,19 +16,19 @@ C - - - - 0x004026 03:A016: 8D 01 20  STA $2001
 C - - - - 0x004029 03:A019: A2 00     LDX #$00
 bra_A01B:
 C - - - - 0x00402B 03:A01B: A0 80     LDY #$80
-C - - - - 0x00402D 03:A01D: BD E8 05  LDA $05E8,X
+C - - - - 0x00402D 03:A01D: BD E8 05  LDA ram_05E8,X
 C - - - - 0x004030 03:A020: 10 04     BPL bra_A026
 C - - - - 0x004032 03:A022: 29 3F     AND #$3F
 C - - - - 0x004034 03:A024: A0 84     LDY #$84
 bra_A026:
 C - - - - 0x004036 03:A026: 8C 00 20  STY $2000
 C - - - - 0x004039 03:A029: A8        TAY
-C - - - - 0x00403A 03:A02A: BD EA 05  LDA $05EA,X
+C - - - - 0x00403A 03:A02A: BD EA 05  LDA ram_облако,X
 C - - - - 0x00403D 03:A02D: 8D 06 20  STA $2006
-C - - - - 0x004040 03:A030: BD E9 05  LDA $05E9,X
+C - - - - 0x004040 03:A030: BD E9 05  LDA ram_таймер_облака_ХЗ,X
 C - - - - 0x004043 03:A033: 8D 06 20  STA $2006
 bra_A036:
-C - - - - 0x004046 03:A036: BD EB 05  LDA $05EB,X
+C - - - - 0x004046 03:A036: BD EB 05  LDA ram_05EB,X
 C - - - - 0x004049 03:A039: 8D 07 20  STA $2007
 C - - - - 0x00404C 03:A03C: E8        INX
 C - - - - 0x00404D 03:A03D: 88        DEY
@@ -36,14 +36,15 @@ C - - - - 0x00404E 03:A03E: D0 F6     BNE bra_A036
 C - - - - 0x004050 03:A040: E8        INX
 C - - - - 0x004051 03:A041: E8        INX
 C - - - - 0x004052 03:A042: E8        INX
-C - - - - 0x004053 03:A043: BD E8 05  LDA $05E8,X
+C - - - - 0x004053 03:A043: BD E8 05  LDA ram_05E8,X
 C - - - - 0x004056 03:A046: D0 D3     BNE bra_A01B
 C - - - - 0x004058 03:A048: A9 00     LDA #$00
 C - - - - 0x00405A 03:A04A: 8D 28 06  STA ram_индекс_буфера
-C - - - - 0x00405D 03:A04D: A9 3F     LDA #$3F
+C - - - - 0x00405D 03:A04D: A9 3F     LDA #> $3F00
 C - - - - 0x00405F 03:A04F: 8D 06 20  STA $2006
-C - - - - 0x004062 03:A052: A9 00     LDA #$00
+C - - - - 0x004062 03:A052: A9 00     LDA #< $3F00
 C - - - - 0x004064 03:A054: 8D 06 20  STA $2006
+; A = 00
 C - - - - 0x004067 03:A057: 8D 06 20  STA $2006
 C - - - - 0x00406A 03:A05A: 8D 06 20  STA $2006
 bra_A05D:
@@ -262,7 +263,7 @@ C - - - - 0x004258 03:A248: 20 06 AA  JSR sub_AA06
 C - - - - 0x00425B 03:A24B: A9 0F     LDA #$0F
 C - - - - 0x00425D 03:A24D: A0 E0     LDY #$E0
 bra_A24F_цикл:
-C - - - - 0x00425F 03:A24F: 99 4A 05  STA $054A,Y
+C - - - - 0x00425F 03:A24F: 99 4A 05  STA ram_054A,Y
 C - - - - 0x004262 03:A252: C8        INY
 C - - - - 0x004263 03:A253: D0 FA     BNE bra_A24F_цикл
 C - - - - 0x004265 03:A255: 20 43 9A  JSR sub_0x001A53
@@ -452,29 +453,29 @@ C - - - - 0x0043AC 03:A39C: E0 FC     CPX #$FC
 C - - - - 0x0043AE 03:A39E: D0 D9     BNE bra_A379_цикл
 C - - - - 0x0043B0 03:A3A0: 4C 72 A3  JMP loc_A372
 bra_A3A3:
-C - - - - 0x0043B3 03:A3A3: AD 68 05  LDA $0568
+C - - - - 0x0043B3 03:A3A3: AD 68 05  LDA ram_0568
 C - - - - 0x0043B6 03:A3A6: 09 10     ORA #$10
-C - - - - 0x0043B8 03:A3A8: 8D 68 05  STA $0568
+C - - - - 0x0043B8 03:A3A8: 8D 68 05  STA ram_0568
 loc_A3AB:
 C D - - - 0x0043BB 03:A3AB: A9 04     LDA #$04
 C - - - - 0x0043BD 03:A3AD: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0043C0 03:A3B0: A9 08     LDA #$08
 C - - - - 0x0043C2 03:A3B2: 85 44     STA ram_0044
 C - - - - 0x0043C4 03:A3B4: 85 46     STA ram_0046
-C - - - - 0x0043C6 03:A3B6: AD 6D 05  LDA $056D
+C - - - - 0x0043C6 03:A3B6: AD 6D 05  LDA ram_056D
 C - - - - 0x0043C9 03:A3B9: 38        SEC
 C - - - - 0x0043CA 03:A3BA: E9 04     SBC #$04
-C - - - - 0x0043CC 03:A3BC: 8D 6D 05  STA $056D
+C - - - - 0x0043CC 03:A3BC: 8D 6D 05  STA ram_056D
 C - - - - 0x0043CF 03:A3BF: A9 04     LDA #$04
 C - - - - 0x0043D1 03:A3C1: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0043D4 03:A3C4: A9 00     LDA #$00
 C - - - - 0x0043D6 03:A3C6: 85 44     STA ram_0044
 C - - - - 0x0043D8 03:A3C8: A9 F8     LDA #$F8
 C - - - - 0x0043DA 03:A3CA: 85 46     STA ram_0046
-C - - - - 0x0043DC 03:A3CC: AD 6D 05  LDA $056D
+C - - - - 0x0043DC 03:A3CC: AD 6D 05  LDA ram_056D
 C - - - - 0x0043DF 03:A3CF: 18        CLC
 C - - - - 0x0043E0 03:A3D0: 69 04     ADC #$04
-C - - - - 0x0043E2 03:A3D2: 8D 6D 05  STA $056D
+C - - - - 0x0043E2 03:A3D2: 8D 6D 05  STA ram_056D
 C - - - - 0x0043E5 03:A3D5: 4C AB A3  JMP loc_A3AB
 
 .export loc_0x0043E8_управление_музыкальным_экраном
@@ -487,7 +488,7 @@ C - - - - 0x0043F0 03:A3E0: 20 A9 82  JSR sub_0x0002B9_ожидание_заве
 C - - - - 0x0043F3 03:A3E3: A0 F8     LDY #$F8
 bra_A3E5_цикл:
 C - - - - 0x0043F5 03:A3E5: B9 84 A3  LDA tbl_A47C_атрибуты_спрайтов_цифр_звука - $F8,Y
-C - - - - 0x0043F8 03:A3E8: 99 60 04  STA $0558 - $F8,Y
+C - - - - 0x0043F8 03:A3E8: 99 60 04  STA ram_0558 - $F8,Y
 C - - - - 0x0043FB 03:A3EB: C8        INY
 C - - - - 0x0043FC 03:A3EC: D0 F7     BNE bra_A3E5_цикл
 C - - - - 0x0043FE 03:A3EE: A9 00     LDA #$00
@@ -554,12 +555,12 @@ C - - - - 0x00446D 03:A45D: 4A        LSR
 C - - - - 0x00446E 03:A45E: 4A        LSR
 C - - - - 0x00446F 03:A45F: A8        TAY
 C - - - - 0x004470 03:A460: B9 72 A4  LDA tbl_A472_номера_тайлов_цифр,Y
-C - - - - 0x004473 03:A463: 8D 59 05  STA $0559
+C - - - - 0x004473 03:A463: 8D 59 05  STA ram_0559
 C - - - - 0x004476 03:A466: A5 EC     LDA ram_00EC
 C - - - - 0x004478 03:A468: 29 0F     AND #$0F       ; единицы числа
 C - - - - 0x00447A 03:A46A: A8        TAY
 C - - - - 0x00447B 03:A46B: B9 72 A4  LDA tbl_A472_номера_тайлов_цифр,Y
-C - - - - 0x00447E 03:A46E: 8D 5D 05  STA $055D
+C - - - - 0x00447E 03:A46E: 8D 5D 05  STA ram_055D
 C - - - - 0x004481 03:A471: 60        RTS
 
 tbl_A472_номера_тайлов_цифр:
@@ -833,9 +834,9 @@ C - - - - 0x00463E 03:A62E: 20 76 89  JSR sub_0x000986
 C - - - - 0x004641 03:A631: 20 35 9A  JSR sub_0x001A45
 C - - - - 0x004644 03:A634: A9 01     LDA #$01
 C - - - - 0x004646 03:A636: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x004649 03:A639: AD 8F 05  LDA $058F
+C - - - - 0x004649 03:A639: AD 8F 05  LDA ram_058F
 C - - - - 0x00464C 03:A63C: 29 7F     AND #$7F
-C - - - - 0x00464E 03:A63E: 8D 8F 05  STA $058F
+C - - - - 0x00464E 03:A63E: 8D 8F 05  STA ram_058F
 C - - - - 0x004651 03:A641: A9 82     LDA #$82
 C - - - - 0x004653 03:A643: 85 4C     STA ram_004C
 C - - - - 0x004655 03:A645: A0 28     LDY #$28
@@ -876,7 +877,7 @@ C - - - - 0x00468B 03:A67B: 29 7F     AND #$7F
 C - - - - 0x00468D 03:A67D: 85 EB     STA ram_00EB
 C - - - - 0x00468F 03:A67F: A9 00     LDA #$00
 bra_A681_цикл_очистки_буфера:
-C - - - - 0x004691 03:A681: 9D E8 05  STA $05E8,X
+C - - - - 0x004691 03:A681: 9D E8 05  STA ram_05E8,X
 C - - - - 0x004694 03:A684: E8        INX
 C - - - - 0x004695 03:A685: C6 EB     DEC ram_00EB
 C - - - - 0x004697 03:A687: D0 F8     BNE bra_A681_цикл_очистки_буфера
@@ -892,7 +893,7 @@ C - - - - 0x0046AA 03:A69A: A9 02     LDA #$02
 C - - - - 0x0046AC 03:A69C: 60        RTS
 
 ofs_A69D_10_схема_драйв_удара_и_циклона:
-C - - - - 0x0046AD 03:A69D: AD E5 04  LDA $04E5
+C - - - - 0x0046AD 03:A69D: AD E5 04  LDA ram_04E5
 C - - - - 0x0046B0 03:A6A0: C9 FF     CMP #$FF
 C - - - - 0x0046B2 03:A6A2: F0 30     BEQ bra_A6D4
 C - - - - 0x0046B4 03:A6A4: 20 67 A7  JSR sub_A767
@@ -938,7 +939,7 @@ C - - - - 0x004704 03:A6F4: 20 2C A7  JSR sub_A72C
 C - - - - 0x004707 03:A6F7: A0 FC     LDY #$FC
 bra_A6F9_цикл:
 C - - - - 0x004709 03:A6F9: B9 7B A6  LDA tbl_A777 - $FC,Y
-C - - - - 0x00470C 03:A6FC: 99 60 04  STA $055C - $FC,Y
+C - - - - 0x00470C 03:A6FC: 99 60 04  STA ram_055C - $FC,Y
 C - - - - 0x00470F 03:A6FF: C8        INY
 C - - - - 0x004710 03:A700: D0 F7     BNE bra_A6F9_цикл
 C - - - - 0x004712 03:A702: A0 B8     LDY #$B8
@@ -968,23 +969,23 @@ C - - - - 0x00473B 03:A72B: 60        RTS
 sub_A72C:
 C - - - - 0x00473C 03:A72C: 85 E9     STA ram_00E9
 bra_A72E:
-C - - - - 0x00473E 03:A72E: AD E4 04  LDA $04E4
+C - - - - 0x00473E 03:A72E: AD E4 04  LDA ram_04E4
 C - - - - 0x004741 03:A731: 18        CLC
 C - - - - 0x004742 03:A732: 65 ED     ADC ram_00ED
-C - - - - 0x004744 03:A734: 8D E4 04  STA $04E4
-C - - - - 0x004747 03:A737: AD E7 04  LDA $04E7
+C - - - - 0x004744 03:A734: 8D E4 04  STA ram_04E4
+C - - - - 0x004747 03:A737: AD E7 04  LDA ram_04E7
 C - - - - 0x00474A 03:A73A: 18        CLC
 C - - - - 0x00474B 03:A73B: 65 EC     ADC ram_00EC
-C - - - - 0x00474D 03:A73D: 8D E7 04  STA $04E7
+C - - - - 0x00474D 03:A73D: 8D E7 04  STA ram_04E7
 C - - - - 0x004750 03:A740: 25 EB     AND ram_00EB
 C - - - - 0x004752 03:A742: D0 1A     BNE bra_A75E
-C - - - - 0x004754 03:A744: AD E4 04  LDA $04E4
+C - - - - 0x004754 03:A744: AD E4 04  LDA ram_04E4
 C - - - - 0x004757 03:A747: 99 68 04  STA ram_копия_спрайт_Y,Y
 C - - - - 0x00475A 03:A74A: A5 E9     LDA ram_00E9
 C - - - - 0x00475C 03:A74C: 99 69 04  STA ram_копия_спрайт_тайл,Y
 C - - - - 0x00475F 03:A74F: A5 EA     LDA ram_00EA
 C - - - - 0x004761 03:A751: 99 6A 04  STA ram_копия_спрайт_атрибут,Y
-C - - - - 0x004764 03:A754: AD E7 04  LDA $04E7
+C - - - - 0x004764 03:A754: AD E7 04  LDA ram_04E7
 C - - - - 0x004767 03:A757: 99 6B 04  STA ram_копия_спрайт_X,Y
 C - - - - 0x00476A 03:A75A: C8        INY
 C - - - - 0x00476B 03:A75B: C8        INY
@@ -1001,7 +1002,7 @@ sub_A767:
 C - - - - 0x004777 03:A767: A0 FC     LDY #$FC
 bra_A769:
 C - - - - 0x004779 03:A769: B9 77 A6  LDA tbl_A773 - $FC,Y
-C - - - - 0x00477C 03:A76C: 99 E8 03  STA $03E8,Y
+C - - - - 0x00477C 03:A76C: 99 E8 03  STA ram_03E8,Y
 C - - - - 0x00477F 03:A76F: C8        INY
 C - - - - 0x004780 03:A770: D0 F7     BNE bra_A769
 C - - - - 0x004782 03:A772: 60        RTS
@@ -1190,7 +1191,7 @@ C - - - - 0x00489E 03:A88E: 20 B7 A8  JSR sub_A8B7_запись_номеров
 C - - - - 0x0048A1 03:A891: A0 00     LDY #$00
 bra_A893_цикл:
 C - - - - 0x0048A3 03:A893: BD 47 AA  LDA tbl_AA47_номера_игроков,X
-C - - - - 0x0048A6 03:A896: 99 08 04  STA $0408,Y
+C - - - - 0x0048A6 03:A896: 99 08 04  STA ram_bench_1,Y
 C - - - - 0x0048A9 03:A899: E8        INX
 C - - - - 0x0048AA 03:A89A: 98        TYA
 C - - - - 0x0048AB 03:A89B: 18        CLC
@@ -1238,17 +1239,17 @@ C - - - - 0x0048E8 03:A8D8: B9 6A 04  LDA ram_копия_спрайт_атриб
 C - - - - 0x0048EB 03:A8DB: 29 0C     AND #$0C
 C - - - - 0x0048ED 03:A8DD: F0 02     BEQ bra_A8E1_не_скрывать_спрайт
 C - - - - 0x0048EF 03:A8DF: A2 F8     LDA #$F8
-C - - - - 0x0048F2 03:A8E2: 99 00 02  STA ram_спрайт_Y,Y
+C - - - - 0x0048F2 03:A8E2: 99 00 02  STA ram_spr_Y,Y
                                       BNE bra_A8F7_пропустить_копирование_ненужных_атрибутов
 bra_A8E1_не_скрывать_спрайт:
 C - - - - 0x0048E5 03:A8D5: BE 68 04  LDA ram_копия_спрайт_Y,Y
-C - - - - 0x0048F2 03:A8E2: 99 00 02  STA ram_спрайт_Y,Y
+C - - - - 0x0048F2 03:A8E2: 99 00 02  STA ram_spr_Y,Y
 C - - - - 0x0048F5 03:A8E5: B9 69 04  LDA ram_копия_спрайт_тайл,Y
-C - - - - 0x0048F8 03:A8E8: 99 01 02  STA ram_спрайт_тайл,Y
+C - - - - 0x0048F8 03:A8E8: 99 01 02  STA ram_spr_T,Y
 C - - - - 0x0048FB 03:A8EB: B9 6A 04  LDA ram_копия_спрайт_атрибут,Y
-C - - - - 0x0048FE 03:A8EE: 99 02 02  STA ram_спрайт_атрибут,Y
+C - - - - 0x0048FE 03:A8EE: 99 02 02  STA ram_spr_A,Y
 C - - - - 0x004901 03:A8F1: B9 6B 04  LDA ram_копия_спрайт_X,Y
-C - - - - 0x004904 03:A8F4: 99 03 02  STA ram_спрайт_X,Y
+C - - - - 0x004904 03:A8F4: 99 03 02  STA ram_spr_X,Y
 bra_A8F7_пропустить_копирование_ненужных_атрибутов:
 C - - - - 0x004907 03:A8F7: C8        INY
 C - - - - 0x004908 03:A8F8: C8        INY
@@ -1299,54 +1300,54 @@ C - - - - 0x004A45 03:AA35: 60        RTS
 
 
 tbl_AA47_номера_игроков:
-    .byte $02    ; GK
-    .byte $03    ; 02
-    .byte $04    ; 03
-    .byte $05    ; 04
-    .byte $06    ; 05
-    .byte $07    ; 06
-    .byte $08    ; 07
-    .byte $09    ; 08
-    .byte $0A    ; 09
-    .byte $01    ; 10
-    .byte $0B    ; 11
-    .byte $00	   ; расстановка
+    .byte $02   ; GK
+    .byte $03   ; 02
+    .byte $04   ; 03
+    .byte $05   ; 04
+    .byte $06   ; 05
+    .byte $07   ; 06
+    .byte $08   ; 07
+    .byte $09   ; 08
+    .byte $0A   ; 09
+    .byte $01   ; 10
+    .byte $0B   ; 11
+    .byte $00   ; расстановка
     
-    .byte $0F    ; GK
-    .byte $0D    ; 02
-    .byte $0E    ; 03
-    .byte $14    ; 04
-    .byte $10    ; 05
-    .byte $0C    ; 06
-    .byte $13    ; 07
-    .byte $12    ; 08
-    .byte $15    ; 09
-    .byte $11    ; 10
-    .byte $16    ; 11
-    .byte $00	   ; расстановка
+    .byte $0F   ; GK
+    .byte $0D   ; 02
+    .byte $0E   ; 03
+    .byte $14   ; 04
+    .byte $10   ; 05
+    .byte $0C   ; 06
+    .byte $13   ; 07
+    .byte $12   ; 08
+    .byte $15   ; 09
+    .byte $11   ; 10
+    .byte $16   ; 11
+    .byte $00   ; расстановка
     
-    .byte $22    ; GK
-    .byte $1B    ; 02
-    .byte $1C    ; 03
-    .byte $14    ; 04
-    .byte $1D    ; 05
-    .byte $17    ; 06
-    .byte $18    ; 07
-    .byte $11    ; 08
-    .byte $1A    ; 09
-    .byte $01    ; 10
-    .byte $15    ; 11
-    .byte $19    ; резерв 1
-    .byte $1F    ; резерв 2
-    .byte $10    ; резерв 3
-    .byte $12    ; резерв 4
-    .byte $13    ; резерв 5
-    .byte $16    ; резерв 6
-    .byte $1E    ; резерв 7
-    .byte $20    ; резерв 8
-    .byte $21    ; резерв GK 1
-    .byte $0F    ; резерв GK 2
-    .byte $01    ; расстановка
+    .byte $22   ; GK
+    .byte $1B   ; 02
+    .byte $1C   ; 03
+    .byte $14   ; 04
+    .byte $1D   ; 05
+    .byte $17   ; 06
+    .byte $18   ; 07
+    .byte $11   ; 08
+    .byte $1A   ; 09
+    .byte $01   ; 10
+    .byte $15   ; 11
+    .byte $19   ; резерв 1
+    .byte $1F   ; резерв 2
+    .byte $10   ; резерв 3
+    .byte $12   ; резерв 4
+    .byte $13   ; резерв 5
+    .byte $16   ; резерв 6
+    .byte $1E   ; резерв 7
+    .byte $20   ; резерв 8
+    .byte $21   ; резерв GK 1
+    .byte $0F   ; резерв GK 2
+    .byte $01   ; расстановка
 
 
 
