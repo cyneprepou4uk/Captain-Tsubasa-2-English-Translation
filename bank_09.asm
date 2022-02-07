@@ -1,2325 +1,6250 @@
 .segment "BANK_09"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
-; блоки с 4x4 тайлами
-; первый байт = атрибут блока
-; остальные 16 = номера тайлов
+; тут только данные
 
-.export tbl_0x010010_блоки_4x4_тайла
-tbl_0x010010_блоки_4x4_тайла:
-    ; 00
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 01
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 02
-    .byte $AA
-    .byte $FB, $FB, $FB, $FB
-    .byte $FB, $FB, $FB, $FB
-    .byte $FB, $FB, $FB, $FB
-    .byte $FB, $FB, $FB, $FB
-    ; 03
-    .byte $AA
-    .byte $27, $27, $27, $27
-    .byte $27, $27, $27, $27
-    .byte $27, $27, $27, $27
-    .byte $27, $27, $27, $27
-    ; 04
-    .byte $FF
-    .byte $10, $11, $08, $3D
-    .byte $12, $13, $0A, $12
-    .byte $3C, $3C, $18, $19
-    .byte $0A, $12, $0B, $0E
-    ; 05
-    .byte $FF
-    .byte $09, $0C, $03, $06
-    .byte $0B, $0E, $17, $17
-    .byte $3C, $3C, $10, $11
-    .byte $0A, $12, $1C, $1D
-    ; 06
-    .byte $FF
-    .byte $06, $07, $08, $3D
-    .byte $17, $17, $0A, $12
-    .byte $3C, $3C, $18, $19
-    .byte $1D, $1E, $0B, $0E
-    ; 07
-    .byte $FF
-    .byte $09, $0C, $3C, $3C
-    .byte $0B, $0E, $0A, $12
-    .byte $3C, $3C, $10, $11
-    .byte $0A, $12, $12, $13
-    ; 08
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $01, $1A
-    ; 09
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $1A, $1A
-    .byte $1A, $01, $02, $04
-    ; 0A
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $1A, $1A, $01, $01
-    .byte $04, $05, $01, $1A
-    ; 0B
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $1A, $01, $0D, $0D
-    ; 0C
-    .byte $FF
-    .byte $40, $41, $4B, $4B
-    .byte $42, $43, $42, $42
-    .byte $40, $40, $44, $45
-    .byte $42, $42, $46, $47
-    ; 0D
-    .byte $FF
-    .byte $48, $49, $03, $06
-    .byte $46, $47, $4A, $4A
-    .byte $40, $40, $40, $41
-    .byte $42, $42, $1C, $1D
-    ; 0E
-    .byte $FF
-    .byte $06, $07, $4B, $4B
-    .byte $4A, $4A, $42, $42
-    .byte $40, $40, $44, $45
-    .byte $1D, $1E, $46, $47
-    ; 0F
-    .byte $FF
-    .byte $48, $49, $40, $40
-    .byte $46, $47, $42, $42
-    .byte $40, $40, $40, $41
-    .byte $42, $42, $42, $43
-    ; 10
-    .byte $FF
-    .byte $40, $41, $40, $40
-    .byte $42, $43, $42, $42
-    .byte $40, $40, $44, $45
-    .byte $42, $42, $46, $47
-    ; 11
-    .byte $FF
-    .byte $44, $45, $40, $40
-    .byte $46, $47, $42, $42
-    .byte $40, $40, $40, $41
-    .byte $42, $42, $42, $43
-    ; 12
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    .byte $10, $11, $3C, $3C
-    .byte $12, $13, $0A, $12
-    ; 13
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    .byte $18, $19, $3C, $3C
-    .byte $0B, $0E, $0A, $12
-    ; 14
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $01, $1A
-    .byte $10, $11, $08, $3D
-    .byte $12, $13, $0A, $12
-    ; 15
-    .byte $FA
-    .byte $01, $01, $1A, $1A
-    .byte $1A, $01, $02, $04
-    .byte $09, $0C, $03, $06
-    .byte $0B, $0E, $17, $17
-    ; 16
-    .byte $FA
-    .byte $1A, $1A, $01, $01
-    .byte $04, $05, $01, $1A
-    .byte $06, $07, $08, $3D
-    .byte $17, $17, $0A, $12
-    ; 17
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $1A, $01, $0D, $0D
-    .byte $09, $0C, $3C, $3C
-    .byte $0B, $0E, $0A, $12
-    ; 18
-    .byte $0F
-    .byte $3C, $3C, $18, $19
-    .byte $0A, $12, $0B, $0E
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 19
-    .byte $0F
-    .byte $3C, $3C, $10, $11
-    .byte $0A, $12, $1C, $1D
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 1A
-    .byte $0F
-    .byte $3C, $3C, $18, $19
-    .byte $1D, $1E, $0B, $0E
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 1B
-    .byte $0F
-    .byte $3C, $3C, $10, $11
-    .byte $0A, $12, $12, $13
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 1C
-    .byte $0F
-    .byte $40, $40, $44, $45
-    .byte $42, $42, $46, $47
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 1D
-    .byte $0F
-    .byte $40, $40, $40, $41
-    .byte $42, $42, $1C, $1D
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 1E
-    .byte $0F
-    .byte $40, $40, $44, $45
-    .byte $1D, $1E, $46, $47
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 1F
-    .byte $0F
-    .byte $40, $40, $40, $41
-    .byte $42, $42, $42, $43
-    .byte $01, $01, $01, $01
-    .byte $16, $16, $16, $16
-    ; 20
-    .byte $FA
-    .byte $50, $51, $5C, $55
-    .byte $0F, $0F, $0F, $0F
-    .byte $10, $11, $3C, $3C
-    .byte $12, $13, $0A, $12
-    ; 21
-    .byte $FA
-    .byte $50, $51, $5C, $55
-    .byte $0F, $0F, $0F, $0F
-    .byte $40, $41, $40, $40
-    .byte $42, $43, $42, $42
-    ; 22 Tecmo Theater 1
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    .byte $40, $41, $40, $40
-    .byte $42, $43, $42, $42
-    ; 23 Tecmo Theater 2
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    .byte $44, $45, $40, $40
-    .byte $46, $47, $42, $42
-    ; 24 Tecmo Theater 3
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $01, $1A
-    .byte $40, $41, $4B, $4B
-    .byte $42, $43, $42, $42
-    ; 25
-    .byte $FA
-    .byte $01, $01, $1A, $1A
-    .byte $1A, $01, $02, $04
-    .byte $48, $49, $03, $06
-    .byte $46, $47, $4A, $4A
-    ; 26
-    .byte $FA
-    .byte $1A, $1A, $01, $01
-    .byte $04, $05, $01, $1A
-    .byte $06, $07, $4B, $4B
-    .byte $4A, $4A, $42, $42
-    ; 27
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $1A, $01, $0D, $0D
-    .byte $48, $49, $40, $40
-    .byte $46, $47, $42, $42
-    ; 28
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $01, $1A
-    .byte $40, $41, $4B, $4B
-    .byte $20, $21, $21, $21
-    ; 29
-    .byte $FA
-    .byte $01, $01, $1A, $1A
-    .byte $1A, $01, $02, $04
-    .byte $48, $49, $03, $06
-    .byte $21, $21, $21, $21
-    ; 2A
-    .byte $FA
-    .byte $1A, $1A, $01, $01
-    .byte $04, $05, $01, $1A
-    .byte $06, $07, $4B, $4B
-    .byte $21, $21, $21, $21
-    ; 2B
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $1A, $01, $0D, $0D
-    .byte $48, $49, $40, $40
-    .byte $21, $21, $21, $39
-    ; 2C
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    ; 2D
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $58, $59, $5C, $01
-    .byte $5A, $5B, $5E, $5F
-    .byte $0F, $0F, $0F, $0F
-    ; 2E
-    .byte $FF
-    .byte $10, $11, $3C, $3C
-    .byte $12, $13, $0A, $12
-    .byte $3C, $3C, $18, $19
-    .byte $0A, $12, $0B, $0E
-    ; 2F
-    .byte $FF
-    .byte $18, $19, $3C, $3C
-    .byte $0B, $0E, $0A, $12
-    .byte $3C, $3C, $10, $11
-    .byte $0A, $12, $12, $13
-    ; 30
-    .byte $AA
-    .byte $01, $7E, $7F, $4E
-    .byte $7E, $7F, $4E, $00
-    .byte $7F, $4E, $00, $00
-    .byte $4E, $00, $00, $00
-    ; 31
-    .byte $FF
-    .byte $4F, $00, $00, $00
-    .byte $4F, $00, $00, $00
-    .byte $4F, $00, $00, $00
-    .byte $4F, $00, $00, $00
-    ; 32
-    .byte $FA
-    .byte $01, $01, $01, $F8
-    .byte $01, $FA, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    ; 33
-    .byte $FA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $FD, $01
-    .byte $FA, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    ; 34
+; основные данные анимации
+con_повторы             = $E0
+con_повторить           = $F0
+con_координаты_Y_X      = $F1
+con_F5_зеркало          = $F5
+con_F6                  = $F6
+con_физика              = $F7   ; 1й байт = скорость + угол + направление (00/80), 2й = разгон X, 3й = разгон Y
+con_F9                  = $F9
+con_разговор            = $FA   ; развилка, первый прыжоок если персонаж молчит, второй если говорит
+con_выход               = $FF
+
+; данные спрайтов
+con_jsr                 = $FA
+con_jmp                 = $FB
+con_rts                 = $FE
+con_FF                  = $FF
+
+; поинтер находится в 0x0010DF, продолжение таблицы в банке 11
+    .word off_A0DA_00_полет_мяча_шнайдера
+    .word off_A167_01_полет_мяча_диаза
+    .word off_A1F1_02_цубаса_резкий_поворот_красный
+    .word off_A201_03
+    .word off_A218_04_цубаса_злой_молчит_красный_справа
+    .word off_A223_05_карлос_злой_молчит_движение_влево_красный
+    .word off_A231_06_хюга_обычный_красный
+    .word off_A23B_07_цубаса_движение_спиной_влево_поворот_вбок_красный
+    .word off_A251_08_цубаса_в_шоке_красный_слева
+    .word off_A25C_09_цубаса_злой_белый_справа
+    .word off_A266_0A_карлос_злой_желтый_справа
+    .word off_A270_0B
+    .word off_A287_0C_цубаса_на_фоне_сан_паулу
+    .word off_A28E_0D_кубок
+    .word off_A295_0E_цубаса_на_фоне_японии
+    .word off_A29C_0F_мисаки_на_фоне_нанкацу
+    .word off_A2A3_10_цубаса_обычный_белый_справа
+    .word off_A2AD_11_цубаса_злой_белый_слева
+    .word off_A2B8_12_цубаса_в_шоке_белый_слева
+    .word off_A2C3_13_цубаса_молчит_поворот_вбок_белый_слева
+    .word off_A2CD_14_цубаса_молчит_движение_направо_смотрит_влево_белый
+    .word off_A2DA_15_карлос_злой_молчит_красный_справа
+    .word off_A2E1_16_цубаса_молчит_поворот_вбок_красный_слева
+    .word off_A2EB_17_цубаса_на_фоне_сан_паулу_серый
+    .word off_A2F2_18_мисуги_молчит_движение_направо_смотрит_влево_белый
+    .word off_A2FF_19_мисаки_обычный_белый_слева
+    .word off_A30A_1A_йоко_медленное_движение_налево
+    .word off_A31E_1B_мисаки_злой_белый_слева
+    .word off_A329_1C_мацуяма_злой_желтый_слева
+    .word off_A334_1D_мацуяма_злой_желтый_справа
+    .word off_A33E_1E_мисаки_злой_молчит_белый_слева
+    .word off_A346_1F_мисаки_обычный_молчит_белый_справа
+    .word off_A34D_20_мисуги_злой_белый_справа
+    .word off_A357_21_шнайдер_справа
+    .word off_A361_22_китаец_обычный_справа
+    .word off_A36B_23
+    .word off_A380_24_ишизаки_моргает
+    .word off_A392_25_ишизаки_злой_слева
+    .word off_A3A2_26_санае_обычная_справа
+    .word off_A3AC_27_санае_закрытые_глаза_справа
+    .word off_A3B6_28_санае_в_шоке_справа
+    .word off_A3BD_29_санае_расстроена_справа
+    .word off_A3C4_2A_йоко_обычная_справа
+    .word off_A3CE_2B_йоко_закрытые_глаза_справа
+    .word off_A3D8_2C_йоко_подмигивает_справа
+    .word off_A3DF_2D_йоко_злая_резко_движется_влево
+    .word off_A3F4_2E_яои_молчит_справа
+    .word off_A3FB_2F_фуджисава_молчит_справа
+    .word off_A402_30_хюга_злой_черный_справа     ; unused
+    .word off_A40C_31_хюга_обычный_черный_справа_поднимает_брови
+    .word off_A419_32_хюга_злой_красный_справа
+    .word off_A423_33_хюга_обычный_красный_слева_поднимает_брови
+    .word off_A431_34_вакабаяши_справа
+    .word off_A43B_35
+    .word off_A445_36_роберто_очки_молчит_справа
+    .word off_A44C_37_меон_слева
+    .word off_A457_38_меон_справа
+    .word off_A461_39_вакабаяши_слева
+    .word off_A46C_3A_гертис_справа
+    .word off_A476_3B_роберто_обычный_справа
+    .word off_A480_3C_роберто_злой_справа
+    .word off_A48A_3D_роберто_очки_справа
+    .word off_A494_3E_роберто_очки_скрещены_руки
+    .word off_A49B_3F_мисаки_обычный_красный_справа
+    .word off_A4A5_40_катагири_черные_очки_слева
+    .word off_A4B0_41_катагири_прозрачные_очки_справа
+    .word off_A4BA_42_миками_справа
+    .word off_A4C4_43_сан_паулу_без_цубасы
+    .word off_A4CD_44_ишизаки_закрытые_глаза_справа
+    .word off_A4D7_45_коимбра_тень_справа
+    .word off_A4E1_46_менеджер_бразилии_закрытые_глаза_справа
+    .word off_A4EB_47_цубаса_обычный_красный_справа
+    .word off_A4F5_48_карлос_в_шоке_желтый_слева
+    .word off_A4FD_49_хюга_злой_молчит_черный_справа
+    .word off_A504_4A_гертиз_в_тени_движение_направо
+    .word off_A511_4B_цубаса_злой_красный_справа
+    .word off_A51B_4C_карлос_в_шоке_желтый_справа
+    .word off_A522_4D_роберто_обычный_слева
+    .word off_A52D_4E_цубаса_обычный_белый_слева
+    .word off_A538_4F_санае_расстроена_поднимает_брови_слева
+    .word off_A546_50_роберто_молчит_серый_слева
+    .word off_A54E_51_цубаса_молчит_серый_справа
+    .word off_A555_52_цубаса_злой_молчит_красный_справа
+    .word off_A55C_53_цубаса_с_кубком_медленно_движется_влево
+    .word off_A573_54_цубаса_красный_движется_влево_и_поворачивается
+    .word off_A58C_55_цубаса_со_спины_красный
+    .word off_A593_56_санае_в_шоке_слева
+    .word off_A59B_57_цубаса_злой_красный_слева
+    .word off_A5A6_58_цубаса_злой_молчит_белый_слева
+    .word off_A5AE_59
+    .word off_A5C5_5A_карлос_злой_молчит_желтый_слева
+    .word off_A5CD_5B_вакабаяши_в_шоке
+    .word off_A5D9_5C_пьер_молчит_справа
+    .word off_A5E0_5D_пьер_в_шоке_слева
+    .word off_A5E8_5E_коимбра_тень_серый_слева
+    .word off_A5F3_5F_коимбра_злой_слева
+    .word off_A5FE_60_коимбра_злой_тень_слева
+    .word off_A609_61_карлос_злой_красный_справа
+    .word off_A613_62_роберто_очки_молчит_слева
+    .word off_A61B_63_карлос_обычный_красный_справа
+    .word off_A625_64_карлос_в_шоке_красный_справа
+    .word off_A62E_65_цубаса_со_спины_красный
+    .word off_A635_66_цубаса_обычный_красный_слева
+    .word off_A640_67_цубаса_обычный_молчит_красный_слева
+    .word off_A648_68_ишизаки_закрытые_глаза_слева
+    .word off_A653_69_цубаса_резко_поворачивается_спиной_красный_справа
+    .word off_A65D_6A_цубаса_злой_молчит_красный_слева
+    .word off_A665_6B_ишизаки_надутые_губы
+    .word off_A674_6C_движение_блеска_очков_роберто
+
+
+
+off_A0DA_00_полет_мяча_шнайдера:
     .byte $00
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    ; 35
-    .byte $FF
-    .byte $FB, $FB, $FB, $FB
-    .byte $6C, $4D, $4D, $6D
-    .byte $66, $68, $69, $67
-    .byte $66, $6A, $6B, $67
-    ; 36
-    .byte $AF
-    .byte $6E, $4F, $4F, $6F
-    .byte $FB, $FB, $FB, $FB
-    .byte $F2, $F2, $F2, $F2
-    .byte $01, $01, $01, $01
-    ; 37
+
+    .byte con_координаты_Y_X
+    .byte $2E
+    .byte $6A
+
+    .byte $05
+
+    .byte con_физика
+    .byte $E9
     .byte $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    ; 38
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $58, $59, $5C, $01
-    .byte $5A, $5B, $5E, $5F
-    ; 39
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $5A
-    .byte $01, $01, $50, $51
-    ; 3A
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $50, $55
-    .byte $5C, $5A, $5B, $5B
-    .byte $5B, $5B, $5B, $5E
-    ; 3B
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $5A, $5C, $01, $01
-    .byte $5B, $5B, $5C, $01
-    .byte $5B, $5E, $5E, $5F
-    ; 3C
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $50, $51, $54, $55
-    .byte $52, $53, $56, $57
-    ; 3D
-    .byte $AA
-    .byte $50, $51, $54, $55
-    .byte $52, $53, $56, $57
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 3E
-    .byte $FA
-    .byte $60, $60, $60, $60
-    .byte $62, $62, $62, $62
-    .byte $68, $68, $68, $68
-    .byte $6A, $6A, $6A, $6A
-    ; 3F
-    .byte $FF
-    .byte $61, $61, $61, $61
-    .byte $63, $63, $63, $63
-    .byte $69, $69, $69, $69
-    .byte $6B, $6B, $6B, $6B
-    ; 40
-    .byte $AA
-    .byte $7A, $7A, $7A, $7A
-    .byte $6F, $6F, $6F, $6F
-    .byte $6F, $6F, $6F, $6F
-    .byte $6F, $6F, $6F, $6F
-    ; 41
-    .byte $AA
-    .byte $7A, $7A, $7A, $7A
-    .byte $6F, $7B, $6F, $6F
-    .byte $6F, $7B, $6F, $6F
-    .byte $6F, $7B, $6F, $6F
-    ; 42
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 43
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    ; 44
-    .byte $AA
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    ; 45
     .byte $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $BF, $BD, $01
-    ; 46
-    .byte $F0
-    .byte $81, $B5, $FA, $D4
-    .byte $EA, $B7, $F6, $F7
-    .byte $10, $18, $FC, $FD
-    .byte $0A, $0B, $EB, $EE
-    ; 47
-    .byte $F0
-    .byte $D5, $B9, $BC, $81
-    .byte $D7, $BB, $BE, $EA
-    .byte $FB, $9D, $19, $10
-    .byte $EF, $9F, $0E, $0A
-    ; 48
-    .byte $FF
-    .byte $00, $9C, $A8, $A8
-    .byte $00, $AA, $00, $00
-    .byte $00, $9E, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 49
-    .byte $FF
-    .byte $A8, $A8, $9D, $00
-    .byte $00, $00, $AB, $00
-    .byte $A9, $A9, $9F, $00
-    .byte $00, $00, $00, $00
-    ; 4A HALF TIME 1 (unused)
-    .byte $FF
-    .byte $A8, $A8, $A8, $A8
-    .byte $00, $00, $00, $88
-    .byte $A9, $A9, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 4B HALF TIME 2 (unused)
-    .byte $FF
-    .byte $A8, $A8, $A8, $A8
-    .byte $81, $8E, $86, $00
-    .byte $A9, $A9, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 4C HALF TIME 3 (unused)
-    .byte $FF
-    .byte $A8, $A8, $A8, $A8
-    .byte $FC, $89, $8C, $85
-    .byte $A9, $A9, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 4D MEETING 1 (unused)
-    .byte $FF
-    .byte $A8, $A8, $A8, $A8
-    .byte $8C, $85, $85, $FC
-    .byte $A9, $A9, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 4E MEETING 2 (unused)
-    .byte $FF
-    .byte $A8, $A8, $A8, $A8
-    .byte $89, $8A, $87, $00
-    .byte $A9, $A9, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 4F
-    .byte $FF
-    .byte $5D, $5D, $5D, $5D
-    .byte $5D, $5D, $5D, $5D
-    .byte $5D, $5D, $5D, $5D
-    .byte $5D, $5D, $5D, $5D
-    ; 50
-    .byte $AA
-    .byte $01, $01, $73, $72
-    .byte $01, $01, $73, $73
-    .byte $01, $01, $73, $73
-    .byte $01, $01, $73, $73
-    ; 51
-    .byte $8A
-    .byte $01, $01, $01, $01
-    .byte $76, $77, $01, $01
-    .byte $6E, $6F, $01, $01
-    .byte $7C, $7D, $01, $01
-    ; 52
-    .byte $AA
-    .byte $78, $7A, $73, $73
-    .byte $00, $7B, $7E, $79
-    .byte $00, $00, $00, $7B
-    .byte $00, $00, $00, $00
-    ; 53
-    .byte $AA
-    .byte $73, $01, $01, $01
-    .byte $73, $01, $01, $01
-    .byte $7E, $7A, $01, $01
-    .byte $00, $7B, $78, $7A
-    ; 54
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    .byte $40, $41, $40, $40
-    .byte $42, $43, $42, $42
-    ; 55
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $0D, $0D
-    .byte $44, $45, $40, $40
-    .byte $46, $47, $42, $42
-    ; 56
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $0D, $0D, $01, $1A
-    .byte $40, $41, $4B, $4B
-    .byte $42, $43, $42, $42
-    ; 57
-    .byte $FF
-    .byte $01, $01, $1A, $1A
-    .byte $1A, $01, $02, $04
-    .byte $48, $49, $03, $06
-    .byte $46, $47, $4A, $4A
-    ; 58
-    .byte $FF
-    .byte $1A, $1A, $01, $01
-    .byte $04, $05, $01, $1A
-    .byte $06, $07, $4B, $4B
-    .byte $4A, $4A, $42, $42
-    ; 59
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $1A, $01, $0D, $0D
-    .byte $48, $49, $40, $40
-    .byte $46, $47, $42, $42
-    ; 5A
-    .byte $AA
-    .byte $01, $01, $F7, $01
-    .byte $01, $01, $F4, $01
-    .byte $01, $01, $F1, $F6
-    .byte $01, $01, $01, $F4
-    ; 5B
-    .byte $AA
-    .byte $01, $01, $01, $F5
-    .byte $01, $01, $F4, $01
-    .byte $F4, $F6, $F5, $F0
-    .byte $F1, $01, $F7, $01
-    ; 5C
-    .byte $FF
-    .byte $A8, $A8, $A8, $A8
-    .byte $00, $00, $00, $00
-    .byte $A9, $A9, $A9, $A9
-    .byte $00, $00, $00, $00
-    ; 5D
-    .byte $0F
-    .byte $24, $25, $25, $25
-    .byte $24, $23, $23, $23
-    .byte $24, $27, $27, $27
-    .byte $32, $28, $28, $28
-    ; 5E
-    .byte $0F
-    .byte $25, $25, $25, $25
-    .byte $23, $23, $23, $23
-    .byte $27, $27, $27, $27
-    .byte $28, $28, $28, $28
-    ; 5F
-    .byte $0F
-    .byte $25, $25, $25, $3A
-    .byte $23, $23, $23, $3A
-    .byte $27, $27, $27, $3A
-    .byte $28, $28, $28, $3F
-    ; 60
-    .byte $AA
-    .byte $FB, $FB, $FB, $FA
-    .byte $FB, $FB, $FB, $FA
-    .byte $FB, $FB, $EE, $EF
-    .byte $EE, $EF, $00, $00
-    ; 61
-    .byte $AA
-    .byte $EC, $ED, $00, $00
-    .byte $01, $01, $EC, $ED
-    .byte $FB, $FB, $EE, $EF
-    .byte $EE, $EF, $00, $00
-    ; 62
-    .byte $AA
-    .byte $FB, $FB, $EE, $EF
-    .byte $EE, $EF, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 63
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $F0, $F1
-    ; 64
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $F4, $F5, $F4, $F5
-    ; 65
-    .byte $AA
-    .byte $FB, $FB, $FB, $FB
-    .byte $FB, $FB, $FB, $FB
-    .byte $F2, $F2, $F2, $F2
-    .byte $01, $01, $01, $01
-    ; 66
-    .byte $AA
-    .byte $FB, $FB, $FB, $FA
-    .byte $FB, $FB, $FB, $FA
-    .byte $F2, $F2, $F2, $F3
-    .byte $01, $01, $01, $F6
-    ; 67
-    .byte $AA
-    .byte $F9, $01, $01, $01
-    .byte $F8, $F9, $01, $01
-    .byte $F8, $F8, $F9, $01
-    .byte $F8, $F8, $F8, $F9
-    ; 68
-    .byte $AA
-    .byte $FB, $FB, $FB, $FA
-    .byte $FB, $FB, $FB, $FA
-    .byte $FB, $FB, $FB, $FA
-    .byte $FB, $FB, $FB, $FA
-    ; 69
-    .byte $AA
-    .byte $F7, $27, $27, $27
-    .byte $01, $F7, $27, $27
-    .byte $01, $01, $F7, $27
-    .byte $01, $01, $01, $F7
-    ; 6A
-    .byte $AA
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $8D, $8D
-    ; 6B
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $8D, $8D, $8D, $8D
-    ; 6C
-    .byte $AA
-    .byte $14, $15, $01, $01
-    .byte $01, $17, $25, $3B
-    .byte $1C, $1D, $27, $01
-    .byte $8D, $1F, $8D, $8D
-    ; 6D
-    .byte $AA
-    .byte $01, $40, $41, $6A
-    .byte $3D, $42, $43, $01
-    .byte $01, $48, $49, $01
-    .byte $8D, $8D, $4B, $8D
-    ; 6E
-    .byte $AA
-    .byte $6B, $01, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $8D, $8D, $00, $00
-    ; 6F
-    .byte $FF
-    .byte $00, $00, $99, $BC
-    .byte $00, $00, $8E, $8A
-    .byte $00, $00, $90, $91
-    .byte $00, $00, $92, $93
-    ; 70
-    .byte $FF
-    .byte $90, $91, $BC, $98
-    .byte $92, $93, $8A, $8B
-    .byte $BC, $98, $99, $BC
-    .byte $8A, $8B, $8E, $8A
-    ; 71
-    .byte $FF
-    .byte $99, $BC, $90, $91
-    .byte $8E, $8A, $92, $93
-    .byte $90, $91, $BC, $98
-    .byte $92, $93, $8A, $8B
-    ; 72
-    .byte $FF
-    .byte $BC, $35, $16, $BC
-    .byte $36, $37, $1E, $4A
-    .byte $3C, $BC, $34, $60
-    .byte $3E, $3F, $92, $62
-    ; 73
-    .byte $FF
-    .byte $90, $91, $61, $98
-    .byte $92, $93, $63, $44
-    .byte $45, $50, $69, $46
-    .byte $68, $8B, $8E, $4C
-    ; 74
-    .byte $FF
-    .byte $99, $BC, $00, $00
-    .byte $8E, $8A, $00, $00
-    .byte $47, $91, $00, $00
-    .byte $4D, $52, $00, $00
-    ; 75
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $08, $02, $02, $02
-    .byte $0A, $0B, $02, $02
-    ; 76
-    .byte $EA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $01, $03, $03
-    .byte $01, $01, $03, $03
-    ; 77
-    .byte $AE
-    .byte $20, $21, $03, $03
-    .byte $22, $29, $09, $09
-    .byte $28, $29, $03, $03
-    .byte $2A, $2B, $03, $03
-    ; 78
-    .byte $AB
-    .byte $23, $03, $01, $01
-    .byte $09, $09, $27, $01
-    .byte $03, $2C, $2D, $24
-    .byte $03, $2E, $2F, $26
-    ; 79
-    .byte $AA
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $01, $01, $00, $00
-    .byte $25, $0E, $00, $00
-    ; 7A
-    .byte $AA
-    .byte $F7, $FC, $F6, $01
-    .byte $00, $F7, $FC, $F6
-    .byte $00, $00, $F7, $FC
-    .byte $00, $00, $00, $F7
-    ; 7B
-    .byte $BA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $03, $03, $02, $18
-    .byte $03, $03, $1B, $1A
-    ; 7C
-    .byte $AA
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $1E, $35
-    ; 7D
-    .byte $AE
-    .byte $01, $01, $03, $33
-    .byte $01, $37, $09, $09
-    .byte $34, $3D, $3C, $03
-    .byte $36, $3F, $3E, $03
-    ; 7E
-    .byte $AB
-    .byte $03, $03, $31, $30
-    .byte $09, $09, $39, $32
-    .byte $03, $03, $39, $38
-    .byte $03, $03, $3B, $3A
-    ; 7F
-    .byte $FF
-    .byte $00, $00, $00, $FD
-    .byte $00, $00, $00, $FD
-    .byte $00, $00, $00, $FD
-    .byte $00, $00, $00, $FD
-    ; 80
-    .byte $BA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $03, $03, $15, $14
-    .byte $02, $02, $17, $16
-    ; 81
-    .byte $AA
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $11
-    .byte $00, $00, $01, $13
-    ; 82
-    .byte $AE
-    .byte $01, $01, $03, $33
-    .byte $01, $37, $09, $09
-    .byte $1D, $3D, $3C, $03
-    .byte $1F, $1C, $3E, $03
-    ; 83
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $50, $51, $5C, $50
-    .byte $52, $53, $56, $53
-    ; 84
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $51, $54, $55, $01
-    .byte $56, $56, $57, $01
-    ; 85
-    .byte $55
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $F6, $F6
-    .byte $00, $00, $F7, $00
-    ; 86
-    .byte $55
-    .byte $00, $F6, $F6, $F6
-    .byte $00, $F7, $00, $00
-    .byte $F6, $F3, $F6, $F6
-    .byte $00, $00, $00, $00
-    ; 87
-    .byte $55
-    .byte $F6, $F6, $F6, $F6
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $F7, $00, $00, $00
-    ; 88
-    .byte $AA
-    .byte $01, $4F, $58, $03
-    .byte $01, $4F, $58, $03
-    .byte $01, $4F, $58, $03
-    .byte $00, $00, $00, $00
-    ; 89
-    .byte $AA
-    .byte $00, $00, $02, $02
-    .byte $00, $00, $02, $02
-    .byte $00, $00, $02, $02
-    .byte $00, $00, $00, $00
-    ; 8A
-    .byte $AA
-    .byte $02, $02, $00, $00
-    .byte $02, $02, $00, $00
-    .byte $02, $02, $00, $00
-    .byte $00, $00, $00, $00
-    ; 8B
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $02, $02, $02, $02
-    .byte $03, $03, $03, $03
-    .byte $00, $00, $00, $00
-    ; 8C
-    .byte $AA
-    .byte $01, $01, $77, $01
-    .byte $01, $01, $74, $01
-    .byte $01, $01, $71, $76
-    .byte $01, $01, $01, $74
-    ; 8D
+
+    .dbyt off_A681 - $2000
+    .byte $01
+
+    .dbyt off_A6C2 - $2000
+    .byte $01
+
+    .dbyt off_A6F3 - $2000
+    .byte $01
+
+    .dbyt off_A718 - $2000
+    .byte $01
+
+    .dbyt off_A749 - $2000
+    .byte $01
+
+    .dbyt off_A75D - $2000
+    .byte $01
+
+    .dbyt off_A771 - $2000
+    .byte $01
+
+    .dbyt off_A780 - $2000
+    .byte $01
+
+    .dbyt off_A78F - $2000
+    .byte $01
+
+    .dbyt off_A79E - $2000
+    .byte $01
+
+    .dbyt off_A7AD - $2000
+    .byte $01
+
+    .dbyt off_A7B7 - $2000
+    .byte $01
+
+    .dbyt off_A7C1 - $2000
+
+    .byte con_координаты_Y_X
+    .byte $22
+    .byte $3E
+
+    .byte con_физика
     .byte $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $01
-    .byte $00, $00, $00, $01
-    ; 8E
     .byte $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $00, $00, $00
-    .byte $01, $00, $00, $00
-    ; 8F
     .byte $00
-    .byte $00, $00, $00, $01
-    .byte $00, $00, $00, $01
-    .byte $00, $00, $00, $78
-    .byte $00, $00, $00, $7A
-    ; 90
-    .byte $C0
-    .byte $01, $01, $01, $01
-    .byte $73, $76, $01, $01
-    .byte $79, $7C, $4A, $6F
-    .byte $7B, $7E, $70, $71
-    ; 91
-    .byte $A0
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $70, $74, $12, $70
-    .byte $70, $74, $12, $70
-    ; 92
-    .byte $FF
-    .byte $01, $00, $00, $00
-    .byte $77, $00, $00, $00
-    .byte $70, $00, $00, $00
-    .byte $72, $00, $00, $00
-    ; 93
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    ; 94
-    .byte $AA
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    .byte $00, $00, $01, $01
-    ; 95
-    .byte $FF
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 96
-    .byte $AA
-    .byte $01, $01, $F5, $01
-    .byte $01, $F4, $01, $01
-    .byte $01, $F5, $F7, $01
-    .byte $01, $01, $F1, $01
-    ; 97
-    .byte $AA
-    .byte $01, $01, $01, $75
-    .byte $01, $01, $74, $01
-    .byte $74, $76, $75, $70
-    .byte $71, $01, $77, $01
-    ; 98
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $82, $83, $86, $87
-    .byte $88, $89, $8C, $8D
-    ; 99
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $92, $93, $01, $01
-    .byte $98, $99, $93, $01
-    ; 9A
-    .byte $AA
-    .byte $8A, $8B, $8E, $8F
-    .byte $A0, $A0, $A4, $A5
-    .byte $A2, $A3, $A6, $A7
-    .byte $A8, $A9, $AC, $AD
-    ; 9B
-    .byte $AA
-    .byte $9A, $9B, $9E, $93
-    .byte $B0, $B1, $B4, $B5
-    .byte $B2, $9A, $B6, $B7
-    .byte $B8, $B9, $BC, $8F
-    ; 9C
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $93, $01, $01, $01
-    .byte $E2, $93, $01, $01
-    .byte $8D, $E9, $EC, $01
-    ; 9D
-    .byte $AA
-    .byte $AA, $AA, $83, $AF
-    .byte $AB, $AB, $AE, $F8
-    .byte $82, $82, $84, $FA
-    .byte $88, $88, $88, $85
-    ; 9E
-    .byte $AA
-    .byte $BA, $BB, $BE, $BF
-    .byte $D2, $D3, $94, $95
-    .byte $D8, $D9, $96, $97
-    .byte $DA, $DB, $9C, $9D
-    ; 9F
-    .byte $AA
-    .byte $B0, $9A, $EE, $EF
-    .byte $C0, $C1, $C4, $C5
-    .byte $C2, $C3, $C6, $C7
-    .byte $C8, $C9, $CC, $CD
-    ; A0
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $E5, $01, $01, $01
-    .byte $E7, $ED, $01, $01
-    .byte $CF, $D0, $01, $01
-    ; A1
-    .byte $AA
-    .byte $8A, $8A, $8A, $90
-    .byte $A0, $A0, $A0, $91
-    .byte $A3, $A3, $A3, $83
-    .byte $BD, $BD, $BD, $E8
-    ; A2
-    .byte $AA
-    .byte $F0, $F1, $B3, $9F
-    .byte $F2, $F3, $DE, $A1
-    .byte $F8, $F9, $D4, $D5
-    .byte $FA, $FB, $D6, $D7
-    ; A3
-    .byte $AA
-    .byte $CA, $CB, $CE, $CF
-    .byte $E0, $E1, $E4, $CF
-    .byte $EA, $E3, $E6, $CF
-    .byte $EB, $DC, $DD, $CF
-    ; A4
-    .byte $AA
-    .byte $CF, $D1, $ED, $01
-    .byte $CF, $CF, $D0, $01
-    .byte $CF, $CF, $D1, $ED
-    .byte $CF, $CF, $CF, $D0
-    ; A5
-    .byte $FF
-    .byte $00, $80, $82, $81
-    .byte $80, $82, $81, $83
-    .byte $82, $81, $83, $5D
-    .byte $81, $83, $5D, $5D
-    ; A6
-    .byte $FF
-    .byte $83, $5D, $8A, $7F
-    .byte $5D, $5D, $8A, $7F
-    .byte $5D, $5D, $8B, $01
-    .byte $5D, $5D, $5D, $8B
-    ; A7
-    .byte $FF
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; A8
-    .byte $FF
-    .byte $7F, $8C, $8E, $8F
-    .byte $8C, $8E, $8F, $83
-    .byte $FC, $FE, $83, $5D
-    .byte $FE, $83, $5D, $5D
-    ; A9
-    .byte $FF
-    .byte $86, $5D, $5D, $5D
-    .byte $86, $5D, $5D, $5D
-    .byte $86, $5D, $5D, $5D
-    .byte $86, $5D, $5D, $5D
-    ; AA
-    .byte $FF
-    .byte $8B, $01, $01, $01
-    .byte $5D, $8B, $01, $01
-    .byte $5D, $5D, $8B, $01
-    .byte $5D, $5D, $5D, $8B
-    ; AB
-    .byte $D5
-    .byte $90, $91, $94, $95
-    .byte $92, $00, $92, $00
-    .byte $94, $95, $00, $80
-    .byte $92, $00, $80, $82
-    ; AC
-    .byte $FF
-    .byte $00, $80, $84, $85
-    .byte $80, $82, $00, $87
-    .byte $82, $81, $88, $89
-    .byte $81, $83, $8A, $7F
-    ; AD
-    .byte $FF
-    .byte $84, $85, $84, $85
-    .byte $00, $87, $00, $87
-    .byte $89, $89, $89, $89
-    .byte $7F, $7F, $7F, $7F
-    ; AE
-    .byte $FF
-    .byte $84, $85, $84, $85
-    .byte $00, $87, $00, $87
-    .byte $89, $89, $89, $8D
-    .byte $7F, $7F, $8C, $8E
-    ; AF
-    .byte $55
-    .byte $90, $91, $93, $91
-    .byte $92, $00, $00, $00
-    .byte $93, $91, $91, $91
-    .byte $00, $00, $92, $00
-    ; B0
-    .byte $55
-    .byte $90, $91, $94, $95
-    .byte $92, $00, $92, $96
-    .byte $94, $95, $96, $97
-    .byte $92, $96, $97, $97
-    ; B1
-    .byte $55
-    .byte $96, $97, $97, $97
-    .byte $97, $97, $97, $97
-    .byte $97, $97, $98, $91
-    .byte $97, $97, $9A, $00
-    ; B2
-    .byte $55
-    .byte $98, $91, $93, $91
-    .byte $9A, $00, $00, $00
-    .byte $93, $91, $91, $91
-    .byte $00, $00, $92, $00
-    ; B3
-    .byte $55
-    .byte $98, $91, $93, $91
-    .byte $9A, $00, $00, $00
-    .byte $93, $91, $91, $91
-    .byte $99, $84, $84, $84
-    ; B4
-    .byte $55
-    .byte $91, $91, $93, $91
-    .byte $92, $00, $00, $00
-    .byte $93, $91, $91, $91
-    .byte $85, $84, $84, $84
-    ; B5
-    .byte $55
-    .byte $9B, $91, $91, $91
-    .byte $87, $00, $00, $00
-    .byte $93, $91, $91, $91
-    .byte $00, $00, $92, $00
-    ; B6
-    .byte $FF
-    .byte $9E, $9E, $9E, $9E
-    .byte $84, $84, $85, $84
-    .byte $9E, $9E, $87, $9E
-    .byte $9E, $9E, $87, $9E
-    ; B7
-    .byte $FF
-    .byte $9E, $9E, $9E, $9E
-    .byte $9E, $9E, $9E, $9E
-    .byte $9E, $9E, $9E, $9E
-    .byte $9E, $9E, $9E, $9E
-    ; B8
-    .byte $FF
-    .byte $86, $00, $9E, $9E
-    .byte $86, $00, $9E, $9E
-    .byte $86, $00, $9E, $9E
-    .byte $00, $00, $9E, $9E
-    ; B9
-    .byte $FF
-    .byte $9F, $9F, $9F, $9F
-    .byte $9C, $9D, $00, $00
-    .byte $00, $9C, $9D, $00
-    .byte $00, $00, $9C, $9D
-    ; BA
-    .byte $FF
-    .byte $9F, $9F, $9F, $9F
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; BB
-    .byte $AA
-    .byte $A0, $01, $A0, $01
-    .byte $A2, $A3, $A2, $A3
-    .byte $A1, $A4, $A6, $A6
-    .byte $90, $93, $90, $93
-    ; BC
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $A6, $A6, $A6, $A6
-    .byte $90, $93, $90, $93
-    ; BD
+
+    .byte con_повторы + $02
+
+    .dbyt off_A7C1 - $2000
+    .byte $01
+
+    .dbyt off_A7B7 - $2000
+    .byte $01
+
+    .dbyt off_A7AD - $2000
+    .byte $01
+
+    .dbyt off_A79E - $2000
+    .byte $01
+
+    .dbyt off_A78F - $2000
+    .byte $01
+
+    .dbyt off_A780 - $2000
+    .byte $01
+
+    .dbyt off_A771 - $2000
+    .byte $01
+
+    .dbyt off_A75D - $2000
+    .byte $01
+
+    .dbyt off_A749 - $2000
+    .byte $01
+
+    .dbyt off_A718 - $2000
+    .byte $01
+
+    .dbyt off_A6F3 - $2000
+    .byte $01
+
+    .dbyt off_A6C2 - $2000
+    .byte $01
+
+    .dbyt off_A681 - $2000
+    .byte $01
+
+    .byte con_повторить
+
+    .byte con_координаты_Y_X
+    .byte $26
+    .byte $62
+
+    .byte con_физика
+    .byte $1A
     .byte $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $A8
-    ; BE
     .byte $00
-    .byte $8B, $01, $A5, $B0
-    .byte $5D, $8B, $A7, $B2
-    .byte $5D, $A9, $AC, $AD
-    .byte $AA, $AB, $AE, $00
-    ; BF
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $73, $01, $01, $01
-    .byte $73, $01, $01, $01
-    .byte $73, $01, $01, $01
-    ; C0
-    .byte $55
-    .byte $01, $01, $01, $01
-    .byte $B8, $AF, $AF, $AF
-    .byte $BA, $B1, $B4, $B5
-    .byte $BA, $B3, $B6, $B1
-    ; C1
-    .byte $55
-    .byte $01, $01, $01, $01
-    .byte $AF, $AF, $AF, $AF
-    .byte $B9, $B9, $B9, $B9
-    .byte $B4, $B5, $BB, $BB
-    ; C2
-    .byte $55
-    .byte $01, $01, $01, $01
-    .byte $AF, $AF, $AF, $AF
-    .byte $B9, $B9, $B9, $B9
-    .byte $BB, $BB, $BB, $BB
-    ; C3
-    .byte $55
-    .byte $BA, $B3, $BC, $B3
-    .byte $BA, $B3, $BC, $B3
-    .byte $BA, $B3, $BC, $B3
-    .byte $BA, $B3, $BC, $B3
-    ; C4
-    .byte $55
-    .byte $B6, $B7, $C0, $C1
-    .byte $BC, $B3, $BD, $C5
-    .byte $BC, $B3, $BF, $C7
-    .byte $BC, $B3, $BE, $CD
-    ; C5
-    .byte $55
-    .byte $C2, $C3, $C0, $C1
-    .byte $C5, $C5, $C5, $C5
-    .byte $C7, $C7, $C7, $C7
-    .byte $CD, $CD, $CD, $CD
-    ; C6
-    .byte $55
-    .byte $BC, $B3, $C8, $C9
-    .byte $BC, $B3, $BC, $BD
-    .byte $BC, $B3, $BC, $C6
-    .byte $BC, $B3, $BC, $C4
-    ; C7
-    .byte $55
-    .byte $CF, $CF, $CF, $CF
-    .byte $C5, $C5, $C5, $C5
-    .byte $C7, $C7, $C7, $C7
-    .byte $CD, $CD, $CD, $CD
-    ; C8
-    .byte $55
-    .byte $BC, $B3, $BC, $CA
-    .byte $BC, $B3, $BC, $B3
-    .byte $BC, $B3, $BC, $B3
-    .byte $BC, $B3, $BC, $B3
-    ; C9
-    .byte $55
-    .byte $CB, $CF, $CF, $CF
-    .byte $BD, $C5, $C5, $C5
-    .byte $CC, $C7, $C7, $C7
-    .byte $CE, $CD, $CD, $CD
-    ; CA
-    .byte $55
-    .byte $BC, $B3, $BC, $B3
-    .byte $BC, $B3, $BC, $B3
-    .byte $BC, $B3, $BC, $B3
-    .byte $BC, $B3, $BC, $B3
-    ; CB
-    .byte $55
-    .byte $C8, $C9, $CF, $CF
-    .byte $BC, $BD, $C5, $C5
-    .byte $BC, $CC, $C7, $C7
-    .byte $BC, $CE, $CD, $CD
-    ; CC
-    .byte $55
-    .byte $BC, $C8, $C9, $CF
-    .byte $BC, $B3, $BD, $C5
-    .byte $BC, $B3, $CC, $C7
-    .byte $BC, $B3, $CE, $CD
-    ; CD
-    .byte $FF
-    .byte $D0, $D1, $D1, $D1
-    .byte $D0, $D0, $D0, $D1
-    .byte $D0, $D1, $D1, $D1
-    .byte $D0, $D0, $D0, $D1
-    ; CE
-    .byte $FF
-    .byte $D1, $D1, $D0, $D0
-    .byte $D1, $D1, $D1, $D0
-    .byte $D1, $D1, $D1, $D1
-    .byte $D1, $D1, $D2, $D3
-    ; CF
-    .byte $FF
-    .byte $D1, $D1, $D1, $D4
-    .byte $D1, $D1, $D0, $D6
-    .byte $D1, $D1, $D6, $D1
-    .byte $D1, $D1, $D6, $D1
-    ; D0
-    .byte $FF
-    .byte $D1, $D1, $D1, $D5
-    .byte $D1, $D1, $D1, $D5
-    .byte $D1, $D1, $D1, $D5
-    .byte $D0, $D1, $D1, $D5
-    ; D1
-    .byte $FF
-    .byte $D0, $D1, $D1, $D1
-    .byte $D0, $D1, $D1, $D1
-    .byte $D0, $D1, $D1, $D1
-    .byte $D0, $D1, $D1, $D1
-    ; D2
-    .byte $FF
-    .byte $D1, $D6, $D6, $D1
-    .byte $D1, $D5, $D1, $D1
-    .byte $D1, $D6, $D6, $D1
-    .byte $D6, $D5, $D1, $D1
-    ; D3
-    .byte $FF
-    .byte $D1, $D1, $D8, $D9
-    .byte $D1, $D1, $D8, $D9
-    .byte $D1, $D1, $D8, $D9
-    .byte $D1, $D1, $D8, $D9
-    ; D4
-    .byte $FF
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $00, $00
-    ; D5
-    .byte $FF
-    .byte $DA, $D6, $D6, $D5
-    .byte $DA, $DA, $DA, $DB
-    .byte $DA, $E0, $DC, $DD
-    .byte $DA, $E2, $DE, $DF
-    ; D6
-    .byte $FF
-    .byte $D0, $E5, $E5, $D1
-    .byte $E3, $E5, $E5, $E5
-    .byte $E1, $E4, $E5, $E5
-    .byte $00, $E6, $E7, $D0
-    ; D7
-    .byte $FF
-    .byte $D1, $E9, $EC, $ED
-    .byte $D0, $EB, $EE, $EF
-    .byte $EA, $EA, $E8, $F0
-    .byte $EA, $EA, $EA, $D1
-    ; D8
-    .byte $FF
-    .byte $F4, $F5, $F1, $D1
-    .byte $F6, $F7, $F3, $D0
-    .byte $F8, $F9, $F2, $F2
-    .byte $D1, $F2, $F2, $F2
-    ; D9
-    .byte $FF
-    .byte $D3, $D0, $D1, $D1
-    .byte $D6, $D1, $D1, $D1
-    .byte $D6, $D6, $D1, $D1
-    .byte $D1, $D1, $D1, $D1
-    ; DA
-    .byte $FF
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $00, $00
-    ; DB
-    .byte $FF
-    .byte $D4, $EA, $EA, $D6
-    .byte $D4, $D4, $D0, $D6
-    .byte $D1, $D1, $D1, $D1
-    .byte $D1, $D1, $D1, $D1
-    ; DC
-    .byte $FF
-    .byte $D0, $F2, $D6, $D6
-    .byte $D0, $D1, $D1, $D1
-    .byte $D1, $D1, $D1, $D5
-    .byte $D1, $D1, $D1, $D1
-    ; DD
-    .byte $FF
-    .byte $D9, $D7, $00, $00
-    .byte $D9, $D7, $FD, $FD
-    .byte $D9, $D7, $F4, $F4
-    .byte $FA, $FB, $00, $00
-    ; DE
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    ; DF
-    .byte $FF
-    .byte $00, $00, $00, $00
-    .byte $FD, $FD, $FD, $FD
-    .byte $F4, $F4, $F4, $F4
-    .byte $00, $00, $00, $00
-    ; E0
-    .byte $55
-    .byte $70, $71, $71, $71
-    .byte $74, $75, $75, $75
-    .byte $46, $47, $47, $47
-    .byte $5D, $5D, $5D, $5D
-    ; E1
-    .byte $0F
-    .byte $40, $41, $44, $40
-    .byte $42, $43, $42, $43
-    .byte $48, $49, $4C, $4D
-    .byte $4A, $4B, $4E, $4A
-    ; E2
-    .byte $0F
-    .byte $44, $45, $45, $45
-    .byte $42, $43, $42, $43
-    .byte $48, $49, $4D, $4C
-    .byte $4B, $4F, $60, $4E
-    ; E3
-    .byte $0F
-    .byte $40, $41, $44, $40
-    .byte $42, $42, $43, $43
-    .byte $48, $4D, $4B, $4D
-    .byte $60, $4A, $49, $4B
-    ; E4
-    .byte $0F
-    .byte $40, $41, $44, $40
-    .byte $42, $43, $42, $43
-    .byte $48, $4C, $4D, $4B
-    .byte $60, $4E, $60, $4D
-    ; E5
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $62, $63, $66, $67
-    .byte $61, $64, $65, $61
-    .byte $00, $00, $00, $00
-    ; E6
-    .byte $AA
-    .byte $7F, $67, $62, $69
-    .byte $68, $64, $64, $64
-    .byte $64, $64, $00, $00
-    .byte $00, $00, $00, $00
-    ; E7
-    .byte $AA
-    .byte $63, $66, $7F, $7F
-    .byte $64, $61, $6C, $66
-    .byte $00, $00, $61, $61
-    .byte $00, $00, $00, $00
-    ; E8
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    .byte $69, $63, $62, $6C
-    .byte $00, $65, $64, $64
-    ; E9
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    .byte $66, $7F, $67, $68
-    .byte $61, $6D, $64, $00
-    ; EA
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $67, $62, $63, $66
-    .byte $64, $61, $61, $61
-    .byte $00, $00, $00, $00
-    ; EB
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    .byte $6C, $66, $7F, $67
-    .byte $64, $65, $6D, $64
-    ; EC
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    .byte $66, $67, $62, $6C
-    .byte $61, $65, $64, $64
-    ; ED еще не использовалось
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $7F
-    .byte $6C, $66, $67, $62
-    .byte $64, $65, $61, $64
-    ; EE
-    .byte $AA
-    .byte $7F, $7F, $7F, $7F
-    .byte $7F, $7F, $7F, $67
-    .byte $66, $67, $68, $64
-    .byte $61, $64, $64, $00
-    ; EF
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $01, $01, $02
-    .byte $01, $01, $01, $08
-    ; F0
-    .byte $FF
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $04, $04
-    .byte $00, $06, $07, $12
-    ; F1
-    .byte $FF
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $04, $04, $04, $05
-    .byte $13, $16, $17, $0C
-    ; F2
-    .byte $FF
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $10, $11, $00, $00
-    .byte $00, $0D, $18, $19
-    ; F3
-    .byte $BF
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $03
-    .byte $1C, $1D, $00, $09
-    ; F4
-    .byte $AA
-    .byte $01, $01, $01, $0A
-    .byte $01, $01, $01, $02
-    .byte $01, $01, $01, $20
-    .byte $01, $01, $01, $01
-    ; F5
-    .byte $EF
-    .byte $0E, $0F, $00, $00
-    .byte $30, $00, $00, $00
-    .byte $32, $00, $00, $00
-    .byte $01, $2D, $38, $39
-    ; F6
-    .byte $FF
-    .byte $1A, $1B, $00, $00
-    .byte $31, $34, $35, $00
-    .byte $33, $7F, $36, $37
-    .byte $3C, $7F, $7F, $3D
-    ; F7
-    .byte $FF
-    .byte $00, $00, $1E, $1F
-    .byte $00, $00, $22, $23
-    .byte $00, $00, $28, $5D
-    .byte $2A, $2B, $2E, $2F
-    ; F8
-    .byte $BB
-    .byte $24, $25, $00, $0B
-    .byte $26, $3E, $00, $03
-    .byte $29, $2C, $00, $21
-    .byte $3A, $3B, $14, $15
-    ; F9
-    .byte $FF
-    .byte $80, $81, $8B, $84
-    .byte $82, $83, $01, $86
-    .byte $88, $89, $01, $85
-    .byte $8A, $01, $01, $87
-    ; FA
-    .byte $08
-    .byte $8C, $01, $01, $01
-    .byte $8E, $8C, $01, $01
-    .byte $B1, $8E, $8C, $01
-    .byte $00, $B1, $8E, $8F
-    ; FB
-    .byte $8A
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $8D, $01, $01, $01
-    ; FC
-    .byte $FF
-    .byte $90, $01, $01, $91
-    .byte $92, $01, $93, $00
-    .byte $94, $95, $98, $00
-    .byte $96, $97, $9A, $00
-    ; FD
-    .byte $FF
-    .byte $00, $99, $9C, $9D
-    .byte $00, $9B, $9E, $9F
-    .byte $00, $A1, $A4, $A5
-    .byte $B0, $A3, $A6, $A7
-    ; FE
-    .byte $08
-    .byte $A8, $01, $01, $01
-    .byte $AA, $8C, $01, $01
-    .byte $A9, $AC, $AD, $A0
-    .byte $AB, $AE, $AF, $A2
-    ; FF
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 100
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 101
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 102 еще не использовалось
-    .byte $AA
-    .byte $02, $02, $02, $02
-    .byte $02, $02, $02, $02
-    .byte $02, $02, $02, $02
-    .byte $02, $02, $02, $02
-    ; 103 еще не использовалось
-    .byte $AA
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    ; 104
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $80, $81
-    .byte $00, $00, $82, $83
-    .byte $00, $86, $88, $83
-    ; 105
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $84, $85, $90, $00
-    .byte $83, $87, $92, $93
-    .byte $8C, $8D, $98, $99
-    ; 106
-    .byte $AA
-    .byte $00, $00, $A1, $A8
-    .byte $94, $84, $C0, $C1
-    .byte $96, $97, $C2, $C3
-    .byte $9C, $9D, $C8, $C9
-    ; 107
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $C4, $84, $D0, $D1
-    .byte $C6, $C6, $D2, $D3
-    .byte $83, $83, $D8, $D9
-    ; 108
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $D4, $D5, $AA, $AB
-    .byte $D6, $D7, $BE, $BF
-    .byte $DC, $DD, $EF, $FA
-    ; 109
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $AE, $AF, $BA, $BB
-    .byte $EA, $EB, $EE, $00
-    .byte $FB, $FE, $FF, $00
-    ; 10A
-    .byte $AA
-    .byte $00, $89, $8A, $83
-    .byte $00, $82, $83, $83
-    .byte $00, $8B, $A2, $A3
-    .byte $00, $A0, $F8, $A9
-    ; 10B
-    .byte $AA
-    .byte $8E, $8F, $83, $83
-    .byte $A4, $A5, $B0, $B1
-    .byte $A6, $A7, $B2, $B3
-    .byte $AC, $F8, $B8, $B9
-    ; 10C
-    .byte $AA
-    .byte $9E, $9F, $CA, $CB
-    .byte $B4, $B5, $E0, $E1
-    .byte $83, $B7, $E2, $83
-    .byte $F8, $BD, $E8, $E9
-    ; 10D
-    .byte $AA
-    .byte $CE, $CF, $DA, $DB
-    .byte $E4, $E5, $F0, $F1
-    .byte $E6, $E7, $83, $F3
-    .byte $EC, $ED, $F8, $F9
-    ; 10E
-    .byte $AA
-    .byte $DE, $83, $91, $9A
-    .byte $F4, $F5, $AD, $B6
-    .byte $F6, $83, $C7, $83
-    .byte $FC, $FD, $DF, $E3
-    ; 10F
-    .byte $AA
-    .byte $9B, $95, $00, $00
-    .byte $BC, $C5, $00, $00
-    .byte $CC, $CD, $00, $00
-    .byte $F2, $F7, $00, $00
-    ; 110
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $16, $10, $0D, $30
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 111
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $31, $00, $23, $27
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 112
-    .byte $AA
-    .byte $34, $00, $00, $00
-    .byte $25, $27, $23, $24
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 113
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $26, $21, $22, $27
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 114
-    .byte $AA
-    .byte $0C, $0B, $05, $0C
-    .byte $00, $00, $00, $00
-    .byte $05, $10, $0F, $14
-    .byte $00, $00, $00, $00
-    ; 115
-    .byte $AA
-    .byte $00, $10, $08, $08
-    .byte $00, $00, $00, $00
-    .byte $0B, $0F, $15, $07
-    .byte $00, $00, $00, $00
-    ; 116
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $02, $00, $17
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $14
-    ; 117
-    .byte $AA
-    .byte $36, $00, $00, $00
-    .byte $10, $0B, $05, $0A
-    .byte $00, $00, $00, $00
-    .byte $16, $00, $14, $10
-    ; 118
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $0B, $00, $14, $03
-    .byte $00, $00, $00, $00
-    .byte $0C, $17, $10, $00
-    ; 119
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $0C, $03, $0A, $03
-    .byte $00, $00, $00, $00
-    .byte $05, $0A, $35, $18
-    ; 11A
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $13, $0A, $0B, $33
-    .byte $00, $00, $00, $00
-    .byte $19, $33, $14, $13
-    ; 11B
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $13, $0A, $15, $07
-    .byte $00, $00, $00, $00
-    .byte $15, $05, $0A, $0B
-    ; 11C
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $0B, $13, $0A, $03
-    .byte $00, $00, $00, $00
-    .byte $06, $03, $00, $11
-    ; 11D
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $12, $10, $00, $00
-    ; 11E
+
+    .dbyt off_A7C1 - $2000
+    .byte $01
+
+    .dbyt off_A7B7 - $2000
+    .byte $01
+
+    .dbyt off_A7AD - $2000
+    .byte $01
+
+    .dbyt off_A79E - $2000
+    .byte $01
+
+    .dbyt off_A78F - $2000
+    .byte $01
+
+    .dbyt off_A780 - $2000
+    .byte $01
+
+    .dbyt off_A771 - $2000
+    .byte $01
+
+    .dbyt off_A75D - $2000
+    .byte $01
+
+    .dbyt off_A749 - $2000
+    .byte $01
+
+    .dbyt off_A718 - $2000
+    .byte $01
+
+    .dbyt off_A6F3 - $2000
+    .byte $01
+
+    .dbyt off_A6C2 - $2000
+    .byte $01
+
+    .dbyt off_A681 - $2000
+
+    .byte con_выход
+
+
+
+off_A167_01_полет_мяча_диаза:
+    .byte $00
+
+    .byte con_координаты_Y_X
+    .byte $36
+    .byte $5A
+
+    .byte $05
+
+    .byte con_физика
+    .byte $DF
+    .byte $00
+    .byte $00
+
+    .dbyt off_A7C1 - $2000
+    .byte $02
+
+    .dbyt off_A7B7 - $2000
+    .byte $02
+
+    .dbyt off_A7AD - $2000
+    .byte $02
+
+    .dbyt off_A79E - $2000
+    .byte $01
+
+    .dbyt off_A78F - $2000
+    .byte $01
+
+    .dbyt off_A780 - $2000
+    .byte $01
+
+    .dbyt off_A771 - $2000
+    .byte $01
+
+    .dbyt off_A75D - $2000
+    .byte $01
+
+    .dbyt off_A749 - $2000
+    .byte $01
+
+    .byte con_координаты_Y_X
+    .byte $2E
+    .byte $6A
+
+    .byte con_физика
+    .byte $EE
+    .byte $00
+    .byte $00
+
+    .dbyt off_A7C1 - $2000
+    .byte $02
+
+    .dbyt off_A7B7 - $2000
+    .byte $02
+
+    .dbyt off_A7AD - $2000
+    .byte $03
+
+    .dbyt off_A79E - $2000
+    .byte $03
+
+    .dbyt off_A78F - $2000
+    .byte $04
+
+    .dbyt off_A780 - $2000
+    .byte $03
+
+    .dbyt off_A771 - $2000
+    .byte $01
+
+    .byte con_физика
+    .byte $0E
+    .byte $00
+    .byte $00
+
+    .dbyt off_A771 - $2000
+    .byte $02
+
+    .dbyt off_A75D - $2000
+    .byte $02
+
+    .byte con_F5_зеркало
+
+    .byte con_физика
+    .byte $49
+    .byte $07
+    .byte $07
+
+    .dbyt off_A749 - $2000
+    .byte $02
+
+    .dbyt off_A718 - $2000
+    .byte $01
+
+    .dbyt off_A6F3 - $2000
+    .byte $01
+
+    .dbyt off_A6C2 - $2000
+    .byte $01
+
+    .byte con_координаты_Y_X
     .byte $0A
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $02, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 11F
+    .byte $3E
+
+    .byte con_F5_зеркало
+
+    .byte con_физика
+    .byte $2F
+    .byte $04
+    .byte $07
+
+    .dbyt off_A7C1 - $2000
+    .byte $01
+
+    .dbyt off_A7B7 - $2000
+    .byte $01
+
+    .dbyt off_A7AD - $2000
+    .byte $02
+
+    .dbyt off_A79E - $2000
+    .byte $02
+
+    .dbyt off_A78F - $2000
+    .byte $01
+
+    .dbyt off_A780 - $2000
+    .byte $01
+
+    .dbyt off_A771 - $2000
+    .byte $01
+
+    .dbyt off_A75D - $2000
+    .byte $01
+
+    .dbyt off_A749 - $2000
+    .byte $01
+
+    .dbyt off_A718 - $2000
+    .byte $01
+
+    .dbyt off_A6F3 - $2000
+    .byte $01
+
+    .dbyt off_A6C2 - $2000
+    .byte $01
+
+    .dbyt off_A681 - $2000
+
+    .byte con_выход
+
+
+
+off_A1F1_02_цубаса_резкий_поворот_красный:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $3E
+
+    .dbyt off_A916 - $2000
+    .byte $58
+
+    .dbyt off_A9E3 - $2000
+    .byte $02
+
+    .byte con_разговор
+    .word off_A8EA
+    .word off_B40D
+
+
+
+off_A201_03:
+    .byte $16
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $97
+
+    .dbyt off_AC8E - $2000
+    .byte $7F
+    .byte $52
+
+    .byte con_физика
     .byte $0F
-    .byte $00, $00, $00, $00
-    .byte $14, $07, $05, $0E
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 120
-    .byte $0B
-    .byte $00, $00, $00, $00
-    .byte $10, $00, $18, $20
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 121
-    .byte $0A
-    .byte $00, $00, $00, $00
-    .byte $20, $10, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 122
     .byte $00
-    .byte $00, $28, $29, $2C
-    .byte $00, $2A, $2B, $2E
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $14, $0A
-    ; 123
     .byte $00
-    .byte $2D, $38, $37, $39
-    .byte $2F, $3A, $2A, $3B
-    .byte $00, $00, $00, $00
-    .byte $07, $03, $14, $07
-    ; 124
+
+    .byte $4D
+
+    .byte con_физика
     .byte $00
-    .byte $3C, $3D, $00, $00
-    .byte $3E, $3F, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $12, $00, $00, $00
-    ; 125
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $23, $27
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 126
-    .byte $FF
-    .byte $F9, $F9, $F9, $F9
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 127
-    .byte $FF
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $FB, $FB, $FB, $FB
-    ; 128
     .byte $00
-    .byte $1D, $1F, $1F, $35
-    .byte $1F, $1F, $1F, $35
-    .byte $1F, $1F, $1F, $35
-    .byte $1F, $1F, $1F, $35
-    ; 129
     .byte $00
-    .byte $3F, $35, $3D, $3D
-    .byte $3F, $35, $3D, $3F
-    .byte $3F, $35, $3D, $3F
-    .byte $3F, $35, $3D, $3F
-    ; 12A
+
+    .byte con_разговор
+    .word off_AC8E
+    .word off_B219
+
+
+
+off_A218_04_цубаса_злой_молчит_красный_справа:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $48
+
+    .dbyt off_A8EA - $2000
+
+    .byte con_F9
+
+    .byte $7F
+    .byte $7F
+    .byte $23
+
+    .byte con_выход
+
+
+
+off_A223_05_карлос_злой_молчит_движение_влево_красный:
+    .byte $0E
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $8B
+
+    .dbyt off_B1D0 - $2000
+    .byte $7F
+    .byte $05
+
+    .byte con_физика
+    .byte $0F
     .byte $00
-    .byte $3D, $3F, $35, $3D
-    .byte $3D, $3F, $35, $3D
-    .byte $3D, $3F, $35, $3F
-    .byte $3D, $3F, $35, $3F
-    ; 12B
     .byte $00
-    .byte $1F, $1D, $1D, $1F
-    .byte $1F, $1D, $1F, $1F
-    .byte $1F, $1D, $1F, $1F
-    .byte $1F, $1F, $1F, $1F
-    ; 12C
-    .byte $00
-    .byte $1F, $1F, $1D, $35
-    .byte $1D, $1F, $1D, $35
-    .byte $1D, $1F, $1D, $35
-    .byte $1D, $1D, $1D, $35
-    ; 12D
-    .byte $00
-    .byte $3F, $35, $3F, $3F
-    .byte $3F, $35, $3F, $3F
-    .byte $3F, $35, $3F, $3F
-    .byte $3F, $35, $3F, $3F
-    ; 12E
-    .byte $00
-    .byte $3D, $3F, $35, $3F
-    .byte $3D, $3F, $35, $3F
-    .byte $3D, $3D, $35, $3F
-    .byte $3D, $3D, $35, $3F
-    ; 12F
-    .byte $00
-    .byte $1F, $1F, $1F, $1F
-    .byte $1F, $1F, $1D, $1F
-    .byte $1F, $1F, $1D, $1F
-    .byte $1F, $1F, $1D, $1D
-    ; 130
-    .byte $00
-    .byte $1F, $1D, $1F, $35
-    .byte $1F, $1D, $1F, $35
-    .byte $1F, $1D, $1F, $35
-    .byte $1F, $1D, $1F, $35
-    ; 131
-    .byte $00
-    .byte $3F, $35, $3F, $3D
-    .byte $3F, $35, $3F, $3D
-    .byte $3F, $35, $3F, $3D
-    .byte $3F, $35, $3D, $3D
-    ; 132
-    .byte $00
-    .byte $3F, $3D, $35, $3F
-    .byte $3F, $3D, $35, $3F
-    .byte $3F, $3D, $35, $3D
-    .byte $3F, $3D, $35, $3D
-    ; 133
-    .byte $00
-    .byte $1F, $1F, $1F, $1D
-    .byte $1F, $1D, $1F, $1D
-    .byte $1F, $1D, $1F, $1D
-    .byte $1F, $1D, $1F, $1D
-    ; 134
-    .byte $00
-    .byte $1F, $1F, $1F, $35
-    .byte $1D, $1F, $1F, $35
-    .byte $1F, $1D, $1F, $35
-    .byte $1F, $1D, $1F, $35
-    ; 135
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $0E, $03, $0F, $00
-    ; 136
-    .byte $55
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $7D
-    .byte $00, $00, $00, $00
-    ; 137
-    .byte $55
-    .byte $00, $00, $00, $00
-    .byte $60, $61, $64, $65
-    .byte $62, $63, $66, $67
-    .byte $00, $00, $00, $00
-    ; 138
-    .byte $55
-    .byte $00, $00, $00, $00
-    .byte $70, $60, $71, $74
-    .byte $72, $62, $73, $76
-    .byte $00, $00, $00, $00
-    ; 139
-    .byte $55
-    .byte $00, $00, $00, $00
-    .byte $75, $68, $69, $6C
-    .byte $77, $6A, $6B, $6E
-    .byte $00, $00, $00, $00
-    ; 13A
-    .byte $55
-    .byte $00, $00, $00, $00
-    .byte $6D, $00, $00, $00
-    .byte $6F, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 13B
-    .byte $A2
-    .byte $01, $B2, $00, $00
-    .byte $01, $B8, $00, $B4
-    .byte $01, $BA, $00, $B6
-    .byte $01, $01, $F8, $B3
-    ; 13C
-    .byte $00
-    .byte $00, $BD, $00, $C0
-    .byte $B5, $BF, $C1, $C2
-    .byte $B7, $03, $03, $03
-    .byte $03, $03, $03, $03
-    ; 13D
-    .byte $00
-    .byte $00, $C0, $00, $C0
-    .byte $C3, $C2, $C3, $E2
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    ; 13E
-    .byte $00
-    .byte $C0, $C5, $C5, $00
-    .byte $3C, $C6, $C7, $00
-    .byte $03, $02, $02, $E9
-    .byte $03, $03, $02, $EB
-    ; 13F
-    .byte $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $D0, $D1, $00, $00
-    .byte $D2, $D3, $00, $00
-    ; 140
-    .byte $AA
-    .byte $D4, $01, $01, $01
-    .byte $D6, $D7, $01, $01
-    .byte $00, $00, $D5, $01
-    .byte $00, $DE, $DC, $DD
-    ; 141
-    .byte $AA
-    .byte $01, $01, $01, $B9
-    .byte $01, $01, $01, $BB
-    .byte $01, $01, $01, $BC
-    .byte $01, $01, $01, $BE
-    ; 142
-    .byte $FF
-    .byte $03, $C8, $C9, $E3
-    .byte $03, $CA, $CB, $E6
-    .byte $03, $E0, $E1, $03
-    .byte $03, $03, $03, $03
-    ; 143
-    .byte $00
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    .byte $E8, $03, $03, $03
-    .byte $EA, $03, $03, $03
-    ; 144
-    .byte $FF
-    .byte $CC, $CD, $E7, $EC
-    .byte $CE, $CF, $C4, $EE
-    .byte $E4, $E5, $02, $02
-    .byte $03, $03, $02, $02
-    ; 145
-    .byte $00
-    .byte $D8, $D9, $00, $00
-    .byte $DA, $DB, $00, $00
-    .byte $F0, $F1, $00, $00
-    .byte $F2, $F3, $00, $00
-    ; 146
-    .byte $AA
-    .byte $00, $00, $00, $DF
-    .byte $00, $F4, $F5, $01
-    .byte $F6, $F7, $01, $01
-    .byte $ED, $01, $01, $01
-    ; 147
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $18, $20
-    .byte $00, $00, $00, $00
-    ; 148
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $20, $10, $00, $00
-    .byte $00, $00, $00, $00
-    ; 149
-    .byte $C0
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $14, $07
-    .byte $00, $00, $00, $00
-    ; 14A
-    .byte $FA
-    .byte $00, $00, $11, $12
-    .byte $00, $00, $00, $00
-    .byte $05, $0E, $10, $00
-    .byte $00, $00, $00, $00
-    ; 14B
-    .byte $AA
-    .byte $07, $13, $07, $0F
-    .byte $00, $00, $00, $00
-    .byte $05, $03, $11, $27
-    .byte $00, $00, $00, $00
-    ; 14C
-    .byte $AA
-    .byte $14, $07, $06, $00
-    .byte $00, $00, $00, $00
-    .byte $14, $13, $15, $04
-    .byte $00, $00, $00, $00
-    ; 14D
-    .byte $AA
-    .byte $04, $17, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $03, $00, $14, $07
-    .byte $00, $00, $00, $00
-    ; 14E
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $03, $0E, $00, $00
-    .byte $00, $00, $00, $00
-    ; 14F
+
     .byte $45
-    .byte $01, $01, $01, $01
-    .byte $04, $05, $10, $11
-    .byte $06, $07, $12, $13
-    .byte $0C, $0D, $18, $19
-    ; 150
+
+    .byte con_выход
+
+
+
+off_A231_06_хюга_обычный_красный:
+    .byte $03
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4E
+
+    .byte con_разговор
+    .word off_B0B4
+    .word off_ACAC
+
+
+
+off_A23B_07_цубаса_движение_спиной_влево_поворот_вбок_красный:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4C
+
+    .dbyt off_A916 - $2000
+
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .byte $19
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .byte $32
+
+    .byte con_разговор
+    .word off_A9E3
+    .word off_A9F6
+
+
+
+off_A251_08_цубаса_в_шоке_красный_слева:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+;   .dbyt off_A8EA - $2000
+;   .byte $0A
+
+    .dbyt off_A8FE - $2000
+
+    .byte con_выход
+
+
+
+off_A25C_09_цубаса_злой_белый_справа:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_A8EA
+    .word off_B40D
+
+
+
+off_A266_0A_карлос_злой_желтый_справа:
+    .byte $0F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_B1D0
+    .word off_B1E7
+
+
+
+off_A270_0B:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $BE
+
+    .dbyt off_B310 - $2000
+    .byte $7F
+    .byte $7F
+
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .byte $7A
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .byte con_разговор
+    .word off_B310
+    .word off_AD8A
+
+
+
+off_A287_0C_цубаса_на_фоне_сан_паулу:
+    .byte $23
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_A852 - $2000
+
+    .byte con_выход
+
+
+
+off_A28E_0D_кубок:
+    .byte $09
+
+    .byte con_координаты_Y_X
+    .byte $26
+    .byte $3E
+
+    .dbyt off_A7CB - $2000
+
+    .byte con_выход
+
+
+
+off_A295_0E_цубаса_на_фоне_японии:
+    .byte $33
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_A852 - $2000
+
+    .byte con_выход
+
+
+
+off_A29C_0F_мисаки_на_фоне_нанкацу:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_A895 - $2000
+
+    .byte con_выход
+
+
+
+off_A2A3_10_цубаса_обычный_белый_справа:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_B364
+    .word off_A8D6
+
+
+
+off_A2AD_11_цубаса_злой_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_A8EA
+    .word off_B40D
+
+
+
+off_A2B8_12_цубаса_в_шоке_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+;   .dbyt off_B364 - $2000
+;   .byte $0A
+
+    .dbyt off_A8FE - $2000
+
+    .byte con_выход
+
+
+
+off_A2C3_13_цубаса_молчит_поворот_вбок_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .dbyt off_A916 - $2000
+    .byte $23
+
+    .dbyt off_A9E3 - $2000
+
+    .byte con_выход
+
+
+
+off_A2CD_14_цубаса_молчит_движение_направо_смотрит_влево_белый:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $EE
+
+    .dbyt off_A96D - $2000
+    .byte $41
+
+    .byte con_физика
+    .byte $02
+    .byte $00
+    .byte $FF
+
     .byte $40
-    .byte $01, $01, $01, $01
-    .byte $01, $14, $15, $40
-    .byte $01, $16, $17, $42
-    .byte $01, $1C, $1D, $48
-    ; 151
+
+    .byte con_выход
+
+
+
+off_A2DA_15_карлос_злой_молчит_красный_справа:
+    .byte $0E
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_B1D0 - $2000
+
+    .byte con_выход
+
+
+
+off_A2E1_16_цубаса_молчит_поворот_вбок_красный_слева:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .dbyt off_A916 - $2000
+    .byte $23
+
+    .dbyt off_A9E3 - $2000
+
+    .byte con_выход
+
+
+
+off_A2EB_17_цубаса_на_фоне_сан_паулу_серый:
+    .byte $3E
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_A852 - $2000
+
+    .byte con_выход
+
+
+
+off_A2F2_18_мисуги_молчит_движение_направо_смотрит_влево_белый:
+    .byte $19
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $EE
+
+    .dbyt off_AA0F - $2000
+    .byte $41
+
+    .byte con_физика
+    .byte $02
+    .byte $00
+    .byte $FF
+
+    .byte $40
+
+    .byte con_выход
+
+
+
+off_A2FF_19_мисаки_обычный_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_AA4A
+    .word off_AA5E
+
+
+
+off_A30A_1A_йоко_медленное_движение_налево:
+    .byte $18
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $BC
+
+@бесконечный_цикл:
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .dbyt off_B3D9 - $2000
+    .byte $01
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .dbyt off_B3D9 - $2000
+    .byte $01
+
+    .dbyt @бесконечный_цикл
+
+
+
+off_A31E_1B_мисаки_злой_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_AA72
+    .word off_B0F0
+
+
+
+off_A329_1C_мацуяма_злой_желтый_слева:
+    .byte $0B
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_разговор
+    .word off_AA86
+    .word off_AA92
+
+
+
+off_A334_1D_мацуяма_злой_желтый_справа:
+    .byte $0B
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4E
+
+    .byte con_разговор
+    .word off_AA86
+    .word off_AA92
+
+
+
+off_A33E_1E_мисаки_злой_молчит_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_AA72 - $2000
+
+    .byte con_выход
+
+
+
+off_A346_1F_мисаки_обычный_молчит_белый_справа:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4E
+
+    .dbyt off_AA4A - $2000
+
+    .byte con_выход
+
+
+
+off_A34D_20_мисуги_злой_белый_справа:
+    .byte $19
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4E
+
+    .byte con_разговор
+    .word off_AAB2
+    .word off_AABE
+
+
+
+off_A357_21_шнайдер_справа:
+    .byte $28
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_AACA
+    .word off_B4A2
+
+
+
+off_A361_22_китаец_обычный_справа:
+    .byte $20
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_AF84
+    .word off_AAD4
+
+
+
+off_A36B_23:
+    .byte $1F
+
+    .byte con_координаты_Y_X
+    .byte $50
+    .byte $C6
+
+    .dbyt off_AAFD - $2000
+
+    .byte con_физика
+    .byte $E0
+    .byte $00
+    .byte $00
+
+    .byte $10
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .byte con_разговор
+    .word off_AAFD
+    .word off_B0C9
+
+
+
+off_A380_24_ишизаки_моргает:
+    .byte $1F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $42
+
+    .byte con_повторы + $02
+
+    .dbyt off_AB1C - $2000
+    .byte $04
+
+    .dbyt off_AAFD - $2000
+    .byte $04
+
+    .byte con_повторить
+
+    .byte con_разговор
+    .word off_AB1C
+    .word off_AFAB
+
+
+
+off_A392_25_ишизаки_злой_слева:
+    .byte $1F
+
+@бесконечный_цикл:
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_AB3B - $2000
+    .byte $02
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2F
+
+    .dbyt off_AB3B - $2000
+    .byte $02
+
+    .dbyt @бесконечный_цикл
+
+
+
+off_A3A2_26_санае_обычная_справа:
+    .byte $1D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .byte con_разговор
+    .word off_B421
+    .word off_AB68
+
+
+
+off_A3AC_27_санае_закрытые_глаза_справа:
+    .byte $1D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .byte con_разговор
+    .word off_AB80
+    .word off_AFD2
+
+
+
+off_A3B6_28_санае_в_шоке_справа:
+    .byte $1D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .dbyt off_AB96 - $2000
+
+    .byte con_выход
+
+
+
+off_A3BD_29_санае_расстроена_справа:
+    .byte $1D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .dbyt off_ABAE - $2000
+
+    .byte con_выход
+
+
+
+off_A3C4_2A_йоко_обычная_справа:
+    .byte $18
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .byte con_разговор
+    .word off_B3D9
+    .word off_ABC6
+
+
+
+off_A3CE_2B_йоко_закрытые_глаза_справа:
+    .byte $18
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .byte con_разговор
+    .word off_ABDE
+    .word off_B264
+
+
+
+off_A3D8_2C_йоко_подмигивает_справа:
+    .byte $18
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .dbyt off_ABF4 - $2000
+
+    .byte con_выход
+
+
+
+off_A3DF_2D_йоко_злая_резко_движется_влево:
+    .byte $18
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $A9
+
+    .dbyt off_B27A - $2000
+
+    .byte con_физика
+    .byte $09
+    .byte $00
+    .byte $00
+
+    .byte $0F
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .byte con_разговор
+    .word off_B27A
+    .word off_AC0A
+
+
+
+off_A3F4_2E_яои_молчит_справа:
+    .byte $1A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .dbyt off_AC22 - $2000
+
+    .byte con_выход
+
+
+
+off_A3FB_2F_фуджисава_молчит_справа:
+    .byte $1B
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .dbyt off_AC58 - $2000
+
+    .byte con_выход
+
+
+
+off_A402_30_хюга_злой_черный_справа:     ; unused
+    .byte $16
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4A
+
+    .byte con_разговор
+    .word off_AC8E
+    .word off_B219
+
+
+
+off_A40C_31_хюга_обычный_черный_справа_поднимает_брови:
+    .byte $16
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4A
+
+    .dbyt off_AC8E - $2000
+    .byte $07
+
+    .byte con_разговор
+    .word off_AFFF
+    .word off_AC98
+
+
+
+off_A419_32_хюга_злой_красный_справа:
+    .byte $03
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4A
+
+    .byte con_разговор
+    .word off_ACA2
+    .word off_B439
+
+
+
+off_A423_33_хюга_обычный_красный_слева_поднимает_брови:
+    .byte $03
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2C
+
+    .byte con_F5_зеркало
+
+    .dbyt off_ACA2 - $2000
+    .byte $0A
+
+    .byte con_разговор
+    .word off_B0B4
+    .word off_ACAC
+
+
+
+off_A431_34_вакабаяши_справа:
+    .byte $1C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $40
+
+    .byte con_разговор
+    .word off_AF24
+    .word off_ACB6
+
+
+
+off_A43B_35:
+    .byte $46
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $C8
+
+    .byte con_F9
+
+    .dbyt off_ACC8 - $2000
+    .byte $7F
+    .byte $7F
+
+    .byte con_выход
+
+
+
+off_A445_36_роберто_очки_молчит_справа:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4E
+
+    .dbyt off_ADBA - $2000
+
+    .byte con_выход
+
+
+
+off_A44C_37_меон_слева:
+    .byte $10
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $32
+
+    .byte con_разговор
+    .word off_B3F1
+    .word off_ACEC
+
+
+
+off_A457_38_меон_справа:
+    .byte $10
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $42
+
+    .byte con_разговор
+    .word off_AD20
+    .word off_AD06
+
+
+
+off_A461_39_вакабаяши_слева:
+    .byte $46
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_AF24
+    .word off_ACB6
+
+
+
+off_A46C_3A_гертис_справа:
+    .byte $2A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $3E
+
+    .byte con_разговор
+    .word off_AF36
+    .word off_AD3C     ; unused
+
+
+
+off_A476_3B_роберто_обычный_справа:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $44
+
+    .byte con_разговор
+    .word off_B310
+    .word off_AD8A
+
+
+
+off_A480_3C_роберто_злой_справа:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $44
+
+    .byte con_разговор
+    .word off_ADA2
+    .word off_A9CA
+
+
+
+off_A48A_3D_роберто_очки_справа:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $44
+
+    .byte con_разговор
+    .word off_ADBA
+    .word off_B340
+
+
+
+off_A494_3E_роберто_очки_скрещены_руки:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $42
+
+    .dbyt off_ADF7 - $2000
+
+    .byte con_выход
+
+
+
+off_A49B_3F_мисаки_обычный_красный_справа:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4A
+
+    .byte con_разговор
+    .word off_AA4A
+    .word off_AA5E
+
+
+
+off_A4A5_40_катагири_черные_очки_слева:
+    .byte $0D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2C
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_B016
+    .word off_AE4B
+
+
+
+off_A4B0_41_катагири_прозрачные_очки_справа:
+    .byte $0D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $42
+
+    .byte con_разговор
+    .word off_B378
+    .word off_AE75     ; unused
+
+
+
+off_A4BA_42_миками_справа:
+    .byte $0D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $42
+
+    .byte con_разговор
+    .word off_B399
+    .word off_AE96
+
+
+
+off_A4C4_43_сан_паулу_без_цубасы:
+    .byte $11
+
+    .byte con_координаты_Y_X
+    .byte $DC
+    .byte $50
+
+    .dbyt off_AED6 - $2000
+
+    .byte con_F9
+
+    .byte $7F
+
+    .byte con_выход
+
+
+
+off_A4CD_44_ишизаки_закрытые_глаза_справа:
+    .byte $1F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $42
+
+    .byte con_разговор
+    .word off_AAFD
+    .word off_B0C9
+
+
+
+off_A4D7_45_коимбра_тень_справа:
+    .byte $05
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $3E
+
+    .byte con_разговор
+    .word off_B22E
+    .word off_B2DA
+
+
+
+off_A4E1_46_менеджер_бразилии_закрытые_глаза_справа:
+    .byte $2C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_B378
+    .word off_AE75
+
+
+
+off_A4EB_47_цубаса_обычный_красный_справа:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_B364
+    .word off_A8D6
+
+
+
+off_A4F5_48_карлос_в_шоке_желтый_слева:
+    .byte $0F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_ADDE - $2000
+
+    .byte con_выход
+
+
+
+off_A4FD_49_хюга_злой_молчит_черный_справа:
+    .byte $16
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4A
+
+    .dbyt off_AC8E - $2000
+
+    .byte con_выход
+
+
+
+off_A504_4A_гертиз_в_тени_движение_направо:
+    .byte $29
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $BF
+
+    .dbyt off_AF36 - $2000
+    .byte $02
+
+    .byte con_физика
+    .byte $01
+    .byte $00
+    .byte $00
+
+    .byte $7F
+
+    .byte con_выход
+
+
+
+off_A511_4B_цубаса_злой_красный_справа:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_A8EA
+    .word off_B40D
+
+
+
+off_A51B_4C_карлос_в_шоке_желтый_справа:
+    .byte $0F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_ADDE - $2000
+
+    .byte con_выход
+
+
+
+off_A522_4D_роберто_обычный_слева:
+    .byte $0A
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_разговор
+    .word off_B310
+    .word off_AD8A
+
+
+
+off_A52D_4E_цубаса_обычный_белый_слева:
+    .byte $17
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_разговор
+    .word off_B364
+    .word off_A8D6
+
+
+
+off_A538_4F_санае_расстроена_поднимает_брови_слева:
+    .byte $1D
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .dbyt off_ABAE - $2000
+    .byte $60
+
+    .byte con_разговор
+    .word off_B421
+    .word off_AB68
+
+
+
+off_A546_50_роберто_молчит_серый_слева:
+    .byte $3F
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .dbyt off_B310 - $2000
+
+    .byte con_выход
+
+
+
+off_A54E_51_цубаса_молчит_серый_справа:
+    .byte $3F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_B364 - $2000
+
+    .byte con_выход
+
+
+
+off_A555_52_цубаса_злой_молчит_красный_справа:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_A8EA - $2000
+
+    .byte con_выход
+
+
+
+off_A55C_53_цубаса_с_кубком_медленно_движется_влево:
+    .byte $2B
+
+    .byte con_координаты_Y_X
+    .byte $28
+    .byte $AA
+
+    .byte con_повторы + $08
+
+    .byte con_повторы + $0E
+
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .dbyt off_B11D - $2000
+    .byte $01
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .dbyt off_B11D - $2000
+    .byte $01
+
+    .byte con_повторить
+
+    .byte con_повторить
+
+    .byte con_выход
+
+
+
+off_A573_54_цубаса_красный_движется_влево_и_поворачивается:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $66
+
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .dbyt off_A916 - $2000
+    .byte $0C
+
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .dbyt off_A9E3 - $2000
+    .byte $14
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .dbyt off_A8EA - $2000
+
+    .byte con_выход
+
+
+
+off_A58C_55_цубаса_со_спины_красный:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $3E
+
+    .dbyt off_A916 - $2000
+
+    .byte con_выход
+
+
+
+off_A593_56_санае_в_шоке_слева:
+    .byte $1D
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_AB96 - $2000
+
+    .byte con_выход
+
+
+
+off_A59B_57_цубаса_злой_красный_слева:
+    .byte $0C
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_разговор
+    .word off_A8EA
+    .word off_B40D
+
+
+
+off_A5A6_58_цубаса_злой_молчит_белый_слева:
+    .byte $17
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_A8EA - $2000
+
+    .byte con_выход
+
+
+
+off_A5AE_59:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $BE
+
+    .dbyt off_B310 - $2000
+    .byte $7F
+    .byte $25
+
+    .byte con_физика
+    .byte $0F
+    .byte $00
+    .byte $00
+
+    .byte $7A
+
+    .byte con_физика
+    .byte $00
+    .byte $00
+    .byte $00
+
+    .byte con_разговор
+    .word off_B310
+    .word off_AD8A
+
+
+
+off_A5C5_5A_карлос_злой_молчит_желтый_слева:
+    .byte $0F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_B1D0 - $2000
+
+    .byte con_выход
+
+
+
+off_A5CD_5B_вакабаяши_в_шоке:
+    .byte $46
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $48
+
+    .byte con_физика
+    .byte $0C
+    .byte $00
+    .byte $00
+
+    .dbyt off_ACDA - $2000
+    .byte $05
+
+    .byte con_выход
+
+
+
+off_A5D9_5C_пьер_молчит_справа:
+    .byte $34
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $4E
+
+    .dbyt off_B292 - $2000
+
+    .byte con_выход
+
+
+
+off_A5E0_5D_пьер_в_шоке_слева:
+    .byte $34
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_B2A8 - $2000
+
+    .byte con_выход
+
+
+
+off_A5E8_5E_коимбра_тень_серый_слева:
+    .byte $40
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_B22E
+    .word off_B2DA
+
+
+
+off_A5F3_5F_коимбра_злой_слева:
+    .byte $13
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_B2C0
+    .word off_B2CD
+
+
+
+off_A5FE_60_коимбра_злой_тень_слева:
+    .byte $05
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_B22E
+    .word off_B2DA
+
+
+
+off_A609_61_карлос_злой_красный_справа:
+    .byte $0E
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_B1D0
+    .word off_B1E7
+
+
+
+off_A613_62_роберто_очки_молчит_слева:
+    .byte $0A
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_ADBA - $2000
+
+    .byte con_выход
+
+
+
+off_A61B_63_карлос_обычный_красный_справа:
+    .byte $0E
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .byte con_разговор
+    .word off_AFE8
+    .word off_B200
+
+
+
+off_A625_64_карлос_в_шоке_красный_справа:
+    .byte $0E
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $46
+
+    .dbyt off_B104 - $2000
+
+    .byte con_F9
+
+    .byte $78
+
+    .byte con_выход
+
+
+
+off_A62E_65_цубаса_со_спины_красный:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $32
+
+    .dbyt off_A916 - $2000
+
+    .byte con_выход
+
+
+
+off_A635_66_цубаса_обычный_красный_слева:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_B364
+    .word off_A8D6
+
+
+
+off_A640_67_цубаса_обычный_молчит_красный_слева:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .dbyt off_B364 - $2000
+
+    .byte con_выход
+
+
+
+off_A648_68_ишизаки_закрытые_глаза_слева:
+    .byte $1F
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .byte con_F5_зеркало
+
+    .byte con_разговор
+    .word off_AAFD
+    .word off_B0C9
+
+
+
+off_A653_69_цубаса_резко_поворачивается_спиной_красный_справа:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $3E
+
+    .dbyt off_A9E3 - $2000
+    .byte $03
+
+    .dbyt off_A916 - $2000
+
+    .byte con_выход
+
+
+
+off_A65D_6A_цубаса_злой_молчит_красный_слева:
+    .byte $0C
+
+    .byte con_F5_зеркало
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $2E
+
+    .dbyt off_A8EA - $2000
+
+    .byte con_выход
+
+
+
+off_A665_6B_ишизаки_надутые_губы:
+    .byte $27
+
+    .byte con_координаты_Y_X
+    .byte $30
+    .byte $3E
+
+    .byte con_повторы + $02
+
+    .byte con_F6
+
+    .dbyt off_B44E - $2000
+    .byte $0A
+
+    .byte con_F5_зеркало
+
+    .dbyt off_B44E - $2000
+    .byte $0A
+
+    .byte con_повторить
+
+    .byte con_выход
+
+
+
+off_A674_6C_движение_блеска_очков_роберто:
+    .byte $0C
+
+    .byte con_координаты_Y_X
+    .byte $34
+    .byte $38
+
+    .dbyt off_B040 - $2000
+    .byte $1B
+
+    .dbyt off_B05F - $2000
+    .byte $02
+
+    .dbyt off_B096 - $2000
+
+    .byte con_выход
+
+
+
+
+
+
+
+
+
+; данные спрайтов
+off_A681:
+    .byte $04, $05, $23, $5F
+
+    .byte $BD
+    .byte $3B, $08
+    .byte $3F, $20
+    .byte $03, $21
+
+    .byte $BE
+    .byte $37, $02
+    .byte $3B, $09
+    .byte $3F, $0A
+    .byte $03, $24
+    .byte $07, $26
+
+    .byte $BF
+    .byte $37, $03
+    .byte $3B, $0C
+    .byte $3F, $0B
+    .byte $03, $25
+    .byte $07, $27
+
     .byte $A0
-    .byte $01, $34, $35, $01
-    .byte $01, $36, $37, $01
-    .byte $41, $3C, $3D, $01
-    .byte $43, $3E, $3F, $01
-    ; 152
-    .byte $55
-    .byte $01, $01, $01, $01
-    .byte $51, $05, $10, $11
-    .byte $44, $45, $50, $13
-    .byte $46, $47, $52, $53
-    ; 153
+    .byte $37, $06
+    .byte $3B, $0D
+    .byte $3F, $0E
+    .byte $03, $30
+    .byte $07, $32
+    .byte $0B, $22
+
+    .byte $A1
+    .byte $3B, $18
+    .byte $3F, $0F
+    .byte $03, $31
+    .byte $07, $33
+    .byte $0B, $23
+
+    .byte $A2
+    .byte $3F, $1A
+    .byte $03, $34
+    .byte $07, $36
+
+    .byte con_FF
+
+
+
+off_A6C2:
+    .byte $04, $05, $23, $5F
+
+    .byte $BD
+    .byte $3B, $04
+    .byte $3F, $07
+
+    .byte $BE
+    .byte $3B, $05
+    .byte $3F, $12
+    .byte $03, $19
+    .byte $07, $1B
+
+    .byte $BF
+    .byte $3B, $10
+    .byte $3F, $13
+    .byte $03, $1C
+    .byte $07, $1E
+
+    .byte $A0
+    .byte $3B, $11
+    .byte $3F, $16
+    .byte $03, $1D
+    .byte $07, $1F
+
+    .byte $A1
+    .byte $3F, $17
+    .byte $03, $48
+    .byte $07, $4A
+
+    .byte $A2
+    .byte $03, $49
+    .byte $07, $4B
+
+    .byte con_FF
+
+
+
+off_A6F3:
+    .byte $04, $05, $23, $5F
+
+    .byte $BE
+    .byte $3B, $35
+    .byte $3F, $37
+    .byte $03, $3D
+
+    .byte $BF
+    .byte $3B, $60
+    .byte $3F, $62
+    .byte $03, $68
+    .byte $07, $6A
+
+    .byte $A0
+    .byte $3B, $61
+    .byte $3F, $63
+    .byte $03, $69
+    .byte $07, $6B
+
+    .byte $A1
+    .byte $3F, $66
+    .byte $03, $6C
+    .byte $07, $6E
+
+    .byte con_FF
+
+
+
+off_A718:
+    .byte $04, $05, $23, $5F
+
+    .byte $BE
+
+    .byte $9F
+
+    .byte $C0, $33, $14
+    .byte $C0, $13, $42
+
+    .byte $80
+
+    .byte $C0, $13, $4C
+
+    .byte $BF
+
+    .byte $9F
+
+    .byte $C0, $33, $15
+    .byte $C0, $13, $43
+
+    .byte $80
+
+    .byte $C0, $13, $4D
+
+    .byte $A0
+
+    .byte $9F
+
+    .byte $C0, $33, $40
+    .byte $C0, $13, $46
+
+    .byte $80
+
+    .byte $C0, $13, $58
+
+    .byte $A1
+
+    .byte $80
+
+    .byte $C0, $33, $47
+    .byte $C0, $13, $59
+
+    .byte con_FF
+
+
+
+off_A749:
+    .byte $04, $05, $23, $5F
+
+    .byte $BF
+    .byte $3F, $28
+    .byte $03, $2A
+
+    .byte $A0
+    .byte $3F, $29
+    .byte $03, $2B
+
+    .byte $A1
+    .byte $3F, $2C
+    .byte $03, $2E
+
+    .byte con_FF
+
+
+
+off_A75D:
+    .byte $04, $05, $23, $5F
+
+    .byte $BF
+    .byte $3F, $2D
+    .byte $03, $2F
+
+    .byte $A0
+    .byte $3F, $38
+    .byte $03, $3A
+
+    .byte $A1
+    .byte $3F, $39
+    .byte $03, $3B
+
+    .byte con_FF
+
+
+
+off_A771:
+    .byte $04, $05, $23, $5F
+
+    .byte $BF
+    .byte $3F, $4E
+    .byte $03, $64
+
+    .byte $A0
+    .byte $3F, $4F
+    .byte $03, $65
+
+    .byte con_FF
+
+
+
+off_A780:
+    .byte $04, $05, $23, $5F
+
+    .byte $BF
+    .byte $3F, $41
+    .byte $03, $45
+
+    .byte $A0
+    .byte $3F, $44
+    .byte $03, $50
+
+    .byte con_FF
+
+
+
+off_A78F:
+    .byte $04, $05, $23, $5F
+
+    .byte $BF
+    .byte $3F, $51
+    .byte $03, $52
+
+    .byte $A0
+    .byte $3F, $54
+    .byte $03, $53
+
+    .byte con_FF
+
+
+
+off_A79E:
+    .byte $04, $05, $23, $5F
+
+    .byte $BF
+    .byte $3F, $3C
+    .byte $03, $3E
+
+    .byte $A0
+    .byte $3F, $55
+    .byte $03, $3F
+
+    .byte con_FF
+
+
+
+off_A7AD:
+    .byte $04, $05, $23, $5F
+
+    .byte $A0
+
+    .byte $80
+
+    .byte $CC, $33, $67
+
+    .byte con_FF
+
+
+
+off_A7B7:
+    .byte $04, $05, $23, $5F
+
+    .byte $A0
+
+    .byte $80
+
+    .byte $CC, $33, $6D
+
+    .byte con_FF
+
+
+
+off_A7C1:
+    .byte $04, $05, $23, $5F
+
+    .byte $A0
+
+    .byte $80
+
+    .byte $CC, $33, $6F
+
+    .byte con_FF
+
+
+
+off_A7CB:
+    .byte $7C, $7D, $7E, $7F
+
+    .byte $BF
+    .byte $30, $40
+    .byte $31, $5F
+    .byte $34, $44
+    .byte $35, $63
+    .byte $38, $48
+    .byte $39, $67
+    .byte $3C, $4C
+    .byte $3E, $6B
+    .byte $03, $50
+    .byte $02, $6F
+    .byte $05, $73
+    .byte $0F, $58
+    .byte $0E, $78
+    .byte $13, $5B
+    .byte $12, $7B
+
+    .byte $A0
+    .byte $30, $41
+    .byte $31, $60
+    .byte $37, $45
+    .byte $36, $64
+    .byte $3B, $49
+    .byte $3A, $68
+    .byte $3F, $4D
+    .byte $3E, $6C
+    .byte $00, $51
+    .byte $02, $70
+    .byte $04, $54
+    .byte $05, $74
+    .byte $08, $56
+    .byte $09, $76
+    .byte $0F, $59
+    .byte $0E, $79
+    .byte $13, $5C
+    .byte $12, $7C
+
+    .byte $A1
+    .byte $33, $42
+    .byte $32, $61
+    .byte $37, $46
+    .byte $36, $65
+    .byte $3B, $4A
+    .byte $3A, $69
+    .byte $3F, $4E
+    .byte $3E, $6D
+    .byte $00, $52
+    .byte $02, $71
+    .byte $04, $55
+    .byte $06, $75
+    .byte $08, $57
+    .byte $0A, $77
+    .byte $0F, $5A
+    .byte $0E, $7A
+    .byte $13, $5D
+    .byte $12, $7D
+
+    .byte $A2
+    .byte $30, $43
+    .byte $32, $62
+    .byte $34, $47
+    .byte $36, $66
+    .byte $3B, $4B
+    .byte $3A, $6A
+    .byte $3F, $4F
+    .byte $3E, $6E
+    .byte $03, $53
+    .byte $02, $72
+    .byte $13, $5E
+    .byte $12, $7E
+
+    .byte con_FF
+
+
+
+off_A852:
+    .byte $64, $65, $66, $67
+
+    .byte $BE
+    .byte $30, $8A
+    .byte $34, $A0
+    .byte $0A, $92
+
+    .byte $BF
+    .byte $30, $8B
+    .byte $34, $A1
+    .byte $3B, $A3
+    .byte $02, $AB
+    .byte $06, $91
+    .byte $0A, $93
+    .byte $0E, $99
+
+    .byte $A0
+    .byte $30, $8E
+    .byte $34, $A4
+    .byte $38, $A6
+    .byte $3C, $AC
+    .byte $02, $AE
+    .byte $06, $94
+    .byte $0A, $96
+
+    .byte $A1
+    .byte $30, $8F
+    .byte $34, $A5
+    .byte $38, $01
+    .byte $3D, $AD
+    .byte $02, $AF
+    .byte $0A, $9D
+    .byte $0E, $96
+
+    .byte $A2
+    .byte $38, $A7
+    .byte $0E, $9D
+
+    .byte $A3
+    .byte $06, $B7
+
+    .byte con_jmp
+    .word off_B4AC
+
+
+
+off_A895:
+    .byte $64, $65, $66, $67
+
+    .byte $BE
+    .byte $32, $9A
+    .byte $36, $B0
+    .byte $0B, $92
+
+    .byte $BF
+    .byte $32, $9B
+    .byte $36, $B1
+    .byte $3B, $B2
+    .byte $03, $AB
+    .byte $07, $91
+    .byte $0B, $93
+    .byte $0F, $99
+
+    .byte $A0
+    .byte $32, $9E
+    .byte $36, $B4
+    .byte $3A, $B3
+    .byte $3E, $B9
+    .byte $03, $AE
+    .byte $07, $94
+    .byte $0B, $96
+
+    .byte $A1
+    .byte $32, $9F
+    .byte $36, $B5
+    .byte $3A, $B6
+    .byte $3D, $BC
+    .byte $03, $AF
+    .byte $0B, $9D
+    .byte $0F, $96
+
+    .byte $A2
+    .byte $0F, $9D
+
+    .byte $A3
+    .byte $07, $B7
+
+    .byte con_jmp
+    .word off_B4AC
+
+
+
+off_A8D6:
+    .byte $70, $71, $66, $67
+
+    .byte $BE
+    .byte $3F, $06
+
+    .byte $BF
+    .byte $3C, $07
+    .byte $00, $0D
+    .byte $07, $0F
+
+    .byte $A0
+    .byte $3F, $12
+
+    .byte con_jmp
+    .word off_B4D4
+
+
+
+off_A8EA:
+    .byte $70, $71, $72, $73
+
+    .byte $BE
+    .byte $3F, $28
+
+    .byte $BF
+    .byte $3C, $29
+    .byte $00, $0D
+    .byte $04, $0A
+
+    .byte $A0
+    .byte $3F, $2C
+
+    .byte con_jmp
+    .word off_B4D4
+
+
+
+off_A8FE:
+    .byte $70, $71, $72, $73
+
+    .byte $BE
+    .byte $3F, $2A
+    .byte $03, $D1
+
+    .byte $BF
+    .byte $3C, $07
+    .byte $00, $0D
+    .byte $07, $20
+
+    .byte $A0
+    .byte $3F, $2E
+    .byte $03, $D4
+
+    .byte con_jmp
+    .word off_B4D4
+
+
+
+off_A916:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BC
+    .byte $0D, $2A
+
+    .byte $BD
+    .byte $3B, $80
+    .byte $3C, $82
+    .byte $03, $28
+    .byte $09, $29
+    .byte $0D, $2B
+
+    .byte $BE
+    .byte $37, $81
+    .byte $3B, $01
+    .byte $3C, $83
+    .byte $00, $91
+    .byte $04, $93
+    .byte $09, $2C
+    .byte $0D, $2E
+
+    .byte $BF
+    .byte $37, $84
+    .byte $3B, $01
+    .byte $3C, $86
+    .byte $00, $94
+    .byte $04, $96
+    .byte $09, $2D
+
+    .byte $A0
+    .byte $37, $85
+    .byte $3B, $01
+    .byte $3F, $01
+    .byte $03, $01
+    .byte $04, $97
+    .byte $09, $38
+
+    .byte $A1
+    .byte $37, $90
+    .byte $3B, $87
+    .byte $3F, $01
+    .byte $03, $95
+    .byte $07, $C2
+    .byte $09, $39
+
+    .byte $A2
+    .byte $3B, $92
+    .byte $3F, $57
+    .byte $03, $3D
+    .byte $09, $3C
+
+    .byte $A3
+    .byte $0D, $3F
+
+    .byte con_jmp
+    .word off_B525
+
+
+
+off_A96D:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BC
+    .byte $3B, $99
+    .byte $3F, $9B
+    .byte $09, $68
+    .byte $0D, $6A
+
+    .byte $BD
+    .byte $37, $C3
+    .byte $3B, $9C
+    .byte $3C, $9E
+    .byte $00, $6F
+    .byte $04, $63
+    .byte $09, $69
+    .byte $0D, $6B
+
+    .byte $BE
+    .byte $37, $C6
+    .byte $38, $9D
+    .byte $3F, $9F
+    .byte $00, $7A
+    .byte $04, $66
+    .byte $09, $6C
+    .byte $0D, $6E
+
+    .byte $BF
+    .byte $37, $C7
+    .byte $38, $C8
+    .byte $3F, $CA
+    .byte $00, $7B
+    .byte $04, $67
+    .byte $09, $6D
+
+    .byte $A0
+    .byte $37, $D2
+    .byte $3B, $01
+    .byte $3C, $CB
+    .byte $00, $7E
+    .byte $04, $72
+    .byte $09, $78
+
+    .byte $A1
+    .byte $3B, $CE
+    .byte $3F, $C9
+    .byte $03, $7F
+    .byte $07, $73
+    .byte $09, $79
+
+    .byte $A2
+    .byte $3F, $77
+    .byte $03, $7D
+    .byte $09, $7C
+
+    .byte $A3
+    .byte $0D, $76
+
+    .byte con_jmp
+    .word off_B525
+
+
+
+off_A9CA:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $4E
+    .byte $3F, $6A
+
+    .byte $BF
+    .byte $38, $44
+    .byte $3C, $6B
+    .byte $03, $71
+
+    .byte $A0
+    .byte $3B, $4F
+    .byte $3F, $6E
+
+    .byte con_jmp
+    .word off_B88D
+
+
+
+off_A9E3:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $3F, $8E
+    .byte $03, $A1
+
+    .byte $A0
+    .byte $3F, $8F
+    .byte $00, $A4
+    .byte $03, $02
+
+    .byte con_jmp
+    .word off_B532
+
+
+
+off_A9F6:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BE
+    .byte $07, $27
+
+    .byte $BF
+    .byte $3F, $8E
+    .byte $03, $A1
+
+    .byte $BF
+    .byte $07, $60
+
+    .byte $A0
+    .byte $3F, $8F
+    .byte $00, $A4
+    .byte $03, $02
+
+    .byte con_jmp
+    .word off_B532
+
+
+
+off_AA0F:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BD
+    .byte $3A, $D1
+    .byte $3E, $D3
+
+    .byte $BE
+    .byte $36, $C1
+    .byte $3A, $D4
+    .byte $3E, $D6
+    .byte $00, $A0
+
+    .byte $BF
+    .byte $36, $C4
+    .byte $3A, $D5
+    .byte $3F, $D7
+    .byte $03, $BB
+
+    .byte $A0
+    .byte $36, $C5
+    .byte $3A, $CC
+    .byte $3F, $B5
+    .byte $3E, $02
+    .byte $00, $BE
+    .byte $03, $02
+
+    .byte $A1
+    .byte $36, $D0
+    .byte $3A, $CD
+    .byte $3E, $CF
+    .byte $02, $BD
+    .byte $06, $BF
+
+    .byte $A2
+    .byte $3E, $DA
+    .byte $02, $B7
+
+    .byte con_jmp
+    .word off_B561
+
+
+
+off_AA4A:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BE
+    .byte $3A, $0B
+
+    .byte $BF
+    .byte $3C, $24
+    .byte $00, $1D
+    .byte $04, $1E
+
+    .byte $A0
+    .byte $3A, $0F
+
+    .byte con_jmp
+    .word off_B583
+
+
+
+off_AA5E:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BE
+    .byte $3A, $0B
+
+    .byte $BF
+    .byte $3C, $24
+    .byte $03, $34
+    .byte $04, $0C
+
+    .byte $A0
+    .byte $3A, $0F
+
+    .byte con_jmp
+    .word off_B583
+
+
+
+off_AA72:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BE
+    .byte $3A, $1F
+
+    .byte $BF
+    .byte $3C, $35
+    .byte $00, $1D
+    .byte $04, $1E
+
+    .byte $A0
+    .byte $3A, $4A
+
+    .byte con_jmp
+    .word off_B583
+
+
+
+off_AA86:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $00, $1D
+    .byte $04, $1E
+
+    .byte con_jmp
+    .word off_B5E4
+
+
+
+off_AA92:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $03, $34
+    .byte $04, $0C
+
+    .byte con_jmp
+    .word off_B5E4
+
+
+
+off_AAB2:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $00, $1D
+    .byte $04, $1E
+
+    .byte con_jmp
+    .word off_B61B
+
+
+
+off_AABE:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $03, $34
+    .byte $04, $0C
+
+    .byte con_jmp
+    .word off_B61B
+
+
+
+off_AACA:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $01, $DC
+
+    .byte con_jmp
+    .word off_BAA9
+
+
+
+off_AAD4:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $88
+    .byte $3C, $8A
+    .byte $00, $A0
+    .byte $04, $5A
+
+    .byte $BF
+    .byte $3A, $89
+    .byte $3C, $8B
+    .byte $00, $A1
+    .byte $07, $86
+    .byte $04, $5B
+
+    .byte $A0
+    .byte $3A, $8C
+    .byte $3C, $8E
+    .byte $00, $A4
+    .byte $07, $87
+    .byte $04, $5E
+
+    .byte $A1
+    .byte $3A, $8D
+
+    .byte con_jmp
+    .word off_B65D
+
+
+
+off_AAFD:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $85
+    .byte $3C, $92
+    .byte $00, $98
+
+    .byte $BF
+    .byte $3A, $89
+    .byte $3C, $93
+    .byte $00, $99
+
+    .byte $A0
+    .byte $3A, $90
+    .byte $3C, $96
+    .byte $00, $9C
+
+    .byte $A1
+    .byte $3A, $91
+
+    .byte con_jmp
+    .word off_B64E
+
+
+
+off_AB1C:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $88
+    .byte $3C, $8A
+    .byte $00, $A0
+
+    .byte $BF
+    .byte $3A, $94
+    .byte $3C, $9E
+    .byte $00, $97
+
+    .byte $A0
+    .byte $3A, $95
+    .byte $3C, $9F
+    .byte $00, $9D
+
+    .byte $A1
+    .byte $3A, $8D
+
+    .byte con_jmp
+    .word off_B64E
+
+
+
+off_AB3B:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $85
+    .byte $3C, $A2
+    .byte $03, $A5
+    .byte $00, $A8
+    .byte $07, $AB
+    .byte $04, $5A
+
+    .byte $BF
+    .byte $3A, $89
+    .byte $3C, $A3
+    .byte $00, $A9
+    .byte $04, $AA
+
+    .byte $A0
+    .byte $3A, $90
+    .byte $3C, $A6
+    .byte $03, $A5
+    .byte $00, $AC
+    .byte $07, $AE
+    .byte $04, $5E
+
+    .byte $A1
+    .byte $3A, $91
+
+    .byte con_jmp
+    .word off_B65D
+
+
+
+off_AB68:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $8B
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $8E
+    .byte $07, $A6
+
+    .byte $A1
+    .byte $3F, $8F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B69A
+
+
+
+off_AB80:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3C, $94
+    .byte $02, $96
+
+    .byte $A0
+    .byte $3C, $98
+    .byte $04, $A2
+
+    .byte $A1
+    .byte $3C, $95
+    .byte $02, $97
+
+    .byte con_jmp
+    .word off_B69A
+
+
+
+off_AB96:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $9C
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $8E
+    .byte $07, $B3
+
+    .byte $A1
+    .byte $3F, $9D
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B69A
+
+
+
+off_ABAE:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $86
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $8E
+    .byte $04, $A2
+
+    .byte $A1
+    .byte $3F, $87
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B69A
+
+
+
+off_ABC6:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $8B
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $B6
+    .byte $07, $A6
+
+    .byte $A1
+    .byte $3F, $8F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_ABDE:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3C, $94
+    .byte $02, $96
+
+    .byte $A0
+    .byte $3C, $C8
+    .byte $04, $A2
+
+    .byte $A1
+    .byte $3C, $95
+    .byte $02, $97
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_ABF4:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3C, $94
+    .byte $02, $96
+
+    .byte $A0
+    .byte $3C, $B6
+    .byte $07, $A6
+
+    .byte $A1
+    .byte $3F, $8F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_AC0A:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $9E
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $B6
+    .byte $07, $B3
+
+    .byte $A1
+    .byte $3F, $9F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_AC22:
+    .byte $70, $71, $72, $73
+
+    .byte $BE
+    .byte $09, $81
+    .byte $0D, $7D
+
+    .byte $BF
+    .byte $03, $C9
+    .byte $09, $D0
+    .byte $0A, $91
+    .byte $0D, $D2
+
+    .byte $A0
+    .byte $04, $A2
+    .byte $08, $C0
+    .byte $0D, $D3
+
+    .byte $A1
+    .byte $03, $A5
+    .byte $0B, $2B
+    .byte $0D, $D6
+
+    .byte $A2
+    .byte $3E, $CC
+    .byte $02, $CE
+    .byte $09, $D5
+    .byte $0A, $91
+    .byte $0D, $D7
+
+    .byte $A3
+    .byte $09, $7C
+    .byte $0D, $7E
+
+    .byte $A4
+    .byte $0D, $7F
+
+    .byte con_jmp
+    .word off_B724
+
+
+
+off_AC58:
+    .byte $70, $71, $72, $73
+
+    .byte $BE
+    .byte $09, $A8
+    .byte $0D, $AA
+
+    .byte $BF
+    .byte $03, $D8
+    .byte $09, $DA
+    .byte $0A, $91
+    .byte $0D, $AB
+
+    .byte $A0
+    .byte $04, $A2
+    .byte $08, $AC
+    .byte $0F, $AE
+
+    .byte $A1
+    .byte $03, $D9
+    .byte $0B, $AD
+    .byte $0F, $AF
+
+    .byte $A2
+    .byte $3E, $9A
+    .byte $02, $B0
+    .byte $09, $DB
+    .byte $0A, $91
+    .byte $0D, $BA
+
+    .byte $A3
+    .byte $09, $B9
+    .byte $0D, $BB
+
+    .byte $A4
+    .byte $0D, $7F
+
+    .byte con_jmp
+    .word off_B724
+
+
+
+off_AC8E:
+    .byte $74, $75, $76, $77
+
+    .byte con_jsr
+    .word off_B7BD
+
+    .byte con_jmp
+    .word off_B75F
+
+
+
+off_AC98:
+    .byte $74, $75, $76, $77
+
+    .byte con_jsr
+    .word off_B7BD
+
+    .byte con_jmp
+    .word off_B7AF
+
+
+
+off_ACA2:
+    .byte $74, $75, $76, $77
+
+    .byte con_jsr
+    .word off_B7DE
+
+    .byte con_jmp
+    .word off_B75F
+
+
+
+off_ACAC:
+    .byte $74, $75, $76, $77
+
+    .byte con_jsr
+    .word off_B7DE
+
+    .byte con_jmp
+    .word off_B7AF
+
+
+
+off_ACB6:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3F, $8B
+
+    .byte $A0
+    .byte $03, $A4
+    .byte $04, $A6
+
+    .byte $A1
+    .byte $3F, $8F
+
+    .byte con_jmp
+    .word off_B7FF
+
+
+
+off_ACC8:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3F, $C4
+
+    .byte $A0
+    .byte $00, $E0
+    .byte $04, $E2
+
+    .byte $A1
+    .byte $3F, $C6
+
+    .byte con_jmp
+    .word off_B7FF
+
+
+
+off_ACDA:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3F, $C4
+
+    .byte $A0
+    .byte $03, $E1
+    .byte $04, $E3
+
+    .byte $A1
+    .byte $3F, $C6
+
+    .byte con_jmp
+    .word off_B7FF
+
+
+
+off_ACEC:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3A, $93
+    .byte $3F, $99
+    .byte $3C, $3C
+
+    .byte $A0
+    .byte $3C, $9C
+    .byte $03, $9E
+
+    .byte $A1
+    .byte $3A, $97
+    .byte $3F, $9D
+    .byte $3C, $3C
+
+    .byte con_jmp
+    .word off_B85B
+
+
+
+off_AD06:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3A, $93
+    .byte $3F, $BE
+    .byte $3C, $3C
+
+    .byte $A0
+    .byte $3C, $9C
+    .byte $03, $9E
+
+    .byte $A1
+    .byte $3A, $97
+    .byte $3F, $BF
+    .byte $3C, $3C
+
+    .byte con_jmp
+    .word off_B85B
+
+
+
+off_AD20:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3A, $93
+    .byte $3F, $BE
+    .byte $3C, $3C
+
+    .byte $A0
+    .byte $3C, $9C
+    .byte $03, $E9
+    .byte $04, $EB
+
+    .byte $A1
+    .byte $3A, $97
+    .byte $3F, $BF
+    .byte $3C, $3C
+
+    .byte con_jmp
+    .word off_B85B
+
+
+
+off_AD3C:     ; unused
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $37, $CA
+    .byte $3B, $C5
+    .byte $3F, $C7
+    .byte $03, $CD
+    .byte $07, $CF
+
+    .byte $BF
+    .byte $33, $C8
+    .byte $37, $01
+    .byte $38, $D0
+    .byte $3F, $D2
+    .byte $3C, $3C
+    .byte $00, $D8
+    .byte $04, $DA
+    .byte $09, $A9
+
+    .byte $A0
+    .byte $33, $C9
+    .byte $34, $CB
+    .byte $38, $D1
+    .byte $3C, $D3
+    .byte $03, $D9
+    .byte $04, $DB
+    .byte $0A, $AC
+
+    .byte $A1
+    .byte $33, $CC
+    .byte $37, $01
+    .byte $38, $D4
+    .byte $3F, $D6
+    .byte $3C, $3C
+    .byte $00, $DC
+    .byte $04, $DE
+    .byte $0A, $AD
+
+    .byte $A2
+    .byte $37, $CE
+    .byte $3B, $D5
+    .byte $3F, $D7
+    .byte $03, $D7
+    .byte $05, $DD
+
+    .byte con_jmp
+    .word off_B839
+
+
+
+off_AD8A:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $68
+    .byte $3F, $6A
+
+    .byte $BF
+    .byte $38, $69
+    .byte $3C, $6B
+    .byte $03, $71
+
+    .byte $A0
+    .byte $3B, $6C
+    .byte $3F, $6E
+
+    .byte con_jmp
+    .word off_B88D
+
+
+
+off_ADA2:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $4E
+    .byte $3F, $6A
+
+    .byte $BF
+    .byte $38, $44
+    .byte $3C, $6B
+    .byte $00, $6F
+
+    .byte $A0
+    .byte $3B, $4F
+    .byte $3F, $6E
+
+    .byte con_jmp
+    .word off_B88D
+
+
+
+off_ADBA:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $0E
+    .byte $3B, $4E
+    .byte $3F, $26
+    .byte $3F, $6A
+
+    .byte $BF
+    .byte $3B, $0F
+    .byte $38, $44
+    .byte $3F, $27
+    .byte $3C, $6B
+    .byte $00, $6F
+
+    .byte $A0
+    .byte $3B, $25
+    .byte $3B, $4F
+    .byte $3F, $13
+    .byte $3F, $6E
+
+    .byte con_jmp
+    .word off_B88D
+
+
+
+off_ADDE:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $60
+
+    .byte $A0
+    .byte $3E, $61
+    .byte $06, $2B
+    .byte $07, $02
+    .byte $0A, $1A
+
+    .byte $A1
+    .byte $3E, $64
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9F4
+
+
+
+off_ADF7:
+    .byte $74, $75, $76, $77
+
+    .byte $BD
+    .byte $05, $50
+    .byte $08, $52
+    .byte $0C, $58
+
+    .byte $BE
+    .byte $3A, $48
+    .byte $03, $60
+    .byte $05, $62
+    .byte $08, $68
+    .byte $0C, $6A
+
+    .byte $BF
+    .byte $36, $29
+    .byte $3A, $49
+    .byte $3F, $4B
+    .byte $00, $61
+    .byte $07, $63
+    .byte $0B, $01
+    .byte $0C, $6B
+
+    .byte $A0
+    .byte $36, $2A
+    .byte $3A, $4C
+    .byte $3F, $4E
+    .byte $03, $64
+    .byte $07, $66
+    .byte $0B, $6C
+    .byte $0C, $6E
+
+    .byte $A1
+    .byte $36, $2B
+    .byte $3B, $4D
+    .byte $3C, $4F
+    .byte $01, $65
+    .byte $05, $67
+    .byte $09, $01
+    .byte $0C, $6F
+
+    .byte $A2
+    .byte $01, $69
+    .byte $05, $51
+    .byte $0B, $53
+    .byte $0C, $59
+
+    .byte $A3
+    .byte $05, $54
+    .byte $09, $56
+    .byte $0F, $5C
+
+    .byte con_FF
+
+
+
+off_AE4B:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3A, $08
+    .byte $3F, $18
+    .byte $02, $1A
+    .byte $06, $30
+
+    .byte $BF
+    .byte $3B, $09
+    .byte $3F, $19
+    .byte $03, $1B
+
+    .byte $A0
+    .byte $3A, $0C
+    .byte $3F, $0A
+    .byte $00, $20
+
+    .byte $A1
+    .byte $3F, $01
+    .byte $02, $01
+    .byte $06, $23
+
+    .byte $A2
+    .byte $3F, $0B
+    .byte $02, $24
+
+    .byte con_jmp
+    .word off_B8DC
+
+
+
+off_AE75:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $15
+    .byte $3F, $1D
+    .byte $03, $35
+
+    .byte $BF
+    .byte $3B, $16
+    .byte $3F, $1E
+    .byte $03, $1C
+
+    .byte $A0
+    .byte $3B, $17
+    .byte $3F, $1F
+    .byte $00, $40
+
+    .byte $A1
+    .byte $3C, $34
+    .byte $00, $41
+
+    .byte con_jmp
+    .word off_B8DC
+
+
+
+off_AE96:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BD
+    .byte $36, $55
+    .byte $3A, $52
+
+    .byte $BE
+    .byte $32, $45
+    .byte $36, $42
+    .byte $3B, $53
+    .byte $3F, $49
+    .byte $03, $59
+
+    .byte $BF
+    .byte $32, $50
+    .byte $36, $43
+    .byte $3B, $56
+    .byte $3F, $4C
+    .byte $03, $5C
+    .byte $04, $4B
+    .byte $05, $33
+
+    .byte $A0
+    .byte $32, $51
+    .byte $36, $46
+    .byte $3B, $57
+    .byte $3F, $4D
+    .byte $00, $5D
+    .byte $04, $3F
+    .byte $05, $28
+
+    .byte $A1
+    .byte $32, $54
+    .byte $37, $47
+    .byte $38, $48
+    .byte $3C, $58
+    .byte $00, $4A
+
+    .byte con_jmp
+    .word off_B8FF
+
+
+
+off_AED6:
+    .byte $70, $71, $66, $67
+
+    .byte $BD
+    .byte $14, $DE
+
+    .byte $BE
+    .byte $0C, $DA
+    .byte $10, $DC
+    .byte $14, $DF
+
+    .byte $BF
+    .byte $05, $CA
+    .byte $04, $BF
+    .byte $08, $D8
+    .byte $0C, $DB
+    .byte $10, $DD
+
+    .byte $A0
+    .byte $32, $C0
+    .byte $36, $C2
+    .byte $01, $D0
+    .byte $05, $D2
+    .byte $08, $D9
+
+    .byte $A1
+    .byte $32, $C1
+    .byte $37, $C3
+    .byte $3B, $C9
+    .byte $3D, $CB
+    .byte $01, $D1
+    .byte $05, $D3
+
+    .byte $A2
+    .byte $31, $C4
+    .byte $35, $C6
+    .byte $39, $CC
+    .byte $38, $BF
+    .byte $3C, $CE
+    .byte $00, $D4
+    .byte $04, $D6
+
+    .byte $A3
+    .byte $31, $C5
+    .byte $35, $C7
+    .byte $39, $CD
+    .byte $3D, $CF
+    .byte $01, $D5
+    .byte $05, $D7
+
+    .byte con_FF
+
+
+
+off_AF24:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3F, $8B
+
+    .byte $A0
+    .byte $00, $E0
+    .byte $04, $E2
+
+    .byte $A1
+    .byte $3F, $8F
+
+    .byte con_jmp
+    .word off_B7FF
+
+
+
+off_AF36:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $37, $CA
+    .byte $3B, $C5
+    .byte $3F, $C7
+    .byte $03, $CD
+    .byte $07, $CF
+
+    .byte $BF
+    .byte $33, $C8
+    .byte $37, $01
+    .byte $38, $D0
+    .byte $3F, $D2
+    .byte $3C, $3C
+    .byte $00, $D8
+    .byte $04, $DA
+    .byte $09, $A9
+
+    .byte $A0
+    .byte $33, $C9
+    .byte $34, $CB
+    .byte $38, $D1
+    .byte $3C, $D3
+    .byte $00, $EA
+    .byte $04, $DB
+    .byte $0A, $AC
+
+    .byte $A1
+    .byte $33, $CC
+    .byte $37, $01
+    .byte $38, $D4
+    .byte $3F, $D6
+    .byte $3C, $3C
+    .byte $00, $DC
+    .byte $04, $DE
+    .byte $0A, $AD
+
+    .byte $A2
+    .byte $37, $CE
+    .byte $3B, $D5
+    .byte $3F, $D7
+    .byte $03, $D7
+    .byte $05, $DD
+
+    .byte con_jmp
+    .word off_B839
+
+
+
+off_AF84:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $88
+    .byte $3C, $8A
+    .byte $00, $A0
+    .byte $04, $5A
+
+    .byte $BF
+    .byte $3A, $89
+    .byte $3C, $8B
+    .byte $00, $A1
+    .byte $04, $15
+    .byte $08, $FE
+
+    .byte $A0
+    .byte $3A, $8C
+    .byte $3C, $8E
+    .byte $00, $A4
+    .byte $04, $81
+
+    .byte $A1
+    .byte $3A, $8D
+
+    .byte con_jmp
+    .word off_BA31
+
+
+
+off_AFAB:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $88
+    .byte $3C, $8A
+    .byte $00, $A0
+    .byte $04, $5A
+
+    .byte $BF
+    .byte $3A, $94
+    .byte $3C, $9E
+    .byte $00, $97
+    .byte $04, $15
+    .byte $08, $FE
+
+    .byte $A0
+    .byte $3A, $95
+    .byte $3C, $9F
+    .byte $00, $9D
+    .byte $04, $81
+
+    .byte $A1
+    .byte $3A, $8D
+
+    .byte con_jmp
+    .word off_BA31
+
+
+
+off_AFD2:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3C, $94
+    .byte $02, $96
+
+    .byte $A0
+    .byte $3C, $98
+    .byte $07, $A6
+
+    .byte $A1
+    .byte $3C, $95
+    .byte $02, $97
+
+    .byte con_jmp
+    .word off_B69A
+
+
+
+off_AFE8:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $5A
+
+    .byte $A0
+    .byte $3E, $5B
+    .byte $06, $18
+    .byte $0A, $1A
+
+    .byte $A1
+    .byte $3E, $5E
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9F4
+
+
+
+off_AFFF:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $38, $D4
+
+    .byte $BF
+    .byte $00, $C1
+    .byte $3C, $D6
+    .byte $03, $D7
+
+    .byte $A0
+    .byte $38, $D5
+
+    .byte con_jsr
+    .word off_B7BD
+
+    .byte con_jmp
+    .word off_B76A
+
+
+
+off_B016:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3A, $08
+    .byte $3F, $18
+    .byte $02, $1A
+    .byte $06, $30
+
+    .byte $BF
+    .byte $3B, $09
+    .byte $3F, $19
+    .byte $00, $E8
+
+    .byte $A0
+    .byte $3A, $0C
+    .byte $3F, $0A
+    .byte $00, $20
+
+    .byte $A1
+    .byte $3F, $01
+    .byte $03, $01
+    .byte $06, $23
+
+    .byte $A2
+    .byte $3F, $0B
+    .byte $02, $24
+
+    .byte con_jmp
+    .word off_B8DC
+
+
+
+off_B040:
+    .byte $70, $71, $72, $73
+
     .byte $BA
-    .byte $0E, $0F, $1A, $1B
-    .byte $03, $60, $61, $03
-    .byte $24, $25, $03, $30
-    .byte $26, $27, $03, $32
-    ; 154
-    .byte $FE
-    .byte $2E, $1E, $1F, $4A
-    .byte $62, $63, $03, $03
-    .byte $31, $2C, $2D, $38
-    .byte $33, $02, $2F, $3A
-    ; 155
-    .byte $AA
-    .byte $03, $49, $01, $01
-    .byte $03, $4B, $01, $68
-    .byte $39, $01, $01, $69
-    .byte $3B, $01, $6A, $6B
-    ; 156
-    .byte $FE
-    .byte $4C, $4D, $58, $59
-    .byte $4E, $4F, $5A, $5B
-    .byte $54, $03, $03, $55
-    .byte $56, $03, $21, $57
-    ; 157
-    .byte $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $5E, $5F, $20
-    .byte $01, $74, $75, $22
-    ; 158
-    .byte $40
-    .byte $01, $01, $0A, $0B
-    .byte $01, $64, $65, $70
-    .byte $11, $66, $67, $72
-    .byte $23, $6C, $6D, $78
-    ; 159
-    .byte $00
-    .byte $01, $01, $01, $01
-    .byte $71, $01, $01, $01
-    .byte $73, $01, $01, $01
-    .byte $79, $01, $01, $01
-    ; 15A
-    .byte $FA
-    .byte $01, $76, $77, $28
-    .byte $08, $7C, $7D, $2A
-    .byte $24, $7E, $7F, $03
-    .byte $26, $27, $03, $30
-    ; 15B
-    .byte $FE
-    .byte $29, $6E, $6F, $7A
-    .byte $2B, $5C, $5D, $03
-    .byte $62, $84, $85, $03
-    .byte $31, $86, $87, $09
-    ; 15C
-    .byte $AA
-    .byte $7B, $01, $01, $01
-    .byte $C8, $81, $01, $68
-    .byte $82, $83, $01, $69
-    .byte $88, $89, $6A, $6B
-    ; 15D
-    .byte $AA
-    .byte $80, $81, $03, $03
-    .byte $82, $03, $03, $03
-    .byte $88, $03, $03, $03
-    .byte $A8, $03, $03, $03
-    ; 15E
-    .byte $CC
-    .byte $01, $84, $85, $90
-    .byte $83, $86, $87, $92
-    .byte $89, $B1, $03, $03
-    .byte $8B, $02, $03, $03
-    ; 15F
-    .byte $FF
-    .byte $91, $94, $95, $8C
-    .byte $93, $96, $97, $8E
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    ; 160
+    .byte $3F, $32
+    .byte $03, $38
+    .byte $07, $3A
+
     .byte $BB
-    .byte $8D, $98, $02, $99
-    .byte $8F, $9A, $B3, $9B
-    .byte $03, $A4, $A5, $B0
-    .byte $03, $A6, $A7, $01
-    ; 161
-    .byte $AA
-    .byte $A0, $03, $03, $03
-    .byte $A2, $03, $03, $03
-    .byte $A8, $AE, $03, $03
-    .byte $AA, $AB, $AE, $03
-    ; 162
-    .byte $00
-    .byte $A1, $02, $02, $03
-    .byte $A3, $02, $B2, $03
-    .byte $A9, $02, $B8, $03
-    .byte $AF, $8A, $BA, $03
-    ; 163
-    .byte $00
-    .byte $03, $03, $AC, $03
-    .byte $03, $03, $AD, $03
-    .byte $03, $03, $03, $03
-    .byte $03, $03, $03, $03
-    ; 164
+    .byte $3F, $33
+    .byte $03, $39
+
+    .byte $A0
+    .byte $3B, $31
+    .byte $3F, $02
+    .byte $03, $3C
+    .byte $07, $3B
+
+    .byte $A1
+    .byte $3B, $34
+    .byte $3F, $39
+
+    .byte con_FF
+
+
+
+off_B05F:
+    .byte $70, $71, $72, $73
+
     .byte $BB
-    .byte $03, $9C, $9D, $01
-    .byte $03, $9E, $9F, $01
-    .byte $B9, $B4, $B5, $01
-    .byte $BB, $B6, $B7, $01
-    ; 165
-    .byte $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $FF, $FF, $FF, $FF
-    ; 166
-    .byte $AA
-    .byte $F2, $F2, $F2, $F2
-    .byte $F2, $F2, $F2, $F2
-    .byte $F2, $F2, $F2, $F2
-    .byte $F2, $F2, $F2, $F2
-    ; 167
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    ; 168
-    .byte $AA
-    .byte $0B, $0C, $0D, $1A
-    .byte $21, $0E, $0F, $30
-    .byte $23, $24, $25, $32
-    .byte $29, $26, $27, $2B
-    ; 169
-    .byte $AA
-    .byte $09, $06, $07, $18
-    .byte $0B, $0C, $0D, $1A
-    .byte $21, $0E, $0F, $30
-    .byte $23, $24, $25, $32
-    ; 16A
-    .byte $AA
-    .byte $03, $04, $05, $12
-    .byte $09, $06, $07, $18
-    .byte $0B, $0C, $0D, $1A
-    .byte $21, $0E, $0F, $30
-    ; 16B
-    .byte $AA
-    .byte $22, $28, $2A, $10
-    .byte $03, $04, $05, $12
-    .byte $09, $06, $07, $18
-    .byte $0B, $0C, $0D, $1A
-    ; 16C
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $22, $28, $2A, $10
-    .byte $03, $04, $05, $12
-    .byte $09, $06, $07, $18
-    ; 16D
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $22, $28, $2A, $10
-    .byte $03, $04, $05, $12
-    ; 16E
-    .byte $AA
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $01, $01, $01, $01
-    .byte $22, $28, $2A, $10
-    ; 16F
-    .byte $AA
-    .byte $13, $10, $15, $0F
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 170
-    .byte $AA
-    .byte $06, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    ; 171
-    .byte $FF
-    .byte $00, $00, $F9, $F6
-    .byte $00, $00, $F7, $00
-    .byte $00, $00, $F7, $00
-    .byte $00, $00, $F7, $00
-    ; 172
-    .byte $FF
-    .byte $F6, $F6, $F6, $F6
-    .byte $FD, $FD, $FF, $00
-    .byte $FD, $00, $FF, $00
-    .byte $FD, $FD, $FF, $00
-    ; 173
-    .byte $FF
-    .byte $F6, $F6, $F6, $F6
-    .byte $00, $FF, $FF, $FF
-    .byte $00, $FF, $00, $FD
-    .byte $00, $FF, $FD, $FF
-    ; 174
-    .byte $FF
-    .byte $F6, $FC, $00, $00
-    .byte $00, $F7, $00, $00
-    .byte $00, $F7, $00, $00
-    .byte $00, $F7, $00, $00
-    ; 175
-    .byte $FF
-    .byte $00, $00, $F7, $00
-    .byte $00, $00, $F7, $00
-    .byte $00, $00, $FB, $F6
-    .byte $00, $00, $00, $00
-    ; 176
-    .byte $FF
-    .byte $FD, $00, $FD, $00
-    .byte $FD, $FD, $FF, $00
-    .byte $F6, $F6, $F6, $F6
-    .byte $00, $00, $00, $00
-    ; 177
-    .byte $FF
-    .byte $00, $FD, $00, $FF
-    .byte $00, $FF, $FF, $FF
-    .byte $F6, $F6, $F6, $F6
-    .byte $00, $00, $00, $00
-    ; 178
-    .byte $FF
-    .byte $00, $F7, $00, $00
-    .byte $00, $F7, $00, $00
-    .byte $F6, $FE, $00, $00
-    .byte $00, $00, $00, $00
-    ; 179
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $13, $15, $11
-    ; 17A
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $07, $12, $00, $0A
-    ; 17B
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $0B, $14, $00, $13
-    ; 17C
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $10, $05, $05, $07
-    ; 17D
-    .byte $AA
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $12, $00, $12, $10
-    ; 17E
-    .byte $00
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
-    ; 17F
-    .byte $00
-    .byte $FC, $FE, $FE, $FE
-    .byte $FE, $FC, $FE, $FE
-    .byte $FE, $FE, $FC, $FE
-    .byte $FE, $FE, $FE, $FC
-    ; 180
-    .byte $00
-    .byte $FE, $FE, $FE, $FD
-    .byte $FE, $FE, $FD, $FE
-    .byte $FE, $FD, $FE, $FE
-    .byte $FD, $FE, $FE, $FE
-    ; 181
-    .byte $00
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00
-    .byte $FE, $FE, $FE, $FE
-    .byte $FE, $FE, $FE, $FE
+    .byte $3F, $35
+    .byte $03, $37
+    .byte $0B, $3E
+
+    .byte $BC
+    .byte $3F, $60
+    .byte $03, $02
+    .byte $07, $02
+    .byte $0B, $3F
+
+    .byte $BD
+    .byte $03, $62
+    .byte $07, $02
+    .byte $0B, $6A
+
+    .byte $A1
+    .byte $03, $79
+    .byte $07, $7B
+
+    .byte $A2
+    .byte $3B, $61
+    .byte $3F, $02
+    .byte $03, $02
+    .byte $07, $02
+    .byte $0B, $6B
+
+    .byte $A3
+    .byte $3B, $64
+    .byte $3F, $63
+    .byte $03, $02
+    .byte $07, $3D
+    .byte $0B, $6E
+
+    .byte con_FF
+
+
+
+off_B096:
+    .byte $70, $71, $72, $73
+
+    .byte $BE
+    .byte $3F, $78
+    .byte $03, $7A
+    .byte $07, $36
+
+    .byte $A3
+    .byte $3B, $68
+    .byte $03, $66
+    .byte $07, $6C
+    .byte $0B, $6F
+
+    .byte $A4
+    .byte $3B, $69
+    .byte $3F, $65
+    .byte $03, $67
+    .byte $07, $6D
+
+    .byte con_FF
+
+
+
+off_B0B4:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $38, $D4
+
+    .byte $BF
+    .byte $3C, $D6
+    .byte $00, $C1
+
+    .byte $A0
+    .byte $38, $D5
+
+    .byte con_jsr
+    .word off_B7DE
+
+    .byte con_jmp
+    .word off_B7AF
+
+
+
+off_B0C9:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $3A, $85
+    .byte $3C, $92
+    .byte $00, $98
+    .byte $04, $5A
+
+    .byte $BF
+    .byte $3A, $89
+    .byte $3C, $93
+    .byte $00, $99
+    .byte $04, $15
+    .byte $08, $FE
+
+    .byte $A0
+    .byte $3A, $90
+    .byte $3C, $96
+    .byte $00, $9C
+    .byte $04, $81
+
+    .byte $A1
+    .byte $3A, $91
+
+    .byte con_jmp
+    .word off_BA31
+
+
+
+off_B0F0:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BE
+    .byte $3A, $1F
+
+    .byte $BF
+    .byte $3C, $35
+    .byte $03, $34
+    .byte $04, $0C
+
+    .byte $A0
+    .byte $3A, $4A
+
+    .byte con_jmp
+    .word off_B583
+
+
+
+off_B104:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $60
+
+    .byte $A0
+    .byte $3E, $61
+    .byte $06, $2B
+    .byte $07, $02
+    .byte $0A, $1A
+
+    .byte $A1
+    .byte $3E, $64
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_BA6C
+
+
+
+off_B11D:
+    .byte $60, $61, $62, $63
+
+    .byte $BB
+    .byte $35, $4C
+    .byte $39, $50
+
+    .byte $BC
+    .byte $2F, $44
+    .byte $2D, $45
+    .byte $33, $48
+    .byte $31, $4A
+    .byte $35, $4D
+    .byte $39, $51
+
+    .byte $BD
+    .byte $2F, $47
+    .byte $2D, $46
+    .byte $33, $49
+    .byte $31, $4B
+    .byte $35, $4E
+    .byte $3B, $52
+    .byte $3F, $53
+    .byte $03, $5F
+
+    .byte $BE
+    .byte $3F, $54
+    .byte $03, $60
+    .byte $06, $67
+    .byte $08, $6D
+
+    .byte $BF
+    .byte $3F, $55
+    .byte $00, $61
+    .byte $04, $68
+    .byte $08, $6E
+    .byte $0C, $3B
+    .byte $10, $3E
+    .byte $17, $42
+
+    .byte $A0
+    .byte $3F, $56
+    .byte $03, $62
+    .byte $07, $69
+    .byte $0A, $6F
+    .byte $0C, $02
+    .byte $10, $3F
+    .byte $17, $43
+
+    .byte $A1
+    .byte $3F, $57
+    .byte $03, $63
+    .byte $06, $6A
+    .byte $0A, $38
+    .byte $0C, $02
+    .byte $10, $40
+    .byte $17, $70
+
+    .byte $A2
+    .byte $00, $64
+    .byte $04, $6B
+    .byte $08, $39
+    .byte $0C, $3D
+    .byte $10, $41
+    .byte $17, $71
+
+    .byte $A3
+    .byte $3F, $58
+    .byte $03, $65
+    .byte $06, $6C
+    .byte $08, $3A
+
+    .byte $A4
+    .byte $37, $5D
+    .byte $3B, $5B
+    .byte $3F, $59
+    .byte $03, $66
+
+    .byte $A5
+    .byte $37, $5E
+    .byte $3B, $5C
+    .byte $3F, $5A
+
+    .byte con_FF
+
+
+
+off_B1D0:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $60
+
+    .byte $A0
+    .byte $3E, $61
+    .byte $06, $18
+    .byte $0A, $1A
+
+    .byte $A1
+    .byte $3E, $64
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9F4
+
+
+
+off_B1E7:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $60
+
+    .byte $A0
+    .byte $3E, $61
+    .byte $06, $49
+    .byte $07, $02
+    .byte $0A, $1A
+
+    .byte $A1
+    .byte $3E, $64
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9F4
+
+
+
+off_B200:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $5A
+
+    .byte $A0
+    .byte $3E, $5B
+    .byte $06, $69
+    .byte $07, $02
+    .byte $0A, $6B
+
+    .byte $A1
+    .byte $3E, $5E
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9F4
+
+
+
+off_B219:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $38, $B8
+
+    .byte $BF
+    .byte $3C, $BB
+    .byte $03, $D7
+
+    .byte $A0
+    .byte $38, $BC
+
+    .byte con_jsr
+    .word off_B7BD
+
+    .byte con_jmp
+    .word off_B76A
+
+
+
+off_B22E:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BE
+    .byte $36, $54
+    .byte $3A, $50
+    .byte $3E, $51
+
+    .byte $BF
+    .byte $36, $55
+    .byte $3A, $01
+    .byte $3E, $78
+    .byte $3F, $02
+    .byte $02, $53
+    .byte $03, $5D
+
+    .byte $A0
+    .byte $36, $01
+    .byte $3A, $01
+    .byte $3E, $01
+    .byte $02, $56
+    .byte $06, $18
+
+    .byte $A1
+    .byte $36, $01
+    .byte $3A, $01
+    .byte $3E, $01
+    .byte $02, $57
+
+    .byte $A2
+    .byte $36, $35
+    .byte $3A, $37
+    .byte $3E, $01
+
+    .byte con_jmp
+    .word off_B9D2
+
+
+
+off_B264:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3C, $94
+    .byte $02, $96
+
+    .byte $A0
+    .byte $3C, $C8
+    .byte $07, $A6
+
+    .byte $A1
+    .byte $3C, $95
+    .byte $02, $97
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_B27A:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $9E
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $B6
+    .byte $04, $A2
+
+    .byte $A1
+    .byte $3F, $9F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_B292:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $05
+
+    .byte $A0
+    .byte $3E, $10
+    .byte $06, $18
+
+    .byte $A1
+    .byte $3E, $11
+    .byte $02, $13
+    .byte $03, $31
+
+    .byte con_jmp
+    .word off_B947
+
+
+
+off_B2A8:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BF
+    .byte $3E, $29
+
+    .byte $A0
+    .byte $3E, $2C
+    .byte $06, $2B
+    .byte $07, $02
+
+    .byte $A1
+    .byte $3E, $2D
+    .byte $02, $2E
+    .byte $03, $31
+
+    .byte con_jmp
+    .word off_B947
+
+
+
+off_B2C0:
+    .byte $68, $69, $6A, $6B
+
+    .byte $A0
+    .byte $06, $18
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9AB
+
+
+
+off_B2CD:
+    .byte $68, $69, $6A, $6B
+
+    .byte $A0
+    .byte $06, $49
+
+    .byte con_jsr
+    .word off_B9A0
+
+    .byte con_jmp
+    .word off_B9AB
+
+
+
+off_B2DA:
+    .byte $68, $69, $6A, $6B
+
+    .byte $BE
+    .byte $36, $54
+    .byte $3A, $50
+    .byte $3E, $51
+
+    .byte $BF
+    .byte $36, $55
+    .byte $3A, $01
+    .byte $3E, $78
+    .byte $3F, $02
+    .byte $02, $53
+    .byte $03, $5D
+
+    .byte $A0
+    .byte $36, $01
+    .byte $3A, $01
+    .byte $3E, $01
+    .byte $02, $56
+    .byte $06, $49
+
+    .byte $A1
+    .byte $36, $01
+    .byte $3A, $01
+    .byte $3E, $01
+    .byte $02, $57
+
+    .byte $A2
+    .byte $36, $35
+    .byte $3A, $37
+    .byte $3E, $01
+
+    .byte con_jmp
+    .word off_B9D2
+
+
+
+off_B310:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $68
+    .byte $3F, $6A
+
+    .byte $BF
+    .byte $38, $69
+    .byte $3C, $6B
+    .byte $00, $6F
+
+    .byte $A0
+    .byte $3B, $6C
+    .byte $3F, $6E
+
+    .byte con_jmp
+    .word off_B88D
+
+
+
+off_B340:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $0E
+    .byte $3B, $4E
+    .byte $3F, $26
+    .byte $3F, $6A
+
+    .byte $BF
+    .byte $3B, $0F
+    .byte $38, $44
+    .byte $3F, $27
+    .byte $3C, $6B
+    .byte $03, $71
+
+    .byte $A0
+    .byte $3B, $25
+    .byte $3B, $4F
+    .byte $3F, $13
+    .byte $3F, $6E
+
+    .byte con_jmp
+    .word off_B88D
+
+
+
+off_B364:
+    .byte $70, $71, $66, $67
+
+    .byte $BE
+    .byte $3F, $06
+
+    .byte $BF
+    .byte $3C, $07
+    .byte $00, $0D
+    .byte $04, $0A
+
+    .byte $A0
+    .byte $3F, $12
+
+    .byte con_jmp
+    .word off_B4D4
+
+
+
+off_B378:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BE
+    .byte $3B, $15
+    .byte $3F, $1D
+    .byte $03, $35
+
+    .byte $BF
+    .byte $3B, $16
+    .byte $3F, $1E
+    .byte $00, $E8
+
+    .byte $A0
+    .byte $3B, $17
+    .byte $3F, $1F
+    .byte $00, $40
+
+    .byte $A1
+    .byte $3C, $34
+    .byte $00, $41
+
+    .byte con_jmp
+    .word off_B8DC
+
+
+
+off_B399:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BD
+    .byte $36, $55
+    .byte $3A, $52
+
+    .byte $BE
+    .byte $32, $45
+    .byte $36, $42
+    .byte $3B, $53
+    .byte $3F, $49
+    .byte $03, $59
+
+    .byte $BF
+    .byte $32, $50
+    .byte $36, $43
+    .byte $3B, $56
+    .byte $3F, $4C
+    .byte $00, $FD
+    .byte $04, $4B
+    .byte $05, $33
+
+    .byte $A0
+    .byte $32, $51
+    .byte $36, $46
+    .byte $3B, $57
+    .byte $3F, $4D
+    .byte $00, $5D
+    .byte $04, $3F
+    .byte $05, $28
+
+    .byte $A1
+    .byte $32, $54
+    .byte $37, $47
+    .byte $38, $48
+    .byte $3C, $58
+    .byte $00, $4A
+
+    .byte con_jmp
+    .word off_B8FF
+
+
+
+off_B3D9:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $8B
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $B6
+    .byte $04, $A2
+
+    .byte $A1
+    .byte $3F, $8F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B6F6
+
+
+
+off_B3F1:
+    .byte $78, $79, $7A, $7B
+
+    .byte $BF
+    .byte $3A, $93
+    .byte $3F, $99
+    .byte $3C, $3C
+
+    .byte $A0
+    .byte $3C, $9C
+    .byte $03, $E9
+    .byte $04, $EB
+
+    .byte $A1
+    .byte $3A, $97
+    .byte $3F, $9D
+    .byte $3C, $3C
+
+    .byte con_jmp
+    .word off_B85B
+
+
+
+off_B40D:
+    .byte $70, $71, $72, $73
+
+    .byte $BE
+    .byte $3F, $28
+
+    .byte $BF
+    .byte $3C, $29
+    .byte $00, $0D
+    .byte $07, $0F
+
+    .byte $A0
+    .byte $3F, $2C
+
+    .byte con_jmp
+    .word off_B4D4
+
+
+
+off_B421:
+    .byte $70, $71, $72, $73
+
+    .byte $BF
+    .byte $3F, $8B
+    .byte $03, $A1
+    .byte $02, $93
+
+    .byte $A0
+    .byte $3C, $8E
+    .byte $04, $A2
+
+    .byte $A1
+    .byte $3F, $8F
+    .byte $03, $A5
+
+    .byte con_jmp
+    .word off_B69A
+
+
+
+off_B439:
+    .byte $74, $75, $76, $77
+
+    .byte $BE
+    .byte $38, $B8
+
+    .byte $BF
+    .byte $3C, $BB
+    .byte $03, $D7
+
+    .byte $A0
+    .byte $38, $BC
+
+    .byte con_jsr
+    .word off_B7DE
+
+    .byte con_jmp
+    .word off_B76A
+
+
+
+off_B44E:
+    .byte $1D, $5D, $5E, $5F
+
+    .byte $BA
+    .byte $3D, $15
+    .byte $01, $18
+    .byte $05, $1E
+    .byte $09, $27
+
+    .byte $BB
+    .byte $9F, $C3
+    .byte $0A, $3B
+    .byte $39, $10
+    .byte $3D, $12
+    .byte $01, $19
+    .byte $05, $30
+    .byte $09, $32
+
+    .byte $BC
+    .byte $39, $11
+    .byte $3D, $13
+    .byte $01, $1C
+    .byte $05, $1F
+    .byte $09, $33
+    .byte $0D, $3F
+    .byte $0C, $39
+
+    .byte $BD
+    .byte $39, $14
+    .byte $3D, $16
+    .byte $01, $1D
+    .byte $05, $31
+    .byte $09, $3E
+    .byte $08, $36
+    .byte $0C, $3C
+
+    .byte $BE
+    .byte $3D, $17
+    .byte $01, $1A
+    .byte $05, $34
+    .byte $08, $37
+    .byte $0C, $3D
+
+    .byte $BF
+    .byte $08, $2D
+    .byte $0D, $1B
+    .byte $0C, $2F
+
+    .byte $A0
+    .byte $08, $38
+    .byte $0D, $35
+    .byte $0C, $3A
+
+    .byte con_FF
+
+
+
+off_B4A2:
+    .byte $6C, $6D, $6E, $6F
+
+    .byte $BF
+    .byte $03, $DD
+
+    .byte con_jmp
+    .word off_BAA9
+
+
+
+
+
+
+
+
+
+; общие куски данных спрайтов
+off_B4AC:
+    .byte $BD
+    .byte $0C, $8C
+
+    .byte $BE
+    .byte $38, $A2
+    .byte $3D, $A8
+    .byte $01, $AA
+    .byte $05, $90
+    .byte $0C, $98
+
+    .byte $BF
+    .byte $3F, $A9
+
+    .byte $A0
+    .byte $0D, $9C
+
+    .byte $A1
+    .byte $04, $8D
+
+    .byte $A2
+    .byte $3D, $B8
+    .byte $01, $BA
+    .byte $05, $95
+    .byte $08, $97
+
+    .byte $A3
+    .byte $01, $BB
+    .byte $08, $BD
+    .byte $0C, $BE
+
+    .byte con_FF
+
+
+
+off_B4D4:
+    .byte $BC
+    .byte $0D, $22
+
+    .byte $BD
+    .byte $3B, $09
+    .byte $3F, $0B
+    .byte $09, $21
+    .byte $0D, $23
+
+    .byte $BE
+    .byte $37, $04
+    .byte $3B, $01
+    .byte $03, $0C
+    .byte $04, $0E
+    .byte $09, $24
+    .byte $0D, $26
+
+    .byte $BF
+    .byte $37, $05
+    .byte $3B, $01
+    .byte $08, $25
+    .byte $0D, $27
+
+    .byte $A0
+    .byte $37, $10
+    .byte $3B, $01
+    .byte $03, $18
+    .byte $04, $1A
+    .byte $08, $2D
+    .byte $09, $03
+    .byte $0D, $2F
+
+    .byte $A1
+    .byte $37, $11
+    .byte $3B, $01
+    .byte $3C, $13
+    .byte $00, $19
+    .byte $04, $1B
+    .byte $09, $30
+    .byte $0D, $02
+
+    .byte $A2
+    .byte $3B, $16
+    .byte $3F, $1C
+    .byte $03, $1E
+    .byte $09, $15
+    .byte $0D, $17
+
+    .byte $A3
+    .byte $09, $1D
+    .byte $0D, $1F
+    .byte con_FF
+
+
+
+off_B525:
+    .byte $BF
+    .byte $0D, $2F
+
+    .byte $A0
+    .byte $0D, $3A
+
+    .byte $A1
+    .byte $0D, $3B
+
+    .byte $A2
+    .byte $0D, $3E
+
+    .byte con_FF
+
+
+
+off_B532:
+    .byte $BD
+    .byte $3B, $88
+    .byte $3F, $8A
+
+    .byte $BE
+    .byte $37, $89
+    .byte $3B, $01
+    .byte $3C, $8B
+    .byte $00, $A0
+
+    .byte $BF
+    .byte $37, $8C
+    .byte $3B, $01
+
+    .byte $A0
+    .byte $37, $8D
+    .byte $3B, $01
+
+    .byte $A1
+    .byte $37, $98
+    .byte $3B, $01
+    .byte $3C, $9A
+    .byte $00, $A5
+    .byte $04, $A7
+
+    .byte $A2
+    .byte $3B, $B1
+    .byte $3F, $B3
+    .byte $03, $B0
+    .byte $07, $B2
+
+    .byte $A3
+    .byte $3F, $B6
+off_B561:
+    .byte $BE
+    .byte $04, $A2
+    .byte $0D, $AA
+
+    .byte $BF
+    .byte $04, $A3
+    .byte $09, $A9
+    .byte $08, $A8
+    .byte $0D, $AB
+
+    .byte $A0
+    .byte $04, $A6
+    .byte $09, $AC
+    .byte $08, $02
+    .byte $0D, $AE
+
+    .byte $A1
+    .byte $09, $AD
+    .byte $0D, $AF
+
+    .byte $A2
+    .byte $09, $B8
+    .byte $0D, $BA
+
+    .byte con_FF
+
+
+
+off_B583:
+    .byte $BD
+    .byte $36, $22
+    .byte $3A, $0A
+
+    .byte $BE
+    .byte $32, $07
+    .byte $36, $23
+    .byte $3F, $21
+
+    .byte $BF
+    .byte $32, $12
+    .byte $36, $26
+    .byte $3A, $0E
+
+    .byte $A0
+    .byte $32, $13
+    .byte $36, $02
+    .byte $3F, $25
+
+    .byte $A1
+    .byte $32, $16
+    .byte $36, $32
+    .byte $3A, $1A
+    .byte $3E, $30
+    .byte $02, $75
+    .byte $05, $18
+    .byte $06, $48
+
+    .byte $A2
+    .byte $3A, $1B
+    .byte $3E, $31
+off_B5B1:
+    .byte $BC
+    .byte $0D, $08
+
+    .byte $BD
+    .byte $3E, $20
+    .byte $09, $04
+    .byte $0D, $06
+
+    .byte $BE
+    .byte $00, $1C
+    .byte $04, $09
+    .byte $09, $05
+    .byte $0D, $02
+
+    .byte $BF
+    .byte $09, $10
+    .byte $08, $03
+    .byte $0D, $02
+
+    .byte $A0
+    .byte $00, $03
+    .byte $04, $0D
+    .byte $09, $11
+    .byte $0D, $02
+
+    .byte $A1
+    .byte $09, $14
+    .byte $0D, $02
+
+    .byte $A2
+    .byte $09, $15
+    .byte $0D, $17
+
+    .byte $A3
+    .byte $09, $40
+    .byte $0D, $42
+    .byte con_FF
+
+
+
+off_B5E4:
+    .byte $BD
+    .byte $36, $54
+    .byte $3A, $56
+
+    .byte $BE
+    .byte $32, $5C
+    .byte $36, $41
+    .byte $3A, $43
+    .byte $3F, $49
+
+    .byte $BF
+    .byte $32, $37
+    .byte $36, $44
+    .byte $3A, $46
+    .byte $3C, $4C
+
+    .byte $A0
+    .byte $32, $62
+    .byte $36, $45
+    .byte $3A, $47
+    .byte $3F, $4D
+
+    .byte $A1
+    .byte $36, $50
+    .byte $3A, $52
+    .byte $3E, $30
+    .byte $02, $55
+    .byte $05, $18
+    .byte $06, $48
+
+    .byte $A2
+    .byte $3A, $53
+    .byte $3E, $59
+    .byte $02, $31
+
+    .byte con_jmp
+    .word off_B5B1
+
+
+
+off_B61B:
+    .byte $BD
+    .byte $36, $4B
+    .byte $3A, $61
+
+    .byte $BE
+    .byte $32, $5C
+    .byte $36, $4E
+    .byte $3A, $64
+    .byte $3F, $5E
+
+    .byte $BF
+    .byte $32, $33
+    .byte $36, $02
+    .byte $3A, $65
+    .byte $3C, $24
+
+    .byte $A0
+    .byte $32, $36
+    .byte $36, $5A
+    .byte $3A, $70
+    .byte $3F, $74
+
+    .byte $A1
+    .byte $36, $5B
+    .byte $3A, $71
+    .byte $3E, $30
+    .byte $02, $75
+    .byte $05, $18
+    .byte $06, $48
+
+    .byte $A2
+    .byte $3E, $31
+
+    .byte con_jmp
+    .word off_B5B1
+
+
+
+off_B64E:
+    .byte $BE
+    .byte $07, $8F
+    .byte $04, $5A
+
+    .byte $BF
+    .byte $07, $9A
+    .byte $04, $5B
+
+    .byte $A0
+    .byte $07, $9B
+    .byte $04, $5E
+off_B65D:
+    .byte $BD
+    .byte $0D, $55
+
+    .byte $BE
+    .byte $36, $47
+    .byte $09, $70
+    .byte $0D, $72
+
+    .byte $BF
+    .byte $36, $84
+    .byte $08, $71
+    .byte $09, $4A
+    .byte $0D, $73
+
+    .byte $A0
+    .byte $36, $82
+    .byte $08, $74
+    .byte $0D, $76
+
+    .byte $A1
+    .byte $36, $83
+    .byte $3E, $57
+    .byte $00, $5D
+    .byte $04, $5F
+    .byte $09, $75
+    .byte $CC, $00, $5B
+    .byte $0D, $77
+
+    .byte $A2
+    .byte $36, $78
+    .byte $3A, $7A
+    .byte $3E, $79
+    .byte $00, $7B
+    .byte $09, $7C
+    .byte $0D, $7E
+
+    .byte $A3
+    .byte $09, $7D
+    .byte $0D, $7F
+
+    .byte con_FF
+
+
+
+off_B69A:
+    .byte $BE
+    .byte $09, $A8
+    .byte $0D, $AA
+
+    .byte $BF
+    .byte $09, $A9
+    .byte $0A, $90
+    .byte $0D, $AB
+
+    .byte $A0
+    .byte $3A, $8C
+    .byte $08, $AC
+    .byte $0F, $AE
+
+    .byte $A1
+    .byte $0B, $AD
+    .byte $0F, $AF
+
+    .byte $A2
+    .byte $02, $B0
+    .byte $06, $B2
+    .byte $09, $B8
+    .byte $0A, $93
+    .byte $0D, $BA
+
+    .byte $A3
+    .byte $3E, $9B
+    .byte $02, $B1
+    .byte $09, $B9
+    .byte $0D, $BB
+
+    .byte $A4
+    .byte $0D, $7F
+off_B6C9:
+    .byte $BE
+    .byte $36, $82
+    .byte $3A, $88
+    .byte $3E, $8A
+    .byte $02, $A0
+
+    .byte $BF
+    .byte $32, $81
+    .byte $36, $83
+    .byte $3A, $89
+    .byte $06, $A3
+
+    .byte $A0
+    .byte $32, $84
+    .byte $36, $02
+    .byte $00, $A4
+
+    .byte $A1
+    .byte $32, $85
+    .byte $36, $02
+    .byte $3A, $8D
+    .byte $04, $A7
+
+    .byte $A2
+    .byte $36, $92
+    .byte $3A, $02
+    .byte $3E, $9A
+
+    .byte $A3
+    .byte $3A, $99
+
+    .byte con_FF
+
+
+
+off_B6F6:
+    .byte $BE
+    .byte $09, $81
+    .byte $0D, $BE
+
+    .byte $BF
+    .byte $09, $BD
+    .byte $0D, $BF
+
+    .byte $A0
+    .byte $3A, $B4
+    .byte $08, $C0
+    .byte $0D, $C2
+
+    .byte $A1
+    .byte $0B, $C1
+    .byte $0D, $C3
+
+    .byte $A2
+    .byte $3D, $FD
+    .byte $02, $B5
+    .byte $06, $B7
+    .byte $09, $C4
+    .byte $0D, $C6
+
+    .byte $A3
+    .byte $3E, $B1
+    .byte $09, $C5
+    .byte $0D, $C7
+
+    .byte $A4
+    .byte $0D, $7F
+
+    .byte con_jmp
+    .word off_B6C9
+
+
+
+off_B724:
+    .byte $BE
+    .byte $36, $82
+    .byte $3A, $88
+    .byte $3E, $CA
+    .byte $06, $A0
+
+    .byte $BF
+    .byte $32, $81
+    .byte $36, $83
+    .byte $3A, $89
+    .byte $3F, $8B
+    .byte $06, $CB
+
+    .byte $A0
+    .byte $32, $84
+    .byte $36, $02
+    .byte $3A, $8C
+    .byte $3C, $8E
+    .byte $00, $A4
+
+    .byte $A1
+    .byte $32, $85
+    .byte $36, $02
+    .byte $3A, $8D
+    .byte $3F, $8F
+    .byte $04, $A7
+
+    .byte $A2
+    .byte $36, $92
+    .byte $3A, $02
+    .byte $06, $02
+
+    .byte $A3
+    .byte $3A, $99
+    .byte $3E, $CD
+    .byte $02, $CF
+    .byte $06, $DC
+
+    .byte con_FF
+
+
+
+off_B75F:
+    .byte $BE
+    .byte $38, $B8
+
+    .byte $BF
+    .byte $3C, $BB
+    .byte $00, $C1
+
+    .byte $A0
+    .byte $38, $BC
+off_B76A:
+    .byte $BC
+    .byte $08, $C8
+    .byte $0C, $CA
+
+    .byte $BD
+    .byte $36, $A7
+    .byte $3A, $AD
+    .byte $3E, $AF
+
+    .byte $BE
+    .byte $32, $B0
+    .byte $36, $B2
+    .byte $3F, $BA
+    .byte $00, $C0
+    .byte $04, $C2
+
+    .byte $BF
+    .byte $32, $B1
+    .byte $37, $01
+    .byte $38, $B9
+    .byte $04, $C3
+
+    .byte $A0
+    .byte $32, $B4
+    .byte $37, $01
+    .byte $3F, $BE
+    .byte $00, $C4
+    .byte $04, $C6
+
+    .byte $A1
+    .byte $33, $B5
+    .byte $36, $B7
+    .byte $38, $BD
+    .byte $3C, $BF
+    .byte $00, $C5
+
+    .byte $A2
+    .byte $3B, $B3
+    .byte $3F, $B3
+    .byte $03, $B6
+    .byte $05, $D8
+
+    .byte $A3
+    .byte $08, $D1
+    .byte $0C, $D3
+    .byte con_FF
+
+
+
+off_B7AF:
+    .byte $BE
+    .byte $38, $D4
+
+    .byte $BF
+    .byte $3C, $D6
+    .byte $03, $D7
+
+    .byte $A0
+    .byte $38, $D5
+
+    .byte con_jmp
+    .word off_B76A
+
+
+
+off_B7BD:
+    .byte $BD
+    .byte $09, $C9
+    .byte $0D, $CB
+
+    .byte $BE
+    .byte $09, $CC
+    .byte $0F, $01
+
+    .byte $BF
+    .byte $0B, $CD
+    .byte $0F, $01
+
+    .byte $A0
+    .byte $0B, $CE
+    .byte $0F, $01
+
+    .byte $A1
+    .byte $05, $C7
+    .byte $09, $CF
+    .byte $0F, $01
+
+    .byte $A2
+    .byte $09, $D0
+    .byte $0F, $D2
+
+    .byte con_rts
+
+
+
+off_B7DE:
+    .byte $BD
+    .byte $0A, $D9
+    .byte $0E, $DC
+
+    .byte $BE
+    .byte $0A, $DA
+    .byte $0D, $02
+
+    .byte $BF
+    .byte $09, $DB
+    .byte $0D, $02
+
+    .byte $A0
+    .byte $09, $DE
+    .byte $0D, $02
+
+    .byte $A1
+    .byte $06, $C7
+    .byte $0A, $DF
+    .byte $0D, $02
+
+    .byte $A2
+    .byte $0A, $D0
+    .byte $0D, $DD
+    .byte con_rts
+
+
+
+off_B7FF:
+    .byte $BD
+    .byte $9F, $C0
+    .byte $3B, $82
+
+    .byte $BE
+    .byte $3B, $88
+    .byte $3C, $8A
+
+    .byte $BF
+    .byte $33, $81
+    .byte $37, $83
+    .byte $3B, $89
+    .byte $00, $A1
+    .byte $04, $A3
+    .byte $09, $A9
+
+    .byte $A0
+    .byte $33, $84
+    .byte $37, $86
+    .byte $3B, $8C
+    .byte $3C, $8E
+    .byte $0A, $AC
+
+    .byte $A1
+    .byte $33, $85
+    .byte $37, $3C
+    .byte $3B, $8D
+    .byte $00, $A5
+    .byte $04, $A7
+    .byte $0A, $AD
+
+    .byte $A2
+    .byte $37, $92
+    .byte $3B, $98
+    .byte $3C, $9A
+    .byte $00, $B0
+off_B837:
+    .byte $05, $B2
+off_B839:
+    .byte $09, $B8
+    .byte $0D, $3C
+
+    .byte $BD
+    .byte $09, $A0
+    .byte $0D, $A2
+
+    .byte $BE
+    .byte $09, $A8
+    .byte $0D, $AA
+
+    .byte $BF
+    .byte $0D, $3C
+
+    .byte $A0
+    .byte $0D, $3C
+
+    .byte $A1
+    .byte $0D, $3C
+
+    .byte $A3
+    .byte $09, $AF
+    .byte $0D, $AB
+
+    .byte $A4
+    .byte $09, $BA
+    .byte $0D, $AE
+
+    .byte con_FF
+
+
+
+off_B85B:
+    .byte $BE
+    .byte $36, $B9
+    .byte $3A, $BB
+
+    .byte $BF
+    .byte $32, $81
+    .byte $36, $91
+    .byte $00, $9B
+    .byte $04, $B1
+    .byte $09, $B3
+
+    .byte $A0
+    .byte $32, $84
+    .byte $36, $94
+    .byte $3A, $96
+    .byte $04, $B4
+    .byte $09, $B6
+
+    .byte $A1
+    .byte $32, $90
+    .byte $36, $3C
+    .byte $00, $A5
+    .byte $04, $A7
+    .byte $09, $B7
+
+    .byte $A2
+    .byte $36, $BC
+    .byte $3A, $95
+    .byte $3C, $9F
+    .byte $02, $B5
+
+    .byte con_jmp
+    .word off_B837
+
+
+
+off_B88D:
+    .byte $BC
+    .byte $09, $78
+    .byte $0D, $7A
+
+    .byte $BD
+    .byte $36, $02
+    .byte $3A, $14
+    .byte $09, $79
+    .byte $0D, $7B
+
+    .byte $BE
+    .byte $32, $60
+    .byte $36, $62
+    .byte $00, $70
+    .byte $07, $72
+    .byte $09, $5A
+    .byte $0D, $01
+
+    .byte $BF
+    .byte $32, $61
+    .byte $36, $63
+    .byte $04, $73
+    .byte $0B, $5B
+    .byte $0D, $01
+
+    .byte $A0
+    .byte $32, $64
+    .byte $36, $66
+    .byte $00, $74
+    .byte $04, $76
+    .byte $0B, $5E
+    .byte $0D, $01
+
+    .byte $A1
+    .byte $32, $65
+    .byte $37, $67
+    .byte $3A, $6D
+    .byte $3C, $34
+    .byte $00, $75
+    .byte $05, $77
+    .byte $09, $5F
+    .byte $0D, $01
+
+    .byte $A2
+    .byte $09, $7C
+    .byte $0D, $7E
+
+    .byte $A3
+    .byte $09, $7D
+    .byte $0D, $7F
+
+    .byte con_FF
+
+
+
+off_B8DC:
+    .byte $BD
+    .byte $36, $02
+    .byte $3A, $14
+
+    .byte $BE
+    .byte $32, $04
+    .byte $36, $03
+
+    .byte $BF
+    .byte $32, $05
+    .byte $36, $06
+    .byte $04, $31
+    .byte $05, $33
+
+    .byte $A0
+    .byte $32, $10
+    .byte $36, $07
+    .byte $04, $22
+    .byte $05, $28
+
+    .byte $A1
+    .byte $32, $11
+    .byte $37, $12
+    .byte $3A, $0D
+off_B8FF:
+    .byte $05, $29
+    .byte $09, $2B
+    .byte $0D, $3C
+
+    .byte $BC
+    .byte $09, $2C
+    .byte $0D, $3A
+
+    .byte $BD
+    .byte $09, $2D
+    .byte $0D, $3B
+
+    .byte $BE
+    .byte $05, $32
+    .byte $09, $38
+    .byte $0D, $36
+
+    .byte $BF
+    .byte $09, $39
+    .byte $0D, $37
+
+    .byte $A0
+    .byte $09, $2A
+    .byte $0D, $3C
+
+    .byte $A2
+    .byte $09, $2E
+    .byte $0D, $3D
+
+    .byte $A3
+    .byte $09, $2F
+    .byte $0D, $3E
+
+    .byte con_FF
+
+
+
+off_B947:
+    .byte $BE
+    .byte $3A, $0A
+    .byte $3E, $04
+    .byte $02, $06
+    .byte $06, $0C
+    .byte $0A, $0E
+
+    .byte $BF
+    .byte $36, $08
+    .byte $3A, $0B
+    .byte $02, $07
+    .byte $03, $30
+    .byte $06, $0D
+    .byte $0A, $0F
+
+    .byte $A0
+    .byte $36, $09
+    .byte $3A, $02
+    .byte $02, $12
+    .byte $0A, $1A
+
+    .byte $A1
+    .byte $36, $15
+    .byte $3A, $02
+    .byte $06, $19
+    .byte $0A, $1B
+
+    .byte $A2
+    .byte $36, $28
+    .byte $3A, $2A
+    .byte $3E, $14
+    .byte $02, $16
+    .byte $06, $1C
+    .byte $0A, $1E
+    .byte $09, $2F
+
+    .byte $A3
+    .byte $02, $17
+    .byte $06, $1D
+    .byte $0A, $1F
+off_B987:
+    .byte $BD
+    .byte $0D, $22
+
+    .byte $BE
+    .byte $0D, $23
+
+    .byte $BF
+    .byte $0D, $20
+
+    .byte $A0
+    .byte $0C, $21
+
+    .byte $A1
+    .byte $0C, $24
+
+    .byte $A2
+    .byte $0D, $25
+
+    .byte $A3
+    .byte $0D, $26
+
+    .byte $A4
+    .byte $0D, $27
+
+    .byte con_FF
+
+
+
+off_B9A0:
+    .byte $BE
+    .byte $36, $38
+    .byte $3A, $3A
+    .byte $3E, $52
+
+    .byte $BF
+    .byte $36, $39
+
+    .byte con_rts
+
+
+
+off_B9AB:
+    .byte $3A, $3B
+    .byte $3E, $40
+    .byte $3F, $02
+    .byte $02, $42
+    .byte $03, $5D
+
+    .byte $A0
+    .byte $36, $3C
+    .byte $3A, $3E
+    .byte $3E, $41
+    .byte $02, $43
+
+    .byte $A1
+    .byte $36, $3D
+    .byte $3A, $3F
+    .byte $3E, $44
+    .byte $3F, $02
+    .byte $02, $46
+    .byte $03, $02
+
+    .byte $A2
+    .byte $36, $34
+    .byte $3A, $36
+    .byte $3E, $45
+off_B9D2:
+    .byte $BF
+    .byte $06, $48
+    .byte $0A, $4A
+
+    .byte $A0
+    .byte $32, $32
+    .byte $07, $02
+    .byte $0A, $4B
+
+    .byte $A1
+    .byte $32, $33
+    .byte $06, $4C
+    .byte $0A, $4E
+
+    .byte $A2
+    .byte $02, $47
+    .byte $06, $4D
+    .byte $0A, $4F
+    .byte $09, $2F
+
+    .byte $A3
+    .byte $0A, $33
+
+    .byte con_jmp
+    .word off_B987
+
+
+
+off_B9F4:
+    .byte $3A, $6C
+    .byte $3F, $03
+    .byte $02, $62
+    .byte $03, $30
+    .byte $06, $68
+    .byte $0A, $6A
+
+    .byte $A0
+    .byte $36, $58
+    .byte $3A, $6F
+    .byte $02, $43
+
+    .byte $A1
+    .byte $36, $59
+    .byte $3A, $7A
+    .byte $3F, $03
+    .byte $02, $66
+    .byte $03, $31
+    .byte $06, $03
+    .byte $0A, $6E
+
+    .byte $A2
+    .byte $36, $5C
+    .byte $3A, $63
+    .byte $3E, $65
+    .byte $02, $67
+    .byte $06, $6D
+    .byte $0A, $4F
+    .byte $09, $2F
+
+    .byte $A3
+    .byte $3A, $5F
+    .byte $3E, $70
+    .byte $02, $72
+    .byte $0A, $33
+
+    .byte con_jmp
+    .word off_B987
+
+
+
+off_BA31:
+    .byte $BD
+    .byte $0D, $55
+
+    .byte $BE
+    .byte $36, $47
+    .byte $09, $70
+    .byte $0D, $72
+
+    .byte $BF
+    .byte $36, $84
+    .byte $09, $4A
+    .byte $0D, $73
+
+    .byte $A0
+    .byte $36, $82
+    .byte $08, $74
+    .byte $0D, $76
+
+    .byte $A1
+    .byte $36, $83
+    .byte $3E, $57
+    .byte $00, $5D
+    .byte $04, $5F
+    .byte $09, $75
+    .byte $CC, $00, $5B
+    .byte $0D, $77
+
+    .byte $A2
+    .byte $36, $78
+    .byte $3A, $7A
+    .byte $3E, $79
+    .byte $00, $7B
+    .byte $09, $7C
+    .byte $0D, $7E
+
+    .byte $A3
+    .byte $09, $7D
+    .byte $0D, $7F
+
+    .byte con_FF
+
+
+
+off_BA6C:
+    .byte $3A, $6C
+    .byte $3F, $03
+    .byte $02, $62
+    .byte $43, $31
+    .byte $06, $68
+    .byte $0A, $6A
+
+    .byte $A0
+    .byte $36, $58
+    .byte $3A, $6F
+    .byte $02, $43
+
+    .byte $A1
+    .byte $36, $59
+    .byte $3A, $7A
+    .byte $3F, $03
+    .byte $02, $66
+    .byte $43, $30
+    .byte $06, $03
+    .byte $0A, $6E
+
+    .byte $A2
+    .byte $36, $5C
+    .byte $3A, $63
+    .byte $3E, $65
+    .byte $02, $67
+    .byte $06, $6D
+    .byte $0A, $4F
+    .byte $09, $2F
+
+    .byte $A3
+    .byte $3A, $5F
+    .byte $3E, $70
+    .byte $02, $72
+    .byte $0A, $33
+
+    .byte con_jmp
+    .word off_B987
+
+
+
+off_BAA9:
+    .byte $BC
+    .byte $0C, $08
+
+    .byte $BD
+    .byte $36, $E0
+    .byte $3A, $E2
+    .byte $3E, $20
+    .byte $08, $04
+    .byte $0C, $06
+
+    .byte $BE
+    .byte $32, $E1
+    .byte $36, $E3
+    .byte $3A, $E9
+    .byte $3F, $EB
+    .byte $3D, $02
+    .byte $01, $D9
+    .byte $05, $DB
+    .byte $08, $05
+    .byte $0C, $02
+
+    .byte $BF
+    .byte $32, $E4
+    .byte $36, $02
+    .byte $3A, $EC
+    .byte $3F, $EE
+    .byte $05, $DE
+    .byte $0B, $F4
+    .byte $0C, $02
+
+    .byte $A0
+    .byte $32, $E5
+    .byte $36, $E6
+    .byte $3A, $ED
+    .byte $3F, $EF
+    .byte $3D, $02
+    .byte $01, $03
+    .byte $05, $DF
+    .byte $0B, $F5
+    .byte $0F, $02
+
+    .byte $A1
+    .byte $36, $E7
+    .byte $3A, $F8
+    .byte $3E, $FA
+    .byte $02, $F0
+    .byte $04, $F2
+    .byte $06, $48
+    .byte $08, $14
+    .byte $0C, $02
+
+    .byte $A2
+    .byte $3A, $F9
+    .byte $3E, $FB
+    .byte $02, $F1
+    .byte $08, $15
+    .byte $0C, $17
+
+    .byte $A3
+    .byte $08, $40
+    .byte $0C, $42
+
+    .byte con_FF
