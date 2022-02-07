@@ -1,5 +1,6 @@
 .segment "BANK_21"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; немного кода лишь в самом начале
 .export sub_0x02C010
 sub_0x02C010:

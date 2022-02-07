@@ -1,5 +1,6 @@
 .segment "BANK_14"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; тут только данные музыки
 .export off_0x01A010_32_музыка_добавочное_время
 off_0x01A010_32_музыка_добавочное_время:

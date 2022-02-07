@@ -1,5 +1,6 @@
 .segment "BANK_18"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; тут только данные
 ; поинтеры в 0x01667A (старший байт A0)
 - D - - - 0x024010 18:A000: 01        .byte $01    ; <あ>

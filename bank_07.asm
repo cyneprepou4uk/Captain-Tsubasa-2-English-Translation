@@ -1,5 +1,6 @@
 .segment "BANK_07"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; тут только данные
 ; палитра фона
 ; палитра спрайтов

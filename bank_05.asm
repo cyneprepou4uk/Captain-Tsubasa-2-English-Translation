@@ -1,5 +1,6 @@
 .segment "BANK_05"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; пустой банк, раньше тут были катсцены 10-1F
 
 

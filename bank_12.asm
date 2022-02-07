@@ -1,5 +1,6 @@
 .segment "BANK_12"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 
 ofs_800C_minus:
 .export ofs_0x01601C
@@ -1048,10 +1049,10 @@ C - - - - 0x01667C 12:866C: 85 57     STA ram_0057
 C - - - - 0x01667E 12:866E: 68        PLA
 C - - - - 0x01667F 12:866F: 29 20     AND #$20
 C - - - - 0x016681 12:8671: 08        PHP
-C - - - - 0x016682 12:8672: A9 12     LDA #$92
+C - - - - 0x016682 12:8672: A9 12     LDA #con_prg_bank + $92
 C - - - - 0x016684 12:8674: 28        PLP
 C - - - - 0x016685 12:8675: F0 02     BEQ bra_8679
-C - - - - 0x016687 12:8677: A9 13     LDA #$93
+C - - - - 0x016687 12:8677: A9 13     LDA #con_prg_bank + $93
 bra_8679:
 C - - - - 0x016694 12:8684: 8D 25 00  STA ram_для_5115
 C - - - - 0x016697 12:8687: 8D 01 80  STA $5115

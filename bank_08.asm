@@ -1,5 +1,6 @@
 .segment "BANK_08"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; тут только данные, предположительно это сцены
 
 .export tbl_0x00E010_параметры_заднего_фона

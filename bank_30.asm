@@ -1,5 +1,6 @@
 .segment "BANK_30"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; данные катсцен
 ; поинтеры в 0x000485
 

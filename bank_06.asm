@@ -1,5 +1,6 @@
 .segment "BANK_06"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; данные катсцен (тренер и мелкие диалоги)
 ; поинтеры в 0x000485
 

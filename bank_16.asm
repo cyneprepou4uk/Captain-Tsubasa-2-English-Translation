@@ -1,5 +1,6 @@
 .segment "BANK_16"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; тут только данные музыки
 .export off_0x01E010_5A
 off_0x01E010_5A:

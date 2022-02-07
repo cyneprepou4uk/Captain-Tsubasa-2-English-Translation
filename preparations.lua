@@ -41,6 +41,7 @@ files_list = {
     "bank_35.asm",
     "bank_FF.asm",
     "bank_ram.inc",
+    "bank_val.inc",
 }
 
 

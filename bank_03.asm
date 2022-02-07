@@ -1,5 +1,6 @@
 .segment "BANK_03"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 
 .export sub_0x004010
 sub_0x004010:

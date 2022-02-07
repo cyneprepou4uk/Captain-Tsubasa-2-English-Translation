@@ -1,5 +1,6 @@
 .segment "BANK_33"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; имена игроков, команды, спешалы, словарь
 
 .export sub_0x40005_таблица_слов

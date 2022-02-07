@@ -1,5 +1,6 @@
 .segment "BANK_20"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 
 .export sub_0x02801F
 sub_0x02801F:

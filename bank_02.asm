@@ -1,5 +1,6 @@
 .segment "BANK_02"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 
 sub_A01E_генерация_пароля:
 C - - - - 0x00202E 02:A01E: AD 48 04  LDA ram_флаг_циклона
@@ -714,7 +715,7 @@ C - - - - 0x002502 02:A4F2: A2 7A     LDX #$7A
 C - - - - 0x002504 02:A4F4: A0 7B     LDY #$7B
 C - - - - 0x002506 02:A4F6: 20 74 9B  JSR sub_0x001B84_запись_вторых_двух_банков_спрайтов
 C - - - - 0x002509 02:A4F9: 20 7F 9B  JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
-                                      LDA #$9E
+                                      LDA #con_prg_bank + $9E
                                       STA ram_для_5116
                                       STA $5116
                                       LDA ram_матч

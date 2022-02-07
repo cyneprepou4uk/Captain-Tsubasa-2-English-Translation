@@ -1,5 +1,6 @@
 .segment "BANK_22"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; меню во время игры 0x030861
 
 ofs_800F_minus:
@@ -9,7 +10,7 @@ C D - - - 0x03001F 22:800F: 2C 3F 06  BIT ram_063F
 C - - - - 0x030022 22:8012: 10 03     BPL bra_8017_продолжить
 C - - - - 0x030024 22:8014: 4C 12 C5  JMP loc_0x03CB07
 bra_8017_продолжить:
-                                      LDY #$A7
+                                      LDY #con_prg_bank + $A7
                                       LDA ram_облако
                                       CMP #$73
                                       BNE @пропуск

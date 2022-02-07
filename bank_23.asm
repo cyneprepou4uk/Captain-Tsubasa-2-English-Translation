@@ -1,5 +1,6 @@
 .segment "BANK_23"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 
 .export loc_0x03404C
 loc_0x03404C:

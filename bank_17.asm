@@ -1,5 +1,6 @@
 .segment "BANK_17"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 
 .export sub_0x020016_прочитать_поинтеры_сценария
 sub_0x020016_прочитать_поинтеры_сценария:

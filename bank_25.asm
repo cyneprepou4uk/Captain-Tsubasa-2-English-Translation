@@ -1,5 +1,6 @@
 .segment "BANK_25"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; таблицы VS экрана
 
 .export tbl_0x040003_vs_экран

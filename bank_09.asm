@@ -1,5 +1,6 @@
 .segment "BANK_09"
 .include "copy_bank_ram.inc"
+.include "copy_bank_val.inc"
 ; блоки с 4x4 тайлами
 ; первый байт = атрибут блока
 ; остальные 16 = номера тайлов
