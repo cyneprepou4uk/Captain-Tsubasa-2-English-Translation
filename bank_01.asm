@@ -121,7 +121,7 @@ C - - - - 0x002102 02:A0F2: 90 BF     BCC bra_A0B3
 bra_A0F4_кнопка_не_нажата:
 C - - - - 0x002104 02:A0F4: A9 01     LDA #$01
 C - - - - 0x002106 02:A0F6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002109 02:A0F9: A5 1E     LDA ram_одноразовые
+C - - - - 0x002109 02:A0F9: A5 1E     LDA ram_btn_press
 ; con_btn_A
 C - - - - 0x00210B 02:A0FB: 10 F7     BPL bra_A0F4_кнопка_не_нажата
 C - - - - 0x00210D 02:A0FD: A9 8A     LDA #$AB      ; адрес ppu затирания пароля
@@ -218,24 +218,24 @@ bra_A1A6_в_итоге_ничего_не_нажато:
 C D - - - 0x0021B6 02:A1A6: A9 01     LDA #$01
 C - - - - 0x0021B8 02:A1A8: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0021BB 02:A1AB: 20 D0 A3  JSR sub_A3D0_мигание_курсора
-C - - - - 0x0021BE 02:A1AE: 24 1E     BIT ram_одноразовые
+C - - - - 0x0021BE 02:A1AE: 24 1E     BIT ram_btn_press
 C - - - - 0x0021C0 02:A1B0: 10 03     BPL bra_A1B5_A_не_нажата       ; con_btn_A
 C - - - - 0x0021C2 02:A1B2: 4C 31 A2  JMP loc_A231_ввести_букву
 bra_A1B5_A_не_нажата:
 C - - - - 0x0021C5 02:A1B5: 50 03     BVC bra_A1BA_B_не_нажата       ; con_btn_B
 C - - - - 0x0021C7 02:A1B7: 4C 60 A2  JMP loc_A260_сместить_курсор_пароля_влево
 bra_A1BA_B_не_нажата:
-C - - - - 0x0021CA 02:A1BA: A5 1E     LDA ram_одноразовые
+C - - - - 0x0021CA 02:A1BA: A5 1E     LDA ram_btn_press
 C - - - - 0x0021CC 02:A1BC: 29 20     AND #con_btn_Select
 C - - - - 0x0021CE 02:A1BE: F0 03     BEQ bra_A1C3_select_не_нажата
 C - - - - 0x0021D0 02:A1C0: 4C 52 A2  JMP loc_A252_сместить_курсор_пароля_вправо
 bra_A1C3_select_не_нажата:
-C - - - - 0x0021D3 02:A1C3: A5 1E     LDA ram_одноразовые
+C - - - - 0x0021D3 02:A1C3: A5 1E     LDA ram_btn_press
 C - - - - 0x0021D5 02:A1C5: 29 10     AND #con_btn_Start
 C - - - - 0x0021D7 02:A1C7: F0 03     BEQ bra_A1CC_start_не_нажата
 C - - - - 0x0021D9 02:A1C9: 4C 6C A2  JMP loc_A26C_проверить_введенный_пароль
 bra_A1CC_start_не_нажата:
-C - - - - 0x0021DC 02:A1CC: A5 1C     LDA ram_удержанные
+C - - - - 0x0021DC 02:A1CC: A5 1C     LDA ram_btn_hold
 C - - - - 0x0021DE 02:A1CE: 29 0F     AND #con_btns_Dpad
 C - - - - 0x0021E0 02:A1D0: F0 D4     BEQ bra_A1A6_в_итоге_ничего_не_нажато
 C - - - - 0x0021E2 02:A1D2: A0 14     LDY #$14      ; если нажата кнопка d-pad, то писать таймер удержания кнопки
@@ -245,7 +245,7 @@ C - - - - 0x0021E6 02:A1D6: A6 EC     LDX ram_00EC
 C - - - - 0x0021E8 02:A1D8: BD E8 B1  LDA tbl_B1E8,X
 C - - - - 0x0021EB 02:A1DB: A0 00     LDY #$00
 C - - - - 0x0021ED 02:A1DD: 20 D8 A4  JSR sub_A4D8
-C - - - - 0x0021F0 02:A1E0: A5 1C     LDA ram_удержанные
+C - - - - 0x0021F0 02:A1E0: A5 1C     LDA ram_btn_hold
 C - - - - 0x0021F2 02:A1E2: 29 0F     AND #con_btns_Dpad
 C - - - - 0x0021F4 02:A1E4: AA        TAX
 C - - - - 0x0021F5 02:A1E5: BD ED B2  LDA tbl_B2ED_смещение_курсора_алфавита,X
@@ -282,7 +282,7 @@ bra_A217_цикл:
 C - - - - 0x002227 02:A217: A9 01     LDA #$01
 C - - - - 0x002229 02:A219: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x00222C 02:A21C: 20 D0 A3  JSR sub_A3D0_мигание_курсора
-C - - - - 0x00222F 02:A21F: A5 1C     LDA ram_удержанные
+C - - - - 0x00222F 02:A21F: A5 1C     LDA ram_btn_hold
 C - - - - 0x002231 02:A221: 29 0F     AND #con_btns_Dpad
 C - - - - 0x002233 02:A223: D0 03     BNE bra_A228
 C - - - - 0x002235 02:A225: 4C A6 A1  JMP loc_A1A6
@@ -738,7 +738,7 @@ C - - - - 0x00257C 02:A56C: 20 7A 99  JSR sub_0x00198A_запись_палитр
 bra_A571_ожидание_нажатия:
 C - - - - 0x002581 02:A571: A9 01     LDA #$01
 C - - - - 0x002583 02:A573: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002586 02:A576: A5 1E     LDA ram_одноразовые
+C - - - - 0x002586 02:A576: A5 1E     LDA ram_btn_press
                                       AND #con_btn_A + con_btn_Start
 C - - - - 0x002588 02:A578: 30 03     BEQ bra_A571_ожидание_нажатия
 C - - - - 0x00258D 02:A57D: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
@@ -881,7 +881,7 @@ C - - - - 0x002695 02:A685: 20 A8 9F  JSR sub_0x001FB8_задержка_кадр
 C - - - - 0x002698 02:A688: A5 4D     LDA ram_004D
 C - - - - 0x00269A 02:A68A: 05 4E     ORA ram_004E
 C - - - - 0x00269C 02:A68C: F0 D4     BEQ bra_A662
-C - - - - 0x00269E 02:A68E: A5 1E     LDA ram_одноразовые
+C - - - - 0x00269E 02:A68E: A5 1E     LDA ram_btn_press
 C - - - - 0x0026A0 02:A690: 29 10     AND #con_btn_Start
 C - - - - 0x0026A2 02:A692: F0 EF     BEQ bra_A683_кнопка_не_нажата
 C - - - - 0x0026A4 02:A694: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
@@ -1074,7 +1074,7 @@ bra_A7D5:
 C - - - - 0x0027E5 02:A7D5: A9 01     LDA #$01
 C - - - - 0x0027E7 02:A7D7: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0027EA 02:A7DA: 20 C9 9C  JSR sub_0x001CD9
-C - - - - 0x0027ED 02:A7DD: 24 1E     BIT ram_одноразовые
+C - - - - 0x0027ED 02:A7DD: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x0027EF 02:A7DF: 70 5B     BVS bra_A83C_отменить_выбор
 ; con_btn_A
@@ -1090,7 +1090,7 @@ bra_A7F5_кнопки_не_нажаты:
 C - - - - 0x002805 02:A7F5: A9 01     LDA #$01
 C - - - - 0x002807 02:A7F7: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x00280A 02:A7FA: 20 C9 9C  JSR sub_0x001CD9
-C - - - - 0x00280D 02:A7FD: 24 1E     BIT ram_одноразовые
+C - - - - 0x00280D 02:A7FD: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x00280F 02:A7FF: 70 3B     BVS bra_A83C_отменить_выбор
 ; con_btn_A
@@ -1217,7 +1217,7 @@ bra_A900:
 C - - - - 0x002910 02:A900: A9 01     LDA #$01
 C - - - - 0x002912 02:A902: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x002915 02:A905: 20 C9 9C  JSR sub_0x001CD9
-C - - - - 0x002918 02:A908: 24 1E     BIT ram_одноразовые
+C - - - - 0x002918 02:A908: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x00291A 02:A90A: 50 03     BVC bra_A90F
 C - - - - 0x00291C 02:A90C: 4C 5F AA  JMP loc_AA5F
@@ -1253,7 +1253,7 @@ C - - - - 0x002959 02:A949: 20 C9 9C  JSR sub_0x001CD9
 C - - - - 0x00295C 02:A94C: AD 50 04  LDA ram_счетчик_замен
 C - - - - 0x00295F 02:A94F: C9 03     CMP #$03
 C - - - - 0x002961 02:A951: B0 61     BCS bra_A9B4
-C - - - - 0x002963 02:A953: A5 1E     LDA ram_одноразовые
+C - - - - 0x002963 02:A953: A5 1E     LDA ram_btn_press
 C - - - - 0x002965 02:A955: 29 03     AND #con_btn_Right + con_btn_Left
 C - - - - 0x002967 02:A957: F0 5B     BEQ bra_A9B4
 C - - - - 0x002969 02:A959: 4A        LSR
@@ -1303,7 +1303,7 @@ bra_A9B2:
 C - - - - 0x0029C2 02:A9B2: A0 F4     LDY #$F4
 bra_A9B4:
 loc_A9B4:
-C - - - - 0x0029C4 02:A9B4: 24 1E     BIT ram_одноразовые
+C - - - - 0x0029C4 02:A9B4: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x0029C6 02:A9B6: 50 03     BVC bra_A9BB
 C - - - - 0x0029C8 02:A9B8: 4C 5F AA  JMP loc_AA5F
@@ -1332,7 +1332,7 @@ bra_A9E4:
 C - - - - 0x0029F4 02:A9E4: A9 01     LDA #$01
 C - - - - 0x0029F6 02:A9E6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0029F9 02:A9E9: 20 C9 9C  JSR sub_0x001CD9
-C - - - - 0x0029FC 02:A9EC: 24 1E     BIT ram_одноразовые
+C - - - - 0x0029FC 02:A9EC: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x0029FE 02:A9EE: 70 6F     BVS bra_AA5F
 ; con_btn_A
@@ -1527,7 +1527,7 @@ C - - - - 0x002B66 02:AB56: 20 71 9C  JSR sub_0x001C81
 C - - - - 0x002B69 02:AB59: A5 2A     LDA ram_твоя_команда
 C - - - - 0x002B6B 02:AB5B: C9 02     CMP #$02
 C - - - - 0x002B6D 02:AB5D: D0 28     BNE bra_AB87
-C - - - - 0x002B6F 02:AB5F: A5 1E     LDA ram_одноразовые
+C - - - - 0x002B6F 02:AB5F: A5 1E     LDA ram_btn_press
 C - - - - 0x002B71 02:AB61: 29 03     AND #con_btn_Right + con_btn_Left
 C - - - - 0x002B73 02:AB63: F0 22     BEQ bra_AB87
 C - - - - 0x002B75 02:AB65: 4A        LSR
@@ -1548,7 +1548,7 @@ C - - - - 0x002B92 02:AB82: D0 03     BNE bra_AB87
 - - - - - 0x002B94 02:AB84: 8D 5C 05  STA ram_055C
 bra_AB87:
 loc_AB87:
-C D - - - 0x002B97 02:AB87: 24 1E     BIT ram_одноразовые
+C D - - - 0x002B97 02:AB87: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x002B99 02:AB89: 50 03     BVC bra_AB8E_кнопка_не_нажата
 C - - - - 0x002B9B 02:AB8B: 4C 21 A7  JMP loc_A721_экран_с_опциями_команды
@@ -1638,7 +1638,7 @@ C - - - - 0x002C3E 02:AC2E: 20 7E 99  JSR sub_0x00198E_запись_палитр
 bra_AC31_B_не_нажата:
 C - - - - 0x002C41 02:AC31: A9 01     LDA #$01
 C - - - - 0x002C43 02:AC33: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002C46 02:AC36: 24 1E     BIT ram_одноразовые
+C - - - - 0x002C46 02:AC36: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x002C48 02:AC38: 50 03     BVC bra_AC3D_A_не_нажата
 C - - - - 0x002C4A 02:AC3A: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
@@ -1800,7 +1800,7 @@ C - - - - 0x002D69 02:AD59: 85 91     STA ram_0091
 bra_AD5B:
 C - - - - 0x002D6B 02:AD5B: A9 01     LDA #$01
 C - - - - 0x002D6D 02:AD5D: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002D70 02:AD60: 24 1E     BIT ram_одноразовые
+C - - - - 0x002D70 02:AD60: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x002D72 02:AD62: 70 14     BVS bra_AD78
 ; con_btn_A
@@ -1810,7 +1810,7 @@ C - - - - 0x002D78 02:AD68: 85 7E     STA ram_007E
 bra_AD6A:
 C - - - - 0x002D7A 02:AD6A: A9 01     LDA #$01
 C - - - - 0x002D7C 02:AD6C: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002D7F 02:AD6F: 24 1E     BIT ram_одноразовые
+C - - - - 0x002D7F 02:AD6F: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x002D81 02:AD71: 70 D8     BVS bra_AD4B
 ; con_btn_A
@@ -1822,7 +1822,7 @@ C - - - - 0x002D8A 02:AD7A: 85 7E     STA ram_007E
 bra_AD7C:
 C - - - - 0x002D8C 02:AD7C: A9 01     LDA #$01
 C - - - - 0x002D8E 02:AD7E: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002D91 02:AD81: 24 1E     BIT ram_одноразовые
+C - - - - 0x002D91 02:AD81: 24 1E     BIT ram_btn_press
 ; con_btn_A
 C - - - - 0x002D93 02:AD83: 30 C6     BMI bra_AD4B
 ; con_btn_B
@@ -2006,7 +2006,7 @@ C - - - - 0x002E4E 02:AE3E: 85 E6     STA ram_00E6
 bra_AE40:
 C - - - - 0x002E50 02:AE40: A9 01     LDA #$01
 C - - - - 0x002E52 02:AE42: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
-C - - - - 0x002E55 02:AE45: A5 1E     LDA ram_одноразовые
+C - - - - 0x002E55 02:AE45: A5 1E     LDA ram_btn_press
 C - - - - 0x002E57 02:AE47: 29 0C     AND #con_btn_Down + con_btn_Up
 C - - - - 0x002E59 02:AE49: F0 1C     BEQ bra_AE67
 C - - - - 0x002E5B 02:AE4B: 49 0C     EOR #$0C
@@ -2027,7 +2027,7 @@ C - - - - 0x002E6F 02:AE5F: 8D 60 05  STA ram_0560
 C - - - - 0x002E72 02:AE62: A4 E6     LDY ram_00E6
 C - - - - 0x002E74 02:AE64: 20 8F AE  JSR sub_AE8F_спрайты_миникарты
 bra_AE67:
-C - - - - 0x002E77 02:AE67: 24 1E     BIT ram_одноразовые
+C - - - - 0x002E77 02:AE67: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - 0x002E79 02:AE69: 70 07     BVS bra_AE72
 ; con_btn_A
