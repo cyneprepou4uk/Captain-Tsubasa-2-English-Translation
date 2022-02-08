@@ -2,7 +2,13 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 ; немного кода лишь в самом начале
+
+
+
 .export sub_0x02C010
+
+
+
 sub_0x02C010:
 C D - - - 0x02C013 21:8003: A0 00     LDY #$00
 C - - - - 0x02C015 21:8005: 84 3F     STY ram_003F

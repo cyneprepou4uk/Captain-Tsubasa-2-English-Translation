@@ -3,6 +3,11 @@
 .include "copy_bank_val.inc"
 ; текст облаков
 
+
+.export _cloud_0x00073_73
+
+
+
 ; начальные байты
 con_start_line                  = $00
 con_pause                       = $00
@@ -45,7 +50,6 @@ con_слово_okay                  = $F8       ; タイ
 ; unused                        = $FB
 con_line                        = $FC       ; если байт после линии читается, то это уже новое облако
 
-.export _cloud_0x00073_73
 _cloud_0x00073_73:
 - D - I - 0x031F52 22:9F42: F4        .byte con_выбор_облака, $04
 - D - I - 0x031F54 22:9F44: 52 9F     .word off_9F52_ожидание_1

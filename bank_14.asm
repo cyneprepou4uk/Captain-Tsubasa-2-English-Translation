@@ -2,7 +2,16 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 
+
+
 .export sub_0x02801F
+.export sub_0x0283E9
+.export sub_0x0284EC
+.export sub_0x028634
+.export sub_0x0287A6
+
+
+
 sub_0x02801F:
 C D - - - 0x02801F 20:800F: AD 3A 05  LDA ram_053A
 C - - - - 0x028022 20:8012: F0 6F     BEQ bra_8083_выход
@@ -290,7 +299,7 @@ loc_81EC:
 C D - - - 0x0281FC 20:81EC: 85 3A     STA ram_003A
 C - - - - 0x0281FE 20:81EE: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
 C - - - - 0x028201 20:81F1: 20 6A 82  JSR sub_826A
-C - - - - 0x028204 20:81F4: A0 00     LDY #con_игрок_номер
+C - - - - 0x028204 20:81F4: A0 00     LDY #con_plr_id
 C - - - - 0x028206 20:81F6: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x028208 20:81F8: F0 07     BEQ bra_8201
 C - - - - 0x02820A 20:81FA: 20 82 82  JSR sub_8282
@@ -366,7 +375,7 @@ tbl_8264:
 - D - - - 0x028278 20:8268: 67 B7     .word off_B767
 
 sub_826A:
-C - - - - 0x02827A 20:826A: A0 00     LDY #con_игрок_номер
+C - - - - 0x02827A 20:826A: A0 00     LDY #con_plr_id
 C - - - - 0x02827C 20:826C: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x02827E 20:826E: 08        PHP
 C - - - - 0x02827F 20:826F: AA        TAX
@@ -628,7 +637,6 @@ C - - - - 0x0283E6 20:83D6: E6 4D     INC ram_anim_data + 1
 bra_83D8_выход:
 C - - - - 0x0283E8 20:83D8: 60        RTS
 
-.export sub_0x0283E9
 sub_0x0283E9:
 C D - - - 0x0283E9 20:83D9: A0 10     LDY #$10
 C - - - - 0x0283EB 20:83DB: B1 3C     LDA (ram_003C),Y
@@ -807,7 +815,6 @@ C - - - - 0x0284E6 20:84D6: B1 3E     LDA (ram_003E),Y
 C - - - - 0x0284E8 20:84D8: 8D 46 05  STA ram_0546
 C - - - - 0x0284EB 20:84DB: 60        RTS
 
-.export sub_0x0284EC
 sub_0x0284EC:
 C D - - - 0x0284EC 20:84DC: A0 11     LDY #$11
 C - - - - 0x0284EE 20:84DE: B1 3C     LDA (ram_003C),Y
@@ -1019,7 +1026,6 @@ C - - - - 0x02862F 20:861F: 71 3C     ADC (ram_003C),Y
 C - - - - 0x028631 20:8621: 91 3C     STA (ram_003C),Y
 C - - - - 0x028633 20:8623: 60        RTS
 
-.export sub_0x028634
 sub_0x028634:
 C D - - - 0x028634 20:8624: AD 2D 06  LDA ram_062D
 C - - - - 0x028637 20:8627: 29 0F     AND #$0F
@@ -1044,7 +1050,7 @@ C - - - - 0x028658 20:8648: B0 03     BCS bra_864D
 C - - - - 0x02865A 20:864A: 4C CF 86  JMP loc_86CF
 bra_864D:
 C - - - - 0x02865D 20:864D: A6 3B     LDX ram_003B
-C - - - - 0x02865F 20:864F: A0 06     LDY #con_игрок_координата_X_hi
+C - - - - 0x02865F 20:864F: A0 06     LDY #con_plr_pos_X_hi
 C - - - - 0x028661 20:8651: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x028663 20:8653: C9 34     CMP #$34
 C - - - - 0x028665 20:8655: B0 02     BCS bra_8659
@@ -1062,7 +1068,7 @@ C - - - - 0x028676 20:8666: 68        PLA
 C - - - - 0x028677 20:8667: 18        CLC
 C - - - - 0x028678 20:8668: 79 DA 88  ADC tbl_88DA,Y
 C - - - - 0x02867B 20:866B: 9D 03 02  STA ram_spr_X,X
-C - - - - 0x02867E 20:866E: A0 08     LDY #con_игрок_координата_Y_hi
+C - - - - 0x02867E 20:866E: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - 0x028680 20:8670: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x028682 20:8672: C9 54     CMP #$54
 C - - - - 0x028684 20:8674: B0 02     BCS bra_8678
@@ -1218,10 +1224,10 @@ C - - - - 0x02877E 20:876E: 4C E7 87  JMP loc_87E7
 ofs_8771_02:
 C - J - - 0x028781 20:8771: AD FC 05  LDA ram_принимающий
 C - - - - 0x028784 20:8774: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
-C - - - - 0x028787 20:8777: A0 06     LDY #con_игрок_координата_X_hi
+C - - - - 0x028787 20:8777: A0 06     LDY #con_plr_pos_X_hi
 C - - - - 0x028789 20:8779: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x02878B 20:877B: AA        TAX
-C - - - - 0x02878C 20:877C: A0 08     LDY #con_игрок_координата_Y_hi
+C - - - - 0x02878C 20:877C: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - 0x02878E 20:877E: B1 34     LDA (ram_plr_data),Y
 C - - - - 0x028790 20:8780: A8        TAY
 C - - - - 0x028791 20:8781: 4C E7 87  JMP loc_87E7
@@ -1236,7 +1242,6 @@ C - - - - 0x0287A1 20:8791: 68        PLA
 C - - - - 0x0287A2 20:8792: AA        TAX
 C - - - - 0x0287A3 20:8793: 4C E7 87  JMP loc_87E7
 
-.export sub_0x0287A6
 sub_0x0287A6:
 C D - - - 0x0287A6 20:8796: A9 10     LDA #$10
 C - - - - 0x0287A8 20:8798: 20 A7 87  JSR sub_87A7
