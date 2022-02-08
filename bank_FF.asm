@@ -866,12 +866,12 @@ sub_0x03CC01_запись_звука:
 sub_CBF1_запись_звука:
 ; выбор свободного адреса для записи
 C D - - - 0x03CC01 FF:CBF1: A2 00     LDX #$00
-bra_CBF3_цикл_поиска:
+bra_CBF3_loop_поиска:
 C - - - - 0x03CC03 FF:CBF3: BC 00 07  LDY ram_звук,X
 C - - - - 0x03CC06 FF:CBF6: F0 06     BEQ bra_CBFE_адрес_свободен
 C - - - - 0x03CC08 FF:CBF8: E8        INX
 C - - - - 0x03CC09 FF:CBF9: E0 05     CPX #$05
-C - - - - 0x03CC0B FF:CBFB: D0 F6     BNE bra_CBF3_цикл_поиска
+C - - - - 0x03CC0B FF:CBFB: D0 F6     BNE bra_CBF3_loop_поиска
 - - - - - 0x03CC0D FF:CBFD: 60        RTS
 bra_CBFE_адрес_свободен:
 C - - - - 0x03CC0E FF:CBFE: 9D 00 07  STA ram_звук,X
@@ -954,7 +954,7 @@ bra_CC47:
     LDA #$01
     STA ram_0515
     LDA #$06        ; счетчик цикла
-bra_CC4D_цикл_очистки_экрана:
+bra_CC4D_loop_очистки_экрана:
     PHA
     TAX
     LDA #$23
@@ -992,7 +992,7 @@ bra_CC4D_цикл_очистки_экрана:
     PLA
     SEC
     SBC #$01
-    BPL bra_CC4D_цикл_очистки_экрана
+    BPL bra_CC4D_loop_очистки_экрана
     LDX #$14
 @цикл:
     LDA tbl_CC47_ppu_байты_затирания_чарли_и_атрибутов_фона,X
@@ -1126,7 +1126,7 @@ C - - - - 0x03CD52 FF:CD42: 85 73     STA ram_0073
 C - - - - 0x03CD54 FF:CD44: A2 10     LDX #$10
 C - - - - 0x03CD56 FF:CD46: 26 6F     ROL ram_006F
 C - - - - 0x03CD58 FF:CD48: 26 70     ROL ram_0070
-bra_CD4A_цикл:
+bra_CD4A_loop:
 C - - - - 0x03CD5A FF:CD4A: 26 72     ROL ram_0072
 C - - - - 0x03CD5C FF:CD4C: 26 73     ROL ram_0073
 C - - - - 0x03CD5E FF:CD4E: B0 10     BCS bra_CD60
@@ -1151,7 +1151,7 @@ bra_CD6D:
 C - - - - 0x03CD7D FF:CD6D: 26 6F     ROL ram_006F
 C - - - - 0x03CD7F FF:CD6F: 26 70     ROL ram_0070
 C - - - - 0x03CD81 FF:CD71: CA        DEX
-C - - - - 0x03CD82 FF:CD72: D0 D6     BNE bra_CD4A_цикл
+C - - - - 0x03CD82 FF:CD72: D0 D6     BNE bra_CD4A_loop
 C - - - - 0x03CD84 FF:CD74: 68        PLA
 C - - - - 0x03CD85 FF:CD75: AA        TAX
 C - - - - 0x03CD86 FF:CD76: 60        RTS
@@ -1217,12 +1217,12 @@ sub_0x03CDD9_проверить_координаты_игрока:
 sub_CDC9_проверить_координаты_игрока:
 ; на выходе интересует X и Y
 C D - - - 0x03CDD9 FF:CDC9: A2 00     LDX #$00
-bra_CDCB_цикл:
+bra_CDCB_loop:
 C - - - - 0x03CDDB FF:CDCB: C9 0C     CMP #$0C
 C - - - - 0x03CDDD FF:CDCD: 90 05     BCC bra_CDD4_продолжить
 C - - - - 0x03CDDF FF:CDCF: E9 0C     SBC #$0C
 C - - - - 0x03CDE1 FF:CDD1: E8        INX
-C - - - - 0x03CDE2 FF:CDD2: D0 F7     BNE bra_CDCB_цикл
+C - - - - 0x03CDE2 FF:CDD2: D0 F7     BNE bra_CDCB_loop
 bra_CDD4_продолжить:
 C - - - - 0x03CDE4 FF:CDD4: 0A        ASL
 C - - - - 0x03CDE5 FF:CDD5: 0A        ASL
@@ -1517,7 +1517,7 @@ sub_CF8F_курсор_меню_после_гола:
     STA ram_spr_T + $FC
     LDA #$03
     STA ram_spr_A + $FC
-bra_CFA4_цикл_ожидания_нажатия:
+bra_CFA4_loop_ожидания_нажатия:
     LDA #$01
     JSR sub_CB0F_задержка
     LDA ram_номер_опции
@@ -1565,7 +1565,7 @@ bra_CFE7_проверка_кнопок_A_и_B:
     BNE bra_CFF8_была_нажата_A
     LDA #con_btn_B
     AND ram_btn_press
-    BEQ bra_CFA4_цикл_ожидания_нажатия
+    BEQ bra_CFA4_loop_ожидания_нажатия
     CLC
     BCC bra_CFFC_убрать_спрайт_с_экрана
 bra_CFF8_была_нажата_A:
@@ -1759,7 +1759,7 @@ C D - - - 0x03D0E1 FF:D0D1: AD 2A 00  LDA ram_твоя_команда
 C - - - - 0x03D0E4 FF:D0D4: C9 02     CMP #$02      ; japan
 C - - - - 0x03D0E6 FF:D0D6: D0 37     BNE bra_D10F_выход
 C - - - - 0x03D0E8 FF:D0D8: A9 00     LDA #$00
-bra_D0DA_цикл_поиска_мисуги:
+bra_D0DA_loop_поиска_мисуги:
 C - - - - 0x03D0EA FF:D0DA: 48        PHA
 ; сначала поиск по основным игрокам, затем по запасным
 C - - - - 0x03D0EB FF:D0DB: C9 0B     CMP #$0B
@@ -1776,7 +1776,7 @@ C - - - - 0x03D0FC FF:D0EC: F0 08     BEQ bra_D0F6_мисуги_найден
 C - - - - 0x03D0FE FF:D0EE: 18        CLC
 C - - - - 0x03D0FF FF:D0EF: 69 01     ADC #$01
 C - - - - 0x03D101 FF:D0F1: C9 16     CMP #$16
-C - - - - 0x03D103 FF:D0F3: D0 E5     BNE bra_D0DA_цикл_поиска_мисуги
+C - - - - 0x03D103 FF:D0F3: D0 E5     BNE bra_D0DA_loop_поиска_мисуги
 ; bzk не обязательно делать проверку счетчика и rts, достаточно сразу jmp после увеличения
 ; поскольку в японии всегда где-то да присутствует мисуги
 ; и рано или поздно цикл его найдет
@@ -4417,7 +4417,7 @@ temp_макс_энергия_lo = ram_0032
 temp_макс_энергия_hi = ram_0033
 temp_затрата_энергии = ram_003A
 C - - - - 0x03E2D6 FF:E2C6: A9 00     LDA #$00
-bra_E2CB_цикл_регенерации_игроков:
+bra_E2CB_loop_регенерации_игроков:
 C - - - - 0x03E2DB FF:E2CB: 48        PHA
 C - - - - 0x03E2DC FF:E2CC: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - 0x03E2DF FF:E2CF: F0 3C     BEQ bra_E30D_не_регенерировать
@@ -4464,7 +4464,7 @@ C - - - - 0x03E31D FF:E30D: 68        PLA
 C - - - - 0x03E31E FF:E30E: 18        CLC
 C - - - - 0x03E31F FF:E30F: 69 01     ADC #$01
 C - - - - 0x03E321 FF:E311: C9 0B     CMP #$0B
-C - - - - 0x03E323 FF:E313: D0 B6     BNE bra_E2CB_цикл_регенерации_игроков
+C - - - - 0x03E323 FF:E313: D0 B6     BNE bra_E2CB_loop_регенерации_игроков
 C - - - - 0x03E325 FF:E315: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - 0x03E328 FF:E318: C9 0B     CMP #$0B
 C - - - - 0x03E32A FF:E31A: B0 2C     BCS bra_E348_выход
@@ -4900,7 +4900,7 @@ C - - - - 0x03E5FC FF:E5EC: AD 00 06  LDA ram_колво_защитников
 C - - - - 0x03E5FF FF:E5EF: F0 1D     BEQ bra_E60E
 C - - - - 0x03E601 FF:E5F1: A9 00     LDA #$00
 C - - - - 0x03E603 FF:E5F3: 8D 16 06  STA ram_индекс_защитника
-bra_E5F6_цикл:
+bra_E5F6_loop:
 C - - - - 0x03E606 FF:E5F6: AE 16 06  LDX ram_индекс_защитника
 C - - - - 0x03E609 FF:E5F9: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - 0x03E60C FF:E5FC: C9 05     CMP #$05
@@ -4910,7 +4910,7 @@ bra_E603_достигнут_лимит:
 C - - - - 0x03E613 FF:E603: EE 16 06  INC ram_индекс_защитника
 C - - - - 0x03E616 FF:E606: AD 16 06  LDA ram_индекс_защитника
 C - - - - 0x03E619 FF:E609: CD 00 06  CMP ram_колво_защитников
-C - - - - 0x03E61C FF:E60C: D0 E8     BNE bra_E5F6_цикл
+C - - - - 0x03E61C FF:E60C: D0 E8     BNE bra_E5F6_loop
 bra_E60E:
 C - - - - 0x03E61E FF:E60E: A9 04     LDA #$04
 C - - - - 0x03E620 FF:E610: 8D 2B 06  STA ram_062B
@@ -5437,7 +5437,7 @@ C - - - - 0x03E996 FF:E986: 4A        LSR
 C - - - - 0x03E997 FF:E987: 85 41     STA ram_0041
 C - - - - 0x03E999 FF:E989: C8        INY
 C - - - - 0x03E99A FF:E98A: A2 00     LDX #$00
-bra_E98C_цикл_новой_строки:
+bra_E98C_loop_новой_строки:
 C - - - - 0x03E99C FF:E98C: A5 41     LDA ram_0041
 C - - - - 0x03E99E FF:E98E: 9D A5 04  STA ram_04A5,X
 C - - - - 0x03E9A1 FF:E991: 18        CLC
@@ -5456,7 +5456,7 @@ C - - - - 0x03E9B7 FF:E9A7: A5 41     LDA ram_0041
 C - - - - 0x03E9B9 FF:E9A9: 85 43     STA ram_0043
 C - - - - 0x03E9BB FF:E9AB: 2C 3A 00  BIT ram_003A
 C - - - - 0x03E9BE FF:E9AE: 30 11     BMI bra_E9C1
-bra_E9B0_цикл_чтения_строки:
+bra_E9B0_loop_чтения_строки:
 C - - - - 0x03E9C0 FF:E9B0: B1 3C     LDA (ram_003C),Y
 C - - - - 0x03E9C2 FF:E9B2: C8        INY
 C - - - - 0x03E9C3 FF:E9B3: C9 FE     CMP #$FE
@@ -5464,7 +5464,7 @@ C - - - - 0x03E9C5 FF:E9B5: F0 0A     BEQ bra_E9C1
 C - - - - 0x03E9C7 FF:E9B7: 9D A5 04  STA ram_04A5,X
 C - - - - 0x03E9CA FF:E9BA: E8        INX
 C - - - - 0x03E9CB FF:E9BB: C6 43     DEC ram_0043
-C - - - - 0x03E9CD FF:E9BD: D0 F1     BNE bra_E9B0_цикл_чтения_строки
+C - - - - 0x03E9CD FF:E9BD: D0 F1     BNE bra_E9B0_loop_чтения_строки
 C - - - - 0x03E9CF FF:E9BF: F0 0A     BEQ bra_E9CB
 bra_E9C1:
 C - - - - 0x03E9D1 FF:E9C1: A9 00     LDA #$00
@@ -5477,7 +5477,7 @@ bra_E9CB:
 C - - - - 0x03E9DB FF:E9CB: A9 00     LDA #$00
 C - - - - 0x03E9DD FF:E9CD: 9D A5 04  STA ram_04A5,X
 C - - - - 0x03E9E0 FF:E9D0: C6 40     DEC ram_0040
-C - - - - 0x03E9E2 FF:E9D2: D0 B8     BNE bra_E98C_цикл_новой_строки
+C - - - - 0x03E9E2 FF:E9D2: D0 B8     BNE bra_E98C_loop_новой_строки
 C - - - - 0x03E9E4 FF:E9D4: A9 80     LDA #$80
 C - - - - 0x03E9E6 FF:E9D6: 8D 15 05  STA ram_0515
 C - - - - 0x03E9E9 FF:E9D9: 60        RTS
@@ -6235,7 +6235,7 @@ C - - - - 0x03EFBD FF:EFAD: D0 03     BNE bra_EFB2_есть_защитники
 C - - - - 0x03EFBF FF:EFAF: 4C F6 EF  JMP loc_EFF6_никто_не_напал
 bra_EFB2_есть_защитники:
 C - - - - 0x03EFC2 FF:EFB2: A9 00     LDA #$00
-bra_EFB4_цикл:
+bra_EFB4_loop:
 C - - - - 0x03EFC4 FF:EFB4: 48        PHA
 bra_EFB5_ожидание_освобождения_буфера:
 C - - - - 0x03EFC5 FF:EFB5: A9 01     LDA #$01
@@ -6269,7 +6269,7 @@ C - - - - 0x03EFFD FF:EFED: 68        PLA
 C - - - - 0x03EFFE FF:EFEE: 18        CLC
 C - - - - 0x03EFFF FF:EFEF: 69 01     ADC #$01
 C - - - - 0x03F001 FF:EFF1: CD 00 06  CMP ram_колво_защитников
-C - - - - 0x03F004 FF:EFF4: D0 BE     BNE bra_EFB4_цикл
+C - - - - 0x03F004 FF:EFF4: D0 BE     BNE bra_EFB4_loop
 loc_EFF6_никто_не_напал:
 C D - - - 0x03F006 FF:EFF6: AE 21 06  LDX ram_0621
 C - - - - 0x03F009 FF:EFF9: BD 0F F0  LDA tbl_F00F_выбор_миникарты,X
@@ -6430,7 +6430,7 @@ tbl_F10E_смещение_ppu_адреса_атрибутов:
 
 sub_F114_тень_защитника_или_миникарта_в_буфер:
 C - - - - 0x03F124 FF:F114: A0 00     LDY #$00
-bra_F116_цикл:
+bra_F116_loop:
 C - - - - 0x03F126 FF:F116: B1 3A     LDA (ram_003A),Y
 C - - - - 0x03F128 FF:F118: 9D A5 04  STA ram_04A5,X
 C - - - - 0x03F12B FF:F11B: F0 37     BEQ bra_F154_закончить
@@ -6462,14 +6462,14 @@ C - - - - 0x03F153 FF:F143: C8        INY
 C - - - - 0x03F154 FF:F144: E8        INX
 C - - - - 0x03F155 FF:F145: E8        INX
 C - - - - 0x03F156 FF:F146: E8        INX
-bra_F147_цикл_чтения_тайлов:
+bra_F147_loop_чтения_тайлов:
 C - - - - 0x03F157 FF:F147: B1 3A     LDA (ram_003A),Y
 C - - - - 0x03F159 FF:F149: 9D A5 04  STA ram_04A5,X
 C - - - - 0x03F15C FF:F14C: C8        INY
 C - - - - 0x03F15D FF:F14D: E8        INX
 C - - - - 0x03F15E FF:F14E: C6 3E     DEC ram_003E
-C - - - - 0x03F160 FF:F150: D0 F5     BNE bra_F147_цикл_чтения_тайлов
-C - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_цикл
+C - - - - 0x03F160 FF:F150: D0 F5     BNE bra_F147_loop_чтения_тайлов
+C - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_loop
 bra_F154_закончить:
 C - - - - 0x03F164 FF:F154: A9 80     LDA #$80
 C - - - - 0x03F166 FF:F156: 8D 15 05  STA ram_0515

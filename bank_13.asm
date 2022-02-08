@@ -4538,11 +4538,11 @@ C - - - - 0x02738D 19:B37D: A9 16     LDA #$16
 C - - - - 0x02738F 19:B37F: 20 30 C5  JSR sub_0x03CC12
 C - - - - 0x027392 19:B382: 20 33 C5  JSR sub_0x03CCE3
 C - - - - 0x027398 19:B388: A2 03     LDX #$03
-bra_B38A_цикл:
+bra_B38A_loop:
 C - - - - 0x02739A 19:B38A: BD 02 B4  LDA tbl_B402,X
 C - - - - 0x02739D 19:B38D: 9D 94 04  STA ram_0468 + $2C,X
 C - - - - 0x0273A0 19:B390: CA        DEX
-C - - - - 0x0273A1 19:B391: 10 F7     BPL bra_B38A_цикл
+C - - - - 0x0273A1 19:B391: 10 F7     BPL bra_B38A_loop
 C - - - - 0x0273A3 19:B393: A9 7C     LDA #$7C
 C - - - - 0x0273A5 19:B395: 8D 90 04  STA ram_0490
 C - - - - 0x0273A8 19:B398: A9 7E     LDA #$7E
@@ -4563,7 +4563,7 @@ C - - - - 0x0273D2 19:B3C2: A9 60     LDA #$60
 C - - - - 0x0273D4 19:B3C4: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - 0x0273D7 19:B3C7: A9 00     LDA #$00
 C - - - - 0x0273D9 19:B3C9: 85 8A     STA ram_008A
-bra_B3CB_цикл:
+bra_B3CB_loop:
 loc_B3CB_цикл:
 C D - - - 0x0273DB 19:B3CB: A9 01     LDA #$01
 C - - - - 0x0273DD 19:B3CD: 20 15 C5  JSR sub_0x03CB1F_задержка
@@ -4571,7 +4571,7 @@ C - - - - 0x0273E0 19:B3D0: A5 8A     LDA ram_008A
 C - - - - 0x0273E2 19:B3D2: 18        CLC
 C - - - - 0x0273E3 19:B3D3: 69 60     ADC #$60
 C - - - - 0x0273E5 19:B3D5: 85 8A     STA ram_008A
-C - - - - 0x0273E7 19:B3D7: 90 F2     BCC bra_B3CB_цикл
+C - - - - 0x0273E7 19:B3D7: 90 F2     BCC bra_B3CB_loop
 C - - - - 0x0273E9 19:B3D9: CE 4F 05  DEC ram_046B + $E4
 C - - - - 0x0273EC 19:B3DC: C6 4A     DEC ram_004A
 C - - - - 0x0273EE 19:B3DE: F0 1A     BEQ bra_B3FA_закончить
@@ -4581,7 +4581,7 @@ C - - - - 0x0273F4 19:B3E4: C9 14     CMP #$14
 C - - - - 0x0273F6 19:B3E6: F0 06     BEQ bra_B3EE
 C - - - - 0x0273F8 19:B3E8: A2 16     LDX #$16
 C - - - - 0x0273FA 19:B3EA: C9 08     CMP #$08
-C - - - - 0x0273FC 19:B3EC: D0 DD     BNE bra_B3CB_цикл
+C - - - - 0x0273FC 19:B3EC: D0 DD     BNE bra_B3CB_loop
 bra_B3EE:
 C - - - - 0x0273FE 19:B3EE: 8E 70 04  STX ram_0468 + 8
 C - - - - 0x027401 19:B3F1: 20 33 C5  JSR sub_0x03CCE3

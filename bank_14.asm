@@ -193,12 +193,12 @@ ofs_8138_F3:
 
 ofs_8142_F4:
 C - J - - 0x028152 20:8142: A0 01     LDY #$01
-bra_8144_цикл:
+bra_8144_loop:
 C - - - - 0x028154 20:8144: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x028156 20:8146: 99 93 04  STA ram_0494 - 1,Y
 C - - - - 0x028159 20:8149: C8        INY
 C - - - - 0x02815A 20:814A: C0 05     CPY #$05
-C - - - - 0x02815C 20:814C: D0 F6     BNE bra_8144_цикл
+C - - - - 0x02815C 20:814C: D0 F6     BNE bra_8144_loop
 C - - - - 0x02815E 20:814E: A9 05     LDA #$05
 C - - - - 0x028160 20:8150: 4C CF 83  JMP loc_83CF_сместить_указатель
 
@@ -255,12 +255,12 @@ C - - - - 0x0281B6 20:81A6: 4C CF 83  JMP loc_83CF_сместить_указат
 
 ofs_81A9_FB:
 C - J - - 0x0281B9 20:81A9: A0 01     LDY #$01
-bra_81AB_цикл:
+bra_81AB_loop:
 C - - - - 0x0281BB 20:81AB: B1 4C     LDA (ram_anim_data),Y
 C - - - - 0x0281BD 20:81AD: 99 42 05  STA ram_0543 - 1,Y
 C - - - - 0x0281C0 20:81B0: C8        INY
 C - - - - 0x0281C1 20:81B1: C0 04     CPY #$04
-C - - - - 0x0281C3 20:81B3: D0 F6     BNE bra_81AB_цикл
+C - - - - 0x0281C3 20:81B3: D0 F6     BNE bra_81AB_loop
 C - - - - 0x0281C5 20:81B5: A9 04     LDA #$04
 C - - - - 0x0281C7 20:81B7: 4C CF 83  JMP loc_83CF_сместить_указатель
 

@@ -119,16 +119,16 @@ C - - - - 0x0040E4 03:A0D4: 8D 01 80  STA $5127
 C - - - - 0x0040E7 03:A0D7: A2 02     LDX #$01
 C - - - - 0x0040E9 03:A0D9: A9 04     LDA #$04
 C - - - - 0x0040EB 03:A0DB: 85 40     STA ram_0040
-bra_A0DD_цикл:
+bra_A0DD_loop:
 C - - - - 0x0040ED 03:A0DD: B5 1B     LDA ram_btn_hold,X
-bra_A0DF_цикл:
+bra_A0DF_loop:
 C - - - - 0x0040EF 03:A0DF: 85 41     STA ram_0041
 C - - - - 0x0040F1 03:A0E1: A9 01     LDA #$01
 C - - - - 0x0040F3 03:A0E3: 8D 16 40  STA $4016
 C - - - - 0x0040F6 03:A0E6: A9 00     LDA #$00
 C - - - - 0x0040F8 03:A0E8: 8D 16 40  STA $4016
 C - - - - 0x0040FB 03:A0EB: A0 08     LDY #$08
-bra_A0ED_цикл:
+bra_A0ED_loop:
 C - - - - 0x0040FD 03:A0ED: BD 15 40  LDA $4016,X
 C - - - - 0x004100 03:A0F0: 4A        LSR
 C - - - - 0x004101 03:A0F1: 26 3F     ROL ram_003F
@@ -136,11 +136,11 @@ C - - - - 0x004103 03:A0F3: 29 01     AND #$01
 C - - - - 0x004105 03:A0F5: 05 3F     ORA ram_003F
 C - - - - 0x004107 03:A0F7: 85 3F     STA ram_003F
 C - - - - 0x004109 03:A0F9: 88        DEY
-C - - - - 0x00410A 03:A0FA: D0 F1     BNE bra_A0ED_цикл
+C - - - - 0x00410A 03:A0FA: D0 F1     BNE bra_A0ED_loop
 C - - - - 0x00410C 03:A0FC: C5 41     CMP ram_0041
 C - - - - 0x00410E 03:A0FE: F0 07     BEQ bra_A107
 C - - - - 0x004110 03:A100: C6 40     DEC ram_0040
-C - - - - 0x004112 03:A102: D0 DB     BNE bra_A0DF_цикл
+C - - - - 0x004112 03:A102: D0 DB     BNE bra_A0DF_loop
 - - - - - 0x004114 03:A104: 4C 13 A1  JMP loc_A113
 bra_A107:
 C - - - - 0x004117 03:A107: B5 1B     LDA ram_btn_hold,X
@@ -151,7 +151,7 @@ C - - - - 0x00411F 03:A10F: A5 3F     LDA ram_003F
 C - - - - 0x004121 03:A111: 95 1B     STA ram_btn_hold,X
 loc_A113:
 C - - - - 0x004123 03:A113: CA        DEX
-C - - - - 0x004124 03:A114: D0 C7     BPL bra_A0DD_цикл
+C - - - - 0x004124 03:A114: D0 C7     BPL bra_A0DD_loop
 C - - - - 0x004126 03:A116: 18        CLC
 C - - - - 0x004127 03:A117: A5 E1     LDA ram_рандом_1
 C - - - - 0x004129 03:A119: 69 83     ADC #$83
@@ -232,6 +232,8 @@ C - - - - 0x0041D5 03:A1C5: A0 18     LDY #$18
 C - - - - 0x0041D7 03:A1C7: 20 CB A1  JSR sub_A1CB_банксвич_CHR_00_01
 C - - - - 0x0041DA 03:A1CA: 60        RTS
 
+
+
 sub_A1CB_банксвич_CHR_00_01:
 C - - - - 0x0041DB 03:A1CB: B6 78     LDX ram_0078,Y
 C - - - - 0x0041E4 03:A1D4: 8E 01 80  STX $5120
@@ -242,6 +244,8 @@ C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $5122
                                       INX
                                       STX $5123
 C - - - - 0x0041F3 03:A1E3: 60        RTS
+
+
 
 loc_0x00422B:
 C D - - - 0x00422B 03:A21B: A2 FF     LDX #$FF
@@ -255,18 +259,18 @@ C - - - - 0x004236 03:A226: 09 40     ORA #$40
 C - - - - 0x004238 03:A228: 85 1B     STA ram_001B
 C - - - - 0x00423A 03:A22A: A9 00     LDA #$00
 C - - - - 0x00423C 03:A22C: A0 E8     LDY #$E8
-bra_A22E_цикл:
+bra_A22E_loop:
 ; адреса оперативки 0001-0018
 C - - - - 0x00423E 03:A22E: 99 19 FF  STA ram_0001 - $E8,Y
 C - - - - 0x004241 03:A231: C8        INY
-C - - - - 0x004242 03:A232: D0 FA     BNE bra_A22E_цикл
+C - - - - 0x004242 03:A232: D0 FA     BNE bra_A22E_loop
 C - - - - 0x004244 03:A234: A9 00     LDA #$00
 C - - - - 0x004246 03:A236: A0 5A     LDY #$5A
-bra_A238_цикл:
+bra_A238_loop:
 ; адреса оперативки 003A-00DF
 C - - - - 0x004248 03:A238: 99 E0 FF  STA ram_003A - $5A,Y
 C - - - - 0x00424B 03:A23B: C8        INY
-C - - - - 0x00424C 03:A23C: D0 FA     BNE bra_A238_цикл
+C - - - - 0x00424C 03:A23C: D0 FA     BNE bra_A238_loop
 C - - - - 0x00424E 03:A23E: A9 98     LDA #$98
 C - - - - 0x004250 03:A240: A2 02     LDX #$02
 C - - - - 0x004252 03:A242: A0 68     LDY #$68
@@ -275,10 +279,10 @@ C - - - - 0x004256 03:A246: A0 04     LDY #$04
 C - - - - 0x004258 03:A248: 20 06 AA  JSR sub_AA06
 C - - - - 0x00425B 03:A24B: A9 0F     LDA #$0F
 C - - - - 0x00425D 03:A24D: A0 E0     LDY #$E0
-bra_A24F_цикл:
+bra_A24F_loop:
 C - - - - 0x00425F 03:A24F: 99 4A 05  STA ram_054A,Y
 C - - - - 0x004262 03:A252: C8        INY
-C - - - - 0x004263 03:A253: D0 FA     BNE bra_A24F_цикл
+C - - - - 0x004263 03:A253: D0 FA     BNE bra_A24F_loop
 C - - - - 0x004265 03:A255: 20 43 9A  JSR sub_0x001A53
 C - - - - 0x004268 03:A258: A9 00     LDA #$00
 C - - - - 0x00426A 03:A25A: 85 4A     STA ram_степень_яркости_фона
@@ -292,9 +296,9 @@ C - - - - 0x00427A 03:A26A: 68        PLA
 C - - - - 0x00427B 03:A26B: F0 14     BEQ bra_A281
 ; срабатывает в перерыве после первого тайма
 C - - - - 0x00427D 03:A26D: A2 01     LDX #$01
-C - - - - 0x00427F 03:A26F: A9 FF     LDA #< ofs_0x000010_действие_после_конца_тайма
+C - - - - 0x00427F 03:A26F: A9 FF     LDA #< (ofs_0x000010_действие_после_конца_тайма - 1)
 C - - - - 0x004281 03:A271: 95 00     STA ram_0000,X
-C - - - - 0x004283 03:A273: A9 7F     LDA #> ofs_0x000010_действие_после_конца_тайма
+C - - - - 0x004283 03:A273: A9 7F     LDA #> (ofs_0x000010_действие_после_конца_тайма - 1)
 C - - - - 0x004285 03:A275: 95 01     STA ram_0001,X
 C - - - - 0x004287 03:A277: A0 28     LDY #$28
 C - - - - 0x004289 03:A279: A9 00     LDA #$00
@@ -302,18 +306,18 @@ C - - - - 0x00428B 03:A27B: 20 69 9F  JSR sub_0x001F79
 C - - - - 0x00428E 03:A27E: 4C 92 A2  JMP loc_A292
 bra_A281:
 C - - - - 0x004291 03:A281: A2 01     LDX #$01
-C - - - - 0x004293 03:A283: A9 1E     LDA #< ofs_0x00002F
+C - - - - 0x004293 03:A283: A9 1E     LDA #< (ofs_0x00002F - 1)
 C - - - - 0x004295 03:A285: 95 00     STA ram_0000,X
-C - - - - 0x004297 03:A287: A9 80     LDA #> ofs_0x00002F
+C - - - - 0x004297 03:A287: A9 80     LDA #> (ofs_0x00002F - 1)
 C - - - - 0x004299 03:A289: 95 01     STA ram_0001,X
 C - - - - 0x00429B 03:A28B: A0 28     LDY #$28
 C - - - - 0x00429D 03:A28D: A9 00     LDA #$00
 C - - - - 0x00429F 03:A28F: 20 69 9F  JSR sub_0x001F79
 loc_A292:
 C D - - - 0x0042A2 03:A292: A2 15     LDX #$15
-C - - - - 0x0042A4 03:A294: A9 EC     LDA #< ofs_0x0002FD
+C - - - - 0x0042A4 03:A294: A9 EC     LDA #< (ofs_0x0002FD - 1)
 C - - - - 0x0042A6 03:A296: 95 00     STA ram_0000,X
-C - - - - 0x0042A8 03:A298: A9 82     LDA #> ofs_0x0002FD
+C - - - - 0x0042A8 03:A298: A9 82     LDA #> (ofs_0x0002FD - 1)
 C - - - - 0x0042AA 03:A29A: 95 01     STA ram_0001,X
 C - - - - 0x0042AC 03:A29C: A0 F0     LDY #$F0
 C - - - - 0x0042AE 03:A29E: A9 00     LDA #$00
@@ -336,18 +340,18 @@ C - - - - 0x0042D4 03:A2C4: A9 00     LDA #$00
 C - - - - 0x0042D1 03:A2C1: 8D 00 E0  STA $5204
 C - - - - 0x0042D6 03:A2C6: A0 E8     LDY #$E8
 ; сработало перед появлением экрана с разводкой
-bra_A2C8_цикл:
+bra_A2C8_loop:
 ; адреса оперативки 0001-0018
 C - - - - 0x0042D8 03:A2C8: 99 19 FF  STA ram_0001 - $E8,Y
 C - - - - 0x0042DB 03:A2CB: C8        INY
-C - - - - 0x0042DC 03:A2CC: D0 FA     BNE bra_A2C8_цикл
+C - - - - 0x0042DC 03:A2CC: D0 FA     BNE bra_A2C8_loop
 C - - - - 0x0042DE 03:A2CE: A9 00     LDA #$00
 C - - - - 0x0042E0 03:A2D0: A0 5A     LDY #$5A
-bra_A2D2_цикл:
+bra_A2D2_loop:
 ; адреса оперативки 003A-00DF
 C - - - - 0x0042E2 03:A2D2: 99 E0 FF  STA ram_003A - $5A,Y
 C - - - - 0x0042E5 03:A2D5: C8        INY
-C - - - - 0x0042E6 03:A2D6: D0 FA     BNE bra_A2D2_цикл
+C - - - - 0x0042E6 03:A2D6: D0 FA     BNE bra_A2D2_loop
 C - - - - 0x0042E8 03:A2D8: A9 98     LDA #$98
 C - - - - 0x0042EA 03:A2DA: A2 02     LDX #$02
 C - - - - 0x0042EC 03:A2DC: A0 68     LDY #$68
@@ -362,18 +366,18 @@ C - - - - 0x0042FA 03:A2EA: 30 4C     BMI bra_A338
 C - - - - 0x0042FC 03:A2EC: 85 ED     STA ram_00ED
 C - - - - 0x0042FE 03:A2EE: A9 00     LDA #$00
 C - - - - 0x004300 03:A2F0: A0 FA     LDY #$FA
-bra_A2F2_цикл:
+bra_A2F2_loop:
 ; адреса оперативки 00E6-00EB
 C - - - - 0x004302 03:A2F2: 99 EC FF  STA ram_00E6 - $FA,Y
 C - - - - 0x004305 03:A2F5: C8        INY
-C - - - - 0x004306 03:A2F6: D0 FA     BNE bra_A2F2_цикл
+C - - - - 0x004306 03:A2F6: D0 FA     BNE bra_A2F2_loop
 loc_A2F8:
 C D - - - 0x004308 03:A2F8: A9 01     LDA #$01
 C - - - - 0x00430A 03:A2FA: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x00430D 03:A2FD: A4 ED     LDY ram_00ED
 C - - - - 0x00430F 03:A2FF: A9 00     LDA #$00
 C - - - - 0x004311 03:A301: 85 EC     STA ram_00EC
-bra_A303_цикл:
+bra_A303_loop:
 C - - - - 0x004313 03:A303: 98        TYA
 C - - - - 0x004314 03:A304: 29 0F     AND #$0F
 C - - - - 0x004316 03:A306: 4A        LSR
@@ -402,7 +406,7 @@ C - - - - 0x00433C 03:A32C: 18        CLC
 C - - - - 0x00433D 03:A32D: 69 03     ADC #$03
 C - - - - 0x00433F 03:A32F: 85 EC     STA ram_00EC
 C - - - - 0x004341 03:A331: C9 0F     CMP #$0F
-C - - - - 0x004343 03:A333: D0 CE     BNE bra_A303_цикл
+C - - - - 0x004343 03:A333: D0 CE     BNE bra_A303_loop
 C - - - - 0x004345 03:A335: 4C F8 A2  JMP loc_A2F8
 bra_A338:
 C - - - - 0x004348 03:A338: C9 81     CMP #$81
@@ -413,7 +417,7 @@ C - - - - 0x004353 03:A343: A9 00     LDA #$00
 C - - - - 0x004355 03:A345: 85 ED     STA ram_00ED
 C - - - - 0x004357 03:A347: A8        TAY
 C - - - - 0x004358 03:A348: A2 78     LDX #$78
-bra_A34A_цикл:
+bra_A34A_loop:
 C - - - - 0x00435A 03:A34A: A5 EC     LDA ram_00EC
 C - - - - 0x00435C 03:A34C: 29 01     AND #$01
 C - - - - 0x00435E 03:A34E: 09 F2     ORA #$F2
@@ -435,12 +439,12 @@ C - - - - 0x00437B 03:A36B: E8        INX
 C - - - - 0x00437C 03:A36C: E8        INX
 C - - - - 0x00437D 03:A36D: E8        INX
 C - - - - 0x00437E 03:A36E: E0 FC     CPX #$FC
-C - - - - 0x004380 03:A370: D0 D8     BNE bra_A34A_цикл
+C - - - - 0x004380 03:A370: D0 D8     BNE bra_A34A_loop
 loc_A372:
 C D - - - 0x004382 03:A372: A9 01     LDA #$01
 C - - - - 0x004384 03:A374: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x004387 03:A377: A2 78     LDX #$78
-bra_A379_цикл:
+bra_A379_loop:
 C - - - - 0x004389 03:A379: 8A        TXA
 C - - - - 0x00438A 03:A37A: 29 0C     AND #$0C
 C - - - - 0x00438C 03:A37C: A8        TAY
@@ -461,7 +465,7 @@ C - - - - 0x0043A9 03:A399: E8        INX
 C - - - - 0x0043AA 03:A39A: E8        INX
 C - - - - 0x0043AB 03:A39B: E8        INX
 C - - - - 0x0043AC 03:A39C: E0 FC     CPX #$FC
-C - - - - 0x0043AE 03:A39E: D0 D9     BNE bra_A379_цикл
+C - - - - 0x0043AE 03:A39E: D0 D9     BNE bra_A379_loop
 C - - - - 0x0043B0 03:A3A0: 4C 72 A3  JMP loc_A372
 bra_A3A3:
 C - - - - 0x0043B3 03:A3A3: AD 68 05  LDA ram_0568
@@ -492,15 +496,15 @@ C - - - - 0x0043E5 03:A3D5: 4C AB A3  JMP loc_A3AB
 loc_0x0043E8_управление_музыкальным_экраном:
 ; в 00E7 хранится порядковый номер счетчика звука
 C D - - - 0x0043E8 03:A3D8: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
-C - - - - 0x0043EB 03:A3DB: A9 61     LDA #$48      ; катсцена с музыкальным экраном
+C - - - - 0x0043EB 03:A3DB: A9 61     LDA #con_cutscene + $48      ; катсцена с музыкальным экраном
 C - - - - 0x0043ED 03:A3DD: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - 0x0043F0 03:A3E0: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - 0x0043F3 03:A3E3: A0 F8     LDY #$F8
-bra_A3E5_цикл:
+bra_A3E5_loop:
 C - - - - 0x0043F5 03:A3E5: B9 84 A3  LDA tbl_A47C_атрибуты_спрайтов_цифр_звука - $F8,Y
 C - - - - 0x0043F8 03:A3E8: 99 60 04  STA ram_0558 - $F8,Y
 C - - - - 0x0043FB 03:A3EB: C8        INY
-C - - - - 0x0043FC 03:A3EC: D0 F7     BNE bra_A3E5_цикл
+C - - - - 0x0043FC 03:A3EC: D0 F7     BNE bra_A3E5_loop
 C - - - - 0x0043FE 03:A3EE: A9 00     LDA #$00
 C - - - - 0x004402 03:A3F2: 20 54 A4  JSR sub_A454_выбрать_тайлы_цифр
 bra_A3F5_вверх_вниз_не_нажаты:
@@ -632,13 +636,13 @@ C - - - - 0x0044D1 03:A4C1: 20 0D 9A  JSR sub_0x001A1D
 C - - - - 0x0044D4 03:A4C4: A9 10     LDA #$10
 C - - - - 0x0044D6 03:A4C6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0044D9 03:A4C9: A0 30     LDY #$30
-bra_A4CB_цикл:
+bra_A4CB_loop:
 C - - - - 0x0044DB 03:A4CB: A9 01     LDA #$01
 C - - - - 0x0044DD 03:A4CD: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0044E0 03:A4D0: A9 01     LDA #$01
 C - - - - 0x0044E2 03:A4D2: 20 0C 89  JSR sub_0x00091C_смещение_Y_спрайтов
 C - - - - 0x0044E5 03:A4D5: 88        DEY
-C - - - - 0x0044E6 03:A4D6: D0 F3     BNE bra_A4CB_цикл
+C - - - - 0x0044E6 03:A4D6: D0 F3     BNE bra_A4CB_loop
 C - - - - 0x0044E8 03:A4D8: A9 00     LDA #$00
 C - - - - 0x0044EA 03:A4DA: 85 5B     STA ram_005B
 C - - - - 0x0044EC 03:A4DC: 85 7B     STA ram_007B
@@ -658,7 +662,7 @@ C - - - - 0x004504 03:A4F4: A9 04     LDA #$04
 C - - - - 0x004506 03:A4F6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x004509 03:A4F9: 20 35 9A  JSR sub_0x001A45
 C - - - - 0x00450C 03:A4FC: 20 FB 88  JSR sub_0x00090B
-bra_A4FF_цикл:
+bra_A4FF_loop:
 C - - - - 0x00450F 03:A4FF: A9 01     LDA #$01
 C - - - - 0x004511 03:A501: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x004514 03:A504: E6 79     INC ram_0079
@@ -669,7 +673,7 @@ C - - - - 0x00451C 03:A50C: 38        SEC
 C - - - - 0x00451D 03:A50D: E9 02     SBC #$02
 C - - - - 0x00451F 03:A50F: 85 44     STA ram_0044
 C - - - - 0x004521 03:A511: C9 03     CMP #$03
-C - - - - 0x004523 03:A513: B0 EA     BCS bra_A4FF_цикл
+C - - - - 0x004523 03:A513: B0 EA     BCS bra_A4FF_loop
 C - - - - 0x004525 03:A515: A9 00     LDA #$00
 C - - - - 0x004527 03:A517: 20 20 89  JSR sub_0x000930
 C - - - - 0x00452A 03:A51A: A5 1B     LDA ram_001B
@@ -885,11 +889,11 @@ C - - - - 0x004688 03:A678: 20 28 9B  JSR sub_0x001B38_подготовить_б
 C - - - - 0x00468B 03:A67B: 29 7F     AND #$7F
 C - - - - 0x00468D 03:A67D: 85 EB     STA ram_00EB
 C - - - - 0x00468F 03:A67F: A9 00     LDA #$00
-bra_A681_цикл_очистки_буфера:
+bra_A681_loop_очистки_буфера:
 C - - - - 0x004691 03:A681: 9D E8 05  STA ram_05E8,X
 C - - - - 0x004694 03:A684: E8        INX
 C - - - - 0x004695 03:A685: C6 EB     DEC ram_00EB
-C - - - - 0x004697 03:A687: D0 F8     BNE bra_A681_цикл_очистки_буфера
+C - - - - 0x004697 03:A687: D0 F8     BNE bra_A681_loop_очистки_буфера
 C - - - - 0x004699 03:A689: 20 5E 9B  JSR sub_0x001B6E_закрыть_буфер
 C - - - - 0x00469C 03:A68C: 24 EA     BIT ram_00EA
 C - - - - 0x00469E 03:A68E: 30 0A     BMI bra_A69A_закончить
@@ -946,11 +950,11 @@ C - - - - 0x004700 03:A6F0: A2 08     LDX #$08
 C - - - - 0x004702 03:A6F2: A9 FE     LDA #$FE
 C - - - - 0x004704 03:A6F4: 20 2C A7  JSR sub_A72C
 C - - - - 0x004707 03:A6F7: A0 FC     LDY #$FC
-bra_A6F9_цикл:
+bra_A6F9_loop:
 C - - - - 0x004709 03:A6F9: B9 7B A6  LDA tbl_A777 - $FC,Y
 C - - - - 0x00470C 03:A6FC: 99 60 04  STA ram_055C - $FC,Y
 C - - - - 0x00470F 03:A6FF: C8        INY
-C - - - - 0x004710 03:A700: D0 F7     BNE bra_A6F9_цикл
+C - - - - 0x004710 03:A700: D0 F7     BNE bra_A6F9_loop
 C - - - - 0x004712 03:A702: A0 B8     LDY #$B8
 C - - - - 0x004714 03:A704: A2 1C     LDX #$1C
 C - - - - 0x004716 03:A706: A9 02     LDA #$02
@@ -1088,11 +1092,11 @@ C - - - - 0x0047E6 03:A7D6: 60        RTS
 
 ofs_A7D7_16:
 C - - - - 0x0047E7 03:A7D7: A0 80     LDY #$80
-bra_A7D9_цикл:
+bra_A7D9_loop:
 C - - - - 0x0047E9 03:A7D9: A9 01     LDA #$01
 C - - - - 0x0047EB 03:A7DB: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0047EE 03:A7DE: A2 20     LDX #$20
-bra_A7E0_цикл_для_атрибутов:
+bra_A7E0_loop_для_атрибутов:
 C - - - - 0x0047F0 03:A7E0: BD 68 04  LDA ram_копия_спрайт_Y,X
 C - - - - 0x0047F3 03:A7E3: 10 08     BPL bra_A7ED
 C - - - - 0x0047F5 03:A7E5: BD 6A 04  LDA ram_копия_спрайт_атрибут,X
@@ -1104,9 +1108,9 @@ C - - - - 0x0047FE 03:A7EE: E8        INX
 C - - - - 0x0047FF 03:A7EF: E8        INX
 C - - - - 0x004800 03:A7F0: E8        INX
 C - - - - 0x004801 03:A7F1: E0 C4     CPX #$C4
-C - - - - 0x004803 03:A7F3: D0 EB     BNE bra_A7E0_цикл_для_атрибутов
+C - - - - 0x004803 03:A7F3: D0 EB     BNE bra_A7E0_loop_для_атрибутов
 C - - - - 0x004805 03:A7F5: 88        DEY
-C - - - - 0x004806 03:A7F6: D0 E1     BNE bra_A7D9_цикл
+C - - - - 0x004806 03:A7F6: D0 E1     BNE bra_A7D9_loop
 C - - - - 0x004808 03:A7F8: A9 02     LDA #$02
 C - - - - 0x00480A 03:A7FA: 60        RTS
 
@@ -1196,7 +1200,7 @@ bra_A88C_япония:
 C - - - - 0x00489C 03:A88C: A2 18     LDX #$18
 C - - - - 0x00489E 03:A88E: 20 B7 A8  JSR sub_A8B7_запись_номеров
 C - - - - 0x0048A1 03:A891: A0 00     LDY #$00
-bra_A893_цикл:
+bra_A893_loop:
 C - - - - 0x0048A3 03:A893: BD 47 AA  LDA tbl_AA47_номера_игроков,X
 C - - - - 0x0048A6 03:A896: 99 08 04  STA ram_bench_1,Y
 C - - - - 0x0048A9 03:A899: E8        INX
@@ -1205,7 +1209,7 @@ C - - - - 0x0048AB 03:A89B: 18        CLC
 C - - - - 0x0048AC 03:A89C: 69 04     ADC #$04
 C - - - - 0x0048AE 03:A89E: A8        TAY
 C - - - - 0x0048AF 03:A89F: C9 28     CMP #$28
-C - - - - 0x0048B1 03:A8A1: 90 F0     BCC bra_A893_цикл
+C - - - - 0x0048B1 03:A8A1: 90 F0     BCC bra_A893_loop
 loc_A8A3_запись_расстановки:
 C D - - - 0x0048B3 03:A8A3: BD 47 AA  LDA tbl_AA47_номера_игроков,X
 C - - - - 0x0048B6 03:A8A6: 85 2C     STA ram_расстановка_слева
@@ -1224,7 +1228,7 @@ sub_A8B7_запись_номеров:
 C - - - - 0x0048C7 03:A8B7: A9 0B     LDA #$0B
 C - - - - 0x0048C9 03:A8B9: 85 ED     STA ram_00ED
 C - - - - 0x0048CB 03:A8BB: A0 00     LDY #$00
-bra_A8BD_цикл:
+bra_A8BD_loop:
 C - - - - 0x0048CD 03:A8BD: BD 47 AA  LDA tbl_AA47_номера_игроков,X
 C - - - - 0x0048D0 03:A8C0: 99 00 03  STA ram_номер_игрока,Y
 C - - - - 0x0048D3 03:A8C3: E8        INX
@@ -1233,14 +1237,14 @@ C - - - - 0x0048D5 03:A8C5: 18        CLC
 C - - - - 0x0048D6 03:A8C6: 69 0C     ADC #$0C
 C - - - - 0x0048D8 03:A8C8: A8        TAY
 C - - - - 0x0048D9 03:A8C9: C9 84     CMP #$84
-C - - - - 0x0048DB 03:A8CB: 90 F0     BCC bra_A8BD_цикл
+C - - - - 0x0048DB 03:A8CB: 90 F0     BCC bra_A8BD_loop
 C - - - - 0x0048DD 03:A8CD: 60        RTS
 
 sub_0x0048DE:
 C D - - - 0x0048DE 03:A8CE: A9 01     LDA #$01
 C - - - - 0x0048E0 03:A8D0: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0048E3 03:A8D3: A0 00     LDY #$00
-bra_A8D5_цикл_копирования:
+bra_A8D5_loop_копирования:
 C - - - - 0x0048E8 03:A8D8: B9 6A 04  LDA ram_копия_спрайт_атрибут,Y
 C - - - - 0x0048EB 03:A8DB: 29 0C     AND #$0C
 C - - - - 0x0048ED 03:A8DD: F0 02     BEQ bra_A8E1_не_скрывать_спрайт
@@ -1261,7 +1265,7 @@ C - - - - 0x004907 03:A8F7: C8        INY
 C - - - - 0x004908 03:A8F8: C8        INY
 C - - - - 0x004909 03:A8F9: C8        INY
 C - - - - 0x00490A 03:A8FA: C8        INY
-C - - - - 0x00490B 03:A8FB: D0 D8     BNE bra_A8D5_цикл_копирования
+C - - - - 0x00490B 03:A8FB: D0 D8     BNE bra_A8D5_loop_копирования
 C - - - - 0x00490D 03:A8FD: 60        RTS
 
 sub_AA06:
@@ -1269,7 +1273,7 @@ sub_AA06:
 C - - - - 0x004A16 03:AA06: 84 ED     STY ram_00ED
 C - - - - 0x004A18 03:AA08: E8        INX
 C - - - - 0x004A19 03:AA09: A0 00     LDY #$00
-bra_AA0B_цикл:
+bra_AA0B_loop:
 C - - - - 0x004A1B 03:AA0B: 48        PHA
 C - - - - 0x004A1C 03:AA0C: A9 00     LDA #$00
 C - - - - 0x004A1E 03:AA0E: 91 EC     STA (ram_00EC),Y
@@ -1280,9 +1284,9 @@ bra_AA16:
 C - - - - 0x004A26 03:AA16: 68        PLA
 C - - - - 0x004A27 03:AA17: 38        SEC
 C - - - - 0x004A28 03:AA18: E9 01     SBC #$01
-C - - - - 0x004A2A 03:AA1A: D0 EF     BNE bra_AA0B_цикл
+C - - - - 0x004A2A 03:AA1A: D0 EF     BNE bra_AA0B_loop
 C - - - - 0x004A2C 03:AA1C: CA        DEX
-C - - - - 0x004A2D 03:AA1D: D0 EC     BNE bra_AA0B_цикл
+C - - - - 0x004A2D 03:AA1D: D0 EC     BNE bra_AA0B_loop
 C - - - - 0x004A2F 03:AA1F: 60        RTS
 
 sub_AA20_проверка_нажатий_вверх_вниз:
