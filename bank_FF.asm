@@ -7365,6 +7365,7 @@ ofs_FFF1_подготовка_MMC5:
                     STX $5102   ; disable prg ram protection 1
                     DEX ; 01
                     STX $5103   ; disable prg ram protection 2
+                    BIT $5204   ; disable irq
                     LDA #$44
                     STA $5105   ; vertical mirroring
                     LDA #$BE
