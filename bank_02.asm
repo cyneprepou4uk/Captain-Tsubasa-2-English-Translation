@@ -236,12 +236,16 @@ C - - - - 0x0041DA 03:A1CA: 60        RTS
 
 sub_A1CB_банксвич_CHR_00_01:
 C - - - - 0x0041DB 03:A1CB: B6 78     LDX ram_0078,Y
+                                      STX $5128
 C - - - - 0x0041E4 03:A1D4: 8E 01 80  STX $5120
                                       INX
+                                      STX $5129
                                       STX $5121
 C - - - - 0x0041E7 03:A1D7: B6 79     LDX ram_0079,Y
+                                      STX $512A
 C - - - - 0x0041F0 03:A1E0: 8E 01 80  STX $5122
                                       INX
+                                      STX $512B
                                       STX $5123
 C - - - - 0x0041F3 03:A1E3: 60        RTS
 

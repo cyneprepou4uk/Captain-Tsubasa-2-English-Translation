@@ -473,12 +473,16 @@ C - - - - 0x03C8A7 FF:C897: 8D 05 20  STA $2005
                                       ASL
                                       ADC #$80
                                       TAX
+                                      STX $5128
 C - - - - 0x03C8B2 FF:C8A2: 8D 01 80  STX $5120
                                       INX
+                                      STX $5129
                                       STX $5121
 C - - - - 0x03C8BD FF:C8AD: A5 87     LDX ram_0087
+                                      STX $512A
 C - - - - 0x03C8BF FF:C8AF: 8D 01 80  STX $5122
                                       INX
+                                      STX $512B
                                       STX $5123
 C - - - - 0x03C8CA FF:C8BA: A9 1F     LDA #$1F
 C - - - - 0x03C8CC FF:C8BC: 8D 01 80  STA $5124
@@ -661,12 +665,16 @@ C - - - - 0x03C9F8 FF:C9E8: 60        RTS
 
 sub_C9E9_банксвич_CHR:
 C - - - - 0x03CA06 FF:C9F6: BD 90 04  LDY ram_chr_bank
+                                      STY $5128
                                       STY $5120
                                       INY
+                                      STY $5129
                                       STY $5121
                                       LDY ram_chr_bank + 1
+                                      STY $512A
                                       STY $5122
                                       INY
+                                      STY $512B
                                       STY $5123
                                       LDX #$03
 bra_CA0F_loop:
