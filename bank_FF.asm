@@ -141,10 +141,10 @@ C - - - - - 0x03C436 FF:C426: 66 3B     ROR ram_003B
 C - - - - - 0x03C438 FF:C428: 85 3C     STA ram_003C
 C - - - - - 0x03C43A FF:C42A: 86 3D     STX ram_003D
 C - - - - - 0x03C43C FF:C42C: 84 3E     STY ram_003E
-C - - - - - 0x03C445 FF:C435: A9 02     LDA #$82
+C - - - - - 0x03C445 FF:C435: A9 02     LDA #con_prg_bank + $82
 C - - - - - 0x03C447 FF:C437: 8D 01 80  STA $5115
 C - - - - - 0x03C44A FF:C43A: 20 00 A0  JSR sub_0x004010
-C - - - - - 0x03C454 FF:C444: A9 0C     LDA #$8C
+C - - - - - 0x03C454 FF:C444: A9 0C     LDA #con_prg_bank + $8C
 C - - - - - 0x03C456 FF:C446: 8D 01 80  STA $5114
 C - - - - - 0x03C459 FF:C449: 20 00 80  JSR sub_0x018010_звуковой_движок
 C - - - - - 0x03C463 FF:C453: A5 24     LDA ram_для_5114
@@ -175,7 +175,7 @@ C - - - - - 0x03C48D FF:C47D: 66 3B     ROR ram_003B
 C - - - - - 0x03C48F FF:C47F: 85 3C     STA ram_003C
 C - - - - - 0x03C491 FF:C481: 86 3D     STX ram_003D
 C - - - - - 0x03C493 FF:C483: 84 3E     STY ram_003E
-C - - - - - 0x03C49C FF:C48C: A9 02     LDA #$82
+C - - - - - 0x03C49C FF:C48C: A9 02     LDA #con_prg_bank + $82
 C - - - - - 0x03C49E FF:C48E: 8D 01 80  STA $5115
 C - - - - - 0x03C4A1 FF:C491: 20 60 A1  JSR sub_0x004170
 C - - - - - 0x03C4AB FF:C49B: A5 25     LDA ram_для_5115
@@ -203,9 +203,9 @@ C - - - - - 0x03C4C2 FF:C4B2: 86 24     STX ram_для_5114
 
 
 
+sub_C4B9_банксвич_PRG_5115:
 sub_0x03C4C9_банксвич_PRG_5115:
 loc_0x03C4C9_банксвич_PRG_5115:
-sub_C4B9_банксвич_PRG_5115:
 ; bzk оптимизировать
 C D - - - - 0x03C4C9 FF:C4B9: 86 25     STX ram_для_5115
                                         TXA
@@ -224,9 +224,9 @@ sub_0x03C4D8_начислить_опыт:
     BEQ bra_C4F3_RTS      ; это клон
     CMP #$23
     BCS bra_C4F3_RTS      ; это игрок команды соперника
-    LDY #$80
+    LDY #con_prg_bank + $80
     STY $5114
-    LDY #$81
+    LDY #con_prg_bank + $81
     STY $5115
     JSR sub_0x002FD2_начислить_опыт
     LDA ram_для_5114
@@ -435,9 +435,9 @@ C - - - - - 0x03C862 FF:C852: A6 8D     LDX ram_008D
 C - - - - - 0x03C864 FF:C854: BD F7 C8  LDA tbl_C8F7_значение_для_регистра_IRQ,X
 C - - - - - 0x03C867 FF:C857: 30 1D     BMI bra_C876
 C - - - - - 0x03C869 FF:C859: A0 02     LDY #$02
-bra_C85B:
+bra_C85B_loop:
 C - - - - - 0x03C86B FF:C85B: 88        DEY
-C - - - - - 0x03C86C FF:C85C: D0 FD     BNE bra_C85B
+C - - - - - 0x03C86C FF:C85C: D0 FD     BNE bra_C85B_loop
 C - - - - - 0x03C86E FF:C85E: E8        INX
 C - - - - - 0x03C86F FF:C85F: 86 8D     STX ram_008D
 C - - - - - 0x03C871 FF:C861: BD F7 C8  LDA tbl_C8F7_значение_для_регистра_IRQ,X
@@ -453,9 +453,9 @@ C - - - - - 0x03C882 FF:C872: 8D 05 20  STA $2005
 C - - - - - 0x03C885 FF:C875: 60        RTS
 bra_C876:
 C - - - - - 0x03C886 FF:C876: A2 07     LDX #$07
-bra_C878:
+bra_C878_loop:
 C - - - - - 0x03C888 FF:C878: CA        DEX
-C - - - - - 0x03C889 FF:C879: D0 FD     BNE bra_C878
+C - - - - - 0x03C889 FF:C879: D0 FD     BNE bra_C878_loop
 C - - - - - 0x03C88B FF:C87B: AD 02 20  LDA $2002
 C - - - - - 0x03C88E FF:C87E: A9 22     LDA #> $2200
 C - - - - - 0x03C890 FF:C880: 8D 06 20  STA $2006
@@ -489,7 +489,7 @@ C - - - - - 0x03C8D7 FF:C8C7: A9 2E     LDA #$2E
 C - - - - - 0x03C8D9 FF:C8C9: 8D 01 80  STA $5125
                                         LDA #$00
 C - - - - - 0x03C8DC FF:C8CC: 4E 00 E0  STA $5204
-C - - - - - 0x03C8E6 FF:C8D6: A9 0C     LDA #$8C
+C - - - - - 0x03C8E6 FF:C8D6: A9 0C     LDA #con_prg_bank + $8C
 C - - - - - 0x03C8E8 FF:C8D8: 8D 01 80  STA $5114
 C - - - - - 0x03C8EB FF:C8DB: 20 00 80  JSR sub_0x018010_звуковой_движок
 C - - - - - 0x03C8F5 FF:C8E5: A5 25     LDA ram_для_5115
@@ -500,6 +500,8 @@ C - - - - - 0x03C901 FF:C8F1: A5 24     LDA ram_для_5114
 C - - - - - 0x03C903 FF:C8F3: 8D 01 80  STA $5114
 C - - - - - 0x03C906 FF:C8F6: 60        RTS
 
+
+
 tbl_C8F7_значение_для_регистра_IRQ:
 ; bzk могут возникнуть проблемы с байтом 80, так как после AND 7F + SBC 01 будет FF
 ; но по видимому этот байт не используется
@@ -507,6 +509,8 @@ tbl_C8F7_значение_для_регистра_IRQ:
 - - - - - - 0x03C908 FF:C8F8: 80        .byte $80
 - D - - - - 0x03C909 FF:C8F9: 1E        .byte $1E
 - D - - - - 0x03C90A FF:C8FA: DC        .byte $DC
+
+
 
 sub_C8FB:
 C - - - - - 0x03C90B FF:C8FB: AD 98 04  LDA ram_0498
@@ -560,6 +564,8 @@ C - - - - - 0x03C95E FF:C94E: F0 DE     BEQ bra_C92E_loop
 bra_C950_RTS:
 C - - - - - 0x03C960 FF:C950: 60        RTS
 
+
+
 loc_C951:
     LDA ram_0515
     BPL @выход
@@ -602,12 +608,16 @@ loc_C951:
     BNE @цикл_записи_в_2007
     BEQ @цикл_записи_в_ppu
 
+
+
 sub_C982:
 C - - - - - 0x03C992 FF:C982: A2 00     LDX #$00
 C - - - - - 0x03C994 FF:C984: AD 1C 00  LDA ram_btn_hold
 ; bzk опт удалить прыжок и rts
 C - - - - - 0x03C997 FF:C987: 20 8B C9  JSR sub_C98B
 C - - - - - 0x03C99A FF:C98A: 60        RTS
+
+
 
 sub_C98B:
 bra_C98B_loop:
@@ -7369,7 +7379,7 @@ ofs_FFF1_подготовка_MMC5:
                     BIT $5204   ; disable irq
                     LDA #$44
                     STA $5105   ; vertical mirroring
-                    LDA #$BE
+                    LDA #con_prg_bank + $BE
                     STA $5116   ; bank 3E for C000-DFFF
 ; скопировать код из C000-DFFF в 6000-7FFF
                     LDA #< $C000
