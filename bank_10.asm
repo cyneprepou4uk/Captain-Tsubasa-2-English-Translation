@@ -1479,12 +1479,12 @@ ofs_015_86B6_48_C8:
 C - J - - - 0x0206C6 17:86B6: A2 00     LDX #$00
 C - - - - - 0x0206C8 17:86B8: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x0206CB 17:86BB: 29 7F     AND #$7F
-bra_86BD:
+bra_86BD_loop:
 C - - - - - 0x0206CD 17:86BD: DD C8 86  CMP tbl_86C8,X
 C - - - - - 0x0206D0 17:86C0: F0 05     BEQ bra_86C7_RTS
 C - - - - - 0x0206D2 17:86C2: E8        INX
 C - - - - - 0x0206D3 17:86C3: E0 04     CPX #$04
-C - - - - - 0x0206D5 17:86C5: D0 F6     BNE bra_86BD
+C - - - - - 0x0206D5 17:86C5: D0 F6     BNE bra_86BD_loop
 bra_86C7_RTS:
 C - - - - - 0x0206D7 17:86C7: 60        RTS
 

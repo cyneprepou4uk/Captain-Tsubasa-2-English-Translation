@@ -1771,12 +1771,14 @@ C - - - - - 0x03D09E FF:D08E: C9 0B     CMP #$0B
 C - - - - - 0x03D0A0 FF:D090: D0 A0     BNE bra_D032_loop
 C - - - - - 0x03D0A2 FF:D092: 60        RTS
 
-sub_0x03D0A3_выбор_мелодии_команды:
+
+
 sub_D093_выбор_мелодии_команды:
+sub_0x03D0A3_выбор_мелодии_команды:
 ; 32 = музыка добавочного времени
 C D - - - - 0x03D0A3 FF:D093: A9 32     LDA #con_музыка_добавочное_время
 C - - - - - 0x03D0A5 FF:D095: 2C 3E 06  BIT ram_флаг_loss
-C - - - - - 0x03D0A8 FF:D098: 30 0E     BMI bra_D0A8
+C - - - - - 0x03D0A8 FF:D098: 30 0E     BMI bra_D0A8_сейчас_loss
 C - - - - - 0x03D0AA FF:D09A: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03D0AD FF:D09D: F0 02     BEQ bra_D0A1_это_твоя_команда
 ; в противном случае считывается номер команды соперников
@@ -1785,7 +1787,7 @@ bra_D0A1_это_твоя_команда:
 C - - - - - 0x03D0B1 FF:D0A1: BD 2A 00  LDA ram_твоя_команда,X
 C - - - - - 0x03D0B4 FF:D0A4: AA        TAX
 C - - - - - 0x03D0B5 FF:D0A5: BD AC D0  LDA tbl_D0AC_мелодии_команд,X
-bra_D0A8:
+bra_D0A8_сейчас_loss:
 C - - - - - 0x03D0B8 FF:D0A8: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - - 0x03D0BB FF:D0AB: 60        RTS
 
@@ -2307,7 +2309,7 @@ C - - - - - 0x03D3ED FF:D3DD: 85 25     STA ram_для_5115
 C - - - - - 0x03D3EF FF:D3DF: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03D3F2 FF:D3E2: 68        PLA
 C - - - - - 0x03D3F3 FF:D3E3: 20 0C 80  JSR sub_0x03801C
-C - - - - - 0x03D3F6 FF:D3E6: AD 30 04  LDA ram_0430
+C - - - - - 0x03D3F6 FF:D3E6: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D3F9 FF:D3E9: F0 39     BEQ bra_D424
 C - - - - - 0x03D3FB FF:D3EB: 18        CLC
 C - - - - - 0x03D3FC FF:D3EC: 69 0B     ADC #$0B
@@ -2744,7 +2746,7 @@ C - - - - - 0x03D6B2 FF:D6A2: 85 25     STA ram_для_5115
 C - - - - - 0x03D6B4 FF:D6A4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03D6B7 FF:D6A7: 68        PLA
 C - - - - - 0x03D6B8 FF:D6A8: 20 09 80  JSR sub_0x038019
-C - - - - - 0x03D6BB FF:D6AB: AD 30 04  LDA ram_0430
+C - - - - - 0x03D6BB FF:D6AB: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D6BE FF:D6AE: F0 0E     BEQ bra_D6BE
 C - - - - - 0x03D6C0 FF:D6B0: 18        CLC
 C - - - - - 0x03D6C1 FF:D6B1: 69 08     ADC #$08
@@ -2906,13 +2908,13 @@ sub_D77A:
 ; обнуление опции супер приемов, ожидание выбора или отмена выбора
 C - - - - - 0x03D78A FF:D77A: A9 00     LDA #$00
 C - - - - - 0x03D78C FF:D77C: 8D 22 06  STA ram_номер_опции
-C - - - - - 0x03D78F FF:D77F: AD 30 04  LDA ram_0430
+C - - - - - 0x03D78F FF:D77F: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D792 FF:D782: 20 8F CF  JSR sub_CF8F_курсор_меню_после_гола
 C - - - - - 0x03D795 FF:D785: A2 80     LDX #$80
 C - - - - - 0x03D797 FF:D787: 90 07     BCC bra_D790
 C - - - - - 0x03D799 FF:D789: AA        TAX
 C - - - - - 0x03D79A FF:D78A: F0 04     BEQ bra_D790
-C - - - - - 0x03D79C FF:D78C: BD 30 04  LDA ram_0430,X
+C - - - - - 0x03D79C FF:D78C: BD 30 04  LDA ram_список_спешалов,X
 C - - - - - 0x03D79F FF:D78F: AA        TAX
 bra_D790:
 C - - - - - 0x03D7A0 FF:D790: 8A        TXA
@@ -3022,15 +3024,15 @@ sub_D852:
 C D - - - - 0x03D862 FF:D852: A9 FF     LDA #$FF
 C - - - - - 0x03D864 FF:D854: AE 25 06  LDX ram_0625
 C - - - - - 0x03D867 FF:D857: F0 09     BEQ bra_D862
-C - - - - - 0x03D869 FF:D859: AE 30 04  LDX ram_0430
+C - - - - - 0x03D869 FF:D859: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D86C FF:D85C: CA        DEX
 C - - - - - 0x03D86D FF:D85D: D0 09     BNE bra_D868
-C - - - - - 0x03D86F FF:D85F: AD 31 04  LDA ram_0431
+C - - - - - 0x03D86F FF:D85F: AD 31 04  LDA ram_список_спешалов + 1
 bra_D862:
 C - - - - - 0x03D872 FF:D862: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03D875 FF:D865: 4C D2 D8  JMP loc_D8D2
 bra_D868:
-C - - - - - 0x03D878 FF:D868: AD 30 04  LDA ram_0430
+C - - - - - 0x03D878 FF:D868: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D87B FF:D86B: 18        CLC
 C - - - - - 0x03D87C FF:D86C: 69 22     ADC #$22      ; ??? select_1_of_?_teammates_for_pass
 C - - - - - 0x03D87E FF:D86E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3061,7 +3063,7 @@ C - - - - - 0x03D8AE FF:D89E: 8A        TXA
 C - - - - - 0x03D8AF FF:D89F: 18        CLC
 C - - - - - 0x03D8B0 FF:D8A0: 6D 25 06  ADC ram_0625
 C - - - - - 0x03D8B3 FF:D8A3: 30 05     BMI bra_D8AA
-C - - - - - 0x03D8B5 FF:D8A5: CD 30 04  CMP ram_0430
+C - - - - - 0x03D8B5 FF:D8A5: CD 30 04  CMP ram_список_спешалов
 C - - - - - 0x03D8B8 FF:D8A8: 90 03     BCC bra_D8AD
 bra_D8AA:
 - - - - - - 0x03D8BA FF:D8AA: AD 25 06  LDA ram_0625
@@ -3071,7 +3073,7 @@ C - - - - - 0x03D8C0 FF:D8B0: 8D 25 06  STA ram_0625
 C - - - - - 0x03D8C3 FF:D8B3: F0 0E     BEQ bra_D8C3
 loc_D8B5:
 C D - - - - 0x03D8C5 FF:D8B5: AE 25 06  LDX ram_0625
-C - - - - - 0x03D8C8 FF:D8B8: BD 31 04  LDA ram_0431,X
+C - - - - - 0x03D8C8 FF:D8B8: BD 31 04  LDA ram_список_спешалов + 1,X
 C - - - - - 0x03D8CB FF:D8BB: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot
 C - - - - - 0x03D8D0 FF:D8C0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3108,7 +3110,7 @@ C - - - - - 0x03D906 FF:D8F6: 60        RTS
 loc_0x03D907:
 sub_D8F7:
 C D - - - - 0x03D907 FF:D8F7: A9 00     LDA #$00
-C - - - - - 0x03D909 FF:D8F9: 8D 30 04  STA ram_0430
+C - - - - - 0x03D909 FF:D8F9: 8D 30 04  STA ram_список_спешалов
 C - - - - - 0x03D90C FF:D8FC: 8D 25 06  STA ram_0625
 bra_D8FF:
 C - - - - - 0x03D90F FF:D8FF: 48        PHA
@@ -3128,7 +3130,7 @@ C - - - - - 0x03D929 FF:D919: A8        TAY
 C - - - - - 0x03D92A FF:D91A: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03D92D FF:D91D: CD 24 06  CMP ram_0624
 C - - - - - 0x03D930 FF:D920: D0 1F     BNE bra_D941
-C - - - - - 0x03D932 FF:D922: AE 30 04  LDX ram_0430
+C - - - - - 0x03D932 FF:D922: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D935 FF:D925: E0 04     CPX #$04
 C - - - - - 0x03D937 FF:D927: B0 18     BCS bra_D941
 C - - - - - 0x03D939 FF:D929: 68        PLA
@@ -3138,8 +3140,8 @@ C - - - - - 0x03D93D FF:D92D: 90 05     BCC bra_D934
 C - - - - - 0x03D93F FF:D92F: AC 25 06  LDY ram_0625
 C - - - - - 0x03D942 FF:D932: D0 0D     BNE bra_D941
 bra_D934:
-C - - - - - 0x03D944 FF:D934: 9D 31 04  STA ram_0431,X
-C - - - - - 0x03D947 FF:D937: EE 30 04  INC ram_0430
+C - - - - - 0x03D944 FF:D934: 9D 31 04  STA ram_список_спешалов + 1,X
+C - - - - - 0x03D947 FF:D937: EE 30 04  INC ram_список_спешалов
 C - - - - - 0x03D94A FF:D93A: C9 0B     CMP #$0B
 C - - - - - 0x03D94C FF:D93C: B0 03     BCS bra_D941
 C - - - - - 0x03D94E FF:D93E: EE 25 06  INC ram_0625
@@ -3149,7 +3151,7 @@ C - - - - - 0x03D952 FF:D942: 18        CLC
 C - - - - - 0x03D953 FF:D943: 69 01     ADC #$01
 C - - - - - 0x03D955 FF:D945: C9 16     CMP #$16
 C - - - - - 0x03D957 FF:D947: D0 B6     BNE bra_D8FF
-C - - - - - 0x03D959 FF:D949: AE 30 04  LDX ram_0430
+C - - - - - 0x03D959 FF:D949: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D95C FF:D94C: D0 06     BNE bra_D954
 C - - - - - 0x03D95E FF:D94E: A9 1C     LDA #$1C      ; clear_reciever_stats_window
 C - - - - - 0x03D960 FF:D950: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3165,7 +3167,7 @@ C - - - - - 0x03D970 FF:D960: 60        RTS
 bra_D961:
 C - - - - - 0x03D971 FF:D961: CA        DEX
 C - - - - - 0x03D972 FF:D962: D0 0C     BNE bra_D970
-C - - - - - 0x03D974 FF:D964: AD 31 04  LDA ram_0431
+C - - - - - 0x03D974 FF:D964: AD 31 04  LDA ram_список_спешалов + 1
 C - - - - - 0x03D977 FF:D967: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03D97A FF:D96A: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot
 C - - - - - 0x03D97C FF:D96C: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3188,23 +3190,23 @@ C - - - - - 0x03D996 FF:D986: 20 EC E6  JSR sub_E6EC
 C - - - - - 0x03D999 FF:D989: A9 01     LDA #$01
 C - - - - - 0x03D99B FF:D98B: 85 3A     STA ram_003A
 C - - - - - 0x03D99D FF:D98D: A9 00     LDA #$00
-C - - - - - 0x03D99F FF:D98F: 8D 30 04  STA ram_0430
+C - - - - - 0x03D99F FF:D98F: 8D 30 04  STA ram_список_спешалов
 bra_D992:
 C - - - - - 0x03D9A2 FF:D992: A5 3A     LDA ram_003A
 C - - - - - 0x03D9A4 FF:D994: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03D9A7 FF:D997: F0 10     BEQ bra_D9A9
 C - - - - - 0x03D9A9 FF:D999: 20 3A DA  JSR sub_DA3A
 C - - - - - 0x03D9AC FF:D99C: 90 0B     BCC bra_D9A9
-C - - - - - 0x03D9AE FF:D99E: AE 30 04  LDX ram_0430
+C - - - - - 0x03D9AE FF:D99E: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D9B1 FF:D9A1: A5 3A     LDA ram_003A
-C - - - - - 0x03D9B3 FF:D9A3: 9D 31 04  STA ram_0431,X
-C - - - - - 0x03D9B6 FF:D9A6: EE 30 04  INC ram_0430
+C - - - - - 0x03D9B3 FF:D9A3: 9D 31 04  STA ram_список_спешалов + 1,X
+C - - - - - 0x03D9B6 FF:D9A6: EE 30 04  INC ram_список_спешалов
 bra_D9A9:
 C - - - - - 0x03D9B9 FF:D9A9: E6 3A     INC ram_003A
 C - - - - - 0x03D9BB FF:D9AB: A5 3A     LDA ram_003A
 C - - - - - 0x03D9BD FF:D9AD: C9 0B     CMP #$0B
 C - - - - - 0x03D9BF FF:D9AF: D0 E1     BNE bra_D992
-C - - - - - 0x03D9C1 FF:D9B1: AD 30 04  LDA ram_0430
+C - - - - - 0x03D9C1 FF:D9B1: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D9C4 FF:D9B4: D0 12     BNE bra_D9C8
 C - - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #$11      ; no_players_nearby
 C - - - - - 0x03D9C8 FF:D9B8: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3239,18 +3241,18 @@ C - - - - - 0x03D9FF FF:D9EF: 8A        TXA
 C - - - - - 0x03DA00 FF:D9F0: 18        CLC
 C - - - - - 0x03DA01 FF:D9F1: 6D 25 06  ADC ram_0625
 C - - - - - 0x03DA04 FF:D9F4: 10 06     BPL bra_D9FC
-C - - - - - 0x03DA06 FF:D9F6: AD 30 04  LDA ram_0430
+C - - - - - 0x03DA06 FF:D9F6: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03DA09 FF:D9F9: 38        SEC
 C - - - - - 0x03DA0A FF:D9FA: E9 01     SBC #$01
 bra_D9FC:
-C - - - - - 0x03DA0C FF:D9FC: CD 30 04  CMP ram_0430
+C - - - - - 0x03DA0C FF:D9FC: CD 30 04  CMP ram_список_спешалов
 C - - - - - 0x03DA0F FF:D9FF: 90 02     BCC bra_DA03
 C - - - - - 0x03DA11 FF:DA01: A9 00     LDA #$00
 bra_DA03:
 loc_DA03:
 C D - - - - 0x03DA13 FF:DA03: 8D 25 06  STA ram_0625
 C - - - - - 0x03DA16 FF:DA06: AA        TAX
-C - - - - - 0x03DA17 FF:DA07: BD 31 04  LDA ram_0431,X
+C - - - - - 0x03DA17 FF:DA07: BD 31 04  LDA ram_список_спешалов + 1,X
 C - - - - - 0x03DA1A FF:DA0A: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03DA1D FF:DA0D: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot 
 C - - - - - 0x03DA1F FF:DA0F: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3967,29 +3969,29 @@ C - - - - - 0x03DEA3 FF:DE93: 4C DF E0  JMP loc_E0DF
 bra_DE96:
 loc_DE96:
 C D - - - - 0x03DEA6 FF:DE96: AD 2B 06  LDA ram_062B
-C - - - - - 0x03DEA9 FF:DE99: 8D 30 04  STA ram_0430
+C - - - - - 0x03DEA9 FF:DE99: 8D 30 04  STA ram_список_спешалов
 C - - - - - 0x03DEAC FF:DE9C: A9 01     LDA #$01
 C - - - - - 0x03DEAE FF:DE9E: 8D FF 05  STA ram_05FF
 C - - - - - 0x03DEB1 FF:DEA1: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03DEB4 FF:DEA4: 20 4A DF  JSR sub_DF4A
-C - - - - - 0x03DEB7 FF:DEA7: 8D 31 04  STA ram_0431
+C - - - - - 0x03DEB7 FF:DEA7: 8D 31 04  STA ram_список_спешалов + 1
 C - - - - - 0x03DEBA FF:DEAA: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03DEBD FF:DEAD: 49 0B     EOR #$0B
 C - - - - - 0x03DEBF FF:DEAF: 20 4A DF  JSR sub_DF4A
-C - - - - - 0x03DEC2 FF:DEB2: 8D 32 04  STA ram_0432
-bra_DEB5:
-C - - - - - 0x03DEC5 FF:DEB5: AD 31 04  LDA ram_0431
+C - - - - - 0x03DEC2 FF:DEB2: 8D 32 04  STA ram_список_спешалов + 2
+bra_DEB5_loop:
+C - - - - - 0x03DEC5 FF:DEB5: AD 31 04  LDA ram_список_спешалов + 1
 C - - - - - 0x03DEC8 FF:DEB8: A2 23     LDX #$23
 C - - - - - 0x03DECA FF:DEBA: 20 29 DF  JSR sub_DF29
-C - - - - - 0x03DECD FF:DEBD: AD 31 04  LDA ram_0431
+C - - - - - 0x03DECD FF:DEBD: AD 31 04  LDA ram_список_спешалов + 1
 C - - - - - 0x03DED0 FF:DEC0: B0 1A     BCS bra_DEDC
-C - - - - - 0x03DED2 FF:DEC2: AD 32 04  LDA ram_0432
+C - - - - - 0x03DED2 FF:DEC2: AD 32 04  LDA ram_список_спешалов + 2
 C - - - - - 0x03DED5 FF:DEC5: A2 24     LDX #$24
 C - - - - - 0x03DED7 FF:DEC7: 20 29 DF  JSR sub_DF29
-C - - - - - 0x03DEDA FF:DECA: AD 32 04  LDA ram_0432
+C - - - - - 0x03DEDA FF:DECA: AD 32 04  LDA ram_список_спешалов + 2
 C - - - - - 0x03DEDD FF:DECD: B0 0D     BCS bra_DEDC
-C - - - - - 0x03DEDF FF:DECF: CE 30 04  DEC ram_0430
-C - - - - - 0x03DEE2 FF:DED2: D0 E1     BNE bra_DEB5
+C - - - - - 0x03DEDF FF:DECF: CE 30 04  DEC ram_список_спешалов
+C - - - - - 0x03DEE2 FF:DED2: D0 E1     BNE bra_DEB5_loop
 C - - - - - 0x03DEE4 FF:DED4: A9 34     LDA #$34
 C - - - - - 0x03DEE6 FF:DED6: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 ; сработало когда мой перс с быстрой анимацией выбивает головой мяч из моей штрафной в поле, и мяч ударился об землю

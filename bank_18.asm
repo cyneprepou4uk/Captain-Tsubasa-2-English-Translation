@@ -1485,7 +1485,7 @@ C - - - - - 0x030A5A 22:8A4A: F0 09     BEQ bra_8A55
 C - - - - - 0x030A5C 22:8A4C: A8        TAY
 C - - - - - 0x030A5D 22:8A4D: 8A        TXA
 C - - - - - 0x030A5E 22:8A4E: 18        CLC
-C - - - - - 0x030A5F 22:8A4F: 79 30 04  ADC ram_0430,Y
+C - - - - - 0x030A5F 22:8A4F: 79 30 04  ADC ram_список_спешалов,Y
 C - - - - - 0x030A62 22:8A52: 4C 56 8A  JMP loc_8A56
 bra_8A55:
 C - - - - - 0x030A65 22:8A55: 8A        TXA
@@ -1534,7 +1534,7 @@ C - - - - - 0x030AA5 22:8A95: E6 40     INC ram_0040
 C - - - - - 0x030AA7 22:8A97: B1 3E     LDA (ram_003E),Y
 C - - - - - 0x030AA9 22:8A99: F0 04     BEQ bra_8A9F_это_не_спешал
 C - - - - - 0x030AAB 22:8A9B: AA        TAX
-C - - - - - 0x030AAC 22:8A9C: BD 30 04  LDA ram_0430,X
+C - - - - - 0x030AAC 22:8A9C: BD 30 04  LDA ram_список_спешалов,X
 bra_8A9F_это_не_спешал:
 C - - - - - 0x030AAF 22:8A9F: AE 1E 06  LDX ram_061E
 C - - - - - 0x030AB2 22:8AA2: BC 0B 06  LDY ram_действие_защитника,X
@@ -1563,9 +1563,9 @@ C - J - - - 0x030AD1 22:8AC1: A4 40     LDY ram_0040
 C - - - - - 0x030AD3 22:8AC3: E6 40     INC ram_0040
 C - - - - - 0x030AD5 22:8AC5: B1 3E     LDA (ram_003E),Y
 C - - - - - 0x030AD7 22:8AC7: AA        TAX
-C - - - - - 0x030AD8 22:8AC8: BD 31 04  LDA ram_0431,X
+C - - - - - 0x030AD8 22:8AC8: BD 31 04  LDA ram_список_спешалов + 1,X
 C - - - - - 0x030ADB 22:8ACB: E8        INX
-C - - - - - 0x030ADC 22:8ACC: EC 30 04  CPX ram_0430
+C - - - - - 0x030ADC 22:8ACC: EC 30 04  CPX ram_список_спешалов
 C - - - - - 0x030ADF 22:8ACF: 90 03     BCC bra_8AD4
 C - - - - - 0x030AE1 22:8AD1: F0 01     BEQ bra_8AD4
 C - - - - - 0x030AE3 22:8AD3: 60        RTS
@@ -1777,10 +1777,10 @@ bra_8C09:
 C - - - - - 0x030C19 22:8C09: A5 49     LDA ram_0049
 C - - - - - 0x030C1B 22:8C0B: C9 0B     CMP #$0B
 C - - - - - 0x030C1D 22:8C0D: F0 37     BEQ bra_8C46_RTS
-C - - - - - 0x030C1F 22:8C0F: AE 30 04  LDX ram_0430
+C - - - - - 0x030C1F 22:8C0F: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x030C22 22:8C12: F0 0E     BEQ bra_8C22
 bra_8C14:
-C - - - - - 0x030C24 22:8C14: DD 30 04  CMP ram_0430,X
+C - - - - - 0x030C24 22:8C14: DD 30 04  CMP ram_список_спешалов,X
 C - - - - - 0x030C27 22:8C17: F0 05     BEQ bra_8C1E
 C - - - - - 0x030C29 22:8C19: CA        DEX
 C - - - - - 0x030C2A 22:8C1A: D0 F8     BNE bra_8C14
@@ -1865,9 +1865,9 @@ ofs_036_8C45_F9_индикатор_если_соперник_не_клон:
 
 sub_узнать_индекс_принимающего:
     TAX
-    LDA ram_0431,X
+    LDA ram_список_спешалов + 1,X
     INX
-    CPX ram_0430
+    CPX ram_список_спешалов
     BCC @принимающий_существует
     BEQ @принимающий_существует
     CLC
