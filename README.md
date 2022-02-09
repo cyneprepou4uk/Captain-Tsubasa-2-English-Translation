@@ -2,17 +2,17 @@
 
 Captain Tsubasa 2 [NES] disassembly. Most comments are in Russian.
 
-Use **notepad_plus_plus_syntax.xml** to highlight code in [Notepad++](https://notepad-plus-plus.org/).
+Use `syntax_6502.xml` to highlight code in [Notepad++](https://notepad-plus-plus.org/).
 
 
 
 ## How to build
 
-No special requirements. Just launch **assemble.bat** and wait until it's done.
+No special requirements. Just launch `assemble.bat` and wait until it's done.
 
-Then open **!ct2.nes** to play the game (translation is not fully complete, yet).
+Then open `!ct2.nes` to play the game (translation is not fully complete, yet).
 
-Runs properly on [FCEUX](http://fceux.com/) and [Mesen](https://www.mesen.ca/) (maybe some other emulators too).
+Runs properly on [FCEUX](http://fceux.com/) [Mesen](https://www.mesen.ca/) and [Mednafen](https://mednafen.github.io/) (maybe some other emulators too).
 
 
 
