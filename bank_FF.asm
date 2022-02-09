@@ -96,8 +96,6 @@ vec_FFF0_обработчик_RESET:
                     DEX
                     BNE @очистка_оперативки
                     STA $4010
-                    LDA #$44
-                    STA $5105
                     LDA #$08
                     STA ram_0020
                     LDA #$06
@@ -7367,6 +7365,8 @@ ofs_FFF1_подготовка_MMC5:
                     STX $5102   ; disable prg ram protection 1
                     DEX ; 01
                     STX $5103   ; disable prg ram protection 2
+                    LDA #$44
+                    STA $5105   ; vertical mirroring
                     LDA #$BE
                     STA $5116   ; bank 3E for C000-DFFF
                     LDY #$00
