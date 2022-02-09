@@ -52,10 +52,10 @@
 .export sub_0x03DCEF
 .export loc_0x03DD0D
 .export loc_0x03DD12
-.export ofs_0x03DD12
+.export ofs_039_0x03DD12
 .export loc_0x03DE0D
 .export loc_0x03DE62
-.export ofs_0x03DE62
+.export ofs_041_0x03DE62
 .export loc_0x03DE6E
 .export loc_0x03DE7C
 .export loc_0x03DFE9
@@ -64,10 +64,10 @@
 .export loc_0x03E0EF
 .export sub_0x03E243
 .export sub_0x03E4E7
-.export ofs_0x03E55C
-.export ofs_0x03E5A6
+.export ofs_041_0x03E55C
+.export ofs_041_0x03E5A6
 .export loc_0x03E688
-.export ofs_0x03E698
+.export ofs_041_0x03E698
 .export sub_0x03E6FC
 .export sub_0x03E74E
 .export sub_0x03EF8F_отрисовка_меню_во_время_матча
@@ -1494,7 +1494,7 @@ C - - - - 0x03CF5E FF:CF4E: 60        RTS
 
 sub_0x03CF5F:
 sub_CF4F:
-ofs_DC03_04:
+ofs_060_DC03_04:
 C D - - - 0x03CF5F FF:CF4F: A9 00     LDA #$00
 bra_CF51:
 C - - - - 0x03CF61 FF:CF51: 48        PHA
@@ -2712,16 +2712,16 @@ C - - - - 0x03D6D1 FF:D6C1: 20 17 D7  JSR sub_D717
 bra_D6C4:
 C - - - - 0x03D6D4 FF:D6C4: AD 3B 04  LDA ram_действие_атаки
 C - - - - 0x03D6D7 FF:D6C7: 20 99 CB  JSR sub_CB99_байты_после_JSR_для_непрямого_прыжка
-- D - I - 0x03D6DA FF:D6CA: 92 D7     .word ofs_D792_F0
-- D - I - 0x03D6DC FF:D6CC: E8 D7     .word ofs_D7E8_F1
-- D - I - 0x03D6DE FF:D6CE: 0C D7     .word ofs_D70C_F2_F4_F6_F7_F8_F9
-- D - I - 0x03D6E0 FF:D6D0: 79 D9     .word ofs_D979_F3
-- D - I - 0x03D6E2 FF:D6D2: 0C D7     .word ofs_D70C_F2_F4_F6_F7_F8_F9
-- D - I - 0x03D6E4 FF:D6D4: 65 DA     .word ofs_DA65_F5
-- D - I - 0x03D6E6 FF:D6D6: 0C D7     .word ofs_D70C_F2_F4_F6_F7_F8_F9
-- D - I - 0x03D6E8 FF:D6D8: 0C D7     .word ofs_D70C_F2_F4_F6_F7_F8_F9
-- D - I - 0x03D6EA FF:D6DA: 0C D7     .word ofs_D70C_F2_F4_F6_F7_F8_F9
-- D - I - 0x03D6EC FF:D6DC: 0C D7     .word ofs_D70C_F2_F4_F6_F7_F8_F9
+- D - I - 0x03D6DA FF:D6CA: 92 D7     .word ofs_059_D792_F0
+- D - I - 0x03D6DC FF:D6CC: E8 D7     .word ofs_059_D7E8_F1
+- D - I - 0x03D6DE FF:D6CE: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
+- D - I - 0x03D6E0 FF:D6D0: 79 D9     .word ofs_059_D979_F3
+- D - I - 0x03D6E2 FF:D6D2: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
+- D - I - 0x03D6E4 FF:D6D4: 65 DA     .word ofs_059_DA65_F5
+- D - I - 0x03D6E6 FF:D6D6: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
+- D - I - 0x03D6E8 FF:D6D8: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
+- D - I - 0x03D6EA FF:D6DA: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
+- D - I - 0x03D6EC FF:D6DC: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
 
 tbl_D6DE:
 - D - - - 0x03D6EE FF:D6DE: 02        .byte $02    ; <い>
@@ -2789,7 +2789,7 @@ tbl_D706_окно_action:
     .byte $2C       ; pk_aim
 
 loc_D70C:
-ofs_D70C_F2_F4_F6_F7_F8_F9:
+ofs_059_D70C_F2_F4_F6_F7_F8_F9:
 C D J - - 0x03D71C FF:D70C: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - 0x03D71F FF:D70F: A9 00     LDA #$00
 C - - - - 0x03D721 FF:D711: 8D 2D 06  STA ram_062D
@@ -2869,7 +2869,7 @@ bra_D790:
 C - - - - 0x03D7A0 FF:D790: 8A        TXA
 C - - - - 0x03D7A1 FF:D791: 60        RTS
 
-ofs_D792_F0:
+ofs_059_D792_F0:
 C - J - - 0x03D7A2 FF:D792: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - 0x03D7A5 FF:D795: C9 03     CMP #$03
 C - - - - 0x03D7A7 FF:D797: B0 06     BCS bra_D79F
@@ -2911,7 +2911,7 @@ bra_D7E5:
 C - - - - 0x03D7F5 FF:D7E5: 4C 0C D7  JMP loc_D70C
 
 sub_0x03D7F8:
-ofs_D7E8_F1:
+ofs_059_D7E8_F1:
 C D J - - 0x03D7F8 FF:D7E8: A9 38     LDA #$38
 C - - - - 0x03D7FA FF:D7EA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03D7FD FF:D7ED: A9 0F     LDA #$0F      ; pass_select_a_teammate
@@ -3128,7 +3128,7 @@ C - - - - 0x03D982 FF:D972: 69 18     ADC #$18      ; ? show_?_teammates
 C - - - - 0x03D984 FF:D974: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - 0x03D987 FF:D977: 60        RTS
 
-ofs_D979_F3:
+ofs_059_D979_F3:
 C - J - - 0x03D989 FF:D979: A9 38     LDA #$38
 C - - - - 0x03D98B FF:D97B: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03D98E FF:D97E: AD 3C 04  LDA ram_подтип_действия_атаки
@@ -3254,7 +3254,7 @@ bra_DA63:
 C - - - - 0x03DA73 FF:DA63: 18        CLC
 C - - - - 0x03DA74 FF:DA64: 60        RTS
 
-ofs_DA65_F5:
+ofs_059_DA65_F5:
 C - J - - 0x03DA75 FF:DA65: A9 38     LDA #$38
 C - - - - 0x03DA77 FF:DA67: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - 0x03DA7A FF:DA6A: A9 83     LDA #$83
@@ -3342,15 +3342,15 @@ C - - - - 0x03DB31 FF:DB21: 4C DF E0  JMP loc_E0DF
 sub_DB24:
 C - - - - 0x03DB34 FF:DB24: AD 29 06  LDA ram_флаг_разводки
 C - - - - 0x03DB37 FF:DB27: 20 99 CB  JSR sub_CB99_байты_после_JSR_для_непрямого_прыжка
-- D - I - 0x03DB3A FF:DB2A: 34 DB     .word ofs_DB34_00
-- D - I - 0x03DB3C FF:DB2C: 9E DB     .word ofs_DB9E_01
-- D - I - 0x03DB3E FF:DB2E: FC DB     .word ofs_DBFC_02
-- - - - - 0x03DB40 FF:DB30: F3 DB     .word ofs_DBF3_03
-- D - I - 0x03DB42 FF:DB32: 03 DC     .word ofs_DC03_04
+- D - I - 0x03DB3A FF:DB2A: 34 DB     .word ofs_060_DB34_00
+- D - I - 0x03DB3C FF:DB2C: 9E DB     .word ofs_060_DB9E_01
+- D - I - 0x03DB3E FF:DB2E: FC DB     .word ofs_060_DBFC_02
+- - - - - 0x03DB40 FF:DB30: F3 DB     .word ofs_060_DBF3_03
+- D - I - 0x03DB42 FF:DB32: 03 DC     .word ofs_060_DC03_04
 
 
 
-ofs_DB34_00:
+ofs_060_DB34_00:
 C - J - - 0x03DB44 FF:DB34: 48        PHA
 C - - - - 0x03DB47 FF:DB37: A9 1C     LDA #con_prg_bank + $1C
 C - - - - 0x03DB49 FF:DB39: 85 24     STA ram_для_5114
@@ -3409,7 +3409,7 @@ C - - - - 0x03DBA9 FF:DB99: E9 01     SBC #$01
 C - - - - 0x03DBAB FF:DB9B: 10 D0     BPL bra_DB6D
 C - - - - 0x03DBAD FF:DB9D: 60        RTS
 
-ofs_DB9E_01:
+ofs_060_DB9E_01:
 C - J - - 0x03DBAE FF:DB9E: 20 F3 DB  JSR sub_DBF3
 C - - - - 0x03DBB1 FF:DBA1: A2 00     LDX #$00
 C - - - - 0x03DBB3 FF:DBA3: AD 2B 00  LDA ram_команда_соперника
@@ -3471,13 +3471,13 @@ tbl_DBEA:
 - D - - - 0x03DC02 FF:DBF2: 45        .byte $45    ; <オ>
 
 sub_DBF3:
-ofs_DBF3_03:
+ofs_060_DBF3_03:
 C - - - - 0x03DC03 FF:DBF3: AD 4F 04  LDA ram_чья_команда_разводит_первой
 C - - - - 0x03DC06 FF:DBF6: 49 0B     EOR #$0B
 C - - - - 0x03DC08 FF:DBF8: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03DC0B FF:DBFB: 60        RTS
 
-ofs_DBFC_02:
+ofs_060_DBFC_02:
 C - J - - 0x03DC0C FF:DBFC: AD 4F 04  LDA ram_чья_команда_разводит_первой
 C - - - - 0x03DC0F FF:DBFF: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03DC12 FF:DC02: 60        RTS
@@ -3678,7 +3678,7 @@ loc_0x03DD0D:
 C D - - - 0x03DD0D FF:DCFD: A9 FF     LDA #$FF
 C - - - - 0x03DD0F FF:DCFF: 8D 1A 06  STA ram_061A
 loc_0x03DD12:
-ofs_0x03DD12:
+ofs_039_0x03DD12:
 C D - - - 0x03DD12 FF:DD02: 20 81 DD  JSR sub_DD81
 C - - - - 0x03DD15 FF:DD05: 20 47 DD  JSR sub_DD47
 C - - - - 0x03DD18 FF:DD08: 08        PHP
@@ -3882,7 +3882,7 @@ C - - - - 0x03DE4F FF:DE3F: 8D 1A 06  STA ram_061A
 C - - - - 0x03DE52 FF:DE42: 4C 5E DE  BNE bra_DE5E
 
 loc_0x03DE62:
-ofs_0x03DE62:
+ofs_041_0x03DE62:
 C D - - - 0x03DE62 FF:DE52: A9 FF     LDA #$FF
 C - - - - 0x03DE64 FF:DE54: 2C 28 06  BIT ram_индекс_буфера
 C - - - - 0x03DE67 FF:DE57: 10 02     BPL bra_DE5B
@@ -4854,7 +4854,7 @@ C - - - - 0x03E558 FF:E548: EE 00 06  INC ram_колво_защитников
 bra_E54B_RTS:
 C - - - - 0x03E55B FF:E54B: 60        RTS
 
-ofs_0x03E55C:
+ofs_041_0x03E55C:
 C D - - - 0x03E55C FF:E54C: A9 00     LDA #$00
 C - - - - 0x03E55E FF:E54E: 8D 4E 04  STA ram_высота_мяча
 C - - - - 0x03E561 FF:E551: AD 00 06  LDA ram_колво_защитников
@@ -4893,7 +4893,7 @@ C - - - - 0x03E5A0 FF:E590: A2 50     LDX #$50
 C - - - - 0x03E5A2 FF:E592: 9A        TXS
 C - - - - 0x03E5A3 FF:E593: 4C DF E0  JMP loc_E0DF
 
-ofs_0x03E5A6:
+ofs_041_0x03E5A6:
 C D - - - 0x03E5A6 FF:E596: AD E2 00  LDA ram_рандом_2
 C - - - - 0x03E5A9 FF:E599: C9 E0     CMP #$E0
 C - - - - 0x03E5AB FF:E59B: B0 1D     BCS bra_E5BA
@@ -5011,7 +5011,7 @@ C - - - - 0x03E68D FF:E67D: 8D FB 05  STA ram_команда_с_мячом
 C - - - - 0x03E690 FF:E680: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
 C - - - - 0x03E693 FF:E683: A9 02     LDA #$02
 C - - - - 0x03E695 FF:E685: 20 0F CB  JSR sub_CB0F_задержка
-ofs_0x03E698:
+ofs_041_0x03E698:
 C D - - - 0x03E698 FF:E688: A9 00     LDA #$00
 C - - - - 0x03E69A FF:E68A: 2C 35 06  BIT ram_0635
 C - - - - 0x03E69D FF:E68D: 10 02     BPL bra_E691

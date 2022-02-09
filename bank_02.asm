@@ -606,32 +606,32 @@ C - - - - 0x00449F 03:A48F: 48        PHA
 C - - - - 0x0044A0 03:A490: 60        RTS
 
 tbl_A491_подпрограмма:
-- D - - - 0x0044A1 03:A491: C0 A4     .word ofs_A4C1_00 - 1
-- D - - - 0x0044A3 03:A493: 59 A5     .word ofs_A55A_01 - 1
-- D - - - 0x0044A5 03:A495: 7B A5     .word ofs_A57C_02 - 1
-- - - - - 0x0044A7 03:A497: 81 A5     .word ofs_A582_03 - 1
-- - - - - 0x0044A9 03:A499: A2 A5     .word ofs_A5A3_04 - 1
-- D - - - 0x0044AB 03:A49B: A8 A5     .word ofs_A5A9_05 - 1
-- D - - - 0x0044AD 03:A49D: B0 A5     .word ofs_A5B1_06 - 1
-- - - - - 0x0044AF 03:A49F: B8 A5     .word ofs_A5B9_07 - 1
-- - - - - 0x0044B1 03:A4A1: BF A5     .word ofs_A5C0_08 - 1
-- - - - - 0x0044B3 03:A4A3: CD A5     .word ofs_A5CE_09 - 1
-- D - - - 0x0044B5 03:A4A5: DB A5     .word ofs_A5DC_0A - 1
-- D - - - 0x0044B7 03:A4A7: E8 A5     .word ofs_A5E9_0B - 1
-- D - - - 0x0044B9 03:A4A9: 02 A6     .word ofs_A603_0C - 1
-- D - - - 0x0044BB 03:A4AB: 1C A6     .word ofs_A61D_0D - 1
-- D - - - 0x0044BD 03:A4AD: 29 A6     .word ofs_A62A_0E - 1
-- D - - - 0x0044BF 03:A4AF: 50 A6     .word ofs_A651_0F - 1
-- D - - - 0x0044C1 03:A4B1: 9C A6     .word ofs_A69D_10_схема_драйв_удара_и_циклона - 1
-- D - - - 0x0044C3 03:A4B3: 7A A7     .word ofs_A77B_11_дождь - 1
-- D - - - 0x0044C5 03:A4B5: 82 A7     .word ofs_A783_12 - 1
-- - - - - 0x0044C7 03:A4B7: 8D A7     .word ofs_A78E_13 - 1
-- D - - - 0x0044C9 03:A4B9: BD A7     .word ofs_A7BE_14 - 1
-- D - - - 0x0044CB 03:A4BB: CE A7     .word ofs_A7CF_15 - 1
-- D - - - 0x0044CD 03:A4BD: D6 A7     .word ofs_A7D7_16 - 1
-- D - - - 0x0044CF 03:A4BF: FA A7     .word ofs_A7FB_17_вывод_забитых_голов_в_катсцене - 1
+- D - - - 0x0044A1 03:A491: C0 A4     .word ofs_008_A4C1_00 - 1
+- D - - - 0x0044A3 03:A493: 59 A5     .word ofs_008_A55A_01 - 1
+- D - - - 0x0044A5 03:A495: 7B A5     .word ofs_008_A57C_02 - 1
+- - - - - 0x0044A7 03:A497: 81 A5     .word ofs_008_A582_03 - 1
+- - - - - 0x0044A9 03:A499: A2 A5     .word ofs_008_A5A3_04 - 1
+- D - - - 0x0044AB 03:A49B: A8 A5     .word ofs_008_A5A9_05 - 1
+- D - - - 0x0044AD 03:A49D: B0 A5     .word ofs_008_A5B1_06 - 1
+- - - - - 0x0044AF 03:A49F: B8 A5     .word ofs_008_A5B9_07 - 1
+- - - - - 0x0044B1 03:A4A1: BF A5     .word ofs_008_A5C0_08 - 1
+- - - - - 0x0044B3 03:A4A3: CD A5     .word ofs_008_A5CE_09 - 1
+- D - - - 0x0044B5 03:A4A5: DB A5     .word ofs_008_A5DC_0A - 1
+- D - - - 0x0044B7 03:A4A7: E8 A5     .word ofs_008_A5E9_0B - 1
+- D - - - 0x0044B9 03:A4A9: 02 A6     .word ofs_008_A603_0C - 1
+- D - - - 0x0044BB 03:A4AB: 1C A6     .word ofs_008_A61D_0D - 1
+- D - - - 0x0044BD 03:A4AD: 29 A6     .word ofs_008_A62A_0E - 1
+- D - - - 0x0044BF 03:A4AF: 50 A6     .word ofs_008_A651_0F - 1
+- D - - - 0x0044C1 03:A4B1: 9C A6     .word ofs_008_A69D_10_схема_драйв_удара_и_циклона - 1
+- D - - - 0x0044C3 03:A4B3: 7A A7     .word ofs_008_A77B_11_дождь - 1
+- D - - - 0x0044C5 03:A4B5: 82 A7     .word ofs_008_A783_12 - 1
+- - - - - 0x0044C7 03:A4B7: 8D A7     .word ofs_008_A78E_13 - 1
+- D - - - 0x0044C9 03:A4B9: BD A7     .word ofs_008_A7BE_14 - 1
+- D - - - 0x0044CB 03:A4BB: CE A7     .word ofs_008_A7CF_15 - 1
+- D - - - 0x0044CD 03:A4BD: D6 A7     .word ofs_008_A7D7_16 - 1
+- D - - - 0x0044CF 03:A4BF: FA A7     .word ofs_008_A7FB_17_вывод_забитых_голов_в_катсцене - 1
 
-ofs_A4C1_00:
+ofs_008_A4C1_00:
 C - - - - 0x0044D1 03:A4C1: 20 0D 9A  JSR sub_0x001A1D
 C - - - - 0x0044D4 03:A4C4: A9 10     LDA #$10
 C - - - - 0x0044D6 03:A4C6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
@@ -706,7 +706,7 @@ C - - - - 0x004564 03:A554: 20 20 89  JSR sub_0x000930
 C - - - - 0x004567 03:A557: A9 02     LDA #$02
 C - - - - 0x004569 03:A559: 60        RTS
 
-ofs_A55A_01:
+ofs_008_A55A_01:
 C - - - - 0x00456A 03:A55A: A9 00     LDA #$00
 C - - - - 0x00456C 03:A55C: 85 60     STA ram_0060
 C - - - - 0x00456E 03:A55E: A5 EC     LDA ram_00EC
@@ -728,12 +728,12 @@ bra_A579:
 C - - - - 0x004589 03:A579: A9 03     LDA #$03
 C - - - - 0x00458B 03:A57B: 60        RTS
 
-ofs_A57C_02:
+ofs_008_A57C_02:
 C - - - - 0x00458C 03:A57C: 20 91 9B  JSR sub_0x001BA1
 C - - - - 0x00458F 03:A57F: A9 02     LDA #$02
 C - - - - 0x004591 03:A581: 60        RTS
 
-ofs_A582_03:
+ofs_008_A582_03:
 - - - - - 0x004592 03:A582: A9 00     LDA #$00
 - - - - - 0x004594 03:A584: 85 E6     STA ram_00E6
 - - - - - 0x004596 03:A586: A9 20     LDA #$20
@@ -751,30 +751,30 @@ ofs_A582_03:
 - - - - - 0x0045B0 03:A5A0: A9 02     LDA #$02
 - - - - - 0x0045B2 03:A5A2: 60        RTS
 
-ofs_A5A3_04:
+ofs_008_A5A3_04:
 - - - - - 0x0045B3 03:A5A3: 20 7F 9B  JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
 - - - - - 0x0045B6 03:A5A6: A9 02     LDA #$02
 - - - - - 0x0045B8 03:A5A8: 60        RTS
 
-ofs_A5A9_05:
+ofs_008_A5A9_05:
 C - - - - 0x0045B9 03:A5A9: A2 09     LDX #$09
 C - - - - 0x0045BB 03:A5AB: 20 96 9F  JSR sub_0x001FA6
 C - - - - 0x0045BE 03:A5AE: A9 02     LDA #$02
 C - - - - 0x0045C0 03:A5B0: 60        RTS
 
-ofs_A5B1_06:
+ofs_008_A5B1_06:
 C - - - - 0x0045C1 03:A5B1: A2 09     LDX #$09
 C - - - - 0x0045C3 03:A5B3: 20 89 9F  JSR sub_0x001F99
 C - - - - 0x0045C6 03:A5B6: A9 02     LDA #$02
 C - - - - 0x0045C8 03:A5B8: 60        RTS
 
-ofs_A5B9_07:
+ofs_008_A5B9_07:
 - - - - - 0x0045C9 03:A5B9: A9 FF     LDA #$FF
 - - - - - 0x0045CB 03:A5BB: 85 99     STA ram_0099
 - - - - - 0x0045CD 03:A5BD: A9 02     LDA #$02
 - - - - - 0x0045CF 03:A5BF: 60        RTS
 
-ofs_A5C0_08:
+ofs_008_A5C0_08:
 - - - - - 0x0045D0 03:A5C0: A9 00     LDA #$44
 - - - - - 0x0045D2 03:A5C2: 8D 00 A0  STA $5105
 - - - - - 0x0045D5 03:A5C5: A5 1B     LDA ram_флаг_nmi
@@ -783,7 +783,7 @@ ofs_A5C0_08:
 - - - - - 0x0045DB 03:A5CB: A9 02     LDA #$02
 - - - - - 0x0045DD 03:A5CD: 60        RTS
 
-ofs_A5CE_09:
+ofs_008_A5CE_09:
 - - - - - 0x0045DE 03:A5CE: A9 01     LDA #$50
 - - - - - 0x0045E0 03:A5D0: 8D 00 A0  STA $5105
 - - - - - 0x0045E3 03:A5D3: A5 1B     LDA ram_флаг_nmi
@@ -792,7 +792,7 @@ ofs_A5CE_09:
 - - - - - 0x0045E9 03:A5D9: A9 02     LDA #$02
 - - - - - 0x0045EB 03:A5DB: 60        RTS
 
-ofs_A5DC_0A:
+ofs_008_A5DC_0A:
 C - - - - 0x0045EC 03:A5DC: A9 00     LDA #$00
 C - - - - 0x0045EE 03:A5DE: 20 95 88  JSR sub_0x0008A5
 C - - - - 0x0045F1 03:A5E1: A9 05     LDA #$05
@@ -800,7 +800,7 @@ C - - - - 0x0045F3 03:A5E3: 20 20 89  JSR sub_0x000930
 C - - - - 0x0045F6 03:A5E6: A9 02     LDA #$02
 C - - - - 0x0045F8 03:A5E8: 60        RTS
 
-ofs_A5E9_0B:
+ofs_008_A5E9_0B:
 C - - - - 0x0045F9 03:A5E9: A5 0D     LDA ram_000D
 C - - - - 0x0045FB 03:A5EB: D0 0D     BNE bra_A5FA
 C - - - - 0x0045FD 03:A5ED: A9 10     LDA #$10
@@ -816,7 +816,7 @@ C - - - - 0x00460E 03:A5FE: 85 0E     STA ram_000E
 C - - - - 0x004610 03:A600: A9 02     LDA #$02
 C - - - - 0x004612 03:A602: 60        RTS
 
-ofs_A603_0C:
+ofs_008_A603_0C:
 C - - - - 0x004613 03:A603: A5 0D     LDA ram_000D
 C - - - - 0x004615 03:A605: D0 0D     BNE bra_A614
 C - - - - 0x004617 03:A607: A9 30     LDA #$30
@@ -832,7 +832,7 @@ C - - - - 0x004628 03:A618: 85 0E     STA ram_000E
 C - - - - 0x00462A 03:A61A: A9 02     LDA #$02
 C - - - - 0x00462C 03:A61C: 60        RTS
 
-ofs_A61D_0D:
+ofs_008_A61D_0D:
 C - - - - 0x00462D 03:A61D: A9 20     LDA #$20
 C - - - - 0x00462F 03:A61F: 20 95 88  JSR sub_0x0008A5
 C - - - - 0x004632 03:A622: A9 07     LDA #$07
@@ -840,7 +840,7 @@ C - - - - 0x004634 03:A624: 20 20 89  JSR sub_0x000930
 C - - - - 0x004637 03:A627: A9 02     LDA #$02
 C - - - - 0x004639 03:A629: 60        RTS
 
-ofs_A62A_0E:
+ofs_008_A62A_0E:
 C - - - - 0x00463A 03:A62A: A2 BD     LDX #$BD
 C - - - - 0x00463C 03:A62C: A0 23     LDY #$23
 C - - - - 0x00463E 03:A62E: 20 76 89  JSR sub_0x000986
@@ -860,7 +860,7 @@ C - - - - 0x00465E 03:A64E: A9 02     LDA #$02
 C - - - - 0x004660 03:A650: 60        RTS
 
 loc_A651:
-ofs_A651_0F:
+ofs_008_A651_0F:
 C - - - - 0x004661 03:A651: A9 00     LDA #$00
 C - - - - 0x004663 03:A653: 85 ED     STA ram_00ED
 loc_A655_повторить:
@@ -905,7 +905,7 @@ bra_A69A_закончить:
 C - - - - 0x0046AA 03:A69A: A9 02     LDA #$02
 C - - - - 0x0046AC 03:A69C: 60        RTS
 
-ofs_A69D_10_схема_драйв_удара_и_циклона:
+ofs_008_A69D_10_схема_драйв_удара_и_циклона:
 C - - - - 0x0046AD 03:A69D: AD E5 04  LDA ram_04E5
 C - - - - 0x0046B0 03:A6A0: C9 FF     CMP #$FF
 C - - - - 0x0046B2 03:A6A2: F0 30     BEQ bra_A6D4
@@ -1032,20 +1032,20 @@ tbl_A777:
 - D - - - 0x004789 03:A779: 02        .byte $02    ; <い>
 - D - - - 0x00478A 03:A77A: 52        .byte $52    ; <ツ>
 
-ofs_A77B_11_дождь:
+ofs_008_A77B_11_дождь:
 C - - - - 0x00478B 03:A77B: A9 80     LDA #$80
 C - - - - 0x00478D 03:A77D: 20 95 88  JSR sub_0x0008A5
 C - - - - 0x004790 03:A780: A9 02     LDA #$02
 C - - - - 0x004792 03:A782: 60        RTS
 
-ofs_A783_12:
+ofs_008_A783_12:
 C - - - - 0x004793 03:A783: A9 02     LDA #$02
 C - - - - 0x004795 03:A785: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x004798 03:A788: 20 FB 88  JSR sub_0x00090B
 C - - - - 0x00479B 03:A78B: A9 02     LDA #$02
 C - - - - 0x00479D 03:A78D: 60        RTS
 
-ofs_A78E_13:
+ofs_008_A78E_13:
 - - - - - 0x00479E 03:A78E: A0 40     LDY #$40
 bra_A790:
 - - - - - 0x0047A0 03:A790: A9 01     LDA #$01
@@ -1074,7 +1074,7 @@ bra_A7B2:
 - - - - - 0x0047C9 03:A7B9: D0 F7     BNE bra_A7B2
 - - - - - 0x0047CB 03:A7BB: 4C 51 A6  JMP loc_A651
 
-ofs_A7BE_14:
+ofs_008_A7BE_14:
 C - - - - 0x0047CE 03:A7BE: A9 01     LDA #$01
 C - - - - 0x0047D0 03:A7C0: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - 0x0047D3 03:A7C3: A0 28     LDY #$28
@@ -1084,13 +1084,13 @@ C - - - - 0x0047D9 03:A7C9: 20 2F A8  JSR sub_A82F
 C - - - - 0x0047DC 03:A7CC: A9 02     LDA #$02
 C - - - - 0x0047DE 03:A7CE: 60        RTS
 
-ofs_A7CF_15:
+ofs_008_A7CF_15:
 C - - - - 0x0047DF 03:A7CF: A9 81     LDA #$81
 C - - - - 0x0047E1 03:A7D1: 20 95 88  JSR sub_0x0008A5
 C - - - - 0x0047E4 03:A7D4: A9 02     LDA #$02
 C - - - - 0x0047E6 03:A7D6: 60        RTS
 
-ofs_A7D7_16:
+ofs_008_A7D7_16:
 C - - - - 0x0047E7 03:A7D7: A0 80     LDY #$80
 bra_A7D9_loop:
 C - - - - 0x0047E9 03:A7D9: A9 01     LDA #$01
@@ -1114,7 +1114,7 @@ C - - - - 0x004806 03:A7F6: D0 E1     BNE bra_A7D9_loop
 C - - - - 0x004808 03:A7F8: A9 02     LDA #$02
 C - - - - 0x00480A 03:A7FA: 60        RTS
 
-ofs_A7FB_17_вывод_забитых_голов_в_катсцене:
+ofs_008_A7FB_17_вывод_забитых_голов_в_катсцене:
 ; использовалось в скрытой катсцене со шнайдером
 C - - - - 0x00480B 03:A7FB: A5 28     LDA ram_голы
 C - - - - 0x00480D 03:A7FD: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
