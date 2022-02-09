@@ -613,13 +613,6 @@ loc_C951:
 sub_C982:
 C - - - - - 0x03C992 FF:C982: A2 00     LDX #$00
 C - - - - - 0x03C994 FF:C984: AD 1C 00  LDA ram_btn_hold
-; bzk опт удалить прыжок и rts
-C - - - - - 0x03C997 FF:C987: 20 8B C9  JSR sub_C98B
-C - - - - - 0x03C99A FF:C98A: 60        RTS
-
-
-
-sub_C98B:
 bra_C98B_loop:
 C - - - - - 0x03C99B FF:C98B: 85 84     STA ram_0084
 C - - - - - 0x03C99D FF:C98D: A0 01     LDY #$01
