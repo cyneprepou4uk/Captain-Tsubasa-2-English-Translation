@@ -52,8 +52,8 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; .\s.\s.\s.\s.\s0x0........:....:\s..\s..\s..\s\s
 
 ; мусор справа от инструкций
-    ; <.>
-    ; <..>
+   ; <.>
+   ; <..>
 
 ; (LDA|LDX|LDY|STA|STX|STY|CMP|CPX|CPY|ASL|ROL|LSR|ROR|BIT|ADC|SBC|INC|DEC|ORA|AND|EOR)\s\$00
 
