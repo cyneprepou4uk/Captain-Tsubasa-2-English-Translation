@@ -4404,7 +4404,7 @@ C - - - - - 0x027219 19:B209: 4C 0F B2  JMP loc_B20F
 bra_B20C:
 C - - - - - 0x02721C 19:B20C: 8E 2B 00  STX ram_команда_соперника
 loc_B20F:
-C D - - - - 0x02721F 19:B20F: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C D - - - - 0x02721F 19:B20F: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x027222 19:B212: 68        PLA
 C - - - - - 0x027223 19:B213: A0 00     LDY #con_plr_id
 C - - - - - 0x027225 19:B215: 91 34     STA (ram_plr_data),Y

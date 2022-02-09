@@ -79,7 +79,7 @@ C - - - - - 0x038049 24:8039: 60        RTS
 sub_803A:
 ; нельзя изменять X
 C - - - - - 0x03804A 24:803A: 48        PHA
-C - - - - - 0x03804B 24:803B: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x03804B 24:803B: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x03804E 24:803E: A0 00     LDY #con_plr_id
 C - - - - - 0x038050 24:8040: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038052 24:8042: D0 0C     BNE bra_8050_это_не_клон
@@ -1423,7 +1423,7 @@ bra_880B_loop:
 C - - - - - 0x03881B 24:880B: A5 3A     LDA ram_003A
 C - - - - - 0x03881D 24:880D: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x038820 24:8810: F0 27     BEQ bra_8839
-C - - - - - 0x038822 24:8812: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038822 24:8812: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038825 24:8815: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x038827 24:8817: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038829 24:8819: 38        SEC
@@ -1480,7 +1480,7 @@ C - - - - - 0x03887C 24:886C: 8D 4B 04  STA ram_044B
 C - - - - - 0x03887F 24:886F: A9 0C     LDA #$0C
 bra_8871:
 C - - - - - 0x038881 24:8871: 48        PHA
-C - - - - - 0x038882 24:8872: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038882 24:8872: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038885 24:8875: A0 01     LDY #con_plr_guts_lo
 C - - - - - 0x038887 24:8877: A9 80     LDA #$80
 C - - - - - 0x038889 24:8879: 91 34     STA (ram_plr_data),Y
@@ -1669,7 +1669,7 @@ tbl_89AF:
 
 sub_89B3:
 C - - - - - 0x0389C3 24:89B3: A5 3C     LDA ram_003C
-C - - - - - 0x0389C5 24:89B5: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x0389C5 24:89B5: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x0389C8 24:89B8: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x0389CA 24:89BA: AD 35 06  LDA ram_0635
 C - - - - - 0x0389CD 24:89BD: 38        SEC
@@ -1696,7 +1696,7 @@ bra_89DE:
 C - - - - - 0x0389EE 24:89DE: A5 3E     LDA ram_003E
 C - - - - - 0x0389F0 24:89E0: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x0389F3 24:89E3: F0 0B     BEQ bra_89F0
-C - - - - - 0x0389F5 24:89E5: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x0389F5 24:89E5: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x0389F8 24:89E8: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x0389FA 24:89EA: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x0389FC 24:89EC: C9 60     CMP #$60
@@ -1719,7 +1719,7 @@ C - - - - - 0x038A18 24:8A08: 60        RTS
 
 sub_8A09_запись_номера_принимающего:
 C - - - - - 0x038A19 24:8A09: 8D FC 05  STA ram_принимающий
-C - - - - - 0x038A1C 24:8A0C: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038A1C 24:8A0C: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038A1F 24:8A0F: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x038A21 24:8A11: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038A23 24:8A13: AA        TAX
@@ -1770,7 +1770,7 @@ C - - - - - 0x038A71 24:8A61: 60        RTS
 
 sub_8A62:
 C - - - - - 0x038A72 24:8A62: 48        PHA
-C - - - - - 0x038A73 24:8A63: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038A73 24:8A63: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038A76 24:8A66: A0 00     LDY #con_plr_id
 C - - - - - 0x038A78 24:8A68: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038A7A 24:8A6A: D0 08     BNE bra_8A74_это_не_клон
@@ -1899,7 +1899,7 @@ loc_8B22_01_подготовить_параметры_для_команды_со
 C D - - - - 0x038B32 24:8B22: A9 0B     LDA #$0B
 bra_8B24_loop_обнуления_номеров_игроков_соперников:
 C - - - - - 0x038B34 24:8B24: 48        PHA
-C - - - - - 0x038B35 24:8B25: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038B35 24:8B25: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038B38 24:8B28: A0 00     LDY #con_plr_id
 C - - - - - 0x038B3A 24:8B2A: A9 00     LDA #$00
 C - - - - - 0x038B3C 24:8B2C: 91 34     STA (ram_plr_data),Y
@@ -1934,7 +1934,7 @@ C - - - - - 0x038B75 24:8B65: C9 0F     CMP #$FF
 C - - - - - 0x038B77 24:8B67: F0 15     BEQ bra_8B7E_закончить_чтение_таблицы
 C - - - - - 0x038B79 24:8B69: 18        CLC
 C - - - - - 0x038B7A 24:8B6A: 69 0A     ADC #$0A
-C - - - - - 0x038B7C 24:8B6C: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038B7C 24:8B6C: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038B7F 24:8B6F: A4 3A     LDY ram_003A
 C - - - - - 0x038B81 24:8B71: C8        INY
 C - - - - - 0x038B82 24:8B72: B1 38     LDA (ram_enemy_data),Y
@@ -2255,7 +2255,7 @@ C - - - - - 0x038CED 24:8CDD: 85 45     STA ram_0045
 C - - - - - 0x038CEF 24:8CDF: A9 01     LDA #$01
 bra_8CE1:
 C - - - - - 0x038CF1 24:8CE1: 48        PHA
-C - - - - - 0x038CF2 24:8CE2: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038CF2 24:8CE2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038CF5 24:8CE5: A0 00     LDY #con_plr_id
 C - - - - - 0x038CF7 24:8CE7: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038CF9 24:8CE9: C5 45     CMP ram_0045
@@ -2282,7 +2282,7 @@ bra_8D06:
 C - - - - - 0x038D16 24:8D06: A9 01     LDA #$01
 bra_8D08:
 C - - - - - 0x038D18 24:8D08: 48        PHA
-C - - - - - 0x038D19 24:8D09: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038D19 24:8D09: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038D1C 24:8D0C: A0 00     LDY #con_plr_id
 C - - - - - 0x038D1E 24:8D0E: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038D20 24:8D10: C9 1C     CMP #$1C      ; jito
@@ -2406,7 +2406,7 @@ C - - - - - 0x038DD8 24:8DC8: 60        RTS
 sub_8DC9:
 C - - - - - 0x038DD9 24:8DC9: 8E 30 04  STX ram_0430
 C - - - - - 0x038DDC 24:8DCC: 85 47     STA ram_0047
-C - - - - - 0x038DDE 24:8DCE: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038DDE 24:8DCE: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038DE1 24:8DD1: A0 00     LDY #con_plr_id
 C - - - - - 0x038DE3 24:8DD3: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038DE5 24:8DD5: 0A        ASL
@@ -2431,7 +2431,7 @@ C - - - - - 0x038E00 24:8DF0: 85 45     STA ram_0045
 C - - - - - 0x038E02 24:8DF2: A9 01     LDA #$01
 bra_8DF4:
 C - - - - - 0x038E04 24:8DF4: 48        PHA
-C - - - - - 0x038E05 24:8DF5: 20 0C C5  JSR sub_0x03CD8C_адрес_игрока
+C - - - - - 0x038E05 24:8DF5: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038E08 24:8DF8: A0 00     LDY #con_plr_id
 C - - - - - 0x038E0A 24:8DFA: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038E0C 24:8DFC: C5 45     CMP ram_0045
