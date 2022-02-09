@@ -12,7 +12,7 @@ No special requirements. Just launch `assemble.bat` and wait until it's done.
 
 Then open `!ct2.nes` to play the game (translation is not fully complete, yet).
 
-Runs properly on [FCEUX](http://fceux.com/) [Mesen](https://www.mesen.ca/) and [Mednafen](https://mednafen.github.io/) (maybe some other emulators too).
+Runs properly on [FCEUX](http://fceux.com/), [Mesen](https://www.mesen.ca/) and [Mednafen](https://mednafen.github.io/) (maybe some other emulators too).
 
 
 
