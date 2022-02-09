@@ -7359,10 +7359,10 @@ _общий_RTS:
 
 .segment "MMC5_INIT"
 ofs_FFF1_подготовка_MMC5:
-                    LDA #$03
-                    STA $5100   ; prg mode 3
-                    STA $5101   ; chr mode 3
-                    LDX #$02
+                    LDX #$03
+                    STX $5100   ; prg mode 3
+                    STX $5101   ; chr mode 3
+                    DEX ; 02
                     STX $5104   ; extended ram mode 2
                     STX $5102   ; disable prg ram protection 1
                     DEX ; 01
