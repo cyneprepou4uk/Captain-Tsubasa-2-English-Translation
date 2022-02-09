@@ -527,12 +527,12 @@ sub_0x0023AB:
 - - - - - 0x0023B1 02:A3A1: 20 B4 A3  JSR sub_A3B4
 - - - - - 0x0023B4 02:A3A4: A5 26     LDA ram_матч
 - - - - - 0x0023B6 02:A3A6: C9 10     CMP #$10
-- - - - - 0x0023B8 02:A3A8: 90 09     BCC bra_A3B3_выход
+- - - - - 0x0023B8 02:A3A8: 90 09     BCC bra_A3B3_RTS
 - - - - - 0x0023BA 02:A3AA: A9 16     LDA #$16
 - - - - - 0x0023BC 02:A3AC: 85 EA     STA ram_00EA
 - - - - - 0x0023BE 02:A3AE: A9 0A     LDA #$0A
 - - - - - 0x0023C0 02:A3B0: 20 B4 A3  JSR sub_A3B4
-bra_A3B3_выход:
+bra_A3B3_RTS:
 - - - - - 0x0023C3 02:A3B3: 60        RTS
 
 sub_A3B4:
@@ -774,14 +774,14 @@ C - - - - 0x0025AF 02:A59F: C5 26     CMP ram_матч
 C - - - - 0x0025B1 02:A5A1: B0 0E     BCS bra_A5B1
 C - - - - 0x0025B3 02:A5A3: A5 26     LDA ram_матч
 C - - - - 0x0025B5 02:A5A5: C9 06     CMP #$06      ; не повышать уровень при определенных матчах
-C - - - - 0x0025B7 02:A5A7: F0 67     BEQ bra_A610_выход
+C - - - - 0x0025B7 02:A5A7: F0 67     BEQ bra_A610_RTS
 C - - - - 0x0025B9 02:A5A9: C9 0C     CMP #$0C
-C - - - - 0x0025BB 02:A5AB: F0 63     BEQ bra_A610_выход
+C - - - - 0x0025BB 02:A5AB: F0 63     BEQ bra_A610_RTS
 C - - - - 0x0025BD 02:A5AD: C9 10     CMP #$10
-C - - - - 0x0025BF 02:A5AF: F0 5F     BEQ bra_A610_выход
+C - - - - 0x0025BF 02:A5AF: F0 5F     BEQ bra_A610_RTS
 bra_A5B1:
 C - - - - 0x0025C1 02:A5B1: A5 EC     LDA ram_00EC      ; ? никто не набрал уровень
-C - - - - 0x0025C3 02:A5B3: F0 5B     BEQ bra_A610_выход
+C - - - - 0x0025C3 02:A5B3: F0 5B     BEQ bra_A610_RTS
 C - - - - 0x0025C5 02:A5B5: A6 26     LDX ram_матч
 C - - - - 0x0025C7 02:A5B7: BD F9 B3  LDA tbl_B3F9_cutscene_level_up,X
                                       CLC
@@ -827,7 +827,7 @@ C - - - - 0x002617 02:A607: 4C C6 A5  JMP loc_A5C6_следующий_экран
 bra_A60A_закончить:
 C - - - - 0x00261A 02:A60A: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
 C - - - - 0x00261D 02:A60D: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
-bra_A610_выход:
+bra_A610_RTS:
 C - - - - 0x002620 02:A610: 60        RTS
 
 sub_A611:
@@ -1020,7 +1020,7 @@ C - - - - 0x00276C 02:A75C: 20 01 AE  JSR sub_AE01_обновить_расста
 C - - - - 0x00276F 02:A75F: A0 FC     LDY #$FC
 bra_A761_loop:
 C - - - - 0x002771 02:A761: B9 A2 AC  LDA tbl_AD9E_курсор_опции_сан_паулу_нанкацу - $FC,Y
-C - - - - 0x002774 02:A764: 99 68 04  STA ram_копия_спрайт_Y,Y
+C - - - - 0x002774 02:A764: 99 68 04  STA ram_copy_spr_Y,Y
 C - - - - 0x002777 02:A767: C8        INY
 C - - - - 0x002778 02:A768: D0 F7     BNE bra_A761_loop
 C - - - - 0x00277A 02:A76A: A9 03     LDA #$03
@@ -1161,7 +1161,7 @@ C - - - - 0x002888 02:A878: 20 7F AA  JSR sub_AA7F
 C - - - - 0x00288B 02:A87B: A0 FC     LDY #$FC
 bra_A87D_loop:
 C - - - - 0x00288D 02:A87D: B9 B8 AC  LDA tbl_ADB4 - $FC,Y
-C - - - - 0x002890 02:A880: 99 68 04  STA ram_копия_спрайт_Y,Y
+C - - - - 0x002890 02:A880: 99 68 04  STA ram_copy_spr_Y,Y
 C - - - - 0x002893 02:A883: C8        INY
 C - - - - 0x002894 02:A884: D0 F7     BNE bra_A87D_loop
 C - - - - 0x002896 02:A886: A9 03     LDA #$03
@@ -1414,7 +1414,7 @@ C - - - - 0x002A8E 02:AA7E: 60        RTS
 
 sub_AA7F:
 C - - - - 0x002A8F 02:AA7F: AD 50 04  LDA ram_счетчик_замен
-C - - - - 0x002A92 02:AA82: F0 3A     BEQ bra_AABE_выход
+C - - - - 0x002A92 02:AA82: F0 3A     BEQ bra_AABE_RTS
 C - - - - 0x002A94 02:AA84: A9 28     LDA #$28
 C - - - - 0x002A96 02:AA86: 85 E7     STA ram_00E7
 bra_AA88_loop:
@@ -1434,13 +1434,13 @@ C - - - - 0x002AAC 02:AA9C: 90 03     BCC bra_AAA1
 C - - - - 0x002AAE 02:AA9E: 18        CLC
 C - - - - 0x002AAF 02:AA9F: 69 10     ADC #$10
 bra_AAA1:
-C - - - - 0x002AB1 02:AAA1: 9D 68 04  STA ram_копия_спрайт_Y,X
+C - - - - 0x002AB1 02:AAA1: 9D 68 04  STA ram_copy_spr_Y,X
 C - - - - 0x002AB4 02:AAA4: A9 C0     LDA #$AF
-C - - - - 0x002AB6 02:AAA6: 9D 6B 04  STA ram_копия_спрайт_X,X
+C - - - - 0x002AB6 02:AAA6: 9D 6B 04  STA ram_copy_spr_X,X
 C - - - - 0x002AB9 02:AAA9: A9 72     LDA #$72
-C - - - - 0x002ABB 02:AAAB: 9D 69 04  STA ram_копия_спрайт_тайл,X
+C - - - - 0x002ABB 02:AAAB: 9D 69 04  STA ram_copy_spr_T,X
 C - - - - 0x002ABE 02:AAAE: A9 00     LDA #$00
-C - - - - 0x002AC0 02:AAB0: 9D 6A 04  STA ram_копия_спрайт_атрибут,X
+C - - - - 0x002AC0 02:AAB0: 9D 6A 04  STA ram_copy_spr_A,X
 bra_AAB3:
 C - - - - 0x002AC3 02:AAB3: A5 E7     LDA ram_00E7
 C - - - - 0x002AC5 02:AAB5: 18        CLC
@@ -1448,7 +1448,7 @@ C - - - - 0x002AC6 02:AAB6: 69 10     ADC #$10
 C - - - - 0x002AC8 02:AAB8: 85 E7     STA ram_00E7
 C - - - - 0x002ACA 02:AABA: C9 B9     CMP #$B9
 C - - - - 0x002ACC 02:AABC: 90 CA     BCC bra_AA88_loop
-bra_AABE_выход:
+bra_AABE_RTS:
 C - - - - 0x002ACE 02:AABE: 60        RTS
 
 sub_AABF:
@@ -1981,9 +1981,9 @@ C - - - - 0x002E13 02:AE03: A0 24     LDY #$24
 C - - - - 0x002E15 02:AE05: A2 00     LDX #$00
 bra_AE07_loop:
 C - - - - 0x002E17 02:AE07: BD 23 B8  LDA tbl_B823,X
-C - - - - 0x002E1A 02:AE0A: 99 69 04  STA ram_копия_спрайт_тайл,Y
+C - - - - 0x002E1A 02:AE0A: 99 69 04  STA ram_copy_spr_T,Y
 C - - - - 0x002E1D 02:AE0D: A9 00     LDA #$00
-C - - - - 0x002E1F 02:AE0F: 99 6A 04  STA ram_копия_спрайт_атрибут,Y
+C - - - - 0x002E1F 02:AE0F: 99 6A 04  STA ram_copy_spr_A,Y
 C - - - - 0x002E22 02:AE12: E8        INX
 C - - - - 0x002E23 02:AE13: 88        DEY
 C - - - - 0x002E24 02:AE14: 88        DEY
@@ -2061,10 +2061,10 @@ C - - - - 0x002E90 02:AE80: 18        CLC
 C - - - - 0x002E91 02:AE81: 69 58     ADC #$58
 C - - - - 0x002E93 02:AE83: 8D 60 05  STA ram_0560
 C - - - - 0x002E96 02:AE86: 20 0D 9C  JSR sub_0x001C1D_скрыть_курсор_после_выбора_опции
-C - - - - 0x002E99 02:AE89: B0 03     BCS bra_AE8E_выход
+C - - - - 0x002E99 02:AE89: B0 03     BCS bra_AE8E_RTS
 C - - - - 0x002E9B 02:AE8B: 4A        LSR
 C - - - - 0x002E9C 02:AE8C: 85 2D     STA ram_защита_слева
-bra_AE8E_выход:
+bra_AE8E_RTS:
 C - - - - 0x002E9E 02:AE8E: 60        RTS
 
 loc_AE8F_спрайты_миникарты:
@@ -2074,11 +2074,11 @@ C D - - - 0x002E9F 02:AE8F: BE 2D B8  LDX tbl_B82D_офсет_спрайтов_�
 C - - - - 0x002EA2 02:AE92: A0 24     LDY #$24
 bra_AE94:
 C - - - - 0x002EA4 02:AE94: BD 31 B8  LDA tbl_B831_спрайты_миникарты,X
-C - - - - 0x002EA7 02:AE97: 99 68 04  STA ram_копия_спрайт_Y,Y
+C - - - - 0x002EA7 02:AE97: 99 68 04  STA ram_copy_spr_Y,Y
 C - - - - 0x002EAA 02:AE9A: BD 32 B8  LDA tbl_B831_спрайты_миникарты + 1,X
 C - - - - 0x002EAD 02:AE9D: 18        CLC
 C - - - - 0x002EAE 02:AE9E: 65 E7     ADC ram_00E7
-C - - - - 0x002EB0 02:AEA0: 99 6B 04  STA ram_копия_спрайт_X,Y
+C - - - - 0x002EB0 02:AEA0: 99 6B 04  STA ram_copy_spr_X,Y
 C - - - - 0x002EB3 02:AEA3: E8        INX
 C - - - - 0x002EB4 02:AEA4: E8        INX
 C - - - - 0x002EB5 02:AEA5: 88        DEY
@@ -2302,11 +2302,11 @@ C - - - - 0x00300D 02:AFFD: 9D 54 04  STA ram_опыт_lo,X
 C - - - - 0x003010 02:B000: BD 55 04  LDA ram_опыт_hi,X
 C - - - - 0x003013 02:B003: 69 00     ADC #$00
 C - - - - 0x003015 02:B005: 9D 55 04  STA ram_опыт_hi,X
-C - - - - 0x003018 02:B008: 90 08     BCC bra_B012_выход
+C - - - - 0x003018 02:B008: 90 08     BCC bra_B012_RTS
 - - - - - 0x00301A 02:B00A: A9 FF     LDA #$FF      ; если overflow
 - - - - - 0x00301C 02:B00C: 9D 54 04  STA ram_опыт_lo,X
 - - - - - 0x00301F 02:B00F: 9D 55 04  STA ram_опыт_hi,X
-bra_B012_выход:
+bra_B012_RTS:
 C - - - - 0x003022 02:B012: 60        RTS
 
 sub_B013_чтение_опыта_из_оперативки_для_игрока:
@@ -2361,7 +2361,7 @@ C - - - - 0x003064 02:B054: F0 16     BEQ bra_B06C_япония
 C - - - - 0x003066 02:B056: C9 0C     CMP #$0C
 C - - - - 0x003068 02:B058: F0 0B     BEQ bra_B065_сан_паулу_2
 C - - - - 0x00306A 02:B05A: C9 06     CMP #$06
-C - - - - 0x00306C 02:B05C: D0 42     BNE bra_B0A0_выход
+C - - - - 0x00306C 02:B05C: D0 42     BNE bra_B0A0_RTS
 C - - - - 0x00306E 02:B05E: A0 10     LDY #< tbl_BB10_нанкацу
 C - - - - 0x003070 02:B060: A2 BB     LDX #> tbl_BB10_нанкацу
 C - - - - 0x003072 02:B062: 4C 70 B0  JMP loc_B070
@@ -2398,12 +2398,12 @@ C - - - - 0x0030A8 02:B098: E6 E9     INC ram_00E9
 C - - - - 0x0030AA 02:B09A: A5 E9     LDA ram_00E9
 C - - - - 0x0030AC 02:B09C: C9 14     CMP #$14
 C - - - - 0x0030AE 02:B09E: D0 E3     BNE bra_B083_loop
-bra_B0A0_выход:
+bra_B0A0_RTS:
 C - - - - 0x0030B0 02:B0A0: 60        RTS
 
 sub_B0A1_отобразить_количество_замен:
 C - - - - 0x0030B1 02:B0A1: A6 27     LDX ram_тайм
-C - - - - 0x0030B3 02:B0A3: F0 1A     BEQ bra_B0BF_выход
+C - - - - 0x0030B3 02:B0A3: F0 1A     BEQ bra_B0BF_RTS
 C - - - - 0x0030B5 02:B0A5: A0 C8     LDY #< tbl_B9C8_количество_замен_для_японии
 C - - - - 0x0030B7 02:B0A7: A2 B9     LDX #> tbl_B9C8_количество_замен_для_японии
 C - - - - 0x0030B9 02:B0A9: 20 B6 97  JSR sub_0x0017C6_запись_в_буфер_без_смещения
@@ -2417,7 +2417,7 @@ C - - - - 0x0030C7 02:B0B7: 49 FF     EOR #$FF
 C - - - - 0x0030C9 02:B0B9: 18        CLC
 C - - - - 0x0030CA 02:B0BA: 69 37     ADC #$34
 C - - - - 0x0030CC 02:B0BC: 20 95 98  JSR sub_0x0018A5
-bra_B0BF_выход:
+bra_B0BF_RTS:
 C - - - - 0x0030CF 02:B0BF: 60        RTS
 
 sub_B0C0_обработать_таблицу_с_байтами_фона:

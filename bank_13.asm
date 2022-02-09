@@ -4113,9 +4113,9 @@
 
 loc_0x027010:
 C D - - - 0x027010 19:B000: A9 00     LDA #$00
-C - - - - 0x027012 19:B002: 8D 90 04  STA ram_0490
+C - - - - 0x027012 19:B002: 8D 90 04  STA ram_chr_bank
 C - - - - 0x027015 19:B005: A9 02     LDA #$02
-C - - - - 0x027017 19:B007: 8D 91 04  STA ram_0491
+C - - - - 0x027017 19:B007: 8D 91 04  STA ram_chr_bank + 1
 C - - - - 0x02701A 19:B00A: 8D 87 00  STA ram_0087
 C - - - - 0x02701D 19:B00D: A9 67     LDA #< tbl_B467_титры
 C - - - - 0x02701F 19:B00F: 85 88     STA ram_0088
@@ -4544,9 +4544,9 @@ C - - - - 0x02739D 19:B38D: 9D 94 04  STA ram_0468 + $2C,X
 C - - - - 0x0273A0 19:B390: CA        DEX
 C - - - - 0x0273A1 19:B391: 10 F7     BPL bra_B38A_loop
 C - - - - 0x0273A3 19:B393: A9 7C     LDA #$7C
-C - - - - 0x0273A5 19:B395: 8D 90 04  STA ram_0490
+C - - - - 0x0273A5 19:B395: 8D 90 04  STA ram_chr_bank
 C - - - - 0x0273A8 19:B398: A9 7E     LDA #$7E
-C - - - - 0x0273AA 19:B39A: 8D 91 04  STA ram_0491
+C - - - - 0x0273AA 19:B39A: 8D 91 04  STA ram_chr_bank + 1
 C - - - - 0x0273AD 19:B39D: A9 FF     LDA #$FF
 C - - - - 0x0273AF 19:B39F: 8D 57 05  STA ram_046B + $EC
 C - - - - 0x0273B2 19:B3A2: 8D 58 05  STA ram_0468 + $F0
