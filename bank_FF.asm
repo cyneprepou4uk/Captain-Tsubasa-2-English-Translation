@@ -470,7 +470,7 @@ C - - - - 0x03C8A4 FF:C894: 8D 05 20  STA $2005
 C - - - - 0x03C8A7 FF:C897: 8D 05 20  STA $2005
                                       LDA ram_матч
                                       ASL
-                                      ADC #$80
+                                      ADC #con_chr_bank + $80
                                       TAX
                                       STX $5128
 C - - - - 0x03C8B2 FF:C8A2: 8D 01 80  STX $5120
@@ -483,9 +483,9 @@ C - - - - 0x03C8BF FF:C8AF: 8D 01 80  STX $5122
                                       INX
                                       STX $512B
                                       STX $5123
-C - - - - 0x03C8CA FF:C8BA: A9 1F     LDA #$1F
+C - - - - 0x03C8CA FF:C8BA: A9 1F     LDA #con_chr_bank + $1F
 C - - - - 0x03C8CC FF:C8BC: 8D 01 80  STA $5124
-C - - - - 0x03C8D7 FF:C8C7: A9 2E     LDA #$2E
+C - - - - 0x03C8D7 FF:C8C7: A9 2E     LDA #con_chr_bank + $2E
 C - - - - 0x03C8D9 FF:C8C9: 8D 01 80  STA $5125
                                       LDA #$00
 C - - - - 0x03C8DC FF:C8CC: 4E 00 E0  STA $5204
@@ -500,6 +500,8 @@ C - - - - 0x03C901 FF:C8F1: A5 24     LDA ram_для_5114
 C - - - - 0x03C903 FF:C8F3: 8D 01 80  STA $5114
 C - - - - 0x03C906 FF:C8F6: 60        RTS
 
+
+
 tbl_C8F7_значение_для_регистра_IRQ:
 ; bzk могут возникнуть проблемы с байтом 80, так как после AND 7F + SBC 01 будет FF
 ; но по видимому этот байт не используется
@@ -507,6 +509,8 @@ tbl_C8F7_значение_для_регистра_IRQ:
 - - - - - 0x03C908 FF:C8F8: 80        .byte $80
 - D - - - 0x03C909 FF:C8F9: 1E        .byte $1E
 - D - - - 0x03C90A FF:C8FA: DC        .byte $DC
+
+
 
 sub_C8FB:
 C - - - - 0x03C90B FF:C8FB: AD 98 04  LDA ram_0498
@@ -560,6 +564,8 @@ C - - - - 0x03C95E FF:C94E: F0 DE     BEQ bra_C92E_loop
 bra_C950_RTS:
 C - - - - 0x03C960 FF:C950: 60        RTS
 
+
+
 loc_C951:
     LDA ram_0515
     BPL @выход
@@ -601,6 +607,8 @@ loc_C951:
     DEY
     BNE @цикл_записи_в_2007
     BEQ @цикл_записи_в_ppu
+
+
 
 sub_C982:
 C - - - - 0x03C992 FF:C982: A2 00     LDX #$00
