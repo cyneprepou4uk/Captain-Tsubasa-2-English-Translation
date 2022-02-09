@@ -1023,16 +1023,16 @@ C - - - - - 0x004780 03:A770: D0 F7     BNE bra_A769
 C - - - - - 0x004782 03:A772: 60        RTS
 
 tbl_A773:
-- D - - - - 0x004783 03:A773: 79        .byte $79    ; <!>
+- D - - - - 0x004783 03:A773: 79        .byte $79   ; <!>
 - D - - - - 0x004784 03:A774: FF        .byte $FF
-- D - - - - 0x004785 03:A775: 03        .byte $03    ; <う>
-- D - - - - 0x004786 03:A776: C2        .byte $C2    ; <ド>
+- D - - - - 0x004785 03:A775: 03        .byte $03   ; <う>
+- D - - - - 0x004786 03:A776: C2        .byte $C2   ; <ド>
 
 tbl_A777:
-- D - - - - 0x004787 03:A777: 46        .byte $46    ; <カ>
+- D - - - - 0x004787 03:A777: 46        .byte $46   ; <カ>
 - D - - - - 0x004788 03:A778: F6        .byte $F6
-- D - - - - 0x004789 03:A779: 02        .byte $02    ; <い>
-- D - - - - 0x00478A 03:A77A: 52        .byte $52    ; <ツ>
+- D - - - - 0x004789 03:A779: 02        .byte $02   ; <い>
+- D - - - - 0x00478A 03:A77A: 52        .byte $52   ; <ツ>
 
 ofs_008_A77B_11_дождь:
 C - - - - - 0x00478B 03:A77B: A9 80     LDA #$80
@@ -1378,101 +1378,101 @@ tbl_AA97_параметры_очистки_буфера:
     ; +80 - выход после очистки
 ; второй байт = ???
 ; третий байт = выделенное количество записией в буфер
-- D - - - - 0x004AA7 03:AA97: 20        .byte $20    ; <み>
+- D - - - - 0x004AA7 03:AA97: 20        .byte $20   ; <み>
 - D - - - - 0x004AA8 03:AA98: 00        .byte $00
-- D - - - - 0x004AA9 03:AA99: 20        .byte $20    ; <み>
+- D - - - - 0x004AA9 03:AA99: 20        .byte $20   ; <み>
 
-- D - - - - 0x004AAA 03:AA9A: 20        .byte $20    ; <み>
-- D - - - - 0x004AAB 03:AA9B: 20        .byte $20    ; <み>
-- D - - - - 0x004AAC 03:AA9C: 8F        .byte $8F    ; <S>
+- D - - - - 0x004AAA 03:AA9A: 20        .byte $20   ; <み>
+- D - - - - 0x004AAB 03:AA9B: 20        .byte $20   ; <み>
+- D - - - - 0x004AAC 03:AA9C: 8F        .byte $8F   ; <S>
 
-- D - - - - 0x004AAD 03:AA9D: 60        .byte $60    ; <ミ>
-- D - - - - 0x004AAE 03:AA9E: 3F        .byte $3F    ; <•>
-- D - - - - 0x004AAF 03:AA9F: 8F        .byte $8F    ; <S>
+- D - - - - 0x004AAD 03:AA9D: 60        .byte $60   ; <ミ>
+- D - - - - 0x004AAE 03:AA9E: 3F        .byte $3F   ; <•>
+- D - - - - 0x004AAF 03:AA9F: 8F        .byte $8F   ; <S>
 
-- D - - - - 0x004AB0 03:AAA0: 20        .byte $20    ; <み>
-- D - - - - 0x004AB1 03:AAA1: 21        .byte $21    ; <む>
-- D - - - - 0x004AB2 03:AAA2: 1E        .byte $1E    ; <ほ>
+- D - - - - 0x004AB0 03:AAA0: 20        .byte $20   ; <み>
+- D - - - - 0x004AB1 03:AAA1: 21        .byte $21   ; <む>
+- D - - - - 0x004AB2 03:AAA2: 1E        .byte $1E   ; <ほ>
 
-- D - - - - 0x004AB3 03:AAA3: 20        .byte $20    ; <み>
-- D - - - - 0x004AB4 03:AAA4: 41        .byte $41    ; <ア>
-- D - - - - 0x004AB5 03:AAA5: 8E        .byte $8E    ; <L>
+- D - - - - 0x004AB3 03:AAA3: 20        .byte $20   ; <み>
+- D - - - - 0x004AB4 03:AAA4: 41        .byte $41   ; <ア>
+- D - - - - 0x004AB5 03:AAA5: 8E        .byte $8E   ; <L>
 
-- D - - - - 0x004AB6 03:AAA6: 60        .byte $60    ; <ミ>
-- D - - - - 0x004AB7 03:AAA7: 5E        .byte $5E    ; <ホ>
-- D - - - - 0x004AB8 03:AAA8: 8E        .byte $8E    ; <L>
+- D - - - - 0x004AB6 03:AAA6: 60        .byte $60   ; <ミ>
+- D - - - - 0x004AB7 03:AAA7: 5E        .byte $5E   ; <ホ>
+- D - - - - 0x004AB8 03:AAA8: 8E        .byte $8E   ; <L>
 
-- D - - - - 0x004AB9 03:AAA9: 20        .byte $20    ; <み>
-- D - - - - 0x004ABA 03:AAAA: 42        .byte $42    ; <イ>
-- D - - - - 0x004ABB 03:AAAB: 1C        .byte $1C    ; <ふ>
+- D - - - - 0x004AB9 03:AAA9: 20        .byte $20   ; <み>
+- D - - - - 0x004ABA 03:AAAA: 42        .byte $42   ; <イ>
+- D - - - - 0x004ABB 03:AAAB: 1C        .byte $1C   ; <ふ>
 
-- D - - - - 0x004ABC 03:AAAC: 20        .byte $20    ; <み>
-- D - - - - 0x004ABD 03:AAAD: 62        .byte $62    ; <メ>
-- D - - - - 0x004ABE 03:AAAE: 8D        .byte $8D    ; <P>
+- D - - - - 0x004ABC 03:AAAC: 20        .byte $20   ; <み>
+- D - - - - 0x004ABD 03:AAAD: 62        .byte $62   ; <メ>
+- D - - - - 0x004ABE 03:AAAE: 8D        .byte $8D   ; <P>
 
-- D - - - - 0x004ABF 03:AAAF: 60        .byte $60    ; <ミ>
-- D - - - - 0x004AC0 03:AAB0: 7D        .byte $7D    ; <ー>
-- D - - - - 0x004AC1 03:AAB1: 8D        .byte $8D    ; <P>
+- D - - - - 0x004ABF 03:AAAF: 60        .byte $60   ; <ミ>
+- D - - - - 0x004AC0 03:AAB0: 7D        .byte $7D   ; <ー>
+- D - - - - 0x004AC1 03:AAB1: 8D        .byte $8D   ; <P>
 
-- D - - - - 0x004AC2 03:AAB2: 20        .byte $20    ; <み>
-- D - - - - 0x004AC3 03:AAB3: 63        .byte $63    ; <モ>
-- D - - - - 0x004AC4 03:AAB4: 1A        .byte $1A    ; <は>
+- D - - - - 0x004AC2 03:AAB2: 20        .byte $20   ; <み>
+- D - - - - 0x004AC3 03:AAB3: 63        .byte $63   ; <モ>
+- D - - - - 0x004AC4 03:AAB4: 1A        .byte $1A   ; <は>
 
-- D - - - - 0x004AC5 03:AAB5: 20        .byte $20    ; <み>
-- D - - - - 0x004AC6 03:AAB6: 83        .byte $83    ; <C>
-- D - - - - 0x004AC7 03:AAB7: 8C        .byte $8C    ; <M>
+- D - - - - 0x004AC5 03:AAB5: 20        .byte $20   ; <み>
+- D - - - - 0x004AC6 03:AAB6: 83        .byte $83   ; <C>
+- D - - - - 0x004AC7 03:AAB7: 8C        .byte $8C   ; <M>
 
-- D - - - - 0x004AC8 03:AAB8: 60        .byte $60    ; <ミ>
+- D - - - - 0x004AC8 03:AAB8: 60        .byte $60   ; <ミ>
 - D - - - - 0x004AC9 03:AAB9: 9C        .byte $9C
-- D - - - - 0x004ACA 03:AABA: 8C        .byte $8C    ; <M>
+- D - - - - 0x004ACA 03:AABA: 8C        .byte $8C   ; <M>
 
-- D - - - - 0x004ACB 03:AABB: 20        .byte $20    ; <み>
-- D - - - - 0x004ACC 03:AABC: 84        .byte $84    ; <D>
-- D - - - - 0x004ACD 03:AABD: 18        .byte $18    ; <ね>
+- D - - - - 0x004ACB 03:AABB: 20        .byte $20   ; <み>
+- D - - - - 0x004ACC 03:AABC: 84        .byte $84   ; <D>
+- D - - - - 0x004ACD 03:AABD: 18        .byte $18   ; <ね>
 
-- D - - - - 0x004ACE 03:AABE: 20        .byte $20    ; <み>
-- D - - - - 0x004ACF 03:AABF: A4        .byte $A4    ; <ご>
-- D - - - - 0x004AD0 03:AAC0: 8B        .byte $8B    ; <K>
+- D - - - - 0x004ACE 03:AABE: 20        .byte $20   ; <み>
+- D - - - - 0x004ACF 03:AABF: A4        .byte $A4   ; <ご>
+- D - - - - 0x004AD0 03:AAC0: 8B        .byte $8B   ; <K>
 
-- D - - - - 0x004AD1 03:AAC1: 60        .byte $60    ; <ミ>
-- D - - - - 0x004AD2 03:AAC2: BB        .byte $BB    ; <ズ>
-- D - - - - 0x004AD3 03:AAC3: 8B        .byte $8B    ; <K>
+- D - - - - 0x004AD1 03:AAC1: 60        .byte $60   ; <ミ>
+- D - - - - 0x004AD2 03:AAC2: BB        .byte $BB   ; <ズ>
+- D - - - - 0x004AD3 03:AAC3: 8B        .byte $8B   ; <K>
 
-- D - - - - 0x004AD4 03:AAC4: 20        .byte $20    ; <み>
-- D - - - - 0x004AD5 03:AAC5: A5        .byte $A5    ; <ざ>
-- D - - - - 0x004AD6 03:AAC6: 16        .byte $16    ; <に>
+- D - - - - 0x004AD4 03:AAC4: 20        .byte $20   ; <み>
+- D - - - - 0x004AD5 03:AAC5: A5        .byte $A5   ; <ざ>
+- D - - - - 0x004AD6 03:AAC6: 16        .byte $16   ; <に>
 
-- D - - - - 0x004AD7 03:AAC7: 20        .byte $20    ; <み>
-- D - - - - 0x004AD8 03:AAC8: C5        .byte $C5    ; <ブ>
-- D - - - - 0x004AD9 03:AAC9: 8A        .byte $8A    ; <N>
+- D - - - - 0x004AD7 03:AAC7: 20        .byte $20   ; <み>
+- D - - - - 0x004AD8 03:AAC8: C5        .byte $C5   ; <ブ>
+- D - - - - 0x004AD9 03:AAC9: 8A        .byte $8A   ; <N>
 
-- D - - - - 0x004ADA 03:AACA: 60        .byte $60    ; <ミ>
+- D - - - - 0x004ADA 03:AACA: 60        .byte $60   ; <ミ>
 - D - - - - 0x004ADB 03:AACB: DA        .byte $DA
-- D - - - - 0x004ADC 03:AACC: 8A        .byte $8A    ; <N>
+- D - - - - 0x004ADC 03:AACC: 8A        .byte $8A   ; <N>
 
-- D - - - - 0x004ADD 03:AACD: 20        .byte $20    ; <み>
-- D - - - - 0x004ADE 03:AACE: C6        .byte $C6    ; <ベ>
-- D - - - - 0x004ADF 03:AACF: 14        .byte $14    ; <と>
+- D - - - - 0x004ADD 03:AACD: 20        .byte $20   ; <み>
+- D - - - - 0x004ADE 03:AACE: C6        .byte $C6   ; <ベ>
+- D - - - - 0x004ADF 03:AACF: 14        .byte $14   ; <と>
 
-- D - - - - 0x004AE0 03:AAD0: 20        .byte $20    ; <み>
+- D - - - - 0x004AE0 03:AAD0: 20        .byte $20   ; <み>
 - D - - - - 0x004AE1 03:AAD1: E6        .byte $E6
-- D - - - - 0x004AE2 03:AAD2: 89        .byte $89    ; <I>
+- D - - - - 0x004AE2 03:AAD2: 89        .byte $89   ; <I>
 
-- D - - - - 0x004AE3 03:AAD3: 60        .byte $60    ; <ミ>
+- D - - - - 0x004AE3 03:AAD3: 60        .byte $60   ; <ミ>
 - D - - - - 0x004AE4 03:AAD4: F9        .byte $F9
-- D - - - - 0x004AE5 03:AAD5: 89        .byte $89    ; <I>
+- D - - - - 0x004AE5 03:AAD5: 89        .byte $89   ; <I>
 
-- D - - - - 0x004AE6 03:AAD6: 20        .byte $20    ; <み>
+- D - - - - 0x004AE6 03:AAD6: 20        .byte $20   ; <み>
 - D - - - - 0x004AE7 03:AAD7: E7        .byte $E7
-- D - - - - 0x004AE8 03:AAD8: 12        .byte $12    ; <つ>
+- D - - - - 0x004AE8 03:AAD8: 12        .byte $12   ; <つ>
 
-- D - - - - 0x004AE9 03:AAD9: 20        .byte $20    ; <み>
-- D - - - - 0x004AEA 03:AADA: 07        .byte $07    ; <き>
-- D - - - - 0x004AEB 03:AADB: 88        .byte $88    ; <H>
+- D - - - - 0x004AE9 03:AAD9: 20        .byte $20   ; <み>
+- D - - - - 0x004AEA 03:AADA: 07        .byte $07   ; <き>
+- D - - - - 0x004AEB 03:AADB: 88        .byte $88   ; <H>
 
 - D - - - - 0x004AEC 03:AADC: E0        .byte $E0
-- D - - - - 0x004AED 03:AADD: 18        .byte $18    ; <ね>
-- D - - - - 0x004AEE 03:AADE: 88        .byte $88    ; <H>
+- D - - - - 0x004AED 03:AADD: 18        .byte $18   ; <ね>
+- D - - - - 0x004AEE 03:AADE: 88        .byte $88   ; <H>
 
 
 
@@ -1516,24 +1516,24 @@ tbl_AADF:
 ; bzk второй байт из четырех не используется, не экономично
 ; третий байт начинается с 04 и увеличивается на 01
 tbl_AB1F:
-- D - - - - 0x004B2F 03:AB1F: 6C        .byte $6C    ; <ワ>
+- D - - - - 0x004B2F 03:AB1F: 6C        .byte $6C   ; <ワ>
 - - - - - - 0x004B30 03:AB20: 00        .byte $00
-- D - - - - 0x004B31 03:AB21: 04        .byte $04    ; <え>
+- D - - - - 0x004B31 03:AB21: 04        .byte $04   ; <え>
 - D - - - - 0x004B32 03:AB22: FC        .byte $FC
 
-- D - - - - 0x004B33 03:AB23: 6E        .byte $6E    ; <ン>
+- D - - - - 0x004B33 03:AB23: 6E        .byte $6E   ; <ン>
 - - - - - - 0x004B34 03:AB24: 00        .byte $00
-- D - - - - 0x004B35 03:AB25: 05        .byte $05    ; <お>
+- D - - - - 0x004B35 03:AB25: 05        .byte $05   ; <お>
 - D - - - - 0x004B36 03:AB26: FC        .byte $FC
 
-- D - - - - 0x004B37 03:AB27: 70        .byte $70    ; <ャ>
+- D - - - - 0x004B37 03:AB27: 70        .byte $70   ; <ャ>
 - - - - - - 0x004B38 03:AB28: 00        .byte $00
-- D - - - - 0x004B39 03:AB29: 06        .byte $06    ; <か>
+- D - - - - 0x004B39 03:AB29: 06        .byte $06   ; <か>
 - D - - - - 0x004B3A 03:AB2A: FA        .byte $FA
 
-- D - - - - 0x004B3B 03:AB2B: 74        .byte $74    ; <ィ>
+- D - - - - 0x004B3B 03:AB2B: 74        .byte $74   ; <ィ>
 - - - - - - 0x004B3C 03:AB2C: 00        .byte $00
-- D - - - - 0x004B3D 03:AB2D: 07        .byte $07    ; <き>
+- D - - - - 0x004B3D 03:AB2D: 07        .byte $07   ; <き>
 - D - - - - 0x004B3E 03:AB2E: FA        .byte $FA
 
 tbl_AB2F_номера_звуков_для_музыкального_экрана:
