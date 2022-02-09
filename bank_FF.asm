@@ -7355,18 +7355,20 @@ tbl_FBCC:
 _общий_RTS:
                     RTS
 
+
+
 .segment "MMC5_INIT"
-@подготовка_mmc5:
+ofs_FFF1_подготовка_MMC5:
                     LDA #$03
-                    STA $5100
-                    STA $5101
+                    STA $5100   ; prg mode 3
+                    STA $5101   ; chr mode 3
                     LDX #$02
-                    STX $5104
-                    STX $5102
-                    DEX
-                    STX $5103
+                    STX $5104   ; extended ram mode 2
+                    STX $5102   ; disable prg ram protection 1
+                    DEX ; 01
+                    STX $5103   ; disable prg ram protection 2
                     LDA #$BE
-                    STA $5116
+                    STA $5116   ; bank 3E for C000-DFFF
                     LDY #$00
                     STY ram_0000
                     STY ram_0002
@@ -7390,5 +7392,5 @@ _общий_RTS:
 
 .segment "VECTORS"
     .word vec_C500_обработчик_NMI
-    .word @подготовка_mmc5
+    .word ofs_FFF1_подготовка_MMC5
     .word vec_C506_обработчик_IRQ
