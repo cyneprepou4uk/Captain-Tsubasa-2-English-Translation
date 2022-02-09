@@ -183,7 +183,7 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     print("2 - deleting garbage...")                            --garbage data to the left of the instructions
-    text = string.gsub(text, ".%s.%s.%s.%s.%s0x......%s..:....:...........", "\t")  
+    text = string.gsub(text, ".%s.%s.%s.%s.%s.%s0x......%s..:....:...........", "\t")  
     
     
     
