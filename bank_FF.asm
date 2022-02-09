@@ -83,6 +83,7 @@ vec_FFF0_обработчик_RESET:
                     SEI
                     LDX #$FF
                     TXS
+; очистить 0000-07FF
                     LDA #$00
                     STA ram_0000
                     STA ram_0001

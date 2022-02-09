@@ -84,6 +84,8 @@ C - - - - 0x0200B3 17:80A3: A0 08     LDY #< (ofs_0x01615C - 1)
 C - - - - 0x0200B5 17:80A5: 20 0F C5  JSR sub_0x03CAF7_подготовить_подпрограмму_в_стеке
 C - - - - 0x0200B8 17:80A8: 60        RTS
 
+
+
 sub_80A9_управляющие_байты:
 C - - - - 0x0200B9 17:80A9: 38        SEC
 C - - - - 0x0200BA 17:80AA: E9 F0     SBC #$F0
@@ -104,6 +106,8 @@ C - - - - 0x0200BC 17:80AC: 20 09 C5  JSR sub_0x03CBA9_байты_после_JSR
 - D - I - 0x0200D9 17:80C9: 5D 88     .word ofs_014_885D_FD_mirror_condition
 - D - I - 0x0200DB 17:80CB: E3 88     .word ofs_014_88E3_FE
 - D - I - 0x0200DD 17:80CD: ED 88     .word ofs_014_88ED_FF_drive_overhead_tiger
+
+
 
 loc_80CF_возврат_из_стека_сценария:
 ofs_014_80CF_F0_quit:
