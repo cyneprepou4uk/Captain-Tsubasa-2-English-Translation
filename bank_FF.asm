@@ -7370,13 +7370,16 @@ ofs_FFF1_подготовка_MMC5:
                     STA $5105   ; vertical mirroring
                     LDA #$BE
                     STA $5116   ; bank 3E for C000-DFFF
-                    LDY #$00
-                    STY ram_0000
-                    STY ram_0002
-                    LDA #$C0
+; скопировать код из C000-DFFF в 6000-7FFF
+                    LDA #< $C000
+                    STA ram_0000
+                    LDA #> $C000
                     STA ram_0001
-                    LDA #$60
+                    LDA #< $6000
+                    STA ram_0002
+                    LDA #> $6000
                     STA ram_0003
+                    LDY #$00
                     LDX #$1F
 @цикл_копирования_на_батарейку:
                     LDA (ram_0000),Y
