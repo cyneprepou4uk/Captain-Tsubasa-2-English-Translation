@@ -366,7 +366,7 @@ C - - - - - 0x03C7E8 FF:C7D8: 8D 00 C0  STA $5203
 C - - - - - 0x03C7EE FF:C7DE: AE 69 04  LDA ram_0469
 C - - - - - 0x03C7F1 FF:C7E1: 9D 00 E0  STA $5204
 C - - - - - 0x03C7F4 FF:C7E4: 20 C5 C9  JSR sub_C9C5_генератор_рандома
-C - - - - - 0x03C7F7 FF:C7E7: 20 82 C9  JSR sub_C982
+C - - - - - 0x03C7F7 FF:C7E7: 20 82 C9  JSR sub_C982_опрос_регистров_джойстиков
 C - - - - - 0x03C7FA FF:C7EA: A5 1B     LDA ram_флаг_nmi
 C - - - - - 0x03C7FC FF:C7EC: 09 80     ORA #$80
 C - - - - - 0x03C7FE FF:C7EE: 85 1B     STA ram_флаг_nmi
@@ -610,7 +610,7 @@ loc_C951:
 
 
 
-sub_C982:
+sub_C982_опрос_регистров_джойстиков:
 C - - - - - 0x03C992 FF:C982: A2 00     LDX #$00
 C - - - - - 0x03C994 FF:C984: AD 1C 00  LDA ram_btn_hold
 bra_C98B_loop:
@@ -708,12 +708,12 @@ C - - - - - 0x03CA53 FF:CA43: A9 23     LDA #$23
 C - - - - - 0x03CA55 FF:CA45: 8D 44 05  STA ram_0544
 C - - - - - 0x03CA58 FF:CA48: A9 45     LDA #$45
 C - - - - - 0x03CA5A FF:CA4A: 8D 45 05  STA ram_0545
-loc_CA4D:
+loc_CA4D_loop:
 C D - - - - 0x03CA5D FF:CA4D: A9 01     LDA #$01
 C - - - - - 0x03CA5F FF:CA4F: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03CA62 FF:CA52: 20 9F EE  JSR sub_EE9F
 C - - - - - 0x03CA65 FF:CA55: 20 CA E3  JSR sub_E3CA
-C - - - - - 0x03CA68 FF:CA58: 4C 4D CA  JMP loc_CA4D
+C - - - - - 0x03CA68 FF:CA58: 4C 4D CA  JMP loc_CA4D_loop
 
 
 
