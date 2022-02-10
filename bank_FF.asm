@@ -6761,122 +6761,122 @@ tbl_F182_часть_тайлов_миникарты:
 - D - - - - 0x03F19C FF:F18C: E9 F1     .word off_F1E9_05
 
 off_F18E_00:
-- D - I - - 0x03F19E FF:F18E: 02        .byte $02
+- D - I - - 0x03F19E FF:F18E: 02        .byte $02   ; счетчик
 - D - I - - 0x03F19F FF:F18F: 00        .byte $00
 - D - I - - 0x03F1A0 FF:F190: 00        .byte $00
                                         .byte $98, $AC
                                         
-- D - I - - 0x03F1A3 FF:F193: 02        .byte $02
+- D - I - - 0x03F1A3 FF:F193: 02        .byte $02   ; счетчик
 - D - I - - 0x03F1A4 FF:F194: 20        .byte $20
 - D - I - - 0x03F1A5 FF:F195: 00        .byte $00
                                         .byte $98, $99
                                         
-- D - I - - 0x03F1A8 FF:F198: 00        .byte $00
+- D - I - - 0x03F1A8 FF:F198: 00        .byte $00   ; end token
 
 
 
 off_F199_01:
-- D - I - - 0x03F1A9 FF:F199: 04        .byte $04
+- D - I - - 0x03F1A9 FF:F199: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1AA FF:F19A: 02        .byte $02
 - D - I - - 0x03F1AB FF:F19B: 00        .byte $00
                                         .byte $AC, $AC, $99, $AC
                                         
-- D - I - - 0x03F1B0 FF:F1A0: 04        .byte $04
+- D - I - - 0x03F1B0 FF:F1A0: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1B1 FF:F1A1: 22        .byte $22
 - D - I - - 0x03F1B2 FF:F1A2: 00        .byte $00
                                         .byte $A0, $A0, $AF, $A0
                                         
-- D - I - - 0x03F1B7 FF:F1A7: 00        .byte $00
+- D - I - - 0x03F1B7 FF:F1A7: 00        .byte $00   ; end token
 
 
 
 off_F1A8_02:
-- D - I - - 0x03F1B8 FF:F1A8: 04        .byte $04
+- D - I - - 0x03F1B8 FF:F1A8: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1B9 FF:F1A9: 06        .byte $06
 - D - I - - 0x03F1BA FF:F1AA: 00        .byte $00
                                         .byte $AC, $AC, $AC, $99
                                         
-- D - I - - 0x03F1BF FF:F1AF: 04        .byte $04
+- D - I - - 0x03F1BF FF:F1AF: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1C0 FF:F1B0: 26        .byte $26
 - D - I - - 0x03F1C1 FF:F1B1: 00        .byte $00
                                         .byte $A0, $A0, $98, $99
                                         
-- D - I - - 0x03F1C6 FF:F1B6: 00        .byte $00
+- D - I - - 0x03F1C6 FF:F1B6: 00        .byte $00   ; end token
 
 
 
 off_F1B7_03:
-- D - I - - 0x03F1C7 FF:F1B7: 02        .byte $02
+- D - I - - 0x03F1C7 FF:F1B7: 02        .byte $02   ; счетчик
 - D - I - - 0x03F1C8 FF:F1B8: 40        .byte $40
 - D - I - - 0x03F1C9 FF:F1B9: 00        .byte $00
                                         .byte $A1, $AF
                                         
-- D - I - - 0x03F1CC FF:F1BC: 02        .byte $02
+- D - I - - 0x03F1CC FF:F1BC: 02        .byte $02   ; счетчик
 - D - I - - 0x03F1CD FF:F1BD: 60        .byte $60
 - D - I - - 0x03F1CE FF:F1BE: 00        .byte $00
                                         .byte $A3, $AF
                                         
-- D - I - - 0x03F1D1 FF:F1C1: 02        .byte $02
+- D - I - - 0x03F1D1 FF:F1C1: 02        .byte $02   ; счетчик
 - D - I - - 0x03F1D2 FF:F1C2: 80        .byte $80
 - D - I - - 0x03F1D3 FF:F1C3: 00        .byte $00
                                         .byte $9A, $9B
                                         
-- D - I - - 0x03F1D6 FF:F1C6: 02        .byte $02
+- D - I - - 0x03F1D6 FF:F1C6: 02        .byte $02   ; счетчик
 - D - I - - 0x03F1D7 FF:F1C7: A0        .byte $A0
 - D - I - - 0x03F1D8 FF:F1C8: 00        .byte $00
                                         .byte $9A, $AD
                                         
-- D - I - - 0x03F1DB FF:F1CB: 00        .byte $00
+- D - I - - 0x03F1DB FF:F1CB: 00        .byte $00   ; end token
 
 
 
 off_F1CC_04:
-- D - I - - 0x03F1DC FF:F1CC: 04        .byte $04
+- D - I - - 0x03F1DC FF:F1CC: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1DD FF:F1CD: 42        .byte $42
 - D - I - - 0x03F1DE FF:F1CE: 00        .byte $00
                                         .byte $A0, $A0, $A4, $A5
                                         
-- D - I - - 0x03F1E3 FF:F1D3: 04        .byte $04
+- D - I - - 0x03F1E3 FF:F1D3: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1E4 FF:F1D4: 62        .byte $62
 - D - I - - 0x03F1E5 FF:F1D5: 00        .byte $00
                                         .byte $A0, $A0, $A6, $A7
                                         
-- D - I - - 0x03F1EA FF:F1DA: 04        .byte $04
+- D - I - - 0x03F1EA FF:F1DA: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1EB FF:F1DB: 82        .byte $82
 - D - I - - 0x03F1EC FF:F1DC: 00        .byte $00
                                         .byte $A0, $A0, $AF, $A0
                                         
-- D - I - - 0x03F1F1 FF:F1E1: 04        .byte $04
+- D - I - - 0x03F1F1 FF:F1E1: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1F2 FF:F1E2: A2        .byte $A2
 - D - I - - 0x03F1F3 FF:F1E3: 00        .byte $00
                                         .byte $AD, $AD, $9B, $AD
                                         
-- D - I - - 0x03F1F8 FF:F1E8: 00        .byte $00
+- D - I - - 0x03F1F8 FF:F1E8: 00        .byte $00   ; end token
 
 
 
 off_F1E9_05:
-- D - I - - 0x03F1F9 FF:F1E9: 04        .byte $04
+- D - I - - 0x03F1F9 FF:F1E9: 04        .byte $04   ; счетчик
 - D - I - - 0x03F1FA FF:F1EA: 46        .byte $46
 - D - I - - 0x03F1FB FF:F1EB: 00        .byte $00
                                         .byte $A0, $A0, $AE, $A1
                                         
-- D - I - - 0x03F200 FF:F1F0: 04        .byte $04
+- D - I - - 0x03F200 FF:F1F0: 04        .byte $04   ; счетчик
 - D - I - - 0x03F201 FF:F1F1: 66        .byte $66
 - D - I - - 0x03F202 FF:F1F2: 00        .byte $00
                                         .byte $A0, $A0, $AE, $A3
                                         
-- D - I - - 0x03F207 FF:F1F7: 04        .byte $04
+- D - I - - 0x03F207 FF:F1F7: 04        .byte $04   ; счетчик
 - D - I - - 0x03F208 FF:F1F8: 86        .byte $86
 - D - I - - 0x03F209 FF:F1F9: 00        .byte $00
                                         .byte $A0, $A0, $9A, $9B
                                         
-- D - I - - 0x03F20E FF:F1FE: 04        .byte $04
+- D - I - - 0x03F20E FF:F1FE: 04        .byte $04   ; счетчик
 - D - I - - 0x03F20F FF:F1FF: A6        .byte $A6
 - D - I - - 0x03F210 FF:F200: 00        .byte $00
                                         .byte $AD, $AD, $AD, $9B
                                         
-- D - I - - 0x03F215 FF:F205: 00        .byte $00
+- D - I - - 0x03F215 FF:F205: 00        .byte $00   ; end token
 
 
 
@@ -6889,192 +6889,192 @@ tbl_F206_тень_защитника:
     .word off_F2ED_05
     
 off_F212_00:
-- D - I - - 0x03F222 FF:F212: 04        .byte $04
+- D - I - - 0x03F222 FF:F212: 04        .byte $04   ; счетчик
 - D - I - - 0x03F223 FF:F213: 4E        .byte $4E
 - D - I - - 0x03F224 FF:F214: 00        .byte $00
                                         .byte $94, $95, $C0, $C1
                                         
-- D - I - - 0x03F229 FF:F219: 05        .byte $05
+- D - I - - 0x03F229 FF:F219: 05        .byte $05   ; счетчик
 - D - I - - 0x03F22A FF:F21A: 6E        .byte $6E
 - D - I - - 0x03F22B FF:F21B: 00        .byte $00
                                         .byte $96, $97, $80, $C2, $E0
                                         
-- D - I - - 0x03F231 FF:F221: 03        .byte $03
+- D - I - - 0x03F231 FF:F221: 03        .byte $03   ; счетчик
 - D - I - - 0x03F232 FF:F222: 8F        .byte $8F
 - D - I - - 0x03F233 FF:F223: 00        .byte $00
                                         .byte $9D, $80, $C8
                                         
-- D - I - - 0x03F237 FF:F227: 03        .byte $03
+- D - I - - 0x03F237 FF:F227: 03        .byte $03   ; счетчик
 - D - I - - 0x03F238 FF:F228: AF        .byte $AF
 - D - I - - 0x03F239 FF:F229: 00        .byte $00
                                         .byte $9F, $CA, $E2
                                         
-- D - I - - 0x03F23D FF:F22D: 00        .byte $00
+- D - I - - 0x03F23D FF:F22D: 00        .byte $00   ; end token
 
 
 
 off_F22E_01:
-- D - I - - 0x03F23E FF:F22E: 05        .byte $05
+- D - I - - 0x03F23E FF:F22E: 05        .byte $05   ; счетчик
 - D - I - - 0x03F23F FF:F22F: 34        .byte $34
 - D - I - - 0x03F240 FF:F230: 00        .byte $00
                                         .byte $C3, $C6, $C4, $C5, $C7
                                         
-- D - I - - 0x03F246 FF:F236: 04        .byte $04
+- D - I - - 0x03F246 FF:F236: 04        .byte $04   ; счетчик
 - D - I - - 0x03F247 FF:F237: 53        .byte $53
 - D - I - - 0x03F248 FF:F238: 00        .byte $00
                                         .byte $BD, $C9, $80, $CC
                                         
-- D - I - - 0x03F24D FF:F23D: 04        .byte $04
+- D - I - - 0x03F24D FF:F23D: 04        .byte $04   ; счетчик
 - D - I - - 0x03F24E FF:F23E: 73        .byte $73
 - D - I - - 0x03F24F FF:F23F: 00        .byte $00
                                         .byte $BF, $CB, $80, $CE
                                         
-- D - I - - 0x03F254 FF:F244: 03        .byte $03
+- D - I - - 0x03F254 FF:F244: 03        .byte $03   ; счетчик
 - D - I - - 0x03F255 FF:F245: 94        .byte $94
 - D - I - - 0x03F256 FF:F246: 00        .byte $00
                                         .byte $E1, $BE, $E4
                                         
-- D - I - - 0x03F25A FF:F24A: 03        .byte $03
+- D - I - - 0x03F25A FF:F24A: 03        .byte $03   ; счетчик
 - D - I - - 0x03F25B FF:F24B: B4        .byte $B4
 - D - I - - 0x03F25C FF:F24C: 00        .byte $00
                                         .byte $E3, $E6, $E7
                                         
-- D - I - - 0x03F260 FF:F250: 00        .byte $00
+- D - I - - 0x03F260 FF:F250: 00        .byte $00   ; end token
 
 
 
 off_F251_02:
-- D - I - - 0x03F261 FF:F251: 03        .byte $03
+- D - I - - 0x03F261 FF:F251: 03        .byte $03   ; счетчик
 - D - I - - 0x03F262 FF:F252: 2A        .byte $2A
 - D - I - - 0x03F263 FF:F253: 00        .byte $00
                                         .byte $A8, $A9, $9C
                                         
-- D - I - - 0x03F267 FF:F257: 04        .byte $04
+- D - I - - 0x03F267 FF:F257: 04        .byte $04   ; счетчик
 - D - I - - 0x03F268 FF:F258: 49        .byte $49
 - D - I - - 0x03F269 FF:F259: 00        .byte $00
                                         .byte $AA, $80, $AB, $9E
                                         
-- D - I - - 0x03F26E FF:F25E: 05        .byte $05
+- D - I - - 0x03F26E FF:F25E: 05        .byte $05   ; счетчик
 - D - I - - 0x03F26F FF:F25F: 69        .byte $69
 - D - I - - 0x03F270 FF:F260: 00        .byte $00
                                         .byte $B0, $80, $B1, $B4, $B5
                                         
-- D - I - - 0x03F276 FF:F266: 06        .byte $06
+- D - I - - 0x03F276 FF:F266: 06        .byte $06   ; счетчик
 - D - I - - 0x03F277 FF:F267: 88        .byte $88
 - D - I - - 0x03F278 FF:F268: 00        .byte $00
                                         .byte $B2, $B3, $80, $BC, $B6, $B7
                                         
-- D - I - - 0x03F27F FF:F26F: 04        .byte $04
+- D - I - - 0x03F27F FF:F26F: 04        .byte $04   ; счетчик
 - D - I - - 0x03F280 FF:F270: A8        .byte $A8
 - D - I - - 0x03F281 FF:F271: 00        .byte $00
                                         .byte $B8, $BA, $B9, $BB
                                         
-- D - I - - 0x03F286 FF:F276: 00        .byte $00
+- D - I - - 0x03F286 FF:F276: 00        .byte $00   ; end token
 
 
 
 off_F277_03:
-- D - I - - 0x03F287 FF:F277: 05        .byte $05
+- D - I - - 0x03F287 FF:F277: 05        .byte $05   ; счетчик
 - D - I - - 0x03F288 FF:F278: 1A        .byte $1A
 - D - I - - 0x03F289 FF:F279: 00        .byte $00
                                         .byte $D0, $D1, $D4, $D5, $FB
                                         
-- D - I - - 0x03F28F FF:F27F: 07        .byte $07
+- D - I - - 0x03F28F FF:F27F: 07        .byte $07   ; счетчик
 - D - I - - 0x03F290 FF:F280: 39        .byte $39
 - D - I - - 0x03F291 FF:F281: 00        .byte $00
                                         .byte $CD, $D2, $D3, $80, $80, $D6, $D7
                                         
-- D - I - - 0x03F299 FF:F289: 06        .byte $06
+- D - I - - 0x03F299 FF:F289: 06        .byte $06   ; счетчик
 - D - I - - 0x03F29A FF:F28A: 59        .byte $59
 - D - I - - 0x03F29B FF:F28B: 00        .byte $00
                                         .byte $CF, $D8, $80, $80, $80, $D9
                                         
-- D - I - - 0x03F2A2 FF:F292: 07        .byte $07
+- D - I - - 0x03F2A2 FF:F292: 07        .byte $07   ; счетчик
 - D - I - - 0x03F2A3 FF:F293: 79        .byte $79
 - D - I - - 0x03F2A4 FF:F294: 00        .byte $00
                                         .byte $E5, $DA, $FC, $FD, $80, $80, $DC
                                         
-- D - I - - 0x03F2AC FF:F29C: 05        .byte $05
+- D - I - - 0x03F2AC FF:F29C: 05        .byte $05   ; счетчик
 - D - I - - 0x03F2AD FF:F29D: 9B        .byte $9B
 - D - I - - 0x03F2AE FF:F29E: 00        .byte $00
                                         .byte $DB, $DD, $80, $80, $80
                                         
-- D - I - - 0x03F2B4 FF:F2A4: 05        .byte $05
+- D - I - - 0x03F2B4 FF:F2A4: 05        .byte $05   ; счетчик
 - D - I - - 0x03F2B5 FF:F2A5: BB        .byte $BB
 - D - I - - 0x03F2B6 FF:F2A6: 00        .byte $00
                                         .byte $9F, $80, $BA, $DE, $DF
                                         
-- D - I - - 0x03F2BC FF:F2AC: 00        .byte $00
+- D - I - - 0x03F2BC FF:F2AC: 00        .byte $00   ; end token
 
 
 
 off_F2AD_04:
-- D - I - - 0x03F2BD FF:F2AD: 04        .byte $04
+- D - I - - 0x03F2BD FF:F2AD: 04        .byte $04   ; счетчик
 - D - I - - 0x03F2BE FF:F2AE: 01        .byte $01
 - D - I - - 0x03F2BF FF:F2AF: 00        .byte $00
                                         .byte $84, $85, $90, $91
                                         
-- D - I - - 0x03F2C4 FF:F2B4: 05        .byte $05
+- D - I - - 0x03F2C4 FF:F2B4: 05        .byte $05   ; счетчик
 - D - I - - 0x03F2C5 FF:F2B5: 20        .byte $20
 - D - I - - 0x03F2C6 FF:F2B6: 00        .byte $00
                                         .byte $82, $80, $80, $80, $93
                                         
-- D - I - - 0x03F2CC FF:F2BC: 06        .byte $06
+- D - I - - 0x03F2CC FF:F2BC: 06        .byte $06   ; счетчик
 - D - I - - 0x03F2CD FF:F2BD: 40        .byte $40
 - D - I - - 0x03F2CE FF:F2BE: 00        .byte $00
                                         .byte $80, $80, $80, $80, $80, $88
                                         
-- D - I - - 0x03F2D5 FF:F2C5: 02        .byte $02
+- D - I - - 0x03F2D5 FF:F2C5: 02        .byte $02   ; счетчик
 - D - I - - 0x03F2D6 FF:F2C6: 47        .byte $47
 - D - I - - 0x03F2D7 FF:F2C7: 00        .byte $00
                                         .byte $83, $86
                                         
-- D - I - - 0x03F2DA FF:F2CA: 09        .byte $09
+- D - I - - 0x03F2DA FF:F2CA: 09        .byte $09   ; счетчик
 - D - I - - 0x03F2DB FF:F2CB: 60        .byte $60
 - D - I - - 0x03F2DC FF:F2CC: 00        .byte $00
                                         .byte $80, $80, $80, $80, $80, $80, $8A, $89, $8C
                                         
-- D - I - - 0x03F2E6 FF:F2D6: 08        .byte $08
+- D - I - - 0x03F2E6 FF:F2D6: 08        .byte $08   ; счетчик
 - D - I - - 0x03F2E7 FF:F2D7: 80        .byte $80
 - D - I - - 0x03F2E8 FF:F2D8: 00        .byte $00
                                         .byte $80, $80, $80, $80, $80, $8D, $80, $8B
                                         
-- D - I - - 0x03F2F1 FF:F2E1: 08        .byte $08
+- D - I - - 0x03F2F1 FF:F2E1: 08        .byte $08   ; счетчик
 - D - I - - 0x03F2F2 FF:F2E2: A0        .byte $A0
 - D - I - - 0x03F2F3 FF:F2E3: 00        .byte $00
                                         .byte $80, $80, $80, $80, $8E, $8F, $87, $92
                                         
-- D - I - - 0x03F2FC FF:F2EC: 00        .byte $00
+- D - I - - 0x03F2FC FF:F2EC: 00        .byte $00   ; end token
 
 
 
 off_F2ED_05:
-- D - I - - 0x03F2FD FF:F2ED: 02        .byte $02
+- D - I - - 0x03F2FD FF:F2ED: 02        .byte $02   ; счетчик
 - D - I - - 0x03F2FE FF:F2EE: 4F        .byte $4F
 - D - I - - 0x03F2FF FF:F2EF: 00        .byte $00
                                         .byte $D4, $D5
                                         
-- D - I - - 0x03F302 FF:F2F2: 04        .byte $04
+- D - I - - 0x03F302 FF:F2F2: 04        .byte $04   ; счетчик
 - D - I - - 0x03F303 FF:F2F3: 6D        .byte $6D
 - D - I - - 0x03F304 FF:F2F4: 00        .byte $00
                                         .byte $D2, $D3, $00, $D7
                                         
-- D - I - - 0x03F309 FF:F2F9: 01        .byte $01
+- D - I - - 0x03F309 FF:F2F9: 01        .byte $01   ; счетчик
 - D - I - - 0x03F30A FF:F2FA: 72        .byte $72
 - D - I - - 0x03F30B FF:F2FB: 00        .byte $00
                                         .byte $D6
                                         
-- D - I - - 0x03F30D FF:F2FD: 06        .byte $06
+- D - I - - 0x03F30D FF:F2FD: 06        .byte $06   ; счетчик
 - D - I - - 0x03F30E FF:F2FE: 8D        .byte $8D
 - D - I - - 0x03F30F FF:F2FF: 00        .byte $00
                                         .byte $D8, $00, $00, $DD, $D9, $DC
                                         
-- D - I - - 0x03F316 FF:F306: 05        .byte $05
+- D - I - - 0x03F316 FF:F306: 05        .byte $05   ; счетчик
 - D - I - - 0x03F317 FF:F307: AD        .byte $AD
 - D - I - - 0x03F318 FF:F308: 00        .byte $00
                                         .byte $DA, $DB, $DE, $DF, $D1
                                         
-- D - I - - 0x03F31E FF:F30E: 00        .byte $00
+- D - I - - 0x03F31E FF:F30E: 00        .byte $00   ; end token
 
 
 
