@@ -1590,7 +1590,7 @@ C - - - - - 0x002BD0 02:ABC0: A2 20     LDX #$20
 C - - - - - 0x002BD2 02:ABC2: 20 8E 9D  JSR sub_0x001D9E_запись_в_буфер_уровня_игрока
 C - - - - - 0x002BD5 02:ABC5: A5 5F     LDA ram_005F
 C - - - - - 0x002BD7 02:ABC7: A2 00     LDX #$00
-C - - - - - 0x002BD9 02:ABC9: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
+C - - - - - 0x002BD9 02:ABC9: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
 C - - - - - 0x002BDC 02:ABCC: A5 32     LDA ram_0032
 C - - - - - 0x002BDE 02:ABCE: 85 EC     STA ram_00EC
 C - - - - - 0x002BE0 02:ABD0: A5 33     LDA ram_0033
@@ -1631,7 +1631,7 @@ C - - - - - 0x002C17 02:AC07: BE 81 B9  LDX tbl_B981_позиция_числов
 C - - - - - 0x002C1A 02:AC0A: E0 FF     CPX #$FF
 C - - - - - 0x002C1C 02:AC0C: F0 20     BEQ bra_AC2E_закончить_запись_чисел
 C - - - - - 0x002C1E 02:AC0E: A5 5F     LDA ram_005F
-C - - - - - 0x002C20 02:AC10: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_06_07_с_возвратом
+C - - - - - 0x002C20 02:AC10: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
 C - - - - - 0x002C23 02:AC13: A5 32     LDA ram_0032
 C - - - - - 0x002C25 02:AC15: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
 C - - - - - 0x002C28 02:AC18: A4 E6     LDY ram_00E6
