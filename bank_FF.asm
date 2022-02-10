@@ -7364,11 +7364,6 @@ tbl_FBCC_палитра:
 
 
 
-_общий_RTS:
-                    RTS
-
-
-
 .segment "MMC5_INIT"
 ofs_FFF1_подготовка_MMC5:
                     LDX #$03
@@ -7405,6 +7400,11 @@ ofs_FFF1_подготовка_MMC5:
                     DEX
                     BPL @цикл_копирования_на_батарейку
                     JMP vec_FFF0_обработчик_RESET
+
+
+
+_общий_RTS:
+                    RTS
 
 
 
