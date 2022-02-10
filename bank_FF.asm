@@ -1,6 +1,7 @@
 .segment "BANK_FE"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+; остановился на 0x03DC03
 
 
 
@@ -598,7 +599,6 @@ loc_C951:
     BEQ @цикл_записи_в_ppu
 @выход:
     RTS
-
 @запись_одного_байта:
     LDA ram_04A5,X
     INX
@@ -973,9 +973,7 @@ C - - - - - 0x03CC55 FF:CC45: 60        RTS
 sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана:
     LDA #$07
     STA ram_temp_2
-    BNE bra_CC47
-
-
+    BNE bra_CC47    ; bra
 
 loc_CC46_очистить_нижнюю_половину_экрана:
 sub_CC46_очистить_нижнюю_половину_экрана:
@@ -1092,8 +1090,8 @@ sub_0x03CCE2:
 ; уникальный случай для надписи текмо в финальной заставке 0x0273CC
     LDA #$03
     .byte $2C   ; BIT
-sub_0x03CCE3:
 sub_CCD3:
+sub_0x03CCE3:
 ; срабатывает раз перед показом новой анимации
     LDA #$00
     STA ram_temp_1
@@ -1522,17 +1520,18 @@ C - - - - - 0x03CF45 FF:CF35: D0 FB     BNE bra_CF32_loop
 C - - - - - 0x03CF47 FF:CF37: E6 3B     INC ram_003B
 C - - - - - 0x03CF49 FF:CF39: C6 3D     DEC ram_003D
 C - - - - - 0x03CF4B FF:CF3B: D0 F5     BNE bra_CF32_loop
-bra_CF3D:
+bra_CF3D_loop:
 C - - - - - 0x03CF4D FF:CF3D: 91 3A     STA (ram_003A),Y
 C - - - - - 0x03CF4F FF:CF3F: C8        INY
 C - - - - - 0x03CF50 FF:CF40: C6 3C     DEC ram_003C
-C - - - - - 0x03CF52 FF:CF42: D0 F9     BNE bra_CF3D
+C - - - - - 0x03CF52 FF:CF42: D0 F9     BNE bra_CF3D_loop
+; 003B-00DF
 C - - - - - 0x03CF54 FF:CF44: A2 A5     LDX #$A5
 C - - - - - 0x03CF56 FF:CF46: A9 00     LDA #$00
-bra_CF48:
-C - - - - - 0x03CF58 FF:CF48: 9D 3A 00  STA ram_003A,X
+bra_CF48_loop:
+C - - - - - 0x03CF58 FF:CF48: 9D 3A 00  STA ram_003B - 1,X
 C - - - - - 0x03CF5B FF:CF4B: CA        DEX
-C - - - - - 0x03CF5C FF:CF4C: D0 FA     BNE bra_CF48
+C - - - - - 0x03CF5C FF:CF4C: D0 FA     BNE bra_CF48_loop
 C - - - - - 0x03CF5E FF:CF4E: 60        RTS
 
 
@@ -1867,7 +1866,7 @@ C - - - - - 0x03D103 FF:D0F3: D0 E5     BNE bra_D0DA_loop_поиска_мису�
 ; поскольку в японии всегда где-то да присутствует мисуги
 ; и рано или поздно цикл его найдет
 
-; bzk2 однако флаг C тут стоит, значит rts все таки использовался, что не логично
+; однако флаг C тут стоит, значит rts все таки использовался, что не логично
 C - - - - - 0x03D105 FF:D0F5: 60        RTS
 bra_D0F6_мисуги_найден:
 C - - - - - 0x03D106 FF:D0F6: A2 00     LDX #$00
@@ -1887,6 +1886,8 @@ bra_D10C_запись_флага:
 C - - - - - 0x03D11C FF:D10C: 8E 4D 04  STX ram_флаг_мисуги_0_хп
 bra_D10F_RTS:
 C - - - - - 0x03D11F FF:D10F: 60        RTS
+
+
 
 loc_D110:
 C D - - - - 0x03D120 FF:D110: A9 12     LDA #con_prg_bank + $12
@@ -1957,9 +1958,11 @@ tbl_D183_время_тайма:
 - - - - - - 0x03D19F FF:D18F: 5A 00     .word $005A
 - - - - - - 0x03D1A1 FF:D191: 5A 00     .word $005A
 
+
+
+sub_D193_уменьшить_таймер_времени_тайма:
 sub_0x03D1A3_уменьшить_таймер_времени_тайма:
 loc_0x03D1A3_уменьшить_таймер_времени_тайма:
-sub_D193_уменьшить_таймер_времени_тайма:
 C D - - - - 0x03D1A3 FF:D193: AA        TAX
 C - - - - - 0x03D1A4 FF:D194: 18        CLC
 C - - - - - 0x03D1A5 FF:D195: 6D FF 05  ADC ram_05FF
@@ -2028,6 +2031,8 @@ C - - - - - 0x03D22C FF:D21C: 20 33 E2  JSR sub_E233
 bra_D21F_RTS:
 C D - - - - 0x03D22F FF:D21F: 60        RTS
 
+
+
 loc_D220:
 C D - - - - 0x03D230 FF:D220: 49 FF     EOR #$FF
 C - - - - - 0x03D232 FF:D222: 18        CLC
@@ -2047,6 +2052,8 @@ C - - - - - 0x03DAB7 FF:DAA7: 4C FE CE  JMP loc_CEFE
 bra_D231_записать_loss:
 C - - - - - 0x03D241 FF:D231: 8D F9 05  STA ram_loss
 C - - - - - 0x03D244 FF:D234: 60        RTS
+
+
 
 sub_D235_уменьшить_таймер_драйв_тигра:
 C - - - - - 0x03D245 FF:D235: 49 FF     EOR #$FF
@@ -2075,6 +2082,8 @@ C - - - - - 0x03D26A FF:D25A: A9 0B     LDA #$0B
 C - - - - - 0x03D26C FF:D25C: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03D26F FF:D25F: 68        PLA
 C - - - - - 0x03D270 FF:D260: 4C 63 D2  JMP loc_D263
+
+
 
 sub_D263:
 loc_D263:
@@ -2117,6 +2126,8 @@ C - - - - - 0x03D2A7 FF:D297: 91 34     STA (ram_plr_data),Y
 bra_D299_RTS:
 C - - - - - 0x03D2A9 FF:D299: 60        RTS
 
+
+
 loc_D29A_отрисовка_меню_для_киперов:
 ; сработало когда появляется рожа кипера чтобы выбрать действие
 C D - - - - 0x03D2AA FF:D29A: AE 21 06  LDX ram_0621
@@ -2128,8 +2139,8 @@ C - - - - - 0x03D2B9 FF:D2A9: 20 7F EF  JSR sub_EF7F_отрисовка_меню
 C - - - - - 0x03D2BC FF:D2AC: A9 00     LDA #$00
 C - - - - - 0x03D2BE FF:D2AE: 8D 3E 04  STA ram_подтип_действия_защиты
 C - - - - - 0x03D2C1 FF:D2B1: 8D 1E 06  STA ram_061E
-bra_D2B4:
-loc_D2B4:
+bra_D2B4_loop:
+loc_D2B4_loop:
 C D - - - - 0x03D2C4 FF:D2B4: A9 01     LDA #$01
 C - - - - - 0x03D2C6 FF:D2B6: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03D2C9 FF:D2B9: A9 0F     LDA #con_btns_Dpad
@@ -2187,7 +2198,7 @@ C - - - - - 0x03D323 FF:D313: 10 03     BPL bra_D318
 C - - - - - 0x03D325 FF:D315: 4C 46 CC  JMP loc_CC46_очистить_нижнюю_половину_экрана
 bra_D318:
 C - - - - - 0x03D328 FF:D318: 2C 1E 06  BIT ram_061E
-C - - - - - 0x03D32B FF:D31B: 10 97     BPL bra_D2B4
+C - - - - - 0x03D32B FF:D31B: 10 97     BPL bra_D2B4_loop
 C - - - - - 0x03D32D FF:D31D: A9 20     LDA #$20
 C - - - - - 0x03D32F FF:D31F: 2C 1E 06  BIT ram_061E
 C - - - - - 0x03D332 FF:D322: D0 0B     BNE bra_D32F
@@ -2199,7 +2210,7 @@ bra_D32F:
 C - - - - - 0x03D33F FF:D32F: AE 1F 06  LDX ram_061F
 C - - - - - 0x03D342 FF:D332: F0 06     BEQ bra_D33A
 C - - - - - 0x03D344 FF:D334: CE 1F 06  DEC ram_061F
-C - - - - - 0x03D347 FF:D337: 4C B4 D2  JMP loc_D2B4
+C - - - - - 0x03D347 FF:D337: 4C B4 D2  JMP loc_D2B4_loop
 bra_D33A:
 C - - - - - 0x03D34A FF:D33A: A9 0D     LDA #$0D
 C - - - - - 0x03D34C FF:D33C: 8D 1F 06  STA ram_061F
@@ -2215,7 +2226,7 @@ C - - - - - 0x03D362 FF:D352: 09 80     ORA #$80
 bra_D354:
 C - - - - - 0x03D364 FF:D354: A2 00     LDX #$00
 C - - - - - 0x03D366 FF:D356: 20 3D E9  JSR sub_E93D_отображение_выбранного_действия
-C - - - - - 0x03D369 FF:D359: 4C B4 D2  JMP loc_D2B4
+C - - - - - 0x03D369 FF:D359: 4C B4 D2  JMP loc_D2B4_loop
 
 ; на кипера напали
 ; кипер отбивает удар
@@ -2234,20 +2245,20 @@ tbl_D35F_статы_кипера:
 
 tbl_D362_действие_кипера:
 ; при нажатии вправо, влево, вниз, вверх
-- D - - - - 0x03D372 FF:D362: 06        .byte $06   ; <か>
-- D - - - - 0x03D373 FF:D363: 06        .byte $06   ; <か>
+- D - - - - 0x03D372 FF:D362: 06        .byte $06
+- D - - - - 0x03D373 FF:D363: 06        .byte $06
 - D - - - - 0x03D374 FF:D364: FF        .byte $FF
-- D - - - - 0x03D375 FF:D365: 05        .byte $05   ; <お>
+- D - - - - 0x03D375 FF:D365: 05        .byte $05
 
 - D - - - - 0x03D376 FF:D366: 00        .byte $00
 - D - - - - 0x03D377 FF:D367: 00        .byte $00
-- D - - - - 0x03D378 FF:D368: 02        .byte $02   ; <い>
-- D - - - - 0x03D379 FF:D369: 01        .byte $01   ; <あ>
+- D - - - - 0x03D378 FF:D368: 02        .byte $02
+- D - - - - 0x03D379 FF:D369: 01        .byte $01
 
-- D - - - - 0x03D37A FF:D36A: 09        .byte $09   ; <け>
-- D - - - - 0x03D37B FF:D36B: 07        .byte $07   ; <き>
+- D - - - - 0x03D37A FF:D36A: 09        .byte $09
+- D - - - - 0x03D37B FF:D36B: 07        .byte $07
 - - - - - - 0x03D37C FF:D36C: FF        .byte $FF
-- D - - - - 0x03D37D FF:D36D: 08        .byte $08   ; <く>
+- D - - - - 0x03D37D FF:D36D: 08        .byte $08
 
 
 
@@ -2264,10 +2275,10 @@ bra_D37E:
 C - - - - - 0x03D38E FF:D37E: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - - 0x03D391 FF:D381: A2 03     LDX #$03
 C - - - - - 0x03D393 FF:D383: A9 FF     LDA #$FF
-bra_D385:
+bra_D385_loop:
 C - - - - - 0x03D395 FF:D385: 9D 0B 06  STA ram_действие_защитника,X
 C - - - - - 0x03D398 FF:D388: CA        DEX
-C - - - - - 0x03D399 FF:D389: 10 FA     BPL bra_D385
+C - - - - - 0x03D399 FF:D389: 10 FA     BPL bra_D385_loop
 C - - - - - 0x03D39B FF:D38B: A9 00     LDA #$00
 C - - - - - 0x03D39D FF:D38D: 8D 1E 06  STA ram_061E
 C - - - - - 0x03D3A0 FF:D390: 20 EA D4  JSR sub_D4EA
@@ -2372,11 +2383,11 @@ C - - - - - 0x03D46F FF:D45F: A9 0F     LDA #con_btns_Dpad
 C - - - - - 0x03D471 FF:D461: 2D 1E 00  AND ram_btn_press
 C - - - - - 0x03D474 FF:D464: F0 39     BEQ bra_D49F
 C - - - - - 0x03D476 FF:D466: A2 00     LDX #$00
-bra_D468:
+bra_D468_loop:
 C - - - - - 0x03D478 FF:D468: 4A        LSR
 C - - - - - 0x03D479 FF:D469: B0 03     BCS bra_D46E
 C - - - - - 0x03D47B FF:D46B: E8        INX
-C - - - - - 0x03D47C FF:D46C: D0 FA     BNE bra_D468
+C - - - - - 0x03D47C FF:D46C: D0 FA     BNE bra_D468_loop
 bra_D46E:
 C - - - - - 0x03D47E FF:D46E: 86 3A     STX ram_003A
 C - - - - - 0x03D480 FF:D470: AD 21 06  LDA ram_0621
@@ -2433,9 +2444,13 @@ bra_D4DE:
 C - - - - - 0x03D4EE FF:D4DE: 20 3D E9  JSR sub_E93D_отображение_выбранного_действия
 C - - - - - 0x03D4F1 FF:D4E1: 4C A6 D3  JMP loc_D3A6
 
+
+
 sub_D4E4:
 C - - - - - 0x03D4F4 FF:D4E4: 20 04 D5  JSR sub_D504
 C - - - - - 0x03D4F7 FF:D4E7: 4C 3D E9  JMP loc_E93D_отображение_выбранного_действия
+
+
 
 sub_D4EA:
 C - - - - - 0x03D4FA FF:D4EA: AD 00 06  LDA ram_колво_защитников
@@ -2443,7 +2458,7 @@ C - - - - - 0x03D4FD FF:D4ED: 18        CLC
 C - - - - - 0x03D4FE FF:D4EE: 69 11     ADC #$11      ; ?_players_action_window
 C - - - - - 0x03D500 FF:D4F0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D503 FF:D4F3: A9 00     LDA #$00
-bra_D4F5:
+bra_D4F5_loop:
 C - - - - - 0x03D505 FF:D4F5: 48        PHA
 C - - - - - 0x03D506 FF:D4F6: AA        TAX
 C - - - - - 0x03D507 FF:D4F7: 20 E4 D4  JSR sub_D4E4
@@ -2451,8 +2466,10 @@ C - - - - - 0x03D50A FF:D4FA: 68        PLA
 C - - - - - 0x03D50B FF:D4FB: 18        CLC
 C - - - - - 0x03D50C FF:D4FC: 69 01     ADC #$01
 C - - - - - 0x03D50E FF:D4FE: CD 00 06  CMP ram_колво_защитников
-C - - - - - 0x03D511 FF:D501: D0 F2     BNE bra_D4F5
+C - - - - - 0x03D511 FF:D501: D0 F2     BNE bra_D4F5_loop
 C - - - - - 0x03D513 FF:D503: 60        RTS
+
+
 
 sub_D504:
 C - - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_действие_защитника,X
@@ -2490,27 +2507,27 @@ tbl_D52B:
 - D - - - - 0x03D547 FF:D537: 47 D5     .word off_D547_06
 
 off_D539_00:
-- D - I - - 0x03D549 FF:D539: 0C        .byte $0C   ; <し>
-- D - I - - 0x03D54A FF:D53A: 0E        .byte $0E   ; <せ>
-- - - - - - 0x03D54B FF:D53B: 0D        .byte $0D   ; <す>
-- D - I - - 0x03D54C FF:D53C: 0F        .byte $0F   ; <そ>
+- D - I - - 0x03D549 FF:D539: 0C        .byte $0C
+- D - I - - 0x03D54A FF:D53A: 0E        .byte $0E
+- - - - - - 0x03D54B FF:D53B: 0D        .byte $0D
+- D - I - - 0x03D54C FF:D53C: 0F        .byte $0F
 off_D53D_01:
-- D - I - - 0x03D54D FF:D53D: 07        .byte $07   ; <き>
-- D - I - - 0x03D54E FF:D53E: 08        .byte $08   ; <く>
-- D - I - - 0x03D54F FF:D53F: 09        .byte $09   ; <け>
-- D - I - - 0x03D550 FF:D540: 0A        .byte $0A   ; <こ>
-- D - I - - 0x03D551 FF:D541: 0B        .byte $0B   ; <さ>
+- D - I - - 0x03D54D FF:D53D: 07        .byte $07
+- D - I - - 0x03D54E FF:D53E: 08        .byte $08
+- D - I - - 0x03D54F FF:D53F: 09        .byte $09
+- D - I - - 0x03D550 FF:D540: 0A        .byte $0A
+- D - I - - 0x03D551 FF:D541: 0B        .byte $0B
 off_D542_02:
-- D - I - - 0x03D552 FF:D542: 10        .byte $10   ; <た>
-- D - I - - 0x03D553 FF:D543: 11        .byte $11   ; <ち>
+- D - I - - 0x03D552 FF:D542: 10        .byte $10
+- D - I - - 0x03D553 FF:D543: 11        .byte $11
 off_D544_03:
-- D - I - - 0x03D554 FF:D544: 15        .byte $15   ; <な>
+- D - I - - 0x03D554 FF:D544: 15        .byte $15
 off_D545_04:
-- D - I - - 0x03D555 FF:D545: 14        .byte $14   ; <と>
+- D - I - - 0x03D555 FF:D545: 14        .byte $14
 off_D546_05:
-- D - I - - 0x03D556 FF:D546: 13        .byte $13   ; <て>
+- D - I - - 0x03D556 FF:D546: 13        .byte $13
 off_D547_06:
-- D - I - - 0x03D557 FF:D547: 12        .byte $12   ; <つ>
+- D - I - - 0x03D557 FF:D547: 12        .byte $12
 ; bzk мозможно тут продолжение, хз
 
 
@@ -2560,6 +2577,8 @@ tbl_D561_действие_кипера_если_соперник_принима�
 - D - - - - 0x03D573 FF:D563: FF        .byte $FF ; 
 - D - - - - 0x03D574 FF:D564: 03        .byte $03 ; jump
 
+
+
 sub_0x03D575:
 C D - - - - 0x03D575 FF:D565: 20 73 D5  JSR sub_D573
 C - - - - - 0x03D578 FF:D568: A9 1A     LDA #con_prg_bank + $1A
@@ -2567,6 +2586,8 @@ C - - - - - 0x03D57A FF:D56A: 85 24     STA ram_для_5114
 C - - - - - 0x03D57C FF:D56C: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03D57E FF:D56E: 85 25     STA ram_для_5115
 C - - - - - 0x03D580 FF:D570: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
+
+
 
 sub_D573:
 C - - - - - 0x03D583 FF:D573: A9 00     LDA #$00
@@ -2653,11 +2674,11 @@ C - - - - - 0x03D5FA FF:D5EA: A9 0F     LDA #con_btns_Dpad
 C - - - - - 0x03D5FC FF:D5EC: 2D 1E 00  AND ram_btn_press
 C - - - - - 0x03D5FF FF:D5EF: F0 35     BEQ bra_D626
 C - - - - - 0x03D601 FF:D5F1: A2 00     LDX #$00
-bra_D5F3:
+bra_D5F3_loop:
 C - - - - - 0x03D603 FF:D5F3: 4A        LSR
 C - - - - - 0x03D604 FF:D5F4: B0 03     BCS bra_D5F9
 C - - - - - 0x03D606 FF:D5F6: E8        INX
-C - - - - - 0x03D607 FF:D5F7: D0 FA     BNE bra_D5F3
+C - - - - - 0x03D607 FF:D5F7: D0 FA     BNE bra_D5F3_loop
 bra_D5F9:
 C - - - - - 0x03D609 FF:D5F9: 86 3A     STX ram_003A
 C - - - - - 0x03D60B FF:D5FB: AD 21 06  LDA ram_0621
@@ -2725,6 +2746,8 @@ C - - - - - 0x03D684 FF:D674: A2 00     LDX #$00
 C - - - - - 0x03D686 FF:D676: 20 3D E9  JSR sub_E93D_отображение_выбранного_действия
 C - - - - - 0x03D689 FF:D679: 4C E5 D5  JMP loc_D5E5
 
+
+
 sub_D67C:
 C - - - - - 0x03D68C FF:D67C: AE 3B 04  LDX ram_действие_атаки
 C - - - - - 0x03D68F FF:D67F: BD DE D6  LDA tbl_D6DE,X
@@ -2775,16 +2798,16 @@ C - - - - - 0x03D6D7 FF:D6C7: 20 99 CB  JSR sub_CB99_байты_после_JSR_�
 - D - I - - 0x03D6EC FF:D6DC: 0C D7     .word ofs_059_D70C_F2_F4_F6_F7_F8_F9
 
 tbl_D6DE:
-- D - - - - 0x03D6EE FF:D6DE: 02        .byte $02   ; <い>
-- D - - - - 0x03D6EF FF:D6DF: 01        .byte $01   ; <あ>
+- D - - - - 0x03D6EE FF:D6DE: 02        .byte $02
+- D - - - - 0x03D6EF FF:D6DF: 01        .byte $01
 - D - - - - 0x03D6F0 FF:D6E0: 00        .byte $00
-- D - - - - 0x03D6F1 FF:D6E1: 03        .byte $03   ; <う>
-- D - - - - 0x03D6F2 FF:D6E2: 04        .byte $04   ; <え>
-- D - - - - 0x03D6F3 FF:D6E3: 05        .byte $05   ; <お>
-- D - - - - 0x03D6F4 FF:D6E4: 06        .byte $06   ; <か>
-- D - - - - 0x03D6F5 FF:D6E5: 1E        .byte $1E   ; <ほ>
-- D - - - - 0x03D6F6 FF:D6E6: 1F        .byte $1F   ; <ま>
-- D - - - - 0x03D6F7 FF:D6E7: 20        .byte $20   ; <み>
+- D - - - - 0x03D6F1 FF:D6E1: 03        .byte $03
+- D - - - - 0x03D6F2 FF:D6E2: 04        .byte $04
+- D - - - - 0x03D6F3 FF:D6E3: 05        .byte $05
+- D - - - - 0x03D6F4 FF:D6E4: 06        .byte $06
+- D - - - - 0x03D6F5 FF:D6E5: 1E        .byte $1E
+- D - - - - 0x03D6F6 FF:D6E6: 1F        .byte $1F
+- D - - - - 0x03D6F7 FF:D6E7: 20        .byte $20
 
 
 
@@ -2839,6 +2862,8 @@ tbl_D706_окно_action:
     .byte $02       ; player_action_window
     .byte $2C       ; pk_aim
 
+
+
 loc_D70C:
 ofs_059_D70C_F2_F4_F6_F7_F8_F9:
 C D J - - - 0x03D71C FF:D70C: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
@@ -2847,6 +2872,8 @@ C - - - - - 0x03D721 FF:D711: 8D 2D 06  STA ram_062D
 C - - - - - 0x03D724 FF:D714: 68        PLA
 C - - - - - 0x03D725 FF:D715: 68        PLA
 C - - - - - 0x03D726 FF:D716: 60        RTS
+
+
 
 sub_D717:
 C - - - - - 0x03D727 FF:D717: 48        PHA
@@ -2873,6 +2900,8 @@ C - - - - - 0x03D754 FF:D744: 68        PLA
 bra_D745_RTS:
 C - - - - - 0x03D755 FF:D745: 60        RTS
 
+
+
 sub_D746:
 C - - - - - 0x03D756 FF:D746: 48        PHA
 C - - - - - 0x03D759 FF:D749: A9 1C     LDA #con_prg_bank + $1C
@@ -2894,6 +2923,8 @@ bra_D769:
 C - - - - - 0x03D779 FF:D769: 38        SEC
 C - - - - - 0x03D77A FF:D76A: 60        RTS
 
+
+
 sub_D76B:
 C - - - - - 0x03D77B FF:D76B: 38        SEC
 C - - - - - 0x03D77C FF:D76C: A0 01     LDY #con_plr_guts_lo
@@ -2903,6 +2934,8 @@ C - - - - - 0x03D783 FF:D773: C8        INY
 C - - - - - 0x03D784 FF:D774: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x03D786 FF:D776: ED 40 04  SBC ram_затрата_энергии_hi
 C - - - - - 0x03D789 FF:D779: 60        RTS
+
+
 
 sub_D77A:
 ; обнуление опции супер приемов, ожидание выбора или отмена выбора
@@ -2919,6 +2952,8 @@ C - - - - - 0x03D79F FF:D78F: AA        TAX
 bra_D790:
 C - - - - - 0x03D7A0 FF:D790: 8A        TXA
 C - - - - - 0x03D7A1 FF:D791: 60        RTS
+
+
 
 ofs_059_D792_F0:
 C - J - - - 0x03D7A2 FF:D792: AD 3C 04  LDA ram_подтип_действия_атаки
@@ -2961,6 +2996,8 @@ C - - - - - 0x03D7F2 FF:D7E2: 8D 4A 04  STA ram_таймер_драйв_тигр
 bra_D7E5:
 C - - - - - 0x03D7F5 FF:D7E5: 4C 0C D7  JMP loc_D70C
 
+
+
 sub_0x03D7F8:
 ofs_059_D7E8_F1:
 C D J - - - 0x03D7F8 FF:D7E8: A9 38     LDA #$38
@@ -2976,18 +3013,18 @@ C - - - - - 0x03D80F FF:D7FF: A9 00     LDA #$00
 C - - - - - 0x03D811 FF:D801: 8D 25 06  STA ram_0625
 C - - - - - 0x03D814 FF:D804: AD FE 05  LDA ram_05FE
 C - - - - - 0x03D817 FF:D807: 8D 24 06  STA ram_0624
-bra_D80A:
+bra_D80A_loop:
 C - - - - - 0x03D81A FF:D80A: A9 01     LDA #$01
 C - - - - - 0x03D81C FF:D80C: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03D81F FF:D80F: AD 1C 00  LDA ram_btn_hold
 C - - - - - 0x03D822 FF:D812: 29 0F     AND #con_btns_Dpad
 C - - - - - 0x03D824 FF:D814: F0 21     BEQ bra_D837
 C - - - - - 0x03D826 FF:D816: A2 00     LDX #$00
-bra_D818:
+bra_D818_loop:
 C - - - - - 0x03D828 FF:D818: 4A        LSR
 C - - - - - 0x03D829 FF:D819: B0 03     BCS bra_D81E
 C - - - - - 0x03D82B FF:D81B: E8        INX
-C - - - - - 0x03D82C FF:D81C: D0 FA     BNE bra_D818
+C - - - - - 0x03D82C FF:D81C: D0 FA     BNE bra_D818_loop
 bra_D81E:
 C - - - - - 0x03D82E FF:D81E: BD 4E D8  LDA tbl_D84E,X
 C - - - - - 0x03D831 FF:D821: 18        CLC
@@ -3008,16 +3045,18 @@ C - - - - - 0x03D84E FF:D83E: 60        RTS
 bra_D83F:
 C - - - - - 0x03D84F FF:D83F: A9 80     LDA #con_btn_A
 C - - - - - 0x03D851 FF:D841: 2D 1E 00  AND ram_btn_press
-C - - - - - 0x03D854 FF:D844: F0 C4     BEQ bra_D80A
+C - - - - - 0x03D854 FF:D844: F0 C4     BEQ bra_D80A_loop
 C - - - - - 0x03D856 FF:D846: 20 52 D8  JSR sub_D852
-C - - - - - 0x03D859 FF:D849: 90 BF     BCC bra_D80A
+C - - - - - 0x03D859 FF:D849: 90 BF     BCC bra_D80A_loop
 C - - - - - 0x03D85B FF:D84B: 4C 0C D7  JMP loc_D70C
 
 tbl_D84E:
-- D - - - - 0x03D85E FF:D84E: 0C        .byte $0C   ; <し>
+- D - - - - 0x03D85E FF:D84E: 0C        .byte $0C
 - D - - - - 0x03D85F FF:D84F: F4        .byte $F4
-- D - - - - 0x03D860 FF:D850: 01        .byte $01   ; <あ>
+- D - - - - 0x03D860 FF:D850: 01        .byte $01
 - D - - - - 0x03D861 FF:D851: FF        .byte $FF
+
+
 
 loc_0x03D862:
 sub_D852:
@@ -3039,7 +3078,7 @@ C - - - - - 0x03D87E FF:D86E: 20 7F EF  JSR sub_EF7F_отрисовка_меню
 C - - - - - 0x03D881 FF:D871: A9 00     LDA #$00
 C - - - - - 0x03D883 FF:D873: 8D 25 06  STA ram_0625
 C - - - - - 0x03D886 FF:D876: 4C B5 D8  JMP loc_D8B5
-bra_D879:
+bra_D879_loop:
 C - - - - - 0x03D889 FF:D879: A9 01     LDA #$01
 C - - - - - 0x03D88B FF:D87B: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03D88E FF:D87E: A9 40     LDA #con_btn_B
@@ -3075,13 +3114,13 @@ loc_D8B5:
 C D - - - - 0x03D8C5 FF:D8B5: AE 25 06  LDX ram_0625
 C - - - - - 0x03D8C8 FF:D8B8: BD 31 04  LDA ram_список_спешалов + 1,X
 C - - - - - 0x03D8CB FF:D8BB: 8D FC 05  STA ram_принимающий
-C - - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot
+C - - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #$1D      ; receiver_dribble_pass_shoot
 C - - - - - 0x03D8D0 FF:D8C0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D8C3:
 C - - - - - 0x03D8D3 FF:D8C3: 20 DA D8  JSR sub_D8DA_курсор_выбора_из_нескольких_напарников_для_паса
 C - - - - - 0x03D8D6 FF:D8C6: A9 80     LDA #con_btn_A
 C - - - - - 0x03D8D8 FF:D8C8: 2D 1E 00  AND ram_btn_press
-C - - - - - 0x03D8DB FF:D8CB: F0 AC     BEQ bra_D879
+C - - - - - 0x03D8DB FF:D8CB: F0 AC     BEQ bra_D879_loop
 C - - - - - 0x03D8DD FF:D8CD: A9 F8     LDA #$F8
 C - - - - - 0x03D8DF FF:D8CF: 8D FC 02  STA ram_spr_Y + $FC
 loc_D8D2:
@@ -3089,6 +3128,8 @@ C D - - - - 0x03D8E2 FF:D8D2: AD 24 06  LDA ram_0624
 C - - - - - 0x03D8E5 FF:D8D5: 8D 38 06  STA ram_0638
 C - - - - - 0x03D8E8 FF:D8D8: 38        SEC
 C - - - - - 0x03D8E9 FF:D8D9: 60        RTS
+
+
 
 sub_D8DA_курсор_выбора_из_нескольких_напарников_для_паса:
 C - - - - - 0x03D8EA FF:D8DA: AD 25 06  LDA ram_0625
@@ -3107,12 +3148,14 @@ C - - - - - 0x03D901 FF:D8F1: A9 50     LDA #$3E
 C - - - - - 0x03D903 FF:D8F3: 8D FF 02  STA ram_spr_X + $FC
 C - - - - - 0x03D906 FF:D8F6: 60        RTS
 
-loc_0x03D907:
+
+
 sub_D8F7:
+loc_0x03D907:
 C D - - - - 0x03D907 FF:D8F7: A9 00     LDA #$00
 C - - - - - 0x03D909 FF:D8F9: 8D 30 04  STA ram_список_спешалов
 C - - - - - 0x03D90C FF:D8FC: 8D 25 06  STA ram_0625
-bra_D8FF:
+bra_D8FF_loop:
 C - - - - - 0x03D90F FF:D8FF: 48        PHA
 C - - - - - 0x03D910 FF:D900: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03D913 FF:D903: F0 3C     BEQ bra_D941
@@ -3150,10 +3193,10 @@ C - - - - - 0x03D951 FF:D941: 68        PLA
 C - - - - - 0x03D952 FF:D942: 18        CLC
 C - - - - - 0x03D953 FF:D943: 69 01     ADC #$01
 C - - - - - 0x03D955 FF:D945: C9 16     CMP #$16
-C - - - - - 0x03D957 FF:D947: D0 B6     BNE bra_D8FF
+C - - - - - 0x03D957 FF:D947: D0 B6     BNE bra_D8FF_loop
 C - - - - - 0x03D959 FF:D949: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D95C FF:D94C: D0 06     BNE bra_D954
-C - - - - - 0x03D95E FF:D94E: A9 1C     LDA #$1C      ; clear_reciever_stats_window
+C - - - - - 0x03D95E FF:D94E: A9 1C     LDA #$1C      ; clear_receiver_stats_window
 C - - - - - 0x03D960 FF:D950: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D963 FF:D953: 60        RTS
 bra_D954:
@@ -3169,7 +3212,7 @@ C - - - - - 0x03D971 FF:D961: CA        DEX
 C - - - - - 0x03D972 FF:D962: D0 0C     BNE bra_D970
 C - - - - - 0x03D974 FF:D964: AD 31 04  LDA ram_список_спешалов + 1
 C - - - - - 0x03D977 FF:D967: 8D FC 05  STA ram_принимающий
-C - - - - - 0x03D97A FF:D96A: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot
+C - - - - - 0x03D97A FF:D96A: A9 1D     LDA #$1D      ; receiver_dribble_pass_shoot
 C - - - - - 0x03D97C FF:D96C: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D97F FF:D96F: 60        RTS
 bra_D970:
@@ -3178,6 +3221,8 @@ C - - - - - 0x03D981 FF:D971: 18        CLC
 C - - - - - 0x03D982 FF:D972: 69 18     ADC #$18      ; ? show_?_teammates
 C - - - - - 0x03D984 FF:D974: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D987 FF:D977: 60        RTS
+
+
 
 ofs_059_D979_F3:
 C - J - - - 0x03D989 FF:D979: A9 38     LDA #$38
@@ -3191,7 +3236,7 @@ C - - - - - 0x03D999 FF:D989: A9 01     LDA #$01
 C - - - - - 0x03D99B FF:D98B: 85 3A     STA ram_003A
 C - - - - - 0x03D99D FF:D98D: A9 00     LDA #$00
 C - - - - - 0x03D99F FF:D98F: 8D 30 04  STA ram_список_спешалов
-bra_D992:
+bra_D992_loop:
 C - - - - - 0x03D9A2 FF:D992: A5 3A     LDA ram_003A
 C - - - - - 0x03D9A4 FF:D994: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03D9A7 FF:D997: F0 10     BEQ bra_D9A9
@@ -3205,7 +3250,7 @@ bra_D9A9:
 C - - - - - 0x03D9B9 FF:D9A9: E6 3A     INC ram_003A
 C - - - - - 0x03D9BB FF:D9AB: A5 3A     LDA ram_003A
 C - - - - - 0x03D9BD FF:D9AD: C9 0B     CMP #$0B
-C - - - - - 0x03D9BF FF:D9AF: D0 E1     BNE bra_D992
+C - - - - - 0x03D9BF FF:D9AF: D0 E1     BNE bra_D992_loop
 C - - - - - 0x03D9C1 FF:D9B1: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D9C4 FF:D9B4: D0 12     BNE bra_D9C8
 C - - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #$11      ; no_players_nearby
@@ -3254,7 +3299,7 @@ C D - - - - 0x03DA13 FF:DA03: 8D 25 06  STA ram_0625
 C - - - - - 0x03DA16 FF:DA06: AA        TAX
 C - - - - - 0x03DA17 FF:DA07: BD 31 04  LDA ram_список_спешалов + 1,X
 C - - - - - 0x03DA1A FF:DA0A: 8D FC 05  STA ram_принимающий
-C - - - - - 0x03DA1D FF:DA0D: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot 
+C - - - - - 0x03DA1D FF:DA0D: A9 1D     LDA #$1D      ; receiver_dribble_pass_shoot 
 C - - - - - 0x03DA1F FF:DA0F: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_DA12:
 C - - - - - 0x03DA22 FF:DA12: A9 40     LDA #con_btn_B
@@ -3276,6 +3321,8 @@ C - - - - - 0x03DA40 FF:DA30: A8        TAY
 C - - - - - 0x03DA41 FF:DA31: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03DA44 FF:DA34: 8D 38 06  STA ram_0638
 C - - - - - 0x03DA47 FF:DA37: 4C 0C D7  JMP loc_D70C
+
+
 
 sub_DA3A:
 C - - - - - 0x03DA4A FF:DA3A: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
@@ -3305,6 +3352,8 @@ bra_DA63:
 C - - - - - 0x03DA73 FF:DA63: 18        CLC
 C - - - - - 0x03DA74 FF:DA64: 60        RTS
 
+
+
 ofs_059_DA65_F5:
 C - J - - - 0x03DA75 FF:DA65: A9 38     LDA #$38
 C - - - - - 0x03DA77 FF:DA67: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -3312,7 +3361,7 @@ C - - - - - 0x03DA7A FF:DA6A: A9 83     LDA #$83
 C - - - - - 0x03DA7C FF:DA6C: 8D 2D 06  STA ram_062D
 C - - - - - 0x03DA7F FF:DA6F: A9 00     LDA #$00
 C - - - - - 0x03DA81 FF:DA71: 8D 24 06  STA ram_0624
-bra_DA74:
+bra_DA74_loop:
 C - - - - - 0x03DA84 FF:DA74: A9 01     LDA #$01
 C - - - - - 0x03DA86 FF:DA76: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03DA89 FF:DA79: AE 24 06  LDX ram_0624
@@ -3329,11 +3378,13 @@ C - - - - - 0x03DA9D FF:DA8D: 60        RTS
 bra_DA8E:
 C - - - - - 0x03DA9E FF:DA8E: A9 80     LDA #con_btn_A
 C - - - - - 0x03DAA0 FF:DA90: 2D 1E 00  AND ram_btn_press
-C - - - - - 0x03DAA3 FF:DA93: F0 DF     BEQ bra_DA74
+C - - - - - 0x03DAA3 FF:DA93: F0 DF     BEQ bra_DA74_loop
 C - - - - - 0x03DAA5 FF:DA95: 4C 0C D7  JMP loc_D70C
 
-loc_0x03DABA:
+
+
 loc_DAAA:
+loc_0x03DABA:
 ; срабатывает до первой разводки тайма, и каждый раз перед разводкой после гола
 C D - - - - 0x03DABA FF:DAAA: A9 01     LDA #con_музыка_выключить_все
 C - - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
@@ -3424,6 +3475,8 @@ C - - - - - 0x03DB6B FF:DB5B: 8E 4F 04  STX ram_чья_команда_разво
 C - - - - - 0x03DB6E FF:DB5E: 8E FB 05  STX ram_команда_с_мячом
 C - - - - - 0x03DB71 FF:DB61: 60        RTS
 
+
+
 sub_0x03DB72:
 C D - - - - 0x03DB72 FF:DB62: A9 0A     LDA #$0A
 C - - - - - 0x03DB74 FF:DB64: AE 2A 00  LDX ram_твоя_команда
@@ -3431,6 +3484,7 @@ C - - - - - 0x03DB77 FF:DB67: E0 02     CPX #$02
 C - - - - - 0x03DB79 FF:DB69: D0 02     BNE bra_DB6D
 C - - - - - 0x03DB7B FF:DB6B: A9 14     LDA #$14
 bra_DB6D:
+bra_DB6D_loop:
 C - - - - - 0x03DB7D FF:DB6D: 48        PHA
 C - - - - - 0x03DB7E FF:DB6E: C9 0B     CMP #$0B
 C - - - - - 0x03DB80 FF:DB70: 90 02     BCC bra_DB74
@@ -3457,14 +3511,16 @@ C - - - - - 0x03DBA5 FF:DB95: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x03DBA7 FF:DB97: 68        PLA
 C - - - - - 0x03DBA8 FF:DB98: 38        SEC
 C - - - - - 0x03DBA9 FF:DB99: E9 01     SBC #$01
-C - - - - - 0x03DBAB FF:DB9B: 10 D0     BPL bra_DB6D
+C - - - - - 0x03DBAB FF:DB9B: 10 D0     BPL bra_DB6D_loop
 C - - - - - 0x03DBAD FF:DB9D: 60        RTS
+
+
 
 ofs_060_DB9E_01:
 C - J - - - 0x03DBAE FF:DB9E: 20 F3 DB  JSR sub_DBF3
 C - - - - - 0x03DBB1 FF:DBA1: A2 00     LDX #$00
 C - - - - - 0x03DBB3 FF:DBA3: AD 2B 00  LDA ram_команда_соперника
-bra_DBA6:
+bra_DBA6_loop:
 C - - - - - 0x03DBB6 FF:DBA6: DD EA DB  CMP tbl_DBEA,X
 C - - - - - 0x03DBB9 FF:DBA9: F0 09     BEQ bra_DBB4
 C - - - - - 0x03DBBB FF:DBAB: E8        INX
@@ -3472,7 +3528,7 @@ C - - - - - 0x03DBBC FF:DBAC: E8        INX
 C - - - - - 0x03DBBD FF:DBAD: E8        INX
 C - - - - - 0x03DBBE FF:DBAE: E0 09     CPX #$09
 C - - - - - 0x03DBC0 FF:DBB0: F0 19     BEQ bra_DBCB_RTS
-C - - - - - 0x03DBC2 FF:DBB2: D0 F2     BNE bra_DBA6
+C - - - - - 0x03DBC2 FF:DBB2: D0 F2     BNE bra_DBA6_loop
 bra_DBB4:
 C - - - - - 0x03DBC4 FF:DBB4: BD EB DB  LDA tbl_DBEA + 1,X
 C - - - - - 0x03DBC7 FF:DBB7: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
@@ -3486,9 +3542,11 @@ C - - - - - 0x03DBD8 FF:DBC8: 20 CC DB  JSR sub_DBCC
 bra_DBCB_RTS:
 C - - - - - 0x03DBDB FF:DBCB: 60        RTS
 
+
+
 sub_DBCC:
 C - - - - - 0x03DBDC FF:DBCC: A9 0C     LDA #$0C
-bra_DBCE:
+bra_DBCE_loop:
 C - - - - - 0x03DBDE FF:DBCE: 48        PHA
 ; почему-то 10-й игрок команды соперников пропускается
 C - - - - - 0x03DBDF FF:DBCF: C9 14     CMP #$14
@@ -3505,7 +3563,7 @@ C - - - - - 0x03DBF1 FF:DBE1: 68        PLA
 C - - - - - 0x03DBF2 FF:DBE2: 18        CLC
 C - - - - - 0x03DBF3 FF:DBE3: 69 01     ADC #$01
 C - - - - - 0x03DBF5 FF:DBE5: C9 16     CMP #$16
-C - - - - - 0x03DBF7 FF:DBE7: D0 E5     BNE bra_DBCE
+C - - - - - 0x03DBF7 FF:DBE7: D0 E5     BNE bra_DBCE_loop
 C - - - - - 0x03DBF9 FF:DBE9: 60        RTS
 
 tbl_DBEA:
@@ -3520,6 +3578,8 @@ tbl_DBEA:
 - D - - - - 0x03DC00 FF:DBF0: 12        .byte $12   ; <つ>
 - D - - - - 0x03DC01 FF:DBF1: 15        .byte $15   ; <な>
 - D - - - - 0x03DC02 FF:DBF2: 45        .byte $45   ; <オ>
+
+
 
 sub_DBF3:
 ofs_060_DBF3_03:

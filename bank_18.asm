@@ -4221,8 +4221,8 @@ tbl_B3CF_вид_меню:
     .word off_B673_19_show_2_teammates                          ; показать напарников при перемещении курсора паса
     .word off_B688_1A_show_3_teammates
     .word off_B6A1_1B_show_4_teammates
-    .word off_B6BE_1C_clear_reciever_stats_window               ; очистить окно статов принимаюшего
-    .word off_B6C7_1D_reciever_dribble_pass_shoot               ; отобразить статы принимающего
+    .word off_B6BE_1C_clear_receiver_stats_window               ; очистить окно статов принимаюшего
+    .word off_B6C7_1D_receiver_dribble_pass_shoot               ; отобразить статы принимающего
     .word off_B6E4_1E_opponent_trap_clearing_pass           ; unused
     .word off_B701_1F_opponent_trap_shot_pass               ; unused
     .word off_B71E_20_show_1_opponent                           ; показать соперников при перемещении курсора паса
@@ -4279,7 +4279,7 @@ con_stats_attack                        = $E1           ; статы напад�
     con_atk_trap                            = $09
     con_atk_clearing                        = $0B
 con_rec_name_pos                        = $E2           ; позиция и имя принимающего
-con_stats_reciever                      = $E3
+con_stats_receiver                      = $E3
     con_rec_stamina                         = $00
     con_rec_shoot                           = $01
     con_rec_pass                            = $02
@@ -5579,20 +5579,20 @@ off_B673_19_show_2_teammates:
     .word @txt
     .byte $02
     .byte $03
-    .word @reciever_1
+    .word @receiver_1
     .byte $04
     .byte $03
-    .word @reciever_2
+    .word @receiver_2
 
 @txt:
     .text "Teammates"
     .byte con_закончить
 
-@reciever_1:
+@receiver_1:
     .byte con_rec_name_teammate, $00
     .byte con_закончить
 
-@reciever_2:
+@receiver_2:
     .byte con_rec_name_teammate, $01
     .byte con_закончить
 
@@ -5623,27 +5623,27 @@ off_B688_1A_show_3_teammates:
     .word @txt
     .byte $02
     .byte $03
-    .word @reciever_1
+    .word @receiver_1
     .byte $04
     .byte $03
-    .word @reciever_2
+    .word @receiver_2
     .byte $06
     .byte $03
-    .word @reciever_3
+    .word @receiver_3
 
 @txt:
     .text "Teammates"
     .byte con_закончить
 
-@reciever_1:
+@receiver_1:
     .byte con_rec_name_teammate, $00
     .byte con_закончить
 
-@reciever_2:
+@receiver_2:
     .byte con_rec_name_teammate, $01
     .byte con_закончить
 
-@reciever_3:
+@receiver_3:
     .byte con_rec_name_teammate, $02
     .byte con_закончить
 
@@ -5674,34 +5674,34 @@ off_B6A1_1B_show_4_teammates:
     .word @txt
     .byte $02
     .byte $03
-    .word @reciever_1
+    .word @receiver_1
     .byte $04
     .byte $03
-    .word @reciever_2
+    .word @receiver_2
     .byte $06
     .byte $03
-    .word @reciever_3
+    .word @receiver_3
     .byte $08
     .byte $03
-    .word @reciever_4
+    .word @receiver_4
 
 @txt:
     .text "Teammates"
     .byte con_закончить
 
-@reciever_1:
+@receiver_1:
     .byte con_rec_name_teammate, $00
     .byte con_закончить
 
-@reciever_2:
+@receiver_2:
     .byte con_rec_name_teammate, $01
     .byte con_закончить
 
-@reciever_3:
+@receiver_3:
     .byte con_rec_name_teammate, $02
     .byte con_закончить
 
-@reciever_4:
+@receiver_4:
     .byte con_rec_name_teammate, $03
     .byte con_закончить
 
@@ -5710,7 +5710,7 @@ off_B6A1_1B_show_4_teammates:
 
 
 
-off_B6BE_1C_clear_reciever_stats_window:
+off_B6BE_1C_clear_receiver_stats_window:
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
@@ -5733,7 +5733,7 @@ off_B6BE_1C_clear_reciever_stats_window:
 
 
 
-off_B6C7_1D_reciever_dribble_pass_shoot:
+off_B6C7_1D_receiver_dribble_pass_shoot:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5772,22 +5772,22 @@ off_B6C7_1D_reciever_dribble_pass_shoot:
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_reciever, con_rec_stamina
+    .byte con_stats_receiver, con_rec_stamina
     .byte con_закончить
 
 @dribble:
     .text "Dribble    "
-    .byte con_stats_reciever, con_rec_dribble
+    .byte con_stats_receiver, con_rec_dribble
     .byte con_закончить
 
 @pass:
     .text "Pass       "
-    .byte con_stats_reciever, con_rec_pass
+    .byte con_stats_receiver, con_rec_pass
     .byte con_закончить
 
 @shoot:
     .text "Shoot      "
-    .byte con_stats_reciever, con_rec_shoot
+    .byte con_stats_receiver, con_rec_shoot
     .byte con_закончить
 
 
@@ -6149,20 +6149,20 @@ off_B77A_24_select_1_of_2_teammates_for_pass:
     .word @txt
     .byte $02
     .byte $02
-    .word @reciever_1
+    .word @receiver_1
     .byte $04
     .byte $02
-    .word @reciever_2
+    .word @receiver_2
 
 @txt:
     .text "To whom?"
     .byte con_закончить
 
-@reciever_1:
+@receiver_1:
     .byte con_rec_name_teammate, $00
     .byte con_закончить
 
-@reciever_2:
+@receiver_2:
     .byte con_rec_name_teammate, $01
     .byte con_закончить
 
@@ -6193,27 +6193,27 @@ off_B78F_25_select_1_of_3_teammates_for_pass:
     .word @txt
     .byte $02
     .byte $02
-    .word @reciever_1
+    .word @receiver_1
     .byte $04
     .byte $02
-    .word @reciever_2
+    .word @receiver_2
     .byte $06
     .byte $02
-    .word @reciever_3
+    .word @receiver_3
 
 @txt:
     .text "To whom?"
     .byte con_закончить
 
-@reciever_1:
+@receiver_1:
     .byte con_rec_name_teammate, $00
     .byte con_закончить
 
-@reciever_2:
+@receiver_2:
     .byte con_rec_name_teammate, $01
     .byte con_закончить
 
-@reciever_3:
+@receiver_3:
     .byte con_rec_name_teammate, $02
     .byte con_закончить
 
@@ -6244,34 +6244,34 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
     .word @txt
     .byte $02
     .byte $02
-    .word @reciever_1
+    .word @receiver_1
     .byte $04
     .byte $02
-    .word @reciever_2
+    .word @receiver_2
     .byte $06
     .byte $02
-    .word @reciever_3
+    .word @receiver_3
     .byte $08
     .byte $02
-    .word @reciever_4
+    .word @receiver_4
 
 @txt:
     .text "To whom?"
     .byte con_закончить
 
-@reciever_1:
+@receiver_1:
     .byte con_rec_name_teammate, $00
     .byte con_закончить
 
-@reciever_2:
+@receiver_2:
     .byte con_rec_name_teammate, $01
     .byte con_закончить
 
-@reciever_3:
+@receiver_3:
     .byte con_rec_name_teammate, $02
     .byte con_закончить
 
-@reciever_4:
+@receiver_4:
     .byte con_rec_name_teammate, $03
     .byte con_закончить
 
@@ -8486,17 +8486,17 @@ off_BCF9_позиция_и_имя_принимающего:
 
 off_BCFB_энергия_принимающего:
     .text "Stamina    "
-    .byte con_stats_reciever, con_rec_stamina
+    .byte con_stats_receiver, con_rec_stamina
     .byte con_закончить
 
 off_BD06_shoot_принимающего:
     .text "Shoot      "
-    .byte con_stats_reciever, con_rec_shoot
+    .byte con_stats_receiver, con_rec_shoot
     .byte con_закончить
 
 off_BD1C_pass_принимающего:
     .text "Pass       "
-    .byte con_stats_reciever, con_rec_pass
+    .byte con_stats_receiver, con_rec_pass
     .byte con_закончить
 
 off_BD27:       ; unused <トラップ>
@@ -8508,7 +8508,7 @@ off_BD27:       ; unused <トラップ>
 - - - - - - 0x033D3C 22:BD2C: 00        .byte $00
 - - - - - - 0x033D3D 22:BD2D: 00        .byte $00
 - - - - - - 0x033D3E 22:BD2E: 00        .byte $00
-- - - - - - 0x033D3F 22:BD2F: E3        .byte con_stats_reciever, con_rec_trap
+- - - - - - 0x033D3F 22:BD2F: E3        .byte con_stats_receiver, con_rec_trap
 - - - - - - 0x033D41 22:BD31: FC        .byte con_закончить
 
 off_BD32:       ; unused <クリアー>
@@ -8520,5 +8520,5 @@ off_BD32:       ; unused <クリアー>
 - - - - - - 0x033D47 22:BD37: 00        .byte $00
 - - - - - - 0x033D48 22:BD38: 00        .byte $00
 - - - - - - 0x033D49 22:BD39: 00        .byte $00
-- - - - - - 0x033D4A 22:BD3A: E3        .byte con_stats_reciever, con_rec_clearing
+- - - - - - 0x033D4A 22:BD3A: E3        .byte con_stats_receiver, con_rec_clearing
 - - - - - - 0x033D4C 22:BD3C: FC        .byte con_закончить

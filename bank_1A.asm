@@ -4283,10 +4283,10 @@ C - - - - - 0x035E06 23:9DF6: A5 3A     LDA ram_003A
 C - - - - - 0x035E08 23:9DF8: C9 0B     CMP #$0B
 C - - - - - 0x035E0A 23:9DFA: D0 DC     BNE bra_9DD8_loop
 C - - - - - 0x035E0C 23:9DFC: A2 FF     LDX #$FF
-C - - - - - 0x035E0E 23:9DFE: A9 1C     LDA #$1C      ; clear_reciever_stats_window
+C - - - - - 0x035E0E 23:9DFE: A9 1C     LDA #$1C      ; clear_receiver_stats_window
 C - - - - - 0x035E10 23:9E00: D0 04     BNE bra_9E06_очистить_экран_справа
 bra_9E02_игрок_найден:
-C - - - - - 0x035E12 23:9E02: A9 1D     LDA #$1D      ; reciever_dribble_pass_shoot
+C - - - - - 0x035E12 23:9E02: A9 1D     LDA #$1D      ; receiver_dribble_pass_shoot
 C - - - - - 0x035E14 23:9E04: A6 3A     LDX ram_003A
 bra_9E06_очистить_экран_справа:
 C - - - - - 0x035E16 23:9E06: 8E FC 05  STX ram_принимающий
