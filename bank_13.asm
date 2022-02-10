@@ -4271,9 +4271,9 @@ C D - - - - 0x027349 19:B339: A5 8A     LDA ram_008A
 C - - - - - 0x02734B 19:B33B: 18        CLC
 C - - - - - 0x02734C 19:B33C: 65 88     ADC ram_0088
 C - - - - - 0x02734E 19:B33E: 85 88     STA ram_0088
-C - - - - - 0x027350 19:B340: 90 02     BCC bra_B344_не_overflow
+C - - - - - 0x027350 19:B340: 90 02     BCC bra_B344_not_overflow
 C - - - - - 0x027352 19:B342: E6 89     INC ram_0089
-bra_B344_не_overflow:
+bra_B344_not_overflow:
 C - - - - - 0x027354 19:B344: A9 00     LDA #$00
 C - - - - - 0x027356 19:B346: 85 8A     STA ram_008A
 C - - - - - 0x027358 19:B348: 60        RTS

@@ -23,9 +23,9 @@ C - - - - - 0x02802E 20:801E: A2 68     LDX #< tbl_8968_анимации_сце�
 C - - - - - 0x028030 20:8020: 86 4C     STX ram_anim_data
 C - - - - - 0x028032 20:8022: A2 89     LDX #> tbl_8968_анимации_сценариев
 C - - - - - 0x028036 20:8026: 0A        ASL
-C - - - - - 0x028037 20:8027: 90 02     BCC bra_802A
+C - - - - - 0x028037 20:8027: 90 02     BCC bra_802A_not_overflow
 C - - - - - 0x028039 20:8029: E6 4D     INX
-bra_802A:
+bra_802A_not_overflow:
 C - - - - - 0x028034 20:802A: 86 4D     STX ram_anim_data + 1
 C - - - - - 0x02803B 20:802B: A8        TAY
 C - - - - - 0x02803C 20:802C: B1 4C     LDA (ram_anim_data),Y
@@ -682,7 +682,8 @@ loc_83CF_сместить_указатель:
 C D - - - - 0x0283DF 20:83CF: 18        CLC
 C - - - - - 0x0283E0 20:83D0: 65 4C     ADC ram_anim_data
 C - - - - - 0x0283E2 20:83D2: 85 4C     STA ram_anim_data
-C - - - - - 0x0283E4 20:83D4: 90 02     BCC bra_83D8_RTS
+C - - - - - 0x0283E4 20:83D4: 90 02     BCC bra_83D8_RTS    ; if not overflow
+; if overflow
 C - - - - - 0x0283E6 20:83D6: E6 4D     INC ram_anim_data + 1
 bra_83D8_RTS:
 C - - - - - 0x0283E8 20:83D8: 60        RTS
@@ -893,7 +894,8 @@ C - - - - - 0x028514 20:8504: A9 04     LDA #$04
 C - - - - - 0x028516 20:8506: 18        CLC
 C - - - - - 0x028517 20:8507: 65 3E     ADC ram_003E
 C - - - - - 0x028519 20:8509: 85 3E     STA ram_003E
-C - - - - - 0x02851B 20:850B: 90 02     BCC bra_850F
+C - - - - - 0x02851B 20:850B: 90 02     BCC bra_850F    ; if not overflow
+; if overflow
 C - - - - - 0x02851D 20:850D: E6 3F     INC ram_003F
 bra_850F:
 C - - - - - 0x02851F 20:850F: A0 00     LDY #$00

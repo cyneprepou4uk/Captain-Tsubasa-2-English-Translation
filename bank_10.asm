@@ -71,9 +71,9 @@ C - - - - - 0x02009C 17:808C: A5 3A     LDA ram_003A
 C - - - - - 0x02009E 17:808E: 18        CLC
 C - - - - - 0x02009F 17:808F: 65 5D     ADC ram_сценарий_data
 C - - - - - 0x0200A1 17:8091: 85 5D     STA ram_сценарий_data
-C - - - - - 0x0200A3 17:8093: 90 02     BCC bra_8097
+C - - - - - 0x0200A3 17:8093: 90 02     BCC bra_8097_not_overflow
 C - - - - - 0x0200A5 17:8095: E6 5E     INC ram_сценарий_data + 1
-bra_8097:
+bra_8097_not_overflow:
 C - - - - - 0x0200A7 17:8097: A2 15     LDX #$15
 C - - - - - 0x0200A9 17:8099: A9 F0     LDA #$F0
 C - - - - - 0x0200AB 17:809B: 95 01     STA ram_0001,X
@@ -163,17 +163,17 @@ C - - - - - 0x020122 17:8112: 65 3A     ADC ram_003A
 C - - - - - 0x020124 17:8114: 18        CLC
 C - - - - - 0x020125 17:8115: 65 5D     ADC ram_сценарий_data
 C - - - - - 0x020127 17:8117: 85 5D     STA ram_сценарий_data
-C - - - - - 0x020129 17:8119: 90 02     BCC bra_811D
+C - - - - - 0x020129 17:8119: 90 02     BCC bra_811D_not_overflow
 C - - - - - 0x02012B 17:811B: E6 5E     INC ram_сценарий_data + 1
-bra_811D:
+bra_811D_not_overflow:
 C - - - - - 0x02012D 17:811D: A0 00     LDY #$00
 C - - - - - 0x02012F 17:811F: B1 5D     LDA (ram_сценарий_data),Y
 C - - - - - 0x020131 17:8121: 18        CLC
 C - - - - - 0x020132 17:8122: 65 5D     ADC ram_сценарий_data
 C - - - - - 0x020134 17:8124: 85 5D     STA ram_сценарий_data
-C - - - - - 0x020136 17:8126: 90 02     BCC bra_812A
+C - - - - - 0x020136 17:8126: 90 02     BCC bra_812A_not_overflow
 C - - - - - 0x020138 17:8128: E6 5E     INC ram_сценарий_data + 1
-bra_812A:
+bra_812A_not_overflow:
 C - - - - - 0x02013A 17:812A: A9 00     LDA #$00
 C - - - - - 0x02013C 17:812C: 85 3A     STA ram_003A
 C - - - - - 0x02013E 17:812E: 60        RTS
@@ -1401,9 +1401,9 @@ C - - - - - 0x020677 17:8667: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x020679 17:8669: 18        CLC
 C - - - - - 0x02067A 17:866A: 69 00     ADC #$00
 C - - - - - 0x02067C 17:866C: C9 80     CMP #$80
-C - - - - - 0x02067E 17:866E: 90 02     BCC bra_8672
+C - - - - - 0x02067E 17:866E: 90 02     BCC bra_8672_not_overflow
 - - - - - - 0x020680 17:8670: A9 7F     LDA #$7F
-bra_8672:
+bra_8672_not_overflow:
 C - - - - - 0x020682 17:8672: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x020684 17:8674: A2 01     LDX #$01
 bra_8676_RTS:

@@ -268,7 +268,7 @@ C - - - - - 0x0021F8 02:A1E8: 30 0D     BMI bra_A1F7_сместить_назад
 C - - - - - 0x0021FA 02:A1EA: 18        CLC
 C - - - - - 0x0021FB 02:A1EB: 65 EC     ADC ram_00EC
 C - - - - - 0x0021FD 02:A1ED: C9 41     CMP #$41
-C - - - - - 0x0021FF 02:A1EF: 90 10     BCC bra_A201_не_overflow
+C - - - - - 0x0021FF 02:A1EF: 90 10     BCC bra_A201_not_overflow
 C - - - - - 0x002201 02:A1F1: 38        SEC
 C - - - - - 0x002202 02:A1F2: E9 41     SBC #$41
 C - - - - - 0x002204 02:A1F4: 4C 01 A2  JMP loc_A201
@@ -276,10 +276,10 @@ bra_A1F7_сместить_назад:
 C - - - - - 0x002207 02:A1F7: 18        CLC
 C - - - - - 0x002208 02:A1F8: 65 EC     ADC ram_00EC
 C - - - - - 0x00220A 02:A1FA: C9 41     CMP #$41
-C - - - - - 0x00220C 02:A1FC: 90 03     BCC bra_A201_не_overflow
+C - - - - - 0x00220C 02:A1FC: 90 03     BCC bra_A201_not_overflow
 C - - - - - 0x00220E 02:A1FE: 18        CLC
 C - - - - - 0x00220F 02:A1FF: 69 41     ADC #$41
-bra_A201_не_overflow:
+bra_A201_not_overflow:
 loc_A201:
 C D - - - - 0x002211 02:A201: 85 EC     STA ram_00EC
 C - - - - - 0x002213 02:A203: AA        TAX
@@ -325,17 +325,17 @@ loc_A252_сместить_курсор_пароля_вправо:
 C D - - - - 0x002262 02:A252: A6 ED     LDX ram_00ED
 C - - - - - 0x002264 02:A254: E8        INX
 C - - - - - 0x002265 02:A255: E0 12     CPX #$12
-C - - - - - 0x002267 02:A257: 90 02     BCC bra_A25B_не_overflow
+C - - - - - 0x002267 02:A257: 90 02     BCC bra_A25B_not_overflow
 C - - - - - 0x002269 02:A259: A2 00     LDX #$00
-bra_A25B_не_overflow:
+bra_A25B_not_overflow:
 C - - - - - 0x00226B 02:A25B: 86 ED     STX ram_00ED
 C - - - - - 0x00226D 02:A25D: 4C A6 A1  JMP loc_A1A6
 loc_A260_сместить_курсор_пароля_влево:
 C D - - - - 0x002270 02:A260: A6 ED     LDX ram_00ED
 C - - - - - 0x002272 02:A262: CA        DEX
-C - - - - - 0x002273 02:A263: 10 02     BPL bra_A267_не_overflow
+C - - - - - 0x002273 02:A263: 10 02     BPL bra_A267_not_overflow
 C - - - - - 0x002275 02:A265: A2 11     LDX #$11
-bra_A267_не_overflow:
+bra_A267_not_overflow:
 C - - - - - 0x002277 02:A267: 86 ED     STX ram_00ED
 C - - - - - 0x002279 02:A269: 4C A6 A1  JMP loc_A1A6
 bra_A26C_проверить_введенный_пароль:
@@ -2250,11 +2250,11 @@ C - - - - - 0x002FB6 02:AFA6: 9D 54 04  STA ram_опыт_lo,X
 C - - - - - 0x002FB9 02:AFA9: BD 55 04  LDA ram_опыт_hi,X
 C - - - - - 0x002FBC 02:AFAC: 65 E7     ADC ram_00E7
 C - - - - - 0x002FBE 02:AFAE: 9D 55 04  STA ram_опыт_hi,X
-C - - - - - 0x002FC1 02:AFB1: 90 08     BCC bra_AFBB_не_overflow
+C - - - - - 0x002FC1 02:AFB1: 90 08     BCC bra_AFBB_not_overflow
 - - - - - - 0x002FC3 02:AFB3: A9 FF     LDA #$FF
 - - - - - - 0x002FC5 02:AFB5: 9D 54 04  STA ram_опыт_lo,X
 - - - - - - 0x002FC8 02:AFB8: 9D 55 04  STA ram_опыт_hi,X
-bra_AFBB_не_overflow:
+bra_AFBB_not_overflow:
 C - - - - - 0x002FCB 02:AFBB: E8        INX
 C - - - - - 0x002FCC 02:AFBC: E8        INX
 C - - - - - 0x002FCD 02:AFBD: E0 16     CPX #$16

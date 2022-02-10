@@ -1060,9 +1060,9 @@ C - - - - - 0x030764 22:8754: 98        TYA
 C - - - - - 0x030765 22:8755: 18        CLC
 C - - - - - 0x030766 22:8756: 65 79     ADC ram_0079
 C - - - - - 0x030768 22:8758: 85 79     STA ram_0079
-C - - - - - 0x03076A 22:875A: 90 02     BCC bra_875E
+C - - - - - 0x03076A 22:875A: 90 02     BCC bra_875E_not_overflow
 C - - - - - 0x03076C 22:875C: E6 7A     INC ram_007A
-bra_875E:
+bra_875E_not_overflow:
 C - - - - - 0x03076E 22:875E: 20 33 C5  JSR sub_0x03CCE3
 C - - - - - 0x030774 22:8764: 60        RTS
 bra_8765:
@@ -1130,7 +1130,8 @@ C - - - - - 0x0307D7 22:87C7: 98        TYA
 C - - - - - 0x0307D8 22:87C8: 18        CLC
 C - - - - - 0x0307D9 22:87C9: 65 7B     ADC ram_007B
 C - - - - - 0x0307DB 22:87CB: 85 7B     STA ram_007B
-C - - - - - 0x0307DD 22:87CD: 90 02     BCC bra_87D1_RTS
+C - - - - - 0x0307DD 22:87CD: 90 02     BCC bra_87D1_RTS    ; if not overflow
+; if overflow
 - - - - - - 0x0307DF 22:87CF: E6 7C     INC ram_007C
 bra_87D1_RTS:
 C - - - - - 0x0307E1 22:87D1: 60        RTS
@@ -1187,7 +1188,8 @@ C - - - - - 0x030842 22:8832: 98        TYA
 C - - - - - 0x030843 22:8833: 18        CLC
 C - - - - - 0x030844 22:8834: 65 7D     ADC ram_007D
 C - - - - - 0x030846 22:8836: 85 7D     STA ram_007D
-C - - - - - 0x030848 22:8838: 90 02     BCC bra_883C_RTS
+C - - - - - 0x030848 22:8838: 90 02     BCC bra_883C_RTS    ; if not overflow
+; if overflow
 - - - - - - 0x03084A 22:883A: E6 7E     INC ram_007E
 bra_883C_RTS:
 C - - - - - 0x03084C 22:883C: 60        RTS

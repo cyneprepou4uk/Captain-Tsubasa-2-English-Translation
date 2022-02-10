@@ -973,9 +973,9 @@ C - - - - - 0x0346F1 23:86E1: C9 50     CMP #$50
 C - - - - - 0x0346F3 23:86E3: B0 10     BCS bra_86F5_RTS
 C - - - - - 0x0346F5 23:86E5: 69 4F     ADC #$4F
 C - - - - - 0x0346F7 23:86E7: C9 80     CMP #$80
-C - - - - - 0x0346F9 23:86E9: 90 02     BCC bra_86ED_не_overflow
+C - - - - - 0x0346F9 23:86E9: 90 02     BCC bra_86ED_not_overflow
 C - - - - - 0x0346FB 23:86EB: A9 7F     LDA #$7F
-bra_86ED_не_overflow:
+bra_86ED_not_overflow:
 C - - - - - 0x0346FD 23:86ED: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x0346FF 23:86EF: A0 06     LDY #con_кипер_параметр_06
 C - - - - - 0x034701 23:86F1: A9 04     LDA #$04
@@ -1031,9 +1031,9 @@ C - - - - - 0x034769 23:8759: 4A        LSR
 C - - - - - 0x03476A 23:875A: 4A        LSR
 C - - - - - 0x03476B 23:875B: 18        CLC
 C - - - - - 0x03476C 23:875C: 65 3A     ADC ram_003A
-C - - - - - 0x03476E 23:875E: 90 02     BCC bra_8762
+C - - - - - 0x03476E 23:875E: 90 02     BCC bra_8762_not_overflow
 C - - - - - 0x034770 23:8760: A9 FF     LDA #$FF
-bra_8762:
+bra_8762_not_overflow:
 C - - - - - 0x034772 23:8762: A0 00     LDY #$00
 bra_8764:
 C - - - - - 0x034774 23:8764: D9 DD 87  CMP tbl_87DD,Y
@@ -2269,9 +2269,9 @@ C - - - - - 0x034F5A 23:8F4A: 85 3A     STA ram_003A
 C - - - - - 0x034F5C 23:8F4C: 20 59 8F  JSR sub_8F59
 C - - - - - 0x034F5F 23:8F4F: 18        CLC
 C - - - - - 0x034F60 23:8F50: 65 3A     ADC ram_003A
-C - - - - - 0x034F62 23:8F52: 90 02     BCC bra_8F56
+C - - - - - 0x034F62 23:8F52: 90 02     BCC bra_8F56_not_overflow
 C - - - - - 0x034F64 23:8F54: A9 FF     LDA #$FF
-bra_8F56:
+bra_8F56_not_overflow:
 C - - - - - 0x034F66 23:8F56: A0 00     LDY #$00
 C - - - - - 0x034F68 23:8F58: 60        RTS
 
@@ -2287,7 +2287,8 @@ bra_8F68:
 C - - - - - 0x034F78 23:8F68: A0 07     LDY #con_величина_наебки
 C - - - - - 0x034F7A 23:8F6A: 18        CLC
 C - - - - - 0x034F7B 23:8F6B: 71 34     ADC (ram_plr_data),Y
-C - - - - - 0x034F7D 23:8F6D: 90 02     BCC bra_8F71_RTS
+C - - - - - 0x034F7D 23:8F6D: 90 02     BCC bra_8F71_RTS    ; if not overflow
+; if overflow
 - - - - - - 0x034F7F 23:8F6F: A9 FF     LDA #$FF
 bra_8F71_RTS:
 C - - - - - 0x034F81 23:8F71: 60        RTS

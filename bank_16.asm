@@ -94,9 +94,9 @@ C - - - - - 0x02C092 21:8082: 85 43     STA ram_0043
 C - - - - - 0x02C094 21:8084: A0 12     LDY #$12
 C - - - - - 0x02C096 21:8086: B1 3C     LDA (ram_003C),Y
 C - - - - - 0x02C098 21:8088: 0A        ASL
-C - - - - - 0x02C099 21:8089: 90 02     BCC bra_808D
+C - - - - - 0x02C099 21:8089: 90 02     BCC bra_808D_not_overflow
 C - - - - - 0x02C09B 21:808B: E6 43     INC ram_0043
-bra_808D:
+bra_808D_not_overflow:
 C - - - - - 0x02C09D 21:808D: A8        TAY
 C - - - - - 0x02C09E 21:808E: B1 42     LDA (ram_0042),Y
 C - - - - - 0x02C0A0 21:8090: AA        TAX

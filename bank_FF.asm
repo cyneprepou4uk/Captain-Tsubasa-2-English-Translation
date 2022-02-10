@@ -1,7 +1,6 @@
 .segment "BANK_FE"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
-; остановился на 0x03DC03
 
 
 
@@ -107,8 +106,8 @@ vec_FFF0_обработчик_RESET:
                     STA $4017
                     CLI
                     LDA #$00
-loc_0x03CF0E:
 loc_CEFE:
+loc_0x03CF0E:
                     PHA
                     LDA #$00
                     STA ram_0469
@@ -2098,9 +2097,9 @@ C - - - - - 0x03D278 FF:D268: F0 0B     BEQ bra_D275_кипер_в_ворота�
 C - - - - - 0x03D27A FF:D26A: 8A        TXA
 C - - - - - 0x03D27B FF:D26B: 18        CLC
 C - - - - - 0x03D27C FF:D26C: 71 34     ADC (ram_plr_data),Y
-C - - - - - 0x03D27E FF:D26E: 10 02     BPL bra_D272_не_overflow
+C - - - - - 0x03D27E FF:D26E: 10 02     BPL bra_D272_not_overflow
 C - - - - - 0x03D280 FF:D270: A9 00     LDA #$00
-bra_D272_не_overflow:
+bra_D272_not_overflow:
 C - - - - - 0x03D282 FF:D272: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x03D284 FF:D274: 60        RTS
 bra_D275_кипер_в_воротах:
@@ -4249,9 +4248,9 @@ C - - - - - 0x03E014 FF:E004: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03E016 FF:E006: 18        CLC
 C - - - - - 0x03E017 FF:E007: 71 34     ADC (ram_plr_data),Y
 C - - - - - 0x03E019 FF:E009: C9 D0     CMP #$D0
-C - - - - - 0x03E01B FF:E00B: 90 02     BCC bra_E00F
+C - - - - - 0x03E01B FF:E00B: 90 02     BCC bra_E00F_not_overflow
 C - - - - - 0x03E01D FF:E00D: A9 CF     LDA #$CF
-bra_E00F:
+bra_E00F_not_overflow:
 C - - - - - 0x03E01F FF:E00F: C9 30     CMP #$30
 C - - - - - 0x03E021 FF:E011: B0 02     BCS bra_E015
 C - - - - - 0x03E023 FF:E013: A9 30     LDA #$30
@@ -5082,9 +5081,9 @@ C - - - - - 0x03E5B2 FF:E5A2: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x03E5B4 FF:E5A4: 18        CLC
 C - - - - - 0x03E5B5 FF:E5A5: 69 1A     ADC #$1A
 C - - - - - 0x03E5B7 FF:E5A7: C9 80     CMP #$80
-C - - - - - 0x03E5B9 FF:E5A9: 90 02     BCC bra_E5AD
+C - - - - - 0x03E5B9 FF:E5A9: 90 02     BCC bra_E5AD_not_overflow
 - - - - - - 0x03E5BB FF:E5AB: A9 7F     LDA #$7F
-bra_E5AD:
+bra_E5AD_not_overflow:
 C - - - - - 0x03E5BD FF:E5AD: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x03E5BF FF:E5AF: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03E5C1 FF:E5B1: A9 04     LDA #$04
@@ -5162,9 +5161,9 @@ C - - - - - 0x03E655 FF:E645: 20 15 80  JSR sub_0x038025
 C - - - - - 0x03E658 FF:E648: A5 32     LDA ram_0032
 C - - - - - 0x03E65A FF:E64A: 18        CLC
 C - - - - - 0x03E65B FF:E64B: 69 04     ADC #$04
-C - - - - - 0x03E65D FF:E64D: 90 02     BCC bra_E651
+C - - - - - 0x03E65D FF:E64D: 90 02     BCC bra_E651_not_overflow
 - - - - - - 0x03E65F FF:E64F: A9 FF     LDA #$FF
-bra_E651:
+bra_E651_not_overflow:
 C - - - - - 0x03E661 FF:E651: 85 32     STA ram_0032
 C - - - - - 0x03E663 FF:E653: 48        PHA
 C - - - - - 0x03E666 FF:E656: A9 1A     LDA #con_prg_bank + $1A
@@ -6635,9 +6634,9 @@ C - - - - - 0x03F0F2 FF:F0E2: 4A        LSR
 C - - - - - 0x03F0F3 FF:F0E3: 18        CLC
 C - - - - - 0x03F0F4 FF:F0E4: 65 3A     ADC ram_003A
 C - - - - - 0x03F0F6 FF:F0E6: 85 3A     STA ram_003A
-C - - - - - 0x03F0F8 FF:F0E8: 90 02     BCC bra_F0EC_не_overflow
+C - - - - - 0x03F0F8 FF:F0E8: 90 02     BCC bra_F0EC_not_overflow
 - - - - - - 0x03F0FA FF:F0EA: E6 3B     INC ram_003B
-bra_F0EC_не_overflow:
+bra_F0EC_not_overflow:
 C - - - - - 0x03F0FC FF:F0EC: 18        CLC
 C - - - - - 0x03F0FD FF:F0ED: 7D 5A F1  ADC tbl_F15A_ppu_адрес_байтов_nametable,X
 C - - - - - 0x03F100 FF:F0F0: 8D A6 04  STA ram_04A6

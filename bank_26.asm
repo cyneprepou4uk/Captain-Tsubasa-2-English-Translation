@@ -2755,345 +2755,345 @@ txt_75_opponent_player_Coimbra:         ; bench 10
 
 
 off_F813_9A:        ; shoot
-    .text "9A "    ; <シュート>
+    .text "9A "     ; <シュート>
     .byte $FC
 
 off_F818_9B:
-    .text "9B "    ; <ボレーシュート>
+    .text "9B "     ; <ボレーシュート>
     .byte $FC
 
 off_F820_9C:
-    .text "9C "    ; <ヘディング>
+    .text "9C "     ; <ヘディング>
     .byte $FC
 
 off_F826_9D:        ; drive shot
-    .text "9D "    ; <ドライブシュート>
+    .text "9D "     ; <ドライブシュート>
     .byte $FC
 
 off_F82F_9E:        ; drive overhead
-    .text "9E "    ; <ドライブオーバーヘッド>
+    .text "9E "     ; <ドライブオーバーヘッド>
     .byte $FC
 
 off_F83B_9F:        ; falcon shot
-    .text "9F "    ; <はやぶさシュート>
+    .text "9F "     ; <はやぶさシュート>
     .byte $FC
 
 off_F844_A0:        ; falcon volley
-    .text "A0 "    ; <はやぶさボレーシュート>
+    .text "A0 "     ; <はやぶさボレーシュート>
     .byte $FC
 
 off_F850_A1:        ; razor shot
-    .text "A1 "    ; <カミソリシュート>
+    .text "A1 "     ; <カミソリシュート>
     .byte $FC
 
 off_F859_A2:        ; skylab hurricane
-    .text "A2 "    ; <スカイラブハリケーン>
+    .text "A2 "     ; <スカイラブハリケーン>
     .byte $FC
 
 off_F864_A3:        ; twin shot
-    .text "A3 "    ; <ツインシュート>
+    .text "A3 "     ; <ツインシュート>
     .byte $FC
 
 off_F86C_A4:        ; skylab twin shot
-    .text "A4 "    ; <スカイラブツインシュート>
+    .text "A4 "     ; <スカイラブツインシュート>
     .byte $FC
 
 off_F879_A5:        ; eagle shot
-    .text "A5 "    ; <イーグルショット>
+    .text "A5 "     ; <イーグルショット>
     .byte $FC
 
 off_F882_A6:        ; tiger shot
-    .text "A6 "    ; <タイガーショット>
+    .text "A6 "     ; <タイガーショット>
     .byte $FC
 
 off_F88B_A7:        ; neo-tiger shot
-    .text "A7 "    ; <ネオ • タイガーショット>
+    .text "A7 "     ; <ネオ • タイガーショット>
     .byte $FC
 
 off_F897_A8:        ; overhead kick
-    .text "A8 "    ; <オーバーヘッドキック>
+    .text "A8 "     ; <オーバーヘッドキック>
     .byte $FC
 
 off_F8A2_A9:        ; hyper overhead
-    .text "A9 "    ; <ハイパーオーバーヘッド>
+    .text "A9 "     ; <ハイパーオーバーヘッド>
     .byte $FC
 
 off_F8AE_AA:        ; jumping volley
-    .text "AA "    ; <ジャンピングボレーシュート>
+    .text "AA "     ; <ジャンピングボレーシュート>
     .byte $FC
 
 off_F8BC_AB:
-    .text "AB "    ; <ドライブタイガー>
+    .text "AB "     ; <ドライブタイガー>
     .byte $FC
 
 off_F8C5_AC:        ; cyclone
-    .text "AC "    ; <サイクロン>
+    .text "AC "     ; <サイクロン>
     .byte $FC
 
 off_F8CB_AD:        ; sano combo
-    .text "AD "    ; <さのとのコンビプレイ>
+    .text "AD "     ; <さのとのコンビプレイ>
     .byte $FC
 
 off_F8D6_AE:
-    .text "AE "    ; <バナナシュート>
+    .text "AE "     ; <バナナシュート>
     .byte $FC
 
 off_F8DE_AF:
-    .text "AF "    ; <ブースターシュート>
+    .text "AF "     ; <ブースターシュート>
     .byte $FC
 
 off_F8E8_B0:
-    .text "B0 "    ; <ミラージュシュート>
+    .text "B0 "     ; <ミラージュシュート>
     .byte $FC
 
 off_F8F2_B1:
-    .text "B1 "    ; <マッハシュート>
+    .text "B1 "     ; <マッハシュート>
     .byte $FC
 
 off_F8FA_B2:
-    .text "B2 "    ; <サイドワインダー>
+    .text "B2 "     ; <サイドワインダー>
     .byte $FC
 
 off_F903_B3:
-    .text "B3 "    ; <スライダーシュート>
+    .text "B3 "     ; <スライダーシュート>
     .byte $FC
 
 off_F90D_B4:
-    .text "B4 "    ; <キャノンシュート>
+    .text "B4 "     ; <キャノンシュート>
     .byte $FC
 
 off_F916_B5:
-    .text "B5 "    ; <フヮイヤーショット>
+    .text "B5 "     ; <フヮイヤーショット>
     .byte $FC
 
 off_F920_B6:
-    .text "B6 "    ; <ダイナマイトヘッド>
+    .text "B6 "     ; <ダイナマイトヘッド>
     .byte $FC
 
 off_F92A_B7:        ; unused
-    .text "B7 "    ; <キャノンヘッド>
+    .text "B7 "     ; <キャノンヘッド>
     .byte $FC
 
 off_F932_B8:
-    .text "B8 "    ; <ロケットヘッド>
+    .text "B8 "     ; <ロケットヘッド>
     .byte $FC
 
 off_F93A_B9:
-    .text "B9 "    ; <しょうりゅうきゃく>
+    .text "B9 "     ; <しょうりゅうきゃく>
     .byte $FC
 
 off_F944_BA:
-    .text "BA "    ; <ぜんてんシュート>
+    .text "BA "     ; <ぜんてんシュート>
     .byte $FC
 
 off_F94D_BB:
-    .text "BB "    ; <スライダーキャノン>
+    .text "BB "     ; <スライダーキャノン>
     .byte $FC
 
 off_F957_BC:
-    .text "BC "    ; <ダブルイール>
+    .text "BC "     ; <ダブルイール>
     .byte $FC
 
 off_F95E_BD:
-    .text "BD "    ; <ドリブル>
+    .text "BD "     ; <ドリブル>
     .byte $FC
 
 off_F963_BE:        ; heel lift
-    .text "BE "    ; <ヒールリフト>
+    .text "BE "     ; <ヒールリフト>
     .byte $FC
 
 off_F96A_BF:        ; force dribble
-    .text "BF "    ; <ごういんなドリブル>
+    .text "BF "     ; <ごういんなドリブル>
     .byte $FC
 
 off_F974_C0:
-    .text "C0 "    ; <きえるフェイント>
+    .text "C0 "     ; <きえるフェイント>
     .byte $FC
 
 off_F97D_C1:
-    .text "C1 "    ; <ぶんしんドリブル>
+    .text "C1 "     ; <ぶんしんドリブル>
     .byte $FC
 
 off_F986_C2:
-    .text "C2 "    ; <こうそくドリブル>
+    .text "C2 "     ; <こうそくドリブル>
     .byte $FC
 
 off_F98F_C3:
-    .text "C3 "    ; <はりねずみドリブル>
+    .text "C3 "     ; <はりねずみドリブル>
     .byte $FC
 
 off_F999_C4:
-    .text "C4 "    ; <パス>
+    .text "C4 "     ; <パス>
     .byte $FC
 
 off_F99C_C5:        ; drive pass
-    .text "C5 "    ; <ドライブパス>
+    .text "C5 "     ; <ドライブパス>
     .byte $FC
 
 off_F9A3_C6:        ; razor pass
-    .text "C6 "    ; <カミソリパス>
+    .text "C6 "     ; <カミソリパス>
     .byte $FC
 
 off_F9AA_C7:
-    .text "C7 "    ; <トップスピンパス>
+    .text "C7 "     ; <トップスピンパス>
     .byte $FC
 
 off_F9B3_C8:
-    .text "C8 "    ; <ワンツーリターン>
+    .text "C8 "     ; <ワンツーリターン>
     .byte $FC
 
 off_F9BC_C9:        ; golden combo
-    .text "C9 "    ; <ゴールデンコンビ>
+    .text "C9 "     ; <ゴールデンコンビ>
     .byte $FC
 
 off_F9C5_CA:        ; toho combo
-    .text "CA "    ; <とうほうコンビ>
+    .text "CA "     ; <とうほうコンビ>
     .byte $FC
 
 off_F9CD_CB:        ; gemini attack
-    .text "CB "    ; <ジェミニアタック>
+    .text "CB "     ; <ジェミニアタック>
     .byte $FC
 
 off_F9D6_CC:        ; unused
-    .text "CC "    ; <エッフェルこうげき>
+    .text "CC "     ; <エッフェルこうげき>
     .byte $FC
 
 off_F9E0_CD:        ; block
-    .text "CD "    ; <ブロック>
+    .text "CD "     ; <ブロック>
     .byte $FC
 
 off_F9E5_CE:        ; face block
-    .text "CE "    ; <がんめんブロック>
+    .text "CE "     ; <がんめんブロック>
     .byte $FC
 
 off_F9EE_CF:        ; skylab block
-    .text "CF "    ; <スカイラブブロック>
+    .text "CF "     ; <スカイラブブロック>
     .byte $FC
 
 off_F9F8_D0:        ; power block
-    .text "D0 "    ; <パワーブロック>
+    .text "D0 "     ; <パワーブロック>
     .byte $FC
 
 off_FA00_D1:        ; tackle
-    .text "D1 "    ; <タックル>
+    .text "D1 "     ; <タックル>
     .byte $FC
 
 off_FA05_D2:        ; skylab tackle
-    .text "D2 "    ; <スカイラブタックル>
+    .text "D2 "     ; <スカイラブタックル>
     .byte $FC
 
 off_FA0F_D3:        ; razor tackle
-    .text "D3 "    ; <カミソリタックル>
+    .text "D3 "     ; <カミソリタックル>
     .byte $FC
 
 off_FA18_D4:        ; power tackle
-    .text "D4 "    ; <パワータックル>
+    .text "D4 "     ; <パワータックル>
     .byte $FC
 
 off_FA20_D5:        ; tiger tackle
-    .text "D5 "    ; <タイガータックル>
+    .text "D5 "     ; <タイガータックル>
     .byte $FC
 
 off_FA29_D6:        ; unused
-    .text "D6 "    ; <タックル>
+    .text "D6 "     ; <タックル>
     .byte $FC
 
 off_FA2E_D7:        ; パスカット
-    .text "D7 "    ; <パスカット>
+    .text "D7 "     ; <パスカット>
     .byte $FC
 
 off_FA34_D8:        ; skylab pass cut
-    .text "D8 "    ; <スカイラブパスカット>
+    .text "D8 "     ; <スカイラブパスカット>
     .byte $FC
 
 off_FA3F_D9:
-    .text "D9 "    ; <トラップ>
+    .text "D9 "     ; <トラップ>
     .byte $FC
 
 off_FA44_DA:
-    .text "DA "    ; <スルー>
+    .text "DA "     ; <スルー>
     .byte $FC
 
 off_FA48_DB:
-    .text "DB "    ; <クリアー>
+    .text "DB "     ; <クリアー>
     .byte $FC
 
 off_FA4D_DC:        ; unused
-    .text "DC "    ; <クリアー>
+    .text "DC "     ; <クリアー>
     .byte $FC
 
 off_FA52_DD:        ; unused
-    .text "DD "    ; <せりあい>
+    .text "DD "     ; <せりあい>
     .byte $FC
 
 off_FA57_DE:        ; unused
-    .text "DE "    ; <せりあい>
+    .text "DE "     ; <せりあい>
     .byte $FC
 
 off_FA5C_DF:        ; unused
-    .text "DF "    ; <フォロー>
+    .text "DF "     ; <フォロー>
     .byte $FC
 
 off_FA61_E0:
-    .text "E0 "    ; <キャッチング>
+    .text "E0 "     ; <キャッチング>
     .byte $FC
 
 off_FA68_E1:        ; unused
-    .text "E1 "    ; <ローリングセーブ>
+    .text "E1 "     ; <ローリングセーブ>
     .byte $FC
 
 off_FA71_E2:        ; unused
-    .text "E2 "    ; <ぶんしんセーブ>
+    .text "E2 "     ; <ぶんしんセーブ>
     .byte $FC
 
 off_FA79_E3:        ; unused
-    .text "E3 "    ; <だいかいてんセーブ>
+    .text "E3 "     ; <だいかいてんセーブ>
     .byte $FC
 
 off_FA83_E4:
-    .text "E4 "    ; <パンチング>
+    .text "E4 "     ; <パンチング>
     .byte $FC
 
 off_FA89_E5:        ; triangle jump
-    .text "E5 "    ; <さんかくとび>
+    .text "E5 "     ; <さんかくとび>
     .byte $FC
 
 off_FA90_E6:
-    .text "E6 "    ; <するどい  >
+    .text "E6 "     ; <するどい  >
     .byte $FC
 
 off_FA96_E7:
-    .text "E7 "    ; <すばやく  >
+    .text "E7 "     ; <すばやく  >
     .byte $FC
 
 off_FA9C_E8:
-    .text "E8 "    ; <きょうれつな  >
+    .text "E8 "     ; <きょうれつな  >
     .byte $FC
 
 off_FAA4_E9:
-    .text "E9 "    ; <うまい  >
+    .text "E9 "     ; <うまい  >
     .byte $FC
 
 off_FAA9_EA:
-    .text "EA "    ; <きょうれつな>
+    .text "EA "     ; <きょうれつな>
     .byte $FC
 
 off_FAB0_EB:
-    .text "EB "    ; <センタリング>
+    .text "EB "     ; <センタリング>
     .byte $FC
 
 off_FAB7_EC:
-    .text "EC "    ; <ペナルティキック>
+    .text "EC "     ; <ペナルティキック>
     .byte $FC
 
 off_FAC0_ED:
-    .text "ED "    ; <ボール>
+    .text "ED "     ; <ボール>
     .byte $FC
 
 off_FAC4_EE:
-    .text "EE "    ; <ゴール>
+    .text "EE "     ; <ゴール>
     .byte $FC
 
 off_FAC8_EF:
-    .text "EF "    ; <タイ!>
+    .text "EF "     ; <タイ!>
     .byte $FC
