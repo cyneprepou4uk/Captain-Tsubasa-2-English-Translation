@@ -18,7 +18,7 @@
 .export sub_0x03CBA9_байты_после_JSR_для_непрямого_прыжка
 .export sub_0x03CBC0_запись_номера_сценария
 .export sub_0x03CC01_запись_звука
-.export sub_0x03CC12
+.export sub_0x03CC12_запись_палитры_во_время_матча
 .export sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана
 .export sub_0x03CC56_очистить_нижнюю_половину_экрана
 .export loc_0x03CC56_очистить_нижнюю_половину_экрана
@@ -270,12 +270,12 @@ C - - - - - 0x03C703 FF:C6F3: A9 1E     LDA #$1E
 C - - - - - 0x03C705 FF:C6F5: 85 21     STA ram_для_2001
 C - - - - - 0x03C711 FF:C701: A9 3F     LDA #$3F
 C - - - - - 0x03C713 FF:C703: 8D 6E 04  STA ram_046E
-C - - - - - 0x03C716 FF:C706: A2 00     LDX #$00
+C - - - - - 0x03C716 FF:C706: A2 00     LDX #$00    ; палитра фона
 C - - - - - 0x03C718 FF:C708: A9 12     LDA #$12
-C - - - - - 0x03C71A FF:C70A: 20 02 CC  JSR sub_CC02
-C - - - - - 0x03C71D FF:C70D: A2 10     LDX #$10
+C - - - - - 0x03C71A FF:C70A: 20 02 CC  JSR sub_CC02_запись_палитры_во_время_матча
+C - - - - - 0x03C71D FF:C70D: A2 10     LDX #$10    ; палитра спрайтов
 C - - - - - 0x03C71F FF:C70F: A9 12     LDA #$12
-C - - - - - 0x03C721 FF:C711: 20 02 CC  JSR sub_CC02
+C - - - - - 0x03C721 FF:C711: 20 02 CC  JSR sub_CC02_запись_палитры_во_время_матча
 C - - - - - 0x03C724 FF:C714: 20 D2 CC  JSR sub_CCD3
 C - - - - - 0x03C735 FF:C725: A2 01     LDX #$01
 C - - - - - 0x03C737 FF:C727: A9 28     LDA #$28
@@ -925,8 +925,10 @@ C - - - - - 0x03CC11 FF:CC01: 60        RTS
 
 
 
-sub_CC02:
-sub_0x03CC12:
+sub_CC02_запись_палитры_во_время_матча:
+sub_0x03CC12_запись_палитры_во_время_матча:
+; на вход подается X = 00 для фона или 10 для спрайтов
+; A = номер палитры, умножается на 0C (12)
 C D - - - - 0x03CC12 FF:CC02: A0 00     LDY #$00
 C - - - - - 0x03CC14 FF:CC04: 84 66     STY ram_0066
 C - - - - - 0x03CC16 FF:CC06: 0A        ASL
@@ -939,26 +941,28 @@ C - - - - - 0x03CC1E FF:CC0E: 26 66     ROL ram_0066
 C - - - - - 0x03CC20 FF:CC10: 85 65     STA ram_0065
 C - - - - - 0x03CC22 FF:CC12: 98        TYA
 C - - - - - 0x03CC23 FF:CC13: 65 65     ADC ram_0065
-C - - - - - 0x03CC25 FF:CC15: 90 02     BCC bra_CC19
+C - - - - - 0x03CC25 FF:CC15: 90 02     BCC bra_CC19_not_overflow
 C - - - - - 0x03CC27 FF:CC17: E6 66     INC ram_0066
-bra_CC19:
+bra_CC19_not_overflow:
 C - - - - - 0x03CC29 FF:CC19: 18        CLC
-C - - - - - 0x03CC2A FF:CC1A: 69 CC     ADC #< tbl_FBCC
+C - - - - - 0x03CC2A FF:CC1A: 69 CC     ADC #< tbl_FBCC_палитра
 C - - - - - 0x03CC2C FF:CC1C: 85 65     STA ram_0065
 C - - - - - 0x03CC2E FF:CC1E: A5 66     LDA ram_0066
-C - - - - - 0x03CC30 FF:CC20: 69 FB     ADC #> tbl_FBCC
+C - - - - - 0x03CC30 FF:CC20: 69 FB     ADC #> tbl_FBCC_палитра
 C - - - - - 0x03CC32 FF:CC22: 85 66     STA ram_0066
-C - - - - - 0x03CC34 FF:CC24: A9 10     LDA #$10
+C - - - - - 0x03CC34 FF:CC24: A9 10     LDA #$10    ; размер буфера
 C - - - - - 0x03CC36 FF:CC26: 8D 6C 04  STA ram_046C
+; при пропуске Y не увеличивается, из таблицы будет считано 12 байтов вместо 16
+; а 4 оставшихся байта в начале каждого набора из 4х цветов будут заменены на 0F
 C - - - - - 0x03CC39 FF:CC29: A0 00     LDY #$00
 bra_CC2B_loop:
 C - - - - - 0x03CC3B FF:CC2B: 8A        TXA
 C - - - - - 0x03CC3C FF:CC2C: 29 03     AND #$03
-C - - - - - 0x03CC3E FF:CC2E: F0 05     BEQ bra_CC35
+C - - - - - 0x03CC3E FF:CC2E: F0 05     BEQ bra_CC35_пропуск_первого_байта_из_4х
 C - - - - - 0x03CC40 FF:CC30: B1 65     LDA (ram_0065),Y
 C - - - - - 0x03CC42 FF:CC32: C8        INY
-C - - - - - 0x03CC43 FF:CC33: D0 02     BNE bra_CC37
-bra_CC35:
+C - - - - - 0x03CC43 FF:CC33: D0 02     BNE bra_CC37    ; bra
+bra_CC35_пропуск_первого_байта_из_4х:
 C - - - - - 0x03CC45 FF:CC35: A9 0F     LDA #$0F
 bra_CC37:
 C - - - - - 0x03CC47 FF:CC37: 9D 6F 04  STA ram_046F,X
@@ -968,6 +972,7 @@ C - - - - - 0x03CC4E FF:CC3E: D0 EB     BNE bra_CC2B_loop
 C - - - - - 0x03CC50 FF:CC40: A9 20     LDA #$20
 C - - - - - 0x03CC52 FF:CC42: 8D 6C 04  STA ram_046C
 C - - - - - 0x03CC55 FF:CC45: 60        RTS
+
 
 
 sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана:
@@ -4611,9 +4616,9 @@ C - - - - - 0x03E2C9 FF:E2B9: 4C 09 80  JMP loc_0x034706
 
 sub_E2BC_регенерация_и_усталость:
 .scope
-temp_макс_энергия_lo = ram_0032
-temp_макс_энергия_hi = ram_0033
-temp_затрата_энергии = ram_003A
+tmp_макс_энергия_lo = ram_0032
+tmp_макс_энергия_hi = ram_0033
+tmp_затрата_энергии = ram_003A
 C - - - - - 0x03E2D6 FF:E2C6: A9 00     LDA #$00
 bra_E2CB_loop_регенерации_игроков:
 C - - - - - 0x03E2DB FF:E2CB: 48        PHA
@@ -4644,12 +4649,12 @@ C - - - - - 0x03E304 FF:E2F4: 69 00     ADC #$00
 C - - - - - 0x03E306 FF:E2F6: A8        TAY
 C - - - - - 0x03E307 FF:E2F7: 38        SEC
 C - - - - - 0x03E308 FF:E2F8: 8A        TXA
-C - - - - - 0x03E309 FF:E2F9: E5 32     SBC temp_макс_энергия_lo
+C - - - - - 0x03E309 FF:E2F9: E5 32     SBC tmp_макс_энергия_lo
 C - - - - - 0x03E30B FF:E2FB: 98        TYA
-C - - - - - 0x03E30C FF:E2FC: E5 33     SBC temp_макс_энергия_hi
+C - - - - - 0x03E30C FF:E2FC: E5 33     SBC tmp_макс_энергия_hi
 C - - - - - 0x03E30E FF:E2FE: 90 04     BCC bra_E304_игрок_не_полностью_восстановился
-C - - - - - 0x03E310 FF:E300: A6 32     LDX temp_макс_энергия_lo      ; иначе запись максимальной энергии
-C - - - - - 0x03E312 FF:E302: A4 33     LDY temp_макс_энергия_hi
+C - - - - - 0x03E310 FF:E300: A6 32     LDX tmp_макс_энергия_lo      ; иначе запись максимальной энергии
+C - - - - - 0x03E312 FF:E302: A4 33     LDY tmp_макс_энергия_hi
 bra_E304_игрок_не_полностью_восстановился:
 C - - - - - 0x03E314 FF:E304: 98        TYA
 C - - - - - 0x03E315 FF:E305: A0 02     LDY #con_plr_guts_hi
@@ -4674,11 +4679,11 @@ C - - - - - 0x03E335 FF:E325: C9 20     CMP #$20
 C - - - - - 0x03E337 FF:E327: D0 02     BNE bra_E32B_это_не_мисуги
 C - - - - - 0x03E339 FF:E329: A2 05     LDX #$05
 bra_E32B_это_не_мисуги:
-C - - - - - 0x03E33B FF:E32B: 86 3A     STX temp_затрата_энергии
+C - - - - - 0x03E33B FF:E32B: 86 3A     STX tmp_затрата_энергии
 C - - - - - 0x03E33D FF:E32D: A0 01     LDY #con_plr_guts_lo
 C - - - - - 0x03E33F FF:E32F: B1 34     LDA (ram_plr_data),Y      ; con_plr_guts_lo
 C - - - - - 0x03E341 FF:E331: 38        SEC
-C - - - - - 0x03E342 FF:E332: E5 3A     SBC temp_затрата_энергии
+C - - - - - 0x03E342 FF:E332: E5 3A     SBC tmp_затрата_энергии
 C - - - - - 0x03E344 FF:E334: AA        TAX
 C - - - - - 0x03E345 FF:E335: C8        INY
 C - - - - - 0x03E346 FF:E336: B1 34     LDA (ram_plr_data),Y      ; con_plr_guts_hi
@@ -4764,6 +4769,8 @@ C - - - - - 0x03E3D6 FF:E3C6: 20 67 E2  JSR sub_E267
 bra_E3C9_RTS:
 C D - - - - 0x03E3D9 FF:E3C9: 60        RTS
 
+
+
 sub_E3CA:
 C - - - - - 0x03E3DA FF:E3CA: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E3DD FF:E3CD: D0 07     BNE bra_E3D6_команда_справа
@@ -4800,10 +4807,12 @@ C - - - - - 0x03E413 FF:E403: 8D 43 06  STA ram_0643
 bra_E406_RTS:
 C - - - - - 0x03E416 FF:E406: 60        RTS
 
+
+
 sub_E407:
 C - - - - - 0x03E417 FF:E407: 20 09 E7  JSR sub_E709
 C - - - - - 0x03E41A FF:E40A: A9 00     LDA #$00
-loc_E40C:
+loc_E40C_loop:
 C D - - - - 0x03E41C FF:E40C: 48        PHA
 C - - - - - 0x03E41D FF:E40D: A9 01     LDA #$01
 C - - - - - 0x03E41F FF:E40F: 20 0F CB  JSR sub_CB0F_задержка
@@ -4883,7 +4892,7 @@ C - - - - - 0x03E4A0 FF:E490: 18        CLC
 C - - - - - 0x03E4A1 FF:E491: 69 01     ADC #$01
 C - - - - - 0x03E4A3 FF:E493: C9 16     CMP #$16
 C - - - - - 0x03E4A5 FF:E495: F0 03     BEQ bra_E49A
-C - - - - - 0x03E4A7 FF:E497: 4C 0C E4  JMP loc_E40C
+C - - - - - 0x03E4A7 FF:E497: 4C 0C E4  JMP loc_E40C_loop
 bra_E49A:
 C - - - - - 0x03E4AA FF:E49A: A9 00     LDA #$00
 C - - - - - 0x03E4AC FF:E49C: 8D 00 06  STA ram_колво_защитников
@@ -4960,7 +4969,7 @@ C - - - - - 0x03E4F4 FF:E4E4: 69 01     ADC #$01
 C - - - - - 0x03E4F6 FF:E4E6: 85 41     STA ram_0041
 C - - - - - 0x03E4F8 FF:E4E8: A9 0A     LDA #$0A
 C - - - - - 0x03E4FA FF:E4EA: 85 42     STA ram_0042
-bra_E4EC:
+bra_E4EC_loop:
 C - - - - - 0x03E4FC FF:E4EC: A5 41     LDA ram_0041
 C - - - - - 0x03E4FE FF:E4EE: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03E501 FF:E4F1: A0 0A     LDY #con_plr_stun
@@ -4970,8 +4979,10 @@ C - - - - - 0x03E507 FF:E4F7: 20 01 E5  JSR sub_E501
 bra_E4FA:
 C - - - - - 0x03E50A FF:E4FA: E6 41     INC ram_0041
 C - - - - - 0x03E50C FF:E4FC: C6 42     DEC ram_0042
-C - - - - - 0x03E50E FF:E4FE: D0 EC     BNE bra_E4EC
+C - - - - - 0x03E50E FF:E4FE: D0 EC     BNE bra_E4EC_loop
 C - - - - - 0x03E510 FF:E500: 60        RTS
+
+
 
 sub_E501:
 C - - - - - 0x03E511 FF:E501: A9 00     LDA #$00
@@ -5018,6 +5029,8 @@ C - - - - - 0x03E558 FF:E548: EE 00 06  INC ram_колво_защитников
 bra_E54B_RTS:
 C - - - - - 0x03E55B FF:E54B: 60        RTS
 
+
+
 ofs_041_0x03E55C:
 C D - - - - 0x03E55C FF:E54C: A9 00     LDA #$00
 C - - - - - 0x03E55E FF:E54E: 8D 4E 04  STA ram_высота_мяча
@@ -5025,7 +5038,7 @@ C - - - - - 0x03E561 FF:E551: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x03E564 FF:E554: F0 3A     BEQ bra_E590
 C - - - - - 0x03E566 FF:E556: A2 00     LDX #$00
 C - - - - - 0x03E568 FF:E558: A0 00     LDY #$00
-bra_E55A:
+bra_E55A_loop:
 C - - - - - 0x03E56A FF:E55A: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - - 0x03E56D FF:E55D: C9 05     CMP #$05      ; mark
 C - - - - - 0x03E56F FF:E55F: D0 0D     BNE bra_E56E
@@ -5038,7 +5051,7 @@ C - - - - - 0x03E57D FF:E56D: C8        INY
 bra_E56E:
 C - - - - - 0x03E57E FF:E56E: E8        INX
 C - - - - - 0x03E57F FF:E56F: EC 00 06  CPX ram_колво_защитников
-C - - - - - 0x03E582 FF:E572: D0 E6     BNE bra_E55A
+C - - - - - 0x03E582 FF:E572: D0 E6     BNE bra_E55A_loop
 C - - - - - 0x03E584 FF:E574: 98        TYA
 C - - - - - 0x03E585 FF:E575: F0 19     BEQ bra_E590
 C - - - - - 0x03E587 FF:E577: 8C 00 06  STY ram_колво_защитников
@@ -5056,6 +5069,8 @@ bra_E590:
 C - - - - - 0x03E5A0 FF:E590: A2 50     LDX #$50
 C - - - - - 0x03E5A2 FF:E592: 9A        TXS
 C - - - - - 0x03E5A3 FF:E593: 4C DF E0  JMP loc_E0DF
+
+
 
 ofs_041_0x03E5A6:
 C D - - - - 0x03E5A6 FF:E596: AD E2 00  LDA ram_рандом_2
@@ -5118,6 +5133,8 @@ bra_E60E:
 C - - - - - 0x03E61E FF:E60E: A9 04     LDA #$04
 C - - - - - 0x03E620 FF:E610: 8D 2B 06  STA ram_062B
 C - - - - - 0x03E623 FF:E613: 4C 96 DE  JMP loc_DE96
+
+
 
 sub_E616:
 C - - - - - 0x03E626 FF:E616: A9 01     LDA #$01
@@ -5192,7 +5209,7 @@ C - - - - - 0x03E6AA FF:E69A: AD E2 00  LDA ram_рандом_2
 C - - - - - 0x03E6AD FF:E69D: 29 07     AND #$07
 C - - - - - 0x03E6AF FF:E69F: 0A        ASL
 C - - - - - 0x03E6B0 FF:E6A0: AA        TAX
-C - - - - - 0x03E6B1 FF:E6A1: BC D0 E6  LDY tbl_E6D0,X
+C - - - - - 0x03E6B1 FF:E6A1: BC D0 E6  LDY tbl_E6CF + 1,X
 C - - - - - 0x03E6B4 FF:E6A4: BD CF E6  LDA tbl_E6CF,X
 C - - - - - 0x03E6B7 FF:E6A7: AA        TAX
 C - - - - - 0x03E6B8 FF:E6A8: 46 3A     LSR ram_003A
@@ -5216,28 +5233,20 @@ C - - - - - 0x03E6D7 FF:E6C7: A9 04     LDA #$04
 C - - - - - 0x03E6D9 FF:E6C9: 8D 2B 06  STA ram_062B
 C - - - - - 0x03E6DC FF:E6CC: 4C 96 DE  JMP loc_DE96
 
-; bzk хз как лучше оформить
 tbl_E6CF:
-- D - - - - 0x03E6DF FF:E6CF: 4C        .byte $4C   ; <シ>
-tbl_E6D0:
-- D - - - - 0x03E6E0 FF:E6D0: 54        .byte $54   ; <ト>
-- D - - - - 0x03E6E1 FF:E6D1: 5C        .byte $5C   ; <フ>
-- D - - - - 0x03E6E2 FF:E6D2: 54        .byte $54   ; <ト>
-- D - - - - 0x03E6E3 FF:E6D3: 6C        .byte $6C   ; <ワ>
-- D - - - - 0x03E6E4 FF:E6D4: 5C        .byte $5C   ; <フ>
-- D - - - - 0x03E6E5 FF:E6D5: 5C        .byte $5C   ; <フ>
-- D - - - - 0x03E6E6 FF:E6D6: 64        .byte $64   ; <ヤ>
-- D - - - - 0x03E6E7 FF:E6D7: 74        .byte $74   ; <ィ>
-- D - - - - 0x03E6E8 FF:E6D8: 6C        .byte $6C   ; <ワ>
-- D - - - - 0x03E6E9 FF:E6D9: 64        .byte $64   ; <ヤ>
-- D - - - - 0x03E6EA FF:E6DA: 74        .byte $74   ; <ィ>
-- D - - - - 0x03E6EB FF:E6DB: 7C        .byte $7C   ; <~>
-- D - - - - 0x03E6EC FF:E6DC: 7C        .byte $7C   ; <~>
-- D - - - - 0x03E6ED FF:E6DD: 74        .byte $74   ; <ィ>
-- D - - - - 0x03E6EE FF:E6DE: 8C        .byte $8C   ; <M>
+- D - - - - 0x03E6DF FF:E6CF: 4C        .byte $4C, $54  ; 00
+- D - - - - 0x03E6E1 FF:E6D1: 5C        .byte $5C, $54  ; 01
+- D - - - - 0x03E6E3 FF:E6D3: 6C        .byte $6C, $5C  ; 02
+- D - - - - 0x03E6E5 FF:E6D5: 5C        .byte $5C, $64  ; 03
+- D - - - - 0x03E6E7 FF:E6D7: 74        .byte $74, $6C  ; 04
+- D - - - - 0x03E6E9 FF:E6D9: 64        .byte $64, $74  ; 05
+- D - - - - 0x03E6EB FF:E6DB: 7C        .byte $7C, $7C  ; 06
+- D - - - - 0x03E6ED FF:E6DD: 74        .byte $74, $8C  ; 07
 
-sub_0x03E6FC:
+
+
 sub_E6EC:
+sub_0x03E6FC:
 C D - - - - 0x03E6FC FF:E6EC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03E6FF FF:E6EF: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03E702 FF:E6F2: A0 06     LDY #con_plr_pos_X_hi
@@ -5251,6 +5260,8 @@ C - - - - - 0x03E711 FF:E701: A8        TAY
 C - - - - - 0x03E712 FF:E702: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03E715 FF:E705: 8D FE 05  STA ram_05FE
 C - - - - - 0x03E718 FF:E708: 60        RTS
+
+
 
 sub_E709:
 C - - - - - 0x03E719 FF:E709: AD 2A 06  LDA ram_062A
@@ -5285,8 +5296,10 @@ C - - - - - 0x03E74A FF:E73A: 8D 2A 06  STA ram_062A
 bra_E73D_RTS:
 C - - - - - 0x03E74D FF:E73D: 60        RTS
 
-sub_0x03E74E:
+
+
 sub_E73E:
+sub_0x03E74E:
 C D - - - - 0x03E74E FF:E73E: A9 00     LDA #$00
 C - - - - - 0x03E750 FF:E740: 8D 00 06  STA ram_колво_защитников
 C - - - - - 0x03E753 FF:E743: 8D FF 05  STA ram_05FF
@@ -5350,6 +5363,8 @@ C - - - - - 0x03E7D6 FF:E7C6: 8E 35 06  STX ram_0635
 C - - - - - 0x03E7D9 FF:E7C9: 8C 37 06  STY ram_0637
 C - - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP sub_0x034845
 
+
+
 sub_E7D0:
 ; код хочет получить A на выходе для 0044
 C - - - - - 0x03E7E0 FF:E7D0: A0 06     LDY #con_plr_pos_X_hi
@@ -5401,7 +5416,7 @@ C - - - - - 0x03E832 FF:E822: 85 6F     STA ram_006F
 C - - - - - 0x03E834 FF:E824: 85 74     STA ram_0074
 C - - - - - 0x03E836 FF:E826: 20 3C CD  JSR sub_CD3C_получить_младший_разряд_числа
 C - - - - - 0x03E839 FF:E829: A2 00     LDX #$00
-bra_E82B:
+bra_E82B_loop:
 C - - - - - 0x03E83B FF:E82B: BD CD FA  LDA tbl_FACC_скорость + 1,X
 C - - - - - 0x03E83E FF:E82E: C5 70     CMP ram_0070
 C - - - - - 0x03E840 FF:E830: F0 04     BEQ bra_E836
@@ -5415,7 +5430,7 @@ C - - - - - 0x03E84D FF:E83D: B0 04     BCS bra_E843
 bra_E83F:
 C - - - - - 0x03E84F FF:E83F: E8        INX
 C - - - - - 0x03E850 FF:E840: E8        INX
-C - - - - - 0x03E851 FF:E841: D0 E8     BNE bra_E82B
+C - - - - - 0x03E851 FF:E841: D0 E8     BNE bra_E82B_loop
 bra_E843:
 C - - - - - 0x03E853 FF:E843: 8A        TXA
 C - - - - - 0x03E854 FF:E844: 4A        LSR
@@ -5429,6 +5444,8 @@ C - - - - - 0x03E85F FF:E84F: B0 02     BCS bra_E853_RTS
 C - - - - - 0x03E861 FF:E851: 49 FF     EOR #$FF
 bra_E853_RTS:
 C - - - - - 0x03E863 FF:E853: 60        RTS
+
+
 
 sub_E854:
 C - - - - - 0x03E864 FF:E854: A0 0A     LDY #con_plr_stun
@@ -5473,6 +5490,8 @@ C - - - - - 0x03E8AC FF:E89C: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x03E8AE FF:E89E: 60        RTS
 bra_E89F_RTS:
 C - - - - - 0x03E8AF FF:E89F: 60        RTS
+
+
 
 sub_E8A0:
 ; на вход в Y подается ось координат и хранится в 0046
@@ -5529,13 +5548,15 @@ tbl_E8ED_диагональ:
 ; 00 - без движения, 01 - диагональ вправо вниз, 02 - диагональ влево вверх
 ; изменение байтов влияет только на автоматическое передвижение ботов
 - D - - - - 0x03E8FD FF:E8ED: 00        .byte $00
-- D - - - - 0x03E8FE FF:E8EE: 01        .byte $01   ; <あ>
-- D - - - - 0x03E8FF FF:E8EF: 01        .byte $01   ; <あ>
-- D - - - - 0x03E900 FF:E8F0: 01        .byte $01   ; <あ>
+- D - - - - 0x03E8FE FF:E8EE: 01        .byte $01
+- D - - - - 0x03E8FF FF:E8EF: 01        .byte $01
+- D - - - - 0x03E900 FF:E8F0: 01        .byte $01
 - D - - - - 0x03E901 FF:E8F1: 00        .byte $00
-- D - - - - 0x03E902 FF:E8F2: 02        .byte $02   ; <い>
-- D - - - - 0x03E903 FF:E8F3: 02        .byte $02   ; <い>
-- D - - - - 0x03E904 FF:E8F4: 02        .byte $02   ; <い>
+- D - - - - 0x03E902 FF:E8F2: 02        .byte $02
+- D - - - - 0x03E903 FF:E8F3: 02        .byte $02
+- D - - - - 0x03E904 FF:E8F4: 02        .byte $02
+
+
 
 sub_E8F5:
 ; в 0047 сохраняется Y, который содержит в себе указатель на соответствующую ось координат
@@ -5593,6 +5614,8 @@ bra_E93A_запись_координаты:
 C - - - - - 0x03E94A FF:E93A: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x03E94C FF:E93C: 60        RTS
 
+
+
 sub_E93D_отображение_выбранного_действия:
 loc_E93D_отображение_выбранного_действия:
 C D - - - - 0x03E94D FF:E93D: 48        PHA
@@ -5619,9 +5642,9 @@ C - - - - - 0x03E96C FF:E95C: 68        PLA
 C - - - - - 0x03E96D FF:E95D: 0A        ASL
 C - - - - - 0x03E96E FF:E95E: 66 3A     ROR ram_003A
 C - - - - - 0x03E970 FF:E960: A8        TAY
-C - - - - - 0x03E972 FF:E962: B9 DA E9  LDA tbl_E9DA_действия,Y
+C - - - - - 0x03E972 FF:E962: B9 DA E9  LDA tbl_E9DA_текст_названия_действий,Y
 C - - - - - 0x03E975 FF:E965: 85 3C     STA ram_003C
-C - - - - - 0x03E977 FF:E967: B9 DB E9  LDA tbl_E9DA_действия + 1,Y
+C - - - - - 0x03E977 FF:E967: B9 DB E9  LDA tbl_E9DA_текст_названия_действий + 1,Y
 C - - - - - 0x03E97A FF:E96A: 85 3D     STA ram_003D
 C - - - - - 0x03E97C FF:E96C: A0 00     LDY #$00
 C - - - - - 0x03E97E FF:E96E: 18        CLC
@@ -5673,11 +5696,11 @@ C - - - - - 0x03E9CD FF:E9BD: D0 F1     BNE bra_E9B0_loop_чтения_стро�
 C - - - - - 0x03E9CF FF:E9BF: F0 0A     BEQ bra_E9CB
 bra_E9C1:
 C - - - - - 0x03E9D1 FF:E9C1: A9 00     LDA #$00
-bra_E9C3:
+bra_E9C3_loop:
 C - - - - - 0x03E9D3 FF:E9C3: 9D A5 04  STA ram_04A5,X
 C - - - - - 0x03E9D6 FF:E9C6: E8        INX
 C - - - - - 0x03E9D7 FF:E9C7: C6 43     DEC ram_0043
-C - - - - - 0x03E9D9 FF:E9C9: D0 F8     BNE bra_E9C3
+C - - - - - 0x03E9D9 FF:E9C9: D0 F8     BNE bra_E9C3_loop
 bra_E9CB:
 C - - - - - 0x03E9DB FF:E9CB: A9 00     LDA #$00
 C - - - - - 0x03E9DD FF:E9CD: 9D A5 04  STA ram_04A5,X
@@ -5689,7 +5712,7 @@ C - - - - - 0x03E9E9 FF:E9D9: 60        RTS
 
 
 
-tbl_E9DA_действия:
+tbl_E9DA_текст_названия_действий:
 ; почему-то 0D не считывалось
 - D - - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00_dribble
 - D - - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01_pass
@@ -5805,7 +5828,7 @@ off_EAB7_0F_power_block:
     .byte $25
     .text "Power Blk"
 
-off_EAC4_10_passcut:      ; в воздухе понизу
+off_EAC4_10_passcut:        ; в воздухе понизу
     .word $2288
     .byte $25
     .text " Pass cut"
@@ -5815,7 +5838,7 @@ off_EACE_11_skylab_passcut:
     .byte $25
     .text "SkLab Cut"
 
-off_EADB_12_wait:       ; player
+off_EADB_12_wait:           ; player
     .word $2288
     .byte $25
     .text "     Wait"
@@ -5856,7 +5879,7 @@ off_EB26_19_dive:
     .byte $25
     .text "     Dive"
 
-off_EB33_1A_stay:       ; GK
+off_EB33_1A_stay:           ; GK
     .word $2288
     .byte $25
     .text "     Stay"
@@ -5958,6 +5981,8 @@ C - - - - - 0x03EC12 FF:EC02: 20 F1 CB  JSR sub_CBF1_запись_звука
 bra_EC05:
 C D - - - - 0x03EC15 FF:EC05: 4C 86 EB  JMP loc_EB86
 
+
+
 sub_EC08:
 C - - - - - 0x03EC18 FF:EC08: AD 16 05  LDA ram_флаг_сценария_ХЗ
 C - - - - - 0x03EC1B FF:EC0B: 29 81     AND #$81
@@ -6051,8 +6076,8 @@ C - - - - - 0x03ECD4 FF:ECC4: AD 27 05  LDA ram_0527
 C - - - - - 0x03ECD7 FF:ECC7: 8D 91 04  STA ram_chr_bank + 1
 bra_ECCA:
 C - - - - - 0x03ECDA FF:ECCA: AD 25 05  LDA ram_0525
-C - - - - - 0x03ECDD FF:ECCD: A2 00     LDX #$00
-C - - - - - 0x03ECDF FF:ECCF: 20 02 CC  JSR sub_CC02
+C - - - - - 0x03ECDD FF:ECCD: A2 00     LDX #$00    ; палитра фона
+C - - - - - 0x03ECDF FF:ECCF: 20 02 CC  JSR sub_CC02_запись_палитры_во_время_матча
 C - - - - - 0x03ECE2 FF:ECD2: 20 D2 CC  JSR sub_CCD3
 C - - - - - 0x03ECE8 FF:ECD8: AD CE 05  LDA ram_05CE
 C - - - - - 0x03ECEB FF:ECDB: 48        PHA
@@ -6112,6 +6137,8 @@ C - - - - - 0x03ED65 FF:ED55: A9 01     LDA #$80
 C - - - - - 0x03ED67 FF:ED57: 8D 69 04  STA ram_0469
 C - - - - - 0x03ED6A FF:ED5A: 60        RTS
 
+
+
 loc_ED5B:
 C D - - - - 0x03ED6B FF:ED5B: CA        DEX
 C - - - - - 0x03ED6C FF:ED5C: 8E 19 05  STX ram_задержка_следующей_анимации
@@ -6133,6 +6160,8 @@ C - - - - - 0x03ED90 FF:ED80: 68        PLA
 C - - - - - 0x03ED91 FF:ED81: 20 03 80  JSR sub_0x020031_обработка_байтов_сценария
 bra_ED84_RTS:
 C - - - - - 0x03ED94 FF:ED84: 60        RTS
+
+
 
 sub_ED85:
 C - - - - - 0x03ED95 FF:ED85: AD D2 05  LDA ram_05D2
@@ -6248,6 +6277,8 @@ C - - - - - 0x03EE78 FF:EE68: AA        TAX
 C - - - - - 0x03EE79 FF:EE69: 20 6D EE  JSR sub_EE6D
 C - - - - - 0x03EE7C FF:EE6C: 60        RTS
 
+
+
 sub_EE6D:
 C - - - - - 0x03EE7D FF:EE6D: AD D2 05  LDA ram_05D2
 C - - - - - 0x03EE80 FF:EE70: 29 02     AND #$02
@@ -6277,6 +6308,8 @@ C - - - - - 0x03EEAA FF:EE9A: 85 0D     STA ram_000D
 C - - - - - 0x03EEAC FF:EE9C: 85 0E     STA ram_000E
 bra_EE9E_RTS:
 C - - - - - 0x03EEAE FF:EE9E: 60        RTS
+
+
 
 sub_EE9F:
 C - - - - - 0x03EEAF FF:EE9F: 48        PHA
@@ -6314,7 +6347,7 @@ bra_EECC:
 
 bra_EEDA:
 C - - - - - 0x03EEEA FF:EEDA: 85 3B     STA ram_003B
-bra_EEDC:
+bra_EEDC_loop:
 C - - - - - 0x03EEEC FF:EEDC: A5 3A     LDA ram_003A
 C - - - - - 0x03EEEE FF:EEDE: 4A        LSR
 C - - - - - 0x03EEEF FF:EEDF: AA        TAX
@@ -6366,7 +6399,7 @@ bra_EF38:
 C - - - - - 0x03EF48 FF:EF38: E6 3A     INC ram_003A
 C - - - - - 0x03EF4A FF:EF3A: A5 3A     LDA ram_003A
 C - - - - - 0x03EF4C FF:EF3C: C9 06     CMP #$06
-C - - - - - 0x03EF4E FF:EF3E: D0 9C     BNE bra_EEDC
+C - - - - - 0x03EF4E FF:EF3E: D0 9C     BNE bra_EEDC_loop
 C - - - - - 0x03EF50 FF:EF40: 2C 2D 06  BIT ram_062D
 C - - - - - 0x03EF53 FF:EF43: 10 12     BPL bra_EF57
 C - - - - - 0x03EF55 FF:EF45: 48        PHA
@@ -6400,15 +6433,17 @@ C - - - - - 0x03EF82 FF:EF72: 60        RTS
 
 tbl_EF73:
 ; какие-то адреса RAM с интервалом 15
-- D - - - - 0x03EF83 FF:EF73: 47 05     .word ram_0547
-- D - - - - 0x03EF85 FF:EF75: 5C 05     .word ram_055C
-- D - - - - 0x03EF87 FF:EF77: 71 05     .word ram_0571
-- D - - - - 0x03EF89 FF:EF79: 86 05     .word ram_0586
-- D - - - - 0x03EF8B FF:EF7B: 9B 05     .word ram_059B
-- D - - - - 0x03EF8D FF:EF7D: B0 05     .word ram_05B0
+- D - - - - 0x03EF83 FF:EF73: 47 05     .word ram_0547  ; 00
+- D - - - - 0x03EF85 FF:EF75: 5C 05     .word ram_055C  ; 01
+- D - - - - 0x03EF87 FF:EF77: 71 05     .word ram_0571  ; 02
+- D - - - - 0x03EF89 FF:EF79: 86 05     .word ram_0586  ; 03
+- D - - - - 0x03EF8B FF:EF7B: 9B 05     .word ram_059B  ; 04
+- D - - - - 0x03EF8D FF:EF7D: B0 05     .word ram_05B0  ; 05
 
-sub_0x03EF8F_отрисовка_меню_во_время_матча:
+
+
 sub_EF7F_отрисовка_меню_во_время_матча:
+sub_0x03EF8F_отрисовка_меню_во_время_матча:
 C D - - - - 0x03EF8F FF:EF7F: A8        TAY
 C - - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_для_5114
 C - - - - - 0x03EF92 FF:EF82: 48        PHA
@@ -6428,6 +6463,8 @@ C - - - - - 0x03EFAA FF:EF9A: 85 25     STA ram_для_5115
 C - - - - - 0x03EFAC FF:EF9C: 68        PLA
 C - - - - - 0x03EFAD FF:EF9D: 85 24     STA ram_для_5114
 C - - - - - 0x03EFAF FF:EF9F: 4C 2D CE  JMP loc_CE2D_банксвич_PRG
+
+
 
 sub_EFA2_нарисовать_тень_защитников_и_миникарту:
 C - - - - - 0x03EFB2 FF:EFA2: AD 21 06  LDA ram_0621
@@ -6488,7 +6525,7 @@ C - - - - - 0x03F019 FF:F009: 8D 3D 06  STA ram_положение_миника�
 bra_F013:
 sub_0x03F023_отрисовка_миникарты:
 C D - - - - 0x03F023 FF:F013: A9 00     LDA #$00
-loc_F015_цикл:
+loc_F015_loop:
 C D - - - - 0x03F025 FF:F015: 48        PHA
 bra_F016_ожидание_освобождения_буфера:
 C - - - - - 0x03F026 FF:F016: A9 01     LDA #$01
@@ -6558,7 +6595,7 @@ C - - - - - 0x03F0A5 FF:F095: 18        CLC
 C - - - - - 0x03F0A6 FF:F096: 69 01     ADC #$01
 C - - - - - 0x03F0A8 FF:F098: C9 06     CMP #$06
 C - - - - - 0x03F0AA FF:F09A: F0 03     BEQ bra_F09F_продолжить
-C - - - - - 0x03F0AC FF:F09C: 4C 15 F0  JMP loc_F015_цикл
+C - - - - - 0x03F0AC FF:F09C: 4C 15 F0  JMP loc_F015_loop
 bra_F09F_продолжить:
 C - - - - - 0x03F0AF FF:F09F: AD 3D 06  LDA ram_положение_миникарты
 C - - - - - 0x03F0B2 FF:F0A2: C9 03     CMP #$03      ; миникарта formation
@@ -6632,6 +6669,8 @@ tbl_F10E_смещение_ppu_адреса_атрибутов:
     .byte $08
     .byte $09
     .byte $0A
+
+
 
 sub_F114_тень_защитника_или_миникарта_в_буфер:
 C - - - - - 0x03F124 FF:F114: A0 00     LDY #$00
@@ -7049,464 +7088,279 @@ sub_0x03F31F_таблица_слов:
     STA $5116
     RTS
 
+
+
 tbl_FACC_скорость:
 ; по очереди сравниваются скорости, увеличивая счетчик в процессе
-- D - - - - 0x03FADC FF:FACC: 06 00     .word $0006
-- D - - - - 0x03FADE FF:FACE: 0D 00     .word $000D
-- D - - - - 0x03FAE0 FF:FAD0: 13 00     .word $0013
-- D - - - - 0x03FAE2 FF:FAD2: 19 00     .word $0019
-- D - - - - 0x03FAE4 FF:FAD4: 20 00     .word $0020
-- D - - - - 0x03FAE6 FF:FAD6: 26 00     .word $0026
-- D - - - - 0x03FAE8 FF:FAD8: 2C 00     .word $002C
-- D - - - - 0x03FAEA FF:FADA: 33 00     .word $0033
-- D - - - - 0x03FAEC FF:FADC: 39 00     .word $0039
-- D - - - - 0x03FAEE FF:FADE: 40 00     .word $0040
-- D - - - - 0x03FAF0 FF:FAE0: 47 00     .word $0047
-- D - - - - 0x03FAF2 FF:FAE2: 4E 00     .word $004E
-- D - - - - 0x03FAF4 FF:FAE4: 55 00     .word $0055
-- D - - - - 0x03FAF6 FF:FAE6: 5C 00     .word $005C
-- D - - - - 0x03FAF8 FF:FAE8: 63 00     .word $0063
-- D - - - - 0x03FAFA FF:FAEA: 6A 00     .word $006A
-- D - - - - 0x03FAFC FF:FAEC: 71 00     .word $0071
-- D - - - - 0x03FAFE FF:FAEE: 79 00     .word $0079
-- D - - - - 0x03FB00 FF:FAF0: 81 00     .word $0081
-- D - - - - 0x03FB02 FF:FAF2: 89 00     .word $0089
-- D - - - - 0x03FB04 FF:FAF4: 91 00     .word $0091
-- D - - - - 0x03FB06 FF:FAF6: 99 00     .word $0099
-- D - - - - 0x03FB08 FF:FAF8: A2 00     .word $00A2
-- D - - - - 0x03FB0A FF:FAFA: AB 00     .word $00AB
-- D - - - - 0x03FB0C FF:FAFC: B4 00     .word $00B4
-- D - - - - 0x03FB0E FF:FAFE: BE 00     .word $00BE
-- D - - - - 0x03FB10 FF:FB00: C8 00     .word $00C8
-- D - - - - 0x03FB12 FF:FB02: D2 00     .word $00D2
-- D - - - - 0x03FB14 FF:FB04: DD 00     .word $00DD
-- D - - - - 0x03FB16 FF:FB06: E8 00     .word $00E8
-- D - - - - 0x03FB18 FF:FB08: F4 00     .word $00F4
-- D - - - - 0x03FB1A FF:FB0A: 00 01     .word $0100
-- D - - - - 0x03FB1C FF:FB0C: 0D 01     .word $010D
-- D - - - - 0x03FB1E FF:FB0E: 1A 01     .word $011A
-- D - - - - 0x03FB20 FF:FB10: 29 01     .word $0129
-- D - - - - 0x03FB22 FF:FB12: 38 01     .word $0138
-- D - - - - 0x03FB24 FF:FB14: 48 01     .word $0148
-- D - - - - 0x03FB26 FF:FB16: 59 01     .word $0159
-- D - - - - 0x03FB28 FF:FB18: 6B 01     .word $016B
-- D - - - - 0x03FB2A FF:FB1A: 7F 01     .word $017F
-- D - - - - 0x03FB2C FF:FB1C: 94 01     .word $0194
-- D - - - - 0x03FB2E FF:FB1E: AB 01     .word $01AB
-- D - - - - 0x03FB30 FF:FB20: C4 01     .word $01C4
-- D - - - - 0x03FB32 FF:FB22: DF 01     .word $01DF
-- D - - - - 0x03FB34 FF:FB24: FD 01     .word $01FD
-- D - - - - 0x03FB36 FF:FB26: 1D 02     .word $021D
-- D - - - - 0x03FB38 FF:FB28: 42 02     .word $0242
-- D - - - - 0x03FB3A FF:FB2A: 6A 02     .word $026A
-- D - - - - 0x03FB3C FF:FB2C: 98 02     .word $0298
-- D - - - - 0x03FB3E FF:FB2E: DB 02     .word $02DB
-- D - - - - 0x03FB40 FF:FB30: 07 03     .word $0307
-- D - - - - 0x03FB42 FF:FB32: 4C 03     .word $034C
-- D - - - - 0x03FB44 FF:FB34: 9D 03     .word $039D
-- D - - - - 0x03FB46 FF:FB36: FE 03     .word $03FE
-- D - - - - 0x03FB48 FF:FB38: 74 04     .word $0474
-- D - - - - 0x03FB4A FF:FB3A: 07 05     .word $0507
-- D - - - - 0x03FB4C FF:FB3C: C3 05     .word $05C3
-- D - - - - 0x03FB4E FF:FB3E: BE 06     .word $06BE
-- D - - - - 0x03FB50 FF:FB40: 1B 08     .word $081B
-- D - - - - 0x03FB52 FF:FB42: 27 0A     .word $0A27
-- D - - - - 0x03FB54 FF:FB44: 8F 0D     .word $0D8F
-- D - - - - 0x03FB56 FF:FB46: 5B 20     .word $205B
-- D - - - - 0x03FB58 FF:FB48: BC 40     .word $40BC
-- D - - - - 0x03FB5A FF:FB4A: FF FF     .word $FFFF
+- D - - - - 0x03FADC FF:FACC: 06 00     .word $0006 ; 00
+- D - - - - 0x03FADE FF:FACE: 0D 00     .word $000D ; 01
+- D - - - - 0x03FAE0 FF:FAD0: 13 00     .word $0013 ; 02
+- D - - - - 0x03FAE2 FF:FAD2: 19 00     .word $0019 ; 03
+- D - - - - 0x03FAE4 FF:FAD4: 20 00     .word $0020 ; 04
+- D - - - - 0x03FAE6 FF:FAD6: 26 00     .word $0026 ; 05
+- D - - - - 0x03FAE8 FF:FAD8: 2C 00     .word $002C ; 06
+- D - - - - 0x03FAEA FF:FADA: 33 00     .word $0033 ; 07
+- D - - - - 0x03FAEC FF:FADC: 39 00     .word $0039 ; 08
+- D - - - - 0x03FAEE FF:FADE: 40 00     .word $0040 ; 09
+- D - - - - 0x03FAF0 FF:FAE0: 47 00     .word $0047 ; 0A
+- D - - - - 0x03FAF2 FF:FAE2: 4E 00     .word $004E ; 0B
+- D - - - - 0x03FAF4 FF:FAE4: 55 00     .word $0055 ; 0C
+- D - - - - 0x03FAF6 FF:FAE6: 5C 00     .word $005C ; 0D
+- D - - - - 0x03FAF8 FF:FAE8: 63 00     .word $0063 ; 0E
+- D - - - - 0x03FAFA FF:FAEA: 6A 00     .word $006A ; 0F
+- D - - - - 0x03FAFC FF:FAEC: 71 00     .word $0071 ; 10
+- D - - - - 0x03FAFE FF:FAEE: 79 00     .word $0079 ; 11
+- D - - - - 0x03FB00 FF:FAF0: 81 00     .word $0081 ; 12
+- D - - - - 0x03FB02 FF:FAF2: 89 00     .word $0089 ; 13
+- D - - - - 0x03FB04 FF:FAF4: 91 00     .word $0091 ; 14
+- D - - - - 0x03FB06 FF:FAF6: 99 00     .word $0099 ; 15
+- D - - - - 0x03FB08 FF:FAF8: A2 00     .word $00A2 ; 16
+- D - - - - 0x03FB0A FF:FAFA: AB 00     .word $00AB ; 17
+- D - - - - 0x03FB0C FF:FAFC: B4 00     .word $00B4 ; 18
+- D - - - - 0x03FB0E FF:FAFE: BE 00     .word $00BE ; 19
+- D - - - - 0x03FB10 FF:FB00: C8 00     .word $00C8 ; 1A
+- D - - - - 0x03FB12 FF:FB02: D2 00     .word $00D2 ; 1B
+- D - - - - 0x03FB14 FF:FB04: DD 00     .word $00DD ; 1C
+- D - - - - 0x03FB16 FF:FB06: E8 00     .word $00E8 ; 1D
+- D - - - - 0x03FB18 FF:FB08: F4 00     .word $00F4 ; 1E
+- D - - - - 0x03FB1A FF:FB0A: 00 01     .word $0100 ; 1F
+- D - - - - 0x03FB1C FF:FB0C: 0D 01     .word $010D ; 20
+- D - - - - 0x03FB1E FF:FB0E: 1A 01     .word $011A ; 21
+- D - - - - 0x03FB20 FF:FB10: 29 01     .word $0129 ; 22
+- D - - - - 0x03FB22 FF:FB12: 38 01     .word $0138 ; 23
+- D - - - - 0x03FB24 FF:FB14: 48 01     .word $0148 ; 24
+- D - - - - 0x03FB26 FF:FB16: 59 01     .word $0159 ; 25
+- D - - - - 0x03FB28 FF:FB18: 6B 01     .word $016B ; 26
+- D - - - - 0x03FB2A FF:FB1A: 7F 01     .word $017F ; 27
+- D - - - - 0x03FB2C FF:FB1C: 94 01     .word $0194 ; 28
+- D - - - - 0x03FB2E FF:FB1E: AB 01     .word $01AB ; 29
+- D - - - - 0x03FB30 FF:FB20: C4 01     .word $01C4 ; 2A
+- D - - - - 0x03FB32 FF:FB22: DF 01     .word $01DF ; 2B
+- D - - - - 0x03FB34 FF:FB24: FD 01     .word $01FD ; 2C
+- D - - - - 0x03FB36 FF:FB26: 1D 02     .word $021D ; 2D
+- D - - - - 0x03FB38 FF:FB28: 42 02     .word $0242 ; 2E
+- D - - - - 0x03FB3A FF:FB2A: 6A 02     .word $026A ; 2F
+- D - - - - 0x03FB3C FF:FB2C: 98 02     .word $0298 ; 30
+- D - - - - 0x03FB3E FF:FB2E: DB 02     .word $02DB ; 31
+- D - - - - 0x03FB40 FF:FB30: 07 03     .word $0307 ; 32
+- D - - - - 0x03FB42 FF:FB32: 4C 03     .word $034C ; 33
+- D - - - - 0x03FB44 FF:FB34: 9D 03     .word $039D ; 34
+- D - - - - 0x03FB46 FF:FB36: FE 03     .word $03FE ; 35
+- D - - - - 0x03FB48 FF:FB38: 74 04     .word $0474 ; 36
+- D - - - - 0x03FB4A FF:FB3A: 07 05     .word $0507 ; 37
+- D - - - - 0x03FB4C FF:FB3C: C3 05     .word $05C3 ; 38
+- D - - - - 0x03FB4E FF:FB3E: BE 06     .word $06BE ; 39
+- D - - - - 0x03FB50 FF:FB40: 1B 08     .word $081B ; 3A
+- D - - - - 0x03FB52 FF:FB42: 27 0A     .word $0A27 ; 3B
+- D - - - - 0x03FB54 FF:FB44: 8F 0D     .word $0D8F ; 3C
+- D - - - - 0x03FB56 FF:FB46: 5B 20     .word $205B ; 3D
+- D - - - - 0x03FB58 FF:FB48: BC 40     .word $40BC ; 3E
+- D - - - - 0x03FB5A FF:FB4A: FF FF     .word $FFFF ; 3F
 
 tbl_FB4C:
-- D - - - - 0x03FB5C FF:FB4C: 00 00     .word $0000
-- D - - - - 0x03FB5E FF:FB4E: 00 00     .word $0000
-- D - - - - 0x03FB60 FF:FB50: 06 00     .word $0006
-- D - - - - 0x03FB62 FF:FB52: 0C 00     .word $000C
-- D - - - - 0x03FB64 FF:FB54: 12 00     .word $0012
-- D - - - - 0x03FB66 FF:FB56: 19 00     .word $0019
-- D - - - - 0x03FB68 FF:FB58: 1F 00     .word $001F
-- D - - - - 0x03FB6A FF:FB5A: 25 00     .word $0025
-- D - - - - 0x03FB6C FF:FB5C: 2B 00     .word $002B
-- D - - - - 0x03FB6E FF:FB5E: 31 00     .word $0031
-- D - - - - 0x03FB70 FF:FB60: 38 00     .word $0038
-- D - - - - 0x03FB72 FF:FB62: 3E 00     .word $003E
-- D - - - - 0x03FB74 FF:FB64: 44 00     .word $0044
-- D - - - - 0x03FB76 FF:FB66: 4A 00     .word $004A
-- D - - - - 0x03FB78 FF:FB68: 50 00     .word $0050
-- D - - - - 0x03FB7A FF:FB6A: 56 00     .word $0056
-- D - - - - 0x03FB7C FF:FB6C: 5C 00     .word $005C
-- D - - - - 0x03FB7E FF:FB6E: 61 00     .word $0061
-- D - - - - 0x03FB80 FF:FB70: 67 00     .word $0067
-- D - - - - 0x03FB82 FF:FB72: 6D 00     .word $006D
-- D - - - - 0x03FB84 FF:FB74: 73 00     .word $0073
-- D - - - - 0x03FB86 FF:FB76: 78 00     .word $0078
-- D - - - - 0x03FB88 FF:FB78: 7E 00     .word $007E
-- D - - - - 0x03FB8A FF:FB7A: 83 00     .word $0083
-- D - - - - 0x03FB8C FF:FB7C: 88 00     .word $0088
-- D - - - - 0x03FB8E FF:FB7E: 8E 00     .word $008E
-- D - - - - 0x03FB90 FF:FB80: 93 00     .word $0093
-- D - - - - 0x03FB92 FF:FB82: 98 00     .word $0098
-- D - - - - 0x03FB94 FF:FB84: 9D 00     .word $009D
-- D - - - - 0x03FB96 FF:FB86: A2 00     .word $00A2
-- D - - - - 0x03FB98 FF:FB88: A7 00     .word $00A7
-- D - - - - 0x03FB9A FF:FB8A: AB 00     .word $00AB
-- D - - - - 0x03FB9C FF:FB8C: B0 00     .word $00B0
-- D - - - - 0x03FB9E FF:FB8E: B5 00     .word $00B5
-- D - - - - 0x03FBA0 FF:FB90: B9 00     .word $00B9
-- D - - - - 0x03FBA2 FF:FB92: BD 00     .word $00BD
-- D - - - - 0x03FBA4 FF:FB94: C1 00     .word $00C1
-- D - - - - 0x03FBA6 FF:FB96: C5 00     .word $00C5
-- D - - - - 0x03FBA8 FF:FB98: C9 00     .word $00C9
-- D - - - - 0x03FBAA FF:FB9A: CD 00     .word $00CD
-- D - - - - 0x03FBAC FF:FB9C: D1 00     .word $00D1
-- D - - - - 0x03FBAE FF:FB9E: D4 00     .word $00D4
-- D - - - - 0x03FBB0 FF:FBA0: D8 00     .word $00D8
-- D - - - - 0x03FBB2 FF:FBA2: DB 00     .word $00DB
-- D - - - - 0x03FBB4 FF:FBA4: DE 00     .word $00DE
-- D - - - - 0x03FBB6 FF:FBA6: E1 00     .word $00E1
-- D - - - - 0x03FBB8 FF:FBA8: E4 00     .word $00E4
-- D - - - - 0x03FBBA FF:FBAA: E7 00     .word $00E7
-- D - - - - 0x03FBBC FF:FBAC: EA 00     .word $00EA
-- D - - - - 0x03FBBE FF:FBAE: EC 00     .word $00EC
-- D - - - - 0x03FBC0 FF:FBB0: EE 00     .word $00EE
-- D - - - - 0x03FBC2 FF:FBB2: F1 00     .word $00F1
-- D - - - - 0x03FBC4 FF:FBB4: F3 00     .word $00F3
-- D - - - - 0x03FBC6 FF:FBB6: F4 00     .word $00F4
-- D - - - - 0x03FBC8 FF:FBB8: F6 00     .word $00F6
-- D - - - - 0x03FBCA FF:FBBA: F8 00     .word $00F8
-- D - - - - 0x03FBCC FF:FBBC: F9 00     .word $00F9
-- D - - - - 0x03FBCE FF:FBBE: FB 00     .word $00FB
-- D - - - - 0x03FBD0 FF:FBC0: FC 00     .word $00FC
-- D - - - - 0x03FBD2 FF:FBC2: FD 00     .word $00FD
-- D - - - - 0x03FBD4 FF:FBC4: FE 00     .word $00FE
-- D - - - - 0x03FBD6 FF:FBC6: FE 00     .word $00FE
-- D - - - - 0x03FBD8 FF:FBC8: FF 00     .word $00FF
-- D - - - - 0x03FBDA FF:FBCA: 00 01     .word $0100
+- D - - - - 0x03FB5C FF:FB4C: 00 00     .word $0000 ; 00
+- D - - - - 0x03FB5E FF:FB4E: 00 00     .word $0000 ; 01
+- D - - - - 0x03FB60 FF:FB50: 06 00     .word $0006 ; 02
+- D - - - - 0x03FB62 FF:FB52: 0C 00     .word $000C ; 03
+- D - - - - 0x03FB64 FF:FB54: 12 00     .word $0012 ; 04
+- D - - - - 0x03FB66 FF:FB56: 19 00     .word $0019 ; 05
+- D - - - - 0x03FB68 FF:FB58: 1F 00     .word $001F ; 06
+- D - - - - 0x03FB6A FF:FB5A: 25 00     .word $0025 ; 07
+- D - - - - 0x03FB6C FF:FB5C: 2B 00     .word $002B ; 08
+- D - - - - 0x03FB6E FF:FB5E: 31 00     .word $0031 ; 09
+- D - - - - 0x03FB70 FF:FB60: 38 00     .word $0038 ; 0A
+- D - - - - 0x03FB72 FF:FB62: 3E 00     .word $003E ; 0B
+- D - - - - 0x03FB74 FF:FB64: 44 00     .word $0044 ; 0C
+- D - - - - 0x03FB76 FF:FB66: 4A 00     .word $004A ; 0D
+- D - - - - 0x03FB78 FF:FB68: 50 00     .word $0050 ; 0E
+- D - - - - 0x03FB7A FF:FB6A: 56 00     .word $0056 ; 0F
+- D - - - - 0x03FB7C FF:FB6C: 5C 00     .word $005C ; 10
+- D - - - - 0x03FB7E FF:FB6E: 61 00     .word $0061 ; 11
+- D - - - - 0x03FB80 FF:FB70: 67 00     .word $0067 ; 12
+- D - - - - 0x03FB82 FF:FB72: 6D 00     .word $006D ; 13
+- D - - - - 0x03FB84 FF:FB74: 73 00     .word $0073 ; 14
+- D - - - - 0x03FB86 FF:FB76: 78 00     .word $0078 ; 15
+- D - - - - 0x03FB88 FF:FB78: 7E 00     .word $007E ; 16
+- D - - - - 0x03FB8A FF:FB7A: 83 00     .word $0083 ; 17
+- D - - - - 0x03FB8C FF:FB7C: 88 00     .word $0088 ; 18
+- D - - - - 0x03FB8E FF:FB7E: 8E 00     .word $008E ; 19
+- D - - - - 0x03FB90 FF:FB80: 93 00     .word $0093 ; 1A
+- D - - - - 0x03FB92 FF:FB82: 98 00     .word $0098 ; 1B
+- D - - - - 0x03FB94 FF:FB84: 9D 00     .word $009D ; 1C
+- D - - - - 0x03FB96 FF:FB86: A2 00     .word $00A2 ; 1D
+- D - - - - 0x03FB98 FF:FB88: A7 00     .word $00A7 ; 1E
+- D - - - - 0x03FB9A FF:FB8A: AB 00     .word $00AB ; 1F
+- D - - - - 0x03FB9C FF:FB8C: B0 00     .word $00B0 ; 20
+- D - - - - 0x03FB9E FF:FB8E: B5 00     .word $00B5 ; 21
+- D - - - - 0x03FBA0 FF:FB90: B9 00     .word $00B9 ; 22
+- D - - - - 0x03FBA2 FF:FB92: BD 00     .word $00BD ; 23
+- D - - - - 0x03FBA4 FF:FB94: C1 00     .word $00C1 ; 24
+- D - - - - 0x03FBA6 FF:FB96: C5 00     .word $00C5 ; 25
+- D - - - - 0x03FBA8 FF:FB98: C9 00     .word $00C9 ; 26
+- D - - - - 0x03FBAA FF:FB9A: CD 00     .word $00CD ; 27
+- D - - - - 0x03FBAC FF:FB9C: D1 00     .word $00D1 ; 28
+- D - - - - 0x03FBAE FF:FB9E: D4 00     .word $00D4 ; 29
+- D - - - - 0x03FBB0 FF:FBA0: D8 00     .word $00D8 ; 2A
+- D - - - - 0x03FBB2 FF:FBA2: DB 00     .word $00DB ; 2B
+- D - - - - 0x03FBB4 FF:FBA4: DE 00     .word $00DE ; 2C
+- D - - - - 0x03FBB6 FF:FBA6: E1 00     .word $00E1 ; 2D
+- D - - - - 0x03FBB8 FF:FBA8: E4 00     .word $00E4 ; 2E
+- D - - - - 0x03FBBA FF:FBAA: E7 00     .word $00E7 ; 2F
+- D - - - - 0x03FBBC FF:FBAC: EA 00     .word $00EA ; 30
+- D - - - - 0x03FBBE FF:FBAE: EC 00     .word $00EC ; 31
+- D - - - - 0x03FBC0 FF:FBB0: EE 00     .word $00EE ; 32
+- D - - - - 0x03FBC2 FF:FBB2: F1 00     .word $00F1 ; 33
+- D - - - - 0x03FBC4 FF:FBB4: F3 00     .word $00F3 ; 34
+- D - - - - 0x03FBC6 FF:FBB6: F4 00     .word $00F4 ; 35
+- D - - - - 0x03FBC8 FF:FBB8: F6 00     .word $00F6 ; 36
+- D - - - - 0x03FBCA FF:FBBA: F8 00     .word $00F8 ; 37
+- D - - - - 0x03FBCC FF:FBBC: F9 00     .word $00F9 ; 38
+- D - - - - 0x03FBCE FF:FBBE: FB 00     .word $00FB ; 39
+- D - - - - 0x03FBD0 FF:FBC0: FC 00     .word $00FC ; 3A
+- D - - - - 0x03FBD2 FF:FBC2: FD 00     .word $00FD ; 3B
+- D - - - - 0x03FBD4 FF:FBC4: FE 00     .word $00FE ; 3C
+- D - - - - 0x03FBD6 FF:FBC6: FE 00     .word $00FE ; 3D
+- D - - - - 0x03FBD8 FF:FBC8: FF 00     .word $00FF ; 3E
+- D - - - - 0x03FBDA FF:FBCA: 00 01     .word $0100 ; 3F
 
-tbl_FBCC:
-- D - I - - 0x03FBDC FF:FBCC: 00        .byte $00
-- D - I - - 0x03FBDD FF:FBCD: 00        .byte $00
-- D - I - - 0x03FBDE FF:FBCE: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBDF FF:FBCF: 36        .byte $36   ; <3>
-- D - I - - 0x03FBE0 FF:FBD0: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FBE1 FF:FBD1: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBE2 FF:FBD2: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FBE3 FF:FBD3: 00        .byte $00
-- D - I - - 0x03FBE4 FF:FBD4: 18        .byte $18   ; <ね>
-- D - I - - 0x03FBE5 FF:FBD5: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FBE6 FF:FBD6: 18        .byte $18   ; <ね>
-- D - I - - 0x03FBE7 FF:FBD7: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBE8 FF:FBD8: 21        .byte $21   ; <む>
-- D - I - - 0x03FBE9 FF:FBD9: 10        .byte $10   ; <た>
-- D - I - - 0x03FBEA FF:FBDA: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBEB FF:FBDB: 36        .byte $36   ; <3>
-- D - I - - 0x03FBEC FF:FBDC: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FBED FF:FBDD: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBEE FF:FBDE: 19        .byte $19   ; <の>
-- D - I - - 0x03FBEF FF:FBDF: 00        .byte $00
-- D - I - - 0x03FBF0 FF:FBE0: 2A        .byte $2A   ; <れ>
-- D - I - - 0x03FBF1 FF:FBE1: 21        .byte $21   ; <む>
-- D - I - - 0x03FBF2 FF:FBE2: 3A        .byte $3A   ; <7>
-- D - I - - 0x03FBF3 FF:FBE3: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FBF4 FF:FBE4: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FBF5 FF:FBE5: 10        .byte $10   ; <た>
-- D - I - - 0x03FBF6 FF:FBE6: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBF7 FF:FBE7: 36        .byte $36   ; <3>
-- D - I - - 0x03FBF8 FF:FBE8: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FBF9 FF:FBE9: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBFA FF:FBEA: 21        .byte $21   ; <む>
-- D - I - - 0x03FBFB FF:FBEB: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FBFC FF:FBEC: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FBFD FF:FBED: 21        .byte $21   ; <む>
-- D - I - - 0x03FBFE FF:FBEE: 10        .byte $10   ; <た>
-- D - I - - 0x03FBFF FF:FBEF: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC00 FF:FBF0: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC01 FF:FBF1: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC02 FF:FBF2: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC03 FF:FBF3: 21        .byte $21   ; <む>
-- D - I - - 0x03FC04 FF:FBF4: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC05 FF:FBF5: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FC06 FF:FBF6: 21        .byte $21   ; <む>
-- D - I - - 0x03FC07 FF:FBF7: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC08 FF:FBF8: 37        .byte $37   ; <4>
-- D - I - - 0x03FC09 FF:FBF9: 21        .byte $21   ; <む>
-- D - I - - 0x03FC0A FF:FBFA: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC0B FF:FBFB: 37        .byte $37   ; <4>
-- D - I - - 0x03FC0C FF:FBFC: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC0D FF:FBFD: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC0E FF:FBFE: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC0F FF:FBFF: 21        .byte $21   ; <む>
-- D - I - - 0x03FC10 FF:FC00: 36        .byte $36   ; <3>
-- D - I - - 0x03FC11 FF:FC01: 27        .byte $27   ; <ら>
-- D - I - - 0x03FC12 FF:FC02: 21        .byte $21   ; <む>
-- D - I - - 0x03FC13 FF:FC03: 11        .byte $11   ; <ち>
-- D - I - - 0x03FC14 FF:FC04: 16        .byte $16   ; <に>
-- D - I - - 0x03FC15 FF:FC05: 21        .byte $21   ; <む>
-- D - I - - 0x03FC16 FF:FC06: 11        .byte $11   ; <ち>
-- D - I - - 0x03FC17 FF:FC07: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC18 FF:FC08: 36        .byte $36   ; <3>
-- D - I - - 0x03FC19 FF:FC09: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FC1A FF:FC0A: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC1B FF:FC0B: 21        .byte $21   ; <む>
-- D - I - - 0x03FC1C FF:FC0C: 27        .byte $27   ; <ら>
-- D - I - - 0x03FC1D FF:FC0D: 36        .byte $36   ; <3>
-- D - I - - 0x03FC1E FF:FC0E: 21        .byte $21   ; <む>
-- D - I - - 0x03FC1F FF:FC0F: 27        .byte $27   ; <ら>
-- D - I - - 0x03FC20 FF:FC10: 36        .byte $36   ; <3>
-- D - I - - 0x03FC21 FF:FC11: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC22 FF:FC12: 27        .byte $27   ; <ら>
-- D - I - - 0x03FC23 FF:FC13: 36        .byte $36   ; <3>
-- D - I - - 0x03FC24 FF:FC14: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FC25 FF:FC15: 18        .byte $18   ; <ね>
-- D - I - - 0x03FC26 FF:FC16: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC27 FF:FC17: 36        .byte $36   ; <3>
-- D - I - - 0x03FC28 FF:FC18: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FC29 FF:FC19: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC2A FF:FC1A: 21        .byte $21   ; <む>
-- D - I - - 0x03FC2B FF:FC1B: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FC2C FF:FC1C: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC2D FF:FC1D: 3A        .byte $3A   ; <7>
-- D - I - - 0x03FC2E FF:FC1E: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FC2F FF:FC1F: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FC30 FF:FC20: 1A        .byte $1A   ; <は>
-- D - I - - 0x03FC31 FF:FC21: 10        .byte $10   ; <た>
-- D - I - - 0x03FC32 FF:FC22: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC33 FF:FC23: 36        .byte $36   ; <3>
-- D - I - - 0x03FC34 FF:FC24: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FC35 FF:FC25: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC36 FF:FC26: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC37 FF:FC27: 21        .byte $21   ; <む>
-- D - I - - 0x03FC38 FF:FC28: 07        .byte $07   ; <き>
-- D - I - - 0x03FC39 FF:FC29: 21        .byte $21   ; <む>
-- D - I - - 0x03FC3A FF:FC2A: 36        .byte $36   ; <3>
-- D - I - - 0x03FC3B FF:FC2B: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC3C FF:FC2C: 2A        .byte $2A   ; <れ>
-- D - I - - 0x03FC3D FF:FC2D: 10        .byte $10   ; <た>
-- D - I - - 0x03FC3E FF:FC2E: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC3F FF:FC2F: 36        .byte $36   ; <3>
-- D - I - - 0x03FC40 FF:FC30: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FC41 FF:FC31: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC42 FF:FC32: 36        .byte $36   ; <3>
-- D - I - - 0x03FC43 FF:FC33: 21        .byte $21   ; <む>
-- D - I - - 0x03FC44 FF:FC34: 07        .byte $07   ; <き>
-- D - I - - 0x03FC45 FF:FC35: 21        .byte $21   ; <む>
-- D - I - - 0x03FC46 FF:FC36: 36        .byte $36   ; <3>
-- D - I - - 0x03FC47 FF:FC37: 15        .byte $15   ; <な>
-- D - I - - 0x03FC48 FF:FC38: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC49 FF:FC39: 10        .byte $10   ; <た>
-- D - I - - 0x03FC4A FF:FC3A: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC4B FF:FC3B: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC4C FF:FC3C: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC4D FF:FC3D: 00        .byte $00
-- D - I - - 0x03FC4E FF:FC3E: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FC4F FF:FC3F: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC50 FF:FC40: 10        .byte $10   ; <た>
-- D - I - - 0x03FC51 FF:FC41: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC52 FF:FC42: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC53 FF:FC43: 00        .byte $00
-- D - I - - 0x03FC54 FF:FC44: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC55 FF:FC45: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC56 FF:FC46: 36        .byte $36   ; <3>
-- D - I - - 0x03FC57 FF:FC47: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC58 FF:FC48: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC59 FF:FC49: 36        .byte $36   ; <3>
-- D - I - - 0x03FC5A FF:FC4A: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC5B FF:FC4B: 17        .byte $17   ; <ぬ>
-- D - I - - 0x03FC5C FF:FC4C: 36        .byte $36   ; <3>
-- D - I - - 0x03FC5D FF:FC4D: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC5E FF:FC4E: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FC5F FF:FC4F: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC60 FF:FC50: 36        .byte $36   ; <3>
-- D - I - - 0x03FC61 FF:FC51: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FC62 FF:FC52: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC63 FF:FC53: 07        .byte $07   ; <き>
-- D - I - - 0x03FC64 FF:FC54: 18        .byte $18   ; <ね>
-- D - I - - 0x03FC65 FF:FC55: 28        .byte $28   ; <り>
-- D - I - - 0x03FC66 FF:FC56: 00        .byte $00
-- D - I - - 0x03FC67 FF:FC57: 00        .byte $00
-- D - I - - 0x03FC68 FF:FC58: 00        .byte $00
-- D - I - - 0x03FC69 FF:FC59: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC6A FF:FC5A: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC6B FF:FC5B: 11        .byte $11   ; <ち>
-- D - I - - 0x03FC6C FF:FC5C: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC6D FF:FC5D: 27        .byte $27   ; <ら>
-- D - I - - 0x03FC6E FF:FC5E: 36        .byte $36   ; <3>
-- D - I - - 0x03FC6F FF:FC5F: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC70 FF:FC60: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC71 FF:FC61: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FC72 FF:FC62: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC73 FF:FC63: 00        .byte $00
-- D - I - - 0x03FC74 FF:FC64: 00        .byte $00
-- D - I - - 0x03FC75 FF:FC65: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC76 FF:FC66: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC77 FF:FC67: 36        .byte $36   ; <3>
-- D - I - - 0x03FC78 FF:FC68: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC79 FF:FC69: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC7A FF:FC6A: 36        .byte $36   ; <3>
-- D - I - - 0x03FC7B FF:FC6B: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC7C FF:FC6C: 16        .byte $16   ; <に>
-- D - I - - 0x03FC7D FF:FC6D: 36        .byte $36   ; <3>
-- D - I - - 0x03FC7E FF:FC6E: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC7F FF:FC6F: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC80 FF:FC70: 36        .byte $36   ; <3>
-- D - I - - 0x03FC81 FF:FC71: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC82 FF:FC72: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC83 FF:FC73: 36        .byte $36   ; <3>
-- D - I - - 0x03FC84 FF:FC74: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC85 FF:FC75: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC86 FF:FC76: 36        .byte $36   ; <3>
-- D - I - - 0x03FC87 FF:FC77: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC88 FF:FC78: 19        .byte $19   ; <の>
-- D - I - - 0x03FC89 FF:FC79: 36        .byte $36   ; <3>
-- D - I - - 0x03FC8A FF:FC7A: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC8B FF:FC7B: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC8C FF:FC7C: 36        .byte $36   ; <3>
-- D - I - - 0x03FC8D FF:FC7D: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC8E FF:FC7E: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC8F FF:FC7F: 36        .byte $36   ; <3>
-- D - I - - 0x03FC90 FF:FC80: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC91 FF:FC81: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC92 FF:FC82: 36        .byte $36   ; <3>
-- D - I - - 0x03FC93 FF:FC83: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC94 FF:FC84: 16        .byte $16   ; <に>
-- D - I - - 0x03FC95 FF:FC85: 36        .byte $36   ; <3>
-- D - I - - 0x03FC96 FF:FC86: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC97 FF:FC87: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC98 FF:FC88: 36        .byte $36   ; <3>
-- D - I - - 0x03FC99 FF:FC89: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC9A FF:FC8A: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FC9B FF:FC8B: 36        .byte $36   ; <3>
-- D - I - - 0x03FC9C FF:FC8C: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FC9D FF:FC8D: 07        .byte $07   ; <き>
-- D - I - - 0x03FC9E FF:FC8E: 36        .byte $36   ; <3>
-- D - I - - 0x03FC9F FF:FC8F: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCA0 FF:FC90: 16        .byte $16   ; <に>
-- D - I - - 0x03FCA1 FF:FC91: 36        .byte $36   ; <3>
-- D - I - - 0x03FCA2 FF:FC92: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCA3 FF:FC93: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCA4 FF:FC94: 36        .byte $36   ; <3>
-- D - I - - 0x03FCA5 FF:FC95: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCA6 FF:FC96: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCA7 FF:FC97: 36        .byte $36   ; <3>
-- D - I - - 0x03FCA8 FF:FC98: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCA9 FF:FC99: 00        .byte $00
-- D - I - - 0x03FCAA FF:FC9A: 36        .byte $36   ; <3>
-- D - I - - 0x03FCAB FF:FC9B: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCAC FF:FC9C: 16        .byte $16   ; <に>
-- D - I - - 0x03FCAD FF:FC9D: 36        .byte $36   ; <3>
-- D - I - - 0x03FCAE FF:FC9E: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCAF FF:FC9F: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCB0 FF:FCA0: 36        .byte $36   ; <3>
-- D - I - - 0x03FCB1 FF:FCA1: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCB2 FF:FCA2: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCB3 FF:FCA3: 36        .byte $36   ; <3>
-- D - I - - 0x03FCB4 FF:FCA4: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCB5 FF:FCA5: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCB6 FF:FCA6: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCB7 FF:FCA7: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCB8 FF:FCA8: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCB9 FF:FCA9: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCBA FF:FCAA: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCBB FF:FCAB: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCBC FF:FCAC: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCBD FF:FCAD: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCBE FF:FCAE: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCBF FF:FCAF: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCC0 FF:FCB0: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCC1 FF:FCB1: 26        .byte $26   ; <よ>
-- D - I - - 0x03FCC2 FF:FCB2: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCC3 FF:FCB3: 26        .byte $26   ; <よ>
-- D - I - - 0x03FCC4 FF:FCB4: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FCC5 FF:FCB5: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCC6 FF:FCB6: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCC7 FF:FCB7: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCC8 FF:FCB8: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCC9 FF:FCB9: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCCA FF:FCBA: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCCB FF:FCBB: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCCC FF:FCBC: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCCD FF:FCBD: 27        .byte $27   ; <ら>
-- D - I - - 0x03FCCE FF:FCBE: 36        .byte $36   ; <3>
-- D - I - - 0x03FCCF FF:FCBF: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCD0 FF:FCC0: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FCD1 FF:FCC1: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCD2 FF:FCC2: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCD3 FF:FCC3: 31        .byte $31   ; <ゅ>
-- D - I - - 0x03FCD4 FF:FCC4: 27        .byte $27   ; <ら>
-- D - I - - 0x03FCD5 FF:FCC5: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCD6 FF:FCC6: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCD7 FF:FCC7: 36        .byte $36   ; <3>
-- D - I - - 0x03FCD8 FF:FCC8: 05        .byte $05   ; <お>
-- D - I - - 0x03FCD9 FF:FCC9: 16        .byte $16   ; <に>
-- D - I - - 0x03FCDA FF:FCCA: 15        .byte $15   ; <な>
-- D - I - - 0x03FCDB FF:FCCB: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCDC FF:FCCC: 27        .byte $27   ; <ら>
-- D - I - - 0x03FCDD FF:FCCD: 37        .byte $37   ; <4>
-- D - I - - 0x03FCDE FF:FCCE: 10        .byte $10   ; <た>
-- D - I - - 0x03FCDF FF:FCCF: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCE0 FF:FCD0: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCE1 FF:FCD1: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCE2 FF:FCD2: 00        .byte $00
-- D - I - - 0x03FCE3 FF:FCD3: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCE4 FF:FCD4: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCE5 FF:FCD5: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCE6 FF:FCD6: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCE7 FF:FCD7: 36        .byte $36   ; <3>
-- D - I - - 0x03FCE8 FF:FCD8: 25        .byte $25   ; <ゆ>
-- D - I - - 0x03FCE9 FF:FCD9: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCEA FF:FCDA: 11        .byte $11   ; <ち>
-- D - I - - 0x03FCEB FF:FCDB: 00        .byte $00
-- D - I - - 0x03FCEC FF:FCDC: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FCED FF:FCDD: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FCEE FF:FCDE: 15        .byte $15   ; <な>
-- D - I - - 0x03FCEF FF:FCDF: 25        .byte $25   ; <ゆ>
-- - - - - - 0x03FCF0 FF:FCE0: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCF1 FF:FCE1: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCF2 FF:FCE2: 35        .byte $35   ; <2>
-- - - - - - 0x03FCF3 FF:FCE3: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCF4 FF:FCE4: 31        .byte $31   ; <ゅ>
-- - - - - - 0x03FCF5 FF:FCE5: 35        .byte $35   ; <2>
-- - - - - - 0x03FCF6 FF:FCE6: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCF7 FF:FCE7: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCF8 FF:FCE8: 35        .byte $35   ; <2>
-- - - - - - 0x03FCF9 FF:FCE9: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCFA FF:FCEA: 30        .byte $30   ; <ゃ>
-- - - - - - 0x03FCFB FF:FCEB: 35        .byte $35   ; <2>
-- - - - - - 0x03FCFC FF:FCEC: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FCFD FF:FCED: 16        .byte $16   ; <に>
-- - - - - - 0x03FCFE FF:FCEE: 35        .byte $35   ; <2>
-- - - - - - 0x03FCFF FF:FCEF: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FD00 FF:FCF0: 31        .byte $31   ; <ゅ>
-- - - - - - 0x03FD01 FF:FCF1: 35        .byte $35   ; <2>
-- - - - - - 0x03FD02 FF:FCF2: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FD03 FF:FCF3: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FD04 FF:FCF4: 35        .byte $35   ; <2>
-- - - - - - 0x03FD05 FF:FCF5: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FD06 FF:FCF6: 30        .byte $30   ; <ゃ>
-- - - - - - 0x03FD07 FF:FCF7: 35        .byte $35   ; <2>
-- - - - - - 0x03FD08 FF:FCF8: 21        .byte $21   ; <む>
-- - - - - - 0x03FD09 FF:FCF9: 0F        .byte $0F   ; <そ>
-- - - - - - 0x03FD0A FF:FCFA: 30        .byte $30   ; <ゃ>
-- - - - - - 0x03FD0B FF:FCFB: 21        .byte $21   ; <む>
-- - - - - - 0x03FD0C FF:FCFC: 36        .byte $36   ; <3>
-- - - - - - 0x03FD0D FF:FCFD: 27        .byte $27   ; <ら>
-- - - - - - 0x03FD0E FF:FCFE: 21        .byte $21   ; <む>
-- - - - - - 0x03FD0F FF:FCFF: 16        .byte $16   ; <に>
-- - - - - - 0x03FD10 FF:FD00: 16        .byte $16   ; <に>
-- - - - - - 0x03FD11 FF:FD01: 21        .byte $21   ; <む>
-- - - - - - 0x03FD12 FF:FD02: 16        .byte $16   ; <に>
-- - - - - - 0x03FD13 FF:FD03: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FD14 FF:FD04: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FD15 FF:FD05: 36        .byte $36   ; <3>
-- D - I - - 0x03FD16 FF:FD06: 27        .byte $27   ; <ら>
-- D - I - - 0x03FD17 FF:FD07: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FD18 FF:FD08: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FD19 FF:FD09: 27        .byte $27   ; <ら>
-- D - I - - 0x03FD1A FF:FD0A: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FD1B FF:FD0B: 30        .byte $30   ; <ゃ>
-- D - I - - 0x03FD1C FF:FD0C: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FD1D FF:FD0D: 0F        .byte $0F   ; <そ>
-- D - I - - 0x03FD1E FF:FD0E: 36        .byte $36   ; <3>
-- D - I - - 0x03FD1F FF:FD0F: 30        .byte $30   ; <ゃ>
+
+
+tbl_FBCC_палитра:
+; 00
+- D - I - - 0x03FBDC FF:FBCC: 00        .byte $00, $00, $30
+- D - I - - 0x03FBDF FF:FBCF: 36        .byte $36, $25, $30
+- D - I - - 0x03FBE2 FF:FBD2: 1A        .byte $1A, $00, $18
+- D - I - - 0x03FBE5 FF:FBD5: 1A        .byte $1A, $18, $30
+; 01
+- D - I - - 0x03FBE8 FF:FBD8: 21        .byte $21, $10, $30
+- D - I - - 0x03FBEB FF:FBDB: 36        .byte $36, $25, $30
+- D - I - - 0x03FBEE FF:FBDE: 19        .byte $19, $00, $2A
+- D - I - - 0x03FBF1 FF:FBE1: 21        .byte $21, $3A, $1A
+; 02
+- D - I - - 0x03FBF4 FF:FBE4: 1A        .byte $1A, $10, $30
+- D - I - - 0x03FBF7 FF:FBE7: 36        .byte $36, $25, $30
+- D - I - - 0x03FBFA FF:FBEA: 21        .byte $21, $31, $30
+- D - I - - 0x03FBFD FF:FBED: 21        .byte $21, $10, $30
+; 03
+- D - I - - 0x03FC00 FF:FBF0: 0F        .byte $0F, $0F, $30
+- D - I - - 0x03FC03 FF:FBF3: 21        .byte $21, $30, $31
+- D - I - - 0x03FC06 FF:FBF6: 21        .byte $21, $30, $37
+- D - I - - 0x03FC09 FF:FBF9: 21        .byte $21, $30, $37
+; 04
+- D - I - - 0x03FC0C FF:FBFC: 0F        .byte $0F, $0F, $30
+- D - I - - 0x03FC0F FF:FBFF: 21        .byte $21, $36, $27
+- D - I - - 0x03FC12 FF:FC02: 21        .byte $21, $11, $16
+- D - I - - 0x03FC15 FF:FC05: 21        .byte $21, $11, $30
+; 05
+- D - I - - 0x03FC18 FF:FC08: 36        .byte $36, $25, $30
+- D - I - - 0x03FC1B FF:FC0B: 21        .byte $21, $27, $36
+- D - I - - 0x03FC1E FF:FC0E: 21        .byte $21, $27, $36
+- D - I - - 0x03FC21 FF:FC11: 30        .byte $30, $27, $36
+; 06
+- D - I - - 0x03FC24 FF:FC14: 1A        .byte $1A, $18, $30
+- D - I - - 0x03FC27 FF:FC17: 36        .byte $36, $25, $30
+- D - I - - 0x03FC2A FF:FC1A: 21        .byte $21, $31, $30
+- D - I - - 0x03FC2D FF:FC1D: 3A        .byte $3A, $1A, $1A
+; 07
+- D - I - - 0x03FC30 FF:FC20: 1A        .byte $1A, $10, $30
+- D - I - - 0x03FC33 FF:FC23: 36        .byte $36, $25, $30
+- D - I - - 0x03FC36 FF:FC26: 0F        .byte $0F, $21, $07
+- D - I - - 0x03FC39 FF:FC29: 21        .byte $21, $36, $30
+; 08
+- D - I - - 0x03FC3C FF:FC2C: 2A        .byte $2A, $10, $30
+- D - I - - 0x03FC3F FF:FC2F: 36        .byte $36, $25, $30
+- D - I - - 0x03FC42 FF:FC32: 36        .byte $36, $21, $07
+- D - I - - 0x03FC45 FF:FC35: 21        .byte $21, $36, $15
+; 09
+- D - I - - 0x03FC48 FF:FC38: 0F        .byte $0F, $10, $30
+- D - I - - 0x03FC4B FF:FC3B: 0F        .byte $0F, $30, $00
+- D - I - - 0x03FC4E FF:FC3E: 31        .byte $31, $30, $10
+- D - I - - 0x03FC51 FF:FC41: 0F        .byte $0F, $30, $00
+; 0A
+- D - I - - 0x03FC54 FF:FC44: 0F        .byte $0F, $0F, $36
+- D - I - - 0x03FC57 FF:FC47: 0F        .byte $0F, $30, $36
+- D - I - - 0x03FC5A FF:FC4A: 0F        .byte $0F, $17, $36
+- D - I - - 0x03FC5D FF:FC4D: 0F        .byte $0F, $31, $30
+; 0B
+- D - I - - 0x03FC60 FF:FC50: 36        .byte $36, $31, $30
+- D - I - - 0x03FC63 FF:FC53: 07        .byte $07, $18, $28
+- D - I - - 0x03FC66 FF:FC56: 00        .byte $00, $00, $00
+- D - I - - 0x03FC69 FF:FC59: 0F        .byte $0F, $30, $11
+; 0C
+- D - I - - 0x03FC6C FF:FC5C: 0F        .byte $0F, $27, $36
+- D - I - - 0x03FC6F FF:FC5F: 0F        .byte $0F, $30, $31
+- D - I - - 0x03FC72 FF:FC62: 0F        .byte $0F, $00, $00
+- D - I - - 0x03FC75 FF:FC65: 0F        .byte $0F, $30, $36
+; 0D
+- D - I - - 0x03FC78 FF:FC68: 0F        .byte $0F, $0F, $36
+- D - I - - 0x03FC7B FF:FC6B: 0F        .byte $0F, $16, $36
+- D - I - - 0x03FC7E FF:FC6E: 0F        .byte $0F, $30, $36
+- D - I - - 0x03FC81 FF:FC71: 0F        .byte $0F, $30, $36
+; 0E
+- D - I - - 0x03FC84 FF:FC74: 0F        .byte $0F, $0F, $36
+- D - I - - 0x03FC87 FF:FC77: 0F        .byte $0F, $19, $36
+- D - I - - 0x03FC8A FF:FC7A: 0F        .byte $0F, $30, $36
+- D - I - - 0x03FC8D FF:FC7D: 0F        .byte $0F, $30, $36
+; 0F
+- D - I - - 0x03FC90 FF:FC80: 0F        .byte $0F, $0F, $36
+- D - I - - 0x03FC93 FF:FC83: 0F        .byte $0F, $16, $36
+- D - I - - 0x03FC96 FF:FC86: 0F        .byte $0F, $30, $36
+- D - I - - 0x03FC99 FF:FC89: 0F        .byte $0F, $30, $36
+; 10
+- D - I - - 0x03FC9C FF:FC8C: 0F        .byte $0F, $07, $36
+- D - I - - 0x03FC9F FF:FC8F: 0F        .byte $0F, $16, $36
+- D - I - - 0x03FCA2 FF:FC92: 0F        .byte $0F, $30, $36
+- D - I - - 0x03FCA5 FF:FC95: 0F        .byte $0F, $30, $36
+; 11
+- D - I - - 0x03FCA8 FF:FC98: 0F        .byte $0F, $00, $36
+- D - I - - 0x03FCAB FF:FC9B: 0F        .byte $0F, $16, $36
+- D - I - - 0x03FCAE FF:FC9E: 0F        .byte $0F, $30, $36
+- D - I - - 0x03FCB1 FF:FCA1: 0F        .byte $0F, $30, $36
+; 12
+- D - I - - 0x03FCB4 FF:FCA4: 0F        .byte $0F, $0F, $0F
+- D - I - - 0x03FCB7 FF:FCA7: 0F        .byte $0F, $0F, $0F
+- D - I - - 0x03FCBA FF:FCAA: 0F        .byte $0F, $0F, $0F
+- D - I - - 0x03FCBD FF:FCAD: 0F        .byte $0F, $0F, $0F
+; 13
+- D - I - - 0x03FCC0 FF:FCB0: 0F        .byte $0F, $26, $30
+- D - I - - 0x03FCC3 FF:FCB3: 26        .byte $26, $25, $30
+- D - I - - 0x03FCC6 FF:FCB6: 0F        .byte $0F, $0F, $0F
+- D - I - - 0x03FCC9 FF:FCB9: 0F        .byte $0F, $0F, $0F
+; 14
+- D - I - - 0x03FCCC FF:FCBC: 0F        .byte $0F, $27, $36
+- D - I - - 0x03FCCF FF:FCBF: 0F        .byte $0F, $31, $30
+- D - I - - 0x03FCD2 FF:FCC2: 0F        .byte $0F, $31, $27
+- D - I - - 0x03FCD5 FF:FCC5: 0F        .byte $0F, $30, $36
+; 15
+- D - I - - 0x03FCD8 FF:FCC8: 05        .byte $05, $16, $15
+- D - I - - 0x03FCDB FF:FCCB: 30        .byte $30, $27, $37
+- D - I - - 0x03FCDE FF:FCCE: 10        .byte $10, $0F, $0F
+- D - I - - 0x03FCE1 FF:FCD1: 0F        .byte $0F, $00, $30
+; 16
+- D - I - - 0x03FCE4 FF:FCD4: 0F        .byte $0F, $0F, $30
+- D - I - - 0x03FCE7 FF:FCD7: 36        .byte $36, $25, $30
+- D - I - - 0x03FCEA FF:FCDA: 11        .byte $11, $00, $30
+- D - I - - 0x03FCED FF:FCDD: 0F        .byte $0F, $15, $25
+; 17
+- - - - - - 0x03FCF0 FF:FCE0: 0F        .byte $0F, $0F, $35
+- - - - - - 0x03FCF3 FF:FCE3: 0F        .byte $0F, $31, $35
+- - - - - - 0x03FCF6 FF:FCE6: 0F        .byte $0F, $0F, $35
+- - - - - - 0x03FCF9 FF:FCE9: 0F        .byte $0F, $30, $35
+; 18
+- - - - - - 0x03FCFC FF:FCEC: 0F        .byte $0F, $16, $35
+- - - - - - 0x03FCFF FF:FCEF: 0F        .byte $0F, $31, $35
+- - - - - - 0x03FD02 FF:FCF2: 0F        .byte $0F, $0F, $35
+- - - - - - 0x03FD05 FF:FCF5: 0F        .byte $0F, $30, $35
+; 19
+- - - - - - 0x03FD08 FF:FCF8: 21        .byte $21, $0F, $30
+- - - - - - 0x03FD0B FF:FCFB: 21        .byte $21, $36, $27
+- - - - - - 0x03FD0E FF:FCFE: 21        .byte $21, $16, $16
+- - - - - - 0x03FD11 FF:FD01: 21        .byte $21, $16, $30
+; 1A
+- D - I - - 0x03FD14 FF:FD04: 0F        .byte $0F, $36, $27
+- D - I - - 0x03FD17 FF:FD07: 0F        .byte $0F, $0F, $27
+- D - I - - 0x03FD1A FF:FD0A: 0F        .byte $0F, $30, $0F
+- D - I - - 0x03FD1D FF:FD0D: 0F        .byte $0F, $36, $30
 
 
 
