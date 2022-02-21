@@ -960,7 +960,7 @@ C - - - - - 0x03CC3C FF:CC2C: 29 03     AND #$03
 C - - - - - 0x03CC3E FF:CC2E: F0 05     BEQ bra_CC35_пропуск_первого_байта_из_4х
 C - - - - - 0x03CC40 FF:CC30: B1 65     LDA (ram_0065),Y
 C - - - - - 0x03CC42 FF:CC32: C8        INY
-C - - - - - 0x03CC43 FF:CC33: D0 02     BNE bra_CC37    ; bra
+C - - - - - 0x03CC43 FF:CC33: D0 02     BNE bra_CC37    ; jmp
 bra_CC35_пропуск_первого_байта_из_4х:
 C - - - - - 0x03CC45 FF:CC35: A9 0F     LDA #$0F
 bra_CC37:
@@ -977,7 +977,7 @@ C - - - - - 0x03CC55 FF:CC45: 60        RTS
 sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана:
     LDA #$07
     STA ram_temp_2
-    BNE bra_CC47    ; bra
+    BNE bra_CC47    ; jmp
 
 loc_CC46_очистить_нижнюю_половину_экрана:
 sub_CC46_очистить_нижнюю_половину_экрана:
@@ -1325,12 +1325,12 @@ C - - - - - 0x03CE08 FF:CDF8: B0 0B     BCS bra_CE05
 C - - - - - 0x03CE0A FF:CDFA: 4A        LSR
 C - - - - - 0x03CE0B FF:CDFB: 4A        LSR
 C - - - - - 0x03CE0C FF:CDFC: 4A        LSR
-bra_CDFD:
+bra_CDFD_loop:
 C - - - - - 0x03CE0D FF:CDFD: CA        DEX
 C - - - - - 0x03CE0E FF:CDFE: 30 07     BMI bra_CE07_RTS
 C - - - - - 0x03CE10 FF:CE00: 18        CLC
 C - - - - - 0x03CE11 FF:CE01: 69 0C     ADC #$0C
-C - - - - - 0x03CE13 FF:CE03: D0 F8     BNE bra_CDFD
+C - - - - - 0x03CE13 FF:CE03: D0 F8     BNE bra_CDFD_loop
 bra_CE05:
 C - - - - - 0x03CE15 FF:CE05: A9 FF     LDA #$FF
 bra_CE07_RTS:
@@ -3896,7 +3896,7 @@ C - - - - - 0x03DDA6 FF:DD96: 4A        LSR
 C - - - - - 0x03DDA7 FF:DD97: 4A        LSR
 C - - - - - 0x03DDA8 FF:DD98: AA        TAX
 C - - - - - 0x03DDA9 FF:DD99: BD CB DD  LDA tbl_DDCB,X
-C - - - - - 0x03DDAC FF:DD9C: D0 20     BNE bra_DDBE    ; bra
+C - - - - - 0x03DDAC FF:DD9C: D0 20     BNE bra_DDBE    ; jmp
 bra_DD9E:
 C - - - - - 0x03DDAE FF:DD9E: 38        SEC
 C - - - - - 0x03DDAF FF:DD9F: E9 A0     SBC #$A0
@@ -4013,7 +4013,7 @@ C - - - - - 0x03DE48 FF:DE38: A9 3A     LDA #$3A
 C - - - - - 0x03DE4A FF:DE3A: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DE4D FF:DE3D: A9 1A     LDA #$1A
 C - - - - - 0x03DE4F FF:DE3F: 8D 1A 06  STA ram_061A
-C - - - - - 0x03DE52 FF:DE42: 4C 5E DE  BNE bra_DE5E    ; bra
+C - - - - - 0x03DE52 FF:DE42: 4C 5E DE  BNE bra_DE5E    ; jmp
 
 
 
