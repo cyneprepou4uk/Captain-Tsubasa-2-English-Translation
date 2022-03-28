@@ -247,7 +247,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x020189 10:8179: 55 82     .word ofs_015_8255_03_результат_действия_защитника
 - D - I - - 0x02018B 10:817B: 59 82     .word ofs_015_8259_04_мяч_у_атакующего_низкий___или_же_высокий
 - D - I - - 0x02018D 10:817D: 60 82     .word ofs_015_8260_05_порядковый_номер_защитника
-- D - I - - 0x02018F 10:817F: 64 82     .word ofs_015_8264_06_защитник_это_кипер_или_нет
+- D - I - - 0x02018F 10:817F: 64 82     .word ofs_015_8264_06_защитник_if_кипер_или_нет
 - D - I - - 0x020191 10:8181: 71 82     .word $0000       ; unused, было аналогично 03_83
 - D - I - - 0x020193 10:8183: 75 82     .word ofs_015_8275_08
 - D - I - - 0x020195 10:8185: 8A 82     .word ofs_015_828A_09_действие_атаки_на_штрафной
@@ -419,15 +419,15 @@ C - - - - - 0x020273 10:8263: 60        RTS
 
 
 
-ofs_015_8264_06_защитник_это_кипер_или_нет:
+ofs_015_8264_06_защитник_if_кипер_или_нет:
 ; 00 - защитник не кипер
 ; 01 - защитник кипер
 C - J - - - 0x020274 10:8264: A2 00     LDX #$00
 C - - - - - 0x020276 10:8266: AD 42 04  LDA ram_игрок_без_мяча
-C - - - - - 0x020279 10:8269: F0 04     BEQ bra_826F_это_кипер
+C - - - - - 0x020279 10:8269: F0 04     BEQ bra_826F_if_кипер
 C - - - - - 0x02027B 10:826B: C9 0B     CMP #$0B
 C - - - - - 0x02027D 10:826D: D0 01     BNE bra_8270_RTS
-bra_826F_это_кипер:
+bra_826F_if_кипер:
 C - - - - - 0x02027F 10:826F: E8        INX
 bra_8270_RTS:
 C - - - - - 0x020280 10:8270: 60        RTS
@@ -477,18 +477,18 @@ ofs_015_829F_0C_обычный_или_спешал:
 ; 01 - 
 C - J - - - 0x0202AF 10:829F: A2 00     LDX #$00
 C - - - - - 0x0202B1 10:82A1: AD 3B 04  LDA ram_действие_атаки
-C - - - - - 0x0202B4 10:82A4: D0 0B     BNE bra_82B8_это_не_удар
+C - - - - - 0x0202B4 10:82A4: D0 0B     BNE bra_82B8_if_not_удар
 C - - - - - 0x0202B6 10:82A6: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x0202B9 10:82A9: 29 7F     AND #$7F
 C - - - - - 0x0202BB 10:82AB: C9 03     CMP #$03
 C - - - - - 0x0202BD 10:82AD: 90 0A     BCC bra_82B9_RTS        ; это не спешал
-C - - - - - 0x0202BF 10:82AF: B0 07     BCS bra_82B8_это_спешал
-bra_82B8_это_не_удар:
+C - - - - - 0x0202BF 10:82AF: B0 07     BCS bra_82B8_if_спешал
+bra_82B8_if_not_удар:
 ; bzk хз зачем эта дальнейшая проверка, разве можно забить не ударом, но каким-то другим спешалом?
 C - - - - - 0x0202C1 10:82B1: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x0202C4 10:82B4: 29 7F     AND #$7F
 C - - - - - 0x0202C6 10:82B6: F0 01     BEQ bra_82B9_RTS
-bra_82B8_это_спешал:
+bra_82B8_if_спешал:
 C - - - - - 0x0202C8 10:82B8: E8        INX
 bra_82B9_RTS:
 C - - - - - 0x0202C9 10:82B9: 60        RTS
@@ -1683,28 +1683,28 @@ C - - - - - 0x0206F0 10:86E0: 4C 11 82  JMP loc_8211_выставить_флаг
 
 tbl_86E3_игроки_со_спешал_перепасовкой:
 ; 0x0206F3
-    .byte $01        ; tsubasa
-    .byte $11        ; misaki
-    .byte $1A        ; hyuga
-    .byte $41        ; hyuga
-    .byte $36        ; hyuga
-    .byte $1F        ; sawada
-    .byte $38        ; sawada
-    .byte $17        ; masao
-    .byte $18        ; kazuo
-    .byte $46        ; masao
-    .byte $47        ; kazuo
-    .byte $30        ; masao
-    .byte $31        ; kazuo
-    .byte $60        ; diaz
-    .byte $5E        ; pascal
-    .byte $58        ; pierre
-    .byte $57        ; napoleon
+    .byte $01        ; 00 tsubasa
+    .byte $11        ; 01 misaki
+    .byte $1A        ; 02 hyuga
+    .byte $41        ; 03 hyuga
+    .byte $36        ; 04 hyuga
+    .byte $1F        ; 05 sawada
+    .byte $38        ; 06 sawada
+    .byte $17        ; 07 masao
+    .byte $18        ; 08 kazuo
+    .byte $46        ; 09 masao
+    .byte $47        ; 0A kazuo
+    .byte $30        ; 0B masao
+    .byte $31        ; 0C kazuo
+    .byte $60        ; 0D diaz
+    .byte $5E        ; 0E pascal
+    .byte $58        ; 0F pierre
+    .byte $57        ; 10 napoleon
 
 tbl_86F4_игроки_с_рожами:
 ; 0x020704
     .byte $00        ; 00
-    .byte $01        ; tsubasa
+    .byte $01        ; 01 tsubasa
     .byte $00        ; 02
     .byte $00        ; 03
     .byte $00        ; 04
@@ -1720,22 +1720,22 @@ tbl_86F4_игроки_с_рожами:
     .byte $00        ; 0E
     .byte $00        ; 0F
     .byte $00        ; 10
-    .byte $02        ; misaki
+    .byte $02        ; 11 misaki
     .byte $00        ; 12
     .byte $00        ; 13
-    .byte $0A        ; ishizaki
-    .byte $12        ; nitta
+    .byte $0A        ; 14 ishizaki
+    .byte $12        ; 15 nitta
     .byte $00        ; 16
-    .byte $10        ; masao
-    .byte $10        ; kazuo
+    .byte $10        ; 17 masao
+    .byte $10        ; 18 kazuo
     .byte $00        ; 19
-    .byte $04        ; hyuga
-    .byte $0C        ; soda
-    .byte $0E        ; jito
-    .byte $08        ; matsuyama
+    .byte $04        ; 1A hyuga
+    .byte $0C        ; 1B soda
+    .byte $0E        ; 1C jito
+    .byte $08        ; 1D matsuyama
     .byte $00        ; 1E
-    .byte $14        ; sawada
-    .byte $06        ; misugi
+    .byte $14        ; 1F sawada
+    .byte $06        ; 20 misugi
     .byte $00        ; 21
     .byte $00        ; 22
     .byte $00        ; 23
@@ -1746,39 +1746,39 @@ tbl_86F4_игроки_с_рожами:
     .byte $00        ; 28
     .byte $00        ; 29
     .byte $00        ; 2A
-    .byte $17        ; carlos
+    .byte $17        ; 2B carlos
     .byte $00        ; 2C
     .byte $00        ; 2D
-    .byte $0F        ; jito
+    .byte $0F        ; 2E jito
     .byte $00        ; 2F
-    .byte $11        ; masao
-    .byte $11        ; kazuo
-    .byte $0D        ; soda
+    .byte $11        ; 30 masao
+    .byte $11        ; 31 kazuo
+    .byte $0D        ; 32 soda
     .byte $00        ; 33
-    .byte $07        ; misugi
-    .byte $09        ; matsuyama
-    .byte $05        ; hyuga
+    .byte $07        ; 34 misugi
+    .byte $09        ; 35 matsuyama
+    .byte $05        ; 36 hyuga
     .byte $00        ; 37
-    .byte $15        ; sawada
+    .byte $15        ; 38 sawada
     .byte $00        ; 39
     .byte $00        ; 3A
-    .byte $20        ; victorino
+    .byte $20        ; 3B victorino
     .byte $00        ; 3C
     .byte $00        ; 3D
-    .byte $1A        ; kaltz
+    .byte $1A        ; 3E kaltz
     .byte $00        ; 3F
     .byte $00        ; 40
-    .byte $04        ; hyuga
-    .byte $13        ; nitta
+    .byte $04        ; 41 hyuga
+    .byte $13        ; 42 nitta
     .byte $00        ; 43
-    .byte $03        ; misaki
-    .byte $06        ; misugi
-    .byte $10        ; masao
-    .byte $10        ; kazuo
-    .byte $0E        ; jito
-    .byte $0B        ; ishizaki
-    .byte $0C        ; soda
-    .byte $08        ; matsuyama
+    .byte $03        ; 44 misaki
+    .byte $06        ; 45 misugi
+    .byte $10        ; 46 masao
+    .byte $10        ; 47 kazuo
+    .byte $0E        ; 48 jito
+    .byte $0B        ; 49 ishizaki
+    .byte $0C        ; 4A soda
+    .byte $08        ; 4B matsuyama
     .byte $00        ; 4C
     .byte $00        ; 4D
     .byte $00        ; 4E
@@ -1790,26 +1790,26 @@ tbl_86F4_игроки_с_рожами:
     .byte $00        ; 54
     .byte $00        ; 55
     .byte $00        ; 56
-    .byte $1F        ; napoleon
-    .byte $1E        ; pierre
+    .byte $1F        ; 57 napoleon
+    .byte $1E        ; 58 pierre
     .byte $00        ; 59
     .byte $00        ; 5A
     .byte $00        ; 5B
     .byte $00        ; 5C
     .byte $00        ; 5D
-    .byte $1D        ; pascal
+    .byte $1D        ; 5E pascal
     .byte $00        ; 5F
-    .byte $1C        ; diaz
+    .byte $1C        ; 60 diaz
     .byte $00        ; 61
     .byte $00        ; 62
-    .byte $19        ; schneider
+    .byte $19        ; 63 schneider
     .byte $00        ; 64
-    .byte $21        ; kaltz
+    .byte $21        ; 65 kaltz
     .byte $00        ; 66
-    .byte $1B        ; schester
+    .byte $1B        ; 67 schester
     .byte $00        ; 68
     .byte $00        ; 69
-    .byte $18        ; carlos
+    .byte $18        ; 6A carlos
     .byte $00        ; 6B
     .byte $00        ; 6C
     .byte $00        ; 6D
@@ -1820,7 +1820,7 @@ tbl_86F4_игроки_с_рожами:
     .byte $00        ; 72
     .byte $00        ; 73
     .byte $00        ; 74
-    .byte $16        ; coimbra
+    .byte $16        ; 75 coimbra
 
 tbl_876A_игроки_с_защитным_спешалом:
 ; 0x02077A
@@ -1844,15 +1844,15 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00        ; 11
     .byte $00        ; 12
     .byte $00        ; 13
-    .byte $0E        ; ishizaki
+    .byte $0E        ; 14 ishizaki
     .byte $00        ; 15
     .byte $00        ; 16
-    .byte $01        ; masao
-    .byte $01        ; kazuo
+    .byte $01        ; 17 masao
+    .byte $01        ; 18 kazuo
     .byte $00        ; 19
-    .byte $0C        ; hyuga
-    .byte $03        ; soda
-    .byte $05        ; jito
+    .byte $0C        ; 1A hyuga
+    .byte $03        ; 1B soda
+    .byte $05        ; 1C jito
     .byte $00        ; 1D
     .byte $00        ; 1E
     .byte $00        ; 1F
@@ -1866,19 +1866,19 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00        ; 27
     .byte $00        ; 28
     .byte $00        ; 29
-    .byte $07        ; dirceu
+    .byte $07        ; 2A dirceu
     .byte $00        ; 2B
     .byte $00        ; 2C
     .byte $00        ; 2D
-    .byte $06        ; jito
+    .byte $06        ; 2E jito
     .byte $00        ; 2F
-    .byte $02        ; masao
-    .byte $02        ; kazuo
-    .byte $04        ; soda
+    .byte $02        ; 30 masao
+    .byte $02        ; 31 kazuo
+    .byte $04        ; 32 soda
     .byte $00        ; 33
     .byte $00        ; 34
     .byte $00        ; 35
-    .byte $0D        ; hyuga
+    .byte $0D        ; 36 hyuga
     .byte $00        ; 37
     .byte $00        ; 38
     .byte $00        ; 39
@@ -1889,16 +1889,16 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00        ; 3E
     .byte $00        ; 3F
     .byte $00        ; 40
-    .byte $0C        ; hyuga
+    .byte $0C        ; 41 hyuga
     .byte $00        ; 42
     .byte $00        ; 43
     .byte $00        ; 44
     .byte $00        ; 45
-    .byte $01        ; masao
-    .byte $01        ; kazuo
-    .byte $05        ; jito
-    .byte $0F        ; ishizaki
-    .byte $03        ; soda
+    .byte $01        ; 46 masao
+    .byte $01        ; 47 kazuo
+    .byte $05        ; 48 jito
+    .byte $0F        ; 49 ishizaki
+    .byte $03        ; 4A soda
     .byte $00        ; 4B
     .byte $00        ; 4C
     .byte $00        ; 4D
@@ -1908,7 +1908,7 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00        ; 51
     .byte $00        ; 52
     .byte $00        ; 53
-    .byte $09        ; robson
+    .byte $09        ; 54 robson
     .byte $00        ; 55
     .byte $00        ; 56
     .byte $00        ; 57
@@ -1917,12 +1917,12 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00        ; 5A
     .byte $00        ; 5B
     .byte $00        ; 5C
-    .byte $0A        ; libuta
+    .byte $0A        ; 5D libuta
     .byte $00        ; 5E
     .byte $00        ; 5F
     .byte $00        ; 60
     .byte $00        ; 61
-    .byte $0B        ; galvan
+    .byte $0B        ; 62 galvan
     .byte $00        ; 63
     .byte $00        ; 64
     .byte $00        ; 65
@@ -1938,7 +1938,7 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00        ; 6F
     .byte $00        ; 70
     .byte $00        ; 71
-    .byte $08        ; dirceu
+    .byte $08        ; 72 dirceu
     .byte $00        ; 73
     .byte $00        ; 74
     .byte $00        ; 75
@@ -3531,8 +3531,8 @@ off_case_91FC_01:
 _scenario_91FF_02:
 - D - I - - 0x02120F 10:91FF: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - - 0x021211 10:9201: F3        .byte con_branch, $06 + $80     ; защитник кипер или нет
-- D - I - - 0x021213 10:9203: 0C        .byte off_case_920F_00_это_не_кипер - *
-- D - I - - 0x021214 10:9204: 43        .byte off_case_9247_01_это_кипер - *
+- D - I - - 0x021213 10:9203: 0C        .byte off_case_920F_00_if_not_кипер - *
+- D - I - - 0x021214 10:9204: 43        .byte off_case_9247_01_if_кипер - *
 
 
 
@@ -3545,7 +3545,7 @@ _scenario_9205_0F:
 
 
 
-off_case_920F_00_это_не_кипер:
+off_case_920F_00_if_not_кипер:
 - D - I - - 0x02121F 10:920F: F3        .byte con_branch, $35 + $00
 - D - I - - 0x021221 10:9211: 17 92     .word off_long_case_9217_00
 - D - I - - 0x021223 10:9213: 17 92     .word off_long_case_9217_01
@@ -3639,7 +3639,7 @@ off_case_9244_04_защитник_5:
 
 
 
-off_case_9247_01_это_кипер:
+off_case_9247_01_if_кипер:
 - D - I - - 0x021257 10:9247: FD        .byte con_mirror_condition, $03       ; куда летит мяч
 - D - I - - 0x021259 10:9249: F3        .byte con_branch, $44 + $00     ; делает ли кипер dive
 - D - I - - 0x02125B 10:924B: 4F 92     .word off_long_case_924F_00_кипер_делает_dive
@@ -3694,13 +3694,13 @@ off_case_9262_00_защитник_выживет:
 _scenario_9263_06:
 - D - I - - 0x021273 10:9263: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - - 0x021275 10:9265: F3        .byte con_branch, $06 + $80     ; защитник кипер или нет
-- D - I - - 0x021277 10:9267: 02        .byte off_case_9269_00_это_не_кипер - *
-- D - I - - 0x021278 10:9268: 0D        .byte off_case_9275_01_это_кипер - *
+- D - I - - 0x021277 10:9267: 02        .byte off_case_9269_00_if_not_кипер - *
+- D - I - - 0x021278 10:9268: 0D        .byte off_case_9275_01_if_кипер - *
 
 
 
 _scenario_9269_11:
-off_case_9269_00_это_не_кипер:
+off_case_9269_00_if_not_кипер:
 - D - I - - 0x021279 10:9269: FD        .byte con_mirror_condition, $01       ; номер защитника
 - D - I - - 0x02127B 10:926B: F3        .byte con_branch, $01 + $80     ; выживет ли защитник
 - D - I - - 0x02127D 10:926D: 07        .byte off_case_9274_00_защитник_выживет - *
@@ -3717,7 +3717,7 @@ off_case_9274_00_защитник_выживет:
 
 
 
-off_case_9275_01_это_кипер:
+off_case_9275_01_if_кипер:
 - D - I - - 0x021285 10:9275: F3        .byte con_branch, $01 + $80     ; выживет ли защитник
 - D - I - - 0x021287 10:9277: 07        .byte off_case_927E_00_защитник_выживет - *
 - D - I - - 0x021288 10:9278: 01        .byte off_case_9279_01_защитник_убьется - *
@@ -8106,12 +8106,12 @@ off_case_A288_00_германия_не_проигрывает:
 
 off_case_A28C_01_гол_забили_jito_с_сано:
 - D - I - - 0x02229C 11:A28C: F3        .byte con_branch, $18 + $80     ; проверка на jito из japan
-- D - I - - 0x02229E 11:A28E: 02        .byte off_case_A290_00_это_jito_из_японии - *
-- - - - - - 0x02229F 11:A28F: 0C        .byte off_case_A29B_01_это_jito_из_куними - *
+- D - I - - 0x02229E 11:A28E: 02        .byte off_case_A290_00_if_jito_из_японии - *
+- - - - - - 0x02229F 11:A28F: 0C        .byte off_case_A29B_01_if_jito_из_куними - *
 
 
 
-off_case_A290_00_это_jito_из_японии:
+off_case_A290_00_if_jito_из_японии:
                                         .byte con_jsr
                                         .word sub_BBC7_очистка
 - D - I - - 0x0222A4 11:A294: D0        .byte con_pause + $D0
@@ -8123,7 +8123,7 @@ off_case_A290_00_это_jito_из_японии:
 
 
 
-off_case_A29B_01_это_jito_из_куними:
+off_case_A29B_01_if_jito_из_куними:
                                         .byte con_jsr
                                         .word sub_BBC7_очистка
 - - - - - - 0x0222AF 11:A29F: D0        .byte con_pause + $D0
@@ -10025,9 +10025,9 @@ sub_A88F_рожа_carlos_brazil:
 
 off_long_case_A899_04_clone_dribble:
 - D - I - - 0x0228A9 11:A899: F3        .byte con_branch, $3B + $80     ; проверка на carlos
-- D - I - - 0x0228AB 11:A89B: 02        .byte off_case_A89D_00_это_carlos - *
-- - - - - - 0x0228AC 11:A89C: 1F        .byte off_case_A8BB_01_это_не_carlos - *
-off_case_A89D_00_это_carlos:
+- D - I - - 0x0228AB 11:A89B: 02        .byte off_case_A89D_00_if_carlos - *
+- - - - - - 0x0228AC 11:A89C: 1F        .byte off_case_A8BB_01_if_not_carlos - *
+off_case_A89D_00_if_carlos:
 - D - I - - 0x0228AD 11:A89D: FA        .byte con_jsr
 - D - I - - 0x0228AE 11:A89E: 85 A8     .word sub_A885_рожа_carlos_flamengo
 loc_A8A0:
@@ -10059,7 +10059,7 @@ sub_A8AB:
 
 
 
-off_case_A8BB_01_это_не_carlos:
+off_case_A8BB_01_if_not_carlos:
 - - - - - - 0x0228CB 11:A8BB: FA        .byte con_jsr
 - - - - - - 0x0228CC 11:A8BC: 8F A8     .word sub_A88F_рожа_carlos_brazil
 - - - - - - 0x0228CE 11:A8BE: F2        .byte con_jmp
@@ -10140,12 +10140,12 @@ sub_A908_kaltz_hedgehog_dribble:
 
 off_long_case_A911_06_hedgehog_dribble:
 - - - - - - 0x022921 11:A911: F3        .byte con_branch, $3A + $80     ; проверка на kaltz
-- - - - - - 0x022923 11:A913: 02        .byte off_case_A915_00_это_kaltz - *
-- - - - - - 0x022924 11:A914: 1C        .byte off_case_A930_01_это_не_kaltz - *
+- - - - - - 0x022923 11:A913: 02        .byte off_case_A915_00_if_kaltz - *
+- - - - - - 0x022924 11:A914: 1C        .byte off_case_A930_01_if_not_kaltz - *
 
 
 
-off_case_A915_00_это_kaltz:
+off_case_A915_00_if_kaltz:
 - - - - - - 0x022925 11:A915: FA        .byte con_jsr
 - - - - - - 0x022926 11:A916: E5 A8     .word sub_A8E5_kaltz_hedgehog_dribble
 loc_A918_kaltz_hedgehog_dribble_обводит_соперника_не_убивая:
@@ -10168,7 +10168,7 @@ loc_A918_kaltz_hedgehog_dribble_обводит_соперника_не_убив�
 
 
 
-off_case_A930_01_это_не_kaltz:
+off_case_A930_01_if_not_kaltz:
 - - - - - - 0x022940 11:A930: FA        .byte con_jsr
 - - - - - - 0x022941 11:A931: 08 A9     .word sub_A908_kaltz_hedgehog_dribble
 - - - - - - 0x022943 11:A933: F2        .byte con_jmp
@@ -10715,12 +10715,12 @@ off_long_case_AAB7_03_vanishing_feint:
 
 off_long_case_AACB_04_clone_dribble:
 - D - I - - 0x022ADB 11:AACB: F3        .byte con_branch, $3B + $80     ; проверка на carlos
-- D - I - - 0x022ADD 11:AACD: 02        .byte off_case_AACF_00_это_carlos - *
-- - - - - - 0x022ADE 11:AACE: 0F        .byte off_case_AADD_01_это_не_carlos - *
+- D - I - - 0x022ADD 11:AACD: 02        .byte off_case_AACF_00_if_carlos - *
+- - - - - - 0x022ADE 11:AACE: 0F        .byte off_case_AADD_01_if_not_carlos - *
 
 
 
-off_case_AACF_00_это_carlos:
+off_case_AACF_00_if_carlos:
 - D - I - - 0x022ADF 11:AACF: FA        .byte con_jsr
 - D - I - - 0x022AE0 11:AAD0: 85 A8     .word sub_A885_рожа_carlos_flamengo
 loc_AAD2:
@@ -10736,7 +10736,7 @@ loc_AAD2:
 
 
 
-off_case_AADD_01_это_не_carlos:
+off_case_AADD_01_if_not_carlos:
 - - - - - - 0x022AED 11:AADD: FA        .byte con_jsr
 - - - - - - 0x022AEE 11:AADE: 8F A8     .word sub_A88F_рожа_carlos_brazil
 - - - - - - 0x022AF0 11:AAE0: F2        .byte con_jmp
@@ -10771,12 +10771,12 @@ loc_AAEF:
 
 off_long_case_AAFF_06_hedgehog_dribble:
 - - - - - - 0x022B0F 11:AAFF: F3        .byte con_branch, $3A + $80     ; проверка на kaltz
-- - - - - - 0x022B11 11:AB01: 02        .byte off_case_AB03_00_это_kaltz - *
-- - - - - - 0x022B12 11:AB02: 29        .byte off_case_AB2B_01_это_не_kaltz - *
+- - - - - - 0x022B11 11:AB01: 02        .byte off_case_AB03_00_if_kaltz - *
+- - - - - - 0x022B12 11:AB02: 29        .byte off_case_AB2B_01_if_not_kaltz - *
 
 
 
-off_case_AB03_00_это_kaltz:
+off_case_AB03_00_if_kaltz:
 - - - - - - 0x022B13 11:AB03: FA        .byte con_jsr
 - - - - - - 0x022B14 11:AB04: E5 A8     .word sub_A8E5_kaltz_hedgehog_dribble
 loc_AB06_kaltz_hedgehog_dribble_обводит_соперника_не_убивая:
@@ -10809,7 +10809,7 @@ loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убив�
 
 
 
-off_case_AB2B_01_это_не_kaltz:
+off_case_AB2B_01_if_not_kaltz:
 - - - - - - 0x022B3B 11:AB2B: FA        .byte con_jsr
 - - - - - - 0x022B3C 11:AB2C: 08 A9     .word sub_A908_kaltz_hedgehog_dribble
 - - - - - - 0x022B3E 11:AB2E: F2        .byte con_jmp
@@ -10845,13 +10845,13 @@ loc_AB42_мяч_улетает_от_игрока_после_удара:
 
 off_long_case_AB4C_03_drive_shot:
 - D - I - - 0x022B5C 11:AB4C: F3        .byte con_branch, $30 + $80     ; проверка на tsubasa или diaz
-- D - I - - 0x022B5E 11:AB4E: 0A        .byte off_case_AB58_00_это_не_tsubasa_и_не_diaz - *
-- D - I - - 0x022B5F 11:AB4F: 02        .byte off_case_AB51_01_это_tsubasa - *
-- D - I - - 0x022B60 11:AB50: 22        .byte off_case_AB72_02_это_diaz - *
+- D - I - - 0x022B5E 11:AB4E: 0A        .byte off_case_AB58_00_if_not_tsubasa_и_не_diaz - *
+- D - I - - 0x022B5F 11:AB4F: 02        .byte off_case_AB51_01_if_tsubasa - *
+- D - I - - 0x022B60 11:AB50: 22        .byte off_case_AB72_02_if_diaz - *
 
 
 
-off_case_AB51_01_это_tsubasa:
+off_case_AB51_01_if_tsubasa:
 - D - I - - 0x022B61 11:AB51: 3C        .byte con_pause + $3C
 - D - I - - 0x022B62 11:AB52: 30        .byte con_bg + $30
 - D - I - - 0x022B63 11:AB53: 91        .byte con_animation + $91
@@ -10859,7 +10859,7 @@ off_case_AB51_01_это_tsubasa:
 - D - I - - 0x022B65 11:AB55: FA        .byte con_jsr
 - D - I - - 0x022B66 11:AB56: C7 BB     .word sub_BBC7_очистка
 loc_AB58:
-off_case_AB58_00_это_не_tsubasa_и_не_diaz:
+off_case_AB58_00_if_not_tsubasa_и_не_diaz:
 - D - I - - 0x022B68 11:AB58: F9        .byte con_soundID_delay, $16, $02
 - D - I - - 0x022B6B 11:AB5B: 28        .byte con_pause + $28
 - D - I - - 0x022B6C 11:AB5C: 4A        .byte con_bg + $4A
@@ -10883,7 +10883,7 @@ loc_AB6B:
 
 
 
-off_case_AB72_02_это_diaz:
+off_case_AB72_02_if_diaz:
 ; bzk проверка на diaz не обязательная, код один и тот же
     ; однако если я буду менять номер облака для них, возможно и понадобится
 - D - I - - 0x022B82 11:AB72: 3C        .byte con_pause + $3C
@@ -10985,12 +10985,12 @@ sub_ABB8:
 
 off_long_case_ABCC_05_falcon_shot:
 - D - I - - 0x022BDC 11:ABCC: F3        .byte con_branch, $31 + $80     ; проверка на nitta
-- D - I - - 0x022BDE 11:ABCE: 02        .byte off_case_ABD0_00_это_nitta - *
-- - - - - - 0x022BDF 11:ABCF: 1A        .byte off_case_ABE9_01_это_не_nitta - *
+- D - I - - 0x022BDE 11:ABCE: 02        .byte off_case_ABD0_00_if_nitta - *
+- - - - - - 0x022BDF 11:ABCF: 1A        .byte off_case_ABE9_01_if_not_nitta - *
 
 
 
-off_case_ABD0_00_это_nitta:
+off_case_ABD0_00_if_nitta:
 - D - I - - 0x022BE0 11:ABD0: 3C        .byte con_pause + $3C
 - D - I - - 0x022BE1 11:ABD1: 30        .byte con_bg + $30
 - D - I - - 0x022BE2 11:ABD2: 9A        .byte con_animation + $9A
@@ -11013,7 +11013,7 @@ loc_ABD4:
 
 
 
-off_case_ABE9_01_это_не_nitta:
+off_case_ABE9_01_if_not_nitta:
 - - - - - - 0x022BF9 11:ABE9: 3C        .byte con_pause + $3C
 - - - - - - 0x022BFA 11:ABEA: 30        .byte con_bg + $30
 - - - - - - 0x022BFB 11:ABEB: 9B        .byte con_animation + $9B
@@ -11022,12 +11022,12 @@ off_case_ABE9_01_это_не_nitta:
 - - - - - - 0x022BFE 11:ABEE: D4 AB     .word loc_ABD4
 off_long_case_ABF0_07_razor_shot:
 - D - I - - 0x022C00 11:ABF0: F3        .byte con_branch, $32 + $80     ; проверка на soda
-- D - I - - 0x022C02 11:ABF2: 02        .byte off_case_ABF4_00_это_soda - *
-- D - I - - 0x022C03 11:ABF3: 29        .byte off_case_AC1C_01_это_не_soda - *
+- D - I - - 0x022C02 11:ABF2: 02        .byte off_case_ABF4_00_if_soda - *
+- D - I - - 0x022C03 11:ABF3: 29        .byte off_case_AC1C_01_if_not_soda - *
 
 
 
-off_case_ABF4_00_это_soda:
+off_case_ABF4_00_if_soda:
 - D - I - - 0x022C04 11:ABF4: 3C        .byte con_pause + $3C
 - D - I - - 0x022C05 11:ABF5: 30        .byte con_bg + $30
 - D - I - - 0x022C06 11:ABF6: 9F        .byte con_animation + $9F
@@ -11061,7 +11061,7 @@ loc_ABF8:
 
 
 
-off_case_AC1C_01_это_не_soda:
+off_case_AC1C_01_if_not_soda:
 - D - I - - 0x022C2C 11:AC1C: 3C        .byte con_pause + $3C
 - D - I - - 0x022C2D 11:AC1D: 30        .byte con_bg + $30
 - D - I - - 0x022C2E 11:AC1E: AD        .byte con_animation + $AD
@@ -11073,12 +11073,12 @@ off_case_AC1C_01_это_не_soda:
 
 off_long_case_AC23_0B_eagle_shot:
 - D - I - - 0x022C33 11:AC23: F3        .byte con_branch, $39 + $80     ; проверка на matsuyama
-- D - I - - 0x022C35 11:AC25: 02        .byte off_case_AC27_00_это_matsuyama - *
-- D - I - - 0x022C36 11:AC26: 20        .byte off_case_AC46_01_это_не_matsuyama - *
+- D - I - - 0x022C35 11:AC25: 02        .byte off_case_AC27_00_if_matsuyama - *
+- D - I - - 0x022C36 11:AC26: 20        .byte off_case_AC46_01_if_not_matsuyama - *
 
 
 
-off_case_AC27_00_это_matsuyama:
+off_case_AC27_00_if_matsuyama:
 - D - I - - 0x022C37 11:AC27: 3C        .byte con_pause + $3C
 - D - I - - 0x022C38 11:AC28: 30        .byte con_bg + $30
 - D - I - - 0x022C39 11:AC29: A1        .byte con_animation + $A1
@@ -11105,7 +11105,7 @@ loc_AC2B:
 
 
 
-off_case_AC46_01_это_не_matsuyama:
+off_case_AC46_01_if_not_matsuyama:
 - D - I - - 0x022C56 11:AC46: 3C        .byte con_pause + $3C
 - D - I - - 0x022C57 11:AC47: 30        .byte con_bg + $30
 - D - I - - 0x022C58 11:AC48: AF        .byte con_animation + $AF
@@ -11117,12 +11117,12 @@ off_case_AC46_01_это_не_matsuyama:
 
 off_long_case_AC4D_0C_tiger_shot:
 - D - I - - 0x022C5D 11:AC4D: F3        .byte con_branch, $38 + $80     ; проверка на hyuga
-- D - I - - 0x022C5F 11:AC4F: 02        .byte off_case_AC51_00_это_hyuga - *
-- D - I - - 0x022C60 11:AC50: 17        .byte off_case_AC67_01_это_не_hyuga - *
+- D - I - - 0x022C5F 11:AC4F: 02        .byte off_case_AC51_00_if_hyuga - *
+- D - I - - 0x022C60 11:AC50: 17        .byte off_case_AC67_01_if_not_hyuga - *
 
 
 
-off_case_AC51_00_это_hyuga:
+off_case_AC51_00_if_hyuga:
 - D - I - - 0x022C61 11:AC51: 3C        .byte con_pause + $3C
 - D - I - - 0x022C62 11:AC52: 31        .byte con_bg + $31
 - D - I - - 0x022C63 11:AC53: 9E        .byte con_animation + $9E
@@ -11143,7 +11143,7 @@ loc_AC55:
 
 
 
-off_case_AC67_01_это_не_hyuga:
+off_case_AC67_01_if_not_hyuga:
 - D - I - - 0x022C77 11:AC67: 3C        .byte con_pause + $3C
 - D - I - - 0x022C78 11:AC68: 31        .byte con_bg + $31
 - D - I - - 0x022C79 11:AC69: B0        .byte con_animation + $B0
@@ -11162,12 +11162,12 @@ off_long_case_AC6E_0D_neo_tiger_shot:
 
 off_case_AC72_00_нет_защитников:
 - D - I - - 0x022C82 11:AC72: F3        .byte con_branch, $38 + $80     ; проверка на hyuga
-- D - I - - 0x022C84 11:AC74: 02        .byte off_case_AC76_00_это_hyuga - *
-- D - I - - 0x022C85 11:AC75: 27        .byte off_case_AC9C_01_это_не_hyuga - *
+- D - I - - 0x022C84 11:AC74: 02        .byte off_case_AC76_00_if_hyuga - *
+- D - I - - 0x022C85 11:AC75: 27        .byte off_case_AC9C_01_if_not_hyuga - *
 
 
 
-off_case_AC76_00_это_hyuga:
+off_case_AC76_00_if_hyuga:
 - D - I - - 0x022C86 11:AC76: 78        .byte con_pause + $78
 - D - I - - 0x022C87 11:AC77: 31        .byte con_bg + $31
 - D - I - - 0x022C88 11:AC78: 9E        .byte con_animation + $9E
@@ -11198,7 +11198,7 @@ loc_AC7A:
 
 
 
-off_case_AC9C_01_это_не_hyuga:
+off_case_AC9C_01_if_not_hyuga:
 - D - I - - 0x022CAC 11:AC9C: 78        .byte con_pause + $78
 - D - I - - 0x022CAD 11:AC9D: 31        .byte con_bg + $31
 - D - I - - 0x022CAE 11:AC9E: B0        .byte con_animation + $B0
@@ -11210,12 +11210,12 @@ off_case_AC9C_01_это_не_hyuga:
 
 off_case_ACA3_01_есть_защитники:
 - D - I - - 0x022CB3 11:ACA3: F3        .byte con_branch, $38 + $80     ; проверка на hyuga
-- D - I - - 0x022CB5 11:ACA5: 02        .byte off_case_ACA7_00_это_hyuga - *
-- D - I - - 0x022CB6 11:ACA6: 0A        .byte off_case_ACB0_01_это_не_hyuga - *
+- D - I - - 0x022CB5 11:ACA5: 02        .byte off_case_ACA7_00_if_hyuga - *
+- D - I - - 0x022CB6 11:ACA6: 0A        .byte off_case_ACB0_01_if_not_hyuga - *
 
 
 
-off_case_ACA7_00_это_hyuga:
+off_case_ACA7_00_if_hyuga:
 - D - I - - 0x022CB7 11:ACA7: F7        .byte con_F7, $44
 - D - I - - 0x022CB9 11:ACA9: B4        .byte con_pause + $B4
 - D - I - - 0x022CBA 11:ACAA: 31        .byte con_bg + $31
@@ -11226,7 +11226,7 @@ off_case_ACA7_00_это_hyuga:
 
 
 
-off_case_ACB0_01_это_не_hyuga:
+off_case_ACB0_01_if_not_hyuga:
 - D - I - - 0x022CC0 11:ACB0: F7        .byte con_F7, $44
 - D - I - - 0x022CC2 11:ACB2: B4        .byte con_pause + $B4
 - D - I - - 0x022CC3 11:ACB3: 31        .byte con_bg + $31
@@ -11325,12 +11325,12 @@ sub_AD13:
 
 off_long_case_AD1D_13_sano_combo:
 - D - I - - 0x022D2D 11:AD1D: F3        .byte con_branch, $18 + $80     ; проверка на jito из японии
-- D - I - - 0x022D2F 11:AD1F: 02        .byte off_case_AD21_00_это_jito_из_японии - *
-- D - I - - 0x022D30 11:AD20: 25        .byte off_case_AD45_01_это_jito_из_куними - *
+- D - I - - 0x022D2F 11:AD1F: 02        .byte off_case_AD21_00_if_jito_из_японии - *
+- D - I - - 0x022D30 11:AD20: 25        .byte off_case_AD45_01_if_jito_из_куними - *
 
 
 
-off_case_AD21_00_это_jito_из_японии:
+off_case_AD21_00_if_jito_из_японии:
 - D - I - - 0x022D31 11:AD21: 78        .byte con_pause + $78
 - D - I - - 0x022D32 11:AD22: 30        .byte con_bg + $30
 - D - I - - 0x022D33 11:AD23: A0        .byte con_animation + $A0
@@ -11361,7 +11361,7 @@ loc_AD25:
 
 
 
-off_case_AD45_01_это_jito_из_куними:
+off_case_AD45_01_if_jito_из_куними:
 - D - I - - 0x022D55 11:AD45: 78        .byte con_pause + $78
 - D - I - - 0x022D56 11:AD46: 30        .byte con_bg + $30
 - D - I - - 0x022D57 11:AD47: AA        .byte con_animation + $AA
@@ -11417,12 +11417,12 @@ off_long_case_AD5E_15_booster_shot:
 
 off_long_case_AD81_16_mirage_shot:
 - D - I - - 0x022D91 11:AD81: F3        .byte con_branch, $3B + $80     ; проверка на carlos
-- D - I - - 0x022D93 11:AD83: 02        .byte off_case_AD85_00_это_carlos - *
-- D - I - - 0x022D94 11:AD84: 20        .byte off_case_ADA4_01_это_не_carlos - *
+- D - I - - 0x022D93 11:AD83: 02        .byte off_case_AD85_00_if_carlos - *
+- D - I - - 0x022D94 11:AD84: 20        .byte off_case_ADA4_01_if_not_carlos - *
 
 
 
-off_case_AD85_00_это_carlos:
+off_case_AD85_00_if_carlos:
 - D - I - - 0x022D95 11:AD85: 3C        .byte con_pause + $3C
 - D - I - - 0x022D96 11:AD86: 30        .byte con_bg + $30
 - D - I - - 0x022D97 11:AD87: A9        .byte con_animation + $A9
@@ -11449,7 +11449,7 @@ loc_AD89:
 
 
 
-off_case_ADA4_01_это_не_carlos:
+off_case_ADA4_01_if_not_carlos:
 - D - I - - 0x022DB4 11:ADA4: 3C        .byte con_pause + $3C
 - D - I - - 0x022DB5 11:ADA5: 30        .byte con_bg + $30
 - D - I - - 0x022DB6 11:ADA6: BB        .byte con_animation + $BB
@@ -11922,12 +11922,12 @@ sub_AF88_рожа_soda_палка_и_мерцание:
 
 off_long_case_AF90_02_razor_pass:
 - D - I - - 0x022FA0 11:AF90: F3        .byte con_branch, $32 + $80     ; проверка на soda
-- D - I - - 0x022FA2 11:AF92: 02        .byte off_case_AF94_00_это_soda - *
-- D - I - - 0x022FA3 11:AF93: 11        .byte off_case_AFA4_01_это_не_soda - *
+- D - I - - 0x022FA2 11:AF92: 02        .byte off_case_AF94_00_if_soda - *
+- D - I - - 0x022FA3 11:AF93: 11        .byte off_case_AFA4_01_if_not_soda - *
 
 
 
-off_case_AF94_00_это_soda:
+off_case_AF94_00_if_soda:
 - D - I - - 0x022FA4 11:AF94: FA        .byte con_jsr
 - D - I - - 0x022FA5 11:AF95: 73 AF     .word sub_AF73_рожа_soda_палка_и_мерцание
 loc_AF97_razor_pass_улетает_от_игрока:
@@ -11943,7 +11943,7 @@ loc_AF97_razor_pass_улетает_от_игрока:
 
 
 
-off_case_AFA4_01_это_не_soda:
+off_case_AFA4_01_if_not_soda:
 - D - I - - 0x022FB4 11:AFA4: FA        .byte con_jsr
 - D - I - - 0x022FB5 11:AFA5: 88 AF     .word sub_AF88_рожа_soda_палка_и_мерцание
 - D - I - - 0x022FB7 11:AFA7: F2        .byte con_jmp
@@ -12229,12 +12229,12 @@ off_case_B072_20_victorino:
 
 off_long_case_B079_0F_hyper_overhead:
 - D - I - - 0x023089 11:B079: F3        .byte con_branch, $3C + $80     ; проверка на misugi из japan
-- D - I - - 0x02308B 11:B07B: 02        .byte off_case_B07D_00_это_misugi_из_japan - *
-- D - I - - 0x02308C 11:B07C: 1B        .byte off_case_B097_01_это_misugi_из_musashi - *
+- D - I - - 0x02308B 11:B07B: 02        .byte off_case_B07D_00_if_misugi_из_japan - *
+- D - I - - 0x02308C 11:B07C: 1B        .byte off_case_B097_01_if_misugi_из_musashi - *
 
 
 
-off_case_B07D_00_это_misugi_из_japan:
+off_case_B07D_00_if_misugi_из_japan:
 - D - I - - 0x02308D 11:B07D: F6        .byte con_mirror_toggle
 - D - I - - 0x02308E 11:B07E: 3C        .byte con_pause + $3C
 - D - I - - 0x02308F 11:B07F: 30        .byte con_bg + $30
@@ -12259,7 +12259,7 @@ loc_B082_прыжок_misugi_для_hyper_overhead:
 
 
 
-off_case_B097_01_это_misugi_из_musashi:
+off_case_B097_01_if_misugi_из_musashi:
 - D - I - - 0x0230A7 11:B097: F6        .byte con_mirror_toggle
 - D - I - - 0x0230A8 11:B098: 3C        .byte con_pause + $3C
 - D - I - - 0x0230A9 11:B099: 30        .byte con_bg + $30
@@ -12494,12 +12494,12 @@ off_long_case_B197_00___:
 
 off_long_case_B198_06_falcon_volley:
 - D - I - - 0x0231A8 11:B198: F3        .byte con_branch, $31 + $80     ; проверка на nitta
-- D - I - - 0x0231AA 11:B19A: 02        .byte off_case_B19C_00_это_наш_nitta - *
-- - - - - - 0x0231AB 11:B19B: 28        .byte off_case_B1C3_01_это_соперник_nitta - *
+- D - I - - 0x0231AA 11:B19A: 02        .byte off_case_B19C_00_if_наш_nitta - *
+- - - - - - 0x0231AB 11:B19B: 28        .byte off_case_B1C3_01_if_соперник_nitta - *
 
 
 
-off_case_B19C_00_это_наш_nitta:
+off_case_B19C_00_if_наш_nitta:
 - D - I - - 0x0231AC 11:B19C: 3C        .byte con_pause + $3C
 - D - I - - 0x0231AD 11:B19D: 30        .byte con_bg + $30
 - D - I - - 0x0231AE 11:B19E: 9A        .byte con_animation + $9A
@@ -12534,7 +12534,7 @@ loc_B1A0_falcon_volley:
 
 
 
-off_case_B1C3_01_это_соперник_nitta:
+off_case_B1C3_01_if_соперник_nitta:
 - - - - - - 0x0231D3 11:B1C3: 3C        .byte con_pause + $3C
 - - - - - - 0x0231D4 11:B1C4: 30        .byte con_bg + $30
 - - - - - - 0x0231D5 11:B1C5: 9B        .byte con_animation + $9B
@@ -12765,12 +12765,12 @@ off_long_case_B29B_04:
 
 off_long_case_B2A2_02:
 - D - I - - 0x0232B2 11:B2A2: F3        .byte con_branch, $3D + $80     ; проверка на misaki из nankatsu
-- D - I - - 0x0232B4 11:B2A4: 02        .byte off_case_B2A6_00_это_misaki_из_nankatsu - *
-- - - - - - 0x0232B5 11:B2A5: 16        .byte off_case_B2BB_01_это_misaki_из_japan - *
+- D - I - - 0x0232B4 11:B2A4: 02        .byte off_case_B2A6_00_if_misaki_из_nankatsu - *
+- - - - - - 0x0232B5 11:B2A5: 16        .byte off_case_B2BB_01_if_misaki_из_japan - *
 
 
 
-off_case_B2A6_00_это_misaki_из_nankatsu:
+off_case_B2A6_00_if_misaki_из_nankatsu:
 - D - I - - 0x0232B6 11:B2A6: 3C        .byte con_pause + $3C
 - D - I - - 0x0232B7 11:B2A7: 30        .byte con_bg + $30
 - D - I - - 0x0232B8 11:B2A8: 96        .byte con_animation + $96
@@ -12793,7 +12793,7 @@ sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_voll
 
 
 
-off_case_B2BB_01_это_misaki_из_japan:
+off_case_B2BB_01_if_misaki_из_japan:
 - - - - - - 0x0232CB 11:B2BB: 3C        .byte con_pause + $3C
 - - - - - - 0x0232CC 11:B2BC: 30        .byte con_bg + $30
 - - - - - - 0x0232CD 11:B2BD: 97        .byte con_animation + $97
@@ -13225,9 +13225,9 @@ off_long_case_B3E9_03_vanishing_feint:
 
 off_long_case_B3F4_04_clone_dribble:
 - D - I - - 0x023404 11:B3F4: F3        .byte con_branch, $3B + $80     ; проверка на carlos
-- D - I - - 0x023406 11:B3F6: 02        .byte off_case_B3F8_00_это_carlos - *
-- D - I - - 0x023407 11:B3F7: 09        .byte off_case_B400_01_это_не_carlos - *
-off_case_B3F8_00_это_carlos:
+- D - I - - 0x023406 11:B3F6: 02        .byte off_case_B3F8_00_if_carlos - *
+- D - I - - 0x023407 11:B3F7: 09        .byte off_case_B400_01_if_not_carlos - *
+off_case_B3F8_00_if_carlos:
 - D - I - - 0x023408 11:B3F8: FA        .byte con_jsr
 - D - I - - 0x023409 11:B3F9: 85 A8     .word sub_A885_рожа_carlos_flamengo
 loc_B3FB:
@@ -13238,7 +13238,7 @@ loc_B3FB:
 
 
 
-off_case_B400_01_это_не_carlos:
+off_case_B400_01_if_not_carlos:
 - D - I - - 0x023410 11:B400: FA        .byte con_jsr
 - D - I - - 0x023411 11:B401: 8F A8     .word sub_A88F_рожа_carlos_brazil
 - D - I - - 0x023413 11:B403: F2        .byte con_jmp
@@ -13262,12 +13262,12 @@ off_long_case_B406_05_high_speed_dribble:
 
 off_long_case_B414_06_hedgehog_dribble:
 - D - I - - 0x023424 11:B414: F3        .byte con_branch, $3A + $80     ; проверка на kaltz
-- D - I - - 0x023426 11:B416: 02        .byte off_case_B418_00_это_kaltz - *
-- - - - - - 0x023427 11:B417: 0B        .byte off_case_B422_01_это_не_kaltz - *
+- D - I - - 0x023426 11:B416: 02        .byte off_case_B418_00_if_kaltz - *
+- - - - - - 0x023427 11:B417: 0B        .byte off_case_B422_01_if_not_kaltz - *
 
 
 
-off_case_B418_00_это_kaltz:
+off_case_B418_00_if_kaltz:
 - D - I - - 0x023428 11:B418: FA        .byte con_jsr
 - D - I - - 0x023429 11:B419: E5 A8     .word sub_A8E5_kaltz_hedgehog_dribble
 loc_B41B_kaltz_hedgehog_dribble_финальный_кусок_анимации:
@@ -13280,7 +13280,7 @@ loc_B41B_kaltz_hedgehog_dribble_финальный_кусок_анимации:
 
 
 
-off_case_B422_01_это_не_kaltz:
+off_case_B422_01_if_not_kaltz:
 - - - - - - 0x023432 11:B422: FA        .byte con_jsr
 - - - - - - 0x023433 11:B423: 08 A9     .word sub_A908_kaltz_hedgehog_dribble
 - - - - - - 0x023435 11:B425: F2        .byte con_jmp
