@@ -44,6 +44,7 @@ ca65 -U -l copy_bank_25.asm
 ca65 -U -l copy_bank_26.asm
 ca65 -U -l copy_bank_27.asm
 ca65 -U -l copy_bank_28.asm
+ca65 -U -l copy_bank_29.asm
 ca65 -U -l copy_bank_FF.asm
 
 :: компиляция кода в бинарники
@@ -83,6 +84,7 @@ ld65 -C ld65.cfg ^
     copy_bank_26.o ^
     copy_bank_27.o ^
     copy_bank_28.o ^
+    copy_bank_29.o ^
     copy_bank_FF.o
 
 :: сбор бинарников, хедера и chr в общий ром
@@ -122,6 +124,7 @@ copy /B header.bin + ^
     copy_bank_26.bin + ^
     copy_bank_27.bin + ^
     copy_bank_28.bin + ^
+    copy_bank_29.bin + ^
     empty.bin + copy_bank_FF.bin + CHR_ROM.chr !ct2.nes
 
 :: удалить остаточный хлам и копии
