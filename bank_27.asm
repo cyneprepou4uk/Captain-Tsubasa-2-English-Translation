@@ -241,13 +241,15 @@ con_start_line                  = $00
 con_pause                       = $00
 con_window                      = $00
 con_charlie                     = $00
+
+; управляющие байты 0x030097
 con_exit                        = $F0
 ; unused                        = $F1
 con_очистить_облако             = $F2
 con_jump                        = $F3
 con_выбор_облака                = $F4
 
-; байты в тексте
+; байты в тексте 0x03036E
 con_действие_атаки              = $E0
 con_действие_защиты             = $E1
 con_крит_атаки                  = $E2
