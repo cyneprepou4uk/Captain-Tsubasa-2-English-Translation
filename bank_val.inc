@@ -4,6 +4,7 @@
 con_prg_bank                                = $00 ; номер prg банка
 con_chr_bank                                = $00 ; номер chr банка
 con_cutscene                                = $00 ; номер катсцены
+con_сценарий                                = $00 ; номер сценария
 
 
 
@@ -11,7 +12,7 @@ con_cutscene                                = $00 ; номер катсцены
 con_plr_id                                  = $00 ; уникальный номер игрока. если 00, значит это обычный клон
 con_plr_guts_lo                             = $01 ; 
 con_plr_guts_hi                             = $02 ; энергия
-con_plr_lvl                                 = $03 ; 
+con_plr_lvl                                 = $03 ; текущий уровень игрока
 con_plr_04                                  = $04 ; видимо не используется
 con_plr_pos_X_lo                            = $05 ; 
 con_plr_pos_X_hi                            = $06 ; 

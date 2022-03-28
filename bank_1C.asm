@@ -1306,7 +1306,7 @@ C - - - - - 0x03889F 1C:888F: 8D 2D 06  STA ram_062D
 C - - - - - 0x0388A2 1C:8892: AD 15 06  LDA ram_0615
 C - - - - - 0x0388A5 1C:8895: 29 BF     AND #$BF
 C - - - - - 0x0388A7 1C:8897: 8D 15 06  STA ram_0615
-C - - - - - 0x0388AA 1C:889A: A9 15     LDA #$15
+C - - - - - 0x0388AA 1C:889A: A9 15     LDA #con_сценарий + $15
 C - - - - - 0x0388AC 1C:889C: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0388AF 1C:889F: 2C 15 06  BIT ram_0615
 C - - - - - 0x0388B2 1C:88A2: 10 03     BPL bra_88A7_RTS
@@ -1331,7 +1331,7 @@ C - - - - - 0x0388D1 1C:88C1: 8D 2D 06  STA ram_062D
 C - - - - - 0x0388D4 1C:88C4: AD 15 06  LDA ram_0615
 C - - - - - 0x0388D7 1C:88C7: 29 BF     AND #$BF
 C - - - - - 0x0388D9 1C:88C9: 8D 15 06  STA ram_0615
-C - - - - - 0x0388DC 1C:88CC: A9 16     LDA #$16
+C - - - - - 0x0388DC 1C:88CC: A9 16     LDA #con_сценарий + $16
 C - - - - - 0x0388DE 1C:88CE: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0388E1 1C:88D1: 2C 15 06  BIT ram_0615
 C - - - - - 0x0388E4 1C:88D4: 10 03     BPL bra_88D9_RTS
@@ -2126,7 +2126,7 @@ C - - - - - 0x038CE9 1C:8CD9: C9 FF     CMP #$FF
 C - - - - - 0x038CEB 1C:8CDB: F0 1A     BEQ bra_8CF7
 C - - - - - 0x038CED 1C:8CDD: 85 45     STA ram_0045
 C - - - - - 0x038CEF 1C:8CDF: A9 01     LDA #$01
-bra_8CE1:
+bra_8CE1_loop:
 C - - - - - 0x038CF1 1C:8CE1: 48        PHA
 C - - - - - 0x038CF2 1C:8CE2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038CF5 1C:8CE5: A0 00     LDY #con_plr_id
@@ -2137,7 +2137,7 @@ C - - - - - 0x038CFD 1C:8CED: 68        PLA
 C - - - - - 0x038CFE 1C:8CEE: 18        CLC
 C - - - - - 0x038CFF 1C:8CEF: 69 01     ADC #$01
 C - - - - - 0x038D01 1C:8CF1: C9 0B     CMP #$0B
-C - - - - - 0x038D03 1C:8CF3: D0 EC     BNE bra_8CE1
+C - - - - - 0x038D03 1C:8CF3: D0 EC     BNE bra_8CE1_loop
 C - - - - - 0x038D05 1C:8CF5: 60        RTS
 bra_8CF6:
 C - - - - - 0x038D06 1C:8CF6: 68        PLA

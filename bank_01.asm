@@ -97,7 +97,7 @@ C - - - - - 0x0020B9 01:A0A9: 0D 61 06  ORA ram_0661
 C - - - - - 0x0020BC 01:A0AC: 8D 61 06  STA ram_0661
 C - - - - - 0x0020BF 01:A0AF: A9 00     LDA #$00
 C - - - - - 0x0020C1 01:A0B1: 85 ED     STA ram_00ED
-bra_A0B3:
+bra_A0B3_loop:
 C - - - - - 0x0020C3 01:A0B3: A6 ED     LDX ram_00ED
 C - - - - - 0x0020C5 01:A0B5: 20 38 A4  JSR sub_A438
 C - - - - - 0x0020C8 01:A0B8: A2 FF     LDX #$FF
@@ -133,7 +133,7 @@ bra_A0EC:
 C - - - - - 0x0020FC 01:A0EC: E6 ED     INC ram_00ED
 C - - - - - 0x0020FE 01:A0EE: A5 ED     LDA ram_00ED
 C - - - - - 0x002100 01:A0F0: C9 12     CMP #$12
-C - - - - - 0x002102 01:A0F2: 90 BF     BCC bra_A0B3
+C - - - - - 0x002102 01:A0F2: 90 BF     BCC bra_A0B3_loop
 bra_A0F4_кнопка_не_нажата:
 C - - - - - 0x002104 01:A0F4: A9 01     LDA #$01
 C - - - - - 0x002106 01:A0F6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
@@ -1081,7 +1081,7 @@ loc_A7CE:
 C D - - - - 0x0027DE 01:A7CE: A0 A8     LDY #< tbl_ADA8_курсор_замены_1
 C - - - - - 0x0027E0 01:A7D0: A2 AD     LDX #> tbl_ADA8_курсор_замены_1
 C - - - - - 0x0027E2 01:A7D2: 20 3A 9C  JSR sub_0x001C4A_отобразить_курсор
-bra_A7D5:
+bra_A7D5_loop:
 C - - - - - 0x0027E5 01:A7D5: A9 01     LDA #$01
 C - - - - - 0x0027E7 01:A7D7: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x0027EA 01:A7DA: 20 C9 9C  JSR sub_0x001CD9
@@ -1089,7 +1089,7 @@ C - - - - - 0x0027ED 01:A7DD: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - - 0x0027EF 01:A7DF: 70 5B     BVS bra_A83C_отменить_выбор
 ; con_btn_A
-C - - - - - 0x0027F1 01:A7E1: 10 F2     BPL bra_A7D5
+C - - - - - 0x0027F1 01:A7E1: 10 F2     BPL bra_A7D5_loop
 C - - - - - 0x0027F3 01:A7E3: A9 01     LDA #$01
 C - - - - - 0x0027F5 01:A7E5: 8D 62 05  STA ram_0562
 C - - - - - 0x0027F8 01:A7E8: 20 D3 9C  JSR sub_0x001CE3
@@ -1225,6 +1225,7 @@ C - - - - - 0x00290A 01:A8FA: 90 04     BCC bra_A900
 C - - - - - 0x00290C 01:A8FC: A9 B8     LDA #$B8
 C - - - - - 0x00290E 01:A8FE: 85 E6     STA ram_00E6
 bra_A900:
+bra_A900_loop:
 C - - - - - 0x002910 01:A900: A9 01     LDA #$01
 C - - - - - 0x002912 01:A902: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x002915 01:A905: 20 C9 9C  JSR sub_0x001CD9
@@ -1233,7 +1234,7 @@ C - - - - - 0x002918 01:A908: 24 1E     BIT ram_btn_press
 C - - - - - 0x00291A 01:A90A: 50 03     BVC bra_A90F
 C - - - - - 0x00291C 01:A90C: 4C 5F AA  JMP loc_AA5F
 bra_A90F:
-C - - - - - 0x00291F 01:A90F: 10 EF     BPL bra_A900
+C - - - - - 0x00291F 01:A90F: 10 EF     BPL bra_A900_loop
 C - - - - - 0x002921 01:A911: A9 01     LDA #$01
 C - - - - - 0x002923 01:A913: 8D 62 05  STA ram_0562
 C - - - - - 0x002926 01:A916: AD 60 05  LDA ram_0560
@@ -1258,6 +1259,7 @@ C - - - - - 0x00294E 01:A93E: 85 EA     STA ram_00EA
 C - - - - - 0x002950 01:A940: A9 FF     LDA #$FF
 C - - - - - 0x002952 01:A942: 85 E9     STA ram_00E9
 bra_A944:
+bra_A944_loop:
 C - - - - - 0x002954 01:A944: A9 01     LDA #$01
 C - - - - - 0x002956 01:A946: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x002959 01:A949: 20 C9 9C  JSR sub_0x001CD9
@@ -1319,7 +1321,7 @@ C - - - - - 0x0029C4 01:A9B4: 24 1E     BIT ram_btn_press
 C - - - - - 0x0029C6 01:A9B6: 50 03     BVC bra_A9BB
 C - - - - - 0x0029C8 01:A9B8: 4C 5F AA  JMP loc_AA5F
 bra_A9BB:
-C - - - - - 0x0029CB 01:A9BB: 10 87     BPL bra_A944
+C - - - - - 0x0029CB 01:A9BB: 10 87     BPL bra_A944_loop
 C - - - - - 0x0029CD 01:A9BD: 4C FB A9  JMP loc_A9FB
 loc_A9C0:
 C D - - - - 0x0029D0 01:A9C0: A0 CA     LDY #< tbl_ADCA_курсор_замены_киперов_японии
@@ -1339,7 +1341,7 @@ C - - - - - 0x0029ED 01:A9DD: 20 BF AA  JSR sub_AABF
 C - - - - - 0x0029F0 01:A9E0: B0 7D     BCS bra_AA5F
 bra_A9E2:
 C - - - - - 0x0029F2 01:A9E2: A0 F4     LDY #$F4
-bra_A9E4:
+bra_A9E4_loop:
 C - - - - - 0x0029F4 01:A9E4: A9 01     LDA #$01
 C - - - - - 0x0029F6 01:A9E6: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x0029F9 01:A9E9: 20 C9 9C  JSR sub_0x001CD9
@@ -1347,7 +1349,7 @@ C - - - - - 0x0029FC 01:A9EC: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - - 0x0029FE 01:A9EE: 70 6F     BVS bra_AA5F
 ; con_btn_A
-C - - - - - 0x002A00 01:A9F0: 10 F2     BPL bra_A9E4
+C - - - - - 0x002A00 01:A9F0: 10 F2     BPL bra_A9E4_loop
 C - - - - - 0x002A02 01:A9F2: AD 5C 05  LDA ram_055C
 C - - - - - 0x002A05 01:A9F5: 38        SEC
 C - - - - - 0x002A06 01:A9F6: E9 10     SBC #$10
@@ -1528,10 +1530,10 @@ C - - - - - 0x002B51 01:AB41: A5 60     LDA ram_0060
 C - - - - - 0x002B53 01:AB43: 8D 5C 05  STA ram_055C
 C - - - - - 0x002B56 01:AB46: A5 61     LDA ram_0061
 C - - - - - 0x002B58 01:AB48: 8D 5F 05  STA ram_055F
-C - - - - - 0x002B5B 01:AB4B: 10 04     BPL bra_AB51
+C - - - - - 0x002B5B 01:AB4B: 10 04     BPL bra_AB51_loop
 C - - - - - 0x002B5D 01:AB4D: A9 B8     LDA #$B8
 C - - - - - 0x002B5F 01:AB4F: 85 E6     STA ram_00E6
-bra_AB51:
+bra_AB51_loop:
 C - - - - - 0x002B61 01:AB51: A9 01     LDA #$01
 C - - - - - 0x002B63 01:AB53: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x002B66 01:AB56: 20 71 9C  JSR sub_0x001C81_поиск_забаненых_игроков
@@ -1564,7 +1566,7 @@ C D - - - - 0x002B97 01:AB87: 24 1E     BIT ram_btn_press
 C - - - - - 0x002B99 01:AB89: 50 03     BVC bra_AB8E_кнопка_не_нажата
 C - - - - - 0x002B9B 01:AB8B: 4C 21 A7  JMP loc_A721_экран_с_опциями_команды
 bra_AB8E_кнопка_не_нажата:
-C - - - - - 0x002B9E 01:AB8E: 10 C1     BPL bra_AB51
+C - - - - - 0x002B9E 01:AB8E: 10 C1     BPL bra_AB51_loop
 C - - - - - 0x002BA0 01:AB90: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - - 0x002BA3 01:AB93: AC 5C 05  LDY ram_055C
 C - - - - - 0x002BA6 01:AB96: AE 5F 05  LDX ram_055F
@@ -1799,7 +1801,7 @@ C - - - - - 0x002D52 01:AD42: A9 B9     LDA #> tbl_B967_тайлы_закрыв�
 C - - - - - 0x002D54 01:AD44: 85 E7     STA ram_00E7
 C - - - - - 0x002D56 01:AD46: A9 1A     LDA #$1E      ; длина полоски
 C - - - - - 0x002D58 01:AD48: 20 73 9D  JSR sub_0x001D83
-bra_AD4B:
+bra_AD4B_loop:
 C - - - - - 0x002D5B 01:AD4B: A9 18     LDA #$18
 C - - - - - 0x002D5D 01:AD4D: 85 79     STA ram_0079
 C - - - - - 0x002D5F 01:AD4F: A9 01     LDA #$01
@@ -1823,21 +1825,21 @@ C - - - - - 0x002D7A 01:AD6A: A9 01     LDA #$01
 C - - - - - 0x002D7C 01:AD6C: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x002D7F 01:AD6F: 24 1E     BIT ram_btn_press
 ; con_btn_B
-C - - - - - 0x002D81 01:AD71: 70 D8     BVS bra_AD4B
+C - - - - - 0x002D81 01:AD71: 70 D8     BVS bra_AD4B_loop
 ; con_btn_A
 C - - - - - 0x002D83 01:AD73: 10 F5     BPL bra_AD6A
 C - - - - - 0x002D85 01:AD75: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
 bra_AD78:
 C - - - - - 0x002D88 01:AD78: A9 00     LDA #$00
 C - - - - - 0x002D8A 01:AD7A: 85 7E     STA ram_007E
-bra_AD7C:
+bra_AD7C_loop:
 C - - - - - 0x002D8C 01:AD7C: A9 01     LDA #$01
 C - - - - - 0x002D8E 01:AD7E: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x002D91 01:AD81: 24 1E     BIT ram_btn_press
 ; con_btn_A
-C - - - - - 0x002D93 01:AD83: 30 C6     BMI bra_AD4B
+C - - - - - 0x002D93 01:AD83: 30 C6     BMI bra_AD4B_loop
 ; con_btn_B
-C - - - - - 0x002D95 01:AD85: 50 F5     BVC bra_AD7C
+C - - - - - 0x002D95 01:AD85: 50 F5     BVC bra_AD7C_loop
 C - - - - - 0x002D97 01:AD87: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_статуса
 
 
@@ -2014,7 +2016,7 @@ sub_AE3A_обновить_расстановку_миникарты:
 C - - - - - 0x002E4A 01:AE3A: 85 E7     STA ram_00E7
 C - - - - - 0x002E4C 01:AE3C: A5 2C     LDA ram_расстановка_слева
 C - - - - - 0x002E4E 01:AE3E: 85 E6     STA ram_00E6
-bra_AE40:
+bra_AE40_loop:
 C - - - - - 0x002E50 01:AE40: A9 01     LDA #$01
 C - - - - - 0x002E52 01:AE42: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x002E55 01:AE45: A5 1E     LDA ram_btn_press
@@ -2042,7 +2044,7 @@ C - - - - - 0x002E77 01:AE67: 24 1E     BIT ram_btn_press
 ; con_btn_B
 C - - - - - 0x002E79 01:AE69: 70 07     BVS bra_AE72
 ; con_btn_A
-C - - - - - 0x002E7B 01:AE6B: 10 D3     BPL bra_AE40
+C - - - - - 0x002E7B 01:AE6B: 10 D3     BPL bra_AE40_loop
 C - - - - - 0x002E7D 01:AE6D: A5 E6     LDA ram_00E6
 C - - - - - 0x002E7F 01:AE6F: 85 2C     STA ram_расстановка_слева
 C - - - - - 0x002E81 01:AE71: 60        RTS
@@ -2072,7 +2074,7 @@ sub_AE8F_спрайты_миникарты:
 ; отображение позиций игроков на миникарте в экране с меню команды исходя из опции расстановки
 C D - - - - 0x002E9F 01:AE8F: BE 2D B8  LDX tbl_B82D_офсет_спрайтов_миникарты,Y
 C - - - - - 0x002EA2 01:AE92: A0 24     LDY #$24
-bra_AE94:
+bra_AE94_loop:
 C - - - - - 0x002EA4 01:AE94: BD 31 B8  LDA tbl_B831_спрайты_миникарты,X
 C - - - - - 0x002EA7 01:AE97: 99 68 04  STA ram_copy_spr_Y,Y
 C - - - - - 0x002EAA 01:AE9A: BD 32 B8  LDA tbl_B831_спрайты_миникарты + 1,X
@@ -2085,7 +2087,7 @@ C - - - - - 0x002EB5 01:AEA5: 88        DEY
 C - - - - - 0x002EB6 01:AEA6: 88        DEY
 C - - - - - 0x002EB7 01:AEA7: 88        DEY
 C - - - - - 0x002EB8 01:AEA8: 88        DEY
-C - - - - - 0x002EB9 01:AEA9: 10 E9     BPL bra_AE94
+C - - - - - 0x002EB9 01:AEA9: 10 E9     BPL bra_AE94_loop
 C - - - - - 0x002EBB 01:AEAB: 60        RTS
 
 sub_AEAC:
@@ -2120,7 +2122,7 @@ sub_AEDA:
 C D - - - - 0x002EEA 01:AEDA: 85 E8     STA ram_00E8
 C - - - - - 0x002EEC 01:AEDC: 86 E9     STX ram_00E9
 C - - - - - 0x002EEE 01:AEDE: 84 EB     STY ram_00EB
-bra_AEE0:
+bra_AEE0_loop:
 C - - - - - 0x002EF0 01:AEE0: A5 E8     LDA ram_00E8
 C - - - - - 0x002EF2 01:AEE2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x002EF5 01:AEE5: A0 00     LDY #con_plr_id
@@ -2138,7 +2140,7 @@ C - - - - - 0x002F0A 01:AEFA: A5 E7     LDA ram_00E7
 C - - - - - 0x002F0C 01:AEFC: 69 00     ADC #$00
 C - - - - - 0x002F0E 01:AEFE: 85 E7     STA ram_00E7
 C - - - - - 0x002F10 01:AF00: C6 E9     DEC ram_00E9
-C - - - - - 0x002F12 01:AF02: D0 DC     BNE bra_AEE0
+C - - - - - 0x002F12 01:AF02: D0 DC     BNE bra_AEE0_loop
 C - - - - - 0x002F14 01:AF04: 60        RTS
 
 sub_AF05:
@@ -2148,7 +2150,7 @@ sub_AF09:
 C - - - - - 0x002F19 01:AF09: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - - 0x002F1C 01:AF0C: A9 05     LDA #$08      ; ограничение по количеству символов для имен
 C - - - - - 0x002F1E 01:AF0E: 85 ED     STA ram_00ED
-bra_AF10:
+bra_AF10_loop:
 C - - - - - 0x002F20 01:AF10: A2 00     LDX #$00
 C - - - - - 0x002F22 01:AF12: A0 00     LDY #$00
 C - - - - - 0x002F24 01:AF14: B1 30     LDA (ram_0030),Y
@@ -2166,7 +2168,7 @@ C - - - - - 0x002F34 01:AF24: A6 E7     LDX ram_00E7
 C - - - - - 0x002F36 01:AF26: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер
 C - - - - - 0x002F39 01:AF29: E6 E6     INC ram_00E6
 C - - - - - 0x002F3B 01:AF2B: C6 ED     DEC ram_00ED
-C - - - - - 0x002F3D 01:AF2D: D0 E1     BNE bra_AF10
+C - - - - - 0x002F3D 01:AF2D: D0 E1     BNE bra_AF10_loop
 C - - - - - 0x002F3F 01:AF2F: A5 E6     LDA ram_00E6
 C - - - - - 0x002F41 01:AF31: 38        SEC
 C - - - - - 0x002F42 01:AF32: E9 05     SBC #$08      ; здесь также нужно корректировать ограничение
@@ -2206,7 +2208,7 @@ C - - - - - 0x002F77 01:AF67: A0 00     LDY #$00
 ; con_plr_guts_lo
 ; con_plr_guts_hi
 ; con_plr_lvl
-bra_AF69:
+bra_AF69_loop:
 C - - - - - 0x002F79 01:AF69: B1 E6     LDA (ram_00E6),Y
 C - - - - - 0x002F7B 01:AF6B: AA        TAX
 C - - - - - 0x002F7C 01:AF6C: B1 34     LDA (ram_plr_data),Y
@@ -2215,7 +2217,7 @@ C - - - - - 0x002F80 01:AF70: 8A        TXA
 C - - - - - 0x002F81 01:AF71: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x002F83 01:AF73: C8        INY
 C - - - - - 0x002F84 01:AF74: C0 04     CPY #$04
-C - - - - - 0x002F86 01:AF76: D0 F1     BNE bra_AF69
+C - - - - - 0x002F86 01:AF76: D0 F1     BNE bra_AF69_loop
 C - - - - - 0x002F88 01:AF78: 60        RTS
 
 sub_0x002F89_начислить_опыт_за_победу:
@@ -2333,14 +2335,14 @@ sub_B02E:
 C - - - - - 0x00303E 01:B02E: 84 E6     STY ram_00E6
 C - - - - - 0x003040 01:B030: 86 E7     STX ram_00E7
 C - - - - - 0x003042 01:B032: A2 80     LDX #$80
-bra_B034:
+bra_B034_loop:
 C - - - - - 0x003044 01:B034: CA        DEX
 C - - - - - 0x003045 01:B035: CA        DEX
 C - - - - - 0x003046 01:B036: A5 E6     LDA ram_00E6
 C - - - - - 0x003048 01:B038: DD 90 BA  CMP tbl_BA90_опыт_для_достижения_уровня,X
 C - - - - - 0x00304B 01:B03B: A5 E7     LDA ram_00E7
 C - - - - - 0x00304D 01:B03D: FD 91 BA  SBC tbl_BA90_опыт_для_достижения_уровня + 1,X
-C - - - - - 0x003050 01:B040: 90 F2     BCC bra_B034
+C - - - - - 0x003050 01:B040: 90 F2     BCC bra_B034_loop
 C - - - - - 0x003052 01:B042: 8A        TXA
 C - - - - - 0x003053 01:B043: 4A        LSR
 C - - - - - 0x003054 01:B044: 60        RTS

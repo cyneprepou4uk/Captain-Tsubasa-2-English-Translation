@@ -29,7 +29,7 @@ C - - - - - 0x004022 02:A012: 70 49     BVS bra_A05D
 C - - - - - 0x004024 02:A014: A9 00     LDA #$00
 C - - - - - 0x004026 02:A016: 8D 01 20  STA $2001
 C - - - - - 0x004029 02:A019: A2 00     LDX #$00
-bra_A01B:
+bra_A01B_loop:
 C - - - - - 0x00402B 02:A01B: A0 80     LDY #$80
 C - - - - - 0x00402D 02:A01D: BD E8 05  LDA ram_05E8,X
 C - - - - - 0x004030 02:A020: 10 04     BPL bra_A026
@@ -42,17 +42,17 @@ C - - - - - 0x00403A 02:A02A: BD EA 05  LDA ram_облако,X
 C - - - - - 0x00403D 02:A02D: 8D 06 20  STA $2006
 C - - - - - 0x004040 02:A030: BD E9 05  LDA ram_таймер_облака_ХЗ,X
 C - - - - - 0x004043 02:A033: 8D 06 20  STA $2006
-bra_A036:
+bra_A036_loop:
 C - - - - - 0x004046 02:A036: BD EB 05  LDA ram_05EB,X
 C - - - - - 0x004049 02:A039: 8D 07 20  STA $2007
 C - - - - - 0x00404C 02:A03C: E8        INX
 C - - - - - 0x00404D 02:A03D: 88        DEY
-C - - - - - 0x00404E 02:A03E: D0 F6     BNE bra_A036
+C - - - - - 0x00404E 02:A03E: D0 F6     BNE bra_A036_loop
 C - - - - - 0x004050 02:A040: E8        INX
 C - - - - - 0x004051 02:A041: E8        INX
 C - - - - - 0x004052 02:A042: E8        INX
 C - - - - - 0x004053 02:A043: BD E8 05  LDA ram_05E8,X
-C - - - - - 0x004056 02:A046: D0 D3     BNE bra_A01B
+C - - - - - 0x004056 02:A046: D0 D3     BNE bra_A01B_loop
 C - - - - - 0x004058 02:A048: A9 00     LDA #$00
 C - - - - - 0x00405A 02:A04A: 8D 28 06  STA ram_индекс_буфера
 C - - - - - 0x00405D 02:A04D: A9 3F     LDA #> $3F00
@@ -544,13 +544,13 @@ bra_A42B_было_нажато_вниз:
 - - - - - - 0x00443B 02:A42B: A9 63     LDA #$63
 bra_A42D_запись_номера:
 C - - - - - 0x00443F 02:A42F: 20 54 A4  JSR sub_A454_выбрать_тайлы_цифр
-bra_A432:
+bra_A432_loop:
 C - - - - - 0x004442 02:A432: A9 01     LDA #$01
 C - - - - - 0x004444 02:A434: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x004447 02:A437: 20 20 AA  JSR sub_AA20_проверка_нажатий_вверх_вниз
 C - - - - - 0x00444A 02:A43A: 90 B9     BCC bra_A3F5_вверх_вниз_не_нажаты
 C - - - - - 0x00444C 02:A43C: C6 E6     DEC ram_00E6
-C - - - - - 0x00444E 02:A43E: D0 F2     BNE bra_A432
+C - - - - - 0x00444E 02:A43E: D0 F2     BNE bra_A432_loop
 C - - - - - 0x004450 02:A440: A2 04     LDX #$04
 C - - - - - 0x004452 02:A442: 4C 1A A4  JMP loc_A41A
 bra_A445_RTS_из_музыкального_экрана:
@@ -968,7 +968,7 @@ C - - - - - 0x004720 02:A710: 85 EB     STA ram_00EB
 C - - - - - 0x004722 02:A712: A9 F6     LDA #$F6
 C - - - - - 0x004724 02:A714: 20 2C A7  JSR sub_A72C
 C - - - - - 0x004727 02:A717: A0 D8     LDY #$D8
-bra_A719:
+bra_A719_loop:
 C - - - - - 0x004729 02:A719: B9 6A 04  LDA ram_copy_spr_A,Y
 C - - - - - 0x00472C 02:A71C: 09 02     ORA #$02
 C - - - - - 0x00472E 02:A71E: 99 6A 04  STA ram_copy_spr_A,Y
@@ -977,13 +977,13 @@ C - - - - - 0x004732 02:A722: C8        INY
 C - - - - - 0x004733 02:A723: C8        INY
 C - - - - - 0x004734 02:A724: C8        INY
 C - - - - - 0x004735 02:A725: C0 F0     CPY #$F0
-C - - - - - 0x004737 02:A727: 90 F0     BCC bra_A719
+C - - - - - 0x004737 02:A727: 90 F0     BCC bra_A719_loop
 C - - - - - 0x004739 02:A729: A9 02     LDA #$02
 C - - - - - 0x00473B 02:A72B: 60        RTS
 
 sub_A72C:
 C - - - - - 0x00473C 02:A72C: 85 E9     STA ram_00E9
-bra_A72E:
+bra_A72E_loop:
 C - - - - - 0x00473E 02:A72E: AD E4 04  LDA ram_04E4
 C - - - - - 0x004741 02:A731: 18        CLC
 C - - - - - 0x004742 02:A732: 65 ED     ADC ram_00ED
@@ -1010,16 +1010,16 @@ bra_A75E:
 C - - - - - 0x00476E 02:A75E: A9 01     LDA #$01
 C - - - - - 0x004770 02:A760: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x004773 02:A763: CA        DEX
-C - - - - - 0x004774 02:A764: D0 C8     BNE bra_A72E
+C - - - - - 0x004774 02:A764: D0 C8     BNE bra_A72E_loop
 C - - - - - 0x004776 02:A766: 60        RTS
 
 sub_A767:
 C - - - - - 0x004777 02:A767: A0 FC     LDY #$FC
-bra_A769:
+bra_A769_loop:
 C - - - - - 0x004779 02:A769: B9 77 A6  LDA tbl_A773 - $FC,Y
 C - - - - - 0x00477C 02:A76C: 99 E8 03  STA ram_03E8,Y
 C - - - - - 0x00477F 02:A76F: C8        INY
-C - - - - - 0x004780 02:A770: D0 F7     BNE bra_A769
+C - - - - - 0x004780 02:A770: D0 F7     BNE bra_A769_loop
 C - - - - - 0x004782 02:A772: 60        RTS
 
 tbl_A773:
@@ -1049,11 +1049,11 @@ C - - - - - 0x00479D 02:A78D: 60        RTS
 
 ofs_008_A78E_13:
 - - - - - - 0x00479E 02:A78E: A0 40     LDY #$40
-bra_A790:
+bra_A790_loop:
 - - - - - - 0x0047A0 02:A790: A9 01     LDA #$01
 - - - - - - 0x0047A2 02:A792: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 - - - - - - 0x0047A5 02:A795: A2 20     LDX #$20
-bra_A797:
+bra_A797_loop:
 - - - - - - 0x0047A7 02:A797: BD 68 04  LDA ram_copy_spr_Y,X
 - - - - - - 0x0047AA 02:A79A: 10 08     BPL bra_A7A4
 - - - - - - 0x0047AC 02:A79C: BD 6A 04  LDA ram_copy_spr_A,X
@@ -1065,15 +1065,15 @@ bra_A7A4:
 - - - - - - 0x0047B6 02:A7A6: E8        INX
 - - - - - - 0x0047B7 02:A7A7: E8        INX
 - - - - - - 0x0047B8 02:A7A8: E0 C4     CPX #$C4
-- - - - - - 0x0047BA 02:A7AA: D0 EB     BNE bra_A797
+- - - - - - 0x0047BA 02:A7AA: D0 EB     BNE bra_A797_loop
 - - - - - - 0x0047BC 02:A7AC: 88        DEY
-- - - - - - 0x0047BD 02:A7AD: D0 E1     BNE bra_A790
+- - - - - - 0x0047BD 02:A7AD: D0 E1     BNE bra_A790_loop
 - - - - - - 0x0047BF 02:A7AF: 20 91 9B  JSR sub_0x001BA1_очистить_0568_0588_05A8_05C8
-bra_A7B2:
+bra_A7B2_loop:
 - - - - - - 0x0047C2 02:A7B2: A9 01     LDA #$01
 - - - - - - 0x0047C4 02:A7B4: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 - - - - - - 0x0047C7 02:A7B7: A5 09     LDA ram_0009
-- - - - - - 0x0047C9 02:A7B9: D0 F7     BNE bra_A7B2
+- - - - - - 0x0047C9 02:A7B9: D0 F7     BNE bra_A7B2_loop
 - - - - - - 0x0047CB 02:A7BB: 4C 51 A6  JMP loc_A651
 
 ofs_008_A7BE_14:
@@ -1146,11 +1146,11 @@ C - - - - - 0x00483E 02:A82E: 60        RTS
 sub_A82F:
 C - - - - - 0x00483F 02:A82F: 85 EC     STA ram_00EC
 C - - - - - 0x004841 02:A831: 86 ED     STX ram_00ED
-bra_A833:
+bra_A833_loop:
 C - - - - - 0x004843 02:A833: A9 01     LDA #$01
 C - - - - - 0x004845 02:A835: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x004848 02:A838: A6 ED     LDX ram_00ED
-bra_A83A:
+bra_A83A_loop:
 C - - - - - 0x00484A 02:A83A: BD 68 04  LDA ram_copy_spr_Y,X
 C - - - - - 0x00484D 02:A83D: C9 82     CMP #$82
 C - - - - - 0x00484F 02:A83F: B0 08     BCS bra_A849
@@ -1163,9 +1163,9 @@ C - - - - - 0x00485A 02:A84A: E8        INX
 C - - - - - 0x00485B 02:A84B: E8        INX
 C - - - - - 0x00485C 02:A84C: E8        INX
 C - - - - - 0x00485D 02:A84D: E4 EC     CPX ram_00EC
-C - - - - - 0x00485F 02:A84F: D0 E9     BNE bra_A83A
+C - - - - - 0x00485F 02:A84F: D0 E9     BNE bra_A83A_loop
 C - - - - - 0x004861 02:A851: 88        DEY
-C - - - - - 0x004862 02:A852: D0 DF     BNE bra_A833
+C - - - - - 0x004862 02:A852: D0 DF     BNE bra_A833_loop
 C - - - - - 0x004864 02:A854: 60        RTS
 
 sub_0x004865_номера_игроков_и_расстановка_твоей_команды:

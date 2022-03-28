@@ -4148,10 +4148,11 @@ C - - - - - 0x027053 13:B043: 2C 3F 06  BIT ram_063F
 C - - - - - 0x027056 13:B046: 50 03     BVC bra_B04B
 C - - - - - 0x027058 13:B048: 4C AF B0  JMP loc_B0AF_скрытие_букв_спрайтами
 bra_B04B:
+bra_B04B_loop:
 C - - - - - 0x02705B 13:B04B: A9 01     LDA #$01
 C - - - - - 0x02705D 13:B04D: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x027060 13:B050: AD 15 05  LDA ram_0515
-C - - - - - 0x027063 13:B053: D0 F6     BNE bra_B04B
+C - - - - - 0x027063 13:B053: D0 F6     BNE bra_B04B_loop
 C - - - - - 0x027065 13:B055: A9 01     LDA #$01
 C - - - - - 0x027067 13:B057: 8D 15 05  STA ram_0515
 C - - - - - 0x02706A 13:B05A: A2 47     LDX #$47
@@ -4195,11 +4196,11 @@ C - - - - - 0x0270C7 13:B0B7: 60        RTS
 bra_B0B8_меньше_E0:
 C - - - - - 0x0270C8 13:B0B8: E6 8A     INC ram_008A
 C - - - - - 0x0270CA 13:B0BA: 48        PHA
-bra_B0BB:
+bra_B0BB_loop:
 C - - - - - 0x0270CB 13:B0BB: A9 01     LDA #$01
 C - - - - - 0x0270CD 13:B0BD: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x0270D0 13:B0C0: AD 15 05  LDA ram_0515
-C - - - - - 0x0270D3 13:B0C3: D0 F6     BNE bra_B0BB
+C - - - - - 0x0270D3 13:B0C3: D0 F6     BNE bra_B0BB_loop
 C - - - - - 0x0270D5 13:B0C5: A9 01     LDA #$01
 C - - - - - 0x0270D7 13:B0C7: 8D 15 05  STA ram_0515
 ; закрытие буфера
@@ -4298,11 +4299,11 @@ C - - - - - 0x0271B9 13:B1A9: A4 8A     LDY ram_008A
 C - - - - - 0x0271BB 13:B1AB: E6 8A     INC ram_008A
 C - - - - - 0x0271BD 13:B1AD: B1 88     LDA (ram_0088),Y
 C - - - - - 0x0271BF 13:B1AF: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
-bra_B1B2:
+bra_B1B2_loop:
 C - - - - - 0x0271C2 13:B1B2: A9 01     LDA #$01
 C - - - - - 0x0271C4 13:B1B4: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x0271C7 13:B1B7: AD 16 05  LDA ram_флаг_сценария_ХЗ
-C - - - - - 0x0271CA 13:B1BA: D0 F6     BNE bra_B1B2
+C - - - - - 0x0271CA 13:B1BA: D0 F6     BNE bra_B1B2_loop
 C - - - - - 0x0271CC 13:B1BC: A9 00     LDA #$00
 C - - - - - 0x0271CE 13:B1BE: 85 11     STA ram_0011
 C - - - - - 0x0271D0 13:B1C0: 85 12     STA ram_0012
@@ -4310,7 +4311,7 @@ C - - - - - 0x0271D4 13:B1C4: 85 0D     STA ram_000D
 C - - - - - 0x0271D6 13:B1C6: 85 0E     STA ram_000E
 C - - - - - 0x0271DA 13:B1CA: 8D D2 05  STA ram_05D2
 C - - - - - 0x0271DD 13:B1CD: AA        TAX
-bra_B1CE:
+bra_B1CE_loop:
 C - - - - - 0x0271DE 13:B1CE: A9 FF     LDA #$FF
 C - - - - - 0x0271E0 13:B1D0: 9D 58 05  STA ram_0468 + $F0,X
 C - - - - - 0x0271E3 13:B1D3: 9D 57 05  STA ram_046B + $EC,X
@@ -4319,7 +4320,7 @@ C - - - - - 0x0271E7 13:B1D7: 18        CLC
 C - - - - - 0x0271E8 13:B1D8: 69 15     ADC #$15
 C - - - - - 0x0271EA 13:B1DA: AA        TAX
 C - - - - - 0x0271EB 13:B1DB: E0 7E     CPX #$7E
-C - - - - - 0x0271ED 13:B1DD: D0 EF     BNE bra_B1CE
+C - - - - - 0x0271ED 13:B1DD: D0 EF     BNE bra_B1CE_loop
 C - - - - - 0x0271EF 13:B1DF: 60        RTS
 
 sub_очистить_текст:
@@ -4376,14 +4377,14 @@ ofs_020_B1E0_E1_таймер_перед_следующим_экраном:
 C - J - - - 0x0271F0 13:B1E0: A4 8A     LDY ram_008A
 C - - - - - 0x0271F2 13:B1E2: E6 8A     INC ram_008A
 C - - - - - 0x0271F4 13:B1E4: B1 88     LDA (ram_0088),Y
-bra_B1E6:
+bra_B1E6_loop:
 C - - - - - 0x0271F6 13:B1E6: 48        PHA
 C - - - - - 0x0271F7 13:B1E7: A9 01     LDA #$01
 C - - - - - 0x0271F9 13:B1E9: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x0271FC 13:B1EC: 68        PLA
 C - - - - - 0x0271FD 13:B1ED: 38        SEC
 C - - - - - 0x0271FE 13:B1EE: E9 01     SBC #$01
-C - - - - - 0x027200 13:B1F0: D0 F4     BNE bra_B1E6
+C - - - - - 0x027200 13:B1F0: D0 F4     BNE bra_B1E6_loop
 C - - - - - 0x027202 13:B1F2: 60        RTS
 
 ofs_020_B1F3_E2_параметры_игрока:
@@ -4444,14 +4445,14 @@ C - - - - - 0x027253 13:B243: 4C F7 B2  JMP loc_B2F7
 sub_B2A6:
 ofs_021_B2A6_01_затемнение_экрана:
 C - J - - - 0x0272B6 13:B2A6: A9 30     LDA #$30
-bra_B2A8:
+bra_B2A8_loop:
 C - - - - - 0x0272B8 13:B2A8: 48        PHA
 C - - - - - 0x0272B9 13:B2A9: A9 02     LDA #$02
 C - - - - - 0x0272BB 13:B2AB: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x0272BE 13:B2AE: 68        PLA
 C - - - - - 0x0272BF 13:B2AF: 85 3A     STA ram_003A
 C - - - - - 0x0272C1 13:B2B1: A2 00     LDX #$00
-bra_B2B3:
+bra_B2B3_loop:
 C - - - - - 0x0272C3 13:B2B3: 8A        TXA
 C - - - - - 0x0272C4 13:B2B4: 29 03     AND #$03
 C - - - - - 0x0272C6 13:B2B6: F0 10     BEQ bra_B2C8
@@ -4466,17 +4467,17 @@ C - - - - - 0x0272D5 13:B2C5: 9D 6F 04  STA ram_046B + 4,X
 bra_B2C8:
 C - - - - - 0x0272D8 13:B2C8: E8        INX
 C - - - - - 0x0272D9 13:B2C9: E0 20     CPX #$20
-C - - - - - 0x0272DB 13:B2CB: D0 E6     BNE bra_B2B3
+C - - - - - 0x0272DB 13:B2CB: D0 E6     BNE bra_B2B3_loop
 C - - - - - 0x0272DD 13:B2CD: 20 33 C5  JSR sub_0x03CCE3
 C - - - - - 0x0272E3 13:B2D3: A5 3A     LDA ram_003A
 C - - - - - 0x0272E5 13:B2D5: 38        SEC
 C - - - - - 0x0272E6 13:B2D6: E9 10     SBC #$10
-C - - - - - 0x0272E8 13:B2D8: 10 CE     BPL bra_B2A8
+C - - - - - 0x0272E8 13:B2D8: 10 CE     BPL bra_B2A8_loop
 C - - - - - 0x0272EA 13:B2DA: 60        RTS
 
 ofs_021_B2DB_02_отображение_текста:
 C - J - - - 0x0272EB 13:B2DB: A9 10     LDA #$10
-bra_B2DD:
+bra_B2DD_loop:
 C - - - - - 0x0272ED 13:B2DD: 48        PHA
 C - - - - - 0x0272EE 13:B2DE: A9 02     LDA #$02
 C - - - - - 0x0272F0 13:B2E0: 20 15 C5  JSR sub_0x03CB1F_задержка
@@ -4488,19 +4489,19 @@ C - - - - - 0x0272FE 13:B2EE: 68        PLA
 C - - - - - 0x0272FF 13:B2EF: 18        CLC
 C - - - - - 0x027300 13:B2F0: 69 10     ADC #$10
 C - - - - - 0x027302 13:B2F2: C9 40     CMP #$40
-C - - - - - 0x027304 13:B2F4: D0 E7     BNE bra_B2DD
+C - - - - - 0x027304 13:B2F4: D0 E7     BNE bra_B2DD_loop
 C - - - - - 0x027306 13:B2F6: 60        RTS
 
 loc_B2F7:
 C D - - - - 0x027307 13:B2F7: A2 00     LDX #$00
-bra_B2F9:
+bra_B2F9_loop:
 C - - - - - 0x027309 13:B2F9: 9D 6F 04  STA ram_046B + 4,X
 C - - - - - 0x02730C 13:B2FC: E8        INX
 C - - - - - 0x02730D 13:B2FD: E8        INX
 C - - - - - 0x02730E 13:B2FE: E8        INX
 C - - - - - 0x02730F 13:B2FF: E8        INX
 C - - - - - 0x027310 13:B300: E0 20     CPX #$20
-C - - - - - 0x027312 13:B302: D0 F5     BNE bra_B2F9
+C - - - - - 0x027312 13:B302: D0 F5     BNE bra_B2F9_loop
 C - - - - - 0x027314 13:B304: 20 33 C5  JSR sub_0x03CCE3
 C - - - - - 0x02731A 13:B30A: A9 01     LDA #$01
 C - - - - - 0x02731C 13:B30C: 20 15 C5  JSR sub_0x03CB1F_задержка
@@ -4612,10 +4613,10 @@ C - - - - - 0x027427 13:B417: A9 01     LDA #$01
 C - - - - - 0x027429 13:B419: 8D 15 05  STA ram_0515
 C - - - - - 0x02742C 13:B41C: A2 24     LDX #$24
 C - - - - - 0x02742E 13:B41E: A9 00     LDA #$00
-bra_B420:
+bra_B420_loop:
 C - - - - - 0x027430 13:B420: 9D A5 04  STA ram_04A5,X
 C - - - - - 0x027433 13:B423: CA        DEX
-C - - - - - 0x027434 13:B424: 10 FA     BPL bra_B420
+C - - - - - 0x027434 13:B424: 10 FA     BPL bra_B420_loop
 C - - - - - 0x027436 13:B426: A9 20     LDA #$20
 C - - - - - 0x027438 13:B428: 8D A5 04  STA ram_04A5
 C - - - - - 0x02743B 13:B42B: A6 8A     LDX ram_008A
@@ -4655,7 +4656,7 @@ tbl_0x02745E_финальная_надпись_TECMO:
 
 tbl_B467_титры:
 
-con_animation               = $E0   ; номер сценария из банка 17
+con_animation               = $E0   ; номер сценария из банка 10
 con_timer                   = $E1   ; задержка перед чтением слеюущюих байтов
 con_E2                      = $E2   ; ??? + номер игрока + ???
 con_tecmo                   = $E3   ; показать зайца и логотип

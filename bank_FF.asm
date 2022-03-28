@@ -560,7 +560,7 @@ C - - - - - 0x03C957 FF:C947: 8D 07 20  STA $2007
 C - - - - - 0x03C95A FF:C94A: C8        INY
 C - - - - - 0x03C95B FF:C94B: CA        DEX
 C - - - - - 0x03C95C FF:C94C: D0 F7     BNE bra_C945_loop
-C - - - - - 0x03C95E FF:C94E: F0 DE     BEQ bra_C92E_loop
+C - - - - - 0x03C95E FF:C94E: F0 DE     BEQ bra_C92E_loop   ; jmp
 bra_C950_RTS:
 C - - - - - 0x03C960 FF:C950: 60        RTS
 
@@ -634,7 +634,7 @@ C - - - - - 0x03C9BB FF:C9AB: C5 84     CMP ram_0084
 C - - - - - 0x03C9BD FF:C9AD: F0 06     BEQ bra_C9B5
 C - - - - - 0x03C9BF FF:C9AF: C6 85     DEC ram_0085
 C - - - - - 0x03C9C1 FF:C9B1: D0 D8     BNE bra_C98B_loop
-- - - - - - 0x03C9C3 FF:C9B3: F0 0F     BEQ bra_C9C4_RTS
+- - - - - - 0x03C9C3 FF:C9B3: F0 0F     BEQ bra_C9C4_RTS    ; jmp
 bra_C9B5:
 C - - - - - 0x03C9C5 FF:C9B5: BD 1C 00  LDA ram_btn_hold,X
 C - - - - - 0x03C9C8 FF:C9B8: 45 83     EOR ram_0083
@@ -772,8 +772,8 @@ C - - - - - 0x03CAF6 FF:CAE6: 60        RTS
 
 
 
-sub_0x03CAF7_подготовить_подпрограмму_в_стеке:
 sub_CAE7_подготовить_подпрограмму_в_стеке:
+sub_0x03CAF7_подготовить_подпрограмму_в_стеке:
 C D - - - - 0x03CAF7 FF:CAE7: 48        PHA
 C - - - - - 0x03CAF8 FF:CAE8: 98        TYA
 C - - - - - 0x03CAF9 FF:CAE9: B4 01     LDY ram_0001,X
@@ -1450,7 +1450,7 @@ C D - - - - 0x03CEB1 FF:CEA1: A5 46     LDA ram_0046
 C - - - - - 0x03CEB3 FF:CEA3: 85 48     STA ram_0048
 C - - - - - 0x03CEB5 FF:CEA5: A9 0A     LDA #$0A
 C - - - - - 0x03CEB7 FF:CEA7: 85 49     STA ram_0049
-bra_CEA9:
+bra_CEA9_loop:
 C - - - - - 0x03CEB9 FF:CEA9: A5 48     LDA ram_0048
 C - - - - - 0x03CEBB FF:CEAB: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03CEBE FF:CEAE: F0 13     BEQ bra_CEC3
@@ -1465,7 +1465,7 @@ C - - - - - 0x03CED1 FF:CEC1: B0 10     BCS bra_CED3
 bra_CEC3:
 C - - - - - 0x03CED3 FF:CEC3: E6 48     INC ram_0048
 C - - - - - 0x03CED5 FF:CEC5: C6 49     DEC ram_0049
-C - - - - - 0x03CED7 FF:CEC7: D0 E0     BNE bra_CEA9
+C - - - - - 0x03CED7 FF:CEC7: D0 E0     BNE bra_CEA9_loop
 C - - - - - 0x03CED9 FF:CEC9: A5 47     LDA ram_0047
 C - - - - - 0x03CEDB FF:CECB: 18        CLC
 C - - - - - 0x03CEDC FF:CECC: 69 08     ADC #$08
@@ -2026,7 +2026,7 @@ C - - - - - 0x03D217 FF:D207: 8D 2D 06  STA ram_062D
 C - - - - - 0x03D21A FF:D20A: AD 15 06  LDA ram_0615
 C - - - - - 0x03D21D FF:D20D: 29 BF     AND #$BF
 C - - - - - 0x03D21F FF:D20F: 8D 15 06  STA ram_0615
-C - - - - - 0x03D222 FF:D212: A9 43     LDA #$43
+C - - - - - 0x03D222 FF:D212: A9 43     LDA #con_сценарий + $43
 C - - - - - 0x03D224 FF:D214: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D227 FF:D217: 2C 15 06  BIT ram_0615
 C - - - - - 0x03D22A FF:D21A: 10 03     BPL bra_D21F_RTS
@@ -2048,7 +2048,7 @@ C - - - - - 0x03D23D FF:D22D: 9A        TXS
 C D - - - - 0x03DAA8 FF:DA98: A9 00     LDA #$00
 C - - - - - 0x03DAAA FF:DA9A: 8D 2D 06  STA ram_062D
 C - - - - - 0x03DAAD FF:DA9D: 8D 15 06  STA ram_0615
-C - - - - - 0x03DAB0 FF:DAA0: A9 33     LDA #$33
+C - - - - - 0x03DAB0 FF:DAA0: A9 33     LDA #con_сценарий + $33
 C - - - - - 0x03DAB2 FF:DAA2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DAB5 FF:DAA5: A9 FF     LDA #$FF
 C - - - - - 0x03DAB7 FF:DAA7: 4C FE CE  JMP loc_CEFE
@@ -2150,11 +2150,11 @@ C - - - - - 0x03D2C9 FF:D2B9: A9 0F     LDA #con_btns_Dpad
 C - - - - - 0x03D2CB FF:D2BB: 2D 1E 00  AND ram_btn_press
 C - - - - - 0x03D2CE FF:D2BE: F0 49     BEQ bra_D309
 C - - - - - 0x03D2D0 FF:D2C0: A2 00     LDX #$00
-bra_D2C2:
+bra_D2C2_loop:
 C - - - - - 0x03D2D2 FF:D2C2: 4A        LSR
 C - - - - - 0x03D2D3 FF:D2C3: B0 03     BCS bra_D2C8
 C - - - - - 0x03D2D5 FF:D2C5: E8        INX
-C - - - - - 0x03D2D6 FF:D2C6: D0 FA     BNE bra_D2C2
+C - - - - - 0x03D2D6 FF:D2C6: D0 FA     BNE bra_D2C2_loop
 bra_D2C8:
 C - - - - - 0x03D2D8 FF:D2C8: 86 3A     STX ram_003A
 C - - - - - 0x03D2DA FF:D2CA: AD 21 06  LDA ram_0621
@@ -2600,7 +2600,7 @@ C - - - - - 0x03D58B FF:D57B: 20 77 CD  JSR sub_CD77_получить_адрес
 C - - - - - 0x03D58E FF:D57E: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03D590 FF:D580: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x03D592 FF:D582: F0 08     BEQ bra_D58C
-C - - - - - 0x03D594 FF:D584: A9 40     LDA #$40
+C - - - - - 0x03D594 FF:D584: A9 40     LDA #con_сценарий + $40
 C - - - - - 0x03D596 FF:D586: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D599 FF:D589: 4C B2 D5  JMP loc_D5B2
 bra_D58C:
@@ -2620,7 +2620,7 @@ C - - - - - 0x03D5B5 FF:D5A5: A0 07     LDY #con_величина_наебки
 C - - - - - 0x03D5B7 FF:D5A7: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x03D5B9 FF:D5A9: C9 18     CMP #$18
 C - - - - - 0x03D5BB FF:D5AB: 90 05     BCC bra_D5B2
-C - - - - - 0x03D5BD FF:D5AD: A9 41     LDA #$41
+C - - - - - 0x03D5BD FF:D5AD: A9 41     LDA #con_сценарий + $41
 C - - - - - 0x03D5BF FF:D5AF: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_D5B2:
 loc_D5B2:
@@ -2897,7 +2897,7 @@ C - - - - - 0x03D747 FF:D737: F0 05     BEQ bra_D73E
 C - - - - - 0x03D749 FF:D739: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x03D74C FF:D73C: F0 07     BEQ bra_D745_RTS
 bra_D73E:
-C - - - - - 0x03D74E FF:D73E: A9 3D     LDA #$3D
+C - - - - - 0x03D74E FF:D73E: A9 3D     LDA #con_сценарий + $3D
 C - - - - - 0x03D750 FF:D740: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D753 FF:D743: 68        PLA
 C - - - - - 0x03D754 FF:D744: 68        PLA
@@ -2919,7 +2919,7 @@ C - - - - - 0x03D768 FF:D758: 20 6B D7  JSR sub_D76B
 C - - - - - 0x03D76B FF:D75B: 10 0C     BPL bra_D769
 C - - - - - 0x03D76D FF:D75D: AD 3E 04  LDA ram_подтип_действия_защиты
 C - - - - - 0x03D770 FF:D760: F0 07     BEQ bra_D769
-C - - - - - 0x03D772 FF:D762: A9 3D     LDA #$3D
+C - - - - - 0x03D772 FF:D762: A9 3D     LDA #con_сценарий + $3D
 C - - - - - 0x03D774 FF:D764: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D777 FF:D767: 18        CLC
 C - - - - - 0x03D778 FF:D768: 60        RTS
@@ -2973,7 +2973,7 @@ C - - - - - 0x03D7B6 FF:D7A6: D0 31     BNE bra_D7D9
 C - - - - - 0x03D7B8 FF:D7A8: EE 48 04  INC ram_флаг_циклона
 C - - - - - 0x03D7BB FF:D7AB: A9 00     LDA #$00
 C - - - - - 0x03D7BD FF:D7AD: 8D 2D 06  STA ram_062D
-C - - - - - 0x03D7C0 FF:D7B0: A9 46     LDA #$46
+C - - - - - 0x03D7C0 FF:D7B0: A9 46     LDA #con_сценарий + $46
 C - - - - - 0x03D7C2 FF:D7B2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D7C5 FF:D7B5: 48        PHA
 C - - - - - 0x03D7C8 FF:D7B8: A9 1A     LDA #con_prg_bank + $1A
@@ -3004,7 +3004,7 @@ C - - - - - 0x03D7F5 FF:D7E5: 4C 0C D7  JMP loc_D70C
 
 sub_0x03D7F8:
 ofs_059_D7E8_F1:
-C D J - - - 0x03D7F8 FF:D7E8: A9 38     LDA #$38
+C D J - - - 0x03D7F8 FF:D7E8: A9 38     LDA #con_сценарий + $38
 C - - - - - 0x03D7FA FF:D7EA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D7FD FF:D7ED: A9 0F     LDA #$0F      ; pass_select_a_teammate
 C - - - - - 0x03D7FF FF:D7EF: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -3229,7 +3229,7 @@ C - - - - - 0x03D987 FF:D977: 60        RTS
 
 
 ofs_059_D979_F3:
-C - J - - - 0x03D989 FF:D979: A9 38     LDA #$38
+C - J - - - 0x03D989 FF:D979: A9 38     LDA #con_сценарий + $38
 C - - - - - 0x03D98B FF:D97B: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D98E FF:D97E: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x03D991 FF:D981: F0 03     BEQ bra_D986
@@ -3259,12 +3259,12 @@ C - - - - - 0x03D9C1 FF:D9B1: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D9C4 FF:D9B4: D0 12     BNE bra_D9C8
 C - - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #$11      ; no_players_nearby
 C - - - - - 0x03D9C8 FF:D9B8: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-bra_D9BB:
+bra_D9BB_loop:
 C - - - - - 0x03D9CB FF:D9BB: A9 01     LDA #$01
 C - - - - - 0x03D9CD FF:D9BD: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03D9D0 FF:D9C0: A9 C0     LDA #con_btn_B + con_btn_A
 C - - - - - 0x03D9D2 FF:D9C2: 2D 1E 00  AND ram_btn_press
-C - - - - - 0x03D9D5 FF:D9C5: F0 F4     BEQ bra_D9BB
+C - - - - - 0x03D9D5 FF:D9C5: F0 F4     BEQ bra_D9BB_loop
 C - - - - - 0x03D9D7 FF:D9C7: 60        RTS
 bra_D9C8:
 C - - - - - 0x03D9D8 FF:D9C8: A9 10     LDA #$10      ; 1_2_pass_choose_a_partner
@@ -3275,7 +3275,7 @@ C - - - - - 0x03D9E2 FF:D9D2: A9 1F     LDA #$1F
 C - - - - - 0x03D9E4 FF:D9D4: 8D 94 04  STA ram_chr_bank + 4
 C - - - - - 0x03D9E7 FF:D9D7: A9 00     LDA #$00
 C - - - - - 0x03D9E9 FF:D9D9: 4C 03 DA  JMP loc_DA03
-bra_D9DC:
+bra_D9DC_loop:
 C - - - - - 0x03D9EC FF:D9DC: A9 01     LDA #$01
 C - - - - - 0x03D9EE FF:D9DE: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03D9F1 FF:D9E1: A9 03     LDA #con_btn_Right + con_btn_Left
@@ -3313,7 +3313,7 @@ C - - - - - 0x03DA29 FF:DA19: 60        RTS
 bra_DA1A:
 C - - - - - 0x03DA2A FF:DA1A: A9 80     LDA #con_btn_A
 C - - - - - 0x03DA2C FF:DA1C: 2D 1E 00  AND ram_btn_press
-C - - - - - 0x03DA2F FF:DA1F: F0 BB     BEQ bra_D9DC
+C - - - - - 0x03DA2F FF:DA1F: F0 BB     BEQ bra_D9DC_loop
 C - - - - - 0x03DA31 FF:DA21: AD FC 05  LDA ram_принимающий
 C - - - - - 0x03DA34 FF:DA24: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03DA37 FF:DA27: A0 06     LDY #con_plr_pos_X_hi
@@ -3359,7 +3359,7 @@ C - - - - - 0x03DA74 FF:DA64: 60        RTS
 
 
 ofs_059_DA65_F5:
-C - J - - - 0x03DA75 FF:DA65: A9 38     LDA #$38
+C - J - - - 0x03DA75 FF:DA65: A9 38     LDA #con_сценарий + $38
 C - - - - - 0x03DA77 FF:DA67: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DA7A FF:DA6A: A9 83     LDA #$83
 C - - - - - 0x03DA7C FF:DA6C: 8D 2D 06  STA ram_062D
@@ -3407,7 +3407,7 @@ C - - - - - 0x03DAE4 FF:DAD4: C9 04     CMP #$04
 C - - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9_пропуск_отрисовки_и_ожидания_разводки
                                         LDA #$42      ; booth_for_charlie_time_score_period_number
                                         JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #$35
+C - - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #con_сценарий + $35
 C - - - - - 0x03DAEA FF:DADA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_DADD_ожидание_разводки:
 C - - - - - 0x03DAED FF:DADD: A9 01     LDA #$01
@@ -3433,7 +3433,7 @@ C - - - - - 0x03DB14 FF:DB04: 18        CLC
 C - - - - - 0x03DB15 FF:DB05: 6D FB 05  ADC ram_команда_с_мячом
 C - - - - - 0x03DB18 FF:DB08: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03DB1B FF:DB0B: 20 EC E6  JSR sub_E6EC
-C - - - - - 0x03DB1E FF:DB0E: A9 36     LDA #$36
+C - - - - - 0x03DB1E FF:DB0E: A9 36     LDA #con_сценарий + $36
 C - - - - - 0x03DB20 FF:DB10: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DB23 FF:DB13: AD FC 05  LDA ram_принимающий
 C - - - - - 0x03DB26 FF:DB16: 8D 41 04  STA ram_игрок_с_мячом
@@ -3811,7 +3811,7 @@ C - - - - - 0x03DD1B FF:DD0B: 8D 1B 06  STA ram_061B
 C - - - - - 0x03DD1E FF:DD0E: 20 3E E7  JSR sub_E73E
 C - - - - - 0x03DD21 FF:DD11: 28        PLP
 C - - - - - 0x03DD22 FF:DD12: 90 08     BCC bra_DD1C
-C - - - - - 0x03DD24 FF:DD14: A9 2D     LDA #$2D
+C - - - - - 0x03DD24 FF:DD14: A9 2D     LDA #con_сценарий + $2D
 C - - - - - 0x03DD26 FF:DD16: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DD29 FF:DD19: 4C 1B 80  JMP loc_0x034BF5
 bra_DD1C:
@@ -4009,7 +4009,7 @@ C - - - - - 0x03DE3D FF:DE2D: 8D 3B 04  STA ram_действие_атаки
 C - - - - - 0x03DE40 FF:DE30: A9 00     LDA #$00
 C - - - - - 0x03DE42 FF:DE32: 8D 3C 04  STA ram_подтип_действия_атаки
 C - - - - - 0x03DE45 FF:DE35: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
-C - - - - - 0x03DE48 FF:DE38: A9 3A     LDA #$3A
+C - - - - - 0x03DE48 FF:DE38: A9 3A     LDA #con_сценарий + $3A
 C - - - - - 0x03DE4A FF:DE3A: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DE4D FF:DE3D: A9 1A     LDA #$1A
 C - - - - - 0x03DE4F FF:DE3F: 8D 1A 06  STA ram_061A
@@ -4046,7 +4046,7 @@ C - - - - - 0x03DE92 FF:DE82: 85 25     STA ram_для_5115
 C - - - - - 0x03DE94 FF:DE84: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03DE97 FF:DE87: 68        PLA
 C - - - - - 0x03DE98 FF:DE88: 20 1E 80  JSR sub_0x034B5A
-C - - - - - 0x03DE9B FF:DE8B: A9 1C     LDA #$1C
+C - - - - - 0x03DE9B FF:DE8B: A9 1C     LDA #con_сценарий + $1C
 C - - - - - 0x03DE9D FF:DE8D: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DEA0 FF:DE90: A2 50     LDX #$50
 C - - - - - 0x03DEA2 FF:DE92: 9A        TXS
@@ -4077,7 +4077,7 @@ C - - - - - 0x03DEDA FF:DECA: AD 32 04  LDA ram_список_спешалов + 
 C - - - - - 0x03DEDD FF:DECD: B0 0D     BCS bra_DEDC
 C - - - - - 0x03DEDF FF:DECF: CE 30 04  DEC ram_список_спешалов
 C - - - - - 0x03DEE2 FF:DED2: D0 E1     BNE bra_DEB5_loop
-C - - - - - 0x03DEE4 FF:DED4: A9 34     LDA #$34
+C - - - - - 0x03DEE4 FF:DED4: A9 34     LDA #con_сценарий + $34
 C - - - - - 0x03DEE6 FF:DED6: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 ; сработало когда мой перс с быстрой анимацией выбивает головой мяч из моей штрафной в поле, и мяч ударился об землю
 C - - - - - 0x03DEE9 FF:DED9: 4C 1B 80  JMP loc_0x034BF5
@@ -4088,15 +4088,14 @@ C - - - - - 0x03DEF0 FF:DEE0: 90 02     BCC bra_DEE4
 C - - - - - 0x03DEF2 FF:DEE2: A2 0B     LDX #$0B
 bra_DEE4:
 C - - - - - 0x03DEF4 FF:DEE4: 8D 41 04  STA ram_игрок_с_мячом
-C - - - - - 0x03DEF7 FF:DEE7: A0 1C     LDY #$1C
+C - - - - - 0x03DEF7 FF:DEE7: A0 1C     LDY #con_сценарий + $1C
 C - - - - - 0x03DEF9 FF:DEE9: 8A        TXA
 C - - - - - 0x03DEFA FF:DEEA: 4D FB 05  EOR ram_команда_с_мячом
 C - - - - - 0x03DEFD FF:DEED: 8E FB 05  STX ram_команда_с_мячом
-C - - - - - 0x03DF00 FF:DEF0: F0 05     BEQ bra_DEF7_команда_слева
-; if комада справа
+C - - - - - 0x03DF00 FF:DEF0: F0 05     BEQ bra_DEF7
 C - - - - - 0x03DF02 FF:DEF2: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
-C - - - - - 0x03DF05 FF:DEF5: A0 3E     LDY #$3E
-bra_DEF7_команда_слева:
+C - - - - - 0x03DF05 FF:DEF5: A0 3E     LDY #con_сценарий + $3E
+bra_DEF7:
 C - - - - - 0x03DF07 FF:DEF7: 98        TYA
 C - - - - - 0x03DF08 FF:DEF8: 48        PHA
 C - - - - - 0x03DF09 FF:DEF9: AD 41 04  LDA ram_игрок_с_мячом
@@ -4229,7 +4228,7 @@ C - - - - - 0x03DFEE FF:DFDE: 8D 1A 06  STA ram_061A
 C - - - - - 0x03DFF1 FF:DFE1: A9 01     LDA #$01
 C - - - - - 0x03DFF3 FF:DFE3: 8D 1B 06  STA ram_061B
 C - - - - - 0x03DFF6 FF:DFE6: 20 3E E7  JSR sub_E73E
-C - - - - - 0x03DFF9 FF:DFE9: A9 1A     LDA #$1A
+C - - - - - 0x03DFF9 FF:DFE9: A9 1A     LDA #con_сценарий + $1A
 C - - - - - 0x03DFFB FF:DFEB: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DFFE FF:DFEE: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03E001 FF:DFF1: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
@@ -4277,7 +4276,7 @@ C - - - - - 0x03E055 FF:E045: 85 25     STA ram_для_5115
 C - - - - - 0x03E057 FF:E047: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03E05A FF:E04A: 68        PLA
 C - - - - - 0x03E05B FF:E04B: 20 1E 80  JSR sub_0x034B5A
-C - - - - - 0x03E05E FF:E04E: A9 1B     LDA #$1B
+C - - - - - 0x03E05E FF:E04E: A9 1B     LDA #con_сценарий + $1B
 C - - - - - 0x03E060 FF:E050: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E063 FF:E053: A2 50     LDX #$50
 C - - - - - 0x03E065 FF:E055: 9A        TXS
@@ -4311,7 +4310,7 @@ C - - - - - 0x03E089 FF:E079: A9 0F     LDA #$0F
 C - - - - - 0x03E08B FF:E07B: 8D 2A 06  STA ram_062A
 C - - - - - 0x03E08E FF:E07E: 20 09 E7  JSR sub_E709
 C - - - - - 0x03E091 FF:E081: A9 00     LDA #$00
-bra_E083:
+bra_E083_loop:
 C - - - - - 0x03E093 FF:E083: 48        PHA
 C - - - - - 0x03E094 FF:E084: A9 01     LDA #$01
 C - - - - - 0x03E096 FF:E086: 20 0F CB  JSR sub_CB0F_задержка
@@ -4360,7 +4359,7 @@ C - - - - - 0x03E0E1 FF:E0D1: 68        PLA
 C - - - - - 0x03E0E2 FF:E0D2: 18        CLC
 C - - - - - 0x03E0E3 FF:E0D3: 69 01     ADC #$01
 C - - - - - 0x03E0E5 FF:E0D5: C9 16     CMP #$16
-C - - - - - 0x03E0E7 FF:E0D7: D0 AA     BNE bra_E083
+C - - - - - 0x03E0E7 FF:E0D7: D0 AA     BNE bra_E083_loop
 C - - - - - 0x03E0E9 FF:E0D9: A9 00     LDA #$00
 C - - - - - 0x03E0EB FF:E0DB: 8D FF 05  STA ram_05FF
 bra_E0DE_RTS:
@@ -4533,7 +4532,7 @@ C - - - - - 0x03E240 FF:E230: 4C 45 E1  JMP loc_E145
 
 sub_E233:
 sub_0x03E243:
-C D - - - - 0x03E243 FF:E233: A9 1E     LDA #$1E
+C D - - - - 0x03E243 FF:E233: A9 1E     LDA #con_сценарий + $1E
 C - - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E248 FF:E238: 48        PHA
 C - - - - - 0x03E24B FF:E23B: A9 1C     LDA #con_prg_bank + $1C
@@ -4732,7 +4731,7 @@ bra_E382:
 C - - - - - 0x03E392 FF:E382: A9 00     LDA #$00
 C - - - - - 0x03E394 FF:E384: 8D 00 06  STA ram_колво_защитников
 C - - - - - 0x03E397 FF:E387: 8D 15 06  STA ram_0615
-C - - - - - 0x03E39A FF:E38A: A9 44     LDA #$44
+C - - - - - 0x03E39A FF:E38A: A9 44     LDA #con_сценарий + $44
 C - - - - - 0x03E39C FF:E38C: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E39F FF:E38F: 20 8B CB  JSR sub_CB8B_очистить_память_спрайтов
 C - - - - - 0x03E3A2 FF:E392: A9 1A     LDA #con_prg_bank + $1A
@@ -4911,7 +4910,7 @@ C - - - - - 0x03E4C6 FF:E4B6: A9 00     LDA #$00
 C - - - - - 0x03E4C8 FF:E4B8: 8D 2D 06  STA ram_062D
 C - - - - - 0x03E4CB FF:E4BB: 8D 15 06  STA ram_0615
 C - - - - - 0x03E4CE FF:E4BE: 20 8B CB  JSR sub_CB8B_очистить_память_спрайтов
-C - - - - - 0x03E4D1 FF:E4C1: A9 2E     LDA #$2E
+C - - - - - 0x03E4D1 FF:E4C1: A9 2E     LDA #con_сценарий + $2E
 C - - - - - 0x03E4D3 FF:E4C3: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E4D6 FF:E4C6: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E4D8 FF:E4C8: 85 24     STA ram_для_5114
@@ -5054,7 +5053,7 @@ C - - - - - 0x03E582 FF:E572: D0 E6     BNE bra_E55A_loop
 C - - - - - 0x03E584 FF:E574: 98        TYA
 C - - - - - 0x03E585 FF:E575: F0 19     BEQ bra_E590
 C - - - - - 0x03E587 FF:E577: 8C 00 06  STY ram_колво_защитников
-C - - - - - 0x03E58A FF:E57A: A9 2E     LDA #$2E
+C - - - - - 0x03E58A FF:E57A: A9 2E     LDA #con_сценарий + $2E
 C - - - - - 0x03E58C FF:E57C: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E58F FF:E57F: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E591 FF:E581: 85 24     STA ram_для_5114
@@ -5088,7 +5087,7 @@ C - - - - - 0x03E5BD FF:E5AD: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x03E5BF FF:E5AF: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03E5C1 FF:E5B1: A9 04     LDA #$04
 C - - - - - 0x03E5C3 FF:E5B3: 91 34     STA (ram_plr_data),Y
-C - - - - - 0x03E5C5 FF:E5B5: A9 42     LDA #$42
+C - - - - - 0x03E5C5 FF:E5B5: A9 42     LDA #con_сценарий + $42
 C - - - - - 0x03E5C7 FF:E5B7: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_E5BA:
 C - - - - - 0x03E5CA FF:E5BA: 48        PHA
@@ -5325,7 +5324,7 @@ C - - - - - 0x03E780 FF:E770: 8C 3C 06  STY ram_063C
 loc_E773:
 C D - - - - 0x03E783 FF:E773: A9 01     LDA #$01
 C - - - - - 0x03E785 FF:E775: 20 0F CB  JSR sub_CB0F_задержка
-bra_E778:
+bra_E778_loop:
 C - - - - - 0x03E788 FF:E778: AD 39 06  LDA ram_0639
 C - - - - - 0x03E78B FF:E77B: 18        CLC
 C - - - - - 0x03E78C FF:E77C: 6D 34 06  ADC ram_0634
@@ -5346,7 +5345,7 @@ C - - - - - 0x03E7B0 FF:E7A0: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03E7B3 FF:E7A3: C9 FF     CMP #$FF
 C - - - - - 0x03E7B5 FF:E7A5: F0 13     BEQ bra_E7BA
 C - - - - - 0x03E7B7 FF:E7A7: CD FE 05  CMP ram_05FE
-C - - - - - 0x03E7BA FF:E7AA: F0 CC     BEQ bra_E778
+C - - - - - 0x03E7BA FF:E7AA: F0 CC     BEQ bra_E778_loop
 C - - - - - 0x03E7BC FF:E7AC: 8D FE 05  STA ram_05FE
 C - - - - - 0x03E7BF FF:E7AF: CD 38 06  CMP ram_0638
 C - - - - - 0x03E7C2 FF:E7B2: F0 0C     BEQ bra_E7C0
@@ -5454,7 +5453,7 @@ C - - - - - 0x03E86A FF:E85A: AD FF 05  LDA ram_05FF
 C - - - - - 0x03E86D FF:E85D: 85 43     STA ram_0043
 C - - - - - 0x03E86F FF:E85F: 20 D0 E7  JSR sub_E7D0
 C - - - - - 0x03E872 FF:E862: 85 44     STA ram_0044
-bra_E864:
+bra_E864_loop:
 C - - - - - 0x03E874 FF:E864: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03E876 FF:E866: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x03E878 FF:E868: AA        TAX
@@ -5481,7 +5480,7 @@ C - - - - - 0x03E89D FF:E88D: 69 40     ADC #$40
 C - - - - - 0x03E89F FF:E88F: A0 05     LDY #con_plr_pos_X_lo
 C - - - - - 0x03E8A1 FF:E891: 20 A0 E8  JSR sub_E8A0
 C - - - - - 0x03E8A4 FF:E894: C6 43     DEC ram_0043
-C - - - - - 0x03E8A6 FF:E896: D0 CC     BNE bra_E864
+C - - - - - 0x03E8A6 FF:E896: D0 CC     BNE bra_E864_loop
 bra_E898:
 C - - - - - 0x03E8A8 FF:E898: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03E8AA FF:E89A: A9 00     LDA #$00
@@ -5544,16 +5543,17 @@ bra_E8EC_RTS:
 C - - - - - 0x03E8FC FF:E8EC: 60        RTS
 
 tbl_E8ED_диагональ:
+; 0x03E8FD
 ; 00 - без движения, 01 - диагональ вправо вниз, 02 - диагональ влево вверх
 ; изменение байтов влияет только на автоматическое передвижение ботов
-- D - - - - 0x03E8FD FF:E8ED: 00        .byte $00
-- D - - - - 0x03E8FE FF:E8EE: 01        .byte $01
-- D - - - - 0x03E8FF FF:E8EF: 01        .byte $01
-- D - - - - 0x03E900 FF:E8F0: 01        .byte $01
-- D - - - - 0x03E901 FF:E8F1: 00        .byte $00
-- D - - - - 0x03E902 FF:E8F2: 02        .byte $02
-- D - - - - 0x03E903 FF:E8F3: 02        .byte $02
-- D - - - - 0x03E904 FF:E8F4: 02        .byte $02
+    .byte $00   ; 00
+    .byte $01   ; 20
+    .byte $01   ; 40
+    .byte $01   ; 60
+    .byte $00   ; 80
+    .byte $02   ; A0
+    .byte $02   ; C0
+    .byte $02   ; E0
 
 
 
@@ -5692,7 +5692,7 @@ C - - - - - 0x03E9C7 FF:E9B7: 9D A5 04  STA ram_04A5,X
 C - - - - - 0x03E9CA FF:E9BA: E8        INX
 C - - - - - 0x03E9CB FF:E9BB: C6 43     DEC ram_0043
 C - - - - - 0x03E9CD FF:E9BD: D0 F1     BNE bra_E9B0_loop_чтения_строки
-C - - - - - 0x03E9CF FF:E9BF: F0 0A     BEQ bra_E9CB
+C - - - - - 0x03E9CF FF:E9BF: F0 0A     BEQ bra_E9CB    ; jmp
 bra_E9C1:
 C - - - - - 0x03E9D1 FF:E9C1: A9 00     LDA #$00
 bra_E9C3_loop:
@@ -6712,7 +6712,7 @@ C - - - - - 0x03F15C FF:F14C: C8        INY
 C - - - - - 0x03F15D FF:F14D: E8        INX
 C - - - - - 0x03F15E FF:F14E: C6 3E     DEC ram_003E
 C - - - - - 0x03F160 FF:F150: D0 F5     BNE bra_F147_loop_чтения_тайлов
-C - - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_loop
+C - - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_loop   ; jmp
 bra_F154_закончить:
 C - - - - - 0x03F164 FF:F154: A9 80     LDA #$80
 C - - - - - 0x03F166 FF:F156: 8D 15 05  STA ram_0515

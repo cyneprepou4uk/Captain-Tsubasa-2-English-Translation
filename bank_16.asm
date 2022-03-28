@@ -166,17 +166,17 @@ C - - - - - 0x02C10A 16:80FA: 4C 09 81  JMP loc_8109
 bra_80FD:
 C - - - - - 0x02C10D 16:80FD: C8        INY
 C - - - - - 0x02C10E 16:80FE: A9 F8     LDA #$F8
-bra_8100:
+bra_8100_loop:
 C - - - - - 0x02C110 16:8100: C8        INY
 C - - - - - 0x02C111 16:8101: C8        INY
 C - - - - - 0x02C112 16:8102: C6 45     DEC ram_0045
-C - - - - - 0x02C114 16:8104: 10 FA     BPL bra_8100
+C - - - - - 0x02C114 16:8104: 10 FA     BPL bra_8100_loop
 C - - - - - 0x02C116 16:8106: 84 44     STY ram_0044
 C - - - - - 0x02C118 16:8108: 60        RTS
 bra_8109:
 loc_8109:
 C D - - - - 0x02C119 16:8109: C8        INY
-bra_810A:
+bra_810A_loop:
 C - - - - - 0x02C11A 16:810A: B1 42     LDA (ram_0042),Y
 C - - - - - 0x02C11C 16:810C: 4A        LSR
 C - - - - - 0x02C11D 16:810D: 4A        LSR
@@ -227,7 +227,7 @@ C - - - - - 0x02C167 16:8157: E6 48     INC ram_0048
 bra_8159:
 C - - - - - 0x02C169 16:8159: C8        INY
 C - - - - - 0x02C16A 16:815A: C6 45     DEC ram_0045
-C - - - - - 0x02C16C 16:815C: 10 AC     BPL bra_810A
+C - - - - - 0x02C16C 16:815C: 10 AC     BPL bra_810A_loop
 C - - - - - 0x02C16E 16:815E: 84 44     STY ram_0044
 C - - - - - 0x02C170 16:8160: 60        RTS
 

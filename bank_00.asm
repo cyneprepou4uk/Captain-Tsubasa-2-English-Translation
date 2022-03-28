@@ -512,21 +512,21 @@ C - - - - - 0x000310 00:8300: A0 00     LDY #$00
 C - - - - - 0x000312 00:8302: B1 EC     LDA (ram_00EC),Y
 C - - - - - 0x000314 00:8304: 30 4F     BMI bra_8355
 C - - - - - 0x000316 00:8306: 85 E9     STA ram_00E9
-bra_8308:
+bra_8308_loop:
 C - - - - - 0x000318 00:8308: A9 01     LDA #$01
 C - - - - - 0x00031A 00:830A: 85 EB     STA ram_00EB
 loc_830C:
 C D - - - - 0x00031C 00:830C: A4 EB     LDY ram_00EB
 C - - - - - 0x00031E 00:830E: B1 EC     LDA (ram_00EC),Y
 C - - - - - 0x000320 00:8310: C9 FE     CMP #$FE
-C - - - - - 0x000322 00:8312: F0 F4     BEQ bra_8308
+C - - - - - 0x000322 00:8312: F0 F4     BEQ bra_8308_loop
 C - - - - - 0x000324 00:8314: C9 FF     CMP #$FF
 C - - - - - 0x000326 00:8316: F0 6B     BEQ bra_8383
 C - - - - - 0x000328 00:8318: 85 EA     STA ram_00EA
 C - - - - - 0x00032A 00:831A: A6 E9     LDX ram_00E9
 C - - - - - 0x00032C 00:831C: A9 03     LDA #$03
 C - - - - - 0x00032E 00:831E: 85 EB     STA ram_00EB
-bra_8320:
+bra_8320_loop:
 C - - - - - 0x000330 00:8320: C8        INY
 C - - - - - 0x000331 00:8321: E8        INX
 C - - - - - 0x000332 00:8322: B1 EC     LDA (ram_00EC),Y
@@ -534,10 +534,10 @@ C - - - - - 0x000334 00:8324: F0 03     BEQ bra_8329
 C - - - - - 0x000336 00:8326: 9D 2A 06  STA ram_062A,X
 bra_8329:
 C - - - - - 0x000339 00:8329: C6 EB     DEC ram_00EB
-C - - - - - 0x00033B 00:832B: D0 F3     BNE bra_8320
+C - - - - - 0x00033B 00:832B: D0 F3     BNE bra_8320_loop
 C - - - - - 0x00033D 00:832D: C8        INY
 C - - - - - 0x00033E 00:832E: 84 EB     STY ram_00EB
-bra_8330:
+bra_8330_loop:
 C - - - - - 0x000340 00:8330: A9 20     LDA #$20
 C - - - - - 0x000342 00:8332: 18        CLC
 C - - - - - 0x000343 00:8333: 6D 28 06  ADC ram_индекс_буфера
@@ -545,7 +545,7 @@ C - - - - - 0x000346 00:8336: C9 3D     CMP #$3D
 C - - - - - 0x000348 00:8338: 90 0A     BCC bra_8344
 C - - - - - 0x00034A 00:833A: 20 8A 83  JSR sub_838A
 C - - - - - 0x00034D 00:833D: A5 4C     LDA ram_004C
-C - - - - - 0x00034F 00:833F: 30 EF     BMI bra_8330
+C - - - - - 0x00034F 00:833F: 30 EF     BMI bra_8330_loop
 C - - - - - 0x000351 00:8341: 4C 83 83  JMP loc_8383
 bra_8344:
 C - - - - - 0x000354 00:8344: 20 43 9A  JSR sub_9A43
@@ -559,14 +559,14 @@ C - - - - - 0x000362 00:8352: 4C 0C 83  JMP loc_830C
 bra_8355:
 C - - - - - 0x000365 00:8355: 29 01     AND #$01
 C - - - - - 0x000367 00:8357: 85 E9     STA ram_00E9
-bra_8359:
+bra_8359_loop:
 C - - - - - 0x000369 00:8359: A9 01     LDA #$01
 C - - - - - 0x00036B 00:835B: 85 EB     STA ram_00EB
 loc_835D:
 C D - - - - 0x00036D 00:835D: A4 EB     LDY ram_00EB
 C - - - - - 0x00036F 00:835F: B1 EC     LDA (ram_00EC),Y
 C - - - - - 0x000371 00:8361: C9 FE     CMP #$FE
-C - - - - - 0x000373 00:8363: F0 F4     BEQ bra_8359
+C - - - - - 0x000373 00:8363: F0 F4     BEQ bra_8359_loop
 C - - - - - 0x000375 00:8365: C9 FF     CMP #$FF
 C - - - - - 0x000377 00:8367: F0 1A     BEQ bra_8383
 C - - - - - 0x000379 00:8369: A6 E9     LDX ram_00E9
@@ -2211,7 +2211,7 @@ C - - - - - 0x000CCF 00:8CBF: A9 00     LDA #$00
 C - - - - - 0x000CD1 00:8CC1: 85 69     STA ram_0069
 C - - - - - 0x000CD3 00:8CC3: 85 6A     STA ram_006A
 C - - - - - 0x000CD5 00:8CC5: 24 62     BIT ram_0062
-C - - - - - 0x000CD7 00:8CC7: 30 0D     BMI bra_8CD6
+C - - - - - 0x000CD7 00:8CC7: 30 0D     BMI bra_8CD6_loop
 C - - - - - 0x000CD9 00:8CC9: A9 00     LDA #$00
 C - - - - - 0x000CDB 00:8CCB: 38        SEC
 C - - - - - 0x000CDC 00:8CCC: E5 60     SBC ram_0060
@@ -2219,7 +2219,7 @@ C - - - - - 0x000CDE 00:8CCE: 85 60     STA ram_0060
 C - - - - - 0x000CE0 00:8CD0: A9 00     LDA #$00
 C - - - - - 0x000CE2 00:8CD2: E5 61     SBC ram_0061
 C - - - - - 0x000CE4 00:8CD4: 85 61     STA ram_0061
-bra_8CD6:
+bra_8CD6_loop:
 C - - - - - 0x000CE6 00:8CD6: A9 01     LDA #$01
 C - - - - - 0x000CE8 00:8CD8: 20 A8 9F  JSR sub_9FA8_задержка_кадра
 C - - - - - 0x000CEB 00:8CDB: A5 60     LDA ram_0060
@@ -2241,7 +2241,7 @@ C - - - - - 0x000D03 00:8CF3: 65 6A     ADC ram_006A
 C - - - - - 0x000D05 00:8CF5: 85 6A     STA ram_006A
 C - - - - - 0x000D07 00:8CF7: 38        SEC
 C - - - - - 0x000D08 00:8CF8: E9 20     SBC #$20
-C - - - - - 0x000D0A 00:8CFA: 90 DA     BCC bra_8CD6
+C - - - - - 0x000D0A 00:8CFA: 90 DA     BCC bra_8CD6_loop
 C - - - - - 0x000D0C 00:8CFC: 85 6A     STA ram_006A
 loc_8CFE:
 C - - - - - 0x000D0E 00:8CFE: A5 5B     LDA ram_005B
@@ -2259,7 +2259,7 @@ C - - - - - 0x000D24 00:8D14: A0 A0     LDY #$A0
 C - - - - - 0x000D26 00:8D16: A9 00     LDA #$00
 C - - - - - 0x000D28 00:8D18: 20 69 9F  JSR sub_9F69
 C - - - - - 0x000D2B 00:8D1B: C6 5E     DEC ram_005E
-C - - - - - 0x000D2D 00:8D1D: D0 B7     BNE bra_8CD6
+C - - - - - 0x000D2D 00:8D1D: D0 B7     BNE bra_8CD6_loop
 C - - - - - 0x000D2F 00:8D1F: 4C 59 8D  JMP loc_8D59
 
 
@@ -2592,7 +2592,7 @@ C - - - - - 0x000F48 00:8F38: E6 EB     INC ram_00EB
 bra_8F3A:
 C - - - - - 0x000F4A 00:8F3A: A9 04     LDA #$04
 C - - - - - 0x000F4C 00:8F3C: 85 E8     STA ram_00E8
-bra_8F3E:
+bra_8F3E_loop:
 loc_8F3E:
 C D - - - - 0x000F4E 00:8F3E: A4 67     LDY ram_0067
 C - - - - - 0x000F50 00:8F40: A6 68     LDX ram_0068
@@ -2625,10 +2625,10 @@ C - - - - - 0x000F81 00:8F71: 69 00     ADC #$00
 C - - - - - 0x000F83 00:8F73: 85 68     STA ram_0068
 C - - - - - 0x000F85 00:8F75: 29 03     AND #$03
 C - - - - - 0x000F87 00:8F77: C9 03     CMP #$03
-C - - - - - 0x000F89 00:8F79: D0 C3     BNE bra_8F3E
+C - - - - - 0x000F89 00:8F79: D0 C3     BNE bra_8F3E_loop
 C - - - - - 0x000F8B 00:8F7B: A5 67     LDA ram_0067
 C - - - - - 0x000F8D 00:8F7D: C9 C0     CMP #$C0
-C - - - - - 0x000F8F 00:8F7F: 90 BD     BCC bra_8F3E
+C - - - - - 0x000F8F 00:8F7F: 90 BD     BCC bra_8F3E_loop
 C - - - - - 0x000F91 00:8F81: A5 67     LDA ram_0067
 C - - - - - 0x000F93 00:8F83: 38        SEC
 C - - - - - 0x000F94 00:8F84: E9 C0     SBC #$C0
@@ -5319,9 +5319,9 @@ C - - - - - 0x001F0D 00:9EFD: 69 04     ADC #$04
 C - - - - - 0x001F0F 00:9EFF: AA        TAX
 C - - - - - 0x001F10 00:9F00: E0 19     CPX #$19
 C - - - - - 0x001F12 00:9F02: D0 EB     BNE bra_9EEF_loop
-bra_9F04:
+bra_9F04_infinite_loop:
 C - - - - - 0x001F14 00:9F04: A5 1B     LDA ram_флаг_nmi
-C - - - - - 0x001F16 00:9F06: 10 FC     BPL bra_9F04
+C - - - - - 0x001F16 00:9F06: 10 FC     BPL bra_9F04_infinite_loop
 C - - - - - 0x001F18 00:9F08: 29 7F     AND #$7F
 C - - - - - 0x001F1A 00:9F0A: 85 1B     STA ram_флаг_nmi
 C - - - - - 0x001F1C 00:9F0C: 4C ED 9E  JMP loc_9EED

@@ -45,18 +45,18 @@ C - - - - - 0x016055 0B:8045: 4A        LSR
 C - - - - - 0x016056 0B:8046: 09 40     ORA #$40
 C - - - - - 0x016058 0B:8048: 85 5A     STA ram_005A
 C - - - - - 0x01605A 0B:804A: A9 04     LDA #$04
-bra_804C:
+bra_804C_loop:
 C - - - - - 0x01605C 0B:804C: 48        PHA
-bra_804D:
+bra_804D_loop:
 C - - - - - 0x01605D 0B:804D: A9 01     LDA #$01
 C - - - - - 0x01605F 0B:804F: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x016062 0B:8052: AD 15 05  LDA ram_0515
-C - - - - - 0x016065 0B:8055: D0 F6     BNE bra_804D
+C - - - - - 0x016065 0B:8055: D0 F6     BNE bra_804D_loop
 C - - - - - 0x016067 0B:8057: A9 01     LDA #$01
 C - - - - - 0x016069 0B:8059: 8D 15 05  STA ram_0515
 C - - - - - 0x01606C 0B:805C: A2 00     LDX #$00
 C - - - - - 0x01606E 0B:805E: A9 02     LDA #$02
-bra_8060:
+bra_8060_loop:
 C - - - - - 0x016070 0B:8060: 48        PHA
 C - - - - - 0x016071 0B:8061: A5 5A     LDA ram_005A
 C - - - - - 0x016073 0B:8063: 29 3F     AND #$3F
@@ -68,13 +68,13 @@ C - - - - - 0x01607D 0B:806D: E6 5A     INC ram_005A
 C - - - - - 0x01607F 0B:806F: 68        PLA
 C - - - - - 0x016080 0B:8070: 38        SEC
 C - - - - - 0x016081 0B:8071: E9 01     SBC #$01
-C - - - - - 0x016083 0B:8073: D0 EB     BNE bra_8060
+C - - - - - 0x016083 0B:8073: D0 EB     BNE bra_8060_loop
 C - - - - - 0x016085 0B:8075: A9 80     LDA #$80
 C - - - - - 0x016087 0B:8077: 8D 15 05  STA ram_0515
 C - - - - - 0x01608A 0B:807A: 68        PLA
 C - - - - - 0x01608B 0B:807B: 38        SEC
 C - - - - - 0x01608C 0B:807C: E9 01     SBC #$01
-C - - - - - 0x01608E 0B:807E: D0 CC     BNE bra_804C
+C - - - - - 0x01608E 0B:807E: D0 CC     BNE bra_804C_loop
 C - - - - - 0x016090 0B:8080: 4C 0C 80  JMP loc_800C
 
 
@@ -125,18 +125,18 @@ bra_80CA:
 C - - - - - 0x0160DA 0B:80CA: 05 5A     ORA ram_005A
 C - - - - - 0x0160DC 0B:80CC: 85 5A     STA ram_005A
 C - - - - - 0x0160DE 0B:80CE: A9 02     LDA #$02
-bra_80D0:
+bra_80D0_loop:
 C - - - - - 0x0160E0 0B:80D0: 48        PHA
-bra_80D1:
+bra_80D1_loop:
 C - - - - - 0x0160E1 0B:80D1: A9 01     LDA #$01
 C - - - - - 0x0160E3 0B:80D3: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x0160E6 0B:80D6: AD 15 05  LDA ram_0515
-C - - - - - 0x0160E9 0B:80D9: D0 F6     BNE bra_80D1
+C - - - - - 0x0160E9 0B:80D9: D0 F6     BNE bra_80D1_loop
 C - - - - - 0x0160EB 0B:80DB: A9 01     LDA #$01
 C - - - - - 0x0160ED 0B:80DD: 8D 15 05  STA ram_0515
 C - - - - - 0x0160F0 0B:80E0: A2 00     LDX #$00
 C - - - - - 0x0160F2 0B:80E2: A9 02     LDA #$02
-bra_80E4:
+bra_80E4_loop:
 C - - - - - 0x0160F4 0B:80E4: 48        PHA
 C - - - - - 0x0160F5 0B:80E5: A5 5A     LDA ram_005A
 C - - - - - 0x0160F7 0B:80E7: 29 3F     AND #$3F
@@ -151,13 +151,13 @@ C - - - - - 0x016106 0B:80F6: 85 5A     STA ram_005A
 C - - - - - 0x016108 0B:80F8: 68        PLA
 C - - - - - 0x016109 0B:80F9: 38        SEC
 C - - - - - 0x01610A 0B:80FA: E9 01     SBC #$01
-C - - - - - 0x01610C 0B:80FC: D0 E6     BNE bra_80E4
+C - - - - - 0x01610C 0B:80FC: D0 E6     BNE bra_80E4_loop
 C - - - - - 0x01610E 0B:80FE: A9 80     LDA #$80
 C - - - - - 0x016110 0B:8100: 8D 15 05  STA ram_0515
 C - - - - - 0x016113 0B:8103: 68        PLA
 C - - - - - 0x016114 0B:8104: 38        SEC
 C - - - - - 0x016115 0B:8105: E9 01     SBC #$01
-C - - - - - 0x016117 0B:8107: D0 C7     BNE bra_80D0
+C - - - - - 0x016117 0B:8107: D0 C7     BNE bra_80D0_loop
 C - - - - - 0x016119 0B:8109: 4C 83 80  JMP loc_8083
 
 sub_810C:
@@ -625,7 +625,7 @@ C - J - - - 0x016368 0B:8358: 20 D9 84  JSR sub_84D9
 C - - - - - 0x01636B 0B:835B: A9 80     LDA #$80
 C - - - - - 0x01636D 0B:835D: 8D D1 05  STA ram_05D1
 C - - - - - 0x016370 0B:8360: A0 04     LDY #$04
-C - - - - - 0x016372 0B:8362: D0 C5     BNE bra_8329
+C - - - - - 0x016372 0B:8362: D0 C5     BNE bra_8329    ; jmp
 
 ofs_009_8364_05:
 C - J - - - 0x016374 0B:8364: 20 D9 84  JSR sub_84D9
@@ -918,12 +918,12 @@ C - - - - - 0x016574 0B:8564: A9 20     LDA #$20
 C - - - - - 0x016576 0B:8566: 8D C9 05  STA ram_05C9
 C - - - - - 0x016579 0B:8569: AD CA 05  LDA ram_05CA
 C - - - - - 0x01657C 0B:856C: 48        PHA
-bra_856D:
+bra_856D_loop:
 loc_856D:
 C D - - - - 0x01657D 0B:856D: A9 01     LDA #$01
 C - - - - - 0x01657F 0B:856F: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x016582 0B:8572: AD 15 05  LDA ram_0515
-C - - - - - 0x016585 0B:8575: D0 F6     BNE bra_856D
+C - - - - - 0x016585 0B:8575: D0 F6     BNE bra_856D_loop
 C - - - - - 0x016587 0B:8577: A9 01     LDA #$01
 C - - - - - 0x016589 0B:8579: 8D 15 05  STA ram_0515
 C - - - - - 0x01658C 0B:857C: A9 00     LDA #$00
@@ -1066,10 +1066,10 @@ C - - - - - 0x016694 0B:8684: 8D 25 00  STA ram_для_5115
 C - - - - - 0x016697 0B:8687: 8D 01 80  STA $5115
 C - - - - - 0x01669A 0B:868A: A9 04     LDA #$04
 C - - - - - 0x01669C 0B:868C: A0 00     LDY #$00
-bra_868E:
+bra_868E_loop:
 C - - - - - 0x01669E 0B:868E: 48        PHA
 C - - - - - 0x01669F 0B:868F: A9 04     LDA #$04
-bra_8691:
+bra_8691_loop:
 C - - - - - 0x0166A1 0B:8691: 48        PHA
 C - - - - - 0x0166A2 0B:8692: B1 56     LDA (ram_0056),Y
 C - - - - - 0x0166A4 0B:8694: 9D A8 04  STA ram_04A8,X
@@ -1078,14 +1078,14 @@ C - - - - - 0x0166A8 0B:8698: C8        INY
 C - - - - - 0x0166A9 0B:8699: 68        PLA
 C - - - - - 0x0166AA 0B:869A: 38        SEC
 C - - - - - 0x0166AB 0B:869B: E9 01     SBC #$01
-C - - - - - 0x0166AD 0B:869D: D0 F2     BNE bra_8691
+C - - - - - 0x0166AD 0B:869D: D0 F2     BNE bra_8691_loop
 C - - - - - 0x0166AF 0B:869F: E8        INX
 C - - - - - 0x0166B0 0B:86A0: E8        INX
 C - - - - - 0x0166B1 0B:86A1: E8        INX
 C - - - - - 0x0166B2 0B:86A2: 68        PLA
 C - - - - - 0x0166B3 0B:86A3: 38        SEC
 C - - - - - 0x0166B4 0B:86A4: E9 01     SBC #$01
-C - - - - - 0x0166B6 0B:86A6: D0 E6     BNE bra_868E
+C - - - - - 0x0166B6 0B:86A6: D0 E6     BNE bra_868E_loop
 C - - - - - 0x0166B8 0B:86A8: 68        PLA
 C - - - - - 0x0166B9 0B:86A9: AA        TAX
 C - - - - - 0x0166BA 0B:86AA: A9 00     LDA #$00
@@ -1106,7 +1106,7 @@ C - - - - - 0x0166CE 0B:86BE: 18        CLC
 C - - - - - 0x0166CF 0B:86BF: 69 12     ADC #$12
 C - - - - - 0x0166D1 0B:86C1: AA        TAX
 C - - - - - 0x0166D2 0B:86C2: A9 05     LDA #$05
-bra_86C4:
+bra_86C4_loop:
 C - - - - - 0x0166D4 0B:86C4: 48        PHA
 C - - - - - 0x0166D5 0B:86C5: B9 C1 04  LDA ram_04C1,Y
 C - - - - - 0x0166D8 0B:86C8: 99 B3 04  STA ram_04B3,Y
@@ -1114,7 +1114,7 @@ C - - - - - 0x0166DB 0B:86CB: C8        INY
 C - - - - - 0x0166DC 0B:86CC: 68        PLA
 C - - - - - 0x0166DD 0B:86CD: 38        SEC
 C - - - - - 0x0166DE 0B:86CE: E9 01     SBC #$01
-C - - - - - 0x0166E0 0B:86D0: D0 F2     BNE bra_86C4
+C - - - - - 0x0166E0 0B:86D0: D0 F2     BNE bra_86C4_loop
 C - - - - - 0x0166E2 0B:86D2: 60        RTS
 
 sub_86D3:

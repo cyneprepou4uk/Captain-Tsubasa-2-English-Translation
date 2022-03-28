@@ -35,7 +35,7 @@ C - - - - - 0x028040 14:8030: B1 4C     LDA (ram_anim_data),Y
 C - - - - - 0x028042 14:8032: 86 4C     STX ram_anim_data
 C - - - - - 0x028044 14:8034: 85 4D     STA ram_anim_data + 1
 C - - - - - 0x028046 14:8036: A2 00     LDX #$00
-bra_8038:
+bra_8038_loop:
 C - - - - - 0x028048 14:8038: A9 00     LDA #$00
 C - - - - - 0x02804A 14:803A: 9D 47 05  STA ram_0547,X
 C - - - - - 0x02804D 14:803D: 8A        TXA
@@ -43,7 +43,7 @@ C - - - - - 0x02804E 14:803E: 18        CLC
 C - - - - - 0x02804F 14:803F: 69 15     ADC #$15
 C - - - - - 0x028051 14:8041: AA        TAX
 C - - - - - 0x028052 14:8042: C9 7E     CMP #$7E
-C - - - - - 0x028054 14:8044: D0 F2     BNE bra_8038
+C - - - - - 0x028054 14:8044: D0 F2     BNE bra_8038_loop
 C - - - - - 0x028056 14:8046: A9 01     LDA #$01
 C - - - - - 0x028058 14:8048: 8D 3B 05  STA ram_053B
 C - - - - - 0x02805B 14:804B: A9 00     LDA #$00
@@ -499,7 +499,7 @@ C - - - - - 0x0282E7 14:82D7: 85 3A     STA ram_003A
 C - - - - - 0x0282E9 14:82D9: A5 3B     LDA ram_003B
 C - - - - - 0x0282EB 14:82DB: 69 BA     ADC #> tbl_BACF
 C - - - - - 0x0282ED 14:82DD: 85 3B     STA ram_003B
-bra_82DF:
+bra_82DF_loop:
 C - - - - - 0x0282EF 14:82DF: BD F6 82  LDA tbl_82F6,X
 C - - - - - 0x0282F2 14:82E2: 10 05     BPL bra_82E9
 C - - - - - 0x0282F4 14:82E4: 29 7F     AND #$7F
@@ -509,7 +509,7 @@ bra_82E9:
 C - - - - - 0x0282F9 14:82E9: 9D 6F 04  STA ram_046F,X
 C - - - - - 0x0282FC 14:82EC: E8        INX
 C - - - - - 0x0282FD 14:82ED: E0 20     CPX #$20
-C - - - - - 0x0282FF 14:82EF: D0 EE     BNE bra_82DF
+C - - - - - 0x0282FF 14:82EF: D0 EE     BNE bra_82DF_loop
 C - - - - - 0x028301 14:82F1: A9 01     LDA #$01
 C - - - - - 0x028303 14:82F3: 4C CF 83  JMP loc_83CF_сместить_указатель
 
@@ -636,12 +636,12 @@ C - - - - - 0x028397 14:8387: BD 2A 00  LDA ram_твоя_команда,X
 C - - - - - 0x02839A 14:838A: 0A        ASL
 C - - - - - 0x02839B 14:838B: A8        TAY
 C - - - - - 0x02839C 14:838C: A2 00     LDX #$00
-bra_838E:
+bra_838E_loop:
 C - - - - - 0x02839E 14:838E: BD A6 83  LDA tbl_83A6,X
 C - - - - - 0x0283A1 14:8391: 9D 7F 04  STA ram_047F,X
 C - - - - - 0x0283A4 14:8394: E8        INX
 C - - - - - 0x0283A5 14:8395: E0 08     CPX #$08
-C - - - - - 0x0283A7 14:8397: D0 F5     BNE bra_838E
+C - - - - - 0x0283A7 14:8397: D0 F5     BNE bra_838E_loop
 C - - - - - 0x0283A9 14:8399: B9 87 BA  LDA tbl_BA87,Y
 C - - - - - 0x0283AC 14:839C: 8D 81 04  STA ram_0481
 C - - - - - 0x0283AF 14:839F: B9 88 BA  LDA tbl_BA87 + 1,Y
@@ -1228,11 +1228,11 @@ C - - - - - 0x028735 14:8725: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x028738 14:8728: F0 0F     BEQ bra_8739
 C - - - - - 0x02873A 14:872A: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x02873D 14:872D: F0 08     BEQ bra_8737
-bra_872F:
+bra_872F_loop:
 C - - - - - 0x02873F 14:872F: DD 30 04  CMP ram_список_спешалов,X
 C - - - - - 0x028742 14:8732: F0 05     BEQ bra_8739
 C - - - - - 0x028744 14:8734: CA        DEX
-C - - - - - 0x028745 14:8735: D0 F8     BNE bra_872F
+C - - - - - 0x028745 14:8735: D0 F8     BNE bra_872F_loop
 bra_8737:
 C - - - - - 0x028747 14:8737: 18        CLC
 C - - - - - 0x028748 14:8738: 60        RTS
@@ -1249,11 +1249,11 @@ C - - - - - 0x02874D 14:873D: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x028750 14:8740: F0 0F     BEQ bra_8751
 C - - - - - 0x028752 14:8742: AE 00 06  LDX ram_колво_защитников
 C - - - - - 0x028755 14:8745: F0 08     BEQ bra_874F
-bra_8747:
+bra_8747_loop:
 C - - - - - 0x028757 14:8747: DD 00 06  CMP ram_колво_защитников,X
 C - - - - - 0x02875A 14:874A: F0 05     BEQ bra_8751
 C - - - - - 0x02875C 14:874C: CA        DEX
-C - - - - - 0x02875D 14:874D: D0 F8     BNE bra_8747
+C - - - - - 0x02875D 14:874D: D0 F8     BNE bra_8747_loop
 bra_874F:
 C - - - - - 0x02875F 14:874F: 38        SEC
 C - - - - - 0x028760 14:8750: 60        RTS
@@ -1314,7 +1314,7 @@ C - - - - - 0x0287BF 14:87AF: 86 3C     STX ram_003C
 C - - - - - 0x0287C1 14:87B1: 84 3D     STY ram_003D
 C - - - - - 0x0287C3 14:87B3: AE 39 06  LDX ram_0639
 C - - - - - 0x0287C6 14:87B6: AC 35 06  LDY ram_0635
-bra_87B9:
+bra_87B9_loop:
 C - - - - - 0x0287C9 14:87B9: 18        CLC
 C - - - - - 0x0287CA 14:87BA: 8A        TXA
 C - - - - - 0x0287CB 14:87BB: 65 3C     ADC ram_003C
@@ -1323,7 +1323,7 @@ C - - - - - 0x0287CE 14:87BE: 98        TYA
 C - - - - - 0x0287CF 14:87BF: 65 3D     ADC ram_003D
 C - - - - - 0x0287D1 14:87C1: A8        TAY
 C - - - - - 0x0287D2 14:87C2: C6 3E     DEC ram_003E
-C - - - - - 0x0287D4 14:87C4: 10 F3     BPL bra_87B9
+C - - - - - 0x0287D4 14:87C4: 10 F3     BPL bra_87B9_loop
 C - - - - - 0x0287D6 14:87C6: 60        RTS
 
 sub_87C7:
@@ -1334,7 +1334,7 @@ C - - - - - 0x0287DF 14:87CF: 86 3C     STX ram_003C
 C - - - - - 0x0287E1 14:87D1: 84 3D     STY ram_003D
 C - - - - - 0x0287E3 14:87D3: AE 3B 06  LDX ram_063B
 C - - - - - 0x0287E6 14:87D6: AC 37 06  LDY ram_0637
-bra_87D9:
+bra_87D9_loop:
 C - - - - - 0x0287E9 14:87D9: 18        CLC
 C - - - - - 0x0287EA 14:87DA: 8A        TXA
 C - - - - - 0x0287EB 14:87DB: 65 3C     ADC ram_003C
@@ -1343,7 +1343,7 @@ C - - - - - 0x0287EE 14:87DE: 98        TYA
 C - - - - - 0x0287EF 14:87DF: 65 3D     ADC ram_003D
 C - - - - - 0x0287F1 14:87E1: A8        TAY
 C - - - - - 0x0287F2 14:87E2: C6 3E     DEC ram_003E
-C - - - - - 0x0287F4 14:87E4: 10 F3     BPL bra_87D9
+C - - - - - 0x0287F4 14:87E4: 10 F3     BPL bra_87D9_loop
 C - - - - - 0x0287F6 14:87E6: 60        RTS
 
 loc_87E7:

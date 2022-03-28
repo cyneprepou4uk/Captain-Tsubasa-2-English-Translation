@@ -283,7 +283,7 @@ ram_005C                                    = $005C ; indirect_lo_hi
                                                   ; хреново сделано что 5C будет и старшим и младшим в разных случаях, как будто забыли про 5A
                                                   ; дохрена совпадений по адресам, надо много где переделать
 ram_005D                                    = $005D ; indirect_lo_hi
-    ram_сценарий_data = ram_005D
+    ram_scernario_data = ram_005D
 ram_005E                                    = $005E ; indirect_hi
 ram_005F                                    = $005F ; indirect_lo
     ram_cloud_data = ram_005F ; + 1

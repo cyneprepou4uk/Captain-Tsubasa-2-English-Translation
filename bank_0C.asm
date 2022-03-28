@@ -17,12 +17,14 @@ bra_8002_loop:
 C - - - - - 0x018012 0C:8002: BC 00 07  LDY ram_звук,X
 C - - - - - 0x018015 0C:8005: C0 32     CPY #$32
 C - - - - - 0x018017 0C:8007: B0 0E     BCS bra_8017
+; 00-31
 C - - - - - 0x01801E 0C:800E: AC FC 07  LDY ram_prg_07_музыка
 C - - - - - 0x018021 0C:8011: 8C 01 80  STY $5115
 C - - - - - 0x018024 0C:8014: 4C 5E 80  JMP loc_805E
 bra_8017:
 C - - - - - 0x018027 0C:8017: C0 44     CPY #$44
 C - - - - - 0x018029 0C:8019: B0 10     BCS bra_802B
+; 32-43
 C - - - - - 0x018030 0C:8020: A0 0D     LDY #con_prg_bank + $8D
 C - - - - - 0x018032 0C:8022: 8C 01 80  STY $5115
 C - - - - - 0x018035 0C:8025: 8C FC 07  STY ram_prg_07_музыка
@@ -30,6 +32,7 @@ C - - - - - 0x018038 0C:8028: 4C 5E 80  JMP loc_805E
 bra_802B:
 C - - - - - 0x01803B 0C:802B: C0 51     CPY #$51
 C - - - - - 0x01803D 0C:802D: B0 10     BCS bra_803F
+; 44-50
 C - - - - - 0x018044 0C:8034: A0 0E     LDY #con_prg_bank + $8E
 C - - - - - 0x018046 0C:8036: 8C 01 80  STY $5115
 C - - - - - 0x018049 0C:8039: 8C FC 07  STY ram_prg_07_музыка
@@ -37,11 +40,13 @@ C - - - - - 0x01804C 0C:803C: 4C 5E 80  JMP loc_805E
 bra_803F:
 C - - - - - 0x01804F 0C:803F: C0 5C     CPY #$5C
 C - - - - - 0x018051 0C:8041: B0 10     BCS bra_8053
+; 51-5B
 C - - - - - 0x018058 0C:8048: A0 0F     LDY #con_prg_bank + $8F
 C - - - - - 0x01805A 0C:804A: 8C 01 80  STY $5115
 C - - - - - 0x01805D 0C:804D: 8C FC 07  STY ram_prg_07_музыка
 C - - - - - 0x018060 0C:8050: 4C 5E 80  JMP loc_805E
 bra_8053:
+; 5C+
 C - - - - - 0x018068 0C:8058: AC FC 07  LDY ram_prg_07_музыка
 C - - - - - 0x01806B 0C:805B: 8C 01 80  STY $5115
 ; bzk заменить на bxx
@@ -51,7 +56,7 @@ loc_805E:
 C D - - - - 0x01806E 0C:805E: CA        DEX
 C - - - - - 0x01806F 0C:805F: 10 A1     BPL bra_8002_loop
 C - - - - - 0x018071 0C:8061: A2 05     LDX #$05
-bra_8063:
+bra_8063_loop:
 C - - - - - 0x018073 0C:8063: BC 00 07  LDY ram_звук,X
 C - - - - - 0x018076 0C:8066: F0 4F     BEQ bra_80B7
 C - - - - - 0x018078 0C:8068: C0 72     CPY #$72
@@ -87,7 +92,7 @@ C - - - - - 0x0180C4 0C:80B4: 9D 00 07  STA ram_звук,X
 bra_80B7:
 loc_80B7:
 C D - - - - 0x0180C7 0C:80B7: CA        DEX
-C - - - - - 0x0180C8 0C:80B8: 10 A9     BPL bra_8063
+C - - - - - 0x0180C8 0C:80B8: 10 A9     BPL bra_8063_loop
 C - - - - - 0x0180CA 0C:80BA: A9 27     LDA #$27
 C - - - - - 0x0180CC 0C:80BC: 85 F0     STA ram_00F0
 C - - - - - 0x0180CE 0C:80BE: A9 07     LDA #$07
@@ -96,7 +101,7 @@ C - - - - - 0x0180D2 0C:80C2: A9 00     LDA #$00
 C - - - - - 0x0180D4 0C:80C4: 85 F2     STA ram_00F2
 C - - - - - 0x0180D6 0C:80C6: A0 08     LDY #$08
 C - - - - - 0x0180D8 0C:80C8: 84 F3     STY ram_00F3
-bra_80CA:
+bra_80CA_loop:
 C - - - - - 0x0180DA 0C:80CA: AD 06 07  LDA ram_0706
 C - - - - - 0x0180DD 0C:80CD: 4A        LSR
 C - - - - - 0x0180DE 0C:80CE: 90 02     BCC bra_80D2
@@ -142,7 +147,7 @@ C - - - - - 0x018123 0C:8113: A9 04     LDA #$04
 C - - - - - 0x018125 0C:8115: 65 F2     ADC ram_00F2
 C - - - - - 0x018127 0C:8117: 85 F2     STA ram_00F2
 C - - - - - 0x018129 0C:8119: C6 F3     DEC ram_00F3
-C - - - - - 0x01812B 0C:811B: D0 AD     BNE bra_80CA
+C - - - - - 0x01812B 0C:811B: D0 AD     BNE bra_80CA_loop
 C - - - - - 0x01812D 0C:811D: A9 27     LDA #$27
 C - - - - - 0x01812F 0C:811F: 85 F0     STA ram_00F0
 C - - - - - 0x018131 0C:8121: 85 FC     STA ram_00FC
@@ -153,7 +158,7 @@ C - - - - - 0x018139 0C:8129: A9 03     LDA #$03
 C - - - - - 0x01813B 0C:812B: 85 F2     STA ram_00F2
 C - - - - - 0x01813D 0C:812D: A9 11     LDA #$11
 C - - - - - 0x01813F 0C:812F: 85 F3     STA ram_00F3
-bra_8131:
+bra_8131_loop:
 C - - - - - 0x018141 0C:8131: AD 06 07  LDA ram_0706
 C - - - - - 0x018144 0C:8134: 25 F3     AND ram_00F3
 C - - - - - 0x018146 0C:8136: F0 14     BEQ bra_814C
@@ -180,7 +185,7 @@ C - - - - - 0x018169 0C:8159: 85 FD     STA ram_00FD
 C - - - - - 0x01816B 0C:815B: 85 F1     STA ram_00F1
 C - - - - - 0x01816D 0C:815D: 06 F3     ASL ram_00F3
 C - - - - - 0x01816F 0C:815F: C6 F2     DEC ram_00F2
-C - - - - - 0x018171 0C:8161: 10 CE     BPL bra_8131
+C - - - - - 0x018171 0C:8161: 10 CE     BPL bra_8131_loop
 C - - - - - 0x018173 0C:8163: AD E9 07  LDA ram_07E9
 C - - - - - 0x018176 0C:8166: F0 05     BEQ bra_816D_RTS
 - - - - - - 0x018178 0C:8168: A9 00     LDA #$00
@@ -537,10 +542,10 @@ C - - - - - 0x0183C6 0C:83B6: A9 01     LDA #$01
 C - - - - - 0x0183C8 0C:83B8: 9D 07 07  STA ram_0707,X
 C - - - - - 0x0183CB 0C:83BB: 4A        LSR
 C - - - - - 0x0183CC 0C:83BC: A6 F4     LDX ram_00F4
-bra_83BE:
+bra_83BE_loop:
 C - - - - - 0x0183CE 0C:83BE: 2A        ROL
 C - - - - - 0x0183CF 0C:83BF: CA        DEX
-C - - - - - 0x0183D0 0C:83C0: 10 FC     BPL bra_83BE
+C - - - - - 0x0183D0 0C:83C0: 10 FC     BPL bra_83BE_loop
 C - - - - - 0x0183D2 0C:83C2: 0D 06 07  ORA ram_0706
 C - - - - - 0x0183D5 0C:83C5: 8D 06 07  STA ram_0706
 C - - - - - 0x0183D8 0C:83C8: C8        INY
@@ -558,19 +563,19 @@ C - - - - - 0x0183E9 0C:83D9: C8        INY
 C - - - - - 0x0183EA 0C:83DA: B1 F0     LDA (ram_00F0),Y
 C - - - - - 0x0183EC 0C:83DC: 85 F5     STA ram_00F5
 C - - - - - 0x0183EE 0C:83DE: 88        DEY
-bra_83DF:
+bra_83DF_loop:
 C - - - - - 0x0183EF 0C:83DF: B1 F4     LDA (ram_00F4),Y
 C - - - - - 0x0183F1 0C:83E1: 10 21     BPL bra_8404_меньше_80
 C - - - - - 0x0183F3 0C:83E3: C8        INY
 C - - - - - 0x0183F4 0C:83E4: C9 E0     CMP #$E0
 C - - - - - 0x0183F6 0C:83E6: 90 05     BCC bra_83ED_80_и_выше
 C - - - - - 0x0183F8 0C:83E8: 20 C9 84  JSR sub_84C9_E0_и_выше
-C - - - - - 0x0183FB 0C:83EB: 10 F2     BPL bra_83DF
+C - - - - - 0x0183FB 0C:83EB: 10 F2     BPL bra_83DF_loop
 bra_83ED_80_и_выше:
 C - - - - - 0x0183FD 0C:83ED: C9 B0     CMP #$B0
 C - - - - - 0x0183FF 0C:83EF: 90 03     BCC bra_83F4_80_AF
 - - - - - - 0x018401 0C:83F1: C8        INY
-- - - - - - 0x018402 0C:83F2: D0 EB     BNE bra_83DF
+- - - - - - 0x018402 0C:83F2: D0 EB     BNE bra_83DF_loop
 bra_83F4_80_AF:
 C - - - - - 0x018404 0C:83F4: 29 3F     AND #$3F
 C - - - - - 0x018406 0C:83F6: AA        TAX
@@ -578,7 +583,7 @@ C - - - - - 0x018407 0C:83F7: BD 25 87  LDA tbl_8725,X
 C - - - - - 0x01840A 0C:83FA: A6 F2     LDX ram_00F2
 C - - - - - 0x01840C 0C:83FC: 9D 07 07  STA ram_0707,X
 C - - - - - 0x01840F 0C:83FF: 9D 08 07  STA ram_0708,X
-C - - - - - 0x018412 0C:8402: 10 DB     BPL bra_83DF
+C - - - - - 0x018412 0C:8402: 10 DB     BPL bra_83DF_loop
 bra_8404_меньше_80:
 C - - - - - 0x018414 0C:8404: C8        INY
 C - - - - - 0x018415 0C:8405: 48        PHA
@@ -631,11 +636,11 @@ C - - - - - 0x018460 0C:8450: 4A        LSR
 C - - - - - 0x018461 0C:8451: 4A        LSR
 C - - - - - 0x018462 0C:8452: AA        TAX
 C - - - - - 0x018463 0C:8453: F0 07     BEQ bra_845C
-bra_8455:
+bra_8455_loop:
 C - - - - - 0x018465 0C:8455: 46 F5     LSR ram_00F5
 C - - - - - 0x018467 0C:8457: 66 F4     ROR ram_00F4
 C - - - - - 0x018469 0C:8459: CA        DEX
-C - - - - - 0x01846A 0C:845A: D0 F9     BNE bra_8455
+C - - - - - 0x01846A 0C:845A: D0 F9     BNE bra_8455_loop
 bra_845C:
 C - - - - - 0x01846C 0C:845C: A5 F4     LDA ram_00F4
 C - - - - - 0x01846E 0C:845E: A6 F3     LDX ram_00F3
