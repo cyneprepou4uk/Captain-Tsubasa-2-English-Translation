@@ -6462,13 +6462,39 @@ loc_9C9D_защитник_бежит_по_земле_3й:
 sub_9CA3_выбор_анимации_дриблинга_трудной_обводки:
     .byte con_jsr
     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
-    .byte con_branch, $0E + $00     ; действие атаки на земле
-    .word bra_long_case_9CA3_00_shoot
-    .word bra_long_case_9CA3_01_pass
-    .word bra_long_case_9CA3_02_dribble
-    .word bra_long_case_9CA3_03_1_2_pass
+    .byte con_branch, $0E + $80     ; действие атаки на земле
+    .word off_case_9CA3_00_shoot
+    .word off_case_9CA3_01_pass
+    .word off_case_9CA3_02_dribble
+    .word off_case_9CA3_03_1_2_pass
 
-bra_long_case_9CA3_02_dribble:
+off_case_9CA3_00_shoot:
+off_case_9CA3_02_00_dribble:
+off_case_9CA3_01_pass:
+off_case_9CA3_03_1_2_pass:
+bra_long_case_9CA3_02_00_dribble:
+; трудная обводка
+            .byte con_mirror_toggle
+            .byte con_F7, $02
+            .byte con_pause + $14
+            .byte con_bg + $22
+            .byte con_animation + $60
+            .byte con_cloud + $45
+            .byte con_F7, $24
+            .byte con_soundID_delay, $68, $02
+            .byte con_pause + $10
+            .byte con_bg + $6B
+            .byte con_animation + con_skip
+            .byte con_cloud + con_skip
+loc_A7FE_движение_фона:
+            .byte con_F7, $02
+            .byte con_pause + $3C
+            .byte con_bg + $22
+            .byte con_animation + con_skip
+            .byte con_cloud + con_skip
+            .byte con_rts
+
+off_case_9CA3_02_dribble:
             .byte con_branch, $1C + $00     ; спешал дриблинг
             .word bra_long_case_9CA3_02_00_dribble
             .word bra_long_case_9CA3_02_01_heel_lift
@@ -8980,33 +9006,6 @@ bra_long_case_A7E7_00_не_спешал:
     .byte con_animation + $5B
     .byte con_cloud + $44
     .byte con_rts
-
-
-
-bra_long_case_9CA3_00_shoot:
-bra_long_case_9CA3_02_00_dribble:
-bra_long_case_9CA3_01_pass:
-bra_long_case_9CA3_03_1_2_pass:
-; трудная обводка
-            .byte con_mirror_toggle
-            .byte con_F7, $02
-            .byte con_pause + $14
-            .byte con_bg + $22
-            .byte con_animation + $60
-            .byte con_cloud + $45
-            .byte con_F7, $24
-            .byte con_soundID_delay, $68, $02
-            .byte con_pause + $10
-            .byte con_bg + $6B
-            .byte con_animation + con_skip
-            .byte con_cloud + con_skip
-loc_A7FE_движение_фона:
-            .byte con_F7, $02
-            .byte con_pause + $3C
-            .byte con_bg + $22
-            .byte con_animation + con_skip
-            .byte con_cloud + con_skip
-            .byte con_rts
 
 
 
