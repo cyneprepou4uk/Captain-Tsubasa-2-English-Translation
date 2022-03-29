@@ -3582,16 +3582,21 @@ _scenario_91F2_01:
 
 
 
-; bzk опт
 off_case_91F8_00:
-    .byte con_jmp
-    .word loc_9DE2
+    .byte con_branch, $09 + $00     ; действие атаки на штрафной
+    .word off_long_case_9DEC_00_shoot
+    .word off_long_case_B29B_01_pass
+    .word off_long_case_B29B_02_trap
+    .word off_long_case_B29B_03_through
 
 
-; bzk опт
+
 off_case_91FC_01:
-    .byte con_jmp
-    .word loc_9D3C
+    .byte con_branch, $09 + $00     ; действие атаки на штрафной
+    .word off_long_case_9D46_00_shoot
+    .word off_long_case_AE64_01_pass
+    .word off_long_case_AE64_02_trap
+    .word off_long_case_AE64_03_though
 
 
 
@@ -6762,15 +6767,6 @@ off_case_9CF3_00_мяч_у_атакующего_на_земле:
 
 
 
-loc_9D3C:
-    .byte con_branch, $09 + $00     ; действие атаки на штрафной
-    .word off_long_case_9D46_00_shoot
-    .word off_long_case_AE64_01_pass
-    .word off_long_case_AE64_02_trap
-    .word off_long_case_AE64_03_though
-
-
-
 off_long_case_9D46_00_shoot:
     .byte con_branch, $48 + $00
     .word off_long_case_AE4C_00
@@ -6860,15 +6856,6 @@ off_case_9D9A_01_летит_низкий_мяч:
     .word off_long_case_B26F_20_foward_somersault
     .word off_long_case_B0FB_21_slider_cannon
     .word off_long_case_B197_00___
-
-
-
-loc_9DE2:
-    .byte con_branch, $09 + $00     ; действие атаки на штрафной
-    .word off_long_case_9DEC_00_shoot
-    .word off_long_case_B29B_01_pass
-    .word off_long_case_B29B_02_trap
-    .word off_long_case_B29B_03_through
 
 
 
