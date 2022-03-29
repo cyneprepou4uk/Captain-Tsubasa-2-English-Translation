@@ -2700,332 +2700,6 @@ off_case_00_00_01_01_04_нарушение:
                             .byte con_jmp
                             .word loc_A35B_нарушение
 
-bra_long_case_00_02_летит_высокий_мяч:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_branch, $46 + $80
-    .byte off_case_00_02_00 - *
-    .byte off_case_00_02_01 - *
-
-off_case_00_02_00:
-            .byte con_branch, $02 + $80     ; действие защитника
-            .byte off_case_00_02_00_00_block - *
-            .byte off_case_00_02_00_01_tackle - *
-            .byte off_case_00_02_00_02_pass_cut - *
-
-off_case_00_02_00_00_block:
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_00_02_00_00_00_промахнется - *
-                    .byte off_case_00_02_00_00_01_коснется - *
-                    .byte off_case_00_02_00_00_02_отобьет - *
-                    .byte off_case_00_02_00_00_03_словит - *
-
-off_case_00_02_00_00_00_промахнется:
-                            .byte con_jsr
-                            .word sub_9C79_защитник_бежит_по_земле
-                            .byte con_jsr
-                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                            .byte con_jmp
-                            .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
-
-off_case_00_02_00_00_01_коснется:
-                            .byte con_jsr
-                            .word sub_9C79_защитник_бежит_по_земле
-                            .byte con_jsr
-                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                            .byte con_jsr
-                            .word sub_A042_защитник_в_воздухе_собирается_коснуться_мяча_телом
-                            .byte con_jsr
-                            .word sub_A025_момент_касания_защитником_мяча_телом
-                            .byte con_jmp
-                            .word loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом
-
-
-off_case_00_02_00_00_02_отобьет:
-                            .byte con_branch, $1B + $80
-                            .byte off_case_00_02_00_00_02_00_block - *
-                            .byte off_case_00_02_00_00_02_01_face_block - *
-                            .byte off_case_00_02_00_00_02_02_skylab_block - *
-                            .byte off_case_00_02_00_00_02_03_power_block - *
-
-off_case_00_02_00_00_02_00_block:
-off_case_00_02_00_00_02_02_skylab_block:
-off_case_00_02_00_00_02_03_power_block:
-loc_8C88_защитник_прыгает_и_отбивает_мяч_телом:
-                                    .byte con_jsr
-                                    .word sub_9C79_защитник_бежит_по_земле
-                                    .byte con_jsr
-                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                                    .byte con_jsr
-                                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                                    .byte con_jsr
-                                    .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
-                                    .byte con_jmp
-                                    .word loc_A371_мяч_улетает_в_сторону
-
-off_case_00_02_00_00_02_01_face_block:
-loc_8C97_ishizaki_face_block_полная_анимация:
-                                    .byte con_jsr
-                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                                    .byte con_jmp
-                                    .word loc_8F67_ishizaki_face_block_в_процессе
-
-off_case_00_02_00_00_03_словит:
-                            .byte con_branch, $1B + $80
-                            .byte off_case_00_02_00_00_03_00_block - *
-                            .byte off_case_00_02_00_00_03_01_face_block - *
-                            .byte off_case_00_02_00_00_03_02_skylab_block - *
-                            .byte off_case_00_02_00_00_03_03_power_block - *
-
-off_case_00_02_00_00_03_00_block:
-off_case_00_02_00_00_03_02_skylab_block:
-off_case_00_02_00_00_03_03_power_block:
-loc_8D38_защитник_ловит_блоком_высокий_мяч:
-                                    .byte con_jsr
-                                    .word sub_9C79_защитник_бежит_по_земле
-                                    .byte con_jsr
-                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                                    .byte con_jmp
-                                    .word loc_A1A9_защитник_ловит_блоком_высокий_мяч
-
-off_case_00_02_00_00_03_01_face_block:
-                                    .byte con_jmp
-                                    .word loc_8C97_ishizaki_face_block_полная_анимация
-
-off_case_00_02_00_01_tackle:
-                    .byte con_jsr
-                    .word sub_9C79_защитник_бежит_по_земле
-                    .byte con_jsr
-                    .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_00_02_00_01_00_промахнется - *
-                    .byte off_case_00_02_00_01_01_коснется - *
-                    .byte off_case_00_02_00_01_02_отобьет - *
-                    .byte off_case_00_02_00_01_03_словит - *
-
-off_case_00_02_00_01_00_промахнется:
-                            .byte con_jmp
-                            .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
-
-off_case_00_02_00_01_01_коснется:
-                            .byte con_jsr
-                            .word sub_A042_защитник_в_воздухе_собирается_коснуться_мяча_телом
-                            .byte con_jsr
-                            .word sub_A025_момент_касания_защитником_мяча_телом
-                            .byte con_jmp
-                            .word loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом
-
-off_case_00_02_00_01_02_отобьет:
-                            .byte con_jsr
-                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                            .byte con_jsr
-                            .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-off_case_00_02_00_01_03_словит:
-                            .byte con_jmp
-                            .word loc_A185_защитник_ловит_высокий_мяч_телом
-
-off_case_00_02_00_02_pass_cut:
-                    .byte con_jsr
-                    .word sub_9C79_защитник_бежит_по_земле
-                    .byte con_jsr
-                    .word sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_00_02_00_02_00_промахнется - *
-                    .byte off_case_00_02_00_02_01_коснется - *
-                    .byte off_case_00_02_00_02_02_отобьет - *
-                    .byte off_case_00_02_00_02_03_словит - *
-
-off_case_00_02_00_02_00_промахнется:
-                            .byte con_jmp
-                            .word loc_BF02_защитник_промахивается_ногой_по_высокому_мячу
-
-off_case_00_02_00_02_01_коснется:
-                            .byte con_jsr
-                            .word sub_A00B_защитник_собирается_коснуться_ногой_высокого_мяча
-                            .byte con_jsr
-                            .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
-                            .byte con_jmp
-                            .word loc_9FE0_высокий_мяч_летит_дальше_после_касания_ногой_защитником
-
-off_case_00_02_00_02_02_отобьет:
-                            .byte con_jsr
-                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
-                            .byte con_jsr
-                            .word sub_9FF1_защитник_в_процессе_отбития_ногой_низкого_мяча
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-off_case_00_02_00_02_03_словит:
-                            .byte con_jmp
-                            .word loc_A16E_защитник_ловит_высокий_мяч_ногой
-
-off_case_00_02_01:
-            .byte con_branch, $02 + $80     ; действие защитника
-            .byte off_case_00_02_01_00_block - *
-            .byte off_case_00_02_01_01_tackle - *
-            .byte off_case_00_02_01_02_pass_cut - *
-
-off_case_00_02_01_00_block:
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_00_02_01_00_00_промахнется - *
-                    .byte off_case_00_02_01_00_01_коснется - *
-                    .byte off_case_00_02_01_00_02_отобьет - *
-                    .byte off_case_00_02_01_00_03_словит - *
-
-off_case_00_02_01_00_00_промахнется:
-                            .byte con_jsr
-                            .word sub_9C79_защитник_бежит_по_земле
-                            .byte con_jsr
-                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                            .byte con_jsr
-                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jmp
-                            .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-
-off_case_00_02_01_00_01_коснется:
-                            .byte con_jsr
-                            .word sub_9C79_защитник_бежит_по_земле
-                            .byte con_jsr
-                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                            .byte con_jsr
-                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-                            .byte con_jmp
-                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
-
-off_case_00_02_01_00_02_отобьет:
-                            .byte con_branch, $1B + $80
-                            .byte off_case_00_02_01_00_02_00_block - *
-                            .byte off_case_00_02_01_00_02_01_face_block - *
-                            .byte off_case_00_02_01_00_02_02_skylab_block - *
-                            .byte off_case_00_02_01_00_02_03_power_block - *
-
-off_case_00_02_01_00_02_00_block:
-off_case_00_02_01_00_02_02_skylab_block:
-off_case_00_02_01_00_02_03_power_block:
-                                    .byte con_jsr
-                                    .word sub_9C79_защитник_бежит_по_земле
-                                    .byte con_jsr
-                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                                    .byte con_jsr
-                                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                                    .byte con_jsr
-                                    .word sub_A2DD_ярко_красное_мерцание
-                                    .byte con_jsr
-                                    .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-                                    .byte con_jmp
-                                    .word loc_A371_мяч_улетает_в_сторону
-
-off_case_00_02_01_00_02_01_face_block:
-                                    .byte con_jmp
-                                    .word loc_8C97_ishizaki_face_block_полная_анимация
-
-off_case_00_02_01_00_03_словит:
-                            .byte con_branch, $1B + $80
-                            .byte off_case_00_02_01_00_03_00_block - *
-                            .byte off_case_00_02_01_00_03_01_face_block - *
-                            .byte off_case_00_02_01_00_03_02_skylab_block - *
-                            .byte off_case_00_02_01_00_03_03_power_block - *
-
-off_case_00_02_01_00_03_00_block:
-off_case_00_02_01_00_03_02_skylab_block:
-off_case_00_02_01_00_03_03_power_block:
-                                    .byte con_jsr
-                                    .word sub_9C79_защитник_бежит_по_земле
-                                    .byte con_jsr
-                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
-                                    .byte con_jsr
-                                    .word sub_A2DD_ярко_красное_мерцание
-                                    .byte con_jmp
-                                    .word loc_A1A9_защитник_ловит_блоком_высокий_мяч
-
-off_case_00_02_01_00_03_01_face_block:
-                                    .byte con_jmp
-                                    .word loc_8C97_ishizaki_face_block_полная_анимация
-
-off_case_00_02_01_01_tackle:
-                    .byte con_jsr
-                    .word sub_9C79_защитник_бежит_по_земле
-                    .byte con_jsr
-                    .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
-                    .byte con_jsr
-                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                    .byte con_jsr
-                    .word sub_A2DD_ярко_красное_мерцание
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_00_02_01_01_00_умрет - *
-                    .byte off_case_00_02_01_01_01_умрет_и_серый_экран - *
-                    .byte off_case_00_02_01_01_02_умрет_и_отобьет - *
-; bzk по идее может и словить с темно красным мерцанием, надо смотреть код, бывает ли такая ситуация
-
-off_case_00_02_01_01_00_умрет:
-                            .byte con_jmp
-                            .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-
-off_case_00_02_01_01_01_умрет_и_серый_экран:
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-                            .byte con_jmp
-                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
-
-off_case_00_02_01_01_02_умрет_и_отобьет:
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-off_case_00_02_01_02_pass_cut:
-                    .byte con_jsr
-                    .word sub_9C79_защитник_бежит_по_земле
-                    .byte con_jsr
-                    .word sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_00_02_01_02_00_умрет - *
-                    .byte off_case_00_02_01_02_01_умрет_и_серый_экран - *
-                    .byte off_case_00_02_01_02_02_умрет_и_отобьет - *
-                    .byte off_case_00_02_01_02_03_словит - *
-
-off_case_00_02_01_02_00_умрет:
-                            .byte con_jsr
-                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jmp
-                            .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-
-off_case_00_02_01_02_01_умрет_и_серый_экран:
-                            .byte con_jsr
-                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-                            .byte con_jmp
-                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
-
-off_case_00_02_01_02_02_умрет_и_отобьет:
-                            .byte con_jsr
-                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-off_case_00_02_01_02_03_словит:
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jmp
-                            .word loc_A16E_защитник_ловит_высокий_мяч_ногой
-
 bra_long_case_00_01_летит_низкий_мяч:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_branch, $46 + $80
@@ -3359,6 +3033,331 @@ off_case_00_01_01_02_03_словит:
                             .byte con_jmp
                             .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
+bra_long_case_00_02_летит_высокий_мяч:
+    .byte con_mirror_condition, $03       ; куда летит мяч
+    .byte con_branch, $46 + $80
+    .byte off_case_00_02_00 - *
+    .byte off_case_00_02_01 - *
+
+off_case_00_02_00:
+            .byte con_branch, $02 + $80     ; действие защитника
+            .byte off_case_00_02_00_00_block - *
+            .byte off_case_00_02_00_01_tackle - *
+            .byte off_case_00_02_00_02_pass_cut - *
+
+off_case_00_02_00_00_block:
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_00_02_00_00_00_промахнется - *
+                    .byte off_case_00_02_00_00_01_коснется - *
+                    .byte off_case_00_02_00_00_02_отобьет - *
+                    .byte off_case_00_02_00_00_03_словит - *
+
+off_case_00_02_00_00_00_промахнется:
+                            .byte con_jsr
+                            .word sub_9C79_защитник_бежит_по_земле
+                            .byte con_jsr
+                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                            .byte con_jmp
+                            .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
+
+off_case_00_02_00_00_01_коснется:
+                            .byte con_jsr
+                            .word sub_9C79_защитник_бежит_по_земле
+                            .byte con_jsr
+                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                            .byte con_jsr
+                            .word sub_A042_защитник_в_воздухе_собирается_коснуться_мяча_телом
+                            .byte con_jsr
+                            .word sub_A025_момент_касания_защитником_мяча_телом
+                            .byte con_jmp
+                            .word loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом
+
+
+off_case_00_02_00_00_02_отобьет:
+                            .byte con_branch, $1B + $80
+                            .byte off_case_00_02_00_00_02_00_block - *
+                            .byte off_case_00_02_00_00_02_01_face_block - *
+                            .byte off_case_00_02_00_00_02_02_skylab_block - *
+                            .byte off_case_00_02_00_00_02_03_power_block - *
+
+off_case_00_02_00_00_02_00_block:
+off_case_00_02_00_00_02_02_skylab_block:
+off_case_00_02_00_00_02_03_power_block:
+loc_8C88_защитник_прыгает_и_отбивает_мяч_телом:
+                                    .byte con_jsr
+                                    .word sub_9C79_защитник_бежит_по_земле
+                                    .byte con_jsr
+                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                                    .byte con_jsr
+                                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                                    .byte con_jsr
+                                    .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
+                                    .byte con_jmp
+                                    .word loc_A371_мяч_улетает_в_сторону
+
+off_case_00_02_00_00_02_01_face_block:
+loc_8C97_ishizaki_face_block_полная_анимация:
+                                    .byte con_jsr
+                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                                    .byte con_jmp
+                                    .word loc_8F67_ishizaki_face_block_в_процессе
+
+off_case_00_02_00_00_03_словит:
+                            .byte con_branch, $1B + $80
+                            .byte off_case_00_02_00_00_03_00_block - *
+                            .byte off_case_00_02_00_00_03_01_face_block - *
+                            .byte off_case_00_02_00_00_03_02_skylab_block - *
+                            .byte off_case_00_02_00_00_03_03_power_block - *
+
+off_case_00_02_00_00_03_00_block:
+off_case_00_02_00_00_03_02_skylab_block:
+off_case_00_02_00_00_03_03_power_block:
+loc_8D38_защитник_ловит_блоком_высокий_мяч:
+                                    .byte con_jsr
+                                    .word sub_9C79_защитник_бежит_по_земле
+                                    .byte con_jsr
+                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                                    .byte con_jmp
+                                    .word loc_A1A9_защитник_ловит_блоком_высокий_мяч
+
+off_case_00_02_00_00_03_01_face_block:
+                                    .byte con_jmp
+                                    .word loc_8C97_ishizaki_face_block_полная_анимация
+
+off_case_00_02_00_01_tackle:
+                    .byte con_jsr
+                    .word sub_9C79_защитник_бежит_по_земле
+                    .byte con_jsr
+                    .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_00_02_00_01_00_промахнется - *
+                    .byte off_case_00_02_00_01_01_коснется - *
+                    .byte off_case_00_02_00_01_02_отобьет - *
+                    .byte off_case_00_02_00_01_03_словит - *
+
+off_case_00_02_00_01_00_промахнется:
+                            .byte con_jmp
+                            .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
+
+off_case_00_02_00_01_01_коснется:
+                            .byte con_jsr
+                            .word sub_A042_защитник_в_воздухе_собирается_коснуться_мяча_телом
+                            .byte con_jsr
+                            .word sub_A025_момент_касания_защитником_мяча_телом
+                            .byte con_jmp
+                            .word loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом
+
+off_case_00_02_00_01_02_отобьет:
+                            .byte con_jsr
+                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                            .byte con_jsr
+                            .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+off_case_00_02_00_01_03_словит:
+                            .byte con_jmp
+                            .word loc_A185_защитник_ловит_высокий_мяч_телом
+
+off_case_00_02_00_02_pass_cut:
+                    .byte con_jsr
+                    .word sub_9C79_защитник_бежит_по_земле
+                    .byte con_jsr
+                    .word sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_00_02_00_02_00_промахнется - *
+                    .byte off_case_00_02_00_02_01_коснется - *
+                    .byte off_case_00_02_00_02_02_отобьет - *
+                    .byte off_case_00_02_00_02_03_словит - *
+
+off_case_00_02_00_02_00_промахнется:
+                            .byte con_jmp
+                            .word loc_BF02_защитник_промахивается_ногой_по_высокому_мячу
+
+off_case_00_02_00_02_01_коснется:
+                            .byte con_jsr
+                            .word sub_A00B_защитник_собирается_коснуться_ногой_высокого_мяча
+                            .byte con_jsr
+                            .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
+                            .byte con_jmp
+                            .word loc_9FE0_высокий_мяч_летит_дальше_после_касания_ногой_защитником
+
+off_case_00_02_00_02_02_отобьет:
+                            .byte con_jsr
+                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
+                            .byte con_jsr
+                            .word sub_9FF1_защитник_в_процессе_отбития_ногой_низкого_мяча
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+off_case_00_02_00_02_03_словит:
+                            .byte con_jmp
+                            .word loc_A16E_защитник_ловит_высокий_мяч_ногой
+
+off_case_00_02_01:
+            .byte con_branch, $02 + $80     ; действие защитника
+            .byte off_case_00_02_01_00_block - *
+            .byte off_case_00_02_01_01_tackle - *
+            .byte off_case_00_02_01_02_pass_cut - *
+
+off_case_00_02_01_00_block:
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_00_02_01_00_00_промахнется - *
+                    .byte off_case_00_02_01_00_01_коснется - *
+                    .byte off_case_00_02_01_00_02_отобьет - *
+                    .byte off_case_00_02_01_00_03_словит - *
+
+off_case_00_02_01_00_00_промахнется:
+                            .byte con_jsr
+                            .word sub_9C79_защитник_бежит_по_земле
+                            .byte con_jsr
+                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                            .byte con_jsr
+                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
+
+off_case_00_02_01_00_01_коснется:
+                            .byte con_jsr
+                            .word sub_9C79_защитник_бежит_по_земле
+                            .byte con_jsr
+                            .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                            .byte con_jsr
+                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
+
+off_case_00_02_01_00_02_отобьет:
+                            .byte con_branch, $1B + $80
+                            .byte off_case_00_02_01_00_02_00_block - *
+                            .byte off_case_00_02_01_00_02_01_face_block - *
+                            .byte off_case_00_02_01_00_02_02_skylab_block - *
+                            .byte off_case_00_02_01_00_02_03_power_block - *
+
+off_case_00_02_01_00_02_00_block:
+off_case_00_02_01_00_02_02_skylab_block:
+off_case_00_02_01_00_02_03_power_block:
+                                    .byte con_jsr
+                                    .word sub_9C79_защитник_бежит_по_земле
+                                    .byte con_jsr
+                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                                    .byte con_jsr
+                                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                                    .byte con_jsr
+                                    .word sub_A2DD_ярко_красное_мерцание
+                                    .byte con_jsr
+                                    .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+                                    .byte con_jmp
+                                    .word loc_A371_мяч_улетает_в_сторону
+
+off_case_00_02_01_00_02_01_face_block:
+                                    .byte con_jmp
+                                    .word loc_8C97_ishizaki_face_block_полная_анимация
+
+off_case_00_02_01_00_03_словит:
+                            .byte con_branch, $1B + $80
+                            .byte off_case_00_02_01_00_03_00_block - *
+                            .byte off_case_00_02_01_00_03_01_face_block - *
+                            .byte off_case_00_02_01_00_03_02_skylab_block - *
+                            .byte off_case_00_02_01_00_03_03_power_block - *
+
+off_case_00_02_01_00_03_00_block:
+off_case_00_02_01_00_03_02_skylab_block:
+off_case_00_02_01_00_03_03_power_block:
+                                    .byte con_jsr
+                                    .word sub_9C79_защитник_бежит_по_земле
+                                    .byte con_jsr
+                                    .word sub_B347_защитник_прыгает_к_летящему_мячу_блоком
+                                    .byte con_jsr
+                                    .word sub_A2DD_ярко_красное_мерцание
+                                    .byte con_jmp
+                                    .word loc_A1A9_защитник_ловит_блоком_высокий_мяч
+
+off_case_00_02_01_00_03_01_face_block:
+                                    .byte con_jmp
+                                    .word loc_8C97_ishizaki_face_block_полная_анимация
+
+off_case_00_02_01_01_tackle:
+                    .byte con_jsr
+                    .word sub_9C79_защитник_бежит_по_земле
+                    .byte con_jsr
+                    .word sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
+                    .byte con_jsr
+                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                    .byte con_jsr
+                    .word sub_A2DD_ярко_красное_мерцание
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_00_02_01_01_00_умрет - *
+                    .byte off_case_00_02_01_01_01_умрет_и_серый_экран - *
+                    .byte off_case_00_02_01_01_02_умрет_и_отобьет - *
+; bzk по идее может и словить с темно красным мерцанием, надо смотреть код, бывает ли такая ситуация
+
+off_case_00_02_01_01_00_умрет:
+                            .byte con_jmp
+                            .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
+
+off_case_00_02_01_01_01_умрет_и_серый_экран:
+                            .byte con_jsr
+                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
+
+off_case_00_02_01_01_02_умрет_и_отобьет:
+                            .byte con_jsr
+                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+off_case_00_02_01_02_pass_cut:
+                    .byte con_jsr
+                    .word sub_9C79_защитник_бежит_по_земле
+                    .byte con_jsr
+                    .word sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_00_02_01_02_00_умрет - *
+                    .byte off_case_00_02_01_02_01_умрет_и_серый_экран - *
+                    .byte off_case_00_02_01_02_02_умрет_и_отобьет - *
+                    .byte off_case_00_02_01_02_03_словит - *
+
+off_case_00_02_01_02_00_умрет:
+                            .byte con_jsr
+                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
+
+off_case_00_02_01_02_01_умрет_и_серый_экран:
+                            .byte con_jsr
+                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
+
+off_case_00_02_01_02_02_умрет_и_отобьет:
+                            .byte con_jsr
+                            .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+off_case_00_02_01_02_03_словит:
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_A16E_защитник_ловит_высокий_мяч_ногой
 
 
 _scenario_91D3_13:
