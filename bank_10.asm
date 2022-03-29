@@ -2487,23 +2487,17 @@ _scenario_8AB1_00:
     .word off_long_case_8F09_01_летит_низкий_мяч
     .word off_long_case_8C4B_02_летит_высокий_мяч
 
-
-
 off_long_case_8AB9_00_мяч_у_атакующего_на_земле:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_8AC7_00_защитник_выживет - *
     .byte off_case_8B8E_01_защитник_убьется - *
 
-
-
 off_case_8AC7_00_защитник_выживет:
     .byte con_branch, $02 + $80     ; действие защитника
     .byte off_case_8AD1_00_block - *
     .byte off_case_8ADF_01_tackle - *
     .byte off_case_8AD8_02_pass_cut - *
-
-
 
 off_case_8AD1_00_block:
 off_case_8AD8_02_pass_cut:
@@ -2515,6 +2509,51 @@ off_case_8AD8_02_pass_cut:
     .byte off_case_8B0D_02_защитник_выбьет_мяч - *
     .byte off_case_8B1F_03_защитник_заберет_мяч - *
     .byte off_case_8B31_04_нарушение - *
+
+off_case_8AFB_00_атакующий_легко_обводит:
+    .byte con_jsr
+    .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
+    .byte con_jmp
+    .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
+
+off_case_8B04_01_атакующий_с_трудом_обводит:
+    .byte con_jsr
+    .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
+    .byte con_jmp
+    .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
+
+off_case_8B0D_02_защитник_выбьет_мяч:
+    .byte con_jsr
+    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+    .byte con_jsr
+    .word sub_A308_белое_мерцание
+    .byte con_mirror_toggle
+    .byte con_jsr
+    .word sub_A373_мяч_улетает_в_сторону
+    .byte con_jsr
+    .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
+    .byte con_mirror_toggle
+    .byte con_quit
+
+off_case_8B1F_03_защитник_заберет_мяч:
+    .byte con_jsr
+    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+    .byte con_jsr
+    .word sub_A2EF_белое_мерцание_без_звука
+    .byte con_jsr
+    .word sub_BF00_защитник_отбирает_ногой_мяч_у_атакующего
+    .byte con_jsr
+    .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
+    .byte con_mirror_toggle
+    .byte con_quit
+
+off_case_8B31_04_нарушение:
+    .byte con_jsr
+    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+    .byte con_jsr
+    .word sub_A2DD_ярко_красное_мерцание
+    .byte con_jmp
+    .word loc_A35B_нарушение
 
 
 
@@ -2530,78 +2569,17 @@ off_case_8ADF_01_tackle:
     .byte off_case_8B6A_03_защитник_заберет_мяч - *
     .byte off_case_8B7F_04_нарушение - *
 
-
-
-off_case_8AFB_00_атакующий_легко_обводит:
-    .byte con_jsr
-    .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
-    .byte con_jmp
-    .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
-
-
-
-off_case_8B04_01_атакующий_с_трудом_обводит:
-    .byte con_jsr
-    .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
-    .byte con_jmp
-    .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
-
-
-
-off_case_8B0D_02_защитник_выбьет_мяч:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A308_белое_мерцание
-    .byte con_mirror_toggle
-    .byte con_jsr
-    .word sub_A373_мяч_улетает_в_сторону
-    .byte con_jsr
-    .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
-    .byte con_mirror_toggle
-    .byte con_quit
-
-
-
-off_case_8B1F_03_защитник_заберет_мяч:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2EF_белое_мерцание_без_звука
-    .byte con_jsr
-    .word sub_BF00_защитник_отбирает_ногой_мяч_у_атакующего
-    .byte con_jsr
-    .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
-    .byte con_mirror_toggle
-    .byte con_quit
-
-
-
-off_case_8B31_04_нарушение:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jmp
-    .word loc_A35B_нарушение
-
-
-
 off_case_8B3D_00_атакующий_легко_обводит:
     .byte con_jsr
     .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
     .byte con_jmp
     .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
 
-
-
 off_case_8B49_01_атакующий_с_трудом_обводит:
     .byte con_jsr
     .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
     .byte con_jmp
     .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
-
-
 
 off_case_8B55_02_защитник_выбьет_мяч:
     .byte con_jsr
@@ -2616,8 +2594,6 @@ off_case_8B55_02_защитник_выбьет_мяч:
     .byte con_mirror_toggle
     .byte con_quit
 
-
-
 off_case_8B6A_03_защитник_заберет_мяч:
     .byte con_jsr
     .word sub_9DFE_рожа_атакующего_перед_дриблингом
@@ -2630,8 +2606,6 @@ off_case_8B6A_03_защитник_заберет_мяч:
     .word sub_9E64_рожа_атакующего_с_сообщением_неудачи
     .byte con_mirror_toggle
     .byte con_quit
-
-
 
 off_case_8B7F_04_нарушение:
     .byte con_jsr
@@ -2649,8 +2623,6 @@ off_case_8B8E_01_защитник_убьется:
     .byte off_case_8BA6_01_tackle - *
     .byte off_case_8B9F_02_pass_cut - *
 
-
-
 off_case_8B98_00_block:
 off_case_8B9F_02_pass_cut:
     .byte con_jsr
@@ -2664,6 +2636,17 @@ off_case_8B9F_02_pass_cut:
     .byte con_branch, $03 + $80     ; результат действия защитника
     .byte off_case_8BC2_00_атакующий_легко_обводит - *
     .byte off_case_8BD2_01_атакующий_с_трудом_обводит - *
+
+off_case_8BC2_00_атакующий_легко_обводит:
+    .byte con_jsr
+    .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
+    .byte con_quit
+
+off_case_8BD2_01_атакующий_с_трудом_обводит:
+    .byte con_jsr
+    .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
+    .byte con_jmp
+    .word loc_A247_серый_экран_атакующий_замедлился
 
 
 
@@ -2683,30 +2666,11 @@ off_case_8BA6_01_tackle:
     .byte off_case_8C22_03_защитник_заберет_мяч - *
     .byte off_case_8C39_04_нарушение - *
 
-
-
-off_case_8BC2_00_атакующий_легко_обводит:
-    .byte con_jsr
-    .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-    .byte con_quit
-
-
-
-off_case_8BD2_01_атакующий_с_трудом_обводит:
-    .byte con_jsr
-    .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
-    .byte con_jmp
-    .word loc_A247_серый_экран_атакующий_замедлился
-
-
-
 off_case_8BE4_00_атакующий_легко_обводит:
     .byte con_jsr
     .word sub_9EAA_рожа_защитника_с_сообщением_неудачи
     .byte con_jmp
     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-
-
 
 off_case_8BF6_01_атакующий_с_трудом_обводит:
     .byte con_jsr
@@ -2715,8 +2679,6 @@ off_case_8BF6_01_атакующий_с_трудом_обводит:
     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
     .byte con_jmp
     .word loc_A247_серый_экран_атакующий_замедлился
-
-
 
 off_case_8C0B_02_защитник_выбьет_мяч:
     .byte con_mirror_toggle
@@ -2728,8 +2690,6 @@ off_case_8C0B_02_защитник_выбьет_мяч:
     .byte con_jmp
     .word loc_A371_мяч_улетает_в_сторону
 
-
-
 off_case_8C22_03_защитник_заберет_мяч:
     .byte con_mirror_toggle
     .byte con_jsr
@@ -2739,8 +2699,6 @@ off_case_8C22_03_защитник_заберет_мяч:
     .word sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения
     .byte con_jmp
     .word loc_BF01_успешный_отбор_мяча_подкатом
-
-
 
 off_case_8C39_04_нарушение:
     .byte con_jsr
@@ -3099,8 +3057,6 @@ off_case_8DAC_02_pass_cut:
     .byte off_case_8DD5_02_умрет_и_отобьет - *
     .byte off_case_8DE7_03_словит - *
 
-
-
 off_case_8DB3_00_умрет:
     .byte con_jsr
     .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
@@ -3108,8 +3064,6 @@ off_case_8DB3_00_умрет:
     .word sub_A2DD_ярко_красное_мерцание
     .byte con_jmp
     .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-
-
 
 off_case_8DC3_01_умрет_и_серый_экран:
     .byte con_jsr
@@ -3121,8 +3075,6 @@ off_case_8DC3_01_умрет_и_серый_экран:
     .byte con_jmp
     .word loc_A240_серый_экран_после_касания_высого_мяча_телом
 
-
-
 off_case_8DD5_02_умрет_и_отобьет:
     .byte con_jsr
     .word sub_A010_защитник_собирается_отбить_ногой_высокий_мяч
@@ -3132,8 +3084,6 @@ off_case_8DD5_02_умрет_и_отобьет:
     .word sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением
     .byte con_jmp
     .word loc_A371_мяч_улетает_в_сторону
-
-
 
 off_case_8DE7_03_словит:
     .byte con_jsr
