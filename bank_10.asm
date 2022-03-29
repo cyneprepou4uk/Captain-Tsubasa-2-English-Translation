@@ -69,6 +69,25 @@ C - - - - - 0x02008C 10:807C: A4 3A     LDY ram_003A
 C - - - - - 0x02008E 10:807E: E6 3A     INC ram_003A
 C - - - - - 0x020090 10:8080: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020099 10:8089: 8D 29 05  STA ram_для_05EA_облако
+                                        LDA ram_для_053C_номер_анимации
+                                        CMP #$FD
+                                        BEQ bra_808C_FD
+                                        CMP #$FE
+                                        BEQ bra_808B_FE
+                                        JMP loc_808C
+bra_808C_FD:
+                                        LDA ram_игрок_с_мячом
+                                        JMP loc_808A                        
+bra_808B_FE:
+                                        LDA ram_игрок_без_мяча
+loc_808A:
+                                        JSR sub_8207_узнать_номер_игрока___X_00
+                                        TAY
+                                        LDX tbl_86F4_игроки_с_рожами,Y
+                                        LDA tbl_8275_номер_анимации_игрока,X
+                                        STA ram_для_053C_номер_анимации
+loc_808C:
+; 00-FC, FF
 C - - - - - 0x02009C 10:808C: A5 3A     LDA ram_003A
 C - - - - - 0x02009E 10:808E: 18        CLC
 C - - - - - 0x02009F 10:808F: 65 5D     ADC ram_scernario_data
@@ -315,6 +334,8 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x020211 10:8201: 8A 86     .word ofs_015_868A_47_кто_делает_силовой_дриблинг
 - D - I - - 0x020213 10:8203: B6 86     .word ofs_015_86B6_48
 - D - I - - 0x020215 10:8205: CC 86     .word ofs_015_86CC_49_спешал_перепасовка_и_twin_shot
+                                        .word ofs_015_847D_4A_оба_игрока_с_рожами
+                                        .word ofs_015_85FE_4B_проверка_на_защитника_misugi    ; new
 
 
 
@@ -1718,6 +1739,41 @@ C - - - - - 0x0206EC 10:86DC: D0 F6     BNE bra_86D4_loop_поиска
 bra_86DE_игрок_найден:
 C - - - - - 0x0206EE 10:86DE: E0 11     CPX #$11
 C - - - - - 0x0206F0 10:86E0: 4C 11 82  JMP loc_8211_выставить_флаг_сценария_04
+
+
+
+ofs_015_847D_4A_оба_игрока_с_рожами:
+; 00 - один из игроков/оба игрока без рожи
+; 01 - оба игрока с рожами
+    LDA ram_игрок_без_мяча
+    JSR sub_8207_узнать_номер_игрока___X_00
+    TAY
+    LDX tbl_86F4_игроки_с_рожами,Y
+    BEQ bra_8498_RTS
+    LDA ram_игрок_с_мячом
+    JSR sub_8207_узнать_номер_игрока___X_00
+    TAY
+    LDX tbl_86F4_игроки_с_рожами,Y
+    BEQ bra_8498_RTS
+    JSR sub_8211_выставить_флаг_сценария_04
+    LDX #$01
+bra_8498_RTS:
+    RTS
+
+
+
+ofs_015_85FE_4B_проверка_на_защитника_misugi:
+; 00 - это какой-то другой игрок
+; 01 - это misugi из japan
+    LDA ram_игрок_без_мяча
+    JSR sub_8207_узнать_номер_игрока___X_00
+    CMP #$20      ; misugi из japan (наша команда)
+    BNE bra_85FE_RTS
+    INX
+bra_85FE_RTS:
+    RTS
+
+
 
 tbl_86E3_игроки_со_спешал_перепасовкой:
 ; 0x0206F3
@@ -8729,389 +8785,43 @@ sub_A470_цикл_power_tackle:
 
 sub_A495_сообщение_игрока_при_ответе_на_нападение:
 - D - I - - 0x0224A5 11:A495: F6        .byte con_mirror_toggle
-- D - I - - 0x0224A6 11:A496: F3        .byte con_branch, $28 + $80
-- D - I - - 0x0224A8 11:A498: 22        .byte off_case_A4BA_00_игрок_без_рожи - *
-- D - I - - 0x0224A9 11:A499: 22        .byte off_case_A4BB_01_tsubasa - *
-- D - I - - 0x0224AA 11:A49A: 28        .byte off_case_A4C2_02_misaki - *
-- - - - - - 0x0224AB 11:A49B: 2E        .byte off_case_A4C9_03_misaki - *
-- D - I - - 0x0224AC 11:A49C: 34        .byte off_case_A4D0_04_hyuga - *
-- D - I - - 0x0224AD 11:A49D: 3A        .byte off_case_A4D7_05_hyuga - *
-- - - - - - 0x0224AE 11:A49E: 40        .byte off_case_A4DE_06_misugi - *
-- - - - - - 0x0224AF 11:A49F: 4D        .byte off_case_A4EC_07_misugi - *
-- - - - - - 0x0224B0 11:A4A0: 53        .byte off_case_A4F3_08_matsuyama - *
-- D - I - - 0x0224B1 11:A4A1: 59        .byte off_case_A4FA_09_matsuyama - *
-- - - - - - 0x0224B2 11:A4A2: 5F        .byte off_case_A501_0A_ishizaki - *
-- - - - - - 0x0224B3 11:A4A3: 65        .byte off_case_A508_0B_ishizaki - *
-- D - I - - 0x0224B4 11:A4A4: 6B        .byte off_case_A50F_0C_soda - *
-- - - - - - 0x0224B5 11:A4A5: 71        .byte off_case_A516_0D_soda - *
-- - - - - - 0x0224B6 11:A4A6: 77        .byte off_case_A51D_0E_jito - *
-- D - I - - 0x0224B7 11:A4A7: 7D        .byte off_case_A524_0F_jito - *
-- D - I - - 0x0224B8 11:A4A8: 83        .byte off_case_A52B_10_masao_kazuo - *
-- D - I - - 0x0224B9 11:A4A9: 89        .byte off_case_A532_11_masao_kazuo - *
-- D - I - - 0x0224BA 11:A4AA: 8F        .byte off_case_A539_12_nitta - *
-- - - - - - 0x0224BB 11:A4AB: 95        .byte off_case_A540_13_nitta - *
-- - - - - - 0x0224BC 11:A4AC: 9B        .byte off_case_A547_14_sawada - *
-- - - - - - 0x0224BD 11:A4AD: A1        .byte off_case_A54E_15_sawada - *
-- D - I - - 0x0224BE 11:A4AE: A7        .byte off_case_A555_16_coimbra - *
-- D - I - - 0x0224BF 11:A4AF: AD        .byte off_case_A55C_17_carlos - *
-- D - I - - 0x0224C0 11:A4B0: B3        .byte off_case_A563_18_carlos - *
-- D - I - - 0x0224C1 11:A4B1: B9        .byte off_case_A56A_19_schneider - *
-- - - - - - 0x0224C2 11:A4B2: BF        .byte off_case_A571_1A_kaltz - *
-- - - - - - 0x0224C3 11:A4B3: C5        .byte off_case_A578_1B_schester - *
-- D - I - - 0x0224C4 11:A4B4: CB        .byte off_case_A57F_1C_diaz - *
-- D - I - - 0x0224C5 11:A4B5: D1        .byte off_case_A586_1D_pascal - *
-- D - I - - 0x0224C6 11:A4B6: D7        .byte off_case_A58D_1E_pierre - *
-- D - I - - 0x0224C7 11:A4B7: DD        .byte off_case_A594_1F_napoleon - *
-- D - I - - 0x0224C8 11:A4B8: E3        .byte off_case_A59B_20_victorino - *
-- - - - - - 0x0224C9 11:A4B9: E9        .byte off_case_A5A2_21_kaltz - *
+                                        .byte con_branch, $4A + $80
+                                        .byte @какой_то_игрок_без_рожи - *
+                                        .byte @оба_игрока_с_рожами - *
 
 
 
-off_case_A4BA_00_игрок_без_рожи:
-- D - I - - 0x0224CA 11:A4BA: FB        .byte con_rts
+@какой_то_игрок_без_рожи:
+                                        .byte con_rts
 
 
 
-off_case_A4BB_01_tsubasa:
-- D - I - - 0x0224CB 11:A4BB: 3C        .byte con_pause + $3C
-- D - I - - 0x0224CC 11:A4BC: 30        .byte con_bg + $30
-- D - I - - 0x0224CD 11:A4BD: 91        .byte con_animation + $91
-- D - I - - 0x0224CE 11:A4BE: 97        .byte con_cloud + $97
-- D - I - - 0x0224CF 11:A4BF: F2        .byte con_jmp
-- D - I - - 0x0224D0 11:A4C0: C7 BB     .word loc_BBC7_очистка
+@оба_игрока_с_рожами:
+                                        .byte con_branch, $4B + $80
+                                        .byte @это_другой_игрок_либо_живой_misugi - *
+                                        .byte @это_misigu - *
 
 
 
-off_case_A4C2_02_misaki:
-- D - I - - 0x0224D2 11:A4C2: 3C        .byte con_pause + $3C
-- D - I - - 0x0224D3 11:A4C3: 30        .byte con_bg + $30
-- D - I - - 0x0224D4 11:A4C4: 96        .byte con_animation + $96
-- D - I - - 0x0224D5 11:A4C5: 97        .byte con_cloud + $97
-- D - I - - 0x0224D6 11:A4C6: F2        .byte con_jmp
-- D - I - - 0x0224D7 11:A4C7: C7 BB     .word loc_BBC7_очистка
+@это_другой_игрок_либо_живой_misugi:
+                                        .byte con_pause + $3C
+                                        .byte con_bg + $30
+                                        .byte con_animation + $FD
+                                        .byte con_cloud + $97
+                                        .byte con_jmp
+                                        .word loc_BBC7_очистка
 
 
-
-off_case_A4C9_03_misaki:
-- - - - - - 0x0224D9 11:A4C9: 3C        .byte con_pause + $3C
-- - - - - - 0x0224DA 11:A4CA: 30        .byte con_bg + $30
-- - - - - - 0x0224DB 11:A4CB: 97        .byte con_animation + $97
-- - - - - - 0x0224DC 11:A4CC: 97        .byte con_cloud + $97
-- - - - - - 0x0224DD 11:A4CD: F2        .byte con_jmp
-- - - - - - 0x0224DE 11:A4CE: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A4D0_04_hyuga:
-- D - I - - 0x0224E0 11:A4D0: 3C        .byte con_pause + $3C
-- D - I - - 0x0224E1 11:A4D1: 31        .byte con_bg + $31
-- D - I - - 0x0224E2 11:A4D2: 9E        .byte con_animation + $9E
-- D - I - - 0x0224E3 11:A4D3: 97        .byte con_cloud + $97
-- D - I - - 0x0224E4 11:A4D4: F2        .byte con_jmp
-- D - I - - 0x0224E5 11:A4D5: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A4D7_05_hyuga:
-- D - I - - 0x0224E7 11:A4D7: 3C        .byte con_pause + $3C
-- D - I - - 0x0224E8 11:A4D8: 31        .byte con_bg + $31
-- D - I - - 0x0224E9 11:A4D9: B0        .byte con_animation + $B0
-- D - I - - 0x0224EA 11:A4DA: 97        .byte con_cloud + $97
-- D - I - - 0x0224EB 11:A4DB: F2        .byte con_jmp
-- D - I - - 0x0224EC 11:A4DC: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A4DE_06_misugi:
-- - - - - - 0x0224EE 11:A4DE: F3        .byte con_branch, $2B + $80     ; проверка на 100 хп
-- - - - - - 0x0224F0 11:A4E0: 02        .byte off_case_A4E2_00_есть_100_хп - *
-- - - - - - 0x0224F1 11:A4E1: 08        .byte off_case_A4E9_01_меньше_100_хп - *
-
-
-
-off_case_A4E2_00_есть_100_хп:
-- - - - - - 0x0224F2 11:A4E2: 3C        .byte con_pause + $3C
-- - - - - - 0x0224F3 11:A4E3: 30        .byte con_bg + $30
-- - - - - - 0x0224F4 11:A4E4: A3        .byte con_animation + $A3
-- - - - - - 0x0224F5 11:A4E5: 97        .byte con_cloud + $97
-- - - - - - 0x0224F6 11:A4E6: F2        .byte con_jmp
-- - - - - - 0x0224F7 11:A4E7: C7 BB     .word loc_BBC7_очистка
+@это_misigu:
+                                        .byte con_branch, $2B + $80     ; проверка на 100 хп
+                                        .byte @это_другой_игрок_либо_живой_misugi - *                                        
+                                        .byte off_case_A4E9_01_меньше_100_хп - *
 
 
 
 off_case_A4E9_01_меньше_100_хп:
 - - - - - - 0x0224F9 11:A4E9: F2        .byte con_jmp
 - - - - - - 0x0224FA 11:A4EA: 89 A9     .word loc_A989_меньше_100_хп
-
-
-
-off_case_A4EC_07_misugi:
-- - - - - - 0x0224FC 11:A4EC: 3C        .byte con_pause + $3C
-- - - - - - 0x0224FD 11:A4ED: 30        .byte con_bg + $30
-- - - - - - 0x0224FE 11:A4EE: AE        .byte con_animation + $AE
-- - - - - - 0x0224FF 11:A4EF: 97        .byte con_cloud + $97
-- - - - - - 0x022500 11:A4F0: F2        .byte con_jmp
-- - - - - - 0x022501 11:A4F1: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A4F3_08_matsuyama:
-- - - - - - 0x022503 11:A4F3: 3C        .byte con_pause + $3C
-- - - - - - 0x022504 11:A4F4: 30        .byte con_bg + $30
-- - - - - - 0x022505 11:A4F5: A1        .byte con_animation + $A1
-- - - - - - 0x022506 11:A4F6: 97        .byte con_cloud + $97
-- - - - - - 0x022507 11:A4F7: F2        .byte con_jmp
-- - - - - - 0x022508 11:A4F8: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A4FA_09_matsuyama:
-- D - I - - 0x02250A 11:A4FA: 3C        .byte con_pause + $3C
-- D - I - - 0x02250B 11:A4FB: 30        .byte con_bg + $30
-- D - I - - 0x02250C 11:A4FC: AF        .byte con_animation + $AF
-- D - I - - 0x02250D 11:A4FD: 97        .byte con_cloud + $97
-- D - I - - 0x02250E 11:A4FE: F2        .byte con_jmp
-- D - I - - 0x02250F 11:A4FF: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A501_0A_ishizaki:
-- - - - - - 0x022511 11:A501: 3C        .byte con_pause + $3C
-- - - - - - 0x022512 11:A502: 30        .byte con_bg + $30
-- - - - - - 0x022513 11:A503: 98        .byte con_animation + $98
-- - - - - - 0x022514 11:A504: 97        .byte con_cloud + $97
-- - - - - - 0x022515 11:A505: F2        .byte con_jmp
-- - - - - - 0x022516 11:A506: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A508_0B_ishizaki:
-- - - - - - 0x022518 11:A508: 3C        .byte con_pause + $3C
-- - - - - - 0x022519 11:A509: 30        .byte con_bg + $30
-- - - - - - 0x02251A 11:A50A: 99        .byte con_animation + $99
-- - - - - - 0x02251B 11:A50B: 97        .byte con_cloud + $97
-- - - - - - 0x02251C 11:A50C: F2        .byte con_jmp
-- - - - - - 0x02251D 11:A50D: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A50F_0C_soda:
-- D - I - - 0x02251F 11:A50F: 3C        .byte con_pause + $3C
-- D - I - - 0x022520 11:A510: 30        .byte con_bg + $30
-- D - I - - 0x022521 11:A511: 9F        .byte con_animation + $9F
-- D - I - - 0x022522 11:A512: 97        .byte con_cloud + $97
-- D - I - - 0x022523 11:A513: F2        .byte con_jmp
-- D - I - - 0x022524 11:A514: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A516_0D_soda:
-- - - - - - 0x022526 11:A516: 3C        .byte con_pause + $3C
-- - - - - - 0x022527 11:A517: 30        .byte con_bg + $30
-- - - - - - 0x022528 11:A518: AD        .byte con_animation + $AD
-- - - - - - 0x022529 11:A519: 97        .byte con_cloud + $97
-- - - - - - 0x02252A 11:A51A: F2        .byte con_jmp
-- - - - - - 0x02252B 11:A51B: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A51D_0E_jito:
-- - - - - - 0x02252D 11:A51D: 3C        .byte con_pause + $3C
-- - - - - - 0x02252E 11:A51E: 30        .byte con_bg + $30
-- - - - - - 0x02252F 11:A51F: A0        .byte con_animation + $A0
-- - - - - - 0x022530 11:A520: 97        .byte con_cloud + $97
-- - - - - - 0x022531 11:A521: F2        .byte con_jmp
-- - - - - - 0x022532 11:A522: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A524_0F_jito:
-- D - I - - 0x022534 11:A524: 3C        .byte con_pause + $3C
-- D - I - - 0x022535 11:A525: 30        .byte con_bg + $30
-- D - I - - 0x022536 11:A526: AA        .byte con_animation + $AA
-- D - I - - 0x022537 11:A527: 97        .byte con_cloud + $97
-- D - I - - 0x022538 11:A528: F2        .byte con_jmp
-- D - I - - 0x022539 11:A529: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A52B_10_masao_kazuo:
-- D - I - - 0x02253B 11:A52B: 3C        .byte con_pause + $3C
-- D - I - - 0x02253C 11:A52C: 30        .byte con_bg + $30
-- D - I - - 0x02253D 11:A52D: 9C        .byte con_animation + $9C
-- D - I - - 0x02253E 11:A52E: 97        .byte con_cloud + $97
-- D - I - - 0x02253F 11:A52F: F2        .byte con_jmp
-- D - I - - 0x022540 11:A530: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A532_11_masao_kazuo:
-- D - I - - 0x022542 11:A532: 3C        .byte con_pause + $3C
-- D - I - - 0x022543 11:A533: 30        .byte con_bg + $30
-- D - I - - 0x022544 11:A534: AB        .byte con_animation + $AB
-- D - I - - 0x022545 11:A535: 97        .byte con_cloud + $97
-- D - I - - 0x022546 11:A536: F2        .byte con_jmp
-- D - I - - 0x022547 11:A537: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A539_12_nitta:
-- D - I - - 0x022549 11:A539: 3C        .byte con_pause + $3C
-- D - I - - 0x02254A 11:A53A: 30        .byte con_bg + $30
-- D - I - - 0x02254B 11:A53B: 9A        .byte con_animation + $9A
-- D - I - - 0x02254C 11:A53C: 97        .byte con_cloud + $97
-- D - I - - 0x02254D 11:A53D: F2        .byte con_jmp
-- D - I - - 0x02254E 11:A53E: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A540_13_nitta:
-- - - - - - 0x022550 11:A540: 3C        .byte con_pause + $3C
-- - - - - - 0x022551 11:A541: 30        .byte con_bg + $30
-- - - - - - 0x022552 11:A542: 9B        .byte con_animation + $9B
-- - - - - - 0x022553 11:A543: 97        .byte con_cloud + $97
-- - - - - - 0x022554 11:A544: F2        .byte con_jmp
-- - - - - - 0x022555 11:A545: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A547_14_sawada:
-- - - - - - 0x022557 11:A547: 3C        .byte con_pause + $3C
-- - - - - - 0x022558 11:A548: 30        .byte con_bg + $30
-- - - - - - 0x022559 11:A549: A2        .byte con_animation + $A2
-- - - - - - 0x02255A 11:A54A: 97        .byte con_cloud + $97
-- - - - - - 0x02255B 11:A54B: F2        .byte con_jmp
-- - - - - - 0x02255C 11:A54C: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A54E_15_sawada:
-- - - - - - 0x02255E 11:A54E: 3C        .byte con_pause + $3C
-- - - - - - 0x02255F 11:A54F: 30        .byte con_bg + $30
-- - - - - - 0x022560 11:A550: B1        .byte con_animation + $B1
-- - - - - - 0x022561 11:A551: 97        .byte con_cloud + $97
-- - - - - - 0x022562 11:A552: F2        .byte con_jmp
-- - - - - - 0x022563 11:A553: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A555_16_coimbra:
-- D - I - - 0x022565 11:A555: 3C        .byte con_pause + $3C
-- D - I - - 0x022566 11:A556: 30        .byte con_bg + $30
-- D - I - - 0x022567 11:A557: BC        .byte con_animation + $BC
-- D - I - - 0x022568 11:A558: 97        .byte con_cloud + $97
-- D - I - - 0x022569 11:A559: F2        .byte con_jmp
-- D - I - - 0x02256A 11:A55A: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A55C_17_carlos:
-- D - I - - 0x02256C 11:A55C: 3C        .byte con_pause + $3C
-- D - I - - 0x02256D 11:A55D: 30        .byte con_bg + $30
-- D - I - - 0x02256E 11:A55E: A9        .byte con_animation + $A9
-- D - I - - 0x02256F 11:A55F: 97        .byte con_cloud + $97
-- D - I - - 0x022570 11:A560: F2        .byte con_jmp
-- D - I - - 0x022571 11:A561: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A563_18_carlos:
-- D - I - - 0x022573 11:A563: 3C        .byte con_pause + $3C
-- D - I - - 0x022574 11:A564: 30        .byte con_bg + $30
-- D - I - - 0x022575 11:A565: BB        .byte con_animation + $BB
-- D - I - - 0x022576 11:A566: 97        .byte con_cloud + $97
-- D - I - - 0x022577 11:A567: F2        .byte con_jmp
-- D - I - - 0x022578 11:A568: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A56A_19_schneider:
-- D - I - - 0x02257A 11:A56A: 3C        .byte con_pause + $3C
-- D - I - - 0x02257B 11:A56B: 30        .byte con_bg + $30
-- D - I - - 0x02257C 11:A56C: B8        .byte con_animation + $B8
-- D - I - - 0x02257D 11:A56D: 97        .byte con_cloud + $97
-- D - I - - 0x02257E 11:A56E: F2        .byte con_jmp
-- D - I - - 0x02257F 11:A56F: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A571_1A_kaltz:
-- - - - - - 0x022581 11:A571: 3C        .byte con_pause + $3C
-- - - - - - 0x022582 11:A572: 30        .byte con_bg + $30
-- - - - - - 0x022583 11:A573: B3        .byte con_animation + $B3
-- - - - - - 0x022584 11:A574: 97        .byte con_cloud + $97
-- - - - - - 0x022585 11:A575: F2        .byte con_jmp
-- - - - - - 0x022586 11:A576: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A578_1B_schester:
-- - - - - - 0x022588 11:A578: 3C        .byte con_pause + $3C
-- - - - - - 0x022589 11:A579: 30        .byte con_bg + $30
-- - - - - - 0x02258A 11:A57A: BA        .byte con_animation + $BA
-- - - - - - 0x02258B 11:A57B: 97        .byte con_cloud + $97
-- - - - - - 0x02258C 11:A57C: F2        .byte con_jmp
-- - - - - - 0x02258D 11:A57D: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A57F_1C_diaz:
-- D - I - - 0x02258F 11:A57F: 3C        .byte con_pause + $3C
-- D - I - - 0x022590 11:A580: 30        .byte con_bg + $30
-- D - I - - 0x022591 11:A581: B7        .byte con_animation + $B7
-- D - I - - 0x022592 11:A582: 97        .byte con_cloud + $97
-- D - I - - 0x022593 11:A583: F2        .byte con_jmp
-- D - I - - 0x022594 11:A584: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A586_1D_pascal:
-- D - I - - 0x022596 11:A586: 3C        .byte con_pause + $3C
-- D - I - - 0x022597 11:A587: 30        .byte con_bg + $30
-- D - I - - 0x022598 11:A588: B6        .byte con_animation + $B6
-- D - I - - 0x022599 11:A589: 97        .byte con_cloud + $97
-- - - - - - 0x02259A 11:A58A: F2        .byte con_jmp
-- - - - - - 0x02259B 11:A58B: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A58D_1E_pierre:
-- D - I - - 0x02259D 11:A58D: 3C        .byte con_pause + $3C
-- D - I - - 0x02259E 11:A58E: 30        .byte con_bg + $30
-- D - I - - 0x02259F 11:A58F: B5        .byte con_animation + $B5
-- D - I - - 0x0225A0 11:A590: 97        .byte con_cloud + $97
-- D - I - - 0x0225A1 11:A591: F2        .byte con_jmp
-- D - I - - 0x0225A2 11:A592: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A594_1F_napoleon:
-- D - I - - 0x0225A4 11:A594: 3C        .byte con_pause + $3C
-- D - I - - 0x0225A5 11:A595: 30        .byte con_bg + $30
-- D - I - - 0x0225A6 11:A596: B4        .byte con_animation + $B4
-- D - I - - 0x0225A7 11:A597: 97        .byte con_cloud + $97
-- D - I - - 0x0225A8 11:A598: F2        .byte con_jmp
-- D - I - - 0x0225A9 11:A599: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A59B_20_victorino:
-- D - I - - 0x0225AB 11:A59B: 3C        .byte con_pause + $3C
-- D - I - - 0x0225AC 11:A59C: 30        .byte con_bg + $30
-- D - I - - 0x0225AD 11:A59D: B2        .byte con_animation + $B2
-- D - I - - 0x0225AE 11:A59E: 97        .byte con_cloud + $97
-- D - I - - 0x0225AF 11:A59F: F2        .byte con_jmp
-- D - I - - 0x0225B0 11:A5A0: C7 BB     .word loc_BBC7_очистка
-
-
-
-off_case_A5A2_21_kaltz:
-- - - - - - 0x0225B2 11:A5A2: 3C        .byte con_pause + $3C
-- - - - - - 0x0225B3 11:A5A3: 30        .byte con_bg + $30
-- - - - - - 0x0225B4 11:A5A4: B9        .byte con_animation + $B9
-- - - - - - 0x0225B5 11:A5A5: 97        .byte con_cloud + $97
-- - - - - - 0x0225B6 11:A5A6: F2        .byte con_jmp
-- - - - - - 0x0225B7 11:A5A7: C7 BB     .word loc_BBC7_очистка
 
 
 
