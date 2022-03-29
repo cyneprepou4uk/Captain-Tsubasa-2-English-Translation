@@ -2483,11 +2483,11 @@ con_cloud                   = $00   ; облака в банке 22
 
 _scenario_8AB1_00:
     .byte con_branch, $34 + $00     ; узнать высоту мяча
-    .word off_long_case_8AB9_00_мяч_у_атакующего_на_земле
-    .word off_long_case_8F09_01_летит_низкий_мяч
-    .word off_long_case_8C4B_02_летит_высокий_мяч
+    .word bra_long_case_8AB9_00_мяч_у_атакующего_на_земле
+    .word bra_long_case_8F09_01_летит_низкий_мяч
+    .word bra_long_case_8C4B_02_летит_высокий_мяч
 
-off_long_case_8AB9_00_мяч_у_атакующего_на_земле:
+bra_long_case_8AB9_00_мяч_у_атакующего_на_земле:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_8AC7_00_защитник_выживет - *
@@ -2708,7 +2708,7 @@ off_case_8C39_04_нарушение:
 
 
 
-off_long_case_8C4B_02_летит_высокий_мяч:
+bra_long_case_8C4B_02_летит_высокий_мяч:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_branch, $46 + $80
     .byte off_case_8C57_00 - *
@@ -3093,7 +3093,7 @@ off_case_8DE7_03_словит:
 
 
 
-off_long_case_8F09_01_летит_низкий_мяч:
+bra_long_case_8F09_01_летит_низкий_мяч:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_branch, $46 + $80
     .byte off_case_8F15_00 - *
@@ -3506,25 +3506,25 @@ _scenario_91D3_13:
 
 off_case_91D7_01:
     .byte con_branch, $16 + $00
-    .word off_long_case_9350_00
-    .word off_long_case_935A_01
-    .word off_long_case_9BDB_02
+    .word bra_long_case_9350_00
+    .word bra_long_case_935A_01
+    .word bra_long_case_9BDB_02
 
 
 
 off_case_91DF_00:
     .byte con_branch, $16 + $00
-    .word off_long_case_933C_00
-    .word off_long_case_9341_01
-    .word off_long_case_9BDF_02
+    .word bra_long_case_933C_00
+    .word bra_long_case_9341_01
+    .word bra_long_case_9BDF_02
 
 
 
 _scenario_91EA_0E:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_branch, $04 + $00     ; мяч у атакующего/низкий, или высокий
-    .word off_long_case_B29B_00
-    .word off_long_case_AE64_01_pass
+    .word bra_long_case_B29B_00
+    .word bra_long_case_AE64_01_pass
 
 
 
@@ -3538,19 +3538,19 @@ _scenario_91F2_01:
 
 off_case_91F8_00:
     .byte con_branch, $09 + $00     ; действие атаки на штрафной
-    .word off_long_case_9DEC_00_shoot
-    .word off_long_case_B29B_01_pass
-    .word off_long_case_B29B_02_trap
-    .word off_long_case_B29B_03_through
+    .word bra_long_case_9DEC_00_shoot
+    .word bra_long_case_B29B_01_pass
+    .word bra_long_case_B29B_02_trap
+    .word bra_long_case_B29B_03_through
 
 
 
 off_case_91FC_01:
     .byte con_branch, $09 + $00     ; действие атаки на штрафной
-    .word off_long_case_9D46_00_shoot
-    .word off_long_case_AE64_01_pass
-    .word off_long_case_AE64_02_trap
-    .word off_long_case_AE64_03_though
+    .word bra_long_case_9D46_00_shoot
+    .word bra_long_case_AE64_01_pass
+    .word bra_long_case_AE64_02_trap
+    .word bra_long_case_AE64_03_though
 
 
 
@@ -3565,22 +3565,22 @@ _scenario_91FF_02:
 _scenario_9205_0F:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_branch, $43 + $00
-    .word off_long_case_9217_00
-    .word off_long_case_9217_01
-    .word off_long_case_BD87_02
+    .word bra_long_case_9217_00
+    .word bra_long_case_9217_01
+    .word bra_long_case_BD87_02
 
 
 
 off_case_920F_00_if_not_кипер:
     .byte con_branch, $35 + $00
-    .word off_long_case_9217_00
-    .word off_long_case_9217_01
-    .word off_long_case_BD87_02
+    .word bra_long_case_9217_00
+    .word bra_long_case_9217_01
+    .word bra_long_case_BD87_02
 
 
 
-off_long_case_9217_00:
-off_long_case_9217_01:
+bra_long_case_9217_00:
+bra_long_case_9217_01:
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_921B_00 - *
     .byte off_case_9231_01 - *
@@ -3668,12 +3668,12 @@ off_case_9244_04_защитник_5:
 off_case_9247_01_if_кипер:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_branch, $44 + $00     ; делает ли кипер dive
-    .word off_long_case_924F_00_кипер_делает_dive
-    .word off_long_case_BD90_01_кипер_ждет_в_воротах
+    .word bra_long_case_924F_00_кипер_делает_dive
+    .word bra_long_case_BD90_01_кипер_ждет_в_воротах
 
 
 
-off_long_case_924F_00_кипер_делает_dive:
+bra_long_case_924F_00_кипер_делает_dive:
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_9253_00_нижний_dive - *
     .byte off_case_9256_01_верхний_dive - *
@@ -3805,65 +3805,65 @@ off_case_9297_01:
 
 off_case_929B_00_защитник_выживет:
     .byte con_branch, $03 + $00     ; результат действия защитника
-    .word off_long_case_9BCE_00
-    .word off_long_case_9BCE_01
-    .word off_long_case_930B_02
-    .word off_long_case_92C3_03
+    .word bra_long_case_9BCE_00
+    .word bra_long_case_9BCE_01
+    .word bra_long_case_930B_02
+    .word bra_long_case_92C3_03
 
 
 
 off_case_92A5_01_защитник_убьется:
     .byte con_branch, $03 + $00     ; результат действия защитника
-    .word off_long_case_9BCE_00
-    .word off_long_case_9BCE_01
-    .word off_long_case_930B_02
-    .word off_long_case_92C9_03
+    .word bra_long_case_9BCE_00
+    .word bra_long_case_9BCE_01
+    .word bra_long_case_930B_02
+    .word bra_long_case_92C9_03
 
 
 
 off_case_92AF_00_защитник_выживет:
     .byte con_branch, $03 + $00     ; результат действия защитника
-    .word off_long_case_9BCE_00
-    .word off_long_case_9BCE_01
-    .word off_long_case_930B_02
-    .word off_long_case_92CF_03
+    .word bra_long_case_9BCE_00
+    .word bra_long_case_9BCE_01
+    .word bra_long_case_930B_02
+    .word bra_long_case_92CF_03
 
 
 
 off_case_92B9_01_защитник_убьется:
     .byte con_branch, $03 + $00     ; результат действия защитника
-    .word off_long_case_9BCE_00
-    .word off_long_case_9BCE_01
-    .word off_long_case_930B_02
-    .word off_long_case_92D5_03
+    .word bra_long_case_9BCE_00
+    .word bra_long_case_9BCE_01
+    .word bra_long_case_930B_02
+    .word bra_long_case_92D5_03
 
 
 
-off_long_case_92C3_03:
+bra_long_case_92C3_03:
     .byte con_branch, $15 + $00
-    .word off_long_case_931F_00
-    .word off_long_case_9BD5_01
+    .word bra_long_case_931F_00
+    .word bra_long_case_9BD5_01
 
 
 
-off_long_case_92C9_03:
+bra_long_case_92C9_03:
     .byte con_branch, $15 + $00
-    .word off_long_case_931F_00
-    .word off_long_case_9BD5_01
+    .word bra_long_case_931F_00
+    .word bra_long_case_9BD5_01
 
 
 
-off_long_case_92CF_03:
+bra_long_case_92CF_03:
     .byte con_branch, $15 + $00
-    .word off_long_case_930F_00
-    .word off_long_case_9BCF_01
+    .word bra_long_case_930F_00
+    .word bra_long_case_9BCF_01
 
 
 
-off_long_case_92D5_03:
+bra_long_case_92D5_03:
     .byte con_branch, $15 + $00
-    .word off_long_case_930F_00
-    .word off_long_case_9BCF_01
+    .word bra_long_case_930F_00
+    .word bra_long_case_9BCF_01
 
 
 
@@ -3939,7 +3939,7 @@ off_case_9306_03:
 
 
 
-off_long_case_930B_02:
+bra_long_case_930B_02:
 off_case_930B_02:
     .byte con_jsr
     .word sub_A371_мяч_улетает_в_сторону
@@ -3949,7 +3949,7 @@ off_case_930E_01:
 
 
 
-off_long_case_930F_00:
+bra_long_case_930F_00:
 off_case_930F_00:
     .byte con_jmp
     .word loc_A16E_защитник_ловит_высокий_мяч_ногой
@@ -3980,7 +3980,7 @@ off_case_931B_01:
 
 
 
-off_long_case_931F_00:
+bra_long_case_931F_00:
 off_case_931F_00:
     .byte con_jmp
     .word loc_A164_защитник_ловит_низкий_мяч_ногой
@@ -4030,7 +4030,7 @@ off_case_9336_01:
 
 
 
-off_long_case_933C_00:
+bra_long_case_933C_00:
 off_case_933C_01_pass:
     .byte con_mirror_condition, $00
     .byte con_jmp
@@ -4038,7 +4038,7 @@ off_case_933C_01_pass:
 
 
 
-off_long_case_9341_01:
+bra_long_case_9341_01:
 off_case_9341_02_trap:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jmp
@@ -4060,7 +4060,7 @@ off_case_934B_03_through:
 
 
 
-off_long_case_9350_00:
+bra_long_case_9350_00:
 off_case_9350_01_pass:
     .byte con_mirror_condition, $00
     .byte con_jmp
@@ -4075,7 +4075,7 @@ off_case_9355_02_dribble:
 
 
 
-off_long_case_935A_01:
+bra_long_case_935A_01:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jmp
     .word loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители
@@ -4101,22 +4101,22 @@ _scenario_9369_09:
     .byte con_jsr
     .word sub_9EF6_выбор_анимации_полета_удара
     .byte con_branch, $02 + $00     ; действие защитника (кипера)
-    .word off_long_case_9529_00_словить
-    .word off_long_case_9376_01_отбить
-    .word off_long_case_9470_02_от_штанги
+    .word bra_long_case_9529_00_словить
+    .word bra_long_case_9376_01_отбить
+    .word bra_long_case_9470_02_от_штанги
 
 
 
-off_long_case_9376_01_отбить:
+bra_long_case_9376_01_отбить:
     .byte con_jsr
     .word sub_9F9C_крит_кипера
     .byte con_branch, $45 + $00
-    .word off_long_case_937F_00
-    .word off_long_case_9428_01
+    .word bra_long_case_937F_00
+    .word bra_long_case_9428_01
 
 
 
-off_long_case_937F_00:
+bra_long_case_937F_00:
     .byte con_branch, $03 + $80     ; результат действия защитника
     .byte off_case_9389_00 - *
     .byte off_case_9385_01 - *
@@ -4298,7 +4298,7 @@ ofs_9419_03:
 
 
 
-off_long_case_9428_01:
+bra_long_case_9428_01:
     .byte con_branch, $03 + $80     ; результат действия защитника
     .byte off_case_9435_00 - *
     .byte off_case_9431_01 - *
@@ -4387,7 +4387,7 @@ ofs_946A_00_кипер_убивается_и_мяч_отлетает:
 
 
 
-off_long_case_9470_02_от_штанги:
+bra_long_case_9470_02_от_штанги:
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_9474_00_защитник_выживет - *
     .byte off_case_94D0_01_защитник_убьется - *
@@ -4577,16 +4577,16 @@ off_case_951A_02:
 
 
 
-off_long_case_9529_00_словить:
+bra_long_case_9529_00_словить:
     .byte con_branch, $36 + $00
-    .word off_long_case_9533_00_catch
-    .word off_long_case_95C8_01_rolling_save
-    .word off_long_case_964B_02_clone_save
-    .word off_long_case_96CE_03_dark_illusion
+    .word bra_long_case_9533_00_catch
+    .word bra_long_case_95C8_01_rolling_save
+    .word bra_long_case_964B_02_clone_save
+    .word bra_long_case_96CE_03_dark_illusion
 
 
 
-off_long_case_9533_00_catch:
+bra_long_case_9533_00_catch:
     .byte con_jsr
     .word sub_9F9C_крит_кипера
     .byte con_branch, $01 + $80     ; выживет ли защитник
@@ -4771,7 +4771,7 @@ loc_95BC_убийство_кипера_и_мяч_отлетает:
 
 
 
-off_long_case_95C8_01_rolling_save:
+bra_long_case_95C8_01_rolling_save:
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_95CC_00_защитник_выживет - *
     .byte off_case_960D_01_защитник_убьется - *
@@ -4942,7 +4942,7 @@ off_case_9645_02_отбивание:
 
 
 
-off_long_case_964B_02_clone_save:
+bra_long_case_964B_02_clone_save:
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_964F_00_защитник_выживет - *
     .byte off_case_9690_01_защитник_убьется - *
@@ -5114,7 +5114,7 @@ off_case_96C8_02_отобьет:
 
 
 
-off_long_case_96CE_03_dark_illusion:
+bra_long_case_96CE_03_dark_illusion:
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_96D2_00_защитник_выживет - *
     .byte off_case_9749_01_защитник_убьется - *
@@ -5715,12 +5715,12 @@ off_case_98E1_04_нарушение:
 
 _scenario_98ED_0B:
     .byte con_branch, $04 + $00     ; мяч у атакующего/низкий, или высокий
-    .word off_long_case_98F3_00
-    .word off_long_case_9A24_01
+    .word bra_long_case_98F3_00
+    .word bra_long_case_9A24_01
 
 
 
-off_long_case_98F3_00:
+bra_long_case_98F3_00:
     .byte con_branch, $10 + $80
     .byte off_case_98FA_00 - *
     .byte off_case_9933_01 - *
@@ -5963,7 +5963,7 @@ off_case_9A12_02_умрет_и_отобьет:
 
 
 
-off_long_case_9A24_01:
+bra_long_case_9A24_01:
     .byte con_branch, $10 + $80
     .byte off_case_9A2B_00 - *
     .byte off_case_9A70_01 - *
@@ -6308,13 +6308,13 @@ _scenario_9BCB_04:
 off_case_9BCB_02_отобьет:
     .byte con_jsr
     .word sub_A2FE_сообщение_oh_на_мигающем_белом_фоне
-off_long_case_9BCE_00:
-off_long_case_9BCE_01:
+bra_long_case_9BCE_00:
+bra_long_case_9BCE_01:
     .byte con_quit
 
 
 
-off_long_case_9BCF_01:
+bra_long_case_9BCF_01:
     .byte con_jsr
     .word sub_A1BB_защитник_выигрывает_верхний_compete
     .byte con_jmp
@@ -6322,7 +6322,7 @@ off_long_case_9BCF_01:
 
 
 
-off_long_case_9BD5_01:
+bra_long_case_9BD5_01:
     .byte con_jsr
     .word sub_A1B1_защитник_выигрывает_нижний_compete
     .byte con_jmp
@@ -6330,14 +6330,14 @@ off_long_case_9BD5_01:
 
 
 
-off_long_case_9BDB_02:
+bra_long_case_9BDB_02:
     .byte con_mirror_toggle
     .byte con_jmp
     .word loc_A238_игрок_делает_clear_головой
 
 
 
-off_long_case_9BDF_02:
+bra_long_case_9BDF_02:
     .byte con_mirror_toggle
     .byte con_jmp
     .word loc_A22E_игрок_делает_clear_ногой
@@ -6472,134 +6472,134 @@ _scenario_9C19_47:
 loc_9C28_гол_и_проверка_на_рваную_сетку:
     .byte con_F7, $03
     .byte con_branch, $21 + $00     ; порвана ли сетка
-    .word off_long_case_A25D_00_сетка_не_порвана
-    .word off_long_case_A267_01_сетка_порвана
+    .word bra_long_case_A25D_00_сетка_не_порвана
+    .word bra_long_case_A267_01_сетка_порвана
 
 
 
 _scenario_9C30_30:
     .byte con_branch, $22 + $00     ; у чьей команды мяч
-    .word off_long_case_9C3F_00_мяч_у_команды_слева
-    .word off_long_case_9C36_01_мяч_у_команды_справа
+    .word bra_long_case_9C3F_00_мяч_у_команды_слева
+    .word bra_long_case_9C36_01_мяч_у_команды_справа
 
 
 
 sub_9C36_проверка_на_рваную_сетку:
-off_long_case_9C36_01_мяч_у_команды_справа:
+bra_long_case_9C36_01_мяч_у_команды_справа:
     .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
     .byte con_branch, $21 + $00     ; порвана ли сетка
-    .word off_long_case_A2B5_00_сетка_не_порвана
-    .word off_long_case_A2BC_01_сетка_порвана
+    .word bra_long_case_A2B5_00_сетка_не_порвана
+    .word bra_long_case_A2BC_01_сетка_порвана
 
 
 
-off_long_case_9C3F_00_мяч_у_команды_слева:
+bra_long_case_9C3F_00_мяч_у_команды_слева:
     .byte con_mirror_off
     .byte con_F7, $13
     .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
     .byte con_branch, $21 + $00     ; порвана ли сетка
-    .word off_long_case_9C4B_00_сетка_не_порвана
-    .word off_long_case_9C53_01_сетка_порвана
+    .word bra_long_case_9C4B_00_сетка_не_порвана
+    .word bra_long_case_9C53_01_сетка_порвана
 
 
 
-off_long_case_9C4B_00_сетка_не_порвана:
+bra_long_case_9C4B_00_сетка_не_порвана:
     .byte con_branch, $23 + $00     ; за какую команду играешь
-    .word off_long_case_A2A7_00_за_sao_paulo
-    .word off_long_case_A2AE_01_за_nankatsu
-    .word off_long_case_A271_02_за_japan
+    .word bra_long_case_A2A7_00_за_sao_paulo
+    .word bra_long_case_A2AE_01_за_nankatsu
+    .word bra_long_case_A271_02_за_japan
 
 
 
-off_long_case_9C53_01_сетка_порвана:
+bra_long_case_9C53_01_сетка_порвана:
     .byte con_branch, $23 + $00     ; за какую команду играешь
-    .word off_long_case_A2C3_00_за_sao_paulo
-    .word off_long_case_A2CA_01_за_nankatsu
-    .word off_long_case_A2D1_02_за_japan
+    .word bra_long_case_A2C3_00_за_sao_paulo
+    .word bra_long_case_A2CA_01_за_nankatsu
+    .word bra_long_case_A2D1_02_за_japan
 
 
 
 sub_9C5B_wakashimazu_отскок_от_штанги:
     .byte con_branch, $2E + $00     ; наебан ли кипер
-    .word off_long_case_A34D_00_кипер_не_наебан
-    .word off_long_case_A33A_01_кипер_наебан
+    .word bra_long_case_A34D_00_кипер_не_наебан
+    .word bra_long_case_A33A_01_кипер_наебан
 
 
 
 loc_9C61_защитник_прыгает_в_воздух_1й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_B310_00_не_спешал
-    .word off_long_case_B2FE_01_спешал
+    .word bra_long_case_B310_00_не_спешал
+    .word bra_long_case_B2FE_01_спешал
 
 
 
 loc_9C67_защитник_прыгает_в_воздух_4й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A3B3_00_не_спешал
-    .word off_long_case_B2FE_01_спешал
+    .word bra_long_case_A3B3_00_не_спешал
+    .word bra_long_case_B2FE_01_спешал
 
 
 
 loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A3BD_00_не_спешал
-    .word off_long_case_B2FE_01_спешал
+    .word bra_long_case_A3BD_00_не_спешал
+    .word bra_long_case_B2FE_01_спешал
 
 
 
 loc_9C73_защитник_прыгает_в_воздух_3й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A3C5_00_не_спешал
-    .word off_long_case_B2FE_01_спешал
+    .word bra_long_case_A3C5_00_не_спешал
+    .word bra_long_case_B2FE_01_спешал
 
 
 
 sub_9C79_защитник_бежит_по_земле:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A6B5_00_не_спешал
-    .word off_long_case_A6BB_01_спешал
+    .word bra_long_case_A6B5_00_не_спешал
+    .word bra_long_case_A6BB_01_спешал
 
 
 
 sub_9C7F_защитник_бежит_по_земле:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A70C_00_не_спешал
-    .word off_long_case_A6BC_01_спешал
+    .word bra_long_case_A70C_00_не_спешал
+    .word bra_long_case_A6BC_01_спешал
 
 
 
 loc_9C85_защитник_бежит_по_земле_1й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A7CE_00_не_спешал
-    .word off_long_case_A6CE_01_спешал
+    .word bra_long_case_A7CE_00_не_спешал
+    .word bra_long_case_A6CE_01_спешал
 
 
 
 sub_9C8B_игрок_бежит_по_земле:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A6FF_00_не_спешал
-    .word off_long_case_A6E4_01_спешал
+    .word bra_long_case_A6FF_00_не_спешал
+    .word bra_long_case_A6E4_01_спешал
 
 
 
 loc_9C91_защитник_бежит_по_земле_2й_и_5й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A7D5_00_не_спешал
-    .word off_long_case_A6CE_01_спешал
+    .word bra_long_case_A7D5_00_не_спешал
+    .word bra_long_case_A6CE_01_спешал
 
 
 
 loc_9C97_защитник_бежит_по_земле_4й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A7DE_00_не_спешал
-    .word off_long_case_A6CE_01_спешал
+    .word bra_long_case_A7DE_00_не_спешал
+    .word bra_long_case_A6CE_01_спешал
 
 
 
 loc_9C9D_защитник_бежит_по_земле_3й:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_A7E7_00_не_спешал
-    .word off_long_case_A6CE_01_спешал
+    .word bra_long_case_A7E7_00_не_спешал
+    .word bra_long_case_A6CE_01_спешал
 
 
 
@@ -6607,22 +6607,22 @@ sub_9CA3_выбор_анимации_дриблинга_трудной_обво�
     .byte con_jsr
     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
     .byte con_branch, $0E + $00     ; действие атаки на земле
-    .word off_long_case_A7EE_00_shoot
-    .word off_long_case_A7EE_01_pass
-    .word off_long_case_9CB0_02_dribble
-    .word off_long_case_A7EE_03_1_2_pass
+    .word bra_long_case_A7EE_00_shoot
+    .word bra_long_case_A7EE_01_pass
+    .word bra_long_case_9CB0_02_dribble
+    .word bra_long_case_A7EE_03_1_2_pass
 
 
 
-off_long_case_9CB0_02_dribble:
+bra_long_case_9CB0_02_dribble:
     .byte con_branch, $1C + $00     ; спешал дриблинг
-    .word off_long_case_A7EE_00_dribble
-    .word off_long_case_A805_01_heel_lift
-    .word off_long_case_A820_02_forcible_dribble
-    .word off_long_case_A858_03_vanishing_feint
-    .word off_long_case_A899_04_clone_dribble
-    .word off_long_case_A8C1_05_high_speed_dribble
-    .word off_long_case_A911_06_hedgehog_dribble
+    .word bra_long_case_A7EE_00_dribble
+    .word bra_long_case_A805_01_heel_lift
+    .word bra_long_case_A820_02_forcible_dribble
+    .word bra_long_case_A858_03_vanishing_feint
+    .word bra_long_case_A899_04_clone_dribble
+    .word bra_long_case_A8C1_05_high_speed_dribble
+    .word bra_long_case_A911_06_hedgehog_dribble
 
 
 
@@ -6631,22 +6631,22 @@ sub_9CC0_выбор_анимации_дриблинга_легкой_обвод�
     .byte con_jsr
     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
     .byte con_branch, $0E + $00     ; действие атаки на земле
-    .word off_long_case_AA4F_00_shoot
-    .word off_long_case_AA4F_01_pass
-    .word off_long_case_9CCD_02_dribble
-    .word off_long_case_AA4F_03_1_2_pass
+    .word bra_long_case_AA4F_00_shoot
+    .word bra_long_case_AA4F_01_pass
+    .word bra_long_case_9CCD_02_dribble
+    .word bra_long_case_AA4F_03_1_2_pass
 
 
 
-off_long_case_9CCD_02_dribble:
+bra_long_case_9CCD_02_dribble:
     .byte con_branch, $1C + $00     ; спешал дриблинг
-    .word off_long_case_AA4F_00_dribble
-    .word off_long_case_AA62_01_heel_lift
-    .word off_long_case_AA6D_02_forcible_dribble
-    .word off_long_case_AAB7_03_vanishing_feint
-    .word off_long_case_AACB_04_clone_dribble
-    .word off_long_case_AAE3_05_high_speed_dribble
-    .word off_long_case_AAFF_06_hedgehog_dribble
+    .word bra_long_case_AA4F_00_dribble
+    .word bra_long_case_AA62_01_heel_lift
+    .word bra_long_case_AA6D_02_forcible_dribble
+    .word bra_long_case_AAB7_03_vanishing_feint
+    .word bra_long_case_AACB_04_clone_dribble
+    .word bra_long_case_AAE3_05_high_speed_dribble
+    .word bra_long_case_AAFF_06_hedgehog_dribble
 
 
 
@@ -6683,150 +6683,150 @@ off_case_9CF3_01_мяч_порвется:
 off_case_9CF3_00_мяч_у_атакующего_на_земле:
     .byte con_mirror_off
     .byte con_branch, $1D + $00     ; спешал удар
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB4C_03_drive_shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_ABCC_05_falcon_shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_ABF0_07_razor_shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AC23_0B_eagle_shot
-    .word off_long_case_AC4D_0C_tiger_shot
-    .word off_long_case_AC6E_0D_neo_tiger_shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_ACB9_11_drive_tiger
-    .word off_long_case_AD0C_12_cyclone
-    .word off_long_case_AD1D_13_sano_combo
-    .word off_long_case_AD4C_14_banana_shot
-    .word off_long_case_AD5E_15_booster_shot
-    .word off_long_case_AD81_16_mirage_shot
-    .word off_long_case_ADAB_17_mach_shot
-    .word off_long_case_ADCA_18_sidewinder_shot
-    .word off_long_case_ADDC_19_slider_shot
-    .word off_long_case_ADF9_1A_cannon_shot
-    .word off_long_case_AE0F_1B_fire_shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AB31_00___shot
-    .word off_long_case_AE34_22_double_eel
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB4C_03_drive_shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_ABCC_05_falcon_shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_ABF0_07_razor_shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AC23_0B_eagle_shot
+    .word bra_long_case_AC4D_0C_tiger_shot
+    .word bra_long_case_AC6E_0D_neo_tiger_shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_ACB9_11_drive_tiger
+    .word bra_long_case_AD0C_12_cyclone
+    .word bra_long_case_AD1D_13_sano_combo
+    .word bra_long_case_AD4C_14_banana_shot
+    .word bra_long_case_AD5E_15_booster_shot
+    .word bra_long_case_AD81_16_mirage_shot
+    .word bra_long_case_ADAB_17_mach_shot
+    .word bra_long_case_ADCA_18_sidewinder_shot
+    .word bra_long_case_ADDC_19_slider_shot
+    .word bra_long_case_ADF9_1A_cannon_shot
+    .word bra_long_case_AE0F_1B_fire_shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AB31_00___shot
+    .word bra_long_case_AE34_22_double_eel
 
 
 
-off_long_case_9D46_00_shoot:
+bra_long_case_9D46_00_shoot:
     .byte con_branch, $48 + $00
-    .word off_long_case_AE4C_00
-    .word off_long_case_AED4_01_skylab_twin_shot
-    .word off_long_case_AE64_02_trap
-    .word off_long_case_AF31_03
-    .word off_long_case_AE64_04
+    .word bra_long_case_AE4C_00
+    .word bra_long_case_AED4_01_skylab_twin_shot
+    .word bra_long_case_AE64_02_trap
+    .word bra_long_case_AF31_03
+    .word bra_long_case_AE64_04
 
 
 
 loc_9D52_выбор_анимации_удара_по_высокому_мячу:
 off_case_9D52_02_летит_высокий_мяч:
     .byte con_branch, $1D + $00     ; спешал удар
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFBE_02_header
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC6_04_drive_overhead
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFE5_08_skylab_hurricane
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFED_0A_skylab_twin_shot
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFF0_0E_overhead
-    .word off_long_case_B079_0F_hyper_overhead
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_B09F_12_cyclone_high
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_AFC5_00___
-    .word off_long_case_B0C8_1C_dynamite_header
-    .word off_long_case_B0D4_1D_cannon_header
-    .word off_long_case_B0DE_1E_rocker_header
-    .word off_long_case_B0E8_1F_rising_dragon_kick
-    .word off_long_case_AFC5_00___
-    .word off_long_case_B0FB_21_slider_cannon
-    .word off_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFBE_02_header
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC6_04_drive_overhead
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFE5_08_skylab_hurricane
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFED_0A_skylab_twin_shot
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFF0_0E_overhead
+    .word bra_long_case_B079_0F_hyper_overhead
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_B09F_12_cyclone_high
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_B0C8_1C_dynamite_header
+    .word bra_long_case_B0D4_1D_cannon_header
+    .word bra_long_case_B0DE_1E_rocker_header
+    .word bra_long_case_B0E8_1F_rising_dragon_kick
+    .word bra_long_case_AFC5_00___
+    .word bra_long_case_B0FB_21_slider_cannon
+    .word bra_long_case_AFC5_00___
 
 
 
 loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
 off_case_9D9A_01_летит_низкий_мяч:
     .byte con_branch, $1D + $00     ; спешал удар
-    .word off_long_case_B197_00___
-    .word off_long_case_B182_01_volley
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B198_06_falcon_volley
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B1CA_09_twin_shot
-    .word off_long_case_B22E_0A_skylab_twin_shot
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B251_10_jumping_volley
-    .word off_long_case_B197_00___
-    .word off_long_case_AD0C_12_cyclone
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B197_00___
-    .word off_long_case_B26F_20_foward_somersault
-    .word off_long_case_B0FB_21_slider_cannon
-    .word off_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B182_01_volley
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B198_06_falcon_volley
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B1CA_09_twin_shot
+    .word bra_long_case_B22E_0A_skylab_twin_shot
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B251_10_jumping_volley
+    .word bra_long_case_B197_00___
+    .word bra_long_case_AD0C_12_cyclone
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B197_00___
+    .word bra_long_case_B26F_20_foward_somersault
+    .word bra_long_case_B0FB_21_slider_cannon
+    .word bra_long_case_B197_00___
 
 
 
-off_long_case_9DEC_00_shoot:
+bra_long_case_9DEC_00_shoot:
     .byte con_branch, $48 + $00
-    .word off_long_case_AE4C_00
-    .word off_long_case_AED4_01_skylab_twin_shot
-    .word off_long_case_B2A2_02
-    .word off_long_case_B29B_03_through
-    .word off_long_case_B29B_04
+    .word bra_long_case_AE4C_00
+    .word bra_long_case_AED4_01_skylab_twin_shot
+    .word bra_long_case_B2A2_02
+    .word bra_long_case_B29B_03_through
+    .word bra_long_case_B29B_04
 
 
 
 sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом:
     .byte con_branch, $37 + $00     ; защитный спешал или нет
-    .word off_long_case_B32C_00_не_спешал
-    .word off_long_case_B31A_01_спешал
+    .word bra_long_case_B32C_00_не_спешал
+    .word bra_long_case_B31A_01_спешал
 
 
 
@@ -6834,29 +6834,29 @@ sub_9DFE_рожа_атакующего_перед_дриблингом:
     .byte con_jsr
     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
     .byte con_branch, $0E + $00     ; действие атаки на земле
-    .word off_long_case_B3AD_00_shoot
-    .word off_long_case_B3AD_01_pass
-    .word off_long_case_9E0B_02_dribble
-    .word off_long_case_B3AD_03_1_2_pass
+    .word bra_long_case_B3AD_00_shoot
+    .word bra_long_case_B3AD_01_pass
+    .word bra_long_case_9E0B_02_dribble
+    .word bra_long_case_B3AD_03_1_2_pass
 
 
 
-off_long_case_9E0B_02_dribble:
+bra_long_case_9E0B_02_dribble:
     .byte con_branch, $1C + $00     ; спешал дриблинг
-    .word off_long_case_B3AD_00_dribble
-    .word off_long_case_B3AA_01_heel_lift
-    .word off_long_case_B3AF_02_forcible_dribble
-    .word off_long_case_B3E9_03_vanishing_feint
-    .word off_long_case_B3F4_04_clone_dribble
-    .word off_long_case_B406_05_high_speed_dribble
-    .word off_long_case_B414_06_hedgehog_dribble
+    .word bra_long_case_B3AD_00_dribble
+    .word bra_long_case_B3AA_01_heel_lift
+    .word bra_long_case_B3AF_02_forcible_dribble
+    .word bra_long_case_B3E9_03_vanishing_feint
+    .word bra_long_case_B3F4_04_clone_dribble
+    .word bra_long_case_B406_05_high_speed_dribble
+    .word bra_long_case_B414_06_hedgehog_dribble
 
 
 
 sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением:
     .byte con_branch, $42 + $00     ; 2 варианта рандома
-    .word off_long_case_B453_00_рандом_1
-    .word off_long_case_B458_01_рандом_2
+    .word bra_long_case_B453_00_рандом_1
+    .word bra_long_case_B458_01_рандом_2
 
 
 
@@ -6893,10 +6893,10 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
 off_case_9E45_01_летит_низкий_мяч:
 off_case_9E45_00_мяч_у_атакующего_на_земле:
     .byte con_branch, $1E + $00
-    .word off_long_case_AF51_00_pass
-    .word off_long_case_AF59_01_drive_pass
-    .word off_long_case_AF90_02_razor_pass
-    .word off_long_case_AFAA_03_topspin_pass
+    .word bra_long_case_AF51_00_pass
+    .word bra_long_case_AF59_01_drive_pass
+    .word bra_long_case_AF90_02_razor_pass
+    .word bra_long_case_AFAA_03_topspin_pass
 
 
 
@@ -6914,90 +6914,90 @@ off_case_9E4F_02_летит_высокий_мяч:
 _scenario_9E57_32:
     .byte con_mirror_off
     .byte con_branch, $41 + $00     ; какая у кипера рожа
-    .word off_long_case_B796_00_кипер_без_рожи
-    .word off_long_case_B792_01_кипер_ренато
-    .word off_long_case_B797_02_кипер_морисаки
-    .word off_long_case_B79C_03_кипер_вакабаяши
-    .word off_long_case_B7A1_04_кипер_вакашимазу
+    .word bra_long_case_B796_00_кипер_без_рожи
+    .word bra_long_case_B792_01_кипер_ренато
+    .word bra_long_case_B797_02_кипер_морисаки
+    .word bra_long_case_B79C_03_кипер_вакабаяши
+    .word bra_long_case_B7A1_04_кипер_вакашимазу
 
 
 
 sub_9E64_рожа_атакующего_с_сообщением_неудачи:
     .byte con_branch, $28 + $00
-    .word off_long_case_B91A_00_игрок_без_рожи
-    .word off_long_case_B913_01_tsubasa
-    .word off_long_case_B91B_02_misaki
-    .word off_long_case_B922_03_misaki
-    .word off_long_case_B929_04_hyuga
-    .word off_long_case_B930_05_hyuga
-    .word off_long_case_B937_06_misugi
-    .word off_long_case_B93E_07_misugi
-    .word off_long_case_B945_08_matsuyama
-    .word off_long_case_B94C_09_matsuyama
-    .word off_long_case_B953_0A_ishizaki
-    .word off_long_case_B95A_0B_ishizaki
-    .word off_long_case_B961_0C_soda
-    .word off_long_case_B968_0D_soda
-    .word off_long_case_B96F_0E_jito
-    .word off_long_case_B976_0F_jito
-    .word off_long_case_B97D_10_masao_kazuo
-    .word off_long_case_B984_11_masao_kazuo
-    .word off_long_case_B98B_12_nitta
-    .word off_long_case_B992_13_nitta
-    .word off_long_case_B999_14_sawada
-    .word off_long_case_B9A0_15_sawada
-    .word off_long_case_B9A7_16_coimbra
-    .word off_long_case_B9AE_17_carlos
-    .word off_long_case_B9B5_18_carlos
-    .word off_long_case_B9BC_19_schneider
-    .word off_long_case_B9C3_1A_kaltz
-    .word off_long_case_B9CA_1B_schester
-    .word off_long_case_B9D1_1C_diaz
-    .word off_long_case_B9D8_1D_pascal
-    .word off_long_case_B9DF_1E_pierre
-    .word off_long_case_B9E6_1F_napoleon
-    .word off_long_case_B9ED_20_victorino
-    .word off_long_case_B9F4_21_kaltz
+    .word bra_long_case_B91A_00_игрок_без_рожи
+    .word bra_long_case_B913_01_tsubasa
+    .word bra_long_case_B91B_02_misaki
+    .word bra_long_case_B922_03_misaki
+    .word bra_long_case_B929_04_hyuga
+    .word bra_long_case_B930_05_hyuga
+    .word bra_long_case_B937_06_misugi
+    .word bra_long_case_B93E_07_misugi
+    .word bra_long_case_B945_08_matsuyama
+    .word bra_long_case_B94C_09_matsuyama
+    .word bra_long_case_B953_0A_ishizaki
+    .word bra_long_case_B95A_0B_ishizaki
+    .word bra_long_case_B961_0C_soda
+    .word bra_long_case_B968_0D_soda
+    .word bra_long_case_B96F_0E_jito
+    .word bra_long_case_B976_0F_jito
+    .word bra_long_case_B97D_10_masao_kazuo
+    .word bra_long_case_B984_11_masao_kazuo
+    .word bra_long_case_B98B_12_nitta
+    .word bra_long_case_B992_13_nitta
+    .word bra_long_case_B999_14_sawada
+    .word bra_long_case_B9A0_15_sawada
+    .word bra_long_case_B9A7_16_coimbra
+    .word bra_long_case_B9AE_17_carlos
+    .word bra_long_case_B9B5_18_carlos
+    .word bra_long_case_B9BC_19_schneider
+    .word bra_long_case_B9C3_1A_kaltz
+    .word bra_long_case_B9CA_1B_schester
+    .word bra_long_case_B9D1_1C_diaz
+    .word bra_long_case_B9D8_1D_pascal
+    .word bra_long_case_B9DF_1E_pierre
+    .word bra_long_case_B9E6_1F_napoleon
+    .word bra_long_case_B9ED_20_victorino
+    .word bra_long_case_B9F4_21_kaltz
 
 
 
 loc_9EAA_рожа_защитника_с_сообщением_неудачи:
 sub_9EAA_рожа_защитника_с_сообщением_неудачи:
     .byte con_branch, $29 + $00
-    .word off_long_case_B91A_00_игрок_без_рожи
-    .word off_long_case_B913_01_tsubasa
-    .word off_long_case_B91B_02_misaki
-    .word off_long_case_B922_03_misaki
-    .word off_long_case_B929_04_hyuga
-    .word off_long_case_B930_05_hyuga
-    .word off_long_case_B937_06_misugi
-    .word off_long_case_B93E_07_misugi
-    .word off_long_case_B945_08_matsuyama
-    .word off_long_case_B94C_09_matsuyama
-    .word off_long_case_B953_0A_ishizaki
-    .word off_long_case_B95A_0B_ishizaki
-    .word off_long_case_B961_0C_soda
-    .word off_long_case_B968_0D_soda
-    .word off_long_case_B96F_0E_jito
-    .word off_long_case_B976_0F_jito
-    .word off_long_case_B97D_10_masao_kazuo
-    .word off_long_case_B984_11_masao_kazuo
-    .word off_long_case_B98B_12_nitta
-    .word off_long_case_B992_13_nitta
-    .word off_long_case_B999_14_sawada
-    .word off_long_case_B9A0_15_sawada
-    .word off_long_case_B9A7_16_coimbra
-    .word off_long_case_B9AE_17_carlos
-    .word off_long_case_B9B5_18_carlos
-    .word off_long_case_B9BC_19_schneider
-    .word off_long_case_B9C3_1A_kaltz
-    .word off_long_case_B9CA_1B_schester
-    .word off_long_case_B9D1_1C_diaz
-    .word off_long_case_B9D8_1D_pascal
-    .word off_long_case_B9DF_1E_pierre
-    .word off_long_case_B9E6_1F_napoleon
-    .word off_long_case_B9ED_20_victorino
-    .word off_long_case_B9F4_21_kaltz
+    .word bra_long_case_B91A_00_игрок_без_рожи
+    .word bra_long_case_B913_01_tsubasa
+    .word bra_long_case_B91B_02_misaki
+    .word bra_long_case_B922_03_misaki
+    .word bra_long_case_B929_04_hyuga
+    .word bra_long_case_B930_05_hyuga
+    .word bra_long_case_B937_06_misugi
+    .word bra_long_case_B93E_07_misugi
+    .word bra_long_case_B945_08_matsuyama
+    .word bra_long_case_B94C_09_matsuyama
+    .word bra_long_case_B953_0A_ishizaki
+    .word bra_long_case_B95A_0B_ishizaki
+    .word bra_long_case_B961_0C_soda
+    .word bra_long_case_B968_0D_soda
+    .word bra_long_case_B96F_0E_jito
+    .word bra_long_case_B976_0F_jito
+    .word bra_long_case_B97D_10_masao_kazuo
+    .word bra_long_case_B984_11_masao_kazuo
+    .word bra_long_case_B98B_12_nitta
+    .word bra_long_case_B992_13_nitta
+    .word bra_long_case_B999_14_sawada
+    .word bra_long_case_B9A0_15_sawada
+    .word bra_long_case_B9A7_16_coimbra
+    .word bra_long_case_B9AE_17_carlos
+    .word bra_long_case_B9B5_18_carlos
+    .word bra_long_case_B9BC_19_schneider
+    .word bra_long_case_B9C3_1A_kaltz
+    .word bra_long_case_B9CA_1B_schester
+    .word bra_long_case_B9D1_1C_diaz
+    .word bra_long_case_B9D8_1D_pascal
+    .word bra_long_case_B9DF_1E_pierre
+    .word bra_long_case_B9E6_1F_napoleon
+    .word bra_long_case_B9ED_20_victorino
+    .word bra_long_case_B9F4_21_kaltz
 
 
 
@@ -7010,41 +7010,41 @@ loc_9EF0_попытка_включить_drive_tiger:
 
 sub_9EF6_выбор_анимации_полета_удара:
     .byte con_branch, $1D + $00     ; спешал удар
-    .word off_long_case_B4E7_00_shot
-    .word off_long_case_B4EF_01_header
-    .word off_long_case_B4F7_02_volley
-    .word off_long_case_B4FB_03_drive_shot
-    .word off_long_case_B509_04_drive_overhead
-    .word off_long_case_B525_05_falcon_shot
-    .word off_long_case_B532_06_falcon_volley
-    .word off_long_case_B53F_07_razor_shot
-    .word off_long_case_B4F7_08_skylab_hurricane
-    .word off_long_case_B553_09_twin_shot
-    .word off_long_case_B55A_0A_skylab_twin_shot
-    .word off_long_case_B567_0B_eagle_shot
-    .word off_long_case_B575_0C_tiger_shot
-    .word off_long_case_B583_0D_neo_tiger_shot
-    .word off_long_case_B599_0E_overhead
-    .word off_long_case_B59D_0F_hyper_overhead
-    .word off_long_case_B5A4_10_jumping_volley
-    .word off_long_case_B5BA_11_drive_tiger
-    .word off_long_case_B5D0_12_cyclone
-    .word off_long_case_B5E4_13_sano_combo
-    .word off_long_case_B5EC_14_banana_shot
-    .word off_long_case_B5F7_15_booster_shot
-    .word off_long_case_B60B_16_mirage_shot
-    .word off_long_case_B61D_17_mach_shot
-    .word off_long_case_B675_18_sidewinder_shot
-    .word off_long_case_B685_19_slider_shot
-    .word off_long_case_B690_1A_cannon_shot
-    .word off_long_case_B6C0_1B_fire_shot
-    .word off_long_case_B6D6_1C_dynamite_header
-    .word off_long_case_B6DE_1D_cannon_header
-    .word off_long_case_B6E6_1E_rocket_header
-    .word off_long_case_B6F0_1F_rising_dragon_kick
-    .word off_long_case_B701_20_foward_somersault
-    .word off_long_case_B712_21_slider_cannon
-    .word off_long_case_B724_22_double_eel
+    .word bra_long_case_B4E7_00_shot
+    .word bra_long_case_B4EF_01_header
+    .word bra_long_case_B4F7_02_volley
+    .word bra_long_case_B4FB_03_drive_shot
+    .word bra_long_case_B509_04_drive_overhead
+    .word bra_long_case_B525_05_falcon_shot
+    .word bra_long_case_B532_06_falcon_volley
+    .word bra_long_case_B53F_07_razor_shot
+    .word bra_long_case_B4F7_08_skylab_hurricane
+    .word bra_long_case_B553_09_twin_shot
+    .word bra_long_case_B55A_0A_skylab_twin_shot
+    .word bra_long_case_B567_0B_eagle_shot
+    .word bra_long_case_B575_0C_tiger_shot
+    .word bra_long_case_B583_0D_neo_tiger_shot
+    .word bra_long_case_B599_0E_overhead
+    .word bra_long_case_B59D_0F_hyper_overhead
+    .word bra_long_case_B5A4_10_jumping_volley
+    .word bra_long_case_B5BA_11_drive_tiger
+    .word bra_long_case_B5D0_12_cyclone
+    .word bra_long_case_B5E4_13_sano_combo
+    .word bra_long_case_B5EC_14_banana_shot
+    .word bra_long_case_B5F7_15_booster_shot
+    .word bra_long_case_B60B_16_mirage_shot
+    .word bra_long_case_B61D_17_mach_shot
+    .word bra_long_case_B675_18_sidewinder_shot
+    .word bra_long_case_B685_19_slider_shot
+    .word bra_long_case_B690_1A_cannon_shot
+    .word bra_long_case_B6C0_1B_fire_shot
+    .word bra_long_case_B6D6_1C_dynamite_header
+    .word bra_long_case_B6DE_1D_cannon_header
+    .word bra_long_case_B6E6_1E_rocket_header
+    .word bra_long_case_B6F0_1F_rising_dragon_kick
+    .word bra_long_case_B701_20_foward_somersault
+    .word bra_long_case_B712_21_slider_cannon
+    .word bra_long_case_B724_22_double_eel
 
 
 
@@ -7053,85 +7053,85 @@ _scenario_9F3E_3C:
 ; но на всякий случай расшифрованы и остальные
 sub_9F3E:
     .byte con_branch, $10 + $00
-    .word off_long_case_9F4A_00
-    .word off_long_case_BB4B_01
-    .word off_long_case_BB4B_02
-    .word off_long_case_BB4B_03
-    .word off_long_case_BB4B_04
+    .word bra_long_case_9F4A_00
+    .word bra_long_case_BB4B_01
+    .word bra_long_case_BB4B_02
+    .word bra_long_case_BB4B_03
+    .word bra_long_case_BB4B_04
 
 
 
-off_long_case_9F4A_00:
+bra_long_case_9F4A_00:
     .byte con_branch, $1E + $00
-    .word off_long_case_BB4B_00
-    .word off_long_case_B502_01
-    .word off_long_case_B54F_02
-    .word off_long_case_BB50_03
+    .word bra_long_case_BB4B_00
+    .word bra_long_case_B502_01
+    .word bra_long_case_B54F_02
+    .word bra_long_case_BB50_03
 
 
 
 _scenario_9F54_2C:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_branch, $04 + $00     ; мяч у атакующего/низкий, или высокий
-    .word off_long_case_BA24_00
-    .word off_long_case_BA1C_01
+    .word bra_long_case_BA24_00
+    .word bra_long_case_BA1C_01
 
 
 
 sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением:
     .byte con_branch, $42 + $00     ; 2 варианта рандома
-    .word off_long_case_A05B_00_рандом_1
-    .word off_long_case_A060_01_рандом_2
+    .word bra_long_case_A05B_00_рандом_1
+    .word bra_long_case_A060_01_рандом_2
 
 
 
 loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
 sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
     .byte con_branch, $42 + $00     ; 2 варианта рандома
-    .word off_long_case_A065_00_рандом_1
-    .word off_long_case_A06A_01_рандом_2
+    .word bra_long_case_A065_00_рандом_1
+    .word bra_long_case_A06A_01_рандом_2
 
 
 
 sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения:
     .byte con_branch, $42 + $00     ; 2 варианта рандома
-    .word off_long_case_A21A_00_рандом_1
-    .word off_long_case_A21F_01_рандом_2
+    .word bra_long_case_A21A_00_рандом_1
+    .word bra_long_case_A21F_01_рандом_2
 
 
 
 sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением:
     .byte con_branch, $42 + $00     ; 2 варианта рандома
-    .word off_long_case_A224_00_рандом_1
-    .word off_long_case_A229_01_рандом_2
+    .word bra_long_case_A224_00_рандом_1
+    .word bra_long_case_A229_01_рандом_2
 
 
 
 sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения:
     .byte con_branch, $42 + $00     ; 2 варианта рандома
-    .word off_long_case_B433_00_рандом_1
-    .word off_long_case_B438_01_рандом_2
+    .word bra_long_case_B433_00_рандом_1
+    .word bra_long_case_B438_01_рандом_2
 
 
 
 sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком:
     .byte con_branch, $33 + $00     ; защитный спешал
-    .word off_long_case_A713_00___без_защитного_спешала
-    .word off_long_case_A6F6_01_masao_kazuo
-    .word off_long_case_A706_02_masao_kazuo
-    .word off_long_case_A713_00___без_защитного_спешала
-    .word off_long_case_A713_00___без_защитного_спешала
-    .word off_long_case_A789_05_jito
-    .word off_long_case_A79C_06_jito
-    .word off_long_case_A792_07___dirceu
-    .word off_long_case_A792_07___dirceu
-    .word off_long_case_A792_07___dirceu
-    .word off_long_case_A792_07___dirceu
-    .word off_long_case_A792_07___dirceu
-    .word off_long_case_A713_00___без_защитного_спешала
-    .word off_long_case_A713_00___без_защитного_спешала
-    .word off_long_case_A7A5_0E_ishizaki
-    .word off_long_case_A7BF_0F_ishizaki
+    .word bra_long_case_A713_00___без_защитного_спешала
+    .word bra_long_case_A6F6_01_masao_kazuo
+    .word bra_long_case_A706_02_masao_kazuo
+    .word bra_long_case_A713_00___без_защитного_спешала
+    .word bra_long_case_A713_00___без_защитного_спешала
+    .word bra_long_case_A789_05_jito
+    .word bra_long_case_A79C_06_jito
+    .word bra_long_case_A792_07___dirceu
+    .word bra_long_case_A792_07___dirceu
+    .word bra_long_case_A792_07___dirceu
+    .word bra_long_case_A792_07___dirceu
+    .word bra_long_case_A792_07___dirceu
+    .word bra_long_case_A713_00___без_защитного_спешала
+    .word bra_long_case_A713_00___без_защитного_спешала
+    .word bra_long_case_A7A5_0E_ishizaki
+    .word bra_long_case_A7BF_0F_ishizaki
 
 
 
@@ -7403,7 +7403,7 @@ sub_A051_защитник_касается_телом_верхнего_мяча:
 
 
 
-off_long_case_A05B_00_рандом_1:
+bra_long_case_A05B_00_рандом_1:
     .byte con_pause + $3C
     .byte con_bg + $1B
     .byte con_animation + $13
@@ -7412,7 +7412,7 @@ off_long_case_A05B_00_рандом_1:
 
 
 
-off_long_case_A060_01_рандом_2:
+bra_long_case_A060_01_рандом_2:
     .byte con_pause + $3C
     .byte con_bg + $1B
     .byte con_animation + $14
@@ -7421,7 +7421,7 @@ off_long_case_A060_01_рандом_2:
 
 
 
-off_long_case_A065_00_рандом_1:
+bra_long_case_A065_00_рандом_1:
     .byte con_pause + $3C
     .byte con_bg + $1C
     .byte con_animation + $13
@@ -7430,7 +7430,7 @@ off_long_case_A065_00_рандом_1:
 
 
 
-off_long_case_A06A_01_рандом_2:
+bra_long_case_A06A_01_рандом_2:
     .byte con_pause + $3C
     .byte con_bg + $1C
     .byte con_animation + $14
@@ -7948,7 +7948,7 @@ sub_A212_добивание_отскока_от_штанги_сопернико�
 
 
 
-off_long_case_A21A_00_рандом_1:
+bra_long_case_A21A_00_рандом_1:
     .byte con_pause + $28
     .byte con_bg + $1C
     .byte con_animation + $3E
@@ -7957,7 +7957,7 @@ off_long_case_A21A_00_рандом_1:
 
 
 
-off_long_case_A21F_01_рандом_2:
+bra_long_case_A21F_01_рандом_2:
     .byte con_pause + $28
     .byte con_bg + $1C
     .byte con_animation + $3F
@@ -7966,7 +7966,7 @@ off_long_case_A21F_01_рандом_2:
 
 
 
-off_long_case_A224_00_рандом_1:
+bra_long_case_A224_00_рандом_1:
     .byte con_pause + $32
     .byte con_bg + $1E
     .byte con_animation + $3E
@@ -7975,7 +7975,7 @@ off_long_case_A224_00_рандом_1:
 
 
 
-off_long_case_A229_01_рандом_2:
+bra_long_case_A229_01_рандом_2:
     .byte con_pause + $32
     .byte con_bg + $1E
     .byte con_animation + $3F
@@ -8054,7 +8054,7 @@ sub_A258_полет_мяча_после_отскока_от_штанги:
 
 
 
-off_long_case_A25D_00_сетка_не_порвана:
+bra_long_case_A25D_00_сетка_не_порвана:
     .byte con_F7, $03
     .byte con_soundID_delay, $60, $02
     .byte con_pause + $78
@@ -8066,7 +8066,7 @@ off_long_case_A25D_00_сетка_не_порвана:
 
 
 loc_A267_goal:
-off_long_case_A267_01_сетка_порвана:
+bra_long_case_A267_01_сетка_порвана:
     .byte con_F7, $03
     .byte con_soundID_delay, $61, $02
     .byte con_pause + $78
@@ -8077,7 +8077,7 @@ off_long_case_A267_01_сетка_порвана:
 
 
 
-off_long_case_A271_02_за_japan:
+bra_long_case_A271_02_за_japan:
     .byte con_pause + $A0
     .byte con_bg + $0A
     .byte con_animation + $48
@@ -8145,7 +8145,7 @@ off_case_A2A6_00_гол_забит_другим_ударом:
 
 
 
-off_long_case_A2A7_00_за_sao_paulo:
+bra_long_case_A2A7_00_за_sao_paulo:
     .byte con_pause + $A0
     .byte con_bg + $08
     .byte con_animation + $46
@@ -8155,7 +8155,7 @@ off_long_case_A2A7_00_за_sao_paulo:
 
 
 
-off_long_case_A2AE_01_за_nankatsu:
+bra_long_case_A2AE_01_за_nankatsu:
     .byte con_pause + $A0
     .byte con_bg + $09
     .byte con_animation + $47
@@ -8165,7 +8165,7 @@ off_long_case_A2AE_01_за_nankatsu:
 
 
 
-off_long_case_A2B5_00_сетка_не_порвана:
+bra_long_case_A2B5_00_сетка_не_порвана:
     .byte con_pause + $82
     .byte con_bg + con_skip
     .byte con_animation + con_skip
@@ -8175,7 +8175,7 @@ off_long_case_A2B5_00_сетка_не_порвана:
 
 
 
-off_long_case_A2BC_01_сетка_порвана:
+bra_long_case_A2BC_01_сетка_порвана:
     .byte con_pause + $82
     .byte con_bg + con_skip
     .byte con_animation + con_skip
@@ -8185,7 +8185,7 @@ off_long_case_A2BC_01_сетка_порвана:
 
 
 
-off_long_case_A2C3_00_за_sao_paulo:
+bra_long_case_A2C3_00_за_sao_paulo:
     .byte con_pause + $A0
     .byte con_bg + $08
     .byte con_animation + $46
@@ -8195,7 +8195,7 @@ off_long_case_A2C3_00_за_sao_paulo:
 
 
 
-off_long_case_A2CA_01_за_nankatsu:
+bra_long_case_A2CA_01_за_nankatsu:
     .byte con_pause + $A0
     .byte con_bg + $09
     .byte con_animation + $47
@@ -8205,7 +8205,7 @@ off_long_case_A2CA_01_за_nankatsu:
 
 
 
-off_long_case_A2D1_02_за_japan:
+bra_long_case_A2D1_02_за_japan:
     .byte con_pause + $A0
     .byte con_bg + $0A
     .byte con_animation + $48
@@ -8335,7 +8335,7 @@ sub_A335_полет_нижнего_мяча:
 
 
 
-off_long_case_A33A_01_кипер_наебан:
+bra_long_case_A33A_01_кипер_наебан:
     .byte con_mirror_off
     .byte con_branch, $23 + $80     ; за какую команду играешь
     .byte off_case_A347_00_за_sao_paulo - *
@@ -8365,7 +8365,7 @@ off_case_A347_02_за_japan:
 loc_A34B_отскок_от_штанги:
     .byte con_mirror_condition, $03       ; куда летит мяч
 sub_A34D_отскок_вакашимазу_от_штанги:
-off_long_case_A34D_00_кипер_не_наебан:
+bra_long_case_A34D_00_кипер_не_наебан:
 ; вакашимазу отталкивается от штанги
     .byte con_pause + $08
     .byte con_bg + $0B
@@ -8462,7 +8462,7 @@ sub_A38F_полет_низкого_мяча_к_защитнику:
 
 
 
-off_long_case_A3B3_00_не_спешал:
+bra_long_case_A3B3_00_не_спешал:
     .byte con_F8, $03
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
@@ -8473,7 +8473,7 @@ off_long_case_A3B3_00_не_спешал:
 
 
 
-off_long_case_A3BD_00_не_спешал:
+bra_long_case_A3BD_00_не_спешал:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
     .byte con_bg + $1E
@@ -8483,7 +8483,7 @@ off_long_case_A3BD_00_не_спешал:
 
 
 
-off_long_case_A3C5_00_не_спешал:
+bra_long_case_A3C5_00_не_спешал:
     .byte con_F8, $01
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
@@ -8757,18 +8757,18 @@ sub_A5A9_kurae:
 
 
 
-off_long_case_A6B5_00_не_спешал:
+bra_long_case_A6B5_00_не_спешал:
     .byte con_F7, $02
     .byte con_pause + $1E
     .byte con_bg + $23
     .byte con_animation + $5A
     .byte con_cloud + con_clear
-off_long_case_A6BB_01_спешал:
+bra_long_case_A6BB_01_спешал:
     .byte con_rts
 
 
 
-off_long_case_A6BC_01_спешал:
+bra_long_case_A6BC_01_спешал:
     .byte con_branch, $33 + $80     ; защитный спешал
     .byte off_case_A70C_00_игрок_без_защитного_спешала - *
     .byte off_case_A6F6_01_masao_kazuo - *
@@ -8789,7 +8789,7 @@ off_long_case_A6BC_01_спешал:
 
 
 
-off_long_case_A6CE_01_спешал:
+bra_long_case_A6CE_01_спешал:
     .byte con_branch, $33 + $80     ; защитный спешал
     .byte off_case_A7CE_00_игрок_без_защитного_спешала - *
     .byte off_case_A6F6_01_masao_kazuo - *
@@ -8817,7 +8817,7 @@ sub_A6E0_защитник_бежит_к_низкому_мячу:
 
 
 
-off_long_case_A6E4_01_спешал:
+bra_long_case_A6E4_01_спешал:
 off_case_A6E4_01_защитный_спешал:
     .byte con_branch, $33 + $80     ; защитный спешал
     .byte off_case_A6FF_00_игрок_без_защитного_спешала - *
@@ -8839,7 +8839,7 @@ off_case_A6E4_01_защитный_спешал:
 
 
 
-off_long_case_A6F6_01_masao_kazuo:
+bra_long_case_A6F6_01_masao_kazuo:
 off_case_A6F6_01_masao_kazuo:
     .byte con_jsr
     .word sub_A71A_masao_kazuo_japan_становятся_друг_на_друга
@@ -8854,7 +8854,7 @@ sub_A6F9_masao_kazuo_летит_по_низу_тонкие_ноги:
 
 
 
-off_long_case_A6FF_00_не_спешал:
+bra_long_case_A6FF_00_не_спешал:
 off_case_A6FF_00_игрок_без_защитного_спешала:
 off_case_A6FF_03_soda:
 off_case_A6FF_04_soda:
@@ -8878,7 +8878,7 @@ off_case_A6FF_0F_ishizaki:
 
 
 
-off_long_case_A706_02_masao_kazuo:
+bra_long_case_A706_02_masao_kazuo:
 off_case_A706_02_masao_kazuo:
     .byte con_jsr
     .word sub_A756_masao_kazuo_akita_становятся_друг_на_друга
@@ -8887,7 +8887,7 @@ off_case_A706_02_masao_kazuo:
 
 
 
-off_long_case_A70C_00_не_спешал:
+bra_long_case_A70C_00_не_спешал:
 off_case_A70C_00_игрок_без_защитного_спешала:
 off_case_A70C_03_soda:
 off_case_A70C_04_soda:
@@ -8911,7 +8911,7 @@ off_case_A70C_0F_ishizaki:
 
 
 
-off_long_case_A713_00___без_защитного_спешала:
+bra_long_case_A713_00___без_защитного_спешала:
     .byte con_F7, $02
     .byte con_pause + $1E
     .byte con_bg + $23
@@ -9012,7 +9012,7 @@ sub_A756_masao_kazuo_akita_становятся_друг_на_друга:
 
 
 
-off_long_case_A789_05_jito:
+bra_long_case_A789_05_jito:
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $30
@@ -9021,7 +9021,7 @@ off_long_case_A789_05_jito:
 loc_A78F_разгон_перед_power_block:
     .byte con_jsr
     .word sub_BBC7_очистка
-off_long_case_A792_07___dirceu:
+bra_long_case_A792_07___dirceu:
     .byte con_F7, $33
     .byte con_soundID_delay, $27, $02
     .byte con_pause + $28
@@ -9032,7 +9032,7 @@ off_long_case_A792_07___dirceu:
 
 
 
-off_long_case_A79C_06_jito:
+bra_long_case_A79C_06_jito:
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $30
@@ -9043,7 +9043,7 @@ off_long_case_A79C_06_jito:
 
 
 
-off_long_case_A7A5_0E_ishizaki:
+bra_long_case_A7A5_0E_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $1E
     .byte con_bg + $22
@@ -9070,7 +9070,7 @@ sub_A7B1_прыжок_перед_face_block:
 
 
 
-off_long_case_A7BF_0F_ishizaki:
+bra_long_case_A7BF_0F_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $1E
     .byte con_bg + $22
@@ -9086,7 +9086,7 @@ off_long_case_A7BF_0F_ishizaki:
 
 
 
-off_long_case_A7CE_00_не_спешал:
+bra_long_case_A7CE_00_не_спешал:
 off_case_A7CE_00_игрок_без_защитного_спешала:
 off_case_A7CE_03_soda:
 off_case_A7CE_04_soda:
@@ -9110,7 +9110,7 @@ off_case_A7CE_0F_ishizaki:
 
 
 
-off_long_case_A7D5_00_не_спешал:
+bra_long_case_A7D5_00_не_спешал:
     .byte con_F8, $03
     .byte con_F7, $02
     .byte con_pause + $37
@@ -9121,7 +9121,7 @@ off_long_case_A7D5_00_не_спешал:
 
 
 
-off_long_case_A7DE_00_не_спешал:
+bra_long_case_A7DE_00_не_спешал:
     .byte con_F8, $03
     .byte con_F7, $02
     .byte con_pause + $37
@@ -9132,7 +9132,7 @@ off_long_case_A7DE_00_не_спешал:
 
 
 
-off_long_case_A7E7_00_не_спешал:
+bra_long_case_A7E7_00_не_спешал:
     .byte con_F7, $02
     .byte con_pause + $37
     .byte con_bg + $23
@@ -9142,10 +9142,10 @@ off_long_case_A7E7_00_не_спешал:
 
 
 
-off_long_case_A7EE_00_shoot:
-off_long_case_A7EE_00_dribble:
-off_long_case_A7EE_01_pass:
-off_long_case_A7EE_03_1_2_pass:
+bra_long_case_A7EE_00_shoot:
+bra_long_case_A7EE_00_dribble:
+bra_long_case_A7EE_01_pass:
+bra_long_case_A7EE_03_1_2_pass:
 ; трудная обводка
     .byte con_mirror_toggle
     .byte con_F7, $02
@@ -9169,7 +9169,7 @@ loc_A7FE_движение_фона:
 
 
 
-off_long_case_A805_01_heel_lift:
+bra_long_case_A805_01_heel_lift:
     .byte con_jsr
     .word sub_A810_анимация_heel_lift
     .byte con_F7, $02
@@ -9198,7 +9198,7 @@ sub_A810_анимация_heel_lift:
 
 
 
-off_long_case_A820_02_forcible_dribble:
+bra_long_case_A820_02_forcible_dribble:
     .byte con_branch, $47 + $80     ; кто делает силовой дриблинг
     .byte off_case_A828_00_hyuga_из_японии - *
     .byte off_case_A831_01_hyuga_из_тохо - *
@@ -9270,7 +9270,7 @@ off_case_A855_05_игрок_без_рожи:
 
 
 
-off_long_case_A858_03_vanishing_feint:
+bra_long_case_A858_03_vanishing_feint:
     .byte con_jsr
     .word sub_A86C_vanishing_feint
     .byte con_F7, $02
@@ -9335,7 +9335,7 @@ sub_A88F_рожа_carlos_brazil:
 
 
 
-off_long_case_A899_04_clone_dribble:
+bra_long_case_A899_04_clone_dribble:
     .byte con_branch, $3B + $80     ; проверка на carlos
     .byte off_case_A89D_00_if_carlos - *
     .byte off_case_A8BB_01_if_not_carlos - *
@@ -9376,7 +9376,7 @@ off_case_A8BB_01_if_not_carlos:
     .word sub_A88F_рожа_carlos_brazil
     .byte con_jmp
     .word loc_A8A0
-off_long_case_A8C1_05_high_speed_dribble:
+bra_long_case_A8C1_05_high_speed_dribble:
     .byte con_jsr
     .word sub_A8D0
     .byte con_F7, $0D
@@ -9450,7 +9450,7 @@ sub_A908_kaltz_hedgehog_dribble:
 
 
 
-off_long_case_A911_06_hedgehog_dribble:
+bra_long_case_A911_06_hedgehog_dribble:
     .byte con_branch, $3A + $80     ; проверка на kaltz
     .byte off_case_A915_00_if_kaltz - *
     .byte off_case_A930_01_if_not_kaltz - *
@@ -9881,10 +9881,10 @@ off_case_AA48_21_kaltz:
 
 
 
-off_long_case_AA4F_00_shoot:
-off_long_case_AA4F_00_dribble:
-off_long_case_AA4F_01_pass:
-off_long_case_AA4F_03_1_2_pass:
+bra_long_case_AA4F_00_shoot:
+bra_long_case_AA4F_00_dribble:
+bra_long_case_AA4F_01_pass:
+bra_long_case_AA4F_03_1_2_pass:
 ; легкая обводка
     .byte con_mirror_toggle
     .byte con_F7, $02
@@ -9904,7 +9904,7 @@ off_long_case_AA4F_03_1_2_pass:
 
 
 _scenario_AA62_6A:
-off_long_case_AA62_01_heel_lift:
+bra_long_case_AA62_01_heel_lift:
     .byte con_jsr
     .word sub_A810_анимация_heel_lift
     .byte con_F7, $02
@@ -9917,7 +9917,7 @@ off_long_case_AA62_01_heel_lift:
 
 
 
-off_long_case_AA6D_02_forcible_dribble:
+bra_long_case_AA6D_02_forcible_dribble:
     .byte con_branch, $47 + $80     ; кто делает силовой дриблинг
     .byte off_case_AA75_00_hyuga_из_японии - *
     .byte off_case_AA93_01_hyuga_из_тохо - *
@@ -10006,7 +10006,7 @@ off_case_AAAE_04_napoleon:
 
 
 
-off_long_case_AAB7_03_vanishing_feint:
+bra_long_case_AAB7_03_vanishing_feint:
     .byte con_jsr
     .word sub_A86C_vanishing_feint
     .byte con_F7, $02
@@ -10025,7 +10025,7 @@ off_long_case_AAB7_03_vanishing_feint:
 
 
 
-off_long_case_AACB_04_clone_dribble:
+bra_long_case_AACB_04_clone_dribble:
     .byte con_branch, $3B + $80     ; проверка на carlos
     .byte off_case_AACF_00_if_carlos - *
     .byte off_case_AADD_01_if_not_carlos - *
@@ -10056,7 +10056,7 @@ off_case_AADD_01_if_not_carlos:
 
 
 
-off_long_case_AAE3_05_high_speed_dribble:
+bra_long_case_AAE3_05_high_speed_dribble:
     .byte con_jsr
     .word sub_A8D0
     .byte con_F7, $0D
@@ -10081,7 +10081,7 @@ loc_AAEF:
 
 
 
-off_long_case_AAFF_06_hedgehog_dribble:
+bra_long_case_AAFF_06_hedgehog_dribble:
     .byte con_branch, $3A + $80     ; проверка на kaltz
     .byte off_case_AB03_00_if_kaltz - *
     .byte off_case_AB2B_01_if_not_kaltz - *
@@ -10130,7 +10130,7 @@ off_case_AB2B_01_if_not_kaltz:
 
 
 sub_AB31_полная_анимация_обычного_удара_с_земли:
-off_long_case_AB31_00___shot:
+bra_long_case_AB31_00___shot:
     .byte con_mirror_off
     .byte con_soundID_delay, $19, $02
     .byte con_pause + $28
@@ -10155,7 +10155,7 @@ loc_AB42_мяч_улетает_от_игрока_после_удара:
 
 
 
-off_long_case_AB4C_03_drive_shot:
+bra_long_case_AB4C_03_drive_shot:
     .byte con_branch, $30 + $80     ; проверка на tsubasa или diaz
     .byte off_case_AB58_00_if_not_tsubasa_и_не_diaz - *
     .byte off_case_AB51_01_if_tsubasa - *
@@ -10295,7 +10295,7 @@ sub_ABB8:
 
 
 
-off_long_case_ABCC_05_falcon_shot:
+bra_long_case_ABCC_05_falcon_shot:
     .byte con_branch, $31 + $80     ; проверка на nitta
     .byte off_case_ABD0_00_if_nitta - *
     .byte off_case_ABE9_01_if_not_nitta - *
@@ -10332,7 +10332,7 @@ off_case_ABE9_01_if_not_nitta:
     .byte con_cloud + $A5
     .byte con_jmp
     .word loc_ABD4
-off_long_case_ABF0_07_razor_shot:
+bra_long_case_ABF0_07_razor_shot:
     .byte con_branch, $32 + $80     ; проверка на soda
     .byte off_case_ABF4_00_if_soda - *
     .byte off_case_AC1C_01_if_not_soda - *
@@ -10383,7 +10383,7 @@ off_case_AC1C_01_if_not_soda:
 
 
 
-off_long_case_AC23_0B_eagle_shot:
+bra_long_case_AC23_0B_eagle_shot:
     .byte con_branch, $39 + $80     ; проверка на matsuyama
     .byte off_case_AC27_00_if_matsuyama - *
     .byte off_case_AC46_01_if_not_matsuyama - *
@@ -10427,7 +10427,7 @@ off_case_AC46_01_if_not_matsuyama:
 
 
 
-off_long_case_AC4D_0C_tiger_shot:
+bra_long_case_AC4D_0C_tiger_shot:
     .byte con_branch, $38 + $80     ; проверка на hyuga
     .byte off_case_AC51_00_if_hyuga - *
     .byte off_case_AC67_01_if_not_hyuga - *
@@ -10465,7 +10465,7 @@ off_case_AC67_01_if_not_hyuga:
 
 
 
-off_long_case_AC6E_0D_neo_tiger_shot:
+bra_long_case_AC6E_0D_neo_tiger_shot:
     .byte con_branch, $2C + $80     ; напали ли защитники
     .byte off_case_AC72_00_нет_защитников - *
     .byte off_case_ACA3_01_есть_защитники - *
@@ -10549,7 +10549,7 @@ off_case_ACB0_01_if_not_hyuga:
 
 
 
-off_long_case_ACB9_11_drive_tiger:
+bra_long_case_ACB9_11_drive_tiger:
     .byte con_mirror_off
     .byte con_F8, $04
     .byte con_pause + $3C
@@ -10615,7 +10615,7 @@ off_long_case_ACB9_11_drive_tiger:
 
 
 
-off_long_case_AD0C_12_cyclone:
+bra_long_case_AD0C_12_cyclone:
     .byte con_mirror_off
     .byte con_jsr
     .word sub_AD13
@@ -10635,7 +10635,7 @@ sub_AD13:
 
 
 
-off_long_case_AD1D_13_sano_combo:
+bra_long_case_AD1D_13_sano_combo:
     .byte con_branch, $18 + $80     ; проверка на jito из японии
     .byte off_case_AD21_00_if_jito_из_японии - *
     .byte off_case_AD45_01_if_jito_из_куними - *
@@ -10683,7 +10683,7 @@ off_case_AD45_01_if_jito_из_куними:
 
 
 
-off_long_case_AD4C_14_banana_shot:
+bra_long_case_AD4C_14_banana_shot:
     .byte con_jsr
     .word sub_ABB8
     .byte con_jsr
@@ -10699,7 +10699,7 @@ off_long_case_AD4C_14_banana_shot:
 
 
 
-off_long_case_AD5E_15_booster_shot:
+bra_long_case_AD5E_15_booster_shot:
     .byte con_jsr
     .word sub_ABB8
     .byte con_jsr
@@ -10727,7 +10727,7 @@ off_long_case_AD5E_15_booster_shot:
 
 
 
-off_long_case_AD81_16_mirage_shot:
+bra_long_case_AD81_16_mirage_shot:
     .byte con_branch, $3B + $80     ; проверка на carlos
     .byte off_case_AD85_00_if_carlos - *
     .byte off_case_ADA4_01_if_not_carlos - *
@@ -10771,7 +10771,7 @@ off_case_ADA4_01_if_not_carlos:
 
 
 
-off_long_case_ADAB_17_mach_shot:
+bra_long_case_ADAB_17_mach_shot:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BC
@@ -10797,7 +10797,7 @@ off_long_case_ADAB_17_mach_shot:
 
 
 
-off_long_case_ADCA_18_sidewinder_shot:
+bra_long_case_ADCA_18_sidewinder_shot:
     .byte con_jsr
     .word sub_ABB8
     .byte con_jsr
@@ -10813,7 +10813,7 @@ off_long_case_ADCA_18_sidewinder_shot:
 
 
 
-off_long_case_ADDC_19_slider_shot:
+bra_long_case_ADDC_19_slider_shot:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B5
@@ -10838,7 +10838,7 @@ off_long_case_ADDC_19_slider_shot:
 
 
 
-off_long_case_ADF9_1A_cannon_shot:
+bra_long_case_ADF9_1A_cannon_shot:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B4
@@ -10858,7 +10858,7 @@ off_long_case_ADF9_1A_cannon_shot:
 
 
 
-off_long_case_AE0F_1B_fire_shot:
+bra_long_case_AE0F_1B_fire_shot:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B8
@@ -10888,7 +10888,7 @@ off_long_case_AE0F_1B_fire_shot:
 
 
 
-off_long_case_AE34_22_double_eel:
+bra_long_case_AE34_22_double_eel:
     .byte con_F7, $31
     .byte con_soundID_delay, $16, $02
     .byte con_pause + $28
@@ -10908,7 +10908,7 @@ off_long_case_AE34_22_double_eel:
 
 
 
-off_long_case_AE4C_00:
+bra_long_case_AE4C_00:
     .byte con_branch, $40 + $80
     .byte off_case_AE64_00_игрок_без_рожи - *
     .byte off_case_AE64_01_tsubasa - *
@@ -10935,10 +10935,10 @@ off_long_case_AE4C_00:
 
 
 
-off_long_case_AE64_01_pass:
-off_long_case_AE64_02_trap:
-off_long_case_AE64_03_though:
-off_long_case_AE64_04:
+bra_long_case_AE64_01_pass:
+bra_long_case_AE64_02_trap:
+bra_long_case_AE64_03_though:
+bra_long_case_AE64_04:
 off_case_AE64_00_игрок_без_рожи:
 off_case_AE64_01_tsubasa:
 off_case_AE64_02_misaki:
@@ -11061,7 +11061,7 @@ off_case_AEA4_11_masao_kazuo:
 
 
 
-off_long_case_AED4_01_skylab_twin_shot:
+bra_long_case_AED4_01_skylab_twin_shot:
     .byte con_mirror_on
     .byte con_F8, $04
     .byte con_pause + $40
@@ -11138,7 +11138,7 @@ off_long_case_AED4_01_skylab_twin_shot:
 
 
 
-off_long_case_AF31_03:
+bra_long_case_AF31_03:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $37
     .byte con_bg + $47
@@ -11165,7 +11165,7 @@ off_long_case_AF31_03:
 
 
 
-off_long_case_AF51_00_pass:
+bra_long_case_AF51_00_pass:
     .byte con_soundID_delay, $2B, $05
     .byte con_pause + $3C
     .byte con_bg + $72
@@ -11175,7 +11175,7 @@ off_long_case_AF51_00_pass:
 
 
 
-off_long_case_AF59_01_drive_pass:
+bra_long_case_AF59_01_drive_pass:
     .byte con_mirror_off
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -11232,7 +11232,7 @@ sub_AF88_рожа_soda_палка_и_мерцание:
 
 
 
-off_long_case_AF90_02_razor_pass:
+bra_long_case_AF90_02_razor_pass:
     .byte con_branch, $32 + $80     ; проверка на soda
     .byte off_case_AF94_00_if_soda - *
     .byte off_case_AFA4_01_if_not_soda - *
@@ -11263,7 +11263,7 @@ off_case_AFA4_01_if_not_soda:
 
 
 
-off_long_case_AFAA_03_topspin_pass:
+bra_long_case_AFAA_03_topspin_pass:
     .byte con_mirror_off
     .byte con_F7, $10
     .byte con_soundID_delay, $12, $02
@@ -11281,18 +11281,18 @@ off_long_case_AFAA_03_topspin_pass:
 
 
 
-off_long_case_AFBE_02_header:
+bra_long_case_AFBE_02_header:
     .byte con_soundID_delay, $1B, $21
     .byte con_pause + $48
     .byte con_bg + $2A
     .byte con_animation + $3B
     .byte con_cloud + $47
-off_long_case_AFC5_00___:
+bra_long_case_AFC5_00___:
     .byte con_rts
 
 
 
-off_long_case_AFC6_04_drive_overhead:
+bra_long_case_AFC6_04_drive_overhead:
     .byte con_pause + $01
     .byte con_bg + $71
     .byte con_animation + $00
@@ -11322,7 +11322,7 @@ off_long_case_AFC6_04_drive_overhead:
 
 
 
-off_long_case_AFE5_08_skylab_hurricane:
+bra_long_case_AFE5_08_skylab_hurricane:
     .byte con_soundID_delay, $1A, $21
     .byte con_pause + $50
     .byte con_bg + $2A
@@ -11332,13 +11332,13 @@ off_long_case_AFE5_08_skylab_hurricane:
 
 
 
-off_long_case_AFED_0A_skylab_twin_shot:
+bra_long_case_AFED_0A_skylab_twin_shot:
     .byte con_jmp
     .word loc_B22E
 
 
 
-off_long_case_AFF0_0E_overhead:
+bra_long_case_AFF0_0E_overhead:
     .byte con_branch, $40 + $80
     .byte off_case_B01B_00_игрок_без_рожи - *
     .byte off_case_B014_01_tsubasa - *
@@ -11539,7 +11539,7 @@ off_case_B072_20_victorino:
 
 
 
-off_long_case_B079_0F_hyper_overhead:
+bra_long_case_B079_0F_hyper_overhead:
     .byte con_branch, $3C + $80     ; проверка на misugi из japan
     .byte off_case_B07D_00_if_misugi_из_japan - *
     .byte off_case_B097_01_if_misugi_из_musashi - *
@@ -11582,7 +11582,7 @@ off_case_B097_01_if_misugi_из_musashi:
 
 
 
-off_long_case_B09F_12_cyclone_high:
+bra_long_case_B09F_12_cyclone_high:
     .byte con_mirror_off
     .byte con_soundID_delay, $2B, $19
     .byte con_pause + $3C
@@ -11617,7 +11617,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
 
 
 
-off_long_case_B0C8_1C_dynamite_header:
+bra_long_case_B0C8_1C_dynamite_header:
     .byte con_F7, $1E
     .byte con_soundID_delay, $1A, $21
     .byte con_pause + $48
@@ -11629,7 +11629,7 @@ off_long_case_B0C8_1C_dynamite_header:
 
 
 
-off_long_case_B0D4_1D_cannon_header:
+bra_long_case_B0D4_1D_cannon_header:
     .byte con_F7, $2A
     .byte con_soundID_delay, $1A, $21
     .byte con_pause + $48
@@ -11640,7 +11640,7 @@ off_long_case_B0D4_1D_cannon_header:
 
 
 
-off_long_case_B0DE_1E_rocker_header:
+bra_long_case_B0DE_1E_rocker_header:
     .byte con_F7, $20
     .byte con_soundID_delay, $1A, $21
     .byte con_pause + $56
@@ -11651,7 +11651,7 @@ off_long_case_B0DE_1E_rocker_header:
 
 
 
-off_long_case_B0E8_1F_rising_dragon_kick:
+bra_long_case_B0E8_1F_rising_dragon_kick:
     .byte con_soundID_delay, $1A, $02
     .byte con_pause + $1E
     .byte con_bg + $1D
@@ -11668,7 +11668,7 @@ off_long_case_B0E8_1F_rising_dragon_kick:
 
 
 
-off_long_case_B0FB_21_slider_cannon:
+bra_long_case_B0FB_21_slider_cannon:
     .byte con_branch, $25 + $80     ; slider cannon уже били или нет
     .byte off_case_B0FF_00_slider_cannon_уже_били - *
     .byte off_case_B141_01_slider_cannon_еще_не_били - *
@@ -11782,7 +11782,7 @@ off_case_B141_01_slider_cannon_еще_не_били:
 
 
 
-off_long_case_B182_01_volley:
+bra_long_case_B182_01_volley:
     .byte con_moving_bg, $03
     .byte con_pause + $1E
     .byte con_bg + $58
@@ -11799,12 +11799,12 @@ off_long_case_B182_01_volley:
     .byte con_bg + $58
     .byte con_animation + $6A
     .byte con_cloud + con_skip
-off_long_case_B197_00___:
+bra_long_case_B197_00___:
     .byte con_rts
 
 
 
-off_long_case_B198_06_falcon_volley:
+bra_long_case_B198_06_falcon_volley:
     .byte con_branch, $31 + $80     ; проверка на nitta
     .byte off_case_B19C_00_if_наш_nitta - *
     .byte off_case_B1C3_01_if_соперник_nitta - *
@@ -11856,7 +11856,7 @@ off_case_B1C3_01_if_соперник_nitta:
 
 
 
-off_long_case_B1CA_09_twin_shot:
+bra_long_case_B1CA_09_twin_shot:
     .byte con_branch, $49 + $80     ; twin shot
     .byte off_case_B200_00_tsubasa - *
     .byte off_case_B200_01_misaki - *
@@ -11964,7 +11964,7 @@ off_case_B220_0A_kazuo:
     .byte con_animation + $9C
     .byte con_cloud + $AD
 loc_B22E:
-off_long_case_B22E_0A_skylab_twin_shot:
+bra_long_case_B22E_0A_skylab_twin_shot:
     .byte con_F7, $10
     .byte con_pause + $16
     .byte con_bg + $05
@@ -12000,7 +12000,7 @@ off_case_B240_0C_kazuo:
 
 
 
-off_long_case_B251_10_jumping_volley:
+bra_long_case_B251_10_jumping_volley:
 loc_B251_misaki_jumping_volley_в_процессе:
     .byte con_F7, $31
     .byte con_soundID_delay, $16, $02
@@ -12025,7 +12025,7 @@ loc_B251_misaki_jumping_volley_в_процессе:
 
 
 
-off_long_case_B26F_20_foward_somersault:
+bra_long_case_B26F_20_foward_somersault:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B7
@@ -12061,11 +12061,11 @@ off_long_case_B26F_20_foward_somersault:
 
 
 
-off_long_case_B29B_00:
-off_long_case_B29B_01_pass:
-off_long_case_B29B_02_trap:
-off_long_case_B29B_03_through:
-off_long_case_B29B_04:
+bra_long_case_B29B_00:
+bra_long_case_B29B_01_pass:
+bra_long_case_B29B_02_trap:
+bra_long_case_B29B_03_through:
+bra_long_case_B29B_04:
     .byte con_F7, $02
     .byte con_pause + $32
     .byte con_bg + $22
@@ -12075,7 +12075,7 @@ off_long_case_B29B_04:
 
 
 
-off_long_case_B2A2_02:
+bra_long_case_B2A2_02:
     .byte con_branch, $3D + $80     ; проверка на misaki из nankatsu
     .byte off_case_B2A6_00_if_misaki_из_nankatsu - *
     .byte off_case_B2BB_01_if_misaki_из_japan - *
@@ -12201,7 +12201,7 @@ off_case_B2F2_0F_ishizaki:
 
 
 
-off_long_case_B2FE_01_спешал:
+bra_long_case_B2FE_01_спешал:
     .byte con_branch, $33 + $80     ; защитный спешал
     .byte off_case_B310_00_игрок_без_защитного_спешала - *
     .byte off_case_B338_01_masao_kazuo - *
@@ -12222,7 +12222,7 @@ off_long_case_B2FE_01_спешал:
 
 
 
-off_long_case_B310_00_не_спешал:
+bra_long_case_B310_00_не_спешал:
 off_case_B310_00_игрок_без_защитного_спешала:
 off_case_B310_03_soda:
 off_case_B310_04_soda:
@@ -12247,7 +12247,7 @@ off_case_B310_0F_ishizaki:
 
 
 
-off_long_case_B31A_01_спешал:
+bra_long_case_B31A_01_спешал:
     .byte con_branch, $33 + $80     ; защитный спешал
     .byte off_case_B32C_00_игрок_без_защитного_спешала - *
     .byte off_case_B338_01_masao_kazuo - *
@@ -12268,7 +12268,7 @@ off_long_case_B31A_01_спешал:
 
 
 
-off_long_case_B32C_00_не_спешал:
+bra_long_case_B32C_00_не_спешал:
 off_case_B32C_00_игрок_без_защитного_спешала:
 off_case_B32C_03_soda:
 off_case_B32C_04_soda:
@@ -12437,19 +12437,19 @@ off_case_B3A1_0F:
 
 
 
-off_long_case_B3AA_01_heel_lift:
+bra_long_case_B3AA_01_heel_lift:
     .byte con_jsr
     .word sub_A810_анимация_heel_lift
-off_long_case_B3AD_00_shoot:
-off_long_case_B3AD_00_dribble:
-off_long_case_B3AD_01_pass:
-off_long_case_B3AD_03_1_2_pass:
+bra_long_case_B3AD_00_shoot:
+bra_long_case_B3AD_00_dribble:
+bra_long_case_B3AD_01_pass:
+bra_long_case_B3AD_03_1_2_pass:
     .byte con_mirror_toggle
     .byte con_rts
 
 
 
-off_long_case_B3AF_02_forcible_dribble:
+bra_long_case_B3AF_02_forcible_dribble:
     .byte con_branch, $47 + $80     ; кто делает силовой дриблинг
     .byte off_case_B3B7_00_hyuga_из_японии - *
     .byte off_case_B3C5_01_hyuga_из_тохо - *
@@ -12522,7 +12522,7 @@ off_case_B3E0_04_napoleon:
 
 
 
-off_long_case_B3E9_03_vanishing_feint:
+bra_long_case_B3E9_03_vanishing_feint:
     .byte con_jsr
     .word sub_A86C_vanishing_feint
     .byte con_F7, $02
@@ -12535,7 +12535,7 @@ off_long_case_B3E9_03_vanishing_feint:
 
 
 
-off_long_case_B3F4_04_clone_dribble:
+bra_long_case_B3F4_04_clone_dribble:
     .byte con_branch, $3B + $80     ; проверка на carlos
     .byte off_case_B3F8_00_if_carlos - *
     .byte off_case_B400_01_if_not_carlos - *
@@ -12558,7 +12558,7 @@ off_case_B400_01_if_not_carlos:
 
 
 
-off_long_case_B406_05_high_speed_dribble:
+bra_long_case_B406_05_high_speed_dribble:
     .byte con_jsr
     .word sub_A8D0
     .byte con_F7, $0D
@@ -12572,7 +12572,7 @@ off_long_case_B406_05_high_speed_dribble:
 
 
 
-off_long_case_B414_06_hedgehog_dribble:
+bra_long_case_B414_06_hedgehog_dribble:
     .byte con_branch, $3A + $80     ; проверка на kaltz
     .byte off_case_B418_00_if_kaltz - *
     .byte off_case_B422_01_if_not_kaltz - *
@@ -12618,7 +12618,7 @@ off_case_B432_00:
 
 
 
-off_long_case_B433_00_рандом_1:
+bra_long_case_B433_00_рандом_1:
     .byte con_pause + $28
     .byte con_bg + $1E
     .byte con_animation + $3E
@@ -12627,7 +12627,7 @@ off_long_case_B433_00_рандом_1:
 
 
 
-off_long_case_B438_01_рандом_2:
+bra_long_case_B438_01_рандом_2:
     .byte con_pause + $28
     .byte con_bg + $1E
     .byte con_animation + $3F
@@ -12674,7 +12674,7 @@ sub_B44E_кипер_идеально_засейвил:
 
 
 
-off_long_case_B453_00_рандом_1:
+bra_long_case_B453_00_рандом_1:
     .byte con_pause + $32
     .byte con_bg + $1C
     .byte con_animation + $13
@@ -12683,7 +12683,7 @@ off_long_case_B453_00_рандом_1:
 
 
 
-off_long_case_B458_01_рандом_2:
+bra_long_case_B458_01_рандом_2:
     .byte con_pause + $32
     .byte con_bg + $1C
     .byte con_animation + $14
@@ -12717,13 +12717,13 @@ _scenario_B47C_3A:
 _scenario_B486_1B:
     .byte con_mirror_condition, $00
     .byte con_branch, $0C + $00     ; обычный или спешал
-    .word off_long_case_B49A_00
-    .word off_long_case_B48E_01
+    .word bra_long_case_B49A_00
+    .word bra_long_case_B48E_01
 
 
 
 _scenario_B48E_03:
-off_long_case_B48E_01:
+bra_long_case_B48E_01:
     .byte con_mirror_on
     .byte con_jsr
     .word sub_BB4B
@@ -12736,7 +12736,7 @@ off_long_case_B48E_01:
 
 
 
-off_long_case_B49A_00:
+bra_long_case_B49A_00:
     .byte con_mirror_toggle
     .byte con_jsr
     .word sub_BB4B
@@ -12812,7 +12812,7 @@ _scenario_B4E0_2A:
 
 
 
-off_long_case_B4E7_00_shot:
+bra_long_case_B4E7_00_shot:
 sub_B4E7:
     .byte con_soundID_delay, $03, $02
     .byte con_pause + $3C
@@ -12823,7 +12823,7 @@ sub_B4E7:
 
 
 
-off_long_case_B4EF_01_header:
+bra_long_case_B4EF_01_header:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $37
     .byte con_bg + $2A
@@ -12833,20 +12833,20 @@ off_long_case_B4EF_01_header:
 
 
 
-off_long_case_B4F7_02_volley:
-off_long_case_B4F7_08_skylab_hurricane:
+bra_long_case_B4F7_02_volley:
+bra_long_case_B4F7_08_skylab_hurricane:
     .byte con_jmp
     .word loc_BB65_одна_из_анимаций_drive_shot
 
 
 
-off_long_case_B4FB_03_drive_shot:
+bra_long_case_B4FB_03_drive_shot:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $37
     .byte con_bg + $00
     .byte con_animation + $01
     .byte con_cloud + con_clear
-off_long_case_B502_01:
+bra_long_case_B502_01:
     .byte con_jsr
     .word sub_BB5D_одна_из_анимаций_drive_shot
     .byte con_jmp
@@ -12854,7 +12854,7 @@ off_long_case_B502_01:
 
 
 
-off_long_case_B509_04_drive_overhead:
+bra_long_case_B509_04_drive_overhead:
 sub_B509:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $2A
@@ -12880,7 +12880,7 @@ sub_B519:
 
 
 
-off_long_case_B525_05_falcon_shot:
+bra_long_case_B525_05_falcon_shot:
     .byte con_jsr
     .word sub_BB75
     .byte con_F7, $33
@@ -12893,7 +12893,7 @@ off_long_case_B525_05_falcon_shot:
 
 
 
-off_long_case_B532_06_falcon_volley:
+bra_long_case_B532_06_falcon_volley:
     .byte con_jsr
     .word sub_BB75
     .byte con_soundID_delay, $04, $02
@@ -12906,7 +12906,7 @@ off_long_case_B532_06_falcon_volley:
 
 
 
-off_long_case_B53F_07_razor_shot:
+bra_long_case_B53F_07_razor_shot:
     .byte con_mirror_toggle
     .byte con_jsr
     .word sub_BB8F
@@ -12923,14 +12923,14 @@ loc_B543:
 
 
 
-off_long_case_B54F_02:
+bra_long_case_B54F_02:
     .byte con_mirror_toggle
     .byte con_jmp
     .word loc_B543
 
 
 
-off_long_case_B553_09_twin_shot:
+bra_long_case_B553_09_twin_shot:
     .byte con_jsr
     .word sub_BBA7_полет_twin_shot_1
     .byte con_jsr
@@ -12939,7 +12939,7 @@ off_long_case_B553_09_twin_shot:
 
 
 
-off_long_case_B55A_0A_skylab_twin_shot:
+bra_long_case_B55A_0A_skylab_twin_shot:
     .byte con_jsr
     .word sub_BBA7_полет_twin_shot_1
     .byte con_F7, $3A
@@ -12952,7 +12952,7 @@ off_long_case_B55A_0A_skylab_twin_shot:
 
 
 
-off_long_case_B567_0B_eagle_shot:
+bra_long_case_B567_0B_eagle_shot:
     .byte con_jsr
     .word sub_BB85
     .byte con_soundID_delay, $5E, $02
@@ -12966,7 +12966,7 @@ off_long_case_B567_0B_eagle_shot:
 
 
 
-off_long_case_B575_0C_tiger_shot:
+bra_long_case_B575_0C_tiger_shot:
     .byte con_jsr
     .word sub_BB8F
     .byte con_soundID_delay, $07, $02
@@ -12980,7 +12980,7 @@ off_long_case_B575_0C_tiger_shot:
 
 
 
-off_long_case_B583_0D_neo_tiger_shot:
+bra_long_case_B583_0D_neo_tiger_shot:
 sub_B583:
     .byte con_F7, $0C
     .byte con_jsr
@@ -13000,14 +13000,14 @@ sub_B583:
 
 
 
-off_long_case_B599_0E_overhead:
+bra_long_case_B599_0E_overhead:
     .byte con_jsr
     .word sub_BB6D
     .byte con_rts
 
 
 
-off_long_case_B59D_0F_hyper_overhead:
+bra_long_case_B59D_0F_hyper_overhead:
     .byte con_jsr
     .word sub_BB6D
     .byte con_jsr
@@ -13016,7 +13016,7 @@ off_long_case_B59D_0F_hyper_overhead:
 
 
 
-off_long_case_B5A4_10_jumping_volley:
+bra_long_case_B5A4_10_jumping_volley:
     .byte con_F7, $31
     .byte con_jsr
     .word sub_BBBF
@@ -13035,7 +13035,7 @@ off_long_case_B5A4_10_jumping_volley:
 
 
 
-off_long_case_B5BA_11_drive_tiger:
+bra_long_case_B5BA_11_drive_tiger:
     .byte con_soundID_delay, $08, $02
     .byte con_pause + $41
     .byte con_bg + $02
@@ -13055,7 +13055,7 @@ off_long_case_B5BA_11_drive_tiger:
 
 
 
-off_long_case_B5D0_12_cyclone:
+bra_long_case_B5D0_12_cyclone:
     .byte con_soundID_delay, $24, $02
     .byte con_pause + $38
     .byte con_bg + $35
@@ -13073,7 +13073,7 @@ off_long_case_B5D0_12_cyclone:
 
 
 
-off_long_case_B5E4_13_sano_combo:
+bra_long_case_B5E4_13_sano_combo:
     .byte con_soundID_delay, $0E, $02
     .byte con_pause + $32
     .byte con_bg + $1D
@@ -13083,7 +13083,7 @@ off_long_case_B5E4_13_sano_combo:
 
 
 
-off_long_case_B5EC_14_banana_shot:
+bra_long_case_B5EC_14_banana_shot:
 sub_B5EC:
     .byte con_jsr
     .word sub_BB8F
@@ -13096,7 +13096,7 @@ sub_B5EC:
 
 
 
-off_long_case_B5F7_15_booster_shot:
+bra_long_case_B5F7_15_booster_shot:
     .byte con_F7, $31
     .byte con_jsr
     .word sub_BBBF
@@ -13113,7 +13113,7 @@ off_long_case_B5F7_15_booster_shot:
 
 
 
-off_long_case_B60B_16_mirage_shot:
+bra_long_case_B60B_16_mirage_shot:
 sub_B60B:
     .byte con_F7, $3B
     .byte con_jsr
@@ -13130,7 +13130,7 @@ sub_B60B:
 
 
 
-off_long_case_B61D_17_mach_shot:
+bra_long_case_B61D_17_mach_shot:
     .byte con_soundID_delay, $0B, $02
     .byte con_pause + $32
     .byte con_bg + $1C
@@ -13217,7 +13217,7 @@ off_case_B674_01_кипер_ренато:
 
 
 
-off_long_case_B675_18_sidewinder_shot:
+bra_long_case_B675_18_sidewinder_shot:
     .byte con_jsr
     .word sub_BB9F
     .byte con_mirror_toggle
@@ -13233,7 +13233,7 @@ off_long_case_B675_18_sidewinder_shot:
 
 
 
-off_long_case_B685_19_slider_shot:
+bra_long_case_B685_19_slider_shot:
     .byte con_jsr
     .word sub_BBB7
     .byte con_soundID_delay, $10, $02
@@ -13245,7 +13245,7 @@ off_long_case_B685_19_slider_shot:
 
 
 
-off_long_case_B690_1A_cannon_shot:
+bra_long_case_B690_1A_cannon_shot:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $30
     .byte con_bg + $5A
@@ -13283,7 +13283,7 @@ off_long_case_B690_1A_cannon_shot:
 
 
 
-off_long_case_B6C0_1B_fire_shot:
+bra_long_case_B6C0_1B_fire_shot:
     .byte con_F7, $0D
     .byte con_jsr
     .word sub_BBB7
@@ -13302,7 +13302,7 @@ off_long_case_B6C0_1B_fire_shot:
 
 
 
-off_long_case_B6D6_1C_dynamite_header:
+bra_long_case_B6D6_1C_dynamite_header:
 sub_B6D6:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $20
@@ -13313,7 +13313,7 @@ sub_B6D6:
 
 
 
-off_long_case_B6DE_1D_cannon_header:
+bra_long_case_B6DE_1D_cannon_header:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $1E
     .byte con_bg + $67
@@ -13323,7 +13323,7 @@ off_long_case_B6DE_1D_cannon_header:
 
 
 
-off_long_case_B6E6_1E_rocket_header:
+bra_long_case_B6E6_1E_rocket_header:
     .byte con_mirror_toggle
     .byte con_soundID_delay, $08, $02
     .byte con_pause + $33
@@ -13335,7 +13335,7 @@ off_long_case_B6E6_1E_rocket_header:
 
 
 
-off_long_case_B6F0_1F_rising_dragon_kick:
+bra_long_case_B6F0_1F_rising_dragon_kick:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $32
     .byte con_bg + $13
@@ -13351,7 +13351,7 @@ off_long_case_B6F0_1F_rising_dragon_kick:
 
 
 
-off_long_case_B701_20_foward_somersault:
+bra_long_case_B701_20_foward_somersault:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $28
     .byte con_bg + $68
@@ -13367,7 +13367,7 @@ off_long_case_B701_20_foward_somersault:
 
 
 
-off_long_case_B712_21_slider_cannon:
+bra_long_case_B712_21_slider_cannon:
 sub_B712:
     .byte con_jsr
     .word sub_BBAF_полет_twin_shot_2
@@ -13385,7 +13385,7 @@ sub_B712:
 
 
 
-off_long_case_B724_22_double_eel:
+bra_long_case_B724_22_double_eel:
 sub_B724:
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $3D
@@ -13546,17 +13546,17 @@ _scenario_B78C_31:
 
 
 
-off_long_case_B792_01_кипер_ренато:
+bra_long_case_B792_01_кипер_ренато:
     .byte con_pause + $0A
     .byte con_bg + $32
     .byte con_animation + $93
     .byte con_cloud + con_skip
-off_long_case_B796_00_кипер_без_рожи:
+bra_long_case_B796_00_кипер_без_рожи:
     .byte con_rts
 
 
 
-off_long_case_B797_02_кипер_морисаки:
+bra_long_case_B797_02_кипер_морисаки:
     .byte con_pause + $0A
     .byte con_bg + $33
     .byte con_animation + $94
@@ -13565,7 +13565,7 @@ off_long_case_B797_02_кипер_морисаки:
 
 
 
-off_long_case_B79C_03_кипер_вакабаяши:
+bra_long_case_B79C_03_кипер_вакабаяши:
     .byte con_pause + $0A
     .byte con_bg + $32
     .byte con_animation + $A4
@@ -13574,7 +13574,7 @@ off_long_case_B79C_03_кипер_вакабаяши:
 
 
 
-off_long_case_B7A1_04_кипер_вакашимазу:
+bra_long_case_B7A1_04_кипер_вакашимазу:
     .byte con_pause + $0A
     .byte con_bg + $33
     .byte con_animation + $A6
@@ -13908,19 +13908,19 @@ _scenario_B8A1_17:
 
 
 
-off_long_case_B913_01_tsubasa:
+bra_long_case_B913_01_tsubasa:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $91
     .byte con_cloud + $8E
     .byte con_jsr
     .word sub_BBC7_очистка
-off_long_case_B91A_00_игрок_без_рожи:
+bra_long_case_B91A_00_игрок_без_рожи:
     .byte con_rts
 
 
 
-off_long_case_B91B_02_misaki:
+bra_long_case_B91B_02_misaki:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $96
@@ -13930,7 +13930,7 @@ off_long_case_B91B_02_misaki:
 
 
 
-off_long_case_B922_03_misaki:
+bra_long_case_B922_03_misaki:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $97
@@ -13940,7 +13940,7 @@ off_long_case_B922_03_misaki:
 
 
 
-off_long_case_B929_04_hyuga:
+bra_long_case_B929_04_hyuga:
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $9E
@@ -13950,7 +13950,7 @@ off_long_case_B929_04_hyuga:
 
 
 
-off_long_case_B930_05_hyuga:
+bra_long_case_B930_05_hyuga:
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $B0
@@ -13960,7 +13960,7 @@ off_long_case_B930_05_hyuga:
 
 
 
-off_long_case_B937_06_misugi:
+bra_long_case_B937_06_misugi:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A3
@@ -13970,7 +13970,7 @@ off_long_case_B937_06_misugi:
 
 
 
-off_long_case_B93E_07_misugi:
+bra_long_case_B93E_07_misugi:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AE
@@ -13980,7 +13980,7 @@ off_long_case_B93E_07_misugi:
 
 
 
-off_long_case_B945_08_matsuyama:
+bra_long_case_B945_08_matsuyama:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A1
@@ -13990,7 +13990,7 @@ off_long_case_B945_08_matsuyama:
 
 
 
-off_long_case_B94C_09_matsuyama:
+bra_long_case_B94C_09_matsuyama:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AF
@@ -14000,7 +14000,7 @@ off_long_case_B94C_09_matsuyama:
 
 
 
-off_long_case_B953_0A_ishizaki:
+bra_long_case_B953_0A_ishizaki:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $98
@@ -14010,7 +14010,7 @@ off_long_case_B953_0A_ishizaki:
 
 
 
-off_long_case_B95A_0B_ishizaki:
+bra_long_case_B95A_0B_ishizaki:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $99
@@ -14020,7 +14020,7 @@ off_long_case_B95A_0B_ishizaki:
 
 
 
-off_long_case_B961_0C_soda:
+bra_long_case_B961_0C_soda:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9F
@@ -14030,7 +14030,7 @@ off_long_case_B961_0C_soda:
 
 
 
-off_long_case_B968_0D_soda:
+bra_long_case_B968_0D_soda:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AD
@@ -14040,7 +14040,7 @@ off_long_case_B968_0D_soda:
 
 
 
-off_long_case_B96F_0E_jito:
+bra_long_case_B96F_0E_jito:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A0
@@ -14050,7 +14050,7 @@ off_long_case_B96F_0E_jito:
 
 
 
-off_long_case_B976_0F_jito:
+bra_long_case_B976_0F_jito:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AA
@@ -14060,7 +14060,7 @@ off_long_case_B976_0F_jito:
 
 
 
-off_long_case_B97D_10_masao_kazuo:
+bra_long_case_B97D_10_masao_kazuo:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9C
@@ -14070,7 +14070,7 @@ off_long_case_B97D_10_masao_kazuo:
 
 
 
-off_long_case_B984_11_masao_kazuo:
+bra_long_case_B984_11_masao_kazuo:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AB
@@ -14080,7 +14080,7 @@ off_long_case_B984_11_masao_kazuo:
 
 
 
-off_long_case_B98B_12_nitta:
+bra_long_case_B98B_12_nitta:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9A
@@ -14090,7 +14090,7 @@ off_long_case_B98B_12_nitta:
 
 
 
-off_long_case_B992_13_nitta:
+bra_long_case_B992_13_nitta:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9B
@@ -14100,7 +14100,7 @@ off_long_case_B992_13_nitta:
 
 
 
-off_long_case_B999_14_sawada:
+bra_long_case_B999_14_sawada:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A2
@@ -14110,7 +14110,7 @@ off_long_case_B999_14_sawada:
 
 
 
-off_long_case_B9A0_15_sawada:
+bra_long_case_B9A0_15_sawada:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B1
@@ -14120,7 +14120,7 @@ off_long_case_B9A0_15_sawada:
 
 
 
-off_long_case_B9A7_16_coimbra:
+bra_long_case_B9A7_16_coimbra:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BC
@@ -14130,7 +14130,7 @@ off_long_case_B9A7_16_coimbra:
 
 
 
-off_long_case_B9AE_17_carlos:
+bra_long_case_B9AE_17_carlos:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A9
@@ -14140,7 +14140,7 @@ off_long_case_B9AE_17_carlos:
 
 
 
-off_long_case_B9B5_18_carlos:
+bra_long_case_B9B5_18_carlos:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BB
@@ -14150,7 +14150,7 @@ off_long_case_B9B5_18_carlos:
 
 
 
-off_long_case_B9BC_19_schneider:
+bra_long_case_B9BC_19_schneider:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B8
@@ -14160,7 +14160,7 @@ off_long_case_B9BC_19_schneider:
 
 
 
-off_long_case_B9C3_1A_kaltz:
+bra_long_case_B9C3_1A_kaltz:
     .byte con_pause + $40
     .byte con_bg + $30
     .byte con_animation + $B3
@@ -14170,7 +14170,7 @@ off_long_case_B9C3_1A_kaltz:
 
 
 
-off_long_case_B9CA_1B_schester:
+bra_long_case_B9CA_1B_schester:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BA
@@ -14180,7 +14180,7 @@ off_long_case_B9CA_1B_schester:
 
 
 
-off_long_case_B9D1_1C_diaz:
+bra_long_case_B9D1_1C_diaz:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B7
@@ -14190,7 +14190,7 @@ off_long_case_B9D1_1C_diaz:
 
 
 
-off_long_case_B9D8_1D_pascal:
+bra_long_case_B9D8_1D_pascal:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B6
@@ -14200,7 +14200,7 @@ off_long_case_B9D8_1D_pascal:
 
 
 
-off_long_case_B9DF_1E_pierre:
+bra_long_case_B9DF_1E_pierre:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B5
@@ -14210,7 +14210,7 @@ off_long_case_B9DF_1E_pierre:
 
 
 
-off_long_case_B9E6_1F_napoleon:
+bra_long_case_B9E6_1F_napoleon:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B4
@@ -14220,7 +14220,7 @@ off_long_case_B9E6_1F_napoleon:
 
 
 
-off_long_case_B9ED_20_victorino:
+bra_long_case_B9ED_20_victorino:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B2
@@ -14230,7 +14230,7 @@ off_long_case_B9ED_20_victorino:
 
 
 
-off_long_case_B9F4_21_kaltz:
+bra_long_case_B9F4_21_kaltz:
     .byte con_pause + $40
     .byte con_bg + $30
     .byte con_animation + $B9
@@ -14263,7 +14263,7 @@ ofs_BA11_00_не_активировать_drive_tiger:
 
 
 
-off_long_case_BA1C_01:
+bra_long_case_BA1C_01:
     .byte con_soundID_delay, $2B, $21
     .byte con_pause + $4A
     .byte con_bg + $63
@@ -14273,7 +14273,7 @@ off_long_case_BA1C_01:
 
 
 
-off_long_case_BA24_00:
+bra_long_case_BA24_00:
     .byte con_soundID_delay, $2B, $21
     .byte con_pause + $46
     .byte con_bg + $01
@@ -14627,11 +14627,11 @@ _scenario_BB3F_23:
 
 
 
-off_long_case_BB4B_00:
-off_long_case_BB4B_01:
-off_long_case_BB4B_02:
-off_long_case_BB4B_03:
-off_long_case_BB4B_04:
+bra_long_case_BB4B_00:
+bra_long_case_BB4B_01:
+bra_long_case_BB4B_02:
+bra_long_case_BB4B_03:
+bra_long_case_BB4B_04:
 sub_BB4B:
     .byte con_pause + $30
     .byte con_bg + $1F
@@ -14641,7 +14641,7 @@ sub_BB4B:
 
 
 
-off_long_case_BB50_03:
+bra_long_case_BB50_03:
     .byte con_mirror_toggle
     .byte con_soundID_delay, $08, $02
     .byte con_pause + $3C
@@ -15266,7 +15266,7 @@ off_case_BD6D_10_napoleon:
 
 
 
-off_long_case_BD87_02:
+bra_long_case_BD87_02:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_F7, $02
     .byte con_pause + $28
@@ -15277,7 +15277,7 @@ off_long_case_BD87_02:
 
 
 
-off_long_case_BD90_01_кипер_ждет_в_воротах:
+bra_long_case_BD90_01_кипер_ждет_в_воротах:
     .byte con_pause + $60
     .byte con_bg + $65
     .byte con_animation + $DA
