@@ -8807,7 +8807,7 @@ sub_A495_сообщение_игрока_при_ответе_на_нападен
                                         .byte con_pause + $3C
                                         .byte con_bg + $30
                                         .byte con_animation + $FD
-                                        .byte con_cloud + $97
+                                        .byte con_cloud + $A7
                                         .byte con_jmp
                                         .word loc_BBC7_очистка
 
