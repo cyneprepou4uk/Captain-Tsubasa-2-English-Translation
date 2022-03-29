@@ -434,6 +434,44 @@ C - - - - - 0x020280 10:8270: 60        RTS
 
 
 
+tbl_8275_номер_анимации_игрока:
+    .byte $FF   ; 00 - игрок без рожи
+    .byte $91   ; 01 - tsubasa
+    .byte $96   ; 02 - misaki
+    .byte $97   ; 03 - misaki
+    .byte $9E   ; 04 - hyuga
+    .byte $B0   ; 05 - hyuga
+    .byte $A3   ; 06 - misugi
+    .byte $AE   ; 07 - misugi
+    .byte $A1   ; 08 - matsuyama
+    .byte $AF   ; 09 - matsuyama
+    .byte $98   ; 0A - ishizaki
+    .byte $99   ; 0B - ishizaki
+    .byte $9F   ; 0C - soda
+    .byte $AD   ; 0D - soda
+    .byte $A0   ; 0E - jito
+    .byte $AA   ; 0F - jito
+    .byte $9C   ; 10 - masao/kazuo
+    .byte $AB   ; 11 - masao/kazuo
+    .byte $9A   ; 12 - nitta
+    .byte $9B   ; 13 - nitta
+    .byte $A2   ; 14 - sawada
+    .byte $B1   ; 15 - sawada
+    .byte $BC   ; 16 - coimbra
+    .byte $A9   ; 17 - carlos
+    .byte $BB   ; 18 - carlos
+    .byte $B8   ; 19 - schneider
+    .byte $B3   ; 1A - kaltz
+    .byte $BA   ; 1B - schester
+    .byte $B7   ; 1C - diaz
+    .byte $B6   ; 1D - pascal
+    .byte $B5   ; 1E - pierre
+    .byte $B4   ; 1F - napoleon
+    .byte $B2   ; 20 - victorino
+    .byte $B9   ; 21 - kaltz
+
+
+
 ofs_015_8275_08:
 ; 00 - 
 ; 01 - 
