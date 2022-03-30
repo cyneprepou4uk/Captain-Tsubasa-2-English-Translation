@@ -4150,29 +4150,27 @@ bra_long_case_09_01_punch:
             .byte con_jsr
             .word sub_9F9C_крит_кипера
             .dbyt con_branch_long + con_bra_45
-            .word bra_long_case_09_01_00
-            .word bra_long_case_09_01_01
+            .word bra_long_case_09_01_00_кипер_выживет
+            .word bra_long_case_09_01_01_кипер_убьется
+
+bra_long_case_09_01_00_кипер_выживет:
+                    .dbyt con_branch_short + con_bra_03     ; результат действия защитника
+                    .byte off_case_09_01_00_00_не_достанет_до_обычного_мяча - *
+                    .byte off_case_09_01_00_01_не_достанет_до_супера - *
+                    .byte off_case_09_01_00_02_еле_отобьет - *
+                    .byte off_case_09_01_00_03_легко_отобьет - *
 
 
 
-bra_long_case_09_01_00:
-    .dbyt con_branch_short + con_bra_03     ; результат действия защитника
-    .byte off_case_09_01_00_00_промахнется - *
-    .byte off_case_09_01_00_01 - *
-    .byte off_case_09_01_00_02 - *
-    .byte off_case_09_01_00_03 - *
-
-
-
-off_case_09_01_00_01:
+off_case_09_01_00_01_не_достанет_до_супера:
     .dbyt con_branch_short + con_bra_0C     ; обычный или спешал
-    .byte off_case_09_01_00_01_00 - *
+    .byte off_case_09_01_00_01_00_мяч_не_порвется - *
     .byte off_case_09_01_00_01_01_мяч_порвется - *
 
 
 
-off_case_09_01_00_00_промахнется:
-off_case_09_01_00_01_00:
+off_case_09_01_00_00_не_достанет_до_обычного_мяча:
+off_case_09_01_00_01_00_мяч_не_порвется:
     .byte con_jsr
     .word sub_A10E_кипер_не_дотягивается_кулаком_до_мяча
     .dbyt con_branch_short + con_bra_0D
@@ -4222,7 +4220,7 @@ off_case_09_01_00_01_01_мяч_порвется:
 
 
 
-off_case_09_01_00_02:
+off_case_09_01_00_02_еле_отобьет:
     .byte con_drive, con_overhead
     .word ofs_93BE_00_кипер_с_трудом_обивает
     .word ofs_93C4_01_drive_shot_бесполезен
@@ -4282,8 +4280,8 @@ ofs_93DF_03_meon_с_трудом_отбивает_2й_раз_и_озарение
 
 
 
-loc_93F1:
-off_case_09_01_00_03:
+loc_93F1_кипер_с_легкостью_отбивает_мяч:
+off_case_09_01_00_03_легко_отобьет:
     .byte con_drive, con_overhead
     .word ofs_93FB_00
     .word ofs_9404_01
@@ -4338,29 +4336,31 @@ ofs_9419_03:
 
 
 
-bra_long_case_09_01_01:
+bra_long_case_09_01_01_кипер_убьется:
     .dbyt con_branch_short + con_bra_03     ; результат действия защитника
-    .byte off_case_9435_00 - *
-    .byte off_case_09_01_01_01 - *
-    .byte off_case_09_01_01_02 - *
-    .byte off_case_09_01_01_03 - *
+    .byte off_case_09_01_01_00_кипер_убьется_об_обычный_мяч - *
+    .byte off_case_09_01_01_01_кипер_убьется_об_супер - *
+    .byte off_case_09_01_01_02_кипер_убьется_и_мяч_отлетит - *
+    .byte off_case_09_01_01_03_кипер_легко_отобьет - *
 
 
 
-off_case_09_01_01_03:
+off_case_09_01_01_03_кипер_легко_отобьет:
     .byte con_jmp
-    .word loc_93F1
+    .word loc_93F1_кипер_с_легкостью_отбивает_мяч
 
 
 
-off_case_09_01_01_01:
+off_case_09_01_01_01_кипер_убьется_об_супер:
     .dbyt con_branch_short + con_bra_0C     ; обычный или спешал
-    .byte off_case_9435_00 - *
-    .byte off_case_945A_01_мяч_порвется - *
+    .byte off_case_09_01_01_01_00_мяч_не_порвется - *
+    .byte off_case_09_01_01_01_01_мяч_порвется - *
 
 
 
-off_case_9435_00:
+off_case_09_01_01_01_00_мяч_не_порвется:
+off_case_09_01_01_00_кипер_убьется_об_обычный_мяч:
+; 9435
     .byte con_jsr
     .word sub_A122_кипер_собирается_коснуться_мяча_кулаком
     .dbyt con_branch_short + con_bra_0D
@@ -4402,15 +4402,15 @@ off_case_9454_04_гол_с_убийством_кипера_и_защитника
 
 
 
-off_case_945A_01_мяч_порвется:
+off_case_09_01_01_01_01_мяч_порвется:
     .byte con_jsr
     .word sub_A122_кипер_собирается_коснуться_мяча_кулаком
     .byte con_jmp
-    .word loc_97F3_мяч_порвется
+    .word loc_97F3_мяч_порвется_после_убийства_кипера
 
 
 
-off_case_09_01_01_02:
+off_case_09_01_01_02_кипер_убьется_и_мяч_отлетит:
     .byte con_drive, con_overhead
     .word ofs_946A_00_кипер_убивается_и_мяч_отлетает
     .word ofs_93C4_01_drive_shot_бесполезен
@@ -4429,27 +4429,23 @@ ofs_946A_00_кипер_убивается_и_мяч_отлетает:
 
 bra_long_case_09_02_triangle_jump:
             .dbyt con_branch_short + con_bra_выживет_ли_защитник
-            .byte off_case_09_02_00_защитник_выживет - *
-            .byte off_case_09_02_01_защитник_убьется - *
+            .byte off_case_09_02_00_кипер_выживет - *
+            .byte off_case_09_02_01_кипер_убьется - *
 
-off_case_09_02_00_защитник_выживет:
+off_case_09_02_00_кипер_выживет:
                     .dbyt con_branch_short + con_bra_03     ; результат действия защитника
                     .byte off_case_09_02_00_00 - *
                     .byte off_case_09_02_00_01 - *
                     .byte off_case_09_02_00_02 - *
                     .byte off_case_09_02_00_03 - *
 
-
-
 off_case_09_02_00_01:
-    .dbyt con_branch_short + con_bra_0C     ; обычный или спешал
-    .byte off_case_09_02_00_01_00 - *
-    .byte off_case_09_02_00_01_01_мяч_порвется - *
-
-
+                            .dbyt con_branch_short + con_bra_0C     ; обычный или спешал
+                            .byte off_case_09_02_00_01_00_мяч_не_порвется - *
+                            .byte off_case_09_02_00_01_01_мяч_порвется - *
 
 off_case_09_02_00_00:
-off_case_09_02_00_01_00:
+off_case_09_02_00_01_00_мяч_не_порвется:
     .byte con_jsr
     .word sub_9C5B_wakashimazu_отскок_от_штанги
     .byte con_jsr
@@ -4526,7 +4522,7 @@ off_case_09_02_00_03:
 
 
 
-off_case_09_02_01_защитник_убьется:
+off_case_09_02_01_кипер_убьется:
                     .dbyt con_branch_short + con_bra_03     ; результат действия защитника
                     .byte off_case_09_02_01_00 - *
                     .byte off_case_09_02_01_01 - *
@@ -4543,13 +4539,13 @@ off_case_09_02_01_03:
 
 off_case_09_02_01_01:
     .dbyt con_branch_short + con_bra_0C     ; обычный или спешал
-    .byte off_case_09_02_01_01_00 - *
-    .byte off_case_9511_01_мяч_порвется - *
+    .byte off_case_09_02_01_01_00_мяч_не_порвется - *
+    .byte off_case_09_02_01_01_01_мяч_порвется - *
 
 
 
 off_case_09_02_01_00:
-off_case_09_02_01_01_00:
+off_case_09_02_01_01_00_мяч_не_порвется:
     .byte con_jsr
     .word sub_9C5B_wakashimazu_отскок_от_штанги
     .byte con_jsr
@@ -4593,13 +4589,14 @@ off_case_9508_04_убийство_кипера_и_защитника_и_гол:
 
 
 
-off_case_9511_01_мяч_порвется:
+off_case_09_02_01_01_01_мяч_порвется:
+; 9511
     .byte con_jsr
     .word sub_9C5B_wakashimazu_отскок_от_штанги
     .byte con_jsr
     .word sub_A1CA_triangle_jump_ловит_мяч
     .byte con_jmp
-    .word loc_97F3_мяч_порвется
+    .word loc_97F3_мяч_порвется_после_убийства_кипера
 
 
 
@@ -4793,7 +4790,7 @@ off_case_09_00_00_01_01_01_мяч_порвется:
     .byte con_jsr
     .word sub_A0A1_кипер_ловит_мяч_без_звука
     .byte con_jmp
-    .word loc_97F3_мяч_порвется
+    .word loc_97F3_мяч_порвется_после_убийства_кипера
 
 
 
@@ -5477,7 +5474,7 @@ off_case_09_00_03_01_01_01_мяч_порвется:
 loc_97F0_кипер_убивается_после_своего_спешала_и_мяч_порвется:
     .byte con_jsr
     .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
-loc_97F3_мяч_порвется:
+loc_97F3_мяч_порвется_после_убийства_кипера:
     .byte con_jsr
     .word sub_A2DD_ярко_красное_мерцание
     .byte con_jsr
