@@ -6199,7 +6199,7 @@ off_case_A25D_00_сетка_не_порвана:
             .byte con_rts
 
 off_case_A267_01_сетка_порвана:
-loc_A267_goal:
+loc_A267_goal_и_рваная_сетка:
             .byte con_F7, $03
             .byte con_soundID_delay, $61, $02
             .byte con_pause + $78
@@ -12518,7 +12518,7 @@ bra_long_case_3C_00_01:
 
 
 bra_long_case_B509_04_drive_overhead:
-sub_B509:
+sub_B509_drive_overhead:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $2A
     .byte con_bg + $00
@@ -12644,7 +12644,7 @@ bra_long_case_B575_0C_tiger_shot:
 
 
 bra_long_case_B583_0D_neo_tiger_shot:
-sub_B583:
+sub_B583_neo_tiger_shot:
     .byte con_F7, $0C
     .byte con_jsr
     .word sub_BB97
@@ -12747,7 +12747,7 @@ bra_long_case_B5E4_13_sano_combo:
 
 
 bra_long_case_B5EC_14_banana_shot:
-sub_B5EC:
+sub_B5EC_banana_shot:
     .byte con_jsr
     .word sub_BB8F
     .byte con_soundID_delay, $0E, $02
@@ -12777,7 +12777,7 @@ bra_long_case_B5F7_15_booster_shot:
 
 
 bra_long_case_B60B_16_mirage_shot:
-sub_B60B:
+sub_B60B_mirage_shot:
     .byte con_F7, $3B
     .byte con_jsr
     .word sub_BB8F
@@ -13031,7 +13031,7 @@ bra_long_case_B701_20_foward_somersault:
 
 
 bra_long_case_B712_21_slider_cannon:
-sub_B712:
+sub_B712_slider_cannon:
     .byte con_jsr
     .word sub_BBAF_полет_twin_shot_2
     .byte con_mirror_toggle
@@ -13049,7 +13049,7 @@ sub_B712:
 
 
 bra_long_case_B724_22_double_eel:
-sub_B724:
+sub_B724_double_eel:
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $3D
     .byte con_bg + $4E
@@ -15061,7 +15061,7 @@ loc_BDDD_cyclone:
             .byte con_animation + $51
             .byte con_cloud + con_clear
             .byte con_jmp
-            .word loc_A267_goal
+            .word loc_A267_goal_и_рваная_сетка
 
 
 
@@ -15365,17 +15365,17 @@ _scenario_BEC6_66:
 
 _scenario_BED8_67:
     .byte con_jsr
-    .word sub_B712
+    .word sub_B712_slider_cannon
     .byte con_jsr
-    .word sub_B583
+    .word sub_B583_neo_tiger_shot
     .byte con_jsr
-    .word sub_B509
+    .word sub_B509_drive_overhead
     .byte con_jsr
-    .word sub_B60B
+    .word sub_B60B_mirage_shot
     .byte con_jsr
-    .word sub_B724
+    .word sub_B724_double_eel
     .byte con_jsr
-    .word sub_B5EC
+    .word sub_B5EC_banana_shot
     .byte con_pause + $38
     .byte con_bg + $35
     .byte con_animation + $10
