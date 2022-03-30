@@ -2478,7 +2478,7 @@ con_branch                  = $F3   ; 0x02017E
     con_bra_15                                  = $15   ; 
     con_bra_16                                  = $16   ; 
    ;con_bra_17                                  = $17   ; 
-    con_bra_18                                  = $18   ; 
+    con_bra_plr_jito                            = $18   ; 
    ;con_bra_19                                  = $19   ; 
    ;con_bra_1A                                  = $1A   ; 
     con_bra_1B                                  = $1B   ; 
@@ -2486,7 +2486,7 @@ con_branch                  = $F3   ; 0x02017E
     con_bra_1D                                  = $1D   ; 
     con_bra_1E                                  = $1E   ; 
    ;con_bra_1F                                  = $1F   ; 
-    con_bra_20                                  = $20   ; 
+    con_bra_plr_wakashimazu_gertise             = $20   ; 
     con_bra_21                                  = $21   ; 
     con_bra_22                                  = $22   ; 
     con_bra_23                                  = $23   ; 
@@ -2502,19 +2502,19 @@ con_branch                  = $F3   ; 0x02017E
     con_bra_2D                                  = $2D   ; 
     con_bra_2E                                  = $2E   ; 
     con_bra_2F                                  = $2F   ; 
-    con_bra_30                                  = $30   ; 
-    con_bra_31                                  = $31   ; 
+    con_bra_plr_diaz                            = $30   ; 
+    con_bra_plr_nitta                           = $31   ; 
     con_bra_plr_soda                            = $32   ; 
     con_bra_33                                  = $33   ; 
     con_bra_34                                  = $34   ; 
     con_bra_35                                  = $35   ; 
     con_bra_36                                  = $36   ; 
     con_bra_37                                  = $37   ; 
-    con_bra_38                                  = $38   ; 
-    con_bra_39                                  = $39   ; 
+    con_bra_plr_hyuga                           = $38   ; 
+    con_bra_plr_matsuyama                       = $39   ; 
     con_bra_3A                                  = $3A   ; 
-    con_bra_3B                                  = $3B   ; 
-    con_bra_3C                                  = $3C   ; 
+    con_bra_plr_carlos                          = $3B   ; 
+    con_bra_plr_misugi                          = $3C   ; 
     con_bra_3D                                  = $3D   ; 
     con_bra_3E                                  = $3E   ; 
    ;con_bra_3F                                  = $3F   ; 
@@ -6403,7 +6403,7 @@ off_case_30_00_00_02_00_00_гол_забит_другим_ударом:
                                             .byte con_rts
 
 off_case_30_00_00_02_00_01_гол_забили_jito_с_сано:
-                                            .byte con_branch, con_bra_18 + $80     ; проверка на jito из japan
+                                            .byte con_branch, con_bra_plr_jito + $80
                                             .byte off_case_30_00_00_02_00_01_00_if_jito_из_японии - *
                                             .byte off_case_30_00_00_02_00_01_01_if_jito_из_куними - *
 
@@ -7854,7 +7854,7 @@ sub_A109_кипер_промахивается_кулаком_после_спе�
 
 
 sub_A10E_кипер_не_дотягивается_кулаком_до_мяча:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_A113_00_другой_кипер - *
     .byte off_case_A118_01_wakashimazu - *
     .byte off_case_A118_02_gertise - *
@@ -7886,7 +7886,7 @@ sub_A11D_кипер_касается_мяча_кулаком_после_спеш
 
 
 sub_A122_кипер_собирается_коснуться_мяча_кулаком:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_A127_00_другой_кипер - *
     .byte off_case_A12C_01_wakashimazu - *
     .byte off_case_A12C_02_gertise - *
@@ -7909,7 +7909,7 @@ off_case_A12C_02_gertise:
 
 
 sub_A131_кипер_легко_отбивает_и_проверка_на_wakashimazu_gertise:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_A136_00_другой_кипер - *
     .byte off_case_A13E_01_wakashimazu - *
     .byte off_case_A13E_02_gertise - *
@@ -7934,7 +7934,7 @@ off_case_A13E_02_gertise:
 
 
 sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_A150_00_другой_кипер - *
     .byte off_case_A155_01_wakashimazu - *
     .byte off_case_A155_02_gertise - *
@@ -9202,7 +9202,7 @@ sub_A88F_рожа_carlos_brazil:
 
 
 bra_long_case_9CA3_02_04_clone_dribble:
-    .byte con_branch, con_bra_3B + $80     ; проверка на carlos
+    .byte con_branch, con_bra_plr_carlos + $80
     .byte off_case_A89D_00_if_carlos - *
     .byte off_case_A8BB_01_if_not_carlos - *
 
@@ -9893,7 +9893,7 @@ bra_long_case_AAB7_03_vanishing_feint:
 
 
 bra_long_case_AACB_04_clone_dribble:
-    .byte con_branch, con_bra_3B + $80     ; проверка на carlos
+    .byte con_branch, con_bra_plr_carlos + $80
     .byte off_case_AACF_00_if_carlos - *
     .byte off_case_AADD_01_if_not_carlos - *
 
@@ -10023,7 +10023,7 @@ loc_AB42_мяч_улетает_от_игрока_после_удара:
 
 
 bra_long_case_AB4C_03_drive_shot:
-    .byte con_branch, con_bra_30 + $80     ; проверка на tsubasa или diaz
+    .byte con_branch, con_bra_plr_diaz + $80
     .byte off_case_AB58_00_if_not_tsubasa_и_не_diaz - *
     .byte off_case_AB51_01_if_tsubasa - *
     .byte off_case_AB72_02_if_diaz - *
@@ -10163,7 +10163,7 @@ sub_ABB8:
 
 
 bra_long_case_ABCC_05_falcon_shot:
-    .byte con_branch, con_bra_31 + $80     ; проверка на nitta
+    .byte con_branch, con_bra_plr_nitta + $80
     .byte off_case_ABD0_00_if_nitta - *
     .byte off_case_ABE9_01_if_not_nitta - *
 
@@ -10199,6 +10199,9 @@ off_case_ABE9_01_if_not_nitta:
     .byte con_cloud + $A5
     .byte con_jmp
     .word loc_ABD4
+
+
+
 bra_long_case_ABF0_07_razor_shot:
     .byte con_branch, con_bra_plr_soda + $80
     .byte off_case_ABF4_00_soda_japan - *
@@ -10251,7 +10254,7 @@ off_case_AC1C_01_soda_tatsunami:
 
 
 bra_long_case_AC23_0B_eagle_shot:
-    .byte con_branch, con_bra_39 + $80     ; проверка на matsuyama
+    .byte con_branch, con_bra_plr_matsuyama + $80
     .byte off_case_AC27_00_if_matsuyama - *
     .byte off_case_AC46_01_if_not_matsuyama - *
 
@@ -10295,7 +10298,7 @@ off_case_AC46_01_if_not_matsuyama:
 
 
 bra_long_case_AC4D_0C_tiger_shot:
-    .byte con_branch, con_bra_38 + $80     ; проверка на hyuga
+    .byte con_branch, con_bra_plr_hyuga + $80
     .byte off_case_AC51_00_if_hyuga - *
     .byte off_case_AC67_01_if_not_hyuga - *
 
@@ -10340,7 +10343,7 @@ bra_long_case_AC6E_0D_neo_tiger_shot:
 
 
 off_case_AC72_00_нет_защитников:
-    .byte con_branch, con_bra_38 + $80     ; проверка на hyuga
+    .byte con_branch, con_bra_plr_hyuga + $80
     .byte off_case_AC76_00_if_hyuga - *
     .byte off_case_AC9C_01_if_not_hyuga - *
 
@@ -10388,7 +10391,7 @@ off_case_AC9C_01_if_not_hyuga:
 
 
 off_case_ACA3_01_есть_защитники:
-    .byte con_branch, con_bra_38 + $80     ; проверка на hyuga
+    .byte con_branch, con_bra_plr_hyuga + $80
     .byte off_case_ACA7_00_if_hyuga - *
     .byte off_case_ACB0_01_if_not_hyuga - *
 
@@ -10503,7 +10506,7 @@ sub_AD13:
 
 
 bra_long_case_AD1D_13_sano_combo:
-    .byte con_branch, con_bra_18 + $80     ; проверка на jito из японии
+    .byte con_branch, con_bra_plr_jito + $80
     .byte off_case_AD21_00_if_jito_из_японии - *
     .byte off_case_AD45_01_if_jito_из_куними - *
 
@@ -10595,7 +10598,7 @@ bra_long_case_AD5E_15_booster_shot:
 
 
 bra_long_case_AD81_16_mirage_shot:
-    .byte con_branch, con_bra_3B + $80     ; проверка на carlos
+    .byte con_branch, con_bra_plr_carlos + $80
     .byte off_case_AD85_00_if_carlos - *
     .byte off_case_ADA4_01_if_not_carlos - *
 
@@ -11322,13 +11325,13 @@ off_case_B072_20_victorino:
 
 
 bra_long_case_B079_0F_hyper_overhead:
-    .byte con_branch, con_bra_3C + $80     ; проверка на misugi из japan
-    .byte off_case_B07D_00_if_misugi_из_japan - *
-    .byte off_case_B097_01_if_misugi_из_musashi - *
+    .byte con_branch, con_bra_plr_misugi + $80
+    .byte off_case_B07D_00_misugi_japan - *
+    .byte off_case_B097_01_misugi_musashi - *
 
 
 
-off_case_B07D_00_if_misugi_из_japan:
+off_case_B07D_00_misugi_japan:
     .byte con_mirror_toggle
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -11353,7 +11356,7 @@ loc_B082_прыжок_misugi_для_hyper_overhead:
 
 
 
-off_case_B097_01_if_misugi_из_musashi:
+off_case_B097_01_misugi_musashi:
     .byte con_mirror_toggle
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -11587,7 +11590,7 @@ bra_long_case_B197_00___:
 
 
 bra_long_case_B198_06_falcon_volley:
-    .byte con_branch, con_bra_31 + $80     ; проверка на nitta
+    .byte con_branch, con_bra_plr_nitta + $80
     .byte off_case_B19C_00_if_наш_nitta - *
     .byte off_case_B1C3_01_if_соперник_nitta - *
 
@@ -12310,7 +12313,7 @@ bra_long_case_B3E9_03_vanishing_feint:
 
 
 bra_long_case_B3F4_04_clone_dribble:
-    .byte con_branch, con_bra_3B + $80     ; проверка на carlos
+    .byte con_branch, con_bra_plr_carlos + $80
     .byte off_case_B3F8_00_if_carlos - *
     .byte off_case_B400_01_if_not_carlos - *
 off_case_B3F8_00_if_carlos:
@@ -14102,7 +14105,7 @@ off_case_BA6D_04:
 
 
 off_case_BA76_00:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_BA7B_00_другой_кипер - *
     .byte off_case_BA92_01_wakashimazu - *
     .byte off_case_BA92_02_gertise - *
@@ -14154,7 +14157,7 @@ off_case_BA92_02_gertise:
 
 
 off_case_BA9A_01:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_BA9F_00_другой_кипер - *
     .byte off_case_BAAE_01_wakashimazu - *
     .byte off_case_BAAE_02_gertise - *
@@ -14209,7 +14212,7 @@ off_case_BABD_01:
 
 
 off_case_BAD5_02:
-    .byte con_branch, con_bra_20 + $80     ; проверка на wakashimazu и gertise
+    .byte con_branch, con_bra_plr_wakashimazu_gertise + $80
     .byte off_case_BADA_00_другой_кипер - *
     .byte off_case_BAEF_01_wakashimazu - *
     .byte off_case_BAEF_02_gertise - *
