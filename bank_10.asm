@@ -7058,9 +7058,23 @@ sub_9F5C_рандом_анимации_отпизженного_игрока_с_
 
 loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
 sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .byte con_branch, con_bra_42 + $00     ; 2 варианта рандома
-    .word bra_long_case_A065_00_рандом_1
-    .word bra_long_case_A06A_01_рандом_2
+    .byte con_branch, con_bra_42 + $80     ; 2 варианта рандома
+    .byte off_case_A065_00_рандом_1 - *
+    .byte off_case_A06A_01_рандом_2 - *
+
+off_case_A065_00_рандом_1:
+            .byte con_pause + $3C
+            .byte con_bg + $1C
+            .byte con_animation + $13
+            .byte con_cloud + $02
+            .byte con_rts
+
+off_case_A06A_01_рандом_2:
+            .byte con_pause + $3C
+            .byte con_bg + $1C
+            .byte con_animation + $14
+            .byte con_cloud + $02
+            .byte con_rts
 
 
 
@@ -7415,24 +7429,6 @@ bra_long_case_A05B_00_рандом_1:
 bra_long_case_A060_01_рандом_2:
     .byte con_pause + $3C
     .byte con_bg + $1B
-    .byte con_animation + $14
-    .byte con_cloud + $02
-    .byte con_rts
-
-
-
-bra_long_case_A065_00_рандом_1:
-    .byte con_pause + $3C
-    .byte con_bg + $1C
-    .byte con_animation + $13
-    .byte con_cloud + $02
-    .byte con_rts
-
-
-
-bra_long_case_A06A_01_рандом_2:
-    .byte con_pause + $3C
-    .byte con_bg + $1C
     .byte con_animation + $14
     .byte con_cloud + $02
     .byte con_rts
