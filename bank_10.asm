@@ -7043,9 +7043,25 @@ bra_long_case_3C_00:
 
 _scenario_9F54_2C:
     .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_branch, con_bra_04 + $00     ; мяч у атакующего/низкий, или высокий
-    .word bra_long_case_2C_00
-    .word bra_long_case_2C_01
+    .byte con_branch, con_bra_04 + $80     ; мяч у атакующего/низкий, или высокий
+    .byte off_case_2C_00 - *
+    .byte off_case_2C_01 - *
+
+off_case_2C_00:
+            .byte con_soundID_delay, $2B, $21
+            .byte con_pause + $46
+            .byte con_bg + $01
+            .byte con_animation + $6C
+            .byte con_cloud + $14
+            .byte con_rts
+
+off_case_2C_01:
+            .byte con_soundID_delay, $2B, $21
+            .byte con_pause + $4A
+            .byte con_bg + $63
+            .byte con_animation + $6D
+            .byte con_cloud + $14
+            .byte con_rts
 
 
 
@@ -14015,26 +14031,6 @@ ofs_B9FB_01_активировать_drive_tiger:
     .byte con_jsr
     .word sub_BBC7_очистка
 ofs_BA11_00_не_активировать_drive_tiger:
-    .byte con_rts
-
-
-
-bra_long_case_2C_01:
-    .byte con_soundID_delay, $2B, $21
-    .byte con_pause + $4A
-    .byte con_bg + $63
-    .byte con_animation + $6D
-    .byte con_cloud + $14
-    .byte con_rts
-
-
-
-bra_long_case_2C_00:
-    .byte con_soundID_delay, $2B, $21
-    .byte con_pause + $46
-    .byte con_bg + $01
-    .byte con_animation + $6C
-    .byte con_cloud + $14
     .byte con_rts
 
 
