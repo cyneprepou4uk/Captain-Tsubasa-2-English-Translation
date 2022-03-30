@@ -3497,9 +3497,9 @@ _scenario_91FF_02:
 
 off_case_02_00_if_not_кипер:
             .byte con_branch, con_bra_35 + $80         ; действие защитника на своей штрафной
-            .word off_case_02_00_00_pass_cut
-            .word off_case_02_00_01_interfere
-            .word off_case_02_00_02_mark
+            .byte off_case_02_00_00_pass_cut - *
+            .byte off_case_02_00_01_interfere - *
+            .byte off_case_02_00_02_mark - *
 
 off_case_02_00_00_pass_cut:
                     .byte con_jmp
@@ -3516,8 +3516,8 @@ off_case_02_00_02_mark:
 off_case_02_01_if_кипер:
             .byte con_mirror_condition, $03       ; куда летит мяч
             .byte con_branch, con_bra_44 + $80     ; делает ли кипер dive
-            .word off_case_02_01_00_кипер_делает_dive
-            .word off_case_02_01_01_кипер_ждет_в_воротах
+            .byte off_case_02_01_00_кипер_делает_dive - *
+            .byte off_case_02_01_01_кипер_ждет_в_воротах - *
 
 off_case_02_01_00_кипер_делает_dive:
                     .byte con_branch, con_bra_04 + $80     ; мяч у атакующего/низкий, или высокий
@@ -5390,9 +5390,9 @@ loc_9802_кипер_убивается_после_спешала_и_отбива
 
 _scenario_9811_0A:
     .byte con_branch, con_bra_0E + $00     ; действие атаки на земле
-    .byte bra_long_case_0A_00_shoot - *
-    .byte bra_long_case_0A_01_pass - *
-    .byte bra_long_case_0A_02_dribble - *
+    .word bra_long_case_0A_00_shoot
+    .word bra_long_case_0A_01_pass
+    .word bra_long_case_0A_02_dribble
 
 bra_long_case_0A_00_shoot:
             .byte con_jsr
@@ -6239,8 +6239,8 @@ _scenario_9C19_47:
 loc_9C28_гол_и_проверка_на_рваную_сетку:
     .byte con_F7, $03
     .byte con_branch, con_bra_21 + $80     ; порвана ли сетка
-    .word off_case_A25D_00_сетка_не_порвана
-    .word off_case_A267_01_сетка_порвана
+    .byte off_case_A25D_00_сетка_не_порвана - *
+    .byte off_case_A267_01_сетка_порвана - *
 
 off_case_A25D_00_сетка_не_порвана:
             .byte con_F7, $03
@@ -6278,9 +6278,9 @@ bra_long_case_30_00_мяч_у_команды_слева:
 
 bra_long_case_30_00_00_сетка_не_порвана:
                     .byte con_branch, con_bra_23 + $80     ; за какую команду играешь
-                    .word off_case_30_00_00_00_за_sao_paulo
-                    .word off_case_30_00_00_01_за_nankatsu
-                    .word off_case_30_00_00_02_за_japan
+                    .byte off_case_30_00_00_00_за_sao_paulo - *
+                    .byte off_case_30_00_00_01_за_nankatsu - *
+                    .byte off_case_30_00_00_02_за_japan - *
 
 off_case_30_00_00_00_за_sao_paulo:
                             .byte con_pause + $A0
@@ -6357,9 +6357,9 @@ off_case_30_00_00_02_01_германия_проигрывает:
 
 bra_long_case_30_00_01_сетка_порвана:
                     .byte con_branch, con_bra_23 + $80     ; за какую команду играешь
-                    .word off_case_30_00_01_00_за_sao_paulo
-                    .word off_case_30_00_01_01_за_nankatsu
-                    .word off_case_30_00_01_02_за_japan
+                    .byte off_case_30_00_01_00_за_sao_paulo - *
+                    .byte off_case_30_00_01_01_за_nankatsu - *
+                    .byte off_case_30_00_01_02_за_japan - *
 
 off_case_30_00_01_00_за_sao_paulo:
                             .byte con_pause + $A0
@@ -6389,8 +6389,8 @@ bra_long_case_30_01_мяч_у_команды_справа:
 sub_9C36_анимация_гола_в_ворота_слева_и_сообщения:
             .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
             .byte con_branch, con_bra_21 + $80     ; порвана ли сетка
-            .word off_case_30_01_00_сетка_не_порвана
-            .word off_case_30_01_01_сетка_порвана
+            .byte off_case_30_01_00_сетка_не_порвана - *
+            .byte off_case_30_01_01_сетка_порвана - *
 
 off_case_30_01_00_сетка_не_порвана:
                     .byte con_pause + $82
@@ -6498,10 +6498,10 @@ sub_9CA3_выбор_анимации_дриблинга_трудной_обво�
     .byte con_jsr
     .word sub_A495_сообщение_игрока_при_ответе_на_нападение
     .byte con_branch, con_bra_0E + $80     ; действие атаки на земле
-    .word off_case_9CA3_00_shoot
-    .word off_case_9CA3_01_pass
-    .word off_case_9CA3_02_dribble
-    .word off_case_9CA3_03_1_2_pass
+    .byte off_case_9CA3_00_shoot - *
+    .byte off_case_9CA3_01_pass - *
+    .byte off_case_9CA3_02_dribble - *
+    .byte off_case_9CA3_03_1_2_pass - *
 
 off_case_9CA3_00_shoot:
 off_case_9CA3_02_00_dribble:
