@@ -7199,32 +7199,26 @@ sub_9F9C_крит_кипера:
     .byte off_case_9FA1_01_крит_морисаки - *
     .byte off_case_9FA9_02_крит_вакабаяши - *
 
-
-
 off_case_9FA1_01_крит_морисаки:
-    .byte con_mirror_off
-    .byte con_pause + $78
-    .byte con_bg + $33
-    .byte con_animation + $94
-    .byte con_cloud + $A0
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-
+            .byte con_mirror_off
+            .byte con_pause + $78
+            .byte con_bg + $33
+            .byte con_animation + $94
+            .byte con_cloud + $A0
+            .byte con_jmp
+            .word loc_BBC7_очистка
 
 off_case_9FA9_02_крит_вакабаяши:
-    .byte con_soundID_delay, $20, $02     ; ???
-    .byte con_pause + $78
-    .byte con_bg + $48
-    .byte con_animation + $75
-    .byte con_cloud + $A1
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-
+            .byte con_soundID_delay, $20, $02     ; ???
+            .byte con_pause + $78
+            .byte con_bg + $48
+            .byte con_animation + $75
+            .byte con_cloud + $A1
+            .byte con_jmp
+            .word loc_BBC7_очистка
 
 off_case_9FB3_00_кипер_без_крита:
-    .byte con_rts
+            .byte con_rts
 
 
 
