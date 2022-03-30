@@ -6496,6 +6496,50 @@ sub_9C5B_wakashimazu_отскок_от_штанги:
     .word bra_long_case_A34D_00_кипер_не_наебан
     .word bra_long_case_A33A_01_кипер_наебан
 
+bra_long_case_A34D_00_кипер_не_наебан:
+            .byte con_jmp
+            .word loc_A34D_отскок_вакашимазу_от_штанги
+
+bra_long_case_A33A_01_кипер_наебан:
+            .byte con_mirror_off
+            .byte con_branch, con_bra_23 + $80     ; за какую команду играешь
+            .byte off_case_A347_00_за_sao_paulo - *
+            .byte off_case_A340_01_за_nankatsu - *
+            .byte off_case_A347_02_за_japan - *
+
+off_case_A347_00_за_sao_paulo:
+off_case_A347_02_за_japan:
+; антикрит вакашимазу
+                    .byte con_pause + $32
+                    .byte con_bg + $33
+                    .byte con_animation + $A6
+                    .byte con_cloud + $9F
+loc_A34B_отскок_от_штанги:
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+loc_A34D_отскок_вакашимазу_от_штанги:
+sub_A34D_отскок_вакашимазу_от_штанги:
+; вакашимазу отталкивается от штанги
+                    .byte con_pause + $08
+                    .byte con_bg + $0B
+                    .byte con_animation + $00
+                    .byte con_cloud + $2F
+                    .byte con_F7, $05
+                    .byte con_soundID_delay, $68, $21
+                    .byte con_pause + $2D
+                    .byte con_bg + con_skip
+                    .byte con_animation + $4D
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+off_case_A340_01_за_nankatsu:
+; антикрит вакашимазу
+                    .byte con_pause + $32
+                    .byte con_bg + $73
+                    .byte con_animation + $A6
+                    .byte con_cloud + $9F
+                    .byte con_jmp
+                    .word loc_A34B_отскок_от_штанги
+
 
 
 loc_9C61_защитник_прыгает_в_воздух_1й:
@@ -8174,48 +8218,6 @@ sub_A335_полет_нижнего_мяча:
     .byte con_animation + $4C
     .byte con_cloud + con_clear
     .byte con_rts
-
-
-
-bra_long_case_A33A_01_кипер_наебан:
-    .byte con_mirror_off
-    .byte con_branch, con_bra_23 + $80     ; за какую команду играешь
-    .byte off_case_A347_00_за_sao_paulo - *
-    .byte off_case_A340_01_за_nankatsu - *
-    .byte off_case_A347_02_за_japan - *
-
-off_case_A340_01_за_nankatsu:
-; антикрит вакашимазу
-            .byte con_pause + $32
-            .byte con_bg + $73
-            .byte con_animation + $A6
-            .byte con_cloud + $9F
-            .byte con_jmp
-            .word loc_A34B_отскок_от_штанги
-
-off_case_A347_00_за_sao_paulo:
-off_case_A347_02_за_japan:
-; антикрит вакашимазу
-            .byte con_pause + $32
-            .byte con_bg + $33
-            .byte con_animation + $A6
-            .byte con_cloud + $9F
-loc_A34B_отскок_от_штанги:
-            .byte con_mirror_condition, $03       ; куда летит мяч
-sub_A34D_отскок_вакашимазу_от_штанги:
-bra_long_case_A34D_00_кипер_не_наебан:
-; вакашимазу отталкивается от штанги
-            .byte con_pause + $08
-            .byte con_bg + $0B
-            .byte con_animation + $00
-            .byte con_cloud + $2F
-            .byte con_F7, $05
-            .byte con_soundID_delay, $68, $21
-            .byte con_pause + $2D
-            .byte con_bg + con_skip
-            .byte con_animation + $4D
-            .byte con_cloud + con_skip
-            .byte con_rts
 
 
 
