@@ -3506,11 +3506,11 @@ off_case_9244_04_защитник_5:
 
 off_case_02_01_if_кипер:
     .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_branch, $44 + $00     ; делает ли кипер dive
-    .word bra_long_case_924F_00_кипер_делает_dive
-    .word bra_long_case_BD90_01_кипер_ждет_в_воротах
+    .byte con_branch, $44 + $80     ; делает ли кипер dive
+    .word off_case_924F_00_кипер_делает_dive
+    .word off_case_BD90_01_кипер_ждет_в_воротах
 
-bra_long_case_924F_00_кипер_делает_dive:
+off_case_924F_00_кипер_делает_dive:
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_9253_00_нижний_dive - *
     .byte off_case_9256_01_верхний_dive - *
@@ -3532,7 +3532,7 @@ off_case_9256_01_верхний_dive:
             .byte con_cloud + $3A
             .byte con_rts
 
-bra_long_case_BD90_01_кипер_ждет_в_воротах:
+off_case_BD90_01_кипер_ждет_в_воротах:
     .byte con_pause + $60
     .byte con_bg + $65
     .byte con_animation + $DA
