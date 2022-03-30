@@ -2522,7 +2522,7 @@ con_branch_short            = $F380 ;
    ;con_bra_3F                                  = $3F   ; 
     con_bra_40                                  = $40   ; 
     con_bra_41                                  = $41   ; 
-    con_bra_42                                  = $42   ; 
+    con_bra_рандом_из_2х                        = $42   ; рандомный выбор из двух вариантов
     con_bra_43                                  = $43   ; 
     con_bra_44                                  = $44   ; 
     con_bra_45                                  = $45   ; 
@@ -6934,7 +6934,7 @@ bra_long_case_9E0B_02_dribble:
 
 
 sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .dbyt con_branch_long + con_bra_42     ; 2 варианта рандома
+    .dbyt con_branch_long + con_bra_рандом_из_2х
     .word bra_long_case_B453_00_рандом_1
     .word bra_long_case_B458_01_рандом_2
 
@@ -7281,7 +7281,7 @@ off_case_2C_01:
 
 
 sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .dbyt con_branch_short + con_bra_42     ; 2 варианта рандома
+    .dbyt con_branch_short + con_bra_рандом_из_2х
     .byte off_case_A05B_00_рандом_1 - *
     .byte off_case_A060_01_рандом_2 - *
 
@@ -7303,7 +7303,7 @@ off_case_A060_01_рандом_2:
 
 loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
 sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .dbyt con_branch_short + con_bra_42     ; 2 варианта рандома
+    .dbyt con_branch_short + con_bra_рандом_из_2х
     .byte off_case_A065_00_рандом_1 - *
     .byte off_case_A06A_01_рандом_2 - *
 
@@ -7324,7 +7324,7 @@ off_case_A06A_01_рандом_2:
 
 
 sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения:
-    .dbyt con_branch_short + con_bra_42     ; 2 варианта рандома
+    .dbyt con_branch_short + con_bra_рандом_из_2х
     .byte off_case_A21A_00_рандом_1 - *
     .byte off_case_A21F_01_рандом_2 - *
 
@@ -7346,7 +7346,7 @@ off_case_A21F_01_рандом_2:
 
 loc_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением:
 sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .dbyt con_branch_short + con_bra_42     ; 2 варианта рандома
+    .dbyt con_branch_short + con_bra_рандом_из_2х
     .byte off_case_A224_00_рандом_1 - *
     .byte off_case_A229_01_рандом_2 - *
 
@@ -7367,7 +7367,7 @@ off_case_A229_01_рандом_2:
 
 
 sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения:
-    .dbyt con_branch_short + con_bra_42     ; 2 варианта рандома
+    .dbyt con_branch_short + con_bra_рандом_из_2х
     .byte off_case_B433_00_рандом_1 - *
     .byte off_case_B438_01_рандом_2 - *
 
