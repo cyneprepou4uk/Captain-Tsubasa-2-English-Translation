@@ -7050,9 +7050,23 @@ _scenario_9F54_2C:
 
 
 sub_9F5C_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .byte con_branch, con_bra_42 + $00     ; 2 варианта рандома
-    .word bra_long_case_A05B_00_рандом_1
-    .word bra_long_case_A060_01_рандом_2
+    .byte con_branch, con_bra_42 + $80     ; 2 варианта рандома
+    .byte off_case_A05B_00_рандом_1 - *
+    .byte off_case_A060_01_рандом_2 - *
+
+off_case_A05B_00_рандом_1:
+            .byte con_pause + $3C
+            .byte con_bg + $1B
+            .byte con_animation + $13
+            .byte con_cloud + $02
+            .byte con_rts
+
+off_case_A060_01_рандом_2:
+            .byte con_pause + $3C
+            .byte con_bg + $1B
+            .byte con_animation + $14
+            .byte con_cloud + $02
+            .byte con_rts
 
 
 
@@ -7413,24 +7427,6 @@ sub_A051_защитник_касается_телом_верхнего_мяча:
     .byte con_animation + $0D
     .byte con_cloud + con_skip
     .byte con_FE
-    .byte con_rts
-
-
-
-bra_long_case_A05B_00_рандом_1:
-    .byte con_pause + $3C
-    .byte con_bg + $1B
-    .byte con_animation + $13
-    .byte con_cloud + $02
-    .byte con_rts
-
-
-
-bra_long_case_A060_01_рандом_2:
-    .byte con_pause + $3C
-    .byte con_bg + $1B
-    .byte con_animation + $14
-    .byte con_cloud + $02
     .byte con_rts
 
 
