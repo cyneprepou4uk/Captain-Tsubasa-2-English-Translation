@@ -3442,11 +3442,11 @@ off_case_00_02_01_02_03_словит:
 
 
 _scenario_91D3_13:
-    .byte con_branch, con_bra_04 + $80     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_13_00 - *
-    .byte off_case_13_01 - *
+    .byte con_branch, con_bra_04 + $00     ; мяч у атакующего/низкий, или высокий
+    .word bra_long_case_13_00
+    .word bra_long_case_13_01
 
-off_case_13_00:
+bra_long_case_13_00:
             .byte con_branch, con_bra_16 + $80
             .byte off_case_13_00_00 - *
             .byte off_case_13_00_01 - *
@@ -3465,7 +3465,7 @@ off_case_13_00_02:
                     .byte con_jmp
                     .word loc_A22E_игрок_делает_clear_ногой
 
-off_case_13_01:
+bra_long_case_13_01:
             .byte con_branch, con_bra_16 + $80
             .byte off_case_13_01_00 - *
             .byte off_case_13_01_01 - *
