@@ -5389,29 +5389,17 @@ loc_9802_кипер_убивается_после_спешала_и_отбива
 
 
 _scenario_9811_0A:
-    .byte con_branch, con_bra_0E + $80     ; действие атаки на земле
-    .byte off_case_0A_00_shoot - *
-    .byte off_case_0A_01_pass - *
-    .byte off_case_0A_02_dribble - *
+    .byte con_branch, con_bra_0E + $00     ; действие атаки на земле
+    .byte bra_long_case_0A_00_shoot - *
+    .byte bra_long_case_0A_01_pass - *
+    .byte bra_long_case_0A_02_dribble - *
 
-off_case_0A_00_shoot:
+bra_long_case_0A_00_shoot:
             .byte con_jsr
             .word sub_9FD6_кипер_делает_нижний_dive
             .byte con_branch, con_bra_выживет_ли_защитник + $80
             .byte off_case_0A_00_00_защитник_выживет - *
             .byte off_case_0A_00_01_защитник_убьется - *
-
-
-
-off_case_0A_02_dribble:
-            .byte con_jsr
-            .word sub_9FD6_кипер_делает_нижний_dive
-            .byte con_mirror_condition, $03       ; куда летит мяч
-            .byte con_branch, con_bra_выживет_ли_защитник + $80
-            .byte off_case_0A_02_00_защитник_выживет - *
-            .byte off_case_0A_02_01_защитник_убьется - *
-
-
 
 off_case_0A_00_00_защитник_выживет:
                     .byte con_branch, con_bra_03 + $80     ; результат действия защитника
@@ -5421,219 +5409,188 @@ off_case_0A_00_00_защитник_выживет:
                     .byte off_case_0A_00_00_03_кипер_словит - *
                     .byte off_case_0A_00_00_04_нарушение - *
 
-
-
 off_case_0A_00_00_00_кипер_промахнется:
                             .byte con_jsr
                             .word sub_9CF3_игрок_делает_удар_с_земли
                             .byte con_mirror_condition, $03       ; куда летит мяч
-                            .byte con_jsr
-                            .word sub_A08D_кипер_промахивается_dive_после_удара_1_на_1
-off_case_0A_01_pass:
-                            .byte con_quit
-
-
+                            .byte con_jmp
+                            .word loc_A08D_кипер_промахивается_dive_после_удара_1_на_1
 
 off_case_0A_00_00_01_кипер_отобьет_ладонью:
-    .byte con_jsr
-    .word sub_9CF3_игрок_делает_удар_с_земли
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_A0A1_кипер_ловит_мяч_без_звука
-    .byte con_jsr
-    .word sub_A308_белое_мерцание
-    .byte con_jmp
-    .word loc_B45D_мяч_улетает_в_сторону
-
-
+                            .byte con_jsr
+                            .word sub_9CF3_игрок_делает_удар_с_земли
+                            .byte con_mirror_condition, $03       ; куда летит мяч
+                            .byte con_jsr
+                            .word sub_A0A1_кипер_ловит_мяч_без_звука
+                            .byte con_jsr
+                            .word sub_A308_белое_мерцание
+                            .byte con_jmp
+                            .word loc_B45D_мяч_улетает_в_сторону
 
 off_case_0A_00_00_02_кипер_отобьет_кулаком:
-    .byte con_jsr
-    .word sub_9CF3_игрок_делает_удар_с_земли
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
-    .byte con_jsr
-    .word sub_A308_белое_мерцание
-    .byte con_jmp
-    .word loc_B45D_мяч_улетает_в_сторону
-
-
+                            .byte con_jsr
+                            .word sub_9CF3_игрок_делает_удар_с_земли
+                            .byte con_mirror_condition, $03       ; куда летит мяч
+                            .byte con_jsr
+                            .word sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_проверка_на_wakashimazu_gertise
+                            .byte con_jsr
+                            .word sub_A308_белое_мерцание
+                            .byte con_jmp
+                            .word loc_B45D_мяч_улетает_в_сторону
 
 off_case_0A_00_00_03_кипер_словит:
-    .byte con_jsr
-    .word sub_9CF3_игрок_делает_удар_с_земли
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_A0A6_кипер_ловит_мяч_со_звуком
-
-
+                            .byte con_jsr
+                            .word sub_9CF3_игрок_делает_удар_с_земли
+                            .byte con_mirror_condition, $03       ; куда летит мяч
+                            .byte con_jmp
+                            .word loc_A0A6_кипер_ловит_мяч_со_звуком
 
 off_case_0A_00_00_04_нарушение:
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jmp
-    .word loc_A35B_нарушение
-
-
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
 off_case_0A_00_01_защитник_убьется:
-    .byte con_branch, con_bra_03 + $80     ; результат действия защитника
-    .byte off_case_0A_00_01_00_кипер_умрет - *
-    .byte off_case_0A_00_01_01_кипер_убьет_атакующего_мяч_отлетит - *
-    .byte off_case_0A_00_01_02_кипер_убьет_атакующего_мяч_отлетит - *
-    .byte off_case_0A_00_01_03_кипер_убьет_атакующего_и_заберет_мяч - *
-    .byte off_case_0A_00_01_04_нарушение - *
-
-
+                    .byte con_branch, con_bra_03 + $80     ; результат действия защитника
+                    .byte off_case_0A_00_01_00_кипер_умрет - *
+                    .byte off_case_0A_00_01_01_кипер_убьет_атакующего_мяч_отлетит - *
+                    .byte off_case_0A_00_01_02_кипер_убьет_атакующего_мяч_отлетит - *
+                    .byte off_case_0A_00_01_03_кипер_убьет_атакующего_и_заберет_мяч - *
+                    .byte off_case_0A_00_01_04_нарушение - *
 
 off_case_0A_00_01_00_кипер_умрет:
-    .byte con_jsr
-    .word sub_9CF3_игрок_делает_удар_с_земли
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_A0A1_кипер_ловит_мяч_без_звука
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jmp
-    .word loc_9FB5_убийство_кипера
-
-
+                            .byte con_jsr
+                            .word sub_9CF3_игрок_делает_удар_с_земли
+                            .byte con_mirror_condition, $03       ; куда летит мяч
+                            .byte con_jsr
+                            .word sub_A0A1_кипер_ловит_мяч_без_звука
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_9FB5_убийство_кипера
 
 off_case_0A_00_01_01_кипер_убьет_атакующего_мяч_отлетит:
 off_case_0A_00_01_02_кипер_убьет_атакующего_мяч_отлетит:
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
-    .byte con_jmp
-    .word loc_A371_мяч_улетает_в_сторону
-
-
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_mirror_condition, $03       ; куда летит мяч
+                            .byte con_jsr
+                            .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
 
 off_case_0A_00_01_03_кипер_убьет_атакующего_и_заберет_мяч:
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения
-    .byte con_jmp
-    .word loc_9FBF_кипер_ловит_мяч_нижним_dive_после_убийства_игрока
-
-
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_mirror_condition, $03       ; куда летит мяч
+                            .byte con_jsr
+                            .word sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения
+                            .byte con_jmp
+                            .word loc_9FBF_кипер_ловит_мяч_нижним_dive_после_убийства_игрока
 
 off_case_0A_00_01_04_нарушение:
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jsr
-    .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
-    .byte con_jmp
-    .word loc_A35B_нарушение
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
+bra_long_case_0A_01_pass:
+            .byte con_quit
 
+bra_long_case_0A_02_dribble:
+            .byte con_jsr
+            .word sub_9FD6_кипер_делает_нижний_dive
+            .byte con_mirror_condition, $03       ; куда летит мяч
+            .byte con_branch, con_bra_выживет_ли_защитник + $80
+            .byte off_case_0A_02_00_защитник_выживет - *
+            .byte off_case_0A_02_01_защитник_убьется - *
 
 off_case_0A_02_00_защитник_выживет:
-    .byte con_branch, con_bra_03 + $80     ; результат действия защитника
-    .byte off_case_0A_02_00_00_игрок_обведет_кипера - *
-    .byte off_case_0A_02_00_01_кипер_выбьет_мяч - *
-    .byte off_case_0A_02_00_02_кипер_выбьет_мяч - *
-    .byte off_case_0A_02_00_03_кипер_словит_мяч - *
-    .byte off_case_0A_02_00_04_нарушение - *
-
-
+                    .byte con_branch, con_bra_03 + $80     ; результат действия защитника
+                    .byte off_case_0A_02_00_00_игрок_обведет_кипера - *
+                    .byte off_case_0A_02_00_01_кипер_выбьет_мяч - *
+                    .byte off_case_0A_02_00_02_кипер_выбьет_мяч - *
+                    .byte off_case_0A_02_00_03_кипер_словит_мяч - *
+                    .byte off_case_0A_02_00_04_нарушение - *
 
 off_case_0A_02_00_00_игрок_обведет_кипера:
-    .byte con_jmp
-    .word loc_9CC0_выбор_анимации_дриблинга_легкой_обводки
-
-
+                            .byte con_jmp
+                            .word loc_9CC0_выбор_анимации_дриблинга_легкой_обводки
 
 off_case_0A_02_00_01_кипер_выбьет_мяч:
 off_case_0A_02_00_02_кипер_выбьет_мяч:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A308_белое_мерцание
-    .byte con_jmp
-    .word loc_A371_мяч_улетает_в_сторону
-
-
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A308_белое_мерцание
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
 
 off_case_0A_02_00_03_кипер_словит_мяч:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2EF_белое_мерцание_без_звука
-    .byte con_jmp
-    .word loc_9FCE_кипер_ловит_мяч_нижним_dive_не_убивая_игрока
-
-
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A2EF_белое_мерцание_без_звука
+                            .byte con_jmp
+                            .word loc_9FCE_кипер_ловит_мяч_нижним_dive_не_убивая_игрока
 
 off_case_0A_02_00_04_нарушение:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jmp
-    .word loc_A35B_нарушение
-
-
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
 off_case_0A_02_01_защитник_убьется:
-    .byte con_branch, con_bra_03 + $80     ; результат действия защитника
-    .byte off_case_0A_02_01_00_кипер_умрет - *
-    .byte off_case_0A_02_01_01_игрок_умрет_мяч_отлетит - *
-    .byte off_case_0A_02_01_02_игрок_умрет_мяч_отлетит - *
-    .byte off_case_0A_02_01_03_кипер_убивает_игрока_и_ловит_мяч - *
-    .byte off_case_0A_02_01_04_нарушение - *
-
-
+                    .byte con_branch, con_bra_03 + $80     ; результат действия защитника
+                    .byte off_case_0A_02_01_00_кипер_умрет - *
+                    .byte off_case_0A_02_01_01_игрок_умрет_мяч_отлетит - *
+                    .byte off_case_0A_02_01_02_игрок_умрет_мяч_отлетит - *
+                    .byte off_case_0A_02_01_03_кипер_убивает_игрока_и_ловит_мяч - *
+                    .byte off_case_0A_02_01_04_нарушение - *
 
 off_case_0A_02_01_00_кипер_умрет:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jmp
-    .word loc_9FB5_убийство_кипера
-
-
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_9FB5_убийство_кипера
 
 off_case_0A_02_01_01_игрок_умрет_мяч_отлетит:
 off_case_0A_02_01_02_игрок_умрет_мяч_отлетит:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jsr
-    .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
-    .byte con_jmp
-    .word loc_A371_мяч_улетает_в_сторону
-
-
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
 
 off_case_0A_02_01_03_кипер_убивает_игрока_и_ловит_мяч:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jsr
-    .word sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения
-    .byte con_jmp
-    .word loc_9FBF_кипер_ловит_мяч_нижним_dive_после_убийства_игрока
-
-
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения
+                            .byte con_jmp
+                            .word loc_9FBF_кипер_ловит_мяч_нижним_dive_после_убийства_игрока
 
 off_case_0A_02_01_04_нарушение:
-    .byte con_jsr
-    .word sub_9DFE_рожа_атакующего_перед_дриблингом
-    .byte con_jsr
-    .word sub_A2DD_ярко_красное_мерцание
-    .byte con_jsr
-    .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
-    .byte con_jmp
-    .word loc_A35B_нарушение
+                            .byte con_jsr
+                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9F6E_рандом_анимации_отпизженного_игрока_с_сообщением
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
 
 
@@ -7414,6 +7371,7 @@ loc_A083_кипер_ловит_мяч_после_верхнего_dive:
 
 
 
+loc_A08D_кипер_промахивается_dive_после_удара_1_на_1:
 sub_A08D_кипер_промахивается_dive_после_удара_1_на_1:
     .byte con_moving_bg, $02
     .byte con_pause + $32
