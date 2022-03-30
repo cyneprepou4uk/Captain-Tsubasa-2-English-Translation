@@ -800,10 +800,10 @@ ram_подтип_действия_атаки                   = $043C ; 01 - о
 ram_действие_защиты                         = $043D ; действие текущего защитника из списка напавших защитников
                                                         ; 00 - block / catch
                                                         ; 01 - tackle / punch
-                                                        ; 02 - pass cut / triangle jump
+                                                        ; 02 - pass cut / triangle jump / pass
                                                         ; 03 - interfere
                                                         ; 04 - clearing
-                                                        ; 05 - mark
+                                                        ; 05 - mark / through
                                                         ; 06 - wait
 ram_подтип_действия_защиты                  = $043E ; ram_флаг_крита_вакабаяши_ХЗ, +80 = крит
 ram_затрата_энергии_lo                      = $043F ; 

@@ -315,7 +315,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x0201E7 10:81D7: 46 85     .word ofs_015_8546_32_soda
 - D - I - - 0x0201E9 10:81D9: 56 85     .word ofs_015_8556_33_игроки_с_защитным_спешалом
 - D - I - - 0x0201EB 10:81DB: 6C 85     .word ofs_015_856C_34_узнать_высоту_мяча
-- D - I - - 0x0201ED 10:81DD: 70 85     .word ofs_015_8570_35
+- D - I - - 0x0201ED 10:81DD: 70 85     .word ofs_015_8570_35_действие_защитника_на_своей_штрафной
 - D - I - - 0x0201EF 10:81DF: 80 85     .word ofs_015_8580_36_спешал_catch
 - D - I - - 0x0201F1 10:81E1: 87 85     .word ofs_015_8587_37_защитный_спешал_или_нет
 - D - I - - 0x0201F3 10:81E3: 92 85     .word ofs_015_8592_38_hyuga
@@ -329,7 +329,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x020203 10:81F3: 02 86     .word ofs_015_8602_40_игрок_с_рожей
 - D - I - - 0x020205 10:81F5: 10 86     .word ofs_015_8610_41_какая_у_кипера_рожа
 - D - I - - 0x020207 10:81F7: 27 86     .word ofs_015_8627_42_2_варианта_рандома
-- D - I - - 0x020209 10:81F9: 2E 86     .word ofs_015_862E_43
+- D - I - - 0x020209 10:81F9: 2E 86     .word ofs_015_862E_43_действие_атакующего_на_своей_штрафной
 - D - I - - 0x02020B 10:81FB: 3B 86     .word ofs_015_863B_44_делает_ли_кипер_dive
 - D - I - - 0x02020D 10:81FD: 4A 86     .word ofs_015_864A_45
 - D - I - - 0x02020F 10:81FF: 77 86     .word ofs_015_8677_46
@@ -769,11 +769,11 @@ C - - - - - 0x0203BB 10:83AB: BE AF 83  LDX tbl_83AF,Y
 C - - - - - 0x0203BE 10:83AE: 60        RTS
 
 tbl_83AF:
-    .byte $FF       ; unused
-    .byte $FF       ; unused
-    .byte $00
-    .byte $FF       ; unused
-    .byte $01
+    .byte $FF   ; 00 unused
+    .byte $FF   ; 01 unused
+    .byte $00   ; 02 
+    .byte $FF   ; unused
+    .byte $01   ; 04 
 
 
 
@@ -1289,10 +1289,10 @@ C - - - - - 0x02057F 10:856F: 60        RTS
 
 
 
-ofs_015_8570_35:
-; 00 - 
-; 01 - 
-; 02 - 
+ofs_015_8570_35_действие_защитника_на_своей_штрафной:
+; 00 - pass cut
+; 01 - interfere
+; 02 - mark
 C - J - - - 0x020580 10:8570: AD 3D 04  LDA ram_действие_защиты
 C - - - - - 0x020583 10:8573: 29 0F     AND #$0F
 C - - - - - 0x020585 10:8575: A8        TAY
@@ -1300,12 +1300,12 @@ C - - - - - 0x020586 10:8576: BE 7A 85  LDX tbl_857A,Y
 C - - - - - 0x020589 10:8579: 60        RTS
 
 tbl_857A:
-    .byte $FF       ; unused
-    .byte $FF       ; unused
-    .byte $00
-    .byte $01
-    .byte $FF       ; unused
-    .byte $02
+    .byte $FF   ; 00 unused
+    .byte $FF   ; 01 unused
+    .byte $00   ; 02 pass cut
+    .byte $01   ; 03 interfere
+    .byte $FF   ; 04 unused
+    .byte $02   ; 05 mark
 
 
 
@@ -1525,21 +1525,21 @@ C - - - - - 0x02063D 10:862D: 60        RTS
 
 
 
-ofs_015_862E_43:
-; 00 - 
-; 01 - 
-; 02 - 
+ofs_015_862E_43_действие_атакующего_на_своей_штрафной:
+; 00 - pass
+; 01 - clearing
+; 02 - through
 C - J - - - 0x02063E 10:862E: AC 3D 04  LDY ram_действие_защиты
 C - - - - - 0x020641 10:8631: BE 35 86  LDX tbl_8635,Y
 C - - - - - 0x020644 10:8634: 60        RTS
 
 tbl_8635:
-    .byte $FF       ; unused
-    .byte $FF       ; unused
-    .byte $00
-    .byte $FF       ; unused
-    .byte $01
-    .byte $02
+    .byte $FF   ; 00 unused
+    .byte $FF   ; 01 unused
+    .byte $00   ; 02 pass
+    .byte $FF   ; 03 unused
+    .byte $01   ; 04 clearing
+    .byte $02   ; 05 through
 
 
 
@@ -1553,11 +1553,11 @@ C - - - - - 0x020651 10:8641: BE 45 86  LDX tbl_8645,Y
 C - - - - - 0x020654 10:8644: 60        RTS
 
 tbl_8645:
-    .byte $FF       ; unused
-    .byte $FF       ; unused
-    .byte $FF       ; unused
-    .byte $00
-    .byte $01
+    .byte $FF   ; 00 unused
+    .byte $FF   ; 01 unused
+    .byte $FF   ; 02 unused
+    .byte $00   ; 03 dive
+    .byte $01   ; 04 wait
 
 
 
@@ -2327,20 +2327,20 @@ C - - - - - 0x02099E 10:898E: 4C 2F 81  JMP loc_812F_выбрать_подпро
 tbl_89BF_сценарии:
 - D - I - - 0x0209CF 10:89BF: B1 8A     .word _scenario_8AB1_00       ; сценарий дриблинга или когда игрок прыгает чтоб перехватить мяч
 - D - I - - 0x0209D1 10:89C1: F2 91     .word _scenario_91F2_01       ; хз, баги какие-то
-- D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02       ; хз, баги какие-то
+- D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02       ; действие защитника на своей штрафной
 - - - - - - 0x0209D5 10:89C5: 8E B4     .word _scenario_B48E_03       ; полет мяча, затем игрок принимает его на ногу во время бега
 - D - I - - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04       ; белое мерцание со звуком сражения
 - D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05_10    ; хз
 - D - I - - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06       ; хз
 - D - I - - 0x0209DD 10:89CD: 85 92     .word _scenario_9285_07       ; хз
-- D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08       ; действие игрока на чужой штрафной
+- D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08       ; действие атакующего на чужой штрафной
 - D - I - - 0x0209E1 10:89D1: 69 93     .word _scenario_9369_09       ; конечный полет удара и действие кипера, возможный гол
-- D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A       ; кипер против игрока на земле
+- D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A       ; кипер против атакующего на земле
 - D - I - - 0x0209E5 10:89D5: ED 98     .word _scenario_98ED_0B       ; хз, полет мяча, затем защитник подлазит
 - D - I - - 0x0209E7 10:89D7: E3 96     .word _scenario_96E3_0C       ; конечный полет удара в пустые ворота
 - D - I - - 0x0209E9 10:89D9: F7 96     .word _scenario_96F7_0D       ; игрок автоматически бьет когда обвел кипера
 - D - I - - 0x0209EB 10:89DB: EA 91     .word _scenario_91EA_0E       ; игрок бежит/прыгает к мячу на штрафной и что-то делает
-- D - I - - 0x0209ED 10:89DD: 05 92     .word _scenario_9205_0F       ; хз, баги какие-то
+- D - I - - 0x0209ED 10:89DD: 05 92     .word _scenario_9205_0F       ; действие атакующего на своей штрафной
 - D - I - - 0x0209EF 10:89DF: 59 92     .word _scenario_9259_05_10    ; 
 - D - I - - 0x0209F1 10:89E1: 69 92     .word _scenario_9269_11       ; хз
 - D - I - - 0x0209F3 10:89E3: 7F 92     .word _scenario_927F_12       ; хз
@@ -3419,38 +3419,39 @@ _scenario_91FF_02:
 
 _scenario_9205_0F:
     .byte con_mirror_condition, $01       ; номер защитника
-    .byte con_branch, $43 + $00
-    .word bra_long_case_9217_00
-    .word bra_long_case_9217_01
-    .word bra_long_case_BD87_02
+    .byte con_branch, $43 + $00         ; действие атакующего на своей штрафной
+    .word bra_long_case_0F_00_pass
+    .word bra_long_case_0F_01_clearing
+    .word bra_long_case_0F_02_through
 
 
 
 off_case_02_00_if_not_кипер:
-    .byte con_branch, $35 + $00
-    .word bra_long_case_9217_00
-    .word bra_long_case_9217_01
-    .word bra_long_case_BD87_02
+    .byte con_branch, $35 + $00         ; действие защитника на своей штрафной
+    .word bra_long_case_02_00_00_pass_cut
+    .word bra_long_case_02_00_01_interfere
+    .word bra_long_case_02_00_02_mark
 
 
 
-bra_long_case_9217_00:
-bra_long_case_9217_01:
+bra_long_case_0F_00_pass:
+bra_long_case_0F_01_clearing:
+bra_long_case_02_00_00_pass_cut:
+bra_long_case_02_00_01_interfere:
+; 9217
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_921B_00 - *
-    .byte off_case_9231_01 - *
+    .byte off_case_921B_00_мяч_низкий - *
+    .byte off_case_921B_01_мяч_высокий - *
 
 
 
-off_case_921B_00:
+off_case_921B_00_мяч_низкий:
     .byte con_branch, $05 + $80     ; порядковый номер защитника
     .byte off_case_9222_00_защитник_1 - *
     .byte off_case_9225_01_защитник_2 - *
     .byte off_case_9228_02_защитник_3 - *
     .byte off_case_922B_03_защитник_4 - *
     .byte off_case_922E_04_защитник_5 - *
-
-
 
 off_case_9222_00_защитник_1:
             .byte con_jmp
@@ -3474,7 +3475,7 @@ off_case_922E_04_защитник_5:
 
 
 
-off_case_9231_01:
+off_case_921B_01_мяч_высокий:
     .byte con_branch, $05 + $80     ; порядковый номер защитника
     .byte off_case_9238_00_защитник_1 - *
     .byte off_case_923B_01_защитник_2 - *
@@ -3505,39 +3506,39 @@ off_case_9244_04_защитник_5:
 
 
 off_case_02_01_if_кипер:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_branch, $44 + $80     ; делает ли кипер dive
-    .word off_case_924F_00_кипер_делает_dive
-    .word off_case_BD90_01_кипер_ждет_в_воротах
+            .byte con_mirror_condition, $03       ; куда летит мяч
+            .byte con_branch, $44 + $80     ; делает ли кипер dive
+            .word off_case_02_01_00_кипер_делает_dive
+            .word off_case_02_01_01_кипер_ждет_в_воротах
 
-off_case_924F_00_кипер_делает_dive:
-    .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_9253_00_нижний_dive - *
-    .byte off_case_9256_01_верхний_dive - *
+off_case_02_01_00_кипер_делает_dive:
+                    .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
+                    .byte off_case_9253_00_dive_нижний - *
+                    .byte off_case_9256_01_dive_верхний - *
 
-off_case_9253_00_нижний_dive:
-            .byte con_mirror_off
-            .byte con_moving_bg, $04
-            .byte con_pause + $2D
-            .byte con_bg + $58
-            .byte con_animation + $04
-            .byte con_cloud + $3A
-            .byte con_rts
+off_case_9253_00_dive_нижний:
+                            .byte con_mirror_off
+                            .byte con_moving_bg, $04
+                            .byte con_pause + $2D
+                            .byte con_bg + $58
+                            .byte con_animation + $04
+                            .byte con_cloud + $3A
+                            .byte con_rts
 
-off_case_9256_01_верхний_dive:
-            .byte con_soundID_delay, $25, $02
-            .byte con_pause + $3C
-            .byte con_bg + $2F
-            .byte con_animation + $57
-            .byte con_cloud + $3A
-            .byte con_rts
+off_case_9256_01_dive_верхний:
+                            .byte con_soundID_delay, $25, $02
+                            .byte con_pause + $3C
+                            .byte con_bg + $2F
+                            .byte con_animation + $57
+                            .byte con_cloud + $3A
+                            .byte con_rts
 
-off_case_BD90_01_кипер_ждет_в_воротах:
-    .byte con_pause + $60
-    .byte con_bg + $65
-    .byte con_animation + $DA
-    .byte con_cloud + $E7
-    .byte con_rts
+off_case_02_01_01_кипер_ждет_в_воротах:
+                    .byte con_pause + $60
+                    .byte con_bg + $65
+                    .byte con_animation + $DA
+                    .byte con_cloud + $E7
+                    .byte con_rts
 
 
 
@@ -3606,8 +3607,8 @@ _scenario_927F_12:
 _scenario_9285_07:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_07_00 - *
-    .byte off_case_07_01 - *
+    .byte off_case_07_00_мяч_низкий - *
+    .byte off_case_07_01_мяч_высокий - *
 
 
 
@@ -3618,7 +3619,7 @@ off_case_12_00:
 
 
 
-off_case_07_00:
+off_case_07_00_мяч_низкий:
             .byte con_branch, $01 + $80     ; выживет ли защитник
             .byte off_case_07_00_00_защитник_выживет - *
             .byte off_case_07_00_01_защитник_убьется - *
@@ -3632,7 +3633,7 @@ off_case_12_01:
 
 
 
-off_case_07_01:
+off_case_07_01_мяч_высокий:
     .byte con_branch, $01 + $80     ; выживет ли защитник
     .byte off_case_07_01_00_защитник_выживет - *
     .byte off_case_07_01_01_защитник_убьется - *
@@ -14930,7 +14931,9 @@ off_case_BD6D_10_napoleon:
 
 
 
-bra_long_case_BD87_02:
+bra_long_case_0F_02_through:
+bra_long_case_02_00_02_mark:
+; BD87
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_F7, $02
     .byte con_pause + $28
