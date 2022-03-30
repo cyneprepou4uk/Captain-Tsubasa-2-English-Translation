@@ -3490,8 +3490,16 @@ off_case_13_01_02:
 _scenario_91EA_0E:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_branch, con_bra_04 + $00     ; мяч у атакующего/низкий, или высокий
-    .word bra_long_case_0E_00
-    .word bra_long_case_0E_01_pass
+    .byte off_case_0E_00 - *
+    .byte off_case_0E_01_pass - *
+
+off_case_0E_00:
+            .byte con_jmp
+            .word loc_B29B
+
+off_case_0E_01_pass:
+            .byte con_jmp
+            .word loc_AE64
 
 
 
@@ -3511,7 +3519,7 @@ off_case_01_00:
 off_case_01_01:
             .byte con_branch, con_bra_09 + $00     ; действие атаки на штрафной
             .word bra_long_case_9D46_00_shoot
-            .word bra_long_case_0E_01_pass
+            .word bra_long_case_01_01_01_pass
             .word bra_long_case_AE64_02_trap
             .word bra_long_case_AE64_03_though
 
@@ -10659,7 +10667,7 @@ bra_long_case_AE4C_00:
 
 
 
-bra_long_case_0E_01_pass:
+bra_long_case_01_01_01_pass:
 bra_long_case_AE64_02_trap:
 bra_long_case_AE64_03_though:
 bra_long_case_AE64_04:
@@ -10683,6 +10691,7 @@ off_case_AE64_12_nitta:
 off_case_AE64_13_nitta:
 off_case_AE64_14_sawada:
 off_case_AE64_15_sawada:
+loc_AE64:
     .byte con_pause + $32
     .byte con_bg + $1F
     .byte con_animation + $64
@@ -11785,11 +11794,11 @@ bra_long_case_B26F_20_foward_somersault:
 
 
 
-bra_long_case_0E_00:
 bra_long_case_B29B_01_pass:
 bra_long_case_B29B_02_trap:
 bra_long_case_B29B_03_through:
 bra_long_case_B29B_04:
+loc_B29B:
     .byte con_F7, $02
     .byte con_pause + $32
     .byte con_bg + $22
