@@ -7065,9 +7065,23 @@ sub_9F62_рандом_анимации_отпизженного_игрока_с_
 
 
 sub_9F68_рандом_анимации_отпизженного_игрока_без_сообщения:
-    .byte con_branch, con_bra_42 + $00     ; 2 варианта рандома
-    .word bra_long_case_A21A_00_рандом_1
-    .word bra_long_case_A21F_01_рандом_2
+    .byte con_branch, con_bra_42 + $80     ; 2 варианта рандома
+    .byte off_case_A21A_00_рандом_1 - *
+    .byte off_case_A21F_01_рандом_2 - *
+
+off_case_A21A_00_рандом_1:
+            .byte con_pause + $28
+            .byte con_bg + $1C
+            .byte con_animation + $3E
+            .byte con_cloud + con_skip
+            .byte con_rts
+
+off_case_A21F_01_рандом_2:
+            .byte con_pause + $28
+            .byte con_bg + $1C
+            .byte con_animation + $3F
+            .byte con_cloud + con_skip
+            .byte con_rts
 
 
 
@@ -7931,24 +7945,6 @@ sub_A212_добивание_отскока_от_штанги_сопернико�
     .byte con_bg + $2B
     .byte con_animation + $3B
     .byte con_cloud + $31
-    .byte con_rts
-
-
-
-bra_long_case_A21A_00_рандом_1:
-    .byte con_pause + $28
-    .byte con_bg + $1C
-    .byte con_animation + $3E
-    .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_A21F_01_рандом_2:
-    .byte con_pause + $28
-    .byte con_bg + $1C
-    .byte con_animation + $3F
-    .byte con_cloud + con_skip
     .byte con_rts
 
 
