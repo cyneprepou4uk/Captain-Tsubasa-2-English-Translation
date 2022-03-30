@@ -2336,7 +2336,7 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08       ; действие атакующего на чужой штрафной
 - D - I - - 0x0209E1 10:89D1: 69 93     .word _scenario_9369_09       ; конечный полет удара и действие кипера, возможный гол
 - D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A       ; кипер против атакующего на земле
-- D - I - - 0x0209E5 10:89D5: ED 98     .word _scenario_98ED_0B       ; хз, полет мяча, затем защитник подлазит
+- D - I - - 0x0209E5 10:89D5: ED 98     .word _scenario_98ED_0B       ; после того как игрок/комп дал пас, кто-то подлазит под мяч и пытается его перехватить
 - D - I - - 0x0209E7 10:89D7: E3 96     .word _scenario_96E3_0C       ; конечный полет удара в пустые ворота
 - D - I - - 0x0209E9 10:89D9: F7 96     .word _scenario_96F7_0D       ; игрок автоматически бьет когда обвел кипера
 - D - I - - 0x0209EB 10:89DB: EA 91     .word _scenario_91EA_0E       ; игрок бежит/прыгает к мячу на штрафной и что-то делает
@@ -2349,7 +2349,7 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209F9 10:89E9: 0A B8     .word _scenario_B80A_15       ; matsuyama базарит всем чтоб быстрее бежали
 - D - I - - 0x0209FB 10:89EB: 17 B8     .word _scenario_B817_16       ; diaz базарит что делает ускорение
 - D - I - - 0x0209FD 10:89ED: A1 B8     .word _scenario_B8A1_17       ; drive overhead озарение
-- D - I - - 0x0209FF 10:89EF: 3E 9E     .word _scenario_9E3E_18       ; игрок дает пас с земли
+- D - I - - 0x0209FF 10:89EF: 3E 9E     .word _scenario_9E3E_18       ; игрок либо комп дает пас с земли
 - D - I - - 0x020A01 10:89F1: D4 BB     .word _scenario_BBD4_19       ; игрок делает перепасовку
 - D - I - - 0x020A03 10:89F3: 6D BC     .word _scenario_BC6D_1A       ; мяч летит, прилетел к напарнику и он возвращает перепасовку
 - D - I - - 0x020A05 10:89F5: 86 B4     .word _scenario_B486_1B       ; мяч летит, и прилетает к основному игроку после перепасовки
@@ -2370,14 +2370,14 @@ tbl_89BF_сценарии:
 - D - I - - 0x020A23 10:8A13: E0 B4     .word _scenario_B4E0_2A       ; игрок делает throw in
 - D - I - - 0x020A25 10:8A15: 2C B7     .word _scenario_B72C_2B       ; хз, какое-то сообщение
 - D - I - - 0x020A27 10:8A17: 54 9F     .word _scenario_9F54_2C       ; игрок принимает низкий мяч на ногу
-- D - I - - 0x020A29 10:8A19: D6 B4     .word _scenario_B4D6_2D       ; ничейный мяч ударяется об землю
+- D - I - - 0x020A29 10:8A19: D6 B4     .word _scenario_B4D6_2D       ; ничейный мяч ударяется об землю (предположительно только после обычного удара, когда слишком далеко)
 - D - I - - 0x020A2B 10:8A1B: 4E B7     .word _scenario_B74E_2E       ; на игрока напали когда он находится на земле
 - D - I - - 0x020A2D 10:8A1D: 73 B7     .word _scenario_B773_2F       ; на игрока напали когда он находится на штрафной
 - D - I - - 0x020A2F 10:8A1F: 30 9C     .word _scenario_9C30_30       ; сообщение после гола
 - D - I - - 0x020A31 10:8A21: 8C B7     .word _scenario_B78C_31       ; хз, какое-то сообщение
 - D - I - - 0x020A33 10:8A23: 57 9E     .word _scenario_9E57_32       ; экран действия кипера словить/отбить
 - D - I - - 0x020A35 10:8A25: 04 9C     .word _scenario_9C04_33       ; сообщение о завершении тайма/матча/пк
-- D - I - - 0x020A37 10:8A27: CC BB     .word _scenario_BBCC_34       ; мяч ударяется об землю когда некому его поднять
+- D - I - - 0x020A37 10:8A27: CC BB     .word _scenario_BBCC_34       ; ничейный мяч ударяется об землю (предположительно только после паса/clearing)
 - D - I - - 0x020A39 10:8A29: CD B7     .word _scenario_B7CD_35       ; ожидание разводки
 - D - I - - 0x020A3B 10:8A2B: E4 B7     .word _scenario_B7E4_36       ; разводка
 - D - I - - 0x020A3D 10:8A2D: BF B7     .word _scenario_B7BF_37       ; хз, ворота вдали по центру
@@ -6207,14 +6207,14 @@ _scenario_9BE3_1C:
     .byte con_jsr
     .word sub_9F3E
     .dbyt con_branch_short + con_bra_04     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_1C_00 - *
-    .byte off_case_1C_01 - *
+    .byte off_case_1C_00_мяч_низкий - *
+    .byte off_case_1C_01_мяч_высокий - *
 
-off_case_1C_00:
+off_case_1C_00_мяч_низкий:
             .byte con_jmp
             .word loc_B49E_игрок_принимает_пас_на_ногу
 
-off_case_1C_01:
+off_case_1C_01_мяч_высокий:
             .byte con_jmp
             .word loc_B4B6_игрок_принимает_пас_на_грудь
 
@@ -6292,14 +6292,14 @@ _scenario_9C0A_3E:
     .byte con_jsr
     .word sub_9F3E
     .dbyt con_branch_short + con_bra_04     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_3E_00 - *
-    .byte off_case_3E_01 - *
+    .byte off_case_3E_00_мяч_высокий - *
+    .byte off_case_3E_01_мяч_высокий - *
 
-off_case_3E_01:
+off_case_3E_01_мяч_высокий:
             .byte con_jmp
             .word loc_B4AE_игрок_принимает_пас_на_грудь
 
-off_case_3E_00:
+off_case_3E_00_мяч_высокий:
             .byte con_jmp
             .word loc_B4A6_игрок_принимает_пас_на_ногу
 
@@ -6967,10 +6967,10 @@ _scenario_9E3E_18:
 
 
 
-loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу:
-off_case_26_01_летит_низкий_мяч:
 off_case_18_01_летит_низкий_мяч:
 off_case_18_00_мяч_у_атакующего_на_земле:
+off_case_26_01_летит_низкий_мяч:
+loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу:
     .dbyt con_branch_long + con_bra_1E
     .word bra_long_case_AF51_00_pass
     .word bra_long_case_AF59_01_drive_pass
