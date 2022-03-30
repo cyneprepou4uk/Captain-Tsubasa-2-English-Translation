@@ -3592,11 +3592,11 @@ off_case_01_01_03_though:
 
 _scenario_91FF_02:
     .byte con_mirror_condition, $01       ; номер защитника
-    .byte con_branch, con_bra_06 + $80     ; защитник кипер или нет
-    .byte off_case_02_00_if_not_кипер - *
-    .byte off_case_02_01_if_кипер - *
+    .byte con_branch, con_bra_06 + $00     ; защитник кипер или нет
+    .word bra_long_case_02_00_if_not_кипер
+    .word bra_long_case_02_01_if_кипер
 
-off_case_02_00_if_not_кипер:
+bra_long_case_02_00_if_not_кипер:
             .byte con_branch, con_bra_35 + $80         ; действие защитника на своей штрафной
             .byte off_case_02_00_00_pass_cut - *
             .byte off_case_02_00_01_interfere - *
@@ -3614,7 +3614,7 @@ off_case_02_00_02_mark:
                     .byte con_jmp
                     .word loc_BD87
 
-off_case_02_01_if_кипер:
+bra_long_case_02_01_if_кипер:
             .byte con_mirror_condition, $03       ; куда летит мяч
             .byte con_branch, con_bra_44 + $80     ; делает ли кипер dive
             .byte off_case_02_01_00_кипер_делает_dive - *
