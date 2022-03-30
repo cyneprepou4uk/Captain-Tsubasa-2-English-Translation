@@ -6335,11 +6335,11 @@ off_case_30_00_01_02_за_japan:
 bra_long_case_30_01_мяч_у_команды_справа:
 sub_9C36_анимация_гола_в_ворота_слева_и_сообщения:
             .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
-            .byte con_branch, $21 + $00     ; порвана ли сетка
-            .word bra_long_case_30_01_00_сетка_не_порвана
-            .word bra_long_case_30_01_01_сетка_порвана
+            .byte con_branch, $21 + $80     ; порвана ли сетка
+            .word off_case_30_01_00_сетка_не_порвана
+            .word off_case_30_01_01_сетка_порвана
 
-bra_long_case_30_01_00_сетка_не_порвана:
+off_case_30_01_00_сетка_не_порвана:
                     .byte con_pause + $82
                     .byte con_bg + con_skip
                     .byte con_animation + con_skip
@@ -6347,7 +6347,7 @@ bra_long_case_30_01_00_сетка_не_порвана:
                     .byte con_jmp
                     .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_30_01_01_сетка_порвана:
+off_case_30_01_01_сетка_порвана:
                     .byte con_pause + $82
                     .byte con_bg + con_skip
                     .byte con_animation + con_skip
