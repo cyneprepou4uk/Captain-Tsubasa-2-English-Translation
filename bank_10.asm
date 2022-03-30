@@ -8523,7 +8523,7 @@ case_A495_01_оба_игрока_с_рожами:
             .byte case_A495_01_01_это_misigu - *
 
 case_A495_01_00_это_другой_игрок:
-case_A495_01_00_00_больше_100_хп:
+loc_A496_больше_100_хп:
                     .byte con_pause + $3C
                     .byte con_bg + $30
                     .byte con_animation + con_face_defender
@@ -8535,6 +8535,10 @@ case_A495_01_01_это_misigu:
                     .byte con_branch, con_bra_2B + $80     ; проверка на 100 хп
                     .byte case_A495_01_00_00_больше_100_хп - *    
                     .byte case_A495_01_01_01_меньше_100_хп - *
+
+case_A495_01_00_00_больше_100_хп:
+                            .byte con_jmp
+                            .word loc_A496_больше_100_хп
 
 case_A495_01_01_01_меньше_100_хп:
                             .byte con_jmp
