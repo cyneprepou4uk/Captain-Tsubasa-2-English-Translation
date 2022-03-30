@@ -7152,9 +7152,23 @@ off_case_A229_01_рандом_2:
 
 
 sub_9F74_рандом_анимации_отпизженного_игрока_без_сообщения:
-    .byte con_branch, con_bra_42 + $00     ; 2 варианта рандома
-    .word bra_long_case_B433_00_рандом_1
-    .word bra_long_case_B438_01_рандом_2
+    .byte con_branch, con_bra_42 + $80     ; 2 варианта рандома
+    .byte off_case_B433_00_рандом_1 - *
+    .byte off_case_B438_01_рандом_2 - *
+
+off_case_B433_00_рандом_1:
+            .byte con_pause + $28
+            .byte con_bg + $1E
+            .byte con_animation + $3E
+            .byte con_cloud + con_skip
+            .byte con_rts
+
+off_case_B438_01_рандом_2:
+            .byte con_pause + $28
+            .byte con_bg + $1E
+            .byte con_animation + $3F
+            .byte con_cloud + con_skip
+            .byte con_rts
 
 
 
@@ -12386,24 +12400,6 @@ off_case_B42C_01_мяч_порвется:
     .byte con_animation + $00
     .byte con_cloud + con_skip
 off_case_B432_00:
-    .byte con_rts
-
-
-
-bra_long_case_B433_00_рандом_1:
-    .byte con_pause + $28
-    .byte con_bg + $1E
-    .byte con_animation + $3E
-    .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_B438_01_рандом_2:
-    .byte con_pause + $28
-    .byte con_bg + $1E
-    .byte con_animation + $3F
-    .byte con_cloud + con_skip
     .byte con_rts
 
 
