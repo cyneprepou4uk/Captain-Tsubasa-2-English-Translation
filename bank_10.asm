@@ -6171,7 +6171,7 @@ off_case_3E_00:
 
 _scenario_9C19_47:
     .byte con_jsr
-    .word sub_9C36_проверка_на_рваную_сетку
+    .word sub_9C36_анимация_гола_в_ворота_слева_и_сообщения
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $5A
@@ -6193,43 +6193,35 @@ loc_9C28_гол_и_проверка_на_рваную_сетку:
 
 _scenario_9C30_30:
     .byte con_branch, $22 + $00     ; у чьей команды мяч
-    .word bra_long_case_9C3F_00_мяч_у_команды_слева
-    .word bra_long_case_9C36_01_мяч_у_команды_справа
+    .word bra_long_case_30_00_мяч_у_команды_слева
+    .word bra_long_case_30_01_мяч_у_команды_справа
 
+bra_long_case_30_01_мяч_у_команды_справа:
+sub_9C36_анимация_гола_в_ворота_слева_и_сообщения:
+            .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
+            .byte con_branch, $21 + $00     ; порвана ли сетка
+            .word bra_long_case_30_01_00_сетка_не_порвана
+            .word bra_long_case_30_01_01_сетка_порвана
 
+bra_long_case_30_00_мяч_у_команды_слева:
+            .byte con_mirror_off
+            .byte con_F7, $13
+            .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
+            .byte con_branch, $21 + $00     ; порвана ли сетка
+            .word bra_long_case_30_00_00_сетка_не_порвана
+            .word bra_long_case_30_00_01_сетка_порвана
 
-sub_9C36_проверка_на_рваную_сетку:
-bra_long_case_9C36_01_мяч_у_команды_справа:
-    .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
-    .byte con_branch, $21 + $00     ; порвана ли сетка
-    .word bra_long_case_A2B5_00_сетка_не_порвана
-    .word bra_long_case_A2BC_01_сетка_порвана
+bra_long_case_30_00_00_сетка_не_порвана:
+                    .byte con_branch, $23 + $00     ; за какую команду играешь
+                    .word bra_long_case_30_00_00_00_за_sao_paulo
+                    .word bra_long_case_30_00_00_01_за_nankatsu
+                    .word bra_long_case_30_00_00_02_за_japan
 
-
-
-bra_long_case_9C3F_00_мяч_у_команды_слева:
-    .byte con_mirror_off
-    .byte con_F7, $13
-    .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
-    .byte con_branch, $21 + $00     ; порвана ли сетка
-    .word bra_long_case_9C4B_00_сетка_не_порвана
-    .word bra_long_case_9C53_01_сетка_порвана
-
-
-
-bra_long_case_9C4B_00_сетка_не_порвана:
-    .byte con_branch, $23 + $00     ; за какую команду играешь
-    .word bra_long_case_A2A7_00_за_sao_paulo
-    .word bra_long_case_A2AE_01_за_nankatsu
-    .word bra_long_case_A271_02_за_japan
-
-
-
-bra_long_case_9C53_01_сетка_порвана:
-    .byte con_branch, $23 + $00     ; за какую команду играешь
-    .word bra_long_case_A2C3_00_за_sao_paulo
-    .word bra_long_case_A2CA_01_за_nankatsu
-    .word bra_long_case_A2D1_02_за_japan
+bra_long_case_30_00_01_сетка_порвана:
+                    .byte con_branch, $23 + $00     ; за какую команду играешь
+                    .word bra_long_case_30_00_01_00_за_sao_paulo
+                    .word bra_long_case_30_00_01_01_за_nankatsu
+                    .word bra_long_case_30_00_01_02_за_japan
 
 
 
@@ -7810,20 +7802,20 @@ bra_long_case_A267_01_сетка_порвана:
 
 
 
-bra_long_case_A271_02_за_japan:
-    .byte con_pause + $A0
-    .byte con_bg + $0A
-    .byte con_animation + $48
-    .byte con_cloud + $52
+bra_long_case_30_00_00_02_за_japan:
+                            .byte con_pause + $A0
+                            .byte con_bg + $0A
+                            .byte con_animation + $48
+                            .byte con_cloud + $52
 loc_A275_мерцание_фона_с_портретом_игроков:
-    .byte con_F7, $13
-    .byte con_pause + $6E
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
-    .byte con_branch, $26 + $80     ; проигрывает ли германия
-    .byte off_case_A288_00_германия_не_проигрывает - *
-    .byte off_case_A27F_01_германия_проигрывает - *
+                            .byte con_F7, $13
+                            .byte con_pause + $6E
+                            .byte con_bg + con_skip
+                            .byte con_animation + con_skip
+                            .byte con_cloud + con_skip
+                            .byte con_branch, $26 + $80     ; проигрывает ли германия
+                            .byte off_case_A288_00_германия_не_проигрывает - *
+                            .byte off_case_A27F_01_германия_проигрывает - *
 
 
 
@@ -7878,73 +7870,61 @@ off_case_A2A6_00_гол_забит_другим_ударом:
 
 
 
-bra_long_case_A2A7_00_за_sao_paulo:
-    .byte con_pause + $A0
-    .byte con_bg + $08
-    .byte con_animation + $46
-    .byte con_cloud + $52
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
+bra_long_case_30_00_00_00_за_sao_paulo:
+                            .byte con_pause + $A0
+                            .byte con_bg + $08
+                            .byte con_animation + $46
+                            .byte con_cloud + $52
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
 
+bra_long_case_30_00_00_01_за_nankatsu:
+                            .byte con_pause + $A0
+                            .byte con_bg + $09
+                            .byte con_animation + $47
+                            .byte con_cloud + $52
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
 
+bra_long_case_30_01_00_сетка_не_порвана:
+                    .byte con_pause + $82
+                    .byte con_bg + con_skip
+                    .byte con_animation + con_skip
+                    .byte con_cloud + $51
+                    .byte con_jmp
+                    .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_A2AE_01_за_nankatsu:
-    .byte con_pause + $A0
-    .byte con_bg + $09
-    .byte con_animation + $47
-    .byte con_cloud + $52
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
+bra_long_case_30_01_01_сетка_порвана:
+                    .byte con_pause + $82
+                    .byte con_bg + con_skip
+                    .byte con_animation + con_skip
+                    .byte con_cloud + $53
+                    .byte con_jmp
+                    .word loc_A275_мерцание_фона_с_портретом_игроков
 
+bra_long_case_30_00_01_00_за_sao_paulo:
+                            .byte con_pause + $A0
+                            .byte con_bg + $08
+                            .byte con_animation + $46
+                            .byte con_cloud + $54
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
 
+bra_long_case_30_00_01_01_за_nankatsu:
+                            .byte con_pause + $A0
+                            .byte con_bg + $09
+                            .byte con_animation + $47
+                            .byte con_cloud + $55
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_A2B5_00_сетка_не_порвана:
-    .byte con_pause + $82
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $51
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
-
-
-
-bra_long_case_A2BC_01_сетка_порвана:
-    .byte con_pause + $82
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $53
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
-
-
-
-bra_long_case_A2C3_00_за_sao_paulo:
-    .byte con_pause + $A0
-    .byte con_bg + $08
-    .byte con_animation + $46
-    .byte con_cloud + $54
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
-
-
-
-bra_long_case_A2CA_01_за_nankatsu:
-    .byte con_pause + $A0
-    .byte con_bg + $09
-    .byte con_animation + $47
-    .byte con_cloud + $55
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
-
-
-
-bra_long_case_A2D1_02_за_japan:
-    .byte con_pause + $A0
-    .byte con_bg + $0A
-    .byte con_animation + $48
-    .byte con_cloud + $55
-    .byte con_jmp
-    .word loc_A275_мерцание_фона_с_портретом_игроков
+bra_long_case_30_00_01_02_за_japan:
+                            .byte con_pause + $A0
+                            .byte con_bg + $0A
+                            .byte con_animation + $48
+                            .byte con_cloud + $55
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
 
 
 
