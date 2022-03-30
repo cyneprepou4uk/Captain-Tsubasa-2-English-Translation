@@ -6189,7 +6189,7 @@ loc_9C28_гол_и_проверка_на_рваную_сетку:
     .word off_case_A25D_00_сетка_не_порвана
     .word off_case_A267_01_сетка_порвана
 
-off_long_case_A25D_00_сетка_не_порвана:
+off_case_A25D_00_сетка_не_порвана:
             .byte con_F7, $03
             .byte con_soundID_delay, $60, $02
             .byte con_pause + $78
@@ -6198,7 +6198,7 @@ off_long_case_A25D_00_сетка_не_порвана:
             .byte con_cloud + $28
             .byte con_rts
 
-off_long_case_A267_01_сетка_порвана:
+off_case_A267_01_сетка_порвана:
 loc_A267_goal:
             .byte con_F7, $03
             .byte con_soundID_delay, $61, $02
