@@ -2454,86 +2454,86 @@ con_quit                    = $F0   ;
 ; unused                    = $F1   ; аналогично F0, но выход без очистки флага зеркала
 con_jmp                     = $F2   ; 
 con_branch                  = $F3   ; 0x02017E
-   ;con_bra_00                      = $00   ; 
-    con_bra_выживет_ли_защитник     = $01   ; 00 = выживет, 01 = убьется
-    con_bra_02                      = $02   ; 
-    con_bra_03                      = $03   ; 
-    con_bra_04                      = $04   ; 
-    con_bra_05                      = $05   ; 
-    con_bra_06                      = $06   ; 
-   ;con_bra_07                      = $07   ; 
-    con_bra_08                      = $08   ; 
-    con_bra_09                      = $09   ; 
-   ;con_bra_0A                      = $0A   ; 
-   ;con_bra_0B                      = $0B   ; 
-    con_bra_0C                      = $0C   ; 
-    con_bra_0D                      = $0D   ; 
-    con_bra_0E                      = $0E   ; 
-   ;con_bra_0F                      = $0F   ; 
-    con_bra_10                      = $10   ; 
-   ;con_bra_11                      = $11   ; 
-   ;con_bra_12                      = $12   ; 
-    con_bra_13                      = $13   ; 
-   ;con_bra_14                      = $14   ; 
-    con_bra_15                      = $15   ; 
-    con_bra_16                      = $16   ; 
-   ;con_bra_17                      = $17   ; 
-    con_bra_18                      = $18   ; 
-   ;con_bra_19                      = $19   ; 
-   ;con_bra_1A                      = $1A   ; 
-    con_bra_1B                      = $1B   ; 
-    con_bra_1C                      = $1C   ; 
-    con_bra_1D                      = $1D   ; 
-    con_bra_1E                      = $1E   ; 
-   ;con_bra_1F                      = $1F   ; 
-    con_bra_20                      = $20   ; 
-    con_bra_21                      = $21   ; 
-    con_bra_22                      = $22   ; 
-    con_bra_23                      = $23   ; 
-   ;con_bra_24                      = $24   ; 
-    con_bra_25                      = $25   ; 
-    con_bra_26                      = $26   ; 
-   ;con_bra_27                      = $27   ; 
-    con_bra_28                      = $28   ; 
-    con_bra_29                      = $29   ; 
-    con_bra_2A                      = $2A   ; 
-    con_bra_2B                      = $2B   ; 
-    con_bra_2C                      = $2C   ; 
-    con_bra_2D                      = $2D   ; 
-    con_bra_2E                      = $2E   ; 
-    con_bra_2F                      = $2F   ; 
-    con_bra_30                      = $30   ; 
-    con_bra_31                      = $31   ; 
-    con_bra_32                      = $32   ; 
-    con_bra_33                      = $33   ; 
-    con_bra_34                      = $34   ; 
-    con_bra_35                      = $35   ; 
-    con_bra_36                      = $36   ; 
-    con_bra_37                      = $37   ; 
-    con_bra_38                      = $38   ; 
-    con_bra_39                      = $39   ; 
-    con_bra_3A                      = $3A   ; 
-    con_bra_3B                      = $3B   ; 
-    con_bra_3C                      = $3C   ; 
-    con_bra_3D                      = $3D   ; 
-    con_bra_3E                      = $3E   ; 
-   ;con_bra_3F                      = $3F   ; 
-    con_bra_40                      = $40   ; 
-    con_bra_41                      = $41   ; 
-    con_bra_42                      = $42   ; 
-    con_bra_43                      = $43   ; 
-    con_bra_44                      = $44   ; 
-    con_bra_45                      = $45   ; 
-    con_bra_46                      = $46   ; 
-    con_bra_force_drib              = $47   ; кто делает силовой дриблинг
-    con_bra_48                      = $48   ; 
-    con_bra_49                      = $49   ; 
-    con_bra_4A                      = $4A   ; 
-    con_bra_4B                      = $4B   ; 
-   ;con_bra_4C                      = $4C   ; 
-   ;con_bra_4D                      = $4D   ; 
-   ;con_bra_4E                      = $4E   ; 
-   ;con_bra_4F                      = $4F   ; 
+   ;con_bra_00                                  = $00   ; 
+    con_bra_выживет_ли_защитник                 = $01   ; 00 = выживет, 01 = убьется
+    con_bra_02                                  = $02   ; 
+    con_bra_03                                  = $03   ; 
+    con_bra_04                                  = $04   ; 
+    con_bra_05                                  = $05   ; 
+    con_bra_06                                  = $06   ; 
+   ;con_bra_07                                  = $07   ; 
+    con_bra_08                                  = $08   ; 
+    con_bra_действие_атаки_на_штрафной          = $09   ; 
+   ;con_bra_0A                                  = $0A   ; 
+   ;con_bra_0B                                  = $0B   ; 
+    con_bra_0C                                  = $0C   ; 
+    con_bra_0D                                  = $0D   ; 
+    con_bra_0E                                  = $0E   ; 
+   ;con_bra_0F                                  = $0F   ; 
+    con_bra_10                                  = $10   ; 
+   ;con_bra_11                                  = $11   ; 
+   ;con_bra_12                                  = $12   ; 
+    con_bra_13                                  = $13   ; 
+   ;con_bra_14                                  = $14   ; 
+    con_bra_15                                  = $15   ; 
+    con_bra_16                                  = $16   ; 
+   ;con_bra_17                                  = $17   ; 
+    con_bra_18                                  = $18   ; 
+   ;con_bra_19                                  = $19   ; 
+   ;con_bra_1A                                  = $1A   ; 
+    con_bra_1B                                  = $1B   ; 
+    con_bra_1C                                  = $1C   ; 
+    con_bra_1D                                  = $1D   ; 
+    con_bra_1E                                  = $1E   ; 
+   ;con_bra_1F                                  = $1F   ; 
+    con_bra_20                                  = $20   ; 
+    con_bra_21                                  = $21   ; 
+    con_bra_22                                  = $22   ; 
+    con_bra_23                                  = $23   ; 
+   ;con_bra_24                                  = $24   ; 
+    con_bra_25                                  = $25   ; 
+    con_bra_26                                  = $26   ; 
+   ;con_bra_27                                  = $27   ; 
+    con_bra_28                                  = $28   ; 
+    con_bra_29                                  = $29   ; 
+    con_bra_2A                                  = $2A   ; 
+    con_bra_2B                                  = $2B   ; 
+    con_bra_2C                                  = $2C   ; 
+    con_bra_2D                                  = $2D   ; 
+    con_bra_2E                                  = $2E   ; 
+    con_bra_2F                                  = $2F   ; 
+    con_bra_30                                  = $30   ; 
+    con_bra_31                                  = $31   ; 
+    con_bra_32                                  = $32   ; 
+    con_bra_33                                  = $33   ; 
+    con_bra_34                                  = $34   ; 
+    con_bra_35                                  = $35   ; 
+    con_bra_36                                  = $36   ; 
+    con_bra_37                                  = $37   ; 
+    con_bra_38                                  = $38   ; 
+    con_bra_39                                  = $39   ; 
+    con_bra_3A                                  = $3A   ; 
+    con_bra_3B                                  = $3B   ; 
+    con_bra_3C                                  = $3C   ; 
+    con_bra_3D                                  = $3D   ; 
+    con_bra_3E                                  = $3E   ; 
+   ;con_bra_3F                                  = $3F   ; 
+    con_bra_40                                  = $40   ; 
+    con_bra_41                                  = $41   ; 
+    con_bra_42                                  = $42   ; 
+    con_bra_43                                  = $43   ; 
+    con_bra_44                                  = $44   ; 
+    con_bra_45                                  = $45   ; 
+    con_bra_46                                  = $46   ; 
+    con_bra_force_drib                          = $47   ; кто делает силовой дриблинг
+    con_bra_48                                  = $48   ; 
+    con_bra_49                                  = $49   ; 
+    con_bra_4A                                  = $4A   ; 
+    con_bra_4B                                  = $4B   ; 
+   ;con_bra_4C                                  = $4C   ; 
+   ;con_bra_4D                                  = $4D   ; 
+   ;con_bra_4E                                  = $4E   ; 
+   ;con_bra_4F                                  = $4F   ; 
 con_mirror_on               = $F4   ; 
 con_mirror_off              = $F5   ; 
 con_mirror_toggle           = $F6   ; 
@@ -3510,7 +3510,7 @@ _scenario_91F2_01:
     .word bra_long_case_01_01
 
 bra_long_case_01_00:
-            .byte con_branch, con_bra_09 + $80     ; действие атаки на штрафной
+            .byte con_branch, con_bra_действие_атаки_на_штрафной + $80
             .byte off_case_01_00_00_shoot - *
             .byte off_case_01_00_01_pass - *
             .byte off_case_01_00_02_trap - *
@@ -3548,7 +3548,7 @@ off_case_01_00_03_through:
                     .word loc_B29B
 
 bra_long_case_01_01:
-            .byte con_branch, con_bra_09 + $80     ; действие атаки на штрафной
+            .byte con_branch, con_bra_действие_атаки_на_штрафной + $80
             .byte off_case_01_01_00_shoot - *
             .byte off_case_01_01_01_pass - *
             .byte off_case_01_01_02_trap - *
@@ -4039,14 +4039,14 @@ _scenario_932C_08:
     .byte off_case_08_01 - *
 
 off_case_08_00:
-            .byte con_branch, con_bra_09 + $80     ; действие атаки на штрафной
+            .byte con_branch, con_bra_действие_атаки_на_штрафной + $80
             .byte off_case_08_00_00_shoot - *
             .byte off_case_08_00_01_pass - *
             .byte off_case_08_00_02_trap - *
             .byte off_case_08_00_03_through - *
 
 off_case_08_01:
-            .byte con_branch, con_bra_09 + $80     ; действие атаки на штрафной
+            .byte con_branch, con_bra_действие_атаки_на_штрафной + $80
             .byte off_case_08_01_00_shoot - *
             .byte off_case_08_01_01_pass - *
             .byte off_case_08_01_02_dribble - *
