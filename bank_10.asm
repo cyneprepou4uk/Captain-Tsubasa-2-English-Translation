@@ -6554,12 +6554,29 @@ loc_9C67_защитник_прыгает_в_воздух_4й:
     .word bra_long_case_A3B3_00_не_спешал
     .word bra_long_case_B2FE_01_спешал
 
+bra_long_case_A3B3_00_не_спешал:
+            .byte con_F8, $03
+            .byte con_soundID_delay, $25, $02
+            .byte con_pause + $32
+            .byte con_bg + $1D
+            .byte con_animation + $20
+            .byte con_cloud + $3C
+            .byte con_rts
+
 
 
 loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й:
     .byte con_branch, con_bra_37 + $00     ; защитный спешал или нет
     .word bra_long_case_A3BD_00_не_спешал
     .word bra_long_case_B2FE_01_спешал
+
+bra_long_case_A3BD_00_не_спешал:
+            .byte con_soundID_delay, $25, $02
+            .byte con_pause + $32
+            .byte con_bg + $1E
+            .byte con_animation + $1C
+            .byte con_cloud + $3D
+            .byte con_rts
 
 
 
@@ -6568,6 +6585,14 @@ loc_9C73_защитник_прыгает_в_воздух_3й:
     .word bra_long_case_A3C5_00_не_спешал
     .word bra_long_case_B2FE_01_спешал
 
+bra_long_case_A3C5_00_не_спешал:
+            .byte con_F8, $01
+            .byte con_soundID_delay, $25, $02
+            .byte con_pause + $32
+            .byte con_bg + $1E
+            .byte con_animation + $20
+            .byte con_cloud + $3E
+            .byte con_rts
 
 
 sub_9C79_защитник_бежит_по_земле:
@@ -8298,38 +8323,6 @@ sub_A38F_полет_низкого_мяча_к_защитнику:
     .byte con_bg + $28
     .byte con_animation + $56
     .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_A3B3_00_не_спешал:
-    .byte con_F8, $03
-    .byte con_soundID_delay, $25, $02
-    .byte con_pause + $32
-    .byte con_bg + $1D
-    .byte con_animation + $20
-    .byte con_cloud + $3C
-    .byte con_rts
-
-
-
-bra_long_case_A3BD_00_не_спешал:
-    .byte con_soundID_delay, $25, $02
-    .byte con_pause + $32
-    .byte con_bg + $1E
-    .byte con_animation + $1C
-    .byte con_cloud + $3D
-    .byte con_rts
-
-
-
-bra_long_case_A3C5_00_не_спешал:
-    .byte con_F8, $01
-    .byte con_soundID_delay, $25, $02
-    .byte con_pause + $32
-    .byte con_bg + $1E
-    .byte con_animation + $20
-    .byte con_cloud + $3E
     .byte con_rts
 
 
