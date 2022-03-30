@@ -6185,9 +6185,28 @@ _scenario_9C19_47:
 
 loc_9C28_гол_и_проверка_на_рваную_сетку:
     .byte con_F7, $03
-    .byte con_branch, $21 + $00     ; порвана ли сетка
-    .word bra_long_case_A25D_00_сетка_не_порвана
-    .word bra_long_case_A267_01_сетка_порвана
+    .byte con_branch, $21 + $80     ; порвана ли сетка
+    .word off_case_A25D_00_сетка_не_порвана
+    .word off_case_A267_01_сетка_порвана
+
+off_long_case_A25D_00_сетка_не_порвана:
+            .byte con_F7, $03
+            .byte con_soundID_delay, $60, $02
+            .byte con_pause + $78
+            .byte con_bg + $07
+            .byte con_animation + $44
+            .byte con_cloud + $28
+            .byte con_rts
+
+off_long_case_A267_01_сетка_порвана:
+loc_A267_goal:
+            .byte con_F7, $03
+            .byte con_soundID_delay, $61, $02
+            .byte con_pause + $78
+            .byte con_bg + $07
+            .byte con_animation + $45
+            .byte con_cloud + $28
+            .byte con_rts
 
 
 
@@ -7888,29 +7907,6 @@ sub_A258_полет_мяча_после_отскока_от_штанги:
     .byte con_bg + $56
     .byte con_animation + $42
     .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_A25D_00_сетка_не_порвана:
-    .byte con_F7, $03
-    .byte con_soundID_delay, $60, $02
-    .byte con_pause + $78
-    .byte con_bg + $07
-    .byte con_animation + $44
-    .byte con_cloud + $28
-    .byte con_rts
-
-
-
-loc_A267_goal:
-bra_long_case_A267_01_сетка_порвана:
-    .byte con_F7, $03
-    .byte con_soundID_delay, $61, $02
-    .byte con_pause + $78
-    .byte con_bg + $07
-    .byte con_animation + $45
-    .byte con_cloud + $28
     .byte con_rts
 
 
