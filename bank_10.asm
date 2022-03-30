@@ -7683,24 +7683,20 @@ sub_A10E_кипер_не_дотягивается_кулаком_до_мяча:
     .byte off_case_A118_01_wakashimazu - *
     .byte off_case_A118_02_gertise - *
 
-
-
 off_case_A113_00_другой_кипер:
-    .byte con_pause + $25
-    .byte con_bg + $0E
-    .byte con_animation + $24
-    .byte con_cloud + $0C
-    .byte con_rts
-
-
+            .byte con_pause + $25
+            .byte con_bg + $0E
+            .byte con_animation + $24
+            .byte con_cloud + $0C
+            .byte con_rts
 
 off_case_A118_01_wakashimazu:
 off_case_A118_02_gertise:
-    .byte con_pause + $28
-    .byte con_bg + $0F
-    .byte con_animation + $26
-    .byte con_cloud + $0C
-    .byte con_rts
+            .byte con_pause + $28
+            .byte con_bg + $0F
+            .byte con_animation + $26
+            .byte con_cloud + $0C
+            .byte con_rts
 
 
 
@@ -7719,24 +7715,20 @@ sub_A122_кипер_собирается_коснуться_мяча_кулак�
     .byte off_case_A12C_01_wakashimazu - *
     .byte off_case_A12C_02_gertise - *
 
-
-
 off_case_A127_00_другой_кипер:
-    .byte con_pause + $1E
-    .byte con_bg + $0E
-    .byte con_animation + $2A
-    .byte con_cloud + $0E
-    .byte con_rts
-
-
+            .byte con_pause + $1E
+            .byte con_bg + $0E
+            .byte con_animation + $2A
+            .byte con_cloud + $0E
+            .byte con_rts
 
 off_case_A12C_01_wakashimazu:
 off_case_A12C_02_gertise:
-    .byte con_pause + $1E
-    .byte con_bg + $0F
-    .byte con_animation + $2B
-    .byte con_cloud + $0E
-    .byte con_rts
+            .byte con_pause + $1E
+            .byte con_bg + $0F
+            .byte con_animation + $2B
+            .byte con_cloud + $0E
+            .byte con_rts
 
 
 
@@ -7746,26 +7738,22 @@ sub_A131_кипер_легко_отбивает_и_проверка_на_wakashi
     .byte off_case_A13E_01_wakashimazu - *
     .byte off_case_A13E_02_gertise - *
 
-
-
 off_case_A136_00_другой_кипер:
-    .byte con_soundID_delay, $2B, $21     ; отбитие мяча
-    .byte con_pause + $3A
-    .byte con_bg + $0E
-    .byte con_animation + $2A
-    .byte con_cloud + $0E
-    .byte con_rts
-
-
+            .byte con_soundID_delay, $2B, $21     ; отбитие мяча
+            .byte con_pause + $3A
+            .byte con_bg + $0E
+            .byte con_animation + $2A
+            .byte con_cloud + $0E
+            .byte con_rts
 
 off_case_A13E_01_wakashimazu:
 off_case_A13E_02_gertise:
-    .byte con_soundID_delay, $2B, $21     ; отбитие мяча
-    .byte con_pause + $3A
-    .byte con_bg + $0F
-    .byte con_animation + $2B
-    .byte con_cloud + $0E
-    .byte con_rts
+            .byte con_soundID_delay, $2B, $21     ; отбитие мяча
+            .byte con_pause + $3A
+            .byte con_bg + $0F
+            .byte con_animation + $2B
+            .byte con_cloud + $0E
+            .byte con_rts
 
 
 
@@ -7775,24 +7763,20 @@ sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_п�
     .byte off_case_A155_01_wakashimazu - *
     .byte off_case_A155_02_gertise - *
 
-
-
 off_case_A150_00_другой_кипер:
-    .byte con_pause + $28
-    .byte con_bg + $0E
-    .byte con_animation + $2C
-    .byte con_cloud + $15
-    .byte con_rts
-
-
+            .byte con_pause + $28
+            .byte con_bg + $0E
+            .byte con_animation + $2C
+            .byte con_cloud + $15
+            .byte con_rts
 
 off_case_A155_01_wakashimazu:
 off_case_A155_02_gertise:
-    .byte con_pause + $2A
-    .byte con_bg + $0F
-    .byte con_animation + $2D
-    .byte con_cloud + $15
-    .byte con_rts
+            .byte con_pause + $2A
+            .byte con_bg + $0F
+            .byte con_animation + $2D
+            .byte con_cloud + $15
+            .byte con_rts
 
 
 
@@ -8200,42 +8184,38 @@ bra_long_case_A33A_01_кипер_наебан:
     .byte off_case_A340_01_за_nankatsu - *
     .byte off_case_A347_02_за_japan - *
 
-
-
 off_case_A340_01_за_nankatsu:
 ; антикрит вакашимазу
-    .byte con_pause + $32
-    .byte con_bg + $73
-    .byte con_animation + $A6
-    .byte con_cloud + $9F
-    .byte con_jmp
-    .word loc_A34B_отскок_от_штанги
-
-
+            .byte con_pause + $32
+            .byte con_bg + $73
+            .byte con_animation + $A6
+            .byte con_cloud + $9F
+            .byte con_jmp
+            .word loc_A34B_отскок_от_штанги
 
 off_case_A347_00_за_sao_paulo:
 off_case_A347_02_за_japan:
 ; антикрит вакашимазу
-    .byte con_pause + $32
-    .byte con_bg + $33
-    .byte con_animation + $A6
-    .byte con_cloud + $9F
+            .byte con_pause + $32
+            .byte con_bg + $33
+            .byte con_animation + $A6
+            .byte con_cloud + $9F
 loc_A34B_отскок_от_штанги:
-    .byte con_mirror_condition, $03       ; куда летит мяч
+            .byte con_mirror_condition, $03       ; куда летит мяч
 sub_A34D_отскок_вакашимазу_от_штанги:
 bra_long_case_A34D_00_кипер_не_наебан:
 ; вакашимазу отталкивается от штанги
-    .byte con_pause + $08
-    .byte con_bg + $0B
-    .byte con_animation + $00
-    .byte con_cloud + $2F
-    .byte con_F7, $05
-    .byte con_soundID_delay, $68, $21
-    .byte con_pause + $2D
-    .byte con_bg + con_skip
-    .byte con_animation + $4D
-    .byte con_cloud + con_skip
-    .byte con_rts
+            .byte con_pause + $08
+            .byte con_bg + $0B
+            .byte con_animation + $00
+            .byte con_cloud + $2F
+            .byte con_F7, $05
+            .byte con_soundID_delay, $68, $21
+            .byte con_pause + $2D
+            .byte con_bg + con_skip
+            .byte con_animation + $4D
+            .byte con_cloud + con_skip
+            .byte con_rts
 
 
 
