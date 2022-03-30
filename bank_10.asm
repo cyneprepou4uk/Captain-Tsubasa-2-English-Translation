@@ -6005,10 +6005,8 @@ off_case_14_01_00_промахнется:
                     .word sub_A32D_полет_удара_со_звуком
                     .byte con_jsr
                     .word sub_A2DD_ярко_красное_мерцание
-                    .byte con_jsr
-                    .word sub_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
-off_case_14_01_03_словит:
-                    .byte con_quit
+                    .byte con_jmp
+                    .word loc_9F62_рандом_анимации_отпизженного_игрока_с_сообщением
 
 off_case_14_01_01_коснется:
                     .byte con_jsr
@@ -6020,10 +6018,16 @@ off_case_14_01_01_коснется:
                     .byte con_jmp
                     .word loc_A240_серый_экран_после_касания_высого_мяча_телом
 
+off_case_14_01_02_отобьет:
+                    .byte con_jmp
+                    .word loc_A2FE_сообщение_oh_на_мигающем_белом_фоне
+
+off_case_14_01_03_словит:
+                    .byte con_quit
+
 
 
 _scenario_9BCB_04:
-off_case_14_01_02_отобьет:
     .byte con_jsr
     .word sub_A2FE_сообщение_oh_на_мигающем_белом_фоне
 bra_long_case_9BCE_00:
@@ -7991,6 +7995,7 @@ sub_A2F4_сообщение_oops_на_мигающем_белом_фоне:
 
 
 
+loc_A2FE_сообщение_oh_на_мигающем_белом_фоне:
 sub_A2FE_сообщение_oh_на_мигающем_белом_фоне:
     .byte con_F7, $10
     .byte con_soundID_delay, $2E, $02
