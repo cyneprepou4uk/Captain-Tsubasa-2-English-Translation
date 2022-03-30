@@ -3415,6 +3415,59 @@ _scenario_91FF_02:
     .byte off_case_02_00_if_not_кипер - *
     .byte off_case_02_01_if_кипер - *
 
+off_case_02_00_if_not_кипер:
+            .byte con_branch, $35 + $80         ; действие защитника на своей штрафной
+            .word off_case_02_00_00_pass_cut
+            .word off_case_02_00_01_interfere
+            .word off_case_02_00_02_mark
+
+off_case_02_00_00_pass_cut:
+                    .byte con_jmp
+                    .word loc_9217
+
+off_case_02_00_01_interfere:
+                    .byte con_jmp
+                    .word loc_9217
+
+off_case_02_00_02_mark:
+                    .byte con_jmp
+                    .word loc_BD87
+
+off_case_02_01_if_кипер:
+            .byte con_mirror_condition, $03       ; куда летит мяч
+            .byte con_branch, $44 + $80     ; делает ли кипер dive
+            .word off_case_02_01_00_кипер_делает_dive
+            .word off_case_02_01_01_кипер_ждет_в_воротах
+
+off_case_02_01_00_кипер_делает_dive:
+                    .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
+                    .byte off_case_9253_00_dive_нижний - *
+                    .byte off_case_9256_01_dive_верхний - *
+
+off_case_9253_00_dive_нижний:
+                            .byte con_mirror_off
+                            .byte con_moving_bg, $04
+                            .byte con_pause + $2D
+                            .byte con_bg + $58
+                            .byte con_animation + $04
+                            .byte con_cloud + $3A
+                            .byte con_rts
+
+off_case_9256_01_dive_верхний:
+                            .byte con_soundID_delay, $25, $02
+                            .byte con_pause + $3C
+                            .byte con_bg + $2F
+                            .byte con_animation + $57
+                            .byte con_cloud + $3A
+                            .byte con_rts
+
+off_case_02_01_01_кипер_ждет_в_воротах:
+                    .byte con_pause + $60
+                    .byte con_bg + $65
+                    .byte con_animation + $DA
+                    .byte con_cloud + $E7
+                    .byte con_rts
+
 
 
 _scenario_9205_0F:
@@ -3426,19 +3479,9 @@ _scenario_9205_0F:
 
 
 
-off_case_02_00_if_not_кипер:
-    .byte con_branch, $35 + $00         ; действие защитника на своей штрафной
-    .word bra_long_case_02_00_00_pass_cut
-    .word bra_long_case_02_00_01_interfere
-    .word bra_long_case_02_00_02_mark
-
-
-
 bra_long_case_0F_00_pass:
 bra_long_case_0F_01_clearing:
-bra_long_case_02_00_00_pass_cut:
-bra_long_case_02_00_01_interfere:
-; 9217
+loc_9217:
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_921B_00_мяч_низкий - *
     .byte off_case_921B_01_мяч_высокий - *
@@ -3502,43 +3545,6 @@ off_case_9241_03_защитник_4:
 off_case_9244_04_защитник_5:
             .byte con_jmp
             .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
-
-
-
-off_case_02_01_if_кипер:
-            .byte con_mirror_condition, $03       ; куда летит мяч
-            .byte con_branch, $44 + $80     ; делает ли кипер dive
-            .word off_case_02_01_00_кипер_делает_dive
-            .word off_case_02_01_01_кипер_ждет_в_воротах
-
-off_case_02_01_00_кипер_делает_dive:
-                    .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
-                    .byte off_case_9253_00_dive_нижний - *
-                    .byte off_case_9256_01_dive_верхний - *
-
-off_case_9253_00_dive_нижний:
-                            .byte con_mirror_off
-                            .byte con_moving_bg, $04
-                            .byte con_pause + $2D
-                            .byte con_bg + $58
-                            .byte con_animation + $04
-                            .byte con_cloud + $3A
-                            .byte con_rts
-
-off_case_9256_01_dive_верхний:
-                            .byte con_soundID_delay, $25, $02
-                            .byte con_pause + $3C
-                            .byte con_bg + $2F
-                            .byte con_animation + $57
-                            .byte con_cloud + $3A
-                            .byte con_rts
-
-off_case_02_01_01_кипер_ждет_в_воротах:
-                    .byte con_pause + $60
-                    .byte con_bg + $65
-                    .byte con_animation + $DA
-                    .byte con_cloud + $E7
-                    .byte con_rts
 
 
 
@@ -14932,8 +14938,7 @@ off_case_BD6D_10_napoleon:
 
 
 bra_long_case_0F_02_through:
-bra_long_case_02_00_02_mark:
-; BD87
+loc_BD87:
     .byte con_mirror_condition, $01       ; номер защитника
     .byte con_F7, $02
     .byte con_pause + $28
