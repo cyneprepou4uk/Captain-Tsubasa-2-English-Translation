@@ -1235,8 +1235,8 @@ C - - - - - 0x020555 10:8545: 60        RTS
 
 
 ofs_015_8546_32_soda:
-; 00 = это soda
-; 01 = это не soda
+; 00 = это soda из japan
+; 01 = это soda из tatsunami
 C - J - - - 0x020556 10:8546: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x020559 10:8549: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x02055C 10:854C: C9 1B     CMP #$1B      ; soda
@@ -6975,6 +6975,78 @@ off_case_18_00_мяч_у_атакующего_на_земле:
     .word bra_long_case_AF90_02_razor_pass
     .word bra_long_case_AFAA_03_topspin_pass
 
+bra_long_case_AF51_00_pass:
+            .byte con_soundID_delay, $2B, $05
+            .byte con_pause + $3C
+            .byte con_bg + $72
+            .byte con_animation + $66
+            .byte con_cloud + $47
+            .byte con_rts
+
+bra_long_case_AF59_01_drive_pass:
+            .byte con_mirror_off
+            .byte con_pause + $3C
+            .byte con_bg + $30
+            .byte con_animation + $91
+            .byte con_cloud + $C2
+            .byte con_F7, $10
+            .byte con_soundID_delay, $12, $02
+            .byte con_pause + $14
+            .byte con_bg + $10
+            .byte con_animation + $62
+            .byte con_cloud + con_skip
+            .byte con_F7, $02
+            .byte con_soundID_delay, $04, $02
+            .byte con_pause + $27
+            .byte con_bg + $24
+            .byte con_animation + $66
+            .byte con_cloud + con_skip
+            .byte con_jmp
+            .word loc_AB6B
+
+
+
+bra_long_case_AF90_02_razor_pass:
+            .byte con_branch, con_bra_32 + $80     ; проверка на soda
+            .byte off_case_AF94_00_soda_japan - *
+            .byte off_case_AFA4_01_soda_tatsunami - *
+
+off_case_AF94_00_soda_japan:
+                    .byte con_jsr
+                    .word sub_AF73_рожа_soda_палка_и_мерцание
+loc_AF97_razor_pass_улетает_от_игрока:
+                    .byte con_mirror_toggle
+                    .byte con_F7, $02
+                    .byte con_soundID_delay, $06, $02
+                    .byte con_pause + $27
+                    .byte con_bg + $24
+                    .byte con_animation + $66
+                    .byte con_cloud + con_skip
+                    .byte con_jmp
+                    .word loc_AB6B
+
+off_case_AFA4_01_soda_tatsunami:
+                    .byte con_jsr
+                    .word sub_AF88_рожа_soda_палка_и_мерцание
+                    .byte con_jmp
+                    .word loc_AF97_razor_pass_улетает_от_игрока
+
+bra_long_case_AFAA_03_topspin_pass:
+            .byte con_mirror_off
+            .byte con_F7, $10
+            .byte con_soundID_delay, $12, $02
+            .byte con_pause + $1D
+            .byte con_bg + $10
+            .byte con_animation + $62
+            .byte con_cloud + $49
+            .byte con_F7, $02
+            .byte con_soundID_delay, $07, $02
+            .byte con_pause + $37
+            .byte con_bg + $24
+            .byte con_animation + $66
+            .byte con_cloud + con_skip
+            .byte con_rts
+
 
 
 loc_9E4F_пас_головой_в_воздухе:
@@ -10957,39 +11029,6 @@ loc_AF31:
 
 
 
-bra_long_case_AF51_00_pass:
-    .byte con_soundID_delay, $2B, $05
-    .byte con_pause + $3C
-    .byte con_bg + $72
-    .byte con_animation + $66
-    .byte con_cloud + $47
-    .byte con_rts
-
-
-
-bra_long_case_AF59_01_drive_pass:
-    .byte con_mirror_off
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $C2
-    .byte con_F7, $10
-    .byte con_soundID_delay, $12, $02
-    .byte con_pause + $14
-    .byte con_bg + $10
-    .byte con_animation + $62
-    .byte con_cloud + con_skip
-    .byte con_F7, $02
-    .byte con_soundID_delay, $04, $02
-    .byte con_pause + $27
-    .byte con_bg + $24
-    .byte con_animation + $66
-    .byte con_cloud + con_skip
-    .byte con_jmp
-    .word loc_AB6B
-
-
-
 sub_AF73_рожа_soda_палка_и_мерцание:
     .byte con_mirror_toggle
     .byte con_pause + $3C
@@ -11021,55 +11060,6 @@ sub_AF88_рожа_soda_палка_и_мерцание:
     .byte con_cloud + $C2
     .byte con_jmp
     .word loc_AF78_палка_soda_и_мерцание
-
-
-
-bra_long_case_AF90_02_razor_pass:
-    .byte con_branch, con_bra_32 + $80     ; проверка на soda
-    .byte off_case_AF94_00_if_soda - *
-    .byte off_case_AFA4_01_if_not_soda - *
-
-
-
-off_case_AF94_00_if_soda:
-    .byte con_jsr
-    .word sub_AF73_рожа_soda_палка_и_мерцание
-loc_AF97_razor_pass_улетает_от_игрока:
-    .byte con_mirror_toggle
-    .byte con_F7, $02
-    .byte con_soundID_delay, $06, $02
-    .byte con_pause + $27
-    .byte con_bg + $24
-    .byte con_animation + $66
-    .byte con_cloud + con_skip
-    .byte con_jmp
-    .word loc_AB6B
-
-
-
-off_case_AFA4_01_if_not_soda:
-    .byte con_jsr
-    .word sub_AF88_рожа_soda_палка_и_мерцание
-    .byte con_jmp
-    .word loc_AF97_razor_pass_улетает_от_игрока
-
-
-
-bra_long_case_AFAA_03_topspin_pass:
-    .byte con_mirror_off
-    .byte con_F7, $10
-    .byte con_soundID_delay, $12, $02
-    .byte con_pause + $1D
-    .byte con_bg + $10
-    .byte con_animation + $62
-    .byte con_cloud + $49
-    .byte con_F7, $02
-    .byte con_soundID_delay, $07, $02
-    .byte con_pause + $37
-    .byte con_bg + $24
-    .byte con_animation + $66
-    .byte con_cloud + con_skip
-    .byte con_rts
 
 
 
