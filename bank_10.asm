@@ -7068,8 +7068,13 @@ bra_long_case_3C_01:
 bra_long_case_3C_02:
 bra_long_case_3C_03:
 bra_long_case_3C_04:
-            .byte con_jmp
-            .word loc_BB4B
+loc_BB4B:
+sub_BB4B:
+            .byte con_pause + $30
+            .byte con_bg + $1F
+            .byte con_animation + $4C
+            .byte con_cloud + con_clear
+            .byte con_rts
 
 
 
@@ -14391,16 +14396,6 @@ _scenario_BB3F_23:
     .byte con_FE
     .byte con_jmp
     .word loc_BA54
-
-
-
-loc_BB4B:
-sub_BB4B:
-    .byte con_pause + $30
-    .byte con_bg + $1F
-    .byte con_animation + $4C
-    .byte con_cloud + con_clear
-    .byte con_rts
 
 
 
