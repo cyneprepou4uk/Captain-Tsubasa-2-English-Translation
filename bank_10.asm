@@ -6492,15 +6492,15 @@ off_case_30_01_01_сетка_порвана:
 
 
 sub_9C5B_wakashimazu_отскок_от_штанги:
-    .byte con_branch, con_bra_2E + $00     ; наебан ли кипер
-    .word bra_long_case_9C5B_00_кипер_не_наебан
-    .word bra_long_case_9C5B_01_кипер_наебан
+    .byte con_branch, con_bra_2E + $80     ; наебан ли кипер
+    .byte off_case_9C5B_00_кипер_не_наебан - *
+    .byte off_case_9C5B_01_кипер_наебан - *
 
-bra_long_case_9C5B_00_кипер_не_наебан:
+off_case_9C5B_00_кипер_не_наебан:
             .byte con_jmp
             .word loc_A34D_отскок_вакашимазу_от_штанги
 
-bra_long_case_9C5B_01_кипер_наебан:
+off_case_9C5B_01_кипер_наебан:
             .byte con_mirror_off
             .byte con_branch, con_bra_23 + $80     ; за какую команду играешь
             .byte off_case_9C5B_01_00_за_sao_paulo - *
