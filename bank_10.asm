@@ -3440,22 +3440,50 @@ off_case_00_02_01_02_03_словит:
                                     .word loc_A16E_защитник_ловит_высокий_мяч_ногой
 
 
+
 _scenario_91D3_13:
     .byte con_branch, con_bra_04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_13_00 - *
     .byte off_case_13_01 - *
 
-off_case_13_01:
-            .byte con_branch, con_bra_16 + $00
-            .word bra_long_case_13_01_00
-            .word bra_long_case_13_01_01
-            .word bra_long_case_13_01_02
-
 off_case_13_00:
-            .byte con_branch, con_bra_16 + $00
-            .word bra_long_case_13_00_00
-            .word bra_long_case_13_00_01
-            .word bra_long_case_13_00_02
+            .byte con_branch, con_bra_16 + $80
+            .byte off_case_13_00_00 - *
+            .byte off_case_13_00_01 - *
+            .byte off_case_13_00_02 - *
+
+off_case_13_00_00:
+                    .byte con_jmp
+                    .word loc_933C
+
+off_case_13_00_01:
+                    .byte con_jmp
+                    .word loc_9341
+
+off_case_13_00_02:
+                    .byte con_mirror_toggle
+                    .byte con_jmp
+                    .word loc_A22E_игрок_делает_clear_ногой
+
+off_case_13_01:
+            .byte con_branch, con_bra_16 + $80
+            .byte off_case_13_01_00 - *
+            .byte off_case_13_01_01 - *
+            .byte off_case_13_01_02 - *
+
+off_case_13_01_00:
+                    .byte con_jmp
+                    .word loc_9350
+
+off_case_13_01_01:
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители
+
+off_case_13_01_02:
+                    .byte con_mirror_toggle
+                    .byte con_jmp
+                    .word loc_A238_игрок_делает_clear_головой
 
 
 
@@ -3953,16 +3981,16 @@ off_case_08_01:
 
 
 
-bra_long_case_13_00_00:
 off_case_08_00_01_pass:
+loc_933C:
     .byte con_mirror_condition, $00
     .byte con_jmp
     .word loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу
 
 
 
-bra_long_case_13_00_01:
 off_case_08_00_02_trap:
+loc_9341:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jmp
     .word loc_B2C2_игрок_принимает_низкий_мяч_на_ногу
@@ -3983,8 +4011,8 @@ off_case_08_00_03_through:
 
 
 
-bra_long_case_13_01_00:
 off_case_08_01_01_pass:
+loc_9350:
     .byte con_mirror_condition, $00
     .byte con_jmp
     .word loc_9E4F_пас_головой_в_воздухе
@@ -3995,13 +4023,6 @@ off_case_08_01_02_dribble:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jmp
     .word loc_B2CC_игрок_принимает_высокий_мяч_на_живот_фон_облака
-
-
-
-bra_long_case_13_01_01:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители
 
 
 
@@ -6102,20 +6123,6 @@ bra_long_case_9BD5_01:
     .word sub_A1B1_защитник_выигрывает_нижний_compete
     .byte con_jmp
     .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
-
-
-
-bra_long_case_13_01_02:
-    .byte con_mirror_toggle
-    .byte con_jmp
-    .word loc_A238_игрок_делает_clear_головой
-
-
-
-bra_long_case_13_00_02:
-    .byte con_mirror_toggle
-    .byte con_jmp
-    .word loc_A22E_игрок_делает_clear_ногой
 
 
 
