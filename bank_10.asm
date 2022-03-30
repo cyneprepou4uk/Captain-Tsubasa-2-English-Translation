@@ -3510,8 +3510,6 @@ off_case_02_01_if_кипер:
     .word bra_long_case_924F_00_кипер_делает_dive
     .word bra_long_case_BD90_01_кипер_ждет_в_воротах
 
-
-
 bra_long_case_924F_00_кипер_делает_dive:
     .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_9253_00_нижний_dive - *
@@ -3533,6 +3531,13 @@ off_case_9256_01_верхний_dive:
             .byte con_animation + $57
             .byte con_cloud + $3A
             .byte con_rts
+
+bra_long_case_BD90_01_кипер_ждет_в_воротах:
+    .byte con_pause + $60
+    .byte con_bg + $65
+    .byte con_animation + $DA
+    .byte con_cloud + $E7
+    .byte con_rts
 
 
 
@@ -14932,15 +14937,6 @@ bra_long_case_BD87_02:
     .byte con_bg + $23
     .byte con_animation + $5A
     .byte con_cloud + $E8
-    .byte con_rts
-
-
-
-bra_long_case_BD90_01_кипер_ждет_в_воротах:
-    .byte con_pause + $60
-    .byte con_bg + $65
-    .byte con_animation + $DA
-    .byte con_cloud + $E7
     .byte con_rts
 
 
