@@ -6205,12 +6205,12 @@ bra_long_case_30_00_мяч_у_команды_слева:
             .word bra_long_case_30_00_01_сетка_порвана
 
 bra_long_case_30_00_00_сетка_не_порвана:
-                    .byte con_branch, $23 + $00     ; за какую команду играешь
-                    .word bra_long_case_30_00_00_00_за_sao_paulo
-                    .word bra_long_case_30_00_00_01_за_nankatsu
-                    .word bra_long_case_30_00_00_02_за_japan
+                    .byte con_branch, $23 + $80     ; за какую команду играешь
+                    .word off_case_30_00_00_00_за_sao_paulo
+                    .word off_case_30_00_00_01_за_nankatsu
+                    .word off_case_30_00_00_02_за_japan
 
-bra_long_case_30_00_00_00_за_sao_paulo:
+off_case_30_00_00_00_за_sao_paulo:
                             .byte con_pause + $A0
                             .byte con_bg + $08
                             .byte con_animation + $46
@@ -6218,7 +6218,7 @@ bra_long_case_30_00_00_00_за_sao_paulo:
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_30_00_00_01_за_nankatsu:
+off_case_30_00_00_01_за_nankatsu:
                             .byte con_pause + $A0
                             .byte con_bg + $09
                             .byte con_animation + $47
@@ -6226,7 +6226,7 @@ bra_long_case_30_00_00_01_за_nankatsu:
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_30_00_00_02_за_japan:
+off_case_30_00_00_02_за_japan:
                             .byte con_pause + $A0
                             .byte con_bg + $0A
                             .byte con_animation + $48
@@ -6284,12 +6284,12 @@ off_case_30_00_00_02_01_германия_проигрывает:
                                     .byte con_rts
 
 bra_long_case_30_00_01_сетка_порвана:
-                    .byte con_branch, $23 + $00     ; за какую команду играешь
-                    .word bra_long_case_30_00_01_00_за_sao_paulo
-                    .word bra_long_case_30_00_01_01_за_nankatsu
-                    .word bra_long_case_30_00_01_02_за_japan
+                    .byte con_branch, $23 + $80     ; за какую команду играешь
+                    .word off_case_30_00_01_00_за_sao_paulo
+                    .word off_case_30_00_01_01_за_nankatsu
+                    .word off_case_30_00_01_02_за_japan
 
-bra_long_case_30_00_01_00_за_sao_paulo:
+off_case_30_00_01_00_за_sao_paulo:
                             .byte con_pause + $A0
                             .byte con_bg + $08
                             .byte con_animation + $46
@@ -6297,7 +6297,7 @@ bra_long_case_30_00_01_00_за_sao_paulo:
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_30_00_01_01_за_nankatsu:
+off_case_30_00_01_01_за_nankatsu:
                             .byte con_pause + $A0
                             .byte con_bg + $09
                             .byte con_animation + $47
@@ -6305,7 +6305,7 @@ bra_long_case_30_00_01_01_за_nankatsu:
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
-bra_long_case_30_00_01_02_за_japan:
+off_case_30_00_01_02_за_japan:
                             .byte con_pause + $A0
                             .byte con_bg + $0A
                             .byte con_animation + $48
