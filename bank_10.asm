@@ -5799,14 +5799,6 @@ off_case_0B_01_01:
                     .byte off_case_0B_01_01_02_отобьет - *
                     .byte off_case_0B_01_01_03_словит - *
 
-off_case_0B_01_02:
-                    .byte con_mirror_condition, $03       ; куда летит мяч
-                    .byte con_branch, $03 + $80     ; результат действия защитника
-                    .byte off_case_0B_01_02_00_промахнется - *
-                    .byte off_case_0B_01_02_01_коснется - *
-                    .byte off_case_0B_01_02_02_отобьет - *
-                    .byte off_case_0B_01_02_03_словит - *
-
 off_case_0B_01_01_00_промахнется:
                             .byte con_jmp
                             .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
@@ -5828,9 +5820,16 @@ off_case_0B_01_01_02_отобьет:
                             .word loc_A371_мяч_улетает_в_сторону
 
 off_case_0B_01_01_03_словит:
-off_case_0B_01_02_03_словит:
                             .byte con_jmp
                             .word loc_A185_защитник_ловит_высокий_мяч_телом
+
+off_case_0B_01_02:
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_branch, $03 + $80     ; результат действия защитника
+                    .byte off_case_0B_01_02_00_промахнется - *
+                    .byte off_case_0B_01_02_01_коснется - *
+                    .byte off_case_0B_01_02_02_отобьет - *
+                    .byte off_case_0B_01_02_03_словит - *
 
 off_case_0B_01_02_00_промахнется:
                             .byte con_jsr
@@ -5879,6 +5878,10 @@ off_case_0B_01_02_02_отобьет:
                             .byte con_jmp
                             .word loc_A371_мяч_улетает_в_сторону
 
+off_case_0B_01_02_03_словит:
+                            .byte con_jmp
+                            .word loc_A185_защитник_ловит_высокий_мяч_телом
+
 off_case_0B_01_03:
                     .byte con_mirror_condition, $00
                     .byte con_jsr
@@ -5905,6 +5908,18 @@ off_case_0B_01_03_01_коснется:
                             .byte con_jmp
                             .word loc_A04C_высокий_мяч_летит_дальше_после_касания_тела_защитника
 
+off_case_0B_01_03_02_отобьет:
+                            .byte con_jsr
+                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
+                            .byte con_jsr
+                            .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+off_case_0B_01_03_03_словит:
+                            .byte con_jmp
+                            .word loc_A185_защитник_ловит_высокий_мяч_телом
+
 off_case_0B_01_04:
                     .byte con_mirror_condition, $00
                     .byte con_jsr
@@ -5922,18 +5937,6 @@ off_case_0B_01_04:
                     .byte off_case_0B_01_04_01_умрет_и_серый_экран - *
                     .byte off_case_0B_01_04_02_умрет_и_отобьет - *
 ; bzk по идее может и словить с темно красным мерцанием, надо смотреть код, бывает ли такая ситуация
-
-off_case_0B_01_03_02_отобьет:
-                            .byte con_jsr
-                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                            .byte con_jsr
-                            .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-off_case_0B_01_03_03_словит:
-                            .byte con_jmp
-                            .word loc_A185_защитник_ловит_высокий_мяч_телом
 
 off_case_0B_01_04_00_умрет:
                             .byte con_jmp
