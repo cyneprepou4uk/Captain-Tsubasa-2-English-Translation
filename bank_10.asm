@@ -3477,74 +3477,68 @@ _scenario_9205_0F:
     .word bra_long_case_0F_01_clearing
     .word bra_long_case_0F_02_through
 
-
-
 bra_long_case_0F_00_pass:
 bra_long_case_0F_01_clearing:
 loc_9217:
-    .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_921B_00_мяч_низкий - *
-    .byte off_case_921B_01_мяч_высокий - *
+            .byte con_branch, $04 + $80     ; мяч у атакующего/низкий, или высокий
+            .byte off_case_0F_00_00_мяч_низкий - *
+            .byte off_case_0F_00_01_мяч_высокий - *
 
+off_case_0F_00_00_мяч_низкий:
+                    .byte con_branch, $05 + $80     ; порядковый номер защитника
+                    .byte off_case_0F_00_00_00_защитник_1 - *
+                    .byte off_case_0F_00_00_01_защитник_2 - *
+                    .byte off_case_0F_00_00_02_защитник_3 - *
+                    .byte off_case_0F_00_00_03_защитник_4 - *
+                    .byte off_case_0F_00_00_04_защитник_5 - *
 
+off_case_0F_00_00_00_защитник_1:
+                            .byte con_jmp
+                            .word loc_9C85_защитник_бежит_по_земле_1й
 
-off_case_921B_00_мяч_низкий:
-    .byte con_branch, $05 + $80     ; порядковый номер защитника
-    .byte off_case_9222_00_защитник_1 - *
-    .byte off_case_9225_01_защитник_2 - *
-    .byte off_case_9228_02_защитник_3 - *
-    .byte off_case_922B_03_защитник_4 - *
-    .byte off_case_922E_04_защитник_5 - *
+off_case_0F_00_00_01_защитник_2:
+                            .byte con_jmp
+                            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
 
-off_case_9222_00_защитник_1:
-            .byte con_jmp
-            .word loc_9C85_защитник_бежит_по_земле_1й
+off_case_0F_00_00_02_защитник_3:
+                            .byte con_jmp
+                            .word loc_9C9D_защитник_бежит_по_земле_3й
 
-off_case_9225_01_защитник_2:
-            .byte con_jmp
-            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
+off_case_0F_00_00_03_защитник_4:
+                            .byte con_jmp
+                            .word loc_9C97_защитник_бежит_по_земле_4й
 
-off_case_9228_02_защитник_3:
-            .byte con_jmp
-            .word loc_9C9D_защитник_бежит_по_земле_3й
+off_case_0F_00_00_04_защитник_5:
+                            .byte con_jmp
+                            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
 
-off_case_922B_03_защитник_4:
-            .byte con_jmp
-            .word loc_9C97_защитник_бежит_по_земле_4й
+off_case_0F_00_01_мяч_высокий:
+                    .byte con_branch, $05 + $80     ; порядковый номер защитника
+                    .byte off_case_0F_00_01_00_защитник_1 - *
+                    .byte off_case_0F_00_01_01_защитник_2 - *
+                    .byte off_case_0F_00_01_02_защитник_3 - *
+                    .byte off_case_0F_00_01_03_защитник_4 - *
+                    .byte off_case_0F_00_01_04_защитник_5 - *
 
-off_case_922E_04_защитник_5:
-            .byte con_jmp
-            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
+off_case_0F_00_01_00_защитник_1:
+                            .byte con_jmp
+                            .word loc_9C61_защитник_прыгает_в_воздух_1й
 
+off_case_0F_00_01_01_защитник_2:
+                            .byte con_jmp
+                            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
 
+off_case_0F_00_01_02_защитник_3:
+                            .byte con_jmp
+                            .word loc_9C73_защитник_прыгает_в_воздух_3й
 
-off_case_921B_01_мяч_высокий:
-    .byte con_branch, $05 + $80     ; порядковый номер защитника
-    .byte off_case_9238_00_защитник_1 - *
-    .byte off_case_923B_01_защитник_2 - *
-    .byte off_case_923E_02_защитник_3 - *
-    .byte off_case_9241_03_защитник_4 - *
-    .byte off_case_9244_04_защитник_5 - *
+off_case_0F_00_01_03_защитник_4:
+                            .byte con_jmp
+                            .word loc_9C67_защитник_прыгает_в_воздух_4й
 
-off_case_9238_00_защитник_1:
-            .byte con_jmp
-            .word loc_9C61_защитник_прыгает_в_воздух_1й
-
-off_case_923B_01_защитник_2:
-            .byte con_jmp
-            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
-
-off_case_923E_02_защитник_3:
-            .byte con_jmp
-            .word loc_9C73_защитник_прыгает_в_воздух_3й
-
-off_case_9241_03_защитник_4:
-            .byte con_jmp
-            .word loc_9C67_защитник_прыгает_в_воздух_4й
-
-off_case_9244_04_защитник_5:
-            .byte con_jmp
-            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
+off_case_0F_00_01_04_защитник_5:
+                            .byte con_jmp
+                            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
 
 
 
