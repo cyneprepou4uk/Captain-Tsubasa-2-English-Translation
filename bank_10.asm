@@ -3511,17 +3511,17 @@ _scenario_91F2_01:
 
 off_case_01_00:
             .byte con_branch, con_bra_09 + $00     ; действие атаки на штрафной
-            .word bra_long_case_9DEC_00_shoot
-            .word bra_long_case_B29B_01_pass
-            .word bra_long_case_B29B_02_trap
-            .word bra_long_case_B29B_03_through
+            .word bra_long_case_01_00_00_shoot
+            .word bra_long_case_01_00_01_pass
+            .word bra_long_case_01_00_02_trap
+            .word bra_long_case_01_00_03_through
 
 off_case_01_01:
             .byte con_branch, con_bra_09 + $00     ; действие атаки на штрафной
-            .word bra_long_case_9D46_00_shoot
+            .word bra_long_case_01_01_00_shoot
             .word bra_long_case_01_01_01_pass
-            .word bra_long_case_AE64_02_trap
-            .word bra_long_case_AE64_03_though
+            .word bra_long_case_01_01_02_trap
+            .word bra_long_case_01_01_03_though
 
 
 
@@ -6649,13 +6649,13 @@ off_case_1D_00_мяч_у_атакующего_на_земле:
 
 
 
-bra_long_case_9D46_00_shoot:
+bra_long_case_01_01_00_shoot:
     .byte con_branch, con_bra_48 + $00
-    .word bra_long_case_AE4C_00
-    .word bra_long_case_AED4_01_skylab_twin_shot
-    .word bra_long_case_AE64_02_trap
-    .word bra_long_case_AF31_03
-    .word bra_long_case_AE64_04
+    .word bra_long_case_01_01_00_00
+    .word bra_long_case_01_01_00_01_skylab_twin_shot
+    .word bra_long_case_01_01_00_02
+    .word bra_long_case_01_01_00_03
+    .word bra_long_case_01_01_00_04
 
 
 
@@ -6741,13 +6741,13 @@ off_case_1D_01_летит_низкий_мяч:
 
 
 
-bra_long_case_9DEC_00_shoot:
+bra_long_case_01_00_00_shoot:
     .byte con_branch, con_bra_48 + $00
-    .word bra_long_case_AE4C_00
-    .word bra_long_case_AED4_01_skylab_twin_shot
-    .word bra_long_case_B2A2_02
-    .word bra_long_case_B29B_03_through
-    .word bra_long_case_B29B_04
+    .word bra_long_case_01_00_00_00
+    .word bra_long_case_01_00_00_01_skylab_twin_shot
+    .word bra_long_case_01_00_00_02
+    .word bra_long_case_01_01_00_03_through
+    .word bra_long_case_01_00_00_04
 
 
 
@@ -10640,7 +10640,9 @@ bra_long_case_AE34_22_double_eel:
 
 
 
-bra_long_case_AE4C_00:
+bra_long_case_01_00_00_00:
+bra_long_case_01_01_00_00:
+; AE4C
     .byte con_branch, con_bra_40 + $80
     .byte off_case_AE64_00_игрок_без_рожи - *
     .byte off_case_AE64_01_tsubasa - *
@@ -10668,9 +10670,10 @@ bra_long_case_AE4C_00:
 
 
 bra_long_case_01_01_01_pass:
-bra_long_case_AE64_02_trap:
-bra_long_case_AE64_03_though:
-bra_long_case_AE64_04:
+bra_long_case_01_01_02_trap:
+bra_long_case_01_01_00_02:
+bra_long_case_01_01_03_though:
+bra_long_case_01_01_00_04:
 off_case_AE64_00_игрок_без_рожи:
 off_case_AE64_01_tsubasa:
 off_case_AE64_02_misaki:
@@ -10794,7 +10797,9 @@ off_case_AEA4_11_masao_kazuo:
 
 
 
-bra_long_case_AED4_01_skylab_twin_shot:
+bra_long_case_01_00_00_01_skylab_twin_shot:
+bra_long_case_01_01_00_01_skylab_twin_shot:
+; AED4
     .byte con_mirror_on
     .byte con_F8, $04
     .byte con_pause + $40
@@ -10871,7 +10876,7 @@ bra_long_case_AED4_01_skylab_twin_shot:
 
 
 
-bra_long_case_AF31_03:
+bra_long_case_01_01_00_03:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $37
     .byte con_bg + $47
@@ -11794,10 +11799,11 @@ bra_long_case_B26F_20_foward_somersault:
 
 
 
-bra_long_case_B29B_01_pass:
-bra_long_case_B29B_02_trap:
-bra_long_case_B29B_03_through:
-bra_long_case_B29B_04:
+bra_long_case_01_00_01_pass:
+bra_long_case_01_00_02_trap:
+bra_long_case_01_00_03_through:
+bra_long_case_01_01_00_03_through:
+bra_long_case_01_00_00_04:
 loc_B29B:
     .byte con_F7, $02
     .byte con_pause + $32
@@ -11808,14 +11814,14 @@ loc_B29B:
 
 
 
-bra_long_case_B2A2_02:
+bra_long_case_01_00_00_02:
     .byte con_branch, con_bra_3D + $80     ; проверка на misaki из nankatsu
-    .byte off_case_B2A6_00_if_misaki_из_nankatsu - *
-    .byte off_case_B2BB_01_if_misaki_из_japan - *
+    .byte off_case_01_00_00_02_00_if_misaki_из_nankatsu - *
+    .byte off_case_01_00_00_02_01_if_misaki_из_japan - *
 
 
 
-off_case_B2A6_00_if_misaki_из_nankatsu:
+off_case_01_00_00_02_00_if_misaki_из_nankatsu:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $96
@@ -11838,7 +11844,7 @@ sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_voll
 
 
 
-off_case_B2BB_01_if_misaki_из_japan:
+off_case_01_00_00_02_01_if_misaki_из_japan:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $97
