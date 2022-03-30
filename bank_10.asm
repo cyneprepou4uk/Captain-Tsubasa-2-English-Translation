@@ -6637,6 +6637,15 @@ loc_9C91_защитник_бежит_по_земле_2й_и_5й:
     .word bra_long_case_A7D5_00_не_спешал
     .word bra_long_case_A6CE_01_спешал
 
+bra_long_case_A7D5_00_не_спешал:
+            .byte con_F8, $03
+            .byte con_F7, $02
+            .byte con_pause + $37
+            .byte con_bg + $23
+            .byte con_animation + $5A
+            .byte con_cloud + $42
+            .byte con_rts
+
 
 
 loc_9C97_защитник_бежит_по_земле_4й:
@@ -6644,12 +6653,29 @@ loc_9C97_защитник_бежит_по_земле_4й:
     .word bra_long_case_A7DE_00_не_спешал
     .word bra_long_case_A6CE_01_спешал
 
+bra_long_case_A7DE_00_не_спешал:
+            .byte con_F8, $03
+            .byte con_F7, $02
+            .byte con_pause + $37
+            .byte con_bg + $22
+            .byte con_animation + $5B
+            .byte con_cloud + $43
+            .byte con_rts
+
 
 
 loc_9C9D_защитник_бежит_по_земле_3й:
     .byte con_branch, con_bra_37 + $00     ; защитный спешал или нет
     .word bra_long_case_A7E7_00_не_спешал
     .word bra_long_case_A6CE_01_спешал
+
+bra_long_case_A7E7_00_не_спешал:
+            .byte con_F7, $02
+            .byte con_pause + $37
+            .byte con_bg + $23
+            .byte con_animation + $5B
+            .byte con_cloud + $44
+            .byte con_rts
 
 
 
@@ -8933,38 +8959,6 @@ off_case_A7CE_0F_ishizaki:
     .byte con_bg + $23
     .byte con_animation + $5A
     .byte con_cloud + $40
-    .byte con_rts
-
-
-
-bra_long_case_A7D5_00_не_спешал:
-    .byte con_F8, $03
-    .byte con_F7, $02
-    .byte con_pause + $37
-    .byte con_bg + $23
-    .byte con_animation + $5A
-    .byte con_cloud + $42
-    .byte con_rts
-
-
-
-bra_long_case_A7DE_00_не_спешал:
-    .byte con_F8, $03
-    .byte con_F7, $02
-    .byte con_pause + $37
-    .byte con_bg + $22
-    .byte con_animation + $5B
-    .byte con_cloud + $43
-    .byte con_rts
-
-
-
-bra_long_case_A7E7_00_не_спешал:
-    .byte con_F7, $02
-    .byte con_pause + $37
-    .byte con_bg + $23
-    .byte con_animation + $5B
-    .byte con_cloud + $44
     .byte con_rts
 
 
