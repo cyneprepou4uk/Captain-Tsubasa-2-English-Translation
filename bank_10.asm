@@ -7025,34 +7025,34 @@ _scenario_9F3E_3C:
 ; bzk тут должно быть всего 3 поинтера для 10, судя по 0x02037E
 ; но на всякий случай расшифрованы и остальные
 sub_9F3E:
-    .byte con_branch, con_bra_10 + $00
-    .word bra_long_case_3C_00
-    .word bra_long_case_3C_01
-    .word bra_long_case_3C_02
-    .word bra_long_case_3C_03
-    .word bra_long_case_3C_04
+    .byte con_branch, con_bra_10 + $80
+    .byte off_case_3C_00 - *
+    .byte off_case_3C_01 - *
+    .byte off_case_3C_02 - *
+    .byte off_case_3C_03 - *
+    .byte off_case_3C_04 - *
 
-bra_long_case_3C_00:
-            .byte con_branch, con_bra_1E + $00
-            .word bra_long_case_3C_00_00
-            .word bra_long_case_3C_00_01
-            .word bra_long_case_3C_00_02
-            .word bra_long_case_3C_00_03
+off_case_3C_00:
+            .byte con_branch, con_bra_1E + $80
+            .byte off_case_3C_00_00 - *
+            .byte off_case_3C_00_01 - *
+            .byte off_case_3C_00_02 - *
+            .byte off_case_3C_00_03 - *
 
-bra_long_case_3C_00_00:
+off_case_3C_00_00:
                     .byte con_jmp
                     .word loc_BB4B
 
-bra_long_case_3C_00_01:
+off_case_3C_00_01:
                     .byte con_jmp
                     .word loc_B502
 
-bra_long_case_3C_00_02:
+off_case_3C_00_02:
                     .byte con_mirror_toggle
                     .byte con_jmp
                     .word loc_B543
 
-bra_long_case_3C_00_03:
+off_case_3C_00_03:
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $08, $02
                     .byte con_pause + $3C
@@ -7064,10 +7064,10 @@ bra_long_case_3C_00_03:
                     .word sub_BB7D
                     .byte con_rts
 
-bra_long_case_3C_01:
-bra_long_case_3C_02:
-bra_long_case_3C_03:
-bra_long_case_3C_04:
+off_case_3C_01:
+off_case_3C_02:
+off_case_3C_03:
+off_case_3C_04:
 loc_BB4B:
 sub_BB4B:
             .byte con_pause + $30
