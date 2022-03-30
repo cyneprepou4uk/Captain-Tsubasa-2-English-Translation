@@ -3489,7 +3489,7 @@ off_case_13_01_02:
 
 _scenario_91EA_0E:
     .byte con_mirror_condition, $01       ; номер защитника
-    .byte con_branch, con_bra_04 + $00     ; мяч у атакующего/низкий, или высокий
+    .byte con_branch, con_bra_04 + $80     ; мяч у атакующего/низкий, или высокий
     .byte off_case_0E_00 - *
     .byte off_case_0E_01_pass - *
 
