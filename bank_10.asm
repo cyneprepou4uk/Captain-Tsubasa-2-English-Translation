@@ -3505,86 +3505,86 @@ off_case_0E_01_pass:
 
 _scenario_91F2_01:
     .byte con_mirror_condition, $01       ; номер защитника
-    .byte con_branch, con_bra_04 + $80     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_01_00 - *
-    .byte off_case_01_01 - *
+    .byte con_branch, con_bra_04 + $00     ; мяч у атакующего/низкий, или высокий
+    .word bra_long_case_01_00
+    .word bra_long_case_01_01
 
-off_case_01_00:
-            .byte con_branch, con_bra_09 + $00     ; действие атаки на штрафной
-            .word bra_long_case_01_00_00_shoot
-            .word bra_long_case_01_00_01_pass
-            .word bra_long_case_01_00_02_trap
-            .word bra_long_case_01_00_03_through
+bra_long_case_01_00:
+            .byte con_branch, con_bra_09 + $80     ; действие атаки на штрафной
+            .byte off_case_01_00_00_shoot - *
+            .byte off_case_01_00_01_pass - *
+            .byte off_case_01_00_02_trap - *
+            .byte off_case_01_00_03_through - *
 
-bra_long_case_01_00_00_shoot:
-                    .byte con_branch, con_bra_48 + $00
-                    .word bra_long_case_01_00_00_00
-                    .word bra_long_case_01_00_00_01_skylab_twin_shot
-                    .word bra_long_case_01_00_00_02_jumping_volley
-                    .word bra_long_case_01_00_00_03 ; through?
-                    .word bra_long_case_01_00_00_04
+off_case_01_00_00_shoot:
+                    .byte con_branch, con_bra_48 + $80
+                    .byte off_case_01_00_00_00 - *
+                    .byte off_case_01_00_00_01_skylab_twin_shot - *
+                    .byte off_case_01_00_00_02_jumping_volley - *
+                    .byte off_case_01_00_00_03 - * ; through?
+                    .byte off_case_01_00_00_04 - *
 
-bra_long_case_01_00_00_00:
+off_case_01_00_00_00:
                             .byte con_jmp
                             .word loc_AE4C
 
-bra_long_case_01_00_00_01_skylab_twin_shot:
+off_case_01_00_00_01_skylab_twin_shot:
                             .byte con_jmp
                             .word loc_AED4_skylab_twin_shot
 
-bra_long_case_01_00_00_02_jumping_volley:
+off_case_01_00_00_02_jumping_volley:
                             .byte con_jmp
                             .word loc_B2A2_jumping_volley
 
-bra_long_case_01_00_00_03:
-bra_long_case_01_00_00_04:
+off_case_01_00_00_03:
+off_case_01_00_00_04:
                             .byte con_jmp
                             .word loc_B29B
 
-bra_long_case_01_00_01_pass:
-bra_long_case_01_00_02_trap:
-bra_long_case_01_00_03_through:
+off_case_01_00_01_pass:
+off_case_01_00_02_trap:
+off_case_01_00_03_through:
                     .byte con_jmp
                     .word loc_B29B
 
-off_case_01_01:
-            .byte con_branch, con_bra_09 + $00     ; действие атаки на штрафной
-            .word bra_long_case_01_01_00_shoot
-            .word bra_long_case_01_01_01_pass
-            .word bra_long_case_01_01_02_trap
-            .word bra_long_case_01_01_03_though
+bra_long_case_01_01:
+            .byte con_branch, con_bra_09 + $80     ; действие атаки на штрафной
+            .byte off_case_01_01_00_shoot - *
+            .byte off_case_01_01_01_pass - *
+            .byte off_case_01_01_02_trap - *
+            .byte off_case_01_01_03_though - *
 
-bra_long_case_01_01_00_shoot:
-                    .byte con_branch, con_bra_48 + $00
-                    .word bra_long_case_01_01_00_00
-                    .word bra_long_case_01_01_00_01_skylab_twin_shot
-                    .word bra_long_case_01_01_00_02
-                    .word bra_long_case_01_01_00_03
-                    .word bra_long_case_01_01_00_04
+off_case_01_01_00_shoot:
+                    .byte con_branch, con_bra_48 + $80
+                    .byte off_case_01_01_00_00 - *
+                    .byte off_case_01_01_00_01_skylab_twin_shot - *
+                    .byte off_case_01_01_00_02 - *
+                    .byte off_case_01_01_00_03 - *
+                    .byte off_case_01_01_00_04 - *
 
-bra_long_case_01_01_00_00:
+off_case_01_01_00_00:
                             .byte con_jmp
                             .word loc_AE4C
 
-bra_long_case_01_01_00_01_skylab_twin_shot:
+off_case_01_01_00_01_skylab_twin_shot:
                             .byte con_jmp
                             .word loc_AED4_skylab_twin_shot
 
-bra_long_case_01_01_00_02:
+off_case_01_01_00_02:
                             .byte con_jmp
                             .word loc_AE64
 
-bra_long_case_01_01_00_03:
+off_case_01_01_00_03:
                             .byte con_jmp
                             .word loc_AF31
 
-bra_long_case_01_01_00_04:
+off_case_01_01_00_04:
                             .byte con_jmp
                             .word loc_AE64
 
-bra_long_case_01_01_01_pass:
-bra_long_case_01_01_02_trap:
-bra_long_case_01_01_03_though:
+off_case_01_01_01_pass:
+off_case_01_01_02_trap:
+off_case_01_01_03_though:
                     .byte con_jmp
                     .word loc_AE64
 
