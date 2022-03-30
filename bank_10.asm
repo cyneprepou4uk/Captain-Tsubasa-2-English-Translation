@@ -7039,6 +7039,38 @@ bra_long_case_3C_00:
             .word bra_long_case_3C_00_02
             .word bra_long_case_3C_00_03
 
+bra_long_case_3C_00_00:
+                    .byte con_jmp
+                    .word loc_BB4B
+
+bra_long_case_3C_00_01:
+                    .byte con_jmp
+                    .word loc_B502
+
+bra_long_case_3C_00_02:
+                    .byte con_mirror_toggle
+                    .byte con_jmp
+                    .word loc_B543
+
+bra_long_case_3C_00_03:
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $08, $02
+                    .byte con_pause + $3C
+                    .byte con_bg + $53
+                    .byte con_animation + $1D
+                    .byte con_cloud + con_clear
+                    .byte con_mirror_toggle
+                    .byte con_jsr
+                    .word sub_BB7D
+                    .byte con_rts
+
+bra_long_case_3C_01:
+bra_long_case_3C_02:
+bra_long_case_3C_03:
+bra_long_case_3C_04:
+            .byte con_jmp
+            .word loc_BB4B
+
 
 
 _scenario_9F54_2C:
@@ -12608,7 +12640,7 @@ bra_long_case_B4FB_03_drive_shot:
     .byte con_bg + $00
     .byte con_animation + $01
     .byte con_cloud + con_clear
-bra_long_case_3C_00_01:
+loc_B502:
     .byte con_jsr
     .word sub_BB5D_одна_из_анимаций_drive_shot
     .byte con_jmp
@@ -12682,13 +12714,6 @@ loc_B543:
     .byte con_jsr
     .word sub_BB8F
     .byte con_rts
-
-
-
-bra_long_case_3C_00_02:
-    .byte con_mirror_toggle
-    .byte con_jmp
-    .word loc_B543
 
 
 
@@ -14369,30 +14394,12 @@ _scenario_BB3F_23:
 
 
 
-bra_long_case_3C_00_00:
-bra_long_case_3C_01:
-bra_long_case_3C_02:
-bra_long_case_3C_03:
-bra_long_case_3C_04:
+loc_BB4B:
 sub_BB4B:
     .byte con_pause + $30
     .byte con_bg + $1F
     .byte con_animation + $4C
     .byte con_cloud + con_clear
-    .byte con_rts
-
-
-
-bra_long_case_3C_00_03:
-    .byte con_mirror_toggle
-    .byte con_soundID_delay, $08, $02
-    .byte con_pause + $3C
-    .byte con_bg + $53
-    .byte con_animation + $1D
-    .byte con_cloud + con_clear
-    .byte con_mirror_toggle
-    .byte con_jsr
-    .word sub_BB7D
     .byte con_rts
 
 
