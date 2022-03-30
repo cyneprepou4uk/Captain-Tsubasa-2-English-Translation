@@ -3540,6 +3540,16 @@ off_case_0F_00_01_04_защитник_5:
                             .byte con_jmp
                             .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
 
+bra_long_case_0F_02_through:
+loc_BD87:
+            .byte con_mirror_condition, $01       ; номер защитника
+            .byte con_F7, $02
+            .byte con_pause + $28
+            .byte con_bg + $23
+            .byte con_animation + $5A
+            .byte con_cloud + $E8
+            .byte con_rts
+
 
 
 _scenario_9259_05_10:
@@ -14927,18 +14937,6 @@ off_case_BD6D_10_napoleon:
     .byte con_bg + $36
     .byte con_animation + $EE
     .byte con_cloud + $D6
-    .byte con_rts
-
-
-
-bra_long_case_0F_02_through:
-loc_BD87:
-    .byte con_mirror_condition, $01       ; номер защитника
-    .byte con_F7, $02
-    .byte con_pause + $28
-    .byte con_bg + $23
-    .byte con_animation + $5A
-    .byte con_cloud + $E8
     .byte con_rts
 
 
