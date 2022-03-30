@@ -2504,7 +2504,7 @@ con_branch                  = $F3   ; 0x02017E
     con_bra_2F                                  = $2F   ; 
     con_bra_30                                  = $30   ; 
     con_bra_31                                  = $31   ; 
-    con_bra_32                                  = $32   ; 
+    con_bra_plr_soda                            = $32   ; 
     con_bra_33                                  = $33   ; 
     con_bra_34                                  = $34   ; 
     con_bra_35                                  = $35   ; 
@@ -7007,7 +7007,7 @@ bra_long_case_AF59_01_drive_pass:
 
 
 bra_long_case_AF90_02_razor_pass:
-            .byte con_branch, con_bra_32 + $80     ; проверка на soda
+            .byte con_branch, con_bra_plr_soda + $80
             .byte off_case_AF94_00_soda_japan - *
             .byte off_case_AFA4_01_soda_tatsunami - *
 
@@ -10200,13 +10200,13 @@ off_case_ABE9_01_if_not_nitta:
     .byte con_jmp
     .word loc_ABD4
 bra_long_case_ABF0_07_razor_shot:
-    .byte con_branch, con_bra_32 + $80     ; проверка на soda
-    .byte off_case_ABF4_00_if_soda - *
-    .byte off_case_AC1C_01_if_not_soda - *
+    .byte con_branch, con_bra_plr_soda + $80
+    .byte off_case_ABF4_00_soda_japan - *
+    .byte off_case_AC1C_01_soda_tatsunami - *
 
 
 
-off_case_ABF4_00_if_soda:
+off_case_ABF4_00_soda_japan:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9F
@@ -10240,7 +10240,7 @@ loc_ABF8:
 
 
 
-off_case_AC1C_01_if_not_soda:
+off_case_AC1C_01_soda_tatsunami:
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AD
