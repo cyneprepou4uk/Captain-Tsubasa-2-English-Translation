@@ -6600,6 +6600,15 @@ sub_9C79_защитник_бежит_по_земле:
     .word bra_long_case_A6B5_00_не_спешал
     .word bra_long_case_A6BB_01_спешал
 
+bra_long_case_A6B5_00_не_спешал:
+            .byte con_F7, $02
+            .byte con_pause + $1E
+            .byte con_bg + $23
+            .byte con_animation + $5A
+            .byte con_cloud + con_clear
+bra_long_case_A6BB_01_спешал:
+            .byte con_rts
+
 
 
 sub_9C7F_защитник_бежит_по_земле:
@@ -8583,17 +8592,6 @@ case_A5A9_01_игрок_с_рожей:
             .byte con_cloud + $A2
             .byte con_jmp
             .word loc_BBC7_очистка
-
-
-
-bra_long_case_A6B5_00_не_спешал:
-    .byte con_F7, $02
-    .byte con_pause + $1E
-    .byte con_bg + $23
-    .byte con_animation + $5A
-    .byte con_cloud + con_clear
-bra_long_case_A6BB_01_спешал:
-    .byte con_rts
 
 
 
