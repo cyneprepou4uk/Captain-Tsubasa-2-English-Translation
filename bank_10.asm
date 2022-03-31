@@ -7169,35 +7169,39 @@ off_case_18_02_пас_головой_в_воздухе:
 _scenario_9E57_32:
     .byte con_mirror_off
     .dbyt con_branch_long + con_bra_рожа_кипера
-    .word bra_long_case_32_00_gk_без_рожи ; кипер без рожи
-    .word bra_long_case_32_01_gk_renato ; renato
-    .word bra_long_case_32_02_gk_morisaki ; morisaki
-    .word bra_long_case_32_03_gk_wakabayashi ; wakabayashi
-    .word bra_long_case_32_04_gk_wakashimazu ; wakashimazu
+    .word bra_long_case_32_00 ; кипер без рожи
+    .word bra_long_case_32_01 ; renato
+    .word bra_long_case_32_02 ; morisaki
+    .word bra_long_case_32_03 ; wakabayashi
+    .word bra_long_case_32_04 ; wakashimazu
 
-bra_long_case_32_01_gk_renato:
+bra_long_case_32_01:
+; renato
             .byte con_pause + $0A
             .byte con_bg + $32
             .byte con_animation + $93
             .byte con_cloud + con_skip
-bra_long_case_32_00_gk_без_рожи:
+bra_long_case_32_00:
+; кипер без рожи
             .byte con_rts
 
-bra_long_case_32_02_gk_morisaki:
+bra_long_case_32_02:
             .byte con_pause + $0A
             .byte con_bg + $33
             .byte con_animation + $94
             .byte con_cloud + con_skip
             .byte con_rts
 
-bra_long_case_32_03_gk_wakabayashi:
+bra_long_case_32_03:
+; wakabayashi
             .byte con_pause + $0A
             .byte con_bg + $32
             .byte con_animation + $A4
             .byte con_cloud + con_skip
             .byte con_rts
 
-bra_long_case_32_04_gk_wakashimazu:
+bra_long_case_32_04:
+; wakashimazu
             .byte con_pause + $0A
             .byte con_bg + $33
             .byte con_animation + $A6
