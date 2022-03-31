@@ -7040,11 +7040,11 @@ bra_long_case_9E0B_02_dribble:
 
 
 sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением:
-    .dbyt con_branch_long + con_bra_рандом_из_2х
-    .word bra_long_case_9E1B_00 ; random 1
-    .word bra_long_case_9E1B_01 ; random 2
+    .dbyt con_branch_short + con_bra_рандом_из_2х
+    .byte off_case_9E1B_00 - * ; random 1
+    .byte off_case_9E1B_01 - * ; random 2
 
-bra_long_case_9E1B_00:
+off_case_9E1B_00:
 ; random 1
             .byte con_pause + $32
             .byte con_bg + $1C
@@ -7052,7 +7052,7 @@ bra_long_case_9E1B_00:
             .byte con_cloud + $02
             .byte con_rts
 
-bra_long_case_9E1B_01:
+off_case_9E1B_01:
 ; random 2
             .byte con_pause + $32
             .byte con_bg + $1C
