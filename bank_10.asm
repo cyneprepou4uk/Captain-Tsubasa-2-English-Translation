@@ -7175,6 +7175,35 @@ _scenario_9E57_32:
     .word bra_long_case_32_03_gk_wakabayashi ; wakabayashi
     .word bra_long_case_32_04_gk_wakashimazu ; wakashimazu
 
+bra_long_case_32_01_gk_renato:
+            .byte con_pause + $0A
+            .byte con_bg + $32
+            .byte con_animation + $93
+            .byte con_cloud + con_skip
+bra_long_case_32_00_gk_без_рожи:
+            .byte con_rts
+
+bra_long_case_32_02_gk_morisaki:
+            .byte con_pause + $0A
+            .byte con_bg + $33
+            .byte con_animation + $94
+            .byte con_cloud + con_skip
+            .byte con_rts
+
+bra_long_case_32_03_gk_wakabayashi:
+            .byte con_pause + $0A
+            .byte con_bg + $32
+            .byte con_animation + $A4
+            .byte con_cloud + con_skip
+            .byte con_rts
+
+bra_long_case_32_04_gk_wakashimazu:
+            .byte con_pause + $0A
+            .byte con_bg + $33
+            .byte con_animation + $A6
+            .byte con_cloud + con_skip
+            .byte con_rts
+
 
 
 sub_9E64_рожа_атакующего_с_сообщением_неудачи:
@@ -13394,43 +13423,6 @@ _scenario_B78C_31:
     .byte con_bg + $2C
     .byte con_animation + $8B
     .byte con_cloud + $6F
-    .byte con_rts
-
-
-
-bra_long_case_32_01_gk_renato:
-    .byte con_pause + $0A
-    .byte con_bg + $32
-    .byte con_animation + $93
-    .byte con_cloud + con_skip
-bra_long_case_32_00_gk_без_рожи:
-    .byte con_rts
-
-
-
-bra_long_case_32_02_gk_morisaki:
-    .byte con_pause + $0A
-    .byte con_bg + $33
-    .byte con_animation + $94
-    .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_32_03_gk_wakabayashi:
-    .byte con_pause + $0A
-    .byte con_bg + $32
-    .byte con_animation + $A4
-    .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_32_04_gk_wakashimazu:
-    .byte con_pause + $0A
-    .byte con_bg + $33
-    .byte con_animation + $A6
-    .byte con_cloud + con_skip
     .byte con_rts
 
 
