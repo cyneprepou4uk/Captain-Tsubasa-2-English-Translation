@@ -7044,6 +7044,20 @@ sub_9E1B_рандом_анимации_отпизженного_игрока_с_
     .word bra_long_case_B453_00_рандом_1 ; random 1
     .word bra_long_case_B458_01_рандом_2 ; random 2
 
+bra_long_case_B453_00_рандом_1:
+            .byte con_pause + $32
+            .byte con_bg + $1C
+            .byte con_animation + $13
+            .byte con_cloud + $02
+            .byte con_rts
+
+bra_long_case_B458_01_рандом_2:
+            .byte con_pause + $32
+            .byte con_bg + $1C
+            .byte con_animation + $14
+            .byte con_cloud + $02
+            .byte con_rts
+
 
 
 _scenario_9E2D_26:
@@ -12588,24 +12602,6 @@ sub_B44E_кипер_идеально_засейвил:
     .byte con_bg + con_skip
     .byte con_animation + con_skip
     .byte con_cloud + $33
-    .byte con_rts
-
-
-
-bra_long_case_B453_00_рандом_1:
-    .byte con_pause + $32
-    .byte con_bg + $1C
-    .byte con_animation + $13
-    .byte con_cloud + $02
-    .byte con_rts
-
-
-
-bra_long_case_B458_01_рандом_2:
-    .byte con_pause + $32
-    .byte con_bg + $1C
-    .byte con_animation + $14
-    .byte con_cloud + $02
     .byte con_rts
 
 
