@@ -7041,8 +7041,8 @@ bra_long_case_9E0B_02_dribble:
 
 sub_9E1B_рандом_анимации_отпизженного_игрока_с_сообщением:
     .dbyt con_branch_long + con_bra_рандом_из_2х
-    .word bra_long_case_B453_00_рандом_1 ; 
-    .word bra_long_case_B458_01_рандом_2 ; 
+    .word bra_long_case_B453_00_рандом_1 ; random 1
+    .word bra_long_case_B458_01_рандом_2 ; random 2
 
 
 
@@ -7341,13 +7341,14 @@ _scenario_9F3E_3C:
 ; но на всякий случай расшифрованы и остальные
 sub_9F3E:
     .dbyt con_branch_short + con_bra_скорость_мяча
-    .byte off_case_3C_00_медленный - * ; 
-    .byte off_case_3C_01_быстрый - * ; 
-    .byte off_case_3C_02_смертельный - * ; 
+    .byte off_case_3C_00 - * ; медленный
+    .byte off_case_3C_01 - * ; быстрый
+    .byte off_case_3C_02 - * ; смертельный
     .byte off_case_3C_03_unused - * ; 
     .byte off_case_3C_04_unused - * ; 
 
-off_case_3C_00_медленный:
+off_case_3C_00:
+; медленный
             .dbyt con_branch_short + con_bra_1E
             .byte off_case_3C_00_00 - * ; 
             .byte off_case_3C_00_01 - * ; 
@@ -7355,19 +7356,23 @@ off_case_3C_00_медленный:
             .byte off_case_3C_00_03 - * ; 
 
 off_case_3C_00_00:
+; медленный/00
                     .byte con_jmp
                     .word loc_BB4B
 
 off_case_3C_00_01:
+; медленный/01
                     .byte con_jmp
                     .word loc_B502
 
 off_case_3C_00_02:
+; медленный/02
                     .byte con_mirror_toggle
                     .byte con_jmp
                     .word loc_B543
 
 off_case_3C_00_03:
+; медленный/03
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $08, $02
                     .byte con_pause + $3C
@@ -7379,10 +7384,11 @@ off_case_3C_00_03:
                     .word sub_BB7D
                     .byte con_rts
 
-off_case_3C_01_быстрый:
-off_case_3C_02_смертельный:
+off_case_3C_01:
+off_case_3C_02:
 off_case_3C_03_unused:
 off_case_3C_04_unused:
+; быстрый, смертельный
 loc_BB4B:
 sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки:
             .byte con_pause + $30
@@ -7396,10 +7402,11 @@ sub_BB4B_летящий_мяч_перед_принятием_финальног�
 _scenario_9F54_2C:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_short + con_bra_04     ; мяч у атакующего/низкий, или высокий
-    .byte off_case_2C_00 - * ; 
-    .byte off_case_2C_01 - * ; 
+    .byte off_case_2C_00 - * ; low ball
+    .byte off_case_2C_01 - * ; high ball
 
 off_case_2C_00:
+; low ball
             .byte con_soundID_delay, $2B, $21
             .byte con_pause + $46
             .byte con_bg + $01
@@ -7408,6 +7415,7 @@ off_case_2C_00:
             .byte con_rts
 
 off_case_2C_01:
+; high ball
             .byte con_soundID_delay, $2B, $21
             .byte con_pause + $4A
             .byte con_bg + $63
@@ -7419,17 +7427,19 @@ off_case_2C_01:
 
 sub_9F5C_рандом_анимации_отпизженного_игрока_1_с_сообщением:
     .dbyt con_branch_short + con_bra_рандом_из_2х
-    .byte off_case_A05B_00_рандом_1 - * ; 
-    .byte off_case_A060_01_рандом_2 - * ; 
+    .byte off_case_A05B_00 - * ; random 1
+    .byte off_case_A060_01 - * ; random 2
 
-off_case_A05B_00_рандом_1:
+off_case_A05B_00:
+; random 1
             .byte con_pause + $3C
             .byte con_bg + $1B
             .byte con_animation + $13
             .byte con_cloud + $02
             .byte con_rts
 
-off_case_A060_01_рандом_2:
+off_case_A060_01:
+; random 2
             .byte con_pause + $3C
             .byte con_bg + $1B
             .byte con_animation + $14
@@ -7441,17 +7451,19 @@ off_case_A060_01_рандом_2:
 loc_9F62_рандом_анимации_отпизженного_игрока_2_с_сообщением:
 sub_9F62_рандом_анимации_отпизженного_игрока_2_с_сообщением:
     .dbyt con_branch_short + con_bra_рандом_из_2х
-    .byte off_case_A065_00_рандом_1 - * ; 
-    .byte off_case_A06A_01_рандом_2 - * ; 
+    .byte off_case_9F62_00 - * ; random 1
+    .byte off_case_9F62_01 - * ; random 2
 
-off_case_A065_00_рандом_1:
+off_case_9F62_00:
+; random 1
             .byte con_pause + $3C
             .byte con_bg + $1C
             .byte con_animation + $13
             .byte con_cloud + $02
             .byte con_rts
 
-off_case_A06A_01_рандом_2:
+off_case_9F62_01:
+; random 2
             .byte con_pause + $3C
             .byte con_bg + $1C
             .byte con_animation + $14
@@ -7462,17 +7474,19 @@ off_case_A06A_01_рандом_2:
 
 sub_9F68_рандом_анимации_отпизженного_игрока_1_без_сообщения:
     .dbyt con_branch_short + con_bra_рандом_из_2х
-    .byte off_case_A21A_00_рандом_1 - * ; 
-    .byte off_case_A21F_01_рандом_2 - * ; 
+    .byte off_case_9F68_00 - * ; random 1
+    .byte off_case_9F68_01 - * ; random 2
 
-off_case_A21A_00_рандом_1:
+off_case_9F68_00:
+; random 1
             .byte con_pause + $28
             .byte con_bg + $1C
             .byte con_animation + $3E
             .byte con_cloud + con_skip
             .byte con_rts
 
-off_case_A21F_01_рандом_2:
+off_case_9F68_01:
+; random 2
             .byte con_pause + $28
             .byte con_bg + $1C
             .byte con_animation + $3F
@@ -7484,17 +7498,19 @@ off_case_A21F_01_рандом_2:
 loc_9F6E_рандом_анимации_отпизженного_игрока_3_с_сообщением:
 sub_9F6E_рандом_анимации_отпизженного_игрока_3_с_сообщением:
     .dbyt con_branch_short + con_bra_рандом_из_2х
-    .byte off_case_A224_00_рандом_1 - * ; 
-    .byte off_case_A229_01_рандом_2 - * ; 
+    .byte off_case_9F6E_00 - * ; random 1
+    .byte off_case_9F6E_01 - * ; random 2
 
-off_case_A224_00_рандом_1:
+off_case_9F6E_00:
+; random 1
             .byte con_pause + $32
             .byte con_bg + $1E
             .byte con_animation + $3E
             .byte con_cloud + $02
             .byte con_rts
 
-off_case_A229_01_рандом_2:
+off_case_9F6E_01:
+; random 2
             .byte con_pause + $32
             .byte con_bg + $1E
             .byte con_animation + $3F
@@ -7505,17 +7521,19 @@ off_case_A229_01_рандом_2:
 
 sub_9F74_рандом_анимации_отпизженного_игрока_2_без_сообщения:
     .dbyt con_branch_short + con_bra_рандом_из_2х
-    .byte off_case_B433_00_рандом_1 - * ; 
-    .byte off_case_B438_01_рандом_2 - * ; 
+    .byte off_case_9F74_00 - * ; random 1
+    .byte off_case_9F74_01 - * ; random 2
 
-off_case_B433_00_рандом_1:
+off_case_9F74_00:
+; random 1
             .byte con_pause + $28
             .byte con_bg + $1E
             .byte con_animation + $3E
             .byte con_cloud + con_skip
             .byte con_rts
 
-off_case_B438_01_рандом_2:
+off_case_9F74_01:
+; random 2
             .byte con_pause + $28
             .byte con_bg + $1E
             .byte con_animation + $3F
