@@ -1,6 +1,7 @@
 .segment "BANK_18"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+.org $8000
 ; меню во время игры 0x030861
 ; тайлы облаков
 ; фразы облаков

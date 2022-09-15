@@ -1,6 +1,7 @@
 .segment "BANK_FE"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+.org $6000
 
 
 
@@ -4953,6 +4954,7 @@ C - - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x03404C
 
 
 .segment "BANK_FF"
+.org $E000
 .incbin "DPCM.bin"
 
 sub_E4D7:
@@ -7364,6 +7366,7 @@ tbl_FBCC_палитра:
 
 
 .segment "MMC5_INIT"
+.org $FFB0
 ofs_FFF1_подготовка_MMC5:
                     LDX #$03
                     STX $5100   ; prg mode 3

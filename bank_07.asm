@@ -1,6 +1,7 @@
 .segment "BANK_07"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+.org $A000
 ; тут только данные, предположительно это сцены
 
 

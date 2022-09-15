@@ -1,6 +1,7 @@
 .segment "BANK_16"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+.org $8000
 ; немного кода лишь в самом начале
 
 

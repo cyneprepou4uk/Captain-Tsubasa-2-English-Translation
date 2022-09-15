@@ -1,6 +1,7 @@
 .segment "BANK_26"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+.org $C000
 ; имена игроков, команды, спешалы, словарь
 
 

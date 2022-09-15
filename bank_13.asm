@@ -1,6 +1,7 @@
 .segment "BANK_13"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
+.org $A000
 ; в середине есть немного кода начиная с 0x027010, используется при отображении финальных титров после самолета
 
 
