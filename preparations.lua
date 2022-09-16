@@ -171,11 +171,11 @@ end
 print("*** Preparing files for the assembler ***\n")
 
 for _, f in ipairs(files_list) do                               --execute this loop for each file from the list
-    print("Working on "..f.." file:")
+    print("Working on "..f.." file...")
     
     
     
-    print("1 - reading file...")
+    --print("1 - reading file...")
     local file, err = io.open(f, "r")                           --open next file
     if err ~= nil then PrintError(err) end                      --check for errors during opening
     local text = file:read("*all")                              --read all text
@@ -183,12 +183,12 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     
-    print("2 - deleting garbage...")                            --garbage data to the left of the instructions
+    --print("2 - deleting garbage...")                            --garbage data to the left of the instructions
     text = string.gsub(text, ".%s.%s.%s.%s.%s.%s0x......%s..:....:...........", "\t")  
     
     
     
-    print("3 - writing the result to a temp copy...")
+    --print("3 - writing the result to a temp copy...")
     local file_temp_copy, err = io.open("temp_"..f, "w+")       --create a temporary copy of the file and clear it if this file already exists for some reason
     if err ~= nil then PrintError(err) end                      --check for errors during opening
     file_temp_copy:close()                                      --close file
@@ -200,7 +200,7 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     
-    print("4 - translating text and pasting result to the main copy...")
+    --print("4 - translating text and pasting result to the main copy...")
     local file_main_copy, err = io.open("copy_"..f, "w+")       --create a main copy for assembler and clear it if this file already exists exists for some reason
     if err ~= nil then PrintError(err) end                      --check for errors during opening
     file_main_copy:close()                                      --close file
@@ -245,7 +245,7 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     
-    print("5 - translating labels and variables inside the main copy...")
+    --print("5 - translating labels and variables inside the main copy...")
     local file_main_copy, err = io.open("copy_"..f, "r")        --open a main copy in a read mode
     if err ~= nil then PrintError(err) end                      --check for errors during opening
     local text = file_main_copy:read("*all")                    --read all text
@@ -267,7 +267,7 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     
-    print("Done!\n")            --file is ready for the assembler
+    --print("Done!\n")            --file is ready for the assembler
 end
 
 
