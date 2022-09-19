@@ -4018,341 +4018,403 @@ off_case_06_01_00:
 
 _scenario_927F_12:
     .byte con_mirror_condition, $03       ; куда летит мяч
-    .dbyt con_branch_short + con_bra_высота_мяча
-    .byte off_case_12_00 - * ; low
-    .byte off_case_12_01 - * ; high
+    .dbyt con_branch_long + con_bra_высота_мяча
+    .word bra_long_case_12_00 ; low
+    .word bra_long_case_12_01 ; high
+
+bra_long_case_12_00:
+; low
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_12_00_00 - * ; защитник выживет
+            .byte off_case_12_00_01 - * ; защитник убьется
+
+off_case_12_00_00:
+ ; защитник выживет
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_00_00_00 - * ; 
+                    .byte off_case_12_00_00_01 - * ; 
+                    .byte off_case_12_00_00_02 - * ; 
+                    .byte off_case_12_00_00_03 - * ; 
+                    
+off_case_12_00_00_00:
+off_case_12_00_00_01:
+                            .byte con_quit
+
+off_case_12_00_00_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+off_case_12_00_00_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_00_00_03_00 - * ; 
+                            .byte off_case_12_00_00_03_01 - * ; 
+                            
+off_case_12_00_00_03_00:
+                                    .byte con_jmp
+                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
+
+off_case_12_00_00_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1B1_защитник_выигрывает_нижний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+off_case_12_00_01:
+ ; защитник убьется
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_00_01_00 - * ; 
+                    .byte off_case_12_00_01_01 - * ; 
+                    .byte off_case_12_00_01_02 - * ; 
+                    .byte off_case_12_00_01_03 - * ; 
+                    
+off_case_12_00_01_00:
+off_case_12_00_01_01:
+                            .byte con_quit
+                            
+off_case_12_00_01_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+off_case_12_00_01_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_00_01_03_00 - * ; 
+                            .byte off_case_12_00_01_03_01 - * ; 
+
+off_case_12_00_01_03_00:
+                                    .byte con_jmp
+                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
+
+off_case_12_00_01_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1B1_защитник_выигрывает_нижний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+bra_long_case_12_01:
+; high
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_12_01_00 - * ; защитник выживет
+            .byte off_case_12_01_01 - * ; защитник убьется
+
+off_case_12_01_00:
+; high/защитник выживет
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_01_00_00 - * ; 
+                    .byte off_case_12_01_00_01 - * ; 
+                    .byte off_case_12_01_00_02 - * ; 
+                    .byte off_case_12_01_00_03 - * ; 
+                    
+off_case_12_01_00_00:
+off_case_12_01_00_01:
+                            .byte con_quit
+                            
+off_case_12_01_00_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+off_case_12_01_00_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_01_00_03_00 - * ; 
+                            .byte off_case_12_01_00_03_01 - * ; 
+                            
+off_case_12_01_00_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
+                                    
+off_case_12_01_00_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1BB_защитник_выигрывает_верхний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+off_case_12_01_01:
+; high/защитник убьется
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_01_01_00 - * ; 
+                    .byte off_case_12_01_01_01 - * ; 
+                    .byte off_case_12_01_01_02 - * ; 
+                    .byte off_case_12_01_01_03 - * ; 
+                    
+off_case_12_01_01_00:
+off_case_12_01_01_01:
+                            .byte con_quit
+                            
+off_case_12_01_01_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+off_case_12_01_01_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_01_01_03_00 - * ; 
+                            .byte off_case_12_01_01_03_01 - * ; 
+
+off_case_12_01_01_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
+
+off_case_12_01_01_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1BB_защитник_выигрывает_верхний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
 
 
 
 _scenario_9285_07:
     .byte con_mirror_condition, $03       ; куда летит мяч
-    .dbyt con_branch_short + con_bra_высота_мяча
-    .byte off_case_07_00 - * ; low
-    .byte off_case_07_01 - * ; high
+    .dbyt con_branch_long + con_bra_высота_мяча
+    .word bra_long_case_07_00 ; low
+    .word bra_long_case_07_01 ; high
 
-
-
-off_case_12_00:
-; low
-    .dbyt con_branch_short + con_bra_выживет_ли_защитник
-    .byte off_case_12_00_00 - * ; защитник выживет
-    .byte off_case_12_00_01 - * ; защитник убьется
-
-
-
-off_case_07_00:
+bra_long_case_07_00:
  ; low
             .dbyt con_branch_short + con_bra_выживет_ли_защитник
             .byte off_case_07_00_00 - * ; защитник выживет
             .byte off_case_07_00_01 - * ; защитник убьется
 
-
-
-off_case_12_01:
-; high
-    .dbyt con_branch_short + con_bra_выживет_ли_защитник
-    .byte off_case_12_01_00 - * ; защитник выживет
-    .byte off_case_12_01_01 - * ; защитник убьется
-
-
-
-off_case_07_01:
-; high
-    .dbyt con_branch_short + con_bra_выживет_ли_защитник
-    .byte off_case_07_01_00 - * ; защитник выживет
-    .byte off_case_07_01_01 - * ; защитник убьется
-
-
-
-off_case_12_00_00:
- ; защитник выживет
-    .dbyt con_branch_long + con_bra_результат_действия_защитника
-    .word bra_long_case_9BCE_00 ; 
-    .word bra_long_case_9BCE_01 ; 
-    .word bra_long_case_930B_02 ; 
-    .word bra_long_case_12_00_00_03 ; 
-
-
-
-off_case_12_00_01:
- ; защитник убьется
-    .dbyt con_branch_long + con_bra_результат_действия_защитника
-    .word bra_long_case_9BCE_00 ; 
-    .word bra_long_case_9BCE_01 ; 
-    .word bra_long_case_930B_02 ; 
-    .word bra_long_case_12_00_01_03 ; 
-
-
-
-off_case_12_01_00:
-; high/защитник выживет
-    .dbyt con_branch_long + con_bra_результат_действия_защитника
-    .word bra_long_case_9BCE_00 ; 
-    .word bra_long_case_9BCE_01 ; 
-    .word bra_long_case_930B_02 ; 
-    .word bra_long_case_12_01_00_03 ; 
-
-
-
-off_case_12_01_01:
-; high/защитник убьется
-    .dbyt con_branch_long + con_bra_результат_действия_защитника
-    .word bra_long_case_9BCE_00 ; 
-    .word bra_long_case_9BCE_01 ; 
-    .word bra_long_case_930B_02 ; 
-    .word bra_long_case_12_01_01_03 ; 
-
-
-
-bra_long_case_12_00_00_03:
-    .dbyt con_branch_long + con_bra_15
-    .word bra_long_case_931F_00 ; 
-    .word bra_long_case_9BD5_01 ; 
-
-
-
-bra_long_case_12_00_01_03:
-    .dbyt con_branch_long + con_bra_15
-    .word bra_long_case_931F_00 ; 
-    .word bra_long_case_9BD5_01 ; 
-
-
-
-bra_long_case_12_01_00_03:
-    .dbyt con_branch_long + con_bra_15
-    .word bra_long_case_930F_00 ; 
-    .word bra_long_case_9BCF_01 ; 
-
-
-
-bra_long_case_12_01_01_03:
-    .dbyt con_branch_long + con_bra_15
-    .word bra_long_case_930F_00 ; 
-    .word bra_long_case_9BCF_01 ; 
-
-
-
 off_case_07_00_00:
  ; low/защитник выживет
-    .dbyt con_branch_short + con_bra_результат_действия_защитника
-    .byte off_case_930E_00 - * ; 
-    .byte off_case_930E_01 - * ; 
-    .byte off_case_930B_02 - * ; 
-    .byte off_case_07_00_00_03 - * ; 
-    .byte off_case_9318_04_нарушение - * ; 
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_07_00_00_00 - * ; 
+                    .byte off_case_07_00_00_01 - * ; 
+                    .byte off_case_07_00_00_02 - * ; 
+                    .byte off_case_07_00_00_03 - * ; 
+                    .byte off_case_07_00_00_04 - * ; нарушение
+                    
+off_case_07_00_00_00:
+off_case_07_00_00_01:
+                            .byte con_quit
+                            
+off_case_07_00_00_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
 
+off_case_07_00_00_03:
+                            .dbyt con_branch_short + con_bra_08
+                            .byte off_case_07_00_00_03_00 - * ; 
+                            .byte off_case_07_00_00_03_01 - * ; 
+                            .byte off_case_07_00_00_03_02 - * ; 
 
+off_case_07_00_00_03_00:
+                                    .byte con_jmp
+                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
+
+off_case_07_00_00_03_01:
+                                    .byte con_jmp
+                                    .word loc_A18D_игрок_делает_clear_ногой
+
+off_case_07_00_00_03_02:
+                                    .byte con_jmp
+                                    .word loc_A079_кипер_ловит_мяч_после_нижнего_dive
+    
+off_case_07_00_00_04:
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
 off_case_07_00_01:
  ; low/защитник убьется
-    .dbyt con_branch_short + con_bra_результат_действия_защитника
-    .byte off_case_930E_00 - *
-    .byte off_case_930E_01 - *
-    .byte off_case_930B_02 - *
-    .byte off_case_07_00_01_03 - *
-    .byte off_case_9318_04_нарушение - *
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_07_00_01_00 - * ; 
+                    .byte off_case_07_00_01_01 - * ; 
+                    .byte off_case_07_00_01_02 - * ; 
+                    .byte off_case_07_00_01_03 - * ; 
+                    .byte off_case_07_00_01_04 - * ; 
+                    
+off_case_07_00_01_00:
+off_case_07_00_01_01:
+                            .byte con_quit
+                            
+off_case_07_00_01_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
 
+off_case_07_00_01_03:
+                            .dbyt con_branch_short + con_bra_08
+                            .byte off_case_07_00_01_03_00 - * ; 
+                            .byte off_case_07_00_01_03_01 - * ; 
+                            .byte off_case_07_00_01_03_02 - * ; 
+                            
+off_case_07_00_01_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
 
+off_case_07_00_01_03_01:
+                                    .byte con_jmp
+                                    .word loc_A18D_игрок_делает_clear_ногой
+                                    
+off_case_07_00_01_03_02:
+                                    .byte con_jmp
+                                    .word loc_A083_кипер_ловит_мяч_после_верхнего_dive
+                                  
+off_case_07_00_01_04:  
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
+
+bra_long_case_07_01:
+; high
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_07_01_00 - * ; защитник выживет
+            .byte off_case_07_01_01 - * ; защитник убьется
 
 off_case_07_01_00:
 ; high/защитник выживет
-    .dbyt con_branch_short + con_bra_результат_действия_защитника
-    .byte off_case_930E_00 - *
-    .byte off_case_930E_01 - *
-    .byte off_case_930B_02 - *
-    .byte off_case_07_01_00_03 - *
-    .byte off_case_9318_04_нарушение - *
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_07_01_00_00 - * ; 
+                    .byte off_case_07_01_00_01 - * ; 
+                    .byte off_case_07_01_00_02 - * ; 
+                    .byte off_case_07_01_00_03 - * ; 
+                    .byte off_case_07_01_00_04 - * ; нарушение
+                    
+off_case_07_01_00_00:
+off_case_07_01_00_01:
+                            .byte con_quit
+                            
+off_case_07_01_00_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
 
+off_case_07_01_00_03:
+                            .dbyt con_branch_short + con_bra_08
+                            .byte off_case_07_01_00_03_00 - * ; 
+                            .byte off_case_07_01_00_03_01 - * ; 
+                            .byte off_case_07_01_00_03_02 - * ; 
+                            
+off_case_07_01_00_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
 
+off_case_07_01_00_03_01:
+                                    .byte con_jmp
+                                    .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
+                                    
+off_case_07_01_00_03_02:
+                                    .byte con_jmp
+                                    .word loc_A083_кипер_ловит_мяч_после_верхнего_dive
+                                    
+off_case_07_01_00_04:
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
 off_case_07_01_01:
 ; high/защитник убьется
-    .dbyt con_branch_short + con_bra_результат_действия_защитника
-    .byte off_case_930E_00 - *
-    .byte off_case_930E_01 - *
-    .byte off_case_930B_02 - *
-    .byte off_case_07_01_01_03 - *
-    .byte off_case_9318_04_нарушение - *
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_07_01_01_00 - * ; 
+                    .byte off_case_07_01_01_01 - * ; 
+                    .byte off_case_07_01_01_02 - * ; 
+                    .byte off_case_07_01_01_03 - * ; 
+                    .byte off_case_07_01_01_04 - * ; нарушение
+                    
+off_case_07_01_01_00:
+off_case_07_01_01_01:
+                            .byte con_quit
 
-
-
-off_case_07_00_00_03:
-    .dbyt con_branch_short + con_bra_08
-    .byte off_case_07_00_00_03_00 - *
-    .byte off_case_07_00_00_03_01 - *
-    .byte off_case_07_00_00_03_02 - *
-
-
-
-off_case_07_00_01_03:
-    .dbyt con_branch_short + con_bra_08
-    .byte off_case_930F_00 - *
-    .byte off_case_07_00_01_03_01 - *
-    .byte off_case_9315_02 - *
-
-
-
-off_case_07_01_00_03:
-    .dbyt con_branch_short + con_bra_08
-    .byte off_case_930F_00 - *
-    .byte off_case_07_01_00_03_01 - *
-    .byte off_case_9315_02 - *
-
-
+off_case_07_01_01_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
 
 off_case_07_01_01_03:
-    .dbyt con_branch_short + con_bra_08
-    .byte off_case_930F_00 - *
-    .byte off_case_07_01_01_03_01 - *
-    .byte off_case_9315_02 - *
+                            .dbyt con_branch_short + con_bra_08
+                            .byte off_case_07_01_01_03_00 - * ; 
+                            .byte off_case_07_01_01_03_01 - * ; 
+                            .byte off_case_07_01_01_03_02 - * ; 
 
-
-
-bra_long_case_930B_02:
-off_case_930B_02:
-    .byte con_jsr
-    .word sub_A371_мяч_улетает_в_сторону
-off_case_930E_00:
-off_case_930E_01:
-    .byte con_quit
-
-
-
-bra_long_case_930F_00:
-off_case_930F_00:
-    .byte con_jmp
-    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
-
-
-
-off_case_07_01_00_03_01:
-    .byte con_jmp
-    .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
-
-
-
-off_case_9315_02:
-    .byte con_jmp
-    .word loc_A083_кипер_ловит_мяч_после_верхнего_dive
-
-
-
-off_case_9318_04_нарушение:
-    .byte con_jmp
-    .word loc_A35B_нарушение
-
-
+off_case_07_01_01_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
 
 off_case_07_01_01_03_01:
-    .byte con_jmp
-    .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
+                                    .byte con_jmp
+                                    .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
 
+off_case_07_01_01_03_02:
+                                    .byte con_jmp
+                                    .word loc_A083_кипер_ловит_мяч_после_верхнего_dive
 
-
-bra_long_case_931F_00:
-off_case_07_00_00_03_00:
-    .byte con_jmp
-    .word loc_A164_защитник_ловит_низкий_мяч_ногой
-
-
-
-off_case_07_00_00_03_01:
-    .byte con_jmp
-    .word loc_A18D_игрок_делает_clear_ногой
-
-
-
-off_case_07_00_00_03_02:
-    .byte con_jmp
-    .word loc_A079_кипер_ловит_мяч_после_нижнего_dive
-
-
-
-off_case_07_00_01_03_01:
-    .byte con_jmp
-    .word loc_A18D_игрок_делает_clear_ногой
+off_case_07_01_01_04:
+                            .byte con_jmp
+                            .word loc_A35B_нарушение
 
 
 
 _scenario_932C_08:
-    .dbyt con_branch_short + con_bra_высота_мяча
-    .byte off_case_08_00 - * ; low
-    .byte off_case_08_01 - * ; high
+    .dbyt con_branch_long + con_bra_высота_мяча
+    .word bra_long_case_08_00 ; low
+    .word bra_long_case_08_01 ; high
 
-off_case_08_00:
-; low
+        bra_long_case_08_00:
+        ; low
             .dbyt con_branch_short + con_bra_действие_атакующего
             .byte off_case_08_00_00 - * ; shoot
             .byte off_case_08_00_01 - * ; pass
             .byte off_case_08_00_02 - * ; trap
             .byte off_case_08_00_03 - * ; through
 
-off_case_08_01:
-; high
+                off_case_08_00_00:
+                ; low/shoot
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_9D9A_выбор_анимации_удара_по_низкому_мячу
+
+                off_case_08_00_01:
+                ; low/pass
+loc_933C_low_pass_ногой_на_своей_штрафной:
+                    .byte con_mirror_condition, $00
+                    .byte con_jmp
+                    .word loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу
+
+                off_case_08_00_02:
+                ; low/trap
+loc_9341_low_trap_ногой_на_своей_штрафной:
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_B2C2_игрок_принимает_низкий_мяч_на_ногу
+
+                off_case_08_00_03:
+                ; low/through
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_B442_игрок_делает_нижний_through
+
+        bra_long_case_08_01:
+        ; high
             .dbyt con_branch_short + con_bra_действие_атакующего
             .byte off_case_08_01_00 - * ; shoot
             .byte off_case_08_01_01 - * ; pass
             .byte off_case_08_01_02 - * ; dribble
-            .byte off_case_08_01_03 - * ; 1_2_pass
+            .byte off_case_08_01_03 - * ; 1-2 pass
 
+                off_case_08_01_00:
+                ; high/shoot
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_9D52_выбор_анимации_удара_по_высокому_мячу
 
-
-off_case_08_00_01:
-loc_933C_low_pass_ногой_на_своей_штрафной:
-    .byte con_mirror_condition, $00
-    .byte con_jmp
-    .word loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу
-
-
-
-off_case_08_00_02:
-loc_9341_low_trap_ногой_на_своей_штрафной:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_B2C2_игрок_принимает_низкий_мяч_на_ногу
-
-
-
-off_case_08_00_00:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_9D9A_выбор_анимации_удара_по_низкому_мячу
-
-
-
-off_case_08_00_03:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_B442_игрок_делает_нижний_through
-
-
-
-off_case_08_01_01:
+                off_case_08_01_01:
+                ; high/pass
 loc_9350:
-    .byte con_mirror_condition, $00
-    .byte con_jmp
-    .word loc_9E4F_пас_головой_в_воздухе
+                    .byte con_mirror_condition, $00
+                    .byte con_jmp
+                    .word loc_9E4F_пас_головой_в_воздухе
 
+                off_case_08_01_02:
+                ; high/dribble
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_B2CC_игрок_принимает_высокий_мяч_на_живот_фон_облака
 
-
-off_case_08_01_02:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_B2CC_игрок_принимает_высокий_мяч_на_живот_фон_облака
-
-
-
-off_case_08_01_00:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_9D52_выбор_анимации_удара_по_высокому_мячу
-
-
-
-off_case_08_01_03:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jmp
-    .word loc_B43D_игрок_делает_верхний_through
+                off_case_08_01_03:
+                ; high/1-2 pass
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_B43D_игрок_делает_верхний_through
 
 
 
@@ -6667,25 +6729,7 @@ off_case_14_01_03_словит:
 _scenario_9BCB_04:
     .byte con_jsr
     .word sub_A2FE_сообщение_oh_на_мигающем_белом_фоне
-bra_long_case_9BCE_00:
-bra_long_case_9BCE_01:
     .byte con_quit
-
-
-
-bra_long_case_9BCF_01:
-    .byte con_jsr
-    .word sub_A1BB_защитник_выигрывает_верхний_compete
-    .byte con_jmp
-    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
-
-
-
-bra_long_case_9BD5_01:
-    .byte con_jsr
-    .word sub_A1B1_защитник_выигрывает_нижний_compete
-    .byte con_jmp
-    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
 
 
 
