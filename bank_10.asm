@@ -3,6 +3,9 @@
 .include "copy_bank_val.inc"
 .org $8000
 
+; остановился на
+; sub_9EAA_рожа_защитника_с_сообщением_неудачи:
+; sub_9E64_рожа_атакующего_с_сообщением_неудачи:
 
 
 .export sub_0x020016_прочитать_поинтеры_сценария
@@ -332,12 +335,12 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x0201B3 10:81A3: C6 83     .word ofs_015_83C6_18_проверка_на_jito_из_японии
 - - - - - - 0x0201B5 10:81A5: D6 83     .word $0000       ; unused, байты не найдены
 - - - - - - 0x0201B7 10:81A7: DD 83     .word $0000       ; unused, байты не найдены
-- D - I - - 0x0201B9 10:81A9: E4 83     .word ofs_015_83E4_1B_спешал_блок
-- D - I - - 0x0201BB 10:81AB: EB 83     .word ofs_015_83EB_1C_спешал_дриблинг
-- D - I - - 0x0201BD 10:81AD: F5 83     .word ofs_015_83F5_1D_спешал_удар
-- D - I - - 0x0201BF 10:81AF: 01 84     .word ofs_015_8401_1E
+- D - I - - 0x0201B9 10:81A9: E4 83     .word ofs_015_83E4_1B_разновидность_block
+- D - I - - 0x0201BB 10:81AB: EB 83     .word ofs_015_83EB_1C_разновидность_dribble
+- D - I - - 0x0201BD 10:81AD: F5 83     .word ofs_015_83F5_1D_разновидность_shoot
+- D - I - - 0x0201BF 10:81AF: 01 84     .word ofs_015_8401_1E_разновидность_pass
 - D - I - - 0x0201C1 10:81B1: 0A 84     .word $0000       ; unused, было аналогично 0E_8E
-- D - I - - 0x0201C3 10:81B3: 0E 84     .word ofs_015_840E_20_проверка_на_wakashimazu_и_gertize
+- D - I - - 0x0201C3 10:81B3: 0E 84     .word ofs_015_840E_20_проверка_на_wakashimazu_и_gertise
 - D - I - - 0x0201C5 10:81B5: 2B 84     .word ofs_015_842B_21_порвана_ли_сетка
 - D - I - - 0x0201C7 10:81B7: 36 84     .word ofs_015_8436_22_у_чьей_команды_мяч
 - D - I - - 0x0201C9 10:81B9: 3E 84     .word ofs_015_843E_23_за_какую_команду_играешь
@@ -347,7 +350,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x0201D1 10:81C1: 4E 84     .word $0000       ; unused, было аналогично 25_A5
 - D - I - - 0x0201D3 10:81C3: 7E 84     .word ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитника
 - D - I - - 0x0201D5 10:81C5: 98 84     .word ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающего
-- D - I - - 0x0201D7 10:81C7: B2 84     .word ofs_015_84B2_2A_клон_или_нет
+- D - I - - 0x0201D7 10:81C7: B2 84     .word ofs_015_84B2_2A_защитник_с_рожей
 - D - I - - 0x0201D9 10:81C9: C7 84     .word ofs_015_84C7_2B_проверка_на_100_хп
 - D - I - - 0x0201DB 10:81CB: E7 84     .word ofs_015_84E7_2C_напали_ли_защитники
 - D - I - - 0x0201DD 10:81CD: EF 84     .word ofs_015_84EF_2D_забил_ли_jito_гол_с_сано
@@ -359,7 +362,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x0201E9 10:81D9: 56 85     .word ofs_015_8556_33_игроки_с_защитным_спешалом
 - D - I - - 0x0201EB 10:81DB: 6C 85     .word ofs_015_856C_34_узнать_высоту_мяча
 - D - I - - 0x0201ED 10:81DD: 70 85     .word ofs_015_8570_35_действие_защитника_на_своей_штрафной
-- D - I - - 0x0201EF 10:81DF: 80 85     .word ofs_015_8580_36_спешал_catch
+- D - I - - 0x0201EF 10:81DF: 80 85     .word ofs_015_8580_36_разновидность_catch
 - D - I - - 0x0201F1 10:81E1: 87 85     .word ofs_015_8587_37_защитный_спешал_или_нет
 - D - I - - 0x0201F3 10:81E3: 92 85     .word ofs_015_8592_38_hyuga
 - D - I - - 0x0201F5 10:81E5: A2 85     .word ofs_015_85A2_39_matsuyama
@@ -517,8 +520,8 @@ tbl_8275_номер_анимации_игрока:
     .byte $AD   ; 0D soda
     .byte $A0   ; 0E jito
     .byte $AA   ; 0F jito
-    .byte $9C   ; 10 masao/kazuo
-    .byte $AB   ; 11 masao/kazuo
+    .byte $9C   ; 10 masao kazuo
+    .byte $AB   ; 11 masao kazuo
     .byte $9A   ; 12 nitta
     .byte $9B   ; 13 nitta
     .byte $A2   ; 14 sawada
@@ -854,7 +857,7 @@ C - - - - - 0x0203E5 10:83D5: 60        RTS
 
 
 
-ofs_015_83E4_1B_спешал_блок:
+ofs_015_83E4_1B_разновидность_block:
 ; 00 = block
 ; 01 = face block
 ; 02 = skylab block
@@ -866,7 +869,7 @@ C - - - - - 0x0203FA 10:83EA: 60        RTS
 
 
 
-ofs_015_83EB_1C_спешал_дриблинг:
+ofs_015_83EB_1C_разновидность_dribble:
 ; 00 = dribble
 ; 01 = heel lift
 ; 02 = forcible dribble
@@ -882,7 +885,7 @@ C - - - - - 0x020404 10:83F4: 60        RTS
 
 
 
-ofs_015_83F5_1D_спешал_удар:
+ofs_015_83F5_1D_разновидность_shoot:
 ; 00 = shot
 ; 01 = volley
 ; 02 = header
@@ -927,11 +930,11 @@ C - - - - - 0x020410 10:8400: 60        RTS
 
 
 
-ofs_015_8401_1E:
-; 00 = 
-; 01 = 
-; 02 = 
-; 03 = 
+ofs_015_8401_1E_разновидность_pass:
+; 00 = pass
+; 01 = drive pass
+; 02 = razor pass
+; 03 = topspin pass
 C - J - - - 0x020411 10:8401: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x020414 10:8404: 29 7F     AND #$7F
 C - - - - - 0x020416 10:8406: AA        TAX
@@ -939,7 +942,7 @@ C - - - - - 0x020417 10:8407: 4C 11 82  JMP loc_8211_выставить_флаг
 
 
 
-ofs_015_840E_20_проверка_на_wakashimazu_и_gertize:
+ofs_015_840E_20_проверка_на_wakashimazu_и_gertise:
 ; 00 = другой кипер
 ; 01 = wakashimazu
 ; 02 = gertise
@@ -1054,8 +1057,8 @@ ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитник�
 ; 0D = soda
 ; 0E = jito
 ; 0F = jito
-; 10 = masao/kazuo
-; 11 = masao/kazuo
+; 10 = masao kazuo
+; 11 = masao kazuo
 ; 12 = nitta
 ; 13 = nitta
 ; 14 = sawada
@@ -1104,8 +1107,8 @@ ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающ�
 ; 0D = soda
 ; 0E = jito
 ; 0F = jito
-; 10 = masao/kazuo
-; 11 = masao/kazuo
+; 10 = masao kazuo
+; 11 = masao kazuo
 ; 12 = nitta
 ; 13 = nitta
 ; 14 = sawada
@@ -1137,11 +1140,11 @@ C - - - - - 0x0204C1 10:84B1: 60        RTS
 
 
 
-ofs_015_84B2_2A_клон_или_нет:
+ofs_015_84B2_2A_защитник_с_рожей:
 ; bzk опт, я оставил эту подпрограмму, так как тут есть какая-то проверка
 ; на действие защитника. пока не понятно что она означает
-; 00 = игрок без рожи
-; 01 = игрок с рожей
+; 00 = защитник без рожи
+; 01 = защитник с рожей
 C - J - - - 0x0204C2 10:84B2: A2 00     LDX #$00
 C - - - - - 0x0204C4 10:84B4: 2C 3E 04  BIT ram_подтип_действия_защиты
 C - - - - - 0x0204C7 10:84B7: 10 0D     BPL bra_84C6_RTS
@@ -1294,8 +1297,8 @@ C - - - - - 0x020565 10:8555: 60        RTS
 
 ofs_015_8556_33_игроки_с_защитным_спешалом:
 ; 00 = игрок без защитного спешала
-; 01 = masao/kazuo
-; 02 = masao/kazuo
+; 01 = masao kazuo
+; 02 = masao kazuo
 ; 03 = soda
 ; 04 = soda
 ; 05 = jito
@@ -1352,7 +1355,7 @@ tbl_857A:
 
 
 
-ofs_015_8580_36_спешал_catch:
+ofs_015_8580_36_разновидность_catch:
 ; 00 = catch
 ; 01 = rolling save
 ; 02 = clone save
@@ -1505,8 +1508,8 @@ ofs_015_8602_40_masao_kazuo:
 ; 0D = soda
 ; 0E = jito
 ; 0F = jito
-; 10 = masao/kazuo
-; 11 = masao/kazuo
+; 10 = masao kazuo
+; 11 = masao kazuo
 ; 12 = nitta
 ; 13 = nitta
 ; 14 = sawada
@@ -1782,12 +1785,12 @@ bra_8498_RTS:
 
 
 ofs_015_85FE_4B_проверка_на_защитника_misugi:
-; 00 = это какой-то другой игрок
-; 01 = это misugi из japan
+; 00 = это misugi из japan
+; 01 = это какой-то другой игрок
     LDA ram_игрок_без_мяча
     JSR sub_8207_узнать_номер_игрока___X_00
     CMP #$20      ; misugi из japan (наша команда)
-    BNE bra_85FE_RTS
+    BEQ bra_85FE_RTS
     INX
 bra_85FE_RTS:
     RTS
@@ -2565,7 +2568,7 @@ con_branch_short            = $F380 ;
    ;con_bra_27                                  = $27   ; 
     con_bra_рожа_защитника                      = $28   ; 
     con_bra_рожа_нападающего                    = $29   ; 
-    con_bra_клон_или_нет                        = $2A   ; 00 = игрок без рожи, 01 = игрок с рожей
+    con_bra_защитник_с_рожей                    = $2A   ; 00 = защитник без рожи, 01 = защитник с рожей
     con_bra_проверка_на_100_хп                  = $2B   ; 
     con_bra_напали_ли_защитники                 = $2C   ; 
     con_bra_jito_sano_ли_забили                 = $2D   ; 
@@ -2597,7 +2600,7 @@ con_branch_short            = $F380 ;
     con_bra_force_drib                          = $47   ; кто делает силовой дриблинг
     con_bra_48_хз_удар_в_штрафной               = $48   ; 
     con_bra_требуются_2_напарника               = $49   ; для выполнения некого действия
-    con_bra_4A                                  = $4A   ; misugi?
+    con_bra_4A                                  = $4A   ; оба игрока с рожами
     con_bra_4B                                  = $4B   ; misugi?
    ;con_bra_4C                                  = $4C   ; 
    ;con_bra_4D                                  = $4D   ; 
@@ -8240,7 +8243,7 @@ sub_9CF3_игрок_делает_удар_с_земли:
 loc_9CF3_игрок_делает_удар_с_земли:
 ; полная анимация замахивания по мячу, удара по нему и последующий полет мяча после удара
     .byte con_mirror_off
-    .dbyt con_branch_long + con_bra_разновидность_shoot     ; спешал удар
+    .dbyt con_branch_long + con_bra_разновидность_shoot
     .word bra_long_case_9CF3_FF ; 00
     .word bra_long_case_9CF3_FF ; 01
     .word bra_long_case_9CF3_FF ; 02
@@ -8903,7 +8906,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
 
 
 loc_9D52_выбор_анимации_удара_по_высокому_мячу:
-    .dbyt con_branch_long + con_bra_разновидность_shoot     ; спешал удар
+    .dbyt con_branch_long + con_bra_разновидность_shoot
     .word bra_long_case_9D52_FF ; 00
     .word bra_long_case_9D52_FF ; 01
     .word bra_long_case_9D52_02 ; header
@@ -9324,7 +9327,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
 
 
 loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
-    .dbyt con_branch_long + con_bra_разновидность_shoot     ; спешал удар
+    .dbyt con_branch_long + con_bra_разновидность_shoot
     .word bra_long_case_9D9A_FF ; 00
     .word bra_long_case_9D9A_01 ; volley
     .word bra_long_case_9D9A_FF ; 02
@@ -10001,7 +10004,7 @@ loc_9EF0_попытка_включить_drive_tiger:
 
 
 sub_9EF6_выбор_анимации_полета_удара:
-    .dbyt con_branch_long + con_bra_разновидность_shoot     ; спешал удар
+    .dbyt con_branch_long + con_bra_разновидность_shoot
     .word bra_long_case_B4E7_00 ; shot
     .word bra_long_case_B4EF_01 ; header
     .word bra_long_case_B4F7_02 ; volley
@@ -11813,22 +11816,43 @@ sub_A470_цикл_power_tackle:
 sub_A495_сообщение_атакующего_в_ответ_защитнику:
     .byte con_mirror_toggle
     .dbyt con_branch_short + con_bra_4A
-    .byte case_A495_00 - * ; какой-то игрок без рожи
-    .byte case_A495_01 - * ; оба игрока с рожами
+    .byte off_case_A495_00 - * ; кто-то из соперников без рожи
+    .byte off_case_A495_01 - * ; оба соперника с рожами
 
-        case_A495_00:
-        ; какой-то игрок без рожи
+        off_case_A495_00:
+        ; кто-то из соперников без рожи
             .byte con_rts
 
-        case_A495_01:
-        ; оба игрока с рожами
+        off_case_A495_01:
+        ; оба соперника с рожами
             .dbyt con_branch_short + con_bra_4B
-            .byte case_A495_01_00 - * ; это не misugi
-            .byte case_A495_01_01 - * ; это misugi
+            .byte off_case_A495_01_00 - * ; защитник misugi из японии (наша команда)
+            .byte off_case_A495_01_01 - * ; защитник не misugi
 
-        case_A495_01_00:
-        ; это не misugi
-        loc_A496_01_00_00_больше_100_хп:
+                off_case_A495_01_00:
+                ; оба соперника с рожами/защитник misugi
+                    .dbyt con_branch_short + con_bra_проверка_на_100_хп
+                    .byte off_case_A495_01_00_00 - * ; больше 100 хп
+                    .byte off_case_A495_01_00_01 - * ; меньше 100 хп
+
+                        off_case_A495_01_00_00:
+                        ; оба соперника с рожами/защитник misugi/больше 100 хп 
+                            .byte con_jmp
+                            .word loc_A496
+
+                        off_case_A495_01_00_01:
+                        ; оба соперника с рожами/защитник misugi/меньше 100 хп
+                            .byte con_F7, $35
+                            .byte con_pause + $5A
+                            .byte con_bg + $30
+                            .byte con_animation + con_face_attacker
+                            .byte con_cloud + $4F
+                            .byte con_jmp
+                            .word loc_BBC7_очистка
+
+                off_case_A495_01_01:
+                ; оба соперника с рожами/защитник не misugi
+                loc_A496:
                     .byte con_pause + $3C
                     .byte con_bg + $30
                     .byte con_animation + con_face_attacker
@@ -11836,35 +11860,19 @@ sub_A495_сообщение_атакующего_в_ответ_защитник�
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
-                case_A495_01_01:
-                ; это misugi
-                    .dbyt con_branch_short + con_bra_проверка_на_100_хп
-                    .byte case_A495_01_00_00 - * ; больше 100 хп 
-                    .byte case_A495_01_00_01 - * ; меньше 100 хп
-
-                        case_A495_01_00_00:
-                        ; больше 100 хп 
-                            .byte con_jmp
-                            .word loc_A496_01_00_00_больше_100_хп
-
-                        case_A495_01_00_01:
-                        ; меньше 100 хп
-                            .byte con_jmp
-                            .word loc_A989_меньше_100_хп
-
 
 
 sub_A5A9_kurae:
-    .dbyt con_branch_short + con_bra_клон_или_нет
-    .byte case_A5A9_00 - * ; игрок без рожи
-    .byte case_A5A9_01 - * ; игрок с рожей
+    .dbyt con_branch_short + con_bra_защитник_с_рожей
+    .byte off_case_A5A9_00 - * ; защитник без рожи
+    .byte off_case_A5A9_01 - * ; защитник с рожей
 
-case_A5A9_00:
-; игрок без рожи
+        off_case_A5A9_00:
+        ; защитник без рожи
             .byte con_rts
 
-case_A5A9_01:
-; игрок с рожей
+        off_case_A5A9_01:
+        ; защитник с рожей
             .byte con_pause + $3C
             .byte con_bg + $30
             .byte con_animation + con_face_defender
@@ -12355,361 +12363,50 @@ sub_A908_kaltz_hedgehog_dribble:
 
 
 sub_A936_сообщение_защитника_атакующему_при_нападении_подкатом:
-    .dbyt con_branch_short + con_bra_рожа_нападающего
-    .byte off_case_A95A_00_игрок_без_рожи - * ; игрок без рожи
-    .byte off_case_A95B_01_tsubasa - * ; tsubasa
-    .byte off_case_A962_02_misaki - * ; misaki
-    .byte off_case_A969_03_misaki - * ; misaki
-    .byte off_case_A970_04_hyuga - * ; hyuga
-    .byte off_case_A977_05_hyuga - * ; hyuga
-    .byte off_case_A97E_06_misugi - * ; misugi
-    .byte off_case_A992_07_misugi - * ; misugi
-    .byte off_case_A999_08_matsuyama - * ; matsuyama
-    .byte off_case_A9A0_09_matsuyama - * ; matsuyama
-    .byte off_case_A9A7_0A_ishizaki - * ; ishizaki
-    .byte off_case_A9AE_0B_ishizaki - * ; ishizaki
-    .byte off_case_A9B5_0C_soda - * ; soda
-    .byte off_case_A9BC_0D_soda - * ; soda
-    .byte off_case_A9C3_0E_jito - * ; jito
-    .byte off_case_A9CA_0F_jito - * ; jito
-    .byte off_case_A9D1_10_masao_kazuo - * ; masao kazuo
-    .byte off_case_A9D8_11_masao_kazuo - * ; masao kazuo
-    .byte off_case_A9DF_12_nitta - * ; nitta
-    .byte off_case_A9E6_13_nitta - * ; nitta
-    .byte off_case_A9ED_14_sawada - * ; sawada
-    .byte off_case_A9F4_15_sawada - * ; sawada
-    .byte off_case_A9FB_16_coimbra - * ; coimbra
-    .byte off_case_AA02_17_carlos - * ; carlos
-    .byte off_case_AA09_18_carlos - * ; carlos
-    .byte off_case_AA10_19_schneider - * ; schneider
-    .byte off_case_AA17_1A_kaltz - * ; kaltz
-    .byte off_case_AA1E_1B_schester - * ; schester
-    .byte off_case_AA25_1C_diaz - * ; diaz
-    .byte off_case_AA2C_1D_pascal - * ; pascal
-    .byte off_case_AA33_1E_pierre - * ; pierre
-    .byte off_case_AA3A_1F_napoleon - * ; napoleon
-    .byte off_case_AA41_20_victorino - * ; victorino
-    .byte off_case_AA48_21_kaltz - * ; kaltz
+    .dbyt con_branch_short + con_bra_4A
+    .byte off_case_A936_00 - * ; кто-то из соперников без рожи
+    .byte off_case_A936_01 - * ; оба соперника с рожами
 
+        off_case_A936_00:
+        ; кто-то из соперников без рожи
+            .byte con_rts
 
+        off_case_A936_01:
+        ; оба соперника с рожами
+            .dbyt con_branch_short + con_bra_4B
+            .byte off_case_A936_01_00 - * ; защитник misugi из японии (наша команда)
+            .byte off_case_A936_01_01 - * ; защитник не misugi
+            
+                off_case_A936_01_00:
+                ; оба соперника с рожами/защитник misugi
+                    .dbyt con_branch_short + con_bra_проверка_на_100_хп
+                    .byte off_case_A936_01_00_00 - * ; больше 100 хп
+                    .byte off_case_A936_01_00_01 - * ; меньше 100 хп
 
-off_case_A95A_00_игрок_без_рожи:
-; игрок без рожи
-    .byte con_rts
+                        off_case_A936_01_00_00:
+                        ; оба соперника с рожами/защитник misugi/больше 100 хп
+                            .byte con_jmp
+                            .word loc_A937
 
-off_case_A95B_01_tsubasa:
-; tsubasa
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
+                        off_case_A936_01_00_01:
+                        ; оба соперника с рожами/защитник misugi/меньше 100 хп
+                            .byte con_F7, $35
+                            .byte con_pause + $5A
+                            .byte con_bg + $30
+                            .byte con_animation + con_face_defender
+                            .byte con_cloud + $4F
+                            .byte con_jmp
+                            .word loc_BBC7_очистка
 
-off_case_A962_02_misaki:
-; misaki
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $96
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A969_03_misaki:
-; misaki
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $97
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A970_04_hyuga:
-; hyuga
-    .byte con_pause + $3C
-    .byte con_bg + $31
-    .byte con_animation + $9E
-    .byte con_cloud + $9A
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A977_05_hyuga:
-; hyuga
-    .byte con_pause + $3C
-    .byte con_bg + $31
-    .byte con_animation + $B0
-    .byte con_cloud + $9A
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A97E_06_misugi:
-; misugi
-    .dbyt con_branch_short + con_bra_проверка_на_100_хп
-    .byte off_case_A982_06_00 - * ; есть 100 хп
-    .byte off_case_A982_06_01 - * ; меньше 100 хп
-
-        off_case_A982_06_00:
-        ; misugi/есть 100 хп
-            .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $A3
-            .byte con_cloud + $98
-            .byte con_jmp
-            .word loc_BBC7_очистка
-
-        off_case_A982_06_01:
-        ; misugi/меньше 100 хп
-loc_A989_меньше_100_хп:
-            .byte con_F7, $35
-            .byte con_pause + $5A
-            .byte con_bg + $30
-            .byte con_animation + $A3
-            .byte con_cloud + $4F
-            .byte con_jmp
-            .word loc_BBC7_очистка
-
-off_case_A992_07_misugi:
-; misugi
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AE
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A999_08_matsuyama:
-; matsuyama
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $A1
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9A0_09_matsuyama:
-; matsuyama
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AF
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9A7_0A_ishizaki:
-; ishizaki
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $98
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9AE_0B_ishizaki:
-; ishizaki
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $99
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9B5_0C_soda:
-; soda
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9F
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9BC_0D_soda:
-; soda
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AD
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9C3_0E_jito:
-; jito
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $E5
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9CA_0F_jito:
-; jito
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + $E5
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9D1_10_masao_kazuo:
-; masao kazuo
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9C
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9D8_11_masao_kazuo:
-; masao kazuo
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AB
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9DF_12_nitta:
-; nitta
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9A
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9E6_13_nitta:
-; nitta
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9B
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9ED_14_sawada:
-; sawada
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $A2
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9F4_15_sawada:
-; sawada
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B1
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_A9FB_16_coimbra:
-; coimbra
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $BC
-    .byte con_cloud + $9A
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA02_17_carlos:
-; carlos
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $A9
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA09_18_carlos:
-; carlos
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $BB
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA10_19_schneider:
-; schneider
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B8
-    .byte con_cloud + $9A
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA17_1A_kaltz:
-; kaltz
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B3
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA1E_1B_schester:
-; schester
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $BA
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA25_1C_diaz:
-; diaz
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B7
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA2C_1D_pascal:
-; pascal
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B6
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA33_1E_pierre:
-; pierre
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B5
-    .byte con_cloud + $98
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA3A_1F_napoleon:
-; napoleon
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B4
-    .byte con_cloud + $9A
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA41_20_victorino:
-; victorino
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B2
-    .byte con_cloud + $9A
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-off_case_AA48_21_kaltz:
-; kaltz
-    .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B9
-    .byte con_cloud + $99
-    .byte con_jmp
-    .word loc_BBC7_очистка
+                off_case_A936_01_01:
+                ; оба соперника с рожами/защитник не misugi
+                loc_A937:
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + con_face_defender
+                    .byte con_cloud + $98
+                    .byte con_jmp
+                    .word loc_BBC7_очистка
 
 
 
@@ -14880,29 +14577,29 @@ sub_9F3E:
         off_case_3C_00:
         ; медленный
             .dbyt con_branch_short + con_bra_разновидность_pass
-            .byte off_case_3C_00_00 - * ; 
-            .byte off_case_3C_00_01 - * ; 
-            .byte off_case_3C_00_02 - * ; 
-            .byte off_case_3C_00_03 - * ; 
+            .byte off_case_3C_00_00 - * ; pass
+            .byte off_case_3C_00_01 - * ; drive pass
+            .byte off_case_3C_00_02 - * ; razor pass
+            .byte off_case_3C_00_03 - * ; topspin pass
 
                 off_case_3C_00_00:
-                ; медленный/00
+                ; медленный/pass
                     .byte con_jmp
                     .word loc_BB4B_3C_00_00
 
                 off_case_3C_00_01:
-                ; медленный/01
+                ; медленный/drive pass
                     .byte con_jmp
                     .word loc_B502
 
                 off_case_3C_00_02:
-                ; медленный/02
+                ; медленный/razor pass
                     .byte con_mirror_toggle
                     .byte con_jmp
                     .word loc_B543
 
                 off_case_3C_00_03:
-                ; медленный/03
+                ; медленный/topspin pass
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $08, $02
                     .byte con_pause + $3C
