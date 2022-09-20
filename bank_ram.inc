@@ -40,6 +40,7 @@ con_cheat_cutscene = $FF    ; range 00-22 to load a corresponding cutscene, FF t
 ; bank_26 (33) - словарь
 ; bank_27 (34) - фразы облаков
 ; bank_28 (35) - фразы облаков
+; bank_29 (36) - фразы облаков
 ; bank_FF (FF) - NMI, IRQ, RESET, миникарта, тени защитников, палитра во время матча
 
 
