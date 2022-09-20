@@ -7823,47 +7823,49 @@ loc_9CF3_игрок_делает_удар_с_земли:
 ; полная анимация замахивания по мячу, удара по нему и последующий полет мяча после удара
     .byte con_mirror_off
     .dbyt con_branch_long + con_bra_разновидность_shoot     ; спешал удар
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB4C_03_drive_shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_ABCC_05_falcon_shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_ABF0_07_razor_shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AC23_0B_eagle_shot ; 
-    .word bra_long_case_AC4D_0C_tiger_shot ; 
-    .word bra_long_case_AC6E_0D_neo_tiger_shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_ACB9_11_drive_tiger ; 
-    .word bra_long_case_AD0C_12_cyclone ; 
-    .word bra_long_case_AD1D_13_sano_combo ; 
-    .word bra_long_case_AD4C_14_banana_shot ; 
-    .word bra_long_case_AD5E_15_booster_shot ; 
-    .word bra_long_case_AD81_16_mirage_shot ; 
-    .word bra_long_case_ADAB_17_mach_shot ; 
-    .word bra_long_case_ADCA_18_sidewinder_shot ; 
-    .word bra_long_case_ADDC_19_slider_shot ; 
-    .word bra_long_case_ADF9_1A_cannon_shot ; 
-    .word bra_long_case_AE0F_1B_fire_shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AB31_00___shot ; 
-    .word bra_long_case_AE34_22_double_eel ; 
+    .word bra_long_case_9CF3_FF ; 00
+    .word bra_long_case_9CF3_FF ; 01
+    .word bra_long_case_9CF3_FF ; 02
+    .word bra_long_case_9CF3_03 ; drive shot
+    .word bra_long_case_9CF3_FF ; 04
+    .word bra_long_case_9CF3_05 ; falcon shot
+    .word bra_long_case_9CF3_FF ; 06
+    .word bra_long_case_9CF3_07 ; razor shot
+    .word bra_long_case_9CF3_FF ; 08
+    .word bra_long_case_9CF3_FF ; 09
+    .word bra_long_case_9CF3_FF ; 0A
+    .word bra_long_case_9CF3_0B ; eagle shot
+    .word bra_long_case_9CF3_0C ; tiger shot
+    .word bra_long_case_9CF3_0D ; neo tiger shot
+    .word bra_long_case_9CF3_FF ; 0E
+    .word bra_long_case_9CF3_FF ; 0F
+    .word bra_long_case_9CF3_FF ; 10
+    .word bra_long_case_9CF3_11 ; drive tiger
+    .word bra_long_case_9CF3_12 ; cyclone с земли
+    .word bra_long_case_9CF3_13 ; sano combo
+    .word bra_long_case_9CF3_14 ; banana shot
+    .word bra_long_case_9CF3_15 ; booster shot
+    .word bra_long_case_9CF3_16 ; mirage shot
+    .word bra_long_case_9CF3_17 ; mach shot
+    .word bra_long_case_9CF3_18 ; sidewinder shot
+    .word bra_long_case_9CF3_19 ; slider shot
+    .word bra_long_case_9CF3_1A ; cannon shot
+    .word bra_long_case_9CF3_1B ; fire shot
+    .word bra_long_case_9CF3_FF ; 1C
+    .word bra_long_case_9CF3_FF ; 1D
+    .word bra_long_case_9CF3_FF ; 1E
+    .word bra_long_case_9CF3_FF ; 1F
+    .word bra_long_case_9CF3_FF ; 20
+    .word bra_long_case_9CF3_FF ; 21
+    .word bra_long_case_9CF3_22 ; double eel
 
-bra_long_case_AB31_00___shot:
+bra_long_case_9CF3_FF:
+; shot
     .byte con_jmp
     .word loc_AB31_полная_анимация_обычного_удара_с_земли
 
-bra_long_case_AD0C_12_cyclone:
+bra_long_case_9CF3_12:
+; cyclone с земли
     .byte con_jmp
     .word loc_AD0C_cyclone
 
@@ -8848,7 +8850,7 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
         off_case_9E45_02:
         ; razor pass
             .dbyt con_branch_short + con_bra_plr_soda
-            .byte off_case_9E45_02_00 - * ; сода из японии
+            .byte off_case_9E45_02_00 - * ; soda из японии
             .byte off_case_9E45_02_01 - * ; soda из тацунами
 
                 off_case_9E45_02_00:
@@ -11690,15 +11692,17 @@ loc_AB42_мяч_улетает_от_игрока_после_удара:
 
 
 
-bra_long_case_AB4C_03_drive_shot:
+bra_long_case_9CF3_03:
+; drive shot
     .dbyt con_branch_short + con_bra_plr_diaz
-    .byte off_case_AB58_00_if_not_tsubasa_и_не_diaz - * ; 
-    .byte off_case_AB51_01_if_tsubasa - * ; 
-    .byte off_case_AB72_02_if_diaz - * ; 
+    .byte off_case_9CF3_03_00 - * ; не tubasa и не diaz
+    .byte off_case_9CF3_03_01 - * ; tsubasa
+    .byte off_case_9CF3_03_02 - * ; diaz
 
 
 
-off_case_AB51_01_if_tsubasa:
+off_case_9CF3_03_01:
+; drive shot/tsubasa
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $91
@@ -11706,7 +11710,8 @@ off_case_AB51_01_if_tsubasa:
     .byte con_jsr
     .word sub_BBC7_очистка
 loc_AB58:
-off_case_AB58_00_if_not_tsubasa_и_не_diaz:
+off_case_9CF3_03_00:
+; drive shot/не tubasa и не diaz
     .byte con_soundID_delay, $16, $02
     .byte con_pause + $28
     .byte con_bg + $4A
@@ -11730,7 +11735,8 @@ loc_AB6B:
 
 
 
-off_case_AB72_02_if_diaz:
+off_case_9CF3_03_02:
+; drive shot/diaz
 ; bzk проверка на diaz не обязательная, код один и тот же
     ; однако если я буду менять номер облака для них, возможно и понадобится
     .byte con_pause + $3C
@@ -11830,14 +11836,16 @@ sub_ABB8:
 
 
 
-bra_long_case_ABCC_05_falcon_shot:
+bra_long_case_9CF3_05:
+; falcon shot
     .dbyt con_branch_short + con_bra_plr_nitta
-    .byte off_case_ABD0_00_if_nitta - * ; 
-    .byte off_case_ABE9_01_if_not_nitta - * ; 
+    .byte off_case_9CF3_05_00 - * ; nitta 1
+    .byte off_case_9CF3_05_01 - * ; nitta 2
 
 
 
-off_case_ABD0_00_if_nitta:
+off_case_9CF3_05_00:
+; falcon shot/nitta 1
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9A
@@ -11860,7 +11868,8 @@ loc_ABD4:
 
 
 
-off_case_ABE9_01_if_not_nitta:
+off_case_9CF3_05_01:
+; falcon shot/nitta 2
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9B
@@ -11870,14 +11879,16 @@ off_case_ABE9_01_if_not_nitta:
 
 
 
-bra_long_case_ABF0_07_razor_shot:
+bra_long_case_9CF3_07:
+; razor shot
     .dbyt con_branch_short + con_bra_plr_soda
-    .byte off_case_ABF4_00_soda_japan - * ; 
-    .byte off_case_AC1C_01_soda_tatsunami - * ; 
+    .byte off_case_9CF3_07_00 - * ; soda япония
+    .byte off_case_9CF3_07_01 - * ; soda тацунами
 
 
 
-off_case_ABF4_00_soda_japan:
+off_case_9CF3_07_00:
+; razor shot/soda япония
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9F
@@ -11911,7 +11922,8 @@ loc_ABF8:
 
 
 
-off_case_AC1C_01_soda_tatsunami:
+off_case_9CF3_07_01:
+; razor shot/soda тацунами
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AD
@@ -11921,14 +11933,16 @@ off_case_AC1C_01_soda_tatsunami:
 
 
 
-bra_long_case_AC23_0B_eagle_shot:
+bra_long_case_9CF3_0B:
+; eagle shot
     .dbyt con_branch_short + con_bra_plr_matsuyama
-    .byte off_case_AC27_00_if_matsuyama - * ; 
-    .byte off_case_AC46_01_if_not_matsuyama - * ; 
+    .byte off_case_9CF3_0B_00 - * ; matsuyama 1
+    .byte off_case_9CF3_0B_01 - * ; matsuyama 2
 
 
 
-off_case_AC27_00_if_matsuyama:
+off_case_9CF3_0B_00:
+; eagle shot/matsuyama 1
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A1
@@ -11955,7 +11969,8 @@ loc_AC2B:
 
 
 
-off_case_AC46_01_if_not_matsuyama:
+off_case_9CF3_0B_01:
+; eagle shot/matsuyama 2
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AF
@@ -11965,14 +11980,16 @@ off_case_AC46_01_if_not_matsuyama:
 
 
 
-bra_long_case_AC4D_0C_tiger_shot:
+bra_long_case_9CF3_0C:
+; tiger shot
     .dbyt con_branch_short + con_bra_plr_hyuga
-    .byte off_case_AC51_00_if_hyuga - * ; 
-    .byte off_case_AC67_01_if_not_hyuga - * ; 
+    .byte off_case_9CF3_0C_00 - * ; hyuga 1
+    .byte off_case_9CF3_0C_01 - * ; hyuga 2
 
 
 
-off_case_AC51_00_if_hyuga:
+off_case_9CF3_0C_00:
+; tiger shot/hyuga 1
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $9E
@@ -11993,7 +12010,8 @@ loc_AC55:
 
 
 
-off_case_AC67_01_if_not_hyuga:
+off_case_9CF3_0C_01:
+; tiger shot/hyuga 2
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $B0
@@ -12003,23 +12021,26 @@ off_case_AC67_01_if_not_hyuga:
 
 
 
-bra_long_case_AC6E_0D_neo_tiger_shot:
+bra_long_case_9CF3_0D:
+; neo tiger shot
 ; bzk баг, когда хюга бьет с углового, он всегда считает что защитники есть
 ; возможно игра не очищает количество защитников когда мяч улетает за линию
     .dbyt con_branch_short + con_bra_напали_ли_защитники
-    .byte off_case_AC72_00_нет_защитников - * ; 
-    .byte off_case_ACA3_01_есть_защитники - * ; 
+    .byte off_case_9CF3_0D_00 - * ; нет_защитников
+    .byte off_case_9CF3_0D_01 - * ; есть_защитники
 
 
 
-off_case_AC72_00_нет_защитников:
+off_case_9CF3_0D_00:
+; neo tiger shot/нет_защитников
     .dbyt con_branch_short + con_bra_plr_hyuga
-    .byte off_case_AC76_00_if_hyuga - * ; 
-    .byte off_case_AC9C_01_if_not_hyuga - * ; 
+    .byte off_case_9CF3_0D_00_00 - * ; hyuga 1
+    .byte off_case_9CF3_0D_00_01 - * ; hyuga 2
 
 
 
-off_case_AC76_00_if_hyuga:
+off_case_9CF3_0D_00_00:
+; neo tiger shot/нет_защитников/hyuga 1
     .byte con_pause + $78
     .byte con_bg + $31
     .byte con_animation + $9E
@@ -12050,7 +12071,8 @@ loc_AC7A:
 
 
 
-off_case_AC9C_01_if_not_hyuga:
+off_case_9CF3_0D_00_01:
+; neo tiger shot/нет_защитников/hyuga 2
     .byte con_pause + $78
     .byte con_bg + $31
     .byte con_animation + $B0
@@ -12060,14 +12082,16 @@ off_case_AC9C_01_if_not_hyuga:
 
 
 
-off_case_ACA3_01_есть_защитники:
+off_case_9CF3_0D_01:
+; neo tiger shot/есть_защитники
     .dbyt con_branch_short + con_bra_plr_hyuga
-    .byte off_case_ACA7_00_if_hyuga - * ; 
-    .byte off_case_ACB0_01_if_not_hyuga - * ; 
+    .byte off_case_9CF3_0D_01_00 - * ; hyuga 1
+    .byte off_case_9CF3_0D_01_01 - * ; hyuga 2
 
 
 
-off_case_ACA7_00_if_hyuga:
+off_case_9CF3_0D_01_00:
+; есть_защитники/нет_защитников/hyuga 1
     .byte con_F7, $44
     .byte con_pause + $B4
     .byte con_bg + $31
@@ -12078,7 +12102,8 @@ off_case_ACA7_00_if_hyuga:
 
 
 
-off_case_ACB0_01_if_not_hyuga:
+off_case_9CF3_0D_01_01:
+; есть_защитники/нет_защитников/hyuga 2
     .byte con_F7, $44
     .byte con_pause + $B4
     .byte con_bg + $31
@@ -12089,7 +12114,8 @@ off_case_ACB0_01_if_not_hyuga:
 
 
 
-bra_long_case_ACB9_11_drive_tiger:
+bra_long_case_9CF3_11:
+; drive tiger
     .byte con_mirror_off
     .byte con_F8, $04
     .byte con_pause + $3C
@@ -12166,14 +12192,16 @@ sub_AD13:
 
 
 
-bra_long_case_AD1D_13_sano_combo:
+bra_long_case_9CF3_13:
+; sano combo
     .dbyt con_branch_short + con_bra_plr_jito
-    .byte off_case_AD21_00_if_jito_из_японии - * ; 
-    .byte off_case_AD45_01_if_jito_из_куними - * ; 
+    .byte off_case_9CF3_13_00 - * ; jito япония
+    .byte off_case_9CF3_13_01 - * ; jito куними
 
 
 
-off_case_AD21_00_if_jito_из_японии:
+off_case_9CF3_13_00:
+; sano combo/jito япония
     .byte con_pause + $78
     .byte con_bg + $30
     .byte con_animation + $A0
@@ -12204,7 +12232,8 @@ loc_AD25:
 
 
 
-off_case_AD45_01_if_jito_из_куними:
+off_case_9CF3_13_01:
+; sano combo/jito куними
     .byte con_pause + $78
     .byte con_bg + $30
     .byte con_animation + $AA
@@ -12214,7 +12243,8 @@ off_case_AD45_01_if_jito_из_куними:
 
 
 
-bra_long_case_AD4C_14_banana_shot:
+bra_long_case_9CF3_14:
+; banana shot
     .byte con_jsr
     .word sub_ABB8
     .byte con_jsr
@@ -12230,7 +12260,8 @@ bra_long_case_AD4C_14_banana_shot:
 
 
 
-bra_long_case_AD5E_15_booster_shot:
+bra_long_case_9CF3_15:
+; booster shot
     .byte con_jsr
     .word sub_ABB8
     .byte con_jsr
@@ -12258,13 +12289,14 @@ bra_long_case_AD5E_15_booster_shot:
 
 
 
-bra_long_case_AD81_16_mirage_shot:
+bra_long_case_9CF3_16:
+; mirage shot
     .dbyt con_branch_short + con_bra_plr_carlos
-    .byte off_case_AD85_16_00 - * ; carlos из фламенго
-    .byte off_case_AD85_16_01 - * ; carlos из бразилии
+    .byte off_case_9CF3_16_00 - * ; carlos из фламенго
+    .byte off_case_9CF3_16_01 - * ; carlos из бразилии
 
-        off_case_AD85_16_00:
-        ; carlos из фламенго
+        off_case_9CF3_16_00:
+        ; mirage shot/carlos из фламенго
             .byte con_pause + $3C
             .byte con_bg + $30
             .byte con_animation + $A9
@@ -12289,8 +12321,8 @@ bra_long_case_AD81_16_mirage_shot:
             .byte con_jmp
             .word loc_AB6B
 
-        off_case_AD85_16_01:
-        ; carlos из бразилии
+        off_case_9CF3_16_01:
+        ; mirage shot/carlos из бразилии
             .byte con_pause + $3C
             .byte con_bg + $30
             .byte con_animation + $BB
@@ -12300,7 +12332,8 @@ bra_long_case_AD81_16_mirage_shot:
 
 
 
-bra_long_case_ADAB_17_mach_shot:
+bra_long_case_9CF3_17:
+; mach shot
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BC
@@ -12326,7 +12359,8 @@ bra_long_case_ADAB_17_mach_shot:
 
 
 
-bra_long_case_ADCA_18_sidewinder_shot:
+bra_long_case_9CF3_18:
+; sidewinder shot
     .byte con_jsr
     .word sub_ABB8
     .byte con_jsr
@@ -12342,7 +12376,8 @@ bra_long_case_ADCA_18_sidewinder_shot:
 
 
 
-bra_long_case_ADDC_19_slider_shot:
+bra_long_case_9CF3_19:
+; slider shot
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B5
@@ -12367,7 +12402,8 @@ bra_long_case_ADDC_19_slider_shot:
 
 
 
-bra_long_case_ADF9_1A_cannon_shot:
+bra_long_case_9CF3_1A:
+; cannon shot
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B4
@@ -12387,7 +12423,8 @@ bra_long_case_ADF9_1A_cannon_shot:
 
 
 
-bra_long_case_AE0F_1B_fire_shot:
+bra_long_case_9CF3_1B:
+; fire shot
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B8
@@ -12417,7 +12454,8 @@ bra_long_case_AE0F_1B_fire_shot:
 
 
 
-bra_long_case_AE34_22_double_eel:
+bra_long_case_9CF3_22:
+; double eel
     .byte con_F7, $31
     .byte con_soundID_delay, $16, $02
     .byte con_pause + $28
