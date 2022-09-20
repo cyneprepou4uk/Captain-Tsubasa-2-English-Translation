@@ -85,16 +85,17 @@ C - - - - - 0x02008C 10:807C: A4 3A     LDY ram_003A
 C - - - - - 0x02008E 10:807E: E6 3A     INC ram_003A
 C - - - - - 0x020090 10:8080: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020099 10:8089: 8D 29 05  STA ram_для_05EA_облако
+; при необходимости выбрать анимацию из таблицы
                                         LDA ram_для_053C_номер_анимации
-                                        CMP #$FD
+                                        CMP #$FD    ; атакующий
                                         BEQ bra_808C_FD
-                                        CMP #$FE
+                                        CMP #$FE    ; защитник
                                         BEQ bra_808B_FE
                                         JMP loc_808C
-bra_808C_FD:
+bra_808C_FD:    ; атакующий
                                         LDA ram_игрок_с_мячом
                                         JMP loc_808A                        
-bra_808B_FE:
+bra_808B_FE:    ; защитник
                                         LDA ram_игрок_без_мяча
 loc_808A:
                                         JSR sub_8207_узнать_номер_игрока___X_00
@@ -500,40 +501,40 @@ C - - - - - 0x020280 10:8270: 60        RTS
 
 
 tbl_8275_номер_анимации_игрока:
-    .byte $FF   ; 00 - игрок без рожи
-    .byte $91   ; 01 - tsubasa
-    .byte $96   ; 02 - misaki
-    .byte $97   ; 03 - misaki
-    .byte $9E   ; 04 - hyuga
-    .byte $B0   ; 05 - hyuga
-    .byte $A3   ; 06 - misugi
-    .byte $AE   ; 07 - misugi
-    .byte $A1   ; 08 - matsuyama
-    .byte $AF   ; 09 - matsuyama
-    .byte $98   ; 0A - ishizaki
-    .byte $99   ; 0B - ishizaki
-    .byte $9F   ; 0C - soda
-    .byte $AD   ; 0D - soda
-    .byte $A0   ; 0E - jito
-    .byte $AA   ; 0F - jito
-    .byte $9C   ; 10 - masao/kazuo
-    .byte $AB   ; 11 - masao/kazuo
-    .byte $9A   ; 12 - nitta
-    .byte $9B   ; 13 - nitta
-    .byte $A2   ; 14 - sawada
-    .byte $B1   ; 15 - sawada
-    .byte $BC   ; 16 - coimbra
-    .byte $A9   ; 17 - carlos
-    .byte $BB   ; 18 - carlos
-    .byte $B8   ; 19 - schneider
-    .byte $B3   ; 1A - kaltz
-    .byte $BA   ; 1B - schester
-    .byte $B7   ; 1C - diaz
-    .byte $B6   ; 1D - pascal
-    .byte $B5   ; 1E - pierre
-    .byte $B4   ; 1F - napoleon
-    .byte $B2   ; 20 - victorino
-    .byte $B9   ; 21 - kaltz
+    .byte $FF   ; 00 игрок без рожи
+    .byte $91   ; 01 tsubasa
+    .byte $96   ; 02 misaki
+    .byte $97   ; 03 misaki
+    .byte $9E   ; 04 hyuga
+    .byte $B0   ; 05 hyuga
+    .byte $A3   ; 06 misugi
+    .byte $AE   ; 07 misugi
+    .byte $A1   ; 08 matsuyama
+    .byte $AF   ; 09 matsuyama
+    .byte $98   ; 0A ishizaki
+    .byte $99   ; 0B ishizaki
+    .byte $9F   ; 0C soda
+    .byte $AD   ; 0D soda
+    .byte $A0   ; 0E jito
+    .byte $AA   ; 0F jito
+    .byte $9C   ; 10 masao/kazuo
+    .byte $AB   ; 11 masao/kazuo
+    .byte $9A   ; 12 nitta
+    .byte $9B   ; 13 nitta
+    .byte $A2   ; 14 sawada
+    .byte $B1   ; 15 sawada
+    .byte $BC   ; 16 coimbra
+    .byte $A9   ; 17 carlos
+    .byte $BB   ; 18 carlos
+    .byte $B8   ; 19 schneider
+    .byte $B3   ; 1A kaltz
+    .byte $BA   ; 1B schester
+    .byte $B7   ; 1C diaz
+    .byte $B6   ; 1D pascal
+    .byte $B5   ; 1E pierre
+    .byte $B4   ; 1F napoleon
+    .byte $B2   ; 20 victorino
+    .byte $B9   ; 21 kaltz
 
 
 
@@ -1795,265 +1796,265 @@ bra_85FE_RTS:
 
 tbl_86E3_игроки_со_спешал_перепасовкой:
 ; 0x0206F3
-    .byte $01        ; 00 tsubasa
-    .byte $11        ; 01 misaki
-    .byte $1A        ; 02 hyuga
-    .byte $41        ; 03 hyuga
-    .byte $36        ; 04 hyuga
-    .byte $1F        ; 05 sawada
-    .byte $38        ; 06 sawada
-    .byte $17        ; 07 masao
-    .byte $18        ; 08 kazuo
-    .byte $46        ; 09 masao
-    .byte $47        ; 0A kazuo
-    .byte $30        ; 0B masao
-    .byte $31        ; 0C kazuo
-    .byte $60        ; 0D diaz
-    .byte $5E        ; 0E pascal
-    .byte $58        ; 0F pierre
-    .byte $57        ; 10 napoleon
+    .byte $01   ; 00 tsubasa
+    .byte $11   ; 01 misaki
+    .byte $1A   ; 02 hyuga
+    .byte $41   ; 03 hyuga
+    .byte $36   ; 04 hyuga
+    .byte $1F   ; 05 sawada
+    .byte $38   ; 06 sawada
+    .byte $17   ; 07 masao
+    .byte $18   ; 08 kazuo
+    .byte $46   ; 09 masao
+    .byte $47   ; 0A kazuo
+    .byte $30   ; 0B masao
+    .byte $31   ; 0C kazuo
+    .byte $60   ; 0D diaz
+    .byte $5E   ; 0E pascal
+    .byte $58   ; 0F pierre
+    .byte $57   ; 10 napoleon
 
 tbl_86F4_игроки_с_рожами:
 ; 0x020704
-    .byte $00        ; 00
-    .byte $01        ; 01 tsubasa
-    .byte $00        ; 02
-    .byte $00        ; 03
-    .byte $00        ; 04
-    .byte $00        ; 05
-    .byte $00        ; 06
-    .byte $00        ; 07
-    .byte $00        ; 08
-    .byte $00        ; 09
-    .byte $00        ; 0A
-    .byte $00        ; 0B
-    .byte $00        ; 0C
-    .byte $00        ; 0D
-    .byte $00        ; 0E
-    .byte $00        ; 0F
-    .byte $00        ; 10
-    .byte $02        ; 11 misaki
-    .byte $00        ; 12
-    .byte $00        ; 13
-    .byte $0A        ; 14 ishizaki
-    .byte $12        ; 15 nitta
-    .byte $00        ; 16
-    .byte $10        ; 17 masao
-    .byte $10        ; 18 kazuo
-    .byte $00        ; 19
-    .byte $04        ; 1A hyuga
-    .byte $0C        ; 1B soda
-    .byte $0E        ; 1C jito
-    .byte $08        ; 1D matsuyama
-    .byte $00        ; 1E
-    .byte $14        ; 1F sawada
-    .byte $06        ; 20 misugi
-    .byte $00        ; 21
-    .byte $00        ; 22
-    .byte $00        ; 23
-    .byte $00        ; 24
-    .byte $00        ; 25
-    .byte $00        ; 26
-    .byte $00        ; 27
-    .byte $00        ; 28
-    .byte $00        ; 29
-    .byte $00        ; 2A
-    .byte $17        ; 2B carlos
-    .byte $00        ; 2C
-    .byte $00        ; 2D
-    .byte $0F        ; 2E jito
-    .byte $00        ; 2F
-    .byte $11        ; 30 masao
-    .byte $11        ; 31 kazuo
-    .byte $0D        ; 32 soda
-    .byte $00        ; 33
-    .byte $07        ; 34 misugi
-    .byte $09        ; 35 matsuyama
-    .byte $05        ; 36 hyuga
-    .byte $00        ; 37
-    .byte $15        ; 38 sawada
-    .byte $00        ; 39
-    .byte $00        ; 3A
-    .byte $20        ; 3B victorino
-    .byte $00        ; 3C
-    .byte $00        ; 3D
-    .byte $1A        ; 3E kaltz
-    .byte $00        ; 3F
-    .byte $00        ; 40
-    .byte $04        ; 41 hyuga
-    .byte $13        ; 42 nitta
-    .byte $00        ; 43
-    .byte $03        ; 44 misaki
-    .byte $06        ; 45 misugi
-    .byte $10        ; 46 masao
-    .byte $10        ; 47 kazuo
-    .byte $0E        ; 48 jito
-    .byte $0B        ; 49 ishizaki
-    .byte $0C        ; 4A soda
-    .byte $08        ; 4B matsuyama
-    .byte $00        ; 4C
-    .byte $00        ; 4D
-    .byte $00        ; 4E
-    .byte $00        ; 4F
-    .byte $00        ; 50
-    .byte $00        ; 51
-    .byte $00        ; 52
-    .byte $00        ; 53
-    .byte $00        ; 54
-    .byte $00        ; 55
-    .byte $00        ; 56
-    .byte $1F        ; 57 napoleon
-    .byte $1E        ; 58 pierre
-    .byte $00        ; 59
-    .byte $00        ; 5A
-    .byte $00        ; 5B
-    .byte $00        ; 5C
-    .byte $00        ; 5D
-    .byte $1D        ; 5E pascal
-    .byte $00        ; 5F
-    .byte $1C        ; 60 diaz
-    .byte $00        ; 61
-    .byte $00        ; 62
-    .byte $19        ; 63 schneider
-    .byte $00        ; 64
-    .byte $21        ; 65 kaltz
-    .byte $00        ; 66
-    .byte $1B        ; 67 schester
-    .byte $00        ; 68
-    .byte $00        ; 69
-    .byte $18        ; 6A carlos
-    .byte $00        ; 6B
-    .byte $00        ; 6C
-    .byte $00        ; 6D
-    .byte $00        ; 6E
-    .byte $00        ; 6F
-    .byte $00        ; 70
-    .byte $00        ; 71
-    .byte $00        ; 72
-    .byte $00        ; 73
-    .byte $00        ; 74
-    .byte $16        ; 75 coimbra
+    .byte $00   ; 00
+    .byte $01   ; 01 tsubasa
+    .byte $00   ; 02
+    .byte $00   ; 03
+    .byte $00   ; 04
+    .byte $00   ; 05
+    .byte $00   ; 06
+    .byte $00   ; 07
+    .byte $00   ; 08
+    .byte $00   ; 09
+    .byte $00   ; 0A
+    .byte $00   ; 0B
+    .byte $00   ; 0C
+    .byte $00   ; 0D
+    .byte $00   ; 0E
+    .byte $00   ; 0F
+    .byte $00   ; 10
+    .byte $02   ; 11 misaki
+    .byte $00   ; 12
+    .byte $00   ; 13
+    .byte $0A   ; 14 ishizaki
+    .byte $12   ; 15 nitta
+    .byte $00   ; 16
+    .byte $10   ; 17 masao
+    .byte $10   ; 18 kazuo
+    .byte $00   ; 19
+    .byte $04   ; 1A hyuga
+    .byte $0C   ; 1B soda
+    .byte $0E   ; 1C jito
+    .byte $08   ; 1D matsuyama
+    .byte $00   ; 1E
+    .byte $14   ; 1F sawada
+    .byte $06   ; 20 misugi
+    .byte $00   ; 21
+    .byte $00   ; 22
+    .byte $00   ; 23
+    .byte $00   ; 24
+    .byte $00   ; 25
+    .byte $00   ; 26
+    .byte $00   ; 27
+    .byte $00   ; 28
+    .byte $00   ; 29
+    .byte $00   ; 2A
+    .byte $17   ; 2B carlos
+    .byte $00   ; 2C
+    .byte $00   ; 2D
+    .byte $0F   ; 2E jito
+    .byte $00   ; 2F
+    .byte $11   ; 30 masao
+    .byte $11   ; 31 kazuo
+    .byte $0D   ; 32 soda
+    .byte $00   ; 33
+    .byte $07   ; 34 misugi
+    .byte $09   ; 35 matsuyama
+    .byte $05   ; 36 hyuga
+    .byte $00   ; 37
+    .byte $15   ; 38 sawada
+    .byte $00   ; 39
+    .byte $00   ; 3A
+    .byte $20   ; 3B victorino
+    .byte $00   ; 3C
+    .byte $00   ; 3D
+    .byte $1A   ; 3E kaltz
+    .byte $00   ; 3F
+    .byte $00   ; 40
+    .byte $04   ; 41 hyuga
+    .byte $13   ; 42 nitta
+    .byte $00   ; 43
+    .byte $03   ; 44 misaki
+    .byte $06   ; 45 misugi
+    .byte $10   ; 46 masao
+    .byte $10   ; 47 kazuo
+    .byte $0E   ; 48 jito
+    .byte $0B   ; 49 ishizaki
+    .byte $0C   ; 4A soda
+    .byte $08   ; 4B matsuyama
+    .byte $00   ; 4C
+    .byte $00   ; 4D
+    .byte $00   ; 4E
+    .byte $00   ; 4F
+    .byte $00   ; 50
+    .byte $00   ; 51
+    .byte $00   ; 52
+    .byte $00   ; 53
+    .byte $00   ; 54
+    .byte $00   ; 55
+    .byte $00   ; 56
+    .byte $1F   ; 57 napoleon
+    .byte $1E   ; 58 pierre
+    .byte $00   ; 59
+    .byte $00   ; 5A
+    .byte $00   ; 5B
+    .byte $00   ; 5C
+    .byte $00   ; 5D
+    .byte $1D   ; 5E pascal
+    .byte $00   ; 5F
+    .byte $1C   ; 60 diaz
+    .byte $00   ; 61
+    .byte $00   ; 62
+    .byte $19   ; 63 schneider
+    .byte $00   ; 64
+    .byte $21   ; 65 kaltz
+    .byte $00   ; 66
+    .byte $1B   ; 67 schester
+    .byte $00   ; 68
+    .byte $00   ; 69
+    .byte $18   ; 6A carlos
+    .byte $00   ; 6B
+    .byte $00   ; 6C
+    .byte $00   ; 6D
+    .byte $00   ; 6E
+    .byte $00   ; 6F
+    .byte $00   ; 70
+    .byte $00   ; 71
+    .byte $00   ; 72
+    .byte $00   ; 73
+    .byte $00   ; 74
+    .byte $16   ; 75 coimbra
 
 tbl_876A_игроки_с_защитным_спешалом:
 ; 0x02077A
-    .byte $00        ; 00
-    .byte $00        ; 01
-    .byte $00        ; 02
-    .byte $00        ; 03
-    .byte $00        ; 04
-    .byte $00        ; 05
-    .byte $00        ; 06
-    .byte $00        ; 07
-    .byte $00        ; 08
-    .byte $00        ; 09
-    .byte $00        ; 0A
-    .byte $00        ; 0B
-    .byte $00        ; 0C
-    .byte $00        ; 0D
-    .byte $00        ; 0E
-    .byte $00        ; 0F
-    .byte $00        ; 10
-    .byte $00        ; 11
-    .byte $00        ; 12
-    .byte $00        ; 13
-    .byte $0E        ; 14 ishizaki
-    .byte $00        ; 15
-    .byte $00        ; 16
-    .byte $01        ; 17 masao
-    .byte $01        ; 18 kazuo
-    .byte $00        ; 19
-    .byte $0C        ; 1A hyuga
-    .byte $03        ; 1B soda
-    .byte $05        ; 1C jito
-    .byte $00        ; 1D
-    .byte $00        ; 1E
-    .byte $00        ; 1F
-    .byte $00        ; 20
-    .byte $00        ; 21
-    .byte $00        ; 22
-    .byte $00        ; 23
-    .byte $00        ; 24
-    .byte $00        ; 25
-    .byte $00        ; 26
-    .byte $00        ; 27
-    .byte $00        ; 28
-    .byte $00        ; 29
-    .byte $07        ; 2A dirceu
-    .byte $00        ; 2B
-    .byte $00        ; 2C
-    .byte $00        ; 2D
-    .byte $06        ; 2E jito
-    .byte $00        ; 2F
-    .byte $02        ; 30 masao
-    .byte $02        ; 31 kazuo
-    .byte $04        ; 32 soda
-    .byte $00        ; 33
-    .byte $00        ; 34
-    .byte $00        ; 35
-    .byte $0D        ; 36 hyuga
-    .byte $00        ; 37
-    .byte $00        ; 38
-    .byte $00        ; 39
-    .byte $00        ; 3A
-    .byte $00        ; 3B
-    .byte $00        ; 3C
-    .byte $00        ; 3D
-    .byte $00        ; 3E
-    .byte $00        ; 3F
-    .byte $00        ; 40
-    .byte $0C        ; 41 hyuga
-    .byte $00        ; 42
-    .byte $00        ; 43
-    .byte $00        ; 44
-    .byte $00        ; 45
-    .byte $01        ; 46 masao
-    .byte $01        ; 47 kazuo
-    .byte $05        ; 48 jito
-    .byte $0F        ; 49 ishizaki
-    .byte $03        ; 4A soda
-    .byte $00        ; 4B
-    .byte $00        ; 4C
-    .byte $00        ; 4D
-    .byte $00        ; 4E
-    .byte $00        ; 4F
-    .byte $00        ; 50
-    .byte $00        ; 51
-    .byte $00        ; 52
-    .byte $00        ; 53
-    .byte $09        ; 54 robson
-    .byte $00        ; 55
-    .byte $00        ; 56
-    .byte $00        ; 57
-    .byte $00        ; 58
-    .byte $00        ; 59
-    .byte $00        ; 5A
-    .byte $00        ; 5B
-    .byte $00        ; 5C
-    .byte $0A        ; 5D libuta
-    .byte $00        ; 5E
-    .byte $00        ; 5F
-    .byte $00        ; 60
-    .byte $00        ; 61
-    .byte $0B        ; 62 galvan
-    .byte $00        ; 63
-    .byte $00        ; 64
-    .byte $00        ; 65
-    .byte $00        ; 66
-    .byte $00        ; 67
-    .byte $00        ; 68
-    .byte $00        ; 69
-    .byte $00        ; 6A
-    .byte $00        ; 6B
-    .byte $00        ; 6C
-    .byte $00        ; 6D
-    .byte $00        ; 6E
-    .byte $00        ; 6F
-    .byte $00        ; 70
-    .byte $00        ; 71
-    .byte $08        ; 72 dirceu
-    .byte $00        ; 73
-    .byte $00        ; 74
-    .byte $00        ; 75
+    .byte $00   ; 00
+    .byte $00   ; 01
+    .byte $00   ; 02
+    .byte $00   ; 03
+    .byte $00   ; 04
+    .byte $00   ; 05
+    .byte $00   ; 06
+    .byte $00   ; 07
+    .byte $00   ; 08
+    .byte $00   ; 09
+    .byte $00   ; 0A
+    .byte $00   ; 0B
+    .byte $00   ; 0C
+    .byte $00   ; 0D
+    .byte $00   ; 0E
+    .byte $00   ; 0F
+    .byte $00   ; 10
+    .byte $00   ; 11
+    .byte $00   ; 12
+    .byte $00   ; 13
+    .byte $0E   ; 14 ishizaki
+    .byte $00   ; 15
+    .byte $00   ; 16
+    .byte $01   ; 17 masao
+    .byte $01   ; 18 kazuo
+    .byte $00   ; 19
+    .byte $0C   ; 1A hyuga
+    .byte $03   ; 1B soda
+    .byte $05   ; 1C jito
+    .byte $00   ; 1D
+    .byte $00   ; 1E
+    .byte $00   ; 1F
+    .byte $00   ; 20
+    .byte $00   ; 21
+    .byte $00   ; 22
+    .byte $00   ; 23
+    .byte $00   ; 24
+    .byte $00   ; 25
+    .byte $00   ; 26
+    .byte $00   ; 27
+    .byte $00   ; 28
+    .byte $00   ; 29
+    .byte $07   ; 2A dirceu
+    .byte $00   ; 2B
+    .byte $00   ; 2C
+    .byte $00   ; 2D
+    .byte $06   ; 2E jito
+    .byte $00   ; 2F
+    .byte $02   ; 30 masao
+    .byte $02   ; 31 kazuo
+    .byte $04   ; 32 soda
+    .byte $00   ; 33
+    .byte $00   ; 34
+    .byte $00   ; 35
+    .byte $0D   ; 36 hyuga
+    .byte $00   ; 37
+    .byte $00   ; 38
+    .byte $00   ; 39
+    .byte $00   ; 3A
+    .byte $00   ; 3B
+    .byte $00   ; 3C
+    .byte $00   ; 3D
+    .byte $00   ; 3E
+    .byte $00   ; 3F
+    .byte $00   ; 40
+    .byte $0C   ; 41 hyuga
+    .byte $00   ; 42
+    .byte $00   ; 43
+    .byte $00   ; 44
+    .byte $00   ; 45
+    .byte $01   ; 46 masao
+    .byte $01   ; 47 kazuo
+    .byte $05   ; 48 jito
+    .byte $0F   ; 49 ishizaki
+    .byte $03   ; 4A soda
+    .byte $00   ; 4B
+    .byte $00   ; 4C
+    .byte $00   ; 4D
+    .byte $00   ; 4E
+    .byte $00   ; 4F
+    .byte $00   ; 50
+    .byte $00   ; 51
+    .byte $00   ; 52
+    .byte $00   ; 53
+    .byte $09   ; 54 robson
+    .byte $00   ; 55
+    .byte $00   ; 56
+    .byte $00   ; 57
+    .byte $00   ; 58
+    .byte $00   ; 59
+    .byte $00   ; 5A
+    .byte $00   ; 5B
+    .byte $00   ; 5C
+    .byte $0A   ; 5D libuta
+    .byte $00   ; 5E
+    .byte $00   ; 5F
+    .byte $00   ; 60
+    .byte $00   ; 61
+    .byte $0B   ; 62 galvan
+    .byte $00   ; 63
+    .byte $00   ; 64
+    .byte $00   ; 65
+    .byte $00   ; 66
+    .byte $00   ; 67
+    .byte $00   ; 68
+    .byte $00   ; 69
+    .byte $00   ; 6A
+    .byte $00   ; 6B
+    .byte $00   ; 6C
+    .byte $00   ; 6D
+    .byte $00   ; 6E
+    .byte $00   ; 6F
+    .byte $00   ; 70
+    .byte $00   ; 71
+    .byte $08   ; 72 dirceu
+    .byte $00   ; 73
+    .byte $00   ; 74
+    .byte $00   ; 75
 
 
 
@@ -2620,8 +2621,8 @@ con_drive                   = $FF   ;
 con_pause                   = $00   ; задержка следующей анимации
 con_bg                      = $00   ; фоны в банке 12
 con_animation               = $00   ; анимации в банке 20
-    con_face_defender           = $FD   ; анимация (рожа) зависит от нападаюшего (игрок с мячом)
-    con_face_attacker           = $FE   ; анимация (рожа) зависит от защитника (игрок без мяча)
+    con_face_attacker           = $FD   ; анимация (рожа) зависит от нападаюшего (игрок с мячом)
+    con_face_defender           = $FE   ; анимация (рожа) зависит от защитника (игрок без мяча)
 con_cloud                   = $00   ; облака в банке 22
     con_clear                   = $00   ; очистить облако
     con_skip                    = $FF   ; не записывать параметр (общее для фона, анимации и облака)
@@ -2724,7 +2725,7 @@ _scenario_8AB1_00:
                         off_case_00_00_00_01:
                         ; мяч у атакующего на земле/оба соперника выживут/tackle
                             .byte con_jsr
-                            .word sub_A936_сообщение_защитника_атакующему_при_нападении
+                            .word sub_A936_сообщение_защитника_атакующему_при_нападении_подкатом
                             .byte con_jsr
                             .word sub_A3CF_kurae_если_не_спешал
                             .dbyt con_branch_short + con_bra_результат_действия_защитника
@@ -2835,7 +2836,7 @@ _scenario_8AB1_00:
                         off_case_00_00_01_01:
                         ; мяч у атакующего на земле/кто-то из соперников убьется/tackle
                             .byte con_jsr
-                            .word sub_A936_сообщение_защитника_атакующему_при_нападении
+                            .word sub_A936_сообщение_защитника_атакующему_при_нападении_подкатом
                             .byte con_jsr
                             .word sub_A3CF_kurae_если_не_спешал
                             .byte con_jsr
@@ -11830,7 +11831,7 @@ sub_A495_сообщение_атакующего_в_ответ_защитник�
         loc_A496_01_00_00_больше_100_хп:
                     .byte con_pause + $3C
                     .byte con_bg + $30
-                    .byte con_animation + con_face_defender
+                    .byte con_animation + con_face_attacker
                     .byte con_cloud + $A7
                     .byte con_jmp
                     .word loc_BBC7_очистка
@@ -11866,7 +11867,7 @@ case_A5A9_01:
 ; игрок с рожей
             .byte con_pause + $3C
             .byte con_bg + $30
-            .byte con_animation + con_face_attacker
+            .byte con_animation + con_face_defender
             .byte con_cloud + $A2
             .byte con_jmp
             .word loc_BBC7_очистка
@@ -12353,7 +12354,7 @@ sub_A908_kaltz_hedgehog_dribble:
 
 
 
-sub_A936_сообщение_защитника_атакующему_при_нападении:
+sub_A936_сообщение_защитника_атакующему_при_нападении_подкатом:
     .dbyt con_branch_short + con_bra_рожа_нападающего
     .byte off_case_A95A_00_игрок_без_рожи - * ; игрок без рожи
     .byte off_case_A95B_01_tsubasa - * ; tsubasa
