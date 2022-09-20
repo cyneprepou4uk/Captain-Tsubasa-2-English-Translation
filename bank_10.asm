@@ -2664,12 +2664,16 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_00_00:
                                 ; мяч у атакующего на земле/оба соперника выживут/block или pass cut/атакующий легко обводит
                                     .byte con_jsr
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
                                     .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
                                     .byte con_jmp
                                     .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
 
                                 off_case_00_00_00_00_01:
                                 ; мяч у атакующего на земле/оба соперника выживут/block или pass cut/атакующий с трудом обводит
+                                    .byte con_jsr
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
                                     .byte con_jsr
                                     .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
                                     .byte con_jmp
@@ -2678,7 +2682,9 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_00_02:
                                 ; мяч у атакующего на земле/оба соперника выживут/block или pass cut/защитник выбьет мяч
                                     .byte con_jsr
-                                    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
+                                    .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                                     .byte con_jsr
                                     .word sub_A308_белое_мерцание
                                     .byte con_mirror_toggle
@@ -2692,7 +2698,9 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_00_03:
                                 ; мяч у атакующего на земле/оба соперника выживут/block или pass cut/защитник заберет мяч
                                     .byte con_jsr
-                                    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
+                                    .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                                     .byte con_jsr
                                     .word sub_A2EF_белое_мерцание_без_звука
                                     .byte con_jsr
@@ -2705,7 +2713,9 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_00_04:
                                 ; мяч у атакующего на земле/оба соперника выживут/block или pass cut/нарушение
                                     .byte con_jsr
-                                    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
+                                    .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                                     .byte con_jsr
                                     .word sub_A2DD_ярко_красное_мерцание
                                     .byte con_jmp
@@ -2714,7 +2724,7 @@ _scenario_8AB1_00:
                         off_case_00_00_00_01:
                         ; мяч у атакующего на земле/оба соперника выживут/tackle
                             .byte con_jsr
-                            .word sub_A936_сообщение_игрока_при_нападении
+                            .word sub_A936_сообщение_защитника_атакующему_при_нападении
                             .byte con_jsr
                             .word sub_A3CF_kurae_если_не_спешал
                             .dbyt con_branch_short + con_bra_результат_действия_защитника
@@ -2727,12 +2737,16 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_01_00:
                                 ; мяч у атакующего на земле/оба соперника выживут/tackle/атакующий легко обводит
                                     .byte con_jsr
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
                                     .word sub_9CC0_выбор_анимации_дриблинга_легкой_обводки
                                     .byte con_jmp
                                     .word loc_9EAA_рожа_защитника_с_сообщением_неудачи
 
                                 off_case_00_00_00_01_01:
                                 ; мяч у атакующего на земле/оба соперника выживут/tackle/атакующий с трудом обводит
+                                    .byte con_jsr
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
                                     .byte con_jsr
                                     .word sub_9CA3_выбор_анимации_дриблинга_трудной_обводки
                                     .byte con_jmp
@@ -2741,7 +2755,9 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_01_02:
                                 ; мяч у атакующего на земле/оба соперника выживут/tackle/защитник выбьет мяч
                                     .byte con_jsr
-                                    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
+                                    .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                                     .byte con_jsr
                                     .word sub_A308_белое_мерцание
                                     .byte con_mirror_toggle
@@ -2755,7 +2771,9 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_01_03:
                                 ; мяч у атакующего на земле/оба соперника выживут/tackle/защитник заберет мяч
                                     .byte con_jsr
-                                    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
+                                    .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                                     .byte con_jsr
                                     .word sub_B428_белое_мерцание_если_защитник_делал_спешал
                                     .byte con_jsr
@@ -2769,7 +2787,9 @@ _scenario_8AB1_00:
                                 off_case_00_00_00_01_04:
                                 ; мяч у атакующего на земле/оба соперника выживут/tackle/нарушение
                                     .byte con_jsr
-                                    .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                                    .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                                    .byte con_jsr
+                                    .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                                     .byte con_jsr
                                     .word sub_A2DD_ярко_красное_мерцание
                                     .byte con_jmp
@@ -2788,7 +2808,9 @@ _scenario_8AB1_00:
                             .byte con_jsr
                             .word sub_9C8B_защитник_бежит_по_земле_нападая_на_атакующего
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jsr
@@ -2813,11 +2835,13 @@ _scenario_8AB1_00:
                         off_case_00_00_01_01:
                         ; мяч у атакующего на земле/кто-то из соперников убьется/tackle
                             .byte con_jsr
-                            .word sub_A936_сообщение_игрока_при_нападении
+                            .word sub_A936_сообщение_защитника_атакующему_при_нападении
                             .byte con_jsr
                             .word sub_A3CF_kurae_если_не_спешал
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .dbyt con_branch_short + con_bra_результат_действия_защитника
@@ -6198,6 +6222,8 @@ _scenario_9811_0A:
 
                         off_case_0A_02_00_00:
                         ; drible/защитник выживет/игрок обведет кипера
+                            .byte con_jsr
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
                             .byte con_jmp
                             .word loc_9CC0_выбор_анимации_дриблинга_легкой_обводки
 
@@ -6205,7 +6231,9 @@ _scenario_9811_0A:
                         off_case_0A_02_00_02:
                         ; drible/защитник выживет/кипер выбьет мяч
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A308_белое_мерцание
                             .byte con_jmp
@@ -6214,7 +6242,9 @@ _scenario_9811_0A:
                         off_case_0A_02_00_03:
                         ; drible/защитник выживет/кипер словит мяч
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2EF_белое_мерцание_без_звука
                             .byte con_jmp
@@ -6223,7 +6253,9 @@ _scenario_9811_0A:
                         off_case_0A_02_00_04:
                         ; drible/защитник выживет/нарушение
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jmp
@@ -6241,7 +6273,9 @@ _scenario_9811_0A:
                         off_case_0A_02_01_00:
                         ; drible/защитник убьется/кипер умрет
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jmp
@@ -6251,7 +6285,9 @@ _scenario_9811_0A:
                         off_case_0A_02_01_02:
                         ; drible/защитник убьется/кипер умрет и мяч отлетит
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jsr
@@ -6262,7 +6298,9 @@ _scenario_9811_0A:
                         off_case_0A_02_01_03:
                         ; drible/защитник убьется/кипер убивает игрока и ловит мяч
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jsr
@@ -6273,7 +6311,9 @@ _scenario_9811_0A:
                         off_case_0A_02_01_04:
                         ; drible/защитник убьется/нарушение
                             .byte con_jsr
-                            .word sub_9DFE_рожа_атакующего_перед_дриблингом
+                            .word sub_A495_сообщение_атакующего_в_ответ_защитнику
+                            .byte con_jsr
+                            .word sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jsr
@@ -7273,42 +7313,21 @@ bra_long_case_A7E7_00_не_спешал:
 
 
 sub_9CA3_выбор_анимации_дриблинга_трудной_обводки:
-    .byte con_jsr
-    .word sub_A495_сообщение_игрока_при_ответе_на_нападение
     .dbyt con_branch_short + con_bra_действие_атаки_на_земле
-    .byte off_case_9CA3_00_shoot - * ; 
-    .byte off_case_9CA3_01_pass - * ; 
-    .byte off_case_9CA3_02_dribble - * ; 
-    .byte off_case_9CA3_03_1_2_pass - * ; 
+    .byte off_case_9CA3_00 - * ; shoot
+    .byte off_case_9CA3_01 - * ; pass
+    .byte off_case_9CA3_02 - * ; dribble
+    .byte off_case_9CA3_03 - * ; 1-2 pass
 
-off_case_9CA3_00_shoot:
-off_case_9CA3_02_00_dribble:
-off_case_9CA3_01_pass:
-off_case_9CA3_03_1_2_pass:
-bra_long_case_9CA3_02_00:
-; dribble
-; трудная обводка
-            .byte con_mirror_toggle
-            .byte con_F7, $02
-            .byte con_pause + $14
-            .byte con_bg + $22
-            .byte con_animation + $60
-            .byte con_cloud + $45
-            .byte con_F7, $24
-            .byte con_soundID_delay, $68, $02
-            .byte con_pause + $10
-            .byte con_bg + $6B
-            .byte con_animation + con_skip
-            .byte con_cloud + con_skip
-loc_A7FE_движение_фона:
-            .byte con_F7, $02
-            .byte con_pause + $3C
-            .byte con_bg + $22
-            .byte con_animation + con_skip
-            .byte con_cloud + con_skip
-            .byte con_rts
+        off_case_9CA3_00:
+        off_case_9CA3_01:
+        off_case_9CA3_03:
+        ; shoot, pass, 1-2 pass
+            .byte con_jmp
+            .word loc_9CA3_анимация_дриблинга_трудной_обводки
 
-off_case_9CA3_02_dribble:
+        off_case_9CA3_02:
+        ; dribble
             .dbyt con_branch_long + con_bra_разновидность_dribble
             .word bra_long_case_9CA3_02_00 ; dribble
             .word bra_long_case_9CA3_02_01 ; heel lift
@@ -7318,35 +7337,449 @@ off_case_9CA3_02_dribble:
             .word bra_long_case_9CA3_02_05 ; high speed dribble
             .word bra_long_case_9CA3_02_06 ; hedgehog dribble
 
+                bra_long_case_9CA3_02_00:
+                ; dribble/dribble
+loc_9CA3_анимация_дриблинга_трудной_обводки:
+                    .byte con_mirror_toggle
+                    .byte con_F7, $02
+                    .byte con_pause + $14
+                    .byte con_bg + $22
+                    .byte con_animation + $60
+                    .byte con_cloud + $45
+                    .byte con_F7, $24
+                    .byte con_soundID_delay, $68, $02
+                    .byte con_pause + $10
+                    .byte con_bg + $6B
+                    .byte con_animation + con_skip
+                    .byte con_cloud + con_skip
+loc_A7FE_движение_фона_после_дриблинга:
+                    .byte con_F7, $02
+                    .byte con_pause + $3C
+                    .byte con_bg + $22
+                    .byte con_animation + con_skip
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                bra_long_case_9CA3_02_01:
+                ; dribble/heel lift
+                    .byte con_jsr
+                    .word sub_A810_анимация_heel_lift
+                    .byte con_F7, $02
+                    .byte con_pause + $3C
+                    .byte con_bg + $23
+                    .byte con_animation + $E4
+                    .byte con_cloud + $45
+                    .byte con_mirror_toggle
+                    .byte con_rts
+
+                bra_long_case_9CA3_02_02:
+                ; dribble/forcible dribble
+                    .dbyt con_branch_short + con_bra_force_drib
+                    .byte off_case_9CA3_02_02_00 - * ; hyuga из японии
+                    .byte off_case_9CA3_02_02_01 - * ; hyuga из тохо
+                    .byte off_case_9CA3_02_02_02 - * ; jito из японии
+                    .byte off_case_9CA3_02_02_03 - * ; jito из куними
+                    .byte off_case_9CA3_02_02_04 - * ; napoleon
+                    .byte off_case_9CA3_02_02_05 - * ; игрок без рожи
+
+                        off_case_9CA3_02_02_00:
+                        ; hyuga из японии
+                            .byte con_F7, $44
+                            .byte con_pause + $3C
+                            .byte con_bg + $31
+                            .byte con_animation + $9E
+                            .byte con_cloud + $C4
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CA3_02_02_01:
+                        ; hyuga из тохо
+                            .byte con_F7, $44
+                            .byte con_pause + $3C
+                            .byte con_bg + $31
+                            .byte con_animation + $B0
+                            .byte con_cloud + $C4
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CA3_02_02_02:
+                        ; jito из японии
+                            .byte con_F7, $44
+                            .byte con_pause + $78
+                            .byte con_bg + $30
+                            .byte con_animation + $A0
+                            .byte con_cloud + $C5
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CA3_02_02_03:
+                        ; jito из куними
+                            .byte con_F7, $44
+                            .byte con_pause + $78
+                            .byte con_bg + $30
+                            .byte con_animation + $AA
+                            .byte con_cloud + $C5
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CA3_02_02_04:
+                        ; napoleon
+                            .byte con_F7, $44
+                            .byte con_pause + $40
+                            .byte con_bg + $30
+                            .byte con_animation + $B4
+                            .byte con_cloud + $C6
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CA3_02_02_05:
+                        ; игрок без рожи
+                            .byte con_jmp
+                            .word loc_AA7E_forcible_dribble_без_рожи
+
+                bra_long_case_9CA3_02_03:
+                ; dribble/vanishing feint
+                    .byte con_jsr
+                    .word sub_A86C_vanishing_feint
+                    .byte con_F7, $02
+                    .byte con_pause + $3C
+                    .byte con_bg + $23
+                    .byte con_animation + con_skip
+                    .byte con_cloud + con_clear
+                    .byte con_F7, $02
+                    .byte con_soundID_delay, $11, $02
+                    .byte con_pause + $46
+                    .byte con_bg + con_skip
+                    .byte con_animation + $D1
+                    .byte con_cloud + $45
+                    .byte con_mirror_toggle
+                    .byte con_rts
+
+                bra_long_case_9CA3_02_04:
+                ; dribble/clone dribble
+                    .dbyt con_branch_short + con_bra_plr_carlos
+                    .byte off_case_9CA3_02_04_00 - * ; carlos из фламенго
+                    .byte off_case_9CA3_02_04_01 - * ; carlos из бразилии
+
+                        off_case_9CA3_02_04_00:
+                        ; carlos из фламенго
+                            .byte con_jsr
+                            .word sub_A885_рожа_carlos_flamengo
+                        loc_A8A0_02_04_01:
+                            .byte con_jsr
+                            .word sub_A8AB_clone_dribble
+                            .byte con_F7, $02
+                            .byte con_pause + $46
+                            .byte con_bg + con_skip
+                            .byte con_animation + con_skip
+                            .byte con_cloud + $45
+                            .byte con_mirror_toggle
+                            .byte con_rts
+
+                        off_case_9CA3_02_04_01:
+                        ; carlos из бразилии
+                            .byte con_jsr
+                            .word sub_A88F_рожа_carlos_brazil
+                            .byte con_jmp
+                            .word loc_A8A0_02_04_01
+
+                bra_long_case_9CA3_02_05:
+                ; dribble/high speed dribble
+                    .byte con_jsr
+                    .word sub_A8D0_high_speed_dribble
+                    .byte con_F7, $0D
+                    .byte con_soundID_delay, $26, $02
+                    .byte con_pause + $1E
+                    .byte con_bg + $47
+                    .byte con_animation + $D1
+                    .byte con_cloud + $45
+                    .byte con_jmp
+                    .word loc_AAEF
+
+                bra_long_case_9CA3_02_06:
+                ; dribble/hedgehog dribble
+                    .dbyt con_branch_short + con_bra_plr_kaltz
+                    .byte off_case_9CA3_02_06_00 - * ; kaltz 1
+                    .byte off_case_9CA3_02_06_01 - * ; kaltz 2
+
+                        off_case_9CA3_02_06_00:
+                        ; kaltz 1
+                            .byte con_jsr
+                            .word sub_A8E5_kaltz_hedgehog_dribble
+                        loc_A918_kaltz_hedgehog_dribble_обводит_соперника_не_убивая:
+                            .byte con_jsr
+                            .word sub_BBC7_очистка
+                            .byte con_F7, $02
+                            .byte con_soundID_delay, $26, $02
+                            .byte con_pause + $17
+                            .byte con_bg + con_skip
+                            .byte con_animation + $D2
+                            .byte con_cloud + con_clear
+                            .byte con_F7, $02
+                            .byte con_soundID_delay, $26, $02
+                            .byte con_pause + $17
+                            .byte con_bg + con_skip
+                            .byte con_animation + $D1
+                            .byte con_cloud + $45
+                            .byte con_jmp
+                            .word loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация
+
+                        off_case_9CA3_02_06_01:
+                        ; kaltz 2
+                            .byte con_jsr
+                            .word sub_A908_kaltz_hedgehog_dribble
+                            .byte con_jmp
+                            .word loc_A918_kaltz_hedgehog_dribble_обводит_соперника_не_убивая
+
 
 
 loc_9CC0_выбор_анимации_дриблинга_легкой_обводки:
 sub_9CC0_выбор_анимации_дриблинга_легкой_обводки:
-    .byte con_jsr
-    .word sub_A495_сообщение_игрока_при_ответе_на_нападение
-    .dbyt con_branch_long + con_bra_действие_атаки_на_земле
-    .word bra_long_case_AA4F_00_shoot ; 
-    .word bra_long_case_AA4F_01_pass ; 
-    .word bra_long_case_9CCD_02_dribble ; 
-    .word bra_long_case_AA4F_03_1_2_pass ; 
+    .dbyt con_branch_short + con_bra_действие_атаки_на_земле
+    .byte off_case_9CC0_00 - * ; shoot
+    .byte off_case_9CC0_01 - * ; pass
+    .byte off_case_9CC0_02 - * ; dribble
+    .byte off_case_9CC0_03 - * ; 1-2 pass
 
+        off_case_9CC0_00:
+        off_case_9CC0_01:
+        off_case_9CC0_03:
+        ; shoot, pass, 1-2 pass
+            .byte con_jmp
+            .word loc_AA4F_анимация_дриблинга_легкой_обводки
 
+        off_case_9CC0_02:
+        ; dribble
+            .dbyt con_branch_long + con_bra_разновидность_dribble
+            .word bra_long_case_9CC0_02_00 ; dribble
+            .word bra_long_case_9CC0_02_01 ; heel lift
+            .word bra_long_case_9CC0_02_02 ; forcible dribble
+            .word bra_long_case_9CC0_02_03 ; vanishing feint
+            .word bra_long_case_9CC0_02_04 ; clone dribble
+            .word bra_long_case_9CC0_02_05 ; high speed dribble
+            .word bra_long_case_9CC0_02_06 ; hedgehog dribble
 
-bra_long_case_9CCD_02_dribble:
-    .dbyt con_branch_long + con_bra_разновидность_dribble
-    .word bra_long_case_AA4F_00_dribble ; 
-    .word bra_long_case_AA62_01_heel_lift ; 
-    .word bra_long_case_AA6D_02_forcible_dribble ; 
-    .word bra_long_case_AAB7_03_vanishing_feint ; 
-    .word bra_long_case_AACB_04_clone_dribble ; 
-    .word bra_long_case_AAE3_05_high_speed_dribble ; 
-    .word bra_long_case_AAFF_06_hedgehog_dribble ; 
+                bra_long_case_9CC0_02_00:
+                ; dribble/dribble
+loc_AA4F_анимация_дриблинга_легкой_обводки:
+                    .byte con_mirror_toggle
+                    .byte con_F7, $02
+                    .byte con_pause + $14
+                    .byte con_bg + $22
+                    .byte con_animation + $60
+                    .byte con_cloud + $46
+                    .byte con_F7, $33
+                    .byte con_soundID_delay, $68, $02
+                    .byte con_pause + $14
+                    .byte con_bg + $6B
+                    .byte con_animation + con_skip
+                    .byte con_cloud + con_skip
+                    .byte con_jmp
+                    .word loc_A7FE_движение_фона_после_дриблинга
 
+                bra_long_case_9CC0_02_01:
+                ; dribble/heel lift
+loc_AA62_heel_lift:
+                    .byte con_jsr
+                    .word sub_A810_анимация_heel_lift
+                    .byte con_F7, $02
+                    .byte con_pause + $3C
+                    .byte con_bg + $23
+                    .byte con_animation + $E4
+                    .byte con_cloud + $46
+                    .byte con_mirror_toggle
+                    .byte con_rts
 
+                bra_long_case_9CC0_02_02:
+                ; dribble/forcible dribble
+                    .dbyt con_branch_short + con_bra_force_drib
+                    .byte off_case_9CC0_02_02_00 - * ; hyuga из японии
+                    .byte off_case_9CC0_02_02_01 - * ; hyuga из тохо
+                    .byte off_case_9CC0_02_02_02 - * ; jito из японии
+                    .byte off_case_9CC0_02_02_03 - * ; jito из куними
+                    .byte off_case_9CC0_02_02_04 - * ; napoleon
+                    .byte off_case_9CC0_02_02_05 - * ; игрок без рожи
 
-bra_long_case_AA62_01_heel_lift:
-    .byte con_jmp
-    .word loc_AA62_heel_lift
+                        off_case_9CC0_02_02_00:
+                        ; hyuga из японии
+                            .byte con_F7, $44
+                            .byte con_pause + $40
+                            .byte con_bg + $31
+                            .byte con_animation + $9E
+                            .byte con_cloud + $C4
+                        loc_AA7B_forcible_dribble:
+                            .byte con_jsr
+                            .word sub_BBC7_очистка
+                        loc_AA7E_forcible_dribble_без_рожи:
+                            .byte con_jsr
+                            .word sub_AA89_forcible_dribble
+                            .byte con_F7, $3A
+                            .byte con_pause + $32
+                            .byte con_bg + con_skip
+                            .byte con_animation + con_skip
+                            .byte con_cloud + $46
+                            .byte con_mirror_toggle
+                            .byte con_rts
+
+                        off_case_9CC0_02_02_01:
+                        ; hyuga из тохо
+                            .byte con_F7, $44
+                            .byte con_pause + $40
+                            .byte con_bg + $31
+                            .byte con_animation + $B0
+                            .byte con_cloud + $C4
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CC0_02_02_02:
+                        ; jito из японии
+                            .byte con_F7, $44
+                            .byte con_pause + $78
+                            .byte con_bg + $30
+                            .byte con_animation + $A0
+                            .byte con_cloud + $C5
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CC0_02_02_03:
+                        ; jito из куними
+                            .byte con_F7, $44
+                            .byte con_pause + $78
+                            .byte con_bg + $30
+                            .byte con_animation + $AA
+                            .byte con_cloud + $C5
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CC0_02_02_04:
+                        ; napoleon
+                            .byte con_F7, $44
+                            .byte con_pause + $40
+                            .byte con_bg + $30
+                            .byte con_animation + $B4
+                            .byte con_cloud + $C6
+                            .byte con_jmp
+                            .word loc_AA7B_forcible_dribble
+
+                        off_case_9CC0_02_02_05:
+                        ; игрок без рожи
+                            .byte con_jmp
+                            .word loc_AA7E_forcible_dribble_без_рожи
+
+                bra_long_case_9CC0_02_03:
+                ; dribble/vanishing feint
+                    .byte con_jsr
+                    .word sub_A86C_vanishing_feint
+                    .byte con_F7, $02
+                    .byte con_pause + $3C
+                    .byte con_bg + $23
+                    .byte con_animation + con_skip
+                    .byte con_cloud + con_clear
+                    .byte con_soundID_delay, $11, $02
+                    .byte con_F7, $02
+                    .byte con_pause + $46
+                    .byte con_bg + con_skip
+                    .byte con_animation + $D1
+                    .byte con_cloud + $46
+                    .byte con_mirror_toggle
+                    .byte con_rts
+
+                bra_long_case_9CC0_02_04:
+                ; dribble/clone dribble
+                    .dbyt con_branch_short + con_bra_plr_carlos
+                    .byte off_case_9CC0_02_04_00 - * ; carlos из фламенго
+                    .byte off_case_9CC0_02_04_01 - * ; carlos из бразилии
+
+                        off_case_9CC0_02_04_00:
+                        ; carlos из фламенго
+                            .byte con_jsr
+                            .word sub_A885_рожа_carlos_flamengo
+                        loc_AAD2_02_04_01:
+                            .byte con_jsr
+                            .word sub_A8AB_clone_dribble
+                            .byte con_F7, $02
+                            .byte con_pause + $46
+                            .byte con_bg + con_skip
+                            .byte con_animation + con_skip
+                            .byte con_cloud + $46
+                            .byte con_mirror_toggle
+                            .byte con_rts
+
+                        off_case_9CC0_02_04_01:
+                        ; carlos из бразилии
+                            .byte con_jsr
+                            .word sub_A88F_рожа_carlos_brazil
+                            .byte con_jmp
+                            .word loc_AAD2_02_04_01
+
+                bra_long_case_9CC0_02_05:
+                ; dribble/high speed dribble
+                    .byte con_jsr
+                    .word sub_A8D0_high_speed_dribble
+                    .byte con_F7, $0D
+                    .byte con_soundID_delay, $26, $02
+                    .byte con_pause + $1E
+                    .byte con_bg + $47
+                    .byte con_animation + $D1
+                    .byte con_cloud + $46
+                loc_AAEF:
+                    .byte con_soundID_delay, $26, $02
+                    .byte con_pause + $1E
+                    .byte con_bg + con_skip
+                    .byte con_animation + $D2
+                    .byte con_cloud + con_skip
+                    .byte con_soundID_delay, $26, $02
+                    .byte con_pause + $1E
+                    .byte con_bg + con_skip
+                    .byte con_animation + $D1
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_rts
+
+                bra_long_case_9CC0_02_06:
+                ; dribble/hedgehog dribble
+                    .dbyt con_branch_short + con_bra_plr_kaltz
+                    .byte off_case_9CC0_02_06_00 - * ; kaltz 1
+                    .byte off_case_9CC0_02_06_01 - * ; kaltz 2
+
+                        off_case_9CC0_02_06_00:
+                        ; kaltz 1
+                            .byte con_jsr
+                            .word sub_A8E5_kaltz_hedgehog_dribble
+                        loc_AB06_kaltz_hedgehog_dribble_обводит_соперника_не_убивая:
+                            .byte con_F7, $02
+                            .byte con_soundID_delay, $26, $02
+                            .byte con_pause + $17
+                            .byte con_bg + con_skip
+                            .byte con_animation + $D2
+                            .byte con_cloud + con_clear
+                            .byte con_F7, $02
+                            .byte con_soundID_delay, $26, $02
+                            .byte con_pause + $17
+                            .byte con_bg + con_skip
+                            .byte con_animation + $D1
+                            .byte con_cloud + $46
+                        loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация:
+                            .byte con_F7, $02
+                            .byte con_soundID_delay, $26, $02
+                            .byte con_pause + $17
+                            .byte con_bg + con_skip
+                            .byte con_animation + $D2
+                            .byte con_cloud + con_skip
+                            .byte con_F7, $02
+                            .byte con_soundID_delay, $26, $02
+                            .byte con_pause + $17
+                            .byte con_bg + con_skip
+                            .byte con_animation + $D1
+                            .byte con_cloud + con_skip
+                            .byte con_rts
+
+                        off_case_9CC0_02_06_01:
+                        ; kaltz 2
+                            .byte con_jsr
+                            .word sub_A908_kaltz_hedgehog_dribble
+                            .byte con_jmp
+                            .word loc_AB06_kaltz_hedgehog_dribble_обводит_соперника_не_убивая
 
 
 
@@ -7388,7 +7821,6 @@ _scenario_B7DA_1E:
 sub_9CF3_игрок_делает_удар_с_земли:
 loc_9CF3_игрок_делает_удар_с_земли:
 ; полная анимация замахивания по мячу, удара по нему и последующий полет мяча после удара
-off_case_1D_00_мяч_у_атакующего_на_земле:
     .byte con_mirror_off
     .dbyt con_branch_long + con_bra_разновидность_shoot     ; спешал удар
     .word bra_long_case_AB31_00___shot ; 
@@ -7426,6 +7858,10 @@ off_case_1D_00_мяч_у_атакующего_на_земле:
     .word bra_long_case_AB31_00___shot ; 
     .word bra_long_case_AB31_00___shot ; 
     .word bra_long_case_AE34_22_double_eel ; 
+
+bra_long_case_AB31_00___shot:
+    .byte con_jmp
+    .word loc_AB31_полная_анимация_обычного_удара_с_земли
 
 
 
@@ -7467,6 +7903,9 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
     .word bra_long_case_B0FB_21_slider_cannon ; 
     .word bra_long_case_AFC5_00___ ; 
 
+bra_long_case_AFC5_00___:
+    .byte con_rts
+
 
 
 loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
@@ -7507,6 +7946,8 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
     .word bra_long_case_B0FB_21_slider_cannon ; 
     .word bra_long_case_B197_00___ ; 
 
+bra_long_case_B197_00___:
+    .byte con_rts
 
 
 sub_9DF8_защитник_прыгает_к_летящему_мячу_с_перехватом:
@@ -7516,9 +7957,7 @@ sub_9DF8_защитник_прыгает_к_летящему_мячу_с_пер�
 
 
 
-sub_9DFE_рожа_атакующего_перед_дриблингом:
-    .byte con_jsr
-    .word sub_A495_сообщение_игрока_при_ответе_на_нападение
+sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия:
     .dbyt con_branch_long + con_bra_действие_атаки_на_земле
     .word bra_long_case_B3AD_00_shoot ; 
     .word bra_long_case_B3AD_01_pass ; 
@@ -9360,8 +9799,8 @@ sub_A38F_полет_низкого_мяча_к_защитнику:
 sub_A3CF_kurae_если_не_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_A438_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A3E1_01_masao_kazuo - * ; япония
-    .byte off_case_A3EA_02_masao_kazuo - * ; акита
+    .byte off_case_A3E1_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_A3EA_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_A457_03_soda - * ; 
     .byte off_case_A44E_04_soda - * ; 
     .byte off_case_A3F0_05_jito - * ; 
@@ -9560,7 +9999,7 @@ sub_A470_цикл_power_tackle:
 
 
 
-sub_A495_сообщение_игрока_при_ответе_на_нападение:
+sub_A495_сообщение_атакующего_в_ответ_защитнику:
     .byte con_mirror_toggle
     .dbyt con_branch_short + con_bra_4A
     .byte case_A495_00 - * ; какой-то игрок без рожи
@@ -9627,8 +10066,8 @@ case_A5A9_01:
 bra_long_case_A6BC_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_A70C_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A6F6_01_masao_kazuo - * ; япония
-    .byte off_case_A706_02_masao_kazuo - * ; акита
+    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_A70C_03_soda - * ; 
     .byte off_case_A70C_04_soda - * ; 
     .byte off_case_A70C_05_jito - * ; 
@@ -9677,8 +10116,8 @@ bra_long_case_A6E4_01_спешал:
 off_case_A6E4_01_защитный_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_A6FF_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A6F6_01_masao_kazuo - * ; япония
-    .byte off_case_A706_02_masao_kazuo - * ; акита
+    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_A6FF_03_soda - * ; 
     .byte off_case_A6FF_04_soda - * ; 
     .byte off_case_A6FF_05_jito - * ; 
@@ -9966,20 +10405,6 @@ off_case_A7CE_0F_ishizaki:
 
 
 
-bra_long_case_9CA3_02_01:
-; heel lift
-    .byte con_jsr
-    .word sub_A810_анимация_heel_lift
-    .byte con_F7, $02
-    .byte con_pause + $3C
-    .byte con_bg + $23
-    .byte con_animation + $E4
-    .byte con_cloud + $45
-    .byte con_mirror_toggle
-    .byte con_rts
-
-
-
 sub_A810_анимация_heel_lift:
     .byte con_F7, $02
     .byte con_soundID_delay, $1E, $31
@@ -9992,93 +10417,6 @@ sub_A810_анимация_heel_lift:
     .byte con_bg + $05
     .byte con_animation + con_skip
     .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-bra_long_case_9CA3_02_02:
-; forcible dribble
-    .dbyt con_branch_short + con_bra_force_drib
-    .byte off_case_9CA3_02_02_00 - * ; hyuga из японии
-    .byte off_case_9CA3_02_02_01 - * ; hyuga из тохо
-    .byte off_case_9CA3_02_02_02 - * ; jito из японии
-    .byte off_case_9CA3_02_02_03 - * ; jito из куними
-    .byte off_case_9CA3_02_02_04 - * ; napoleon
-    .byte off_case_9CA3_02_02_05 - * ; игрок без рожи
-
-        off_case_9CA3_02_02_00:
-        ; hyuga из японии
-            .byte con_F7, $44
-            .byte con_pause + $3C
-            .byte con_bg + $31
-            .byte con_animation + $9E
-            .byte con_cloud + $C4
-            .byte con_jmp
-            .word loc_AA7B_forcible_dribble
-
-        off_case_9CA3_02_02_01:
-        ; hyuga из тохо
-            .byte con_F7, $44
-            .byte con_pause + $3C
-            .byte con_bg + $31
-            .byte con_animation + $B0
-            .byte con_cloud + $C4
-            .byte con_jmp
-            .word loc_AA7B_forcible_dribble
-
-        off_case_9CA3_02_02_02:
-        ; jito из японии
-            .byte con_F7, $44
-            .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $A0
-            .byte con_cloud + $C5
-            .byte con_jmp
-            .word loc_AA7B_forcible_dribble
-
-        off_case_9CA3_02_02_03:
-        ; jito из куними
-            .byte con_F7, $44
-            .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $AA
-            .byte con_cloud + $C5
-            .byte con_jmp
-            .word loc_AA7B_forcible_dribble
-
-        off_case_9CA3_02_02_04:
-        ; napoleon
-            .byte con_F7, $44
-            .byte con_pause + $40
-            .byte con_bg + $30
-            .byte con_animation + $B4
-            .byte con_cloud + $C6
-            .byte con_jmp
-            .word loc_AA7B_forcible_dribble
-
-        off_case_9CA3_02_02_05:
-        ; игрок без рожи
-            .byte con_jmp
-            .word loc_AA7E_forcible_dribble
-
-
-
-bra_long_case_9CA3_02_03:
-; vanishing feint
-    .byte con_jsr
-    .word sub_A86C_vanishing_feint
-    .byte con_F7, $02
-    .byte con_pause + $3C
-    .byte con_bg + $23
-    .byte con_animation + con_skip
-    .byte con_cloud + con_clear
-    .byte con_F7, $02
-    .byte con_soundID_delay, $11, $02
-    .byte con_pause + $46
-    .byte con_bg + con_skip
-    .byte con_animation + $D1
-    .byte con_cloud + $45
-    .byte con_mirror_toggle
     .byte con_rts
 
 
@@ -10129,36 +10467,6 @@ sub_A88F_рожа_carlos_brazil:
 
 
 
-bra_long_case_9CA3_02_04:
-; clone dribble
-    .dbyt con_branch_short + con_bra_plr_carlos
-    .byte off_case_A89D_02_04_00 - * ; carlos из фламенго
-    .byte off_case_A89D_02_04_00 - * ; carlos из бразилии
-
-        off_case_A89D_02_04_00:
-        ; carlos из фламенго
-            .byte con_jsr
-            .word sub_A885_рожа_carlos_flamengo
-        loc_A8A0_02_04_01:
-            .byte con_jsr
-            .word sub_A8AB_clone_dribble
-            .byte con_F7, $02
-            .byte con_pause + $46
-            .byte con_bg + con_skip
-            .byte con_animation + con_skip
-            .byte con_cloud + $45
-            .byte con_mirror_toggle
-            .byte con_rts
-
-        off_case_A89D_02_04_01:
-        ; carlos из бразилии
-            .byte con_jsr
-            .word sub_A88F_рожа_carlos_brazil
-            .byte con_jmp
-            .word loc_A8A0_02_04_01
-
-
-
 sub_A8AB_clone_dribble:
     .byte con_F7, $02
     .byte con_soundID_delay, $1F, $0D
@@ -10172,21 +10480,6 @@ sub_A8AB_clone_dribble:
     .byte con_animation + con_skip
     .byte con_cloud + con_skip
     .byte con_rts
-
-
-
-bra_long_case_9CA3_02_05:
-; high speed dribble
-    .byte con_jsr
-    .word sub_A8D0_high_speed_dribble
-    .byte con_F7, $0D
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $1E
-    .byte con_bg + $47
-    .byte con_animation + $D1
-    .byte con_cloud + $45
-    .byte con_jmp
-    .word loc_AAEF
 
 
 
@@ -10250,44 +10543,7 @@ sub_A908_kaltz_hedgehog_dribble:
 
 
 
-bra_long_case_9CA3_02_06:
-; hedgehog dribble
-    .dbyt con_branch_short + con_bra_plr_kaltz
-    .byte off_case_9CA3_02_06_00 - * ; kaltz 1
-    .byte off_case_9CA3_02_06_01 - * ; kaltz 2
-
-        off_case_9CA3_02_06_00:
-        ; kaltz 1
-            .byte con_jsr
-            .word sub_A8E5_kaltz_hedgehog_dribble
-        loc_A918_kaltz_hedgehog_dribble_обводит_соперника_не_убивая:
-            .byte con_jsr
-            .word sub_BBC7_очистка
-            .byte con_F7, $02
-            .byte con_soundID_delay, $26, $02
-            .byte con_pause + $17
-            .byte con_bg + con_skip
-            .byte con_animation + $D2
-            .byte con_cloud + con_clear
-            .byte con_F7, $02
-            .byte con_soundID_delay, $26, $02
-            .byte con_pause + $17
-            .byte con_bg + con_skip
-            .byte con_animation + $D1
-            .byte con_cloud + $45
-            .byte con_jmp
-            .word loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация
-
-        off_case_9CA3_02_06_01:
-        ; kaltz 2
-            .byte con_jsr
-            .word sub_A908_kaltz_hedgehog_dribble
-            .byte con_jmp
-            .word loc_A918_kaltz_hedgehog_dribble_обводит_соперника_не_убивая
-
-
-
-sub_A936_сообщение_игрока_при_нападении:
+sub_A936_сообщение_защитника_атакующему_при_нападении:
     .dbyt con_branch_short + con_bra_рожа_нападающего
     .byte off_case_A95A_00_игрок_без_рожи - * ; 
     .byte off_case_A95B_01_tsubasa - * ; 
@@ -10305,8 +10561,8 @@ sub_A936_сообщение_игрока_при_нападении:
     .byte off_case_A9BC_0D_soda - * ; 
     .byte off_case_A9C3_0E_jito - * ; 
     .byte off_case_A9CA_0F_jito - * ; 
-    .byte off_case_A9D1_10_masao_kazuo - * ; япония
-    .byte off_case_A9D8_11_masao_kazuo - * ; акита
+    .byte off_case_A9D1_10_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_A9D8_11_masao_kazuo - * ; masao kazuo акита
     .byte off_case_A9DF_12_nitta - * ; 
     .byte off_case_A9E6_13_nitta - * ; 
     .byte off_case_A9ED_14_sawada - * ; 
@@ -10612,62 +10868,6 @@ off_case_AA48_21_kaltz:
 
 
 
-bra_long_case_AA4F_00_shoot:
-bra_long_case_AA4F_00_dribble:
-bra_long_case_AA4F_01_pass:
-bra_long_case_AA4F_03_1_2_pass:
-; легкая обводка
-    .byte con_mirror_toggle
-    .byte con_F7, $02
-    .byte con_pause + $14
-    .byte con_bg + $22
-    .byte con_animation + $60
-    .byte con_cloud + $46
-    .byte con_F7, $33
-    .byte con_soundID_delay, $68, $02
-    .byte con_pause + $14
-    .byte con_bg + $6B
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
-    .byte con_jmp
-    .word loc_A7FE_движение_фона
-
-
-
-bra_long_case_AA6D_02_forcible_dribble:
-    .dbyt con_branch_short + con_bra_force_drib
-    .byte off_case_AA75_00_hyuga_из_японии - * ; 
-    .byte off_case_AA93_01_hyuga_из_тохо - * ; 
-    .byte off_case_AA9C_02_jito_из_японии - * ; 
-    .byte off_case_AAA5_03_jito_из_куними - * ; 
-    .byte off_case_AAAE_04_napoleon - * ; 
-    .byte off_case_AA7E_05_игрок_без_рожи - * ; 
-
-
-
-off_case_AA75_00_hyuga_из_японии:
-    .byte con_F7, $44
-    .byte con_pause + $40
-    .byte con_bg + $31
-    .byte con_animation + $9E
-    .byte con_cloud + $C4
-loc_AA7B_forcible_dribble:
-    .byte con_jsr
-    .word sub_BBC7_очистка
-loc_AA7E_forcible_dribble:
-off_case_AA7E_05_игрок_без_рожи:
-    .byte con_jsr
-    .word sub_AA89_forcible_dribble
-    .byte con_F7, $3A
-    .byte con_pause + $32
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $46
-    .byte con_mirror_toggle
-    .byte con_rts
-
-
-
 sub_AA89_forcible_dribble:
     .byte con_F7, $3A
     .byte con_soundID_delay, $27, $02
@@ -10679,173 +10879,8 @@ sub_AA89_forcible_dribble:
 
 
 
-off_case_AA93_01_hyuga_из_тохо:
-    .byte con_F7, $44
-    .byte con_pause + $40
-    .byte con_bg + $31
-    .byte con_animation + $B0
-    .byte con_cloud + $C4
-    .byte con_jmp
-    .word loc_AA7B_forcible_dribble
-
-
-
-off_case_AA9C_02_jito_из_японии:
-    .byte con_F7, $44
-    .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $C5
-    .byte con_jmp
-    .word loc_AA7B_forcible_dribble
-
-
-
-off_case_AAA5_03_jito_из_куними:
-    .byte con_F7, $44
-    .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + $C5
-    .byte con_jmp
-    .word loc_AA7B_forcible_dribble
-
-
-
-off_case_AAAE_04_napoleon:
-    .byte con_F7, $44
-    .byte con_pause + $40
-    .byte con_bg + $30
-    .byte con_animation + $B4
-    .byte con_cloud + $C6
-    .byte con_jmp
-    .word loc_AA7B_forcible_dribble
-
-
-
-bra_long_case_AAB7_03_vanishing_feint:
-    .byte con_jsr
-    .word sub_A86C_vanishing_feint
-    .byte con_F7, $02
-    .byte con_pause + $3C
-    .byte con_bg + $23
-    .byte con_animation + con_skip
-    .byte con_cloud + con_clear
-    .byte con_soundID_delay, $11, $02
-    .byte con_F7, $02
-    .byte con_pause + $46
-    .byte con_bg + con_skip
-    .byte con_animation + $D1
-    .byte con_cloud + $46
-    .byte con_mirror_toggle
-    .byte con_rts
-
-
-
-bra_long_case_AACB_04_clone_dribble:
-    .dbyt con_branch_short + con_bra_plr_carlos
-    .byte off_case_AACF_04_00 - * ; carlos из фламенго
-    .byte off_case_AACF_04_00 - * ; carlos из бразилии
-
-        off_case_AACF_04_00:
-        ; carlos из фламенго
-            .byte con_jsr
-            .word sub_A885_рожа_carlos_flamengo
-        loc_AAD2_04_01:
-            .byte con_jsr
-            .word sub_A8AB_clone_dribble
-            .byte con_F7, $02
-            .byte con_pause + $46
-            .byte con_bg + con_skip
-            .byte con_animation + con_skip
-            .byte con_cloud + $46
-            .byte con_mirror_toggle
-            .byte con_rts
-
-        off_case_AACF_04_01:
-        ; carlos из бразилии
-            .byte con_jsr
-            .word sub_A88F_рожа_carlos_brazil
-            .byte con_jmp
-            .word loc_AAD2_04_01
-
-
-
-bra_long_case_AAE3_05_high_speed_dribble:
-    .byte con_jsr
-    .word sub_A8D0_high_speed_dribble
-    .byte con_F7, $0D
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $1E
-    .byte con_bg + $47
-    .byte con_animation + $D1
-    .byte con_cloud + $46
-loc_AAEF:
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $1E
-    .byte con_bg + con_skip
-    .byte con_animation + $D2
-    .byte con_cloud + con_skip
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $1E
-    .byte con_bg + con_skip
-    .byte con_animation + $D1
-    .byte con_cloud + con_skip
-    .byte con_mirror_toggle
-    .byte con_rts
-
-
-
-bra_long_case_AAFF_06_hedgehog_dribble:
-    .dbyt con_branch_short + con_bra_plr_kaltz
-    .byte off_case_AB03_00_if_kaltz - * ; 
-    .byte off_case_AB2B_01_if_not_kaltz - * ; 
-
-
-
-off_case_AB03_00_if_kaltz:
-    .byte con_jsr
-    .word sub_A8E5_kaltz_hedgehog_dribble
-loc_AB06_kaltz_hedgehog_dribble_обводит_соперника_не_убивая:
-    .byte con_F7, $02
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $17
-    .byte con_bg + con_skip
-    .byte con_animation + $D2
-    .byte con_cloud + con_clear
-    .byte con_F7, $02
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $17
-    .byte con_bg + con_skip
-    .byte con_animation + $D1
-    .byte con_cloud + $46
-loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация:
-    .byte con_F7, $02
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $17
-    .byte con_bg + con_skip
-    .byte con_animation + $D2
-    .byte con_cloud + con_skip
-    .byte con_F7, $02
-    .byte con_soundID_delay, $26, $02
-    .byte con_pause + $17
-    .byte con_bg + con_skip
-    .byte con_animation + $D1
-    .byte con_cloud + con_skip
-    .byte con_rts
-
-
-
-off_case_AB2B_01_if_not_kaltz:
-    .byte con_jsr
-    .word sub_A908_kaltz_hedgehog_dribble
-    .byte con_jmp
-    .word loc_AB06_kaltz_hedgehog_dribble_обводит_соперника_не_убивая
-
-
-
+loc_AB31_полная_анимация_обычного_удара_с_земли:
 sub_AB31_полная_анимация_обычного_удара_с_земли:
-bra_long_case_AB31_00___shot:
     .byte con_mirror_off
     .byte con_soundID_delay, $19, $02
     .byte con_pause + $28
@@ -11644,8 +11679,8 @@ loc_AE4C_только_для_братьев:
     .byte off_case_AE64_0D_soda - * ; 
     .byte off_case_AE64_0E_jito - * ; 
     .byte off_case_AE64_0F_jito - * ; 
-    .byte off_case_AE69_10_masao_kazuo - * ; япония
-    .byte off_case_AEA4_11_masao_kazuo - * ; акита
+    .byte off_case_AE69_10_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_AEA4_11_masao_kazuo - * ; masao kazuo акита
     .byte off_case_AE64_12_nitta - * ; 
     .byte off_case_AE64_13_nitta - * ; 
     .byte off_case_AE64_14_sawada - * ; 
@@ -11922,7 +11957,6 @@ bra_long_case_AFBE_02_header:
     .byte con_bg + $2A
     .byte con_animation + $3B
     .byte con_cloud + $47
-bra_long_case_AFC5_00___:
     .byte con_rts
 
 
@@ -11991,8 +12025,8 @@ bra_long_case_AFF0_0E_overhead:
     .byte off_case_B01B_0D_soda - * ; 
     .byte off_case_B01B_0E_jito - * ; 
     .byte off_case_B01B_0F_jito - * ; 
-    .byte off_case_B01B_10_masao_kazuo - * ; япония
-    .byte off_case_B01B_11_masao_kazuo - * ; акита
+    .byte off_case_B01B_10_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_B01B_11_masao_kazuo - * ; masao kazuo акита
     .byte off_case_B01B_12_nitta - * ; 
     .byte off_case_B01B_13_nitta - * ; 
     .byte off_case_B01B_14_sawada - * ; 
@@ -12431,7 +12465,6 @@ bra_long_case_B182_01_volley:
     .byte con_bg + $58
     .byte con_animation + $6A
     .byte con_cloud + con_skip
-bra_long_case_B197_00___:
     .byte con_rts
 
 
@@ -12780,8 +12813,8 @@ sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом
 off_case_B2E0_01_защитный_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_B2F2_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B338_01_masao_kazuo - * ; япония
-    .byte off_case_B341_02_masao_kazuo - * ; акита
+    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_B2F2_03_soda - * ; 
     .byte off_case_B2F2_04_soda - * ; 
     .byte off_case_B2F2_05_jito - * ; 
@@ -12828,8 +12861,8 @@ off_case_B2F2_0F_ishizaki:
 bra_long_case_B2FE_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_B310_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B338_01_masao_kazuo - * ; япония
-    .byte off_case_B341_02_masao_kazuo - * ; акита
+    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_B310_03_soda - * ; 
     .byte off_case_B310_04_soda - * ; 
     .byte off_case_B310_05_jito - * ; 
@@ -12874,8 +12907,8 @@ off_case_B310_0F_ishizaki:
 bra_long_case_B31A_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_B32C_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B338_01_masao_kazuo - * ; япония
-    .byte off_case_B341_02_masao_kazuo - * ; акита
+    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_B32C_03_soda - * ; 
     .byte off_case_B32C_04_soda - * ; 
     .byte off_case_B32C_05_jito - * ; 
@@ -12944,8 +12977,8 @@ off_case_B341_02_masao_kazuo:
 sub_B347_защитник_прыгает_к_летящему_мячу_блоком:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
     .byte off_case_B359_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B365_01_masao_kazuo - * ; япония
-    .byte off_case_B36C_02_masao_kazuo - * ; акита
+    .byte off_case_B365_01_masao_kazuo - * ; masao kazuo япония
+    .byte off_case_B36C_02_masao_kazuo - * ; masao kazuo акита
     .byte off_case_B359_03_soda - * ; 
     .byte off_case_B359_04_soda - * ; 
     .byte off_case_B372_05_jito - * ; 
@@ -16102,16 +16135,8 @@ _scenario_BF05_69:
 
 
 _scenario_AA62_6A:
-loc_AA62_heel_lift:
-    .byte con_jsr
-    .word sub_A810_анимация_heel_lift
-    .byte con_F7, $02
-    .byte con_pause + $3C
-    .byte con_bg + $23
-    .byte con_animation + $E4
-    .byte con_cloud + $46
-    .byte con_mirror_toggle
-    .byte con_rts
+    .byte con_jmp
+    .word loc_AA62_heel_lift
 
 
 
