@@ -2393,7 +2393,7 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02     ; действие защитника на своей штрафной
 - - - - - - 0x0209D5 10:89C5: 8E B4     .word _scenario_B48E_03     ; полет мяча, затем игрок принимает его на ногу во время бега (аналогично заверщению спешал перепасовки)
 - D - I - - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04     ; белое мерцание со звуком сражения (oh), когда игроки сражаются на штрафной
-- D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05_10  ; попытка убийства атакующего, который проиграл действие на чужой штрафной
+- D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05     ; попытка убийства атакующего, который проиграл действие на чужой штрафной (аналогично 10)
 - D - I - - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06     ; попытка убийства защитника, который проиграл действие на своей штрафной
 - D - I - - 0x0209DD 10:89CD: 85 92     .word _scenario_9285_07     ; хз
 - D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08     ; действие атакующего на чужой штрафной
@@ -2405,7 +2405,7 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209E9 10:89D9: F7 96     .word _scenario_96F7_0D     ; игрок автоматически бьет когда обвел кипера
 - D - I - - 0x0209EB 10:89DB: EA 91     .word _scenario_91EA_0E     ; игрок бежит/прыгает к мячу на штрафной и что-то делает
 - D - I - - 0x0209ED 10:89DD: 05 92     .word _scenario_9205_0F     ; действие атакующего на своей штрафной
-- D - I - - 0x0209EF 10:89DF: 59 92     .word _scenario_9259_05_10  ; попытка убийства атакующего, который проиграл действие на своей штрафной
+- D - I - - 0x0209EF 10:89DF: 59 92     .word _scenario_9259_10     ; попытка убийства атакующего, который проиграл действие на своей штрафной (аналогично 05)
 - D - I - - 0x0209F1 10:89E1: 69 92     .word _scenario_9269_11     ; попытка убийства защитника, который проиграл действие на чужой штрафной
 - D - I - - 0x0209F3 10:89E3: 7F 92     .word _scenario_927F_12     ; результат сражения на своей штрафной, когда мяч у тебя
 - D - I - - 0x0209F5 10:89E5: D3 91     .word _scenario_91D3_13     ; атакующему позволили совершить действие на своей штрафной. анимация как он делает это действие
@@ -3641,60 +3641,6 @@ loc_8D38_защитник_ловит_блоком_высокий_мяч:
 
 
 
-_scenario_91D3_13:
-    .dbyt con_branch_long + con_bra_высота_мяча
-    .word bra_long_case_13_00 ; low
-    .word bra_long_case_13_01 ; high
-
-        bra_long_case_13_00:
-        ; low
-            .dbyt con_branch_short + con_bra_действ_атак_на_своей_штрафной
-            .byte off_case_13_00_00 - * ; pass
-            .byte off_case_13_00_01 - * ; trap
-            .byte off_case_13_00_02 - * ; clearing
-
-                off_case_13_00_00:
-                ; low/pass
-                    .byte con_jmp
-                    .word loc_933C_low_pass_ногой_на_своей_штрафной
-
-                off_case_13_00_01:
-                ; low/trap
-                    .byte con_jmp
-                    .word loc_9341_low_trap_ногой_на_своей_штрафной
-
-                off_case_13_00_02:
-                ; low/cleraring
-                    .byte con_mirror_toggle
-                    .byte con_jmp
-                    .word loc_A22E_игрок_делает_low_clearing_ногой_на_своей_штрафной
-
-        bra_long_case_13_01:
-        ; high
-            .dbyt con_branch_short + con_bra_действ_атак_на_своей_штрафной
-            .byte off_case_13_01_00 - * ; pass
-            .byte off_case_13_01_01 - * ; trap
-            .byte off_case_13_01_02 - * ; clearing
-
-                off_case_13_01_00:
-                ; high/pass
-                    .byte con_jmp
-                    .word loc_9350
-
-                off_case_13_01_01:
-                ; high/trap
-                    .byte con_mirror_condition, $03       ; куда летит мяч
-                    .byte con_jmp
-                    .word loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители
-
-                off_case_13_01_02:
-                ; high/clearing
-                    .byte con_mirror_toggle
-                    .byte con_jmp
-                    .word loc_A238_игрок_делает_clear_головой
-
-
-
 _scenario_91F2_01:
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_long + con_bra_высота_мяча
@@ -3867,99 +3813,9 @@ _scenario_91FF_02:
 
 
 
-_scenario_9205_0F:
-    .byte con_mirror_condition, $01       ; номер защитника
-    .dbyt con_branch_long + con_bra_43         ; действие атакующего на своей штрафной
-    .word bra_long_case_0F_00 ; pass
-    .word bra_long_case_0F_01 ; clearing
-    .word bra_long_case_0F_02 ; through
-
-        bra_long_case_0F_00:
-        bra_long_case_0F_01:
-        ; pass, clearing
-loc_9217:
-            .dbyt con_branch_short + con_bra_высота_мяча
-            .byte off_case_0F_00_00 - * ; low
-            .byte off_case_0F_00_01 - * ; high
-
-                off_case_0F_00_00:
-                ; pass, clearing/low
-                    .dbyt con_branch_short + con_bra_порядковый_номер_защитника
-                    .byte off_case_0F_00_00_00 - * ; защитник 1
-                    .byte off_case_0F_00_00_01 - * ; защитник 2
-                    .byte off_case_0F_00_00_02 - * ; защитник 3
-                    .byte off_case_0F_00_00_03 - * ; защитник 4
-                    .byte off_case_0F_00_00_04 - * ; защитник 5
-
-                        off_case_0F_00_00_00:
-                        ; pass, clearing/low/защитник 1
-                            .byte con_jmp
-                            .word loc_9C85_защитник_бежит_по_земле_1й
-
-                        off_case_0F_00_00_01:
-                        ; pass, clearing/low/защитник 2
-                            .byte con_jmp
-                            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
-
-                        off_case_0F_00_00_02:
-                        ; pass, clearing/low/защитник 3
-                            .byte con_jmp
-                            .word loc_9C9D_защитник_бежит_по_земле_3й
-
-                        off_case_0F_00_00_03:
-                        ; pass, clearing/low/защитник 4
-                            .byte con_jmp
-                            .word loc_9C97_защитник_бежит_по_земле_4й
-
-                        off_case_0F_00_00_04:
-                        ; pass, clearing/low/защитник 5
-                            .byte con_jmp
-                            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
-
-                off_case_0F_00_01:
-                ; pass, clearing/high
-                    .dbyt con_branch_short + con_bra_порядковый_номер_защитника
-                    .byte off_case_0F_00_01_00 - * ; защитник 1
-                    .byte off_case_0F_00_01_01 - * ; защитник 2
-                    .byte off_case_0F_00_01_02 - * ; защитник 3
-                    .byte off_case_0F_00_01_03 - * ; защитник 4
-                    .byte off_case_0F_00_01_04 - * ; защитник 5
-
-                        off_case_0F_00_01_00:
-                        ; pass, clearing/high/защитник 1
-                            .byte con_jmp
-                            .word loc_9C61_защитник_прыгает_в_воздух_1й
-
-                        off_case_0F_00_01_01:
-                        ; pass, clearing/high/защитник 2
-                            .byte con_jmp
-                            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
-
-                        off_case_0F_00_01_02:
-                        ; pass, clearing/high/защитник 3
-                            .byte con_jmp
-                            .word loc_9C73_защитник_прыгает_в_воздух_3й
-
-                        off_case_0F_00_01_03:
-                        ; pass, clearing/high/защитник 4
-                            .byte con_jmp
-                            .word loc_9C67_защитник_прыгает_в_воздух_4й
-
-                        off_case_0F_00_01_04:
-                        ; pass, clearing/high/защитник 4
-                            .byte con_jmp
-                            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
-
-        bra_long_case_0F_02:
-        ; through
-loc_BD87:
-            .byte con_mirror_condition, $01       ; номер защитника
-            .byte con_F7, $02
-            .byte con_pause + $28
-            .byte con_bg + $23
-            .byte con_animation + $5A
-            .byte con_cloud + $E8
-            .byte con_rts
+_scenario_B48E_03:
+            .byte con_jmp
+            .word loc_B48E
 
 
 
@@ -3970,7 +3826,8 @@ _scenario_9BCB_04:
 
 
 
-_scenario_9259_05_10:
+_scenario_9259_05:
+loc_9259:
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_short + con_bra_выживет_ли_защитник
     .byte off_case_05_00 - * ; защитник выживет
@@ -4028,160 +3885,6 @@ _scenario_9263_06:
                     .byte con_jsr
                     .word sub_9FB5_убийство_кипера
                     .byte con_quit
-
-
-
-_scenario_9269_11:
-    .byte con_jmp
-    .word loc_9264
-
-
-
-_scenario_927F_12:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .dbyt con_branch_long + con_bra_высота_мяча
-    .word bra_long_case_12_00 ; low
-    .word bra_long_case_12_01 ; high
-
-        bra_long_case_12_00:
-        ; low
-            .dbyt con_branch_short + con_bra_выживет_ли_защитник
-            .byte off_case_12_00_00 - * ; защитник выживет
-            .byte off_case_12_00_01 - * ; защитник убьется
-
-                off_case_12_00_00:
-                ; защитник выживет
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_12_00_00_00 - * ; 
-                    .byte off_case_12_00_00_01 - * ; 
-                    .byte off_case_12_00_00_02 - * ; 
-                    .byte off_case_12_00_00_03 - * ; 
-
-                        off_case_12_00_00_00:
-                        off_case_12_00_00_01:
-                            .byte con_quit
-
-                        off_case_12_00_00_02:
-                            .byte con_jsr
-                            .word sub_A371_мяч_улетает_в_сторону
-                            .byte con_quit
-
-                        off_case_12_00_00_03:
-                            .dbyt con_branch_short + con_bra_15
-                            .byte off_case_12_00_00_03_00 - * ; 
-                            .byte off_case_12_00_00_03_01 - * ; 
-
-                                off_case_12_00_00_03_00:
-                                    .byte con_jmp
-                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
-
-                                off_case_12_00_00_03_01:
-                                    .byte con_jsr
-                                    .word sub_A1B1_защитник_выигрывает_нижний_compete
-                                    .byte con_jmp
-                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
-
-                off_case_12_00_01:
-                ; защитник убьется
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_12_00_01_00 - * ; 
-                    .byte off_case_12_00_01_01 - * ; 
-                    .byte off_case_12_00_01_02 - * ; 
-                    .byte off_case_12_00_01_03 - * ; 
-
-                        off_case_12_00_01_00:
-                        off_case_12_00_01_01:
-                            .byte con_quit
-
-                        off_case_12_00_01_02:
-                            .byte con_jsr
-                            .word sub_A371_мяч_улетает_в_сторону
-                            .byte con_quit
-
-                        off_case_12_00_01_03:
-                            .dbyt con_branch_short + con_bra_15
-                            .byte off_case_12_00_01_03_00 - * ; 
-                            .byte off_case_12_00_01_03_01 - * ; 
-
-                        off_case_12_00_01_03_00:
-                                    .byte con_jmp
-                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
-
-                    off_case_12_00_01_03_01:
-                                    .byte con_jsr
-                                    .word sub_A1B1_защитник_выигрывает_нижний_compete
-                                    .byte con_jmp
-                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
-
-        bra_long_case_12_01:
-        ; high
-            .dbyt con_branch_short + con_bra_выживет_ли_защитник
-            .byte off_case_12_01_00 - * ; защитник выживет
-            .byte off_case_12_01_01 - * ; защитник убьется
-
-                off_case_12_01_00:
-                ; high/защитник выживет
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_12_01_00_00 - * ; 
-                    .byte off_case_12_01_00_01 - * ; 
-                    .byte off_case_12_01_00_02 - * ; 
-                    .byte off_case_12_01_00_03 - * ; 
-
-                        off_case_12_01_00_00:
-                        off_case_12_01_00_01:
-                            .byte con_quit
-
-                        off_case_12_01_00_02:
-                            .byte con_jsr
-                            .word sub_A371_мяч_улетает_в_сторону
-                            .byte con_quit
-
-                        off_case_12_01_00_03:
-                            .dbyt con_branch_short + con_bra_15
-                            .byte off_case_12_01_00_03_00 - * ; 
-                            .byte off_case_12_01_00_03_01 - * ; 
-
-                                off_case_12_01_00_03_00:
-                                    .byte con_jmp
-                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
-
-                                off_case_12_01_00_03_01:
-                                    .byte con_jsr
-                                    .word sub_A1BB_защитник_выигрывает_верхний_compete
-                                    .byte con_jmp
-                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
-
-                off_case_12_01_01:
-                ; high/защитник убьется
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_12_01_01_00 - * ; 
-                    .byte off_case_12_01_01_01 - * ; 
-                    .byte off_case_12_01_01_02 - * ; 
-                    .byte off_case_12_01_01_03 - * ; 
-
-                        off_case_12_01_01_00:
-                        off_case_12_01_01_01:
-                            .byte con_quit
-
-                        off_case_12_01_01_02:
-                            .byte con_jsr
-                            .word sub_A371_мяч_улетает_в_сторону
-                            .byte con_quit
-
-                        off_case_12_01_01_03:
-                            .dbyt con_branch_short + con_bra_15
-                            .byte off_case_12_01_01_03_00 - * ; 
-                            .byte off_case_12_01_01_03_01 - * ; 
-
-                                off_case_12_01_01_03_00:
-                                    .byte con_jmp
-                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
-
-                                off_case_12_01_01_03_01:
-                                    .byte con_jsr
-                                    .word sub_A1BB_защитник_выигрывает_верхний_compete
-                                    .byte con_jmp
-                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
 
 
 
@@ -4437,366 +4140,6 @@ loc_9350:
                     .byte con_jmp
                     .word loc_B43D_игрок_делает_верхний_through
 
-
-
-;_scenario_9369_09:
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_9EF6_выбор_анимации_полета_удара
-    .byte con_jsr
-    .word sub_936A_выбор_анимации_касания_мяча_кипером
-    .byte con_jsr
-    .word sub_936E_выбор_финального_результата
-    .byte con_rts
-
-
-
-sub_936A_выбор_анимации_касания_мяча_кипером:
-    .dbyt con_branch_long + con_bra_действие_защитника
-    .word bra_long_case_936A_00 ; catch
-    .word bra_long_case_936A_01 ; punch
-    .word bra_long_case_936A_02 ; triangle jump
-
-        bra_long_case_936A_00:
-        ; catch
-            .dbyt con_branch_short + con_bra_разновидность_catch
-            .byte off_case_936A_00_00 - * ; normal catch
-            .byte off_case_936A_00_01 - * ; rolling save
-            .byte off_case_936A_00_02 - * ; clone save
-            .byte off_case_936A_00_03 - * ; dark illusion
-
-                off_case_936A_00_00:
-                ; catch/normal catch
-                    .byte con_jsr
-                    .word sub_9F9C_крит_кипера
-                    .dbyt con_branch_short + con_bra_выживет_ли_защитник
-                    .byte off_case_936A_00_00_00 - * ; кипер выживет
-                    .byte off_case_936A_00_00_01 - * ; кипер убьется
-
-                        off_case_936A_00_00_00:
-                        ; catch/normal catch/кипер выживет
-                            .dbyt con_branch_short + con_bra_результат_действия_защитника
-                            .byte off_case_936A_00_00_00_00 - * ; кипер пропустит обычный удар
-                            .byte off_case_936A_00_00_00_01 - * ; кипер пропустит спешал удар
-                            .byte off_case_936A_00_00_00_02 - * ; кипер с трудом отобьет ладонью
-                            .byte off_case_936A_00_00_00_03 - * ; кипер легко словит
-
-                                off_case_936A_00_00_00_00:
-                                ; catch/normal catch/кипер выживет/кипер пропустит обычный удар
-                                off_case_936A_00_00_00_01:
-                                ; catch/normal catch/кипер выживет/кипер пропустит спешал удар
-                                    .byte con_jmp
-                                    .word loc_A094_кипер_не_дотягивается_до_мяча_при_ловле
-
-                                off_case_936A_00_00_00_02:
-                                    ; catch/normal catch/кипер выживет/кипер с трудом отобьет ладонью
-                                    .byte con_jsr
-                                    .word sub_A0A1_кипер_ловит_мяч_без_звука
-                                    .byte con_jsr
-                                    .word sub_A308_белое_мерцание
-                                    .byte con_jsr
-                                    .word sub_B45D_мяч_улетает_в_сторону
-                                    .byte con_jmp
-                                    .word loc_9EF0_попытка_включить_drive_tiger
-
-                                off_case_936A_00_00_00_03:
-                                    ; catch/normal catch/кипер выживет/кипер легко словит
-                                    .byte con_jsr
-                                    .word sub_A0A6_кипер_ловит_мяч_со_звуком
-                                    .byte con_jmp
-                                    .word loc_9770_сообщение_об_идеальном_сейве
-
-                        off_case_936A_00_00_01:
-                        ; catch/normal catch/кипер убьется
-                            .byte off_case_936A_00_00_01_00 - * ; кипер пропустит обычный удар
-                            .byte off_case_936A_00_00_01_01 - * ; кипер коснется спешала и умрет
-                            .byte off_case_936A_00_00_01_02 - * ; кипер с трудом отобьет ладонью
-                            .byte off_case_936A_00_00_01_03 - * ; кипер легко словит (unused?)
-
-                                off_case_936A_00_00_01_00:
-                                ; catch/normal catch/кипер убьется/кипер пропустит обычный удар
-                                off_case_936A_00_00_01_01:
-                                ; catch/normal catch/кипер убьется/кипер коснется спешала и умрет
-                                off_case_936A_00_00_01_02:
-                                ; catch/normal catch/кипер убьется/кипер с трудом отобьет ладонью
-                                    .byte con_jsr
-                                    .word sub_A0A1_кипер_ловит_мяч_без_звука
-                                    .byte con_jsr
-                                    .word sub_A2DD_ярко_красное_мерцание
-                                    .byte con_jmp
-                                    .word loc_9FB5_убийство_кипера
-
-                                off_case_936A_00_00_01_03:
-                                    .byte con_jmp
-                                    .word loc_A0A6_кипер_ловит_мяч_со_звуком
-
-                off_case_936A_00_01:
-                ; catch/rolling save
-                    .byte con_jsr
-                    .word sub_A0CD_rolling_save_полная_анимация
-                    .byte con_jmp
-                    .word loc_936B_продолжить_вычисление_спешал_catch
-
-                off_case_936A_00_02:
-                ; catch/clone save
-                    .byte con_jsr
-                    .word sub_A1FF_clone_save
-                    .byte con_jmp
-                    .word loc_936B_продолжить_вычисление_спешал_catch
-
-                off_case_936A_00_03:
-                ; catch/dark illusion
-                    .byte con_jsr
-                    .word sub_A1E4_dark_illusion
-                loc_936B_продолжить_вычисление_спешал_catch:
-                ; catch/спешал catch
-                    .dbyt con_branch_short + con_bra_выживет_ли_защитник
-                    .byte off_case_936A_00_01_00 - * ; кипер выживет
-                    .byte off_case_936A_00_01_01 - * ; кипер убьется
-
-                        off_case_936A_00_01_00:
-                        ; catch/спешал catch/кипер выживет
-                            .dbyt con_branch_short + con_bra_результат_действия_защитника
-                            .byte off_case_936A_00_01_00_00 - * ; кипер пропустит обычный удар
-                            .byte off_case_936A_00_01_00_01 - * ; кипер пропустит спешал удар
-                            .byte off_case_936A_00_01_00_02 - * ; кипер с трудом отобьет кулаком
-                            .byte off_case_936A_00_01_00_03 - * ; кипер легко словит
-
-                                off_case_936A_00_01_00_00:
-                                ; catch/спешал catch/кипер выживет/кипер пропустит обычный удар
-                                off_case_936A_00_01_00_01:
-                                ; catch/спешал catch/кипер выживет/кипер пропустит спешал удар
-                                    .byte con_jmp
-                                    .word loc_A109_кипер_промахивается_кулаком_после_спешала
-
-                                off_case_936A_00_01_00_02:
-                                ; catch/спешал catch/кипер выживет/кипер с трудом отобьет кулаком
-                                    .byte con_jsr
-                                    .word sub_BF04_кипер_собирается_напороться_кулаком_на_мяч
-                                    .byte con_jsr
-                                    .word sub_A308_белое_мерцание
-                                    .byte con_jsr
-                                    .word sub_A371_мяч_улетает_в_сторону
-                                    .byte con_jmp
-                                    .word loc_9EF0_попытка_включить_drive_tiger
-
-                                off_case_936A_00_01_00_03:
-                                ; catch/спешал catch/кипер выживет/кипер легко словит
-                                    .byte con_jsr
-                                    .word sub_A099_анимация_кипер_мгновенно_ловит_мяч
-                                    .byte con_jsr
-                                    .word sub_B44E_кипер_идеально_засейвил
-                                    .byte con_jmp
-                                    .word loc_9EF0_попытка_включить_drive_tiger
-
-                        off_case_936A_00_01_01:
-                        ; catch/спешал catch/кипер убьется
-                            .dbyt con_branch_short + con_bra_результат_действия_защитника
-                            .byte off_case_936A_00_01_01_00 - * ; кипер пропустит обычный удар
-                            .byte off_case_936A_00_01_01_01 - * ; кипер коснется спешала и умрет
-                            .byte off_case_936A_00_01_01_02 - * ; кипер с трудом отобьет
-                            .byte off_case_936A_00_01_01_03 - * ; кипер словит
-
-                                off_case_936A_00_01_01_00:
-                                ; catch/спешал catch/кипер убьется/кипер пропустит обычный удар
-                                off_case_936A_00_01_01_01:
-                                ; catch/спешал catch/кипер убьется/кипер коснется спешала и умрет
-                                off_case_936A_00_01_01_02:
-                                ; catch/спешал catch/кипер убьется/кипер с трудом отобьет
-                                    .byte con_jsr
-                                    .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
-                                    .byte con_jsr
-                                    .word sub_A2DD_ярко_красное_мерцание
-                                    .byte con_jmp
-                                    .word loc_9FB5_убийство_кипера
-
-                                off_case_936A_00_01_01_03:
-                                ; catch/спешал catch/кипер убьется/кипер словит
-                                    .byte con_jsr
-                                    .word sub_A099_анимация_кипер_мгновенно_ловит_мяч
-                                    .byte con_jsr
-                                    .word sub_B44E_кипер_идеально_засейвил
-                                    .byte con_jmp
-                                    .word loc_9EF0_попытка_включить_drive_tiger
-
-        bra_long_case_936A_01:
-        ; punch
-            .byte con_jsr
-            .word sub_9F9C_крит_кипера
-            .dbyt con_branch_short + con_bra_выживет_ли_кипер_после_punch
-            .byte off_case_936A_01_00 - * ; кипер выживет
-            .byte off_case_936A_01_01 - * ; кипер убьется
-
-                off_case_936A_01_00:
-                ; punch/кипер выживет
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_936A_01_00_00 - * ; кипер пропустит обычный удар
-                    .byte off_case_936A_01_00_01 - * ; кипер пропустит спешал удар
-                    .byte off_case_936A_01_00_02 - * ; кипер с трудом отобьет
-                    .byte off_case_936A_01_00_03 - * ; кипер легко отобьет
-
-                        off_case_936A_01_00_00:
-                        ; punch/кипер выживет/кипер пропустит обычный удар
-                        off_case_936A_01_00_01:
-                        ; punch/кипер выживет/кипер пропустит спешал удар
-                            .byte con_jmp
-                            .word loc_A10E_кипер_не_дотягивается_кулаком_до_мяча
-
-                        off_case_936A_01_00_02:
-                        ; punch/кипер выживет/кипер с трудом отобьет
-                            .byte con_drive, con_overhead
-                            .word ofs_93BE_00_кипер_с_трудом_обивает
-                            .word ofs_93C4_01_drive_shot_бесполезен
-                            .word ofs_93D0_02_meon_с_трудом_отбивает_1й_раз
-                            .word ofs_93DF_03_meon_с_трудом_отбивает_2й_раз_и_озарение
-
-                        off_case_936A_01_00_03:
-                        ; punch/кипер выживет/кипер легко отобьет
-                            .byte con_drive, con_overhead
-                            .word ofs_93FB_00
-                            .word ofs_9404_01
-                            .word ofs_940D_02
-                            .word ofs_9419_03
-
-                off_case_936A_01_01:
-                ; punch/кипер убьется
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_936A_01_01_00 - * ; кипер пропустит обычный удар
-                    .byte off_case_936A_01_01_01 - * ; кипер коснется спешала и умрет
-                    .byte off_case_936A_01_01_02 - * ; кипер с трудом отобьет
-                    .byte off_case_936A_01_01_03 - * ; кипер легко отобьет
-
-                        off_case_936A_01_01_00:
-                        ; punch/кипер убьется/кипер пропустит обычный удар
-                        off_case_936A_01_01_01:
-                        ; punch/кипер убьется/кипер коснется спешала и умрет
-                            .byte con_jsr
-                            .word sub_A122_кипер_собирается_коснуться_мяча_кулаком
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jmp
-                            .word loc_9FB5_убийство_кипера
-
-                        off_case_936A_01_01_02:
-                        ; punch/кипер убьется/кипер с трудом отобьет
-                            .byte con_drive, con_overhead
-                            .word ofs_946A_00_кипер_убивается_и_мяч_отлетает
-                            .word ofs_93C4_01_drive_shot_бесполезен
-                            .word ofs_93D0_02_meon_с_трудом_отбивает_1й_раз
-                            .word ofs_93DF_03_meon_с_трудом_отбивает_2й_раз_и_озарение
-
-                        off_case_936A_01_01_03:
-                        ; punch/кипер убьется/кипер легко отобьет
-                            .byte con_drive, con_overhead
-                            .word ofs_93FB_00
-                            .word ofs_9404_01
-                            .word ofs_940D_02
-                            .word ofs_9419_03
-
-        bra_long_case_936A_02:
-        ; triangle jump
-            .byte con_jsr
-            .word sub_9C5B_wakashimazu_отскок_от_штанги
-            .dbyt con_branch_short + con_bra_выживет_ли_защитник
-            .byte off_case_936A_02_00 - * ; кипер выживет
-            .byte off_case_936A_02_01 - * ; кипер убьется
-
-                off_case_936A_02_00:
-                ; triangle jump/кипер выживет
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_936A_02_00_00 - * ; кипер пропустит обычный удар
-                    .byte off_case_936A_02_00_01 - * ; кипер пропустит спешал удар
-                    .byte off_case_936A_02_00_02 - * ; кипер отобьет
-                    .byte off_case_936A_02_00_03 - * ; кипер словит
-
-                        off_case_936A_02_00_00:
-                        ; triangle jump/кипер выживет/кипер пропустит обычный удар
-                        off_case_936A_02_00_01:
-                        ; triangle jump/кипер выживет/кипер пропустит спешал удар
-                            .byte con_jmp
-                            .word loc_A1DD_triangle_jump_не_достает_до_мяча
-
-                        off_case_936A_02_00_02:
-                        ; triangle jump/кипер выживет/кипер отобьет
-                            .byte con_jsr
-                            .word sub_A1CA_triangle_jump_ловит_мяч
-                            .byte con_jsr
-                            .word sub_A308_белое_мерцание
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-                        off_case_936A_02_00_03:
-                        ; triangle jump/кипер выживет/кипер словит
-                            .byte con_jsr
-                            .word sub_A1D1_triangle_jump_ловит_мяч
-                            .byte con_jmp
-                            .word loc_B44E_кипер_идеально_засейвил
-
-                off_case_936A_02_01:
-                ; triangle jump/кипер убьется
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_936A_02_01_00 - * ; кипер пропустит обычный удар
-                    .byte off_case_936A_02_01_01 - * ; кипер коснется спешала и умрет
-                    .byte off_case_936A_02_01_02 - * ; кипер с трудом отобьет
-                    .byte off_case_936A_02_01_03 - * ; кипер словит
-
-                        off_case_936A_02_01_00:
-                        ; triangle jump/кипер убьется/кипер пропустит обычный удар
-                        off_case_936A_02_01_01:
-                        ; triangle jump/кипер убьется/кипер коснется спешала и умрет
-                            .byte con_jsr
-                            .word sub_A1CA_triangle_jump_ловит_мяч
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jmp
-                            .word loc_9FB5_убийство_кипера
-
-                        off_case_936A_02_01_02:
-                        ; triangle jump/кипер убьется/кипер с трудом отобьет
-                            .byte con_jsr
-                            .word sub_A1CA_triangle_jump_ловит_мяч
-                            .byte con_jsr
-                            .word sub_A2DD_ярко_красное_мерцание
-                            .byte con_jsr
-                            .word sub_9FB5_убийство_кипера
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-                        off_case_936A_02_01_03:
-                        ; triangle jump/кипер убьется/кипер словит
-                            .byte con_jsr
-                            .word sub_A1D1_triangle_jump_ловит_мяч
-                            .byte con_jmp
-                            .word loc_B44E_кипер_идеально_засейвил
-
-
-
-sub_936E_выбор_финального_результата:
-    .dbyt con_branch_long + con_bra_действие_защитника
-    .word bra_long_case_936E_00 ; catch
-    .word bra_long_case_936E_01 ; punch
-    .word bra_long_case_936E_02 ; triangle jump
-
-        bra_long_case_936E_00:
-        ; catch
-            .dbyt con_branch_short + con_bra_выживет_ли_защитник
-            .byte off_case_936E_00_00 - * ; кипер выживет
-            .byte off_case_936E_00_01 - * ; кипер убьется
-
-                off_case_936E_00_00:
-
-                    
-
-                off_case_936E_00_01:
-
-            
-        bra_long_case_936E_01:
-        ; punch
-
-            
-
-        bra_long_case_936E_02:
-        ; triangle jump
 
 
 _scenario_9369_09:
@@ -5946,136 +5289,6 @@ loc_94C7_wakashimazu_triagle_jump_ловит_мяч:
 
 
 
-_scenario_96E3_0C:
-; !!! правильные ли комменты?
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_9EF6_выбор_анимации_полета_удара
-    .dbyt con_branch_short + con_bra_результат_действия_защитника     ; ? порвется ли мяч
-    .byte off_case_0C_00 - * ; мяч не порвется
-    .byte off_case_0C_01 - * ; мяч порвется
-
-        off_case_0C_00:
-        ; мяч не порвется
-        loc_96F0_0C_01_00:
-            .dbyt con_branch_short + con_bra_результат_пропуска_мяча_кипером
-            .byte off_case_0C_00_00 - * ; гол
-            .byte off_case_0C_00_01 - * ; штанга
-            .byte off_case_0C_00_02 - * ; защитник отобьет
-            .byte off_case_0C_00_03 - * ; штанга и добивание
-            .byte off_case_0C_00_04 - * ; защитник промахнется
-
-                off_case_0C_00_00:
-                ; мяч не порвется/гол
-                    .byte con_jmp
-                    .word loc_9C28_гол_и_проверка_на_рваную_сетку
-
-                off_case_0C_00_01:
-                ; мяч не порвется/штанга
-                    .byte con_jsr
-                    .word sub_A24E_штанга_со_звуком
-                    .byte con_jmp
-                    .word loc_A258_полет_мяча_после_отскока_от_штанги
-
-                off_case_0C_00_02:
-                ; мяч не порвется/защитник отобьет
-                    .byte con_jsr
-                    .word sub_A0B6_защитник_касается_мяча_при_спасении_ворот
-                    .byte con_jsr
-                    .word sub_A312_небольшая_пауза
-                    .byte con_jmp
-                    .word loc_A371_мяч_улетает_в_сторону
-
-                off_case_0C_00_03:
-                ; мяч не порвется/штанга и добивание
-                    .byte con_jsr
-                    .word sub_A24E_штанга_со_звуком
-                    .byte con_jsr
-                    .word sub_A258_полет_мяча_после_отскока_от_штанги
-                    .byte con_jsr
-                    .word sub_A212_добивание_отскока_от_штанги_соперником
-                    .byte con_jmp
-                    .word loc_9C28_гол_и_проверка_на_рваную_сетку
-
-                off_case_0C_00_04:
-                ; мяч не порвется/защитник промахнется
-                    .byte con_jsr
-                    .word sub_A0BE_защитник_промахивается
-                    .byte con_jmp
-                    .word loc_9C28_гол_и_проверка_на_рваную_сетку
-
-        off_case_0C_01:
-        ; мяч порвется
-            .dbyt con_branch_short + con_bra_обычный_или_спешал     ; ? порвется ли мяч
-            .byte off_case_0C_01_00 - * ; 
-            .byte off_case_0C_01_01 - * ; 
-
-                off_case_0C_01_00:
-                ; мяч порвется/???
-                    .byte con_jmp
-                    .word loc_96F0_0C_01_00
-
-                off_case_0C_01_01:
-                ; мяч порвется/???
-                    .byte con_jsr
-                    .word sub_A2F4_сообщение_oops_на_мигающем_белом_фоне
-                    .byte con_jmp
-                    .word loc_A364_рваный_мяч
-
-
-
-_scenario_96F7_0D:
-    .byte con_jsr
-    .word sub_AB31_полная_анимация_обычного_удара_с_земли
-    .byte con_mirror_condition, $03       ; куда летит мяч
-    .byte con_jsr
-    .word sub_B4E7_конечный_полет_обычного_удара_с_земли
-    .dbyt con_branch_short + con_bra_появится_ли_защитник_в_воротах
-    .byte off_case_0D_00 - * ; защитник не появится
-    .byte off_case_0D_01 - * ; защитник промахнется
-    .byte off_case_0D_02 - * ; защитник отобьет
-
-        off_case_0D_00:
-        ; защитник не появится
-            .byte con_jmp
-            .word loc_9C28_гол_и_проверка_на_рваную_сетку
-
-        off_case_0D_01:
-        ; защитник промахнется
-            .byte con_jsr
-            .word sub_A0BE_защитник_промахивается
-            .byte con_jmp
-            .word loc_9C28_гол_и_проверка_на_рваную_сетку
-
-        off_case_0D_02:
-        ; защитник отобьет
-            .byte con_jsr
-            .word sub_A0B6_защитник_касается_мяча_при_спасении_ворот
-            .byte con_jsr
-            .word sub_A312_небольшая_пауза
-            .byte con_jmp
-            .word loc_A371_мяч_улетает_в_сторону
-
-
-
-_scenario_91EA_0E:
-    .byte con_mirror_condition, $01       ; номер защитника
-    .dbyt con_branch_short + con_bra_высота_мяча
-    .byte off_case_0E_00 - * ; low
-    .byte off_case_0E_01 - * ; high
-
-        off_case_0E_00:
-        ; low
-            .byte con_jmp
-            .word loc_B29B_бежать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
-
-        off_case_0E_01:
-        ; high
-            .byte con_jmp
-            .word loc_AE64_прыгать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
-
-
-
 _scenario_9811_0A:
     .dbyt con_branch_long + con_bra_действие_атаки_на_земле
     .word bra_long_case_0A_00 ; shoot
@@ -6784,6 +5997,807 @@ _scenario_98ED_0B:
 
 
 
+_scenario_96E3_0C:
+; !!! правильные ли комменты?
+    .byte con_mirror_condition, $03       ; куда летит мяч
+    .byte con_jsr
+    .word sub_9EF6_выбор_анимации_полета_удара
+    .dbyt con_branch_short + con_bra_результат_действия_защитника     ; ? порвется ли мяч
+    .byte off_case_0C_00 - * ; мяч не порвется
+    .byte off_case_0C_01 - * ; мяч порвется
+
+        off_case_0C_00:
+        ; мяч не порвется
+        loc_96F0_0C_01_00:
+            .dbyt con_branch_short + con_bra_результат_пропуска_мяча_кипером
+            .byte off_case_0C_00_00 - * ; гол
+            .byte off_case_0C_00_01 - * ; штанга
+            .byte off_case_0C_00_02 - * ; защитник отобьет
+            .byte off_case_0C_00_03 - * ; штанга и добивание
+            .byte off_case_0C_00_04 - * ; защитник промахнется
+
+                off_case_0C_00_00:
+                ; мяч не порвется/гол
+                    .byte con_jmp
+                    .word loc_9C28_гол_и_проверка_на_рваную_сетку
+
+                off_case_0C_00_01:
+                ; мяч не порвется/штанга
+                    .byte con_jsr
+                    .word sub_A24E_штанга_со_звуком
+                    .byte con_jmp
+                    .word loc_A258_полет_мяча_после_отскока_от_штанги
+
+                off_case_0C_00_02:
+                ; мяч не порвется/защитник отобьет
+                    .byte con_jsr
+                    .word sub_A0B6_защитник_касается_мяча_при_спасении_ворот
+                    .byte con_jsr
+                    .word sub_A312_небольшая_пауза
+                    .byte con_jmp
+                    .word loc_A371_мяч_улетает_в_сторону
+
+                off_case_0C_00_03:
+                ; мяч не порвется/штанга и добивание
+                    .byte con_jsr
+                    .word sub_A24E_штанга_со_звуком
+                    .byte con_jsr
+                    .word sub_A258_полет_мяча_после_отскока_от_штанги
+                    .byte con_jsr
+                    .word sub_A212_добивание_отскока_от_штанги_соперником
+                    .byte con_jmp
+                    .word loc_9C28_гол_и_проверка_на_рваную_сетку
+
+                off_case_0C_00_04:
+                ; мяч не порвется/защитник промахнется
+                    .byte con_jsr
+                    .word sub_A0BE_защитник_промахивается
+                    .byte con_jmp
+                    .word loc_9C28_гол_и_проверка_на_рваную_сетку
+
+        off_case_0C_01:
+        ; мяч порвется
+            .dbyt con_branch_short + con_bra_обычный_или_спешал     ; ? порвется ли мяч
+            .byte off_case_0C_01_00 - * ; 
+            .byte off_case_0C_01_01 - * ; 
+
+                off_case_0C_01_00:
+                ; мяч порвется/???
+                    .byte con_jmp
+                    .word loc_96F0_0C_01_00
+
+                off_case_0C_01_01:
+                ; мяч порвется/???
+                    .byte con_jsr
+                    .word sub_A2F4_сообщение_oops_на_мигающем_белом_фоне
+                    .byte con_jmp
+                    .word loc_A364_рваный_мяч
+
+
+
+_scenario_96F7_0D:
+    .byte con_jsr
+    .word sub_AB31_полная_анимация_обычного_удара_с_земли
+    .byte con_mirror_condition, $03       ; куда летит мяч
+    .byte con_jsr
+    .word sub_B4E7_конечный_полет_обычного_удара_с_земли
+    .dbyt con_branch_short + con_bra_появится_ли_защитник_в_воротах
+    .byte off_case_0D_00 - * ; защитник не появится
+    .byte off_case_0D_01 - * ; защитник промахнется
+    .byte off_case_0D_02 - * ; защитник отобьет
+
+        off_case_0D_00:
+        ; защитник не появится
+            .byte con_jmp
+            .word loc_9C28_гол_и_проверка_на_рваную_сетку
+
+        off_case_0D_01:
+        ; защитник промахнется
+            .byte con_jsr
+            .word sub_A0BE_защитник_промахивается
+            .byte con_jmp
+            .word loc_9C28_гол_и_проверка_на_рваную_сетку
+
+        off_case_0D_02:
+        ; защитник отобьет
+            .byte con_jsr
+            .word sub_A0B6_защитник_касается_мяча_при_спасении_ворот
+            .byte con_jsr
+            .word sub_A312_небольшая_пауза
+            .byte con_jmp
+            .word loc_A371_мяч_улетает_в_сторону
+
+
+
+_scenario_91EA_0E:
+    .byte con_mirror_condition, $01       ; номер защитника
+    .dbyt con_branch_short + con_bra_высота_мяча
+    .byte off_case_0E_00 - * ; low
+    .byte off_case_0E_01 - * ; high
+
+        off_case_0E_00:
+        ; low
+            .byte con_jmp
+            .word loc_B29B_бежать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
+
+        off_case_0E_01:
+        ; high
+            .byte con_jmp
+            .word loc_AE64_прыгать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
+
+
+
+_scenario_9205_0F:
+    .byte con_mirror_condition, $01       ; номер защитника
+    .dbyt con_branch_long + con_bra_43         ; действие атакующего на своей штрафной
+    .word bra_long_case_0F_00 ; pass
+    .word bra_long_case_0F_01 ; clearing
+    .word bra_long_case_0F_02 ; through
+
+        bra_long_case_0F_00:
+        bra_long_case_0F_01:
+        ; pass, clearing
+loc_9217:
+            .dbyt con_branch_short + con_bra_высота_мяча
+            .byte off_case_0F_00_00 - * ; low
+            .byte off_case_0F_00_01 - * ; high
+
+                off_case_0F_00_00:
+                ; pass, clearing/low
+                    .dbyt con_branch_short + con_bra_порядковый_номер_защитника
+                    .byte off_case_0F_00_00_00 - * ; защитник 1
+                    .byte off_case_0F_00_00_01 - * ; защитник 2
+                    .byte off_case_0F_00_00_02 - * ; защитник 3
+                    .byte off_case_0F_00_00_03 - * ; защитник 4
+                    .byte off_case_0F_00_00_04 - * ; защитник 5
+
+                        off_case_0F_00_00_00:
+                        ; pass, clearing/low/защитник 1
+                            .byte con_jmp
+                            .word loc_9C85_защитник_бежит_по_земле_1й
+
+                        off_case_0F_00_00_01:
+                        ; pass, clearing/low/защитник 2
+                            .byte con_jmp
+                            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
+
+                        off_case_0F_00_00_02:
+                        ; pass, clearing/low/защитник 3
+                            .byte con_jmp
+                            .word loc_9C9D_защитник_бежит_по_земле_3й
+
+                        off_case_0F_00_00_03:
+                        ; pass, clearing/low/защитник 4
+                            .byte con_jmp
+                            .word loc_9C97_защитник_бежит_по_земле_4й
+
+                        off_case_0F_00_00_04:
+                        ; pass, clearing/low/защитник 5
+                            .byte con_jmp
+                            .word loc_9C91_защитник_бежит_по_земле_2й_и_5й
+
+                off_case_0F_00_01:
+                ; pass, clearing/high
+                    .dbyt con_branch_short + con_bra_порядковый_номер_защитника
+                    .byte off_case_0F_00_01_00 - * ; защитник 1
+                    .byte off_case_0F_00_01_01 - * ; защитник 2
+                    .byte off_case_0F_00_01_02 - * ; защитник 3
+                    .byte off_case_0F_00_01_03 - * ; защитник 4
+                    .byte off_case_0F_00_01_04 - * ; защитник 5
+
+                        off_case_0F_00_01_00:
+                        ; pass, clearing/high/защитник 1
+                            .byte con_jmp
+                            .word loc_9C61_защитник_прыгает_в_воздух_1й
+
+                        off_case_0F_00_01_01:
+                        ; pass, clearing/high/защитник 2
+                            .byte con_jmp
+                            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
+
+                        off_case_0F_00_01_02:
+                        ; pass, clearing/high/защитник 3
+                            .byte con_jmp
+                            .word loc_9C73_защитник_прыгает_в_воздух_3й
+
+                        off_case_0F_00_01_03:
+                        ; pass, clearing/high/защитник 4
+                            .byte con_jmp
+                            .word loc_9C67_защитник_прыгает_в_воздух_4й
+
+                        off_case_0F_00_01_04:
+                        ; pass, clearing/high/защитник 4
+                            .byte con_jmp
+                            .word loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й
+
+        bra_long_case_0F_02:
+        ; through
+loc_BD87:
+            .byte con_mirror_condition, $01       ; номер защитника
+            .byte con_F7, $02
+            .byte con_pause + $28
+            .byte con_bg + $23
+            .byte con_animation + $5A
+            .byte con_cloud + $E8
+            .byte con_rts
+
+
+
+_scenario_9259_10:
+    .byte con_jmp
+    .word loc_9259
+
+
+
+_scenario_9269_11:
+    .byte con_jmp
+    .word loc_9264
+
+
+
+_scenario_927F_12:
+    .byte con_mirror_condition, $03       ; куда летит мяч
+    .dbyt con_branch_long + con_bra_высота_мяча
+    .word bra_long_case_12_00 ; low
+    .word bra_long_case_12_01 ; high
+
+        bra_long_case_12_00:
+        ; low
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_12_00_00 - * ; защитник выживет
+            .byte off_case_12_00_01 - * ; защитник убьется
+
+                off_case_12_00_00:
+                ; защитник выживет
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_00_00_00 - * ; 
+                    .byte off_case_12_00_00_01 - * ; 
+                    .byte off_case_12_00_00_02 - * ; 
+                    .byte off_case_12_00_00_03 - * ; 
+
+                        off_case_12_00_00_00:
+                        off_case_12_00_00_01:
+                            .byte con_quit
+
+                        off_case_12_00_00_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+                        off_case_12_00_00_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_00_00_03_00 - * ; 
+                            .byte off_case_12_00_00_03_01 - * ; 
+
+                                off_case_12_00_00_03_00:
+                                    .byte con_jmp
+                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
+
+                                off_case_12_00_00_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1B1_защитник_выигрывает_нижний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+                off_case_12_00_01:
+                ; защитник убьется
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_00_01_00 - * ; 
+                    .byte off_case_12_00_01_01 - * ; 
+                    .byte off_case_12_00_01_02 - * ; 
+                    .byte off_case_12_00_01_03 - * ; 
+
+                        off_case_12_00_01_00:
+                        off_case_12_00_01_01:
+                            .byte con_quit
+
+                        off_case_12_00_01_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+                        off_case_12_00_01_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_00_01_03_00 - * ; 
+                            .byte off_case_12_00_01_03_01 - * ; 
+
+                        off_case_12_00_01_03_00:
+                                    .byte con_jmp
+                                    .word loc_A164_защитник_ловит_низкий_мяч_ногой
+
+                    off_case_12_00_01_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1B1_защитник_выигрывает_нижний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+        bra_long_case_12_01:
+        ; high
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_12_01_00 - * ; защитник выживет
+            .byte off_case_12_01_01 - * ; защитник убьется
+
+                off_case_12_01_00:
+                ; high/защитник выживет
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_01_00_00 - * ; 
+                    .byte off_case_12_01_00_01 - * ; 
+                    .byte off_case_12_01_00_02 - * ; 
+                    .byte off_case_12_01_00_03 - * ; 
+
+                        off_case_12_01_00_00:
+                        off_case_12_01_00_01:
+                            .byte con_quit
+
+                        off_case_12_01_00_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+                        off_case_12_01_00_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_01_00_03_00 - * ; 
+                            .byte off_case_12_01_00_03_01 - * ; 
+
+                                off_case_12_01_00_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
+
+                                off_case_12_01_00_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1BB_защитник_выигрывает_верхний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+                off_case_12_01_01:
+                ; high/защитник убьется
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_12_01_01_00 - * ; 
+                    .byte off_case_12_01_01_01 - * ; 
+                    .byte off_case_12_01_01_02 - * ; 
+                    .byte off_case_12_01_01_03 - * ; 
+
+                        off_case_12_01_01_00:
+                        off_case_12_01_01_01:
+                            .byte con_quit
+
+                        off_case_12_01_01_02:
+                            .byte con_jsr
+                            .word sub_A371_мяч_улетает_в_сторону
+                            .byte con_quit
+
+                        off_case_12_01_01_03:
+                            .dbyt con_branch_short + con_bra_15
+                            .byte off_case_12_01_01_03_00 - * ; 
+                            .byte off_case_12_01_01_03_01 - * ; 
+
+                                off_case_12_01_01_03_00:
+                                    .byte con_jmp
+                                    .word loc_A16E_защитник_ловит_высокий_мяч_ногой
+
+                                off_case_12_01_01_03_01:
+                                    .byte con_jsr
+                                    .word sub_A1BB_защитник_выигрывает_верхний_compete
+                                    .byte con_jmp
+                                    .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
+
+
+
+_scenario_91D3_13:
+    .dbyt con_branch_long + con_bra_высота_мяча
+    .word bra_long_case_13_00 ; low
+    .word bra_long_case_13_01 ; high
+
+        bra_long_case_13_00:
+        ; low
+            .dbyt con_branch_short + con_bra_действ_атак_на_своей_штрафной
+            .byte off_case_13_00_00 - * ; pass
+            .byte off_case_13_00_01 - * ; trap
+            .byte off_case_13_00_02 - * ; clearing
+
+                off_case_13_00_00:
+                ; low/pass
+                    .byte con_jmp
+                    .word loc_933C_low_pass_ногой_на_своей_штрафной
+
+                off_case_13_00_01:
+                ; low/trap
+                    .byte con_jmp
+                    .word loc_9341_low_trap_ногой_на_своей_штрафной
+
+                off_case_13_00_02:
+                ; low/cleraring
+                    .byte con_mirror_toggle
+                    .byte con_jmp
+                    .word loc_A22E_игрок_делает_low_clearing_ногой_на_своей_штрафной
+
+        bra_long_case_13_01:
+        ; high
+            .dbyt con_branch_short + con_bra_действ_атак_на_своей_штрафной
+            .byte off_case_13_01_00 - * ; pass
+            .byte off_case_13_01_01 - * ; trap
+            .byte off_case_13_01_02 - * ; clearing
+
+                off_case_13_01_00:
+                ; high/pass
+                    .byte con_jmp
+                    .word loc_9350
+
+                off_case_13_01_01:
+                ; high/trap
+                    .byte con_mirror_condition, $03       ; куда летит мяч
+                    .byte con_jmp
+                    .word loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители
+
+                off_case_13_01_02:
+                ; high/clearing
+                    .byte con_mirror_toggle
+                    .byte con_jmp
+                    .word loc_A238_игрок_делает_clear_головой
+
+
+
+;_scenario_9369_09:
+    .byte con_mirror_condition, $03       ; куда летит мяч
+    .byte con_jsr
+    .word sub_9EF6_выбор_анимации_полета_удара
+    .byte con_jsr
+    .word sub_936A_выбор_анимации_касания_мяча_кипером
+    .byte con_jsr
+    .word sub_936E_выбор_финального_результата
+    .byte con_rts
+
+
+
+sub_936A_выбор_анимации_касания_мяча_кипером:
+    .dbyt con_branch_long + con_bra_действие_защитника
+    .word bra_long_case_936A_00 ; catch
+    .word bra_long_case_936A_01 ; punch
+    .word bra_long_case_936A_02 ; triangle jump
+
+        bra_long_case_936A_00:
+        ; catch
+            .dbyt con_branch_short + con_bra_разновидность_catch
+            .byte off_case_936A_00_00 - * ; normal catch
+            .byte off_case_936A_00_01 - * ; rolling save
+            .byte off_case_936A_00_02 - * ; clone save
+            .byte off_case_936A_00_03 - * ; dark illusion
+
+                off_case_936A_00_00:
+                ; catch/normal catch
+                    .byte con_jsr
+                    .word sub_9F9C_крит_кипера
+                    .dbyt con_branch_short + con_bra_выживет_ли_защитник
+                    .byte off_case_936A_00_00_00 - * ; кипер выживет
+                    .byte off_case_936A_00_00_01 - * ; кипер убьется
+
+                        off_case_936A_00_00_00:
+                        ; catch/normal catch/кипер выживет
+                            .dbyt con_branch_short + con_bra_результат_действия_защитника
+                            .byte off_case_936A_00_00_00_00 - * ; кипер пропустит обычный удар
+                            .byte off_case_936A_00_00_00_01 - * ; кипер пропустит спешал удар
+                            .byte off_case_936A_00_00_00_02 - * ; кипер с трудом отобьет ладонью
+                            .byte off_case_936A_00_00_00_03 - * ; кипер легко словит
+
+                                off_case_936A_00_00_00_00:
+                                ; catch/normal catch/кипер выживет/кипер пропустит обычный удар
+                                off_case_936A_00_00_00_01:
+                                ; catch/normal catch/кипер выживет/кипер пропустит спешал удар
+                                    .byte con_jmp
+                                    .word loc_A094_кипер_не_дотягивается_до_мяча_при_ловле
+
+                                off_case_936A_00_00_00_02:
+                                    ; catch/normal catch/кипер выживет/кипер с трудом отобьет ладонью
+                                    .byte con_jsr
+                                    .word sub_A0A1_кипер_ловит_мяч_без_звука
+                                    .byte con_jsr
+                                    .word sub_A308_белое_мерцание
+                                    .byte con_jsr
+                                    .word sub_B45D_мяч_улетает_в_сторону
+                                    .byte con_jmp
+                                    .word loc_9EF0_попытка_включить_drive_tiger
+
+                                off_case_936A_00_00_00_03:
+                                    ; catch/normal catch/кипер выживет/кипер легко словит
+                                    .byte con_jsr
+                                    .word sub_A0A6_кипер_ловит_мяч_со_звуком
+                                    .byte con_jmp
+                                    .word loc_9770_сообщение_об_идеальном_сейве
+
+                        off_case_936A_00_00_01:
+                        ; catch/normal catch/кипер убьется
+                            .byte off_case_936A_00_00_01_00 - * ; кипер пропустит обычный удар
+                            .byte off_case_936A_00_00_01_01 - * ; кипер коснется спешала и умрет
+                            .byte off_case_936A_00_00_01_02 - * ; кипер с трудом отобьет ладонью
+                            .byte off_case_936A_00_00_01_03 - * ; кипер легко словит (unused?)
+
+                                off_case_936A_00_00_01_00:
+                                ; catch/normal catch/кипер убьется/кипер пропустит обычный удар
+                                off_case_936A_00_00_01_01:
+                                ; catch/normal catch/кипер убьется/кипер коснется спешала и умрет
+                                off_case_936A_00_00_01_02:
+                                ; catch/normal catch/кипер убьется/кипер с трудом отобьет ладонью
+                                    .byte con_jsr
+                                    .word sub_A0A1_кипер_ловит_мяч_без_звука
+                                    .byte con_jsr
+                                    .word sub_A2DD_ярко_красное_мерцание
+                                    .byte con_jmp
+                                    .word loc_9FB5_убийство_кипера
+
+                                off_case_936A_00_00_01_03:
+                                    .byte con_jmp
+                                    .word loc_A0A6_кипер_ловит_мяч_со_звуком
+
+                off_case_936A_00_01:
+                ; catch/rolling save
+                    .byte con_jsr
+                    .word sub_A0CD_rolling_save_полная_анимация
+                    .byte con_jmp
+                    .word loc_936B_продолжить_вычисление_спешал_catch
+
+                off_case_936A_00_02:
+                ; catch/clone save
+                    .byte con_jsr
+                    .word sub_A1FF_clone_save
+                    .byte con_jmp
+                    .word loc_936B_продолжить_вычисление_спешал_catch
+
+                off_case_936A_00_03:
+                ; catch/dark illusion
+                    .byte con_jsr
+                    .word sub_A1E4_dark_illusion
+                loc_936B_продолжить_вычисление_спешал_catch:
+                ; catch/спешал catch
+                    .dbyt con_branch_short + con_bra_выживет_ли_защитник
+                    .byte off_case_936A_00_01_00 - * ; кипер выживет
+                    .byte off_case_936A_00_01_01 - * ; кипер убьется
+
+                        off_case_936A_00_01_00:
+                        ; catch/спешал catch/кипер выживет
+                            .dbyt con_branch_short + con_bra_результат_действия_защитника
+                            .byte off_case_936A_00_01_00_00 - * ; кипер пропустит обычный удар
+                            .byte off_case_936A_00_01_00_01 - * ; кипер пропустит спешал удар
+                            .byte off_case_936A_00_01_00_02 - * ; кипер с трудом отобьет кулаком
+                            .byte off_case_936A_00_01_00_03 - * ; кипер легко словит
+
+                                off_case_936A_00_01_00_00:
+                                ; catch/спешал catch/кипер выживет/кипер пропустит обычный удар
+                                off_case_936A_00_01_00_01:
+                                ; catch/спешал catch/кипер выживет/кипер пропустит спешал удар
+                                    .byte con_jmp
+                                    .word loc_A109_кипер_промахивается_кулаком_после_спешала
+
+                                off_case_936A_00_01_00_02:
+                                ; catch/спешал catch/кипер выживет/кипер с трудом отобьет кулаком
+                                    .byte con_jsr
+                                    .word sub_BF04_кипер_собирается_напороться_кулаком_на_мяч
+                                    .byte con_jsr
+                                    .word sub_A308_белое_мерцание
+                                    .byte con_jsr
+                                    .word sub_A371_мяч_улетает_в_сторону
+                                    .byte con_jmp
+                                    .word loc_9EF0_попытка_включить_drive_tiger
+
+                                off_case_936A_00_01_00_03:
+                                ; catch/спешал catch/кипер выживет/кипер легко словит
+                                    .byte con_jsr
+                                    .word sub_A099_анимация_кипер_мгновенно_ловит_мяч
+                                    .byte con_jsr
+                                    .word sub_B44E_кипер_идеально_засейвил
+                                    .byte con_jmp
+                                    .word loc_9EF0_попытка_включить_drive_tiger
+
+                        off_case_936A_00_01_01:
+                        ; catch/спешал catch/кипер убьется
+                            .dbyt con_branch_short + con_bra_результат_действия_защитника
+                            .byte off_case_936A_00_01_01_00 - * ; кипер пропустит обычный удар
+                            .byte off_case_936A_00_01_01_01 - * ; кипер коснется спешала и умрет
+                            .byte off_case_936A_00_01_01_02 - * ; кипер с трудом отобьет
+                            .byte off_case_936A_00_01_01_03 - * ; кипер словит
+
+                                off_case_936A_00_01_01_00:
+                                ; catch/спешал catch/кипер убьется/кипер пропустит обычный удар
+                                off_case_936A_00_01_01_01:
+                                ; catch/спешал catch/кипер убьется/кипер коснется спешала и умрет
+                                off_case_936A_00_01_01_02:
+                                ; catch/спешал catch/кипер убьется/кипер с трудом отобьет
+                                    .byte con_jsr
+                                    .word sub_A11D_кипер_касается_мяча_кулаком_после_спешала
+                                    .byte con_jsr
+                                    .word sub_A2DD_ярко_красное_мерцание
+                                    .byte con_jmp
+                                    .word loc_9FB5_убийство_кипера
+
+                                off_case_936A_00_01_01_03:
+                                ; catch/спешал catch/кипер убьется/кипер словит
+                                    .byte con_jsr
+                                    .word sub_A099_анимация_кипер_мгновенно_ловит_мяч
+                                    .byte con_jsr
+                                    .word sub_B44E_кипер_идеально_засейвил
+                                    .byte con_jmp
+                                    .word loc_9EF0_попытка_включить_drive_tiger
+
+        bra_long_case_936A_01:
+        ; punch
+            .byte con_jsr
+            .word sub_9F9C_крит_кипера
+            .dbyt con_branch_short + con_bra_выживет_ли_кипер_после_punch
+            .byte off_case_936A_01_00 - * ; кипер выживет
+            .byte off_case_936A_01_01 - * ; кипер убьется
+
+                off_case_936A_01_00:
+                ; punch/кипер выживет
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_936A_01_00_00 - * ; кипер пропустит обычный удар
+                    .byte off_case_936A_01_00_01 - * ; кипер пропустит спешал удар
+                    .byte off_case_936A_01_00_02 - * ; кипер с трудом отобьет
+                    .byte off_case_936A_01_00_03 - * ; кипер легко отобьет
+
+                        off_case_936A_01_00_00:
+                        ; punch/кипер выживет/кипер пропустит обычный удар
+                        off_case_936A_01_00_01:
+                        ; punch/кипер выживет/кипер пропустит спешал удар
+                            .byte con_jmp
+                            .word loc_A10E_кипер_не_дотягивается_кулаком_до_мяча
+
+                        off_case_936A_01_00_02:
+                        ; punch/кипер выживет/кипер с трудом отобьет
+                            .byte con_drive, con_overhead
+                            .word ofs_93BE_00_кипер_с_трудом_обивает
+                            .word ofs_93C4_01_drive_shot_бесполезен
+                            .word ofs_93D0_02_meon_с_трудом_отбивает_1й_раз
+                            .word ofs_93DF_03_meon_с_трудом_отбивает_2й_раз_и_озарение
+
+                        off_case_936A_01_00_03:
+                        ; punch/кипер выживет/кипер легко отобьет
+                            .byte con_drive, con_overhead
+                            .word ofs_93FB_00
+                            .word ofs_9404_01
+                            .word ofs_940D_02
+                            .word ofs_9419_03
+
+                off_case_936A_01_01:
+                ; punch/кипер убьется
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_936A_01_01_00 - * ; кипер пропустит обычный удар
+                    .byte off_case_936A_01_01_01 - * ; кипер коснется спешала и умрет
+                    .byte off_case_936A_01_01_02 - * ; кипер с трудом отобьет
+                    .byte off_case_936A_01_01_03 - * ; кипер легко отобьет
+
+                        off_case_936A_01_01_00:
+                        ; punch/кипер убьется/кипер пропустит обычный удар
+                        off_case_936A_01_01_01:
+                        ; punch/кипер убьется/кипер коснется спешала и умрет
+                            .byte con_jsr
+                            .word sub_A122_кипер_собирается_коснуться_мяча_кулаком
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_9FB5_убийство_кипера
+
+                        off_case_936A_01_01_02:
+                        ; punch/кипер убьется/кипер с трудом отобьет
+                            .byte con_drive, con_overhead
+                            .word ofs_946A_00_кипер_убивается_и_мяч_отлетает
+                            .word ofs_93C4_01_drive_shot_бесполезен
+                            .word ofs_93D0_02_meon_с_трудом_отбивает_1й_раз
+                            .word ofs_93DF_03_meon_с_трудом_отбивает_2й_раз_и_озарение
+
+                        off_case_936A_01_01_03:
+                        ; punch/кипер убьется/кипер легко отобьет
+                            .byte con_drive, con_overhead
+                            .word ofs_93FB_00
+                            .word ofs_9404_01
+                            .word ofs_940D_02
+                            .word ofs_9419_03
+
+        bra_long_case_936A_02:
+        ; triangle jump
+            .byte con_jsr
+            .word sub_9C5B_wakashimazu_отскок_от_штанги
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_936A_02_00 - * ; кипер выживет
+            .byte off_case_936A_02_01 - * ; кипер убьется
+
+                off_case_936A_02_00:
+                ; triangle jump/кипер выживет
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_936A_02_00_00 - * ; кипер пропустит обычный удар
+                    .byte off_case_936A_02_00_01 - * ; кипер пропустит спешал удар
+                    .byte off_case_936A_02_00_02 - * ; кипер отобьет
+                    .byte off_case_936A_02_00_03 - * ; кипер словит
+
+                        off_case_936A_02_00_00:
+                        ; triangle jump/кипер выживет/кипер пропустит обычный удар
+                        off_case_936A_02_00_01:
+                        ; triangle jump/кипер выживет/кипер пропустит спешал удар
+                            .byte con_jmp
+                            .word loc_A1DD_triangle_jump_не_достает_до_мяча
+
+                        off_case_936A_02_00_02:
+                        ; triangle jump/кипер выживет/кипер отобьет
+                            .byte con_jsr
+                            .word sub_A1CA_triangle_jump_ловит_мяч
+                            .byte con_jsr
+                            .word sub_A308_белое_мерцание
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+                        off_case_936A_02_00_03:
+                        ; triangle jump/кипер выживет/кипер словит
+                            .byte con_jsr
+                            .word sub_A1D1_triangle_jump_ловит_мяч
+                            .byte con_jmp
+                            .word loc_B44E_кипер_идеально_засейвил
+
+                off_case_936A_02_01:
+                ; triangle jump/кипер убьется
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_936A_02_01_00 - * ; кипер пропустит обычный удар
+                    .byte off_case_936A_02_01_01 - * ; кипер коснется спешала и умрет
+                    .byte off_case_936A_02_01_02 - * ; кипер с трудом отобьет
+                    .byte off_case_936A_02_01_03 - * ; кипер словит
+
+                        off_case_936A_02_01_00:
+                        ; triangle jump/кипер убьется/кипер пропустит обычный удар
+                        off_case_936A_02_01_01:
+                        ; triangle jump/кипер убьется/кипер коснется спешала и умрет
+                            .byte con_jsr
+                            .word sub_A1CA_triangle_jump_ловит_мяч
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jmp
+                            .word loc_9FB5_убийство_кипера
+
+                        off_case_936A_02_01_02:
+                        ; triangle jump/кипер убьется/кипер с трудом отобьет
+                            .byte con_jsr
+                            .word sub_A1CA_triangle_jump_ловит_мяч
+                            .byte con_jsr
+                            .word sub_A2DD_ярко_красное_мерцание
+                            .byte con_jsr
+                            .word sub_9FB5_убийство_кипера
+                            .byte con_jmp
+                            .word loc_A371_мяч_улетает_в_сторону
+
+                        off_case_936A_02_01_03:
+                        ; triangle jump/кипер убьется/кипер словит
+                            .byte con_jsr
+                            .word sub_A1D1_triangle_jump_ловит_мяч
+                            .byte con_jmp
+                            .word loc_B44E_кипер_идеально_засейвил
+
+
+
+sub_936E_выбор_финального_результата:
+    .dbyt con_branch_long + con_bra_действие_защитника
+    .word bra_long_case_936E_00 ; catch
+    .word bra_long_case_936E_01 ; punch
+    .word bra_long_case_936E_02 ; triangle jump
+
+        bra_long_case_936E_00:
+        ; catch
+            .dbyt con_branch_short + con_bra_выживет_ли_защитник
+            .byte off_case_936E_00_00 - * ; кипер выживет
+            .byte off_case_936E_00_01 - * ; кипер убьется
+
+                off_case_936E_00_00:
+
+                    
+
+                off_case_936E_00_01:
+
+            
+        bra_long_case_936E_01:
+        ; punch
+
+            
+
+        bra_long_case_936E_02:
+        ; triangle jump
+
+
+
 _scenario_9B82_14:
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_short + con_bra_выживет_ли_защитник
@@ -6894,6 +6908,577 @@ _scenario_B817_16:
 
 
 
+_scenario_B8A1_17:
+    .byte con_pause + $01
+    .byte con_bg + $71
+    .byte con_animation + $00
+    .byte con_cloud + con_clear
+    .byte con_mirror_on
+    .byte con_F7, $1F
+    .byte con_soundID_delay, $30, $02
+    .byte con_pause + $78
+    .byte con_bg + $30
+    .byte con_animation + $91
+    .byte con_cloud + $81
+    .byte con_jsr
+    .word sub_BBC7_очистка
+    .byte con_soundID_delay, $2B, $02
+    .byte con_pause + $28
+    .byte con_bg + $01
+    .byte con_animation + $66
+    .byte con_cloud + $82
+    .byte con_pause + $29
+    .byte con_bg + $20
+    .byte con_animation + $4C
+    .byte con_cloud + con_skip
+    .byte con_jsr
+    .word sub_BBC7_очистка
+    .byte con_pause + $5A
+    .byte con_bg + $30
+    .byte con_animation + $91
+    .byte con_cloud + $83
+    .byte con_soundID_delay, $25, $02
+    .byte con_pause + $28
+    .byte con_bg + $20
+    .byte con_animation + $ED
+    .byte con_cloud + con_clear
+    .byte con_mirror_toggle
+    .byte con_pause + $3C
+    .byte con_bg + $32
+    .byte con_animation + $A8
+    .byte con_cloud + $84
+    .byte con_mirror_toggle
+    .byte con_soundID_delay, $2B, $31
+    .byte con_pause + $38
+    .byte con_bg + $47
+    .byte con_animation + $BF
+    .byte con_cloud + $85
+    .byte con_pause + $25
+    .byte con_bg + con_skip
+    .byte con_animation + con_skip
+    .byte con_cloud + con_skip
+    .byte con_mirror_toggle
+    .byte con_soundID_delay, $04, $02
+    .byte con_pause + $32
+    .byte con_bg + $63
+    .byte con_animation + $0F
+    .byte con_cloud + con_clear
+    .byte con_moving_bg, $04
+    .byte con_pause + $32
+    .byte con_bg + $58
+    .byte con_animation + $04
+    .byte con_cloud + $86
+    .byte con_F7, $33
+    .byte con_soundID_delay, $05, $02
+    .byte con_pause + $36
+    .byte con_bg + $27
+    .byte con_animation + $10
+    .byte con_cloud + con_skip
+    .byte con_jsr
+    .word sub_B519
+    .byte con_pause + $64
+    .byte con_bg + $32
+    .byte con_animation + $A8
+    .byte con_cloud + $8E
+    .byte con_pause + $10
+    .byte con_bg + $0E
+    .byte con_animation + $D3
+    .byte con_cloud + con_clear
+    .byte con_F7, $03
+    .byte con_soundID_delay, $61, $02
+    .byte con_pause + $64
+    .byte con_bg + $07
+    .byte con_animation + $45
+    .byte con_cloud + $28
+    .byte con_jsr
+    .word sub_BBC7_очистка
+    .byte con_pause + $6E
+    .byte con_bg + $32
+    .byte con_animation + $A8
+    .byte con_cloud + $87
+    .byte con_jmp
+    .word loc_BBC7_очистка
+
+
+
+_scenario_9E3E_18:
+    .byte con_mirror_condition, $00
+    .dbyt con_branch_short + con_bra_где_сейчас_мяч
+    .byte off_case_18_00 - * ; мяч у атакующего на земле
+    .byte off_case_18_01 - * ; летит низкий мяч
+    .byte off_case_18_02 - * ; пас головой в воздухе
+
+        off_case_18_00:
+        ; мяч у атакующего на земле
+        off_case_18_01:
+        ; летит низкий мяч
+            .byte con_jmp
+            .word loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу
+
+        off_case_18_02:
+        ; пас головой в воздухе
+            .byte con_jmp
+            .word loc_9E4F_пас_головой_в_воздухе
+
+
+
+_scenario_BBD4_19:
+    .byte con_mirror_condition, $00
+    .dbyt con_branch_short + con_bra_обычный_или_спешал
+    .byte off_case_19_00 - * ; обычная_перепасовка
+    .byte off_case_19_01 - * ; спешал_перепасовка
+
+        off_case_19_00:
+        ; обычная_перепасовка
+            .byte con_jmp
+            .word loc_BBDA
+
+        off_case_19_01:
+        ; спешал_перепасовка
+            .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
+            .byte off_case_BBF6_00_tsubasa - * ; tsubasa
+            .byte off_case_BBF6_01_misaki - * ; misaki
+            .byte off_case_BC07_02_hyuga - * ; hyuga
+            .byte off_case_BBF6_03_hyuga - * ; hyuga
+            .byte off_case_BC18_04_hyuga - * ; hyuga
+            .byte off_case_BC07_05_sawada - * ; sawada
+            .byte off_case_BC18_06_sawada - * ; sawada
+            .byte off_case_BC29_07_masao - * ; masao
+            .byte off_case_BC29_08_kazuo - * ; kazuo
+            .byte off_case_BC29_09_masao - * ; masao
+            .byte off_case_BC29_0A_kazuo - * ; kazuo
+            .byte off_case_BC3A_0B_masao - * ; masao
+            .byte off_case_BC3A_0C_kazuo - * ; kazuo
+            .byte off_case_BC4B_0D_diaz - * ; diaz
+            .byte off_case_BC4B_0E_pascal - * ; pascal
+            .byte off_case_BC5C_0F_pierre - * ; pierre
+            .byte off_case_BC5C_10_napoleon - * ; napoleon
+            .byte off_case_BBF6_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
+
+                off_case_BBF6_00_tsubasa:
+                off_case_BBF6_01_misaki:
+                off_case_BBF6_03_hyuga:
+                off_case_BBF6_11_игрок_без_спешал_перепасовки:
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $4F
+                    .byte con_animation + $91
+                    .byte con_cloud + $CB
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $96
+                    .byte con_cloud + $CA
+                    .byte con_jmp
+                    .word loc_BBDA
+
+                off_case_BC07_02_hyuga:
+                off_case_BC07_05_sawada:
+                ; hyuga, sawada
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $55
+                    .byte con_animation + $9E
+                    .byte con_cloud + $D1
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $A2
+                    .byte con_cloud + $D0
+                    .byte con_jmp
+                    .word loc_BBDA
+
+                off_case_BC18_04_hyuga:
+                off_case_BC18_06_sawada:
+                ; hyuga, sawada
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $55
+                    .byte con_animation + $B0
+                    .byte con_cloud + $D1
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $B1
+                    .byte con_cloud + $D0
+                    .byte con_jmp
+                    .word loc_BBDA
+
+                off_case_BC29_07_masao:
+                off_case_BC29_08_kazuo:
+                off_case_BC29_09_masao:
+                off_case_BC29_0A_kazuo:
+                ; masao, kazuo
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $4F
+                    .byte con_animation + $9C
+                    .byte con_cloud + $AC
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $9C
+                    .byte con_cloud + $D3
+                    .byte con_jmp
+                    .word loc_BBDA
+
+                off_case_BC3A_0B_masao:
+                off_case_BC3A_0C_kazuo:
+                ; masao, kazuo
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $4F
+                    .byte con_animation + $AB
+                    .byte con_cloud + $D3
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $AB
+                    .byte con_cloud + $AC
+                    .byte con_jmp
+                    .word loc_BBDA
+
+                off_case_BC4B_0D_diaz:
+                off_case_BC4B_0E_pascal:
+                ; diaz, pascal
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $4F
+                    .byte con_animation + $B6
+                    .byte con_cloud + $CD
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $B7
+                    .byte con_cloud + $CE
+                    .byte con_jmp
+                    .word loc_BBDA
+
+                off_case_BC5C_0F_pierre:
+                off_case_BC5C_10_napoleon:
+                ; pierre, napoleon
+                    .byte con_mirror_on
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $4F
+                    .byte con_animation + $B4
+                    .byte con_cloud + $D4
+                    .byte con_mirror_toggle
+                    .byte con_F8, $04
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + $B5
+                    .byte con_cloud + $D5
+                    .byte con_jmp
+                    .word loc_BBDA
+
+
+
+_scenario_BC6D_1A:
+    .dbyt con_branch_short + con_bra_обычный_или_спешал
+    .byte off_case_1A_00 - * ; обычная перепасовка
+    .byte off_case_1A_01 - * ; спешал перепасовка
+
+        off_case_1A_00:
+        ; обычная перепасовка
+            .byte con_mirror_condition, $00
+            .byte con_pause + $32
+            .byte con_bg + $20
+            .byte con_animation + $7B
+            .byte con_cloud + con_skip
+            .byte con_soundID_delay, $2C, $1D
+            .byte con_pause + $3C
+            .byte con_bg + $3C
+            .byte con_animation + $7C
+            .byte con_cloud + $5A
+            .byte con_jmp
+            .word loc_BBC7_очистка
+
+        off_case_1A_01:
+        ; спешал перепасовка
+            .byte con_mirror_off
+            .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
+            .byte off_case_BC96_00_tsubasa - * ; tsubasa
+            .byte off_case_BCAE_01_misaki - * ; misaki
+            .byte off_case_BCC6_02_hyuga - * ; hyuga
+            .byte off_case_BCC6_03_hyuga - * ; hyuga
+            .byte off_case_BCCB_04_hyuga - * ; hyuga
+            .byte off_case_BCE5_05_sawada - * ; sawada
+            .byte off_case_BCEA_06_sawada - * ; sawada
+            .byte off_case_BD04_07_masao - * ; masao
+            .byte off_case_BD04_08_kazuo - * ; kazuo
+            .byte off_case_BD04_09_masao - * ; masao
+            .byte off_case_BD04_0A_kazuo - * ; kazuo
+            .byte off_case_BD09_0B_masao - * ; masao
+            .byte off_case_BD09_0C_kazuo - * ; kazuo
+            .byte off_case_BD23_0D_diaz - * ; diaz
+            .byte off_case_BD3B_0E_pascal - * ; pascal
+            .byte off_case_BD53_0F_pierre - * ; pierre
+            .byte off_case_BD6D_10_napoleon - * ; napoleon
+            .byte off_case_BCAD_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
+
+                off_case_BC96_00_tsubasa:
+                ; tsubasa
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $28
+                    .byte con_bg + $36
+                    .byte con_animation + $95
+                    .byte con_cloud + $CC
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $92
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $28
+                    .byte con_bg + $36
+                    .byte con_animation + $95
+                    .byte con_cloud + con_skip
+                off_case_BCAD_11_игрок_без_спешал_перепасовки:
+                ; игрок без спешал перепасовки
+                    .byte con_rts
+
+                off_case_BCAE_01_misaki:
+                ; misaki
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $92
+                    .byte con_cloud + $CC
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $95
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $92
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BCC6_02_hyuga:
+                off_case_BCC6_03_hyuga:
+                ; hyuga
+                    .byte con_F7, $40
+                    .byte con_jmp
+                    .word loc_BCCD
+
+                off_case_BCCB_04_hyuga:
+                ; hyuga
+                    .byte con_F7, $22
+                loc_BCCD:
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $A7
+                    .byte con_cloud + $D2
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $A5
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $A7
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BCE5_05_sawada:
+                ; sawada
+                    .byte con_F7, $40
+                    .byte con_jmp
+                    .word loc_BCEC
+
+                off_case_BCEA_06_sawada:
+                ; sawada
+                    .byte con_F7, $22
+                loc_BCEC:
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $A5
+                    .byte con_cloud + $D2
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $A7
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $A5
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BD04_07_masao:
+                off_case_BD04_08_kazuo:
+                off_case_BD04_09_masao:
+                off_case_BD04_0A_kazuo:
+                ; masao, kazuo
+                    .byte con_F7, $40
+                    .byte con_jmp
+                    .word loc_BD0B
+
+                off_case_BD09_0B_masao:
+                off_case_BD09_0C_kazuo:
+                ; masao, kazuo
+                    .byte con_F7, $3F
+                loc_BD0B:
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $EF
+                    .byte con_cloud + $D6
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $EF
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $EF
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BD23_0D_diaz:
+                ; diaz
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $DF
+                    .byte con_cloud + $CF
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $BE
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $DF
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BD3B_0E_pascal:
+                ; pascal
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $BE
+                    .byte con_cloud + $CF
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $DF
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $BE
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BD53_0F_pierre:
+                ; pierre
+                    .byte con_F7, $25
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $A7
+                    .byte con_cloud + $D6
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $EE
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $A7
+                    .byte con_cloud + con_skip
+                    .byte con_rts
+
+                off_case_BD6D_10_napoleon:
+                ; napoleon
+                    .byte con_F7, $25
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $EE
+                    .byte con_cloud + $D6
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $01
+                    .byte con_animation + $A7
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_soundID_delay, $2C, $21
+                    .byte con_pause + $3C
+                    .byte con_bg + $36
+                    .byte con_animation + $EE
+                    .byte con_cloud + $D6
+                    .byte con_rts
+
+
+
+_scenario_B486_1B:
+    .byte con_mirror_condition, $00
+    .dbyt con_branch_short + con_bra_обычный_или_спешал
+    .word case_1B_00 - * ; обычная перепасовка
+    .word case_1B_01 - * ; спешал перепасовка
+
+        case_1B_00:
+        ; обычная перепасовка
+            .byte con_mirror_toggle
+            .byte con_jsr
+            .word sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки
+loc_B49E_игрок_принимает_пас_на_ногу:
+            .byte con_soundID_delay, $2C, $1D
+            .byte con_pause + $3C
+            .byte con_bg + $01
+            .byte con_animation + $78
+            .byte con_cloud + $58
+            .byte con_rts
+
+        case_1B_01:
+        ; спешал перепасовка
+            .byte con_jmp
+            .word loc_B48E
+
+
+
 _scenario_9BE3_1C:
     .byte con_mirror_condition, $00
     .byte con_jsr
@@ -6948,174 +7533,6 @@ loc_A267_goal_и_рваная_сетка:
             .byte con_animation + $45
             .byte con_cloud + $28
             .byte con_rts
-
-
-
-_scenario_9C30_30:
-    .dbyt con_branch_long + con_bra_у_чьей_команды_мяч
-    .word bra_long_case_30_00 ; гол в правые ворота
-    .word bra_long_case_30_01 ; гол в левые ворота
-
-        bra_long_case_30_00:
-        ; гол в правые ворота
-            .byte con_mirror_off
-            .byte con_F7, $13
-            .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
-            .dbyt con_branch_long + con_bra_порвана_ли_сетка
-            .word bra_long_case_30_00_00 ; сетка не порвана
-            .word bra_long_case_30_00_01 ; сетка порвана
-
-                bra_long_case_30_00_00:
-                ; гол в правые ворота/сетка не порвана
-                    .dbyt con_branch_short + con_bra_за_какую_команду_играешь
-                    .byte off_case_30_00_00_00 - * ; sao paulo
-                    .byte off_case_30_00_00_01 - * ; nankatsu
-                    .byte off_case_30_00_00_02 - * ; japan
-
-                        off_case_30_00_00_00:
-                        ; гол в правые ворота/сетка не порвана/sao paulo
-                            .byte con_pause + $A0
-                            .byte con_bg + $08
-                            .byte con_animation + $46
-                            .byte con_cloud + $52
-                            .byte con_jmp
-                            .word loc_A275_мерцание_фона_с_портретом_игроков
-
-                        off_case_30_00_00_01:
-                        ; гол в правые ворота/сетка не порвана/nankatsu
-                            .byte con_pause + $A0
-                            .byte con_bg + $09
-                            .byte con_animation + $47
-                            .byte con_cloud + $52
-                            .byte con_jmp
-                            .word loc_A275_мерцание_фона_с_портретом_игроков
-
-                        off_case_30_00_00_02:
-                        ; гол в правые ворота/сетка не порвана/japan
-                            .byte con_pause + $A0
-                            .byte con_bg + $0A
-                            .byte con_animation + $48
-                            .byte con_cloud + $52
-loc_A275_мерцание_фона_с_портретом_игроков:
-                            .byte con_F7, $13
-                            .byte con_pause + $6E
-                            .byte con_bg + con_skip
-                            .byte con_animation + con_skip
-                            .byte con_cloud + con_skip
-                            .dbyt con_branch_short + con_bra_проигрывает_ли_germany
-                            .byte off_case_30_00_00_02_00 - * ; germany не проигрывает
-                            .byte off_case_30_00_00_02_01 - * ; germany проигрывает
-
-                                off_case_30_00_00_02_00:
-                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает
-                                    .dbyt con_branch_short + con_bra_jito_sano_ли_забили
-                                    .byte off_case_30_00_00_02_00_00 - * ; гол забили не jito с sano
-                                    .byte off_case_30_00_00_02_00_01 - * ; гол забили jito с sano
-
-                                off_case_30_00_00_02_00_00:
-                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили не jito с sano
-                                            .byte con_rts
-
-                                off_case_30_00_00_02_00_01:
-                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили jito с sano
-                                ; bzk опт, а эта проверка на jito вообще нужна? если играешь за японию, очевидно что он тоже из японии
-                                ; вероятно это как-то связано с тем, что jito может быть из двух разных команд японии
-                                            .dbyt con_branch_short + con_bra_plr_jito
-                                            .byte off_case_30_00_00_02_00_01_00 - * ; jito japan
-                                            .byte off_case_30_00_00_02_00_01_01 - * ; jito kunimi
-
-                                                off_case_30_00_00_02_00_01_00:
-                                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили jito с sano/jito japan
-                                                    .byte con_jsr
-                                                    .word sub_BBC7_очистка
-                                                    .byte con_pause + $D0
-                                                    .byte con_bg + $30
-                                                    .byte con_animation + $A0
-                                                    .byte con_cloud + $9E
-                                                    .byte con_jmp
-                                                    .word loc_BBC7_очистка
-
-                                                off_case_30_00_00_02_00_01_01:
-                                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили jito с sano/jito kunimi
-                                                    .byte con_jsr
-                                                    .word sub_BBC7_очистка
-                                                    .byte con_pause + $D0
-                                                    .byte con_bg + $30
-                                                    .byte con_animation + $AA
-                                                    .byte con_cloud + $9E
-                                                    .byte con_jmp
-                                                    .word loc_BBC7_очистка
-
-                                off_case_30_00_00_02_01:
-                                ; гол в правые ворота/сетка не порвана/japan/germany проигрывает
-                                    .byte con_jsr
-                                    .word sub_BBC7_очистка
-                                    .byte con_pause + $A0
-                                    .byte con_bg + $30
-                                    .byte con_animation + $B8
-                                    .byte con_cloud + $89
-                                    .byte con_rts
-
-                bra_long_case_30_00_01:
-                ; гол в правые ворота/сетка порвана
-                ; bzk а почему тут нету проверки на jito?
-                    .dbyt con_branch_short + con_bra_за_какую_команду_играешь
-                    .byte off_case_30_00_01_00 - * ; sao paulo
-                    .byte off_case_30_00_01_01 - * ; nankatsu
-                    .byte off_case_30_00_01_02 - * ; japan
-
-                        off_case_30_00_01_00:
-                        ; гол в правые ворота/сетка порвана/sao paulo
-                            .byte con_pause + $A0
-                            .byte con_bg + $08
-                            .byte con_animation + $46
-                            .byte con_cloud + $54
-                            .byte con_jmp
-                            .word loc_A275_мерцание_фона_с_портретом_игроков
-
-                        off_case_30_00_01_01:
-                        ; гол в правые ворота/сетка порвана/nankatsu
-                            .byte con_pause + $A0
-                            .byte con_bg + $09
-                            .byte con_animation + $47
-                            .byte con_cloud + $55
-                            .byte con_jmp
-                            .word loc_A275_мерцание_фона_с_портретом_игроков
-
-                        off_case_30_00_01_02:
-                        ; гол в правые ворота/сетка порвана/japan
-                            .byte con_pause + $A0
-                            .byte con_bg + $0A
-                            .byte con_animation + $48
-                            .byte con_cloud + $55
-                            .byte con_jmp
-                            .word loc_A275_мерцание_фона_с_портретом_игроков
-
-        bra_long_case_30_01:
-        ; гол в левые ворота
-sub_9C36_анимация_гола_в_левые_ворота_и_сообщения:
-            .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
-            .dbyt con_branch_short + con_bra_порвана_ли_сетка
-            .byte off_case_30_01_00 - * ; сетка не порвана
-            .byte off_case_30_01_01 - * ; сетка порвана
-
-                off_case_30_01_00:
-                ; гол в левые ворота/сетка не порвана
-                    .byte con_pause + $82
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + $51
-                    .byte con_jmp
-                    .word loc_A275_мерцание_фона_с_портретом_игроков
-
-                off_case_30_01_01:
-                ; гол в левые ворота/сетка порвана
-                    .byte con_pause + $82
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + $53
-                    .byte con_jmp
-                    .word loc_A275_мерцание_фона_с_портретом_игроков
 
 
 
@@ -9398,27 +9815,6 @@ sub_9E1B_рандом_анимации_отпизженного_игрока_4_�
             .byte con_animation + $14
             .byte con_cloud + $02
             .byte con_rts
-
-
-
-_scenario_9E3E_18:
-    .byte con_mirror_condition, $00
-    .dbyt con_branch_short + con_bra_где_сейчас_мяч
-    .byte off_case_18_00 - * ; мяч у атакующего на земле
-    .byte off_case_18_01 - * ; летит низкий мяч
-    .byte off_case_18_02 - * ; пас головой в воздухе
-
-        off_case_18_00:
-        ; мяч у атакующего на земле
-        off_case_18_01:
-        ; летит низкий мяч
-            .byte con_jmp
-            .word loc_9E45_выбор_анимации_паса_с_земли_или_по_низкому_мячу
-
-        off_case_18_02:
-        ; пас головой в воздухе
-            .byte con_jmp
-            .word loc_9E4F_пас_головой_в_воздухе
 
 
 
@@ -13360,39 +13756,6 @@ sub_B45D_мяч_улетает_в_сторону:
 
 
 
-_scenario_B486_1B:
-    .byte con_mirror_condition, $00
-    .dbyt con_branch_short + con_bra_обычный_или_спешал
-    .word case_1B_00 - * ; обычная перепасовка
-    .word case_1B_01 - * ; спешал перепасовка
-
-        case_1B_00:
-        ; обычная перепасовка
-            .byte con_mirror_toggle
-            .byte con_jsr
-            .word sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки
-loc_B49E_игрок_принимает_пас_на_ногу:
-            .byte con_soundID_delay, $2C, $1D
-            .byte con_pause + $3C
-            .byte con_bg + $01
-            .byte con_animation + $78
-            .byte con_cloud + $58
-            .byte con_rts
-
-        case_1B_01:
-        ; спешал перепасовка
-            .byte con_jmp
-            .word loc_B48E
-
-
-
-_scenario_B48E_03:
-; !!! переместить
-            .byte con_jmp
-            .word loc_B48E
-
-
-
 loc_B48E:
     .byte con_mirror_on
     .byte con_jsr
@@ -13660,6 +14023,285 @@ _scenario_B738_20:
 
 
 
+_scenario_BA3B_21:
+    .byte con_jsr
+    .word sub_BA2C_замах_и_удар_по_мячу_обычным_ударом
+    .dbyt con_branch_short + con_bra_у_чьей_команды_мяч
+    .byte off_case_21_00 - * ; мяч у команды слева
+    .byte off_case_21_01 - * ; мяч у команды справа
+
+        off_case_21_00:
+        ; мяч у команды слева
+            .byte con_pause + $0A
+            .byte con_bg + $38
+            .byte con_animation + $00
+            .byte con_cloud + con_skip
+            .byte con_FE
+            .byte con_jmp
+            .word loc_BA54_21_00
+
+        off_case_21_01:
+        ; мяч у команды справа
+            .byte con_pause + $0A
+            .byte con_bg + $37
+            .byte con_animation + $00
+            .byte con_cloud + con_skip
+            .byte con_FE
+        loc_BA54:
+        loc_BA54_21_00:
+            .dbyt con_branch_short + con_bra_3E
+            .byte off_case_21_01_00 - * ; мяч влево, кипер влево
+            .byte off_case_21_01_01 - * ; мяч влево, кипер центр
+            .byte off_case_21_01_02 - * ; мяч влево, кипер вправо
+            .byte off_case_21_01_03 - * ; мяч центр, кипер влево
+            .byte off_case_21_01_04 - * ; мяч центр, кипер центр
+            .byte off_case_21_01_05 - * ; мяч центр, кипер вправо
+            .byte off_case_21_01_06 - * ; мяч вправо, кипер влево
+            .byte off_case_21_01_07 - * ; мяч вправо, кипер центр
+            .byte off_case_21_01_08 - * ; мяч вправо, кипер вправо
+
+                off_case_21_01_00:
+                ; мяч влево, кипер влево
+                    .byte con_mirror_toggle
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $86
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_mirror_on
+                    .byte con_jmp
+                    .word loc_BA63_21_01_00
+
+                off_case_21_01_01:
+                ; мяч влево, кипер центр
+                    .byte con_mirror_toggle
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $89
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_mirror_on
+                    .byte con_jmp
+                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
+
+                off_case_21_01_02:
+                ; мяч влево, кипер вправо
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $87
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_on
+                    .byte con_jmp
+                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
+
+                off_case_21_01_03:
+                ; мяч центр, кипер влево
+                    .byte con_mirror_toggle
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $88
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_mirror_on
+                    .byte con_jmp
+                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
+
+                off_case_21_01_04:
+                ; мяч центр, кипер центр
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $8A
+                    .byte con_cloud + con_skip
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_21_01_04_00 - * ; кипер промахивается и гол
+                    .byte off_case_21_01_04_01 - * ; кипер отбивает
+                    .byte off_case_21_01_04_02 - * ; кипер промахивается и штанга (нереальный случай)
+
+                        off_case_21_01_04_00:
+                        ; кипер промахивается и гол
+                            .byte con_F7, $07
+                            .byte con_pause + $2A
+                            .byte con_bg + $40
+                            .byte con_animation + $59
+                            .byte con_cloud + con_skip
+                            .byte con_jmp
+                            .word loc_BA7F_гол_при_ударе_11м
+
+                        off_case_21_01_04_01:
+                        ; кипер отбивает
+                            .byte con_F7, $07
+                            .byte con_soundID_delay, $2A, $21
+                            .byte con_pause + $20
+                            .byte con_bg + $40
+                            .byte con_animation + $17
+                            .byte con_cloud + $DD
+                            .byte con_F7, $10
+                            .byte con_pause + $10
+                            .byte con_bg + $05
+                            .byte con_animation + $00
+                            .byte con_cloud + con_skip
+                            .byte con_mirror_toggle
+                            .byte con_soundID_delay, $7E, $02
+                            .byte con_pause + $3C
+                            .byte con_bg + $20
+                            .byte con_animation + $52
+                            .byte con_cloud + con_skip
+                            .byte con_rts
+
+                        off_case_21_01_04_02:
+                        ; кипер промахивается и штанга (нереальный случай)
+                            .byte con_rts
+                            ; закомментированный код из оригинала
+;                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
+;                            .byte off_case_21_01_04_02_00 - * ; другой кипер
+;                            .byte off_case_21_01_04_02_01 - * ; wakashimazu
+;                            .byte off_case_21_01_04_02_02 - * ; gertise
+;
+;                                off_case_21_01_04_02_00:
+;                                ; другой кипер
+;                                    .byte con_pause + $28
+;                                    .byte con_bg + $0E
+;                                    .byte con_animation + $25
+;                                    .byte con_cloud + con_skip
+;                                    .byte con_jmp
+;                                    .word loc_BADE_штанга_при_ударе_11м
+;
+;                                off_case_21_01_04_02_01:
+;                                off_case_21_01_04_02_02:
+;                                ; wakashimazu, gertise
+;                                    .byte con_pause + $28
+;                                    .byte con_bg + $0F
+;                                    .byte con_animation + $26
+;                                    .byte con_cloud + con_skip
+;                                    .byte con_jmp
+;                                    .word loc_BADE_штанга_при_ударе_11м
+
+                off_case_21_01_05:
+                ; мяч центр, кипер вправо
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $88
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_on
+                    .byte con_jmp
+                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
+
+                off_case_21_01_06:
+                ; мяч вправо, кипер влево
+                    .byte con_mirror_toggle
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $87
+                    .byte con_cloud + con_skip
+                    .byte con_mirror_toggle
+                    .byte con_jmp
+                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
+
+                off_case_21_01_07:
+                ; мяч вправо, кипер центр
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $89
+                    .byte con_cloud + con_skip
+                    .byte con_jmp
+                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
+
+                off_case_21_01_08:
+                ; мяч вправо, кипер вправо
+                    .byte con_pause + $32
+                    .byte con_bg + con_skip
+                    .byte con_animation + $86
+                    .byte con_cloud + con_skip
+                loc_BA63_21_01_00:
+                    .dbyt con_branch_short + con_bra_результат_действия_защитника
+                    .byte off_case_21_01_08_00 - * ; кипер промахнется и гол
+                    .byte off_case_21_01_08_01 - * ; кипер отобьет
+                    .byte off_case_21_01_08_02 - * ; кипер промахнется и штанга
+
+                        off_case_21_01_08_00:
+                        ; мяч вправо, кипер вправо/кипер промахнется и гол
+                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
+                            .byte off_case_21_01_08_00_00 - * ; другой кипер
+                            .byte off_case_21_01_08_00_01 - * ; wakashimazu
+                            .byte off_case_21_01_08_00_02 - * ; gertise
+
+                                off_case_21_01_08_00_00:
+                                ; мяч вправо, кипер вправо/кипер промахнется и гол/другой кипер
+                                    .byte con_pause + $28
+                                    .byte con_bg + $0E
+                                    .byte con_animation + $25
+                                    .byte con_cloud + con_skip
+                                    .byte con_jmp
+                                    .word loc_BA7F_гол_при_ударе_11м
+
+                                off_case_21_01_08_00_01:
+                                off_case_21_01_08_00_02:
+                                ; мяч вправо, кипер вправо/кипер промахнется и гол/wakashimazu, gertise
+                                    .byte con_pause + $28
+                                    .byte con_bg + $0F
+                                    .byte con_animation + $26
+                                    .byte con_cloud + con_skip
+                                    .byte con_jmp
+                                    .word loc_BA7F_гол_при_ударе_11м
+
+                        off_case_21_01_08_01:
+                        ; мяч вправо, кипер вправо/кипер отобьет
+                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
+                            .byte off_case_21_01_08_01_00 - * ; другой кипер
+                            .byte off_case_21_01_08_01_01 - * ; wakashimazu
+                            .byte off_case_21_01_08_01_02 - * ; gertise
+
+                                off_case_21_01_08_01_00:
+                                ; мяч вправо, кипер вправо/кипер отобьет/другой кипер
+                                    .byte con_soundID_delay, $2B, $21
+                                    .byte con_pause + $3C
+                                    .byte con_bg + $0E
+                                    .byte con_animation + $27
+                                    .byte con_cloud + $DD
+                                    .byte con_soundID_delay, $7E, $02
+                                    .byte con_jmp
+                                    .word loc_BBC7_очистка
+
+                                off_case_21_01_08_01_01:
+                                off_case_21_01_08_01_02:
+                                ; мяч вправо, кипер вправо/кипер отобьет/wakashimazu, gertise
+                                    .byte con_soundID_delay, $2B, $21
+                                    .byte con_pause + $3C
+                                    .byte con_bg + $0F
+                                    .byte con_animation + $2B
+                                    .byte con_cloud + $DD
+                                    .byte con_soundID_delay, $7E, $02
+                                    .byte con_jmp
+                                    .word loc_BBC7_очистка
+
+                        off_case_21_01_08_02:
+                        ; мяч вправо, кипер вправо/кипер промахнется и штанга
+                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
+                            .byte off_case_21_01_08_02_00 - * ; другой кипер
+                            .byte off_case_21_01_08_02_01 - * ; wakashimazu
+                            .byte off_case_21_01_08_02_02 - * ; gertise
+
+                                off_case_21_01_08_02_00:
+                                ; мяч вправо, кипер вправо/кипер промахнется и штанга/другой кипер
+                                    .byte con_pause + $28
+                                    .byte con_bg + $0E
+                                    .byte con_animation + $25
+                                    .byte con_cloud + con_skip
+                                    .byte con_jmp
+                                    .word loc_BADE_штанга_при_ударе_11м
+
+                                off_case_21_01_08_02_01:
+                                off_case_21_01_08_02_02:
+                                ; мяч вправо, кипер вправо/кипер промахнется и штанга/wakashimazu, gertise
+                                    .byte con_pause + $28
+                                    .byte con_bg + $0F
+                                    .byte con_animation + $26
+                                    .byte con_cloud + con_skip
+                                    .byte con_jmp
+                                    .word loc_BADE_штанга_при_ударе_11м
+
+
+
 
 _scenario_B749_22:
     .byte con_pause + $B0
@@ -13870,6 +14512,174 @@ _scenario_B773_2F:
             .byte con_cloud + $0A
             .byte con_jmp
             .word loc_B763_2F_проверка_на_наличие_защитников
+
+
+
+_scenario_9C30_30:
+    .dbyt con_branch_long + con_bra_у_чьей_команды_мяч
+    .word bra_long_case_30_00 ; гол в правые ворота
+    .word bra_long_case_30_01 ; гол в левые ворота
+
+        bra_long_case_30_00:
+        ; гол в правые ворота
+            .byte con_mirror_off
+            .byte con_F7, $13
+            .byte con_soundID_delay, $41, $02     ; гол в ворота соперника
+            .dbyt con_branch_long + con_bra_порвана_ли_сетка
+            .word bra_long_case_30_00_00 ; сетка не порвана
+            .word bra_long_case_30_00_01 ; сетка порвана
+
+                bra_long_case_30_00_00:
+                ; гол в правые ворота/сетка не порвана
+                    .dbyt con_branch_short + con_bra_за_какую_команду_играешь
+                    .byte off_case_30_00_00_00 - * ; sao paulo
+                    .byte off_case_30_00_00_01 - * ; nankatsu
+                    .byte off_case_30_00_00_02 - * ; japan
+
+                        off_case_30_00_00_00:
+                        ; гол в правые ворота/сетка не порвана/sao paulo
+                            .byte con_pause + $A0
+                            .byte con_bg + $08
+                            .byte con_animation + $46
+                            .byte con_cloud + $52
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
+
+                        off_case_30_00_00_01:
+                        ; гол в правые ворота/сетка не порвана/nankatsu
+                            .byte con_pause + $A0
+                            .byte con_bg + $09
+                            .byte con_animation + $47
+                            .byte con_cloud + $52
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
+
+                        off_case_30_00_00_02:
+                        ; гол в правые ворота/сетка не порвана/japan
+                            .byte con_pause + $A0
+                            .byte con_bg + $0A
+                            .byte con_animation + $48
+                            .byte con_cloud + $52
+loc_A275_мерцание_фона_с_портретом_игроков:
+                            .byte con_F7, $13
+                            .byte con_pause + $6E
+                            .byte con_bg + con_skip
+                            .byte con_animation + con_skip
+                            .byte con_cloud + con_skip
+                            .dbyt con_branch_short + con_bra_проигрывает_ли_germany
+                            .byte off_case_30_00_00_02_00 - * ; germany не проигрывает
+                            .byte off_case_30_00_00_02_01 - * ; germany проигрывает
+
+                                off_case_30_00_00_02_00:
+                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает
+                                    .dbyt con_branch_short + con_bra_jito_sano_ли_забили
+                                    .byte off_case_30_00_00_02_00_00 - * ; гол забили не jito с sano
+                                    .byte off_case_30_00_00_02_00_01 - * ; гол забили jito с sano
+
+                                off_case_30_00_00_02_00_00:
+                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили не jito с sano
+                                            .byte con_rts
+
+                                off_case_30_00_00_02_00_01:
+                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили jito с sano
+                                ; bzk опт, а эта проверка на jito вообще нужна? если играешь за японию, очевидно что он тоже из японии
+                                ; вероятно это как-то связано с тем, что jito может быть из двух разных команд японии
+                                            .dbyt con_branch_short + con_bra_plr_jito
+                                            .byte off_case_30_00_00_02_00_01_00 - * ; jito japan
+                                            .byte off_case_30_00_00_02_00_01_01 - * ; jito kunimi
+
+                                                off_case_30_00_00_02_00_01_00:
+                                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили jito с sano/jito japan
+                                                    .byte con_jsr
+                                                    .word sub_BBC7_очистка
+                                                    .byte con_pause + $D0
+                                                    .byte con_bg + $30
+                                                    .byte con_animation + $A0
+                                                    .byte con_cloud + $9E
+                                                    .byte con_jmp
+                                                    .word loc_BBC7_очистка
+
+                                                off_case_30_00_00_02_00_01_01:
+                                                ; гол в правые ворота/сетка не порвана/japan/germany не проигрывает/гол забили jito с sano/jito kunimi
+                                                    .byte con_jsr
+                                                    .word sub_BBC7_очистка
+                                                    .byte con_pause + $D0
+                                                    .byte con_bg + $30
+                                                    .byte con_animation + $AA
+                                                    .byte con_cloud + $9E
+                                                    .byte con_jmp
+                                                    .word loc_BBC7_очистка
+
+                                off_case_30_00_00_02_01:
+                                ; гол в правые ворота/сетка не порвана/japan/germany проигрывает
+                                    .byte con_jsr
+                                    .word sub_BBC7_очистка
+                                    .byte con_pause + $A0
+                                    .byte con_bg + $30
+                                    .byte con_animation + $B8
+                                    .byte con_cloud + $89
+                                    .byte con_rts
+
+                bra_long_case_30_00_01:
+                ; гол в правые ворота/сетка порвана
+                ; bzk а почему тут нету проверки на jito?
+                    .dbyt con_branch_short + con_bra_за_какую_команду_играешь
+                    .byte off_case_30_00_01_00 - * ; sao paulo
+                    .byte off_case_30_00_01_01 - * ; nankatsu
+                    .byte off_case_30_00_01_02 - * ; japan
+
+                        off_case_30_00_01_00:
+                        ; гол в правые ворота/сетка порвана/sao paulo
+                            .byte con_pause + $A0
+                            .byte con_bg + $08
+                            .byte con_animation + $46
+                            .byte con_cloud + $54
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
+
+                        off_case_30_00_01_01:
+                        ; гол в правые ворота/сетка порвана/nankatsu
+                            .byte con_pause + $A0
+                            .byte con_bg + $09
+                            .byte con_animation + $47
+                            .byte con_cloud + $55
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
+
+                        off_case_30_00_01_02:
+                        ; гол в правые ворота/сетка порвана/japan
+                            .byte con_pause + $A0
+                            .byte con_bg + $0A
+                            .byte con_animation + $48
+                            .byte con_cloud + $55
+                            .byte con_jmp
+                            .word loc_A275_мерцание_фона_с_портретом_игроков
+
+        bra_long_case_30_01:
+        ; гол в левые ворота
+sub_9C36_анимация_гола_в_левые_ворота_и_сообщения:
+            .byte con_soundID_delay, $42, $02     ; гол в ворота нашей команды
+            .dbyt con_branch_short + con_bra_порвана_ли_сетка
+            .byte off_case_30_01_00 - * ; сетка не порвана
+            .byte off_case_30_01_01 - * ; сетка порвана
+
+                off_case_30_01_00:
+                ; гол в левые ворота/сетка не порвана
+                    .byte con_pause + $82
+                    .byte con_bg + con_skip
+                    .byte con_animation + con_skip
+                    .byte con_cloud + $51
+                    .byte con_jmp
+                    .word loc_A275_мерцание_фона_с_портретом_игроков
+
+                off_case_30_01_01:
+                ; гол в левые ворота/сетка порвана
+                    .byte con_pause + $82
+                    .byte con_bg + con_skip
+                    .byte con_animation + con_skip
+                    .byte con_cloud + $53
+                    .byte con_jmp
+                    .word loc_A275_мерцание_фона_с_портретом_игроков
 
 
 
@@ -14359,99 +15169,6 @@ loc_B859_катсцена_озарения:
 
 
 
-_scenario_B8A1_17:
-    .byte con_pause + $01
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
-    .byte con_mirror_on
-    .byte con_F7, $1F
-    .byte con_soundID_delay, $30, $02
-    .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $81
-    .byte con_jsr
-    .word sub_BBC7_очистка
-    .byte con_soundID_delay, $2B, $02
-    .byte con_pause + $28
-    .byte con_bg + $01
-    .byte con_animation + $66
-    .byte con_cloud + $82
-    .byte con_pause + $29
-    .byte con_bg + $20
-    .byte con_animation + $4C
-    .byte con_cloud + con_skip
-    .byte con_jsr
-    .word sub_BBC7_очистка
-    .byte con_pause + $5A
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $83
-    .byte con_soundID_delay, $25, $02
-    .byte con_pause + $28
-    .byte con_bg + $20
-    .byte con_animation + $ED
-    .byte con_cloud + con_clear
-    .byte con_mirror_toggle
-    .byte con_pause + $3C
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $84
-    .byte con_mirror_toggle
-    .byte con_soundID_delay, $2B, $31
-    .byte con_pause + $38
-    .byte con_bg + $47
-    .byte con_animation + $BF
-    .byte con_cloud + $85
-    .byte con_pause + $25
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
-    .byte con_mirror_toggle
-    .byte con_soundID_delay, $04, $02
-    .byte con_pause + $32
-    .byte con_bg + $63
-    .byte con_animation + $0F
-    .byte con_cloud + con_clear
-    .byte con_moving_bg, $04
-    .byte con_pause + $32
-    .byte con_bg + $58
-    .byte con_animation + $04
-    .byte con_cloud + $86
-    .byte con_F7, $33
-    .byte con_soundID_delay, $05, $02
-    .byte con_pause + $36
-    .byte con_bg + $27
-    .byte con_animation + $10
-    .byte con_cloud + con_skip
-    .byte con_jsr
-    .word sub_B519
-    .byte con_pause + $64
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $8E
-    .byte con_pause + $10
-    .byte con_bg + $0E
-    .byte con_animation + $D3
-    .byte con_cloud + con_clear
-    .byte con_F7, $03
-    .byte con_soundID_delay, $61, $02
-    .byte con_pause + $64
-    .byte con_bg + $07
-    .byte con_animation + $45
-    .byte con_cloud + $28
-    .byte con_jsr
-    .word sub_BBC7_очистка
-    .byte con_pause + $6E
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $87
-    .byte con_jmp
-    .word loc_BBC7_очистка
-
-
-
 bra_long_case_B913_01_tsubasa:
 ; tsubasa
     .byte con_pause + $3C
@@ -14857,285 +15574,6 @@ sub_BA2C_замах_и_удар_по_мячу_обычным_ударом:
 
 
 
-_scenario_BA3B_21:
-    .byte con_jsr
-    .word sub_BA2C_замах_и_удар_по_мячу_обычным_ударом
-    .dbyt con_branch_short + con_bra_у_чьей_команды_мяч
-    .byte off_case_21_00 - * ; мяч у команды слева
-    .byte off_case_21_01 - * ; мяч у команды справа
-
-        off_case_21_00:
-        ; мяч у команды слева
-            .byte con_pause + $0A
-            .byte con_bg + $38
-            .byte con_animation + $00
-            .byte con_cloud + con_skip
-            .byte con_FE
-            .byte con_jmp
-            .word loc_BA54_21_00
-
-        off_case_21_01:
-        ; мяч у команды справа
-            .byte con_pause + $0A
-            .byte con_bg + $37
-            .byte con_animation + $00
-            .byte con_cloud + con_skip
-            .byte con_FE
-        loc_BA54:
-        loc_BA54_21_00:
-            .dbyt con_branch_short + con_bra_3E
-            .byte off_case_21_01_00 - * ; мяч влево, кипер влево
-            .byte off_case_21_01_01 - * ; мяч влево, кипер центр
-            .byte off_case_21_01_02 - * ; мяч влево, кипер вправо
-            .byte off_case_21_01_03 - * ; мяч центр, кипер влево
-            .byte off_case_21_01_04 - * ; мяч центр, кипер центр
-            .byte off_case_21_01_05 - * ; мяч центр, кипер вправо
-            .byte off_case_21_01_06 - * ; мяч вправо, кипер влево
-            .byte off_case_21_01_07 - * ; мяч вправо, кипер центр
-            .byte off_case_21_01_08 - * ; мяч вправо, кипер вправо
-
-                off_case_21_01_00:
-                ; мяч влево, кипер влево
-                    .byte con_mirror_toggle
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $86
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_mirror_on
-                    .byte con_jmp
-                    .word loc_BA63_21_01_00
-
-                off_case_21_01_01:
-                ; мяч влево, кипер центр
-                    .byte con_mirror_toggle
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $89
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_mirror_on
-                    .byte con_jmp
-                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
-
-                off_case_21_01_02:
-                ; мяч влево, кипер вправо
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $87
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_on
-                    .byte con_jmp
-                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
-
-                off_case_21_01_03:
-                ; мяч центр, кипер влево
-                    .byte con_mirror_toggle
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $88
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_mirror_on
-                    .byte con_jmp
-                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
-
-                off_case_21_01_04:
-                ; мяч центр, кипер центр
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $8A
-                    .byte con_cloud + con_skip
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_21_01_04_00 - * ; кипер промахивается и гол
-                    .byte off_case_21_01_04_01 - * ; кипер отбивает
-                    .byte off_case_21_01_04_02 - * ; кипер промахивается и штанга (нереальный случай)
-
-                        off_case_21_01_04_00:
-                        ; кипер промахивается и гол
-                            .byte con_F7, $07
-                            .byte con_pause + $2A
-                            .byte con_bg + $40
-                            .byte con_animation + $59
-                            .byte con_cloud + con_skip
-                            .byte con_jmp
-                            .word loc_BA7F_гол_при_ударе_11м
-
-                        off_case_21_01_04_01:
-                        ; кипер отбивает
-                            .byte con_F7, $07
-                            .byte con_soundID_delay, $2A, $21
-                            .byte con_pause + $20
-                            .byte con_bg + $40
-                            .byte con_animation + $17
-                            .byte con_cloud + $DD
-                            .byte con_F7, $10
-                            .byte con_pause + $10
-                            .byte con_bg + $05
-                            .byte con_animation + $00
-                            .byte con_cloud + con_skip
-                            .byte con_mirror_toggle
-                            .byte con_soundID_delay, $7E, $02
-                            .byte con_pause + $3C
-                            .byte con_bg + $20
-                            .byte con_animation + $52
-                            .byte con_cloud + con_skip
-                            .byte con_rts
-
-                        off_case_21_01_04_02:
-                        ; кипер промахивается и штанга (нереальный случай)
-                            .byte con_rts
-                            ; закомментированный код из оригинала
-;                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
-;                            .byte off_case_21_01_04_02_00 - * ; другой кипер
-;                            .byte off_case_21_01_04_02_01 - * ; wakashimazu
-;                            .byte off_case_21_01_04_02_02 - * ; gertise
-;
-;                                off_case_21_01_04_02_00:
-;                                ; другой кипер
-;                                    .byte con_pause + $28
-;                                    .byte con_bg + $0E
-;                                    .byte con_animation + $25
-;                                    .byte con_cloud + con_skip
-;                                    .byte con_jmp
-;                                    .word loc_BADE_штанга_при_ударе_11м
-;
-;                                off_case_21_01_04_02_01:
-;                                off_case_21_01_04_02_02:
-;                                ; wakashimazu, gertise
-;                                    .byte con_pause + $28
-;                                    .byte con_bg + $0F
-;                                    .byte con_animation + $26
-;                                    .byte con_cloud + con_skip
-;                                    .byte con_jmp
-;                                    .word loc_BADE_штанга_при_ударе_11м
-
-                off_case_21_01_05:
-                ; мяч центр, кипер вправо
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $88
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_on
-                    .byte con_jmp
-                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
-
-                off_case_21_01_06:
-                ; мяч вправо, кипер влево
-                    .byte con_mirror_toggle
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $87
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_jmp
-                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
-
-                off_case_21_01_07:
-                ; мяч вправо, кипер центр
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $89
-                    .byte con_cloud + con_skip
-                    .byte con_jmp
-                    .word loc_BA68_кипер_не_угадывает_сторону_в_пк
-
-                off_case_21_01_08:
-                ; мяч вправо, кипер вправо
-                    .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $86
-                    .byte con_cloud + con_skip
-                loc_BA63_21_01_00:
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_21_01_08_00 - * ; кипер промахнется и гол
-                    .byte off_case_21_01_08_01 - * ; кипер отобьет
-                    .byte off_case_21_01_08_02 - * ; кипер промахнется и штанга
-
-                        off_case_21_01_08_00:
-                        ; мяч вправо, кипер вправо/кипер промахнется и гол
-                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
-                            .byte off_case_21_01_08_00_00 - * ; другой кипер
-                            .byte off_case_21_01_08_00_01 - * ; wakashimazu
-                            .byte off_case_21_01_08_00_02 - * ; gertise
-
-                                off_case_21_01_08_00_00:
-                                ; мяч вправо, кипер вправо/кипер промахнется и гол/другой кипер
-                                    .byte con_pause + $28
-                                    .byte con_bg + $0E
-                                    .byte con_animation + $25
-                                    .byte con_cloud + con_skip
-                                    .byte con_jmp
-                                    .word loc_BA7F_гол_при_ударе_11м
-
-                                off_case_21_01_08_00_01:
-                                off_case_21_01_08_00_02:
-                                ; мяч вправо, кипер вправо/кипер промахнется и гол/wakashimazu, gertise
-                                    .byte con_pause + $28
-                                    .byte con_bg + $0F
-                                    .byte con_animation + $26
-                                    .byte con_cloud + con_skip
-                                    .byte con_jmp
-                                    .word loc_BA7F_гол_при_ударе_11м
-
-                        off_case_21_01_08_01:
-                        ; мяч вправо, кипер вправо/кипер отобьет
-                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
-                            .byte off_case_21_01_08_01_00 - * ; другой кипер
-                            .byte off_case_21_01_08_01_01 - * ; wakashimazu
-                            .byte off_case_21_01_08_01_02 - * ; gertise
-
-                                off_case_21_01_08_01_00:
-                                ; мяч вправо, кипер вправо/кипер отобьет/другой кипер
-                                    .byte con_soundID_delay, $2B, $21
-                                    .byte con_pause + $3C
-                                    .byte con_bg + $0E
-                                    .byte con_animation + $27
-                                    .byte con_cloud + $DD
-                                    .byte con_soundID_delay, $7E, $02
-                                    .byte con_jmp
-                                    .word loc_BBC7_очистка
-
-                                off_case_21_01_08_01_01:
-                                off_case_21_01_08_01_02:
-                                ; мяч вправо, кипер вправо/кипер отобьет/wakashimazu, gertise
-                                    .byte con_soundID_delay, $2B, $21
-                                    .byte con_pause + $3C
-                                    .byte con_bg + $0F
-                                    .byte con_animation + $2B
-                                    .byte con_cloud + $DD
-                                    .byte con_soundID_delay, $7E, $02
-                                    .byte con_jmp
-                                    .word loc_BBC7_очистка
-
-                        off_case_21_01_08_02:
-                        ; мяч вправо, кипер вправо/кипер промахнется и штанга
-                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
-                            .byte off_case_21_01_08_02_00 - * ; другой кипер
-                            .byte off_case_21_01_08_02_01 - * ; wakashimazu
-                            .byte off_case_21_01_08_02_02 - * ; gertise
-
-                                off_case_21_01_08_02_00:
-                                ; мяч вправо, кипер вправо/кипер промахнется и штанга/другой кипер
-                                    .byte con_pause + $28
-                                    .byte con_bg + $0E
-                                    .byte con_animation + $25
-                                    .byte con_cloud + con_skip
-                                    .byte con_jmp
-                                    .word loc_BADE_штанга_при_ударе_11м
-
-                                off_case_21_01_08_02_01:
-                                off_case_21_01_08_02_02:
-                                ; мяч вправо, кипер вправо/кипер промахнется и штанга/wakashimazu, gertise
-                                    .byte con_pause + $28
-                                    .byte con_bg + $0F
-                                    .byte con_animation + $26
-                                    .byte con_cloud + con_skip
-                                    .byte con_jmp
-                                    .word loc_BADE_штанга_при_ударе_11м
-
-
-
 loc_BA68_кипер_не_угадывает_сторону_в_пк:
     .dbyt con_branch_short + con_bra_результат_действия_защитника
     .byte off_case_BA68_00 - * ; гол
@@ -15376,437 +15814,6 @@ loc_BBDA:
     .byte con_animation + $66
     .byte con_cloud + $59
     .byte con_rts
-
-
-
-_scenario_BBD4_19:
-    .byte con_mirror_condition, $00
-    .dbyt con_branch_short + con_bra_обычный_или_спешал
-    .byte off_case_19_00 - * ; обычная_перепасовка
-    .byte off_case_19_01 - * ; спешал_перепасовка
-
-        off_case_19_00:
-        ; обычная_перепасовка
-            .byte con_jmp
-            .word loc_BBDA
-
-        off_case_19_01:
-        ; спешал_перепасовка
-            .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
-            .byte off_case_BBF6_00_tsubasa - * ; tsubasa
-            .byte off_case_BBF6_01_misaki - * ; misaki
-            .byte off_case_BC07_02_hyuga - * ; hyuga
-            .byte off_case_BBF6_03_hyuga - * ; hyuga
-            .byte off_case_BC18_04_hyuga - * ; hyuga
-            .byte off_case_BC07_05_sawada - * ; sawada
-            .byte off_case_BC18_06_sawada - * ; sawada
-            .byte off_case_BC29_07_masao - * ; masao
-            .byte off_case_BC29_08_kazuo - * ; kazuo
-            .byte off_case_BC29_09_masao - * ; masao
-            .byte off_case_BC29_0A_kazuo - * ; kazuo
-            .byte off_case_BC3A_0B_masao - * ; masao
-            .byte off_case_BC3A_0C_kazuo - * ; kazuo
-            .byte off_case_BC4B_0D_diaz - * ; diaz
-            .byte off_case_BC4B_0E_pascal - * ; pascal
-            .byte off_case_BC5C_0F_pierre - * ; pierre
-            .byte off_case_BC5C_10_napoleon - * ; napoleon
-            .byte off_case_BBF6_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
-
-                off_case_BBF6_00_tsubasa:
-                off_case_BBF6_01_misaki:
-                off_case_BBF6_03_hyuga:
-                off_case_BBF6_11_игрок_без_спешал_перепасовки:
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $91
-                    .byte con_cloud + $CB
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $96
-                    .byte con_cloud + $CA
-                    .byte con_jmp
-                    .word loc_BBDA
-
-                off_case_BC07_02_hyuga:
-                off_case_BC07_05_sawada:
-                ; hyuga, sawada
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $55
-                    .byte con_animation + $9E
-                    .byte con_cloud + $D1
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $A2
-                    .byte con_cloud + $D0
-                    .byte con_jmp
-                    .word loc_BBDA
-
-                off_case_BC18_04_hyuga:
-                off_case_BC18_06_sawada:
-                ; hyuga, sawada
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $55
-                    .byte con_animation + $B0
-                    .byte con_cloud + $D1
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B1
-                    .byte con_cloud + $D0
-                    .byte con_jmp
-                    .word loc_BBDA
-
-                off_case_BC29_07_masao:
-                off_case_BC29_08_kazuo:
-                off_case_BC29_09_masao:
-                off_case_BC29_0A_kazuo:
-                ; masao, kazuo
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $9C
-                    .byte con_cloud + $AC
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9C
-                    .byte con_cloud + $D3
-                    .byte con_jmp
-                    .word loc_BBDA
-
-                off_case_BC3A_0B_masao:
-                off_case_BC3A_0C_kazuo:
-                ; masao, kazuo
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $AB
-                    .byte con_cloud + $D3
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $AB
-                    .byte con_cloud + $AC
-                    .byte con_jmp
-                    .word loc_BBDA
-
-                off_case_BC4B_0D_diaz:
-                off_case_BC4B_0E_pascal:
-                ; diaz, pascal
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $B6
-                    .byte con_cloud + $CD
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B7
-                    .byte con_cloud + $CE
-                    .byte con_jmp
-                    .word loc_BBDA
-
-                off_case_BC5C_0F_pierre:
-                off_case_BC5C_10_napoleon:
-                ; pierre, napoleon
-                    .byte con_mirror_on
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $B4
-                    .byte con_cloud + $D4
-                    .byte con_mirror_toggle
-                    .byte con_F8, $04
-                    .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B5
-                    .byte con_cloud + $D5
-                    .byte con_jmp
-                    .word loc_BBDA
-
-
-
-_scenario_BC6D_1A:
-    .dbyt con_branch_short + con_bra_обычный_или_спешал
-    .byte off_case_1A_00 - * ; обычная перепасовка
-    .byte off_case_1A_01 - * ; спешал перепасовка
-
-        off_case_1A_00:
-        ; обычная перепасовка
-            .byte con_mirror_condition, $00
-            .byte con_pause + $32
-            .byte con_bg + $20
-            .byte con_animation + $7B
-            .byte con_cloud + con_skip
-            .byte con_soundID_delay, $2C, $1D
-            .byte con_pause + $3C
-            .byte con_bg + $3C
-            .byte con_animation + $7C
-            .byte con_cloud + $5A
-            .byte con_jmp
-            .word loc_BBC7_очистка
-
-        off_case_1A_01:
-        ; спешал перепасовка
-            .byte con_mirror_off
-            .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
-            .byte off_case_BC96_00_tsubasa - * ; tsubasa
-            .byte off_case_BCAE_01_misaki - * ; misaki
-            .byte off_case_BCC6_02_hyuga - * ; hyuga
-            .byte off_case_BCC6_03_hyuga - * ; hyuga
-            .byte off_case_BCCB_04_hyuga - * ; hyuga
-            .byte off_case_BCE5_05_sawada - * ; sawada
-            .byte off_case_BCEA_06_sawada - * ; sawada
-            .byte off_case_BD04_07_masao - * ; masao
-            .byte off_case_BD04_08_kazuo - * ; kazuo
-            .byte off_case_BD04_09_masao - * ; masao
-            .byte off_case_BD04_0A_kazuo - * ; kazuo
-            .byte off_case_BD09_0B_masao - * ; masao
-            .byte off_case_BD09_0C_kazuo - * ; kazuo
-            .byte off_case_BD23_0D_diaz - * ; diaz
-            .byte off_case_BD3B_0E_pascal - * ; pascal
-            .byte off_case_BD53_0F_pierre - * ; pierre
-            .byte off_case_BD6D_10_napoleon - * ; napoleon
-            .byte off_case_BCAD_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
-
-                off_case_BC96_00_tsubasa:
-                ; tsubasa
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $28
-                    .byte con_bg + $36
-                    .byte con_animation + $95
-                    .byte con_cloud + $CC
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $92
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $28
-                    .byte con_bg + $36
-                    .byte con_animation + $95
-                    .byte con_cloud + con_skip
-                off_case_BCAD_11_игрок_без_спешал_перепасовки:
-                ; игрок без спешал перепасовки
-                    .byte con_rts
-
-                off_case_BCAE_01_misaki:
-                ; misaki
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $92
-                    .byte con_cloud + $CC
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $95
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $92
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BCC6_02_hyuga:
-                off_case_BCC6_03_hyuga:
-                ; hyuga
-                    .byte con_F7, $40
-                    .byte con_jmp
-                    .word loc_BCCD
-
-                off_case_BCCB_04_hyuga:
-                ; hyuga
-                    .byte con_F7, $22
-                loc_BCCD:
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + $D2
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $A5
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BCE5_05_sawada:
-                ; sawada
-                    .byte con_F7, $40
-                    .byte con_jmp
-                    .word loc_BCEC
-
-                off_case_BCEA_06_sawada:
-                ; sawada
-                    .byte con_F7, $22
-                loc_BCEC:
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A5
-                    .byte con_cloud + $D2
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A5
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BD04_07_masao:
-                off_case_BD04_08_kazuo:
-                off_case_BD04_09_masao:
-                off_case_BD04_0A_kazuo:
-                ; masao, kazuo
-                    .byte con_F7, $40
-                    .byte con_jmp
-                    .word loc_BD0B
-
-                off_case_BD09_0B_masao:
-                off_case_BD09_0C_kazuo:
-                ; masao, kazuo
-                    .byte con_F7, $3F
-                loc_BD0B:
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EF
-                    .byte con_cloud + $D6
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $EF
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EF
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BD23_0D_diaz:
-                ; diaz
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $DF
-                    .byte con_cloud + $CF
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $BE
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $DF
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BD3B_0E_pascal:
-                ; pascal
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $BE
-                    .byte con_cloud + $CF
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $DF
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $BE
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BD53_0F_pierre:
-                ; pierre
-                    .byte con_F7, $25
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + $D6
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $EE
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
-                    .byte con_rts
-
-                off_case_BD6D_10_napoleon:
-                ; napoleon
-                    .byte con_F7, $25
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EE
-                    .byte con_cloud + $D6
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
-                    .byte con_mirror_toggle
-                    .byte con_soundID_delay, $2C, $21
-                    .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EE
-                    .byte con_cloud + $D6
-                    .byte con_rts
 
 
 
