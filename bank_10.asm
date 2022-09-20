@@ -2586,7 +2586,7 @@ con_branch_short            = $F380 ;
     con_bra_plr_misaki                          = $3D   ; 
     con_bra_3E                                  = $3E   ; 
    ;con_bra_3F                                  = $3F   ; 
-    con_bra_plr_masao_kazuo                     = $40   ; 
+    con_bra_40                                  = $40   ; 
     con_bra_рожа_кипера                         = $41   ; 
     con_bra_рандом_из_2х                        = $42   ; рандомный выбор из двух вариантов
     con_bra_43                                  = $43   ; 
@@ -8580,7 +8580,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
 
         bra_long_case_9D52_0E:
         ; overhead
-            .dbyt con_branch_short + con_bra_plr_masao_kazuo     ; проверка на братев (неправильный коммент)
+            .dbyt con_branch_short + con_bra_40
             .byte off_case_9D52_0E_00 - * ; игрок без рожи
             .byte off_case_9D52_0E_01 - * ; tsubasa
             .byte off_case_9D52_0E_02 - * ; misaki
@@ -8597,8 +8597,8 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
             .byte off_case_9D52_0E_0D - * ; soda
             .byte off_case_9D52_0E_0E - * ; jito
             .byte off_case_9D52_0E_0F - * ; jito
-            .byte off_case_9D52_0E_10 - * ; masao kazuo япония
-            .byte off_case_9D52_0E_11 - * ; masao kazuo акита
+            .byte off_case_9D52_0E_10 - * ; masao kazuo
+            .byte off_case_9D52_0E_11 - * ; masao kazuo
             .byte off_case_9D52_0E_12 - * ; nitta
             .byte off_case_9D52_0E_13 - * ; nitta
             .byte off_case_9D52_0E_14 - * ; sawada
@@ -9359,22 +9359,22 @@ sub_9DF8_защитник_прыгает_к_летящему_мячу_с_пер�
 
 sub_9DFE_выбор_анимации_дриблинга_в_зависимости_от_действия:
     .dbyt con_branch_long + con_bra_действие_атаки_на_земле
-    .word bra_long_case_B3AD_00_shoot ; 
-    .word bra_long_case_B3AD_01_pass ; 
-    .word bra_long_case_9E0B_02_dribble ; 
-    .word bra_long_case_B3AD_03_1_2_pass ; 
+    .word bra_long_case_9DFE_00 ; shoot
+    .word bra_long_case_9DFE_01 ; pass
+    .word bra_long_case_9DFE_02 ; dribble
+    .word bra_long_case_9DFE_03 ; 1-2 pass
 
 
 
-bra_long_case_9E0B_02_dribble:
+bra_long_case_9DFE_02:
     .dbyt con_branch_long + con_bra_разновидность_dribble
-    .word bra_long_case_B3AD_00_dribble ; 
-    .word bra_long_case_B3AA_01_heel_lift ; 
-    .word bra_long_case_B3AF_02_forcible_dribble ; 
-    .word bra_long_case_B3E9_03_vanishing_feint ; 
-    .word bra_long_case_B3F4_04_clone_dribble ; 
-    .word bra_long_case_B406_05_high_speed_dribble ; 
-    .word bra_long_case_B414_06_hedgehog_dribble ; 
+    .word bra_long_case_9DFE_02_00 ; dribble
+    .word bra_long_case_9DFE_02_01 ; heel lift
+    .word bra_long_case_9DFE_02_02 ; forcible dribble
+    .word bra_long_case_9DFE_02_03 ; vanishing feint
+    .word bra_long_case_9DFE_02_04 ; clone dribble
+    .word bra_long_case_9DFE_02_05 ; high speed dribble
+    .word bra_long_case_9DFE_02_06 ; hedgehog dribble
 
 
 
@@ -9519,80 +9519,80 @@ loc_9E4F_пас_головой_в_воздухе:
 
 sub_9E64_рожа_атакующего_с_сообщением_неудачи:
     .dbyt con_branch_long + con_bra_рожа_защитника
-    .word bra_long_case_B91A_00_игрок_без_рожи ; 
-    .word bra_long_case_B913_01_tsubasa ; 
-    .word bra_long_case_B91B_02_misaki ; 
-    .word bra_long_case_B922_03_misaki ; 
-    .word bra_long_case_B929_04_hyuga ; 
-    .word bra_long_case_B930_05_hyuga ; 
-    .word bra_long_case_B937_06_misugi ; 
-    .word bra_long_case_B93E_07_misugi ; 
-    .word bra_long_case_B945_08_matsuyama ; 
-    .word bra_long_case_B94C_09_matsuyama ; 
-    .word bra_long_case_B953_0A_ishizaki ; 
-    .word bra_long_case_B95A_0B_ishizaki ; 
-    .word bra_long_case_B961_0C_soda ; 
-    .word bra_long_case_B968_0D_soda ; 
-    .word bra_long_case_B96F_0E_jito ; 
-    .word bra_long_case_B976_0F_jito ; 
-    .word bra_long_case_B97D_10_masao_kazuo ; япония
-    .word bra_long_case_B984_11_masao_kazuo ; акита
-    .word bra_long_case_B98B_12_nitta ; 
-    .word bra_long_case_B992_13_nitta ; 
-    .word bra_long_case_B999_14_sawada ; 
-    .word bra_long_case_B9A0_15_sawada ; 
-    .word bra_long_case_B9A7_16_coimbra ; 
-    .word bra_long_case_B9AE_17_carlos ; 
-    .word bra_long_case_B9B5_18_carlos ; 
-    .word bra_long_case_B9BC_19_schneider ; 
-    .word bra_long_case_B9C3_1A_kaltz ; 
-    .word bra_long_case_B9CA_1B_schester ; 
-    .word bra_long_case_B9D1_1C_diaz ; 
-    .word bra_long_case_B9D8_1D_pascal ; 
-    .word bra_long_case_B9DF_1E_pierre ; 
-    .word bra_long_case_B9E6_1F_napoleon ; 
-    .word bra_long_case_B9ED_20_victorino ; 
-    .word bra_long_case_B9F4_21_kaltz ; 
+    .word bra_long_case_B91A_00_игрок_без_рожи ; игрок без рожи
+    .word bra_long_case_B913_01_tsubasa ; tsubasa
+    .word bra_long_case_B91B_02_misaki ; misaki
+    .word bra_long_case_B922_03_misaki ; misaki
+    .word bra_long_case_B929_04_hyuga ; hyuga
+    .word bra_long_case_B930_05_hyuga ; hyuga
+    .word bra_long_case_B937_06_misugi ; misugi
+    .word bra_long_case_B93E_07_misugi ; misugi
+    .word bra_long_case_B945_08_matsuyama ; matsuyama
+    .word bra_long_case_B94C_09_matsuyama ; matsuyama
+    .word bra_long_case_B953_0A_ishizaki ; ishizaki
+    .word bra_long_case_B95A_0B_ishizaki ; ishizaki
+    .word bra_long_case_B961_0C_soda ; soda
+    .word bra_long_case_B968_0D_soda ; soda
+    .word bra_long_case_B96F_0E_jito ; jito
+    .word bra_long_case_B976_0F_jito ; jito
+    .word bra_long_case_B97D_10_masao_kazuo ; masao kazuo
+    .word bra_long_case_B984_11_masao_kazuo ; masao kazuo
+    .word bra_long_case_B98B_12_nitta ; nitta
+    .word bra_long_case_B992_13_nitta ; nitta
+    .word bra_long_case_B999_14_sawada ; sawada
+    .word bra_long_case_B9A0_15_sawada ; sawada
+    .word bra_long_case_B9A7_16_coimbra ; coimbra
+    .word bra_long_case_B9AE_17_carlos ; carlos
+    .word bra_long_case_B9B5_18_carlos ; carlos
+    .word bra_long_case_B9BC_19_schneider ; schneider
+    .word bra_long_case_B9C3_1A_kaltz ; kaltz
+    .word bra_long_case_B9CA_1B_schester ; chester
+    .word bra_long_case_B9D1_1C_diaz ; diaz
+    .word bra_long_case_B9D8_1D_pascal ; pascal
+    .word bra_long_case_B9DF_1E_pierre ; pierre
+    .word bra_long_case_B9E6_1F_napoleon ; napoleon
+    .word bra_long_case_B9ED_20_victorino ; victorino
+    .word bra_long_case_B9F4_21_kaltz ; kaltz
 
 
 
 loc_9EAA_рожа_защитника_с_сообщением_неудачи:
 sub_9EAA_рожа_защитника_с_сообщением_неудачи:
     .dbyt con_branch_long + con_bra_рожа_нападающего
-    .word bra_long_case_B91A_00_игрок_без_рожи ; 
-    .word bra_long_case_B913_01_tsubasa ; 
-    .word bra_long_case_B91B_02_misaki ; 
-    .word bra_long_case_B922_03_misaki ; 
-    .word bra_long_case_B929_04_hyuga ; 
-    .word bra_long_case_B930_05_hyuga ; 
-    .word bra_long_case_B937_06_misugi ; 
-    .word bra_long_case_B93E_07_misugi ; 
-    .word bra_long_case_B945_08_matsuyama ; 
-    .word bra_long_case_B94C_09_matsuyama ; 
-    .word bra_long_case_B953_0A_ishizaki ; 
-    .word bra_long_case_B95A_0B_ishizaki ; 
-    .word bra_long_case_B961_0C_soda ; 
-    .word bra_long_case_B968_0D_soda ; 
-    .word bra_long_case_B96F_0E_jito ; 
-    .word bra_long_case_B976_0F_jito ; 
-    .word bra_long_case_B97D_10_masao_kazuo ; япония
-    .word bra_long_case_B984_11_masao_kazuo ; акита
-    .word bra_long_case_B98B_12_nitta ; 
-    .word bra_long_case_B992_13_nitta ; 
-    .word bra_long_case_B999_14_sawada ; 
-    .word bra_long_case_B9A0_15_sawada ; 
-    .word bra_long_case_B9A7_16_coimbra ; 
-    .word bra_long_case_B9AE_17_carlos ; 
-    .word bra_long_case_B9B5_18_carlos ; 
-    .word bra_long_case_B9BC_19_schneider ; 
-    .word bra_long_case_B9C3_1A_kaltz ; 
-    .word bra_long_case_B9CA_1B_schester ; 
-    .word bra_long_case_B9D1_1C_diaz ; 
-    .word bra_long_case_B9D8_1D_pascal ; 
-    .word bra_long_case_B9DF_1E_pierre ; 
-    .word bra_long_case_B9E6_1F_napoleon ; 
-    .word bra_long_case_B9ED_20_victorino ; 
-    .word bra_long_case_B9F4_21_kaltz ; 
+    .word bra_long_case_B91A_00_игрок_без_рожи ; игрок без рожи
+    .word bra_long_case_B913_01_tsubasa ; tsubasa
+    .word bra_long_case_B91B_02_misaki ; misaki
+    .word bra_long_case_B922_03_misaki ; misaki
+    .word bra_long_case_B929_04_hyuga ; hyuga
+    .word bra_long_case_B930_05_hyuga ; hyuga
+    .word bra_long_case_B937_06_misugi ; misugi
+    .word bra_long_case_B93E_07_misugi ; misugi
+    .word bra_long_case_B945_08_matsuyama ; matsuyama
+    .word bra_long_case_B94C_09_matsuyama ; matsuyama
+    .word bra_long_case_B953_0A_ishizaki ; ishizaki
+    .word bra_long_case_B95A_0B_ishizaki ; ishizaki
+    .word bra_long_case_B961_0C_soda ; soda
+    .word bra_long_case_B968_0D_soda ; soda
+    .word bra_long_case_B96F_0E_jito ; jito
+    .word bra_long_case_B976_0F_jito ; jito
+    .word bra_long_case_B97D_10_masao_kazuo ; masao kazuo
+    .word bra_long_case_B984_11_masao_kazuo ; masao kazuo
+    .word bra_long_case_B98B_12_nitta ; nitta
+    .word bra_long_case_B992_13_nitta ; nitta
+    .word bra_long_case_B999_14_sawada ; sawada
+    .word bra_long_case_B9A0_15_sawada ; sawada
+    .word bra_long_case_B9A7_16_coimbra ; coimbra
+    .word bra_long_case_B9AE_17_carlos ; carlos
+    .word bra_long_case_B9B5_18_carlos ; carlos
+    .word bra_long_case_B9BC_19_schneider ; schneider
+    .word bra_long_case_B9C3_1A_kaltz ; kaltz
+    .word bra_long_case_B9CA_1B_schester ; schester
+    .word bra_long_case_B9D1_1C_diaz ; diaz
+    .word bra_long_case_B9D8_1D_pascal ; pascal
+    .word bra_long_case_B9DF_1E_pierre ; pierre
+    .word bra_long_case_B9E6_1F_napoleon ; napoleon
+    .word bra_long_case_B9ED_20_victorino ; victorino
+    .word bra_long_case_B9F4_21_kaltz ; kaltz
 
 
 
@@ -9824,7 +9824,7 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_jsr
             .word sub_BB6D
             .byte con_jsr
-            .word sub_B6D6
+            .word sub_B6D6_полет_dynamite_header
             .byte con_rts
 
         bra_long_case_B5A4_10:
@@ -10146,36 +10146,39 @@ sub_9F74_рандом_анимации_отпизженного_игрока_2_�
 
 
 sub_9F7A_защитнику_бежит_к_низкому_мячу_блоком:
+; !!! стремные комменты
     .dbyt con_branch_long + con_bra_игроки_с_защитным_спешалом
     .word bra_long_case_A713_00___без_защитного_спешала ; 
-    .word bra_long_case_A6F6_01_masao_kazuo ; япония
-    .word bra_long_case_A706_02_masao_kazuo ; акита
+    .word bra_long_case_A6F6_01_masao_kazuo ; masao kazuo
+    .word bra_long_case_A706_02_masao_kazuo ; masao kazuo
     .word bra_long_case_A713_00___без_защитного_спешала ; 
     .word bra_long_case_A713_00___без_защитного_спешала ; 
-    .word bra_long_case_A789_05_jito ; 
-    .word bra_long_case_A79C_06_jito ; 
-    .word bra_long_case_A792_07___dirceu ; 
-    .word bra_long_case_A792_07___dirceu ; 
-    .word bra_long_case_A792_07___dirceu ; 
-    .word bra_long_case_A792_07___dirceu ; 
-    .word bra_long_case_A792_07___dirceu ; 
+    .word bra_long_case_A789_05_jito ; jito
+    .word bra_long_case_A79C_06_jito ; jito
+    .word bra_long_case_A792_07___dirceu ; dirceu
+    .word bra_long_case_A792_07___dirceu ; dirceu
+    .word bra_long_case_A792_07___dirceu ; dirceu
+    .word bra_long_case_A792_07___dirceu ; dirceu
+    .word bra_long_case_A792_07___dirceu ; dirceu
     .word bra_long_case_A713_00___без_защитного_спешала ; 
     .word bra_long_case_A713_00___без_защитного_спешала ; 
-    .word bra_long_case_A7A5_0E_ishizaki ; 
-    .word bra_long_case_A7BF_0F_ishizaki ; 
+    .word bra_long_case_A7A5_0E_ishizaki ; ishizaki
+    .word bra_long_case_A7BF_0F_ishizaki ; ishizaki
 
 
 
 sub_9F9C_крит_кипера:
     .dbyt con_branch_short + con_bra_киперы_с_критами
-    .byte off_case_9FB3_00 - * ; кипер без крита
-    .byte off_case_9FB3_01 - * ; крит morisaki
-    .byte off_case_9FB3_02 - * ; крит wakabayashi
+    .byte off_case_9F9C_00 - * ; кипер без крита
+    .byte off_case_9F9C_01 - * ; крит morisaki
+    .byte off_case_9F9C_02 - * ; крит wakabayashi
 
-off_case_9FB3_00:
+        off_case_9F9C_00:
+        ; кипер без крита
             .byte con_rts
 
-off_case_9FB3_01:
+        off_case_9F9C_01:
+        ; крит morisaki
             .byte con_mirror_off
             .byte con_pause + $78
             .byte con_bg + $33
@@ -10184,7 +10187,8 @@ off_case_9FB3_01:
             .byte con_jmp
             .word loc_BBC7_очистка
 
-off_case_9FB3_02:
+        off_case_9F9C_02:
+        ; крит wakabayashi
             .byte con_soundID_delay, $20, $02     ; звук когда вакабаяши злится
             .byte con_pause + $78
             .byte con_bg + $48
@@ -10623,7 +10627,7 @@ sub_A10E_кипер_не_дотягивается_кулаком_до_мяча:
 
         off_case_A10E_01:
         off_case_A10E_02:
-        ; wakashimazu или gertise
+        ; wakashimazu, gertise
             .byte con_pause + $28
             .byte con_bg + $0F
             .byte con_animation + $26
@@ -10657,7 +10661,7 @@ sub_A122_кипер_собирается_коснуться_мяча_кулак�
 
         off_case_A122_01:
         off_case_A122_02:
-        ; wakashimazu или gertise
+        ; wakashimazu, gertise
             .byte con_pause + $1E
             .byte con_bg + $0F
             .byte con_animation + $2B
@@ -10683,7 +10687,7 @@ sub_A131_кипер_легко_отбивает_и_проверка_на_wakashi
 
         off_case_A131_01:
         off_case_A131_02:
-        ; wakashimazu или gertise
+        ; wakashimazu, gertise
             .byte con_soundID_delay, $2B, $21     ; отбитие мяча
             .byte con_pause + $3A
             .byte con_bg + $0F
@@ -10709,7 +10713,7 @@ sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_п�
 
         off_case_A14B_01:
         off_case_A14B_02:
-        ; wakashimazu или gertise
+        ; wakashimazu, gertise
             .byte con_pause + $2A
             .byte con_bg + $0F
             .byte con_animation + $2D
@@ -11198,26 +11202,27 @@ sub_A38F_полет_низкого_мяча_к_защитнику:
 
 sub_A3CF_kurae_если_не_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_A438_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A3E1_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_A3EA_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_A457_03_soda - * ; 
-    .byte off_case_A44E_04_soda - * ; 
-    .byte off_case_A3F0_05_jito - * ; 
-    .byte off_case_A40C_06_jito - * ; 
-    .byte off_case_A3F9_07_dirceu - * ; 
-    .byte off_case_A3F9_08_dirceu - * ; 
-    .byte off_case_A3F9_09_robson - * ; 
-    .byte off_case_A3F9_0A_libuta - * ; 
-    .byte off_case_A3F9_0B_galvan - * ; 
-    .byte off_case_A418_0C_hyuga - * ; 
-    .byte off_case_A42F_0D_hyuga - * ; 
-    .byte off_case_A438_0E_ishizaki - * ; 
-    .byte off_case_A438_0F_ishizaki - * ; 
+    .byte off_case_A3CF_00 - * ; игрок без защитного спешала
+    .byte off_case_A3CF_01 - * ; masao kazuo
+    .byte off_case_A3CF_02 - * ; masao kazuo
+    .byte off_case_A3CF_03 - * ; soda
+    .byte off_case_A3CF_04 - * ; soda
+    .byte off_case_A3CF_05 - * ; jito
+    .byte off_case_A3CF_06 - * ; jito
+    .byte off_case_A3CF_07 - * ; dirceu
+    .byte off_case_A3CF_08 - * ; dirceu
+    .byte off_case_A3CF_09 - * ; robson
+    .byte off_case_A3CF_0A - * ; libuta
+    .byte off_case_A3CF_0B - * ; galvan
+    .byte off_case_A3CF_0C - * ; hyuga
+    .byte off_case_A3CF_0D - * ; hyuga
+    .byte off_case_A3CF_0E - * ; ishizaki
+    .byte off_case_A3CF_0F - * ; ishizaki
 
 
 
-off_case_A3E1_01_masao_kazuo:
+off_case_A3CF_01:
+; masao kazuo
     .byte con_jsr
     .word sub_A71A_masao_kazuo_japan_становятся_друг_на_друга
 loc_A3E4_skylab_tackle:
@@ -11228,7 +11233,8 @@ loc_A3E4_skylab_tackle:
 
 
 
-off_case_A3EA_02_masao_kazuo:
+off_case_A3CF_02:
+; masao kazuo
     .byte con_jsr
     .word sub_A756_masao_kazuo_akita_становятся_друг_на_друга
     .byte con_jmp
@@ -11236,7 +11242,8 @@ off_case_A3EA_02_masao_kazuo:
 
 
 
-off_case_A3F0_05_jito:
+off_case_A3CF_05:
+; jito
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $30
@@ -11245,11 +11252,12 @@ off_case_A3F0_05_jito:
     .byte con_jsr
     .word sub_BBC7_очистка
 loc_A3F9_power_tackle:
-off_case_A3F9_07_dirceu:
-off_case_A3F9_08_dirceu:
-off_case_A3F9_09_robson:
-off_case_A3F9_0A_libuta:
-off_case_A3F9_0B_galvan:
+off_case_A3CF_07:
+off_case_A3CF_08:
+off_case_A3CF_09:
+off_case_A3CF_0A:
+off_case_A3CF_0B:
+; dirceu, robson, libuta, galvan
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $27, $02
     .byte con_pause + $14
@@ -11267,7 +11275,8 @@ off_case_A3F9_0B_galvan:
 
 
 
-off_case_A40C_06_jito:
+off_case_A3CF_06:
+; jito
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $30
@@ -11280,7 +11289,8 @@ off_case_A40C_06_jito:
 
 
 
-off_case_A418_0C_hyuga:
+off_case_A3CF_0C:
+; hyuga
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $31
@@ -11300,7 +11310,8 @@ loc_A41E_tiger_tackle:
 
 
 
-off_case_A42F_0D_hyuga:
+off_case_A3CF_0D:
+; hyuga
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $31
@@ -11311,9 +11322,10 @@ off_case_A42F_0D_hyuga:
 
 
 
-off_case_A438_00_игрок_без_защитного_спешала:
-off_case_A438_0E_ishizaki:
-off_case_A438_0F_ishizaki:
+off_case_A3CF_00:
+off_case_A3CF_0E:
+off_case_A3CF_0F:
+; игрок без защитного спешала, ishizaki
     .byte con_F7, $02
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $20
@@ -11332,7 +11344,8 @@ off_case_A438_0F_ishizaki:
 
 
 
-off_case_A44E_04_soda:
+off_case_A3CF_04:
+; soda
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $30
@@ -11343,7 +11356,8 @@ off_case_A44E_04_soda:
 
 
 
-off_case_A457_03_soda:
+off_case_A3CF_03:
+; soda
     .byte con_F7, $44
     .byte con_pause + $78
     .byte con_bg + $30
@@ -11465,72 +11479,72 @@ case_A5A9_01:
 
 bra_long_case_A6BC_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_A70C_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_A70C_03_soda - * ; 
-    .byte off_case_A70C_04_soda - * ; 
-    .byte off_case_A70C_05_jito - * ; 
-    .byte off_case_A70C_06_jito - * ; 
-    .byte off_case_A70C_07_dirceu - * ; 
-    .byte off_case_A70C_08_dirceu - * ; 
-    .byte off_case_A70C_09_robson - * ; 
-    .byte off_case_A70C_0A_libuta - * ; 
-    .byte off_case_A70C_0B_galvan - * ; 
-    .byte off_case_A70C_0C_hyuga - * ; 
-    .byte off_case_A70C_0D_hyuga - * ; 
-    .byte off_case_A70C_0E_ishizaki - * ; 
-    .byte off_case_A70C_0F_ishizaki - * ; 
+    .byte off_case_A70C_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_A70C_03_soda - * ; soda
+    .byte off_case_A70C_04_soda - * ; soda
+    .byte off_case_A70C_05_jito - * ; jito
+    .byte off_case_A70C_06_jito - * ; jito
+    .byte off_case_A70C_07_dirceu - * ; dirceu
+    .byte off_case_A70C_08_dirceu - * ; dirceu
+    .byte off_case_A70C_09_robson - * ; robson
+    .byte off_case_A70C_0A_libuta - * ; libuta
+    .byte off_case_A70C_0B_galvan - * ; galvan
+    .byte off_case_A70C_0C_hyuga - * ; hyuga
+    .byte off_case_A70C_0D_hyuga - * ; hyuga
+    .byte off_case_A70C_0E_ishizaki - * ; ishizaki
+    .byte off_case_A70C_0F_ishizaki - * ; ishizaki
 
 
 
 bra_long_case_A6CE_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_A7CE_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A6F6_01_masao_kazuo - * ; 
-    .byte off_case_A706_02_masao_kazuo - * ; 
-    .byte off_case_A7CE_03_soda - * ; 
-    .byte off_case_A7CE_04_soda - * ; 
-    .byte off_case_A7CE_05_jito - * ; 
-    .byte off_case_A7CE_06_jito - * ; 
-    .byte off_case_A7CE_07_dirceu - * ; 
-    .byte off_case_A7CE_08_dirceu - * ; 
-    .byte off_case_A7CE_09_robson - * ; 
-    .byte off_case_A7CE_0A_libuta - * ; 
-    .byte off_case_A7CE_0B_galvan - * ; 
-    .byte off_case_A7CE_0C_hyuga - * ; 
-    .byte off_case_A7CE_0D_hyuga - * ; 
-    .byte off_case_A7CE_0E_ishizaki - * ; 
-    .byte off_case_A7CE_0F_ishizaki - * ; 
+    .byte off_case_A7CE_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_A7CE_03_soda - * ; soda
+    .byte off_case_A7CE_04_soda - * ; soda
+    .byte off_case_A7CE_05_jito - * ; jito
+    .byte off_case_A7CE_06_jito - * ; jito
+    .byte off_case_A7CE_07_dirceu - * ; dirceu
+    .byte off_case_A7CE_08_dirceu - * ; dirceu
+    .byte off_case_A7CE_09_robson - * ; robson
+    .byte off_case_A7CE_0A_libuta - * ; libuta
+    .byte off_case_A7CE_0B_galvan - * ; galvan
+    .byte off_case_A7CE_0C_hyuga - * ; hyuga
+    .byte off_case_A7CE_0D_hyuga - * ; hyuga
+    .byte off_case_A7CE_0E_ishizaki - * ; ishizaki
+    .byte off_case_A7CE_0F_ishizaki - * ; ishizaki
 
 
 
 sub_A6E0_защитник_бежит_к_низкому_мячу:
     .dbyt con_branch_short + con_bra_защитный_спешал_или_нет
-    .byte off_case_A6FF_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A6E4_01_защитный_спешал - * ; 
+    .byte off_case_A6FF_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_A6E4_01_защитный_спешал - * ; защитный спешал
 
 
 
 bra_long_case_A6E4_01_спешал:
 off_case_A6E4_01_защитный_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_A6FF_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_A6FF_03_soda - * ; 
-    .byte off_case_A6FF_04_soda - * ; 
-    .byte off_case_A6FF_05_jito - * ; 
-    .byte off_case_A6FF_06_jito - * ; 
-    .byte off_case_A6FF_07_dirceu - * ; 
-    .byte off_case_A6FF_08_dirceu - * ; 
-    .byte off_case_A6FF_09_robson - * ; 
-    .byte off_case_A6FF_0A_libuta - * ; 
-    .byte off_case_A6FF_0B_galvan - * ; 
-    .byte off_case_A6FF_0C_hyuga - * ; 
-    .byte off_case_A6FF_0D_hyuga - * ; 
-    .byte off_case_A6FF_0E_ishizaki - * ; 
-    .byte off_case_A6FF_0F_ishizaki - * ; 
+    .byte off_case_A6FF_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_A6F6_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_A706_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_A6FF_03_soda - * ; soda
+    .byte off_case_A6FF_04_soda - * ; soda
+    .byte off_case_A6FF_05_jito - * ; jito
+    .byte off_case_A6FF_06_jito - * ; jito
+    .byte off_case_A6FF_07_dirceu - * ; dirceu
+    .byte off_case_A6FF_08_dirceu - * ; dirceu
+    .byte off_case_A6FF_09_robson - * ; robson
+    .byte off_case_A6FF_0A_libuta - * ; libuta
+    .byte off_case_A6FF_0B_galvan - * ; galvan
+    .byte off_case_A6FF_0C_hyuga - * ; hyuga
+    .byte off_case_A6FF_0D_hyuga - * ; hyuga
+    .byte off_case_A6FF_0E_ishizaki - * ; ishizaki
+    .byte off_case_A6FF_0F_ishizaki - * ; ishizaki
 
 
 
@@ -11945,47 +11959,49 @@ sub_A908_kaltz_hedgehog_dribble:
 
 sub_A936_сообщение_защитника_атакующему_при_нападении:
     .dbyt con_branch_short + con_bra_рожа_нападающего
-    .byte off_case_A95A_00_игрок_без_рожи - * ; 
-    .byte off_case_A95B_01_tsubasa - * ; 
-    .byte off_case_A962_02_misaki - * ; 
-    .byte off_case_A969_03_misaki - * ; 
-    .byte off_case_A970_04_hyuga - * ; 
-    .byte off_case_A977_05_hyuga - * ; 
-    .byte off_case_A97E_06_misugi - * ; 
-    .byte off_case_A992_07_misugi - * ; 
-    .byte off_case_A999_08_matsuyama - * ; 
-    .byte off_case_A9A0_09_matsuyama - * ; 
-    .byte off_case_A9A7_0A_ishizaki - * ; 
-    .byte off_case_A9AE_0B_ishizaki - * ; 
-    .byte off_case_A9B5_0C_soda - * ; 
-    .byte off_case_A9BC_0D_soda - * ; 
-    .byte off_case_A9C3_0E_jito - * ; 
-    .byte off_case_A9CA_0F_jito - * ; 
-    .byte off_case_A9D1_10_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_A9D8_11_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_A9DF_12_nitta - * ; 
-    .byte off_case_A9E6_13_nitta - * ; 
-    .byte off_case_A9ED_14_sawada - * ; 
-    .byte off_case_A9F4_15_sawada - * ; 
-    .byte off_case_A9FB_16_coimbra - * ; 
-    .byte off_case_AA02_17_carlos - * ; 
-    .byte off_case_AA09_18_carlos - * ; 
-    .byte off_case_AA10_19_schneider - * ; 
-    .byte off_case_AA17_1A_kaltz - * ; 
-    .byte off_case_AA1E_1B_schester - * ; 
-    .byte off_case_AA25_1C_diaz - * ; 
-    .byte off_case_AA2C_1D_pascal - * ; 
-    .byte off_case_AA33_1E_pierre - * ; 
-    .byte off_case_AA3A_1F_napoleon - * ; 
-    .byte off_case_AA41_20_victorino - * ; 
-    .byte off_case_AA48_21_kaltz - * ; 
+    .byte off_case_A95A_00_игрок_без_рожи - * ; игрок без рожи
+    .byte off_case_A95B_01_tsubasa - * ; tsubasa
+    .byte off_case_A962_02_misaki - * ; misaki
+    .byte off_case_A969_03_misaki - * ; misaki
+    .byte off_case_A970_04_hyuga - * ; hyuga
+    .byte off_case_A977_05_hyuga - * ; hyuga
+    .byte off_case_A97E_06_misugi - * ; misugi
+    .byte off_case_A992_07_misugi - * ; misugi
+    .byte off_case_A999_08_matsuyama - * ; matsuyama
+    .byte off_case_A9A0_09_matsuyama - * ; matsuyama
+    .byte off_case_A9A7_0A_ishizaki - * ; ishizaki
+    .byte off_case_A9AE_0B_ishizaki - * ; ishizaki
+    .byte off_case_A9B5_0C_soda - * ; soda
+    .byte off_case_A9BC_0D_soda - * ; soda
+    .byte off_case_A9C3_0E_jito - * ; jito
+    .byte off_case_A9CA_0F_jito - * ; jito
+    .byte off_case_A9D1_10_masao_kazuo - * ; masao kazuo
+    .byte off_case_A9D8_11_masao_kazuo - * ; masao kazuo
+    .byte off_case_A9DF_12_nitta - * ; nitta
+    .byte off_case_A9E6_13_nitta - * ; nitta
+    .byte off_case_A9ED_14_sawada - * ; sawada
+    .byte off_case_A9F4_15_sawada - * ; sawada
+    .byte off_case_A9FB_16_coimbra - * ; coimbra
+    .byte off_case_AA02_17_carlos - * ; carlos
+    .byte off_case_AA09_18_carlos - * ; carlos
+    .byte off_case_AA10_19_schneider - * ; schneider
+    .byte off_case_AA17_1A_kaltz - * ; kaltz
+    .byte off_case_AA1E_1B_schester - * ; schester
+    .byte off_case_AA25_1C_diaz - * ; diaz
+    .byte off_case_AA2C_1D_pascal - * ; pascal
+    .byte off_case_AA33_1E_pierre - * ; pierre
+    .byte off_case_AA3A_1F_napoleon - * ; napoleon
+    .byte off_case_AA41_20_victorino - * ; victorino
+    .byte off_case_AA48_21_kaltz - * ; kaltz
 
 
 
 off_case_A95A_00_игрок_без_рожи:
+; игрок без рожи
     .byte con_rts
 
 off_case_A95B_01_tsubasa:
+; tsubasa
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $91
@@ -11994,6 +12010,7 @@ off_case_A95B_01_tsubasa:
     .word loc_BBC7_очистка
 
 off_case_A962_02_misaki:
+; misaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $96
@@ -12002,6 +12019,7 @@ off_case_A962_02_misaki:
     .word loc_BBC7_очистка
 
 off_case_A969_03_misaki:
+; misaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $97
@@ -12010,6 +12028,7 @@ off_case_A969_03_misaki:
     .word loc_BBC7_очистка
 
 off_case_A970_04_hyuga:
+; hyuga
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $9E
@@ -12018,6 +12037,7 @@ off_case_A970_04_hyuga:
     .word loc_BBC7_очистка
 
 off_case_A977_05_hyuga:
+; hyuga
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $B0
@@ -12026,12 +12046,13 @@ off_case_A977_05_hyuga:
     .word loc_BBC7_очистка
 
 off_case_A97E_06_misugi:
+; misugi
     .dbyt con_branch_short + con_bra_проверка_на_100_хп
     .byte off_case_A982_06_00 - * ; есть 100 хп
     .byte off_case_A982_06_01 - * ; меньше 100 хп
 
         off_case_A982_06_00:
-        ; есть 100 хп
+        ; misugi/есть 100 хп
             .byte con_pause + $3C
             .byte con_bg + $30
             .byte con_animation + $A3
@@ -12040,7 +12061,7 @@ off_case_A97E_06_misugi:
             .word loc_BBC7_очистка
 
         off_case_A982_06_01:
-        ; меньше 100 хп
+        ; misugi/меньше 100 хп
 loc_A989_меньше_100_хп:
             .byte con_F7, $35
             .byte con_pause + $5A
@@ -12051,6 +12072,7 @@ loc_A989_меньше_100_хп:
             .word loc_BBC7_очистка
 
 off_case_A992_07_misugi:
+; misugi
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AE
@@ -12059,6 +12081,7 @@ off_case_A992_07_misugi:
     .word loc_BBC7_очистка
 
 off_case_A999_08_matsuyama:
+; matsuyama
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A1
@@ -12067,6 +12090,7 @@ off_case_A999_08_matsuyama:
     .word loc_BBC7_очистка
 
 off_case_A9A0_09_matsuyama:
+; matsuyama
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AF
@@ -12075,6 +12099,7 @@ off_case_A9A0_09_matsuyama:
     .word loc_BBC7_очистка
 
 off_case_A9A7_0A_ishizaki:
+; ishizaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $98
@@ -12083,6 +12108,7 @@ off_case_A9A7_0A_ishizaki:
     .word loc_BBC7_очистка
 
 off_case_A9AE_0B_ishizaki:
+; ishizaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $99
@@ -12091,6 +12117,7 @@ off_case_A9AE_0B_ishizaki:
     .word loc_BBC7_очистка
 
 off_case_A9B5_0C_soda:
+; soda
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9F
@@ -12099,6 +12126,7 @@ off_case_A9B5_0C_soda:
     .word loc_BBC7_очистка
 
 off_case_A9BC_0D_soda:
+; soda
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AD
@@ -12107,6 +12135,7 @@ off_case_A9BC_0D_soda:
     .word loc_BBC7_очистка
 
 off_case_A9C3_0E_jito:
+; jito
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A0
@@ -12115,6 +12144,7 @@ off_case_A9C3_0E_jito:
     .word loc_BBC7_очистка
 
 off_case_A9CA_0F_jito:
+; jito
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AA
@@ -12123,6 +12153,7 @@ off_case_A9CA_0F_jito:
     .word loc_BBC7_очистка
 
 off_case_A9D1_10_masao_kazuo:
+; masao kazuo
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9C
@@ -12131,6 +12162,7 @@ off_case_A9D1_10_masao_kazuo:
     .word loc_BBC7_очистка
 
 off_case_A9D8_11_masao_kazuo:
+; masao kazuo
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AB
@@ -12139,6 +12171,7 @@ off_case_A9D8_11_masao_kazuo:
     .word loc_BBC7_очистка
 
 off_case_A9DF_12_nitta:
+; nitta
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9A
@@ -12147,6 +12180,7 @@ off_case_A9DF_12_nitta:
     .word loc_BBC7_очистка
 
 off_case_A9E6_13_nitta:
+; nitta
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9B
@@ -12155,6 +12189,7 @@ off_case_A9E6_13_nitta:
     .word loc_BBC7_очистка
 
 off_case_A9ED_14_sawada:
+; sawada
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A2
@@ -12163,6 +12198,7 @@ off_case_A9ED_14_sawada:
     .word loc_BBC7_очистка
 
 off_case_A9F4_15_sawada:
+; sawada
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B1
@@ -12171,6 +12207,7 @@ off_case_A9F4_15_sawada:
     .word loc_BBC7_очистка
 
 off_case_A9FB_16_coimbra:
+; coimbra
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BC
@@ -12179,6 +12216,7 @@ off_case_A9FB_16_coimbra:
     .word loc_BBC7_очистка
 
 off_case_AA02_17_carlos:
+; carlos
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A9
@@ -12187,6 +12225,7 @@ off_case_AA02_17_carlos:
     .word loc_BBC7_очистка
 
 off_case_AA09_18_carlos:
+; carlos
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BB
@@ -12195,6 +12234,7 @@ off_case_AA09_18_carlos:
     .word loc_BBC7_очистка
 
 off_case_AA10_19_schneider:
+; schneider
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B8
@@ -12203,6 +12243,7 @@ off_case_AA10_19_schneider:
     .word loc_BBC7_очистка
 
 off_case_AA17_1A_kaltz:
+; kaltz
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B3
@@ -12211,6 +12252,7 @@ off_case_AA17_1A_kaltz:
     .word loc_BBC7_очистка
 
 off_case_AA1E_1B_schester:
+; schester
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BA
@@ -12219,6 +12261,7 @@ off_case_AA1E_1B_schester:
     .word loc_BBC7_очистка
 
 off_case_AA25_1C_diaz:
+; diaz
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B7
@@ -12227,6 +12270,7 @@ off_case_AA25_1C_diaz:
     .word loc_BBC7_очистка
 
 off_case_AA2C_1D_pascal:
+; pascal
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B6
@@ -12235,6 +12279,7 @@ off_case_AA2C_1D_pascal:
     .word loc_BBC7_очистка
 
 off_case_AA33_1E_pierre:
+; pierre
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B5
@@ -12243,6 +12288,7 @@ off_case_AA33_1E_pierre:
     .word loc_BBC7_очистка
 
 off_case_AA3A_1F_napoleon:
+; napoleon
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B4
@@ -12251,6 +12297,7 @@ off_case_AA3A_1F_napoleon:
     .word loc_BBC7_очистка
 
 off_case_AA41_20_victorino:
+; victorino
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B2
@@ -12259,6 +12306,7 @@ off_case_AA41_20_victorino:
     .word loc_BBC7_очистка
 
 off_case_AA48_21_kaltz:
+; kaltz
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B9
@@ -12403,29 +12451,29 @@ sub_AD13:
 
 
 loc_AE4C_только_для_братьев:
-    .dbyt con_branch_short + con_bra_plr_masao_kazuo     ; проверка на братев
-    .byte off_case_AE64_00_игрок_без_рожи - * ; 
-    .byte off_case_AE64_01_tsubasa - * ; 
-    .byte off_case_AE64_02_misaki - * ; 
-    .byte off_case_AE64_03_misaki - * ; 
-    .byte off_case_AE64_04_hyuga - * ; 
-    .byte off_case_AE64_05_hyuga - * ; 
-    .byte off_case_AE64_06_misugi - * ; 
-    .byte off_case_AE64_07_misugi - * ; 
-    .byte off_case_AE64_08_matsuyama - * ; 
-    .byte off_case_AE64_09_matsuyama - * ; 
-    .byte off_case_AE64_0A_ishizaki - * ; 
-    .byte off_case_AE64_0B_ishizaki - * ; 
-    .byte off_case_AE64_0C_soda - * ; 
-    .byte off_case_AE64_0D_soda - * ; 
-    .byte off_case_AE64_0E_jito - * ; 
-    .byte off_case_AE64_0F_jito - * ; 
-    .byte off_case_AE69_10_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_AEA4_11_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_AE64_12_nitta - * ; 
-    .byte off_case_AE64_13_nitta - * ; 
-    .byte off_case_AE64_14_sawada - * ; 
-    .byte off_case_AE64_15_sawada - * ; 
+    .dbyt con_branch_short + con_bra_40
+    .byte off_case_AE64_00_игрок_без_рожи - * ; игрок без рожи
+    .byte off_case_AE64_01_tsubasa - * ; tsubasa
+    .byte off_case_AE64_02_misaki - * ; misaki
+    .byte off_case_AE64_03_misaki - * ; misaki
+    .byte off_case_AE64_04_hyuga - * ; hyuga
+    .byte off_case_AE64_05_hyuga - * ; hyuga
+    .byte off_case_AE64_06_misugi - * ; misugi
+    .byte off_case_AE64_07_misugi - * ; misugi
+    .byte off_case_AE64_08_matsuyama - * ; matsuyama
+    .byte off_case_AE64_09_matsuyama - * ; matsuyama
+    .byte off_case_AE64_0A_ishizaki - * ; ishizaki
+    .byte off_case_AE64_0B_ishizaki - * ; ishizaki
+    .byte off_case_AE64_0C_soda - * ; soda
+    .byte off_case_AE64_0D_soda - * ; soda
+    .byte off_case_AE64_0E_jito - * ; jito
+    .byte off_case_AE64_0F_jito - * ; jito
+    .byte off_case_AE69_10_masao_kazuo - * ; masao kazuo
+    .byte off_case_AEA4_11_masao_kazuo - * ; masao kazuo
+    .byte off_case_AE64_12_nitta - * ; nitta
+    .byte off_case_AE64_13_nitta - * ; nitta
+    .byte off_case_AE64_14_sawada - * ; sawada
+    .byte off_case_AE64_15_sawada - * ; sawada
 
 
 
@@ -12704,15 +12752,16 @@ loc_B29B_бежать_к_мячу_на_штрафной_перед_соверш�
 
 loc_B2A2_jumping_volley:
     .dbyt con_branch_short + con_bra_plr_misaki
-    .byte off_case_B2A2_00_if_misaki_из_nankatsu - * ; 
-    .byte off_case_B2A2_01_if_misaki_из_japan - * ; 
+    .byte off_case_B2A2_00 - * ; misaki нанкацу
+    .byte off_case_B2A2_01 - * ; misaki япония
 
-off_case_B2A2_00_if_misaki_из_nankatsu:
+        off_case_B2A2_00:
+        ; misaki нанкацу
             .byte con_pause + $3C
             .byte con_bg + $30
             .byte con_animation + $96
             .byte con_cloud + $13
-loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley:
+        loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley:
             .byte con_jsr
             .word sub_BBC7_очистка
 sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_volley:
@@ -12728,7 +12777,8 @@ sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_voll
             .byte con_cloud + con_clear
             .byte con_rts
 
-off_case_B2A2_01_if_misaki_из_japan:
+        off_case_B2A2_01:
+        ; misaki япония
             .byte con_pause + $3C
             .byte con_bg + $30
             .byte con_animation + $97
@@ -12771,29 +12821,30 @@ loc_B2D4_игрок_принимает_высокий_мяч_на_живот_ф�
 
 sub_B2DC_игрок_прыгает_к_летящему_мячу_подкатом:
     .dbyt con_branch_short + con_bra_защитный_спешал_или_нет
-    .byte off_case_B2F2_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B2E0_01_защитный_спешал - * ; 
+    .byte off_case_B2F2_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_B2E0_01_защитный_спешал - * ; защитный спешал
 
 
 
 off_case_B2E0_01_защитный_спешал:
+; защитный спешал
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_B2F2_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_B2F2_03_soda - * ; 
-    .byte off_case_B2F2_04_soda - * ; 
-    .byte off_case_B2F2_05_jito - * ; 
-    .byte off_case_B2F2_06_jito - * ; 
-    .byte off_case_B2F2_07_dirceu - * ; 
-    .byte off_case_B2F2_08_dirceu - * ; 
-    .byte off_case_B2F2_09_robson - * ; 
-    .byte off_case_B2F2_0A_libuta - * ; 
-    .byte off_case_B2F2_0B_galvan - * ; 
-    .byte off_case_B2F2_0C_hyuga - * ; 
-    .byte off_case_B2F2_0D_hyuga - * ; 
-    .byte off_case_B2F2_0E_ishizaki - * ; 
-    .byte off_case_B2F2_0F_ishizaki - * ; 
+    .byte off_case_B2F2_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_B2F2_03_soda - * ; soda
+    .byte off_case_B2F2_04_soda - * ; soda
+    .byte off_case_B2F2_05_jito - * ; jito
+    .byte off_case_B2F2_06_jito - * ; jito
+    .byte off_case_B2F2_07_dirceu - * ; dirceu
+    .byte off_case_B2F2_08_dirceu - * ; dirceu
+    .byte off_case_B2F2_09_robson - * ; robson
+    .byte off_case_B2F2_0A_libuta - * ; libuta
+    .byte off_case_B2F2_0B_galvan - * ; galvan
+    .byte off_case_B2F2_0C_hyuga - * ; hyuga
+    .byte off_case_B2F2_0D_hyuga - * ; hyuga
+    .byte off_case_B2F2_0E_ishizaki - * ; ishizaki
+    .byte off_case_B2F2_0F_ishizaki - * ; ishizaki
 
 
 
@@ -12826,22 +12877,22 @@ off_case_B2F2_0F_ishizaki:
 
 bra_long_case_B2FE_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_B310_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_B310_03_soda - * ; 
-    .byte off_case_B310_04_soda - * ; 
-    .byte off_case_B310_05_jito - * ; 
-    .byte off_case_B310_06_jito - * ; 
-    .byte off_case_B310_07_dirceu - * ; 
-    .byte off_case_B310_08_dirceu - * ; 
-    .byte off_case_B310_09_robson - * ; 
-    .byte off_case_B310_0A_libuta - * ; 
-    .byte off_case_B310_0B_galvan - * ; 
-    .byte off_case_B310_0C_hyuga - * ; 
-    .byte off_case_B310_0D_hyuga - * ; 
-    .byte off_case_B310_0E_ishizaki - * ; 
-    .byte off_case_B310_0F_ishizaki - * ; 
+    .byte off_case_B310_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_B310_03_soda - * ; soda
+    .byte off_case_B310_04_soda - * ; soda
+    .byte off_case_B310_05_jito - * ; jito
+    .byte off_case_B310_06_jito - * ; jito
+    .byte off_case_B310_07_dirceu - * ; dirceu
+    .byte off_case_B310_08_dirceu - * ; dirceu
+    .byte off_case_B310_09_robson - * ; robson
+    .byte off_case_B310_0A_libuta - * ; libuta
+    .byte off_case_B310_0B_galvan - * ; galvan
+    .byte off_case_B310_0C_hyuga - * ; hyuga
+    .byte off_case_B310_0D_hyuga - * ; hyuga
+    .byte off_case_B310_0E_ishizaki - * ; ishizaki
+    .byte off_case_B310_0F_ishizaki - * ; ishizaki
 
 
 
@@ -12872,22 +12923,22 @@ off_case_B310_0F_ishizaki:
 
 bra_long_case_B31A_01_спешал:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_B32C_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_B32C_03_soda - * ; 
-    .byte off_case_B32C_04_soda - * ; 
-    .byte off_case_B32C_05_jito - * ; 
-    .byte off_case_B32C_06_jito - * ; 
-    .byte off_case_B32C_07_dirceu - * ; 
-    .byte off_case_B32C_08_dirceu - * ; 
-    .byte off_case_B32C_09_robson - * ; 
-    .byte off_case_B32C_0A_libuta - * ; 
-    .byte off_case_B32C_0B_galvan - * ; 
-    .byte off_case_B32C_0C_hyuga - * ; 
-    .byte off_case_B32C_0D_hyuga - * ; 
-    .byte off_case_B32C_0E_ishizaki - * ; 
-    .byte off_case_B32C_0F_ishizaki - * ; 
+    .byte off_case_B32C_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_B338_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_B341_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_B32C_03_soda - * ; soda
+    .byte off_case_B32C_04_soda - * ; soda
+    .byte off_case_B32C_05_jito - * ; jito
+    .byte off_case_B32C_06_jito - * ; jito
+    .byte off_case_B32C_07_dirceu - * ; dirceu
+    .byte off_case_B32C_08_dirceu - * ; dirceu
+    .byte off_case_B32C_09_robson - * ; robson
+    .byte off_case_B32C_0A_libuta - * ; libuta
+    .byte off_case_B32C_0B_galvan - * ; galvan
+    .byte off_case_B32C_0C_hyuga - * ; hyuga
+    .byte off_case_B32C_0D_hyuga - * ; hyuga
+    .byte off_case_B32C_0E_ishizaki - * ; ishizaki
+    .byte off_case_B32C_0F_ishizaki - * ; ishizaki
 
 
 
@@ -12942,22 +12993,22 @@ off_case_B341_02_masao_kazuo:
 
 sub_B347_защитник_прыгает_к_летящему_мячу_блоком:
     .dbyt con_branch_short + con_bra_игроки_с_защитным_спешалом
-    .byte off_case_B359_00_игрок_без_защитного_спешала - * ; 
-    .byte off_case_B365_01_masao_kazuo - * ; masao kazuo япония
-    .byte off_case_B36C_02_masao_kazuo - * ; masao kazuo акита
-    .byte off_case_B359_03_soda - * ; 
-    .byte off_case_B359_04_soda - * ; 
-    .byte off_case_B372_05_jito - * ; 
-    .byte off_case_B38F_06_jito - * ; 
-    .byte off_case_B37C_07_dirceu - * ; 
-    .byte off_case_B37C_08_dirceu - * ; 
-    .byte off_case_B37C_09_robson - * ; 
-    .byte off_case_B37C_0A_libuta - * ; 
-    .byte off_case_B37C_0B_galvan - * ; 
-    .byte off_case_B359_0C_hyuga - * ; 
-    .byte off_case_B359_0D_hyuga - * ; 
-    .byte off_case_B398_0E_ishizaki - * ; 
-    .byte off_case_B3A1_0F_ishizaki - * ; 
+    .byte off_case_B359_00_игрок_без_защитного_спешала - * ; игрок без защитного спешала
+    .byte off_case_B365_01_masao_kazuo - * ; masao kazuo
+    .byte off_case_B36C_02_masao_kazuo - * ; masao kazuo
+    .byte off_case_B359_03_soda - * ; soda
+    .byte off_case_B359_04_soda - * ; soda
+    .byte off_case_B372_05_jito - * ; jito
+    .byte off_case_B38F_06_jito - * ; jito
+    .byte off_case_B37C_07_dirceu - * ; dirceu
+    .byte off_case_B37C_08_dirceu - * ; dirceu
+    .byte off_case_B37C_09_robson - * ; robson
+    .byte off_case_B37C_0A_libuta - * ; libuta
+    .byte off_case_B37C_0B_galvan - * ; galvan
+    .byte off_case_B359_0C_hyuga - * ; hyuga
+    .byte off_case_B359_0D_hyuga - * ; hyuga
+    .byte off_case_B398_0E_ishizaki - * ; ishizaki
+    .byte off_case_B3A1_0F_ishizaki - * ; ishizaki
 
 
 
@@ -12981,6 +13032,7 @@ loc_B360:
 
 
 off_case_B365_01_masao_kazuo:
+; masao kazuo
     .byte con_jsr
     .word sub_A71A_masao_kazuo_japan_становятся_друг_на_друга
 loc_B368:
@@ -12990,6 +13042,7 @@ loc_B368:
 
 
 off_case_B36C_02_masao_kazuo:
+; masao kazuo
     .byte con_jsr
     .word sub_A756_masao_kazuo_akita_становятся_друг_на_друга
     .byte con_jmp
@@ -12998,6 +13051,7 @@ off_case_B36C_02_masao_kazuo:
 
 
 off_case_B372_05_jito:
+; jito
     .byte con_F7, $44
     .byte con_pause + $48
     .byte con_bg + $30
@@ -13028,6 +13082,7 @@ off_case_B37C_0B_galvan:
 
 
 off_case_B38F_06_jito:
+; jito
     .byte con_F7, $44
     .byte con_pause + $48
     .byte con_bg + $30
@@ -13039,6 +13094,7 @@ off_case_B38F_06_jito:
 
 
 off_case_B398_0E_ishizaki:
+; ishizaki
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -13050,6 +13106,7 @@ off_case_B398_0E_ishizaki:
 
 
 off_case_B3A1_0F_ishizaki:
+; ishizaki
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -13060,30 +13117,33 @@ off_case_B3A1_0F_ishizaki:
 
 
 
-bra_long_case_B3AA_01_heel_lift:
+bra_long_case_9DFE_02_01:
+; heel lift
     .byte con_jsr
     .word sub_A810_анимация_heel_lift
-bra_long_case_B3AD_00_shoot:
-bra_long_case_B3AD_00_dribble:
-bra_long_case_B3AD_01_pass:
-bra_long_case_B3AD_03_1_2_pass:
+bra_long_case_9DFE_00:
+bra_long_case_9DFE_02_00:
+bra_long_case_9DFE_01:
+bra_long_case_9DFE_03:
     .byte con_mirror_toggle
     .byte con_rts
 
 
 
-bra_long_case_B3AF_02_forcible_dribble:
+bra_long_case_9DFE_02_02:
+; forcible dribble
     .dbyt con_branch_short + con_bra_force_drib
-    .byte off_case_B3B7_00_hyuga_из_японии - * ; 
-    .byte off_case_B3C5_01_hyuga_из_тохо - * ; 
-    .byte off_case_B3CE_02_jito_из_японии - * ; 
-    .byte off_case_B3D7_03_jito_из_куними - * ; 
-    .byte off_case_B3E0_04_napoleon - * ; 
-    .byte off_case_B3C0_05_игрок_без_рожи - * ; 
+    .byte off_case_9DFE_02_02_00 - * ; hyuga из японии
+    .byte off_case_9DFE_02_02_01 - * ; hyuga_из тохо
+    .byte off_case_9DFE_02_02_02 - * ; jito из японии 
+    .byte off_case_9DFE_02_02_03 - * ; jito из куними 
+    .byte off_case_9DFE_02_02_04 - * ; napoleon
+    .byte off_case_9DFE_02_02_05 - * ; игрок без рожи 
 
 
 
-off_case_B3B7_00_hyuga_из_японии:
+off_case_9DFE_02_02_00:
+; forcible dribble/hyuga из японии
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $31
@@ -13093,7 +13153,8 @@ loc_B3BD:
     .byte con_jsr
     .word sub_BBC7_очистка
 sub_B3C0:
-off_case_B3C0_05_игрок_без_рожи:
+off_case_9DFE_02_02_05:
+; forcible dribble/игрок без рожи 
     .byte con_jsr
     .word sub_AA89_forcible_dribble
     .byte con_mirror_toggle
@@ -13101,7 +13162,8 @@ off_case_B3C0_05_игрок_без_рожи:
 
 
 
-off_case_B3C5_01_hyuga_из_тохо:
+off_case_9DFE_02_02_01:
+; forcible dribble/hyuga_из тохо
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $31
@@ -13112,7 +13174,8 @@ off_case_B3C5_01_hyuga_из_тохо:
 
 
 
-off_case_B3CE_02_jito_из_японии:
+off_case_9DFE_02_02_02:
+; forcible dribble/jito из японии 
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -13123,7 +13186,8 @@ off_case_B3CE_02_jito_из_японии:
 
 
 
-off_case_B3D7_03_jito_из_куними:
+off_case_9DFE_02_02_03:
+; forcible dribble/jito из куними 
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -13134,7 +13198,8 @@ off_case_B3D7_03_jito_из_куними:
 
 
 
-off_case_B3E0_04_napoleon:
+off_case_9DFE_02_02_04:
+; forcible dribble/napoleon
     .byte con_F7, $44
     .byte con_pause + $3C
     .byte con_bg + $30
@@ -13145,7 +13210,8 @@ off_case_B3E0_04_napoleon:
 
 
 
-bra_long_case_B3E9_03_vanishing_feint:
+bra_long_case_9DFE_02_03:
+; vanishing feint
     .byte con_jsr
     .word sub_A86C_vanishing_feint
     .byte con_F7, $02
@@ -13158,13 +13224,14 @@ bra_long_case_B3E9_03_vanishing_feint:
 
 
 
-bra_long_case_B3F4_04_clone_dribble:
+bra_long_case_9DFE_02_04:
+; clone dribble
     .dbyt con_branch_short + con_bra_plr_carlos
-    .byte off_case_B3F8_04_00 - * ; carlos из фламенго
-    .byte off_case_B3F8_04_01 - * ; carlos из бразилии
+    .byte off_case_9DFE_02_04_00 - * ; carlos из фламенго
+    .byte off_case_9DFE_02_04_01 - * ; carlos из бразилии
 
-        off_case_B3F8_04_00:
-        ; carlos из фламенго
+        off_case_9DFE_02_04_00:
+        ; clone dribble/carlos из фламенго
             .byte con_jsr
             .word sub_A885_рожа_carlos_flamengo
         loc_B3FB_04_01:
@@ -13173,8 +13240,8 @@ bra_long_case_B3F4_04_clone_dribble:
             .byte con_mirror_toggle
             .byte con_rts
 
-        off_case_B3F8_04_01:
-        ; carlos из бразилии
+        off_case_9DFE_02_04_01:
+        ; clone dribble/carlos из бразилии
             .byte con_jsr
             .word sub_A88F_рожа_carlos_brazil
             .byte con_jmp
@@ -13182,7 +13249,8 @@ bra_long_case_B3F4_04_clone_dribble:
 
 
 
-bra_long_case_B406_05_high_speed_dribble:
+bra_long_case_9DFE_02_05:
+; high speed dribble
     .byte con_jsr
     .word sub_A8D0_high_speed_dribble
     .byte con_F7, $0D
@@ -13196,14 +13264,16 @@ bra_long_case_B406_05_high_speed_dribble:
 
 
 
-bra_long_case_B414_06_hedgehog_dribble:
+bra_long_case_9DFE_02_06:
+; hedgehog dribble
     .dbyt con_branch_short + con_bra_plr_kaltz
-    .byte off_case_B418_00_if_kaltz - * ; 
-    .byte off_case_B422_01_if_not_kaltz - * ; 
+    .byte off_case_9DFE_02_06_00 - * ; kaltz 1
+    .byte off_case_9DFE_02_06_01 - * ; kaltz 2
 
 
 
-off_case_B418_00_if_kaltz:
+off_case_9DFE_02_06_00:
+; hedgehog dribble/kaltz 1
     .byte con_jsr
     .word sub_A8E5_kaltz_hedgehog_dribble
 loc_B41B_kaltz_hedgehog_dribble_финальный_кусок_анимации:
@@ -13216,7 +13286,8 @@ loc_B41B_kaltz_hedgehog_dribble_финальный_кусок_анимации:
 
 
 
-off_case_B422_01_if_not_kaltz:
+off_case_9DFE_02_06_01:
+; hedgehog dribble/kaltz 2
     .byte con_jsr
     .word sub_A908_kaltz_hedgehog_dribble
     .byte con_jmp
@@ -13226,18 +13297,16 @@ off_case_B422_01_if_not_kaltz:
 
 sub_B428_белое_мерцание_если_защитник_делал_спешал:
     .dbyt con_branch_short + con_bra_обычный_или_спешал
-    .byte off_case_B432_00 - * ; 
-    .byte off_case_B42C_01_мяч_порвется - * ; 
+    .byte off_case_B428_00 - * ; 
+    .byte off_case_B428_01 - * ; 
 
-
-
-off_case_B42C_01_мяч_порвется:
+off_case_B428_01:
     .byte con_F7, $10
     .byte con_pause + $10
     .byte con_bg + $05
     .byte con_animation + $00
     .byte con_cloud + con_skip
-off_case_B432_00:
+off_case_B428_00:
     .byte con_rts
 
 
@@ -13318,6 +13387,7 @@ loc_B49E_игрок_принимает_пас_на_ногу:
 
 
 _scenario_B48E_03:
+; !!! переместить
             .byte con_jmp
             .word loc_B48E
 
@@ -13457,7 +13527,7 @@ bra_long_case_B6C0_1B:
 
 bra_long_case_B6D6_1C:
 ; dynamite header
-sub_B6D6:
+sub_B6D6_полет_dynamite_header:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $20
     .byte con_bg + $13
@@ -14383,6 +14453,7 @@ _scenario_B8A1_17:
 
 
 bra_long_case_B913_01_tsubasa:
+; tsubasa
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $91
@@ -14390,11 +14461,13 @@ bra_long_case_B913_01_tsubasa:
     .byte con_jsr
     .word sub_BBC7_очистка
 bra_long_case_B91A_00_игрок_без_рожи:
+; грок без рожи
     .byte con_rts
 
 
 
 bra_long_case_B91B_02_misaki:
+; misaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $96
@@ -14405,6 +14478,7 @@ bra_long_case_B91B_02_misaki:
 
 
 bra_long_case_B922_03_misaki:
+; misaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $97
@@ -14415,6 +14489,7 @@ bra_long_case_B922_03_misaki:
 
 
 bra_long_case_B929_04_hyuga:
+; hyuga
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $9E
@@ -14425,6 +14500,7 @@ bra_long_case_B929_04_hyuga:
 
 
 bra_long_case_B930_05_hyuga:
+; hyuga
     .byte con_pause + $3C
     .byte con_bg + $31
     .byte con_animation + $B0
@@ -14435,6 +14511,7 @@ bra_long_case_B930_05_hyuga:
 
 
 bra_long_case_B937_06_misugi:
+; misugi
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A3
@@ -14445,6 +14522,7 @@ bra_long_case_B937_06_misugi:
 
 
 bra_long_case_B93E_07_misugi:
+; misugi
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AE
@@ -14455,6 +14533,7 @@ bra_long_case_B93E_07_misugi:
 
 
 bra_long_case_B945_08_matsuyama:
+; matsuyama
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A1
@@ -14465,6 +14544,7 @@ bra_long_case_B945_08_matsuyama:
 
 
 bra_long_case_B94C_09_matsuyama:
+; matsuyama
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AF
@@ -14475,6 +14555,7 @@ bra_long_case_B94C_09_matsuyama:
 
 
 bra_long_case_B953_0A_ishizaki:
+; ishizaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $98
@@ -14485,6 +14566,7 @@ bra_long_case_B953_0A_ishizaki:
 
 
 bra_long_case_B95A_0B_ishizaki:
+; ishizaki
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $99
@@ -14495,6 +14577,7 @@ bra_long_case_B95A_0B_ishizaki:
 
 
 bra_long_case_B961_0C_soda:
+; soda
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9F
@@ -14505,6 +14588,7 @@ bra_long_case_B961_0C_soda:
 
 
 bra_long_case_B968_0D_soda:
+; soda
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AD
@@ -14515,6 +14599,7 @@ bra_long_case_B968_0D_soda:
 
 
 bra_long_case_B96F_0E_jito:
+; jito
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A0
@@ -14525,6 +14610,7 @@ bra_long_case_B96F_0E_jito:
 
 
 bra_long_case_B976_0F_jito:
+; jito
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AA
@@ -14535,6 +14621,7 @@ bra_long_case_B976_0F_jito:
 
 
 bra_long_case_B97D_10_masao_kazuo:
+; masao kazuo
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9C
@@ -14545,6 +14632,7 @@ bra_long_case_B97D_10_masao_kazuo:
 
 
 bra_long_case_B984_11_masao_kazuo:
+; masao kazuo
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $AB
@@ -14555,6 +14643,7 @@ bra_long_case_B984_11_masao_kazuo:
 
 
 bra_long_case_B98B_12_nitta:
+; nitta
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9A
@@ -14565,6 +14654,7 @@ bra_long_case_B98B_12_nitta:
 
 
 bra_long_case_B992_13_nitta:
+; nitta
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $9B
@@ -14575,6 +14665,7 @@ bra_long_case_B992_13_nitta:
 
 
 bra_long_case_B999_14_sawada:
+; sawada
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A2
@@ -14585,6 +14676,7 @@ bra_long_case_B999_14_sawada:
 
 
 bra_long_case_B9A0_15_sawada:
+; sawada
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B1
@@ -14595,6 +14687,7 @@ bra_long_case_B9A0_15_sawada:
 
 
 bra_long_case_B9A7_16_coimbra:
+; coimbra
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BC
@@ -14605,6 +14698,7 @@ bra_long_case_B9A7_16_coimbra:
 
 
 bra_long_case_B9AE_17_carlos:
+; carlos
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $A9
@@ -14615,6 +14709,7 @@ bra_long_case_B9AE_17_carlos:
 
 
 bra_long_case_B9B5_18_carlos:
+; carlos
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BB
@@ -14625,6 +14720,7 @@ bra_long_case_B9B5_18_carlos:
 
 
 bra_long_case_B9BC_19_schneider:
+; schneider
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B8
@@ -14635,6 +14731,7 @@ bra_long_case_B9BC_19_schneider:
 
 
 bra_long_case_B9C3_1A_kaltz:
+; kaltz
     .byte con_pause + $40
     .byte con_bg + $30
     .byte con_animation + $B3
@@ -14645,6 +14742,7 @@ bra_long_case_B9C3_1A_kaltz:
 
 
 bra_long_case_B9CA_1B_schester:
+; schester
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $BA
@@ -14655,6 +14753,7 @@ bra_long_case_B9CA_1B_schester:
 
 
 bra_long_case_B9D1_1C_diaz:
+; diaz
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B7
@@ -14665,6 +14764,7 @@ bra_long_case_B9D1_1C_diaz:
 
 
 bra_long_case_B9D8_1D_pascal:
+; pascal
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B6
@@ -14675,6 +14775,7 @@ bra_long_case_B9D8_1D_pascal:
 
 
 bra_long_case_B9DF_1E_pierre:
+; pierre
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B5
@@ -14685,6 +14786,7 @@ bra_long_case_B9DF_1E_pierre:
 
 
 bra_long_case_B9E6_1F_napoleon:
+; napoleon
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B4
@@ -14695,6 +14797,7 @@ bra_long_case_B9E6_1F_napoleon:
 
 
 bra_long_case_B9ED_20_victorino:
+; victorino
     .byte con_pause + $3C
     .byte con_bg + $30
     .byte con_animation + $B2
@@ -14705,6 +14808,7 @@ bra_long_case_B9ED_20_victorino:
 
 
 bra_long_case_B9F4_21_kaltz:
+; kaltz
     .byte con_pause + $40
     .byte con_bg + $30
     .byte con_animation + $B9
@@ -14881,6 +14985,7 @@ _scenario_BA3B_21:
                         off_case_21_01_04_02:
                         ; кипер промахивается и штанга (нереальный случай)
                             .byte con_rts
+                            ; закомментированный код из оригинала
 ;                            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
 ;                            .byte off_case_21_01_04_02_00 - * ; другой кипер
 ;                            .byte off_case_21_01_04_02_01 - * ; wakashimazu
@@ -14897,7 +15002,7 @@ _scenario_BA3B_21:
 ;
 ;                                off_case_21_01_04_02_01:
 ;                                off_case_21_01_04_02_02:
-;                                ; wakashimazu или gertise
+;                                ; wakashimazu, gertise
 ;                                    .byte con_pause + $28
 ;                                    .byte con_bg + $0F
 ;                                    .byte con_animation + $26
@@ -14965,7 +15070,7 @@ _scenario_BA3B_21:
 
                                 off_case_21_01_08_00_01:
                                 off_case_21_01_08_00_02:
-                                ; мяч вправо, кипер вправо/кипер промахнется и гол/wakashimazu или gertise
+                                ; мяч вправо, кипер вправо/кипер промахнется и гол/wakashimazu, gertise
                                     .byte con_pause + $28
                                     .byte con_bg + $0F
                                     .byte con_animation + $26
@@ -14993,7 +15098,7 @@ _scenario_BA3B_21:
 
                                 off_case_21_01_08_01_01:
                                 off_case_21_01_08_01_02:
-                                ; мяч вправо, кипер вправо/кипер отобьет/wakashimazu или gertise
+                                ; мяч вправо, кипер вправо/кипер отобьет/wakashimazu, gertise
                                     .byte con_soundID_delay, $2B, $21
                                     .byte con_pause + $3C
                                     .byte con_bg + $0F
@@ -15021,7 +15126,7 @@ _scenario_BA3B_21:
 
                                 off_case_21_01_08_02_01:
                                 off_case_21_01_08_02_02:
-                                ; мяч вправо, кипер вправо/кипер промахнется и штанга/wakashimazu или gertise
+                                ; мяч вправо, кипер вправо/кипер промахнется и штанга/wakashimazu, gertise
                                     .byte con_pause + $28
                                     .byte con_bg + $0F
                                     .byte con_animation + $26
@@ -15045,6 +15150,7 @@ loc_BA68_кипер_не_угадывает_сторону_в_пк:
         off_case_BA68_01:
         ; кипер отбивает (нереальный случай)
             .byte con_rts
+            ; закомментированный код из оригинала
 ;            .dbyt con_branch_short + con_bra_plr_wakashimazu_gertise
 ;            .byte off_case_BA68_01_00 - * ; другой_кипер
 ;            .byte off_case_BA68_01_01 - * ; wakashimazu
@@ -15063,7 +15169,7 @@ loc_BA68_кипер_не_угадывает_сторону_в_пк:
 ;
 ;                off_case_BA68_01_01:
 ;                off_case_BA68_01_02:
-;                ; wakashimazu или gertise
+;                ; wakashimazu, gertise
 ;                    .byte con_soundID_delay, $2B, $21
 ;                    .byte con_pause + $3C
 ;                    .byte con_bg + $0F
@@ -15287,24 +15393,24 @@ _scenario_BBD4_19:
         off_case_19_01:
         ; спешал_перепасовка
             .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
-            .byte off_case_BBF6_00_tsubasa - * ; 
-            .byte off_case_BBF6_01_misaki - * ; 
-            .byte off_case_BC07_02_hyuga - * ; 
-            .byte off_case_BBF6_03_hyuga - * ; 
-            .byte off_case_BC18_04_hyuga - * ; 
-            .byte off_case_BC07_05_sawada - * ; 
-            .byte off_case_BC18_06_sawada - * ; 
-            .byte off_case_BC29_07_masao - * ; 
-            .byte off_case_BC29_08_kazuo - * ; 
-            .byte off_case_BC29_09_masao - * ; 
-            .byte off_case_BC29_0A_kazuo - * ; 
-            .byte off_case_BC3A_0B_masao - * ; 
-            .byte off_case_BC3A_0C_kazuo - * ; 
-            .byte off_case_BC4B_0D_diaz - * ; 
-            .byte off_case_BC4B_0E_pascal - * ; 
-            .byte off_case_BC5C_0F_pierre - * ; 
-            .byte off_case_BC5C_10_napoleon - * ; 
-            .byte off_case_BBF6_11_игрок_без_спешал_перепасовки - * ; 
+            .byte off_case_BBF6_00_tsubasa - * ; tsubasa
+            .byte off_case_BBF6_01_misaki - * ; misaki
+            .byte off_case_BC07_02_hyuga - * ; hyuga
+            .byte off_case_BBF6_03_hyuga - * ; hyuga
+            .byte off_case_BC18_04_hyuga - * ; hyuga
+            .byte off_case_BC07_05_sawada - * ; sawada
+            .byte off_case_BC18_06_sawada - * ; sawada
+            .byte off_case_BC29_07_masao - * ; masao
+            .byte off_case_BC29_08_kazuo - * ; kazuo
+            .byte off_case_BC29_09_masao - * ; masao
+            .byte off_case_BC29_0A_kazuo - * ; kazuo
+            .byte off_case_BC3A_0B_masao - * ; masao
+            .byte off_case_BC3A_0C_kazuo - * ; kazuo
+            .byte off_case_BC4B_0D_diaz - * ; diaz
+            .byte off_case_BC4B_0E_pascal - * ; pascal
+            .byte off_case_BC5C_0F_pierre - * ; pierre
+            .byte off_case_BC5C_10_napoleon - * ; napoleon
+            .byte off_case_BBF6_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
 
                 off_case_BBF6_00_tsubasa:
                 off_case_BBF6_01_misaki:
@@ -15327,6 +15433,7 @@ _scenario_BBD4_19:
 
                 off_case_BC07_02_hyuga:
                 off_case_BC07_05_sawada:
+                ; hyuga, sawada
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -15344,6 +15451,7 @@ _scenario_BBD4_19:
 
                 off_case_BC18_04_hyuga:
                 off_case_BC18_06_sawada:
+                ; hyuga, sawada
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -15363,6 +15471,7 @@ _scenario_BBD4_19:
                 off_case_BC29_08_kazuo:
                 off_case_BC29_09_masao:
                 off_case_BC29_0A_kazuo:
+                ; masao, kazuo
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -15380,6 +15489,7 @@ _scenario_BBD4_19:
 
                 off_case_BC3A_0B_masao:
                 off_case_BC3A_0C_kazuo:
+                ; masao, kazuo
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -15397,6 +15507,7 @@ _scenario_BBD4_19:
 
                 off_case_BC4B_0D_diaz:
                 off_case_BC4B_0E_pascal:
+                ; diaz, pascal
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -15414,6 +15525,7 @@ _scenario_BBD4_19:
 
                 off_case_BC5C_0F_pierre:
                 off_case_BC5C_10_napoleon:
+                ; pierre, napoleon
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -15436,8 +15548,8 @@ _scenario_BC6D_1A:
     .byte off_case_1A_00 - * ; обычная перепасовка
     .byte off_case_1A_01 - * ; спешал перепасовка
 
-off_case_1A_00:
-; обычная перепасовка
+        off_case_1A_00:
+        ; обычная перепасовка
             .byte con_mirror_condition, $00
             .byte con_pause + $32
             .byte con_bg + $20
@@ -15451,30 +15563,31 @@ off_case_1A_00:
             .byte con_jmp
             .word loc_BBC7_очистка
 
-off_case_1A_01:
-; спешал перепасовка
+        off_case_1A_01:
+        ; спешал перепасовка
             .byte con_mirror_off
             .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
-            .byte off_case_BC96_00_tsubasa - * ; 
-            .byte off_case_BCAE_01_misaki - * ; 
-            .byte off_case_BCC6_02_hyuga - * ; 
-            .byte off_case_BCC6_03_hyuga - * ; 
-            .byte off_case_BCCB_04_hyuga - * ; 
-            .byte off_case_BCE5_05_sawada - * ; 
-            .byte off_case_BCEA_06_sawada - * ; 
-            .byte off_case_BD04_07_masao - * ; 
-            .byte off_case_BD04_08_kazuo - * ; 
-            .byte off_case_BD04_09_masao - * ; 
-            .byte off_case_BD04_0A_kazuo - * ; 
-            .byte off_case_BD09_0B_masao - * ; 
-            .byte off_case_BD09_0C_kazuo - * ; 
-            .byte off_case_BD23_0D_diaz - * ; 
-            .byte off_case_BD3B_0E_pascal - * ; 
-            .byte off_case_BD53_0F_pierre - * ; 
-            .byte off_case_BD6D_10_napoleon - * ; 
-            .byte off_case_BCAD_11_игрок_без_спешал_перепасовки - * ; 
+            .byte off_case_BC96_00_tsubasa - * ; tsubasa
+            .byte off_case_BCAE_01_misaki - * ; misaki
+            .byte off_case_BCC6_02_hyuga - * ; hyuga
+            .byte off_case_BCC6_03_hyuga - * ; hyuga
+            .byte off_case_BCCB_04_hyuga - * ; hyuga
+            .byte off_case_BCE5_05_sawada - * ; sawada
+            .byte off_case_BCEA_06_sawada - * ; sawada
+            .byte off_case_BD04_07_masao - * ; masao
+            .byte off_case_BD04_08_kazuo - * ; kazuo
+            .byte off_case_BD04_09_masao - * ; masao
+            .byte off_case_BD04_0A_kazuo - * ; kazuo
+            .byte off_case_BD09_0B_masao - * ; masao
+            .byte off_case_BD09_0C_kazuo - * ; kazuo
+            .byte off_case_BD23_0D_diaz - * ; diaz
+            .byte off_case_BD3B_0E_pascal - * ; pascal
+            .byte off_case_BD53_0F_pierre - * ; pierre
+            .byte off_case_BD6D_10_napoleon - * ; napoleon
+            .byte off_case_BCAD_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
 
                 off_case_BC96_00_tsubasa:
+                ; tsubasa
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $28
                     .byte con_bg + $36
@@ -15493,9 +15606,11 @@ off_case_1A_01:
                     .byte con_animation + $95
                     .byte con_cloud + con_skip
                 off_case_BCAD_11_игрок_без_спешал_перепасовки:
+                ; игрок без спешал перепасовки
                     .byte con_rts
 
                 off_case_BCAE_01_misaki:
+                ; misaki
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
                     .byte con_bg + $36
@@ -15517,11 +15632,13 @@ off_case_1A_01:
 
                 off_case_BCC6_02_hyuga:
                 off_case_BCC6_03_hyuga:
+                ; hyuga
                     .byte con_F7, $40
                     .byte con_jmp
                     .word loc_BCCD
 
                 off_case_BCCB_04_hyuga:
+                ; hyuga
                     .byte con_F7, $22
                 loc_BCCD:
                     .byte con_soundID_delay, $2C, $21
@@ -15544,11 +15661,13 @@ off_case_1A_01:
                     .byte con_rts
 
                 off_case_BCE5_05_sawada:
+                ; sawada
                     .byte con_F7, $40
                     .byte con_jmp
                     .word loc_BCEC
 
                 off_case_BCEA_06_sawada:
+                ; sawada
                     .byte con_F7, $22
                 loc_BCEC:
                     .byte con_soundID_delay, $2C, $21
@@ -15574,12 +15693,14 @@ off_case_1A_01:
                 off_case_BD04_08_kazuo:
                 off_case_BD04_09_masao:
                 off_case_BD04_0A_kazuo:
+                ; masao, kazuo
                     .byte con_F7, $40
                     .byte con_jmp
                     .word loc_BD0B
 
                 off_case_BD09_0B_masao:
                 off_case_BD09_0C_kazuo:
+                ; masao, kazuo
                     .byte con_F7, $3F
                 loc_BD0B:
                     .byte con_soundID_delay, $2C, $21
@@ -15602,6 +15723,7 @@ off_case_1A_01:
                     .byte con_rts
 
                 off_case_BD23_0D_diaz:
+                ; diaz
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
                     .byte con_bg + $36
@@ -15622,6 +15744,7 @@ off_case_1A_01:
                     .byte con_rts
 
                 off_case_BD3B_0E_pascal:
+                ; pascal
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
                     .byte con_bg + $36
@@ -15642,6 +15765,7 @@ off_case_1A_01:
                     .byte con_rts
 
                 off_case_BD53_0F_pierre:
+                ; pierre
                     .byte con_F7, $25
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -15663,6 +15787,7 @@ off_case_1A_01:
                     .byte con_rts
 
                 off_case_BD6D_10_napoleon:
+                ; napoleon
                     .byte con_F7, $25
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
