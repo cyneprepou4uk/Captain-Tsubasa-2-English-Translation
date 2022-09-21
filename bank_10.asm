@@ -9946,83 +9946,123 @@ loc_9E4F_пас_головой_в_воздухе:
 
 
 sub_9E64_рожа_атакующего_с_сообщением_неудачи_если_выжил:
-    .dbyt con_branch_short + con_bra_атакующий_с_рожей
-    .byte off_case_9E64_00 - * ; атакующий без рожи
-    .byte off_case_9E64_01 - * ; атакующий с рожей
+    .dbyt con_branch_short + con_bra_4A
+    .byte off_case_9E64_00 - * ; кто-то из соперников без рожи
+    .byte off_case_9E64_01 - * ; оба соперника с рожами
 
         off_case_9E64_00:
-        ; атакующий без рожи
+        ; кто-то из соперников без рожи
             .byte con_rts
 
         off_case_9E64_01:
-        ; атакующий с рожей
-            .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + con_face_attacker
-            .byte con_cloud + $8E
-            .byte con_jmp
-            .word loc_BBC7_очистка
+        ; оба соперника с рожами
+            .dbyt con_branch_short + con_bra_атакующий_с_рожей
+            .byte off_case_9E64_01_00 - * ; атакующий без рожи
+            .byte off_case_9E64_01_01 - * ; атакующий с рожей
+
+                off_case_9E64_01_00:
+                ; оба соперника с рожами/атакующий без рожи
+                    .byte con_rts
+
+                off_case_9E64_01_01:
+                ; оба соперника с рожами/атакующий с рожей
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + con_face_attacker
+                    .byte con_cloud + $8E
+                    .byte con_jmp
+                    .word loc_BBC7_очистка
 
 
 
 sub_9E65_рожа_атакующего_с_сообщением_неудачи_если_убился:
-    .dbyt con_branch_short + con_bra_атакующий_с_рожей
-    .byte off_case_9E65_00 - * ; атакующий без рожи
-    .byte off_case_9E65_01 - * ; атакующий с рожей
+    .dbyt con_branch_short + con_bra_4A
+    .byte off_case_9E65_00 - * ; кто-то из соперников без рожи
+    .byte off_case_9E65_01 - * ; оба соперника с рожами
 
         off_case_9E65_00:
-        ; атакующий без рожи
+        ; кто-то из соперников без рожи
             .byte con_rts
 
         off_case_9E65_01:
-        ; атакующий с рожей
-            .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + con_face_attacker
-            .byte con_cloud + $8E
-            .byte con_jmp
-            .word loc_BBC7_очистка
+        ; оба соперника с рожами
+            .dbyt con_branch_short + con_bra_атакующий_с_рожей
+            .byte off_case_9E65_01_00 - * ; атакующий без рожи
+            .byte off_case_9E65_01_01 - * ; атакующий с рожей
+
+                off_case_9E65_01_00:
+                ; оба соперника с рожами/атакующий без рожи
+                    .byte con_rts
+
+                off_case_9E65_01_01:
+                ; оба соперника с рожами/атакующий с рожей
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + con_face_attacker
+                    .byte con_cloud + $90
+                    .byte con_jmp
+                    .word loc_BBC7_очистка
 
 
 
 loc_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил:
 sub_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил:
-    .dbyt con_branch_short + con_bra_защитник_с_рожей
-    .byte off_case_9EAA_00 - * ; защитник без рожи
-    .byte off_case_9EAA_01 - * ; защитник с рожей
+    .dbyt con_branch_short + con_bra_4A
+    .byte off_case_9EAA_00 - * ; кто-то из соперников без рожи
+    .byte off_case_9EAA_01 - * ; оба соперника с рожами
 
         off_case_9EAA_00:
-        ; защитник без рожи
+        ; кто-то из соперников без рожи
             .byte con_rts
 
         off_case_9EAA_01:
-        ; защитник с рожей
-            .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + con_face_defender
-            .byte con_cloud + $8F
-            .byte con_jmp
-            .word loc_BBC7_очистка
+        ; оба соперника с рожами
+            .dbyt con_branch_short + con_bra_защитник_с_рожей
+            .byte off_case_9EAA_01_00 - * ; защитник без рожи
+            .byte off_case_9EAA_01_01 - * ; защитник с рожей
+
+                off_case_9EAA_01_00:
+                ; оба соперника с рожами/защитник без рожи
+                    .byte con_rts
+
+                off_case_9EAA_01_01:
+                ; оба соперника с рожами/защитник с рожей
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + con_face_defender
+                    .byte con_cloud + $8F
+                    .byte con_jmp
+                    .word loc_BBC7_очистка
 
 
 
 sub_9EAB_рожа_защитника_с_сообщением_неудачи_если_убился:
-    .dbyt con_branch_short + con_bra_защитник_с_рожей
-    .byte off_case_9EAB_00 - * ; защитник без рожи
-    .byte off_case_9EAB_01 - * ; защитник с рожей
+    .dbyt con_branch_short + con_bra_4A
+    .byte off_case_9EAB_00 - * ; кто-то из соперников без рожи
+    .byte off_case_9EAB_01 - * ; оба соперника с рожами
 
         off_case_9EAB_00:
-        ; защитник без рожи
+        ; кто-то из соперников без рожи
             .byte con_rts
 
         off_case_9EAB_01:
-        ; защитник с рожей
-            .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + con_face_defender
-            .byte con_cloud + $91
-            .byte con_jmp
-            .word loc_BBC7_очистка
+        ; оба соперника с рожами
+            .dbyt con_branch_short + con_bra_защитник_с_рожей
+            .byte off_case_9EAB_01_00 - * ; защитник без рожи
+            .byte off_case_9EAB_01_01 - * ; защитник с рожей
+
+                off_case_9EAB_01_00:
+                ; оба соперника с рожами/защитник без рожи
+                    .byte con_rts
+
+                off_case_9EAB_01_01:
+                ; оба соперника с рожами/защитник с рожей
+                    .byte con_pause + $3C
+                    .byte con_bg + $30
+                    .byte con_animation + con_face_defender
+                    .byte con_cloud + $90
+                    .byte con_jmp
+                    .word loc_BBC7_очистка
 
 
 
