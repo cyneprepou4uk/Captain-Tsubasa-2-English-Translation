@@ -345,8 +345,8 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_байты_после_J
 - D - I - - 0x0201CD 10:81BD: 4E 84     .word ofs_015_844E_25_coimbra_france_уже_били_или_нет
 - D - I - - 0x0201CF 10:81BF: 57 84     .word ofs_015_8457_26_проигрывает_ли_германия
 - D - I - - 0x0201D1 10:81C1: 4E 84     .word ofs_015_847С_27_атакующий_с_рожей     ; new
-- D - I - - 0x0201D3 10:81C3: 7E 84     .word ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитника
-- D - I - - 0x0201D5 10:81C5: 98 84     .word ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающего
+- D - I - - 0x0201D3 10:81C3: 7E 84     .word $0000       ; ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитника
+- D - I - - 0x0201D5 10:81C5: 98 84     .word $0000       ; ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающего
 - D - I - - 0x0201D7 10:81C7: B2 84     .word ofs_015_84B2_2A_защитник_с_рожей
 - D - I - - 0x0201D9 10:81C9: C7 84     .word ofs_015_84C7_2B_проверка_на_100_хп
 - D - I - - 0x0201DB 10:81CB: E7 84     .word ofs_015_84E7_2C_напали_ли_защитники
@@ -1071,103 +1071,103 @@ bra_84C7_RTS:
 
 
 
-ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитника:
-; 00 = игрок без рожи
-; 01 = tsubasa
-; 02 = misaki
-; 03 = misaki
-; 04 = hyuga
-; 05 = hyuga
-; 06 = misugi
-; 07 = misugi
-; 08 = matsuyama
-; 09 = matsuyama
-; 0A = ishizaki
-; 0B = ishizaki
-; 0C = soda
-; 0D = soda
-; 0E = jito
-; 0F = jito
-; 10 = masao kazuo
-; 11 = masao kazuo
-; 12 = nitta
-; 13 = nitta
-; 14 = sawada
-; 15 = sawada
-; 16 = coimbra
-; 17 = carlos
-; 18 = carlos
-; 19 = schneider
-; 1A = kaltz
-; 1B = schester
-; 1C = diaz
-; 1D = pascal
-; 1E = pierre
-; 1F = napoleon
-; 20 = victorino
-; 21 = kaltz
-C - J - - - 0x02048E 10:847E: AD 42 04  LDA ram_игрок_без_мяча
-C - - - - - 0x020491 10:8481: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x020494 10:8484: A8        TAY
-C - - - - - 0x020495 10:8485: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
-C - - - - - 0x020498 10:8488: F0 0D     BEQ bra_8497_RTS
-C - - - - - 0x02049A 10:848A: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - - 0x02049D 10:848D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0204A0 10:8490: A8        TAY
-C - - - - - 0x0204A1 10:8491: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
-C - - - - - 0x0204A4 10:8494: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
-bra_8497_RTS:
-C - - - - - 0x0204A7 10:8497: 60        RTS
+; ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитника:
+; ; 00 = игрок без рожи
+; ; 01 = tsubasa
+; ; 02 = misaki
+; ; 03 = misaki
+; ; 04 = hyuga
+; ; 05 = hyuga
+; ; 06 = misugi
+; ; 07 = misugi
+; ; 08 = matsuyama
+; ; 09 = matsuyama
+; ; 0A = ishizaki
+; ; 0B = ishizaki
+; ; 0C = soda
+; ; 0D = soda
+; ; 0E = jito
+; ; 0F = jito
+; ; 10 = masao kazuo
+; ; 11 = masao kazuo
+; ; 12 = nitta
+; ; 13 = nitta
+; ; 14 = sawada
+; ; 15 = sawada
+; ; 16 = coimbra
+; ; 17 = carlos
+; ; 18 = carlos
+; ; 19 = schneider
+; ; 1A = kaltz
+; ; 1B = schester
+; ; 1C = diaz
+; ; 1D = pascal
+; ; 1E = pierre
+; ; 1F = napoleon
+; ; 20 = victorino
+; ; 21 = kaltz
+; C - J - - - 0x02048E 10:847E: AD 42 04  LDA ram_игрок_без_мяча
+; C - - - - - 0x020491 10:8481: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
+; C - - - - - 0x020494 10:8484: A8        TAY
+; C - - - - - 0x020495 10:8485: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; C - - - - - 0x020498 10:8488: F0 0D     BEQ bra_8497_RTS
+; C - - - - - 0x02049A 10:848A: AD 41 04  LDA ram_игрок_с_мячом
+; C - - - - - 0x02049D 10:848D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
+; C - - - - - 0x0204A0 10:8490: A8        TAY
+; C - - - - - 0x0204A1 10:8491: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; C - - - - - 0x0204A4 10:8494: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
+; bra_8497_RTS:
+; C - - - - - 0x0204A7 10:8497: 60        RTS
 
 
 
-ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающего:
-; 00 = игрок без рожи
-; 01 = tsubasa
-; 02 = misaki
-; 03 = misaki
-; 04 = hyuga
-; 05 = hyuga
-; 06 = misugi
-; 07 = misugi
-; 08 = matsuyama
-; 09 = matsuyama
-; 0A = ishizaki
-; 0B = ishizaki
-; 0C = soda
-; 0D = soda
-; 0E = jito
-; 0F = jito
-; 10 = masao kazuo
-; 11 = masao kazuo
-; 12 = nitta
-; 13 = nitta
-; 14 = sawada
-; 15 = sawada
-; 16 = coimbra
-; 17 = carlos
-; 18 = carlos
-; 19 = schneider
-; 1A = kaltz
-; 1B = schester
-; 1C = diaz
-; 1D = pascal
-; 1E = pierre
-; 1F = napoleon
-; 20 = victorino
-; 21 = kaltz
-C - J - - - 0x0204A8 10:8498: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - - 0x0204AB 10:849B: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0204AE 10:849E: A8        TAY
-C - - - - - 0x0204AF 10:849F: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
-C - - - - - 0x0204B2 10:84A2: F0 0D     BEQ bra_84B1_RTS
-C - - - - - 0x0204B4 10:84A4: AD 42 04  LDA ram_игрок_без_мяча
-C - - - - - 0x0204B7 10:84A7: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0204BA 10:84AA: A8        TAY
-C - - - - - 0x0204BB 10:84AB: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
-C - - - - - 0x0204BE 10:84AE: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
-bra_84B1_RTS:
-C - - - - - 0x0204C1 10:84B1: 60        RTS
+; ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающего:
+; ; 00 = игрок без рожи
+; ; 01 = tsubasa
+; ; 02 = misaki
+; ; 03 = misaki
+; ; 04 = hyuga
+; ; 05 = hyuga
+; ; 06 = misugi
+; ; 07 = misugi
+; ; 08 = matsuyama
+; ; 09 = matsuyama
+; ; 0A = ishizaki
+; ; 0B = ishizaki
+; ; 0C = soda
+; ; 0D = soda
+; ; 0E = jito
+; ; 0F = jito
+; ; 10 = masao kazuo
+; ; 11 = masao kazuo
+; ; 12 = nitta
+; ; 13 = nitta
+; ; 14 = sawada
+; ; 15 = sawada
+; ; 16 = coimbra
+; ; 17 = carlos
+; ; 18 = carlos
+; ; 19 = schneider
+; ; 1A = kaltz
+; ; 1B = schester
+; ; 1C = diaz
+; ; 1D = pascal
+; ; 1E = pierre
+; ; 1F = napoleon
+; ; 20 = victorino
+; ; 21 = kaltz
+; C - J - - - 0x0204A8 10:8498: AD 41 04  LDA ram_игрок_с_мячом
+; C - - - - - 0x0204AB 10:849B: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
+; C - - - - - 0x0204AE 10:849E: A8        TAY
+; C - - - - - 0x0204AF 10:849F: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; C - - - - - 0x0204B2 10:84A2: F0 0D     BEQ bra_84B1_RTS
+; C - - - - - 0x0204B4 10:84A4: AD 42 04  LDA ram_игрок_без_мяча
+; C - - - - - 0x0204B7 10:84A7: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
+; C - - - - - 0x0204BA 10:84AA: A8        TAY
+; C - - - - - 0x0204BB 10:84AB: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; C - - - - - 0x0204BE 10:84AE: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
+; bra_84B1_RTS:
+; C - - - - - 0x0204C1 10:84B1: 60        RTS
 
 
 
@@ -2594,8 +2594,8 @@ con_branch_short            = $F380 ;
     con_bra_били_ли_раньше_этот_удар            = $25   ; slider cannon и mach shot
     con_bra_проигрывает_ли_germany              = $26   ; 
     con_bra_атакующий_с_рожей                   = $27   ; 00 = атакующий без рожи, 01 = атакующий с рожей
-    con_bra_рожа_защитника                      = $28   ; 
-    con_bra_рожа_нападающего                    = $29   ; 
+   ;con_bra_рожа_защитника                      = $28   ; 
+   ;con_bra_рожа_нападающего                    = $29   ; 
     con_bra_защитник_с_рожей                    = $2A   ; 00 = защитник без рожи, 01 = защитник с рожей
     con_bra_проверка_на_100_хп                  = $2B   ; 
     con_bra_напали_ли_защитники                 = $2C   ; 
