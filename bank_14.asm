@@ -337,11 +337,12 @@ C - - - - - 0x0281FE 14:81EE: 20 0C C5  JSR sub_0x03CD8C_получить_адр
 C - - - - - 0x028201 14:81F1: 20 6A 82  JSR sub_826A
 C - - - - - 0x028204 14:81F4: A0 00     LDY #con_plr_id
 C - - - - - 0x028206 14:81F6: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x028208 14:81F8: F0 07     BEQ bra_8201
+C - - - - - 0x028208 14:81F8: F0 07     BEQ bra_8201_это_клон
+; if not con_p_clone
 C - - - - - 0x02820A 14:81FA: 20 82 82  JSR sub_8282
 C - - - - - 0x02820D 14:81FD: A2 00     LDX #$00
 C - - - - - 0x02820F 14:81FF: F0 12     BEQ bra_8213
-bra_8201:
+bra_8201_это_клон:
 C - - - - - 0x028211 14:8201: AD 2B 00  LDA ram_команда_соперника
 C - - - - - 0x028214 14:8204: 38        SEC
 C - - - - - 0x028215 14:8205: E9 03     SBC #$03
@@ -1529,124 +1530,124 @@ tbl_88E4:
 - D - - - - 0x0288FE 14:88EE: B0 05     .word ram_05B0
 
 tbl_88F0:
-- D - - - - 0x028900 14:88F0: 08        .byte $08    ; клон
-- D - - - - 0x028901 14:88F1: 00        .byte $00    ; Tsubasa
-- D - - - - 0x028902 14:88F2: 0F        .byte $0F    ; Renato
-- D - - - - 0x028903 14:88F3: 06        .byte $06    ; Lima
-- D - - - - 0x028904 14:88F4: 04        .byte $04    ; Marini
-- D - - - - 0x028905 14:88F5: 09        .byte $09    ; Amaral
-- D - - - - 0x028906 14:88F6: 05        .byte $05    ; Dotor
-- D - - - - 0x028907 14:88F7: 08        .byte $08    ; Batista
-- D - - - - 0x028908 14:88F8: 08        .byte $08    ; Tahamata
-- D - - - - 0x028909 14:88F9: 01        .byte $01    ; Babington
-- D - - - - 0x02890A 14:88FA: 02        .byte $02    ; Gil
-- D - - - - 0x02890B 14:88FB: 08        .byte $08    ; Platon
-- D - - - - 0x02890C 14:88FC: 09        .byte $09    ; Urabe
-- D - - - - 0x02890D 14:88FD: 04        .byte $04    ; Kishida
-- D - - - - 0x02890E 14:88FE: 08        .byte $08    ; Nakayama
-- D - - - - 0x02890F 14:88FF: 10        .byte $10    ; Morisaki
-- D - - - - 0x028910 14:8900: 08        .byte $08    ; Takasugi
-- D - - - - 0x028911 14:8901: 02        .byte $02    ; Misaki
-- D - - - - 0x028912 14:8902: 01        .byte $01    ; Izawa
-- D - - - - 0x028913 14:8903: 03        .byte $03    ; Taki
-- D - - - - 0x028914 14:8904: 06        .byte $06    ; Ishizaki
-- D - - - - 0x028915 14:8905: 0B        .byte $0B    ; Nitta
-- D - - - - 0x028916 14:8906: 05        .byte $05    ; Kisugi
-- D - - - - 0x028917 14:8907: 03        .byte $03    ; Masao
-- D - - - - 0x028918 14:8908: 03        .byte $03    ; Kazuo
-- D - - - - 0x028919 14:8909: 01        .byte $01    ; Sano
-- D - - - - 0x02891A 14:890A: 07        .byte $07    ; Hyuga
-- D - - - - 0x02891B 14:890B: 04        .byte $04    ; Soda
-- D - - - - 0x02891C 14:890C: 04        .byte $04    ; Jito
-- D - - - - 0x02891D 14:890D: 02        .byte $02    ; Matsuyama
-- - - - - - 0x02891E 14:890E: 02        .byte $02    ; Sorimachi
-- - - - - - 0x02891F 14:890F: 04        .byte $04    ; Sawada
-- D - - - - 0x028920 14:8910: 02        .byte $02    ; Misugi
-- D - - - - 0x028921 14:8911: 0C        .byte $0C    ; Wakabayashi
-- D - - - - 0x028922 14:8912: 0E        .byte $0E    ; Wakashimazu
-- D - - - - 0x028923 14:8913: 03        .byte $03    ; Satrustegui
-- D - - - - 0x028924 14:8914: 01        .byte $01    ; Ribeiro
-- D - - - - 0x028925 14:8915: 0B        .byte $0B    ; Da Silva
-- D - - - - 0x028926 14:8916: 0F        .byte $0F    ; Meon
-- D - - - - 0x028927 14:8917: 06        .byte $06    ; Toninho
-- D - - - - 0x028928 14:8918: 02        .byte $02    ; Nei
-- D - - - - 0x028929 14:8919: 07        .byte $07    ; Zagallo
-- D - - - - 0x02892A 14:891A: 04        .byte $04    ; Dirceu
-- D - - - - 0x02892B 14:891B: 0A        .byte $0A    ; Carlos
-- D - - - - 0x02892C 14:891C: 09        .byte $09    ; Santamaria
-- D - - - - 0x02892D 14:891D: 08        .byte $08    ; Jetorio
-- D - - - - 0x02892E 14:891E: 04        .byte $04    ; Jito
-- D - - - - 0x02892F 14:891F: 01        .byte $01    ; Sano
-- D - - - - 0x028930 14:8920: 03        .byte $03    ; Masao
-- D - - - - 0x028931 14:8921: 03        .byte $03    ; Kazuo
-- D - - - - 0x028932 14:8922: 04        .byte $04    ; Soda
-- D - - - - 0x028933 14:8923: 11        .byte $11    ; Nakanishi
-- D - - - - 0x028934 14:8924: 02        .byte $02    ; Misugi
-- D - - - - 0x028935 14:8925: 02        .byte $02    ; Matsuyama
-- D - - - - 0x028936 14:8926: 07        .byte $07    ; Hyuga
-- D - - - - 0x028937 14:8927: 02        .byte $02    ; Sorimachi
-- D - - - - 0x028938 14:8928: 04        .byte $04    ; Sawada
-- D - - - - 0x028939 14:8929: 0E        .byte $0E    ; Wakashimazu
-- D - - - - 0x02893A 14:892A: 09        .byte $09    ; Rampion
-- D - - - - 0x02893B 14:892B: 02        .byte $02    ; Victorino
-- D - - - - 0x02893C 14:892C: 0B        .byte $0B    ; Da Silva
-- D - - - - 0x02893D 14:892D: 01        .byte $01    ; Kappelman
-- D - - - - 0x02893E 14:892E: 04        .byte $04    ; Kaltz
-- D - - - - 0x02893F 14:892F: 02        .byte $02    ; Metza
-- D - - - - 0x028940 14:8930: 0C        .byte $0C    ; Wakabayashi
-- D - - - - 0x028941 14:8931: 07        .byte $07    ; Hyuga
-- D - - - - 0x028942 14:8932: 0B        .byte $0B    ; Nitta
-- D - - - - 0x028943 14:8933: 01        .byte $01    ; Sano
-- D - - - - 0x028944 14:8934: 02        .byte $02    ; Misaki
-- D - - - - 0x028945 14:8935: 02        .byte $02    ; Misugi
-- D - - - - 0x028946 14:8936: 03        .byte $03    ; Masao
-- D - - - - 0x028947 14:8937: 03        .byte $03    ; Kazuo
-- D - - - - 0x028948 14:8938: 04        .byte $04    ; Jito
-- D - - - - 0x028949 14:8939: 06        .byte $06    ; Ishizaki
-- D - - - - 0x02894A 14:893A: 04        .byte $04    ; Soda
-- D - - - - 0x02894B 14:893B: 02        .byte $02    ; Matsuyama
-- D - - - - 0x02894C 14:893C: 0E        .byte $0E    ; Wakashimazu
-- D - - - - 0x02894D 14:893D: 06        .byte $06    ; Li Han-ne
-- D - - - - 0x02894E 14:893E: 06        .byte $06    ; Li Ban-kun
-- D - - - - 0x02894F 14:893F: 07        .byte $07    ; Sha
-- D - - - - 0x028950 14:8940: 0A        .byte $0A    ; Kim
-- D - - - - 0x028951 14:8941: 06        .byte $06    ; Macher
-- D - - - - 0x028952 14:8942: 11        .byte $11    ; Djazic
-- D - - - - 0x028953 14:8943: 01        .byte $01    ; Lorimar
-- D - - - - 0x028954 14:8944: 04        .byte $04    ; Robson
-- D - - - - 0x028955 14:8945: 05        .byte $05    ; Belyaev
-- D - - - - 0x028956 14:8946: 0F        .byte $0F    ; Rashin
-- D - - - - 0x028957 14:8947: 04        .byte $04    ; Napoleon
-- D - - - - 0x028958 14:8948: 01        .byte $01    ; Pierre
-- D - - - - 0x028959 14:8949: 0B        .byte $0B    ; Espana
-- D - - - - 0x02895A 14:894A: 09        .byte $09    ; Rampion
-- D - - - - 0x02895B 14:894B: 0F        .byte $0F    ; Hernandez
-- D - - - - 0x02895C 14:894C: 02        .byte $02    ; Islas
-- D - - - - 0x02895D 14:894D: 09        .byte $09    ; Libuta
-- D - - - - 0x02895E 14:894E: 0B        .byte $0B    ; Pascal
-- D - - - - 0x02895F 14:894F: 03        .byte $03    ; Satrustegui
-- D - - - - 0x028960 14:8950: 05        .byte $05    ; Diaz
-- D - - - - 0x028961 14:8951: 01        .byte $01    ; Babington
-- D - - - - 0x028962 14:8952: 01        .byte $01    ; Galvan
-- D - - - - 0x028963 14:8953: 00        .byte $00    ; Schneider
-- D - - - - 0x028964 14:8954: 03        .byte $03    ; Margus
-- D - - - - 0x028965 14:8955: 04        .byte $04    ; Kaltz
-- D - - - - 0x028966 14:8956: 02        .byte $02    ; Metza
-- D - - - - 0x028967 14:8957: 0B        .byte $0B    ; Schester
-- D - - - - 0x028968 14:8958: 01        .byte $01    ; Kappelman
-- D - - - - 0x028969 14:8959: 0D        .byte $0D    ; Muller
-- D - - - - 0x02896A 14:895A: 0A        .byte $0A    ; Carlos
-- D - - - - 0x02896B 14:895B: 07        .byte $07    ; Zagallo
-- D - - - - 0x02896C 14:895C: 01        .byte $01    ; Ribeiro
-- D - - - - 0x02896D 14:895D: 02        .byte $02    ; Nei
-- D - - - - 0x02896E 14:895E: 09        .byte $09    ; Santamaria
-- D - - - - 0x02896F 14:895F: 06        .byte $06    ; Toninho
-- D - - - - 0x028970 14:8960: 05        .byte $05    ; Dotor
-- D - - - - 0x028971 14:8961: 09        .byte $09    ; Amaral
-- D - - - - 0x028972 14:8962: 04        .byte $04    ; Dirceu
-- D - - - - 0x028973 14:8963: 08        .byte $08    ; Jetorio
-- D - - - - 0x028974 14:8964: 0E        .byte $0E    ; Gertise
-- D - - - - 0x028975 14:8965: 0B        .byte $0B    ; Coimbra
+- D - - - - 0x028900 14:88F0: 08        .byte $08    ; 00 con_p_clone
+- D - - - - 0x028901 14:88F1: 00        .byte $00    ; 01 con_p_tsubasa_my
+- D - - - - 0x028902 14:88F2: 0F        .byte $0F    ; 02 con_p_renato_my
+- D - - - - 0x028903 14:88F3: 06        .byte $06    ; 03 con_p_lima_my
+- D - - - - 0x028904 14:88F4: 04        .byte $04    ; 04 con_p_marini_my
+- D - - - - 0x028905 14:88F5: 09        .byte $09    ; 05 con_p_amaral_my
+- D - - - - 0x028906 14:88F6: 05        .byte $05    ; 06 con_p_dotor_my
+- D - - - - 0x028907 14:88F7: 08        .byte $08    ; 07 con_p_batista_my
+- D - - - - 0x028908 14:88F8: 08        .byte $08    ; 08 con_p_tahamata_my
+- D - - - - 0x028909 14:88F9: 01        .byte $01    ; 09 con_p_babington_my
+- D - - - - 0x02890A 14:88FA: 02        .byte $02    ; 0A con_p_gil_my
+- D - - - - 0x02890B 14:88FB: 08        .byte $08    ; 0B con_p_platon_my
+- D - - - - 0x02890C 14:88FC: 09        .byte $09    ; 0C con_p_urabe_my
+- D - - - - 0x02890D 14:88FD: 04        .byte $04    ; 0D con_p_kishida_my
+- D - - - - 0x02890E 14:88FE: 08        .byte $08    ; 0E con_p_nakayama_my
+- D - - - - 0x02890F 14:88FF: 10        .byte $10    ; 0F con_p_morisaki_my
+- D - - - - 0x028910 14:8900: 08        .byte $08    ; 10 con_p_takasugi_my
+- D - - - - 0x028911 14:8901: 02        .byte $02    ; 11 con_p_misaki_my
+- D - - - - 0x028912 14:8902: 01        .byte $01    ; 12 con_p_izawa_my
+- D - - - - 0x028913 14:8903: 03        .byte $03    ; 13 con_p_taki_my
+- D - - - - 0x028914 14:8904: 06        .byte $06    ; 14 con_p_ishizaki_my
+- D - - - - 0x028915 14:8905: 0B        .byte $0B    ; 15 con_p_nitta_my
+- D - - - - 0x028916 14:8906: 05        .byte $05    ; 16 con_p_kisugi_my
+- D - - - - 0x028917 14:8907: 03        .byte $03    ; 17 con_p_masao_my
+- D - - - - 0x028918 14:8908: 03        .byte $03    ; 18 con_p_kazuo_my
+- D - - - - 0x028919 14:8909: 01        .byte $01    ; 19 con_p_sano_my
+- D - - - - 0x02891A 14:890A: 07        .byte $07    ; 1A con_p_hyuga_my
+- D - - - - 0x02891B 14:890B: 04        .byte $04    ; 1B con_p_soda_my
+- D - - - - 0x02891C 14:890C: 04        .byte $04    ; 1C con_p_jito_my
+- D - - - - 0x02891D 14:890D: 02        .byte $02    ; 1D con_p_matsuyama_my
+- - - - - - 0x02891E 14:890E: 02        .byte $02    ; 1E con_p_sorimachi_my
+- - - - - - 0x02891F 14:890F: 04        .byte $04    ; 1F con_p_sawada_my
+- D - - - - 0x028920 14:8910: 02        .byte $02    ; 20 con_p_misugi_my
+- D - - - - 0x028921 14:8911: 0C        .byte $0C    ; 21 con_p_wakabayashi_my
+- D - - - - 0x028922 14:8912: 0E        .byte $0E    ; 22 con_p_wakashimazu_my
+- D - - - - 0x028923 14:8913: 03        .byte $03    ; 23 con_p_satrustegui_corinthians
+- D - - - - 0x028924 14:8914: 01        .byte $01    ; 24 con_p_ribeiro_corinthians
+- D - - - - 0x028925 14:8915: 0B        .byte $0B    ; 25 con_p_da_silva_gremio
+- D - - - - 0x028926 14:8916: 0F        .byte $0F    ; 26 con_p_meon_gremio
+- D - - - - 0x028927 14:8917: 06        .byte $06    ; 27 con_p_toninho_palmeiras
+- D - - - - 0x028928 14:8918: 02        .byte $02    ; 28 con_p_nei_palmeiras
+- D - - - - 0x028929 14:8919: 07        .byte $07    ; 29 con_p_zagallo_santos
+- D - - - - 0x02892A 14:891A: 04        .byte $04    ; 2A con_p_dirceu_santos
+- D - - - - 0x02892B 14:891B: 0A        .byte $0A    ; 2B con_p_carlos_flamengo
+- D - - - - 0x02892C 14:891C: 09        .byte $09    ; 2C con_p_santamaria_flamengo
+- D - - - - 0x02892D 14:891D: 08        .byte $08    ; 2D con_p_jetorio_flamengo
+- D - - - - 0x02892E 14:891E: 04        .byte $04    ; 2E con_p_jito_kunimi
+- D - - - - 0x02892F 14:891F: 01        .byte $01    ; 2F con_p_sano_kunimi
+- D - - - - 0x028930 14:8920: 03        .byte $03    ; 30 con_p_masao_akita
+- D - - - - 0x028931 14:8921: 03        .byte $03    ; 31 con_p_kazuo_akita
+- D - - - - 0x028932 14:8922: 04        .byte $04    ; 32 con_p_soda_tatsunami
+- D - - - - 0x028933 14:8923: 11        .byte $11    ; 33 con_p_nakanishi_tatsunami
+- D - - - - 0x028934 14:8924: 02        .byte $02    ; 34 con_p_misugi_musashi
+- D - - - - 0x028935 14:8925: 02        .byte $02    ; 35 con_p_matsuyama_furano
+- D - - - - 0x028936 14:8926: 07        .byte $07    ; 36 con_p_hyuga_toho
+- D - - - - 0x028937 14:8927: 02        .byte $02    ; 37 con_p_sorimachi_toho
+- D - - - - 0x028938 14:8928: 04        .byte $04    ; 38 con_p_sawada_toho
+- D - - - - 0x028939 14:8929: 0E        .byte $0E    ; 39 con_p_wakashimazu_toho
+- D - - - - 0x02893A 14:892A: 09        .byte $09    ; 3A con_p_rampion_as_roma
+- D - - - - 0x02893B 14:892B: 02        .byte $02    ; 3B con_p_victorino_uruguay
+- D - - - - 0x02893C 14:892C: 0B        .byte $0B    ; 3C con_p_da_silva_uruguay
+- D - - - - 0x02893D 14:892D: 01        .byte $01    ; 3D con_p_kappelman_hamburger_sv
+- D - - - - 0x02893E 14:892E: 04        .byte $04    ; 3E con_p_kaltz_hamburger_sv
+- D - - - - 0x02893F 14:892F: 02        .byte $02    ; 3F con_p_metza_hamburger_sv
+- D - - - - 0x028940 14:8930: 0C        .byte $0C    ; 40 con_p_wakabayashi_hamburger_sv
+- D - - - - 0x028941 14:8931: 07        .byte $07    ; 41 con_p_hyuga_japan
+- D - - - - 0x028942 14:8932: 0B        .byte $0B    ; 42 con_p_nitta_japan
+- D - - - - 0x028943 14:8933: 01        .byte $01    ; 43 con_p_sano_japan
+- D - - - - 0x028944 14:8934: 02        .byte $02    ; 44 con_p_misaki_japan
+- D - - - - 0x028945 14:8935: 02        .byte $02    ; 45 con_p_misugi_japan
+- D - - - - 0x028946 14:8936: 03        .byte $03    ; 46 con_p_masao_japan
+- D - - - - 0x028947 14:8937: 03        .byte $03    ; 47 con_p_kazuo_japan
+- D - - - - 0x028948 14:8938: 04        .byte $04    ; 48 con_p_jito_japan
+- D - - - - 0x028949 14:8939: 06        .byte $06    ; 49 con_p_ishizaki_japan
+- D - - - - 0x02894A 14:893A: 04        .byte $04    ; 4A con_p_soda_japan
+- D - - - - 0x02894B 14:893B: 02        .byte $02    ; 4B con_p_matsuyama_japan
+- D - - - - 0x02894C 14:893C: 0E        .byte $0E    ; 4C con_p_wakashimazu_japan
+- D - - - - 0x02894D 14:893D: 06        .byte $06    ; 4D con_p_li_han_ne_china
+- D - - - - 0x02894E 14:893E: 06        .byte $06    ; 4E con_p_li_ban_kun_china
+- D - - - - 0x02894F 14:893F: 07        .byte $07    ; 4F con_p_sha_south_korea
+- D - - - - 0x028950 14:8940: 0A        .byte $0A    ; 50 con_p_kim_south_korea
+- D - - - - 0x028951 14:8941: 06        .byte $06    ; 51 con_p_macher_poland
+- D - - - - 0x028952 14:8942: 11        .byte $11    ; 52 con_p_djazic_poland
+- D - - - - 0x028953 14:8943: 01        .byte $01    ; 53 con_p_lorimar_england
+- D - - - - 0x028954 14:8944: 04        .byte $04    ; 54 con_p_robson_england
+- D - - - - 0x028955 14:8945: 05        .byte $05    ; 55 con_p_belyaev_soviet_union
+- D - - - - 0x028956 14:8946: 0F        .byte $0F    ; 56 con_p_rashin_soviet_union
+- D - - - - 0x028957 14:8947: 04        .byte $04    ; 57 con_p_napoleon_france
+- D - - - - 0x028958 14:8948: 01        .byte $01    ; 58 con_p_pierre_france
+- D - - - - 0x028959 14:8949: 0B        .byte $0B    ; 59 con_p_espana_mexico
+- D - - - - 0x02895A 14:894A: 09        .byte $09    ; 5A con_p_rampion_italy
+- D - - - - 0x02895B 14:894B: 0F        .byte $0F    ; 5B con_p_hernandez_italy
+- D - - - - 0x02895C 14:894C: 02        .byte $02    ; 5C con_p_islas_netherlands
+- D - - - - 0x02895D 14:894D: 09        .byte $09    ; 5D con_p_libuta_netherlands
+- D - - - - 0x02895E 14:894E: 0B        .byte $0B    ; 5E con_p_pascal_argentina
+- D - - - - 0x02895F 14:894F: 03        .byte $03    ; 5F con_p_satrustegui_argentina
+- D - - - - 0x028960 14:8950: 05        .byte $05    ; 60 con_p_diaz_argentina
+- D - - - - 0x028961 14:8951: 01        .byte $01    ; 61 con_p_babington_argentina
+- D - - - - 0x028962 14:8952: 01        .byte $01    ; 62 con_p_galvan_argentina
+- D - - - - 0x028963 14:8953: 00        .byte $00    ; 63 con_p_schneider_west_germany
+- D - - - - 0x028964 14:8954: 03        .byte $03    ; 64 con_p_margus_west_germany
+- D - - - - 0x028965 14:8955: 04        .byte $04    ; 65 con_p_kaltz_west_germany
+- D - - - - 0x028966 14:8956: 02        .byte $02    ; 66 con_p_metza_west_germany
+- D - - - - 0x028967 14:8957: 0B        .byte $0B    ; 67 con_p_schester_west_germany
+- D - - - - 0x028968 14:8958: 01        .byte $01    ; 68 con_p_kappelman_west_germany
+- D - - - - 0x028969 14:8959: 0D        .byte $0D    ; 69 con_p_muller_west_germany
+- D - - - - 0x02896A 14:895A: 0A        .byte $0A    ; 6A con_p_carlos_brazil
+- D - - - - 0x02896B 14:895B: 07        .byte $07    ; 6B con_p_zagallo_brazil
+- D - - - - 0x02896C 14:895C: 01        .byte $01    ; 6C con_p_ribeiro_brazil
+- D - - - - 0x02896D 14:895D: 02        .byte $02    ; 6D con_p_nei_brazil
+- D - - - - 0x02896E 14:895E: 09        .byte $09    ; 6E con_p_santamaria_brazil
+- D - - - - 0x02896F 14:895F: 06        .byte $06    ; 6F con_p_toninho_brazil
+- D - - - - 0x028970 14:8960: 05        .byte $05    ; 70 con_p_dotor_brazil
+- D - - - - 0x028971 14:8961: 09        .byte $09    ; 71 con_p_amaral_brazil
+- D - - - - 0x028972 14:8962: 04        .byte $04    ; 72 con_p_dirceu_brazil
+- D - - - - 0x028973 14:8963: 08        .byte $08    ; 73 con_p_jetorio_brazil
+- D - - - - 0x028974 14:8964: 0E        .byte $0E    ; 74 con_p_gertise_brazil
+- D - - - - 0x028975 14:8965: 0B        .byte $0B    ; 75 con_p_coimbra_brazil
 
 
 

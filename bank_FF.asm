@@ -1723,15 +1723,15 @@ C - - - - - 0x03D04C FF:D03C: A5 32     LDA ram_0032
 C - - - - - 0x03D04E FF:D03E: 85 36     STA ram_0036
 C - - - - - 0x03D050 FF:D040: A0 00     LDY #con_plr_id
 C - - - - - 0x03D052 FF:D042: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x03D054 FF:D044: C9 20     CMP #$20
-C - - - - - 0x03D056 FF:D046: D0 0C     BNE bra_D054
+C - - - - - 0x03D054 FF:D044: C9 20     CMP #con_p_misugi_my
+C - - - - - 0x03D056 FF:D046: D0 0C     BNE bra_D054_это_не_мисуги
 C - - - - - 0x03D058 FF:D048: A2 04     LDX #$04
 C - - - - - 0x03D05A FF:D04A: AD 27 00  LDA ram_номер_тайма
 C - - - - - 0x03D05D FF:D04D: C9 01     CMP #$01
 C - - - - - 0x03D05F FF:D04F: F0 0D     BEQ bra_D05E
 - - - - - - 0x03D061 FF:D051: CA        DEX
 - - - - - - 0x03D062 FF:D052: D0 0A     BNE bra_D05E
-bra_D054:
+bra_D054_это_не_мисуги:
 C - - - - - 0x03D064 FF:D054: A2 03     LDX #$03
 C - - - - - 0x03D066 FF:D056: AD 27 00  LDA ram_номер_тайма
 C - - - - - 0x03D069 FF:D059: C9 01     CMP #$01
@@ -1858,9 +1858,9 @@ bra_D0E1_это_основной_состав:
 C - - - - - 0x03D0F1 FF:D0E1: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03D0F4 FF:D0E4: A0 00     LDY #con_plr_id
 C - - - - - 0x03D0F6 FF:D0E6: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x03D0F8 FF:D0E8: AA        TAX
+C - - - - - 0x03D0F8 FF:D0E8: AA        TAX ; bzk опт, нахрена?
 C - - - - - 0x03D0F9 FF:D0E9: 68        PLA
-C - - - - - 0x03D0FA FF:D0EA: E0 20     CPX #$20      ; misugi
+C - - - - - 0x03D0FA FF:D0EA: E0 20     CPX #con_p_misugi_my
 C - - - - - 0x03D0FC FF:D0EC: F0 08     BEQ bra_D0F6_мисуги_найден
 C - - - - - 0x03D0FE FF:D0EE: 18        CLC
 C - - - - - 0x03D0FF FF:D0EF: 69 01     ADC #$01
@@ -2174,7 +2174,7 @@ C - - - - - 0x03D2EE FF:D2DE: D0 0D     BNE bra_D2ED
 C - - - - - 0x03D2F0 FF:D2E0: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
 C - - - - - 0x03D2F3 FF:D2E3: A0 00     LDY #con_plr_id
 C - - - - - 0x03D2F5 FF:D2E5: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x03D2F7 FF:D2E7: C9 22     CMP #$22      ; wakashimazu чтобы отобразить ему действие прыжка от штанги при нажатии вниз
+C - - - - - 0x03D2F7 FF:D2E7: C9 22     CMP #con_p_wakashimazu_my      ; чтобы отобразить ему действие прыжка от штанги при нажатии вниз
 C - - - - - 0x03D2F9 FF:D2E9: D0 1E     BNE bra_D309
 C - - - - - 0x03D2FB FF:D2EB: A9 02     LDA #$02
 bra_D2ED:
@@ -3499,7 +3499,7 @@ C - - - - - 0x03DB84 FF:DB74: A2 00     LDX #$00
 C - - - - - 0x03DB86 FF:DB76: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
 C - - - - - 0x03DB89 FF:DB79: A0 00     LDY #con_plr_id
 C - - - - - 0x03DB8B FF:DB7B: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x03DB8D FF:DB7D: C9 20     CMP #$20
+C - - - - - 0x03DB8D FF:DB7D: C9 20     CMP #con_p_misugi_my
 C - - - - - 0x03DB8F FF:DB7F: D0 0B     BNE bra_DB8C
 C - - - - - 0x03DB91 FF:DB81: AD 4D 04  LDA ram_флаг_мисуги_0_хп
 C - - - - - 0x03DB94 FF:DB84: F0 06     BEQ bra_DB8C
@@ -3572,17 +3572,17 @@ C - - - - - 0x03DBF7 FF:DBE7: D0 E5     BNE bra_DBCE_loop
 C - - - - - 0x03DBF9 FF:DBE9: 60        RTS
 
 tbl_DBEA:
-- D - - - - 0x03DBFA FF:DBEA: 23        .byte $23   ; <も>
-- D - - - - 0x03DBFB FF:DBEB: 14        .byte $14   ; <と>
-- D - - - - 0x03DBFC FF:DBEC: 75        .byte $75   ; <ェ>
+- D - - - - 0x03DBFA FF:DBEA: 23        .byte $23   ; 
+- D - - - - 0x03DBFB FF:DBEB: 14        .byte $14   ; 
+- D - - - - 0x03DBFC FF:DBEC: 75        .byte con_p_coimbra_brazil   ; 
 
-- D - - - - 0x03DBFD FF:DBED: 0C        .byte $0C   ; <し>
-- D - - - - 0x03DBFE FF:DBEE: 14        .byte $14   ; <と>
-- D - - - - 0x03DBFF FF:DBEF: 34        .byte $34   ; <1>
+- D - - - - 0x03DBFD FF:DBED: 0C        .byte $0C   ; 
+- D - - - - 0x03DBFE FF:DBEE: 14        .byte $14   ; 
+- D - - - - 0x03DBFF FF:DBEF: 34        .byte con_p_misugi_musashi   ; 
 
-- D - - - - 0x03DC00 FF:DBF0: 12        .byte $12   ; <つ>
-- D - - - - 0x03DC01 FF:DBF1: 15        .byte $15   ; <な>
-- D - - - - 0x03DC02 FF:DBF2: 45        .byte $45   ; <オ>
+- D - - - - 0x03DC00 FF:DBF0: 12        .byte $12   ; 
+- D - - - - 0x03DC01 FF:DBF1: 15        .byte $15   ; 
+- D - - - - 0x03DC02 FF:DBF2: 45        .byte con_p_misugi_japan   ; 
 
 
 
@@ -4629,7 +4629,7 @@ C - - - - - 0x03E2E6 FF:E2D6: A2 02     LDX #$02      ; регенерация �
 C - - - - - 0x03E2E8 FF:E2D8: A0 00     LDY #con_plr_id
 C - - - - - 0x03E2EA FF:E2DA: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x03E2EC FF:E2DC: A0 01     LDY #con_plr_guts_lo
-C - - - - - 0x03E2EE FF:E2DE: C9 20     CMP #$20
+C - - - - - 0x03E2EE FF:E2DE: C9 20     CMP #con_p_misugi_my
 C - - - - - 0x03E2F0 FF:E2E0: D0 0A     BNE bra_E2EC_это_не_мисуги
 C - - - - - 0x03E2F2 FF:E2E2: A2 01     LDX #$01
 C - - - - - 0x03E2F4 FF:E2E4: B1 34     LDA (ram_plr_data),Y      ; con_plr_guts_lo
@@ -4674,7 +4674,7 @@ C - - - - - 0x03E32C FF:E31C: 20 7C CD  JSR sub_CD7C_получить_адрес
 C - - - - - 0x03E32F FF:E31F: A2 03     LDX #$03      ; уменьшение энергии во время бега
 C - - - - - 0x03E331 FF:E321: A0 00     LDY #con_plr_id
 C - - - - - 0x03E333 FF:E323: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x03E335 FF:E325: C9 20     CMP #$20
+C - - - - - 0x03E335 FF:E325: C9 20     CMP #con_p_misugi_my
 C - - - - - 0x03E337 FF:E327: D0 02     BNE bra_E32B_это_не_мисуги
 C - - - - - 0x03E339 FF:E329: A2 05     LDX #$05
 bra_E32B_это_не_мисуги:

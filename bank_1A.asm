@@ -283,9 +283,9 @@ C - - - - - 0x034235 1A:8225: BD 01 06  LDA ram_номер_защитника,X
 C - - - - - 0x034238 1A:8228: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x03423B 1A:822B: A0 00     LDY #con_plr_id
 C - - - - - 0x03423D 1A:822D: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x03423F 1A:822F: C9 14     CMP #$14      ; ishizaki
+C - - - - - 0x03423F 1A:822F: C9 14     CMP #con_p_ishizaki_my
 C - - - - - 0x034241 1A:8231: F0 0B     BEQ bra_823E_ишизаки_найден
-C - - - - - 0x034243 1A:8233: C9 49     CMP #$49      ; ishizaki
+C - - - - - 0x034243 1A:8233: C9 49     CMP #con_p_ishizaki_japan
 C - - - - - 0x034245 1A:8235: F0 07     BEQ bra_823E_ишизаки_найден
 C - - - - - 0x034247 1A:8237: E8        INX
 C - - - - - 0x034248 1A:8238: EC 00 06  CPX ram_колво_защитников
@@ -731,9 +731,9 @@ C - - - - - 0x034547 1A:8537: 20 51 C5  JSR sub_0x03CD87_получить_адр
 C - - - - - 0x03454A 1A:853A: A2 F3     LDX #$F3      ; шанс крита обычного кипера
 C - - - - - 0x03454C 1A:853C: A0 00     LDY #con_plr_id
 C - - - - - 0x03454E 1A:853E: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x034550 1A:8540: C9 21     CMP #$21      ; wakabayashi
+C - - - - - 0x034550 1A:8540: C9 21     CMP #con_p_wakabayashi_my
 C - - - - - 0x034552 1A:8542: F0 04     BEQ bra_8548_это_вакабаяши
-C - - - - - 0x034554 1A:8544: C9 40     CMP #$40      ; wakabayashi
+C - - - - - 0x034554 1A:8544: C9 40     CMP #con_p_wakabayashi_hamburger_sv
 C - - - - - 0x034556 1A:8546: D0 02     BNE bra_854A_это_не_вакабаяши
 bra_8548_это_вакабаяши:
 C - - - - - 0x034558 1A:8548: A2 CD     LDX #$CD      ; шанс крита кабаяши
@@ -2175,7 +2175,7 @@ C - - - - - 0x034EA6 1A:8E96: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x034EA9 1A:8E99: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x034EAC 1A:8E9C: A0 00     LDY #con_plr_id
 C - - - - - 0x034EAE 1A:8E9E: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x034EB0 1A:8EA0: C9 01     CMP #$01
+C - - - - - 0x034EB0 1A:8EA0: C9 01     CMP #con_p_tsubasa_my
 C - - - - - 0x034EB2 1A:8EA2: F0 44     BEQ bra_8EE8_RTS        ; if мячом владеет tsubasa
 C - - - - - 0x034EB4 1A:8EA4: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x034EB6 1A:8EA6: B1 34     LDA (ram_plr_data),Y
@@ -2189,7 +2189,7 @@ C - - - - - 0x034EC2 1A:8EB2: 48        PHA
 C - - - - - 0x034EC3 1A:8EB3: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x034EC6 1A:8EB6: A0 00     LDY #con_plr_id
 C - - - - - 0x034EC8 1A:8EB8: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x034ECA 1A:8EBA: C9 01     CMP #$01
+C - - - - - 0x034ECA 1A:8EBA: C9 01     CMP #con_p_tsubasa_my
 C - - - - - 0x034ECC 1A:8EBC: F0 06     BEQ bra_8EC4_цубаса_найден
 C - - - - - 0x034ECE 1A:8EBE: 68        PLA
 C - - - - - 0x034ECF 1A:8EBF: 18        CLC
@@ -2374,8 +2374,8 @@ C - - - - - 0x03500B 1A:8FFB: A9 00     LDA #$00
 C - - - - - 0x03500D 1A:8FFD: 85 3A     STA ram_003A
 C - - - - - 0x03500F 1A:8FFF: A0 00     LDY #con_plr_id
 C - - - - - 0x035011 1A:9001: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x035013 1A:9003: C9 20     CMP #$20      ; misugi
-C - - - - - 0x035015 1A:9005: D0 28     BNE bra_902F
+C - - - - - 0x035013 1A:9003: C9 20     CMP #con_p_misugi_my
+C - - - - - 0x035015 1A:9005: D0 28     BNE bra_902F    ; if not мисуги
 C - - - - - 0x035017 1A:9007: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03501A 1A:900A: D0 0C     BNE bra_9018    ; if комада справа
 ; if комада слева

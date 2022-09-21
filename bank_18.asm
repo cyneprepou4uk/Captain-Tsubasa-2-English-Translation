@@ -884,14 +884,14 @@ C - - - - - 0x03053A 18:852A: 38        SEC
 C - - - - - 0x03053B 18:852B: 60        RTS
 
 tbl_852C_игроки:
-    .byte $01       ; tsubasa
-    .byte $11       ; misaki
-    .byte $44       ; misaki
-    .byte $34       ; misugi
-    .byte $45       ; misugi
-    .byte $15       ; nitta
-    .byte $42       ; nitta
-    .byte $38       ; sawada
+    .byte con_p_tsubasa_my          ; 00
+    .byte con_p_misaki_my           ; 01
+    .byte con_p_misaki_japan        ; 02
+    .byte con_p_misugi_musashi      ; 03
+    .byte con_p_misugi_japan        ; 04
+    .byte con_p_nitta_my            ; 05
+    .byte con_p_nitta_japan         ; 06
+    .byte con_p_sawada_toho         ; 07
 
 
 

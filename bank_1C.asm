@@ -87,7 +87,7 @@ C - - - - - 0x03804B 1C:803B: 20 0C C5  JSR sub_0x03CD8C_получить_адр
 C - - - - - 0x03804E 1C:803E: A0 00     LDY #con_plr_id
 C - - - - - 0x038050 1C:8040: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038052 1C:8042: D0 0C     BNE bra_8050_это_не_клон
-; if клон
+; if con_p_clone
 C - - - - - 0x038054 1C:8044: 68        PLA
 C - - - - - 0x038055 1C:8045: 48        PHA
 C - - - - - 0x038056 1C:8046: 38        SEC
@@ -1630,6 +1630,7 @@ C - - - - - 0x038A73 1C:8A63: 20 0C C5  JSR sub_0x03CD8C_получить_адр
 C - - - - - 0x038A76 1C:8A66: A0 00     LDY #con_plr_id
 C - - - - - 0x038A78 1C:8A68: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x038A7A 1C:8A6A: D0 08     BNE bra_8A74_это_не_клон
+; if con_p_clone
 C - - - - - 0x038A7C 1C:8A6C: 68        PLA
 C - - - - - 0x038A7D 1C:8A6D: 48        PHA
 C - - - - - 0x038A7E 1C:8A6E: AA        TAX
@@ -1765,7 +1766,7 @@ bra_8B24_loop_обнуления_номеров_игроков_соперник�
 C - - - - - 0x038B34 1C:8B24: 48        PHA
 C - - - - - 0x038B35 1C:8B25: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038B38 1C:8B28: A0 00     LDY #con_plr_id
-C - - - - - 0x038B3A 1C:8B2A: A9 00     LDA #$00
+C - - - - - 0x038B3A 1C:8B2A: A9 00     LDA #con_p_clone
 C - - - - - 0x038B3C 1C:8B2C: 91 34     STA (ram_plr_data),Y
 C - - - - - 0x038B3E 1C:8B2E: C8        INY   ; con_бот_флаг_1_ХЗ
 C - - - - - 0x038B3F 1C:8B2F: 91 34     STA (ram_plr_data),Y
@@ -2161,7 +2162,7 @@ C - - - - - 0x038D18 1C:8D08: 48        PHA
 C - - - - - 0x038D19 1C:8D09: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038D1C 1C:8D0C: A0 00     LDY #con_plr_id
 C - - - - - 0x038D1E 1C:8D0E: B1 34     LDA (ram_plr_data),Y
-C - - - - - 0x038D20 1C:8D10: C9 1C     CMP #$1C      ; jito
+C - - - - - 0x038D20 1C:8D10: C9 1C     CMP #con_p_jito_my
 C - - - - - 0x038D22 1C:8D12: F0 09     BEQ bra_8D1D
 C - - - - - 0x038D24 1C:8D14: 68        PLA
 C - - - - - 0x038D25 1C:8D15: 18        CLC
@@ -13901,10 +13902,10 @@ off_BB00_01_Corinthians:
 - D - I - - 0x03BB18 1C:BB08: 1E        .byte $1E     ; 08 
 
     .byte $0A
-    .byte $24   ; Ribeiro
+    .byte con_p_ribeiro_corinthians
     
     .byte $09
-    .byte $23   ; Satrustegui
+    .byte con_p_satrustegui_corinthians
     
     .byte con_закончить
 
@@ -13922,10 +13923,10 @@ off_BB0E_02_Gremio:
 - - - - - - 0x03BB26 1C:BB16: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $25   ; Da Silva
+    .byte con_p_da_silva_gremio
     
     .byte $01
-    .byte $26   ; Meon
+    .byte con_p_meon_gremio
     
     .byte con_закончить
 
@@ -13943,10 +13944,10 @@ off_BB1C_03_Palmeiras:
 - - - - - - 0x03BB34 1C:BB24: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $27   ; Toninho
+    .byte con_p_toninho_palmeiras
     
     .byte $0B
-    .byte $28   ; Nei
+    .byte con_p_nei_palmeiras
     
     .byte con_закончить
 
@@ -13964,10 +13965,10 @@ off_BB2A_04_Santos:
 - - - - - - 0x03BB42 1C:BB32: 1D        .byte $1D     ; 08 
 
     .byte $09
-    .byte $29   ; Zagallo
+    .byte con_p_zagallo_santos
     
     .byte $04
-    .byte $2A   ; Dirceu
+    .byte con_p_dirceu_santos
     
     .byte con_закончить
 
@@ -13985,13 +13986,13 @@ off_BB38_05_Flamengo:
 - D - I - - 0x03BB50 1C:BB40: 1F        .byte $1F     ; 08 
 
     .byte $0A
-    .byte $2B   ; Carlos
+    .byte con_p_carlos_flamengo
     
     .byte $06
-    .byte $2C   ; Santamaria
+    .byte con_p_santamaria_flamengo
     
     .byte $02
-    .byte $2D   ; Jetorio
+    .byte con_p_jetorio_flamengo
     
     .byte con_закончить
 
@@ -14009,10 +14010,10 @@ off_BB48_06_Kunimi:
 - D - I - - 0x03BB60 1C:BB50: 1D        .byte $1D     ; 08 
 
     .byte $04
-    .byte $2E   ; Jito
+    .byte con_p_jito_kunimi
     
     .byte $09
-    .byte $2F   ; Sano
+    .byte con_p_sano_kunimi
     
     .byte con_закончить
 
@@ -14030,10 +14031,10 @@ off_BB56_07_Akita:
 - - - - - - 0x03BB6E 1C:BB5E: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $30   ; Masao
+    .byte con_p_masao_akita
     
     .byte $0B
-    .byte $31   ; Kazuo
+    .byte con_p_kazuo_akita
     
     .byte con_закончить
 
@@ -14051,10 +14052,10 @@ off_BB64_08_Tatsunami:
 - - - - - - 0x03BB7C 1C:BB6C: 1E        .byte $1E     ; 08 
 
     .byte $04
-    .byte $32   ; Soda
+    .byte con_p_soda_tatsunami
     
     .byte $01
-    .byte $33   ; Nakanishi
+    .byte con_p_nakanishi_tatsunami
     
     .byte con_закончить
 
@@ -14087,7 +14088,7 @@ off_BB7C_0A_Furano:
 - - - - - - 0x03BB94 1C:BB84: 1F        .byte $1F     ; 08 
 
     .byte $0A
-    .byte $35   ; Matsuyama
+    .byte con_p_matsuyama_furano
     
     .byte con_закончить
 
@@ -14105,16 +14106,16 @@ off_BB88_0B_Toho:
 - D - I - - 0x03BBA0 1C:BB90: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $36   ; Hyuga
+    .byte con_p_hyuga_toho
     
     .byte $0A
-    .byte $37   ; Sorimachi
+    .byte con_p_sorimachi_toho
     
     .byte $06
-    .byte $38   ; Sawada
+    .byte con_p_sawada_toho
     
     .byte $01
-    .byte $39   ; Wakashimazu
+    .byte con_p_wakashimazu_toho
     
     .byte con_закончить
 
@@ -14132,7 +14133,7 @@ off_BB9A_0C_AS_Roma:
 - - - - - - 0x03BBB2 1C:BBA2: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $3A   ; Rampion
+    .byte con_p_rampion_as_roma
     
     .byte con_закончить
 
@@ -14150,10 +14151,10 @@ off_BBA6_0D_Uruguay:
 - D - I - - 0x03BBBE 1C:BBAE: 1F        .byte $1F     ; 08 
 
     .byte $0B
-    .byte $3B   ; Victorino
+    .byte con_p_victorino_uruguay
     
     .byte $09
-    .byte $3C   ; Da Silva
+    .byte con_p_da_silva_uruguay
     
     .byte con_закончить
 
@@ -14171,16 +14172,16 @@ off_BBB4_0E_Hamburger_SV:
 - - - - - - 0x03BBCC 1C:BBBC: 1E        .byte $1E     ; 08 
 
     .byte $07
-    .byte $3D   ; Kappelman
+    .byte con_p_kappelman_hamburger_sv
     
     .byte $0A
-    .byte $3E   ; Kaltz
+    .byte con_p_kaltz_hamburger_sv
     
     .byte $06
-    .byte $3F   ; Metza
+    .byte con_p_metza_hamburger_sv
     
     .byte $01
-    .byte $40   ; Wakabayashi
+    .byte con_p_wakabayashi_hamburger_sv
     
     .byte con_закончить
 
@@ -14198,37 +14199,37 @@ off_BBC6_0F_Japan:
 - D - I - - 0x03BBDE 1C:BBCE: 1B        .byte $1B     ; 08 
 
     .byte $09
-    .byte $41   ; Hyuga
+    .byte con_p_hyuga_japan
     
     .byte $0B
-    .byte $42   ; Nitta
+    .byte con_p_nitta_japan
     
     .byte $06
-    .byte $43   ; Sano
+    .byte con_p_sano_japan
     
     .byte $0A
-    .byte $44   ; Misaki
+    .byte con_p_misaki_japan
     
     .byte $08
-    .byte $46   ; Masao
+    .byte con_p_masao_japan
     
     .byte $07
-    .byte $47   ; Kazuo
+    .byte con_p_kazuo_japan
     
     .byte $02
-    .byte $48   ; Jito
+    .byte con_p_jito_japan
     
     .byte $04
-    .byte $49   ; Ishizaki
+    .byte con_p_ishizaki_japan
     
     .byte $03
-    .byte $4A   ; Soda
+    .byte con_p_soda_japan
     
     .byte $05
-    .byte $4B   ; Matsuyama
+    .byte con_p_matsuyama_japan
     
     .byte $01
-    .byte $4C   ; Wakashimazu
+    .byte con_p_wakashimazu_japan
     
     .byte con_закончить
 
@@ -14261,10 +14262,10 @@ off_BBF0_11_China:
 - D - I - - 0x03BC08 1C:BBF8: 1E        .byte $1E     ; 08 
 
     .byte $0B
-    .byte $4D   ; Li Han-ne
+    .byte con_p_li_han_ne_china
     
     .byte $09
-    .byte $4E   ; Li Ban-kun
+    .byte con_p_li_ban_kun_china
     
     .byte con_закончить
 
@@ -14327,10 +14328,10 @@ off_BC1C_15_South_Korea:
 - D - I - - 0x03BC34 1C:BC24: 1C        .byte $1C     ; 08 
 
     .byte $09
-    .byte $4F   ; Sha
+    .byte con_p_sha_south_korea
     
     .byte $0A
-    .byte $50   ; Kim
+    .byte con_p_kim_south_korea
     
     .byte con_закончить
 
@@ -14363,10 +14364,10 @@ off_BC34_17_Poland:
 - - - - - - 0x03BC4C 1C:BC3C: 1F        .byte $1F     ; 08 
 
     .byte $0B
-    .byte $51   ; Macher
+    .byte con_p_macher_poland
     
     .byte $01
-    .byte $52   ; Djazic
+    .byte con_p_djazic_poland
     
     .byte con_закончить
 
@@ -14384,10 +14385,10 @@ off_BC42_18_England:
 - D - I - - 0x03BC5A 1C:BC4A: 1D        .byte $1D     ; 08 
 
     .byte $09
-    .byte $53   ; Lorimar
+    .byte con_p_lorimar_england
     
     .byte $04
-    .byte $54   ; Robson
+    .byte con_p_robson_england
     
     .byte con_закончить
 
@@ -14405,10 +14406,10 @@ off_BC50_19_Soviet_Union:
 - D - I - - 0x03BC68 1C:BC58: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $55   ; Belyaev
+    .byte con_p_belyaev_soviet_union
     
     .byte $01
-    .byte $56   ; Rashin
+    .byte con_p_rashin_soviet_union
     
     .byte con_закончить
 
@@ -14426,10 +14427,10 @@ off_BC5E_1A_France:
 - - - - - - 0x03BC76 1C:BC66: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $57   ; Napoleon
+    .byte con_p_napoleon_france
     
     .byte $0A
-    .byte $58   ; Pierre
+    .byte con_p_pierre_france
     
     .byte con_закончить
 
@@ -14447,7 +14448,7 @@ off_BC6C_1B_Mexico:
 - D - I - - 0x03BC84 1C:BC74: 1C        .byte $1C     ; 08 
 
     .byte $0A
-    .byte $59   ; Espana
+    .byte con_p_espana_mexico
     
     .byte con_закончить
 
@@ -14465,10 +14466,10 @@ off_BC78_1C_Italy:
 - - - - - - 0x03BC90 1C:BC80: 1E        .byte $1E     ; 08 
 
     .byte $09
-    .byte $5A   ; Rampion
+    .byte con_p_rampion_italy
     
     .byte $01
-    .byte $5B   ; Hernandez
+    .byte con_p_hernandez_italy
     
     .byte con_закончить
 
@@ -14486,10 +14487,10 @@ off_BC86_1D_Netherlands:
 - - - - - - 0x03BC9E 1C:BC8E: 1D        .byte $1D     ; 08 
 
     .byte $09
-    .byte $5C   ; Islas
+    .byte con_p_islas_netherlands
     
     .byte $04
-    .byte $5D   ; Libuta
+    .byte con_p_libuta_netherlands
     
     .byte con_закончить
 
@@ -14507,19 +14508,19 @@ off_BC94_1E_Argentina:
 - D - I - - 0x03BCAC 1C:BC9C: 1A        .byte $1A     ; 08 
 
     .byte $0B
-    .byte $5E   ; Pascal
+    .byte con_p_pascal_argentina
     
     .byte $09
-    .byte $5F   ; Satrustegui
+    .byte con_p_satrustegui_argentina
     
     .byte $0A
-    .byte $60   ; Diaz
+    .byte con_p_diaz_argentina
     
     .byte $08
-    .byte $61   ; Babington
+    .byte con_p_babington_argentina
     
     .byte $04
-    .byte $62   ; Galvan
+    .byte con_p_galvan_argentina
     
     .byte con_закончить
 
@@ -14537,25 +14538,25 @@ off_BCA8_1F_West_Germany:
 - - - - - - 0x03BCC0 1C:BCB0: 1F        .byte $1F     ; 08 
 
     .byte $0B
-    .byte $63   ; Schneider
+    .byte con_p_schneider_west_germany
     
     .byte $09
-    .byte $64   ; Margus
+    .byte con_p_margus_west_germany
     
     .byte $08
-    .byte $65   ; Kaltz
+    .byte con_p_kaltz_west_germany
     
     .byte $05
-    .byte $66   ; Metza
+    .byte con_p_metza_west_germany
     
     .byte $0A
-    .byte $67   ; Schester
+    .byte con_p_schester_west_germany
     
     .byte $07
-    .byte $68   ; Kappelman
+    .byte con_p_kappelman_west_germany
     
     .byte $01
-    .byte $69   ; Muller
+    .byte con_p_muller_west_germany
     
     .byte con_закончить
 
@@ -14573,36 +14574,36 @@ off_BCC0_20_Brazil:
 - - - - - - 0x03BCD8 1C:BCC8: 28        .byte $28     ; 08 
 
     .byte $09
-    .byte $6A   ; Carlos
+    .byte con_p_carlos_brazil
     
     .byte $07
-    .byte $6B   ; Zagallo
+    .byte con_p_zagallo_brazil
     
     .byte $0A
-    .byte $6C   ; Ribeiro
+    .byte con_p_ribeiro_brazil
     
     .byte $0B
-    .byte $6D   ; Nei
+    .byte con_p_nei_brazil
     
     .byte $06
-    .byte $6E   ; Santamaria
+    .byte con_p_santamaria_brazil
     
     .byte $08
-    .byte $6F   ; Toninho
+    .byte con_p_toninho_brazil
     
     .byte $03
-    .byte $70   ; Dotor
+    .byte con_p_dotor_brazil
     
     .byte $04
-    .byte $71   ; Amaral
+    .byte con_p_amaral_brazil
     
     .byte $05
-    .byte $72   ; Dirceu
+    .byte con_p_dirceu_brazil
     
     .byte $02
-    .byte $73   ; Jetorio
+    .byte con_p_jetorio_brazil
     
     .byte $01
-    .byte $74   ; Gertise
+    .byte con_p_gertise_brazil
     
     .byte con_закончить

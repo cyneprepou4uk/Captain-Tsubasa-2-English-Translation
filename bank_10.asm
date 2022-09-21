@@ -840,13 +840,13 @@ tbl_83BB:
 
 
 ofs_015_83C6_18_проверка_на_jito_из_японии:
-; 00 = это jito из японии
-; 01 = это jito из куними
+; 00 = con_p_jito_my, con_p_jito_japan
+; 01 = con_p_jito_kunimi
 C - J - - - 0x0203D6 10:83C6: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0203D9 10:83C9: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0203DC 10:83CC: C9 1C     CMP #$1C      ; jito из японии
+C - - - - - 0x0203DC 10:83CC: C9 1C     CMP #con_p_jito_my
 C - - - - - 0x0203DE 10:83CE: F0 05     BEQ bra_83D5_RTS
-C - - - - - 0x0203E0 10:83D0: C9 48     CMP #$48      ; jito соперник из японии
+C - - - - - 0x0203E0 10:83D0: C9 48     CMP #con_p_jito_japan
 C - - - - - 0x0203E2 10:83D2: F0 01     BEQ bra_83D5_RTS
 C - - - - - 0x0203E4 10:83D4: E8        INX
 bra_83D5_RTS:
@@ -941,20 +941,20 @@ C - - - - - 0x020417 10:8407: 4C 11 82  JMP loc_8211_выставить_флаг
 
 ofs_015_840E_20_проверка_на_wakashimazu_и_gertise:
 ; 00 = другой кипер
-; 01 = wakashimazu
-; 02 = gertise
+; 01 = con_p_wakashimazu_my, con_p_wakashimazu_toho, con_p_wakashimazu_japan
+; 02 = con_p_gertise_brazil
 C - J - - - 0x02041E 10:840E: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020421 10:8411: 49 0B     EOR #$0B
 C - - - - - 0x020423 10:8413: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x020426 10:8416: A2 02     LDX #$02
-C - - - - - 0x020428 10:8418: C9 74     CMP #$74      ; gertise
+C - - - - - 0x020428 10:8418: C9 74     CMP #con_p_gertise_brazil
 C - - - - - 0x02042A 10:841A: F0 0E     BEQ bra_842A_RTS
 C - - - - - 0x02042C 10:841C: CA        DEX
-C - - - - - 0x02042D 10:841D: C9 22     CMP #$22      ; wakashimazu
+C - - - - - 0x02042D 10:841D: C9 22     CMP #con_p_wakashimazu_my
 C - - - - - 0x02042F 10:841F: F0 09     BEQ bra_842A_RTS
-C - - - - - 0x020431 10:8421: C9 39     CMP #$39      ; wakashimazu
+C - - - - - 0x020431 10:8421: C9 39     CMP #con_p_wakashimazu_toho
 C - - - - - 0x020433 10:8423: F0 05     BEQ bra_842A_RTS
-C - - - - - 0x020435 10:8425: C9 4C     CMP #$4C      ; wakashimazu
+C - - - - - 0x020435 10:8425: C9 4C     CMP #con_p_wakashimazu_japan
 C - - - - - 0x020437 10:8427: F0 01     BEQ bra_842A_RTS
 C - - - - - 0x020439 10:8429: CA        DEX
 bra_842A_RTS:
@@ -1073,39 +1073,39 @@ bra_84C7_RTS:
 
 ; ofs_015_847E_28_оба_игрока_с_рожами___рожа_защитника:
 ; ; 00 = игрок без рожи
-; ; 01 = tsubasa
-; ; 02 = misaki
-; ; 03 = misaki
-; ; 04 = hyuga
-; ; 05 = hyuga
-; ; 06 = misugi
-; ; 07 = misugi
-; ; 08 = matsuyama
-; ; 09 = matsuyama
-; ; 0A = ishizaki
-; ; 0B = ishizaki
-; ; 0C = soda
-; ; 0D = soda
-; ; 0E = jito
-; ; 0F = jito
-; ; 10 = masao kazuo
-; ; 11 = masao kazuo
-; ; 12 = nitta
-; ; 13 = nitta
-; ; 14 = sawada
-; ; 15 = sawada
-; ; 16 = coimbra
-; ; 17 = carlos
-; ; 18 = carlos
-; ; 19 = schneider
-; ; 1A = kaltz
-; ; 1B = schester
-; ; 1C = diaz
-; ; 1D = pascal
-; ; 1E = pierre
-; ; 1F = napoleon
-; ; 20 = victorino
-; ; 21 = kaltz
+; ; 01 = con_p_tsubasa_my
+; ; 02 = con_p_misaki_my
+; ; 03 = con_p_misaki_japan
+; ; 04 = con_p_hyuga_my, con_p_hyuga_japan
+; ; 05 = con_p_hyuga_toho
+; ; 06 = con_p_misugi_my, con_p_misugi_japan
+; ; 07 = con_p_misugi_musashi
+; ; 08 = con_p_matsuyama_my, con_p_matsuyama_japan
+; ; 09 = con_p_matsuyama_furano
+; ; 0A = con_p_ishizaki_my
+; ; 0B = con_p_ishizaki_japan
+; ; 0C = con_p_soda_my, con_p_soda_japan
+; ; 0D = con_p_soda_tatsunami
+; ; 0E = con_p_jito_my, con_p_jito_japan
+; ; 0F = con_p_jito_kunimi
+; ; 10 = con_p_masao_my, con_p_kazuo_my, con_p_masao_japan, con_p_kazuo_japan
+; ; 11 = con_p_masao_akita, con_p_kazuo_akita
+; ; 12 = con_p_nitta_my
+; ; 13 = con_p_nitta_japan
+; ; 14 = con_p_sawada_my
+; ; 15 = con_p_sawada_toho
+; ; 16 = con_p_coimbra_brazil
+; ; 17 = con_p_carlos_flamengo
+; ; 18 = con_p_carlos_brazil
+; ; 19 = con_p_schneider_west_germany
+; ; 1A = con_p_kaltz_hamburger_sv
+; ; 1B = con_p_schester_west_germany
+; ; 1C = con_p_diaz_argentina
+; ; 1D = con_p_pascal_argentina
+; ; 1E = con_p_pierre_france
+; ; 1F = con_p_napoleon_france
+; ; 20 = con_p_victorino_uruguay
+; ; 21 = con_p_kaltz_west_germany
 ; C - J - - - 0x02048E 10:847E: AD 42 04  LDA ram_игрок_без_мяча
 ; C - - - - - 0x020491 10:8481: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 ; C - - - - - 0x020494 10:8484: A8        TAY
@@ -1123,39 +1123,39 @@ bra_84C7_RTS:
 
 ; ofs_015_8498_29_оба_игрока_с_рожами___рожа_нападающего:
 ; ; 00 = игрок без рожи
-; ; 01 = tsubasa
-; ; 02 = misaki
-; ; 03 = misaki
-; ; 04 = hyuga
-; ; 05 = hyuga
-; ; 06 = misugi
-; ; 07 = misugi
-; ; 08 = matsuyama
-; ; 09 = matsuyama
-; ; 0A = ishizaki
-; ; 0B = ishizaki
-; ; 0C = soda
-; ; 0D = soda
-; ; 0E = jito
-; ; 0F = jito
-; ; 10 = masao kazuo
-; ; 11 = masao kazuo
-; ; 12 = nitta
-; ; 13 = nitta
-; ; 14 = sawada
-; ; 15 = sawada
-; ; 16 = coimbra
-; ; 17 = carlos
-; ; 18 = carlos
-; ; 19 = schneider
-; ; 1A = kaltz
-; ; 1B = schester
-; ; 1C = diaz
-; ; 1D = pascal
-; ; 1E = pierre
-; ; 1F = napoleon
-; ; 20 = victorino
-; ; 21 = kaltz
+; ; 01 = con_p_tsubasa_my
+; ; 02 = con_p_misaki_my
+; ; 03 = con_p_misaki_japan
+; ; 04 = con_p_hyuga_my, con_p_hyuga_japan
+; ; 05 = con_p_hyuga_toho
+; ; 06 = con_p_misugi_my, con_p_misugi_japan
+; ; 07 = con_p_misugi_musashi
+; ; 08 = con_p_matsuyama_my, con_p_matsuyama_japan
+; ; 09 = con_p_matsuyama_furano
+; ; 0A = con_p_ishizaki_my
+; ; 0B = con_p_ishizaki_japan
+; ; 0C = con_p_soda_my, con_p_soda_japan
+; ; 0D = con_p_soda_tatsunami
+; ; 0E = con_p_jito_my, con_p_jito_japan
+; ; 0F = con_p_jito_kunimi
+; ; 10 = con_p_masao_my, con_p_kazuo_my, con_p_masao_japan, con_p_kazuo_japan
+; ; 11 = con_p_masao_akita, con_p_kazuo_akita
+; ; 12 = con_p_nitta_my
+; ; 13 = con_p_nitta_japan
+; ; 14 = con_p_sawada_my
+; ; 15 = con_p_sawada_toho
+; ; 16 = con_p_coimbra_brazil
+; ; 17 = con_p_carlos_flamengo
+; ; 18 = con_p_carlos_brazil
+; ; 19 = con_p_schneider_west_germany
+; ; 1A = con_p_kaltz_hamburger_sv
+; ; 1B = con_p_schester_west_germany
+; ; 1C = con_p_diaz_argentina
+; ; 1D = con_p_pascal_argentina
+; ; 1E = con_p_pierre_france
+; ; 1F = con_p_napoleon_france
+; ; 20 = con_p_victorino_uruguay
+; ; 21 = con_p_kaltz_west_germany
 ; C - J - - - 0x0204A8 10:8498: AD 41 04  LDA ram_игрок_с_мячом
 ; C - - - - - 0x0204AB 10:849B: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 ; C - - - - - 0x0204AE 10:849E: A8        TAY
@@ -1255,18 +1255,18 @@ C - - - - - 0x02051A 10:850A: 60        RTS
 
 ofs_015_850B_2F_киперы_с_критами:
 ; 00 = кипер без крита
-; 01 = морисаки
-; 02 = вакабаяши
+; 01 = con_p_morisaki_my
+; 02 = con_p_wakabayashi_my, con_p_wakabayashi_hamburger_sv
 C - J - - - 0x02051B 10:850B: A2 00     LDX #$00
 C - - - - - 0x02051D 10:850D: 2C 3E 04  BIT ram_подтип_действия_защиты
 C - - - - - 0x020520 10:8510: 10 14     BPL bra_8526_RTS
 C - - - - - 0x020522 10:8512: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - - 0x020525 10:8515: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x020528 10:8518: C9 0F     CMP #$0F      ; морисаки
+C - - - - - 0x020528 10:8518: C9 0F     CMP #con_p_morisaki_my
 C - - - - - 0x02052A 10:851A: F0 09     BEQ bra_8525
-C - - - - - 0x02052C 10:851C: C9 21     CMP #$21      ; вакабаяши из японии
+C - - - - - 0x02052C 10:851C: C9 21     CMP #con_p_wakabayashi_my
 C - - - - - 0x02052E 10:851E: F0 04     BEQ bra_8524
-C - - - - - 0x020530 10:8520: C9 40     CMP #$40      ; вакабаяши из гамбурга
+C - - - - - 0x020530 10:8520: C9 40     CMP #con_p_wakabayashi_hamburger_sv
 C - - - - - 0x020532 10:8522: D0 02     BNE bra_8526_RTS
 bra_8524:
 C - - - - - 0x020534 10:8524: E8        INX
@@ -1284,10 +1284,10 @@ ofs_015_8527_30_diaz_tsubasa:
 C - J - - - 0x020537 10:8527: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x02053A 10:852A: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x02053D 10:852D: A2 02     LDX #$02
-C - - - - - 0x02053F 10:852F: C9 60     CMP #$60      ; diaz
+C - - - - - 0x02053F 10:852F: C9 60     CMP #con_p_diaz_argentina
 C - - - - - 0x020541 10:8531: F0 06     BEQ bra_8539_RTS
 C - - - - - 0x020543 10:8533: CA        DEX
-C - - - - - 0x020544 10:8534: C9 01     CMP #$01      ; tsubasa
+C - - - - - 0x020544 10:8534: C9 01     CMP #con_p_tsubasa_my
 C - - - - - 0x020546 10:8536: F0 01     BEQ bra_8539_RTS
 C - - - - - 0x020548 10:8538: CA        DEX
 bra_8539_RTS:
@@ -1300,7 +1300,7 @@ ofs_015_853A_31_nitta:
 ; 01 = это nitta из japan (соперник)
 C - J - - - 0x02054A 10:853A: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x02054D 10:853D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x020550 10:8540: C9 15     CMP #$15      ; nitta
+C - - - - - 0x020550 10:8540: C9 15     CMP #con_p_nitta_my
 C - - - - - 0x020552 10:8542: F0 01     BEQ bra_8545_RTS
 - - - - - - 0x020554 10:8544: E8        INX
 bra_8545_RTS:
@@ -1309,13 +1309,13 @@ C - - - - - 0x020555 10:8545: 60        RTS
 
 
 ofs_015_8546_32_soda:
-; 00 = это soda из japan
-; 01 = это soda из tatsunami
+; 00 = con_p_soda_my, con_p_soda_japan
+; 01 = con_p_soda_tatsunami
 C - J - - - 0x020556 10:8546: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x020559 10:8549: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x02055C 10:854C: C9 1B     CMP #$1B      ; soda
+C - - - - - 0x02055C 10:854C: C9 1B     CMP #con_p_soda_my
 C - - - - - 0x02055E 10:854E: F0 05     BEQ bra_8555_RTS
-C - - - - - 0x020560 10:8550: C9 4A     CMP #$4A      ; soda
+C - - - - - 0x020560 10:8550: C9 4A     CMP #con_p_soda_japan
 C - - - - - 0x020562 10:8552: F0 01     BEQ bra_8555_RTS
 C - - - - - 0x020564 10:8554: E8        INX
 bra_8555_RTS:
@@ -1409,13 +1409,13 @@ C - - - - - 0x0205A1 10:8591: 60        RTS
 
 
 ofs_015_8592_38_hyuga:
-; 00 = это hyuga
-; 01 = это не hyuga
+; 00 = con_p_hyuga_my, con_p_hyuga_japan
+; 01 = con_p_hyuga_toho
 C - J - - - 0x0205A2 10:8592: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205A5 10:8595: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0205A8 10:8598: C9 1A     CMP #$1A      ; hyuga из японии
+C - - - - - 0x0205A8 10:8598: C9 1A     CMP #con_p_hyuga_my
 C - - - - - 0x0205AA 10:859A: F0 05     BEQ bra_85A1_RTS
-C - - - - - 0x0205AC 10:859C: C9 41     CMP #$41      ; hyuga
+C - - - - - 0x0205AC 10:859C: C9 41     CMP #con_p_hyuga_japan
 C - - - - - 0x0205AE 10:859E: F0 01     BEQ bra_85A1_RTS
 C - - - - - 0x0205B0 10:85A0: E8        INX
 bra_85A1_RTS:
@@ -1424,13 +1424,13 @@ C - - - - - 0x0205B1 10:85A1: 60        RTS
 
 
 ofs_015_85A2_39_matsuyama:
-; 00 = это matsuyama
-; 01 = это не matsuyama
+; 00 = con_p_matsuyama_my, con_p_matsuyama_japan
+; 01 = con_p_matsuyama_furano
 C - J - - - 0x0205B2 10:85A2: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205B5 10:85A5: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0205B8 10:85A8: C9 1D     CMP #$1D      ; matsuyama из японии
+C - - - - - 0x0205B8 10:85A8: C9 1D     CMP #con_p_matsuyama_my
 C - - - - - 0x0205BA 10:85AA: F0 05     BEQ bra_85B1_RTS
-C - - - - - 0x0205BC 10:85AC: C9 4B     CMP #$4B      ; matsuyama соперник
+C - - - - - 0x0205BC 10:85AC: C9 4B     CMP #con_p_matsuyama_japan
 C - - - - - 0x0205BE 10:85AE: F0 01     BEQ bra_85B1_RTS
 C - - - - - 0x0205C0 10:85B0: E8        INX
 bra_85B1_RTS:
@@ -1439,11 +1439,11 @@ C - - - - - 0x0205C1 10:85B1: 60        RTS
 
 
 ofs_015_85B2_3A_kaltz:
-; 00 = это kaltz
-; 01 = это не kaltz
+; 00 = con_p_kaltz_hamburger_sv
+; 01 = con_p_kaltz_west_germany
 C - J - - - 0x0205C2 10:85B2: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205C5 10:85B5: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0205C8 10:85B8: C9 3E     CMP #$3E      ; kaltz из гамбурга
+C - - - - - 0x0205C8 10:85B8: C9 3E     CMP #con_p_kaltz_hamburger_sv
 C - - - - - 0x0205CA 10:85BA: F0 01     BEQ bra_85BD_RTS
 - - - - - - 0x0205CC 10:85BC: E8        INX
 bra_85BD_RTS:
@@ -1452,11 +1452,11 @@ C - - - - - 0x0205CD 10:85BD: 60        RTS
 
 
 ofs_015_85BE_3B_carlos:
-; 00 = это carlos из фламенго
-; 01 = это carlos из бразилии
+; 00 = con_p_carlos_flamengo
+; 01 = con_p_carlos_brazil
 C - J - - - 0x0205CE 10:85BE: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205D1 10:85C1: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0205D4 10:85C4: C9 2B     CMP #$2B      ; carlos из фламенго
+C - - - - - 0x0205D4 10:85C4: C9 2B     CMP #con_p_carlos_flamengo
 C - - - - - 0x0205D6 10:85C6: F0 01     BEQ bra_85C9_RTS
 C - - - - - 0x0205D8 10:85C8: E8        INX
 bra_85C9_RTS:
@@ -1465,13 +1465,13 @@ C - - - - - 0x0205D9 10:85C9: 60        RTS
 
 
 ofs_015_85CA_3C_misugi:
-; 00 = это misugi из japan
-; 01 = это misugi из musashi
+; 00 = con_p_misugi_my, con_p_misugi_japan
+; 01 = con_p_misugi_musashi
 C - J - - - 0x0205DA 10:85CA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205DD 10:85CD: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0205E0 10:85D0: C9 20     CMP #$20      ; misugi из japan (наша команда)
+C - - - - - 0x0205E0 10:85D0: C9 20     CMP #con_p_misugi_my
 C - - - - - 0x0205E2 10:85D2: F0 05     BEQ bra_85D9_RTS
-C - - - - - 0x0205E4 10:85D4: C9 45     CMP #$45      ; misugi из japan (соперник)
+C - - - - - 0x0205E4 10:85D4: C9 45     CMP #con_p_misugi_japan
 C - - - - - 0x0205E6 10:85D6: F0 01     BEQ bra_85D9_RTS
 C - - - - - 0x0205E8 10:85D8: E8        INX
 bra_85D9_RTS:
@@ -1480,11 +1480,11 @@ C - - - - - 0x0205E9 10:85D9: 60        RTS
 
 
 ofs_015_85DA_3D_misaki:
-; 00 = это misaki из nankatsu
-; 01 = это не misaki из japan
+; 00 = con_p_misaki_my
+; 01 = con_p_misaki_japan
 C - J - - - 0x0205EA 10:85DA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205ED 10:85DD: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
-C - - - - - 0x0205F0 10:85E0: C9 11     CMP #$11      ; misaki из nankatsu
+C - - - - - 0x0205F0 10:85E0: C9 11     CMP #con_p_misaki_my
 C - - - - - 0x0205F2 10:85E2: F0 01     BEQ bra_85E5_RTS
 - - - - - - 0x0205F4 10:85E4: E8        INX
 bra_85E5_RTS:
@@ -1521,39 +1521,39 @@ C - - - - - 0x02060D 10:85FD: 60        RTS
 
 ofs_015_8602_40_masao_kazuo:
 ; 00 = игрок без рожи
-; 01 = tsubasa
-; 02 = misaki
-; 03 = misaki
-; 04 = hyuga
-; 05 = hyuga
-; 06 = misugi
-; 07 = misugi
-; 08 = matsuyama
-; 09 = matsuyama
-; 0A = ishizaki
-; 0B = ishizaki
-; 0C = soda
-; 0D = soda
-; 0E = jito
-; 0F = jito
-; 10 = masao kazuo
-; 11 = masao kazuo
-; 12 = nitta
-; 13 = nitta
-; 14 = sawada
-; 15 = sawada
-; 16 = coimbra
-; 17 = carlos
-; 18 = carlos
-; 19 = schneider
-; 1A = kaltz
-; 1B = schester
-; 1C = diaz
-; 1D = pascal
-; 1E = pierre
-; 1F = napoleon
-; 20 = victorino
-; 21 = kaltz
+; 01 = con_p_tsubasa_my
+; 02 = con_p_misaki_my
+; 03 = con_p_misaki_japan
+; 04 = con_p_hyuga_my, con_p_hyuga_japan
+; 05 = con_p_hyuga_toho
+; 06 = con_p_misugi_my, con_p_misugi_japan
+; 07 = con_p_misugi_musashi
+; 08 = con_p_matsuyama_my, con_p_matsuyama_japan
+; 09 = con_p_matsuyama_furano
+; 0A = con_p_ishizaki_my
+; 0B = con_p_ishizaki_japan
+; 0C = con_p_soda_my, con_p_soda_japan
+; 0D = con_p_soda_tatsunami
+; 0E = con_p_jito_my, con_p_jito_japan
+; 0F = con_p_jito_kunimi
+; 10 = con_p_masao_my, con_p_kazuo_my, con_p_masao_japan, con_p_kazuo_japan
+; 11 = con_p_masao_akita, con_p_kazuo_akita
+; 12 = con_p_nitta_my
+; 13 = con_p_nitta_japan
+; 14 = con_p_sawada_my
+; 15 = con_p_sawada_toho
+; 16 = con_p_coimbra_brazil
+; 17 = con_p_carlos_flamengo
+; 18 = con_p_carlos_brazil
+; 19 = con_p_schneider_west_germany
+; 1A = con_p_kaltz_hamburger_sv
+; 1B = con_p_schester_west_germany
+; 1C = con_p_diaz_argentina
+; 1D = con_p_pascal_argentina
+; 1E = con_p_pierre_france
+; 1F = con_p_napoleon_france
+; 20 = con_p_victorino_uruguay
+; 21 = con_p_kaltz_west_germany
 C - J - - - 0x020612 10:8602: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x020615 10:8605: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x020618 10:8608: A8        TAY
@@ -1565,10 +1565,10 @@ C - - - - - 0x02061F 10:860F: 60        RTS
 
 ofs_015_8610_41_какая_у_кипера_рожа:
 ; 00 = кипер без рожи
-; 01 = renato
-; 02 = morisaki
-; 03 = wakabayashi
-; 04 = wahashimazu
+; 01 = con_p_renato_my
+; 02 = con_p_morisaki_my
+; 03 = con_p_wakabayashi_my
+; 04 = con_p_wakashimazu_my
 C - J - - - 0x020620 10:8610: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020623 10:8613: 49 0B     EOR #$0B
 C - - - - - 0x020625 10:8615: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
@@ -1582,10 +1582,10 @@ bra_8622_RTS:
 C - - - - - 0x020632 10:8622: 60        RTS
 
 tbl_8623_наши_киперы:
-    .byte $02   ; 01 renato
-    .byte $0F   ; 02 morisaki
-    .byte $21   ; 03 wakabayashi
-    .byte $22   ; 04 wahashimazu
+    .byte con_p_renato_my               ; 01
+    .byte con_p_morisaki_my             ; 02
+    .byte con_p_wakabayashi_my          ; 03
+    .byte con_p_wakashimazu_my          ; 04
 
 
 
@@ -1706,25 +1706,25 @@ C - - - - - 0x0206B2 10:86A2: 20 11 82  JSR sub_8211_выставить_флаг
 C - - - - - 0x0206B5 10:86A5: 60        RTS
 
 tbl_86A6_игрок:
-    .byte $1A       ; hyuga из нашей японии
+    .byte con_p_hyuga_my                ; 
     .byte $00       ; X     
 
-    .byte $41       ; hyuga соперник из японии
+    .byte con_p_hyuga_japan             ; 
     .byte $00       ; X
 
-    .byte $36       ; hyuga из тохо
+    .byte con_p_hyuga_toho              ; 
     .byte $01       ; X
 
-    .byte $1C       ; jito из нашей японии
+    .byte con_p_jito_my                 ; 
     .byte $02       ; X
 
-    .byte $48       ; jito соперник из японии
+    .byte con_p_jito_japan              ; 
     .byte $02       ; X
 
-    .byte $2E       ; jito из куними
+    .byte con_p_jito_kunimi             ; 
     .byte $03       ; X
 
-    .byte $57       ; napoleon
+    .byte con_p_napoleon_france         ; 
     .byte $04       ; X
 
     .byte $00       ; игрок без рожи, unused так как не читается в цикле
@@ -1759,23 +1759,23 @@ tbl_86C8:
 
 
 ofs_015_86CC_49_спешал_перепасовка_и_twin_shot:
-; 00 = tsubasa
-; 01 = misaki
-; 02 = hyuga
-; 03 = hyuga
-; 04 = hyuga
-; 05 = sawada
-; 06 = sawada
-; 07 = masao
-; 08 = kazuo
-; 09 = masao
-; 0A = kazuo
-; 0B = masao
-; 0C = kazuo
-; 0D = diaz
-; 0E = pascal
-; 0F = pierre
-; 10 = napoleon
+; 00 = con_p_tsubasa_my
+; 01 = con_p_misaki_my
+; 02 = con_p_hyuga_my
+; 03 = con_p_hyuga_japan
+; 04 = con_p_hyuga_toho
+; 05 = con_p_sawada_my
+; 06 = con_p_sawada_toho
+; 07 = con_p_masao_my
+; 08 = con_p_kazuo_my
+; 09 = con_p_masao_japan
+; 0A = con_p_kazuo_japan
+; 0B = con_p_masao_akita
+; 0C = con_p_kazuo_akita
+; 0D = con_p_diaz_argentina
+; 0E = con_p_pascal_argentina
+; 0F = con_p_pierre_france
+; 10 = con_p_napoleon_france
 ; 11 = игрок без спешал перепасовки/twin shot без рож игроков (korea)
 C - J - - - 0x0206DC 10:86CC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0206DF 10:86CF: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
@@ -1813,11 +1813,11 @@ bra_8498_RTS:
 
 
 ofs_015_85FE_4B_проверка_на_защитника_misugi:
-; 00 = это misugi из japan
-; 01 = это какой-то другой игрок
+; 00 = con_p_misugi_my
+; 01 = con_p_misugi_musashi, con_p_misugi_japan
     LDA ram_игрок_без_мяча
     JSR sub_8207_узнать_номер_игрока___X_00
-    CMP #$20      ; misugi из japan (наша команда)
+    CMP #con_p_misugi_my
     BEQ bra_85FE_RTS
     INX
 bra_85FE_RTS:
@@ -1827,28 +1827,28 @@ bra_85FE_RTS:
 
 tbl_86E3_игроки_со_спешал_перепасовкой:
 ; 0x0206F3
-    .byte $01   ; 00 tsubasa
-    .byte $11   ; 01 misaki
-    .byte $1A   ; 02 hyuga
-    .byte $41   ; 03 hyuga
-    .byte $36   ; 04 hyuga
-    .byte $1F   ; 05 sawada
-    .byte $38   ; 06 sawada
-    .byte $17   ; 07 masao
-    .byte $18   ; 08 kazuo
-    .byte $46   ; 09 masao
-    .byte $47   ; 0A kazuo
-    .byte $30   ; 0B masao
-    .byte $31   ; 0C kazuo
-    .byte $60   ; 0D diaz
-    .byte $5E   ; 0E pascal
-    .byte $58   ; 0F pierre
-    .byte $57   ; 10 napoleon
+    .byte con_p_tsubasa_my          ; 00
+    .byte con_p_misaki_my           ; 01
+    .byte con_p_hyuga_my            ; 02
+    .byte con_p_hyuga_japan         ; 03
+    .byte con_p_hyuga_toho          ; 04
+    .byte con_p_sawada_my           ; 05
+    .byte con_p_sawada_toho         ; 06
+    .byte con_p_masao_my            ; 07
+    .byte con_p_kazuo_my            ; 08
+    .byte con_p_masao_japan         ; 09
+    .byte con_p_kazuo_japan         ; 0A
+    .byte con_p_masao_akita         ; 0B
+    .byte con_p_kazuo_akita         ; 0C
+    .byte con_p_diaz_argentina      ; 0D
+    .byte con_p_pascal_argentina    ; 0E
+    .byte con_p_pierre_france       ; 0F
+    .byte con_p_napoleon_france     ; 10
 
 tbl_86F4_игроки_с_рожами:
 ; 0x020704
     .byte $00   ; 00
-    .byte $01   ; 01 tsubasa
+    .byte $01   ; 01 con_p_tsubasa_my
     .byte $00   ; 02
     .byte $00   ; 03
     .byte $00   ; 04
@@ -1864,22 +1864,22 @@ tbl_86F4_игроки_с_рожами:
     .byte $00   ; 0E
     .byte $00   ; 0F
     .byte $00   ; 10
-    .byte $02   ; 11 misaki
+    .byte $02   ; 11 con_p_misaki_my
     .byte $00   ; 12
     .byte $00   ; 13
-    .byte $0A   ; 14 ishizaki
-    .byte $12   ; 15 nitta
+    .byte $0A   ; 14 con_p_ishizaki_my
+    .byte $12   ; 15 con_p_nitta_my
     .byte $00   ; 16
-    .byte $10   ; 17 masao
-    .byte $10   ; 18 kazuo
+    .byte $10   ; 17 con_p_masao_my
+    .byte $10   ; 18 con_p_kazuo_my
     .byte $00   ; 19
-    .byte $04   ; 1A hyuga
-    .byte $0C   ; 1B soda
-    .byte $0E   ; 1C jito
-    .byte $08   ; 1D matsuyama
+    .byte $04   ; 1A con_p_hyuga_my
+    .byte $0C   ; 1B con_p_soda_my
+    .byte $0E   ; 1C con_p_jito_my
+    .byte $08   ; 1D con_p_matsuyama_my
     .byte $00   ; 1E
-    .byte $14   ; 1F sawada
-    .byte $06   ; 20 misugi
+    .byte $14   ; 1F con_p_sawada_my
+    .byte $06   ; 20 con_p_misugi_my
     .byte $00   ; 21
     .byte $00   ; 22
     .byte $00   ; 23
@@ -1890,39 +1890,39 @@ tbl_86F4_игроки_с_рожами:
     .byte $00   ; 28
     .byte $00   ; 29
     .byte $00   ; 2A
-    .byte $17   ; 2B carlos
+    .byte $17   ; 2B con_p_carlos_flamengo
     .byte $00   ; 2C
     .byte $00   ; 2D
-    .byte $0F   ; 2E jito
+    .byte $0F   ; 2E con_p_jito_kunimi
     .byte $00   ; 2F
-    .byte $11   ; 30 masao
-    .byte $11   ; 31 kazuo
-    .byte $0D   ; 32 soda
+    .byte $11   ; 30 con_p_masao_akita
+    .byte $11   ; 31 con_p_kazuo_akita
+    .byte $0D   ; 32 con_p_soda_tatsunami
     .byte $00   ; 33
-    .byte $07   ; 34 misugi
-    .byte $09   ; 35 matsuyama
-    .byte $05   ; 36 hyuga
+    .byte $07   ; 34 con_p_misugi_musashi
+    .byte $09   ; 35 con_p_matsuyama_furano
+    .byte $05   ; 36 con_p_hyuga_toho
     .byte $00   ; 37
-    .byte $15   ; 38 sawada
+    .byte $15   ; 38 con_p_sawada_toho
     .byte $00   ; 39
     .byte $00   ; 3A
-    .byte $20   ; 3B victorino
+    .byte $20   ; 3B con_p_victorino_uruguay
     .byte $00   ; 3C
     .byte $00   ; 3D
-    .byte $1A   ; 3E kaltz
+    .byte $1A   ; 3E con_p_kaltz_hamburger_sv
     .byte $00   ; 3F
     .byte $00   ; 40
-    .byte $04   ; 41 hyuga
-    .byte $13   ; 42 nitta
+    .byte $04   ; 41 con_p_hyuga_japan
+    .byte $13   ; 42 con_p_nitta_japan
     .byte $00   ; 43
-    .byte $03   ; 44 misaki
-    .byte $06   ; 45 misugi
-    .byte $10   ; 46 masao
-    .byte $10   ; 47 kazuo
-    .byte $0E   ; 48 jito
-    .byte $0B   ; 49 ishizaki
-    .byte $0C   ; 4A soda
-    .byte $08   ; 4B matsuyama
+    .byte $03   ; 44 con_p_misaki_japan
+    .byte $06   ; 45 con_p_misugi_japan
+    .byte $10   ; 46 con_p_masao_japan
+    .byte $10   ; 47 con_p_kazuo_japan
+    .byte $0E   ; 48 con_p_jito_japan
+    .byte $0B   ; 49 con_p_ishizaki_japan
+    .byte $0C   ; 4A con_p_soda_japan
+    .byte $08   ; 4B con_p_matsuyama_japan
     .byte $00   ; 4C
     .byte $00   ; 4D
     .byte $00   ; 4E
@@ -1934,26 +1934,26 @@ tbl_86F4_игроки_с_рожами:
     .byte $00   ; 54
     .byte $00   ; 55
     .byte $00   ; 56
-    .byte $1F   ; 57 napoleon
-    .byte $1E   ; 58 pierre
+    .byte $1F   ; 57 con_p_napoleon_france
+    .byte $1E   ; 58 con_p_pierre_france
     .byte $00   ; 59
     .byte $00   ; 5A
     .byte $00   ; 5B
     .byte $00   ; 5C
     .byte $00   ; 5D
-    .byte $1D   ; 5E pascal
+    .byte $1D   ; 5E con_p_pascal_argentina
     .byte $00   ; 5F
-    .byte $1C   ; 60 diaz
+    .byte $1C   ; 60 con_p_diaz_argentina
     .byte $00   ; 61
     .byte $00   ; 62
-    .byte $19   ; 63 schneider
+    .byte $19   ; 63 con_p_schneider_west_germany
     .byte $00   ; 64
-    .byte $21   ; 65 kaltz
+    .byte $21   ; 65 con_p_kaltz_west_germany
     .byte $00   ; 66
-    .byte $1B   ; 67 schester
+    .byte $1B   ; 67 con_p_schester_west_germany
     .byte $00   ; 68
     .byte $00   ; 69
-    .byte $18   ; 6A carlos
+    .byte $18   ; 6A con_p_carlos_brazil
     .byte $00   ; 6B
     .byte $00   ; 6C
     .byte $00   ; 6D
@@ -1964,7 +1964,7 @@ tbl_86F4_игроки_с_рожами:
     .byte $00   ; 72
     .byte $00   ; 73
     .byte $00   ; 74
-    .byte $16   ; 75 coimbra
+    .byte $16   ; 75 con_p_coimbra_brazil
 
 tbl_876A_игроки_с_защитным_спешалом:
 ; 0x02077A
@@ -1988,15 +1988,15 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00   ; 11
     .byte $00   ; 12
     .byte $00   ; 13
-    .byte $0E   ; 14 ishizaki
+    .byte $0E   ; 14 con_p_ishizaki_my
     .byte $00   ; 15
     .byte $00   ; 16
-    .byte $01   ; 17 masao
-    .byte $01   ; 18 kazuo
+    .byte $01   ; 17 con_p_masao_my
+    .byte $01   ; 18 con_p_kazuo_my
     .byte $00   ; 19
-    .byte $0C   ; 1A hyuga
-    .byte $03   ; 1B soda
-    .byte $05   ; 1C jito
+    .byte $0C   ; 1A con_p_hyuga_my
+    .byte $03   ; 1B con_p_soda_my
+    .byte $05   ; 1C con_p_jito_my
     .byte $00   ; 1D
     .byte $00   ; 1E
     .byte $00   ; 1F
@@ -2010,19 +2010,19 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00   ; 27
     .byte $00   ; 28
     .byte $00   ; 29
-    .byte $07   ; 2A dirceu
+    .byte $07   ; 2A con_p_dirceu_santos
     .byte $00   ; 2B
     .byte $00   ; 2C
     .byte $00   ; 2D
-    .byte $06   ; 2E jito
+    .byte $06   ; 2E con_p_jito_kunimi
     .byte $00   ; 2F
-    .byte $02   ; 30 masao
-    .byte $02   ; 31 kazuo
-    .byte $04   ; 32 soda
+    .byte $02   ; 30 con_p_masao_akita
+    .byte $02   ; 31 con_p_kazuo_akita
+    .byte $04   ; 32 con_p_soda_tatsunami
     .byte $00   ; 33
     .byte $00   ; 34
     .byte $00   ; 35
-    .byte $0D   ; 36 hyuga
+    .byte $0D   ; 36 con_p_hyuga_toho
     .byte $00   ; 37
     .byte $00   ; 38
     .byte $00   ; 39
@@ -2033,16 +2033,16 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00   ; 3E
     .byte $00   ; 3F
     .byte $00   ; 40
-    .byte $0C   ; 41 hyuga
+    .byte $0C   ; 41 con_p_hyuga_japan
     .byte $00   ; 42
     .byte $00   ; 43
     .byte $00   ; 44
     .byte $00   ; 45
-    .byte $01   ; 46 masao
-    .byte $01   ; 47 kazuo
-    .byte $05   ; 48 jito
-    .byte $0F   ; 49 ishizaki
-    .byte $03   ; 4A soda
+    .byte $01   ; 46 con_p_masao_japan
+    .byte $01   ; 47 con_p_kazuo_japan
+    .byte $05   ; 48 con_p_jito_japan
+    .byte $0F   ; 49 con_p_ishizaki_japan
+    .byte $03   ; 4A con_p_soda_japan
     .byte $00   ; 4B
     .byte $00   ; 4C
     .byte $00   ; 4D
@@ -2052,7 +2052,7 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00   ; 51
     .byte $00   ; 52
     .byte $00   ; 53
-    .byte $09   ; 54 robson
+    .byte $09   ; 54 con_p_robson_england
     .byte $00   ; 55
     .byte $00   ; 56
     .byte $00   ; 57
@@ -2061,12 +2061,12 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00   ; 5A
     .byte $00   ; 5B
     .byte $00   ; 5C
-    .byte $0A   ; 5D libuta
+    .byte $0A   ; 5D con_p_libuta_netherlands
     .byte $00   ; 5E
     .byte $00   ; 5F
     .byte $00   ; 60
     .byte $00   ; 61
-    .byte $0B   ; 62 galvan
+    .byte $0B   ; 62 con_p_galvan_argentina
     .byte $00   ; 63
     .byte $00   ; 64
     .byte $00   ; 65
@@ -2082,7 +2082,7 @@ tbl_876A_игроки_с_защитным_спешалом:
     .byte $00   ; 6F
     .byte $00   ; 70
     .byte $00   ; 71
-    .byte $08   ; 72 dirceu
+    .byte $08   ; 72 con_p_dirceu_brazil
     .byte $00   ; 73
     .byte $00   ; 74
     .byte $00   ; 75
