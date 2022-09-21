@@ -357,9 +357,9 @@ C - - - - - 0x0381D9 1C:81C9: 48        PHA
 C - - - - - 0x0381DA 1C:81CA: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x0381DD 1C:81CD: 0A        ASL
 C - - - - - 0x0381DE 1C:81CE: AA        TAX
-C - - - - - 0x0381DF 1C:81CF: BD 60 94  LDA tbl_9460_стоимость_действий,X
+C - - - - - 0x0381DF 1C:81CF: BD 60 94  LDA tbl_9460_параметры_действий_атакующего,X
 C - - - - - 0x0381E2 1C:81D2: 85 32     STA ram_0032
-C - - - - - 0x0381E4 1C:81D4: BD 61 94  LDA tbl_9460_стоимость_действий + 1,X
+C - - - - - 0x0381E4 1C:81D4: BD 61 94  LDA tbl_9460_параметры_действий_атакующего + 1,X
 C - - - - - 0x0381E7 1C:81D7: 85 33     STA ram_0033
 C - - - - - 0x0381E9 1C:81D9: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x0381EC 1C:81DC: 0A        ASL
@@ -433,9 +433,9 @@ C - - - - - 0x038249 1C:8239: 48        PHA
 C - - - - - 0x03824A 1C:823A: AD 3D 04  LDA ram_действие_защиты
 C - - - - - 0x03824D 1C:823D: 0A        ASL
 C - - - - - 0x03824E 1C:823E: AA        TAX
-C - - - - - 0x03824F 1C:823F: BD 54 95  LDA tbl_9554,X
+C - - - - - 0x03824F 1C:823F: BD 54 95  LDA tbl_9554_параметры_действий_защитника,X
 C - - - - - 0x038252 1C:8242: 85 32     STA ram_0032
-C - - - - - 0x038254 1C:8244: BD 55 95  LDA tbl_9554 + 1,X
+C - - - - - 0x038254 1C:8244: BD 55 95  LDA tbl_9554_параметры_действий_защитника + 1,X
 C - - - - - 0x038257 1C:8247: 85 33     STA ram_0033
 C - - - - - 0x038259 1C:8249: 4C 5B 82  JMP loc_825B
 
@@ -3727,12 +3727,12 @@ off_945F:
 
 
 
-tbl_9460_стоимость_действий:
+tbl_9460_параметры_действий_атакующего:
 ; затрата энергии
-- D - - - - 0x039470 1C:9460: 74 94     .word off_9474_00
-- D - - - - 0x039472 1C:9462: 00 95     .word off_9500_01_пасы_ХЗ
-- D - - - - 0x039474 1C:9464: 10 95     .word off_9510_02
-- D - - - - 0x039476 1C:9466: 2C 95     .word off_952C_03
+- D - - - - 0x039470 1C:9460: 74 94     .word off_9474_00_shoot
+- D - - - - 0x039472 1C:9462: 00 95     .word off_9500_01_pass
+- D - - - - 0x039474 1C:9464: 10 95     .word off_9510_02_dribble
+- D - - - - 0x039476 1C:9466: 2C 95     .word off_952C_03_1_2_pass
 - D - - - - 0x039478 1C:9468: 40 95     .word off_9540_04
 - D - - - - 0x03947A 1C:946A: 44 95     .word off_9544_05
 - D - - - - 0x03947C 1C:946C: 48 95     .word off_9548_06
@@ -3740,245 +3740,318 @@ tbl_9460_стоимость_действий:
 - D - - - - 0x039480 1C:9470: 50 95     .word off_9550_08
 - D - - - - 0x039482 1C:9472: 50 95     .word off_9550_09
 
-off_9474_00:
-- D - I - - 0x039484 1C:9474: 00        .byte $00
-- D - I - - 0x039485 1C:9475: 01        .byte $01
-- D - I - - 0x039486 1C:9476: 50        .byte $50
-- D - I - - 0x039487 1C:9477: 00        .byte $00
+off_9474_00_shoot:
+; 00 shot
+- D - I - - 0x039484 1C:9474: 00        .byte $00   ; бит0-1 высота? бит 2-7 = шанс убийства? 0x020148
+- D - I - - 0x039485 1C:9475: 01        .byte $01   ; что-то связанное со множителем силы в зависимости от уровня игрока
+- D - I - - 0x039486 1C:9476: 50        .byte $50   ; стоимость энергии lo
+- D - I - - 0x039487 1C:9477: 00        .byte $00   ; бит0-1 = стоимость энергии hi, бит 2-7 = шанс убийства (вспомогательный)?
+; 01 volley
 - D - I - - 0x039488 1C:9478: 00        .byte $00
 - D - I - - 0x039489 1C:9479: 05        .byte $05
 - D - I - - 0x03948A 1C:947A: 5A        .byte $5A
 - D - I - - 0x03948B 1C:947B: 00        .byte $00
+; 02 header
 - D - I - - 0x03948C 1C:947C: 00        .byte $00
 - D - I - - 0x03948D 1C:947D: 05        .byte $05
 - D - I - - 0x03948E 1C:947E: 5A        .byte $5A
 - D - I - - 0x03948F 1C:947F: 00        .byte $00
+; 03 drive shot
 - D - I - - 0x039490 1C:9480: 8A        .byte $8A
 - D - I - - 0x039491 1C:9481: 15        .byte $15
 - D - I - - 0x039492 1C:9482: C8        .byte $C8
 - D - I - - 0x039493 1C:9483: 20        .byte $20
+; 04 drive overhead
 - D - I - - 0x039494 1C:9484: 9A        .byte $9A
 - D - I - - 0x039495 1C:9485: 22        .byte $22
 - D - I - - 0x039496 1C:9486: 40        .byte $40
 - D - I - - 0x039497 1C:9487: 31        .byte $31
+; 05 falcon shot
 - D - I - - 0x039498 1C:9488: 80        .byte $80
 - D - I - - 0x039499 1C:9489: 10        .byte $10
 - D - I - - 0x03949A 1C:948A: C8        .byte $C8
 - D - I - - 0x03949B 1C:948B: 20        .byte $20
+; 06 falcon volley
 - D - I - - 0x03949C 1C:948C: 84        .byte $84
 - D - I - - 0x03949D 1C:948D: 16        .byte $16
 - D - I - - 0x03949E 1C:948E: F0        .byte $F0
 - D - I - - 0x03949F 1C:948F: 20        .byte $20
+; 07 razor shot
 - D - I - - 0x0394A0 1C:9490: 84        .byte $84
 - D - I - - 0x0394A1 1C:9491: 11        .byte $11
 - D - I - - 0x0394A2 1C:9492: C8        .byte $C8
 - D - I - - 0x0394A3 1C:9493: 00        .byte $00
+; 08 skylab hurricane
 - D - I - - 0x0394A4 1C:9494: 02        .byte $02
 - D - I - - 0x0394A5 1C:9495: 12        .byte $12
 - D - I - - 0x0394A6 1C:9496: C8        .byte $C8
 - D - I - - 0x0394A7 1C:9497: 00        .byte $00
+; 09 twin shot
 - D - I - - 0x0394A8 1C:9498: 85        .byte $85
 - D - I - - 0x0394A9 1C:9499: 13        .byte $13
 - D - I - - 0x0394AA 1C:949A: B4        .byte $B4
 - D - I - - 0x0394AB 1C:949B: 10        .byte $10
+; 0A skylab twin shot
 - D - I - - 0x0394AC 1C:949C: 8C        .byte $8C
 - D - I - - 0x0394AD 1C:949D: 23        .byte $23
 - D - I - - 0x0394AE 1C:949E: 7C        .byte $7C
 - D - I - - 0x0394AF 1C:949F: 21        .byte $21
+; 0B eagle shot
 - D - I - - 0x0394B0 1C:94A0: 85        .byte $85
 - D - I - - 0x0394B1 1C:94A1: 1A        .byte $1A
 - D - I - - 0x0394B2 1C:94A2: C8        .byte $C8
 - D - I - - 0x0394B3 1C:94A3: 20        .byte $20
+; 0C tiger shot
 - D - I - - 0x0394B4 1C:94A4: A0        .byte $A0
 - D - I - - 0x0394B5 1C:94A5: 15        .byte $15
 - D - I - - 0x0394B6 1C:94A6: F0        .byte $F0
 - D - I - - 0x0394B7 1C:94A7: 20        .byte $20
+; 0D neo-tiger shot
 - D - I - - 0x0394B8 1C:94A8: C0        .byte $C0
 - D - I - - 0x0394B9 1C:94A9: 22        .byte $22
 - D - I - - 0x0394BA 1C:94AA: 72        .byte $72
 - D - I - - 0x0394BB 1C:94AB: 21        .byte $21
+; 0E overhead
 - D - I - - 0x0394BC 1C:94AC: 02        .byte $02
 - D - I - - 0x0394BD 1C:94AD: 11        .byte $11
 - D - I - - 0x0394BE 1C:94AE: A0        .byte $A0
 - D - I - - 0x0394BF 1C:94AF: 20        .byte $20
+; 0F hyper overhead
 - D - I - - 0x0394C0 1C:94B0: 86        .byte $86
 - D - I - - 0x0394C1 1C:94B1: 18        .byte $18
 - D - I - - 0x0394C2 1C:94B2: FA        .byte $FA
 - D - I - - 0x0394C3 1C:94B3: 20        .byte $20
+; 10 jumping volley
 - D - I - - 0x0394C4 1C:94B4: 85        .byte $85
 - D - I - - 0x0394C5 1C:94B5: 18        .byte $18
 - D - I - - 0x0394C6 1C:94B6: FA        .byte $FA
 - D - I - - 0x0394C7 1C:94B7: 20        .byte $20
+; 11 drive tiger
 - D - I - - 0x0394C8 1C:94B8: A8        .byte $A8
 - D - I - - 0x0394C9 1C:94B9: 2D        .byte $2D
 - D - I - - 0x0394CA 1C:94BA: C8        .byte $C8
 - D - I - - 0x0394CB 1C:94BB: 30        .byte $30
+; 12 cyclone
 - D - I - - 0x0394CC 1C:94BC: 99        .byte $99
 - D - I - - 0x0394CD 1C:94BD: 58        .byte $58
 - D - I - - 0x0394CE 1C:94BE: 90        .byte $90
 - D - I - - 0x0394CF 1C:94BF: 31        .byte $31
+; 13 sano combo
 - D - I - - 0x0394D0 1C:94C0: 92        .byte $92
 - D - I - - 0x0394D1 1C:94C1: 12        .byte $12
 - D - I - - 0x0394D2 1C:94C2: C8        .byte $C8
 - D - I - - 0x0394D3 1C:94C3: 00        .byte $00
+; 14 banana shot
 - D - I - - 0x0394D4 1C:94C4: 86        .byte $86
 - D - I - - 0x0394D5 1C:94C5: 13        .byte $13
 - D - I - - 0x0394D6 1C:94C6: 00        .byte $00
 - D - I - - 0x0394D7 1C:94C7: 00        .byte $00
+; 15 booster shot
 - D - I - - 0x0394D8 1C:94C8: 8A        .byte $8A
 - D - I - - 0x0394D9 1C:94C9: 13        .byte $13
 - D - I - - 0x0394DA 1C:94CA: 00        .byte $00
 - D - I - - 0x0394DB 1C:94CB: 00        .byte $00
+; 16 mirage shot
 - D - I - - 0x0394DC 1C:94CC: 90        .byte $90
 - D - I - - 0x0394DD 1C:94CD: 16        .byte $16
 - D - I - - 0x0394DE 1C:94CE: 00        .byte $00
 - D - I - - 0x0394DF 1C:94CF: 20        .byte $20
+; 17 mach shot
 - D - I - - 0x0394E0 1C:94D0: A0        .byte $A0
 - D - I - - 0x0394E1 1C:94D1: 1A        .byte $1A
 - D - I - - 0x0394E2 1C:94D2: 00        .byte $00
 - D - I - - 0x0394E3 1C:94D3: 20        .byte $20
+; 18 sidewinder shot
 - D - I - - 0x0394E4 1C:94D4: 85        .byte $85
 - D - I - - 0x0394E5 1C:94D5: 0E        .byte $0E
 - D - I - - 0x0394E6 1C:94D6: 00        .byte $00
 - D - I - - 0x0394E7 1C:94D7: 00        .byte $00
+; 19 slider shot
 - D - I - - 0x0394E8 1C:94D8: 84        .byte $84
 - D - I - - 0x0394E9 1C:94D9: 0E        .byte $0E
 - D - I - - 0x0394EA 1C:94DA: 00        .byte $00
 - D - I - - 0x0394EB 1C:94DB: 00        .byte $00
+; 1A cannon shot
 - D - I - - 0x0394EC 1C:94DC: F0        .byte $F0
 - D - I - - 0x0394ED 1C:94DD: 0F        .byte $0F
 - D - I - - 0x0394EE 1C:94DE: 00        .byte $00
 - D - I - - 0x0394EF 1C:94DF: 20        .byte $20
+; 1B fire shot
 - D - I - - 0x0394F0 1C:94E0: 00        .byte $00
 - D - I - - 0x0394F1 1C:94E1: 15        .byte $15
 - D - I - - 0x0394F2 1C:94E2: 00        .byte $00
 - D - I - - 0x0394F3 1C:94E3: 20        .byte $20
+; 1C dynamite header
 - D - I - - 0x0394F4 1C:94E4: FA        .byte $FA
 - D - I - - 0x0394F5 1C:94E5: 11        .byte $11
 - D - I - - 0x0394F6 1C:94E6: 00        .byte $00
 - D - I - - 0x0394F7 1C:94E7: 00        .byte $00
+; 1D cannon header
 - - - - - - 0x0394F8 1C:94E8: FA        .byte $FA
 - - - - - - 0x0394F9 1C:94E9: 11        .byte $11
 - - - - - - 0x0394FA 1C:94EA: 00        .byte $00
 - - - - - - 0x0394FB 1C:94EB: 00        .byte $00
+; 1E rocket header
 - D - I - - 0x0394FC 1C:94EC: FA        .byte $FA
 - D - I - - 0x0394FD 1C:94ED: 0D        .byte $0D
 - D - I - - 0x0394FE 1C:94EE: 00        .byte $00
 - D - I - - 0x0394FF 1C:94EF: 00        .byte $00
+; 1F rising dragon kick
 - D - I - - 0x039500 1C:94F0: 02        .byte $02
 - D - I - - 0x039501 1C:94F1: 12        .byte $12
 - D - I - - 0x039502 1C:94F2: 00        .byte $00
 - D - I - - 0x039503 1C:94F3: 20        .byte $20
+; 20 foward somersault
 - D - I - - 0x039504 1C:94F4: 01        .byte $01
 - D - I - - 0x039505 1C:94F5: 11        .byte $11
 - D - I - - 0x039506 1C:94F6: 00        .byte $00
 - D - I - - 0x039507 1C:94F7: 20        .byte $20
+; 21 slider cannon
 - D - I - - 0x039508 1C:94F8: 98        .byte $98
 - D - I - - 0x039509 1C:94F9: 21        .byte $21
 - D - I - - 0x03950A 1C:94FA: 00        .byte $00
 - D - I - - 0x03950B 1C:94FB: 20        .byte $20
+; 22 double eel
 - D - I - - 0x03950C 1C:94FC: FC        .byte $FC
 - D - I - - 0x03950D 1C:94FD: 14        .byte $14
 - D - I - - 0x03950E 1C:94FE: 00        .byte $00
 - D - I - - 0x03950F 1C:94FF: 20        .byte $20
 
-off_9500_01_пасы_ХЗ:
+
+
+off_9500_01_pass:
+; 00 pass
 - D - I - - 0x039510 1C:9500: 00        .byte $00
 - D - I - - 0x039511 1C:9501: 02        .byte $02
-; стоимость паса
 - D - I - - 0x039512 1C:9502: 14        .byte $14
 - D - I - - 0x039513 1C:9503: 00        .byte $00
-; драйв пас, первые 2 бита отвечают за высоту
+; 01 drive pass
 - D - I - - 0x039514 1C:9504: B2        .byte $B2
 - D - I - - 0x039515 1C:9505: 15        .byte $15
 - D - I - - 0x039516 1C:9506: 28        .byte $28
 - D - I - - 0x039517 1C:9507: 00        .byte $00
+; 02 razor pass
 - D - I - - 0x039518 1C:9508: 00        .byte $00
 - D - I - - 0x039519 1C:9509: 1A        .byte $1A
 - D - I - - 0x03951A 1C:950A: 28        .byte $28
 - D - I - - 0x03951B 1C:950B: 00        .byte $00
+; 03 topspin pass
 - D - I - - 0x03951C 1C:950C: 02        .byte $02
 - D - I - - 0x03951D 1C:950D: 14        .byte $14
 - D - I - - 0x03951E 1C:950E: 00        .byte $00
 - D - I - - 0x03951F 1C:950F: 00        .byte $00
 
-off_9510_02:
+
+
+off_9510_02_dribble:
+; 00 dribble
 - D - I - - 0x039520 1C:9510: 00        .byte $00
 - D - I - - 0x039521 1C:9511: 02        .byte $02
 - D - I - - 0x039522 1C:9512: 28        .byte $28
 - D - I - - 0x039523 1C:9513: 00        .byte $00
+; 01 heel lift
 - D - I - - 0x039524 1C:9514: 00        .byte $00
 - D - I - - 0x039525 1C:9515: 07        .byte $07
 - D - I - - 0x039526 1C:9516: 5A        .byte $5A
 - D - I - - 0x039527 1C:9517: 00        .byte $00
+; 02 forcible dribble
 - D - I - - 0x039528 1C:9518: FC        .byte $FC
 - D - I - - 0x039529 1C:9519: 0D        .byte $0D
 - D - I - - 0x03952A 1C:951A: 3C        .byte $3C
 - D - I - - 0x03952B 1C:951B: 00        .byte $00
+; 03 vanishing feint
 - D - I - - 0x03952C 1C:951C: 00        .byte $00
 - D - I - - 0x03952D 1C:951D: 0C        .byte $0C
 - D - I - - 0x03952E 1C:951E: 00        .byte $00
 - D - I - - 0x03952F 1C:951F: 00        .byte $00
+; 04 clone dribble
 - D - I - - 0x039530 1C:9520: 00        .byte $00
 - D - I - - 0x039531 1C:9521: 12        .byte $12
 - D - I - - 0x039532 1C:9522: 00        .byte $00
 - D - I - - 0x039533 1C:9523: 00        .byte $00
+; 05 high speed dribble
 - D - I - - 0x039534 1C:9524: 00        .byte $00
 - D - I - - 0x039535 1C:9525: 0B        .byte $0B
 - D - I - - 0x039536 1C:9526: 00        .byte $00
 - D - I - - 0x039537 1C:9527: 00        .byte $00
+; 06 hedgehog dribble
 - D - I - - 0x039538 1C:9528: F0        .byte $F0
 - D - I - - 0x039539 1C:9529: 0B        .byte $0B
 - D - I - - 0x03953A 1C:952A: 00        .byte $00
 - D - I - - 0x03953B 1C:952B: 00        .byte $00
 
-off_952C_03:
+
+
+off_952C_03_1_2_pass:
+; toho combo
+; golden combo (предположительно 01, судя по 2му байту)
+; эйфелева башня
+; еще что-то
+
+; 00 1-2 pass
 - D - I - - 0x03953C 1C:952C: 00        .byte $00
 - D - I - - 0x03953D 1C:952D: 0C        .byte $0C
 - D - I - - 0x03953E 1C:952E: 3C        .byte $3C
 - D - I - - 0x03953F 1C:952F: 18        .byte $18
+; 01 
 - D - I - - 0x039540 1C:9530: 00        .byte $00
 - D - I - - 0x039541 1C:9531: 20        .byte $20
 - D - I - - 0x039542 1C:9532: 78        .byte $78
 - D - I - - 0x039543 1C:9533: 38        .byte $38
+; 02 
 - D - I - - 0x039544 1C:9534: 00        .byte $00
 - D - I - - 0x039545 1C:9535: 10        .byte $10
 - D - I - - 0x039546 1C:9536: 50        .byte $50
 - D - I - - 0x039547 1C:9537: 20        .byte $20
+; 03 
 - D - I - - 0x039548 1C:9538: 00        .byte $00
 - D - I - - 0x039549 1C:9539: 11        .byte $11
 - D - I - - 0x03954A 1C:953A: 50        .byte $50
 - D - I - - 0x03954B 1C:953B: 20        .byte $20
+; 04 
 - D - I - - 0x03954C 1C:953C: 00        .byte $00
 - D - I - - 0x03954D 1C:953D: 12        .byte $12
 - D - I - - 0x03954E 1C:953E: 00        .byte $00
 - D - I - - 0x03954F 1C:953F: 30        .byte $30
 
+
+
 off_9540_04:
+; 00 
 - D - I - - 0x039550 1C:9540: 00        .byte $00
 - D - I - - 0x039551 1C:9541: 00        .byte $00
 - D - I - - 0x039552 1C:9542: 0A        .byte $0A
 - D - I - - 0x039553 1C:9543: 00        .byte $00
 
+
+
 off_9544_05:
+; 00 
 - D - I - - 0x039554 1C:9544: 00        .byte $00
 - D - I - - 0x039555 1C:9545: 09        .byte $09
 - D - I - - 0x039556 1C:9546: 28        .byte $28
 - D - I - - 0x039557 1C:9547: 00        .byte $00
 
+
+
 off_9548_06:
+; 00 
 - D - I - - 0x039558 1C:9548: 00        .byte $00
 - D - I - - 0x039559 1C:9549: 07        .byte $07
 - D - I - - 0x03955A 1C:954A: 50        .byte $50
 - D - I - - 0x03955B 1C:954B: 00        .byte $00
+; 01 
 - D - I - - 0x03955C 1C:954C: FC        .byte $FC
 - D - I - - 0x03955D 1C:954D: 0E        .byte $0E
 - D - I - - 0x03955E 1C:954E: 00        .byte $00
 - D - I - - 0x03955F 1C:954F: 00        .byte $00
 
+
+
 off_9550_07:
 off_9550_08:
 off_9550_09:
+; 00 
 - D - I - - 0x039560 1C:9550: 00        .byte $00
 - D - I - - 0x039561 1C:9551: 00        .byte $00
 - D - I - - 0x039562 1C:9552: 00        .byte $00
@@ -3986,79 +4059,119 @@ off_9550_09:
 
 
 
-tbl_9554:
-- D - - - - 0x039564 1C:9554: 5E 95     .word off_955E_00
-- D - - - - 0x039566 1C:9556: 6E 95     .word off_956E_01
-- D - - - - 0x039568 1C:9558: 86 95     .word off_9586_02
+tbl_9554_параметры_действий_защитника:
+- D - - - - 0x039564 1C:9554: 5E 95     .word off_955E_00_block
+- D - - - - 0x039566 1C:9556: 6E 95     .word off_956E_01_tackle
+- D - - - - 0x039568 1C:9558: 86 95     .word off_9586_02_pass_cut
 - D - - - - 0x03956A 1C:955A: 8E 95     .word off_958E_03
 - D - - - - 0x03956C 1C:955C: 96 95     .word off_9596_04
 
-off_955E_00:
+off_955E_00_block:
+; значение байтов почти аналогично 0x039484
+; 00 block
 - D - I - - 0x03956E 1C:955E: 00        .byte $00
 - D - I - - 0x03956F 1C:955F: 01        .byte $01
 - D - I - - 0x039570 1C:9560: 46        .byte $46
 - D - I - - 0x039571 1C:9561: 00        .byte $00
+; 01 face block
 - D - I - - 0x039572 1C:9562: 00        .byte $00
 - D - I - - 0x039573 1C:9563: 82        .byte $82
 - D - I - - 0x039574 1C:9564: 90        .byte $90
 - D - I - - 0x039575 1C:9565: 01        .byte $01
+; 02 skylab block
 - D - I - - 0x039576 1C:9566: 00        .byte $00
 - D - I - - 0x039577 1C:9567: 1C        .byte $1C
 - D - I - - 0x039578 1C:9568: B4        .byte $B4
 - D - I - - 0x039579 1C:9569: 00        .byte $00
+; 03 power block
 - D - I - - 0x03957A 1C:956A: 00        .byte $00
 - D - I - - 0x03957B 1C:956B: 19        .byte $19
 - D - I - - 0x03957C 1C:956C: B4        .byte $B4
 - D - I - - 0x03957D 1C:956D: 00        .byte $00
-off_956E_01:
+
+
+
+off_956E_01_tackle:
+; power tackle
+; tiger tackle (скорее всего 01)
+; skylab tackle
+; razor tackle
+; ???
+
+
+; 00 tackle
 - D - I - - 0x03957E 1C:956E: 00        .byte $00
 - D - I - - 0x03957F 1C:956F: 00        .byte $00
-; стоимость подката
 - D - I - - 0x039580 1C:9570: 3C        .byte $3C
 - D - I - - 0x039581 1C:9571: 00        .byte $00
+; 01 
 - D - I - - 0x039582 1C:9572: 98        .byte $98
 - D - I - - 0x039583 1C:9573: 23        .byte $23
 - D - I - - 0x039584 1C:9574: C8        .byte $C8
 - D - I - - 0x039585 1C:9575: 00        .byte $00
+; 02 
 - D - I - - 0x039586 1C:9576: A0        .byte $A0
 - D - I - - 0x039587 1C:9577: 1C        .byte $1C
 - D - I - - 0x039588 1C:9578: C8        .byte $C8
 - D - I - - 0x039589 1C:9579: 00        .byte $00
+; 03 
 - D - I - - 0x03958A 1C:957A: FC        .byte $FC
 - D - I - - 0x03958B 1C:957B: 19        .byte $19
 - D - I - - 0x03958C 1C:957C: C8        .byte $C8
 - D - I - - 0x03958D 1C:957D: 00        .byte $00
+; 04 
 - D - I - - 0x03958E 1C:957E: FC        .byte $FC
 - D - I - - 0x03958F 1C:957F: 1D        .byte $1D
 - D - I - - 0x039590 1C:9580: B4        .byte $B4
 - D - I - - 0x039591 1C:9581: 00        .byte $00
+; 05 что за бесплатный подкат такой?
+; может это который использует команда которая пиздит всех подряд?
 - D - I - - 0x039592 1C:9582: FC        .byte $FC
 - D - I - - 0x039593 1C:9583: 06        .byte $06
 - D - I - - 0x039594 1C:9584: 00        .byte $00
 - D - I - - 0x039595 1C:9585: 00        .byte $00
-off_9586_02:
+
+
+
+off_9586_02_pass_cut:
+; 00 pass cut
 - D - I - - 0x039596 1C:9586: 00        .byte $00
 - D - I - - 0x039597 1C:9587: 00        .byte $00
 - D - I - - 0x039598 1C:9588: 32        .byte $32
 - D - I - - 0x039599 1C:9589: 00        .byte $00
+; 01 skylab pass cut
 - D - I - - 0x03959A 1C:958A: 00        .byte $00
 - D - I - - 0x03959B 1C:958B: 27        .byte $27
 - D - I - - 0x03959C 1C:958C: B4        .byte $B4
 - D - I - - 0x03959D 1C:958D: 00        .byte $00
+
+
+
 off_958E_03:
+; 00 
 - D - I - - 0x03959E 1C:958E: 00        .byte $00
 - D - I - - 0x03959F 1C:958F: 04        .byte $04
 - D - I - - 0x0395A0 1C:9590: 50        .byte $50
 - D - I - - 0x0395A1 1C:9591: 00        .byte $00
+; 01 бесплатный???
+; может это который использует команда которая пиздит всех подряд?
+; а еще же есть игроки которые в воздухе могут отпиздить просто так без спешала
 - D - I - - 0x0395A2 1C:9592: FC        .byte $FC
 - D - I - - 0x0395A3 1C:9593: 08        .byte $08
 - D - I - - 0x0395A4 1C:9594: 00        .byte $00
 - D - I - - 0x0395A5 1C:9595: 00        .byte $00
+
+
+
 off_9596_04:
+; 00 
 - D - I - - 0x0395A6 1C:9596: 00        .byte $00
 - D - I - - 0x0395A7 1C:9597: 06        .byte $06
 - D - I - - 0x0395A8 1C:9598: 3C        .byte $3C
 - D - I - - 0x0395A9 1C:9599: 00        .byte $00
+; 01 бесплатный???
+; может это который использует команда которая пиздит всех подряд?
+; а еще же есть игроки которые в воздухе могут отпиздить просто так без спешала
 - D - I - - 0x0395AA 1C:959A: FC        .byte $FC
 - D - I - - 0x0395AB 1C:959B: 0C        .byte $0C
 - D - I - - 0x0395AC 1C:959C: 00        .byte $00
