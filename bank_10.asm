@@ -2846,7 +2846,7 @@ _scenario_8AB1_00:
                             .byte con_jsr
                             .word sub_A2DD_ярко_красное_мерцание
                             .byte con_jsr
-                            .word sub_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил
+                            .word sub_9EAB_рожа_защитника_с_сообщением_неудачи_если_убился
                             .dbyt con_branch_short + con_bra_результат_действия_защитника
                             .byte off_case_00_00_01_00_00 - * ; атакующий легко обводит
                             .byte off_case_00_00_01_00_01 - * ; атакующий с трудом обводит
@@ -2886,14 +2886,14 @@ _scenario_8AB1_00:
                                 off_case_00_00_01_01_00:
                                 ; мяч у атакующего на земле/кто-то из соперников убьется/tackle/атакующий легко обводит
                                     .byte con_jsr
-                                    .word sub_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил
+                                    .word sub_9EAB_рожа_защитника_с_сообщением_неудачи_если_убился
                                     .byte con_jmp
                                     .word loc_9F62_рандом_анимации_отпизженного_игрока_2_с_сообщением
 
                                 off_case_00_00_01_01_01:
                                 ; мяч у атакующего на земле/кто-то из соперников убьется/tackle/атакующий с трудом обводит
                                     .byte con_jsr
-                                    .word sub_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил
+                                    .word sub_9EAB_рожа_защитника_с_сообщением_неудачи_если_убился
                                     .byte con_jsr
                                     .word sub_9F5C_рандом_анимации_отпизженного_игрока_1_с_сообщением
                                     .byte con_jmp
@@ -2903,7 +2903,7 @@ _scenario_8AB1_00:
                                 ; мяч у атакующего на земле/кто-то из соперников убьется/tackle/защитник выбьет мяч
                                     .byte con_mirror_toggle
                                     .byte con_jsr
-                                    .word sub_9E64_рожа_атакующего_с_сообщением_неудачи_если_выжил
+                                    .word sub_9E65_рожа_атакующего_с_сообщением_неудачи_если_убился
                                     .byte con_mirror_toggle
                                     .byte con_jsr
                                     .word sub_9F6E_рандом_анимации_отпизженного_игрока_3_с_сообщением
@@ -2914,7 +2914,7 @@ _scenario_8AB1_00:
                                 ; мяч у атакующего на земле/кто-то из соперников убьется/tackle/защитник заберет мяч
                                     .byte con_mirror_toggle
                                     .byte con_jsr
-                                    .word sub_9E64_рожа_атакующего_с_сообщением_неудачи_если_выжил
+                                    .word sub_9E65_рожа_атакующего_с_сообщением_неудачи_если_убился
                                     .byte con_mirror_toggle
                                     .byte con_jsr
                                     .word sub_9F74_рандом_анимации_отпизженного_игрока_2_без_сообщения
@@ -9965,6 +9965,26 @@ sub_9E64_рожа_атакующего_с_сообщением_неудачи_е
 
 
 
+sub_9E65_рожа_атакующего_с_сообщением_неудачи_если_убился:
+    .dbyt con_branch_short + con_bra_атакующий_с_рожей
+    .byte off_case_9E65_00 - * ; атакующий без рожи
+    .byte off_case_9E65_01 - * ; атакующий с рожей
+
+        off_case_9E65_00:
+        ; атакующий без рожи
+            .byte con_rts
+
+        off_case_9E65_01:
+        ; атакующий с рожей
+            .byte con_pause + $3C
+            .byte con_bg + $30
+            .byte con_animation + con_face_attacker
+            .byte con_cloud + $8E
+            .byte con_jmp
+            .word loc_BBC7_очистка
+
+
+
 loc_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил:
 sub_9EAA_рожа_защитника_с_сообщением_неудачи_если_выжил:
     .dbyt con_branch_short + con_bra_защитник_с_рожей
@@ -9981,6 +10001,26 @@ sub_9EAA_рожа_защитника_с_сообщением_неудачи_ес
             .byte con_bg + $30
             .byte con_animation + con_face_defender
             .byte con_cloud + $8F
+            .byte con_jmp
+            .word loc_BBC7_очистка
+
+
+
+sub_9EAB_рожа_защитника_с_сообщением_неудачи_если_убился:
+    .dbyt con_branch_short + con_bra_защитник_с_рожей
+    .byte off_case_9EAB_00 - * ; защитник без рожи
+    .byte off_case_9EAB_01 - * ; защитник с рожей
+
+        off_case_9EAB_00:
+        ; защитник без рожи
+            .byte con_rts
+
+        off_case_9EAB_01:
+        ; защитник с рожей
+            .byte con_pause + $3C
+            .byte con_bg + $30
+            .byte con_animation + con_face_defender
+            .byte con_cloud + $91
             .byte con_jmp
             .word loc_BBC7_очистка
 
