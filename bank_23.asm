@@ -332,7 +332,7 @@ off_AF35_17_цубаса_читает_письмо:
     .byte con_line
     .byte con_speed, $02
     .byte con_offset, $0C
-    .byte "_"
+    .text "_"
     .byte con_pause, $14
     .text " Roberto Hongo"
     .byte con_pause, $78

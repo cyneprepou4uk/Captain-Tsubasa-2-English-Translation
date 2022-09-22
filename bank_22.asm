@@ -269,7 +269,7 @@ off_A195_13_после_победы_над_японией:
     .byte con_pause, $14
     .byte con_sound, $01
     .byte con_animation, $01, $12
-    .byte "_"
+    .text "_"
     .byte con_pause, $50
     .byte con_speed, $08
     .text "will...@"
