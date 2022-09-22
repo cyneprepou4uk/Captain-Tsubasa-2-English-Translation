@@ -723,7 +723,7 @@ bra_CA99_loop:
 C - - - - - 0x03CAA9 FF:CA99: B5 00     LDA ram_0000,X
 C - - - - - 0x03CAAB FF:CA9B: F0 08     BEQ bra_CAA5
 C - - - - - 0x03CAAD FF:CA9D: C9 FF     CMP #$FF
-C - - - - - 0x03CAAF FF:CA9F: F0 33     BEQ bra_CAD4
+C - - - - - 0x03CAAF FF:CA9F: F0 33     BEQ bra_CAD4_FF
 C - - - - - 0x03CAB1 FF:CAA1: D6 00     DEC ram_0000,X
 C - - - - - 0x03CAB3 FF:CAA3: F0 14     BEQ bra_CAB9
 bra_CAA5:
@@ -758,7 +758,7 @@ C - - - - - 0x03CAE0 FF:CAD0: A8        TAY
 C - - - - - 0x03CAE1 FF:CAD1: 68        PLA
 C - - - - - 0x03CAE2 FF:CAD2: AA        TAX
 C - - - - - 0x03CAE3 FF:CAD3: 60        RTS
-bra_CAD4:
+bra_CAD4_FF:
 C - - - - - 0x03CAE4 FF:CAD4: 86 00     STX ram_0000
 C - - - - - 0x03CAE6 FF:CAD6: B5 02     LDA ram_0002,X
 C - - - - - 0x03CAE8 FF:CAD8: 85 24     STA ram_для_5114
@@ -832,34 +832,34 @@ C - - - - - 0x03CB3A FF:CB2A: 4C A5 CA  JMP loc_CAA5
 
 sub_CB35_очистить_nametable:
 sub_0x03CB45_очистить_nametable:
-                    LDA ram_0020
-                    AND #$7F
-                    STA ram_0020
-                    STA $2000
-                    LDA #$06
-                    STA $2001
-                    BIT $2002
-                    LDA #> $2000
-                    STA $2006
-                    LDA #< $2000
-                    STA $2006
-                    TAX
-                    LDY #$08
+    LDA ram_0020
+    AND #$7F
+    STA ram_0020
+    STA $2000
+    LDA #$06
+    STA $2001
+    BIT $2002
+    LDA #> $2000
+    STA $2006
+    LDA #< $2000
+    STA $2006
+    TAX
+    LDY #$08
 @цикл:
-                    STA $2007
-                    DEX
-                    BNE @цикл
-                    DEY
-                    BNE @цикл
-                    STA $2005
-                    STA $2005
-                    LDA #$1E
-                    STA $2001
-                    LDA ram_0020
-                    ORA #$80
-                    STA ram_0020
-                    STA $2000
-                    RTS
+    STA $2007
+    DEX
+    BNE @цикл
+    DEY
+    BNE @цикл
+    STA $2005
+    STA $2005
+    LDA #$1E
+    STA $2001
+    LDA ram_0020
+    ORA #$80
+    STA ram_0020
+    STA $2000
+    RTS
 
 
 
@@ -901,7 +901,7 @@ sub_CBB0_запись_номера_сценария:
 sub_0x03CBC0_запись_номера_сценария:
 C D - - - - 0x03CBC0 FF:CBB0: 8D 18 05  STA ram_сценарий
 C - - - - - 0x03CBC3 FF:CBB3: A9 80     LDA #$80
-C - - - - - 0x03CBC5 FF:CBB5: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03CBC5 FF:CBB5: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03CBCC FF:CBBC: A9 00     LDA #$00
 C - - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03CBD1 FF:CBC1: 60        RTS
@@ -976,6 +976,7 @@ C - - - - - 0x03CC55 FF:CC45: 60        RTS
 
 
 sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана:
+; bzk опт, прыжок на STA
     LDA #$07
     STA ram_temp_2
     BNE bra_CC47    ; jmp
@@ -1169,7 +1170,7 @@ sub_0x03CD4C_получить_младший_разряд_числа:
 ; 16-битное число
     ; 006F = low
     ; 0070 = high
-    ; 0071 = система счисления (0A - DEC)
+    ; 0071 = система счисления (0A = DEC)
 ; после вычисления подпрограммы
     ; 0072 младший разряд числа данной системы счисления
     ; 006F (low) + 0070 (high) = остальные 4 разряда числа, переведенного в HEX
@@ -1331,7 +1332,7 @@ C - - - - - 0x03CE0D FF:CDFD: CA        DEX
 C - - - - - 0x03CE0E FF:CDFE: 30 07     BMI bra_CE07_RTS
 C - - - - - 0x03CE10 FF:CE00: 18        CLC
 C - - - - - 0x03CE11 FF:CE01: 69 0C     ADC #$0C
-C - - - - - 0x03CE13 FF:CE03: D0 F8     BNE bra_CDFD_loop
+C - - - - - 0x03CE13 FF:CE03: D0 F8     BNE bra_CDFD_loop   ; jmp?
 bra_CE05:
 C - - - - - 0x03CE15 FF:CE05: A9 FF     LDA #$FF
 bra_CE07_RTS:
@@ -1356,7 +1357,7 @@ C - - - - - 0x03CE27 FF:CE17: 85 24     STA ram_для_5114
 C - - - - - 0x03CE29 FF:CE19: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03CE2B FF:CE1B: 85 25     STA ram_для_5115
 C - - - - - 0x03CE2D FF:CE1D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-; здесь номер игрока вытаскивается из стека
+; восстановить номер игрока
 C - - - - - 0x03CE30 FF:CE20: 68        PLA
 ; что-то связанное с уровнем и энергией игрока
 ; бряк срабатывает при отрисовке статов во время игры, а также при попытке выбрать действие
@@ -5985,15 +5986,15 @@ C D - - - - 0x03EC15 FF:EC05: 4C 86 EB  JMP loc_EB86
 
 
 sub_EC08:
-C - - - - - 0x03EC18 FF:EC08: AD 16 05  LDA ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC18 FF:EC08: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC1B FF:EC0B: 29 81     AND #$81
 C - - - - - 0x03EC1D FF:EC0D: D0 01     BNE bra_EC10
 C - - - - - 0x03EC1F FF:EC0F: 60        RTS
 bra_EC10:
-C - - - - - 0x03EC20 FF:EC10: 2C 16 05  BIT ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC20 FF:EC10: 2C 16 05  BIT ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC23 FF:EC13: 10 1F     BPL bra_EC34
 C - - - - - 0x03EC25 FF:EC15: A9 01     LDA #$01
-C - - - - - 0x03EC27 FF:EC17: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC27 FF:EC17: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC2A FF:EC1A: 48        PHA
 C - - - - - 0x03EC2D FF:EC1D: A9 10     LDA #con_prg_bank + $10
 C - - - - - 0x03EC2F FF:EC1F: 85 24     STA ram_для_5114
@@ -6017,13 +6018,13 @@ C - - - - - 0x03EC54 FF:EC44: 8D 36 05  STA ram_0536
 C - - - - - 0x03EC57 FF:EC47: 8D 38 05  STA ram_0538
 C - - - - - 0x03EC5A FF:EC4A: 8D 39 05  STA ram_0539
 C - - - - - 0x03EC5D FF:EC4D: A9 08     LDA #$08
-C - - - - - 0x03EC5F FF:EC4F: 2C 16 05  BIT ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC5F FF:EC4F: 2C 16 05  BIT ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC62 FF:EC52: D0 21     BNE bra_EC75
-C - - - - - 0x03EC64 FF:EC54: AD 16 05  LDA ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC64 FF:EC54: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC67 FF:EC57: 29 50     AND #$50
 C - - - - - 0x03EC69 FF:EC59: C9 50     CMP #$50
 C - - - - - 0x03EC6B FF:EC5B: F0 2F     BEQ bra_EC8C
-C - - - - - 0x03EC6D FF:EC5D: 2C 16 05  BIT ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC6D FF:EC5D: 2C 16 05  BIT ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC70 FF:EC60: 70 12     BVS bra_EC74_RTS
 C - - - - - 0x03EC72 FF:EC62: 48        PHA
 C - - - - - 0x03EC75 FF:EC65: A9 10     LDA #con_prg_bank + $10
@@ -6036,28 +6037,28 @@ C - - - - - 0x03EC81 FF:EC71: 20 03 80  JSR sub_0x020031_обработка_ба
 bra_EC74_RTS:
 C - - - - - 0x03EC84 FF:EC74: 60        RTS
 bra_EC75:
-C - - - - - 0x03EC85 FF:EC75: 4D 16 05  EOR ram_флаг_сценария_ХЗ
-C - - - - - 0x03EC88 FF:EC78: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC85 FF:EC75: 4D 16 05  EOR ram_флаги_сценария_ХЗ
+C - - - - - 0x03EC88 FF:EC78: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC8B FF:EC7B: A9 00     LDA #$00
 C - - - - - 0x03EC8D FF:EC7D: 8D D2 05  STA ram_05D2
 C - - - - - 0x03EC92 FF:EC82: 85 0D     STA ram_000D
 C - - - - - 0x03EC94 FF:EC84: 85 0E     STA ram_000E
-C - - - - - 0x03EC98 FF:EC88: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC98 FF:EC88: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC9B FF:EC8B: 60        RTS
 bra_EC8C:
-C - - - - - 0x03EC9C FF:EC8C: AD 16 05  LDA ram_флаг_сценария_ХЗ
+C - - - - - 0x03EC9C FF:EC8C: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC9F FF:EC8F: 29 8F     AND #$8F
-C - - - - - 0x03ECA1 FF:EC91: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03ECA1 FF:EC91: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03ECA4 FF:EC94: AD 23 05  LDA ram_для_0519_задержка_следующей_анимации
 C - - - - - 0x03ECA7 FF:EC97: 8D 19 05  STA ram_задержка_следующей_анимации
 C - - - - - 0x03ECAA FF:EC9A: AD 24 05  LDA ram_фон_анимации
 C - - - - - 0x03ECAD FF:EC9D: C9 FF     CMP #$FF
 C - - - - - 0x03ECAF FF:EC9F: F0 56     BEQ bra_ECF7
 C - - - - - 0x03ECB1 FF:ECA1: A9 04     LDA #$04
-C - - - - - 0x03ECB3 FF:ECA3: 2C 16 05  BIT ram_флаг_сценария_ХЗ
+C - - - - - 0x03ECB3 FF:ECA3: 2C 16 05  BIT ram_флаги_сценария_ХЗ
 C - - - - - 0x03ECB6 FF:ECA6: F0 0F     BEQ bra_ECB7
-C - - - - - 0x03ECB8 FF:ECA8: 4D 16 05  EOR ram_флаг_сценария_ХЗ
-C - - - - - 0x03ECBB FF:ECAB: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03ECB8 FF:ECA8: 4D 16 05  EOR ram_флаги_сценария_ХЗ
+C - - - - - 0x03ECBB FF:ECAB: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03ECBE FF:ECAE: A9 00     LDA #$00
 C - - - - - 0x03ECC0 FF:ECB0: 85 11     STA ram_0011
 C - - - - - 0x03ECC2 FF:ECB2: 85 12     STA ram_0012
@@ -6145,12 +6146,12 @@ C D - - - - 0x03ED6B FF:ED5B: CA        DEX
 C - - - - - 0x03ED6C FF:ED5C: 8E 19 05  STX ram_задержка_следующей_анимации
 C - - - - - 0x03ED6F FF:ED5F: E0 28     CPX #$28
 C - - - - - 0x03ED71 FF:ED61: B0 21     BCS bra_ED84_RTS
-C - - - - - 0x03ED73 FF:ED63: AD 16 05  LDA ram_флаг_сценария_ХЗ
+C - - - - - 0x03ED73 FF:ED63: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x03ED76 FF:ED66: 29 20     AND #$20
 C - - - - - 0x03ED78 FF:ED68: D0 1A     BNE bra_ED84_RTS
-C - - - - - 0x03ED7A FF:ED6A: AD 16 05  LDA ram_флаг_сценария_ХЗ
+C - - - - - 0x03ED7A FF:ED6A: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x03ED7D FF:ED6D: 09 20     ORA #$20
-C - - - - - 0x03ED7F FF:ED6F: 8D 16 05  STA ram_флаг_сценария_ХЗ
+C - - - - - 0x03ED7F FF:ED6F: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03ED82 FF:ED72: 48        PHA
 C - - - - - 0x03ED85 FF:ED75: A9 10     LDA #con_prg_bank + $10
 C - - - - - 0x03ED87 FF:ED77: 85 24     STA ram_для_5114

@@ -4303,7 +4303,7 @@ C - - - - - 0x0271BF 13:B1AF: 20 4E C5  JSR sub_0x03CBC0_запись_номер
 bra_B1B2_loop:
 C - - - - - 0x0271C2 13:B1B2: A9 01     LDA #$01
 C - - - - - 0x0271C4 13:B1B4: 20 15 C5  JSR sub_0x03CB1F_задержка
-C - - - - - 0x0271C7 13:B1B7: AD 16 05  LDA ram_флаг_сценария_ХЗ
+C - - - - - 0x0271C7 13:B1B7: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x0271CA 13:B1BA: D0 F6     BNE bra_B1B2_loop
 C - - - - - 0x0271CC 13:B1BC: A9 00     LDA #$00
 C - - - - - 0x0271CE 13:B1BE: 85 11     STA ram_0011
