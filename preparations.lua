@@ -264,11 +264,79 @@ for _, f in ipairs(files_list) do                               --execute this l
     io.write(text)                                              --paste translated text
     file_main_copy:flush()                                      --make sure all text was pasted from the buffer
     file_main_copy:close()                                      --close file
-    
-    
-    
+
+
+
     --print("Done!\n")            --file is ready for the assembler
 end
+
+
+
+--создание файла комментов для FCEUX
+--чтение перевведенного на английский файла с адресами
+local inc_file, err = io.open("copy_bank_ram.inc", "r")
+if err ~= nil then PrintError(err) end
+
+local nl_file, err = io.open("!ct2.nes.ram.nl", "w+")
+if err ~= nil then PrintError(err) end
+io.output(nl_file)
+
+local tbl = {}
+while true do
+    local line = inc_file:read("*line")
+    if line == nil then
+        io.close(inc_file)
+        break
+    end
+    
+    --удалить все пробелы
+    line = string.gsub(line, " ", "")
+    local find_start, find_end = string.find(line, "=%$")
+    local f_start, _ = string.find(line, ";")
+    --найти символ коммента
+    if f_start ~= nil and find_start ~= nil then
+        if f_start < find_start then
+            --если коммент существует и находится до "=$" тогда притвориться что адреса не существует
+            find_start = nil
+        end
+    end
+    
+    local address = ""
+    if find_start ~= nil then
+        local i = find_start + 2
+        while true do
+            --тест всех символов после "=$", проверка на то что это hex числа, получаем строку из чисел
+            local byte = ""
+            byte = string.sub(line, i, i)
+            test = tonumber(byte, 16)
+            if test == nil then break end
+            address = address..byte
+            i = i + 1
+        end
+    end
+    
+    --проверка что итоговое чисто стопудово hex число, в таком случае создать коммент
+    result = tonumber(address, 16)
+    if result ~= nil then
+        tbl[result + 1] = string.sub(line, 0, find_start - 1)
+    end
+end
+
+--запись комментов, если это не примитивный ram_ коммент, а также если это не con_ коммент
+for i = 0x0, 0x7FFF, 1 do
+    if tbl[i + 1] ~= nil then
+        if tbl[i + 1] ~= "ram_"..string.upper(string.format("%04x", i)) then
+            if string.find(tbl[i + 1], "con_") == nil then
+                local str = "$"..string.upper(string.format("%04x", i)).."#"..tbl[i + 1].."#\n"
+                str = string.gsub(str, "ram_", "")
+                io.write(str)
+            end
+        end
+    end
+end
+
+io.flush(nl_file)
+io.close(nl_file)
 
 
 
