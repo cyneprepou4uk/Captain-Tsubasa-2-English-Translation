@@ -7,48 +7,49 @@ if exist !ct2.old (copy !ct2.nes !ct2.old)
 :: запустить перевод символов и дождаться выполнения скрипта
 start /wait lua53 preparations.lua
 
-:: -U = нет необходимости писать .import L_xx_xxxx в тех банках, которые ссылаются на .export L_xx_xxxx
+:: -U = нет необходимости писать .import label
 :: -l = создать файл листинга для этого банка
-ca65 -U -l copy_bank_00.asm
-ca65 -U -l copy_bank_01.asm
-ca65 -U -l copy_bank_02.asm
-ca65 -U -l copy_bank_03.asm
-ca65 -U -l copy_bank_04.asm
-ca65 -U -l copy_bank_05.asm
-ca65 -U -l copy_bank_06.asm
-ca65 -U -l copy_bank_07.asm
-ca65 -U -l copy_bank_08.asm
-ca65 -U -l copy_bank_09.asm
-ca65 -U -l copy_bank_0A.asm
-ca65 -U -l copy_bank_0B.asm
-ca65 -U -l copy_bank_0C.asm
-ca65 -U -l copy_bank_0D.asm
-ca65 -U -l copy_bank_0E.asm
-ca65 -U -l copy_bank_0F.asm
-ca65 -U -l copy_bank_10.asm
-ca65 -U -l copy_bank_12.asm
-ca65 -U -l copy_bank_13.asm
-ca65 -U -l copy_bank_14.asm
-ca65 -U -l copy_bank_16.asm
-ca65 -U -l copy_bank_18.asm
-ca65 -U -l copy_bank_1A.asm
-ca65 -U -l copy_bank_1C.asm
-ca65 -U -l copy_bank_1E.asm
-ca65 -U -l copy_bank_1F.asm
-ca65 -U -l copy_bank_20.asm
-ca65 -U -l copy_bank_21.asm
-ca65 -U -l copy_bank_22.asm
-ca65 -U -l copy_bank_23.asm
-ca65 -U -l copy_bank_24.asm
-ca65 -U -l copy_bank_25.asm
-ca65 -U -l copy_bank_26.asm
-ca65 -U -l copy_bank_27.asm
-ca65 -U -l copy_bank_28.asm
-ca65 -U -l copy_bank_29.asm
-ca65 -U -l copy_bank_FF.asm
+:: -g = создать файл дебага для этого банка
+ca65 -U -l -g copy_bank_00.asm
+ca65 -U -l -g copy_bank_01.asm
+ca65 -U -l -g copy_bank_02.asm
+ca65 -U -l -g copy_bank_03.asm
+ca65 -U -l -g copy_bank_04.asm
+ca65 -U -l -g copy_bank_05.asm
+ca65 -U -l -g copy_bank_06.asm
+ca65 -U -l -g copy_bank_07.asm
+ca65 -U -l -g copy_bank_08.asm
+ca65 -U -l -g copy_bank_09.asm
+ca65 -U -l -g copy_bank_0A.asm
+ca65 -U -l -g copy_bank_0B.asm
+ca65 -U -l -g copy_bank_0C.asm
+ca65 -U -l -g copy_bank_0D.asm
+ca65 -U -l -g copy_bank_0E.asm
+ca65 -U -l -g copy_bank_0F.asm
+ca65 -U -l -g copy_bank_10.asm
+ca65 -U -l -g copy_bank_12.asm
+ca65 -U -l -g copy_bank_13.asm
+ca65 -U -l -g copy_bank_14.asm
+ca65 -U -l -g copy_bank_16.asm
+ca65 -U -l -g copy_bank_18.asm
+ca65 -U -l -g copy_bank_1A.asm
+ca65 -U -l -g copy_bank_1C.asm
+ca65 -U -l -g copy_bank_1E.asm
+ca65 -U -l -g copy_bank_1F.asm
+ca65 -U -l -g copy_bank_20.asm
+ca65 -U -l -g copy_bank_21.asm
+ca65 -U -l -g copy_bank_22.asm
+ca65 -U -l -g copy_bank_23.asm
+ca65 -U -l -g copy_bank_24.asm
+ca65 -U -l -g copy_bank_25.asm
+ca65 -U -l -g copy_bank_26.asm
+ca65 -U -l -g copy_bank_27.asm
+ca65 -U -l -g copy_bank_28.asm
+ca65 -U -l -g copy_bank_29.asm
+ca65 -U -l -g copy_bank_FF.asm
 
 :: компиляция кода в бинарники
-ld65 -C ld65.cfg ^
+ld65 -C ld65.cfg --dbgfile _debug.txt ^
     copy_bank_00.o ^
     copy_bank_01.o ^
     copy_bank_02.o ^
@@ -131,7 +132,7 @@ copy /B header.bin + ^
 del *.o + copy_*.bin + copy_*.asm + copy_*.inc + temp_*.asm + temp_*.inc
 
 :: объединить файлы листинга в один файл
-copy /A copy_*.lst !debug.txt
+copy /A copy_*.lst _listing.txt
 
 :: удалить копии листинга
 del copy_*.lst
