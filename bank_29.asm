@@ -2,6 +2,9 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+
+
+
 ; текст облаков
 
 
@@ -828,4 +831,6 @@ _фраза_нападающего_3F:
     .text "                    ", con_line
     .text "                    ", con_line
     .byte con_exit
+
+
 

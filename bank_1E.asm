@@ -2,6 +2,9 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+
+
+
 ; таблицы VS экрана
 
 
@@ -3522,3 +3525,6 @@ off_матч_33:
     .byte $46
     .word $22B1
     .text "Brazil"
+
+
+

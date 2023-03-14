@@ -2,6 +2,9 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+
+
+
 ; текст облаков
 
 
@@ -6882,3 +6885,6 @@ _cloud_0x000EF_EF:
 - D - I - - 0x032D2A 27:AD1A: FC        .byte con_line
     .byte con_line
 - D - I - - 0x032D2B 27:AD1B: F0        .byte con_exit
+
+
+

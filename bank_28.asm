@@ -2,6 +2,9 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+
+
+
 ; текст облаков
 
 
@@ -563,7 +566,7 @@ off_A302_ожидание_7:
     .text "                    ", con_line
     .text "     Kick off!!     ", con_line
     .text "                    ", con_line
-off_A3A6_цикл:
+off_A3A6_loop:
     .byte con_pause + $B4
     
     .byte con_charlie + $09
@@ -575,4 +578,7 @@ off_A3A6_цикл:
     .text "                    ", con_line
 
     .byte con_jump
-    .word off_A3A6_цикл
+    .word off_A3A6_loop
+
+
+

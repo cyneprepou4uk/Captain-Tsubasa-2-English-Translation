@@ -2,6 +2,9 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+
+
+
 ; имена игроков, команды, спешалы, словарь
 
 
@@ -74,7 +77,11 @@ loc_копирование_текста:
     STA ram_0031
     RTS
 
+
+
 tbl_teams_with_clones:
+; запасные бразильские имена https://captaintsubasa.fandom.com/wiki/Category:Brazil%27s_clubs
+; запасные арабские имена https://parenting.firstcry.com/articles/100-unique-arabic-baby-names-for-boys/
     .word _team_Fluminense
     .word _team_Corinthians
     .word _team_Gremio
@@ -109,10 +116,10 @@ tbl_teams_with_clones:
     .word _team_West_Germany
     .word _team_Brazil
 
-; запасные бразильские имена https://captaintsubasa.fandom.com/wiki/Category:Brazil%27s_clubs
-; запасные арабские имена https://parenting.firstcry.com/articles/100-unique-arabic-baby-names-for-boys/
 
-_team_Fluminense:        ; https://captaintsubasa.fandom.com/wiki/Fluminense_(Tecmo)
+
+_team_Fluminense:
+; https://captaintsubasa.fandom.com/wiki/Fluminense_(Tecmo)
     .word Fluminense_clone_01
     .word Fluminense_clone_02
     .word Fluminense_clone_03
@@ -125,7 +132,8 @@ _team_Fluminense:        ; https://captaintsubasa.fandom.com/wiki/Fluminense_(Te
     .word Fluminense_clone_10
     .word Fluminense_clone_11
 
-_team_Corinthians:       ; https://captaintsubasa.fandom.com/wiki/Corinthians_Youth_(Tecmo)
+_team_Corinthians:
+; https://captaintsubasa.fandom.com/wiki/Corinthians_Youth_(Tecmo)
     .word Corinthians_clone_01
     .word Corinthians_clone_02
     .word Corinthians_clone_03
@@ -138,7 +146,8 @@ _team_Corinthians:       ; https://captaintsubasa.fandom.com/wiki/Corinthians_Yo
     .word $0000
     .word Corinthians_clone_11
 
-_team_Gremio:            ; https://captaintsubasa.fandom.com/wiki/Gremio_Youth_(Tecmo)
+_team_Gremio:
+; https://captaintsubasa.fandom.com/wiki/Gremio_Youth_(Tecmo)
     .word $0000
     .word Gremio_clone_02
     .word Gremio_clone_03
@@ -151,7 +160,8 @@ _team_Gremio:            ; https://captaintsubasa.fandom.com/wiki/Gremio_Youth_(
     .word Gremio_clone_10
     .word Gremio_clone_11
 
-_team_Palmeiras:         ; https://tsubasa.im/global/en/npc_deck/?id=160211&event_type=1&world=16&stage=16021
+_team_Palmeiras:
+; https://tsubasa.im/global/en/npc_deck/?id=160211&event_type=1&world=16&stage=16021
     .word Palmeiras_clone_01
     .word Palmeiras_clone_02
     .word Palmeiras_clone_03
@@ -164,7 +174,8 @@ _team_Palmeiras:         ; https://tsubasa.im/global/en/npc_deck/?id=160211&even
     .word Palmeiras_clone_10
     .word $0000
 
-_team_Santos:            ; https://captaintsubasa.fandom.com/wiki/Barcelona_(Tecmo)
+_team_Santos:
+; https://captaintsubasa.fandom.com/wiki/Barcelona_(Tecmo)
     .word Santos_clone_01
     .word Santos_clone_02
     .word Santos_clone_03
@@ -177,7 +188,8 @@ _team_Santos:            ; https://captaintsubasa.fandom.com/wiki/Barcelona_(Tec
     .word Santos_clone_10
     .word Santos_clone_11
 
-_team_Flamengo:          ; https://tsubasa.im/global/en/npc_deck/?id=71611&event_type=1&world=7&stage=7161
+_team_Flamengo:
+; https://tsubasa.im/global/en/npc_deck/?id=71611&event_type=1&world=7&stage=7161
     .word Flamengo_clone_01
     .word $0000
     .word Flamengo_clone_03
@@ -190,7 +202,8 @@ _team_Flamengo:          ; https://tsubasa.im/global/en/npc_deck/?id=71611&event
     .word $0000
     .word Flamengo_clone_11
 
-_team_Kunimi:            ; https://tsubasa.im/global/en/npc_deck/?id=80911&event_type=1&world=8&stage=8091
+_team_Kunimi:
+; https://tsubasa.im/global/en/npc_deck/?id=80911&event_type=1&world=8&stage=8091
     .word Kunimi_clone_01
     .word Kunimi_clone_02
     .word Kunimi_clone_03
@@ -203,7 +216,8 @@ _team_Kunimi:            ; https://tsubasa.im/global/en/npc_deck/?id=80911&event
     .word Kunimi_clone_10
     .word Kunimi_clone_11
 
-_team_Akita:             ; https://tsubasa.im/global/en/npc_deck/?id=80211&event_type=1&world=8&stage=8021
+_team_Akita:
+; https://tsubasa.im/global/en/npc_deck/?id=80211&event_type=1&world=8&stage=8021
     .word Akita_clone_01
     .word Akita_clone_02
     .word Akita_clone_03
@@ -216,7 +230,8 @@ _team_Akita:             ; https://tsubasa.im/global/en/npc_deck/?id=80211&event
     .word Akita_clone_10
     .word $0000
 
-_team_Tatsunami:         ; https://tsubasa.im/global/en/npc_deck/?id=80411&event_type=1&world=8&stage=8041
+_team_Tatsunami:
+; https://tsubasa.im/global/en/npc_deck/?id=80411&event_type=1&world=8&stage=8041
     .word $0000
     .word Tatsunami_clone_02
     .word Tatsunami_clone_03
@@ -229,7 +244,8 @@ _team_Tatsunami:         ; https://tsubasa.im/global/en/npc_deck/?id=80411&event
     .word Tatsunami_clone_10
     .word Tatsunami_clone_11
 
-_team_Musashi:           ; https://tsubasa.im/global/en/npc_deck/?id=11111&event_type=1&world=1&stage=1111
+_team_Musashi:
+; https://tsubasa.im/global/en/npc_deck/?id=11111&event_type=1&world=1&stage=1111
     .word Musashi_clone_01
     .word Musashi_clone_02
     .word Musashi_clone_03
@@ -242,7 +258,8 @@ _team_Musashi:           ; https://tsubasa.im/global/en/npc_deck/?id=11111&event
     .word Musashi_clone_10
     .word Musashi_clone_11
 
-_team_Furano:            ; https://tsubasa.im/global/en/npc_deck/?id=41311&event_type=1&world=4&stage=4131
+_team_Furano:
+; https://tsubasa.im/global/en/npc_deck/?id=41311&event_type=1&world=4&stage=4131
     .word Furano_clone_01
     .word Furano_clone_02
     .word Furano_clone_03
@@ -255,7 +272,8 @@ _team_Furano:            ; https://tsubasa.im/global/en/npc_deck/?id=41311&event
     .word $0000
     .word Furano_clone_11
 
-_team_Toho:              ; https://tsubasa.im/global/en/npc_deck/?id=30911&event_type=1&world=3&stage=3091
+_team_Toho:
+; https://tsubasa.im/global/en/npc_deck/?id=30911&event_type=1&world=3&stage=3091
     .word $0000
     .word Toho_clone_02
     .word Toho_clone_03
@@ -268,7 +286,8 @@ _team_Toho:              ; https://tsubasa.im/global/en/npc_deck/?id=30911&event
     .word $0000
     .word Toho_clone_11
 
-_team_AS_Roma:           ; https://captaintsubasa.fandom.com/wiki/Roma_(Tecmo)
+_team_AS_Roma:
+; https://captaintsubasa.fandom.com/wiki/Roma_(Tecmo)
     .word AS_Roma_clone_01
     .word AS_Roma_clone_02
     .word AS_Roma_clone_03
@@ -281,7 +300,8 @@ _team_AS_Roma:           ; https://captaintsubasa.fandom.com/wiki/Roma_(Tecmo)
     .word AS_Roma_clone_10
     .word AS_Roma_clone_11
 
-_team_Uruguay:           ; https://tsubasa.im/global/en/npc_deck/?id=130711&event_type=1&world=13&stage=13071
+_team_Uruguay:
+; https://tsubasa.im/global/en/npc_deck/?id=130711&event_type=1&world=13&stage=13071
     .word Uruguay_clone_01
     .word Uruguay_clone_02
     .word Uruguay_clone_03
@@ -294,7 +314,8 @@ _team_Uruguay:           ; https://tsubasa.im/global/en/npc_deck/?id=130711&even
     .word Uruguay_clone_10
     .word $0000
 
-_team_Hamburger_SV:      ; https://tsubasa.im/global/en/npc_deck/?id=180911&event_type=1&world=18&stage=18091
+_team_Hamburger_SV:
+; https://tsubasa.im/global/en/npc_deck/?id=180911&event_type=1&world=18&stage=18091
     .word $0000
     .word Hamburger_SV_clone_02
     .word Hamburger_SV_clone_03
@@ -320,7 +341,8 @@ _team_Japan:
     .word $0000
     .word $0000
 
-_team_Syria:             ; http://www.firstnamesbaby.com/Names-By-Country/Syrian/Boy/
+_team_Syria:
+; http://www.firstnamesbaby.com/Names-By-Country/Syrian/Boy/
     .word Syria_clone_01
     .word Syria_clone_02
     .word Syria_clone_03
@@ -333,7 +355,8 @@ _team_Syria:             ; http://www.firstnamesbaby.com/Names-By-Country/Syrian
     .word Syria_clone_10
     .word Syria_clone_11
 
-_team_China:             ; https://tsubasa.im/global/en/npc_deck/?id=111011&event_type=1&world=11&stage=11101
+_team_China:
+; https://tsubasa.im/global/en/npc_deck/?id=111011&event_type=1&world=11&stage=11101
     .word China_clone_01
     .word China_clone_02
     .word China_clone_03
@@ -346,7 +369,8 @@ _team_China:             ; https://tsubasa.im/global/en/npc_deck/?id=111011&even
     .word China_clone_10
     .word $0000
 
-_team_Iran:              ; https://www.behindthename.com/names/gender/masculine/usage/persian
+_team_Iran:
+; https://www.behindthename.com/names/gender/masculine/usage/persian
     .word Iran_clone_01
     .word Iran_clone_02
     .word Iran_clone_03
@@ -359,7 +383,8 @@ _team_Iran:              ; https://www.behindthename.com/names/gender/masculine/
     .word Iran_clone_10
     .word Iran_clone_11
 
-_team_North_Korea:       ; https://captaintsubasa.fandom.com/wiki/South_Korea_(Tecmo)
+_team_North_Korea:
+; https://captaintsubasa.fandom.com/wiki/South_Korea_(Tecmo)
     .word North_Korea_clone_01
     .word North_Korea_clone_02
     .word North_Korea_clone_03
@@ -372,7 +397,8 @@ _team_North_Korea:       ; https://captaintsubasa.fandom.com/wiki/South_Korea_(T
     .word North_Korea_clone_10
     .word North_Korea_clone_11
 
-_team_Saudi_Arabia:      ; https://tsubasa.im/global/en/npc_deck/?id=110411&event_type=1&world=11&stage=11041
+_team_Saudi_Arabia:
+; https://tsubasa.im/global/en/npc_deck/?id=110411&event_type=1&world=11&stage=11041
     .word Saudi_Arabia_clone_01
     .word Saudi_Arabia_clone_02
     .word Saudi_Arabia_clone_03
@@ -385,7 +411,8 @@ _team_Saudi_Arabia:      ; https://tsubasa.im/global/en/npc_deck/?id=110411&even
     .word Saudi_Arabia_clone_10
     .word Saudi_Arabia_clone_11
 
-_team_South_Korea:       ; https://tsubasa.im/global/en/npc_deck/?id=120411&event_type=1&world=12&stage=12041
+_team_South_Korea:
+; https://tsubasa.im/global/en/npc_deck/?id=120411&event_type=1&world=12&stage=12041
     .word South_Korea_clone_01
     .word South_Korea_clone_02
     .word South_Korea_clone_03
@@ -398,7 +425,8 @@ _team_South_Korea:       ; https://tsubasa.im/global/en/npc_deck/?id=120411&even
     .word $0000
     .word South_Korea_clone_11
 
-_team_Turkey:            ; https://parenting.firstcry.com/articles/50-turkish-baby-names-for-boys/
+_team_Turkey:
+; https://parenting.firstcry.com/articles/50-turkish-baby-names-for-boys/
     .word Turkey_clone_01
     .word Turkey_clone_02
     .word Turkey_clone_03
@@ -411,7 +439,8 @@ _team_Turkey:            ; https://parenting.firstcry.com/articles/50-turkish-ba
     .word Turkey_clone_10
     .word Turkey_clone_11
 
-_team_Poland:            ; https://www.behindthename.com/names/gender/masculine/usage/polish
+_team_Poland:
+; https://www.behindthename.com/names/gender/masculine/usage/polish
     .word $0000
     .word Poland_clone_02
     .word Poland_clone_03
@@ -424,7 +453,8 @@ _team_Poland:            ; https://www.behindthename.com/names/gender/masculine/
     .word Poland_clone_10
     .word $0000
 
-_team_England:           ; https://tsubasa.im/global/en/npc_deck/?id=51311&event_type=1&world=5&stage=5131
+_team_England:
+; https://tsubasa.im/global/en/npc_deck/?id=51311&event_type=1&world=5&stage=5131
     .word England_clone_01
     .word England_clone_02
     .word England_clone_03
@@ -437,7 +467,8 @@ _team_England:           ; https://tsubasa.im/global/en/npc_deck/?id=51311&event
     .word England_clone_10
     .word England_clone_11
 
-_team_Soviet_Union:      ; https://en.wikipedia.org/wiki/List_of_surnames_in_Russia
+_team_Soviet_Union:
+; https://en.wikipedia.org/wiki/List_of_surnames_in_Russia
     .word $0000
     .word Soviet_Union_clone_02
     .word Soviet_Union_clone_03
@@ -450,7 +481,8 @@ _team_Soviet_Union:      ; https://en.wikipedia.org/wiki/List_of_surnames_in_Rus
     .word Soviet_Union_clone_10
     .word Soviet_Union_clone_11
 
-_team_France:            ; https://tsubasa.im/global/en/npc_deck/?id=121011&event_type=1&world=12&stage=12101
+_team_France:
+; https://tsubasa.im/global/en/npc_deck/?id=121011&event_type=1&world=12&stage=12101
     .word France_clone_01
     .word France_clone_02
     .word France_clone_03
@@ -463,7 +495,8 @@ _team_France:            ; https://tsubasa.im/global/en/npc_deck/?id=121011&even
     .word $0000
     .word France_clone_11
 
-_team_Mexico:            ; https://tsubasa.im/global/en/npc_deck/?id=130611&event_type=1&world=13&stage=13061
+_team_Mexico:
+; https://tsubasa.im/global/en/npc_deck/?id=130611&event_type=1&world=13&stage=13061
     .word Mexico_clone_01
     .word Mexico_clone_02
     .word Mexico_clone_03
@@ -476,7 +509,8 @@ _team_Mexico:            ; https://tsubasa.im/global/en/npc_deck/?id=130611&even
     .word $0000
     .word Mexico_clone_11
 
-_team_Italy:             ; https://tsubasa.im/global/en/npc_deck/?id=51011&event_type=1&world=5&stage=5101
+_team_Italy:
+; https://tsubasa.im/global/en/npc_deck/?id=51011&event_type=1&world=5&stage=5101
     .word $0000
     .word Italy_clone_02
     .word Italy_clone_03
@@ -489,7 +523,8 @@ _team_Italy:             ; https://tsubasa.im/global/en/npc_deck/?id=51011&event
     .word Italy_clone_10
     .word Italy_clone_11
 
-_team_Netherlands:       ; https://tsubasa.im/global/en/npc_deck/?id=140911&event_type=1&world=14&stage=14091
+_team_Netherlands:
+; https://tsubasa.im/global/en/npc_deck/?id=140911&event_type=1&world=14&stage=14091
     .word Netherlands_clone_01
     .word Netherlands_clone_02
     .word Netherlands_clone_03
@@ -502,7 +537,8 @@ _team_Netherlands:       ; https://tsubasa.im/global/en/npc_deck/?id=140911&even
     .word Netherlands_clone_10
     .word Netherlands_clone_11
 
-_team_Argentina:         ; https://tsubasa.im/global/en/npc_deck/?id=131211&event_type=1&world=13&stage=13121
+_team_Argentina:
+; https://tsubasa.im/global/en/npc_deck/?id=131211&event_type=1&world=13&stage=13121
     .word Argentina_clone_01
     .word Argentina_clone_02
     .word Argentina_clone_03
@@ -515,7 +551,8 @@ _team_Argentina:         ; https://tsubasa.im/global/en/npc_deck/?id=131211&even
     .word $0000
     .word $0000
 
-_team_West_Germany:      ; https://tsubasa.im/global/en/npc_deck/?id=131411&event_type=1&world=13&stage=13141
+_team_West_Germany:
+; https://tsubasa.im/global/en/npc_deck/?id=131411&event_type=1&world=13&stage=13141
     .word $0000
     .word West_Germany_clone_02
     .word West_Germany_clone_03
@@ -540,9 +577,6 @@ _team_Brazil:
     .word $0000
     .word $0000
     .word $0000
-
-
-
 
 
 
@@ -3099,3 +3133,6 @@ off_FAC4_EE:
 off_FAC8_EF:
     .text "EF "     ; <タイ!>
     .byte $FC
+
+
+
