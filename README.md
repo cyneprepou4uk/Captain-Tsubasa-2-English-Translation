@@ -2,7 +2,7 @@
 
 Captain Tsubasa 2 [NES] disassembly. Most comments are in Russian.
 
-Use `syntax_6502.xml` to highlight code in [Notepad++](https://notepad-plus-plus.org/).
+Use `6502 syntax for notepad plus.xml` to highlight code in [Notepad++](https://notepad-plus-plus.org/).
 
 
 
