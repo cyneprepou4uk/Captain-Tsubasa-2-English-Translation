@@ -1600,22 +1600,22 @@ tbl_AADF:
 ; третий байт начинается с 04 и увеличивается на 01
 tbl_AB1F:
 - D - - - - 0x004B2F 02:AB1F: 6C        .byte $6C
-- - - - - - 0x004B30 02:AB20: 00        .byte $00
+- - - - - - 0x004B30 02:AB20: 00        .byte $00   ; placeholder
 - D - - - - 0x004B31 02:AB21: 04        .byte $04
 - D - - - - 0x004B32 02:AB22: FC        .byte $FC
 
 - D - - - - 0x004B33 02:AB23: 6E        .byte $6E
-- - - - - - 0x004B34 02:AB24: 00        .byte $00
+- - - - - - 0x004B34 02:AB24: 00        .byte $00   ; placeholder
 - D - - - - 0x004B35 02:AB25: 05        .byte $05
 - D - - - - 0x004B36 02:AB26: FC        .byte $FC
 
 - D - - - - 0x004B37 02:AB27: 70        .byte $70
-- - - - - - 0x004B38 02:AB28: 00        .byte $00
+- - - - - - 0x004B38 02:AB28: 00        .byte $00   ; placeholder
 - D - - - - 0x004B39 02:AB29: 06        .byte $06
 - D - - - - 0x004B3A 02:AB2A: FA        .byte $FA
 
 - D - - - - 0x004B3B 02:AB2B: 74        .byte $74
-- - - - - - 0x004B3C 02:AB2C: 00        .byte $00
+- - - - - - 0x004B3C 02:AB2C: 00        .byte $00   ; placeholder
 - D - - - - 0x004B3D 02:AB2D: 07        .byte $07
 - D - - - - 0x004B3E 02:AB2E: FA        .byte $FA
 

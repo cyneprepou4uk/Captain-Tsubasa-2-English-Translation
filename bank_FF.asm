@@ -505,12 +505,13 @@ C - - - - - 0x03C906 FF:C8F6: 60        RTS
 
 
 tbl_C8F7_значение_для_регистра_IRQ:
-; bzk могут возникнуть проблемы с байтом 80, так как после AND 7F + SBC 01 будет FF
+; bzk bug? могут возникнуть проблемы с байтом 80, так как после AND 7F + SBC 01 будет FF
 ; но по видимому этот байт не используется
-- D - - - - 0x03C907 FF:C8F7: FB        .byte $FB
-- - - - - - 0x03C908 FF:C8F8: 80        .byte $80
-- D - - - - 0x03C909 FF:C8F9: 1E        .byte $1E
-- D - - - - 0x03C90A FF:C8FA: DC        .byte $DC
+; в новых логах не читалось
+- D - - - - 0x03C907 FF:C8F7: FB        .byte $FB   ; 00
+- - - - - - 0x03C908 FF:C8F8: 80        .byte $80   ; 01 unused
+- D - - - - 0x03C909 FF:C8F9: 1E        .byte $1E   ; 02
+- D - - - - 0x03C90A FF:C8FA: DC        .byte $DC   ; 03
 
 
 
@@ -1848,7 +1849,7 @@ tbl_D0AC_мелодии_команд:
 - D - - - - 0x03D0DD FF:D0CD: 3D        .byte $3D    ; 21 кубок мира
 - D - - - - 0x03D0DE FF:D0CE: 38        .byte $38    ; 22 германия
 - D - - - - 0x03D0DF FF:D0CF: 3E        .byte $3E    ; 23 бразилия
-; bzk garbage?
+; bzk garbage? в новых логах не читалось
 - - - - - - 0x03D0E0 FF:D0D0: 3E        .byte $3E    ; 24
 
 
@@ -4544,7 +4545,7 @@ C - - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E    ; if команда сп
 
 
 ; if команда слева
-; bzk garbage?
+; bzk garbage? в новых логах не выполнялось
 - - - - - - 0x03E217 FF:E207: 2C 35 06  BIT ram_0635
 - - - - - - 0x03E21A FF:E20A: 10 12     BPL bra_E21E
 - - - - - - 0x03E21C FF:E20C: 48        PHA
@@ -5742,7 +5743,6 @@ C - - - - - 0x03E9E9 FF:E9D9: 60        RTS
 
 
 tbl_E9DA_текст_названия_действий:
-; почему-то 0D не считывалось
 - D - - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00_dribble
 - D - - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01_pass
 - D - - - - 0x03E9EE FF:E9DE: 34 EA     .word off_EA34_02_shoot
@@ -6107,6 +6107,7 @@ C - - - - - 0x03ECD4 FF:ECC4: AD 27 05  LDA ram_0527
 C - - - - - 0x03ECD7 FF:ECC7: 8D 91 04  STA ram_chr_bank + $01
 bra_ECCA:
 C - - - - - 0x03ECDA FF:ECCA: AD 25 05  LDA ram_0525
+; A = 00 01 02 03 04 05 06 07 08 19 
 C - - - - - 0x03ECDD FF:ECCD: A2 00     LDX #$00    ; палитра фона
 C - - - - - 0x03ECDF FF:ECCF: 20 02 CC  JSR sub_CC02_запись_палитры_во_время_матча
 C - - - - - 0x03ECE2 FF:ECD2: 20 D2 CC  JSR sub_CCD3
@@ -6359,7 +6360,7 @@ C - - - - - 0x03EECA FF:EEBA: F0 1E     BEQ bra_EEDA
 
 
 
-; bzk garbage?
+; bzk garbage? в новых логах не выполнялось
 - - - - - - 0x03EECC FF:EEBC: A9 40     LDA #$40
 - - - - - - 0x03EECE FF:EEBE: 38        SEC
 - - - - - - 0x03EECF FF:EEBF: ED 3F 05  SBC ram_053F
@@ -7382,17 +7383,17 @@ tbl_FBCC_палитра:
 - D - I - - 0x03FCE7 FF:FCD7: 36        .byte $36, $25, $30
 - D - I - - 0x03FCEA FF:FCDA: 11        .byte $11, $00, $30
 - D - I - - 0x03FCED FF:FCDD: 0F        .byte $0F, $15, $25
-; 17 unused, нет такого индекса
+; 17 
 - - - - - - 0x03FCF0 FF:FCE0: 0F        .byte $0F, $0F, $35
 - - - - - - 0x03FCF3 FF:FCE3: 0F        .byte $0F, $31, $35
 - - - - - - 0x03FCF6 FF:FCE6: 0F        .byte $0F, $0F, $35
 - - - - - - 0x03FCF9 FF:FCE9: 0F        .byte $0F, $30, $35
-; 18 unused, нет такого индекса
+; 18
 - - - - - - 0x03FCFC FF:FCEC: 0F        .byte $0F, $16, $35
 - - - - - - 0x03FCFF FF:FCEF: 0F        .byte $0F, $31, $35
 - - - - - - 0x03FD02 FF:FCF2: 0F        .byte $0F, $0F, $35
 - - - - - - 0x03FD05 FF:FCF5: 0F        .byte $0F, $30, $35
-; 19 unused, нет такого индекса
+; 19
 - - - - - - 0x03FD08 FF:FCF8: 21        .byte $21, $0F, $30
 - - - - - - 0x03FD0B FF:FCFB: 21        .byte $21, $36, $27
 - - - - - - 0x03FD0E FF:FCFE: 21        .byte $21, $16, $16
