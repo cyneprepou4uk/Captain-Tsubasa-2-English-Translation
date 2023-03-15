@@ -72,7 +72,7 @@ bra_804F:
 C - - - - - 0x02005F 10:804F: 8D 23 05  STA ram_for_0519_задержка_следующей_анимации
 C - - - - - 0x020062 10:8052: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x020065 10:8055: 09 40     ORA #$40
-C - - - - - 0x020067 10:8057: 29 EF     AND #$EF
+C - - - - - 0x020067 10:8057: 29 EF     AND #$10 ^ $FF
 C - - - - - 0x020069 10:8059: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x02006C 10:805C: A4 3A     LDY ram_003A
 C - - - - - 0x02006E 10:805E: E6 3A     INC ram_003A
@@ -331,7 +331,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 - D - I - - 0x0201AD 10:819D: A8 83     .word ofs_015_83A8_15
 - D - I - - 0x0201AF 10:819F: B4 83     .word ofs_015_83B4_16_действие_атакующего_на_своей_штрафной
 - D - I - - 0x0201B1 10:81A1: C2 83     .word $0000       ; unused, было аналогично 0F_8F
-- D - I - - 0x0201B3 10:81A3: C6 83     .word ofs_015_83C6_18_проверка_на_jito_из_японии
+- D - I - - 0x0201B3 10:81A3: C6 83     .word ofs_015_83C6_18_проверка_на_jito
 - - - - - - 0x0201B5 10:81A5: D6 83     .word $0000       ; unused, байты не найдены
 - - - - - - 0x0201B7 10:81A7: DD 83     .word $0000       ; unused, байты не найдены
 - D - I - - 0x0201B9 10:81A9: E4 83     .word ofs_015_83E4_1B_разновидность_block
@@ -415,7 +415,7 @@ C - - - - - 0x02022B 10:821B: 60        RTS
 ; C - - - - - 0x020234 10:8224: A2 00     LDX #$00
 ; C - - - - - 0x020236 10:8226: B1 34     LDA (ram_plr_data),Y
 ; C - - - - - 0x020238 10:8228: D0 01     BNE bra_822B_RTS
-; C - - - - - 0x02023A 10:822A: E8        INX
+; C - - - - - 0x02023A 10:822A: E8        INX ; 01
 ; bra_822B_RTS:
 ; C - - - - - 0x02023B 10:822B: 60        RTS
 
@@ -466,12 +466,12 @@ C - - - - - 0x020268 10:8258: 60        RTS
 
 
 ofs_015_8259_04_высота_мяча:
-; 00 = мяч у атакующего/низний мяч
+; 00 = мяч у атакующего/низкий мяч
 ; 01 = высокий мяч
 C - J - - - 0x020269 10:8259: AE 4E 04  LDX ram_высота_мяча
 C - - - - - 0x02026C 10:825C: F0 01     BEQ bra_825F_RTS
-C - - - - - 0x02026E 10:825E: CA        DEX
-bra_825F_RTS:
+C - - - - - 0x02026E 10:825E: CA        DEX ; 00/01
+bra_825F_RTS:   ; X = 00, bzk optimize, небезопасно
 C - - - - - 0x02026F 10:825F: 60        RTS
 
 
@@ -496,7 +496,7 @@ C - - - - - 0x020279 10:8269: F0 04     BEQ bra_826F_if_кипер
 C - - - - - 0x02027B 10:826B: C9 0B     CMP #$0B
 C - - - - - 0x02027D 10:826D: D0 01     BNE bra_8270_RTS
 bra_826F_if_кипер:
-C - - - - - 0x02027F 10:826F: E8        INX
+C - - - - - 0x02027F 10:826F: E8        INX ; 01
 bra_8270_RTS:
 C - - - - - 0x020280 10:8270: 60        RTS
 
@@ -504,39 +504,39 @@ C - - - - - 0x020280 10:8270: 60        RTS
 
 tbl_8275_номер_анимации_игрока:
     .byte $FF   ; 00 игрок без рожи
-    .byte $91   ; 01 tsubasa
-    .byte $96   ; 02 misaki
-    .byte $97   ; 03 misaki
-    .byte $9E   ; 04 hyuga
-    .byte $B0   ; 05 hyuga
-    .byte $A3   ; 06 misugi
-    .byte $AE   ; 07 misugi
-    .byte $A1   ; 08 matsuyama
-    .byte $AF   ; 09 matsuyama
-    .byte $98   ; 0A ishizaki
-    .byte $99   ; 0B ishizaki
-    .byte $9F   ; 0C soda
-    .byte $AD   ; 0D soda
-    .byte $A0   ; 0E jito
-    .byte $AA   ; 0F jito
-    .byte $9C   ; 10 masao kazuo
-    .byte $AB   ; 11 masao kazuo
-    .byte $9A   ; 12 nitta
-    .byte $9B   ; 13 nitta
-    .byte $A2   ; 14 sawada
-    .byte $B1   ; 15 sawada
-    .byte $BC   ; 16 coimbra
-    .byte $A9   ; 17 carlos
-    .byte $BB   ; 18 carlos
-    .byte $B8   ; 19 schneider
-    .byte $B3   ; 1A kaltz
-    .byte $BA   ; 1B schester
-    .byte $B7   ; 1C diaz
-    .byte $B6   ; 1D pascal
-    .byte $B5   ; 1E pierre
-    .byte $B4   ; 1F napoleon
-    .byte $B2   ; 20 victorino
-    .byte $B9   ; 21 kaltz
+    .byte $91   ; 01 con_p_tsubasa_my
+    .byte $96   ; 02 con_p_misaki_my
+    .byte $97   ; 03 con_p_misaki_japan
+    .byte $9E   ; 04 con_p_hyuga_my, con_p_hyuga_japan
+    .byte $B0   ; 05 con_p_hyuga_toho
+    .byte $A3   ; 06 con_p_misugi_my, con_p_misugi_japan
+    .byte $AE   ; 07 con_p_misugi_musashi
+    .byte $A1   ; 08 con_p_matsuyama_my, con_p_matsuyama_japan
+    .byte $AF   ; 09 con_p_matsuyama_furano
+    .byte $98   ; 0A con_p_ishizaki_my
+    .byte $99   ; 0B con_p_ishizaki_japan
+    .byte $9F   ; 0C con_p_soda_my, con_p_soda_japan
+    .byte $AD   ; 0D con_p_soda_tatsunami
+    .byte $A0   ; 0E con_p_jito_my, con_p_jito_japan
+    .byte $AA   ; 0F con_p_jito_kunimi
+    .byte $9C   ; 10 con_p_masao_my, con_p_masao_japan, con_p_kazuo_my, con_p_kazuo_japan
+    .byte $AB   ; 11 con_p_masao_akita, con_p_kazuo_akita
+    .byte $9A   ; 12 con_p_nitta_my
+    .byte $9B   ; 13 con_p_nitta_japan
+    .byte $A2   ; 14 con_p_sawada_my
+    .byte $B1   ; 15 con_p_sawada_toho
+    .byte $BC   ; 16 con_p_coimbra_brazil
+    .byte $A9   ; 17 con_p_carlos_flamengo
+    .byte $BB   ; 18 con_p_carlos_brazil
+    .byte $B8   ; 19 con_p_schneider_west_germany
+    .byte $B3   ; 1A con_p_kaltz_hamburger_sv
+    .byte $BA   ; 1B con_p_schester_west_germany
+    .byte $B7   ; 1C con_p_diaz_argentina
+    .byte $B6   ; 1D con_p_pascal_argentina
+    .byte $B5   ; 1E con_p_pierre_france
+    .byte $B4   ; 1F con_p_napoleon_france
+    .byte $B2   ; 20 con_p_victorino_uruguay
+    .byte $B9   ; 21 con_p_kaltz_west_germany
 
 
 
@@ -549,11 +549,11 @@ C - - - - - 0x020287 10:8277: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - - 0x02028A 10:827A: F0 0D     BEQ bra_8289_RTS
 C - - - - - 0x02028C 10:827C: C9 0B     CMP #$0B
 C - - - - - 0x02028E 10:827E: F0 09     BEQ bra_8289_RTS
-C - - - - - 0x020290 10:8280: CA        DEX
+C - - - - - 0x020290 10:8280: CA        DEX ; 01
 C - - - - - 0x020291 10:8281: AD 3D 04  LDA ram_действие_защиты
 C - - - - - 0x020294 10:8284: C9 03     CMP #$03
 C - - - - - 0x020296 10:8286: F0 01     BEQ bra_8289_RTS
-C - - - - - 0x020298 10:8288: CA        DEX
+C - - - - - 0x020298 10:8288: CA        DEX ; 00
 bra_8289_RTS:
 C - - - - - 0x020299 10:8289: 60        RTS
 
@@ -596,7 +596,7 @@ C - - - - - 0x0202C1 10:82B1: AD 3C 04  LDA ram_подтип_действия_а
 C - - - - - 0x0202C4 10:82B4: 29 7F     AND #$7F
 C - - - - - 0x0202C6 10:82B6: F0 01     BEQ bra_82B9_RTS
 bra_82B8_if_спешал:
-C - - - - - 0x0202C8 10:82B8: E8        INX
+C - - - - - 0x0202C8 10:82B8: E8        INX ; 01
 bra_82B9_RTS:
 C - - - - - 0x0202C9 10:82B9: 60        RTS
 
@@ -773,7 +773,7 @@ C - - - - - 0x020380 10:8370: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x020383 10:8373: C9 01     CMP #$01      ; pass
 C - - - - - 0x020385 10:8375: F0 04     BEQ bra_837B_RTS
 C - - - - - 0x020387 10:8377: 20 77 86  JSR sub_8677_рандом_убийства_и_уменьшение_хп
-C - - - - - 0x02038A 10:837A: E8        INX
+C - - - - - 0x02038A 10:837A: E8        INX ; 01
 bra_837B_RTS:
 C - - - - - 0x02038B 10:837B: 60        RTS
 
@@ -846,7 +846,7 @@ tbl_83BB:
 
 
 
-ofs_015_83C6_18_проверка_на_jito_из_японии:
+ofs_015_83C6_18_проверка_на_jito:
 ; 00 = con_p_jito_my, con_p_jito_japan
 ; 01 = con_p_jito_kunimi
 C - J - - - 0x0203D6 10:83C6: AD 41 04  LDA ram_игрок_с_мячом
@@ -855,7 +855,7 @@ C - - - - - 0x0203DC 10:83CC: C9 1C     CMP #con_p_jito_my
 C - - - - - 0x0203DE 10:83CE: F0 05     BEQ bra_83D5_RTS
 C - - - - - 0x0203E0 10:83D0: C9 48     CMP #con_p_jito_japan
 C - - - - - 0x0203E2 10:83D2: F0 01     BEQ bra_83D5_RTS
-C - - - - - 0x0203E4 10:83D4: E8        INX
+C - - - - - 0x0203E4 10:83D4: E8        INX ; 01
 bra_83D5_RTS:
 C - - - - - 0x0203E5 10:83D5: 60        RTS
 
@@ -956,14 +956,14 @@ C - - - - - 0x020423 10:8413: 20 07 82  JSR sub_8207_узнать_номер_и�
 C - - - - - 0x020426 10:8416: A2 02     LDX #$02
 C - - - - - 0x020428 10:8418: C9 74     CMP #con_p_gertise_brazil
 C - - - - - 0x02042A 10:841A: F0 0E     BEQ bra_842A_RTS
-C - - - - - 0x02042C 10:841C: CA        DEX
+C - - - - - 0x02042C 10:841C: CA        DEX ; 01
 C - - - - - 0x02042D 10:841D: C9 22     CMP #con_p_wakashimazu_my
 C - - - - - 0x02042F 10:841F: F0 09     BEQ bra_842A_RTS
 C - - - - - 0x020431 10:8421: C9 39     CMP #con_p_wakashimazu_toho
 C - - - - - 0x020433 10:8423: F0 05     BEQ bra_842A_RTS
 C - - - - - 0x020435 10:8425: C9 4C     CMP #con_p_wakashimazu_japan
 C - - - - - 0x020437 10:8427: F0 01     BEQ bra_842A_RTS
-C - - - - - 0x020439 10:8429: CA        DEX
+C - - - - - 0x020439 10:8429: CA        DEX ; 00
 bra_842A_RTS:
 C - - - - - 0x02043A 10:842A: 60        RTS
 
@@ -979,7 +979,7 @@ C - - - - - 0x02043D 10:842D: AD 1C 06  LDA ram_сила_действия_lo
 C - - - - - 0x020440 10:8430: C9 60     CMP #$60
 C - - - - - 0x020442 10:8432: 90 01     BCC bra_8435_RTS
 bra_8434:
-C - - - - - 0x020444 10:8434: E8        INX
+C - - - - - 0x020444 10:8434: E8        INX ; 01
 bra_8435_RTS:
 C - - - - - 0x020445 10:8435: 60        RTS
 
@@ -1030,8 +1030,9 @@ ofs_015_844E_25_coimbra_france_уже_били_или_нет:
 ; 01 = удара еще не было
 C - J - - - 0x02045E 10:844E: AE 47 04  LDX ram_флаг_удара_франции_коимбры
 C - - - - - 0x020461 10:8451: D0 03     BNE bra_8456_RTS
+; X = 00
 C - - - - - 0x020463 10:8453: EE 47 04  INC ram_флаг_удара_франции_коимбры
-bra_8456_RTS:
+bra_8456_RTS:   ; X = 01, bzk optimize, небезопасно
 C - - - - - 0x020466 10:8456: 60        RTS
 
 
@@ -1055,7 +1056,7 @@ C - - - - - 0x020481 10:8471: 8D FE 03  STA ram_03FE
 C - - - - - 0x020484 10:8474: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020487 10:8477: D0 01     BNE bra_847A      ; гол забили соперники
 ; if гол забила наша команда
-C - - - - - 0x020489 10:8479: E8        INX
+C - - - - - 0x020489 10:8479: E8        INX ; 01
 bra_847A:
 C - - - - - 0x02048A 10:847A: 8C FD 03  STY ram_03FD
 bra_847D_RTS:
@@ -1214,7 +1215,7 @@ C - - - - - 0x0204EE 10:84DE: C8        INY
 C - - - - - 0x0204EF 10:84DF: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x0204F1 10:84E1: E9 00     SBC #> $0064
 C - - - - - 0x0204F3 10:84E3: B0 01     BCS bra_84E6_RTS
-C - - - - - 0x0204F5 10:84E5: E8        INX
+C - - - - - 0x0204F5 10:84E5: E8        INX ; 01
 bra_84E6_RTS:
 C - - - - - 0x0204F6 10:84E6: 60        RTS
 
@@ -1226,7 +1227,7 @@ ofs_015_84E7_2C_напали_ли_защитники:
 C - J - - - 0x0204F7 10:84E7: AE 00 06  LDX ram_колво_защитников
 C - - - - - 0x0204FA 10:84EA: F0 02     BEQ bra_84EE_RTS
 C - - - - - 0x0204FC 10:84EC: A2 01     LDX #$01
-bra_84EE_RTS:
+bra_84EE_RTS:   ; X = 00, bzk optimize, небезопасно
 C - - - - - 0x0204FE 10:84EE: 60        RTS
 
 
@@ -1239,7 +1240,7 @@ C - - - - - 0x020501 10:84F1: AD 3C 04  LDA ram_подтип_действия_а
 C - - - - - 0x020504 10:84F4: 29 7F     AND #$7F
 C - - - - - 0x020506 10:84F6: C9 13     CMP #$13      ; sano combo
 C - - - - - 0x020508 10:84F8: D0 01     BNE bra_84FB_RTS
-C - - - - - 0x02050A 10:84FA: E8        INX
+C - - - - - 0x02050A 10:84FA: E8        INX ; 01
 bra_84FB_RTS:
 C - - - - - 0x02050B 10:84FB: 60        RTS
 
@@ -1254,7 +1255,7 @@ C - - - - - 0x020511 10:8501: A0 07     LDY #con_величина_наебки
 C - - - - - 0x020513 10:8503: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x020515 10:8505: C9 18     CMP #$18
 C - - - - - 0x020517 10:8507: 90 01     BCC bra_850A_RTS
-C - - - - - 0x020519 10:8509: E8        INX
+C - - - - - 0x020519 10:8509: E8        INX ; 01
 bra_850A_RTS:
 C - - - - - 0x02051A 10:850A: 60        RTS
 
@@ -1276,9 +1277,9 @@ C - - - - - 0x02052E 10:851E: F0 04     BEQ bra_8524
 C - - - - - 0x020530 10:8520: C9 40     CMP #con_p_wakabayashi_hamburger_sv
 C - - - - - 0x020532 10:8522: D0 02     BNE bra_8526_RTS
 bra_8524:
-C - - - - - 0x020534 10:8524: E8        INX
+C - - - - - 0x020534 10:8524: E8        INX ; 01
 bra_8525:
-C - - - - - 0x020535 10:8525: E8        INX
+C - - - - - 0x020535 10:8525: E8        INX ; 01/02
 bra_8526_RTS:
 C - - - - - 0x020536 10:8526: 60        RTS
 
@@ -1294,10 +1295,10 @@ C - - - - - 0x02053A 10:852A: 20 07 82  JSR sub_8207_узнать_номер_и�
 C - - - - - 0x02053D 10:852D: A2 02     LDX #$02
 C - - - - - 0x02053F 10:852F: C9 60     CMP #con_p_diaz_argentina
 C - - - - - 0x020541 10:8531: F0 06     BEQ bra_8539_RTS
-C - - - - - 0x020543 10:8533: CA        DEX
+C - - - - - 0x020543 10:8533: CA        DEX ; 01
 C - - - - - 0x020544 10:8534: C9 01     CMP #con_p_tsubasa_my
 C - - - - - 0x020546 10:8536: F0 01     BEQ bra_8539_RTS
-C - - - - - 0x020548 10:8538: CA        DEX
+C - - - - - 0x020548 10:8538: CA        DEX ; 00
 bra_8539_RTS:
 C - - - - - 0x020549 10:8539: 60        RTS
 
@@ -1310,7 +1311,7 @@ C - J - - - 0x02054A 10:853A: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x02054D 10:853D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x020550 10:8540: C9 15     CMP #con_p_nitta_my
 C - - - - - 0x020552 10:8542: F0 01     BEQ bra_8545_RTS
-- - - - - - 0x020554 10:8544: E8        INX
+- - - - - - 0x020554 10:8544: E8        INX ; 01
 bra_8545_RTS:
 C - - - - - 0x020555 10:8545: 60        RTS
 
@@ -1325,7 +1326,7 @@ C - - - - - 0x02055C 10:854C: C9 1B     CMP #con_p_soda_my
 C - - - - - 0x02055E 10:854E: F0 05     BEQ bra_8555_RTS
 C - - - - - 0x020560 10:8550: C9 4A     CMP #con_p_soda_japan
 C - - - - - 0x020562 10:8552: F0 01     BEQ bra_8555_RTS
-C - - - - - 0x020564 10:8554: E8        INX
+C - - - - - 0x020564 10:8554: E8        INX ; 01
 bra_8555_RTS:
 C - - - - - 0x020565 10:8555: 60        RTS
 
@@ -1413,7 +1414,7 @@ C - - - - - 0x02059A 10:858A: 29 7F     AND #$7F
 C - - - - - 0x02059C 10:858C: AA        TAX
 C - - - - - 0x02059D 10:858D: F0 02     BEQ bra_8591_RTS
 C - - - - - 0x02059F 10:858F: A2 01     LDX #$01
-bra_8591_RTS:
+bra_8591_RTS:   ; X = 00, bzk optimize, небезопасно
 C - - - - - 0x0205A1 10:8591: 60        RTS
 
 
@@ -1427,7 +1428,7 @@ C - - - - - 0x0205A8 10:8598: C9 1A     CMP #con_p_hyuga_my
 C - - - - - 0x0205AA 10:859A: F0 05     BEQ bra_85A1_RTS
 C - - - - - 0x0205AC 10:859C: C9 41     CMP #con_p_hyuga_japan
 C - - - - - 0x0205AE 10:859E: F0 01     BEQ bra_85A1_RTS
-C - - - - - 0x0205B0 10:85A0: E8        INX
+C - - - - - 0x0205B0 10:85A0: E8        INX ; 01
 bra_85A1_RTS:
 C - - - - - 0x0205B1 10:85A1: 60        RTS
 
@@ -1442,7 +1443,7 @@ C - - - - - 0x0205B8 10:85A8: C9 1D     CMP #con_p_matsuyama_my
 C - - - - - 0x0205BA 10:85AA: F0 05     BEQ bra_85B1_RTS
 C - - - - - 0x0205BC 10:85AC: C9 4B     CMP #con_p_matsuyama_japan
 C - - - - - 0x0205BE 10:85AE: F0 01     BEQ bra_85B1_RTS
-C - - - - - 0x0205C0 10:85B0: E8        INX
+C - - - - - 0x0205C0 10:85B0: E8        INX ; 01
 bra_85B1_RTS:
 C - - - - - 0x0205C1 10:85B1: 60        RTS
 
@@ -1455,7 +1456,7 @@ C - J - - - 0x0205C2 10:85B2: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205C5 10:85B5: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x0205C8 10:85B8: C9 3E     CMP #con_p_kaltz_hamburger_sv
 C - - - - - 0x0205CA 10:85BA: F0 01     BEQ bra_85BD_RTS
-- - - - - - 0x0205CC 10:85BC: E8        INX
+- - - - - - 0x0205CC 10:85BC: E8        INX ; 01
 bra_85BD_RTS:
 C - - - - - 0x0205CD 10:85BD: 60        RTS
 
@@ -1468,7 +1469,7 @@ C - J - - - 0x0205CE 10:85BE: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205D1 10:85C1: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x0205D4 10:85C4: C9 2B     CMP #con_p_carlos_flamengo
 C - - - - - 0x0205D6 10:85C6: F0 01     BEQ bra_85C9_RTS
-C - - - - - 0x0205D8 10:85C8: E8        INX
+C - - - - - 0x0205D8 10:85C8: E8        INX ; 01
 bra_85C9_RTS:
 C - - - - - 0x0205D9 10:85C9: 60        RTS
 
@@ -1483,7 +1484,7 @@ C - - - - - 0x0205E0 10:85D0: C9 20     CMP #con_p_misugi_my
 C - - - - - 0x0205E2 10:85D2: F0 05     BEQ bra_85D9_RTS
 C - - - - - 0x0205E4 10:85D4: C9 45     CMP #con_p_misugi_japan
 C - - - - - 0x0205E6 10:85D6: F0 01     BEQ bra_85D9_RTS
-C - - - - - 0x0205E8 10:85D8: E8        INX
+C - - - - - 0x0205E8 10:85D8: E8        INX ; 01
 bra_85D9_RTS:
 C - - - - - 0x0205E9 10:85D9: 60        RTS
 
@@ -1496,7 +1497,7 @@ C - J - - - 0x0205EA 10:85DA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0205ED 10:85DD: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x0205F0 10:85E0: C9 11     CMP #con_p_misaki_my
 C - - - - - 0x0205F2 10:85E2: F0 01     BEQ bra_85E5_RTS
-- - - - - - 0x0205F4 10:85E4: E8        INX
+- - - - - - 0x0205F4 10:85E4: E8        INX ; 01
 bra_85E5_RTS:
 C - - - - - 0x0205F5 10:85E5: 60        RTS
 
@@ -1840,7 +1841,7 @@ ofs_015_85FE_4B_проверка_на_защитника_misugi:
     JSR sub_8207_узнать_номер_игрока___X_00
     CMP #con_p_misugi_my
     BEQ bra_85FE_RTS
-    INX
+    INX ; 01
 bra_85FE_RTS:
     RTS
 
@@ -2444,11 +2445,13 @@ C - - - - - 0x02099E 10:898E: 4C 2F 81  JMP loc_812F_выбрать_подпро
 
 
 tbl_89BF_сценарии:
+; смотреть con_scenario
 - D - I - - 0x0209CF 10:89BF: B1 8A     .word _scenario_8AB1_00     ; сценарий дриблинга или когда игрок прыгает чтоб перехватить мяч
 - D - I - - 0x0209D1 10:89C1: F2 91     .word _scenario_91F2_01     ; атакующий находится на чужой штрафной, и он только что выбрал желаемое действие.
                                                                         ; показывается анимация того, как он бежит/прыгает к мячу перед тем как его сделать
 - D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02     ; действие защитника на своей штрафной
 - - - - - - 0x0209D5 10:89C5: 8E B4     .word _scenario_B48E_03     ; полет мяча, затем игрок принимает его на ногу во время бега (аналогично заверщению спешал перепасовки)
+                                                                        ; поинтер не найден
 - D - I - - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04     ; белое мерцание со звуком сражения (oh), когда игроки сражаются на штрафной
 - D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05     ; попытка убийства атакующего, который проиграл действие на чужой штрафной (аналогично 10)
 - D - I - - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06     ; попытка убийства защитника, который проиграл действие на своей штрафной

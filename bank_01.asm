@@ -160,11 +160,11 @@ bra_A114_loop:
 C - - - - - 0x002124 01:A114: 99 66 05  STA ram_0566,Y
 C - - - - - 0x002127 01:A117: C8        INY
 C - - - - - 0x002128 01:A118: D0 FA     BNE bra_A114_loop
-C - - - - - 0x00212A 01:A11A: A2 2C     LDX #$2C
-C - - - - - 0x00212C 01:A11C: A0 2D     LDY #$2D
+C - - - - - 0x00212A 01:A11A: A2 2C     LDX #con_chr_bank + $2C
+C - - - - - 0x00212C 01:A11C: A0 2D     LDY #con_chr_bank + $2D
 C - - - - - 0x00212E 01:A11E: 20 6F 9B  JSR sub_0x001B7F_запись_первых_двух_банков_спрайтов
-C - - - - - 0x002131 01:A121: A2 2E     LDX #$2E
-C - - - - - 0x002133 01:A123: A0 2F     LDY #$2F
+C - - - - - 0x002131 01:A121: A2 2E     LDX #con_chr_bank + $2E
+C - - - - - 0x002133 01:A123: A0 2F     LDY #con_chr_bank + $2F
 C - - - - - 0x002135 01:A125: 20 74 9B  JSR sub_0x001B84_запись_вторых_двух_банков_спрайтов
 C - - - - - 0x002138 01:A128: A9 00     LDA #con_chr_bank + $00
 C - - - - - 0x00213A 01:A12A: 85 8E     STA ram_008E
@@ -738,15 +738,16 @@ C - - - - - 0x0024F8 01:A4E8: 4C 95 98  JMP loc_0x0018A5
 
 
 sub_0x0024FB_VS_экран_и_повышение_уровня:
+; con_chr_bank
                                         LDA ram_матч
                                         ASL
                                         ADC #$80
-                                        STA a: $90
-C D - - - - 0x0024FB 01:A4EB: A2 6A     LDX #$6A
-C - - - - - 0x0024FD 01:A4ED: A0 6B     LDY #$6B
+                                        STA a: ram_0090
+C D - - - - 0x0024FB 01:A4EB: A2 6A     LDX #con_chr_bank + $6A
+C - - - - - 0x0024FD 01:A4ED: A0 6B     LDY #con_chr_bank + $6B
 C - - - - - 0x0024FF 01:A4EF: 20 6F 9B  JSR sub_0x001B7F_запись_первых_двух_банков_спрайтов
-C - - - - - 0x002502 01:A4F2: A2 7A     LDX #$7A
-C - - - - - 0x002504 01:A4F4: A0 7B     LDY #$7B
+C - - - - - 0x002502 01:A4F2: A2 7A     LDX #con_chr_bank + $7A
+C - - - - - 0x002504 01:A4F4: A0 7B     LDY #con_chr_bank + $7B
 C - - - - - 0x002506 01:A4F6: 20 74 9B  JSR sub_0x001B84_запись_вторых_двух_банков_спрайтов
 C - - - - - 0x002509 01:A4F9: 20 7F 9B  JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
                                         LDA #con_prg_bank + $9E
@@ -1038,7 +1039,7 @@ C - - - - - 0x00273D 01:A72D: 85 7B     STA ram_007B
 ; bzk optimize
                                        ;LDA #con_BF00_00
 C - - - - - 0x00273F 01:A72F: 20 20 89  JSR sub_0x000930
-; выбор банка фона
+; выбор банка фона con_chr_bank
                                         LDA ram_матч
                                         ASL
                                         ADC #$80

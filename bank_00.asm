@@ -2715,6 +2715,7 @@ C - - - - - 0x000FFA 00:8FEA: 29 C0     AND #$C0
 C - - - - - 0x000FFC 00:8FEC: C9 40     CMP #$40
 C - - - - - 0x000FFE 00:8FEE: F0 1B     BEQ bra_900B
 
+
 ; bzk garbage?
 - - - - - - 0x001000 00:8FF0: A5 E7     LDA ram_00E7
 - - - - - - 0x001002 00:8FF2: 0A        ASL
@@ -2732,6 +2733,8 @@ C - - - - - 0x000FFE 00:8FEE: F0 1B     BEQ bra_900B
 - - - - - - 0x001013 00:9003: 99 4A 06  STA ram_064A,Y
 - - - - - - 0x001016 00:9006: 85 E6     STA ram_00E6
 - - - - - - 0x001018 00:9008: 4C 25 90  JMP loc_9025
+
+
 
 bra_900B:
 C - - - - - 0x00101B 00:900B: A5 E7     LDA ram_00E7
@@ -5402,6 +5405,8 @@ C - - - - - 0x001F78 00:9F68: 60        RTS
 
 sub_9F69:
 sub_0x001F79:
+; bzk optimize, удалить DEY, подавать на вход готовые байты в Y
+; bzk optimize, A всегда = 00
 C - - - - - 0x001F79 00:9F69: 95 02     STA ram_0002,X
 C - - - - - 0x001F7B 00:9F6B: 88        DEY
 C - - - - - 0x001F7C 00:9F6C: 88        DEY
