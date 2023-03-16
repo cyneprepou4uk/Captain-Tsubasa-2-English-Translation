@@ -4464,13 +4464,11 @@ C - - - - - 0x03E1A6 FF:E196: F0 4F     BEQ bra_E1E7
 C - - - - - 0x03E1A8 FF:E198: 8D 17 06  STA ram_колво_активных_защитников
 C - - - - - 0x03E1AB FF:E19B: A9 00     LDA #$00
 C - - - - - 0x03E1AD FF:E19D: 8D 21 06  STA ram_0621
-C - - - - - 0x03E1B0 FF:E1A0: 48        PHA
 C - - - - - 0x03E1B3 FF:E1A3: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03E1B5 FF:E1A5: 85 24     STA ram_for_5114
 C - - - - - 0x03E1B7 FF:E1A7: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03E1B9 FF:E1A9: 85 25     STA ram_for_5115
 C - - - - - 0x03E1BB FF:E1AB: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E1BE FF:E1AE: 68        PLA
 C - - - - - 0x03E1BF FF:E1AF: 20 06 80  JSR sub_0x038016
 C - - - - - 0x03E1C2 FF:E1B2: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x03E1C5 FF:E1B5: C9 02     CMP #$02
