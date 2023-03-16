@@ -101,9 +101,9 @@ bra_80B7:
 loc_80B7:
 C D - - - - 0x0180C7 0C:80B7: CA        DEX
 C - - - - - 0x0180C8 0C:80B8: 10 A9     BPL bra_8063_loop
-C - - - - - 0x0180CA 0C:80BA: A9 27     LDA #$27
+C - - - - - 0x0180CA 0C:80BA: A9 27     LDA #< ram_0727
 C - - - - - 0x0180CC 0C:80BC: 85 F0     STA ram_00F0
-C - - - - - 0x0180CE 0C:80BE: A9 07     LDA #$07
+C - - - - - 0x0180CE 0C:80BE: A9 07     LDA #> ram_0727
 C - - - - - 0x0180D0 0C:80C0: 85 F1     STA ram_00F1
 C - - - - - 0x0180D2 0C:80C2: A9 00     LDA #$00
 C - - - - - 0x0180D4 0C:80C4: 85 F2     STA ram_00F2
@@ -156,10 +156,10 @@ C - - - - - 0x018125 0C:8115: 65 F2     ADC ram_00F2
 C - - - - - 0x018127 0C:8117: 85 F2     STA ram_00F2
 C - - - - - 0x018129 0C:8119: C6 F3     DEC ram_00F3
 C - - - - - 0x01812B 0C:811B: D0 AD     BNE bra_80CA_loop
-C - - - - - 0x01812D 0C:811D: A9 27     LDA #$27
+C - - - - - 0x01812D 0C:811D: A9 27     LDA #< ram_0727
 C - - - - - 0x01812F 0C:811F: 85 F0     STA ram_00F0
 C - - - - - 0x018131 0C:8121: 85 FC     STA ram_00FC
-C - - - - - 0x018133 0C:8123: A9 07     LDA #$07
+C - - - - - 0x018133 0C:8123: A9 07     LDA #> ram_0727
 C - - - - - 0x018135 0C:8125: 85 F1     STA ram_00F1
 C - - - - - 0x018137 0C:8127: 85 FD     STA ram_00FD
 C - - - - - 0x018139 0C:8129: A9 03     LDA #$03
@@ -173,21 +173,21 @@ C - - - - - 0x018146 0C:8136: F0 14     BEQ bra_814C
 C - - - - - 0x018148 0C:8138: 29 0F     AND #$0F
 C - - - - - 0x01814A 0C:813A: D0 0D     BNE bra_8149
 C - - - - - 0x01814C 0C:813C: 18        CLC
-C - - - - - 0x01814D 0C:813D: A9 40     LDA #$40
+C - - - - - 0x01814D 0C:813D: A9 40     LDA #< $0040
 C - - - - - 0x01814F 0C:813F: 65 F0     ADC ram_00F0
 C - - - - - 0x018151 0C:8141: 85 F0     STA ram_00F0
-C - - - - - 0x018153 0C:8143: A9 00     LDA #$00
+C - - - - - 0x018153 0C:8143: A9 00     LDA #> $0040
 C - - - - - 0x018155 0C:8145: 65 F1     ADC ram_00F1
 C - - - - - 0x018157 0C:8147: 85 F1     STA ram_00F1
 bra_8149:
 C - - - - - 0x018159 0C:8149: 20 6E 81  JSR sub_816E
 bra_814C:
 C - - - - - 0x01815C 0C:814C: 18        CLC
-C - - - - - 0x01815D 0C:814D: A9 10     LDA #$10
+C - - - - - 0x01815D 0C:814D: A9 10     LDA #< $0010
 C - - - - - 0x01815F 0C:814F: 65 FC     ADC ram_00FC
 C - - - - - 0x018161 0C:8151: 85 FC     STA ram_00FC
 C - - - - - 0x018163 0C:8153: 85 F0     STA ram_00F0
-C - - - - - 0x018165 0C:8155: A9 00     LDA #$00
+C - - - - - 0x018165 0C:8155: A9 00     LDA #> $0010
 C - - - - - 0x018167 0C:8157: 65 FD     ADC ram_00FD
 C - - - - - 0x018169 0C:8159: 85 FD     STA ram_00FD
 C - - - - - 0x01816B 0C:815B: 85 F1     STA ram_00F1

@@ -1491,7 +1491,7 @@ sub_CED6:
 C - - - - - 0x03CEE6 FF:CED6: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03CEE8 FF:CED8: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x03CEEA FF:CEDA: 38        SEC
-C - - - - - 0x03CEEB FF:CEDB: ED 35 06  SBC ram_0635
+C - - - - - 0x03CEEB FF:CEDB: ED 35 06  SBC ram_ball_pos_X_hi
 C - - - - - 0x03CEEE FF:CEDE: B0 04     BCS bra_CEE4
 C - - - - - 0x03CEF0 FF:CEE0: 49 FF     EOR #$FF
 C - - - - - 0x03CEF2 FF:CEE2: 69 01     ADC #$01
@@ -1501,7 +1501,7 @@ C - - - - - 0x03CEF6 FF:CEE6: B0 14     BCS bra_CEFC
 C - - - - - 0x03CEF8 FF:CEE8: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x03CEFA FF:CEEA: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x03CEFC FF:CEEC: 38        SEC
-C - - - - - 0x03CEFD FF:CEED: ED 37 06  SBC ram_0637
+C - - - - - 0x03CEFD FF:CEED: ED 37 06  SBC ram_ball_pos_Y_hi
 C - - - - - 0x03CF00 FF:CEF0: B0 04     BCS bra_CEF6
 C - - - - - 0x03CF02 FF:CEF2: 49 FF     EOR #$FF
 C - - - - - 0x03CF04 FF:CEF4: 69 01     ADC #$01
@@ -1517,9 +1517,10 @@ C - - - - - 0x03CF0D FF:CEFD: 60        RTS
 
 
 sub_CF1F:
-C - - - - - 0x03CF2F FF:CF1F: A9 68     LDA #$68
+; bzk optimize
+C - - - - - 0x03CF2F FF:CF1F: A9 68     LDA #< ram_0468
 C - - - - - 0x03CF31 FF:CF21: 85 3A     STA ram_003A
-C - - - - - 0x03CF33 FF:CF23: A9 04     LDA #$04
+C - - - - - 0x03CF33 FF:CF23: A9 04     LDA #> ram_0468
 C - - - - - 0x03CF35 FF:CF25: 85 3B     STA ram_003B
 C - - - - - 0x03CF37 FF:CF27: A9 97     LDA #$97
 C - - - - - 0x03CF39 FF:CF29: 85 3C     STA ram_003C
@@ -1527,25 +1528,24 @@ C - - - - - 0x03CF3B FF:CF2B: A9 02     LDA #$02
 C - - - - - 0x03CF3D FF:CF2D: 85 3D     STA ram_003D
 C - - - - - 0x03CF3F FF:CF2F: A9 00     LDA #$00
 C - - - - - 0x03CF41 FF:CF31: A8        TAY
-bra_CF32_loop:
+bra_CF32_loop_0468_0667:
 C - - - - - 0x03CF42 FF:CF32: 91 3A     STA (ram_003A),Y
 C - - - - - 0x03CF44 FF:CF34: C8        INY
-C - - - - - 0x03CF45 FF:CF35: D0 FB     BNE bra_CF32_loop
+C - - - - - 0x03CF45 FF:CF35: D0 FB     BNE bra_CF32_loop_0468_0667
 C - - - - - 0x03CF47 FF:CF37: E6 3B     INC ram_003B
 C - - - - - 0x03CF49 FF:CF39: C6 3D     DEC ram_003D
-C - - - - - 0x03CF4B FF:CF3B: D0 F5     BNE bra_CF32_loop
-bra_CF3D_loop:
+C - - - - - 0x03CF4B FF:CF3B: D0 F5     BNE bra_CF32_loop_0468_0667
+bra_CF3D_loop_0668_06FE:
 C - - - - - 0x03CF4D FF:CF3D: 91 3A     STA (ram_003A),Y
 C - - - - - 0x03CF4F FF:CF3F: C8        INY
 C - - - - - 0x03CF50 FF:CF40: C6 3C     DEC ram_003C
-C - - - - - 0x03CF52 FF:CF42: D0 F9     BNE bra_CF3D_loop
-; 003B-00DF
+C - - - - - 0x03CF52 FF:CF42: D0 F9     BNE bra_CF3D_loop_0668_06FE
 C - - - - - 0x03CF54 FF:CF44: A2 A5     LDX #$A5
 C - - - - - 0x03CF56 FF:CF46: A9 00     LDA #$00
-bra_CF48_loop:
+bra_CF48_loop_003B_00DF:
 C - - - - - 0x03CF58 FF:CF48: 9D 3A 00  STA ram_003B - $01,X
 C - - - - - 0x03CF5B FF:CF4B: CA        DEX
-C - - - - - 0x03CF5C FF:CF4C: D0 FA     BNE bra_CF48_loop
+C - - - - - 0x03CF5C FF:CF4C: D0 FA     BNE bra_CF48_loop_003B_00DF
 C - - - - - 0x03CF5E FF:CF4E: 60        RTS
 
 
@@ -3363,7 +3363,7 @@ C - - - - - 0x03DA4A FF:DA3A: 20 7C CD  JSR sub_CD7C_получить_адрес
 C - - - - - 0x03DA4D FF:DA3D: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03DA4F FF:DA3F: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x03DA51 FF:DA41: 38        SEC
-C - - - - - 0x03DA52 FF:DA42: ED 35 06  SBC ram_0635
+C - - - - - 0x03DA52 FF:DA42: ED 35 06  SBC ram_ball_pos_X_hi
 C - - - - - 0x03DA55 FF:DA45: B0 04     BCS bra_DA4B
 C - - - - - 0x03DA57 FF:DA47: 49 FF     EOR #$FF
 C - - - - - 0x03DA59 FF:DA49: 69 01     ADC #$01
@@ -3373,7 +3373,7 @@ C - - - - - 0x03DA5D FF:DA4D: B0 14     BCS bra_DA63
 C - - - - - 0x03DA5F FF:DA4F: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x03DA61 FF:DA51: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x03DA63 FF:DA53: 38        SEC
-C - - - - - 0x03DA64 FF:DA54: ED 37 06  SBC ram_0637
+C - - - - - 0x03DA64 FF:DA54: ED 37 06  SBC ram_ball_pos_Y_hi
 C - - - - - 0x03DA67 FF:DA57: B0 04     BCS bra_DA5D
 C - - - - - 0x03DA69 FF:DA59: 49 FF     EOR #$FF
 C - - - - - 0x03DA6B FF:DA5B: 69 01     ADC #$01
@@ -3879,7 +3879,7 @@ C - - - - - 0x03DD54 FF:DD44: 4C 18 80  JMP loc_0x034903
 sub_DD47:
 C - - - - - 0x03DD57 FF:DD47: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x03DD5A FF:DD4A: D0 22     BNE bra_DD6E
-C - - - - - 0x03DD5C FF:DD4C: AD 35 06  LDA ram_0635
+C - - - - - 0x03DD5C FF:DD4C: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03DD5F FF:DD4F: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03DD62 FF:DD52: F0 02     BEQ bra_DD56_команда_слева
 ; if комада справа
@@ -3915,7 +3915,7 @@ C - - - - - 0x03DD90 FF:DD80: 60        RTS
 
 
 sub_DD81:
-C - - - - - 0x03DD91 FF:DD81: AD 35 06  LDA ram_0635
+C - - - - - 0x03DD91 FF:DD81: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03DD94 FF:DD84: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03DD97 FF:DD87: F0 05     BEQ bra_DD8E_команда_слева
 ; if комада справа
@@ -3940,7 +3940,7 @@ C - - - - - 0x03DDB1 FF:DDA1: 4A        LSR
 C - - - - - 0x03DDB2 FF:DDA2: 4A        LSR
 C - - - - - 0x03DDB3 FF:DDA3: 4A        LSR
 C - - - - - 0x03DDB4 FF:DDA4: 85 3A     STA ram_003A
-C - - - - - 0x03DDB6 FF:DDA6: AD 37 06  LDA ram_0637
+C - - - - - 0x03DDB6 FF:DDA6: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x03DDB9 FF:DDA9: 10 02     BPL bra_DDAD
 C - - - - - 0x03DDBB FF:DDAB: 49 FF     EOR #$FF
 bra_DDAD:
@@ -4138,10 +4138,10 @@ C - - - - - 0x03DF07 FF:DEF7: 98        TYA
 C - - - - - 0x03DF08 FF:DEF8: 48        PHA
 C - - - - - 0x03DF09 FF:DEF9: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03DF0C FF:DEFC: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
-C - - - - - 0x03DF0F FF:DEFF: AD 35 06  LDA ram_0635
+C - - - - - 0x03DF0F FF:DEFF: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03DF12 FF:DF02: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03DF14 FF:DF04: 91 34     STA (ram_plr_data),Y    ; con_plr_pos_X_hi
-C - - - - - 0x03DF16 FF:DF06: AD 37 06  LDA ram_0637
+C - - - - - 0x03DF16 FF:DF06: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x03DF19 FF:DF09: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x03DF1B FF:DF0B: 91 34     STA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x03DF1D FF:DF0D: 48        PHA
@@ -4199,7 +4199,7 @@ C - - - - - 0x03DF9B FF:DF8B: AD 38 06  LDA ram_0638
 C - - - - - 0x03DF9E FF:DF8E: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - - 0x03DFA1 FF:DF91: 8A        TXA
 C - - - - - 0x03DFA2 FF:DF92: 38        SEC
-C - - - - - 0x03DFA3 FF:DF93: ED 35 06  SBC ram_0635
+C - - - - - 0x03DFA3 FF:DF93: ED 35 06  SBC ram_ball_pos_X_hi
 C - - - - - 0x03DFA6 FF:DF96: B0 04     BCS bra_DF9C
 C - - - - - 0x03DFA8 FF:DF98: 49 FF     EOR #$FF
 C - - - - - 0x03DFAA FF:DF9A: 69 01     ADC #$01
@@ -4207,7 +4207,7 @@ bra_DF9C:
 C - - - - - 0x03DFAC FF:DF9C: 85 3A     STA ram_003A
 C - - - - - 0x03DFAE FF:DF9E: 98        TYA
 C - - - - - 0x03DFAF FF:DF9F: 38        SEC
-C - - - - - 0x03DFB0 FF:DFA0: ED 37 06  SBC ram_0637
+C - - - - - 0x03DFB0 FF:DFA0: ED 37 06  SBC ram_ball_pos_Y_hi
 C - - - - - 0x03DFB3 FF:DFA3: B0 04     BCS bra_DFA9
 C - - - - - 0x03DFB5 FF:DFA5: 49 FF     EOR #$FF
 C - - - - - 0x03DFB7 FF:DFA7: 69 01     ADC #$01
@@ -4547,7 +4547,7 @@ C - - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E    ; if команда сп
 
 ; if команда слева
 ; bzk garbage? в новых логах не выполнялось
-- - - - - - 0x03E217 FF:E207: 2C 35 06  BIT ram_0635
+- - - - - - 0x03E217 FF:E207: 2C 35 06  BIT ram_ball_pos_X_hi
 - - - - - - 0x03E21A FF:E20A: 10 12     BPL bra_E21E
 - - - - - - 0x03E21C FF:E20C: 48        PHA
 - - - - - - 0x03E21F FF:E20F: A9 1A     LDA #con_prg_bank + $1A
@@ -4621,8 +4621,8 @@ C - - - - - 0x03E28D FF:E27D: 20 77 CD  JSR sub_CD77_получить_адрес
 C - - - - - 0x03E290 FF:E280: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03E292 FF:E282: B1 34     LDA (ram_plr_data),Y    ; con_plr_stun
 C - - - - - 0x03E294 FF:E284: D0 1C     BNE bra_E2A2_RTS
-C - - - - - 0x03E296 FF:E286: AE 35 06  LDX ram_0635
-C - - - - - 0x03E299 FF:E289: AC 37 06  LDY ram_0637
+C - - - - - 0x03E296 FF:E286: AE 35 06  LDX ram_ball_pos_X_hi
+C - - - - - 0x03E299 FF:E289: AC 37 06  LDY ram_ball_pos_Y_hi
 C - - - - - 0x03E29C FF:E28C: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E29F FF:E28F: F0 05     BEQ bra_E296_команда_слева
 ; if комада справа
@@ -5013,7 +5013,7 @@ C - - - - - 0x03E513 FF:E503: 85 44     STA ram_0044
 C - - - - - 0x03E515 FF:E505: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03E517 FF:E507: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x03E519 FF:E509: 38        SEC
-C - - - - - 0x03E51A FF:E50A: ED 35 06  SBC ram_0635
+C - - - - - 0x03E51A FF:E50A: ED 35 06  SBC ram_ball_pos_X_hi
 C - - - - - 0x03E51D FF:E50D: B0 04     BCS bra_E513
 C - - - - - 0x03E51F FF:E50F: 49 FF     EOR #$FF
 C - - - - - 0x03E521 FF:E511: 69 01     ADC #$01
@@ -5025,7 +5025,7 @@ bra_E519:
 C - - - - - 0x03E529 FF:E519: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x03E52B FF:E51B: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x03E52D FF:E51D: 38        SEC
-C - - - - - 0x03E52E FF:E51E: ED 37 06  SBC ram_0637
+C - - - - - 0x03E52E FF:E51E: ED 37 06  SBC ram_ball_pos_Y_hi
 C - - - - - 0x03E531 FF:E521: B0 04     BCS bra_E527
 C - - - - - 0x03E533 FF:E523: 49 FF     EOR #$FF
 C - - - - - 0x03E535 FF:E525: 69 01     ADC #$01
@@ -5135,8 +5135,8 @@ C - - - - - 0x03E5E7 FF:E5D7: 85 25     STA ram_for_5115
 C - - - - - 0x03E5E9 FF:E5D9: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03E5EC FF:E5DC: 68        PLA
 C - - - - - 0x03E5ED FF:E5DD: 20 24 80  JSR sub_0x034CB4
-C - - - - - 0x03E5F0 FF:E5E0: AE 35 06  LDX ram_0635
-C - - - - - 0x03E5F3 FF:E5E3: AC 37 06  LDY ram_0637
+C - - - - - 0x03E5F0 FF:E5E0: AE 35 06  LDX ram_ball_pos_X_hi
+C - - - - - 0x03E5F3 FF:E5E3: AC 37 06  LDY ram_ball_pos_Y_hi
 C - - - - - 0x03E5F6 FF:E5E6: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03E5F9 FF:E5E9: 8D FE 05  STA ram_05FE
 C - - - - - 0x03E5FC FF:E5EC: AD 00 06  LDA ram_колво_защитников
@@ -5221,11 +5221,11 @@ C - - - - - 0x03E693 FF:E683: A9 02     LDA #$02
 C - - - - - 0x03E695 FF:E685: 20 0F CB  JSR sub_CB0F_задержка
 ofs_041_0x03E698_06:
 C D - - - - 0x03E698 FF:E688: A9 00     LDA #$00
-C - - - - - 0x03E69A FF:E68A: 2C 35 06  BIT ram_0635
+C - - - - - 0x03E69A FF:E68A: 2C 35 06  BIT ram_ball_pos_X_hi
 C - - - - - 0x03E69D FF:E68D: 10 02     BPL bra_E691
 C - - - - - 0x03E69F FF:E68F: 09 01     ORA #$01
 bra_E691:
-C - - - - - 0x03E6A1 FF:E691: 2C 37 06  BIT ram_0637
+C - - - - - 0x03E6A1 FF:E691: 2C 37 06  BIT ram_ball_pos_Y_hi
 C - - - - - 0x03E6A4 FF:E694: 10 02     BPL bra_E698
 C - - - - - 0x03E6A6 FF:E696: 09 02     ORA #$02
 bra_E698:
@@ -5249,8 +5249,8 @@ C - - - - - 0x03E6C4 FF:E6B4: 98        TYA
 C - - - - - 0x03E6C5 FF:E6B5: 49 FF     EOR #$FF
 C - - - - - 0x03E6C7 FF:E6B7: A8        TAY
 bra_E6B8:
-C - - - - - 0x03E6C8 FF:E6B8: 8E 35 06  STX ram_0635
-C - - - - - 0x03E6CB FF:E6BB: 8C 37 06  STY ram_0637
+C - - - - - 0x03E6C8 FF:E6B8: 8E 35 06  STX ram_ball_pos_X_hi
+C - - - - - 0x03E6CB FF:E6BB: 8C 37 06  STY ram_ball_pos_Y_hi
 C - - - - - 0x03E6CE FF:E6BE: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03E6D1 FF:E6C1: 8D 38 06  STA ram_0638
 C - - - - - 0x03E6D4 FF:E6C4: 8D FE 05  STA ram_05FE
@@ -5278,11 +5278,11 @@ C D - - - - 0x03E6FC FF:E6EC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03E6FF FF:E6EF: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03E702 FF:E6F2: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x03E704 FF:E6F4: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
-C - - - - - 0x03E706 FF:E6F6: 8D 35 06  STA ram_0635
+C - - - - - 0x03E706 FF:E6F6: 8D 35 06  STA ram_ball_pos_X_hi
 C - - - - - 0x03E709 FF:E6F9: AA        TAX
 C - - - - - 0x03E70A FF:E6FA: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x03E70C FF:E6FC: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
-C - - - - - 0x03E70E FF:E6FE: 8D 37 06  STA ram_0637
+C - - - - - 0x03E70E FF:E6FE: 8D 37 06  STA ram_ball_pos_Y_hi
 C - - - - - 0x03E711 FF:E701: A8        TAY
 C - - - - - 0x03E712 FF:E702: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03E715 FF:E705: 8D FE 05  STA ram_05FE
@@ -5294,7 +5294,7 @@ sub_E709:
 C - - - - - 0x03E719 FF:E709: AD 2A 06  LDA ram_062A
 C - - - - - 0x03E71C FF:E70C: 29 7F     AND #$7F
 C - - - - - 0x03E71E FF:E70E: 8D 2A 06  STA ram_062A
-C - - - - - 0x03E721 FF:E711: AD 37 06  LDA ram_0637
+C - - - - - 0x03E721 FF:E711: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x03E724 FF:E714: 38        SEC
 C - - - - - 0x03E725 FF:E715: E9 50     SBC #$50
 C - - - - - 0x03E727 FF:E717: 29 E0     AND #$E0
@@ -5306,7 +5306,7 @@ C - - - - - 0x03E72E FF:E71E: 4A        LSR
 C - - - - - 0x03E72F FF:E71F: 4A        LSR
 C - - - - - 0x03E730 FF:E720: 65 3A     ADC ram_003A
 C - - - - - 0x03E732 FF:E722: 85 3A     STA ram_003A
-C - - - - - 0x03E734 FF:E724: AD 35 06  LDA ram_0635
+C - - - - - 0x03E734 FF:E724: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03E737 FF:E727: 38        SEC
 C - - - - - 0x03E738 FF:E728: E9 30     SBC #$30
 C - - - - - 0x03E73A FF:E72A: 29 E0     AND #$E0
@@ -5335,10 +5335,10 @@ C - - - - - 0x03E759 FF:E749: CD 38 06  CMP ram_0638
 C - - - - - 0x03E75C FF:E74C: D0 03     BNE bra_E751
 C - - - - - 0x03E75E FF:E74E: 4C CF E7  RTS
 bra_E751:
-; bzk тут используются indirect адреса для игроков, выяснить нахрена
-C - - - - - 0x03E761 FF:E751: A9 2F     LDA #$2F
+; bzk optimize, тут используются indirect адреса для игроков, выяснить нахрена
+C - - - - - 0x03E761 FF:E751: A9 2F     LDA #< ram_062F
 C - - - - - 0x03E763 FF:E753: 85 34     STA ram_plr_data
-C - - - - - 0x03E765 FF:E755: A9 06     LDA #$06
+C - - - - - 0x03E765 FF:E755: A9 06     LDA #> ram_062F
 C - - - - - 0x03E767 FF:E757: 85 35     STA ram_plr_data + $01
 C - - - - - 0x03E769 FF:E759: 20 D0 E7  JSR sub_E7D0
 C - - - - - 0x03E76C FF:E75C: 8D 2C 06  STA ram_062C
@@ -5356,19 +5356,19 @@ C - - - - - 0x03E785 FF:E775: 20 0F CB  JSR sub_CB0F_задержка
 bra_E778_loop:
 C - - - - - 0x03E788 FF:E778: AD 39 06  LDA ram_0639
 C - - - - - 0x03E78B FF:E77B: 18        CLC
-C - - - - - 0x03E78C FF:E77C: 6D 34 06  ADC ram_0634
-C - - - - - 0x03E78F FF:E77F: 8D 34 06  STA ram_0634
+C - - - - - 0x03E78C FF:E77C: 6D 34 06  ADC ram_ball_pos_X_lo
+C - - - - - 0x03E78F FF:E77F: 8D 34 06  STA ram_ball_pos_X_lo
 C - - - - - 0x03E792 FF:E782: AD 3A 06  LDA ram_063A
-C - - - - - 0x03E795 FF:E785: 6D 35 06  ADC ram_0635
-C - - - - - 0x03E798 FF:E788: 8D 35 06  STA ram_0635
+C - - - - - 0x03E795 FF:E785: 6D 35 06  ADC ram_ball_pos_X_hi
+C - - - - - 0x03E798 FF:E788: 8D 35 06  STA ram_ball_pos_X_hi
 C - - - - - 0x03E79B FF:E78B: AA        TAX
 C - - - - - 0x03E79C FF:E78C: AD 3B 06  LDA ram_063B
 C - - - - - 0x03E79F FF:E78F: 18        CLC
-C - - - - - 0x03E7A0 FF:E790: 6D 36 06  ADC ram_0636
-C - - - - - 0x03E7A3 FF:E793: 8D 36 06  STA ram_0636
+C - - - - - 0x03E7A0 FF:E790: 6D 36 06  ADC ram_ball_pos_Y_lo
+C - - - - - 0x03E7A3 FF:E793: 8D 36 06  STA ram_ball_pos_Y_lo
 C - - - - - 0x03E7A6 FF:E796: AD 3C 06  LDA ram_063C
-C - - - - - 0x03E7A9 FF:E799: 6D 37 06  ADC ram_0637
-C - - - - - 0x03E7AC FF:E79C: 8D 37 06  STA ram_0637
+C - - - - - 0x03E7A9 FF:E799: 6D 37 06  ADC ram_ball_pos_Y_hi
+C - - - - - 0x03E7AC FF:E79C: 8D 37 06  STA ram_ball_pos_Y_hi
 C - - - - - 0x03E7AF FF:E79F: A8        TAY
 C - - - - - 0x03E7B0 FF:E7A0: 20 E2 CD  JSR sub_CDE2
 C - - - - - 0x03E7B3 FF:E7A3: C9 FF     CMP #$FF
@@ -5386,8 +5386,8 @@ C - - - - - 0x03E7CD FF:E7BD: 8D FE 05  STA ram_05FE
 bra_E7C0:
 C - - - - - 0x03E7D0 FF:E7C0: AD FE 05  LDA ram_05FE
 C - - - - - 0x03E7D3 FF:E7C3: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
-C - - - - - 0x03E7D6 FF:E7C6: 8E 35 06  STX ram_0635
-C - - - - - 0x03E7D9 FF:E7C9: 8C 37 06  STY ram_0637
+C - - - - - 0x03E7D6 FF:E7C6: 8E 35 06  STX ram_ball_pos_X_hi
+C - - - - - 0x03E7D9 FF:E7C9: 8C 37 06  STY ram_ball_pos_Y_hi
 C - - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP sub_0x034845
 
 
@@ -6660,14 +6660,14 @@ C - - - - - 0x03F0D6 FF:F0C6: AD 3D 06  LDA ram_положение_миника�
 C - - - - - 0x03F0D9 FF:F0C9: 0A        ASL
 C - - - - - 0x03F0DA FF:F0CA: 0A        ASL
 C - - - - - 0x03F0DB FF:F0CB: AA        TAX
-C - - - - - 0x03F0DC FF:F0CC: AD 37 06  LDA ram_0637
+C - - - - - 0x03F0DC FF:F0CC: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x03F0DF FF:F0CF: 38        SEC
 C - - - - - 0x03F0E0 FF:F0D0: E9 50     SBC #$50
 C - - - - - 0x03F0E2 FF:F0D2: 29 F0     AND #$F0
 C - - - - - 0x03F0E4 FF:F0D4: 0A        ASL
 C - - - - - 0x03F0E5 FF:F0D5: 85 3A     STA ram_003A
 C - - - - - 0x03F0E7 FF:F0D7: 26 3B     ROL ram_003B
-C - - - - - 0x03F0E9 FF:F0D9: AD 35 06  LDA ram_0635
+C - - - - - 0x03F0E9 FF:F0D9: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03F0EC FF:F0DC: 38        SEC
 C - - - - - 0x03F0ED FF:F0DD: E9 30     SBC #$30
 C - - - - - 0x03F0EF FF:F0DF: 4A        LSR

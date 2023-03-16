@@ -587,7 +587,7 @@ C - - - - - 0x01630D 0B:82FD: 60        RTS
 
 
 sub_82FE:
-C - - - - - 0x01630E 0B:82FE: AD 37 06  LDA ram_0637
+C - - - - - 0x01630E 0B:82FE: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x016311 0B:8301: 38        SEC
 C - - - - - 0x016312 0B:8302: E9 50     SBC #$50
 C - - - - - 0x016314 0B:8304: 29 F0     AND #$F0
@@ -597,7 +597,7 @@ C - - - - - 0x016319 0B:8309: 4A        LSR
 C - - - - - 0x01631A 0B:830A: 4A        LSR
 C - - - - - 0x01631B 0B:830B: 65 3A     ADC ram_003A
 C - - - - - 0x01631D 0B:830D: 85 3A     STA ram_003A
-C - - - - - 0x01631F 0B:830F: AD 35 06  LDA ram_0635
+C - - - - - 0x01631F 0B:830F: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x016322 0B:8312: 38        SEC
 C - - - - - 0x016323 0B:8313: E9 30     SBC #$30
 C - - - - - 0x016325 0B:8315: 29 F0     AND #$F0

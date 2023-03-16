@@ -657,8 +657,8 @@ C - - - - - 0x03847C 1C:846C: 8D 28 06  STA ram_индекс_буфера
 C - - - - - 0x03847F 1C:846F: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x038482 1C:8472: 29 3F     AND #$3F
 C - - - - - 0x038484 1C:8474: D0 22     BNE bra_8498_RTS
-C - - - - - 0x038486 1C:8476: AE 35 06  LDX ram_0635
-C - - - - - 0x038489 1C:8479: AC 37 06  LDY ram_0637
+C - - - - - 0x038486 1C:8476: AE 35 06  LDX ram_ball_pos_X_hi
+C - - - - - 0x038489 1C:8479: AC 37 06  LDY ram_ball_pos_Y_hi
 C - - - - - 0x03848C 1C:847C: 20 99 84  JSR sub_8499
 C - - - - - 0x03848F 1C:847F: AA        TAX
 C - - - - - 0x038490 1C:8480: D0 16     BNE bra_8498_RTS
@@ -977,7 +977,7 @@ C - - - - - 0x03866D 1C:865D: 20 B3 8A  JSR sub_8AB3
 C - - - - - 0x038670 1C:8660: 4C 8E 86  JMP loc_868E
 bra_8663:
 ; bzk optimize, схожий код с 0x038783
-C - - - - - 0x038673 1C:8663: AD 35 06  LDA ram_0635
+C - - - - - 0x038673 1C:8663: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x038676 1C:8666: 49 FF     EOR #$FF
 C - - - - - 0x038678 1C:8668: AA        TAX
 C - - - - - 0x038679 1C:8669: A9 14     LDA #$14
@@ -986,7 +986,7 @@ C - - - - - 0x03867D 1C:866D: B0 1F     BCS bra_868E
 C - - - - - 0x03867F 1C:866F: A9 10     LDA #$10
 C - - - - - 0x038681 1C:8671: E0 60     CPX #$60
 C - - - - - 0x038683 1C:8673: B0 19     BCS bra_868E
-C - - - - - 0x038685 1C:8675: AD 37 06  LDA ram_0637
+C - - - - - 0x038685 1C:8675: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x038688 1C:8678: 10 02     BPL bra_867C
 C - - - - - 0x03868A 1C:867A: 49 FF     EOR #$FF
 bra_867C:
@@ -1158,13 +1158,13 @@ C - - - - - 0x038780 1C:8770: 4C 9C 87  JMP loc_879C
 bra_8773:
 ; bzk optimize, схожий код с 0x038673
 C - - - - - 0x038783 1C:8773: A9 14     LDA #$14
-C - - - - - 0x038785 1C:8775: AE 35 06  LDX ram_0635
+C - - - - - 0x038785 1C:8775: AE 35 06  LDX ram_ball_pos_X_hi
 C - - - - - 0x038788 1C:8778: E0 A0     CPX #$A0
 C - - - - - 0x03878A 1C:877A: B0 20     BCS bra_879C
 C - - - - - 0x03878C 1C:877C: A9 10     LDA #$10
 C - - - - - 0x03878E 1C:877E: E0 60     CPX #$60
 C - - - - - 0x038790 1C:8780: B0 1A     BCS bra_879C
-C - - - - - 0x038792 1C:8782: AC 37 06  LDY ram_0637
+C - - - - - 0x038792 1C:8782: AC 37 06  LDY ram_ball_pos_Y_hi
 C - - - - - 0x038795 1C:8785: 10 04     BPL bra_878B
 C - - - - - 0x038797 1C:8787: 98        TYA
 C - - - - - 0x038798 1C:8788: 49 FF     EOR #$FF
@@ -1262,7 +1262,7 @@ C - - - - - 0x038822 1C:8812: 20 0C C5  JSR sub_0x03CD8C_получить_адр
 C - - - - - 0x038825 1C:8815: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x038827 1C:8817: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x038829 1C:8819: 38        SEC
-C - - - - - 0x03882A 1C:881A: ED 35 06  SBC ram_0635
+C - - - - - 0x03882A 1C:881A: ED 35 06  SBC ram_ball_pos_X_hi
 C - - - - - 0x03882D 1C:881D: B0 04     BCS bra_8823
 C - - - - - 0x03882F 1C:881F: 49 FF     EOR #$FF
 C - - - - - 0x038831 1C:8821: 69 01     ADC #$01
@@ -1272,7 +1272,7 @@ C - - - - - 0x038835 1C:8825: B0 12     BCS bra_8839
 C - - - - - 0x038837 1C:8827: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x038839 1C:8829: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x03883B 1C:882B: 38        SEC
-C - - - - - 0x03883C 1C:882C: ED 37 06  SBC ram_0637
+C - - - - - 0x03883C 1C:882C: ED 37 06  SBC ram_ball_pos_Y_hi
 C - - - - - 0x03883F 1C:882F: B0 04     BCS bra_8835
 C - - - - - 0x038841 1C:8831: 49 FF     EOR #$FF
 C - - - - - 0x038843 1C:8833: 69 01     ADC #$01
@@ -1551,11 +1551,11 @@ sub_89B3:
 C - - - - - 0x0389C3 1C:89B3: A5 3C     LDA ram_003C
 C - - - - - 0x0389C5 1C:89B5: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x0389C8 1C:89B8: A0 06     LDY #con_plr_pos_X_hi
-C - - - - - 0x0389CA 1C:89BA: AD 35 06  LDA ram_0635
+C - - - - - 0x0389CA 1C:89BA: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x0389CD 1C:89BD: 38        SEC
 C - - - - - 0x0389CE 1C:89BE: F1 34     SBC (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x0389D0 1C:89C0: B0 08     BCS bra_89CA
-C - - - - - 0x0389D2 1C:89C2: AD 35 06  LDA ram_0635
+C - - - - - 0x0389D2 1C:89C2: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x0389D5 1C:89C5: C9 60     CMP #$60
 C - - - - - 0x0389D7 1C:89C7: 90 01     BCC bra_89CA
 C - - - - - 0x0389D9 1C:89C9: 60        RTS
@@ -1712,12 +1712,12 @@ C - - - - - 0x038AB7 1C:8AA7: 60        RTS
 
 
 sub_8AB3:
-C - - - - - 0x038AC3 1C:8AB3: AD 35 06  LDA ram_0635
+C - - - - - 0x038AC3 1C:8AB3: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x038AC6 1C:8AB6: 10 02     BPL bra_8ABA
 C - - - - - 0x038AC8 1C:8AB8: 49 FF     EOR #$FF
 bra_8ABA:
 C - - - - - 0x038ACA 1C:8ABA: AA        TAX
-C - - - - - 0x038ACB 1C:8ABB: AD 37 06  LDA ram_0637
+C - - - - - 0x038ACB 1C:8ABB: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x038ACE 1C:8ABE: 10 02     BPL bra_8AC2
 C - - - - - 0x038AD0 1C:8AC0: 49 FF     EOR #$FF
 bra_8AC2:
