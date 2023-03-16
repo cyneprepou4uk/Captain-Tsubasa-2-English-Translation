@@ -5969,13 +5969,11 @@ C - - - - - 0x03EC20 FF:EC10: 2C 16 05  BIT ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC23 FF:EC13: 10 1F     BPL bra_EC34
 C - - - - - 0x03EC25 FF:EC15: A9 01     LDA #$01
 C - - - - - 0x03EC27 FF:EC17: 8D 16 05  STA ram_флаги_сценария_ХЗ
-C - - - - - 0x03EC2A FF:EC1A: 48        PHA
 C - - - - - 0x03EC2D FF:EC1D: A9 10     LDA #con_prg_bank + $10
 C - - - - - 0x03EC2F FF:EC1F: 85 24     STA ram_for_5114
 C - - - - - 0x03EC31 FF:EC21: A9 11     LDA #con_prg_bank + $11
 C - - - - - 0x03EC33 FF:EC23: 85 25     STA ram_for_5115
 C - - - - - 0x03EC35 FF:EC25: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EC38 FF:EC28: 68        PLA
 C - - - - - 0x03EC39 FF:EC29: 20 00 80  JSR sub_0x020016_прочитать_поинтеры_сценария
 C - - - - - 0x03EC3C FF:EC2C: A9 00     LDA #$00
 C - - - - - 0x03EC3E FF:EC2E: 8D 22 05  STA ram_указатель_стека_сценария
