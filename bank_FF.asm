@@ -2770,15 +2770,12 @@ C - - - - - 0x03D69F FF:D68F: D0 05     BNE bra_D696
 C - - - - - 0x03D6A1 FF:D691: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x03D6A4 FF:D694: F0 2E     BEQ bra_D6C4
 bra_D696:
-; здесь нужно PHA + PLA
-C - - - - - 0x03D6A6 FF:D696: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - - 0x03D6A9 FF:D699: 48        PHA
 C - - - - - 0x03D6AC FF:D69C: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03D6AE FF:D69E: 85 24     STA ram_for_5114
 C - - - - - 0x03D6B0 FF:D6A0: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D6B2 FF:D6A2: 85 25     STA ram_for_5115
 C - - - - - 0x03D6B4 FF:D6A4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03D6B7 FF:D6A7: 68        PLA
+                                        LDA ram_игрок_с_мячом
 C - - - - - 0x03D6B8 FF:D6A8: 20 09 80  JSR sub_0x038019
 C - - - - - 0x03D6BB FF:D6AB: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D6BE FF:D6AE: F0 0E     BEQ bra_D6BE
