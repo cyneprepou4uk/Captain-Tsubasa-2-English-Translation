@@ -6414,14 +6414,12 @@ C - - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_for_5114
 C - - - - - 0x03EF92 FF:EF82: 48        PHA
 C - - - - - 0x03EF93 FF:EF83: A5 25     LDA ram_for_5115
 C - - - - - 0x03EF95 FF:EF85: 48        PHA
-C - - - - - 0x03EF96 FF:EF86: 98        TYA
-C - - - - - 0x03EF97 FF:EF87: 48        PHA
 C - - - - - 0x03EF9A FF:EF8A: A9 18     LDA #con_prg_bank + $18
 C - - - - - 0x03EF9C FF:EF8C: 85 24     STA ram_for_5114
 C - - - - - 0x03EF9E FF:EF8E: A9 19     LDA #con_prg_bank + $19
 C - - - - - 0x03EFA0 FF:EF90: 85 25     STA ram_for_5115
 C - - - - - 0x03EFA2 FF:EF92: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EFA5 FF:EF95: 68        PLA
+                                        TYA
 C - - - - - 0x03EFA6 FF:EF96: 20 0C 80  JSR sub_0x030861_отрисовка_меню_во_время_матча
 C - - - - - 0x03EFA9 FF:EF99: 68        PLA
 C - - - - - 0x03EFAA FF:EF9A: 85 25     STA ram_for_5115
