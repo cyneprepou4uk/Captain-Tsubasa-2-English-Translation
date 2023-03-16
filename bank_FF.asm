@@ -2982,13 +2982,11 @@ C - - - - - 0x03D7BB FF:D7AB: A9 00     LDA #$00
 C - - - - - 0x03D7BD FF:D7AD: 8D 2D 06  STA ram_062D
 C - - - - - 0x03D7C0 FF:D7B0: A9 46     LDA #con_scenario_46
 C - - - - - 0x03D7C2 FF:D7B2: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - - 0x03D7C5 FF:D7B5: 48        PHA
 C - - - - - 0x03D7C8 FF:D7B8: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03D7CA FF:D7BA: 85 24     STA ram_for_5114
 C - - - - - 0x03D7CC FF:D7BC: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03D7CE FF:D7BE: 85 25     STA ram_for_5115
 C - - - - - 0x03D7D0 FF:D7C0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03D7D3 FF:D7C3: 68        PLA
 C - - - - - 0x03D7D4 FF:D7C4: 20 21 80  JSR sub_0x034F82
 C - - - - - 0x03D7D7 FF:D7C7: 48        PHA
 C - - - - - 0x03D7DA FF:D7CA: A9 1A     LDA #con_prg_bank + $1A
@@ -4488,13 +4486,11 @@ C - - - - - 0x03E1BF FF:E1AF: 20 06 80  JSR sub_0x038016
 C - - - - - 0x03E1C2 FF:E1B2: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x03E1C5 FF:E1B5: C9 02     CMP #$02
 C - - - - - 0x03E1C7 FF:E1B7: F0 2E     BEQ bra_E1E7
-C - - - - - 0x03E1C9 FF:E1B9: 48        PHA
 C - - - - - 0x03E1CC FF:E1BC: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E1CE FF:E1BE: 85 24     STA ram_for_5114
 C - - - - - 0x03E1D0 FF:E1C0: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E1D2 FF:E1C2: 85 25     STA ram_for_5115
 C - - - - - 0x03E1D4 FF:E1C4: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E1D7 FF:E1C7: 68        PLA
 C - - - - - 0x03E1D8 FF:E1C8: 20 21 80  JSR sub_0x034F82
 C - - - - - 0x03E1DB FF:E1CB: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - - 0x03E1DE FF:E1CE: A9 00     LDA #$00
