@@ -6354,13 +6354,11 @@ C - - - - - 0x03EF2B FF:EF1B: A9 15     LDA #con_prg_bank + $15
 C - - - - - 0x03EF2D FF:EF1D: 85 25     STA ram_for_5115
 C - - - - - 0x03EF2F FF:EF1F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03EF33 FF:EF23: 20 03 80  JSR sub_0x0284EC
-C - - - - - 0x03EF36 FF:EF26: 48        PHA
 C - - - - - 0x03EF39 FF:EF29: A9 16     LDA #con_prg_bank + $16
 C - - - - - 0x03EF3B FF:EF2B: 85 24     STA ram_for_5114
 C - - - - - 0x03EF3D FF:EF2D: A9 17     LDA #con_prg_bank + $17
 C - - - - - 0x03EF3F FF:EF2F: 85 25     STA ram_for_5115
 C - - - - - 0x03EF41 FF:EF31: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EF44 FF:EF34: 68        PLA
 C - - - - - 0x03EF45 FF:EF35: 20 00 80  JSR sub_0x02C010
 bra_EF38:
 C - - - - - 0x03EF48 FF:EF38: E6 3A     INC ram_003A
