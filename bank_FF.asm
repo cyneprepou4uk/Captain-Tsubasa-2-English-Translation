@@ -3460,13 +3460,11 @@ C - - - - - 0x03DB37 FF:DB27: 20 99 CB  JSR sub_CB99_поинтеры_после
 
 
 ofs_060_DB34_00:
-C - J - - - 0x03DB44 FF:DB34: 48        PHA
 C - - - - - 0x03DB47 FF:DB37: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03DB49 FF:DB39: 85 24     STA ram_for_5114
 C - - - - - 0x03DB4B FF:DB3B: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03DB4D FF:DB3D: 85 25     STA ram_for_5115
 C - - - - - 0x03DB4F FF:DB3F: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03DB52 FF:DB42: 68        PLA
 C - - - - - 0x03DB53 FF:DB43: 20 03 80  JSR sub_0x038013_подготовить_параметры_для_команды_соперников
 C - - - - - 0x03DB56 FF:DB46: A9 00     LDA #$00
 C - - - - - 0x03DB58 FF:DB48: 8D 47 04  STA ram_флаг_удара_франции_коимбры
