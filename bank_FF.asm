@@ -6367,13 +6367,11 @@ C - - - - - 0x03EF4C FF:EF3C: C9 06     CMP #$06
 C - - - - - 0x03EF4E FF:EF3E: D0 9C     BNE bra_EEDC_loop
 C - - - - - 0x03EF50 FF:EF40: 2C 2D 06  BIT ram_062D
 C - - - - - 0x03EF53 FF:EF43: 10 12     BPL bra_EF57
-C - - - - - 0x03EF55 FF:EF45: 48        PHA
 C - - - - - 0x03EF58 FF:EF48: A9 14     LDA #con_prg_bank + $14
 C - - - - - 0x03EF5A FF:EF4A: 85 24     STA ram_for_5114
 C - - - - - 0x03EF5C FF:EF4C: A9 15     LDA #con_prg_bank + $15
 C - - - - - 0x03EF5E FF:EF4E: 85 25     STA ram_for_5115
 C - - - - - 0x03EF60 FF:EF50: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EF63 FF:EF53: 68        PLA
 C - - - - - 0x03EF64 FF:EF54: 20 09 80  JSR sub_0x028634
 bra_EF57:
 C - - - - - 0x03EF67 FF:EF57: A9 40     LDA #$40
