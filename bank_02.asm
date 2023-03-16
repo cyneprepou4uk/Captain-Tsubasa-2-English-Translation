@@ -332,18 +332,18 @@ C - - - - - 0x0042F5 02:A2E5: 4C 57 C5  JMP loc_0x03C6CE
 
 
 sub_A2E6_очистить_оперативку:
-    LDA #$00
-    LDY #$17
+                                        LDA #$00
+                                        LDY #$17
 @loop_очистить_0001_0018:
-    STA ram_0001,Y
-    DEY
-    BPL @loop_очистить_0001_0018
-    LDY #$A5 + $01
+                                        STA ram_0001,Y
+                                        DEY
+                                        BPL @loop_очистить_0001_0018
+                                        LDY #$A5 + $01
 @loop_очистить_003A_00DF:
-    STA ram_003A - $01,Y
-    DEY
-    BNE @loop_очистить_003A_00DF
-    RTS
+                                        STA ram_003A - $01,Y
+                                        DEY
+                                        BNE @loop_очистить_003A_00DF
+                                        RTS
 
 
 
