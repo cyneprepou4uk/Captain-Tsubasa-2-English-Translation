@@ -6052,14 +6052,12 @@ C - - - - - 0x03ECDA FF:ECCA: AD 25 05  LDA ram_0525
 C - - - - - 0x03ECDD FF:ECCD: A2 00     LDX #$00    ; палитра фона
 C - - - - - 0x03ECDF FF:ECCF: 20 02 CC  JSR sub_CC02_запись_палитры_во_время_матча
 C - - - - - 0x03ECE2 FF:ECD2: 20 D2 CC  JSR sub_CCD3
-C - - - - - 0x03ECE8 FF:ECD8: AD CE 05  LDA ram_05CE
-C - - - - - 0x03ECEB FF:ECDB: 48        PHA
 C - - - - - 0x03ECEE FF:ECDE: A9 0B     LDA #con_prg_bank + $0B
 C - - - - - 0x03ECF0 FF:ECE0: 85 24     STA ram_for_5114
 C - - - - - 0x03ECF2 FF:ECE2: A9 0C     LDA #con_prg_bank + $0C
 C - - - - - 0x03ECF4 FF:ECE4: 85 25     STA ram_for_5115
 C - - - - - 0x03ECF6 FF:ECE6: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03ECF9 FF:ECE9: 68        PLA
+                                        LDA ram_05CE
 C - - - - - 0x03ECFA FF:ECEA: 20 06 80  JSR sub_0x0164B1
 C - - - - - 0x03ECFD FF:ECED: A9 00     LDA #$00
 C - - - - - 0x03ECFF FF:ECEF: 85 4A     STA ram_004A
