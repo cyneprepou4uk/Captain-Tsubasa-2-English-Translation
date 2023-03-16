@@ -1826,7 +1826,12 @@ loc_8BD4_начислить_опыт:
 C D - - - - 0x034BE4 1A:8BD4: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x034BE7 1A:8BD7: A0 00     LDY #con_plr_id
 C - - - - - 0x034BE9 1A:8BD9: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
+                                        BEQ bra_8BDE_RTS    ; if con_p_clone
+                                        CMP #$23
+                                        BCS bra_8BDE_RTS    ; if игрок команды соперника
+; if игрок из нашей команды
 C - - - - - 0x034BEB 1A:8BDB: 20 C8 C4  JSR sub_0x03C4D8_начислить_опыт
+bra_8BDE_RTS:
 C - - - - - 0x034BEE 1A:8BDE: 60        RTS
 
 
