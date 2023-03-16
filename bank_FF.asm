@@ -2916,13 +2916,11 @@ C - - - - - 0x03D755 FF:D745: 60        RTS
 
 
 sub_D746:
-C - - - - - 0x03D756 FF:D746: 48        PHA
 C - - - - - 0x03D759 FF:D749: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03D75B FF:D74B: 85 24     STA ram_for_5114
 C - - - - - 0x03D75D FF:D74D: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D75F FF:D74F: 85 25     STA ram_for_5115
 C - - - - - 0x03D761 FF:D751: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03D764 FF:D754: 68        PLA
 C - - - - - 0x03D765 FF:D755: 20 15 80  JSR sub_0x038025
 C - - - - - 0x03D768 FF:D758: 20 6B D7  JSR sub_D76B
 C - - - - - 0x03D76B FF:D75B: 10 0C     BPL bra_D769
@@ -5156,13 +5154,11 @@ C - - - - - 0x03E63D FF:E62D: F0 48     BEQ bra_E677_RTS
 C - - - - - 0x03E63F FF:E62F: C9 0B     CMP #$0B
 C - - - - - 0x03E641 FF:E631: F0 44     BEQ bra_E677_RTS
 C - - - - - 0x03E643 FF:E633: 8D 42 04  STA ram_игрок_без_мяча
-C - - - - - 0x03E646 FF:E636: 48        PHA
 C - - - - - 0x03E649 FF:E639: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03E64B FF:E63B: 85 24     STA ram_for_5114
 C - - - - - 0x03E64D FF:E63D: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03E64F FF:E63F: 85 25     STA ram_for_5115
 C - - - - - 0x03E651 FF:E641: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E654 FF:E644: 68        PLA
 ; сработало когда соперник пытается наебать моего кипера
 C - - - - - 0x03E655 FF:E645: 20 15 80  JSR sub_0x038025
 C - - - - - 0x03E658 FF:E648: A5 32     LDA ram_0032
