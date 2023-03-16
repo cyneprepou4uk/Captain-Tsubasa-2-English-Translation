@@ -4432,7 +4432,7 @@ loc_B20F:
 C D - - - - 0x02721F 13:B20F: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x027222 13:B212: 68        PLA
 C - - - - - 0x027223 13:B213: A0 00     LDY #con_plr_id
-C - - - - - 0x027225 13:B215: 91 34     STA (ram_plr_data),Y
+C - - - - - 0x027225 13:B215: 91 34     STA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x027227 13:B217: 60        RTS
 
 

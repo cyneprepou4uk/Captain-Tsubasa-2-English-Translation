@@ -550,11 +550,11 @@ bra_A3B6_loop:
 - - - - - - 0x0023C6 01:A3B6: A5 EA     LDA ram_00EA
 - - - - - - 0x0023C8 01:A3B8: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 - - - - - - 0x0023CB 01:A3BB: A0 00     LDY #con_plr_id
-- - - - - - 0x0023CD 01:A3BD: B1 34     LDA (ram_plr_data),Y
+- - - - - - 0x0023CD 01:A3BD: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 - - - - - - 0x0023CF 01:A3BF: 20 13 B0  JSR sub_B013_чтение_опыта_из_оперативки_для_игрока
 - - - - - - 0x0023D2 01:A3C2: 20 2E B0  JSR sub_B02E
 - - - - - - 0x0023D5 01:A3C5: A0 03     LDY #con_plr_lvl
-- - - - - - 0x0023D7 01:A3C7: 91 34     STA (ram_plr_data),Y
+- - - - - - 0x0023D7 01:A3C7: 91 34     STA (ram_plr_data),Y    ; con_plr_lvl
 - - - - - - 0x0023D9 01:A3C9: E6 EA     INC ram_00EA
 - - - - - - 0x0023DB 01:A3CB: C6 EB     DEC ram_00EB
 - - - - - - 0x0023DD 01:A3CD: D0 E7     BNE bra_A3B6_loop
@@ -860,15 +860,15 @@ bra_A613_loop:
 C - - - - - 0x002623 01:A613: A5 ED     LDA ram_00ED
 C - - - - - 0x002625 01:A615: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x002628 01:A618: A0 00     LDY #con_plr_id
-C - - - - - 0x00262A 01:A61A: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x00262A 01:A61A: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x00262C 01:A61C: 20 13 B0  JSR sub_B013_чтение_опыта_из_оперативки_для_игрока
 C - - - - - 0x00262F 01:A61F: 20 2E B0  JSR sub_B02E
 C - - - - - 0x002632 01:A622: A0 03     LDY #con_plr_lvl
-C - - - - - 0x002634 01:A624: D1 34     CMP (ram_plr_data),Y
+C - - - - - 0x002634 01:A624: D1 34     CMP (ram_plr_data),Y    ; con_plr_lvl
 C - - - - - 0x002636 01:A626: F0 0D     BEQ bra_A635
-C - - - - - 0x002638 01:A628: 91 34     STA (ram_plr_data),Y
+C - - - - - 0x002638 01:A628: 91 34     STA (ram_plr_data),Y    ; con_plr_lvl
 C - - - - - 0x00263A 01:A62A: A0 00     LDY #con_plr_id
-C - - - - - 0x00263C 01:A62C: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x00263C 01:A62C: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x00263E 01:A62E: A6 EC     LDX ram_00EC
 C - - - - - 0x002640 01:A630: 9D 56 06  STA ram_0656,X
 C - - - - - 0x002643 01:A633: E6 EC     INC ram_00EC
@@ -1439,7 +1439,7 @@ C - - - - - 0x002A35 01:AA25: A5 27     LDA ram_номер_тайма
 C - - - - - 0x002A37 01:AA27: F0 13     BEQ bra_AA3C
 C - - - - - 0x002A39 01:AA29: EE 50 04  INC ram_счетчик_замен
 C - - - - - 0x002A3C 01:AA2C: A0 00     LDY #con_plr_id
-C - - - - - 0x002A3E 01:AA2E: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002A3E 01:AA2E: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x002A40 01:AA30: AE 50 04  LDX ram_счетчик_замен
 C - - - - - 0x002A43 01:AA33: 9D 50 04  STA ram_забаненный_игрок - $01,X
 C - - - - - 0x002A46 01:AA36: 20 A1 B0  JSR sub_B0A1_отобразить_количество_замен
@@ -1527,7 +1527,7 @@ sub_AABF:
 C - - - - - 0x002ACF 01:AABF: 20 08 9D  JSR sub_0x001D18
 C - - - - - 0x002AD2 01:AAC2: A2 00     LDX #$00
 C - - - - - 0x002AD4 01:AAC4: A0 00     LDY #con_plr_id
-C - - - - - 0x002AD6 01:AAC6: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002AD6 01:AAC6: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x002AD8 01:AAC8: CD 51 04  CMP ram_забаненный_игрок
 C - - - - - 0x002ADB 01:AACB: F0 0C     BEQ bra_AAD9
 C - - - - - 0x002ADD 01:AACD: E8        INX
@@ -1654,12 +1654,12 @@ C - - - - - 0x002BB2 01:ABA2: 8D 5C 05  STA ram_055C
 C - - - - - 0x002BB5 01:ABA5: A5 ED     LDA ram_00ED
 C - - - - - 0x002BB7 01:ABA7: 85 5F     STA ram_005F
 C - - - - - 0x002BB9 01:ABA9: A0 00     LDY #con_plr_id
-C - - - - - 0x002BBB 01:ABAB: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002BBB 01:ABAB: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x002BBD 01:ABAD: A0 46     LDY #$64      ; адрес ppu для имени игрока
 C - - - - - 0x002BBF 01:ABAF: A2 20     LDX #$20
 C - - - - - 0x002BC1 01:ABB1: 20 05 AF  JSR sub_AF05
 C - - - - - 0x002BC4 01:ABB4: A0 03     LDY #con_plr_lvl
-C - - - - - 0x002BC6 01:ABB6: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002BC6 01:ABB6: B1 34     LDA (ram_plr_data),Y    ; con_plr_lvl
 C - - - - - 0x002BC8 01:ABB8: 18        CLC
 C - - - - - 0x002BC9 01:ABB9: 69 01     ADC #$01
 C - - - - - 0x002BCB 01:ABBB: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
@@ -1736,7 +1736,7 @@ C - - - - - 0x002C4A 01:AC3A: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_
 bra_AC3D_A_не_нажата:
 C - - - - - 0x002C4D 01:AC3D: 10 F2     BPL bra_AC31_B_не_нажата
 C - - - - - 0x002C4F 01:AC3F: A0 00     LDY #con_plr_id
-C - - - - - 0x002C51 01:AC41: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002C51 01:AC41: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x002C53 01:AC43: A2 27     LDX #$2A
 bra_AC45_loop:
 C - - - - - 0x002C55 01:AC45: CA        DEX
@@ -2249,7 +2249,7 @@ bra_AEE0_loop:
 C - - - - - 0x002EF0 01:AEE0: A5 E8     LDA ram_00E8
 C - - - - - 0x002EF2 01:AEE2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x002EF5 01:AEE5: A0 00     LDY #con_plr_id
-C - - - - - 0x002EF7 01:AEE7: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002EF7 01:AEE7: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x002EF9 01:AEE9: 20 09 AF  JSR sub_AF09
 C - - - - - 0x002EFC 01:AEEC: A5 E8     LDA ram_00E8
 C - - - - - 0x002EFE 01:AEEE: 18        CLC
@@ -2307,10 +2307,10 @@ C - - - - - 0x002F47 01:AF37: A5 5E     LDA ram_005E
 sub_AF39_отображение_текущей_энергии:
 C - - - - - 0x002F49 01:AF39: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x002F4C 01:AF3C: A0 01     LDY #con_plr_guts_lo
-C - - - - - 0x002F4E 01:AF3E: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002F4E 01:AF3E: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_lo
 C - - - - - 0x002F50 01:AF40: 85 EC     STA ram_00EC
-C - - - - - 0x002F52 01:AF42: C8        INY
-C - - - - - 0x002F53 01:AF43: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x002F52 01:AF42: C8        INY ; con_plr_guts_hi
+C - - - - - 0x002F53 01:AF43: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_hi
 C - - - - - 0x002F55 01:AF45: 85 ED     STA ram_00ED
 C - - - - - 0x002F57 01:AF47: 20 4F 9E  JSR sub_0x001E5F
 C - - - - - 0x002F5A 01:AF4A: A4 5C     LDY ram_005C

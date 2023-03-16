@@ -377,13 +377,13 @@ C - - - - - 0x0301F7 18:81E7: 49 0B     EOR #$0B
 C - - - - - 0x0301F9 18:81E9: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x0301FC 18:81EC: A2 00     LDX #$00
 C - - - - - 0x0301FE 18:81EE: A0 07     LDY #con_величина_наебки
-C - - - - - 0x030200 18:81F0: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030200 18:81F0: B1 34     LDA (ram_plr_data),Y    ; con_величина_наебки
 C - - - - - 0x030202 18:81F2: C9 19     CMP #$19
 C - - - - - 0x030204 18:81F4: 90 06     BCC bra_81FC_RTS
-C - - - - - 0x030206 18:81F6: E8        INX
+C - - - - - 0x030206 18:81F6: E8        INX ; 01
 C - - - - - 0x030207 18:81F7: C9 36     CMP #$36
 C - - - - - 0x030209 18:81F9: 90 01     BCC bra_81FC_RTS
-C - - - - - 0x03020B 18:81FB: E8        INX
+C - - - - - 0x03020B 18:81FB: E8        INX ; 02
 bra_81FC_RTS:
 C - - - - - 0x03020C 18:81FC: 60        RTS
 
@@ -886,7 +886,7 @@ sub_8513:
 ; вероятно японское общение игроков между собой с назыанием имен собеседника с учетом возраста
 C - - - - - 0x030523 18:8513: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x030526 18:8516: A0 00     LDY #con_plr_id
-C - - - - - 0x030528 18:8518: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030528 18:8518: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03052A 18:851A: A2 00     LDX #$00
 bra_851C_loop:
 C - - - - - 0x03052C 18:851C: DD 2C 85  CMP tbl_852C_игроки,X
@@ -928,7 +928,7 @@ C - - - - - 0x030552 18:8542: 85 3E     STA ram_003E
 C - - - - - 0x030554 18:8544: BD 8A 85  LDA tbl_8589_игроки + $01,X
 C - - - - - 0x030557 18:8547: 85 3F     STA ram_003F
 C - - - - - 0x030559 18:8549: A0 00     LDY #con_plr_id
-C - - - - - 0x03055B 18:854B: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x03055B 18:854B: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03055D 18:854D: AA        TAX
 bra_8550_loop_поиска_совпадения:
 C - - - - - 0x030560 18:8550: B1 3E     LDA (ram_003E),Y
@@ -948,7 +948,7 @@ C - - - - - 0x030574 18:8564: BD 7A 85  LDA #$2E
 C - - - - - 0x03057F 18:856F: 4C 29 86  JMP loc_8629_запись_символа_в_буфер
 bra_8572:
 C - - - - - 0x030582 18:8572: A0 00     LDY #con_plr_id
-C - - - - - 0x030584 18:8574: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030584 18:8574: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x030586 18:8576: 4C 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
 
@@ -1128,7 +1128,7 @@ loc_8653_вывести_имя_игрока:
 ; можно использовать 003D
 C - - - - - 0x030665 18:8655: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x030668 18:8658: A0 00     LDY #con_plr_id
-C - - - - - 0x03066A 18:865A: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x03066A 18:865A: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03066E 18:865E: 20 3C 86  JMP loc_863C_прочитать_таблицу_слов
 
 
@@ -1970,9 +1970,9 @@ C - - - - - 0x030C02 18:8BF2: E6 40     INC ram_0040
 C - - - - - 0x030C04 18:8BF4: B1 3E     LDA (ram_003E),Y
 C - - - - - 0x030C06 18:8BF6: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x030C09 18:8BF9: A0 02     LDY #con_plr_guts_hi
-C - - - - - 0x030C0B 18:8BFB: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030C0B 18:8BFB: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_hi
 C - - - - - 0x030C0D 18:8BFD: AA        TAX
-C - - - - - 0x030C0E 18:8BFE: 88        DEY
+C - - - - - 0x030C0E 18:8BFE: 88        DEY ; con_plr_guts_lo
 C - - - - - 0x030C0F 18:8BFF: B1 34     LDA (ram_plr_data),Y
 C - - - - - 0x030C11 18:8C01: 4C 55 8C  JMP loc_8C55_запись_цифер_в_буфер
 
@@ -2071,7 +2071,7 @@ ofs_036_8C45_F9_индикатор_если_соперник_не_клон:
 @требуется_вывести_тайл_если_не_клон:
                                         JSR sub_0x03CD8C_получить_адрес_игрока
                                         LDY #con_plr_id
-                                        LDA (ram_plr_data),Y
+                                        LDA (ram_plr_data),Y    ; con_plr_id
                                         BEQ @это_клон
                                         LDA #$3F        ; тайл *
                                         JMP loc_8C85_запись_тайла_в_буфер
@@ -2166,10 +2166,10 @@ C - - - - - 0x030CBC 18:8CAC: D0 0F     BNE bra_8CBD
 C - - - - - 0x030CBE 18:8CAE: 68        PLA
 C - - - - - 0x030CBF 18:8CAF: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x030CC2 18:8CB2: A0 02     LDY #con_plr_guts_hi
-C - - - - - 0x030CC4 18:8CB4: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030CC4 18:8CB4: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_hi
 C - - - - - 0x030CC6 18:8CB6: AA        TAX
-C - - - - - 0x030CC7 18:8CB7: 88        DEY
-C - - - - - 0x030CC8 18:8CB8: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030CC7 18:8CB7: 88        DEY ; con_plr_guts_lo
+C - - - - - 0x030CC8 18:8CB8: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_hi
 C - - - - - 0x030CCA 18:8CBA: 4C D9 8C  JMP loc_8C55_запись_цифер_в_буфер
 bra_8CBD:
 C - - - - - 0x030CCD 18:8CBD: 29 7F     AND #$7F
@@ -2232,7 +2232,7 @@ loc_8D1A_вывести_имя:
 sub_8D1A_вывести_имя:
 C - - - - - 0x030D2C 18:8D1C: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x030D2F 18:8D1F: A0 00     LDY #con_plr_id
-C - - - - - 0x030D31 18:8D21: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x030D31 18:8D21: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 loc_8D6C_вывести_слово:
 C D - - - - 0x030D7C 18:8D6C: 20 3C C5  JSR sub_0x03F31F_таблица_слов
 C - - - - - 0x030D7F 18:8D6F: A0 00     LDY #$00

@@ -91,7 +91,7 @@ sub_803A:
 C - - - - - 0x03804A 1C:803A: 48        PHA
 C - - - - - 0x03804B 1C:803B: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x03804E 1C:803E: A0 00     LDY #con_plr_id
-C - - - - - 0x038050 1C:8040: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038050 1C:8040: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038052 1C:8042: D0 0C     BNE bra_8050_это_не_клон
 ; if con_p_clone
 C - - - - - 0x038054 1C:8044: 68        PLA
@@ -107,12 +107,14 @@ C - - - - - 0x038060 1C:8050: C9 23     CMP #$23      ; начиная с 23 и�
 C - - - - - 0x038062 1C:8052: 08        PHP
 C - - - - - 0x038063 1C:8053: 90 0F     BCC bra_8064_это_один_из_игроков_нашей_команды
 C - - - - - 0x038065 1C:8055: 48        PHA
+; bzk bug? в новом логе залогировано для игрока 09 нашей команды
+; что очень странно, так как в логе также доказано что индексы игроков 23+, то есть соперники
 C - - - - - 0x038066 1C:8056: A0 01     LDY #con_бот_флаг_1_ХЗ
-C - - - - - 0x038068 1C:8058: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038068 1C:8058: B1 34     LDA (ram_plr_data),Y    ; con_бот_флаг_1_ХЗ
 C - - - - - 0x03806A 1C:805A: 10 05     BPL bra_8061
 C - - - - - 0x03806C 1C:805C: 68        PLA
 C - - - - - 0x03806D 1C:805D: C8        INY ; con_бот_флаг_2_ХЗ
-C - - - - - 0x03806E 1C:805E: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x03806E 1C:805E: B1 34     LDA (ram_plr_data),Y    ; con_бот_флаг_2_ХЗ
 C - - - - - 0x038070 1C:8060: 48        PHA
 bra_8061:
 C - - - - - 0x038071 1C:8061: 68        PLA
@@ -218,7 +220,7 @@ C - - - - - 0x03810A 1C:80FA: F0 17     BEQ bra_8113
 C - - - - - 0x03810C 1C:80FC: B1 32     LDA (ram_0032),Y
 C - - - - - 0x03810E 1C:80FE: 48        PHA
 C - - - - - 0x03810F 1C:80FF: A0 03     LDY #con_plr_lvl
-C - - - - - 0x038111 1C:8101: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038111 1C:8101: B1 34     LDA (ram_plr_data),Y    ; con_plr_lvl
 C - - - - - 0x038113 1C:8103: 0A        ASL
 C - - - - - 0x038114 1C:8104: 85 32     STA ram_0032
 C - - - - - 0x038116 1C:8106: 68        PLA
@@ -234,7 +236,7 @@ bra_8113:
 C - - - - - 0x038123 1C:8113: B1 32     LDA (ram_0032),Y
 C - - - - - 0x038125 1C:8115: 48        PHA
 C - - - - - 0x038126 1C:8116: A0 03     LDY #con_plr_lvl
-C - - - - - 0x038128 1C:8118: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038128 1C:8118: B1 34     LDA (ram_plr_data),Y    ; con_plr_lvl
 C - - - - - 0x03812A 1C:811A: 85 32     STA ram_0032
 C - - - - - 0x03812C 1C:811C: 68        PLA
 C - - - - - 0x03812D 1C:811D: 65 32     ADC ram_0032
@@ -1258,7 +1260,7 @@ C - - - - - 0x03881D 1C:880D: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x038820 1C:8810: F0 27     BEQ bra_8839
 C - - - - - 0x038822 1C:8812: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038825 1C:8815: A0 06     LDY #con_plr_pos_X_hi
-C - - - - - 0x038827 1C:8817: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038827 1C:8817: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x038829 1C:8819: 38        SEC
 C - - - - - 0x03882A 1C:881A: ED 35 06  SBC ram_0635
 C - - - - - 0x03882D 1C:881D: B0 04     BCS bra_8823
@@ -1268,7 +1270,7 @@ bra_8823:
 C - - - - - 0x038833 1C:8823: C9 14     CMP #$14
 C - - - - - 0x038835 1C:8825: B0 12     BCS bra_8839
 C - - - - - 0x038837 1C:8827: A0 08     LDY #con_plr_pos_Y_hi
-C - - - - - 0x038839 1C:8829: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038839 1C:8829: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x03883B 1C:882B: 38        SEC
 C - - - - - 0x03883C 1C:882C: ED 37 06  SBC ram_0637
 C - - - - - 0x03883F 1C:882F: B0 04     BCS bra_8835
@@ -1320,12 +1322,12 @@ C - - - - - 0x03887F 1C:886F: A9 0C     LDA #$0C
 bra_8871_loop:
 C - - - - - 0x038881 1C:8871: 48        PHA
 C - - - - - 0x038882 1C:8872: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
-C - - - - - 0x038885 1C:8875: A0 01     LDY #con_plr_guts_lo
+C - - - - - 0x038885 1C:8875: A0 01     LDY #con_бот_флаг_1_ХЗ
 C - - - - - 0x038887 1C:8877: A9 80     LDA #$80
-C - - - - - 0x038889 1C:8879: 91 34     STA (ram_plr_data),Y
-C - - - - - 0x03888B 1C:887B: C8        INY
+C - - - - - 0x038889 1C:8879: 91 34     STA (ram_plr_data),Y    ; con_бот_флаг_1_ХЗ
+C - - - - - 0x03888B 1C:887B: C8        INY ; con_бот_флаг_2_ХЗ
 C - - - - - 0x03888C 1C:887C: A9 C8     LDA #$C8
-C - - - - - 0x03888E 1C:887E: 91 34     STA (ram_plr_data),Y
+C - - - - - 0x03888E 1C:887E: 91 34     STA (ram_plr_data),Y    ; con_бот_флаг_2_ХЗ
 C - - - - - 0x038890 1C:8880: 68        PLA
 C - - - - - 0x038891 1C:8881: 18        CLC
 C - - - - - 0x038892 1C:8882: 69 01     ADC #$01
@@ -1551,7 +1553,7 @@ C - - - - - 0x0389C5 1C:89B5: 20 0C C5  JSR sub_0x03CD8C_получить_адр
 C - - - - - 0x0389C8 1C:89B8: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x0389CA 1C:89BA: AD 35 06  LDA ram_0635
 C - - - - - 0x0389CD 1C:89BD: 38        SEC
-C - - - - - 0x0389CE 1C:89BE: F1 34     SBC (ram_plr_data),Y
+C - - - - - 0x0389CE 1C:89BE: F1 34     SBC (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x0389D0 1C:89C0: B0 08     BCS bra_89CA
 C - - - - - 0x0389D2 1C:89C2: AD 35 06  LDA ram_0635
 C - - - - - 0x0389D5 1C:89C5: C9 60     CMP #$60
@@ -1579,7 +1581,7 @@ C - - - - - 0x0389F0 1C:89E0: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x0389F3 1C:89E3: F0 0B     BEQ bra_89F0
 C - - - - - 0x0389F5 1C:89E5: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x0389F8 1C:89E8: A0 06     LDY #con_plr_pos_X_hi
-C - - - - - 0x0389FA 1C:89EA: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x0389FA 1C:89EA: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x0389FC 1C:89EC: C9 60     CMP #$60
 C - - - - - 0x0389FE 1C:89EE: 90 09     BCC bra_89F9
 bra_89F0:
@@ -1604,10 +1606,10 @@ sub_8A09_запись_номера_принимающего:
 C - - - - - 0x038A19 1C:8A09: 8D FC 05  STA ram_принимающий
 C - - - - - 0x038A1C 1C:8A0C: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038A1F 1C:8A0F: A0 06     LDY #con_plr_pos_X_hi
-C - - - - - 0x038A21 1C:8A11: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038A21 1C:8A11: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x038A23 1C:8A13: AA        TAX
 C - - - - - 0x038A24 1C:8A14: A0 08     LDY #con_plr_pos_Y_hi
-C - - - - - 0x038A26 1C:8A16: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038A26 1C:8A16: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x038A28 1C:8A18: A8        TAY
 C - - - - - 0x038A29 1C:8A19: 20 39 C5  JSR sub_0x03CDF2
 C - - - - - 0x038A2C 1C:8A1C: 8D 38 06  STA ram_0638
@@ -1661,7 +1663,7 @@ sub_8A62:
 C - - - - - 0x038A72 1C:8A62: 48        PHA
 C - - - - - 0x038A73 1C:8A63: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038A76 1C:8A66: A0 00     LDY #con_plr_id
-C - - - - - 0x038A78 1C:8A68: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038A78 1C:8A68: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038A7A 1C:8A6A: D0 08     BNE bra_8A74_это_не_клон
 ; if con_p_clone
 C - - - - - 0x038A7C 1C:8A6C: 68        PLA
@@ -1672,10 +1674,10 @@ C - - - - - 0x038A82 1C:8A72: B1 38     LDA (ram_enemy_data),Y
 bra_8A74_это_не_клон:
 C - - - - - 0x038A84 1C:8A74: AA        TAX
 C - - - - - 0x038A85 1C:8A75: A0 01     LDY #con_бот_флаг_1_ХЗ
-C - - - - - 0x038A87 1C:8A77: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038A87 1C:8A77: B1 34     LDA (ram_plr_data),Y    ; con_бот_флаг_1_ХЗ
 C - - - - - 0x038A89 1C:8A79: 10 04     BPL bra_8A7F
-C - - - - - 0x038A8B 1C:8A7B: C8        INY   ; con_бот_флаг_2_ХЗ
-C - - - - - 0x038A8C 1C:8A7C: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038A8B 1C:8A7B: C8        INY ; con_бот_флаг_2_ХЗ
+C - - - - - 0x038A8C 1C:8A7C: B1 34     LDA (ram_plr_data),Y    ; con_бот_флаг_2_ХЗ
 C - - - - - 0x038A8E 1C:8A7E: AA        TAX
 bra_8A7F:
 C - - - - - 0x038A8F 1C:8A7F: 8A        TXA
@@ -1801,9 +1803,9 @@ C - - - - - 0x038B34 1C:8B24: 48        PHA
 C - - - - - 0x038B35 1C:8B25: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038B38 1C:8B28: A0 00     LDY #con_plr_id
 C - - - - - 0x038B3A 1C:8B2A: A9 00     LDA #con_p_clone
-C - - - - - 0x038B3C 1C:8B2C: 91 34     STA (ram_plr_data),Y
+C - - - - - 0x038B3C 1C:8B2C: 91 34     STA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038B3E 1C:8B2E: C8        INY   ; con_бот_флаг_1_ХЗ
-C - - - - - 0x038B3F 1C:8B2F: 91 34     STA (ram_plr_data),Y
+C - - - - - 0x038B3F 1C:8B2F: 91 34     STA (ram_plr_data),Y    ; con_бот_флаг_1_ХЗ
 C - - - - - 0x038B41 1C:8B31: 68        PLA
 C - - - - - 0x038B42 1C:8B32: 18        CLC
 C - - - - - 0x038B43 1C:8B33: 69 01     ADC #$01
@@ -1840,7 +1842,7 @@ C - - - - - 0x038B82 1C:8B72: B1 38     LDA (ram_enemy_data),Y
 C - - - - - 0x038B84 1C:8B74: C8        INY
 C - - - - - 0x038B85 1C:8B75: 84 3A     STY ram_003A
 C - - - - - 0x038B87 1C:8B77: A0 00     LDY #con_plr_id
-C - - - - - 0x038B89 1C:8B79: 91 34     STA (ram_plr_data),Y
+C - - - - - 0x038B89 1C:8B79: 91 34     STA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038B8B 1C:8B7B: 4C 61 8B  JMP loc_8B61_loop_чтение_таблицы
 bra_8B7E_закончить_чтение_таблицы:
 C - - - - - 0x038B8E 1C:8B7E: AE 46 04  LDX ram_флаг_драйв_оверхеда
@@ -2166,7 +2168,7 @@ bra_8CE1_loop:
 C - - - - - 0x038CF1 1C:8CE1: 48        PHA
 C - - - - - 0x038CF2 1C:8CE2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038CF5 1C:8CE5: A0 00     LDY #con_plr_id
-C - - - - - 0x038CF7 1C:8CE7: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038CF7 1C:8CE7: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038CF9 1C:8CE9: C5 45     CMP ram_0045
 C - - - - - 0x038CFB 1C:8CEB: F0 09     BEQ bra_8CF6
 C - - - - - 0x038CFD 1C:8CED: 68        PLA
@@ -2195,7 +2197,7 @@ bra_8D08_loop:
 C - - - - - 0x038D18 1C:8D08: 48        PHA
 C - - - - - 0x038D19 1C:8D09: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038D1C 1C:8D0C: A0 00     LDY #con_plr_id
-C - - - - - 0x038D1E 1C:8D0E: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038D1E 1C:8D0E: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038D20 1C:8D10: C9 1C     CMP #con_p_jito_my
 C - - - - - 0x038D22 1C:8D12: F0 09     BEQ bra_8D1D
 C - - - - - 0x038D24 1C:8D14: 68        PLA
@@ -2331,7 +2333,7 @@ C - - - - - 0x038DD9 1C:8DC9: 8E 30 04  STX ram_список_спешалов
 C - - - - - 0x038DDC 1C:8DCC: 85 47     STA ram_0047
 C - - - - - 0x038DDE 1C:8DCE: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038DE1 1C:8DD1: A0 00     LDY #con_plr_id
-C - - - - - 0x038DE3 1C:8DD3: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038DE3 1C:8DD3: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038DE5 1C:8DD5: 0A        ASL
 C - - - - - 0x038DE6 1C:8DD6: AA        TAX
 C - - - - - 0x038DE7 1C:8DD7: BD 1B 8E  LDA tbl_8E1B_спешалы_игроков,X
@@ -2352,7 +2354,7 @@ C - - - - - 0x038DF6 1C:8DE6: 10 05     BPL bra_8DED
 C - - - - - 0x038DF8 1C:8DE8: 29 7F     AND #$7F
 C - - - - - 0x038DFA 1C:8DEA: 4C 11 8E  JMP loc_8E11
 bra_8DED:
-C - - - - - 0x038DFD 1C:8DED: C8        INY
+C - - - - - 0x038DFD 1C:8DED: C8        INY ; 01
 C - - - - - 0x038DFE 1C:8DEE: B1 48     LDA (ram_0048),Y
 C - - - - - 0x038E00 1C:8DF0: 85 45     STA ram_0045
 C - - - - - 0x038E02 1C:8DF2: A9 01     LDA #$01
@@ -2360,7 +2362,7 @@ bra_8DF4_loop:
 C - - - - - 0x038E04 1C:8DF4: 48        PHA
 C - - - - - 0x038E05 1C:8DF5: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038E08 1C:8DF8: A0 00     LDY #con_plr_id
-C - - - - - 0x038E0A 1C:8DFA: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x038E0A 1C:8DFA: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038E0C 1C:8DFC: C5 45     CMP ram_0045
 C - - - - - 0x038E0E 1C:8DFE: F0 09     BEQ bra_8E09
 C - - - - - 0x038E10 1C:8E00: 68        PLA

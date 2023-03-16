@@ -427,7 +427,7 @@ C - - - - - 0x016266 0B:8256: 20 36 C5  JSR sub_0x03CDD9_проверить_ко
 C - - - - - 0x016269 0B:8259: 8A        TXA
 C - - - - - 0x01626A 0B:825A: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x01626C 0B:825C: 38        SEC
-C - - - - - 0x01626D 0B:825D: F1 34     SBC (ram_plr_data),Y
+C - - - - - 0x01626D 0B:825D: F1 34     SBC (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x01626F 0B:825F: AC FB 05  LDY ram_команда_с_мячом
 C - - - - - 0x016272 0B:8262: F0 05     BEQ bra_8269_команда_слева
 ; if комада справа

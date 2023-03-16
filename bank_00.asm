@@ -4886,7 +4886,7 @@ C - - - - - 0x001CA7 00:9C97: A8        TAY
 C - - - - - 0x001CA8 00:9C98: AE 5F 05  LDX ram_055F
 C - - - - - 0x001CAB 00:9C9B: 20 08 9D  JSR sub_9D08
 C - - - - - 0x001CAE 00:9C9E: A0 00     LDY #con_plr_id
-C - - - - - 0x001CB0 00:9CA0: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x001CB0 00:9CA0: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x001CB2 00:9CA2: A0 F4     LDY #$F4
 C - - - - - 0x001CB4 00:9CA4: CD 51 04  CMP ram_забаненный_игрок
 C - - - - - 0x001CB7 00:9CA7: F0 CC     BEQ bra_9C75_loop

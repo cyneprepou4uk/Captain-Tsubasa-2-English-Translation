@@ -338,7 +338,7 @@ C D - - - - 0x0281FC 14:81EC: 85 3A     STA ram_003A
 C - - - - - 0x0281FE 14:81EE: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x028201 14:81F1: 20 6A 82  JSR sub_826A
 C - - - - - 0x028204 14:81F4: A0 00     LDY #con_plr_id
-C - - - - - 0x028206 14:81F6: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x028206 14:81F6: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x028208 14:81F8: F0 07     BEQ bra_8201_это_клон
 ; if not con_p_clone
 C - - - - - 0x02820A 14:81FA: 20 82 82  JSR sub_8282
@@ -419,12 +419,13 @@ tbl_8264:
 
 sub_826A:
 C - - - - - 0x02827A 14:826A: A0 00     LDY #con_plr_id
-C - - - - - 0x02827C 14:826C: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x02827C 14:826C: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x02827E 14:826E: 08        PHP
 C - - - - - 0x02827F 14:826F: AA        TAX
 C - - - - - 0x028280 14:8270: BD F0 88  LDA tbl_88F0,X
 C - - - - - 0x028283 14:8273: 28        PLP
-C - - - - - 0x028284 14:8274: D0 08     BNE bra_827E
+C - - - - - 0x028284 14:8274: D0 08     BNE bra_827E    ; if not con_p_clone
+; if con_p_clone
 C - - - - - 0x028286 14:8276: A6 3A     LDX ram_003A
 C - - - - - 0x028288 14:8278: E0 0B     CPX #$0B
 C - - - - - 0x02828A 14:827A: D0 02     BNE bra_827E
@@ -1160,7 +1161,7 @@ C - - - - - 0x02865A 14:864A: 4C CF 86  JMP loc_86CF
 bra_864D:
 C - - - - - 0x02865D 14:864D: A6 3B     LDX ram_003B
 C - - - - - 0x02865F 14:864F: A0 06     LDY #con_plr_pos_X_hi
-C - - - - - 0x028661 14:8651: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x028661 14:8651: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x028663 14:8653: C9 34     CMP #$34
 C - - - - - 0x028665 14:8655: B0 02     BCS bra_8659
 C - - - - - 0x028667 14:8657: A9 34     LDA #$34
@@ -1178,7 +1179,7 @@ C - - - - - 0x028677 14:8667: 18        CLC
 C - - - - - 0x028678 14:8668: 79 DA 88  ADC tbl_88DA_spr_X,Y
 C - - - - - 0x02867B 14:866B: 9D 03 02  STA ram_spr_X,X
 C - - - - - 0x02867E 14:866E: A0 08     LDY #con_plr_pos_Y_hi
-C - - - - - 0x028680 14:8670: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x028680 14:8670: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x028682 14:8672: C9 54     CMP #$54
 C - - - - - 0x028684 14:8674: B0 02     BCS bra_8678
 C - - - - - 0x028686 14:8676: A9 54     LDA #$54
@@ -1351,10 +1352,10 @@ ofs_029_8771_02:
 C - J - - - 0x028781 14:8771: AD FC 05  LDA ram_принимающий
 C - - - - - 0x028784 14:8774: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x028787 14:8777: A0 06     LDY #con_plr_pos_X_hi
-C - - - - - 0x028789 14:8779: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x028789 14:8779: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x02878B 14:877B: AA        TAX
 C - - - - - 0x02878C 14:877C: A0 08     LDY #con_plr_pos_Y_hi
-C - - - - - 0x02878E 14:877E: B1 34     LDA (ram_plr_data),Y
+C - - - - - 0x02878E 14:877E: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x028790 14:8780: A8        TAY
 C - - - - - 0x028791 14:8781: 4C E7 87  JMP loc_87E7
 
