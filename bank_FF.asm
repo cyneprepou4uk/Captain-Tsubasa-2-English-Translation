@@ -4047,13 +4047,11 @@ C - - - - - 0x03DE7F FF:DE6F: C9 FF     CMP #$FF
 C - - - - - 0x03DE81 FF:DE71: F0 23     BEQ bra_DE96
 C - - - - - 0x03DE83 FF:DE73: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - - 0x03DE86 FF:DE76: 20 EC E6  JSR sub_E6EC
-C - - - - - 0x03DE89 FF:DE79: 48        PHA
 C - - - - - 0x03DE8C FF:DE7C: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03DE8E FF:DE7E: 85 24     STA ram_for_5114
 C - - - - - 0x03DE90 FF:DE80: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03DE92 FF:DE82: 85 25     STA ram_for_5115
 C - - - - - 0x03DE94 FF:DE84: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03DE97 FF:DE87: 68        PLA
 C - - - - - 0x03DE98 FF:DE88: 20 1E 80  JSR sub_0x034B5A
 C - - - - - 0x03DE9B FF:DE8B: A9 1C     LDA #con_scenario_1C
 C - - - - - 0x03DE9D FF:DE8D: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -4115,13 +4113,11 @@ C - - - - - 0x03DF14 FF:DF04: 91 34     STA (ram_plr_data),Y    ; con_plr_pos_X_
 C - - - - - 0x03DF16 FF:DF06: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x03DF19 FF:DF09: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x03DF1B FF:DF0B: 91 34     STA (ram_plr_data),Y    ; con_plr_pos_Y_hi
-C - - - - - 0x03DF1D FF:DF0D: 48        PHA
 C - - - - - 0x03DF20 FF:DF10: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03DF22 FF:DF12: 85 24     STA ram_for_5114
 C - - - - - 0x03DF24 FF:DF14: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03DF26 FF:DF16: 85 25     STA ram_for_5115
 C - - - - - 0x03DF28 FF:DF18: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03DF2B FF:DF1B: 68        PLA
 C - - - - - 0x03DF2C FF:DF1C: 20 1E 80  JSR sub_0x034B5A
 C - - - - - 0x03DF2F FF:DF1F: 68        PLA
 C - - - - - 0x03DF30 FF:DF20: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -4279,13 +4275,11 @@ C - - - - - 0x03E040 FF:E030: 20 3E E7  JSR sub_E73E
 C - - - - - 0x03E043 FF:E033: AD FC 05  LDA ram_принимающий
 C - - - - - 0x03E046 FF:E036: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - - 0x03E049 FF:E039: 20 EC E6  JSR sub_E6EC
-C - - - - - 0x03E04C FF:E03C: 48        PHA
 C - - - - - 0x03E04F FF:E03F: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E051 FF:E041: 85 24     STA ram_for_5114
 C - - - - - 0x03E053 FF:E043: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E055 FF:E045: 85 25     STA ram_for_5115
 C - - - - - 0x03E057 FF:E047: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E05A FF:E04A: 68        PLA
 C - - - - - 0x03E05B FF:E04B: 20 1E 80  JSR sub_0x034B5A
 C - - - - - 0x03E05E FF:E04E: A9 1B     LDA #con_scenario_1B
 C - - - - - 0x03E060 FF:E050: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
