@@ -5914,13 +5914,11 @@ bra_EB99:
 C - - - - - 0x03EBA9 FF:EB99: 85 21     STA ram_for_2001
 C - - - - - 0x03EBAB FF:EB9B: 20 08 EC  JSR sub_EC08
 C - - - - - 0x03EBAE FF:EB9E: 20 85 ED  JSR sub_ED85
-C - - - - - 0x03EBB1 FF:EBA1: 48        PHA
 C - - - - - 0x03EBB4 FF:EBA4: A9 18     LDA #con_prg_bank + $18
 C - - - - - 0x03EBB6 FF:EBA6: 85 24     STA ram_for_5114
 C - - - - - 0x03EBB8 FF:EBA8: A9 19     LDA #con_prg_bank + $19
 C - - - - - 0x03EBBA FF:EBAA: 85 25     STA ram_for_5115
 C - - - - - 0x03EBBC FF:EBAC: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EBBF FF:EBAF: 68        PLA
 C - - - - - 0x03EBC0 FF:EBB0: 20 03 80  JSR sub_0x030708
 C - - - - - 0x03EBC3 FF:EBB3: 48        PHA
 C - - - - - 0x03EBC6 FF:EBB6: A9 18     LDA #con_prg_bank + $18
