@@ -1913,14 +1913,11 @@ C - - - - - 0x03D146 FF:D136: AD 27 00  LDA ram_номер_тайма
 C - - - - - 0x03D149 FF:D139: C9 04     CMP #$04
 C - - - - - 0x03D14B FF:D13B: D0 12     BNE bra_D14F
 ; if пенальти
-; bzk optimize, нет смысла сохранять номер тайма в стеке
-C - - - - - 0x03D14D FF:D13D: 48        PHA
 C - - - - - 0x03D150 FF:D140: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03D152 FF:D142: 85 24     STA ram_for_5114
 C - - - - - 0x03D154 FF:D144: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03D156 FF:D146: 85 25     STA ram_for_5115
 C - - - - - 0x03D158 FF:D148: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03D15B FF:D14B: 68        PLA
 C - - - - - 0x03D15C FF:D14C: 20 30 80  JSR sub_0x0355F1_вычисление_счета_пенальти
 bra_D14F:
 C - - - - - 0x03D15F FF:D14F: 8D 29 06  STA ram_флаг_разводки
