@@ -4329,6 +4329,7 @@ C - - - - - 0x03E0A4 FF:E094: F0 3B     BEQ bra_E0D1
 C - - - - - 0x03E0A6 FF:E096: 2C 2A 06  BIT ram_062A
 C - - - - - 0x03E0A9 FF:E099: 10 14     BPL bra_E0AF
 C - - - - - 0x03E0AB FF:E09B: 48        PHA
+; здесь нужно PHA + PLA
 C - - - - - 0x03E0AC FF:E09C: 48        PHA
 C - - - - - 0x03E0AF FF:E09F: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E0B1 FF:E0A1: 85 24     STA ram_for_5114
@@ -4840,6 +4841,7 @@ C - - - - - 0x03E443 FF:E433: 10 19     BPL bra_E44E
 C - - - - - 0x03E445 FF:E435: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03E448 FF:E438: F0 14     BEQ bra_E44E
 C - - - - - 0x03E44A FF:E43A: 48        PHA
+; здесь нужно PHA + PLA
 C - - - - - 0x03E44B FF:E43B: 48        PHA
 C - - - - - 0x03E44E FF:E43E: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E450 FF:E440: 85 24     STA ram_for_5114
