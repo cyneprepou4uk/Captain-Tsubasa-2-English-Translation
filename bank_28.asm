@@ -2,13 +2,14 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+; 0x050010-0x05200F
 
 
 
 ; текст облаков
 
 
-.export _cloud_0x00073_73
+.export _cloud_0x000073_73
 
 
 
@@ -56,7 +57,7 @@ con_слово_okay                  = $F8       ; タイ
 ; unused                        = $FB
 con_line                        = $FC       ; если байт после линии читается, то это уже новое облако
 
-_cloud_0x00073_73:
+_cloud_0x000073_73:
     .byte con_выбор_облака, $04
     .word off_9F52_ожидание_1
     .word off_9FE1_ожидание_2

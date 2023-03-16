@@ -2,6 +2,7 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $A000
+; 0x044010-0x04600F
 
 
 

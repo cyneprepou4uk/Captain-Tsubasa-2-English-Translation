@@ -2,6 +2,7 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+; 0x04C010-0x04E00F
 
 
 
@@ -9,11 +10,11 @@
 
 
 
-.export sub_0x40005_таблица_слов
+.export sub_0x040005_таблица_слов
 
 
 
-sub_0x40005_таблица_слов:
+sub_0x040005_таблица_слов:
     TYA
     BNE @это_не_клон
     LDA #< tbl_teams_with_clones

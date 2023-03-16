@@ -2,6 +2,7 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $C000
+; 0x04E010-0x05000F
 
 
 
@@ -9,234 +10,234 @@
 
 
 
-.export _cloud_0x00000_00
-.export _cloud_0x00001_01
-.export _cloud_0x00002_02
-.export _cloud_0x00003_03
-.export _cloud_0x00004_04
-.export _cloud_0x00005_05
-.export _cloud_0x00006_06
-.export _cloud_0x00007_07
-.export _cloud_0x00008_08
-.export _cloud_0x00009_09
-.export _cloud_0x0000A_0A
-.export _cloud_0x0000B_0B
-.export _cloud_0x0000C_0C
-.export _cloud_0x0000D_0D
-.export _cloud_0x0000E_0E
-.export _cloud_0x0000F_0F
-.export _cloud_0x00010_10
-.export _cloud_0x00011_11
-.export _cloud_0x00012_12
-.export _cloud_0x00013_13
-.export _cloud_0x00014_14
-.export _cloud_0x00015_15
-.export _cloud_0x00016_16
-.export _cloud_0x00017_17
-.export _cloud_0x00018_18
-.export _cloud_0x00019_19
-.export _cloud_0x0001A_1A
-.export _cloud_0x0001B_1B
-.export _cloud_0x0001C_1C
-.export _cloud_0x0001D_1D
-.export _cloud_0x0001E_1E
-.export _cloud_0x0001F_1F
-.export _cloud_0x00020_20
-.export _cloud_0x00021_21
-.export _cloud_0x00022_22
-.export _cloud_0x00024_24
-.export _cloud_0x00025_25
-.export _cloud_0x00026_26
-.export _cloud_0x00027_27
-.export _cloud_0x00028_28
-.export _cloud_0x00029_29
-.export _cloud_0x0002C_2C
-.export _cloud_0x0002E_2E
-.export _cloud_0x0002F_2F
-.export _cloud_0x00030_30
-.export _cloud_0x00031_31
-.export _cloud_0x00032_32
-.export _cloud_0x00033_33
-.export _cloud_0x00034_34
-.export _cloud_0x00035_35
-.export _cloud_0x00036_36
-.export _cloud_0x00037_37
-.export _cloud_0x00038_38
-.export _cloud_0x00039_39
-.export _cloud_0x0003A_3A
-.export _cloud_0x0003B_3B
-.export _cloud_0x0003C_3C
-.export _cloud_0x0003D_3D
-.export _cloud_0x0003E_3E
-.export _cloud_0x0003F_3F
-.export _cloud_0x00040_40
-.export _cloud_0x00041_41
-.export _cloud_0x00042_42
-.export _cloud_0x00043_43
-.export _cloud_0x00044_44
-.export _cloud_0x00045_45
-.export _cloud_0x00046_46
-.export _cloud_0x00047_47
-.export _cloud_0x00048_48
-.export _cloud_0x00049_49
-.export _cloud_0x0004A_4A
-.export _cloud_0x0004B_4B
-.export _cloud_0x0004C_4C
-.export _cloud_0x0004D_4D
-.export _cloud_0x0004F_4F
-.export _cloud_0x00050_50
-.export _cloud_0x00051_51
-.export _cloud_0x00052_52
-.export _cloud_0x00053_53
-.export _cloud_0x00054_54
-.export _cloud_0x00055_55
-.export _cloud_0x00056_56
-.export _cloud_0x00057_57
-.export _cloud_0x00058_58
-.export _cloud_0x00059_59
-.export _cloud_0x0005A_5A
-.export _cloud_0x0005B_5B
-.export _cloud_0x0005C_5C
-.export _cloud_0x0005D_5D
-.export _cloud_0x0005E_5E
-.export _cloud_0x0005F_5F
-.export _cloud_0x00060_60
-.export _cloud_0x00061_61
-.export _cloud_0x00062_62
-.export _cloud_0x00063_63
-.export _cloud_0x00064_64
-.export _cloud_0x00065_65
-.export _cloud_0x00066_66
-.export _cloud_0x00067_67
-.export _cloud_0x00069_69
-.export _cloud_0x0006A_6A
-.export _cloud_0x0006B_6B
-.export _cloud_0x0006C_6C
-.export _cloud_0x0006D_6D
-.export _cloud_0x0006E_6E
-.export _cloud_0x0006F_6F
-.export _cloud_0x00070_70
-.export _cloud_0x00071_71
-.export _cloud_0x00072_72
-.export _cloud_0x00074_74
-.export _cloud_0x00075_75
-.export _cloud_0x00076_76
-.export _cloud_0x00077_77
-.export _cloud_0x00078_78
-.export _cloud_0x00079_79
-.export _cloud_0x0007A_7A
-.export _cloud_0x0007B_7B
-.export _cloud_0x0007C_7C
-.export _cloud_0x0007D_7D
-.export _cloud_0x0007E_7E
-.export _cloud_0x0007F_7F
-.export _cloud_0x00080_80
-.export _cloud_0x00081_81
-.export _cloud_0x00082_82
-.export _cloud_0x00083_83
-.export _cloud_0x00084_84
-.export _cloud_0x00085_85
-.export _cloud_0x00086_86
-.export _cloud_0x00087_87
-.export _cloud_0x00089_89
-.export _cloud_0x0008A_8A
-.export _cloud_0x0008B_8B
-.export _cloud_0x0008C_8C
-.export _cloud_0x0008D_8D
-.export _cloud_0x0008E_8E
-.export _cloud_0x0008F_8F
-.export _cloud_0x00090_90
-.export _cloud_0x00091_91
-.export _cloud_0x00092_92
-.export _cloud_0x00093_93
-.export _cloud_0x00094_94
-.export _cloud_0x00095_95
-.export _cloud_0x00096_96
-.export _cloud_0x00097_97
-.export _cloud_0x00098_98
-.export _cloud_0x00099_99
-.export _cloud_0x0009A_9A
-.export _cloud_0x0009B_9B
-.export _cloud_0x0009C_9C
-.export _cloud_0x0009D_9D
-.export _cloud_0x0009E_9E
-.export _cloud_0x0009F_9F
-.export _cloud_0x000A0_A0
-.export _cloud_0x000A1_A1
-.export _cloud_0x000A2_A2
-.export _cloud_0x000A3_A3
-.export _cloud_0x000A4_A4
-.export _cloud_0x000A5_A5
-.export _cloud_0x000A6_A6
-.export _cloud_0x000A8_A8
-.export _cloud_0x000A9_A9
-.export _cloud_0x000AA_AA
-.export _cloud_0x000AB_AB
-.export _cloud_0x000AC_AC
-.export _cloud_0x000AD_AD
-.export _cloud_0x000AE_AE
-.export _cloud_0x000AF_AF
-.export _cloud_0x000B0_B0
-.export _cloud_0x000B1_B1
-.export _cloud_0x000B2_B2
-.export _cloud_0x000B3_B3
-.export _cloud_0x000B4_B4
-.export _cloud_0x000B5_B5
-.export _cloud_0x000B6_B6
-.export _cloud_0x000B7_B7
-.export _cloud_0x000B8_B8
-.export _cloud_0x000B9_B9
-.export _cloud_0x000BA_BA
-.export _cloud_0x000BB_BB
-.export _cloud_0x000BC_BC
-.export _cloud_0x000BD_BD
-.export _cloud_0x000BE_BE
-.export _cloud_0x000BF_BF
-.export _cloud_0x000C0_C0
-.export _cloud_0x000C1_C1
-.export _cloud_0x000C2_C2
-.export _cloud_0x000C3_C3
-.export _cloud_0x000C4_C4
-.export _cloud_0x000C5_C5
-.export _cloud_0x000C6_C6
-.export _cloud_0x000C7_C7
-.export _cloud_0x000C8_C8
-.export _cloud_0x000C9_C9
-.export _cloud_0x000CA_CA
-.export _cloud_0x000CB_CB
-.export _cloud_0x000CC_CC
-.export _cloud_0x000CD_CD
-.export _cloud_0x000CE_CE
-.export _cloud_0x000CF_CF
-.export _cloud_0x000D0_D0
-.export _cloud_0x000D1_D1
-.export _cloud_0x000D2_D2
-.export _cloud_0x000D3_D3
-.export _cloud_0x000D4_D4
-.export _cloud_0x000D5_D5
-.export _cloud_0x000D6_D6
-.export _cloud_0x000D7_D7
-.export _cloud_0x000D8_D8
-.export _cloud_0x000D9_D9
-.export _cloud_0x000DA_DA
-.export _cloud_0x000DB_DB
-.export _cloud_0x000DD_DD
-.export _cloud_0x000DE_DE
-.export _cloud_0x000E0_E0
-.export _cloud_0x000E1_E1
-.export _cloud_0x000E3_E3
-.export _cloud_0x000E4_E4
-.export _cloud_0x000E5_E5
-.export _cloud_0x000E6_E6
-.export _cloud_0x000E7_E7
-.export _cloud_0x000E8_E8
-.export _cloud_0x000E9_E9
-.export _cloud_0x000EA_EA
-.export _cloud_0x000EB_EB
-.export _cloud_0x000EC_EC
-.export _cloud_0x000ED_ED
-.export _cloud_0x000EE_EE
-.export _cloud_0x000EF_EF
+.export _cloud_0x000000_00
+.export _cloud_0x000001_01
+.export _cloud_0x000002_02
+.export _cloud_0x000003_03
+.export _cloud_0x000004_04
+.export _cloud_0x000005_05
+.export _cloud_0x000006_06
+.export _cloud_0x000007_07
+.export _cloud_0x000008_08
+.export _cloud_0x000009_09
+.export _cloud_0x00000A_0A
+.export _cloud_0x00000B_0B
+.export _cloud_0x00000C_0C
+.export _cloud_0x00000D_0D
+.export _cloud_0x00000E_0E
+.export _cloud_0x00000F_0F
+.export _cloud_0x000010_10
+.export _cloud_0x000011_11
+.export _cloud_0x000012_12
+.export _cloud_0x000013_13
+.export _cloud_0x000014_14
+.export _cloud_0x000015_15
+.export _cloud_0x000016_16
+.export _cloud_0x000017_17
+.export _cloud_0x000018_18
+.export _cloud_0x000019_19
+.export _cloud_0x00001A_1A
+.export _cloud_0x00001B_1B
+.export _cloud_0x00001C_1C
+.export _cloud_0x00001D_1D
+.export _cloud_0x00001E_1E
+.export _cloud_0x00001F_1F
+.export _cloud_0x000020_20
+.export _cloud_0x000021_21
+.export _cloud_0x000022_22
+.export _cloud_0x000024_24
+.export _cloud_0x000025_25
+.export _cloud_0x000026_26
+.export _cloud_0x000027_27
+.export _cloud_0x000028_28
+.export _cloud_0x000029_29
+.export _cloud_0x00002C_2C
+.export _cloud_0x00002E_2E
+.export _cloud_0x00002F_2F
+.export _cloud_0x000030_30
+.export _cloud_0x000031_31
+.export _cloud_0x000032_32
+.export _cloud_0x000033_33
+.export _cloud_0x000034_34
+.export _cloud_0x000035_35
+.export _cloud_0x000036_36
+.export _cloud_0x000037_37
+.export _cloud_0x000038_38
+.export _cloud_0x000039_39
+.export _cloud_0x00003A_3A
+.export _cloud_0x00003B_3B
+.export _cloud_0x00003C_3C
+.export _cloud_0x00003D_3D
+.export _cloud_0x00003E_3E
+.export _cloud_0x00003F_3F
+.export _cloud_0x000040_40
+.export _cloud_0x000041_41
+.export _cloud_0x000042_42
+.export _cloud_0x000043_43
+.export _cloud_0x000044_44
+.export _cloud_0x000045_45
+.export _cloud_0x000046_46
+.export _cloud_0x000047_47
+.export _cloud_0x000048_48
+.export _cloud_0x000049_49
+.export _cloud_0x00004A_4A
+.export _cloud_0x00004B_4B
+.export _cloud_0x00004C_4C
+.export _cloud_0x00004D_4D
+.export _cloud_0x00004F_4F
+.export _cloud_0x000050_50
+.export _cloud_0x000051_51
+.export _cloud_0x000052_52
+.export _cloud_0x000053_53
+.export _cloud_0x000054_54
+.export _cloud_0x000055_55
+.export _cloud_0x000056_56
+.export _cloud_0x000057_57
+.export _cloud_0x000058_58
+.export _cloud_0x000059_59
+.export _cloud_0x00005A_5A
+.export _cloud_0x00005B_5B
+.export _cloud_0x00005C_5C
+.export _cloud_0x00005D_5D
+.export _cloud_0x00005E_5E
+.export _cloud_0x00005F_5F
+.export _cloud_0x000060_60
+.export _cloud_0x000061_61
+.export _cloud_0x000062_62
+.export _cloud_0x000063_63
+.export _cloud_0x000064_64
+.export _cloud_0x000065_65
+.export _cloud_0x000066_66
+.export _cloud_0x000067_67
+.export _cloud_0x000069_69
+.export _cloud_0x00006A_6A
+.export _cloud_0x00006B_6B
+.export _cloud_0x00006C_6C
+.export _cloud_0x00006D_6D
+.export _cloud_0x00006E_6E
+.export _cloud_0x00006F_6F
+.export _cloud_0x000070_70
+.export _cloud_0x000071_71
+.export _cloud_0x000072_72
+.export _cloud_0x000074_74
+.export _cloud_0x000075_75
+.export _cloud_0x000076_76
+.export _cloud_0x000077_77
+.export _cloud_0x000078_78
+.export _cloud_0x000079_79
+.export _cloud_0x00007A_7A
+.export _cloud_0x00007B_7B
+.export _cloud_0x00007C_7C
+.export _cloud_0x00007D_7D
+.export _cloud_0x00007E_7E
+.export _cloud_0x00007F_7F
+.export _cloud_0x000080_80
+.export _cloud_0x000081_81
+.export _cloud_0x000082_82
+.export _cloud_0x000083_83
+.export _cloud_0x000084_84
+.export _cloud_0x000085_85
+.export _cloud_0x000086_86
+.export _cloud_0x000087_87
+.export _cloud_0x000089_89
+.export _cloud_0x00008A_8A
+.export _cloud_0x00008B_8B
+.export _cloud_0x00008C_8C
+.export _cloud_0x00008D_8D
+.export _cloud_0x00008E_8E
+.export _cloud_0x00008F_8F
+.export _cloud_0x000090_90
+.export _cloud_0x000091_91
+.export _cloud_0x000092_92
+.export _cloud_0x000093_93
+.export _cloud_0x000094_94
+.export _cloud_0x000095_95
+.export _cloud_0x000096_96
+.export _cloud_0x000097_97
+.export _cloud_0x000098_98
+.export _cloud_0x000099_99
+.export _cloud_0x00009A_9A
+.export _cloud_0x00009B_9B
+.export _cloud_0x00009C_9C
+.export _cloud_0x00009D_9D
+.export _cloud_0x00009E_9E
+.export _cloud_0x00009F_9F
+.export _cloud_0x0000A0_A0
+.export _cloud_0x0000A1_A1
+.export _cloud_0x0000A2_A2
+.export _cloud_0x0000A3_A3
+.export _cloud_0x0000A4_A4
+.export _cloud_0x0000A5_A5
+.export _cloud_0x0000A6_A6
+.export _cloud_0x0000A8_A8
+.export _cloud_0x0000A9_A9
+.export _cloud_0x0000AA_AA
+.export _cloud_0x0000AB_AB
+.export _cloud_0x0000AC_AC
+.export _cloud_0x0000AD_AD
+.export _cloud_0x0000AE_AE
+.export _cloud_0x0000AF_AF
+.export _cloud_0x0000B0_B0
+.export _cloud_0x0000B1_B1
+.export _cloud_0x0000B2_B2
+.export _cloud_0x0000B3_B3
+.export _cloud_0x0000B4_B4
+.export _cloud_0x0000B5_B5
+.export _cloud_0x0000B6_B6
+.export _cloud_0x0000B7_B7
+.export _cloud_0x0000B8_B8
+.export _cloud_0x0000B9_B9
+.export _cloud_0x0000BA_BA
+.export _cloud_0x0000BB_BB
+.export _cloud_0x0000BC_BC
+.export _cloud_0x0000BD_BD
+.export _cloud_0x0000BE_BE
+.export _cloud_0x0000BF_BF
+.export _cloud_0x0000C0_C0
+.export _cloud_0x0000C1_C1
+.export _cloud_0x0000C2_C2
+.export _cloud_0x0000C3_C3
+.export _cloud_0x0000C4_C4
+.export _cloud_0x0000C5_C5
+.export _cloud_0x0000C6_C6
+.export _cloud_0x0000C7_C7
+.export _cloud_0x0000C8_C8
+.export _cloud_0x0000C9_C9
+.export _cloud_0x0000CA_CA
+.export _cloud_0x0000CB_CB
+.export _cloud_0x0000CC_CC
+.export _cloud_0x0000CD_CD
+.export _cloud_0x0000CE_CE
+.export _cloud_0x0000CF_CF
+.export _cloud_0x0000D0_D0
+.export _cloud_0x0000D1_D1
+.export _cloud_0x0000D2_D2
+.export _cloud_0x0000D3_D3
+.export _cloud_0x0000D4_D4
+.export _cloud_0x0000D5_D5
+.export _cloud_0x0000D6_D6
+.export _cloud_0x0000D7_D7
+.export _cloud_0x0000D8_D8
+.export _cloud_0x0000D9_D9
+.export _cloud_0x0000DA_DA
+.export _cloud_0x0000DB_DB
+.export _cloud_0x0000DD_DD
+.export _cloud_0x0000DE_DE
+.export _cloud_0x0000E0_E0
+.export _cloud_0x0000E1_E1
+.export _cloud_0x0000E3_E3
+.export _cloud_0x0000E4_E4
+.export _cloud_0x0000E5_E5
+.export _cloud_0x0000E6_E6
+.export _cloud_0x0000E7_E7
+.export _cloud_0x0000E8_E8
+.export _cloud_0x0000E9_E9
+.export _cloud_0x0000EA_EA
+.export _cloud_0x0000EB_EB
+.export _cloud_0x0000EC_EC
+.export _cloud_0x0000ED_ED
+.export _cloud_0x0000EE_EE
+.export _cloud_0x0000EF_EF
 
 
 
@@ -284,13 +285,13 @@ con_слово_okay                  = $F8       ; タイ
 ; unused                        = $FB
 con_line                        = $FC       ; если байт после линии читается, то это уже новое облако
 
-_cloud_0x00000_00:
+_cloud_0x000000_00:
     .byte con_очистить_облако
     .byte con_exit
 
 
 
-_cloud_0x00001_01:
+_cloud_0x000001_01:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -305,7 +306,7 @@ _cloud_0x00001_01:
 
 
 
-_cloud_0x00002_02:
+_cloud_0x000002_02:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -322,7 +323,7 @@ _cloud_0x00002_02:
 
 
 
-_cloud_0x00003_03:
+_cloud_0x000003_03:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $07
@@ -346,7 +347,7 @@ _cloud_0x00003_03:
 
 
 
-_cloud_0x00004_04:
+_cloud_0x000004_04:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -363,7 +364,7 @@ _cloud_0x00004_04:
 
 
 
-_cloud_0x00005_05:
+_cloud_0x000005_05:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -380,7 +381,7 @@ _cloud_0x00005_05:
 
 
 
-_cloud_0x00006_06:
+_cloud_0x000006_06:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -397,7 +398,7 @@ _cloud_0x00006_06:
 
 
 
-_cloud_0x00007_07:
+_cloud_0x000007_07:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $04
@@ -411,7 +412,7 @@ _cloud_0x00007_07:
 
 
 
-_cloud_0x00008_08:
+_cloud_0x000008_08:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $01
@@ -428,7 +429,7 @@ _cloud_0x00008_08:
 
 
 
-_cloud_0x00009_09:
+_cloud_0x000009_09:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $00
@@ -443,7 +444,7 @@ _cloud_0x00009_09:
 
 
 
-_cloud_0x0000A_0A:
+_cloud_0x00000A_0A:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -463,7 +464,7 @@ _cloud_0x0000A_0A:
 
 
 
-_cloud_0x0000B_0B:
+_cloud_0x00000B_0B:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -480,7 +481,7 @@ _cloud_0x0000B_0B:
 
 
 
-_cloud_0x0000C_0C:
+_cloud_0x00000C_0C:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $02
@@ -500,13 +501,13 @@ _cloud_0x0000C_0C:
 
 
 
-_cloud_0x0000D_0D:
+_cloud_0x00000D_0D:
     .byte $F5, $02
     .byte con_exit
 
 
 
-_cloud_0x0000E_0E:
+_cloud_0x00000E_0E:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $02
@@ -526,7 +527,7 @@ _cloud_0x0000E_0E:
 
 
 
-_cloud_0x0000F_0F:
+_cloud_0x00000F_0F:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -543,7 +544,7 @@ _cloud_0x0000F_0F:
 
 
 
-_cloud_0x00010_10:
+_cloud_0x000010_10:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -563,7 +564,7 @@ _cloud_0x00010_10:
 
 
 
-_cloud_0x00011_11:
+_cloud_0x000011_11:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $06
@@ -583,7 +584,7 @@ _cloud_0x00011_11:
 
 
 
-_cloud_0x00012_12:
+_cloud_0x000012_12:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $05
@@ -612,7 +613,7 @@ _cloud_0x00012_12:
 
 
 
-_cloud_0x00013_13:
+_cloud_0x000013_13:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -628,7 +629,7 @@ _cloud_0x00013_13:
 
 
 
-_cloud_0x00014_14:
+_cloud_0x000014_14:
     .byte con_pause + $04
     .byte con_charlie + $02
     .byte con_window + $06
@@ -648,7 +649,7 @@ _cloud_0x00014_14:
 
 
 
-_cloud_0x00015_15:
+_cloud_0x000015_15:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $01
@@ -665,7 +666,7 @@ _cloud_0x00015_15:
 
 
 
-_cloud_0x00016_16:
+_cloud_0x000016_16:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -682,7 +683,7 @@ _cloud_0x00016_16:
 
 
 
-_cloud_0x00017_17:
+_cloud_0x000017_17:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $02
@@ -702,7 +703,7 @@ _cloud_0x00017_17:
 
 
 
-_cloud_0x00018_18:
+_cloud_0x000018_18:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $06
@@ -722,7 +723,7 @@ _cloud_0x00018_18:
 
 
 
-_cloud_0x00019_19:
+_cloud_0x000019_19:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -739,7 +740,7 @@ _cloud_0x00019_19:
 
 
 
-_cloud_0x0001A_1A:
+_cloud_0x00001A_1A:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $01
@@ -762,7 +763,7 @@ _cloud_0x0001A_1A:
 
 
 
-_cloud_0x0001B_1B:
+_cloud_0x00001B_1B:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $01
@@ -779,7 +780,7 @@ _cloud_0x0001B_1B:
 
 
 
-_cloud_0x0001C_1C:
+_cloud_0x00001C_1C:
 - D - I - - 0x0315C7 27:95B7: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
@@ -810,7 +811,7 @@ _cloud_0x0001C_1C:
 
 
 
-_cloud_0x0001D_1D:
+_cloud_0x00001D_1D:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $06
@@ -828,7 +829,7 @@ _cloud_0x0001D_1D:
 
 
 
-_cloud_0x0001E_1E:
+_cloud_0x00001E_1E:
 - D - I - - 0x0315F6 27:95E6: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
@@ -869,7 +870,7 @@ _cloud_0x0001E_1E:
 
 
 
-_cloud_0x0001F_1F:
+_cloud_0x00001F_1F:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $05
@@ -902,7 +903,7 @@ _cloud_0x0001F_1F:
 
 
 
-_cloud_0x00020_20:
+_cloud_0x000020_20:
     .byte con_pause + $08
     .byte con_charlie + $02
     .byte con_window + $04
@@ -920,7 +921,7 @@ _cloud_0x00020_20:
 
 
 
-_cloud_0x00021_21:
+_cloud_0x000021_21:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $05
@@ -950,7 +951,7 @@ _cloud_0x00021_21:
 
 
 
-_cloud_0x00022_22:
+_cloud_0x000022_22:
 - D - I - - 0x031650 27:9640: F2        .byte con_очистить_облако
 - D - I - - 0x031651 27:9641: F4        .byte con_выбор_облака, $07       ; дисбаланс кипера
 - - - - - - 0x031653 27:9643: 62 96     .word off_9662
@@ -1016,7 +1017,7 @@ off_9663:
 
 
 
-_cloud_0x00024_24:
+_cloud_0x000024_24:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $02
@@ -1036,7 +1037,7 @@ _cloud_0x00024_24:
 
 
 
-_cloud_0x00025_25:
+_cloud_0x000025_25:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -1065,7 +1066,7 @@ _cloud_0x00025_25:
 
 
 
-_cloud_0x00026_26:
+_cloud_0x000026_26:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $06
@@ -1096,7 +1097,7 @@ _cloud_0x00026_26:
 
 
 
-_cloud_0x00027_27:
+_cloud_0x000027_27:
     .byte con_pause + $0A
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1113,7 +1114,7 @@ _cloud_0x00027_27:
 
 
 
-_cloud_0x00028_28:
+_cloud_0x000028_28:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $04
@@ -1127,7 +1128,7 @@ _cloud_0x00028_28:
 
 
 
-_cloud_0x00029_29:
+_cloud_0x000029_29:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $04
@@ -1147,7 +1148,7 @@ _cloud_0x00029_29:
 
 
 
-_cloud_0x0002C_2C:
+_cloud_0x00002C_2C:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $04
@@ -1166,7 +1167,7 @@ _cloud_0x0002C_2C:
 
 
 
-_cloud_0x0002E_2E:
+_cloud_0x00002E_2E:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $05
@@ -1183,7 +1184,7 @@ _cloud_0x0002E_2E:
 
 
 
-_cloud_0x0002F_2F:
+_cloud_0x00002F_2F:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -1206,7 +1207,7 @@ _cloud_0x0002F_2F:
 
 
 
-_cloud_0x00030_30:
+_cloud_0x000030_30:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $04
@@ -1220,7 +1221,7 @@ _cloud_0x00030_30:
 
 
 
-_cloud_0x00031_31:
+_cloud_0x000031_31:
     .byte con_выбор_облака, $01
     .word off_9765_мяч_у_команды_слева
     .word off_977B_мяч_у_команды_справа
@@ -1262,7 +1263,7 @@ off_977B_мяч_у_команды_справа:
 
 
 
-_cloud_0x00032_32:
+_cloud_0x000032_32:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1313,7 +1314,7 @@ _cloud_0x00032_32:
 
 
 
-_cloud_0x00033_33:
+_cloud_0x000033_33:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1330,7 +1331,7 @@ _cloud_0x00033_33:
 
 
 
-_cloud_0x00034_34:
+_cloud_0x000034_34:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $04
@@ -1355,7 +1356,7 @@ _cloud_0x00034_34:
 
 
 
-_cloud_0x00035_35:
+_cloud_0x000035_35:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1389,7 +1390,7 @@ _cloud_0x00035_35:
 
 
 
-_cloud_0x00036_36:
+_cloud_0x000036_36:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $04
@@ -1403,7 +1404,7 @@ _cloud_0x00036_36:
 
 
 
-_cloud_0x00037_37:
+_cloud_0x000037_37:
 - D - I - - 0x031820 27:9810: F4        .byte con_выбор_облака, $01
 - D - I - - 0x031822 27:9812: 16 98     .word off_9816_мяч_у_команды_слева
 - D - I - - 0x031824 27:9814: 24 98     .word off_9824_мяч_у_команды_справа
@@ -1451,7 +1452,7 @@ off_9824_мяч_у_команды_справа:
 
 
 
-_cloud_0x00038_38:
+_cloud_0x000038_38:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $01
@@ -1475,7 +1476,7 @@ _cloud_0x00038_38:
 
 
 
-_cloud_0x00039_39:
+_cloud_0x000039_39:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $01
@@ -1492,7 +1493,7 @@ _cloud_0x00039_39:
 
 
 
-_cloud_0x0003A_3A:
+_cloud_0x00003A_3A:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1516,7 +1517,7 @@ _cloud_0x0003A_3A:
 
 
 
-_cloud_0x0003B_3B:
+_cloud_0x00003B_3B:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1540,7 +1541,7 @@ _cloud_0x0003B_3B:
 
 
 
-_cloud_0x0003C_3C:
+_cloud_0x00003C_3C:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1562,7 +1563,7 @@ _cloud_0x0003C_3C:
 
 
 
-_cloud_0x0003D_3D:
+_cloud_0x00003D_3D:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $06
@@ -1588,7 +1589,7 @@ _cloud_0x0003D_3D:
 
 
 
-_cloud_0x0003E_3E:
+_cloud_0x00003E_3E:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1609,7 +1610,7 @@ _cloud_0x0003E_3E:
 
 
 
-_cloud_0x0003F_3F:
+_cloud_0x00003F_3F:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1626,7 +1627,7 @@ _cloud_0x0003F_3F:
 
 
 
-_cloud_0x00040_40:
+_cloud_0x000040_40:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1650,7 +1651,7 @@ _cloud_0x00040_40:
 
 
 
-_cloud_0x00041_41:
+_cloud_0x000041_41:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1671,7 +1672,7 @@ _cloud_0x00041_41:
 
 
 
-_cloud_0x00042_42:
+_cloud_0x000042_42:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1693,7 +1694,7 @@ _cloud_0x00042_42:
 
 
 
-_cloud_0x00043_43:
+_cloud_0x000043_43:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $06
@@ -1724,7 +1725,7 @@ _cloud_0x00043_43:
 
 
 
-_cloud_0x00044_44:
+_cloud_0x000044_44:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1745,7 +1746,7 @@ _cloud_0x00044_44:
 
 
 
-_cloud_0x00045_45:
+_cloud_0x000045_45:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $02
@@ -1775,7 +1776,7 @@ _cloud_0x00045_45:
 
 
 
-_cloud_0x00046_46:
+_cloud_0x000046_46:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $01
@@ -1795,7 +1796,7 @@ _cloud_0x00046_46:
 
 
 
-_cloud_0x00047_47:
+_cloud_0x000047_47:
 - D - I - - 0x031927 27:9917: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
@@ -1813,7 +1814,7 @@ _cloud_0x00047_47:
 
 
 
-_cloud_0x00048_48:
+_cloud_0x000048_48:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -1833,7 +1834,7 @@ _cloud_0x00048_48:
 
 
 
-_cloud_0x00049_49:
+_cloud_0x000049_49:
 - D - I - - 0x03193D 27:992D: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
@@ -1852,7 +1853,7 @@ _cloud_0x00049_49:
 
 
 
-_cloud_0x0004A_4A:
+_cloud_0x00004A_4A:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -1881,7 +1882,7 @@ _cloud_0x0004A_4A:
 
 
 
-_cloud_0x0004B_4B:
+_cloud_0x00004B_4B:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -1910,7 +1911,7 @@ _cloud_0x0004B_4B:
 
 
 
-_cloud_0x0004C_4C:
+_cloud_0x00004C_4C:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1936,7 +1937,7 @@ _cloud_0x0004C_4C:
 
 
 
-_cloud_0x0004D_4D:
+_cloud_0x00004D_4D:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -1954,7 +1955,7 @@ _cloud_0x0004D_4D:
 
 
 
-_cloud_0x0004F_4F:
+_cloud_0x00004F_4F:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -1979,7 +1980,7 @@ _cloud_0x0004F_4F:
 
 
 
-_cloud_0x00050_50:
+_cloud_0x000050_50:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $04
@@ -2006,7 +2007,7 @@ _cloud_0x00050_50:
 
 
 
-_cloud_0x00051_51:
+_cloud_0x000051_51:
     .byte con_pause + $01
     .byte con_charlie + $04
     .byte con_window + $07
@@ -2029,7 +2030,7 @@ _cloud_0x00051_51:
 
 
 
-_cloud_0x00052_52:
+_cloud_0x000052_52:
     .byte con_pause + $01
     .byte con_charlie + $03
     .byte con_window + $07
@@ -2052,7 +2053,7 @@ _cloud_0x00052_52:
 
 
 
-_cloud_0x00053_53:
+_cloud_0x000053_53:
     .byte con_pause + $01
     .byte con_charlie + $04
     .byte con_window + $07
@@ -2075,7 +2076,7 @@ _cloud_0x00053_53:
 
 
 
-_cloud_0x00054_54:
+_cloud_0x000054_54:
     .byte con_pause + $01
     .byte con_charlie + $03
     .byte con_window + $07
@@ -2098,7 +2099,7 @@ _cloud_0x00054_54:
 
 
 
-_cloud_0x00055_55:
+_cloud_0x000055_55:
     .byte con_pause + $01
     .byte con_charlie + $09
     .byte con_window + $07
@@ -2121,7 +2122,7 @@ _cloud_0x00055_55:
 
 
 
-_cloud_0x00056_56:
+_cloud_0x000056_56:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -2141,7 +2142,7 @@ _cloud_0x00056_56:
 
 
 
-_cloud_0x00057_57:
+_cloud_0x000057_57:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $07
@@ -2173,7 +2174,7 @@ _cloud_0x00057_57:
 
 
 
-_cloud_0x00058_58:
+_cloud_0x000058_58:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -2187,7 +2188,7 @@ _cloud_0x00058_58:
 
 
 
-_cloud_0x00059_59:
+_cloud_0x000059_59:
 - D - I - - 0x031A80 27:9A70: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
@@ -2211,7 +2212,7 @@ _cloud_0x00059_59:
 
 
 
-_cloud_0x0005A_5A:
+_cloud_0x00005A_5A:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $02
@@ -2240,7 +2241,7 @@ _cloud_0x0005A_5A:
 
 
 
-_cloud_0x0005B_5B:
+_cloud_0x00005B_5B:
 - D - I - - 0x031AA6 27:9A96: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
@@ -2272,7 +2273,7 @@ _cloud_0x0005B_5B:
 
 
 
-_cloud_0x0005C_5C:
+_cloud_0x00005C_5C:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -2302,7 +2303,7 @@ _cloud_0x0005C_5C:
 
 
 
-_cloud_0x0005D_5D:
+_cloud_0x00005D_5D:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -2328,7 +2329,7 @@ _cloud_0x0005D_5D:
 
 
 
-_cloud_0x0005E_5E:
+_cloud_0x00005E_5E:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -2351,7 +2352,7 @@ _cloud_0x0005E_5E:
 
 
 
-_cloud_0x0005F_5F:
+_cloud_0x00005F_5F:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -2375,7 +2376,7 @@ _cloud_0x0005F_5F:
 
 
 
-_cloud_0x00060_60:
+_cloud_0x000060_60:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -2396,7 +2397,7 @@ _cloud_0x00060_60:
 
 
 
-_cloud_0x00061_61:
+_cloud_0x000061_61:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $00
@@ -2421,7 +2422,7 @@ _cloud_0x00061_61:
 
 
 
-_cloud_0x00062_62:
+_cloud_0x000062_62:
 - D - I - - 0x031B27 27:9B17: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
@@ -2444,7 +2445,7 @@ _cloud_0x00062_62:
 
 
 
-_cloud_0x00063_63:
+_cloud_0x000063_63:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $06
@@ -2467,7 +2468,7 @@ _cloud_0x00063_63:
 
 
 
-_cloud_0x00064_64:
+_cloud_0x000064_64:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -2491,7 +2492,7 @@ _cloud_0x00064_64:
 
 
 
-_cloud_0x00065_65:
+_cloud_0x000065_65:
     .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
@@ -2512,7 +2513,7 @@ _cloud_0x00065_65:
 
 
 
-_cloud_0x00066_66:        ; ? тут нету очистки облака в отличие от 65
+_cloud_0x000066_66:        ; ? тут нету очистки облака в отличие от 65
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -2532,7 +2533,7 @@ _cloud_0x00066_66:        ; ? тут нету очистки облака в о�
 
 
 
-_cloud_0x00067_67:
+_cloud_0x000067_67:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -2549,7 +2550,7 @@ _cloud_0x00067_67:
 
 
 
-_cloud_0x00069_69:
+_cloud_0x000069_69:
 - D - I - - 0x031BA2 27:9B92: F4        .byte con_выбор_облака, $06
 - D - I - - 0x031BA4 27:9B94: 9C 9B     .word off_9B9C
 - D - I - - 0x031BA6 27:9B96: 9C 9B     .word off_9B9C
@@ -2605,7 +2606,7 @@ off_9BAF:
 
 
 
-_cloud_0x0006A_6A:
+_cloud_0x00006A_6A:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -2625,7 +2626,7 @@ _cloud_0x0006A_6A:
 
 
 
-_cloud_0x0006B_6B:
+_cloud_0x00006B_6B:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -2643,7 +2644,7 @@ _cloud_0x0006B_6B:
 
 
 
-_cloud_0x0006C_6C:
+_cloud_0x00006C_6C:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -2663,7 +2664,7 @@ _cloud_0x0006C_6C:
 
 
 
-_cloud_0x0006D_6D:
+_cloud_0x00006D_6D:
 - D - I - - 0x031BF3 27:9BE3: F2        .byte con_очистить_облако
 - D - I - - 0x031BF4 27:9BE4: F4        .byte con_выбор_облака, $01
 - D - I - - 0x031BF6 27:9BE6: EA 9B     .word off_9BEA_мяч_у_команды_слева
@@ -2829,7 +2830,7 @@ off_9C59_3_защитника:
 
 
 
-_cloud_0x0006E_6E:
+_cloud_0x00006E_6E:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $06
@@ -2853,7 +2854,7 @@ _cloud_0x0006E_6E:
 
 
 
-_cloud_0x0006F_6F:
+_cloud_0x00006F_6F:
 - D - I - - 0x031C92 27:9C82: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
@@ -2877,7 +2878,7 @@ _cloud_0x0006F_6F:
 
 
 
-_cloud_0x00070_70:
+_cloud_0x000070_70:
 - D - I - - 0x031CA2 27:9C92: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $02
@@ -2908,7 +2909,7 @@ _cloud_0x00070_70:
 
 
 
-_cloud_0x00071_71:
+_cloud_0x000071_71:
 - D - I - - 0x031CBA 27:9CAA: F4        .byte con_выбор_облака, $05
 - D - I - - 0x031CBC 27:9CAC: CC 9C     .word off_9CCC
 - D - I - - 0x031CBE 27:9CAE: E6 9C     .word off_9CE6
@@ -3610,7 +3611,7 @@ off_9EFD:
 
 
 
-_cloud_0x00072_72:
+_cloud_0x000072_72:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -3627,7 +3628,7 @@ _cloud_0x00072_72:
 
 
 
-_cloud_0x00074_74:
+_cloud_0x000074_74:
 - D - I - - 0x0323CD 27:A3BD: F4        .byte con_выбор_облака, $03
 - D - I - - 0x0323CF 27:A3BF: C9 A3     .word off_A3C9    ; первая разводка
 - D - I - - 0x0323D1 27:A3C1: E3 A3     .word off_A3E3    ; начало 2го тайма
@@ -3715,7 +3716,7 @@ off_A429:
 
 
 
-_cloud_0x00075_75:
+_cloud_0x000075_75:
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -3737,7 +3738,7 @@ _cloud_0x00075_75:
 
 
 
-_cloud_0x00076_76:
+_cloud_0x000076_76:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -3771,7 +3772,7 @@ _cloud_0x00076_76:
 
 
 
-_cloud_0x00077_77:
+_cloud_0x000077_77:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -3791,7 +3792,7 @@ _cloud_0x00077_77:
 
 
 
-_cloud_0x00078_78:
+_cloud_0x000078_78:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -3830,7 +3831,7 @@ _cloud_0x00078_78:
 
 
 
-_cloud_0x00079_79:
+_cloud_0x000079_79:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -3865,7 +3866,7 @@ _cloud_0x00079_79:
 
 
 
-_cloud_0x0007A_7A:
+_cloud_0x00007A_7A:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -3887,7 +3888,7 @@ _cloud_0x0007A_7A:
 
 
 
-_cloud_0x0007B_7B:
+_cloud_0x00007B_7B:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -3910,7 +3911,7 @@ _cloud_0x0007B_7B:
 
 
 
-_cloud_0x0007C_7C:
+_cloud_0x00007C_7C:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0A
@@ -3950,7 +3951,7 @@ _cloud_0x0007C_7C:
 
 
 
-_cloud_0x0007D_7D:
+_cloud_0x00007D_7D:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0A
@@ -3993,7 +3994,7 @@ _cloud_0x0007D_7D:
 
 
 
-_cloud_0x0007E_7E:
+_cloud_0x00007E_7E:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $09
@@ -4019,7 +4020,7 @@ _cloud_0x0007E_7E:
 
 
 
-_cloud_0x0007F_7F:
+_cloud_0x00007F_7F:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4036,7 +4037,7 @@ _cloud_0x0007F_7F:
 
 
 
-_cloud_0x00080_80:
+_cloud_0x000080_80:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -4086,7 +4087,7 @@ _cloud_0x00080_80:
 
 
 
-_cloud_0x00081_81:
+_cloud_0x000081_81:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4113,7 +4114,7 @@ _cloud_0x00081_81:
 
 
 
-_cloud_0x00082_82:
+_cloud_0x000082_82:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $01
@@ -4139,7 +4140,7 @@ _cloud_0x00082_82:
 
 
 
-_cloud_0x00083_83:
+_cloud_0x000083_83:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -4167,7 +4168,7 @@ _cloud_0x00083_83:
 
 
 
-_cloud_0x00084_84:
+_cloud_0x000084_84:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $09
@@ -4186,7 +4187,7 @@ _cloud_0x00084_84:
 
 
 
-_cloud_0x00085_85:
+_cloud_0x000085_85:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4206,7 +4207,7 @@ _cloud_0x00085_85:
 
 
 
-_cloud_0x00086_86:
+_cloud_0x000086_86:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4232,7 +4233,7 @@ _cloud_0x00086_86:
 
 
 
-_cloud_0x00087_87:
+_cloud_0x000087_87:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4253,7 +4254,7 @@ _cloud_0x00087_87:
 
 
 
-_cloud_0x00089_89:
+_cloud_0x000089_89:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4281,7 +4282,7 @@ _cloud_0x00089_89:
 
 
 
-_cloud_0x0008A_8A:
+_cloud_0x00008A_8A:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $09
@@ -4306,7 +4307,7 @@ _cloud_0x0008A_8A:
 
 
 
-_cloud_0x0008B_8B:
+_cloud_0x00008B_8B:
     .byte con_pause + $0A
     .byte con_charlie + $80
     .byte con_window + $0B
@@ -4369,7 +4370,7 @@ _cloud_0x0008B_8B:
 
 
 
-_cloud_0x0008C_8C:
+_cloud_0x00008C_8C:
     .byte con_pause + $0A
     .byte con_charlie + $80
     .byte con_window + $0B
@@ -4419,7 +4420,7 @@ _cloud_0x0008C_8C:
 
 
 
-_cloud_0x0008D_8D:
+_cloud_0x00008D_8D:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4437,7 +4438,7 @@ _cloud_0x0008D_8D:
 
 
 
-_cloud_0x0008E_8E:
+_cloud_0x00008E_8E:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4459,7 +4460,7 @@ _cloud_0x0008E_8E:
 
 
 
-_cloud_0x0008F_8F:
+_cloud_0x00008F_8F:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4480,7 +4481,7 @@ _cloud_0x0008F_8F:
 
 
 
-_cloud_0x00090_90:
+_cloud_0x000090_90:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4501,7 +4502,7 @@ _cloud_0x00090_90:
 
 
 
-_cloud_0x00091_91:
+_cloud_0x000091_91:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4525,7 +4526,7 @@ _cloud_0x00091_91:
 
 
 
-_cloud_0x00092_92:
+_cloud_0x000092_92:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4549,7 +4550,7 @@ _cloud_0x00092_92:
 
 
 
-_cloud_0x00093_93:
+_cloud_0x000093_93:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4573,7 +4574,7 @@ _cloud_0x00093_93:
 
 
 
-_cloud_0x00094_94:
+_cloud_0x000094_94:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4599,7 +4600,7 @@ _cloud_0x00094_94:
 
 
 
-_cloud_0x00095_95:
+_cloud_0x000095_95:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4625,7 +4626,7 @@ _cloud_0x00095_95:
 
 
 
-_cloud_0x00096_96:
+_cloud_0x000096_96:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -4682,7 +4683,7 @@ _cloud_0x00096_96:
 
 
 
-_cloud_0x00097_97:
+_cloud_0x000097_97:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4703,7 +4704,7 @@ _cloud_0x00097_97:
 
 
 
-_cloud_0x00098_98:
+_cloud_0x000098_98:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4722,7 +4723,7 @@ _cloud_0x00098_98:
 
 
 
-_cloud_0x00099_99:
+_cloud_0x000099_99:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4740,7 +4741,7 @@ _cloud_0x00099_99:
 
 
 
-_cloud_0x0009A_9A:
+_cloud_0x00009A_9A:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4761,7 +4762,7 @@ _cloud_0x0009A_9A:
 
 
 
-_cloud_0x0009B_9B:
+_cloud_0x00009B_9B:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -4787,7 +4788,7 @@ _cloud_0x0009B_9B:
 
 
 
-_cloud_0x0009C_9C:
+_cloud_0x00009C_9C:
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $07
@@ -4832,7 +4833,7 @@ _cloud_0x0009C_9C:
 
 
 
-_cloud_0x0009D_9D:
+_cloud_0x00009D_9D:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -4877,7 +4878,7 @@ _cloud_0x0009D_9D:
 
 
 
-_cloud_0x0009E_9E:
+_cloud_0x00009E_9E:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -4925,7 +4926,7 @@ _cloud_0x0009E_9E:
 
 
 
-_cloud_0x0009F_9F:
+_cloud_0x00009F_9F:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -4951,7 +4952,7 @@ _cloud_0x0009F_9F:
 
 
 
-_cloud_0x000A0_A0:
+_cloud_0x0000A0_A0:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -4984,7 +4985,7 @@ _cloud_0x000A0_A0:
 
 
 
-_cloud_0x000A1_A1:
+_cloud_0x0000A1_A1:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5003,7 +5004,7 @@ _cloud_0x000A1_A1:
 
 
 
-_cloud_0x000A2_A2:
+_cloud_0x0000A2_A2:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5023,7 +5024,7 @@ _cloud_0x000A2_A2:
 
 
 
-_cloud_0x000A3_A3:
+_cloud_0x0000A3_A3:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5044,7 +5045,7 @@ _cloud_0x000A3_A3:
 
 
 
-_cloud_0x000A4_A4:
+_cloud_0x0000A4_A4:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5063,7 +5064,7 @@ _cloud_0x000A4_A4:
 
 
 
-_cloud_0x000A5_A5:
+_cloud_0x0000A5_A5:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5083,7 +5084,7 @@ _cloud_0x000A5_A5:
 
 
 
-_cloud_0x000A6_A6:
+_cloud_0x0000A6_A6:
 - - - - - - 0x032814 27:A804: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
@@ -5114,7 +5115,7 @@ _cloud_0x000A6_A6:
 
 
 
-_cloud_0x000A8_A8:
+_cloud_0x0000A8_A8:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5131,7 +5132,7 @@ _cloud_0x000A8_A8:
 
 
 
-_cloud_0x000A9_A9:
+_cloud_0x0000A9_A9:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5158,7 +5159,7 @@ _cloud_0x000A9_A9:
 
 
 
-_cloud_0x000AA_AA:
+_cloud_0x0000AA_AA:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5181,7 +5182,7 @@ _cloud_0x000AA_AA:
 
 
 
-_cloud_0x000AB_AB:
+_cloud_0x0000AB_AB:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5201,7 +5202,7 @@ _cloud_0x000AB_AB:
 
 
 
-_cloud_0x000AC_AC:
+_cloud_0x0000AC_AC:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5218,7 +5219,7 @@ _cloud_0x000AC_AC:
 
 
 
-_cloud_0x000AD_AD:
+_cloud_0x0000AD_AD:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5242,7 +5243,7 @@ _cloud_0x000AD_AD:
 
 
 
-_cloud_0x000AE_AE:
+_cloud_0x0000AE_AE:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5261,7 +5262,7 @@ _cloud_0x000AE_AE:
 
 
 
-_cloud_0x000AF_AF:
+_cloud_0x0000AF_AF:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5280,7 +5281,7 @@ _cloud_0x000AF_AF:
 
 
 
-_cloud_0x000B0_B0:
+_cloud_0x0000B0_B0:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5295,7 +5296,7 @@ _cloud_0x000B0_B0:
 
 
 
-_cloud_0x000B1_B1:
+_cloud_0x0000B1_B1:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5322,7 +5323,7 @@ _cloud_0x000B1_B1:
 
 
 
-_cloud_0x000B2_B2:
+_cloud_0x0000B2_B2:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5342,7 +5343,7 @@ _cloud_0x000B2_B2:
 
 
 
-_cloud_0x000B3_B3:
+_cloud_0x0000B3_B3:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0E
@@ -5375,7 +5376,7 @@ _cloud_0x000B3_B3:
 
 
 
-_cloud_0x000B4_B4:
+_cloud_0x0000B4_B4:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5392,7 +5393,7 @@ _cloud_0x000B4_B4:
 
 
 
-_cloud_0x000B5_B5:
+_cloud_0x0000B5_B5:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5409,7 +5410,7 @@ _cloud_0x000B5_B5:
 
 
 
-_cloud_0x000B6_B6:
+_cloud_0x0000B6_B6:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5433,7 +5434,7 @@ _cloud_0x000B6_B6:
 
 
 
-_cloud_0x000B7_B7:
+_cloud_0x0000B7_B7:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5450,7 +5451,7 @@ _cloud_0x000B7_B7:
 
 
 
-_cloud_0x000B8_B8:
+_cloud_0x0000B8_B8:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5468,7 +5469,7 @@ _cloud_0x000B8_B8:
 
 
 
-_cloud_0x000B9_B9:
+_cloud_0x0000B9_B9:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5508,7 +5509,7 @@ _cloud_0x000B9_B9:
 
 
 
-_cloud_0x000BA_BA:
+_cloud_0x0000BA_BA:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5527,7 +5528,7 @@ _cloud_0x000BA_BA:
 
 
 
-_cloud_0x000BB_BB:
+_cloud_0x0000BB_BB:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5548,7 +5549,7 @@ _cloud_0x000BB_BB:
 
 
 
-_cloud_0x000BC_BC:
+_cloud_0x0000BC_BC:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5565,7 +5566,7 @@ _cloud_0x000BC_BC:
 
 
 
-_cloud_0x000BD_BD:
+_cloud_0x0000BD_BD:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5591,7 +5592,7 @@ _cloud_0x000BD_BD:
 
 
 
-_cloud_0x000BE_BE:
+_cloud_0x0000BE_BE:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5616,7 +5617,7 @@ _cloud_0x000BE_BE:
 
 
 
-_cloud_0x000BF_BF:
+_cloud_0x0000BF_BF:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5649,7 +5650,7 @@ _cloud_0x000BF_BF:
 
 
 
-_cloud_0x000C0_C0:
+_cloud_0x0000C0_C0:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5667,7 +5668,7 @@ _cloud_0x000C0_C0:
 
 
 
-_cloud_0x000C1_C1:
+_cloud_0x0000C1_C1:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5686,7 +5687,7 @@ _cloud_0x000C1_C1:
 
 
 
-_cloud_0x000C2_C2:
+_cloud_0x0000C2_C2:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5702,7 +5703,7 @@ _cloud_0x000C2_C2:
 
 
 
-_cloud_0x000C3_C3:
+_cloud_0x0000C3_C3:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5724,7 +5725,7 @@ _cloud_0x000C3_C3:
 
 
 
-_cloud_0x000C4_C4:
+_cloud_0x0000C4_C4:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5741,7 +5742,7 @@ _cloud_0x000C4_C4:
 
 
 
-_cloud_0x000C5_C5:
+_cloud_0x0000C5_C5:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5764,7 +5765,7 @@ _cloud_0x000C5_C5:
 
 
 
-_cloud_0x000C6_C6:
+_cloud_0x0000C6_C6:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5783,7 +5784,7 @@ _cloud_0x000C6_C6:
 
 
 
-_cloud_0x000C7_C7:
+_cloud_0x0000C7_C7:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5799,7 +5800,7 @@ _cloud_0x000C7_C7:
 
 
 
-_cloud_0x000C8_C8:
+_cloud_0x0000C8_C8:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -5832,7 +5833,7 @@ _cloud_0x000C8_C8:
 
 
 
-_cloud_0x000C9_C9:
+_cloud_0x0000C9_C9:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5849,7 +5850,7 @@ _cloud_0x000C9_C9:
 
 
 
-_cloud_0x000CA_CA:
+_cloud_0x0000CA_CA:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5871,7 +5872,7 @@ _cloud_0x000CA_CA:
 
 
 
-_cloud_0x000CB_CB:
+_cloud_0x0000CB_CB:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5890,7 +5891,7 @@ _cloud_0x000CB_CB:
 
 
 
-_cloud_0x000CC_CC:
+_cloud_0x0000CC_CC:
     .byte con_pause + $01
     .byte con_charlie + $09
     .byte con_window + $07
@@ -5933,7 +5934,7 @@ _cloud_0x000CC_CC:
 
 
 
-_cloud_0x000CD_CD:
+_cloud_0x0000CD_CD:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5954,7 +5955,7 @@ _cloud_0x000CD_CD:
 
 
 
-_cloud_0x000CE_CE:
+_cloud_0x0000CE_CE:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -5972,7 +5973,7 @@ _cloud_0x000CE_CE:
 
 
 
-_cloud_0x000CF_CF:
+_cloud_0x0000CF_CF:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $07
@@ -6030,7 +6031,7 @@ _cloud_0x000CF_CF:
 
 
 
-_cloud_0x000D0_D0:
+_cloud_0x0000D0_D0:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6053,7 +6054,7 @@ _cloud_0x000D0_D0:
 
 
 
-_cloud_0x000D1_D1:
+_cloud_0x0000D1_D1:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6070,7 +6071,7 @@ _cloud_0x000D1_D1:
 
 
 
-_cloud_0x000D2_D2:
+_cloud_0x0000D2_D2:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $07
@@ -6128,7 +6129,7 @@ _cloud_0x000D2_D2:
 
 
 
-_cloud_0x000D3_D3:
+_cloud_0x0000D3_D3:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6150,7 +6151,7 @@ _cloud_0x000D3_D3:
 
 
 
-_cloud_0x000D4_D4:
+_cloud_0x0000D4_D4:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6170,7 +6171,7 @@ _cloud_0x000D4_D4:
 
 
 
-_cloud_0x000D5_D5:
+_cloud_0x0000D5_D5:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -6202,7 +6203,7 @@ _cloud_0x000D5_D5:
 
 
 
-_cloud_0x000D6_D6:
+_cloud_0x0000D6_D6:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $07
@@ -6254,7 +6255,7 @@ _cloud_0x000D6_D6:
 
 
 
-_cloud_0x000D7_D7:
+_cloud_0x0000D7_D7:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6273,7 +6274,7 @@ _cloud_0x000D7_D7:
 
 
 
-_cloud_0x000D8_D8:
+_cloud_0x0000D8_D8:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -6304,7 +6305,7 @@ _cloud_0x000D8_D8:
 
 
 
-_cloud_0x000D9_D9:
+_cloud_0x0000D9_D9:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -6337,7 +6338,7 @@ _cloud_0x000D9_D9:
 
 
 
-_cloud_0x000DA_DA:
+_cloud_0x0000DA_DA:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -6358,7 +6359,7 @@ _cloud_0x000DA_DA:
 
 
 
-_cloud_0x000DB_DB:
+_cloud_0x0000DB_DB:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0D
@@ -6396,7 +6397,7 @@ _cloud_0x000DB_DB:
 
 
 
-_cloud_0x000DD_DD:
+_cloud_0x0000DD_DD:
     .byte con_выбор_облака, $01
     .word off_AB6C_мяч_у_команды_слева
     .word off_AB80_мяч_у_команды_справа
@@ -6441,7 +6442,7 @@ off_AB80_мяч_у_команды_справа:
 
 
 
-_cloud_0x000DE_DE:
+_cloud_0x0000DE_DE:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6460,7 +6461,7 @@ _cloud_0x000DE_DE:
 
 
 
-_cloud_0x000E0_E0:
+_cloud_0x0000E0_E0:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6480,7 +6481,7 @@ _cloud_0x000E0_E0:
 
 
 
-_cloud_0x000E1_E1:
+_cloud_0x0000E1_E1:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6500,7 +6501,7 @@ _cloud_0x000E1_E1:
 
 
 
-_cloud_0x000E3_E3:
+_cloud_0x0000E3_E3:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $07
@@ -6523,7 +6524,7 @@ _cloud_0x000E3_E3:
 
 
 
-_cloud_0x000E4_E4:
+_cloud_0x0000E4_E4:
 - D - I - - 0x032C1B 27:AC0B: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
@@ -6562,7 +6563,7 @@ _cloud_0x000E4_E4:
 
 
 
-_cloud_0x000E5_E5:
+_cloud_0x0000E5_E5:
     .byte con_pause + $01
     .byte con_charlie + $80
     .byte con_window + $0C
@@ -6582,7 +6583,7 @@ _cloud_0x000E5_E5:
 
 
 
-_cloud_0x000E6_E6:
+_cloud_0x0000E6_E6:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -6608,7 +6609,7 @@ _cloud_0x000E6_E6:
 
 
 
-_cloud_0x000E7_E7:
+_cloud_0x0000E7_E7:
 - D - I - - 0x032C5A 27:AC4A: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
@@ -6632,7 +6633,7 @@ _cloud_0x000E7_E7:
 
 
 
-_cloud_0x000E8_E8:
+_cloud_0x0000E8_E8:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -6656,7 +6657,7 @@ _cloud_0x000E8_E8:
 
 
 
-_cloud_0x000E9_E9:
+_cloud_0x0000E9_E9:
 - D - I - - 0x032C7A 27:AC6A: F2        .byte con_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
@@ -6683,7 +6684,7 @@ _cloud_0x000E9_E9:
 
 
 
-_cloud_0x000EA_EA:
+_cloud_0x0000EA_EA:
 - D - I - - 0x032C8D 27:AC7D: F2        .byte con_очистить_облако
 - D - I - - 0x032C8E 27:AC7E: F4        .byte con_выбор_облака, $07       ; дисбаланс кипера
 - - - - - - 0x032C90 27:AC80: 99 AC     .word off_AC99
@@ -6739,7 +6740,7 @@ off_AC9A:
 
 
 
-_cloud_0x000EB_EB:
+_cloud_0x0000EB_EB:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $06
@@ -6765,7 +6766,7 @@ _cloud_0x000EB_EB:
 
 
 
-_cloud_0x000EC_EC:
+_cloud_0x0000EC_EC:
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -6783,7 +6784,7 @@ _cloud_0x000EC_EC:
 
 
 
-_cloud_0x000ED_ED:
+_cloud_0x0000ED_ED:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $06
@@ -6817,7 +6818,7 @@ _cloud_0x000ED_ED:
 
 
 
-_cloud_0x000EE_EE:
+_cloud_0x0000EE_EE:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $07
@@ -6856,7 +6857,7 @@ _cloud_0x000EE_EE:
 
 
 
-_cloud_0x000EF_EF:
+_cloud_0x0000EF_EF:
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $06

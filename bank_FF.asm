@@ -2,6 +2,7 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $6000
+; 0x07C010-0x07E00F
 
 
 
@@ -220,7 +221,6 @@ sub_0x03C4D8_начислить_опыт:
 ; на вход подается
     ; A = номер игрока
     ; X = 02 (игрок) или 03 (кипер), также может быть 00 и 01
-; A и X менять нельзя до прыжка в подпрограмму
                                         LDY #con_prg_bank + $80
                                         STY $5114
                                         LDY #con_prg_bank + $81
@@ -252,7 +252,7 @@ C - - - - - 0x03C6EB FF:C6DB: 85 11     STA ram_0011
 C - - - - - 0x03C6ED FF:C6DD: 85 12     STA ram_0012
 C - - - - - 0x03C6F1 FF:C6E1: 85 15     STA ram_0015
 C - - - - - 0x03C6F3 FF:C6E3: 85 16     STA ram_0016
-C - - - - - 0x03C6F5 FF:C6E5: 20 1F CF  JSR sub_CF1F
+C - - - - - 0x03C6F5 FF:C6E5: 20 1F CF  JSR sub_CF1F_очистить_оперативку
 C - - - - - 0x03C707 FF:C6F7: A9 20     LDA #$20
 C - - - - - 0x03C709 FF:C6F9: 8D 6C 04  STA ram_046C
 C - - - - - 0x03C70C FF:C6FC: A9 00     LDA #$00
@@ -1498,7 +1498,7 @@ C - - - - - 0x03CF0D FF:CEFD: 60        RTS
 
 
 
-sub_CF1F:
+sub_CF1F_очистить_оперативку:
 ; bzk optimize
 C - - - - - 0x03CF2F FF:CF1F: A9 68     LDA #< ram_0468
 C - - - - - 0x03CF31 FF:CF21: 85 3A     STA ram_003A
@@ -4924,6 +4924,10 @@ C - - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x03404C
 
 .segment "BANK_FF"
 .org $E000
+; 0x07E010-0x08000F
+
+
+
 .incbin "DPCM.bin"
 
 
@@ -7039,7 +7043,7 @@ sub_0x03F31F_таблица_слов:
     TAY
     LDA #con_prg_bank + $A6
     STA $5116
-    JSR sub_0x40005_таблица_слов
+    JSR sub_0x040005_таблица_слов
     LDA ram_for_5116
     STA $5116
     RTS

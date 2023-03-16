@@ -2,6 +2,7 @@
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
 .org $8000
+; 0x038010-0x03C00F
 
 
 
