@@ -4535,13 +4535,11 @@ sub_E233:
 sub_0x03E243:
 C D - - - - 0x03E243 FF:E233: A9 1E     LDA #con_scenario_1E
 C - - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - - 0x03E248 FF:E238: 48        PHA
 C - - - - - 0x03E24B FF:E23B: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03E24D FF:E23D: 85 24     STA ram_for_5114
 C - - - - - 0x03E24F FF:E23F: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03E251 FF:E241: 85 25     STA ram_for_5115
 C - - - - - 0x03E253 FF:E243: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E256 FF:E246: 68        PLA
 C - - - - - 0x03E257 FF:E247: 20 24 80  JSR sub_0x038034
 C - - - - - 0x03E25A FF:E24A: 20 67 E2  JSR sub_E267
 C - - - - - 0x03E25D FF:E24D: A9 80     LDA #$80
