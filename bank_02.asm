@@ -259,19 +259,7 @@ C - - - - - 0x004234 02:A224: A5 1B     LDA ram_флаг_nmi
 C - - - - - 0x004236 02:A226: 09 40     ORA #$40
 C - - - - - 0x004238 02:A228: 85 1B     STA ram_флаг_nmi
 C - - - - - 0x00423A 02:A22A: A9 00     LDA #$00
-C - - - - - 0x00423C 02:A22C: A0 E8     LDY #$E8
-bra_A22E_loop:
-; адреса оперативки 0001-0018
-C - - - - - 0x00423E 02:A22E: 99 19 FF  STA ram_0001 - $E8,Y
-C - - - - - 0x004241 02:A231: C8        INY
-C - - - - - 0x004242 02:A232: D0 FA     BNE bra_A22E_loop
-C - - - - - 0x004244 02:A234: A9 00     LDA #$00
-C - - - - - 0x004246 02:A236: A0 5A     LDY #$5A
-bra_A238_loop:
-; адреса оперативки 003A-00DF
-C - - - - - 0x004248 02:A238: 99 E0 FF  STA ram_003A - $5A,Y
-C - - - - - 0x00424B 02:A23B: C8        INY
-C - - - - - 0x00424C 02:A23C: D0 FA     BNE bra_A238_loop
+C - - - - - 0x00423C 02:A22C: A0 E8     JSR sub_A2E6_очистить_оперативку
 C - - - - - 0x00424E 02:A23E: A9 98     LDA #$98
 C - - - - - 0x004250 02:A240: A2 02     LDX #$02
 C - - - - - 0x004252 02:A242: A0 68     LDY #$68
@@ -341,20 +329,8 @@ C - - - - - 0x0042CC 02:A2BC: 8D 00 20  STA $2000
 C - - - - - 0x0042CF 02:A2BF: 85 20     STA ram_0020
 C - - - - - 0x0042D4 02:A2C4: A9 00     LDA #$00
 C - - - - - 0x0042D1 02:A2C1: 8D 00 E0  STA $5204
-C - - - - - 0x0042D6 02:A2C6: A0 E8     LDY #$E8
 ; сработало перед появлением экрана с разводкой
-bra_A2C8_loop:
-; адреса оперативки 0001-0018
-C - - - - - 0x0042D8 02:A2C8: 99 19 FF  STA ram_0001 - $E8,Y
-C - - - - - 0x0042DB 02:A2CB: C8        INY
-C - - - - - 0x0042DC 02:A2CC: D0 FA     BNE bra_A2C8_loop
-C - - - - - 0x0042DE 02:A2CE: A9 00     LDA #$00
-C - - - - - 0x0042E0 02:A2D0: A0 5A     LDY #$5A
-bra_A2D2_loop:
-; адреса оперативки 003A-00DF
-C - - - - - 0x0042E2 02:A2D2: 99 E0 FF  STA ram_003A - $5A,Y
-C - - - - - 0x0042E5 02:A2D5: C8        INY
-C - - - - - 0x0042E6 02:A2D6: D0 FA     BNE bra_A2D2_loop
+C - - - - - 0x0042D6 02:A2C6: A0 E8     JSR sub_A2E6_очистить_оперативку
 C - - - - - 0x0042E8 02:A2D8: A9 98     LDA #$98
 C - - - - - 0x0042EA 02:A2DA: A2 02     LDX #$02
 C - - - - - 0x0042EC 02:A2DC: A0 68     LDY #$68
@@ -365,17 +341,33 @@ C - - - - - 0x0042F5 02:A2E5: 4C 57 C5  JMP loc_0x03C6CE
 
 
 
+sub_A2E6_очистить_оперативку:
+    LDA #$00
+    LDY #$17
+@loop_очистить_0001_0018:
+    STA ram_0001
+    DEY
+    BPL @loop_очистить_0001_0018
+    LDY #$A5 + $01
+@loop_очистить_003A_00DF:
+    STA ram_003A - $01
+    DEY
+    BNE @loop_очистить_003A_00DF
+    RTS
+
+
+
 loc_0x0042F8:
 C D - - - - 0x0042F8 02:A2E8: A5 57     LDA ram_0057
 C - - - - - 0x0042FA 02:A2EA: 30 4C     BMI bra_A338
 C - - - - - 0x0042FC 02:A2EC: 85 ED     STA ram_00ED
 C - - - - - 0x0042FE 02:A2EE: A9 00     LDA #$00
-C - - - - - 0x004300 02:A2F0: A0 FA     LDY #$FA
+C - - - - - 0x004300 02:A2F0: A0 FA     LDY #$05
 bra_A2F2_loop:
-; адреса оперативки 00E6-00EB
-C - - - - - 0x004302 02:A2F2: 99 EC FF  STA ram_00E6 - $FA,Y
-C - - - - - 0x004305 02:A2F5: C8        INY
-C - - - - - 0x004306 02:A2F6: D0 FA     BNE bra_A2F2_loop
+; 00E6-00EB
+C - - - - - 0x004302 02:A2F2: 99 EC FF  STA ram_00E6,Y
+C - - - - - 0x004305 02:A2F5: C8        DEY
+C - - - - - 0x004306 02:A2F6: D0 FA     BPL bra_A2F2_loop
 loc_A2F8:
 C D - - - - 0x004308 02:A2F8: A9 01     LDA #$01
 C - - - - - 0x00430A 02:A2FA: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
