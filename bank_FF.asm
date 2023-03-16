@@ -4521,13 +4521,11 @@ C - - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E    ; if команда сп
 
 
 bra_E21E:
-C - - - - - 0x03E22E FF:E21E: 48        PHA
 C - - - - - 0x03E231 FF:E221: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E233 FF:E223: 85 24     STA ram_for_5114
 C - - - - - 0x03E235 FF:E225: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E237 FF:E227: 85 25     STA ram_for_5115
 C - - - - - 0x03E239 FF:E229: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E23C FF:E22C: 68        PLA
 C - - - - - 0x03E23D FF:E22D: 20 33 80  JSR sub_0x034E96_катсцена_драйв_оверхеда
 C - - - - - 0x03E240 FF:E230: 4C 45 E1  JMP loc_E145
 
