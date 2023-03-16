@@ -260,12 +260,7 @@ C - - - - - 0x004236 02:A226: 09 40     ORA #$40
 C - - - - - 0x004238 02:A228: 85 1B     STA ram_флаг_nmi
 C - - - - - 0x00423A 02:A22A: A9 00     LDA #$00
 C - - - - - 0x00423C 02:A22C: A0 E8     JSR sub_A2E6_очистить_оперативку
-C - - - - - 0x00424E 02:A23E: A9 98     LDA #$98
-C - - - - - 0x004250 02:A240: A2 02     LDX #$02
-C - - - - - 0x004252 02:A242: A0 68     LDY #$68
-C - - - - - 0x004254 02:A244: 84 EC     STY ram_00EC
-C - - - - - 0x004256 02:A246: A0 04     LDY #$04
-C - - - - - 0x004258 02:A248: 20 06 AA  JSR sub_AA06
+C - - - - - 0x004258 02:A248: 20 06 AA  JSR sub_AA06_очистить_0468_06FF
 C - - - - - 0x00425B 02:A24B: A9 0F     LDA #$0F
 C - - - - - 0x00425D 02:A24D: A0 E0     LDY #$E0
 bra_A24F_loop:
@@ -331,12 +326,7 @@ C - - - - - 0x0042D4 02:A2C4: A9 00     LDA #$00
 C - - - - - 0x0042D1 02:A2C1: 8D 00 E0  STA $5204
 ; сработало перед появлением экрана с разводкой
 C - - - - - 0x0042D6 02:A2C6: A0 E8     JSR sub_A2E6_очистить_оперативку
-C - - - - - 0x0042E8 02:A2D8: A9 98     LDA #$98
-C - - - - - 0x0042EA 02:A2DA: A2 02     LDX #$02
-C - - - - - 0x0042EC 02:A2DC: A0 68     LDY #$68
-C - - - - - 0x0042EE 02:A2DE: 84 EC     STY ram_00EC
-C - - - - - 0x0042F0 02:A2E0: A0 04     LDY #$04
-C - - - - - 0x0042F2 02:A2E2: 20 06 AA  JSR sub_AA06
+C - - - - - 0x0042F2 02:A2E2: 20 06 AA  JSR sub_AA06_очистить_0468_06FF
 C - - - - - 0x0042F5 02:A2E5: 4C 57 C5  JMP loc_0x03C6CE
 
 
@@ -1343,26 +1333,22 @@ C - - - - - 0x00490D 02:A8FD: 60        RTS
 
 
 
-sub_AA06:
-; bzk optimize, на вход всегда подается Y = 04
-C - - - - - 0x004A16 02:AA06: 84 ED     STY ram_00ED
-C - - - - - 0x004A18 02:AA08: E8        INX
-C - - - - - 0x004A19 02:AA09: A0 00     LDY #$00
-bra_AA0B_loop:
-C - - - - - 0x004A1B 02:AA0B: 48        PHA
-C - - - - - 0x004A1C 02:AA0C: A9 00     LDA #$00
-C - - - - - 0x004A1E 02:AA0E: 91 EC     STA (ram_00EC),Y
-C - - - - - 0x004A20 02:AA10: E6 EC     INC ram_00EC
-C - - - - - 0x004A22 02:AA12: D0 02     BNE bra_AA16
-C - - - - - 0x004A24 02:AA14: E6 ED     INC ram_00ED
-bra_AA16:
-C - - - - - 0x004A26 02:AA16: 68        PLA
-C - - - - - 0x004A27 02:AA17: 38        SEC
-C - - - - - 0x004A28 02:AA18: E9 01     SBC #$01
-C - - - - - 0x004A2A 02:AA1A: D0 EF     BNE bra_AA0B_loop
-C - - - - - 0x004A2C 02:AA1C: CA        DEX
-C - - - - - 0x004A2D 02:AA1D: D0 EC     BNE bra_AA0B_loop
-C - - - - - 0x004A2F 02:AA1F: 60        RTS
+sub_AA06_очистить_0468_06FF:
+; 0x004A16
+; свободные адреса 00EC 00ED
+                                        LDA #$00
+                                        LDY #$68
+@loop_0468_04FF:
+                                        STA ram_0468,Y
+                                        INY
+                                        BNE @loop_0468_04FF
+; Y = 00
+@loop_0500_06FF:
+                                        STA ram_0500,Y
+                                        STA ram_0600,Y
+                                        INY
+                                        BNE @loop_0500_06FF
+                                        RTS
 
 
 
