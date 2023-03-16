@@ -1343,6 +1343,7 @@ tbl_86EE_chr_banks_pairs:
 
 
 tbl_87F6_данные_фона_анимаций:
+; смотреть con_s_bg
 - D - I - - 0x016806 0B:87F6: DE 88     .word _off005_88DE_00   ; 
 - D - I - - 0x016808 0B:87F8: E3 88     .word _off005_88E3_01   ; 
 - D - I - - 0x01680A 0B:87FA: E4 88     .word _off005_88E4_02   ; 

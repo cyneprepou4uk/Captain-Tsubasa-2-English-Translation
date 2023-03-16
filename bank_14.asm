@@ -1649,435 +1649,444 @@ tbl_88E4:
 
 
 tbl_88F0:
-- D - - - - 0x028900 14:88F0: 08        .byte $08    ; 00 con_p_clone
-- D - - - - 0x028901 14:88F1: 00        .byte $00    ; 01 con_p_tsubasa_my
-- D - - - - 0x028902 14:88F2: 0F        .byte $0F    ; 02 con_p_renato_my
-- D - - - - 0x028903 14:88F3: 06        .byte $06    ; 03 con_p_lima_my
-- D - - - - 0x028904 14:88F4: 04        .byte $04    ; 04 con_p_marini_my
-- D - - - - 0x028905 14:88F5: 09        .byte $09    ; 05 con_p_amaral_my
-- D - - - - 0x028906 14:88F6: 05        .byte $05    ; 06 con_p_dotor_my
-- D - - - - 0x028907 14:88F7: 08        .byte $08    ; 07 con_p_batista_my
-- D - - - - 0x028908 14:88F8: 08        .byte $08    ; 08 con_p_tahamata_my
-- D - - - - 0x028909 14:88F9: 01        .byte $01    ; 09 con_p_babington_my
-- D - - - - 0x02890A 14:88FA: 02        .byte $02    ; 0A con_p_gil_my
-- D - - - - 0x02890B 14:88FB: 08        .byte $08    ; 0B con_p_platon_my
-- D - - - - 0x02890C 14:88FC: 09        .byte $09    ; 0C con_p_urabe_my
-- D - - - - 0x02890D 14:88FD: 04        .byte $04    ; 0D con_p_kishida_my
-- D - - - - 0x02890E 14:88FE: 08        .byte $08    ; 0E con_p_nakayama_my
-- D - - - - 0x02890F 14:88FF: 10        .byte $10    ; 0F con_p_morisaki_my
-- D - - - - 0x028910 14:8900: 08        .byte $08    ; 10 con_p_takasugi_my
-- D - - - - 0x028911 14:8901: 02        .byte $02    ; 11 con_p_misaki_my
-- D - - - - 0x028912 14:8902: 01        .byte $01    ; 12 con_p_izawa_my
-- D - - - - 0x028913 14:8903: 03        .byte $03    ; 13 con_p_taki_my
-- D - - - - 0x028914 14:8904: 06        .byte $06    ; 14 con_p_ishizaki_my
-- D - - - - 0x028915 14:8905: 0B        .byte $0B    ; 15 con_p_nitta_my
-- D - - - - 0x028916 14:8906: 05        .byte $05    ; 16 con_p_kisugi_my
-- D - - - - 0x028917 14:8907: 03        .byte $03    ; 17 con_p_masao_my
-- D - - - - 0x028918 14:8908: 03        .byte $03    ; 18 con_p_kazuo_my
-- D - - - - 0x028919 14:8909: 01        .byte $01    ; 19 con_p_sano_my
-- D - - - - 0x02891A 14:890A: 07        .byte $07    ; 1A con_p_hyuga_my
-- D - - - - 0x02891B 14:890B: 04        .byte $04    ; 1B con_p_soda_my
-- D - - - - 0x02891C 14:890C: 04        .byte $04    ; 1C con_p_jito_my
-- D - - - - 0x02891D 14:890D: 02        .byte $02    ; 1D con_p_matsuyama_my
-- - - - - - 0x02891E 14:890E: 02        .byte $02    ; 1E con_p_sorimachi_my
-- - - - - - 0x02891F 14:890F: 04        .byte $04    ; 1F con_p_sawada_my
-- D - - - - 0x028920 14:8910: 02        .byte $02    ; 20 con_p_misugi_my
-- D - - - - 0x028921 14:8911: 0C        .byte $0C    ; 21 con_p_wakabayashi_my
-- D - - - - 0x028922 14:8912: 0E        .byte $0E    ; 22 con_p_wakashimazu_my
-- D - - - - 0x028923 14:8913: 03        .byte $03    ; 23 con_p_satrustegui_corinthians
-- D - - - - 0x028924 14:8914: 01        .byte $01    ; 24 con_p_ribeiro_corinthians
-- D - - - - 0x028925 14:8915: 0B        .byte $0B    ; 25 con_p_da_silva_gremio
-- D - - - - 0x028926 14:8916: 0F        .byte $0F    ; 26 con_p_meon_gremio
-- D - - - - 0x028927 14:8917: 06        .byte $06    ; 27 con_p_toninho_palmeiras
-- D - - - - 0x028928 14:8918: 02        .byte $02    ; 28 con_p_nei_palmeiras
-- D - - - - 0x028929 14:8919: 07        .byte $07    ; 29 con_p_zagallo_santos
-- D - - - - 0x02892A 14:891A: 04        .byte $04    ; 2A con_p_dirceu_santos
-- D - - - - 0x02892B 14:891B: 0A        .byte $0A    ; 2B con_p_carlos_flamengo
-- D - - - - 0x02892C 14:891C: 09        .byte $09    ; 2C con_p_santamaria_flamengo
-- D - - - - 0x02892D 14:891D: 08        .byte $08    ; 2D con_p_jetorio_flamengo
-- D - - - - 0x02892E 14:891E: 04        .byte $04    ; 2E con_p_jito_kunimi
-- D - - - - 0x02892F 14:891F: 01        .byte $01    ; 2F con_p_sano_kunimi
-- D - - - - 0x028930 14:8920: 03        .byte $03    ; 30 con_p_masao_akita
-- D - - - - 0x028931 14:8921: 03        .byte $03    ; 31 con_p_kazuo_akita
-- D - - - - 0x028932 14:8922: 04        .byte $04    ; 32 con_p_soda_tatsunami
-- D - - - - 0x028933 14:8923: 11        .byte $11    ; 33 con_p_nakanishi_tatsunami
-- D - - - - 0x028934 14:8924: 02        .byte $02    ; 34 con_p_misugi_musashi
-- D - - - - 0x028935 14:8925: 02        .byte $02    ; 35 con_p_matsuyama_furano
-- D - - - - 0x028936 14:8926: 07        .byte $07    ; 36 con_p_hyuga_toho
-- D - - - - 0x028937 14:8927: 02        .byte $02    ; 37 con_p_sorimachi_toho
-- D - - - - 0x028938 14:8928: 04        .byte $04    ; 38 con_p_sawada_toho
-- D - - - - 0x028939 14:8929: 0E        .byte $0E    ; 39 con_p_wakashimazu_toho
-- D - - - - 0x02893A 14:892A: 09        .byte $09    ; 3A con_p_rampion_as_roma
-- D - - - - 0x02893B 14:892B: 02        .byte $02    ; 3B con_p_victorino_uruguay
-- D - - - - 0x02893C 14:892C: 0B        .byte $0B    ; 3C con_p_da_silva_uruguay
-- D - - - - 0x02893D 14:892D: 01        .byte $01    ; 3D con_p_kappelman_hamburger_sv
-- D - - - - 0x02893E 14:892E: 04        .byte $04    ; 3E con_p_kaltz_hamburger_sv
-- D - - - - 0x02893F 14:892F: 02        .byte $02    ; 3F con_p_metza_hamburger_sv
-- D - - - - 0x028940 14:8930: 0C        .byte $0C    ; 40 con_p_wakabayashi_hamburger_sv
-- D - - - - 0x028941 14:8931: 07        .byte $07    ; 41 con_p_hyuga_japan
-- D - - - - 0x028942 14:8932: 0B        .byte $0B    ; 42 con_p_nitta_japan
-- D - - - - 0x028943 14:8933: 01        .byte $01    ; 43 con_p_sano_japan
-- D - - - - 0x028944 14:8934: 02        .byte $02    ; 44 con_p_misaki_japan
-- D - - - - 0x028945 14:8935: 02        .byte $02    ; 45 con_p_misugi_japan
-- D - - - - 0x028946 14:8936: 03        .byte $03    ; 46 con_p_masao_japan
-- D - - - - 0x028947 14:8937: 03        .byte $03    ; 47 con_p_kazuo_japan
-- D - - - - 0x028948 14:8938: 04        .byte $04    ; 48 con_p_jito_japan
-- D - - - - 0x028949 14:8939: 06        .byte $06    ; 49 con_p_ishizaki_japan
-- D - - - - 0x02894A 14:893A: 04        .byte $04    ; 4A con_p_soda_japan
-- D - - - - 0x02894B 14:893B: 02        .byte $02    ; 4B con_p_matsuyama_japan
-- D - - - - 0x02894C 14:893C: 0E        .byte $0E    ; 4C con_p_wakashimazu_japan
-- D - - - - 0x02894D 14:893D: 06        .byte $06    ; 4D con_p_li_han_ne_china
-- D - - - - 0x02894E 14:893E: 06        .byte $06    ; 4E con_p_li_ban_kun_china
-- D - - - - 0x02894F 14:893F: 07        .byte $07    ; 4F con_p_sha_south_korea
-- D - - - - 0x028950 14:8940: 0A        .byte $0A    ; 50 con_p_kim_south_korea
-- D - - - - 0x028951 14:8941: 06        .byte $06    ; 51 con_p_macher_poland
-- D - - - - 0x028952 14:8942: 11        .byte $11    ; 52 con_p_djazic_poland
-- D - - - - 0x028953 14:8943: 01        .byte $01    ; 53 con_p_lorimar_england
-- D - - - - 0x028954 14:8944: 04        .byte $04    ; 54 con_p_robson_england
-- D - - - - 0x028955 14:8945: 05        .byte $05    ; 55 con_p_belyaev_soviet_union
-- D - - - - 0x028956 14:8946: 0F        .byte $0F    ; 56 con_p_rashin_soviet_union
-- D - - - - 0x028957 14:8947: 04        .byte $04    ; 57 con_p_napoleon_france
-- D - - - - 0x028958 14:8948: 01        .byte $01    ; 58 con_p_pierre_france
-- D - - - - 0x028959 14:8949: 0B        .byte $0B    ; 59 con_p_espana_mexico
-- D - - - - 0x02895A 14:894A: 09        .byte $09    ; 5A con_p_rampion_italy
-- D - - - - 0x02895B 14:894B: 0F        .byte $0F    ; 5B con_p_hernandez_italy
-- D - - - - 0x02895C 14:894C: 02        .byte $02    ; 5C con_p_islas_netherlands
-- D - - - - 0x02895D 14:894D: 09        .byte $09    ; 5D con_p_libuta_netherlands
-- D - - - - 0x02895E 14:894E: 0B        .byte $0B    ; 5E con_p_pascal_argentina
-- D - - - - 0x02895F 14:894F: 03        .byte $03    ; 5F con_p_satrustegui_argentina
-- D - - - - 0x028960 14:8950: 05        .byte $05    ; 60 con_p_diaz_argentina
-- D - - - - 0x028961 14:8951: 01        .byte $01    ; 61 con_p_babington_argentina
-- D - - - - 0x028962 14:8952: 01        .byte $01    ; 62 con_p_galvan_argentina
-- D - - - - 0x028963 14:8953: 00        .byte $00    ; 63 con_p_schneider_west_germany
-- D - - - - 0x028964 14:8954: 03        .byte $03    ; 64 con_p_margus_west_germany
-- D - - - - 0x028965 14:8955: 04        .byte $04    ; 65 con_p_kaltz_west_germany
-- D - - - - 0x028966 14:8956: 02        .byte $02    ; 66 con_p_metza_west_germany
-- D - - - - 0x028967 14:8957: 0B        .byte $0B    ; 67 con_p_schester_west_germany
-- D - - - - 0x028968 14:8958: 01        .byte $01    ; 68 con_p_kappelman_west_germany
-- D - - - - 0x028969 14:8959: 0D        .byte $0D    ; 69 con_p_muller_west_germany
-- D - - - - 0x02896A 14:895A: 0A        .byte $0A    ; 6A con_p_carlos_brazil
-- D - - - - 0x02896B 14:895B: 07        .byte $07    ; 6B con_p_zagallo_brazil
-- D - - - - 0x02896C 14:895C: 01        .byte $01    ; 6C con_p_ribeiro_brazil
-- D - - - - 0x02896D 14:895D: 02        .byte $02    ; 6D con_p_nei_brazil
-- D - - - - 0x02896E 14:895E: 09        .byte $09    ; 6E con_p_santamaria_brazil
-- D - - - - 0x02896F 14:895F: 06        .byte $06    ; 6F con_p_toninho_brazil
-- D - - - - 0x028970 14:8960: 05        .byte $05    ; 70 con_p_dotor_brazil
-- D - - - - 0x028971 14:8961: 09        .byte $09    ; 71 con_p_amaral_brazil
-- D - - - - 0x028972 14:8962: 04        .byte $04    ; 72 con_p_dirceu_brazil
-- D - - - - 0x028973 14:8963: 08        .byte $08    ; 73 con_p_jetorio_brazil
-- D - - - - 0x028974 14:8964: 0E        .byte $0E    ; 74 con_p_gertise_brazil
-- D - - - - 0x028975 14:8965: 0B        .byte $0B    ; 75 con_p_coimbra_brazil
+- D - - - - 0x028900 14:88F0: 08        .byte $08    ; 00 p_clone
+- D - - - - 0x028901 14:88F1: 00        .byte $00    ; 01 p_tsubasa_my
+- D - - - - 0x028902 14:88F2: 0F        .byte $0F    ; 02 p_renato_my
+- D - - - - 0x028903 14:88F3: 06        .byte $06    ; 03 p_lima_my
+- D - - - - 0x028904 14:88F4: 04        .byte $04    ; 04 p_marini_my
+- D - - - - 0x028905 14:88F5: 09        .byte $09    ; 05 p_amaral_my
+- D - - - - 0x028906 14:88F6: 05        .byte $05    ; 06 p_dotor_my
+- D - - - - 0x028907 14:88F7: 08        .byte $08    ; 07 p_batista_my
+- D - - - - 0x028908 14:88F8: 08        .byte $08    ; 08 p_tahamata_my
+- D - - - - 0x028909 14:88F9: 01        .byte $01    ; 09 p_babington_my
+- D - - - - 0x02890A 14:88FA: 02        .byte $02    ; 0A p_gil_my
+- D - - - - 0x02890B 14:88FB: 08        .byte $08    ; 0B p_platon_my
+- D - - - - 0x02890C 14:88FC: 09        .byte $09    ; 0C p_urabe_my
+- D - - - - 0x02890D 14:88FD: 04        .byte $04    ; 0D p_kishida_my
+- D - - - - 0x02890E 14:88FE: 08        .byte $08    ; 0E p_nakayama_my
+- D - - - - 0x02890F 14:88FF: 10        .byte $10    ; 0F p_morisaki_my
+- D - - - - 0x028910 14:8900: 08        .byte $08    ; 10 p_takasugi_my
+- D - - - - 0x028911 14:8901: 02        .byte $02    ; 11 p_misaki_my
+- D - - - - 0x028912 14:8902: 01        .byte $01    ; 12 p_izawa_my
+- D - - - - 0x028913 14:8903: 03        .byte $03    ; 13 p_taki_my
+- D - - - - 0x028914 14:8904: 06        .byte $06    ; 14 p_ishizaki_my
+- D - - - - 0x028915 14:8905: 0B        .byte $0B    ; 15 p_nitta_my
+- D - - - - 0x028916 14:8906: 05        .byte $05    ; 16 p_kisugi_my
+- D - - - - 0x028917 14:8907: 03        .byte $03    ; 17 p_masao_my
+- D - - - - 0x028918 14:8908: 03        .byte $03    ; 18 p_kazuo_my
+- D - - - - 0x028919 14:8909: 01        .byte $01    ; 19 p_sano_my
+- D - - - - 0x02891A 14:890A: 07        .byte $07    ; 1A p_hyuga_my
+- D - - - - 0x02891B 14:890B: 04        .byte $04    ; 1B p_soda_my
+- D - - - - 0x02891C 14:890C: 04        .byte $04    ; 1C p_jito_my
+- D - - - - 0x02891D 14:890D: 02        .byte $02    ; 1D p_matsuyama_my
+- - - - - - 0x02891E 14:890E: 02        .byte $02    ; 1E p_sorimachi_my
+- - - - - - 0x02891F 14:890F: 04        .byte $04    ; 1F p_sawada_my
+- D - - - - 0x028920 14:8910: 02        .byte $02    ; 20 p_misugi_my
+- D - - - - 0x028921 14:8911: 0C        .byte $0C    ; 21 p_wakabayashi_my
+- D - - - - 0x028922 14:8912: 0E        .byte $0E    ; 22 p_wakashimazu_my
+- D - - - - 0x028923 14:8913: 03        .byte $03    ; 23 p_satrustegui_corinthians
+- D - - - - 0x028924 14:8914: 01        .byte $01    ; 24 p_ribeiro_corinthians
+- D - - - - 0x028925 14:8915: 0B        .byte $0B    ; 25 p_da_silva_gremio
+- D - - - - 0x028926 14:8916: 0F        .byte $0F    ; 26 p_meon_gremio
+- D - - - - 0x028927 14:8917: 06        .byte $06    ; 27 p_toninho_palmeiras
+- D - - - - 0x028928 14:8918: 02        .byte $02    ; 28 p_nei_palmeiras
+- D - - - - 0x028929 14:8919: 07        .byte $07    ; 29 p_zagallo_santos
+- D - - - - 0x02892A 14:891A: 04        .byte $04    ; 2A p_dirceu_santos
+- D - - - - 0x02892B 14:891B: 0A        .byte $0A    ; 2B p_carlos_flamengo
+- D - - - - 0x02892C 14:891C: 09        .byte $09    ; 2C p_santamaria_flamengo
+- D - - - - 0x02892D 14:891D: 08        .byte $08    ; 2D p_jetorio_flamengo
+- D - - - - 0x02892E 14:891E: 04        .byte $04    ; 2E p_jito_kunimi
+- D - - - - 0x02892F 14:891F: 01        .byte $01    ; 2F p_sano_kunimi
+- D - - - - 0x028930 14:8920: 03        .byte $03    ; 30 p_masao_akita
+- D - - - - 0x028931 14:8921: 03        .byte $03    ; 31 p_kazuo_akita
+- D - - - - 0x028932 14:8922: 04        .byte $04    ; 32 p_soda_tatsunami
+- D - - - - 0x028933 14:8923: 11        .byte $11    ; 33 p_nakanishi_tatsunami
+- D - - - - 0x028934 14:8924: 02        .byte $02    ; 34 p_misugi_musashi
+- D - - - - 0x028935 14:8925: 02        .byte $02    ; 35 p_matsuyama_furano
+- D - - - - 0x028936 14:8926: 07        .byte $07    ; 36 p_hyuga_toho
+- D - - - - 0x028937 14:8927: 02        .byte $02    ; 37 p_sorimachi_toho
+- D - - - - 0x028938 14:8928: 04        .byte $04    ; 38 p_sawada_toho
+- D - - - - 0x028939 14:8929: 0E        .byte $0E    ; 39 p_wakashimazu_toho
+- D - - - - 0x02893A 14:892A: 09        .byte $09    ; 3A p_rampion_as_roma
+- D - - - - 0x02893B 14:892B: 02        .byte $02    ; 3B p_victorino_uruguay
+- D - - - - 0x02893C 14:892C: 0B        .byte $0B    ; 3C p_da_silva_uruguay
+- D - - - - 0x02893D 14:892D: 01        .byte $01    ; 3D p_kappelman_hamburger_sv
+- D - - - - 0x02893E 14:892E: 04        .byte $04    ; 3E p_kaltz_hamburger_sv
+- D - - - - 0x02893F 14:892F: 02        .byte $02    ; 3F p_metza_hamburger_sv
+- D - - - - 0x028940 14:8930: 0C        .byte $0C    ; 40 p_wakabayashi_hamburger_sv
+- D - - - - 0x028941 14:8931: 07        .byte $07    ; 41 p_hyuga_japan
+- D - - - - 0x028942 14:8932: 0B        .byte $0B    ; 42 p_nitta_japan
+- D - - - - 0x028943 14:8933: 01        .byte $01    ; 43 p_sano_japan
+- D - - - - 0x028944 14:8934: 02        .byte $02    ; 44 p_misaki_japan
+- D - - - - 0x028945 14:8935: 02        .byte $02    ; 45 p_misugi_japan
+- D - - - - 0x028946 14:8936: 03        .byte $03    ; 46 p_masao_japan
+- D - - - - 0x028947 14:8937: 03        .byte $03    ; 47 p_kazuo_japan
+- D - - - - 0x028948 14:8938: 04        .byte $04    ; 48 p_jito_japan
+- D - - - - 0x028949 14:8939: 06        .byte $06    ; 49 p_ishizaki_japan
+- D - - - - 0x02894A 14:893A: 04        .byte $04    ; 4A p_soda_japan
+- D - - - - 0x02894B 14:893B: 02        .byte $02    ; 4B p_matsuyama_japan
+- D - - - - 0x02894C 14:893C: 0E        .byte $0E    ; 4C p_wakashimazu_japan
+- D - - - - 0x02894D 14:893D: 06        .byte $06    ; 4D p_li_han_ne_china
+- D - - - - 0x02894E 14:893E: 06        .byte $06    ; 4E p_li_ban_kun_china
+- D - - - - 0x02894F 14:893F: 07        .byte $07    ; 4F p_sha_south_korea
+- D - - - - 0x028950 14:8940: 0A        .byte $0A    ; 50 p_kim_south_korea
+- D - - - - 0x028951 14:8941: 06        .byte $06    ; 51 p_macher_poland
+- D - - - - 0x028952 14:8942: 11        .byte $11    ; 52 p_djazic_poland
+- D - - - - 0x028953 14:8943: 01        .byte $01    ; 53 p_lorimar_england
+- D - - - - 0x028954 14:8944: 04        .byte $04    ; 54 p_robson_england
+- D - - - - 0x028955 14:8945: 05        .byte $05    ; 55 p_belyaev_soviet_union
+- D - - - - 0x028956 14:8946: 0F        .byte $0F    ; 56 p_rashin_soviet_union
+- D - - - - 0x028957 14:8947: 04        .byte $04    ; 57 p_napoleon_france
+- D - - - - 0x028958 14:8948: 01        .byte $01    ; 58 p_pierre_france
+- D - - - - 0x028959 14:8949: 0B        .byte $0B    ; 59 p_espana_mexico
+- D - - - - 0x02895A 14:894A: 09        .byte $09    ; 5A p_rampion_italy
+- D - - - - 0x02895B 14:894B: 0F        .byte $0F    ; 5B p_hernandez_italy
+- D - - - - 0x02895C 14:894C: 02        .byte $02    ; 5C p_islas_netherlands
+- D - - - - 0x02895D 14:894D: 09        .byte $09    ; 5D p_libuta_netherlands
+- D - - - - 0x02895E 14:894E: 0B        .byte $0B    ; 5E p_pascal_argentina
+- D - - - - 0x02895F 14:894F: 03        .byte $03    ; 5F p_satrustegui_argentina
+- D - - - - 0x028960 14:8950: 05        .byte $05    ; 60 p_diaz_argentina
+- D - - - - 0x028961 14:8951: 01        .byte $01    ; 61 p_babington_argentina
+- D - - - - 0x028962 14:8952: 01        .byte $01    ; 62 p_galvan_argentina
+- D - - - - 0x028963 14:8953: 00        .byte $00    ; 63 p_schneider_west_germany
+- D - - - - 0x028964 14:8954: 03        .byte $03    ; 64 p_margus_west_germany
+- D - - - - 0x028965 14:8955: 04        .byte $04    ; 65 p_kaltz_west_germany
+- D - - - - 0x028966 14:8956: 02        .byte $02    ; 66 p_metza_west_germany
+- D - - - - 0x028967 14:8957: 0B        .byte $0B    ; 67 p_schester_west_germany
+- D - - - - 0x028968 14:8958: 01        .byte $01    ; 68 p_kappelman_west_germany
+- D - - - - 0x028969 14:8959: 0D        .byte $0D    ; 69 p_muller_west_germany
+- D - - - - 0x02896A 14:895A: 0A        .byte $0A    ; 6A p_carlos_brazil
+- D - - - - 0x02896B 14:895B: 07        .byte $07    ; 6B p_zagallo_brazil
+- D - - - - 0x02896C 14:895C: 01        .byte $01    ; 6C p_ribeiro_brazil
+- D - - - - 0x02896D 14:895D: 02        .byte $02    ; 6D p_nei_brazil
+- D - - - - 0x02896E 14:895E: 09        .byte $09    ; 6E p_santamaria_brazil
+- D - - - - 0x02896F 14:895F: 06        .byte $06    ; 6F p_toninho_brazil
+- D - - - - 0x028970 14:8960: 05        .byte $05    ; 70 p_dotor_brazil
+- D - - - - 0x028971 14:8961: 09        .byte $09    ; 71 p_amaral_brazil
+- D - - - - 0x028972 14:8962: 04        .byte $04    ; 72 p_dirceu_brazil
+- D - - - - 0x028973 14:8963: 08        .byte $08    ; 73 p_jetorio_brazil
+- D - - - - 0x028974 14:8964: 0E        .byte $0E    ; 74 p_gertise_brazil
+- D - - - - 0x028975 14:8965: 0B        .byte $0B    ; 75 p_coimbra_brazil
 
 
 
 tbl_8968_данные_анимаций_сценариев:
-; смотреть con_animation
-- D - I - - 0x028978 14:8968: 48 8B     .word _off007_8B48_00     ; мерцающий экран (белый или красный)
-- D - I - - 0x02897A 14:896A: 5C 8B     .word _off007_8B5C_01     ; полет drive shot
-- D - I - - 0x02897C 14:896C: 6A 8B     .word _off007_8B6A_02     ; дохлый кипер в воздухе
-- D - I - - 0x02897E 14:896E: 78 8B     .word _off007_8B78_03     ; кипер моментально ловит мяч и медленно движется
-- D - I - - 0x028980 14:8970: 86 8B     .word _off007_8B86_04     ; кипер делает нижний dive
-- D - I - - 0x028982 14:8972: 94 8B     .word _off007_8B94_05     ; после касания мяча ногой в воздухе, который летит дальше
-- D - I - - 0x028984 14:8974: B4 8B     .word _off007_8BB4_06     ; игрок не дотягивается ногой до мяча в воздухе, который пролетает над ним
-- D - I - - 0x028986 14:8976: CA 8B     .word _off007_8BCA_07     ; игрок не дотягивается ногой до мяча в воздухе, который пролетает под ним
-- D - I - - 0x028988 14:8978: E0 8B     .word _off007_8BE0_08     ; мяч приклеивается к ноге игрока когда мяч был в полете
-- D - I - - 0x02898A 14:897A: EE 8B     .word _off007_8BEE_09     ; мяч летит и касается ноги игрока
-- - - - - - 0x02898C 14:897C: 04 8C     .word _off007_8C04_0A     ; ! unused байтов в сценариях не найдено, какой-то полет мяча
-- D - I - - 0x02898E 14:897E: 12 8C     .word _off007_8C12_0B     ; после касания мяча телом в воздухе, который летит дальше
-- D - I - - 0x028990 14:8980: 28 8C     .word _off007_8C28_0C     ; игрок не дотягивается телом до мяча в воздухе, который пролетает под ним
-- D - I - - 0x028992 14:8982: 3C 8C     .word _off007_8C3C_0D     ; мяч приклеивается к телу игрока когда мяч был в полете
-- D - I - - 0x028994 14:8984: 4A 8C     .word _off007_8C4A_0E     ; полет drive shot / cyclone
-- D - I - - 0x028996 14:8986: 61 8C     .word _off007_8C61_0F     ; полет drive overhead / falcon volley / sano combo / volley / skylab hurricane
-- D - I - - 0x028998 14:8988: 78 8C     .word _off007_8C78_10     ; полет drive overhead / cyclone
-- D - I - - 0x02899A 14:898A: 86 8C     .word _off007_8C86_11     ; полет удара, а также ??? jumping volley / booster shot / mach shot? / fire shot / falcon shot / falcon volley
-- D - I - - 0x02899C 14:898C: 94 8C     .word _off007_8C94_12     ; полет falcon shot / dynamite header / foward somersault / tiger shot
-- D - I - - 0x02899E 14:898E: A2 8C     .word _off007_8CA2_13     ; дохлый игрок воздухе (большой)
-- D - I - - 0x0289A0 14:8990: B9 8C     .word _off007_8CB9_14     ; дохлый игрок воздухе (поменьше)
-- D - I - - 0x0289A2 14:8992: D0 8C     .word _off007_8CD0_15     ; игрок приклеивает мяч к ноге после подката
-- D - I - - 0x0289A4 14:8994: DE 8C     .word _off007_8CDE_16     ; кипер моментально ловит мяч и быстро движется вниз (предположительно после нижнего dive)
-- D - I - - 0x0289A6 14:8996: EC 8C     .word _off007_8CEC_17     ; кипер ловит летящий мяч (предположительно после верхнего dive и пк)
-- D - I - - 0x0289A8 14:8998: 09 8D     .word _off007_8D09_18     ; кипер пытается словить мяч но не дотягивается
-- D - I - - 0x0289AA 14:899A: 1F 8D     .word _off007_8D1F_19     ; игрок делает пас головой в воздухе
-- D - I - - 0x0289AC 14:899C: 52 8D     .word _off007_8D52_1A     ; полет header / cannon shot / razor shot / tiger shot
-- D - I - - 0x0289AE 14:899E: 60 8D     .word _off007_8D60_1B     ; кипер ловит летящий мяч (обычная ловля)
-- D - I - - 0x0289B0 14:89A0: 89 8D     .word _off007_8D89_1C     ; игрок прыгает в воздух (вблизи, быстро)
-- D - I - - 0x0289B2 14:89A2: 97 8D     .word _off007_8D97_1D     ; полет rocket header / razor shot / sidewinder shot
-- D - I - - 0x0289B4 14:89A4: A5 8D     .word _off007_8DA5_1E     ; полет twin shot / skylab twin shot
-- D - I - - 0x0289B6 14:89A6: B3 8D     .word _off007_8DB3_1F     ; полет twin shot / drive tiger
-- D - I - - 0x0289B8 14:89A8: C1 8D     .word _off007_8DC1_20     ; игрок прыгает в воздух (вблизи, медленно)
-- D - I - - 0x0289BA 14:89AA: CF 8D     .word _off007_8DCF_21     ; защитник в воротах отбивает мяч
-- D - I - - 0x0289BC 14:89AC: 05 8E     .word _off007_8E05_22     ; защитник в воротах промахивается
-- D - I - - 0x0289BE 14:89AE: 1B 8E     .word _off007_8E1B_23     ; rolling save
-- D - I - - 0x0289C0 14:89B0: 32 8E     .word _off007_8E32_24     ; кипер пытается отбить мяч но не дотягивается
-- D - I - - 0x0289C2 14:89B2: 5B 8E     .word _off007_8E5B_25     ; кипер пытается отбить мяч после спешала но не дотягивается
-- D - I - - 0x0289C4 14:89B4: 7A 8E     .word _off007_8E7A_26     ; triangle jump не дотягивается
-- D - I - - 0x0289C6 14:89B6: 8E 8E     .word _off007_8E8E_27     ; кипер легко отбивает мяч ближним кулаком
-- D - I - - 0x0289C8 14:89B8: C6 8E     .word _off007_8EC6_28     ; полет drive tiger / slider cannon / skylab twin shot
-- D - I - - 0x0289CA 14:89BA: E5 8E     .word _off007_8EE5_29     ; полет drive tiger
-- D - I - - 0x0289CC 14:89BC: F3 8E     .word _off007_8EF3_2A     ; кипер легко отбивает мяч дальним кулаком
-- D - I - - 0x0289CE 14:89BE: 29 8F     .word _off007_8F29_2B     ; кипер вакашимазу легко отбивает мяч верхним прыжком
-- D - I - - 0x0289D0 14:89C0: 53 8F     .word _off007_8F53_2C     ; кипер напаривается кулаком на мяч
-- D - I - - 0x0289D2 14:89C2: 7C 8F     .word _off007_8F7C_2D     ; triangle jump ловит мяч
-- D - I - - 0x0289D4 14:89C4: 99 8F     .word _off007_8F99_2E     ; мяч приклеивается к ноге игрока после отбора мяча у другого игрока блоком или перехватом
-- D - I - - 0x0289D6 14:89C6: A7 8F     .word _off007_8FA7_2F     ; полет drive tiger
-- D - I - - 0x0289D8 14:89C8: BE 8F     .word _off007_8FBE_30     ; мяч приклеивается к телу игрока при заборе спешал блоком когда мяч был в полете
-- D - I - - 0x0289DA 14:89CA: CC 8F     .word _off007_8FCC_31     ; игрок не дотягивается телом до мяча в воздухе, который пролетает над ним
-- D - I - - 0x0289DC 14:89CC: E2 8F     .word _off007_8FE2_32     ; полет eagle shot
-- D - I - - 0x0289DE 14:89CE: F9 8F     .word _off007_8FF9_33     ; игрок делает нижний clear ногой
-- D - I - - 0x0289E0 14:89D0: 3A 90     .word _off007_903A_34     ; игрок делает верхний clear головой
-- D - I - - 0x0289E2 14:89D2: 6F 90     .word _off007_906F_35     ; игрок делает нижний clear телом
-- D - I - - 0x0289E4 14:89D4: A5 90     .word _off007_90A5_36     ; полет tiger shot / neo-tiger shot
-- D - I - - 0x0289E6 14:89D6: B3 90     .word _off007_90B3_37     ; игрок бежит для перехвата нижнего мяча
-- D - I - - 0x0289E8 14:89D8: CD 90     .word _off007_90CD_38     ; игрок делает нижний clear ногой (почти аналогично 33)
-- D - I - - 0x0289EA 14:89DA: D2 90     .word _off007_90D2_39     ; игрок делает верхний clear головой (почти аналогично 34)
-- D - I - - 0x0289EC 14:89DC: D7 90     .word _off007_90D7_3A     ; clone save
-- D - I - - 0x0289EE 14:89DE: 0C 91     .word _off007_910C_3B     ; удар головой header
-- D - I - - 0x0289F0 14:89E0: 41 91     .word _off007_9141_3C     ; полет mach shot / slider shot / fire shot / jumping volley / booster shot
-- D - I - - 0x0289F2 14:89E2: 52 91     .word _off007_9152_3D     ; полет mach shot / cannon shot
-- D - I - - 0x0289F4 14:89E4: 60 91     .word _off007_9160_3E     ; дохлый игрок воздухе (большой, зеркально 13)
-- D - I - - 0x0289F6 14:89E6: 77 91     .word _off007_9177_3F     ; дохлый игрок воздухе (поменьше, зеркально 14)
-- D - I - - 0x0289F8 14:89E8: 8E 91     .word _off007_918E_40     ; полет rising dragon kick / sano kombo
-- D - I - - 0x0289FA 14:89EA: A5 91     .word _off007_91A5_41     ; полет banana shot
-- D - I - - 0x0289FC 14:89EC: BC 91     .word _off007_91BC_42     ; отскок от штанги
-- D - I - - 0x0289FE 14:89EE: CA 91     .word _off007_91CA_43     ; попадание в штангу
-- D - I - - 0x028A00 14:89F0: D8 91     .word _off007_91D8_44     ; мяч в сетке
-- D - I - - 0x028A02 14:89F2: E6 91     .word _off007_91E6_45     ; мяч рвет сетку
-- D - I - - 0x028A04 14:89F4: F4 91     .word _off007_91F4_46     ; куски тел портрета сан-паулу после гола
-- D - I - - 0x028A06 14:89F6: 02 92     .word _off007_9202_47     ; куски тел портрета нанкацу после гола
-- D - I - - 0x028A08 14:89F8: 10 92     .word _off007_9210_48     ; куски тел портрета японии после гола
-- D - I - - 0x028A0A 14:89FA: 1E 92     .word _off007_921E_49     ; игрок прыгает к летящему мячу
-- D - I - - 0x028A0C 14:89FC: 32 92     .word _off007_9232_4A     ; игрок в стеночке приклеивает к себе мяч
-- D - I - - 0x028A0E 14:89FE: 40 92     .word _off007_9240_4B     ; полет masao / kazuo с тонкими ногами
-- D - I - - 0x028A10 14:8A00: 45 92     .word _off007_9245_4C     ; полет паса
-- D - I - - 0x028A12 14:8A02: 53 92     .word _off007_9253_4D     ; вакашимазу отталкивается ногами от штанги
-- D - I - - 0x028A14 14:8A04: 61 92     .word _off007_9261_4E     ; рефери поднимает руку и свистит
-- D - I - - 0x028A16 14:8A06: 6F 92     .word _off007_926F_4F     ; рваный мяч падает на землю
-- D - I - - 0x028A18 14:8A08: 7D 92     .word _off007_927D_50     ; анимация подката
-- D - I - - 0x028A1A 14:8A0A: 8B 92     .word _off007_928B_51     ; полет cyclone
-- D - I - - 0x028A1C 14:8A0C: 9F 92     .word _off007_929F_52     ; мяч улетает в сторону после выбивания откуда-то
-- - - - - - 0x028A1E 14:8A0E: AD 92     .word _off007_92AD_53     ; ! unused байтов в сценариях не найдено, какой-то полет мяча
-- - - - - - 0x028A20 14:8A10: BB 92     .word _off007_92BB_54     ; полет мяча дальше после задевания стенки (мяч продолжает лететь в ворота)
-- D - I - - 0x028A22 14:8A12: C9 92     .word _off007_92C9_55     ; полет мяча при огибании стеночки
-- D - I - - 0x028A24 14:8A14: D7 92     .word _off007_92D7_56     ; полет мяча когда игрок делает пас/удар после нападения на него, и игроки собираются его перехватить
-- D - I - - 0x028A26 14:8A16: E5 92     .word _off007_92E5_57     ; кипер делает верхний dive
-- D - I - - 0x028A28 14:8A18: F3 92     .word _off007_92F3_58     ; игрок разгоняется для подката
-- - - - - - 0x028A2A 14:8A1A: 0D 93     .word _off007_930D_59     ; кипер не может словить мяч в пк
-- D - I - - 0x028A2C 14:8A1C: 23 93     .word _off007_9323_5A     ; ХЗ игрок бежит
-- D - I - - 0x028A2E 14:8A1E: 3D 93     .word _off007_933D_5B     ; игрок медленно бежит (когда он нападает на игрока с мячом)
-- D - I - - 0x028A30 14:8A20: 57 93     .word _off007_9357_5C     ; игрок завис вблизи с мячом на земле в режиме выбора действия
-- D - I - - 0x028A32 14:8A22: 71 93     .word _off007_9371_5D     ; полет sidewinder shot / double eel
-- D - I - - 0x028A34 14:8A24: 7F 93     .word _off007_937F_5E     ; полет slider shot
-- D - I - - 0x028A36 14:8A26: 8D 93     .word _off007_938D_5F     ; полет drive overhead
-- D - I - - 0x028A38 14:8A28: A4 93     .word _off007_93A4_60     ; dribble
-- D - I - - 0x028A3A 14:8A2A: EC 93     .word _off007_93EC_61     ; игрок замахивается для обычного удара / удара с красным экраном
-- D - I - - 0x028A3C 14:8A2C: 03 94     .word _off007_9403_62     ; удар по мячу обычным ударом
-- D - I - - 0x028A3E 14:8A2E: 11 94     .word _off007_9411_63     ; мяч улетает от игрока после удара по нему
-- D - I - - 0x028A40 14:8A30: 25 94     .word _off007_9425_64     ; игрок прыгает в воздух (вблизи, средняя скорость)
-- - - - - - 0x028A42 14:8A32: 33 94     .word _off007_9433_65     ; ! unused байтов в сценариях не найдено, какой-то полет мяча
-- D - I - - 0x028A44 14:8A34: 41 94     .word _off007_9441_66     ; игрок делает пас с земли
-- D - I - - 0x028A46 14:8A36: 56 94     .word _off007_9456_67     ; полет eagle shot
-- D - I - - 0x028A48 14:8A38: 6A 94     .word _off007_946A_68     ; игрок подлетает к мячу для замаха volley
-- D - I - - 0x028A4A 14:8A3A: 7E 94     .word _off007_947E_69     ; удар по мячу volley
-- D - I - - 0x028A4C 14:8A3C: 8C 94     .word _off007_948C_6A     ; игрок уже ударил volley, мяч улетает от него
-- D - I - - 0x028A4E 14:8A3E: A2 94     .word _off007_94A2_6B     ; ХЗ игрок бежит / tsubasa бежит к drive tiger / masao kazuo бежит для skylb twin shot
-- D - I - - 0x028A50 14:8A40: BC 94     .word _off007_94BC_6C     ; игрок принимает ничейный низкий мяч на ногу
-- D - I - - 0x028A52 14:8A42: F4 94     .word _off007_94F4_6D     ; игрок принимает ничейный высокий мяч на тело
-- D - I - - 0x028A54 14:8A44: 2C 95     .word _off007_952C_6E     ; игрок делает верхний through
-- D - I - - 0x028A56 14:8A46: 49 95     .word _off007_9549_6F     ; игрок делает нижний through
-- D - I - - 0x028A58 14:8A48: 79 95     .word _off007_9579_70     ; ХЗ полет мяча
-- D - I - - 0x028A5A 14:8A4A: 87 95     .word _off007_9587_71     ; игрок прыгает в воздух (вблизи, средняя скорость, почти идентично 64)
-- - - - - - 0x028A5C 14:8A4C: 98 95     .word _off007_9598_72     ; ! найден 1 случай в сценарии, какой-то полет мяча
-- D - I - - 0x028A5E 14:8A4E: A6 95     .word _off007_95A6_73     ; полет rising dragon kick
-- D - I - - 0x028A60 14:8A50: B4 95     .word _off007_95B4_74     ; полет foward somersault
-- D - I - - 0x028A62 14:8A52: E6 95     .word _off007_95E6_75     ; лицо вакабаяши во время крита
-- D - I - - 0x028A64 14:8A54: F5 95     .word _off007_95F5_76     ; подкат masao / kazuo
-- D - I - - 0x028A66 14:8A56: 03 96     .word _off007_9603_77     ; кипер делает пас после ловли мяча
-- D - I - - 0x028A68 14:8A58: 18 96     .word _off007_9618_78     ; игрок принимает возвращаемую перепасовку на ногу
-- D - I - - 0x028A6A 14:8A5A: 51 96     .word _off007_9651_79     ; глаза tsubasa в одной точке
-- D - I - - 0x028A6C 14:8A5C: 5F 96     .word _off007_965F_7A     ; игрок принимает верхний пас на грудь
-- D - I - - 0x028A6E 14:8A5E: 89 96     .word _off007_9689_7B     ; мяч быстро летит во время перепасовки
-- D - I - - 0x028A70 14:8A60: 97 96     .word _off007_9697_7C     ; игрок возвращает перепасовку
-- D - I - - 0x028A72 14:8A62: D2 96     .word _off007_96D2_7D     ; dark illusion
-- D - I - - 0x028A74 14:8A64: 3B 97     .word _off007_973B_7E     ; мяч закатывается в аут
-- D - I - - 0x028A76 14:8A66: 49 97     .word _off007_9749_7F     ; кипер делает пас во время goal kick
-- D - I - - 0x028A78 14:8A68: 60 97     .word _off007_9760_80     ; мяч отскакивает от земли
-- D - I - - 0x028A7A 14:8A6A: 6E 97     .word _off007_976E_81     ; игрок выбрасывает мяч руками во время throw in
-- D - I - - 0x028A7C 14:8A6C: 84 97     .word _off007_9784_82     ; игрок бьет крученый удар во время corner kick
-- D - I - - 0x028A7E 14:8A6E: 98 97     .word _off007_9798_83     ; игрок делает пас во время corner kick
-- D - I - - 0x028A80 14:8A70: AF 97     .word _off007_97AF_84     ; полет shoot финальный
-- D - I - - 0x028A82 14:8A72: BD 97     .word _off007_97BD_85     ; мяч стоит перед кипером на 11м penalty kick
-- D - I - - 0x028A84 14:8A74: D1 97     .word _off007_97D1_86     ; в пк кипер прыгает в сторону мяча влево/вправо
-- D - I - - 0x028A86 14:8A76: E7 97     .word _off007_97E7_87     ; в пк кипер прыгает в сторону, мяч летит совсем в другой угол
-- D - I - - 0x028A88 14:8A78: F7 97     .word _off007_97F7_88     ; в пк кипер прыгает в сторону, мяч летит прямо
-- D - I - - 0x028A8A 14:8A7A: 07 98     .word _off007_9807_89     ; в пк кипер стоит прямо, мяч после удара летит влево / вправо
-- D - I - - 0x028A8C 14:8A7C: 17 98     .word _off007_9817_8A     ; в пк кипер стоит прямо, мяч после удара летит прямо
-- D - I - - 0x028A8E 14:8A7E: 27 98     .word _off007_9827_8B     ; игрок завис вдалеке с мячом на земле когда на него напали
-- D - I - - 0x028A90 14:8A80: 35 98     .word _off007_9835_8C     ; удар по мячу спешалом
-- D - I - - 0x028A92 14:8A82: 63 98     .word _off007_9863_8D     ; игрок завис вдалеке с мячом в воздухе на штрафнойц
-- D - I - - 0x028A94 14:8A84: 71 98     .word _off007_9871_8E     ; замах drive shot
-- D - I - - 0x028A96 14:8A86: 85 98     .word _off007_9885_8F     ; рефери смотрит на часы
-- D - I - - 0x028A98 14:8A88: AB 98     .word _off007_98AB_90     ; бег игрока с мячом по полю во время передвижения
-- D - I - - 0x028A9A 14:8A8A: C5 98     .word _off007_98C5_91     ; лицо tsubasa
-- D - I - - 0x028A9C 14:8A8C: D4 98     .word _off007_98D4_92     ; tsubasa возвращает перепасовку
-- D - I - - 0x028A9E 14:8A8E: 13 99     .word _off007_9913_93     ; лицо renato
-- D - I - - 0x028AA0 14:8A90: 22 99     .word _off007_9922_94     ; лицо morisaki
-- D - I - - 0x028AA2 14:8A92: 31 99     .word _off007_9931_95     ; misaki возвращает перепасовку
-- D - I - - 0x028AA4 14:8A94: 6C 99     .word _off007_996C_96     ; лицо misaki
-- D - I - - 0x028AA6 14:8A96: 7B 99     .word _off007_997B_97     ; лицо misaki
-- D - I - - 0x028AA8 14:8A98: 81 99     .word _off007_9981_98     ; лицо ishizaki
-- D - I - - 0x028AAA 14:8A9A: 90 99     .word _off007_9990_99     ; лицо ishizaki
-- D - I - - 0x028AAC 14:8A9C: 96 99     .word _off007_9996_9A     ; лицо nitta
-- - - - - - 0x028AAE 14:8A9E: A5 99     .word _off007_99A5_9B     ; лицо nitta
-- D - I - - 0x028AB0 14:8AA0: AB 99     .word _off007_99AB_9C     ; лицо masao / kazuo
-- D - I - - 0x028AB2 14:8AA2: B1 99     .word _off007_99B1_9D     ; замах slider shot / razor shot
-- D - I - - 0x028AB4 14:8AA4: D4 99     .word _off007_99D4_9E     ; лицо hyuga
-- D - I - - 0x028AB6 14:8AA6: DA 99     .word _off007_99DA_9F     ; лицо soda
-- D - I - - 0x028AB8 14:8AA8: E0 99     .word _off007_99E0_A0     ; лицо jito
-- D - I - - 0x028ABA 14:8AAA: E6 99     .word _off007_99E6_A1     ; лицо matsuyama
-- - - - - - 0x028ABC 14:8AAC: EC 99     .word _off007_99EC_A2     ; лицо sawada
-- D - I - - 0x028ABE 14:8AAE: F2 99     .word _off007_99F2_A3     ; лицо misugi
-- D - I - - 0x028AC0 14:8AB0: F8 99     .word _off007_99F8_A4     ; лицо wakabayashi
-- D - I - - 0x028AC2 14:8AB2: 07 9A     .word _off007_9A07_A5     ; hyuga возвращает перепасовку
-- D - I - - 0x028AC4 14:8AB4: 42 9A     .word _off007_9A42_A6     ; лицо wakashimazu
-- D - I - - 0x028AC6 14:8AB6: 50 9A     .word _off007_9A50_A7     ; sawada / napoleon возвращает перепасовку
-- D - I - - 0x028AC8 14:8AB8: 8B 9A     .word _off007_9A8B_A8     ; лицо meon
-- D - I - - 0x028ACA 14:8ABA: 9A 9A     .word _off007_9A9A_A9     ; лицо carlos
-- D - I - - 0x028ACC 14:8ABC: A0 9A     .word _off007_9AA0_AA     ; лицо jito
-- D - I - - 0x028ACE 14:8ABE: AF 9A     .word _off007_9AAF_AB     ; лицо masao / kazuo
-- D - I - - 0x028AD0 14:8AC0: BE 9A     .word _off007_9ABE_AC     ; игрок прыгает в воздух (вблизи, средняя скорость, чуть правее 64 и 71)
-- D - I - - 0x028AD2 14:8AC2: D5 9A     .word _off007_9AD5_AD     ; лицо soda
-- D - I - - 0x028AD4 14:8AC4: E4 9A     .word _off007_9AE4_AE     ; лицо misugi
-- D - I - - 0x028AD6 14:8AC6: F3 9A     .word _off007_9AF3_AF     ; лицо matsuyama
-- D - I - - 0x028AD8 14:8AC8: 02 9B     .word _off007_9B02_B0     ; лицо hyuga
-- D - I - - 0x028ADA 14:8ACA: 11 9B     .word _off007_9B11_B1     ; лицо sawada
-- D - I - - 0x028ADC 14:8ACC: 20 9B     .word _off007_9B20_B2     ; лицо victorino
-- D - I - - 0x028ADE 14:8ACE: 2F 9B     .word _off007_9B2F_B3     ; лицо kaltz
-- D - I - - 0x028AE0 14:8AD0: 35 9B     .word _off007_9B35_B4     ; лицо napoleon
-- D - I - - 0x028AE2 14:8AD2: 44 9B     .word _off007_9B44_B5     ; лицо pierre
-- D - I - - 0x028AE4 14:8AD4: 53 9B     .word _off007_9B53_B6     ; лицо pascal
-- D - I - - 0x028AE6 14:8AD6: 62 9B     .word _off007_9B62_B7     ; лицо diaz
-- D - I - - 0x028AE8 14:8AD8: 71 9B     .word _off007_9B71_B8     ; лицо schneider
-- D - I - - 0x028AEA 14:8ADA: 80 9B     .word _off007_9B80_B9     ; лицо kaltz
-- D - I - - 0x028AEC 14:8ADC: 8F 9B     .word _off007_9B8F_BA     ; лицо schester
-- D - I - - 0x028AEE 14:8ADE: 9E 9B     .word _off007_9B9E_BB     ; лицо carlos бразилия
-- D - I - - 0x028AF0 14:8AE0: AD 9B     .word _off007_9BAD_BC     ; лицо coimbra
-- D - I - - 0x028AF2 14:8AE2: BC 9B     .word _off007_9BBC_BD     ; лицо ishizaki face block 
-- - - - - - 0x028AF4 14:8AE4: CB 9B     .word _off007_9BCB_BE     ; diaz возвращает перепасовку
-- D - I - - 0x028AF6 14:8AE6: 06 9C     .word _off007_9C06_BF     ; overhead
-- D - I - - 0x028AF8 14:8AE8: 38 9C     .word _off007_9C38_C0     ; masao kazuo стоят один на другом
-- D - I - - 0x028AFA 14:8AEA: 46 9C     .word _off007_9C46_C1     ; полет masao / kazuo с тонкими ногами (аналогично 4B)
-- D - I - - 0x028AFC 14:8AEC: 54 9C     .word _off007_9C54_C2     ; masao kazuo стоят на jito
-- D - I - - 0x028AFE 14:8AEE: 62 9C     .word _off007_9C62_C3     ; masao kazuo летят вдвоем
-- D - I - - 0x028B00 14:8AF0: 70 9C     .word _off007_9C70_C4     ; замах jumping volley
-- D - I - - 0x028B02 14:8AF2: 93 9C     .word _off007_9C93_C5     ; мяч улетает от игрока после jumping volley / booster shot
-- D - I - - 0x028B04 14:8AF4: AD 9C     .word _off007_9CAD_C6     ; tsubasa подкидывает грудью мяч перед cyclone
-- D - I - - 0x028B06 14:8AF6: D7 9C     .word _off007_9CD7_C7     ; замах cyclone
-- D - I - - 0x028B08 14:8AF8: FB 9C     .word _off007_9CFB_C8     ; замах booster shot toninho
-- D - I - - 0x028B0A 14:8AFA: 0F 9D     .word _off007_9D0F_C9     ; замах rising dragon kick
-- D - I - - 0x028B0C 14:8AFC: 34 9D     .word _off007_9D34_CA     ; замах rocket header
-- D - I - - 0x028B0E 14:8AFE: 79 9D     .word _off007_9D79_CB     ; li brothers стоят перед rising dragon kick
-- D - I - - 0x028B10 14:8B00: 87 9D     .word _off007_9D87_CC     ; diaz перед foward somersault
-- D - I - - 0x028B12 14:8B02: A4 9D     .word _off007_9DA4_CD     ; foward somersault
-- D - I - - 0x028B14 14:8B04: B8 9D     .word _off007_9DB8_CE     ; замах razor pass / pazor shot / razor tackle (палка пибика)
-- D - I - - 0x028B16 14:8B06: E9 9D     .word _off007_9DE9_CF     ; ishizaki летит перед face block
-- D - I - - 0x028B18 14:8B08: 07 9E     .word _off007_9E07_D0     ; forcible dribble
-- D - I - - 0x028B1A 14:8B0A: 21 9E     .word _off007_9E21_D1     ; high speed dribble / vanishing feint / hedgehog dribble
-- D - I - - 0x028B1C 14:8B0C: 3B 9E     .word _off007_9E3B_D2     ; high speed dribble / vanishing feint / hedgehog dribble
-- D - I - - 0x028B1E 14:8B0E: 55 9E     .word _off007_9E55_D3     ; meon не может отбить drove overhead
-- D - I - - 0x028B20 14:8B10: 6B 9E     .word _off007_9E6B_D4     ; лицо pierre перед slider cannon (озарение)
-- D - I - - 0x028B22 14:8B12: 7A 9E     .word _off007_9E7A_D5     ; лицо napoleon перед slider cannon (озарение)
-- D - I - - 0x028B24 14:8B14: 89 9E     .word _off007_9E89_D6     ; golden twin shot
-- D - I - - 0x028B26 14:8B16: 97 9E     .word _off007_9E97_D7     ; drive tiger twin shot
-- D - I - - 0x028B28 14:8B18: A5 9E     .word _off007_9EA5_D8     ; skylab twin shot
-- D - I - - 0x028B2A 14:8B1A: B3 9E     .word _off007_9EB3_D9     ; korea twin shot
-- D - I - - 0x028B2C 14:8B1C: C1 9E     .word _off007_9EC1_DA     ; кипер ждет в воротах вместо dive
-- D - I - - 0x028B2E 14:8B1E: CF 9E     .word _off007_9ECF_DB     ; замах slider cannon
-- D - I - - 0x028B30 14:8B20: 1F 9F     .word _off007_9F1F_DC     ; после удара twin shot
-- D - I - - 0x028B32 14:8B22: 3C 9F     .word _off007_9F3C_DD     ; clone dribble
-- D - I - - 0x028B34 14:8B24: 56 9F     .word _off007_9F56_DE     ; глаза tsubasa в медленном движении
-- - - - - - 0x028B36 14:8B26: 6D 9F     .word _off007_9F6D_DF     ; pascal возвращает перепасовку
-- D - I - - 0x028B38 14:8B28: A8 9F     .word _off007_9FA8_E0     ; tsubasa стоит спиной
-- D - I - - 0x028B3A 14:8B2A: C4 9F     .word _off007_9FC4_E1     ; masao kazuo зеленые один на другом
-- D - I - - 0x028B3C 14:8B2C: C9 9F     .word _off007_9FC9_E2     ; heel lift
-- D - I - - 0x028B3E 14:8B2E: 4C A0     .word _off007_A04C_E3     ; ? бег игрока перед power block
-- D - I - - 0x028B40 14:8B30: 66 A0     .word _off007_A066_E4     ; heel lift мяч приземляется к tsubasa
-- D - I - - 0x028B42 14:8B32: 8F A0     .word _off007_A08F_E5     ; мяч подлетает вверх перед ударом по нему cyclone
-- D - I - - 0x028B44 14:8B34: A3 A0     .word _off007_A0A3_E6     ; игрок принимает нижний пас на ногу (почти идентично 78)
-- D - I - - 0x028B46 14:8B36: A8 A0     .word _off007_A0A8_E7     ; hyuga бежит к drive tiger
-- D - I - - 0x028B48 14:8B38: BE A0     .word _off007_A0BE_E8     ; sano бьет головой в sano combo
-- D - I - - 0x028B4A 14:8B3A: EA A0     .word _off007_A0EA_E9     ; удар booster shot toninho
-- D - I - - 0x028B4C 14:8B3C: F8 A0     .word _off007_A0F8_EA     ; jito готовится делать skylab twin shot
-- D - I - - 0x028B4E 14:8B3E: 06 A1     .word _off007_A106_EB     ; pierre прыгает для slider cannon
-- D - I - - 0x028B50 14:8B40: 1D A1     .word _off007_A11D_EC     ; napoleon прыгает для slider cannon
-- D - I - - 0x028B52 14:8B42: 30 A1     .word _off007_A130_ED     ; tsubasa прыгает для drive overhead
-- D - I - - 0x028B54 14:8B44: 3E A1     .word _off007_A13E_EE     ; pierre возвращает перепасовку
-- D - I - - 0x028B56 14:8B46: 79 A1     .word _off007_A179_EF     ; masao kazuo возвращает перепасовку
+; смотреть con_s_anim
+- D - I - - 0x028978 14:8968: 48 8B     .word _off007_8B48_00 ; мерцающий экран (белый или красный)
+- D - I - - 0x02897A 14:896A: 5C 8B     .word _off007_8B5C_01 ; полет drive shot
+- D - I - - 0x02897C 14:896C: 6A 8B     .word _off007_8B6A_02 ; дохлый кипер в воздухе
+- D - I - - 0x02897E 14:896E: 78 8B     .word _off007_8B78_03 ; кипер моментально ловит мяч и медленно движется
+- D - I - - 0x028980 14:8970: 86 8B     .word _off007_8B86_04 ; кипер делает нижний dive
+- D - I - - 0x028982 14:8972: 94 8B     .word _off007_8B94_05 ; после касания мяча ногой в воздухе, который летит дальше
+- D - I - - 0x028984 14:8974: B4 8B     .word _off007_8BB4_06 ; игрок не дотягивается ногой до мяча в воздухе, который пролетает над ним
+- D - I - - 0x028986 14:8976: CA 8B     .word _off007_8BCA_07 ; игрок не дотягивается ногой до мяча в воздухе, который пролетает под ним
+- D - I - - 0x028988 14:8978: E0 8B     .word _off007_8BE0_08 ; мяч приклеивается к ноге игрока когда мяч был в полете
+- D - I - - 0x02898A 14:897A: EE 8B     .word _off007_8BEE_09 ; мяч летит и касается ноги игрока
+- - - - - - 0x02898C 14:897C: 04 8C     .word _off007_8C04_0A ; ! unused байтов в сценариях не найдено, какой-то полет мяча
+- D - I - - 0x02898E 14:897E: 12 8C     .word _off007_8C12_0B ; после касания мяча телом в воздухе, который летит дальше
+- D - I - - 0x028990 14:8980: 28 8C     .word _off007_8C28_0C ; игрок не дотягивается телом до мяча в воздухе, который пролетает под ним
+- D - I - - 0x028992 14:8982: 3C 8C     .word _off007_8C3C_0D ; мяч приклеивается к телу игрока когда мяч был в полете
+- D - I - - 0x028994 14:8984: 4A 8C     .word _off007_8C4A_0E ; полет drive shot / cyclone
+- D - I - - 0x028996 14:8986: 61 8C     .word _off007_8C61_0F ; полет drive overhead / falcon volley / sano combo / volley / skylab hurricane
+- D - I - - 0x028998 14:8988: 78 8C     .word _off007_8C78_10 ; полет drive overhead / cyclone
+- D - I - - 0x02899A 14:898A: 86 8C     .word _off007_8C86_11 ; полет удара, а также ??? jumping volley / booster shot / mach shot? / fire shot / falcon shot / falcon volley
+- D - I - - 0x02899C 14:898C: 94 8C     .word _off007_8C94_12 ; полет falcon shot / dynamite header / foward somersault / tiger shot
+- D - I - - 0x02899E 14:898E: A2 8C     .word _off007_8CA2_13 ; дохлый игрок воздухе (большой)
+- D - I - - 0x0289A0 14:8990: B9 8C     .word _off007_8CB9_14 ; дохлый игрок воздухе (поменьше)
+- D - I - - 0x0289A2 14:8992: D0 8C     .word _off007_8CD0_15 ; игрок приклеивает мяч к ноге после подката
+- D - I - - 0x0289A4 14:8994: DE 8C     .word _off007_8CDE_16 ; кипер моментально ловит мяч и быстро движется вниз (предположительно после нижнего dive)
+- D - I - - 0x0289A6 14:8996: EC 8C     .word _off007_8CEC_17 ; кипер ловит летящий мяч (предположительно после верхнего dive и пк)
+- D - I - - 0x0289A8 14:8998: 09 8D     .word _off007_8D09_18 ; кипер пытается словить мяч но не дотягивается
+- D - I - - 0x0289AA 14:899A: 1F 8D     .word _off007_8D1F_19 ; игрок делает пас головой в воздухе
+- D - I - - 0x0289AC 14:899C: 52 8D     .word _off007_8D52_1A ; полет header / cannon shot / razor shot / tiger shot
+- D - I - - 0x0289AE 14:899E: 60 8D     .word _off007_8D60_1B ; кипер ловит летящий мяч (обычная ловля)
+- D - I - - 0x0289B0 14:89A0: 89 8D     .word _off007_8D89_1C ; игрок прыгает в воздух (вблизи, быстро)
+- D - I - - 0x0289B2 14:89A2: 97 8D     .word _off007_8D97_1D ; полет rocket header / razor shot / sidewinder shot
+- D - I - - 0x0289B4 14:89A4: A5 8D     .word _off007_8DA5_1E ; полет twin shot / skylab twin shot
+- D - I - - 0x0289B6 14:89A6: B3 8D     .word _off007_8DB3_1F ; полет twin shot / drive tiger
+- D - I - - 0x0289B8 14:89A8: C1 8D     .word _off007_8DC1_20 ; игрок прыгает в воздух (вблизи, медленно)
+- D - I - - 0x0289BA 14:89AA: CF 8D     .word _off007_8DCF_21 ; защитник в воротах отбивает мяч
+- D - I - - 0x0289BC 14:89AC: 05 8E     .word _off007_8E05_22 ; защитник в воротах промахивается
+- D - I - - 0x0289BE 14:89AE: 1B 8E     .word _off007_8E1B_23 ; rolling save
+- D - I - - 0x0289C0 14:89B0: 32 8E     .word _off007_8E32_24 ; кипер пытается отбить мяч но не дотягивается
+- D - I - - 0x0289C2 14:89B2: 5B 8E     .word _off007_8E5B_25 ; кипер пытается отбить мяч после спешала но не дотягивается
+- D - I - - 0x0289C4 14:89B4: 7A 8E     .word _off007_8E7A_26 ; triangle jump не дотягивается
+- D - I - - 0x0289C6 14:89B6: 8E 8E     .word _off007_8E8E_27 ; кипер легко отбивает мяч ближним кулаком
+- D - I - - 0x0289C8 14:89B8: C6 8E     .word _off007_8EC6_28 ; полет drive tiger / slider cannon / skylab twin shot
+- D - I - - 0x0289CA 14:89BA: E5 8E     .word _off007_8EE5_29 ; полет drive tiger
+- D - I - - 0x0289CC 14:89BC: F3 8E     .word _off007_8EF3_2A ; кипер легко отбивает мяч дальним кулаком
+- D - I - - 0x0289CE 14:89BE: 29 8F     .word _off007_8F29_2B ; кипер вакашимазу легко отбивает мяч верхним прыжком
+- D - I - - 0x0289D0 14:89C0: 53 8F     .word _off007_8F53_2C ; кипер напаривается кулаком на мяч
+- D - I - - 0x0289D2 14:89C2: 7C 8F     .word _off007_8F7C_2D ; triangle jump ловит мяч
+- D - I - - 0x0289D4 14:89C4: 99 8F     .word _off007_8F99_2E ; мяч приклеивается к ноге игрока после отбора мяча у другого игрока блоком или перехватом
+- D - I - - 0x0289D6 14:89C6: A7 8F     .word _off007_8FA7_2F ; полет drive tiger
+- D - I - - 0x0289D8 14:89C8: BE 8F     .word _off007_8FBE_30 ; мяч приклеивается к телу игрока при заборе спешал блоком когда мяч был в полете
+- D - I - - 0x0289DA 14:89CA: CC 8F     .word _off007_8FCC_31 ; игрок не дотягивается телом до мяча в воздухе, который пролетает над ним
+- D - I - - 0x0289DC 14:89CC: E2 8F     .word _off007_8FE2_32 ; полет eagle shot
+- D - I - - 0x0289DE 14:89CE: F9 8F     .word _off007_8FF9_33 ; игрок делает нижний clear ногой
+- D - I - - 0x0289E0 14:89D0: 3A 90     .word _off007_903A_34 ; игрок делает верхний clear головой
+- D - I - - 0x0289E2 14:89D2: 6F 90     .word _off007_906F_35 ; игрок делает нижний clear телом
+- D - I - - 0x0289E4 14:89D4: A5 90     .word _off007_90A5_36 ; полет tiger shot / neo-tiger shot
+- D - I - - 0x0289E6 14:89D6: B3 90     .word _off007_90B3_37 ; игрок бежит для перехвата нижнего мяча
+- D - I - - 0x0289E8 14:89D8: CD 90     .word _off007_90CD_38 ; игрок делает нижний clear ногой (почти аналогично 33)
+- D - I - - 0x0289EA 14:89DA: D2 90     .word _off007_90D2_39 ; игрок делает верхний clear головой (почти аналогично 34)
+- D - I - - 0x0289EC 14:89DC: D7 90     .word _off007_90D7_3A ; clone save
+- D - I - - 0x0289EE 14:89DE: 0C 91     .word _off007_910C_3B ; удар головой header
+- D - I - - 0x0289F0 14:89E0: 41 91     .word _off007_9141_3C ; полет mach shot / slider shot / fire shot / jumping volley / booster shot
+- D - I - - 0x0289F2 14:89E2: 52 91     .word _off007_9152_3D ; полет mach shot / cannon shot
+- D - I - - 0x0289F4 14:89E4: 60 91     .word _off007_9160_3E ; дохлый игрок воздухе (большой, зеркально 13)
+- D - I - - 0x0289F6 14:89E6: 77 91     .word _off007_9177_3F ; дохлый игрок воздухе (поменьше, зеркально 14)
+- D - I - - 0x0289F8 14:89E8: 8E 91     .word _off007_918E_40 ; полет rising dragon kick / sano kombo
+- D - I - - 0x0289FA 14:89EA: A5 91     .word _off007_91A5_41 ; полет banana shot
+- D - I - - 0x0289FC 14:89EC: BC 91     .word _off007_91BC_42 ; отскок от штанги
+- D - I - - 0x0289FE 14:89EE: CA 91     .word _off007_91CA_43 ; попадание в штангу
+- D - I - - 0x028A00 14:89F0: D8 91     .word _off007_91D8_44 ; мяч в сетке
+- D - I - - 0x028A02 14:89F2: E6 91     .word _off007_91E6_45 ; мяч рвет сетку
+- D - I - - 0x028A04 14:89F4: F4 91     .word _off007_91F4_46 ; куски тел портрета сан-паулу после гола
+- D - I - - 0x028A06 14:89F6: 02 92     .word _off007_9202_47 ; куски тел портрета нанкацу после гола
+- D - I - - 0x028A08 14:89F8: 10 92     .word _off007_9210_48 ; куски тел портрета японии после гола
+- D - I - - 0x028A0A 14:89FA: 1E 92     .word _off007_921E_49 ; игрок прыгает к летящему мячу
+- D - I - - 0x028A0C 14:89FC: 32 92     .word _off007_9232_4A ; игрок в стеночке приклеивает к себе мяч
+- D - I - - 0x028A0E 14:89FE: 40 92     .word _off007_9240_4B ; полет masao / kazuo с тонкими ногами
+- D - I - - 0x028A10 14:8A00: 45 92     .word _off007_9245_4C ; полет паса
+- D - I - - 0x028A12 14:8A02: 53 92     .word _off007_9253_4D ; вакашимазу отталкивается ногами от штанги
+- D - I - - 0x028A14 14:8A04: 61 92     .word _off007_9261_4E ; рефери поднимает руку и свистит
+- D - I - - 0x028A16 14:8A06: 6F 92     .word _off007_926F_4F ; рваный мяч падает на землю
+- D - I - - 0x028A18 14:8A08: 7D 92     .word _off007_927D_50 ; анимация подката
+- D - I - - 0x028A1A 14:8A0A: 8B 92     .word _off007_928B_51 ; полет cyclone
+- D - I - - 0x028A1C 14:8A0C: 9F 92     .word _off007_929F_52 ; мяч улетает в сторону после выбивания откуда-то
+- - - - - - 0x028A1E 14:8A0E: AD 92     .word _off007_92AD_53 ; ! unused байтов в сценариях не найдено, какой-то полет мяча
+- - - - - - 0x028A20 14:8A10: BB 92     .word _off007_92BB_54 ; полет мяча дальше после задевания стенки (мяч продолжает лететь в ворота)
+- D - I - - 0x028A22 14:8A12: C9 92     .word _off007_92C9_55 ; полет мяча при огибании стеночки
+- D - I - - 0x028A24 14:8A14: D7 92     .word _off007_92D7_56 ; полет мяча когда игрок делает пас/удар после нападения на него, и игроки собираются его перехватить
+- D - I - - 0x028A26 14:8A16: E5 92     .word _off007_92E5_57 ; кипер делает верхний dive
+- D - I - - 0x028A28 14:8A18: F3 92     .word _off007_92F3_58 ; игрок разгоняется для подката
+- - - - - - 0x028A2A 14:8A1A: 0D 93     .word _off007_930D_59 ; кипер не может словить мяч в пк
+- D - I - - 0x028A2C 14:8A1C: 23 93     .word _off007_9323_5A ; ХЗ игрок бежит
+- D - I - - 0x028A2E 14:8A1E: 3D 93     .word _off007_933D_5B ; игрок медленно бежит (когда он нападает на игрока с мячом)
+- D - I - - 0x028A30 14:8A20: 57 93     .word _off007_9357_5C ; игрок завис вблизи с мячом на земле в режиме выбора действия
+- D - I - - 0x028A32 14:8A22: 71 93     .word _off007_9371_5D ; полет sidewinder shot / double eel
+- D - I - - 0x028A34 14:8A24: 7F 93     .word _off007_937F_5E ; полет slider shot
+- D - I - - 0x028A36 14:8A26: 8D 93     .word _off007_938D_5F ; полет drive overhead
+- D - I - - 0x028A38 14:8A28: A4 93     .word _off007_93A4_60 ; dribble
+- D - I - - 0x028A3A 14:8A2A: EC 93     .word _off007_93EC_61 ; игрок замахивается для обычного удара / удара с красным экраном
+- D - I - - 0x028A3C 14:8A2C: 03 94     .word _off007_9403_62 ; удар по мячу обычным ударом
+- D - I - - 0x028A3E 14:8A2E: 11 94     .word _off007_9411_63 ; мяч улетает от игрока после удара по нему
+- D - I - - 0x028A40 14:8A30: 25 94     .word _off007_9425_64 ; игрок прыгает в воздух (вблизи, средняя скорость)
+- - - - - - 0x028A42 14:8A32: 33 94     .word _off007_9433_65 ; ! unused байтов в сценариях не найдено, какой-то полет мяча
+- D - I - - 0x028A44 14:8A34: 41 94     .word _off007_9441_66 ; игрок делает пас с земли
+- D - I - - 0x028A46 14:8A36: 56 94     .word _off007_9456_67 ; полет eagle shot
+- D - I - - 0x028A48 14:8A38: 6A 94     .word _off007_946A_68 ; игрок подлетает к мячу для замаха volley
+- D - I - - 0x028A4A 14:8A3A: 7E 94     .word _off007_947E_69 ; удар по мячу volley
+- D - I - - 0x028A4C 14:8A3C: 8C 94     .word _off007_948C_6A ; игрок уже ударил volley, мяч улетает от него
+- D - I - - 0x028A4E 14:8A3E: A2 94     .word _off007_94A2_6B ; ХЗ игрок бежит / tsubasa бежит к drive tiger / masao kazuo бежит для skylb twin shot
+- D - I - - 0x028A50 14:8A40: BC 94     .word _off007_94BC_6C ; игрок принимает ничейный низкий мяч на ногу
+- D - I - - 0x028A52 14:8A42: F4 94     .word _off007_94F4_6D ; игрок принимает ничейный высокий мяч на тело
+- D - I - - 0x028A54 14:8A44: 2C 95     .word _off007_952C_6E ; игрок делает верхний through
+- D - I - - 0x028A56 14:8A46: 49 95     .word _off007_9549_6F ; игрок делает нижний through
+- D - I - - 0x028A58 14:8A48: 79 95     .word _off007_9579_70 ; ХЗ полет мяча
+- D - I - - 0x028A5A 14:8A4A: 87 95     .word _off007_9587_71 ; игрок прыгает в воздух (вблизи, средняя скорость, почти идентично 64)
+- - - - - - 0x028A5C 14:8A4C: 98 95     .word _off007_9598_72 ; ! найден 1 случай в сценарии, какой-то полет мяча
+- D - I - - 0x028A5E 14:8A4E: A6 95     .word _off007_95A6_73 ; полет rising dragon kick
+- D - I - - 0x028A60 14:8A50: B4 95     .word _off007_95B4_74 ; полет foward somersault
+- D - I - - 0x028A62 14:8A52: E6 95     .word _off007_95E6_75 ; лицо вакабаяши во время крита
+- D - I - - 0x028A64 14:8A54: F5 95     .word _off007_95F5_76 ; подкат masao / kazuo
+- D - I - - 0x028A66 14:8A56: 03 96     .word _off007_9603_77 ; кипер делает пас после ловли мяча
+- D - I - - 0x028A68 14:8A58: 18 96     .word _off007_9618_78 ; игрок принимает возвращаемую перепасовку на ногу
+- D - I - - 0x028A6A 14:8A5A: 51 96     .word _off007_9651_79 ; глаза tsubasa в одной точке
+- D - I - - 0x028A6C 14:8A5C: 5F 96     .word _off007_965F_7A ; игрок принимает верхний пас на грудь
+- D - I - - 0x028A6E 14:8A5E: 89 96     .word _off007_9689_7B ; мяч быстро летит во время перепасовки
+- D - I - - 0x028A70 14:8A60: 97 96     .word _off007_9697_7C ; игрок возвращает перепасовку
+- D - I - - 0x028A72 14:8A62: D2 96     .word _off007_96D2_7D ; dark illusion
+- D - I - - 0x028A74 14:8A64: 3B 97     .word _off007_973B_7E ; мяч закатывается в аут
+- D - I - - 0x028A76 14:8A66: 49 97     .word _off007_9749_7F ; кипер делает пас во время goal kick
+- D - I - - 0x028A78 14:8A68: 60 97     .word _off007_9760_80 ; мяч отскакивает от земли
+- D - I - - 0x028A7A 14:8A6A: 6E 97     .word _off007_976E_81 ; игрок выбрасывает мяч руками во время throw in
+- D - I - - 0x028A7C 14:8A6C: 84 97     .word _off007_9784_82 ; игрок бьет крученый удар во время corner kick
+- D - I - - 0x028A7E 14:8A6E: 98 97     .word _off007_9798_83 ; игрок делает пас во время corner kick
+- D - I - - 0x028A80 14:8A70: AF 97     .word _off007_97AF_84 ; полет shoot финальный
+- D - I - - 0x028A82 14:8A72: BD 97     .word _off007_97BD_85 ; мяч стоит перед кипером на 11м penalty kick
+- D - I - - 0x028A84 14:8A74: D1 97     .word _off007_97D1_86 ; в пк кипер прыгает в сторону мяча влево/вправо
+- D - I - - 0x028A86 14:8A76: E7 97     .word _off007_97E7_87 ; в пк кипер прыгает в сторону, мяч летит совсем в другой угол
+- D - I - - 0x028A88 14:8A78: F7 97     .word _off007_97F7_88 ; в пк кипер прыгает в сторону, мяч летит прямо
+- D - I - - 0x028A8A 14:8A7A: 07 98     .word _off007_9807_89 ; в пк кипер стоит прямо, мяч после удара летит влево / вправо
+- D - I - - 0x028A8C 14:8A7C: 17 98     .word _off007_9817_8A ; в пк кипер стоит прямо, мяч после удара летит прямо
+- D - I - - 0x028A8E 14:8A7E: 27 98     .word _off007_9827_8B ; игрок завис вдалеке с мячом на земле когда на него напали
+- D - I - - 0x028A90 14:8A80: 35 98     .word _off007_9835_8C ; удар по мячу спешалом
+- D - I - - 0x028A92 14:8A82: 63 98     .word _off007_9863_8D ; игрок завис вдалеке с мячом в воздухе на штрафнойц
+- D - I - - 0x028A94 14:8A84: 71 98     .word _off007_9871_8E ; замах drive shot
+- D - I - - 0x028A96 14:8A86: 85 98     .word _off007_9885_8F ; рефери смотрит на часы
+- D - I - - 0x028A98 14:8A88: AB 98     .word _off007_98AB_90 ; бег игрока с мячом по полю во время передвижения
+- D - I - - 0x028A9A 14:8A8A: C5 98     .word _off007_98C5_91_face_p_tsubasa_my
+- D - I - - 0x028A9C 14:8A8C: D4 98     .word _off007_98D4_92 ; tsubasa возвращает перепасовку
+- D - I - - 0x028A9E 14:8A8E: 13 99     .word _off007_9913_93_face_p_renato_my
+- D - I - - 0x028AA0 14:8A90: 22 99     .word _off007_9922_94_face_p_morisaki_my
+- D - I - - 0x028AA2 14:8A92: 31 99     .word _off007_9931_95 ; misaki возвращает перепасовку
+- D - I - - 0x028AA4 14:8A94: 6C 99     .word _off007_996C_96_face_p_misaki_my
+- D - I - - 0x028AA6 14:8A96: 7B 99     .word _off007_997B_97_face_p_misaki_japan
+- D - I - - 0x028AA8 14:8A98: 81 99     .word _off007_9981_98_face_p_ishizaki_my
+- D - I - - 0x028AAA 14:8A9A: 90 99     .word _off007_9990_99_face_p_ishizaki_japan
+- D - I - - 0x028AAC 14:8A9C: 96 99     .word _off007_9996_9A_face_p_nitta_my
+- - - - - - 0x028AAE 14:8A9E: A5 99     .word _off007_99A5_9B_face_p_nitta_japan
+- D - I - - 0x028AB0 14:8AA0: AB 99     .word _off007_99AB_9C_face_p_masao_my
+- D - I - - 0x028AB2 14:8AA2: B1 99     .word _off007_99B1_9D ; замах slider shot / razor shot
+- D - I - - 0x028AB4 14:8AA4: D4 99     .word _off007_99D4_9E_face_p_hyuga_my
+- D - I - - 0x028AB6 14:8AA6: DA 99     .word _off007_99DA_9F_face_p_soda_my
+- D - I - - 0x028AB8 14:8AA8: E0 99     .word _off007_99E0_A0_face_p_jito_my
+- D - I - - 0x028ABA 14:8AAA: E6 99     .word _off007_99E6_A1_face_p_matsuyama_my
+- - - - - - 0x028ABC 14:8AAC: EC 99     .word _off007_99EC_A2_face_p_sawada_my
+- D - I - - 0x028ABE 14:8AAE: F2 99     .word _off007_99F2_A3_face_p_misugi_my
+- D - I - - 0x028AC0 14:8AB0: F8 99     .word _off007_99F8_A4_face_p_wakabayashi_my
+- D - I - - 0x028AC2 14:8AB2: 07 9A     .word _off007_9A07_A5 ; hyuga возвращает перепасовку
+- D - I - - 0x028AC4 14:8AB4: 42 9A     .word _off007_9A42_A6_face_p_wakashimazu_my
+- D - I - - 0x028AC6 14:8AB6: 50 9A     .word _off007_9A50_A7 ; sawada / napoleon возвращает перепасовку
+- D - I - - 0x028AC8 14:8AB8: 8B 9A     .word _off007_9A8B_A8_face_p_meon_gremio
+- D - I - - 0x028ACA 14:8ABA: 9A 9A     .word _off007_9A9A_A9_face_p_carlos_flamengo
+- D - I - - 0x028ACC 14:8ABC: A0 9A     .word _off007_9AA0_AA_face_p_jito_kunimi
+- D - I - - 0x028ACE 14:8ABE: AF 9A     .word _off007_9AAF_AB_face_p_masao_akita
+- D - I - - 0x028AD0 14:8AC0: BE 9A     .word _off007_9ABE_AC ; игрок прыгает в воздух (вблизи, средняя скорость, чуть правее 64 и 71)
+- D - I - - 0x028AD2 14:8AC2: D5 9A     .word _off007_9AD5_AD_face_p_soda_tatsunami
+- D - I - - 0x028AD4 14:8AC4: E4 9A     .word _off007_9AE4_AE_face_p_misugi_musashi
+- D - I - - 0x028AD6 14:8AC6: F3 9A     .word _off007_9AF3_AF_face_p_matsuyama_furano
+- D - I - - 0x028AD8 14:8AC8: 02 9B     .word _off007_9B02_B0_face_p_hyuga_toho
+- D - I - - 0x028ADA 14:8ACA: 11 9B     .word _off007_9B11_B1_face_p_sawada_toho
+- D - I - - 0x028ADC 14:8ACC: 20 9B     .word _off007_9B20_B2_face_p_victorino_uruguay
+- D - I - - 0x028ADE 14:8ACE: 2F 9B     .word _off007_9B2F_B3_face_p_kaltz_hamburger_sv
+- D - I - - 0x028AE0 14:8AD0: 35 9B     .word _off007_9B35_B4_face_p_napoleon_france
+- D - I - - 0x028AE2 14:8AD2: 44 9B     .word _off007_9B44_B5_face_p_pierre_france
+- D - I - - 0x028AE4 14:8AD4: 53 9B     .word _off007_9B53_B6_face_p_pascal_argentina
+- D - I - - 0x028AE6 14:8AD6: 62 9B     .word _off007_9B62_B7_face_p_diaz_argentina
+- D - I - - 0x028AE8 14:8AD8: 71 9B     .word _off007_9B71_B8_face_p_schneider_west_germany
+- D - I - - 0x028AEA 14:8ADA: 80 9B     .word _off007_9B80_B9_face_p_kaltz_west_germany
+- D - I - - 0x028AEC 14:8ADC: 8F 9B     .word _off007_9B8F_BA_face_p_schester_west_germany
+- D - I - - 0x028AEE 14:8ADE: 9E 9B     .word _off007_9B9E_BB_face_p_carlos_brazil
+- D - I - - 0x028AF0 14:8AE0: AD 9B     .word _off007_9BAD_BC_face_p_coimbra_brazil
+- D - I - - 0x028AF2 14:8AE2: BC 9B     .word _off007_9BBC_BD ; лицо ishizaki face block 
+- - - - - - 0x028AF4 14:8AE4: CB 9B     .word _off007_9BCB_BE ; diaz возвращает перепасовку
+- D - I - - 0x028AF6 14:8AE6: 06 9C     .word _off007_9C06_BF ; overhead
+- D - I - - 0x028AF8 14:8AE8: 38 9C     .word _off007_9C38_C0 ; masao kazuo стоят один на другом
+- D - I - - 0x028AFA 14:8AEA: 46 9C     .word _off007_9C46_C1 ; полет masao / kazuo с тонкими ногами (аналогично 4B)
+- D - I - - 0x028AFC 14:8AEC: 54 9C     .word _off007_9C54_C2 ; masao kazuo стоят на jito
+- D - I - - 0x028AFE 14:8AEE: 62 9C     .word _off007_9C62_C3 ; masao kazuo летят вдвоем
+- D - I - - 0x028B00 14:8AF0: 70 9C     .word _off007_9C70_C4 ; замах jumping volley
+- D - I - - 0x028B02 14:8AF2: 93 9C     .word _off007_9C93_C5 ; мяч улетает от игрока после jumping volley / booster shot
+- D - I - - 0x028B04 14:8AF4: AD 9C     .word _off007_9CAD_C6 ; tsubasa подкидывает грудью мяч перед cyclone
+- D - I - - 0x028B06 14:8AF6: D7 9C     .word _off007_9CD7_C7 ; замах cyclone
+- D - I - - 0x028B08 14:8AF8: FB 9C     .word _off007_9CFB_C8 ; замах booster shot toninho
+- D - I - - 0x028B0A 14:8AFA: 0F 9D     .word _off007_9D0F_C9 ; замах rising dragon kick
+- D - I - - 0x028B0C 14:8AFC: 34 9D     .word _off007_9D34_CA ; замах rocket header
+- D - I - - 0x028B0E 14:8AFE: 79 9D     .word _off007_9D79_CB ; li brothers стоят перед rising dragon kick
+- D - I - - 0x028B10 14:8B00: 87 9D     .word _off007_9D87_CC ; diaz перед foward somersault
+- D - I - - 0x028B12 14:8B02: A4 9D     .word _off007_9DA4_CD ; foward somersault
+- D - I - - 0x028B14 14:8B04: B8 9D     .word _off007_9DB8_CE ; замах razor pass / pazor shot / razor tackle (палка пибика)
+- D - I - - 0x028B16 14:8B06: E9 9D     .word _off007_9DE9_CF ; ishizaki летит перед face block
+- D - I - - 0x028B18 14:8B08: 07 9E     .word _off007_9E07_D0 ; forcible dribble
+- D - I - - 0x028B1A 14:8B0A: 21 9E     .word _off007_9E21_D1 ; high speed dribble / vanishing feint / hedgehog dribble
+- D - I - - 0x028B1C 14:8B0C: 3B 9E     .word _off007_9E3B_D2 ; high speed dribble / vanishing feint / hedgehog dribble
+- D - I - - 0x028B1E 14:8B0E: 55 9E     .word _off007_9E55_D3 ; meon не может отбить drove overhead
+- D - I - - 0x028B20 14:8B10: 6B 9E     .word _off007_9E6B_D4 ; лицо pierre перед slider cannon (озарение)
+- D - I - - 0x028B22 14:8B12: 7A 9E     .word _off007_9E7A_D5 ; лицо napoleon перед slider cannon (озарение)
+- D - I - - 0x028B24 14:8B14: 89 9E     .word _off007_9E89_D6 ; golden twin shot
+- D - I - - 0x028B26 14:8B16: 97 9E     .word _off007_9E97_D7 ; drive tiger twin shot
+- D - I - - 0x028B28 14:8B18: A5 9E     .word _off007_9EA5_D8 ; skylab twin shot
+- D - I - - 0x028B2A 14:8B1A: B3 9E     .word _off007_9EB3_D9 ; korea twin shot
+- D - I - - 0x028B2C 14:8B1C: C1 9E     .word _off007_9EC1_DA ; кипер ждет в воротах вместо dive
+- D - I - - 0x028B2E 14:8B1E: CF 9E     .word _off007_9ECF_DB ; замах slider cannon
+- D - I - - 0x028B30 14:8B20: 1F 9F     .word _off007_9F1F_DC ; после удара twin shot
+- D - I - - 0x028B32 14:8B22: 3C 9F     .word _off007_9F3C_DD ; clone dribble
+- D - I - - 0x028B34 14:8B24: 56 9F     .word _off007_9F56_DE ; глаза tsubasa в медленном движении
+- - - - - - 0x028B36 14:8B26: 6D 9F     .word _off007_9F6D_DF ; pascal возвращает перепасовку
+- D - I - - 0x028B38 14:8B28: A8 9F     .word _off007_9FA8_E0 ; tsubasa стоит спиной
+- D - I - - 0x028B3A 14:8B2A: C4 9F     .word _off007_9FC4_E1 ; masao kazuo зеленые один на другом
+- D - I - - 0x028B3C 14:8B2C: C9 9F     .word _off007_9FC9_E2 ; heel lift
+- D - I - - 0x028B3E 14:8B2E: 4C A0     .word _off007_A04C_E3 ; ? бег игрока перед power block
+- D - I - - 0x028B40 14:8B30: 66 A0     .word _off007_A066_E4 ; heel lift мяч приземляется к tsubasa
+- D - I - - 0x028B42 14:8B32: 8F A0     .word _off007_A08F_E5 ; мяч подлетает вверх перед ударом по нему cyclone
+- D - I - - 0x028B44 14:8B34: A3 A0     .word _off007_A0A3_E6 ; игрок принимает нижний пас на ногу (почти идентично 78)
+- D - I - - 0x028B46 14:8B36: A8 A0     .word _off007_A0A8_E7 ; hyuga бежит к drive tiger
+- D - I - - 0x028B48 14:8B38: BE A0     .word _off007_A0BE_E8 ; sano бьет головой в sano combo
+- D - I - - 0x028B4A 14:8B3A: EA A0     .word _off007_A0EA_E9 ; удар booster shot toninho
+- D - I - - 0x028B4C 14:8B3C: F8 A0     .word _off007_A0F8_EA ; jito готовится делать skylab twin shot
+- D - I - - 0x028B4E 14:8B3E: 06 A1     .word _off007_A106_EB ; pierre прыгает для slider cannon
+- D - I - - 0x028B50 14:8B40: 1D A1     .word _off007_A11D_EC ; napoleon прыгает для slider cannon
+- D - I - - 0x028B52 14:8B42: 30 A1     .word _off007_A130_ED ; tsubasa прыгает для drive overhead
+- D - I - - 0x028B54 14:8B44: 3E A1     .word _off007_A13E_EE ; pierre возвращает перепасовку
+- D - I - - 0x028B56 14:8B46: 79 A1     .word _off007_A179_EF ; masao kazuo возвращает перепасовку
 
 
 
-con_F0              = $F0 ; выход
+con_F0_exit         = $F0 ; выход
 con_F1              = $F1 ; 
+    ; 1й байт = какое-то движение спрайтов анимации если не 00
+    ; 2й байт = хз, меняется рожа, например у цубасы 98, а заменив на 99 появится рожа брата
+    ; 3й байт = величина смещения спрайтов анимации вправо
+    ; 4й байт = величина смещения спрайтов анимации вниз
+    ; 5й байт = хз, у рож стоит 01, если поменять то спрайты исчезнут
 ; unused            = $F2 ; 
 ; unused            = $F3 ; 
-con_F4              = $F4 ; 4 банка спрайтов
-con_F5              = $F5 ; 
+con_F4_chr_spr      = $F4 ; 4 банка спрайтов
+con_F5              = $F5 ; ? набор спрайтов (в каждой есть 1 штука, но в E0 целых 2)
 con_F6              = $F6 ; 
 con_F7              = $F7 ; 
-con_F8              = $F8 ; прыжок
+con_F8_jmp          = $F8 ; прыжок
 con_F9              = $F9 ; ? пауза
 con_FA              = $FA ; ? выход из паузы
 con_FB              = $FB ; 
 
 
 
+; обычные байты без управляющих байтов = 3 последних палитры фона + 3 последних палитры спрайтов
+
+
+
 _off007_8B48_00:
 - D - I - - 0x028B58 14:8B48: F5        .byte con_F5, $0B
-- D - I - - 0x028B5A 14:8B4A: F4        .byte con_F4, $1F, $00, $00, $00
+- D - I - - 0x028B5A 14:8B4A: F4        .byte con_F4_chr_spr, $1F, $00, $00, $00
 - D - I - - 0x028B5F 14:8B4F: F6        .byte con_F6, $00
 - D - I - - 0x028B61 14:8B51: F6        .byte con_F6, $15
 - D - I - - 0x028B63 14:8B53: F6        .byte con_F6, $2A
 - D - I - - 0x028B65 14:8B55: F6        .byte con_F6, $3F
 - D - I - - 0x028B67 14:8B57: F6        .byte con_F6, $54
 - D - I - - 0x028B69 14:8B59: F6        .byte con_F6, $69
-- D - I - - 0x028B6B 14:8B5B: F0        .byte con_F0
+- D - I - - 0x028B6B 14:8B5B: F0        .byte con_F0_exit
 
 
 
 _off007_8B5C_01:
 - D - I - - 0x028B6C 14:8B5C: F5        .byte con_F5, $09
-- D - I - - 0x028B6E 14:8B5E: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028B6E 14:8B5E: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028B73 14:8B63: F1        .byte con_F1, $0B, $BA, $B8, $F3, $00
-- D - I - - 0x028B79 14:8B69: F0        .byte con_F0
+- D - I - - 0x028B79 14:8B69: F0        .byte con_F0_exit
 
 
 
 _off007_8B6A_02:
 - D - I - - 0x028B7A 14:8B6A: F5        .byte con_F5, $83
-- D - I - - 0x028B7C 14:8B6C: F4        .byte con_F4, $12, $00, $00, $00
+- D - I - - 0x028B7C 14:8B6C: F4        .byte con_F4_chr_spr, $12, $00, $00, $00
 - D - I - - 0x028B81 14:8B71: F1        .byte con_F1, $00, $01, $00, $C3, $01
-- D - I - - 0x028B87 14:8B77: F0        .byte con_F0
+- D - I - - 0x028B87 14:8B77: F0        .byte con_F0_exit
 
 
 
 _off007_8B78_03:
 - D - I - - 0x028B88 14:8B78: F5        .byte con_F5, $83
-- D - I - - 0x028B8A 14:8B7A: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028B8A 14:8B7A: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028B8F 14:8B7F: F1        .byte con_F1, $46, $40, $E8, $BB, $00
-- D - I - - 0x028B95 14:8B85: F0        .byte con_F0
+- D - I - - 0x028B95 14:8B85: F0        .byte con_F0_exit
 
 
 
 _off007_8B86_04:
 - D - I - - 0x028B96 14:8B86: F5        .byte con_F5, $83
-- D - I - - 0x028B98 14:8B88: F4        .byte con_F4, $18, $19, $1A, $2B
+- D - I - - 0x028B98 14:8B88: F4        .byte con_F4_chr_spr, $18, $19, $1A, $2B
 - D - I - - 0x028B9D 14:8B8D: F1        .byte con_F1, $37, $05, $18, $CB, $01
-- D - I - - 0x028BA3 14:8B93: F0        .byte con_F0
+- D - I - - 0x028BA3 14:8B93: F0        .byte con_F0_exit
 
 
 
 _off007_8B94_05:
 - D - I - - 0x028BA4 14:8B94: F5        .byte con_F5, $81
-- D - I - - 0x028BA6 14:8B96: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028BA6 14:8B96: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028BAB 14:8B9B: F1        .byte con_F1, $02, $07, $E4, $CF, $00
 - D - I - - 0x028BB1 14:8BA1: F1        .byte con_F1, $01, $06, $F8, $BB, $04
 off_8BA7:
@@ -2085,189 +2094,189 @@ off_8BA7:
 - D - I - - 0x028BB8 14:8BA8: FB        .byte con_FB, $01, $23, $45
 - D - I - - 0x028BBC 14:8BAC: 01        .byte $01
 - D - I - - 0x028BBD 14:8BAD: FB        .byte con_FB, $10, $23, $45
-- D - I - - 0x028BC1 14:8BB1: F8        .byte con_F8
+- D - I - - 0x028BC1 14:8BB1: F8        .byte con_F8_jmp
 - D - I - - 0x028BC2 14:8BB2: A7 8B     .word off_8BA7
 
 
 
 _off007_8BB4_06:
 - D - I - - 0x028BC4 14:8BB4: F5        .byte con_F5, $81
-- D - I - - 0x028BC6 14:8BB6: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028BC6 14:8BB6: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028BCB 14:8BBB: F1        .byte con_F1, $04, $07, $50, $04, $02
 - D - I - - 0x028BD1 14:8BC1: F1        .byte con_F1, $03, $06, $10, $B3, $05
-- D - I - - 0x028BD7 14:8BC7: F8        .byte con_F8
+- D - I - - 0x028BD7 14:8BC7: F8        .byte con_F8_jmp
 - D - I - - 0x028BD8 14:8BC8: A7 8B     .word off_8BA7
 
 
 
 _off007_8BCA_07:
 - D - I - - 0x028BDA 14:8BCA: F5        .byte con_F5, $81
-- D - I - - 0x028BDC 14:8BCC: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028BDC 14:8BCC: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028BE1 14:8BD1: F1        .byte con_F1, $06, $07, $58, $EF, $00
 - D - I - - 0x028BE7 14:8BD7: F1        .byte con_F1, $05, $06, $10, $B3, $05
-- D - I - - 0x028BED 14:8BDD: F8        .byte con_F8
+- D - I - - 0x028BED 14:8BDD: F8        .byte con_F8_jmp
 - D - I - - 0x028BEE 14:8BDE: A7 8B     .word off_8BA7
 
 
 
 _off007_8BE0_08:
 - D - I - - 0x028BF0 14:8BE0: F5        .byte con_F5, $81
-- D - I - - 0x028BF2 14:8BE2: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028BF2 14:8BE2: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028BF7 14:8BE7: F1        .byte con_F1, $00, $08, $F8, $BB, $00
-- D - I - - 0x028BFD 14:8BED: F0        .byte con_F0
+- D - I - - 0x028BFD 14:8BED: F0        .byte con_F0_exit
 
 
 
 _off007_8BEE_09:
 - D - I - - 0x028BFE 14:8BEE: F5        .byte con_F5, $81
-- D - I - - 0x028C00 14:8BF0: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028C00 14:8BF0: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028C05 14:8BF5: F1        .byte con_F1, $09, $07, $32, $FE, $00
 - D - I - - 0x028C0B 14:8BFB: F1        .byte con_F1, $DA, $06, $11, $B2, $05
-- D - I - - 0x028C11 14:8C01: F8        .byte con_F8
+- D - I - - 0x028C11 14:8C01: F8        .byte con_F8_jmp
 - D - I - - 0x028C12 14:8C02: A7 8B     .word off_8BA7
 
 
 
 _off007_8C04_0A:
 - - - - - - 0x028C14 14:8C04: F5        .byte con_F5, $09
-- - - - - - 0x028C16 14:8C06: F4        .byte con_F4, $04, $05, $00, $00
+- - - - - - 0x028C16 14:8C06: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - - - - - - 0x028C1B 14:8C0B: F1        .byte con_F1, $0D, $C4, $98, $E3, $00
-- - - - - - 0x028C21 14:8C11: F0        .byte con_F0
+- - - - - - 0x028C21 14:8C11: F0        .byte con_F0_exit
 
 
 
 _off007_8C12_0B:
 - D - I - - 0x028C22 14:8C12: F5        .byte con_F5, $81
-- D - I - - 0x028C24 14:8C14: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028C24 14:8C14: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028C29 14:8C19: F1        .byte con_F1, $0A, $0A, $F0, $BB, $00
 - D - I - - 0x028C2F 14:8C1F: F1        .byte con_F1, $01, $09, $F8, $BB, $04
-- D - I - - 0x028C35 14:8C25: F8        .byte con_F8
+- D - I - - 0x028C35 14:8C25: F8        .byte con_F8_jmp
 - D - I - - 0x028C36 14:8C26: A7 8B     .word off_8BA7
 
 
 
 _off007_8C28_0C:
 - D - I - - 0x028C38 14:8C28: F5        .byte con_F5, $81
-- D - I - - 0x028C3A 14:8C2A: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028C3A 14:8C2A: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028C3F 14:8C2F: F1        .byte con_F1, $05, $09, $10, $B3, $05
 - D - I - - 0x028C45 14:8C35: F1        .byte con_F1, $06, $0A, $58, $EF, $00
-- D - I - - 0x028C4B 14:8C3B: F0        .byte con_F0
+- D - I - - 0x028C4B 14:8C3B: F0        .byte con_F0_exit
 
 
 
 _off007_8C3C_0D:
 - D - I - - 0x028C4C 14:8C3C: F5        .byte con_F5, $81
-- D - I - - 0x028C4E 14:8C3E: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028C4E 14:8C3E: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028C53 14:8C43: F1        .byte con_F1, $00, $3A, $F8, $BB, $00
-- D - I - - 0x028C59 14:8C49: F0        .byte con_F0
+- D - I - - 0x028C59 14:8C49: F0        .byte con_F0_exit
 
 
 
 _off007_8C4A_0E:
 - D - I - - 0x028C5A 14:8C4A: F5        .byte con_F5, $09
-- D - I - - 0x028C5C 14:8C4C: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028C5C 14:8C4C: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028C61 14:8C51: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028C64 14:8C54: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x028C6A 14:8C5A: F1        .byte con_F1, $3B, $BA, $D0, $C3, $04
-- D - I - - 0x028C70 14:8C60: F0        .byte con_F0
+- D - I - - 0x028C70 14:8C60: F0        .byte con_F0_exit
 
 
 
 _off007_8C61_0F:
 - D - I - - 0x028C71 14:8C61: F5        .byte con_F5, $09
-- D - I - - 0x028C73 14:8C63: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028C73 14:8C63: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028C78 14:8C68: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028C7B 14:8C6B: F1        .byte con_F1, $3C, $CF, $E0, $7B, $04
 - D - I - - 0x028C81 14:8C71: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x028C87 14:8C77: F0        .byte con_F0
+- D - I - - 0x028C87 14:8C77: F0        .byte con_F0_exit
 
 
 
 _off007_8C78_10:
 - D - I - - 0x028C88 14:8C78: F5        .byte con_F5, $09
-- D - I - - 0x028C8A 14:8C7A: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028C8A 14:8C7A: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028C8F 14:8C7F: F1        .byte con_F1, $48, $C4, $98, $A4, $00
-- D - I - - 0x028C95 14:8C85: F0        .byte con_F0
+- D - I - - 0x028C95 14:8C85: F0        .byte con_F0_exit
 
 
 
 _off007_8C86_11:
 - D - I - - 0x028C96 14:8C86: F5        .byte con_F5, $09
-- D - I - - 0x028C98 14:8C88: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028C98 14:8C88: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028C9D 14:8C8D: F1        .byte con_F1, $00, $BA, $00, $C3, $01
-- D - I - - 0x028CA3 14:8C93: F0        .byte con_F0
+- D - I - - 0x028CA3 14:8C93: F0        .byte con_F0_exit
 
 
 
 _off007_8C94_12:
 - D - I - - 0x028CA4 14:8C94: F5        .byte con_F5, $09
-- D - I - - 0x028CA6 14:8C96: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028CA6 14:8C96: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028CAB 14:8C9B: F1        .byte con_F1, $5F, $CF, $98, $AB, $00
-- D - I - - 0x028CB1 14:8CA1: F0        .byte con_F0
+- D - I - - 0x028CB1 14:8CA1: F0        .byte con_F0_exit
 
 
 
 _off007_8CA2_13:
 - D - I - - 0x028CB2 14:8CA2: F5        .byte con_F5, $81
-- D - I - - 0x028CB4 14:8CA4: F4        .byte con_F4, $1C, $1D, $00, $00
+- D - I - - 0x028CB4 14:8CA4: F4        .byte con_F4_chr_spr, $1C, $1D, $00, $00
 - D - I - - 0x028CB9 14:8CA9: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028CBC 14:8CAC: F1        .byte con_F1, $76, $0D, $80, $23, $06
 - D - I - - 0x028CC2 14:8CB2: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x028CC8 14:8CB8: F0        .byte con_F0
+- D - I - - 0x028CC8 14:8CB8: F0        .byte con_F0_exit
 
 
 
 _off007_8CB9_14:
 - D - I - - 0x028CC9 14:8CB9: F5        .byte con_F5, $81
-- D - I - - 0x028CCB 14:8CBB: F4        .byte con_F4, $1C, $1D, $00, $00
+- D - I - - 0x028CCB 14:8CBB: F4        .byte con_F4_chr_spr, $1C, $1D, $00, $00
 - D - I - - 0x028CD0 14:8CC0: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028CD3 14:8CC3: F1        .byte con_F1, $76, $0F, $80, $23, $06
 - D - I - - 0x028CD9 14:8CC9: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x028CDF 14:8CCF: F0        .byte con_F0
+- D - I - - 0x028CDF 14:8CCF: F0        .byte con_F0_exit
 
 
 
 _off007_8CD0_15:
 - D - I - - 0x028CE0 14:8CD0: F5        .byte con_F5, $81
-- D - I - - 0x028CE2 14:8CD2: F4        .byte con_F4, $28, $29, $2A, $0B
+- D - I - - 0x028CE2 14:8CD2: F4        .byte con_F4_chr_spr, $28, $29, $2A, $0B
 - D - I - - 0x028CE7 14:8CD7: F1        .byte con_F1, $0E, $3C, $E8, $BB, $00
-- D - I - - 0x028CED 14:8CDD: F0        .byte con_F0
+- D - I - - 0x028CED 14:8CDD: F0        .byte con_F0_exit
 
 
 
 _off007_8CDE_16:
 - D - I - - 0x028CEE 14:8CDE: F5        .byte con_F5, $83
-- D - I - - 0x028CF0 14:8CE0: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028CF0 14:8CE0: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028CF5 14:8CE5: F1        .byte con_F1, $99, $40, $D0, $BB, $00
-- D - I - - 0x028CFB 14:8CEB: F0        .byte con_F0
+- D - I - - 0x028CFB 14:8CEB: F0        .byte con_F0_exit
 
 
 
 _off007_8CEC_17:
 - D - I - - 0x028CFC 14:8CEC: F5        .byte con_F5, $83
-- D - I - - 0x028CFE 14:8CEE: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028CFE 14:8CEE: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028D03 14:8CF3: F1        .byte con_F1, $11, $15, $64, $EF, $00
 - D - I - - 0x028D09 14:8CF9: F1        .byte con_F1, $9A, $14, $CE, $B7, $04
 - D - I - - 0x028D0F 14:8CFF: 1E        .byte $1E
 - D - I - - 0x028D10 14:8D00: F6        .byte con_F6, $00
 - D - I - - 0x028D12 14:8D02: F1        .byte con_F1, $10, $40, $E8, $BB, $04
-- D - I - - 0x028D18 14:8D08: F0        .byte con_F0
+- D - I - - 0x028D18 14:8D08: F0        .byte con_F0_exit
 
 
 
 _off007_8D09_18:
 - D - I - - 0x028D19 14:8D09: F5        .byte con_F5, $83
-- D - I - - 0x028D1B 14:8D0B: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028D1B 14:8D0B: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028D20 14:8D10: F1        .byte con_F1, $12, $15, $40, $CB, $00
 - D - I - - 0x028D26 14:8D16: F1        .byte con_F1, $9B, $14, $DC, $C6, $04
-- D - I - - 0x028D2C 14:8D1C: F8        .byte con_F8
+- D - I - - 0x028D2C 14:8D1C: F8        .byte con_F8_jmp
 - D - I - - 0x028D2D 14:8D1D: A7 8B     .word off_8BA7
 
 
 
 _off007_8D1F_19:
 - D - I - - 0x028D2F 14:8D1F: F5        .byte con_F5, $80
-- D - I - - 0x028D31 14:8D21: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x028D31 14:8D21: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x028D36 14:8D26: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028D39 14:8D29: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x028D3F 14:8D2F: F1        .byte con_F1, $9D, $1E, $7C, $9F, $04
@@ -2278,21 +2287,21 @@ _off007_8D1F_19:
 - D - I - - 0x028D54 14:8D44: 02        .byte $02
 - D - I - - 0x028D55 14:8D45: F1        .byte con_F1, $E7, $1E, $FC, $B3, $04
 - D - I - - 0x028D5B 14:8D4B: F1        .byte con_F1, $26, $20, $EB, $C1, $08
-- D - I - - 0x028D61 14:8D51: F0        .byte con_F0
+- D - I - - 0x028D61 14:8D51: F0        .byte con_F0_exit
 
 
 
 _off007_8D52_1A:
 - D - I - - 0x028D62 14:8D52: F5        .byte con_F5, $09
-- D - I - - 0x028D64 14:8D54: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028D64 14:8D54: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028D69 14:8D59: F1        .byte con_F1, $60, $CF, $98, $E3, $00
-- D - I - - 0x028D6F 14:8D5F: F0        .byte con_F0
+- D - I - - 0x028D6F 14:8D5F: F0        .byte con_F0_exit
 
 
 
 _off007_8D60_1B:
 - D - I - - 0x028D70 14:8D60: F5        .byte con_F5, $83
-- D - I - - 0x028D72 14:8D62: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028D72 14:8D62: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028D77 14:8D67: F1        .byte con_F1, $49, $15, $40, $CB, $00
 - D - I - - 0x028D7D 14:8D6D: F1        .byte con_F1, $A5, $14, $DC, $C6, $04
 - D - I - - 0x028D83 14:8D73: F9        .byte con_F9, $0F
@@ -2303,53 +2312,53 @@ _off007_8D60_1B:
 - D - I - - 0x028D8F 14:8D7F: FA        .byte con_FA
 - D - I - - 0x028D90 14:8D80: F6        .byte con_F6, $00
 - D - I - - 0x028D92 14:8D82: F1        .byte con_F1, $4A, $40, $08, $BB, $05
-- D - I - - 0x028D98 14:8D88: F0        .byte con_F0
+- D - I - - 0x028D98 14:8D88: F0        .byte con_F0_exit
 
 
 
 _off007_8D89_1C:
 - D - I - - 0x028D99 14:8D89: F5        .byte con_F5, $81
-- D - I - - 0x028D9B 14:8D8B: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x028D9B 14:8D8B: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x028DA0 14:8D90: F1        .byte con_F1, $90, $2A, $00, $CB, $01
-- D - I - - 0x028DA6 14:8D96: F0        .byte con_F0
+- D - I - - 0x028DA6 14:8D96: F0        .byte con_F0_exit
 
 
 
 _off007_8D97_1D:
 - D - I - - 0x028DA7 14:8D97: F5        .byte con_F5, $09
-- D - I - - 0x028DA9 14:8D99: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028DA9 14:8D99: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028DAE 14:8D9E: F1        .byte con_F1, $61, $C4, $00, $EB, $01
-- D - I - - 0x028DB4 14:8DA4: F0        .byte con_F0
+- D - I - - 0x028DB4 14:8DA4: F0        .byte con_F0_exit
 
 
 
 _off007_8DA5_1E:
 - D - I - - 0x028DB5 14:8DA5: F5        .byte con_F5, $09
-- D - I - - 0x028DB7 14:8DA7: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028DB7 14:8DA7: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028DBC 14:8DAC: F1        .byte con_F1, $73, $72, $9F, $BB, $00
-- D - I - - 0x028DC2 14:8DB2: F0        .byte con_F0
+- D - I - - 0x028DC2 14:8DB2: F0        .byte con_F0_exit
 
 
 
 _off007_8DB3_1F:
 - D - I - - 0x028DC3 14:8DB3: F5        .byte con_F5, $09
-- D - I - - 0x028DC5 14:8DB5: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028DC5 14:8DB5: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028DCA 14:8DBA: F1        .byte con_F1, $00, $71, $00, $BB, $01
-- D - I - - 0x028DD0 14:8DC0: F0        .byte con_F0
+- D - I - - 0x028DD0 14:8DC0: F0        .byte con_F0_exit
 
 
 
 _off007_8DC1_20:
 - D - I - - 0x028DD1 14:8DC1: F5        .byte con_F5, $81
-- D - I - - 0x028DD3 14:8DC3: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x028DD3 14:8DC3: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x028DD8 14:8DC8: F1        .byte con_F1, $38, $2A, $00, $CB, $01
-- D - I - - 0x028DDE 14:8DCE: F0        .byte con_F0
+- D - I - - 0x028DDE 14:8DCE: F0        .byte con_F0_exit
 
 
 
 _off007_8DCF_21:
 - D - I - - 0x028DDF 14:8DCF: F5        .byte con_F5, $81
-- D - I - - 0x028DE1 14:8DD1: F4        .byte con_F4, $28, $29, $2A, $0B
+- D - I - - 0x028DE1 14:8DD1: F4        .byte con_F4_chr_spr, $28, $29, $2A, $0B
 - D - I - - 0x028DE6 14:8DD6: F1        .byte con_F1, $4C, $12, $70, $CB, $00
 - D - I - - 0x028DEC 14:8DDC: F1        .byte con_F1, $4B, $10, $23, $C0, $05
 - D - I - - 0x028DF2 14:8DE2: F9        .byte con_F9, $0C
@@ -2363,33 +2372,33 @@ _off007_8DCF_21:
 - D - I - - 0x028E07 14:8DF7: 02        .byte $02
 - D - I - - 0x028E08 14:8DF8: F1        .byte con_F1, $DE, $12, $16, $CB, $01
 - D - I - - 0x028E0E 14:8DFE: F1        .byte con_F1, $4B, $10, $20, $BB, $05
-- D - I - - 0x028E14 14:8E04: F0        .byte con_F0
+- D - I - - 0x028E14 14:8E04: F0        .byte con_F0_exit
 
 
 
 _off007_8E05_22:
 - D - I - - 0x028E15 14:8E05: F5        .byte con_F5, $81
-- D - I - - 0x028E17 14:8E07: F4        .byte con_F4, $28, $29, $2A, $2B
+- D - I - - 0x028E17 14:8E07: F4        .byte con_F4_chr_spr, $28, $29, $2A, $2B
 - D - I - - 0x028E1C 14:8E0C: F1        .byte con_F1, $4E, $12, $70, $CB, $00
 - D - I - - 0x028E22 14:8E12: F1        .byte con_F1, $4D, $10, $28, $C3, $05
-- D - I - - 0x028E28 14:8E18: F8        .byte con_F8
+- D - I - - 0x028E28 14:8E18: F8        .byte con_F8_jmp
 - D - I - - 0x028E29 14:8E19: A7 8B     .word off_8BA7
 
 
 
 _off007_8E1B_23:
 - D - I - - 0x028E2B 14:8E1B: F5        .byte con_F5, $83
-- D - I - - 0x028E2D 14:8E1D: F4        .byte con_F4, $18, $19, $1A, $2B
+- D - I - - 0x028E2D 14:8E1D: F4        .byte con_F4_chr_spr, $18, $19, $1A, $2B
 - D - I - - 0x028E32 14:8E22: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028E35 14:8E25: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x028E3B 14:8E2B: F1        .byte con_F1, $E8, $05, $F8, $C3, $04
-- D - I - - 0x028E41 14:8E31: F0        .byte con_F0
+- D - I - - 0x028E41 14:8E31: F0        .byte con_F0_exit
 
 
 
 _off007_8E32_24:
 - D - I - - 0x028E42 14:8E32: F5        .byte con_F5, $83
-- D - I - - 0x028E44 14:8E34: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028E44 14:8E34: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028E49 14:8E39: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028E4C 14:8E3C: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x028E52 14:8E42: F1        .byte con_F1, $14, $15, $56, $7C, $04
@@ -2399,35 +2408,35 @@ off_8E4E:
 - D - I - - 0x028E5F 14:8E4F: FB        .byte con_FB, $01, $23, $45
 - D - I - - 0x028E63 14:8E53: 01        .byte $01
 - D - I - - 0x028E64 14:8E54: FB        .byte con_FB, $02, $13, $45
-- D - I - - 0x028E68 14:8E58: F8        .byte con_F8
+- D - I - - 0x028E68 14:8E58: F8        .byte con_F8_jmp
 - D - I - - 0x028E69 14:8E59: 4E 8E     .word off_8E4E
 
 
 
 _off007_8E5B_25:
 - D - I - - 0x028E6B 14:8E5B: F5        .byte con_F5, $83
-- D - I - - 0x028E6D 14:8E5D: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028E6D 14:8E5D: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028E72 14:8E62: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028E75 14:8E65: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x028E7B 14:8E6B: F1        .byte con_F1, $14, $15, $39, $7E, $04
 - D - I - - 0x028E81 14:8E71: F1        .byte con_F1, $13, $17, $04, $BB, $09
-- D - I - - 0x028E87 14:8E77: F8        .byte con_F8
+- D - I - - 0x028E87 14:8E77: F8        .byte con_F8_jmp
 - D - I - - 0x028E88 14:8E78: 4E 8E     .word off_8E4E
 
 
 
 _off007_8E7A_26:
 - D - I - - 0x028E8A 14:8E7A: F5        .byte con_F5, $83
-- D - I - - 0x028E8C 14:8E7C: F4        .byte con_F4, $2A, $2B, $00, $00
+- D - I - - 0x028E8C 14:8E7C: F4        .byte con_F4_chr_spr, $2A, $2B, $00, $00
 - D - I - - 0x028E91 14:8E81: F1        .byte con_F1, $16, $04, $90, $9B, $00
 - D - I - - 0x028E97 14:8E87: F1        .byte con_F1, $15, $03, $F6, $D5, $04
-- D - I - - 0x028E9D 14:8E8D: F0        .byte con_F0
+- D - I - - 0x028E9D 14:8E8D: F0        .byte con_F0_exit
 
 
 
 _off007_8E8E_27:
 - D - I - - 0x028E9E 14:8E8E: F5        .byte con_F5, $83
-- D - I - - 0x028EA0 14:8E90: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028EA0 14:8E90: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028EA5 14:8E95: F1        .byte con_F1, $17, $15, $39, $7E, $00
 - D - I - - 0x028EAB 14:8E9B: F1        .byte con_F1, $52, $17, $02, $BD, $05
 - D - I - - 0x028EB1 14:8EA1: F9        .byte con_F9, $0F
@@ -2441,35 +2450,35 @@ _off007_8E8E_27:
 - D - I - - 0x028EC6 14:8EB6: 04        .byte $04
 - D - I - - 0x028EC7 14:8EB7: F1        .byte con_F1, $1B, $15, $E6, $DD, $00
 - D - I - - 0x028ECD 14:8EBD: F1        .byte con_F1, $53, $17, $F4, $C3, $04
-- D - I - - 0x028ED3 14:8EC3: F8        .byte con_F8
+- D - I - - 0x028ED3 14:8EC3: F8        .byte con_F8_jmp
 - D - I - - 0x028ED4 14:8EC4: A7 8B     .word off_8BA7
 
 
 
 _off007_8EC6_28:
 - D - I - - 0x028ED6 14:8EC6: F5        .byte con_F5, $09
-- D - I - - 0x028ED8 14:8EC8: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028ED8 14:8EC8: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028EDD 14:8ECD: F7        .byte con_F7, $03, $73
 - D - I - - 0x028EE0 14:8ED0: F1        .byte con_F1, $75, $71, $00, $C3, $01
 - D - I - - 0x028EE6 14:8ED6: 0A        .byte $0A
 - D - I - - 0x028EE7 14:8ED7: F1        .byte con_F1, $D9, $71, $00, $C3, $05
 - D - I - - 0x028EED 14:8EDD: 0A        .byte $0A
 - D - I - - 0x028EEE 14:8EDE: F1        .byte con_F1, $00, $71, $00, $C3, $09
-- D - I - - 0x028EF4 14:8EE4: F0        .byte con_F0
+- D - I - - 0x028EF4 14:8EE4: F0        .byte con_F0_exit
 
 
 
 _off007_8EE5_29:
 - D - I - - 0x028EF5 14:8EE5: F5        .byte con_F5, $09
-- D - I - - 0x028EF7 14:8EE7: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028EF7 14:8EE7: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028EFC 14:8EEC: F1        .byte con_F1, $87, $71, $00, $EB, $01
-- D - I - - 0x028F02 14:8EF2: F0        .byte con_F0
+- D - I - - 0x028F02 14:8EF2: F0        .byte con_F0_exit
 
 
 
 _off007_8EF3_2A:
 - D - I - - 0x028F03 14:8EF3: F5        .byte con_F5, $83
-- D - I - - 0x028F05 14:8EF5: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028F05 14:8EF5: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028F0A 14:8EFA: F1        .byte con_F1, $17, $15, $56, $7C, $00
 - D - I - - 0x028F10 14:8F00: F1        .byte con_F1, $08, $80, $E6, $BC, $04
 - D - I - - 0x028F16 14:8F06: F9        .byte con_F9, $0F
@@ -2483,13 +2492,13 @@ _off007_8EF3_2A:
 - D - I - - 0x028F2B 14:8F1B: 04        .byte $04
 - D - I - - 0x028F2C 14:8F1C: F1        .byte con_F1, $1B, $15, $06, $DD, $01
 - D - I - - 0x028F32 14:8F22: F1        .byte con_F1, $1C, $80, $F8, $C3, $04
-- D - I - - 0x028F38 14:8F28: F0        .byte con_F0
+- D - I - - 0x028F38 14:8F28: F0        .byte con_F0_exit
 
 
 
 _off007_8F29_2B:
 - D - I - - 0x028F39 14:8F29: F5        .byte con_F5, $83
-- D - I - - 0x028F3B 14:8F2B: F4        .byte con_F4, $2A, $2B, $00, $00
+- D - I - - 0x028F3B 14:8F2B: F4        .byte con_F4_chr_spr, $2A, $2B, $00, $00
 - D - I - - 0x028F40 14:8F30: F1        .byte con_F1, $19, $04, $90, $9B, $00
 - D - I - - 0x028F46 14:8F36: F1        .byte con_F1, $18, $03, $FA, $D0, $04
 - D - I - - 0x028F4C 14:8F3C: 1E        .byte $1E
@@ -2498,13 +2507,13 @@ _off007_8F29_2B:
 - D - I - - 0x028F55 14:8F45: 04        .byte $04
 - D - I - - 0x028F56 14:8F46: F1        .byte con_F1, $1D, $04, $1C, $AB, $01
 - D - I - - 0x028F5C 14:8F4C: F1        .byte con_F1, $18, $03, $00, $CB, $05
-- D - I - - 0x028F62 14:8F52: F0        .byte con_F0
+- D - I - - 0x028F62 14:8F52: F0        .byte con_F0_exit
 
 
 
 _off007_8F53_2C:
 - D - I - - 0x028F63 14:8F53: F5        .byte con_F5, $83
-- D - I - - 0x028F65 14:8F55: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x028F65 14:8F55: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x028F6A 14:8F5A: F1        .byte con_F1, $17, $15, $56, $7C, $00
 - D - I - - 0x028F70 14:8F60: F1        .byte con_F1, $08, $80, $E6, $BC, $04
 - D - I - - 0x028F76 14:8F66: F9        .byte con_F9, $0F
@@ -2515,78 +2524,78 @@ _off007_8F53_2C:
 - D - I - - 0x028F82 14:8F72: FA        .byte con_FA
 - D - I - - 0x028F83 14:8F73: F6        .byte con_F6, $00
 - D - I - - 0x028F85 14:8F75: F1        .byte con_F1, $00, $7F, $F8, $C3, $04
-- D - I - - 0x028F8B 14:8F7B: F0        .byte con_F0
+- D - I - - 0x028F8B 14:8F7B: F0        .byte con_F0_exit
 
 
 
 _off007_8F7C_2D:
 - D - I - - 0x028F8C 14:8F7C: F5        .byte con_F5, $83
-- D - I - - 0x028F8E 14:8F7E: F4        .byte con_F4, $2A, $2B, $00, $00
+- D - I - - 0x028F8E 14:8F7E: F4        .byte con_F4_chr_spr, $2A, $2B, $00, $00
 - D - I - - 0x028F93 14:8F83: F1        .byte con_F1, $19, $04, $90, $9B, $00
 - D - I - - 0x028F99 14:8F89: F1        .byte con_F1, $18, $03, $FA, $D0, $04
 - D - I - - 0x028F9F 14:8F8F: 1E        .byte $1E
 - D - I - - 0x028FA0 14:8F90: F6        .byte con_F6, $00
 - D - I - - 0x028FA2 14:8F92: F1        .byte con_F1, $00, $3E, $00, $CB, $05
-- D - I - - 0x028FA8 14:8F98: F0        .byte con_F0
+- D - I - - 0x028FA8 14:8F98: F0        .byte con_F0_exit
 
 
 
 _off007_8F99_2E:
 - D - I - - 0x028FA9 14:8F99: F5        .byte con_F5, $81
-- D - I - - 0x028FAB 14:8F9B: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028FAB 14:8F9B: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028FB0 14:8FA0: F1        .byte con_F1, $9C, $38, $08, $BB, $01
-- D - I - - 0x028FB6 14:8FA6: F0        .byte con_F0
+- D - I - - 0x028FB6 14:8FA6: F0        .byte con_F0_exit
 
 
 
 _off007_8FA7_2F:
 - D - I - - 0x028FB7 14:8FA7: F5        .byte con_F5, $09
-- D - I - - 0x028FB9 14:8FA9: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028FB9 14:8FA9: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028FBE 14:8FAE: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028FC1 14:8FB1: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x028FC7 14:8FB7: F1        .byte con_F1, $88, $71, $D0, $C3, $04
-- D - I - - 0x028FCD 14:8FBD: F0        .byte con_F0
+- D - I - - 0x028FCD 14:8FBD: F0        .byte con_F0_exit
 
 
 
 _off007_8FBE_30:
 - D - I - - 0x028FCE 14:8FBE: F5        .byte con_F5, $81
-- D - I - - 0x028FD0 14:8FC0: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028FD0 14:8FC0: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028FD5 14:8FC5: F1        .byte con_F1, $1F, $3A, $08, $BB, $01
-- D - I - - 0x028FDB 14:8FCB: F0        .byte con_F0
+- D - I - - 0x028FDB 14:8FCB: F0        .byte con_F0_exit
 
 
 
 _off007_8FCC_31:
 - D - I - - 0x028FDC 14:8FCC: F5        .byte con_F5, $81
-- D - I - - 0x028FDE 14:8FCE: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x028FDE 14:8FCE: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x028FE3 14:8FD3: F1        .byte con_F1, $04, $0A, $50, $03, $02
 - D - I - - 0x028FE9 14:8FD9: F1        .byte con_F1, $03, $09, $10, $B3, $05
-- D - I - - 0x028FEF 14:8FDF: F8        .byte con_F8
+- D - I - - 0x028FEF 14:8FDF: F8        .byte con_F8_jmp
 - D - I - - 0x028FF0 14:8FE0: A7 8B     .word off_8BA7
 
 
 
 _off007_8FE2_32:
 - D - I - - 0x028FF2 14:8FE2: F5        .byte con_F5, $09
-- D - I - - 0x028FF4 14:8FE4: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x028FF4 14:8FE4: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x028FF9 14:8FE9: F7        .byte con_F7, $03, $7B
 - D - I - - 0x028FFC 14:8FEC: F1        .byte con_F1, $89, $23, $C0, $7B, $04
 - D - I - - 0x029002 14:8FF2: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x029008 14:8FF8: F0        .byte con_F0
+- D - I - - 0x029008 14:8FF8: F0        .byte con_F0_exit
 
 
 
 _off007_8FF9_33:
 - D - I - - 0x029009 14:8FF9: F5        .byte con_F5, $81
 off_8FFB:
-- D - I - - 0x02900B 14:8FFB: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02900B 14:8FFB: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029010 14:9000: F1        .byte con_F1, $21, $49, $80, $8F, $00
 - D - I - - 0x029016 14:9006: F1        .byte con_F1, $20, $59, $98, $BB, $04
 - D - I - - 0x02901C 14:900C: F1        .byte con_F1, $20, $5A, $98, $BB, $08
 - D - I - - 0x029022 14:9012: F1        .byte con_F1, $20, $5B, $98, $BB, $0C
 - D - I - - 0x029028 14:9018: 2A        .byte $2A
-- D - I - - 0x029029 14:9019: F4        .byte con_F4, $16, $17, $2D, $53
+- D - I - - 0x029029 14:9019: F4        .byte con_F4_chr_spr, $16, $17, $2D, $53
 - D - I - - 0x02902E 14:901E: F6        .byte con_F6, $00
 - D - I - - 0x029030 14:9020: F6        .byte con_F6, $2A
 - D - I - - 0x029032 14:9022: F6        .byte con_F6, $3F
@@ -2594,7 +2603,7 @@ off_8FFB:
 - D - I - - 0x02903A 14:902A: 04        .byte $04
 - D - I - - 0x02903B 14:902B: F1        .byte con_F1, $23, $1A, $58, $EB, $01
 - D - I - - 0x029041 14:9031: F1        .byte con_F1, $22, $18, $28, $C3, $05
-- D - I - - 0x029047 14:9037: F8        .byte con_F8
+- D - I - - 0x029047 14:9037: F8        .byte con_F8_jmp
 - D - I - - 0x029048 14:9038: A7 8B     .word off_8BA7
 
 
@@ -2602,7 +2611,7 @@ off_8FFB:
 _off007_903A_34:
 - D - I - - 0x02904A 14:903A: F5        .byte con_F5, $81
 off_903C:
-- D - I - - 0x02904C 14:903C: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x02904C 14:903C: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029051 14:9041: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029054 14:9044: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x02905A 14:904A: F1        .byte con_F1, $9D, $1E, $90, $97, $04
@@ -2614,13 +2623,13 @@ off_903C:
 - D - I - - 0x029071 14:9061: 02        .byte $02
 - D - I - - 0x029072 14:9062: F1        .byte con_F1, $27, $1E, $F4, $AB, $04
 - D - I - - 0x029078 14:9068: F1        .byte con_F1, $26, $21, $08, $BB, $09
-- D - I - - 0x02907E 14:906E: F0        .byte con_F0
+- D - I - - 0x02907E 14:906E: F0        .byte con_F0_exit
 
 
 
 _off007_906F_35:
 - D - I - - 0x02907F 14:906F: F5        .byte con_F5, $81
-- D - I - - 0x029081 14:9071: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x029081 14:9071: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x029086 14:9076: F1        .byte con_F1, $0C, $0A, $48, $FC, $00
 - D - I - - 0x02908C 14:907C: F1        .byte con_F1, $DA, $09, $10, $B3, $05
 - D - I - - 0x029092 14:9082: F9        .byte con_F9, $0F
@@ -2634,45 +2643,45 @@ _off007_906F_35:
 - D - I - - 0x0290A7 14:9097: 04        .byte $04
 - D - I - - 0x0290A8 14:9098: F1        .byte con_F1, $A6, $0A, $F2, $BB, $00
 - D - I - - 0x0290AE 14:909E: F1        .byte con_F1, $26, $09, $FA, $BB, $04
-- D - I - - 0x0290B4 14:90A4: F0        .byte con_F0
+- D - I - - 0x0290B4 14:90A4: F0        .byte con_F0_exit
 
 
 
 _off007_90A5_36:
 - D - I - - 0x0290B5 14:90A5: F5        .byte con_F5, $09
-- D - I - - 0x0290B7 14:90A7: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0290B7 14:90A7: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0290BC 14:90AC: F1        .byte con_F1, $8A, $BA, $00, $EB, $01
-- D - I - - 0x0290C2 14:90B2: F0        .byte con_F0
+- D - I - - 0x0290C2 14:90B2: F0        .byte con_F0_exit
 
 
 
 _off007_90B3_37:
 - D - I - - 0x0290C3 14:90B3: F5        .byte con_F5, $81
-- D - I - - 0x0290C5 14:90B5: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x0290C5 14:90B5: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x0290CA 14:90BA: F1        .byte con_F1, $54, $4B, $B0, $BB, $01
 - D - I - - 0x0290D0 14:90C0: F1        .byte con_F1, $54, $4D, $B0, $BB, $05
 - D - I - - 0x0290D6 14:90C6: F1        .byte con_F1, $54, $4F, $B0, $BB, $09
-- D - I - - 0x0290DC 14:90CC: F0        .byte con_F0
+- D - I - - 0x0290DC 14:90CC: F0        .byte con_F0_exit
 
 
 
 _off007_90CD_38:
 - D - I - - 0x0290DD 14:90CD: F5        .byte con_F5, $80
-- D - I - - 0x0290DF 14:90CF: F8        .byte con_F8
+- D - I - - 0x0290DF 14:90CF: F8        .byte con_F8_jmp
 - D - I - - 0x0290E0 14:90D0: FB 8F     .word off_8FFB
 
 
 
 _off007_90D2_39:
 - D - I - - 0x0290E2 14:90D2: F5        .byte con_F5, $80
-- D - I - - 0x0290E4 14:90D4: F8        .byte con_F8
+- D - I - - 0x0290E4 14:90D4: F8        .byte con_F8_jmp
 - D - I - - 0x0290E5 14:90D5: 3C 90     .word off_903C
 
 
 
 _off007_90D7_3A:
 - D - I - - 0x0290E7 14:90D7: F5        .byte con_F5, $83
-- D - I - - 0x0290E9 14:90D9: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x0290E9 14:90D9: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x0290EE 14:90DE: F7        .byte con_F7, $23, $5B
 - D - I - - 0x0290F1 14:90E1: F1        .byte con_F1, $00, $00, $80, $A3, $00
 - D - I - - 0x0290F7 14:90E7: F1        .byte con_F1, $00, $00, $80, $DB, $04
@@ -2685,13 +2694,13 @@ _off007_90D7_3A:
 - D - I - - 0x029115 14:9105: F6        .byte con_F6, $15
 - D - I - - 0x029117 14:9107: F6        .byte con_F6, $3F
 - D - I - - 0x029119 14:9109: F6        .byte con_F6, $54
-- D - I - - 0x02911B 14:910B: F0        .byte con_F0
+- D - I - - 0x02911B 14:910B: F0        .byte con_F0_exit
 
 
 
 _off007_910C_3B:
 - D - I - - 0x02911C 14:910C: F5        .byte con_F5, $80
-- D - I - - 0x02911E 14:910E: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x02911E 14:910E: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029123 14:9113: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029126 14:9116: F1        .byte con_F1, $9E, $1E, $68, $93, $05
 - D - I - - 0x02912C 14:911C: F1        .byte con_F1, $28, $1C, $C8, $BB, $08
@@ -2703,324 +2712,324 @@ _off007_910C_3B:
 off_9132:
 - D - I - - 0x029142 14:9132: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x029148 14:9138: F1        .byte con_F1, $9F, $1E, $FC, $AB, $04
-- D - I - - 0x02914E 14:913E: F8        .byte con_F8
+- D - I - - 0x02914E 14:913E: F8        .byte con_F8_jmp
 - D - I - - 0x02914F 14:913F: 4E 8E     .word off_8E4E
 
 
 
 _off007_9141_3C:
 - D - I - - 0x029151 14:9141: F5        .byte con_F5, $09
-- D - I - - 0x029153 14:9143: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029153 14:9143: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x029158 14:9148: F7        .byte con_F7, $23, $5B
 - D - I - - 0x02915B 14:914B: F1        .byte con_F1, $8D, $CF, $98, $C3, $00
-- D - I - - 0x029161 14:9151: F0        .byte con_F0
+- D - I - - 0x029161 14:9151: F0        .byte con_F0_exit
 
 
 
 _off007_9152_3D:
 - D - I - - 0x029162 14:9152: F5        .byte con_F5, $09
-- D - I - - 0x029164 14:9154: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029164 14:9154: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x029169 14:9159: F1        .byte con_F1, $00, $EC, $00, $C3, $01
-- D - I - - 0x02916F 14:915F: F0        .byte con_F0
+- D - I - - 0x02916F 14:915F: F0        .byte con_F0_exit
 
 
 
 _off007_9160_3E:
 - D - I - - 0x029170 14:9160: F5        .byte con_F5, $80
-- D - I - - 0x029172 14:9162: F4        .byte con_F4, $1C, $1D, $00, $00
+- D - I - - 0x029172 14:9162: F4        .byte con_F4_chr_spr, $1C, $1D, $00, $00
 - D - I - - 0x029177 14:9167: F7        .byte con_F7, $03, $7B
 - D - I - - 0x02917A 14:916A: F1        .byte con_F1, $95, $0C, $7F, $23, $07
 - D - I - - 0x029180 14:9170: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x029186 14:9176: F0        .byte con_F0
+- D - I - - 0x029186 14:9176: F0        .byte con_F0_exit
 
 
 
 _off007_9177_3F:
 - D - I - - 0x029187 14:9177: F5        .byte con_F5, $80
-- D - I - - 0x029189 14:9179: F4        .byte con_F4, $1C, $1D, $00, $00
+- D - I - - 0x029189 14:9179: F4        .byte con_F4_chr_spr, $1C, $1D, $00, $00
 - D - I - - 0x02918E 14:917E: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029191 14:9181: F1        .byte con_F1, $95, $0E, $7F, $23, $07
 - D - I - - 0x029197 14:9187: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x02919D 14:918D: F0        .byte con_F0
+- D - I - - 0x02919D 14:918D: F0        .byte con_F0_exit
 
 
 
 _off007_918E_40:
 - D - I - - 0x02919E 14:918E: F5        .byte con_F5, $09
-- D - I - - 0x0291A0 14:9190: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0291A0 14:9190: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0291A5 14:9195: F7        .byte con_F7, $03, $7B
 - D - I - - 0x0291A8 14:9198: F1        .byte con_F1, $8F, $BC, $A0, $A3, $04
 - D - I - - 0x0291AE 14:919E: F1        .byte con_F1, $00, $00, $78, $FB, $00
-- D - I - - 0x0291B4 14:91A4: F0        .byte con_F0
+- D - I - - 0x0291B4 14:91A4: F0        .byte con_F0_exit
 
 
 
 _off007_91A5_41:
 - D - I - - 0x0291B5 14:91A5: F5        .byte con_F5, $09
-- D - I - - 0x0291B7 14:91A7: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0291B7 14:91A7: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0291BC 14:91AC: F7        .byte con_F7, $03, $7B
 - D - I - - 0x0291BF 14:91AF: F1        .byte con_F1, $91, $BC, $C0, $EB, $04
 - D - I - - 0x0291C5 14:91B5: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x0291CB 14:91BB: F0        .byte con_F0
+- D - I - - 0x0291CB 14:91BB: F0        .byte con_F0_exit
 
 
 
 _off007_91BC_42:
 - D - I - - 0x0291CC 14:91BC: F5        .byte con_F5, $09
-- D - I - - 0x0291CE 14:91BE: F4        .byte con_F4, $06, $00, $00, $00
+- D - I - - 0x0291CE 14:91BE: F4        .byte con_F4_chr_spr, $06, $00, $00, $00
 - D - I - - 0x0291D3 14:91C3: F1        .byte con_F1, $77, $B4, $40, $EB, $01
-- D - I - - 0x0291D9 14:91C9: F0        .byte con_F0
+- D - I - - 0x0291D9 14:91C9: F0        .byte con_F0_exit
 
 
 
 _off007_91CA_43:
 - D - I - - 0x0291DA 14:91CA: F5        .byte con_F5, $09
-- D - I - - 0x0291DC 14:91CC: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0291DC 14:91CC: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0291E1 14:91D1: F1        .byte con_F1, $00, $34, $08, $CB, $01
-- D - I - - 0x0291E7 14:91D7: F0        .byte con_F0
+- D - I - - 0x0291E7 14:91D7: F0        .byte con_F0_exit
 
 
 
 _off007_91D8_44:
 - D - I - - 0x0291E8 14:91D8: F5        .byte con_F5, $09
-- D - I - - 0x0291EA 14:91DA: F4        .byte con_F4, $3B, $47, $00, $00
+- D - I - - 0x0291EA 14:91DA: F4        .byte con_F4_chr_spr, $3B, $47, $00, $00
 - D - I - - 0x0291EF 14:91DF: F1        .byte con_F1, $00, $35, $00, $CB, $01
-- D - I - - 0x0291F5 14:91E5: F0        .byte con_F0
+- D - I - - 0x0291F5 14:91E5: F0        .byte con_F0_exit
 
 
 
 _off007_91E6_45:
 - D - I - - 0x0291F6 14:91E6: F5        .byte con_F5, $09
-- D - I - - 0x0291F8 14:91E8: F4        .byte con_F4, $3B, $47, $00, $00
+- D - I - - 0x0291F8 14:91E8: F4        .byte con_F4_chr_spr, $3B, $47, $00, $00
 - D - I - - 0x0291FD 14:91ED: F1        .byte con_F1, $00, $36, $00, $CB, $01
-- D - I - - 0x029203 14:91F3: F0        .byte con_F0
+- D - I - - 0x029203 14:91F3: F0        .byte con_F0_exit
 
 
 
 _off007_91F4_46:
 - D - I - - 0x029204 14:91F4: F5        .byte con_F5, $0B
-- D - I - - 0x029206 14:91F6: F4        .byte con_F4, $43, $45, $47, $44
+- D - I - - 0x029206 14:91F6: F4        .byte con_F4_chr_spr, $43, $45, $47, $44
 - D - I - - 0x02920B 14:91FB: F1        .byte con_F1, $00, $24, $F0, $BB, $00
-- D - I - - 0x029211 14:9201: F0        .byte con_F0
+- D - I - - 0x029211 14:9201: F0        .byte con_F0_exit
 
 
 
 _off007_9202_47:
 - D - I - - 0x029212 14:9202: F5        .byte con_F5, $0B
-- D - I - - 0x029214 14:9204: F4        .byte con_F4, $43, $45, $47, $44
+- D - I - - 0x029214 14:9204: F4        .byte con_F4_chr_spr, $43, $45, $47, $44
 - D - I - - 0x029219 14:9209: F1        .byte con_F1, $00, $25, $F0, $BB, $00
-- D - I - - 0x02921F 14:920F: F0        .byte con_F0
+- D - I - - 0x02921F 14:920F: F0        .byte con_F0_exit
 
 
 
 _off007_9210_48:
 - D - I - - 0x029220 14:9210: F5        .byte con_F5, $0B
-- D - I - - 0x029222 14:9212: F4        .byte con_F4, $43, $45, $47, $44
+- D - I - - 0x029222 14:9212: F4        .byte con_F4_chr_spr, $43, $45, $47, $44
 - D - I - - 0x029227 14:9217: F1        .byte con_F1, $00, $26, $F0, $BB, $00
-- D - I - - 0x02922D 14:921D: F0        .byte con_F0
+- D - I - - 0x02922D 14:921D: F0        .byte con_F0_exit
 
 
 
 _off007_921E_49:
 - D - I - - 0x02922E 14:921E: F5        .byte con_F5, $81
-- D - I - - 0x029230 14:9220: F4        .byte con_F4, $04, $05, $0F, $00
+- D - I - - 0x029230 14:9220: F4        .byte con_F4_chr_spr, $04, $05, $0F, $00
 - D - I - - 0x029235 14:9225: F1        .byte con_F1, $32, $C0, $88, $E3, $00
 - D - I - - 0x02923B 14:922B: F1        .byte con_F1, $07, $2B, $50, $DB, $05
-- D - I - - 0x029241 14:9231: F0        .byte con_F0
+- D - I - - 0x029241 14:9231: F0        .byte con_F0_exit
 
 
 
 _off007_9232_4A:
 - D - I - - 0x029242 14:9232: F5        .byte con_F5, $81
-- D - I - - 0x029244 14:9234: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x029244 14:9234: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029249 14:9239: F1        .byte con_F1, $29, $3F, $F8, $B3, $04
-- D - I - - 0x02924F 14:923F: F0        .byte con_F0
+- D - I - - 0x02924F 14:923F: F0        .byte con_F0_exit
 
 
 
 _off007_9240_4B:
 - D - I - - 0x029250 14:9240: F5        .byte con_F5, $80
-- D - I - - 0x029252 14:9242: F8        .byte con_F8
+- D - I - - 0x029252 14:9242: F8        .byte con_F8_jmp
 - D - I - - 0x029253 14:9243: 48 9C     .word off_9C48
 
 
 
 _off007_9245_4C:
 - D - I - - 0x029255 14:9245: F5        .byte con_F5, $09
-- D - I - - 0x029257 14:9247: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029257 14:9247: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x02925C 14:924C: F1        .byte con_F1, $7E, $BA, $E0, $BB, $00
-- D - I - - 0x029262 14:9252: F0        .byte con_F0
+- D - I - - 0x029262 14:9252: F0        .byte con_F0_exit
 
 
 
 _off007_9253_4D:
 - D - I - - 0x029263 14:9253: F5        .byte con_F5, $83
-- D - I - - 0x029265 14:9255: F4        .byte con_F4, $1B, $00, $00, $00
+- D - I - - 0x029265 14:9255: F4        .byte con_F4_chr_spr, $1B, $00, $00, $00
 - D - I - - 0x02926A 14:925A: F1        .byte con_F1, $00, $2C, $00, $BB, $01
-- D - I - - 0x029270 14:9260: F0        .byte con_F0
+- D - I - - 0x029270 14:9260: F0        .byte con_F0_exit
 
 
 
 _off007_9261_4E:
 - D - I - - 0x029271 14:9261: F5        .byte con_F5, $0A
-- D - I - - 0x029273 14:9263: F4        .byte con_F4, $2C, $0B, $05, $07
+- D - I - - 0x029273 14:9263: F4        .byte con_F4_chr_spr, $2C, $0B, $05, $07
 - D - I - - 0x029278 14:9268: F1        .byte con_F1, $00, $27, $10, $CB, $01
-- D - I - - 0x02927E 14:926E: F0        .byte con_F0
+- D - I - - 0x02927E 14:926E: F0        .byte con_F0_exit
 
 
 
 _off007_926F_4F:
 - D - I - - 0x02927F 14:926F: F5        .byte con_F5, $09
-- D - I - - 0x029281 14:9271: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029281 14:9271: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x029286 14:9276: F1        .byte con_F1, $35, $28, $00, $B7, $01
-- D - I - - 0x02928C 14:927C: F0        .byte con_F0
+- D - I - - 0x02928C 14:927C: F0        .byte con_F0_exit
 
 
 
 _off007_927D_50:
 - D - I - - 0x02928D 14:927D: F5        .byte con_F5, $81
-- D - I - - 0x02928F 14:927F: F4        .byte con_F4, $28, $29, $2A, $0B
+- D - I - - 0x02928F 14:927F: F4        .byte con_F4_chr_spr, $28, $29, $2A, $0B
 - D - I - - 0x029294 14:9284: F1        .byte con_F1, $00, $11, $E8, $BB, $00
-- D - I - - 0x02929A 14:928A: F0        .byte con_F0
+- D - I - - 0x02929A 14:928A: F0        .byte con_F0_exit
 
 
 
 _off007_928B_51:
 - D - I - - 0x02929B 14:928B: F5        .byte con_F5, $09
-- D - I - - 0x02929D 14:928D: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x02929D 14:928D: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0292A2 14:9292: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x0292A8 14:9298: F1        .byte con_F1, $E8, $BA, $FC, $C3, $04
-- D - I - - 0x0292AE 14:929E: F0        .byte con_F0
+- D - I - - 0x0292AE 14:929E: F0        .byte con_F0_exit
 
 
 
 _off007_929F_52:
 - D - I - - 0x0292AF 14:929F: F5        .byte con_F5, $09
-- D - I - - 0x0292B1 14:92A1: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0292B1 14:92A1: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0292B6 14:92A6: F1        .byte con_F1, $7A, $BD, $E0, $E3, $00
-- D - I - - 0x0292BC 14:92AC: F0        .byte con_F0
+- D - I - - 0x0292BC 14:92AC: F0        .byte con_F0_exit
 
 
 
 _off007_92AD_53:
 - - - - - - 0x0292BD 14:92AD: F5        .byte con_F5, $09
-- - - - - - 0x0292BF 14:92AF: F4        .byte con_F4, $04, $05, $00, $00
+- - - - - - 0x0292BF 14:92AF: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - - - - - - 0x0292C4 14:92B4: F1        .byte con_F1, $7B, $BC, $A8, $EB, $00
-- - - - - - 0x0292CA 14:92BA: F0        .byte con_F0
+- - - - - - 0x0292CA 14:92BA: F0        .byte con_F0_exit
 
 
 
 _off007_92BB_54:
 - - - - - - 0x0292CB 14:92BB: F5        .byte con_F5, $09
-- - - - - - 0x0292CD 14:92BD: F4        .byte con_F4, $04, $05, $00, $00
+- - - - - - 0x0292CD 14:92BD: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - - - - - - 0x0292D2 14:92C2: F1        .byte con_F1, $7F, $C0, $60, $A3, $01
-- - - - - - 0x0292D8 14:92C8: F0        .byte con_F0
+- - - - - - 0x0292D8 14:92C8: F0        .byte con_F0_exit
 
 
 
 _off007_92C9_55:
 - D - I - - 0x0292D9 14:92C9: F5        .byte con_F5, $09
-- D - I - - 0x0292DB 14:92CB: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0292DB 14:92CB: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0292E0 14:92D0: F1        .byte con_F1, $80, $C0, $E0, $A3, $00
-- D - I - - 0x0292E6 14:92D6: F0        .byte con_F0
+- D - I - - 0x0292E6 14:92D6: F0        .byte con_F0_exit
 
 
 
 _off007_92D7_56:
 - D - I - - 0x0292E7 14:92D7: F5        .byte con_F5, $09
-- D - I - - 0x0292E9 14:92D9: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0292E9 14:92D9: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0292EE 14:92DE: F1        .byte con_F1, $7C, $BA, $90, $AB, $00
-- D - I - - 0x0292F4 14:92E4: F0        .byte con_F0
+- D - I - - 0x0292F4 14:92E4: F0        .byte con_F0_exit
 
 
 
 _off007_92E5_57:
 - D - I - - 0x0292F5 14:92E5: F5        .byte con_F5, $83
-- D - I - - 0x0292F7 14:92E7: F4        .byte con_F4, $2A, $2B, $00, $00
+- D - I - - 0x0292F7 14:92E7: F4        .byte con_F4_chr_spr, $2A, $2B, $00, $00
 - D - I - - 0x0292FC 14:92EC: F1        .byte con_F1, $36, $02, $10, $D3, $01
-- D - I - - 0x029302 14:92F2: F0        .byte con_F0
+- D - I - - 0x029302 14:92F2: F0        .byte con_F0_exit
 
 
 
 _off007_92F3_58:
 - D - I - - 0x029303 14:92F3: F5        .byte con_F5, $81
-- D - I - - 0x029305 14:92F5: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029305 14:92F5: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02930A 14:92FA: F1        .byte con_F1, $98, $4B, $90, $B3, $01
 - D - I - - 0x029310 14:9300: F1        .byte con_F1, $98, $4D, $90, $B3, $05
 - D - I - - 0x029316 14:9306: F1        .byte con_F1, $98, $4F, $90, $B3, $09
-- D - I - - 0x02931C 14:930C: F0        .byte con_F0
+- D - I - - 0x02931C 14:930C: F0        .byte con_F0_exit
 
 
 
 _off007_930D_59:
 - - - - - - 0x02931D 14:930D: F5        .byte con_F5, $83
-- - - - - - 0x02931F 14:930F: F4        .byte con_F4, $18, $19, $1A, $1B
+- - - - - - 0x02931F 14:930F: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - - - - - - 0x029324 14:9314: F1        .byte con_F1, $E3, $15, $64, $EF, $00
 - - - - - - 0x02932A 14:931A: F1        .byte con_F1, $9A, $14, $D0, $B3, $04
-- - - - - - 0x029330 14:9320: F8        .byte con_F8
+- - - - - - 0x029330 14:9320: F8        .byte con_F8_jmp
 - - - - - - 0x029331 14:9321: A7 8B     .word off_8BA7
 
 
 
 _off007_9323_5A:
 - D - I - - 0x029333 14:9323: F5        .byte con_F5, $81
-- D - I - - 0x029335 14:9325: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029335 14:9325: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02933A 14:932A: F1        .byte con_F1, $8B, $4B, $80, $BB, $01
 - D - I - - 0x029340 14:9330: F1        .byte con_F1, $8B, $4D, $80, $BB, $05
 - D - I - - 0x029346 14:9336: F1        .byte con_F1, $8B, $4F, $80, $BB, $09
-- D - I - - 0x02934C 14:933C: F0        .byte con_F0
+- D - I - - 0x02934C 14:933C: F0        .byte con_F0_exit
 
 
 
 _off007_933D_5B:
 - D - I - - 0x02934D 14:933D: F5        .byte con_F5, $81
-- D - I - - 0x02934F 14:933F: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02934F 14:933F: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029354 14:9344: F1        .byte con_F1, $8C, $4B, $80, $BB, $01
 - D - I - - 0x02935A 14:934A: F1        .byte con_F1, $8C, $4D, $80, $BB, $05
 - D - I - - 0x029360 14:9350: F1        .byte con_F1, $8C, $4F, $80, $BB, $09
-- D - I - - 0x029366 14:9356: F0        .byte con_F0
+- D - I - - 0x029366 14:9356: F0        .byte con_F0_exit
 
 
 
 _off007_9357_5C:
 - D - I - - 0x029367 14:9357: F5        .byte con_F5, $80
-- D - I - - 0x029369 14:9359: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029369 14:9359: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02936E 14:935E: F1        .byte con_F1, $00, $CD, $00, $C3, $0D
 - D - I - - 0x029374 14:9364: F1        .byte con_F1, $00, $CA, $00, $C3, $01
 - D - I - - 0x02937A 14:936A: F1        .byte con_F1, $00, $CB, $00, $C3, $05
-- D - I - - 0x029380 14:9370: F0        .byte con_F0
+- D - I - - 0x029380 14:9370: F0        .byte con_F0_exit
 
 
 
 _off007_9371_5D:
 - D - I - - 0x029381 14:9371: F5        .byte con_F5, $09
-- D - I - - 0x029383 14:9373: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029383 14:9373: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x029388 14:9378: F1        .byte con_F1, $93, $C4, $A0, $A3, $00
-- D - I - - 0x02938E 14:937E: F0        .byte con_F0
+- D - I - - 0x02938E 14:937E: F0        .byte con_F0_exit
 
 
 
 _off007_937F_5E:
 - D - I - - 0x02938F 14:937F: F5        .byte con_F5, $09
-- D - I - - 0x029391 14:9381: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029391 14:9381: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x029396 14:9386: F1        .byte con_F1, $94, $BA, $80, $E3, $00
-- D - I - - 0x02939C 14:938C: F0        .byte con_F0
+- D - I - - 0x02939C 14:938C: F0        .byte con_F0_exit
 
 
 
 _off007_938D_5F:
 - D - I - - 0x02939D 14:938D: F5        .byte con_F5, $09
-- D - I - - 0x02939F 14:938F: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x02939F 14:938F: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0293A4 14:9394: F7        .byte con_F7, $03, $7B
 - D - I - - 0x0293A7 14:9397: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x0293AD 14:939D: F1        .byte con_F1, $E9, $CF, $00, $83, $05
-- D - I - - 0x0293B3 14:93A3: F0        .byte con_F0
+- D - I - - 0x0293B3 14:93A3: F0        .byte con_F0_exit
 
 
 
 _off007_93A4_60:
 - D - I - - 0x0293B4 14:93A4: F5        .byte con_F5, $80
-- D - I - - 0x0293B6 14:93A6: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x0293B6 14:93A6: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x0293BB 14:93AB: F1        .byte con_F1, $3A, $56, $E0, $BB, $08
 - D - I - - 0x0293C1 14:93B1: F1        .byte con_F1, $3A, $4C, $E0, $BB, $00
 - D - I - - 0x0293C7 14:93B7: F1        .byte con_F1, $3A, $4E, $E0, $BB, $04
@@ -3034,114 +3043,114 @@ _off007_93A4_60:
 - D - I - - 0x0293E9 14:93D9: F1        .byte con_F1, $3D, $56, $AB, $C3, $08
 - D - I - - 0x0293EF 14:93DF: F1        .byte con_F1, $3D, $4C, $AB, $C3, $00
 - D - I - - 0x0293F5 14:93E5: F1        .byte con_F1, $3D, $4E, $AB, $C3, $04
-- D - I - - 0x0293FB 14:93EB: F0        .byte con_F0
+- D - I - - 0x0293FB 14:93EB: F0        .byte con_F0_exit
 
 
 
 _off007_93EC_61:
 - D - I - - 0x0293FC 14:93EC: F5        .byte con_F5, $80
-- D - I - - 0x0293FE 14:93EE: F4        .byte con_F4, $10, $11, $12, $00
+- D - I - - 0x0293FE 14:93EE: F4        .byte con_F4_chr_spr, $10, $11, $12, $00
 - D - I - - 0x029403 14:93F3: F1        .byte con_F1, $DB, $2D, $18, $B3, $01
 - D - I - - 0x029409 14:93F9: F1        .byte con_F1, $59, $2E, $20, $AB, $05
 - D - I - - 0x02940F 14:93FF: 64        .byte $64
 - D - I - - 0x029410 14:9400: F6        .byte con_F6, $15
-- D - I - - 0x029412 14:9402: F0        .byte con_F0
+- D - I - - 0x029412 14:9402: F0        .byte con_F0_exit
 
 
 
 _off007_9403_62:
 - D - I - - 0x029413 14:9403: F5        .byte con_F5, $85
-- D - I - - 0x029415 14:9405: F4        .byte con_F4, $41, $04, $00, $00
+- D - I - - 0x029415 14:9405: F4        .byte con_F4_chr_spr, $41, $04, $00, $00
 - D - I - - 0x02941A 14:940A: F1        .byte con_F1, $00, $2F, $00, $D3, $01
-- D - I - - 0x029420 14:9410: F0        .byte con_F0
+- D - I - - 0x029420 14:9410: F0        .byte con_F0_exit
 
 
 
 _off007_9411_63:
 - D - I - - 0x029421 14:9411: F5        .byte con_F5, $80
-- D - I - - 0x029423 14:9413: F4        .byte con_F4, $04, $05, $23, $00
+- D - I - - 0x029423 14:9413: F4        .byte con_F4_chr_spr, $04, $05, $23, $00
 - D - I - - 0x029428 14:9418: F1        .byte con_F1, $A8, $CF, $10, $D3, $01
 - D - I - - 0x02942E 14:941E: F1        .byte con_F1, $5A, $E7, $10, $CB, $05
-- D - I - - 0x029434 14:9424: F0        .byte con_F0
+- D - I - - 0x029434 14:9424: F0        .byte con_F0_exit
 
 
 
 _off007_9425_64:
 - D - I - - 0x029435 14:9425: F5        .byte con_F5, $80
-- D - I - - 0x029437 14:9427: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x029437 14:9427: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x02943C 14:942C: F1        .byte con_F1, $40, $29, $D8, $CB, $00
-- D - I - - 0x029442 14:9432: F0        .byte con_F0
+- D - I - - 0x029442 14:9432: F0        .byte con_F0_exit
 
 
 
 _off007_9433_65:
 - - - - - - 0x029443 14:9433: F5        .byte con_F5, $09
-- - - - - - 0x029445 14:9435: F4        .byte con_F4, $06, $00, $00, $00
+- - - - - - 0x029445 14:9435: F4        .byte con_F4_chr_spr, $06, $00, $00, $00
 - - - - - - 0x02944A 14:943A: F1        .byte con_F1, $5C, $B5, $00, $93, $01
-- - - - - - 0x029450 14:9440: F0        .byte con_F0
+- - - - - - 0x029450 14:9440: F0        .byte con_F0_exit
 
 
 
 _off007_9441_66:
 - D - I - - 0x029451 14:9441: F5        .byte con_F5, $80
-- D - I - - 0x029453 14:9443: F4        .byte con_F4, $04, $05, $22, $00
+- D - I - - 0x029453 14:9443: F4        .byte con_F4_chr_spr, $04, $05, $22, $00
 - D - I - - 0x029458 14:9448: F1        .byte con_F1, $5D, $31, $B0, $D3, $04
 - D - I - - 0x02945E 14:944E: 06        .byte $06
 - D - I - - 0x02945F 14:944F: F1        .byte con_F1, $A9, $C4, $B8, $DB, $00
-- D - I - - 0x029465 14:9455: F0        .byte con_F0
+- D - I - - 0x029465 14:9455: F0        .byte con_F0_exit
 
 
 
 _off007_9456_67:
 - D - I - - 0x029466 14:9456: F5        .byte con_F5, $09
-- D - I - - 0x029468 14:9458: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x029468 14:9458: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x02946D 14:945D: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x029473 14:9463: F1        .byte con_F1, $EA, $23, $70, $CB, $05
-- D - I - - 0x029479 14:9469: F0        .byte con_F0
+- D - I - - 0x029479 14:9469: F0        .byte con_F0_exit
 
 
 
 _off007_946A_68:
 - D - I - - 0x02947A 14:946A: F5        .byte con_F5, $80
-- D - I - - 0x02947C 14:946C: F4        .byte con_F4, $04, $05, $20, $21
+- D - I - - 0x02947C 14:946C: F4        .byte con_F4_chr_spr, $04, $05, $20, $21
 - D - I - - 0x029481 14:9471: F1        .byte con_F1, $AA, $C6, $90, $CB, $00
 - D - I - - 0x029487 14:9477: F1        .byte con_F1, $5E, $32, $80, $9B, $05
-- D - I - - 0x02948D 14:947D: F0        .byte con_F0
+- D - I - - 0x02948D 14:947D: F0        .byte con_F0_exit
 
 
 
 _off007_947E_69:
 - D - I - - 0x02948E 14:947E: F5        .byte con_F5, $80
-- D - I - - 0x029490 14:9480: F4        .byte con_F4, $16, $17, $2D, $53
+- D - I - - 0x029490 14:9480: F4        .byte con_F4_chr_spr, $16, $17, $2D, $53
 - D - I - - 0x029495 14:9485: F1        .byte con_F1, $00, $46, $08, $BB, $01
-- D - I - - 0x02949B 14:948B: F0        .byte con_F0
+- D - I - - 0x02949B 14:948B: F0        .byte con_F0_exit
 
 
 
 _off007_948C_6A:
 - D - I - - 0x02949C 14:948C: F5        .byte con_F5, $80
-- D - I - - 0x02949E 14:948E: F4        .byte con_F4, $04, $05, $20, $21
+- D - I - - 0x02949E 14:948E: F4        .byte con_F4_chr_spr, $04, $05, $20, $21
 - D - I - - 0x0294A3 14:9493: F1        .byte con_F1, $AB, $CF, $E8, $DB, $00
 - D - I - - 0x0294A9 14:9499: F1        .byte con_F1, $2D, $33, $F8, $CB, $04
-- D - I - - 0x0294AF 14:949F: F8        .byte con_F8
+- D - I - - 0x0294AF 14:949F: F8        .byte con_F8_jmp
 - D - I - - 0x0294B0 14:94A0: A7 8B     .word off_8BA7
 
 
 
 _off007_94A2_6B:
 - D - I - - 0x0294B2 14:94A2: F5        .byte con_F5, $80
-- D - I - - 0x0294B4 14:94A4: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x0294B4 14:94A4: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x0294B9 14:94A9: F1        .byte con_F1, $42, $4C, $80, $BB, $00
 - D - I - - 0x0294BF 14:94AF: F1        .byte con_F1, $42, $4E, $80, $BB, $04
 off_94B5:
 - D - I - - 0x0294C5 14:94B5: F1        .byte con_F1, $42, $50, $80, $BB, $08
-- D - I - - 0x0294CB 14:94BB: F0        .byte con_F0
+- D - I - - 0x0294CB 14:94BB: F0        .byte con_F0_exit
 
 
 
 _off007_94BC_6C:
 - D - I - - 0x0294CC 14:94BC: F5        .byte con_F5, $80
-- D - I - - 0x0294CE 14:94BE: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x0294CE 14:94BE: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x0294D3 14:94C3: F1        .byte con_F1, $1A, $07, $4C, $76, $00
 - D - I - - 0x0294D9 14:94C9: F1        .byte con_F1, $A0, $06, $10, $B3, $05
 - D - I - - 0x0294DF 14:94CF: F9        .byte con_F9, $0F
@@ -3155,14 +3164,14 @@ _off007_94BC_6C:
 - D - I - - 0x0294F4 14:94E4: 04        .byte $04
 - D - I - - 0x0294F5 14:94E5: F1        .byte con_F1, $A1, $07, $E4, $CF, $00
 - D - I - - 0x0294FB 14:94EB: F1        .byte con_F1, $26, $06, $F9, $BB, $04
-- D - I - - 0x029501 14:94F1: F8        .byte con_F8
+- D - I - - 0x029501 14:94F1: F8        .byte con_F8_jmp
 - D - I - - 0x029502 14:94F2: A7 8B     .word off_8BA7
 
 
 
 _off007_94F4_6D:
 - D - I - - 0x029504 14:94F4: F5        .byte con_F5, $80
-- D - I - - 0x029506 14:94F6: F4        .byte con_F4, $24, $25, $26, $4F
+- D - I - - 0x029506 14:94F6: F4        .byte con_F4_chr_spr, $24, $25, $26, $4F
 - D - I - - 0x02950B 14:94FB: F1        .byte con_F1, $A2, $0A, $5F, $7B, $00
 - D - I - - 0x029511 14:9501: F1        .byte con_F1, $A0, $09, $10, $B3, $05
 - D - I - - 0x029517 14:9507: F9        .byte con_F9, $0F
@@ -3176,74 +3185,74 @@ _off007_94F4_6D:
 - D - I - - 0x02952C 14:951C: 04        .byte $04
 - D - I - - 0x02952D 14:951D: F1        .byte con_F1, $A3, $0A, $F0, $BB, $00
 - D - I - - 0x029533 14:9523: F1        .byte con_F1, $26, $09, $F9, $BB, $04
-- D - I - - 0x029539 14:9529: F8        .byte con_F8
+- D - I - - 0x029539 14:9529: F8        .byte con_F8_jmp
 - D - I - - 0x02953A 14:952A: A7 8B     .word off_8BA7
 
 
 
 _off007_952C_6E:
 - D - I - - 0x02953C 14:952C: F5        .byte con_F5, $80
-- D - I - - 0x02953E 14:952E: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x02953E 14:952E: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029543 14:9533: F1        .byte con_F1, $33, $1E, $60, $97, $04
 - D - I - - 0x029549 14:9539: F1        .byte con_F1, $24, $1D, $20, $B7, $09
 - D - I - - 0x02954F 14:953F: 1E        .byte $1E
 - D - I - - 0x029550 14:9540: F6        .byte con_F6, $2A
 - D - I - - 0x029552 14:9542: F1        .byte con_F1, $34, $21, $10, $B7, $01
-- D - I - - 0x029558 14:9548: F0        .byte con_F0
+- D - I - - 0x029558 14:9548: F0        .byte con_F0_exit
 
 
 
 _off007_9549_6F:
 - D - I - - 0x029559 14:9549: F5        .byte con_F5, $80
-- D - I - - 0x02955B 14:954B: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02955B 14:954B: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029560 14:9550: F1        .byte con_F1, $33, $49, $60, $E3, $04
 - D - I - - 0x029566 14:9556: F1        .byte con_F1, $67, $94, $F0, $BB, $00
 - D - I - - 0x02956C 14:955C: F1        .byte con_F1, $67, $95, $F0, $BB, $08
 - D - I - - 0x029572 14:9562: F1        .byte con_F1, $67, $96, $F0, $BB, $0C
 - D - I - - 0x029578 14:9568: 1E        .byte $1E
-- D - I - - 0x029579 14:9569: F4        .byte con_F4, $0A, $0B, $00, $0B
+- D - I - - 0x029579 14:9569: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $0B
 - D - I - - 0x02957E 14:956E: F6        .byte con_F6, $2A
 - D - I - - 0x029580 14:9570: F6        .byte con_F6, $3F
 - D - I - - 0x029582 14:9572: F1        .byte con_F1, $68, $85, $20, $C3, $01
-- D - I - - 0x029588 14:9578: F0        .byte con_F0
+- D - I - - 0x029588 14:9578: F0        .byte con_F0_exit
 
 
 
 _off007_9579_70:
 - D - I - - 0x029589 14:9579: F5        .byte con_F5, $09
-- D - I - - 0x02958B 14:957B: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x02958B 14:957B: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x029590 14:9580: F1        .byte con_F1, $81, $C0, $C0, $EB, $00
-- D - I - - 0x029596 14:9586: F0        .byte con_F0
+- D - I - - 0x029596 14:9586: F0        .byte con_F0_exit
 
 
 
 _off007_9587_71:
 - D - I - - 0x029597 14:9587: F5        .byte con_F5, $80
-- D - I - - 0x029599 14:9589: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x029599 14:9589: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x02959E 14:958E: F1        .byte con_F1, $40, $7E, $D8, $CB, $00
-- D - I - - 0x0295A4 14:9594: F0        .byte con_F0
+- D - I - - 0x0295A4 14:9594: F0        .byte con_F0_exit
 
 
 
 _off007_9598_72:
 - - - - - - 0x0295A8 14:9598: F5        .byte con_F5, $09
-- - - - - - 0x0295AA 14:959A: F4        .byte con_F4, $04, $05, $00, $00
+- - - - - - 0x0295AA 14:959A: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - - - - - - 0x0295AF 14:959F: F1        .byte con_F1, $96, $C0, $D0, $9B, $00
-- - - - - - 0x0295B5 14:95A5: F0        .byte con_F0
+- - - - - - 0x0295B5 14:95A5: F0        .byte con_F0_exit
 
 
 
 _off007_95A6_73:
 - D - I - - 0x0295B6 14:95A6: F5        .byte con_F5, $09
-- D - I - - 0x0295B8 14:95A8: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0295B8 14:95A8: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0295BD 14:95AD: F1        .byte con_F1, $97, $C0, $00, $E3, $01
-- D - I - - 0x0295C3 14:95B3: F0        .byte con_F0
+- D - I - - 0x0295C3 14:95B3: F0        .byte con_F0_exit
 
 
 
 _off007_95B4_74:
 - D - I - - 0x0295C4 14:95B4: F5        .byte con_F5, $09
-- D - I - - 0x0295C6 14:95B6: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0295C6 14:95B6: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0295CB 14:95BB: F7        .byte con_F7, $2B, $53
 - D - I - - 0x0295CE 14:95BE: F1        .byte con_F1, $00, $00, $80, $A3, $00
 - D - I - - 0x0295D4 14:95C4: F1        .byte con_F1, $00, $00, $80, $DB, $04
@@ -3254,34 +3263,34 @@ _off007_95B4_74:
 - D - I - - 0x0295E8 14:95D8: F1        .byte con_F1, $B1, $C4, $90, $93, $10
 - D - I - - 0x0295EE 14:95DE: 03        .byte $03
 - D - I - - 0x0295EF 14:95DF: F1        .byte con_F1, $B1, $C4, $90, $93, $14
-- D - I - - 0x0295F5 14:95E5: F0        .byte con_F0
+- D - I - - 0x0295F5 14:95E5: F0        .byte con_F0_exit
 
 
 
 _off007_95E6_75:
 - D - I - - 0x0295F6 14:95E6: F5        .byte con_F5, $84
 - D - I - - 0x0295F8 14:95E8: 16        .byte $16
-- D - I - - 0x0295F9 14:95E9: F4        .byte con_F4, $2D, $00, $00, $00
+- D - I - - 0x0295F9 14:95E9: F4        .byte con_F4_chr_spr, $2D, $00, $00, $00
 - D - I - - 0x0295FE 14:95EE: F1        .byte con_F1, $CB, $B3, $53, $C3, $00
-- D - I - - 0x029604 14:95F4: F0        .byte con_F0
+- D - I - - 0x029604 14:95F4: F0        .byte con_F0_exit
 
 
 
 _off007_95F5_76:
 - D - I - - 0x029605 14:95F5: F5        .byte con_F5, $80
-- D - I - - 0x029607 14:95F7: F4        .byte con_F4, $28, $29, $2A, $0B
+- D - I - - 0x029607 14:95F7: F4        .byte con_F4_chr_spr, $28, $29, $2A, $0B
 - D - I - - 0x02960C 14:95FC: F1        .byte con_F1, $39, $11, $E8, $BB, $00
-- D - I - - 0x029612 14:9602: F0        .byte con_F0
+- D - I - - 0x029612 14:9602: F0        .byte con_F0_exit
 
 
 
 _off007_9603_77:
 - D - I - - 0x029613 14:9603: F5        .byte con_F5, $82
-- D - I - - 0x029615 14:9605: F4        .byte con_F4, $04, $05, $22, $00
+- D - I - - 0x029615 14:9605: F4        .byte con_F4_chr_spr, $04, $05, $22, $00
 - D - I - - 0x02961A 14:960A: F1        .byte con_F1, $5D, $83, $B8, $D3, $04
 - D - I - - 0x029620 14:9610: 06        .byte $06
 - D - I - - 0x029621 14:9611: F1        .byte con_F1, $A9, $C4, $B8, $DB, $00
-- D - I - - 0x029627 14:9617: F0        .byte con_F0
+- D - I - - 0x029627 14:9617: F0        .byte con_F0_exit
 
 
 
@@ -3289,35 +3298,35 @@ _off007_9603_77:
 _off007_9618_78:
 - D - I - - 0x029628 14:9618: F5        .byte con_F5, $80
 off_961A:
-- D - I - - 0x02962A 14:961A: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02962A 14:961A: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02962F 14:961F: F1        .byte con_F1, $62, $5E, $20, $BB, $0D
 - D - I - - 0x029635 14:9625: F1        .byte con_F1, $62, $5D, $20, $BB, $09
 - D - I - - 0x02963B 14:962B: F1        .byte con_F1, $62, $5C, $20, $BB, $05
 - D - I - - 0x029641 14:9631: F1        .byte con_F1, $63, $49, $A0, $9F, $00
 - D - I - - 0x029647 14:9637: 14        .byte $14
-- D - I - - 0x029648 14:9638: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x029648 14:9638: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x02964D 14:963D: F6        .byte con_F6, $00
 - D - I - - 0x02964F 14:963F: F6        .byte con_F6, $2A
 - D - I - - 0x029651 14:9641: F6        .byte con_F6, $3F
 - D - I - - 0x029653 14:9643: F1        .byte con_F1, $00, $85, $08, $BB, $05
 - D - I - - 0x029659 14:9649: 02        .byte $02
 - D - I - - 0x02965A 14:964A: F1        .byte con_F1, $8E, $84, $0C, $BB, $05
-- D - I - - 0x029660 14:9650: F0        .byte con_F0
+- D - I - - 0x029660 14:9650: F0        .byte con_F0_exit
 
 
 
 
 _off007_9651_79:
 - D - I - - 0x029661 14:9651: F5        .byte con_F5, $09
-- D - I - - 0x029663 14:9653: F4        .byte con_F4, $60, $61, $62, $63
+- D - I - - 0x029663 14:9653: F4        .byte con_F4_chr_spr, $60, $61, $62, $63
 - D - I - - 0x029668 14:9658: F1        .byte con_F1, $00, $79, $F0, $BB, $00
-- D - I - - 0x02966E 14:965E: F0        .byte con_F0
+- D - I - - 0x02966E 14:965E: F0        .byte con_F0_exit
 
 
 
 _off007_965F_7A:
 - D - I - - 0x02966F 14:965F: F5        .byte con_F5, $80
-- D - I - - 0x029671 14:9661: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x029671 14:9661: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029676 14:9666: F1        .byte con_F1, $65, $1E, $D0, $93, $00
 - D - I - - 0x02967C 14:966C: F1        .byte con_F1, $64, $1D, $1F, $B7, $05
 - D - I - - 0x029682 14:9672: 14        .byte $14
@@ -3326,41 +3335,41 @@ _off007_965F_7A:
 - D - I - - 0x02968B 14:967B: 04        .byte $04
 - D - I - - 0x02968C 14:967C: F1        .byte con_F1, $66, $1D, $16, $B3, $05
 - D - I - - 0x029692 14:9682: F1        .byte con_F1, $A7, $22, $0E, $AF, $01
-- D - I - - 0x029698 14:9688: F0        .byte con_F0
+- D - I - - 0x029698 14:9688: F0        .byte con_F0_exit
 
 
 
 _off007_9689_7B:
 - D - I - - 0x029699 14:9689: F5        .byte con_F5, $09
-- D - I - - 0x02969B 14:968B: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x02969B 14:968B: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0296A0 14:9690: F1        .byte con_F1, $83, $BA, $B8, $BB, $00
-- D - I - - 0x0296A6 14:9696: F0        .byte con_F0
+- D - I - - 0x0296A6 14:9696: F0        .byte con_F0_exit
 
 
 
 _off007_9697_7C:
 - D - I - - 0x0296A7 14:9697: F5        .byte con_F5, $87
-- D - I - - 0x0296A9 14:9699: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x0296A9 14:9699: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x0296AE 14:969E: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x0296B4 14:96A4: F1        .byte con_F1, $67, $94, $F0, $B3, $04
 - D - I - - 0x0296BA 14:96AA: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - D - I - - 0x0296C0 14:96B0: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x0296C6 14:96B6: 16        .byte $16
-- D - I - - 0x0296C7 14:96B7: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x0296C7 14:96B7: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x0296CC 14:96BC: F6        .byte con_F6, $00
 - D - I - - 0x0296CE 14:96BE: F6        .byte con_F6, $2A
 - D - I - - 0x0296D0 14:96C0: F6        .byte con_F6, $3F
 - D - I - - 0x0296D2 14:96C2: F1        .byte con_F1, $00, $84, $20, $BB, $05
 - D - I - - 0x0296D8 14:96C8: 04        .byte $04
 - D - I - - 0x0296D9 14:96C9: F1        .byte con_F1, $68, $85, $20, $BB, $05
-- D - I - - 0x0296DF 14:96CF: F8        .byte con_F8
+- D - I - - 0x0296DF 14:96CF: F8        .byte con_F8_jmp
 - D - I - - 0x0296E0 14:96D0: 0C 99     .word off_990C
 
 
 
 _off007_96D2_7D:
 - D - I - - 0x0296E2 14:96D2: F5        .byte con_F5, $83
-- D - I - - 0x0296E4 14:96D4: F4        .byte con_F4, $18, $19, $1A, $2B
+- D - I - - 0x0296E4 14:96D4: F4        .byte con_F4_chr_spr, $18, $19, $1A, $2B
 - D - I - - 0x0296E9 14:96D9: F7        .byte con_F7, $03, $7B
 - D - I - - 0x0296EC 14:96DC: F1        .byte con_F1, $30, $00, $80, $9B, $04
 - D - I - - 0x0296F2 14:96E2: F1        .byte con_F1, $43, $00, $80, $E4, $08
@@ -3387,143 +3396,143 @@ _off007_96D2_7D:
 - D - I - - 0x029740 14:9730: F6        .byte con_F6, $2A
 - D - I - - 0x029742 14:9732: F6        .byte con_F6, $3F
 - D - I - - 0x029744 14:9734: F1        .byte con_F1, $2E, $17, $00, $C3, $11
-- D - I - - 0x02974A 14:973A: F0        .byte con_F0
+- D - I - - 0x02974A 14:973A: F0        .byte con_F0_exit
 
 
 
 _off007_973B_7E:
 - D - I - - 0x02974B 14:973B: F5        .byte con_F5, $09
-- D - I - - 0x02974D 14:973D: F4        .byte con_F4, $06, $00, $00, $00
+- D - I - - 0x02974D 14:973D: F4        .byte con_F4_chr_spr, $06, $00, $00, $00
 - D - I - - 0x029752 14:9742: F1        .byte con_F1, $84, $B6, $E0, $63, $00
-- D - I - - 0x029758 14:9748: F0        .byte con_F0
+- D - I - - 0x029758 14:9748: F0        .byte con_F0_exit
 
 
 
 _off007_9749_7F:
 - D - I - - 0x029759 14:9749: F5        .byte con_F5, $82
-- D - I - - 0x02975B 14:974B: F4        .byte con_F4, $04, $05, $22, $00
+- D - I - - 0x02975B 14:974B: F4        .byte con_F4_chr_spr, $04, $05, $22, $00
 - D - I - - 0x029760 14:9750: F1        .byte con_F1, $00, $8A, $20, $CB, $05
 - D - I - - 0x029766 14:9756: 06        .byte $06
 - D - I - - 0x029767 14:9757: F1        .byte con_F1, $69, $BA, $18, $D3, $01
-- D - I - - 0x02976D 14:975D: F8        .byte con_F8
+- D - I - - 0x02976D 14:975D: F8        .byte con_F8_jmp
 - D - I - - 0x02976E 14:975E: A7 8B     .word off_8BA7
 
 
 
 _off007_9760_80:
 - D - I - - 0x029770 14:9760: F5        .byte con_F5, $09
-- D - I - - 0x029772 14:9762: F4        .byte con_F4, $06, $00, $00, $00
+- D - I - - 0x029772 14:9762: F4        .byte con_F4_chr_spr, $06, $00, $00, $00
 - D - I - - 0x029777 14:9767: F1        .byte con_F1, $85, $B7, $60, $93, $00
-- D - I - - 0x02977D 14:976D: F0        .byte con_F0
+- D - I - - 0x02977D 14:976D: F0        .byte con_F0_exit
 
 
 
 _off007_976E_81:
 - D - I - - 0x02977E 14:976E: F5        .byte con_F5, $80
-- D - I - - 0x029780 14:9770: F4        .byte con_F4, $04, $05, $23, $00
+- D - I - - 0x029780 14:9770: F4        .byte con_F4_chr_spr, $04, $05, $23, $00
 - D - I - - 0x029785 14:9775: F1        .byte con_F1, $AE, $BA, $D0, $B5, $00
 - D - I - - 0x02978B 14:977B: F1        .byte con_F1, $6A, $8B, $C0, $C5, $04
-- D - I - - 0x029791 14:9781: F8        .byte con_F8
+- D - I - - 0x029791 14:9781: F8        .byte con_F8_jmp
 - D - I - - 0x029792 14:9782: A7 8B     .word off_8BA7
 
 
 
 _off007_9784_82:
 - D - I - - 0x029794 14:9784: F5        .byte con_F5, $80
-- D - I - - 0x029796 14:9786: F4        .byte con_F4, $04, $05, $23, $00
+- D - I - - 0x029796 14:9786: F4        .byte con_F4_chr_spr, $04, $05, $23, $00
 - D - I - - 0x02979B 14:978B: F1        .byte con_F1, $AF, $BA, $D0, $D7, $00
 - D - I - - 0x0297A1 14:9791: F1        .byte con_F1, $00, $30, $C8, $CF, $04
-- D - I - - 0x0297A7 14:9797: F0        .byte con_F0
+- D - I - - 0x0297A7 14:9797: F0        .byte con_F0_exit
 
 
 
 _off007_9798_83:
 - D - I - - 0x0297A8 14:9798: F5        .byte con_F5, $80
-- D - I - - 0x0297AA 14:979A: F4        .byte con_F4, $04, $05, $22, $00
+- D - I - - 0x0297AA 14:979A: F4        .byte con_F4_chr_spr, $04, $05, $22, $00
 - D - I - - 0x0297AF 14:979F: F1        .byte con_F1, $00, $31, $E4, $CB, $04
 - D - I - - 0x0297B5 14:97A5: 06        .byte $06
 - D - I - - 0x0297B6 14:97A6: F1        .byte con_F1, $B0, $BA, $E8, $DB, $00
-- D - I - - 0x0297BC 14:97AC: F8        .byte con_F8
+- D - I - - 0x0297BC 14:97AC: F8        .byte con_F8_jmp
 - D - I - - 0x0297BD 14:97AD: A7 8B     .word off_8BA7
 
 
 
 _off007_97AF_84:
 - D - I - - 0x0297BF 14:97AF: F5        .byte con_F5, $09
-- D - I - - 0x0297C1 14:97B1: F4        .byte con_F4, $04, $05, $00, $00
+- D - I - - 0x0297C1 14:97B1: F4        .byte con_F4_chr_spr, $04, $05, $00, $00
 - D - I - - 0x0297C6 14:97B6: F1        .byte con_F1, $86, $C4, $A8, $AB, $00
-- D - I - - 0x0297CC 14:97BC: F0        .byte con_F0
+- D - I - - 0x0297CC 14:97BC: F0        .byte con_F0_exit
 
 
 
 _off007_97BD_85:
 - D - I - - 0x0297CD 14:97BD: F5        .byte con_F5, $83
-- D - I - - 0x0297CF 14:97BF: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x0297CF 14:97BF: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x0297D4 14:97C4: F1        .byte con_F1, $00, $8E, $00, $EB, $01
 off_97CA:
 - D - I - - 0x0297DA 14:97CA: F1        .byte con_F1, $00, $8C, $00, $D3, $05
-- D - I - - 0x0297E0 14:97D0: F0        .byte con_F0
+- D - I - - 0x0297E0 14:97D0: F0        .byte con_F0_exit
 
 
 
 _off007_97D1_86:
 - D - I - - 0x0297E1 14:97D1: F5        .byte con_F5, $83
-- D - I - - 0x0297E3 14:97D3: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x0297E3 14:97D3: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x0297E8 14:97D8: F1        .byte con_F1, $6C, $B8, $00, $EB, $01
 off_97DE:
 - D - I - - 0x0297EE 14:97DE: F1        .byte con_F1, $6B, $8D, $10, $C7, $05
-- D - I - - 0x0297F4 14:97E4: F8        .byte con_F8
+- D - I - - 0x0297F4 14:97E4: F8        .byte con_F8_jmp
 - D - I - - 0x0297F5 14:97E5: A7 8B     .word off_8BA7
 
 
 
 _off007_97E7_87:
 - D - I - - 0x0297F7 14:97E7: F5        .byte con_F5, $83
-- D - I - - 0x0297F9 14:97E9: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x0297F9 14:97E9: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x0297FE 14:97EE: F1        .byte con_F1, $6D, $B8, $00, $EB, $01
-- D - I - - 0x029804 14:97F4: F8        .byte con_F8
+- D - I - - 0x029804 14:97F4: F8        .byte con_F8_jmp
 - D - I - - 0x029805 14:97F5: DE 97     .word off_97DE
 
 
 
 _off007_97F7_88:
 - D - I - - 0x029807 14:97F7: F5        .byte con_F5, $83
-- D - I - - 0x029809 14:97F9: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x029809 14:97F9: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x02980E 14:97FE: F1        .byte con_F1, $6E, $B8, $00, $EB, $01
-- D - I - - 0x029814 14:9804: F8        .byte con_F8
+- D - I - - 0x029814 14:9804: F8        .byte con_F8_jmp
 - D - I - - 0x029815 14:9805: DE 97     .word off_97DE
 
 
 
 _off007_9807_89:
 - D - I - - 0x029817 14:9807: F5        .byte con_F5, $83
-- D - I - - 0x029819 14:9809: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x029819 14:9809: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x02981E 14:980E: F1        .byte con_F1, $6C, $B8, $00, $EB, $01
-- D - I - - 0x029824 14:9814: F8        .byte con_F8
+- D - I - - 0x029824 14:9814: F8        .byte con_F8_jmp
 - D - I - - 0x029825 14:9815: CA 97     .word off_97CA
 
 
 
 _off007_9817_8A:
 - D - I - - 0x029827 14:9817: F5        .byte con_F5, $83
-- D - I - - 0x029829 14:9819: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x029829 14:9819: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x02982E 14:981E: F1        .byte con_F1, $6E, $B8, $00, $EB, $01
-- D - I - - 0x029834 14:9824: F8        .byte con_F8
+- D - I - - 0x029834 14:9824: F8        .byte con_F8_jmp
 - D - I - - 0x029835 14:9825: CA 97     .word off_97CA
 
 
 
 _off007_9827_8B:
 - D - I - - 0x029837 14:9827: F5        .byte con_F5, $80
-- D - I - - 0x029839 14:9829: F4        .byte con_F4, $20, $21, $00, $00
+- D - I - - 0x029839 14:9829: F4        .byte con_F4_chr_spr, $20, $21, $00, $00
 - D - I - - 0x02983E 14:982E: F1        .byte con_F1, $00, $8F, $10, $BB, $01
-- D - I - - 0x029844 14:9834: F0        .byte con_F0
+- D - I - - 0x029844 14:9834: F0        .byte con_F0_exit
 
 
 
 _off007_9835_8C:
 - D - I - - 0x029845 14:9835: F5        .byte con_F5, $85
-- D - I - - 0x029847 14:9837: F4        .byte con_F4, $06, $07, $00, $00
+- D - I - - 0x029847 14:9837: F4        .byte con_F4_chr_spr, $06, $07, $00, $00
 - D - I - - 0x02984C 14:983C: F1        .byte con_F1, $00, $64, $10, $D3, $01
 - D - I - - 0x029852 14:9842: 10        .byte $10
 - D - I - - 0x029853 14:9843: F1        .byte con_F1, $00, $65, $30, $CB, $05
@@ -3535,67 +3544,68 @@ _off007_9835_8C:
 - D - I - - 0x029869 14:9859: F1        .byte con_F1, $00, $68, $C0, $C3, $00
 - D - I - - 0x02986F 14:985F: 02        .byte $02
 - D - I - - 0x029870 14:9860: F6        .byte con_F6, $00
-- D - I - - 0x029872 14:9862: F0        .byte con_F0
+- D - I - - 0x029872 14:9862: F0        .byte con_F0_exit
 
 
 
 _off007_9863_8D:
 - D - I - - 0x029873 14:9863: F5        .byte con_F5, $80
-- D - I - - 0x029875 14:9865: F4        .byte con_F4, $20, $21, $00, $00
+- D - I - - 0x029875 14:9865: F4        .byte con_F4_chr_spr, $20, $21, $00, $00
 - D - I - - 0x02987A 14:986A: F1        .byte con_F1, $00, $90, $10, $BB, $01
-- D - I - - 0x029880 14:9870: F0        .byte con_F0
+- D - I - - 0x029880 14:9870: F0        .byte con_F0_exit
 
 
 
 _off007_9871_8E:
 - D - I - - 0x029881 14:9871: F5        .byte con_F5, $80
-- D - I - - 0x029883 14:9873: F4        .byte con_F4, $10, $11, $12, $13
+- D - I - - 0x029883 14:9873: F4        .byte con_F4_chr_spr, $10, $11, $12, $13
 - D - I - - 0x029888 14:9878: F1        .byte con_F1, $D0, $2E, $20, $B3, $05
 - D - I - - 0x02988E 14:987E: F1        .byte con_F1, $B2, $2D, $18, $BB, $01
-- D - I - - 0x029894 14:9884: F0        .byte con_F0
+- D - I - - 0x029894 14:9884: F0        .byte con_F0_exit
 
 
 
 _off007_9885_8F:
 - D - I - - 0x029895 14:9885: F5        .byte con_F5, $0A
-- D - I - - 0x029897 14:9887: F4        .byte con_F4, $2C, $0B, $05, $07
+- D - I - - 0x029897 14:9887: F4        .byte con_F4_chr_spr, $2C, $0B, $05, $07
 - D - I - - 0x02989C 14:988C: F1        .byte con_F1, $00, $91, $00, $D3, $01
 - D - I - - 0x0298A2 14:9892: F1        .byte con_F1, $70, $92, $28, $C3, $05
 - D - I - - 0x0298A8 14:9898: F1        .byte con_F1, $70, $92, $00, $C3, $08
 - D - I - - 0x0298AE 14:989E: F1        .byte con_F1, $71, $93, $B8, $B3, $0C
 - D - I - - 0x0298B4 14:98A4: F1        .byte con_F1, $71, $93, $00, $B3, $10
-- D - I - - 0x0298BA 14:98AA: F0        .byte con_F0
+- D - I - - 0x0298BA 14:98AA: F0        .byte con_F0_exit
 
 
 
 _off007_98AB_90:
 - D - I - - 0x0298BB 14:98AB: F5        .byte con_F5, $80
-- D - I - - 0x0298BD 14:98AD: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x0298BD 14:98AD: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x0298C2 14:98B2: F1        .byte con_F1, $00, $58, $00, $C3, $09
 - D - I - - 0x0298C8 14:98B8: F1        .byte con_F1, $00, $4B, $00, $C3, $01
 - D - I - - 0x0298CE 14:98BE: F1        .byte con_F1, $00, $4D, $00, $C3, $05
-- D - I - - 0x0298D4 14:98C4: F0        .byte con_F0
+- D - I - - 0x0298D4 14:98C4: F0        .byte con_F0_exit
 
 
 
-_off007_98C5_91:
+_off007_98C5_91_face_p_tsubasa_my:
+; p_tsubasa_my
 - D - I - - 0x0298D5 14:98C5: F5        .byte con_F5, $84
 - D - I - - 0x0298D7 14:98C7: 80        .byte $80
-- D - I - - 0x0298D8 14:98C8: F4        .byte con_F4, $33, $00, $00, $00
+- D - I - - 0x0298D8 14:98C8: F4        .byte con_F4_chr_spr, $33, $00, $00, $00
 - D - I - - 0x0298DD 14:98CD: F1        .byte con_F1, $00, $98, $00, $D3, $01
-- D - I - - 0x0298E3 14:98D3: F0        .byte con_F0
+- D - I - - 0x0298E3 14:98D3: F0        .byte con_F0_exit
 
 
 
 _off007_98D4_92:
 - D - I - - 0x0298E4 14:98D4: F5        .byte con_F5, $0F
-- D - I - - 0x0298E6 14:98D6: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x0298E6 14:98D6: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x0298EB 14:98DB: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x0298F1 14:98E1: F1        .byte con_F1, $67, $D3, $F0, $B3, $04
 - D - I - - 0x0298F7 14:98E7: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - D - I - - 0x0298FD 14:98ED: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x029903 14:98F3: 16        .byte $16
-- D - I - - 0x029904 14:98F4: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x029904 14:98F4: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x029909 14:98F9: F6        .byte con_F6, $00
 - D - I - - 0x02990B 14:98FB: F6        .byte con_F6, $2A
 - D - I - - 0x02990D 14:98FD: F6        .byte con_F6, $3F
@@ -3604,466 +3614,503 @@ _off007_98D4_92:
 - D - I - - 0x029916 14:9906: F1        .byte con_F1, $68, $E0, $20, $BB, $05
 off_990C:
 - D - I - - 0x02991C 14:990C: F1        .byte con_F1, $AD, $86, $08, $EB, $01
-- D - I - - 0x029922 14:9912: F0        .byte con_F0
+- D - I - - 0x029922 14:9912: F0        .byte con_F0_exit
 
 
 
-_off007_9913_93:
+_off007_9913_93_face_p_renato_my:
+; p_renato_my
 - D - I - - 0x029923 14:9913: F5        .byte con_F5, $84
 - D - I - - 0x029925 14:9915: 02        .byte $02
-- D - I - - 0x029926 14:9916: F4        .byte con_F4, $38, $39, $42, $41
+- D - I - - 0x029926 14:9916: F4        .byte con_F4_chr_spr, $38, $39, $42, $41
 - D - I - - 0x02992B 14:991B: F1        .byte con_F1, $00, $B1, $10, $CB, $01
-- D - I - - 0x029931 14:9921: F0        .byte con_F0
+- D - I - - 0x029931 14:9921: F0        .byte con_F0_exit
 
 
 
-_off007_9922_94:
+_off007_9922_94_face_p_morisaki_my:
+; p_morisaki_my
 - D - I - - 0x029932 14:9922: F5        .byte con_F5, $84
 - D - I - - 0x029934 14:9924: 81        .byte $81
-- D - I - - 0x029935 14:9925: F4        .byte con_F4, $38, $39, $42, $41
+- D - I - - 0x029935 14:9925: F4        .byte con_F4_chr_spr, $38, $39, $42, $41
 - D - I - - 0x02993A 14:992A: F1        .byte con_F1, $00, $AE, $10, $CB, $01
-- D - I - - 0x029940 14:9930: F0        .byte con_F0
+- D - I - - 0x029940 14:9930: F0        .byte con_F0_exit
 
 
 
 _off007_9931_95:
 - D - I - - 0x029941 14:9931: F5        .byte con_F5, $10
-- D - I - - 0x029943 14:9933: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029943 14:9933: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029948 14:9938: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x02994E 14:993E: F1        .byte con_F1, $67, $D4, $F0, $B3, $04
 - D - I - - 0x029954 14:9944: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - D - I - - 0x02995A 14:994A: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x029960 14:9950: 16        .byte $16
-- D - I - - 0x029961 14:9951: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x029961 14:9951: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x029966 14:9956: F6        .byte con_F6, $00
 - D - I - - 0x029968 14:9958: F6        .byte con_F6, $2A
 - D - I - - 0x02996A 14:995A: F6        .byte con_F6, $3F
 - D - I - - 0x02996C 14:995C: F1        .byte con_F1, $00, $DB, $20, $BB, $05
 - D - I - - 0x029972 14:9962: 04        .byte $04
 - D - I - - 0x029973 14:9963: F1        .byte con_F1, $68, $E1, $20, $BB, $05
-- D - I - - 0x029979 14:9969: F8        .byte con_F8
+- D - I - - 0x029979 14:9969: F8        .byte con_F8_jmp
 - D - I - - 0x02997A 14:996A: 0C 99     .word off_990C
 
 
 
-_off007_996C_96:
+_off007_996C_96_face_p_misaki_my:
+; p_misaki_my
 - D - I - - 0x02997C 14:996C: F5        .byte con_F5, $84
 - D - I - - 0x02997E 14:996E: 82        .byte $82
 off_996F:
-- D - I - - 0x02997F 14:996F: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x02997F 14:996F: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x029984 14:9974: F1        .byte con_F1, $00, $9E, $00, $D3, $01
-- D - I - - 0x02998A 14:997A: F0        .byte con_F0
+- D - I - - 0x02998A 14:997A: F0        .byte con_F0_exit
 
 
 
-_off007_997B_97:
+_off007_997B_97_face_p_misaki_japan:
+; p_misaki_japan
 - D - I - - 0x02998B 14:997B: F5        .byte con_F5, $84
 - D - I - - 0x02998D 14:997D: 06        .byte $06
-- D - I - - 0x02998E 14:997E: F8        .byte con_F8
+- D - I - - 0x02998E 14:997E: F8        .byte con_F8_jmp
 - D - I - - 0x02998F 14:997F: 6F 99     .word off_996F
 
 
 
-_off007_9981_98:
+_off007_9981_98_face_p_ishizaki_my:
+; p_ishizaki_my
 - D - I - - 0x029991 14:9981: F5        .byte con_F5, $84
 - D - I - - 0x029993 14:9983: 83        .byte $83
 off_9984:
-- D - I - - 0x029994 14:9984: F4        .byte con_F4, $34, $00, $00, $00
+- D - I - - 0x029994 14:9984: F4        .byte con_F4_chr_spr, $34, $00, $00, $00
 - D - I - - 0x029999 14:9989: F1        .byte con_F1, $00, $9D, $00, $D3, $01
-- D - I - - 0x02999F 14:998F: F0        .byte con_F0
+- D - I - - 0x02999F 14:998F: F0        .byte con_F0_exit
 
 
 
-_off007_9990_99:
+_off007_9990_99_face_p_ishizaki_japan:
+; p_ishizaki_japan
 - D - I - - 0x0299A0 14:9990: F5        .byte con_F5, $84
 - D - I - - 0x0299A2 14:9992: 09        .byte $09
-- D - I - - 0x0299A3 14:9993: F8        .byte con_F8
+- D - I - - 0x0299A3 14:9993: F8        .byte con_F8_jmp
 - D - I - - 0x0299A4 14:9994: 84 99     .word off_9984
 
 
 
-_off007_9996_9A:
+_off007_9996_9A_face_p_nitta_my:
+; p_nitta_my
 - D - I - - 0x0299A6 14:9996: F5        .byte con_F5, $84
 - D - I - - 0x0299A8 14:9998: 85        .byte $85
 off_9999:
-- D - I - - 0x0299A9 14:9999: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x0299A9 14:9999: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x0299AE 14:999E: F1        .byte con_F1, $00, $AA, $00, $D3, $01
-- D - I - - 0x0299B4 14:99A4: F0        .byte con_F0
+- D - I - - 0x0299B4 14:99A4: F0        .byte con_F0_exit
 
 
 
-_off007_99A5_9B:
+_off007_99A5_9B_face_p_nitta_japan:
+; p_nitta_japan
 - - - - - - 0x0299B5 14:99A5: F5        .byte con_F5, $84
 - - - - - - 0x0299B7 14:99A7: 0C        .byte $0C
-- - - - - - 0x0299B8 14:99A8: F8        .byte con_F8
+- - - - - - 0x0299B8 14:99A8: F8        .byte con_F8_jmp
 - - - - - - 0x0299B9 14:99A9: 99 99     .word off_9999
 
 
 
-_off007_99AB_9C:
+_off007_99AB_9C_face_p_masao_my:
+; p_masao_my, p_masao_japan, p_kazuo_my, p_kazuo_japan
 - D - I - - 0x0299BB 14:99AB: F5        .byte con_F5, $84
 - D - I - - 0x0299BD 14:99AD: 0D        .byte $0D
-- D - I - - 0x0299BE 14:99AE: F8        .byte con_F8
+- D - I - - 0x0299BE 14:99AE: F8        .byte con_F8_jmp
 - D - I - - 0x0299BF 14:99AF: B2 9A     .word off_9AB2
 
 
 
 _off007_99B1_9D:
 - D - I - - 0x0299C1 14:99B1: F5        .byte con_F5, $80
-- D - I - - 0x0299C3 14:99B3: F4        .byte con_F4, $10, $11, $12, $13
+- D - I - - 0x0299C3 14:99B3: F4        .byte con_F4_chr_spr, $10, $11, $12, $13
 - D - I - - 0x0299C8 14:99B8: F7        .byte con_F7, $23, $5B
 - D - I - - 0x0299CB 14:99BB: F1        .byte con_F1, $D2, $2E, $20, $BB, $0D
 - D - I - - 0x0299D1 14:99C1: F1        .byte con_F1, $D1, $2D, $18, $C3, $09
 - D - I - - 0x0299D7 14:99C7: F1        .byte con_F1, $00, $00, $80, $A3, $04
 - D - I - - 0x0299DD 14:99CD: F1        .byte con_F1, $00, $00, $80, $DB, $00
-- D - I - - 0x0299E3 14:99D3: F0        .byte con_F0
+- D - I - - 0x0299E3 14:99D3: F0        .byte con_F0_exit
 
 
 
-_off007_99D4_9E:
+_off007_99D4_9E_face_p_hyuga_my:
+; p_hyuga_my, p_hyuga_japan
 - D - I - - 0x0299E4 14:99D4: F5        .byte con_F5, $84
 - D - I - - 0x0299E6 14:99D6: 0F        .byte $0F
-- D - I - - 0x0299E7 14:99D7: F8        .byte con_F8
+- D - I - - 0x0299E7 14:99D7: F8        .byte con_F8_jmp
 - D - I - - 0x0299E8 14:99D8: 05 9B     .word off_9B05
 
 
 
-_off007_99DA_9F:
+_off007_99DA_9F_face_p_soda_my:
+; p_soda_my, p_soda_japan
 - D - I - - 0x0299EA 14:99DA: F5        .byte con_F5, $84
 - D - I - - 0x0299EC 14:99DC: 10        .byte $10
-- D - I - - 0x0299ED 14:99DD: F8        .byte con_F8
+- D - I - - 0x0299ED 14:99DD: F8        .byte con_F8_jmp
 - D - I - - 0x0299EE 14:99DE: D8 9A     .word off_9AD8
 
 
 
-_off007_99E0_A0:
+_off007_99E0_A0_face_p_jito_my:
+; p_jito_my, p_jito_japan
 - D - I - - 0x0299F0 14:99E0: F5        .byte con_F5, $84
 - D - I - - 0x0299F2 14:99E2: 11        .byte $11
-- D - I - - 0x0299F3 14:99E3: F8        .byte con_F8
+- D - I - - 0x0299F3 14:99E3: F8        .byte con_F8_jmp
 - D - I - - 0x0299F4 14:99E4: A3 9A     .word off_9AA3
 
 
 
-_off007_99E6_A1:
+_off007_99E6_A1_face_p_matsuyama_my:
+; p_matsuyama_my, p_matsuyama_japan
 - D - I - - 0x0299F6 14:99E6: F5        .byte con_F5, $84
 - D - I - - 0x0299F8 14:99E8: 12        .byte $12
-- D - I - - 0x0299F9 14:99E9: F8        .byte con_F8
+- D - I - - 0x0299F9 14:99E9: F8        .byte con_F8_jmp
 - D - I - - 0x0299FA 14:99EA: F6 9A     .word off_9AF6
 
 
 
-_off007_99EC_A2:
+_off007_99EC_A2_face_p_sawada_my:
+; p_sawada_my
 - - - - - - 0x0299FC 14:99EC: F5        .byte con_F5, $84
 - - - - - - 0x0299FE 14:99EE: 13        .byte $13
-- - - - - - 0x0299FF 14:99EF: F8        .byte con_F8
+- - - - - - 0x0299FF 14:99EF: F8        .byte con_F8_jmp
 - - - - - - 0x029A00 14:99F0: 14 9B     .word off_9B14
 
 
 
-_off007_99F2_A3:
+_off007_99F2_A3_face_p_misugi_my:
+; p_misugi_my, p_misugi_japan
 - D - I - - 0x029A02 14:99F2: F5        .byte con_F5, $84
 - D - I - - 0x029A04 14:99F4: 14        .byte $14
-- D - I - - 0x029A05 14:99F5: F8        .byte con_F8
+- D - I - - 0x029A05 14:99F5: F8        .byte con_F8_jmp
 - D - I - - 0x029A06 14:99F6: E7 9A     .word off_9AE7
 
 
 
-_off007_99F8_A4:
+_off007_99F8_A4_face_p_wakabayashi_my:
+; p_wakabayashi_my, p_wakabayashi_hamburger_sv
 - D - I - - 0x029A08 14:99F8: F5        .byte con_F5, $84
 - D - I - - 0x029A0A 14:99FA: 15        .byte $15
-- D - I - - 0x029A0B 14:99FB: F4        .byte con_F4, $38, $39, $42, $41
+- D - I - - 0x029A0B 14:99FB: F4        .byte con_F4_chr_spr, $38, $39, $42, $41
 - D - I - - 0x029A10 14:9A00: F1        .byte con_F1, $00, $B0, $10, $CB, $01
-- D - I - - 0x029A16 14:9A06: F0        .byte con_F0
+- D - I - - 0x029A16 14:9A06: F0        .byte con_F0_exit
 
 
 
 _off007_9A07_A5:
 - D - I - - 0x029A17 14:9A07: F5        .byte con_F5, $80
-- D - I - - 0x029A19 14:9A09: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029A19 14:9A09: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029A1E 14:9A0E: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x029A24 14:9A14: F1        .byte con_F1, $67, $D5, $F0, $B3, $04
 - D - I - - 0x029A2A 14:9A1A: F1        .byte con_F1, $67, $D9, $F0, $B3, $08
 - D - I - - 0x029A30 14:9A20: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x029A36 14:9A26: 16        .byte $16
-- D - I - - 0x029A37 14:9A27: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x029A37 14:9A27: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x029A3C 14:9A2C: F6        .byte con_F6, $00
 - D - I - - 0x029A3E 14:9A2E: F6        .byte con_F6, $2A
 - D - I - - 0x029A40 14:9A30: F6        .byte con_F6, $3F
 - D - I - - 0x029A42 14:9A32: F1        .byte con_F1, $00, $DC, $20, $BB, $05
 - D - I - - 0x029A48 14:9A38: 04        .byte $04
 - D - I - - 0x029A49 14:9A39: F1        .byte con_F1, $68, $E2, $20, $BB, $05
-- D - I - - 0x029A4F 14:9A3F: F8        .byte con_F8
+- D - I - - 0x029A4F 14:9A3F: F8        .byte con_F8_jmp
 - D - I - - 0x029A50 14:9A40: 0C 99     .word off_990C
 
 
 
-_off007_9A42_A6:
+_off007_9A42_A6_face_p_wakashimazu_my:
+; p_wakashimazu_my, p_wakashimazu_toho, p_wakashimazu_japan
 - D - I - - 0x029A52 14:9A42: F5        .byte con_F5, $1A
-- D - I - - 0x029A54 14:9A44: F4        .byte con_F4, $38, $39, $42, $41
+- D - I - - 0x029A54 14:9A44: F4        .byte con_F4_chr_spr, $38, $39, $42, $41
 - D - I - - 0x029A59 14:9A49: F1        .byte con_F1, $00, $AF, $10, $CB, $01
-- D - I - - 0x029A5F 14:9A4F: F0        .byte con_F0
+- D - I - - 0x029A5F 14:9A4F: F0        .byte con_F0_exit
 
 
 
 _off007_9A50_A7:
 - D - I - - 0x029A60 14:9A50: F5        .byte con_F5, $80
-- D - I - - 0x029A62 14:9A52: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029A62 14:9A52: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029A67 14:9A57: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x029A6D 14:9A5D: F1        .byte con_F1, $67, $D6, $F0, $B3, $04
 - D - I - - 0x029A73 14:9A63: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - D - I - - 0x029A79 14:9A69: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x029A7F 14:9A6F: 16        .byte $16
-- D - I - - 0x029A80 14:9A70: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x029A80 14:9A70: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x029A85 14:9A75: F6        .byte con_F6, $00
 - D - I - - 0x029A87 14:9A77: F6        .byte con_F6, $2A
 - D - I - - 0x029A89 14:9A79: F6        .byte con_F6, $3F
 - D - I - - 0x029A8B 14:9A7B: F1        .byte con_F1, $00, $DD, $20, $BB, $05
 - D - I - - 0x029A91 14:9A81: 04        .byte $04
 - D - I - - 0x029A92 14:9A82: F1        .byte con_F1, $68, $E3, $20, $BB, $05
-- D - I - - 0x029A98 14:9A88: F8        .byte con_F8
+- D - I - - 0x029A98 14:9A88: F8        .byte con_F8_jmp
 - D - I - - 0x029A99 14:9A89: 0C 99     .word off_990C
 
 
 
-_off007_9A8B_A8:
+_off007_9A8B_A8_face_p_meon_gremio:
+; p_meon_gremio
 - D - I - - 0x029A9B 14:9A8B: F5        .byte con_F5, $84
 - D - I - - 0x029A9D 14:9A8D: 18        .byte $18
-- D - I - - 0x029A9E 14:9A8E: F4        .byte con_F4, $38, $39, $42, $41
+- D - I - - 0x029A9E 14:9A8E: F4        .byte con_F4_chr_spr, $38, $39, $42, $41
 - D - I - - 0x029AA3 14:9A93: F1        .byte con_F1, $00, $AD, $10, $CB, $01
-- D - I - - 0x029AA9 14:9A99: F0        .byte con_F0
+- D - I - - 0x029AA9 14:9A99: F0        .byte con_F0_exit
 
 
 
-_off007_9A9A_A9:
+_off007_9A9A_A9_face_p_carlos_flamengo:
+; p_carlos_flamengo
 - D - I - - 0x029AAA 14:9A9A: F5        .byte con_F5, $84
 - D - I - - 0x029AAC 14:9A9C: 19        .byte $19
-- D - I - - 0x029AAD 14:9A9D: F8        .byte con_F8
+- D - I - - 0x029AAD 14:9A9D: F8        .byte con_F8_jmp
 - D - I - - 0x029AAE 14:9A9E: A1 9B     .word off_9BA1
 
 
 
-_off007_9AA0_AA:
+_off007_9AA0_AA_face_p_jito_kunimi:
+; p_jito_kunimi
 - D - I - - 0x029AB0 14:9AA0: F5        .byte con_F5, $84
 - D - I - - 0x029AB2 14:9AA2: 1A        .byte $1A
 off_9AA3:
-- D - I - - 0x029AB3 14:9AA3: F4        .byte con_F4, $35, $00, $00, $00
+- D - I - - 0x029AB3 14:9AA3: F4        .byte con_F4_chr_spr, $35, $00, $00, $00
 - D - I - - 0x029AB8 14:9AA8: F1        .byte con_F1, $00, $A9, $00, $D3, $01
-- D - I - - 0x029ABE 14:9AAE: F0        .byte con_F0
+- D - I - - 0x029ABE 14:9AAE: F0        .byte con_F0_exit
 
 
 
-_off007_9AAF_AB:
+_off007_9AAF_AB_face_p_masao_akita:
+; p_masao_akita, p_kazuo_akita
 - D - I - - 0x029ABF 14:9AAF: F5        .byte con_F5, $84
 - D - I - - 0x029AC1 14:9AB1: 1B        .byte $1B
 off_9AB2:
-- D - I - - 0x029AC2 14:9AB2: F4        .byte con_F4, $33, $00, $00, $00
+- D - I - - 0x029AC2 14:9AB2: F4        .byte con_F4_chr_spr, $33, $00, $00, $00
 - D - I - - 0x029AC7 14:9AB7: F1        .byte con_F1, $00, $99, $00, $D3, $01
-- D - I - - 0x029ACD 14:9ABD: F0        .byte con_F0
+- D - I - - 0x029ACD 14:9ABD: F0        .byte con_F0_exit
 
 
 
 _off007_9ABE_AC:
 - D - I - - 0x029ACE 14:9ABE: F5        .byte con_F5, $80
-- D - I - - 0x029AD0 14:9AC0: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x029AD0 14:9AC0: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x029AD5 14:9AC5: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029AD8 14:9AC8: F1        .byte con_F1, $B4, $29, $E0, $1B, $06
 - D - I - - 0x029ADE 14:9ACE: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x029AE4 14:9AD4: F0        .byte con_F0
+- D - I - - 0x029AE4 14:9AD4: F0        .byte con_F0_exit
 
 
 
-_off007_9AD5_AD:
+_off007_9AD5_AD_face_p_soda_tatsunami:
+; p_soda_tatsunami
 - D - I - - 0x029AE5 14:9AD5: F5        .byte con_F5, $84
 - D - I - - 0x029AE7 14:9AD7: 1D        .byte $1D
 off_9AD8:
-- D - I - - 0x029AE8 14:9AD8: F4        .byte con_F4, $33, $30, $00, $00
+- D - I - - 0x029AE8 14:9AD8: F4        .byte con_F4_chr_spr, $33, $30, $00, $00
 - D - I - - 0x029AED 14:9ADD: F1        .byte con_F1, $00, $9A, $00, $D3, $01
-- D - I - - 0x029AF3 14:9AE3: F0        .byte con_F0
+- D - I - - 0x029AF3 14:9AE3: F0        .byte con_F0_exit
 
 
 
-_off007_9AE4_AE:
+_off007_9AE4_AE_face_p_misugi_musashi:
+; p_misugi_musashi
 - D - I - - 0x029AF4 14:9AE4: F5        .byte con_F5, $84
 - D - I - - 0x029AF6 14:9AE6: 1E        .byte $1E
 off_9AE7:
-- D - I - - 0x029AF7 14:9AE7: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x029AF7 14:9AE7: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x029AFC 14:9AEC: F1        .byte con_F1, $00, $A7, $00, $D3, $01
-- D - I - - 0x029B02 14:9AF2: F0        .byte con_F0
+- D - I - - 0x029B02 14:9AF2: F0        .byte con_F0_exit
 
 
 
-_off007_9AF3_AF:
+_off007_9AF3_AF_face_p_matsuyama_furano:
+; p_matsuyama_furano
 - D - I - - 0x029B03 14:9AF3: F5        .byte con_F5, $84
 - D - I - - 0x029B05 14:9AF5: 1F        .byte $1F
 off_9AF6:
-- D - I - - 0x029B06 14:9AF6: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x029B06 14:9AF6: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x029B0B 14:9AFB: F1        .byte con_F1, $00, $A8, $00, $D3, $01
-- D - I - - 0x029B11 14:9B01: F0        .byte con_F0
+- D - I - - 0x029B11 14:9B01: F0        .byte con_F0_exit
 
 
 
-_off007_9B02_B0:
+_off007_9B02_B0_face_p_hyuga_toho:
+; p_hyuga_toho
 - D - I - - 0x029B12 14:9B02: F5        .byte con_F5, $84
 - D - I - - 0x029B14 14:9B04: 20        .byte $20
 off_9B05:
-- D - I - - 0x029B15 14:9B05: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029B15 14:9B05: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029B1A 14:9B0A: F1        .byte con_F1, $00, $9B, $00, $D3, $01
-- D - I - - 0x029B20 14:9B10: F0        .byte con_F0
+- D - I - - 0x029B20 14:9B10: F0        .byte con_F0_exit
 
 
 
-_off007_9B11_B1:
+_off007_9B11_B1_face_p_sawada_toho:
+; p_sawada_toho
 - D - I - - 0x029B21 14:9B11: F5        .byte con_F5, $84
 - D - I - - 0x029B23 14:9B13: 21        .byte $21
 off_9B14:
-- D - I - - 0x029B24 14:9B14: F4        .byte con_F4, $34, $00, $00, $00
+- D - I - - 0x029B24 14:9B14: F4        .byte con_F4_chr_spr, $34, $00, $00, $00
 - D - I - - 0x029B29 14:9B19: F1        .byte con_F1, $00, $9C, $00, $D3, $01
-- D - I - - 0x029B2F 14:9B1F: F0        .byte con_F0
+- D - I - - 0x029B2F 14:9B1F: F0        .byte con_F0_exit
 
 
 
-_off007_9B20_B2:
+_off007_9B20_B2_face_p_victorino_uruguay:
+; p_victorino_uruguay
 - D - I - - 0x029B30 14:9B20: F5        .byte con_F5, $84
 - D - I - - 0x029B32 14:9B22: 23        .byte $23
-- D - I - - 0x029B33 14:9B23: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x029B33 14:9B23: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x029B38 14:9B28: F1        .byte con_F1, $00, $AC, $00, $D3, $01
-- D - I - - 0x029B3E 14:9B2E: F0        .byte con_F0
+- D - I - - 0x029B3E 14:9B2E: F0        .byte con_F0_exit
 
 
 
-_off007_9B2F_B3:
+_off007_9B2F_B3_face_p_kaltz_hamburger_sv:
+; p_kaltz_hamburger_sv
 - D - I - - 0x029B3F 14:9B2F: F5        .byte con_F5, $84
 - D - I - - 0x029B41 14:9B31: 24        .byte $24
-- D - I - - 0x029B42 14:9B32: F8        .byte con_F8
+- D - I - - 0x029B42 14:9B32: F8        .byte con_F8_jmp
 - D - I - - 0x029B43 14:9B33: 83 9B     .word off_9B83
 
 
 
-_off007_9B35_B4:
+_off007_9B35_B4_face_p_napoleon_france:
+; p_napoleon_france
 - D - I - - 0x029B45 14:9B35: F5        .byte con_F5, $84
 - D - I - - 0x029B47 14:9B37: 33        .byte $33
-- D - I - - 0x029B48 14:9B38: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029B48 14:9B38: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029B4D 14:9B3D: F1        .byte con_F1, $00, $A6, $00, $D3, $01
-- D - I - - 0x029B53 14:9B43: F0        .byte con_F0
+- D - I - - 0x029B53 14:9B43: F0        .byte con_F0_exit
 
 
 
-_off007_9B44_B5:
+_off007_9B44_B5_face_p_pierre_france:
+; p_pierre_france
 - D - I - - 0x029B54 14:9B44: F5        .byte con_F5, $84
 - D - I - - 0x029B56 14:9B46: 34        .byte $34
-- D - I - - 0x029B57 14:9B47: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029B57 14:9B47: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029B5C 14:9B4C: F1        .byte con_F1, $00, $A5, $00, $D3, $01
-- D - I - - 0x029B62 14:9B52: F0        .byte con_F0
+- D - I - - 0x029B62 14:9B52: F0        .byte con_F0_exit
 
 
 
-_off007_9B53_B6:
+_off007_9B53_B6_face_p_pascal_argentina:
+; p_pascal_argentina
 - D - I - - 0x029B63 14:9B53: F5        .byte con_F5, $84
 - D - I - - 0x029B65 14:9B55: 35        .byte $35
-- D - I - - 0x029B66 14:9B56: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x029B66 14:9B56: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x029B6B 14:9B5B: F1        .byte con_F1, $00, $A0, $00, $D3, $01
-- D - I - - 0x029B71 14:9B61: F0        .byte con_F0
+- D - I - - 0x029B71 14:9B61: F0        .byte con_F0_exit
 
 
 
-_off007_9B62_B7:
+_off007_9B62_B7_face_p_diaz_argentina:
+; p_diaz_argentina
 - D - I - - 0x029B72 14:9B62: F5        .byte con_F5, $84
 - D - I - - 0x029B74 14:9B64: 36        .byte $36
-- D - I - - 0x029B75 14:9B65: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029B75 14:9B65: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029B7A 14:9B6A: F1        .byte con_F1, $00, $9F, $00, $D3, $01
-- D - I - - 0x029B80 14:9B70: F0        .byte con_F0
+- D - I - - 0x029B80 14:9B70: F0        .byte con_F0_exit
 
 
 
-_off007_9B71_B8:
+_off007_9B71_B8_face_p_schneider_west_germany:
+; p_schneider_west_germany
 - D - I - - 0x029B81 14:9B71: F5        .byte con_F5, $84
 - D - I - - 0x029B83 14:9B73: 37        .byte $37
-- D - I - - 0x029B84 14:9B74: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029B84 14:9B74: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029B89 14:9B79: F1        .byte con_F1, $00, $A3, $00, $D3, $01
-- D - I - - 0x029B8F 14:9B7F: F0        .byte con_F0
+- D - I - - 0x029B8F 14:9B7F: F0        .byte con_F0_exit
 
 
 
-_off007_9B80_B9:
+_off007_9B80_B9_face_p_kaltz_west_germany:
+; p_kaltz_west_germany
 - D - I - - 0x029B90 14:9B80: F5        .byte con_F5, $84
 - D - I - - 0x029B92 14:9B82: 38        .byte $38
 off_9B83:
-- D - I - - 0x029B93 14:9B83: F4        .byte con_F4, $35, $00, $00, $00
+- D - I - - 0x029B93 14:9B83: F4        .byte con_F4_chr_spr, $35, $00, $00, $00
 - D - I - - 0x029B98 14:9B88: F1        .byte con_F1, $00, $A2, $00, $D3, $01
-- D - I - - 0x029B9E 14:9B8E: F0        .byte con_F0
+- D - I - - 0x029B9E 14:9B8E: F0        .byte con_F0_exit
 
 
 
-_off007_9B8F_BA:
+_off007_9B8F_BA_face_p_schester_west_germany:
+; p_schester_west_germany
 - D - I - - 0x029B9F 14:9B8F: F5        .byte con_F5, $84
 - D - I - - 0x029BA1 14:9B91: 39        .byte $39
-- D - I - - 0x029BA2 14:9B92: F4        .byte con_F4, $36, $37, $00, $00
+- D - I - - 0x029BA2 14:9B92: F4        .byte con_F4_chr_spr, $36, $37, $00, $00
 - D - I - - 0x029BA7 14:9B97: F1        .byte con_F1, $00, $A4, $00, $D3, $01
-- D - I - - 0x029BAD 14:9B9D: F0        .byte con_F0
+- D - I - - 0x029BAD 14:9B9D: F0        .byte con_F0_exit
 
 
 
-_off007_9B9E_BB:
+_off007_9B9E_BB_face_p_carlos_brazil:
+; p_carlos_brazil
 - D - I - - 0x029BAE 14:9B9E: F5        .byte con_F5, $84
 - D - I - - 0x029BB0 14:9BA0: 3A        .byte $3A
 off_9BA1:
-- D - I - - 0x029BB1 14:9BA1: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029BB1 14:9BA1: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029BB6 14:9BA6: F1        .byte con_F1, $00, $A1, $00, $D3, $01
-- D - I - - 0x029BBC 14:9BAC: F0        .byte con_F0
+- D - I - - 0x029BBC 14:9BAC: F0        .byte con_F0_exit
 
 
 
-_off007_9BAD_BC:
+_off007_9BAD_BC_face_p_coimbra_brazil:
+; p_coimbra_brazil
 - D - I - - 0x029BBD 14:9BAD: F5        .byte con_F5, $84
 - D - I - - 0x029BBF 14:9BAF: 3C        .byte $3C
-- D - I - - 0x029BC0 14:9BB0: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029BC0 14:9BB0: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029BC5 14:9BB5: F1        .byte con_F1, $00, $AB, $00, $D3, $01
-- D - I - - 0x029BCB 14:9BBB: F0        .byte con_F0
+- D - I - - 0x029BCB 14:9BBB: F0        .byte con_F0_exit
 
 
 
 _off007_9BBC_BD:
 - D - I - - 0x029BCC 14:9BBC: F5        .byte con_F5, $84
 - D - I - - 0x029BCE 14:9BBE: 84        .byte $84
-- D - I - - 0x029BCF 14:9BBF: F4        .byte con_F4, $1D, $00, $80, $48
+- D - I - - 0x029BCF 14:9BBF: F4        .byte con_F4_chr_spr, $1D, $00, $80, $48
 - D - I - - 0x029BD4 14:9BC4: F1        .byte con_F1, $72, $B2, $08, $CB, $01
-- D - I - - 0x029BDA 14:9BCA: F0        .byte con_F0
+- D - I - - 0x029BDA 14:9BCA: F0        .byte con_F0_exit
 
 
 
 _off007_9BCB_BE:
 - - - - - - 0x029BDB 14:9BCB: F5        .byte con_F5, $17
-- - - - - - 0x029BDD 14:9BCD: F4        .byte con_F4, $08, $09, $0A, $0B
+- - - - - - 0x029BDD 14:9BCD: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - - - - - - 0x029BE2 14:9BD2: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - - - - - - 0x029BE8 14:9BD8: F1        .byte con_F1, $67, $D7, $F0, $B3, $04
 - - - - - - 0x029BEE 14:9BDE: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - - - - - - 0x029BF4 14:9BE4: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - - - - - - 0x029BFA 14:9BEA: 16        .byte $16
-- - - - - - 0x029BFB 14:9BEB: F4        .byte con_F4, $0A, $0B, $00, $00
+- - - - - - 0x029BFB 14:9BEB: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - - - - - - 0x029C00 14:9BF0: F6        .byte con_F6, $00
 - - - - - - 0x029C02 14:9BF2: F6        .byte con_F6, $2A
 - - - - - - 0x029C04 14:9BF4: F6        .byte con_F6, $3F
 - - - - - - 0x029C06 14:9BF6: F1        .byte con_F1, $00, $DE, $20, $BB, $05
 - - - - - - 0x029C0C 14:9BFC: 04        .byte $04
 - - - - - - 0x029C0D 14:9BFD: F1        .byte con_F1, $68, $E4, $20, $BB, $05
-- - - - - - 0x029C13 14:9C03: F8        .byte con_F8
+- - - - - - 0x029C13 14:9C03: F8        .byte con_F8_jmp
 - - - - - - 0x029C14 14:9C04: 0C 99     .word off_990C
 
 
 
 _off007_9C06_BF:
 - D - I - - 0x029C16 14:9C06: F5        .byte con_F5, $80
-- D - I - - 0x029C18 14:9C08: F4        .byte con_F4, $13, $00, $00, $0B
+- D - I - - 0x029C18 14:9C08: F4        .byte con_F4_chr_spr, $13, $00, $00, $0B
 - D - I - - 0x029C1D 14:9C0D: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029C20 14:9C10: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x029C26 14:9C16: F1        .byte con_F1, $B7, $29, $10, $2B, $07
 - D - I - - 0x029C2C 14:9C1C: F1        .byte con_F1, $31, $49, $AC, $FF, $0A
 - D - I - - 0x029C32 14:9C22: 28        .byte $28
-- D - I - - 0x029C33 14:9C23: F4        .byte con_F4, $27, $1F, $00, $0B
+- D - I - - 0x029C33 14:9C23: F4        .byte con_F4_chr_spr, $27, $1F, $00, $0B
 - D - I - - 0x029C38 14:9C28: F1        .byte con_F1, $00, $0B, $00, $BB, $05
 - D - I - - 0x029C3E 14:9C2E: 04        .byte $04
 - D - I - - 0x029C3F 14:9C2F: F1        .byte con_F1, $B5, $C9, $FD, $9F, $08
-- D - I - - 0x029C45 14:9C35: F8        .byte con_F8
+- D - I - - 0x029C45 14:9C35: F8        .byte con_F8_jmp
 - D - I - - 0x029C46 14:9C36: 4E 8E     .word off_8E4E
 
 
@@ -4071,62 +4118,62 @@ _off007_9C06_BF:
 _off007_9C38_C0:
 - D - I - - 0x029C48 14:9C38: F5        .byte con_F5, $0D
 off_9C3A:
-- D - I - - 0x029C4A 14:9C3A: F4        .byte con_F4, $14, $15, $16, $00
+- D - I - - 0x029C4A 14:9C3A: F4        .byte con_F4_chr_spr, $14, $15, $16, $00
 - D - I - - 0x029C4F 14:9C3F: F1        .byte con_F1, $00, $3D, $00, $C3, $01
-- D - I - - 0x029C55 14:9C45: F0        .byte con_F0
+- D - I - - 0x029C55 14:9C45: F0        .byte con_F0_exit
 
 
 
 _off007_9C46_C1:
 - D - I - - 0x029C56 14:9C46: F5        .byte con_F5, $81
 off_9C48:
-- D - I - - 0x029C58 14:9C48: F4        .byte con_F4, $14, $15, $16, $00
+- D - I - - 0x029C58 14:9C48: F4        .byte con_F4_chr_spr, $14, $15, $16, $00
 - D - I - - 0x029C5D 14:9C4D: F1        .byte con_F1, $BC, $41, $B0, $C3, $00
-- D - I - - 0x029C63 14:9C53: F0        .byte con_F0
+- D - I - - 0x029C63 14:9C53: F0        .byte con_F0_exit
 
 
 
 _off007_9C54_C2:
 - D - I - - 0x029C64 14:9C54: F5        .byte con_F5, $80
-- D - I - - 0x029C66 14:9C56: F4        .byte con_F4, $14, $15, $16, $00
+- D - I - - 0x029C66 14:9C56: F4        .byte con_F4_chr_spr, $14, $15, $16, $00
 - D - I - - 0x029C6B 14:9C5B: F1        .byte con_F1, $00, $42, $00, $C3, $01
-- D - I - - 0x029C71 14:9C61: F0        .byte con_F0
+- D - I - - 0x029C71 14:9C61: F0        .byte con_F0_exit
 
 
 
 _off007_9C62_C3:
 - D - I - - 0x029C72 14:9C62: F5        .byte con_F5, $80
-- D - I - - 0x029C74 14:9C64: F4        .byte con_F4, $14, $15, $16, $00
+- D - I - - 0x029C74 14:9C64: F4        .byte con_F4_chr_spr, $14, $15, $16, $00
 - D - I - - 0x029C79 14:9C69: F1        .byte con_F1, $BC, $44, $A0, $C3, $00
-- D - I - - 0x029C7F 14:9C6F: F0        .byte con_F0
+- D - I - - 0x029C7F 14:9C6F: F0        .byte con_F0_exit
 
 
 
 _off007_9C70_C4:
 - D - I - - 0x029C80 14:9C70: F5        .byte con_F5, $80
-- D - I - - 0x029C82 14:9C72: F4        .byte con_F4, $04, $05, $20, $21
+- D - I - - 0x029C82 14:9C72: F4        .byte con_F4_chr_spr, $04, $05, $20, $21
 - D - I - - 0x029C87 14:9C77: F7        .byte con_F7, $23, $5B
 - D - I - - 0x029C8A 14:9C7A: F1        .byte con_F1, $BD, $32, $08, $E3, $0D
 - D - I - - 0x029C90 14:9C80: F1        .byte con_F1, $D4, $C0, $98, $D3, $08
 - D - I - - 0x029C96 14:9C86: F1        .byte con_F1, $00, $00, $80, $A3, $04
 - D - I - - 0x029C9C 14:9C8C: F1        .byte con_F1, $00, $00, $80, $DB, $00
-- D - I - - 0x029CA2 14:9C92: F0        .byte con_F0
+- D - I - - 0x029CA2 14:9C92: F0        .byte con_F0_exit
 
 
 
 _off007_9C93_C5:
 - D - I - - 0x029CA3 14:9C93: F5        .byte con_F5, $80
-- D - I - - 0x029CA5 14:9C95: F4        .byte con_F4, $04, $05, $20, $21
+- D - I - - 0x029CA5 14:9C95: F4        .byte con_F4_chr_spr, $04, $05, $20, $21
 - D - I - - 0x029CAA 14:9C9A: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x029CB0 14:9CA0: F1        .byte con_F1, $BF, $CF, $F0, $CB, $04
 - D - I - - 0x029CB6 14:9CA6: F1        .byte con_F1, $BE, $33, $04, $BB, $09
-- D - I - - 0x029CBC 14:9CAC: F0        .byte con_F0
+- D - I - - 0x029CBC 14:9CAC: F0        .byte con_F0_exit
 
 
 
 _off007_9CAD_C6:
 - D - I - - 0x029CBD 14:9CAD: F5        .byte con_F5, $80
-- D - I - - 0x029CBF 14:9CAF: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x029CBF 14:9CAF: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029CC4 14:9CB4: F1        .byte con_F1, $64, $1D, $20, $BB, $05
 - D - I - - 0x029CCA 14:9CBA: F1        .byte con_F1, $65, $1E, $D0, $93, $00
 - D - I - - 0x029CD0 14:9CC0: 14        .byte $14
@@ -4135,35 +4182,35 @@ _off007_9CAD_C6:
 - D - I - - 0x029CD9 14:9CC9: 04        .byte $04
 - D - I - - 0x029CDA 14:9CCA: F1        .byte con_F1, $66, $1D, $10, $B3, $05
 - D - I - - 0x029CE0 14:9CD0: F1        .byte con_F1, $D6, $1E, $08, $AF, $01
-- D - I - - 0x029CE6 14:9CD6: F0        .byte con_F0
+- D - I - - 0x029CE6 14:9CD6: F0        .byte con_F0_exit
 
 
 
 _off007_9CD7_C7:
 - D - I - - 0x029CE7 14:9CD7: F5        .byte con_F5, $80
-- D - I - - 0x029CE9 14:9CD9: F4        .byte con_F4, $10, $11, $12, $13
+- D - I - - 0x029CE9 14:9CD9: F4        .byte con_F4_chr_spr, $10, $11, $12, $13
 - D - I - - 0x029CEE 14:9CDE: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029CF1 14:9CE1: F1        .byte con_F1, $C2, $53, $E0, $7B, $0C
 - D - I - - 0x029CF7 14:9CE7: F1        .byte con_F1, $00, $00, $80, $83, $00
 - D - I - - 0x029CFD 14:9CED: 28        .byte $28
 - D - I - - 0x029CFE 14:9CEE: F1        .byte con_F1, $C3, $55, $10, $1B, $07
 - D - I - - 0x029D04 14:9CF4: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x029D0A 14:9CFA: F0        .byte con_F0
+- D - I - - 0x029D0A 14:9CFA: F0        .byte con_F0_exit
 
 
 
 _off007_9CFB_C8:
 - D - I - - 0x029D0B 14:9CFB: F5        .byte con_F5, $80
-- D - I - - 0x029D0D 14:9CFD: F4        .byte con_F4, $04, $05, $20, $21
+- D - I - - 0x029D0D 14:9CFD: F4        .byte con_F4_chr_spr, $04, $05, $20, $21
 - D - I - - 0x029D12 14:9D02: F1        .byte con_F1, $C4, $32, $B8, $BB, $05
 - D - I - - 0x029D18 14:9D08: F1        .byte con_F1, $C5, $C0, $E0, $C3, $00
-- D - I - - 0x029D1E 14:9D0E: F0        .byte con_F0
+- D - I - - 0x029D1E 14:9D0E: F0        .byte con_F0_exit
 
 
 
 _off007_9D0F_C9:
 - D - I - - 0x029D1F 14:9D0F: F5        .byte con_F5, $80
-- D - I - - 0x029D21 14:9D11: F4        .byte con_F4, $13, $00, $0F, $00
+- D - I - - 0x029D21 14:9D11: F4        .byte con_F4_chr_spr, $13, $00, $0F, $00
 - D - I - - 0x029D26 14:9D16: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029D29 14:9D19: F1        .byte con_F1, $C6, $2B, $40, $0B, $0F
 - D - I - - 0x029D2F 14:9D1F: 14        .byte $14
@@ -4171,13 +4218,13 @@ _off007_9D0F_C9:
 - D - I - - 0x029D36 14:9D26: F1        .byte con_F1, $00, $00, $80, $FB, $00
 - D - I - - 0x029D3C 14:9D2C: 32        .byte $32
 - D - I - - 0x029D3D 14:9D2D: F1        .byte con_F1, $DF, $2A, $F8, $5B, $0C
-- D - I - - 0x029D43 14:9D33: F0        .byte con_F0
+- D - I - - 0x029D43 14:9D33: F0        .byte con_F0_exit
 
 
 
 _off007_9D34_CA:
 - D - I - - 0x029D44 14:9D34: F5        .byte con_F5, $80
-- D - I - - 0x029D46 14:9D36: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x029D46 14:9D36: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x029D4B 14:9D3B: F7        .byte con_F7, $23, $5B
 - D - I - - 0x029D4E 14:9D3E: F1        .byte con_F1, $51, $1C, $00, $CB, $0C
 - D - I - - 0x029D54 14:9D44: F1        .byte con_F1, $9E, $1E, $68, $A3, $09
@@ -4194,42 +4241,42 @@ off_9D6C:
 - D - I - - 0x029D7D 14:9D6D: FB        .byte con_FB, $01, $23, $45
 - D - I - - 0x029D81 14:9D71: 01        .byte $01
 - D - I - - 0x029D82 14:9D72: FB        .byte con_FB, $01, $32, $45
-- D - I - - 0x029D86 14:9D76: F8        .byte con_F8
+- D - I - - 0x029D86 14:9D76: F8        .byte con_F8_jmp
 - D - I - - 0x029D87 14:9D77: 6C 9D     .word off_9D6C
 
 
 
 _off007_9D79_CB:
 - D - I - - 0x029D89 14:9D79: F5        .byte con_F5, $80
-- D - I - - 0x029D8B 14:9D7B: F4        .byte con_F4, $2B, $00, $00, $00
+- D - I - - 0x029D8B 14:9D7B: F4        .byte con_F4_chr_spr, $2B, $00, $00, $00
 - D - I - - 0x029D90 14:9D80: F1        .byte con_F1, $00, $57, $10, $C3, $01
-- D - I - - 0x029D96 14:9D86: F0        .byte con_F0
+- D - I - - 0x029D96 14:9D86: F0        .byte con_F0_exit
 
 
 
 _off007_9D87_CC:
 - D - I - - 0x029D97 14:9D87: F5        .byte con_F5, $80
-- D - I - - 0x029D99 14:9D89: F4        .byte con_F4, $14, $15, $16, $00
+- D - I - - 0x029D99 14:9D89: F4        .byte con_F4_chr_spr, $14, $15, $16, $00
 - D - I - - 0x029D9E 14:9D8E: F7        .byte con_F7, $23, $5B
 - D - I - - 0x029DA1 14:9D91: F1        .byte con_F1, $00, $00, $80, $DB, $00
 - D - I - - 0x029DA7 14:9D97: F1        .byte con_F1, $00, $00, $80, $A3, $04
 - D - I - - 0x029DAD 14:9D9D: F1        .byte con_F1, $B3, $5F, $70, $FF, $08
-- D - I - - 0x029DB3 14:9DA3: F0        .byte con_F0
+- D - I - - 0x029DB3 14:9DA3: F0        .byte con_F0_exit
 
 
 
 _off007_9DA4_CD:
 - D - I - - 0x029DB4 14:9DA4: F5        .byte con_F5, $80
-- D - I - - 0x029DB6 14:9DA6: F4        .byte con_F4, $27, $1E, $00, $0B
+- D - I - - 0x029DB6 14:9DA6: F4        .byte con_F4_chr_spr, $27, $1E, $00, $0B
 - D - I - - 0x029DBB 14:9DAB: F1        .byte con_F1, $B6, $13, $50, $AB, $04
 - D - I - - 0x029DC1 14:9DB1: F1        .byte con_F1, $92, $49, $20, $77, $01
-- D - I - - 0x029DC7 14:9DB7: F0        .byte con_F0
+- D - I - - 0x029DC7 14:9DB7: F0        .byte con_F0_exit
 
 
 
 _off007_9DB8_CE:
 - D - I - - 0x029DC8 14:9DB8: F5        .byte con_F5, $09
-- D - I - - 0x029DCA 14:9DBA: F4        .byte con_F4, $22, $23, $00, $00
+- D - I - - 0x029DCA 14:9DBA: F4        .byte con_F4_chr_spr, $22, $23, $00, $00
 - D - I - - 0x029DCF 14:9DBF: F1        .byte con_F1, $BB, $62, $18, $8B, $01
 - D - I - - 0x029DD5 14:9DC5: 01        .byte $01
 - D - I - - 0x029DD6 14:9DC6: F1        .byte con_F1, $BB, $62, $18, $8B, $05
@@ -4241,58 +4288,58 @@ _off007_9DB8_CE:
 - D - I - - 0x029DEB 14:9DDB: F1        .byte con_F1, $BB, $60, $18, $8B, $11
 - D - I - - 0x029DF1 14:9DE1: 01        .byte $01
 - D - I - - 0x029DF2 14:9DE2: F1        .byte con_F1, $BB, $60, $18, $8B, $15
-- D - I - - 0x029DF8 14:9DE8: F0        .byte con_F0
+- D - I - - 0x029DF8 14:9DE8: F0        .byte con_F0_exit
 
 
 
 _off007_9DE9_CF:
 - D - I - - 0x029DF9 14:9DE9: F5        .byte con_F5, $81
-- D - I - - 0x029DFB 14:9DEB: F4        .byte con_F4, $14, $15, $16, $00
+- D - I - - 0x029DFB 14:9DEB: F4        .byte con_F4_chr_spr, $14, $15, $16, $00
 - D - I - - 0x029E00 14:9DF0: F1        .byte con_F1, $B9, $52, $B0, $E3, $0C
 - D - I - - 0x029E06 14:9DF6: 28        .byte $28
 - D - I - - 0x029E07 14:9DF7: F7        .byte con_F7, $23, $5B
 - D - I - - 0x029E0A 14:9DFA: F1        .byte con_F1, $00, $00, $80, $A3, $00
 - D - I - - 0x029E10 14:9E00: F1        .byte con_F1, $00, $00, $80, $DB, $04
-- D - I - - 0x029E16 14:9E06: F0        .byte con_F0
+- D - I - - 0x029E16 14:9E06: F0        .byte con_F0_exit
 
 
 
 _off007_9E07_D0:
 - D - I - - 0x029E17 14:9E07: F5        .byte con_F5, $80
-- D - I - - 0x029E19 14:9E09: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029E19 14:9E09: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029E1E 14:9E0E: F1        .byte con_F1, $D3, $6D, $60, $BB, $05
 - D - I - - 0x029E24 14:9E14: F1        .byte con_F1, $D3, $6C, $60, $BB, $01
 - D - I - - 0x029E2A 14:9E1A: F1        .byte con_F1, $D3, $6F, $60, $BB, $09
-- D - I - - 0x029E30 14:9E20: F0        .byte con_F0
+- D - I - - 0x029E30 14:9E20: F0        .byte con_F0_exit
 
 
 
 _off007_9E21_D1:
 - D - I - - 0x029E31 14:9E21: F5        .byte con_F5, $80
-- D - I - - 0x029E33 14:9E23: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029E33 14:9E23: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029E38 14:9E28: F1        .byte con_F1, $CA, $6D, $20, $C3, $05
 - D - I - - 0x029E3E 14:9E2E: F1        .byte con_F1, $CA, $6C, $20, $C3, $01
 - D - I - - 0x029E44 14:9E34: F1        .byte con_F1, $CA, $6F, $20, $C3, $09
-- D - I - - 0x029E4A 14:9E3A: F0        .byte con_F0
+- D - I - - 0x029E4A 14:9E3A: F0        .byte con_F0_exit
 
 
 
 _off007_9E3B_D2:
 - D - I - - 0x029E4B 14:9E3B: F5        .byte con_F5, $80
-- D - I - - 0x029E4D 14:9E3D: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029E4D 14:9E3D: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029E52 14:9E42: F1        .byte con_F1, $C9, $BE, $E0, $C3, $04
 - D - I - - 0x029E58 14:9E48: F1        .byte con_F1, $C9, $BB, $E0, $C3, $00
 - D - I - - 0x029E5E 14:9E4E: F1        .byte con_F1, $C9, $C1, $E0, $C3, $08
-- D - I - - 0x029E64 14:9E54: F0        .byte con_F0
+- D - I - - 0x029E64 14:9E54: F0        .byte con_F0_exit
 
 
 
 _off007_9E55_D3:
 - D - I - - 0x029E65 14:9E55: F5        .byte con_F5, $83
-- D - I - - 0x029E67 14:9E57: F4        .byte con_F4, $18, $19, $1A, $1B
+- D - I - - 0x029E67 14:9E57: F4        .byte con_F4_chr_spr, $18, $19, $1A, $1B
 - D - I - - 0x029E6C 14:9E5C: F1        .byte con_F1, $13, $17, $F8, $C3, $04
 - D - I - - 0x029E72 14:9E62: F1        .byte con_F1, $CE, $15, $80, $EB, $00
-- D - I - - 0x029E78 14:9E68: F8        .byte con_F8
+- D - I - - 0x029E78 14:9E68: F8        .byte con_F8_jmp
 - D - I - - 0x029E79 14:9E69: A7 8B     .word off_8BA7
 
 
@@ -4300,64 +4347,64 @@ _off007_9E55_D3:
 _off007_9E6B_D4:
 - D - I - - 0x029E7B 14:9E6B: F5        .byte con_F5, $84
 - D - I - - 0x029E7D 14:9E6D: 34        .byte $34
-- D - I - - 0x029E7E 14:9E6E: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029E7E 14:9E6E: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029E83 14:9E73: F1        .byte con_F1, $CC, $A5, $F8, $D3, $01
-- D - I - - 0x029E89 14:9E79: F0        .byte con_F0
+- D - I - - 0x029E89 14:9E79: F0        .byte con_F0_exit
 
 
 
 _off007_9E7A_D5:
 - D - I - - 0x029E8A 14:9E7A: F5        .byte con_F5, $84
 - D - I - - 0x029E8C 14:9E7C: 33        .byte $33
-- D - I - - 0x029E8D 14:9E7D: F4        .byte con_F4, $30, $31, $32, $00
+- D - I - - 0x029E8D 14:9E7D: F4        .byte con_F4_chr_spr, $30, $31, $32, $00
 - D - I - - 0x029E92 14:9E82: F1        .byte con_F1, $CC, $A6, $F8, $D3, $01
-- D - I - - 0x029E98 14:9E88: F0        .byte con_F0
+- D - I - - 0x029E98 14:9E88: F0        .byte con_F0_exit
 
 
 
 _off007_9E89_D6:
 - D - I - - 0x029E99 14:9E89: F5        .byte con_F5, $0F
-- D - I - - 0x029E9B 14:9E8B: F4        .byte con_F4, $16, $17, $2D, $00
+- D - I - - 0x029E9B 14:9E8B: F4        .byte con_F4_chr_spr, $16, $17, $2D, $00
 - D - I - - 0x029EA0 14:9E90: F1        .byte con_F1, $00, $69, $00, $C3, $01
-- D - I - - 0x029EA6 14:9E96: F0        .byte con_F0
+- D - I - - 0x029EA6 14:9E96: F0        .byte con_F0_exit
 
 
 
 _off007_9E97_D7:
 - D - I - - 0x029EA7 14:9E97: F5        .byte con_F5, $80
-- D - I - - 0x029EA9 14:9E99: F4        .byte con_F4, $16, $17, $2D, $00
+- D - I - - 0x029EA9 14:9E99: F4        .byte con_F4_chr_spr, $16, $17, $2D, $00
 - D - I - - 0x029EAE 14:9E9E: F1        .byte con_F1, $00, $7B, $00, $C3, $01
-- D - I - - 0x029EB4 14:9EA4: F0        .byte con_F0
+- D - I - - 0x029EB4 14:9EA4: F0        .byte con_F0_exit
 
 
 
 _off007_9EA5_D8:
 - D - I - - 0x029EB5 14:9EA5: F5        .byte con_F5, $80
-- D - I - - 0x029EB7 14:9EA7: F4        .byte con_F4, $16, $17, $2D, $00
+- D - I - - 0x029EB7 14:9EA7: F4        .byte con_F4_chr_spr, $16, $17, $2D, $00
 - D - I - - 0x029EBC 14:9EAC: F1        .byte con_F1, $00, $7C, $00, $C3, $01
-- D - I - - 0x029EC2 14:9EB2: F0        .byte con_F0
+- D - I - - 0x029EC2 14:9EB2: F0        .byte con_F0_exit
 
 
 
 _off007_9EB3_D9:
 - D - I - - 0x029EC3 14:9EB3: F5        .byte con_F5, $80
-- D - I - - 0x029EC5 14:9EB5: F4        .byte con_F4, $16, $17, $2D, $00
+- D - I - - 0x029EC5 14:9EB5: F4        .byte con_F4_chr_spr, $16, $17, $2D, $00
 - D - I - - 0x029ECA 14:9EBA: F1        .byte con_F1, $00, $7D, $00, $C3, $01
-- D - I - - 0x029ED0 14:9EC0: F0        .byte con_F0
+- D - I - - 0x029ED0 14:9EC0: F0        .byte con_F0_exit
 
 
 
 _off007_9EC1_DA:
 - D - I - - 0x029ED1 14:9EC1: F5        .byte con_F5, $83
-- D - I - - 0x029ED3 14:9EC3: F4        .byte con_F4, $04, $05, $1E, $1F
+- D - I - - 0x029ED3 14:9EC3: F4        .byte con_F4_chr_spr, $04, $05, $1E, $1F
 - D - I - - 0x029ED8 14:9EC8: F1        .byte con_F1, $00, $8C, $1C, $D7, $01
-- D - I - - 0x029EDE 14:9ECE: F0        .byte con_F0
+- D - I - - 0x029EDE 14:9ECE: F0        .byte con_F0_exit
 
 
 
 _off007_9ECF_DB:
 - D - I - - 0x029EDF 14:9ECF: F5        .byte con_F5, $80
-- D - I - - 0x029EE1 14:9ED1: F4        .byte con_F4, $10, $11, $12, $13
+- D - I - - 0x029EE1 14:9ED1: F4        .byte con_F4_chr_spr, $10, $11, $12, $13
 - D - I - - 0x029EE6 14:9ED6: F7        .byte con_F7, $23, $5B
 - D - I - - 0x029EE9 14:9ED9: F1        .byte con_F1, $E0, $6B, $06, $B3, $0C
 - D - I - - 0x029EEF 14:9EDF: F1        .byte con_F1, $E0, $C5, $06, $B3, $08
@@ -4374,85 +4421,85 @@ _off007_9ECF_DB:
 - D - I - - 0x029F1C 14:9F0C: F1        .byte con_F1, $00, $C2, $38, $B3, $09
 - D - I - - 0x029F22 14:9F12: F1        .byte con_F1, $00, $6B, $C8, $B3, $04
 - D - I - - 0x029F28 14:9F18: F1        .byte con_F1, $00, $6A, $C8, $B3, $00
-- D - I - - 0x029F2E 14:9F1E: F0        .byte con_F0
+- D - I - - 0x029F2E 14:9F1E: F0        .byte con_F0_exit
 
 
 
 _off007_9F1F_DC:
 - D - I - - 0x029F2F 14:9F1F: F5        .byte con_F5, $80
-- D - I - - 0x029F31 14:9F21: F4        .byte con_F4, $04, $05, $20, $21
+- D - I - - 0x029F31 14:9F21: F4        .byte con_F4_chr_spr, $04, $05, $20, $21
 - D - I - - 0x029F36 14:9F26: F7        .byte con_F7, $03, $7B
 - D - I - - 0x029F39 14:9F29: F1        .byte con_F1, $00, $54, $10, $BB, $09
 - D - I - - 0x029F3F 14:9F2F: F1        .byte con_F1, $00, $71, $00, $CB, $05
 - D - I - - 0x029F45 14:9F35: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x029F4B 14:9F3B: F0        .byte con_F0
+- D - I - - 0x029F4B 14:9F3B: F0        .byte con_F0_exit
 
 
 
 _off007_9F3C_DD:
 - D - I - - 0x029F4C 14:9F3C: F5        .byte con_F5, $80
-- D - I - - 0x029F4E 14:9F3E: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029F4E 14:9F3E: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029F53 14:9F43: F1        .byte con_F1, $CF, $4D, $00, $C3, $05
 - D - I - - 0x029F59 14:9F49: F1        .byte con_F1, $CF, $4B, $00, $C3, $01
 - D - I - - 0x029F5F 14:9F4F: F1        .byte con_F1, $CF, $58, $00, $C3, $09
-- D - I - - 0x029F65 14:9F55: F0        .byte con_F0
+- D - I - - 0x029F65 14:9F55: F0        .byte con_F0_exit
 
 
 
 _off007_9F56_DE:
 - D - I - - 0x029F66 14:9F56: F5        .byte con_F5, $09
-- D - I - - 0x029F68 14:9F58: F4        .byte con_F4, $60, $61, $62, $63
+- D - I - - 0x029F68 14:9F58: F4        .byte con_F4_chr_spr, $60, $61, $62, $63
 - D - I - - 0x029F6D 14:9F5D: F1        .byte con_F1, $0F, $79, $F0, $BB, $01
 - D - I - - 0x029F73 14:9F63: EF        .byte $EF
 - D - I - - 0x029F74 14:9F64: EF        .byte $EF
 - D - I - - 0x029F75 14:9F65: 20        .byte $20
 - D - I - - 0x029F76 14:9F66: F1        .byte con_F1, $00, $82, $F0, $BB, $00
-- D - I - - 0x029F7C 14:9F6C: F0        .byte con_F0
+- D - I - - 0x029F7C 14:9F6C: F0        .byte con_F0_exit
 
 
 
 _off007_9F6D_DF:
 - - - - - - 0x029F7D 14:9F6D: F5        .byte con_F5, $18
-- - - - - - 0x029F7F 14:9F6F: F4        .byte con_F4, $08, $09, $0A, $0B
+- - - - - - 0x029F7F 14:9F6F: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - - - - - - 0x029F84 14:9F74: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - - - - - - 0x029F8A 14:9F7A: F1        .byte con_F1, $67, $D4, $F0, $B3, $04
 - - - - - - 0x029F90 14:9F80: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - - - - - - 0x029F96 14:9F86: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - - - - - - 0x029F9C 14:9F8C: 16        .byte $16
-- - - - - - 0x029F9D 14:9F8D: F4        .byte con_F4, $0A, $0B, $00, $00
+- - - - - - 0x029F9D 14:9F8D: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - - - - - - 0x029FA2 14:9F92: F6        .byte con_F6, $00
 - - - - - - 0x029FA4 14:9F94: F6        .byte con_F6, $2A
 - - - - - - 0x029FA6 14:9F96: F6        .byte con_F6, $3F
 - - - - - - 0x029FA8 14:9F98: F1        .byte con_F1, $00, $DB, $20, $BB, $05
 - - - - - - 0x029FAE 14:9F9E: 04        .byte $04
 - - - - - - 0x029FAF 14:9F9F: F1        .byte con_F1, $68, $E1, $20, $BB, $05
-- - - - - - 0x029FB5 14:9FA5: F8        .byte con_F8
+- - - - - - 0x029FB5 14:9FA5: F8        .byte con_F8_jmp
 - - - - - - 0x029FB6 14:9FA6: 0C 99     .word off_990C
 
 
 
 _off007_9FA8_E0:
 - D - I - - 0x029FB8 14:9FA8: F5        .byte con_F5, $14
-- D - I - - 0x029FBA 14:9FAA: F4        .byte con_F4, $74, $75, $7B, $67
+- D - I - - 0x029FBA 14:9FAA: F4        .byte con_F4_chr_spr, $74, $75, $7B, $67
 - D - I - - 0x029FBF 14:9FAF: F1        .byte con_F1, $00, $81, $00, $D3, $01
 - D - I - - 0x029FC5 14:9FB5: EF        .byte $EF
 - D - I - - 0x029FC6 14:9FB6: F5        .byte con_F5, $0C
-- D - I - - 0x029FC8 14:9FB8: F4        .byte con_F4, $6C, $6D, $6E, $6F
+- D - I - - 0x029FC8 14:9FB8: F4        .byte con_F4_chr_spr, $6C, $6D, $6E, $6F
 - D - I - - 0x029FCD 14:9FBD: F1        .byte con_F1, $D5, $78, $F8, $D3, $00
-- D - I - - 0x029FD3 14:9FC3: F0        .byte con_F0
+- D - I - - 0x029FD3 14:9FC3: F0        .byte con_F0_exit
 
 
 
 _off007_9FC4_E1:
 - D - I - - 0x029FD4 14:9FC4: F5        .byte con_F5, $0E
-- D - I - - 0x029FD6 14:9FC6: F8        .byte con_F8
+- D - I - - 0x029FD6 14:9FC6: F8        .byte con_F8_jmp
 - D - I - - 0x029FD7 14:9FC7: 3A 9C     .word off_9C3A
 
 
 
 _off007_9FC9_E2:
 - D - I - - 0x029FD9 14:9FC9: F5        .byte con_F5, $80
-- D - I - - 0x029FDB 14:9FCB: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x029FDB 14:9FCB: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x029FE0 14:9FD0: F1        .byte con_F1, $DC, $4D, $60, $B3, $05
 - D - I - - 0x029FE6 14:9FD6: F1        .byte con_F1, $DC, $4B, $60, $B3, $01
 - D - I - - 0x029FEC 14:9FDC: F1        .byte con_F1, $DC, $58, $60, $B3, $09
@@ -4470,7 +4517,7 @@ _off007_9FC9_E2:
 - D - I - - 0x02A018 14:A008: F6        .byte con_F6, $2A
 - D - I - - 0x02A01A 14:A00A: F6        .byte con_F6, $3F
 - D - I - - 0x02A01C 14:A00C: F6        .byte con_F6, $00
-- D - I - - 0x02A01E 14:A00E: F4        .byte con_F4, $06, $00, $00, $00
+- D - I - - 0x02A01E 14:A00E: F4        .byte con_F4_chr_spr, $06, $00, $00, $00
 - D - I - - 0x02A023 14:A013: F1        .byte con_F1, $C8, $63, $50, $E3, $05
 - D - I - - 0x02A029 14:A019: 03        .byte $03
 - D - I - - 0x02A02A 14:A01A: F1        .byte con_F1, $C8, $E8, $50, $E3, $09
@@ -4489,24 +4536,24 @@ off_A035:
 - D - I - - 0x02A050 14:A040: FB        .byte con_FB, $01, $52, $34
 - D - I - - 0x02A054 14:A044: 01        .byte $01
 - D - I - - 0x02A055 14:A045: FB        .byte con_FB, $01, $23, $45
-- D - I - - 0x02A059 14:A049: F8        .byte con_F8
+- D - I - - 0x02A059 14:A049: F8        .byte con_F8_jmp
 - D - I - - 0x02A05A 14:A04A: 35 A0     .word off_A035
 
 
 
 _off007_A04C_E3:
 - D - I - - 0x02A05C 14:A04C: F5        .byte con_F5, $81
-- D - I - - 0x02A05E 14:A04E: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02A05E 14:A04E: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02A063 14:A053: F1        .byte con_F1, $8B, $6E, $80, $BB, $09
 - D - I - - 0x02A069 14:A059: F1        .byte con_F1, $8B, $6D, $80, $BB, $05
 - D - I - - 0x02A06F 14:A05F: F1        .byte con_F1, $8B, $6C, $80, $BB, $01
-- D - I - - 0x02A075 14:A065: F0        .byte con_F0
+- D - I - - 0x02A075 14:A065: F0        .byte con_F0_exit
 
 
 
 _off007_A066_E4:
 - D - I - - 0x02A076 14:A066: F5        .byte con_F5, $80
-- D - I - - 0x02A078 14:A068: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02A078 14:A068: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02A07D 14:A06D: F1        .byte con_F1, $E4, $4F, $21, $BA, $0D
 - D - I - - 0x02A083 14:A073: F1        .byte con_F1, $E4, $4D, $21, $BA, $09
 - D - I - - 0x02A089 14:A079: F1        .byte con_F1, $E4, $4B, $21, $BA, $05
@@ -4514,39 +4561,39 @@ _off007_A066_E4:
 - D - I - - 0x02A095 14:A085: 28        .byte $28
 - D - I - - 0x02A096 14:A086: F6        .byte con_F6, $00
 - D - I - - 0x02A098 14:A088: F1        .byte con_F1, $00, $58, $00, $C3, $0D
-- D - I - - 0x02A09E 14:A08E: F0        .byte con_F0
+- D - I - - 0x02A09E 14:A08E: F0        .byte con_F0_exit
 
 
 
 _off007_A08F_E5:
 - D - I - - 0x02A09F 14:A08F: F5        .byte con_F5, $80
-- D - I - - 0x02A0A1 14:A091: F4        .byte con_F4, $06, $00, $21, $26
+- D - I - - 0x02A0A1 14:A091: F4        .byte con_F4_chr_spr, $06, $00, $21, $26
 - D - I - - 0x02A0A6 14:A096: F1        .byte con_F1, $C0, $51, $06, $B3, $05
 - D - I - - 0x02A0AC 14:A09C: F1        .byte con_F1, $C1, $16, $00, $BF, $01
-- D - I - - 0x02A0B2 14:A0A2: F0        .byte con_F0
+- D - I - - 0x02A0B2 14:A0A2: F0        .byte con_F0_exit
 
 
 
 _off007_A0A3_E6:
 - D - I - - 0x02A0B3 14:A0A3: F5        .byte con_F5, $87
-- D - I - - 0x02A0B5 14:A0A5: F8        .byte con_F8
+- D - I - - 0x02A0B5 14:A0A5: F8        .byte con_F8_jmp
 - D - I - - 0x02A0B6 14:A0A6: 1A 96     .word off_961A
 
 
 
 _off007_A0A8_E7:
 - D - I - - 0x02A0B8 14:A0A8: F5        .byte con_F5, $80
-- D - I - - 0x02A0BA 14:A0AA: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02A0BA 14:A0AA: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02A0BF 14:A0AF: F1        .byte con_F1, $42, $C8, $80, $BB, $04
 - D - I - - 0x02A0C5 14:A0B5: F1        .byte con_F1, $42, $97, $80, $BB, $00
-- D - I - - 0x02A0CB 14:A0BB: F8        .byte con_F8
+- D - I - - 0x02A0CB 14:A0BB: F8        .byte con_F8_jmp
 - D - I - - 0x02A0CC 14:A0BC: B5 94     .word off_94B5
 
 
 
 _off007_A0BE_E8:
 - D - I - - 0x02A0CE 14:A0BE: F5        .byte con_F5, $80
-- D - I - - 0x02A0D0 14:A0C0: F4        .byte con_F4, $0C, $0D, $0E, $0F
+- D - I - - 0x02A0D0 14:A0C0: F4        .byte con_F4_chr_spr, $0C, $0D, $0E, $0F
 - D - I - - 0x02A0D5 14:A0C5: F7        .byte con_F7, $03, $7B
 - D - I - - 0x02A0D8 14:A0C8: F1        .byte con_F1, $2F, $D0, $D0, $BB, $08
 - D - I - - 0x02A0DE 14:A0CE: F1        .byte con_F1, $9E, $1E, $68, $93, $05
@@ -4555,92 +4602,92 @@ _off007_A0BE_E8:
 - D - I - - 0x02A0E7 14:A0D7: F1        .byte con_F1, $29, $D1, $E0, $BB, $08
 - D - I - - 0x02A0ED 14:A0DD: 02        .byte $02
 - D - I - - 0x02A0EE 14:A0DE: F1        .byte con_F1, $2A, $D2, $E8, $BB, $08
-- D - I - - 0x02A0F4 14:A0E4: F8        .byte con_F8
+- D - I - - 0x02A0F4 14:A0E4: F8        .byte con_F8_jmp
 - D - I - - 0x02A0F5 14:A0E5: 32 91     .word off_9132
 
 
 
 _off007_A0EA_E9:
 - D - I - - 0x02A0FA 14:A0EA: F5        .byte con_F5, $80
-- D - I - - 0x02A0FC 14:A0EC: F4        .byte con_F4, $16, $17, $2D, $53
+- D - I - - 0x02A0FC 14:A0EC: F4        .byte con_F4_chr_spr, $16, $17, $2D, $53
 - D - I - - 0x02A101 14:A0F1: F1        .byte con_F1, $00, $74, $00, $C3, $01
-- D - I - - 0x02A107 14:A0F7: F0        .byte con_F0
+- D - I - - 0x02A107 14:A0F7: F0        .byte con_F0_exit
 
 
 
 _off007_A0F8_EA:
 - D - I - - 0x02A108 14:A0F8: F5        .byte con_F5, $11
-- D - I - - 0x02A10A 14:A0FA: F4        .byte con_F4, $28, $29, $2A, $0B
+- D - I - - 0x02A10A 14:A0FA: F4        .byte con_F4_chr_spr, $28, $29, $2A, $0B
 - D - I - - 0x02A10F 14:A0FF: F1        .byte con_F1, $39, $73, $E8, $BB, $00
-- D - I - - 0x02A115 14:A105: F0        .byte con_F0
+- D - I - - 0x02A115 14:A105: F0        .byte con_F0_exit
 
 
 
 _off007_A106_EB:
 - D - I - - 0x02A116 14:A106: F5        .byte con_F5, $80
-- D - I - - 0x02A118 14:A108: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x02A118 14:A108: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x02A11D 14:A10D: F7        .byte con_F7, $03, $7B
 - D - I - - 0x02A120 14:A110: F1        .byte con_F1, $B4, $75, $B0, $1B, $06
 off_A116:
 - D - I - - 0x02A126 14:A116: F1        .byte con_F1, $00, $00, $80, $FB, $00
-- D - I - - 0x02A12C 14:A11C: F0        .byte con_F0
+- D - I - - 0x02A12C 14:A11C: F0        .byte con_F0_exit
 
 
 
 _off007_A11D_EC:
 - D - I - - 0x02A12D 14:A11D: F5        .byte con_F5, $80
-- D - I - - 0x02A12F 14:A11F: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x02A12F 14:A11F: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x02A134 14:A124: F7        .byte con_F7, $03, $7B
 - D - I - - 0x02A137 14:A127: F1        .byte con_F1, $B4, $76, $B0, $1B, $06
-- D - I - - 0x02A13D 14:A12D: F8        .byte con_F8
+- D - I - - 0x02A13D 14:A12D: F8        .byte con_F8_jmp
 - D - I - - 0x02A13E 14:A12E: 16 A1     .word off_A116
 
 
 
 _off007_A130_ED:
 - D - I - - 0x02A140 14:A130: F5        .byte con_F5, $80
-- D - I - - 0x02A142 14:A132: F4        .byte con_F4, $13, $00, $00, $00
+- D - I - - 0x02A142 14:A132: F4        .byte con_F4_chr_spr, $13, $00, $00, $00
 - D - I - - 0x02A147 14:A137: F1        .byte con_F1, $40, $77, $D8, $CB, $00
-- D - I - - 0x02A14D 14:A13D: F0        .byte con_F0
+- D - I - - 0x02A14D 14:A13D: F0        .byte con_F0_exit
 
 
 
 _off007_A13E_EE:
 - D - I - - 0x02A14E 14:A13E: F5        .byte con_F5, $80
-- D - I - - 0x02A150 14:A140: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02A150 14:A140: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02A155 14:A145: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x02A15B 14:A14B: F1        .byte con_F1, $67, $D8, $F0, $B3, $04
 - D - I - - 0x02A161 14:A151: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - D - I - - 0x02A167 14:A157: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x02A16D 14:A15D: 14        .byte $14
-- D - I - - 0x02A16E 14:A15E: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x02A16E 14:A15E: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x02A173 14:A163: F6        .byte con_F6, $00
 - D - I - - 0x02A175 14:A165: F6        .byte con_F6, $2A
 - D - I - - 0x02A177 14:A167: F6        .byte con_F6, $3F
 - D - I - - 0x02A179 14:A169: F1        .byte con_F1, $00, $DF, $20, $BB, $05
 - D - I - - 0x02A17F 14:A16F: 04        .byte $04
 - D - I - - 0x02A180 14:A170: F1        .byte con_F1, $68, $E5, $20, $BB, $05
-- D - I - - 0x02A186 14:A176: F8        .byte con_F8
+- D - I - - 0x02A186 14:A176: F8        .byte con_F8_jmp
 - D - I - - 0x02A187 14:A177: 0C 99     .word off_990C
 
 
 
 _off007_A179_EF:
 - D - I - - 0x02A189 14:A179: F5        .byte con_F5, $80
-- D - I - - 0x02A18B 14:A17B: F4        .byte con_F4, $08, $09, $0A, $0B
+- D - I - - 0x02A18B 14:A17B: F4        .byte con_F4_chr_spr, $08, $09, $0A, $0B
 - D - I - - 0x02A190 14:A180: F1        .byte con_F1, $AC, $49, $9C, $63, $00
 - D - I - - 0x02A196 14:A186: F1        .byte con_F1, $67, $B9, $F0, $B3, $04
 - D - I - - 0x02A19C 14:A18C: F1        .byte con_F1, $67, $95, $F0, $B3, $08
 - D - I - - 0x02A1A2 14:A192: F1        .byte con_F1, $67, $96, $F0, $B3, $0C
 - D - I - - 0x02A1A8 14:A198: 14        .byte $14
-- D - I - - 0x02A1A9 14:A199: F4        .byte con_F4, $0A, $0B, $00, $00
+- D - I - - 0x02A1A9 14:A199: F4        .byte con_F4_chr_spr, $0A, $0B, $00, $00
 - D - I - - 0x02A1AE 14:A19E: F6        .byte con_F6, $00
 - D - I - - 0x02A1B0 14:A1A0: F6        .byte con_F6, $2A
 - D - I - - 0x02A1B2 14:A1A2: F6        .byte con_F6, $3F
 - D - I - - 0x02A1B4 14:A1A4: F1        .byte con_F1, $00, $C7, $20, $BB, $05
 - D - I - - 0x02A1BA 14:A1AA: 04        .byte $04
 - D - I - - 0x02A1BB 14:A1AB: F1        .byte con_F1, $68, $E6, $20, $BB, $05
-- D - I - - 0x02A1C1 14:A1B1: F8        .byte con_F8
+- D - I - - 0x02A1C1 14:A1B1: F8        .byte con_F8_jmp
 - D - I - - 0x02A1C2 14:A1B2: 0C 99     .word off_990C
 
 

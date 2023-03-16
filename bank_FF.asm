@@ -6060,7 +6060,7 @@ C - - - - - 0x03ED01 FF:ECF1: AD D1 05  LDA ram_for_05D2
 C - - - - - 0x03ED04 FF:ECF4: 8D D2 05  STA ram_05D2
 bra_ECF7:
 C - - - - - 0x03ED07 FF:ECF7: AD 28 05  LDA ram_for_053C_номер_анимации
-C - - - - - 0x03ED0A FF:ECFA: C9 FF     CMP #con_s_animation_FF_skip
+C - - - - - 0x03ED0A FF:ECFA: C9 FF     CMP #con_s_anim_FF_skip
 C - - - - - 0x03ED0C FF:ECFC: F0 08     BEQ bra_ED06_FF
 C - - - - - 0x03ED0E FF:ECFE: 8D 3C 05  STA ram_номер_анимации
 C - - - - - 0x03ED11 FF:ED01: A9 80     LDA #$80
