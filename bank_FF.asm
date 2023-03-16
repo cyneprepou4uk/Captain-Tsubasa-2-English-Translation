@@ -5142,13 +5142,11 @@ C - - - - - 0x03E65D FF:E64D: 90 02     BCC bra_E651_not_overflow
 - - - - - - 0x03E65F FF:E64F: A9 FF     LDA #$FF
 bra_E651_not_overflow:
 C - - - - - 0x03E661 FF:E651: 85 32     STA ram_0032
-C - - - - - 0x03E663 FF:E653: 48        PHA
 C - - - - - 0x03E666 FF:E656: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E668 FF:E658: 85 24     STA ram_for_5114
 C - - - - - 0x03E66A FF:E65A: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E66C FF:E65C: 85 25     STA ram_for_5115
 C - - - - - 0x03E66E FF:E65E: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E671 FF:E661: 68        PLA
 C - - - - - 0x03E672 FF:E662: 20 12 80  JSR sub_0x03489D
 C - - - - - 0x03E675 FF:E665: 48        PHA
 C - - - - - 0x03E678 FF:E668: A9 1A     LDA #con_prg_bank + $1A
