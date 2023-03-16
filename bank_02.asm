@@ -347,6 +347,25 @@ sub_A2E6_очистить_оперативку:
 
 
 
+sub_AA06_очистить_0468_06FF:
+; 0x004A16
+; свободные адреса 00EC 00ED
+                                        LDA #$00
+                                        LDY #$68
+@loop_0468_04FF:
+                                        STA ram_0468,Y
+                                        INY
+                                        BNE @loop_0468_04FF
+; Y = 00
+@loop_0500_06FF:
+                                        STA ram_0500,Y
+                                        STA ram_0600,Y
+                                        INY
+                                        BNE @loop_0500_06FF
+                                        RTS
+
+
+
 loc_0x0042F8:
 C D - - - - 0x0042F8 02:A2E8: A5 57     LDA ram_0057
 C - - - - - 0x0042FA 02:A2EA: 30 4C     BMI bra_A338
@@ -1330,25 +1349,6 @@ C - - - - - 0x004909 02:A8F9: C8        INY
 C - - - - - 0x00490A 02:A8FA: C8        INY
 C - - - - - 0x00490B 02:A8FB: D0 D8     BNE bra_A8D5_loop_копирования
 C - - - - - 0x00490D 02:A8FD: 60        RTS
-
-
-
-sub_AA06_очистить_0468_06FF:
-; 0x004A16
-; свободные адреса 00EC 00ED
-                                        LDA #$00
-                                        LDY #$68
-@loop_0468_04FF:
-                                        STA ram_0468,Y
-                                        INY
-                                        BNE @loop_0468_04FF
-; Y = 00
-@loop_0500_06FF:
-                                        STA ram_0500,Y
-                                        STA ram_0600,Y
-                                        INY
-                                        BNE @loop_0500_06FF
-                                        RTS
 
 
 
