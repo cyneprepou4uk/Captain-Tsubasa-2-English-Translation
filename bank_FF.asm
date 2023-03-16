@@ -3398,13 +3398,11 @@ loc_0x03DABA:
 C D - - - - 0x03DABA FF:DAAA: A9 01     LDA #con_музыка_выключить_все
 C - - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - - 0x03DABF FF:DAAF: 20 4F CF  JSR sub_CF4F
-C - - - - - 0x03DAC2 FF:DAB2: 48        PHA
 C - - - - - 0x03DAC5 FF:DAB5: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03DAC7 FF:DAB7: 85 24     STA ram_for_5114
 C - - - - - 0x03DAC9 FF:DAB9: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03DACB FF:DABB: 85 25     STA ram_for_5115
 C - - - - - 0x03DACD FF:DABD: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03DAD0 FF:DAC0: 68        PLA
 C - - - - - 0x03DAD1 FF:DAC1: 20 39 80  JSR sub_0x03505E
 C - - - - - 0x03DAD4 FF:DAC4: 20 24 DB  JSR sub_DB24
 C - - - - - 0x03DAE1 FF:DAD1: AD 29 06  LDA ram_флаг_разводки
@@ -4522,13 +4520,11 @@ C - - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E    ; if команда сп
 ; bzk garbage? в новых логах не выполнялось
 - - - - - - 0x03E217 FF:E207: 2C 35 06  BIT ram_ball_pos_X_hi
 - - - - - - 0x03E21A FF:E20A: 10 12     BPL bra_E21E
-- - - - - - 0x03E21C FF:E20C: 48        PHA
 - - - - - - 0x03E21F FF:E20F: A9 1A     LDA #con_prg_bank + $1A
 - - - - - - 0x03E221 FF:E211: 85 24     STA ram_for_5114
 - - - - - - 0x03E223 FF:E213: A9 1B     LDA #con_prg_bank + $1B
 - - - - - - 0x03E225 FF:E215: 85 25     STA ram_for_5115
 - - - - - - 0x03E227 FF:E217: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-- - - - - - 0x03E22A FF:E21A: 68        PLA
 - - - - - - 0x03E22B FF:E21B: 20 39 80  JSR sub_0x03505E
 
 
