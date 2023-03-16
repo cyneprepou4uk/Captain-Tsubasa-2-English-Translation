@@ -2314,6 +2314,7 @@ C - - - - - 0x03D3DA FF:D3CA: AA        TAX
 C - - - - - 0x03D3DB FF:D3CB: AC 1E 06  LDY ram_061E
 C - - - - - 0x03D3DE FF:D3CE: B9 01 06  LDA ram_номер_защитника,Y
 C - - - - - 0x03D3E1 FF:D3D1: 8D 42 04  STA ram_игрок_без_мяча
+; здесь нужно PHA + PLA
 C - - - - - 0x03D3E4 FF:D3D4: 48        PHA
 C - - - - - 0x03D3E7 FF:D3D7: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03D3E9 FF:D3D9: 85 24     STA ram_for_5114
@@ -2771,6 +2772,7 @@ C - - - - - 0x03D69F FF:D68F: D0 05     BNE bra_D696
 C - - - - - 0x03D6A1 FF:D691: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x03D6A4 FF:D694: F0 2E     BEQ bra_D6C4
 bra_D696:
+; здесь нужно PHA + PLA
 C - - - - - 0x03D6A6 FF:D696: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03D6A9 FF:D699: 48        PHA
 C - - - - - 0x03D6AC FF:D69C: A9 1C     LDA #con_prg_bank + $1C
