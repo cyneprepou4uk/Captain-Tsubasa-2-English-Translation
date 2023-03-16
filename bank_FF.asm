@@ -5074,13 +5074,11 @@ C - - - - - 0x03E5C3 FF:E5B3: 91 34     STA (ram_plr_data),Y    ; con_plr_pos_X_
 C - - - - - 0x03E5C5 FF:E5B5: A9 42     LDA #con_scenario_42
 C - - - - - 0x03E5C7 FF:E5B7: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_E5BA:
-C - - - - - 0x03E5CA FF:E5BA: 48        PHA
 C - - - - - 0x03E5CD FF:E5BD: A9 14     LDA #con_prg_bank + $14
 C - - - - - 0x03E5CF FF:E5BF: 85 24     STA ram_for_5114
 C - - - - - 0x03E5D1 FF:E5C1: A9 15     LDA #con_prg_bank + $15
 C - - - - - 0x03E5D3 FF:E5C3: 85 25     STA ram_for_5115
 C - - - - - 0x03E5D5 FF:E5C5: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E5D8 FF:E5C8: 68        PLA
 ; сработало при наебке кипера
 C - - - - - 0x03E5D9 FF:E5C9: 20 0C 80  JSR sub_0x0287A6
 C - - - - - 0x03E5DC FF:E5CC: A9 01     LDA #$01
