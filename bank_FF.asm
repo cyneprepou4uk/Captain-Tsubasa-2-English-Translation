@@ -2891,13 +2891,11 @@ C - - - - - 0x03D726 FF:D716: 60        RTS
 
 
 sub_D717:
-C - - - - - 0x03D727 FF:D717: 48        PHA
 C - - - - - 0x03D72A FF:D71A: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03D72C FF:D71C: 85 24     STA ram_for_5114
 C - - - - - 0x03D72E FF:D71E: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D730 FF:D720: 85 25     STA ram_for_5115
 C - - - - - 0x03D732 FF:D722: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03D735 FF:D725: 68        PLA
 C - - - - - 0x03D736 FF:D726: 20 12 80  JSR sub_0x038022
 C - - - - - 0x03D739 FF:D729: 20 6B D7  JSR sub_D76B
 C - - - - - 0x03D73C FF:D72C: 10 17     BPL bra_D745_RTS
