@@ -154,15 +154,15 @@ loc_A113:
 C - - - - - 0x004123 02:A113: CA        DEX
 C - - - - - 0x004124 02:A114: D0 C7     BPL bra_A0DD_loop
 C - - - - - 0x004126 02:A116: 18        CLC
-C - - - - - 0x004127 02:A117: A5 E1     LDA ram_рандом_1
+C - - - - - 0x004127 02:A117: A5 E1     LDA ram_random
 C - - - - - 0x004129 02:A119: 69 83     ADC #$83
-C - - - - - 0x00412B 02:A11B: 85 E1     STA ram_рандом_1
-C - - - - - 0x00412D 02:A11D: A5 E2     LDA ram_рандом_2
+C - - - - - 0x00412B 02:A11B: 85 E1     STA ram_random
+C - - - - - 0x00412D 02:A11D: A5 E2     LDA ram_random + $01
 C - - - - - 0x00412F 02:A11F: 69 0D     ADC #$0D
-C - - - - - 0x004131 02:A121: 85 E2     STA ram_рандом_2
-C - - - - - 0x004133 02:A123: A5 E3     LDA ram_рандом_3
+C - - - - - 0x004131 02:A121: 85 E2     STA ram_random + $01
+C - - - - - 0x004133 02:A123: A5 E3     LDA ram_random + $02
 C - - - - - 0x004135 02:A125: 69 11     ADC #$11
-C - - - - - 0x004137 02:A127: 85 E3     STA ram_рандом_3
+C - - - - - 0x004137 02:A127: 85 E3     STA ram_random + $02
 C - - - - - 0x004139 02:A129: A9 00     LDA #$00
 C - - - - - 0x00413B 02:A12B: 85 46     STA ram_0046
 C - - - - - 0x00413D 02:A12D: 85 47     STA ram_0047

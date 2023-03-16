@@ -97,14 +97,14 @@ C - - - - - 0x030096 18:8086: 60        RTS
 
 sub_8087_управляющие_байты_F0_F5:
 ; 0x030097
-    AND #$0F
-    JSR sub_0x03CBA9_поинтеры_после_JSR
-    .word ofs_032_8098_F0_выход
-    .word ofs_032_80A0_F1       ; unused
-    .word ofs_032_80B5_F2_очистить_облако
-    .word ofs_032_80B8_F3_прыжок
-    .word ofs_032_80CB_F4_выбор_облака
-    .word ofs_032_81FD_F5_очистить_экран_и_прочитать_таймер
+                                        AND #$0F
+                                        JSR sub_0x03CBA9_поинтеры_после_JSR
+                                        .word ofs_032_8098_F0_выход
+                                        .word ofs_032_80A0_F1       ; unused
+                                        .word ofs_032_80B5_F2_очистить_облако
+                                        .word ofs_032_80B8_F3_прыжок
+                                        .word ofs_032_80CB_F4_выбор_облака
+                                        .word ofs_032_81FD_F5_очистить_экран_и_прочитать_таймер
 
 
 
@@ -390,10 +390,10 @@ C - - - - - 0x03020C 18:81FC: 60        RTS
 
 
 ofs_033_81FD_08_рандомный_выбор_из_64_фраз:
-    LDA ram_рандом_1
-    AND #$3F
-    TAX
-    RTS
+                                        LDA ram_random
+                                        AND #$3F
+                                        TAX
+                                        RTS
 
 
 
@@ -414,134 +414,134 @@ C - - - - - 0x030227 18:8217: 60        RTS
 
 
 ofs_031_8218_01_отрисовка_облака:
-    LDY ram_индекс_байтов_облака
-    LDA (ram_cloud_data),Y
-    BMI @не_выводить_чарли
-    STA ram_05F3
-    LDA #$80
-    STA ram_05F4
+                                        LDY ram_индекс_байтов_облака
+                                        LDA (ram_cloud_data),Y
+                                        BMI @не_выводить_чарли
+                                        STA ram_05F3
+                                        LDA #$80
+                                        STA ram_05F4
 @не_выводить_чарли:
-    INY
-    LDA (ram_cloud_data),Y
-    ASL
-    TAX
-    INY
-    STY ram_индекс_байтов_облака
-    LDA tbl_8DC2_тайлы_облаков,X
-    STA ram_cloud_tile_data
-    LDA tbl_8DC2_тайлы_облаков + $01,X
-    STA ram_cloud_tile_data + $01
-    LDA #$27        ; начальный адрес ppu lo для записи тайлов
-    PHA
-    LDA #$22        ; начальный адрес ppu hi для записи тайлов
-    PHA
-    LDA #$0C        ; всего 12 строк, чтение по 2 строки
-    STA ram_05E8
+                                        INY
+                                        LDA (ram_cloud_data),Y
+                                        ASL
+                                        TAX
+                                        INY
+                                        STY ram_индекс_байтов_облака
+                                        LDA tbl_8DC2_тайлы_облаков,X
+                                        STA ram_cloud_tile_data
+                                        LDA tbl_8DC2_тайлы_облаков + $01,X
+                                        STA ram_cloud_tile_data + $01
+                                        LDA #$27        ; начальный адрес ppu lo для записи тайлов
+                                        PHA
+                                        LDA #$22        ; начальный адрес ppu hi для записи тайлов
+                                        PHA
+                                        LDA #$0C        ; всего 12 строк, чтение по 2 строки
+                                        STA ram_05E8
 @ожидание_освобождения_буфера:
-    LDA #$01
-    JSR sub_0x03CB1F_задержка
-    LDA ram_0515
-    BNE @ожидание_освобождения_буфера
-    LDA #$01
-    STA ram_0515
-    LDX #$00
-    LDY #$00
+                                        LDA #$01
+                                        JSR sub_0x03CB1F_задержка
+                                        LDA ram_0515
+                                        BNE @ожидание_освобождения_буфера
+                                        LDA #$01
+                                        STA ram_0515
+                                        LDX #$00
+                                        LDY #$00
 @цикл_чтения_строки:
-    LDA #$19            ; прочитать 25 байтов строки
-    STA ram_003A
-    STA ram_04A5,X
-    PLA
-    STA ram_04A7,X
-    PLA
-    STA ram_04A6,X
-    CLC
-    ADC #< $0020
-    PHA
-    LDA ram_04A7,X
-    ADC #> $0020
-    PHA
-    INX
-    INX
-    INX
+                                        LDA #$19            ; прочитать 25 байтов строки
+                                        STA ram_003A
+                                        STA ram_04A5,X
+                                        PLA
+                                        STA ram_04A7,X
+                                        PLA
+                                        STA ram_04A6,X
+                                        CLC
+                                        ADC #< $0020
+                                        PHA
+                                        LDA ram_04A7,X
+                                        ADC #> $0020
+                                        PHA
+                                        INX
+                                        INX
+                                        INX
 @цикл_чтения_тайлов_строки:
-    LDA (ram_cloud_tile_data),Y
-    STA ram_04A5,X
-    INY
-    INX
-    DEC ram_003A
-    BNE @цикл_чтения_тайлов_строки
-    DEC ram_05E8
-    LDA ram_05E8
-    AND #$01            ; продолжать читать если прочитана лишь 1 строка
-    BNE @цикл_чтения_строки
-    LDA #$00
-    STA ram_04A5,X
-    LDA ram_cloud_tile_data
-    CLC
-    ADC #< $0032        ; сместить указатель на 50 байтов
-    STA ram_cloud_tile_data
-    LDA ram_cloud_tile_data + $01
-    ADC #> $0032
-    STA ram_cloud_tile_data + $01
-    LDA #$80
-    STA ram_0515
-    LDA ram_05E8
-    BNE @ожидание_освобождения_буфера
-    PLA
-    PLA
-    LDY ram_индекс_байтов_облака
-    LDA (ram_cloud_data),Y
-    STA ram_05E7       ; начальная строка облака
-    LDA #$06
-    SEC
-    SBC ram_05E7
-    STA ram_05E8       ; количество строк в облаке
-    INY
-    STY ram_индекс_байтов_облака
-    INC ram_05E4
-    RTS
+                                        LDA (ram_cloud_tile_data),Y
+                                        STA ram_04A5,X
+                                        INY
+                                        INX
+                                        DEC ram_003A
+                                        BNE @цикл_чтения_тайлов_строки
+                                        DEC ram_05E8
+                                        LDA ram_05E8
+                                        AND #$01            ; продолжать читать если прочитана лишь 1 строка
+                                        BNE @цикл_чтения_строки
+                                        LDA #$00
+                                        STA ram_04A5,X
+                                        LDA ram_cloud_tile_data
+                                        CLC
+                                        ADC #< $0032        ; сместить указатель на 50 байтов
+                                        STA ram_cloud_tile_data
+                                        LDA ram_cloud_tile_data + $01
+                                        ADC #> $0032
+                                        STA ram_cloud_tile_data + $01
+                                        LDA #$80
+                                        STA ram_0515
+                                        LDA ram_05E8
+                                        BNE @ожидание_освобождения_буфера
+                                        PLA
+                                        PLA
+                                        LDY ram_индекс_байтов_облака
+                                        LDA (ram_cloud_data),Y
+                                        STA ram_05E7       ; начальная строка облака
+                                        LDA #$06
+                                        SEC
+                                        SBC ram_05E7
+                                        STA ram_05E8       ; количество строк в облаке
+                                        INY
+                                        STY ram_индекс_байтов_облака
+                                        INC ram_05E4
+                                        RTS
 
 
 
 ofs_031_82F2_02_вывод_текста:
 @ожидание_освобождения_буфера:
-    LDA #$01
-    JSR sub_0x03CB1F_задержка
-    LDA ram_0515
-    BNE @ожидание_освобождения_буфера
-    LDA #$01
-    STA ram_0515
-    LDX #$15
+                                        LDA #$01
+                                        JSR sub_0x03CB1F_задержка
+                                        LDA ram_0515
+                                        BNE @ожидание_освобождения_буфера
+                                        LDA #$01
+                                        STA ram_0515
+                                        LDX #$15
 @очистка_буфера:
-    LDA #$00
-    STA ram_04A8,X
-    DEX
-    BPL @очистка_буфера
-    LDA #$03
-    STA ram_003A
-    TAX
-    LDA #$14
-    STA ram_04A5
-    LDA ram_05E7
-    ASL
-    TAY
-    LDA tbl_86E8_адрес_ppu_строки_облака,Y
-    STA ram_04A6
-    LDA tbl_86E8_адрес_ppu_строки_облака + $01,Y
-    STA ram_04A7
+                                        LDA #$00
+                                        STA ram_04A8,X
+                                        DEX
+                                        BPL @очистка_буфера
+                                        LDA #$03
+                                        STA ram_003A
+                                        TAX
+                                        LDA #$14
+                                        STA ram_04A5
+                                        LDA ram_05E7
+                                        ASL
+                                        TAY
+                                        LDA tbl_86E8_адрес_ppu_строки_облака,Y
+                                        STA ram_04A6
+                                        LDA tbl_86E8_адрес_ppu_строки_облака + $01,Y
+                                        STA ram_04A7
 loc_8346_loop:
-    LDY ram_индекс_байтов_облака
-    INC ram_индекс_байтов_облака
-    LDA (ram_cloud_data),Y
-    CMP #$E0
-    BCC @запись_буквы
-    JSR sub_835E_управляющие_байты_облака_E0_FF
-    JMP loc_8346_loop
+                                        LDY ram_индекс_байтов_облака
+                                        INC ram_индекс_байтов_облака
+                                        LDA (ram_cloud_data),Y
+                                        CMP #$E0
+                                        BCC @запись_буквы
+                                        JSR sub_835E_управляющие_байты_облака_E0_FF
+                                        JMP loc_8346_loop
 @запись_буквы:
-    LDX ram_003A
-    STA ram_04A5,X
-    INC ram_003A
-    JMP loc_8346_loop
+                                        LDX ram_003A
+                                        STA ram_04A5,X
+                                        INC ram_003A
+                                        JMP loc_8346_loop
 
 
 
@@ -1040,32 +1040,32 @@ C - - - - - 0x0305E2 18:85D2: 4C 3C 86  JMP loc_863C_прочитать_табл
 
 
 ofs_035_85D6_FC_новая_строка:
-    LDA #$80
-    STA ram_0515
-    LDA ram_05E7
-    CMP ram_05E8
-    BCC bra_85EC_строки_в_облаке_еще_есть
-    LDA #$00
-    STA ram_05E4
-    BEQ bra_85F5
+                                        LDA #$80
+                                        STA ram_0515
+                                        LDA ram_05E7
+                                        CMP ram_05E8
+                                        BCC bra_85EC_строки_в_облаке_еще_есть
+                                        LDA #$00
+                                        STA ram_05E4
+                                        BEQ bra_85F5
 bra_85EC_строки_в_облаке_еще_есть:
-    INC ram_05E7
-    INC ram_05E7
-    LDA ram_индекс_байтов_облака
-    CLC
-    ADC ram_cloud_data
-    STA ram_cloud_data
-    LDA ram_cloud_data + $01
-    ADC #$00
-    STA ram_cloud_data + $01
-    LDA #$00
-    STA ram_индекс_байтов_облака
+                                        INC ram_05E7
+                                        INC ram_05E7
+                                        LDA ram_индекс_байтов_облака
+                                        CLC
+                                        ADC ram_cloud_data
+                                        STA ram_cloud_data
+                                        LDA ram_cloud_data + $01
+                                        ADC #$00
+                                        STA ram_cloud_data + $01
+                                        LDA #$00
+                                        STA ram_индекс_байтов_облака
 bra_85F5:
-    LDA #$01
-    STA ram_таймер_облака_ХЗ
-    PLA
-    PLA
-    RTS
+                                        LDA #$01
+                                        STA ram_таймер_облака_ХЗ
+                                        PLA
+                                        PLA
+                                        RTS
 
 
 
@@ -1099,10 +1099,10 @@ ofs_035_8621_FF:
 
 sub_8629_запись_символа_в_буфер:
 loc_8629_запись_символа_в_буфер:
-    LDX ram_003A
-    STA ram_04A5,X
-    INC ram_003A
-    RTS
+                                        LDX ram_003A
+                                        STA ram_04A5,X
+                                        INC ram_003A
+                                        RTS
 
 
 
@@ -1554,38 +1554,38 @@ C - - - - - 0x0309C2 18:89B2: D0 E8     BNE bra_899C_loop   ; jmp
 
 
 sub_89B4_управляющие_байты_меню_E0_FC:
-    SEC
-    SBC #$E0
-    JSR sub_0x03CBA9_поинтеры_после_JSR
-    .word ofs_036_89FA_E0_имя_игрока_и_позиция
-    .word ofs_036_8A00_E1_статы_игрока
-    .word ofs_036_8A06_E2_имя_принимающего_и_позиция
-    .word ofs_036_8A0C_E3_статы_принимающего
-    .word ofs_036_8A12_E4_список_спешалов
-    .word ofs_036_8A86_E5_действия_нескольких_защитников
-    .word ofs_036_8A93_E6
-    .word ofs_036_8AAF_E7_имя_защитника_и_позиция
-    .word ofs_036_8AB8_E8_статы_защитника
-    .word ofs_036_8AC1_E9_принимающий_напарник
-    .word ofs_036_8AC1_EA_принимающий_соперник
-    .word ofs_036_8AD7_EB_имя_кипера_и_позиция
-    .word ofs_036_8ADF_EC_статы_кипера
-    .word ofs_036_8AE7_ED_сокращение_имени_команды
-    .word ofs_036_8B2F_EE_счет_игры
-    .word ofs_036_8B48_EF_номер_тайма
-    .word ofs_036_8B8B_F0_время_тайма
-    .word ofs_036_8BD5_F1_имена_из_меню
-    .word ofs_036_8BDE_F2_имя_управляемого_игрока
-    .word ofs_036_8BE4_F3_имя_напавшего_защитника
-    .word ofs_036_8BEA_F4_имя_игрока_с_мячом
-    .word ofs_036_8BF0_F5
-    .word ofs_036_8C04_F6_список_игроков_в_пенальти
-    .word ofs_036_8C47_F7_номер_управляемого
-    .word ofs_036_8C44_F8_стрелочка_высоты_мяча
-    .word ofs_036_8C45_F9_индикатор_если_соперник_не_клон
-    .word $0000       ; unused
-    .word $0000       ; unused
-    .word ofs_036_8C52_FC_закончить
+                                        SEC
+                                        SBC #$E0
+                                        JSR sub_0x03CBA9_поинтеры_после_JSR
+                                        .word ofs_036_89FA_E0_имя_игрока_и_позиция
+                                        .word ofs_036_8A00_E1_статы_игрока
+                                        .word ofs_036_8A06_E2_имя_принимающего_и_позиция
+                                        .word ofs_036_8A0C_E3_статы_принимающего
+                                        .word ofs_036_8A12_E4_список_спешалов
+                                        .word ofs_036_8A86_E5_действия_нескольких_защитников
+                                        .word ofs_036_8A93_E6
+                                        .word ofs_036_8AAF_E7_имя_защитника_и_позиция
+                                        .word ofs_036_8AB8_E8_статы_защитника
+                                        .word ofs_036_8AC1_E9_принимающий_напарник
+                                        .word ofs_036_8AC1_EA_принимающий_соперник
+                                        .word ofs_036_8AD7_EB_имя_кипера_и_позиция
+                                        .word ofs_036_8ADF_EC_статы_кипера
+                                        .word ofs_036_8AE7_ED_сокращение_имени_команды
+                                        .word ofs_036_8B2F_EE_счет_игры
+                                        .word ofs_036_8B48_EF_номер_тайма
+                                        .word ofs_036_8B8B_F0_время_тайма
+                                        .word ofs_036_8BD5_F1_имена_из_меню
+                                        .word ofs_036_8BDE_F2_имя_управляемого_игрока
+                                        .word ofs_036_8BE4_F3_имя_напавшего_защитника
+                                        .word ofs_036_8BEA_F4_имя_игрока_с_мячом
+                                        .word ofs_036_8BF0_F5
+                                        .word ofs_036_8C04_F6_список_игроков_в_пенальти
+                                        .word ofs_036_8C47_F7_номер_управляемого
+                                        .word ofs_036_8C44_F8_стрелочка_высоты_мяча
+                                        .word ofs_036_8C45_F9_индикатор_если_соперник_не_клон
+                                        .word $0000       ; unused
+                                        .word $0000       ; unused
+                                        .word ofs_036_8C52_FC_закончить
 
 
 
@@ -1782,25 +1782,25 @@ C - - - - - 0x030AF4 18:8AE4: 4C A5 8C  JMP loc_8CA5_запись_энергии
 
 ofs_036_8AE7_ED_сокращение_имени_команды:
 .scope
-    LDY ram_0040
-    INC ram_0040
-    LDX ram_твоя_команда
-    LDA (ram_003E),Y
-    BEQ @это_твоя_команда
-    LDX ram_команда_соперника
+                                        LDY ram_0040
+                                        INC ram_0040
+                                        LDX ram_твоя_команда
+                                        LDA (ram_003E),Y
+                                        BEQ @это_твоя_команда
+                                        LDX ram_команда_соперника
 @это_твоя_команда:
-    TXA
+                                        TXA
 ; все слова по 3 буквы, умножение индекса на 3
-    STA ram_0031        ; 0031 выступает как временный адрес
-    ASL                 ; номер команды не превышает 20, после ASL C = 0
-    ADC ram_0031        ; после сложения будет максимум 60, C = 0
-    ADC #< tbl_сокращения
-    STA ram_0030
-    LDA #> tbl_сокращения
-    ADC #$00
-    STA ram_0031
-    LDA #$03
-    JMP loc_8A6F_вывести_3_буквы_имени_команды
+                                        STA ram_0031        ; 0031 выступает как временный адрес
+                                        ASL                 ; номер команды не превышает 20, после ASL C = 0
+                                        ADC ram_0031        ; после сложения будет максимум 60, C = 0
+                                        ADC #< tbl_сокращения
+                                        STA ram_0030
+                                        LDA #> tbl_сокращения
+                                        ADC #$00
+                                        STA ram_0031
+                                        LDA #$03
+                                        JMP loc_8A6F_вывести_3_буквы_имени_команды
 
 tbl_сокращения:
     .text "SAO", "NAN", "JPN"
@@ -1815,26 +1815,26 @@ tbl_сокращения:
 
 
 ofs_036_8B2F_EE_счет_игры:
-    LDY ram_0040
-    INC ram_0040
-    LDA (ram_003E),Y
-    TAX
-    LDY ram_номер_тайма
-    CPY #$04
-    BEQ @это_пенальти
-    LDA ram_голы,X
-    CPX #$01
-    BNE @вывести_счет       ; это счет команды слева
-    CMP #$0A
-    BCC @вывести_счет       ; счет не превышает 10 голов
-    INC ram_003D            ; сместить указатель записи голов команды справа
+                                        LDY ram_0040
+                                        INC ram_0040
+                                        LDA (ram_003E),Y
+                                        TAX
+                                        LDY ram_номер_тайма
+                                        CPY #$04
+                                        BEQ @это_пенальти
+                                        LDA ram_голы,X
+                                        CPX #$01
+                                        BNE @вывести_счет       ; это счет команды слева
+                                        CMP #$0A
+                                        BCC @вывести_счет       ; счет не превышает 10 голов
+                                        INC ram_003D            ; сместить указатель записи голов команды справа
 @вывести_счет:
-    LDX #$00
-    JMP loc_8C55_запись_цифер_в_буфер
+                                        LDX #$00
+                                        JMP loc_8C55_запись_цифер_в_буфер
 @это_пенальти:
-    LDA ram_пк_голы,X
-    LDX #$00
-    JMP loc_8C55_запись_цифер_в_буфер
+                                        LDA ram_пк_голы,X
+                                        LDX #$00
+                                        JMP loc_8C55_запись_цифер_в_буфер
 
 
 
@@ -1949,12 +1949,12 @@ C - - - - - 0x030BF1 18:8BE1: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 
 
 ofs_036_8BE4_F3_имя_напавшего_защитника:
-    LDY ram_0040
-    INC ram_0040
-    LDA (ram_003E),Y
-    TAX
-    LDA ram_номер_защитника,X
-    JMP loc_8D1A_вывести_имя
+                                        LDY ram_0040
+                                        INC ram_0040
+                                        LDA (ram_003E),Y
+                                        TAX
+                                        LDA ram_номер_защитника,X
+                                        JMP loc_8D1A_вывести_имя
 
 
 
@@ -2029,22 +2029,22 @@ C - - - - - 0x030C5F 18:8C4F: 4C 55 8C  JMP loc_8C55_запись_цифер_в_
 
 
 ofs_036_8C44_F8_стрелочка_высоты_мяча:
-    LDA ram_сценарий
-    CMP #con_scenario_32
-    BEQ @выход
-    LDA ram_высота_мяча
-    BEQ @выход
-    ASL      ; умножение на 3
-    ADC ram_высота_мяча
-    ADC #< tbl_8C45_стрелочка
-    STA ram_0030
-    LDA #> tbl_8C45_стрелочка
-    ADC #$00
-    STA ram_0031
-    LDA #$03
-    JMP loc_8A6F_вывести_стрелочку_высоты_мяча
+                                        LDA ram_сценарий
+                                        CMP #con_scenario_32
+                                        BEQ @выход
+                                        LDA ram_высота_мяча
+                                        BEQ @выход
+                                        ASL      ; умножение на 3
+                                        ADC ram_высота_мяча
+                                        ADC #< tbl_8C45_стрелочка
+                                        STA ram_0030
+                                        LDA #> tbl_8C45_стрелочка
+                                        ADC #$00
+                                        STA ram_0031
+                                        LDA #$03
+                                        JMP loc_8A6F_вывести_стрелочку_высоты_мяча
 @выход:
-    RTS
+                                        RTS
 
 
 
@@ -2057,41 +2057,41 @@ tbl_8C45_стрелочка:
 
 ofs_036_8C45_F9_индикатор_если_соперник_не_клон:
 .scope
-    LDY ram_0040
-    INC ram_0040
-    LDA (ram_003E),Y
-    BMI @это_индикатор_защитника
-    JSR sub_узнать_индекс_принимающего
-    BCS @требуется_вывести_тайл_если_не_клон
-    RTS
+                                        LDY ram_0040
+                                        INC ram_0040
+                                        LDA (ram_003E),Y
+                                        BMI @это_индикатор_защитника
+                                        JSR sub_узнать_индекс_принимающего
+                                        BCS @требуется_вывести_тайл_если_не_клон
+                                        RTS
 @это_индикатор_защитника:
-    AND #$7F
-    TAX
-    LDA ram_номер_защитника,X
+                                        AND #$7F
+                                        TAX
+                                        LDA ram_номер_защитника,X
 @требуется_вывести_тайл_если_не_клон:
-    JSR sub_0x03CD8C_получить_адрес_игрока
-    LDY #con_plr_id
-    LDA (ram_plr_data),Y
-    BEQ @это_клон
-    LDA #$3F        ; тайл *
-    JMP loc_8C85_запись_тайла_в_буфер
+                                        JSR sub_0x03CD8C_получить_адрес_игрока
+                                        LDY #con_plr_id
+                                        LDA (ram_plr_data),Y
+                                        BEQ @это_клон
+                                        LDA #$3F        ; тайл *
+                                        JMP loc_8C85_запись_тайла_в_буфер
 @это_клон:
-    RTS
+                                        RTS
 
 
 
 sub_узнать_индекс_принимающего:
-    TAX
-    LDA ram_список_спешалов + $01,X
-    INX
-    CPX ram_список_спешалов
-    BCC @принимающий_существует
-    BEQ @принимающий_существует
-    CLC
-    RTS
+                                        TAX
+                                        LDA ram_список_спешалов + $01,X
+                                        INX
+                                        CPX ram_список_спешалов
+                                        BCC @принимающий_существует
+                                        BEQ @принимающий_существует
+                                        CLC
+                                        RTS
 @принимающий_существует:
-    SEC
-    RTS
+                                        SEC
+                                        RTS
 .endscope
 
 

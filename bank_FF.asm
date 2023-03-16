@@ -80,58 +80,57 @@
 
 
 loc_FFF0_RESET:
-    LDA #$08
-    STA $2000
-    SEI
-    LDX #$FF
-    TXS
-; очистить 0000-07FF
-    LDA #$00
-    STA ram_0000
-    STA ram_0001
-    TAY
-    LDX #$08
-@очистка_оперативки:
-    STA (ram_0000),Y
-    INY
-    BNE @очистка_оперативки
-    INC ram_0001
-    DEX
-    BNE @очистка_оперативки
-    STA $4010
-    LDA #$08
-    STA ram_0020
-    LDA #$06
-    STA ram_for_2001
-    STA $2001
-    LDA #$40
-    STA $4017
-    CLI
-    LDA #$00
+                                        LDA #$08
+                                        STA $2000
+                                        SEI
+                                        LDX #$FF
+                                        TXS
+                                        LDA #$00
+                                        STA ram_0000
+                                        STA ram_0001
+                                        TAY
+                                        LDX #$08
+@loop_0000_07FF:
+                                        STA (ram_0000),Y
+                                        INY
+                                        BNE @loop_0000_07FF
+                                        INC ram_0001
+                                        DEX
+                                        BNE @loop_0000_07FF
+                                        STA $4010
+                                        LDA #$08
+                                        STA ram_0020
+                                        LDA #$06
+                                        STA ram_for_2001
+                                        STA $2001
+                                        LDA #$40
+                                        STA $4017
+                                        CLI
+                                        LDA #$00
 loc_CEFE:   ; A = FF
 loc_0x03CF0E:
-    PHA
-    LDA #$00
-    STA ram_0469
-    STA $5204
-    JSR sub_CB8B_очистить_память_спрайтов
-    JSR sub_CB35_очистить_nametable
-    LDA ram_0020
-    AND #$7F
-    STA $2000
-    STA ram_0020
-    LDA #$08
-    STA ram_0020
-    STA $2000
-    LDA #$1E
-    STA ram_for_2001
-    STA $2001
-    LDX #con_prg_bank + $00
-    JSR sub_C4B2_банксвич_PRG_5114
-    LDX #con_prg_bank + $02
-    JSR sub_C4B9_банксвич_PRG_5115
-    PLA
-    JMP loc_0x00422B
+                                        PHA
+                                        LDA #$00
+                                        STA ram_0469
+                                        STA $5204
+                                        JSR sub_CB8B_очистить_память_спрайтов
+                                        JSR sub_CB35_очистить_nametable
+                                        LDA ram_0020
+                                        AND #$7F
+                                        STA $2000
+                                        STA ram_0020
+                                        LDA #$08
+                                        STA ram_0020
+                                        STA $2000
+                                        LDA #$1E
+                                        STA ram_for_2001
+                                        STA $2001
+                                        LDX #con_prg_bank + $00
+                                        JSR sub_C4B2_банксвич_PRG_5114
+                                        LDX #con_prg_bank + $02
+                                        JSR sub_C4B9_банксвич_PRG_5115
+                                        PLA
+                                        JMP loc_0x00422B
 
 
 
@@ -223,22 +222,22 @@ sub_0x03C4D8_начислить_опыт:
     ; A = номер игрока
     ; X = 02 (игрок) или 03 (кипер), также может быть 00 и 01
 ; A и X менять нельзя до прыжка в подпрограмму
-    BEQ bra_C4F3_RTS      ; это клон
-    CMP #$23
-    BCS bra_C4F3_RTS      ; это игрок команды соперника
-    LDY #con_prg_bank + $80
-    STY $5114
-    LDY #con_prg_bank + $81
-    STY $5115
-    JSR sub_0x002FD2_начислить_опыт
-    LDA ram_for_5114
-    ORA #$80
-    STA $5114
-    LDA ram_for_5115
-    ORA #$80
-    STA $5115
+                                        BEQ bra_C4F3_RTS    ; это клон
+                                        CMP #$23
+                                        BCS bra_C4F3_RTS    ; это игрок команды соперника
+                                        LDY #con_prg_bank + $80
+                                        STY $5114
+                                        LDY #con_prg_bank + $81
+                                        STY $5115
+                                        JSR sub_0x002FD2_начислить_опыт
+                                        LDA ram_for_5114
+                                        ORA #$80
+                                        STA $5114
+                                        LDA ram_for_5115
+                                        ORA #$80
+                                        STA $5115
 bra_C4F3_RTS:
-    RTS
+                                        RTS
 
 
 
@@ -570,45 +569,45 @@ C - - - - - 0x03C960 FF:C950: 60        RTS
 
 
 loc_C951:
-    LDA ram_0515
-    BPL @выход
-    AND #$01
-    STA ram_temp_1
-    LDX #$00
-    STX ram_0515
-@цикл_записи_в_ppu:
-    LDA ram_04A5,X
-    BEQ @выход        ; 00 = конец буфера
-    TAY
-    INX
-    LDA ram_04A5,X
-    PHA
-    INX
-    LDA ram_04A5,X
-    BIT $2002
-    STA $2006
-    PLA
-    STA $2006
-    INX
-    LDA ram_temp_1
-    BNE @запись_одного_байта
+                                        LDA ram_0515
+                                        BPL @выход
+                                        AND #$01
+                                        STA ram_temp_1
+                                        LDX #$00
+                                        STX ram_0515
+@loop_записи_в_ppu:
+                                        LDA ram_04A5,X
+                                        BEQ @выход        ; 00 = конец буфера
+                                        TAY
+                                        INX
+                                        LDA ram_04A5,X
+                                        PHA
+                                        INX
+                                        LDA ram_04A5,X
+                                        BIT $2002
+                                        STA $2006
+                                        PLA
+                                        STA $2006
+                                        INX
+                                        LDA ram_temp_1
+                                        BNE @запись_одного_байта
 @основной_цикл_записи_в_2007:
-    LDA ram_04A5,X
-    STA $2007
-    INX
-    DEY
-    BNE @основной_цикл_записи_в_2007
-    BEQ @цикл_записи_в_ppu
+                                        LDA ram_04A5,X
+                                        STA $2007
+                                        INX
+                                        DEY
+                                        BNE @основной_цикл_записи_в_2007
+                                        BEQ @loop_записи_в_ppu
 @выход:
-    RTS
+                                        RTS
 @запись_одного_байта:
-    LDA ram_04A5,X
-    INX
-@цикл_записи_в_2007:
-    STA $2007
-    DEY
-    BNE @цикл_записи_в_2007
-    BEQ @цикл_записи_в_ppu
+                                        LDA ram_04A5,X
+                                        INX
+@loop_записи_в_2007:
+                                        STA $2007
+                                        DEY
+                                        BNE @loop_записи_в_2007
+                                        BEQ @loop_записи_в_ppu    ; jmp
 
 
 
@@ -651,18 +650,18 @@ C - - - - - 0x03C9D4 FF:C9C4: 60        RTS
 
 
 sub_C9C5_генератор_рандома:
-C - - - - - 0x03C9D5 FF:C9C5: AE E1 00  LDX ram_рандом_1
+C - - - - - 0x03C9D5 FF:C9C5: AE E1 00  LDX ram_random
 C - - - - - 0x03C9D8 FF:C9C8: BD 00 03  LDA $0300,X
 C - - - - - 0x03C9DB FF:C9CB: 7D 00 07  ADC $0700,X
-C - - - - - 0x03C9DE FF:C9CE: 2E E2 00  ROL ram_рандом_2
+C - - - - - 0x03C9DE FF:C9CE: 2E E2 00  ROL ram_random + $01
 C - - - - - 0x03C9E1 FF:C9D1: 49 FF     EOR #$FF
-C - - - - - 0x03C9E3 FF:C9D3: 2E E2 00  ROL ram_рандом_2
-C - - - - - 0x03C9E6 FF:C9D6: 6D E2 00  ADC ram_рандом_2
-C - - - - - 0x03C9E9 FF:C9D9: 8D E2 00  STA ram_рандом_2
+C - - - - - 0x03C9E3 FF:C9D3: 2E E2 00  ROL ram_random + $01
+C - - - - - 0x03C9E6 FF:C9D6: 6D E2 00  ADC ram_random + $01
+C - - - - - 0x03C9E9 FF:C9D9: 8D E2 00  STA ram_random + $01
 C - - - - - 0x03C9EC FF:C9DC: FD 80 07  SBC $0780,X
-C - - - - - 0x03C9EF FF:C9DF: 6D E1 00  ADC ram_рандом_1
-C - - - - - 0x03C9F2 FF:C9E2: 8D E3 00  STA ram_рандом_3
-C - - - - - 0x03C9F5 FF:C9E5: EE E1 00  INC ram_рандом_1
+C - - - - - 0x03C9EF FF:C9DF: 6D E1 00  ADC ram_random
+C - - - - - 0x03C9F2 FF:C9E2: 8D E3 00  STA ram_random + $02
+C - - - - - 0x03C9F5 FF:C9E5: EE E1 00  INC ram_random
 C - - - - - 0x03C9F8 FF:C9E8: 60        RTS
 
 
@@ -834,48 +833,48 @@ C - - - - - 0x03CB3A FF:CB2A: 4C A5 CA  JMP loc_CAA5
 
 sub_CB35_очистить_nametable:
 sub_0x03CB45_очистить_nametable:
-    LDA ram_0020
-    AND #$7F
-    STA ram_0020
-    STA $2000
-    LDA #$06
-    STA $2001
-    BIT $2002
-    LDA #> $2000
-    STA $2006
-    LDA #< $2000
-    STA $2006
-    TAX
-    LDY #$08
-@цикл:
-    STA $2007
-    DEX
-    BNE @цикл
-    DEY
-    BNE @цикл
-    STA $2005
-    STA $2005
-    LDA #$1E
-    STA $2001
-    LDA ram_0020
-    ORA #$80
-    STA ram_0020
-    STA $2000
-    RTS
+                                        LDA ram_0020
+                                        AND #$7F
+                                        STA ram_0020
+                                        STA $2000
+                                        LDA #$06
+                                        STA $2001
+                                        BIT $2002
+                                        LDA #> $2000
+                                        STA $2006
+                                        LDA #< $2000
+                                        STA $2006
+                                        TAX
+                                        LDY #$08
+@loop:
+                                        STA $2007
+                                        DEX
+                                        BNE @loop
+                                        DEY
+                                        BNE @loop
+                                        STA $2005
+                                        STA $2005
+                                        LDA #$1E
+                                        STA $2001
+                                        LDA ram_0020
+                                        ORA #$80
+                                        STA ram_0020
+                                        STA $2000
+                                        RTS
 
 
 
 sub_CB8B_очистить_память_спрайтов:
-    LDY #$00
-    LDA #$F8
-@цикл:
-    STA ram_spr_Y,Y
-    INY
-    INY
-    INY
-    INY
-    BNE @цикл
-    RTS
+                                        LDY #$00
+                                        LDA #$F8
+@loop:
+                                        STA ram_spr_Y,Y
+                                        INY
+                                        INY
+                                        INY
+                                        INY
+                                        BNE @loop
+                                        RTS
 
 
 
@@ -979,9 +978,9 @@ C - - - - - 0x03CC55 FF:CC45: 60        RTS
 
 sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана:
 ; bzk optimize, прыжок на STA
-    LDA #$07
-    STA ram_temp_2
-    BNE bra_CC47    ; jmp
+                                        LDA #$07
+                                        STA ram_temp_2
+                                        BNE bra_CC47    ; jmp
 
 
 
@@ -1001,68 +1000,68 @@ loc_0x03CC56_очистить_нижнюю_половину_экрана:
         ; 04AB - 2006 hi
         ; 04AC - тайл
     ; 04AD - конец буфера
-    LDA #$00
-    STA ram_05F4
-    STA ram_temp_2
+                                        LDA #$00
+                                        STA ram_05F4
+                                        STA ram_temp_2
 bra_CC47:
 @ожидание_освобождения_буфера_1:
-    LDA #$01
-    JSR sub_CB0F_задержка
-    LDA ram_0515
-    BNE @ожидание_освобождения_буфера_1
-    LDA #$01
-    STA ram_0515
-    LDA #$06        ; счетчик цикла
+                                        LDA #$01
+                                        JSR sub_CB0F_задержка
+                                        LDA ram_0515
+                                        BNE @ожидание_освобождения_буфера_1
+                                        LDA #$01
+                                        STA ram_0515
+                                        LDA #$06        ; счетчик цикла
 bra_CC4D_loop_очистки_экрана:
-    PHA
-    TAX
-    LDA #$23
-    CPX #$04
-    BCS @пропустить
-    LDA #$22
+                                        PHA
+                                        TAX
+                                        LDA #$23
+                                        CPX #$04
+                                        BCS @пропустить
+                                        LDA #$22
 @пропустить:
-    STA ram_04A7
-    STA ram_04AB
-    LDA tbl_CC46_2006_lo,X
-    SEC
-    SBC ram_temp_2
-    STA ram_04A6
-    CLC
-    ADC #$20
-    STA ram_04AA
-    LDA #$19        ; количество записей
-    CLC
-    ADC ram_temp_2
-    STA ram_04A5
-    STA ram_04A9
-    LDA #$00
-    STA ram_04A8
-    STA ram_04AC
-    STA ram_04AD
-    LDA #$81
-    STA ram_0515
+                                        STA ram_04A7
+                                        STA ram_04AB
+                                        LDA tbl_CC46_2006_lo,X
+                                        SEC
+                                        SBC ram_temp_2
+                                        STA ram_04A6
+                                        CLC
+                                        ADC #$20
+                                        STA ram_04AA
+                                        LDA #$19        ; количество записей
+                                        CLC
+                                        ADC ram_temp_2
+                                        STA ram_04A5
+                                        STA ram_04A9
+                                        LDA #$00
+                                        STA ram_04A8
+                                        STA ram_04AC
+                                        STA ram_04AD
+                                        LDA #$81
+                                        STA ram_0515
 @ожидание_освобождения_буфера_2:
-    LDA #$01
-    JSR sub_CB0F_задержка
-    LDA ram_0515
-    BNE @ожидание_освобождения_буфера_2
-    LDA #$01
-    STA ram_0515
-    PLA
-    SEC
-    SBC #$01
-    BPL bra_CC4D_loop_очистки_экрана
-    LDX #$14
-@цикл:
-    LDA tbl_CC47_ppu_байты_затирания_чарли_и_атрибутов_фона,X
-    STA ram_04A5,X
-    DEX
-    BPL @цикл
-    LDA #$81
-    STA ram_0515
-    LDA #$01
-    JSR sub_CB0F_задержка
-    RTS
+                                        LDA #$01
+                                        JSR sub_CB0F_задержка
+                                        LDA ram_0515
+                                        BNE @ожидание_освобождения_буфера_2
+                                        LDA #$01
+                                        STA ram_0515
+                                        PLA
+                                        SEC
+                                        SBC #$01
+                                        BPL bra_CC4D_loop_очистки_экрана
+                                        LDX #$14
+@loop:
+                                        LDA tbl_CC47_ppu_байты_затирания_чарли_и_атрибутов_фона,X
+                                        STA ram_04A5,X
+                                        DEX
+                                        BPL @loop
+                                        LDA #$81
+                                        STA ram_0515
+                                        LDA #$01
+                                        JSR sub_CB0F_задержка
+                                        RTS
 
 
 
@@ -1098,30 +1097,30 @@ tbl_CC47_ppu_байты_затирания_чарли_и_атрибутов_фо
 
 sub_0x03CCE2:
 ; уникальный случай для надписи текмо в финальной заставке 0x0273CC
-    LDA #$03
-    .byte $2C   ; BIT
+                                        LDA #$03
+                                        .byte $2C   ; BIT
 sub_CCD3:
 sub_0x03CCE3:
 ; срабатывает раз перед показом новой анимации
-    LDA #$00
-    STA ram_temp_1
-    TYA
-    PHA
-    LDA ram_0498
-    ASL
-    ADC ram_0498
-    TAX
-    LDY ram_temp_1
-    LDA tbl_0000,Y
-    STA ram_0499,X
-    LDA tbl_0000 + $01,Y
-    STA ram_049A,X
-    LDA tbl_0000 + $02,Y
-    STA ram_049B,X
-    INC ram_0498
-    PLA
-    TAY
-    RTS
+                                        LDA #$00
+                                        STA ram_temp_1
+                                        TYA
+                                        PHA
+                                        LDA ram_0498
+                                        ASL
+                                        ADC ram_0498
+                                        TAX
+                                        LDY ram_temp_1
+                                        LDA tbl_0000,Y
+                                        STA ram_0499,X
+                                        LDA tbl_0000 + $01,Y
+                                        STA ram_049A,X
+                                        LDA tbl_0000 + $02,Y
+                                        STA ram_049B,X
+                                        INC ram_0498
+                                        PLA
+                                        TAY
+                                        RTS
 
 
 
@@ -1229,20 +1228,20 @@ C - - - - - 0x03CD86 FF:CD76: 60        RTS
 
 sub_CD77_получить_адрес_игрока_команды_без_мяча:
 sub_0x03CD87_получить_адрес_игрока_команды_без_мяча:
-    LDA ram_команда_с_мячом
-    EOR #$0B
+                                        LDA ram_команда_с_мячом
+                                        EOR #$0B
 sub_CD7C_получить_адрес_игрока:
 sub_0x03CD8C_получить_адрес_игрока:
 loc_0x03CD8C_получить_адрес_игрока:
 ; здесь нельзя использовать X
-    STA ram_копия_номера_игрока
-    ASL
-    TAY
-    LDA tbl_CD89_адреса_игроков,Y
-    STA ram_plr_data
-    LDA tbl_CD89_адреса_игроков + $01,Y
-    STA ram_plr_data + $01
-    RTS
+                                        STA ram_копия_номера_игрока
+                                        ASL
+                                        TAY
+                                        LDA tbl_CD89_адреса_игроков,Y
+                                        STA ram_plr_data
+                                        LDA tbl_CD89_адреса_игроков + $01,Y
+                                        STA ram_plr_data + $01
+                                        RTS
 
 
 
@@ -1602,72 +1601,72 @@ sub_0x03CF9F_курсор_меню_после_гола:
 ; на выходе код ожидает получить A (номер меню) и C (кнопка A была нажата = 1)
 ; 0622 - номер меню
 ; 0623 - номер опции меню
-    STA ram_позиция_курсора
-    TAX
-    LDA tbl_D002_горизонталь_спрайта,X
-    STA ram_spr_X + $FC
-    LDA tbl_D01A_номер_тайла,X
-    STA ram_spr_T + $FC
-    LDA #$03
-    STA ram_spr_A + $FC
+                                        STA ram_позиция_курсора
+                                        TAX
+                                        LDA tbl_D002_горизонталь_спрайта,X
+                                        STA ram_spr_X + $FC
+                                        LDA tbl_D01A_номер_тайла,X
+                                        STA ram_spr_T + $FC
+                                        LDA #$03
+                                        STA ram_spr_A + $FC
 bra_CFA4_loop_ожидания_нажатия:
-    LDA #$01
-    JSR sub_CB0F_задержка
-    LDA ram_номер_опции
-    ASL
-    ASL
-    ASL
-    ASL
-    LDX ram_позиция_курсора
-    CLC
-    ADC tbl_D00A_вертикаль_спрайта,X
-    STA ram_spr_Y + $FC
-    LDA #con_btn_Down + con_btn_Up
-    AND ram_btn_press
-    BEQ bra_CFE7_проверка_кнопок_A_и_B
-    LDX #$01
-    AND #$08
-    BEQ bra_CFC9_нажата_кнопка_вниз
-    LDX #$FF
+                                        LDA #$01
+                                        JSR sub_CB0F_задержка
+                                        LDA ram_номер_опции
+                                        ASL
+                                        ASL
+                                        ASL
+                                        ASL
+                                        LDX ram_позиция_курсора
+                                        CLC
+                                        ADC tbl_D00A_вертикаль_спрайта,X
+                                        STA ram_spr_Y + $FC
+                                        LDA #con_btn_Down + con_btn_Up
+                                        AND ram_btn_press
+                                        BEQ bra_CFE7_проверка_кнопок_A_и_B
+                                        LDX #$01
+                                        AND #$08
+                                        BEQ bra_CFC9_нажата_кнопка_вниз
+                                        LDX #$FF
 bra_CFC9_нажата_кнопка_вниз:
-    TXA
-    CLC
-    ADC ram_номер_опции
-    BPL bra_CFD0_курсор_еще_не_достиг_вершины_списка
-    LDX ram_позиция_курсора
-    LDA tbl_D012_лимит_позиции_курсора,X
-    STA ram_номер_опции
-    BNE bra_CFE7_проверка_кнопок_A_и_B
+                                        TXA
+                                        CLC
+                                        ADC ram_номер_опции
+                                        BPL bra_CFD0_курсор_еще_не_достиг_вершины_списка
+                                        LDX ram_позиция_курсора
+                                        LDA tbl_D012_лимит_позиции_курсора,X
+                                        STA ram_номер_опции
+                                        BNE bra_CFE7_проверка_кнопок_A_и_B
 bra_CFD0_курсор_еще_не_достиг_вершины_списка:
-    LDX ram_позиция_курсора
-    CMP tbl_D012_лимит_позиции_курсора,X
-    BEQ bra_CFDA
-    BCC bra_CFDA
-    LDA #$00
-    STA ram_номер_опции
-    BEQ bra_CFE7_проверка_кнопок_A_и_B
+                                        LDX ram_позиция_курсора
+                                        CMP tbl_D012_лимит_позиции_курсора,X
+                                        BEQ bra_CFDA
+                                        BCC bra_CFDA
+                                        LDA #$00
+                                        STA ram_номер_опции
+                                        BEQ bra_CFE7_проверка_кнопок_A_и_B
 bra_CFDA:
-    STA ram_номер_опции
-    LDX ram_позиция_курсора
-    CPX #$05
-    BNE bra_CFE7_проверка_кнопок_A_и_B
-    STA ram_расстановка_слева
+                                        STA ram_номер_опции
+                                        LDX ram_позиция_курсора
+                                        CPX #$05
+                                        BNE bra_CFE7_проверка_кнопок_A_и_B
+                                        STA ram_расстановка_слева
 bra_CFE7_проверка_кнопок_A_и_B:
-    LDA #con_btn_A
-    AND ram_btn_press
-    BNE bra_CFF8_была_нажата_A
-    LDA #con_btn_B
-    AND ram_btn_press
-    BEQ bra_CFA4_loop_ожидания_нажатия
-    CLC
-    BCC bra_CFFC_убрать_спрайт_с_экрана
+                                        LDA #con_btn_A
+                                        AND ram_btn_press
+                                        BNE bra_CFF8_была_нажата_A
+                                        LDA #con_btn_B
+                                        AND ram_btn_press
+                                        BEQ bra_CFA4_loop_ожидания_нажатия
+                                        CLC
+                                        BCC bra_CFFC_убрать_спрайт_с_экрана
 bra_CFF8_была_нажата_A:
-    SEC
-    LDA ram_номер_опции
+                                        SEC
+                                        LDA ram_номер_опции
 bra_CFFC_убрать_спрайт_с_экрана:
-    LDX #$F8
-    STX ram_spr_Y + $FC
-    RTS
+                                        LDX #$F8
+                                        STX ram_spr_Y + $FC
+                                        RTS
 
 
 
@@ -2031,7 +2030,7 @@ C - - - - - 0x03D1FB FF:D1EB: AD F8 05  LDA ram_время_hi
 C - - - - - 0x03D1FE FF:D1EE: 0D F7 05  ORA ram_время_lo
 C - - - - - 0x03D201 FF:D1F1: D0 2C     BNE bra_D21F_RTS
 C - - - - - 0x03D203 FF:D1F3: A9 00     LDA #$00
-C - - - - - 0x03D205 FF:D1F5: 2C E2 00  BIT ram_рандом_2
+C - - - - - 0x03D205 FF:D1F5: 2C E2 00  BIT ram_random + $01
 C - - - - - 0x03D208 FF:D1F8: 10 02     BPL bra_D1FC
 C - - - - - 0x03D20A FF:D1FA: A9 0C     LDA #$0C
 bra_D1FC:
@@ -3083,6 +3082,8 @@ C - - - - - 0x03D856 FF:D846: 20 52 D8  JSR sub_D852
 C - - - - - 0x03D859 FF:D849: 90 BF     BCC bra_D80A_loop
 C - - - - - 0x03D85B FF:D84B: 4C 0C D7  JMP loc_D70C    ; всегда PLA PLA
 
+
+
 tbl_D84E:
 - D - - - - 0x03D85E FF:D84E: 0C        .byte $0C   ; 
 - D - - - - 0x03D85F FF:D84F: F4        .byte $F4   ; 
@@ -3450,7 +3451,7 @@ C - - - - - 0x03DAFC FF:DAEC: 18        CLC
 C - - - - - 0x03DAFD FF:DAED: 69 08     ADC #$08
 C - - - - - 0x03DAFF FF:DAEF: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - - 0x03DB02 FF:DAF2: 20 07 DC  JSR sub_DC07_задать_начальные_координаты_игрокам_по_расстановке_команды
-C - - - - - 0x03DB05 FF:DAF5: AD E2 00  LDA ram_рандом_2
+C - - - - - 0x03DB05 FF:DAF5: AD E2 00  LDA ram_random + $01
 C - - - - - 0x03DB08 FF:DAF8: 29 07     AND #$07
 C - - - - - 0x03DB0A FF:DAFA: C9 05     CMP #$05
 C - - - - - 0x03DB0C FF:DAFC: 90 02     BCC bra_DB00
@@ -3500,7 +3501,7 @@ C - - - - - 0x03DB5B FF:DB4B: A2 00     LDX #$00    ; индекс команд�
 C - - - - - 0x03DB5D FF:DB4D: AD 2B 00  LDA ram_команда_соперника
 C - - - - - 0x03DB60 FF:DB50: C9 03     CMP #$03
 C - - - - - 0x03DB62 FF:DB52: F0 07     BEQ bra_DB5B
-C - - - - - 0x03DB64 FF:DB54: 2C E2 00  BIT ram_рандом_2
+C - - - - - 0x03DB64 FF:DB54: 2C E2 00  BIT ram_random + $01
 C - - - - - 0x03DB67 FF:DB57: 10 02     BPL bra_DB5B
 C - - - - - 0x03DB69 FF:DB59: A2 0B     LDX #$0B    ; индекс команды справа
 bra_DB5B:
@@ -3822,7 +3823,7 @@ sub_DCDF:
 sub_0x03DCEF:
 C D - - - - 0x03DCEF FF:DCDF: AD 4E 04  LDA ram_высота_мяча
 C - - - - - 0x03DCF2 FF:DCE2: D0 0B     BNE bra_DCEF_RTS
-C - - - - - 0x03DCF4 FF:DCE4: AD E2 00  LDA ram_рандом_2
+C - - - - - 0x03DCF4 FF:DCE4: AD E2 00  LDA ram_random + $01
 C - - - - - 0x03DCF7 FF:DCE7: 29 01     AND #$01
 C - - - - - 0x03DCF9 FF:DCE9: 18        CLC
 C - - - - - 0x03DCFA FF:DCEA: 69 01     ADC #$01
@@ -3905,7 +3906,7 @@ C - - - - - 0x03DD83 FF:DD73: F0 02     BEQ bra_DD77_команда_слева
 ; if комада справа
 C - - - - - 0x03DD85 FF:DD75: A9 05     LDA #$05
 bra_DD77_команда_слева:
-C - - - - - 0x03DD87 FF:DD77: 4E E2 00  LSR ram_рандом_2
+C - - - - - 0x03DD87 FF:DD77: 4E E2 00  LSR ram_random + $01
 C - - - - - 0x03DD8A FF:DD7A: 69 00     ADC #$00
 C - - - - - 0x03DD8C FF:DD7C: 8D 38 06  STA ram_0638
 C - - - - - 0x03DD8F FF:DD7F: 18        CLC
@@ -4021,7 +4022,7 @@ tbl_DDD9:
 
 
 loc_0x03DE0D:
-C D - - - - 0x03DE0D FF:DDFD: AD E2 00  LDA ram_рандом_2
+C D - - - - 0x03DE0D FF:DDFD: AD E2 00  LDA ram_random + $01
 C - - - - - 0x03DE10 FF:DE00: 29 07     AND #$07
 C - - - - - 0x03DE12 FF:DE02: C9 06     CMP #$06
 C - - - - - 0x03DE14 FF:DE04: 90 02     BCC bra_DE08
@@ -5095,7 +5096,7 @@ C - - - - - 0x03E5A3 FF:E593: 4C DF E0  JMP loc_E0DF
 
 
 ofs_041_0x03E5A6:
-C D - - - - 0x03E5A6 FF:E596: AD E2 00  LDA ram_рандом_2
+C D - - - - 0x03E5A6 FF:E596: AD E2 00  LDA ram_random + $01
 C - - - - - 0x03E5A9 FF:E599: C9 E0     CMP #$E0
 C - - - - - 0x03E5AB FF:E59B: B0 1D     BCS bra_E5BA
 C - - - - - 0x03E5AD FF:E59D: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
@@ -5227,7 +5228,7 @@ C - - - - - 0x03E6A4 FF:E694: 10 02     BPL bra_E698
 C - - - - - 0x03E6A6 FF:E696: 09 02     ORA #$02
 bra_E698:
 C - - - - - 0x03E6A8 FF:E698: 85 3A     STA ram_003A
-C - - - - - 0x03E6AA FF:E69A: AD E2 00  LDA ram_рандом_2
+C - - - - - 0x03E6AA FF:E69A: AD E2 00  LDA ram_random + $01
 C - - - - - 0x03E6AD FF:E69D: 29 07     AND #$07
 C - - - - - 0x03E6AF FF:E69F: 0A        ASL
 C - - - - - 0x03E6B0 FF:E6A0: AA        TAX
@@ -7433,15 +7434,15 @@ vec_FFF1_RESET:
                     STA ram_0003
                     LDY #$00
                     LDX #$1F
-@цикл_копирования_на_батарейку:
+@loop_копирования_на_батарейку:
                     LDA (ram_0000),Y
                     STA (ram_0002),Y
                     INY
-                    BNE @цикл_копирования_на_батарейку
+                    BNE @loop_копирования_на_батарейку
                     INC ram_0001
                     INC ram_0003
                     DEX
-                    BPL @цикл_копирования_на_батарейку
+                    BPL @loop_копирования_на_батарейку
                     JMP loc_FFF0_RESET
 
 
