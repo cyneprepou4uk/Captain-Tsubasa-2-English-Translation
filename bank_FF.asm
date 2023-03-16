@@ -5081,14 +5081,12 @@ C - - - - - 0x03E5D3 FF:E5C3: 85 25     STA ram_for_5115
 C - - - - - 0x03E5D5 FF:E5C5: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 ; сработало при наебке кипера
 C - - - - - 0x03E5D9 FF:E5C9: 20 0C 80  JSR sub_0x0287A6
-C - - - - - 0x03E5DC FF:E5CC: A9 01     LDA #$01
-C - - - - - 0x03E5DE FF:E5CE: 48        PHA
 C - - - - - 0x03E5E1 FF:E5D1: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E5E3 FF:E5D3: 85 24     STA ram_for_5114
 C - - - - - 0x03E5E5 FF:E5D5: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E5E7 FF:E5D7: 85 25     STA ram_for_5115
 C - - - - - 0x03E5E9 FF:E5D9: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03E5EC FF:E5DC: 68        PLA
+                                        LDA #$01
 C - - - - - 0x03E5ED FF:E5DD: 20 24 80  JSR sub_0x034CB4
 C - - - - - 0x03E5F0 FF:E5E0: AE 35 06  LDX ram_ball_pos_X_hi
 C - - - - - 0x03E5F3 FF:E5E3: AC 37 06  LDY ram_ball_pos_Y_hi
