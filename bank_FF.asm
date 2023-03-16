@@ -2988,13 +2988,11 @@ C - - - - - 0x03D7CC FF:D7BC: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03D7CE FF:D7BE: 85 25     STA ram_for_5115
 C - - - - - 0x03D7D0 FF:D7C0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03D7D4 FF:D7C4: 20 21 80  JSR sub_0x034F82
-C - - - - - 0x03D7D7 FF:D7C7: 48        PHA
 C - - - - - 0x03D7DA FF:D7CA: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03D7DC FF:D7CC: 85 24     STA ram_for_5114
 C - - - - - 0x03D7DE FF:D7CE: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03D7E0 FF:D7D0: 85 25     STA ram_for_5115
 C - - - - - 0x03D7E2 FF:D7D2: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03D7E5 FF:D7D5: 68        PLA
 C - - - - - 0x03D7E6 FF:D7D6: 20 36 80  JSR sub_0x0345BC
 bra_D7D9:
 C - - - - - 0x03D7E9 FF:D7D9: C9 11     CMP #$11
