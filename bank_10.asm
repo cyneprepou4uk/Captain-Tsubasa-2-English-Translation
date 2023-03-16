@@ -159,7 +159,7 @@ C - - - - - 0x0200E9 10:80D9: D0 0B     BNE bra_80E6
 C - - - - - 0x0200EB 10:80DB: 0D 16 05  ORA ram_флаги_сценария_ХЗ
 C - - - - - 0x0200EE 10:80DE: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x0200F1 10:80E1: A2 05     LDX #$05
-C - - - - - 0x0200F3 10:80E3: 20 1B C5  JSR sub_0x03CB12
+C - - - - - 0x0200F3 10:80E3: 20 1B C5  JSR sub_CB02
 bra_80E6:
 C - - - - - 0x0200F6 10:80E6: A9 00     LDA #$00
 C - - - - - 0x0200F8 10:80E8: 8D 22 05  STA ram_указатель_стека_сценария
@@ -169,6 +169,19 @@ C - - - - - 0x0200FF 10:80EF: 85 21     STA ram_for_2001
 C - - - - - 0x020101 10:80F1: 68        PLA
 C - - - - - 0x020102 10:80F2: 68        PLA
 C - - - - - 0x020103 10:80F3: 60        RTS
+
+
+
+sub_CB02:
+; перемещено из банка FF
+; bzk optimize, X = 05
+C D - - - - 0x03CB12 FF:CB02: B5 01     LDA ram_0001,X
+C - - - - - 0x03CB14 FF:CB04: F0 06     BEQ bra_CB0C_RTS
+C - - - - - 0x03CB16 FF:CB06: B5 00     LDA ram_0000,X
+C - - - - - 0x03CB18 FF:CB08: D0 02     BNE bra_CB0C_RTS
+C - - - - - 0x03CB1A FF:CB0A: F6 00     INC ram_0000,X
+bra_CB0C_RTS:
+C - - - - - 0x03CB1C FF:CB0C: 60        RTS
 
 
 

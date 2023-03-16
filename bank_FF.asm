@@ -12,7 +12,6 @@
 .export loc_0x03C6CE
 .export sub_0x03CAF7_подготовить_подпрограмму_в_стеке
 .export loc_0x03CB07
-.export sub_0x03CB12
 .export sub_0x03CB1F_задержка
 .export sub_0x03CB45_очистить_nametable
 .export sub_0x03CBA9_поинтеры_после_JSR
@@ -794,17 +793,6 @@ C - - - - - 0x03CB09 FF:CAF9: A6 00     LDX ram_0000
 C - - - - - 0x03CB0B FF:CAFB: 95 00     STA ram_0000,X
 C - - - - - 0x03CB0D FF:CAFD: 95 01     STA ram_0001,X
 C - - - - - 0x03CB0F FF:CAFF: 4C A5 CA  JMP loc_CAA5
-
-
-
-sub_0x03CB12:
-C D - - - - 0x03CB12 FF:CB02: B5 01     LDA ram_0001,X
-C - - - - - 0x03CB14 FF:CB04: F0 06     BEQ bra_CB0C_RTS
-C - - - - - 0x03CB16 FF:CB06: B5 00     LDA ram_0000,X
-C - - - - - 0x03CB18 FF:CB08: D0 02     BNE bra_CB0C_RTS
-C - - - - - 0x03CB1A FF:CB0A: F6 00     INC ram_0000,X
-bra_CB0C_RTS:
-C - - - - - 0x03CB1C FF:CB0C: 60        RTS
 
 
 
