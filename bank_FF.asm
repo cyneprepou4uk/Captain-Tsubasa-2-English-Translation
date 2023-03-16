@@ -965,9 +965,7 @@ C - - - - - 0x03CC55 FF:CC45: 60        RTS
 
 
 sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана:
-; bzk optimize, прыжок на STA
                                         LDA #$07
-                                        STA ram_temp_2
                                         BNE bra_CC47    ; jmp
 
 
@@ -990,8 +988,8 @@ loc_0x03CC56_очистить_нижнюю_половину_экрана:
     ; 04AD - конец буфера
                                         LDA #$00
                                         STA ram_05F4
-                                        STA ram_temp_2
 bra_CC47:
+                                        STA ram_temp_2
 @ожидание_освобождения_буфера_1:
                                         LDA #$01
                                         JSR sub_CB0F_задержка
