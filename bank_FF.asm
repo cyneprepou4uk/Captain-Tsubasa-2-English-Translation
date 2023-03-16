@@ -6281,13 +6281,11 @@ C - - - - - 0x03EEAE FF:EE9E: 60        RTS
 
 
 sub_EE9F:
-C - - - - - 0x03EEAF FF:EE9F: 48        PHA
 C - - - - - 0x03EEB2 FF:EEA2: A9 14     LDA #con_prg_bank + $14
 C - - - - - 0x03EEB4 FF:EEA4: 85 24     STA ram_for_5114
 C - - - - - 0x03EEB6 FF:EEA6: A9 15     LDA #con_prg_bank + $15
 C - - - - - 0x03EEB8 FF:EEA8: 85 25     STA ram_for_5115
 C - - - - - 0x03EEBA FF:EEAA: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EEBD FF:EEAD: 68        PLA
 C - - - - - 0x03EEBE FF:EEAE: 20 00 80  JSR sub_0x02801F
 C - - - - - 0x03EEC1 FF:EEB1: A9 00     LDA #$00
 C - - - - - 0x03EEC3 FF:EEB3: 85 3A     STA ram_003A
