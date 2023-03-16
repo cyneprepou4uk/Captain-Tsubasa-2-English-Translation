@@ -17,12 +17,12 @@
 .export _off001_0x01AB3A_41_музыка_гол_в_ворота_соперника
 .export _off001_0x01ABE5_42_музыка_гол_в_ворота_команды
 .export _off001_0x01AC89_38_музыка_германия
-.export _off001_0x01B00A_39_музыка_нанкацу
+.export _off001_0x01B00A_39_музыка_nankatsu
 .export _off001_0x01B1F0_3A_музыка_соперник_азия
-.export _off001_0x01B33D_3B_музыка_соперник_кубок_японии
-.export _off001_0x01B524_3C_музыка_сан_паулу
+.export _off001_0x01B33D_3B_музыка_соперник_кубок_japan
+.export _off001_0x01B524_3C_музыка_sao_paulo
 .export _off001_0x01B69D_36_музыка_соперник_4_1
-.export _off001_0x01B739_3F_музыка_япония
+.export _off001_0x01B739_3F_музыка_japan
 .export _off001_0x01B8FA_43_музыка_нарушение
 .export loc_E8_0x01B907
 .export loc_E8_0x01B915
@@ -4262,7 +4262,7 @@ loc_E8_AF50:
 
 
 
-_off001_0x01B00A_39_музыка_нанкацу:
+_off001_0x01B00A_39_музыка_nankatsu:
 - D - I - - 0x01B00A 0D:AFFA: 04        .byte $04
 - D - I - - 0x01B00B 0D:AFFB: 07 B0     .word off_B007_39_04
 - D - I - - 0x01B00D 0D:AFFD: 05        .byte $05
@@ -5119,7 +5119,7 @@ sub_E9_B31D:
 
 
 
-_off001_0x01B33D_3B_музыка_соперник_кубок_японии:
+_off001_0x01B33D_3B_музыка_соперник_кубок_japan:
 - D - I - - 0x01B33D 0D:B32D: 04        .byte $04
 - D - I - - 0x01B33E 0D:B32E: 3A B3     .word off_B33A_3B_04
 - D - I - - 0x01B340 0D:B330: 05        .byte $05
@@ -5624,7 +5624,7 @@ loc_E8_B4D2:
 
 
 
-_off001_0x01B524_3C_музыка_сан_паулу:
+_off001_0x01B524_3C_музыка_sao_paulo:
 - D - I - - 0x01B524 0D:B514: 04        .byte $04
 - D - I - - 0x01B525 0D:B515: 21 B5     .word off_B521_3C_04
 - D - I - - 0x01B527 0D:B517: 05        .byte $05
@@ -6186,7 +6186,7 @@ off_B71D_36_07:
 
 
 
-_off001_0x01B739_3F_музыка_япония:
+_off001_0x01B739_3F_музыка_japan:
 - D - I - - 0x01B739 0D:B729: 04        .byte $04
 - D - I - - 0x01B73A 0D:B72A: 36 B7     .word off_B736_3F_04
 - D - I - - 0x01B73C 0D:B72C: 05        .byte $05

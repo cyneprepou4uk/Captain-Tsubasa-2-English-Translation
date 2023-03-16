@@ -83,9 +83,9 @@ con_exit                    = $FF   ; end of the cutscene
     .word _off014_BF90_5B_новый_уровень_йоко
     .word _off014_BF96_5C_новый_уровень_санае
     .word _off014_BF9C_5D_новый_уровень_ишизаки
-    .word _off014_BFBA_5E_перед_матчем_сан_паулу
-    .word _off014_BFC4_5F_перед_матчем_нанкацу
-    .word _off014_BFCE_60_перед_матчем_япония
+    .word _off014_BFBA_5E_перед_матчем_sao_paulo
+    .word _off014_BFC4_5F_перед_матчем_nankatsu
+    .word _off014_BFCE_60_перед_матчем_japan
 
 
 
@@ -543,7 +543,7 @@ _off014_BF9C_5D_новый_уровень_ишизаки:
 
 
 
-_off014_BFBA_5E_перед_матчем_сан_паулу:
+_off014_BFBA_5E_перед_матчем_sao_paulo:
     .byte con_window, $02
     .byte con_bg_2, $0F
     .byte con_animation, $01, $0C
@@ -563,7 +563,7 @@ _off014_BFBA_5E_перед_матчем_сан_паулу:
 
 
 
-_off014_BFC4_5F_перед_матчем_нанкацу:
+_off014_BFC4_5F_перед_матчем_nankatsu:
     .byte con_window, $02
     .byte con_bg_2, $0E
     .byte con_animation, $01, $0F
@@ -583,7 +583,7 @@ _off014_BFC4_5F_перед_матчем_нанкацу:
 
 
 
-_off014_BFCE_60_перед_матчем_япония:
+_off014_BFCE_60_перед_матчем_japan:
     .byte con_window, $02
     .byte con_bg_2, $0D
     .byte con_animation, $01, $0E
