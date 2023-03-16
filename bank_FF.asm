@@ -5926,13 +5926,11 @@ C - - - - - 0x03EBCA FF:EBBA: A9 19     LDA #con_prg_bank + $19
 C - - - - - 0x03EBCC FF:EBBC: 85 25     STA ram_for_5115
 C - - - - - 0x03EBCE FF:EBBE: 20 2D CE  JSR sub_CE2D_банксвич_PRG
 C - - - - - 0x03EBD2 FF:EBC2: 20 06 80  JSR sub_0x030789_движущийся_фон
-C - - - - - 0x03EBD5 FF:EBC5: 48        PHA
 C - - - - - 0x03EBD8 FF:EBC8: A9 18     LDA #con_prg_bank + $18
 C - - - - - 0x03EBDA FF:EBCA: 85 24     STA ram_for_5114
 C - - - - - 0x03EBDC FF:EBCC: A9 19     LDA #con_prg_bank + $19
 C - - - - - 0x03EBDE FF:EBCE: 85 25     STA ram_for_5115
 C - - - - - 0x03EBE0 FF:EBD0: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EBE3 FF:EBD3: 68        PLA
 C - - - - - 0x03EBE4 FF:EBD4: 20 09 80  JSR sub_0x0307F6
 C - - - - - 0x03EBE7 FF:EBD7: AD 2E 05  LDA ram_задержка_звука_анимации
 C - - - - - 0x03EBEA FF:EBDA: F0 29     BEQ bra_EC05
