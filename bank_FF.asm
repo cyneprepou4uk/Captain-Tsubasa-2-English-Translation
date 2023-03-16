@@ -5998,13 +5998,11 @@ C - - - - - 0x03EC69 FF:EC59: C9 50     CMP #$50
 C - - - - - 0x03EC6B FF:EC5B: F0 2F     BEQ bra_EC8C
 C - - - - - 0x03EC6D FF:EC5D: 2C 16 05  BIT ram_флаги_сценария_ХЗ
 C - - - - - 0x03EC70 FF:EC60: 70 12     BVS bra_EC74_RTS
-C - - - - - 0x03EC72 FF:EC62: 48        PHA
 C - - - - - 0x03EC75 FF:EC65: A9 10     LDA #con_prg_bank + $10
 C - - - - - 0x03EC77 FF:EC67: 85 24     STA ram_for_5114
 C - - - - - 0x03EC79 FF:EC69: A9 11     LDA #con_prg_bank + $11
 C - - - - - 0x03EC7B FF:EC6B: 85 25     STA ram_for_5115
 C - - - - - 0x03EC7D FF:EC6D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03EC80 FF:EC70: 68        PLA
 C - - - - - 0x03EC81 FF:EC71: 20 03 80  JSR sub_0x020031_обработка_байтов_сценария
 bra_EC74_RTS:
 C - - - - - 0x03EC84 FF:EC74: 60        RTS
@@ -6125,13 +6123,11 @@ C - - - - - 0x03ED78 FF:ED68: D0 1A     BNE bra_ED84_RTS
 C - - - - - 0x03ED7A FF:ED6A: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x03ED7D FF:ED6D: 09 20     ORA #$20
 C - - - - - 0x03ED7F FF:ED6F: 8D 16 05  STA ram_флаги_сценария_ХЗ
-C - - - - - 0x03ED82 FF:ED72: 48        PHA
 C - - - - - 0x03ED85 FF:ED75: A9 10     LDA #con_prg_bank + $10
 C - - - - - 0x03ED87 FF:ED77: 85 24     STA ram_for_5114
 C - - - - - 0x03ED89 FF:ED79: A9 11     LDA #con_prg_bank + $11
 C - - - - - 0x03ED8B FF:ED7B: 85 25     STA ram_for_5115
 C - - - - - 0x03ED8D FF:ED7D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-C - - - - - 0x03ED90 FF:ED80: 68        PLA
 C - - - - - 0x03ED91 FF:ED81: 20 03 80  JSR sub_0x020031_обработка_байтов_сценария
 bra_ED84_RTS:
 C - - - - - 0x03ED94 FF:ED84: 60        RTS
