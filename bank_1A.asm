@@ -186,7 +186,7 @@ C - - - - - 0x03415C 1A:814C: 2C 17 06  BIT ram_колво_активных_за
 C - - - - - 0x03415F 1A:814F: 30 03     BMI bra_8154
 C - - - - - 0x034161 1A:8151: 20 33 8E  JSR sub_8E33
 bra_8154:
-C - - - - - 0x034164 1A:8154: A9 00     LDA #con_scenario_00
+C - - - - - 0x034164 1A:8154: A9 00     LDA #con_s_id_00
 C - - - - - 0x034166 1A:8156: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034169 1A:8159: AD 12 06  LDA ram_результат_защитника
 C - - - - - 0x03416C 1A:815C: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -350,10 +350,10 @@ C - - - - - 0x034287 1A:8277: 60        RTS
 
 
 tbl_8278_сценарий:
-    .byte con_scenario_1D     ; shoot
-    .byte con_scenario_18     ; pass
-    .byte con_scenario_00     ; dribble (unused)
-    .byte con_scenario_19     ; 1-2 pass
+    .byte con_s_id_1D     ; shoot
+    .byte con_s_id_18     ; pass
+    .byte con_s_id_00     ; dribble (unused)
+    .byte con_s_id_19     ; 1-2 pass
 
 
 
@@ -400,7 +400,7 @@ loc_8298:
 C D - - - - 0x0342A8 1A:8298: A9 02     LDA #$02
 C - - - - - 0x0342AA 1A:829A: 20 4B C5  JSR sub_0x03CE7E_прыжки_в_начале_банка_1C
 C - - - - - 0x0342AD 1A:829D: 20 72 8F  JSR sub_8F72
-C - - - - - 0x0342B0 1A:82A0: A9 01     LDA #con_scenario_01
+C - - - - - 0x0342B0 1A:82A0: A9 01     LDA #con_s_id_01
 C - - - - - 0x0342B2 1A:82A2: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0342B5 1A:82A5: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x0342B8 1A:82A8: D0 0C     BNE bra_82B6
@@ -425,7 +425,7 @@ bra_82D1:
 C - - - - - 0x0342E1 1A:82D1: 8C 3D 04  STY ram_действие_защиты
 C - - - - - 0x0342E4 1A:82D4: BD 06 06  LDA ram_подтип_действия_защитника,X
 C - - - - - 0x0342E7 1A:82D7: 8D 3E 04  STA ram_подтип_действия_защиты
-C - - - - - 0x0342EA 1A:82DA: A9 02     LDA #con_scenario_02
+C - - - - - 0x0342EA 1A:82DA: A9 02     LDA #con_s_id_02
 C - - - - - 0x0342EC 1A:82DC: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0342EF 1A:82DF: A9 14     LDA #$14
 C - - - - - 0x0342F1 1A:82E1: 20 15 C5  JSR sub_0x03CB1F_задержка
@@ -434,7 +434,7 @@ C - - - - - 0x0342F4 1A:82E4: EE 16 06  INC ram_индекс_защитника
 C - - - - - 0x0342F7 1A:82E7: AD 16 06  LDA ram_индекс_защитника
 C - - - - - 0x0342FA 1A:82EA: CD 00 06  CMP ram_колво_защитников
 C - - - - - 0x0342FD 1A:82ED: D0 CC     BNE bra_82BB_loop
-C - - - - - 0x0342FF 1A:82EF: A9 04     LDA #con_scenario_04
+C - - - - - 0x0342FF 1A:82EF: A9 04     LDA #con_s_id_04
 C - - - - - 0x034301 1A:82F1: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034304 1A:82F4: A9 00     LDA #$00
 C - - - - - 0x034306 1A:82F6: 8D 16 06  STA ram_индекс_защитника
@@ -507,13 +507,13 @@ C - - - - - 0x03438D 1A:837D: D0 F7     BNE bra_8376_loop
 bra_837F:
 C - - - - - 0x03438F 1A:837F: 20 48 81  STY ram_результат_защитника
 C - - - - - 0x034392 1A:8382: 20 33 8E  JSR sub_8E33
-C - - - - - 0x034395 1A:8385: A9 06     LDA #con_scenario_06
+C - - - - - 0x034395 1A:8385: A9 06     LDA #con_s_id_06
 C - - - - - 0x034397 1A:8387: A2 01     LDX #$01
 C - - - - - 0x034399 1A:8389: AC 12 06  LDY ram_результат_защитника
 C - - - - - 0x03439C 1A:838C: C0 02     CPY #$02
 C - - - - - 0x03439E 1A:838E: 90 03     BCC bra_8393
 C - - - - - 0x0343A0 1A:8390: CA        DEX
-C - - - - - 0x0343A1 1A:8391: A9 05     LDA #con_scenario_05
+C - - - - - 0x0343A1 1A:8391: A9 05     LDA #con_s_id_05
 bra_8393:
 C - - - - - 0x0343A3 1A:8393: 48        PHA
 C - - - - - 0x0343A4 1A:8394: 8A        TXA
@@ -521,7 +521,7 @@ C - - - - - 0x0343A5 1A:8395: 4A        LSR
 C - - - - - 0x0343A6 1A:8396: 20 95 90  JSR sub_9095
 C - - - - - 0x0343A9 1A:8399: 68        PLA
 C - - - - - 0x0343AA 1A:839A: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
-C - - - - - 0x0343AD 1A:839D: A9 07     LDA #con_scenario_07
+C - - - - - 0x0343AD 1A:839D: A9 07     LDA #con_s_id_07
 C - - - - - 0x0343AF 1A:839F: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 loc_83A2:
 C D - - - - 0x0343B2 1A:83A2: AD 12 06  LDA ram_результат_защитника
@@ -617,7 +617,7 @@ C - - - - - 0x03440B 1A:83FB: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 ofs_040_8408_00:
 ofs_040_8408_01:
 C - J - - - 0x034418 1A:8408: 20 BA 8B  JSR sub_8BBA
-C - - - - - 0x03441B 1A:840B: A9 08     LDA #con_scenario_08
+C - - - - - 0x03441B 1A:840B: A9 08     LDA #con_s_id_08
 C - - - - - 0x03441D 1A:840D: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034420 1A:8410: 38        SEC
 C - - - - - 0x034421 1A:8411: 20 95 90  JSR sub_9095
@@ -789,7 +789,7 @@ C - - - - - 0x034529 1A:8519: A9 00     LDA #$00
 C - - - - - 0x03452B 1A:851B: 85 11     STA ram_0011
 C - - - - - 0x03452D 1A:851D: 85 12     STA ram_0012
 C - - - - - 0x03452F 1A:851F: 20 2D C5  JSR sub_0x03CC56_очистить_нижнюю_половину_экрана
-C - - - - - 0x034532 1A:8522: A9 32     LDA #con_scenario_32
+C - - - - - 0x034532 1A:8522: A9 32     LDA #con_s_id_32
 C - - - - - 0x034534 1A:8524: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034537 1A:8527: A9 04     LDA #$04
 C - - - - - 0x034539 1A:8529: 8D 21 06  STA ram_0621
@@ -852,7 +852,7 @@ bra_8591:
 C - - - - - 0x0345A1 1A:8591: 20 48 81  STY ram_результат_защитника
 C - - - - - 0x0345A4 1A:8594: A9 00     LDA #$00
 C - - - - - 0x0345A6 1A:8596: 8D 16 06  STA ram_индекс_защитника
-C - - - - - 0x0345A9 1A:8599: A9 09     LDA #con_scenario_09
+C - - - - - 0x0345A9 1A:8599: A9 09     LDA #con_s_id_09
 C - - - - - 0x0345AB 1A:859B: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0345AE 1A:859E: AD 12 06  LDA ram_результат_защитника
 C - - - - - 0x0345B1 1A:85A1: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -871,7 +871,7 @@ C D J - - - 0x0345BC 1A:85AC: A2 00     LDX #$00
 C - - - - - 0x0345BE 1A:85AE: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0345C1 1A:85B1: 20 D4 8B  JSR sub_8BD4_начислить_опыт
 C - - - - - 0x0345C4 1A:85B4: 20 E3 85  JSR sub_85E3_увеличить_счетчик_голов
-C - - - - - 0x0345C7 1A:85B7: A9 30     LDA #con_scenario_30
+C - - - - - 0x0345C7 1A:85B7: A9 30     LDA #con_s_id_30
 C - - - - - 0x0345C9 1A:85B9: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 loc_85BC:
 C D - - - - 0x0345CC 1A:85BC: 20 7B 98  JSR sub_987B
@@ -1090,7 +1090,7 @@ C - - - - - 0x034715 1A:8705: 8D 01 06  STA ram_номер_защитника
 C - - - - - 0x034718 1A:8708: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - - 0x03471B 1A:870B: A9 02     LDA #$02
 C - - - - - 0x03471D 1A:870D: 20 4B C5  JSR sub_0x03CE7E_прыжки_в_начале_банка_1C
-C - - - - - 0x034720 1A:8710: A9 31     LDA #con_scenario_31
+C - - - - - 0x034720 1A:8710: A9 31     LDA #con_s_id_31
 C - - - - - 0x034722 1A:8712: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034725 1A:8715: 20 00 C6  JSR sub_0x03D575
 C - - - - - 0x034728 1A:8718: 20 72 8F  JSR sub_8F72
@@ -1099,7 +1099,7 @@ C - - - - - 0x03472E 1A:871E: C9 01     CMP #$01
 C - - - - - 0x034730 1A:8720: D0 10     BNE bra_8732
 C - - - - - 0x034732 1A:8722: A9 00     LDA #$00
 C - - - - - 0x034734 1A:8724: 8D 4E 04  STA ram_высота_мяча
-C - - - - - 0x034737 1A:8727: A9 18     LDA #con_scenario_18
+C - - - - - 0x034737 1A:8727: A9 18     LDA #con_s_id_18
 C - - - - - 0x034739 1A:8729: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x03473C 1A:872C: A2 50     LDX #$50
 C - - - - - 0x03473E 1A:872E: 9A        TXS
@@ -1140,7 +1140,7 @@ C - - - - - 0x03477C 1A:876C: D0 F6     BNE bra_8764_loop   ; jmp
 bra_876E:
 C - - - - - 0x03477E 1A:876E: 20 48 81  STY ram_результат_защитника
 C - - - - - 0x034781 1A:8771: 20 33 8E  JSR sub_8E33
-C - - - - - 0x034784 1A:8774: A9 0A     LDA #con_scenario_0A
+C - - - - - 0x034784 1A:8774: A9 0A     LDA #con_s_id_0A
 C - - - - - 0x034786 1A:8776: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034789 1A:8779: AD 12 06  LDA ram_результат_защитника
 C - - - - - 0x03478C 1A:877C: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -1334,7 +1334,7 @@ C - - - - - 0x0348B5 1A:88A5: 4C 32 81  JMP loc_8132
 
 sub_88A8:
 sub_0x0348B8:
-C D - - - - 0x0348B8 1A:88A8: A9 0B     LDA #con_scenario_0B
+C D - - - - 0x0348B8 1A:88A8: A9 0B     LDA #con_s_id_0B
 C - - - - - 0x0348BA 1A:88AA: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0348BD 1A:88AD: AD 12 06  LDA ram_результат_защитника
 C - - - - - 0x0348C0 1A:88B0: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -1405,7 +1405,7 @@ bra_890F:
 C - - - - - 0x03491F 1A:890F: 20 48 81  STY ram_результат_защитника
 C - - - - - 0x034922 1A:8912: A9 00     LDA #$00
 C - - - - - 0x034924 1A:8914: 8D 16 06  STA ram_индекс_защитника
-C - - - - - 0x034927 1A:8917: A9 0C     LDA #con_scenario_0C
+C - - - - - 0x034927 1A:8917: A9 0C     LDA #con_s_id_0C
 C - - - - - 0x034929 1A:8919: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x03492C 1A:891C: AD 12 06  LDA ram_результат_защитника
 C - - - - - 0x03492F 1A:891F: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -1435,7 +1435,7 @@ C - - - - - 0x03494E 1A:893E: C8        INY
 C - - - - - 0x03494F 1A:893F: D0 F6     BNE bra_8937_loop
 bra_8941_сценарий_выбран:
 C - - - - - 0x034951 1A:8941: 20 48 81  STY ram_результат_защитника
-C - - - - - 0x034954 1A:8944: A9 0D     LDA #con_scenario_0D
+C - - - - - 0x034954 1A:8944: A9 0D     LDA #con_s_id_0D
 C - - - - - 0x034956 1A:8946: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034959 1A:8949: AD 12 06  LDA ram_результат_защитника
 C - - - - - 0x03495C 1A:894C: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -1454,7 +1454,7 @@ C - - - - - 0x03496D 1A:895D: C9 14     CMP #$14      ; проверка на н
 C - - - - - 0x03496F 1A:895F: D0 0E     BNE bra_896F
 C - - - - - 0x034971 1A:8961: 20 70 90  JSR sub_9070
 C - - - - - 0x034974 1A:8964: 20 E3 85  JSR sub_85E3_увеличить_счетчик_голов
-C - - - - - 0x034977 1A:8967: A9 47     LDA #con_scenario_47
+C - - - - - 0x034977 1A:8967: A9 47     LDA #con_s_id_47
 C - - - - - 0x034979 1A:8969: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x03497C 1A:896C: 4C BC 85  JMP loc_85BC
 bra_896F:
@@ -1473,7 +1473,7 @@ loc_8978:
 C D - - - - 0x034988 1A:8978: A9 02     LDA #$02
 C - - - - - 0x03498A 1A:897A: 20 4B C5  JSR sub_0x03CE7E_прыжки_в_начале_банка_1C
 C - - - - - 0x03498D 1A:897D: 20 72 8F  JSR sub_8F72
-C - - - - - 0x034990 1A:8980: A9 0E     LDA #con_scenario_0E
+C - - - - - 0x034990 1A:8980: A9 0E     LDA #con_s_id_0E
 C - - - - - 0x034992 1A:8982: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034995 1A:8985: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x034998 1A:8988: D0 09     BNE bra_8993
@@ -1493,7 +1493,7 @@ C - - - - - 0x0349B5 1A:89A5: BD 01 06  LDA ram_номер_защитника,X
 C - - - - - 0x0349B8 1A:89A8: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - - 0x0349BB 1A:89AB: BD 06 06  LDA ram_подтип_действия_защитника,X
 C - - - - - 0x0349BE 1A:89AE: 8D 3E 04  STA ram_подтип_действия_защиты
-C - - - - - 0x0349C1 1A:89B1: A9 0F     LDA #con_scenario_0F
+C - - - - - 0x0349C1 1A:89B1: A9 0F     LDA #con_s_id_0F
 C - - - - - 0x0349C3 1A:89B3: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0349C6 1A:89B6: A9 14     LDA #$14
 C - - - - - 0x0349C8 1A:89B8: 20 15 C5  JSR sub_0x03CB1F_задержка
@@ -1502,7 +1502,7 @@ C - - - - - 0x0349CB 1A:89BB: EE 16 06  INC ram_индекс_защитника
 C - - - - - 0x0349CE 1A:89BE: AD 16 06  LDA ram_индекс_защитника
 C - - - - - 0x0349D1 1A:89C1: CD 00 06  CMP ram_колво_защитников
 C - - - - - 0x0349D4 1A:89C4: D0 D2     BNE bra_8998_loop
-C - - - - - 0x0349D6 1A:89C6: A9 04     LDA #con_scenario_04
+C - - - - - 0x0349D6 1A:89C6: A9 04     LDA #con_s_id_04
 C - - - - - 0x0349D8 1A:89C8: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0349DB 1A:89CB: A9 00     LDA #$00
 C - - - - - 0x0349DD 1A:89CD: 8D 16 06  STA ram_индекс_защитника
@@ -1549,13 +1549,13 @@ C - - - - - 0x034A35 1A:8A25: C8        INY
 C - - - - - 0x034A36 1A:8A26: D0 F7     BNE bra_8A1F_loop
 bra_8A28:
 C - - - - - 0x034A38 1A:8A28: 20 48 81  STY ram_результат_защитника
-C - - - - - 0x034A3B 1A:8A2B: A9 11     LDA #con_scenario_11
+C - - - - - 0x034A3B 1A:8A2B: A9 11     LDA #con_s_id_11
 C - - - - - 0x034A3D 1A:8A2D: A2 01     LDX #$01
 C - - - - - 0x034A3F 1A:8A2F: AC 12 06  LDY ram_результат_защитника
 C - - - - - 0x034A42 1A:8A32: C0 02     CPY #$02
 C - - - - - 0x034A44 1A:8A34: 90 03     BCC bra_8A39
 C - - - - - 0x034A46 1A:8A36: CA        DEX
-C - - - - - 0x034A47 1A:8A37: A9 10     LDA #con_scenario_10
+C - - - - - 0x034A47 1A:8A37: A9 10     LDA #con_s_id_10
 bra_8A39:
 C - - - - - 0x034A49 1A:8A39: 48        PHA
 C - - - - - 0x034A4A 1A:8A3A: 8A        TXA
@@ -1563,7 +1563,7 @@ C - - - - - 0x034A4B 1A:8A3B: 4A        LSR
 C - - - - - 0x034A4C 1A:8A3C: 20 95 90  JSR sub_9095
 C - - - - - 0x034A4F 1A:8A3F: 68        PLA
 C - - - - - 0x034A50 1A:8A40: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
-C - - - - - 0x034A53 1A:8A43: A9 12     LDA #con_scenario_12
+C - - - - - 0x034A53 1A:8A43: A9 12     LDA #con_s_id_12
 C - - - - - 0x034A55 1A:8A45: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034A58 1A:8A48: AC 12 06  LDY ram_результат_защитника
 C - - - - - 0x034A5B 1A:8A4B: C0 02     CPY #$02
@@ -1615,7 +1615,7 @@ C - - - - - 0x034A85 1A:8A75: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 ofs_045_8A80_00:
 ofs_045_8A80_01:
 C - J - - - 0x034A90 1A:8A80: 20 BA 8B  JSR sub_8BBA
-C - - - - - 0x034A93 1A:8A83: A9 13     LDA #con_scenario_13
+C - - - - - 0x034A93 1A:8A83: A9 13     LDA #con_s_id_13
 C - - - - - 0x034A95 1A:8A85: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034A98 1A:8A88: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x034A9B 1A:8A8B: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -1698,7 +1698,7 @@ C - - - - - 0x034B22 1A:8B12: 20 3A 8B  JSR sub_8B3A_изменить_урове
 C - - - - - 0x034B25 1A:8B15: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - - 0x034B28 1A:8B18: A2 FD     LDX #$FD
 C - - - - - 0x034B2A 1A:8B1A: 20 3A 8B  JSR sub_8B3A_изменить_уровень_игрока
-C - - - - - 0x034B2D 1A:8B1D: A9 14     LDA #con_scenario_14
+C - - - - - 0x034B2D 1A:8B1D: A9 14     LDA #con_s_id_14
 C - - - - - 0x034B2F 1A:8B1F: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034B32 1A:8B22: A9 00     LDA #$00
 C - - - - - 0x034B34 1A:8B24: 8D 1A 06  STA ram_061A
@@ -1762,12 +1762,12 @@ C - - - - - 0x034B80 1A:8B70: 4C 73 8B  JMP loc_8B73    ; bzk optimize, бесп
 loc_8B73:
 C D - - - - 0x034B83 1A:8B73: A9 0A     LDA #$0A
 C - - - - - 0x034B85 1A:8B75: 20 09 C6  JSR sub_0x03E4E7
-C - - - - - 0x034B88 1A:8B78: A9 3F     LDA #con_scenario_3F
+C - - - - - 0x034B88 1A:8B78: A9 3F     LDA #con_s_id_3F
 C - - - - - 0x034B8A 1A:8B7A: AE 21 06  LDX ram_0621
 C - - - - - 0x034B8D 1A:8B7D: E0 02     CPX #$02
 C - - - - - 0x034B8F 1A:8B7F: F0 05     BEQ bra_8B86
 C - - - - - 0x034B91 1A:8B81: 20 8F 84  JSR sub_848F
-C - - - - - 0x034B94 1A:8B84: A9 2F     LDA #con_scenario_2F
+C - - - - - 0x034B94 1A:8B84: A9 2F     LDA #con_s_id_2F
 bra_8B86:
 C - - - - - 0x034B96 1A:8B86: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034B99 1A:8B89: 20 86 8E  JSR sub_8E86_катсцена_драйв_оверхеда
@@ -1884,7 +1884,7 @@ C - - - - - 0x034C39 1A:8C29: A9 00     LDA #$00
 C - - - - - 0x034C3B 1A:8C2B: 8D 3C 04  STA ram_подтип_действия_атаки
 C - - - - - 0x034C3E 1A:8C2E: 20 24 C6  JSR sub_0x03DCEF
 C - - - - - 0x034C41 1A:8C31: 20 4A 8B  JSR sub_8B4A
-C - - - - - 0x034C44 1A:8C34: A9 2C     LDA #con_scenario_2C
+C - - - - - 0x034C44 1A:8C34: A9 2C     LDA #con_s_id_2C
 C - - - - - 0x034C46 1A:8C36: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034C49 1A:8C39: 20 86 8E  JSR sub_8E86_катсцена_драйв_оверхеда
 C - - - - - 0x034C4C 1A:8C3C: A2 50     LDX #$50
@@ -2396,7 +2396,7 @@ C - - - - - 0x034ED8 1A:8EC8: EE 46 04  INC ram_флаг_драйв_оверхе
 C - - - - - 0x034EDB 1A:8ECB: A9 00     LDA #$00
 C - - - - - 0x034EDD 1A:8ECD: 8D 15 06  STA ram_0615
 C - - - - - 0x034EE0 1A:8ED0: 8D 2D 06  STA ram_062D
-C - - - - - 0x034EE3 1A:8ED3: A9 17     LDA #con_scenario_17
+C - - - - - 0x034EE3 1A:8ED3: A9 17     LDA #con_s_id_17
 C - - - - - 0x034EE5 1A:8ED5: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x034EE8 1A:8ED8: A9 00     LDA #$00
 C - - - - - 0x034EEA 1A:8EDA: 8D 3B 04  STA ram_действие_атаки
@@ -2811,7 +2811,7 @@ C - - - - - 0x03512B 1A:911B: 60        RTS
 
 
 loc_911C:
-C D - - - - 0x03512C 1A:911C: A9 29     LDA #con_scenario_29
+C D - - - - 0x03512C 1A:911C: A9 29     LDA #con_s_id_29
 C - - - - - 0x03512E 1A:911E: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035131 1A:9121: 20 7B 98  JSR sub_987B
 C - - - - - 0x035134 1A:9124: AD 35 06  LDA ram_ball_pos_X_hi
@@ -2866,7 +2866,7 @@ C - - - - - 0x03518F 1A:917F: 20 39 C5  JSR sub_0x03CDF2
 C - - - - - 0x035192 1A:9182: 8D 24 06  STA ram_0624
 C - - - - - 0x035195 1A:9185: 8D 1E 06  STA ram_061E
 C - - - - - 0x035198 1A:9188: 20 D2 91  JSR sub_91D2
-C - - - - - 0x03519B 1A:918B: A9 2A     LDA #con_scenario_2A
+C - - - - - 0x03519B 1A:918B: A9 2A     LDA #con_s_id_2A
 C - - - - - 0x03519D 1A:918D: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0351A0 1A:9190: A9 02     LDA #$02
 C - - - - - 0x0351A2 1A:9192: A2 0A     LDX #$0A
@@ -2906,7 +2906,7 @@ C - - - - - 0x0351EB 1A:91DB: F0 03     BEQ bra_91E0_команда_слева
 ; if комада справа
 C - - - - - 0x0351ED 1A:91DD: 4C 98 92  JMP loc_9298
 bra_91E0_команда_слева:
-C - - - - - 0x0351F0 1A:91E0: A9 38     LDA #con_scenario_38
+C - - - - - 0x0351F0 1A:91E0: A9 38     LDA #con_s_id_38
 C - - - - - 0x0351F2 1A:91E2: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0351F5 1A:91E5: A9 81     LDA #$81
 C - - - - - 0x0351F7 1A:91E7: 8D 2D 06  STA ram_062D
@@ -3073,7 +3073,7 @@ tbl_92EA:
 
 
 loc_92EE:
-C D - - - - 0x0352FE 1A:92EE: A9 24     LDA #con_scenario_24
+C D - - - - 0x0352FE 1A:92EE: A9 24     LDA #con_s_id_24
 C - - - - - 0x035300 1A:92F0: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035303 1A:92F3: A9 00     LDA #$00
 C - - - - - 0x035305 1A:92F5: 8D 4E 04  STA ram_высота_мяча
@@ -3124,7 +3124,7 @@ C - - - - - 0x035355 1A:9345: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 
 ofs_046_934C_00:
-C - J - - - 0x03535C 1A:934C: A9 25     LDA #con_scenario_25
+C - J - - - 0x03535C 1A:934C: A9 25     LDA #con_s_id_25
 C - - - - - 0x03535E 1A:934E: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035361 1A:9351: A9 66     LDA #$66
 C - - - - - 0x035363 1A:9353: 8D 1A 06  STA ram_061A
@@ -3134,7 +3134,7 @@ C - - - - - 0x035366 1A:9356: 4C 1B C6  JMP loc_0x03DD12
 
 
 ofs_046_9359_01:
-C - J - - - 0x035369 1A:9359: A9 26     LDA #con_scenario_26
+C - J - - - 0x035369 1A:9359: A9 26     LDA #con_s_id_26
 C - - - - - 0x03536B 1A:935B: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x03536E 1A:935E: A9 4D     LDA #$4D
 C - - - - - 0x035370 1A:9360: 8D 1A 06  STA ram_061A
@@ -3156,7 +3156,7 @@ C - - - - - 0x035384 1A:9374: F0 03     BEQ bra_9379    ; if комада сле
 ; if комада справа
 C - - - - - 0x035386 1A:9376: 4C CF 94  JMP loc_94CF
 bra_9379:
-C - - - - - 0x035389 1A:9379: A9 2B     LDA #con_scenario_2B
+C - - - - - 0x035389 1A:9379: A9 2B     LDA #con_s_id_2B
 C - - - - - 0x03538B 1A:937B: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x03538E 1A:937E: 20 7B 98  JSR sub_987B
 C - - - - - 0x035391 1A:9381: AD 35 06  LDA ram_ball_pos_X_hi
@@ -3201,7 +3201,7 @@ C - - - - - 0x0353CF 1A:93BF: A9 01     LDA #$01
 C - - - - - 0x0353D1 1A:93C1: 8D 3B 04  STA ram_действие_атаки
 C - - - - - 0x0353D4 1A:93C4: A9 00     LDA #$00
 C - - - - - 0x0353D6 1A:93C6: 8D 3C 04  STA ram_подтип_действия_атаки
-C - - - - - 0x0353D9 1A:93C9: A9 18     LDA #con_scenario_18
+C - - - - - 0x0353D9 1A:93C9: A9 18     LDA #con_s_id_18
 C - - - - - 0x0353DB 1A:93CB: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0353DE 1A:93CE: A9 04     LDA #$04
 C - - - - - 0x0353E0 1A:93D0: A2 12     LDX #$12
@@ -3280,11 +3280,11 @@ C - - - - - 0x035451 1A:9441: 20 70 94  JSR sub_9470
 C - - - - - 0x035454 1A:9444: 90 EE     BCC bra_9434_loop
 C - - - - - 0x035456 1A:9446: A9 0E     LDA #$0E
 C - - - - - 0x035458 1A:9448: 20 4B C5  JSR sub_0x03CE7E_прыжки_в_начале_банка_1C
-C - - - - - 0x03545B 1A:944B: A9 18     LDA #con_scenario_18
+C - - - - - 0x03545B 1A:944B: A9 18     LDA #con_s_id_18
 C - - - - - 0x03545D 1A:944D: AE 3B 04  LDX ram_действие_атаки
 C - - - - - 0x035460 1A:9450: E0 01     CPX #$01
 C - - - - - 0x035462 1A:9452: F0 02     BEQ bra_9456
-C - - - - - 0x035464 1A:9454: A9 1D     LDA #con_scenario_1D
+C - - - - - 0x035464 1A:9454: A9 1D     LDA #con_s_id_1D
 bra_9456:
 C - - - - - 0x035466 1A:9456: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035469 1A:9459: A9 04     LDA #$04
@@ -3358,18 +3358,18 @@ C - - - - - 0x0354DE 1A:94CE: 60        RTS
 
 
 loc_94CF:
-C D - - - - 0x0354DF 1A:94CF: A9 1F     LDA #con_scenario_1F
+C D - - - - 0x0354DF 1A:94CF: A9 1F     LDA #con_s_id_1F
 C - - - - - 0x0354E1 1A:94D1: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0354E4 1A:94D4: 20 7B 98  JSR sub_987B
 C - - - - - 0x0354E7 1A:94D7: A9 2F     LDA #con_B3CF_2F
 C - - - - - 0x0354E9 1A:94D9: 20 5A 9E  JSR sub_9E5A_отрисовка_меню_во_время_матча
-C - - - - - 0x0354EC 1A:94DC: A9 20     LDA #con_scenario_20
+C - - - - - 0x0354EC 1A:94DC: A9 20     LDA #con_s_id_20
 C - - - - - 0x0354EE 1A:94DE: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0354F1 1A:94E1: A9 05     LDA #$05
 C - - - - - 0x0354F3 1A:94E3: 20 0D 9E  JSR sub_9E0D
 C - - - - - 0x0354F6 1A:94E6: 20 45 C6  JSR sub_0x03E6FC
 C - - - - - 0x0354F9 1A:94E9: 20 09 95  JSR sub_9509
-C - - - - - 0x0354FC 1A:94EC: A9 21     LDA #con_scenario_21
+C - - - - - 0x0354FC 1A:94EC: A9 21     LDA #con_s_id_21
 C - - - - - 0x0354FE 1A:94EE: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035501 1A:94F1: A9 05     LDA #$05
 C - - - - - 0x035503 1A:94F3: A2 00     LDX #$00
@@ -3445,7 +3445,7 @@ C - - - - - 0x035586 1A:9576: 8D FE 05  STA ram_05FE
 C - - - - - 0x035589 1A:9579: 20 36 C5  JSR sub_0x03CDD9_проверить_координаты_игрока
 C - - - - - 0x03558C 1A:957C: 8E 35 06  STX ram_ball_pos_X_hi
 C - - - - - 0x03558F 1A:957F: 8C 37 06  STY ram_ball_pos_Y_hi
-C - - - - - 0x035592 1A:9582: A9 27     LDA #con_scenario_27
+C - - - - - 0x035592 1A:9582: A9 27     LDA #con_s_id_27
 C - - - - - 0x035594 1A:9584: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035597 1A:9587: 20 7B 98  JSR sub_987B
 C - - - - - 0x03559A 1A:958A: A9 0A     LDA #$0A
@@ -3467,7 +3467,7 @@ C - - - - - 0x0355BD 1A:95AD: A9 01     LDA #$01
 C - - - - - 0x0355BF 1A:95AF: 8D 3B 04  STA ram_действие_атаки
 C - - - - - 0x0355C2 1A:95B2: A9 00     LDA #$00
 C - - - - - 0x0355C4 1A:95B4: 8D 3C 04  STA ram_подтип_действия_атаки
-C - - - - - 0x0355C7 1A:95B7: A9 28     LDA #con_scenario_28
+C - - - - - 0x0355C7 1A:95B7: A9 28     LDA #con_s_id_28
 C - - - - - 0x0355C9 1A:95B9: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0355CC 1A:95BC: A9 02     LDA #$02
 C - - - - - 0x0355CE 1A:95BE: A2 0C     LDX #$0C
@@ -3479,7 +3479,7 @@ C - - - - - 0x0355DA 1A:95CA: 8D 1B 06  STA ram_061B
 C - - - - - 0x0355DD 1A:95CD: 20 0C C6  JSR sub_0x03E74E
 C - - - - - 0x0355E0 1A:95D0: AD FC 05  LDA ram_принимающий
 C - - - - - 0x0355E3 1A:95D3: 8D 41 04  STA ram_игрок_с_мячом
-C - - - - - 0x0355E6 1A:95D6: A9 1C     LDA #con_scenario_1C
+C - - - - - 0x0355E6 1A:95D6: A9 1C     LDA #con_s_id_1C
 C - - - - - 0x0355E8 1A:95D8: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0355EB 1A:95DB: A2 50     LDX #$50
 C - - - - - 0x0355ED 1A:95DD: 9A        TXS
@@ -3510,7 +3510,7 @@ C - - - - - 0x035612 1A:9602: A9 41     LDA #con_B3CF_41
 C - - - - - 0x035614 1A:9604: 20 2A C5  JSR sub_0x03EF8F_отрисовка_меню_во_время_матча
 C - - - - - 0x035617 1A:9607: A9 33     LDA #$33
 C - - - - - 0x035619 1A:9609: 20 5D C5  JSR sub_0x03CC01_запись_звука
-C - - - - - 0x03561C 1A:960C: A9 39     LDA #con_scenario_39
+C - - - - - 0x03561C 1A:960C: A9 39     LDA #con_s_id_39
 C - - - - - 0x03561E 1A:960E: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 loc_9611:
 ; бряк срабатывает перед объявлением имени пробивающего
@@ -3520,7 +3520,7 @@ C - - - - - 0x035625 1A:9615: 8D 17 06  STA ram_колво_активных_за
 C - - - - - 0x035628 1A:9618: B0 09     BCS bra_9623
 C - - - - - 0x03562A 1A:961A: C9 05     CMP #$05
 C - - - - - 0x03562C 1A:961C: D0 05     BNE bra_9623
-- - - - - - 0x03562E 1A:961E: A9 45     LDA #con_scenario_45
+- - - - - - 0x03562E 1A:961E: A9 45     LDA #con_s_id_45
 - - - - - - 0x035630 1A:9620: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 bra_9623:
 C - - - - - 0x035633 1A:9623: AD 17 06  LDA ram_колво_активных_защитников
@@ -3548,10 +3548,10 @@ C - - - - - 0x035654 1A:9644: 18        CLC
 C - - - - - 0x035655 1A:9645: 69 0B     ADC #$0B
 bra_9647_команда_слева:
 C - - - - - 0x035657 1A:9647: 8D 41 04  STA ram_игрок_с_мячом
-C - - - - - 0x03565A 1A:964A: A9 22     LDA #con_scenario_22
+C - - - - - 0x03565A 1A:964A: A9 22     LDA #con_s_id_22
 C - - - - - 0x03565C 1A:964C: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x03565F 1A:964F: 20 09 95  JSR sub_9509
-C - - - - - 0x035662 1A:9652: A9 23     LDA #con_scenario_23
+C - - - - - 0x035662 1A:9652: A9 23     LDA #con_s_id_23
 C - - - - - 0x035664 1A:9654: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035667 1A:9657: 20 AE 96  JSR sub_96AE
 C - - - - - 0x03566A 1A:965A: AD 16 06  LDA ram_индекс_защитника
@@ -3591,7 +3591,7 @@ C - - - - - 0x0356A2 1A:9692: A2 00     LDX #$00
 C - - - - - 0x0356A4 1A:9694: 20 A3 96  JSR sub_96A3_сложение_голов_матча_и_пк
 C - - - - - 0x0356A7 1A:9697: E8        INX
 C - - - - - 0x0356A8 1A:9698: 20 A3 96  JSR sub_96A3_сложение_голов_матча_и_пк
-C - - - - - 0x0356AB 1A:969B: A9 33     LDA #con_scenario_33
+C - - - - - 0x0356AB 1A:969B: A9 33     LDA #con_s_id_33
 C - - - - - 0x0356AD 1A:969D: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0356B0 1A:96A0: 4C 54 C5  JMP loc_0x03CF0E
 
@@ -3856,7 +3856,7 @@ C - - - - - 0x03588A 1A:987A: 60        RTS
 
 
 sub_987B:
-C - - - - - 0x03588B 1A:987B: A9 37     LDA #con_scenario_37
+C - - - - - 0x03588B 1A:987B: A9 37     LDA #con_s_id_37
 C - - - - - 0x03588D 1A:987D: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035890 1A:9880: A9 00     LDA #$00
 C - - - - - 0x035892 1A:9882: 85 11     STA ram_0011
@@ -4434,7 +4434,7 @@ C - - - - - 0x035C66 1A:9C56: 70 02     BVS bra_9C5A
 C - - - - - 0x035C68 1A:9C58: 38        SEC
 C - - - - - 0x035C69 1A:9C59: 60        RTS
 bra_9C5A:
-C - - - - - 0x035C6A 1A:9C5A: A9 38     LDA #con_scenario_38
+C - - - - - 0x035C6A 1A:9C5A: A9 38     LDA #con_s_id_38
 C - - - - - 0x035C6C 1A:9C5C: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x035C6F 1A:9C5F: A9 29     LDA #con_B3CF_29
 C - - - - - 0x035C71 1A:9C61: 20 2A C5  JSR sub_0x03EF8F_отрисовка_меню_во_время_матча

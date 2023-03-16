@@ -55,7 +55,7 @@ C - - - - - 0x020037 10:8027: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x02003A 10:802A: 29 FB     AND #$FB
 C - - - - - 0x02003C 10:802C: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x02003F 10:802F: A9 00     LDA #$00
-C - - - - - 0x020041 10:8031: 8D 2B 05  STA ram_052B
+C - - - - - 0x020041 10:8031: 8D 2B 05  STA ram_for_0532
 C - - - - - 0x020044 10:8034: 8D 2D 05  STA ram_052D
 C - - - - - 0x020047 10:8037: 8D 2C 05  STA ram_052C
 C - - - - - 0x02004A 10:803A: 8D 30 05  STA ram_for_052E_задержка_звука_анимации
@@ -89,9 +89,9 @@ C - - - - - 0x020090 10:8080: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020099 10:8089: 8D 29 05  STA ram_for_05EA_облако
 ; при необходимости выбрать анимацию из таблицы
                                         LDA ram_for_053C_номер_анимации
-                                        CMP #$FD    ; атакующий
+                                        CMP #con_s_animation_FD_attacker
                                         BEQ bra_808C_FD
-                                        CMP #$FE    ; защитник
+                                        CMP #con_s_animation_FE_defender
                                         BEQ bra_808B_FE
                                         JMP loc_808C
 bra_808C_FD:    ; атакующий
@@ -393,7 +393,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 - D - I - - 0x02020D 10:81FD: 4A 86     .word ofs_015_864A_45_выживет_ли_кипер_после_punch
 - D - I - - 0x02020F 10:81FF: 77 86     .word ofs_015_8677_46_попытка_убийства_защитника
 - D - I - - 0x020211 10:8201: 8A 86     .word ofs_015_868A_47_кто_делает_силовой_дриблинг
-- D - I - - 0x020213 10:8203: B6 86     .word ofs_015_86B6_48_хз_удар_в_штрафной
+- D - I - - 0x020213 10:8203: B6 86     .word ofs_015_86B6_48_тип_удара_на_штрафной
 - D - I - - 0x020215 10:8205: CC 86     .word ofs_015_86CC_49_спешал_перепасовка_и_twin_shot
                                         .word ofs_015_847D_4A_оба_игрока_с_рожами
                                         .word ofs_015_85FE_4B_проверка_на_защитника_misugi    ; new
@@ -915,7 +915,7 @@ ofs_015_83F5_1D_разновидность_shoot:
 ; 07 = razor shot
 ; 08 = skylab hurricane
 ; 09 = twin shot
-; 0A = skylab twin shot
+; 0A = skylab x2 twin shot
 ; 0B = eagle shot
 ; 0C = tiger shot
 ; 0D = neo-tiger shot
@@ -1769,12 +1769,12 @@ tbl_86A6_индекс_для_bra:
 
 
 
-ofs_015_86B6_48_хз_удар_в_штрафной:
-; 00 = 
-; 01 = 
-; 02 = 
-; 03 = 
-; 04 = 
+ofs_015_86B6_48_тип_удара_на_штрафной:
+; 00 = skylab hurricane
+; 01 = skylab x2 twin shot
+; 02 = jumping volley
+; 03 = rising dragon kick
+; 04 = other shot
 C - J - - - 0x0206C6 10:86B6: A2 00     LDX #$00
 C - - - - - 0x0206C8 10:86B8: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x0206CB 10:86BB: 29 7F     AND #$7F
@@ -1790,10 +1790,10 @@ C - - - - - 0x0206D7 10:86C7: 60        RTS
 
 
 tbl_86C8:
-    .byte $08 ; 00
-    .byte $0A ; 01
-    .byte $10 ; 02
-    .byte $1F ; 03
+    .byte $08 ; 00 skylab hurricane
+    .byte $0A ; 01 skylab x2 twin shot
+    .byte $10 ; 02 jumping volley
+    .byte $1F ; 03 rising dragon kick
 
 
 
@@ -2158,11 +2158,11 @@ C - - - - - 0x020804 10:87F4: 60        RTS
 
 
 ofs_014_87F5_F7:
-; читает 1 следующий байт
+; читает 1 следующий байт, который позже будет записан в ram_0532
 C - J - - - 0x020805 10:87F5: A4 3A     LDY ram_003A
 C - - - - - 0x020807 10:87F7: E6 3A     INC ram_003A
 C - - - - - 0x020809 10:87F9: B1 5D     LDA (ram_scernario_data),Y
-C - - - - - 0x02080B 10:87FB: 8D 2B 05  STA ram_052B
+C - - - - - 0x02080B 10:87FB: 8D 2B 05  STA ram_for_0532
 C - - - - - 0x02080E 10:87FE: 60        RTS
 
 
@@ -2179,6 +2179,7 @@ C - - - - - 0x020818 10:8808: 60        RTS
 
 ofs_014_8809_F9_soundID_delay:
 ; читает 2 следующих байта
+; номер звука и время задержки перед воспроизведением этого звука
 C - J - - - 0x020819 10:8809: A4 3A     LDY ram_003A
 C - - - - - 0x02081B 10:880B: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x02081D 10:880D: 8D 30 05  STA ram_for_052F_звук_анимации
@@ -2674,7 +2675,7 @@ con_branch_short            = $F380 ;
     con_bra_выживет_ли_кипер_после_punch        = $45   ; 
     con_bra_46_попытка_убийства_защитника       = $46   ; 
     con_bra_force_drib                          = $47   ; кто делает силовой дриблинг
-    con_bra_48_хз_удар_в_штрафной               = $48   ; 
+    con_bra_тип_удара_на_штрафной               = $48   ; чтобы добавить нужную анимацию подготовки к удару перед нападением соперников
     con_bra_требуются_2_напарника               = $49   ; для выполнения некого действия
     con_bra_4A                                  = $4A   ; оба игрока с рожами
     con_bra_4B                                  = $4B   ; misugi?
@@ -2698,14 +2699,6 @@ con_drive                   = $FF   ;
     con_tiger                   = $01   ;
 
 con_pause                   = $00   ; задержка следующей анимации
-con_bg                      = $00   ; фоны в банке 12
-con_animation               = $00   ; анимации в банке 20
-    con_face_attacker           = $FD   ; анимация (рожа) зависит от нападаюшего (игрок с мячом)
-    con_face_defender           = $FE   ; анимация (рожа) зависит от защитника (игрок без мяча)
-con_cloud                   = $00   ; облака в банке 22
-    con_clear                   = $00   ; очистить облако
-    con_skip                    = $FF   ; не записывать параметр (общее для фона, анимации и облака)
-
 
 
 
@@ -3737,20 +3730,20 @@ _scenario_91F2_01:
 
                 off_case_01_00_00:
                 ; low/shoot
-                    .dbyt con_branch_short + con_bra_48_хз_удар_в_штрафной
-                    .byte off_case_01_00_00_00 - * ; ??? volley
-                    .byte off_case_01_00_00_01 - * ; skylab twin shot
-                    .byte off_case_01_00_00_02 - * ; ???
-                    .byte off_case_01_00_00_03 - * ; ???
-                    .byte off_case_01_00_00_04 - * ; ???
+                    .dbyt con_branch_short + con_bra_тип_удара_на_штрафной
+                    .byte off_case_01_00_00_00 - * ; skylab hurricane
+                    .byte off_case_01_00_00_01 - * ; skylab x2 twin shot
+                    .byte off_case_01_00_00_02 - * ; jumping volley
+                    .byte off_case_01_00_00_03 - * ; rising dragon kick
+                    .byte off_case_01_00_00_04 - * ; other shot
 
                         off_case_01_00_00_00:
-                        ; low/shoot/???
+                        ; low/shoot/skylab hurricane
                             .byte con_jmp
-                            .word loc_AE4C_только_для_братьев
+                            .word loc_AE4C_skylab_hurricane
 
                         off_case_01_00_00_01:
-                        ; low/shoot/skylab twin shot
+                        ; low/shoot/skylab x2 twin shot
                             .byte con_jmp
                             .word loc_AED4_skylab_twin_shot
 
@@ -3760,8 +3753,9 @@ _scenario_91F2_01:
                             .word loc_B2A2_jumping_volley
 
                         off_case_01_00_00_03:
+                        ; low/shoot/rising dragon kick
                         off_case_01_00_00_04:
-                        ; ???
+                        ; low/shoot/other shot
                             .byte con_jmp
                             .word loc_B29B_бежать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
 
@@ -3782,35 +3776,35 @@ _scenario_91F2_01:
 
                 off_case_01_01_00:
                 ; high/shoot
-                    .dbyt con_branch_short + con_bra_48_хз_удар_в_штрафной
-                    .byte off_case_01_01_00_00 - * ; ???
-                    .byte off_case_01_01_00_01 - * ; skylab twin shot
-                    .byte off_case_01_01_00_02 - * ; ???
-                    .byte off_case_01_01_00_03 - * ; ???
-                    .byte off_case_01_01_00_04 - * ; ???
+                    .dbyt con_branch_short + con_bra_тип_удара_на_штрафной
+                    .byte off_case_01_01_00_00 - * ; skylab hurricane
+                    .byte off_case_01_01_00_01 - * ; skylab x2 twin shot
+                    .byte off_case_01_01_00_02 - * ; jumping volley
+                    .byte off_case_01_01_00_03 - * ; rising dragon kick
+                    .byte off_case_01_01_00_04 - * ; other shot
 
                         off_case_01_01_00_00:
-                        ; high/shoot/???
+                        ; high/shoot/skylab hurricane
                             .byte con_jmp
-                            .word loc_AE4C_только_для_братьев
+                            .word loc_AE4C_skylab_hurricane
 
                         off_case_01_01_00_01:
-                        ; high/shoot/skylab twin shot
+                        ; high/shoot/skylab x2 twin shot
                             .byte con_jmp
                             .word loc_AED4_skylab_twin_shot
 
                         off_case_01_01_00_02:
-                        ; high/shoot/???
+                        ; high/shoot/jumping volley
                             .byte con_jmp
                             .word loc_AE64_прыгать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
 
                         off_case_01_01_00_03:
-                        ; high/shoot/???
+                        ; high/shoot/rising dragon kick
                             .byte con_jmp
-                            .word loc_AF31
+                            .word loc_AF31_rising_dragon_kick
 
                         off_case_01_01_00_04:
-                        ; high/shoot/???
+                        ; high/shoot/other shot
                             .byte con_jmp
                             .word loc_AE64_прыгать_к_мячу_на_штрафной_перед_совершением_выбранного_действия
 
@@ -3869,26 +3863,26 @@ _scenario_91FF_02:
                             .byte con_mirror_off
                             .byte con_moving_bg, $04
                             .byte con_pause + $2D
-                            .byte con_bg + $58
-                            .byte con_animation + $04
-                            .byte con_cloud + $3A
+                            .byte con_s_bg_58
+                            .byte con_s_animation_04
+                            .byte con_s_cloud_3A
                             .byte con_rts
 
                         off_case_02_01_00_01:
                         ; защитник кипер/dive/high
                             .byte con_soundID_delay, $25, $02
                             .byte con_pause + $3C
-                            .byte con_bg + $2F
-                            .byte con_animation + $57
-                            .byte con_cloud + $3A
+                            .byte con_s_bg_2F
+                            .byte con_s_animation_57
+                            .byte con_s_cloud_3A
                             .byte con_rts
 
                 off_case_02_01_01:
                 ; защитник кипер/wait
                     .byte con_pause + $60
-                    .byte con_bg + $65
-                    .byte con_animation + $DA
-                    .byte con_cloud + $E7
+                    .byte con_s_bg_65
+                    .byte con_s_animation_DA
+                    .byte con_s_cloud_E7
                     .byte con_rts
 
 
@@ -6298,9 +6292,9 @@ loc_BD87:
             .byte con_mirror_condition, $01       ; номер защитника
             .byte con_F7, $02
             .byte con_pause + $28
-            .byte con_bg + $23
-            .byte con_animation + $5A
-            .byte con_cloud + $E8
+            .byte con_s_bg_23
+            .byte con_s_animation_5A
+            .byte con_s_cloud_E8
             .byte con_rts
 
 
@@ -6963,14 +6957,14 @@ _scenario_9B82_14:
 
 _scenario_B80A_15:
     .byte con_pause + $01
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_clear
     .byte con_F7, $1F
     .byte con_pause + $80
-    .byte con_bg + $30
-    .byte con_animation + $AF
-    .byte con_cloud + $76
+    .byte con_s_bg_30
+    .byte con_s_animation_AF
+    .byte con_s_cloud_76
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -6978,13 +6972,13 @@ _scenario_B80A_15:
 
 _scenario_B817_16:
     .byte con_pause + $01
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_clear
     .byte con_pause + $80
-    .byte con_bg + $30
-    .byte con_animation + $B7
-    .byte con_cloud + $77
+    .byte con_s_bg_30
+    .byte con_s_animation_B7
+    .byte con_s_cloud_77
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -6992,92 +6986,92 @@ _scenario_B817_16:
 
 _scenario_B8A1_17:
     .byte con_pause + $01
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_clear
     .byte con_mirror_on
     .byte con_F7, $1F
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $81
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_81
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_soundID_delay, $2B, $02
     .byte con_pause + $28
-    .byte con_bg + $01
-    .byte con_animation + $66
-    .byte con_cloud + $82
+    .byte con_s_bg_01
+    .byte con_s_animation_66
+    .byte con_s_cloud_82
     .byte con_pause + $29
-    .byte con_bg + $20
-    .byte con_animation + $4C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_20
+    .byte con_s_animation_4C
+    .byte con_s_cloud_FF_skip
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $5A
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $83
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_83
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $28
-    .byte con_bg + $20
-    .byte con_animation + $ED
-    .byte con_cloud + con_clear
+    .byte con_s_bg_20
+    .byte con_s_animation_ED
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_pause + $3C
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $84
+    .byte con_s_bg_32
+    .byte con_s_animation_A8
+    .byte con_s_cloud_84
     .byte con_mirror_toggle
     .byte con_soundID_delay, $2B, $31
     .byte con_pause + $38
-    .byte con_bg + $47
-    .byte con_animation + $BF
-    .byte con_cloud + $85
+    .byte con_s_bg_47
+    .byte con_s_animation_BF
+    .byte con_s_cloud_85
     .byte con_pause + $25
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $32
-    .byte con_bg + $63
-    .byte con_animation + $0F
-    .byte con_cloud + con_clear
+    .byte con_s_bg_63
+    .byte con_s_animation_0F
+    .byte con_s_cloud_clear
     .byte con_moving_bg, $04
     .byte con_pause + $32
-    .byte con_bg + $58
-    .byte con_animation + $04
-    .byte con_cloud + $86
+    .byte con_s_bg_58
+    .byte con_s_animation_04
+    .byte con_s_cloud_86
     .byte con_F7, $33
     .byte con_soundID_delay, $05, $02
     .byte con_pause + $36
-    .byte con_bg + $27
-    .byte con_animation + $10
-    .byte con_cloud + con_skip
+    .byte con_s_bg_27
+    .byte con_s_animation_10
+    .byte con_s_cloud_FF_skip
     .byte con_jsr
     .word sub_B519
     .byte con_pause + $64
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $8E
+    .byte con_s_bg_32
+    .byte con_s_animation_A8
+    .byte con_s_cloud_8E
     .byte con_pause + $10
-    .byte con_bg + $0E
-    .byte con_animation + $D3
-    .byte con_cloud + con_clear
+    .byte con_s_bg_0E
+    .byte con_s_animation_D3
+    .byte con_s_cloud_clear
     .byte con_F7, $03
     .byte con_soundID_delay, $61, $02
     .byte con_pause + $64
-    .byte con_bg + $07
-    .byte con_animation + $45
-    .byte con_cloud + $28
+    .byte con_s_bg_07
+    .byte con_s_animation_45
+    .byte con_s_cloud_28
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $6E
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $87
+    .byte con_s_bg_32
+    .byte con_s_animation_A8
+    .byte con_s_cloud_87
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -7144,15 +7138,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $91
-                    .byte con_cloud + $CB
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_91
+                    .byte con_s_cloud_CB
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $96
-                    .byte con_cloud + $CA
+                    .byte con_s_bg_30
+                    .byte con_s_animation_96
+                    .byte con_s_cloud_CA
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7162,15 +7156,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $55
-                    .byte con_animation + $9E
-                    .byte con_cloud + $D1
+                    .byte con_s_bg_55
+                    .byte con_s_animation_9E
+                    .byte con_s_cloud_D1
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $A2
-                    .byte con_cloud + $D0
+                    .byte con_s_bg_30
+                    .byte con_s_animation_A2
+                    .byte con_s_cloud_D0
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7180,15 +7174,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $55
-                    .byte con_animation + $B0
-                    .byte con_cloud + $D1
+                    .byte con_s_bg_55
+                    .byte con_s_animation_B0
+                    .byte con_s_cloud_D1
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B1
-                    .byte con_cloud + $D0
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B1
+                    .byte con_s_cloud_D0
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7200,15 +7194,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $9C
-                    .byte con_cloud + $AC
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_9C
+                    .byte con_s_cloud_AC
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9C
-                    .byte con_cloud + $D3
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9C
+                    .byte con_s_cloud_D3
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7218,15 +7212,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $AB
-                    .byte con_cloud + $D3
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_AB
+                    .byte con_s_cloud_D3
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $AB
-                    .byte con_cloud + $AC
+                    .byte con_s_bg_30
+                    .byte con_s_animation_AB
+                    .byte con_s_cloud_AC
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7236,15 +7230,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $B6
-                    .byte con_cloud + $CD
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_B6
+                    .byte con_s_cloud_CD
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B7
-                    .byte con_cloud + $CE
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B7
+                    .byte con_s_cloud_CE
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7254,15 +7248,15 @@ _scenario_BBD4_19:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $B4
-                    .byte con_cloud + $D4
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_B4
+                    .byte con_s_cloud_D4
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B5
-                    .byte con_cloud + $D5
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B5
+                    .byte con_s_cloud_D5
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7277,14 +7271,14 @@ _scenario_BC6D_1A:
         ; обычная перепасовка
             .byte con_mirror_condition, $00
             .byte con_pause + $32
-            .byte con_bg + $20
-            .byte con_animation + $7B
-            .byte con_cloud + con_skip
+            .byte con_s_bg_20
+            .byte con_s_animation_7B
+            .byte con_s_cloud_FF_skip
             .byte con_soundID_delay, $2C, $1D
             .byte con_pause + $3C
-            .byte con_bg + $3C
-            .byte con_animation + $7C
-            .byte con_cloud + $5A
+            .byte con_s_bg_3C
+            .byte con_s_animation_7C
+            .byte con_s_cloud_5A
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -7315,21 +7309,21 @@ _scenario_BC6D_1A:
                 ; tsubasa
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $28
-                    .byte con_bg + $36
-                    .byte con_animation + $95
-                    .byte con_cloud + $CC
+                    .byte con_s_bg_36
+                    .byte con_s_animation_95
+                    .byte con_s_cloud_CC
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $92
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_92
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $28
-                    .byte con_bg + $36
-                    .byte con_animation + $95
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_95
+                    .byte con_s_cloud_FF_skip
                 off_case_BCAD_11_игрок_без_спешал_перепасовки:
                 ; игрок без спешал перепасовки
                     .byte con_rts
@@ -7338,21 +7332,21 @@ _scenario_BC6D_1A:
                 ; misaki
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $92
-                    .byte con_cloud + $CC
+                    .byte con_s_bg_36
+                    .byte con_s_animation_92
+                    .byte con_s_cloud_CC
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $95
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_95
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $92
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_92
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BCC6_02_hyuga:
@@ -7368,21 +7362,21 @@ _scenario_BC6D_1A:
                 loc_BCCD:
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + $D2
+                    .byte con_s_bg_36
+                    .byte con_s_animation_A7
+                    .byte con_s_cloud_D2
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $A5
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_A5
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_A7
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BCE5_05_sawada:
@@ -7397,21 +7391,21 @@ _scenario_BC6D_1A:
                 loc_BCEC:
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A5
-                    .byte con_cloud + $D2
+                    .byte con_s_bg_36
+                    .byte con_s_animation_A5
+                    .byte con_s_cloud_D2
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_A7
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A5
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_A5
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BD04_07_masao:
@@ -7430,63 +7424,63 @@ _scenario_BC6D_1A:
                 loc_BD0B:
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EF
-                    .byte con_cloud + $D6
+                    .byte con_s_bg_36
+                    .byte con_s_animation_EF
+                    .byte con_s_cloud_D6
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $EF
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_EF
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EF
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_EF
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BD23_0D_diaz:
                 ; diaz
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $DF
-                    .byte con_cloud + $CF
+                    .byte con_s_bg_36
+                    .byte con_s_animation_DF
+                    .byte con_s_cloud_CF
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $BE
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_BE
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $DF
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_DF
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BD3B_0E_pascal:
                 ; pascal
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $BE
-                    .byte con_cloud + $CF
+                    .byte con_s_bg_36
+                    .byte con_s_animation_BE
+                    .byte con_s_cloud_CF
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $DF
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_DF
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $BE
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_BE
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BD53_0F_pierre:
@@ -7494,21 +7488,21 @@ _scenario_BC6D_1A:
                     .byte con_F7, $25
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + $D6
+                    .byte con_s_bg_36
+                    .byte con_s_animation_A7
+                    .byte con_s_cloud_D6
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $EE
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_EE
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_36
+                    .byte con_s_animation_A7
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_BD6D_10_napoleon:
@@ -7516,21 +7510,21 @@ _scenario_BC6D_1A:
                     .byte con_F7, $25
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EE
-                    .byte con_cloud + $D6
+                    .byte con_s_bg_36
+                    .byte con_s_animation_EE
+                    .byte con_s_cloud_D6
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $01
-                    .byte con_animation + $A7
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_01
+                    .byte con_s_animation_A7
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
-                    .byte con_bg + $36
-                    .byte con_animation + $EE
-                    .byte con_cloud + $D6
+                    .byte con_s_bg_36
+                    .byte con_s_animation_EE
+                    .byte con_s_cloud_D6
                     .byte con_rts
 
 
@@ -7549,13 +7543,14 @@ _scenario_B486_1B:
 loc_B49E_игрок_принимает_пас_на_ногу:
             .byte con_soundID_delay, $2C, $1D
             .byte con_pause + $3C
-            .byte con_bg + $01
-            .byte con_animation + $78
-            .byte con_cloud + $58
+            .byte con_s_bg_01
+            .byte con_s_animation_78
+            .byte con_s_cloud_58
             .byte con_rts
 
         case_1B_01:
         ; спешал перепасовка
+        ; bzk bug?
             .byte con_jmp
             .word loc_B48E
 
@@ -7584,9 +7579,9 @@ _scenario_9BE3_1C:
 sub_B4BF_мяч_улетает_в_аут:
     .byte con_soundID_delay, $64, $0B
     .byte con_pause + $1E
-    .byte con_bg + $39
-    .byte con_animation + $7E
-    .byte con_cloud + $5C
+    .byte con_s_bg_39
+    .byte con_s_animation_7E
+    .byte con_s_cloud_5C
     .byte con_rts
 
 
@@ -7601,9 +7596,9 @@ loc_9C28_гол_и_проверка_на_рваную_сетку:
             .byte con_F7, $03
             .byte con_soundID_delay, $60, $02
             .byte con_pause + $78
-            .byte con_bg + $07
-            .byte con_animation + $44
-            .byte con_cloud + $28
+            .byte con_s_bg_07
+            .byte con_s_animation_44
+            .byte con_s_cloud_28
             .byte con_rts
 
         off_case_A267_01:
@@ -7611,9 +7606,9 @@ loc_A267_goal_и_рваная_сетка:
             .byte con_F7, $03
             .byte con_soundID_delay, $61, $02
             .byte con_pause + $78
-            .byte con_bg + $07
-            .byte con_animation + $45
-            .byte con_cloud + $28
+            .byte con_s_bg_07
+            .byte con_s_animation_45
+            .byte con_s_cloud_28
             .byte con_rts
 
 
@@ -7641,33 +7636,33 @@ sub_9C5B_wakashimazu_отскок_от_штанги:
                 ; кипер наебан/sao paulo, japan
                 ; антикрит вакашимазу
                     .byte con_pause + $32
-                    .byte con_bg + $33
-                    .byte con_animation + $A6
-                    .byte con_cloud + $9F
+                    .byte con_s_bg_33
+                    .byte con_s_animation_A6
+                    .byte con_s_cloud_9F
 loc_A34B_отскок_от_штанги:
                     .byte con_mirror_condition, $03       ; куда летит мяч
 loc_A34D_отскок_вакашимазу_от_штанги:
 sub_A34D_отскок_вакашимазу_от_штанги:
 ; вакашимазу отталкивается от штанги
                     .byte con_pause + $08
-                    .byte con_bg + $0B
-                    .byte con_animation + $00
-                    .byte con_cloud + $2F
+                    .byte con_s_bg_0B
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_2F
                     .byte con_F7, $05
                     .byte con_soundID_delay, $68, $21
                     .byte con_pause + $2D
-                    .byte con_bg + con_skip
-                    .byte con_animation + $4D
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_4D
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 off_case_9C5B_01_01:
                 ; кипер наебан/nankatsu
                 ; антикрит вакашимазу (bzk чего это я так решил? но вроде правильно решил)
                     .byte con_pause + $32
-                    .byte con_bg + $73
-                    .byte con_animation + $A6
-                    .byte con_cloud + $9F
+                    .byte con_s_bg_73
+                    .byte con_s_animation_A6
+                    .byte con_s_cloud_9F
                     .byte con_jmp
                     .word loc_A34B_отскок_от_штанги
 
@@ -7690,9 +7685,9 @@ bra_long_case_A3B3_00_не_спешал:
             .byte con_F8, $03
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $32
-            .byte con_bg + $1D
-            .byte con_animation + $20
-            .byte con_cloud + $3C
+            .byte con_s_bg_1D
+            .byte con_s_animation_20
+            .byte con_s_cloud_3C
             .byte con_rts
 
 
@@ -7705,9 +7700,9 @@ loc_9C6D_защитник_прыгает_в_воздух_2й_и_5й:
 bra_long_case_A3BD_00_не_спешал:
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $32
-            .byte con_bg + $1E
-            .byte con_animation + $1C
-            .byte con_cloud + $3D
+            .byte con_s_bg_1E
+            .byte con_s_animation_1C
+            .byte con_s_cloud_3D
             .byte con_rts
 
 
@@ -7721,9 +7716,9 @@ bra_long_case_A3C5_00_не_спешал:
             .byte con_F8, $01
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $32
-            .byte con_bg + $1E
-            .byte con_animation + $20
-            .byte con_cloud + $3E
+            .byte con_s_bg_1E
+            .byte con_s_animation_20
+            .byte con_s_cloud_3E
             .byte con_rts
 
 
@@ -7735,9 +7730,9 @@ sub_9C79_защитник_бежит_по_земле:
 bra_long_case_A6B5_00_не_спешал:
             .byte con_F7, $02
             .byte con_pause + $1E
-            .byte con_bg + $23
-            .byte con_animation + $5A
-            .byte con_cloud + con_clear
+            .byte con_s_bg_23
+            .byte con_s_animation_5A
+            .byte con_s_cloud_clear
 bra_long_case_A6BB_01_спешал:
             .byte con_rts
 
@@ -7773,9 +7768,9 @@ bra_long_case_A7D5_00_не_спешал:
             .byte con_F8, $03
             .byte con_F7, $02
             .byte con_pause + $37
-            .byte con_bg + $23
-            .byte con_animation + $5A
-            .byte con_cloud + $42
+            .byte con_s_bg_23
+            .byte con_s_animation_5A
+            .byte con_s_cloud_42
             .byte con_rts
 
 
@@ -7789,9 +7784,9 @@ bra_long_case_A7DE_00_не_спешал:
             .byte con_F8, $03
             .byte con_F7, $02
             .byte con_pause + $37
-            .byte con_bg + $22
-            .byte con_animation + $5B
-            .byte con_cloud + $43
+            .byte con_s_bg_22
+            .byte con_s_animation_5B
+            .byte con_s_cloud_43
             .byte con_rts
 
 
@@ -7804,9 +7799,9 @@ loc_9C9D_защитник_бежит_по_земле_3й:
 bra_long_case_A7E7_00_не_спешал:
             .byte con_F7, $02
             .byte con_pause + $37
-            .byte con_bg + $23
-            .byte con_animation + $5B
-            .byte con_cloud + $44
+            .byte con_s_bg_23
+            .byte con_s_animation_5B
+            .byte con_s_cloud_44
             .byte con_rts
 
 
@@ -7842,21 +7837,21 @@ loc_9CA3_анимация_дриблинга_трудной_обводки:
                     .byte con_mirror_toggle
                     .byte con_F7, $02
                     .byte con_pause + $14
-                    .byte con_bg + $22
-                    .byte con_animation + $60
-                    .byte con_cloud + $45
+                    .byte con_s_bg_22
+                    .byte con_s_animation_60
+                    .byte con_s_cloud_45
                     .byte con_F7, $24
                     .byte con_soundID_delay, $68, $02
                     .byte con_pause + $10
-                    .byte con_bg + $6B
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_6B
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_FF_skip
 loc_A7FE_движение_фона_после_дриблинга:
                     .byte con_F7, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $22
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_22
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 bra_long_case_9CA3_02_01:
@@ -7865,9 +7860,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                     .word sub_A810_анимация_heel_lift
                     .byte con_F7, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $23
-                    .byte con_animation + $E4
-                    .byte con_cloud + $45
+                    .byte con_s_bg_23
+                    .byte con_s_animation_E4
+                    .byte con_s_cloud_45
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -7885,9 +7880,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                         ; hyuga из японии
                             .byte con_F7, $44
                             .byte con_pause + $3C
-                            .byte con_bg + $31
-                            .byte con_animation + $9E
-                            .byte con_cloud + $C4
+                            .byte con_s_bg_31
+                            .byte con_s_animation_9E
+                            .byte con_s_cloud_C4
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7895,9 +7890,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                         ; hyuga из тохо
                             .byte con_F7, $44
                             .byte con_pause + $3C
-                            .byte con_bg + $31
-                            .byte con_animation + $B0
-                            .byte con_cloud + $C4
+                            .byte con_s_bg_31
+                            .byte con_s_animation_B0
+                            .byte con_s_cloud_C4
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7905,9 +7900,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                         ; jito из японии
                             .byte con_F7, $44
                             .byte con_pause + $78
-                            .byte con_bg + $30
-                            .byte con_animation + $A0
-                            .byte con_cloud + $C5
+                            .byte con_s_bg_30
+                            .byte con_s_animation_A0
+                            .byte con_s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7915,9 +7910,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                         ; jito из куними
                             .byte con_F7, $44
                             .byte con_pause + $78
-                            .byte con_bg + $30
-                            .byte con_animation + $AA
-                            .byte con_cloud + $C5
+                            .byte con_s_bg_30
+                            .byte con_s_animation_AA
+                            .byte con_s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7925,9 +7920,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                         ; napoleon
                             .byte con_F7, $44
                             .byte con_pause + $40
-                            .byte con_bg + $30
-                            .byte con_animation + $B4
-                            .byte con_cloud + $C6
+                            .byte con_s_bg_30
+                            .byte con_s_animation_B4
+                            .byte con_s_cloud_C6
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7942,15 +7937,15 @@ loc_A7FE_движение_фона_после_дриблинга:
                     .word sub_A86C_vanishing_feint
                     .byte con_F7, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $23
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_23
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_clear
                     .byte con_F7, $02
                     .byte con_soundID_delay, $11, $02
                     .byte con_pause + $46
-                    .byte con_bg + con_skip
-                    .byte con_animation + $D1
-                    .byte con_cloud + $45
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_D1
+                    .byte con_s_cloud_45
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -7969,9 +7964,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .word sub_A8AB_clone_dribble
                             .byte con_F7, $02
                             .byte con_pause + $46
-                            .byte con_bg + con_skip
-                            .byte con_animation + con_skip
-                            .byte con_cloud + $45
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_FF_skip
+                            .byte con_s_cloud_45
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -7989,9 +7984,9 @@ loc_A7FE_движение_фона_после_дриблинга:
                     .byte con_F7, $0D
                     .byte con_soundID_delay, $26, $02
                     .byte con_pause + $1E
-                    .byte con_bg + $47
-                    .byte con_animation + $D1
-                    .byte con_cloud + $45
+                    .byte con_s_bg_47
+                    .byte con_s_animation_D1
+                    .byte con_s_cloud_45
                     .byte con_jmp
                     .word loc_AAEF
 
@@ -8011,15 +8006,15 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
                             .byte con_pause + $17
-                            .byte con_bg + con_skip
-                            .byte con_animation + $D2
-                            .byte con_cloud + con_clear
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_D2
+                            .byte con_s_cloud_clear
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
                             .byte con_pause + $17
-                            .byte con_bg + con_skip
-                            .byte con_animation + $D1
-                            .byte con_cloud + $45
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_D1
+                            .byte con_s_cloud_45
                             .byte con_jmp
                             .word loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация
 
@@ -8064,15 +8059,15 @@ loc_AA4F_анимация_дриблинга_легкой_обводки:
                     .byte con_mirror_toggle
                     .byte con_F7, $02
                     .byte con_pause + $14
-                    .byte con_bg + $22
-                    .byte con_animation + $60
-                    .byte con_cloud + $46
+                    .byte con_s_bg_22
+                    .byte con_s_animation_60
+                    .byte con_s_cloud_46
                     .byte con_F7, $33
                     .byte con_soundID_delay, $68, $02
                     .byte con_pause + $14
-                    .byte con_bg + $6B
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_6B
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_A7FE_движение_фона_после_дриблинга
 
@@ -8083,9 +8078,9 @@ loc_AA62_heel_lift:
                     .word sub_A810_анимация_heel_lift
                     .byte con_F7, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $23
-                    .byte con_animation + $E4
-                    .byte con_cloud + $46
+                    .byte con_s_bg_23
+                    .byte con_s_animation_E4
+                    .byte con_s_cloud_46
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -8103,9 +8098,9 @@ loc_AA62_heel_lift:
                         ; hyuga из японии
                             .byte con_F7, $44
                             .byte con_pause + $40
-                            .byte con_bg + $31
-                            .byte con_animation + $9E
-                            .byte con_cloud + $C4
+                            .byte con_s_bg_31
+                            .byte con_s_animation_9E
+                            .byte con_s_cloud_C4
                         loc_AA7B_forcible_dribble:
                             .byte con_jsr
                             .word sub_BBC7_очистка
@@ -8114,9 +8109,9 @@ loc_AA62_heel_lift:
                             .word sub_AA89_forcible_dribble
                             .byte con_F7, $3A
                             .byte con_pause + $32
-                            .byte con_bg + con_skip
-                            .byte con_animation + con_skip
-                            .byte con_cloud + $46
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_FF_skip
+                            .byte con_s_cloud_46
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -8124,9 +8119,9 @@ loc_AA62_heel_lift:
                         ; hyuga из тохо
                             .byte con_F7, $44
                             .byte con_pause + $40
-                            .byte con_bg + $31
-                            .byte con_animation + $B0
-                            .byte con_cloud + $C4
+                            .byte con_s_bg_31
+                            .byte con_s_animation_B0
+                            .byte con_s_cloud_C4
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8134,9 +8129,9 @@ loc_AA62_heel_lift:
                         ; jito из японии
                             .byte con_F7, $44
                             .byte con_pause + $78
-                            .byte con_bg + $30
-                            .byte con_animation + $A0
-                            .byte con_cloud + $C5
+                            .byte con_s_bg_30
+                            .byte con_s_animation_A0
+                            .byte con_s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8144,9 +8139,9 @@ loc_AA62_heel_lift:
                         ; jito из куними
                             .byte con_F7, $44
                             .byte con_pause + $78
-                            .byte con_bg + $30
-                            .byte con_animation + $AA
-                            .byte con_cloud + $C5
+                            .byte con_s_bg_30
+                            .byte con_s_animation_AA
+                            .byte con_s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8154,9 +8149,9 @@ loc_AA62_heel_lift:
                         ; napoleon
                             .byte con_F7, $44
                             .byte con_pause + $40
-                            .byte con_bg + $30
-                            .byte con_animation + $B4
-                            .byte con_cloud + $C6
+                            .byte con_s_bg_30
+                            .byte con_s_animation_B4
+                            .byte con_s_cloud_C6
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8171,15 +8166,15 @@ loc_AA62_heel_lift:
                     .word sub_A86C_vanishing_feint
                     .byte con_F7, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $23
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_23
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $11, $02
                     .byte con_F7, $02
                     .byte con_pause + $46
-                    .byte con_bg + con_skip
-                    .byte con_animation + $D1
-                    .byte con_cloud + $46
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_D1
+                    .byte con_s_cloud_46
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -8198,9 +8193,9 @@ loc_AA62_heel_lift:
                             .word sub_A8AB_clone_dribble
                             .byte con_F7, $02
                             .byte con_pause + $46
-                            .byte con_bg + con_skip
-                            .byte con_animation + con_skip
-                            .byte con_cloud + $46
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_FF_skip
+                            .byte con_s_cloud_46
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -8218,20 +8213,20 @@ loc_AA62_heel_lift:
                     .byte con_F7, $0D
                     .byte con_soundID_delay, $26, $02
                     .byte con_pause + $1E
-                    .byte con_bg + $47
-                    .byte con_animation + $D1
-                    .byte con_cloud + $46
+                    .byte con_s_bg_47
+                    .byte con_s_animation_D1
+                    .byte con_s_cloud_46
                 loc_AAEF:
                     .byte con_soundID_delay, $26, $02
                     .byte con_pause + $1E
-                    .byte con_bg + con_skip
-                    .byte con_animation + $D2
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_D2
+                    .byte con_s_cloud_FF_skip
                     .byte con_soundID_delay, $26, $02
                     .byte con_pause + $1E
-                    .byte con_bg + con_skip
-                    .byte con_animation + $D1
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_D1
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -8249,28 +8244,28 @@ loc_AA62_heel_lift:
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
                             .byte con_pause + $17
-                            .byte con_bg + con_skip
-                            .byte con_animation + $D2
-                            .byte con_cloud + con_clear
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_D2
+                            .byte con_s_cloud_clear
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
                             .byte con_pause + $17
-                            .byte con_bg + con_skip
-                            .byte con_animation + $D1
-                            .byte con_cloud + $46
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_D1
+                            .byte con_s_cloud_46
                         loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация:
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
                             .byte con_pause + $17
-                            .byte con_bg + con_skip
-                            .byte con_animation + $D2
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_D2
+                            .byte con_s_cloud_FF_skip
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
                             .byte con_pause + $17
-                            .byte con_bg + con_skip
-                            .byte con_animation + $D1
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_D1
+                            .byte con_s_cloud_FF_skip
                             .byte con_rts
 
                         off_case_9CC0_02_06_01:
@@ -8310,9 +8305,9 @@ _scenario_B7DA_1E:
     .byte con_mirror_toggle
     .byte con_F7, $01
     .byte con_pause + $07
-    .byte con_bg + $45
-    .byte con_animation + $90
-    .byte con_cloud + con_skip
+    .byte con_s_bg_45
+    .byte con_s_animation_90
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -8378,26 +8373,26 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 off_case_9CF3_03_01:
                 ; drive shot/con_p_tsubasa_my
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $91
-                    .byte con_cloud + $A3
+                    .byte con_s_bg_30
+                    .byte con_s_animation_91
+                    .byte con_s_cloud_A3
                 loc_AB57:
                     .byte con_jsr
                     .word sub_BBC7_очистка
                 loc_AB58:
                     .byte con_soundID_delay, $16, $02
                     .byte con_pause + $28
-                    .byte con_bg + $4A
-                    .byte con_animation + $8E
-                    .byte con_cloud + $49
+                    .byte con_s_bg_4A
+                    .byte con_s_animation_8E
+                    .byte con_s_cloud_49
                     .byte con_jsr
                     .word sub_AB7C
                     .byte con_F7, $02
                     .byte con_soundID_delay, $04, $02
                     .byte con_pause + $20
-                    .byte con_bg + $25
-                    .byte con_animation + $63
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_25
+                    .byte con_s_animation_63
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
@@ -8406,9 +8401,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 ; bzk optimize, проверка на diaz не обязательная, код один и тот же (чего я так решил? номер анимации же разный)
                     ; однако если я буду менять номер облака для них, возможно и понадобится
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B7
-                    .byte con_cloud + $A3
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B7
+                    .byte con_s_cloud_A3
                     .byte con_jmp
                     .word loc_AB57
 
@@ -8421,9 +8416,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 off_case_9CF3_05_00:
                 ; falcon shot/con_p_nitta_my
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9A
-                    .byte con_cloud + $A5
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9A
+                    .byte con_s_cloud_A5
                 loc_ABD4:
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -8434,18 +8429,18 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_F7, $02
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $20
-                    .byte con_bg + $25
-                    .byte con_animation + $63
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_25
+                    .byte con_s_animation_63
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
                 off_case_9CF3_05_01:
                 ; falcon shot/con_p_nitta_japan
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9B
-                    .byte con_cloud + $A5
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9B
+                    .byte con_s_cloud_A5
                     .byte con_jmp
                     .word loc_ABD4
 
@@ -8458,42 +8453,42 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 off_case_9CF3_07_00:
                 ; razor shot/con_p_soda_my, con_p_soda_japan
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9F
-                    .byte con_cloud + $A3
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9F
+                    .byte con_s_cloud_A3
                 loc_ABF8:
                     .byte con_F7, $0D
                     .byte con_soundID_delay, $17, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $6A
-                    .byte con_animation + $9D
-                    .byte con_cloud + $49
+                    .byte con_s_bg_6A
+                    .byte con_s_animation_9D
+                    .byte con_s_cloud_49
                     .byte con_F7, $15
                     .byte con_soundID_delay, $1D, $09
                     .byte con_pause + $20
-                    .byte con_bg + $05
-                    .byte con_animation + $CE
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_05
+                    .byte con_s_animation_CE
+                    .byte con_s_cloud_FF_skip
                     .byte con_F7, $10
                     .byte con_pause + $0D
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_FF_skip
                     .byte con_F7, $02
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $20
-                    .byte con_bg + $25
-                    .byte con_animation + $63
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_25
+                    .byte con_s_animation_63
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
                 off_case_9CF3_07_01:
                 ; razor shot/con_p_soda_tatsunami
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $AD
-                    .byte con_cloud + $A3
+                    .byte con_s_bg_30
+                    .byte con_s_animation_AD
+                    .byte con_s_cloud_A3
                     .byte con_jmp
                     .word loc_ABF8
 
@@ -8506,35 +8501,35 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 off_case_9CF3_0B_00:
                 ; eagle shot/con_p_matsuyama_my, con_p_matsuyama_japan
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $A1
-                    .byte con_cloud + $B1
+                    .byte con_s_bg_30
+                    .byte con_s_animation_A1
+                    .byte con_s_cloud_B1
                 loc_AC2B:
                     .byte con_jsr
                     .word sub_BBC7_очистка
                     .byte con_F7, $19
                     .byte con_soundID_delay, $15, $02
                     .byte con_pause + $28
-                    .byte con_bg + $49
-                    .byte con_animation + $8E
-                    .byte con_cloud + $49
+                    .byte con_s_bg_49
+                    .byte con_s_animation_8E
+                    .byte con_s_cloud_49
                     .byte con_jsr
                     .word sub_AB9A
                     .byte con_F7, $02
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $20
-                    .byte con_bg + $25
-                    .byte con_animation + $63
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_25
+                    .byte con_s_animation_63
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
                 off_case_9CF3_0B_01:
                 ; eagle shot/con_p_matsuyama_furano
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $AF
-                    .byte con_cloud + $B1
+                    .byte con_s_bg_30
+                    .byte con_s_animation_AF
+                    .byte con_s_cloud_B1
                     .byte con_jmp
                     .word loc_AC2B
 
@@ -8547,9 +8542,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 off_case_9CF3_0C_00:
                 ; tiger shot/con_p_hyuga_my, con_p_hyuga_japan
                     .byte con_pause + $3C
-                    .byte con_bg + $31
-                    .byte con_animation + $9E
-                    .byte con_cloud + $B2
+                    .byte con_s_bg_31
+                    .byte con_s_animation_9E
+                    .byte con_s_cloud_B2
                 loc_AC55:
                     .byte con_jsr
                     .word sub_ABB8
@@ -8558,18 +8553,18 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_F7, $02
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $20
-                    .byte con_bg + $25
-                    .byte con_animation + $63
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_25
+                    .byte con_s_animation_63
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
                 off_case_9CF3_0C_01:
                 ; tiger shot/con_p_hyuga_toho
                     .byte con_pause + $3C
-                    .byte con_bg + $31
-                    .byte con_animation + $B0
-                    .byte con_cloud + $B2
+                    .byte con_s_bg_31
+                    .byte con_s_animation_B0
+                    .byte con_s_cloud_B2
                     .byte con_jmp
                     .word loc_AC55
 
@@ -8590,39 +8585,39 @@ loc_9CF3_игрок_делает_удар_с_земли:
                         off_case_9CF3_0D_00_00:
                         ; neo tiger shot/нет_защитников/con_p_hyuga_my, con_p_hyuga_japan
                             .byte con_pause + $78
-                            .byte con_bg + $31
-                            .byte con_animation + $9E
-                            .byte con_cloud + $B3
+                            .byte con_s_bg_31
+                            .byte con_s_animation_9E
+                            .byte con_s_cloud_B3
                         loc_AC7A:
                             .byte con_jsr
                             .word sub_BBC7_очистка
                             .byte con_soundID_delay, $16, $02
                             .byte con_F7, $1B
                             .byte con_pause + $28
-                            .byte con_bg + $4A
-                            .byte con_animation + $8E
-                            .byte con_cloud + $49
+                            .byte con_s_bg_4A
+                            .byte con_s_animation_8E
+                            .byte con_s_cloud_49
                             .byte con_F7, $04
                             .byte con_soundID_delay, $13, $02
                             .byte con_pause + $1E
-                            .byte con_bg + $41
-                            .byte con_animation + $8C
-                            .byte con_cloud + $6A
+                            .byte con_s_bg_41
+                            .byte con_s_animation_8C
+                            .byte con_s_cloud_6A
                             .byte con_F7, $02
                             .byte con_soundID_delay, $06, $02
                             .byte con_pause + $20
-                            .byte con_bg + $25
-                            .byte con_animation + $63
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_25
+                            .byte con_s_animation_63
+                            .byte con_s_cloud_FF_skip
                             .byte con_jmp
                             .word loc_AB6B
 
                         off_case_9CF3_0D_00_01:
                         ; neo tiger shot/нет_защитников/con_p_hyuga_toho
                             .byte con_pause + $78
-                            .byte con_bg + $31
-                            .byte con_animation + $B0
-                            .byte con_cloud + $B3
+                            .byte con_s_bg_31
+                            .byte con_s_animation_B0
+                            .byte con_s_cloud_B3
                             .byte con_jmp
                             .word loc_AC7A
 
@@ -8636,9 +8631,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
                         ; есть_защитники/нет_защитников/con_p_hyuga_my, con_p_hyuga_japan
                             .byte con_F7, $44
                             .byte con_pause + $B4
-                            .byte con_bg + $31
-                            .byte con_animation + $9E
-                            .byte con_cloud + $9D
+                            .byte con_s_bg_31
+                            .byte con_s_animation_9E
+                            .byte con_s_cloud_9D
                             .byte con_jmp
                             .word loc_AC7A
 
@@ -8646,9 +8641,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
                         ; есть_защитники/нет_защитников/con_p_hyuga_toho
                             .byte con_F7, $44
                             .byte con_pause + $B4
-                            .byte con_bg + $31
-                            .byte con_animation + $B0
-                            .byte con_cloud + $9D
+                            .byte con_s_bg_31
+                            .byte con_s_animation_B0
+                            .byte con_s_cloud_9D
                             .byte con_jmp
                             .word loc_AC7A
 
@@ -8657,64 +8652,64 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_mirror_off
             .byte con_F8, $04
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $91
-            .byte con_cloud + $B6
+            .byte con_s_bg_30
+            .byte con_s_animation_91
+            .byte con_s_cloud_B6
             .byte con_mirror_toggle
             .byte con_F8, $04
             .byte con_pause + $3C
-            .byte con_bg + $55
-            .byte con_animation + $9E
-            .byte con_cloud + $B7
+            .byte con_s_bg_55
+            .byte con_s_animation_9E
+            .byte con_s_cloud_B7
             .byte con_soundID_delay, $26, $02
             .byte con_F7, $02
             .byte con_pause + $1E
-            .byte con_bg + $23
-            .byte con_animation + $6B
-            .byte con_cloud + con_clear
+            .byte con_s_bg_23
+            .byte con_s_animation_6B
+            .byte con_s_cloud_clear
             .byte con_mirror_toggle
             .byte con_soundID_delay, $26, $02
             .byte con_F7, $02
             .byte con_pause + $1E
-            .byte con_bg + $22
-            .byte con_animation + $E7
-            .byte con_cloud + con_skip
+            .byte con_s_bg_22
+            .byte con_s_animation_E7
+            .byte con_s_cloud_FF_skip
             .byte con_F7, $10
             .byte con_soundID_delay, $30, $11
             .byte con_pause + $14
-            .byte con_bg + $05
-            .byte con_animation + $00
-            .byte con_cloud + $9C
+            .byte con_s_bg_05
+            .byte con_s_animation_00
+            .byte con_s_cloud_9C
             .byte con_F7, $31
             .byte con_pause + $3C
-            .byte con_bg + $5C
-            .byte con_animation + $D7
-            .byte con_cloud + con_skip
+            .byte con_s_bg_5C
+            .byte con_s_animation_D7
+            .byte con_s_cloud_FF_skip
             .byte con_F7, $23
             .byte con_soundID_delay, $0A, $02
             .byte con_pause + $3C
-            .byte con_bg + $27
-            .byte con_animation + $DC
-            .byte con_cloud + con_clear
+            .byte con_s_bg_27
+            .byte con_s_animation_DC
+            .byte con_s_cloud_clear
             .byte con_F7, $1F
             .byte con_F8, $04
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $91
-            .byte con_cloud + $AF
+            .byte con_s_bg_30
+            .byte con_s_animation_91
+            .byte con_s_cloud_AF
             .byte con_mirror_toggle
             .byte con_F7, $1F
             .byte con_F8, $04
             .byte con_pause + $3C
-            .byte con_bg + $55
-            .byte con_animation + $9E
-            .byte con_cloud + $B8
+            .byte con_s_bg_55
+            .byte con_s_animation_9E
+            .byte con_s_cloud_B8
             .byte con_mirror_toggle
             .byte con_soundID_delay, $08, $02
             .byte con_pause + $41
-            .byte con_bg + $1D
-            .byte con_animation + $1F
-            .byte con_cloud + con_clear
+            .byte con_s_bg_1D
+            .byte con_s_animation_1F
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_9CF3_12:
@@ -8731,9 +8726,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
         off_case_9CF3_13_00:
         ; sano combo/jito япония
             .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $A0
-            .byte con_cloud + $4B
+            .byte con_s_bg_30
+            .byte con_s_animation_A0
+            .byte con_s_cloud_4B
         loc_AD25:
             .byte con_jsr
             .word sub_ABB8
@@ -8741,29 +8736,29 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .word sub_ABAE
             .byte con_soundID_delay, $0E, $02
             .byte con_pause + $30
-            .byte con_bg + $62
-            .byte con_animation + $40
-            .byte con_cloud + con_clear
+            .byte con_s_bg_62
+            .byte con_s_animation_40
+            .byte con_s_cloud_clear
             .byte con_F7, $3D
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $28
-            .byte con_bg + $1F
-            .byte con_animation + $71
-            .byte con_cloud + $49
+            .byte con_s_bg_1F
+            .byte con_s_animation_71
+            .byte con_s_cloud_49
             .byte con_F7, $3D
             .byte con_soundID_delay, $1B, $21
             .byte con_pause + $46
-            .byte con_bg + $51
-            .byte con_animation + $E8
-            .byte con_cloud + con_skip
+            .byte con_s_bg_51
+            .byte con_s_animation_E8
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         off_case_9CF3_13_01:
         ; sano combo/jito куними
             .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $AA
-            .byte con_cloud + $B9
+            .byte con_s_bg_30
+            .byte con_s_animation_AA
+            .byte con_s_cloud_B9
             .byte con_jmp
             .word loc_AD25
 
@@ -8776,9 +8771,9 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_F7, $02
             .byte con_soundID_delay, $06, $02
             .byte con_pause + $20
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
@@ -8791,22 +8786,22 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_F7, $3E
             .byte con_moving_bg, $02
             .byte con_pause + $28
-            .byte con_bg + $58
-            .byte con_animation + $C8
-            .byte con_cloud + con_clear
+            .byte con_s_bg_58
+            .byte con_s_animation_C8
+            .byte con_s_cloud_clear
             .byte con_F7, $29
             .byte con_soundID_delay, $14, $02
             .byte con_pause + $1E
-            .byte con_bg + $47
-            .byte con_animation + $E9
-            .byte con_cloud + $04
+            .byte con_s_bg_47
+            .byte con_s_animation_E9
+            .byte con_s_cloud_04
             .byte con_F7, $3E
             .byte con_moving_bg, $02
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $28
-            .byte con_bg + $58
-            .byte con_animation + $C5
-            .byte con_cloud + con_skip
+            .byte con_s_bg_58
+            .byte con_s_animation_C5
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         bra_long_case_9CF3_16:
@@ -8818,60 +8813,60 @@ loc_9CF3_игрок_делает_удар_с_земли:
                 off_case_9CF3_16_00:
                 ; mirage shot/con_p_carlos_flamengo
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $A9
-                    .byte con_cloud + $BA
+                    .byte con_s_bg_30
+                    .byte con_s_animation_A9
+                    .byte con_s_cloud_BA
                 loc_AD89_16_01:
                     .byte con_jsr
                     .word sub_BBC7_очистка
                     .byte con_F7, $26
                     .byte con_soundID_delay, $15, $02
                     .byte con_pause + $28
-                    .byte con_bg + $49
-                    .byte con_animation + $8E
-                    .byte con_cloud + $49
+                    .byte con_s_bg_49
+                    .byte con_s_animation_8E
+                    .byte con_s_cloud_49
                     .byte con_jsr
                     .word sub_AB9A
                     .byte con_F7, $02
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $20
-                    .byte con_bg + $25
-                    .byte con_animation + $63
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_25
+                    .byte con_s_animation_63
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
                 off_case_9CF3_16_01:
                 ; mirage shot/con_p_carlos_brazil
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $BB
-                    .byte con_cloud + $BA
+                    .byte con_s_bg_30
+                    .byte con_s_animation_BB
+                    .byte con_s_cloud_BA
                     .byte con_jmp
                     .word loc_AD89_16_01
 
         bra_long_case_9CF3_17:
         ; mach shot
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $BC
-            .byte con_cloud + $BB
+            .byte con_s_bg_30
+            .byte con_s_animation_BC
+            .byte con_s_cloud_BB
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $0D
             .byte con_soundID_delay, $16, $02
             .byte con_pause + $28
-            .byte con_bg + $4A
-            .byte con_animation + $8E
-            .byte con_cloud + $49
+            .byte con_s_bg_4A
+            .byte con_s_animation_8E
+            .byte con_s_cloud_49
             .byte con_jsr
             .word sub_ABA4
             .byte con_F7, $02
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $20
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
@@ -8884,42 +8879,42 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_F7, $02
             .byte con_soundID_delay, $08, $02
             .byte con_pause + $20
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
         bra_long_case_9CF3_19:
         ; slider shot
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $B5
-            .byte con_cloud + $BC
+            .byte con_s_bg_30
+            .byte con_s_animation_B5
+            .byte con_s_cloud_BC
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_soundID_delay, $17, $02
             .byte con_pause + $3C
-            .byte con_bg + $6A
-            .byte con_animation + $9D
-            .byte con_cloud + $49
+            .byte con_s_bg_6A
+            .byte con_s_animation_9D
+            .byte con_s_cloud_49
             .byte con_jsr
             .word sub_AB90
             .byte con_F7, $02
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $28
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
         bra_long_case_9CF3_1A:
         ; cannon shot
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $B4
-            .byte con_cloud + $BD
+            .byte con_s_bg_30
+            .byte con_s_animation_B4
+            .byte con_s_cloud_BD
             .byte con_jsr
             .word sub_ABB8
             .byte con_jsr
@@ -8927,38 +8922,38 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_F7, $02
             .byte con_soundID_delay, $06, $02
             .byte con_pause + $28
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
         bra_long_case_9CF3_1B:
         ; fire shot
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $B8
-            .byte con_cloud + $BE
+            .byte con_s_bg_30
+            .byte con_s_animation_B8
+            .byte con_s_cloud_BE
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $1D
             .byte con_soundID_delay, $16, $02
             .byte con_pause + $28
-            .byte con_bg + $4A
-            .byte con_animation + $8E
-            .byte con_cloud + $49
+            .byte con_s_bg_4A
+            .byte con_s_animation_8E
+            .byte con_s_cloud_49
             .byte con_F7, $04
             .byte con_soundID_delay, $13, $10
             .byte con_pause + $10
-            .byte con_bg + $41
-            .byte con_animation + $8C
-            .byte con_cloud + $6C
+            .byte con_s_bg_41
+            .byte con_s_animation_8C
+            .byte con_s_cloud_6C
             .byte con_F7, $02
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $28
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
@@ -8967,17 +8962,17 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_F7, $31
             .byte con_soundID_delay, $16, $02
             .byte con_pause + $28
-            .byte con_bg + $4A
-            .byte con_animation + $8E
-            .byte con_cloud + $49
+            .byte con_s_bg_4A
+            .byte con_s_animation_8E
+            .byte con_s_cloud_49
             .byte con_jsr
             .word sub_AB9A
             .byte con_F7, $02
             .byte con_soundID_delay, $08, $02
             .byte con_pause + $28
-            .byte con_bg + $25
-            .byte con_animation + $63
-            .byte con_cloud + con_skip
+            .byte con_s_bg_25
+            .byte con_s_animation_63
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
@@ -8995,7 +8990,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
     .word bra_long_case_9D52_FF ; 07
     .word bra_long_case_9D52_08 ; skylab hurricane
     .word bra_long_case_9D52_FF ; 09
-    .word bra_long_case_9D52_0A ; skylab twin shot
+    .word bra_long_case_9D52_0A ; skylab x2 twin shot
     .word bra_long_case_9D52_FF ; 0B
     .word bra_long_case_9D52_FF ; 0C
     .word bra_long_case_9D52_FF ; 0D
@@ -9003,7 +8998,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
     .word bra_long_case_9D52_0F ; hyper overhead
     .word bra_long_case_9D52_FF ; 10
     .word bra_long_case_9D52_FF ; 11
-    .word bra_long_case_9D52_12 ; cyclone high
+    .word bra_long_case_9D52_12 ; cyclone
     .word bra_long_case_9D52_FF ; 13
     .word bra_long_case_9D52_FF ; 14
     .word bra_long_case_9D52_FF ; 15
@@ -9029,37 +9024,37 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
         ; header
             .byte con_soundID_delay, $1B, $21
             .byte con_pause + $48
-            .byte con_bg + $2A
-            .byte con_animation + $3B
-            .byte con_cloud + $47
+            .byte con_s_bg_2A
+            .byte con_s_animation_3B
+            .byte con_s_cloud_47
             .byte con_rts
 
         bra_long_case_9D52_04:
         ; drive overhead
             .byte con_pause + $01
-            .byte con_bg + $71
-            .byte con_animation + $00
-            .byte con_cloud + con_clear
+            .byte con_s_bg_71
+            .byte con_s_animation_00
+            .byte con_s_cloud_clear
             .byte con_mirror_toggle
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $91
-            .byte con_cloud + $A4
+            .byte con_s_bg_30
+            .byte con_s_animation_91
+            .byte con_s_cloud_A4
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $22
-            .byte con_bg + $20
-            .byte con_animation + $ED
-            .byte con_cloud + con_skip
+            .byte con_s_bg_20
+            .byte con_s_animation_ED
+            .byte con_s_cloud_FF_skip
             .byte con_F7, $10
             .byte con_pause + $1C
-            .byte con_bg + $05
-            .byte con_animation + $00
-            .byte con_cloud + con_clear
+            .byte con_s_bg_05
+            .byte con_s_animation_00
+            .byte con_s_cloud_clear
             .byte con_soundID_delay, $2B, $31
             .byte con_pause + $40
-            .byte con_bg + $47
-            .byte con_animation + $BF
-            .byte con_cloud + $49
+            .byte con_s_bg_47
+            .byte con_s_animation_BF
+            .byte con_s_cloud_49
             .byte con_mirror_toggle
             .byte con_rts
 
@@ -9067,13 +9062,13 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
         ; skylab hurricane
             .byte con_soundID_delay, $1A, $21
             .byte con_pause + $50
-            .byte con_bg + $2A
-            .byte con_animation + $3B
-            .byte con_cloud + $49
+            .byte con_s_bg_2A
+            .byte con_s_animation_3B
+            .byte con_s_cloud_49
             .byte con_rts
 
         bra_long_case_9D52_0A:
-        ; skylab twin shot
+        ; skylab x2 twin shot
             .byte con_jmp
             .word loc_B22E
 
@@ -9123,45 +9118,45 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                 off_case_9D52_0E_01:
                 ; tsubasa
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $91
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_91
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
                 off_case_9D52_0E_02:
                 ; misaki
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $96
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_96
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
                 off_case_9D52_0E_03:
                 ; misaki
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $97
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_97
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
                 off_case_9D52_0E_04:
                 ; hyuga
                     .byte con_pause + $3C
-                    .byte con_bg + $31
-                    .byte con_animation + $9E
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_31
+                    .byte con_s_animation_9E
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
                 off_case_9D52_0E_05:
                 ; hyuga
                     .byte con_pause + $3C
-                    .byte con_bg + $31
-                    .byte con_animation + $B0
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_31
+                    .byte con_s_animation_B0
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9173,18 +9168,18 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                 off_case_9D52_0E_08:
                 ; matsuyama
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $A1
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_A1
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
                 off_case_9D52_0E_09:
                 ; matsuyama
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $AF
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_AF
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9207,36 +9202,36 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                 off_case_9D52_0E_16:
                 ; coimbra
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $BC
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_BC
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
                 off_case_9D52_0E_17:
                 ; carlos
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $A9
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_A9
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
                 off_case_9D52_0E_18:
                 ; carlos
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $BB
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_BB
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
                 off_case_9D52_0E_19:
                 ; schneider
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B8
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B8
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9249,9 +9244,9 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                 off_case_9D52_0E_1C:
                 ; diaz
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B7
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B7
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9265,9 +9260,9 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                 off_case_9D52_0E_20:
                 ; victorino
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B2
-                    .byte con_cloud + $B4
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B2
+                    .byte con_s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9286,23 +9281,23 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                         ; hyper overhead/con_p_misugi_my, con_p_misugi_japan
                             .byte con_mirror_toggle
                             .byte con_pause + $3C
-                            .byte con_bg + $30
-                            .byte con_animation + $A3
-                            .byte con_cloud + $B5
+                            .byte con_s_bg_30
+                            .byte con_s_animation_A3
+                            .byte con_s_cloud_B5
                         loc_B082_прыжок_misugi_для_hyper_overhead:
                             .byte con_soundID_delay, $25, $02
                             .byte con_pause + $19
-                            .byte con_bg + $1F
-                            .byte con_animation + $AC
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_1F
+                            .byte con_s_animation_AC
+                            .byte con_s_cloud_FF_skip
                             .byte con_jsr
                             .word sub_BBC7_очистка
                             .byte con_F7, $1D
                             .byte con_soundID_delay, $2B, $31
                             .byte con_pause + $4B
-                            .byte con_bg + $49
-                            .byte con_animation + $BF
-                            .byte con_cloud + $49
+                            .byte con_s_bg_49
+                            .byte con_s_animation_BF
+                            .byte con_s_cloud_49
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -9310,43 +9305,43 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                         ; hyper overhead/con_p_misugi_musashi
                             .byte con_mirror_toggle
                             .byte con_pause + $3C
-                            .byte con_bg + $30
-                            .byte con_animation + $AE
-                            .byte con_cloud + $B5
+                            .byte con_s_bg_30
+                            .byte con_s_animation_AE
+                            .byte con_s_cloud_B5
                             .byte con_jmp
                             .word loc_B082_прыжок_misugi_для_hyper_overhead
 
                 bra_long_case_9D52_12:
-                ; cyclone high
+                ; cyclone
                     .byte con_mirror_off
                     .byte con_soundID_delay, $2B, $19
                     .byte con_pause + $3C
-                    .byte con_bg + $29
-                    .byte con_animation + $C6
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_29
+                    .byte con_s_animation_C6
+                    .byte con_s_cloud_clear
 loc_B0A7_tsubasa_cyclone_полная_анимация:
 sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_soundID_delay, $22, $02
                     .byte con_pause + $64
-                    .byte con_bg + $52
-                    .byte con_animation + $E5
-                    .byte con_cloud + $B5
+                    .byte con_s_bg_52
+                    .byte con_s_animation_E5
+                    .byte con_s_cloud_B5
                     .byte con_F7, $2F
                     .byte con_soundID_delay, $1F, $02
                     .byte con_pause + $64
-                    .byte con_bg + $4A
-                    .byte con_animation + $C7
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_4A
+                    .byte con_s_animation_C7
+                    .byte con_s_cloud_FF_skip
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $91
-                    .byte con_cloud + $AF
+                    .byte con_s_bg_30
+                    .byte con_s_animation_91
+                    .byte con_s_cloud_AF
                     .byte con_soundID_delay, $23, $11
                     .byte con_F7, $04
                     .byte con_pause + $28
-                    .byte con_bg + $41
-                    .byte con_animation + $8C
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_41
+                    .byte con_s_animation_8C
+                    .byte con_s_cloud_clear
                     .byte con_jmp
                     .word loc_AB42_мяч_улетает_от_игрока_после_удара
 
@@ -9355,9 +9350,9 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_F7, $1E
                     .byte con_soundID_delay, $1A, $21
                     .byte con_pause + $48
-                    .byte con_bg + $05
-                    .byte con_animation + $3B
-                    .byte con_cloud + $49
+                    .byte con_s_bg_05
+                    .byte con_s_animation_3B
+                    .byte con_s_cloud_49
                     .byte con_F7, $1E
                     .byte con_rts
 
@@ -9366,9 +9361,9 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_F7, $2A
                     .byte con_soundID_delay, $1A, $21
                     .byte con_pause + $48
-                    .byte con_bg + $4B
-                    .byte con_animation + $3B
-                    .byte con_cloud + $49
+                    .byte con_s_bg_4B
+                    .byte con_s_animation_3B
+                    .byte con_s_cloud_49
                     .byte con_rts
 
                 bra_long_case_9D52_1E:
@@ -9376,25 +9371,25 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_F7, $20
                     .byte con_soundID_delay, $1A, $21
                     .byte con_pause + $56
-                    .byte con_bg + $48
-                    .byte con_animation + $CA
-                    .byte con_cloud + $49
+                    .byte con_s_bg_48
+                    .byte con_s_animation_CA
+                    .byte con_s_cloud_49
                     .byte con_rts
 
                 bra_long_case_9D52_1F:
                 ; rising dragon kick
                     .byte con_soundID_delay, $1A, $02
                     .byte con_pause + $1E
-                    .byte con_bg + $1D
-                    .byte con_animation + $69
-                    .byte con_cloud + $49
+                    .byte con_s_bg_1D
+                    .byte con_s_animation_69
+                    .byte con_s_cloud_49
                     .byte con_FE
                     .byte con_moving_bg, $03
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $28
-                    .byte con_bg + $58
-                    .byte con_animation + $6A
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_58
+                    .byte con_s_animation_6A
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
 
                 bra_long_case_9D52_21:
@@ -9416,7 +9411,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
     .word bra_long_case_9D9A_FF ; 07
     .word bra_long_case_9D9A_FF ; 08
     .word bra_long_case_9D9A_09 ; twin shot
-    .word bra_long_case_9D9A_0A ; skylab twin shot
+    .word bra_long_case_9D9A_0A ; skylab x2 twin shot
     .word bra_long_case_9D9A_FF ; 0B
     .word bra_long_case_9D9A_FF ; 0C
     .word bra_long_case_9D9A_FF ; 0D
@@ -9450,20 +9445,20 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
         ; volley
             .byte con_moving_bg, $03
             .byte con_pause + $1E
-            .byte con_bg + $58
-            .byte con_animation + $68
-            .byte con_cloud + $47
+            .byte con_s_bg_58
+            .byte con_s_animation_68
+            .byte con_s_cloud_47
             .byte con_F7, $28
             .byte con_soundID_delay, $14, $02
             .byte con_pause + $19
-            .byte con_bg + $05
-            .byte con_animation + $69
-            .byte con_cloud + con_skip
+            .byte con_s_bg_05
+            .byte con_s_animation_69
+            .byte con_s_cloud_FF_skip
             .byte con_moving_bg, $03
             .byte con_pause + $28
-            .byte con_bg + $58
-            .byte con_animation + $6A
-            .byte con_cloud + con_skip
+            .byte con_s_bg_58
+            .byte con_s_animation_6A
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         bra_long_case_9D9A_06:
@@ -9475,43 +9470,43 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                 off_case_9D9A_06_00:
                 ; falcon volley/con_p_nitta_my
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9A
-                    .byte con_cloud + $BC
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9A
+                    .byte con_s_cloud_BC
                 loc_B1A0_falcon_volley:
                     .byte con_F7, $02
                     .byte con_mirror_toggle
                     .byte con_pause + $14
-                    .byte con_bg + $24
-                    .byte con_animation + $6B
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_24
+                    .byte con_s_animation_6B
+                    .byte con_s_cloud_clear
                     .byte con_mirror_toggle
                     .byte con_F7, $10
                     .byte con_pause + $1E
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_FF_skip
                     .byte con_F7, $30
                     .byte con_soundID_delay, $14, $02
                     .byte con_pause + $28
-                    .byte con_bg + $47
-                    .byte con_animation + $69
-                    .byte con_cloud + $49
+                    .byte con_s_bg_47
+                    .byte con_s_animation_69
+                    .byte con_s_cloud_49
                     .byte con_moving_bg, $03
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $28
-                    .byte con_bg + $58
-                    .byte con_animation + $6A
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_58
+                    .byte con_s_animation_6A
+                    .byte con_s_cloud_FF_skip
                     .byte con_FE
                     .byte con_rts
 
                 off_case_9D9A_06_01:
                 ; falcon volley/con_p_nitta_japan
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9B
-                    .byte con_cloud + $BC
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9B
+                    .byte con_s_cloud_BC
                     .byte con_jmp
                     .word loc_B1A0_falcon_volley
 
@@ -9543,26 +9538,26 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $91
-                    .byte con_cloud + $AA
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_91
+                    .byte con_s_cloud_AA
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $96
-                    .byte con_cloud + $AB
+                    .byte con_s_bg_30
+                    .byte con_s_animation_96
+                    .byte con_s_cloud_AB
                     .byte con_F7, $10
                     .byte con_pause + $16
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $14, $02
                     .byte con_F7, $36
                     .byte con_pause + $3C
-                    .byte con_bg + $05
-                    .byte con_animation + $D6
-                    .byte con_cloud + $04
+                    .byte con_s_bg_05
+                    .byte con_s_animation_D6
+                    .byte con_s_cloud_04
                     .byte con_jmp
                     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
 
@@ -9576,27 +9571,27 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_soundID_delay, $26, $02
                     .byte con_F7, $02
                     .byte con_pause + $28
-                    .byte con_bg + $22
-                    .byte con_animation + $6B
-                    .byte con_cloud + $8D
+                    .byte con_s_bg_22
+                    .byte con_s_animation_6B
+                    .byte con_s_cloud_8D
                     .byte con_F7, $10
                     .byte con_pause + $16
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $14, $02
                     .byte con_F7, $36
                     .byte con_pause + $3C
-                    .byte con_bg + $05
-                    .byte con_animation + $D9
-                    .byte con_cloud + $04
+                    .byte con_s_bg_05
+                    .byte con_s_animation_D9
+                    .byte con_s_cloud_04
                 loc_B1F6_мяч_улетает_от_игроков_после_twin_shot:
                     .byte con_F7, $23
                     .byte con_soundID_delay, $09, $02
                     .byte con_pause + $46
-                    .byte con_bg + $27
-                    .byte con_animation + $DC
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_27
+                    .byte con_s_animation_DC
+                    .byte con_s_cloud_FF_skip
                     .byte con_rts
                 
                 off_case_9D9A_09_07:
@@ -9607,27 +9602,27 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $9C
-                    .byte con_cloud + $AC
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_9C
+                    .byte con_s_cloud_AC
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $9C
-                    .byte con_cloud + $AD
+                    .byte con_s_bg_30
+                    .byte con_s_animation_9C
+                    .byte con_s_cloud_AD
 loc_B22E:
                     .byte con_F7, $10
                     .byte con_pause + $16
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $14, $02
                     .byte con_F7, $36
                     .byte con_pause + $3C
-                    .byte con_bg + $05
-                    .byte con_animation + $D8
-                    .byte con_cloud + $04
+                    .byte con_s_bg_05
+                    .byte con_s_animation_D8
+                    .byte con_s_cloud_04
                     .byte con_jmp
                     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
                 
@@ -9637,15 +9632,15 @@ loc_B22E:
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $AB
-                    .byte con_cloud + $AC
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_AB
+                    .byte con_s_cloud_AC
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $AB
-                    .byte con_cloud + $AD
+                    .byte con_s_bg_30
+                    .byte con_s_animation_AB
+                    .byte con_s_cloud_AD
                     .byte con_jmp
                     .word loc_B22E
 
@@ -9659,7 +9654,7 @@ loc_B22E:
                     .word loc_B1DE_twin_shot
 
         bra_long_case_9D9A_0A:
-        ; skylab twin shot
+        ; skylab x2 twin shot
             .byte con_jmp
             .word loc_B22E
 
@@ -9669,21 +9664,21 @@ loc_B251_misaki_jumping_volley_в_процессе:
             .byte con_F7, $31
             .byte con_soundID_delay, $16, $02
             .byte con_pause + $28
-            .byte con_bg + $6A
-            .byte con_animation + $C4
-            .byte con_cloud + $49
+            .byte con_s_bg_6A
+            .byte con_s_animation_C4
+            .byte con_s_cloud_49
             .byte con_F7, $21
             .byte con_soundID_delay, $14, $02
             .byte con_pause + $16
-            .byte con_bg + $05
-            .byte con_animation + $69
-            .byte con_cloud + con_skip
+            .byte con_s_bg_05
+            .byte con_s_animation_69
+            .byte con_s_cloud_FF_skip
             .byte con_moving_bg, $04
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $28
-            .byte con_bg + $58
-            .byte con_animation + $C5
-            .byte con_cloud + con_skip
+            .byte con_s_bg_58
+            .byte con_s_animation_C5
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -9699,35 +9694,35 @@ loc_AD0C_cyclone:
         bra_long_case_9D9A_20:
         ; foward somersault
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $B7
-            .byte con_cloud + $13
+            .byte con_s_bg_30
+            .byte con_s_animation_B7
+            .byte con_s_cloud_13
             .byte con_F7, $31
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $1B
-            .byte con_bg + $48
-            .byte con_animation + $CC
-            .byte con_cloud + $DE
+            .byte con_s_bg_48
+            .byte con_s_animation_CC
+            .byte con_s_cloud_DE
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $0E
             .byte con_pause + $28
-            .byte con_bg + $05
-            .byte con_animation + $00
-            .byte con_cloud + $49
+            .byte con_s_bg_05
+            .byte con_s_animation_00
+            .byte con_s_cloud_49
             .byte con_F7, $19
             .byte con_soundID_delay, $1A, $11
             .byte con_pause + $28
-            .byte con_bg + $5C
-            .byte con_animation + $CD
-            .byte con_cloud + con_skip
+            .byte con_s_bg_5C
+            .byte con_s_animation_CD
+            .byte con_s_cloud_FF_skip
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $1F
             .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $B7
-            .byte con_cloud + $BF
+            .byte con_s_bg_30
+            .byte con_s_animation_B7
+            .byte con_s_cloud_BF
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -9742,54 +9737,54 @@ loc_AD0C_cyclone:
                     .byte con_mirror_off
                     .byte con_F7, $10
                     .byte con_pause + $28
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $46, $02
                     .byte con_pause + $10
-                    .byte con_bg + $54
-                    .byte con_animation + $D4
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_54
+                    .byte con_s_animation_D4
+                    .byte con_s_cloud_clear
                     .byte con_pause + $78
-                    .byte con_bg + $30
-                    .byte con_animation + $B5
-                    .byte con_cloud + $8A
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B5
+                    .byte con_s_cloud_8A
                     .byte con_jsr
                     .word sub_BBC7_очистка
                     .byte con_mirror_toggle
                     .byte con_pause + $10
-                    .byte con_bg + $54
-                    .byte con_animation + $D5
-                    .byte con_cloud + $8B
+                    .byte con_s_bg_54
+                    .byte con_s_animation_D5
+                    .byte con_s_cloud_8B
                     .byte con_pause + $B8
-                    .byte con_bg + $30
-                    .byte con_animation + $B4
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B4
+                    .byte con_s_cloud_FF_skip
                     .byte con_pause + $C0
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_FF_skip
                     .byte con_jsr
                     .word sub_BBC7_очистка
                     .byte con_mirror_toggle
                     .byte con_pause + $10
-                    .byte con_bg + $54
-                    .byte con_animation + $D4
-                    .byte con_cloud + $8C
+                    .byte con_s_bg_54
+                    .byte con_s_animation_D4
+                    .byte con_s_cloud_8C
                     .byte con_pause + $B8
-                    .byte con_bg + $30
-                    .byte con_animation + $B5
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B5
+                    .byte con_s_cloud_FF_skip
                     .byte con_pause + $C0
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_FF_skip
                     .byte con_F7, $1F
                     .byte con_soundID_delay, $30, $02
                     .byte con_pause + $1E
-                    .byte con_bg + $30
-                    .byte con_animation + $B5
-                    .byte con_cloud + $8D
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B5
+                    .byte con_s_cloud_8D
                     .byte con_soundID_delay, $7F, $02
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -9797,49 +9792,49 @@ loc_AD0C_cyclone:
                     .byte con_mirror_off
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + $B5
-                    .byte con_cloud + $C1
+                    .byte con_s_bg_30
+                    .byte con_s_animation_B5
+                    .byte con_s_cloud_C1
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
-                    .byte con_bg + $4F
-                    .byte con_animation + $B4
-                    .byte con_cloud + $C0
+                    .byte con_s_bg_4F
+                    .byte con_s_animation_B4
+                    .byte con_s_cloud_C0
                     .byte con_soundID_delay, $25, $02
                     .byte con_pause + $28
-                    .byte con_bg + $1F
-                    .byte con_animation + $EB
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_1F
+                    .byte con_s_animation_EB
+                    .byte con_s_cloud_clear
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $25, $02
                     .byte con_pause + $28
-                    .byte con_bg + $1F
-                    .byte con_animation + $EC
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_1F
+                    .byte con_s_animation_EC
+                    .byte con_s_cloud_FF_skip
                     .byte con_F7, $31
                     .byte con_soundID_delay, $24, $02
                     .byte con_pause + $27
-                    .byte con_bg + $6A
-                    .byte con_animation + $DB
-                    .byte con_cloud + $DE
+                    .byte con_s_bg_6A
+                    .byte con_s_animation_DB
+                    .byte con_s_cloud_DE
                     .byte con_F7, $20
                     .byte con_pause + $5E
-                    .byte con_bg + $49
-                    .byte con_animation + con_skip
-                    .byte con_cloud + $DE
+                    .byte con_s_bg_49
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_DE
                     .byte con_F7, $10
                     .byte con_soundID_delay, $14, $02
                     .byte con_pause + $1E
-                    .byte con_bg + $05
-                    .byte con_animation + $00
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_05
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $09, $02
                     .byte con_moving_bg, $03
                     .byte con_pause + $46
-                    .byte con_bg + $59
-                    .byte con_animation + $DC
-                    .byte con_cloud + $04
+                    .byte con_s_bg_59
+                    .byte con_s_animation_DC
+                    .byte con_s_cloud_04
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -9885,17 +9880,17 @@ sub_9E1B_рандом_анимации_отпизженного_игрока_4_�
         off_case_9E1B_00:
         ; random 1
             .byte con_pause + $32
-            .byte con_bg + $1C
-            .byte con_animation + $13
-            .byte con_cloud + $02
+            .byte con_s_bg_1C
+            .byte con_s_animation_13
+            .byte con_s_cloud_02
             .byte con_rts
 
         off_case_9E1B_01:
         ; random 2
             .byte con_pause + $32
-            .byte con_bg + $1C
-            .byte con_animation + $14
-            .byte con_cloud + $02
+            .byte con_s_bg_1C
+            .byte con_s_animation_14
+            .byte con_s_cloud_02
             .byte con_rts
 
 
@@ -9911,30 +9906,30 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
         ; pass
             .byte con_soundID_delay, $2B, $05
             .byte con_pause + $3C
-            .byte con_bg + $72
-            .byte con_animation + $66
-            .byte con_cloud + $47
+            .byte con_s_bg_72
+            .byte con_s_animation_66
+            .byte con_s_cloud_47
             .byte con_rts
 
         off_case_9E45_01:
         ; drive pass
             .byte con_mirror_off
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $91
-            .byte con_cloud + $C2
+            .byte con_s_bg_30
+            .byte con_s_animation_91
+            .byte con_s_cloud_C2
             .byte con_F7, $10
             .byte con_soundID_delay, $12, $02
             .byte con_pause + $14
-            .byte con_bg + $10
-            .byte con_animation + $62
-            .byte con_cloud + con_skip
+            .byte con_s_bg_10
+            .byte con_s_animation_62
+            .byte con_s_cloud_FF_skip
             .byte con_F7, $02
             .byte con_soundID_delay, $04, $02
             .byte con_pause + $27
-            .byte con_bg + $24
-            .byte con_animation + $66
-            .byte con_cloud + con_skip
+            .byte con_s_bg_24
+            .byte con_s_animation_66
+            .byte con_s_cloud_FF_skip
             .byte con_jmp
             .word loc_AB6B
 
@@ -9953,9 +9948,9 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
                     .byte con_F7, $02
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $27
-                    .byte con_bg + $24
-                    .byte con_animation + $66
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_24
+                    .byte con_s_animation_66
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_AB6B
 
@@ -9972,15 +9967,15 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
             .byte con_F7, $10
             .byte con_soundID_delay, $12, $02
             .byte con_pause + $1D
-            .byte con_bg + $10
-            .byte con_animation + $62
-            .byte con_cloud + $49
+            .byte con_s_bg_10
+            .byte con_s_animation_62
+            .byte con_s_cloud_49
             .byte con_F7, $02
             .byte con_soundID_delay, $07, $02
             .byte con_pause + $37
-            .byte con_bg + $24
-            .byte con_animation + $66
-            .byte con_cloud + con_skip
+            .byte con_s_bg_24
+            .byte con_s_animation_66
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
 
@@ -9988,9 +9983,9 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
 loc_9E4F_пас_головой_в_воздухе:
     .byte con_soundID_delay, $2B, $15     ; отбитие мяча
     .byte con_pause + $3F
-    .byte con_bg + $2A
-    .byte con_animation + $19
-    .byte con_cloud + $47
+    .byte con_s_bg_2A
+    .byte con_s_animation_19
+    .byte con_s_cloud_47
     .byte con_rts
 
 
@@ -10017,9 +10012,9 @@ sub_9E64_рожа_атакующего_с_сообщением_неудачи_е
                 off_case_9E64_01_01:
                 ; оба соперника с рожами/атакующий с рожей
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + con_face_attacker
-                    .byte con_cloud + $8E
+                    .byte con_s_bg_30
+                    .byte con_s_animation_FD_attacker
+                    .byte con_s_cloud_8E
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -10047,9 +10042,9 @@ sub_9E65_рожа_атакующего_с_сообщением_неудачи_е
                 off_case_9E65_01_01:
                 ; оба соперника с рожами/атакующий с рожей
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + con_face_attacker
-                    .byte con_cloud + $90
+                    .byte con_s_bg_30
+                    .byte con_s_animation_FD_attacker
+                    .byte con_s_cloud_90
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -10078,9 +10073,9 @@ sub_9EAA_рожа_защитника_с_сообщением_неудачи_ес
                 off_case_9EAA_01_01:
                 ; оба соперника с рожами/защитник с рожей
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + con_face_defender
-                    .byte con_cloud + $8F
+                    .byte con_s_bg_30
+                    .byte con_s_animation_FE_defender
+                    .byte con_s_cloud_8F
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -10108,9 +10103,9 @@ sub_9EAB_рожа_защитника_с_сообщением_неудачи_ес
                 off_case_9EAB_01_01:
                 ; оба соперника с рожами/защитник с рожей
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + con_face_defender
-                    .byte con_cloud + $90
+                    .byte con_s_bg_30
+                    .byte con_s_animation_FE_defender
+                    .byte con_s_cloud_90
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -10135,7 +10130,7 @@ sub_9EF6_выбор_анимации_полета_удара:
     .word bra_long_case_B53F_07 ; razor shot
     .word bra_long_case_B4F7_08 ; skylab hurricane
     .word bra_long_case_B553_09 ; twin shot
-    .word bra_long_case_B55A_0A ; skylab twin shot
+    .word bra_long_case_B55A_0A ; skylab x2 twin shot
     .word bra_long_case_B567_0B ; eagle shot
     .word bra_long_case_B575_0C ; tiger shot
     .word bra_long_case_B583_0D ; neo tiger shot
@@ -10166,18 +10161,18 @@ sub_9EF6_выбор_анимации_полета_удара:
 sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_soundID_delay, $03, $02
             .byte con_pause + $3C
-            .byte con_bg + $1F
-            .byte con_animation + $84
-            .byte con_cloud + con_clear
+            .byte con_s_bg_1F
+            .byte con_s_animation_84
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B4EF_01:
         ; header
             .byte con_soundID_delay, $04, $02
             .byte con_pause + $37
-            .byte con_bg + $2A
-            .byte con_animation + $1A
-            .byte con_cloud + con_clear
+            .byte con_s_bg_2A
+            .byte con_s_animation_1A
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B4F7_02:
@@ -10189,9 +10184,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
         ; drive shot
             .byte con_soundID_delay, $04, $02
             .byte con_pause + $37
-            .byte con_bg + $00
-            .byte con_animation + $01
-            .byte con_cloud + con_clear
+            .byte con_s_bg_00
+            .byte con_s_animation_01
+            .byte con_s_cloud_clear
         loc_B502:
             .byte con_jsr
             .word sub_BB5D_одна_из_анимаций_drive_shot
@@ -10203,23 +10198,23 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
         sub_B509_drive_overhead:
             .byte con_soundID_delay, $04, $02
             .byte con_pause + $2A
-            .byte con_bg + $00
-            .byte con_animation + $0F
-            .byte con_cloud + con_clear
+            .byte con_s_bg_00
+            .byte con_s_animation_0F
+            .byte con_s_cloud_clear
             .byte con_F7, $33
             .byte con_soundID_delay, $05, $02
             .byte con_pause + $36
-            .byte con_bg + $27
-            .byte con_animation + $10
-            .byte con_cloud + con_clear
+            .byte con_s_bg_27
+            .byte con_s_animation_10
+            .byte con_s_cloud_clear
         sub_B519:
             .byte con_mirror_toggle
             .byte con_soundID_delay, $08, $02
             .byte con_F7, $09
             .byte con_pause + $24
-            .byte con_bg + $43
-            .byte con_animation + $5F
-            .byte con_cloud + con_clear
+            .byte con_s_bg_43
+            .byte con_s_animation_5F
+            .byte con_s_cloud_clear
             .byte con_mirror_toggle
             .byte con_rts
 
@@ -10230,9 +10225,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_F7, $33
             .byte con_soundID_delay, $06, $02
             .byte con_pause + $2A
-            .byte con_bg + $27
-            .byte con_animation + $12
-            .byte con_cloud + con_clear
+            .byte con_s_bg_27
+            .byte con_s_animation_12
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B532_06:
@@ -10242,9 +10237,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_soundID_delay, $04, $02
             .byte con_F7, $30
             .byte con_pause + $30
-            .byte con_bg + $4B
-            .byte con_animation + $0F
-            .byte con_cloud + con_clear
+            .byte con_s_bg_4B
+            .byte con_s_animation_0F
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B53F_07:
@@ -10255,9 +10250,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
         loc_B543:
             .byte con_soundID_delay, $08, $02
             .byte con_pause + $34
-            .byte con_bg + $56
-            .byte con_animation + $1D
-            .byte con_cloud + con_clear
+            .byte con_s_bg_56
+            .byte con_s_animation_1D
+            .byte con_s_cloud_clear
             .byte con_mirror_toggle
             .byte con_jsr
             .word sub_BB8F
@@ -10277,15 +10272,15 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_rts
 
         bra_long_case_B55A_0A:
-        ; skylab twin shot
+        ; skylab x2 twin shot
             .byte con_jsr
             .word sub_BBA7_полет_twin_shot_1
             .byte con_F7, $3A
             .byte con_soundID_delay, $0A, $02
             .byte con_pause + $46
-            .byte con_bg + $24
-            .byte con_animation + $28
-            .byte con_cloud + con_clear
+            .byte con_s_bg_24
+            .byte con_s_animation_28
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B567_0B:
@@ -10294,9 +10289,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .word sub_BB85
             .byte con_soundID_delay, $5E, $02
             .byte con_pause + $1E
-            .byte con_bg + $35
-            .byte con_animation + $32
-            .byte con_cloud + con_clear
+            .byte con_s_bg_35
+            .byte con_s_animation_32
+            .byte con_s_cloud_clear
             .byte con_jsr
             .word sub_BB85
             .byte con_rts
@@ -10307,9 +10302,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .word sub_BB8F
             .byte con_soundID_delay, $07, $02
             .byte con_pause + $32
-            .byte con_bg + $02
-            .byte con_animation + $36
-            .byte con_cloud + con_clear
+            .byte con_s_bg_02
+            .byte con_s_animation_36
+            .byte con_s_cloud_clear
             .byte con_jsr
             .word sub_BB7D
             .byte con_rts
@@ -10328,9 +10323,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_F7, $16
             .byte con_soundID_delay, $07, $02
             .byte con_pause + $32
-            .byte con_bg + $49
-            .byte con_animation + $36
-            .byte con_cloud + con_clear
+            .byte con_s_bg_49
+            .byte con_s_animation_36
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B599_0E:
@@ -10360,54 +10355,54 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_F7, $33
             .byte con_soundID_delay, $07, $02
             .byte con_pause + $32
-            .byte con_bg + $27
-            .byte con_animation + $11
-            .byte con_cloud + con_clear
+            .byte con_s_bg_27
+            .byte con_s_animation_11
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B5BA_11:
         ; drive tiger
             .byte con_soundID_delay, $08, $02
             .byte con_pause + $41
-            .byte con_bg + $02
-            .byte con_animation + $29
-            .byte con_cloud + con_clear
+            .byte con_s_bg_02
+            .byte con_s_animation_29
+            .byte con_s_cloud_clear
             .byte con_soundID_delay, $0A, $02
             .byte con_pause + $3D
-            .byte con_bg + $13
-            .byte con_animation + $2F
-            .byte con_cloud + con_clear
+            .byte con_s_bg_13
+            .byte con_s_animation_2F
+            .byte con_s_cloud_clear
             .byte con_soundID_delay, $0A, $02
             .byte con_pause + $46
-            .byte con_bg + $5F
-            .byte con_animation + $28
-            .byte con_cloud + con_clear
+            .byte con_s_bg_5F
+            .byte con_s_animation_28
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B5D0_12:
         ; cyclone
             .byte con_soundID_delay, $24, $02
             .byte con_pause + $38
-            .byte con_bg + $35
-            .byte con_animation + $10
-            .byte con_cloud + con_clear
+            .byte con_s_bg_35
+            .byte con_s_animation_10
+            .byte con_s_cloud_clear
             .byte con_jsr
             .word sub_BB5D_одна_из_анимаций_drive_shot
             .byte con_soundID_delay, $24, $02
             .byte con_F7, $33
             .byte con_pause + $3C
-            .byte con_bg + $5D
-            .byte con_animation + $51
-            .byte con_cloud + con_clear
+            .byte con_s_bg_5D
+            .byte con_s_animation_51
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B5E4_13:
         ; sano combo
             .byte con_soundID_delay, $0E, $02
             .byte con_pause + $32
-            .byte con_bg + $1D
-            .byte con_animation + $0F
-            .byte con_cloud + con_clear
+            .byte con_s_bg_1D
+            .byte con_s_animation_0F
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B5EC_14:
@@ -10417,9 +10412,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .word sub_BB8F
             .byte con_soundID_delay, $0E, $02
             .byte con_pause + $32
-            .byte con_bg + $62
-            .byte con_animation + $41
-            .byte con_cloud + con_clear
+            .byte con_s_bg_62
+            .byte con_s_animation_41
+            .byte con_s_cloud_clear
             .byte con_rts
 
         bra_long_case_B5F7_15:
@@ -10430,9 +10425,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_F7, $31
             .byte con_soundID_delay, $07, $02
             .byte con_pause + $34
-            .byte con_bg + $44
-            .byte con_animation + $11
-            .byte con_cloud + con_clear
+            .byte con_s_bg_44
+            .byte con_s_animation_11
+            .byte con_s_cloud_clear
             .byte con_F7, $31
             .byte con_jsr
             .word sub_BBBF
@@ -10458,9 +10453,9 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
         ; mach shot
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $32
-            .byte con_bg + $1C
-            .byte con_animation + $3C
-            .byte con_cloud + con_clear
+            .byte con_s_bg_1C
+            .byte con_s_animation_3C
+            .byte con_s_cloud_clear
             .byte con_mirror_toggle
             .byte con_jsr
             .word sub_BB8F
@@ -10468,15 +10463,15 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_F7, $18
             .byte con_soundID_delay, $0C, $02
             .byte con_pause + $32
-            .byte con_bg + $5D
-            .byte con_animation + $3D
-            .byte con_cloud + con_clear
+            .byte con_s_bg_5D
+            .byte con_s_animation_3D
+            .byte con_s_cloud_clear
             .byte con_F7, $18
             .byte con_soundID_delay, $0D, $02
             .byte con_pause + $20
-            .byte con_bg + con_skip
-            .byte con_animation + $00
-            .byte con_cloud + con_clear
+            .byte con_s_bg_FF_skip
+            .byte con_s_animation_00
+            .byte con_s_cloud_clear
             .dbyt con_branch_short + con_bra_били_ли_раньше_этот_удар     ; coimbra уже бил или нет
             .byte off_case_B61D_17_00 - * ; coimbra еще не бил
             .byte off_case_B61D_17_01 - * ; coimbra уже бил
@@ -10501,27 +10496,27 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
                         off_case_B61D_17_00_02:
                         ; coimbra еще не бил/morisaki
                             .byte con_pause + $78
-                            .byte con_bg + $33
-                            .byte con_animation + $94
-                            .byte con_cloud + $9B
+                            .byte con_s_bg_33
+                            .byte con_s_animation_94
+                            .byte con_s_cloud_9B
                             .byte con_jmp
                             .word loc_B65F_mach_shot
 
                         off_case_B61D_17_00_03:
                         ; coimbra еще не бил/wakabayashi
                             .byte con_pause + $78
-                            .byte con_bg + $32
-                            .byte con_animation + $A4
-                            .byte con_cloud + $9B
+                            .byte con_s_bg_32
+                            .byte con_s_animation_A4
+                            .byte con_s_cloud_9B
                             .byte con_jmp
                             .word loc_B65F_mach_shot
 
                         off_case_B61D_17_00_04:
                         ; coimbra еще не бил/wakashimazu
                             .byte con_pause + $78
-                            .byte con_bg + $33
-                            .byte con_animation + $A6
-                            .byte con_cloud + $9B
+                            .byte con_s_bg_33
+                            .byte con_s_animation_A6
+                            .byte con_s_cloud_9B
                         loc_B65F_mach_shot:
                             .byte con_jsr
                             .word sub_BBC7_очистка
@@ -10535,15 +10530,15 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
                 loc_B61D_mach_shot_появление_после_невидимости:
                     .byte con_F7, $2E
                     .byte con_pause + $32
-                    .byte con_bg + $64
-                    .byte con_animation + $00
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_64
+                    .byte con_s_animation_00
+                    .byte con_s_cloud_clear
                     .byte con_soundID_delay, $11, $02
                     .byte con_F7, $12
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $11
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_11
+                    .byte con_s_cloud_clear
                     .byte con_rts
 
 
@@ -10556,17 +10551,17 @@ sub_9F5C_рандом_анимации_отпизженного_игрока_1_�
         off_case_9F5C_00:
         ; random 1
             .byte con_pause + $3C
-            .byte con_bg + $1B
-            .byte con_animation + $13
-            .byte con_cloud + $02
+            .byte con_s_bg_1B
+            .byte con_s_animation_13
+            .byte con_s_cloud_02
             .byte con_rts
 
         off_case_9F5C_01:
         ; random 2
             .byte con_pause + $3C
-            .byte con_bg + $1B
-            .byte con_animation + $14
-            .byte con_cloud + $02
+            .byte con_s_bg_1B
+            .byte con_s_animation_14
+            .byte con_s_cloud_02
             .byte con_rts
 
 
@@ -10580,17 +10575,17 @@ sub_9F62_рандом_анимации_отпизженного_игрока_2_�
         off_case_9F62_00:
         ; random 1
             .byte con_pause + $3C
-            .byte con_bg + $1C
-            .byte con_animation + $13
-            .byte con_cloud + $02
+            .byte con_s_bg_1C
+            .byte con_s_animation_13
+            .byte con_s_cloud_02
             .byte con_rts
 
         off_case_9F62_01:
         ; random 2
             .byte con_pause + $3C
-            .byte con_bg + $1C
-            .byte con_animation + $14
-            .byte con_cloud + $02
+            .byte con_s_bg_1C
+            .byte con_s_animation_14
+            .byte con_s_cloud_02
             .byte con_rts
 
 
@@ -10603,17 +10598,17 @@ sub_9F68_рандом_анимации_отпизженного_игрока_1_�
         off_case_9F68_00:
         ; random 1
             .byte con_pause + $28
-            .byte con_bg + $1C
-            .byte con_animation + $3E
-            .byte con_cloud + con_skip
+            .byte con_s_bg_1C
+            .byte con_s_animation_3E
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         off_case_9F68_01:
         ; random 2
             .byte con_pause + $28
-            .byte con_bg + $1C
-            .byte con_animation + $3F
-            .byte con_cloud + con_skip
+            .byte con_s_bg_1C
+            .byte con_s_animation_3F
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
 
@@ -10627,17 +10622,17 @@ sub_9F6E_рандом_анимации_отпизженного_игрока_3_�
         off_case_9F6E_00:
         ; random 1
             .byte con_pause + $32
-            .byte con_bg + $1E
-            .byte con_animation + $3E
-            .byte con_cloud + $02
+            .byte con_s_bg_1E
+            .byte con_s_animation_3E
+            .byte con_s_cloud_02
             .byte con_rts
 
         off_case_9F6E_01:
         ; random 2
             .byte con_pause + $32
-            .byte con_bg + $1E
-            .byte con_animation + $3F
-            .byte con_cloud + $02
+            .byte con_s_bg_1E
+            .byte con_s_animation_3F
+            .byte con_s_cloud_02
             .byte con_rts
 
 
@@ -10650,17 +10645,17 @@ sub_9F74_рандом_анимации_отпизженного_игрока_2_�
         off_case_9F74_00:
         ; random 1
             .byte con_pause + $28
-            .byte con_bg + $1E
-            .byte con_animation + $3E
-            .byte con_cloud + con_skip
+            .byte con_s_bg_1E
+            .byte con_s_animation_3E
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         off_case_9F74_01:
         ; random 2
             .byte con_pause + $28
-            .byte con_bg + $1E
-            .byte con_animation + $3F
-            .byte con_cloud + con_skip
+            .byte con_s_bg_1E
+            .byte con_s_animation_3F
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
 
@@ -10701,9 +10696,9 @@ sub_9F9C_крит_кипера:
         ; крит morisaki
             .byte con_mirror_off
             .byte con_pause + $78
-            .byte con_bg + $33
-            .byte con_animation + $94
-            .byte con_cloud + $A0
+            .byte con_s_bg_33
+            .byte con_s_animation_94
+            .byte con_s_cloud_A0
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -10711,9 +10706,9 @@ sub_9F9C_крит_кипера:
         ; крит wakabayashi
             .byte con_soundID_delay, $20, $02     ; звук когда вакабаяши злится
             .byte con_pause + $78
-            .byte con_bg + $48
-            .byte con_animation + $75
-            .byte con_cloud + $A1
+            .byte con_s_bg_48
+            .byte con_s_animation_75
+            .byte con_s_cloud_A1
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -10722,9 +10717,9 @@ sub_9F9C_крит_кипера:
 loc_9FB5_убийство_кипера:
 sub_9FB5_убийство_кипера:
     .byte con_pause + $32
-    .byte con_bg + $1B
-    .byte con_animation + $02
-    .byte con_cloud + $01
+    .byte con_s_bg_1B
+    .byte con_s_animation_02
+    .byte con_s_cloud_01
     .byte con_rts
 
 
@@ -10733,9 +10728,9 @@ loc_9FBF_кипер_ловит_мяч_нижним_dive_после_убийст�
     .byte con_jsr
     .word sub_9FC7_движение_фона_и_звук
     .byte con_pause + $5A
-    .byte con_bg + $58
-    .byte con_animation + $03
-    .byte con_cloud + $E3
+    .byte con_s_bg_58
+    .byte con_s_animation_03
+    .byte con_s_cloud_E3
     .byte con_rts
 
 
@@ -10752,9 +10747,9 @@ loc_9FCE_кипер_ловит_мяч_нижним_dive_не_убивая_игр
     .byte con_jsr
     .word sub_9FC7_движение_фона_и_звук
     .byte con_pause + $5A
-    .byte con_bg + $58
-    .byte con_animation + $03
-    .byte con_cloud + $0B
+    .byte con_s_bg_58
+    .byte con_s_animation_03
+    .byte con_s_cloud_0B
     .byte con_rts
 
 
@@ -10763,9 +10758,9 @@ sub_9FD6_кипер_делает_нижний_dive:
     .byte con_mirror_off
     .byte con_moving_bg, $04
     .byte con_pause + $32
-    .byte con_bg + $58
-    .byte con_animation + $04
-    .byte con_cloud + $06
+    .byte con_s_bg_58
+    .byte con_s_animation_04
+    .byte con_s_cloud_06
     .byte con_rts
 
 
@@ -10774,9 +10769,9 @@ loc_9FDE_высокий_мяч_летит_дальше_после_касания
     .byte con_moving_bg, $02
 loc_9FE0_высокий_мяч_летит_дальше_после_касания_ногой_защитником:
     .byte con_pause + $2D
-    .byte con_bg + con_skip
-    .byte con_animation + $05
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_05
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -10784,9 +10779,9 @@ loc_9FE0_высокий_мяч_летит_дальше_после_касания
 loc_9FEA_защитник_промахивается_ногой_по_низкому_мячу:
     .byte con_moving_bg, $02
     .byte con_pause + $3C
-    .byte con_bg + $57
-    .byte con_animation + $07
-    .byte con_cloud + $07
+    .byte con_s_bg_57
+    .byte con_s_animation_07
+    .byte con_s_cloud_07
     .byte con_rts
 
 
@@ -10796,9 +10791,9 @@ sub_9FF1_защитник_в_процессе_отбития_ногой_низк
 sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча:
     .byte con_soundID_delay, $2A, $02     ; ловля мяча/мяч приклеился
     .byte con_pause + $14
-    .byte con_bg + con_skip
-    .byte con_animation + $08
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_08
+    .byte con_s_cloud_FF_skip
     .byte con_FE
     .byte con_rts
 
@@ -10807,9 +10802,9 @@ sub_9FF3_в_процессе_касания_защитником_ногой_вы
 sub_9FFD_защитник_собирается_коснуться_ногой_низкого_мяча:
     .byte con_moving_bg, $02
     .byte con_pause + $1E
-    .byte con_bg + $57
-    .byte con_animation + $09
-    .byte con_cloud + $08
+    .byte con_s_bg_57
+    .byte con_s_animation_09
+    .byte con_s_cloud_08
     .byte con_rts
 
 
@@ -10817,27 +10812,27 @@ sub_9FFD_защитник_собирается_коснуться_ногой_н�
 sub_A004_защитник_собирается_отбить_ногой_низкий_мяч:
     .byte con_moving_bg, $02
     .byte con_pause + $1E
-    .byte con_bg + $57
-    .byte con_animation + $09
-    .byte con_cloud + $09
+    .byte con_s_bg_57
+    .byte con_s_animation_09
+    .byte con_s_cloud_09
     .byte con_rts
 
 
 
 sub_A00B_защитник_собирается_коснуться_ногой_высокого_мяча:
     .byte con_pause + $1E
-    .byte con_bg + $6C
-    .byte con_animation + $09
-    .byte con_cloud + $08
+    .byte con_s_bg_6C
+    .byte con_s_animation_09
+    .byte con_s_cloud_08
     .byte con_rts
 
 
 
 sub_A010_защитник_собирается_отбить_ногой_высокий_мяч:
     .byte con_pause + $1E
-    .byte con_bg + $6C
-    .byte con_animation + $09
-    .byte con_cloud + $09
+    .byte con_s_bg_6C
+    .byte con_s_animation_09
+    .byte con_s_cloud_09
     .byte con_rts
 
 
@@ -10846,9 +10841,9 @@ loc_A015_низкий_мяч_летит_дальше_после_касания_�
     .byte con_moving_bg, $02
 loc_A017_мяч_летит_дальше_после_касания_защитинком_мяча_телом:
     .byte con_pause + $32
-    .byte con_bg + con_skip
-    .byte con_animation + $0B
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_0B
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -10856,9 +10851,9 @@ loc_A017_мяч_летит_дальше_после_касания_защитин
 loc_A01C_защитник_промахивается_телом_по_низкому_мячу:
     .byte con_moving_bg, $02
     .byte con_pause + $3C
-    .byte con_bg + $57
-    .byte con_animation + $0C
-    .byte con_cloud + $07
+    .byte con_s_bg_57
+    .byte con_s_animation_0C
+    .byte con_s_cloud_07
     .byte con_rts
 
 
@@ -10868,9 +10863,9 @@ sub_A023_процесс_отбивания_защитником_мяча_тел�
 sub_A025_момент_касания_защитником_мяча_телом:
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $14
-    .byte con_bg + con_skip
-    .byte con_animation + $0D
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_0D
+    .byte con_s_cloud_FF_skip
     .byte con_FE
     .byte con_rts
 
@@ -10878,9 +10873,9 @@ sub_A025_момент_касания_защитником_мяча_телом:
 
 sub_A02F_защитник_собирается_коснуться_телом_верхнего_мяча:
     .byte con_pause + $1E
-    .byte con_bg + $6C
-    .byte con_animation + $35
-    .byte con_cloud + $08
+    .byte con_s_bg_6C
+    .byte con_s_animation_35
+    .byte con_s_cloud_08
     .byte con_rts
 
 
@@ -10888,9 +10883,9 @@ sub_A02F_защитник_собирается_коснуться_телом_в�
 sub_A034_защитник_собирается_коснуться_телом_низкого_мяча:
     .byte con_moving_bg, $02
     .byte con_pause + $1E
-    .byte con_bg + $57
-    .byte con_animation + $35
-    .byte con_cloud + $08
+    .byte con_s_bg_57
+    .byte con_s_animation_35
+    .byte con_s_cloud_08
     .byte con_rts
 
 
@@ -10898,36 +10893,36 @@ sub_A034_защитник_собирается_коснуться_телом_н�
 sub_A03B_защиник_собирается_отбить_телом_низкий_мяч:
     .byte con_moving_bg, $02
     .byte con_pause + $1E
-    .byte con_bg + $57
-    .byte con_animation + $35
-    .byte con_cloud + $09
+    .byte con_s_bg_57
+    .byte con_s_animation_35
+    .byte con_s_cloud_09
     .byte con_rts
 
 
 
 sub_A042_защитник_в_воздухе_собирается_коснуться_мяча_телом:
     .byte con_pause + $1E
-    .byte con_bg + $6C
-    .byte con_animation + $35
-    .byte con_cloud + $08
+    .byte con_s_bg_6C
+    .byte con_s_animation_35
+    .byte con_s_cloud_08
     .byte con_rts
 
 
 
 sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка:
     .byte con_pause + $1E
-    .byte con_bg + $6C
-    .byte con_animation + $35
-    .byte con_cloud + $09
+    .byte con_s_bg_6C
+    .byte con_s_animation_35
+    .byte con_s_cloud_09
     .byte con_rts
 
 
 
 loc_A04C_высокий_мяч_летит_дальше_после_касания_тела_защитника:
     .byte con_pause + $32
-    .byte con_bg + $6C
-    .byte con_animation + $0B
-    .byte con_cloud + con_skip
+    .byte con_s_bg_6C
+    .byte con_s_animation_0B
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -10935,9 +10930,9 @@ loc_A04C_высокий_мяч_летит_дальше_после_касания
 sub_A051_защитник_касается_телом_верхнего_мяча:
     .byte con_soundID_delay, $2D, $02     ; удар мяча об живот
     .byte con_pause + $1B
-    .byte con_bg + con_skip
-    .byte con_animation + $0D
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_0D
+    .byte con_s_cloud_FF_skip
     .byte con_FE
     .byte con_rts
 
@@ -10947,9 +10942,9 @@ loc_A079_кипер_ловит_мяч_после_нижнего_dive:
     .byte con_moving_bg, $03
     .byte con_soundID_delay, $2A, $02     ; ловля мяча/мяч приклеился
     .byte con_pause + $3C
-    .byte con_bg + $57
-    .byte con_animation + $16
-    .byte con_cloud + $0B
+    .byte con_s_bg_57
+    .byte con_s_animation_16
+    .byte con_s_cloud_0B
     .byte con_rts
 
 
@@ -10958,9 +10953,9 @@ loc_A083_кипер_ловит_мяч_после_верхнего_dive:
     .byte con_F7, $07
     .byte con_soundID_delay, $2A, $21     ; ловля мяча/мяч приклеился
     .byte con_pause + $50
-    .byte con_bg + $40
-    .byte con_animation + $17
-    .byte con_cloud + $0B
+    .byte con_s_bg_40
+    .byte con_s_animation_17
+    .byte con_s_cloud_0B
     .byte con_rts
 
 
@@ -10969,9 +10964,9 @@ loc_A08D_кипер_промахивается_dive_после_удара_1_на
 sub_A08D_кипер_промахивается_dive_после_удара_1_на_1:
     .byte con_moving_bg, $02
     .byte con_pause + $32
-    .byte con_bg + $57
-    .byte con_animation + $18
-    .byte con_cloud + $0C
+    .byte con_s_bg_57
+    .byte con_s_animation_18
+    .byte con_s_cloud_0C
     .byte con_rts
 
 
@@ -10979,9 +10974,9 @@ sub_A08D_кипер_промахивается_dive_после_удара_1_на
 loc_A094_кипер_не_дотягивается_до_мяча_при_ловле:
 sub_A094_кипер_не_дотягивается_до_мяча_при_ловле:
     .byte con_pause + $2B
-    .byte con_bg + $03
-    .byte con_animation + $18
-    .byte con_cloud + $0C
+    .byte con_s_bg_03
+    .byte con_s_animation_18
+    .byte con_s_cloud_0C
     .byte con_rts
 
 
@@ -10989,18 +10984,18 @@ sub_A094_кипер_не_дотягивается_до_мяча_при_ловл�
 sub_A099_анимация_кипер_мгновенно_ловит_мяч:
     .byte con_soundID_delay, $2A, $02     ; ловля мяча/мяч приклеился
     .byte con_pause + $28
-    .byte con_bg + $03
-    .byte con_animation + $03
-    .byte con_cloud + $0D
+    .byte con_s_bg_03
+    .byte con_s_animation_03
+    .byte con_s_cloud_0D
     .byte con_rts
 
 
 
 sub_A0A1_кипер_ловит_мяч_без_звука:
     .byte con_pause + $20
-    .byte con_bg + $03
-    .byte con_animation + $1B
-    .byte con_cloud + $0E
+    .byte con_s_bg_03
+    .byte con_s_animation_1B
+    .byte con_s_cloud_0E
     .byte con_rts
 
 
@@ -11009,9 +11004,9 @@ loc_A0A6_кипер_ловит_мяч_со_звуком:
 sub_A0A6_кипер_ловит_мяч_со_звуком:
     .byte con_soundID_delay, $2A, $21     ; ловля мяча/мяч приклеился
     .byte con_pause + $46
-    .byte con_bg + $03
-    .byte con_animation + $1B
-    .byte con_cloud + $0E
+    .byte con_s_bg_03
+    .byte con_s_animation_1B
+    .byte con_s_cloud_0E
     .byte con_rts
 
 
@@ -11019,9 +11014,9 @@ sub_A0A6_кипер_ловит_мяч_со_звуком:
 sub_A0AE_защитник_прыгает_без_движения_фона:
     .byte con_soundID_delay, $25, $02     ; прыжок
     .byte con_pause + $14
-    .byte con_bg + $02
-    .byte con_animation + $1C
-    .byte con_cloud + con_clear
+    .byte con_s_bg_02
+    .byte con_s_animation_1C
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -11030,18 +11025,18 @@ loc_A0B6_защитник_касается_мяча_при_спасении_во
 sub_A0B6_защитник_касается_мяча_при_спасении_ворот:
     .byte con_soundID_delay, $2B, $19     ; отбитие мяча/принятие на ногу
     .byte con_pause + $18
-    .byte con_bg + $04
-    .byte con_animation + $21
-    .byte con_cloud + $0F
+    .byte con_s_bg_04
+    .byte con_s_animation_21
+    .byte con_s_cloud_0F
     .byte con_rts
 
 
 
 sub_A0BE_защитник_промахивается:
     .byte con_pause + $30
-    .byte con_bg + $04
-    .byte con_animation + $22
-    .byte con_cloud + $11
+    .byte con_s_bg_04
+    .byte con_s_animation_22
+    .byte con_s_cloud_11
     .byte con_rts
 
 
@@ -11051,9 +11046,9 @@ sub_A0C3_успешный_отбор_мяча_подкатом:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $46
-    .byte con_bg + $57
-    .byte con_animation + $15
-    .byte con_cloud + $05
+    .byte con_s_bg_57
+    .byte con_s_animation_15
+    .byte con_s_cloud_05
     .byte con_rts
 
 
@@ -11061,61 +11056,61 @@ sub_A0C3_успешный_отбор_мяча_подкатом:
 sub_A0CD_rolling_save_полная_анимация:
     .byte con_soundID_delay, $24, $02
     .byte con_pause + $0A
-    .byte con_bg + $13
-    .byte con_animation + $23
-    .byte con_cloud + $12
+    .byte con_s_bg_13
+    .byte con_s_animation_23
+    .byte con_s_cloud_12
     .byte con_pause + $0A
-    .byte con_bg + $14
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_14
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $15
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_15
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $16
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_16
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $17
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_17
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $18
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_18
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $11
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_11
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $12
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_12
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $13
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_13
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $14
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_14
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $15
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_15
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $16
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_16
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $17
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_17
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $18
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_18
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -11123,9 +11118,9 @@ sub_A0CD_rolling_save_полная_анимация:
 loc_A109_кипер_промахивается_кулаком_после_спешала:
 sub_A109_кипер_промахивается_кулаком_после_спешала:
     .byte con_pause + $28
-    .byte con_bg + $0E
-    .byte con_animation + $25
-    .byte con_cloud + $07
+    .byte con_s_bg_0E
+    .byte con_s_animation_25
+    .byte con_s_cloud_07
     .byte con_rts
 
 
@@ -11140,27 +11135,27 @@ sub_A10E_кипер_не_дотягивается_кулаком_до_мяча:
         off_case_A10E_00:
         ; другой кипер
             .byte con_pause + $25
-            .byte con_bg + $0E
-            .byte con_animation + $24
-            .byte con_cloud + $0C
+            .byte con_s_bg_0E
+            .byte con_s_animation_24
+            .byte con_s_cloud_0C
             .byte con_rts
 
         off_case_A10E_01:
         off_case_A10E_02:
         ; wakashimazu, gertise
             .byte con_pause + $28
-            .byte con_bg + $0F
-            .byte con_animation + $26
-            .byte con_cloud + $0C
+            .byte con_s_bg_0F
+            .byte con_s_animation_26
+            .byte con_s_cloud_0C
             .byte con_rts
 
 
 
 sub_A11D_кипер_касается_мяча_кулаком_после_спешала:
     .byte con_pause + $1E
-    .byte con_bg + $0E
-    .byte con_animation + $27
-    .byte con_cloud + $0D
+    .byte con_s_bg_0E
+    .byte con_s_animation_27
+    .byte con_s_cloud_0D
     .byte con_rts
 
 
@@ -11174,18 +11169,18 @@ sub_A122_кипер_собирается_коснуться_мяча_кулак�
         off_case_A122_00:
         ; другой кипер
             .byte con_pause + $1E
-            .byte con_bg + $0E
-            .byte con_animation + $2A
-            .byte con_cloud + $0E
+            .byte con_s_bg_0E
+            .byte con_s_animation_2A
+            .byte con_s_cloud_0E
             .byte con_rts
 
         off_case_A122_01:
         off_case_A122_02:
         ; wakashimazu, gertise
             .byte con_pause + $1E
-            .byte con_bg + $0F
-            .byte con_animation + $2B
-            .byte con_cloud + $0E
+            .byte con_s_bg_0F
+            .byte con_s_animation_2B
+            .byte con_s_cloud_0E
             .byte con_rts
 
 
@@ -11200,9 +11195,9 @@ sub_A131_кипер_легко_отбивает_и_проверка_на_wakashi
         ; другой кипер
             .byte con_soundID_delay, $2B, $21     ; отбитие мяча
             .byte con_pause + $3A
-            .byte con_bg + $0E
-            .byte con_animation + $2A
-            .byte con_cloud + $0E
+            .byte con_s_bg_0E
+            .byte con_s_animation_2A
+            .byte con_s_cloud_0E
             .byte con_rts
 
         off_case_A131_01:
@@ -11210,9 +11205,9 @@ sub_A131_кипер_легко_отбивает_и_проверка_на_wakashi
         ; wakashimazu, gertise
             .byte con_soundID_delay, $2B, $21     ; отбитие мяча
             .byte con_pause + $3A
-            .byte con_bg + $0F
-            .byte con_animation + $2B
-            .byte con_cloud + $0E
+            .byte con_s_bg_0F
+            .byte con_s_animation_2B
+            .byte con_s_cloud_0E
             .byte con_rts
 
 
@@ -11226,18 +11221,18 @@ sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_п�
         off_case_A14B_00:
         ; другой кипер
             .byte con_pause + $28
-            .byte con_bg + $0E
-            .byte con_animation + $2C
-            .byte con_cloud + $15
+            .byte con_s_bg_0E
+            .byte con_s_animation_2C
+            .byte con_s_cloud_15
             .byte con_rts
 
         off_case_A14B_01:
         off_case_A14B_02:
         ; wakashimazu, gertise
             .byte con_pause + $2A
-            .byte con_bg + $0F
-            .byte con_animation + $2D
-            .byte con_cloud + $15
+            .byte con_s_bg_0F
+            .byte con_s_animation_2D
+            .byte con_s_cloud_15
             .byte con_rts
 
 
@@ -11246,9 +11241,9 @@ loc_A164_защитник_ловит_низкий_мяч_ногой:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $5A
-    .byte con_bg + $57
-    .byte con_animation + $2E
-    .byte con_cloud + $16
+    .byte con_s_bg_57
+    .byte con_s_animation_2E
+    .byte con_s_cloud_16
     .byte con_rts
 
 
@@ -11256,18 +11251,18 @@ loc_A164_защитник_ловит_низкий_мяч_ногой:
 loc_A16E_защитник_ловит_высокий_мяч_ногой:
     .byte con_soundID_delay, $2A, $02
     .byte con_pause + $46
-    .byte con_bg + $6C
-    .byte con_animation + $2E
-    .byte con_cloud + $16
+    .byte con_s_bg_6C
+    .byte con_s_animation_2E
+    .byte con_s_cloud_16
     .byte con_rts
 
 
 
 loc_A176_защитник_в_воздухе_не_касается_мяча_телом:
     .byte con_pause + $3C
-    .byte con_bg + $6C
-    .byte con_animation + $31
-    .byte con_cloud + $07
+    .byte con_s_bg_6C
+    .byte con_s_animation_31
+    .byte con_s_cloud_07
     .byte con_rts
 
 
@@ -11276,9 +11271,9 @@ loc_A17B_защитник_ловит_низкий_мяч_телом:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $46
-    .byte con_bg + $57
-    .byte con_animation + $30
-    .byte con_cloud + $05
+    .byte con_s_bg_57
+    .byte con_s_animation_30
+    .byte con_s_cloud_05
     .byte con_rts
 
 
@@ -11286,9 +11281,9 @@ loc_A17B_защитник_ловит_низкий_мяч_телом:
 loc_A185_защитник_ловит_высокий_мяч_телом:
     .byte con_soundID_delay, $2B, $02
     .byte con_pause + $46
-    .byte con_bg + $6C
-    .byte con_animation + $30
-    .byte con_cloud + $05
+    .byte con_s_bg_6C
+    .byte con_s_animation_30
+    .byte con_s_cloud_05
     .byte con_rts
 
 
@@ -11297,9 +11292,9 @@ loc_A18D_игрок_делает_clear_ногой:
     .byte con_F7, $02
     .byte con_soundID_delay, $2C, $29
     .byte con_pause + $46
-    .byte con_bg + $22
-    .byte con_animation + $33
-    .byte con_cloud + $17
+    .byte con_s_bg_22
+    .byte con_s_animation_33
+    .byte con_s_cloud_17
     .byte con_rts
 
 
@@ -11307,9 +11302,9 @@ loc_A18D_игрок_делает_clear_ногой:
 loc_A197_защитник_делает_clear_головой_из_своей_штрафной:
     .byte con_soundID_delay, $2A, $21
     .byte con_pause + $2D
-    .byte con_bg + $6E
-    .byte con_animation + $34
-    .byte con_cloud + $17
+    .byte con_s_bg_6E
+    .byte con_s_animation_34
+    .byte con_s_cloud_17
     .byte con_rts
 
 
@@ -11318,9 +11313,9 @@ loc_A19F_защитник_забирает_низкий_мяч_телом:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $41
-    .byte con_bg + $57
-    .byte con_animation + $30
-    .byte con_cloud + $19
+    .byte con_s_bg_57
+    .byte con_s_animation_30
+    .byte con_s_cloud_19
     .byte con_rts
 
 
@@ -11328,9 +11323,9 @@ loc_A19F_защитник_забирает_низкий_мяч_телом:
 loc_A1A9_защитник_ловит_блоком_высокий_мяч:
     .byte con_soundID_delay, $2B, $02
     .byte con_pause + $5A
-    .byte con_bg + $6C
-    .byte con_animation + $30
-    .byte con_cloud + $19
+    .byte con_s_bg_6C
+    .byte con_s_animation_30
+    .byte con_s_cloud_19
     .byte con_rts
 
 
@@ -11339,9 +11334,9 @@ sub_A1B1_защитник_выигрывает_нижний_compete:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2B, $1E
     .byte con_pause + $3A
-    .byte con_bg + $57
-    .byte con_animation + $35
-    .byte con_cloud + $1A
+    .byte con_s_bg_57
+    .byte con_s_animation_35
+    .byte con_s_cloud_1A
     .byte con_rts
 
 
@@ -11349,9 +11344,9 @@ sub_A1B1_защитник_выигрывает_нижний_compete:
 sub_A1BB_защитник_выигрывает_верхний_compete:
     .byte con_soundID_delay, $2C, $1E
     .byte con_pause + $3A
-    .byte con_bg + $6C
-    .byte con_animation + $35
-    .byte con_cloud + $1A
+    .byte con_s_bg_6C
+    .byte con_s_animation_35
+    .byte con_s_cloud_1A
     .byte con_rts
 
 
@@ -11359,9 +11354,9 @@ sub_A1BB_защитник_выигрывает_верхний_compete:
 sub_A1C3_защитник_бежит_к_низкому_мячу:
     .byte con_F7, $02
     .byte con_pause + $32
-    .byte con_bg + $23
-    .byte con_animation + $37
-    .byte con_cloud + $1B
+    .byte con_s_bg_23
+    .byte con_s_animation_37
+    .byte con_s_cloud_1B
     .byte con_rts
 
 
@@ -11369,9 +11364,9 @@ sub_A1C3_защитник_бежит_к_низкому_мячу:
 sub_A1CA_triangle_jump_ловит_мяч:
     .byte con_moving_bg, $01
     .byte con_pause + $20
-    .byte con_bg + $2E
-    .byte con_animation + $2D
-    .byte con_cloud + $1C
+    .byte con_s_bg_2E
+    .byte con_s_animation_2D
+    .byte con_s_cloud_1C
     .byte con_rts
 
 
@@ -11380,9 +11375,9 @@ sub_A1D1_triangle_jump_ловит_мяч:
     .byte con_moving_bg, $01
     .byte con_soundID_delay, $2A, $21
     .byte con_pause + $30
-    .byte con_bg + $2E
-    .byte con_animation + $2D
-    .byte con_cloud + $1C
+    .byte con_s_bg_2E
+    .byte con_s_animation_2D
+    .byte con_s_cloud_1C
     .byte con_moving_bg, $01
     .byte con_rts
 
@@ -11392,9 +11387,9 @@ loc_A1DD_triangle_jump_не_достает_до_мяча:
 sub_A1DD_triangle_jump_не_достает_до_мяча:
     .byte con_moving_bg, $01
     .byte con_pause + $30
-    .byte con_bg + $2E
-    .byte con_animation + $26
-    .byte con_cloud + $1E
+    .byte con_s_bg_2E
+    .byte con_s_animation_26
+    .byte con_s_cloud_1E
     .byte con_rts
 
 
@@ -11403,20 +11398,20 @@ sub_A1E4_dark_illusion:
     .byte con_F7, $41
     .byte con_soundID_delay, $21, $02
     .byte con_pause + $E0
-    .byte con_bg + $47
-    .byte con_animation + $7D
-    .byte con_cloud + $1F
+    .byte con_s_bg_47
+    .byte con_s_animation_7D
+    .byte con_s_cloud_1F
     .byte con_F7, $42
     .byte con_pause + $70
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $43
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $32
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -11425,15 +11420,15 @@ sub_A1FF_clone_save:
     .byte con_F7, $30
     .byte con_soundID_delay, $17, $02
     .byte con_pause + $96
-    .byte con_bg + $6A
-    .byte con_animation + $3A
-    .byte con_cloud + $20
+    .byte con_s_bg_6A
+    .byte con_s_animation_3A
+    .byte con_s_cloud_20
     .byte con_soundID_delay, $1F, $02
     .byte con_F7, $1D
     .byte con_pause + $80
-    .byte con_bg + $47
-    .byte con_animation + con_skip
-    .byte con_cloud + $21
+    .byte con_s_bg_47
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_21
     .byte con_rts
 
 
@@ -11441,9 +11436,9 @@ sub_A1FF_clone_save:
 sub_A212_добивание_отскока_от_штанги_соперником:
     .byte con_soundID_delay, $1B, $21
     .byte con_pause + $40
-    .byte con_bg + $2B
-    .byte con_animation + $3B
-    .byte con_cloud + $31
+    .byte con_s_bg_2B
+    .byte con_s_animation_3B
+    .byte con_s_cloud_31
     .byte con_rts
 
 
@@ -11452,9 +11447,9 @@ loc_A22E_игрок_делает_low_clearing_ногой_на_своей_штр�
     .byte con_F7, $02
     .byte con_soundID_delay, $2C, $26
     .byte con_pause + $50
-    .byte con_bg + $22
-    .byte con_animation + $38
-    .byte con_cloud + $24
+    .byte con_s_bg_22
+    .byte con_s_animation_38
+    .byte con_s_cloud_24
     .byte con_rts
 
 
@@ -11462,9 +11457,9 @@ loc_A22E_игрок_делает_low_clearing_ногой_на_своей_штр�
 loc_A238_игрок_делает_clear_головой:
     .byte con_soundID_delay, $2B, $21
     .byte con_pause + $56
-    .byte con_bg + $6D
-    .byte con_animation + $39
-    .byte con_cloud + $24
+    .byte con_s_bg_6D
+    .byte con_s_animation_39
+    .byte con_s_cloud_24
     .byte con_rts
 
 
@@ -11472,9 +11467,9 @@ loc_A238_игрок_делает_clear_головой:
 loc_A240_серый_экран_после_касания_высого_мяча_телом:
     .byte con_F7, $11
     .byte con_pause + $5A
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + $26
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_26
     .byte con_rts
 
 
@@ -11482,9 +11477,9 @@ loc_A240_серый_экран_после_касания_высого_мяча_�
 loc_A247_серый_экран_атакующий_замедлился:
     .byte con_F7, $11
     .byte con_pause + $5A
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + $1D
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_1D
     .byte con_rts
 
 
@@ -11494,9 +11489,9 @@ sub_A24E_штанга_со_звуком:
     .byte con_soundID_delay, $63, $02
 loc_A253_штанга:
     .byte con_pause + $10
-    .byte con_bg + $06
-    .byte con_animation + $43
-    .byte con_cloud + $27
+    .byte con_s_bg_06
+    .byte con_s_animation_43
+    .byte con_s_cloud_27
     .byte con_rts
 
 
@@ -11511,18 +11506,18 @@ sub_A24F_штанга_без_звука:
 loc_A258_полет_мяча_после_отскока_от_штанги:
 sub_A258_полет_мяча_после_отскока_от_штанги:
     .byte con_pause + $37
-    .byte con_bg + $56
-    .byte con_animation + $42
-    .byte con_cloud + con_skip
+    .byte con_s_bg_56
+    .byte con_s_animation_42
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 sub_A2D8_защитник_в_прыжке_к_летящему_мячу:
     .byte con_pause + $28
-    .byte con_bg + $56
-    .byte con_animation + $49
-    .byte con_cloud + $1B
+    .byte con_s_bg_56
+    .byte con_s_animation_49
+    .byte con_s_cloud_1B
     .byte con_rts
 
 
@@ -11532,9 +11527,9 @@ sub_A2DD_ярко_красное_мерцание:
     .byte con_soundID_delay, $2E, $02
 loc_A2E2_мерцание:
     .byte con_pause + $21
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -11558,9 +11553,9 @@ sub_A2F4_сообщение_oops_на_мигающем_белом_фоне:
     .byte con_F7, $10
     .byte con_soundID_delay, $65, $02
     .byte con_pause + $1E
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + $29
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_29
     .byte con_rts
 
 
@@ -11570,9 +11565,9 @@ sub_A2FE_сообщение_oh_на_мигающем_белом_фоне:
     .byte con_F7, $10
     .byte con_soundID_delay, $2E, $02
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + $2C
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_2C
     .byte con_rts
 
 
@@ -11581,18 +11576,18 @@ sub_A308_белое_мерцание:
     .byte con_soundID_delay, $2E, $02
     .byte con_F7, $10
     .byte con_pause + $14
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 sub_A312_небольшая_пауза:
     .byte con_pause + $14
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_FE
     .byte con_rts
 
@@ -11601,9 +11596,9 @@ sub_A312_небольшая_пауза:
 loc_A319_стенка_заблокировала_удар:
     .byte con_soundID_delay, $2A, $02
     .byte con_pause + $32
-    .byte con_bg + $01
-    .byte con_animation + $4A
-    .byte con_cloud + $2E
+    .byte con_s_bg_01
+    .byte con_s_animation_4A
+    .byte con_s_cloud_2E
     .byte con_rts
 
 
@@ -11612,9 +11607,9 @@ sub_A321_стенка_была_задета:
     .byte con_F8, $02
     .byte con_soundID_delay, $2A, $02
     .byte con_pause + $14
-    .byte con_bg + $01
-    .byte con_animation + $4A
-    .byte con_cloud + $35
+    .byte con_s_bg_01
+    .byte con_s_animation_4A
+    .byte con_s_cloud_35
     .byte con_FE
     .byte con_rts
 
@@ -11623,18 +11618,18 @@ sub_A321_стенка_была_задета:
 sub_A32D_полет_удара_со_звуком:
     .byte con_soundID_delay, $03, $02
     .byte con_pause + $35
-    .byte con_bg + $1F
-    .byte con_animation + $11
-    .byte con_cloud + con_clear
+    .byte con_s_bg_1F
+    .byte con_s_animation_11
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
 
 sub_A335_полет_нижнего_мяча:
     .byte con_pause + $32
-    .byte con_bg + $02
-    .byte con_animation + $4C
-    .byte con_cloud + con_clear
+    .byte con_s_bg_02
+    .byte con_s_animation_4C
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -11643,9 +11638,9 @@ loc_A35B_нарушение:
     .byte con_mirror_off
     .byte con_soundID_delay, $67, $02
     .byte con_pause + $70
-    .byte con_bg + $0C
-    .byte con_animation + $4E
-    .byte con_cloud + $30
+    .byte con_s_bg_0C
+    .byte con_s_animation_4E
+    .byte con_s_cloud_30
     .byte con_rts
 
 
@@ -11653,9 +11648,9 @@ loc_A35B_нарушение:
 loc_A364_рваный_мяч:
     .byte con_mirror_off
     .byte con_pause + $A4
-    .byte con_bg + $0D
-    .byte con_animation + $4F
-    .byte con_cloud + $32
+    .byte con_s_bg_0D
+    .byte con_s_animation_4F
+    .byte con_s_cloud_32
     .byte con_rts
 
 
@@ -11664,9 +11659,9 @@ loc_A36A_кипер_идеально_засейвил:
 sub_A36A_кипер_идеально_засейвил:
     .byte con_mirror_condition, $04
     .byte con_pause + $3C
-    .byte con_bg + $20
-    .byte con_animation + $52
-    .byte con_cloud + $33
+    .byte con_s_bg_20
+    .byte con_s_animation_52
+    .byte con_s_cloud_33
     .byte con_rts
 
 
@@ -11676,27 +11671,27 @@ sub_A371_мяч_улетает_в_сторону:
     .byte con_mirror_condition, $04
 sub_A373_мяч_улетает_в_сторону:
     .byte con_pause + $3C
-    .byte con_bg + $1F
-    .byte con_animation + $52
-    .byte con_cloud + $34
+    .byte con_s_bg_1F
+    .byte con_s_animation_52
+    .byte con_s_cloud_34
     .byte con_rts
 
 
 
 loc_A37E_мяч_летит_дальше_после_задевания_стенки:
     .byte con_pause + $30
-    .byte con_bg + $1D
-    .byte con_animation + $54
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1D
+    .byte con_s_animation_54
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 loc_A383_удар_огибает_стеночку:
     .byte con_pause + $40
-    .byte con_bg + $2A
-    .byte con_animation + $55
-    .byte con_cloud + $36
+    .byte con_s_bg_2A
+    .byte con_s_animation_55
+    .byte con_s_cloud_36
     .byte con_rts
 
 
@@ -11704,18 +11699,18 @@ loc_A383_удар_огибает_стеночку:
 loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete:
     .byte con_mirror_condition, $04
     .byte con_pause + $34
-    .byte con_bg + $20
-    .byte con_animation + $70
-    .byte con_cloud + $34
+    .byte con_s_bg_20
+    .byte con_s_animation_70
+    .byte con_s_cloud_34
     .byte con_rts
 
 
 
 sub_A38F_полет_низкого_мяча_к_защитнику:
     .byte con_pause + $28
-    .byte con_bg + $28
-    .byte con_animation + $56
-    .byte con_cloud + con_skip
+    .byte con_s_bg_28
+    .byte con_s_animation_56
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -11766,9 +11761,9 @@ off_case_A3CF_05:
 ; jito
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $D9
+    .byte con_s_bg_30
+    .byte con_s_animation_A0
+    .byte con_s_cloud_D9
     .byte con_jsr
     .word sub_BBC7_очистка
 loc_A3F9_power_tackle:
@@ -11781,16 +11776,16 @@ off_case_A3CF_0B:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $27, $02
     .byte con_pause + $14
-    .byte con_bg + $59
-    .byte con_animation + $58
-    .byte con_cloud + $EC
+    .byte con_s_bg_59
+    .byte con_s_animation_58
+    .byte con_s_cloud_EC
     .byte con_jsr
     .word sub_A46A_power_tackle
     .byte con_moving_bg, $02
     .byte con_pause + $0A
-    .byte con_bg + $57
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_57
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -11799,9 +11794,9 @@ off_case_A3CF_06:
 ; jito
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + $D9
+    .byte con_s_bg_30
+    .byte con_s_animation_AA
+    .byte con_s_cloud_D9
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_jmp
@@ -11813,16 +11808,16 @@ off_case_A3CF_0C:
 ; hyuga
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $31
-    .byte con_animation + $9E
-    .byte con_cloud + $DB
+    .byte con_s_bg_31
+    .byte con_s_animation_9E
+    .byte con_s_cloud_DB
 loc_A41E_tiger_tackle:
     .byte con_moving_bg, $04
     .byte con_soundID_delay, $27, $02
     .byte con_pause + $14
-    .byte con_bg + $59
-    .byte con_animation + $58
-    .byte con_cloud + con_clear
+    .byte con_s_bg_59
+    .byte con_s_animation_58
+    .byte con_s_cloud_clear
     .byte con_F8, $02
     .byte con_soundID_delay, $30, $02
     .byte con_jmp
@@ -11834,9 +11829,9 @@ off_case_A3CF_0D:
 ; hyuga
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $31
-    .byte con_animation + $B0
-    .byte con_cloud + $DB
+    .byte con_s_bg_31
+    .byte con_s_animation_B0
+    .byte con_s_cloud_DB
     .byte con_jmp
     .word loc_A41E_tiger_tackle
 
@@ -11845,21 +11840,21 @@ off_case_A3CF_0D:
 off_case_A3CF_00:
 off_case_A3CF_0E:
 off_case_A3CF_0F:
-; игрок без защитного спешала, ishizaki
+; игрок без спешал tackle, ishizaki без спешал tackle
     .byte con_F7, $02
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $20
-    .byte con_bg + $23
-    .byte con_animation + $58
-    .byte con_cloud + con_clear
+    .byte con_s_bg_23
+    .byte con_s_animation_58
+    .byte con_s_cloud_clear
     .byte con_jsr
     .word sub_A5A9_kurae
     .byte con_moving_bg, $03
     .byte con_soundID_delay, $28, $02
     .byte con_pause + $50
-    .byte con_bg + $57
-    .byte con_animation + $50
-    .byte con_cloud + $3F
+    .byte con_s_bg_57
+    .byte con_s_animation_50
+    .byte con_s_cloud_3F
     .byte con_rts
 
 
@@ -11868,9 +11863,9 @@ off_case_A3CF_04:
 ; soda
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $AD
-    .byte con_cloud + $DA
+    .byte con_s_bg_30
+    .byte con_s_animation_AD
+    .byte con_s_cloud_DA
     .byte con_jmp
     .word loc_A45D_soda_razor_tackle
 
@@ -11880,9 +11875,9 @@ off_case_A3CF_03:
 ; soda
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $9F
-    .byte con_cloud + $DA
+    .byte con_s_bg_30
+    .byte con_s_animation_9F
+    .byte con_s_cloud_DA
 loc_A45D_soda_razor_tackle:
 sub_A45D_soda_razor_tackle:
     .byte con_jsr
@@ -11892,9 +11887,9 @@ loc_A460_подкат:
 loc_A463_подкат_в_дествии:
     .byte con_moving_bg, $04
     .byte con_pause + $50
-    .byte con_bg + $57
-    .byte con_animation + $50
-    .byte con_cloud + $EC
+    .byte con_s_bg_57
+    .byte con_s_animation_50
+    .byte con_s_cloud_EC
     .byte con_rts
 
 
@@ -11908,27 +11903,27 @@ sub_A470_loop_power_tackle:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $0A
-    .byte con_bg + $57
-    .byte con_animation + $50
-    .byte con_cloud + con_skip
+    .byte con_s_bg_57
+    .byte con_s_animation_50
+    .byte con_s_cloud_FF_skip
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $0A
-    .byte con_bg + $59
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_59
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $0A
-    .byte con_bg + $58
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_58
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $0A
-    .byte con_bg + $59
-    .byte con_animation + con_skip
-    .byte con_cloud + con_clear
+    .byte con_s_bg_59
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -11964,9 +11959,9 @@ sub_A495_сообщение_атакующего_в_ответ_защитник�
                         ; оба соперника с рожами/защитник misugi/меньше 100 хп
                             .byte con_F7, $35
                             .byte con_pause + $5A
-                            .byte con_bg + $30
-                            .byte con_animation + con_face_attacker
-                            .byte con_cloud + $4F
+                            .byte con_s_bg_30
+                            .byte con_s_animation_FD_attacker
+                            .byte con_s_cloud_4F
                             .byte con_jmp
                             .word loc_BBC7_очистка
 
@@ -11974,9 +11969,9 @@ sub_A495_сообщение_атакующего_в_ответ_защитник�
                 ; оба соперника с рожами/защитник не misugi
                 loc_A496:
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + con_face_attacker
-                    .byte con_cloud + $A7
+                    .byte con_s_bg_30
+                    .byte con_s_animation_FD_attacker
+                    .byte con_s_cloud_A7
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -11994,9 +11989,9 @@ sub_A5A9_kurae:
         off_case_A5A9_01:
         ; крит был и защитник с рожей
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + con_face_defender
-            .byte con_cloud + $A2
+            .byte con_s_bg_30
+            .byte con_s_animation_FE_defender
+            .byte con_s_cloud_A2
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -12080,9 +12075,9 @@ off_case_A6F6_01_masao_kazuo:
 loc_A6F9_masao_kazuo_летит_по_низу_тонкие_ноги:
 sub_A6F9_masao_kazuo_летит_по_низу_тонкие_ноги:
     .byte con_pause + $32
-    .byte con_bg + $4E
-    .byte con_animation + $C1
-    .byte con_cloud + $ED
+    .byte con_s_bg_4E
+    .byte con_s_animation_C1
+    .byte con_s_cloud_ED
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -12105,9 +12100,9 @@ off_case_A6FF_0E_ishizaki:
 off_case_A6FF_0F_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $37
-    .byte con_bg + $23
-    .byte con_animation + $5B
-    .byte con_cloud + $41
+    .byte con_s_bg_23
+    .byte con_s_animation_5B
+    .byte con_s_cloud_41
     .byte con_rts
 
 
@@ -12138,9 +12133,9 @@ off_case_A70C_0E_ishizaki:
 off_case_A70C_0F_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $1E
-    .byte con_bg + $22
-    .byte con_animation + $5A
-    .byte con_cloud + $38
+    .byte con_s_bg_22
+    .byte con_s_animation_5A
+    .byte con_s_cloud_38
     .byte con_rts
 
 
@@ -12148,9 +12143,9 @@ off_case_A70C_0F_ishizaki:
 bra_long_case_A713_00___без_защитного_спешала:
     .byte con_F7, $02
     .byte con_pause + $1E
-    .byte con_bg + $23
-    .byte con_animation + $5A
-    .byte con_cloud + $39
+    .byte con_s_bg_23
+    .byte con_s_animation_5A
+    .byte con_s_cloud_39
     .byte con_rts
 
 
@@ -12159,46 +12154,46 @@ sub_A71A_masao_kazuo_japan_становятся_друг_на_друга:
     .byte con_mirror_on
     .byte con_F8, $04
     .byte con_pause + $3C
-    .byte con_bg + $4F
-    .byte con_animation + $9C
-    .byte con_cloud + $AC
+    .byte con_s_bg_4F
+    .byte con_s_animation_9C
+    .byte con_s_cloud_AC
     .byte con_F8, $04
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
-    .byte con_bg + $1D
-    .byte con_animation + $1C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1D
+    .byte con_s_animation_1C
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9C
-    .byte con_cloud + $D3
+    .byte con_s_bg_30
+    .byte con_s_animation_9C
+    .byte con_s_cloud_D3
     .byte con_soundID_delay, $28, $02
     .byte con_F8, $04
     .byte con_F7, $3A
     .byte con_pause + $32
-    .byte con_bg + $23
-    .byte con_animation + $50
-    .byte con_cloud + con_skip
+    .byte con_s_bg_23
+    .byte con_s_animation_50
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F7, $10
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $2B
-    .byte con_bg + $12
-    .byte con_animation + $C0
-    .byte con_cloud + $AF
+    .byte con_s_bg_12
+    .byte con_s_animation_C0
+    .byte con_s_cloud_AF
 loc_A74A_красное_мерцание_экрана_и_звук:
     .byte con_F7, $1E
     .byte con_soundID_delay, $6D, $02
     .byte con_pause + $1E
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -12208,39 +12203,39 @@ sub_A756_masao_kazuo_akita_становятся_друг_на_друга:
     .byte con_mirror_on
     .byte con_F8, $04
     .byte con_pause + $3C
-    .byte con_bg + $4F
-    .byte con_animation + $AB
-    .byte con_cloud + $AC
+    .byte con_s_bg_4F
+    .byte con_s_animation_AB
+    .byte con_s_cloud_AC
     .byte con_F8, $04
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
-    .byte con_bg + $1D
-    .byte con_animation + $1C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1D
+    .byte con_s_animation_1C
+    .byte con_s_cloud_FF_skip
     .byte con_F8, $04
     .byte con_mirror_toggle
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AB
-    .byte con_cloud + $D3
+    .byte con_s_bg_30
+    .byte con_s_animation_AB
+    .byte con_s_cloud_D3
     .byte con_soundID_delay, $28, $02
     .byte con_F8, $04
     .byte con_F7, $3A
     .byte con_pause + $32
-    .byte con_bg + $23
-    .byte con_animation + $50
-    .byte con_cloud + con_skip
+    .byte con_s_bg_23
+    .byte con_s_animation_50
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F7, $10
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $2B
-    .byte con_bg + $12
-    .byte con_animation + $E1
-    .byte con_cloud + $AF
+    .byte con_s_bg_12
+    .byte con_s_animation_E1
+    .byte con_s_cloud_AF
     .byte con_jmp
     .word loc_A74A_красное_мерцание_экрана_и_звук
 
@@ -12249,9 +12244,9 @@ sub_A756_masao_kazuo_akita_становятся_друг_на_друга:
 bra_long_case_A789_05_jito:
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $D9
+    .byte con_s_bg_30
+    .byte con_s_animation_A0
+    .byte con_s_cloud_D9
 loc_A78F_разгон_перед_power_block:
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -12259,9 +12254,9 @@ bra_long_case_A792_07___dirceu:
     .byte con_F7, $33
     .byte con_soundID_delay, $27, $02
     .byte con_pause + $28
-    .byte con_bg + $6B
-    .byte con_animation + $E3
-    .byte con_cloud + $EC
+    .byte con_s_bg_6B
+    .byte con_s_animation_E3
+    .byte con_s_cloud_EC
     .byte con_rts
 
 
@@ -12269,9 +12264,9 @@ bra_long_case_A792_07___dirceu:
 bra_long_case_A79C_06_jito:
     .byte con_F7, $44
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + $D9
+    .byte con_s_bg_30
+    .byte con_s_animation_AA
+    .byte con_s_cloud_D9
     .byte con_jmp
     .word loc_A78F_разгон_перед_power_block
 
@@ -12280,26 +12275,26 @@ bra_long_case_A79C_06_jito:
 bra_long_case_A7A5_0E_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $1E
-    .byte con_bg + $22
-    .byte con_animation + $5A
-    .byte con_cloud + con_clear
+    .byte con_s_bg_22
+    .byte con_s_animation_5A
+    .byte con_s_cloud_clear
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $98
-    .byte con_cloud + $D7
+    .byte con_s_bg_30
+    .byte con_s_animation_98
+    .byte con_s_cloud_D7
 loc_A7B1_прыжок_перед_face_block:
 sub_A7B1_прыжок_перед_face_block:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $28
-    .byte con_bg + $4E
-    .byte con_animation + $CF
-    .byte con_cloud + con_skip
+    .byte con_s_bg_4E
+    .byte con_s_animation_CF
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $31
     .byte con_pause + $1E
-    .byte con_bg + $48
-    .byte con_animation + con_skip
-    .byte con_cloud + con_clear
+    .byte con_s_bg_48
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -12307,14 +12302,14 @@ sub_A7B1_прыжок_перед_face_block:
 bra_long_case_A7BF_0F_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $1E
-    .byte con_bg + $22
-    .byte con_animation + $5A
-    .byte con_cloud + con_clear
+    .byte con_s_bg_22
+    .byte con_s_animation_5A
+    .byte con_s_cloud_clear
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $99
-    .byte con_cloud + $D7
+    .byte con_s_bg_30
+    .byte con_s_animation_99
+    .byte con_s_cloud_D7
     .byte con_jmp
     .word loc_A7B1_прыжок_перед_face_block
 
@@ -12337,9 +12332,9 @@ off_case_A7CE_0E_ishizaki:
 off_case_A7CE_0F_ishizaki:
     .byte con_F7, $02
     .byte con_pause + $28
-    .byte con_bg + $23
-    .byte con_animation + $5A
-    .byte con_cloud + $40
+    .byte con_s_bg_23
+    .byte con_s_animation_5A
+    .byte con_s_cloud_40
     .byte con_rts
 
 
@@ -12348,14 +12343,14 @@ sub_A810_анимация_heel_lift:
     .byte con_F7, $02
     .byte con_soundID_delay, $1E, $31
     .byte con_pause + $3F
-    .byte con_bg + $23
-    .byte con_animation + $E2
-    .byte con_cloud + $49
+    .byte con_s_bg_23
+    .byte con_s_animation_E2
+    .byte con_s_cloud_49
     .byte con_F7, $0A
     .byte con_pause + $3C
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -12364,20 +12359,20 @@ sub_A86C_vanishing_feint:
     .byte con_F7, $02
     .byte con_soundID_delay, $0C, $0D
     .byte con_pause + $10
-    .byte con_bg + $23
-    .byte con_animation + $DD
-    .byte con_cloud + con_clear
+    .byte con_s_bg_23
+    .byte con_s_animation_DD
+    .byte con_s_cloud_clear
     .byte con_F7, $24
     .byte con_pause + $46
-    .byte con_bg + $6B
-    .byte con_animation + con_skip
-    .byte con_cloud + $49
+    .byte con_s_bg_6B
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_49
     .byte con_F7, $14
     .byte con_soundID_delay, $0D, $02
     .byte con_pause + $1E
-    .byte con_bg + con_skip
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -12385,9 +12380,9 @@ sub_A86C_vanishing_feint:
 sub_A885_рожа_carlos_flamengo:
     .byte con_F7, $44
     .byte con_pause + $40
-    .byte con_bg + $30
-    .byte con_animation + $A9
-    .byte con_cloud + $C7
+    .byte con_s_bg_30
+    .byte con_s_animation_A9
+    .byte con_s_cloud_C7
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_rts
@@ -12397,9 +12392,9 @@ sub_A885_рожа_carlos_flamengo:
 sub_A88F_рожа_carlos_brazil:
     .byte con_F7, $44
     .byte con_pause + $40
-    .byte con_bg + $30
-    .byte con_animation + $BB
-    .byte con_cloud + $C7
+    .byte con_s_bg_30
+    .byte con_s_animation_BB
+    .byte con_s_cloud_C7
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_rts
@@ -12410,14 +12405,14 @@ sub_A8AB_clone_dribble:
     .byte con_F7, $02
     .byte con_soundID_delay, $1F, $0D
     .byte con_pause + $12
-    .byte con_bg + $23
-    .byte con_animation + $DD
-    .byte con_cloud + $49
+    .byte con_s_bg_23
+    .byte con_s_animation_DD
+    .byte con_s_cloud_49
     .byte con_F7, $24
     .byte con_pause + $48
-    .byte con_bg + $6B
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_6B
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -12426,16 +12421,16 @@ sub_A8D0_high_speed_dribble:
     .byte con_F7, $0D
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $28
-    .byte con_bg + $47
-    .byte con_animation + $D0
-    .byte con_cloud + $49
+    .byte con_s_bg_47
+    .byte con_s_animation_D0
+    .byte con_s_cloud_49
     .byte con_mirror_toggle
     .byte con_F7, $0D
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $28
-    .byte con_bg + $47
-    .byte con_animation + $D0
-    .byte con_cloud + con_clear
+    .byte con_s_bg_47
+    .byte con_s_animation_D0
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -12444,29 +12439,29 @@ sub_A8D0_high_speed_dribble:
 sub_A8E5_kaltz_hedgehog_dribble:
     .byte con_F7, $44
     .byte con_pause + $80
-    .byte con_bg + $30
-    .byte con_animation + $B3
-    .byte con_cloud + $C8
+    .byte con_s_bg_30
+    .byte con_s_animation_B3
+    .byte con_s_cloud_C8
 loc_A8EB_kaltz_hedgehog_dribble_в_процессе:
     .byte con_mirror_toggle
     .byte con_F7, $14
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $17
-    .byte con_bg + $22
-    .byte con_animation + $D1
-    .byte con_cloud + $C9
+    .byte con_s_bg_22
+    .byte con_s_animation_D1
+    .byte con_s_cloud_C9
     .byte con_F7, $02
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $17
-    .byte con_bg + con_skip
-    .byte con_animation + $D2
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_D2
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $02
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $17
-    .byte con_bg + con_skip
-    .byte con_animation + $D1
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_D1
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -12474,9 +12469,9 @@ loc_A8EB_kaltz_hedgehog_dribble_в_процессе:
 sub_A908_kaltz_hedgehog_dribble:
     .byte con_F7, $44
     .byte con_pause + $80
-    .byte con_bg + $30
-    .byte con_animation + $B9
-    .byte con_cloud + $C8
+    .byte con_s_bg_30
+    .byte con_s_animation_B9
+    .byte con_s_cloud_C8
     .byte con_jmp
     .word loc_A8EB_kaltz_hedgehog_dribble_в_процессе
 
@@ -12512,9 +12507,9 @@ sub_A936_сообщение_защитника_атакующему_при_на�
                         ; оба соперника с рожами/защитник misugi/меньше 100 хп
                             .byte con_F7, $35
                             .byte con_pause + $5A
-                            .byte con_bg + $30
-                            .byte con_animation + con_face_defender
-                            .byte con_cloud + $4F
+                            .byte con_s_bg_30
+                            .byte con_s_animation_FE_defender
+                            .byte con_s_cloud_4F
                             .byte con_jmp
                             .word loc_BBC7_очистка
 
@@ -12522,9 +12517,9 @@ sub_A936_сообщение_защитника_атакующему_при_на�
                 ; оба соперника с рожами/защитник не misugi
                 loc_A937:
                     .byte con_pause + $3C
-                    .byte con_bg + $30
-                    .byte con_animation + con_face_defender
-                    .byte con_cloud + $98
+                    .byte con_s_bg_30
+                    .byte con_s_animation_FE_defender
+                    .byte con_s_cloud_98
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -12534,9 +12529,9 @@ sub_AA89_forcible_dribble:
     .byte con_F7, $3A
     .byte con_soundID_delay, $27, $02
     .byte con_pause + $78
-    .byte con_bg + $23
-    .byte con_animation + $D0
-    .byte con_cloud + $49
+    .byte con_s_bg_23
+    .byte con_s_animation_D0
+    .byte con_s_cloud_49
     .byte con_rts
 
 
@@ -12546,23 +12541,23 @@ sub_AB31_полная_анимация_обычного_удара_с_земли
     .byte con_mirror_off
     .byte con_soundID_delay, $19, $02
     .byte con_pause + $28
-    .byte con_bg + $01
-    .byte con_animation + $61
-    .byte con_cloud + $47
+    .byte con_s_bg_01
+    .byte con_s_animation_61
+    .byte con_s_cloud_47
 loc_AB39_обычный_удар_по_мячу_и_полет_мяча_от_игрока:
     .byte con_F7, $0B
     .byte con_soundID_delay, $12, $02
     .byte con_pause + $14
-    .byte con_bg + $10
-    .byte con_animation + $62
-    .byte con_cloud + con_skip
+    .byte con_s_bg_10
+    .byte con_s_animation_62
+    .byte con_s_cloud_FF_skip
 loc_AB42_мяч_улетает_от_игрока_после_удара:
     .byte con_F7, $02
     .byte con_soundID_delay, $03, $02
     .byte con_pause + $22
-    .byte con_bg + $25
-    .byte con_animation + $63
-    .byte con_cloud + con_skip
+    .byte con_s_bg_25
+    .byte con_s_animation_63
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -12571,9 +12566,9 @@ sub_AB7C:
     .byte con_F7, $04
     .byte con_soundID_delay, $13, $10
     .byte con_pause + $10
-    .byte con_bg + $41
-    .byte con_animation + $8C
-    .byte con_cloud + $AF
+    .byte con_s_bg_41
+    .byte con_s_animation_8C
+    .byte con_s_cloud_AF
     .byte con_rts
 
 
@@ -12582,9 +12577,9 @@ sub_AB86:
     .byte con_F7, $04
     .byte con_soundID_delay, $13, $10
     .byte con_pause + $10
-    .byte con_bg + $41
-    .byte con_animation + $8C
-    .byte con_cloud + $E0
+    .byte con_s_bg_41
+    .byte con_s_animation_8C
+    .byte con_s_cloud_E0
     .byte con_rts
 
 
@@ -12593,9 +12588,9 @@ sub_AB90:
     .byte con_F7, $04
     .byte con_soundID_delay, $13, $10
     .byte con_pause + $10
-    .byte con_bg + $41
-    .byte con_animation + $8C
-    .byte con_cloud + $DE
+    .byte con_s_bg_41
+    .byte con_s_animation_8C
+    .byte con_s_cloud_DE
     .byte con_rts
 
 
@@ -12604,9 +12599,9 @@ sub_AB9A:
     .byte con_F7, $04
     .byte con_soundID_delay, $13, $10
     .byte con_pause + $10
-    .byte con_bg + $41
-    .byte con_animation + $8C
-    .byte con_cloud + $E1
+    .byte con_s_bg_41
+    .byte con_s_animation_8C
+    .byte con_s_cloud_E1
     .byte con_rts
 
 
@@ -12615,9 +12610,9 @@ sub_ABA4:
     .byte con_F7, $04
     .byte con_soundID_delay, $13, $10
     .byte con_pause + $10
-    .byte con_bg + $41
-    .byte con_animation + $8C
-    .byte con_cloud + $6A
+    .byte con_s_bg_41
+    .byte con_s_animation_8C
+    .byte con_s_cloud_6A
     .byte con_rts
 
 
@@ -12626,29 +12621,29 @@ sub_ABAE:
     .byte con_F7, $04
     .byte con_soundID_delay, $13, $10
     .byte con_pause + $10
-    .byte con_bg + $41
-    .byte con_animation + $8C
-    .byte con_cloud + $6B
+    .byte con_s_bg_41
+    .byte con_s_animation_8C
+    .byte con_s_cloud_6B
     .byte con_rts
 
 
 
 sub_ABB8:
     .byte con_pause + $1A
-    .byte con_bg + $3C
-    .byte con_animation + $61
-    .byte con_cloud + $49
+    .byte con_s_bg_3C
+    .byte con_s_animation_61
+    .byte con_s_cloud_49
     .byte con_F7, $04
     .byte con_soundID_delay, $18, $02
     .byte con_pause + $14
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $3C
     .byte con_pause + $34
-    .byte con_bg + $3C
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_3C
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -12657,14 +12652,14 @@ sub_AD13:
     .byte con_F7, $10
     .byte con_soundID_delay, $12, $02
     .byte con_pause + $14
-    .byte con_bg + $10
-    .byte con_animation + $62
-    .byte con_cloud + con_skip
+    .byte con_s_bg_10
+    .byte con_s_animation_62
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
-loc_AE4C_только_для_братьев:
+loc_AE4C_skylab_hurricane:
     ; !!! должно быть 21 вариантов а не 15
     .dbyt con_branch_short + con_bra_40
     .byte off_case_AE64_00 - * ; игрок без рожи
@@ -12716,9 +12711,9 @@ off_case_AE64_14:
 off_case_AE64_15:
 loc_AE64_прыгать_к_мячу_на_штрафной_перед_совершением_выбранного_действия:
     .byte con_pause + $32
-    .byte con_bg + $1F
-    .byte con_animation + $64
-    .byte con_cloud + $48
+    .byte con_s_bg_1F
+    .byte con_s_animation_64
+    .byte con_s_cloud_48
     .byte con_rts
 
 
@@ -12728,50 +12723,50 @@ off_case_AE69_10:
     .byte con_mirror_off
     .byte con_F8, $04
     .byte con_pause + $40
-    .byte con_bg + $30
-    .byte con_animation + $9C
-    .byte con_cloud + $A8
+    .byte con_s_bg_30
+    .byte con_s_animation_9C
+    .byte con_s_cloud_A8
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $78
-    .byte con_bg + $4F
-    .byte con_animation + $9C
-    .byte con_cloud + $A9
+    .byte con_s_bg_4F
+    .byte con_s_animation_9C
+    .byte con_s_cloud_A9
     .byte con_mirror_toggle
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
-    .byte con_bg + $1F
-    .byte con_animation + $64
-    .byte con_cloud + con_clear
+    .byte con_s_bg_1F
+    .byte con_s_animation_64
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_soundID_delay, $28, $02
     .byte con_F8, $04
     .byte con_F7, $3A
     .byte con_pause + $32
-    .byte con_bg + $23
-    .byte con_animation + $76
-    .byte con_cloud + con_skip
+    .byte con_s_bg_23
+    .byte con_s_animation_76
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F7, $10
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $28
-    .byte con_bg + $12
-    .byte con_animation + $C0
-    .byte con_cloud + $AF
+    .byte con_s_bg_12
+    .byte con_s_animation_C0
+    .byte con_s_cloud_AF
 loc_AE96:
     .byte con_F7, $1E
     .byte con_soundID_delay, $6D, $02
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $32
-    .byte con_bg + $20
-    .byte con_animation + $4B
-    .byte con_cloud + con_clear
+    .byte con_s_bg_20
+    .byte con_s_animation_4B
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -12781,39 +12776,39 @@ off_case_AEA4_11:
     .byte con_mirror_off
     .byte con_F8, $04
     .byte con_pause + $40
-    .byte con_bg + $30
-    .byte con_animation + $AB
-    .byte con_cloud + $A8
+    .byte con_s_bg_30
+    .byte con_s_animation_AB
+    .byte con_s_cloud_A8
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $78
-    .byte con_bg + $4F
-    .byte con_animation + $AB
-    .byte con_cloud + $A9
+    .byte con_s_bg_4F
+    .byte con_s_animation_AB
+    .byte con_s_cloud_A9
     .byte con_mirror_toggle
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
-    .byte con_bg + $1F
-    .byte con_animation + $64
-    .byte con_cloud + con_clear
+    .byte con_s_bg_1F
+    .byte con_s_animation_64
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_soundID_delay, $28, $02
     .byte con_F8, $04
     .byte con_F7, $3A
     .byte con_pause + $32
-    .byte con_bg + $23
-    .byte con_animation + $76
-    .byte con_cloud + con_skip
+    .byte con_s_bg_23
+    .byte con_s_animation_76
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F7, $10
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $28
-    .byte con_bg + $12
-    .byte con_animation + $E1
-    .byte con_cloud + $AF
+    .byte con_s_bg_12
+    .byte con_s_animation_E1
+    .byte con_s_cloud_AF
     .byte con_jmp
     .word loc_AE96
 
@@ -12823,99 +12818,99 @@ loc_AED4_skylab_twin_shot:
     .byte con_mirror_on
     .byte con_F8, $04
     .byte con_pause + $40
-    .byte con_bg + $4F
-    .byte con_animation + $9C
-    .byte con_cloud + $A8
+    .byte con_s_bg_4F
+    .byte con_s_animation_9C
+    .byte con_s_cloud_A8
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $78
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $AE
+    .byte con_s_bg_30
+    .byte con_s_animation_A0
+    .byte con_s_cloud_AE
     .byte con_mirror_toggle
     .byte con_soundID_delay, $26, $02
     .byte con_F7, $02
     .byte con_pause + $1E
-    .byte con_bg + $22
-    .byte con_animation + $6B
-    .byte con_cloud + con_clear
+    .byte con_s_bg_22
+    .byte con_s_animation_6B
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_moving_bg, $03
     .byte con_soundID_delay, $28, $02
     .byte con_pause + $20
-    .byte con_bg + $59
-    .byte con_animation + $EA
-    .byte con_cloud + con_skip
+    .byte con_s_bg_59
+    .byte con_s_animation_EA
+    .byte con_s_cloud_FF_skip
     .byte con_soundID_delay, $26, $02
     .byte con_F7, $02
     .byte con_pause + $1E
-    .byte con_bg + $22
-    .byte con_animation + $6B
-    .byte con_cloud + con_skip
+    .byte con_s_bg_22
+    .byte con_s_animation_6B
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $0F
     .byte con_pause + $14
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $1E
-    .byte con_bg + $3C
-    .byte con_animation + $C2
-    .byte con_cloud + con_skip
+    .byte con_s_bg_3C
+    .byte con_s_animation_C2
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $3C
-    .byte con_bg + $4F
-    .byte con_animation + $9C
-    .byte con_cloud + $13
+    .byte con_s_bg_4F
+    .byte con_s_animation_9C
+    .byte con_s_cloud_13
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9C
-    .byte con_cloud + $AF
+    .byte con_s_bg_30
+    .byte con_s_animation_9C
+    .byte con_s_cloud_AF
     .byte con_mirror_toggle
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $B0
+    .byte con_s_bg_30
+    .byte con_s_animation_A0
+    .byte con_s_cloud_B0
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
     .byte con_F7, $10
     .byte con_soundID_delay, $6D, $02
     .byte con_pause + $1E
-    .byte con_bg + $05
-    .byte con_animation + $C2
-    .byte con_cloud + $EE
+    .byte con_s_bg_05
+    .byte con_s_animation_C2
+    .byte con_s_cloud_EE
     .byte con_pause + $3C
-    .byte con_bg + $20
-    .byte con_animation + $C3
-    .byte con_cloud + con_skip
+    .byte con_s_bg_20
+    .byte con_s_animation_C3
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
-loc_AF31:
+loc_AF31_rising_dragon_kick:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $37
-    .byte con_bg + $47
-    .byte con_animation + $C9
-    .byte con_cloud + $6B
+    .byte con_s_bg_47
+    .byte con_s_animation_C9
+    .byte con_s_cloud_6B
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_F7, $0E
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $28
-    .byte con_bg + $05
-    .byte con_animation + $CB
-    .byte con_cloud + $EF
+    .byte con_s_bg_05
+    .byte con_s_animation_CB
+    .byte con_s_cloud_EF
     .byte con_mirror_toggle
     .byte con_soundID_delay, $6D, $02
     .byte con_pause + $28
-    .byte con_bg + $20
-    .byte con_animation + $AC
-    .byte con_cloud + con_skip
+    .byte con_s_bg_20
+    .byte con_s_animation_AC
+    .byte con_s_cloud_FF_skip
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
@@ -12926,22 +12921,22 @@ loc_AF31:
 sub_AF73_рожа_soda_палка_и_мерцание:
     .byte con_mirror_toggle
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $9F
-    .byte con_cloud + $C2
+    .byte con_s_bg_30
+    .byte con_s_animation_9F
+    .byte con_s_cloud_C2
 loc_AF78_палка_soda_и_мерцание:
 sub_AF78_палка_soda_и_мерцание:
     .byte con_F7, $15
     .byte con_soundID_delay, $1D, $09
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $CE
-    .byte con_cloud + con_clear
+    .byte con_s_bg_05
+    .byte con_s_animation_CE
+    .byte con_s_cloud_clear
     .byte con_F7, $10
     .byte con_pause + $0D
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -12949,9 +12944,9 @@ sub_AF78_палка_soda_и_мерцание:
 sub_AF88_рожа_soda_палка_и_мерцание:
     .byte con_mirror_toggle
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AD
-    .byte con_cloud + $C2
+    .byte con_s_bg_30
+    .byte con_s_animation_AD
+    .byte con_s_cloud_C2
     .byte con_jmp
     .word loc_AF78_палка_soda_и_мерцание
 
@@ -12960,9 +12955,9 @@ sub_AF88_рожа_soda_палка_и_мерцание:
 loc_B29B_бежать_к_мячу_на_штрафной_перед_совершением_выбранного_действия:
     .byte con_F7, $02
     .byte con_pause + $32
-    .byte con_bg + $22
-    .byte con_animation + $6B
-    .byte con_cloud + $4C
+    .byte con_s_bg_22
+    .byte con_s_animation_6B
+    .byte con_s_cloud_4C
     .byte con_rts
 
 
@@ -12975,31 +12970,31 @@ loc_B2A2_jumping_volley:
         off_case_B2A2_00:
         ; con_p_misaki_my
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $96
-            .byte con_cloud + $13
+            .byte con_s_bg_30
+            .byte con_s_animation_96
+            .byte con_s_cloud_13
         loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley:
             .byte con_jsr
             .word sub_BBC7_очистка
 sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_volley:
             .byte con_F7, $02
             .byte con_pause + $1E
-            .byte con_bg + $24
-            .byte con_animation + $6B
-            .byte con_cloud + con_skip
+            .byte con_s_bg_24
+            .byte con_s_animation_6B
+            .byte con_s_cloud_FF_skip
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $28
-            .byte con_bg + $20
-            .byte con_animation + $AC
-            .byte con_cloud + con_clear
+            .byte con_s_bg_20
+            .byte con_s_animation_AC
+            .byte con_s_cloud_clear
             .byte con_rts
 
         off_case_B2A2_01:
         ; con_p_misaki_japan
             .byte con_pause + $3C
-            .byte con_bg + $30
-            .byte con_animation + $97
-            .byte con_cloud + $13
+            .byte con_s_bg_30
+            .byte con_s_animation_97
+            .byte con_s_cloud_13
             .byte con_jmp
             .word loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley
 
@@ -13009,9 +13004,9 @@ loc_B2C2_игрок_принимает_низкий_мяч_на_ногу:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2B, $21
     .byte con_pause + $44
-    .byte con_bg + $57
-    .byte con_animation + $6C
-    .byte con_cloud + $4D
+    .byte con_s_bg_57
+    .byte con_s_animation_6C
+    .byte con_s_cloud_4D
     .byte con_rts
 
 
@@ -13019,9 +13014,9 @@ loc_B2C2_игрок_принимает_низкий_мяч_на_ногу:
 loc_B2CC_игрок_принимает_высокий_мяч_на_живот_фон_облака:
     .byte con_soundID_delay, $2B, $21
     .byte con_pause + $3E
-    .byte con_bg + $29
-    .byte con_animation + $6D
-    .byte con_cloud + $4D
+    .byte con_s_bg_29
+    .byte con_s_animation_6D
+    .byte con_s_cloud_4D
     .byte con_rts
 
 
@@ -13029,9 +13024,9 @@ loc_B2CC_игрок_принимает_высокий_мяч_на_живот_ф�
 loc_B2D4_игрок_принимает_высокий_мяч_на_живот_фон_зрители:
     .byte con_soundID_delay, $2B, $21
     .byte con_pause + $3E
-    .byte con_bg + $67
-    .byte con_animation + $6D
-    .byte con_cloud + $4D
+    .byte con_s_bg_67
+    .byte con_s_animation_6D
+    .byte con_s_cloud_4D
     .byte con_rts
 
 
@@ -13081,13 +13076,13 @@ off_case_B2F2_0E_ishizaki:
 off_case_B2F2_0F_ishizaki:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $14
-    .byte con_bg + $02
-    .byte con_animation + $1C
-    .byte con_cloud + $37
+    .byte con_s_bg_02
+    .byte con_s_animation_1C
+    .byte con_s_cloud_37
     .byte con_pause + $22
-    .byte con_bg + $56
-    .byte con_animation + $49
-    .byte con_cloud + con_skip
+    .byte con_s_bg_56
+    .byte con_s_animation_49
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -13131,9 +13126,9 @@ off_case_B310_0F_ishizaki:
     .byte con_F8, $04
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
-    .byte con_bg + $1D
-    .byte con_animation + $1C
-    .byte con_cloud + $3B
+    .byte con_s_bg_1D
+    .byte con_s_animation_1C
+    .byte con_s_cloud_3B
     .byte con_rts
 
 
@@ -13176,13 +13171,13 @@ off_case_B32C_0E_ishizaki:
 off_case_B32C_0F_ishizaki:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $14
-    .byte con_bg + $02
-    .byte con_animation + $1C
-    .byte con_cloud + $38
+    .byte con_s_bg_02
+    .byte con_s_animation_1C
+    .byte con_s_cloud_38
     .byte con_pause + $20
-    .byte con_bg + $29
-    .byte con_animation + $49
-    .byte con_cloud + con_skip
+    .byte con_s_bg_29
+    .byte con_s_animation_49
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -13192,9 +13187,9 @@ off_case_B338_01_masao_kazuo:
     .word sub_A71A_masao_kazuo_japan_становятся_друг_на_друга
 loc_B33B_полет_одного_из_братьев_после_запуска:
     .byte con_pause + $2D
-    .byte con_bg + $20
-    .byte con_animation + $C1
-    .byte con_cloud + $ED
+    .byte con_s_bg_20
+    .byte con_s_animation_C1
+    .byte con_s_cloud_ED
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -13236,14 +13231,14 @@ off_case_B359_0C_hyuga:
 off_case_B359_0D_hyuga:
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $14
-    .byte con_bg + $02
-    .byte con_animation + $1C
-    .byte con_cloud + $39
+    .byte con_s_bg_02
+    .byte con_s_animation_1C
+    .byte con_s_cloud_39
 loc_B360:
     .byte con_pause + $20
-    .byte con_bg + $56
-    .byte con_animation + $49
-    .byte con_cloud + con_skip
+    .byte con_s_bg_56
+    .byte con_s_animation_49
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -13271,9 +13266,9 @@ off_case_B372_05_jito:
 ; jito
     .byte con_F7, $44
     .byte con_pause + $48
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $D8
+    .byte con_s_bg_30
+    .byte con_s_animation_A0
+    .byte con_s_cloud_D8
 loc_B378:
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -13285,14 +13280,14 @@ off_case_B37C_0B_galvan:
     .byte con_soundID_delay, $27, $02
     .byte con_F7, $33
     .byte con_pause + $20
-    .byte con_bg + $6B
-    .byte con_animation + $E3
-    .byte con_cloud + $EC
+    .byte con_s_bg_6B
+    .byte con_s_animation_E3
+    .byte con_s_cloud_EC
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $14
-    .byte con_bg + $02
-    .byte con_animation + $1C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_02
+    .byte con_s_animation_1C
+    .byte con_s_cloud_FF_skip
     .byte con_jmp
     .word loc_B360
 
@@ -13302,9 +13297,9 @@ off_case_B38F_06_jito:
 ; jito
     .byte con_F7, $44
     .byte con_pause + $48
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + $D8
+    .byte con_s_bg_30
+    .byte con_s_animation_AA
+    .byte con_s_cloud_D8
     .byte con_jmp
     .word loc_B378
 
@@ -13314,9 +13309,9 @@ off_case_B398_0E_ishizaki:
 ; ishizaki
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $98
-    .byte con_cloud + $D7
+    .byte con_s_bg_30
+    .byte con_s_animation_98
+    .byte con_s_cloud_D7
     .byte con_jmp
     .word loc_A7B1_прыжок_перед_face_block
 
@@ -13326,9 +13321,9 @@ off_case_B3A1_0F_ishizaki:
 ; ishizaki
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $99
-    .byte con_cloud + $D7
+    .byte con_s_bg_30
+    .byte con_s_animation_99
+    .byte con_s_cloud_D7
     .byte con_jmp
     .word loc_A7B1_прыжок_перед_face_block
 
@@ -13363,9 +13358,9 @@ off_case_9DFE_02_02_00:
 ; forcible dribble/hyuga из японии
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $31
-    .byte con_animation + $9E
-    .byte con_cloud + $C4
+    .byte con_s_bg_31
+    .byte con_s_animation_9E
+    .byte con_s_cloud_C4
 loc_B3BD:
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -13383,9 +13378,9 @@ off_case_9DFE_02_02_01:
 ; forcible dribble/hyuga_из тохо
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $31
-    .byte con_animation + $B0
-    .byte con_cloud + $C4
+    .byte con_s_bg_31
+    .byte con_s_animation_B0
+    .byte con_s_cloud_C4
     .byte con_jmp
     .word loc_B3BD
 
@@ -13395,9 +13390,9 @@ off_case_9DFE_02_02_02:
 ; forcible dribble/jito из японии 
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $A0
-    .byte con_cloud + $C5
+    .byte con_s_bg_30
+    .byte con_s_animation_A0
+    .byte con_s_cloud_C5
     .byte con_jmp
     .word loc_B3BD
 
@@ -13407,9 +13402,9 @@ off_case_9DFE_02_02_03:
 ; forcible dribble/jito из куними 
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + $C5
+    .byte con_s_bg_30
+    .byte con_s_animation_AA
+    .byte con_s_cloud_C5
     .byte con_jmp
     .word loc_B3BD
 
@@ -13419,9 +13414,9 @@ off_case_9DFE_02_02_04:
 ; forcible dribble/napoleon
     .byte con_F7, $44
     .byte con_pause + $3C
-    .byte con_bg + $30
-    .byte con_animation + $B4
-    .byte con_cloud + $C6
+    .byte con_s_bg_30
+    .byte con_s_animation_B4
+    .byte con_s_cloud_C6
     .byte con_jmp
     .word loc_B3BD
 
@@ -13433,9 +13428,9 @@ bra_long_case_9DFE_02_03:
     .word sub_A86C_vanishing_feint
     .byte con_F7, $02
     .byte con_pause + $28
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -13473,9 +13468,9 @@ bra_long_case_9DFE_02_05:
     .byte con_F7, $0D
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $1F
-    .byte con_bg + $47
-    .byte con_animation + $D1
-    .byte con_cloud + con_skip
+    .byte con_s_bg_47
+    .byte con_s_animation_D1
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -13496,9 +13491,9 @@ off_case_9DFE_02_06_00:
 loc_B41B_kaltz_hedgehog_dribble_финальный_кусок_анимации:
     .byte con_F7, $02
     .byte con_pause + $1F
-    .byte con_bg + con_skip
-    .byte con_animation + $D2
-    .byte con_cloud + con_clear
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_D2
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13520,9 +13515,9 @@ sub_B428_белое_мерцание_если_защитник_делал_спе
 off_case_B428_01:
     .byte con_F7, $10
     .byte con_pause + $10
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
 off_case_B428_00:
     .byte con_rts
 
@@ -13530,9 +13525,9 @@ off_case_B428_00:
 
 loc_B43D_игрок_делает_верхний_through:
     .byte con_pause + $3D
-    .byte con_bg + $56
-    .byte con_animation + $6E
-    .byte con_cloud + $4D
+    .byte con_s_bg_56
+    .byte con_s_animation_6E
+    .byte con_s_cloud_4D
     .byte con_rts
 
 
@@ -13540,18 +13535,18 @@ loc_B43D_игрок_делает_верхний_through:
 loc_B442_игрок_делает_нижний_through:
     .byte con_F7, $02
     .byte con_pause + $3D
-    .byte con_bg + $22
-    .byte con_animation + $6F
-    .byte con_cloud + $4D
+    .byte con_s_bg_22
+    .byte con_s_animation_6F
+    .byte con_s_cloud_4D
     .byte con_rts
 
 
 
 sub_B449_полет_мяча_дугой:
     .byte con_pause + $28
-    .byte con_bg + $20
-    .byte con_animation + $70
-    .byte con_cloud + con_clear
+    .byte con_s_bg_20
+    .byte con_s_animation_70
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13559,9 +13554,9 @@ sub_B449_полет_мяча_дугой:
 loc_B44E_кипер_идеально_засейвил:
 sub_B44E_кипер_идеально_засейвил:
     .byte con_pause + $5A
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $33
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_33
     .byte con_rts
 
 
@@ -13570,9 +13565,9 @@ loc_B45D_мяч_улетает_в_сторону:
 sub_B45D_мяч_улетает_в_сторону:
     .byte con_mirror_condition, $04
     .byte con_pause + $3C
-    .byte con_bg + $20
-    .byte con_animation + $52
-    .byte con_cloud + $50
+    .byte con_s_bg_20
+    .byte con_s_animation_52
+    .byte con_s_cloud_50
     .byte con_rts
 
 
@@ -13583,9 +13578,9 @@ loc_B48E:
     .word sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки
     .byte con_soundID_delay, $2C, $1D
     .byte con_pause + $3C
-    .byte con_bg + $01
-    .byte con_animation + $78
-    .byte con_cloud + $EB
+    .byte con_s_bg_01
+    .byte con_s_animation_78
+    .byte con_s_cloud_EB
     .byte con_rts
 
 
@@ -13593,9 +13588,9 @@ loc_B48E:
 loc_B4A6_игрок_принимает_пас_на_ногу:
     .byte con_soundID_delay, $2C, $02
     .byte con_pause + $3C
-    .byte con_bg + $01
-    .byte con_animation + $78
-    .byte con_cloud + $6E
+    .byte con_s_bg_01
+    .byte con_s_animation_78
+    .byte con_s_cloud_6E
     .byte con_rts
 
 
@@ -13603,9 +13598,9 @@ loc_B4A6_игрок_принимает_пас_на_ногу:
 loc_B4AE_игрок_принимает_пас_на_грудь:
     .byte con_soundID_delay, $2C, $11
     .byte con_pause + $38
-    .byte con_bg + $63
-    .byte con_animation + $7A
-    .byte con_cloud + $6E
+    .byte con_s_bg_63
+    .byte con_s_animation_7A
+    .byte con_s_cloud_6E
     .byte con_rts
 
 
@@ -13613,9 +13608,9 @@ loc_B4AE_игрок_принимает_пас_на_грудь:
 loc_B4B6_игрок_принимает_пас_на_грудь:
     .byte con_soundID_delay, $2C, $11
     .byte con_pause + $38
-    .byte con_bg + $63
-    .byte con_animation + $7A
-    .byte con_cloud + $58
+    .byte con_s_bg_63
+    .byte con_s_animation_7A
+    .byte con_s_cloud_58
     .byte con_rts
 
 
@@ -13630,9 +13625,9 @@ bra_long_case_B675_18:
     .byte con_mirror_toggle
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $3C
-    .byte con_bg + $35
-    .byte con_animation + $5D
-    .byte con_cloud + con_clear
+    .byte con_s_bg_35
+    .byte con_s_animation_5D
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13643,9 +13638,9 @@ bra_long_case_B685_19:
     .word sub_BBB7
     .byte con_soundID_delay, $10, $02
     .byte con_pause + $37
-    .byte con_bg + $5B
-    .byte con_animation + $5E
-    .byte con_cloud + con_clear
+    .byte con_s_bg_5B
+    .byte con_s_animation_5E
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13654,37 +13649,37 @@ bra_long_case_B690_1A:
 ; cannon shot
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $30
-    .byte con_bg + $5A
-    .byte con_animation + $1A
-    .byte con_cloud + con_clear
+    .byte con_s_bg_5A
+    .byte con_s_animation_1A
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $30
-    .byte con_bg + $5A
-    .byte con_animation + $1A
-    .byte con_cloud + con_clear
+    .byte con_s_bg_5A
+    .byte con_s_animation_1A
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_soundID_delay, $0C, $02
     .byte con_pause + $0A
-    .byte con_bg + $14
-    .byte con_animation + $3D
-    .byte con_cloud + con_clear
+    .byte con_s_bg_14
+    .byte con_s_animation_3D
+    .byte con_s_cloud_clear
     .byte con_pause + $0A
-    .byte con_bg + $15
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_15
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $16
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_16
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $17
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_17
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $0A
-    .byte con_bg + $18
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_18
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -13702,9 +13697,9 @@ bra_long_case_B6C0_1B:
     .byte con_F7, $39
     .byte con_soundID_delay, $07, $02
     .byte con_pause + $32
-    .byte con_bg + $5A
-    .byte con_animation + $11
-    .byte con_cloud + con_clear
+    .byte con_s_bg_5A
+    .byte con_s_animation_11
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13714,9 +13709,9 @@ bra_long_case_B6D6_1C:
 sub_B6D6_полет_dynamite_header:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $20
-    .byte con_bg + $13
-    .byte con_animation + $12
-    .byte con_cloud + con_clear
+    .byte con_s_bg_13
+    .byte con_s_animation_12
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13725,9 +13720,9 @@ bra_long_case_B6DE_1D:
 ; cannon header
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $1E
-    .byte con_bg + $67
-    .byte con_animation + $72
-    .byte con_cloud + con_clear
+    .byte con_s_bg_67
+    .byte con_s_animation_72
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13737,9 +13732,9 @@ bra_long_case_B6E6_1E:
     .byte con_mirror_toggle
     .byte con_soundID_delay, $08, $02
     .byte con_pause + $33
-    .byte con_bg + $13
-    .byte con_animation + $1D
-    .byte con_cloud + con_clear
+    .byte con_s_bg_13
+    .byte con_s_animation_1D
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -13749,15 +13744,15 @@ bra_long_case_B6F0_1F:
 ; rising dragon kick
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $32
-    .byte con_bg + $13
-    .byte con_animation + $40
-    .byte con_cloud + con_clear
+    .byte con_s_bg_13
+    .byte con_s_animation_40
+    .byte con_s_cloud_clear
     .byte con_F7, $14
     .byte con_soundID_delay, $0E, $02
     .byte con_pause + $23
-    .byte con_bg + $43
-    .byte con_animation + $73
-    .byte con_cloud + con_clear
+    .byte con_s_bg_43
+    .byte con_s_animation_73
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13766,15 +13761,15 @@ bra_long_case_B701_20:
 ; foward somersault
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $28
-    .byte con_bg + $68
-    .byte con_animation + $12
-    .byte con_cloud + con_clear
+    .byte con_s_bg_68
+    .byte con_s_animation_12
+    .byte con_s_cloud_clear
     .byte con_F7, $2B
     .byte con_soundID_delay, $05, $02
     .byte con_pause + $46
-    .byte con_bg + $60
-    .byte con_animation + $74
-    .byte con_cloud + con_clear
+    .byte con_s_bg_60
+    .byte con_s_animation_74
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -13790,9 +13785,9 @@ sub_B712_slider_cannon:
     .byte con_F7, $3A
     .byte con_soundID_delay, $0A, $02
     .byte con_pause + $46
-    .byte con_bg + $5E
-    .byte con_animation + $28
-    .byte con_cloud + con_clear
+    .byte con_s_bg_5E
+    .byte con_s_animation_28
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -13803,18 +13798,18 @@ bra_long_case_B724_22:
 sub_B724_double_eel:
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $3D
-    .byte con_bg + $4E
-    .byte con_animation + $5D
-    .byte con_cloud + con_clear
+    .byte con_s_bg_4E
+    .byte con_s_animation_5D
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
 
 _scenario_B733_1F:
     .byte con_pause + $96
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $66
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_66
     .byte con_rts
 
 
@@ -13829,17 +13824,17 @@ _scenario_B738_20:
         off_case_20_00:
         ; мяч у команды слева
             .byte con_pause + $B4
-            .byte con_bg + $38
-            .byte con_animation + $85
-            .byte con_cloud + $67
+            .byte con_s_bg_38
+            .byte con_s_animation_85
+            .byte con_s_cloud_67
             .byte con_rts
 
         off_case_20_01:
         ; мяч у команды справа
             .byte con_pause + $B4
-            .byte con_bg + $37
-            .byte con_animation + $85
-            .byte con_cloud + $67
+            .byte con_s_bg_37
+            .byte con_s_animation_85
+            .byte con_s_cloud_67
             .byte con_rts
 
 
@@ -13854,9 +13849,9 @@ _scenario_BA3B_21:
         off_case_21_00:
         ; мяч у команды слева
             .byte con_pause + $0A
-            .byte con_bg + $38
-            .byte con_animation + $00
-            .byte con_cloud + con_skip
+            .byte con_s_bg_38
+            .byte con_s_animation_00
+            .byte con_s_cloud_FF_skip
             .byte con_FE
             .byte con_jmp
             .word loc_BA54_21_00
@@ -13864,9 +13859,9 @@ _scenario_BA3B_21:
         off_case_21_01:
         ; мяч у команды справа
             .byte con_pause + $0A
-            .byte con_bg + $37
-            .byte con_animation + $00
-            .byte con_cloud + con_skip
+            .byte con_s_bg_37
+            .byte con_s_animation_00
+            .byte con_s_cloud_FF_skip
             .byte con_FE
         loc_BA54:
         loc_BA54_21_00:
@@ -13885,9 +13880,9 @@ _scenario_BA3B_21:
                 ; мяч влево, кипер влево
                     .byte con_mirror_toggle
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $86
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_86
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_mirror_on
                     .byte con_jmp
@@ -13897,9 +13892,9 @@ _scenario_BA3B_21:
                 ; мяч влево, кипер центр
                     .byte con_mirror_toggle
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $89
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_89
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_mirror_on
                     .byte con_jmp
@@ -13908,9 +13903,9 @@ _scenario_BA3B_21:
                 off_case_21_01_02:
                 ; мяч влево, кипер вправо
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $87
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_87
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_on
                     .byte con_jmp
                     .word loc_BA68_кипер_не_угадывает_сторону_в_пк
@@ -13919,9 +13914,9 @@ _scenario_BA3B_21:
                 ; мяч центр, кипер влево
                     .byte con_mirror_toggle
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $88
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_88
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_mirror_on
                     .byte con_jmp
@@ -13930,9 +13925,9 @@ _scenario_BA3B_21:
                 off_case_21_01_04:
                 ; мяч центр, кипер центр
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $8A
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_8A
+                    .byte con_s_cloud_FF_skip
                     .dbyt con_branch_short + con_bra_результат_действия_защитника
                     .byte off_case_21_01_04_00 - * ; кипер промахивается и гол
                     .byte off_case_21_01_04_01 - * ; кипер отбивает
@@ -13942,9 +13937,9 @@ _scenario_BA3B_21:
                         ; кипер промахивается и гол
                             .byte con_F7, $07
                             .byte con_pause + $2A
-                            .byte con_bg + $40
-                            .byte con_animation + $59
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_40
+                            .byte con_s_animation_59
+                            .byte con_s_cloud_FF_skip
                             .byte con_jmp
                             .word loc_BA7F_гол_при_ударе_11м
 
@@ -13953,20 +13948,20 @@ _scenario_BA3B_21:
                             .byte con_F7, $07
                             .byte con_soundID_delay, $2A, $21
                             .byte con_pause + $20
-                            .byte con_bg + $40
-                            .byte con_animation + $17
-                            .byte con_cloud + $DD
+                            .byte con_s_bg_40
+                            .byte con_s_animation_17
+                            .byte con_s_cloud_DD
                             .byte con_F7, $10
                             .byte con_pause + $10
-                            .byte con_bg + $05
-                            .byte con_animation + $00
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_05
+                            .byte con_s_animation_00
+                            .byte con_s_cloud_FF_skip
                             .byte con_mirror_toggle
                             .byte con_soundID_delay, $7E, $02
                             .byte con_pause + $3C
-                            .byte con_bg + $20
-                            .byte con_animation + $52
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_20
+                            .byte con_s_animation_52
+                            .byte con_s_cloud_FF_skip
                             .byte con_rts
 
                         off_case_21_01_04_02:
@@ -13981,9 +13976,9 @@ _scenario_BA3B_21:
 ;                                off_case_21_01_04_02_00:
 ;                                ; другой кипер
 ;                                    .byte con_pause + $28
-;                                    .byte con_bg + $0E
-;                                    .byte con_animation + $25
-;                                    .byte con_cloud + con_skip
+;                                    .byte con_s_bg_0E
+;                                    .byte con_s_animation_25
+;                                    .byte con_s_cloud_FF_skip
 ;                                    .byte con_jmp
 ;                                    .word loc_BADE_штанга_при_ударе_11м
 ;
@@ -13991,18 +13986,18 @@ _scenario_BA3B_21:
 ;                                off_case_21_01_04_02_02:
 ;                                ; wakashimazu, gertise
 ;                                    .byte con_pause + $28
-;                                    .byte con_bg + $0F
-;                                    .byte con_animation + $26
-;                                    .byte con_cloud + con_skip
+;                                    .byte con_s_bg_0F
+;                                    .byte con_s_animation_26
+;                                    .byte con_s_cloud_FF_skip
 ;                                    .byte con_jmp
 ;                                    .word loc_BADE_штанга_при_ударе_11м
 
                 off_case_21_01_05:
                 ; мяч центр, кипер вправо
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $88
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_88
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_on
                     .byte con_jmp
                     .word loc_BA68_кипер_не_угадывает_сторону_в_пк
@@ -14011,9 +14006,9 @@ _scenario_BA3B_21:
                 ; мяч вправо, кипер влево
                     .byte con_mirror_toggle
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $87
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_87
+                    .byte con_s_cloud_FF_skip
                     .byte con_mirror_toggle
                     .byte con_jmp
                     .word loc_BA68_кипер_не_угадывает_сторону_в_пк
@@ -14021,18 +14016,18 @@ _scenario_BA3B_21:
                 off_case_21_01_07:
                 ; мяч вправо, кипер центр
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $89
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_89
+                    .byte con_s_cloud_FF_skip
                     .byte con_jmp
                     .word loc_BA68_кипер_не_угадывает_сторону_в_пк
 
                 off_case_21_01_08:
                 ; мяч вправо, кипер вправо
                     .byte con_pause + $32
-                    .byte con_bg + con_skip
-                    .byte con_animation + $86
-                    .byte con_cloud + con_skip
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_86
+                    .byte con_s_cloud_FF_skip
                 loc_BA63_21_01_00:
                     .dbyt con_branch_short + con_bra_результат_действия_защитника
                     .byte off_case_21_01_08_00 - * ; кипер промахнется и гол
@@ -14049,9 +14044,9 @@ _scenario_BA3B_21:
                                 off_case_21_01_08_00_00:
                                 ; мяч вправо, кипер вправо/кипер промахнется и гол/другой кипер
                                     .byte con_pause + $28
-                                    .byte con_bg + $0E
-                                    .byte con_animation + $25
-                                    .byte con_cloud + con_skip
+                                    .byte con_s_bg_0E
+                                    .byte con_s_animation_25
+                                    .byte con_s_cloud_FF_skip
                                     .byte con_jmp
                                     .word loc_BA7F_гол_при_ударе_11м
 
@@ -14059,9 +14054,9 @@ _scenario_BA3B_21:
                                 off_case_21_01_08_00_02:
                                 ; мяч вправо, кипер вправо/кипер промахнется и гол/wakashimazu, gertise
                                     .byte con_pause + $28
-                                    .byte con_bg + $0F
-                                    .byte con_animation + $26
-                                    .byte con_cloud + con_skip
+                                    .byte con_s_bg_0F
+                                    .byte con_s_animation_26
+                                    .byte con_s_cloud_FF_skip
                                     .byte con_jmp
                                     .word loc_BA7F_гол_при_ударе_11м
 
@@ -14076,9 +14071,9 @@ _scenario_BA3B_21:
                                 ; мяч вправо, кипер вправо/кипер отобьет/другой кипер
                                     .byte con_soundID_delay, $2B, $21
                                     .byte con_pause + $3C
-                                    .byte con_bg + $0E
-                                    .byte con_animation + $27
-                                    .byte con_cloud + $DD
+                                    .byte con_s_bg_0E
+                                    .byte con_s_animation_27
+                                    .byte con_s_cloud_DD
                                     .byte con_soundID_delay, $7E, $02
                                     .byte con_jmp
                                     .word loc_BBC7_очистка
@@ -14088,9 +14083,9 @@ _scenario_BA3B_21:
                                 ; мяч вправо, кипер вправо/кипер отобьет/wakashimazu, gertise
                                     .byte con_soundID_delay, $2B, $21
                                     .byte con_pause + $3C
-                                    .byte con_bg + $0F
-                                    .byte con_animation + $2B
-                                    .byte con_cloud + $DD
+                                    .byte con_s_bg_0F
+                                    .byte con_s_animation_2B
+                                    .byte con_s_cloud_DD
                                     .byte con_soundID_delay, $7E, $02
                                     .byte con_jmp
                                     .word loc_BBC7_очистка
@@ -14105,9 +14100,9 @@ _scenario_BA3B_21:
                                 off_case_21_01_08_02_00:
                                 ; мяч вправо, кипер вправо/кипер промахнется и штанга/другой кипер
                                     .byte con_pause + $28
-                                    .byte con_bg + $0E
-                                    .byte con_animation + $25
-                                    .byte con_cloud + con_skip
+                                    .byte con_s_bg_0E
+                                    .byte con_s_animation_25
+                                    .byte con_s_cloud_FF_skip
                                     .byte con_jmp
                                     .word loc_BADE_штанга_при_ударе_11м
 
@@ -14115,9 +14110,9 @@ _scenario_BA3B_21:
                                 off_case_21_01_08_02_02:
                                 ; мяч вправо, кипер вправо/кипер промахнется и штанга/wakashimazu, gertise
                                     .byte con_pause + $28
-                                    .byte con_bg + $0F
-                                    .byte con_animation + $26
-                                    .byte con_cloud + con_skip
+                                    .byte con_s_bg_0F
+                                    .byte con_s_animation_26
+                                    .byte con_s_cloud_FF_skip
                                     .byte con_jmp
                                     .word loc_BADE_штанга_при_ударе_11м
 
@@ -14126,9 +14121,9 @@ _scenario_BA3B_21:
 
 _scenario_B749_22:
     .byte con_pause + $B0
-    .byte con_bg + $38
-    .byte con_animation + $85
-    .byte con_cloud + $69
+    .byte con_s_bg_38
+    .byte con_s_animation_85
+    .byte con_s_cloud_69
     .byte con_rts
 
 
@@ -14137,9 +14132,9 @@ _scenario_BB3F_23:
     .byte con_jsr
     .word sub_BA2C_замах_и_удар_по_мячу_обычным_ударом
     .byte con_pause + $0A
-    .byte con_bg + $38
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_38
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_FE
     .byte con_jmp
     .word loc_BA54
@@ -14150,9 +14145,9 @@ _scenario_9BF2_24:
     .byte con_jsr
     .word sub_B4BF_мяч_улетает_в_аут
     .byte con_pause + $46
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $5D
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_5D
     .byte con_rts
 
 
@@ -14169,9 +14164,9 @@ _scenario_9CDD_25:
             .byte con_mirror_condition, $03       ; куда летит мяч
             .byte con_soundID_delay, $12, $02     ; обычный удар с земли
             .byte con_pause + $30
-            .byte con_bg + $42
-            .byte con_animation + $82
-            .byte con_cloud + $63
+            .byte con_s_bg_42
+            .byte con_s_animation_82
+            .byte con_s_cloud_63
             .byte con_quit
 
         off_case_25_01:
@@ -14193,9 +14188,9 @@ _scenario_9E2D_26:
             .byte con_mirror_condition, $00
             .byte con_soundID_delay, $2B, $09     ; отбитие мяча
             .byte con_pause + $37
-            .byte con_bg + $42
-            .byte con_animation + $83
-            .byte con_cloud + $64
+            .byte con_s_bg_42
+            .byte con_s_animation_83
+            .byte con_s_cloud_64
             .byte con_quit
 
         off_case_26_01:
@@ -14209,9 +14204,9 @@ _scenario_9BF8_27:
     .byte con_jsr
     .word sub_B4BF_мяч_улетает_в_аут
     .byte con_pause + $46
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $5E
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_5E
     .byte con_rts
 
 
@@ -14220,9 +14215,9 @@ _scenario_B4CC_28:
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $2B, $09
     .byte con_pause + $32
-    .byte con_bg + $26
-    .byte con_animation + $7F
-    .byte con_cloud + $60
+    .byte con_s_bg_26
+    .byte con_s_animation_7F
+    .byte con_s_cloud_60
     .byte con_rts
 
 
@@ -14231,9 +14226,9 @@ _scenario_9BFE_29:
     .byte con_jsr
     .word sub_B4BF_мяч_улетает_в_аут
     .byte con_pause + $46
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $5F
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_5F
     .byte con_rts
 
 
@@ -14241,18 +14236,18 @@ _scenario_9BFE_29:
 _scenario_B4E0_2A:
     .byte con_mirror_condition, $00
     .byte con_pause + $30
-    .byte con_bg + $3E
-    .byte con_animation + $81
-    .byte con_cloud + $62
+    .byte con_s_bg_3E
+    .byte con_s_animation_81
+    .byte con_s_cloud_62
     .byte con_rts
 
 
 
 _scenario_B72C_2B:
     .byte con_pause + $78
-    .byte con_bg + $46
-    .byte con_animation + $00
-    .byte con_cloud + $65
+    .byte con_s_bg_46
+    .byte con_s_animation_00
+    .byte con_s_cloud_65
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14268,18 +14263,18 @@ _scenario_9F54_2C:
         ; low
             .byte con_soundID_delay, $2B, $21
             .byte con_pause + $46
-            .byte con_bg + $01
-            .byte con_animation + $6C
-            .byte con_cloud + $14
+            .byte con_s_bg_01
+            .byte con_s_animation_6C
+            .byte con_s_cloud_14
             .byte con_rts
 
         off_case_2C_01:
         ; high
             .byte con_soundID_delay, $2B, $21
             .byte con_pause + $4A
-            .byte con_bg + $63
-            .byte con_animation + $6D
-            .byte con_cloud + $14
+            .byte con_s_bg_63
+            .byte con_s_animation_6D
+            .byte con_s_cloud_14
             .byte con_rts
 
 
@@ -14288,9 +14283,9 @@ _scenario_B4D6_2D:
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $64, $0D
     .byte con_pause + $3A
-    .byte con_bg + $3C
-    .byte con_animation + $80
-    .byte con_cloud + $61
+    .byte con_s_bg_3C
+    .byte con_s_animation_80
+    .byte con_s_cloud_61
     .byte con_rts
 
 
@@ -14298,9 +14293,9 @@ _scenario_B4D6_2D:
 _scenario_B74E_2E:
     .byte con_mirror_off
     .byte con_pause + $78
-    .byte con_bg + $36
-    .byte con_animation + $8B
-    .byte con_cloud + $6D
+    .byte con_s_bg_36
+    .byte con_s_animation_8B
+    .byte con_s_cloud_6D
     .byte con_rts
 
 
@@ -14319,18 +14314,18 @@ _scenario_B773_2F:
         off_case_B77E_00:
         ; low
             .byte con_pause + $5A
-            .byte con_bg + $36
-            .byte con_animation + $8D
-            .byte con_cloud + $10
+            .byte con_s_bg_36
+            .byte con_s_animation_8D
+            .byte con_s_cloud_10
             .byte con_jmp
             .word loc_B763_2F_проверка_на_наличие_защитников
 
         off_case_B785_01:
         ; high
             .byte con_pause + $5A
-            .byte con_bg + $36
-            .byte con_animation + $8D
-            .byte con_cloud + $0A
+            .byte con_s_bg_36
+            .byte con_s_animation_8D
+            .byte con_s_cloud_0A
             .byte con_jmp
             .word loc_B763_2F_проверка_на_наличие_защитников
 
@@ -14360,33 +14355,33 @@ _scenario_9C30_30:
                         off_case_30_00_00_00:
                         ; гол в правые ворота/сетка не порвана/sao paulo
                             .byte con_pause + $A0
-                            .byte con_bg + $08
-                            .byte con_animation + $46
-                            .byte con_cloud + $52
+                            .byte con_s_bg_08
+                            .byte con_s_animation_46
+                            .byte con_s_cloud_52
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
                         off_case_30_00_00_01:
                         ; гол в правые ворота/сетка не порвана/nankatsu
                             .byte con_pause + $A0
-                            .byte con_bg + $09
-                            .byte con_animation + $47
-                            .byte con_cloud + $52
+                            .byte con_s_bg_09
+                            .byte con_s_animation_47
+                            .byte con_s_cloud_52
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
                         off_case_30_00_00_02:
                         ; гол в правые ворота/сетка не порвана/japan
                             .byte con_pause + $A0
-                            .byte con_bg + $0A
-                            .byte con_animation + $48
-                            .byte con_cloud + $52
+                            .byte con_s_bg_0A
+                            .byte con_s_animation_48
+                            .byte con_s_cloud_52
 loc_A275_мерцание_фона_с_портретом_игроков:
                             .byte con_F7, $13
                             .byte con_pause + $6E
-                            .byte con_bg + con_skip
-                            .byte con_animation + con_skip
-                            .byte con_cloud + con_skip
+                            .byte con_s_bg_FF_skip
+                            .byte con_s_animation_FF_skip
+                            .byte con_s_cloud_FF_skip
                             .dbyt con_branch_short + con_bra_проигрывает_ли_germany
                             .byte off_case_30_00_00_02_00 - * ; germany не проигрывает
                             .byte off_case_30_00_00_02_01 - * ; germany проигрывает
@@ -14414,9 +14409,9 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                                                     .byte con_jsr
                                                     .word sub_BBC7_очистка
                                                     .byte con_pause + $D0
-                                                    .byte con_bg + $30
-                                                    .byte con_animation + $A0
-                                                    .byte con_cloud + $9E
+                                                    .byte con_s_bg_30
+                                                    .byte con_s_animation_A0
+                                                    .byte con_s_cloud_9E
                                                     .byte con_jmp
                                                     .word loc_BBC7_очистка
 
@@ -14425,9 +14420,9 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                                                     .byte con_jsr
                                                     .word sub_BBC7_очистка
                                                     .byte con_pause + $D0
-                                                    .byte con_bg + $30
-                                                    .byte con_animation + $AA
-                                                    .byte con_cloud + $9E
+                                                    .byte con_s_bg_30
+                                                    .byte con_s_animation_AA
+                                                    .byte con_s_cloud_9E
                                                     .byte con_jmp
                                                     .word loc_BBC7_очистка
 
@@ -14436,9 +14431,9 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                                     .byte con_jsr
                                     .word sub_BBC7_очистка
                                     .byte con_pause + $A0
-                                    .byte con_bg + $30
-                                    .byte con_animation + $B8
-                                    .byte con_cloud + $89
+                                    .byte con_s_bg_30
+                                    .byte con_s_animation_B8
+                                    .byte con_s_cloud_89
                                     .byte con_rts
 
                 bra_long_case_30_00_01:
@@ -14452,27 +14447,27 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                         off_case_30_00_01_00:
                         ; гол в правые ворота/сетка порвана/sao paulo
                             .byte con_pause + $A0
-                            .byte con_bg + $08
-                            .byte con_animation + $46
-                            .byte con_cloud + $54
+                            .byte con_s_bg_08
+                            .byte con_s_animation_46
+                            .byte con_s_cloud_54
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
                         off_case_30_00_01_01:
                         ; гол в правые ворота/сетка порвана/nankatsu
                             .byte con_pause + $A0
-                            .byte con_bg + $09
-                            .byte con_animation + $47
-                            .byte con_cloud + $55
+                            .byte con_s_bg_09
+                            .byte con_s_animation_47
+                            .byte con_s_cloud_55
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
                         off_case_30_00_01_02:
                         ; гол в правые ворота/сетка порвана/japan
                             .byte con_pause + $A0
-                            .byte con_bg + $0A
-                            .byte con_animation + $48
-                            .byte con_cloud + $55
+                            .byte con_s_bg_0A
+                            .byte con_s_animation_48
+                            .byte con_s_cloud_55
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14487,18 +14482,18 @@ sub_9C36_анимация_гола_в_левые_ворота_и_сообщен�
                 off_case_30_01_00:
                 ; гол в левые ворота/сетка не порвана
                     .byte con_pause + $82
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + $51
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_51
                     .byte con_jmp
                     .word loc_A275_мерцание_фона_с_портретом_игроков
 
                 off_case_30_01_01:
                 ; гол в левые ворота/сетка порвана
                     .byte con_pause + $82
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + $53
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_53
                     .byte con_jmp
                     .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14507,9 +14502,9 @@ sub_9C36_анимация_гола_в_левые_ворота_и_сообщен�
 _scenario_B78C_31:
     .byte con_mirror_off
     .byte con_pause + $5A
-    .byte con_bg + $2C
-    .byte con_animation + $8B
-    .byte con_cloud + $6F
+    .byte con_s_bg_2C
+    .byte con_s_animation_8B
+    .byte con_s_cloud_6F
     .byte con_rts
 
 
@@ -14530,33 +14525,33 @@ _scenario_9E57_32:
         off_case_32_01:
         ; renato
             .byte con_pause + $0A
-            .byte con_bg + $32
-            .byte con_animation + $93
-            .byte con_cloud + con_skip
+            .byte con_s_bg_32
+            .byte con_s_animation_93
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         off_case_32_02:
         ; morisaki
             .byte con_pause + $0A
-            .byte con_bg + $33
-            .byte con_animation + $94
-            .byte con_cloud + con_skip
+            .byte con_s_bg_33
+            .byte con_s_animation_94
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         off_case_32_03:
         ; wakabayashi
             .byte con_pause + $0A
-            .byte con_bg + $32
-            .byte con_animation + $A4
-            .byte con_cloud + con_skip
+            .byte con_s_bg_32
+            .byte con_s_animation_A4
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
         off_case_32_04:
         ; wakashimazu
             .byte con_pause + $0A
-            .byte con_bg + $33
-            .byte con_animation + $A6
-            .byte con_cloud + con_skip
+            .byte con_s_bg_33
+            .byte con_s_animation_A6
+            .byte con_s_cloud_FF_skip
             .byte con_rts
 
 
@@ -14565,22 +14560,22 @@ _scenario_9C04_33:
     .byte con_mirror_off
     .byte con_soundID_delay, $66, $02
     .byte con_pause + $32
-    .byte con_bg + $0C
-    .byte con_animation + $4E
-    .byte con_cloud + $70
+    .byte con_s_bg_0C
+    .byte con_s_animation_4E
+    .byte con_s_cloud_70
     .byte con_pause + $60
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $71
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_71
     .byte con_soundID_delay, $31, $02
     .byte con_pause + $C0
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $01
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -14588,9 +14583,9 @@ _scenario_9C04_33:
 _scenario_BBCC_34:
     .byte con_soundID_delay, $64, $0D
     .byte con_pause + $30
-    .byte con_bg + $3C
-    .byte con_animation + $80
-    .byte con_cloud + $E6
+    .byte con_s_bg_3C
+    .byte con_s_animation_80
+    .byte con_s_cloud_E6
     .byte con_rts
 
 
@@ -14598,9 +14593,9 @@ _scenario_BBCC_34:
 _scenario_B7CD_35:
     .byte con_soundID_delay, $44, $EB
     .byte con_pause + $02
-    .byte con_bg + $3A
-    .byte con_animation + $8F
-    .byte con_cloud + $73
+    .byte con_s_bg_3A
+    .byte con_s_animation_8F
+    .byte con_s_cloud_73
     .byte con_rts
 
 
@@ -14609,30 +14604,30 @@ _scenario_B7E4_36:
     .byte con_mirror_off
     .byte con_soundID_delay, $7F, $02
     .byte con_pause + $10
-    .byte con_bg + $3A
-    .byte con_animation + $8F
-    .byte con_cloud + con_skip
+    .byte con_s_bg_3A
+    .byte con_s_animation_8F
+    .byte con_s_cloud_FF_skip
     .byte con_soundID_delay, $66, $02
     .byte con_pause + $20
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $74
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_74
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $2B, $09
     .byte con_pause + $32
-    .byte con_bg + $72
-    .byte con_animation + $66
-    .byte con_cloud + con_skip
+    .byte con_s_bg_72
+    .byte con_s_animation_66
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $02
     .byte con_pause + $32
-    .byte con_bg + $1F
-    .byte con_animation + $4C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1F
+    .byte con_s_animation_4C
+    .byte con_s_cloud_FF_skip
     .byte con_soundID_delay, $2C, $1D
     .byte con_pause + $3E
-    .byte con_bg + $01
-    .byte con_animation + $E6
-    .byte con_cloud + $75
+    .byte con_s_bg_01
+    .byte con_s_animation_E6
+    .byte con_s_cloud_75
     .byte con_rts
 
 
@@ -14640,9 +14635,9 @@ _scenario_B7E4_36:
 _scenario_B7BF_37:
     .byte con_F7, $1C
     .byte con_pause + $07
-    .byte con_bg + $46
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_46
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -14650,18 +14645,18 @@ _scenario_B7BF_37:
 _scenario_B7C6_38:
     .byte con_F7, $17
     .byte con_pause + $01
-    .byte con_bg + $34
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_34
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 _scenario_BDB3_39:
     .byte con_pause + $B0
-    .byte con_bg + $38
-    .byte con_animation + $85
-    .byte con_cloud + $5B
+    .byte con_s_bg_38
+    .byte con_s_animation_85
+    .byte con_s_cloud_5B
     .byte con_rts
 
 
@@ -14670,18 +14665,18 @@ _scenario_B47C_3A:
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $2B, $09
     .byte con_pause + $3C
-    .byte con_bg + $72
-    .byte con_animation + $77
-    .byte con_cloud + $47
+    .byte con_s_bg_72
+    .byte con_s_animation_77
+    .byte con_s_cloud_47
     .byte con_rts
 
 
 
 _scenario_BDA1_3B:
     .byte con_pause + $10
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -14727,9 +14722,9 @@ sub_9F3E:
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $08, $02
                     .byte con_pause + $3C
-                    .byte con_bg + $53
-                    .byte con_animation + $1D
-                    .byte con_cloud + con_clear
+                    .byte con_s_bg_53
+                    .byte con_s_animation_1D
+                    .byte con_s_cloud_clear
                     .byte con_mirror_toggle
                     .byte con_jsr
                     .word sub_BB7D
@@ -14743,18 +14738,18 @@ sub_9F3E:
         loc_BB4B_3C_00_00:
 sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки:
             .byte con_pause + $30
-            .byte con_bg + $1F
-            .byte con_animation + $4C
-            .byte con_cloud + con_clear
+            .byte con_s_bg_1F
+            .byte con_s_animation_4C
+            .byte con_s_cloud_clear
             .byte con_rts
 
 
 
 _scenario_9FBA_3D:
     .byte con_pause + $78
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $25
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_25
     .byte con_rts
 
 
@@ -14791,9 +14786,9 @@ _scenario_B754_3F:
         off_case_3F_00:
         ;  low
             .byte con_pause + $5A
-            .byte con_bg + $69
-            .byte con_animation + $8D
-            .byte con_cloud + $10
+            .byte con_s_bg_69
+            .byte con_s_animation_8D
+            .byte con_s_cloud_10
             loc_B763_2F_проверка_на_наличие_защитников:
             loc_B763_3F_01_проверка_на_наличие_защитников:
             .dbyt con_branch_short + con_bra_напали_ли_защитники
@@ -14807,17 +14802,17 @@ _scenario_B754_3F:
                 off_case_3F_00_01:
                 ;  low/есть защитники
                     .byte con_pause + $5A
-                    .byte con_bg + con_skip
-                    .byte con_animation + con_skip
-                    .byte con_cloud + $6D
+                    .byte con_s_bg_FF_skip
+                    .byte con_s_animation_FF_skip
+                    .byte con_s_cloud_6D
                     .byte con_rts
 
         off_case_3F_01:
         ; high
             .byte con_pause + $5A
-            .byte con_bg + $69
-            .byte con_animation + $8D
-            .byte con_cloud + $0A
+            .byte con_s_bg_69
+            .byte con_s_animation_8D
+            .byte con_s_cloud_0A
             .byte con_jmp
             .word loc_B763_3F_01_проверка_на_наличие_защитников
 
@@ -14825,18 +14820,18 @@ _scenario_B754_3F:
 
 _scenario_BD95_40:
     .byte con_pause + $78
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $E9
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_E9
     .byte con_rts
 
 
 
 _scenario_BD9A_41:
     .byte con_pause + $78
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $EA
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_EA
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14844,9 +14839,9 @@ _scenario_BD9A_41:
 
 _scenario_BDA6_42:
     .byte con_pause + $78
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $22
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_22
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14855,18 +14850,18 @@ _scenario_BDA6_42:
 _scenario_BDAD_43:
     .byte con_mirror_off
     .byte con_pause + $46
-    .byte con_bg + $3A
-    .byte con_animation + $8F
-    .byte con_cloud + $E4
+    .byte con_s_bg_3A
+    .byte con_s_animation_8F
+    .byte con_s_cloud_E4
     .byte con_rts
 
 
 
 _scenario_B7D5_44:
     .byte con_pause + $02
-    .byte con_bg + $70
-    .byte con_animation + $5C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_70
+    .byte con_s_animation_5C
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -14877,9 +14872,9 @@ sub_B822_meon_говорит_что_drive_shot_бесполезен:
     .word sub_BBC7_очистка
     .byte con_mirror_off
     .byte con_pause + $8C
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $79
+    .byte con_s_bg_32
+    .byte con_s_animation_A8
+    .byte con_s_cloud_79
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14890,9 +14885,9 @@ sub_B82E_meon_говорит_что_с_трудом_отбил_удар:
     .word sub_BBC7_очистка
     .byte con_mirror_off
     .byte con_pause + $64
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + $7A
+    .byte con_s_bg_32
+    .byte con_s_animation_A8
+    .byte con_s_cloud_7A
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14903,9 +14898,9 @@ loc_B83A_tsubasa_замечает_слабость_meon_1й_раз:
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
     .byte con_pause + $5A
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $7B
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_7B
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
@@ -14918,9 +14913,9 @@ sub_B848_tsubasa_замечает_слабость_meon_2й_раз:
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
     .byte con_pause + $5A
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $C3
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_C3
     .byte con_soundID_delay, $31, $02
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -14931,60 +14926,60 @@ sub_B848_tsubasa_замечает_слабость_meon_2й_раз:
 
 loc_B859_катсцена_озарения:
     .byte con_pause + $28
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_off
     .byte con_soundID_delay, $46, $02
     .byte con_pause + $EF
-    .byte con_bg + $19
-    .byte con_animation + $E0
-    .byte con_cloud + con_clear
+    .byte con_s_bg_19
+    .byte con_s_animation_E0
+    .byte con_s_cloud_clear
     .byte con_pause + $B4
-    .byte con_bg + $4D
-    .byte con_animation + con_skip
-    .byte con_cloud + $7C
+    .byte con_s_bg_4D
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_7C
     .byte con_pause + $B0
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $C8
-    .byte con_bg + $3F
-    .byte con_animation + $DE
-    .byte con_cloud + $7D
+    .byte con_s_bg_3F
+    .byte con_s_animation_DE
+    .byte con_s_cloud_7D
     .byte con_pause + $83
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $8C
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $9C
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $7E
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_7E
     .byte con_pause + $9C
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_soundID_delay, $01, $02
     .byte con_F7, $06
     .byte con_pause + $56
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + $7F
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_7F
     .byte con_soundID_delay, $52, $02
     .byte con_F7, $1F
     .byte con_pause + $90
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $80
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_80
     .byte con_F7, $1F
     .byte con_pause + $90
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_soundID_delay, $7F, $02
     .byte con_jmp
     .word loc_BBC7_очистка
@@ -14993,20 +14988,20 @@ loc_B859_катсцена_озарения:
 
 ofs_B9FB_01_активировать_drive_tiger:
     .byte con_pause + $01
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_clear
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_clear
     .byte con_F7, $1F
     .byte con_soundID_delay, $30, $02
     .byte con_pause + $A0
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + $96
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_96
     .byte con_F7, $1F
     .byte con_pause + $80
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_jsr
     .word sub_BBC7_очистка
 ofs_BA11_00_не_активировать_drive_tiger:
@@ -15017,15 +15012,15 @@ ofs_BA11_00_не_активировать_drive_tiger:
 sub_BA2C_замах_и_удар_по_мячу_обычным_ударом:
     .byte con_mirror_off
     .byte con_pause + $28
-    .byte con_bg + $12
-    .byte con_animation + $61
-    .byte con_cloud + $72
+    .byte con_s_bg_12
+    .byte con_s_animation_61
+    .byte con_s_cloud_72
     .byte con_F7, $0B
     .byte con_soundID_delay, $12, $02
     .byte con_pause + $10
-    .byte con_bg + $10
-    .byte con_animation + $62
-    .byte con_cloud + con_skip
+    .byte con_s_bg_10
+    .byte con_s_animation_62
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15054,9 +15049,9 @@ loc_BA68_кипер_не_угадывает_сторону_в_пк:
 ;                ; другой_кипер
 ;                    .byte con_soundID_delay, $2B, $21
 ;                    .byte con_pause + $3C
-;                    .byte con_bg + $0E
-;                    .byte con_animation + $27
-;                    .byte con_cloud + $DD
+;                    .byte con_s_bg_0E
+;                    .byte con_s_animation_27
+;                    .byte con_s_cloud_DD
 ;                    .byte con_soundID_delay, $7E, $02
 ;                    .byte con_jmp
 ;                    .word loc_BBC7_очистка
@@ -15066,9 +15061,9 @@ loc_BA68_кипер_не_угадывает_сторону_в_пк:
 ;                ; wakashimazu, gertise
 ;                    .byte con_soundID_delay, $2B, $21
 ;                    .byte con_pause + $3C
-;                    .byte con_bg + $0F
-;                    .byte con_animation + $2B
-;                    .byte con_cloud + $DD
+;                    .byte con_s_bg_0F
+;                    .byte con_s_animation_2B
+;                    .byte con_s_cloud_DD
 ;                    .byte con_soundID_delay, $7E, $02
 ;                    .byte con_jmp
 ;                    .word loc_BBC7_очистка
@@ -15090,17 +15085,17 @@ loc_BA7F_гол_при_ударе_11м:
         off_case_BA7F_00:
         ; сетка не порвана
             .byte con_pause + $64
-            .byte con_bg + $07
-            .byte con_animation + $44
-            .byte con_cloud + $28
+            .byte con_s_bg_07
+            .byte con_s_animation_44
+            .byte con_s_cloud_28
             .byte con_rts
 
         off_case_BA7F_01:
         ; сетка порвана
             .byte con_pause + $64
-            .byte con_bg + $07
-            .byte con_animation + $45
-            .byte con_cloud + $28
+            .byte con_s_bg_07
+            .byte con_s_animation_45
+            .byte con_s_cloud_28
             .byte con_rts
 
 
@@ -15109,14 +15104,14 @@ loc_BADE_штанга_при_ударе_11м:
     .byte con_F7, $1F
     .byte con_soundID_delay, $63, $02
     .byte con_pause + $10
-    .byte con_bg + $06
-    .byte con_animation + $43
-    .byte con_cloud + $18
+    .byte con_s_bg_06
+    .byte con_s_animation_43
+    .byte con_s_cloud_18
     .byte con_soundID_delay, $7E, $02
     .byte con_pause + $3C
-    .byte con_bg + $1E
-    .byte con_animation + $42
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1E
+    .byte con_s_animation_42
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15124,9 +15119,9 @@ loc_BADE_штанга_при_ударе_11м:
 sub_BB5D_одна_из_анимаций_drive_shot:
     .byte con_soundID_delay, $05, $02
     .byte con_pause + $32
-    .byte con_bg + $13
-    .byte con_animation + $0E
-    .byte con_cloud + con_clear
+    .byte con_s_bg_13
+    .byte con_s_animation_0E
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15134,9 +15129,9 @@ sub_BB5D_одна_из_анимаций_drive_shot:
 loc_BB65_одна_из_анимаций_drive_shot:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $3C
-    .byte con_bg + $00
-    .byte con_animation + $0F
-    .byte con_cloud + con_clear
+    .byte con_s_bg_00
+    .byte con_s_animation_0F
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15144,9 +15139,9 @@ loc_BB65_одна_из_анимаций_drive_shot:
 sub_BB6D:
     .byte con_soundID_delay, $04, $02
     .byte con_pause + $32
-    .byte con_bg + $20
-    .byte con_animation + $0F
-    .byte con_cloud + con_clear
+    .byte con_s_bg_20
+    .byte con_s_animation_0F
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15154,9 +15149,9 @@ sub_BB6D:
 sub_BB75:
     .byte con_soundID_delay, $07, $02
     .byte con_pause + $36
-    .byte con_bg + $02
-    .byte con_animation + $11
-    .byte con_cloud + con_clear
+    .byte con_s_bg_02
+    .byte con_s_animation_11
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15164,9 +15159,9 @@ sub_BB75:
 sub_BB7D:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $32
-    .byte con_bg + $4E
-    .byte con_animation + $12
-    .byte con_cloud + con_clear
+    .byte con_s_bg_4E
+    .byte con_s_animation_12
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15175,9 +15170,9 @@ sub_BB85:
     .byte con_mirror_toggle
     .byte con_soundID_delay, $5E, $02
     .byte con_pause + $1B
-    .byte con_bg + $64
-    .byte con_animation + $67
-    .byte con_cloud + con_clear
+    .byte con_s_bg_64
+    .byte con_s_animation_67
+    .byte con_s_cloud_clear
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -15186,9 +15181,9 @@ sub_BB85:
 sub_BB8F:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $30
-    .byte con_bg + $00
-    .byte con_animation + $1A
-    .byte con_cloud + con_clear
+    .byte con_s_bg_00
+    .byte con_s_animation_1A
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15196,9 +15191,9 @@ sub_BB8F:
 sub_BB97:
     .byte con_soundID_delay, $06, $02
     .byte con_pause + $2A
-    .byte con_bg + $27
-    .byte con_animation + $1A
-    .byte con_cloud + con_clear
+    .byte con_s_bg_27
+    .byte con_s_animation_1A
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15206,9 +15201,9 @@ sub_BB97:
 sub_BB9F:
     .byte con_soundID_delay, $08, $02
     .byte con_pause + $3C
-    .byte con_bg + $4B
-    .byte con_animation + $1D
-    .byte con_cloud + con_clear
+    .byte con_s_bg_4B
+    .byte con_s_animation_1D
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15216,9 +15211,9 @@ sub_BB9F:
 sub_BBA7_полет_twin_shot_1:
     .byte con_soundID_delay, $09, $02
     .byte con_pause + $32
-    .byte con_bg + $20
-    .byte con_animation + $1E
-    .byte con_cloud + con_clear
+    .byte con_s_bg_20
+    .byte con_s_animation_1E
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15226,9 +15221,9 @@ sub_BBA7_полет_twin_shot_1:
 sub_BBAF_полет_twin_shot_2:
     .byte con_soundID_delay, $09, $02
     .byte con_pause + $4B
-    .byte con_bg + $02
-    .byte con_animation + $1F
-    .byte con_cloud + con_clear
+    .byte con_s_bg_02
+    .byte con_s_animation_1F
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15236,9 +15231,9 @@ sub_BBAF_полет_twin_shot_2:
 sub_BBB7:
     .byte con_soundID_delay, $0B, $02
     .byte con_pause + $2D
-    .byte con_bg + $60
-    .byte con_animation + $3C
-    .byte con_cloud + con_clear
+    .byte con_s_bg_60
+    .byte con_s_animation_3C
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15246,9 +15241,9 @@ sub_BBB7:
 sub_BBBF:
     .byte con_soundID_delay, $0B, $02
     .byte con_pause + $2D
-    .byte con_bg + $48
-    .byte con_animation + $3C
-    .byte con_cloud + con_clear
+    .byte con_s_bg_48
+    .byte con_s_animation_3C
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15256,9 +15251,9 @@ sub_BBBF:
 loc_BBC7_очистка:
 sub_BBC7_очистка:
     .byte con_pause + $01
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_clear
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15266,18 +15261,18 @@ sub_BBC7_очистка:
 loc_BBDA:
     .byte con_soundID_delay, $2B, $05
     .byte con_pause + $3C
-    .byte con_bg + $72
-    .byte con_animation + $66
-    .byte con_cloud + $59
+    .byte con_s_bg_72
+    .byte con_s_animation_66
+    .byte con_s_cloud_59
     .byte con_rts
 
 
 
 _scenario_BDB8_45:
     .byte con_pause + $B0
-    .byte con_bg + $38
-    .byte con_animation + $85
-    .byte con_cloud + $A6
+    .byte con_s_bg_38
+    .byte con_s_animation_85
+    .byte con_s_cloud_sudden_death_в_пк
     .byte con_rts
 
 
@@ -15293,9 +15288,9 @@ _scenario_BDBD_46:
         ; мяч у атакующего на земле/летит низкий мяч
             .byte con_mirror_off
             .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $91
-            .byte con_cloud + $4A
+            .byte con_s_bg_30
+            .byte con_s_animation_91
+            .byte con_s_cloud_4A
             .byte con_jsr
             .word sub_AD13
             .byte con_jmp
@@ -15305,34 +15300,34 @@ _scenario_BDBD_46:
         ; летит высокий мяч
             .byte con_mirror_off
             .byte con_pause + $28
-            .byte con_bg + $02
-            .byte con_animation + $56
-            .byte con_cloud + con_clear
+            .byte con_s_bg_02
+            .byte con_s_animation_56
+            .byte con_s_cloud_clear
             .byte con_pause + $78
-            .byte con_bg + $30
-            .byte con_animation + $91
-            .byte con_cloud + $4A
+            .byte con_s_bg_30
+            .byte con_s_animation_91
+            .byte con_s_cloud_4A
             .byte con_soundID_delay, $2B, $19
             .byte con_pause + $28
-            .byte con_bg + $29
-            .byte con_animation + $C6
-            .byte con_cloud + con_clear
+            .byte con_s_bg_29
+            .byte con_s_animation_C6
+            .byte con_s_cloud_clear
         loc_BDDD_cyclone:
             .byte con_jsr
             .word sub_B0A7_tsubasa_cyclone_полная_анимация
             .byte con_soundID_delay, $24, $02
             .byte con_pause + $38
-            .byte con_bg + $35
-            .byte con_animation + $10
-            .byte con_cloud + con_clear
+            .byte con_s_bg_35
+            .byte con_s_animation_10
+            .byte con_s_cloud_clear
             .byte con_jsr
             .word sub_BB5D_одна_из_анимаций_drive_shot
             .byte con_soundID_delay, $24, $02
             .byte con_F7, $33
             .byte con_pause + $3C
-            .byte con_bg + $27
-            .byte con_animation + $51
-            .byte con_cloud + con_clear
+            .byte con_s_bg_27
+            .byte con_s_animation_51
+            .byte con_s_cloud_clear
             .byte con_jmp
             .word loc_A267_goal_и_рваная_сетка
 
@@ -15344,9 +15339,9 @@ _scenario_9C19_47:
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $5A
-    .byte con_bg + $30
-    .byte con_animation + $B7
-    .byte con_cloud + $78
+    .byte con_s_bg_30
+    .byte con_s_animation_B7
+    .byte con_s_cloud_78
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -15367,9 +15362,9 @@ _scenario_BE01_50:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $91
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_91
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15380,9 +15375,9 @@ _scenario_BE0D_51:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $97
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_97
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15391,9 +15386,9 @@ _scenario_BE18_52:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $31
-    .byte con_animation + $9E
-    .byte con_cloud + con_skip
+    .byte con_s_bg_31
+    .byte con_s_animation_9E
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15403,9 +15398,9 @@ _scenario_BE20_53:
     .word sub_BDF6
     .byte con_mirror_off
     .byte con_pause + $10
-    .byte con_bg + $32
-    .byte con_animation + $A4
-    .byte con_cloud + con_skip
+    .byte con_s_bg_32
+    .byte con_s_animation_A4
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_off
     .byte con_rts
 
@@ -15415,9 +15410,9 @@ _scenario_BE2A_54:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $AF
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_AF
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15426,9 +15421,9 @@ _scenario_BE32_55:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $AE
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_AE
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15437,9 +15432,9 @@ _scenario_BE3A_56:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $98
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_98
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15448,9 +15443,9 @@ _scenario_BE42_57:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $AD
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_AD
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15459,9 +15454,9 @@ _scenario_BE4A_58:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $9A
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_9A
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15470,9 +15465,9 @@ _scenario_BE52_59:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $AA
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_AA
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15481,15 +15476,15 @@ _scenario_BE5A_5A:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $50
-    .byte con_bg + $30
-    .byte con_animation + $AB
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_AB
+    .byte con_s_cloud_FF_skip
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $AB
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_AB
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15499,9 +15494,9 @@ _scenario_BE69_5B:
     .word sub_BDF6
     .byte con_mirror_off
     .byte con_pause + $10
-    .byte con_bg + $33
-    .byte con_animation + $A6
-    .byte con_cloud + con_skip
+    .byte con_s_bg_33
+    .byte con_s_animation_A6
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_off
     .byte con_rts
 
@@ -15512,9 +15507,9 @@ _scenario_BE73_5C:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $A9
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_A9
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15524,9 +15519,9 @@ _scenario_BE7C_5D:
     .word sub_BDF6
     .byte con_mirror_off
     .byte con_pause + $10
-    .byte con_bg + $32
-    .byte con_animation + $A8
-    .byte con_cloud + con_skip
+    .byte con_s_bg_32
+    .byte con_s_animation_A8
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_off
     .byte con_rts
 
@@ -15536,9 +15531,9 @@ _scenario_BE86_5E:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B3
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B3
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15547,9 +15542,9 @@ _scenario_BE8E_5F:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B5
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B5
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15558,9 +15553,9 @@ _scenario_BE96_60:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B4
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B4
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15569,9 +15564,9 @@ _scenario_BE9E_61:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B7
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B7
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15580,9 +15575,9 @@ _scenario_BEA6_62:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B6
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B6
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15591,9 +15586,9 @@ _scenario_BEAE_63:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B8
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B8
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15602,9 +15597,9 @@ _scenario_BEB6_64:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $B2
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_B2
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15613,9 +15608,9 @@ _scenario_BEBE_65:
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
-    .byte con_bg + $30
-    .byte con_animation + $BC
-    .byte con_cloud + con_skip
+    .byte con_s_bg_30
+    .byte con_s_animation_BC
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15623,19 +15618,19 @@ _scenario_BEBE_65:
 _scenario_BEC6_66:
     .byte con_F7, $31
     .byte con_pause + $3A
-    .byte con_bg + $6A
-    .byte con_animation + $DB
-    .byte con_cloud + con_skip
+    .byte con_s_bg_6A
+    .byte con_s_animation_DB
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $20
     .byte con_pause + $5E
-    .byte con_bg + $49
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_49
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $10
     .byte con_pause + $1E
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
 
 
 
@@ -15653,16 +15648,16 @@ _scenario_BED8_67:
     .byte con_jsr
     .word sub_B5EC_banana_shot
     .byte con_pause + $38
-    .byte con_bg + $35
-    .byte con_animation + $10
-    .byte con_cloud + con_skip
+    .byte con_s_bg_35
+    .byte con_s_animation_10
+    .byte con_s_cloud_FF_skip
     .byte con_jsr
     .word sub_BB5D_одна_из_анимаций_drive_shot
     .byte con_F7, $33
     .byte con_pause + $3C
-    .byte con_bg + $27
-    .byte con_animation + $51
-    .byte con_cloud + con_skip
+    .byte con_s_bg_27
+    .byte con_s_animation_51
+    .byte con_s_cloud_FF_skip
     .byte con_jmp
     .word loc_BEF7
 
@@ -15672,15 +15667,15 @@ _scenario_BEF7_68:
 loc_BEF7:
     .byte con_F7, $03
     .byte con_pause + $A0
-    .byte con_bg + $07
-    .byte con_animation + $45
-    .byte con_cloud + con_skip
+    .byte con_s_bg_07
+    .byte con_s_animation_45
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_off
     .byte con_F7, $13
     .byte con_pause + $78
-    .byte con_bg + $0A
-    .byte con_animation + $48
-    .byte con_cloud + con_skip
+    .byte con_s_bg_0A
+    .byte con_s_animation_48
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15688,9 +15683,9 @@ loc_BEF7:
 _scenario_BF05_69:
     .byte con_mirror_off
     .byte con_pause + $28
-    .byte con_bg + $3C
-    .byte con_animation + $61
-    .byte con_cloud + con_skip
+    .byte con_s_bg_3C
+    .byte con_s_animation_61
+    .byte con_s_cloud_FF_skip
     .byte con_jmp
     .word loc_AB39_обычный_удар_по_мячу_и_полет_мяча_от_игрока
 
@@ -15715,27 +15710,27 @@ _scenario_BF13_6C:
     .word sub_A7B1_прыжок_перед_face_block
     .byte con_F7, $0F
     .byte con_pause + $1E
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $2A
     .byte con_pause + $23
-    .byte con_bg + $6A
-    .byte con_animation + $BD
-    .byte con_cloud + con_skip
+    .byte con_s_bg_6A
+    .byte con_s_animation_BD
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 _scenario_BF23_6D:
     .byte con_pause + $3C
-    .byte con_bg + $28
-    .byte con_animation + $C6
-    .byte con_cloud + con_skip
+    .byte con_s_bg_28
+    .byte con_s_animation_C6
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $64
-    .byte con_bg + $52
-    .byte con_animation + $E5
-    .byte con_cloud + con_skip
+    .byte con_s_bg_52
+    .byte con_s_animation_E5
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15743,39 +15738,39 @@ _scenario_BF23_6D:
 _scenario_BF2C_6E:
     .byte con_mirror_off
     .byte con_pause + $32
-    .byte con_bg + $1F
-    .byte con_animation + $64
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1F
+    .byte con_s_animation_64
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_F7, $3A
     .byte con_pause + $32
-    .byte con_bg + $23
-    .byte con_animation + $76
-    .byte con_cloud + con_skip
+    .byte con_s_bg_23
+    .byte con_s_animation_76
+    .byte con_s_cloud_FF_skip
     .byte con_mirror_toggle
     .byte con_F7, $10
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $28
-    .byte con_bg + $12
-    .byte con_animation + $E1
-    .byte con_cloud + con_skip
+    .byte con_s_bg_12
+    .byte con_s_animation_E1
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $1E
     .byte con_pause + $20
-    .byte con_bg + $05
-    .byte con_animation + con_skip
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $32
-    .byte con_bg + $20
-    .byte con_animation + $4B
-    .byte con_cloud + con_skip
+    .byte con_s_bg_20
+    .byte con_s_animation_4B
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $48
-    .byte con_bg + $2A
-    .byte con_animation + $3B
-    .byte con_cloud + con_skip
+    .byte con_s_bg_2A
+    .byte con_s_animation_3B
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15786,9 +15781,9 @@ _scenario_BF54_6F:
     .byte con_moving_bg, $01
     .byte con_soundID_delay, $2A, $21
     .byte con_pause + $30
-    .byte con_bg + $2E
-    .byte con_animation + $2D
-    .byte con_cloud + con_skip
+    .byte con_s_bg_2E
+    .byte con_s_animation_2D
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15824,22 +15819,22 @@ _scenario_BF73_71:
 _scenario_BF7F_72:
     .byte con_F7, $33
     .byte con_pause + $20
-    .byte con_bg + $6B
-    .byte con_animation + $E3
-    .byte con_cloud + con_skip
+    .byte con_s_bg_6B
+    .byte con_s_animation_E3
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $14
-    .byte con_bg + $02
-    .byte con_animation + $1C
-    .byte con_cloud + con_skip
+    .byte con_s_bg_02
+    .byte con_s_animation_1C
+    .byte con_s_cloud_FF_skip
     .byte con_pause + $20
-    .byte con_bg + $56
-    .byte con_animation + $49
-    .byte con_cloud + con_skip
+    .byte con_s_bg_56
+    .byte con_s_animation_49
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $1A
     .byte con_pause + $5A
-    .byte con_bg + $61
-    .byte con_animation + $30
-    .byte con_cloud + con_skip
+    .byte con_s_bg_61
+    .byte con_s_animation_30
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15848,9 +15843,9 @@ _scenario_BF94_73:
     .byte con_jsr
     .word sub_A32D_полет_удара_со_звуком
     .byte con_pause + $78
-    .byte con_bg + $48
-    .byte con_animation + $75
-    .byte con_cloud + con_skip
+    .byte con_s_bg_48
+    .byte con_s_animation_75
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15879,9 +15874,9 @@ _scenario_BF9C_74:
     .byte con_jsr
     .word sub_BFCB
     .byte con_pause + $20
-    .byte con_bg + $1F
-    .byte con_animation + $02
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1F
+    .byte con_s_animation_02
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15903,9 +15898,9 @@ _scenario_B01B_76:
 _scenario_BFD8_77:
     .byte con_mirror_off
     .byte con_pause + $E0
-    .byte con_bg + $2D
-    .byte con_animation + $79
-    .byte con_cloud + con_skip
+    .byte con_s_bg_2D
+    .byte con_s_animation_79
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15919,9 +15914,9 @@ _scenario_A197_78:
 loc_AB6B:
     .byte con_F7, $02
     .byte con_pause + $10
-    .byte con_bg + con_skip
-    .byte con_animation + con_skip
-    .byte con_cloud + con_clear
+    .byte con_s_bg_FF_skip
+    .byte con_s_animation_FF_skip
+    .byte con_s_cloud_clear
     .byte con_rts
 
 
@@ -15933,9 +15928,9 @@ loc_B01B_overhead_без_очистки:
     .byte con_mirror_toggle
     .byte con_soundID_delay, $1A, $31
     .byte con_pause + $64
-    .byte con_bg + $4C
-    .byte con_animation + $BF
-    .byte con_cloud + $49
+    .byte con_s_bg_4C
+    .byte con_s_animation_BF
+    .byte con_s_cloud_49
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -15944,36 +15939,36 @@ loc_B01B_overhead_без_очистки:
 sub_BDF6:
     .byte con_mirror_toggle
     .byte con_pause + $1D
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 sub_BDFC:
     .byte con_pause + $1D
-    .byte con_bg + $71
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_71
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 sub_BFC1:
     .byte con_pause + $28
-    .byte con_bg + $1E
-    .byte con_animation + $13
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1E
+    .byte con_s_animation_13
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
 
 sub_BFC6:
     .byte con_pause + $28
-    .byte con_bg + $1E
-    .byte con_animation + $14
-    .byte con_cloud + con_skip
+    .byte con_s_bg_1E
+    .byte con_s_animation_14
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15981,9 +15976,9 @@ sub_BFC6:
 sub_BFCB:
     .byte con_F7, $0F
     .byte con_pause + $14
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_rts
 
 
@@ -15992,9 +15987,9 @@ sub_BF00_защитник_отбирает_ногой_мяч_у_атакующе
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $46
-    .byte con_bg + $57
-    .byte con_animation + $2E
-    .byte con_cloud + $05
+    .byte con_s_bg_57
+    .byte con_s_animation_2E
+    .byte con_s_cloud_05
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -16004,18 +15999,18 @@ loc_BF01_успешный_отбор_мяча_подкатом:
     .byte con_moving_bg, $02
     .byte con_soundID_delay, $2D, $02
     .byte con_pause + $3C
-    .byte con_bg + $57
-    .byte con_animation + $15
-    .byte con_cloud + $03
+    .byte con_s_bg_57
+    .byte con_s_animation_15
+    .byte con_s_cloud_03
     .byte con_rts
 
 
 
 loc_BF02_защитник_промахивается_ногой_по_высокому_мячу:
     .byte con_pause + $3C
-    .byte con_bg + $6C
-    .byte con_animation + $06
-    .byte con_cloud + $07
+    .byte con_s_bg_6C
+    .byte con_s_animation_06
+    .byte con_s_cloud_07
     .byte con_rts
 
 
@@ -16023,30 +16018,30 @@ loc_BF02_защитник_промахивается_ногой_по_высок�
 sub_BF03_ishizaki_face_block_в_процессе:
     .byte con_F7, $0F
     .byte con_pause + $1E
-    .byte con_bg + $05
-    .byte con_animation + $00
-    .byte con_cloud + con_skip
+    .byte con_s_bg_05
+    .byte con_s_animation_00
+    .byte con_s_cloud_FF_skip
     .byte con_F7, $2A
     .byte con_soundID_delay, $2E, $02
     .byte con_pause + $23
-    .byte con_bg + $6A
-    .byte con_animation + $BD
-    .byte con_cloud + $56
+    .byte con_s_bg_6A
+    .byte con_s_animation_BD
+    .byte con_s_cloud_56
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $3C
-    .byte con_bg + $1F
-    .byte con_animation + $13
-    .byte con_cloud + $57
+    .byte con_s_bg_1F
+    .byte con_s_animation_13
+    .byte con_s_cloud_57
     .byte con_rts
 
 
 
 sub_BF04_кипер_собирается_напороться_кулаком_на_мяч:
     .byte con_pause + $28
-    .byte con_bg + $0E
-    .byte con_animation + $2C
-    .byte con_cloud + con_clear
+    .byte con_s_bg_0E
+    .byte con_s_animation_2C
+    .byte con_s_cloud_clear
     .byte con_rts
 
 

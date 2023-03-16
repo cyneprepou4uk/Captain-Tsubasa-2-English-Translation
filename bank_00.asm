@@ -4495,14 +4495,14 @@ C - - - - - 0x001A94 00:9A84: 65 4A     ADC ram_степень_яркости_ф
 C - - - - - 0x001A96 00:9A86: 20 A2 9A  JSR sub_9AA2_вычислить_яркость_цвета
 C - - - - - 0x001A99 00:9A89: C0 10     CPY #$10
 C - - - - - 0x001A9B 00:9A8B: D0 F1     BNE bra_9A7E_loop
-bra_9A8D_loop:
-C - - - - - 0x001A9D 00:9A8D: B9 2A 06  LDA ram_062A,Y
+bra_9A8D_loop_063A_0649:
+C - - - - - 0x001A9D 00:9A8D: B9 2A 06  LDA ram_063A - $10,Y
 C - - - - - 0x001AA0 00:9A90: 29 30     AND #$30
 C - - - - - 0x001AA2 00:9A92: 18        CLC
 C - - - - - 0x001AA3 00:9A93: 65 4B     ADC ram_степень_яркости_спрайтов
 C - - - - - 0x001AA5 00:9A95: 20 A2 9A  JSR sub_9AA2_вычислить_яркость_цвета
 C - - - - - 0x001AA8 00:9A98: C0 20     CPY #$20
-C - - - - - 0x001AAA 00:9A9A: D0 F1     BNE bra_9A8D_loop
+C - - - - - 0x001AAA 00:9A9A: D0 F1     BNE bra_9A8D_loop_063A_0649
 C - - - - - 0x001AAC 00:9A9C: A6 E7     LDX ram_00E7
 C - - - - - 0x001AAE 00:9A9E: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - - 0x001AB1 00:9AA1: 60        RTS
@@ -5258,74 +5258,11 @@ bra_9E4B:
 
 
 tbl_9EA2_яркость_цвета:
-; цвета 00-0F
-    .byte $0F
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-; цвета 10-1F
-    .byte $0F
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $10
-    .byte $10
-    .byte $20
-    .byte $20
-    .byte $30
-    .byte $30
-    .byte $20
-    .byte $20
-    .byte $10
-    .byte $10
-; цвета 20-2F
-    .byte $0F
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $10
-    .byte $10
-    .byte $10
-    .byte $20
-    .byte $20
-    .byte $20
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $20
-    .byte $20
-    .byte $20
-; цвета 30-3F
-    .byte $0F
-    .byte $00
-    .byte $10
-    .byte $10
-    .byte $10
-    .byte $20
-    .byte $20
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $30
-    .byte $30
+;          00   01   02   03   04   05   06   07   08   09   0A   0B   0C   0D   0E   0F
+    .byte $0F, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; 00
+    .byte $0F, $00, $00, $00, $00, $00, $10, $10, $20, $20, $30, $30, $20, $20, $10, $10 ; 10
+    .byte $0F, $00, $00, $00, $10, $10, $10, $20, $20, $20, $30, $30, $30, $20, $20, $20 ; 20
+    .byte $0F, $00, $10, $10, $10, $20, $20, $30, $30, $30, $30, $30, $30, $30, $30, $30 ; 30
 
 
 
