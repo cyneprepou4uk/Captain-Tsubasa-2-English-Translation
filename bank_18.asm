@@ -2008,8 +2008,8 @@ C - - - - - 0x030C3E 18:8C2E: 85 3D     STA ram_003D
 C - - - - - 0x030C40 18:8C30: A5 49     LDA ram_0049
 C - - - - - 0x030C42 18:8C32: 38        SEC
 C - - - - - 0x030C43 18:8C33: E9 01     SBC #$01
-C - - - - - 0x030C45 18:8C35: A2 01     LDX #$01
-C - - - - - 0x030C47 18:8C37: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x030C45 18:8C35: A2 01     LDX #con_skill_01
+C - - - - - 0x030C47 18:8C37: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x030C4A 18:8C3A: A5 32     LDA ram_0032
 C - - - - - 0x030C4C 18:8C3C: A6 33     LDX ram_0033
 C - - - - - 0x030C4E 18:8C3E: 20 55 8C  JSR sub_8C55_запись_цифер_в_буфер
@@ -2184,9 +2184,15 @@ C - - - - - 0x030CDB 18:8CCB: F0 03     BEQ bra_8CD0
 C - - - - - 0x030CDD 18:8CCD: 18        CLC
 C - - - - - 0x030CDE 18:8CCE: 69 08     ADC #$08
 bra_8CD0:
+; con_skill_00
+; con_skill_01
+; con_skill_02
+; con_skill_03
+; con_skill_08
+; con_skill_17 
 C - - - - - 0x030CE0 18:8CD0: AA        TAX
 C - - - - - 0x030CE1 18:8CD1: 68        PLA
-C - - - - - 0x030CE2 18:8CD2: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x030CE2 18:8CD2: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x030CE5 18:8CD5: A5 32     LDA ram_0032
 C - - - - - 0x030CE7 18:8CD7: A6 33     LDX ram_0033
 C D - - - - 0x030CE9 18:8CD9: 4C 55 8C  JMP loc_8C55_запись_цифер_в_буфер

@@ -31,7 +31,7 @@
 .export loc_0x03CD8C_получить_адрес_игрока
 .export sub_0x03CDD9_проверить_координаты_игрока
 .export sub_0x03CDF2
-.export sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
+.export sub_0x03CE18_вычислить_числовой_стат_скилла
 .export sub_0x03CE5A
 .export sub_0x03CE5D
 .export sub_0x03CE7E_прыжки_в_начале_банка_1C
@@ -1325,33 +1325,27 @@ C - - - - - 0x03CE17 FF:CE07: 60        RTS
 
 
 
-sub_CE08_банксвич_PRG_1C_1D_с_возвратом:
-sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом:
+sub_CE08_вычислить_числовой_стат_скилла:
+sub_0x03CE18_вычислить_числовой_стат_скилла:
 ; в A подается обычный номер игрока из plr_data
-C D - - - - 0x03CE18 FF:CE08: A8        TAY
+C D - - - - 0x03CE18 FF:CE08: A8        TAY ; номер игрока
 C - - - - - 0x03CE19 FF:CE09: AD 24 00  LDA ram_for_5114
 C - - - - - 0x03CE1C FF:CE0C: 48        PHA
 C - - - - - 0x03CE1D FF:CE0D: AD 25 00  LDA ram_for_5115
 C - - - - - 0x03CE20 FF:CE10: 48        PHA
-C - - - - - 0x03CE21 FF:CE11: 98        TYA
-; сохранить номер игрока
-C - - - - - 0x03CE22 FF:CE12: 48        PHA
-; переключить 06 и 07 на предпоследние банки
+C - - - - - 0x03CE21 FF:CE11: 98        TYA ; номер игрока
+C - - - - - 0x03CE22 FF:CE12: 48        PHA ; сохранить номер игрока
 C - - - - - 0x03CE25 FF:CE15: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03CE27 FF:CE17: 85 24     STA ram_for_5114
 C - - - - - 0x03CE29 FF:CE19: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03CE2B FF:CE1B: 85 25     STA ram_for_5115
 C - - - - - 0x03CE2D FF:CE1D: 20 2D CE  JSR sub_CE2D_банксвич_PRG
-; восстановить номер игрока
-C - - - - - 0x03CE30 FF:CE20: 68        PLA
-; что-то связанное с уровнем и энергией игрока
-; бряк срабатывает при отрисовке статов во время игры, а также при попытке выбрать действие
-C - - - - - 0x03CE31 FF:CE21: 20 00 80  JSR sub_0x038010
+C - - - - - 0x03CE30 FF:CE20: 68        PLA ; восстановить номер игрока
+C - - - - - 0x03CE31 FF:CE21: 20 00 80  JSR sub_0x038010_вычислить_числовой_стат_скилла
 C - - - - - 0x03CE34 FF:CE24: 68        PLA
 C - - - - - 0x03CE35 FF:CE25: 85 25     STA ram_for_5115
 C - - - - - 0x03CE37 FF:CE27: 68        PLA
 C - - - - - 0x03CE38 FF:CE28: 85 24     STA ram_for_5114
-; восстановить банк 06 и 07
 loc_CE2D_банксвич_PRG:
 sub_CE2D_банксвич_PRG:
 ; bzk optimize, перед JSR коды сохраняют A в стеке,
@@ -1704,8 +1698,8 @@ bra_D030:
 C - - - - - 0x03D040 FF:D030: A9 00     LDA #$00
 bra_D032_loop:
 C - - - - - 0x03D042 FF:D032: 48        PHA
-C - - - - - 0x03D043 FF:D033: A2 00     LDX #$00
-C - - - - - 0x03D045 FF:D035: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03D043 FF:D033: A2 00     LDX #con_skill_00
+C - - - - - 0x03D045 FF:D035: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03D048 FF:D038: A5 33     LDA ram_0033
 C - - - - - 0x03D04A FF:D03A: 85 37     STA ram_0037
 C - - - - - 0x03D04C FF:D03C: A5 32     LDA ram_0032
@@ -3486,8 +3480,8 @@ C - - - - - 0x03DB7E FF:DB6E: C9 0B     CMP #$0B
 C - - - - - 0x03DB80 FF:DB70: 90 02     BCC bra_DB74
 C - - - - - 0x03DB82 FF:DB72: 69 0A     ADC #$0A
 bra_DB74:
-C - - - - - 0x03DB84 FF:DB74: A2 00     LDX #$00
-C - - - - - 0x03DB86 FF:DB76: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03DB84 FF:DB74: A2 00     LDX #con_skill_00
+C - - - - - 0x03DB86 FF:DB76: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03DB89 FF:DB79: A0 00     LDY #con_plr_id
 C - - - - - 0x03DB8B FF:DB7B: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03DB8D FF:DB7D: C9 20     CMP #con_p_misugi_my
@@ -4066,12 +4060,12 @@ C - - - - - 0x03DEBF FF:DEAF: 20 4A DF  JSR sub_DF4A
 C - - - - - 0x03DEC2 FF:DEB2: 8D 32 04  STA ram_список_спешалов + $02
 bra_DEB5_loop:
 C - - - - - 0x03DEC5 FF:DEB5: AD 31 04  LDA ram_список_спешалов + $01
-C - - - - - 0x03DEC8 FF:DEB8: A2 23     LDX #$23
+C - - - - - 0x03DEC8 FF:DEB8: A2 23     LDX #con_skill_23
 C - - - - - 0x03DECA FF:DEBA: 20 29 DF  JSR sub_DF29
 C - - - - - 0x03DECD FF:DEBD: AD 31 04  LDA ram_список_спешалов + $01
 C - - - - - 0x03DED0 FF:DEC0: B0 1A     BCS bra_DEDC
 C - - - - - 0x03DED2 FF:DEC2: AD 32 04  LDA ram_список_спешалов + $02
-C - - - - - 0x03DED5 FF:DEC5: A2 24     LDX #$24
+C - - - - - 0x03DED5 FF:DEC5: A2 24     LDX #con_skill_24
 C - - - - - 0x03DED7 FF:DEC7: 20 29 DF  JSR sub_DF29
 C - - - - - 0x03DEDA FF:DECA: AD 32 04  LDA ram_список_спешалов + $02
 C - - - - - 0x03DEDD FF:DECD: B0 0D     BCS bra_DEDC
@@ -4121,7 +4115,7 @@ C - - - - - 0x03DF36 FF:DF26: 4C DF E0  JMP loc_E0DF
 
 
 sub_DF29:
-C - - - - - 0x03DF39 FF:DF29: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03DF39 FF:DF29: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03DF3C FF:DF2C: A9 01     LDA #$01
 C - - - - - 0x03DF3E FF:DF2E: 8D FF 05  STA ram_05FF
 C - - - - - 0x03DF41 FF:DF31: 20 54 E8  JSR sub_E854
@@ -4346,12 +4340,12 @@ C - - - - - 0x03E0CF FF:E0BF: 49 01     EOR #$01
 C - - - - - 0x03E0D1 FF:E0C1: 48        PHA
 C - - - - - 0x03E0D2 FF:E0C2: 28        PLP
 bra_E0C3_команда_слева:
-C - - - - - 0x03E0D3 FF:E0C3: A2 21     LDX #$21
+C - - - - - 0x03E0D3 FF:E0C3: A2 21     LDX #con_skill_21
 C - - - - - 0x03E0D5 FF:E0C5: 90 02     BCC bra_E0C9
-C - - - - - 0x03E0D7 FF:E0C7: A2 22     LDX #$22
+C - - - - - 0x03E0D7 FF:E0C7: A2 22     LDX #con_skill_22
 bra_E0C9:
 C - - - - - 0x03E0D9 FF:E0C9: A5 41     LDA ram_0041
-C - - - - - 0x03E0DB FF:E0CB: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03E0DB FF:E0CB: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03E0DE FF:E0CE: 20 54 E8  JSR sub_E854
 bra_E0D1:
 C - - - - - 0x03E0E1 FF:E0D1: 68        PLA
@@ -4427,15 +4421,15 @@ C - - - - - 0x03E16D FF:E15D: AD 1C 00  LDA ram_btn_hold
 C - - - - - 0x03E170 FF:E160: 29 0F     AND #con_btns_Dpad
 C - - - - - 0x03E172 FF:E162: F0 22     BEQ bra_E186
 C - - - - - 0x03E174 FF:E164: 48        PHA
-C - - - - - 0x03E175 FF:E165: A2 20     LDX #$20
+C - - - - - 0x03E175 FF:E165: A2 20     LDX #con_skill_20
 C - - - - - 0x03E177 FF:E167: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03E17A FF:E16A: AC FB 05  LDY ram_команда_с_мячом
 C - - - - - 0x03E17D FF:E16D: F0 05     BEQ bra_E174_команда_слева
 ; if мяч у команды справа
-C - - - - - 0x03E17F FF:E16F: A2 22     LDX #$22
+C - - - - - 0x03E17F FF:E16F: A2 22     LDX #con_skill_22
 C - - - - - 0x03E181 FF:E171: AD FD 05  LDA ram_управляемый
 bra_E174_команда_слева:
-C - - - - - 0x03E184 FF:E174: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03E184 FF:E174: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03E187 FF:E177: 68        PLA
 C - - - - - 0x03E188 FF:E178: 48        PHA
 C - - - - - 0x03E189 FF:E179: A0 05     LDY #con_plr_pos_X_lo
@@ -4614,8 +4608,8 @@ bra_E2CB_loop_регенерации_игроков:
 C - - - - - 0x03E2DB FF:E2CB: 48        PHA
 C - - - - - 0x03E2DC FF:E2CC: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03E2DF FF:E2CF: F0 3C     BEQ bra_E30D_не_регенерировать
-C - - - - - 0x03E2E1 FF:E2D1: A2 00     LDX #$00
-C - - - - - 0x03E2E3 FF:E2D3: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03E2E1 FF:E2D1: A2 00     LDX #con_skill_00
+C - - - - - 0x03E2E3 FF:E2D3: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03E2E6 FF:E2D6: A2 02     LDX #$02      ; регенерация энергии
 C - - - - - 0x03E2E8 FF:E2D8: A0 00     LDY #con_plr_id
 C - - - - - 0x03E2EA FF:E2DA: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
@@ -4770,8 +4764,8 @@ C - - - - - 0x03E3E2 FF:E3D2: 29 0F     AND #con_btns_Dpad
 C - - - - - 0x03E3E4 FF:E3D4: F0 30     BEQ bra_E406_RTS
 bra_E3D6_команда_справа:
 C - - - - - 0x03E3E6 FF:E3D6: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - - 0x03E3E9 FF:E3D9: A2 20     LDX #$20
-C - - - - - 0x03E3EB FF:E3DB: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03E3E9 FF:E3D9: A2 20     LDX #con_skill_20
+C - - - - - 0x03E3EB FF:E3DB: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03E3EE FF:E3DE: 46 33     LSR ram_0033
 C - - - - - 0x03E3F0 FF:E3E0: 66 32     ROR ram_0032
 C - - - - - 0x03E3F2 FF:E3E2: 46 33     LSR ram_0033
@@ -4859,14 +4853,14 @@ C - - - - - 0x03E478 FF:E468: A0 09     LDY #con_plr_09
 C - - - - - 0x03E47A FF:E46A: B1 34     LDA (ram_plr_data),Y    ; con_plr_09
 C - - - - - 0x03E47C FF:E46C: C9 F0     CMP #$F0
 C - - - - - 0x03E47E FF:E46E: D0 02     BNE bra_E472
-C - - - - - 0x03E480 FF:E470: A2 1F     LDX #$1F
+C - - - - - 0x03E480 FF:E470: A2 1F     LDX #con_skill_1F
 bra_E472:
 C - - - - - 0x03E482 FF:E472: A5 41     LDA ram_0041
 C - - - - - 0x03E484 FF:E474: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03E487 FF:E477: D0 02     BNE bra_E47B
-C - - - - - 0x03E489 FF:E479: A2 20     LDX #$20
+C - - - - - 0x03E489 FF:E479: A2 20     LDX #con_skill_20
 bra_E47B:
-C - - - - - 0x03E48B FF:E47B: 20 08 CE  JSR sub_CE08_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x03E48B FF:E47B: 20 08 CE  JSR sub_CE08_вычислить_числовой_стат_скилла
 C - - - - - 0x03E48E FF:E47E: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03E490 FF:E480: B1 34     LDA (ram_plr_data),Y    ; con_plr_stun
 C - - - - - 0x03E492 FF:E482: F0 08     BEQ bra_E48C

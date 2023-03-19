@@ -1325,6 +1325,51 @@ con_p_coimbra_brazil                        = $75 ; Коимбра
 
 
 
+; для 0x0380A3
+; нужны комменты в 0x030CE0
+con_skill_00                                = $00 ; 
+con_skill_01                                = $01 ; 
+con_skill_02                                = $02 ; pass (полевой)
+con_skill_03                                = $03 ; dribble (полевой)
+con_skill_04                                = $04 ; block (полевой)
+con_skill_05                                = $05 ; tackle (полевой)
+con_skill_06                                = $06 ; intercept (полевой)
+con_skill_07                                = $07 ; shoot low (полевой)
+con_skill_08                                = $08 ; 
+con_skill_09                                = $09 ; trap low (полевой)
+con_skill_0A                                = $0A ; through low (полевой)
+con_skill_0B                                = $0B ; 
+con_skill_0C                                = $0C ; clearance low (полевой)
+con_skill_0D                                = $0D ; interfere low (полевой)
+con_skill_0E                                = $0E ; 
+con_skill_0F                                = $0F ; shoot high (полевой)
+con_skill_10                                = $10 ; 
+con_skill_11                                = $11 ; trap high (полевой)
+con_skill_12                                = $12 ; through high (полевой)
+con_skill_13                                = $13 ; 
+con_skill_14                                = $14 ; clearance high (полевой)
+con_skill_15                                = $15 ; interfere high (полевой)
+con_skill_16                                = $16 ; 
+; con_skill_17                              = $17 ; 
+con_skill_18                                = $18 ; pass (кипер)
+con_skill_19                                = $19 ; catch (кипер)
+con_skill_1A                                = $1A ; punch (кипер)
+con_skill_1B                                = $1B ; stop shot (кипер)
+con_skill_1C                                = $1C ; stop dribble (кипер)
+con_skill_1D                                = $1D ; dive low (кипер)
+con_skill_1E                                = $1E ; dive high (кипер)
+con_skill_1F                                = $1F ; 
+con_skill_20                                = $20 ; 
+con_skill_21                                = $21 ; 
+con_skill_22                                = $22 ; 
+con_skill_23                                = $23 ; 
+con_skill_24                                = $24 ; 
+con_skill_25                                = $25 ; 
+con_skill_26                                = $26 ; 
+
+
+
+
 
 
 ; действие и подтип действия атаки

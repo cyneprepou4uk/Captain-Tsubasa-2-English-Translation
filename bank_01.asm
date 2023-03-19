@@ -14,7 +14,7 @@
 .export sub_0x002F89_начислить_опыт_за_победу_над_командой
 .export sub_0x002F9A_начислить_опыт_за_поражение
 .export sub_0x002FD2_начислить_опыт
-.export sub_0x003060
+.export sub_0x003060_передать_опыт_игроков_другой_команде
 .export tbl_B791_расстановка_japan
 .export tbl_B792_защита_japan
 
@@ -1672,8 +1672,8 @@ C - - - - - 0x002BCE 01:ABBE: A0 AB     LDY #$AB      ; адрес ppu для н
 C - - - - - 0x002BD0 01:ABC0: A2 20     LDX #$20
 C - - - - - 0x002BD2 01:ABC2: 20 8E 9D  JSR sub_0x001D9E_запись_в_буфер_уровня_игрока
 C - - - - - 0x002BD5 01:ABC5: A5 5F     LDA ram_005F
-C - - - - - 0x002BD7 01:ABC7: A2 00     LDX #$00
-C - - - - - 0x002BD9 01:ABC9: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x002BD7 01:ABC7: A2 00     LDX #con_skill_00
+C - - - - - 0x002BD9 01:ABC9: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x002BDC 01:ABCC: A5 32     LDA ram_0032
 C - - - - - 0x002BDE 01:ABCE: 85 EC     STA ram_00EC
 C - - - - - 0x002BE0 01:ABD0: A5 33     LDA ram_0033
@@ -1710,13 +1710,13 @@ C - - - - - 0x002C0E 01:ABFE: 20 C0 B0  JSR sub_B0C0_обработать_таб
 C - - - - - 0x002C11 01:AC01: A0 31     LDY # tbl_B9B2_позиция_числовых_статов_кипера - tbl_B981_позиция_числовых_статов_полевого
 loc_AC03:
 C D - - - - 0x002C13 01:AC03: 84 E6     STY ram_00E6
-loc_AC05_повторить_запись_числа:
+loc_AC05_loop_повторить_запись_числа:
 C D - - - - 0x002C15 01:AC05: A4 E6     LDY ram_00E6
 C - - - - - 0x002C17 01:AC07: BE 81 B9  LDX tbl_B981_позиция_числовых_статов_полевого,Y
 C - - - - - 0x002C1A 01:AC0A: E0 FF     CPX #$FF
-C - - - - - 0x002C1C 01:AC0C: F0 20     BEQ bra_AC2E_закончить_запись_чисел
+C - - - - - 0x002C1C 01:AC0C: F0 20     BEQ bra_AC2E_FF_закончить_запись_чисел
 C - - - - - 0x002C1E 01:AC0E: A5 5F     LDA ram_005F
-C - - - - - 0x002C20 01:AC10: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x002C20 01:AC10: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x002C23 01:AC13: A5 32     LDA ram_0032
 C - - - - - 0x002C25 01:AC15: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
 C - - - - - 0x002C28 01:AC18: A4 E6     LDY ram_00E6
@@ -1728,8 +1728,8 @@ C - - - - - 0x002C34 01:AC24: A5 E6     LDA ram_00E6
 C - - - - - 0x002C36 01:AC26: 18        CLC
 C - - - - - 0x002C37 01:AC27: 69 03     ADC #$03
 C - - - - - 0x002C39 01:AC29: 85 E6     STA ram_00E6
-C - - - - - 0x002C3B 01:AC2B: 4C 05 AC  JMP loc_AC05_повторить_запись_числа
-bra_AC2E_закончить_запись_чисел:
+C - - - - - 0x002C3B 01:AC2B: 4C 05 AC  JMP loc_AC05_loop_повторить_запись_числа
+bra_AC2E_FF_закончить_запись_чисел:
 C - - - - - 0x002C3E 01:AC2E: 20 7E 99  JSR sub_0x00198E_запись_палитры_фона_и_спрайтов
 bra_AC31_B_не_нажата:
 C - - - - - 0x002C41 01:AC31: A9 01     LDA #$01
@@ -2369,13 +2369,15 @@ C - - - - - 0x002F97 01:AF87: 4C 9E AF  JMP loc_AF9E_начислить_опыт
 
 
 sub_0x002F9A_начислить_опыт_за_поражение:
+; за поражение дается в 4 раза меньше опыта чем за победу
 C D - - - - 0x002F9A 01:AF8A: A5 26     LDA ram_матч
 C - - - - - 0x002F9C 01:AF8C: 0A        ASL
 C - - - - - 0x002F9D 01:AF8D: AA        TAX
 C - - - - - 0x002F9E 01:AF8E: BD 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,X
 C - - - - - 0x002FA1 01:AF91: 85 E6     STA ram_00E6
 C - - - - - 0x002FA3 01:AF93: BD 4D BA  LDA tbl_BA4C_опыт_за_победу_над_командой + $01,X
-C - - - - - 0x002FA6 01:AF96: 4A        LSR               ; поделить на 4
+; / 04
+C - - - - - 0x002FA6 01:AF96: 4A        LSR
 C - - - - - 0x002FA7 01:AF97: 66 E6     ROR ram_00E6
 C - - - - - 0x002FA9 01:AF99: 4A        LSR
 C - - - - - 0x002FAA 01:AF9A: 66 E6     ROR ram_00E6
@@ -2424,7 +2426,8 @@ C - - - - - 0x002FE7 01:AFD7: A8        TAY
 C - - - - - 0x002FE8 01:AFD8: B9 4D BA  LDA tbl_BA4C_опыт_за_победу_над_командой + $01,Y
 C - - - - - 0x002FEB 01:AFDB: 85 ED     STA ram_00ED
 C - - - - - 0x002FED 01:AFDD: B9 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,Y
-C - - - - - 0x002FF0 01:AFE0: 66 ED     ROR ram_00ED      ; поделить на 4
+; / 04
+C - - - - - 0x002FF0 01:AFE0: 66 ED     ROR ram_00ED
 C - - - - - 0x002FF2 01:AFE2: 4A        LSR
 C - - - - - 0x002FF3 01:AFE3: 66 ED     ROR ram_00ED
 C - - - - - 0x002FF5 01:AFE5: 4A        LSR
@@ -2445,7 +2448,8 @@ C - - - - - 0x003010 01:B000: BD 55 04  LDA ram_опыт_hi,X
 C - - - - - 0x003013 01:B003: 69 00     ADC #$00
 C - - - - - 0x003015 01:B005: 9D 55 04  STA ram_опыт_hi,X
 C - - - - - 0x003018 01:B008: 90 08     BCC bra_B012_RTS
-- - - - - - 0x00301A 01:B00A: A9 FF     LDA #$FF      ; если overflow
+; if overflow
+- - - - - - 0x00301A 01:B00A: A9 FF     LDA #$FF
 - - - - - - 0x00301C 01:B00C: 9D 54 04  STA ram_опыт_lo,X
 - - - - - - 0x00301F 01:B00F: 9D 55 04  STA ram_опыт_hi,X
 bra_B012_RTS:
@@ -2506,7 +2510,7 @@ C - - - - - 0x00305F 01:B04F: 60        RTS
 
 
 
-sub_0x003060:
+sub_0x003060_передать_опыт_игроков_другой_команде:
 C D - - - - 0x003060 01:B050: A5 26     LDA ram_матч
 C - - - - - 0x003062 01:B052: C9 10     CMP #$10
 C - - - - - 0x003064 01:B054: F0 16     BEQ bra_B06C_japan
@@ -3856,89 +3860,91 @@ off_B8B4_оформление_окон:
     .byte $0F
 
 
+
 tbl_B967_тайлы_закрывающей_полоски_special:
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9
     .byte $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
+
 tbl_B981_позиция_числовых_статов_полевого:
 ; dribble
-    .byte $03
+    .byte con_skill_03
     .word $220B
 ; pass
-    .byte $02
+    .byte con_skill_02
     .word $224B
 ; shoot
-    .byte $01
+    .byte con_skill_01
     .word $228B
 ; tackle
-    .byte $05
+    .byte con_skill_05
     .word $22CB
 ; block
-    .byte $04
+    .byte con_skill_04
     .word $230B
 ; intercept
-    .byte $06
+    .byte con_skill_06
     .word $234B
 ; trap high
-    .byte $11
+    .byte con_skill_11
     .word $20BB
 ; shoot high
-    .byte $0F
+    .byte con_skill_0F
     .word $20FB
 ; through high
-    .byte $12
+    .byte con_skill_12
     .word $213B
 ; clearance high
-    .byte $14
+    .byte con_skill_14
     .word $217B
 ; interfere high
-    .byte $15
+    .byte con_skill_15
     .word $21BB
 ; trap low
-    .byte $09
+    .byte con_skill_09
     .word $225B
 ; shoot low
-    .byte $07
+    .byte con_skill_07
     .word $229B
 ; through low
-    .byte $0A
+    .byte con_skill_0A
     .word $22DB
 ; clearance low
-    .byte $0C
+    .byte con_skill_0C
     .word $231B
 ; interfere low
-    .byte $0D
+    .byte con_skill_0D
     .word $235B
 
-    .byte $FF
+    .byte $FF   ; end token
 
 
 
 tbl_B9B2_позиция_числовых_статов_кипера:
 ; pass
-    .byte $18
+    .byte con_skill_18
     .word $220B
 ; catch
-    .byte $19
+    .byte con_skill_19
     .word $224B
 ; punch
-    .byte $1A
+    .byte con_skill_1A
     .word $228B
 ; stop dribble
-    .byte $1C
+    .byte con_skill_1C
     .word $22EB
 ; stop shot
-    .byte $1B
+    .byte con_skill_1B
     .word $234B
 ; dive high
-    .byte $1E
+    .byte con_skill_1E
     .word $20BB
 ; dive low
-    .byte $1D
+    .byte con_skill_1D
     .word $225B
 
-    .byte $FF
+    .byte $FF   ; end token
 
 
 
@@ -3947,11 +3953,13 @@ tbl_B9C8_количество_замен_для_japan:
     .word $224D
     .text "Subs:"
 
+
+
 tbl_B9D3_смещение_указателя_таблицы_исходя_из_команды:
-tbl__B9D3:
-    .byte tbl_sao_paulo_B9D6 - tbl__B9D3 - $03
-    .byte tbl_nankatsu__B9D6 - tbl__B9D3 - $03
-    .byte tbl_japan_____B9D6 - tbl__B9D3 - $03
+off_B9D3:
+    .byte tbl_sao_paulo_B9D6 - off_B9D3 - $03
+    .byte tbl_nankatsu__B9D6 - off_B9D3 - $03
+    .byte tbl_japan_____B9D6 - off_B9D3 - $03
 
 
 
@@ -3959,18 +3967,18 @@ tbl_B9D6_указатели_опыта_игрока:
 ; AND 0F = указатель на адрес адрес опыта в оперативке
 ; AND F0 = указатель на множитель опыта из другой таблицы
 tbl_sao_paulo_B9D6:
-    .byte $00       ; unused клон
-    .byte $00       ; Tsubasa
-    .byte $01       ; Renato
-    .byte $12       ; Lima
-    .byte $12       ; Marini
-    .byte $03       ; Amaral
-    .byte $04       ; Dotor
-    .byte $05       ; Batista
-    .byte $06       ; Tahamata
-    .byte $07       ; Babington
-    .byte $08       ; Gil
-    .byte $09       ; Platon
+    .byte $00       ; 00 unused клон
+    .byte $00       ; 01 Tsubasa
+    .byte $01       ; 02 Renato
+    .byte $12       ; 03 Lima
+    .byte $12       ; 04 Marini
+    .byte $03       ; 05 Amaral
+    .byte $04       ; 06 Dotor
+    .byte $05       ; 07 Batista
+    .byte $06       ; 08 Tahamata
+    .byte $07       ; 09 Babington
+    .byte $08       ; 0A Gil
+    .byte $09       ; 0B Platon
 
 tbl_nankatsu__B9D6:
     .byte $00       ; unused клон

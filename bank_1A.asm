@@ -5415,7 +5415,7 @@ C - - - - - 0x036155 1A:A145: 48        PHA
 C - - - - - 0x036156 1A:A146: 28        PLP
 bra_A147_команда_слева:
 C - - - - - 0x036157 1A:A147: B0 13     BCS bra_A15C
-C - - - - - 0x036159 1A:A149: A9 25     LDA #$25
+C - - - - - 0x036159 1A:A149: A9 25     LDA #con_skill_25
 C - - - - - 0x03615B 1A:A14B: 85 3F     STA ram_003F
 C - - - - - 0x03615D 1A:A14D: BD 2C 00  LDA ram_расстановка_слева,X
 C - - - - - 0x036160 1A:A150: 0A        ASL
@@ -5425,7 +5425,7 @@ C - - - - - 0x036165 1A:A155: A8        TAY
 C - - - - - 0x036166 1A:A156: BD AD A6  LDA tbl_A6AD,X
 C - - - - - 0x036169 1A:A159: 4C 79 A1  JMP loc_A179
 bra_A15C:
-C - - - - - 0x03616C 1A:A15C: A9 26     LDA #$26
+C - - - - - 0x03616C 1A:A15C: A9 26     LDA #con_skill_26
 C - - - - - 0x03616E 1A:A15E: 85 3F     STA ram_003F
 C - - - - - 0x036170 1A:A160: BD 2C 00  LDA ram_расстановка_слева,X
 ; расстановка * 06 + защита * 02
@@ -5470,7 +5470,7 @@ C - - - - - 0x0361B0 1A:A1A0: 91 34     STA (ram_plr_data),Y    ; con_plr_09
 C - - - - - 0x0361B2 1A:A1A2: 68        PLA
 C - - - - - 0x0361B3 1A:A1A3: 48        PHA
 C - - - - - 0x0361B4 1A:A1A4: A6 3F     LDX ram_003F
-C - - - - - 0x0361B6 1A:A1A6: 20 27 C5  JSR sub_0x03CE18_банксвич_PRG_1C_1D_с_возвратом
+C - - - - - 0x0361B6 1A:A1A6: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x0361B9 1A:A1A9: 68        PLA
 C - - - - - 0x0361BA 1A:A1AA: A6 32     LDX ram_0032
 C - - - - - 0x0361BC 1A:A1AC: EC E2 00  CPX ram_random + $01
