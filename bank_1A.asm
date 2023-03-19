@@ -2312,7 +2312,7 @@ C - - - - - 0x034E52 1A:8E42: D0 06     BNE bra_8E4A
 bra_8E44:
 C - - - - - 0x034E54 1A:8E44: E0 04     CPX #$04
 C - - - - - 0x034E56 1A:8E46: F0 25     BEQ bra_8E6D_RTS
-C - - - - - 0x034E58 1A:8E48: D0 08     BNE bra_8E52
+C - - - - - 0x034E58 1A:8E48: D0 08     BNE bra_8E52    ; jmp
 bra_8E4A:
 C - - - - - 0x034E5A 1A:8E4A: E0 05     CPX #$05
 C - - - - - 0x034E5C 1A:8E4C: F0 1F     BEQ bra_8E6D_RTS
@@ -3193,7 +3193,7 @@ C - - - - - 0x0353C3 1A:93B3: 90 02     BCC bra_93B7
 - - - - - - 0x0353C5 1A:93B5: A9 0C     LDA #$0C
 bra_93B7:
 C - - - - - 0x0353C7 1A:93B7: 8D FC 05  STA ram_принимающий
-C - - - - - 0x0353CA 1A:93BA: D0 03     BNE bra_93BF
+C - - - - - 0x0353CA 1A:93BA: D0 03     BNE bra_93BF    ; jmp?
 bra_93BC_команда_слева:
 C - - - - - 0x0353CC 1A:93BC: 20 DE 93  JSR sub_93DE
 bra_93BF:
@@ -3257,7 +3257,8 @@ C - - - - - 0x035427 1A:9417: C9 05     CMP #$05
 C - - - - - 0x035429 1A:9419: D0 03     BNE bra_941E
 C - - - - - 0x03542B 1A:941B: 4C 95 93  JMP loc_9395
 bra_941E:
-C - - - - - 0x03542E 1A:941E: D0 D7     BNE bra_93F7_loop
+; bzk optimize, BNE на BNE
+C - - - - - 0x03542E 1A:941E: D0 D7     BNE bra_93F7_loop    ; jmp
 bra_9420:
 C - - - - - 0x035430 1A:9420: 68        PLA
 C - - - - - 0x035431 1A:9421: 8D 12 06  STA ram_результат_защитника
@@ -4660,7 +4661,7 @@ C - - - - - 0x035E08 1A:9DF8: C9 0B     CMP #$0B
 C - - - - - 0x035E0A 1A:9DFA: D0 DC     BNE bra_9DD8_loop
 C - - - - - 0x035E0C 1A:9DFC: A2 FF     LDX #$FF
 C - - - - - 0x035E0E 1A:9DFE: A9 1C     LDA #con_B3CF_1C
-C - - - - - 0x035E10 1A:9E00: D0 04     BNE bra_9E06_очистить_экран_справа
+C - - - - - 0x035E10 1A:9E00: D0 04     BNE bra_9E06_очистить_экран_справа    ; jmp
 bra_9E02_игрок_найден:
 C - - - - - 0x035E12 1A:9E02: A9 1D     LDA #con_B3CF_1D
 C - - - - - 0x035E14 1A:9E04: A6 3A     LDX ram_003A

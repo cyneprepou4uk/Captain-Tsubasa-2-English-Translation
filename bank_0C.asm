@@ -220,7 +220,7 @@ C - - - - - 0x018190 0C:8180: D0 07     BNE bra_8189
 C - - - - - 0x018192 0C:8182: 68        PLA
 C - - - - - 0x018193 0C:8183: 29 0F     AND #$0F
 C - - - - - 0x018195 0C:8185: 09 80     ORA #$80
-C - - - - - 0x018197 0C:8187: D0 1B     BNE bra_81A4
+C - - - - - 0x018197 0C:8187: D0 1B     BNE bra_81A4    ; jmp
 bra_8189:
 C - - - - - 0x018199 0C:8189: 68        PLA
 C - - - - - 0x01819A 0C:818A: 09 30     ORA #$30
@@ -277,7 +277,7 @@ C - - - - - 0x0181F4 0C:81E4: 29 20     AND #$20
 C - - - - - 0x0181F6 0C:81E6: F0 06     BEQ bra_81EE
 C - - - - - 0x0181F8 0C:81E8: A9 0F     LDA #$0F
 C - - - - - 0x0181FA 0C:81EA: 85 F7     STA ram_00F7
-C - - - - - 0x0181FC 0C:81EC: D0 45     BNE bra_8233
+C - - - - - 0x0181FC 0C:81EC: D0 45     BNE bra_8233    ; jmp
 bra_81EE:
 C - - - - - 0x0181FE 0C:81EE: 8A        TXA
 C - - - - - 0x0181FF 0C:81EF: 29 0F     AND #$0F
@@ -651,7 +651,7 @@ C - - - - - 0x018434 0C:8424: F0 0F     BEQ bra_8435
 C - - - - - 0x018436 0C:8426: 85 F4     STA ram_00F4
 C - - - - - 0x018438 0C:8428: A9 00     LDA #$00
 C - - - - - 0x01843A 0C:842A: 85 F5     STA ram_00F5
-C - - - - - 0x01843C 0C:842C: F0 2E     BEQ bra_845C
+C - - - - - 0x01843C 0C:842C: F0 2E     BEQ bra_845C    ; jmp
 bra_842E:
 C - - - - - 0x01843E 0C:842E: AA        TAX
 C - - - - - 0x01843F 0C:842F: 29 0F     AND #$0F

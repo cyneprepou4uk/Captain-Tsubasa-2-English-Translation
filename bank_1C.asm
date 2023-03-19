@@ -116,6 +116,7 @@ C - - - - - 0x03806A 1C:805A: 10 05     BPL bra_8061
 C - - - - - 0x03806C 1C:805C: 68        PLA
 C - - - - - 0x03806D 1C:805D: C8        INY ; con_бот_флаг_2_ХЗ
 C - - - - - 0x03806E 1C:805E: B1 34     LDA (ram_plr_data),Y    ; con_бот_флаг_2_ХЗ
+; A = C8 C9 CA CB 
 C - - - - - 0x038070 1C:8060: 48        PHA
 bra_8061:
 C - - - - - 0x038071 1C:8061: 68        PLA
@@ -1679,6 +1680,7 @@ C - - - - - 0x038A87 1C:8A77: B1 34     LDA (ram_plr_data),Y    ; con_бот_ф�
 C - - - - - 0x038A89 1C:8A79: 10 04     BPL bra_8A7F
 C - - - - - 0x038A8B 1C:8A7B: C8        INY ; con_бот_флаг_2_ХЗ
 C - - - - - 0x038A8C 1C:8A7C: B1 34     LDA (ram_plr_data),Y    ; con_бот_флаг_2_ХЗ
+; A = C8 C9 CA CB 
 C - - - - - 0x038A8E 1C:8A7E: AA        TAX
 bra_8A7F:
 C - - - - - 0x038A8F 1C:8A7F: 8A        TXA

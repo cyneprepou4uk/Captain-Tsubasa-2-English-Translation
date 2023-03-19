@@ -1993,7 +1993,7 @@ C - - - - - 0x030C24 18:8C14: DD 30 04  CMP ram_список_спешалов,X
 C - - - - - 0x030C27 18:8C17: F0 05     BEQ bra_8C1E
 C - - - - - 0x030C29 18:8C19: CA        DEX
 C - - - - - 0x030C2A 18:8C1A: D0 F8     BNE bra_8C14_loop
-C - - - - - 0x030C2C 18:8C1C: F0 04     BEQ bra_8C22
+C - - - - - 0x030C2C 18:8C1C: F0 04     BEQ bra_8C22    ; jmp
 bra_8C1E:
 C - - - - - 0x030C2E 18:8C1E: E6 49     INC ram_0049
 C - - - - - 0x030C30 18:8C20: D0 E7     BNE bra_8C09_loop

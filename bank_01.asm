@@ -11,7 +11,7 @@
 .export sub_0x0024FB_VS_экран_и_повышение_уровня
 .export sub_0x00265C
 .export loc_0x0026E2_перерыв
-.export sub_0x002F89_начислить_опыт_за_победу
+.export sub_0x002F89_начислить_опыт_за_победу_над_командой
 .export sub_0x002F9A_начислить_опыт_за_поражение
 .export sub_0x002FD2_начислить_опыт
 .export sub_0x003060
@@ -1201,14 +1201,16 @@ C - - - - - 0x002860 01:A850: A2 B4     LDX #> tbl_B451_экран_с_опция
 C - - - - - 0x002862 01:A852: 20 C0 B0  JSR sub_B0C0_обработать_таблицу_с_байтами_фона
 C - - - - - 0x002865 01:A855: A9 FC     LDA #$FC
 C - - - - - 0x002867 01:A857: 20 E9 AD  JSR sub_ADE9
-C - - - - - 0x00286A 01:A85A: A9 85     LDA #$A2      ; адрес ppu имен основных игроков
+; имена основных игроков
+C - - - - - 0x00286A 01:A85A: A9 85     LDA #< $20A2
 C - - - - - 0x00286C 01:A85C: 85 E6     STA ram_00E6
-C - - - - - 0x00286E 01:A85E: A9 20     LDA #$20
+C - - - - - 0x00286E 01:A85E: A9 20     LDA #> $20A2
 C - - - - - 0x002870 01:A860: 85 E7     STA ram_00E7
 C - - - - - 0x002872 01:A862: 20 AC AE  JSR sub_AEAC
-C - - - - - 0x002875 01:A865: A9 99     LDA #$B7      ; адрес ppu имен запасных игроков
+; имена запасных игроков
+C - - - - - 0x002875 01:A865: A9 99     LDA #< $20B7
 C - - - - - 0x002877 01:A867: 85 E6     STA ram_00E6
-C - - - - - 0x002879 01:A869: A9 20     LDA #$20
+C - - - - - 0x002879 01:A869: A9 20     LDA #> $20B7
 C - - - - - 0x00287B 01:A86B: 85 E7     STA ram_00E7
 C - - - - - 0x00287D 01:A86D: 20 BE AE  JSR sub_AEBE
 C - - - - - 0x002880 01:A870: A9 D8     LDA #$D8
@@ -1446,14 +1448,16 @@ C - - - - - 0x002A43 01:AA33: 9D 50 04  STA ram_забаненный_игрок 
 C - - - - - 0x002A46 01:AA36: 20 A1 B0  JSR sub_B0A1_отобразить_количество_замен
 C - - - - - 0x002A49 01:AA39: 20 7F AA  JSR sub_AA7F
 bra_AA3C:
-C - - - - - 0x002A4C 01:AA3C: A9 85     LDA #$A2      ; адрес ppu основных игроков после замены
+; основные игроки после замены
+C - - - - - 0x002A4C 01:AA3C: A9 85     LDA #< $20A2
 C - - - - - 0x002A4E 01:AA3E: 85 E6     STA ram_00E6
-C - - - - - 0x002A50 01:AA40: A9 20     LDA #$20
+C - - - - - 0x002A50 01:AA40: A9 20     LDA #> $20A2
 C - - - - - 0x002A52 01:AA42: 85 E7     STA ram_00E7
 C - - - - - 0x002A54 01:AA44: 20 AC AE  JSR sub_AEAC
-C - - - - - 0x002A57 01:AA47: A9 99     LDA #$B7      ; адрес ppu запасных игроков после замены
+; запасные игроки после замены
+C - - - - - 0x002A57 01:AA47: A9 99     LDA #< $20B7
 C - - - - - 0x002A59 01:AA49: 85 E6     STA ram_00E6
-C - - - - - 0x002A5B 01:AA4B: A9 20     LDA #$20
+C - - - - - 0x002A5B 01:AA4B: A9 20     LDA #> $20B7
 C - - - - - 0x002A5D 01:AA4D: 85 E7     STA ram_00E7
 C - - - - - 0x002A5F 01:AA4F: 20 BE AE  JSR sub_AEBE
 C - - - - - 0x002A62 01:AA52: A9 00     LDA #$00
@@ -2211,25 +2215,25 @@ C - - - - - 0x002EBB 01:AEAB: 60        RTS
 
 
 sub_AEAC:
-C - - - - - 0x002EBC 01:AEAC: A9 0A     LDA #$0A
-C - - - - - 0x002EBE 01:AEAE: A2 0B     LDX #$0B
-C - - - - - 0x002EC0 01:AEB0: A0 FF     LDY #$FF
+C - - - - - 0x002EBC 01:AEAC: A9 0A     LDA #$0A    ; начальный индекс игрока
+C - - - - - 0x002EBE 01:AEAE: A2 0B     LDX #$0B    ; счетчик цикла
+C - - - - - 0x002EC0 01:AEB0: A0 FF     LDY #$FF    ; изменение индекса игрока во время цикла
 C - - - - - 0x002EC2 01:AEB2: 4C DA AE  JMP loc_AEDA
 
 
 
 sub_AEB5:
-C - - - - - 0x002EC5 01:AEB5: A9 16     LDA #$16
-C - - - - - 0x002EC7 01:AEB7: A2 0A     LDX #$0A
-C - - - - - 0x002EC9 01:AEB9: A0 01     LDY #$01
+C - - - - - 0x002EC5 01:AEB5: A9 16     LDA #$16    ; начальный индекс игрока
+C - - - - - 0x002EC7 01:AEB7: A2 0A     LDX #$0A    ; счетчик цикла
+C - - - - - 0x002EC9 01:AEB9: A0 01     LDY #$01    ; изменение индекса игрока во время цикла
 C - - - - - 0x002ECB 01:AEBB: 4C DA AE  JMP loc_AEDA
 
 
 
 sub_AEBE:
-C - - - - - 0x002ECE 01:AEBE: A9 16     LDA #$16
-C - - - - - 0x002ED0 01:AEC0: A2 08     LDX #$08
-C - - - - - 0x002ED2 01:AEC2: A0 01     LDY #$01
+C - - - - - 0x002ECE 01:AEBE: A9 16     LDA #$16    ; начальный индекс игрока
+C - - - - - 0x002ED0 01:AEC0: A2 08     LDX #$08    ; счетчик цикла
+C - - - - - 0x002ED2 01:AEC2: A0 01     LDY #$01    ; изменение индекса игрока во время цикла
 C - - - - - 0x002ED4 01:AEC4: 20 DA AE  JSR sub_AEDA
 C - - - - - 0x002ED7 01:AEC7: A5 E6     LDA ram_00E6
 C - - - - - 0x002ED9 01:AEC9: 18        CLC
@@ -2238,9 +2242,9 @@ C - - - - - 0x002EDC 01:AECC: 85 E6     STA ram_00E6
 C - - - - - 0x002EDE 01:AECE: A5 E7     LDA ram_00E7
 C - - - - - 0x002EE0 01:AED0: 69 00     ADC #> $0040
 C - - - - - 0x002EE2 01:AED2: 85 E7     STA ram_00E7
-C - - - - - 0x002EE4 01:AED4: A9 1E     LDA #$1E
-C - - - - - 0x002EE6 01:AED6: A2 02     LDX #$02
-C - - - - - 0x002EE8 01:AED8: A0 01     LDY #$01
+C - - - - - 0x002EE4 01:AED4: A9 1E     LDA #$1E    ; начальный индекс игрока
+C - - - - - 0x002EE6 01:AED6: A2 02     LDX #$02    ; счетчик цикла
+C - - - - - 0x002EE8 01:AED8: A0 01     LDY #$01    ; изменение индекса игрока во время цикла
 loc_AEDA:
 sub_AEDA:
 C D - - - - 0x002EEA 01:AEDA: 85 E8     STA ram_00E8
@@ -2352,7 +2356,7 @@ C - - - - - 0x002F88 01:AF78: 60        RTS
 
 
 
-sub_0x002F89_начислить_опыт_за_победу:
+sub_0x002F89_начислить_опыт_за_победу_над_командой:
 C D - - - - 0x002F89 01:AF79: A5 26     LDA ram_матч
 C - - - - - 0x002F8B 01:AF7B: 0A        ASL
 C - - - - - 0x002F8C 01:AF7C: AA        TAX
@@ -2481,9 +2485,9 @@ bra_B034_loop:
 C - - - - - 0x003044 01:B034: CA        DEX
 C - - - - - 0x003045 01:B035: CA        DEX
 C - - - - - 0x003046 01:B036: A5 E6     LDA ram_00E6
-C - - - - - 0x003048 01:B038: DD 90 BA  CMP tbl_BA90_опыт_для_достижения_уровня,X
+C - - - - - 0x003048 01:B038: DD 90 BA  CMP tbl_BA90_необходимый_опыт_для_достижения_уровня,X
 C - - - - - 0x00304B 01:B03B: A5 E7     LDA ram_00E7
-C - - - - - 0x00304D 01:B03D: FD 91 BA  SBC tbl_BA90_опыт_для_достижения_уровня + $01,X
+C - - - - - 0x00304D 01:B03D: FD 91 BA  SBC tbl_BA90_необходимый_опыт_для_достижения_уровня + $01,X
 C - - - - - 0x003050 01:B040: 90 F2     BCC bra_B034_loop
 C - - - - - 0x003052 01:B042: 8A        TXA
 C - - - - - 0x003053 01:B043: 4A        LSR
@@ -2494,9 +2498,9 @@ C - - - - - 0x003054 01:B044: 60        RTS
 sub_B045:
 C - - - - - 0x003055 01:B045: 0A        ASL
 C - - - - - 0x003056 01:B046: AA        TAX
-C - - - - - 0x003057 01:B047: BD 90 BA  LDA tbl_BA90_опыт_для_достижения_уровня,X
+C - - - - - 0x003057 01:B047: BD 90 BA  LDA tbl_BA90_необходимый_опыт_для_достижения_уровня,X
 C - - - - - 0x00305A 01:B04A: A8        TAY
-C - - - - - 0x00305B 01:B04B: BD 91 BA  LDA tbl_BA90_опыт_для_достижения_уровня + $01,X
+C - - - - - 0x00305B 01:B04B: BD 91 BA  LDA tbl_BA90_необходимый_опыт_для_достижения_уровня + $01,X
 C - - - - - 0x00305E 01:B04E: AA        TAX
 C - - - - - 0x00305F 01:B04F: 60        RTS
 
@@ -2507,15 +2511,16 @@ C D - - - - 0x003060 01:B050: A5 26     LDA ram_матч
 C - - - - - 0x003062 01:B052: C9 10     CMP #$10
 C - - - - - 0x003064 01:B054: F0 16     BEQ bra_B06C_japan
 C - - - - - 0x003066 01:B056: C9 0C     CMP #$0C
-C - - - - - 0x003068 01:B058: F0 0B     BEQ bra_B065_sao_paulo_2
+C - - - - - 0x003068 01:B058: F0 0B     BEQ bra_B065_sao_paulo_2nd_time
 C - - - - - 0x00306A 01:B05A: C9 06     CMP #$06
 C - - - - - 0x00306C 01:B05C: D0 42     BNE bra_B0A0_RTS
+; if nankatsu
 C - - - - - 0x00306E 01:B05E: A0 10     LDY #< tbl_BB10_nankatsu
 C - - - - - 0x003070 01:B060: A2 BB     LDX #> tbl_BB10_nankatsu
 C - - - - - 0x003072 01:B062: 4C 70 B0  JMP loc_B070
-bra_B065_sao_paulo_2:
-C - - - - - 0x003075 01:B065: A0 1A     LDY #< tbl_BB1A_sao_paulo_2
-C - - - - - 0x003077 01:B067: A2 BB     LDX #> tbl_BB1A_sao_paulo_2
+bra_B065_sao_paulo_2nd_time:
+C - - - - - 0x003075 01:B065: A0 1A     LDY #< tbl_BB1A_sao_paulo
+C - - - - - 0x003077 01:B067: A2 BB     LDX #> tbl_BB1A_sao_paulo
 C - - - - - 0x003079 01:B069: 4C 70 B0  JMP loc_B070
 bra_B06C_japan:
 C - - - - - 0x00307C 01:B06C: A0 24     LDY #< tbl_BB24_japan
@@ -2654,7 +2659,7 @@ C - J - - - 0x00313F 01:B12F: 20 D3 B1  JSR sub_B1D3_прочитать_адре
 C - - - - - 0x003142 01:B132: 20 DE B1  JSR sub_B1DE
 C - - - - - 0x003145 01:B135: A4 E9     LDY ram_00E9
 C - - - - - 0x003147 01:B137: A2 01     LDX #$01
-C - - - - - 0x003149 01:B139: 10 0A     BPL bra_B145
+C - - - - - 0x003149 01:B139: 10 0A     BPL bra_B145    ; jmp
 
 
 
@@ -4094,8 +4099,7 @@ tbl_BA4C_опыт_за_победу_над_командой:
 
 
 
-tbl_BA90_опыт_для_достижения_уровня:
-; предположительно количество опыта для набора уровня
+tbl_BA90_необходимый_опыт_для_достижения_уровня:
     .word $0000     ; 00 1
     .word $0060     ; 01 2
     .word $00D0     ; 02 3
@@ -4175,7 +4179,7 @@ tbl_BB10_nankatsu:
 - D - I - - 0x003B28 01:BB18: 0E        .byte $0E   ; 08
 - D - I - - 0x003B29 01:BB19: 0C        .byte $0C   ; 09
 
-tbl_BB1A_sao_paulo_2:
+tbl_BB1A_sao_paulo:
 - D - I - - 0x003B2A 01:BB1A: 08        .byte $08   ; 00
 - D - I - - 0x003B2B 01:BB1B: 04        .byte $04   ; 01
 - D - I - - 0x003B2C 01:BB1C: 02        .byte $02   ; 02

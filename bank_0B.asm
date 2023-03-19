@@ -729,7 +729,7 @@ ofs_009_83E7_01:
 ofs_009_83E7_07:
 C - J - - - 0x0163F7 0B:83E7: A9 C0     LDA #$C0
 C - - - - - 0x0163F9 0B:83E9: 8D D1 05  STA ram_for_05D2
-C - - - - - 0x0163FC 0B:83EC: D0 1C     BNE bra_840A    ; JMP
+C - - - - - 0x0163FC 0B:83EC: D0 1C     BNE bra_840A    ; jmp
 
 
 

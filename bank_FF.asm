@@ -1184,7 +1184,7 @@ C - - - - - 0x03CD60 FF:CD50: A5 73     LDA ram_0073
 C - - - - - 0x03CD62 FF:CD52: C5 74     CMP ram_0074
 C - - - - - 0x03CD64 FF:CD54: F0 04     BEQ bra_CD5A
 C - - - - - 0x03CD66 FF:CD56: 90 15     BCC bra_CD6D
-C - - - - - 0x03CD68 FF:CD58: B0 06     BCS bra_CD60
+C - - - - - 0x03CD68 FF:CD58: B0 06     BCS bra_CD60    ; jmp
 bra_CD5A:
 C - - - - - 0x03CD6A FF:CD5A: A5 72     LDA ram_0072
 C - - - - - 0x03CD6C FF:CD5C: C5 71     CMP ram_0071
@@ -2346,7 +2346,7 @@ C - - - - - 0x03D42C FF:D41C: 20 7F EF  JSR sub_EF7F_отрисовка_меню
 bra_D41F:
 C - - - - - 0x03D42F FF:D41F: 28        PLP
 C - - - - - 0x03D430 FF:D420: B0 16     BCS bra_D438
-C - - - - - 0x03D432 FF:D422: 90 0C     BCC bra_D430
+C - - - - - 0x03D432 FF:D422: 90 0C     BCC bra_D430    ; jmp
 bra_D424:
 C - - - - - 0x03D434 FF:D424: AE 1E 06  LDX ram_061E
 C - - - - - 0x03D437 FF:D427: 9D 06 06  STA ram_подтип_действия_защитника,X
@@ -3492,8 +3492,10 @@ C - - - - - 0x03DB89 FF:DB79: A0 00     LDY #con_plr_id
 C - - - - - 0x03DB8B FF:DB7B: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03DB8D FF:DB7D: C9 20     CMP #con_p_misugi_my
 C - - - - - 0x03DB8F FF:DB7F: D0 0B     BNE bra_DB8C
+; if p_misugi_my
 C - - - - - 0x03DB91 FF:DB81: AD 4D 04  LDA ram_флаг_мисуги_0_хп
 C - - - - - 0x03DB94 FF:DB84: F0 06     BEQ bra_DB8C
+; if 0 хп
 C - - - - - 0x03DB96 FF:DB86: A9 00     LDA #$00
 C - - - - - 0x03DB98 FF:DB88: 85 32     STA ram_0032
 C - - - - - 0x03DB9A FF:DB8A: 85 33     STA ram_0033
@@ -3524,7 +3526,7 @@ C - - - - - 0x03DBBC FF:DBAC: E8        INX
 C - - - - - 0x03DBBD FF:DBAD: E8        INX
 C - - - - - 0x03DBBE FF:DBAE: E0 09     CPX #$09
 C - - - - - 0x03DBC0 FF:DBB0: F0 19     BEQ bra_DBCB_RTS
-C - - - - - 0x03DBC2 FF:DBB2: D0 F2     BNE bra_DBA6_loop
+C - - - - - 0x03DBC2 FF:DBB2: D0 F2     BNE bra_DBA6_loop    ; jmp
 bra_DBB4:
 C - - - - - 0x03DBC4 FF:DBB4: BD EB DB  LDA tbl_DBEA + $01,X
 C - - - - - 0x03DBC7 FF:DBB7: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
@@ -5390,7 +5392,7 @@ C - - - - - 0x03E83B FF:E82B: BD CD FA  LDA tbl_FACC_скорость + $01,X
 C - - - - - 0x03E83E FF:E82E: C5 70     CMP ram_0070
 C - - - - - 0x03E840 FF:E830: F0 04     BEQ bra_E836
 C - - - - - 0x03E842 FF:E832: B0 0F     BCS bra_E843
-C - - - - - 0x03E844 FF:E834: 90 09     BCC bra_E83F
+C - - - - - 0x03E844 FF:E834: 90 09     BCC bra_E83F    ; jmp
 bra_E836:
 C - - - - - 0x03E846 FF:E836: BD CC FA  LDA tbl_FACC_скорость,X
 C - - - - - 0x03E849 FF:E839: E5 6F     SBC ram_006F
@@ -5481,7 +5483,7 @@ C - - - - - 0x03E8C4 FF:E8B4: C6 47     DEC ram_0047
 C - - - - - 0x03E8C6 FF:E8B6: 10 06     BPL bra_E8BE
 C - - - - - 0x03E8C8 FF:E8B8: A2 00     LDX #$00
 C - - - - - 0x03E8CA FF:E8BA: A0 00     LDY #$00
-C - - - - - 0x03E8CC FF:E8BC: F0 10     BEQ bra_E8CE
+C - - - - - 0x03E8CC FF:E8BC: F0 10     BEQ bra_E8CE    ; jmp
 bra_E8BE:
 C - - - - - 0x03E8CE FF:E8BE: C6 47     DEC ram_0047
 C - - - - - 0x03E8D0 FF:E8C0: 30 0C     BMI bra_E8CE
@@ -5571,7 +5573,7 @@ C - - - - - 0x03E933 FF:E923: 90 14     BCC bra_E939_ограничить_дви
 C - - - - - 0x03E935 FF:E925: A2 AF     LDX #$AF
 C - - - - - 0x03E937 FF:E927: C9 B0     CMP #$B0
 C - - - - - 0x03E939 FF:E929: B0 0E     BCS bra_E939_ограничить_движение
-C - - - - - 0x03E93B FF:E92B: 90 0D     BCC bra_E93A_запись_координаты
+C - - - - - 0x03E93B FF:E92B: 90 0D     BCC bra_E93A_запись_координаты    ; jmp
 bra_E92D_горизонталь:
 C - - - - - 0x03E93D FF:E92D: A2 30     LDX #$30
 C - - - - - 0x03E93F FF:E92F: C9 30     CMP #$30
@@ -6651,7 +6653,7 @@ C - - - - - 0x03F13A FF:F12A: A5 3D     LDA ram_003D
 C - - - - - 0x03F13C FF:F12C: C9 22     CMP #$22
 C - - - - - 0x03F13E FF:F12E: 90 04     BCC bra_F134
 C - - - - - 0x03F140 FF:F130: A9 00     LDA #$00
-C - - - - - 0x03F142 FF:F132: F0 07     BEQ bra_F13B
+C - - - - - 0x03F142 FF:F132: F0 07     BEQ bra_F13B    ; jmp
 bra_F134:
 C - - - - - 0x03F144 FF:F134: AD CE 05  LDA ram_05CE
 C - - - - - 0x03F147 FF:F137: 4A        LSR
@@ -6674,7 +6676,7 @@ C - - - - - 0x03F15C FF:F14C: C8        INY
 C - - - - - 0x03F15D FF:F14D: E8        INX
 C - - - - - 0x03F15E FF:F14E: C6 3E     DEC ram_003E
 C - - - - - 0x03F160 FF:F150: D0 F5     BNE bra_F147_loop_чтения_тайлов
-C - - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_loop   ; jmp
+C - - - - - 0x03F162 FF:F152: F0 C2     BEQ bra_F116_loop    ; jmp
 bra_F154_закончить:
 C - - - - - 0x03F164 FF:F154: A9 80     LDA #$80
 C - - - - - 0x03F166 FF:F156: 8D 15 05  STA ram_0515
