@@ -2528,12 +2528,15 @@ C - - - - - 0x00307E 01:B06E: A2 BB     LDX #> tbl_BB24_japan
 loc_B070:
 C D - - - - 0x003080 01:B070: 84 E6     STY ram_00E6
 C - - - - - 0x003082 01:B072: 86 E7     STX ram_00E7
-C - - - - - 0x003084 01:B074: A0 EC     LDY #$EC
+C - - - - - 0x003084 01:B074: A0 EC     LDY #$12
 bra_B076_loop_копирования:
-C - - - - - 0x003086 01:B076: B9 68 03  LDA ram_опыт_lo - $EC,Y
-C - - - - - 0x003089 01:B079: 99 6A 05  STA ram_0656 - $EC,Y
-C - - - - - 0x00308C 01:B07C: C8        INY
-C - - - - - 0x00308D 01:B07D: D0 F7     BNE bra_B076_loop_копирования
+C - - - - - 0x003086 01:B076: B9 68 03  LDA ram_опыт_lo,Y
+C - - - - - 0x003089 01:B079: 99 6A 05  STA ram_0656,Y
+                                        LDA ram_опыт_hi,Y
+                                        STA ram_0657,Y
+                                        DEY
+C - - - - - 0x00308C 01:B07C: C8        DEY
+C - - - - - 0x00308D 01:B07D: D0 F7     BPL bra_B076_loop_копирования
 C - - - - - 0x00308F 01:B07F: A9 00     LDA #$00
 C - - - - - 0x003091 01:B081: 85 E9     STA ram_00E9
 bra_B083_loop:
