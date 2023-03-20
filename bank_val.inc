@@ -1370,21 +1370,14 @@ con_skill_26                                = $26 ;
 
 
 ; для 0x03CE7E прыжки в начале банка 1C
-; con_bsw_1C_00                             = $00 ; 
-; con_bsw_1C_01                             = $01 ; 
+con_bsw_1C_00                               = $00 ; 
+con_bsw_1C_01                               = $01 ; 
 con_bsw_1C_02                               = $02 ; 
-; con_bsw_1C_03                             = $03 ; 
-; con_bsw_1C_04                             = $04 ; 
-; con_bsw_1C_05                             = $05 ; 
-con_bsw_1C_06                               = $06 ; 
+con_bsw_1C_03                               = $03 ; 
+con_bsw_1C_04                               = $04 ; 
+con_bsw_1C_05                               = $05 ; 
+con_bsw_1C_06                               = $06 ; рандом стороны кипера в пк 0x03850F
 con_bsw_1C_07                               = $07 ; 
-con_bsw_1C_08                               = $08 ; 
-con_bsw_1C_09                               = $09 ; 
-con_bsw_1C_0A                               = $0A ; 
-; con_bsw_1C_0B                             = $0B ; 
-; con_bsw_1C_0C                             = $0C ; 
-con_bsw_1C_0D                               = $0D ; рандом стороны кипера в пк 0x03850F
-con_bsw_1C_0E                               = $0E ; 
 
 
 

@@ -1431,21 +1431,14 @@ C - - - - - 0x03CEA6 FF:CE96: 6C 36 00  JMP (ram_0036)
 
 
 tbl_CE94:
-    .word $0000 ; 00 unused
-    .word $0000 ; 01 unused
-    .word ofs_062_0x038619_02 ; 02
-    .word $0000 ; 03 unused
-    .word $0000 ; 04 unused
-    .word $0000 ; 05 unused
-    .word ofs_062_0x0381AD_06 ; 06
-    .word ofs_062_0x038234_07 ; 07
-    .word ofs_062_0x03829F_08 ; 08
-    .word ofs_062_0x03853E_09 ; 09
-    .word ofs_062_0x03847A_0A ; 0A
-    .word $0000 ; 0B unused
-    .word $0000 ; 0C unused
-    .word ofs_062_0x03850F_0D ; 0D
-    .word ofs_062_0x0384D1_0E ; 0E
+    .word ofs_062_0x038619_00
+    .word ofs_062_0x0381AD_01
+    .word ofs_062_0x038234_02
+    .word ofs_062_0x03829F_03
+    .word ofs_062_0x03853E_04
+    .word ofs_062_0x03847A_05
+    .word ofs_062_0x03850F_06
+    .word ofs_062_0x0384D1_07
 
 
 
