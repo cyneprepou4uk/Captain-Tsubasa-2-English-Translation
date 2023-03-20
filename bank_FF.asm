@@ -2336,7 +2336,7 @@ C - - - - - 0x03D3EB FF:D3DB: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D3ED FF:D3DD: 85 25     STA ram_for_5115
 C - - - - - 0x03D3EF FF:D3DF: 20 2D CE  JSR sub_CE2D_prg_bankswitch
                                         LDA ram_игрок_без_мяча
-C - - - - - 0x03D3F3 FF:D3E3: 20 0C 80  JSR sub_0x03801C
+C - - - - - 0x03D3F3 FF:D3E3: 20 0C 80  JSR sub_0x038D68
 C - - - - - 0x03D3F6 FF:D3E6: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D3F9 FF:D3E9: F0 39     BEQ bra_D424
 C - - - - - 0x03D3FB FF:D3EB: 18        CLC
@@ -2792,7 +2792,7 @@ C - - - - - 0x03D6B0 FF:D6A0: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D6B2 FF:D6A2: 85 25     STA ram_for_5115
 C - - - - - 0x03D6B4 FF:D6A4: 20 2D CE  JSR sub_CE2D_prg_bankswitch
                                         LDA ram_игрок_с_мячом
-C - - - - - 0x03D6B8 FF:D6A8: 20 09 80  JSR sub_0x038019
+C - - - - - 0x03D6B8 FF:D6A8: 20 09 80  JSR sub_0x038C16
 C - - - - - 0x03D6BB FF:D6AB: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D6BE FF:D6AE: F0 0E     BEQ bra_D6BE
 C - - - - - 0x03D6C0 FF:D6B0: 18        CLC
@@ -2907,7 +2907,7 @@ C - - - - - 0x03D72C FF:D71C: 85 24     STA ram_for_5114
 C - - - - - 0x03D72E FF:D71E: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D730 FF:D720: 85 25     STA ram_for_5115
 C - - - - - 0x03D732 FF:D722: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-C - - - - - 0x03D736 FF:D726: 20 12 80  JSR sub_0x038022
+C - - - - - 0x03D736 FF:D726: 20 12 80  JSR sub_0x0381AD
 C - - - - - 0x03D739 FF:D729: 20 6B D7  JSR sub_D76B
 C - - - - - 0x03D73C FF:D72C: 10 17     BPL bra_D745_RTS
 C - - - - - 0x03D73E FF:D72E: AD 3B 04  LDA ram_действие_атаки
@@ -2932,7 +2932,7 @@ C - - - - - 0x03D75B FF:D74B: 85 24     STA ram_for_5114
 C - - - - - 0x03D75D FF:D74D: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03D75F FF:D74F: 85 25     STA ram_for_5115
 C - - - - - 0x03D761 FF:D751: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-C - - - - - 0x03D765 FF:D755: 20 15 80  JSR sub_0x038025
+C - - - - - 0x03D765 FF:D755: 20 15 80  JSR sub_0x038234
 C - - - - - 0x03D768 FF:D758: 20 6B D7  JSR sub_D76B
 C - - - - - 0x03D76B FF:D75B: 10 0C     BPL bra_D769
 C - - - - - 0x03D76D FF:D75D: AD 3E 04  LDA ram_подтип_действия_защиты
@@ -4482,7 +4482,7 @@ C - - - - - 0x03E1B5 FF:E1A5: 85 24     STA ram_for_5114
 C - - - - - 0x03E1B7 FF:E1A7: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03E1B9 FF:E1A9: 85 25     STA ram_for_5115
 C - - - - - 0x03E1BB FF:E1AB: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-C - - - - - 0x03E1BF FF:E1AF: 20 06 80  JSR sub_0x038016
+C - - - - - 0x03E1BF FF:E1AF: 20 06 80  JSR sub_0x038619
 C - - - - - 0x03E1C2 FF:E1B2: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x03E1C5 FF:E1B5: C9 02     CMP #$02
 C - - - - - 0x03E1C7 FF:E1B7: F0 2E     BEQ bra_E1E7
@@ -4553,7 +4553,7 @@ C - - - - - 0x03E24D FF:E23D: 85 24     STA ram_for_5114
 C - - - - - 0x03E24F FF:E23F: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03E251 FF:E241: 85 25     STA ram_for_5115
 C - - - - - 0x03E253 FF:E243: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-C - - - - - 0x03E257 FF:E247: 20 24 80  JSR sub_0x038034
+C - - - - - 0x03E257 FF:E247: 20 24 80  JSR sub_0x0382DA
 C - - - - - 0x03E25A FF:E24A: 20 67 E2  JSR sub_E267
 C - - - - - 0x03E25D FF:E24D: A9 80     LDA #$80
 C - - - - - 0x03E25F FF:E24F: 8D 15 06  STA ram_0615
@@ -5151,7 +5151,7 @@ C - - - - - 0x03E64D FF:E63D: A9 1D     LDA #con_prg_bank + $1D
 C - - - - - 0x03E64F FF:E63F: 85 25     STA ram_for_5115
 C - - - - - 0x03E651 FF:E641: 20 2D CE  JSR sub_CE2D_prg_bankswitch
 ; сработало когда соперник пытается наебать моего кипера
-C - - - - - 0x03E655 FF:E645: 20 15 80  JSR sub_0x038025
+C - - - - - 0x03E655 FF:E645: 20 15 80  JSR sub_0x038234
 C - - - - - 0x03E658 FF:E648: A5 32     LDA ram_0032
 C - - - - - 0x03E65A FF:E64A: 18        CLC
 C - - - - - 0x03E65B FF:E64B: 69 04     ADC #$04
