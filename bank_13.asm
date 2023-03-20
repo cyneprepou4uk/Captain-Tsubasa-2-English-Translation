@@ -1896,265 +1896,292 @@ tbl_B467_credits:
 con_E0_animation            = $E0   ; номер сценария из банка 10
 con_E1_timer                = $E1   ; задержка перед чтением слеюущюих байтов
 con_E2                      = $E2   ; ??? + номер игрока + ???
-con_E3_tecmo                = $E3   ; показать зайца и логотип
-con_E4_offset               = $E4   ; смещение по горизонтали и вертикали
-con_E5_brightness           = $E5   ; 00 = осветление экрана, 01 = затемнение экрана, 02 = показать текст
+con_E3_tecmo_logo           = $E3   ; показать зайца и логотип
+con_E4_offset               = $E4   ; поменять начальный адрес ppu для вывода текста
+con_E5_brightness           = $E5   ; управление яркостью и отображением текста
+    con_light_on                = $00 ; осветление экрана
+    con_light_off               = $01 ; затемнение экрана
+    con_show_txt                = $02 ; показать текст (используется после предварительной записи текста в ppu)
 con_E6_hide_letters         = $E6   ; toggle, текст до конца катсцены побуквенно открывается спрайтами
 con_E7_endline              = $E7   ; закончить чтение текста
 
 
 
     .byte con_E0_animation, con_s_id_5C
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $69, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2269
     .text "Carlos Santana"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_5D
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Claudio Meon"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E2, $01, $14, $09
     .byte con_E0_animation, con_s_id_56
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Ishizaki Ryo"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_59
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Jito Hiroshi"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_5A
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $67, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2267
     .text "Tachibana brothers"
     .byte con_E7_endline
-    .byte con_E4_offset, $A8, $22
+    .byte con_E4_offset
+    .word $22A8
     .text "Masao and Kazuo"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_57
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Soda Makoto"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_55
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6B, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226B
     .text "Misugi Jun"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_54
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $68, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2268
     .text "Matsuyama Hikaru"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E2, $01, $15, $09
     .byte con_E0_animation, con_s_id_58
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6B, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226B
     .text "Nitta Shun"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_64
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $68, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2268
     .text "Ramon Victorino"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_5E
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $69, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2269
     .text "Hermann Kaltz"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_5F
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $68, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2268
     .text "Elle Sid Pierre"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_60
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $69, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2269
     .text "Louis Napoleon"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_61
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6B, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226B
     .text "Juan Diaz"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_62
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Alan Pascal"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_63
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $66, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2266
     .text "Karl Heinz Schneider"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_65
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $65, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2265
     .text "Arthur Antines Coimbra"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_51
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Misaki Taro"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_5B
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $69, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2269
     .text "Wakashimazu Ken"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_52
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $6A, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $226A
     .text "Hyuga Kojiro"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E0_animation, con_s_id_53
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $68, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2268
     .text "Wakabayashi Genzo"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E2, $02, $01, $09
     .byte con_E0_animation, con_s_id_50
-    .byte con_E5_brightness, $00
-    .byte con_E4_offset, $69, $22
+    .byte con_E5_brightness, con_light_on
+    .byte con_E4_offset
+    .word $2269
     .text "Ozora Tsubasa"
     .byte con_E7_endline
-    .byte con_E5_brightness, $02
+    .byte con_E5_brightness, con_show_txt
     .byte con_E1_timer, $68
     
     
     
-    .byte con_E5_brightness, $01
+    .byte con_E5_brightness, con_light_off
     .byte con_E2, $00, $58, $09
     .byte con_E0_animation, con_s_id_66
-    .byte con_E4_offset, $6D, $22
+    .byte con_E4_offset
+    .word $226D
     .text "STAFF"
     .byte con_E7_endline
     .byte con_E1_timer, $A0
@@ -2164,12 +2191,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     .byte con_E6_hide_letters
     .byte con_E2, $02, $01, $09
     .byte con_E0_animation, con_s_id_69
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Director"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $EF, $22
+    .byte con_E4_offset
+    .word $22EF
     .text "Fighter Otomi"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2178,12 +2207,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $01, $15, $14
     .byte con_E0_animation, con_s_id_78
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "In-Game Programming"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F6, $22
+    .byte con_E4_offset
+    .word $22F6
     .text "Yochin"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2192,12 +2223,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $0B, $32, $14
     .byte con_E0_animation, con_s_id_6B
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Out-Game Programming"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F5, $22
+    .byte con_E4_offset
+    .word $22F5
     .text "Akihiko"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2206,12 +2239,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $01, $14, $14
     .byte con_E0_animation, con_s_id_6C
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Planning"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F5, $22
+    .byte con_E4_offset
+    .word $22F5
     .text "Red Fox"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2220,12 +2255,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $02, $01, $09
     .byte con_E0_animation, con_s_id_6D
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Out-Game Director"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F7, $22
+    .byte con_E4_offset
+    .word $22F7
     .text "Horse"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2234,12 +2271,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $0A, $30, $09
     .byte con_E0_animation, con_s_id_6E
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Animation Director"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F1, $22
+    .byte con_E4_offset
+    .word $22F1
     .text "Niwaka Maru"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2248,20 +2287,24 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $0E, $39, $0B
     .byte con_E0_animation, con_s_id_6F
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Composers"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F1, $22
+    .byte con_E4_offset
+    .word $22F1
     .text "Yama-san"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $31, $23
+    .byte con_E4_offset
+    .word $2331
     .text "Metal Yuhki"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $71, $23
+    .byte con_E4_offset
+    .word $2371
     .text "Mayu"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2270,12 +2313,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $01, $0C, $09
     .byte con_E0_animation, con_s_id_70
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Sprite Animation"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $ED, $22
+    .byte con_E4_offset
+    .word $22ED
     .text "Super Gonta-kun"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2285,12 +2330,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     .byte con_E2, $0D, $00, $0B
     .byte con_E2, $0D, $35, $14
     .byte con_E0_animation, con_s_id_71
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Maintenence"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F5, $22
+    .byte con_E4_offset
+    .word $22F5
     .text "Mashian"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2299,20 +2346,24 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $09, $2E, $14
     .byte con_E0_animation, con_s_id_72
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Graphic Team #1"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F0, $22
+    .byte con_E4_offset
+    .word $22F0
     .text "Kena"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $30, $23
+    .byte con_E4_offset
+    .word $2330
     .text "Perco"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $70, $23
+    .byte con_E4_offset
+    .word $2370
     .text "Shinpero Ace"
     .byte con_E7_endline
     
@@ -2322,20 +2373,24 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $02, $01, $09
     .byte con_E0_animation, con_s_id_6A
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Graphic Team #2"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F4, $22
+    .byte con_E4_offset
+    .word $22F4
     .text "Purple"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $34, $23
+    .byte con_E4_offset
+    .word $2334
     .text "Zu"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $74, $23
+    .byte con_E4_offset
+    .word $2374
     .text "Fuyufuyu"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2344,16 +2399,19 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $02, $21, $0B
     .byte con_E0_animation, con_s_id_73
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Data Work"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F0, $22
+    .byte con_E4_offset
+    .word $22F0
     .text "Sugar Radish"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $30, $23
+    .byte con_E4_offset
+    .word $2330
     .text "Yahemi"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2364,12 +2422,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     .byte con_E2, $01, $00, $14
     .byte con_E2, $01, $0F, $0B
     .byte con_E0_animation, con_s_id_74
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Chief Debugger"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $F1, $22
+    .byte con_E4_offset
+    .word $22F1
     .text "Today Jubei"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2378,12 +2438,14 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $02, $11, $09
     .byte con_E0_animation, con_s_id_75
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Out-Game Advisor"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $EE, $22
+    .byte con_E4_offset
+    .word $22EE
     .text "Cherry Blossom"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2392,16 +2454,19 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     .byte con_E2, $12, $44, $09
     .byte con_E0_animation, con_s_id_76
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Manual Design"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $EC, $22
+    .byte con_E4_offset
+    .word $22EC
     .text "Mondo Eco"
     .byte con_E7_endline
     
-    .byte con_E4_offset, $2C, $23
+    .byte con_E4_offset
+    .word $232C
     .text "Pancho Taka-chan"
     .byte con_E7_endline
     .byte con_E1_timer, $50
@@ -2409,20 +2474,22 @@ con_E7_endline              = $E7   ; закончить чтение текст
     
     
     .byte con_E0_animation, con_s_id_77
-    .byte con_E4_offset, $64, $22
+    .byte con_E4_offset
+    .word $2264
     .text "Original"
     .byte con_E7_endline
     .byte con_E1_timer, $20
     
-    .byte con_E4_offset, $EC, $22
+    .byte con_E4_offset
+    .word $22EC
     .text "Yoichi Takahashi"
     .byte con_E7_endline
     .byte con_E1_timer, $80
     
     
     
-    .byte con_E5_brightness, $01
-    .byte con_E3_tecmo
+    .byte con_E5_brightness, con_light_off
+    .byte con_E3_tecmo_logo
 
 
 

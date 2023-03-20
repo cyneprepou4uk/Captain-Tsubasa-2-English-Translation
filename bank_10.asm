@@ -215,7 +215,7 @@ C - - - - - 0x02011A 10:810A: 20 6E 81  JSR sub_816E_выбор_подпрогр
                                         TYA
                                         PHA
 
-                                        ; сместиться на 10h в зависимости от стека (байт в стеке кратный 02)
+                                        ; сместиться на 10 в зависимости от стека (байт в стеке кратный 02)
                                         LDA ram_указатель_стека_сценария
                                         ASL
                                         ASL
@@ -239,7 +239,7 @@ C - - - - - 0x02011A 10:810A: 20 6E 81  JSR sub_816E_выбор_подпрогр
                                         PLA
                                         TAY
 C - - - - - 0x02011D 10:810D: 68        PLA
-C - - - - - 0x02011E 10:810E: 10 1F     BPL bra_812F
+C - - - - - 0x02011E 10:810E: 10 1F     BPL bra_812F_00_7F
 ; 80-FF
 C - - - - - 0x020120 10:8110: 8A        TXA
 C - - - - - 0x020121 10:8111: 38        SEC
@@ -261,8 +261,7 @@ bra_812A_not_overflow:
 C - - - - - 0x02013A 10:812A: A9 00     LDA #$00
 C - - - - - 0x02013C 10:812C: 85 3A     STA ram_003A
 C - - - - - 0x02013E 10:812E: 60        RTS
-bra_812F:
-; 00-7F
+bra_812F_00_7F:
 loc_812F_выбрать_подпрограмму:
 C D - - - - 0x02013F 10:812F: 8A        TXA
 C - - - - - 0x020140 10:8130: 0A        ASL
@@ -2378,12 +2377,12 @@ ofs_014_88ED_FF_drive_overhead_tiger:
 C - J - - - 0x0208FD 10:88ED: A4 3A     LDY ram_003A
 C - - - - - 0x0208FF 10:88EF: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020901 10:88F1: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
-- D - I - - 0x020906 10:88F6: 0D 89     .word ofs_019_890D_00_драйв_оверхед
-- D - I - - 0x02090A 10:88FA: 42 89     .word ofs_019_8942_01_активация_драйв_тигра
+- D - I - - 0x020906 10:88F6: 0D 89     .word ofs_019_890D_00_drive_overhead
+- D - I - - 0x02090A 10:88FA: 42 89     .word ofs_019_8942_01_активация_drive_tiger
 
 
 
-ofs_019_890D_00_драйв_оверхед:
+ofs_019_890D_00_drive_overhead:
 ; X 00-03
 C - J - - - 0x02091D 10:890D: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020920 10:8910: D0 26     BNE bra_8938    ; if комада справа
@@ -2411,7 +2410,7 @@ C - - - - - 0x02094A 10:893A: 4C 2F 81  JMP loc_812F_выбрать_подпро
 
 
 
-ofs_019_8942_01_активация_драйв_тигра:
+ofs_019_8942_01_активация_drive_tiger:
 ; X 00-01, встречается всего 1 раз
 C - J - - - 0x020952 10:8942: A2 00     LDX #$00
 C - - - - - 0x020954 10:8944: AD FB 05  LDA ram_команда_с_мячом
@@ -14058,12 +14057,12 @@ _scenario_B773_2F:
     .word sub_9F3E
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_short + con_bra_высота_мяча
-    .byte off_case_B77E_00 - * ; low
-    .byte off_case_B785_01 - * ; high
+    .byte off_case_2F_00 - * ; low
+    .byte off_case_2F_01 - * ; high
 
 ; видимо сообшение о низком/высоком мяче, в котором больше нет необходимости
 ; достаточно добавить универсальное сообщение и избавиться от одной из веток
-        off_case_B77E_00:
+        off_case_2F_00:
         ; low
             .byte con_pause + $5A
             .byte con_s_bg_36
@@ -14072,7 +14071,7 @@ _scenario_B773_2F:
             .byte con_jmp
             .word loc_B763_2F_проверка_на_наличие_защитников
 
-        off_case_B785_01:
+        off_case_2F_01:
         ; high
             .byte con_pause + $5A
             .byte con_s_bg_36
@@ -14424,40 +14423,37 @@ _scenario_B47C_3A:
 
 
 
-; 0x021F4E
-; bzk optimize, тут должно быть всего 3 поинтера для 10, судя по 0x02037E
-; но на всякий случай расшифрованы и остальные
 sub_9F3E:
     .dbyt con_branch_short + con_bra_скорость_мяча
-    .byte off_case_3C_00 - * ; медленный
-    .byte off_case_3C_01 - * ; быстрый
-    .byte off_case_3C_02 - * ; смертельный
+    .byte off_case_9F3E_00 - * ; медленный
+    .byte off_case_9F3E_01 - * ; быстрый
+    .byte off_case_9F3E_02 - * ; смертельный
 
-        off_case_3C_00:
+        off_case_9F3E_00:
         ; медленный
             .dbyt con_branch_short + con_bra_разновидность_pass
-            .byte off_case_3C_00_00 - * ; pass
-            .byte off_case_3C_00_01 - * ; drive pass
-            .byte off_case_3C_00_02 - * ; razor pass
-            .byte off_case_3C_00_03 - * ; topspin pass
+            .byte off_case_9F3E_00_00 - * ; pass
+            .byte off_case_9F3E_00_01 - * ; drive pass
+            .byte off_case_9F3E_00_02 - * ; razor pass
+            .byte off_case_9F3E_00_03 - * ; topspin pass
 
-                off_case_3C_00_00:
+                off_case_9F3E_00_00:
                 ; медленный/pass
                     .byte con_jmp
                     .word loc_BB4B_3C_00_00
 
-                off_case_3C_00_01:
+                off_case_9F3E_00_01:
                 ; медленный/drive pass
                     .byte con_jmp
                     .word loc_B502
 
-                off_case_3C_00_02:
+                off_case_9F3E_00_02:
                 ; медленный/razor pass
                     .byte con_mirror_toggle
                     .byte con_jmp
                     .word loc_B543
 
-                off_case_3C_00_03:
+                off_case_9F3E_00_03:
                 ; медленный/topspin pass
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $08, $02
@@ -14470,10 +14466,11 @@ sub_9F3E:
                     .word sub_BB7D
                     .byte con_rts
 
-        off_case_3C_01:
-        off_case_3C_02:
-        ; быстрый, смертельный
-        loc_BB4B_3C_00_00:
+        off_case_9F3E_01:
+        ; быстрый
+        off_case_9F3E_02:
+        ; смертельный
+loc_BB4B_3C_00_00:
 sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки:
             .byte con_pause + $30
             .byte con_s_bg_1F
