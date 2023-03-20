@@ -1327,37 +1327,37 @@ con_p_coimbra_brazil                        = $75 ; Коимбра
 
 ; для 0x0380A3
 ; нужны комменты в 0x030CE0
-con_skill_00                                = $00 ; 
-con_skill_01                                = $01 ; 
-con_skill_02                                = $02 ; pass (полевой)
-con_skill_03                                = $03 ; dribble (полевой)
-con_skill_04                                = $04 ; block (полевой)
-con_skill_05                                = $05 ; tackle (полевой)
-con_skill_06                                = $06 ; intercept (полевой)
-con_skill_07                                = $07 ; shoot low (полевой)
-con_skill_08                                = $08 ; 
-con_skill_09                                = $09 ; trap low (полевой)
-con_skill_0A                                = $0A ; through low (полевой)
-con_skill_0B                                = $0B ; 
-con_skill_0C                                = $0C ; clearance low (полевой)
-con_skill_0D                                = $0D ; interfere low (полевой)
-con_skill_0E                                = $0E ; 
-con_skill_0F                                = $0F ; shoot high (полевой)
+con_skill_stamina                           = $00 ; 
+con_skill_prl___shoot                       = $01 ; 
+con_skill_prl___pass                        = $02 ; 
+con_skill_prl_dribble                       = $03 ; 
+con_skill_prl_block                         = $04 ; 
+con_skill_prl_tackle                        = $05 ; 
+con_skill_06                                = $06 ; con_def_passcut_1
+con_skill_prl_shoot_low                     = $07 ; 
+con_skill_plr_pass_low                      = $08 ; 
+con_skill_prl_trap_low                      = $09 ; 
+con_skill_prl_through_low                   = $0A ; 
+con_skill_0B                                = $0B ; con_atk_clearing
+con_skill_prl_clearance_low                 = $0C ; 
+con_skill_prl_interfere_low                 = $0D ; 
+con_skill_0E                                = $0E ; con_def_passcut_2
+con_skill_prl_shoot_high                    = $0F ; 
 con_skill_10                                = $10 ; 
-con_skill_11                                = $11 ; trap high (полевой)
-con_skill_12                                = $12 ; through high (полевой)
+con_skill_prl_trap_high                     = $11 ; 
+con_skill_prl_through_high                  = $12 ; 
 con_skill_13                                = $13 ; 
-con_skill_14                                = $14 ; clearance high (полевой)
-con_skill_15                                = $15 ; interfere high (полевой)
+con_skill_prl_clearance_high                = $14 ; 
+con_skill_prl_interfere_high                = $15 ; 
 con_skill_16                                = $16 ; 
-; con_skill_17                              = $17 ; 
-con_skill_18                                = $18 ; pass (кипер)
-con_skill_19                                = $19 ; catch (кипер)
-con_skill_1A                                = $1A ; punch (кипер)
-con_skill_1B                                = $1B ; stop shot (кипер)
-con_skill_1C                                = $1C ; stop dribble (кипер)
-con_skill_1D                                = $1D ; dive low (кипер)
-con_skill_1E                                = $1E ; dive high (кипер)
+; con_skill_17                              = $17 ; возможно используется в 0x030CE0
+con_skill_gk_pass                           = $18 ; 
+con_skill_gk_catch                          = $19 ; 
+con_skill_gk_punch                          = $1A ; 
+con_skill_gk_stop_shot                      = $1B ; возможно shot и dribble надо поменять местами
+con_skill_gk_stop_dribble                   = $1C ; возможно shot и dribble надо поменять местами
+con_skill_gk_dive_low                       = $1D ; 
+con_skill_gk_dive_high                      = $1E ; 
 con_skill_1F                                = $1F ; 
 con_skill_20                                = $20 ; 
 con_skill_21                                = $21 ; 
@@ -1369,6 +1369,22 @@ con_skill_26                                = $26 ;
 
 
 
+; для 0x03CE7E прыжки в начале банка 1C
+; con_bsw_1C_00                             = $00 ; 
+; con_bsw_1C_01                             = $01 ; 
+con_bsw_1C_02                               = $02 ; 
+; con_bsw_1C_03                             = $03 ; 
+; con_bsw_1C_04                             = $04 ; 
+; con_bsw_1C_05                             = $05 ; 
+con_bsw_1C_06                               = $06 ; 
+con_bsw_1C_07                               = $07 ; 
+con_bsw_1C_08                               = $08 ; 
+con_bsw_1C_09                               = $09 ; 
+con_bsw_1C_0A                               = $0A ; 
+; con_bsw_1C_0B                             = $0B ; 
+; con_bsw_1C_0C                             = $0C ; 
+con_bsw_1C_0D                               = $0D ; рандом стороны кипера в пк 0x03850F
+con_bsw_1C_0E                               = $0E ; 
 
 
 

@@ -10,6 +10,7 @@
 ; так как сюда будут прыжки через 0x03CE7E
 ; лучше придумать что-то более удобное для ассемблера, например таблицу как в гол3, или просто указывать младший и старший байты
 ; так как локацию все равно надо передвигать, зашкварно оставлять ссылки на другие ссылки
+; смотреть con_bsw_1C
 
 
 
@@ -400,34 +401,34 @@ C - - - - - 0x038210 1C:8200: 4C 78 82  JMP loc_8278
 
 
 tbl_8206:
-    .byte con_skill_01       ; 00
-    .byte con_skill_07       ; 01
-    .byte con_skill_0F       ; 02
-    .byte con_skill_02       ; 03
-    .byte con_skill_08       ; 04
+    .byte con_skill_prl___shoot       ; 00
+    .byte con_skill_prl_shoot_low       ; 01
+    .byte con_skill_prl_shoot_high       ; 02
+    .byte con_skill_prl___pass       ; 03
+    .byte con_skill_plr_pass_low       ; 04
     .byte con_skill_10       ; 05
-    .byte con_skill_03       ; 06
+    .byte con_skill_prl_dribble       ; 06
     .byte $FF       ; 07 unused
     .byte $FF       ; 08 unused
-    .byte con_skill_02       ; 09
+    .byte con_skill_prl___pass       ; 09
     .byte $FF       ; 0A unused
     .byte $FF       ; 0B unused
     .byte $FF       ; 0C unused
-    .byte con_skill_09       ; 0D
-    .byte con_skill_11       ; 0E
+    .byte con_skill_prl_trap_low       ; 0D
+    .byte con_skill_prl_trap_high       ; 0E
     .byte $FF       ; 0F unused
-    .byte con_skill_0A       ; 10
-    .byte con_skill_12       ; 11
+    .byte con_skill_prl_through_low       ; 10
+    .byte con_skill_prl_through_high       ; 11
     .byte $FF       ; 12 unused
     .byte con_skill_0B       ; 13
     .byte con_skill_13       ; 14
-    .byte con_skill_01       ; 15
+    .byte con_skill_prl___shoot       ; 15
     .byte $FF       ; 16 unused
     .byte $FF       ; 17 unused
-    .byte con_skill_01       ; 18
+    .byte con_skill_prl___shoot       ; 18
     .byte $FF       ; 19 unused
     .byte $FF       ; 1A unused
-    .byte con_skill_01       ; 1B
+    .byte con_skill_prl___shoot       ; 1B
     .byte $FF       ; 1C unused
     .byte $FF       ; 1D unused
 
@@ -456,21 +457,21 @@ C - - - - - 0x038259 1C:8249: 4C 5B 82  JMP loc_825B
 
 
 tbl_824C:
-- D - - - - 0x03825C 1C:824C: 04        .byte con_skill_04   ; 00
-- D - - - - 0x03825D 1C:824D: 04        .byte con_skill_04   ; 01
-- D - - - - 0x03825E 1C:824E: 04        .byte con_skill_04   ; 02
-- D - - - - 0x03825F 1C:824F: 05        .byte con_skill_05   ; 03
-- D - - - - 0x038260 1C:8250: 05        .byte con_skill_05   ; 04
-- D - - - - 0x038261 1C:8251: 05        .byte con_skill_05   ; 05
+- D - - - - 0x03825C 1C:824C: 04        .byte con_skill_prl_block   ; 00
+- D - - - - 0x03825D 1C:824D: 04        .byte con_skill_prl_block   ; 01
+- D - - - - 0x03825E 1C:824E: 04        .byte con_skill_prl_block   ; 02
+- D - - - - 0x03825F 1C:824F: 05        .byte con_skill_prl_tackle   ; 03
+- D - - - - 0x038260 1C:8250: 05        .byte con_skill_prl_tackle   ; 04
+- D - - - - 0x038261 1C:8251: 05        .byte con_skill_prl_tackle   ; 05
 - D - - - - 0x038262 1C:8252: 06        .byte con_skill_06   ; 06
 - D - - - - 0x038263 1C:8253: 0E        .byte con_skill_0E   ; 07
 - D - - - - 0x038264 1C:8254: 16        .byte con_skill_16   ; 08
 - - - - - - 0x038265 1C:8255: FF        .byte $FF   ; 09
-- D - - - - 0x038266 1C:8256: 0C        .byte con_skill_0C   ; 0A
-- D - - - - 0x038267 1C:8257: 14        .byte con_skill_14   ; 0B
+- D - - - - 0x038266 1C:8256: 0C        .byte con_skill_prl_clearance_low   ; 0A
+- D - - - - 0x038267 1C:8257: 14        .byte con_skill_prl_clearance_high   ; 0B
 - - - - - - 0x038268 1C:8258: FF        .byte $FF   ; 0C
-- D - - - - 0x038269 1C:8259: 0D        .byte con_skill_0D   ; 0D
-- D - - - - 0x03826A 1C:825A: 15        .byte con_skill_15   ; 0E
+- D - - - - 0x038269 1C:8259: 0D        .byte con_skill_prl_interfere_low   ; 0D
+- D - - - - 0x03826A 1C:825A: 15        .byte con_skill_prl_interfere_high   ; 0E
 
 
 
@@ -540,16 +541,16 @@ C - - - - - 0x0382CD 1C:82BD: 4C 5B 82  JMP loc_825B
 
 
 tbl_82C0:
-- D - - - - 0x0382D0 1C:82C0: 19        .byte con_skill_19   ; 00
-- D - - - - 0x0382D1 1C:82C1: 1A        .byte con_skill_1A   ; 01
-- D - - - - 0x0382D2 1C:82C2: 19        .byte con_skill_19   ; 02
-- - - - - - 0x0382D3 1C:82C3: 1D        .byte con_skill_1D   ; 03
-- - - - - - 0x0382D4 1C:82C4: 1E        .byte con_skill_1E   ; 04
-- D - - - - 0x0382D5 1C:82C5: 1C        .byte con_skill_1C   ; 05
-- D - - - - 0x0382D6 1C:82C6: 1B        .byte con_skill_1B   ; 06
-- D - - - - 0x0382D7 1C:82C7: 1A        .byte con_skill_1A   ; 07
-- D - - - - 0x0382D8 1C:82C8: 1A        .byte con_skill_1A   ; 08
-- D - - - - 0x0382D9 1C:82C9: 1A        .byte con_skill_1A   ; 09
+- D - - - - 0x0382D0 1C:82C0: 19        .byte con_skill_gk_catch   ; 00
+- D - - - - 0x0382D1 1C:82C1: 1A        .byte con_skill_gk_punch   ; 01
+- D - - - - 0x0382D2 1C:82C2: 19        .byte con_skill_gk_catch   ; 02
+- - - - - - 0x0382D3 1C:82C3: 1D        .byte con_skill_gk_dive_low   ; 03
+- - - - - - 0x0382D4 1C:82C4: 1E        .byte con_skill_gk_dive_high   ; 04
+- D - - - - 0x0382D5 1C:82C5: 1C        .byte con_skill_gk_stop_dribble   ; 05
+- D - - - - 0x0382D6 1C:82C6: 1B        .byte con_skill_gk_stop_shot   ; 06
+- D - - - - 0x0382D7 1C:82C7: 1A        .byte con_skill_gk_punch   ; 07
+- D - - - - 0x0382D8 1C:82C8: 1A        .byte con_skill_gk_punch   ; 08
+- D - - - - 0x0382D9 1C:82C9: 1A        .byte con_skill_gk_punch   ; 09
 
 
 

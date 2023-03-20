@@ -1555,6 +1555,7 @@ C - - - - - 0x0309C2 18:89B2: D0 E8     BNE bra_899C_loop   ; jmp
 
 
 sub_89B4_управляющие_байты_меню_E0_FC:
+; 0x0309C4
                                         SEC
                                         SBC #$E0
                                         JSR sub_0x03CBA9_поинтеры_после_JSR
@@ -1592,7 +1593,7 @@ sub_89B4_управляющие_байты_меню_E0_FC:
 
 ofs_036_89FA_E0_имя_игрока_и_позиция:
 C - J - - - 0x030A0A 18:89FA: AD 41 04  LDA ram_игрок_с_мячом
-C - - - - - 0x030A0D 18:89FD: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_позицию
+C - - - - - 0x030A0D 18:89FD: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_позиции
 
 
 
@@ -1604,7 +1605,7 @@ C - - - - - 0x030A13 18:8A03: 4C A5 8C  JMP loc_8CA5_запись_энергии
 
 ofs_036_8A06_E2_имя_принимающего_и_позиция:
 C - J - - - 0x030A16 18:8A06: AD FC 05  LDA ram_принимающий
-C - - - - - 0x030A19 18:8A09: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_позицию
+C - - - - - 0x030A19 18:8A09: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_позиции
 
 
 
@@ -1739,7 +1740,7 @@ tbl_8AAC_спешал_защиты:
 ofs_036_8AAF_E7_имя_защитника_и_позиция:
 C - J - - - 0x030ABF 18:8AAF: AE 1E 06  LDX ram_061E
 C - - - - - 0x030AC2 18:8AB2: BD 01 06  LDA ram_номер_защитника,X
-C - - - - - 0x030AC5 18:8AB5: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_позицию
+C - - - - - 0x030AC5 18:8AB5: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_позиции
 
 
 
@@ -1770,7 +1771,7 @@ C - - - - - 0x030AE4 18:8AD4: 4C 1A 8D  JMP loc_8D1A_вывести_имя
 ofs_036_8AD7_EB_имя_кипера_и_позиция:
 C - J - - - 0x030AE7 18:8AD7: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x030AEA 18:8ADA: 49 0B     EOR #$0B
-C - - - - - 0x030AEC 18:8ADC: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_позицию
+C - - - - - 0x030AEC 18:8ADC: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_позиции
 
 
 
@@ -2008,7 +2009,7 @@ C - - - - - 0x030C3E 18:8C2E: 85 3D     STA ram_003D
 C - - - - - 0x030C40 18:8C30: A5 49     LDA ram_0049
 C - - - - - 0x030C42 18:8C32: 38        SEC
 C - - - - - 0x030C43 18:8C33: E9 01     SBC #$01
-C - - - - - 0x030C45 18:8C35: A2 01     LDX #con_skill_01
+C - - - - - 0x030C45 18:8C35: A2 01     LDX #con_skill_prl___shoot
 C - - - - - 0x030C47 18:8C37: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x030C4A 18:8C3A: A5 32     LDA ram_0032
 C - - - - - 0x030C4C 18:8C3C: A6 33     LDX ram_0033
@@ -2158,13 +2159,14 @@ C - - - - - 0x030CB4 18:8CA4: 60        RTS
 
 
 loc_8CA5_запись_энергии_и_статов:
-; байт после E1 = ???
-C D - - - - 0x030CB5 18:8CA5: 48        PHA
+; A = номер игрока
+C D - - - - 0x030CB5 18:8CA5: 48        PHA ; номер игрока
 C - - - - - 0x030CB6 18:8CA6: A4 40     LDY ram_0040
 C - - - - - 0x030CB8 18:8CA8: E6 40     INC ram_0040
 C - - - - - 0x030CBA 18:8CAA: B1 3E     LDA (ram_003E),Y
 C - - - - - 0x030CBC 18:8CAC: D0 0F     BNE bra_8CBD
-C - - - - - 0x030CBE 18:8CAE: 68        PLA
+; con_skill_stamina
+C - - - - - 0x030CBE 18:8CAE: 68        PLA ; номер игрока
 C - - - - - 0x030CBF 18:8CAF: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x030CC2 18:8CB2: A0 02     LDY #con_plr_guts_hi
 C - - - - - 0x030CC4 18:8CB4: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_hi
@@ -2178,20 +2180,16 @@ C - - - - - 0x030CCF 18:8CBF: C9 07     CMP #$07
 C - - - - - 0x030CD1 18:8CC1: 90 0D     BCC bra_8CD0
 C - - - - - 0x030CD3 18:8CC3: C9 18     CMP #$18
 C - - - - - 0x030CD5 18:8CC5: B0 09     BCS bra_8CD0
+; 07-17
 C - - - - - 0x030CD7 18:8CC7: AE 4E 04  LDX ram_высота_мяча
+; X = 01 02 
 C - - - - - 0x030CDA 18:8CCA: CA        DEX
 C - - - - - 0x030CDB 18:8CCB: F0 03     BEQ bra_8CD0
 C - - - - - 0x030CDD 18:8CCD: 18        CLC
 C - - - - - 0x030CDE 18:8CCE: 69 08     ADC #$08
 bra_8CD0:
-; con_skill_00
-; con_skill_01
-; con_skill_02
-; con_skill_03
-; con_skill_08
-; con_skill_17 
 C - - - - - 0x030CE0 18:8CD0: AA        TAX
-C - - - - - 0x030CE1 18:8CD1: 68        PLA
+C - - - - - 0x030CE1 18:8CD1: 68        PLA ; номер игрока
 C - - - - - 0x030CE2 18:8CD2: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
 C - - - - - 0x030CE5 18:8CD5: A5 32     LDA ram_0032
 C - - - - - 0x030CE7 18:8CD7: A6 33     LDX ram_0033
@@ -2199,7 +2197,7 @@ C D - - - - 0x030CE9 18:8CD9: 4C 55 8C  JMP loc_8C55_запись_цифер_в_
 
 
 
-loc_8CDC_вывести_имя_игрока_и_позицию:
+loc_8CDC_вывести_имя_игрока_и_название_позиции:
 C D - - - - 0x030CEC 18:8CDC: 48        PHA
 C - - - - - 0x030CED 18:8CDD: C9 0B     CMP #$0B
 C - - - - - 0x030CEF 18:8CDF: 90 02     BCC bra_8CE3
@@ -4683,67 +4681,39 @@ tbl_B3CF_вид_меню:
 
 
 
-con_plr_name_pos                        = $E0           ; позиция и имя игрока
-con_stats_attack                        = $E1           ; статы нападающего при владении мячом у тебя + числовая величина параметра
-    con_atk_stamina                         = $00
-    con_atk_shoot                           = $01           ; на поле
-    con_atk_pass                            = $02           ; на поле
-    con_atk_dribble                         = $03
-    con_atk_air_shoot                       = $07           ; на штрафной
-    con_atk_air_pass                        = $08           ; на штрафной
-    con_atk_trap                            = $09
-    con_atk_clearing                        = $0B
-con_rec_name_pos                        = $E2           ; позиция и имя принимающего
-con_stats_receiver                      = $E3
-    con_rec_stamina                         = $00
-    con_rec_shoot                           = $01
-    con_rec_pass                            = $02
-    con_rec_dribble                         = $03
-    con_rec_trap                            = $09           ; unused
-    con_rec_clearing                        = $0B           ; unused
-con_specials_list                       = $E4           ; список спешалов (00-03)
-con_defender_actions                    = $E5           ; действия игроков защиты (00-03)
-con_defender_special                    = $E6           ; + 00 (обычная защита) или 01 (спешал)
-con_def_name_pos                        = $E7           ; позиция и имя защитника
-con_stats_defense                       = $E8           ; статы защитника при владении мячом у компьютера + числовая величина параметра
-    con_def_stamina                         = $00
-    con_def_block                           = $04
-    con_def_tackle                          = $05
-    con_def_passcut_1                       = $06           ; на поле
-    con_def_clearing                        = $0C
-    con_def_interfere                       = $0D
-    con_def_passcut_2                       = $0E           ; на штрафной
-con_rec_name_teammate                   = $E9           ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
-con_rec_name_opponent                   = $EA           ; + номер 00-04, имя принимающего пас соперника (для списка из нескольких игроков)
-con_gk_name_pos                         = $EB
-con_stats_gk                            = $EC
-    con_gk_stamina                         = $00
-    con_gk_pass                            = $18            ; unused
-    con_gk_catch                           = $19
-    con_gk_punch                           = $1A
-    con_gk_stop_dribble                    = $1B
-    con_gk_stop_shot                       = $1C
-    con_gk_dive_lo                         = $1D
-    con_gk_dive_hi                         = $1E            ; unused
-con_team_name                           = $ED           ; + 00 (имя команды слева) или 01 (имя команды справа)
-con_score                               = $EE           ; + 00 (счет команды слева) или 01 (счет команды справа)
-con_period_number                       = $EF           ; номер тайма, овертайма, пк
-con_time                                = $F0           ; время тайма
-con_menu_name                           = $F1           ; имена из меню, 00-0A основные, 16-1F запасные
-con_control_plr_name                    = $F2           ; имя управляемого игрока
-con_opp_def_name                        = $F3           ; имя защитника из списка напавших соперников
-con_plr_with_ball_name                  = $F4           ; имя игрока с мячом
-con_plr_stamina                         = $F5           ; 00-0A основные, 16-1F запасные
-con_pk_players_list                     = $F6
-con_control_plr_number                  = $F7           ; номер игрока с мячом
-con_ball_height_arrow                   = $F8           ; стрелочка с указанием высоты мяча
-con_not_a_clone_indicator               = $F9           ; 00-03, +00 = индикатор принимающего, +80 = индикатор защитника
-; unused                                = $FA
-; unused                                = $FB
-con_закончить                           = $FC
-; unused                                = $FD
-; unused                                = $FE
-; unused                                = $FF
+; управляющие байты для 0x0309C4
+con_E0_plr_name_pos                     = $E0 ; название позиции и имя игрока
+con_E1_stats_attack                     = $E1 ; статы нападающего при владении мячом у тебя + числовая величина параметра
+con_E2_reciever_name_pos                = $E2 ; название позиции и имя принимающего
+con_E3_stats_receiver                   = $E3 ; 
+con_E4_specials_list                    = $E4 ; список спешалов (00-03)
+con_E5_defender_actions                 = $E5 ; действия игроков защиты (00-03)
+con_E6_defender_special                 = $E6 ; + 00 (обычная защита) или 01 (спешал)
+con_E7_defender_name_pos                = $E7 ; название позиции и имя защитника
+con_E8_stats_defense                    = $E8 ; статы защитника при владении мячом у компьютера + числовая величина параметра
+con_E9_rec_name_teammate                = $E9 ; + номер 00-04, имя принимающего пас напарника (для списка из нескольких игроков)
+con_EA_rec_name_opponent                = $EA ; + номер 00-04, имя принимающего пас соперника (для списка из нескольких игроков)
+con_EB_gk_name_pos                      = $EB ; название позиции и имя кипера
+con_EC_stats_gk                         = $EC ; 
+con_ED_team_name                        = $ED ; + 00 (имя команды слева) или 01 (имя команды справа)
+con_EE_score                            = $EE ; + 00 (счет команды слева) или 01 (счет команды справа)
+con_EF_period_number                    = $EF ; номер тайма, овертайма, пк
+con_F0_time                             = $F0 ; время тайма
+con_F1_menu_name                        = $F1 ; имена из меню, 00-0A основные, 16-1F запасные
+con_F2_control_plr_name                 = $F2 ; имя управляемого игрока
+con_F3_opp_def_name                     = $F3 ; имя защитника из списка напавших соперников
+con_F4_plr_with_ball_name               = $F4 ; имя игрока с мячом
+con_F5_plr_stamina                      = $F5 ; 00-0A основные, 16-1F запасные
+con_F6_pk_players_list                  = $F6 ; 
+con_F7_control_plr_number               = $F7 ; номер игрока с мячом
+con_F8_ball_height_arrow                = $F8 ; стрелочка с указанием высоты мяча
+con_F9_not_a_clone_indicator            = $F9 ; 00-03, +00 = индикатор принимающего, +80 = индикатор защитника
+; con_FA                                = $FA ; 
+; con_FB                                = $FB ; 
+con_FC_end_token                        = $FC ; end token
+; con_FD                                = $FD ; 
+; con_FE                                = $FE ; 
+; con_FF                                = $FF ; 
 
 
 
@@ -4775,8 +4745,8 @@ off_B453_00_period_number_and_time:
     .word @time
 
 @time:
-    .byte con_time
-    .byte con_закончить
+    .byte con_F0_time
+    .byte con_FC_end_token
 
 
 
@@ -4811,16 +4781,16 @@ off_B464_01_team_names_and_score:
     .word @score_right
 
 @score_left:
-    .byte con_score, $00
-    .byte con_закончить
+    .byte con_EE_score, $00
+    .byte con_FC_end_token
 
 @dash:
     .text "-"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @score_right:
-    .byte con_score, $01
-    .byte con_закончить
+    .byte con_EE_score, $01
+    .byte con_FC_end_token
 
 
 
@@ -4853,11 +4823,11 @@ off_B47D_02_player_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @arrow:
-    .byte con_ball_height_arrow
-    .byte con_закончить
+    .byte con_F8_ball_height_arrow
+    .byte con_FC_end_token
 
 
 
@@ -4897,28 +4867,28 @@ off_B48A_03_player_dribble_pass_shoot:
     .word @shoot
 
 @name_pos:
-    .byte con_plr_name_pos
-    .byte con_закончить
+    .byte con_E0_plr_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_attack, con_atk_stamina
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_stamina
+    .byte con_FC_end_token
 
 @dribble:
     .text "Dribble    "
-    .byte con_stats_attack, con_atk_dribble
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_prl_dribble
+    .byte con_FC_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_stats_attack, con_atk_pass
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_prl___pass
+    .byte con_FC_end_token
 
 @shoot:
     .text "Shoot      "
-    .byte con_stats_attack, con_atk_shoot
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_prl___shoot
+    .byte con_FC_end_token
 
 
 
@@ -4960,28 +4930,28 @@ off_B4A7_04_player_trap_pass_shot:
     .word @shot
 
 @name_pos:
-    .byte con_plr_name_pos
-    .byte con_закончить
+    .byte con_E0_plr_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_attack, con_atk_stamina
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_stamina
+    .byte con_FC_end_token
 
 @trap:
     .text "Trap       "
-    .byte con_stats_attack, con_atk_trap
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_prl_trap_low
+    .byte con_FC_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_stats_attack, con_atk_air_pass
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_plr_pass_low
+    .byte con_FC_end_token
 
 @shot:
     .text "Shoot      "
-    .byte con_stats_attack, con_atk_air_shoot
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_prl_shoot_low
+    .byte con_FC_end_token
 
 
 
@@ -5022,28 +4992,28 @@ off_B4C4_05_player_trap_pass_clearing:
     .word @clearing
 
 @name_pos:
-    .byte con_plr_name_pos
-    .byte con_закончить
+    .byte con_E0_plr_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_attack, con_atk_stamina
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_stamina
+    .byte con_FC_end_token
 
 @trap:
     .text "Trap       "
-    .byte con_stats_attack, con_atk_trap
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_prl_trap_low
+    .byte con_FC_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_stats_attack, con_atk_air_pass
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_plr_pass_low
+    .byte con_FC_end_token
 
 @clearing:
     .text "Clearing   "
-    .byte con_stats_attack, con_atk_clearing
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_0B
+    .byte con_FC_end_token
 
 
 
@@ -5081,23 +5051,23 @@ off_B4E1_06_gk_punch_catch:
     .word @catch
 
 @name_pos:
-    .byte con_gk_name_pos
-    .byte con_закончить
+    .byte con_EB_gk_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_gk, con_gk_stamina
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_stamina
+    .byte con_FC_end_token
 
 @punch:
     .text "Punch      "
-    .byte con_stats_gk, con_gk_punch
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_gk_punch
+    .byte con_FC_end_token
 
 @catch:
     .text "Catch      "
-    .byte con_stats_gk, con_gk_catch
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_gk_catch
+    .byte con_FC_end_token
 
 
 
@@ -5127,7 +5097,7 @@ off_B4FA_07_gk_action_window_vs_player:
 
 @txt:
     .byte $86, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -5171,31 +5141,31 @@ off_B507_08_gk_counter_drib_shot:
     .word @stop_shot_2
 
 @name_pos:
-    .byte con_gk_name_pos
-    .byte con_закончить
+    .byte con_EB_gk_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_gk, con_gk_stamina
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_stamina
+    .byte con_FC_end_token
 
 @stop_dribble_1:
     .text "Stop"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @stop_dribble_2:
     .text " dribble   "
-    .byte con_stats_gk, con_gk_stop_dribble
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_gk_stop_shot
+    .byte con_FC_end_token
 
 @stop_shot_1:
     .text "Stop"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @stop_shot_2:
     .text " shot      "
-    .byte con_stats_gk, con_gk_stop_shot
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_gk_stop_dribble
+    .byte con_FC_end_token
 
 
 
@@ -5231,15 +5201,15 @@ off_B528_09_2_specials:
 
 @txt:
     .text " Specials "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @special_1:
-    .byte con_specials_list, $00
-    .byte con_закончить
+    .byte con_E4_specials_list, $00
+    .byte con_FC_end_token
 
 @special_2:
-    .byte con_specials_list, $01
-    .byte con_закончить
+    .byte con_E4_specials_list, $01
+    .byte con_FC_end_token
 
 
 
@@ -5278,19 +5248,19 @@ off_B539_0A_3_specials:
 
 @txt:
     .text " Specials "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @special_1:
-    .byte con_specials_list, $00
-    .byte con_закончить
+    .byte con_E4_specials_list, $00
+    .byte con_FC_end_token
 
 @special_2:
-    .byte con_specials_list, $01
-    .byte con_закончить
+    .byte con_E4_specials_list, $01
+    .byte con_FC_end_token
 
 @special_3:
-    .byte con_specials_list, $02
-    .byte con_закончить
+    .byte con_E4_specials_list, $02
+    .byte con_FC_end_token
 
 
 
@@ -5332,23 +5302,23 @@ off_B54E_0B_4_specials:
 
 @txt:
     .text " Specials "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @special_1:
-    .byte con_specials_list, $00
-    .byte con_закончить
+    .byte con_E4_specials_list, $00
+    .byte con_FC_end_token
 
 @special_2:
-    .byte con_specials_list, $01
-    .byte con_закончить
+    .byte con_E4_specials_list, $01
+    .byte con_FC_end_token
 
 @special_3:
-    .byte con_specials_list, $02
-    .byte con_закончить
+    .byte con_E4_specials_list, $02
+    .byte con_FC_end_token
 
 @special_4:
-    .byte con_specials_list, $03
-    .byte con_закончить
+    .byte con_E4_specials_list, $03
+    .byte con_FC_end_token
 
 
 
@@ -5385,15 +5355,15 @@ off_B567_0C_2_defensive_specials:
 
 @txt:
     .text " Specials "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @special_1:
-    .byte con_defender_special, $00
-    .byte con_закончить
+    .byte con_E6_defender_special, $00
+    .byte con_FC_end_token
 
 @special_2:
-    .byte con_defender_special, $01
-    .byte con_закончить
+    .byte con_E6_defender_special, $01
+    .byte con_FC_end_token
 
 
 
@@ -5427,18 +5397,18 @@ off_B578_0D_gk_dive:
     .word @dive
 
 @name_pos:
-    .byte con_gk_name_pos
-    .byte con_закончить
+    .byte con_EB_gk_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_gk, con_gk_stamina
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_stamina
+    .byte con_FC_end_token
 
 @dive:
     .text "Dive       "
-    .byte con_stats_gk, con_gk_dive_lo
-    .byte con_закончить
+    .byte con_EC_stats_gk, con_skill_gk_dive_low
+    .byte con_FC_end_token
 
 
 
@@ -5474,15 +5444,15 @@ off_B58D_0F_pass_select_a_teammate:
 
 @txt_1:
     .text " Pass "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Select a"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "teammate"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -5518,15 +5488,15 @@ off_B5A2_10_1_2_pass_choose_a_partner:
 
 @txt_1:
     .text "1-2 Pass"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Choose a"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "partner"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -5565,19 +5535,19 @@ off_B5B7_11_no_players_nearby:
 
 @txt_1:
     .text "1-2 Pass"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "No"
-    .byte con_закончить
+    .byte con_FC_end_token
     
 @txt_3:
     .text "players"
-    .byte con_закончить
+    .byte con_FC_end_token
     
 @txt_4:
     .text "nearby!"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -5613,15 +5583,15 @@ off_B5C8_12_1_player_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_1:
-    .byte con_defender_actions, $00
-    .byte con_закончить
+    .byte con_E5_defender_actions, $00
+    .byte con_FC_end_token
 
 @arrow:
-    .byte con_ball_height_arrow
-    .byte con_закончить
+    .byte con_F8_ball_height_arrow
+    .byte con_FC_end_token
 
 
 
@@ -5660,19 +5630,19 @@ off_B5D9_13_2_players_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_1:
-    .byte con_defender_actions, $00
-    .byte con_закончить
+    .byte con_E5_defender_actions, $00
+    .byte con_FC_end_token
 
 @name_2:
-    .byte con_defender_actions, $01
-    .byte con_закончить
+    .byte con_E5_defender_actions, $01
+    .byte con_FC_end_token
 
 @arrow:
-    .byte con_ball_height_arrow
-    .byte con_закончить
+    .byte con_F8_ball_height_arrow
+    .byte con_FC_end_token
 
 
 
@@ -5714,23 +5684,23 @@ off_B5EE_14_3_players_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_1:
-    .byte con_defender_actions, $00
-    .byte con_закончить
+    .byte con_E5_defender_actions, $00
+    .byte con_FC_end_token
 
 @name_2:
-    .byte con_defender_actions, $01
-    .byte con_закончить
+    .byte con_E5_defender_actions, $01
+    .byte con_FC_end_token
 
 @name_3:
-    .byte con_defender_actions, $02
-    .byte con_закончить
+    .byte con_E5_defender_actions, $02
+    .byte con_FC_end_token
 
 @arrow:
-    .byte con_ball_height_arrow
-    .byte con_закончить
+    .byte con_F8_ball_height_arrow
+    .byte con_FC_end_token
 
 
 
@@ -5775,27 +5745,27 @@ off_B607_15_4_players_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_1:
-    .byte con_defender_actions, $00
-    .byte con_закончить
+    .byte con_E5_defender_actions, $00
+    .byte con_FC_end_token
 
 @name_2:
-    .byte con_defender_actions, $01
-    .byte con_закончить
+    .byte con_E5_defender_actions, $01
+    .byte con_FC_end_token
 
 @name_3:
-    .byte con_defender_actions, $02
-    .byte con_закончить
+    .byte con_E5_defender_actions, $02
+    .byte con_FC_end_token
 
 @name_4:
-    .byte con_defender_actions, $03
-    .byte con_закончить
+    .byte con_E5_defender_actions, $03
+    .byte con_FC_end_token
 
 @arrow:
-    .byte con_ball_height_arrow
-    .byte con_закончить
+    .byte con_F8_ball_height_arrow
+    .byte con_FC_end_token
 
 
 
@@ -5836,28 +5806,28 @@ off_B624_16_defender_tackle_block_passcut:
     .word @passcut
 
 @name:
-    .byte con_def_name_pos
-    .byte con_закончить
+    .byte con_E7_defender_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_defense, con_def_stamina
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_stamina
+    .byte con_FC_end_token
 
 @tackle:
     .text "Tackle     "
-    .byte con_stats_defense, con_def_tackle
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_prl_tackle
+    .byte con_FC_end_token
 
 @block:
     .text "Block      "
-    .byte con_stats_defense, con_def_block
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_prl_block
+    .byte con_FC_end_token
 
 @passcut:
     .text "Pass cut   "
-    .byte con_stats_defense, con_def_passcut_1
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_06
+    .byte con_FC_end_token
 
 
 
@@ -5895,23 +5865,23 @@ off_B641_17_player_interfere_passcut:
     .word @passcut
 
 @name:
-    .byte con_def_name_pos
-    .byte con_закончить
+    .byte con_E7_defender_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_defense, con_def_stamina
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_stamina
+    .byte con_FC_end_token
 
 @interfere:
     .text "Interfere  "
-    .byte con_stats_defense, con_def_interfere
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_prl_interfere_low
+    .byte con_FC_end_token
 
 @passcut:
     .text "Pass cut   "
-    .byte con_stats_defense, con_def_passcut_2
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_0E
+    .byte con_FC_end_token
 
 
 
@@ -5949,23 +5919,23 @@ off_B65A_18_player_clearing_passcut:
     .word @passcut
 
 @name:
-    .byte con_def_name_pos
-    .byte con_закончить
+    .byte con_E7_defender_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_defense, con_def_stamina
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_stamina
+    .byte con_FC_end_token
 
 @clearing:
     .text "Clearing   "
-    .byte con_stats_defense, con_def_clearing
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_prl_clearance_low
+    .byte con_FC_end_token
 
 @passcut:
     .text "Pass cut   "
-    .byte con_stats_defense, con_def_passcut_2
-    .byte con_закончить
+    .byte con_E8_stats_defense, con_skill_0E
+    .byte con_FC_end_token
 
 
 
@@ -6001,15 +5971,15 @@ off_B673_19_show_2_teammates:
 
 @txt:
     .text "Teammates"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @receiver_1:
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @receiver_2:
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 
 
@@ -6048,19 +6018,19 @@ off_B688_1A_show_3_teammates:
 
 @txt:
     .text "Teammates"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @receiver_1:
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @receiver_2:
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 @receiver_3:
-    .byte con_rec_name_teammate, $02
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $02
+    .byte con_FC_end_token
 
 
 
@@ -6102,23 +6072,23 @@ off_B6A1_1B_show_4_teammates:
 
 @txt:
     .text "Teammates"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @receiver_1:
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @receiver_2:
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 @receiver_3:
-    .byte con_rec_name_teammate, $02
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $02
+    .byte con_FC_end_token
 
 @receiver_4:
-    .byte con_rec_name_teammate, $03
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $03
+    .byte con_FC_end_token
 
 
 
@@ -6182,28 +6152,28 @@ off_B6C7_1D_receiver_dribble_pass_shoot:
     .word @shoot
 
 @name_pos:
-    .byte con_rec_name_pos
-    .byte con_закончить
+    .byte con_E2_reciever_name_pos
+    .byte con_FC_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_stats_receiver, con_rec_stamina
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_stamina
+    .byte con_FC_end_token
 
 @dribble:
     .text "Dribble    "
-    .byte con_stats_receiver, con_rec_dribble
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_prl_dribble
+    .byte con_FC_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_stats_receiver, con_rec_pass
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_prl___pass
+    .byte con_FC_end_token
 
 @shoot:
     .text "Shoot      "
-    .byte con_stats_receiver, con_rec_shoot
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_prl___shoot
+    .byte con_FC_end_token
 
 
 
@@ -6311,15 +6281,15 @@ off_B71E_20_show_1_opponent:
 
 @txt:
     .text "Opponent"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $00
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $00
+    .byte con_FC_end_token
 
 @opponent_1:
-    .byte con_rec_name_opponent, $00
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $00
+    .byte con_FC_end_token
 
 
 
@@ -6361,23 +6331,23 @@ off_B72F_21_show_2_opponents:
 
 @txt:
     .text "Opponents"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $00
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $00
+    .byte con_FC_end_token
 
 @opponent_1:
-    .byte con_rec_name_opponent, $00
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $00
+    .byte con_FC_end_token
 
 @indicator_2:
-    .byte con_not_a_clone_indicator, $01
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $01
+    .byte con_FC_end_token
 
 @opponent_2:
-    .byte con_rec_name_opponent, $01
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $01
+    .byte con_FC_end_token
 
 
 
@@ -6425,31 +6395,31 @@ off_B744_22_show_3_opponents:
 
 @txt:
     .text "Opponents"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $00
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $00
+    .byte con_FC_end_token
 
 @opponent_1:
-    .byte con_rec_name_opponent, $00
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $00
+    .byte con_FC_end_token
 
 @indicator_2:
-    .byte con_not_a_clone_indicator, $01
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $01
+    .byte con_FC_end_token
 
 @opponent_2:
-    .byte con_rec_name_opponent, $01
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $01
+    .byte con_FC_end_token
 
 @indicator_3:
-    .byte con_not_a_clone_indicator, $02
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $02
+    .byte con_FC_end_token
 
 @opponent_3:
-    .byte con_rec_name_opponent, $02
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $02
+    .byte con_FC_end_token
 
 
 
@@ -6503,39 +6473,39 @@ off_B75D_23_show_4_opponents:
 
 @txt:
     .text "Opponents"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $00
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $00
+    .byte con_FC_end_token
 
 @opponent_1:
-    .byte con_rec_name_opponent, $00
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $00
+    .byte con_FC_end_token
 
 @indicator_2:
-    .byte con_not_a_clone_indicator, $01
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $01
+    .byte con_FC_end_token
 
 @opponent_2:
-    .byte con_rec_name_opponent, $01
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $01
+    .byte con_FC_end_token
 
 @indicator_3:
-    .byte con_not_a_clone_indicator, $02
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $02
+    .byte con_FC_end_token
 
 @opponent_3:
-    .byte con_rec_name_opponent, $02
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $02
+    .byte con_FC_end_token
 
 @indicator_4:
-    .byte con_not_a_clone_indicator, $03
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $03
+    .byte con_FC_end_token
 
 @opponent_4:
-    .byte con_rec_name_opponent, $03
-    .byte con_закончить
+    .byte con_EA_rec_name_opponent, $03
+    .byte con_FC_end_token
 
 
 
@@ -6571,15 +6541,15 @@ off_B77A_24_select_1_of_2_teammates_for_pass:
 
 @txt:
     .text "To whom?"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @receiver_1:
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @receiver_2:
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 
 
@@ -6618,19 +6588,19 @@ off_B78F_25_select_1_of_3_teammates_for_pass:
 
 @txt:
     .text "To whom?"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @receiver_1:
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @receiver_2:
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 @receiver_3:
-    .byte con_rec_name_teammate, $02
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $02
+    .byte con_FC_end_token
 
 
 
@@ -6672,23 +6642,23 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
 
 @txt:
     .text "To whom?"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @receiver_1:
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @receiver_2:
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 @receiver_3:
-    .byte con_rec_name_teammate, $02
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $02
+    .byte con_FC_end_token
 
 @receiver_4:
-    .byte con_rec_name_teammate, $03
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $03
+    .byte con_FC_end_token
 
 
 
@@ -6748,47 +6718,47 @@ off_B7C5_27_free_kick_taker:
 
 @txt:
     .text " Free Kick taker "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_2:
-    .byte con_menu_name, $01
-    .byte con_закончить
+    .byte con_F1_menu_name, $01
+    .byte con_FC_end_token
 
 @name_3:
-    .byte con_menu_name, $02
-    .byte con_закончить
+    .byte con_F1_menu_name, $02
+    .byte con_FC_end_token
 
 @name_4:
-    .byte con_menu_name, $03
-    .byte con_закончить
+    .byte con_F1_menu_name, $03
+    .byte con_FC_end_token
 
 @name_5:
-    .byte con_menu_name, $04
-    .byte con_закончить
+    .byte con_F1_menu_name, $04
+    .byte con_FC_end_token
 
 @name_6:
-    .byte con_menu_name, $05
-    .byte con_закончить
+    .byte con_F1_menu_name, $05
+    .byte con_FC_end_token
 
 @name_7:
-    .byte con_menu_name, $06
-    .byte con_закончить
+    .byte con_F1_menu_name, $06
+    .byte con_FC_end_token
 
 @name_8:
-    .byte con_menu_name, $07
-    .byte con_закончить
+    .byte con_F1_menu_name, $07
+    .byte con_FC_end_token
 
 @name_9:
-    .byte con_menu_name, $08
-    .byte con_закончить
+    .byte con_F1_menu_name, $08
+    .byte con_FC_end_token
 
 @name_10:
-    .byte con_menu_name, $09
-    .byte con_закончить
+    .byte con_F1_menu_name, $09
+    .byte con_FC_end_token
 
 @name_11:
-    .byte con_menu_name, $0A
-    .byte con_закончить
+    .byte con_F1_menu_name, $0A
+    .byte con_FC_end_token
 
 
 
@@ -6827,19 +6797,19 @@ off_B7FE_28_rearrange_players_no_yes:
 
 @txt_1:
     .text "Rearrange"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "your players?"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "No"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_4:
     .text "Yes"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -6875,15 +6845,15 @@ off_B813_29_rearrange_select_done:
 
 @txt_1:
     .text "Rearrange"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Select"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Done"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -6919,15 +6889,15 @@ off_B828_2A_aim_left_right:
 
 @txt_1:
     .text " Aim "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Left"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Right"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -6963,15 +6933,15 @@ off_B83D_2B_wall_left_right:
 
 @txt_1:
     .text " Wall "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Left"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Right"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7002,7 +6972,7 @@ off_B852_2C_pk_aim:
 
 @txt:
     .text " Aim "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7033,7 +7003,7 @@ off_B85F_2D_pk_dive:
 
 @txt:
     .text $87, $88, $89, $8A, $8B       ; Dive
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7093,47 +7063,47 @@ off_B86C_2E_corner_kick_taker:
 
 @txt:
     .text " Corner Kick taker "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_2:
-    .byte con_menu_name, $01
-    .byte con_закончить
+    .byte con_F1_menu_name, $01
+    .byte con_FC_end_token
 
 @name_3:
-    .byte con_menu_name, $02
-    .byte con_закончить
+    .byte con_F1_menu_name, $02
+    .byte con_FC_end_token
 
 @name_4:
-    .byte con_menu_name, $03
-    .byte con_закончить
+    .byte con_F1_menu_name, $03
+    .byte con_FC_end_token
 
 @name_5:
-    .byte con_menu_name, $04
-    .byte con_закончить
+    .byte con_F1_menu_name, $04
+    .byte con_FC_end_token
 
 @name_6:
-    .byte con_menu_name, $05
-    .byte con_закончить
+    .byte con_F1_menu_name, $05
+    .byte con_FC_end_token
 
 @name_7:
-    .byte con_menu_name, $06
-    .byte con_закончить
+    .byte con_F1_menu_name, $06
+    .byte con_FC_end_token
 
 @name_8:
-    .byte con_menu_name, $07
-    .byte con_закончить
+    .byte con_F1_menu_name, $07
+    .byte con_FC_end_token
 
 @name_9:
-    .byte con_menu_name, $08
-    .byte con_закончить
+    .byte con_F1_menu_name, $08
+    .byte con_FC_end_token
 
 @name_10:
-    .byte con_menu_name, $09
-    .byte con_закончить
+    .byte con_F1_menu_name, $09
+    .byte con_FC_end_token
 
 @name_11:
-    .byte con_menu_name, $0A
-    .byte con_закончить
+    .byte con_F1_menu_name, $0A
+    .byte con_FC_end_token
 
 
 
@@ -7193,47 +7163,47 @@ off_B8A5_2F_select_penalty_taker:
 
 @txt:
     .text "Select Penalty taker"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_2:
-    .byte con_menu_name, $01
-    .byte con_закончить
+    .byte con_F1_menu_name, $01
+    .byte con_FC_end_token
 
 @name_3:
-    .byte con_menu_name, $02
-    .byte con_закончить
+    .byte con_F1_menu_name, $02
+    .byte con_FC_end_token
 
 @name_4:
-    .byte con_menu_name, $03
-    .byte con_закончить
+    .byte con_F1_menu_name, $03
+    .byte con_FC_end_token
 
 @name_5:
-    .byte con_menu_name, $04
-    .byte con_закончить
+    .byte con_F1_menu_name, $04
+    .byte con_FC_end_token
 
 @name_6:
-    .byte con_menu_name, $05
-    .byte con_закончить
+    .byte con_F1_menu_name, $05
+    .byte con_FC_end_token
 
 @name_7:
-    .byte con_menu_name, $06
-    .byte con_закончить
+    .byte con_F1_menu_name, $06
+    .byte con_FC_end_token
 
 @name_8:
-    .byte con_menu_name, $07
-    .byte con_закончить
+    .byte con_F1_menu_name, $07
+    .byte con_FC_end_token
 
 @name_9:
-    .byte con_menu_name, $08
-    .byte con_закончить
+    .byte con_F1_menu_name, $08
+    .byte con_FC_end_token
 
 @name_10:
-    .byte con_menu_name, $09
-    .byte con_закончить
+    .byte con_F1_menu_name, $09
+    .byte con_FC_end_token
 
 @name_11:
-    .byte con_menu_name, $0A
-    .byte con_закончить
+    .byte con_F1_menu_name, $0A
+    .byte con_FC_end_token
 
 
 
@@ -7265,12 +7235,12 @@ off_B8DE_30_display_name_stamina_at_the_top:
     .word @энергия
 
 @имя_игрока_с_мячом:
-    .byte con_plr_with_ball_name
-    .byte con_закончить
+    .byte con_F4_plr_with_ball_name
+    .byte con_FC_end_token
 
 @энергия:
-    .byte con_stats_attack, con_atk_stamina
-    .byte con_закончить
+    .byte con_E1_stats_attack, con_skill_stamina
+    .byte con_FC_end_token
 
 
 
@@ -7303,12 +7273,12 @@ off_B8EF_31_display_name_number_at_the_top:
     .word @имя_управляемого_игрока
 
 @номер_управляемого_игрока:
-    .byte con_control_plr_number
-    .byte con_закончить
+    .byte con_F7_control_plr_number
+    .byte con_FC_end_token
 
 @имя_управляемого_игрока:
-    .byte con_control_plr_name
-    .byte con_закончить
+    .byte con_F2_control_plr_name
+    .byte con_FC_end_token
 
 
 
@@ -7337,8 +7307,8 @@ off_B900_32_display_name_opponent_at_the_top:
     .word @имя_игрока_с_мячом
 
 @имя_игрока_с_мячом:
-    .byte con_plr_with_ball_name
-    .byte con_закончить
+    .byte con_F4_plr_with_ball_name
+    .byte con_FC_end_token
 
 
 
@@ -7374,15 +7344,15 @@ off_B90D_33_resume_play_edit_team_data:
 
 @txt_1:
     .text " Action "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Resume Play"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Edit Team Data"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7424,23 +7394,23 @@ off_B922_34_formation_defense_swap_status_done:
 
 @txt_1:
     .text "Formation"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Defense"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Swap"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_4:
     .text "Status"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_5:
     .text "Done"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7485,27 +7455,27 @@ off_B93F_35_formation:
 
 @txt_1:
     .text "Formation"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "4:3:3"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "4:4:2"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_4:
     .text "3:5:2"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_5:
     .text "Brazil"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_6:
     .text "tactics"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7544,19 +7514,19 @@ off_B95C_36_defense:
 
 @txt_1:
     .text "Defense"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Normal"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Press"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_4:
     .text "Counter"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7592,15 +7562,15 @@ off_B975_37_swap:
 
 @txt_1:
     .text "Swap"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Players"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "Positions"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7636,15 +7606,15 @@ off_B98A_38_no_subs_left:
 
 @txt_1:
     .text "Swap"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_2:
     .text "Only 3 subs"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @txt_3:
     .text "per match!"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -7704,57 +7674,57 @@ off_B99B_39_swap_main_players:
 
 @txt:
     .text " Swap Positions "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_2:
     .text "2 "
-    .byte con_menu_name, $01
-    .byte con_закончить
+    .byte con_F1_menu_name, $01
+    .byte con_FC_end_token
 
 @name_3:
     .text "3 "
-    .byte con_menu_name, $02
-    .byte con_закончить
+    .byte con_F1_menu_name, $02
+    .byte con_FC_end_token
 
 @name_4:
     .text "4 "
-    .byte con_menu_name, $03
-    .byte con_закончить
+    .byte con_F1_menu_name, $03
+    .byte con_FC_end_token
 
 @name_5:
     .text "5 "
-    .byte con_menu_name, $04
-    .byte con_закончить
+    .byte con_F1_menu_name, $04
+    .byte con_FC_end_token
 
 @name_6:
     .text "6 "
-    .byte con_menu_name, $05
-    .byte con_закончить
+    .byte con_F1_menu_name, $05
+    .byte con_FC_end_token
 
 @name_7:
     .text "7 "
-    .byte con_menu_name, $06
-    .byte con_закончить
+    .byte con_F1_menu_name, $06
+    .byte con_FC_end_token
 
 @name_8:
     .text "8 "
-    .byte con_menu_name, $07
-    .byte con_закончить
+    .byte con_F1_menu_name, $07
+    .byte con_FC_end_token
 
 @name_9:
     .text "9 "
-    .byte con_menu_name, $08
-    .byte con_закончить
+    .byte con_F1_menu_name, $08
+    .byte con_FC_end_token
 
 @name_10:
     .text "10 "
-    .byte con_menu_name, $09
-    .byte con_закончить
+    .byte con_F1_menu_name, $09
+    .byte con_FC_end_token
 
 @name_11:
     .text "11 "
-    .byte con_menu_name, $0A
-    .byte con_закончить
+    .byte con_F1_menu_name, $0A
+    .byte con_FC_end_token
 
 
 
@@ -7814,47 +7784,47 @@ off_B9F8_3A_swap_sub_players:
 
 @txt:
     .text " Who will you use? "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @sub_plr_1_name:
-    .byte con_menu_name, $16
-    .byte con_закончить
+    .byte con_F1_menu_name, $16
+    .byte con_FC_end_token
 
 @sub_plr_2_name:
-    .byte con_menu_name, $17
-    .byte con_закончить
+    .byte con_F1_menu_name, $17
+    .byte con_FC_end_token
 
 @sub_plr_3_name:
-    .byte con_menu_name, $18
-    .byte con_закончить
+    .byte con_F1_menu_name, $18
+    .byte con_FC_end_token
 
 @sub_plr_4_name:
-    .byte con_menu_name, $19
-    .byte con_закончить
+    .byte con_F1_menu_name, $19
+    .byte con_FC_end_token
 
 @sub_plr_5_name:
-    .byte con_menu_name, $1A
-    .byte con_закончить
+    .byte con_F1_menu_name, $1A
+    .byte con_FC_end_token
 
 @sub_plr_6_name:
-    .byte con_menu_name, $1B
-    .byte con_закончить
+    .byte con_F1_menu_name, $1B
+    .byte con_FC_end_token
 
 @sub_plr_7_name:
-    .byte con_menu_name, $1C
-    .byte con_закончить
+    .byte con_F1_menu_name, $1C
+    .byte con_FC_end_token
 
 @sub_plr_8_name:
-    .byte con_menu_name, $1D
-    .byte con_закончить
+    .byte con_F1_menu_name, $1D
+    .byte con_FC_end_token
 
 @sub_plr_gk1_name:
-    .byte con_menu_name, $1E
-    .byte con_закончить
+    .byte con_F1_menu_name, $1E
+    .byte con_FC_end_token
 
 @sub_plr_gk2_name:
-    .byte con_menu_name, $1F
-    .byte con_закончить
+    .byte con_F1_menu_name, $1F
+    .byte con_FC_end_token
 
 
 
@@ -7917,62 +7887,62 @@ off_BA39_3B_whom_to_sub:
 
 @txt:
     .text " Whom to sub? "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @name_2:
     .text "2 "
-    .byte con_menu_name, $01
-    .byte con_закончить
+    .byte con_F1_menu_name, $01
+    .byte con_FC_end_token
 
 @name_3:
     .text "3 "
-    .byte con_menu_name, $02
-    .byte con_закончить
+    .byte con_F1_menu_name, $02
+    .byte con_FC_end_token
 
 @name_4:
     .text "4 "
-    .byte con_menu_name, $03
-    .byte con_закончить
+    .byte con_F1_menu_name, $03
+    .byte con_FC_end_token
 
 @name_5:
     .text "5 "
-    .byte con_menu_name, $04
-    .byte con_закончить
+    .byte con_F1_menu_name, $04
+    .byte con_FC_end_token
 
 @name_6:
     .text "6 "
-    .byte con_menu_name, $05
-    .byte con_закончить
+    .byte con_F1_menu_name, $05
+    .byte con_FC_end_token
 
 @name_7:
     .text "7 "
-    .byte con_menu_name, $06
-    .byte con_закончить
+    .byte con_F1_menu_name, $06
+    .byte con_FC_end_token
 
 @name_8:
     .text "8 "
-    .byte con_menu_name, $07
-    .byte con_закончить
+    .byte con_F1_menu_name, $07
+    .byte con_FC_end_token
 
 @name_9:
     .text "9 "
-    .byte con_menu_name, $08
-    .byte con_закончить
+    .byte con_F1_menu_name, $08
+    .byte con_FC_end_token
 
 @name_10:
     .text "10 "
-    .byte con_menu_name, $09
-    .byte con_закончить
+    .byte con_F1_menu_name, $09
+    .byte con_FC_end_token
 
 @name_11:
     .text "11 "
-    .byte con_menu_name, $0A
-    .byte con_закончить
+    .byte con_F1_menu_name, $0A
+    .byte con_FC_end_token
 
 @name_gk:
     .text "GK "
-    .byte con_menu_name, $00
-    .byte con_закончить
+    .byte con_F1_menu_name, $00
+    .byte con_FC_end_token
 
 
 
@@ -8068,95 +8038,95 @@ off_BAA2_3C_stamina_fielded_players:
 
 @txt:
     .text " Fielded Players "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @main_plr_2_name:
-    .byte con_menu_name, $01
-    .byte con_закончить
+    .byte con_F1_menu_name, $01
+    .byte con_FC_end_token
 
 @main_plr_2_stamina:
-    .byte con_plr_stamina, $01
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $01
+    .byte con_FC_end_token
 
 @main_plr_3_name:
-    .byte con_menu_name, $02
-    .byte con_закончить
+    .byte con_F1_menu_name, $02
+    .byte con_FC_end_token
 
 @main_plr_3_stamina:
-    .byte con_plr_stamina, $02
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $02
+    .byte con_FC_end_token
 
 @main_plr_4_name:
-    .byte con_menu_name, $03
-    .byte con_закончить
+    .byte con_F1_menu_name, $03
+    .byte con_FC_end_token
 
 @main_plr_4_stamina:
-    .byte con_plr_stamina, $03
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $03
+    .byte con_FC_end_token
 
 @main_plr_5_name:
-    .byte con_menu_name, $04
-    .byte con_закончить
+    .byte con_F1_menu_name, $04
+    .byte con_FC_end_token
 
 @main_plr_5_stamina:
-    .byte con_plr_stamina, $04
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $04
+    .byte con_FC_end_token
 
 @main_plr_6_name:
-    .byte con_menu_name, $05
-    .byte con_закончить
+    .byte con_F1_menu_name, $05
+    .byte con_FC_end_token
 
 @main_plr_6_stamina:
-    .byte con_plr_stamina, $05
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $05
+    .byte con_FC_end_token
 
 @main_plr_7_name:
-    .byte con_menu_name, $06
-    .byte con_закончить
+    .byte con_F1_menu_name, $06
+    .byte con_FC_end_token
 
 @main_plr_7_stamina:
-    .byte con_plr_stamina, $06
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $06
+    .byte con_FC_end_token
 
 @main_plr_8_name:
-    .byte con_menu_name, $07
-    .byte con_закончить
+    .byte con_F1_menu_name, $07
+    .byte con_FC_end_token
 
 @main_plr_8_stamina:
-    .byte con_plr_stamina, $07
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $07
+    .byte con_FC_end_token
 
 @main_plr_9_name:
-    .byte con_menu_name, $08
-    .byte con_закончить
+    .byte con_F1_menu_name, $08
+    .byte con_FC_end_token
 
 @main_plr_9_stamina:
-    .byte con_plr_stamina, $08
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $08
+    .byte con_FC_end_token
 
 @main_plr_10_name:
-    .byte con_menu_name, $09
-    .byte con_закончить
+    .byte con_F1_menu_name, $09
+    .byte con_FC_end_token
 
 @main_plr_10_stamina:
-    .byte con_plr_stamina, $09
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $09
+    .byte con_FC_end_token
 
 @main_plr_11_name:
-    .byte con_menu_name, $0A
-    .byte con_закончить
+    .byte con_F1_menu_name, $0A
+    .byte con_FC_end_token
 
 @main_plr_11_stamina:
-    .byte con_plr_stamina, $0A
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $0A
+    .byte con_FC_end_token
 
 @main_plr_gk_name:
-    .byte con_menu_name, $00
-    .byte con_закончить
+    .byte con_F1_menu_name, $00
+    .byte con_FC_end_token
 
 @main_plr_gk_stamina:
-    .byte con_plr_stamina, $00
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $00
+    .byte con_FC_end_token
 
 
 
@@ -8245,87 +8215,87 @@ off_BB03_3D_stamina_substitutes_bench:
 
 @txt:
     .text " Substitute's Bench "
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @sub_plr_1_name:
-    .byte con_menu_name, $16
-    .byte con_закончить
+    .byte con_F1_menu_name, $16
+    .byte con_FC_end_token
 
 @sub_plr_1_stamina:
-    .byte con_plr_stamina, $16
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $16
+    .byte con_FC_end_token
 
 @sub_plr_2_name:
-    .byte con_menu_name, $17
-    .byte con_закончить
+    .byte con_F1_menu_name, $17
+    .byte con_FC_end_token
 
 @sub_plr_2_stamina:
-    .byte con_plr_stamina, $17
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $17
+    .byte con_FC_end_token
 
 @sub_plr_3_name:
-    .byte con_menu_name, $18
-    .byte con_закончить
+    .byte con_F1_menu_name, $18
+    .byte con_FC_end_token
 
 @sub_plr_3_stamina:
-    .byte con_plr_stamina, $18
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $18
+    .byte con_FC_end_token
 
 @sub_plr_4_name:
-    .byte con_menu_name, $19
-    .byte con_закончить
+    .byte con_F1_menu_name, $19
+    .byte con_FC_end_token
 
 @sub_plr_4_stamina:
-    .byte con_plr_stamina, $19
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $19
+    .byte con_FC_end_token
 
 @sub_plr_5_name:
-    .byte con_menu_name, $1A
-    .byte con_закончить
+    .byte con_F1_menu_name, $1A
+    .byte con_FC_end_token
 
 @sub_plr_5_stamina:
-    .byte con_plr_stamina, $1A
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $1A
+    .byte con_FC_end_token
 
 @sub_plr_6_name:
-    .byte con_menu_name, $1B
-    .byte con_закончить
+    .byte con_F1_menu_name, $1B
+    .byte con_FC_end_token
 
 @sub_plr_6_stamina:
-    .byte con_plr_stamina, $1B
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $1B
+    .byte con_FC_end_token
 
 @sub_plr_7_name:
-    .byte con_menu_name, $1C
-    .byte con_закончить
+    .byte con_F1_menu_name, $1C
+    .byte con_FC_end_token
 
 @sub_plr_7_stamina:
-    .byte con_plr_stamina, $1C
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $1C
+    .byte con_FC_end_token
 
 @sub_plr_8_name:
-    .byte con_menu_name, $1D
-    .byte con_закончить
+    .byte con_F1_menu_name, $1D
+    .byte con_FC_end_token
 
 @sub_plr_8_stamina:
-    .byte con_plr_stamina, $1D
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $1D
+    .byte con_FC_end_token
 
 @sub_plr_gk1_name:
-    .byte con_menu_name, $1E
-    .byte con_закончить
+    .byte con_F1_menu_name, $1E
+    .byte con_FC_end_token
 
 @sub_plr_gk1_stamina:
-    .byte con_plr_stamina, $1E
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $1E
+    .byte con_FC_end_token
 
 @sub_plr_gk2_name:
-    .byte con_menu_name, $1F
-    .byte con_закончить
+    .byte con_F1_menu_name, $1F
+    .byte con_FC_end_token
 
 @sub_plr_gk2_stamina:
-    .byte con_plr_stamina, $1F
-    .byte con_закончить
+    .byte con_F5_plr_stamina, $1F
+    .byte con_FC_end_token
 
 
 
@@ -8355,7 +8325,7 @@ off_BB5C_3E_pk_shootout_select_taker:
 
 @txt:
     .text "PK Shootout - Select Taker"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 
 
@@ -8416,11 +8386,11 @@ off_BB69_3F_pk_players_list:
 
 @txt:
     .text "Skill"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @list:
-    .byte con_pk_players_list
-    .byte con_закончить
+    .byte con_F6_pk_players_list
+    .byte con_FC_end_token
 
 
 
@@ -8465,32 +8435,32 @@ off_BB9E_40_pk_order:
 
 @txt:
     .text "PK Order"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @shooter_1:
     .text "1 "
-    .byte con_rec_name_teammate, $00
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $00
+    .byte con_FC_end_token
 
 @shooter_2:
     .text "2 "
-    .byte con_rec_name_teammate, $01
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $01
+    .byte con_FC_end_token
 
 @shooter_3:
     .text "3 "
-    .byte con_rec_name_teammate, $02
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $02
+    .byte con_FC_end_token
 
 @shooter_4:
     .text "4 "
-    .byte con_rec_name_teammate, $03
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $03
+    .byte con_FC_end_token
 
 @shooter_5:
     .text "5 "
-    .byte con_rec_name_teammate, $04
-    .byte con_закончить
+    .byte con_E9_rec_name_teammate, $04
+    .byte con_FC_end_token
 
 
 
@@ -8528,20 +8498,20 @@ off_BBBF_41_pk_score:
     .word @score_right
 
 @team_left:
-    .byte con_team_name, $00
-    .byte con_закончить
+    .byte con_ED_team_name, $00
+    .byte con_FC_end_token
 
 @score_left:
-    .byte con_score, $00
-    .byte con_закончить
+    .byte con_EE_score, $00
+    .byte con_FC_end_token
 
 @team_right:
-    .byte con_team_name, $01
-    .byte con_закончить
+    .byte con_ED_team_name, $01
+    .byte con_FC_end_token
 
 @score_right:
-    .byte con_score, $01
-    .byte con_закончить
+    .byte con_EE_score, $01
+    .byte con_FC_end_token
 
 
 
@@ -8582,24 +8552,24 @@ off_BC02_42_booth_for_charlie_time_score_period_number:
     .word @score_right
 
 @period:
-    .byte con_period_number
-    .byte con_закончить
+    .byte con_EF_period_number
+    .byte con_FC_end_token
 
 @time:
-    .byte con_time
-    .byte con_закончить
+    .byte con_F0_time
+    .byte con_FC_end_token
 
 @score_left:
-    .byte con_score, $00
-    .byte con_закончить
+    .byte con_EE_score, $00
+    .byte con_FC_end_token
 
 @dash:
     .text "-"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @score_right:
-    .byte con_score, $01
-    .byte con_закончить
+    .byte con_EE_score, $01
+    .byte con_FC_end_token
 
 
 
@@ -8628,8 +8598,8 @@ off_BC03_43_booth_for_charlie_pk_period_number:
     .word @period
 
 @period:
-    .byte con_period_number
-    .byte con_закончить
+    .byte con_EF_period_number
+    .byte con_FC_end_token
 
 
 
@@ -8665,15 +8635,15 @@ off_BC04_44_show_1_defender:
 
 @txt:
     .text "Defender"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $80
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $80
+    .byte con_FC_end_token
 
 @defender_1:
-    .byte con_opp_def_name, $00
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $00
+    .byte con_FC_end_token
 
 
 
@@ -8715,23 +8685,23 @@ off_BC05_45_show_2_defenders:
 
 @txt:
     .text "Defenders"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $80
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $80
+    .byte con_FC_end_token
 
 @defender_1:
-    .byte con_opp_def_name, $00
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $00
+    .byte con_FC_end_token
 
 @indicator_2:
-    .byte con_not_a_clone_indicator, $81
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $81
+    .byte con_FC_end_token
 
 @defender_2:
-    .byte con_opp_def_name, $01
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $01
+    .byte con_FC_end_token
 
 
 
@@ -8779,31 +8749,31 @@ off_BC06_46_show_3_defenders:
 
 @txt:
     .text "Defenders"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $80
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $80
+    .byte con_FC_end_token
 
 @defender_1:
-    .byte con_opp_def_name, $00
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $00
+    .byte con_FC_end_token
 
 @indicator_2:
-    .byte con_not_a_clone_indicator, $81
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $81
+    .byte con_FC_end_token
 
 @defender_2:
-    .byte con_opp_def_name, $01
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $01
+    .byte con_FC_end_token
 
 @indicator_3:
-    .byte con_not_a_clone_indicator, $82
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $82
+    .byte con_FC_end_token
 
 @defender_3:
-    .byte con_opp_def_name, $02
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $02
+    .byte con_FC_end_token
 
 
 
@@ -8857,62 +8827,62 @@ off_BC07_47_show_4_defenders:
 
 @txt:
     .text "Defenders"
-    .byte con_закончить
+    .byte con_FC_end_token
 
 @indicator_1:
-    .byte con_not_a_clone_indicator, $80
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $80
+    .byte con_FC_end_token
 
 @defender_1:
-    .byte con_opp_def_name, $00
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $00
+    .byte con_FC_end_token
 
 @indicator_2:
-    .byte con_not_a_clone_indicator, $81
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $81
+    .byte con_FC_end_token
 
 @defender_2:
-    .byte con_opp_def_name, $01
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $01
+    .byte con_FC_end_token
 
 @indicator_3:
-    .byte con_not_a_clone_indicator, $82
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $82
+    .byte con_FC_end_token
 
 @defender_3:
-    .byte con_opp_def_name, $02
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $02
+    .byte con_FC_end_token
 
 @indicator_4:
-    .byte con_not_a_clone_indicator, $83
-    .byte con_закончить
+    .byte con_F9_not_a_clone_indicator, $83
+    .byte con_FC_end_token
 
 @defender_4:
-    .byte con_opp_def_name, $03
-    .byte con_закончить
+    .byte con_F3_opp_def_name, $03
+    .byte con_FC_end_token
 
 
 
 
 
 off_BCF9_позиция_и_имя_принимающего:
-    .byte con_rec_name_pos
-    .byte con_закончить
+    .byte con_E2_reciever_name_pos
+    .byte con_FC_end_token
 
 off_BCFB_энергия_принимающего:
     .text "Stamina    "
-    .byte con_stats_receiver, con_rec_stamina
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_stamina
+    .byte con_FC_end_token
 
 off_BD06_shoot_принимающего:
     .text "Shoot      "
-    .byte con_stats_receiver, con_rec_shoot
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_prl___shoot
+    .byte con_FC_end_token
 
 off_BD1C_pass_принимающего:
     .text "Pass       "
-    .byte con_stats_receiver, con_rec_pass
-    .byte con_закончить
+    .byte con_E3_stats_receiver, con_skill_prl___pass
+    .byte con_FC_end_token
 
 off_BD27:       ; unused <トラップ>
 - - - - - - 0x033D37 18:BD27: 54        .byte $54
@@ -8923,8 +8893,8 @@ off_BD27:       ; unused <トラップ>
 - - - - - - 0x033D3C 18:BD2C: 00        .byte $00
 - - - - - - 0x033D3D 18:BD2D: 00        .byte $00
 - - - - - - 0x033D3E 18:BD2E: 00        .byte $00
-- - - - - - 0x033D3F 18:BD2F: E3        .byte con_stats_receiver, con_rec_trap
-- - - - - - 0x033D41 18:BD31: FC        .byte con_закончить
+- - - - - - 0x033D3F 18:BD2F: E3        .byte con_E3_stats_receiver, con_skill_prl_trap_low
+- - - - - - 0x033D41 18:BD31: FC        .byte con_FC_end_token
 
 off_BD32:       ; unused <クリアー>
 - - - - - - 0x033D42 18:BD32: 48        .byte $48
@@ -8935,8 +8905,8 @@ off_BD32:       ; unused <クリアー>
 - - - - - - 0x033D47 18:BD37: 00        .byte $00
 - - - - - - 0x033D48 18:BD38: 00        .byte $00
 - - - - - - 0x033D49 18:BD39: 00        .byte $00
-- - - - - - 0x033D4A 18:BD3A: E3        .byte con_stats_receiver, con_rec_clearing
-- - - - - - 0x033D4C 18:BD3C: FC        .byte con_закончить
+- - - - - - 0x033D4A 18:BD3A: E3        .byte con_E3_stats_receiver, con_skill_0B
+- - - - - - 0x033D4C 18:BD3C: FC        .byte con_FC_end_token
 
 
 
