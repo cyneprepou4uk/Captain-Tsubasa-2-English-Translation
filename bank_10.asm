@@ -52,7 +52,7 @@ sub_0x020031_обработка_байтов_сценария:
 C D - - - - 0x020031 10:8021: AD 17 05  LDA ram_0517
 C - - - - - 0x020034 10:8024: 8D 2A 05  STA ram_флаг_зеркала_анимации
 C - - - - - 0x020037 10:8027: AD 16 05  LDA ram_флаги_сценария_ХЗ
-C - - - - - 0x02003A 10:802A: 29 FB     AND #$FB
+C - - - - - 0x02003A 10:802A: 29 FB     AND #$04 ^ $FF
 C - - - - - 0x02003C 10:802C: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x02003F 10:802F: A9 00     LDA #$00
 C - - - - - 0x020041 10:8031: 8D 2B 05  STA ram_for_0532
@@ -1262,7 +1262,7 @@ C - - - - - 0x02050B 10:84FB: 60        RTS
 ofs_015_84FC_2E_наебан_ли_кипер:
 ; 00 = кипер не наебан
 ; 01 = кипер наебан
-C - J - - - 0x02050C 10:84FC: 20 51 C5  JSR sub_0x03CD87_получить_адрес_игрока_команды_без_мяча
+C - J - - - 0x02050C 10:84FC: 20 51 C5  JSR sub_0x03CD87_получить_адрес_кипера_команды_без_мяча
 C - - - - - 0x02050F 10:84FF: A2 00     LDX #$00
 C - - - - - 0x020511 10:8501: A0 07     LDY #con_величина_наебки
 C - - - - - 0x020513 10:8503: B1 34     LDA (ram_plr_data),Y    ; con_величина_наебки
@@ -1813,16 +1813,17 @@ ofs_015_86CC_49_спешал_перепасовка_и_twin_shot:
 ; 0E = p_pascal_argentina
 ; 0F = p_pierre_france
 ; 10 = p_napoleon_france
-; 11 = игрок без спешал перепасовки/twin shot без рож игроков (korea)
+; 11 = игрок без спешал перепасовки/twin shot без рож игроков (p_sha_south_korea или p_kim_south_korea)
 C - J - - - 0x0206DC 10:86CC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0206DF 10:86CF: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x0206E2 10:86D2: A2 00     LDX #$00
-bra_86D4_loop_поиска:
+bra_86D4_loop_поиск:
 C - - - - - 0x0206E4 10:86D4: DD E3 86  CMP tbl_86E3_игроки_со_спешал_перепасовкой,X
 C - - - - - 0x0206E7 10:86D7: F0 05     BEQ bra_86DE_игрок_найден
 C - - - - - 0x0206E9 10:86D9: E8        INX
 C - - - - - 0x0206EA 10:86DA: E0 11     CPX #$11
-C - - - - - 0x0206EC 10:86DC: D0 F6     BNE bra_86D4_loop_поиска
+C - - - - - 0x0206EC 10:86DC: D0 F6     BNE bra_86D4_loop_поиск
+; if игрок так и не найден, возможно это south_korea
 bra_86DE_игрок_найден:
 C - - - - - 0x0206EE 10:86DE: E0 11     CPX #$11
 C - - - - - 0x0206F0 10:86E0: 4C 11 82  JMP loc_8211_выставить_флаг_сценария_04
@@ -2472,7 +2473,7 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209DD 10:89CD: 85 92     .word _scenario_9285_07 ; 
 - D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08 ; 
 - D - I - - 0x0209E1 10:89D1: 69 93     .word _scenario_9369_09 ; 
-- D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A ; 
+- D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A_result_gk_vs_attacker ; 
 - D - I - - 0x0209E5 10:89D5: ED 98     .word _scenario_98ED_0B ; 
 - D - I - - 0x0209E7 10:89D7: E3 96     .word _scenario_96E3_0C ; 
 - D - I - - 0x0209E9 10:89D9: F7 96     .word _scenario_96F7_0D ; 
@@ -2487,12 +2488,12 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209FB 10:89EB: 17 B8     .word _scenario_B817_16 ; 
 - D - I - - 0x0209FD 10:89ED: A1 B8     .word _scenario_B8A1_17 ; 
 - D - I - - 0x0209FF 10:89EF: 3E 9E     .word _scenario_9E3E_18 ; 
-- D - I - - 0x020A01 10:89F1: D4 BB     .word _scenario_BBD4_19 ; 
-- D - I - - 0x020A03 10:89F3: 6D BC     .word _scenario_BC6D_1A ; 
-- D - I - - 0x020A05 10:89F5: 86 B4     .word _scenario_B486_1B ; 
+- D - I - - 0x020A01 10:89F1: D4 BB     .word _scenario_BBD4_19_1_2_start ; 
+- D - I - - 0x020A03 10:89F3: 6D BC     .word _scenario_BC6D_1A_1_2_return ; 
+- D - I - - 0x020A05 10:89F5: 86 B4     .word _scenario_B486_1B_1_2_end ; 
 - D - I - - 0x020A07 10:89F7: E3 9B     .word _scenario_9BE3_1C ; 
 - D - I - - 0x020A09 10:89F9: EE 9C     .word _scenario_9CEE_1D ; 
-- D - I - - 0x020A0B 10:89FB: DA B7     .word _scenario_B7DA_1E ; 
+- D - I - - 0x020A0B 10:89FB: DA B7     .word _scenario_B7DA_1E_игрок_бежит_по_полю_с_картой ; 
 - D - I - - 0x020A0D 10:89FD: 33 B7     .word _scenario_B733_1F ; 
 - D - I - - 0x020A0F 10:89FF: 38 B7     .word _scenario_B738_20 ; 
 - D - I - - 0x020A11 10:8A01: 3B BA     .word _scenario_BA3B_21 ; 
@@ -2511,12 +2512,12 @@ tbl_89BF_сценарии:
 - D - I - - 0x020A2B 10:8A1B: 4E B7     .word _scenario_B74E_2E ; 
 - D - I - - 0x020A2D 10:8A1D: 73 B7     .word _scenario_B773_2F ; 
 - D - I - - 0x020A2F 10:8A1F: 30 9C     .word _scenario_9C30_30 ; 
-- D - I - - 0x020A31 10:8A21: 8C B7     .word _scenario_B78C_31 ; 
+- D - I - - 0x020A31 10:8A21: 8C B7     .word _scenario_B78C_31_gk_vs_attacker ; 
 - D - I - - 0x020A33 10:8A23: 57 9E     .word _scenario_9E57_32 ; 
 - D - I - - 0x020A35 10:8A25: 04 9C     .word _scenario_9C04_33 ; 
 - D - I - - 0x020A37 10:8A27: CC BB     .word _scenario_BBCC_34 ; 
-- D - I - - 0x020A39 10:8A29: CD B7     .word _scenario_B7CD_35 ; 
-- D - I - - 0x020A3B 10:8A2B: E4 B7     .word _scenario_B7E4_36 ; 
+- D - I - - 0x020A39 10:8A29: CD B7     .word _scenario_B7CD_35_wait_for_kick_off ; 
+- D - I - - 0x020A3B 10:8A2B: E4 B7     .word _scenario_B7E4_36_kick_off ; 
 - D - I - - 0x020A3D 10:8A2D: BF B7     .word _scenario_B7BF_37 ; 
 - D - I - - 0x020A3F 10:8A2F: C6 B7     .word _scenario_B7C6_38 ; 
 - D - I - - 0x020A41 10:8A31: B3 BD     .word _scenario_BDB3_39 ; 
@@ -5349,7 +5350,7 @@ loc_94C7_wakashimazu_triagle_jump_ловит_мяч:
 
 
 
-_scenario_9811_0A:
+_scenario_9811_0A_result_gk_vs_attacker:
     .dbyt con_branch_long + con_bra_действие_атаки_на_земле
     .word bra_long_case_0A_00 ; shoot
     .word bra_long_case_0A_01 ; pass
@@ -6940,7 +6941,7 @@ _scenario_9E3E_18:
 
 
 
-_scenario_BBD4_19:
+_scenario_BBD4_19_1_2_start:
     .byte con_mirror_condition, $00
     .dbyt con_branch_short + con_bra_обычный_или_спешал
     .byte off_case_19_00 - * ; обычная_перепасовка
@@ -6954,29 +6955,34 @@ _scenario_BBD4_19:
         off_case_19_01:
         ; спешал_перепасовка
             .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
-            .byte off_case_BBF6_00_tsubasa - * ; tsubasa
-            .byte off_case_BBF6_01_misaki - * ; misaki
-            .byte off_case_BC07_02_hyuga - * ; hyuga
-            .byte off_case_BBF6_03_hyuga - * ; hyuga
-            .byte off_case_BC18_04_hyuga - * ; hyuga
-            .byte off_case_BC07_05_sawada - * ; sawada
-            .byte off_case_BC18_06_sawada - * ; sawada
-            .byte off_case_BC29_07_masao - * ; masao
-            .byte off_case_BC29_08_kazuo - * ; kazuo
-            .byte off_case_BC29_09_masao - * ; masao
-            .byte off_case_BC29_0A_kazuo - * ; kazuo
-            .byte off_case_BC3A_0B_masao - * ; masao
-            .byte off_case_BC3A_0C_kazuo - * ; kazuo
-            .byte off_case_BC4B_0D_diaz - * ; diaz
-            .byte off_case_BC4B_0E_pascal - * ; pascal
-            .byte off_case_BC5C_0F_pierre - * ; pierre
-            .byte off_case_BC5C_10_napoleon - * ; napoleon
-            .byte off_case_BBF6_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
+            .byte off_case_19_01_00 - * ; p_tsubasa_my
+            .byte off_case_19_01_01 - * ; p_misaki_my
+            .byte off_case_19_01_02 - * ; p_hyuga_my
+            .byte off_case_19_01_03 - * ; p_hyuga_japan
+            .byte off_case_19_01_04 - * ; p_hyuga_toho
+            .byte off_case_19_01_05 - * ; p_sawada_my
+            .byte off_case_19_01_06 - * ; p_sawada_toho
+            .byte off_case_19_01_07 - * ; p_masao_my
+            .byte off_case_19_01_08 - * ; p_kazuo_my
+            .byte off_case_19_01_09 - * ; p_masao_japan
+            .byte off_case_19_01_0A - * ; p_kazuo_japan
+            .byte off_case_19_01_0B - * ; p_masao_akita
+            .byte off_case_19_01_0C - * ; p_kazuo_akita
+            .byte off_case_19_01_0D - * ; p_diaz_argentina
+            .byte off_case_19_01_0E - * ; p_pascal_argentina
+            .byte off_case_19_01_0F - * ; p_pierre_france
+            .byte off_case_19_01_10 - * ; p_napoleon_france
+            ; bzk garbage
+            .byte off_case_19_01_11 - * ; игрок без спешал перепасовки (placeholder)
 
-                off_case_BBF6_00_tsubasa:
-                off_case_BBF6_01_misaki:
-                off_case_BBF6_03_hyuga:
-                off_case_BBF6_11_игрок_без_спешал_перепасовки:
+                off_case_19_01_00:
+                ; спешал_перепасовка/p_tsubasa_my
+                off_case_19_01_01:
+                ; спешал_перепасовка/p_misaki_my
+                off_case_19_01_03:
+                ; спешал_перепасовка/p_hyuga_japan
+                off_case_19_01_11:
+                ; спешал_перепасовка/игрок без спешал перепасовки
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -6992,9 +6998,10 @@ _scenario_BBD4_19:
                     .byte con_jmp
                     .word loc_BBDA
 
-                off_case_BC07_02_hyuga:
-                off_case_BC07_05_sawada:
-                ; hyuga, sawada
+                off_case_19_01_02:
+                ; спешал_перепасовка/p_hyuga_my
+                off_case_19_01_05:
+                ; спешал_перепасовка/p_sawada_my
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -7010,9 +7017,10 @@ _scenario_BBD4_19:
                     .byte con_jmp
                     .word loc_BBDA
 
-                off_case_BC18_04_hyuga:
-                off_case_BC18_06_sawada:
-                ; hyuga, sawada
+                off_case_19_01_04:
+                ; спешал_перепасовка/p_hyuga_toho
+                off_case_19_01_06:
+                ; спешал_перепасовка/p_sawada_toho
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -7028,11 +7036,14 @@ _scenario_BBD4_19:
                     .byte con_jmp
                     .word loc_BBDA
 
-                off_case_BC29_07_masao:
-                off_case_BC29_08_kazuo:
-                off_case_BC29_09_masao:
-                off_case_BC29_0A_kazuo:
-                ; masao, kazuo
+                off_case_19_01_07:
+                ; спешал_перепасовка/p_masao_my
+                off_case_19_01_08:
+                ; спешал_перепасовка/p_kazuo_my
+                off_case_19_01_09:
+                ; спешал_перепасовка/p_masao_japan
+                off_case_19_01_0A:
+                ; спешал_перепасовка/p_kazuo_japan
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -7048,9 +7059,10 @@ _scenario_BBD4_19:
                     .byte con_jmp
                     .word loc_BBDA
 
-                off_case_BC3A_0B_masao:
-                off_case_BC3A_0C_kazuo:
-                ; masao, kazuo
+                off_case_19_01_0B:
+                ; спешал_перепасовка/p_masao_akita
+                off_case_19_01_0C:
+                ; спешал_перепасовка/p_kazuo_akita
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -7066,9 +7078,10 @@ _scenario_BBD4_19:
                     .byte con_jmp
                     .word loc_BBDA
 
-                off_case_BC4B_0D_diaz:
-                off_case_BC4B_0E_pascal:
-                ; diaz, pascal
+                off_case_19_01_0D:
+                ; спешал_перепасовка/p_diaz_argentina
+                off_case_19_01_0E:
+                ; спешал_перепасовка/p_pascal_argentina
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -7084,9 +7097,10 @@ _scenario_BBD4_19:
                     .byte con_jmp
                     .word loc_BBDA
 
-                off_case_BC5C_0F_pierre:
-                off_case_BC5C_10_napoleon:
-                ; pierre, napoleon
+                off_case_19_01_0F:
+                ; спешал_перепасовка/p_pierre_france
+                off_case_19_01_10:
+                ; спешал_перепасовка/p_napoleon_france
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -7104,7 +7118,7 @@ _scenario_BBD4_19:
 
 
 
-_scenario_BC6D_1A:
+_scenario_BC6D_1A_1_2_return:
     .dbyt con_branch_short + con_bra_обычный_или_спешал
     .byte off_case_1A_00 - * ; обычная перепасовка
     .byte off_case_1A_01 - * ; спешал перепасовка
@@ -7128,27 +7142,27 @@ _scenario_BC6D_1A:
         ; спешал перепасовка
             .byte con_mirror_off
             .dbyt con_branch_short + con_bra_требуются_2_напарника     ; спешал перепасовка
-            .byte off_case_BC96_00_tsubasa - * ; tsubasa
-            .byte off_case_BCAE_01_misaki - * ; misaki
-            .byte off_case_BCC6_02_hyuga - * ; hyuga
-            .byte off_case_BCC6_03_hyuga - * ; hyuga
-            .byte off_case_BCCB_04_hyuga - * ; hyuga
-            .byte off_case_BCE5_05_sawada - * ; sawada
-            .byte off_case_BCEA_06_sawada - * ; sawada
-            .byte off_case_BD04_07_masao - * ; masao
-            .byte off_case_BD04_08_kazuo - * ; kazuo
-            .byte off_case_BD04_09_masao - * ; masao
-            .byte off_case_BD04_0A_kazuo - * ; kazuo
-            .byte off_case_BD09_0B_masao - * ; masao
-            .byte off_case_BD09_0C_kazuo - * ; kazuo
-            .byte off_case_BD23_0D_diaz - * ; diaz
-            .byte off_case_BD3B_0E_pascal - * ; pascal
-            .byte off_case_BD53_0F_pierre - * ; pierre
-            .byte off_case_BD6D_10_napoleon - * ; napoleon
-            .byte off_case_BCAD_11_игрок_без_спешал_перепасовки - * ; игрок без спешал перепасовки
+            .byte off_case_1A_01_00 - * ; p_tsubasa_my
+            .byte off_case_1A_01_01 - * ; p_misaki_my
+            .byte off_case_1A_01_02 - * ; p_hyuga_my
+            .byte off_case_1A_01_03 - * ; p_hyuga_japan
+            .byte off_case_1A_01_04 - * ; p_hyuga_toho
+            .byte off_case_1A_01_05 - * ; p_sawada_my
+            .byte off_case_1A_01_06 - * ; p_sawada_toho
+            .byte off_case_1A_01_07 - * ; p_masao_my
+            .byte off_case_1A_01_08 - * ; p_kazuo_my
+            .byte off_case_1A_01_09 - * ; p_masao_japan
+            .byte off_case_1A_01_0A - * ; p_kazuo_japan
+            .byte off_case_1A_01_0B - * ; p_masao_akita
+            .byte off_case_1A_01_0C - * ; p_kazuo_akita
+            .byte off_case_1A_01_0D - * ; p_diaz_argentina
+            .byte off_case_1A_01_0E - * ; p_pascal_argentina
+            .byte off_case_1A_01_0F - * ; p_pierre_france
+            .byte off_case_1A_01_10 - * ; p_napoleon_france
+            .byte off_case_1A_01_11 - * ; игрок без спешал перепасовки
 
-                off_case_BC96_00_tsubasa:
-                ; tsubasa
+                off_case_1A_01_00:
+                ; спешал перепасовка/p_tsubasa_my
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $28
                     .byte con_s_bg_36
@@ -7166,12 +7180,12 @@ _scenario_BC6D_1A:
                     .byte con_s_bg_36
                     .byte con_s_anim_95
                     .byte con_s_cloud_FF_skip
-                off_case_BCAD_11_игрок_без_спешал_перепасовки:
-                ; игрок без спешал перепасовки
+                off_case_1A_01_11:
+                ; спешал перепасовка/игрок без спешал перепасовки
                     .byte con_rts
 
-                off_case_BCAE_01_misaki:
-                ; misaki
+                off_case_1A_01_01:
+                ; спешал перепасовка/p_misaki_my
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
                     .byte con_s_bg_36
@@ -7191,15 +7205,16 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BCC6_02_hyuga:
-                off_case_BCC6_03_hyuga:
-                ; hyuga
+                off_case_1A_01_02:
+                ; спешал перепасовка/p_hyuga_my
+                off_case_1A_01_03:
+                ; спешал перепасовка/p_hyuga_japan
                     .byte con_F7, $40
                     .byte con_jmp
                     .word loc_BCCD
 
-                off_case_BCCB_04_hyuga:
-                ; hyuga
+                off_case_1A_01_04:
+                ; спешал перепасовка/p_hyuga_toho
                     .byte con_F7, $22
                 loc_BCCD:
                     .byte con_soundID_delay, $2C, $21
@@ -7221,14 +7236,14 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BCE5_05_sawada:
-                ; sawada
+                off_case_1A_01_05:
+                ; спешал перепасовка/p_sawada_my
                     .byte con_F7, $40
                     .byte con_jmp
                     .word loc_BCEC
 
-                off_case_BCEA_06_sawada:
-                ; sawada
+                off_case_1A_01_06:
+                ; спешал перепасовка/p_sawada_toho
                     .byte con_F7, $22
                 loc_BCEC:
                     .byte con_soundID_delay, $2C, $21
@@ -7250,18 +7265,22 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BD04_07_masao:
-                off_case_BD04_08_kazuo:
-                off_case_BD04_09_masao:
-                off_case_BD04_0A_kazuo:
-                ; masao, kazuo
+                off_case_1A_01_07:
+                ; спешал перепасовка/p_masao_my
+                off_case_1A_01_08:
+                ; спешал перепасовка/p_kazuo_my
+                off_case_1A_01_09:
+                ; спешал перепасовка/p_masao_japan
+                off_case_1A_01_0A:
+                ; спешал перепасовка/p_kazuo_japan
                     .byte con_F7, $40
                     .byte con_jmp
                     .word loc_BD0B
 
-                off_case_BD09_0B_masao:
-                off_case_BD09_0C_kazuo:
-                ; masao, kazuo
+                off_case_1A_01_0B:
+                ; спешал перепасовка/p_masao_akita
+                off_case_1A_01_0C:
+                ; спешал перепасовка/p_kazuo_akita
                     .byte con_F7, $3F
                 loc_BD0B:
                     .byte con_soundID_delay, $2C, $21
@@ -7283,8 +7302,8 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BD23_0D_diaz:
-                ; diaz
+                off_case_1A_01_0D:
+                ; спешал перепасовка/p_diaz_argentina
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
                     .byte con_s_bg_36
@@ -7304,8 +7323,8 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BD3B_0E_pascal:
-                ; pascal
+                off_case_1A_01_0E:
+                ; спешал перепасовка/p_pascal_argentina
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
                     .byte con_s_bg_36
@@ -7325,8 +7344,8 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BD53_0F_pierre:
-                ; pierre
+                off_case_1A_01_0F:
+                ; спешал перепасовка/p_pierre_france
                     .byte con_F7, $25
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7347,8 +7366,8 @@ _scenario_BC6D_1A:
                     .byte con_s_cloud_FF_skip
                     .byte con_rts
 
-                off_case_BD6D_10_napoleon:
-                ; napoleon
+                off_case_1A_01_10:
+                ; спешал перепасовка/p_napoleon_france
                     .byte con_F7, $25
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7371,7 +7390,7 @@ _scenario_BC6D_1A:
 
 
 
-_scenario_B486_1B:
+_scenario_B486_1B_1_2_end:
     .byte con_mirror_condition, $00
     .dbyt con_branch_short + con_bra_обычный_или_спешал
     .word case_1B_00 - * ; обычная перепасовка
@@ -8142,7 +8161,7 @@ _scenario_9CEE_1D:
 
 
 
-_scenario_B7DA_1E:
+_scenario_B7DA_1E_игрок_бежит_по_полю_с_картой:
     .byte con_mirror_condition, $02       ; команда
     .byte con_mirror_toggle
     .byte con_F7, $01
@@ -9355,28 +9374,29 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
         bra_long_case_9D9A_09:
         ; twin shot
             .dbyt con_branch_short + con_bra_требуются_2_напарника     ; twin shot
-            .byte off_case_9D9A_09_00 - * ; tsubasa
-            .byte off_case_9D9A_09_01 - * ; misaki
-            .byte off_case_9D9A_09_02 - * ; hyuga
-            .byte off_case_9D9A_09_03 - * ; hyuga
-            .byte off_case_9D9A_09_04 - * ; hyuga
-            .byte off_case_9D9A_09_05 - * ; sawada
-            .byte off_case_9D9A_09_06 - * ; sawada
-            .byte off_case_9D9A_09_07 - * ; masao
-            .byte off_case_9D9A_09_08 - * ; kazuo
-            .byte off_case_9D9A_09_09 - * ; masao
-            .byte off_case_9D9A_09_0A - * ; kazuo
-            .byte off_case_9D9A_09_0B - * ; masao
-            .byte off_case_9D9A_09_0C - * ; kazuo
-            .byte off_case_9D9A_09_0D - * ; diaz
-            .byte off_case_9D9A_09_0E - * ; pascal
-            .byte off_case_9D9A_09_0F - * ; pierre
-            .byte off_case_9D9A_09_10 - * ; napoleon
-            .byte off_case_9D9A_09_11 - * ; корея без рож
+            .byte off_case_9D9A_09_00 - * ; p_tsubasa_my
+            .byte off_case_9D9A_09_01 - * ; p_misaki_my
+            .byte off_case_9D9A_09_02 - * ; p_hyuga_my
+            .byte off_case_9D9A_09_03 - * ; p_hyuga_japan
+            .byte off_case_9D9A_09_04 - * ; p_hyuga_toho
+            .byte off_case_9D9A_09_05 - * ; p_sawada_my
+            .byte off_case_9D9A_09_06 - * ; p_sawada_toho
+            .byte off_case_9D9A_09_07 - * ; p_masao_my
+            .byte off_case_9D9A_09_08 - * ; p_kazuo_my
+            .byte off_case_9D9A_09_09 - * ; p_masao_japan
+            .byte off_case_9D9A_09_0A - * ; p_kazuo_japan
+            .byte off_case_9D9A_09_0B - * ; p_masao_akita
+            .byte off_case_9D9A_09_0C - * ; p_kazuo_akita
+            .byte off_case_9D9A_09_0D - * ; p_diaz_argentina
+            .byte off_case_9D9A_09_0E - * ; p_pascal_argentina
+            .byte off_case_9D9A_09_0F - * ; p_pierre_france
+            .byte off_case_9D9A_09_10 - * ; p_napoleon_france
+            .byte off_case_9D9A_09_11 - * ; south_korea без рож
 
                 off_case_9D9A_09_00:
+                ; twin shot/p_tsubasa_my
                 off_case_9D9A_09_01:
-                ; tsubasa, misaki
+                ; twin shot/p_misaki_my
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -9404,11 +9424,15 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
 
                 off_case_9D9A_09_02:
+                ; twin shot/p_hyuga_my
                 off_case_9D9A_09_03:
+                ; twin shot/p_hyuga_japan
                 off_case_9D9A_09_04:
+                ; twin shot/p_hyuga_toho
                 off_case_9D9A_09_05:
+                ; twin shot/p_sawada_my
                 off_case_9D9A_09_06:
-                ; hyuga, sawada
+                ; twin shot/p_sawada_toho
                 loc_B1DE_twin_shot:
                     .byte con_soundID_delay, $26, $02
                     .byte con_F7, $02
@@ -9437,10 +9461,13 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_rts
                 
                 off_case_9D9A_09_07:
+                ; twin shot/p_masao_my
                 off_case_9D9A_09_08:
+                ; twin shot/p_kazuo_my
                 off_case_9D9A_09_09:
+                ; twin shot/p_masao_japan
                 off_case_9D9A_09_0A:
-                ; masao, kazuo
+                ; twin shot/p_kazuo_japan
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -9453,7 +9480,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_masao_my
                     .byte con_s_cloud_AD
-loc_B22E:
+                    loc_B22E:
                     .byte con_F7, $10
                     .byte con_pause + $16
                     .byte con_s_bg_05
@@ -9469,8 +9496,9 @@ loc_B22E:
                     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
                 
                 off_case_9D9A_09_0B:
+                ; twin shot/p_masao_akita
                 off_case_9D9A_09_0C:
-                ; masao, kazuo
+                ; twin shot/p_kazuo_akita
                     .byte con_mirror_on
                     .byte con_F8, $04
                     .byte con_pause + $3C
@@ -9487,11 +9515,15 @@ loc_B22E:
                     .word loc_B22E
 
                 off_case_9D9A_09_0D:
+                ; twin shot/p_diaz_argentina
                 off_case_9D9A_09_0E:
+                ; twin shot/p_pascal_argentina
                 off_case_9D9A_09_0F:
+                ; twin shot/p_pierre_france
                 off_case_9D9A_09_10:
+                ; twin shot/p_napoleon_france
                 off_case_9D9A_09_11:
-                ; diaz, pascal, pierre, napoleon, корея
+                ; twin shot/p_sha_south_korea или p_kim_south_korea
                     .byte con_jmp
                     .word loc_B1DE_twin_shot
 
@@ -14250,7 +14282,7 @@ sub_9C36_анимация_гола_в_левые_ворота_и_сообщен�
 
 
 
-_scenario_B78C_31:
+_scenario_B78C_31_gk_vs_attacker:
     .byte con_mirror_off
     .byte con_pause + $5A
     .byte con_s_bg_2C
@@ -14341,7 +14373,7 @@ _scenario_BBCC_34:
 
 
 
-_scenario_B7CD_35:
+_scenario_B7CD_35_wait_for_kick_off:
     .byte con_soundID_delay, $44, $EB
     .byte con_pause + $02
     .byte con_s_bg_3A
@@ -14351,7 +14383,7 @@ _scenario_B7CD_35:
 
 
 
-_scenario_B7E4_36:
+_scenario_B7E4_36_kick_off:
     .byte con_mirror_off
     .byte con_soundID_delay, $7F, $02
     .byte con_pause + $10

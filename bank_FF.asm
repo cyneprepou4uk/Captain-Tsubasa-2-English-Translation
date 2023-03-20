@@ -26,7 +26,7 @@
 .export sub_0x03CCE3
 .export sub_0x03CD1D_умножение_16бит_на_16бит
 .export sub_0x03CD4C_получить_младший_разряд_числа
-.export sub_0x03CD87_получить_адрес_игрока_команды_без_мяча
+.export sub_0x03CD87_получить_адрес_кипера_команды_без_мяча
 .export sub_0x03CD8C_получить_адрес_игрока
 .export loc_0x03CD8C_получить_адрес_игрока
 .export sub_0x03CDD9_проверить_координаты_игрока
@@ -1208,8 +1208,8 @@ C - - - - - 0x03CD86 FF:CD76: 60        RTS
 
 
 
-sub_CD77_получить_адрес_игрока_команды_без_мяча:
-sub_0x03CD87_получить_адрес_игрока_команды_без_мяча:
+sub_CD77_получить_адрес_кипера_команды_без_мяча:
+sub_0x03CD87_получить_адрес_кипера_команды_без_мяча:
                                         LDA ram_команда_с_мячом
                                         EOR #$0B
 sub_CD7C_получить_адрес_игрока:
@@ -2178,7 +2178,7 @@ C - - - - - 0x03D2EC FF:D2DC: C9 02     CMP #$02
 C - - - - - 0x03D2EE FF:D2DE: D0 0D     BNE bra_D2ED
 ; bzk optimize, прыжок чтобы вычислить адрес кипера
 ; тут можно сразу проверить адрес кипера без косвенной адресации
-C - - - - - 0x03D2F0 FF:D2E0: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
+C - - - - - 0x03D2F0 FF:D2E0: 20 77 CD  JSR sub_CD77_получить_адрес_кипера_команды_без_мяча
 C - - - - - 0x03D2F3 FF:D2E3: A0 00     LDY #con_plr_id
 C - - - - - 0x03D2F5 FF:D2E5: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03D2F7 FF:D2E7: C9 22     CMP #con_p_wakashimazu_my      ; чтобы отобразить ему действие прыжка от штанги при нажатии вниз
@@ -2611,7 +2611,7 @@ sub_D573:
 C - - - - - 0x03D583 FF:D573: A9 00     LDA #$00
 C - - - - - 0x03D585 FF:D575: 8D 2D 06  STA ram_062D
 C - - - - - 0x03D588 FF:D578: 8D 28 06  STA ram_индекс_буфера
-C - - - - - 0x03D58B FF:D57B: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
+C - - - - - 0x03D58B FF:D57B: 20 77 CD  JSR sub_CD77_получить_адрес_кипера_команды_без_мяча
 C - - - - - 0x03D58E FF:D57E: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03D590 FF:D580: B1 34     LDA (ram_plr_data),Y    ; con_plr_stun
 C - - - - - 0x03D592 FF:D582: F0 08     BEQ bra_D58C
@@ -3414,7 +3414,7 @@ C - - - - - 0x03DAE4 FF:DAD4: C9 04     CMP #$04
 C - - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9_пропуск_отрисовки_и_ожидания_разводки
                                         LDA #con_B3CF_42
                                         JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #con_s_id_35
+C - - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #con_s_id_wait_for_kick_off
 C - - - - - 0x03DAEA FF:DADA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 bra_DADD_ожидание_разводки:
 C - - - - - 0x03DAED FF:DADD: A9 01     LDA #$01
@@ -3440,7 +3440,7 @@ C - - - - - 0x03DB14 FF:DB04: 18        CLC
 C - - - - - 0x03DB15 FF:DB05: 6D FB 05  ADC ram_команда_с_мячом
 C - - - - - 0x03DB18 FF:DB08: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03DB1B FF:DB0B: 20 EC E6  JSR sub_E6EC
-C - - - - - 0x03DB1E FF:DB0E: A9 36     LDA #con_s_id_36
+C - - - - - 0x03DB1E FF:DB0E: A9 36     LDA #con_s_id_kick_off
 C - - - - - 0x03DB20 FF:DB10: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DB23 FF:DB13: AD FC 05  LDA ram_принимающий
 C - - - - - 0x03DB26 FF:DB16: 8D 41 04  STA ram_игрок_с_мячом
@@ -3828,7 +3828,7 @@ C - - - - - 0x03DD24 FF:DD14: A9 2D     LDA #con_s_id_2D
 C - - - - - 0x03DD26 FF:DD16: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DD29 FF:DD19: 4C 1B 80  JMP loc_0x034BF5
 bra_DD1C:
-C - - - - - 0x03DD2C FF:DD1C: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
+C - - - - - 0x03DD2C FF:DD1C: 20 77 CD  JSR sub_CD77_получить_адрес_кипера_команды_без_мяча
 C - - - - - 0x03DD2F FF:DD1F: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03DD31 FF:DD21: B1 34     LDA (ram_plr_data),Y    ; con_plr_stun
 C - - - - - 0x03DD33 FF:DD23: D0 11     BNE bra_DD36
@@ -4241,7 +4241,7 @@ C - - - - - 0x03DFEE FF:DFDE: 8D 1A 06  STA ram_061A
 C - - - - - 0x03DFF1 FF:DFE1: A9 01     LDA #$01
 C - - - - - 0x03DFF3 FF:DFE3: 8D 1B 06  STA ram_061B
 C - - - - - 0x03DFF6 FF:DFE6: 20 3E E7  JSR sub_E73E
-C - - - - - 0x03DFF9 FF:DFE9: A9 1A     LDA #con_s_id_1A
+C - - - - - 0x03DFF9 FF:DFE9: A9 1A     LDA #con_s_id_1_2_return
 C - - - - - 0x03DFFB FF:DFEB: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03DFFE FF:DFEE: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03E001 FF:DFF1: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
@@ -4287,7 +4287,7 @@ C - - - - - 0x03E053 FF:E043: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E055 FF:E045: 85 25     STA ram_for_5115
 C - - - - - 0x03E057 FF:E047: 20 2D CE  JSR sub_CE2D_prg_bankswitch
 C - - - - - 0x03E05B FF:E04B: 20 1E 80  JSR sub_0x034B5A
-C - - - - - 0x03E05E FF:E04E: A9 1B     LDA #con_s_id_1B
+C - - - - - 0x03E05E FF:E04E: A9 1B     LDA #con_s_id_1_2_end
 C - - - - - 0x03E060 FF:E050: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E063 FF:E053: A2 50     LDX #$50
 C - - - - - 0x03E065 FF:E055: 9A        TXS
@@ -4539,7 +4539,7 @@ C - - - - - 0x03E240 FF:E230: 4C 45 E1  JMP loc_E145
 
 sub_E233:
 sub_0x03E243:
-C D - - - - 0x03E243 FF:E233: A9 1E     LDA #con_s_id_1E
+C D - - - - 0x03E243 FF:E233: A9 1E     LDA #con_s_id_игрок_бежит_по_полю_с_картой
 C - - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E24B FF:E23B: A9 1C     LDA #con_prg_bank + $1C
 C - - - - - 0x03E24D FF:E23D: 85 24     STA ram_for_5114
@@ -4579,7 +4579,7 @@ C - - - - - 0x03E28C FF:E27C: 60        RTS
 
 
 sub_E27D:
-C - - - - - 0x03E28D FF:E27D: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
+C - - - - - 0x03E28D FF:E27D: 20 77 CD  JSR sub_CD77_получить_адрес_кипера_команды_без_мяча
 C - - - - - 0x03E290 FF:E280: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03E292 FF:E282: B1 34     LDA (ram_plr_data),Y    ; con_plr_stun
 C - - - - - 0x03E294 FF:E284: D0 1C     BNE bra_E2A2_RTS
@@ -5066,7 +5066,7 @@ ofs_041_0x03E5A6:
 C D - - - - 0x03E5A6 FF:E596: AD E2 00  LDA ram_random + $01
 C - - - - - 0x03E5A9 FF:E599: C9 E0     CMP #$E0
 C - - - - - 0x03E5AB FF:E59B: B0 1D     BCS bra_E5BA
-C - - - - - 0x03E5AD FF:E59D: 20 77 CD  JSR sub_CD77_получить_адрес_игрока_команды_без_мяча
+C - - - - - 0x03E5AD FF:E59D: 20 77 CD  JSR sub_CD77_получить_адрес_кипера_команды_без_мяча
 ; con_величина_наебки
 ; bzk bug? зачем тут кипер? разве у него есть параметры координат lo?
 C - - - - - 0x03E5B0 FF:E5A0: A0 07     LDY #con_plr_pos_Y_lo
