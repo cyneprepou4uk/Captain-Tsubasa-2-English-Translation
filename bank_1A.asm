@@ -1177,7 +1177,6 @@ C - - - - - 0x0347B2 1A:87A2: 20 85 84  JSR sub_8485
 C - - - - - 0x0347B5 1A:87A5: AD E2 00  LDA ram_random + $01
 C - - - - - 0x0347B8 1A:87A8: C9 40     CMP #$40
 C - - - - - 0x0347BA 1A:87AA: B0 05     BCS bra_87B1
-C - - - - - 0x0347BC 1A:87AC: A9 24     LDA #$24
 C - - - - - 0x0347BE 1A:87AE: 20 F5 8C  JSR sub_8CF5
 bra_87B1:
 C - - - - - 0x0347C1 1A:87B1: A2 50     LDX #$50
@@ -2019,14 +2018,12 @@ C - - - - - 0x034D04 1A:8CF4: 60        RTS
 
 
 sub_8CF5:
-; bzk optimize, сюда единственный прыжок
-C - - - - - 0x034D05 1A:8CF5: 48        PHA
 C - - - - - 0x034D06 1A:8CF6: 20 51 C5  JSR sub_0x03CD87_получить_адрес_игрока_команды_без_мяча
-C - - - - - 0x034D09 1A:8CF9: 68        PLA
 ; судя по новому логу, только для кипера соперника?
 C - - - - - 0x034D0A 1A:8CFA: A0 07     LDY #con_величина_наебки
+                                        LDA (ram_plr_data),Y    ; con_величина_наебки
 C - - - - - 0x034D0C 1A:8CFC: 18        CLC
-C - - - - - 0x034D0D 1A:8CFD: 71 34     ADC (ram_plr_data),Y    ; con_величина_наебки
+C - - - - - 0x034D0D 1A:8CFD: 71 34     ADC #$24
 C - - - - - 0x034D0F 1A:8CFF: 10 02     BPL bra_8D03_not_overflow
 - - - - - - 0x034D11 1A:8D01: A9 7F     LDA #$7F
 bra_8D03_not_overflow:
