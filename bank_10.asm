@@ -782,8 +782,6 @@ ofs_015_836E_10_скорость_мяча:
 ; 00 = медленный (пас)
 ; 01 = быстрый (удар)
 ; 02 = смертельный (этот мяч полюбому убьет игрока)
-; 03 = ? предположительно unused
-; 04 = ? предположительно unused
 C - J - - - 0x02037E 10:836E: A2 00     LDX #$00
 C - - - - - 0x020380 10:8370: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x020383 10:8373: C9 01     CMP #$01      ; pass
@@ -5616,8 +5614,6 @@ _scenario_98ED_0B:
             .byte off_case_0B_00_00 - * ; медленный
             .byte off_case_0B_00_01 - * ; быстрый
             .byte off_case_0B_00_02 - * ; смертельный
-            .byte off_case_0B_00_03_unused - * ; unused
-            .byte off_case_0B_00_04_unused - * ; unused
 
                 off_case_0B_00_00:
                 ; low/медленный
@@ -5751,89 +5747,12 @@ _scenario_98ED_0B:
                             .byte con_jmp
                             .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
-                off_case_0B_00_03_unused:
-                    .byte con_mirror_condition, $00
-                    .byte con_jsr
-                    .word sub_B449_полет_мяча_дугой
-                    .byte con_jsr
-                    .word sub_A1C3_защитник_бежит_к_низкому_мячу
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_0B_00_03_00 - * ; промахнется
-                    .byte off_case_0B_00_03_01 - * ; коснется
-                    .byte off_case_0B_00_03_02 - * ; отобьет
-                    .byte off_case_0B_00_03_03 - * ; словит
-
-                        off_case_0B_00_03_00:
-                        ; 
-                            .byte con_jmp
-                            .word loc_9FEA_защитник_промахивается_ногой_по_низкому_мячу
-
-                        off_case_0B_00_03_01:
-                        ; 
-                            .byte con_jsr
-                            .word sub_9FFD_защитник_собирается_коснуться_ногой_низкого_мяча
-                            .byte con_jsr
-                            .word sub_9FF3_в_процессе_касания_защитником_ногой_высого_мяча
-                            .byte con_jmp
-                            .word loc_9FDE_высокий_мяч_летит_дальше_после_касания_ногой_защитником
-
-                        off_case_0B_00_03_02:
-                        ; 
-                            .byte con_jsr
-                            .word sub_A004_защитник_собирается_отбить_ногой_низкий_мяч
-                            .byte con_jsr
-                            .word sub_9FF1_защитник_в_процессе_отбития_ногой_низкого_мяча
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-                        off_case_0B_00_03_03:
-                        ; 
-                            .byte con_jmp
-                            .word loc_A164_защитник_ловит_низкий_мяч_ногой
-
-                off_case_0B_00_04_unused:
-                    .byte con_mirror_condition, $00
-                    .byte con_jsr
-                    .word sub_B449_полет_мяча_дугой
-                    .byte con_jsr
-                    .word sub_A1C3_защитник_бежит_к_низкому_мячу
-                    .byte con_jsr
-                    .word sub_A004_защитник_собирается_отбить_ногой_низкий_мяч
-                    .byte con_jsr
-                    .word sub_A2E7_темно_красное_мерцание
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_0B_00_04_00 - * ; умрет
-                    .byte off_case_0B_00_04_01 - * ; умрет и серый экран
-                    .byte off_case_0B_00_04_02 - * ; умрет и отобьет
-; bzk по идее может и словить с темно красным мерцанием, надо смотреть код, бывает ли такая ситуация
-
-                        off_case_0B_00_04_00:
-                        ; умрет
-                            .byte con_jmp
-                            .word loc_9F62_рандом_анимации_отпизженного_игрока_2_с_сообщением
-
-                        off_case_0B_00_04_01:
-                        ; умрет и серый экран
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_1_с_сообщением
-                            .byte con_jmp
-                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
-
-                        off_case_0B_00_04_02:
-                        ; умрет и отобьет
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_1_с_сообщением
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
         bra_long_case_0B_01:
         ; high
             .dbyt con_branch_short + con_bra_скорость_мяча
             .byte off_case_0B_01_00 - * ; медленный
             .byte off_case_0B_01_01 - * ; быстрый
             .byte off_case_0B_01_02 - * ; смертельный
-            .byte off_case_0B_01_03_unused - * ; unused
-            .byte off_case_0B_01_04_unused - * ; unused
 
                 off_case_0B_01_00:
                 ; high/медленный
@@ -5984,85 +5903,6 @@ _scenario_98ED_0B:
                         ; high/смертельный/словит
                             .byte con_jmp
                             .word loc_A185_защитник_ловит_высокий_мяч_телом
-
-                off_case_0B_01_03_unused:
-                    .byte con_mirror_condition, $00
-                    .byte con_jsr
-                    .word sub_B449_полет_мяча_дугой
-                    .byte con_jsr
-                    .word sub_A0AE_защитник_прыгает_без_движения_фона
-                    .byte con_jsr
-                    .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_0B_01_03_00 - * ; промахнется
-                    .byte off_case_0B_01_03_01 - * ; коснется
-                    .byte off_case_0B_01_03_02 - * ; отобьет
-                    .byte off_case_0B_01_03_03 - * ; словит
-
-                        off_case_0B_01_03_00:
-                        ; 
-                            .byte con_jmp
-                            .word loc_A176_защитник_в_воздухе_не_касается_мяча_телом
-
-                        off_case_0B_01_03_01:
-                        ; 
-                            .byte con_jsr
-                            .word sub_A02F_защитник_собирается_коснуться_телом_верхнего_мяча
-                            .byte con_jsr
-                            .word sub_A051_защитник_касается_телом_верхнего_мяча
-                            .byte con_jmp
-                            .word loc_A04C_высокий_мяч_летит_дальше_после_касания_тела_защитника
-
-                        off_case_0B_01_03_02:
-                        ; 
-                            .byte con_jsr
-                            .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                            .byte con_jsr
-                            .word sub_A023_процесс_отбивания_защитником_мяча_телом_после_прыжка
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
-
-                        off_case_0B_01_03_03:
-                        ; 
-                            .byte con_jmp
-                            .word loc_A185_защитник_ловит_высокий_мяч_телом
-
-                off_case_0B_01_04_unused:
-                    .byte con_mirror_condition, $00
-                    .byte con_jsr
-                    .word sub_B449_полет_мяча_дугой
-                    .byte con_jsr
-                    .word sub_A0AE_защитник_прыгает_без_движения_фона
-                    .byte con_jsr
-                    .word sub_A2D8_защитник_в_прыжке_к_летящему_мячу
-                    .byte con_jsr
-                    .word sub_A047_защитник_собирается_отбить_мяч_телом_после_прыжка
-                    .byte con_jsr
-                    .word sub_A2E7_темно_красное_мерцание
-                    .dbyt con_branch_short + con_bra_результат_действия_защитника
-                    .byte off_case_0B_01_04_00 - * ; умрет
-                    .byte off_case_0B_01_04_01 - * ; умрет и серый экран
-                    .byte off_case_0B_01_04_02 - * ; умрет и отобьет
-; bzk по идее может и словить с темно красным мерцанием, надо смотреть код, бывает ли такая ситуация
-
-                        off_case_0B_01_04_00:
-                        ; 
-                            .byte con_jmp
-                            .word loc_9F62_рандом_анимации_отпизженного_игрока_2_с_сообщением
-
-                        off_case_0B_01_04_01:
-                        ; 
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_1_с_сообщением
-                            .byte con_jmp
-                            .word loc_A240_серый_экран_после_касания_высого_мяча_телом
-
-                        off_case_0B_01_04_02:
-                        ; 
-                            .byte con_jsr
-                            .word sub_9F5C_рандом_анимации_отпизженного_игрока_1_с_сообщением
-                            .byte con_jmp
-                            .word loc_A371_мяч_улетает_в_сторону
 
 
 
@@ -13475,15 +13315,6 @@ loc_B442_игрок_делает_нижний_through:
 
 
 
-sub_B449_полет_мяча_дугой:
-    .byte con_pause + $28
-    .byte con_s_bg_20
-    .byte con_s_anim_70
-    .byte con_s_cloud_clear
-    .byte con_rts
-
-
-
 loc_B44E_кипер_идеально_засейвил:
 sub_B44E_кипер_идеально_засейвил:
     .byte con_pause + $5A
@@ -14623,8 +14454,6 @@ sub_9F3E:
     .byte off_case_3C_00 - * ; медленный
     .byte off_case_3C_01 - * ; быстрый
     .byte off_case_3C_02 - * ; смертельный
-    .byte off_case_3C_03_unused - * ; 
-    .byte off_case_3C_04_unused - * ; 
 
         off_case_3C_00:
         ; медленный
@@ -14665,8 +14494,6 @@ sub_9F3E:
 
         off_case_3C_01:
         off_case_3C_02:
-        off_case_3C_03_unused:
-        off_case_3C_04_unused:
         ; быстрый, смертельный
         loc_BB4B_3C_00_00:
 sub_BB4B_летящий_мяч_перед_принятием_финального_паса_перепасовки:
