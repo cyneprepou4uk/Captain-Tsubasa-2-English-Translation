@@ -2466,7 +2466,7 @@ tbl_89BF_сценарии:
 - D - I - - 0x0209CF 10:89BF: B1 8A     .word _scenario_8AB1_00 ; 
 - D - I - - 0x0209D1 10:89C1: F2 91     .word _scenario_91F2_01 ; 
 - D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02 ; 
-- - - - - - 0x0209D5 10:89C5: 8E B4     .word _scenario_B48E_03 ; unused
+- - - - - - 0x0209D5 10:89C5: 8E B4     .word $0000        ; 03 ; 
 - D - I - - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04 ; 
 - D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05 ; 
 - D - I - - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06 ; 
@@ -2522,8 +2522,8 @@ tbl_89BF_сценарии:
 - D - I - - 0x020A3F 10:8A2F: C6 B7     .word _scenario_B7C6_38 ; 
 - D - I - - 0x020A41 10:8A31: B3 BD     .word _scenario_BDB3_39 ; 
 - D - I - - 0x020A43 10:8A33: 7C B4     .word _scenario_B47C_3A ; 
-- - - - - - 0x020A45 10:8A35: A1 BD     .word _scenario_BDA1_3B ; unused
-- - - - - - 0x020A47 10:8A37: 3E 9F     .word _scenario_9F3E_3C ; unused
+- - - - - - 0x020A45 10:8A35: A1 BD     .word $0000        ; 3B ; 
+- - - - - - 0x020A47 10:8A37: 3E 9F     .word $0000        ; 3C ; 
 - D - I - - 0x020A49 10:8A39: BA 9F     .word _scenario_9FBA_3D ; 
 - D - I - - 0x020A4B 10:8A3B: 0A 9C     .word _scenario_9C0A_3E ; 
 - D - I - - 0x020A4D 10:8A3D: 54 B7     .word _scenario_B754_3F ; 
@@ -2535,14 +2535,14 @@ tbl_89BF_сценарии:
 - - - - - - 0x020A59 10:8A49: B8 BD     .word _scenario_BDB8_45 ; 
 - D - I - - 0x020A5B 10:8A4B: BD BD     .word _scenario_BDBD_46 ; 
 - D - I - - 0x020A5D 10:8A4D: 19 9C     .word _scenario_9C19_47 ; 
-- - - - - - 0x020A5F 10:8A4F: 01 BE     .word _scenario_BE01_48 ; unused
-- - - - - - 0x020A61 10:8A51: 01 BE     .word _scenario_BE01_49 ; unused
-- - - - - - 0x020A63 10:8A53: 01 BE     .word _scenario_BE01_4A ; unused
-- - - - - - 0x020A65 10:8A55: 01 BE     .word _scenario_BE01_4B ; unused
-- - - - - - 0x020A67 10:8A57: 01 BE     .word _scenario_BE01_4C ; unused
-- - - - - - 0x020A69 10:8A59: 01 BE     .word _scenario_BE01_4D ; unused
-- - - - - - 0x020A6B 10:8A5B: 01 BE     .word _scenario_BE01_4E ; unused
-- - - - - - 0x020A6D 10:8A5D: 01 BE     .word _scenario_BE01_4F ; unused
+- - - - - - 0x020A5F 10:8A4F: 01 BE     .word $0000        ; 48 ; 
+- - - - - - 0x020A61 10:8A51: 01 BE     .word $0000        ; 49 ; 
+- - - - - - 0x020A63 10:8A53: 01 BE     .word $0000        ; 4A ; 
+- - - - - - 0x020A65 10:8A55: 01 BE     .word $0000        ; 4B ; 
+- - - - - - 0x020A67 10:8A57: 01 BE     .word $0000        ; 4C ; 
+- - - - - - 0x020A69 10:8A59: 01 BE     .word $0000        ; 4D ; 
+- - - - - - 0x020A6B 10:8A5B: 01 BE     .word $0000        ; 4E ; 
+- - - - - - 0x020A6D 10:8A5D: 01 BE     .word $0000        ; 4F ; 
 - D - I - - 0x020A6F 10:8A5F: 01 BE     .word _scenario_BE01_50 ; 
 - D - I - - 0x020A71 10:8A61: 0D BE     .word _scenario_BE0D_51 ; 
 - D - I - - 0x020A73 10:8A63: 18 BE     .word _scenario_BE18_52 ; 
@@ -2565,8 +2565,8 @@ tbl_89BF_сценарии:
 - D - I - - 0x020A95 10:8A85: AE BE     .word _scenario_BEAE_63 ; 
 - D - I - - 0x020A97 10:8A87: B6 BE     .word _scenario_BEB6_64 ; 
 - D - I - - 0x020A99 10:8A89: BE BE     .word _scenario_BEBE_65 ; 
-- D - I - - 0x020A9B 10:8A8B: C6 BE     .word _scenario_BEC6_66 ; unused
-- - - - - - 0x020A9D 10:8A8D: D8 BE     .word _scenario_BED8_67 ; unused
+- D - I - - 0x020A9B 10:8A8B: C6 BE     .word $0000        ; 66 ; 
+- - - - - - 0x020A9D 10:8A8D: D8 BE     .word $0000        ; 67 ; 
 - - - - - - 0x020A9F 10:8A8F: F7 BE     .word _scenario_BEF7_68 ; 
 - D - I - - 0x020AA1 10:8A91: 05 BF     .word _scenario_BF05_69 ; 
 - D - I - - 0x020AA3 10:8A93: 62 AA     .word _scenario_AA62_6A ; 
@@ -3875,12 +3875,6 @@ _scenario_91FF_02:
                     .byte con_s_anim_DA
                     .byte con_s_cloud_E7
                     .byte con_rts
-
-
-
-_scenario_B48E_03:
-            .byte con_jmp
-            .word loc_B48E
 
 
 
@@ -10044,7 +10038,6 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
 
         bra_long_case_B509_04:
         ; drive overhead
-        sub_B509_drive_overhead:
             .byte con_soundID_delay, $04, $02
             .byte con_pause + $2A
             .byte con_s_bg_00
@@ -10160,7 +10153,6 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
 
         bra_long_case_B583_0D:
         ; neo tiger shot
-        sub_B583_neo_tiger_shot:
             .byte con_F7, $0C
             .byte con_jsr
             .word sub_BB97
@@ -10256,7 +10248,6 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
 
         bra_long_case_B5EC_14:
         ; banana shot
-        sub_B5EC_banana_shot:
             .byte con_jsr
             .word sub_BB8F
             .byte con_soundID_delay, $0E, $02
@@ -10284,7 +10275,6 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
 
         bra_long_case_B60B_16:
         ; mirage shot
-        sub_B60B_mirage_shot:
             .byte con_F7, $3B
             .byte con_jsr
             .word sub_BB8F
@@ -13540,7 +13530,6 @@ bra_long_case_B701_20:
 
 bra_long_case_B712_21:
 ; slider cannon
-sub_B712_slider_cannon:
     .byte con_jsr
     .word sub_BBAF_полет_twin_shot_2
     .byte con_mirror_toggle
@@ -13559,7 +13548,6 @@ sub_B712_slider_cannon:
 
 bra_long_case_B724_22:
 ; double eel
-sub_B724_double_eel:
     .byte con_soundID_delay, $0F, $02
     .byte con_pause + $3D
     .byte con_s_bg_4E
@@ -14436,16 +14424,6 @@ _scenario_B47C_3A:
 
 
 
-_scenario_BDA1_3B:
-    .byte con_pause + $10
-    .byte con_s_bg_FF_skip
-    .byte con_s_anim_FF_skip
-    .byte con_s_cloud_FF_skip
-    .byte con_rts
-
-
-
-_scenario_9F3E_3C:
 ; 0x021F4E
 ; bzk optimize, тут должно быть всего 3 поинтера для 10, судя по 0x02037E
 ; но на всякий случай расшифрованы и остальные
@@ -15107,14 +15085,6 @@ _scenario_9C19_47:
 
 
 
-_scenario_BE01_48:
-_scenario_BE01_49:
-_scenario_BE01_4A:
-_scenario_BE01_4B:
-_scenario_BE01_4C:
-_scenario_BE01_4D:
-_scenario_BE01_4E:
-_scenario_BE01_4F:
 _scenario_BE01_50:
     .byte con_mirror_off
     .byte con_jsr
@@ -15375,56 +15345,7 @@ _scenario_BEBE_65:
 
 
 
-_scenario_BEC6_66:
-    .byte con_F7, $31
-    .byte con_pause + $3A
-    .byte con_s_bg_6A
-    .byte con_s_anim_DB
-    .byte con_s_cloud_FF_skip
-    .byte con_F7, $20
-    .byte con_pause + $5E
-    .byte con_s_bg_49
-    .byte con_s_anim_FF_skip
-    .byte con_s_cloud_FF_skip
-    .byte con_F7, $10
-    .byte con_pause + $1E
-    .byte con_s_bg_05
-    .byte con_s_anim_00
-    .byte con_s_cloud_FF_skip
-
-
-
-_scenario_BED8_67:
-    .byte con_jsr
-    .word sub_B712_slider_cannon
-    .byte con_jsr
-    .word sub_B583_neo_tiger_shot
-    .byte con_jsr
-    .word sub_B509_drive_overhead
-    .byte con_jsr
-    .word sub_B60B_mirage_shot
-    .byte con_jsr
-    .word sub_B724_double_eel
-    .byte con_jsr
-    .word sub_B5EC_banana_shot
-    .byte con_pause + $38
-    .byte con_s_bg_35
-    .byte con_s_anim_10
-    .byte con_s_cloud_FF_skip
-    .byte con_jsr
-    .word sub_BB5D_одна_из_анимаций_drive_shot
-    .byte con_F7, $33
-    .byte con_pause + $3C
-    .byte con_s_bg_27
-    .byte con_s_anim_51
-    .byte con_s_cloud_FF_skip
-    .byte con_jmp
-    .word loc_BEF7
-
-
-
 _scenario_BEF7_68:
-loc_BEF7:
     .byte con_F7, $03
     .byte con_pause + $A0
     .byte con_s_bg_07
