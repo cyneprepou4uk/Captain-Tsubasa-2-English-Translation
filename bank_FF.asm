@@ -1437,7 +1437,7 @@ tbl_CE94:
     .word ofs_062_0x03829F_03
     .word ofs_062_0x03853E_04
     .word ofs_062_0x03847A_05
-    .word ofs_062_0x03850F_06
+    .word ofs_062_0x03850F_06_рандом_стороны_кипера_в_пк
     .word ofs_062_0x0384D1_07
 
 
@@ -1784,11 +1784,11 @@ sub_0x03D0A3_выбор_мелодии_команды:
 C D - - - - 0x03D0A3 FF:D093: A9 32     LDA #con_музыка_добавочное_время
 C - - - - - 0x03D0A5 FF:D095: 2C 3E 06  BIT ram_флаг_loss
 C - - - - - 0x03D0A8 FF:D098: 30 0E     BMI bra_D0A8_сейчас_loss
-C - - - - - 0x03D0AA FF:D09A: AE FB 05  LDX ram_команда_с_мячом     ; X = 00, bzk optimize, небезопасно
+C - - - - - 0x03D0AA FF:D09A: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03D0AD FF:D09D: F0 02     BEQ bra_D0A1_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03D0AF FF:D09F: A2 01     LDX #$01    ; ram_команда_соперника
-bra_D0A1_команда_слева:
+bra_D0A1_команда_слева: ; X = 00, bzk optimize, небезопасно
 C - - - - - 0x03D0B1 FF:D0A1: BD 2A 00  LDA ram_твоя_команда,X
 C - - - - - 0x03D0B4 FF:D0A4: AA        TAX
 C - - - - - 0x03D0B5 FF:D0A5: BD AC D0  LDA tbl_D0AC_мелодии_команд,X
@@ -2649,7 +2649,7 @@ loc_D5C3:
 C D - - - - 0x03D5D3 FF:D5C3: 20 46 CC  JSR sub_CC46_очистить_нижнюю_половину_экрана
 C - - - - - 0x03D5D6 FF:D5C6: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03D5D9 FF:D5C9: F0 03     BEQ bra_D5CE_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03D5DB FF:D5CB: 4C 6E D3  JMP loc_D36E
 bra_D5CE_команда_слева:
 C - - - - - 0x03D5F0 FF:D5E0: A9 00     LDA #$00
@@ -3658,7 +3658,7 @@ bra_DC4C:
 C - - - - - 0x03DC5C FF:DC4C: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - - 0x03DC5F FF:DC4F: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03DC62 FF:DC52: F0 0A     BEQ bra_DC5E_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03DC64 FF:DC54: 98        TYA
 C - - - - - 0x03DC65 FF:DC55: 49 FF     EOR #$FF
 C - - - - - 0x03DC67 FF:DC57: A8        TAY
@@ -3859,7 +3859,7 @@ C - - - - - 0x03DD5A FF:DD4A: D0 22     BNE bra_DD6E
 C - - - - - 0x03DD5C FF:DD4C: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03DD5F FF:DD4F: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03DD62 FF:DD52: F0 02     BEQ bra_DD56_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03DD64 FF:DD54: 49 FF     EOR #$FF
 bra_DD56_команда_слева:
 C - - - - - 0x03DD66 FF:DD56: C9 80     CMP #$80
@@ -3867,7 +3867,7 @@ C - - - - - 0x03DD68 FF:DD58: B0 14     BCS bra_DD6E
 C - - - - - 0x03DD6A FF:DD5A: 69 4F     ADC #$4F
 C - - - - - 0x03DD6C FF:DD5C: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03DD6F FF:DD5F: F0 02     BEQ bra_DD63_команда_слева
-; if комада справа
+; if мяч у команды справа
 - - - - - - 0x03DD71 FF:DD61: 49 FF     EOR #$FF
 bra_DD63_команда_слева:
 C - - - - - 0x03DD73 FF:DD63: AA        TAX
@@ -3880,7 +3880,7 @@ bra_DD6E:
 C - - - - - 0x03DD7E FF:DD6E: A9 E9     LDA #$E9
 C - - - - - 0x03DD80 FF:DD70: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03DD83 FF:DD73: F0 02     BEQ bra_DD77_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03DD85 FF:DD75: A9 05     LDA #$05
 bra_DD77_команда_слева:
 C - - - - - 0x03DD87 FF:DD77: 4E E2 00  LSR ram_random + $01
@@ -3895,7 +3895,7 @@ sub_DD81:
 C - - - - - 0x03DD91 FF:DD81: AD 35 06  LDA ram_ball_pos_X_hi
 C - - - - - 0x03DD94 FF:DD84: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03DD97 FF:DD87: F0 05     BEQ bra_DD8E_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03DD99 FF:DD89: 49 FF     EOR #$FF
 C - - - - - 0x03DD9B FF:DD8B: 18        CLC
 C - - - - - 0x03DD9C FF:DD8C: 69 01     ADC #$01
@@ -4251,7 +4251,7 @@ C - - - - - 0x03E008 FF:DFF8: 0A        ASL
 C - - - - - 0x03E009 FF:DFF9: 0A        ASL
 C - - - - - 0x03E00A FF:DFFA: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03E00D FF:DFFD: F0 05     BEQ bra_E004_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03E00F FF:DFFF: 49 FF     EOR #$FF
 C D - - - - 0x03E011 FF:E001: 18        CLC
 C - - - - - 0x03E012 FF:E002: 69 01     ADC #$01
@@ -4352,7 +4352,7 @@ C - - - - - 0x03E0C4 FF:E0B4: A5 41     LDA ram_0041
 C - - - - - 0x03E0C6 FF:E0B6: C9 0B     CMP #$0B
 C - - - - - 0x03E0C8 FF:E0B8: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03E0CB FF:E0BB: F0 06     BEQ bra_E0C3_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03E0CD FF:E0BD: 08        PHP
 C - - - - - 0x03E0CE FF:E0BE: 68        PLA
 C - - - - - 0x03E0CF FF:E0BF: 49 01     EOR #$01
@@ -4513,7 +4513,7 @@ C - - - - - 0x03E212 FF:E202: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E215 FF:E205: D0 17     BNE bra_E21E    ; if команда справа
 
 
-; if команда слева
+; if мяч у команды слева
 ; bzk garbage? в новых логах не выполнялось
 - - - - - - 0x03E217 FF:E207: 2C 35 06  BIT ram_ball_pos_X_hi
 - - - - - - 0x03E21A FF:E20A: 10 12     BPL bra_E21E
@@ -4565,7 +4565,7 @@ C - - - - - 0x03E276 FF:E266: 60        RTS
 sub_E267:
 C - - - - - 0x03E277 FF:E267: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E27A FF:E26A: F0 0B     BEQ bra_E277_команда_слева
-; if команда справа
+; if мяч у команды справа
 C - - - - - 0x03E27C FF:E26C: A9 31     LDA #con_B3CF_31
 C - - - - - 0x03E27E FF:E26E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03E281 FF:E271: A9 32     LDA #con_B3CF_32
@@ -4587,7 +4587,7 @@ C - - - - - 0x03E296 FF:E286: AE 35 06  LDX ram_ball_pos_X_hi
 C - - - - - 0x03E299 FF:E289: AC 37 06  LDY ram_ball_pos_Y_hi
 C - - - - - 0x03E29C FF:E28C: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E29F FF:E28F: F0 05     BEQ bra_E296_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x03E2A1 FF:E291: 8A        TXA
 C - - - - - 0x03E2A2 FF:E292: 49 FF     EOR #$FF
 C - - - - - 0x03E2A4 FF:E294: AA        TAX
@@ -4711,7 +4711,7 @@ C - - - - - 0x03E359 FF:E349: A9 00     LDA #$00
 C - - - - - 0x03E35B FF:E34B: 8D 32 05  STA ram_0532
 C - - - - - 0x03E35E FF:E34E: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E361 FF:E351: D0 50     BNE bra_E3A3_переключить_управляемого   ; if команда справа
-; if команда слева
+; if мяч у команды слева
 C - - - - - 0x03E363 FF:E353: AD 15 06  LDA ram_0615
 C - - - - - 0x03E366 FF:E356: 09 40     ORA #$40
 C - - - - - 0x03E368 FF:E358: 8D 15 06  STA ram_0615
@@ -4777,7 +4777,7 @@ C D - - - - 0x03E3D9 FF:E3C9: 60        RTS
 sub_E3CA:
 C - - - - - 0x03E3DA FF:E3CA: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E3DD FF:E3CD: D0 07     BNE bra_E3D6_команда_справа
-; if команда слева
+; if мяч у команды слева
 C - - - - - 0x03E3DF FF:E3CF: AD 1C 00  LDA ram_btn_hold
 C - - - - - 0x03E3E2 FF:E3D2: 29 0F     AND #con_btns_Dpad
 C - - - - - 0x03E3E4 FF:E3D4: F0 30     BEQ bra_E406_RTS
@@ -4827,7 +4827,7 @@ C - - - - - 0x03E429 FF:E419: C9 0B     CMP #$0B
 C - - - - - 0x03E42B FF:E41B: F0 72     BEQ bra_E48F
 C - - - - - 0x03E42D FF:E41D: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03E430 FF:E420: F0 05     BEQ bra_E427_команда_слева
-; if команда справа
+; if мяч у команды справа
 C - - - - - 0x03E432 FF:E422: CD FD 05  CMP ram_управляемый
 C - - - - - 0x03E435 FF:E425: F0 68     BEQ bra_E48F
 bra_E427_команда_слева:
@@ -4858,7 +4858,7 @@ C - - - - - 0x03E463 FF:E453: A5 41     LDA ram_0041
 C - - - - - 0x03E465 FF:E455: C9 0B     CMP #$0B
 C - - - - - 0x03E467 FF:E457: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03E46A FF:E45A: F0 06     BEQ bra_E462_команда_слева
-; if команда справа
+; if мяч у команды справа
 C - - - - - 0x03E46C FF:E45C: 08        PHP
 C - - - - - 0x03E46D FF:E45D: 68        PLA
 C - - - - - 0x03E46E FF:E45E: 49 01     EOR #$01
@@ -5009,7 +5009,7 @@ C - - - - - 0x03E546 FF:E536: E0 05     CPX #$05
 C - - - - - 0x03E548 FF:E538: B0 11     BCS bra_E54B_RTS
 C - - - - - 0x03E54A FF:E53A: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E54D FF:E53D: F0 04     BEQ bra_E543_команда_слева
-; if команда справа
+; if мяч у команды справа
 C - - - - - 0x03E54F FF:E53F: E0 04     CPX #$04
 C - - - - - 0x03E551 FF:E541: B0 08     BCS bra_E54B_RTS
 bra_E543_команда_слева:

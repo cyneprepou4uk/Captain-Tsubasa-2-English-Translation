@@ -26,7 +26,6 @@
         ; 0x0044F3
         ; 0x002C91
         ; 0x0017BD
-        ; con_s_id_50 и выше, выяснить где пишется
         ; 0x03CC03 выяснить как часто нужен был этот цикл, неужели дохера звуков в очереди?
         ; 0x0023AD
     ; подправить комменты
@@ -366,49 +365,47 @@ con_s_id_47                                 = $47 ;
 ; con_s_id_4D                               = $4D ; unused
 ; con_s_id_4E                               = $4E ; unused
 ; con_s_id_4F                               = $4F ; unused
-
-; для финальной катсцены, хз где оно пишется
-; con_s_id_50                               = $50 ; 
-; con_s_id_51                               = $51 ; 
-; con_s_id_52                               = $52 ; 
-; con_s_id_53                               = $53 ; 
-; con_s_id_54                               = $54 ; 
-; con_s_id_55                               = $55 ; 
-; con_s_id_56                               = $56 ; 
-; con_s_id_57                               = $57 ; 
-; con_s_id_58                               = $58 ; 
-; con_s_id_59                               = $59 ; 
-; con_s_id_5A                               = $5A ; 
-; con_s_id_5B                               = $5B ; 
-; con_s_id_5C                               = $5C ; 
-; con_s_id_5D                               = $5D ; 
-; con_s_id_5E                               = $5E ; 
-; con_s_id_5F                               = $5F ; 
-; con_s_id_60                               = $60 ; 
-; con_s_id_61                               = $61 ; 
-; con_s_id_62                               = $62 ; 
-; con_s_id_63                               = $63 ; 
-; con_s_id_64                               = $64 ; 
-; con_s_id_65                               = $65 ; 
-; con_s_id_66                               = $66 ; 
-; con_s_id_67                               = $67 ; индекс не существует, в новых логах данные по индексу не читались
-; con_s_id_68                               = $68 ; индекс не существует, в новых логах данные по индексу не читались
-; con_s_id_69                               = $69 ; 
-; con_s_id_6A                               = $6A ; 
-; con_s_id_6B                               = $6B ; 
-; con_s_id_6C                               = $6C ; 
-; con_s_id_6D                               = $6D ; 
-; con_s_id_6E                               = $6E ; 
-; con_s_id_6F                               = $6F ; 
-; con_s_id_70                               = $70 ; 
-; con_s_id_71                               = $71 ; 
-; con_s_id_72                               = $72 ; 
-; con_s_id_73                               = $73 ; 
-; con_s_id_74                               = $74 ; 
-; con_s_id_75                               = $75 ; 
-; con_s_id_76                               = $76 ; 
-; con_s_id_77                               = $77 ; 
-; con_s_id_78                               = $78 ; 
+con_s_id_50                               = $50 ; credits face p_tsubasa_my
+con_s_id_51                               = $51 ; credits face p_misaki_my
+con_s_id_52                               = $52 ; credits face p_hyuga_my
+con_s_id_53                               = $53 ; credits face p_wakabayashi_my
+con_s_id_54                               = $54 ; credits face p_matsuyama_furano
+con_s_id_55                               = $55 ; credits face p_misugi_musashi
+con_s_id_56                               = $56 ; credits face p_ishizaki_my
+con_s_id_57                               = $57 ; credits face p_soda_tatsunami
+con_s_id_58                               = $58 ; credits face p_nitta_my
+con_s_id_59                               = $59 ; credits face p_jito_kunimi
+con_s_id_5A                               = $5A ; credits face p_masao_akita
+con_s_id_5B                               = $5B ; credits face p_wakashimazu_my
+con_s_id_5C                               = $5C ; credits face p_carlos_flamengo
+con_s_id_5D                               = $5D ; credits face p_meon_gremio
+con_s_id_5E                               = $5E ; credits face p_kaltz_hamburger_sv
+con_s_id_5F                               = $5F ; credits face p_pierre_france
+con_s_id_60                               = $60 ; credits face p_napoleon_france
+con_s_id_61                               = $61 ; credits face p_diaz_argentina
+con_s_id_62                               = $62 ; credits face p_pascal_argentina
+con_s_id_63                               = $63 ; credits face p_schneider_west_germany
+con_s_id_64                               = $64 ; credits face p_victorino_uruguay
+con_s_id_65                               = $65 ; credits face p_coimbra_brazil
+con_s_id_66                               = $66 ; credits полет мяча после нескольких суперок, рваная сетка и фотка японцев
+; con_s_id_67                             = $67 ; unused
+; con_s_id_68                             = $68 ; unused
+con_s_id_69                               = $69 ; credits 
+con_s_id_6A                               = $6A ; credits 
+con_s_id_6B                               = $6B ; credits 
+con_s_id_6C                               = $6C ; credits 
+con_s_id_6D                               = $6D ; credits 
+con_s_id_6E                               = $6E ; credits 
+con_s_id_6F                               = $6F ; credits 
+con_s_id_70                               = $70 ; credits 
+con_s_id_71                               = $71 ; credits 
+con_s_id_72                               = $72 ; credits 
+con_s_id_73                               = $73 ; credits 
+con_s_id_74                               = $74 ; credits 
+con_s_id_75                               = $75 ; credits 
+con_s_id_76                               = $76 ; credits 
+con_s_id_77                               = $77 ; credits 
+con_s_id_78                               = $78 ; credits 
 
 
 
@@ -1369,14 +1366,14 @@ con_skill_26                                = $26 ;
 
 
 
-; для 0x03CE7E прыжки в начале банка 1C
+; для 0x03CEA6 подпрограммы в банке 1C
 con_bsw_1C_00                               = $00 ; 
 con_bsw_1C_01                               = $01 ; 
 con_bsw_1C_02                               = $02 ; 
 con_bsw_1C_03                               = $03 ; 
 con_bsw_1C_04                               = $04 ; 
 con_bsw_1C_05                               = $05 ; 
-con_bsw_1C_06                               = $06 ; рандом стороны кипера в пк 0x03850F
+con_bsw_1C_рандом_стороны_кипера_в_пк       = $06 ; 
 con_bsw_1C_07                               = $07 ; 
 
 
@@ -1393,7 +1390,7 @@ con_bsw_1C_07                               = $07 ;
     ; 07 = razor shot
     ; 08 = skylab hurricane
     ; 09 = twin shot
-    ; 0A = skylab x2 twin shot
+    ; 0A = skylab twin shot
     ; 0B = eagle shot
     ; 0C = tiger shot
     ; 0D = neo tiger shot

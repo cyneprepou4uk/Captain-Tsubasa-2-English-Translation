@@ -916,7 +916,7 @@ ofs_015_83F5_1D_разновидность_shoot:
 ; 07 = razor shot
 ; 08 = skylab hurricane
 ; 09 = twin shot
-; 0A = skylab x2 twin shot
+; 0A = skylab twin shot
 ; 0B = eagle shot
 ; 0C = tiger shot
 ; 0D = neo-tiger shot
@@ -1006,7 +1006,7 @@ ofs_015_8436_22_у_чьей_команды_мяч:
 ; 01 = у команды справа
 C - J - - - 0x020446 10:8436: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x020449 10:8439: F0 02     BEQ bra_843D_RTS    ; if комада слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x02044B 10:843B: A2 01     LDX #$01
 bra_843D_RTS:   ; X = 00, bzk optimize, небезопасно
 C - - - - - 0x02044D 10:843D: 60        RTS
@@ -1218,7 +1218,7 @@ ofs_015_84C7_2B_проверка_на_100_хп:
 C - J - - - 0x0204D7 10:84C7: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0204DA 10:84CA: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x0204DD 10:84CD: F0 03     BEQ bra_84D2_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x0204DF 10:84CF: AD 42 04  LDA ram_игрок_без_мяча
 bra_84D2_команда_слева:
 C - - - - - 0x0204E2 10:84D2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
@@ -1772,7 +1772,7 @@ tbl_86A6_индекс_для_bra:
 
 ofs_015_86B6_48_тип_удара_на_штрафной:
 ; 00 = skylab hurricane
-; 01 = skylab x2 twin shot
+; 01 = skylab twin shot
 ; 02 = jumping volley
 ; 03 = rising dragon kick
 ; 04 = other shot
@@ -1792,7 +1792,7 @@ C - - - - - 0x0206D7 10:86C7: 60        RTS
 
 tbl_86C8:
     .byte $08 ; 00 skylab hurricane
-    .byte $0A ; 01 skylab x2 twin shot
+    .byte $0A ; 01 skylab twin shot
     .byte $10 ; 02 jumping volley
     .byte $1F ; 03 rising dragon kick
 
@@ -2331,7 +2331,7 @@ ofs_018_88B5_02_команда:
 C - J - - - 0x0208C5 10:88B5: A2 00     LDX #$00
 C - - - - - 0x0208C7 10:88B7: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x0208CA 10:88BA: F0 02     BEQ bra_88BE_RTS    ; if комада слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x0208CC 10:88BC: A2 40     LDX #$40
 bra_88BE_RTS:
 C - - - - - 0x0208CE 10:88BE: 60        RTS
@@ -2345,7 +2345,7 @@ C - - - - - 0x0208D5 10:88C5: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x0208D7 10:88C7: B1 34     LDA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x0208D9 10:88C9: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x0208DC 10:88CC: F0 02     BEQ bra_88D0_команда_слева
-; if комада справа
+; if мяч у команды справа
 C - - - - - 0x0208DE 10:88CE: 49 FF     EOR #$FF
 bra_88D0_команда_слева:
 C - - - - - 0x0208E0 10:88D0: A2 00     LDX #$00
@@ -2389,7 +2389,7 @@ ofs_019_890D_00_драйв_оверхед:
 ; X 00-03
 C - J - - - 0x02091D 10:890D: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020920 10:8910: D0 26     BNE bra_8938    ; if комада справа
-; if комада слева
+; if мяч у команды слева
 C - - - - - 0x020922 10:8912: AD 2B 00  LDA ram_команда_соперника
 C - - - - - 0x020925 10:8915: C9 05     CMP #$05
 C - - - - - 0x020927 10:8917: D0 1F     BNE bra_8938
@@ -2418,7 +2418,7 @@ ofs_019_8942_01_активация_драйв_тигра:
 C - J - - - 0x020952 10:8942: A2 00     LDX #$00
 C - - - - - 0x020954 10:8944: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020957 10:8947: D0 45     BNE bra_898E_RTS    ; if комада справа
-; if комада слева
+; if мяч у команды слева
 C - - - - - 0x020959 10:8949: A9 01     LDA #$01
 bra_894B_поиск_хюги_в_команде:
 C - - - - - 0x02095B 10:894B: 48        PHA
@@ -2551,28 +2551,28 @@ tbl_89BF_сценарии:
 - - - - - - 0x020A69 10:8A59: 01 BE     .word _scenario_BE01_4D ; unused
 - - - - - - 0x020A6B 10:8A5B: 01 BE     .word _scenario_BE01_4E ; unused
 - - - - - - 0x020A6D 10:8A5D: 01 BE     .word _scenario_BE01_4F ; unused
-- D - I - - 0x020A6F 10:8A5F: 01 BE     .word _scenario_BE01_50     ; credits face 22 tsubasa
-- D - I - - 0x020A71 10:8A61: 0D BE     .word _scenario_BE0D_51     ; credits face 18 misaki
-- D - I - - 0x020A73 10:8A63: 18 BE     .word _scenario_BE18_52     ; credits face 20 hyuga
-- D - I - - 0x020A75 10:8A65: 20 BE     .word _scenario_BE20_53     ; credits face 21 wakabayashi
-- D - I - - 0x020A77 10:8A67: 2A BE     .word _scenario_BE2A_54     ; credits face  8 matsuyama
-- D - I - - 0x020A79 10:8A69: 32 BE     .word _scenario_BE32_55     ; credits face  7 misugi
-- D - I - - 0x020A7B 10:8A6B: 3A BE     .word _scenario_BE3A_56     ; credits face  3 ishizaki
-- D - I - - 0x020A7D 10:8A6D: 42 BE     .word _scenario_BE42_57     ; credits face  6 soda
-- D - I - - 0x020A7F 10:8A6F: 4A BE     .word _scenario_BE4A_58     ; credits face  9 nitta
-- D - I - - 0x020A81 10:8A71: 52 BE     .word _scenario_BE52_59     ; credits face  4 jito
-- D - I - - 0x020A83 10:8A73: 5A BE     .word _scenario_BE5A_5A     ; credits face  5 masao и kazuo
-- D - I - - 0x020A85 10:8A75: 69 BE     .word _scenario_BE69_5B     ; credits face 19 wakashimazu
-- D - I - - 0x020A87 10:8A77: 73 BE     .word _scenario_BE73_5C     ; credits face  1 carlos
-- D - I - - 0x020A89 10:8A79: 7C BE     .word _scenario_BE7C_5D     ; credits face  2 meon
-- D - I - - 0x020A8B 10:8A7B: 86 BE     .word _scenario_BE86_5E     ; credits face 11 kaltz
-- D - I - - 0x020A8D 10:8A7D: 8E BE     .word _scenario_BE8E_5F     ; credits face 12 pierre
-- D - I - - 0x020A8F 10:8A7F: 96 BE     .word _scenario_BE96_60     ; credits face 13 napoleon
-- D - I - - 0x020A91 10:8A81: 9E BE     .word _scenario_BE9E_61     ; credits face 14 diaz
-- D - I - - 0x020A93 10:8A83: A6 BE     .word _scenario_BEA6_62     ; credits face 15 pascal
-- D - I - - 0x020A95 10:8A85: AE BE     .word _scenario_BEAE_63     ; credits face 16 schneider
-- D - I - - 0x020A97 10:8A87: B6 BE     .word _scenario_BEB6_64     ; credits face 10 victorino
-- D - I - - 0x020A99 10:8A89: BE BE     .word _scenario_BEBE_65     ; credits face 17 coimbra
+- D - I - - 0x020A6F 10:8A5F: 01 BE     .word _scenario_BE01_50     ; credits face 22 p_tsubasa_my
+- D - I - - 0x020A71 10:8A61: 0D BE     .word _scenario_BE0D_51     ; credits face 18 p_misaki_my
+- D - I - - 0x020A73 10:8A63: 18 BE     .word _scenario_BE18_52     ; credits face 20 p_hyuga_my
+- D - I - - 0x020A75 10:8A65: 20 BE     .word _scenario_BE20_53     ; credits face 21 p_wakabayashi_my
+- D - I - - 0x020A77 10:8A67: 2A BE     .word _scenario_BE2A_54     ; credits face  8 p_matsuyama_furano
+- D - I - - 0x020A79 10:8A69: 32 BE     .word _scenario_BE32_55     ; credits face  7 p_misugi_musashi
+- D - I - - 0x020A7B 10:8A6B: 3A BE     .word _scenario_BE3A_56     ; credits face  3 p_ishizaki_my
+- D - I - - 0x020A7D 10:8A6D: 42 BE     .word _scenario_BE42_57     ; credits face  6 p_soda_tatsunami
+- D - I - - 0x020A7F 10:8A6F: 4A BE     .word _scenario_BE4A_58     ; credits face  9 p_nitta_my
+- D - I - - 0x020A81 10:8A71: 52 BE     .word _scenario_BE52_59     ; credits face  4 p_jito_kunimi
+- D - I - - 0x020A83 10:8A73: 5A BE     .word _scenario_BE5A_5A     ; credits face  5 p_masao_akita
+- D - I - - 0x020A85 10:8A75: 69 BE     .word _scenario_BE69_5B     ; credits face 19 p_wakashimazu_my
+- D - I - - 0x020A87 10:8A77: 73 BE     .word _scenario_BE73_5C     ; credits face  1 p_carlos_flamengo
+- D - I - - 0x020A89 10:8A79: 7C BE     .word _scenario_BE7C_5D     ; credits face  2 p_meon_gremio
+- D - I - - 0x020A8B 10:8A7B: 86 BE     .word _scenario_BE86_5E     ; credits face 11 p_kaltz_hamburger_sv
+- D - I - - 0x020A8D 10:8A7D: 8E BE     .word _scenario_BE8E_5F     ; credits face 12 p_pierre_france
+- D - I - - 0x020A8F 10:8A7F: 96 BE     .word _scenario_BE96_60     ; credits face 13 p_napoleon_france
+- D - I - - 0x020A91 10:8A81: 9E BE     .word _scenario_BE9E_61     ; credits face 14 p_diaz_argentina
+- D - I - - 0x020A93 10:8A83: A6 BE     .word _scenario_BEA6_62     ; credits face 15 p_pascal_argentina
+- D - I - - 0x020A95 10:8A85: AE BE     .word _scenario_BEAE_63     ; credits face 16 p_schneider_west_germany
+- D - I - - 0x020A97 10:8A87: B6 BE     .word _scenario_BEB6_64     ; credits face 10 p_victorino_uruguay
+- D - I - - 0x020A99 10:8A89: BE BE     .word _scenario_BEBE_65     ; credits face 17 p_coimbra_brazil
 - D - I - - 0x020A9B 10:8A8B: C6 BE     .word _scenario_BEC6_66     ; credits долгая анимация удара и портрет в конце 
 - - - - - - 0x020A9D 10:8A8D: D8 BE     .word _scenario_BED8_67     ; долгая анимация удара и портрет в конце (видимо не до конца доработана, звуков не хватает)
                                                                         ; поинтер не найден, в новых логах не читалось
@@ -3733,7 +3733,7 @@ _scenario_91F2_01:
                 ; low/shoot
                     .dbyt con_branch_short + con_bra_тип_удара_на_штрафной
                     .byte off_case_01_00_00_00 - * ; skylab hurricane
-                    .byte off_case_01_00_00_01 - * ; skylab x2 twin shot
+                    .byte off_case_01_00_00_01 - * ; skylab twin shot
                     .byte off_case_01_00_00_02 - * ; jumping volley
                     .byte off_case_01_00_00_03 - * ; rising dragon kick
                     .byte off_case_01_00_00_04 - * ; other shot
@@ -3744,7 +3744,7 @@ _scenario_91F2_01:
                             .word loc_AE4C_skylab_hurricane
 
                         off_case_01_00_00_01:
-                        ; low/shoot/skylab x2 twin shot
+                        ; low/shoot/skylab twin shot
                             .byte con_jmp
                             .word loc_AED4_skylab_twin_shot
 
@@ -3779,7 +3779,7 @@ _scenario_91F2_01:
                 ; high/shoot
                     .dbyt con_branch_short + con_bra_тип_удара_на_штрафной
                     .byte off_case_01_01_00_00 - * ; skylab hurricane
-                    .byte off_case_01_01_00_01 - * ; skylab x2 twin shot
+                    .byte off_case_01_01_00_01 - * ; skylab twin shot
                     .byte off_case_01_01_00_02 - * ; jumping volley
                     .byte off_case_01_01_00_03 - * ; rising dragon kick
                     .byte off_case_01_01_00_04 - * ; other shot
@@ -3790,7 +3790,7 @@ _scenario_91F2_01:
                             .word loc_AE4C_skylab_hurricane
 
                         off_case_01_01_00_01:
-                        ; high/shoot/skylab x2 twin shot
+                        ; high/shoot/skylab twin shot
                             .byte con_jmp
                             .word loc_AED4_skylab_twin_shot
 
@@ -8991,7 +8991,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
     .word bra_long_case_9D52_FF ; 07
     .word bra_long_case_9D52_08 ; skylab hurricane
     .word bra_long_case_9D52_FF ; 09
-    .word bra_long_case_9D52_0A ; skylab x2 twin shot
+    .word bra_long_case_9D52_0A ; skylab twin shot
     .word bra_long_case_9D52_FF ; 0B
     .word bra_long_case_9D52_FF ; 0C
     .word bra_long_case_9D52_FF ; 0D
@@ -9069,7 +9069,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
             .byte con_rts
 
         bra_long_case_9D52_0A:
-        ; skylab x2 twin shot
+        ; skylab twin shot
             .byte con_jmp
             .word loc_B22E
 
@@ -9412,7 +9412,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
     .word bra_long_case_9D9A_FF ; 07
     .word bra_long_case_9D9A_FF ; 08
     .word bra_long_case_9D9A_09 ; twin shot
-    .word bra_long_case_9D9A_0A ; skylab x2 twin shot
+    .word bra_long_case_9D9A_0A ; skylab twin shot
     .word bra_long_case_9D9A_FF ; 0B
     .word bra_long_case_9D9A_FF ; 0C
     .word bra_long_case_9D9A_FF ; 0D
@@ -9655,7 +9655,7 @@ loc_B22E:
                     .word loc_B1DE_twin_shot
 
         bra_long_case_9D9A_0A:
-        ; skylab x2 twin shot
+        ; skylab twin shot
             .byte con_jmp
             .word loc_B22E
 
@@ -10131,7 +10131,7 @@ sub_9EF6_выбор_анимации_полета_удара:
     .word bra_long_case_B53F_07 ; razor shot
     .word bra_long_case_B4F7_08 ; skylab hurricane
     .word bra_long_case_B553_09 ; twin shot
-    .word bra_long_case_B55A_0A ; skylab x2 twin shot
+    .word bra_long_case_B55A_0A ; skylab twin shot
     .word bra_long_case_B567_0B ; eagle shot
     .word bra_long_case_B575_0C ; tiger shot
     .word bra_long_case_B583_0D ; neo tiger shot
@@ -10273,7 +10273,7 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
             .byte con_rts
 
         bra_long_case_B55A_0A:
-        ; skylab x2 twin shot
+        ; skylab twin shot
             .byte con_jsr
             .word sub_BBA7_полет_twin_shot_1
             .byte con_F7, $3A
