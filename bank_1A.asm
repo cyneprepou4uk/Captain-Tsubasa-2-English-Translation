@@ -221,7 +221,7 @@ C - - - - - 0x034195 1A:8185: 20 4E C5  JSR sub_0x03CBC0_запись_номер
 C - - - - - 0x034198 1A:8188: AD 44 04  LDA ram_спешал_атакующего
 C - - - - - 0x03419B 1A:818B: 29 03     AND #$03
 C - - - - - 0x03419D 1A:818D: 8D 4E 04  STA ram_высота_мяча
-C - - - - - 0x0341A0 1A:8190: 20 24 C6  JSR sub_0x03DCEF
+C - - - - - 0x0341A0 1A:8190: 20 24 C6  JSR sub_0x03DCEF_рандом_высоты_мяча
 C - - - - - 0x0341A3 1A:8193: AD 17 06  LDA ram_колво_активных_защитников
 C - - - - - 0x0341A6 1A:8196: 09 80     ORA #$80
 C - - - - - 0x0341A8 1A:8198: 8D 17 06  STA ram_колво_активных_защитников
@@ -350,10 +350,10 @@ C - - - - - 0x034287 1A:8277: 60        RTS
 
 
 tbl_8278_сценарий:
-    .byte con_s_id_1D     ; shoot
-    .byte con_s_id_18     ; pass
-    .byte con_s_id_00     ; dribble (unused)
-    .byte con_s_id_19     ; 1-2 pass
+    .byte con_s_id_1D     ; 00 shoot
+    .byte con_s_id_18     ; 01 pass
+    .byte con_s_id_00     ; 02 dribble (placeholder)
+    .byte con_s_id_19     ; 03 1-2 pass
 
 
 
@@ -1739,7 +1739,7 @@ C D - - - - 0x034B5A 1A:8B4A: 20 9C 8B  JSR sub_8B9C
 C - - - - - 0x034B5D 1A:8B4D: B0 01     BCS bra_8B50
 C - - - - - 0x034B5F 1A:8B4F: 60        RTS
 bra_8B50:
-C - - - - - 0x034B60 1A:8B50: 20 24 C6  JSR sub_0x03DCEF
+C - - - - - 0x034B60 1A:8B50: 20 24 C6  JSR sub_0x03DCEF_рандом_высоты_мяча
 C - - - - - 0x034B63 1A:8B53: A9 00     LDA #$00
 C - - - - - 0x034B65 1A:8B55: 8D 00 06  STA ram_колво_защитников
 C - - - - - 0x034B68 1A:8B58: 8A        TXA
@@ -1882,7 +1882,7 @@ C - - - - - 0x034C34 1A:8C24: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x034C37 1A:8C27: 91 34     STA (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x034C39 1A:8C29: A9 00     LDA #$00
 C - - - - - 0x034C3B 1A:8C2B: 8D 3C 04  STA ram_подтип_действия_атаки
-C - - - - - 0x034C3E 1A:8C2E: 20 24 C6  JSR sub_0x03DCEF
+C - - - - - 0x034C3E 1A:8C2E: 20 24 C6  JSR sub_0x03DCEF_рандом_высоты_мяча
 C - - - - - 0x034C41 1A:8C31: 20 4A 8B  JSR sub_8B4A
 C - - - - - 0x034C44 1A:8C34: A9 2C     LDA #con_s_id_2C
 C - - - - - 0x034C46 1A:8C36: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
@@ -5478,7 +5478,7 @@ C - - - - - 0x0361BF 1A:A1AF: B0 01     BCS bra_A1B2
 C - - - - - 0x0361C1 1A:A1B1: 60        RTS
 bra_A1B2:
 C - - - - - 0x0361C2 1A:A1B2: A6 3F     LDX ram_003F
-C - - - - - 0x0361C4 1A:A1B4: E0 25     CPX #$25
+C - - - - - 0x0361C4 1A:A1B4: E0 25     CPX #con_skill_25
 C - - - - - 0x0361C6 1A:A1B6: F0 04     BEQ bra_A1BC
 C - - - - - 0x0361C8 1A:A1B8: A9 F0     LDA #$F0
 C - - - - - 0x0361CA 1A:A1BA: D0 1B     BNE bra_A1D7    ; jmp

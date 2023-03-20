@@ -351,36 +351,46 @@ C - - - - - 0x038210 1C:8200: 4C 78 82  JMP loc_8278
 
 
 tbl_8206:
-    .byte con_skill_prl___shoot       ; 00
-    .byte con_skill_prl_shoot_low       ; 01
-    .byte con_skill_prl_shoot_high       ; 02
-    .byte con_skill_prl___pass       ; 03
-    .byte con_skill_plr_pass_low       ; 04
-    .byte con_skill_10       ; 05
-    .byte con_skill_prl_dribble       ; 06
-    .byte $FF       ; 07 unused
-    .byte $FF       ; 08 unused
-    .byte con_skill_prl___pass       ; 09
-    .byte $FF       ; 0A unused
-    .byte $FF       ; 0B unused
-    .byte $FF       ; 0C unused
-    .byte con_skill_prl_trap_low       ; 0D
-    .byte con_skill_prl_trap_high       ; 0E
-    .byte $FF       ; 0F unused
-    .byte con_skill_prl_through_low       ; 10
-    .byte con_skill_prl_through_high       ; 11
-    .byte $FF       ; 12 unused
-    .byte con_skill_0B       ; 13
-    .byte con_skill_13       ; 14
-    .byte con_skill_prl___shoot       ; 15
-    .byte $FF       ; 16 unused
-    .byte $FF       ; 17 unused
-    .byte con_skill_prl___shoot       ; 18
-    .byte $FF       ; 19 unused
-    .byte $FF       ; 1A unused
-    .byte con_skill_prl___shoot       ; 1B
-    .byte $FF       ; 1C unused
-    .byte $FF       ; 1D unused
+; 00 shoot
+    .byte con_skill_prl___shoot ; 00 мяч на земле
+    .byte con_skill_prl_shoot_low ; 01 низкий мяч
+    .byte con_skill_prl_shoot_high ; 02 высокий мяч
+; 01 pass
+    .byte con_skill_prl___pass ; 00 мяч на земле
+    .byte con_skill_plr_pass_low ; 01 низкий мяч
+    .byte con_skill_10 ; 02 высокий мяч
+; 02 dribble
+    .byte con_skill_prl_dribble ; 00 мяч на земле
+    .byte $FF ; 01 низкий мяч
+    .byte $FF ; 02 высокий мяч
+; 03 1-2 pass
+    .byte con_skill_prl___pass ; 00 мяч на земле
+    .byte $FF ; 01 низкий мяч
+    .byte $FF ; 02 высокий мяч
+; 04 trap
+    .byte $FF ; 00 мяч на земле
+    .byte con_skill_prl_trap_low ; 01 низкий мяч
+    .byte con_skill_prl_trap_high ; 02 высокий мяч
+; 05 through
+    .byte $FF ; 00 мяч на земле
+    .byte con_skill_prl_through_low ; 01 низкий мяч
+    .byte con_skill_prl_through_high ; 02 высокий мяч
+; 06 clear
+    .byte $FF ; 00 мяч на земле
+    .byte con_skill_0B ; 01 низкий мяч
+    .byte con_skill_13 ; 02 высокий мяч
+; 07 shoot left (pk)
+    .byte con_skill_prl___shoot ; 00 мяч на земле
+    .byte $FF ; 01 низкий мяч
+    .byte $FF ; 02 высокий мяч
+; 08 shoot center (pk)
+    .byte con_skill_prl___shoot ; 00 мяч на земле
+    .byte $FF ; 01 низкий мяч
+    .byte $FF ; 02 высокий мяч
+; 09 shoot right (pk)
+    .byte con_skill_prl___shoot ; 00 мяч на земле
+    .byte $FF ; 01 низкий мяч
+    .byte $FF ; 02 высокий мяч
 
 
 
@@ -408,21 +418,26 @@ C - - - - - 0x038259 1C:8249: 4C 5B 82  JMP loc_825B
 
 
 tbl_824C:
-- D - - - - 0x03825C 1C:824C: 04        .byte con_skill_prl_block   ; 00
-- D - - - - 0x03825D 1C:824D: 04        .byte con_skill_prl_block   ; 01
-- D - - - - 0x03825E 1C:824E: 04        .byte con_skill_prl_block   ; 02
-- D - - - - 0x03825F 1C:824F: 05        .byte con_skill_prl_tackle   ; 03
-- D - - - - 0x038260 1C:8250: 05        .byte con_skill_prl_tackle   ; 04
-- D - - - - 0x038261 1C:8251: 05        .byte con_skill_prl_tackle   ; 05
-- D - - - - 0x038262 1C:8252: 06        .byte con_skill_06   ; 06
-- D - - - - 0x038263 1C:8253: 0E        .byte con_skill_0E   ; 07
-- D - - - - 0x038264 1C:8254: 16        .byte con_skill_16   ; 08
-- - - - - - 0x038265 1C:8255: FF        .byte $FF   ; 09
-- D - - - - 0x038266 1C:8256: 0C        .byte con_skill_prl_clearance_low   ; 0A
-- D - - - - 0x038267 1C:8257: 14        .byte con_skill_prl_clearance_high   ; 0B
-- - - - - - 0x038268 1C:8258: FF        .byte $FF   ; 0C
-- D - - - - 0x038269 1C:8259: 0D        .byte con_skill_prl_interfere_low   ; 0D
-- D - - - - 0x03826A 1C:825A: 15        .byte con_skill_prl_interfere_high   ; 0E
+; 00 block
+- D - - - - 0x03825C 1C:824C: 04        .byte con_skill_prl_block ; 00 мяч на земле
+- D - - - - 0x03825D 1C:824D: 04        .byte con_skill_prl_block ; 01 низкий мяч
+- D - - - - 0x03825E 1C:824E: 04        .byte con_skill_prl_block ; 02 высокий мяч
+; 01 tackle
+- D - - - - 0x03825F 1C:824F: 05        .byte con_skill_prl_tackle ; 00 мяч на земле
+- D - - - - 0x038260 1C:8250: 05        .byte con_skill_prl_tackle ; 01 низкий мяч
+- D - - - - 0x038261 1C:8251: 05        .byte con_skill_prl_tackle ; 02 высокий мяч
+; 02 pass cut
+- D - - - - 0x038262 1C:8252: 06        .byte con_skill_06 ; 00 мяч на земле
+- D - - - - 0x038263 1C:8253: 0E        .byte con_skill_0E ; 01 низкий мяч
+- D - - - - 0x038264 1C:8254: 16        .byte con_skill_16 ; 02 высокий мяч
+; 03 clearance
+- - - - - - 0x038265 1C:8255: FF        .byte $FF ; 00 мяч на земле
+- D - - - - 0x038266 1C:8256: 0C        .byte con_skill_prl_clearance_low ; 01 низкий мяч
+- D - - - - 0x038267 1C:8257: 14        .byte con_skill_prl_clearance_high ; 02 высокий мяч
+; 04 interfere
+- - - - - - 0x038268 1C:8258: FF        .byte $FF ; 00 мяч на земле
+- D - - - - 0x038269 1C:8259: 0D        .byte con_skill_prl_interfere_low ; 01 низкий мяч
+- D - - - - 0x03826A 1C:825A: 15        .byte con_skill_prl_interfere_high ; 02 высокий мяч
 
 
 
@@ -472,7 +487,7 @@ C - - - - - 0x0382A8 1C:8298: 18        CLC
 C - - - - - 0x0382A9 1C:8299: 69 03     ADC #$03
 C - - - - - 0x0382AB 1C:829B: A8        TAY
 bra_829C:
-C - - - - - 0x0382AC 1C:829C: BE C0 82  LDX tbl_82C0,Y
+C - - - - - 0x0382AC 1C:829C: BE C0 82  LDX tbl_82C0_gk_skill,Y
 C - - - - - 0x0382AF 1C:829F: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x0382B2 1C:82A2: 49 0B     EOR #$0B
 C - - - - - 0x0382B4 1C:82A4: 20 3A 80  JSR sub_803A_вычислить_числовой_стат_скилла
@@ -491,7 +506,7 @@ C - - - - - 0x0382CD 1C:82BD: 4C 5B 82  JMP loc_825B
 
 
 
-tbl_82C0:
+tbl_82C0_gk_skill:
 - D - - - - 0x0382D0 1C:82C0: 19        .byte con_skill_gk_catch   ; 00
 - D - - - - 0x0382D1 1C:82C1: 1A        .byte con_skill_gk_punch   ; 01
 - D - - - - 0x0382D2 1C:82C2: 19        .byte con_skill_gk_catch   ; 02
@@ -4216,8 +4231,8 @@ tbl_9554_параметры_действий_защитника:
 - D - - - - 0x039564 1C:9554: 5E 95     .word off_955E_00_block
 - D - - - - 0x039566 1C:9556: 6E 95     .word off_956E_01_tackle
 - D - - - - 0x039568 1C:9558: 86 95     .word off_9586_02_pass_cut
-- D - - - - 0x03956A 1C:955A: 8E 95     .word off_958E_03
-- D - - - - 0x03956C 1C:955C: 96 95     .word off_9596_04
+- D - - - - 0x03956A 1C:955A: 8E 95     .word off_958E_03_clearance
+- D - - - - 0x03956C 1C:955C: 96 95     .word off_9596_04_interfere
 
 off_955E_00_block:
 ; значение байтов почти аналогично 0x039484
@@ -4300,7 +4315,7 @@ off_9586_02_pass_cut:
 
 
 
-off_958E_03:
+off_958E_03_clearance:
 ; 00 
 - D - I - - 0x03959E 1C:958E: 00        .byte $00
 - D - I - - 0x03959F 1C:958F: 04        .byte $04
@@ -4316,7 +4331,7 @@ off_958E_03:
 
 
 
-off_9596_04:
+off_9596_04_interfere:
 ; 00 
 - D - I - - 0x0395A6 1C:9596: 00        .byte $00
 - D - I - - 0x0395A7 1C:9597: 06        .byte $06

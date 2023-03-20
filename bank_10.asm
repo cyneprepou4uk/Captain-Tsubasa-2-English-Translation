@@ -2464,85 +2464,79 @@ C - - - - - 0x02099E 10:898E: 4C 2F 81  JMP loc_812F_выбрать_подпро
 
 
 tbl_89BF_сценарии:
-; смотреть con_scenario
-- D - I - - 0x0209CF 10:89BF: B1 8A     .word _scenario_8AB1_00     ; сценарий дриблинга или когда игрок прыгает чтоб перехватить мяч
-- D - I - - 0x0209D1 10:89C1: F2 91     .word _scenario_91F2_01     ; атакующий находится на чужой штрафной, и он только что выбрал желаемое действие.
-                                                                        ; показывается анимация того, как он бежит/прыгает к мячу перед тем как его сделать
-- D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02     ; действие защитника на своей штрафной
-- - - - - - 0x0209D5 10:89C5: 8E B4     .word _scenario_B48E_03     ; полет мяча, затем игрок принимает его на ногу во время бега (аналогично заверщению спешал перепасовки)
-                                                                        ; поинтер не найден, в новых логах не читалось
-- D - I - - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04     ; белое мерцание со звуком сражения (oh), когда игроки сражаются на штрафной
-- D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05     ; попытка убийства атакующего, который проиграл действие на чужой штрафной (аналогично 10)
-- D - I - - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06     ; попытка убийства защитника, который проиграл действие на своей штрафной
-- D - I - - 0x0209DD 10:89CD: 85 92     .word _scenario_9285_07     ; хз
-- D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08     ; действие атакующего на чужой штрафной
-- D - I - - 0x0209E1 10:89D1: 69 93     .word _scenario_9369_09     ; конечный полет удара и действие кипера, возможный гол
-- D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A     ; кипер против атакующего на земле
-- D - I - - 0x0209E5 10:89D5: ED 98     .word _scenario_98ED_0B     ; после того как игрок/комп дал пас, кто-то автоматически подлазит под мяч и пытается его перехватить
-                                                                        ; он также может подлезть перед завершением перепасовки
-- D - I - - 0x0209E7 10:89D7: E3 96     .word _scenario_96E3_0C     ; конечный полет удара в пустые ворота, когда кипера нет на месте (в отличие от 09)
-- D - I - - 0x0209E9 10:89D9: F7 96     .word _scenario_96F7_0D     ; игрок автоматически бьет когда обвел кипера
-- D - I - - 0x0209EB 10:89DB: EA 91     .word _scenario_91EA_0E     ; игрок бежит/прыгает к мячу на штрафной и что-то делает
-- D - I - - 0x0209ED 10:89DD: 05 92     .word _scenario_9205_0F     ; действие атакующего на своей штрафной
-- D - I - - 0x0209EF 10:89DF: 59 92     .word _scenario_9259_10     ; попытка убийства атакующего, который проиграл действие на своей штрафной (аналогично 05)
-- D - I - - 0x0209F1 10:89E1: 69 92     .word _scenario_9269_11     ; попытка убийства защитника, который проиграл действие на чужой штрафной
-- D - I - - 0x0209F3 10:89E3: 7F 92     .word _scenario_927F_12     ; результат сражения на своей штрафной, когда мяч у тебя
-- D - I - - 0x0209F5 10:89E5: D3 91     .word _scenario_91D3_13     ; атакующему позволили совершить действие на своей штрафной. анимация как он делает это действие
-- D - I - - 0x0209F7 10:89E7: 82 9B     .word _scenario_9B82_14     ; полет мяча при ударе перед стенкой, затем мяч может обогнуть/защитник отобьет/словит/убьется
-- D - I - - 0x0209F9 10:89E9: 0A B8     .word _scenario_B80A_15     ; matsuyama базарит всем чтоб быстрее бежали
-- D - I - - 0x0209FB 10:89EB: 17 B8     .word _scenario_B817_16     ; diaz базарит что делает ускорение
-- D - I - - 0x0209FD 10:89ED: A1 B8     .word _scenario_B8A1_17     ; drive overhead озарение
-- D - I - - 0x0209FF 10:89EF: 3E 9E     .word _scenario_9E3E_18     ; игрок/комп дает пас с земли/со штафной
-- D - I - - 0x020A01 10:89F1: D4 BB     .word _scenario_BBD4_19     ; игрок начинает делать перепасовку и дает первый пас
-- D - I - - 0x020A03 10:89F3: 6D BC     .word _scenario_BC6D_1A     ; мяч летит, прилетел к напарнику и он возвращает перепасовку
-- D - I - - 0x020A05 10:89F5: 86 B4     .word _scenario_B486_1B     ; мяч летит, и прилетает к основному игроку после перепасовки
-- D - I - - 0x020A07 10:89F7: E3 9B     .word _scenario_9BE3_1C     ; мяч летит и прилетает к игроку, которому дали пас пас
-- D - I - - 0x020A09 10:89F9: EE 9C     .word _scenario_9CEE_1D     ; удар с земли (спешал тоже)
-- D - I - - 0x020A0B 10:89FB: DA B7     .word _scenario_B7DA_1E     ; игрок бежит по полю
-; пенальти
-- D - I - - 0x020A0D 10:89FD: 33 B7     .word _scenario_B733_1F     ; после нарушения сообщение о том, чья команда получает возможность пробить penalty kick
-- D - I - - 0x020A0F 10:89FF: 38 B7     .word _scenario_B738_20     ; сообщение о том, кто будет пробивать пенальти во время матча
-- D - I - - 0x020A11 10:8A01: 3B BA     .word _scenario_BA3B_21     ; пробитие пенальти во время матча, затем результат удара и действия кипера
-- D - I - - 0x020A13 10:8A03: 49 B7     .word _scenario_B749_22     ; в пенальти после матча сообщение о пробивающем игроке, затем выбор действия игроку/киперу
-- D - I - - 0x020A15 10:8A05: 3F BB     .word _scenario_BB3F_23     ; пробитие пенальти после матча, затем результат удара и действия кипера (схоже с 20)
-; нарушения
-- D - I - - 0x020A17 10:8A07: F2 9B     .word _scenario_9BF2_24     ; сообщение corner kick
-- D - I - - 0x020A19 10:8A09: DD 9C     .word _scenario_9CDD_25     ; сообщение goal kick
-- D - I - - 0x020A1B 10:8A0B: 2D 9E     .word _scenario_9E2D_26     ; сообщение throw in
-- D - I - - 0x020A1D 10:8A0D: F8 9B     .word _scenario_9BF8_27     ; мяч улетает в аут (goal kick)
-- D - I - - 0x020A1F 10:8A0F: CC B4     .word _scenario_B4CC_28     ; кипер пасует от своих ворот прямо (goal kick)
-- D - I - - 0x020A21 10:8A11: FE 9B     .word _scenario_9BFE_29     ; мяч улетает в аут (throw in)
-- D - I - - 0x020A23 10:8A13: E0 B4     .word _scenario_B4E0_2A     ; игрок делает throw in
-- D - I - - 0x020A25 10:8A15: 2C B7     .word _scenario_B72C_2B     ; сообщение о свободном ударе (freekick)
-- D - I - - 0x020A27 10:8A17: 54 9F     .word _scenario_9F54_2C     ; игрок принимает низкий мяч на ногу
-- D - I - - 0x020A29 10:8A19: D6 B4     .word _scenario_B4D6_2D     ; ничейный мяч ударяется об землю (предположительно только после обычного удара, когда слишком далеко)
-- D - I - - 0x020A2B 10:8A1B: 4E B7     .word _scenario_B74E_2E     ; на игрока напали когда он находится на земле
-- D - I - - 0x020A2D 10:8A1D: 73 B7     .word _scenario_B773_2F     ; мяч прилетел к игроку, когда он находится на чужой штрафной (в отличие от 3F)
-- D - I - - 0x020A2F 10:8A1F: 30 9C     .word _scenario_9C30_30     ; сообщение после гола
-- D - I - - 0x020A31 10:8A21: 8C B7     .word _scenario_B78C_31     ; сообщение при нападении 1 на 1 на вратаря
-- D - I - - 0x020A33 10:8A23: 57 9E     .word _scenario_9E57_32     ; экран действия кипера словить/отбить
-- D - I - - 0x020A35 10:8A25: 04 9C     .word _scenario_9C04_33     ; сообщение о завершении тайма/матча/пк после того как время вышло/пенальти были пробиты полностью
-- D - I - - 0x020A37 10:8A27: CC BB     .word _scenario_BBCC_34     ; ничейный мяч ударяется об землю (предположительно только после паса/clearing)
-- D - I - - 0x020A39 10:8A29: CD B7     .word _scenario_B7CD_35     ; ожидание разводки
-- D - I - - 0x020A3B 10:8A2B: E4 B7     .word _scenario_B7E4_36     ; разводка
-- D - I - - 0x020A3D 10:8A2D: BF B7     .word _scenario_B7BF_37     ; после гола/нарушения ворота вдали по центру, открывается меню resume/edit
-- D - I - - 0x020A3F 10:8A2F: C6 B7     .word _scenario_B7C6_38     ; выбор кому дать пас или с кем перепасоваться
-- D - I - - 0x020A41 10:8A31: B3 BD     .word _scenario_BDB3_39     ; сообщение о том что начались пенальти после матча
-- D - I - - 0x020A43 10:8A33: 7C B4     .word _scenario_B47C_3A     ; кипер дает пас в поле после того как завладел мячом
-- - - - - - 0x020A45 10:8A35: A1 BD     .word _scenario_BDA1_3B     ; ??? поинтер не найден, в новых логах не читалось
-- - - - - - 0x020A47 10:8A37: 3E 9F     .word _scenario_9F3E_3C     ; хз, летящий приземляющийся мяч
-                                                                        ; поинтер не найден, в новых логах не читалось
-- D - I - - 0x020A49 10:8A39: BA 9F     .word _scenario_9FBA_3D     ; недостаточно энергии
-- D - I - - 0x020A4B 10:8A3B: 0A 9C     .word _scenario_9C0A_3E     ; предположительно = 1C, но пас чужому игроку?
-- D - I - - 0x020A4D 10:8A3D: 54 B7     .word _scenario_B754_3F     ; мяч прилетел к игроку, когда он находится на своей штрафной (в отличие от 2F)
-- D - I - - 0x020A4F 10:8A3F: 95 BD     .word _scenario_BD95_40     ; сообщение о пустых воротах, когда кипера нет на месте (goal open)
-- D - I - - 0x020A51 10:8A41: 9A BD     .word _scenario_BD9A_41     ; напоминание о том, насколько сильно кипер защитника наебан в данный момент (off balance, down)
-- D - I - - 0x020A53 10:8A43: A6 BD     .word _scenario_BDA6_42     ; когда игрок успешно сделал through, сообщение насколько сильно это наебало кипера (off balance, down)
-- D - I - - 0x020A55 10:8A45: AD BD     .word _scenario_BDAD_43     ; сообщение о том, что основное время заканчивается (осталось 47 секунд)
-- D - I - - 0x020A57 10:8A47: D5 B7     .word _scenario_B7D5_44     ; игрок в меню выбора действия, находясь с мячом на земле
-- - - - - - 0x020A59 10:8A49: B8 BD     .word _scenario_BDB8_45     ; sudden death в пенальти
-- D - I - - 0x020A5B 10:8A4B: BD BD     .word _scenario_BDBD_46     ; tsubasa первый раз делает cyclone
-- D - I - - 0x020A5D 10:8A4D: 19 9C     .word _scenario_9C19_47     ; diaz выебывается после гола
+; смотреть con_s_id
+- D - I - - 0x0209CF 10:89BF: B1 8A     .word _scenario_8AB1_00 ; 
+- D - I - - 0x0209D1 10:89C1: F2 91     .word _scenario_91F2_01 ; 
+- D - I - - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02 ; 
+- - - - - - 0x0209D5 10:89C5: 8E B4     .word _scenario_B48E_03 ; unused
+- D - I - - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04 ; 
+- D - I - - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05 ; 
+- D - I - - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06 ; 
+- D - I - - 0x0209DD 10:89CD: 85 92     .word _scenario_9285_07 ; 
+- D - I - - 0x0209DF 10:89CF: 2C 93     .word _scenario_932C_08 ; 
+- D - I - - 0x0209E1 10:89D1: 69 93     .word _scenario_9369_09 ; 
+- D - I - - 0x0209E3 10:89D3: 11 98     .word _scenario_9811_0A ; 
+- D - I - - 0x0209E5 10:89D5: ED 98     .word _scenario_98ED_0B ; 
+- D - I - - 0x0209E7 10:89D7: E3 96     .word _scenario_96E3_0C ; 
+- D - I - - 0x0209E9 10:89D9: F7 96     .word _scenario_96F7_0D ; 
+- D - I - - 0x0209EB 10:89DB: EA 91     .word _scenario_91EA_0E ; 
+- D - I - - 0x0209ED 10:89DD: 05 92     .word _scenario_9205_0F ; 
+- D - I - - 0x0209EF 10:89DF: 59 92     .word _scenario_9259_10 ; 
+- D - I - - 0x0209F1 10:89E1: 69 92     .word _scenario_9269_11 ; 
+- D - I - - 0x0209F3 10:89E3: 7F 92     .word _scenario_927F_12 ; 
+- D - I - - 0x0209F5 10:89E5: D3 91     .word _scenario_91D3_13 ; 
+- D - I - - 0x0209F7 10:89E7: 82 9B     .word _scenario_9B82_14 ; 
+- D - I - - 0x0209F9 10:89E9: 0A B8     .word _scenario_B80A_15 ; 
+- D - I - - 0x0209FB 10:89EB: 17 B8     .word _scenario_B817_16 ; 
+- D - I - - 0x0209FD 10:89ED: A1 B8     .word _scenario_B8A1_17 ; 
+- D - I - - 0x0209FF 10:89EF: 3E 9E     .word _scenario_9E3E_18 ; 
+- D - I - - 0x020A01 10:89F1: D4 BB     .word _scenario_BBD4_19 ; 
+- D - I - - 0x020A03 10:89F3: 6D BC     .word _scenario_BC6D_1A ; 
+- D - I - - 0x020A05 10:89F5: 86 B4     .word _scenario_B486_1B ; 
+- D - I - - 0x020A07 10:89F7: E3 9B     .word _scenario_9BE3_1C ; 
+- D - I - - 0x020A09 10:89F9: EE 9C     .word _scenario_9CEE_1D ; 
+- D - I - - 0x020A0B 10:89FB: DA B7     .word _scenario_B7DA_1E ; 
+- D - I - - 0x020A0D 10:89FD: 33 B7     .word _scenario_B733_1F ; 
+- D - I - - 0x020A0F 10:89FF: 38 B7     .word _scenario_B738_20 ; 
+- D - I - - 0x020A11 10:8A01: 3B BA     .word _scenario_BA3B_21 ; 
+- D - I - - 0x020A13 10:8A03: 49 B7     .word _scenario_B749_22 ; 
+- D - I - - 0x020A15 10:8A05: 3F BB     .word _scenario_BB3F_23 ; 
+- D - I - - 0x020A17 10:8A07: F2 9B     .word _scenario_9BF2_24 ; 
+- D - I - - 0x020A19 10:8A09: DD 9C     .word _scenario_9CDD_25 ; 
+- D - I - - 0x020A1B 10:8A0B: 2D 9E     .word _scenario_9E2D_26 ; 
+- D - I - - 0x020A1D 10:8A0D: F8 9B     .word _scenario_9BF8_27 ; 
+- D - I - - 0x020A1F 10:8A0F: CC B4     .word _scenario_B4CC_28 ; 
+- D - I - - 0x020A21 10:8A11: FE 9B     .word _scenario_9BFE_29 ; 
+- D - I - - 0x020A23 10:8A13: E0 B4     .word _scenario_B4E0_2A ; 
+- D - I - - 0x020A25 10:8A15: 2C B7     .word _scenario_B72C_2B ; 
+- D - I - - 0x020A27 10:8A17: 54 9F     .word _scenario_9F54_2C ; 
+- D - I - - 0x020A29 10:8A19: D6 B4     .word _scenario_B4D6_2D ; 
+- D - I - - 0x020A2B 10:8A1B: 4E B7     .word _scenario_B74E_2E ; 
+- D - I - - 0x020A2D 10:8A1D: 73 B7     .word _scenario_B773_2F ; 
+- D - I - - 0x020A2F 10:8A1F: 30 9C     .word _scenario_9C30_30 ; 
+- D - I - - 0x020A31 10:8A21: 8C B7     .word _scenario_B78C_31 ; 
+- D - I - - 0x020A33 10:8A23: 57 9E     .word _scenario_9E57_32 ; 
+- D - I - - 0x020A35 10:8A25: 04 9C     .word _scenario_9C04_33 ; 
+- D - I - - 0x020A37 10:8A27: CC BB     .word _scenario_BBCC_34 ; 
+- D - I - - 0x020A39 10:8A29: CD B7     .word _scenario_B7CD_35 ; 
+- D - I - - 0x020A3B 10:8A2B: E4 B7     .word _scenario_B7E4_36 ; 
+- D - I - - 0x020A3D 10:8A2D: BF B7     .word _scenario_B7BF_37 ; 
+- D - I - - 0x020A3F 10:8A2F: C6 B7     .word _scenario_B7C6_38 ; 
+- D - I - - 0x020A41 10:8A31: B3 BD     .word _scenario_BDB3_39 ; 
+- D - I - - 0x020A43 10:8A33: 7C B4     .word _scenario_B47C_3A ; 
+- - - - - - 0x020A45 10:8A35: A1 BD     .word _scenario_BDA1_3B ; unused
+- - - - - - 0x020A47 10:8A37: 3E 9F     .word _scenario_9F3E_3C ; unused
+- D - I - - 0x020A49 10:8A39: BA 9F     .word _scenario_9FBA_3D ; 
+- D - I - - 0x020A4B 10:8A3B: 0A 9C     .word _scenario_9C0A_3E ; 
+- D - I - - 0x020A4D 10:8A3D: 54 B7     .word _scenario_B754_3F ; 
+- D - I - - 0x020A4F 10:8A3F: 95 BD     .word _scenario_BD95_40 ; 
+- D - I - - 0x020A51 10:8A41: 9A BD     .word _scenario_BD9A_41 ; 
+- D - I - - 0x020A53 10:8A43: A6 BD     .word _scenario_BDA6_42 ; 
+- D - I - - 0x020A55 10:8A45: AD BD     .word _scenario_BDAD_43 ; 
+- D - I - - 0x020A57 10:8A47: D5 B7     .word _scenario_B7D5_44 ; 
+- - - - - - 0x020A59 10:8A49: B8 BD     .word _scenario_BDB8_45 ; 
+- D - I - - 0x020A5B 10:8A4B: BD BD     .word _scenario_BDBD_46 ; 
+- D - I - - 0x020A5D 10:8A4D: 19 9C     .word _scenario_9C19_47 ; 
 - - - - - - 0x020A5F 10:8A4F: 01 BE     .word _scenario_BE01_48 ; unused
 - - - - - - 0x020A61 10:8A51: 01 BE     .word _scenario_BE01_49 ; unused
 - - - - - - 0x020A63 10:8A53: 01 BE     .word _scenario_BE01_4A ; unused
@@ -2551,49 +2545,47 @@ tbl_89BF_сценарии:
 - - - - - - 0x020A69 10:8A59: 01 BE     .word _scenario_BE01_4D ; unused
 - - - - - - 0x020A6B 10:8A5B: 01 BE     .word _scenario_BE01_4E ; unused
 - - - - - - 0x020A6D 10:8A5D: 01 BE     .word _scenario_BE01_4F ; unused
-- D - I - - 0x020A6F 10:8A5F: 01 BE     .word _scenario_BE01_50     ; credits face 22 p_tsubasa_my
-- D - I - - 0x020A71 10:8A61: 0D BE     .word _scenario_BE0D_51     ; credits face 18 p_misaki_my
-- D - I - - 0x020A73 10:8A63: 18 BE     .word _scenario_BE18_52     ; credits face 20 p_hyuga_my
-- D - I - - 0x020A75 10:8A65: 20 BE     .word _scenario_BE20_53     ; credits face 21 p_wakabayashi_my
-- D - I - - 0x020A77 10:8A67: 2A BE     .word _scenario_BE2A_54     ; credits face  8 p_matsuyama_furano
-- D - I - - 0x020A79 10:8A69: 32 BE     .word _scenario_BE32_55     ; credits face  7 p_misugi_musashi
-- D - I - - 0x020A7B 10:8A6B: 3A BE     .word _scenario_BE3A_56     ; credits face  3 p_ishizaki_my
-- D - I - - 0x020A7D 10:8A6D: 42 BE     .word _scenario_BE42_57     ; credits face  6 p_soda_tatsunami
-- D - I - - 0x020A7F 10:8A6F: 4A BE     .word _scenario_BE4A_58     ; credits face  9 p_nitta_my
-- D - I - - 0x020A81 10:8A71: 52 BE     .word _scenario_BE52_59     ; credits face  4 p_jito_kunimi
-- D - I - - 0x020A83 10:8A73: 5A BE     .word _scenario_BE5A_5A     ; credits face  5 p_masao_akita
-- D - I - - 0x020A85 10:8A75: 69 BE     .word _scenario_BE69_5B     ; credits face 19 p_wakashimazu_my
-- D - I - - 0x020A87 10:8A77: 73 BE     .word _scenario_BE73_5C     ; credits face  1 p_carlos_flamengo
-- D - I - - 0x020A89 10:8A79: 7C BE     .word _scenario_BE7C_5D     ; credits face  2 p_meon_gremio
-- D - I - - 0x020A8B 10:8A7B: 86 BE     .word _scenario_BE86_5E     ; credits face 11 p_kaltz_hamburger_sv
-- D - I - - 0x020A8D 10:8A7D: 8E BE     .word _scenario_BE8E_5F     ; credits face 12 p_pierre_france
-- D - I - - 0x020A8F 10:8A7F: 96 BE     .word _scenario_BE96_60     ; credits face 13 p_napoleon_france
-- D - I - - 0x020A91 10:8A81: 9E BE     .word _scenario_BE9E_61     ; credits face 14 p_diaz_argentina
-- D - I - - 0x020A93 10:8A83: A6 BE     .word _scenario_BEA6_62     ; credits face 15 p_pascal_argentina
-- D - I - - 0x020A95 10:8A85: AE BE     .word _scenario_BEAE_63     ; credits face 16 p_schneider_west_germany
-- D - I - - 0x020A97 10:8A87: B6 BE     .word _scenario_BEB6_64     ; credits face 10 p_victorino_uruguay
-- D - I - - 0x020A99 10:8A89: BE BE     .word _scenario_BEBE_65     ; credits face 17 p_coimbra_brazil
-- D - I - - 0x020A9B 10:8A8B: C6 BE     .word _scenario_BEC6_66     ; credits долгая анимация удара и портрет в конце 
-- - - - - - 0x020A9D 10:8A8D: D8 BE     .word _scenario_BED8_67     ; долгая анимация удара и портрет в конце (видимо не до конца доработана, звуков не хватает)
-                                                                        ; поинтер не найден, в новых логах не читалось
-- - - - - - 0x020A9F 10:8A8F: F7 BE     .word _scenario_BEF7_68     ; мяч рвет сетку и портрет в конце
-                                                                        ; поинтер не найден, в новых логах не читалось
-- D - I - - 0x020AA1 10:8A91: 05 BF     .word _scenario_BF05_69     ; credits  1 tsubasa shoot
-- D - I - - 0x020AA3 10:8A93: 62 AA     .word _scenario_AA62_6A     ; credits 11 tsubasa heel lift
-- D - I - - 0x020AA5 10:8A95: 0D BF     .word _scenario_BF0D_6B     ; credits  3 soda razor tackle
-- D - I - - 0x020AA7 10:8A97: 13 BF     .word _scenario_BF13_6C     ; credits  4 ishizaki face block
-- D - I - - 0x020AA9 10:8A99: 23 BF     .word _scenario_BF23_6D     ; credits  5 tsubasa cyclone launch
-- D - I - - 0x020AAB 10:8A9B: 2C BF     .word _scenario_BF2C_6E     ; credits  6 tachibana skylab hurricane
-- D - I - - 0x020AAD 10:8A9D: 54 BF     .word _scenario_BF54_6F     ; credits  7 wakashimazu triangle jump
-- D - I - - 0x020AAF 10:8A9F: 61 BF     .word _scenario_BF61_70     ; credits  8 штанга + добивание urabe + мяч лопается
-- D - I - - 0x020AB1 10:8AA1: 73 BF     .word _scenario_BF73_71     ; credits  9 кипер пропускает + matsuyama спасает ворота
-- D - I - - 0x020AB3 10:8AA3: 7F BF     .word _scenario_BF7F_72     ; credits 10 jito power block
-- D - I - - 0x020AB5 10:8AA5: 94 BF     .word _scenario_BF94_73     ; credits 12 wakabayshi critical
-- D - I - - 0x020AB7 10:8AA7: 9C BF     .word _scenario_BF9C_74     ; credits 13 hyuga forcible dribble
-- D - I - - 0x020AB9 10:8AA9: D2 BF     .word _scenario_BFD2_75     ; credits 14 misaki jumping volley
-- D - I - - 0x020ABB 10:8AAB: 1B B0     .word _scenario_B01B_76     ; credits 15 misaki overhead kick
-- D - I - - 0x020ABD 10:8AAD: D8 BF     .word _scenario_BFD8_77     ; credits 16 tsubasa крупным планом
-- D - I - - 0x020ABF 10:8AAF: 97 A1     .word _scenario_A197_78     ; credits  2 nitta high clear
+- D - I - - 0x020A6F 10:8A5F: 01 BE     .word _scenario_BE01_50 ; 
+- D - I - - 0x020A71 10:8A61: 0D BE     .word _scenario_BE0D_51 ; 
+- D - I - - 0x020A73 10:8A63: 18 BE     .word _scenario_BE18_52 ; 
+- D - I - - 0x020A75 10:8A65: 20 BE     .word _scenario_BE20_53 ; 
+- D - I - - 0x020A77 10:8A67: 2A BE     .word _scenario_BE2A_54 ; 
+- D - I - - 0x020A79 10:8A69: 32 BE     .word _scenario_BE32_55 ; 
+- D - I - - 0x020A7B 10:8A6B: 3A BE     .word _scenario_BE3A_56 ; 
+- D - I - - 0x020A7D 10:8A6D: 42 BE     .word _scenario_BE42_57 ; 
+- D - I - - 0x020A7F 10:8A6F: 4A BE     .word _scenario_BE4A_58 ; 
+- D - I - - 0x020A81 10:8A71: 52 BE     .word _scenario_BE52_59 ; 
+- D - I - - 0x020A83 10:8A73: 5A BE     .word _scenario_BE5A_5A ; 
+- D - I - - 0x020A85 10:8A75: 69 BE     .word _scenario_BE69_5B ; 
+- D - I - - 0x020A87 10:8A77: 73 BE     .word _scenario_BE73_5C ; 
+- D - I - - 0x020A89 10:8A79: 7C BE     .word _scenario_BE7C_5D ; 
+- D - I - - 0x020A8B 10:8A7B: 86 BE     .word _scenario_BE86_5E ; 
+- D - I - - 0x020A8D 10:8A7D: 8E BE     .word _scenario_BE8E_5F ; 
+- D - I - - 0x020A8F 10:8A7F: 96 BE     .word _scenario_BE96_60 ; 
+- D - I - - 0x020A91 10:8A81: 9E BE     .word _scenario_BE9E_61 ; 
+- D - I - - 0x020A93 10:8A83: A6 BE     .word _scenario_BEA6_62 ; 
+- D - I - - 0x020A95 10:8A85: AE BE     .word _scenario_BEAE_63 ; 
+- D - I - - 0x020A97 10:8A87: B6 BE     .word _scenario_BEB6_64 ; 
+- D - I - - 0x020A99 10:8A89: BE BE     .word _scenario_BEBE_65 ; 
+- D - I - - 0x020A9B 10:8A8B: C6 BE     .word _scenario_BEC6_66 ; unused
+- - - - - - 0x020A9D 10:8A8D: D8 BE     .word _scenario_BED8_67 ; unused
+- - - - - - 0x020A9F 10:8A8F: F7 BE     .word _scenario_BEF7_68 ; 
+- D - I - - 0x020AA1 10:8A91: 05 BF     .word _scenario_BF05_69 ; 
+- D - I - - 0x020AA3 10:8A93: 62 AA     .word _scenario_AA62_6A ; 
+- D - I - - 0x020AA5 10:8A95: 0D BF     .word _scenario_BF0D_6B ; 
+- D - I - - 0x020AA7 10:8A97: 13 BF     .word _scenario_BF13_6C ; 
+- D - I - - 0x020AA9 10:8A99: 23 BF     .word _scenario_BF23_6D ; 
+- D - I - - 0x020AAB 10:8A9B: 2C BF     .word _scenario_BF2C_6E ; 
+- D - I - - 0x020AAD 10:8A9D: 54 BF     .word _scenario_BF54_6F ; 
+- D - I - - 0x020AAF 10:8A9F: 61 BF     .word _scenario_BF61_70 ; 
+- D - I - - 0x020AB1 10:8AA1: 73 BF     .word _scenario_BF73_71 ; 
+- D - I - - 0x020AB3 10:8AA3: 7F BF     .word _scenario_BF7F_72 ; 
+- D - I - - 0x020AB5 10:8AA5: 94 BF     .word _scenario_BF94_73 ; 
+- D - I - - 0x020AB7 10:8AA7: 9C BF     .word _scenario_BF9C_74 ; 
+- D - I - - 0x020AB9 10:8AA9: D2 BF     .word _scenario_BFD2_75 ; 
+- D - I - - 0x020ABB 10:8AAB: 1B B0     .word _scenario_B01B_76 ; 
+- D - I - - 0x020ABD 10:8AAD: D8 BF     .word _scenario_BFD8_77 ; 
+- D - I - - 0x020ABF 10:8AAF: 97 A1     .word _scenario_A197_78 ; 
 
 
 

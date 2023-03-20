@@ -50,7 +50,7 @@
 .export loc_0x03D907
 .export loc_0x03DABA
 .export sub_0x03DB72
-.export sub_0x03DCEF
+.export sub_0x03DCEF_рандом_высоты_мяча
 .export loc_0x03DD0D
 .export loc_0x03DD12
 .export ofs_039_0x03DD12_00
@@ -3796,8 +3796,8 @@ tbl_DCB3:
 
 
 
-sub_DCDF:
-sub_0x03DCEF:
+sub_DCDF_рандом_высоты_мяча:
+sub_0x03DCEF_рандом_высоты_мяча:
 C D - - - - 0x03DCEF FF:DCDF: AD 4E 04  LDA ram_высота_мяча
 C - - - - - 0x03DCF2 FF:DCE2: D0 0B     BNE bra_DCEF_RTS
 C - - - - - 0x03DCF4 FF:DCE4: AD E2 00  LDA ram_random + $01
@@ -4018,7 +4018,7 @@ C - - - - - 0x03DE2E FF:DE1E: 91 34     STA (ram_plr_data),Y    ; con_plr_stun
 C - - - - - 0x03DE30 FF:DE20: A9 00     LDA #$00
 C - - - - - 0x03DE32 FF:DE22: 8D 28 06  STA ram_индекс_буфера
 C - - - - - 0x03DE35 FF:DE25: 8D 4E 04  STA ram_высота_мяча
-C - - - - - 0x03DE38 FF:DE28: 20 DF DC  JSR sub_DCDF
+C - - - - - 0x03DE38 FF:DE28: 20 DF DC  JSR sub_DCDF_рандом_высоты_мяча
 C - - - - - 0x03DE3B FF:DE2B: A9 01     LDA #$01
 C - - - - - 0x03DE3D FF:DE2D: 8D 3B 04  STA ram_действие_атаки
 C - - - - - 0x03DE40 FF:DE30: A9 00     LDA #$00
