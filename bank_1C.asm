@@ -14,6 +14,15 @@
 .export sub_0x0381AD
 .export sub_0x038234
 .export sub_0x0382DA
+.export ofs_062_0x0381AD_06
+.export ofs_062_0x038234_07
+.export ofs_062_0x03829F_08
+.export ofs_062_0x03847A_0A
+.export ofs_062_0x0384D1_0E
+.export ofs_062_0x03850F_0D
+.export ofs_062_0x03853E_09
+.export ofs_062_0x038619_02
+.export ofs_062_0x038D68_04
 
 
 
@@ -292,7 +301,6 @@ tbl_8199:
 
 
 
-.export ofs_062_0x0381AD_06
 ofs_062_0x0381AD_06:
 sub_0x0381AD:
 C D - - - - 0x0381AD 1C:819D: AD 3B 04  LDA ram_действие_атаки
@@ -384,7 +392,6 @@ tbl_8206:
 
 
 
-.export ofs_062_0x038234_07
 ofs_062_0x038234_07:
 sub_0x038234:
 C D - - - - 0x038234 1C:8224: AD 3D 04  LDA ram_действие_защиты
@@ -462,7 +469,6 @@ C - - - - - 0x03829E 1C:828E: 60        RTS
 
 
 
-.export ofs_062_0x03829F_08
 ofs_062_0x03829F_08:
 C D - - - - 0x03829F 1C:828F: AC 3D 04  LDY ram_действие_защиты
 C - - - - - 0x0382A2 1C:8292: C0 03     CPY #$03
@@ -607,7 +613,6 @@ tbl_834A_тайлы_миникарты:
 
 
 
-.export ofs_062_0x03847A_0A
 ofs_062_0x03847A_0A:
 C D - - - - 0x03847A 1C:846A: A9 00     LDA #$00
 C - - - - - 0x03847C 1C:846C: 8D 28 06  STA ram_индекс_буфера
@@ -666,7 +671,6 @@ C - - - - - 0x0384D0 1C:84C0: 60        RTS
 
 
 
-.export ofs_062_0x0384D1_0E
 ofs_062_0x0384D1_0E:
 C D - - - - 0x0384D1 1C:84C1: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x0384D4 1C:84C4: F0 2D     BEQ bra_84F3_команда_слева
@@ -699,7 +703,6 @@ C - - - - - 0x03850E 1C:84FE: 60        RTS
 
 
 
-.export ofs_062_0x03850F_0D
 ofs_062_0x03850F_0D:
 C D - - - - 0x03850F 1C:84FF: AE FB 05  LDX ram_команда_с_мячом     ; X = 00, bzk optimize, небезопасно
 C - - - - - 0x038512 1C:8502: F0 02     BEQ bra_8506_команда_слева
@@ -742,7 +745,6 @@ tbl_8528:
 
 
 
-.export ofs_062_0x03853E_09
 ofs_062_0x03853E_09:
 C D - - - - 0x03853E 1C:852E: A0 06     LDY #$06
 C - - - - - 0x038540 1C:8530: B1 38     LDA (ram_enemy_data),Y
@@ -885,8 +887,6 @@ tbl_8604:
 
 
 
-loc_8609_02:
-.export ofs_062_0x038619_02
 ofs_062_0x038619_02:
 sub_0x038619:
 C D - - - - 0x038619 1C:8609: AD FB 05  LDA ram_команда_с_мячом
@@ -2220,16 +2220,15 @@ C - - - - - 0x038D62 1C:8D52: 4C 11 8E  JMP loc_8E11
 
 
 sub_8D58:
-.export ofs_062_0x038D68_04
 ofs_062_0x038D68_04:
 sub_0x038D68:
 C D - - - - 0x038D68 1C:8D58: A8        TAY
 C - - - - - 0x038D69 1C:8D59: D0 03     BNE bra_8D5E
-C - - - - - 0x038D6B 1C:8D5B: 4C A6 8D  JMP loc_8DA6_05
+C - - - - - 0x038D6B 1C:8D5B: 4C A6 8D  JMP loc_8DA6
 bra_8D5E:
 C - - - - - 0x038D6E 1C:8D5E: C9 0B     CMP #$0B
 C - - - - - 0x038D70 1C:8D60: D0 03     BNE bra_8D65
-- - - - - - 0x038D72 1C:8D62: 4C A6 8D  JMP loc_8DA6_05
+- - - - - - 0x038D72 1C:8D62: 4C A6 8D  JMP loc_8DA6
 bra_8D65:
 C - - - - - 0x038D75 1C:8D65: E0 03     CPX #$03
 C - - - - - 0x038D77 1C:8D67: B0 1F     BCS bra_8D88
@@ -2271,7 +2270,7 @@ C - - - - - 0x038DAD 1C:8D9D: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 
 sub_8DA6:
-loc_8DA6_05:
+loc_8DA6:
 C D - - - - 0x038DB6 1C:8DA6: E0 00     CPX #$00
 C - - - - - 0x038DB8 1C:8DA8: D0 10     BNE bra_8DBA
 C - - - - - 0x038DBA 1C:8DAA: 20 C9 8D  JSR sub_8DC9_вычислить_адрес_спешалов_игрока
