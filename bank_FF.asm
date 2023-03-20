@@ -1395,12 +1395,18 @@ C - - - - - 0x03CE7D FF:CE6D: 60        RTS
 
 
 sub_0x03CE7E_подпрограммы_в_банке_1C:
+                                        STA ram_0036
+                                        TXA
+                                        PHA
+                                        LDA ram_0036
+                                        ASL
+                                        TAX
+                                        LDA tbl_CE94,X
 C D - - - - 0x03CE7E FF:CE6E: 85 36     STA ram_0036
-C - - - - - 0x03CE80 FF:CE70: 0A        ASL
-C - - - - - 0x03CE81 FF:CE71: 65 36     ADC ram_0036
-C - - - - - 0x03CE83 FF:CE73: 85 36     STA ram_0036
-C - - - - - 0x03CE85 FF:CE75: A9 80     LDA #$80
+C - - - - - 0x03CE80 FF:CE70: 0A        LDA tbl_CE94 + $01,X
 C - - - - - 0x03CE87 FF:CE77: 85 37     STA ram_0037
+                                        PLA
+                                        TAX
 C - - - - - 0x03CE89 FF:CE79: A5 24     LDA ram_for_5114
 C - - - - - 0x03CE8B FF:CE7B: 48        PHA
 C - - - - - 0x03CE8C FF:CE7C: A5 25     LDA ram_for_5115
@@ -1421,6 +1427,26 @@ C - - - - - 0x03CEA3 FF:CE93: 4C 2D CE  JMP loc_CE2D_prg_bankswitch
 
 sub_CE96_непрямой_прыжок:
 C - - - - - 0x03CEA6 FF:CE96: 6C 36 00  JMP (ram_0036)
+
+
+
+tbl_CE94:
+    .word $0000 ; 00 unused
+    .word $0000 ; 01 unused
+    .word ofs_062_0x038619_02 ; 02
+    .word $0000 ; 03 unused
+    .word $0000 ; 04 unused
+    .word $0000 ; 05 unused
+    .word ofs_062_0x0381AD_06 ; 06
+    .word ofs_062_0x038234_07 ; 07
+    .word ofs_062_0x03829F_08 ; 08
+    .word ofs_062_0x03853E_09 ; 09
+    .word ofs_062_0x03847A_0A ; 0A
+    .word $0000 ; 0B unused
+    .word $0000 ; 0C unused
+    .word ofs_062_0x03850F_0D ; 0D
+    .word ofs_062_0x0384D1_0E ; 0E
+
 
 
 
