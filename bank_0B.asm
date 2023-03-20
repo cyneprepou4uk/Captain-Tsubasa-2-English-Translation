@@ -842,10 +842,10 @@ sub_0x0164B1:
 C D - - - - 0x0164B1 0B:84A1: A2 02     LDX #$02
 C - - - - - 0x0164B3 0B:84A3: C9 80     CMP #$80
 C - - - - - 0x0164B5 0B:84A5: B0 06     BCS bra_84AD
-C - - - - - 0x0164B7 0B:84A7: CA        DEX
+C - - - - - 0x0164B7 0B:84A7: CA        DEX ; 01
 C - - - - - 0x0164B8 0B:84A8: C9 40     CMP #$40
 C - - - - - 0x0164BA 0B:84AA: B0 01     BCS bra_84AD
-C - - - - - 0x0164BC 0B:84AC: CA        DEX
+C - - - - - 0x0164BC 0B:84AC: CA        DEX ; 00
 bra_84AD:
 C - - - - - 0x0164BD 0B:84AD: A0 74     LDY #$74
 C - - - - - 0x0164BF 0B:84AF: 29 3F     AND #$3F

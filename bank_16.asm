@@ -202,7 +202,7 @@ bra_811D:
 C - - - - - 0x02C12D 16:811D: 48        PHA
 C - - - - - 0x02C12E 16:811E: 68        PLA
 C - - - - - 0x02C12F 16:811F: 10 01     BPL bra_8122
-C - - - - - 0x02C131 16:8121: CA        DEX
+C - - - - - 0x02C131 16:8121: CA        DEX ; FF
 bra_8122:
 C - - - - - 0x02C132 16:8122: 18        CLC
 C - - - - - 0x02C133 16:8123: 65 3E     ADC ram_003E
@@ -299,7 +299,7 @@ bra_81A2:
 C - - - - - 0x02C1B2 16:81A2: 48        PHA
 C - - - - - 0x02C1B3 16:81A3: 68        PLA
 C - - - - - 0x02C1B4 16:81A4: 10 01     BPL bra_81A7
-C - - - - - 0x02C1B6 16:81A6: CA        DEX
+C - - - - - 0x02C1B6 16:81A6: CA        DEX ; FF
 bra_81A7:
 C - - - - - 0x02C1B7 16:81A7: 18        CLC
 C - - - - - 0x02C1B8 16:81A8: 65 3E     ADC ram_003E
@@ -322,7 +322,7 @@ bra_81C1:
 C - - - - - 0x02C1D1 16:81C1: 48        PHA
 C - - - - - 0x02C1D2 16:81C2: 68        PLA
 C - - - - - 0x02C1D3 16:81C3: 10 01     BPL bra_81C6
-C - - - - - 0x02C1D5 16:81C5: CA        DEX
+C - - - - - 0x02C1D5 16:81C5: CA        DEX ; FF
 bra_81C6:
 C - - - - - 0x02C1D6 16:81C6: 18        CLC
 C - - - - - 0x02C1D7 16:81C7: 65 40     ADC ram_0040

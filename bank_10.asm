@@ -327,7 +327,7 @@ C - - - - - 0x020180 10:8170: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 - D - I - - 0x020189 10:8179: 55 82     .word ofs_015_8255_03_результат_действия_защитника
 - D - I - - 0x02018B 10:817B: 59 82     .word ofs_015_8259_04_высота_мяча
 - D - I - - 0x02018D 10:817D: 60 82     .word ofs_015_8260_05_порядковый_номер_защитника
-- D - I - - 0x02018F 10:817F: 64 82     .word ofs_015_8264_06_защитник_if_кипер_или_нет
+- D - I - - 0x02018F 10:817F: 64 82     .word ofs_015_8264_06_защитник_полевой_или_кипер
 - D - I - - 0x020191 10:8181: 71 82     .word $0000       ; unused, было аналогично 03_83
 - D - I - - 0x020193 10:8183: 75 82     .word ofs_015_8275_08
 - D - I - - 0x020195 10:8185: 8A 82     .word ofs_015_828A_09_действие_атаки_на_штрафной
@@ -501,8 +501,8 @@ C - - - - - 0x020273 10:8263: 60        RTS
 
 
 
-ofs_015_8264_06_защитник_if_кипер_или_нет:
-; 00 = защитник не кипер
+ofs_015_8264_06_защитник_полевой_или_кипер:
+; 00 = защитник полевой
 ; 01 = защитник кипер
 C - J - - - 0x020274 10:8264: A2 00     LDX #$00
 C - - - - - 0x020276 10:8266: AD 42 04  LDA ram_игрок_без_мяча
@@ -835,9 +835,9 @@ C - - - - - 0x0203BE 10:83AE: 60        RTS
 tbl_83AF:
     .byte $FF   ; 00 unused
     .byte $FF   ; 01 unused
-    .byte $00   ; 02 
-    .byte $FF   ; unused
-    .byte $01   ; 04 
+    .byte $00   ; 02 pass cut/dive?
+    .byte $FF   ; 03 unused
+    .byte $01   ; 04 clearing/wait?
 
 
 
@@ -6317,7 +6317,7 @@ _scenario_927F_12:
             .byte off_case_12_00_01 - * ; защитник убьется
 
                 off_case_12_00_00:
-                ; защитник выживет
+                ; low/защитник выживет
                     .dbyt con_branch_short + con_bra_результат_действия_защитника
                     .byte off_case_12_00_00_00 - * ; 
                     .byte off_case_12_00_00_01 - * ; 
@@ -6325,15 +6325,19 @@ _scenario_927F_12:
                     .byte off_case_12_00_00_03 - * ; 
 
                         off_case_12_00_00_00:
+                        ; low/защитник выживет/
                         off_case_12_00_00_01:
+                        ; low/защитник выживет/
                             .byte con_quit
 
                         off_case_12_00_00_02:
+                        ; low/защитник выживет/
                             .byte con_jsr
                             .word sub_A371_мяч_улетает_в_сторону
                             .byte con_quit
 
                         off_case_12_00_00_03:
+                        ; low/защитник выживет/
                             .dbyt con_branch_short + con_bra_15
                             .byte off_case_12_00_00_03_00 - * ; 
                             .byte off_case_12_00_00_03_01 - * ; 
@@ -6349,7 +6353,7 @@ _scenario_927F_12:
                                     .word loc_A388_мяч_улетает_в_сторону_после_выигрывания_compete
 
                 off_case_12_00_01:
-                ; защитник убьется
+                ; low/защитник убьется
                     .dbyt con_branch_short + con_bra_результат_действия_защитника
                     .byte off_case_12_00_01_00 - * ; 
                     .byte off_case_12_00_01_01 - * ; 
@@ -6357,24 +6361,28 @@ _scenario_927F_12:
                     .byte off_case_12_00_01_03 - * ; 
 
                         off_case_12_00_01_00:
+                        ; low/защитник убьется/
                         off_case_12_00_01_01:
+                        ; low/защитник убьется/
                             .byte con_quit
 
                         off_case_12_00_01_02:
+                        ; low/защитник убьется/
                             .byte con_jsr
                             .word sub_A371_мяч_улетает_в_сторону
                             .byte con_quit
 
                         off_case_12_00_01_03:
+                        ; low/защитник убьется/
                             .dbyt con_branch_short + con_bra_15
                             .byte off_case_12_00_01_03_00 - * ; 
                             .byte off_case_12_00_01_03_01 - * ; 
 
-                        off_case_12_00_01_03_00:
+                                off_case_12_00_01_03_00:
                                     .byte con_jmp
                                     .word loc_A164_защитник_ловит_низкий_мяч_ногой
 
-                    off_case_12_00_01_03_01:
+                                off_case_12_00_01_03_01:
                                     .byte con_jsr
                                     .word sub_A1B1_защитник_выигрывает_нижний_compete
                                     .byte con_jmp
@@ -6395,15 +6403,19 @@ _scenario_927F_12:
                     .byte off_case_12_01_00_03 - * ; 
 
                         off_case_12_01_00_00:
+                        ; high/защитник выживет/
                         off_case_12_01_00_01:
+                        ; high/защитник выживет/
                             .byte con_quit
 
                         off_case_12_01_00_02:
+                        ; high/защитник выживет/
                             .byte con_jsr
                             .word sub_A371_мяч_улетает_в_сторону
                             .byte con_quit
 
                         off_case_12_01_00_03:
+                        ; high/защитник выживет/
                             .dbyt con_branch_short + con_bra_15
                             .byte off_case_12_01_00_03_00 - * ; 
                             .byte off_case_12_01_00_03_01 - * ; 
@@ -6427,15 +6439,19 @@ _scenario_927F_12:
                     .byte off_case_12_01_01_03 - * ; 
 
                         off_case_12_01_01_00:
+                        ; high/защитник убьется/
                         off_case_12_01_01_01:
+                        ; high/защитник убьется/
                             .byte con_quit
 
                         off_case_12_01_01_02:
+                        ; high/защитник убьется/
                             .byte con_jsr
                             .word sub_A371_мяч_улетает_в_сторону
                             .byte con_quit
 
                         off_case_12_01_01_03:
+                        ; high/защитник убьется/
                             .dbyt con_branch_short + con_bra_15
                             .byte off_case_12_01_01_03_00 - * ; 
                             .byte off_case_12_01_01_03_01 - * ; 

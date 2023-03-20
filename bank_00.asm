@@ -3650,7 +3650,7 @@ C - - - - - 0x0015A1 00:9591: 0A        ASL
 C - - - - - 0x0015A2 00:9592: 85 EA     STA ram_00EA
 ; 80+ будет если умножается байт 90-9F
 C - - - - - 0x0015A4 00:9594: 10 01     BPL bra_9597
-C - - - - - 0x0015A6 00:9596: CA        DEX
+C - - - - - 0x0015A6 00:9596: CA        DEX ; FF
 bra_9597:
 C - - - - - 0x0015A7 00:9597: 86 EB     STX ram_00EB
 C - - - - - 0x0015A9 00:9599: A5 9A     LDA ram_009A
@@ -3687,7 +3687,7 @@ C - - - - - 0x0015D6 00:95C6: 0A        ASL
 C - - - - - 0x0015D7 00:95C7: 0A        ASL
 C - - - - - 0x0015D8 00:95C8: 85 E8     STA ram_00E8
 C - - - - - 0x0015DA 00:95CA: 10 01     BPL bra_95CD
-C - - - - - 0x0015DC 00:95CC: CA        DEX
+C - - - - - 0x0015DC 00:95CC: CA        DEX ; FF
 bra_95CD:
 C - - - - - 0x0015DD 00:95CD: 86 E9     STX ram_00E9
 C - - - - - 0x0015DF 00:95CF: A5 9C     LDA ram_009C

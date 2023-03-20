@@ -512,7 +512,7 @@ C - - - - - 0x034397 1A:8387: A2 01     LDX #$01
 C - - - - - 0x034399 1A:8389: AC 12 06  LDY ram_результат_защитника
 C - - - - - 0x03439C 1A:838C: C0 02     CPY #$02
 C - - - - - 0x03439E 1A:838E: 90 03     BCC bra_8393
-C - - - - - 0x0343A0 1A:8390: CA        DEX
+C - - - - - 0x0343A0 1A:8390: CA        DEX ; 00
 C - - - - - 0x0343A1 1A:8391: A9 05     LDA #con_s_id_05
 bra_8393:
 C - - - - - 0x0343A3 1A:8393: 48        PHA
@@ -1554,7 +1554,7 @@ C - - - - - 0x034A3D 1A:8A2D: A2 01     LDX #$01
 C - - - - - 0x034A3F 1A:8A2F: AC 12 06  LDY ram_результат_защитника
 C - - - - - 0x034A42 1A:8A32: C0 02     CPY #$02
 C - - - - - 0x034A44 1A:8A34: 90 03     BCC bra_8A39
-C - - - - - 0x034A46 1A:8A36: CA        DEX
+C - - - - - 0x034A46 1A:8A36: CA        DEX ; 00
 C - - - - - 0x034A47 1A:8A37: A9 10     LDA #con_s_id_10
 bra_8A39:
 C - - - - - 0x034A49 1A:8A39: 48        PHA
@@ -1820,7 +1820,7 @@ C - - - - - 0x034BDA 1A:8BCA: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - - 0x034BDD 1A:8BCD: F0 05     BEQ bra_8BD4_это_кипер
 C - - - - - 0x034BDF 1A:8BCF: C9 0B     CMP #$0B
 C - - - - - 0x034BE1 1A:8BD1: F0 01     BEQ bra_8BD4_это_кипер
-C - - - - - 0x034BE3 1A:8BD3: CA        DEX
+C - - - - - 0x034BE3 1A:8BD3: CA        DEX ; 02
 bra_8BD4_это_кипер:
 sub_8BD4_начислить_опыт:
 loc_8BD4_начислить_опыт:
@@ -2754,25 +2754,25 @@ tbl_90E6_затраченное_время:
 
 
 tbl_90F4:
-; 00 
+; 00 block / catch
 - D - - - - 0x035104 1A:90F4: 00        .byte $00
 - D - - - - 0x035105 1A:90F5: 00        .byte $00
-; 01 
+; 01 tackle / punch
 - D - - - - 0x035106 1A:90F6: 00        .byte $00
 - D - - - - 0x035107 1A:90F7: 00        .byte $00
-; 02 
+; 02 pass cut / triangle jump
 - D - - - - 0x035108 1A:90F8: 00        .byte $00
 - D - - - - 0x035109 1A:90F9: 00        .byte $00
-; 03 
+; 03 interfere / dive
 - D - - - - 0x03510A 1A:90FA: 02        .byte $02
 - D - - - - 0x03510B 1A:90FB: 00        .byte $00
-; 04 
+; 04 clearing / wait (gk)
 - D - - - - 0x03510C 1A:90FC: 00        .byte $00
 - D - - - - 0x03510D 1A:90FD: 00        .byte $00
-; 05 
+; 05 mark / through
 - - - - - - 0x03510E 1A:90FE: 00        .byte $00
 - D - - - - 0x03510F 1A:90FF: 00        .byte $00
-; 06 
+; 06 wait (для полевых)
 - - - - - - 0x035110 1A:9100: 00        .byte $00
 - D - - - - 0x035111 1A:9101: 00        .byte $00
 
@@ -4567,7 +4567,7 @@ C - - - - - 0x035D7D 1A:9D6D: 8D AC 04  STA ram_04AC
 C - - - - - 0x035D80 1A:9D70: A2 01     LDX #$01
 C - - - - - 0x035D82 1A:9D72: 8E A5 04  STX ram_04A5
 C - - - - - 0x035D85 1A:9D75: 8E A9 04  STX ram_04A9
-C - - - - - 0x035D88 1A:9D78: CA        DEX
+C - - - - - 0x035D88 1A:9D78: CA        DEX ; 00
 C - - - - - 0x035D89 1A:9D79: 8E AD 04  STX ram_04AD
 C - - - - - 0x035D8C 1A:9D7C: A9 80     LDA #$80
 C - - - - - 0x035D8E 1A:9D7E: 8D 15 05  STA ram_0515

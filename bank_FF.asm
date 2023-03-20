@@ -1731,8 +1731,8 @@ C - - - - - 0x03D058 FF:D048: A2 04     LDX #$04
 C - - - - - 0x03D05A FF:D04A: AD 27 00  LDA ram_номер_тайма
 C - - - - - 0x03D05D FF:D04D: C9 01     CMP #$01
 C - - - - - 0x03D05F FF:D04F: F0 0D     BEQ bra_D05E
-- - - - - - 0x03D061 FF:D051: CA        DEX
-- - - - - - 0x03D062 FF:D052: D0 0A     BNE bra_D05E
+- - - - - - 0x03D061 FF:D051: CA        DEX ; 03
+- - - - - - 0x03D062 FF:D052: D0 0A     BNE bra_D05E    ; jmp
 bra_D054_это_не_мисуги:
 C - - - - - 0x03D064 FF:D054: A2 03     LDX #$03
 C - - - - - 0x03D066 FF:D056: AD 27 00  LDA ram_номер_тайма
@@ -6206,13 +6206,14 @@ C - - - - - 0x03EE19 FF:EE09: 65 4B     ADC ram_004B
 C - - - - - 0x03EE1B FF:EE0B: 85 4B     STA ram_004B
 C - - - - - 0x03EE1D FF:EE0D: C9 F0     CMP #$F0
 C - - - - - 0x03EE1F FF:EE0F: 90 0F     BCC bra_EE20
-C - - - - - 0x03EE21 FF:EE11: E8        INX
+C - - - - - 0x03EE21 FF:EE11: E8        INX ; 01
 C - - - - - 0x03EE22 FF:EE12: A9 10     LDA #$10
 C - - - - - 0x03EE24 FF:EE14: 2C D7 05  BIT ram_05D7
 C - - - - - 0x03EE27 FF:EE17: 10 04     BPL bra_EE1D
 C - - - - - 0x03EE29 FF:EE19: A9 F0     LDA #$F0
-C - - - - - 0x03EE2B FF:EE1B: CA        DEX
-C - - - - - 0x03EE2C FF:EE1C: CA        DEX
+; bzk optimize, LDX FF
+C - - - - - 0x03EE2B FF:EE1B: CA        DEX ; 00
+C - - - - - 0x03EE2C FF:EE1C: CA        DEX ; FF
 bra_EE1D:
 C - - - - - 0x03EE2D FF:EE1D: 18        CLC
 C - - - - - 0x03EE2E FF:EE1E: 65 4B     ADC ram_004B
