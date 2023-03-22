@@ -14378,7 +14378,7 @@ _scenario_B7CD_35_wait_for_kick_off:
     .byte con_pause + $02
     .byte con_s_bg_3A
     .byte con_s_anim_8F
-    .byte con_s_cloud_F0_default ; s_cloud_73
+    .byte con_s_cloud_73
     .byte con_rts
 
 
