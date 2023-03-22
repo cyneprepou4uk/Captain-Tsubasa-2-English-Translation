@@ -5098,7 +5098,7 @@ off_B4FA_07_gk_action_window_vs_player:
     .word @txt
 
 @txt:
-    .byte $86, $81, $82, $83, $84, $85, $86     ; Action
+    .byte $80, $81, $82, $83, $84, $85, $86     ; Action
     .byte con_FC_end_token
 
 
