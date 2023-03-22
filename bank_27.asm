@@ -239,6 +239,8 @@
 .export _cloud_0x0000EE_EE
 .export _cloud_0x0000EF_EF
 
+.export _cloud_0x0000EF_F0_default
+
 
 
 ; начальные байты
@@ -287,6 +289,16 @@ con_line                        = $FC ; если байт после линии 
 ; con_FD                        = $FD ; 
 ; con_FE                        = $FE ; 
 ; con_FF                        = $FF ; 
+
+
+
+_cloud_0x0000EF_F0_default:
+    .byte con_pause + $01
+    .byte con_charlie + $00
+    .byte con_window + $06
+    .byte con_start_line + $03
+    .text "  default cloud F0  ", con_line
+    .byte con_exit
 
 
 
