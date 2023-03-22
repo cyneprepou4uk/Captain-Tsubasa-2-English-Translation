@@ -20,11 +20,11 @@ con_window                      = $00 ;
 con_charlie                     = $00 ; 
 
 ; управляющие байты 0x030097
-con_exit                        = $F0 ; 
+con_F0_exit                     = $F0 ; 
 ; con_F1                        = $F1 ; 
-con_очистить_облако             = $F2 ; 
-con_jump                        = $F3 ; 
-con_выбор_облака                = $F4 ; 
+con_F2_очистить_облако          = $F2 ; 
+con_F3_jump                     = $F3 ; 
+con_F4_выбор_облака             = $F4 ; 
 
 ; байты в тексте 0x03036E
 con_действие_атаки              = $E0 ; 
@@ -46,8 +46,8 @@ con_игрок_без_мяча              = $EE ;
 ; con_F0                        = $F0 ; 
 con_команда_слева               = $F1 ; 
 con_команда_справа              = $F2 ; 
-con_F3                          = $F3 ; возраст ХЗ
-con_F4                          = $F4 ; возраст ХЗ
+con_F3_возраст_хз               = $F3 ; возраст ХЗ
+con_F4_возраст_хз               = $F4 ; возраст ХЗ
 con_слово_ball                  = $F5 ; ボール
 con_слово_goal                  = $F6 ; ゴール
 con_тильда                      = $F7 ; указывается количество символов
@@ -63,7 +63,7 @@ con_line                        = $FC ; если байт после линии 
 
 
 _cloud_0x0000A6_A7:
-    .byte con_выбор_облака, $08
+    .byte con_F4_выбор_облака, $08
     .word _фраза_нападающего_00
     .word _фраза_нападающего_01
     .word _фраза_нападающего_02
@@ -141,7 +141,7 @@ _фраза_нападающего_00:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_01:
     .byte con_pause + $01
@@ -152,7 +152,7 @@ _фраза_нападающего_01:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_02:
     .byte con_pause + $01
@@ -163,7 +163,7 @@ _фраза_нападающего_02:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_03:
     .byte con_pause + $01
@@ -174,7 +174,7 @@ _фраза_нападающего_03:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_04:
     .byte con_pause + $01
@@ -185,7 +185,7 @@ _фраза_нападающего_04:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_05:
     .byte con_pause + $01
@@ -196,7 +196,7 @@ _фраза_нападающего_05:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_06:
     .byte con_pause + $01
@@ -207,7 +207,7 @@ _фраза_нападающего_06:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_07:
     .byte con_pause + $01
@@ -218,7 +218,7 @@ _фраза_нападающего_07:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_08:
     .byte con_pause + $01
@@ -229,7 +229,7 @@ _фраза_нападающего_08:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_09:
     .byte con_pause + $01
@@ -240,7 +240,7 @@ _фраза_нападающего_09:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_0A:
     .byte con_pause + $01
@@ -251,7 +251,7 @@ _фраза_нападающего_0A:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_0B:
     .byte con_pause + $01
@@ -262,7 +262,7 @@ _фраза_нападающего_0B:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_0C:
     .byte con_pause + $01
@@ -273,7 +273,7 @@ _фраза_нападающего_0C:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_0D:
     .byte con_pause + $01
@@ -284,7 +284,7 @@ _фраза_нападающего_0D:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_0E:
     .byte con_pause + $01
@@ -295,7 +295,7 @@ _фраза_нападающего_0E:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_0F:
     .byte con_pause + $01
@@ -306,7 +306,7 @@ _фраза_нападающего_0F:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_10:
     .byte con_pause + $01
@@ -317,7 +317,7 @@ _фраза_нападающего_10:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_11:
     .byte con_pause + $01
@@ -328,7 +328,7 @@ _фраза_нападающего_11:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_12:
     .byte con_pause + $01
@@ -339,7 +339,7 @@ _фраза_нападающего_12:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_13:
     .byte con_pause + $01
@@ -350,7 +350,7 @@ _фраза_нападающего_13:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_14:
     .byte con_pause + $01
@@ -361,7 +361,7 @@ _фраза_нападающего_14:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_15:
     .byte con_pause + $01
@@ -372,7 +372,7 @@ _фраза_нападающего_15:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_16:
     .byte con_pause + $01
@@ -383,7 +383,7 @@ _фраза_нападающего_16:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_17:
     .byte con_pause + $01
@@ -394,7 +394,7 @@ _фраза_нападающего_17:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_18:
     .byte con_pause + $01
@@ -405,7 +405,7 @@ _фраза_нападающего_18:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_19:
     .byte con_pause + $01
@@ -416,7 +416,7 @@ _фраза_нападающего_19:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_1A:
     .byte con_pause + $01
@@ -427,7 +427,7 @@ _фраза_нападающего_1A:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_1B:
     .byte con_pause + $01
@@ -438,7 +438,7 @@ _фраза_нападающего_1B:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_1C:
     .byte con_pause + $01
@@ -449,7 +449,7 @@ _фраза_нападающего_1C:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_1D:
     .byte con_pause + $01
@@ -460,7 +460,7 @@ _фраза_нападающего_1D:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_1E:
     .byte con_pause + $01
@@ -471,7 +471,7 @@ _фраза_нападающего_1E:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_1F:
     .byte con_pause + $01
@@ -482,7 +482,7 @@ _фраза_нападающего_1F:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_20:
     .byte con_pause + $01
@@ -493,7 +493,7 @@ _фраза_нападающего_20:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_21:
     .byte con_pause + $01
@@ -504,7 +504,7 @@ _фраза_нападающего_21:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_22:
     .byte con_pause + $01
@@ -515,7 +515,7 @@ _фраза_нападающего_22:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_23:
     .byte con_pause + $01
@@ -526,7 +526,7 @@ _фраза_нападающего_23:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_24:
     .byte con_pause + $01
@@ -537,7 +537,7 @@ _фраза_нападающего_24:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_25:
     .byte con_pause + $01
@@ -548,7 +548,7 @@ _фраза_нападающего_25:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_26:
     .byte con_pause + $01
@@ -559,7 +559,7 @@ _фраза_нападающего_26:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_27:
     .byte con_pause + $01
@@ -570,7 +570,7 @@ _фраза_нападающего_27:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_28:
     .byte con_pause + $01
@@ -581,7 +581,7 @@ _фраза_нападающего_28:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_29:
     .byte con_pause + $01
@@ -592,7 +592,7 @@ _фраза_нападающего_29:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_2A:
     .byte con_pause + $01
@@ -603,7 +603,7 @@ _фраза_нападающего_2A:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_2B:
     .byte con_pause + $01
@@ -614,7 +614,7 @@ _фраза_нападающего_2B:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_2C:
     .byte con_pause + $01
@@ -625,7 +625,7 @@ _фраза_нападающего_2C:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_2D:
     .byte con_pause + $01
@@ -636,7 +636,7 @@ _фраза_нападающего_2D:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_2E:
     .byte con_pause + $01
@@ -647,7 +647,7 @@ _фраза_нападающего_2E:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_2F:
     .byte con_pause + $01
@@ -658,7 +658,7 @@ _фраза_нападающего_2F:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_30:
     .byte con_pause + $01
@@ -669,7 +669,7 @@ _фраза_нападающего_30:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_31:
     .byte con_pause + $01
@@ -680,7 +680,7 @@ _фраза_нападающего_31:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_32:
     .byte con_pause + $01
@@ -691,7 +691,7 @@ _фраза_нападающего_32:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_33:
     .byte con_pause + $01
@@ -702,7 +702,7 @@ _фраза_нападающего_33:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_34:
     .byte con_pause + $01
@@ -713,7 +713,7 @@ _фраза_нападающего_34:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_35:
     .byte con_pause + $01
@@ -724,7 +724,7 @@ _фраза_нападающего_35:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_36:
     .byte con_pause + $01
@@ -735,7 +735,7 @@ _фраза_нападающего_36:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_37:
     .byte con_pause + $01
@@ -746,7 +746,7 @@ _фраза_нападающего_37:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_38:
     .byte con_pause + $01
@@ -757,7 +757,7 @@ _фраза_нападающего_38:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_39:
     .byte con_pause + $01
@@ -768,7 +768,7 @@ _фраза_нападающего_39:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_3A:
     .byte con_pause + $01
@@ -779,7 +779,7 @@ _фраза_нападающего_3A:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_3B:
     .byte con_pause + $01
@@ -790,7 +790,7 @@ _фраза_нападающего_3B:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_3C:
     .byte con_pause + $01
@@ -801,7 +801,7 @@ _фраза_нападающего_3C:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_3D:
     .byte con_pause + $01
@@ -812,7 +812,7 @@ _фраза_нападающего_3D:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_3E:
     .byte con_pause + $01
@@ -823,7 +823,7 @@ _фраза_нападающего_3E:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 _фраза_нападающего_3F:
     .byte con_pause + $01
@@ -834,7 +834,7 @@ _фраза_нападающего_3F:
     .text "                    ", con_line
     .text "                    ", con_line
     .text "                    ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 

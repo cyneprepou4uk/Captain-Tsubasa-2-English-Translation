@@ -250,11 +250,11 @@ con_window                      = $00 ;
 con_charlie                     = $00 ; 
 
 ; управляющие байты 0x030097
-con_exit                        = $F0 ; 
+con_F0_exit                     = $F0 ; 
 ; con_F1                        = $F1 ; 
-con_очистить_облако             = $F2 ; 
-con_jump                        = $F3 ; 
-con_выбор_облака                = $F4 ; 
+con_F2_очистить_облако          = $F2 ; 
+con_F3_jump                     = $F3 ; 
+con_F4_выбор_облака             = $F4 ; 
 
 ; байты в тексте 0x03036E
 con_действие_атаки              = $E0 ; 
@@ -276,8 +276,8 @@ con_игрок_без_мяча              = $EE ;
 ; con_F0                        = $F0 ; 
 con_команда_слева               = $F1 ; 
 con_команда_справа              = $F2 ; 
-con_F3                          = $F3 ; возраст ХЗ
-con_F4                          = $F4 ; возраст ХЗ
+con_F3_возраст_хз               = $F3 ; возраст ХЗ
+con_F4_возраст_хз               = $F4 ; возраст ХЗ
 con_слово_ball                  = $F5 ; ボール
 con_слово_goal                  = $F6 ; ゴール
 con_тильда                      = $F7 ; указывается количество символов
@@ -298,13 +298,13 @@ _cloud_0x0000EF_F0_default:
     .byte con_window + $06
     .byte con_start_line + $03
     .text "  default cloud F0  ", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x000000_00:
-    .byte con_очистить_облако
-    .byte con_exit
+    .byte con_F2_очистить_облако
+    .byte con_F0_exit
 
 
 
@@ -319,7 +319,7 @@ _cloud_0x000001_01:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -336,7 +336,7 @@ _cloud_0x000002_02:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -360,7 +360,7 @@ _cloud_0x000003_03:
     .byte con_слово_ball
     .text "003"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -377,7 +377,7 @@ _cloud_0x000004_04:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -394,7 +394,7 @@ _cloud_0x000005_05:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -411,7 +411,7 @@ _cloud_0x000006_06:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -425,7 +425,7 @@ _cloud_0x000007_07:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -442,7 +442,7 @@ _cloud_0x000008_08:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -457,7 +457,7 @@ _cloud_0x000009_09:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -477,7 +477,7 @@ _cloud_0x00000A_0A:
     .text "00A"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -494,7 +494,7 @@ _cloud_0x00000B_0B:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -514,13 +514,13 @@ _cloud_0x00000C_0C:
     .text "00C"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x00000D_0D:
     .byte $F5, $02
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -540,7 +540,7 @@ _cloud_0x00000E_0E:
     .text "00E"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -557,7 +557,7 @@ _cloud_0x00000F_0F:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -577,7 +577,7 @@ _cloud_0x000010_10:
     .text "010"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -597,7 +597,7 @@ _cloud_0x000011_11:
     .text "011"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -626,7 +626,7 @@ _cloud_0x000012_12:
 - D - I - - 0x031535 27:9525: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031536 27:9526: F0        .byte con_exit
+- D - I - - 0x031536 27:9526: F0        .byte con_F0_exit
 
 
 
@@ -642,7 +642,7 @@ _cloud_0x000013_13:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03153D 27:952D: F0        .byte con_exit
+- D - I - - 0x03153D 27:952D: F0        .byte con_F0_exit
 
 
 
@@ -662,7 +662,7 @@ _cloud_0x000014_14:
     .text "014"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -679,7 +679,7 @@ _cloud_0x000015_15:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -696,7 +696,7 @@ _cloud_0x000016_16:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -716,7 +716,7 @@ _cloud_0x000017_17:
     .byte con_крит_защиты
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -736,7 +736,7 @@ _cloud_0x000018_18:
     .text "018"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -753,7 +753,7 @@ _cloud_0x000019_19:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -776,7 +776,7 @@ _cloud_0x00001A_1A:
 - D - I - - 0x0315B7 27:95A7: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0315B8 27:95A8: F0        .byte con_exit
+- D - I - - 0x0315B8 27:95A8: F0        .byte con_F0_exit
 
 
 
@@ -793,12 +793,12 @@ _cloud_0x00001B_1B:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x00001C_1C:
-- D - I - - 0x0315C7 27:95B7: F2        .byte con_очистить_облако
+- D - I - - 0x0315C7 27:95B7: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $05
@@ -824,7 +824,7 @@ _cloud_0x00001C_1C:
 - D - I - - 0x0315DC 27:95CC: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0315DD 27:95CD: F0        .byte con_exit
+- D - I - - 0x0315DD 27:95CD: F0        .byte con_F0_exit
 
 
 
@@ -842,12 +842,12 @@ _cloud_0x00001D_1D:
     .text "01D"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x00001E_1E:
-- D - I - - 0x0315F6 27:95E6: F2        .byte con_очистить_облако
+- D - I - - 0x0315F6 27:95E6: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $06
@@ -883,7 +883,7 @@ _cloud_0x00001E_1E:
 - D - I - - 0x031615 27:9605: 79        .byte $79   ; <!>
 - D - I - - 0x031616 27:9606: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031617 27:9607: F0        .byte con_exit
+- D - I - - 0x031617 27:9607: F0        .byte con_F0_exit
 
 
 
@@ -916,7 +916,7 @@ _cloud_0x00001F_1F:
 - D - I - - 0x03162F 27:961F: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031630 27:9620: F0        .byte con_exit
+- D - I - - 0x031630 27:9620: F0        .byte con_F0_exit
 
 
 
@@ -934,7 +934,7 @@ _cloud_0x000020_20:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031639 27:9629: F0        .byte con_exit
+- D - I - - 0x031639 27:9629: F0        .byte con_F0_exit
 
 
 
@@ -964,13 +964,13 @@ _cloud_0x000021_21:
 - D - I - - 0x03164E 27:963E: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03164F 27:963F: F0        .byte con_exit
+- D - I - - 0x03164F 27:963F: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000022_22:
-- D - I - - 0x031650 27:9640: F2        .byte con_очистить_облако
-- D - I - - 0x031651 27:9641: F4        .byte con_выбор_облака, $07       ; дисбаланс кипера
+- D - I - - 0x031650 27:9640: F2        .byte con_F2_очистить_облако
+- D - I - - 0x031651 27:9641: F4        .byte con_F4_выбор_облака, $07       ; дисбаланс кипера
 - - - - - - 0x031653 27:9643: 62 96     .word off_9662
 - D - I - - 0x031655 27:9645: 49 96     .word off_9649
 - D - I - - 0x031657 27:9647: 63 96     .word off_9663
@@ -1005,7 +1005,7 @@ off_9649:
 - D - I - - 0x031671 27:9661: FC        .byte con_line
     .byte con_line
 off_9662:       ; bzk это продолжение, отдельно не использовалось
-- D - I - - 0x031672 27:9662: F0        .byte con_exit
+- D - I - - 0x031672 27:9662: F0        .byte con_F0_exit
 
 off_9663:
     .byte con_pause + $01
@@ -1030,7 +1030,7 @@ off_9663:
 - D - I - - 0x031684 27:9674: 79        .byte $79   ; <!>
 - D - I - - 0x031685 27:9675: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031686 27:9676: F0        .byte con_exit
+- D - I - - 0x031686 27:9676: F0        .byte con_F0_exit
 
 
 
@@ -1050,7 +1050,7 @@ _cloud_0x000024_24:
     .byte con_крит_атаки
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1079,7 +1079,7 @@ _cloud_0x000025_25:
 - D - I - - 0x0316B5 27:96A5: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0316B6 27:96A6: F0        .byte con_exit
+- D - I - - 0x0316B6 27:96A6: F0        .byte con_F0_exit
 
 
 
@@ -1110,7 +1110,7 @@ _cloud_0x000026_26:
 - D - I - - 0x0316CC 27:96BC: 79        .byte $79   ; <!>
 - D - I - - 0x0316CD 27:96BD: FC        .byte con_line
     .byte con_line
-- D - I - - 0x0316CE 27:96BE: F0        .byte con_exit
+- D - I - - 0x0316CE 27:96BE: F0        .byte con_F0_exit
 
 
 
@@ -1127,7 +1127,7 @@ _cloud_0x000027_27:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1141,7 +1141,7 @@ _cloud_0x000028_28:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1161,7 +1161,7 @@ _cloud_0x000029_29:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031705 27:96F5: F0        .byte con_exit
+- D - I - - 0x031705 27:96F5: F0        .byte con_F0_exit
 
 
 
@@ -1180,7 +1180,7 @@ _cloud_0x00002C_2C:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031727 27:9717: F0        .byte con_exit
+- D - I - - 0x031727 27:9717: F0        .byte con_F0_exit
 
 
 
@@ -1197,7 +1197,7 @@ _cloud_0x00002E_2E:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1220,7 +1220,7 @@ _cloud_0x00002F_2F:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03175D 27:974D: F0        .byte con_exit
+- D - I - - 0x03175D 27:974D: F0        .byte con_F0_exit
 
 
 
@@ -1234,12 +1234,12 @@ _cloud_0x000030_30:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x000031_31:
-    .byte con_выбор_облака, $01
+    .byte con_F4_выбор_облака, $01
     .word off_9765_мяч_у_команды_слева
     .word off_977B_мяч_у_команды_справа
 
@@ -1256,7 +1256,7 @@ off_9765_мяч_у_команды_слева:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1276,7 +1276,7 @@ off_977B_мяч_у_команды_справа:
     .text "31-01"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1327,7 +1327,7 @@ _cloud_0x000032_32:
 - D - I - - 0x0317D0 27:97C0: AA        .byte $AA   ; <だ>
 - D - I - - 0x0317D1 27:97C1: 79        .byte $79   ; <!>
 - D - I - - 0x0317D2 27:97C2: FC        .byte con_line
-- D - I - - 0x0317D3 27:97C3: F0        .byte con_exit
+- D - I - - 0x0317D3 27:97C3: F0        .byte con_F0_exit
 
 
 
@@ -1344,7 +1344,7 @@ _cloud_0x000033_33:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1369,7 +1369,7 @@ _cloud_0x000034_34:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0317F3 27:97E3: F0        .byte con_exit
+- D - I - - 0x0317F3 27:97E3: F0        .byte con_F0_exit
 
 
 
@@ -1403,7 +1403,7 @@ _cloud_0x000035_35:
 - - - - - - 0x03180C 27:97FC: FC        .byte con_line
     .byte con_line
     .byte con_line
-- - - - - - 0x03180D 27:97FD: F0        .byte con_exit
+- - - - - - 0x03180D 27:97FD: F0        .byte con_F0_exit
 
 
 
@@ -1417,12 +1417,12 @@ _cloud_0x000036_36:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x000037_37:
-- D - I - - 0x031820 27:9810: F4        .byte con_выбор_облака, $01
+- D - I - - 0x031820 27:9810: F4        .byte con_F4_выбор_облака, $01
 - D - I - - 0x031822 27:9812: 16 98     .word off_9816_мяч_у_команды_слева
 - D - I - - 0x031824 27:9814: 24 98     .word off_9824_мяч_у_команды_справа
 
@@ -1444,7 +1444,7 @@ off_9816_мяч_у_команды_слева:
 - D - I - - 0x031832 27:9822: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031833 27:9823: F0        .byte con_exit
+- D - I - - 0x031833 27:9823: F0        .byte con_F0_exit
 
 off_9824_мяч_у_команды_справа:
     .byte con_pause + $01
@@ -1465,7 +1465,7 @@ off_9824_мяч_у_команды_справа:
 - D - I - - 0x031841 27:9831: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031842 27:9832: F0        .byte con_exit
+- D - I - - 0x031842 27:9832: F0        .byte con_F0_exit
 
 
 
@@ -1489,7 +1489,7 @@ _cloud_0x000038_38:
 - D - I - - 0x031851 27:9841: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031852 27:9842: F0        .byte con_exit
+- D - I - - 0x031852 27:9842: F0        .byte con_F0_exit
 
 
 
@@ -1506,7 +1506,7 @@ _cloud_0x000039_39:
 - D - I - - 0x03185A 27:984A: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03185B 27:984B: F0        .byte con_exit
+- D - I - - 0x03185B 27:984B: F0        .byte con_F0_exit
 
 
 
@@ -1530,7 +1530,7 @@ _cloud_0x00003A_3A:
 - D - I - - 0x03186A 27:985A: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03186B 27:985B: F0        .byte con_exit
+- D - I - - 0x03186B 27:985B: F0        .byte con_F0_exit
 
 
 
@@ -1554,7 +1554,7 @@ _cloud_0x00003B_3B:
 - D - I - - 0x03187A 27:986A: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03187B 27:986B: F0        .byte con_exit
+- D - I - - 0x03187B 27:986B: F0        .byte con_F0_exit
 
 
 
@@ -1576,7 +1576,7 @@ _cloud_0x00003C_3C:
 - D - I - - 0x031888 27:9878: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031889 27:9879: F0        .byte con_exit
+- D - I - - 0x031889 27:9879: F0        .byte con_F0_exit
 
 
 
@@ -1602,7 +1602,7 @@ _cloud_0x00003D_3D:
 - D - I - - 0x03189B 27:988B: 79        .byte $79   ; <!>
 - D - I - - 0x03189C 27:988C: FC        .byte con_line
     .byte con_line
-- D - I - - 0x03189D 27:988D: F0        .byte con_exit
+- D - I - - 0x03189D 27:988D: F0        .byte con_F0_exit
 
 
 
@@ -1623,7 +1623,7 @@ _cloud_0x00003E_3E:
 - D - I - - 0x0318A9 27:9899: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0318AA 27:989A: F0        .byte con_exit
+- D - I - - 0x0318AA 27:989A: F0        .byte con_F0_exit
 
 
 
@@ -1640,7 +1640,7 @@ _cloud_0x00003F_3F:
 - D - I - - 0x0318B2 27:98A2: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0318B3 27:98A3: F0        .byte con_exit
+- D - I - - 0x0318B3 27:98A3: F0        .byte con_F0_exit
 
 
 
@@ -1664,7 +1664,7 @@ _cloud_0x000040_40:
 - D - I - - 0x0318C2 27:98B2: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0318C3 27:98B3: F0        .byte con_exit
+- D - I - - 0x0318C3 27:98B3: F0        .byte con_F0_exit
 
 
 
@@ -1685,7 +1685,7 @@ _cloud_0x000041_41:
 - D - I - - 0x0318CF 27:98BF: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0318D0 27:98C0: F0        .byte con_exit
+- D - I - - 0x0318D0 27:98C0: F0        .byte con_F0_exit
 
 
 
@@ -1707,7 +1707,7 @@ _cloud_0x000042_42:
 - D - I - - 0x0318DD 27:98CD: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0318DE 27:98CE: F0        .byte con_exit
+- D - I - - 0x0318DE 27:98CE: F0        .byte con_F0_exit
 
 
 
@@ -1738,7 +1738,7 @@ _cloud_0x000043_43:
 - D - I - - 0x0318F4 27:98E4: 79        .byte $79   ; <!>
 - D - I - - 0x0318F5 27:98E5: FC        .byte con_line
     .byte con_line
-- D - I - - 0x0318F6 27:98E6: F0        .byte con_exit
+- D - I - - 0x0318F6 27:98E6: F0        .byte con_F0_exit
 
 
 
@@ -1759,7 +1759,7 @@ _cloud_0x000044_44:
 - D - I - - 0x031902 27:98F2: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031903 27:98F3: F0        .byte con_exit
+- D - I - - 0x031903 27:98F3: F0        .byte con_F0_exit
 
 
 
@@ -1789,7 +1789,7 @@ _cloud_0x000045_45:
 - D - I - - 0x031918 27:9908: 79        .byte $79   ; <!>
 - D - I - - 0x031919 27:9909: FC        .byte con_line
     .byte con_line
-- D - I - - 0x03191A 27:990A: F0        .byte con_exit
+- D - I - - 0x03191A 27:990A: F0        .byte con_F0_exit
 
 
 
@@ -1809,12 +1809,12 @@ _cloud_0x000046_46:
 - D - I - - 0x031925 27:9915: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031926 27:9916: F0        .byte con_exit
+- D - I - - 0x031926 27:9916: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000047_47:
-- D - I - - 0x031927 27:9917: F2        .byte con_очистить_облако
+- D - I - - 0x031927 27:9917: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -1827,7 +1827,7 @@ _cloud_0x000047_47:
 - D - I - - 0x03192F 27:991F: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031930 27:9920: F0        .byte con_exit
+- D - I - - 0x031930 27:9920: F0        .byte con_F0_exit
 
 
 
@@ -1847,12 +1847,12 @@ _cloud_0x000048_48:
 - D - I - - 0x03193B 27:992B: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03193C 27:992C: F0        .byte con_exit
+- D - I - - 0x03193C 27:992C: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000049_49:
-- D - I - - 0x03193D 27:992D: F2        .byte con_очистить_облако
+- D - I - - 0x03193D 27:992D: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $05
@@ -1866,7 +1866,7 @@ _cloud_0x000049_49:
 - D - I - - 0x031946 27:9936: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031947 27:9937: F0        .byte con_exit
+- D - I - - 0x031947 27:9937: F0        .byte con_F0_exit
 
 
 
@@ -1895,7 +1895,7 @@ _cloud_0x00004A_4A:
 - D - I - - 0x03195B 27:994B: 79        .byte $79   ; <!>
 - D - I - - 0x03195C 27:994C: FC        .byte con_line
     .byte con_line
-- D - I - - 0x03195D 27:994D: F0        .byte con_exit
+- D - I - - 0x03195D 27:994D: F0        .byte con_F0_exit
 
 
 
@@ -1924,7 +1924,7 @@ _cloud_0x00004B_4B:
 - D - I - - 0x031971 27:9961: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031972 27:9962: F0        .byte con_exit
+- D - I - - 0x031972 27:9962: F0        .byte con_F0_exit
 
 
 
@@ -1950,7 +1950,7 @@ _cloud_0x00004C_4C:
 - D - I - - 0x031983 27:9973: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031984 27:9974: F0        .byte con_exit
+- D - I - - 0x031984 27:9974: F0        .byte con_F0_exit
 
 
 
@@ -1968,7 +1968,7 @@ _cloud_0x00004D_4D:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -1993,7 +1993,7 @@ _cloud_0x00004F_4F:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03199C 27:998C: F0        .byte con_exit
+- D - I - - 0x03199C 27:998C: F0        .byte con_F0_exit
 
 
 
@@ -2020,7 +2020,7 @@ _cloud_0x000050_50:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0319AE 27:999E: F0        .byte con_exit
+- D - I - - 0x0319AE 27:999E: F0        .byte con_F0_exit
 
 
 
@@ -2043,7 +2043,7 @@ _cloud_0x000051_51:
     .byte $01
     .text "051"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2066,7 +2066,7 @@ _cloud_0x000052_52:
     .byte $01
     .text "052"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2089,7 +2089,7 @@ _cloud_0x000053_53:
     .byte $01
     .text "053"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2112,7 +2112,7 @@ _cloud_0x000054_54:
     .byte $01
     .text "054"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2135,7 +2135,7 @@ _cloud_0x000055_55:
     .byte $01
     .text "055"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2155,7 +2155,7 @@ _cloud_0x000056_56:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031A57 27:9A47: F0        .byte con_exit
+- D - I - - 0x031A57 27:9A47: F0        .byte con_F0_exit
 
 
 
@@ -2187,7 +2187,7 @@ _cloud_0x000057_57:
 - D - I - - 0x031A6E 27:9A5E: 79        .byte $79   ; <!>
 - D - I - - 0x031A6F 27:9A5F: 79        .byte $79   ; <!>
 - D - I - - 0x031A70 27:9A60: FC        .byte con_line
-- D - I - - 0x031A71 27:9A61: F0        .byte con_exit
+- D - I - - 0x031A71 27:9A61: F0        .byte con_F0_exit
 
 
 
@@ -2201,12 +2201,12 @@ _cloud_0x000058_58:
     .text "058", con_line
     .text "058", con_line
     .text "058", con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x000059_59:
-- D - I - - 0x031A80 27:9A70: F2        .byte con_очистить_облако
+- D - I - - 0x031A80 27:9A70: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -2225,7 +2225,7 @@ _cloud_0x000059_59:
 - D - I - - 0x031A8E 27:9A7E: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031A8F 27:9A7F: F0        .byte con_exit
+- D - I - - 0x031A8F 27:9A7F: F0        .byte con_F0_exit
 
 
 
@@ -2254,12 +2254,12 @@ _cloud_0x00005A_5A:
 - D - I - - 0x031AA3 27:9A93: 79        .byte $79   ; <!>
 - D - I - - 0x031AA4 27:9A94: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031AA5 27:9A95: F0        .byte con_exit
+- D - I - - 0x031AA5 27:9A95: F0        .byte con_F0_exit
 
 
 
 _cloud_0x00005B_5B:
-- D - I - - 0x031AA6 27:9A96: F2        .byte con_очистить_облако
+- D - I - - 0x031AA6 27:9A96: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -2286,7 +2286,7 @@ _cloud_0x00005B_5B:
 - D - I - - 0x031ABC 27:9AAC: 0D        .byte $0D   ; <す>
 - D - I - - 0x031ABD 27:9AAD: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031ABE 27:9AAE: F0        .byte con_exit
+- D - I - - 0x031ABE 27:9AAE: F0        .byte con_F0_exit
 
 
 
@@ -2316,7 +2316,7 @@ _cloud_0x00005C_5C:
 - D - I - - 0x031AD4 27:9AC4: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031AD5 27:9AC5: F0        .byte con_exit
+- D - I - - 0x031AD5 27:9AC5: F0        .byte con_F0_exit
 
 
 
@@ -2342,7 +2342,7 @@ _cloud_0x00005D_5D:
 - D - I - - 0x031AE7 27:9AD7: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031AE8 27:9AD8: F0        .byte con_exit
+- D - I - - 0x031AE8 27:9AD8: F0        .byte con_F0_exit
 
 
 
@@ -2365,7 +2365,7 @@ _cloud_0x00005E_5E:
 - D - I - - 0x031AF7 27:9AE7: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031AF8 27:9AE8: F0        .byte con_exit
+- D - I - - 0x031AF8 27:9AE8: F0        .byte con_F0_exit
 
 
 
@@ -2389,7 +2389,7 @@ _cloud_0x00005F_5F:
 - D - I - - 0x031B08 27:9AF8: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031B09 27:9AF9: F0        .byte con_exit
+- D - I - - 0x031B09 27:9AF9: F0        .byte con_F0_exit
 
 
 
@@ -2410,7 +2410,7 @@ _cloud_0x000060_60:
 - D - I - - 0x031B15 27:9B05: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031B16 27:9B06: F0        .byte con_exit
+- D - I - - 0x031B16 27:9B06: F0        .byte con_F0_exit
 
 
 
@@ -2435,12 +2435,12 @@ _cloud_0x000061_61:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031B26 27:9B16: F0        .byte con_exit
+- D - I - - 0x031B26 27:9B16: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000062_62:
-- D - I - - 0x031B27 27:9B17: F2        .byte con_очистить_облако
+- D - I - - 0x031B27 27:9B17: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -2458,7 +2458,7 @@ _cloud_0x000062_62:
 - D - I - - 0x031B34 27:9B24: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031B35 27:9B25: F0        .byte con_exit
+- D - I - - 0x031B35 27:9B25: F0        .byte con_F0_exit
 
 
 
@@ -2481,7 +2481,7 @@ _cloud_0x000063_63:
 - D - I - - 0x031B43 27:9B33: E2        .byte con_крит_атаки
 - D - I - - 0x031B44 27:9B34: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031B45 27:9B35: F0        .byte con_exit
+- D - I - - 0x031B45 27:9B35: F0        .byte con_F0_exit
 
 
 
@@ -2505,12 +2505,12 @@ _cloud_0x000064_64:
 - D - I - - 0x031B54 27:9B44: E2        .byte con_крит_атаки
 - D - I - - 0x031B55 27:9B45: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031B56 27:9B46: F0        .byte con_exit
+- D - I - - 0x031B56 27:9B46: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000065_65:
-    .byte con_очистить_облако
+    .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -2526,7 +2526,7 @@ _cloud_0x000065_65:
     .text "065"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2546,7 +2546,7 @@ _cloud_0x000066_66:        ; ? тут нету очистки облака в о
     .text "066"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -2563,19 +2563,19 @@ _cloud_0x000067_67:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x000069_69:
-- D - I - - 0x031BA2 27:9B92: F4        .byte con_выбор_облака, $06
+- D - I - - 0x031BA2 27:9B92: F4        .byte con_F4_выбор_облака, $06
 - D - I - - 0x031BA4 27:9B94: 9C 9B     .word off_9B9C
 - D - I - - 0x031BA6 27:9B96: 9C 9B     .word off_9B9C
 - - - - - - 0x031BA8 27:9B98: AF 9B     .word off_9BAF
 - - - - - - 0x031BAA 27:9B9A: AF 9B     .word off_9BAF
 
 off_9B9C:
-- D - I - - 0x031BAC 27:9B9C: F2        .byte con_очистить_облако
+- D - I - - 0x031BAC 27:9B9C: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -2584,7 +2584,7 @@ off_9B9C:
 - D - I - - 0x031BB0 27:9BA0: 19        .byte $19   ; <の>
 - D - I - - 0x031BB1 27:9BA1: FC        .byte con_line
 - - - - - - 0x031BB2 27:9BA2: 01        .byte $01   ; <あ>
-- D - I - - 0x031BB3 27:9BA3: F0        .byte con_exit
+- D - I - - 0x031BB3 27:9BA3: F0        .byte con_F0_exit
 - D - I - - 0x031BB4 27:9BA4: AF        .byte $AF   ; <ば>
 - D - I - - 0x031BB5 27:9BA5: 2E        .byte $2E   ; <ん>
 - D - I - - 0x031BB6 27:9BA6: 13        .byte $13   ; <て>
@@ -2596,10 +2596,10 @@ off_9B9C:
 - D - I - - 0x031BBC 27:9BAC: 0D        .byte $0D   ; <す>
 - D - I - - 0x031BBD 27:9BAD: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031BBE 27:9BAE: F0        .byte con_exit
+- D - I - - 0x031BBE 27:9BAE: F0        .byte con_F0_exit
 
 off_9BAF:
-- - - - - - 0x031BBF 27:9BAF: F2        .byte con_очистить_облако
+- - - - - - 0x031BBF 27:9BAF: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $02
@@ -2619,7 +2619,7 @@ off_9BAF:
 - - - - - - 0x031BCE 27:9BBE: 01        .byte $01   ; <あ>
 - - - - - - 0x031BCF 27:9BBF: FC        .byte con_line
     .byte con_line
-- - - - - - 0x031BD0 27:9BC0: F0        .byte con_exit
+- - - - - - 0x031BD0 27:9BC0: F0        .byte con_F0_exit
 
 
 
@@ -2639,7 +2639,7 @@ _cloud_0x00006A_6A:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031BDC 27:9BCC: F0        .byte con_exit
+- D - I - - 0x031BDC 27:9BCC: F0        .byte con_F0_exit
 
 
 
@@ -2657,7 +2657,7 @@ _cloud_0x00006B_6B:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031BE6 27:9BD6: F0        .byte con_exit
+- D - I - - 0x031BE6 27:9BD6: F0        .byte con_F0_exit
 
 
 
@@ -2677,24 +2677,24 @@ _cloud_0x00006C_6C:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031BF2 27:9BE2: F0        .byte con_exit
+- D - I - - 0x031BF2 27:9BE2: F0        .byte con_F0_exit
 
 
 
 _cloud_0x00006D_6D:
-- D - I - - 0x031BF3 27:9BE3: F2        .byte con_очистить_облако
-- D - I - - 0x031BF4 27:9BE4: F4        .byte con_выбор_облака, $01
+- D - I - - 0x031BF3 27:9BE3: F2        .byte con_F2_очистить_облако
+- D - I - - 0x031BF4 27:9BE4: F4        .byte con_F4_выбор_облака, $01
 - D - I - - 0x031BF6 27:9BE6: EA 9B     .word off_9BEA_мяч_у_команды_слева
 - D - I - - 0x031BF8 27:9BE8: F4 9B     .word off_9BF4_мяч_у_команды_справа
 
 off_9BEA_мяч_у_команды_слева:
-- D - I - - 0x031BFA 27:9BEA: F4        .byte con_выбор_облака, $02
+- D - I - - 0x031BFA 27:9BEA: F4        .byte con_F4_выбор_облака, $02
 - D - I - - 0x031BFC 27:9BEC: FE 9B     .word off_9BFE_1_защитник
 - D - I - - 0x031BFE 27:9BEE: 09 9C     .word off_9C09_2_защитника
 - D - I - - 0x031C00 27:9BF0: 1C 9C     .word off_9C1C_3_защитника
 
 off_9BF4_мяч_у_команды_справа:
-- D - I - - 0x031C04 27:9BF4: F4        .byte con_выбор_облака, $02
+- D - I - - 0x031C04 27:9BF4: F4        .byte con_F4_выбор_облака, $02
 - D - I - - 0x031C06 27:9BF6: 37 9C     .word off_9C37_1_защитник
 - D - I - - 0x031C08 27:9BF8: 46 9C     .word off_9C46_2_защитника
 - D - I - - 0x031C0A 27:9BFA: 59 9C     .word off_9C59_3_защитника
@@ -2714,7 +2714,7 @@ off_9BFE_1_защитник:
 - D - I - - 0x031C17 27:9C07: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031C18 27:9C08: F0        .byte con_exit
+- D - I - - 0x031C18 27:9C08: F0        .byte con_F0_exit
 
 off_9C09_2_защитника:
     .byte con_pause + $01
@@ -2738,7 +2738,7 @@ off_9C09_2_защитника:
 - D - I - - 0x031C29 27:9C19: 79        .byte $79   ; <!>
 - D - I - - 0x031C2A 27:9C1A: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031C2B 27:9C1B: F0        .byte con_exit
+- D - I - - 0x031C2B 27:9C1B: F0        .byte con_F0_exit
 
 off_9C1C_3_защитника:
     .byte con_pause + $01
@@ -2769,7 +2769,7 @@ off_9C1C_3_защитника:
 - D - I - - 0x031C43 27:9C33: 7D        .byte $7D   ; <ー>
 - D - I - - 0x031C44 27:9C34: 79        .byte $79   ; <!>
 - D - I - - 0x031C45 27:9C35: FC        .byte con_line
-- D - I - - 0x031C46 27:9C36: F0        .byte con_exit
+- D - I - - 0x031C46 27:9C36: F0        .byte con_F0_exit
 
 off_9C37_1_защитник:
     .byte con_pause + $01
@@ -2790,7 +2790,7 @@ off_9C37_1_защитник:
 - D - I - - 0x031C54 27:9C44: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031C55 27:9C45: F0        .byte con_exit
+- D - I - - 0x031C55 27:9C45: F0        .byte con_F0_exit
 
 off_9C46_2_защитника:
     .byte con_pause + $01
@@ -2814,7 +2814,7 @@ off_9C46_2_защитника:
 - D - I - - 0x031C66 27:9C56: 79        .byte $79   ; <!>
 - D - I - - 0x031C67 27:9C57: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031C68 27:9C58: F0        .byte con_exit
+- D - I - - 0x031C68 27:9C58: F0        .byte con_F0_exit
 
 off_9C59_3_защитника:
     .byte con_pause + $01
@@ -2843,7 +2843,7 @@ off_9C59_3_защитника:
 - D - I - - 0x031C7E 27:9C6E: 79        .byte $79   ; <!>
 - D - I - - 0x031C7F 27:9C6F: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031C80 27:9C70: F0        .byte con_exit
+- D - I - - 0x031C80 27:9C70: F0        .byte con_F0_exit
 
 
 
@@ -2867,12 +2867,12 @@ _cloud_0x00006E_6E:
 - D - I - - 0x031C8F 27:9C7F: 79        .byte $79   ; <!>
 - D - I - - 0x031C90 27:9C80: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031C91 27:9C81: F0        .byte con_exit
+- D - I - - 0x031C91 27:9C81: F0        .byte con_F0_exit
 
 
 
 _cloud_0x00006F_6F:
-- D - I - - 0x031C92 27:9C82: F2        .byte con_очистить_облако
+- D - I - - 0x031C92 27:9C82: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -2891,12 +2891,12 @@ _cloud_0x00006F_6F:
 - D - I - - 0x031CA0 27:9C90: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031CA1 27:9C91: F0        .byte con_exit
+- D - I - - 0x031CA1 27:9C91: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000070_70:
-- D - I - - 0x031CA2 27:9C92: F2        .byte con_очистить_облако
+- D - I - - 0x031CA2 27:9C92: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $02
     .byte con_window + $05
@@ -2922,12 +2922,12 @@ _cloud_0x000070_70:
 - D - I - - 0x031CB8 27:9CA8: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031CB9 27:9CA9: F0        .byte con_exit
+- D - I - - 0x031CB9 27:9CA9: F0        .byte con_F0_exit
 
 
 
 _cloud_0x000071_71:
-- D - I - - 0x031CBA 27:9CAA: F4        .byte con_выбор_облака, $05
+- D - I - - 0x031CBA 27:9CAA: F4        .byte con_F4_выбор_облака, $05
 - D - I - - 0x031CBC 27:9CAC: CC 9C     .word off_9CCC
 - D - I - - 0x031CBE 27:9CAE: E6 9C     .word off_9CE6
 - D - I - - 0x031CC0 27:9CB0: 00 9D     .word off_9D00
@@ -2975,7 +2975,7 @@ off_9CCC:
 - D - I - - 0x031CF4 27:9CE4: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031CF5 27:9CE5: F0        .byte con_exit
+- D - I - - 0x031CF5 27:9CE5: F0        .byte con_F0_exit
 
 off_9CE6:
     .byte con_pause + $01
@@ -3007,7 +3007,7 @@ off_9CE6:
 - D - I - - 0x031D0E 27:9CFE: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031D0F 27:9CFF: F0        .byte con_exit
+- D - I - - 0x031D0F 27:9CFF: F0        .byte con_F0_exit
 
 off_9D00:
     .byte con_pause + $01
@@ -3044,7 +3044,7 @@ off_9D00:
 - D - I - - 0x031D2D 27:9D1D: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x031D2E 27:9D1E: F0        .byte con_exit
+- D - I - - 0x031D2E 27:9D1E: F0        .byte con_F0_exit
 
 off_9D1F:
     .byte con_pause + $01
@@ -3068,7 +3068,7 @@ off_9D1F:
 - D - I - - 0x031D40 27:9D30: 79        .byte $79   ; <!>
 - D - I - - 0x031D41 27:9D31: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031D42 27:9D32: F0        .byte con_exit
+- D - I - - 0x031D42 27:9D32: F0        .byte con_F0_exit
 
 off_9D33:
     .byte con_pause + $01
@@ -3100,7 +3100,7 @@ off_9D33:
 - D - I - - 0x031D5D 27:9D4D: 79        .byte $79   ; <!>
 - D - I - - 0x031D5E 27:9D4E: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031D5F 27:9D4F: F0        .byte con_exit
+- D - I - - 0x031D5F 27:9D4F: F0        .byte con_F0_exit
 
 off_9D50:
     .byte con_pause + $01
@@ -3152,7 +3152,7 @@ off_9D50:
 - D - I - - 0x031D8C 27:9D7C: 0D        .byte $0D   ; <す>
 - D - I - - 0x031D8D 27:9D7D: 79        .byte $79   ; <!>
 - D - I - - 0x031D8E 27:9D7E: FC        .byte con_line
-- D - I - - 0x031D8F 27:9D7F: F0        .byte con_exit
+- D - I - - 0x031D8F 27:9D7F: F0        .byte con_F0_exit
 
 off_9D80:
     .byte con_pause + $01
@@ -3189,7 +3189,7 @@ off_9D80:
 - D - I - - 0x031DAE 27:9D9E: 79        .byte $79   ; <!>
 - D - I - - 0x031DAF 27:9D9F: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031DB0 27:9DA0: F0        .byte con_exit
+- D - I - - 0x031DB0 27:9DA0: F0        .byte con_F0_exit
 
 off_9DA1:
     .byte con_pause + $01
@@ -3231,7 +3231,7 @@ off_9DA1:
 - D - I - - 0x031DD3 27:9DC3: F7        .byte con_тильда, $03
 - D - I - - 0x031DD5 27:9DC5: 79        .byte $79   ; <!>
 - D - I - - 0x031DD6 27:9DC6: FC        .byte con_line
-- D - I - - 0x031DD7 27:9DC7: F0        .byte con_exit
+- D - I - - 0x031DD7 27:9DC7: F0        .byte con_F0_exit
 
 off_9DC8:
     .byte con_pause + $01
@@ -3273,7 +3273,7 @@ off_9DC8:
 - D - I - - 0x031DFA 27:9DEA: 7C        .byte $7C   ; <~>
 - D - I - - 0x031DFB 27:9DEB: 79        .byte $79   ; <!>
 - D - I - - 0x031DFC 27:9DEC: FC        .byte con_line
-- D - I - - 0x031DFD 27:9DED: F0        .byte con_exit
+- D - I - - 0x031DFD 27:9DED: F0        .byte con_F0_exit
 
 off_9DEE:
     .byte con_pause + $01
@@ -3327,7 +3327,7 @@ off_9DEE:
 - D - I - - 0x031E2C 27:9E1C: 10        .byte $10   ; <た>
 - D - I - - 0x031E2D 27:9E1D: 79        .byte $79   ; <!>
 - D - I - - 0x031E2E 27:9E1E: FC        .byte con_line
-- D - I - - 0x031E2F 27:9E1F: F0        .byte con_exit
+- D - I - - 0x031E2F 27:9E1F: F0        .byte con_F0_exit
 
 off_9E20:
     .byte con_pause + $01
@@ -3380,7 +3380,7 @@ off_9E20:
 - D - I - - 0x031E5D 27:9E4D: 10        .byte $10   ; <た>
 - D - I - - 0x031E5E 27:9E4E: 79        .byte $79   ; <!>
 - D - I - - 0x031E5F 27:9E4F: FC        .byte con_line
-- D - I - - 0x031E60 27:9E50: F0        .byte con_exit
+- D - I - - 0x031E60 27:9E50: F0        .byte con_F0_exit
 
 off_9E51:
     .byte con_pause + $01
@@ -3439,7 +3439,7 @@ off_9E51:
 - D - I - - 0x031E94 27:9E84: 7D        .byte $7D   ; <ー>
 - D - I - - 0x031E95 27:9E85: 79        .byte $79   ; <!>
 - D - I - - 0x031E96 27:9E86: FC        .byte con_line
-- D - I - - 0x031E97 27:9E87: F0        .byte con_exit
+- D - I - - 0x031E97 27:9E87: F0        .byte con_F0_exit
 
 off_9E88:
     .byte con_pause + $01
@@ -3489,7 +3489,7 @@ off_9E88:
 - D - I - - 0x031EC3 27:9EB3: 79        .byte $79   ; <!>
 - D - I - - 0x031EC4 27:9EB4: FC        .byte con_line
     .byte con_line
-- D - I - - 0x031EC5 27:9EB5: F0        .byte con_exit
+- D - I - - 0x031EC5 27:9EB5: F0        .byte con_F0_exit
 
 off_9EB6:
     .byte con_pause + $01
@@ -3520,7 +3520,7 @@ off_9EB6:
 - - - - - - 0x031EDE 27:9ECE: 79        .byte $79   ; <!>
 - - - - - - 0x031EDF 27:9ECF: FC        .byte con_line
     .byte con_line
-- - - - - - 0x031EE0 27:9ED0: F0        .byte con_exit
+- - - - - - 0x031EE0 27:9ED0: F0        .byte con_F0_exit
 
 off_9ED1:
     .byte con_pause + $01
@@ -3568,7 +3568,7 @@ off_9ED1:
 - D - I - - 0x031F09 27:9EF9: 1F        .byte $1F   ; <ま>
 - D - I - - 0x031F0A 27:9EFA: 0D        .byte $0D   ; <す>
 - D - I - - 0x031F0B 27:9EFB: FC        .byte con_line
-- D - I - - 0x031F0C 27:9EFC: F0        .byte con_exit
+- D - I - - 0x031F0C 27:9EFC: F0        .byte con_F0_exit
 
 off_9EFD:
     .byte con_pause + $01
@@ -3624,7 +3624,7 @@ off_9EFD:
 - - - - - - 0x031F3D 27:9F2D: 0C        .byte $0C   ; <し>
 - - - - - - 0x031F3E 27:9F2E: 10        .byte $10   ; <た>
 - - - - - - 0x031F3F 27:9F2F: FC        .byte con_line
-- - - - - - 0x031F40 27:9F30: F0        .byte con_exit
+- - - - - - 0x031F40 27:9F30: F0        .byte con_F0_exit
 
 
 
@@ -3641,12 +3641,12 @@ _cloud_0x000072_72:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x000074_74:
-- D - I - - 0x0323CD 27:A3BD: F4        .byte con_выбор_облака, $03
+- D - I - - 0x0323CD 27:A3BD: F4        .byte con_F4_выбор_облака, $03
 - D - I - - 0x0323CF 27:A3BF: C9 A3     .word off_A3C9    ; первая разводка
 - D - I - - 0x0323D1 27:A3C1: E3 A3     .word off_A3E3    ; начало 2го тайма
 - D - I - - 0x0323D3 27:A3C3: F7 A3     .word off_A3F7    ; начало овертайма
@@ -3669,7 +3669,7 @@ off_A3C9:
     .text "74-00"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 off_A3E3:
     .byte con_pause + $01
@@ -3684,7 +3684,7 @@ off_A3E3:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 off_A3F7:
     .byte con_pause + $01
@@ -3699,7 +3699,7 @@ off_A3F7:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 off_A40C:
     .byte con_pause + $01
@@ -3714,7 +3714,7 @@ off_A40C:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 off_A429:
     .byte con_pause + $01
@@ -3729,7 +3729,7 @@ off_A429:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -3751,7 +3751,7 @@ _cloud_0x000075_75:
 - D - I - - 0x032455 27:A445: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032456 27:A446: F0        .byte con_exit
+- D - I - - 0x032456 27:A446: F0        .byte con_F0_exit
 
 
 
@@ -3785,7 +3785,7 @@ _cloud_0x000076_76:
 - D - I - - 0x03246F 27:A45F: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032470 27:A460: F0        .byte con_exit
+- D - I - - 0x032470 27:A460: F0        .byte con_F0_exit
 
 
 
@@ -3805,7 +3805,7 @@ _cloud_0x000077_77:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03247B 27:A46B: F0        .byte con_exit
+- D - I - - 0x03247B 27:A46B: F0        .byte con_F0_exit
 
 
 
@@ -3844,7 +3844,7 @@ _cloud_0x000078_78:
 - D - I - - 0x032499 27:A489: 79        .byte $79   ; <!>
 - D - I - - 0x03249A 27:A48A: FC        .byte con_line
     .byte con_line
-- D - I - - 0x03249B 27:A48B: F0        .byte con_exit
+- D - I - - 0x03249B 27:A48B: F0        .byte con_F0_exit
 
 
 
@@ -3879,7 +3879,7 @@ _cloud_0x000079_79:
 - D - I - - 0x0324B5 27:A4A5: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0324B6 27:A4A6: F0        .byte con_exit
+- D - I - - 0x0324B6 27:A4A6: F0        .byte con_F0_exit
 
 
 
@@ -3901,7 +3901,7 @@ _cloud_0x00007A_7A:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0324C3 27:A4B3: F0        .byte con_exit
+- D - I - - 0x0324C3 27:A4B3: F0        .byte con_F0_exit
 
 
 
@@ -3924,7 +3924,7 @@ _cloud_0x00007B_7B:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0324D1 27:A4C1: F0        .byte con_exit
+- D - I - - 0x0324D1 27:A4C1: F0        .byte con_F0_exit
 
 
 
@@ -3964,7 +3964,7 @@ _cloud_0x00007C_7C:
 - D - I - - 0x0324F0 27:A4E0: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0324F1 27:A4E1: F0        .byte con_exit
+- D - I - - 0x0324F1 27:A4E1: F0        .byte con_F0_exit
 
 
 
@@ -4007,7 +4007,7 @@ _cloud_0x00007D_7D:
 - D - I - - 0x032513 27:A503: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032514 27:A504: F0        .byte con_exit
+- D - I - - 0x032514 27:A504: F0        .byte con_F0_exit
 
 
 
@@ -4033,7 +4033,7 @@ _cloud_0x00007E_7E:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032525 27:A515: F0        .byte con_exit
+- D - I - - 0x032525 27:A515: F0        .byte con_F0_exit
 
 
 
@@ -4050,7 +4050,7 @@ _cloud_0x00007F_7F:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03252D 27:A51D: F0        .byte con_exit
+- D - I - - 0x03252D 27:A51D: F0        .byte con_F0_exit
 
 
 
@@ -4100,7 +4100,7 @@ _cloud_0x000080_80:
 - D - I - - 0x032556 27:A546: 79        .byte $79   ; <!>
 - D - I - - 0x032557 27:A547: FC        .byte con_line
     .byte con_line
-- D - I - - 0x032558 27:A548: F0        .byte con_exit
+- D - I - - 0x032558 27:A548: F0        .byte con_F0_exit
 
 
 
@@ -4127,7 +4127,7 @@ _cloud_0x000081_81:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03256A 27:A55A: F0        .byte con_exit
+- D - I - - 0x03256A 27:A55A: F0        .byte con_F0_exit
 
 
 
@@ -4153,7 +4153,7 @@ _cloud_0x000082_82:
 - D - I - - 0x03257B 27:A56B: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03257C 27:A56C: F0        .byte con_exit
+- D - I - - 0x03257C 27:A56C: F0        .byte con_F0_exit
 
 
 
@@ -4181,7 +4181,7 @@ _cloud_0x000083_83:
 - D - I - - 0x03258F 27:A57F: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032590 27:A580: F0        .byte con_exit
+- D - I - - 0x032590 27:A580: F0        .byte con_F0_exit
 
 
 
@@ -4200,7 +4200,7 @@ _cloud_0x000084_84:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03259A 27:A58A: F0        .byte con_exit
+- D - I - - 0x03259A 27:A58A: F0        .byte con_F0_exit
 
 
 
@@ -4220,7 +4220,7 @@ _cloud_0x000085_85:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0325A6 27:A596: F0        .byte con_exit
+- D - I - - 0x0325A6 27:A596: F0        .byte con_F0_exit
 
 
 
@@ -4246,7 +4246,7 @@ _cloud_0x000086_86:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0325B7 27:A5A7: F0        .byte con_exit
+- D - I - - 0x0325B7 27:A5A7: F0        .byte con_F0_exit
 
 
 
@@ -4267,7 +4267,7 @@ _cloud_0x000087_87:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0325C3 27:A5B3: F0        .byte con_exit
+- D - I - - 0x0325C3 27:A5B3: F0        .byte con_F0_exit
 
 
 
@@ -4295,7 +4295,7 @@ _cloud_0x000089_89:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0325D7 27:A5C7: F0        .byte con_exit
+- D - I - - 0x0325D7 27:A5C7: F0        .byte con_F0_exit
 
 
 
@@ -4320,7 +4320,7 @@ _cloud_0x00008A_8A:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0325E7 27:A5D7: F0        .byte con_exit
+- D - I - - 0x0325E7 27:A5D7: F0        .byte con_F0_exit
 
 
 
@@ -4383,7 +4383,7 @@ _cloud_0x00008B_8B:
 - D - I - - 0x03261D 27:A60D: 3F        .byte $3F   ; <•>
 - D - I - - 0x03261E 27:A60E: FC        .byte con_line
     .byte con_line
-- D - I - - 0x03261F 27:A60F: F0        .byte con_exit
+- D - I - - 0x03261F 27:A60F: F0        .byte con_F0_exit
 
 
 
@@ -4433,7 +4433,7 @@ _cloud_0x00008C_8C:
 - D - I - - 0x032648 27:A638: 79        .byte $79   ; <!>
 - D - I - - 0x032649 27:A639: FC        .byte con_line
     .byte con_line
-- D - I - - 0x03264A 27:A63A: F0        .byte con_exit
+- D - I - - 0x03264A 27:A63A: F0        .byte con_F0_exit
 
 
 
@@ -4451,7 +4451,7 @@ _cloud_0x00008D_8D:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032653 27:A643: F0        .byte con_exit
+- D - I - - 0x032653 27:A643: F0        .byte con_F0_exit
 
 
 
@@ -4473,7 +4473,7 @@ _cloud_0x00008E_8E:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032660 27:A650: F0        .byte con_exit
+- D - I - - 0x032660 27:A650: F0        .byte con_F0_exit
 
 
 
@@ -4494,7 +4494,7 @@ _cloud_0x00008F_8F:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03266C 27:A65C: F0        .byte con_exit
+- D - I - - 0x03266C 27:A65C: F0        .byte con_F0_exit
 
 
 
@@ -4515,7 +4515,7 @@ _cloud_0x000090_90:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032678 27:A668: F0        .byte con_exit
+- D - I - - 0x032678 27:A668: F0        .byte con_F0_exit
 
 
 
@@ -4539,7 +4539,7 @@ _cloud_0x000091_91:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032687 27:A677: F0        .byte con_exit
+- D - I - - 0x032687 27:A677: F0        .byte con_F0_exit
 
 
 
@@ -4563,7 +4563,7 @@ _cloud_0x000092_92:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032696 27:A686: F0        .byte con_exit
+- D - I - - 0x032696 27:A686: F0        .byte con_F0_exit
 
 
 
@@ -4587,7 +4587,7 @@ _cloud_0x000093_93:
     .byte con_line
     .byte con_line
     .byte con_line
-- - - - - - 0x0326A5 27:A695: F0        .byte con_exit
+- - - - - - 0x0326A5 27:A695: F0        .byte con_F0_exit
 
 
 
@@ -4613,7 +4613,7 @@ _cloud_0x000094_94:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0326B6 27:A6A6: F0        .byte con_exit
+- D - I - - 0x0326B6 27:A6A6: F0        .byte con_F0_exit
 
 
 
@@ -4639,7 +4639,7 @@ _cloud_0x000095_95:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0326C8 27:A6B8: F0        .byte con_exit
+- D - I - - 0x0326C8 27:A6B8: F0        .byte con_F0_exit
 
 
 
@@ -4696,7 +4696,7 @@ _cloud_0x000096_96:
 - D - I - - 0x0326F8 27:A6E8: 79        .byte $79   ; <!>
 - D - I - - 0x0326F9 27:A6E9: FC        .byte con_line
     .byte con_line
-- D - I - - 0x0326FA 27:A6EA: F0        .byte con_exit
+- D - I - - 0x0326FA 27:A6EA: F0        .byte con_F0_exit
 
 
 
@@ -4711,13 +4711,13 @@ _cloud_0x000097_97:
 - D - I - - 0x032700 27:A6F0: B1        .byte $B1   ; <ぶ>
 - D - I - - 0x032701 27:A6F1: AA        .byte $AA   ; <だ>
 - D - I - - 0x032702 27:A6F2: 00        .byte $00
-- D - I - - 0x032703 27:A6F3: F3        .byte con_F3
+- D - I - - 0x032703 27:A6F3: F3        .byte con_F3_возраст_хз
 - D - I - - 0x032704 27:A6F4: 79        .byte $79   ; <!>
 - D - I - - 0x032705 27:A6F5: FC        .byte con_line
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032706 27:A6F6: F0        .byte con_exit
+- D - I - - 0x032706 27:A6F6: F0        .byte con_F0_exit
 
 
 
@@ -4730,13 +4730,13 @@ _cloud_0x000098_98:
 - D - I - - 0x03270A 27:A6FA: 08        .byte $08   ; <く>
 - D - I - - 0x03270B 27:A6FB: A9        .byte $A9   ; <ぞ>
 - D - I - - 0x03270C 27:A6FC: 00        .byte $00
-- D - I - - 0x03270D 27:A6FD: F4        .byte con_F4
+- D - I - - 0x03270D 27:A6FD: F4        .byte con_F4_возраст_хз
 - D - I - - 0x03270E 27:A6FE: 79        .byte $79   ; <!>
 - D - I - - 0x03270F 27:A6FF: FC        .byte con_line
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032710 27:A700: F0        .byte con_exit
+- D - I - - 0x032710 27:A700: F0        .byte con_F0_exit
 
 
 
@@ -4754,7 +4754,7 @@ _cloud_0x000099_99:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032719 27:A709: F0        .byte con_exit
+- D - I - - 0x032719 27:A709: F0        .byte con_F0_exit
 
 
 
@@ -4775,7 +4775,7 @@ _cloud_0x00009A_9A:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032725 27:A715: F0        .byte con_exit
+- D - I - - 0x032725 27:A715: F0        .byte con_F0_exit
 
 
 
@@ -4801,7 +4801,7 @@ _cloud_0x00009B_9B:
 - D - I - - 0x032736 27:A726: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032737 27:A727: F0        .byte con_exit
+- D - I - - 0x032737 27:A727: F0        .byte con_F0_exit
 
 
 
@@ -4846,7 +4846,7 @@ _cloud_0x00009C_9C:
 - D - I - - 0x03275C 27:A74C: F7        .byte con_тильда, $03
 - D - I - - 0x03275E 27:A74E: 79        .byte $79   ; <!>
 - D - I - - 0x03275F 27:A74F: FC        .byte con_line
-- D - I - - 0x032760 27:A750: F0        .byte con_exit
+- D - I - - 0x032760 27:A750: F0        .byte con_F0_exit
 
 
 
@@ -4891,7 +4891,7 @@ _cloud_0x00009D_9D:
 - D - I - - 0x032784 27:A774: 79        .byte $79   ; <!>
 - D - I - - 0x032785 27:A775: FC        .byte con_line
     .byte con_line
-- D - I - - 0x032786 27:A776: F0        .byte con_exit
+- D - I - - 0x032786 27:A776: F0        .byte con_F0_exit
 
 
 
@@ -4939,7 +4939,7 @@ _cloud_0x00009E_9E:
 - D - I - - 0x0327AD 27:A79D: 79        .byte $79   ; <!>
 - D - I - - 0x0327AE 27:A79E: FC        .byte con_line
     .byte con_line
-- D - I - - 0x0327AF 27:A79F: F0        .byte con_exit
+- D - I - - 0x0327AF 27:A79F: F0        .byte con_F0_exit
 
 
 
@@ -4965,7 +4965,7 @@ _cloud_0x00009F_9F:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0327C0 27:A7B0: F0        .byte con_exit
+- D - I - - 0x0327C0 27:A7B0: F0        .byte con_F0_exit
 
 
 
@@ -4998,7 +4998,7 @@ _cloud_0x0000A0_A0:
 - D - I - - 0x0327D9 27:A7C9: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0327DA 27:A7CA: F0        .byte con_exit
+- D - I - - 0x0327DA 27:A7CA: F0        .byte con_F0_exit
 
 
 
@@ -5017,7 +5017,7 @@ _cloud_0x0000A1_A1:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0327E4 27:A7D4: F0        .byte con_exit
+- D - I - - 0x0327E4 27:A7D4: F0        .byte con_F0_exit
 
 
 
@@ -5037,7 +5037,7 @@ _cloud_0x0000A2_A2:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0327EF 27:A7DF: F0        .byte con_exit
+- D - I - - 0x0327EF 27:A7DF: F0        .byte con_F0_exit
 
 
 
@@ -5058,7 +5058,7 @@ _cloud_0x0000A3_A3:
 - D - I - - 0x0327FB 27:A7EB: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0327FC 27:A7EC: F0        .byte con_exit
+- D - I - - 0x0327FC 27:A7EC: F0        .byte con_F0_exit
 
 
 
@@ -5077,7 +5077,7 @@ _cloud_0x0000A4_A4:
 - D - I - - 0x032806 27:A7F6: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032807 27:A7F7: F0        .byte con_exit
+- D - I - - 0x032807 27:A7F7: F0        .byte con_F0_exit
 
 
 
@@ -5097,12 +5097,12 @@ _cloud_0x0000A5_A5:
 - D - I - - 0x032812 27:A802: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032813 27:A803: F0        .byte con_exit
+- D - I - - 0x032813 27:A803: F0        .byte con_F0_exit
 
 
 
 _cloud_0x0000A6_A6:
-- - - - - - 0x032814 27:A804: F2        .byte con_очистить_облако
+- - - - - - 0x032814 27:A804: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $00
     .byte con_window + $01
@@ -5128,7 +5128,7 @@ _cloud_0x0000A6_A6:
 - - - - - - 0x032829 27:A819: FC        .byte con_line
     .byte con_line
     .byte con_line
-- - - - - - 0x03282A 27:A81A: F0        .byte con_exit
+- - - - - - 0x03282A 27:A81A: F0        .byte con_F0_exit
 
 
 
@@ -5145,7 +5145,7 @@ _cloud_0x0000A8_A8:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032832 27:A822: F0        .byte con_exit
+- D - I - - 0x032832 27:A822: F0        .byte con_F0_exit
 
 
 
@@ -5172,7 +5172,7 @@ _cloud_0x0000A9_A9:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032844 27:A834: F0        .byte con_exit
+- D - I - - 0x032844 27:A834: F0        .byte con_F0_exit
 
 
 
@@ -5195,7 +5195,7 @@ _cloud_0x0000AA_AA:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032852 27:A842: F0        .byte con_exit
+- D - I - - 0x032852 27:A842: F0        .byte con_F0_exit
 
 
 
@@ -5215,7 +5215,7 @@ _cloud_0x0000AB_AB:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03285D 27:A84D: F0        .byte con_exit
+- D - I - - 0x03285D 27:A84D: F0        .byte con_F0_exit
 
 
 
@@ -5232,7 +5232,7 @@ _cloud_0x0000AC_AC:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032865 27:A855: F0        .byte con_exit
+- D - I - - 0x032865 27:A855: F0        .byte con_F0_exit
 
 
 
@@ -5256,7 +5256,7 @@ _cloud_0x0000AD_AD:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032874 27:A864: F0        .byte con_exit
+- D - I - - 0x032874 27:A864: F0        .byte con_F0_exit
 
 
 
@@ -5275,7 +5275,7 @@ _cloud_0x0000AE_AE:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03287E 27:A86E: F0        .byte con_exit
+- D - I - - 0x03287E 27:A86E: F0        .byte con_F0_exit
 
 
 
@@ -5294,7 +5294,7 @@ _cloud_0x0000AF_AF:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032889 27:A879: F0        .byte con_exit
+- D - I - - 0x032889 27:A879: F0        .byte con_F0_exit
 
 
 
@@ -5309,7 +5309,7 @@ _cloud_0x0000B0_B0:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03288F 27:A87F: F0        .byte con_exit
+- D - I - - 0x03288F 27:A87F: F0        .byte con_F0_exit
 
 
 
@@ -5336,7 +5336,7 @@ _cloud_0x0000B1_B1:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328A1 27:A891: F0        .byte con_exit
+- D - I - - 0x0328A1 27:A891: F0        .byte con_F0_exit
 
 
 
@@ -5356,7 +5356,7 @@ _cloud_0x0000B2_B2:
 - D - I - - 0x0328AC 27:A89C: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328AD 27:A89D: F0        .byte con_exit
+- D - I - - 0x0328AD 27:A89D: F0        .byte con_F0_exit
 
 
 
@@ -5389,7 +5389,7 @@ _cloud_0x0000B3_B3:
 - D - I - - 0x0328C6 27:A8B6: 79        .byte $79   ; <!>
 - D - I - - 0x0328C7 27:A8B7: FC        .byte con_line
     .byte con_line
-- D - I - - 0x0328C8 27:A8B8: F0        .byte con_exit
+- D - I - - 0x0328C8 27:A8B8: F0        .byte con_F0_exit
 
 
 
@@ -5406,7 +5406,7 @@ _cloud_0x0000B4_B4:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328D0 27:A8C0: F0        .byte con_exit
+- D - I - - 0x0328D0 27:A8C0: F0        .byte con_F0_exit
 
 
 
@@ -5423,7 +5423,7 @@ _cloud_0x0000B5_B5:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328D8 27:A8C8: F0        .byte con_exit
+- D - I - - 0x0328D8 27:A8C8: F0        .byte con_F0_exit
 
 
 
@@ -5447,7 +5447,7 @@ _cloud_0x0000B6_B6:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328E7 27:A8D7: F0        .byte con_exit
+- D - I - - 0x0328E7 27:A8D7: F0        .byte con_F0_exit
 
 
 
@@ -5464,7 +5464,7 @@ _cloud_0x0000B7_B7:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328EF 27:A8DF: F0        .byte con_exit
+- D - I - - 0x0328EF 27:A8DF: F0        .byte con_F0_exit
 
 
 
@@ -5482,7 +5482,7 @@ _cloud_0x0000B8_B8:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0328F8 27:A8E8: F0        .byte con_exit
+- D - I - - 0x0328F8 27:A8E8: F0        .byte con_F0_exit
 
 
 
@@ -5522,7 +5522,7 @@ _cloud_0x0000B9_B9:
 - D - I - - 0x032917 27:A907: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032918 27:A908: F0        .byte con_exit
+- D - I - - 0x032918 27:A908: F0        .byte con_F0_exit
 
 
 
@@ -5541,7 +5541,7 @@ _cloud_0x0000BA_BA:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032922 27:A912: F0        .byte con_exit
+- D - I - - 0x032922 27:A912: F0        .byte con_F0_exit
 
 
 
@@ -5562,7 +5562,7 @@ _cloud_0x0000BB_BB:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03292E 27:A91E: F0        .byte con_exit
+- D - I - - 0x03292E 27:A91E: F0        .byte con_F0_exit
 
 
 
@@ -5579,7 +5579,7 @@ _cloud_0x0000BC_BC:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032936 27:A926: F0        .byte con_exit
+- D - I - - 0x032936 27:A926: F0        .byte con_F0_exit
 
 
 
@@ -5605,7 +5605,7 @@ _cloud_0x0000BD_BD:
 - D - I - - 0x032947 27:A937: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032948 27:A938: F0        .byte con_exit
+- D - I - - 0x032948 27:A938: F0        .byte con_F0_exit
 
 
 
@@ -5630,7 +5630,7 @@ _cloud_0x0000BE_BE:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032958 27:A948: F0        .byte con_exit
+- D - I - - 0x032958 27:A948: F0        .byte con_F0_exit
 
 
 
@@ -5663,7 +5663,7 @@ _cloud_0x0000BF_BF:
 - D - I - - 0x032970 27:A960: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032971 27:A961: F0        .byte con_exit
+- D - I - - 0x032971 27:A961: F0        .byte con_F0_exit
 
 
 
@@ -5681,7 +5681,7 @@ _cloud_0x0000C0_C0:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03297A 27:A96A: F0        .byte con_exit
+- D - I - - 0x03297A 27:A96A: F0        .byte con_F0_exit
 
 
 
@@ -5700,7 +5700,7 @@ _cloud_0x0000C1_C1:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032984 27:A974: F0        .byte con_exit
+- D - I - - 0x032984 27:A974: F0        .byte con_F0_exit
 
 
 
@@ -5716,7 +5716,7 @@ _cloud_0x0000C2_C2:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x03298B 27:A97B: F0        .byte con_exit
+- D - I - - 0x03298B 27:A97B: F0        .byte con_F0_exit
 
 
 
@@ -5738,7 +5738,7 @@ _cloud_0x0000C3_C3:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032998 27:A988: F0        .byte con_exit
+- D - I - - 0x032998 27:A988: F0        .byte con_F0_exit
 
 
 
@@ -5755,7 +5755,7 @@ _cloud_0x0000C4_C4:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329A0 27:A990: F0        .byte con_exit
+- D - I - - 0x0329A0 27:A990: F0        .byte con_F0_exit
 
 
 
@@ -5778,7 +5778,7 @@ _cloud_0x0000C5_C5:
     .byte con_line
     .byte con_line
     .byte con_line
-- - - - - - 0x0329AE 27:A99E: F0        .byte con_exit
+- - - - - - 0x0329AE 27:A99E: F0        .byte con_F0_exit
 
 
 
@@ -5797,7 +5797,7 @@ _cloud_0x0000C6_C6:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329B8 27:A9A8: F0        .byte con_exit
+- D - I - - 0x0329B8 27:A9A8: F0        .byte con_F0_exit
 
 
 
@@ -5813,7 +5813,7 @@ _cloud_0x0000C7_C7:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329BF 27:A9AF: F0        .byte con_exit
+- D - I - - 0x0329BF 27:A9AF: F0        .byte con_F0_exit
 
 
 
@@ -5846,7 +5846,7 @@ _cloud_0x0000C8_C8:
 - D - I - - 0x0329D7 27:A9C7: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329D8 27:A9C8: F0        .byte con_exit
+- D - I - - 0x0329D8 27:A9C8: F0        .byte con_F0_exit
 
 
 
@@ -5863,7 +5863,7 @@ _cloud_0x0000C9_C9:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329E0 27:A9D0: F0        .byte con_exit
+- D - I - - 0x0329E0 27:A9D0: F0        .byte con_F0_exit
 
 
 
@@ -5885,7 +5885,7 @@ _cloud_0x0000CA_CA:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329ED 27:A9DD: F0        .byte con_exit
+- D - I - - 0x0329ED 27:A9DD: F0        .byte con_F0_exit
 
 
 
@@ -5904,7 +5904,7 @@ _cloud_0x0000CB_CB:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x0329F7 27:A9E7: F0        .byte con_exit
+- D - I - - 0x0329F7 27:A9E7: F0        .byte con_F0_exit
 
 
 
@@ -5947,7 +5947,7 @@ _cloud_0x0000CC_CC:
 - D - I - - 0x032A1B 27:AA0B: 79        .byte $79   ; <!>
 - D - I - - 0x032A1C 27:AA0C: 79        .byte $79   ; <!>
 - D - I - - 0x032A1D 27:AA0D: FC        .byte con_line
-- D - I - - 0x032A1E 27:AA0E: F0        .byte con_exit
+- D - I - - 0x032A1E 27:AA0E: F0        .byte con_F0_exit
 
 
 
@@ -5968,7 +5968,7 @@ _cloud_0x0000CD_CD:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032A2A 27:AA1A: F0        .byte con_exit
+- D - I - - 0x032A2A 27:AA1A: F0        .byte con_F0_exit
 
 
 
@@ -5986,7 +5986,7 @@ _cloud_0x0000CE_CE:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032A33 27:AA23: F0        .byte con_exit
+- D - I - - 0x032A33 27:AA23: F0        .byte con_F0_exit
 
 
 
@@ -6044,7 +6044,7 @@ _cloud_0x0000CF_CF:
 - - - - - - 0x032A65 27:AA55: F7        .byte con_тильда, $03
 - - - - - - 0x032A67 27:AA57: 79        .byte $79   ; <!>
 - - - - - - 0x032A68 27:AA58: FC        .byte con_line
-- - - - - - 0x032A69 27:AA59: F0        .byte con_exit
+- - - - - - 0x032A69 27:AA59: F0        .byte con_F0_exit
 
 
 
@@ -6067,7 +6067,7 @@ _cloud_0x0000D0_D0:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032A77 27:AA67: F0        .byte con_exit
+- D - I - - 0x032A77 27:AA67: F0        .byte con_F0_exit
 
 
 
@@ -6084,7 +6084,7 @@ _cloud_0x0000D1_D1:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032A7F 27:AA6F: F0        .byte con_exit
+- D - I - - 0x032A7F 27:AA6F: F0        .byte con_F0_exit
 
 
 
@@ -6142,7 +6142,7 @@ _cloud_0x0000D2_D2:
 - D - I - - 0x032AB0 27:AAA0: F7        .byte con_тильда, $02
 - D - I - - 0x032AB2 27:AAA2: 79        .byte $79   ; <!>
 - D - I - - 0x032AB3 27:AAA3: FC        .byte con_line
-- D - I - - 0x032AB4 27:AAA4: F0        .byte con_exit
+- D - I - - 0x032AB4 27:AAA4: F0        .byte con_F0_exit
 
 
 
@@ -6164,7 +6164,7 @@ _cloud_0x0000D3_D3:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032AC1 27:AAB1: F0        .byte con_exit
+- D - I - - 0x032AC1 27:AAB1: F0        .byte con_F0_exit
 
 
 
@@ -6184,7 +6184,7 @@ _cloud_0x0000D4_D4:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032ACC 27:AABC: F0        .byte con_exit
+- D - I - - 0x032ACC 27:AABC: F0        .byte con_F0_exit
 
 
 
@@ -6216,7 +6216,7 @@ _cloud_0x0000D5_D5:
 - D - I - - 0x032AE3 27:AAD3: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032AE4 27:AAD4: F0        .byte con_exit
+- D - I - - 0x032AE4 27:AAD4: F0        .byte con_F0_exit
 
 
 
@@ -6268,7 +6268,7 @@ _cloud_0x0000D6_D6:
 - D - I - - 0x032B10 27:AB00: 08        .byte $08   ; <く>
 - D - I - - 0x032B11 27:AB01: 79        .byte $79   ; <!>
 - D - I - - 0x032B12 27:AB02: FC        .byte con_line
-- D - I - - 0x032B13 27:AB03: F0        .byte con_exit
+- D - I - - 0x032B13 27:AB03: F0        .byte con_F0_exit
 
 
 
@@ -6287,7 +6287,7 @@ _cloud_0x0000D7_D7:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032B1D 27:AB0D: F0        .byte con_exit
+- D - I - - 0x032B1D 27:AB0D: F0        .byte con_F0_exit
 
 
 
@@ -6318,7 +6318,7 @@ _cloud_0x0000D8_D8:
 - D - I - - 0x032B33 27:AB23: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032B34 27:AB24: F0        .byte con_exit
+- D - I - - 0x032B34 27:AB24: F0        .byte con_F0_exit
 
 
 
@@ -6351,7 +6351,7 @@ _cloud_0x0000D9_D9:
 - D - I - - 0x032B4C 27:AB3C: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032B4D 27:AB3D: F0        .byte con_exit
+- D - I - - 0x032B4D 27:AB3D: F0        .byte con_F0_exit
 
 
 
@@ -6372,7 +6372,7 @@ _cloud_0x0000DA_DA:
 - D - I - - 0x032B59 27:AB49: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032B5A 27:AB4A: F0        .byte con_exit
+- D - I - - 0x032B5A 27:AB4A: F0        .byte con_F0_exit
 
 
 
@@ -6407,7 +6407,7 @@ _cloud_0x0000DB_DB:
 - D - I - - 0x032B74 27:AB64: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032B75 27:AB65: F0        .byte con_exit
+- D - I - - 0x032B75 27:AB65: F0        .byte con_F0_exit
 
 
 
@@ -6415,7 +6415,7 @@ _cloud_0x0000DB_DB:
 
 
 _cloud_0x0000DD_DD:
-    .byte con_выбор_облака, $01
+    .byte con_F4_выбор_облака, $01
     .word off_AB6C_мяч_у_команды_слева
     .word off_AB80_мяч_у_команды_справа
 
@@ -6435,7 +6435,7 @@ off_AB6C_мяч_у_команды_слева:
     .byte con_line
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -6455,7 +6455,7 @@ off_AB80_мяч_у_команды_справа:
     .text "0DD 01"
     .byte con_line
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
@@ -6474,7 +6474,7 @@ _cloud_0x0000DE_DE:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032BAF 27:AB9F: F0        .byte con_exit
+- D - I - - 0x032BAF 27:AB9F: F0        .byte con_F0_exit
 
 
 
@@ -6494,7 +6494,7 @@ _cloud_0x0000E0_E0:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032BBB 27:ABAB: F0        .byte con_exit
+- D - I - - 0x032BBB 27:ABAB: F0        .byte con_F0_exit
 
 
 
@@ -6514,7 +6514,7 @@ _cloud_0x0000E1_E1:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032BC7 27:ABB7: F0        .byte con_exit
+- D - I - - 0x032BC7 27:ABB7: F0        .byte con_F0_exit
 
 
 
@@ -6537,12 +6537,12 @@ _cloud_0x0000E3_E3:
     .byte $01
     .text "0E3"
     .byte con_line
-    .byte con_exit
+    .byte con_F0_exit
 
 
 
 _cloud_0x0000E4_E4:
-- D - I - - 0x032C1B 27:AC0B: F2        .byte con_очистить_облако
+- D - I - - 0x032C1B 27:AC0B: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $0C
     .byte con_window + $06
@@ -6576,7 +6576,7 @@ _cloud_0x0000E4_E4:
 - D - I - - 0x032C3A 27:AC2A: 79        .byte $79   ; <!>
 - D - I - - 0x032C3B 27:AC2B: FC        .byte con_line
     .byte con_line
-- D - I - - 0x032C3C 27:AC2C: F0        .byte con_exit
+- D - I - - 0x032C3C 27:AC2C: F0        .byte con_F0_exit
 
 
 
@@ -6596,7 +6596,7 @@ _cloud_0x0000E5_E5:
     .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032C47 27:AC37: F0        .byte con_exit
+- D - I - - 0x032C47 27:AC37: F0        .byte con_F0_exit
 
 
 
@@ -6622,12 +6622,12 @@ _cloud_0x0000E6_E6:
 - D - I - - 0x032C58 27:AC48: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032C59 27:AC49: F0        .byte con_exit
+- D - I - - 0x032C59 27:AC49: F0        .byte con_F0_exit
 
 
 
 _cloud_0x0000E7_E7:
-- D - I - - 0x032C5A 27:AC4A: F2        .byte con_очистить_облако
+- D - I - - 0x032C5A 27:AC4A: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -6646,7 +6646,7 @@ _cloud_0x0000E7_E7:
 - D - I - - 0x032C68 27:AC58: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032C69 27:AC59: F0        .byte con_exit
+- D - I - - 0x032C69 27:AC59: F0        .byte con_F0_exit
 
 
 
@@ -6670,12 +6670,12 @@ _cloud_0x0000E8_E8:
 - D - I - - 0x032C78 27:AC68: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032C79 27:AC69: F0        .byte con_exit
+- D - I - - 0x032C79 27:AC69: F0        .byte con_F0_exit
 
 
 
 _cloud_0x0000E9_E9:
-- D - I - - 0x032C7A 27:AC6A: F2        .byte con_очистить_облако
+- D - I - - 0x032C7A 27:AC6A: F2        .byte con_F2_очистить_облако
     .byte con_pause + $01
     .byte con_charlie + $01
     .byte con_window + $05
@@ -6697,13 +6697,13 @@ _cloud_0x0000E9_E9:
 - D - I - - 0x032C8B 27:AC7B: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032C8C 27:AC7C: F0        .byte con_exit
+- D - I - - 0x032C8C 27:AC7C: F0        .byte con_F0_exit
 
 
 
 _cloud_0x0000EA_EA:
-- D - I - - 0x032C8D 27:AC7D: F2        .byte con_очистить_облако
-- D - I - - 0x032C8E 27:AC7E: F4        .byte con_выбор_облака, $07       ; дисбаланс кипера
+- D - I - - 0x032C8D 27:AC7D: F2        .byte con_F2_очистить_облако
+- D - I - - 0x032C8E 27:AC7E: F4        .byte con_F4_выбор_облака, $07       ; дисбаланс кипера
 - - - - - - 0x032C90 27:AC80: 99 AC     .word off_AC99
 - D - I - - 0x032C92 27:AC82: 86 AC     .word off_AC86
 - D - I - - 0x032C94 27:AC84: 9A AC     .word off_AC9A
@@ -6733,7 +6733,7 @@ off_AC86:
     .byte con_line
     .byte con_line
 off_AC99:       ; bzk это продолжение, отдельно не использовалось
-- D - I - - 0x032CA9 27:AC99: F0        .byte con_exit
+- D - I - - 0x032CA9 27:AC99: F0        .byte con_F0_exit
 
 off_AC9A:
     .byte con_pause + $01
@@ -6753,7 +6753,7 @@ off_AC9A:
 - D - I - - 0x032CB6 27:ACA6: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032CB7 27:ACA7: F0        .byte con_exit
+- D - I - - 0x032CB7 27:ACA7: F0        .byte con_F0_exit
 
 
 
@@ -6779,7 +6779,7 @@ _cloud_0x0000EB_EB:
 - D - I - - 0x032CC8 27:ACB8: 79        .byte $79   ; <!>
 - D - I - - 0x032CC9 27:ACB9: FC        .byte con_line
     .byte con_line
-- D - I - - 0x032CCA 27:ACBA: F0        .byte con_exit
+- D - I - - 0x032CCA 27:ACBA: F0        .byte con_F0_exit
 
 
 
@@ -6797,7 +6797,7 @@ _cloud_0x0000EC_EC:
 - D - I - - 0x032CD3 27:ACC3: FC        .byte con_line
     .byte con_line
     .byte con_line
-- D - I - - 0x032CD4 27:ACC4: F0        .byte con_exit
+- D - I - - 0x032CD4 27:ACC4: F0        .byte con_F0_exit
 
 
 
@@ -6831,7 +6831,7 @@ _cloud_0x0000ED_ED:
 - D - I - - 0x032CED 27:ACDD: 79        .byte $79   ; <!>
 - D - I - - 0x032CEE 27:ACDE: FC        .byte con_line
     .byte con_line
-- D - I - - 0x032CEF 27:ACDF: F0        .byte con_exit
+- D - I - - 0x032CEF 27:ACDF: F0        .byte con_F0_exit
 
 
 
@@ -6870,7 +6870,7 @@ _cloud_0x0000EE_EE:
 - D - I - - 0x032D0E 27:ACFE: AA        .byte $AA   ; <だ>
 - D - I - - 0x032D0F 27:ACFF: 79        .byte $79   ; <!>
 - D - I - - 0x032D10 27:AD00: FC        .byte con_line
-- D - I - - 0x032D11 27:AD01: F0        .byte con_exit
+- D - I - - 0x032D11 27:AD01: F0        .byte con_F0_exit
 
 
 
@@ -6902,7 +6902,7 @@ _cloud_0x0000EF_EF:
 - D - I - - 0x032D29 27:AD19: 79        .byte $79   ; <!>
 - D - I - - 0x032D2A 27:AD1A: FC        .byte con_line
     .byte con_line
-- D - I - - 0x032D2B 27:AD1B: F0        .byte con_exit
+- D - I - - 0x032D2B 27:AD1B: F0        .byte con_F0_exit
 
 
 

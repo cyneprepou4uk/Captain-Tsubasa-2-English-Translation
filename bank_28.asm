@@ -20,11 +20,11 @@ con_window                      = $00 ;
 con_charlie                     = $00 ; 
 
 ; управляющие байты 0x030097
-con_exit                        = $F0 ; 
+con_F0_exit                     = $F0 ; 
 ; con_F1                        = $F1 ; 
-con_очистить_облако             = $F2 ; 
-con_jump                        = $F3 ; 
-con_выбор_облака                = $F4 ; 
+con_F2_очистить_облако          = $F2 ; 
+con_F3_jump                     = $F3 ; 
+con_F4_выбор_облака             = $F4 ; 
 
 ; байты в тексте 0x03036E
 con_действие_атаки              = $E0 ; 
@@ -46,8 +46,8 @@ con_игрок_без_мяча              = $EE ;
 ; con_F0                        = $F0 ; 
 con_команда_слева               = $F1 ; 
 con_команда_справа              = $F2 ; 
-con_F3                          = $F3 ; возраст ХЗ
-con_F4                          = $F4 ; возраст ХЗ
+con_F3_возраст_хз               = $F3 ; возраст ХЗ
+con_F4_возраст_хз               = $F4 ; возраст ХЗ
 con_слово_ball                  = $F5 ; ボール
 con_слово_goal                  = $F6 ; ゴール
 con_тильда                      = $F7 ; указывается количество символов
@@ -63,7 +63,7 @@ con_line                        = $FC ; если байт после линии 
 
 
 _cloud_0x000073_73:
-    .byte con_выбор_облака, $04
+    .byte con_F4_выбор_облака, $04
     .word off_9F52_ожидание_1
     .word off_9FE1_ожидание_2
     .word off_A08B_ожидание_3
@@ -140,7 +140,7 @@ off_9FBF_храп_чарли:
     .text "                    ", con_line
     .text "     *snoooore*     ", con_line
     .text "                    ", con_line
-    .byte con_jump
+    .byte con_F3_jump
     .word off_9FBF_храп_чарли
 
 
@@ -225,7 +225,7 @@ off_A06D_peace_чарли_частичное:
     .text "      Peace!        ", con_line
     .text "                    ", con_line
     
-    .byte con_jump
+    .byte con_F3_jump
     .word off_A06D_peace_чарли_частичное
 
 
@@ -293,7 +293,7 @@ off_A08B_ожидание_3:
     .text "    mooch off me!   ", con_line
     .text "                    ", con_line
     
-    .byte con_jump
+    .byte con_F3_jump
     .word off_A06C_peace_чарли_полное
 
 
@@ -415,7 +415,7 @@ off_A159_цикл_караоке:
     .text "    Three! Four!    ", con_line
     .text "                    ", con_line
 
-    .byte con_jump
+    .byte con_F3_jump
     .word off_A159_цикл_караоке
 
 
@@ -456,7 +456,7 @@ off_A225_ожидание_5:
     .text " @Relax! Don't take ", con_line
     .text "   it personally.@. ", con_line
 
-    .byte con_jump
+    .byte con_F3_jump
     .word off_A06C_peace_чарли_полное
 
 
@@ -506,7 +506,7 @@ off_A292_ожидание_6:
     .text "   Sweet dreams!    ", con_line
     .text "                    ", con_line
 
-    .byte con_jump
+    .byte con_F3_jump
     .word off_9FBF_храп_чарли
 
 
@@ -583,7 +583,7 @@ off_A3A6_loop:
     .text "    Cha-cha-cha!    ", con_line
     .text "                    ", con_line
 
-    .byte con_jump
+    .byte con_F3_jump
     .word off_A3A6_loop
 
 
