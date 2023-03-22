@@ -3856,7 +3856,7 @@ _scenario_91FF_02:
                             .byte con_pause + $2D
                             .byte con_s_bg_58
                             .byte con_s_anim_04
-                            .byte con_s_cloud_F0_default ; con_s_cloud_3A
+                            .byte con_s_cloud_F0_default ; s_cloud_3A
                             .byte con_rts
 
                         off_case_02_01_00_01:
@@ -3865,7 +3865,7 @@ _scenario_91FF_02:
                             .byte con_pause + $3C
                             .byte con_s_bg_2F
                             .byte con_s_anim_57
-                            .byte con_s_cloud_F0_default ; con_s_cloud_3A
+                            .byte con_s_cloud_F0_default ; s_cloud_3A
                             .byte con_rts
 
                 off_case_02_01_01:
@@ -3873,7 +3873,7 @@ _scenario_91FF_02:
                     .byte con_pause + $60
                     .byte con_s_bg_65
                     .byte con_s_anim_DA
-                    .byte con_s_cloud_F0_default ; con_s_cloud_E7
+                    .byte con_s_cloud_F0_default ; s_cloud_E7
                     .byte con_rts
 
 
@@ -6121,7 +6121,7 @@ loc_BD87:
             .byte con_pause + $28
             .byte con_s_bg_23
             .byte con_s_anim_5A
-            .byte con_s_cloud_F0_default ; con_s_cloud_E8
+            .byte con_s_cloud_F0_default ; s_cloud_E8
             .byte con_rts
 
 
@@ -6807,7 +6807,7 @@ _scenario_B80A_15:
     .byte con_pause + $80
     .byte con_s_bg_30
     .byte con_s_anim_face_p_matsuyama_furano
-    .byte con_s_cloud_F0_default ; con_s_cloud_76
+    .byte con_s_cloud_F0_default ; s_cloud_76
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -6821,7 +6821,7 @@ _scenario_B817_16:
     .byte con_pause + $80
     .byte con_s_bg_30
     .byte con_s_anim_face_p_diaz_argentina
-    .byte con_s_cloud_F0_default ; con_s_cloud_77
+    .byte con_s_cloud_F0_default ; s_cloud_77
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -6838,14 +6838,14 @@ _scenario_B8A1_17:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_tsubasa_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_81
+    .byte con_s_cloud_F0_default ; s_cloud_81
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_soundID_delay, $2B, $02
     .byte con_pause + $28
     .byte con_s_bg_01
     .byte con_s_anim_66
-    .byte con_s_cloud_F0_default ; con_s_cloud_82
+    .byte con_s_cloud_F0_default ; s_cloud_82
     .byte con_pause + $29
     .byte con_s_bg_20
     .byte con_s_anim_4C
@@ -6855,7 +6855,7 @@ _scenario_B8A1_17:
     .byte con_pause + $5A
     .byte con_s_bg_30
     .byte con_s_anim_face_p_tsubasa_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_83
+    .byte con_s_cloud_F0_default ; s_cloud_83
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $28
     .byte con_s_bg_20
@@ -6865,13 +6865,13 @@ _scenario_B8A1_17:
     .byte con_pause + $3C
     .byte con_s_bg_32
     .byte con_s_anim_face_p_meon_gremio
-    .byte con_s_cloud_F0_default ; con_s_cloud_84
+    .byte con_s_cloud_F0_default ; s_cloud_84
     .byte con_mirror_toggle
     .byte con_soundID_delay, $2B, $31
     .byte con_pause + $38
     .byte con_s_bg_47
     .byte con_s_anim_BF
-    .byte con_s_cloud_F0_default ; con_s_cloud_85
+    .byte con_s_cloud_F0_default ; s_cloud_85
     .byte con_pause + $25
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -6886,7 +6886,7 @@ _scenario_B8A1_17:
     .byte con_pause + $32
     .byte con_s_bg_58
     .byte con_s_anim_04
-    .byte con_s_cloud_F0_default ; con_s_cloud_86
+    .byte con_s_cloud_F0_default ; s_cloud_86
     .byte con_F7, $33
     .byte con_soundID_delay, $05, $02
     .byte con_pause + $36
@@ -6898,7 +6898,7 @@ _scenario_B8A1_17:
     .byte con_pause + $64
     .byte con_s_bg_32
     .byte con_s_anim_face_p_meon_gremio
-    .byte con_s_cloud_F0_default ; con_s_cloud_8E
+    .byte con_s_cloud_F0_default ; s_cloud_8E
     .byte con_pause + $10
     .byte con_s_bg_0E
     .byte con_s_anim_D3
@@ -6908,13 +6908,13 @@ _scenario_B8A1_17:
     .byte con_pause + $64
     .byte con_s_bg_07
     .byte con_s_anim_45
-    .byte con_s_cloud_F0_default ; con_s_cloud_28
+    .byte con_s_cloud_F0_default ; s_cloud_28
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $6E
     .byte con_s_bg_32
     .byte con_s_anim_face_p_meon_gremio
-    .byte con_s_cloud_F0_default ; con_s_cloud_87
+    .byte con_s_cloud_F0_default ; s_cloud_87
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -6988,13 +6988,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_tsubasa_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CB
+                    .byte con_s_cloud_F0_default ; s_cloud_CB
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_misaki_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CA
+                    .byte con_s_cloud_F0_default ; s_cloud_CA
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7007,13 +7007,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_55
                     .byte con_s_anim_face_p_hyuga_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D1
+                    .byte con_s_cloud_F0_default ; s_cloud_D1
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_sawada_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D0
+                    .byte con_s_cloud_F0_default ; s_cloud_D0
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7026,13 +7026,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_55
                     .byte con_s_anim_face_p_hyuga_toho
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D1
+                    .byte con_s_cloud_F0_default ; s_cloud_D1
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_sawada_toho
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D0
+                    .byte con_s_cloud_F0_default ; s_cloud_D0
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7049,13 +7049,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_masao_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AC
+                    .byte con_s_cloud_F0_default ; s_cloud_AC
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_masao_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D3
+                    .byte con_s_cloud_F0_default ; s_cloud_D3
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7068,13 +7068,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_masao_akita
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D3
+                    .byte con_s_cloud_F0_default ; s_cloud_D3
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_masao_akita
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AC
+                    .byte con_s_cloud_F0_default ; s_cloud_AC
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7087,13 +7087,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_pascal_argentina
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CD
+                    .byte con_s_cloud_F0_default ; s_cloud_CD
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_diaz_argentina
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CE
+                    .byte con_s_cloud_F0_default ; s_cloud_CE
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7106,13 +7106,13 @@ _scenario_BBD4_19_1_2_start:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_napoleon_france
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D4
+                    .byte con_s_cloud_F0_default ; s_cloud_D4
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_pierre_france
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D5
+                    .byte con_s_cloud_F0_default ; s_cloud_D5
                     .byte con_jmp
                     .word loc_BBDA
 
@@ -7134,7 +7134,7 @@ _scenario_BC6D_1A_1_2_return:
             .byte con_pause + $3C
             .byte con_s_bg_3C
             .byte con_s_anim_7C
-            .byte con_s_cloud_F0_default ; con_s_cloud_5A
+            .byte con_s_cloud_F0_default ; s_cloud_5A
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -7167,7 +7167,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $28
                     .byte con_s_bg_36
                     .byte con_s_anim_95
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CC
+                    .byte con_s_cloud_F0_default ; s_cloud_CC
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7190,7 +7190,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_92
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CC
+                    .byte con_s_cloud_F0_default ; s_cloud_CC
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7221,7 +7221,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_A7
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D2
+                    .byte con_s_cloud_F0_default ; s_cloud_D2
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7250,7 +7250,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_A5
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D2
+                    .byte con_s_cloud_F0_default ; s_cloud_D2
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7287,7 +7287,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_EF
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D6
+                    .byte con_s_cloud_F0_default ; s_cloud_D6
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7308,7 +7308,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_DF
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CF
+                    .byte con_s_cloud_F0_default ; s_cloud_CF
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7329,7 +7329,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_BE
-                    .byte con_s_cloud_F0_default ; con_s_cloud_CF
+                    .byte con_s_cloud_F0_default ; s_cloud_CF
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7351,7 +7351,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_A7
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D6
+                    .byte con_s_cloud_F0_default ; s_cloud_D6
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7373,7 +7373,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_EE
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D6
+                    .byte con_s_cloud_F0_default ; s_cloud_D6
                     .byte con_mirror_toggle
                     .byte con_soundID_delay, $2C, $21
                     .byte con_pause + $3C
@@ -7385,7 +7385,7 @@ _scenario_BC6D_1A_1_2_return:
                     .byte con_pause + $3C
                     .byte con_s_bg_36
                     .byte con_s_anim_EE
-                    .byte con_s_cloud_F0_default ; con_s_cloud_D6
+                    .byte con_s_cloud_F0_default ; s_cloud_D6
                     .byte con_rts
 
 
@@ -7406,7 +7406,7 @@ loc_B49E_игрок_принимает_пас_на_ногу:
             .byte con_pause + $3C
             .byte con_s_bg_01
             .byte con_s_anim_78
-            .byte con_s_cloud_F0_default ; con_s_cloud_58
+            .byte con_s_cloud_F0_default ; s_cloud_58
             .byte con_rts
 
         case_1B_01:
@@ -7442,7 +7442,7 @@ sub_B4BF_мяч_улетает_в_аут:
     .byte con_pause + $1E
     .byte con_s_bg_39
     .byte con_s_anim_7E
-    .byte con_s_cloud_F0_default ; con_s_cloud_5C
+    .byte con_s_cloud_F0_default ; s_cloud_5C
     .byte con_rts
 
 
@@ -7459,7 +7459,7 @@ loc_9C28_гол_и_проверка_на_рваную_сетку:
             .byte con_pause + $78
             .byte con_s_bg_07
             .byte con_s_anim_44
-            .byte con_s_cloud_F0_default ; con_s_cloud_28
+            .byte con_s_cloud_F0_default ; s_cloud_28
             .byte con_rts
 
         off_case_A267_01:
@@ -7469,7 +7469,7 @@ loc_A267_goal_и_рваная_сетка:
             .byte con_pause + $78
             .byte con_s_bg_07
             .byte con_s_anim_45
-            .byte con_s_cloud_F0_default ; con_s_cloud_28
+            .byte con_s_cloud_F0_default ; s_cloud_28
             .byte con_rts
 
 
@@ -7499,7 +7499,7 @@ sub_9C5B_wakashimazu_отскок_от_штанги:
                     .byte con_pause + $32
                     .byte con_s_bg_33
                     .byte con_s_anim_face_p_wakashimazu_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_9F
+                    .byte con_s_cloud_F0_default ; s_cloud_9F
 loc_A34B_отскок_от_штанги:
                     .byte con_mirror_condition, $03       ; куда летит мяч
 loc_A34D_отскок_вакашимазу_от_штанги:
@@ -7508,7 +7508,7 @@ sub_A34D_отскок_вакашимазу_от_штанги:
                     .byte con_pause + $08
                     .byte con_s_bg_0B
                     .byte con_s_anim_00
-                    .byte con_s_cloud_F0_default ; con_s_cloud_2F
+                    .byte con_s_cloud_F0_default ; s_cloud_2F
                     .byte con_F7, $05
                     .byte con_soundID_delay, $68, $21
                     .byte con_pause + $2D
@@ -7523,7 +7523,7 @@ sub_A34D_отскок_вакашимазу_от_штанги:
                     .byte con_pause + $32
                     .byte con_s_bg_73
                     .byte con_s_anim_face_p_wakashimazu_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_9F
+                    .byte con_s_cloud_F0_default ; s_cloud_9F
                     .byte con_jmp
                     .word loc_A34B_отскок_от_штанги
 
@@ -7548,7 +7548,7 @@ bra_long_case_A3B3_00_no_special_defense:
             .byte con_pause + $32
             .byte con_s_bg_1D
             .byte con_s_anim_20
-            .byte con_s_cloud_F0_default ; con_s_cloud_3C
+            .byte con_s_cloud_F0_default ; s_cloud_3C
             .byte con_rts
 
 
@@ -7563,7 +7563,7 @@ bra_long_case_A3BD_00_no_special_defense:
             .byte con_pause + $32
             .byte con_s_bg_1E
             .byte con_s_anim_1C
-            .byte con_s_cloud_F0_default ; con_s_cloud_3D
+            .byte con_s_cloud_F0_default ; s_cloud_3D
             .byte con_rts
 
 
@@ -7579,7 +7579,7 @@ bra_long_case_A3C5_00_no_special_defense:
             .byte con_pause + $32
             .byte con_s_bg_1E
             .byte con_s_anim_20
-            .byte con_s_cloud_F0_default ; con_s_cloud_3E
+            .byte con_s_cloud_F0_default ; s_cloud_3E
             .byte con_rts
 
 
@@ -7631,7 +7631,7 @@ bra_long_case_A7D5_00_no_special_defense:
             .byte con_pause + $37
             .byte con_s_bg_23
             .byte con_s_anim_5A
-            .byte con_s_cloud_F0_default ; con_s_cloud_42
+            .byte con_s_cloud_F0_default ; s_cloud_42
             .byte con_rts
 
 
@@ -7647,7 +7647,7 @@ bra_long_case_A7DE_00_no_special_defense:
             .byte con_pause + $37
             .byte con_s_bg_22
             .byte con_s_anim_5B
-            .byte con_s_cloud_F0_default ; con_s_cloud_43
+            .byte con_s_cloud_F0_default ; s_cloud_43
             .byte con_rts
 
 
@@ -7662,7 +7662,7 @@ bra_long_case_A7E7_00_no_special_defense:
             .byte con_pause + $37
             .byte con_s_bg_23
             .byte con_s_anim_5B
-            .byte con_s_cloud_F0_default ; con_s_cloud_44
+            .byte con_s_cloud_F0_default ; s_cloud_44
             .byte con_rts
 
 
@@ -7700,7 +7700,7 @@ loc_9CA3_анимация_дриблинга_трудной_обводки:
                     .byte con_pause + $14
                     .byte con_s_bg_22
                     .byte con_s_anim_60
-                    .byte con_s_cloud_F0_default ; con_s_cloud_45
+                    .byte con_s_cloud_F0_default ; s_cloud_45
                     .byte con_F7, $24
                     .byte con_soundID_delay, $68, $02
                     .byte con_pause + $10
@@ -7723,7 +7723,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                     .byte con_pause + $3C
                     .byte con_s_bg_23
                     .byte con_s_anim_E4
-                    .byte con_s_cloud_F0_default ; con_s_cloud_45
+                    .byte con_s_cloud_F0_default ; s_cloud_45
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -7743,7 +7743,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $3C
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C4
+                            .byte con_s_cloud_F0_default ; s_cloud_C4
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7753,7 +7753,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $3C
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_toho
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C4
+                            .byte con_s_cloud_F0_default ; s_cloud_C4
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7763,7 +7763,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $78
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_jito_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C5
+                            .byte con_s_cloud_F0_default ; s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7773,7 +7773,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $78
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_jito_kunimi
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C5
+                            .byte con_s_cloud_F0_default ; s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7783,7 +7783,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $40
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_napoleon_france
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C6
+                            .byte con_s_cloud_F0_default ; s_cloud_C6
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7806,7 +7806,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                     .byte con_pause + $46
                     .byte con_s_bg_FF_skip
                     .byte con_s_anim_D1
-                    .byte con_s_cloud_F0_default ; con_s_cloud_45
+                    .byte con_s_cloud_F0_default ; s_cloud_45
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -7827,7 +7827,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $46
                             .byte con_s_bg_FF_skip
                             .byte con_s_anim_FF_skip
-                            .byte con_s_cloud_F0_default ; con_s_cloud_45
+                            .byte con_s_cloud_F0_default ; s_cloud_45
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -7847,7 +7847,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                     .byte con_pause + $1E
                     .byte con_s_bg_47
                     .byte con_s_anim_D1
-                    .byte con_s_cloud_F0_default ; con_s_cloud_45
+                    .byte con_s_cloud_F0_default ; s_cloud_45
                     .byte con_jmp
                     .word loc_AAEF
 
@@ -7875,7 +7875,7 @@ loc_A7FE_движение_фона_после_дриблинга:
                             .byte con_pause + $17
                             .byte con_s_bg_FF_skip
                             .byte con_s_anim_D1
-                            .byte con_s_cloud_F0_default ; con_s_cloud_45
+                            .byte con_s_cloud_F0_default ; s_cloud_45
                             .byte con_jmp
                             .word loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация
 
@@ -7922,7 +7922,7 @@ loc_AA4F_анимация_дриблинга_легкой_обводки:
                     .byte con_pause + $14
                     .byte con_s_bg_22
                     .byte con_s_anim_60
-                    .byte con_s_cloud_F0_default ; con_s_cloud_46
+                    .byte con_s_cloud_F0_default ; s_cloud_46
                     .byte con_F7, $33
                     .byte con_soundID_delay, $68, $02
                     .byte con_pause + $14
@@ -7941,7 +7941,7 @@ loc_AA62_heel_lift:
                     .byte con_pause + $3C
                     .byte con_s_bg_23
                     .byte con_s_anim_E4
-                    .byte con_s_cloud_F0_default ; con_s_cloud_46
+                    .byte con_s_cloud_F0_default ; s_cloud_46
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -7961,7 +7961,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $40
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C4
+                            .byte con_s_cloud_F0_default ; s_cloud_C4
                         loc_AA7B_forcible_dribble:
                             .byte con_jsr
                             .word sub_BBC7_очистка
@@ -7972,7 +7972,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $32
                             .byte con_s_bg_FF_skip
                             .byte con_s_anim_FF_skip
-                            .byte con_s_cloud_F0_default ; con_s_cloud_46
+                            .byte con_s_cloud_F0_default ; s_cloud_46
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -7982,7 +7982,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $40
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_toho
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C4
+                            .byte con_s_cloud_F0_default ; s_cloud_C4
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -7992,7 +7992,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $78
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_jito_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C5
+                            .byte con_s_cloud_F0_default ; s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8002,7 +8002,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $78
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_jito_kunimi
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C5
+                            .byte con_s_cloud_F0_default ; s_cloud_C5
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8012,7 +8012,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $40
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_napoleon_france
-                            .byte con_s_cloud_F0_default ; con_s_cloud_C6
+                            .byte con_s_cloud_F0_default ; s_cloud_C6
                             .byte con_jmp
                             .word loc_AA7B_forcible_dribble
 
@@ -8035,7 +8035,7 @@ loc_AA62_heel_lift:
                     .byte con_pause + $46
                     .byte con_s_bg_FF_skip
                     .byte con_s_anim_D1
-                    .byte con_s_cloud_F0_default ; con_s_cloud_46
+                    .byte con_s_cloud_F0_default ; s_cloud_46
                     .byte con_mirror_toggle
                     .byte con_rts
 
@@ -8056,7 +8056,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $46
                             .byte con_s_bg_FF_skip
                             .byte con_s_anim_FF_skip
-                            .byte con_s_cloud_F0_default ; con_s_cloud_46
+                            .byte con_s_cloud_F0_default ; s_cloud_46
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -8076,7 +8076,7 @@ loc_AA62_heel_lift:
                     .byte con_pause + $1E
                     .byte con_s_bg_47
                     .byte con_s_anim_D1
-                    .byte con_s_cloud_F0_default ; con_s_cloud_46
+                    .byte con_s_cloud_F0_default ; s_cloud_46
                 loc_AAEF:
                     .byte con_soundID_delay, $26, $02
                     .byte con_pause + $1E
@@ -8113,7 +8113,7 @@ loc_AA62_heel_lift:
                             .byte con_pause + $17
                             .byte con_s_bg_FF_skip
                             .byte con_s_anim_D1
-                            .byte con_s_cloud_F0_default ; con_s_cloud_46
+                            .byte con_s_cloud_F0_default ; s_cloud_46
                         loc_AB18_kaltz_hedgehog_dribble_обводит_соперника_не_убивая_финальная_анимация:
                             .byte con_F7, $02
                             .byte con_soundID_delay, $26, $02
@@ -8236,7 +8236,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_tsubasa_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A3
+                    .byte con_s_cloud_F0_default ; s_cloud_A3
                 loc_AB57:
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -8245,7 +8245,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $28
                     .byte con_s_bg_4A
                     .byte con_s_anim_8E
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_jsr
                     .word sub_AB7C
                     .byte con_F7, $02
@@ -8264,7 +8264,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_diaz_argentina
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A3
+                    .byte con_s_cloud_F0_default ; s_cloud_A3
                     .byte con_jmp
                     .word loc_AB57
 
@@ -8279,7 +8279,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_nitta_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A5
+                    .byte con_s_cloud_F0_default ; s_cloud_A5
                 loc_ABD4:
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -8301,7 +8301,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_nitta_japan
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A5
+                    .byte con_s_cloud_F0_default ; s_cloud_A5
                     .byte con_jmp
                     .word loc_ABD4
 
@@ -8316,14 +8316,14 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_soda_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A3
+                    .byte con_s_cloud_F0_default ; s_cloud_A3
                 loc_ABF8:
                     .byte con_F7, $0D
                     .byte con_soundID_delay, $17, $02
                     .byte con_pause + $3C
                     .byte con_s_bg_6A
                     .byte con_s_anim_9D
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_F7, $15
                     .byte con_soundID_delay, $1D, $09
                     .byte con_pause + $20
@@ -8349,7 +8349,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_soda_tatsunami
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A3
+                    .byte con_s_cloud_F0_default ; s_cloud_A3
                     .byte con_jmp
                     .word loc_ABF8
 
@@ -8364,7 +8364,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_matsuyama_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B1
+                    .byte con_s_cloud_F0_default ; s_cloud_B1
                 loc_AC2B:
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -8373,7 +8373,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $28
                     .byte con_s_bg_49
                     .byte con_s_anim_8E
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_jsr
                     .word sub_AB9A
                     .byte con_F7, $02
@@ -8390,7 +8390,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_matsuyama_furano
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B1
+                    .byte con_s_cloud_F0_default ; s_cloud_B1
                     .byte con_jmp
                     .word loc_AC2B
 
@@ -8405,7 +8405,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_31
                     .byte con_s_anim_face_p_hyuga_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B2
+                    .byte con_s_cloud_F0_default ; s_cloud_B2
                 loc_AC55:
                     .byte con_jsr
                     .word sub_ABB8
@@ -8425,7 +8425,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_31
                     .byte con_s_anim_face_p_hyuga_toho
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B2
+                    .byte con_s_cloud_F0_default ; s_cloud_B2
                     .byte con_jmp
                     .word loc_AC55
 
@@ -8448,7 +8448,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                             .byte con_pause + $78
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_B3
+                            .byte con_s_cloud_F0_default ; s_cloud_B3
                         loc_AC7A:
                             .byte con_jsr
                             .word sub_BBC7_очистка
@@ -8457,13 +8457,13 @@ loc_9CF3_игрок_делает_удар_с_земли:
                             .byte con_pause + $28
                             .byte con_s_bg_4A
                             .byte con_s_anim_8E
-                            .byte con_s_cloud_F0_default ; con_s_cloud_49
+                            .byte con_s_cloud_F0_default ; s_cloud_49
                             .byte con_F7, $04
                             .byte con_soundID_delay, $13, $02
                             .byte con_pause + $1E
                             .byte con_s_bg_41
                             .byte con_s_anim_8C
-                            .byte con_s_cloud_F0_default ; con_s_cloud_6A
+                            .byte con_s_cloud_F0_default ; s_cloud_6A
                             .byte con_F7, $02
                             .byte con_soundID_delay, $06, $02
                             .byte con_pause + $20
@@ -8478,7 +8478,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                             .byte con_pause + $78
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_toho
-                            .byte con_s_cloud_F0_default ; con_s_cloud_B3
+                            .byte con_s_cloud_F0_default ; s_cloud_B3
                             .byte con_jmp
                             .word loc_AC7A
 
@@ -8494,7 +8494,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                             .byte con_pause + $B4
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_9D
+                            .byte con_s_cloud_F0_default ; s_cloud_9D
                             .byte con_jmp
                             .word loc_AC7A
 
@@ -8504,7 +8504,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                             .byte con_pause + $B4
                             .byte con_s_bg_31
                             .byte con_s_anim_face_p_hyuga_toho
-                            .byte con_s_cloud_F0_default ; con_s_cloud_9D
+                            .byte con_s_cloud_F0_default ; s_cloud_9D
                             .byte con_jmp
                             .word loc_AC7A
 
@@ -8515,13 +8515,13 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_tsubasa_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_B6
+            .byte con_s_cloud_F0_default ; s_cloud_B6
             .byte con_mirror_toggle
             .byte con_F8, $04
             .byte con_pause + $3C
             .byte con_s_bg_55
             .byte con_s_anim_face_p_hyuga_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_B7
+            .byte con_s_cloud_F0_default ; s_cloud_B7
             .byte con_soundID_delay, $26, $02
             .byte con_F7, $02
             .byte con_pause + $1E
@@ -8540,7 +8540,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $14
             .byte con_s_bg_05
             .byte con_s_anim_00
-            .byte con_s_cloud_F0_default ; con_s_cloud_9C
+            .byte con_s_cloud_F0_default ; s_cloud_9C
             .byte con_F7, $31
             .byte con_pause + $3C
             .byte con_s_bg_5C
@@ -8557,14 +8557,14 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_tsubasa_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_AF
+            .byte con_s_cloud_F0_default ; s_cloud_AF
             .byte con_mirror_toggle
             .byte con_F7, $1F
             .byte con_F8, $04
             .byte con_pause + $3C
             .byte con_s_bg_55
             .byte con_s_anim_face_p_hyuga_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_B8
+            .byte con_s_cloud_F0_default ; s_cloud_B8
             .byte con_mirror_toggle
             .byte con_soundID_delay, $08, $02
             .byte con_pause + $41
@@ -8589,7 +8589,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $78
             .byte con_s_bg_30
             .byte con_s_anim_face_p_jito_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_4B
+            .byte con_s_cloud_F0_default ; s_cloud_4B
         loc_AD25:
             .byte con_jsr
             .word sub_ABB8
@@ -8605,7 +8605,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $28
             .byte con_s_bg_1F
             .byte con_s_anim_71
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_F7, $3D
             .byte con_soundID_delay, $1B, $21
             .byte con_pause + $46
@@ -8619,7 +8619,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $78
             .byte con_s_bg_30
             .byte con_s_anim_face_p_jito_kunimi
-            .byte con_s_cloud_F0_default ; con_s_cloud_B9
+            .byte con_s_cloud_F0_default ; s_cloud_B9
             .byte con_jmp
             .word loc_AD25
 
@@ -8655,7 +8655,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $1E
             .byte con_s_bg_47
             .byte con_s_anim_E9
-            .byte con_s_cloud_F0_default ; con_s_cloud_04
+            .byte con_s_cloud_F0_default ; s_cloud_04
             .byte con_F7, $3E
             .byte con_moving_bg, $02
             .byte con_soundID_delay, $0B, $02
@@ -8676,7 +8676,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_carlos_flamengo
-                    .byte con_s_cloud_F0_default ; con_s_cloud_BA
+                    .byte con_s_cloud_F0_default ; s_cloud_BA
                 loc_AD89_16_01:
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -8685,7 +8685,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $28
                     .byte con_s_bg_49
                     .byte con_s_anim_8E
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_jsr
                     .word sub_AB9A
                     .byte con_F7, $02
@@ -8702,7 +8702,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_carlos_brazil
-                    .byte con_s_cloud_F0_default ; con_s_cloud_BA
+                    .byte con_s_cloud_F0_default ; s_cloud_BA
                     .byte con_jmp
                     .word loc_AD89_16_01
 
@@ -8711,7 +8711,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_coimbra_brazil
-            .byte con_s_cloud_F0_default ; con_s_cloud_BB
+            .byte con_s_cloud_F0_default ; s_cloud_BB
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $0D
@@ -8719,7 +8719,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $28
             .byte con_s_bg_4A
             .byte con_s_anim_8E
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_jsr
             .word sub_ABA4
             .byte con_F7, $02
@@ -8751,14 +8751,14 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_pierre_france
-            .byte con_s_cloud_F0_default ; con_s_cloud_BC
+            .byte con_s_cloud_F0_default ; s_cloud_BC
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_soundID_delay, $17, $02
             .byte con_pause + $3C
             .byte con_s_bg_6A
             .byte con_s_anim_9D
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_jsr
             .word sub_AB90
             .byte con_F7, $02
@@ -8775,7 +8775,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_napoleon_france
-            .byte con_s_cloud_F0_default ; con_s_cloud_BD
+            .byte con_s_cloud_F0_default ; s_cloud_BD
             .byte con_jsr
             .word sub_ABB8
             .byte con_jsr
@@ -8794,7 +8794,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_schneider_west_germany
-            .byte con_s_cloud_F0_default ; con_s_cloud_BE
+            .byte con_s_cloud_F0_default ; s_cloud_BE
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $1D
@@ -8802,13 +8802,13 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $28
             .byte con_s_bg_4A
             .byte con_s_anim_8E
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_F7, $04
             .byte con_soundID_delay, $13, $10
             .byte con_pause + $10
             .byte con_s_bg_41
             .byte con_s_anim_8C
-            .byte con_s_cloud_F0_default ; con_s_cloud_6C
+            .byte con_s_cloud_F0_default ; s_cloud_6C
             .byte con_F7, $02
             .byte con_soundID_delay, $0B, $02
             .byte con_pause + $28
@@ -8825,7 +8825,7 @@ loc_9CF3_игрок_делает_удар_с_земли:
             .byte con_pause + $28
             .byte con_s_bg_4A
             .byte con_s_anim_8E
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_jsr
             .word sub_AB9A
             .byte con_F7, $02
@@ -8887,7 +8887,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
             .byte con_pause + $48
             .byte con_s_bg_2A
             .byte con_s_anim_3B
-            .byte con_s_cloud_F0_default ; con_s_cloud_47
+            .byte con_s_cloud_F0_default ; s_cloud_47
             .byte con_rts
 
         bra_long_case_9D52_04:
@@ -8900,7 +8900,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_tsubasa_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_A4
+            .byte con_s_cloud_F0_default ; s_cloud_A4
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $22
             .byte con_s_bg_20
@@ -8915,7 +8915,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
             .byte con_pause + $40
             .byte con_s_bg_47
             .byte con_s_anim_BF
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_mirror_toggle
             .byte con_rts
 
@@ -8925,7 +8925,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
             .byte con_pause + $50
             .byte con_s_bg_2A
             .byte con_s_anim_3B
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_rts
 
         bra_long_case_9D52_0A:
@@ -8981,7 +8981,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_tsubasa_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -8990,7 +8990,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_misaki_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -8999,7 +8999,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_misaki_japan
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
@@ -9008,7 +9008,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_31
                     .byte con_s_anim_face_p_hyuga_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
@@ -9017,7 +9017,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_31
                     .byte con_s_anim_face_p_hyuga_toho
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9031,7 +9031,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_matsuyama_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
@@ -9040,7 +9040,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_matsuyama_furano
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9065,7 +9065,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_coimbra_brazil
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
@@ -9074,7 +9074,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_carlos_flamengo
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
@@ -9083,7 +9083,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_carlos_brazil
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
                 
@@ -9092,7 +9092,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_schneider_west_germany
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9107,7 +9107,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_diaz_argentina
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9123,7 +9123,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_victorino_uruguay
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B4
+                    .byte con_s_cloud_F0_default ; s_cloud_B4
                     .byte con_jmp
                     .word loc_B018_overhead_с_очисткой
 
@@ -9144,7 +9144,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                             .byte con_pause + $3C
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_misugi_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_B5
+                            .byte con_s_cloud_F0_default ; s_cloud_B5
                         loc_B082_прыжок_misugi_для_hyper_overhead:
                             .byte con_soundID_delay, $25, $02
                             .byte con_pause + $19
@@ -9158,7 +9158,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                             .byte con_pause + $4B
                             .byte con_s_bg_49
                             .byte con_s_anim_BF
-                            .byte con_s_cloud_F0_default ; con_s_cloud_49
+                            .byte con_s_cloud_F0_default ; s_cloud_49
                             .byte con_mirror_toggle
                             .byte con_rts
 
@@ -9168,7 +9168,7 @@ loc_9D52_выбор_анимации_удара_по_высокому_мячу:
                             .byte con_pause + $3C
                             .byte con_s_bg_30
                             .byte con_s_anim_face_p_misugi_musashi
-                            .byte con_s_cloud_F0_default ; con_s_cloud_B5
+                            .byte con_s_cloud_F0_default ; s_cloud_B5
                             .byte con_jmp
                             .word loc_B082_прыжок_misugi_для_hyper_overhead
 
@@ -9186,7 +9186,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_pause + $64
                     .byte con_s_bg_52
                     .byte con_s_anim_E5
-                    .byte con_s_cloud_F0_default ; con_s_cloud_B5
+                    .byte con_s_cloud_F0_default ; s_cloud_B5
                     .byte con_F7, $2F
                     .byte con_soundID_delay, $1F, $02
                     .byte con_pause + $64
@@ -9196,7 +9196,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_tsubasa_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+                    .byte con_s_cloud_F0_default ; s_cloud_AF
                     .byte con_soundID_delay, $23, $11
                     .byte con_F7, $04
                     .byte con_pause + $28
@@ -9213,7 +9213,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_pause + $48
                     .byte con_s_bg_05
                     .byte con_s_anim_3B
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_F7, $1E
                     .byte con_rts
 
@@ -9224,7 +9224,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_pause + $48
                     .byte con_s_bg_4B
                     .byte con_s_anim_3B
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_rts
 
                 bra_long_case_9D52_1E:
@@ -9234,7 +9234,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_pause + $56
                     .byte con_s_bg_48
                     .byte con_s_anim_CA
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_rts
 
                 bra_long_case_9D52_1F:
@@ -9243,7 +9243,7 @@ sub_B0A7_tsubasa_cyclone_полная_анимация:
                     .byte con_pause + $1E
                     .byte con_s_bg_1D
                     .byte con_s_anim_69
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_FE
                     .byte con_moving_bg, $03
                     .byte con_soundID_delay, $06, $02
@@ -9308,7 +9308,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
             .byte con_pause + $1E
             .byte con_s_bg_58
             .byte con_s_anim_68
-            .byte con_s_cloud_F0_default ; con_s_cloud_47
+            .byte con_s_cloud_F0_default ; s_cloud_47
             .byte con_F7, $28
             .byte con_soundID_delay, $14, $02
             .byte con_pause + $19
@@ -9333,7 +9333,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_nitta_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_BC
+                    .byte con_s_cloud_F0_default ; s_cloud_BC
                 loc_B1A0_falcon_volley:
                     .byte con_F7, $02
                     .byte con_mirror_toggle
@@ -9352,7 +9352,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $28
                     .byte con_s_bg_47
                     .byte con_s_anim_69
-                    .byte con_s_cloud_F0_default ; con_s_cloud_49
+                    .byte con_s_cloud_F0_default ; s_cloud_49
                     .byte con_moving_bg, $03
                     .byte con_soundID_delay, $06, $02
                     .byte con_pause + $28
@@ -9367,7 +9367,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_nitta_japan
-                    .byte con_s_cloud_F0_default ; con_s_cloud_BC
+                    .byte con_s_cloud_F0_default ; s_cloud_BC
                     .byte con_jmp
                     .word loc_B1A0_falcon_volley
 
@@ -9402,13 +9402,13 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_tsubasa_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AA
+                    .byte con_s_cloud_F0_default ; s_cloud_AA
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_misaki_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AB
+                    .byte con_s_cloud_F0_default ; s_cloud_AB
                     .byte con_F7, $10
                     .byte con_pause + $16
                     .byte con_s_bg_05
@@ -9419,7 +9419,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_05
                     .byte con_s_anim_D6
-                    .byte con_s_cloud_F0_default ; con_s_cloud_04
+                    .byte con_s_cloud_F0_default ; s_cloud_04
                     .byte con_jmp
                     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
 
@@ -9439,7 +9439,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $28
                     .byte con_s_bg_22
                     .byte con_s_anim_6B
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8D
+                    .byte con_s_cloud_F0_default ; s_cloud_8D
                     .byte con_F7, $10
                     .byte con_pause + $16
                     .byte con_s_bg_05
@@ -9450,7 +9450,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_05
                     .byte con_s_anim_D9
-                    .byte con_s_cloud_F0_default ; con_s_cloud_04
+                    .byte con_s_cloud_F0_default ; s_cloud_04
                 loc_B1F6_мяч_улетает_от_игроков_после_twin_shot:
                     .byte con_F7, $23
                     .byte con_soundID_delay, $09, $02
@@ -9473,13 +9473,13 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_masao_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AC
+                    .byte con_s_cloud_F0_default ; s_cloud_AC
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_masao_my
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AD
+                    .byte con_s_cloud_F0_default ; s_cloud_AD
                     loc_B22E:
                     .byte con_F7, $10
                     .byte con_pause + $16
@@ -9491,7 +9491,7 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_05
                     .byte con_s_anim_D8
-                    .byte con_s_cloud_F0_default ; con_s_cloud_04
+                    .byte con_s_cloud_F0_default ; s_cloud_04
                     .byte con_jmp
                     .word loc_B1F6_мяч_улетает_от_игроков_после_twin_shot
                 
@@ -9504,13 +9504,13 @@ loc_9D9A_выбор_анимации_удара_по_низкому_мячу:
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_masao_akita
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AC
+                    .byte con_s_cloud_F0_default ; s_cloud_AC
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_masao_akita
-                    .byte con_s_cloud_F0_default ; con_s_cloud_AD
+                    .byte con_s_cloud_F0_default ; s_cloud_AD
                     .byte con_jmp
                     .word loc_B22E
 
@@ -9540,7 +9540,7 @@ loc_B251_misaki_jumping_volley_в_процессе:
             .byte con_pause + $28
             .byte con_s_bg_6A
             .byte con_s_anim_C4
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_F7, $21
             .byte con_soundID_delay, $14, $02
             .byte con_pause + $16
@@ -9570,20 +9570,20 @@ loc_AD0C_cyclone:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_diaz_argentina
-            .byte con_s_cloud_F0_default ; con_s_cloud_13
+            .byte con_s_cloud_F0_default ; s_cloud_13
             .byte con_F7, $31
             .byte con_soundID_delay, $25, $02
             .byte con_pause + $1B
             .byte con_s_bg_48
             .byte con_s_anim_CC
-            .byte con_s_cloud_F0_default ; con_s_cloud_DE
+            .byte con_s_cloud_F0_default ; s_cloud_DE
             .byte con_jsr
             .word sub_BBC7_очистка
             .byte con_F7, $0E
             .byte con_pause + $28
             .byte con_s_bg_05
             .byte con_s_anim_00
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_F7, $19
             .byte con_soundID_delay, $1A, $11
             .byte con_pause + $28
@@ -9596,7 +9596,7 @@ loc_AD0C_cyclone:
             .byte con_pause + $78
             .byte con_s_bg_30
             .byte con_s_anim_face_p_diaz_argentina
-            .byte con_s_cloud_F0_default ; con_s_cloud_BF
+            .byte con_s_cloud_F0_default ; s_cloud_BF
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -9622,14 +9622,14 @@ loc_AD0C_cyclone:
                     .byte con_pause + $78
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_pierre_france
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8A
+                    .byte con_s_cloud_F0_default ; s_cloud_8A
                     .byte con_jsr
                     .word sub_BBC7_очистка
                     .byte con_mirror_toggle
                     .byte con_pause + $10
                     .byte con_s_bg_54
                     .byte con_s_anim_D5
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8B
+                    .byte con_s_cloud_F0_default ; s_cloud_8B
                     .byte con_pause + $B8
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_napoleon_france
@@ -9644,7 +9644,7 @@ loc_AD0C_cyclone:
                     .byte con_pause + $10
                     .byte con_s_bg_54
                     .byte con_s_anim_D4
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8C
+                    .byte con_s_cloud_F0_default ; s_cloud_8C
                     .byte con_pause + $B8
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_pierre_france
@@ -9658,7 +9658,7 @@ loc_AD0C_cyclone:
                     .byte con_pause + $1E
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_pierre_france
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8D
+                    .byte con_s_cloud_F0_default ; s_cloud_8D
                     .byte con_soundID_delay, $7F, $02
                     .byte con_jsr
                     .word sub_BBC7_очистка
@@ -9668,13 +9668,13 @@ loc_AD0C_cyclone:
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_face_p_pierre_france
-                    .byte con_s_cloud_F0_default ; con_s_cloud_C1
+                    .byte con_s_cloud_F0_default ; s_cloud_C1
                     .byte con_mirror_toggle
                     .byte con_F8, $04
                     .byte con_pause + $3C
                     .byte con_s_bg_4F
                     .byte con_s_anim_face_p_napoleon_france
-                    .byte con_s_cloud_F0_default ; con_s_cloud_C0
+                    .byte con_s_cloud_F0_default ; s_cloud_C0
                     .byte con_soundID_delay, $25, $02
                     .byte con_pause + $28
                     .byte con_s_bg_1F
@@ -9691,12 +9691,12 @@ loc_AD0C_cyclone:
                     .byte con_pause + $27
                     .byte con_s_bg_6A
                     .byte con_s_anim_DB
-                    .byte con_s_cloud_F0_default ; con_s_cloud_DE
+                    .byte con_s_cloud_F0_default ; s_cloud_DE
                     .byte con_F7, $20
                     .byte con_pause + $5E
                     .byte con_s_bg_49
                     .byte con_s_anim_FF_skip
-                    .byte con_s_cloud_F0_default ; con_s_cloud_DE
+                    .byte con_s_cloud_F0_default ; s_cloud_DE
                     .byte con_F7, $10
                     .byte con_soundID_delay, $14, $02
                     .byte con_pause + $1E
@@ -9708,7 +9708,7 @@ loc_AD0C_cyclone:
                     .byte con_pause + $46
                     .byte con_s_bg_59
                     .byte con_s_anim_DC
-                    .byte con_s_cloud_F0_default ; con_s_cloud_04
+                    .byte con_s_cloud_F0_default ; s_cloud_04
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -9756,7 +9756,7 @@ sub_9E1B_рандом_анимации_отпизженного_игрока_4_�
             .byte con_pause + $32
             .byte con_s_bg_1C
             .byte con_s_anim_13
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
         off_case_9E1B_01:
@@ -9764,7 +9764,7 @@ sub_9E1B_рандом_анимации_отпизженного_игрока_4_�
             .byte con_pause + $32
             .byte con_s_bg_1C
             .byte con_s_anim_14
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
 
@@ -9782,7 +9782,7 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
             .byte con_pause + $3C
             .byte con_s_bg_72
             .byte con_s_anim_66
-            .byte con_s_cloud_F0_default ; con_s_cloud_47
+            .byte con_s_cloud_F0_default ; s_cloud_47
             .byte con_rts
 
         off_case_9E45_01:
@@ -9791,7 +9791,7 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_tsubasa_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_C2
+            .byte con_s_cloud_F0_default ; s_cloud_C2
             .byte con_F7, $10
             .byte con_soundID_delay, $12, $02
             .byte con_pause + $14
@@ -9843,7 +9843,7 @@ loc_9E45_выбор_анимации_паса_с_земли_или_по_низк
             .byte con_pause + $1D
             .byte con_s_bg_10
             .byte con_s_anim_62
-            .byte con_s_cloud_F0_default ; con_s_cloud_49
+            .byte con_s_cloud_F0_default ; s_cloud_49
             .byte con_F7, $02
             .byte con_soundID_delay, $07, $02
             .byte con_pause + $37
@@ -9859,7 +9859,7 @@ loc_9E4F_пас_головой_в_воздухе:
     .byte con_pause + $3F
     .byte con_s_bg_2A
     .byte con_s_anim_19
-    .byte con_s_cloud_F0_default ; con_s_cloud_47
+    .byte con_s_cloud_F0_default ; s_cloud_47
     .byte con_rts
 
 
@@ -9888,7 +9888,7 @@ sub_9E64_рожа_атакующего_с_сообщением_неудачи_е
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_FD_attacker
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8E
+                    .byte con_s_cloud_F0_default ; s_cloud_8E
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -9918,7 +9918,7 @@ sub_9E65_рожа_атакующего_с_сообщением_неудачи_е
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_FD_attacker
-                    .byte con_s_cloud_F0_default ; con_s_cloud_90
+                    .byte con_s_cloud_F0_default ; s_cloud_90
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -9949,7 +9949,7 @@ sub_9EAA_рожа_защитника_с_сообщением_неудачи_ес
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_FE_defender
-                    .byte con_s_cloud_F0_default ; con_s_cloud_8F
+                    .byte con_s_cloud_F0_default ; s_cloud_8F
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -9979,7 +9979,7 @@ sub_9EAB_рожа_защитника_с_сообщением_неудачи_ес
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_FE_defender
-                    .byte con_s_cloud_F0_default ; con_s_cloud_90
+                    .byte con_s_cloud_F0_default ; s_cloud_90
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -10368,7 +10368,7 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
                             .byte con_pause + $78
                             .byte con_s_bg_33
                             .byte con_s_anim_face_p_morisaki_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_9B
+                            .byte con_s_cloud_F0_default ; s_cloud_9B
                             .byte con_jmp
                             .word loc_B65F_mach_shot
 
@@ -10377,7 +10377,7 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
                             .byte con_pause + $78
                             .byte con_s_bg_32
                             .byte con_s_anim_face_p_wakabayashi_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_9B
+                            .byte con_s_cloud_F0_default ; s_cloud_9B
                             .byte con_jmp
                             .word loc_B65F_mach_shot
 
@@ -10386,7 +10386,7 @@ sub_B4E7_конечный_полет_обычного_удара_с_земли:
                             .byte con_pause + $78
                             .byte con_s_bg_33
                             .byte con_s_anim_face_p_wakashimazu_my
-                            .byte con_s_cloud_F0_default ; con_s_cloud_9B
+                            .byte con_s_cloud_F0_default ; s_cloud_9B
                         loc_B65F_mach_shot:
                             .byte con_jsr
                             .word sub_BBC7_очистка
@@ -10423,7 +10423,7 @@ sub_9F5C_рандом_анимации_отпизженного_игрока_1_�
             .byte con_pause + $3C
             .byte con_s_bg_1B
             .byte con_s_anim_13
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
         off_case_9F5C_01:
@@ -10431,7 +10431,7 @@ sub_9F5C_рандом_анимации_отпизженного_игрока_1_�
             .byte con_pause + $3C
             .byte con_s_bg_1B
             .byte con_s_anim_14
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
 
@@ -10447,7 +10447,7 @@ sub_9F62_рандом_анимации_отпизженного_игрока_2_�
             .byte con_pause + $3C
             .byte con_s_bg_1C
             .byte con_s_anim_13
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
         off_case_9F62_01:
@@ -10455,7 +10455,7 @@ sub_9F62_рандом_анимации_отпизженного_игрока_2_�
             .byte con_pause + $3C
             .byte con_s_bg_1C
             .byte con_s_anim_14
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
 
@@ -10494,7 +10494,7 @@ sub_9F6E_рандом_анимации_отпизженного_игрока_3_�
             .byte con_pause + $32
             .byte con_s_bg_1E
             .byte con_s_anim_3E
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
         off_case_9F6E_01:
@@ -10502,7 +10502,7 @@ sub_9F6E_рандом_анимации_отпизженного_игрока_3_�
             .byte con_pause + $32
             .byte con_s_bg_1E
             .byte con_s_anim_3F
-            .byte con_s_cloud_F0_default ; con_s_cloud_02
+            .byte con_s_cloud_F0_default ; s_cloud_02
             .byte con_rts
 
 
@@ -10567,7 +10567,7 @@ sub_9F9C_крит_кипера:
             .byte con_pause + $78
             .byte con_s_bg_33
             .byte con_s_anim_face_p_morisaki_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_A0
+            .byte con_s_cloud_F0_default ; s_cloud_A0
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -10577,7 +10577,7 @@ sub_9F9C_крит_кипера:
             .byte con_pause + $78
             .byte con_s_bg_48
             .byte con_s_anim_75
-            .byte con_s_cloud_F0_default ; con_s_cloud_A1
+            .byte con_s_cloud_F0_default ; s_cloud_A1
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -10588,7 +10588,7 @@ sub_9FB5_убийство_кипера:
     .byte con_pause + $32
     .byte con_s_bg_1B
     .byte con_s_anim_02
-    .byte con_s_cloud_F0_default ; con_s_cloud_01
+    .byte con_s_cloud_F0_default ; s_cloud_01
     .byte con_rts
 
 
@@ -10599,7 +10599,7 @@ loc_9FBF_кипер_ловит_мяч_нижним_dive_после_убийст�
     .byte con_pause + $5A
     .byte con_s_bg_58
     .byte con_s_anim_03
-    .byte con_s_cloud_F0_default ; con_s_cloud_E3
+    .byte con_s_cloud_F0_default ; s_cloud_E3
     .byte con_rts
 
 
@@ -10618,7 +10618,7 @@ loc_9FCE_кипер_ловит_мяч_нижним_dive_не_убивая_игр
     .byte con_pause + $5A
     .byte con_s_bg_58
     .byte con_s_anim_03
-    .byte con_s_cloud_F0_default ; con_s_cloud_0B
+    .byte con_s_cloud_F0_default ; s_cloud_0B
     .byte con_rts
 
 
@@ -10629,7 +10629,7 @@ sub_9FD6_кипер_делает_нижний_dive:
     .byte con_pause + $32
     .byte con_s_bg_58
     .byte con_s_anim_04
-    .byte con_s_cloud_F0_default ; con_s_cloud_06
+    .byte con_s_cloud_F0_default ; s_cloud_06
     .byte con_rts
 
 
@@ -10650,7 +10650,7 @@ loc_9FEA_защитник_промахивается_ногой_по_низко�
     .byte con_pause + $3C
     .byte con_s_bg_57
     .byte con_s_anim_07
-    .byte con_s_cloud_F0_default ; con_s_cloud_07
+    .byte con_s_cloud_F0_default ; s_cloud_07
     .byte con_rts
 
 
@@ -10673,7 +10673,7 @@ sub_9FFD_защитник_собирается_коснуться_ногой_н�
     .byte con_pause + $1E
     .byte con_s_bg_57
     .byte con_s_anim_09
-    .byte con_s_cloud_F0_default ; con_s_cloud_08
+    .byte con_s_cloud_F0_default ; s_cloud_08
     .byte con_rts
 
 
@@ -10683,7 +10683,7 @@ sub_A004_защитник_собирается_отбить_ногой_низк�
     .byte con_pause + $1E
     .byte con_s_bg_57
     .byte con_s_anim_09
-    .byte con_s_cloud_F0_default ; con_s_cloud_09
+    .byte con_s_cloud_F0_default ; s_cloud_09
     .byte con_rts
 
 
@@ -10692,7 +10692,7 @@ sub_A00B_защитник_собирается_коснуться_ногой_в�
     .byte con_pause + $1E
     .byte con_s_bg_6C
     .byte con_s_anim_09
-    .byte con_s_cloud_F0_default ; con_s_cloud_08
+    .byte con_s_cloud_F0_default ; s_cloud_08
     .byte con_rts
 
 
@@ -10701,7 +10701,7 @@ sub_A010_защитник_собирается_отбить_ногой_высо�
     .byte con_pause + $1E
     .byte con_s_bg_6C
     .byte con_s_anim_09
-    .byte con_s_cloud_F0_default ; con_s_cloud_09
+    .byte con_s_cloud_F0_default ; s_cloud_09
     .byte con_rts
 
 
@@ -10722,7 +10722,7 @@ loc_A01C_защитник_промахивается_телом_по_низко�
     .byte con_pause + $3C
     .byte con_s_bg_57
     .byte con_s_anim_0C
-    .byte con_s_cloud_F0_default ; con_s_cloud_07
+    .byte con_s_cloud_F0_default ; s_cloud_07
     .byte con_rts
 
 
@@ -10744,7 +10744,7 @@ sub_A02F_защитник_собирается_коснуться_телом_в�
     .byte con_pause + $1E
     .byte con_s_bg_6C
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_08
+    .byte con_s_cloud_F0_default ; s_cloud_08
     .byte con_rts
 
 
@@ -10754,7 +10754,7 @@ sub_A034_защитник_собирается_коснуться_телом_н�
     .byte con_pause + $1E
     .byte con_s_bg_57
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_08
+    .byte con_s_cloud_F0_default ; s_cloud_08
     .byte con_rts
 
 
@@ -10764,7 +10764,7 @@ sub_A03B_защиник_собирается_отбить_телом_низки�
     .byte con_pause + $1E
     .byte con_s_bg_57
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_09
+    .byte con_s_cloud_F0_default ; s_cloud_09
     .byte con_rts
 
 
@@ -10773,7 +10773,7 @@ sub_A042_защитник_в_воздухе_собирается_коснуть�
     .byte con_pause + $1E
     .byte con_s_bg_6C
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_08
+    .byte con_s_cloud_F0_default ; s_cloud_08
     .byte con_rts
 
 
@@ -10782,7 +10782,7 @@ sub_A047_защитник_собирается_отбить_мяч_телом_п
     .byte con_pause + $1E
     .byte con_s_bg_6C
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_09
+    .byte con_s_cloud_F0_default ; s_cloud_09
     .byte con_rts
 
 
@@ -10813,7 +10813,7 @@ loc_A079_кипер_ловит_мяч_после_нижнего_dive:
     .byte con_pause + $3C
     .byte con_s_bg_57
     .byte con_s_anim_16
-    .byte con_s_cloud_F0_default ; con_s_cloud_0B
+    .byte con_s_cloud_F0_default ; s_cloud_0B
     .byte con_rts
 
 
@@ -10824,7 +10824,7 @@ loc_A083_кипер_ловит_мяч_после_верхнего_dive:
     .byte con_pause + $50
     .byte con_s_bg_40
     .byte con_s_anim_17
-    .byte con_s_cloud_F0_default ; con_s_cloud_0B
+    .byte con_s_cloud_F0_default ; s_cloud_0B
     .byte con_rts
 
 
@@ -10835,7 +10835,7 @@ sub_A08D_кипер_промахивается_dive_после_удара_1_на
     .byte con_pause + $32
     .byte con_s_bg_57
     .byte con_s_anim_18
-    .byte con_s_cloud_F0_default ; con_s_cloud_0C
+    .byte con_s_cloud_F0_default ; s_cloud_0C
     .byte con_rts
 
 
@@ -10845,7 +10845,7 @@ sub_A094_кипер_не_дотягивается_до_мяча_при_ловл�
     .byte con_pause + $2B
     .byte con_s_bg_03
     .byte con_s_anim_18
-    .byte con_s_cloud_F0_default ; con_s_cloud_0C
+    .byte con_s_cloud_F0_default ; s_cloud_0C
     .byte con_rts
 
 
@@ -10855,7 +10855,7 @@ sub_A099_анимация_кипер_мгновенно_ловит_мяч:
     .byte con_pause + $28
     .byte con_s_bg_03
     .byte con_s_anim_03
-    .byte con_s_cloud_F0_default ; con_s_cloud_0D
+    .byte con_s_cloud_F0_default ; s_cloud_0D
     .byte con_rts
 
 
@@ -10864,7 +10864,7 @@ sub_A0A1_кипер_ловит_мяч_без_звука:
     .byte con_pause + $20
     .byte con_s_bg_03
     .byte con_s_anim_1B
-    .byte con_s_cloud_F0_default ; con_s_cloud_0E
+    .byte con_s_cloud_F0_default ; s_cloud_0E
     .byte con_rts
 
 
@@ -10875,7 +10875,7 @@ sub_A0A6_кипер_ловит_мяч_со_звуком:
     .byte con_pause + $46
     .byte con_s_bg_03
     .byte con_s_anim_1B
-    .byte con_s_cloud_F0_default ; con_s_cloud_0E
+    .byte con_s_cloud_F0_default ; s_cloud_0E
     .byte con_rts
 
 
@@ -10896,7 +10896,7 @@ sub_A0B6_защитник_касается_мяча_при_спасении_во
     .byte con_pause + $18
     .byte con_s_bg_04
     .byte con_s_anim_21
-    .byte con_s_cloud_F0_default ; con_s_cloud_0F
+    .byte con_s_cloud_F0_default ; s_cloud_0F
     .byte con_rts
 
 
@@ -10905,7 +10905,7 @@ sub_A0BE_защитник_промахивается:
     .byte con_pause + $30
     .byte con_s_bg_04
     .byte con_s_anim_22
-    .byte con_s_cloud_F0_default ; con_s_cloud_11
+    .byte con_s_cloud_F0_default ; s_cloud_11
     .byte con_rts
 
 
@@ -10917,7 +10917,7 @@ sub_A0C3_успешный_отбор_мяча_подкатом:
     .byte con_pause + $46
     .byte con_s_bg_57
     .byte con_s_anim_15
-    .byte con_s_cloud_F0_default ; con_s_cloud_05
+    .byte con_s_cloud_F0_default ; s_cloud_05
     .byte con_rts
 
 
@@ -10927,7 +10927,7 @@ sub_A0CD_rolling_save_полная_анимация:
     .byte con_pause + $0A
     .byte con_s_bg_13
     .byte con_s_anim_23
-    .byte con_s_cloud_F0_default ; con_s_cloud_12
+    .byte con_s_cloud_F0_default ; s_cloud_12
     .byte con_pause + $0A
     .byte con_s_bg_14
     .byte con_s_anim_FF_skip
@@ -10989,7 +10989,7 @@ sub_A109_кипер_промахивается_кулаком_после_спе�
     .byte con_pause + $28
     .byte con_s_bg_0E
     .byte con_s_anim_25
-    .byte con_s_cloud_F0_default ; con_s_cloud_07
+    .byte con_s_cloud_F0_default ; s_cloud_07
     .byte con_rts
 
 
@@ -11006,7 +11006,7 @@ sub_A10E_кипер_не_дотягивается_кулаком_до_мяча:
             .byte con_pause + $25
             .byte con_s_bg_0E
             .byte con_s_anim_24
-            .byte con_s_cloud_F0_default ; con_s_cloud_0C
+            .byte con_s_cloud_F0_default ; s_cloud_0C
             .byte con_rts
 
         off_case_A10E_01:
@@ -11015,7 +11015,7 @@ sub_A10E_кипер_не_дотягивается_кулаком_до_мяча:
             .byte con_pause + $28
             .byte con_s_bg_0F
             .byte con_s_anim_26
-            .byte con_s_cloud_F0_default ; con_s_cloud_0C
+            .byte con_s_cloud_F0_default ; s_cloud_0C
             .byte con_rts
 
 
@@ -11024,7 +11024,7 @@ sub_A11D_кипер_касается_мяча_кулаком_после_спеш
     .byte con_pause + $1E
     .byte con_s_bg_0E
     .byte con_s_anim_27
-    .byte con_s_cloud_F0_default ; con_s_cloud_0D
+    .byte con_s_cloud_F0_default ; s_cloud_0D
     .byte con_rts
 
 
@@ -11040,7 +11040,7 @@ sub_A122_кипер_собирается_коснуться_мяча_кулак�
             .byte con_pause + $1E
             .byte con_s_bg_0E
             .byte con_s_anim_2A
-            .byte con_s_cloud_F0_default ; con_s_cloud_0E
+            .byte con_s_cloud_F0_default ; s_cloud_0E
             .byte con_rts
 
         off_case_A122_01:
@@ -11049,7 +11049,7 @@ sub_A122_кипер_собирается_коснуться_мяча_кулак�
             .byte con_pause + $1E
             .byte con_s_bg_0F
             .byte con_s_anim_2B
-            .byte con_s_cloud_F0_default ; con_s_cloud_0E
+            .byte con_s_cloud_F0_default ; s_cloud_0E
             .byte con_rts
 
 
@@ -11066,7 +11066,7 @@ sub_A131_кипер_легко_отбивает_и_проверка_на_wakashi
             .byte con_pause + $3A
             .byte con_s_bg_0E
             .byte con_s_anim_2A
-            .byte con_s_cloud_F0_default ; con_s_cloud_0E
+            .byte con_s_cloud_F0_default ; s_cloud_0E
             .byte con_rts
 
         off_case_A131_01:
@@ -11076,7 +11076,7 @@ sub_A131_кипер_легко_отбивает_и_проверка_на_wakashi
             .byte con_pause + $3A
             .byte con_s_bg_0F
             .byte con_s_anim_2B
-            .byte con_s_cloud_F0_default ; con_s_cloud_0E
+            .byte con_s_cloud_F0_default ; s_cloud_0E
             .byte con_rts
 
 
@@ -11092,7 +11092,7 @@ sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_п�
             .byte con_pause + $28
             .byte con_s_bg_0E
             .byte con_s_anim_2C
-            .byte con_s_cloud_F0_default ; con_s_cloud_15
+            .byte con_s_cloud_F0_default ; s_cloud_15
             .byte con_rts
 
         off_case_A14B_01:
@@ -11101,7 +11101,7 @@ sub_A14B_кипер_дотягивается_до_мяча_кулаком_и_п�
             .byte con_pause + $2A
             .byte con_s_bg_0F
             .byte con_s_anim_2D
-            .byte con_s_cloud_F0_default ; con_s_cloud_15
+            .byte con_s_cloud_F0_default ; s_cloud_15
             .byte con_rts
 
 
@@ -11112,7 +11112,7 @@ loc_A164_защитник_ловит_низкий_мяч_ногой:
     .byte con_pause + $5A
     .byte con_s_bg_57
     .byte con_s_anim_2E
-    .byte con_s_cloud_F0_default ; con_s_cloud_16
+    .byte con_s_cloud_F0_default ; s_cloud_16
     .byte con_rts
 
 
@@ -11122,7 +11122,7 @@ loc_A16E_защитник_ловит_высокий_мяч_ногой:
     .byte con_pause + $46
     .byte con_s_bg_6C
     .byte con_s_anim_2E
-    .byte con_s_cloud_F0_default ; con_s_cloud_16
+    .byte con_s_cloud_F0_default ; s_cloud_16
     .byte con_rts
 
 
@@ -11131,7 +11131,7 @@ loc_A176_защитник_в_воздухе_не_касается_мяча_те�
     .byte con_pause + $3C
     .byte con_s_bg_6C
     .byte con_s_anim_31
-    .byte con_s_cloud_F0_default ; con_s_cloud_07
+    .byte con_s_cloud_F0_default ; s_cloud_07
     .byte con_rts
 
 
@@ -11142,7 +11142,7 @@ loc_A17B_защитник_ловит_низкий_мяч_телом:
     .byte con_pause + $46
     .byte con_s_bg_57
     .byte con_s_anim_30
-    .byte con_s_cloud_F0_default ; con_s_cloud_05
+    .byte con_s_cloud_F0_default ; s_cloud_05
     .byte con_rts
 
 
@@ -11152,7 +11152,7 @@ loc_A185_защитник_ловит_высокий_мяч_телом:
     .byte con_pause + $46
     .byte con_s_bg_6C
     .byte con_s_anim_30
-    .byte con_s_cloud_F0_default ; con_s_cloud_05
+    .byte con_s_cloud_F0_default ; s_cloud_05
     .byte con_rts
 
 
@@ -11163,7 +11163,7 @@ loc_A18D_игрок_делает_clear_ногой:
     .byte con_pause + $46
     .byte con_s_bg_22
     .byte con_s_anim_33
-    .byte con_s_cloud_F0_default ; con_s_cloud_17
+    .byte con_s_cloud_F0_default ; s_cloud_17
     .byte con_rts
 
 
@@ -11173,7 +11173,7 @@ loc_A197_защитник_делает_clear_головой_из_своей_шт
     .byte con_pause + $2D
     .byte con_s_bg_6E
     .byte con_s_anim_34
-    .byte con_s_cloud_F0_default ; con_s_cloud_17
+    .byte con_s_cloud_F0_default ; s_cloud_17
     .byte con_rts
 
 
@@ -11184,7 +11184,7 @@ loc_A19F_защитник_забирает_низкий_мяч_телом:
     .byte con_pause + $41
     .byte con_s_bg_57
     .byte con_s_anim_30
-    .byte con_s_cloud_F0_default ; con_s_cloud_19
+    .byte con_s_cloud_F0_default ; s_cloud_19
     .byte con_rts
 
 
@@ -11194,7 +11194,7 @@ loc_A1A9_защитник_ловит_блоком_высокий_мяч:
     .byte con_pause + $5A
     .byte con_s_bg_6C
     .byte con_s_anim_30
-    .byte con_s_cloud_F0_default ; con_s_cloud_19
+    .byte con_s_cloud_F0_default ; s_cloud_19
     .byte con_rts
 
 
@@ -11205,7 +11205,7 @@ sub_A1B1_защитник_выигрывает_нижний_compete:
     .byte con_pause + $3A
     .byte con_s_bg_57
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_1A
+    .byte con_s_cloud_F0_default ; s_cloud_1A
     .byte con_rts
 
 
@@ -11215,7 +11215,7 @@ sub_A1BB_защитник_выигрывает_верхний_compete:
     .byte con_pause + $3A
     .byte con_s_bg_6C
     .byte con_s_anim_35
-    .byte con_s_cloud_F0_default ; con_s_cloud_1A
+    .byte con_s_cloud_F0_default ; s_cloud_1A
     .byte con_rts
 
 
@@ -11225,7 +11225,7 @@ sub_A1C3_защитник_бежит_к_низкому_мячу:
     .byte con_pause + $32
     .byte con_s_bg_23
     .byte con_s_anim_37
-    .byte con_s_cloud_F0_default ; con_s_cloud_1B
+    .byte con_s_cloud_F0_default ; s_cloud_1B
     .byte con_rts
 
 
@@ -11235,7 +11235,7 @@ sub_A1CA_triangle_jump_ловит_мяч:
     .byte con_pause + $20
     .byte con_s_bg_2E
     .byte con_s_anim_2D
-    .byte con_s_cloud_F0_default ; con_s_cloud_1C
+    .byte con_s_cloud_F0_default ; s_cloud_1C
     .byte con_rts
 
 
@@ -11246,7 +11246,7 @@ sub_A1D1_triangle_jump_ловит_мяч:
     .byte con_pause + $30
     .byte con_s_bg_2E
     .byte con_s_anim_2D
-    .byte con_s_cloud_F0_default ; con_s_cloud_1C
+    .byte con_s_cloud_F0_default ; s_cloud_1C
     .byte con_moving_bg, $01
     .byte con_rts
 
@@ -11258,7 +11258,7 @@ sub_A1DD_triangle_jump_не_достает_до_мяча:
     .byte con_pause + $30
     .byte con_s_bg_2E
     .byte con_s_anim_26
-    .byte con_s_cloud_F0_default ; con_s_cloud_1E
+    .byte con_s_cloud_F0_default ; s_cloud_1E
     .byte con_rts
 
 
@@ -11269,7 +11269,7 @@ sub_A1E4_dark_illusion:
     .byte con_pause + $E0
     .byte con_s_bg_47
     .byte con_s_anim_7D
-    .byte con_s_cloud_F0_default ; con_s_cloud_1F
+    .byte con_s_cloud_F0_default ; s_cloud_1F
     .byte con_F7, $42
     .byte con_pause + $70
     .byte con_s_bg_FF_skip
@@ -11291,13 +11291,13 @@ sub_A1FF_clone_save:
     .byte con_pause + $96
     .byte con_s_bg_6A
     .byte con_s_anim_3A
-    .byte con_s_cloud_F0_default ; con_s_cloud_20
+    .byte con_s_cloud_F0_default ; s_cloud_20
     .byte con_soundID_delay, $1F, $02
     .byte con_F7, $1D
     .byte con_pause + $80
     .byte con_s_bg_47
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_21
+    .byte con_s_cloud_F0_default ; s_cloud_21
     .byte con_rts
 
 
@@ -11307,7 +11307,7 @@ sub_A212_добивание_отскока_от_штанги_сопернико�
     .byte con_pause + $40
     .byte con_s_bg_2B
     .byte con_s_anim_3B
-    .byte con_s_cloud_F0_default ; con_s_cloud_31
+    .byte con_s_cloud_F0_default ; s_cloud_31
     .byte con_rts
 
 
@@ -11318,7 +11318,7 @@ loc_A22E_игрок_делает_low_clearing_ногой_на_своей_штр�
     .byte con_pause + $50
     .byte con_s_bg_22
     .byte con_s_anim_38
-    .byte con_s_cloud_F0_default ; con_s_cloud_24
+    .byte con_s_cloud_F0_default ; s_cloud_24
     .byte con_rts
 
 
@@ -11328,7 +11328,7 @@ loc_A238_игрок_делает_clear_головой:
     .byte con_pause + $56
     .byte con_s_bg_6D
     .byte con_s_anim_39
-    .byte con_s_cloud_F0_default ; con_s_cloud_24
+    .byte con_s_cloud_F0_default ; s_cloud_24
     .byte con_rts
 
 
@@ -11338,7 +11338,7 @@ loc_A240_серый_экран_после_касания_высого_мяча_�
     .byte con_pause + $5A
     .byte con_s_bg_05
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_26
+    .byte con_s_cloud_F0_default ; s_cloud_26
     .byte con_rts
 
 
@@ -11348,7 +11348,7 @@ loc_A247_серый_экран_атакующий_замедлился:
     .byte con_pause + $5A
     .byte con_s_bg_05
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_1D
+    .byte con_s_cloud_F0_default ; s_cloud_1D
     .byte con_rts
 
 
@@ -11360,7 +11360,7 @@ loc_A253_штанга:
     .byte con_pause + $10
     .byte con_s_bg_06
     .byte con_s_anim_43
-    .byte con_s_cloud_F0_default ; con_s_cloud_27
+    .byte con_s_cloud_F0_default ; s_cloud_27
     .byte con_rts
 
 
@@ -11386,7 +11386,7 @@ sub_A2D8_защитник_в_прыжке_к_летящему_мячу:
     .byte con_pause + $28
     .byte con_s_bg_56
     .byte con_s_anim_49
-    .byte con_s_cloud_F0_default ; con_s_cloud_1B
+    .byte con_s_cloud_F0_default ; s_cloud_1B
     .byte con_rts
 
 
@@ -11424,7 +11424,7 @@ sub_A2F4_сообщение_oops_на_мигающем_белом_фоне:
     .byte con_pause + $1E
     .byte con_s_bg_05
     .byte con_s_anim_00
-    .byte con_s_cloud_F0_default ; con_s_cloud_29
+    .byte con_s_cloud_F0_default ; s_cloud_29
     .byte con_rts
 
 
@@ -11436,7 +11436,7 @@ sub_A2FE_сообщение_oh_на_мигающем_белом_фоне:
     .byte con_pause + $20
     .byte con_s_bg_05
     .byte con_s_anim_00
-    .byte con_s_cloud_F0_default ; con_s_cloud_2C
+    .byte con_s_cloud_F0_default ; s_cloud_2C
     .byte con_rts
 
 
@@ -11467,7 +11467,7 @@ loc_A319_стенка_заблокировала_удар:
     .byte con_pause + $32
     .byte con_s_bg_01
     .byte con_s_anim_4A
-    .byte con_s_cloud_F0_default ; con_s_cloud_2E
+    .byte con_s_cloud_F0_default ; s_cloud_2E
     .byte con_rts
 
 
@@ -11478,7 +11478,7 @@ sub_A321_стенка_была_задета:
     .byte con_pause + $14
     .byte con_s_bg_01
     .byte con_s_anim_4A
-    .byte con_s_cloud_F0_default ; con_s_cloud_35
+    .byte con_s_cloud_F0_default ; s_cloud_35
     .byte con_FE
     .byte con_rts
 
@@ -11509,7 +11509,7 @@ loc_A35B_нарушение:
     .byte con_pause + $70
     .byte con_s_bg_0C
     .byte con_s_anim_4E
-    .byte con_s_cloud_F0_default ; con_s_cloud_30
+    .byte con_s_cloud_F0_default ; s_cloud_30
     .byte con_rts
 
 
@@ -11519,7 +11519,7 @@ loc_A364_рваный_мяч:
     .byte con_pause + $A4
     .byte con_s_bg_0D
     .byte con_s_anim_4F
-    .byte con_s_cloud_F0_default ; con_s_cloud_32
+    .byte con_s_cloud_F0_default ; s_cloud_32
     .byte con_rts
 
 
@@ -11530,7 +11530,7 @@ sub_A36A_кипер_идеально_засейвил:
     .byte con_pause + $3C
     .byte con_s_bg_20
     .byte con_s_anim_52
-    .byte con_s_cloud_F0_default ; con_s_cloud_33
+    .byte con_s_cloud_F0_default ; s_cloud_33
     .byte con_rts
 
 
@@ -11542,7 +11542,7 @@ sub_A373_мяч_улетает_в_сторону:
     .byte con_pause + $3C
     .byte con_s_bg_1F
     .byte con_s_anim_52
-    .byte con_s_cloud_F0_default ; con_s_cloud_34
+    .byte con_s_cloud_F0_default ; s_cloud_34
     .byte con_rts
 
 
@@ -11560,7 +11560,7 @@ loc_A383_удар_огибает_стеночку:
     .byte con_pause + $40
     .byte con_s_bg_2A
     .byte con_s_anim_55
-    .byte con_s_cloud_F0_default ; con_s_cloud_36
+    .byte con_s_cloud_F0_default ; s_cloud_36
     .byte con_rts
 
 
@@ -11570,7 +11570,7 @@ loc_A388_мяч_улетает_в_сторону_после_выигрывани
     .byte con_pause + $34
     .byte con_s_bg_20
     .byte con_s_anim_70
-    .byte con_s_cloud_F0_default ; con_s_cloud_34
+    .byte con_s_cloud_F0_default ; s_cloud_34
     .byte con_rts
 
 
@@ -11632,7 +11632,7 @@ off_case_A3CF_05_p_jito_my:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_D9
+    .byte con_s_cloud_F0_default ; s_cloud_D9
     .byte con_jsr
     .word sub_BBC7_очистка
 loc_A3F9_power_tackle:
@@ -11651,7 +11651,7 @@ off_case_A3CF_0B_p_galvan_argentina:
     .byte con_pause + $14
     .byte con_s_bg_59
     .byte con_s_anim_58
-    .byte con_s_cloud_F0_default ; con_s_cloud_EC
+    .byte con_s_cloud_F0_default ; s_cloud_EC
     .byte con_jsr
     .word sub_A46A_power_tackle
     .byte con_moving_bg, $02
@@ -11669,7 +11669,7 @@ off_case_A3CF_06_p_jito_kunimi:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_kunimi
-    .byte con_s_cloud_F0_default ; con_s_cloud_D9
+    .byte con_s_cloud_F0_default ; s_cloud_D9
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_jmp
@@ -11683,7 +11683,7 @@ off_case_A3CF_0C_p_hyuga_my:
     .byte con_pause + $78
     .byte con_s_bg_31
     .byte con_s_anim_face_p_hyuga_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_DB
+    .byte con_s_cloud_F0_default ; s_cloud_DB
 loc_A41E_tiger_tackle:
     .byte con_moving_bg, $04
     .byte con_soundID_delay, $27, $02
@@ -11704,7 +11704,7 @@ off_case_A3CF_0D_p_hyuga_toho:
     .byte con_pause + $78
     .byte con_s_bg_31
     .byte con_s_anim_face_p_hyuga_toho
-    .byte con_s_cloud_F0_default ; con_s_cloud_DB
+    .byte con_s_cloud_F0_default ; s_cloud_DB
     .byte con_jmp
     .word loc_A41E_tiger_tackle
 
@@ -11724,7 +11724,7 @@ off_case_A3CF_FF_no_special_defense:
     .byte con_pause + $50
     .byte con_s_bg_57
     .byte con_s_anim_50
-    .byte con_s_cloud_F0_default ; con_s_cloud_3F
+    .byte con_s_cloud_F0_default ; s_cloud_3F
     .byte con_rts
 
 
@@ -11735,7 +11735,7 @@ off_case_A3CF_04_p_soda_tatsunami:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_soda_tatsunami
-    .byte con_s_cloud_F0_default ; con_s_cloud_DA
+    .byte con_s_cloud_F0_default ; s_cloud_DA
     .byte con_jmp
     .word loc_A45D_soda_razor_tackle
 
@@ -11747,7 +11747,7 @@ off_case_A3CF_03_p_soda_my:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_soda_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_DA
+    .byte con_s_cloud_F0_default ; s_cloud_DA
 loc_A45D_soda_razor_tackle:
 sub_A45D_soda_razor_tackle:
     .byte con_jsr
@@ -11759,7 +11759,7 @@ loc_A463_подкат_в_дествии:
     .byte con_pause + $50
     .byte con_s_bg_57
     .byte con_s_anim_50
-    .byte con_s_cloud_F0_default ; con_s_cloud_EC
+    .byte con_s_cloud_F0_default ; s_cloud_EC
     .byte con_rts
 
 
@@ -11831,7 +11831,7 @@ sub_A495_сообщение_атакующего_в_ответ_защитник�
                             .byte con_pause + $5A
                             .byte con_s_bg_30
                             .byte con_s_anim_FD_attacker
-                            .byte con_s_cloud_F0_default ; con_s_cloud_4F
+                            .byte con_s_cloud_F0_default ; s_cloud_4F
                             .byte con_jmp
                             .word loc_BBC7_очистка
 
@@ -11841,7 +11841,7 @@ sub_A495_сообщение_атакующего_в_ответ_защитник�
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_FD_attacker
-                    .byte con_s_cloud_F0_default ; con_s_cloud_A7
+                    .byte con_s_cloud_F0_default ; s_cloud_A7
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -11861,7 +11861,7 @@ sub_A5A9_kurae:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_FE_defender
-            .byte con_s_cloud_F0_default ; con_s_cloud_A2
+            .byte con_s_cloud_F0_default ; s_cloud_A2
             .byte con_jmp
             .word loc_BBC7_очистка
 
@@ -11949,7 +11949,7 @@ sub_A6F9_masao_kazuo_летит_по_низу_тонкие_ноги:
     .byte con_pause + $32
     .byte con_s_bg_4E
     .byte con_s_anim_C1
-    .byte con_s_cloud_F0_default ; con_s_cloud_ED
+    .byte con_s_cloud_F0_default ; s_cloud_ED
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -11962,7 +11962,7 @@ off_case_A6FF_FF_no_special_defense:
     .byte con_pause + $37
     .byte con_s_bg_23
     .byte con_s_anim_5B
-    .byte con_s_cloud_F0_default ; con_s_cloud_41
+    .byte con_s_cloud_F0_default ; s_cloud_41
     .byte con_rts
 
 
@@ -11984,7 +11984,7 @@ off_case_A70C_FF_no_special_defense:
     .byte con_pause + $1E
     .byte con_s_bg_22
     .byte con_s_anim_5A
-    .byte con_s_cloud_F0_default ; con_s_cloud_38
+    .byte con_s_cloud_F0_default ; s_cloud_38
     .byte con_rts
 
 
@@ -11994,7 +11994,7 @@ bra_long_case_A713_FF_no_special_defense:
     .byte con_pause + $1E
     .byte con_s_bg_23
     .byte con_s_anim_5A
-    .byte con_s_cloud_F0_default ; con_s_cloud_39
+    .byte con_s_cloud_F0_default ; s_cloud_39
     .byte con_rts
 
 
@@ -12005,7 +12005,7 @@ sub_A71A_masao_kazuo_japan_становятся_друг_на_друга:
     .byte con_pause + $3C
     .byte con_s_bg_4F
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_AC
+    .byte con_s_cloud_F0_default ; s_cloud_AC
     .byte con_F8, $04
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
@@ -12017,7 +12017,7 @@ sub_A71A_masao_kazuo_japan_становятся_друг_на_друга:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_D3
+    .byte con_s_cloud_F0_default ; s_cloud_D3
     .byte con_soundID_delay, $28, $02
     .byte con_F8, $04
     .byte con_F7, $3A
@@ -12035,7 +12035,7 @@ sub_A71A_masao_kazuo_japan_становятся_друг_на_друга:
     .byte con_pause + $2B
     .byte con_s_bg_12
     .byte con_s_anim_C0
-    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+    .byte con_s_cloud_F0_default ; s_cloud_AF
 loc_A74A_красное_мерцание_экрана_и_звук:
     .byte con_F7, $1E
     .byte con_soundID_delay, $6D, $02
@@ -12054,7 +12054,7 @@ sub_A756_masao_kazuo_akita_становятся_друг_на_друга:
     .byte con_pause + $3C
     .byte con_s_bg_4F
     .byte con_s_anim_face_p_masao_akita
-    .byte con_s_cloud_F0_default ; con_s_cloud_AC
+    .byte con_s_cloud_F0_default ; s_cloud_AC
     .byte con_F8, $04
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
@@ -12066,7 +12066,7 @@ sub_A756_masao_kazuo_akita_становятся_друг_на_друга:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_masao_akita
-    .byte con_s_cloud_F0_default ; con_s_cloud_D3
+    .byte con_s_cloud_F0_default ; s_cloud_D3
     .byte con_soundID_delay, $28, $02
     .byte con_F8, $04
     .byte con_F7, $3A
@@ -12084,7 +12084,7 @@ sub_A756_masao_kazuo_akita_становятся_друг_на_друга:
     .byte con_pause + $2B
     .byte con_s_bg_12
     .byte con_s_anim_E1
-    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+    .byte con_s_cloud_F0_default ; s_cloud_AF
     .byte con_jmp
     .word loc_A74A_красное_мерцание_экрана_и_звук
 
@@ -12096,7 +12096,7 @@ bra_long_case_A789_05_p_jito_my:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_D9
+    .byte con_s_cloud_F0_default ; s_cloud_D9
 loc_A78F_разгон_перед_power_block:
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -12115,7 +12115,7 @@ bra_long_case_A792_0B_p_galvan_argentina:
     .byte con_pause + $28
     .byte con_s_bg_6B
     .byte con_s_anim_E3
-    .byte con_s_cloud_F0_default ; con_s_cloud_EC
+    .byte con_s_cloud_F0_default ; s_cloud_EC
     .byte con_rts
 
 
@@ -12126,7 +12126,7 @@ bra_long_case_A79C_06_p_jito_kunimi:
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_kunimi
-    .byte con_s_cloud_F0_default ; con_s_cloud_D9
+    .byte con_s_cloud_F0_default ; s_cloud_D9
     .byte con_jmp
     .word loc_A78F_разгон_перед_power_block
 
@@ -12143,7 +12143,7 @@ bra_long_case_A7A5_0E_p_ishizaki_my:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_ishizaki_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_D7
+    .byte con_s_cloud_F0_default ; s_cloud_D7
 loc_A7B1_прыжок_перед_face_block:
 sub_A7B1_прыжок_перед_face_block:
     .byte con_soundID_delay, $25, $02
@@ -12171,7 +12171,7 @@ bra_long_case_A7BF_0F_p_ishizaki_japan:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_ishizaki_japan
-    .byte con_s_cloud_F0_default ; con_s_cloud_D7
+    .byte con_s_cloud_F0_default ; s_cloud_D7
     .byte con_jmp
     .word loc_A7B1_прыжок_перед_face_block
 
@@ -12183,7 +12183,7 @@ off_case_A7CE_FF_no_special_defense:
     .byte con_pause + $28
     .byte con_s_bg_23
     .byte con_s_anim_5A
-    .byte con_s_cloud_F0_default ; con_s_cloud_40
+    .byte con_s_cloud_F0_default ; s_cloud_40
     .byte con_rts
 
 
@@ -12194,7 +12194,7 @@ sub_A810_анимация_heel_lift:
     .byte con_pause + $3F
     .byte con_s_bg_23
     .byte con_s_anim_E2
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_F7, $0A
     .byte con_pause + $3C
     .byte con_s_bg_05
@@ -12215,7 +12215,7 @@ sub_A86C_vanishing_feint:
     .byte con_pause + $46
     .byte con_s_bg_6B
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_F7, $14
     .byte con_soundID_delay, $0D, $02
     .byte con_pause + $1E
@@ -12231,7 +12231,7 @@ sub_A885_рожа_carlos_flamengo:
     .byte con_pause + $40
     .byte con_s_bg_30
     .byte con_s_anim_face_p_carlos_flamengo
-    .byte con_s_cloud_F0_default ; con_s_cloud_C7
+    .byte con_s_cloud_F0_default ; s_cloud_C7
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_rts
@@ -12243,7 +12243,7 @@ sub_A88F_рожа_carlos_brazil:
     .byte con_pause + $40
     .byte con_s_bg_30
     .byte con_s_anim_face_p_carlos_brazil
-    .byte con_s_cloud_F0_default ; con_s_cloud_C7
+    .byte con_s_cloud_F0_default ; s_cloud_C7
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_rts
@@ -12256,7 +12256,7 @@ sub_A8AB_clone_dribble:
     .byte con_pause + $12
     .byte con_s_bg_23
     .byte con_s_anim_DD
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_F7, $24
     .byte con_pause + $48
     .byte con_s_bg_6B
@@ -12272,7 +12272,7 @@ sub_A8D0_high_speed_dribble:
     .byte con_pause + $28
     .byte con_s_bg_47
     .byte con_s_anim_D0
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_mirror_toggle
     .byte con_F7, $0D
     .byte con_soundID_delay, $26, $02
@@ -12290,7 +12290,7 @@ sub_A8E5_kaltz_hedgehog_dribble:
     .byte con_pause + $80
     .byte con_s_bg_30
     .byte con_s_anim_face_p_kaltz_hamburger_sv
-    .byte con_s_cloud_F0_default ; con_s_cloud_C8
+    .byte con_s_cloud_F0_default ; s_cloud_C8
 loc_A8EB_kaltz_hedgehog_dribble_в_процессе:
     .byte con_mirror_toggle
     .byte con_F7, $14
@@ -12298,7 +12298,7 @@ loc_A8EB_kaltz_hedgehog_dribble_в_процессе:
     .byte con_pause + $17
     .byte con_s_bg_22
     .byte con_s_anim_D1
-    .byte con_s_cloud_F0_default ; con_s_cloud_C9
+    .byte con_s_cloud_F0_default ; s_cloud_C9
     .byte con_F7, $02
     .byte con_soundID_delay, $26, $02
     .byte con_pause + $17
@@ -12320,7 +12320,7 @@ sub_A908_kaltz_hedgehog_dribble:
     .byte con_pause + $80
     .byte con_s_bg_30
     .byte con_s_anim_face_p_kaltz_west_germany
-    .byte con_s_cloud_F0_default ; con_s_cloud_C8
+    .byte con_s_cloud_F0_default ; s_cloud_C8
     .byte con_jmp
     .word loc_A8EB_kaltz_hedgehog_dribble_в_процессе
 
@@ -12358,7 +12358,7 @@ sub_A936_сообщение_защитника_атакующему_при_на�
                             .byte con_pause + $5A
                             .byte con_s_bg_30
                             .byte con_s_anim_FE_defender
-                            .byte con_s_cloud_F0_default ; con_s_cloud_4F
+                            .byte con_s_cloud_F0_default ; s_cloud_4F
                             .byte con_jmp
                             .word loc_BBC7_очистка
 
@@ -12368,7 +12368,7 @@ sub_A936_сообщение_защитника_атакующему_при_на�
                     .byte con_pause + $3C
                     .byte con_s_bg_30
                     .byte con_s_anim_FE_defender
-                    .byte con_s_cloud_F0_default ; con_s_cloud_98
+                    .byte con_s_cloud_F0_default ; s_cloud_98
                     .byte con_jmp
                     .word loc_BBC7_очистка
 
@@ -12380,7 +12380,7 @@ sub_AA89_forcible_dribble:
     .byte con_pause + $78
     .byte con_s_bg_23
     .byte con_s_anim_D0
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_rts
 
 
@@ -12392,7 +12392,7 @@ sub_AB31_полная_анимация_обычного_удара_с_земли
     .byte con_pause + $28
     .byte con_s_bg_01
     .byte con_s_anim_61
-    .byte con_s_cloud_F0_default ; con_s_cloud_47
+    .byte con_s_cloud_F0_default ; s_cloud_47
 loc_AB39_обычный_удар_по_мячу_и_полет_мяча_от_игрока:
     .byte con_F7, $0B
     .byte con_soundID_delay, $12, $02
@@ -12417,7 +12417,7 @@ sub_AB7C:
     .byte con_pause + $10
     .byte con_s_bg_41
     .byte con_s_anim_8C
-    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+    .byte con_s_cloud_F0_default ; s_cloud_AF
     .byte con_rts
 
 
@@ -12428,7 +12428,7 @@ sub_AB86:
     .byte con_pause + $10
     .byte con_s_bg_41
     .byte con_s_anim_8C
-    .byte con_s_cloud_F0_default ; con_s_cloud_E0
+    .byte con_s_cloud_F0_default ; s_cloud_E0
     .byte con_rts
 
 
@@ -12439,7 +12439,7 @@ sub_AB90:
     .byte con_pause + $10
     .byte con_s_bg_41
     .byte con_s_anim_8C
-    .byte con_s_cloud_F0_default ; con_s_cloud_DE
+    .byte con_s_cloud_F0_default ; s_cloud_DE
     .byte con_rts
 
 
@@ -12450,7 +12450,7 @@ sub_AB9A:
     .byte con_pause + $10
     .byte con_s_bg_41
     .byte con_s_anim_8C
-    .byte con_s_cloud_F0_default ; con_s_cloud_E1
+    .byte con_s_cloud_F0_default ; s_cloud_E1
     .byte con_rts
 
 
@@ -12461,7 +12461,7 @@ sub_ABA4:
     .byte con_pause + $10
     .byte con_s_bg_41
     .byte con_s_anim_8C
-    .byte con_s_cloud_F0_default ; con_s_cloud_6A
+    .byte con_s_cloud_F0_default ; s_cloud_6A
     .byte con_rts
 
 
@@ -12472,7 +12472,7 @@ sub_ABAE:
     .byte con_pause + $10
     .byte con_s_bg_41
     .byte con_s_anim_8C
-    .byte con_s_cloud_F0_default ; con_s_cloud_6B
+    .byte con_s_cloud_F0_default ; s_cloud_6B
     .byte con_rts
 
 
@@ -12481,7 +12481,7 @@ sub_ABB8:
     .byte con_pause + $1A
     .byte con_s_bg_3C
     .byte con_s_anim_61
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_F7, $04
     .byte con_soundID_delay, $18, $02
     .byte con_pause + $14
@@ -12543,7 +12543,7 @@ loc_AE64_прыгать_к_мячу_на_штрафной_перед_совер�
     .byte con_pause + $32
     .byte con_s_bg_1F
     .byte con_s_anim_64
-    .byte con_s_cloud_F0_default ; con_s_cloud_48
+    .byte con_s_cloud_F0_default ; s_cloud_48
     .byte con_rts
 
 
@@ -12555,13 +12555,13 @@ off_case_AE69_10_p_masao_my:
     .byte con_pause + $40
     .byte con_s_bg_30
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_A8
+    .byte con_s_cloud_F0_default ; s_cloud_A8
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $78
     .byte con_s_bg_4F
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_A9
+    .byte con_s_cloud_F0_default ; s_cloud_A9
     .byte con_mirror_toggle
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
@@ -12585,7 +12585,7 @@ off_case_AE69_10_p_masao_my:
     .byte con_pause + $28
     .byte con_s_bg_12
     .byte con_s_anim_C0
-    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+    .byte con_s_cloud_F0_default ; s_cloud_AF
 loc_AE96:
     .byte con_F7, $1E
     .byte con_soundID_delay, $6D, $02
@@ -12608,13 +12608,13 @@ off_case_AEA4_11_p_masao_akita:
     .byte con_pause + $40
     .byte con_s_bg_30
     .byte con_s_anim_face_p_masao_akita
-    .byte con_s_cloud_F0_default ; con_s_cloud_A8
+    .byte con_s_cloud_F0_default ; s_cloud_A8
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $78
     .byte con_s_bg_4F
     .byte con_s_anim_face_p_masao_akita
-    .byte con_s_cloud_F0_default ; con_s_cloud_A9
+    .byte con_s_cloud_F0_default ; s_cloud_A9
     .byte con_mirror_toggle
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $32
@@ -12638,7 +12638,7 @@ off_case_AEA4_11_p_masao_akita:
     .byte con_pause + $28
     .byte con_s_bg_12
     .byte con_s_anim_E1
-    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+    .byte con_s_cloud_F0_default ; s_cloud_AF
     .byte con_jmp
     .word loc_AE96
 
@@ -12650,13 +12650,13 @@ loc_AED4_skylab_twin_shot:
     .byte con_pause + $40
     .byte con_s_bg_4F
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_A8
+    .byte con_s_cloud_F0_default ; s_cloud_A8
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $78
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_AE
+    .byte con_s_cloud_F0_default ; s_cloud_AE
     .byte con_mirror_toggle
     .byte con_soundID_delay, $26, $02
     .byte con_F7, $02
@@ -12692,18 +12692,18 @@ loc_AED4_skylab_twin_shot:
     .byte con_pause + $3C
     .byte con_s_bg_4F
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_13
+    .byte con_s_cloud_F0_default ; s_cloud_13
     .byte con_mirror_toggle
     .byte con_F8, $04
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_masao_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_AF
+    .byte con_s_cloud_F0_default ; s_cloud_AF
     .byte con_mirror_toggle
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_B0
+    .byte con_s_cloud_F0_default ; s_cloud_B0
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
@@ -12712,7 +12712,7 @@ loc_AED4_skylab_twin_shot:
     .byte con_pause + $1E
     .byte con_s_bg_05
     .byte con_s_anim_C2
-    .byte con_s_cloud_F0_default ; con_s_cloud_EE
+    .byte con_s_cloud_F0_default ; s_cloud_EE
     .byte con_pause + $3C
     .byte con_s_bg_20
     .byte con_s_anim_C3
@@ -12726,7 +12726,7 @@ loc_AF31_rising_dragon_kick:
     .byte con_pause + $37
     .byte con_s_bg_47
     .byte con_s_anim_C9
-    .byte con_s_cloud_F0_default ; con_s_cloud_6B
+    .byte con_s_cloud_F0_default ; s_cloud_6B
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_F7, $0E
@@ -12734,7 +12734,7 @@ loc_AF31_rising_dragon_kick:
     .byte con_pause + $28
     .byte con_s_bg_05
     .byte con_s_anim_CB
-    .byte con_s_cloud_F0_default ; con_s_cloud_EF
+    .byte con_s_cloud_F0_default ; s_cloud_EF
     .byte con_mirror_toggle
     .byte con_soundID_delay, $6D, $02
     .byte con_pause + $28
@@ -12753,7 +12753,7 @@ sub_AF73_рожа_soda_палка_и_мерцание:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_soda_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_C2
+    .byte con_s_cloud_F0_default ; s_cloud_C2
 loc_AF78_палка_soda_и_мерцание:
 sub_AF78_палка_soda_и_мерцание:
     .byte con_F7, $15
@@ -12776,7 +12776,7 @@ sub_AF88_рожа_soda_палка_и_мерцание:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_soda_tatsunami
-    .byte con_s_cloud_F0_default ; con_s_cloud_C2
+    .byte con_s_cloud_F0_default ; s_cloud_C2
     .byte con_jmp
     .word loc_AF78_палка_soda_и_мерцание
 
@@ -12787,7 +12787,7 @@ loc_B29B_бежать_к_мячу_на_штрафной_перед_соверш�
     .byte con_pause + $32
     .byte con_s_bg_22
     .byte con_s_anim_6B
-    .byte con_s_cloud_F0_default ; con_s_cloud_4C
+    .byte con_s_cloud_F0_default ; s_cloud_4C
     .byte con_rts
 
 
@@ -12802,7 +12802,7 @@ loc_B2A2_jumping_volley:
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_misaki_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_13
+            .byte con_s_cloud_F0_default ; s_cloud_13
         loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley:
             .byte con_jsr
             .word sub_BBC7_очистка
@@ -12824,7 +12824,7 @@ sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_voll
             .byte con_pause + $3C
             .byte con_s_bg_30
             .byte con_s_anim_face_p_misaki_japan
-            .byte con_s_cloud_F0_default ; con_s_cloud_13
+            .byte con_s_cloud_F0_default ; s_cloud_13
             .byte con_jmp
             .word loc_B2AA_misaki_разгоняется_и_прыгает_перед_jumping_volley
 
@@ -12836,7 +12836,7 @@ loc_B2C2_игрок_принимает_низкий_мяч_на_ногу:
     .byte con_pause + $44
     .byte con_s_bg_57
     .byte con_s_anim_6C
-    .byte con_s_cloud_F0_default ; con_s_cloud_4D
+    .byte con_s_cloud_F0_default ; s_cloud_4D
     .byte con_rts
 
 
@@ -12846,7 +12846,7 @@ loc_B2CC_игрок_принимает_высокий_мяч_на_живот_ф�
     .byte con_pause + $3E
     .byte con_s_bg_29
     .byte con_s_anim_6D
-    .byte con_s_cloud_F0_default ; con_s_cloud_4D
+    .byte con_s_cloud_F0_default ; s_cloud_4D
     .byte con_rts
 
 
@@ -12856,7 +12856,7 @@ loc_B2D4_игрок_принимает_высокий_мяч_на_живот_ф�
     .byte con_pause + $3E
     .byte con_s_bg_67
     .byte con_s_anim_6D
-    .byte con_s_cloud_F0_default ; con_s_cloud_4D
+    .byte con_s_cloud_F0_default ; s_cloud_4D
     .byte con_rts
 
 
@@ -12895,7 +12895,7 @@ off_case_B2F2_FF_no_special_defense:
     .byte con_pause + $14
     .byte con_s_bg_02
     .byte con_s_anim_1C
-    .byte con_s_cloud_F0_default ; con_s_cloud_37
+    .byte con_s_cloud_F0_default ; s_cloud_37
     .byte con_pause + $22
     .byte con_s_bg_56
     .byte con_s_anim_49
@@ -12932,7 +12932,7 @@ off_case_B310_FF_no_special_defense:
     .byte con_pause + $32
     .byte con_s_bg_1D
     .byte con_s_anim_1C
-    .byte con_s_cloud_F0_default ; con_s_cloud_3B
+    .byte con_s_cloud_F0_default ; s_cloud_3B
     .byte con_rts
 
 
@@ -12964,7 +12964,7 @@ off_case_B32C_FF_no_special_defense:
     .byte con_pause + $14
     .byte con_s_bg_02
     .byte con_s_anim_1C
-    .byte con_s_cloud_F0_default ; con_s_cloud_38
+    .byte con_s_cloud_F0_default ; s_cloud_38
     .byte con_pause + $20
     .byte con_s_bg_29
     .byte con_s_anim_49
@@ -12981,7 +12981,7 @@ loc_B33B_полет_одного_из_братьев_после_запуска:
     .byte con_pause + $2D
     .byte con_s_bg_20
     .byte con_s_anim_C1
-    .byte con_s_cloud_F0_default ; con_s_cloud_ED
+    .byte con_s_cloud_F0_default ; s_cloud_ED
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -13022,7 +13022,7 @@ off_case_B359_FF_no_special_defense:
     .byte con_pause + $14
     .byte con_s_bg_02
     .byte con_s_anim_1C
-    .byte con_s_cloud_F0_default ; con_s_cloud_39
+    .byte con_s_cloud_F0_default ; s_cloud_39
 loc_B360:
     .byte con_pause + $20
     .byte con_s_bg_56
@@ -13057,7 +13057,7 @@ off_case_B372_05_p_jito_my:
     .byte con_pause + $48
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_D8
+    .byte con_s_cloud_F0_default ; s_cloud_D8
 loc_B378:
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -13076,7 +13076,7 @@ off_case_B37C_0B_p_galvan_argentina:
     .byte con_pause + $20
     .byte con_s_bg_6B
     .byte con_s_anim_E3
-    .byte con_s_cloud_F0_default ; con_s_cloud_EC
+    .byte con_s_cloud_F0_default ; s_cloud_EC
     .byte con_soundID_delay, $25, $02
     .byte con_pause + $14
     .byte con_s_bg_02
@@ -13093,7 +13093,7 @@ off_case_B38F_06_p_jito_kunimi:
     .byte con_pause + $48
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_kunimi
-    .byte con_s_cloud_F0_default ; con_s_cloud_D8
+    .byte con_s_cloud_F0_default ; s_cloud_D8
     .byte con_jmp
     .word loc_B378
 
@@ -13105,7 +13105,7 @@ off_case_B398_0E_p_ishizaki_my:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_ishizaki_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_D7
+    .byte con_s_cloud_F0_default ; s_cloud_D7
     .byte con_jmp
     .word loc_A7B1_прыжок_перед_face_block
 
@@ -13117,7 +13117,7 @@ off_case_B3A1_0F_p_ishizaki_japan:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_ishizaki_japan
-    .byte con_s_cloud_F0_default ; con_s_cloud_D7
+    .byte con_s_cloud_F0_default ; s_cloud_D7
     .byte con_jmp
     .word loc_A7B1_прыжок_перед_face_block
 
@@ -13154,7 +13154,7 @@ off_case_9DFE_02_02_00:
     .byte con_pause + $3C
     .byte con_s_bg_31
     .byte con_s_anim_face_p_hyuga_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_C4
+    .byte con_s_cloud_F0_default ; s_cloud_C4
 loc_B3BD:
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -13174,7 +13174,7 @@ off_case_9DFE_02_02_01:
     .byte con_pause + $3C
     .byte con_s_bg_31
     .byte con_s_anim_face_p_hyuga_toho
-    .byte con_s_cloud_F0_default ; con_s_cloud_C4
+    .byte con_s_cloud_F0_default ; s_cloud_C4
     .byte con_jmp
     .word loc_B3BD
 
@@ -13186,7 +13186,7 @@ off_case_9DFE_02_02_02:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_C5
+    .byte con_s_cloud_F0_default ; s_cloud_C5
     .byte con_jmp
     .word loc_B3BD
 
@@ -13198,7 +13198,7 @@ off_case_9DFE_02_02_03:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_jito_kunimi
-    .byte con_s_cloud_F0_default ; con_s_cloud_C5
+    .byte con_s_cloud_F0_default ; s_cloud_C5
     .byte con_jmp
     .word loc_B3BD
 
@@ -13210,7 +13210,7 @@ off_case_9DFE_02_02_04:
     .byte con_pause + $3C
     .byte con_s_bg_30
     .byte con_s_anim_face_p_napoleon_france
-    .byte con_s_cloud_F0_default ; con_s_cloud_C6
+    .byte con_s_cloud_F0_default ; s_cloud_C6
     .byte con_jmp
     .word loc_B3BD
 
@@ -13321,7 +13321,7 @@ loc_B43D_игрок_делает_верхний_through:
     .byte con_pause + $3D
     .byte con_s_bg_56
     .byte con_s_anim_6E
-    .byte con_s_cloud_F0_default ; con_s_cloud_4D
+    .byte con_s_cloud_F0_default ; s_cloud_4D
     .byte con_rts
 
 
@@ -13331,7 +13331,7 @@ loc_B442_игрок_делает_нижний_through:
     .byte con_pause + $3D
     .byte con_s_bg_22
     .byte con_s_anim_6F
-    .byte con_s_cloud_F0_default ; con_s_cloud_4D
+    .byte con_s_cloud_F0_default ; s_cloud_4D
     .byte con_rts
 
 
@@ -13341,7 +13341,7 @@ sub_B44E_кипер_идеально_засейвил:
     .byte con_pause + $5A
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_33
+    .byte con_s_cloud_F0_default ; s_cloud_33
     .byte con_rts
 
 
@@ -13352,7 +13352,7 @@ sub_B45D_мяч_улетает_в_сторону:
     .byte con_pause + $3C
     .byte con_s_bg_20
     .byte con_s_anim_52
-    .byte con_s_cloud_F0_default ; con_s_cloud_50
+    .byte con_s_cloud_F0_default ; s_cloud_50
     .byte con_rts
 
 
@@ -13365,7 +13365,7 @@ loc_B48E:
     .byte con_pause + $3C
     .byte con_s_bg_01
     .byte con_s_anim_78
-    .byte con_s_cloud_F0_default ; con_s_cloud_EB
+    .byte con_s_cloud_F0_default ; s_cloud_EB
     .byte con_rts
 
 
@@ -13375,7 +13375,7 @@ loc_B4A6_игрок_принимает_пас_на_ногу:
     .byte con_pause + $3C
     .byte con_s_bg_01
     .byte con_s_anim_78
-    .byte con_s_cloud_F0_default ; con_s_cloud_6E
+    .byte con_s_cloud_F0_default ; s_cloud_6E
     .byte con_rts
 
 
@@ -13385,7 +13385,7 @@ loc_B4AE_игрок_принимает_пас_на_грудь:
     .byte con_pause + $38
     .byte con_s_bg_63
     .byte con_s_anim_7A
-    .byte con_s_cloud_F0_default ; con_s_cloud_6E
+    .byte con_s_cloud_F0_default ; s_cloud_6E
     .byte con_rts
 
 
@@ -13395,7 +13395,7 @@ loc_B4B6_игрок_принимает_пас_на_грудь:
     .byte con_pause + $38
     .byte con_s_bg_63
     .byte con_s_anim_7A
-    .byte con_s_cloud_F0_default ; con_s_cloud_58
+    .byte con_s_cloud_F0_default ; s_cloud_58
     .byte con_rts
 
 
@@ -13592,7 +13592,7 @@ _scenario_B733_1F:
     .byte con_pause + $96
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_66
+    .byte con_s_cloud_F0_default ; s_cloud_66
     .byte con_rts
 
 
@@ -13609,7 +13609,7 @@ _scenario_B738_20:
             .byte con_pause + $B4
             .byte con_s_bg_38
             .byte con_s_anim_85
-            .byte con_s_cloud_F0_default ; con_s_cloud_67
+            .byte con_s_cloud_F0_default ; s_cloud_67
             .byte con_rts
 
         off_case_20_01:
@@ -13617,7 +13617,7 @@ _scenario_B738_20:
             .byte con_pause + $B4
             .byte con_s_bg_37
             .byte con_s_anim_85
-            .byte con_s_cloud_F0_default ; con_s_cloud_67
+            .byte con_s_cloud_F0_default ; s_cloud_67
             .byte con_rts
 
 
@@ -13733,7 +13733,7 @@ _scenario_BA3B_21:
                             .byte con_pause + $20
                             .byte con_s_bg_40
                             .byte con_s_anim_17
-                            .byte con_s_cloud_F0_default ; con_s_cloud_DD
+                            .byte con_s_cloud_F0_default ; s_cloud_DD
                             .byte con_F7, $10
                             .byte con_pause + $10
                             .byte con_s_bg_05
@@ -13856,7 +13856,7 @@ _scenario_BA3B_21:
                                     .byte con_pause + $3C
                                     .byte con_s_bg_0E
                                     .byte con_s_anim_27
-                                    .byte con_s_cloud_F0_default ; con_s_cloud_DD
+                                    .byte con_s_cloud_F0_default ; s_cloud_DD
                                     .byte con_soundID_delay, $7E, $02
                                     .byte con_jmp
                                     .word loc_BBC7_очистка
@@ -13868,7 +13868,7 @@ _scenario_BA3B_21:
                                     .byte con_pause + $3C
                                     .byte con_s_bg_0F
                                     .byte con_s_anim_2B
-                                    .byte con_s_cloud_F0_default ; con_s_cloud_DD
+                                    .byte con_s_cloud_F0_default ; s_cloud_DD
                                     .byte con_soundID_delay, $7E, $02
                                     .byte con_jmp
                                     .word loc_BBC7_очистка
@@ -13906,7 +13906,7 @@ _scenario_B749_22:
     .byte con_pause + $B0
     .byte con_s_bg_38
     .byte con_s_anim_85
-    .byte con_s_cloud_F0_default ; con_s_cloud_69
+    .byte con_s_cloud_F0_default ; s_cloud_69
     .byte con_rts
 
 
@@ -13930,7 +13930,7 @@ _scenario_9BF2_24:
     .byte con_pause + $46
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_5D
+    .byte con_s_cloud_F0_default ; s_cloud_5D
     .byte con_rts
 
 
@@ -13949,7 +13949,7 @@ _scenario_9CDD_25:
             .byte con_pause + $30
             .byte con_s_bg_42
             .byte con_s_anim_82
-            .byte con_s_cloud_F0_default ; con_s_cloud_63
+            .byte con_s_cloud_F0_default ; s_cloud_63
             .byte con_quit
 
         off_case_25_01:
@@ -13973,7 +13973,7 @@ _scenario_9E2D_26:
             .byte con_pause + $37
             .byte con_s_bg_42
             .byte con_s_anim_83
-            .byte con_s_cloud_F0_default ; con_s_cloud_64
+            .byte con_s_cloud_F0_default ; s_cloud_64
             .byte con_quit
 
         off_case_26_01:
@@ -13989,7 +13989,7 @@ _scenario_9BF8_27:
     .byte con_pause + $46
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_5E
+    .byte con_s_cloud_F0_default ; s_cloud_5E
     .byte con_rts
 
 
@@ -14000,7 +14000,7 @@ _scenario_B4CC_28:
     .byte con_pause + $32
     .byte con_s_bg_26
     .byte con_s_anim_7F
-    .byte con_s_cloud_F0_default ; con_s_cloud_60
+    .byte con_s_cloud_F0_default ; s_cloud_60
     .byte con_rts
 
 
@@ -14011,7 +14011,7 @@ _scenario_9BFE_29:
     .byte con_pause + $46
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_5F
+    .byte con_s_cloud_F0_default ; s_cloud_5F
     .byte con_rts
 
 
@@ -14021,7 +14021,7 @@ _scenario_B4E0_2A:
     .byte con_pause + $30
     .byte con_s_bg_3E
     .byte con_s_anim_81
-    .byte con_s_cloud_F0_default ; con_s_cloud_62
+    .byte con_s_cloud_F0_default ; s_cloud_62
     .byte con_rts
 
 
@@ -14030,7 +14030,7 @@ _scenario_B72C_2B:
     .byte con_pause + $78
     .byte con_s_bg_46
     .byte con_s_anim_00
-    .byte con_s_cloud_F0_default ; con_s_cloud_65
+    .byte con_s_cloud_F0_default ; s_cloud_65
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14048,7 +14048,7 @@ _scenario_9F54_2C:
             .byte con_pause + $46
             .byte con_s_bg_01
             .byte con_s_anim_6C
-            .byte con_s_cloud_F0_default ; con_s_cloud_14
+            .byte con_s_cloud_F0_default ; s_cloud_14
             .byte con_rts
 
         off_case_2C_01:
@@ -14057,7 +14057,7 @@ _scenario_9F54_2C:
             .byte con_pause + $4A
             .byte con_s_bg_63
             .byte con_s_anim_6D
-            .byte con_s_cloud_F0_default ; con_s_cloud_14
+            .byte con_s_cloud_F0_default ; s_cloud_14
             .byte con_rts
 
 
@@ -14068,7 +14068,7 @@ _scenario_B4D6_2D:
     .byte con_pause + $3A
     .byte con_s_bg_3C
     .byte con_s_anim_80
-    .byte con_s_cloud_F0_default ; con_s_cloud_61
+    .byte con_s_cloud_F0_default ; s_cloud_61
     .byte con_rts
 
 
@@ -14078,7 +14078,7 @@ _scenario_B74E_2E:
     .byte con_pause + $78
     .byte con_s_bg_36
     .byte con_s_anim_8B
-    .byte con_s_cloud_F0_default ; con_s_cloud_6D
+    .byte con_s_cloud_F0_default ; s_cloud_6D
     .byte con_rts
 
 
@@ -14099,7 +14099,7 @@ _scenario_B773_2F:
             .byte con_pause + $5A
             .byte con_s_bg_36
             .byte con_s_anim_8D
-            .byte con_s_cloud_F0_default ; con_s_cloud_10
+            .byte con_s_cloud_F0_default ; s_cloud_10
             .byte con_jmp
             .word loc_B763_2F_проверка_на_наличие_защитников
 
@@ -14108,7 +14108,7 @@ _scenario_B773_2F:
             .byte con_pause + $5A
             .byte con_s_bg_36
             .byte con_s_anim_8D
-            .byte con_s_cloud_F0_default ; con_s_cloud_0A
+            .byte con_s_cloud_F0_default ; s_cloud_0A
             .byte con_jmp
             .word loc_B763_2F_проверка_на_наличие_защитников
 
@@ -14140,7 +14140,7 @@ _scenario_9C30_30:
                             .byte con_pause + $A0
                             .byte con_s_bg_08
                             .byte con_s_anim_46
-                            .byte con_s_cloud_F0_default ; con_s_cloud_52
+                            .byte con_s_cloud_F0_default ; s_cloud_52
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14149,7 +14149,7 @@ _scenario_9C30_30:
                             .byte con_pause + $A0
                             .byte con_s_bg_09
                             .byte con_s_anim_47
-                            .byte con_s_cloud_F0_default ; con_s_cloud_52
+                            .byte con_s_cloud_F0_default ; s_cloud_52
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14158,7 +14158,7 @@ _scenario_9C30_30:
                             .byte con_pause + $A0
                             .byte con_s_bg_0A
                             .byte con_s_anim_48
-                            .byte con_s_cloud_F0_default ; con_s_cloud_52
+                            .byte con_s_cloud_F0_default ; s_cloud_52
 loc_A275_мерцание_фона_с_портретом_игроков:
                             .byte con_F7, $13
                             .byte con_pause + $6E
@@ -14194,7 +14194,7 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                                                     .byte con_pause + $D0
                                                     .byte con_s_bg_30
                                                     .byte con_s_anim_face_p_jito_my
-                                                    .byte con_s_cloud_F0_default ; con_s_cloud_9E
+                                                    .byte con_s_cloud_F0_default ; s_cloud_9E
                                                     .byte con_jmp
                                                     .word loc_BBC7_очистка
 
@@ -14205,7 +14205,7 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                                                     .byte con_pause + $D0
                                                     .byte con_s_bg_30
                                                     .byte con_s_anim_face_p_jito_kunimi
-                                                    .byte con_s_cloud_F0_default ; con_s_cloud_9E
+                                                    .byte con_s_cloud_F0_default ; s_cloud_9E
                                                     .byte con_jmp
                                                     .word loc_BBC7_очистка
 
@@ -14216,7 +14216,7 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                                     .byte con_pause + $A0
                                     .byte con_s_bg_30
                                     .byte con_s_anim_face_p_schneider_west_germany
-                                    .byte con_s_cloud_F0_default ; con_s_cloud_89
+                                    .byte con_s_cloud_F0_default ; s_cloud_89
                                     .byte con_rts
 
                 bra_long_case_30_00_01:
@@ -14232,7 +14232,7 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                             .byte con_pause + $A0
                             .byte con_s_bg_08
                             .byte con_s_anim_46
-                            .byte con_s_cloud_F0_default ; con_s_cloud_54
+                            .byte con_s_cloud_F0_default ; s_cloud_54
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14241,7 +14241,7 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                             .byte con_pause + $A0
                             .byte con_s_bg_09
                             .byte con_s_anim_47
-                            .byte con_s_cloud_F0_default ; con_s_cloud_55
+                            .byte con_s_cloud_F0_default ; s_cloud_55
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14250,7 +14250,7 @@ loc_A275_мерцание_фона_с_портретом_игроков:
                             .byte con_pause + $A0
                             .byte con_s_bg_0A
                             .byte con_s_anim_48
-                            .byte con_s_cloud_F0_default ; con_s_cloud_55
+                            .byte con_s_cloud_F0_default ; s_cloud_55
                             .byte con_jmp
                             .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14267,7 +14267,7 @@ sub_9C36_анимация_гола_в_левые_ворота_и_сообщен�
                     .byte con_pause + $82
                     .byte con_s_bg_FF_skip
                     .byte con_s_anim_FF_skip
-                    .byte con_s_cloud_F0_default ; con_s_cloud_51
+                    .byte con_s_cloud_F0_default ; s_cloud_51
                     .byte con_jmp
                     .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14276,7 +14276,7 @@ sub_9C36_анимация_гола_в_левые_ворота_и_сообщен�
                     .byte con_pause + $82
                     .byte con_s_bg_FF_skip
                     .byte con_s_anim_FF_skip
-                    .byte con_s_cloud_F0_default ; con_s_cloud_53
+                    .byte con_s_cloud_F0_default ; s_cloud_53
                     .byte con_jmp
                     .word loc_A275_мерцание_фона_с_портретом_игроков
 
@@ -14287,7 +14287,7 @@ _scenario_B78C_31_gk_vs_attacker:
     .byte con_pause + $5A
     .byte con_s_bg_2C
     .byte con_s_anim_8B
-    .byte con_s_cloud_F0_default ; con_s_cloud_6F
+    .byte con_s_cloud_F0_default ; s_cloud_6F
     .byte con_rts
 
 
@@ -14345,11 +14345,11 @@ _scenario_9C04_33:
     .byte con_pause + $32
     .byte con_s_bg_0C
     .byte con_s_anim_4E
-    .byte con_s_cloud_F0_default ; con_s_cloud_70
+    .byte con_s_cloud_F0_default ; s_cloud_70
     .byte con_pause + $60
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_71
+    .byte con_s_cloud_F0_default ; s_cloud_71
     .byte con_soundID_delay, $31, $02
     .byte con_pause + $C0
     .byte con_s_bg_FF_skip
@@ -14368,7 +14368,7 @@ _scenario_BBCC_34:
     .byte con_pause + $30
     .byte con_s_bg_3C
     .byte con_s_anim_80
-    .byte con_s_cloud_F0_default ; con_s_cloud_E6
+    .byte con_s_cloud_F0_default ; s_cloud_E6
     .byte con_rts
 
 
@@ -14378,7 +14378,7 @@ _scenario_B7CD_35_wait_for_kick_off:
     .byte con_pause + $02
     .byte con_s_bg_3A
     .byte con_s_anim_8F
-    .byte con_s_cloud_F0_default ; con_s_cloud_73
+    .byte con_s_cloud_F0_default ; s_cloud_73
     .byte con_rts
 
 
@@ -14394,7 +14394,7 @@ _scenario_B7E4_36_kick_off:
     .byte con_pause + $20
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_74
+    .byte con_s_cloud_F0_default ; s_cloud_74
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $2B, $09
     .byte con_pause + $32
@@ -14410,7 +14410,7 @@ _scenario_B7E4_36_kick_off:
     .byte con_pause + $3E
     .byte con_s_bg_01
     .byte con_s_anim_E6
-    .byte con_s_cloud_F0_default ; con_s_cloud_75
+    .byte con_s_cloud_F0_default ; s_cloud_75
     .byte con_rts
 
 
@@ -14439,7 +14439,7 @@ _scenario_BDB3_39:
     .byte con_pause + $B0
     .byte con_s_bg_38
     .byte con_s_anim_85
-    .byte con_s_cloud_F0_default ; con_s_cloud_5B
+    .byte con_s_cloud_F0_default ; s_cloud_5B
     .byte con_rts
 
 
@@ -14450,7 +14450,7 @@ _scenario_B47C_3A:
     .byte con_pause + $3C
     .byte con_s_bg_72
     .byte con_s_anim_77
-    .byte con_s_cloud_F0_default ; con_s_cloud_47
+    .byte con_s_cloud_F0_default ; s_cloud_47
     .byte con_rts
 
 
@@ -14516,7 +14516,7 @@ _scenario_9FBA_3D:
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_25
+    .byte con_s_cloud_F0_default ; s_cloud_25
     .byte con_rts
 
 
@@ -14555,7 +14555,7 @@ _scenario_B754_3F:
             .byte con_pause + $5A
             .byte con_s_bg_69
             .byte con_s_anim_8D
-            .byte con_s_cloud_F0_default ; con_s_cloud_10
+            .byte con_s_cloud_F0_default ; s_cloud_10
             loc_B763_2F_проверка_на_наличие_защитников:
             loc_B763_3F_01_проверка_на_наличие_защитников:
             .dbyt con_branch_short + con_bra_напали_ли_защитники
@@ -14571,7 +14571,7 @@ _scenario_B754_3F:
                     .byte con_pause + $5A
                     .byte con_s_bg_FF_skip
                     .byte con_s_anim_FF_skip
-                    .byte con_s_cloud_F0_default ; con_s_cloud_6D
+                    .byte con_s_cloud_F0_default ; s_cloud_6D
                     .byte con_rts
 
         off_case_3F_01:
@@ -14579,7 +14579,7 @@ _scenario_B754_3F:
             .byte con_pause + $5A
             .byte con_s_bg_69
             .byte con_s_anim_8D
-            .byte con_s_cloud_F0_default ; con_s_cloud_0A
+            .byte con_s_cloud_F0_default ; s_cloud_0A
             .byte con_jmp
             .word loc_B763_3F_01_проверка_на_наличие_защитников
 
@@ -14589,7 +14589,7 @@ _scenario_BD95_40:
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_E9
+    .byte con_s_cloud_F0_default ; s_cloud_E9
     .byte con_rts
 
 
@@ -14598,7 +14598,7 @@ _scenario_BD9A_41:
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_EA
+    .byte con_s_cloud_F0_default ; s_cloud_EA
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14608,7 +14608,7 @@ _scenario_BDA6_42:
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_22
+    .byte con_s_cloud_F0_default ; s_cloud_22
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14619,7 +14619,7 @@ _scenario_BDAD_43:
     .byte con_pause + $46
     .byte con_s_bg_3A
     .byte con_s_anim_8F
-    .byte con_s_cloud_F0_default ; con_s_cloud_E4
+    .byte con_s_cloud_F0_default ; s_cloud_E4
     .byte con_rts
 
 
@@ -14641,7 +14641,7 @@ sub_B822_meon_говорит_что_drive_shot_бесполезен:
     .byte con_pause + $8C
     .byte con_s_bg_32
     .byte con_s_anim_face_p_meon_gremio
-    .byte con_s_cloud_F0_default ; con_s_cloud_79
+    .byte con_s_cloud_F0_default ; s_cloud_79
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14654,7 +14654,7 @@ sub_B82E_meon_говорит_что_с_трудом_отбил_удар:
     .byte con_pause + $64
     .byte con_s_bg_32
     .byte con_s_anim_face_p_meon_gremio
-    .byte con_s_cloud_F0_default ; con_s_cloud_7A
+    .byte con_s_cloud_F0_default ; s_cloud_7A
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -14667,7 +14667,7 @@ loc_B83A_tsubasa_замечает_слабость_meon_1й_раз:
     .byte con_pause + $5A
     .byte con_s_bg_30
     .byte con_s_anim_face_p_tsubasa_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_7B
+    .byte con_s_cloud_F0_default ; s_cloud_7B
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_mirror_toggle
@@ -14682,7 +14682,7 @@ sub_B848_tsubasa_замечает_слабость_meon_2й_раз:
     .byte con_pause + $5A
     .byte con_s_bg_30
     .byte con_s_anim_face_p_tsubasa_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_C3
+    .byte con_s_cloud_F0_default ; s_cloud_C3
     .byte con_soundID_delay, $31, $02
     .byte con_jsr
     .word sub_BBC7_очистка
@@ -14705,7 +14705,7 @@ loc_B859_катсцена_озарения:
     .byte con_pause + $B4
     .byte con_s_bg_4D
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_7C
+    .byte con_s_cloud_F0_default ; s_cloud_7C
     .byte con_pause + $B0
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14713,7 +14713,7 @@ loc_B859_катсцена_озарения:
     .byte con_pause + $C8
     .byte con_s_bg_3F
     .byte con_s_anim_DE
-    .byte con_s_cloud_F0_default ; con_s_cloud_7D
+    .byte con_s_cloud_F0_default ; s_cloud_7D
     .byte con_pause + $83
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14725,7 +14725,7 @@ loc_B859_катсцена_озарения:
     .byte con_pause + $9C
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_7E
+    .byte con_s_cloud_F0_default ; s_cloud_7E
     .byte con_pause + $9C
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14735,13 +14735,13 @@ loc_B859_катсцена_озарения:
     .byte con_pause + $56
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
-    .byte con_s_cloud_F0_default ; con_s_cloud_7F
+    .byte con_s_cloud_F0_default ; s_cloud_7F
     .byte con_soundID_delay, $52, $02
     .byte con_F7, $1F
     .byte con_pause + $90
     .byte con_s_bg_30
     .byte con_s_anim_face_p_tsubasa_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_80
+    .byte con_s_cloud_F0_default ; s_cloud_80
     .byte con_F7, $1F
     .byte con_pause + $90
     .byte con_s_bg_FF_skip
@@ -14763,7 +14763,7 @@ ofs_B9FB_01_активировать_drive_tiger:
     .byte con_pause + $A0
     .byte con_s_bg_30
     .byte con_s_anim_face_p_tsubasa_my
-    .byte con_s_cloud_F0_default ; con_s_cloud_96
+    .byte con_s_cloud_F0_default ; s_cloud_96
     .byte con_F7, $1F
     .byte con_pause + $80
     .byte con_s_bg_FF_skip
@@ -14781,7 +14781,7 @@ sub_BA2C_замах_и_удар_по_мячу_обычным_ударом:
     .byte con_pause + $28
     .byte con_s_bg_12
     .byte con_s_anim_61
-    .byte con_s_cloud_F0_default ; con_s_cloud_72
+    .byte con_s_cloud_F0_default ; s_cloud_72
     .byte con_F7, $0B
     .byte con_soundID_delay, $12, $02
     .byte con_pause + $10
@@ -14818,7 +14818,7 @@ loc_BA68_кипер_не_угадывает_сторону_в_пк:
 ;                    .byte con_pause + $3C
 ;                    .byte con_s_bg_0E
 ;                    .byte con_s_anim_27
-;                    .byte con_s_cloud_F0_default ; con_s_cloud_DD
+;                    .byte con_s_cloud_F0_default ; s_cloud_DD
 ;                    .byte con_soundID_delay, $7E, $02
 ;                    .byte con_jmp
 ;                    .word loc_BBC7_очистка
@@ -14830,7 +14830,7 @@ loc_BA68_кипер_не_угадывает_сторону_в_пк:
 ;                    .byte con_pause + $3C
 ;                    .byte con_s_bg_0F
 ;                    .byte con_s_anim_2B
-;                    .byte con_s_cloud_F0_default ; con_s_cloud_DD
+;                    .byte con_s_cloud_F0_default ; s_cloud_DD
 ;                    .byte con_soundID_delay, $7E, $02
 ;                    .byte con_jmp
 ;                    .word loc_BBC7_очистка
@@ -14854,7 +14854,7 @@ loc_BA7F_гол_при_ударе_11м:
             .byte con_pause + $64
             .byte con_s_bg_07
             .byte con_s_anim_44
-            .byte con_s_cloud_F0_default ; con_s_cloud_28
+            .byte con_s_cloud_F0_default ; s_cloud_28
             .byte con_rts
 
         off_case_BA7F_01:
@@ -14862,7 +14862,7 @@ loc_BA7F_гол_при_ударе_11м:
             .byte con_pause + $64
             .byte con_s_bg_07
             .byte con_s_anim_45
-            .byte con_s_cloud_F0_default ; con_s_cloud_28
+            .byte con_s_cloud_F0_default ; s_cloud_28
             .byte con_rts
 
 
@@ -14873,7 +14873,7 @@ loc_BADE_штанга_при_ударе_11м:
     .byte con_pause + $10
     .byte con_s_bg_06
     .byte con_s_anim_43
-    .byte con_s_cloud_F0_default ; con_s_cloud_18
+    .byte con_s_cloud_F0_default ; s_cloud_18
     .byte con_soundID_delay, $7E, $02
     .byte con_pause + $3C
     .byte con_s_bg_1E
@@ -15030,7 +15030,7 @@ loc_BBDA:
     .byte con_pause + $3C
     .byte con_s_bg_72
     .byte con_s_anim_66
-    .byte con_s_cloud_F0_default ; con_s_cloud_59
+    .byte con_s_cloud_F0_default ; s_cloud_59
     .byte con_rts
 
 
@@ -15039,7 +15039,7 @@ _scenario_BDB8_45:
     .byte con_pause + $B0
     .byte con_s_bg_38
     .byte con_s_anim_85
-    .byte con_s_cloud_F0_default ; con_s_cloud_sudden_death_в_пк
+    .byte con_s_cloud_F0_default ; s_cloud_sudden_death_в_пк
     .byte con_rts
 
 
@@ -15057,7 +15057,7 @@ _scenario_BDBD_46:
             .byte con_pause + $78
             .byte con_s_bg_30
             .byte con_s_anim_face_p_tsubasa_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_4A
+            .byte con_s_cloud_F0_default ; s_cloud_4A
             .byte con_jsr
             .word sub_AD13
             .byte con_jmp
@@ -15073,7 +15073,7 @@ _scenario_BDBD_46:
             .byte con_pause + $78
             .byte con_s_bg_30
             .byte con_s_anim_face_p_tsubasa_my
-            .byte con_s_cloud_F0_default ; con_s_cloud_4A
+            .byte con_s_cloud_F0_default ; s_cloud_4A
             .byte con_soundID_delay, $2B, $19
             .byte con_pause + $28
             .byte con_s_bg_29
@@ -15108,7 +15108,7 @@ _scenario_9C19_47:
     .byte con_pause + $5A
     .byte con_s_bg_30
     .byte con_s_anim_face_p_diaz_argentina
-    .byte con_s_cloud_F0_default ; con_s_cloud_78
+    .byte con_s_cloud_F0_default ; s_cloud_78
     .byte con_jmp
     .word loc_BBC7_очистка
 
@@ -15640,7 +15640,7 @@ loc_B01B_overhead_без_очистки:
     .byte con_pause + $64
     .byte con_s_bg_4C
     .byte con_s_anim_BF
-    .byte con_s_cloud_F0_default ; con_s_cloud_49
+    .byte con_s_cloud_F0_default ; s_cloud_49
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -15699,7 +15699,7 @@ sub_BF00_защитник_отбирает_ногой_мяч_у_атакующе
     .byte con_pause + $46
     .byte con_s_bg_57
     .byte con_s_anim_2E
-    .byte con_s_cloud_F0_default ; con_s_cloud_05
+    .byte con_s_cloud_F0_default ; s_cloud_05
     .byte con_mirror_toggle
     .byte con_rts
 
@@ -15711,7 +15711,7 @@ loc_BF01_успешный_отбор_мяча_подкатом_с_убийств
     .byte con_pause + $3C
     .byte con_s_bg_57
     .byte con_s_anim_15
-    .byte con_s_cloud_F0_default ; con_s_cloud_03
+    .byte con_s_cloud_F0_default ; s_cloud_03
     .byte con_rts
 
 
@@ -15720,7 +15720,7 @@ loc_BF02_защитник_промахивается_ногой_по_высок�
     .byte con_pause + $3C
     .byte con_s_bg_6C
     .byte con_s_anim_06
-    .byte con_s_cloud_F0_default ; con_s_cloud_07
+    .byte con_s_cloud_F0_default ; s_cloud_07
     .byte con_rts
 
 
@@ -15736,13 +15736,13 @@ sub_BF03_ishizaki_face_block_в_процессе:
     .byte con_pause + $23
     .byte con_s_bg_6A
     .byte con_s_anim_BD
-    .byte con_s_cloud_F0_default ; con_s_cloud_56
+    .byte con_s_cloud_F0_default ; s_cloud_56
     .byte con_jsr
     .word sub_BBC7_очистка
     .byte con_pause + $3C
     .byte con_s_bg_1F
     .byte con_s_anim_13
-    .byte con_s_cloud_F0_default ; con_s_cloud_57
+    .byte con_s_cloud_F0_default ; s_cloud_57
     .byte con_rts
 
 
