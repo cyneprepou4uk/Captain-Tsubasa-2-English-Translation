@@ -220,18 +220,18 @@ C - - - - - 0x02011A 10:810A: 20 6E 81  JSR sub_816E_выбор_подпрогр
                                         ASL
                                         ASL
                                         ASL
-                                        STA $00F8
+                                        STA ram_00F8_tmp
                                         TAY
 
                                         LDA ram_debug_индекс_подтипов_сценария,Y
                                         CLC
-                                        ADC $00F8
+                                        ADC ram_00F8_tmp
                                         TAY
 
                                         TXA
                                         STA ram_debug_подтип_сценария,Y
                                         TAX ; требуется чтобы удобно было менять значение регистра в A и X одновременно когда бряк сработает
-                                        LDY $00F8
+                                        LDY ram_00F8_tmp
                                         LDA ram_debug_индекс_подтипов_сценария,Y
                                         CLC
                                         ADC #$01

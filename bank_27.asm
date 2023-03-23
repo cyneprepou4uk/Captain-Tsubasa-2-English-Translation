@@ -282,7 +282,7 @@ con_слово_ball                  = $F5 ; ボール
 con_слово_goal                  = $F6 ; ゴール
 con_тильда                      = $F7 ; указывается количество символов
 con_слово_okay                  = $F8 ; タイ
-; con_F9                        = $F9 ; 
+con_вывести_инфу_о_сценарии     = $F9 ; new
 ; con_FA                        = $FA ; 
 ; con_FB                        = $FB ; 
 con_line                        = $FC ; если байт после линии читается, то это уже новое облако
@@ -294,10 +294,20 @@ con_line                        = $FC ; если байт после линии 
 
 _cloud_0x0000F0_F0_default:
     .byte con_pause + $01
-    .byte con_charlie + $00
+    .byte con_charlie + $80
     .byte con_window + $06
-    .byte con_start_line + $03
-    .text "  default cloud F0  ", con_line
+    .byte con_start_line + $00
+    .text "scenario "
+    .byte con_вывести_инфу_о_сценарии, $FF
+    .text ", subs:"
+    .byte con_line
+    
+    .byte con_вывести_инфу_о_сценарии, $00
+    .byte con_line
+    .byte con_вывести_инфу_о_сценарии, $01
+    .byte con_line
+    .byte con_вывести_инфу_о_сценарии, $02
+    .byte con_line
     .byte con_F0_exit
 
 
