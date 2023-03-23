@@ -393,7 +393,7 @@ C - - - - - 0x000231 00:8221: F0 0C     BEQ bra_822F_не_воспроизвод
 C - - - - - 0x000233 00:8223: 20 64 84  JSR sub_8464_воспроизвести_катсцену
 C - - - - - 0x000236 00:8226: 20 B5 82  JSR sub_82B5_попытка_пропуска_катсцены
 C - - - - - 0x000239 00:8229: A5 E0     LDA ram_00E0
-C - - - - - 0x00023B 00:822B: 29 BF     AND #$BF
+C - - - - - 0x00023B 00:822B: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x00023D 00:822D: 85 E0     STA ram_00E0
 bra_822F_не_воспроизводить_катсцену:
 C - - - - - 0x00023F 00:822F: AE 26 00  LDX ram_матч
@@ -974,41 +974,41 @@ tbl_8545_управляющие_байты_катсцены:
 
 
 ofs_001_8572_E5_тренер_затереть_текст:
-    JSR sub_88AF_затирание_текста_тренера
-    JMP loc_8574
+                                        JSR sub_88AF_затирание_текста_тренера
+                                        JMP loc_8574
 
 
 
 ofs_001_8573_E6_частично_затереть_текст:
-    JSR sub_88B0_частичное_затирание_текста
+                                        JSR sub_88B0_частичное_затирание_текста
 loc_8574:
-    LDA #$04
-    JSR sub_9FA8_задержка_кадра
-    LDA #$01
-    JMP loc_8887
+                                        LDA #$04
+                                        JSR sub_9FA8_задержка_кадра
+                                        LDA #$01
+                                        JMP loc_8887
 
 
 
 ofs_001_8574_E7_смещение_текста:
-    INY
-    LDA (ram_004D),Y
-    STA ram_temp_2
-    BPL @сместить_вправо
-    AND #$7F    ; иначе сместить влево
-    EOR #$FF
-    CLC
-    ADC #$01
+                                        INY
+                                        LDA (ram_004D),Y
+                                        STA ram_temp_2
+                                        BPL @сместить_вправо
+                                        AND #$7F    ; иначе сместить влево
+                                        EOR #$FF
+                                        CLC
+                                        ADC #$01
 @сместить_вправо:
-    CLC
-    ADC ram_0053
-    STA ram_0053
-    BCC @пропуск
-    BIT ram_temp_2
-    BMI @пропуск
-    INC ram_0052
+                                        CLC
+                                        ADC ram_0053
+                                        STA ram_0053
+                                        BCC @пропуск
+                                        BIT ram_temp_2
+                                        BMI @пропуск
+                                        INC ram_0052
 @пропуск:
-    LDA #$02
-    JMP loc_8879_сместить_указатель_байтов_катсцены
+                                        LDA #$02
+                                        JMP loc_8879_сместить_указатель_байтов_катсцены
 
 
 
@@ -1589,21 +1589,21 @@ C - - - - - 0x0008BE 00:88AE: 4C 06 A2  JMP loc_0x0042F8
 
 
 sub_88AF_затирание_текста_тренера:
-    LDX #$02
-    BNE bra_88B1    ; jmp
+                                        LDX #$02
+                                        BNE bra_88B1    ; jmp
 
 
 
 sub_88B0_частичное_затирание_текста:
-    LDX #$09
+                                        LDX #$09
 bra_88B1:
-    LDA ram_0054
-    PHA
-    STX ram_0054
-    JSR sub_88B1_затирание_текста
-    PLA
-    STA ram_0054
-    RTS
+                                        LDA ram_0054
+                                        PHA
+                                        STX ram_0054
+                                        JSR sub_88B1_затирание_текста
+                                        PLA
+                                        STA ram_0054
+                                        RTS
 
 
 
@@ -1628,14 +1628,14 @@ C - - - - - 0x0008D7 00:88C7: 4C E8 98  JMP loc_98E8_затереть_часть
 
 sub_88CA_запись_символа_в_буфер:
 sub_0x0008DA_запись_символа_в_буфер:
-    PHA
-    LDA #$01
-    JSR sub_9B28_подготовить_буфер
-    PLA
-    STA ram_05E8,X
-    INX
-    JSR sub_9B5E_закрыть_буфер
-    RTS
+                                        PHA
+                                        LDA #$01
+                                        JSR sub_9B28_подготовить_буфер
+                                        PLA
+                                        STA ram_05E8,X
+                                        INX
+                                        JSR sub_9B5E_закрыть_буфер
+                                        RTS
 
 
 
@@ -3331,7 +3331,7 @@ C - - - - - 0x0013A7 00:9397: 4C AE 94  JMP loc_94AE
 ofs_003_939A_F6:
 C - - - - - 0x0013AA 00:939A: A0 00     LDY #$00
 C - - - - - 0x0013AC 00:939C: B1 94     LDA (ram_0094),Y
-C - - - - - 0x0013AE 00:939E: 29 BF     AND #$BF
+C - - - - - 0x0013AE 00:939E: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x0013B0 00:93A0: 91 94     STA (ram_0094),Y
 C - - - - - 0x0013B2 00:93A2: A9 01     LDA #$01
 C - - - - - 0x0013B4 00:93A4: 4C AE 94  JMP loc_94AE
@@ -3466,7 +3466,7 @@ C - - - - - 0x00147D 00:946D: 20 D8 94  JSR sub_94D8_чтение_байтов_�
 C - - - - - 0x001480 00:9470: A5 99     LDA ram_0099
 C - - - - - 0x001482 00:9472: C9 FE     CMP #$FE
 C - - - - - 0x001484 00:9474: F0 0C     BEQ bra_9482_FE
-C - - - - - 0x001486 00:9476: 29 BF     AND #$BF
+C - - - - - 0x001486 00:9476: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x001488 00:9478: 85 99     STA ram_0099
 bra_947A:
 C - - - - - 0x00148A 00:947A: A9 01     LDA #$01
@@ -4089,7 +4089,7 @@ C - - - - - 0x0017ED 00:97DD: A0 00     LDY #$00
 C - - - - - 0x0017EF 00:97DF: B1 E6     LDA (ram_00E6),Y
 C - - - - - 0x0017F1 00:97E1: A4 E8     LDY ram_00E8
 C - - - - - 0x0017F3 00:97E3: 85 E8     STA ram_00E8
-C - - - - - 0x0017F5 00:97E5: 29 BF     AND #$BF
+C - - - - - 0x0017F5 00:97E5: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x0017F7 00:97E7: 20 28 9B  JSR sub_9B28_подготовить_буфер
 C - - - - - 0x0017FA 00:97EA: A5 E8     LDA ram_00E8
 C - - - - - 0x0017FC 00:97EC: 29 3F     AND #$3F
@@ -4249,90 +4249,90 @@ sub_0x0018F8_затереть_часть_экрана:
     ; Y - количество строк
     ; 00E6 - начальный адрес 2006 (lo)
     ; 00E7 - начальный адрес 2006 (hi)
-    LDA #$00
+                                        LDA #$00
 sub_98EA_замостить_часть_экрана_тайлом:
 loc_98EA_замостить_часть_экрана_тайлом:
 sub_0x0018FA_замостить_часть_экрана_тайлом:
 ; на вход подается
     ; A - номер тайла
     ; + все что выше
-    STA ram_00EB
-    LDA ram_степень_яркости_фона
-    ORA ram_степень_яркости_спрайтов
-    BEQ bra_992C
+                                        STA ram_00EB
+                                        LDA ram_степень_яркости_фона
+                                        ORA ram_степень_яркости_спрайтов
+                                        BEQ bra_992C
 loc_98F2:
-    STY ram_00E8
-    STX ram_00E9
+                                        STY ram_00E8
+                                        STX ram_00E9
 bra_98F6_loop:
-    LDA ram_00E9
-    LDY ram_00E6
-    LDX ram_00E7
-    JSR sub_9B28_подготовить_буфер
-    LDY ram_00E9
-    LDA ram_00EB
+                                        LDA ram_00E9
+                                        LDY ram_00E6
+                                        LDX ram_00E7
+                                        JSR sub_9B28_подготовить_буфер
+                                        LDY ram_00E9
+                                        LDA ram_00EB
 bra_9903_loop:
-    STA ram_05E8,X
-    INX
-    DEY
-    BNE bra_9903_loop
-    JSR sub_9B5E_закрыть_буфер
-    LDA ram_00E8
-    BPL bra_9916
-    LDA #$01
-    JSR sub_9FA8_задержка_кадра
+                                        STA ram_05E8,X
+                                        INX
+                                        DEY
+                                        BNE bra_9903_loop
+                                        JSR sub_9B5E_закрыть_буфер
+                                        LDA ram_00E8
+                                        BPL bra_9916
+                                        LDA #$01
+                                        JSR sub_9FA8_задержка_кадра
 bra_9916:
-    LDA ram_00E6
-    CLC
-    ADC #< $0020
-    STA ram_00E6
-    LDA ram_00E7
-    ADC #> $0020
-    STA ram_00E7
-    DEC ram_00E8
-    LDA ram_00E8
-    AND #$7F
-    BNE bra_98F6_loop
-    RTS
+                                        LDA ram_00E6
+                                        CLC
+                                        ADC #< $0020
+                                        STA ram_00E6
+                                        LDA ram_00E7
+                                        ADC #> $0020
+                                        STA ram_00E7
+                                        DEC ram_00E8
+                                        LDA ram_00E8
+                                        AND #$7F
+                                        BNE bra_98F6_loop
+                                        RTS
 bra_992C:
-    LDA ram_0020
-    AND #$7F
-    STA $2000
-    STA ram_0020
-    LDA ram_for_2001
-    AND #$E7
-    STA $2001
-    STA ram_for_2001
-    STX ram_00E9
-    STY ram_00E8
+                                        LDA ram_0020
+                                        AND #$7F
+                                        STA $2000
+                                        STA ram_0020
+                                        LDA ram_for_2001
+                                        AND #$E7
+                                        STA $2001
+                                        STA ram_for_2001
+                                        STX ram_00E9
+                                        STY ram_00E8
 bra_9942:
-    LDY ram_00E9
-    LDA ram_00E7
-    STA $2006
-    LDA ram_00E6
-    STA $2006
-    LDA ram_00EB
+                                        LDY ram_00E9
+                                        LDA ram_00E7
+                                        STA $2006
+                                        LDA ram_00E6
+                                        STA $2006
+                                        LDA ram_00EB
 bra_9950_loop:
-    STA $2007
-    DEY
-    BNE bra_9950_loop
-    LDA ram_00E6
-    CLC
-    ADC #< $0020
-    STA ram_00E6
-    LDA ram_00E7
-    ADC #> $0020
-    STA ram_00E7
-    DEC ram_00E8
-    BNE bra_9942
-    LDA ram_for_2001
-    ORA #$18
-    STA $2001
-    STA ram_for_2001
-    LDA ram_0020
-    ORA #$80
-    STA ram_0020
-    STA $2000
-    RTS
+                                        STA $2007
+                                        DEY
+                                        BNE bra_9950_loop
+                                        LDA ram_00E6
+                                        CLC
+                                        ADC #< $0020
+                                        STA ram_00E6
+                                        LDA ram_00E7
+                                        ADC #> $0020
+                                        STA ram_00E7
+                                        DEC ram_00E8
+                                        BNE bra_9942
+                                        LDA ram_for_2001
+                                        ORA #$18
+                                        STA $2001
+                                        STA ram_for_2001
+                                        LDA ram_0020
+                                        ORA #$80
+                                        STA ram_0020
+                                        STA $2000
+                                        RTS
 
 
 
@@ -4637,7 +4637,7 @@ C - - - - - 0x001B5B 00:9B4B: 9D EA 05  STA ram_облако,X
 C - - - - - 0x001B5E 00:9B4E: 98        TYA
 C - - - - - 0x001B5F 00:9B4F: 9D E9 05  STA ram_таймер_облака_ХЗ,X
 C - - - - - 0x001B62 00:9B52: AD 29 06  LDA ram_0629
-C - - - - - 0x001B65 00:9B55: 29 BF     AND #$BF
+C - - - - - 0x001B65 00:9B55: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x001B67 00:9B57: 9D E8 05  STA ram_05E8,X
 C - - - - - 0x001B6A 00:9B5A: E8        INX
 C - - - - - 0x001B6B 00:9B5B: E8        INX
@@ -4653,7 +4653,7 @@ C D - - - - 0x001B6E 00:9B5E: A9 00     LDA #$00
 C - - - - - 0x001B70 00:9B60: 9D E8 05  STA ram_05E8,X
 C - - - - - 0x001B73 00:9B63: 8E 28 06  STX ram_индекс_буфера
 C - - - - - 0x001B76 00:9B66: AD 29 06  LDA ram_0629
-C - - - - - 0x001B79 00:9B69: 29 BF     AND #$BF
+C - - - - - 0x001B79 00:9B69: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x001B7B 00:9B6B: 8D 29 06  STA ram_0629
 C - - - - - 0x001B7E 00:9B6E: 60        RTS
 
@@ -4715,6 +4715,7 @@ C - - - - - 0x001BBE 00:9BAE: 18        CLC
 C - - - - - 0x001BBF 00:9BAF: 65 44     ADC ram_0044
 C - - - - - 0x001BC1 00:9BB1: C9 F0     CMP #$F0
 C - - - - - 0x001BC3 00:9BB3: 90 04     BCC bra_9BB9
+; C = 1
 C - - - - - 0x001BC5 00:9BB5: 69 0F     ADC #$0F
 C - - - - - 0x001BC7 00:9BB7: E6 45     INC ram_0045
 bra_9BB9:
@@ -4725,6 +4726,7 @@ C - - - - - 0x001BCC 00:9BBC: 18        CLC
 C - - - - - 0x001BCD 00:9BBD: 65 44     ADC ram_0044
 C - - - - - 0x001BCF 00:9BBF: C9 F0     CMP #$F0
 C - - - - - 0x001BD1 00:9BC1: 90 04     BCC bra_9BC7
+; C = 1
 C - - - - - 0x001BD3 00:9BC3: E9 10     SBC #$10
 C - - - - - 0x001BD5 00:9BC5: C6 45     DEC ram_0045
 bra_9BC7:
@@ -4880,6 +4882,7 @@ C - - - - - 0x001C9B 00:9C8B: F0 E8     BEQ bra_9C75_loop
 C - - - - - 0x001C9D 00:9C8D: AD 5C 05  LDA ram_055C
 C - - - - - 0x001CA0 00:9C90: C9 B8     CMP #$B8
 C - - - - - 0x001CA2 00:9C92: 90 03     BCC bra_9C97
+; C = 1, bzk optimize
 C - - - - - 0x001CA4 00:9C94: 38        SEC
 C - - - - - 0x001CA5 00:9C95: E9 10     SBC #$10
 bra_9C97:
@@ -5214,46 +5217,46 @@ C - - - - - 0x001E8B 00:9E7B: 60        RTS
 sub_0x001E8C_перевод_из_HEX_в_DEC:
 ; на вход в A подается байт, который нужно перевести в DEC
 ; на выходе DEC число будет храниться в 00ED (сотни) и 00EC (десятки + единицы)
-    STA ram_00ED
-    LDA #$0A
-    STA ram_00EC
-    JSR sub_9E36_конвертация
-    LDA ram_00EA
-    STA ram_00EB
-    JSR sub_9E36_конвертация
-    LDA ram_00EA
-    ASL
-    ASL
-    ASL
-    ASL
-    ORA ram_00EB
-    STA ram_00EB
-    JSR sub_9E36_конвертация
-    LDA ram_00EA
-    STA ram_00ED
-    LDA ram_00EB
-    STA ram_00EC
-    RTS
+                                        STA ram_00ED
+                                        LDA #$0A
+                                        STA ram_00EC
+                                        JSR sub_9E36_конвертация
+                                        LDA ram_00EA
+                                        STA ram_00EB
+                                        JSR sub_9E36_конвертация
+                                        LDA ram_00EA
+                                        ASL
+                                        ASL
+                                        ASL
+                                        ASL
+                                        ORA ram_00EB
+                                        STA ram_00EB
+                                        JSR sub_9E36_конвертация
+                                        LDA ram_00EA
+                                        STA ram_00ED
+                                        LDA ram_00EB
+                                        STA ram_00EC
+                                        RTS
 
 
 
 sub_9E36_конвертация:
-    LDA #$00
-    STA ram_00EA
-    LDX #$08
+                                        LDA #$00
+                                        STA ram_00EA
+                                        LDX #$08
 bra_9E3C_loop:
-    ASL ram_00ED
-    ROL ram_00EA
-    LDA ram_00EA
-    SEC
-    SBC ram_00EC
-    BCC bra_9E4B
-    STA ram_00EA
-    INC ram_00ED
+                                        ASL ram_00ED
+                                        ROL ram_00EA
+                                        LDA ram_00EA
+                                        SEC
+                                        SBC ram_00EC
+                                        BCC bra_9E4B
+                                        STA ram_00EA
+                                        INC ram_00ED
 bra_9E4B:
-    DEX
-    BNE bra_9E3C_loop
-    RTS
+                                        DEX
+                                        BNE bra_9E3C_loop
+                                        RTS
 
 
 

@@ -1308,7 +1308,7 @@ C - - - - - 0x03889A 1C:888A: 8D 2F 00  STA ram_защита_справа
 C - - - - - 0x03889D 1C:888D: A9 00     LDA #$00
 C - - - - - 0x03889F 1C:888F: 8D 2D 06  STA ram_062D
 C - - - - - 0x0388A2 1C:8892: AD 15 06  LDA ram_0615
-C - - - - - 0x0388A5 1C:8895: 29 BF     AND #$BF
+C - - - - - 0x0388A5 1C:8895: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x0388A7 1C:8897: 8D 15 06  STA ram_0615
 C - - - - - 0x0388AA 1C:889A: A9 15     LDA #con_s_id_15
 C - - - - - 0x0388AC 1C:889C: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
@@ -1333,7 +1333,7 @@ C - - - - - 0x0388CC 1C:88BC: 8D F2 03  STA ram_03F2
 C - - - - - 0x0388CF 1C:88BF: A9 00     LDA #$00
 C - - - - - 0x0388D1 1C:88C1: 8D 2D 06  STA ram_062D
 C - - - - - 0x0388D4 1C:88C4: AD 15 06  LDA ram_0615
-C - - - - - 0x0388D7 1C:88C7: 29 BF     AND #$BF
+C - - - - - 0x0388D7 1C:88C7: 29 BF     AND #40 ^ $FF
 C - - - - - 0x0388D9 1C:88C9: 8D 15 06  STA ram_0615
 C - - - - - 0x0388DC 1C:88CC: A9 16     LDA #con_s_id_16
 C - - - - - 0x0388DE 1C:88CE: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария

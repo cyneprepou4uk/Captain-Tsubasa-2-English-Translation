@@ -2031,7 +2031,7 @@ C - - - - - 0x03D213 FF:D203: F0 1A     BEQ bra_D21F_RTS
 C - - - - - 0x03D215 FF:D205: A9 00     LDA #$00
 C - - - - - 0x03D217 FF:D207: 8D 2D 06  STA ram_062D
 C - - - - - 0x03D21A FF:D20A: AD 15 06  LDA ram_0615
-C - - - - - 0x03D21D FF:D20D: 29 BF     AND #$BF
+C - - - - - 0x03D21D FF:D20D: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x03D21F FF:D20F: 8D 15 06  STA ram_0615
 C - - - - - 0x03D222 FF:D212: A9 43     LDA #con_s_id_43
 C - - - - - 0x03D224 FF:D214: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -4729,7 +4729,7 @@ C - - - - - 0x03E382 FF:E372: A2 40     LDX #$40
 bra_E374:
 C - - - - - 0x03E384 FF:E374: 8E 17 05  STX ram_0517
 C - - - - - 0x03E387 FF:E377: AD 15 06  LDA ram_0615
-C - - - - - 0x03E38A FF:E37A: 29 BF     AND #$BF
+C - - - - - 0x03E38A FF:E37A: 29 BF     AND #$40 ^ $FF
 C - - - - - 0x03E38C FF:E37C: 8D 15 06  STA ram_0615
 C - - - - - 0x03E38F FF:E37F: 4C C9 E3  RTS
 bra_E382:
