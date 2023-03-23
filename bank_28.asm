@@ -25,6 +25,7 @@ con_F0_exit                     = $F0 ;
 con_F2_очистить_облако          = $F2 ; 
 con_F3_jump                     = $F3 ; 
 con_F4_выбор_облака             = $F4 ; 
+con_F5                          = $F5 ; очистить облако и записать таймер
 
 ; байты в тексте 0x03036E
 con_действие_атаки              = $E0 ; 
@@ -73,7 +74,7 @@ _cloud_0x000073_73:
     .word off_A302_ожидание_7
 
 off_9F52_ожидание_1:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     .byte con_charlie + $08
     .byte con_window + $00
@@ -146,7 +147,7 @@ off_9FBF_храп_чарли:
 
 
 off_9FE1_ожидание_2:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     .byte con_charlie + $0C
     .byte con_window + $02
@@ -231,7 +232,7 @@ off_A06D_peace_чарли_частичное:
 
 
 off_A08B_ожидание_3:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     .byte con_charlie + $04
     .byte con_window + $00
@@ -299,7 +300,7 @@ off_A08B_ожидание_3:
 
 
 off_A12A_ожидание_4:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     
     .byte con_charlie + $0C
@@ -421,7 +422,7 @@ off_A159_цикл_караоке:
 
 
 off_A225_ожидание_5:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     
     .byte con_charlie + $09
@@ -462,7 +463,7 @@ off_A225_ожидание_5:
 
 
 off_A292_ожидание_6:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     
     .byte con_charlie + $01
@@ -512,7 +513,7 @@ off_A292_ожидание_6:
 
 
 off_A302_ожидание_7:
-    .byte $F5, $02
+    .byte con_F5, $02
     .byte con_pause + $E8
     
     .byte con_charlie + $0C
