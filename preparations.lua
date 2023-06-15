@@ -1,9 +1,9 @@
-time = os.clock()       --record script execution time
+local time = os.clock()       --record script execution time
 
 
 --список файлов для подготовки перед конвертацией
 --list of files which need to be prepared before compilation
-files_list = {
+local files_list = {
     "bank_00.asm",
     "bank_01.asm",
     "bank_02.asm",
@@ -51,7 +51,7 @@ files_list = {
 --convert text into corresponding bytes
     --try to place most common characters at the top, so the script will work a bit faster
 --WARNING: do not use " character for " itself in the files, instead use @ for example, like .text "@hello@"
-translation = {
+local translation = {
     [" "] = "$20",
     
     ["A"] = "$41",      ["a"] = "$61",
@@ -112,13 +112,13 @@ translation = {
 
 --если скрипт не нашел совпадений по таблице перевода, он заменяет символ на байт $30 (обычно это 0)
 --in case the script can't find a match, it will replace a character with $30 (usually it's a zero)
-unknown_character = "$30"
+local unknown_character = "$30"
 
 
 
 --конвертация остальных русских символов в английские
 --convert the rest of the text, which is labels and variables, into english
-english_labels = {
+local english_labels = {
     "А",    "A",        "а",    "a",
     "Б",    "B",        "б",    "b",
     "В",    "V",        "в",    "v",
@@ -160,7 +160,7 @@ english_labels = {
 
 --вспомогательная подпрограмма для вывода возможных ошибок при работе с файлами
 --potential file error subroutine like "can't access file" or something
-function PrintError(err)
+local function PrintError(err)
     print("\n"..err.."\nPress Enter to exit")
     io.read()
 end
@@ -316,7 +316,7 @@ while true do
     end
     
     --проверка что итоговое чисто стопудово hex число, в таком случае создать коммент
-    result = tonumber(address, 16)
+    local result = tonumber(address, 16)
     if result ~= nil then
         tbl[result + 1] = string.sub(line, 0, find_start - 1)
     end
