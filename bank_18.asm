@@ -9013,3 +9013,4 @@ off_BD32:       ; unused <クリアー>
 
 
 
+.out .sprintf("Free bytes in bank 18: %04X [%d]", ($C000 - *), ($C000 - *))

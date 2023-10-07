@@ -4929,6 +4929,9 @@ C - - - - - 0x03E4E4 FF:E4D4: 4C 03 80  JMP loc_0x03404C
 
 
 
+.out .sprintf("Free bytes in bank FE: %04X [%d]", ($8000 - *), ($8000 - *))
+
+
 
 
 
@@ -7340,6 +7343,10 @@ tbl_FBCC_палитра:
 - D 3 - I - 0x03FD17 FF:FD07: 0F        .byte $0F, $0F, $27
 - D 3 - I - 0x03FD1A FF:FD0A: 0F        .byte $0F, $30, $0F
 - D 3 - I - 0x03FD1D FF:FD0D: 0F        .byte $0F, $36, $30
+
+
+
+.out .sprintf("Free bytes in bank FF: %04X [%d]", ($FFB0 - *), ($FFB0 - *))
 
 
 

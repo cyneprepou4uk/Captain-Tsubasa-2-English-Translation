@@ -606,3 +606,4 @@ _off014_BFCE_60_перед_матчем_japan:
 
 
 
+.out .sprintf("Free bytes in bank 05: %04X [%d]", ($C000 - *), ($C000 - *))

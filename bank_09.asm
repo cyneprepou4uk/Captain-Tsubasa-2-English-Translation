@@ -6258,3 +6258,4 @@ off_BAA9:
 
 
 
+.out .sprintf("Free bytes in bank 09: %04X [%d]", ($C000 - *), ($C000 - *))

@@ -12638,3 +12638,4 @@ tbl_BACF:
 
 
 
+.out .sprintf("Free bytes in bank 14: %04X [%d]", ($C000 - *), ($C000 - *))

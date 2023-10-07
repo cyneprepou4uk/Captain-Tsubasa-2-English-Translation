@@ -2493,3 +2493,4 @@ con_E7_endline              = $E7   ; закончить чтение текст
 
 
 
+.out .sprintf("Free bytes in bank 13: %04X [%d]", ($C000 - *), ($C000 - *))

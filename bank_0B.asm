@@ -3310,3 +3310,4 @@ tbl_9BE4_атрибуты_блоков_32x32:
 
 
 
+.out .sprintf("Free bytes in bank 0B: %04X [%d]", ($A000 - *), ($A000 - *))

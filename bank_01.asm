@@ -4862,3 +4862,4 @@ off_BFBB_названия_действий_кипера:
 
 
 
+.out .sprintf("Free bytes in bank 01: %04X [%d]", ($C000 - *), ($C000 - *))

@@ -19283,3 +19283,4 @@ _off008_BFAC_D5:
 
 
 
+.out .sprintf("Free bytes in bank 16: %04X [%d]", ($C000 - *), ($C000 - *))
