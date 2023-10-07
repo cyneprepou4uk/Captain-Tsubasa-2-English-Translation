@@ -152,7 +152,8 @@ if %size% EQU 786448 (
         echo Backup created
     )
     echo --------------------------------------------
-    timeout /T 10
+    echo Script will close automatically in 30 seconds.
+    timeout /T 30 > nul
 ) else (
     echo.
     echo --------------------------------------------------
