@@ -11321,4 +11321,4 @@ off_B861_0B:
 
 
 
-.out .sprintf("Free bytes in bank 1A: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 1A: 0x%04X [%d]", ($C000 - *), ($C000 - *))

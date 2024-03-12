@@ -1953,4 +1953,4 @@ tbl_0x00DF10:
 
 
 
-.out .sprintf("Free bytes in bank 06: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 06: 0x%04X [%d]", ($C000 - *), ($C000 - *))

@@ -590,4 +590,4 @@ off_A3A6_loop:
 
 
 
-.out .sprintf("Free bytes in bank 28: %04X [%d]", ($E000 - *), ($E000 - *))
+.out .sprintf("Free bytes in bank 28: 0x%04X [%d]", ($E000 - *), ($E000 - *))

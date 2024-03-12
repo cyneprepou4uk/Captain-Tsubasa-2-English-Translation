@@ -8200,4 +8200,4 @@ loc_E8_9FF9:
 
 
 
-.out .sprintf("Free bytes in bank 0C: %04X [%d]", ($A000 - *), ($A000 - *))
+.out .sprintf("Free bytes in bank 0C: 0x%04X [%d]", ($A000 - *), ($A000 - *))

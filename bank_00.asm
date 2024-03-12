@@ -5450,4 +5450,4 @@ C - - - - - 0x001FF2 00:9FE2: 4C FB 9E  JMP loc_9EFB
 
 
 
-.out .sprintf("Free bytes in bank 00: %04X [%d]", ($A000 - *), ($A000 - *))
+.out .sprintf("Free bytes in bank 00: 0x%04X [%d]", ($A000 - *), ($A000 - *))

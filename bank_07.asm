@@ -4633,4 +4633,4 @@ _off012_AFD9_69_коридор_дырка_в_стене:
 
 
 
-.out .sprintf("Free bytes in bank 07: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 07: 0x%04X [%d]", ($C000 - *), ($C000 - *))

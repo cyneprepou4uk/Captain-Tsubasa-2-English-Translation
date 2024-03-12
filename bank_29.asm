@@ -840,4 +840,4 @@ _фраза_нападающего_3F:
 
 
 
-.out .sprintf("Free bytes in bank 29: %04X [%d]", ($E000 - *), ($E000 - *))
+.out .sprintf("Free bytes in bank 29: 0x%04X [%d]", ($E000 - *), ($E000 - *))

@@ -1404,4 +1404,4 @@ off_BED6:
 
 
 
-.out .sprintf("Free bytes in bank 04: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 04: 0x%04X [%d]", ($C000 - *), ($C000 - *))

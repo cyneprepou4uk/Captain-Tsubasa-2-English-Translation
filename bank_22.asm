@@ -2258,4 +2258,4 @@ _off014_AC95_16_разговор_репортеров:
 
 
 
-.out .sprintf("Free bytes in bank 22: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 22: 0x%04X [%d]", ($C000 - *), ($C000 - *))

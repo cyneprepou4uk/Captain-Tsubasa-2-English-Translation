@@ -1501,4 +1501,4 @@ _off014_B6C8_0E_мисаки_и_хюга_перед_матчем:
 
 
 
-.out .sprintf("Free bytes in bank 20: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 20: 0x%04X [%d]", ($C000 - *), ($C000 - *))

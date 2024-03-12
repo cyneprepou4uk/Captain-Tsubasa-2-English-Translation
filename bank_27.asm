@@ -6918,4 +6918,4 @@ _cloud_0x0000EF_EF:
 
 
 
-.out .sprintf("Free bytes in bank 27: %04X [%d]", ($E000 - *), ($E000 - *))
+.out .sprintf("Free bytes in bank 27: 0x%04X [%d]", ($E000 - *), ($E000 - *))

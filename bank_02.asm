@@ -1631,4 +1631,4 @@ C - - - - - 0x004C8D 02:AC7D: 60        RTS
 
 
 
-.out .sprintf("Free bytes in bank 02: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 02: 0x%04X [%d]", ($C000 - *), ($C000 - *))

@@ -3137,4 +3137,4 @@ off_FAC8_EF:
 
 
 
-.out .sprintf("Free bytes in bank 26: %04X [%d]", ($E000 - *), ($E000 - *))
+.out .sprintf("Free bytes in bank 26: 0x%04X [%d]", ($E000 - *), ($E000 - *))

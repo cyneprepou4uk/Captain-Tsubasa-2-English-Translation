@@ -15095,4 +15095,4 @@ off_BCC0_20_Brazil:
 
 
 
-.out .sprintf("Free bytes in bank 1C: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 1C: 0x%04X [%d]", ($C000 - *), ($C000 - *))

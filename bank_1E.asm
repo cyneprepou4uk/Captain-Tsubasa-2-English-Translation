@@ -3529,4 +3529,4 @@ _off015_матч_20:
 
 
 
-.out .sprintf("Free bytes in bank 1E: %04X [%d]", ($E000 - *), ($E000 - *))
+.out .sprintf("Free bytes in bank 1E: 0x%04X [%d]", ($E000 - *), ($E000 - *))

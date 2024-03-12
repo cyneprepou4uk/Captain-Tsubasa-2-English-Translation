@@ -7326,4 +7326,4 @@ off_BCA1:
 
 
 
-.out .sprintf("Free bytes in bank 0A: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 0A: 0x%04X [%d]", ($C000 - *), ($C000 - *))

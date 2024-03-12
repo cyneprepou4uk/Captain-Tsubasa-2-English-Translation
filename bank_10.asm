@@ -15862,4 +15862,4 @@ ofs_946A_00_кипер_убивается_и_мяч_отлетает:
 
 
 
-.out .sprintf("Free bytes in bank 10: %04X [%d]", ($C000 - *), ($C000 - *))
+.out .sprintf("Free bytes in bank 10: 0x%04X [%d]", ($C000 - *), ($C000 - *))
