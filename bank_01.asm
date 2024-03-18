@@ -2847,27 +2847,27 @@ tbl_B255_байт_буквы_алфавита:
 tbl_B296_экран_continue_1:
 ; верхняя горизонтальная линия главного окна
     .byte $05
-    .word $20C3
+    .word $20C3 ; 
     .byte $1B
     .byte $8E
 ; центральная горизонтальная линия главного окна
     .byte $05
-    .word $21A3
+    .word $21A3 ; 
     .byte $1B
     .byte $BA
 ; нижняя горизонтальная линия главного окна
     .byte $05
-    .word $2323
+    .word $2323 ; 
     .byte $1B
     .byte $8E
 ; левая вертикальная линия главного окна
     .byte $04
-    .word $20E2
+    .word $20E2 ; 
     .byte $12
     .byte $8F
 ; правая вертикальная линия главного окна
     .byte $04
-    .word $20FE
+    .word $20FE ; 
     .byte $12
     .byte $8F
 
@@ -2878,12 +2878,12 @@ tbl_B296_экран_continue_1:
     .word off_BCAF_фраза_пароль_над_символами_пароля
 ; левая вертикальная линия всплывающего окна с неверным паролем
     .byte $04
-    .word $24E2
+    .word $24E2 ; 
     .byte $08
     .byte $8F
 ; правая вертикальная линия всплывающего окна с неверным паролем
     .byte $04
-    .word $24FE
+    .word $24FE ; 
     .byte $08
     .byte $8F
 
@@ -2897,39 +2897,39 @@ tbl_B296_экран_continue_1:
 off_B2C3_углы_окна_и_прочерки_для_символов_пароля:
 ; левый верхний угол
     .byte $01
-    .word $20C2
+    .word $20C2 ; 
     .byte $90
 ; правый верхний угол
     .byte $01
-    .word $20DE
+    .word $20DE ; 
     .byte $91
 ; левый нижний угол
     .byte $01
-    .word $2322
+    .word $2322 ; 
     .byte $92
 ; правый нижний угол
     .byte $01
-    .word $233E
+    .word $233E ; 
     .byte $93
 
     .byte $0B
-    .word $212B
+    .word $212B ; 
     .text "----- -----"
 
     .byte $49
-    .word $216B
+    .word $216B ; 
     .text "----- ---"
 
 
 
 off_BCAF_фраза_пароль_над_символами_пароля:
     .byte $5D
-    .word $2082
+    .word $2082 ; 
     .text "It's the Score Memo Shootout!"
 
 off_BCBE_фраза_неверный_пароль:
     .byte $54
-    .word $2547
+    .word $2547 ; 
     .text "Oops _ YOU MISSED!!"
 
 
@@ -2941,7 +2941,7 @@ tbl_B200_экран_continue_2_верный_пароль:
 
 off_B201_фраза_верный_пароль:
     .byte $54
-    .word $2546
+    .word $2546 ; 
     .text "It's in! GOOO~~~AL!!!"
 
 
@@ -3032,12 +3032,12 @@ tbl_B41B_cutscene_team_before_match:
 tbl_B43D_экран_с_опциями_без_запасных:
 ; вертикальная полоска слева от имен игроков
 - D 1 - I - 0x00344D 01:B43D: 04        .byte $04
-- D 1 - I - 0x00344E 01:B43E: 84 20     .word $2082
+- D 1 - I - 0x00344E 01:B43E: 84 20     .word $2082 ; 
 - D 1 - I - 0x003450 01:B440: 16        .byte $16
 - D 1 - I - 0x003451 01:B441: AA        .byte $AA
 ; вертикальная полоска справа от имен игроков
 - D 1 - I - 0x003452 01:B442: 04        .byte $04
-- D 1 - I - 0x003453 01:B443: 8D 20     .word $208F
+- D 1 - I - 0x003453 01:B443: 8D 20     .word $208F ; 
 - D 1 - I - 0x003455 01:B445: 16        .byte $16
 - D 1 - I - 0x003456 01:B446: AB        .byte $AB
 
@@ -3057,12 +3057,12 @@ tbl_B43D_экран_с_опциями_без_запасных:
 tbl_B451_экран_с_опциями_с_запасными:
 ; вертикальная полоска слева от имен основных игроков
 - D 1 - I - 0x003461 01:B451: 04        .byte $04
-- D 1 - I - 0x003462 01:B452: 81 20     .word $2080
+- D 1 - I - 0x003462 01:B452: 81 20     .word $2080 ; 
 - D 1 - I - 0x003464 01:B454: 16        .byte $16
 - D 1 - I - 0x003465 01:B455: AA        .byte $AA
 ; вертикальная полоска справа от имен основных игроков
 - D 1 - I - 0x003466 01:B456: 04        .byte $04
-- D 1 - I - 0x003467 01:B457: 8A 20     .word $208A
+- D 1 - I - 0x003467 01:B457: 8A 20     .word $208A ; 
 - D 1 - I - 0x003469 01:B459: 16        .byte $16
 - D 1 - I - 0x00346A 01:B45A: AB        .byte $AB
 
@@ -3077,12 +3077,12 @@ tbl_B451_экран_с_опциями_с_запасными:
 - D 1 - I - 0x00346C 01:B45C: 74 B4     .word off_B474_окно_основных_игроков_japan
 ; вертикальная полоска слева от имен запасных игроков
 - D 1 - I - 0x003476 01:B466: 04        .byte $04
-- D 1 - I - 0x003477 01:B467: 97 20     .word $2095
+- D 1 - I - 0x003477 01:B467: 97 20     .word $2095 ; 
 - D 1 - I - 0x003479 01:B469: 16        .byte $16
 - D 1 - I - 0x00347A 01:B46A: AA        .byte $AA
 ; вертикальная полоска справа от имен запасных игроков
 - D 1 - I - 0x00347B 01:B46B: 04        .byte $04
-- D 1 - I - 0x00347C 01:B46C: 9E 20     .word $209F
+- D 1 - I - 0x00347C 01:B46C: 9E 20     .word $209F ; 
 - D 1 - I - 0x00347E 01:B46E: 16        .byte $16
 - D 1 - I - 0x00347F 01:B46F: AB        .byte $AB
 
@@ -3096,7 +3096,7 @@ tbl_B451_экран_с_опциями_с_запасными:
 off_B474_окно_основных_игроков_sao_paulo_nankatsu:
 ; верхняя обводка
 - D 1 - I - 0x003488 01:B478: 0A        .byte $0E
-- D 1 - I - 0x003489 01:B479: 64 20     .word $2062
+- D 1 - I - 0x003489 01:B479: 64 20     .word $2062 ; 
 - D 1 - I - 0x00348B 01:B47B: 9C        .byte $9C
 - D 1 - I - 0x00348C 01:B47C: A8        .byte $A8
 - D 1 - I - 0x00348B 01:B47B: 9C        .byte $A8
@@ -3113,7 +3113,7 @@ off_B474_окно_основных_игроков_sao_paulo_nankatsu:
 - D 1 - I - 0x003494 01:B484: 9D        .byte $9D
 ; нижняя обводка
 - D 1 - I - 0x003495 01:B485: 0A        .byte $0E
-- D 1 - I - 0x003496 01:B486: 44 23     .word $2342
+- D 1 - I - 0x003496 01:B486: 44 23     .word $2342 ; 
 - D 1 - I - 0x003498 01:B488: 9E        .byte $9E
 - D 1 - I - 0x003499 01:B489: A9        .byte $A9
 - D 1 - I - 0x00349A 01:B48A: A9        .byte $A9
@@ -3130,13 +3130,13 @@ off_B474_окно_основных_игроков_sao_paulo_nankatsu:
 - D 1 - I - 0x0034A1 01:B491: 9F        .byte $9F
 ; дополнительные цифры для 10 и 11 слева от игроков
 - D 1 - I - 0x0034A2 01:B492: 83        .byte $83
-- D 1 - I - 0x0034A3 01:B493: A5 20     .word $20A3
+- D 1 - I - 0x0034A3 01:B493: A5 20     .word $20A3 ; 
 - D 1 - I - 0x0034A5 01:B495: 34        .byte $31
 - D 1 - I - 0x0034A6 01:B496: 00        .byte $00
 - D 1 - I - 0x0034A7 01:B497: 34        .byte $31
 ; цифры слева от игроков
 - D 1 - I - 0x0034A8 01:B498: 93        .byte $93
-- D 1 - I - 0x0034A9 01:B499: A6 20     .word $20A4
+- D 1 - I - 0x0034A9 01:B499: A6 20     .word $20A4 ; 
 - D 1 - I - 0x0034AB 01:B49B: 34        .byte $31
 - D 1 - I - 0x0034AC 01:B49C: 00        .byte $00
 - D 1 - I - 0x0034AD 01:B49D: 33        .byte $30
@@ -3158,7 +3158,7 @@ off_B474_окно_основных_игроков_sao_paulo_nankatsu:
 - D 1 - I - 0x0034BD 01:B4AD: 35        .byte $32
 ; GK
 - D 1 - I - 0x0034BE 01:B4AE: 42        .byte $42
-- D 1 - I - 0x0034BF 01:B4AF: 25 23     .word $2323
+- D 1 - I - 0x0034BF 01:B4AF: 25 23     .word $2323 ; 
 - D 1 - I - 0x0034C1 01:B4B1: 87        .byte $47
 - D 1 - I - 0x0034C2 01:B4B2: 8B        .byte $4B
 
@@ -3167,7 +3167,7 @@ off_B474_окно_основных_игроков_sao_paulo_nankatsu:
 off_B474_окно_основных_игроков_japan:
 ; верхняя обводка
 - D 1 - I - 0x003488 01:B478: 0A        .byte $0B
-- D 1 - I - 0x003489 01:B479: 64 20     .word $2060
+- D 1 - I - 0x003489 01:B479: 64 20     .word $2060 ; 
 - D 1 - I - 0x00348B 01:B47B: 9C        .byte $9C
 - D 1 - I - 0x00348C 01:B47C: A8        .byte $A8
 - D 1 - I - 0x00348D 01:B47D: 5C        .byte $00
@@ -3181,7 +3181,7 @@ off_B474_окно_основных_игроков_japan:
 - D 1 - I - 0x003494 01:B484: 9D        .byte $9D
 ; нижняя обводка
 - D 1 - I - 0x003495 01:B485: 0A        .byte $4B
-- D 1 - I - 0x003496 01:B486: 44 23     .word $2340
+- D 1 - I - 0x003496 01:B486: 44 23     .word $2340 ; 
 - D 1 - I - 0x003498 01:B488: 9E        .byte $9E
 - D 1 - I - 0x003499 01:B489: A9        .byte $A9
 - D 1 - I - 0x00349C 01:B48C: A9        .byte $A9
@@ -3199,65 +3199,65 @@ off_B474_окно_основных_игроков_japan:
 tbl_B4B3_опции_sao_paulo_nankatsu:
 off_B4B3_опции_sao_paulo_nankatsu:
     .byte $0D
-    .word $20B1
+    .word $20B1 ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $00
     
     .byte $0D
-    .word $20D1
+    .word $20D1 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
 
     .byte $0D
-    .word $20F1
+    .word $20F1 ; 
     .byte $AA
     .text " Formation"
     .byte $AB, $00
     
     .byte $0D
-    .word $2111
+    .word $2111 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
 
     .byte $0D
-    .word $2131
+    .word $2131 ; 
     .byte $AA
     .text " Defense  "
     .byte $AB, $00
     
     .byte $0D
-    .word $2151
+    .word $2151 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
 
     .byte $0D
-    .word $2171
+    .word $2171 ; 
     .byte $AA
     .text " Line-up  "
     .byte $AB, $00
     
     .byte $0D
-    .word $2191
+    .word $2191 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
     
     .byte $0D
-    .word $21B1
+    .word $21B1 ; 
     .byte $AA
     .text " Status   "
     .byte $AB, $00
     
     .byte $0D
-    .word $21D1
+    .word $21D1 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
     
     .byte $0D
-    .word $21F1
+    .word $21F1 ; 
     .byte $AA
     .text " Done     "
     .byte $AB, $00
     
     .byte $0D
-    .word $2211
+    .word $2211 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $00
     
     .byte $4D
-    .word $2231
+    .word $2231 ; 
     .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
 
@@ -3265,90 +3265,90 @@ off_B4B3_опции_sao_paulo_nankatsu:
 tbl_B583_опции_japan:
 off_B583_опции_japan:
     .byte $0B
-    .word $20AB
+    .word $20AB ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $AA
     
     .byte $0B
-    .word $20CB
+    .word $20CB ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
 ; formation
     .byte $0B
-    .word $20EB
+    .word $20EB ; 
     .byte $AA, $00, $80, $81, $82, $83, $84, $85, $86, $AB, $AA
     
     .byte $0B
-    .word $210B
+    .word $210B ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
     
     .byte $0B
-    .word $212B
+    .word $212B ; 
     .byte $AA
     .text " Defense"
     .byte $AB, $AA
     
     .byte $0B
-    .word $214B
+    .word $214B ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
     
     .byte $0B
-    .word $216B
+    .word $216B ; 
     .byte $AA
     .text " Line-up"
     .byte $AB, $AA
     
     .byte $0B
-    .word $218B
+    .word $218B ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
     
     .byte $0B
-    .word $21AB
+    .word $21AB ; 
     .byte $AA
     .text " Status "
     .byte $AB, $AA
     
     .byte $0B
-    .word $21CB
+    .word $21CB ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
     
     .byte $0B
-    .word $21EB
+    .word $21EB ; 
     .byte $AA
     .text " Done   "
     .byte $AB, $AA
     
     .byte $0B
-    .word $220B
+    .word $220B ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $AA
     
     .byte $4B
-    .word $222B
+    .word $222B ; 
     .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AA
 
 
 
 off_B653_миникарта:
     .byte $0A
-    .word $2292
+    .word $2292 ; 
     .byte $98, $AC, $AC, $AC, $99, $AC, $AC, $AC, $AC, $99
 
     .byte $0A
-    .word $22B2
+    .word $22B2 ; 
     .byte $98, $99, $A0, $A0, $AF, $A0, $A0, $A0, $98, $99
 
     .byte $0A
-    .word $22D2
+    .word $22D2 ; 
     .byte $A1, $AF, $A0, $A0, $A4, $A5, $A0, $A0, $AE, $A1
 
     .byte $0A
-    .word $22F2
+    .word $22F2 ; 
     .byte $A3, $AF, $A0, $A0, $A6, $A7, $A0, $A0, $AE, $A3
 
     .byte $0A
-    .word $2312
+    .word $2312 ; 
     .byte $9A, $9B, $A0, $A0, $AF, $A0, $A0, $A0, $9A, $9B
 
     .byte $4A
-    .word $2332
+    .word $2332 ; 
     .byte $9A, $AD, $AD, $AD, $9B, $AD, $AD, $AD, $AD, $9B
 
 
@@ -3356,11 +3356,11 @@ off_B653_миникарта:
 off_B6A1_окно_запасных_игроков:
 ; верхняя обводка
     .byte $0B
-    .word $2075
+    .word $2075 ; 
     .byte $9C, $A8, $00, $42, $65, $6E, $63, $68, $00, $A8, $9D
 ; нижняя обводка
     .byte $4B
-    .word $2355
+    .word $2355 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
@@ -3372,123 +3372,123 @@ tbl_B6BB_название_твоей_команды_в_опциях:
 
 off_0000_sao_paulo:
     .byte $49
-    .word $2073
+    .word $2073 ; 
     .text "Sao Paulo"
 
 off_0000_nankatsu:
     .byte $48
-    .word $2073
+    .word $2073 ; 
     .text "Nankatsu"
 
 off_0000_japan:
     .byte $45
-    .word $2071
+    .word $2071 ; 
     .text "Japan"
 
 
 
 tbl_B6EB_расстановка_sao_paulo_nankatsu:
     .byte $0C
-    .word $20F2
+    .word $20F2 ; 
     .byte $9C
     .text "Formation"
     .byte $A8, $9D
 
     .byte $0C
-    .word $2112
+    .word $2112 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $2132
+    .word $2132 ; 
     .byte $AA
     .text " 4:3:3    "
     .byte $AB
 
     .byte $0C
-    .word $2152
+    .word $2152 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $2172
+    .word $2172 ; 
     .byte $AA
     .text " 4:4:2    "
     .byte $AB
 
     .byte $0C
-    .word $2192
+    .word $2192 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $21B2
+    .word $21B2 ; 
     .byte $AA
     .text " 3:5:2    "
     .byte $AB
 
     .byte $0C
-    .word $21D2
+    .word $21D2 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $21F2
+    .word $21F2 ; 
     .byte $AA
     .text " Brazil   "
     .byte $AB
 
     .byte $0C
-    .word $2212
+    .word $2212 ; 
     .byte $AA
     .text "  tactics "
     .byte $AB
 
     .byte $4C
-    .word $2232
+    .word $2232 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
 
 tbl_B790_defense_sao_paulo_nankatsu:
     .byte $0C
-    .word $2132
+    .word $2132 ; 
     .byte $9C
     .text "Defense"
     .byte $A8, $A8, $A8, $9D
 
     .byte $0C
-    .word $2152
+    .word $2152 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $2172
+    .word $2172 ; 
     .byte $AA
     .text " Normal   "
     .byte $AB
 
     .byte $0C
-    .word $2192
+    .word $2192 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $21B2
+    .word $21B2 ; 
     .byte $AA
     .text " Press    "
     .byte $AB
 
     .byte $0C
-    .word $21D2
+    .word $21D2 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $0C
-    .word $21F2
+    .word $21F2 ; 
     .byte $AA
     .text " Counter  "
     .byte $AB
 
     .byte $0C
-    .word $2212
+    .word $2212 ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB
 
     .byte $4C
-    .word $2232
+    .word $2232 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
@@ -3496,102 +3496,102 @@ tbl_B790_defense_sao_paulo_nankatsu:
 tbl_B791_расстановка_japan:
 ; formation
     .byte $0A
-    .word $20EC
+    .word $20EC ; 
     .byte $9C, $80, $81, $82, $83, $84, $85, $86, $A8, $9D
     
     .byte $0A
-    .word $210C
+    .word $210C ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $212C
+    .word $212C ; 
     .byte $AA
     .text " 4:3:3  "
     .byte $AB
     
     .byte $0A
-    .word $214C
+    .word $214C ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $216C
+    .word $216C ; 
     .byte $AA
     .text " 4:4:2  "
     .byte $AB
     
     .byte $0A
-    .word $218C
+    .word $218C ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $21AC
+    .word $21AC ; 
     .byte $AA
     .text " 3:5:2  "
     .byte $AB
     
     .byte $0A
-    .word $21CC
+    .word $21CC ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $21EC
+    .word $21EC ; 
     .byte $AA
     .text " Brazil "
     .byte $AB
 ; tactics
     .byte $0A
-    .word $220C
+    .word $220C ; 
     .byte $AA, $00, $00, $87, $88, $89, $8A, $8B, $8C, $AB
     
     .byte $4A
-    .word $222C
+    .word $222C ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
 
 tbl_B792_защита_japan:
     .byte $0A
-    .word $212C
+    .word $212C ; 
     .byte $9C
     .text "Defense"
     .byte $A8, $9D
     
     .byte $0A
-    .word $214C
+    .word $214C ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $216C
+    .word $216C ; 
     .byte $AA
     .text " Normal "
     .byte $AB
     
     .byte $0A
-    .word $218C
+    .word $218C ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $21AC
+    .word $21AC ; 
     .byte $AA
     .text " Press  "
     .byte $AB
     
     .byte $0A
-    .word $21CC
+    .word $21CC ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $0A
-    .word $21EC
+    .word $21EC ; 
     .byte $AA
     .text " Counter"
     .byte $AB
     
     .byte $0A
-    .word $220C
+    .word $220C ; 
     .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB
     
     .byte $4A
-    .word $222C
+    .word $222C ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 
 
@@ -3712,22 +3712,22 @@ off_B86D_brazil_tactics:
 tbl_B881_экран_со_списком_игроков:
 ; верхняя синяя полоска
     .byte $05
-    .word $2062
+    .word $2062 ; 
     .byte $1C
     .byte $8E
 ; нижняя синяя полоска
     .byte $05
-    .word $2362
+    .word $2362 ; 
     .byte $1C
     .byte $8E
 ; левая синяя полоска
     .byte $04
-    .word $2081
+    .word $2081 ; 
     .byte $17
     .byte $8F
 ; правая синяя полоска
     .byte $04
-    .word $209E
+    .word $209E ; 
     .byte $17
     .byte $8F
 
@@ -3739,19 +3739,19 @@ tbl_B881_экран_со_списком_игроков:
 off_B899_углы:
 ; левый верхний угол
     .byte $01
-    .word $2061
+    .word $2061 ; 
     .byte $90
 ; правый верхний угол
     .byte $01
-    .word $207E
+    .word $207E ; 
     .byte $91
 ; левый нижний угол
     .byte $01
-    .word $2361
+    .word $2361 ; 
     .byte $92
 ; правый нижний угол
     .byte $41
-    .word $237E
+    .word $237E ; 
     .byte $93
 
 
@@ -3781,77 +3781,77 @@ off_B8B4_оформление_окон:
 ; это общая подпрограмма, используется и для кипера тоже
 ; левая синяя полоска
     .byte $04
-    .word $2081
+    .word $2081 ; 
     .byte $07
     .byte $8F
 ; правая синяя полоска
     .byte $04
-    .word $208E
+    .word $208E ; 
     .byte $07
     .byte $8F
 ; нижняя синяя полоска
     .byte $05
-    .word $2162
+    .word $2162 ; 
     .byte $0C
     .byte $8E
 ; левая полоска high ball
     .byte $04
-    .word $2090
+    .word $2090 ; 
     .byte $0A
     .byte $AA
 ; правая полоска high ball
     .byte $04
-    .word $209E
+    .word $209E ; 
     .byte $0A
     .byte $AB
 ; нижняя полоска high ball
     .byte $05
-    .word $21D1
+    .word $21D1 ; 
     .byte $0D
     .byte $A9
 ; левая полоска stats
     .byte $04
-    .word $21E1
+    .word $21E1 ; 
     .byte $0C
     .byte $AA
 ; правая полоска stats
     .byte $04
-    .word $21EE
+    .word $21EE ; 
     .byte $0C
     .byte $AB
 ; нижняя полоска stats
     .byte $05
-    .word $2362
+    .word $2362 ; 
     .byte $0C
     .byte $A9
 ; левая полоска low ball
     .byte $04
-    .word $2230
+    .word $2230 ; 
     .byte $0A
     .byte $AA
 ; правая полоска low ball
     .byte $04
-    .word $223E
+    .word $223E ; 
     .byte $0A
     .byte $AB
 ; нижняя полоска low ball
     .byte $05
-    .word $2371
+    .word $2371 ; 
     .byte $0D
     .byte $A9
 ; левая полоска special
     .byte $04
-    .word $2501
+    .word $2501 ; 
     .byte $13
     .byte $AA
 ; правая полоска special
     .byte $04
-    .word $251E
+    .word $251E ; 
     .byte $13
     .byte $AB
 ; верхняя полоска special по центру
     .byte $05
-    .word $24EC
+    .word $24EC ; 
     .byte $0B
     .byte $A8
     
@@ -3871,52 +3871,52 @@ tbl_B967_тайлы_закрывающей_полоски_special:
 tbl_B981_позиция_числовых_статов_полевого:
 ; dribble
     .byte con_skill_prl_dribble
-    .word $220B
+    .word $220B ; 
 ; pass
     .byte con_skill_prl___pass
-    .word $224B
+    .word $224B ; 
 ; shoot
     .byte con_skill_prl___shoot
-    .word $228B
+    .word $228B ; 
 ; tackle
     .byte con_skill_prl_tackle
-    .word $22CB
+    .word $22CB ; 
 ; block
     .byte con_skill_prl_block
-    .word $230B
+    .word $230B ; 
 ; intercept
     .byte con_skill_06
-    .word $234B
+    .word $234B ; 
 ; trap high
     .byte con_skill_prl_trap_high
-    .word $20BB
+    .word $20BB ; 
 ; shoot high
     .byte con_skill_prl_shoot_high
-    .word $20FB
+    .word $20FB ; 
 ; through high
     .byte con_skill_prl_through_high
-    .word $213B
+    .word $213B ; 
 ; clearance high
     .byte con_skill_prl_clearance_high
-    .word $217B
+    .word $217B ; 
 ; interfere high
     .byte con_skill_prl_interfere_high
-    .word $21BB
+    .word $21BB ; 
 ; trap low
     .byte con_skill_prl_trap_low
-    .word $225B
+    .word $225B ; 
 ; shoot low
     .byte con_skill_prl_shoot_low
-    .word $229B
+    .word $229B ; 
 ; through low
     .byte con_skill_prl_through_low
-    .word $22DB
+    .word $22DB ; 
 ; clearance low
     .byte con_skill_prl_clearance_low
-    .word $231B
+    .word $231B ; 
 ; interfere low
     .byte con_skill_prl_interfere_low
-    .word $235B
+    .word $235B ; 
 
     .byte $FF   ; end token
 
@@ -3925,25 +3925,25 @@ tbl_B981_позиция_числовых_статов_полевого:
 tbl_B9B2_позиция_числовых_статов_кипера:
 ; pass
     .byte con_skill_gk_pass
-    .word $220B
+    .word $220B ; 
 ; catch
     .byte con_skill_gk_catch
-    .word $224B
+    .word $224B ; 
 ; punch
     .byte con_skill_gk_punch
-    .word $228B
+    .word $228B ; 
 ; stop dribble
     .byte con_skill_gk_stop_dribble
-    .word $22EB
+    .word $22EB ; 
 ; stop shot
     .byte con_skill_gk_stop_shot
-    .word $234B
+    .word $234B ; 
 ; dive high
     .byte con_skill_gk_dive_high
-    .word $20BB
+    .word $20BB ; 
 ; dive low
     .byte con_skill_gk_dive_low
-    .word $225B
+    .word $225B ; 
 
     .byte $FF   ; end token
 
@@ -3951,7 +3951,7 @@ tbl_B9B2_позиция_числовых_статов_кипера:
 
 tbl_B9C8_количество_замен_для_japan:
     .byte $45
-    .word $224D
+    .word $224D ; 
     .text "Subs:"
 
 
@@ -4668,89 +4668,89 @@ tbl_BC6E_символы_пароля:
 off_BF15_оформление_окон_и_текст:
 ; левый верхний угол синего окна
     .byte $02
-    .word $2061
+    .word $2061 ; 
     .byte $90, $8E
 ; правый верхний угол синего окна и верхняя полоска high ball
     .byte $12
-    .word $206D
+    .word $206D ; 
     .byte $8E, $91, $00, $9C, $A8
     .text " High ball "
     .byte $A8, $9D
 ; левый нижний синего окна
     .byte $01
-    .word $2161
+    .word $2161 ; 
     .byte $92
 ; правый нижний синего окна
     .byte $01
-    .word $216E
+    .word $216E ; 
     .byte $93
 ; текст level
     .byte $05
-    .word $20A3
+    .word $20A3 ; 
     .text "Level"
 ; текст mastaminax
     .byte $07
-    .word $20E3
+    .word $20E3 ; 
     .text "Stamina"
 ; текст / для разделителя текущей и максимальной энергии
     .byte $01
-    .word $2129
+    .word $2129 ; 
     .text "/"
 ; верхняя полоска stats и нижняя полоска high ball
     .byte $10
-    .word $21C1
+    .word $21C1 ; 
     .byte $9C, $A8, $A8
     .text " Stats "
     .byte $A8, $A8, $A8, $9D, $00, $9E
 ; правый нижний угол high ball
     .byte $01
-    .word $21DE
+    .word $21DE ; 
     .byte $9F
 ; верхняя полоска low ball
     .byte $0F
-    .word $2210
+    .word $2210 ; 
     .byte $9C, $A8
     .text " Low ball "
     .byte $A8, $A8, $9D
 ; левый нижний угол stats
     .byte $01
-    .word $2361
+    .word $2361 ; 
     .byte $9E
 ; правый нижний угол stats и левый нижний угол low ball
     .byte $03
-    .word $236E
+    .word $236E ; 
     .byte $9F
     .byte $00
     .byte $9E
 ; правый нижний угол high ball
     .byte $01
-    .word $237E
+    .word $237E ; 
     .byte $9F
 
     .byte $0A
-    .word $24E1
+    .word $24E1 ; 
     .byte $9C
     .byte $A8
     .text " Special"
 
     .byte $05
-    .word $24F8
+    .word $24F8 ; 
     .text "Cost "
 ; читерный кусок синей полоски слева (чтобы окно special сливалось с основным экраном)
     .byte $01
-    .word $24C1
+    .word $24C1 ; 
     .byte $8F
 ; читерный кусок синей полоски и кусок белой полоски в центре
     .byte $03
-    .word $24CE
+    .word $24CE ; 
     .byte $8F, $00, $AA
 ; читерный кусок белой полоски справа
     .byte $01
-    .word $24DE
+    .word $24DE ; 
     .byte $AB
 ; полоска до конца окна после cost
     .byte $42
-    .word $24FD
+    .word $24FD ; 
     .byte $A8, $9D
 
 
@@ -4758,106 +4758,106 @@ off_BF15_оформление_окон_и_текст:
 off_BF4E_названия_действий_полевого:
 ; stats
     .byte $07
-    .word $2202
+    .word $2202 ; 
     .text "Dribble"
     
     .byte $04
-    .word $2242
+    .word $2242 ; 
     .text "Pass"
     
     .byte $05
-    .word $2282
+    .word $2282 ; 
     .text "Shoot"
     
     .byte $06
-    .word $22C2
+    .word $22C2 ; 
     .text "Tackle"
     
     .byte $05
-    .word $2302
+    .word $2302 ; 
     .text "Block"
     
     .byte $08
-    .word $2342
+    .word $2342 ; 
     .text "Pass cut"
 ; high ball
     .byte $04
-    .word $20B1
+    .word $20B1 ; 
     .text "Trap"
     
     .byte $05
-    .word $20F1
+    .word $20F1 ; 
     .text "Shoot"
     
     .byte $07
-    .word $2131
+    .word $2131 ; 
     .text "Through"
     
     .byte $08
-    .word $2171
+    .word $2171 ; 
     .text "Clearing"
     
     .byte $09
-    .word $21B1
+    .word $21B1 ; 
     .text "Interfere"
 ; low ball
     .byte $04
-    .word $2251
+    .word $2251 ; 
     .text "Trap"
     
     .byte $05
-    .word $2291
+    .word $2291 ; 
     .text "Shoot"
     
     .byte $07
-    .word $22D1
+    .word $22D1 ; 
     .text "Through"
     
     .byte $08
-    .word $2311
+    .word $2311 ; 
     .text "Clearing"
     
     .byte $49
-    .word $2351
+    .word $2351 ; 
     .text "Interfere"
 
 
 
 off_BFBB_названия_действий_кипера:
     .byte $04
-    .word $2202
+    .word $2202 ; 
     .text "Pass"
     
     .byte $05
-    .word $2242
+    .word $2242 ; 
     .text "Catch"
     
     .byte $05
-    .word $2282
+    .word $2282 ; 
     .text "Punch"
     
     .byte $04
-    .word $22C2
+    .word $22C2 ; 
     .text "Stop"
     
     .byte $07
-    .word $22E3
+    .word $22E3 ; 
     .text "dribble"
     
     .byte $04
-    .word $2322
+    .word $2322 ; 
     .text "Stop"
     
     .byte $04
-    .word $2343
+    .word $2343 ; 
     .text "shot"
     
     .byte $04
-    .word $20B1
+    .word $20B1 ; 
     .text "Dive"
     
     .byte $44
-    .word $2251
+    .word $2251 ; 
     .text "Dive"
 
 

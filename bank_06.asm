@@ -1376,19 +1376,19 @@ tbl_0x00DB50_оформление_окна_диалога:
 off_BB48_00_прямоугольное_облако_комментатора_в_катсценах:
 ; верхняя горизонтальная полоска
     .byte $18
-    .word $2227
+    .word $2227 ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D
 ; нижняя горизонтальная полоска
     .byte $18
-    .word $2367
+    .word $2367 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 ; левая вертикальная полоска
     .byte $89
-    .word $2247
+    .word $2247 ; 
     .byte $AA, $AA, $AA, $AA, $AA, $AA, $A5, $AA, $AA, $01, $06, $23, $A4
 ; правая вертикальная полоска
     .byte $C9
-    .word $225E
+    .word $225E ; 
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 
 
@@ -1396,19 +1396,19 @@ off_BB48_00_прямоугольное_облако_комментатора_в_
 off_BB9A_01_электрическое_облако_комментатора_в_катсценах:
 ; верхняя горизонтальная полоска
     .byte $18
-    .word $2227
+    .word $2227 ; 
     .byte $9B, $A2, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $A9, $A2, $9A
 ; нижняя горизонтальная полоска
     .byte $18
-    .word $2367
+    .word $2367 ; 
     .byte $99, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A8, $A0, $A0, $98
 ; левая вертикальная полоска
     .byte $89
-    .word $2247
+    .word $2247 ; 
     .byte $A1, $AB, $A1, $AB, $A1, $AB, $A1, $AB, $A1
 ; правая вертикальная полоска
     .byte $C9
-    .word $225E
+    .word $225E ; 
     .byte $A3, $AA, $A3, $AA, $A3, $AA, $A3, $AA, $A3
 
 
@@ -1416,19 +1416,19 @@ off_BB9A_01_электрическое_облако_комментатора_в_
 off_BBE8_02_meeting___advice:
 ; верхняя горизонтальная полоска
     .byte $1E
-    .word $2221
+    .word $2221 ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D
 ; нижняя горизонтальная полоска
     .byte $1E
-    .word $2361
+    .word $2361 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 ; левая вертикальная полоска
     .byte $89
-    .word $2241
+    .word $2241 ; 
     .byte $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA
 ; правая вертикальная полоска
     .byte $C9
-    .word $225E
+    .word $225E ; 
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 
 
@@ -1436,51 +1436,51 @@ off_BBE8_02_meeting___advice:
 off_BC42_03_meeting___coach:
 ; верхняя горизонтальная полоска
     .byte $1E
-    .word $2221
+    .word $2221 ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D
 ; нижняя горизонтальная полоска
     .byte $1E
-    .word $2361
+    .word $2361 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 ; левая вертикальная полоска левого окна
     .byte $89
-    .word $2241
+    .word $2241 ; 
     .byte $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA
 ; правая вертикальная полоска левого окна
     .byte $89
-    .word $224D
+    .word $224D ; 
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 ; левая вертикальная полоска правого окна
     .byte $89
-    .word $224E
+    .word $224E ; 
     .byte $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA
 ; правая вертикальная полоска правого окна
     .byte $89
-    .word $225E
+    .word $225E ; 
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 ; Team Meeting
     .byte $0C
-    .word $20AA
+    .word $20AA ; 
     .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
 ; Team Meeting      ; для смещения камеры в совете тренера
     .byte $0C
-    .word $24AA
+    .word $24AA ; 
     .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
 
     .byte $06
-    .word $2263
+    .word $2263 ; 
     .text "Advice"
 
     .byte $0A
-    .word $22A3
+    .word $22A3 ; 
     .text "Score Memo"
 
     .byte $07
-    .word $22E3
+    .word $22E3 ; 
     .text "Options"
 
     .byte $47
-    .word $2323
+    .word $2323 ; 
     .text "Kickoff"
 
 
@@ -1488,27 +1488,27 @@ off_BC42_03_meeting___coach:
 off_BC43_04_meeting___level_up_password:
 ; верхняя горизонтальная полоска
     .byte $1E
-    .word $2221
+    .word $2221 ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D
 ; нижняя горизонтальная полоска
     .byte $1E
-    .word $2361
+    .word $2361 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 ; левая вертикальная полоска
     .byte $89
-    .word $2241
+    .word $2241 ; 
     .byte $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA
 ; правая вертикальная полоска
     .byte $89
-    .word $225E
+    .word $225E ; 
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 ; Team Meeting
     .byte $0C
-    .word $20AA
+    .word $20AA ; 
     .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
 ; Team Meeting      ; для смещения камеры в совете тренера
     .byte $4C
-    .word $24AA
+    .word $24AA ; 
     .byte $80, $81, $82, $83, $00, $84, $81, $81, $85, $86, $87, $88
 
 
@@ -1516,23 +1516,23 @@ off_BC43_04_meeting___level_up_password:
 off_BC44_05_half_time:
 ; верхняя горизонтальная полоска
     .byte $1E
-    .word $2221
+    .word $2221 ; 
     .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D
 ; нижняя горизонтальная полоска
     .byte $1E
-    .word $2361
+    .word $2361 ; 
     .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
 ; левая вертикальная полоска
     .byte $89
-    .word $2241
+    .word $2241 ; 
     .byte $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA, $AA
 ; правая вертикальная полоска
     .byte $89
-    .word $225E
+    .word $225E ; 
     .byte $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB, $AB
 ; Half-Time
     .byte $49
-    .word $20AB
+    .word $20AB ; 
     .byte $89, $82, $8A, $8B, $8C, $80, $86, $83, $81
 
 

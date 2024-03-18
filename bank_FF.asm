@@ -1053,25 +1053,25 @@ tbl_CC46_2006_lo:
 
 
 tbl_CC47_ppu_байты_затирания_чарли_и_атрибутов_фона:
-    .byte $03
-    .word $2302
-    .byte $00
+    .byte $03 ; 
+    .word $2302 ; 
+    .byte $00 ; 
     
-    .byte $03
-    .word $2322
-    .byte $00
+    .byte $03 ; 
+    .word $2322 ; 
+    .byte $00 ; 
     
-    .byte $03
-    .word $2342
-    .byte $00
+    .byte $03 ; 
+    .word $2342 ; 
+    .byte $00 ; 
     
-    .byte $03
-    .word $2362
-    .byte $00
+    .byte $03 ; 
+    .word $2362 ; 
+    .byte $00 ; 
     
-    .byte $20
-    .word $23E0
-    .byte $00
+    .byte $20 ; 
+    .word $23E0 ; 
+    .byte $00 ; 
     
     .byte $00       ; end token
 
@@ -5749,166 +5749,166 @@ off_EA1C_00_dribble:
     .text " Dribble "
 
 off_EA29_01_pass:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "  Pass   "
 
 off_EA34_02_shoot:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "  Shoot  "
 
 off_EA3D_03_1_2_pass:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "1-2 Pass "
 
 off_EA46_04_trap:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "  Trap   "
 
 off_EA51_05_through:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text " Through "
 
 off_EA59_06_clearing:       ; когда ты в своей штрафной с мячом
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text " Clearing"
 
 off_EA61_07_tackle:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "   Tackle"
 
 off_EA6A_08_skylab_tackle:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "SkLab Tkl"
 
 off_EA73_09_razor_tackle:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "Razor Tkl"
 
 off_EA7C_0A_power_tackle:
-    .word $2288
+    .word $2288 ; 
     .byte $25
     .text "Power Tkl"
 
 off_EA87_0B_tiger_tackle:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "Tiger Tkl"
 
 off_EA94_0C_block:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "    Block"
 
 off_EA9F_0D_skylab_block:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "SkLab Blk"
 
 off_EAAC_0E_face_block:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text " Face Blk"
 
 off_EAB7_0F_power_block:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "Power Blk"
 
 off_EAC4_10_passcut:        ; в воздухе понизу
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text " Pass cut"
 
 off_EACE_11_skylab_passcut:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "SkLab Cut"
 
 off_EADB_12_wait:           ; player
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "     Wait"
 
 off_EAE6_13_mark:           ; когда соперник в твоей штрафной принимает мяч
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "     Mark"
 
 off_EAEF_14_interfere:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "Interfere"
 
 off_EAF8_15_clearing:       ; когда соперник в твоей штрафной принимает мяч
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text " Clearing"
 
 off_EB01_16_punch:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "  Punch  "
 
 off_EB0D_17_catch:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "  Catch  "
 
 off_EB17_18_triangle_jump:
-    .word $2288
-    .byte $26
+    .word $2288 ; 
+    .byte $26 ; 
     .text "Triangle "
     .text "  Jump   "
 
 off_EB26_19_dive:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "     Dive"
 
 off_EB33_1A_stay:           ; GK
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "     Stay"
 
 off_EB3E_1B_stop_shot:
-    .word $2288
-    .byte $26
+    .word $2288 ; 
+    .byte $26 ; 
     .text "Stop shot"
     .text "         "
 
 off_EB4C_1C_stop_dribble:
-    .word $2288
-    .byte $26
+    .word $2288 ; 
+    .byte $26 ; 
     .text "  Stop   "
     .text " dribble "
 
 off_EB5E_1D_________lines:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "---------"
 
 off_EB67_1E_left:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "Left     "
 
 off_EB72_1F_center:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "  Center "
 
 off_EB7B_20_right:
-    .word $2288
-    .byte $25
+    .word $2288 ; 
+    .byte $25 ; 
     .text "    Right"
 
 
@@ -6701,17 +6701,17 @@ C - - - - - 0x03F169 FF:F159: 60        RTS
 
 tbl_F15A_ppu_адрес_байтов_nametable:
 tbl_F15C_ppu_адрес_атрибутов:
-    .word $2042
-    .word $23C0
+    .word $2042 ; 
+    .word $23C0 ; 
     
-    .word $2042
-    .word $23C0
+    .word $2042 ; 
+    .word $23C0 ; 
     
-    .word $2042
-    .word $23C0
+    .word $2042 ; 
+    .word $23C0 ; 
     
-    .word $22B4
-    .word $23ED
+    .word $22B4 ; 
+    .word $23ED ; 
 
 
 

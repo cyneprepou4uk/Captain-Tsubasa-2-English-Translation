@@ -173,8 +173,7 @@ _team_Palmeiras:
     .word Palmeiras_clone_08
     .word $0000
     .word Palmeiras_clone_10
-    .word $0000
-
+    .word $0000 ; 
 _team_Santos:
 ; https://captaintsubasa.fandom.com/wiki/Barcelona_(Tecmo)
     .word Santos_clone_01
@@ -229,8 +228,7 @@ _team_Akita:
     .word Akita_clone_08
     .word $0000
     .word Akita_clone_10
-    .word $0000
-
+    .word $0000 ; 
 _team_Tatsunami:
 ; https://tsubasa.im/global/en/npc_deck/?id=80411&event_type=1&world=8&stage=8041
     .word $0000
@@ -313,8 +311,7 @@ _team_Uruguay:
     .word Uruguay_clone_08
     .word $0000
     .word Uruguay_clone_10
-    .word $0000
-
+    .word $0000 ; 
 _team_Hamburger_SV:
 ; https://tsubasa.im/global/en/npc_deck/?id=180911&event_type=1&world=18&stage=18091
     .word $0000
@@ -340,8 +337,7 @@ _team_Japan:
     .word $0000
     .word $0000
     .word $0000
-    .word $0000
-
+    .word $0000 ; 
 _team_Syria:
 ; http://www.firstnamesbaby.com/Names-By-Country/Syrian/Boy/
     .word Syria_clone_01
@@ -368,8 +364,7 @@ _team_China:
     .word China_clone_08
     .word $0000
     .word China_clone_10
-    .word $0000
-
+    .word $0000 ; 
 _team_Iran:
 ; https://www.behindthename.com/names/gender/masculine/usage/persian
     .word Iran_clone_01
@@ -452,8 +447,7 @@ _team_Poland:
     .word Poland_clone_08
     .word Poland_clone_09
     .word Poland_clone_10
-    .word $0000
-
+    .word $0000 ; 
 _team_England:
 ; https://tsubasa.im/global/en/npc_deck/?id=51311&event_type=1&world=5&stage=5131
     .word England_clone_01
@@ -550,8 +544,7 @@ _team_Argentina:
     .word $0000
     .word $0000
     .word $0000
-    .word $0000
-
+    .word $0000 ; 
 _team_West_Germany:
 ; https://tsubasa.im/global/en/npc_deck/?id=131411&event_type=1&world=13&stage=13141
     .word $0000
@@ -564,8 +557,7 @@ _team_West_Germany:
     .word $0000
     .word $0000
     .word $0000
-    .word $0000
-
+    .word $0000 ; 
 _team_Brazil:
     .word $0000
     .word $0000
@@ -577,8 +569,7 @@ _team_Brazil:
     .word $0000
     .word $0000
     .word $0000
-    .word $0000
-
+    .word $0000 ; 
 
 
 tbl_dictionary:

@@ -1237,13 +1237,13 @@ C - - - - - 0x03066E 18:865E: 20 3C 86  JMP loc_863C_прочитать_табл
 
 tbl_86E8_адрес_ppu_строки_облака:
 ; bzk optimize, переместить повыше
-    .word $228A
-    .word $22AA
-    .word $22CA
-    .word $22EA
-    .word $230A
-    .word $232A
-    .word $234A
+    .word $228A ; 
+    .word $22AA ; 
+    .word $22CA ; 
+    .word $22EA ; 
+    .word $230A ; 
+    .word $232A ; 
+    .word $234A ; 
 
 
 
@@ -4825,7 +4825,7 @@ off_B453_00_period_number_and_time:
 ; id of the window outline
     .byte $02 * $09
 ; адрес ppu
-    .word $2281
+    .word $2281 ; 
 ; X * Y зачищаемой области (вне этой области текст не запишется)
 ; size of cleared space
     ; beyond this area nothing will be drawn later
@@ -4860,7 +4860,7 @@ off_B464_01_team_names_and_score:
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
-    .word $22C1
+    .word $22C1 ; 
 ; X * Y зачищаемой области
     .byte $05
     .byte $00
@@ -4904,7 +4904,7 @@ off_B47D_02_player_action_window:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $07
@@ -4940,7 +4940,7 @@ off_B48A_03_player_dribble_pass_shoot:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $0A
@@ -5003,7 +5003,7 @@ off_B4A7_04_player_trap_pass_shot:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $0A
@@ -5065,7 +5065,7 @@ off_B4C4_05_player_trap_pass_clearing:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $0A
@@ -5127,7 +5127,7 @@ off_B4E1_06_gk_punch_catch:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $07
@@ -5181,7 +5181,7 @@ off_B4FA_07_gk_action_window_vs_player:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $07
@@ -5211,7 +5211,7 @@ off_B507_08_gk_counter_drib_shot:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -5279,7 +5279,7 @@ off_B528_09_2_specials:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2268
+    .word $2268 ; 
 ; X * Y зачищаемой области
     .byte $13
     .byte $05
@@ -5323,7 +5323,7 @@ off_B539_0A_3_specials:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2268
+    .word $2268 ; 
 ; X * Y зачищаемой области
     .byte $13
     .byte $07
@@ -5374,7 +5374,7 @@ off_B54E_0B_4_specials:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2268
+    .word $2268 ; 
 ; X * Y зачищаемой области
     .byte $13
     .byte $09
@@ -5433,7 +5433,7 @@ off_B567_0C_2_defensive_specials:
     .byte $00 * $09
 ; адрес ppu
 ; подкат, перехват, блок
-    .word $2268
+    .word $2268 ; 
 ; X * Y зачищаемой области
     .byte $13
     .byte $05
@@ -5476,7 +5476,7 @@ off_B578_0D_gk_dive:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $07
@@ -5522,7 +5522,7 @@ off_B58D_0F_pass_select_a_teammate:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $19
     .byte $0A
@@ -5566,7 +5566,7 @@ off_B5A2_10_1_2_pass_choose_a_partner:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $05
@@ -5610,7 +5610,7 @@ off_B5B7_11_no_players_nearby:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $07
@@ -5661,7 +5661,7 @@ off_B5C8_12_1_player_action_window:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $03
@@ -5705,7 +5705,7 @@ off_B5D9_13_2_players_action_window:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $05
@@ -5756,7 +5756,7 @@ off_B5EE_14_3_players_action_window:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $07
@@ -5814,7 +5814,7 @@ off_B607_15_4_players_action_window:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $09
@@ -5879,7 +5879,7 @@ off_B624_16_defender_tackle_block_passcut:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -5941,7 +5941,7 @@ off_B641_17_player_interfere_passcut:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $07
@@ -5995,7 +5995,7 @@ off_B65A_18_player_clearing_passcut:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $07
@@ -6049,7 +6049,7 @@ off_B673_19_show_2_teammates:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6093,7 +6093,7 @@ off_B688_1A_show_3_teammates:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6144,7 +6144,7 @@ off_B6A1_1B_show_4_teammates:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6203,7 +6203,7 @@ off_B6BE_1C_clear_receiver_stats_window:
     .byte $02 * $09
 ; адрес ppu
 ; требуется когда перемещаешь курсор паса по полю и в курсоре никого нету
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6225,7 +6225,7 @@ off_B6C7_1D_receiver_dribble_pass_shoot:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $0A
@@ -6285,7 +6285,7 @@ off_B6C7_1D_receiver_dribble_pass_shoot:
 
 off_B6E4_1E_opponent_trap_clearing_pass:
                                         .byte $00
-- - - - - - 0x0336F4 18:B6E4: 32 22     .word $2232
+- - - - - - 0x0336F4 18:B6E4: 32 22     .word $2232 ; 
 
 - - - - - - 0x0336F6 18:B6E6: 0C        .byte $0C
 - - - - - - 0x0336F7 18:B6E7: 0A        .byte $0A
@@ -6321,7 +6321,7 @@ off_B6E4_1E_opponent_trap_clearing_pass:
 
 off_B701_1F_opponent_trap_shot_pass:
                                         .byte $00
-- - - - - - 0x033711 18:B701: 32 22     .word $2232
+- - - - - - 0x033711 18:B701: 32 22     .word $2232 ; 
 
 - - - - - - 0x033713 18:B703: 0C        .byte $0C
 - - - - - - 0x033714 18:B704: 0A        .byte $0A
@@ -6359,7 +6359,7 @@ off_B71E_20_show_1_opponent:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6403,7 +6403,7 @@ off_B72F_21_show_2_opponents:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6461,7 +6461,7 @@ off_B744_22_show_3_opponents:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6533,7 +6533,7 @@ off_B75D_23_show_4_opponents:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -6619,7 +6619,7 @@ off_B77A_24_select_1_of_2_teammates_for_pass:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $05
@@ -6663,7 +6663,7 @@ off_B78F_25_select_1_of_3_teammates_for_pass:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $07
@@ -6714,7 +6714,7 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $09
@@ -6772,7 +6772,7 @@ off_B7C5_27_free_kick_taker:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2228
+    .word $2228 ; 
 ; X * Y зачищаемой области
     .byte $17
     .byte $0B
@@ -6872,7 +6872,7 @@ off_B7FE_28_rearrange_players_no_yes:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2228
+    .word $2228 ; 
 ; X * Y зачищаемой области
     .byte $18
     .byte $0C
@@ -6923,7 +6923,7 @@ off_B813_29_rearrange_select_done:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0F
     .byte $0A
@@ -6967,7 +6967,7 @@ off_B828_2A_aim_left_right:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $18
     .byte $0A
@@ -7011,7 +7011,7 @@ off_B83D_2B_wall_left_right:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $19
     .byte $09
@@ -7056,7 +7056,7 @@ off_B852_2C_pk_aim:
     .byte $00 * $09
 ; адрес ppu
 ; также используется при нарушении во время игры
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $04
@@ -7087,7 +7087,7 @@ off_B85F_2D_pk_dive:
     .byte $00 * $09
 ; адрес ppu
 ; также используется при нарушении во время игры
-    .word $2247
+    .word $2247 ; 
 ; X * Y зачищаемой области
     .byte $0B
     .byte $04
@@ -7117,7 +7117,7 @@ off_B86C_2E_corner_kick_taker:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2228
+    .word $2228 ; 
 ; X * Y зачищаемой области
     .byte $17
     .byte $0B
@@ -7217,7 +7217,7 @@ off_B8A5_2F_select_penalty_taker:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2228
+    .word $2228 ; 
 ; X * Y зачищаемой области
     .byte $17
     .byte $0B
@@ -7317,7 +7317,7 @@ off_B8DE_30_display_name_stamina_at_the_top:
 ; номер набора контура окна
     .byte $03 * $09
 ; адрес ppu
-    .word $2001
+    .word $2001 ; 
 ; X * Y зачищаемой области
     .byte $0F
     .byte $02
@@ -7355,7 +7355,7 @@ off_B8EF_31_display_name_number_at_the_top:
     .byte $03 * $09
 ; адрес ppu
 ; когда мяч у соперника и тот бежит по полю
-    .word $2001
+    .word $2001 ; 
 ; X * Y зачищаемой области
     .byte $0F
     .byte $02
@@ -7392,7 +7392,7 @@ off_B900_32_display_name_opponent_at_the_top:
 ; номер набора контура окна
     .byte $03 * $09
 ; адрес ppu
-    .word $2011
+    .word $2011 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $02
@@ -7422,7 +7422,7 @@ off_B90D_33_resume_play_edit_team_data:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2248
+    .word $2248 ; 
 ; X * Y зачищаемой области
     .byte $18
     .byte $0B
@@ -7466,7 +7466,7 @@ off_B922_34_formation_defense_swap_status_done:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2227
+    .word $2227 ; 
 ; X * Y зачищаемой области
     .byte $0D
     .byte $0C
@@ -7524,7 +7524,7 @@ off_B93F_35_formation:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2268
+    .word $2268 ; 
 ; X * Y зачищаемой области
     .byte $0C
     .byte $0A
@@ -7589,7 +7589,7 @@ off_B95C_36_defense:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $22A8
+    .word $22A8 ; 
 ; X * Y зачищаемой области
     .byte $0C
     .byte $08
@@ -7640,7 +7640,7 @@ off_B975_37_swap:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $22E8
+    .word $22E8 ; 
 ; X * Y зачищаемой области
     .byte $0C
     .byte $06
@@ -7684,7 +7684,7 @@ off_B98A_38_no_subs_left:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $22E7
+    .word $22E7 ; 
 ; X * Y зачищаемой области
     .byte $0D
     .byte $05
@@ -7728,7 +7728,7 @@ off_B99B_39_swap_main_players:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $20
     .byte $0B
@@ -7838,7 +7838,7 @@ off_B9F8_3A_swap_sub_players:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $20
     .byte $0B
@@ -7938,7 +7938,7 @@ off_BA39_3B_whom_to_sub:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $20
     .byte $0C
@@ -8056,7 +8056,7 @@ off_BAA2_3C_stamina_fielded_players:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $20
     .byte $0D
@@ -8239,7 +8239,7 @@ off_BB03_3D_stamina_substitutes_bench:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $20
     .byte $0D
@@ -8409,7 +8409,7 @@ off_BB5C_3E_pk_shootout_select_taker:
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
-    .word $2060
+    .word $2060 ; 
 ; X * Y зачищаемой области
     .byte $20
     .byte $01
@@ -8440,7 +8440,7 @@ off_BB69_3F_pk_players_list:
     .byte $02 * $09
 ; адрес ppu
 ; 0x030C3C смещение для цифры
-    .word $20C3
+    .word $20C3 ; 
 ; X * Y зачищаемой области
     .byte $0C
     .byte $14
@@ -8504,7 +8504,7 @@ off_BB9E_40_pk_order:
 ; номер набора контура окна
     .byte $01 * $09
 ; адрес ppu
-    .word $2111
+    .word $2111 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $0E
@@ -8574,7 +8574,7 @@ off_BBBF_41_pk_score:
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
-    .word $2281
+    .word $2281 ; 
 ; X * Y зачищаемой области
     .byte $05
     .byte $02
@@ -8625,7 +8625,7 @@ off_BC02_42_booth_for_charlie_time_score_period_number:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $07
     .byte $0C
@@ -8683,7 +8683,7 @@ off_BC03_43_booth_for_charlie_pk_period_number:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2220
+    .word $2220 ; 
 ; X * Y зачищаемой области
     .byte $07
     .byte $0C
@@ -8713,7 +8713,7 @@ off_BC04_44_show_1_defender:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -8757,7 +8757,7 @@ off_BC05_45_show_2_defenders:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -8815,7 +8815,7 @@ off_BC06_46_show_3_defenders:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
@@ -8887,7 +8887,7 @@ off_BC07_47_show_4_defenders:
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
-    .word $2252
+    .word $2252 ; 
 ; X * Y зачищаемой области
     .byte $0E
     .byte $09
