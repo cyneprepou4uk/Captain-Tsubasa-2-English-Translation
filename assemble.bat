@@ -10,122 +10,122 @@ start /wait lua53 preparations.lua
 :: -U = нет необходимости писать .import label
 :: -l = создать файл листинга для этого банка
 :: -g = создать файл дебага для этого банка
-ca65 -U -l copy_bank_00.lst -g copy_bank_00.asm
-ca65 -U -l copy_bank_01.lst -g copy_bank_01.asm
-ca65 -U -l copy_bank_02.lst -g copy_bank_02.asm
-ca65 -U -l copy_bank_03.lst -g copy_bank_03.asm
-ca65 -U -l copy_bank_04.lst -g copy_bank_04.asm
-ca65 -U -l copy_bank_05.lst -g copy_bank_05.asm
-ca65 -U -l copy_bank_06.lst -g copy_bank_06.asm
-ca65 -U -l copy_bank_07.lst -g copy_bank_07.asm
-ca65 -U -l copy_bank_08.lst -g copy_bank_08.asm
-ca65 -U -l copy_bank_09.lst -g copy_bank_09.asm
-ca65 -U -l copy_bank_0A.lst -g copy_bank_0A.asm
-ca65 -U -l copy_bank_0B.lst -g copy_bank_0B.asm
-ca65 -U -l copy_bank_0C.lst -g copy_bank_0C.asm
-ca65 -U -l copy_bank_0D.lst -g copy_bank_0D.asm
-ca65 -U -l copy_bank_0E.lst -g copy_bank_0E.asm
-ca65 -U -l copy_bank_0F.lst -g copy_bank_0F.asm
-ca65 -U -l copy_bank_10.lst -g copy_bank_10.asm
-ca65 -U -l copy_bank_12.lst -g copy_bank_12.asm
-ca65 -U -l copy_bank_13.lst -g copy_bank_13.asm
-ca65 -U -l copy_bank_14.lst -g copy_bank_14.asm
-ca65 -U -l copy_bank_16.lst -g copy_bank_16.asm
-ca65 -U -l copy_bank_18.lst -g copy_bank_18.asm
-ca65 -U -l copy_bank_1A.lst -g copy_bank_1A.asm
-ca65 -U -l copy_bank_1C.lst -g copy_bank_1C.asm
-ca65 -U -l copy_bank_1E.lst -g copy_bank_1E.asm
-ca65 -U -l copy_bank_1F.lst -g copy_bank_1F.asm
-ca65 -U -l copy_bank_20.lst -g copy_bank_20.asm
-ca65 -U -l copy_bank_21.lst -g copy_bank_21.asm
-ca65 -U -l copy_bank_22.lst -g copy_bank_22.asm
-ca65 -U -l copy_bank_23.lst -g copy_bank_23.asm
-ca65 -U -l copy_bank_24.lst -g copy_bank_24.asm
-ca65 -U -l copy_bank_25.lst -g copy_bank_25.asm
-ca65 -U -l copy_bank_26.lst -g copy_bank_26.asm
-ca65 -U -l copy_bank_27.lst -g copy_bank_27.asm
-ca65 -U -l copy_bank_28.lst -g copy_bank_28.asm
-ca65 -U -l copy_bank_29.lst -g copy_bank_29.asm
+ca65 -U -l copy_bank_80.lst -g copy_bank_80.asm
+ca65 -U -l copy_bank_81.lst -g copy_bank_81.asm
+ca65 -U -l copy_bank_82.lst -g copy_bank_82.asm
+ca65 -U -l copy_bank_83.lst -g copy_bank_83.asm
+ca65 -U -l copy_bank_84.lst -g copy_bank_84.asm
+ca65 -U -l copy_bank_85.lst -g copy_bank_85.asm
+ca65 -U -l copy_bank_86.lst -g copy_bank_86.asm
+ca65 -U -l copy_bank_87.lst -g copy_bank_87.asm
+ca65 -U -l copy_bank_88.lst -g copy_bank_88.asm
+ca65 -U -l copy_bank_89.lst -g copy_bank_89.asm
+ca65 -U -l copy_bank_8A.lst -g copy_bank_8A.asm
+ca65 -U -l copy_bank_8B.lst -g copy_bank_8B.asm
+ca65 -U -l copy_bank_8C.lst -g copy_bank_8C.asm
+ca65 -U -l copy_bank_8D.lst -g copy_bank_8D.asm
+ca65 -U -l copy_bank_8E.lst -g copy_bank_8E.asm
+ca65 -U -l copy_bank_8F.lst -g copy_bank_8F.asm
+ca65 -U -l copy_bank_90.lst -g copy_bank_90.asm
+ca65 -U -l copy_bank_92.lst -g copy_bank_92.asm
+ca65 -U -l copy_bank_93.lst -g copy_bank_93.asm
+ca65 -U -l copy_bank_94.lst -g copy_bank_94.asm
+ca65 -U -l copy_bank_96.lst -g copy_bank_96.asm
+ca65 -U -l copy_bank_98.lst -g copy_bank_98.asm
+ca65 -U -l copy_bank_9A.lst -g copy_bank_9A.asm
+ca65 -U -l copy_bank_9C.lst -g copy_bank_9C.asm
+ca65 -U -l copy_bank_9E.lst -g copy_bank_9E.asm
+ca65 -U -l copy_bank_9F.lst -g copy_bank_9F.asm
+ca65 -U -l copy_bank_A0.lst -g copy_bank_A0.asm
+ca65 -U -l copy_bank_A1.lst -g copy_bank_A1.asm
+ca65 -U -l copy_bank_A2.lst -g copy_bank_A2.asm
+ca65 -U -l copy_bank_A3.lst -g copy_bank_A3.asm
+ca65 -U -l copy_bank_A4.lst -g copy_bank_A4.asm
+ca65 -U -l copy_bank_A5.lst -g copy_bank_A5.asm
+ca65 -U -l copy_bank_A6.lst -g copy_bank_A6.asm
+ca65 -U -l copy_bank_A7.lst -g copy_bank_A7.asm
+ca65 -U -l copy_bank_A8.lst -g copy_bank_A8.asm
+ca65 -U -l copy_bank_A9.lst -g copy_bank_A9.asm
 ca65 -U -l copy_bank_FF.lst -g copy_bank_FF.asm
 
 :: компиляция кода в бинарники
 ld65 -C ld65.cfg --dbgfile _debug.txt ^
-    copy_bank_00.o ^
-    copy_bank_01.o ^
-    copy_bank_02.o ^
-    copy_bank_03.o ^
-    copy_bank_04.o ^
-    copy_bank_05.o ^
-    copy_bank_06.o ^
-    copy_bank_07.o ^
-    copy_bank_08.o ^
-    copy_bank_09.o ^
-    copy_bank_0A.o ^
-    copy_bank_0B.o ^
-    copy_bank_0C.o ^
-    copy_bank_0D.o ^
-    copy_bank_0E.o ^
-    copy_bank_0F.o ^
-    copy_bank_10.o ^
-    copy_bank_12.o ^
-    copy_bank_13.o ^
-    copy_bank_14.o ^
-    copy_bank_16.o ^
-    copy_bank_18.o ^
-    copy_bank_1A.o ^
-    copy_bank_1C.o ^
-    copy_bank_1E.o ^
-    copy_bank_1F.o ^
-    copy_bank_20.o ^
-    copy_bank_21.o ^
-    copy_bank_22.o ^
-    copy_bank_23.o ^
-    copy_bank_24.o ^
-    copy_bank_25.o ^
-    copy_bank_26.o ^
-    copy_bank_27.o ^
-    copy_bank_28.o ^
-    copy_bank_29.o ^
+    copy_bank_80.o ^
+    copy_bank_81.o ^
+    copy_bank_82.o ^
+    copy_bank_83.o ^
+    copy_bank_84.o ^
+    copy_bank_85.o ^
+    copy_bank_86.o ^
+    copy_bank_87.o ^
+    copy_bank_88.o ^
+    copy_bank_89.o ^
+    copy_bank_8A.o ^
+    copy_bank_8B.o ^
+    copy_bank_8C.o ^
+    copy_bank_8D.o ^
+    copy_bank_8E.o ^
+    copy_bank_8F.o ^
+    copy_bank_90.o ^
+    copy_bank_92.o ^
+    copy_bank_93.o ^
+    copy_bank_94.o ^
+    copy_bank_96.o ^
+    copy_bank_98.o ^
+    copy_bank_9A.o ^
+    copy_bank_9C.o ^
+    copy_bank_9E.o ^
+    copy_bank_9F.o ^
+    copy_bank_A0.o ^
+    copy_bank_A1.o ^
+    copy_bank_A2.o ^
+    copy_bank_A3.o ^
+    copy_bank_A4.o ^
+    copy_bank_A5.o ^
+    copy_bank_A6.o ^
+    copy_bank_A7.o ^
+    copy_bank_A8.o ^
+    copy_bank_A9.o ^
     copy_bank_FF.o
 
 :: сбор бинарников, хедера и chr в общий ром
 copy /B header.bin + ^
-    copy_bank_00.bin + ^
-    copy_bank_01.bin + ^
-    copy_bank_02.bin + ^
-    copy_bank_03.bin + ^
-    copy_bank_04.bin + ^
-    copy_bank_05.bin + ^
-    copy_bank_06.bin + ^
-    copy_bank_07.bin + ^
-    copy_bank_08.bin + ^
-    copy_bank_09.bin + ^
-    copy_bank_0A.bin + ^
-    copy_bank_0B.bin + ^
-    copy_bank_0C.bin + ^
-    copy_bank_0D.bin + ^
-    copy_bank_0E.bin + ^
-    copy_bank_0F.bin + ^
-    copy_bank_10.bin + ^
-    copy_bank_12.bin + ^
-    copy_bank_13.bin + ^
-    copy_bank_14.bin + ^
-    copy_bank_16.bin + ^
-    copy_bank_18.bin + ^
-    copy_bank_1A.bin + ^
-    copy_bank_1C.bin + ^
-    copy_bank_1E.bin + ^
-    copy_bank_1F.bin + ^
-    copy_bank_20.bin + ^
-    copy_bank_21.bin + ^
-    copy_bank_22.bin + ^
-    copy_bank_23.bin + ^
-    copy_bank_24.bin + ^
-    copy_bank_25.bin + ^
-    copy_bank_26.bin + ^
-    copy_bank_27.bin + ^
-    copy_bank_28.bin + ^
-    copy_bank_29.bin + ^
+    copy_bank_80.bin + ^
+    copy_bank_81.bin + ^
+    copy_bank_82.bin + ^
+    copy_bank_83.bin + ^
+    copy_bank_84.bin + ^
+    copy_bank_85.bin + ^
+    copy_bank_86.bin + ^
+    copy_bank_87.bin + ^
+    copy_bank_88.bin + ^
+    copy_bank_89.bin + ^
+    copy_bank_8A.bin + ^
+    copy_bank_8B.bin + ^
+    copy_bank_8C.bin + ^
+    copy_bank_8D.bin + ^
+    copy_bank_8E.bin + ^
+    copy_bank_8F.bin + ^
+    copy_bank_90.bin + ^
+    copy_bank_92.bin + ^
+    copy_bank_93.bin + ^
+    copy_bank_94.bin + ^
+    copy_bank_96.bin + ^
+    copy_bank_98.bin + ^
+    copy_bank_9A.bin + ^
+    copy_bank_9C.bin + ^
+    copy_bank_9E.bin + ^
+    copy_bank_9F.bin + ^
+    copy_bank_A0.bin + ^
+    copy_bank_A1.bin + ^
+    copy_bank_A2.bin + ^
+    copy_bank_A3.bin + ^
+    copy_bank_A4.bin + ^
+    copy_bank_A5.bin + ^
+    copy_bank_A6.bin + ^
+    copy_bank_A7.bin + ^
+    copy_bank_A8.bin + ^
+    copy_bank_A9.bin + ^
     empty.bin + copy_bank_FF.bin + CHR_ROM.chr !ct2.nes
 
 :: удалить остаточный хлам и копии
