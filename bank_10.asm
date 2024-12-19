@@ -30,11 +30,11 @@ C - - - - - 0x02002A 10:801A: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x02002C 10:801C: 85 5E     STA ram_scernario_data + $01
 C - - - - - 0x02002E 10:801E: 86 5D     STX ram_scernario_data
                                         LDX #$7F
-@loop:
+bra_801F_loop:
                                         LDA #$FF
                                         STA ram_debug_подтип_сценария,X
                                         DEX
-                                        BPL @loop
+                                        BPL bra_801F_loop
                                         LDA #$00
                                         STA ram_debug_индекс_подтипов_сценария
                                         STA ram_debug_индекс_подтипов_сценария + $10
@@ -59,10 +59,10 @@ C - - - - - 0x020041 10:8031: 8D 2B 05  STA ram_for_0532
 C - - - - - 0x020044 10:8034: 8D 2D 05  STA ram_052D
 C - - - - - 0x020047 10:8037: 8D 2C 05  STA ram_052C
 C - - - - - 0x02004A 10:803A: 8D 30 05  STA ram_for_052E_задержка_звука_анимации
-C - - - - - 0x02004D 10:803D: 85 3A     STA ram_003A
+C - - - - - 0x02004D 10:803D: 85 3A     STA ram_003A_temp
 loc_803F_loop:
-C D 0 - - - 0x02004F 10:803F: A4 3A     LDY ram_003A
-C - - - - - 0x020051 10:8041: E6 3A     INC ram_003A
+C D 0 - - - 0x02004F 10:803F: A4 3A     LDY ram_003A_temp
+C - - - - - 0x020051 10:8041: E6 3A     INC ram_003A_temp
 C - - - - - 0x020053 10:8043: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020055 10:8045: C9 F0     CMP #$F0
 C - - - - - 0x020057 10:8047: 90 06     BCC bra_804F
@@ -75,16 +75,16 @@ C - - - - - 0x020062 10:8052: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x020065 10:8055: 09 40     ORA #$40
 C - - - - - 0x020067 10:8057: 29 EF     AND #$10 ^ $FF
 C - - - - - 0x020069 10:8059: 8D 16 05  STA ram_флаги_сценария_ХЗ
-C - - - - - 0x02006C 10:805C: A4 3A     LDY ram_003A
-C - - - - - 0x02006E 10:805E: E6 3A     INC ram_003A
+C - - - - - 0x02006C 10:805C: A4 3A     LDY ram_003A_temp
+C - - - - - 0x02006E 10:805E: E6 3A     INC ram_003A_temp
 C - - - - - 0x020070 10:8060: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020079 10:8069: 8D 24 05  STA ram_фон_анимации
-C - - - - - 0x02007C 10:806C: A4 3A     LDY ram_003A
-C - - - - - 0x02007E 10:806E: E6 3A     INC ram_003A
+C - - - - - 0x02007C 10:806C: A4 3A     LDY ram_003A_temp
+C - - - - - 0x02007E 10:806E: E6 3A     INC ram_003A_temp
 C - - - - - 0x020080 10:8070: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020089 10:8079: 8D 28 05  STA ram_for_053C_номер_анимации
-C - - - - - 0x02008C 10:807C: A4 3A     LDY ram_003A
-C - - - - - 0x02008E 10:807E: E6 3A     INC ram_003A
+C - - - - - 0x02008C 10:807C: A4 3A     LDY ram_003A_temp
+C - - - - - 0x02008E 10:807E: E6 3A     INC ram_003A_temp
 C - - - - - 0x020090 10:8080: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020099 10:8089: 8D 29 05  STA ram_for_05EA_облако
 ; при необходимости выбрать анимацию из таблицы
@@ -107,7 +107,7 @@ loc_808A:
                                         STA ram_for_053C_номер_анимации
 loc_808C:
 ; 00-FC, FF
-C - - - - - 0x02009C 10:808C: A5 3A     LDA ram_003A
+C - - - - - 0x02009C 10:808C: A5 3A     LDA ram_003A_temp
 C - - - - - 0x02009E 10:808E: 18        CLC
 C - - - - - 0x02009F 10:808F: 65 5D     ADC ram_scernario_data
 C - - - - - 0x0200A1 10:8091: 85 5D     STA ram_scernario_data
@@ -121,6 +121,7 @@ C - - - - - 0x0200AD 10:809D: A9 0B     LDA #$0B
 C - - - - - 0x0200AF 10:809F: 95 02     STA ram_0002,X
 C - - - - - 0x0200B1 10:80A1: A9 80     LDA #> (ofs_099_0x01615C - $01)
 C - - - - - 0x0200B3 10:80A3: A0 08     LDY #< (ofs_099_0x01615C - $01)
+; bzk optimize, JMP
 C - - - - - 0x0200B5 10:80A5: 20 0F C5  JSR sub_0x03CAF7_подготовить_подпрограмму_в_стеке
 C - - - - - 0x0200B8 10:80A8: 60        RTS
 
@@ -176,7 +177,7 @@ C - - - - - 0x020103 10:80F3: 60        RTS
 sub_CB02:
 ; перемещено из банка FF
 ; bzk optimize, X = 05
-C D - - - - 0x03CB12 FF:CB02: B5 01     LDA ram_0001,X
+C D 2 - - - 0x03CB12 FF:CB02: B5 01     LDA ram_0001,X
 C - - - - - 0x03CB14 FF:CB04: F0 06     BEQ bra_CB0C_RTS
 C - - - - - 0x03CB16 FF:CB06: B5 00     LDA ram_0000,X
 C - - - - - 0x03CB18 FF:CB08: D0 02     BNE bra_CB0C_RTS
@@ -189,7 +190,7 @@ C - - - - - 0x03CB1C FF:CB0C: 60        RTS
 ofs_014_80F4_F2_jmp:
 ; читает 2 следующих байта
 ; переместиться на адрес поинтеров после F2
-C - - J - - 0x020104 10:80F4: A4 3A     LDY ram_003A
+C - - J - - 0x020104 10:80F4: A4 3A     LDY ram_003A_temp
 loc_80F6_подпрограмма_сценария:
 C D 0 - - - 0x020106 10:80F6: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020108 10:80F8: AA        TAX
@@ -198,7 +199,7 @@ C - - - - - 0x02010A 10:80FA: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x02010C 10:80FC: 85 5E     STA ram_scernario_data + $01
 C - - - - - 0x02010E 10:80FE: 86 5D     STX ram_scernario_data
 C - - - - - 0x020110 10:8100: A9 00     LDA #$00
-C - - - - - 0x020112 10:8102: 85 3A     STA ram_003A
+C - - - - - 0x020112 10:8102: 85 3A     STA ram_003A_temp
 C - - - - - 0x020114 10:8104: 60        RTS
 
 
@@ -208,7 +209,7 @@ ofs_014_8105_F3_branch:
 ; код считывает байт после F3 и прыгает на одну из соответствующих подпрограмм, откуда получает нужный результат в X
     ; если байт после F3 отрицательный, то меняется косвенный адрес сценария в зависимости от результата
     ; если байт после F3 положительный, то косвенный адрес сценария смещается на велечину результата
-C - - J - - 0x020115 10:8105: A4 3A     LDY ram_003A
+C - - J - - 0x020115 10:8105: A4 3A     LDY ram_003A_temp
 C - - - - - 0x020117 10:8107: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020119 10:8109: 48        PHA
 C - - - - - 0x02011A 10:810A: 20 6E 81  JSR sub_816E_выбор_подпрограммы
@@ -243,7 +244,7 @@ C - - - - - 0x02011E 10:810E: 10 1F     BPL bra_812F_00_7F
 ; 80-FF
 C - - - - - 0x020120 10:8110: 8A        TXA
 C - - - - - 0x020121 10:8111: 38        SEC
-C - - - - - 0x020122 10:8112: 65 3A     ADC ram_003A
+C - - - - - 0x020122 10:8112: 65 3A     ADC ram_003A_temp
 C - - - - - 0x020124 10:8114: 18        CLC
 C - - - - - 0x020125 10:8115: 65 5D     ADC ram_scernario_data
 C - - - - - 0x020127 10:8117: 85 5D     STA ram_scernario_data
@@ -259,14 +260,14 @@ C - - - - - 0x020136 10:8126: 90 02     BCC bra_812A_not_overflow
 C - - - - - 0x020138 10:8128: E6 5E     INC ram_scernario_data + $01
 bra_812A_not_overflow:
 C - - - - - 0x02013A 10:812A: A9 00     LDA #$00
-C - - - - - 0x02013C 10:812C: 85 3A     STA ram_003A
+C - - - - - 0x02013C 10:812C: 85 3A     STA ram_003A_temp
 C - - - - - 0x02013E 10:812E: 60        RTS
 bra_812F_00_7F:
 loc_812F_выбрать_подпрограмму:
 C D 0 - - - 0x02013F 10:812F: 8A        TXA
 C - - - - - 0x020140 10:8130: 0A        ASL
 C - - - - - 0x020141 10:8131: 38        SEC
-C - - - - - 0x020142 10:8132: 65 3A     ADC ram_003A
+C - - - - - 0x020142 10:8132: 65 3A     ADC ram_003A_temp
 C - - - - - 0x020144 10:8134: A8        TAY
 C - - - - - 0x020145 10:8135: 4C F6 80  JMP loc_80F6_подпрограмма_сценария
 
@@ -278,16 +279,16 @@ sub_8138_рандом_убийства_игрока___X_00:
 C - - - - - 0x020148 10:8138: 29 FC     AND #$FC
 C - - - - - 0x02014A 10:813A: F0 11     BEQ bra_814D_данное_действие_не_убивает
 C - - - - - 0x02014C 10:813C: 4A        LSR
-C - - - - - 0x02014D 10:813D: 85 3B     STA ram_003B
+C - - - - - 0x02014D 10:813D: 85 3B     STA ram_003B_temp
 C - - - - - 0x02014F 10:813F: AD E2 00  LDA ram_random + $01
 loc_8142_loop:
-C D 0 - - - 0x020152 10:8142: C5 3B     CMP ram_003B
+C D 0 - - - 0x020152 10:8142: C5 3B     CMP ram_003B_temp
 C - - - - - 0x020154 10:8144: 90 05     BCC bra_814B_закончить_цикл
-C - - - - - 0x020156 10:8146: E5 3B     SBC ram_003B
+C - - - - - 0x020156 10:8146: E5 3B     SBC ram_003B_temp
 C - - - - - 0x020158 10:8148: 4C 42 81  JMP loc_8142_loop
 bra_814B_закончить_цикл:
 ; C = 1
-C - - - - - 0x02015B 10:814B: 65 3B     ADC ram_003B
+C - - - - - 0x02015B 10:814B: 65 3B     ADC ram_003B_temp
 bra_814D_данное_действие_не_убивает:    ; A = 00
 C - - - - - 0x02015D 10:814D: A2 00     LDX #$00
 C - - - - - 0x02015F 10:814F: 60        RTS
@@ -452,6 +453,7 @@ C - - - - - 0x020256 10:8246: E0 02     CPX #$02
 C - - - - - 0x020258 10:8248: 90 03     BCC bra_824D_защитник_не_отберет_мяч
 C - - - - - 0x02025A 10:824A: AD 41 04  LDA ram_игрок_с_мячом
 bra_824D_защитник_не_отберет_мяч:
+; bzk optimize, JMP
 C - - - - - 0x02025D 10:824D: 20 50 81  JSR sub_8150_отнять_хп_за_смерть_игрока___X_01
 bra_8250_RTS:
 C - - - - - 0x020260 10:8250: 60        RTS
@@ -582,13 +584,15 @@ C - - J - - 0x02029A 10:828A: AC 3B 04  LDY ram_действие_атаки
 C - - - - - 0x02029D 10:828D: BE 91 82  LDX tbl_8291,Y
 C - - - - - 0x0202A0 10:8290: 60        RTS
 
+
+
 tbl_8291:
-    .byte $00   ; shoot
-    .byte $01   ; pass
-    .byte $FF   ; unused
-    .byte $FF   ; unused
-    .byte $02   ; trap
-    .byte $03   ; through
+    .byte $00   ; 00 shoot
+    .byte $01   ; 01 pass
+    .byte $FF   ; 02 unused
+    .byte $FF   ; 03 unused
+    .byte $02   ; 04 trap
+    .byte $03   ; 05 through
 
 
 
@@ -642,6 +646,7 @@ C - - - - - 0x0202E5 10:82D5: 90 03     BCC bra_82DA
 C - - - - - 0x0202E7 10:82D7: EE 43 04  INC ram_0443
 bra_82DA:
 C - - - - - 0x0202EA 10:82DA: AD 43 04  LDA ram_0443
+; * 05
 C - - - - - 0x0202ED 10:82DD: 0A        ASL
 C - - - - - 0x0202EE 10:82DE: 0A        ASL
 C - - - - - 0x0202EF 10:82DF: 6D 43 04  ADC ram_0443
@@ -676,43 +681,43 @@ C - - - - - 0x02030B 10:82FB: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 
 tbl_8308_шанс:
-; 00
+; 00 
 - D 0 - - - 0x020318 10:8308: 4D        .byte $4D   ; 00 = гол
 - D 0 - - - 0x020319 10:8309: 39        .byte $39   ; 01 = штанга
 - D 0 - - - 0x02031A 10:830A: 21        .byte $21   ; 02 = защитник спасает (его может убить)
 - D 0 - - - 0x02031B 10:830B: 0F        .byte $0F   ; 03 = штанга и добивание
 - D 0 - - - 0x02031C 10:830C: 00        .byte $00   ; 04 = защитник не спасает (его может убить)
-; 01
+; 01 
 - D 0 - - - 0x02031D 10:830D: 81        .byte $81
 - D 0 - - - 0x02031E 10:830E: 53        .byte $53
 - D 0 - - - 0x02031F 10:830F: 2D        .byte $2D
 - D 0 - - - 0x020320 10:8310: 19        .byte $19
 - D 0 - - - 0x020321 10:8311: 00        .byte $00
-; 02
+; 02 
 - D 0 - - - 0x020322 10:8312: 57        .byte $57
 - D 0 - - - 0x020323 10:8313: 1F        .byte $1F
 - D 0 - - - 0x020324 10:8314: 17        .byte $17
 - D 0 - - - 0x020325 10:8315: 0D        .byte $0D
 - - - - - - 0x020326 10:8316: 00        .byte $00
-; 03
+; 03 
 - D 0 - - - 0x020327 10:8317: 64        .byte $64
 - D 0 - - - 0x020328 10:8318: 1F        .byte $1F
 - - - - - - 0x020329 10:8319: 17        .byte $17
 - - - - - - 0x02032A 10:831A: 0D        .byte $0D
 - - - - - - 0x02032B 10:831B: 00        .byte $00
-; 04
+; 04 
 - D 0 - - - 0x02032C 10:831C: 2C        .byte $2C
 - D 0 - - - 0x02032D 10:831D: 13        .byte $13
 - D 0 - - - 0x02032E 10:831E: FF        .byte $FF
 - D 0 - - - 0x02032F 10:831F: 0F        .byte $0F
 - D 0 - - - 0x020330 10:8320: 00        .byte $00
-; 05
+; 05 
 - D 0 - - - 0x020331 10:8321: 42        .byte $42
 - D 0 - - - 0x020332 10:8322: 1E        .byte $1E
 - D 0 - - - 0x020333 10:8323: FF        .byte $FF
 - D 0 - - - 0x020334 10:8324: 15        .byte $15
 - D 0 - - - 0x020335 10:8325: 00        .byte $00
-; 06
+; 06 
 - D 0 - - - 0x020336 10:8326: 1F        .byte $1F
 - D 0 - - - 0x020337 10:8327: 13        .byte $13
 - D 0 - - - 0x020338 10:8328: FF        .byte $FF
@@ -897,6 +902,7 @@ ofs_015_83EB_1C_разновидность_dribble:
 C - - J - - 0x0203FB 10:83EB: AD 3C 04  LDA ram_подтип_действия_атаки
 C - - - - - 0x0203FE 10:83EE: 29 7F     AND #$7F
 C - - - - - 0x020400 10:83F0: AA        TAX
+; bzk optimize, JMP
 C - - - - - 0x020401 10:83F1: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
 C - - - - - 0x020404 10:83F4: 60        RTS
 
@@ -1136,6 +1142,7 @@ bra_84C7_RTS:
 ; C - - - - - 0x02049D 10:848D: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 ; C - - - - - 0x0204A0 10:8490: A8        TAY
 ; C - - - - - 0x0204A1 10:8491: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; bzk optimize, JMP
 ; C - - - - - 0x0204A4 10:8494: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
 ; bra_8497_RTS:
 ; C - - - - - 0x0204A7 10:8497: 60        RTS
@@ -1186,6 +1193,7 @@ bra_84C7_RTS:
 ; C - - - - - 0x0204B7 10:84A7: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 ; C - - - - - 0x0204BA 10:84AA: A8        TAY
 ; C - - - - - 0x0204BB 10:84AB: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; bzk optimize, JMP
 ; C - - - - - 0x0204BE 10:84AE: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
 ; bra_84B1_RTS:
 ; C - - - - - 0x0204C1 10:84B1: 60        RTS
@@ -1264,8 +1272,8 @@ ofs_015_84FC_2E_наебан_ли_кипер:
 ; 01 = кипер наебан
 C - - J - - 0x02050C 10:84FC: 20 51 C5  JSR sub_0x03CD87_получить_адрес_кипера_команды_без_мяча
 C - - - - - 0x02050F 10:84FF: A2 00     LDX #$00
-C - - - - - 0x020511 10:8501: A0 07     LDY #con_величина_наебки
-C - - - - - 0x020513 10:8503: B1 34     LDA (ram_plr_data),Y    ; con_величина_наебки
+C - - - - - 0x020511 10:8501: A0 07     LDY #con_gk_величина_наебки
+C - - - - - 0x020513 10:8503: B1 34     LDA (ram_plr_data),Y    ; con_gk_величина_наебки
 C - - - - - 0x020515 10:8505: C9 18     CMP #$18
 C - - - - - 0x020517 10:8507: 90 01     BCC bra_850A_RTS
 C - - - - - 0x020519 10:8509: E8        INX ; 01
@@ -1370,6 +1378,7 @@ C - - - - - 0x02056E 10:855E: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - - 0x020571 10:8561: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x020574 10:8564: A8        TAY
 C - - - - - 0x020575 10:8565: BE 6A 87  LDX tbl_876A_игроки_с_защитным_спешалом,Y
+; bzk optimize, JMP
 C - - - - - 0x020578 10:8568: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
 bra_856B_RTS:
 C - - - - - 0x02057B 10:856B: 60        RTS
@@ -1529,15 +1538,15 @@ ofs_015_85E6_3E_полет_мяча_и_кипера_в_пк:
 C - - J - - 0x0205F6 10:85E6: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x0205F9 10:85E9: 38        SEC
 C - - - - - 0x0205FA 10:85EA: E9 07     SBC #$07
-C - - - - - 0x0205FC 10:85EC: 85 3B     STA ram_003B
+C - - - - - 0x0205FC 10:85EC: 85 3B     STA ram_003B_temp
 C - - - - - 0x0205FE 10:85EE: 0A        ASL
-C - - - - - 0x0205FF 10:85EF: 65 3B     ADC ram_003B
-C - - - - - 0x020601 10:85F1: 85 3B     STA ram_003B
+C - - - - - 0x0205FF 10:85EF: 65 3B     ADC ram_003B_temp
+C - - - - - 0x020601 10:85F1: 85 3B     STA ram_003B_temp
 C - - - - - 0x020603 10:85F3: AD 3D 04  LDA ram_действие_защиты
 C - - - - - 0x020606 10:85F6: 38        SEC
 C - - - - - 0x020607 10:85F7: E9 07     SBC #$07
 C - - - - - 0x020609 10:85F9: 18        CLC
-C - - - - - 0x02060A 10:85FA: 65 3B     ADC ram_003B
+C - - - - - 0x02060A 10:85FA: 65 3B     ADC ram_003B_temp
 C - - - - - 0x02060C 10:85FC: AA        TAX
 C - - - - - 0x02060D 10:85FD: 60        RTS
 
@@ -1582,6 +1591,7 @@ C - - J - - 0x020612 10:8602: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x020615 10:8605: 20 07 82  JSR sub_8207_узнать_номер_игрока___X_00
 C - - - - - 0x020618 10:8608: A8        TAY
 C - - - - - 0x020619 10:8609: BE F4 86  LDX tbl_86F4_игроки_с_рожами,Y
+; bzk optimize, JMP
 C - - - - - 0x02061C 10:860C: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
 C - - - - - 0x02061F 10:860F: 60        RTS
 
@@ -1681,8 +1691,8 @@ C - - - - - 0x02066D 10:865D: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x020670 10:8660: 49 0B     EOR #$0B
 C - - - - - 0x020672 10:8662: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 ; судя по новому логу, только для кипера соперника?
-C - - - - - 0x020675 10:8665: A0 05     LDY #con_таймер_наебки
-C - - - - - 0x020677 10:8667: B1 34     LDA (ram_plr_data),Y    ; con_таймер_наебки
+C - - - - - 0x020675 10:8665: A0 05     LDY #con_gk_таймер_наебки
+C - - - - - 0x020677 10:8667: B1 34     LDA (ram_plr_data),Y    ; con_gk_таймер_наебки
 ; bzk optimize, нахрена складывать с 00?
 C - - - - - 0x020679 10:8669: 18        CLC
 C - - - - - 0x02067A 10:866A: 69 00     ADC #$00
@@ -1691,7 +1701,7 @@ C - - - - - 0x02067E 10:866E: 90 02     BCC bra_8672_not_overflow
 - - - - - - 0x020680 10:8670: A9 7F     LDA #$7F
 bra_8672_not_overflow:
 ; судя по новому логу, только для кипера соперника?
-C - - - - - 0x020682 10:8672: 91 34     STA (ram_plr_data),Y    ; con_таймер_наебки
+C - - - - - 0x020682 10:8672: 91 34     STA (ram_plr_data),Y    ; con_gk_таймер_наебки
 C - - - - - 0x020684 10:8674: A2 01     LDX #$01
 bra_8676_RTS:
 C - - - - - 0x020686 10:8676: 60        RTS
@@ -1708,6 +1718,7 @@ C - - - - - 0x02068C 10:867C: 20 38 81  JSR sub_8138_рандом_убийств
 C - - - - - 0x02068F 10:867F: C9 80     CMP #$80
 C - - - - - 0x020691 10:8681: 90 06     BCC bra_8689_RTS
 C - - - - - 0x020693 10:8683: AD 42 04  LDA ram_игрок_без_мяча
+; bzk optimize, JMP
 C - - - - - 0x020696 10:8686: 20 50 81  JSR sub_8150_отнять_хп_за_смерть_игрока___X_01
 bra_8689_RTS:
 C - - - - - 0x020699 10:8689: 60        RTS
@@ -1734,6 +1745,7 @@ C - - - - - 0x0206AB 10:869B: D0 F5     BNE bra_8692_loop
 bra_869D:
 C - - - - - 0x0206AD 10:869D: BE A7 86  LDX tbl_86A6_индекс_для_bra + $01,Y
 C - - - - - 0x0206B0 10:86A0: A9 01     LDA #$01
+; bzk optimize, JMP
 C - - - - - 0x0206B2 10:86A2: 20 11 82  JSR sub_8211_выставить_флаг_сценария_04
 C - - - - - 0x0206B5 10:86A5: 60        RTS
 
@@ -1833,55 +1845,55 @@ C - - - - - 0x0206F0 10:86E0: 4C 11 82  JMP loc_8211_выставить_флаг
 ofs_015_847D_4A_оба_игрока_с_рожами:
 ; 00 = один из игроков/оба игрока без рожи
 ; 01 = оба игрока с рожами
-    LDA ram_игрок_без_мяча
-    JSR sub_8207_узнать_номер_игрока___X_00
-    TAY
-    LDX tbl_86F4_игроки_с_рожами,Y
-    BEQ bra_8498_RTS
-    LDA ram_игрок_с_мячом
-    JSR sub_8207_узнать_номер_игрока___X_00
-    TAY
-    LDX tbl_86F4_игроки_с_рожами,Y
-    BEQ bra_8498_RTS
-    JSR sub_8211_выставить_флаг_сценария_04
-    LDX #$01
+                                        LDA ram_игрок_без_мяча
+                                        JSR sub_8207_узнать_номер_игрока___X_00
+                                        TAY
+                                        LDX tbl_86F4_игроки_с_рожами,Y
+                                        BEQ bra_8498_RTS
+                                        LDA ram_игрок_с_мячом
+                                        JSR sub_8207_узнать_номер_игрока___X_00
+                                        TAY
+                                        LDX tbl_86F4_игроки_с_рожами,Y
+                                        BEQ bra_8498_RTS
+                                        JSR sub_8211_выставить_флаг_сценария_04
+                                        LDX #$01
 bra_8498_RTS:
-    RTS
+                                        RTS
 
 
 
 ofs_015_85FE_4B_проверка_на_защитника_misugi:
 ; 00 = p_misugi_my
 ; 01 = p_misugi_musashi, p_misugi_japan
-    LDA ram_игрок_без_мяча
-    JSR sub_8207_узнать_номер_игрока___X_00
-    CMP #con_p_misugi_my
-    BEQ bra_85FE_RTS
-    INX ; 01
+                                        LDA ram_игрок_без_мяча
+                                        JSR sub_8207_узнать_номер_игрока___X_00
+                                        CMP #con_p_misugi_my
+                                        BEQ bra_85FE_RTS
+                                        INX ; 01
 bra_85FE_RTS:
-    RTS
+                                        RTS
 
 
 
 tbl_86E3_игроки_со_спешал_перепасовкой:
 ; 0x0206F3
-    .byte con_p_tsubasa_my          ; 00
-    .byte con_p_misaki_my           ; 01
-    .byte con_p_hyuga_my            ; 02
-    .byte con_p_hyuga_japan         ; 03
-    .byte con_p_hyuga_toho          ; 04
-    .byte con_p_sawada_my           ; 05
-    .byte con_p_sawada_toho         ; 06
-    .byte con_p_masao_my            ; 07
-    .byte con_p_kazuo_my            ; 08
-    .byte con_p_masao_japan         ; 09
-    .byte con_p_kazuo_japan         ; 0A
-    .byte con_p_masao_akita         ; 0B
-    .byte con_p_kazuo_akita         ; 0C
-    .byte con_p_diaz_argentina      ; 0D
-    .byte con_p_pascal_argentina    ; 0E
-    .byte con_p_pierre_france       ; 0F
-    .byte con_p_napoleon_france     ; 10
+    .byte con_p_tsubasa_my          ; 00 
+    .byte con_p_misaki_my           ; 01 
+    .byte con_p_hyuga_my            ; 02 
+    .byte con_p_hyuga_japan         ; 03 
+    .byte con_p_hyuga_toho          ; 04 
+    .byte con_p_sawada_my           ; 05 
+    .byte con_p_sawada_toho         ; 06 
+    .byte con_p_masao_my            ; 07 
+    .byte con_p_kazuo_my            ; 08 
+    .byte con_p_masao_japan         ; 09 
+    .byte con_p_kazuo_japan         ; 0A 
+    .byte con_p_masao_akita         ; 0B 
+    .byte con_p_kazuo_akita         ; 0C 
+    .byte con_p_diaz_argentina      ; 0D 
+    .byte con_p_pascal_argentina    ; 0E 
+    .byte con_p_pierre_france       ; 0F 
+    .byte con_p_napoleon_france     ; 10 
 
 
 
@@ -2158,8 +2170,8 @@ C - - - - - 0x020804 10:87F4: 60        RTS
 
 ofs_014_87F5_F7:
 ; читает 1 следующий байт, который позже будет записан в ram_0532
-C - - J - - 0x020805 10:87F5: A4 3A     LDY ram_003A
-C - - - - - 0x020807 10:87F7: E6 3A     INC ram_003A
+C - - J - - 0x020805 10:87F5: A4 3A     LDY ram_003A_temp
+C - - - - - 0x020807 10:87F7: E6 3A     INC ram_003A_temp
 C - - - - - 0x020809 10:87F9: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x02080B 10:87FB: 8D 2B 05  STA ram_for_0532
 C - - - - - 0x02080E 10:87FE: 60        RTS
@@ -2168,8 +2180,8 @@ C - - - - - 0x02080E 10:87FE: 60        RTS
 
 ofs_014_87FF_F8:
 ; читает 1 следующий байт
-C - - J - - 0x02080F 10:87FF: A4 3A     LDY ram_003A
-C - - - - - 0x020811 10:8801: E6 3A     INC ram_003A
+C - - J - - 0x02080F 10:87FF: A4 3A     LDY ram_003A_temp
+C - - - - - 0x020811 10:8801: E6 3A     INC ram_003A_temp
 C - - - - - 0x020813 10:8803: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020815 10:8805: 8D 2C 05  STA ram_052C
 C - - - - - 0x020818 10:8808: 60        RTS
@@ -2179,14 +2191,14 @@ C - - - - - 0x020818 10:8808: 60        RTS
 ofs_014_8809_F9_soundID_delay:
 ; читает 2 следующих байта
 ; номер звука и время задержки перед воспроизведением этого звука
-C - - J - - 0x020819 10:8809: A4 3A     LDY ram_003A
+C - - J - - 0x020819 10:8809: A4 3A     LDY ram_003A_temp
 C - - - - - 0x02081B 10:880B: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x02081D 10:880D: 8D 30 05  STA ram_for_052F_звук_анимации
 C - - - - - 0x020820 10:8810: C8        INY
 C - - - - - 0x020821 10:8811: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020823 10:8813: 8D 31 05  STA ram_for_052E_задержка_звука_анимации
 C - - - - - 0x020826 10:8816: C8        INY
-C - - - - - 0x020827 10:8817: 84 3A     STY ram_003A
+C - - - - - 0x020827 10:8817: 84 3A     STY ram_003A_temp
 C - - - - - 0x020829 10:8819: 60        RTS
 
 
@@ -2195,7 +2207,7 @@ ofs_014_881A_FA_jsr:
 ; читает 2 следующих байта
 ; прыжок с возвратом во внутренний сценарий
 C - - J - - 0x02082A 10:881A: AE 22 05  LDX ram_указатель_стека_сценария
-C - - - - - 0x02082D 10:881D: A5 3A     LDA ram_003A
+C - - - - - 0x02082D 10:881D: A5 3A     LDA ram_003A_temp
 C - - - - - 0x02082F 10:881F: A8        TAY
 C - - - - - 0x020830 10:8820: 18        CLC
 C - - - - - 0x020831 10:8821: 69 02     ADC #< $0002
@@ -2244,7 +2256,7 @@ C - - - - - 0x020857 10:8847: 85 5D     STA ram_scernario_data
 C - - - - - 0x020859 10:8849: BD 1B 05  LDA ram_стек_сценария_hi,X
 C - - - - - 0x02085C 10:884C: 85 5E     STA ram_scernario_data + $01
 C - - - - - 0x02085E 10:884E: A9 00     LDA #$00
-C - - - - - 0x020860 10:8850: 85 3A     STA ram_003A
+C - - - - - 0x020860 10:8850: 85 3A     STA ram_003A_temp
 C - - - - - 0x020862 10:8852: 60        RTS
 
 
@@ -2252,8 +2264,8 @@ C - - - - - 0x020862 10:8852: 60        RTS
 ofs_014_8853_FC_moving_bg:
 ; читает 1 следующий байт
 ; что-то связанное с движущимся фоном во время подката
-C - - J - - 0x020863 10:8853: A4 3A     LDY ram_003A
-C - - - - - 0x020865 10:8855: E6 3A     INC ram_003A
+C - - J - - 0x020863 10:8853: A4 3A     LDY ram_003A_temp
+C - - - - - 0x020865 10:8855: E6 3A     INC ram_003A_temp
 C - - - - - 0x020867 10:8857: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020869 10:8859: 8D 2D 05  STA ram_052D
 C - - - - - 0x02086C 10:885C: 60        RTS
@@ -2262,8 +2274,8 @@ C - - - - - 0x02086C 10:885C: 60        RTS
 
 ofs_014_885D_FD_mirror_condition:
 ; читает 1 следующий байт
-C - - J - - 0x02086D 10:885D: A4 3A     LDY ram_003A
-C - - - - - 0x02086F 10:885F: E6 3A     INC ram_003A
+C - - J - - 0x02086D 10:885D: A4 3A     LDY ram_003A_temp
+C - - - - - 0x02086F 10:885F: E6 3A     INC ram_003A_temp
 C - - - - - 0x020871 10:8861: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020873 10:8863: 20 6A 88  JSR sub_886A_подпрограмма
 C - - - - - 0x020876 10:8866: 8E 2A 05  STX ram_флаг_зеркала_анимации
@@ -2283,7 +2295,7 @@ C - - - - - 0x02087A 10:886A: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 ofs_018_8877_00_координаты_игрока:
 C - - J - - 0x020887 10:8877: A9 00     LDA #$00
-C - - - - - 0x020889 10:8879: 85 3B     STA ram_003B
+C - - - - - 0x020889 10:8879: 85 3B     STA ram_003B_temp
 C - - - - - 0x02088B 10:887B: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x02088E 10:887E: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x020891 10:8881: AD 38 06  LDA ram_0638
@@ -2293,18 +2305,18 @@ C - - - - - 0x020898 10:8888: A0 08     LDY #con_plr_pos_Y_hi
 C - - - - - 0x02089A 10:888A: 38        SEC
 C - - - - - 0x02089B 10:888B: F1 34     SBC (ram_plr_data),Y    ; con_plr_pos_Y_hi
 C - - - - - 0x02089D 10:888D: B0 02     BCS bra_8891
-C - - - - - 0x02089F 10:888F: E6 3B     INC ram_003B
+C - - - - - 0x02089F 10:888F: E6 3B     INC ram_003B_temp
 bra_8891:
 C - - - - - 0x0208A1 10:8891: 8A        TXA
 C - - - - - 0x0208A2 10:8892: A0 06     LDY #con_plr_pos_X_hi
 C - - - - - 0x0208A4 10:8894: 38        SEC
 C - - - - - 0x0208A5 10:8895: F1 34     SBC (ram_plr_data),Y    ; con_plr_pos_X_hi
 C - - - - - 0x0208A7 10:8897: B0 04     BCS bra_889D
-C - - - - - 0x0208A9 10:8899: E6 3B     INC ram_003B
-C - - - - - 0x0208AB 10:889B: E6 3B     INC ram_003B
+C - - - - - 0x0208A9 10:8899: E6 3B     INC ram_003B_temp
+C - - - - - 0x0208AB 10:889B: E6 3B     INC ram_003B_temp
 bra_889D:
 C - - - - - 0x0208AD 10:889D: A2 40     LDX #$40
-C - - - - - 0x0208AF 10:889F: A5 3B     LDA ram_003B
+C - - - - - 0x0208AF 10:889F: A5 3B     LDA ram_003B_temp
 C - - - - - 0x0208B1 10:88A1: F0 06     BEQ bra_88A9_RTS
 C - - - - - 0x0208B3 10:88A3: C9 03     CMP #$03
 C - - - - - 0x0208B5 10:88A5: F0 02     BEQ bra_88A9_RTS
@@ -2375,7 +2387,7 @@ C - - - - - 0x0208FC 10:88EC: 60        RTS
 
 ofs_014_88ED_FF_drive_overhead_tiger:
 ; читает 1 следующий байт
-C - - J - - 0x0208FD 10:88ED: A4 3A     LDY ram_003A
+C - - J - - 0x0208FD 10:88ED: A4 3A     LDY ram_003A_temp
 C - - - - - 0x0208FF 10:88EF: B1 5D     LDA (ram_scernario_data),Y
 C - - - - - 0x020901 10:88F1: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x020906 10:88F6: 0D 89     .word ofs_019_890D_00_drive_overhead
@@ -15863,3 +15875,6 @@ ofs_946A_00_кипер_убивается_и_мяч_отлетает:
 
 
 .out .sprintf("Free bytes in bank 10: 0x%04X [%d]", ($C000 - *), ($C000 - *))
+
+
+

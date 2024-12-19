@@ -23,7 +23,7 @@
 sub_A01E_генерация_пароля:
 C - - - - - 0x00202E 01:A01E: AD 48 04  LDA ram_флаг_циклона
 C - - - - - 0x002031 01:A021: 4A        LSR
-C - - - - - 0x002032 01:A022: A5 26     LDA ram_матч
+C - - - - - 0x002032 01:A022: A5 26     LDA ram_номер_матча
 C - - - - - 0x002034 01:A024: 2A        ROL
 C - - - - - 0x002035 01:A025: 18        CLC
 C - - - - - 0x002036 01:A026: AE 46 04  LDX ram_флаг_драйв_оверхеда
@@ -41,7 +41,7 @@ bra_A03D_loop:
 C - - - - - 0x00204D 01:A03D: 48        PHA
 C - - - - - 0x00204E 01:A03E: 20 16 B0  JSR sub_B016_чтение_опыта_из_оперативки
 C - - - - - 0x002051 01:A041: 84 EC     STY ram_00EC
-C - - - - - 0x002053 01:A043: 86 ED     STX ram_00ED
+C - - - - - 0x002053 01:A043: 86 ED     STX ram_00ED_temp
 C - - - - - 0x002055 01:A045: 20 2E B0  JSR sub_B02E
 C - - - - - 0x002058 01:A048: 85 E7     STA ram_00E7
 C - - - - - 0x00205A 01:A04A: 20 45 B0  JSR sub_B045
@@ -51,9 +51,9 @@ C - - - - - 0x002061 01:A051: A5 EC     LDA ram_00EC
 C - - - - - 0x002063 01:A053: 38        SEC
 C - - - - - 0x002064 01:A054: E5 EA     SBC ram_00EA
 C - - - - - 0x002066 01:A056: 85 EC     STA ram_00EC
-C - - - - - 0x002068 01:A058: A5 ED     LDA ram_00ED
+C - - - - - 0x002068 01:A058: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x00206A 01:A05A: E5 EB     SBC ram_00EB
-C - - - - - 0x00206C 01:A05C: 85 ED     STA ram_00ED
+C - - - - - 0x00206C 01:A05C: 85 ED     STA ram_00ED_temp
 C - - - - - 0x00206E 01:A05E: A5 E7     LDA ram_00E7
 C - - - - - 0x002070 01:A060: 18        CLC
 C - - - - - 0x002071 01:A061: 69 01     ADC #$01
@@ -93,21 +93,21 @@ C - - - - - 0x0020AB 01:A09B: 85 EB     STA ram_00EB
 C - - - - - 0x0020AD 01:A09D: 20 02 A4  JSR sub_A402
 C - - - - - 0x0020B0 01:A0A0: A5 EC     LDA ram_00EC
 C - - - - - 0x0020B2 01:A0A2: 8D 62 06  STA ram_0662
-C - - - - - 0x0020B5 01:A0A5: A5 ED     LDA ram_00ED
+C - - - - - 0x0020B5 01:A0A5: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x0020B7 01:A0A7: 29 0F     AND #$0F
 C - - - - - 0x0020B9 01:A0A9: 0D 61 06  ORA ram_0661
 C - - - - - 0x0020BC 01:A0AC: 8D 61 06  STA ram_0661
 C - - - - - 0x0020BF 01:A0AF: A9 00     LDA #$00
-C - - - - - 0x0020C1 01:A0B1: 85 ED     STA ram_00ED
+C - - - - - 0x0020C1 01:A0B1: 85 ED     STA ram_00ED_temp
 bra_A0B3_loop:
-C - - - - - 0x0020C3 01:A0B3: A6 ED     LDX ram_00ED
+C - - - - - 0x0020C3 01:A0B3: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x0020C5 01:A0B5: 20 38 A4  JSR sub_A438
 C - - - - - 0x0020C8 01:A0B8: A2 FF     LDX #$FF
 bra_A0BA_loop:
 C - - - - - 0x0020CA 01:A0BA: E8        INX
 C - - - - - 0x0020CB 01:A0BB: DD 55 B2  CMP tbl_B255_байт_буквы_алфавита,X
 C - - - - - 0x0020CE 01:A0BE: D0 FA     BNE bra_A0BA_loop
-C - - - - - 0x0020D0 01:A0C0: A5 ED     LDA ram_00ED
+C - - - - - 0x0020D0 01:A0C0: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x0020D2 01:A0C2: C9 0F     CMP #$0F
 C - - - - - 0x0020D4 01:A0C4: B0 09     BCS bra_A0CF
 C - - - - - 0x0020D6 01:A0C6: E6 EB     INC ram_00EB
@@ -119,7 +119,7 @@ C - - - - - 0x0020DE 01:A0CE: AA        TAX
 bra_A0CF:
 C - - - - - 0x0020DF 01:A0CF: BD 6E BC  LDA tbl_BC6E_символы_пароля,X
 C - - - - - 0x0020E2 01:A0D2: 85 EC     STA ram_00EC
-C - - - - - 0x0020E4 01:A0D4: A6 ED     LDX ram_00ED
+C - - - - - 0x0020E4 01:A0D4: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x0020E6 01:A0D6: BD 41 B2  LDA tbl_B241_lo_адрес_ppu_введенных_символов,X
 C - - - - - 0x0020E9 01:A0D9: 18        CLC
 C - - - - - 0x0020EA 01:A0DA: 69 80     ADC #$80
@@ -132,8 +132,8 @@ C - - - - - 0x0020F6 01:A0E6: 10 04     BPL bra_A0EC
 - - - - - - 0x0020F8 01:A0E8: 49 41     EOR #$41
 - - - - - - 0x0020FA 01:A0EA: 85 99     STA ram_0099
 bra_A0EC:
-C - - - - - 0x0020FC 01:A0EC: E6 ED     INC ram_00ED
-C - - - - - 0x0020FE 01:A0EE: A5 ED     LDA ram_00ED
+C - - - - - 0x0020FC 01:A0EC: E6 ED     INC ram_00ED_temp
+C - - - - - 0x0020FE 01:A0EE: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x002100 01:A0F0: C9 12     CMP #$12
 C - - - - - 0x002102 01:A0F2: 90 BF     BCC bra_A0B3_loop
 bra_A0F4_кнопка_не_нажата:
@@ -148,6 +148,7 @@ C - - - - - 0x002111 01:A101: A9 22     LDA #$22
 C - - - - - 0x002113 01:A103: 85 E7     STA ram_00E7
 C - - - - - 0x002115 01:A105: A0 04     LDY #$03
 C - - - - - 0x002117 01:A107: A2 0B     LDX #$0B
+; bzk optimize, JMP
 C - - - - - 0x002119 01:A109: 20 E8 98  JSR sub_0x0018F8_затереть_часть_экрана
 C - - - - - 0x00211C 01:A10C: 60        RTS
 
@@ -190,7 +191,7 @@ C - - - - - 0x00215F 01:A14F: A9 05     LDA #$05
 C - - - - - 0x002161 01:A151: 85 EB     STA ram_00EB
 bra_A153_loop_записи_символов_пароля:
 C - - - - - 0x002163 01:A153: A9 0D     LDA #$0D
-C - - - - - 0x002165 01:A155: 85 ED     STA ram_00ED
+C - - - - - 0x002165 01:A155: 85 ED     STA ram_00ED_temp
 bra_A157_loop_записи_строки:
 C - - - - - 0x002167 01:A157: A4 EC     LDY ram_00EC
 C - - - - - 0x002169 01:A159: B1 E6     LDA (ram_00E6),Y
@@ -200,7 +201,7 @@ C - - - - - 0x00216F 01:A15F: 20 CA 88  JSR sub_0x0008DA_запись_симво
 C - - - - - 0x002172 01:A162: E6 E8     INC ram_00E8
 C - - - - - 0x002174 01:A164: E6 E8     INC ram_00E8
 C - - - - - 0x002176 01:A166: E6 EC     INC ram_00EC
-C - - - - - 0x002178 01:A168: C6 ED     DEC ram_00ED
+C - - - - - 0x002178 01:A168: C6 ED     DEC ram_00ED_temp
 C - - - - - 0x00217A 01:A16A: D0 EB     BNE bra_A157_loop_записи_строки
 C - - - - - 0x00217C 01:A16C: A5 E8     LDA ram_00E8
 C - - - - - 0x00217E 01:A16E: 18        CLC
@@ -229,7 +230,7 @@ C - - - - - 0x0021AA 01:A19A: A9 33     LDA #$33      ; музыка пенал�
 C - - - - - 0x0021AC 01:A19C: 8D 00 07  STA ram_звук
 loc_A19F:
 C D 1 - - - 0x0021AF 01:A19F: A9 00     LDA #$00
-C - - - - - 0x0021B1 01:A1A1: 85 ED     STA ram_00ED
+C - - - - - 0x0021B1 01:A1A1: 85 ED     STA ram_00ED_temp
 C - - - - - 0x0021B3 01:A1A3: 4C 01 A2  JMP loc_A201
 
 
@@ -318,31 +319,31 @@ C - - - - - 0x002243 01:A233: BD 55 B2  LDA tbl_B255_байт_буквы_алф�
 C - - - - - 0x002246 01:A236: C9 FF     CMP #$FF      ; символ GO
 C - - - - - 0x002248 01:A238: F0 32     BEQ bra_A26C_проверить_введенный_пароль
 C - - - - - 0x00224A 01:A23A: 8A        TXA
-C - - - - - 0x00224B 01:A23B: A4 ED     LDY ram_00ED
+C - - - - - 0x00224B 01:A23B: A4 ED     LDY ram_00ED_temp
 C - - - - - 0x00224D 01:A23D: 99 64 06  STA ram_байт_введенного_пароля,Y
 C - - - - - 0x002250 01:A240: BD 6E BC  LDA tbl_BC6E_символы_пароля,X
-C - - - - - 0x002253 01:A243: A6 ED     LDX ram_00ED
+C - - - - - 0x002253 01:A243: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x002255 01:A245: BC 41 B2  LDY tbl_B241_lo_адрес_ppu_введенных_символов,X
 C - - - - - 0x002258 01:A248: A2 21     LDX #$21
 C - - - - - 0x00225A 01:A24A: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер
 C - - - - - 0x00225D 01:A24D: A9 12     LDA #$12
 C - - - - - 0x00225F 01:A24F: 8D 01 07  STA ram_звук + $01
 loc_A252_сместить_курсор_пароля_вправо:
-C D 1 - - - 0x002262 01:A252: A6 ED     LDX ram_00ED
+C D 1 - - - 0x002262 01:A252: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x002264 01:A254: E8        INX
 C - - - - - 0x002265 01:A255: E0 12     CPX #$12
 C - - - - - 0x002267 01:A257: 90 02     BCC bra_A25B_not_overflow
 C - - - - - 0x002269 01:A259: A2 00     LDX #$00
 bra_A25B_not_overflow:
-C - - - - - 0x00226B 01:A25B: 86 ED     STX ram_00ED
+C - - - - - 0x00226B 01:A25B: 86 ED     STX ram_00ED_temp
 C - - - - - 0x00226D 01:A25D: 4C A6 A1  JMP loc_A1A6
 loc_A260_сместить_курсор_пароля_влево:
-C D 1 - - - 0x002270 01:A260: A6 ED     LDX ram_00ED
+C D 1 - - - 0x002270 01:A260: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x002272 01:A262: CA        DEX
 C - - - - - 0x002273 01:A263: 10 02     BPL bra_A267_not_overflow
 C - - - - - 0x002275 01:A265: A2 11     LDX #$11
 bra_A267_not_overflow:
-C - - - - - 0x002277 01:A267: 86 ED     STX ram_00ED
+C - - - - - 0x002277 01:A267: 86 ED     STX ram_00ED_temp
 C - - - - - 0x002279 01:A269: 4C A6 A1  JMP loc_A1A6
 bra_A26C_проверить_введенный_пароль:
 loc_A26C_проверить_введенный_пароль:
@@ -381,7 +382,7 @@ C - - - - - 0x0022BE 01:A2AE: C5 EC     CMP ram_00EC
 C - - - - - 0x0022C0 01:A2B0: D0 09     BNE bra_A2BB_пароль_неверный
 C - - - - - 0x0022C2 01:A2B2: AD 61 06  LDA ram_0661
 C - - - - - 0x0022C5 01:A2B5: 29 0F     AND #$0F
-C - - - - - 0x0022C7 01:A2B7: C5 ED     CMP ram_00ED
+C - - - - - 0x0022C7 01:A2B7: C5 ED     CMP ram_00ED_temp
 C - - - - - 0x0022C9 01:A2B9: F0 22     BEQ bra_A2DD_пароль_введен_правильно
 bra_A2BB_пароль_неверный:
 C - - - - - 0x0022CB 01:A2BB: A9 F8     LDA #$F8          ; отобразить спрятанные символы
@@ -417,7 +418,7 @@ C - - - - - 0x0022F6 01:A2E6: 4A        LSR
 C - - - - - 0x0022F7 01:A2E7: 85 E7     STA ram_00E7
 C - - - - - 0x0022F9 01:A2E9: 20 45 B0  JSR sub_B045
 C - - - - - 0x0022FC 01:A2EC: 84 EC     STY ram_00EC
-C - - - - - 0x0022FE 01:A2EE: 86 ED     STX ram_00ED
+C - - - - - 0x0022FE 01:A2EE: 86 ED     STX ram_00ED_temp
 C - - - - - 0x002300 01:A2F0: A5 E7     LDA ram_00E7
 C - - - - - 0x002302 01:A2F2: C9 3F     CMP #$3F
 C - - - - - 0x002304 01:A2F4: B0 5C     BCS bra_A352
@@ -429,7 +430,7 @@ C - - - - - 0x00230D 01:A2FD: 38        SEC
 C - - - - - 0x00230E 01:A2FE: E5 EC     SBC ram_00EC
 C - - - - - 0x002310 01:A300: 85 EA     STA ram_00EA
 C - - - - - 0x002312 01:A302: 8A        TXA
-C - - - - - 0x002313 01:A303: E5 ED     SBC ram_00ED
+C - - - - - 0x002313 01:A303: E5 ED     SBC ram_00ED_temp
 C - - - - - 0x002315 01:A305: 85 EB     STA ram_00EB
 C - - - - - 0x002317 01:A307: 46 EB     LSR ram_00EB
 C - - - - - 0x002319 01:A309: 66 EA     ROR ram_00EA
@@ -463,23 +464,23 @@ C D 1 - - - 0x002348 01:A338: A5 EC     LDA ram_00EC
 C - - - - - 0x00234A 01:A33A: 18        CLC
 C - - - - - 0x00234B 01:A33B: 65 EA     ADC ram_00EA
 C - - - - - 0x00234D 01:A33D: 85 EC     STA ram_00EC
-C - - - - - 0x00234F 01:A33F: A5 ED     LDA ram_00ED
+C - - - - - 0x00234F 01:A33F: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x002351 01:A341: 65 EB     ADC ram_00EB
-C - - - - - 0x002353 01:A343: 85 ED     STA ram_00ED
+C - - - - - 0x002353 01:A343: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002355 01:A345: A5 EC     LDA ram_00EC
 C - - - - - 0x002357 01:A347: 38        SEC
 C - - - - - 0x002358 01:A348: E9 01     SBC #< $0001
 C - - - - - 0x00235A 01:A34A: 85 EC     STA ram_00EC
-C - - - - - 0x00235C 01:A34C: A5 ED     LDA ram_00ED
+C - - - - - 0x00235C 01:A34C: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x00235E 01:A34E: E9 00     SBC #> $0001
-C - - - - - 0x002360 01:A350: 85 ED     STA ram_00ED
+C - - - - - 0x002360 01:A350: 85 ED     STA ram_00ED_temp
 bra_A352:
 C - - - - - 0x002362 01:A352: A5 E6     LDA ram_00E6
 C - - - - - 0x002364 01:A354: 0A        ASL
 C - - - - - 0x002365 01:A355: AA        TAX
 C - - - - - 0x002366 01:A356: A5 EC     LDA ram_00EC
 C - - - - - 0x002368 01:A358: 9D 54 04  STA ram_опыт_lo,X
-C - - - - - 0x00236B 01:A35B: A5 ED     LDA ram_00ED
+C - - - - - 0x00236B 01:A35B: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x00236D 01:A35D: 9D 55 04  STA ram_опыт_hi,X
 C - - - - - 0x002370 01:A360: E6 E6     INC ram_00E6
 C - - - - - 0x002372 01:A362: A5 E6     LDA ram_00E6
@@ -490,7 +491,7 @@ bra_A36B_продолжить:
 C - - - - - 0x00237B 01:A36B: AD 60 06  LDA ram_0660
 C - - - - - 0x00237E 01:A36E: 4A        LSR
 C - - - - - 0x00237F 01:A36F: 4A        LSR
-C - - - - - 0x002380 01:A370: 85 26     STA ram_матч
+C - - - - - 0x002380 01:A370: 85 26     STA ram_номер_матча
 C - - - - - 0x002382 01:A372: AD 60 06  LDA ram_0660
 C - - - - - 0x002385 01:A375: 29 03     AND #$03
 C - - - - - 0x002387 01:A377: 4A        LSR
@@ -522,6 +523,7 @@ C - - - - - 0x0023A0 01:A390: 85 4C     STA ram_004C
                                         STA ram_звук
                                         LDA #$F0
                                         JSR sub_0x001FB8_задержка_кадра
+; bzk optimize, JMP
 C - - - - - 0x0023A7 01:A397: 20 A0 9B  JSR sub_0x001BB0
 C - - - - - 0x0023AA 01:A39A: 60        RTS
 
@@ -533,12 +535,13 @@ C D 1 - - - 0x0023AB 01:A39B: A9 00     LDA #$00
 C - - - - - 0x0023AD 01:A39D: 85 EA     STA ram_00EA
 C - - - - - 0x0023AF 01:A39F: A9 0B     LDA #$0B
 C - - - - - 0x0023B1 01:A3A1: 20 B4 A3  JSR sub_A3B4
-C - - - - - 0x0023B4 01:A3A4: A5 26     LDA ram_матч
+C - - - - - 0x0023B4 01:A3A4: A5 26     LDA ram_номер_матча
 C - - - - - 0x0023B6 01:A3A6: C9 10     CMP #$10
 C - - - - - 0x0023B8 01:A3A8: 90 09     BCC bra_A3B3_RTS
 C - - - - - 0x0023BA 01:A3AA: A9 16     LDA #$16
 C - - - - - 0x0023BC 01:A3AC: 85 EA     STA ram_00EA
 C - - - - - 0x0023BE 01:A3AE: A9 0A     LDA #$0A
+; bzk optimize, JMP
 C - - - - - 0x0023C0 01:A3B0: 20 B4 A3  JSR sub_A3B4
 bra_A3B3_RTS:
 C - - - - - 0x0023C3 01:A3B3: 60        RTS
@@ -565,10 +568,10 @@ C - - - - - 0x0023DF 01:A3CF: 60        RTS
 
 
 sub_A3D0_мигание_курсора:
-C - - - - - 0x0023E0 01:A3D0: A5 3A     LDA ram_003A
+C - - - - - 0x0023E0 01:A3D0: A5 3A     LDA ram_003A_temp
 C - - - - - 0x0023E2 01:A3D2: 29 04     AND #$04
 C - - - - - 0x0023E4 01:A3D4: F0 23     BEQ bra_A3F9_отобразить_введенный_символ
-C - - - - - 0x0023E6 01:A3D6: A6 ED     LDX ram_00ED
+C - - - - - 0x0023E6 01:A3D6: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x0023E8 01:A3D8: BD 2D B2  LDA tbl_B22D_X_мигающего_курсора,X
 C - - - - - 0x0023EB 01:A3DB: 29 80     AND #$80
 C - - - - - 0x0023ED 01:A3DD: 4A        LSR
@@ -602,16 +605,16 @@ C - - - - - 0x002418 01:A408: 6D 63 06  ADC ram_0663
 C - - - - - 0x00241B 01:A40B: 85 EC     STA ram_00EC
 C - - - - - 0x00241D 01:A40D: A9 00     LDA #$00
 C - - - - - 0x00241F 01:A40F: 69 00     ADC #$00
-C - - - - - 0x002421 01:A411: 85 ED     STA ram_00ED
+C - - - - - 0x002421 01:A411: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002423 01:A413: A2 00     LDX #$00
 bra_A415_loop:
 C - - - - - 0x002425 01:A415: BD 56 06  LDA ram_0656,X
 C - - - - - 0x002428 01:A418: 18        CLC
 C - - - - - 0x002429 01:A419: 65 EC     ADC ram_00EC
 C - - - - - 0x00242B 01:A41B: 85 EC     STA ram_00EC
-C - - - - - 0x00242D 01:A41D: A5 ED     LDA ram_00ED
+C - - - - - 0x00242D 01:A41D: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x00242F 01:A41F: 69 00     ADC #$00
-C - - - - - 0x002431 01:A421: 85 ED     STA ram_00ED
+C - - - - - 0x002431 01:A421: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002433 01:A423: E8        INX
 C - - - - - 0x002434 01:A424: E0 0B     CPX #$0B
 C - - - - - 0x002436 01:A426: D0 ED     BNE bra_A415_loop
@@ -619,10 +622,10 @@ C - - - - - 0x002438 01:A428: A5 EC     LDA ram_00EC
 C - - - - - 0x00243A 01:A42A: 18        CLC
 C - - - - - 0x00243B 01:A42B: 69 09     ADC #$09
 C - - - - - 0x00243D 01:A42D: 85 EC     STA ram_00EC
-C - - - - - 0x00243F 01:A42F: A5 ED     LDA ram_00ED
+C - - - - - 0x00243F 01:A42F: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x002441 01:A431: 69 03     ADC #$03
 C - - - - - 0x002443 01:A433: 29 0F     AND #$0F
-C - - - - - 0x002445 01:A435: 85 ED     STA ram_00ED
+C - - - - - 0x002445 01:A435: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002447 01:A437: 60        RTS
 
 
@@ -741,7 +744,7 @@ C - - - - - 0x0024F8 01:A4E8: 4C 95 98  JMP loc_0x0018A5
 
 sub_0x0024FB_VS_экран_и_повышение_уровня:
 ; con_chr_bank
-                                        LDA ram_матч
+                                        LDA ram_номер_матча
                                         ASL
                                         ADC #$80
                                         STA a: ram_0090
@@ -755,7 +758,7 @@ C - - - - - 0x002509 01:A4F9: 20 7F 9B  JSR sub_0x001B8F_очистить_обе
                                         LDA #con_prg_bank + $9E
                                         STA ram_for_5116
                                         STA $5116
-                                        LDA ram_матч
+                                        LDA ram_номер_матча
                                         ASL
                                         TAX
                                         LDY tbl_0x040003_vs_экран,X
@@ -781,22 +784,22 @@ C - - - - - 0x002588 01:A578: 30 03     BEQ bra_A571_ожидание_нажат
 C - - - - - 0x00258D 01:A57D: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 C - - - - - 0x002590 01:A580: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - - 0x002593 01:A583: A9 00     LDA #$00
-C - - - - - 0x002595 01:A585: 85 ED     STA ram_00ED
+C - - - - - 0x002595 01:A585: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002597 01:A587: 85 EC     STA ram_00EC
 C - - - - - 0x002599 01:A589: A9 0B     LDA #$0B
 C - - - - - 0x00259B 01:A58B: 20 11 A6  JSR sub_A611
-C - - - - - 0x00259E 01:A58E: A5 26     LDA ram_матч
+C - - - - - 0x00259E 01:A58E: A5 26     LDA ram_номер_матча
 C - - - - - 0x0025A0 01:A590: C9 10     CMP #$10
 C - - - - - 0x0025A2 01:A592: 90 09     BCC bra_A59D_матчи_до_japan
 C - - - - - 0x0025A4 01:A594: A9 16     LDA #$16
-C - - - - - 0x0025A6 01:A596: 85 ED     STA ram_00ED
+C - - - - - 0x0025A6 01:A596: 85 ED     STA ram_00ED_temp
 C - - - - - 0x0025A8 01:A598: A9 0A     LDA #$0A
 C - - - - - 0x0025AA 01:A59A: 20 11 A6  JSR sub_A611
 bra_A59D_матчи_до_japan:
 C - - - - - 0x0025AD 01:A59D: A5 E4     LDA ram_00E4
-C - - - - - 0x0025AF 01:A59F: C5 26     CMP ram_матч
+C - - - - - 0x0025AF 01:A59F: C5 26     CMP ram_номер_матча
 C - - - - - 0x0025B1 01:A5A1: B0 0E     BCS bra_A5B1
-C - - - - - 0x0025B3 01:A5A3: A5 26     LDA ram_матч
+C - - - - - 0x0025B3 01:A5A3: A5 26     LDA ram_номер_матча
 C - - - - - 0x0025B5 01:A5A5: C9 06     CMP #$06      ; не повышать уровень при определенных матчах
 C - - - - - 0x0025B7 01:A5A7: F0 67     BEQ bra_A610_RTS
 C - - - - - 0x0025B9 01:A5A9: C9 0C     CMP #$0C
@@ -806,20 +809,20 @@ C - - - - - 0x0025BF 01:A5AF: F0 5F     BEQ bra_A610_RTS
 bra_A5B1:
 C - - - - - 0x0025C1 01:A5B1: A5 EC     LDA ram_00EC      ; ? никто не набрал уровень
 C - - - - - 0x0025C3 01:A5B3: F0 5B     BEQ bra_A610_RTS
-C - - - - - 0x0025C5 01:A5B5: A6 26     LDX ram_матч
+C - - - - - 0x0025C5 01:A5B5: A6 26     LDX ram_номер_матча
 C - - - - - 0x0025C7 01:A5B7: BD F9 B3  LDA tbl_B3F9_cutscene_level_up,X
                                         CLC
                                         ADC #$5B
 C - - - - - 0x0025CA 01:A5BA: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - - 0x0025CD 01:A5BD: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
 C - - - - - 0x0025D0 01:A5C0: A9 00     LDA #$00
-C - - - - - 0x0025D2 01:A5C2: 85 ED     STA ram_00ED
+C - - - - - 0x0025D2 01:A5C2: 85 ED     STA ram_00ED_temp
 C - - - - - 0x0025D4 01:A5C4: 85 EA     STA ram_00EA
 loc_A5C6_следующий_экран_имен_игроков_с_новым_уровнем:
 bra_A5C6_loop:
-C D 1 - - - 0x0025D6 01:A5C6: A6 ED     LDX ram_00ED
+C D 1 - - - 0x0025D6 01:A5C6: A6 ED     LDX ram_00ED_temp
 C - - - - - 0x0025D8 01:A5C8: BD 56 06  LDA ram_0656,X
-C - - - - - 0x0025DB 01:A5CB: 20 3C C5  JSR sub_0x03F31F_таблица_слов
+C - - - - - 0x0025DB 01:A5CB: 20 3C C5  JSR sub_0x03F31F_подготовить_поинтер_на_слово
 C - - - - - 0x0025DE 01:A5CE: A5 EA     LDA ram_00EA
 C - - - - - 0x0025E0 01:A5D0: 0A        ASL
 C - - - - - 0x0025E1 01:A5D1: AA        TAX
@@ -827,14 +830,14 @@ C - - - - - 0x0025E2 01:A5D2: BD 58 BC  LDA tbl_BC58_адрес_ppu_для_им�
 C - - - - - 0x0025E5 01:A5D5: 85 E8     STA ram_00E8
 C - - - - - 0x0025E7 01:A5D7: BD 59 BC  LDA tbl_BC58_адрес_ppu_для_имен_игроков + $01,X
 C - - - - - 0x0025EA 01:A5DA: 85 E9     STA ram_00E9
-C - - - - - 0x0025EC 01:A5DC: A4 30     LDY ram_0030
-C - - - - - 0x0025EE 01:A5DE: A6 31     LDX ram_0031
+C - - - - - 0x0025EC 01:A5DC: A4 30     LDY ram_0030_t05_data_словарь
+C - - - - - 0x0025EE 01:A5DE: A6 31     LDX ram_0030_t05_data_словарь + $01
 C - - - - - 0x0025F0 01:A5E0: 20 50 9D  JSR sub_0x001D60_запись_имени_в_буфер
 C - - - - - 0x0025F3 01:A5E3: E6 EA     INC ram_00EA
-C - - - - - 0x0025F5 01:A5E5: E6 ED     INC ram_00ED
+C - - - - - 0x0025F5 01:A5E5: E6 ED     INC ram_00ED_temp
 C - - - - - 0x0025F7 01:A5E7: C6 EC     DEC ram_00EC
 C - - - - - 0x0025F9 01:A5E9: F0 1F     BEQ bra_A60A_закончить
-C - - - - - 0x0025FB 01:A5EB: A5 ED     LDA ram_00ED
+C - - - - - 0x0025FB 01:A5EB: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x0025FD 01:A5ED: C9 0B     CMP #$0B
 C - - - - - 0x0025FF 01:A5EF: D0 D5     BNE bra_A5C6_loop
 C - - - - - 0x002601 01:A5F1: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
@@ -850,6 +853,7 @@ C - - - - - 0x002615 01:A605: 85 EA     STA ram_00EA
 C - - - - - 0x002617 01:A607: 4C C6 A5  JMP loc_A5C6_следующий_экран_имен_игроков_с_новым_уровнем
 bra_A60A_закончить:
 C - - - - - 0x00261A 01:A60A: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
+; bzk optimize, JMP
 C - - - - - 0x00261D 01:A60D: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
 bra_A610_RTS:
 C - - - - - 0x002620 01:A610: 60        RTS
@@ -859,7 +863,7 @@ C - - - - - 0x002620 01:A610: 60        RTS
 sub_A611:
 C - - - - - 0x002621 01:A611: 85 EB     STA ram_00EB
 bra_A613_loop:
-C - - - - - 0x002623 01:A613: A5 ED     LDA ram_00ED
+C - - - - - 0x002623 01:A613: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x002625 01:A615: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x002628 01:A618: A0 00     LDY #con_plr_id
 C - - - - - 0x00262A 01:A61A: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
@@ -875,7 +879,7 @@ C - - - - - 0x00263E 01:A62E: A6 EC     LDX ram_00EC
 C - - - - - 0x002640 01:A630: 9D 56 06  STA ram_0656,X
 C - - - - - 0x002643 01:A633: E6 EC     INC ram_00EC
 bra_A635:
-C - - - - - 0x002645 01:A635: E6 ED     INC ram_00ED
+C - - - - - 0x002645 01:A635: E6 ED     INC ram_00ED_temp
 C - - - - - 0x002647 01:A637: C6 EB     DEC ram_00EB
 C - - - - - 0x002649 01:A639: D0 D8     BNE bra_A613_loop
 C - - - - - 0x00264B 01:A63B: 60        RTS
@@ -887,7 +891,7 @@ sub_0x00265C:
 C D 1 - - - 0x00265C 01:A64C: 20 A0 98  JSR sub_0x0018B0_очистка_двух_nametable
 C - - - - - 0x00265F 01:A64F: 20 7F 9B  JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
 loc_A652:
-C D 1 - - - 0x002662 01:A652: A6 26     LDX ram_матч
+C D 1 - - - 0x002662 01:A652: A6 26     LDX ram_номер_матча
 C - - - - - 0x002664 01:A654: BD 93 B3  LDA tbl_B393_cutscene_coach_advice,X
                                         CLC
                                         ADC #$44
@@ -915,7 +919,7 @@ tbl_A673_опции:
 
 
 ofs_005_A67B_00_advice:
-C - - J - - 0x00268B 01:A67B: A6 26     LDA ram_матч
+C - - J - - 0x00268B 01:A67B: A6 26     LDA ram_номер_матча
                                         CLC
                                         ADC #$23
 C - - - - - 0x002690 01:A680: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
@@ -937,7 +941,7 @@ C - - - - - 0x0026AC 01:A69C: 4C 52 A6  JMP loc_A652
 
 ofs_005_A69F_01_score_memo:
 C - - J - - 0x0026AF 01:A69F: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
-C - - - - - 0x0026B2 01:A6A2: A6 26     LDX ram_матч
+C - - - - - 0x0026B2 01:A6A2: A6 26     LDX ram_номер_матча
 C - - - - - 0x0026B4 01:A6A4: BD D7 B3  LDA tbl_B3D7_cutscene_score_memo,X
                                         CLC
                                         ADC #$55
@@ -962,12 +966,13 @@ C - - - - - 0x0026D1 01:A6C1: 4C 4C A6  JMP loc_A64C
 
 
 ofs_005_A6C4_03_kickoff:
-C - - J - - 0x0026D4 01:A6C4: A6 26     LDX ram_матч
+C - - J - - 0x0026D4 01:A6C4: A6 26     LDX ram_номер_матча
 C - - - - - 0x0026D6 01:A6C6: BD 1B B4  LDA tbl_B41B_cutscene_team_before_match,X
                                         CLC
                                         ADC #$5E
 C - - - - - 0x0026D9 01:A6C9: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - - 0x0026DC 01:A6CC: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
+; bzk optimize, JMP
 C - - - - - 0x0026DF 01:A6CF: 4C 15 A7  JSR sub_0x001BB0
                                         RTS
 
@@ -978,7 +983,7 @@ loc_0x0026E2_перерыв:
     STA ram_звук
     JSR sub_0x0018B0_очистка_двух_nametable
     JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
-    LDX ram_матч
+    LDX ram_номер_матча
     LDY #$01
     LDA ram_голы
     CMP ram_голы + $01
@@ -999,7 +1004,7 @@ loc_0x0026E2_перерыв:
 loc_A6E8_loop:
     JSR sub_0x0018B0_очистка_двух_nametable
     JSR sub_0x001B8F_очистить_обе_памяти_спрайтов
-    LDX ram_матч
+    LDX ram_номер_матча
     LDA tbl_B3B5_cutscene_half_time,X
     CLC
     ADC #$49
@@ -1017,6 +1022,7 @@ loc_A6F9_продолжить:
 bra_A710_продолжить_матч:
     LDA #$31
     STA ram_звук
+; bzk optimize, JMP
     JSR sub_0x001BB0
     RTS
 
@@ -1025,6 +1031,7 @@ bra_A710_продолжить_матч:
 sub_A719:
 C - - - - - 0x002729 01:A719: A0 83     LDY #< tbl_B583_опции_japan
 C - - - - - 0x00272B 01:A71B: A2 B5     LDX #> tbl_B583_опции_japan
+; bzk optimize, JMP
 C - - - - - 0x00272D 01:A71D: 20 AB 97  JSR sub_0x0017BB
 C - - - - - 0x002730 01:A720: 60        RTS
 
@@ -1042,7 +1049,7 @@ C - - - - - 0x00273D 01:A72D: 85 7B     STA ram_007B
                                        ;LDA #con_BF00_00
 C - - - - - 0x00273F 01:A72F: 20 20 89  JSR sub_0x000930
 ; выбор банка фона con_chr_bank
-                                        LDA ram_матч
+                                        LDA ram_номер_матча
                                         ASL
                                         ADC #$80
 C - - - - - 0x002744 01:A734: 85 8E     STA ram_008E
@@ -1483,6 +1490,7 @@ sub_AA77_повторная_отрисовка_опций:
 ; повторно отрисовать опции в меню команды после подтверждения/отмены выбора опции во внутреннем окне
 C - - - - - 0x002A87 01:AA77: A0 B3     LDY #< tbl_B4B3_опции_sao_paulo_nankatsu
 C - - - - - 0x002A89 01:AA79: A2 B4     LDX #> tbl_B4B3_опции_sao_paulo_nankatsu
+; bzk optimize, JMP
 C - - - - - 0x002A8B 01:AA7B: 20 AB 97  JSR sub_0x0017BB
 C - - - - - 0x002A8E 01:AA7E: 60        RTS
 
@@ -1657,28 +1665,30 @@ C - - - - - 0x002BAB 01:AB9B: 86 61     STX ram_0061
 C - - - - - 0x002BAD 01:AB9D: 20 08 9D  JSR sub_0x001D18
 C - - - - - 0x002BB0 01:ABA0: A9 F8     LDA #$F8
 C - - - - - 0x002BB2 01:ABA2: 8D 5C 05  STA ram_055C
-C - - - - - 0x002BB5 01:ABA5: A5 ED     LDA ram_00ED
+C - - - - - 0x002BB5 01:ABA5: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x002BB7 01:ABA7: 85 5F     STA ram_005F
 C - - - - - 0x002BB9 01:ABA9: A0 00     LDY #con_plr_id
 C - - - - - 0x002BBB 01:ABAB: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
-C - - - - - 0x002BBD 01:ABAD: A0 46     LDY #$64      ; адрес ppu для имени игрока
-C - - - - - 0x002BBF 01:ABAF: A2 20     LDX #$20
+; адрес ppu для имени игрока
+C - - - - - 0x002BBD 01:ABAD: A0 46     LDY #< $2064
+C - - - - - 0x002BBF 01:ABAF: A2 20     LDX #> $2064
 C - - - - - 0x002BC1 01:ABB1: 20 05 AF  JSR sub_AF05
 C - - - - - 0x002BC4 01:ABB4: A0 03     LDY #con_plr_lvl
 C - - - - - 0x002BC6 01:ABB6: B1 34     LDA (ram_plr_data),Y    ; con_plr_lvl
 C - - - - - 0x002BC8 01:ABB8: 18        CLC
 C - - - - - 0x002BC9 01:ABB9: 69 01     ADC #$01
 C - - - - - 0x002BCB 01:ABBB: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
-C - - - - - 0x002BCE 01:ABBE: A0 AB     LDY #$AB      ; адрес ppu для номера уровня
-C - - - - - 0x002BD0 01:ABC0: A2 20     LDX #$20
+; адрес ppu для номера уровня
+C - - - - - 0x002BCE 01:ABBE: A0 AB     LDY #< $20AB
+C - - - - - 0x002BD0 01:ABC0: A2 20     LDX #> $20AB
 C - - - - - 0x002BD2 01:ABC2: 20 8E 9D  JSR sub_0x001D9E_запись_в_буфер_уровня_игрока
 C - - - - - 0x002BD5 01:ABC5: A5 5F     LDA ram_005F
 C - - - - - 0x002BD7 01:ABC7: A2 00     LDX #con_skill_stamina
 C - - - - - 0x002BD9 01:ABC9: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
-C - - - - - 0x002BDC 01:ABCC: A5 32     LDA ram_0032
+C - - - - - 0x002BDC 01:ABCC: A5 32     LDA ram_0032_temp
 C - - - - - 0x002BDE 01:ABCE: 85 EC     STA ram_00EC
-C - - - - - 0x002BE0 01:ABD0: A5 33     LDA ram_0033
-C - - - - - 0x002BE2 01:ABD2: 85 ED     STA ram_00ED
+C - - - - - 0x002BE0 01:ABD0: A5 33     LDA ram_0033_temp
+C - - - - - 0x002BE2 01:ABD2: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002BE4 01:ABD4: 20 4F 9E  JSR sub_0x001E5F
 ; максимальная энергия
 C - - - - - 0x002BE7 01:ABD7: A0 29     LDY #< $212A
@@ -1686,7 +1696,7 @@ C - - - - - 0x002BE9 01:ABD9: A2 21     LDX #> $212A
 C - - - - - 0x002BEB 01:ABDB: A5 E8     LDA ram_00E8
 C - - - - - 0x002BED 01:ABDD: 85 EC     STA ram_00EC
 C - - - - - 0x002BEF 01:ABDF: A5 E9     LDA ram_00E9
-C - - - - - 0x002BF1 01:ABE1: 85 ED     STA ram_00ED
+C - - - - - 0x002BF1 01:ABE1: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002BF3 01:ABE3: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 ; текущая энергии
                                         LDA #< $2126
@@ -1718,7 +1728,7 @@ C - - - - - 0x002C1A 01:AC0A: E0 FF     CPX #$FF
 C - - - - - 0x002C1C 01:AC0C: F0 20     BEQ bra_AC2E_FF_закончить_запись_чисел
 C - - - - - 0x002C1E 01:AC0E: A5 5F     LDA ram_005F
 C - - - - - 0x002C20 01:AC10: 20 27 C5  JSR sub_0x03CE18_вычислить_числовой_стат_скилла
-C - - - - - 0x002C23 01:AC13: A5 32     LDA ram_0032
+C - - - - - 0x002C23 01:AC13: A5 32     LDA ram_0032_temp
 C - - - - - 0x002C25 01:AC15: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
 C - - - - - 0x002C28 01:AC18: A4 E6     LDY ram_00E6
 C - - - - - 0x002C2A 01:AC1A: B9 82 B9  LDA tbl_B981_позиция_числовых_статов_полевого + $01,Y
@@ -1784,14 +1794,14 @@ C - - - - - 0x002C8F 01:AC7F: B0 0B     BCS bra_AC8C_узнать_имя_спе�
 ; по идее это не нужно, если только флаг циклона не отвечает за что-то еще
 C - - - - - 0x002C91 01:AC81: A9 1E     LDA #$1E
 bra_AC83_проверить_матч:
-C - - - - - 0x002C93 01:AC83: C5 26     CMP ram_матч
+C - - - - - 0x002C93 01:AC83: C5 26     CMP ram_номер_матча
 C - - - - - 0x002C95 01:AC85: 90 05     BCC bra_AC8C_узнать_имя_спешала
 C - - - - - 0x002C97 01:AC87: F0 03     BEQ bra_AC8C_узнать_имя_спешала
 C - - - - - 0x002C99 01:AC89: 4C 13 AD  JMP loc_AD13_новая_строка
 bra_AC8C_узнать_имя_спешала:
 C - - - - - 0x002C9C 01:AC8C: C8        INY
 C - - - - - 0x002C9D 01:AC8D: B1 5C     LDA (ram_005C),Y
-C - - - - - 0x002C9F 01:AC8F: 20 3C C5  JSR sub_0x03F31F_таблица_слов
+C - - - - - 0x002C9F 01:AC8F: 20 3C C5  JSR sub_0x03F31F_подготовить_поинтер_на_слово
 C - - - - - 0x002CA2 01:AC92: A5 5E     LDA ram_005E
 C - - - - - 0x002CA4 01:AC94: 0A        ASL
 C - - - - - 0x002CA5 01:AC95: AA        TAX
@@ -1801,20 +1811,20 @@ C - - - - - 0x002CAB 01:AC9B: BD 49 BC  LDA tbl_BC48_адрес_ppu_спешал
 C - - - - - 0x002CAE 01:AC9E: 85 E9     STA ram_00E9
 loc_ACA0_loop_чтение_имени_спешала:
 C D 1 - - - 0x002CB0 01:ACA0: A0 00     LDY #$00
-C - - - - - 0x002CB2 01:ACA2: B1 30     LDA (ram_0030),Y
+C - - - - - 0x002CB2 01:ACA2: B1 30     LDA (ram_0030_t05_data_словарь),Y
 C - - - - - 0x002CB4 01:ACA4: C9 FC     CMP #$FC
 C - - - - - 0x002CB6 01:ACA6: B0 16     BCS bra_ACBE_закончить_чтение_имени
 C - - - - - 0x002CB8 01:ACA8: A4 E8     LDY ram_00E8
 C - - - - - 0x002CBA 01:ACAA: A6 E9     LDX ram_00E9
 C - - - - - 0x002CBC 01:ACAC: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер
-C - - - - - 0x002CBF 01:ACAF: E6 30     INC ram_0030
-C - - - - - 0x002CC1 01:ACB1: D0 02     BNE bra_ACB5_пропуск
-- - - - - - 0x002CC3 01:ACB3: E6 31     INC ram_0031
-bra_ACB5_пропуск:
+C - - - - - 0x002CBF 01:ACAF: E6 30     INC ram_0030_t05_data_словарь
+C - - - - - 0x002CC1 01:ACB1: D0 02     BNE bra_ACB5_not_overflow
+- - - - - - 0x002CC3 01:ACB3: E6 31     INC ram_0030_t05_data_словарь + $01
+bra_ACB5_not_overflow:
 C - - - - - 0x002CC5 01:ACB5: E6 E8     INC ram_00E8
-C - - - - - 0x002CC7 01:ACB7: D0 02     BNE bra_ACBB_пропуск
+C - - - - - 0x002CC7 01:ACB7: D0 02     BNE bra_ACBB_not_overflow
 - - - - - - 0x002CC9 01:ACB9: E6 E9     INC ram_00E9
-bra_ACBB_пропуск:
+bra_ACBB_not_overflow:
 C - - - - - 0x002CCB 01:ACBB: 4C A0 AC  JMP loc_ACA0_loop_чтение_имени_спешала
 bra_ACBE_закончить_чтение_имени:
 C - - - - - 0x002CCE 01:ACBE: A9 00     LDA #$00
@@ -1836,12 +1846,12 @@ C - - - - - 0x002CF1 01:ACE1: 20 4B C5  JSR sub_0x03CE7E_подпрограмм�
 C - - - - - 0x002CF4 01:ACE4: AD 3F 04  LDA ram_затрата_энергии_lo
 C - - - - - 0x002CF7 01:ACE7: 85 EC     STA ram_00EC
 C - - - - - 0x002CF9 01:ACE9: AD 40 04  LDA ram_затрата_энергии_hi
-C - - - - - 0x002CFC 01:ACEC: 85 ED     STA ram_00ED
+C - - - - - 0x002CFC 01:ACEC: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002CFE 01:ACEE: 20 4F 9E  JSR sub_0x001E5F
 C - - - - - 0x002D01 01:ACF1: A5 E8     LDA ram_00E8
 C - - - - - 0x002D03 01:ACF3: 85 EC     STA ram_00EC
 C - - - - - 0x002D05 01:ACF5: A5 E9     LDA ram_00E9
-C - - - - - 0x002D07 01:ACF7: 85 ED     STA ram_00ED
+C - - - - - 0x002D07 01:ACF7: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002D09 01:ACF9: A5 5E     LDA ram_005E
 C - - - - - 0x002D0B 01:ACFB: 0A        ASL
 C - - - - - 0x002D0C 01:ACFC: AA        TAX
@@ -1881,7 +1891,7 @@ C - - - - - 0x002D43 01:AD33: A5 EC     LDA ram_00EC
 C - - - - - 0x002D45 01:AD35: 18        CLC
 C - - - - - 0x002D46 01:AD36: 69 63     ADC #< $2561
 C - - - - - 0x002D48 01:AD38: A8        TAY
-C - - - - - 0x002D49 01:AD39: A5 ED     LDA ram_00ED
+C - - - - - 0x002D49 01:AD39: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x002D4B 01:AD3B: 69 25     ADC #> $2561
 C - - - - - 0x002D4D 01:AD3D: AA        TAX
 C - - - - - 0x002D4E 01:AD3E: A9 67     LDA #< tbl_B967_тайлы_закрывающей_полоски_special
@@ -2087,6 +2097,7 @@ C - - - - - 0x002DFD 01:ADED: 0A        ASL
                                         LDA tbl_B6BB_название_твоей_команды_в_опциях + $01,X
                                         TAX
 C - - - - - 0x002E0A 01:ADFA: AD EC 00  LDA ram_00EC
+; bzk optimize, JMP
 C - - - - - 0x002E0D 01:ADFD: 20 B8 97  JSR sub_0x0017C8_запись_в_буфер_со_смещением
 C - - - - - 0x002E10 01:AE00: 60        RTS
 
@@ -2256,7 +2267,7 @@ C - - - - - 0x002EF0 01:AEE0: A5 E8     LDA ram_00E8
 C - - - - - 0x002EF2 01:AEE2: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x002EF5 01:AEE5: A0 00     LDY #con_plr_id
 C - - - - - 0x002EF7 01:AEE7: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
-C - - - - - 0x002EF9 01:AEE9: 20 09 AF  JSR sub_AF09
+C - - - - - 0x002EF9 01:AEE9: 20 09 AF  JSR sub_AF09_запись_имени_игрока_в_буфер
 C - - - - - 0x002EFC 01:AEEC: A5 E8     LDA ram_00E8
 C - - - - - 0x002EFE 01:AEEE: 18        CLC
 C - - - - - 0x002EFF 01:AEEF: 65 EB     ADC ram_00EB
@@ -2275,22 +2286,25 @@ C - - - - - 0x002F14 01:AF04: 60        RTS
 
 
 sub_AF05:
+; in
+    ; X = ppu hi
+    ; Y = ppu lo
 C - - - - - 0x002F15 01:AF05: 84 E6     STY ram_00E6
 C - - - - - 0x002F17 01:AF07: 86 E7     STX ram_00E7
-sub_AF09:
-C - - - - - 0x002F19 01:AF09: 20 3C C5  JSR sub_0x03F31F_таблица_слов
-C - - - - - 0x002F1C 01:AF0C: A9 05     LDA #$08      ; ограничение по количеству символов для имен
-C - - - - - 0x002F1E 01:AF0E: 85 ED     STA ram_00ED
+sub_AF09_запись_имени_игрока_в_буфер:
+C - - - - - 0x002F19 01:AF09: 20 3C C5  JSR sub_0x03F31F_подготовить_поинтер_на_слово
+C - - - - - 0x002F1C 01:AF0C: A9 05     LDA #con_макс_длина_имени_08
+C - - - - - 0x002F1E 01:AF0E: 85 ED     STA ram_00ED_t01_длина_имени
 bra_AF10_loop:
 C - - - - - 0x002F20 01:AF10: A2 00     LDX #$00
 C - - - - - 0x002F22 01:AF12: A0 00     LDY #$00
-C - - - - - 0x002F24 01:AF14: B1 30     LDA (ram_0030),Y
+C - - - - - 0x002F24 01:AF14: B1 30     LDA (ram_0030_t05_data_словарь),Y
 C - - - - - 0x002F26 01:AF16: C9 FC     CMP #$FC
 C - - - - - 0x002F28 01:AF18: B0 07     BCS bra_AF21
-C - - - - - 0x002F2A 01:AF1A: E6 30     INC ram_0030
-C - - - - - 0x002F2C 01:AF1C: D0 02     BNE bra_AF20
-- - - - - - 0x002F2E 01:AF1E: E6 31     INC ram_0031
-bra_AF20:
+C - - - - - 0x002F2A 01:AF1A: E6 30     INC ram_0030_t05_data_словарь
+C - - - - - 0x002F2C 01:AF1C: D0 02     BNE bra_AF20_not_overflow
+- - - - - - 0x002F2E 01:AF1E: E6 31     INC ram_0030_t05_data_словарь + $01
+bra_AF20_not_overflow:
 C - - - - - 0x002F30 01:AF20: AA        TAX
 bra_AF21:
 C - - - - - 0x002F31 01:AF21: 8A        TXA
@@ -2298,11 +2312,11 @@ C - - - - - 0x002F32 01:AF22: A4 E6     LDY ram_00E6
 C - - - - - 0x002F34 01:AF24: A6 E7     LDX ram_00E7
 C - - - - - 0x002F36 01:AF26: 20 CA 88  JSR sub_0x0008DA_запись_символа_в_буфер
 C - - - - - 0x002F39 01:AF29: E6 E6     INC ram_00E6
-C - - - - - 0x002F3B 01:AF2B: C6 ED     DEC ram_00ED
+C - - - - - 0x002F3B 01:AF2B: C6 ED     DEC ram_00ED_t01_длина_имени
 C - - - - - 0x002F3D 01:AF2D: D0 E1     BNE bra_AF10_loop
 C - - - - - 0x002F3F 01:AF2F: A5 E6     LDA ram_00E6
 C - - - - - 0x002F41 01:AF31: 38        SEC
-C - - - - - 0x002F42 01:AF32: E9 05     SBC #$08      ; здесь также нужно корректировать ограничение
+C - - - - - 0x002F42 01:AF32: E9 05     SBC #con_макс_длина_имени_08
 C - - - - - 0x002F44 01:AF34: 85 E6     STA ram_00E6
 C - - - - - 0x002F46 01:AF36: 60        RTS
 
@@ -2317,14 +2331,14 @@ C - - - - - 0x002F4E 01:AF3E: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_l
 C - - - - - 0x002F50 01:AF40: 85 EC     STA ram_00EC
 C - - - - - 0x002F52 01:AF42: C8        INY ; con_plr_guts_hi
 C - - - - - 0x002F53 01:AF43: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_hi
-C - - - - - 0x002F55 01:AF45: 85 ED     STA ram_00ED
+C - - - - - 0x002F55 01:AF45: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002F57 01:AF47: 20 4F 9E  JSR sub_0x001E5F
 C - - - - - 0x002F5A 01:AF4A: A4 5C     LDY ram_005C
 C - - - - - 0x002F5C 01:AF4C: A6 5D     LDX ram_005D
 C - - - - - 0x002F5E 01:AF4E: A5 E8     LDA ram_00E8
 C - - - - - 0x002F60 01:AF50: 85 EC     STA ram_00EC
 C - - - - - 0x002F62 01:AF52: A5 E9     LDA ram_00E9
-C - - - - - 0x002F64 01:AF54: 85 ED     STA ram_00ED
+C - - - - - 0x002F64 01:AF54: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002F66 01:AF56: 20 B5 9D  JSR sub_0x001DC5_запись_чисел_в_буфер
 C - - - - - 0x002F69 01:AF59: A5 5C     LDA ram_005C
 C - - - - - 0x002F6B 01:AF5B: 18        CLC
@@ -2358,7 +2372,7 @@ C - - - - - 0x002F88 01:AF78: 60        RTS
 
 
 sub_0x002F89_начислить_опыт_за_победу_над_командой:
-C D 1 - - - 0x002F89 01:AF79: A5 26     LDA ram_матч
+C D 1 - - - 0x002F89 01:AF79: A5 26     LDA ram_номер_матча
 C - - - - - 0x002F8B 01:AF7B: 0A        ASL
 C - - - - - 0x002F8C 01:AF7C: AA        TAX
 C - - - - - 0x002F8D 01:AF7D: BD 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,X
@@ -2371,7 +2385,7 @@ C - - - - - 0x002F97 01:AF87: 4C 9E AF  JMP loc_AF9E_начислить_опыт
 
 sub_0x002F9A_начислить_опыт_за_поражение:
 ; за поражение дается в 4 раза меньше опыта чем за победу
-C D 1 - - - 0x002F9A 01:AF8A: A5 26     LDA ram_матч
+C D 1 - - - 0x002F9A 01:AF8A: A5 26     LDA ram_номер_матча
 C - - - - - 0x002F9C 01:AF8C: 0A        ASL
 C - - - - - 0x002F9D 01:AF8D: AA        TAX
 C - - - - - 0x002F9E 01:AF8E: BD 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,X
@@ -2407,7 +2421,7 @@ C - - - - - 0x002FD1 01:AFC1: 60        RTS
 
 
 sub_0x002FD2_начислить_опыт:
-; на вход подается
+; in
     ; A = номер игрока из твоей команды
     ; X = 02 (игрок) или 03 (кипер), также может быть 00 и 01
 C D 1 - - - 0x002FD2 01:AFC2: 86 EC     STX ram_00EC
@@ -2421,29 +2435,29 @@ C - - - - - 0x002FDD 01:AFCD: 65 EC     ADC ram_00EC
 C - - - - - 0x002FDF 01:AFCF: AA        TAX
 C - - - - - 0x002FE0 01:AFD0: BD 1C BA  LDA tbl_BA1C_множитель_опыта,X
 C - - - - - 0x002FE3 01:AFD3: AA        TAX
-C - - - - - 0x002FE4 01:AFD4: A5 26     LDA ram_матч
+C - - - - - 0x002FE4 01:AFD4: A5 26     LDA ram_номер_матча
 C - - - - - 0x002FE6 01:AFD6: 0A        ASL
 C - - - - - 0x002FE7 01:AFD7: A8        TAY
 C - - - - - 0x002FE8 01:AFD8: B9 4D BA  LDA tbl_BA4C_опыт_за_победу_над_командой + $01,Y
-C - - - - - 0x002FEB 01:AFDB: 85 ED     STA ram_00ED
+C - - - - - 0x002FEB 01:AFDB: 85 ED     STA ram_00ED_temp
 C - - - - - 0x002FED 01:AFDD: B9 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,Y
 ; / 04
-C - - - - - 0x002FF0 01:AFE0: 66 ED     ROR ram_00ED
+C - - - - - 0x002FF0 01:AFE0: 66 ED     ROR ram_00ED_temp
 C - - - - - 0x002FF2 01:AFE2: 4A        LSR
-C - - - - - 0x002FF3 01:AFE3: 66 ED     ROR ram_00ED
+C - - - - - 0x002FF3 01:AFE3: 66 ED     ROR ram_00ED_temp
 C - - - - - 0x002FF5 01:AFE5: 4A        LSR
 C - - - - - 0x002FF6 01:AFE6: 20 EE 9D  JSR sub_0x001DFE_умножить_A_на_X
 C - - - - - 0x002FF9 01:AFE9: 06 EC     ASL ram_00EC      ; умножить результат на 4
-C - - - - - 0x002FFB 01:AFEB: 26 ED     ROL ram_00ED
+C - - - - - 0x002FFB 01:AFEB: 26 ED     ROL ram_00ED_temp
 C - - - - - 0x002FFD 01:AFED: 06 EC     ASL ram_00EC
-C - - - - - 0x002FFF 01:AFEF: 26 ED     ROL ram_00ED
+C - - - - - 0x002FFF 01:AFEF: 26 ED     ROL ram_00ED_temp
 C - - - - - 0x003001 01:AFF1: A5 EB     LDA ram_00EB      ; число из таблицы команды для текущего игрока
 C - - - - - 0x003003 01:AFF3: 29 0F     AND #$0F
 C - - - - - 0x003005 01:AFF5: 0A        ASL
 C - - - - - 0x003006 01:AFF6: AA        TAX
 C - - - - - 0x003007 01:AFF7: BD 54 04  LDA ram_опыт_lo,X
 C - - - - - 0x00300A 01:AFFA: 18        CLC
-C - - - - - 0x00300B 01:AFFB: 65 ED     ADC ram_00ED
+C - - - - - 0x00300B 01:AFFB: 65 ED     ADC ram_00ED_temp
 C - - - - - 0x00300D 01:AFFD: 9D 54 04  STA ram_опыт_lo,X
 C - - - - - 0x003010 01:B000: BD 55 04  LDA ram_опыт_hi,X
 C - - - - - 0x003013 01:B003: 69 00     ADC #$00
@@ -2512,7 +2526,7 @@ C - - - - - 0x00305F 01:B04F: 60        RTS
 
 
 sub_0x003060_передать_опыт_игроков_другой_команде:
-C D 1 - - - 0x003060 01:B050: A5 26     LDA ram_матч
+C D 1 - - - 0x003060 01:B050: A5 26     LDA ram_номер_матча
 C - - - - - 0x003062 01:B052: C9 10     CMP #$10
 C - - - - - 0x003064 01:B054: F0 16     BEQ bra_B06C_japan
 C - - - - - 0x003066 01:B056: C9 0C     CMP #$0C
@@ -2579,6 +2593,7 @@ C - - - - - 0x0030C4 01:B0B4: AD 50 04  LDA ram_счетчик_замен
 C - - - - - 0x0030C7 01:B0B7: 49 FF     EOR #$FF
 C - - - - - 0x0030C9 01:B0B9: 18        CLC
 C - - - - - 0x0030CA 01:B0BA: 69 37     ADC #$34
+; bzk optimize, JMP
 C - - - - - 0x0030CC 01:B0BC: 20 95 98  JSR sub_0x0018A5
 bra_B0BF_RTS:
 C - - - - - 0x0030CF 01:B0BF: 60        RTS
@@ -2587,7 +2602,7 @@ C - - - - - 0x0030CF 01:B0BF: 60        RTS
 
 sub_B0C0_обработать_таблицу_с_байтами_фона:
 C - - - - - 0x0030D0 01:B0C0: 84 EC     STY ram_00EC
-C - - - - - 0x0030D2 01:B0C2: 86 ED     STX ram_00ED
+C - - - - - 0x0030D2 01:B0C2: 86 ED     STX ram_00ED_temp
 loc_B0C4:
 C D 1 - - - 0x0030D4 01:B0C4: A0 00     LDY #$00
 C - - - - - 0x0030D6 01:B0C6: B1 EC     LDA (ram_00EC),Y
@@ -2755,7 +2770,7 @@ C - - - - - 0x0031BD 01:B1AD: B1 EC     LDA (ram_00EC),Y
 C - - - - - 0x0031BF 01:B1AF: AA        TAX
 C - - - - - 0x0031C0 01:B1B0: C8        INY
 C - - - - - 0x0031C1 01:B1B1: B1 EC     LDA (ram_00EC),Y
-C - - - - - 0x0031C3 01:B1B3: 85 ED     STA ram_00ED
+C - - - - - 0x0031C3 01:B1B3: 85 ED     STA ram_00ED_temp
 C - - - - - 0x0031C5 01:B1B5: 86 EC     STX ram_00EC
 C - - - - - 0x0031C7 01:B1B7: 4C C4 B0  JMP loc_B0C4
 
@@ -2765,9 +2780,9 @@ loc_B1BB:
 C D 1 - - - 0x0031CB 01:B1BB: 18        CLC
 C - - - - - 0x0031CC 01:B1BC: 65 EC     ADC ram_00EC
 C - - - - - 0x0031CE 01:B1BE: 85 EC     STA ram_00EC
-C - - - - - 0x0031D0 01:B1C0: A5 ED     LDA ram_00ED
+C - - - - - 0x0031D0 01:B1C0: A5 ED     LDA ram_00ED_temp
 C - - - - - 0x0031D2 01:B1C2: 69 00     ADC #$00
-C - - - - - 0x0031D4 01:B1C4: 85 ED     STA ram_00ED
+C - - - - - 0x0031D4 01:B1C4: 85 ED     STA ram_00ED_temp
 C - - - - - 0x0031D6 01:B1C6: 4C C4 B0  JMP loc_B0C4
 
 
@@ -2807,19 +2822,19 @@ C - - - - - 0x0031F7 01:B1E7: 60        RTS
 
 
 tbl_B1E8:
-    .byte $81, $C1, $82, $C2, $83, $C3, $84, $C4, $85, $C5, $86, $C6, $87
-    .byte $09, $49, $0A, $4A, $0B, $4B, $0C, $4C, $0D, $4D, $0E, $4E, $0F
-    .byte $89, $C9, $8A, $CA, $8B, $CB, $8C, $CC, $8D, $CD, $8E, $CE, $8F
-    .byte $11, $51, $12, $52, $13, $53, $14, $54, $15, $55, $16, $56, $17
-    .byte $91, $D1, $92, $D2, $93, $D3, $94, $D4, $95, $D5, $96, $D6, $97
+    .byte $81, $C1, $82, $C2, $83, $C3, $84, $C4, $85, $C5, $86, $C6, $87   ; 
+    .byte $09, $49, $0A, $4A, $0B, $4B, $0C, $4C, $0D, $4D, $0E, $4E, $0F   ; 
+    .byte $89, $C9, $8A, $CA, $8B, $CB, $8C, $CC, $8D, $CD, $8E, $CE, $8F   ; 
+    .byte $11, $51, $12, $52, $13, $53, $14, $54, $15, $55, $16, $56, $17   ; 
+    .byte $91, $D1, $92, $D2, $93, $D3, $94, $D4, $95, $D5, $96, $D6, $97   ; 
 
 
 
 tbl_B229:
-    .byte $01
-    .byte $04
-    .byte $10
-    .byte $40
+    .byte $01   ; 
+    .byte $04   ; 
+    .byte $10   ; 
+    .byte $40   ; 
 
 
 
@@ -2836,532 +2851,532 @@ tbl_B241_lo_адрес_ppu_введенных_символов:
 
 
 tbl_B255_байт_буквы_алфавита:
-    .byte $0A, $31, $04, $13, $3B, $21, $02, $1A, $39, $06, $0F, $2A, $22
-    .byte $1C, $09, $11, $34, $15, $23, $16, $01, $3C, $19, $28, $30, $27
-    .byte $10, $20, $26, $03, $2F, $0D, $1D, $2B, $05, $2D, $3E, $0E, $24
-    .byte $2E, $14, $0B, $07, $35, $1E, $00, $17, $37, $25, $38, $3D, $32
-    .byte $08, $3A, $1B, $0C, $12, $36, $2C, $1F, $3F, $18, $29, $33, $FF
+    .byte $0A, $31, $04, $13, $3B, $21, $02, $1A, $39, $06, $0F, $2A, $22   ; 
+    .byte $1C, $09, $11, $34, $15, $23, $16, $01, $3C, $19, $28, $30, $27   ; 
+    .byte $10, $20, $26, $03, $2F, $0D, $1D, $2B, $05, $2D, $3E, $0E, $24   ; 
+    .byte $2E, $14, $0B, $07, $35, $1E, $00, $17, $37, $25, $38, $3D, $32   ; 
+    .byte $08, $3A, $1B, $0C, $12, $36, $2C, $1F, $3F, $18, $29, $33, $FF   ; 
 
 
 
 tbl_B296_экран_continue_1:
 ; верхняя горизонтальная линия главного окна
-    .byte $05
+    .byte $05   ; 
     .word $20C3 ; 
-    .byte $1B
-    .byte $8E
+    .byte $1B   ; 
+    .byte $8E   ; 
 ; центральная горизонтальная линия главного окна
-    .byte $05
+    .byte $05   ; 
     .word $21A3 ; 
-    .byte $1B
-    .byte $BA
+    .byte $1B   ; 
+    .byte $BA   ; 
 ; нижняя горизонтальная линия главного окна
-    .byte $05
+    .byte $05   ; 
     .word $2323 ; 
-    .byte $1B
-    .byte $8E
+    .byte $1B   ; 
+    .byte $8E   ; 
 ; левая вертикальная линия главного окна
-    .byte $04
+    .byte $04   ; 
     .word $20E2 ; 
-    .byte $12
-    .byte $8F
+    .byte $12   ; 
+    .byte $8F   ; 
 ; правая вертикальная линия главного окна
-    .byte $04
+    .byte $04   ; 
     .word $20FE ; 
-    .byte $12
-    .byte $8F
+    .byte $12   ; 
+    .byte $8F   ; 
 
-    .byte $00
+    .byte $00   ; 
     .word off_B2C3_углы_окна_и_прочерки_для_символов_пароля
 
-    .byte $00
+    .byte $00   ; 
     .word off_BCAF_фраза_пароль_над_символами_пароля
 ; левая вертикальная линия всплывающего окна с неверным паролем
-    .byte $04
+    .byte $04   ; 
     .word $24E2 ; 
-    .byte $08
-    .byte $8F
+    .byte $08   ; 
+    .byte $8F   ; 
 ; правая вертикальная линия всплывающего окна с неверным паролем
-    .byte $04
+    .byte $04   ; 
     .word $24FE ; 
-    .byte $08
-    .byte $8F
+    .byte $08   ; 
+    .byte $8F   ; 
 
-    .byte $00
+    .byte $00   ; 
     .word off_BCBE_фраза_неверный_пароль
 
-    .byte $0F
+    .byte $0F   ; 
 
 
 
 off_B2C3_углы_окна_и_прочерки_для_символов_пароля:
 ; левый верхний угол
-    .byte $01
+    .byte $01   ; 
     .word $20C2 ; 
-    .byte $90
+    .byte $90   ; 
 ; правый верхний угол
-    .byte $01
+    .byte $01   ; 
     .word $20DE ; 
-    .byte $91
+    .byte $91   ; 
 ; левый нижний угол
-    .byte $01
+    .byte $01   ; 
     .word $2322 ; 
-    .byte $92
+    .byte $92   ; 
 ; правый нижний угол
-    .byte $01
+    .byte $01   ; 
     .word $233E ; 
-    .byte $93
+    .byte $93   ; 
 
-    .byte $0B
+    .byte $0B   ; 
     .word $212B ; 
     .text "----- -----"
 
-    .byte $49
+    .byte $49   ; 
     .word $216B ; 
     .text "----- ---"
 
 
 
 off_BCAF_фраза_пароль_над_символами_пароля:
-    .byte $5D
+    .byte $5D   ; 
     .word $2082 ; 
     .text "It's the Score Memo Shootout!"
 
 off_BCBE_фраза_неверный_пароль:
-    .byte $54
+    .byte $54   ; 
     .word $2547 ; 
     .text "Oops _ YOU MISSED!!"
 
 
 
 tbl_B200_экран_continue_2_верный_пароль:
-    .byte $00
+    .byte $00   ; 
     .word off_B201_фраза_верный_пароль
-    .byte $0F
+    .byte $0F   ; 
 
 off_B201_фраза_верный_пароль:
-    .byte $54
+    .byte $54   ; 
     .word $2546 ; 
     .text "It's in! GOOO~~~AL!!!"
 
 
 
 tbl_B2ED_смещение_курсора_алфавита:
-    .byte $00
-    .byte $01     ; right
-    .byte $FF     ; left
-    .byte $00
-    .byte $0D     ; down
-    .byte $0E     ; down + right
-    .byte $0C     ; down + left
-    .byte $00
-    .byte $F3     ; up
-    .byte $F4     ; up + right
-    .byte $F2     ; up + left
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
-    .byte $00
+    .byte $00   ; 
+    .byte $01   ; right
+    .byte $FF   ; left
+    .byte $00   ; 
+    .byte $0D   ; down
+    .byte $0E   ; down + right
+    .byte $0C   ; down + left
+    .byte $00   ; 
+    .byte $F3   ; up
+    .byte $F4   ; up + right
+    .byte $F2   ; up + left
+    .byte $00   ; 
+    .byte $00   ; 
+    .byte $00   ; 
+    .byte $00   ; 
+    .byte $00   ; 
 
 
 
 tbl_B2FD:
-- D 1 - - - 0x00330D 01:B2FD: 40        .byte $40
-- D 1 - - - 0x00330E 01:B2FE: 01        .byte $01
-- D 1 - - - 0x00330F 01:B2FF: 00        .byte $00
-- D 1 - - - 0x003310 01:B300: 50        .byte $50
-- D 1 - - - 0x003311 01:B301: 48        .byte $48
-- D 1 - - - 0x003312 01:B302: 01        .byte $01
-- D 1 - - - 0x003313 01:B303: 00        .byte $00
-- D 1 - - - 0x003314 01:B304: 50        .byte $50
+- D 1 - - - 0x00330D 01:B2FD: 40        .byte $40   ; 
+- D 1 - - - 0x00330E 01:B2FE: 01        .byte $01   ; 
+- D 1 - - - 0x00330F 01:B2FF: 00        .byte $00   ; 
+- D 1 - - - 0x003310 01:B300: 50        .byte $50   ; 
+- D 1 - - - 0x003311 01:B301: 48        .byte $48   ; 
+- D 1 - - - 0x003312 01:B302: 01        .byte $01   ; 
+- D 1 - - - 0x003313 01:B303: 00        .byte $00   ; 
+- D 1 - - - 0x003314 01:B304: 50        .byte $50   ; 
 
 
 
 tbl_B393_cutscene_coach_advice:
-    .byte $00, $00, $00, $00, $00, $00
-    .byte $01, $01, $01, $01, $01, $01
-    .byte $00, $00, $00, $00
-    .byte $02, $02, $02, $02, $02, $02, $02
-    .byte $02, $02, $02, $02
-    .byte $02, $02, $02, $02, $02, $02
+    .byte $00, $00, $00, $00, $00, $00   ; 
+    .byte $01, $01, $01, $01, $01, $01   ; 
+    .byte $00, $00, $00, $00   ; 
+    .byte $02, $02, $02, $02, $02, $02, $02   ; 
+    .byte $02, $02, $02, $02   ; 
+    .byte $02, $02, $02, $02, $02, $02   ; 
 
 
 
 tbl_B3B5_cutscene_half_time:
-    .byte $00, $00, $00, $00, $00, $00
-    .byte $04, $04, $04, $04, $04, $04
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00, $00, $00, $08
-    .byte $08, $08, $00, $00
-    .byte $00, $00, $00, $00, $00, $00
+    .byte $00, $00, $00, $00, $00, $00   ; 
+    .byte $04, $04, $04, $04, $04, $04   ; 
+    .byte $00, $00, $00, $00   ; 
+    .byte $00, $00, $00, $00, $00, $00, $08   ; 
+    .byte $08, $08, $00, $00   ; 
+    .byte $00, $00, $00, $00, $00, $00   ; 
 
 
 
 tbl_B3D7_cutscene_score_memo:
-    .byte $00, $00, $00, $00, $00, $00
-    .byte $02, $02, $02, $02, $02, $02
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00, $00, $00, $04
-    .byte $04, $04, $00, $00
-    .byte $00, $00, $00, $00, $00, $00
+    .byte $00, $00, $00, $00, $00, $00   ; 
+    .byte $02, $02, $02, $02, $02, $02   ; 
+    .byte $00, $00, $00, $00   ; 
+    .byte $00, $00, $00, $00, $00, $00, $04   ; 
+    .byte $04, $04, $00, $00   ; 
+    .byte $00, $00, $00, $00, $00, $00   ; 
 
 
 
 tbl_B3F9_cutscene_level_up:
-    .byte $00, $00, $00, $00, $00, $00
-    .byte $01, $01, $01, $01, $01, $01
-    .byte $00, $00, $00, $00
-    .byte $00, $00, $00, $00, $00, $00, $02
-    .byte $02, $02, $00, $00
-    .byte $00, $00, $00, $00, $00, $00
+    .byte $00, $00, $00, $00, $00, $00   ; 
+    .byte $01, $01, $01, $01, $01, $01   ; 
+    .byte $00, $00, $00, $00   ; 
+    .byte $00, $00, $00, $00, $00, $00, $02   ; 
+    .byte $02, $02, $00, $00   ; 
+    .byte $00, $00, $00, $00, $00, $00   ; 
 
 
 
 tbl_B41B_cutscene_team_before_match:
-    .byte $00, $00, $00, $00, $00, $00
-    .byte $01, $01, $01, $01, $01, $01
-    .byte $00, $00, $00, $00
-    .byte $02, $02, $02, $02, $02, $02, $02
-    .byte $02, $02, $02, $02
-    .byte $02, $02, $02, $02, $02, $02
-    .byte $02, $02, $02, $02, $02, $02
+    .byte $00, $00, $00, $00, $00, $00   ; 
+    .byte $01, $01, $01, $01, $01, $01   ; 
+    .byte $00, $00, $00, $00   ; 
+    .byte $02, $02, $02, $02, $02, $02, $02   ; 
+    .byte $02, $02, $02, $02   ; 
+    .byte $02, $02, $02, $02, $02, $02   ; 
+    .byte $02, $02, $02, $02, $02, $02   ; 
 
 
 
 tbl_B43D_экран_с_опциями_без_запасных:
 ; вертикальная полоска слева от имен игроков
-- D 1 - I - 0x00344D 01:B43D: 04        .byte $04
+- D 1 - I - 0x00344D 01:B43D: 04        .byte $04   ; 
 - D 1 - I - 0x00344E 01:B43E: 84 20     .word $2082 ; 
-- D 1 - I - 0x003450 01:B440: 16        .byte $16
-- D 1 - I - 0x003451 01:B441: AA        .byte $AA
+- D 1 - I - 0x003450 01:B440: 16        .byte $16   ; 
+- D 1 - I - 0x003451 01:B441: AA        .byte $AA   ; 
 ; вертикальная полоска справа от имен игроков
-- D 1 - I - 0x003452 01:B442: 04        .byte $04
+- D 1 - I - 0x003452 01:B442: 04        .byte $04   ; 
 - D 1 - I - 0x003453 01:B443: 8D 20     .word $208F ; 
-- D 1 - I - 0x003455 01:B445: 16        .byte $16
-- D 1 - I - 0x003456 01:B446: AB        .byte $AB
+- D 1 - I - 0x003455 01:B445: 16        .byte $16   ; 
+- D 1 - I - 0x003456 01:B446: AB        .byte $AB   ; 
 
-- D 1 - I - 0x003457 01:B447: 00        .byte $00
+- D 1 - I - 0x003457 01:B447: 00        .byte $00   ; 
 - D 1 - I - 0x003458 01:B448: 74 B4     .word off_B474_окно_основных_игроков_sao_paulo_nankatsu
 
-- D 1 - I - 0x00345A 01:B44A: 00        .byte $00
+- D 1 - I - 0x00345A 01:B44A: 00        .byte $00   ; 
 - D 1 - I - 0x00345B 01:B44B: B3 B4     .word off_B4B3_опции_sao_paulo_nankatsu
 
-- D 1 - I - 0x00345D 01:B44D: 00        .byte $00
+- D 1 - I - 0x00345D 01:B44D: 00        .byte $00   ; 
 - D 1 - I - 0x00345E 01:B44E: 53 B6     .word off_B653_миникарта
 ; закончить отрисовку
-- D 1 - I - 0x003460 01:B450: 0F        .byte $0F
+- D 1 - I - 0x003460 01:B450: 0F        .byte $0F   ; 
 
 
 
 tbl_B451_экран_с_опциями_с_запасными:
 ; вертикальная полоска слева от имен основных игроков
-- D 1 - I - 0x003461 01:B451: 04        .byte $04
+- D 1 - I - 0x003461 01:B451: 04        .byte $04   ; 
 - D 1 - I - 0x003462 01:B452: 81 20     .word $2080 ; 
-- D 1 - I - 0x003464 01:B454: 16        .byte $16
-- D 1 - I - 0x003465 01:B455: AA        .byte $AA
+- D 1 - I - 0x003464 01:B454: 16        .byte $16   ; 
+- D 1 - I - 0x003465 01:B455: AA        .byte $AA   ; 
 ; вертикальная полоска справа от имен основных игроков
-- D 1 - I - 0x003466 01:B456: 04        .byte $04
+- D 1 - I - 0x003466 01:B456: 04        .byte $04   ; 
 - D 1 - I - 0x003467 01:B457: 8A 20     .word $208A ; 
-- D 1 - I - 0x003469 01:B459: 16        .byte $16
-- D 1 - I - 0x00346A 01:B45A: AB        .byte $AB
+- D 1 - I - 0x003469 01:B459: 16        .byte $16   ; 
+- D 1 - I - 0x00346A 01:B45A: AB        .byte $AB   ; 
 
-- D 1 - I - 0x00346F 01:B45F: 00        .byte $00
+- D 1 - I - 0x00346F 01:B45F: 00        .byte $00   ; 
 - D 1 - I - 0x003470 01:B460: 83 B5     .word off_B583_опции_japan
 ; + смещение влево
-- D 1 - I - 0x003472 01:B462: 01        .byte $01
+- D 1 - I - 0x003472 01:B462: 01        .byte $01   ; 
 - D 1 - I - 0x003473 01:B463: 53 B6     .word off_B653_миникарта
-- D 1 - I - 0x003475 01:B465: FB        .byte $FA
+- D 1 - I - 0x003475 01:B465: FB        .byte $FA   ; 
 
-- D 1 - I - 0x00346B 01:B45B: 01        .byte $00
+- D 1 - I - 0x00346B 01:B45B: 01        .byte $00   ; 
 - D 1 - I - 0x00346C 01:B45C: 74 B4     .word off_B474_окно_основных_игроков_japan
 ; вертикальная полоска слева от имен запасных игроков
-- D 1 - I - 0x003476 01:B466: 04        .byte $04
+- D 1 - I - 0x003476 01:B466: 04        .byte $04   ; 
 - D 1 - I - 0x003477 01:B467: 97 20     .word $2095 ; 
-- D 1 - I - 0x003479 01:B469: 16        .byte $16
-- D 1 - I - 0x00347A 01:B46A: AA        .byte $AA
+- D 1 - I - 0x003479 01:B469: 16        .byte $16   ; 
+- D 1 - I - 0x00347A 01:B46A: AA        .byte $AA   ; 
 ; вертикальная полоска справа от имен запасных игроков
-- D 1 - I - 0x00347B 01:B46B: 04        .byte $04
+- D 1 - I - 0x00347B 01:B46B: 04        .byte $04   ; 
 - D 1 - I - 0x00347C 01:B46C: 9E 20     .word $209F ; 
-- D 1 - I - 0x00347E 01:B46E: 16        .byte $16
-- D 1 - I - 0x00347F 01:B46F: AB        .byte $AB
+- D 1 - I - 0x00347E 01:B46E: 16        .byte $16   ; 
+- D 1 - I - 0x00347F 01:B46F: AB        .byte $AB   ; 
 
-- D 1 - I - 0x003480 01:B470: 00        .byte $00
+- D 1 - I - 0x003480 01:B470: 00        .byte $00   ; 
 - D 1 - I - 0x003481 01:B471: A1 B6     .word off_B6A1_окно_запасных_игроков
 
-- D 1 - I - 0x003483 01:B473: 0F        .byte $0F
+- D 1 - I - 0x003483 01:B473: 0F        .byte $0F   ; 
 
 
 
 off_B474_окно_основных_игроков_sao_paulo_nankatsu:
 ; верхняя обводка
-- D 1 - I - 0x003488 01:B478: 0A        .byte $0E
+- D 1 - I - 0x003488 01:B478: 0A        .byte $0E   ; 
 - D 1 - I - 0x003489 01:B479: 64 20     .word $2062 ; 
-- D 1 - I - 0x00348B 01:B47B: 9C        .byte $9C
-- D 1 - I - 0x00348C 01:B47C: A8        .byte $A8
-- D 1 - I - 0x00348B 01:B47B: 9C        .byte $A8
-- D 1 - I - 0x00348C 01:B47C: A8        .byte $A8
-- D 1 - I - 0x00348D 01:B47D: 5C        .byte $00
-- D 1 - I - 0x00348E 01:B47E: 6A        .byte $54
-- D 1 - I - 0x00348F 01:B47F: 42        .byte $65
-- D 1 - I - 0x003490 01:B480: 64        .byte $61
-- D 1 - I - 0x003491 01:B481: 7D        .byte $6D
-- D 1 - I - 0x003492 01:B482: 00        .byte $00
-- D 1 - I - 0x003493 01:B483: A8        .byte $A8
-- D 1 - I - 0x003494 01:B484: 9D        .byte $A8
-- D 1 - I - 0x003493 01:B483: A8        .byte $A8
-- D 1 - I - 0x003494 01:B484: 9D        .byte $9D
+- D 1 - I - 0x00348B 01:B47B: 9C        .byte $9C   ; 
+- D 1 - I - 0x00348C 01:B47C: A8        .byte $A8   ; 
+- D 1 - I - 0x00348B 01:B47B: 9C        .byte $A8   ; 
+- D 1 - I - 0x00348C 01:B47C: A8        .byte $A8   ; 
+- D 1 - I - 0x00348D 01:B47D: 5C        .byte $00   ; 
+- D 1 - I - 0x00348E 01:B47E: 6A        .byte $54   ; 
+- D 1 - I - 0x00348F 01:B47F: 42        .byte $65   ; 
+- D 1 - I - 0x003490 01:B480: 64        .byte $61   ; 
+- D 1 - I - 0x003491 01:B481: 7D        .byte $6D   ; 
+- D 1 - I - 0x003492 01:B482: 00        .byte $00   ; 
+- D 1 - I - 0x003493 01:B483: A8        .byte $A8   ; 
+- D 1 - I - 0x003494 01:B484: 9D        .byte $A8   ; 
+- D 1 - I - 0x003493 01:B483: A8        .byte $A8   ; 
+- D 1 - I - 0x003494 01:B484: 9D        .byte $9D   ; 
 ; нижняя обводка
-- D 1 - I - 0x003495 01:B485: 0A        .byte $0E
+- D 1 - I - 0x003495 01:B485: 0A        .byte $0E   ; 
 - D 1 - I - 0x003496 01:B486: 44 23     .word $2342 ; 
-- D 1 - I - 0x003498 01:B488: 9E        .byte $9E
-- D 1 - I - 0x003499 01:B489: A9        .byte $A9
-- D 1 - I - 0x00349A 01:B48A: A9        .byte $A9
-- D 1 - I - 0x00349B 01:B48B: A9        .byte $A9
-- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9
-- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9
-- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9
-- D 1 - I - 0x00349F 01:B48F: A9        .byte $A9
-- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9
-- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9
-- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9
-- D 1 - I - 0x00349F 01:B48F: A9        .byte $A9
-- D 1 - I - 0x0034A0 01:B490: A9        .byte $A9
-- D 1 - I - 0x0034A1 01:B491: 9F        .byte $9F
+- D 1 - I - 0x003498 01:B488: 9E        .byte $9E   ; 
+- D 1 - I - 0x003499 01:B489: A9        .byte $A9   ; 
+- D 1 - I - 0x00349A 01:B48A: A9        .byte $A9   ; 
+- D 1 - I - 0x00349B 01:B48B: A9        .byte $A9   ; 
+- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9   ; 
+- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9   ; 
+- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9   ; 
+- D 1 - I - 0x00349F 01:B48F: A9        .byte $A9   ; 
+- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9   ; 
+- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9   ; 
+- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9   ; 
+- D 1 - I - 0x00349F 01:B48F: A9        .byte $A9   ; 
+- D 1 - I - 0x0034A0 01:B490: A9        .byte $A9   ; 
+- D 1 - I - 0x0034A1 01:B491: 9F        .byte $9F   ; 
 ; дополнительные цифры для 10 и 11 слева от игроков
-- D 1 - I - 0x0034A2 01:B492: 83        .byte $83
+- D 1 - I - 0x0034A2 01:B492: 83        .byte $83   ; 
 - D 1 - I - 0x0034A3 01:B493: A5 20     .word $20A3 ; 
-- D 1 - I - 0x0034A5 01:B495: 34        .byte $31
-- D 1 - I - 0x0034A6 01:B496: 00        .byte $00
-- D 1 - I - 0x0034A7 01:B497: 34        .byte $31
+- D 1 - I - 0x0034A5 01:B495: 34        .byte $31   ; 
+- D 1 - I - 0x0034A6 01:B496: 00        .byte $00   ; 
+- D 1 - I - 0x0034A7 01:B497: 34        .byte $31   ; 
 ; цифры слева от игроков
-- D 1 - I - 0x0034A8 01:B498: 93        .byte $93
+- D 1 - I - 0x0034A8 01:B498: 93        .byte $93   ; 
 - D 1 - I - 0x0034A9 01:B499: A6 20     .word $20A4 ; 
-- D 1 - I - 0x0034AB 01:B49B: 34        .byte $31
-- D 1 - I - 0x0034AC 01:B49C: 00        .byte $00
-- D 1 - I - 0x0034AD 01:B49D: 33        .byte $30
-- D 1 - I - 0x0034AE 01:B49E: 00        .byte $00
-- D 1 - I - 0x0034AF 01:B49F: 3C        .byte $39
-- D 1 - I - 0x0034B0 01:B4A0: 00        .byte $00
-- D 1 - I - 0x0034B1 01:B4A1: 3B        .byte $38
-- D 1 - I - 0x0034B2 01:B4A2: 00        .byte $00
-- D 1 - I - 0x0034B3 01:B4A3: 3A        .byte $37
-- D 1 - I - 0x0034B4 01:B4A4: 00        .byte $00
-- D 1 - I - 0x0034B5 01:B4A5: 39        .byte $36
-- D 1 - I - 0x0034B6 01:B4A6: 00        .byte $00
-- D 1 - I - 0x0034B7 01:B4A7: 38        .byte $35
-- D 1 - I - 0x0034B8 01:B4A8: 00        .byte $00
-- D 1 - I - 0x0034B9 01:B4A9: 37        .byte $34
-- D 1 - I - 0x0034BA 01:B4AA: 00        .byte $00
-- D 1 - I - 0x0034BB 01:B4AB: 36        .byte $33
-- D 1 - I - 0x0034BC 01:B4AC: 00        .byte $00
-- D 1 - I - 0x0034BD 01:B4AD: 35        .byte $32
+- D 1 - I - 0x0034AB 01:B49B: 34        .byte $31   ; 
+- D 1 - I - 0x0034AC 01:B49C: 00        .byte $00   ; 
+- D 1 - I - 0x0034AD 01:B49D: 33        .byte $30   ; 
+- D 1 - I - 0x0034AE 01:B49E: 00        .byte $00   ; 
+- D 1 - I - 0x0034AF 01:B49F: 3C        .byte $39   ; 
+- D 1 - I - 0x0034B0 01:B4A0: 00        .byte $00   ; 
+- D 1 - I - 0x0034B1 01:B4A1: 3B        .byte $38   ; 
+- D 1 - I - 0x0034B2 01:B4A2: 00        .byte $00   ; 
+- D 1 - I - 0x0034B3 01:B4A3: 3A        .byte $37   ; 
+- D 1 - I - 0x0034B4 01:B4A4: 00        .byte $00   ; 
+- D 1 - I - 0x0034B5 01:B4A5: 39        .byte $36   ; 
+- D 1 - I - 0x0034B6 01:B4A6: 00        .byte $00   ; 
+- D 1 - I - 0x0034B7 01:B4A7: 38        .byte $35   ; 
+- D 1 - I - 0x0034B8 01:B4A8: 00        .byte $00   ; 
+- D 1 - I - 0x0034B9 01:B4A9: 37        .byte $34   ; 
+- D 1 - I - 0x0034BA 01:B4AA: 00        .byte $00   ; 
+- D 1 - I - 0x0034BB 01:B4AB: 36        .byte $33   ; 
+- D 1 - I - 0x0034BC 01:B4AC: 00        .byte $00   ; 
+- D 1 - I - 0x0034BD 01:B4AD: 35        .byte $32   ; 
 ; GK
-- D 1 - I - 0x0034BE 01:B4AE: 42        .byte $42
+- D 1 - I - 0x0034BE 01:B4AE: 42        .byte $42   ; 
 - D 1 - I - 0x0034BF 01:B4AF: 25 23     .word $2323 ; 
-- D 1 - I - 0x0034C1 01:B4B1: 87        .byte $47
-- D 1 - I - 0x0034C2 01:B4B2: 8B        .byte $4B
+- D 1 - I - 0x0034C1 01:B4B1: 87        .byte $47   ; 
+- D 1 - I - 0x0034C2 01:B4B2: 8B        .byte $4B   ; 
 
 
 
 off_B474_окно_основных_игроков_japan:
 ; верхняя обводка
-- D 1 - I - 0x003488 01:B478: 0A        .byte $0B
+- D 1 - I - 0x003488 01:B478: 0A        .byte $0B   ; 
 - D 1 - I - 0x003489 01:B479: 64 20     .word $2060 ; 
-- D 1 - I - 0x00348B 01:B47B: 9C        .byte $9C
-- D 1 - I - 0x00348C 01:B47C: A8        .byte $A8
-- D 1 - I - 0x00348D 01:B47D: 5C        .byte $00
-- D 1 - I - 0x00348E 01:B47E: 6A        .byte $54
-- D 1 - I - 0x00348F 01:B47F: 42        .byte $65
-- D 1 - I - 0x003490 01:B480: 64        .byte $61
-- D 1 - I - 0x003491 01:B481: 7D        .byte $6D
-- D 1 - I - 0x003492 01:B482: 00        .byte $00
-- D 1 - I - 0x003493 01:B483: A8        .byte $A8
-- D 1 - I - 0x003493 01:B483: A8        .byte $A8
-- D 1 - I - 0x003494 01:B484: 9D        .byte $9D
+- D 1 - I - 0x00348B 01:B47B: 9C        .byte $9C   ; 
+- D 1 - I - 0x00348C 01:B47C: A8        .byte $A8   ; 
+- D 1 - I - 0x00348D 01:B47D: 5C        .byte $00   ; 
+- D 1 - I - 0x00348E 01:B47E: 6A        .byte $54   ; 
+- D 1 - I - 0x00348F 01:B47F: 42        .byte $65   ; 
+- D 1 - I - 0x003490 01:B480: 64        .byte $61   ; 
+- D 1 - I - 0x003491 01:B481: 7D        .byte $6D   ; 
+- D 1 - I - 0x003492 01:B482: 00        .byte $00   ; 
+- D 1 - I - 0x003493 01:B483: A8        .byte $A8   ; 
+- D 1 - I - 0x003493 01:B483: A8        .byte $A8   ; 
+- D 1 - I - 0x003494 01:B484: 9D        .byte $9D   ; 
 ; нижняя обводка
-- D 1 - I - 0x003495 01:B485: 0A        .byte $4B
+- D 1 - I - 0x003495 01:B485: 0A        .byte $4B   ; 
 - D 1 - I - 0x003496 01:B486: 44 23     .word $2340 ; 
-- D 1 - I - 0x003498 01:B488: 9E        .byte $9E
-- D 1 - I - 0x003499 01:B489: A9        .byte $A9
-- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9
-- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9
-- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9
-- D 1 - I - 0x00349F 01:B48F: A9        .byte $A9
-- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9
-- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9
-- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9
-- D 1 - I - 0x0034A0 01:B490: A9        .byte $A9
-- D 1 - I - 0x0034A1 01:B491: 9F        .byte $9F
+- D 1 - I - 0x003498 01:B488: 9E        .byte $9E   ; 
+- D 1 - I - 0x003499 01:B489: A9        .byte $A9   ; 
+- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9   ; 
+- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9   ; 
+- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9   ; 
+- D 1 - I - 0x00349F 01:B48F: A9        .byte $A9   ; 
+- D 1 - I - 0x00349C 01:B48C: A9        .byte $A9   ; 
+- D 1 - I - 0x00349D 01:B48D: A9        .byte $A9   ; 
+- D 1 - I - 0x00349E 01:B48E: A9        .byte $A9   ; 
+- D 1 - I - 0x0034A0 01:B490: A9        .byte $A9   ; 
+- D 1 - I - 0x0034A1 01:B491: 9F        .byte $9F   ; 
 
 
 
 tbl_B4B3_опции_sao_paulo_nankatsu:
 off_B4B3_опции_sao_paulo_nankatsu:
-    .byte $0D
+    .byte $0D   ; 
     .word $20B1 ; 
-    .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $00
+    .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $20D1 ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00   ; 
 
-    .byte $0D
+    .byte $0D   ; 
     .word $20F1 ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Formation"
-    .byte $AB, $00
+    .byte $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $2111 ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00   ; 
 
-    .byte $0D
+    .byte $0D   ; 
     .word $2131 ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Defense  "
-    .byte $AB, $00
+    .byte $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $2151 ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00   ; 
 
-    .byte $0D
+    .byte $0D   ; 
     .word $2171 ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Line-up  "
-    .byte $AB, $00
+    .byte $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $2191 ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $21B1 ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Status   "
-    .byte $AB, $00
+    .byte $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $21D1 ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $21F1 ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Done     "
-    .byte $AB, $00
+    .byte $AB, $00   ; 
     
-    .byte $0D
+    .byte $0D   ; 
     .word $2211 ; 
-    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $00
+    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $00   ; 
     
-    .byte $4D
+    .byte $4D   ; 
     .word $2231 ; 
-    .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+    .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00   ; 
 
 
 
 tbl_B583_опции_japan:
 off_B583_опции_japan:
-    .byte $0B
+    .byte $0B   ; 
     .word $20AB ; 
-    .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $AA
+    .byte $9C, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $A8, $9D, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $20CB ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA   ; 
 ; formation
-    .byte $0B
+    .byte $0B   ; 
     .word $20EB ; 
-    .byte $AA, $00, $80, $81, $82, $83, $84, $85, $86, $AB, $AA
+    .byte $AA, $00, $80, $81, $82, $83, $84, $85, $86, $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $210B ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $212B ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Defense"
-    .byte $AB, $AA
+    .byte $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $214B ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $216B ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Line-up"
-    .byte $AB, $AA
+    .byte $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $218B ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $21AB ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Status "
-    .byte $AB, $AA
+    .byte $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $21CB ; 
-    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA
+    .byte $AA, $00, $00, $00, $00, $00, $00, $00, $00, $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $21EB ; 
-    .byte $AA
+    .byte $AA   ; 
     .text " Done   "
-    .byte $AB, $AA
+    .byte $AB, $AA   ; 
     
-    .byte $0B
+    .byte $0B   ; 
     .word $220B ; 
-    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $AA
+    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F, $AA   ; 
     
-    .byte $4B
+    .byte $4B   ; 
     .word $222B ; 
-    .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AA
+    .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $AA   ; 
 
 
 
 off_B653_миникарта:
-    .byte $0A
+    .byte $0A   ; 
     .word $2292 ; 
-    .byte $98, $AC, $AC, $AC, $99, $AC, $AC, $AC, $AC, $99
+    .byte $98, $AC, $AC, $AC, $99, $AC, $AC, $AC, $AC, $99   ; 
 
-    .byte $0A
+    .byte $0A   ; 
     .word $22B2 ; 
-    .byte $98, $99, $A0, $A0, $AF, $A0, $A0, $A0, $98, $99
+    .byte $98, $99, $A0, $A0, $AF, $A0, $A0, $A0, $98, $99   ; 
 
-    .byte $0A
+    .byte $0A   ; 
     .word $22D2 ; 
-    .byte $A1, $AF, $A0, $A0, $A4, $A5, $A0, $A0, $AE, $A1
+    .byte $A1, $AF, $A0, $A0, $A4, $A5, $A0, $A0, $AE, $A1   ; 
 
-    .byte $0A
+    .byte $0A   ; 
     .word $22F2 ; 
-    .byte $A3, $AF, $A0, $A0, $A6, $A7, $A0, $A0, $AE, $A3
+    .byte $A3, $AF, $A0, $A0, $A6, $A7, $A0, $A0, $AE, $A3   ; 
 
-    .byte $0A
+    .byte $0A   ; 
     .word $2312 ; 
-    .byte $9A, $9B, $A0, $A0, $AF, $A0, $A0, $A0, $9A, $9B
+    .byte $9A, $9B, $A0, $A0, $AF, $A0, $A0, $A0, $9A, $9B   ; 
 
-    .byte $4A
+    .byte $4A   ; 
     .word $2332 ; 
-    .byte $9A, $AD, $AD, $AD, $9B, $AD, $AD, $AD, $AD, $9B
+    .byte $9A, $AD, $AD, $AD, $9B, $AD, $AD, $AD, $AD, $9B   ; 
 
 
 
 off_B6A1_окно_запасных_игроков:
 ; верхняя обводка
-    .byte $0B
+    .byte $0B   ; 
     .word $2075 ; 
-    .byte $9C, $A8, $00, $42, $65, $6E, $63, $68, $00, $A8, $9D
+    .byte $9C, $A8, $00, $42, $65, $6E, $63, $68, $00, $A8, $9D   ; 
 ; нижняя обводка
-    .byte $4B
+    .byte $4B   ; 
     .word $2355 ; 
-    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F
+    .byte $9E, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $A9, $9F   ; 
 
 
 
@@ -3370,18 +3385,24 @@ tbl_B6BB_название_твоей_команды_в_опциях:
     .word off_0000_nankatsu
     .word off_0000_japan
 
+
+
 off_0000_sao_paulo:
-    .byte $49
+    .byte $49   ; 
     .word $2073 ; 
     .text "Sao Paulo"
 
+
+
 off_0000_nankatsu:
-    .byte $48
+    .byte $48   ; 
     .word $2073 ; 
     .text "Nankatsu"
 
+
+
 off_0000_japan:
-    .byte $45
+    .byte $45   ; 
     .word $2071 ; 
     .text "Japan"
 
@@ -4863,3 +4884,6 @@ off_BFBB_названия_действий_кипера:
 
 
 .out .sprintf("Free bytes in bank 01: 0x%04X [%d]", ($C000 - *), ($C000 - *))
+
+
+

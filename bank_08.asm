@@ -2338,3 +2338,6 @@ tbl_0x010010_блоки_4x4_тайла:
 
 
 .out .sprintf("Free bytes in bank 08: 0x%04X [%d]", ($C000 - *), ($C000 - *))
+
+
+

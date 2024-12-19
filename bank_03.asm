@@ -7,3 +7,6 @@
 
 
 .out .sprintf("Free bytes in bank 03: 0x%04X [%d]", ($E000 - *), ($E000 - *))
+
+
+
