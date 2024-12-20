@@ -28,7 +28,7 @@ set "sha1_original=43C26781D88E062AFA81C1A32F8345011FE53B8C"
 :: this can slow down assembling a little bit, but these
 :: files (especially listing) can be useful for debugging.
 :: default is 1
-set "fast_assembly=0"
+set "fast_assembly=1"
 
 :: used only if fast_assembly=0
 :: I prefer to start with "z_" in the name, so that

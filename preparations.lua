@@ -40,6 +40,7 @@ local files_list = {
     "bank_A7.asm",
     "bank_A8.asm",
     "bank_A9.asm",
+    "bank___future_expansion.asm",
     "bank_FF.asm",
     "bank_ram.inc",
     "bank_val.inc",
@@ -277,7 +278,7 @@ end
 local inc_file, err = io.open("copy_bank_ram.inc", "r")
 if err ~= nil then PrintError(err) end
 
-local nl_file, err = io.open("!ct2.nes.ram.nl", "w+")
+local nl_file, err = io.open("_ct2.nes.ram.nl", "w+")
 if err ~= nil then PrintError(err) end
 io.output(nl_file)
 
