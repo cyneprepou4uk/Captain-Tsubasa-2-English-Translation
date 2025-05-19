@@ -6,7 +6,7 @@
 
 
 
-.out .sprintf("Free bytes in bank AA: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank AA: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -18,7 +18,7 @@
 
 
 
-.out .sprintf("Free bytes in bank AC: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank AC: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-.out .sprintf("Free bytes in bank AE: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank AE: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-.out .sprintf("Free bytes in bank B0: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank B0: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -54,7 +54,7 @@
 
 
 
-.out .sprintf("Free bytes in bank B2: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank B2: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -66,7 +66,7 @@
 
 
 
-.out .sprintf("Free bytes in bank B4: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank B4: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -78,7 +78,7 @@
 
 
 
-.out .sprintf("Free bytes in bank B6: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank B6: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -90,7 +90,7 @@
 
 
 
-.out .sprintf("Free bytes in bank B8: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank B8: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -102,7 +102,7 @@
 
 
 
-.out .sprintf("Free bytes in bank BA: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank BA: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
@@ -114,7 +114,7 @@
 
 
 
-.out .sprintf("Free bytes in bank BC: 0x%04X [%d]", ($8000 - *), ($8000 - *))
+.out .sprintf("Free bytes in bank BC: 0x%04X [%d]", ($C000 - *), ($C000 - *))
 
 
 
