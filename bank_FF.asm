@@ -6130,8 +6130,7 @@ C - - - - - 0x03EC77 FF:EC67: 85 24     STA ram_for_5114
 C - - - - - 0x03EC79 FF:EC69: A9 11     LDA #con_prg_bank + $11
 C - - - - - 0x03EC7B FF:EC6B: 85 25     STA ram_for_5115
 C - - - - - 0x03EC7D FF:EC6D: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-; bzk optimize, JMP
-C - - - - - 0x03EC81 FF:EC71: 20 03 80  JSR sub_0x020031_обработка_байтов_сценария
+C - - - - - 0x03EC81 FF:EC71: 20 03 80  JMP loc_0x020031_обработка_байтов_сценария
 bra_EC74_RTS:
 C - - - - - 0x03EC84 FF:EC74: 60        RTS
 bra_EC75:
@@ -6254,8 +6253,7 @@ C - - - - - 0x03ED87 FF:ED77: 85 24     STA ram_for_5114
 C - - - - - 0x03ED89 FF:ED79: A9 11     LDA #con_prg_bank + $11
 C - - - - - 0x03ED8B FF:ED7B: 85 25     STA ram_for_5115
 C - - - - - 0x03ED8D FF:ED7D: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-; bzk optimize, JMP
-C - - - - - 0x03ED91 FF:ED81: 20 03 80  JSR sub_0x020031_обработка_байтов_сценария
+C - - - - - 0x03ED91 FF:ED81: 20 03 80  JMP loc_0x020031_обработка_байтов_сценария
 bra_ED84_RTS:
 C - - - - - 0x03ED94 FF:ED84: 60        RTS
 
