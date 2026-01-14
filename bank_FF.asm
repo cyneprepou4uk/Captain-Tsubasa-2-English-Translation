@@ -3627,7 +3627,7 @@ C - - - - - 0x03DBBB FF:DBAB: E8        INX
 C - - - - - 0x03DBBC FF:DBAC: E8        INX
 C - - - - - 0x03DBBD FF:DBAD: E8        INX
 C - - - - - 0x03DBBE FF:DBAE: E0 09     CPX #$09
-C - - - - - 0x03DBC0 FF:DBB0: F0 19     BEQ bra_DBCB_RTS
+C - - - - - 0x03DBC0 FF:DBB0: F0 19     BEQ bra_DBE9_RTS
 C - - - - - 0x03DBC2 FF:DBB2: D0 F2     BNE bra_DBA6_loop    ; jmp
 bra_DBB4:
 C - - - - - 0x03DBC4 FF:DBB4: BD EB DB  LDA tbl_DBEA + $01,X
@@ -3637,15 +3637,8 @@ C - - - - - 0x03DBCC FF:DBBC: BD EC DB  LDA tbl_DBEA + $02,X
 C - - - - - 0x03DBCF FF:DBBF: 91 34     STA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03DBD1 FF:DBC1: AD 2B 00  LDA ram_команда_соперника
 C - - - - - 0x03DBD4 FF:DBC4: C9 0C     CMP #$0C
-C - - - - - 0x03DBD6 FF:DBC6: D0 03     BNE bra_DBCB_RTS
-; bzk optimize, JMP
-C - - - - - 0x03DBD8 FF:DBC8: 20 CC DB  JSR sub_DBCC
-bra_DBCB_RTS:
-C - - - - - 0x03DBDB FF:DBCB: 60        RTS
-
-
-
-sub_DBCC:
+C - - - - - 0x03DBD6 FF:DBC6: D0 03     BNE bra_DBE9_RTS
+; 
 C - - - - - 0x03DBDC FF:DBCC: A9 0C     LDA #$0C
 bra_DBCE_loop:
 C - - - - - 0x03DBDE FF:DBCE: 48        PHA
@@ -3665,19 +3658,21 @@ C - - - - - 0x03DBF2 FF:DBE2: 18        CLC
 C - - - - - 0x03DBF3 FF:DBE3: 69 01     ADC #$01
 C - - - - - 0x03DBF5 FF:DBE5: C9 16     CMP #$16
 C - - - - - 0x03DBF7 FF:DBE7: D0 E5     BNE bra_DBCE_loop
+bra_DBE9_RTS:
 C - - - - - 0x03DBF9 FF:DBE9: 60        RTS
 
 
 
 tbl_DBEA:
+; 
 - D 2 - - - 0x03DBFA FF:DBEA: 23        .byte $23   ; 00 номер команды соперников
 - D 2 - - - 0x03DBFB FF:DBEB: 14        .byte $14   ; 01 индекс соперника для замены
 - D 2 - - - 0x03DBFC FF:DBEC: 75        .byte con_p_coimbra_brazil   ; 02 индекс игрока для замены
-
+; 
 - D 2 - - - 0x03DBFD FF:DBED: 0C        .byte $0C   ; 00 номер команды соперников
 - D 2 - - - 0x03DBFE FF:DBEE: 14        .byte $14   ; 01 индекс соперника для замены
 - D 2 - - - 0x03DBFF FF:DBEF: 34        .byte con_p_misugi_musashi   ; 02 индекс игрока для замены
-
+; 
 - D 2 - - - 0x03DC00 FF:DBF0: 12        .byte $12   ; 00 номер команды соперников
 - D 2 - - - 0x03DC01 FF:DBF1: 15        .byte $15   ; 01 индекс соперника для замены
 - D 2 - - - 0x03DC02 FF:DBF2: 45        .byte con_p_misugi_japan   ; 02 индекс игрока для замены
