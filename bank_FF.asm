@@ -4656,20 +4656,17 @@ C - - - - - 0x03E276 FF:E266: 60        RTS
 
 
 sub_E267:
+loc_E267:
 C - - - - - 0x03E277 FF:E267: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E27A FF:E26A: F0 0B     BEQ bra_E277_команда_слева
 ; if мяч у команды справа
 C - - - - - 0x03E27C FF:E26C: A9 31     LDA #con_B3CF_31
 C - - - - - 0x03E27E FF:E26E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03E281 FF:E271: A9 32     LDA #con_B3CF_32
-; bzk optimize, JMP
-C - - - - - 0x03E283 FF:E273: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03E286 FF:E276: 60        RTS
+C - - - - - 0x03E283 FF:E273: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_E277_команда_слева:
 C - - - - - 0x03E287 FF:E277: A9 30     LDA #con_B3CF_30
-; bzk optimize, JMP
-C - - - - - 0x03E289 FF:E279: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03E28C FF:E27C: 60        RTS
+C - - - - - 0x03E289 FF:E279: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 
 
 
@@ -4792,8 +4789,7 @@ C - - - - - 0x03E34F FF:E33F: 91 34     STA (ram_plr_data),Y    ; con_plr_guts_h
 C - - - - - 0x03E351 FF:E341: 8A        TXA
 C - - - - - 0x03E352 FF:E342: 88        DEY
 C - - - - - 0x03E353 FF:E343: 91 34     STA (ram_plr_data),Y    ; con_plr_guts_lo
-; bzk optimize, JMP
-C - - - - - 0x03E355 FF:E345: 20 67 E2  JSR sub_E267
+C - - - - - 0x03E355 FF:E345: 20 67 E2  JMP loc_E267
 bra_E348_RTS:
 C - - - - - 0x03E358 FF:E348: 60        RTS
 
@@ -6531,6 +6527,7 @@ tbl_EF73:
 
 
 sub_EF7F_отрисовка_меню_во_время_матча:
+loc_EF7F_отрисовка_меню_во_время_матча:
 sub_0x03EF8F_отрисовка_меню_во_время_матча:
 C D 3 - - - 0x03EF8F FF:EF7F: A8        TAY
 C - - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_for_5114
