@@ -12,7 +12,7 @@
 .export sub_0x0345BC
 .export loc_0x034706
 .export sub_0x0347F1
-.export sub_0x034845
+.export loc_0x034845
 .export sub_0x03489D
 .export loc_0x0348B8
 .export loc_0x034903
@@ -1274,7 +1274,7 @@ C - - - - - 0x034844 1A:8834: 60        RTS
 
 
 
-sub_0x034845:
+loc_0x034845:
 C D 0 - - - 0x034845 1A:8835: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x034848 1A:8838: D0 01     BEQ bra_888A_RTS
 C - - - - - 0x03484B 1A:883B: A9 00     LDA #$00
@@ -2993,14 +2993,14 @@ bra_9276:
 C - - - - - 0x035286 1A:9276: 18        CLC
 C - - - - - 0x035287 1A:9277: 6D 24 06  ADC ram_0624
 C - - - - - 0x03528A 1A:927A: 8D 24 06  STA ram_0624
-C - - - - - 0x03528D 1A:927D: 20 3F C6  JSR loc_0x03D907
+C - - - - - 0x03528D 1A:927D: 20 3F C6  JSR sub_0x03D907
 bra_9280:
 C - - - - - 0x035290 1A:9280: A9 80     LDA #con_btn_A
 C - - - - - 0x035292 1A:9282: 2D 1E 00  AND ram_btn_press
 C - - - - - 0x035295 1A:9285: D0 03     BNE bra_928A
 C - - - - - 0x035297 1A:9287: 4C FC 91  JMP loc_91FC_loop
 bra_928A:
-C - - - - - 0x03529A 1A:928A: 20 42 C6  JSR loc_0x03D862
+C - - - - - 0x03529A 1A:928A: 20 42 C6  JSR sub_0x03D862
 C - - - - - 0x03529D 1A:928D: B0 03     BCS bra_9292
 - - - - - - 0x03529F 1A:928F: 4C FC 91  JMP loc_91FC_loop
 bra_9292:

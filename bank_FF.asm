@@ -46,8 +46,8 @@
 .export loc_0x03D1A3_уменьшить_таймер_времени_тайма
 .export sub_0x03D575
 .export sub_0x03D7F8
-.export loc_0x03D862
-.export loc_0x03D907
+.export sub_0x03D862
+.export sub_0x03D907
 .export loc_0x03DABA
 .export sub_0x03DB72
 .export sub_0x03DCEF_рандом_высоты_мяча
@@ -3158,7 +3158,7 @@ tbl_D84E:
 
 
 sub_D852:
-loc_0x03D862:
+sub_0x03D862:
 C D 2 - - - 0x03D862 FF:D852: A9 FF     LDA #$FF
 C - - - - - 0x03D864 FF:D854: AE 25 06  LDX ram_0625
 C - - - - - 0x03D867 FF:D857: F0 09     BEQ bra_D862
@@ -3250,7 +3250,7 @@ C - - - - - 0x03D906 FF:D8F6: 60        RTS
 
 
 sub_D8F7:
-loc_0x03D907:
+sub_0x03D907:
 C D 2 - - - 0x03D907 FF:D8F7: A9 00     LDA #$00
 C - - - - - 0x03D909 FF:D8F9: 8D 30 04  STA ram_список_спешалов
 C - - - - - 0x03D90C FF:D8FC: 8D 25 06  STA ram_0625
@@ -5453,7 +5453,7 @@ C - - - - - 0x03E7D0 FF:E7C0: AD FE 05  LDA ram_05FE
 C - - - - - 0x03E7D3 FF:E7C3: 20 C9 CD  JSR sub_CDC9_проверить_координаты_игрока
 C - - - - - 0x03E7D6 FF:E7C6: 8E 35 06  STX ram_ball_pos_X_hi
 C - - - - - 0x03E7D9 FF:E7C9: 8C 37 06  STY ram_ball_pos_Y_hi
-C - - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP sub_0x034845
+C - - - - - 0x03E7DC FF:E7CC: 20 0C 80  JMP loc_0x034845
 
 
 
