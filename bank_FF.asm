@@ -6343,9 +6343,7 @@ C - - - - - 0x03EE35 FF:EE25: 18        CLC
 C - - - - - 0x03EE36 FF:EE26: 8A        TXA
 C - - - - - 0x03EE37 FF:EE27: 6D D5 05  ADC ram_05D5
 C - - - - - 0x03EE3A FF:EE2A: 8D D5 05  STA ram_05D5
-; bzk optimize, JMP
-C - - - - - 0x03EE3D FF:EE2D: 20 6D EE  JSR sub_EE6D
-C - - - - - 0x03EE40 FF:EE30: 60        RTS
+C - - - - - 0x03EE3D FF:EE2D: 20 6D EE  JMP loc_EE6D
 bra_EE31:
 C - - - - - 0x03EE41 FF:EE31: A5 20     LDA ram_for_2000
 C - - - - - 0x03EE43 FF:EE33: 29 FE     AND #$FE
@@ -6375,13 +6373,7 @@ C - - - - - 0x03EE74 FF:EE64: 8A        TXA
 C - - - - - 0x03EE75 FF:EE65: 28        PLP
 C - - - - - 0x03EE76 FF:EE66: 69 00     ADC #$00
 C - - - - - 0x03EE78 FF:EE68: AA        TAX
-; bzk optimize, JMP
-C - - - - - 0x03EE79 FF:EE69: 20 6D EE  JSR sub_EE6D
-C - - - - - 0x03EE7C FF:EE6C: 60        RTS
-
-
-
-sub_EE6D:
+loc_EE6D:
 C - - - - - 0x03EE7D FF:EE6D: AD D2 05  LDA ram_05D2
 C - - - - - 0x03EE80 FF:EE70: 29 02     AND #$02
 C - - - - - 0x03EE82 FF:EE72: F0 2A     BEQ bra_EE9E_RTS
