@@ -5268,8 +5268,7 @@ C - - - - - 0x03E67A FF:E66A: 85 24     STA ram_for_5114
 C - - - - - 0x03E67C FF:E66C: A9 1B     LDA #con_prg_bank + $1B
 C - - - - - 0x03E67E FF:E66E: 85 25     STA ram_for_5115
 C - - - - - 0x03E680 FF:E670: 20 2D CE  JSR sub_CE2D_prg_bankswitch
-; bzk optimize, JMP
-C - - - - - 0x03E684 FF:E674: 20 15 80  JSR sub_0x0348B8
+C - - - - - 0x03E684 FF:E674: 20 15 80  JMP loc_0x0348B8
 bra_E677_RTS:
 C - - - - - 0x03E687 FF:E677: 60        RTS
 
@@ -5637,8 +5636,7 @@ C - - - - - 0x03E8F1 FF:E8E1: F0 09     BEQ bra_E8EC_RTS
 C - - - - - 0x03E8F3 FF:E8E3: A5 48     LDA ram_0048_t07
 C - - - - - 0x03E8F5 FF:E8E5: A6 49     LDX ram_0049_t06
 C - - - - - 0x03E8F7 FF:E8E7: A4 46     LDY ram_0046_t09_data_index_ось_координат
-; bzk optimize, JMP
-C - - - - - 0x03E8F9 FF:E8E9: 20 12 E9  JSR sub_E912_границы_поля
+C - - - - - 0x03E8F9 FF:E8E9: 20 12 E9  JMP loc_E912_границы_поля
 bra_E8EC_RTS:
 C - - - - - 0x03E8FC FF:E8EC: 60        RTS
 
@@ -5686,7 +5684,7 @@ C - - - - - 0x03E91C FF:E90C: D0 01     BNE bra_E90F
 bra_E90F:
 C - - - - - 0x03E91F FF:E90F: 98        TYA
 C - - - - - 0x03E920 FF:E910: A4 47     LDY ram_0047_t09_data_index_ось_координат
-sub_E912_границы_поля:
+loc_E912_границы_поля:
 ; по соответствующей оси сначала проверяется граница слева, потом справа
 C - - - - - 0x03E922 FF:E912: 18        CLC
 C - - - - - 0x03E923 FF:E913: 71 34     ADC (ram_plr_data),Y    ; con_plr_pos_X_lo  con_plr_pos_X_lo

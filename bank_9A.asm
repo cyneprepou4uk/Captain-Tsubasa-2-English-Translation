@@ -14,7 +14,7 @@
 .export sub_0x0347F1
 .export sub_0x034845
 .export sub_0x03489D
-.export sub_0x0348B8
+.export loc_0x0348B8
 .export loc_0x034903
 .export sub_0x034B5A
 .export loc_0x034BF5
@@ -1338,7 +1338,7 @@ C - - - - - 0x0348B5 1A:88A5: 4C 32 81  JMP loc_8132
 
 
 sub_88A8:
-sub_0x0348B8:
+loc_0x0348B8:
 C D 0 - - - 0x0348B8 1A:88A8: A9 0B     LDA #con_s_id_0B
 C - - - - - 0x0348BA 1A:88AA: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
 C - - - - - 0x0348BD 1A:88AD: AD 12 06  LDA ram_результат_защитника
