@@ -3296,33 +3296,26 @@ C - - - - - 0x03D957 FF:D947: D0 B6     BNE bra_D8FF_loop
 C - - - - - 0x03D959 FF:D949: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D95C FF:D94C: D0 06     BNE bra_D954
 C - - - - - 0x03D95E FF:D94E: A9 1C     LDA #con_B3CF_1C
-; bzk optimize, JMP
-C - - - - - 0x03D960 FF:D950: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03D963 FF:D953: 60        RTS
+C - - - - - 0x03D960 FF:D950: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_D954:
 C - - - - - 0x03D964 FF:D954: AD 25 06  LDA ram_0625
 C - - - - - 0x03D967 FF:D957: D0 08     BNE bra_D961
 C - - - - - 0x03D969 FF:D959: 8A        TXA
 C - - - - - 0x03D96A FF:D95A: 18        CLC
 C - - - - - 0x03D96B FF:D95B: 69 1F     ADC #$1F      ; ??? show_?_opponents
-C - - - - - 0x03D96D FF:D95D: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03D970 FF:D960: 60        RTS
+C - - - - - 0x03D96D FF:D95D: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_D961:
 C - - - - - 0x03D971 FF:D961: CA        DEX
 C - - - - - 0x03D972 FF:D962: D0 0C     BNE bra_D970
 C - - - - - 0x03D974 FF:D964: AD 31 04  LDA ram_список_спешалов + $01
 C - - - - - 0x03D977 FF:D967: 8D FC 05  STA ram_принимающий
 C - - - - - 0x03D97A FF:D96A: A9 1D     LDA #con_B3CF_1D
-; bzk optimize, JMP
-C - - - - - 0x03D97C FF:D96C: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03D97F FF:D96F: 60        RTS
+C - - - - - 0x03D97C FF:D96C: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_D970:
 C - - - - - 0x03D980 FF:D970: 8A        TXA
 C - - - - - 0x03D981 FF:D971: 18        CLC
 C - - - - - 0x03D982 FF:D972: 69 18     ADC #$18      ; ? show_?_teammates
-; bzk optimize, JMP
-C - - - - - 0x03D984 FF:D974: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03D987 FF:D977: 60        RTS
+C - - - - - 0x03D984 FF:D974: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 
 
 
@@ -4852,8 +4845,7 @@ C - - - - - 0x03E3CF FF:E3BF: 90 02     BCC bra_E3C3
 C - - - - - 0x03E3D1 FF:E3C1: A9 01     LDA #$01
 bra_E3C3:
 C - - - - - 0x03E3D3 FF:E3C3: 8D FD 05  STA ram_управляемый
-; bzk optimize, JMP
-C - - - - - 0x03E3D6 FF:E3C6: 20 67 E2  JSR sub_E267
+C - - - - - 0x03E3D6 FF:E3C6: 20 67 E2  JMP loc_E267
 bra_E3C9_RTS:
 C D 3 - - - 0x03E3D9 FF:E3C9: 60        RTS
 
