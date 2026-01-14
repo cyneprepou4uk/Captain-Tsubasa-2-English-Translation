@@ -799,6 +799,7 @@ C - - - - - 0x03CB0F FF:CAFF: 4C A5 CA  JMP loc_CAA5
 
 
 sub_CB0F_задержка:
+loc_CB0F_задержка:
 sub_0x03CB1F_задержка:
 C D 2 - - - 0x03CB1F FF:CB0F: 85 7F     STA ram_007F_t01_задержка_кадра
 C - - - - - 0x03CB21 FF:CB11: 8A        TXA
@@ -896,13 +897,12 @@ C D 2 - - - 0x03CBC0 FF:CBB0: 8D 18 05  STA ram_номер_сценария
 C - - - - - 0x03CBC3 FF:CBB3: A9 80     LDA #$80
 C - - - - - 0x03CBC5 FF:CBB5: 8D 16 05  STA ram_флаги_сценария_ХЗ
 C - - - - - 0x03CBCC FF:CBBC: A9 00     LDA #$00
-; bzk optimize, JMP
-C - - - - - 0x03CBCE FF:CBBE: 20 0F CB  JSR sub_CB0F_задержка
-C - - - - - 0x03CBD1 FF:CBC1: 60        RTS
+C - - - - - 0x03CBCE FF:CBBE: 20 0F CB  JMP loc_CB0F_задержка
 
 
 
 sub_CBF1_запись_звука:
+loc_CBF1_запись_звука:
 sub_0x03CC01_запись_звука:
 ; выбор свободного адреса для записи
 C D 2 - - - 0x03CC01 FF:CBF1: A2 00     LDX #$00
@@ -1054,9 +1054,7 @@ bra_CC4D_loop_очистки_экрана:
                                         LDA #$81
                                         STA ram_0515_buffer_flag
                                         LDA #$01
-; bzk optimize, JMP
-                                        JSR sub_CB0F_задержка
-                                        RTS
+                                        JMP loc_CB0F_задержка
 
 
 
@@ -1862,9 +1860,7 @@ C - - - - - 0x03D0B1 FF:D0A1: BD 2A 00  LDA ram_твоя_команда,X
 C - - - - - 0x03D0B4 FF:D0A4: AA        TAX
 C - - - - - 0x03D0B5 FF:D0A5: BD AC D0  LDA tbl_D0AC_мелодии_команд,X
 bra_D0A8_сейчас_loss:
-; bzk optimize, JMP
-C - - - - - 0x03D0B8 FF:D0A8: 20 F1 CB  JSR sub_CBF1_запись_звука
-C - - - - - 0x03D0BB FF:D0AB: 60        RTS
+C - - - - - 0x03D0B8 FF:D0A8: 20 F1 CB  JMP loc_CBF1_запись_звука
 
 
 
@@ -2107,8 +2103,7 @@ C - - - - - 0x03D222 FF:D212: A9 43     LDA #con_s_id_43
 C - - - - - 0x03D224 FF:D214: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03D227 FF:D217: 2C 15 06  BIT ram_0615_флаг
 C - - - - - 0x03D22A FF:D21A: 10 03     BPL bra_D21F_RTS
-; bzk optimize, JMP
-C - - - - - 0x03D22C FF:D21C: 20 33 E2  JSR sub_E233
+C - - - - - 0x03D22C FF:D21C: 20 33 E2  JMP loc_E233
 bra_D21F_RTS:
 C D 2 - - - 0x03D22F FF:D21F: 60        RTS
 
@@ -4619,6 +4614,7 @@ C - - - - - 0x03E240 FF:E230: 4C 45 E1  JMP loc_E145_loop
 
 
 sub_E233:
+loc_E233:
 sub_0x03E243:
 C D 3 - - - 0x03E243 FF:E233: A9 1E     LDA #con_s_id_игрок_бежит_по_полю_с_картой
 C - - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
