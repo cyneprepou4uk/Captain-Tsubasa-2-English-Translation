@@ -197,12 +197,11 @@ C - - - - - 0x0000C2 00:80B2: 30 20     BMI bra_80D4_нажата_Start   ; if c
 C - - - - - 0x0000C4 00:80B4: 0A        ASL
 C - - - - - 0x0000C5 00:80B5: 29 40     AND #$40
 C - - - - - 0x0000C7 00:80B7: 09 0A     ORA #$0A
-; bzk optimize, BNE
-C - - - - - 0x0000C9 00:80B9: 4C C0 80  JMP loc_80C0
+C - - - - - 0x0000C9 00:80B9: 4C C0 80  BNE bra_80C0
 bra_80BC_нажата_Select:
 C - - - - - 0x0000CC 00:80BC: A5 ED     LDA ram_00ED_t10_ppu_addr_lo
 C - - - - - 0x0000CE 00:80BE: 49 40     EOR #$40
-loc_80C0:
+bra_80C0:
 C D 0 - - - 0x0000D0 00:80C0: 85 ED     STA ram_00ED_t10_ppu_addr_lo
 C - - - - - 0x0000D2 00:80C2: A9 0A     LDA #< $220A
 C - - - - - 0x0000D4 00:80C4: 85 E6     STA ram_00E6_t17_ppu_addr_lo
