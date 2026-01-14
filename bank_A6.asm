@@ -1,7 +1,7 @@
 .segment "BANK_A6"
 .include "copy_bank_ram.inc"
 .include "copy_bank_val.inc"
-.org $C000
+.org $C000  ; for listing file
 ; 0x04C010-0x04E00F
 
 
