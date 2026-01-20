@@ -1574,9 +1574,7 @@ bra_B1AA_not_overflow:
                                         LDA #$81
                                         STA ram_0515_buffer_flag
                                         LDA #$01
-; bzk optimize, JMP
-                                        JSR sub_0x03CB1F_задержка
-                                        RTS
+                                        JMP loc_0x03CB1F_задержка
 
 
 
@@ -1727,9 +1725,7 @@ C - - - - - 0x027310 13:B300: E0 20     CPX #$20
 C - - - - - 0x027312 13:B302: D0 F5     BNE bra_B2F9_loop
 C - - - - - 0x027314 13:B304: 20 33 C5  JSR sub_0x03CCE3
 C - - - - - 0x02731A 13:B30A: A9 01     LDA #$01
-; bzk optimize, JMP
-C - - - - - 0x02731C 13:B30C: 20 15 C5  JSR sub_0x03CB1F_задержка
-C - - - - - 0x02731F 13:B30F: 60        RTS
+C - - - - - 0x02731C 13:B30C: 20 15 C5  JMP loc_0x03CB1F_задержка
 
 
 

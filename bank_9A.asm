@@ -912,13 +912,9 @@ C - - - - - 0x034606 1A:85F6: 2C 3E 06  BIT ram_флаг_loss
 C - - - - - 0x034609 1A:85F9: 10 06     BPL bra_8601_сейчас_не_loss
 ; музыка добавочного времени
 C - - - - - 0x03460B 1A:85FB: A9 32     LDA #$32
-; bzk optimize, JMP
-C - - - - - 0x03460D 1A:85FD: 20 5D C5  JSR sub_0x03CC01_запись_звука
-C - - - - - 0x034610 1A:8600: 60        RTS
+C - - - - - 0x03460D 1A:85FD: 20 5D C5  JMP loc_0x03CC01_запись_звука
 bra_8601_сейчас_не_loss:
-; bzk optimize, JMP
-C - - - - - 0x034611 1A:8601: 20 6F C5  JSR sub_0x03D0A3_выбор_мелодии_команды
-C - - - - - 0x034614 1A:8604: 60        RTS
+C - - - - - 0x034611 1A:8601: 20 6F C5  JMP loc_0x03D0A3_выбор_мелодии_команды
 
 
 
@@ -1831,8 +1827,7 @@ C - - - - - 0x034BE9 1A:8BD9: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
                                         CMP #$23
                                         BCS bra_8BDE_RTS    ; if игрок команды соперника
 ; if игрок из нашей команды
-; bzk optimize, JMP
-C - - - - - 0x034BEB 1A:8BDB: 20 C8 C4  JSR sub_0x03C4D8_начислить_опыт
+C - - - - - 0x034BEB 1A:8BDB: 20 C8 C4  JMP loc_0x03C4D8_начислить_опыт
 bra_8BDE_RTS:
 C - - - - - 0x034BEE 1A:8BDE: 60        RTS
 
@@ -1936,9 +1931,7 @@ C - - - - - 0x034C93 1A:8C83: AE 35 06  LDX ram_ball_pos_X_hi
 C - - - - - 0x034C96 1A:8C86: 20 92 8C  JSR sub_8C92
 C - - - - - 0x034C99 1A:8C89: 8D 35 06  STA ram_ball_pos_X_hi
 C - - - - - 0x034C9C 1A:8C8C: A9 00     LDA #$00
-; bzk optimize, JMP
-C - - - - - 0x034C9E 1A:8C8E: 20 A4 8C  JSR sub_8CA4
-C - - - - - 0x034CA1 1A:8C91: 60        RTS
+C - - - - - 0x034C9E 1A:8C8E: 20 A4 8C  JMP loc_8CA4
 
 
 
@@ -1960,7 +1953,7 @@ C - - - - - 0x034CB3 1A:8CA3: 60        RTS
 
 
 
-sub_8CA4:
+loc_8CA4:
 sub_0x034CB4:
 C D 0 - - - 0x034CB4 1A:8CA4: 4A        LSR
 C - - - - - 0x034CB5 1A:8CA5: 08        PHP
@@ -2324,8 +2317,7 @@ C - - - - - 0x034E70 1A:8E60: CD E2 00  CMP ram_random + $01
 C - - - - - 0x034E73 1A:8E63: 90 08     BCC bra_8E6D_RTS
 C - - - - - 0x034E75 1A:8E65: A9 04     LDA #$04
 C - - - - - 0x034E77 1A:8E67: 8D 12 06  STA ram_результат_защитника
-; bzk optimize, JMP
-C - - - - - 0x034E7A 1A:8E6A: 20 5A C5  JSR sub_0x03CF5F
+C - - - - - 0x034E7A 1A:8E6A: 20 5A C5  JMP loc_0x03CF5F
 bra_8E6D_RTS:
 C - - - - - 0x034E7D 1A:8E6D: 60        RTS
 
@@ -2343,8 +2335,7 @@ C - - - - - 0x034E89 1A:8E79: 8A        TXA
 C - - - - - 0x034E8A 1A:8E7A: 4D FB 05  EOR ram_команда_с_мячом
 C - - - - - 0x034E8D 1A:8E7D: 8E FB 05  STX ram_команда_с_мячом
 C - - - - - 0x034E90 1A:8E80: F0 03     BEQ bra_8E85_RTS
-; bzk optimize, JMP
-C - - - - - 0x034E92 1A:8E82: 20 6F C5  JSR sub_0x03D0A3_выбор_мелодии_команды
+C - - - - - 0x034E92 1A:8E82: 20 6F C5  JMP loc_0x03D0A3_выбор_мелодии_команды
 bra_8E85_RTS:
 C - - - - - 0x034E95 1A:8E85: 60        RTS
 

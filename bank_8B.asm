@@ -1036,9 +1036,7 @@ C - - - - - 0x0165C6 0B:85B6: 68        PLA
 C - - - - - 0x0165C7 0B:85B7: A9 80     LDA #$80
 C - - - - - 0x0165C9 0B:85B9: 8D 15 05  STA ram_0515_buffer_flag
 C - - - - - 0x0165CC 0B:85BC: A9 01     LDA #$01
-; bzk optimize, JMP
-C - - - - - 0x0165CE 0B:85BE: 20 15 C5  JSR sub_0x03CB1F_задержка
-C - - - - - 0x0165D1 0B:85C1: 60        RTS
+C - - - - - 0x0165CE 0B:85BE: 20 15 C5  JMP loc_0x03CB1F_задержка
 
 
 

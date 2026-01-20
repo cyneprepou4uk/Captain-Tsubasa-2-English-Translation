@@ -9,21 +9,24 @@
 .export loc_0x03CF0E
 .export sub_0x03C4C9_банксвич_PRG_5115
 .export loc_0x03C4C9_банксвич_PRG_5115
-.export sub_0x03C4D8_начислить_опыт
+.export loc_0x03C4D8_начислить_опыт
 .export loc_0x03C6CE
 .export sub_0x03CAF7_подготовить_подпрограмму_в_стеке
 .export loc_0x03CB07
 .export sub_0x03CB1F_задержка
+.export loc_0x03CB1F_задержка
 .export sub_0x03CB45_очистить_nametable
 .export sub_0x03CBA9_поинтеры_после_JSR
 .export sub_0x03CBC0_запись_номера_сценария
 .export sub_0x03CC01_запись_звука
+.export loc_0x03CC01_запись_звука
 .export sub_0x03CC12_запись_палитры_во_время_матча
 .export sub_0x03CC55_полностью_очистить_нижнюю_половину_экрана
 .export sub_0x03CC56_очистить_нижнюю_половину_экрана
 .export loc_0x03CC56_очистить_нижнюю_половину_экрана
 .export sub_0x03CCE2
 .export sub_0x03CCE3
+.export loc_0x03CCE3
 .export sub_0x03CD1D_умножение_16бит_на_16бит
 .export sub_0x03CD4C_получить_младший_разряд_числа
 .export sub_0x03CD87_получить_адрес_кипера_команды_без_мяча
@@ -37,10 +40,12 @@
 .export sub_0x03CE7E_подпрограммы_в_банке_1C
 .export sub_0x03CEA9_вычислить_управляемого
 .export sub_0x03CF5F
+.export loc_0x03CF5F
 .export sub_0x03CF82_отрисовка_чарли_на_фоне
 .export sub_0x03CF9F_курсор_меню_после_гола
 .export sub_0x03D032_восстановить_энергию_в_перерыве
 .export sub_0x03D0A3_выбор_мелодии_команды
+.export loc_0x03D0A3_выбор_мелодии_команды
 .export sub_0x03D0E1_попытка_убить_мисуги
 .export loc_0x03D1A3_уменьшить_таймер_времени_тайма
 .export sub_0x03D575
@@ -220,7 +225,7 @@ C - - - - - 0x03C4D7 FF:C4C7: 60        RTS
 
 
 
-sub_0x03C4D8_начислить_опыт:
+loc_0x03C4D8_начислить_опыт:
 ; срабатывает когда цубаса ударил, игроки напариваются на мяч, и после этого бряк
 ; на вход подается
     ; A = номер игрока
@@ -802,6 +807,7 @@ C - - - - - 0x03CB0F FF:CAFF: 4C A5 CA  JMP loc_CAA5
 sub_CB0F_задержка:
 loc_CB0F_задержка:
 sub_0x03CB1F_задержка:
+loc_0x03CB1F_задержка:
 C D 2 - - - 0x03CB1F FF:CB0F: 85 7F     STA ram_007F_t01_задержка_кадра
 C - - - - - 0x03CB21 FF:CB11: 8A        TXA
 C - - - - - 0x03CB22 FF:CB12: 48        PHA
@@ -905,6 +911,7 @@ C - - - - - 0x03CBCE FF:CBBE: 20 0F CB  JMP loc_CB0F_задержка
 sub_CBF1_запись_звука:
 loc_CBF1_запись_звука:
 sub_0x03CC01_запись_звука:
+loc_0x03CC01_запись_звука:
 ; выбор свободного адреса для записи
 C D 2 - - - 0x03CC01 FF:CBF1: A2 00     LDX #$00
 bra_CBF3_loop_поиск_свободного_адреса:
@@ -1095,6 +1102,7 @@ sub_0x03CCE2:
                                         .byte $2C   ; BIT
 sub_CCD3:
 sub_0x03CCE3:
+loc_0x03CCE3:
 ; срабатывает раз перед показом новой анимации
                                         LDA #$00
                                         STA ram_00B0_t03
@@ -1602,8 +1610,9 @@ C - - - - - 0x03CF5E FF:CF4E: 60        RTS
 
 
 sub_CF4F:
-sub_0x03CF5F:
 ofs_060_DC03_04:
+sub_0x03CF5F:
+loc_0x03CF5F:
 C D 2 - - - 0x03CF5F FF:CF4F: A9 00     LDA #$00
 bra_CF51_loop:
 C - - - - - 0x03CF61 FF:CF51: 48        PHA
@@ -1849,6 +1858,7 @@ C - - - - - 0x03D0A2 FF:D092: 60        RTS
 
 sub_D093_выбор_мелодии_команды:
 sub_0x03D0A3_выбор_мелодии_команды:
+loc_0x03D0A3_выбор_мелодии_команды:
 C D 2 - - - 0x03D0A3 FF:D093: A9 32     LDA #con_музыка_добавочное_время
 C - - - - - 0x03D0A5 FF:D095: 2C 3E 06  BIT ram_флаг_loss
 C - - - - - 0x03D0A8 FF:D098: 30 0E     BMI bra_D0A8_сейчас_loss
