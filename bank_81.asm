@@ -21,12 +21,12 @@
 
 
 sub_A01E_генерация_пароля:
-C - - - - - 0x00202E 01:A01E: AD 48 04  LDA ram_флаг_циклона
+C - - - - - 0x00202E 01:A01E: AD 48 04  LDA ram_cyclone_flag
 C - - - - - 0x002031 01:A021: 4A        LSR
 C - - - - - 0x002032 01:A022: A5 26     LDA ram_номер_матча
 C - - - - - 0x002034 01:A024: 2A        ROL
 C - - - - - 0x002035 01:A025: 18        CLC
-C - - - - - 0x002036 01:A026: AE 46 04  LDX ram_флаг_драйв_оверхеда
+C - - - - - 0x002036 01:A026: AE 46 04  LDX ram_drive_overhead_flag
 C - - - - - 0x002039 01:A029: E0 05     CPX #$05
 C - - - - - 0x00203B 01:A02B: 2A        ROL
 C - - - - - 0x00203C 01:A02C: 8D 60 06  STA ram_0660
@@ -87,6 +87,7 @@ C - - - - - 0x00209B 01:A08B: D0 B0     BNE bra_A03D_loop
 C - - - - - 0x00209D 01:A08D: A5 E2     LDA ram_random + $01
 C - - - - - 0x00209F 01:A08F: 29 F0     AND #$F0
 C - - - - - 0x0020A1 01:A091: 8D 63 06  STA ram_0663
+; / 10
 C - - - - - 0x0020A4 01:A094: 4A        LSR
 C - - - - - 0x0020A5 01:A095: 4A        LSR
 C - - - - - 0x0020A6 01:A096: 4A        LSR
@@ -527,12 +528,12 @@ C - - - - - 0x002380 01:A370: 85 26     STA ram_номер_матча
 C - - - - - 0x002382 01:A372: AD 60 06  LDA ram_0660
 C - - - - - 0x002385 01:A375: 29 03     AND #$03
 C - - - - - 0x002387 01:A377: 4A        LSR
-C - - - - - 0x002388 01:A378: 8D 48 04  STA ram_флаг_циклона
+C - - - - - 0x002388 01:A378: 8D 48 04  STA ram_cyclone_flag
 C - - - - - 0x00238B 01:A37B: A9 00     LDA #$00
 C - - - - - 0x00238D 01:A37D: 90 02     BCC bra_A381
 C - - - - - 0x00238F 01:A37F: A9 05     LDA #$05
 bra_A381:
-C - - - - - 0x002391 01:A381: 8D 46 04  STA ram_флаг_драйв_оверхеда
+C - - - - - 0x002391 01:A381: 8D 46 04  STA ram_drive_overhead_flag
 C - - - - - 0x002394 01:A384: AD 61 06  LDA ram_0661
 C - - - - - 0x002397 01:A387: 2A        ROL
 C - - - - - 0x002398 01:A388: A9 00     LDA #$00
@@ -1842,13 +1843,13 @@ bra_AC6D:
 C - - - - - 0x002C7D 01:AC6D: C9 FE     CMP #$FE
 C - - - - - 0x002C7F 01:AC6F: D0 0A     BNE bra_AC7B_циклон
 ; FE
-C - - - - - 0x002C81 01:AC71: AD 46 04  LDA ram_флаг_драйв_оверхеда
+C - - - - - 0x002C81 01:AC71: AD 46 04  LDA ram_drive_overhead_flag
 C - - - - - 0x002C84 01:AC74: C9 05     CMP #$05
 C - - - - - 0x002C86 01:AC76: F0 14     BEQ bra_AC8C_узнать_имя_спешала
 C - - - - - 0x002C88 01:AC78: 4C 13 AD  JMP loc_AD13_новая_строка
 bra_AC7B_циклон:
 ; FD
-C - - - - - 0x002C8B 01:AC7B: AD 48 04  LDA ram_флаг_циклона
+C - - - - - 0x002C8B 01:AC7B: AD 48 04  LDA ram_cyclone_flag
 C - - - - - 0x002C8E 01:AC7E: 4A        LSR
 C - - - - - 0x002C8F 01:AC7F: B0 0B     BCS bra_AC8C_узнать_имя_спешала
 ; bzk optimize, проверка на матч с аргентиной для отображения циклона в списке спешалов

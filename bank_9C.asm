@@ -1856,7 +1856,7 @@ C - - - - - 0x038B87 1C:8B77: A0 00     LDY #con_plr_id
 C - - - - - 0x038B89 1C:8B79: 91 34     STA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x038B8B 1C:8B7B: 4C 61 8B  JMP loc_8B61_loop_чтение_таблицы
 bra_8B7E_закончить_чтение_таблицы:
-C - - - - - 0x038B8E 1C:8B7E: AE 46 04  LDX ram_флаг_драйв_оверхеда
+C - - - - - 0x038B8E 1C:8B7E: AE 46 04  LDX ram_drive_overhead_flag
 C - - - - - 0x038B91 1C:8B81: E0 05     CPX #$05
 C - - - - - 0x038B93 1C:8B83: F0 0B     BEQ bra_8B93_RTS
 C - - - - - 0x038B95 1C:8B85: A2 00     LDX #$00
@@ -1866,7 +1866,7 @@ C - - - - - 0x038B9C 1C:8B8C: D0 02     BNE bra_8B90
 C - - - - - 0x038B9E 1C:8B8E: E8        INX
 C - - - - - 0x038B9F 1C:8B8F: E8        INX
 bra_8B90:
-C - - - - - 0x038BA0 1C:8B90: 8E 46 04  STX ram_флаг_драйв_оверхеда
+C - - - - - 0x038BA0 1C:8B90: 8E 46 04  STX ram_drive_overhead_flag
 bra_8B93_RTS:
 C - - - - - 0x038BA3 1C:8B93: 60        RTS
 
@@ -2108,7 +2108,7 @@ C - - - - - 0x038CD9 1C:8CC9: 4C 11 8E  JMP loc_8E11
 
 
 ofs_058_8CCC_01_проверка_на_драйв_оверхед:
-C - - J - - 0x038CDC 1C:8CCC: AD 46 04  LDA ram_флаг_драйв_оверхеда
+C - - J - - 0x038CDC 1C:8CCC: AD 46 04  LDA ram_drive_overhead_flag
 C - - - - - 0x038CDF 1C:8CCF: C9 05     CMP #$05
 C - - - - - 0x038CE1 1C:8CD1: F0 F4     BEQ bra_8CC7    ; if наличие удара
 C - - - - - 0x038CE3 1C:8CD3: 60        RTS
@@ -2173,7 +2173,7 @@ C - - - - - 0x038D2E 1C:8D1E: 4C D4 8C  JMP loc_8CD4
 
 
 ofs_058_8D21_0E:
-C - - J - - 0x038D31 1C:8D21: 2C 49 04  BIT ram_флаг_драйв_тигра
+C - - J - - 0x038D31 1C:8D21: 2C 49 04  BIT ram_drive_tiger_flag
 C - - - - - 0x038D34 1C:8D24: 10 03     BPL bra_8D29_RTS
 C - - - - - 0x038D36 1C:8D26: 4C D4 8C  JMP loc_8CD4
 bra_8D29_RTS:
@@ -2188,7 +2188,7 @@ C - - - - - 0x038D3F 1C:8D2F: F0 0C     BEQ bra_8D3D_RTS
 C - - - - - 0x038D41 1C:8D31: AD 2B 00  LDA ram_команда_соперника
 C - - - - - 0x038D44 1C:8D34: C9 21     CMP #$21
 C - - - - - 0x038D46 1C:8D36: B0 06     BCS bra_8D3E
-C - - - - - 0x038D48 1C:8D38: AD 48 04  LDA ram_флаг_циклона
+C - - - - - 0x038D48 1C:8D38: AD 48 04  LDA ram_cyclone_flag
 C - - - - - 0x038D4B 1C:8D3B: D0 01     BNE bra_8D3E
 bra_8D3D_RTS:
 C - - - - - 0x038D4D 1C:8D3D: 60        RTS

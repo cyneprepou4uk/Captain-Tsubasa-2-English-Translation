@@ -1954,7 +1954,7 @@ C - - - - - 0x03D115 FF:D105: B1 34     LDA (ram_plr_data),Y    ; con_plr_guts_l
 C - - - - - 0x03D117 FF:D107: E9 00     SBC #> $0064
 C - - - - - 0x03D119 FF:D109: 10 01     BPL bra_D10C_запись_флага
 ; X 01 если он дохлый
-C - - - - - 0x03D11B FF:D10B: E8        INX
+C - - - - - 0x03D11B FF:D10B: E8        INX ; 01
 bra_D10C_запись_флага:
 C - - - - - 0x03D11C FF:D10C: 8E 4D 04  STX ram_флаг_мисуги_0_хп
 bra_D10F_RTS:
@@ -2039,6 +2039,8 @@ tbl_D183_время_тайма:
 
 sub_D193_уменьшить_таймер_времени_тайма:
 loc_0x03D1A3_уменьшить_таймер_времени_тайма:
+; in
+    ; A = 
 C D 2 - - - 0x03D1A3 FF:D193: AA        TAX
 C - - - - - 0x03D1A4 FF:D194: 18        CLC
 C - - - - - 0x03D1A5 FF:D195: 6D FF 05  ADC ram_05FF
@@ -2132,18 +2134,20 @@ C - - - - - 0x03D244 FF:D234: 60        RTS
 
 
 sub_D235_уменьшить_таймер_драйв_тигра:
+; in
+    ; A = 
 C - - - - - 0x03D245 FF:D235: 49 FF     EOR #$FF
 C - - - - - 0x03D247 FF:D237: 18        CLC
 C - - - - - 0x03D248 FF:D238: 69 01     ADC #$01
 C - - - - - 0x03D24A FF:D23A: AA        TAX
-C - - - - - 0x03D24B FF:D23B: 2C 49 04  BIT ram_флаг_драйв_тигра
+C - - - - - 0x03D24B FF:D23B: 2C 49 04  BIT ram_drive_tiger_flag
 C - - - - - 0x03D24E FF:D23E: 10 0E     BPL bra_D24E
 C - - - - - 0x03D250 FF:D240: 18        CLC
-C - - - - - 0x03D251 FF:D241: 6D 4A 04  ADC ram_таймер_драйв_тигра
-C - - - - - 0x03D254 FF:D244: 8D 4A 04  STA ram_таймер_драйв_тигра
+C - - - - - 0x03D251 FF:D241: 6D 4A 04  ADC ram_drive_tiger_timer
+C - - - - - 0x03D254 FF:D244: 8D 4A 04  STA ram_drive_tiger_timer
 C - - - - - 0x03D257 FF:D247: 10 05     BPL bra_D24E
 C - - - - - 0x03D259 FF:D249: A9 00     LDA #$00
-C - - - - - 0x03D25B FF:D24B: 8D 49 04  STA ram_флаг_драйв_тигра
+C - - - - - 0x03D25B FF:D24B: 8D 49 04  STA ram_drive_tiger_flag
 bra_D24E:
 C - - - - - 0x03D25E FF:D24E: 8A        TXA
 C - - - - - 0x03D25F FF:D24F: 48        PHA
@@ -3060,9 +3064,9 @@ C - - - - - 0x03D7AC FF:D79C: 8E 3C 04  STX ram_подтип_действия_а
 bra_D79F:
 C - - - - - 0x03D7AF FF:D79F: C9 12     CMP #$12
 C - - - - - 0x03D7B1 FF:D7A1: D0 36     BNE bra_D7D9
-C - - - - - 0x03D7B3 FF:D7A3: AE 48 04  LDX ram_флаг_циклона
+C - - - - - 0x03D7B3 FF:D7A3: AE 48 04  LDX ram_cyclone_flag
 C - - - - - 0x03D7B6 FF:D7A6: D0 31     BNE bra_D7D9
-C - - - - - 0x03D7B8 FF:D7A8: EE 48 04  INC ram_флаг_циклона
+C - - - - - 0x03D7B8 FF:D7A8: EE 48 04  INC ram_cyclone_flag
 C - - - - - 0x03D7BB FF:D7AB: A9 00     LDA #$00
 C - - - - - 0x03D7BD FF:D7AD: 8D 2D 06  STA ram_062D
 C - - - - - 0x03D7C0 FF:D7B0: A9 46     LDA #con_s_id_46
@@ -3083,8 +3087,8 @@ bra_D7D9:
 C - - - - - 0x03D7E9 FF:D7D9: C9 11     CMP #$11
 C - - - - - 0x03D7EB FF:D7DB: D0 08     BNE bra_D7E5
 C - - - - - 0x03D7ED FF:D7DD: A9 00     LDA #$00
-C - - - - - 0x03D7EF FF:D7DF: 8D 49 04  STA ram_флаг_драйв_тигра
-C - - - - - 0x03D7F2 FF:D7E2: 8D 4A 04  STA ram_таймер_драйв_тигра
+C - - - - - 0x03D7EF FF:D7DF: 8D 49 04  STA ram_drive_tiger_flag
+C - - - - - 0x03D7F2 FF:D7E2: 8D 4A 04  STA ram_drive_tiger_timer
 bra_D7E5:
 C - - - - - 0x03D7F5 FF:D7E5: 4C 0C D7  JMP loc_D70C    ; всегда PLA PLA
 
@@ -4576,7 +4580,7 @@ C - - - - - 0x03E1F4 FF:E1E4: 4C 27 80  JMP loc_0x034137
 bra_E1E7:
 C - - - - - 0x03E1F7 FF:E1E7: A2 00     LDX #$00
 C - - - - - 0x03E1F9 FF:E1E9: 8E FF 05  STX ram_05FF
-C - - - - - 0x03E1FC FF:E1EC: E8        INX
+C - - - - - 0x03E1FC FF:E1EC: E8        INX ; 01
 C - - - - - 0x03E1FD FF:E1ED: 8A        TXA
 C - - - - - 0x03E1FE FF:E1EE: 20 93 D1  JSR sub_D193_уменьшить_таймер_времени_тайма
 C - - - - - 0x03E201 FF:E1F1: 20 7D E2  JSR sub_E27D
