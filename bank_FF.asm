@@ -42,7 +42,6 @@
 .export sub_0x03D032_восстановить_энергию_в_перерыве
 .export sub_0x03D0A3_выбор_мелодии_команды
 .export sub_0x03D0E1_попытка_убить_мисуги
-.export sub_0x03D1A3_уменьшить_таймер_времени_тайма
 .export loc_0x03D1A3_уменьшить_таймер_времени_тайма
 .export sub_0x03D575
 .export sub_0x03D7F8
@@ -64,15 +63,17 @@
 .export sub_0x03E069
 .export sub_0x03E084
 .export loc_0x03E0EF
-.export sub_0x03E243
+.export loc_0x03E243
 .export sub_0x03E4E7_вычислить_защитников_для_нападения_на_атакующего
 .export ofs_041_0x03E55C_04
 .export ofs_041_0x03E5A6
 .export loc_0x03E688
 .export ofs_041_0x03E698_06
 .export sub_0x03E6FC
+.export loc_0x03E6FC
 .export sub_0x03E74E
 .export sub_0x03EF8F_отрисовка_меню_во_время_матча
+.export loc_0x03EF8F_отрисовка_меню_во_время_матча
 .export sub_0x03F023_отрисовка_миникарты
 .export sub_0x03F31F_подготовить_поинтер_на_слово
 .export _общий_RTS
@@ -2037,7 +2038,6 @@ tbl_D183_время_тайма:
 
 
 sub_D193_уменьшить_таймер_времени_тайма:
-sub_0x03D1A3_уменьшить_таймер_времени_тайма:
 loc_0x03D1A3_уменьшить_таймер_времени_тайма:
 C D 2 - - - 0x03D1A3 FF:D193: AA        TAX
 C - - - - - 0x03D1A4 FF:D194: 18        CLC
@@ -4615,7 +4615,7 @@ C - - - - - 0x03E240 FF:E230: 4C 45 E1  JMP loc_E145_loop
 
 sub_E233:
 loc_E233:
-sub_0x03E243:
+loc_0x03E243:
 C D 3 - - - 0x03E243 FF:E233: A9 1E     LDA #con_s_id_игрок_бежит_по_полю_с_картой
 C - - - - - 0x03E245 FF:E235: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
 C - - - - - 0x03E24B FF:E23B: A9 1C     LDA #con_prg_bank + $1C
@@ -5318,6 +5318,7 @@ tbl_E6CF:
 
 sub_E6EC:
 sub_0x03E6FC:
+loc_0x03E6FC:
 C D 3 - - - 0x03E6FC FF:E6EC: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x03E6FF FF:E6EF: 20 7C CD  JSR sub_CD7C_получить_адрес_игрока
 C - - - - - 0x03E702 FF:E6F2: A0 06     LDY #con_plr_pos_X_hi
@@ -6512,6 +6513,7 @@ tbl_EF73:
 sub_EF7F_отрисовка_меню_во_время_матча:
 loc_EF7F_отрисовка_меню_во_время_матча:
 sub_0x03EF8F_отрисовка_меню_во_время_матча:
+loc_0x03EF8F_отрисовка_меню_во_время_матча:
 C D 3 - - - 0x03EF8F FF:EF7F: A8        TAY
 C - - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_for_5114
 C - - - - - 0x03EF92 FF:EF82: 48        PHA
