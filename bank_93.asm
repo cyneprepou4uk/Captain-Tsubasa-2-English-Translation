@@ -1404,8 +1404,6 @@ C - - - - - 0x0270D7 13:B0C7: 8D 15 05  STA ram_0515_buffer_flag
 ; закрытие буфера
 C - - - - - 0x0270DA 13:B0CA: A2 00     LDX #$00
 C - - - - - 0x0270DC 13:B0CC: 8E AD 04  STX ram_04A9
-; bzk optimize, useless STX
-C - - - - - 0x0270DF 13:B0CF: 86 3A     STX ram_003A_t71_useless
 C - - - - - 0x0270E1 13:B0D1: E8        INX ; 01
 C - - - - - 0x0270E2 13:B0D2: 8E A5 04  STX ram_04A5
 C - - - - - 0x0270E8 13:B0D8: A5 8B     LDA ram_008B_t02

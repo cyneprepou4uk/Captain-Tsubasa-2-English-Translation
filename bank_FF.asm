@@ -6711,8 +6711,6 @@ C - - - - - 0x03F0F1 FF:F0E1: 4A        LSR
 C - - - - - 0x03F0F2 FF:F0E2: 4A        LSR
 C - - - - - 0x03F0F3 FF:F0E3: 18        CLC
 C - - - - - 0x03F0F4 FF:F0E4: 65 3A     ADC ram_003A_t21
-; bzk optimize useless STA
-C - - - - - 0x03F0F6 FF:F0E6: 85 3A     STA ram_003A_t69_useless
 C - - - - - 0x03F0F8 FF:F0E8: 90 02     BCC bra_F0EC_not_overflow
 - - - - - - 0x03F0FA FF:F0EA: E6 3B     INC ram_003B_t03_hi
 bra_F0EC_not_overflow:

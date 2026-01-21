@@ -442,9 +442,6 @@ ram_003A_temp                           = $003A ; 0023E0 004145 004248 0042E2 01
     ram_003A_t66                            = ram_003A_temp ; 
     ram_003A_t67                            = ram_003A_temp ; 
    ;ram_003A_t68                            = ram_003A_temp ; 
-    ram_003A_t69_useless                    = ram_003A_temp ; bzk optimize
-    ram_003A_t70                            = ram_003A_temp ; bzk optimize
-    ram_003A_t71_useless                    = ram_003A_temp ; bzk optimize
     ram_003A_t72_useless                    = ram_003A_temp ; bzk optimize
 
 
@@ -578,7 +575,6 @@ ram_0040_temp                           = $0040 ; 0040EB 004110 004248 0042E2 02
     ram_0040_t04_lo                         = ram_0040_temp ; 
     ram_0040_t05_data_index                 = ram_0040_temp ; 
     ram_0040_t06_loop_counter               = ram_0040_temp ; 
-    ram_0040_t07_useless                    = ram_0040_temp ; bzk optimize
 
 
 

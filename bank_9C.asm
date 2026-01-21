@@ -924,8 +924,6 @@ C - - - - - 0x038629 1C:8619: A9 01     LDA #$01
 C - - - - - 0x03862B 1C:861B: 20 15 C5  JSR sub_0x03CB1F_задержка
 C - - - - - 0x03862E 1C:861E: 68        PLA
 C - - - - - 0x03862F 1C:861F: 48        PHA
-; bzk optimize, useless STA
-C - - - - - 0x038630 1C:8620: 85 40     STA ram_0040_t07_useless
 C - - - - - 0x038632 1C:8622: AA        TAX
 C - - - - - 0x038633 1C:8623: BD 01 06  LDA ram_номер_защитника,X
 C - - - - - 0x038636 1C:8626: 20 3F 86  JSR sub_863F
