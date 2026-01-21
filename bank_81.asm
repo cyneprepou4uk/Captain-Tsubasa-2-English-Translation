@@ -786,8 +786,7 @@ sub_0x0024FB_VS_экран_и_повышение_уровня:
                                         LDA ram_номер_матча
                                         ASL
                                         ADC #$80
-; bzk optimize, удалить :a
-                                        STA a: ram_008E_t01_chr_banks + $02
+                                        STA ram_008E_t01_chr_banks + $02
 C D 1 - - - 0x0024FB 01:A4EB: A2 6A     LDX #con_chr_bank + $6A
 C - - - - - 0x0024FD 01:A4ED: A0 6B     LDY #con_chr_bank + $6B
 C - - - - - 0x0024FF 01:A4EF: 20 6F 9B  JSR sub_0x001B7F_запись_первых_двух_банков_спрайтов
