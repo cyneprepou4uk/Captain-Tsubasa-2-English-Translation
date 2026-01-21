@@ -811,9 +811,17 @@ ofs_008_A5A3_04:
 
 ofs_008_A5A9_05:
 C - - - - - 0x0045B9 02:A5A9: A2 09     LDX #$09
-C - - - - - 0x0045BB 02:A5AB: 20 96 9F  JSR sub_0x001FA6
+; bzk optimize, X всегда 09
+C - - - - - 0x001FA6 00:9F96: B5 00     LDA ram_0000,X
+C - - - - - 0x001FA8 00:9F98: C9 FF     CMP #$FF
+C - - - - - 0x001FAA 00:9F9A: D0 05     BNE bra_9FA1
+C - - - - - 0x001FAC 00:9F9C: A9 01     LDA #$01
+C - - - - - 0x001FAE 00:9F9E: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
+bra_9FA1:
+C - - - - - 0x001FB1 00:9FA1: A9 00     LDA #$00
+C - - - - - 0x001FB3 00:9FA3: 95 00     STA ram_0000,X
 C - - - - - 0x0045BE 02:A5AE: A9 02     LDA #$02
-C - - - - - 0x0045C0 02:A5B0: 60        RTS
+C - - - - - 0x001FB5 00:9FA5: 60        RTS
 
 
 

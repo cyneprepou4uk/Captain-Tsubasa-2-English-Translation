@@ -181,9 +181,6 @@ C - - - - - 0x028124 14:8114: A0 05     LDY #$05
 C - - - - - 0x028126 14:8116: B1 4C     LDA (ram_004C_t02_data_анимация_сценария),Y
 C - - - - - 0x028128 14:8118: AA        TAX
 C - - - - - 0x028129 14:8119: 29 03     AND #$03
-; bzk optimize, useless STA + ORA
-C - - - - - 0x02812B 14:811B: 85 3C     STA ram_003C_t27_useless
-C - - - - - 0x02812D 14:811D: 05 3C     ORA ram_003C_t27_useless
 C - - - - - 0x02812F 14:811F: 09 80     ORA #$80
 C - - - - - 0x028131 14:8121: A0 00     LDY #con_003C_флаг
 C - - - - - 0x028133 14:8123: 91 3A     STA (ram_003A_t04_data),Y

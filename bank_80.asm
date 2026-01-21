@@ -71,7 +71,6 @@
 .export loc_0x001EFD
 .export sub_0x001F79
 .export sub_0x001F99
-.export sub_0x001FA6
 .export sub_0x001FB8_задержка_кадра
 
 
@@ -1064,8 +1063,6 @@ C - - - - - 0x0005BA 00:85AA: A0 20     LDY #$20
 C - - - - - 0x0005BC 00:85AC: A2 20     LDX #$20
 C - - - - - 0x0005BE 00:85AE: 20 E8 98  JSR sub_98E8_затереть_часть_экрана
 C - - - - - 0x0005C1 00:85B1: A9 00     LDA #$00
-; bzk optimize, useless STA, чуть ниже еще одна запись в 004C
-C - - - - - 0x0005C3 00:85B3: 85 4C     STA ram_004C_t04_useless
 C - - - - - 0x0005C5 00:85B5: 85 7B     STA ram_007B_t02_массив_scroll_X_hi
 C - - - - - 0x0005C7 00:85B7: 85 4C     STA ram_004C_t03
 C - - - - - 0x0005CB 00:85BB: 85 0D     STA ram_000D
@@ -4958,13 +4955,12 @@ C - - - - - 0x001BF2 00:9BE2: 60        RTS
 sub_0x001BF3:
 ; out
     ; A = 
-; bzk optimize, на вход подаются одинаковые AXY
-                                       ;LDA #$FC
-                                       ;LDX #$38
-                                       ;LDY #$78
+                                        LDA #$FC
+                                        LDX #$38
+                                        LDY #$78
 C - - - - - 0x001BF3 00:9BE3: 86 E7     STX ram_00E7_t01_min_spr_Y_курсора
 C - - - - - 0x001BF5 00:9BE5: 84 E6     STY ram_00E6_t16_max_spr_Y_курсора
-C - - - - - 0x001BF7 00:9BE7: A8        TAY
+C - - - - - 0x001BF7 00:9BE7: A8        TAY ; FC
 sub_0x001BF8:
 bra_9BE8_кнопка_не_нажата:
 C - - - - - 0x001BF8 00:9BE8: A9 01     LDA #$01
@@ -5173,6 +5169,7 @@ C - - - - - 0x001CF6 00:9CE6: 60        RTS
 sub_9CE7_сдвинуть_курсор_вверх_вниз:
 ; in
     ; A = 
+    ; Y = 
     ; ram_00E6_t16_max_spr_Y_курсора
     ; ram_00E7_t01_min_spr_Y_курсора
 ; out
@@ -5684,20 +5681,6 @@ C - - - - - 0x001FA1 00:9F91: A9 01     LDA #$01
 C - - - - - 0x001FA3 00:9F93: 95 00     STA ram_0000,X
 bra_9F95_RTS:
 C - - - - - 0x001FA5 00:9F95: 60        RTS
-
-
-
-sub_0x001FA6:
-; bzk optimize, переместить в другой банк
-C - - - - - 0x001FA6 00:9F96: B5 00     LDA ram_0000,X
-C - - - - - 0x001FA8 00:9F98: C9 FF     CMP #$FF
-C - - - - - 0x001FAA 00:9F9A: D0 05     BNE bra_9FA1
-C - - - - - 0x001FAC 00:9F9C: A9 01     LDA #$01
-C - - - - - 0x001FAE 00:9F9E: 20 A8 9F  JSR sub_9FA8_задержка_кадра
-bra_9FA1:
-C - - - - - 0x001FB1 00:9FA1: A9 00     LDA #$00
-C - - - - - 0x001FB3 00:9FA3: 95 00     STA ram_0000,X
-C - - - - - 0x001FB5 00:9FA5: 60        RTS
 
 
 

@@ -511,9 +511,6 @@ ram_003C_temp                           = $003C ; 004248 0042E2 02812B 02812D 02
     ram_003C_t24_loop_counter               = ram_003C_temp ; 
     ram_003C_t25_сторона_поворота           = ram_003C_temp ; 
     ram_003C_t26_ppu_addr_lo                = ram_003C_temp ; 
-    ram_003C_t27_useless                    = ram_003C_temp ; bzk optimize
-    ram_003C_t28_useless                    = ram_003C_temp ; bzk optimize
-    ram_003C_t29_useless                    = ram_003C_temp ; bzk optimize
 
 
 
@@ -715,7 +712,6 @@ ram_004C_temp                           = $004C ; 000054 0002E8 000300 00034D 00
     ram_004C_t01_data_ptr                   = ram_004C_temp ; 2 адреса 004C-004D
     ram_004C_t02_data_анимация_сценария     = ram_004C_temp ; 2 адреса 004C-004D
     ram_004C_t03                            = ram_004C_temp ; 
-    ram_004C_t04_useless                    = ram_004C_temp ; bzk optimize
 
 
 

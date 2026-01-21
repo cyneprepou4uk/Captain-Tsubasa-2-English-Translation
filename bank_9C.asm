@@ -783,9 +783,6 @@ C - - - - - 0x038550 1C:8540: 4A        LSR
 C - - - - - 0x038551 1C:8541: 18        CLC
 C - - - - - 0x038552 1C:8542: 69 0A     ADC #$0A
 C - - - - - 0x038554 1C:8544: 8D 41 04  STA ram_игрок_с_мячом
-; bzk optimize, useless LDA + STA
-C - - - - - 0x038557 1C:8547: A9 00     LDA #$00
-C - - - - - 0x038559 1C:8549: 85 3C     STA ram_003C_t28_useless
 C - - - - - 0x03855B 1C:854B: A0 07     LDY #$07
 C - - - - - 0x03855D 1C:854D: B1 38     LDA (ram_enemy_data),Y
 C - - - - - 0x03855F 1C:854F: 20 EB 8A  JSR sub_8AEB_умножить_на_30h
@@ -950,9 +947,6 @@ C - - - - - 0x03864E 1C:863E: 60        RTS
 sub_863F:
 C - - - - - 0x03864F 1C:863F: 8D 42 04  STA ram_игрок_без_мяча
 C - - - - - 0x038652 1C:8642: 20 62 8A  JSR sub_8A62
-; bzk optimize, useless LDA + STA
-C - - - - - 0x038655 1C:8645: A9 00     LDA #$00
-C - - - - - 0x038657 1C:8647: 85 3C     STA ram_003C_t29_useless
 C - - - - - 0x038659 1C:8649: AD 42 04  LDA ram_игрок_без_мяча
 C - - - - - 0x03865C 1C:864C: C9 0B     CMP #$0B
 C - - - - - 0x03865E 1C:864E: D0 03     BNE bra_8653
