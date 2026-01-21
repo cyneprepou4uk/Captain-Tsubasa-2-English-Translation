@@ -653,7 +653,6 @@ ram_0047_temp                           = $0047 ; 000DD1 000DD6 0011C0 001BDA 00
     ram_0047_t07                            = ram_0047_temp ; 
     ram_0047_t08                            = ram_0047_temp ; 
     ram_0047_t09_data_index_ось_координат   = ram_0047_temp ; 
-    ram_0047_t10_useless                    = ram_0047_temp ; bzk optimize
 
 
 

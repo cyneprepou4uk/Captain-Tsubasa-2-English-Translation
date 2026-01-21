@@ -2275,8 +2275,6 @@ sub_8DC9_вычислить_адрес_спешалов_игрока:
 ; out
     ; ram_0048_t01_data_спешалы_игрока
 C - - - - - 0x038DD9 1C:8DC9: 8E 30 04  STX ram_список_спешалов
-; bzk optimize, useless STA
-C - - - - - 0x038DDC 1C:8DCC: 85 47     STA ram_0047_t10_useless
 C - - - - - 0x038DDE 1C:8DCE: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x038DE1 1C:8DD1: A0 00     LDY #con_plr_id
 C - - - - - 0x038DE3 1C:8DD3: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
