@@ -3547,7 +3547,7 @@ ofs_003_942A_F8_запись_палитры:
 ; bzk garbage
 - - - - - - 0x00143A 00:942A: A0 01     LDY #$01
 - - - - - - 0x00143C 00:942C: B1 92     LDA (ram_0092_t01_data),Y
-- - - - - - 0x00143E 00:942E: 85 49     STA ram_0049_tFE_useless    ; ram_0049_t04_spr_pal_index ?
+- - - - - - 0x00143E 00:942E: 85 49     STA ram_0049_temp    ; ram_0049_t04_spr_pal_index ?
 - - - - - - 0x001440 00:9430: A9 02     LDA #$02
 - - - - - - 0x001442 00:9432: 20 AE 94  JSR sub_94AE_увеличить_поинтер_0092_на_A
 ofs_003_9435_F9:
@@ -4776,10 +4776,6 @@ C - - - - - 0x001B1D 00:9B0D: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_51
 
 sub_9B11:
 C - - - - - 0x001B21 00:9B11: A9 00     LDA #$00
-; bzk optimize, useless STA + STA
-C - - - - - 0x001B23 00:9B13: 85 48     STA ram_0048_tFF_useless
-C - - - - - 0x001B25 00:9B15: 85 49     STA ram_0049_tFF_useless
-; 
 C - - - - - 0x001B27 00:9B17: 85 4A     STA ram_004A_t01_степень_яркости_фона
 C - - - - - 0x001B29 00:9B19: 85 4B     STA ram_004B_t01_степень_яркости_спрайтов
 C - - - - - 0x001B2B 00:9B1B: A9 0F     LDA #$0F

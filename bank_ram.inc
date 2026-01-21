@@ -665,8 +665,6 @@ ram_0048_temp                           = $0048 ; 000B5C 00198A 001A41 001A5C 00
     ram_0048_t05_save_Y                     = ram_0048_temp ; 
     ram_0048_t06_выбранный_игрок            = ram_0048_temp ; 
     ram_0048_t07                            = ram_0048_temp ; 
-    
-    ram_0048_tFF_useless                    = ram_0048_temp ; bzk optimize
 
 
 
@@ -679,9 +677,6 @@ ram_0049_temp                           = $0049 ; 00110F 00198C 001A43 001A70 00
     ram_0049_t05_параметры_сообщения_матча  = ram_0049_temp ; 
     ram_0049_t06                            = ram_0049_temp ; 
     ram_0049_t07_выбранный_игрок            = ram_0049_temp ; 
-    
-    ram_0049_tFE_useless                    = ram_0049_temp ; bzk optimize
-    ram_0049_tFF_useless                    = ram_0049_temp ; bzk optimize
 
 
 
