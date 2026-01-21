@@ -167,10 +167,7 @@ C - - - - - 0x03C47D FF:C46D: A5 3C     LDA ram_003C_t22_save_A
 C - - - - - 0x03C47F FF:C46F: 46 3B     LSR ram_003B_t25
 C - - - - - 0x03C481 FF:C471: 40        RTI
 bra_C472:
-; bzk optimize, можно просто BIT, нахрена прям считывать 2002
-C - - - - - 0x03C482 FF:C472: 48        PHA
-C - - - - - 0x03C483 FF:C473: AD 02 20  LDA $2002
-C - - - - - 0x03C486 FF:C476: 68        PLA
+C - - - - - 0x03C483 FF:C473: AD 02 20  BIT $2002
 C - - - - - 0x03C487 FF:C477: 40        RTI
 
 
@@ -5573,9 +5570,7 @@ bra_E898:
 C - - - - - 0x03E8A8 FF:E898: A0 0A     LDY #con_plr_stun
 C - - - - - 0x03E8AA FF:E89A: A9 00     LDA #$00
 C - - - - - 0x03E8AC FF:E89C: 91 34     STA (ram_plr_data),Y    ; con_plr_stun
-C - - - - - 0x03E8AE FF:E89E: 60        RTS
 bra_E89F_RTS:
-; bzk optimize
 C - - - - - 0x03E8AF FF:E89F: 60        RTS
 
 
@@ -6320,9 +6315,7 @@ C - - - - - 0x03EE22 FF:EE12: A9 10     LDA #$10
 C - - - - - 0x03EE24 FF:EE14: 2C D7 05  BIT ram_05D7_hi
 C - - - - - 0x03EE27 FF:EE17: 10 04     BPL bra_EE1D
 C - - - - - 0x03EE29 FF:EE19: A9 F0     LDA #$F0
-; bzk optimize, LDX FF
-C - - - - - 0x03EE2B FF:EE1B: CA        DEX ; 00
-C - - - - - 0x03EE2C FF:EE1C: CA        DEX ; FF
+C - - - - - 0x03EE2B FF:EE1B: CA        LDX #$FF
 bra_EE1D:
 C - - - - - 0x03EE2D FF:EE1D: 18        CLC
 C - - - - - 0x03EE2E FF:EE1E: 65 4B     ADC ram_004B_t03

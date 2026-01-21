@@ -1751,11 +1751,6 @@ C - - - - - 0x034B77 1A:8B67: 8D 1A 06  STA ram_061A
 C - - - - - 0x034B7A 1A:8B6A: 20 E1 87  JSR sub_87E1
 C - - - - - 0x034B7D 1A:8B6D: A2 50     LDX #$50
 C - - - - - 0x034B7F 1A:8B6F: 9A        TXS
-C - - - - - 0x034B80 1A:8B70: 4C 73 8B  JMP loc_8B73    ; bzk optimize, бесполезный JMP
-
-
-
-loc_8B73:
 C D 0 - - - 0x034B83 1A:8B73: A9 0A     LDA #$0A
 C - - - - - 0x034B85 1A:8B75: 20 09 C6  JSR sub_0x03E4E7_вычислить_защитников_для_нападения_на_атакующего
 C - - - - - 0x034B88 1A:8B78: A9 3F     LDA #con_s_id_3F

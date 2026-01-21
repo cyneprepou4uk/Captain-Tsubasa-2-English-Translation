@@ -583,6 +583,18 @@ loc_8346_loop:
 
 
 
+tbl_86E8_адрес_ppu_строки_облака:
+; bzk optimize, переместить повыше
+    .word $228A ; 
+    .word $22AA ; 
+    .word $22CA ; 
+    .word $22EA ; 
+    .word $230A ; 
+    .word $232A ; 
+    .word $234A ; 
+
+
+
 sub_835E_управляющие_байты_облака_E0_FF:
 C - - - - - 0x03036E 18:835E: 38        SEC
 C - - - - - 0x03036F 18:835F: E9 E0     SBC #$E0
@@ -1291,18 +1303,6 @@ C - - - - - 0x030665 18:8655: 20 0C C5  JSR sub_0x03CD8C_получить_адр
 C - - - - - 0x030668 18:8658: A0 00     LDY #con_plr_id
 C - - - - - 0x03066A 18:865A: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x03066E 18:865E: 20 3C 86  JMP loc_863C_прочитать_таблицу_слов
-
-
-
-tbl_86E8_адрес_ppu_строки_облака:
-; bzk optimize, переместить повыше
-    .word $228A ; 
-    .word $22AA ; 
-    .word $22CA ; 
-    .word $22EA ; 
-    .word $230A ; 
-    .word $232A ; 
-    .word $234A ; 
 
 
 
