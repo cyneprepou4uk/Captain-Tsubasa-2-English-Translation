@@ -625,7 +625,6 @@ ram_0045_temp                           = $0045 ; 0002F6 000801 000CC1 001BC7 00
     ram_0045_t02_счетчик_данных_спрайтов    = ram_0045_temp ; 
     ram_0045_t03                            = ram_0045_temp ; 
     ram_0045_t04                            = ram_0045_temp ; 
-    ram_0045_t05_useless                    = ram_0045_temp ; bzk optimize
 
 
 

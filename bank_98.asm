@@ -1573,9 +1573,6 @@ C - - - - - 0x0308C8 18:88B8: 60        RTS
 
 
 sub_88B9:
-; bzk optimize, useless LDA + STA
-C - - - - - 0x0308C9 18:88B9: A9 FF     LDA #$FF
-C - - - - - 0x0308CB 18:88BB: 85 45     STA ram_0045_t05_useless
 C - - - - - 0x0308CD 18:88BD: A0 02     LDY #$02
 C - - - - - 0x0308CF 18:88BF: B1 50     LDA (ram_0050_t01_data_вид_меню),Y
 C - - - - - 0x0308D1 18:88C1: 9D A5 04  STA ram_04A5,X
@@ -1635,8 +1632,6 @@ C - - - - - 0x030933 18:8923: A0 04     LDY #$04
 C - - - - - 0x030935 18:8925: 18        CLC
 C - - - - - 0x030936 18:8926: 71 50     ADC (ram_0050_t01_data_вид_меню),Y
 C - - - - - 0x030938 18:8928: A8        TAY
-; bzk optimize, useless STX
-C - - - - - 0x030939 18:8929: 86 45     STX ram_0045_t05_useless
 C - - - - - 0x03093B 18:892B: 8A        TXA
 C - - - - - 0x03093C 18:892C: 18        CLC
 C - - - - - 0x03093D 18:892D: 6D C6 05  ADC ram_номер_рамки_окна
