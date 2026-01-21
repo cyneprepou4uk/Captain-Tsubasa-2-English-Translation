@@ -556,9 +556,7 @@ C - - - - - 0x0023A0 01:A390: 85 4C     STA ram_004C_t03
                                         STA ram_номер_звука
                                         LDA #$F0
                                         JSR sub_0x001FB8_задержка_кадра
-; bzk optimize, JMP
-C - - - - - 0x0023A7 01:A397: 20 A0 9B  JSR sub_0x001BB0
-C - - - - - 0x0023AA 01:A39A: 60        RTS
+C - - - - - 0x0023A7 01:A397: 20 A0 9B  JMP loc_0x001BB0
 
 
 
@@ -898,8 +896,7 @@ C - - - - - 0x002615 01:A605: 85 EA     STA ram_00EA_t16
 C - - - - - 0x002617 01:A607: 4C C6 A5  JMP loc_A5C6_loop_следующий_экран_имен_игроков_с_новым_уровнем
 bra_A60A_закончить:
 C - - - - - 0x00261A 01:A60A: 20 A3 89  JSR sub_0x0009B3_ожидание_перехода_к_след_диалогу
-; bzk optimize, JMP
-C - - - - - 0x00261D 01:A60D: 20 F0 99  JSR sub_0x001A00_выход_из_экрана
+C - - - - - 0x00261D 01:A60D: 20 F0 99  JMP loc_0x001A00_выход_из_экрана
 bra_A610_RTS:
 C - - - - - 0x002620 01:A610: 60        RTS
 
@@ -1019,9 +1016,7 @@ C - - - - - 0x0026D6 01:A6C6: BD 1B B4  LDA tbl_B41B_cutscene_team_before_match,
                                         ADC #$5E
 C - - - - - 0x0026D9 01:A6C9: 20 64 84  JSR sub_0x000474_воспроизвести_катсцену
 C - - - - - 0x0026DC 01:A6CC: 20 A9 82  JSR sub_0x0002B9_ожидание_завершения_катсцены
-; bzk optimize, JMP
-C - - - - - 0x0026DF 01:A6CF: 4C 15 A7  JSR sub_0x001BB0
-                                        RTS
+C - - - - - 0x0026DF 01:A6CF: 4C 15 A7  JMP loc_0x001BB0
 
 
 
@@ -1069,18 +1064,14 @@ loc_A6F9_продолжить:
 bra_A710_продолжить_матч:
                                         LDA #$31
                                         STA ram_номер_звука
-; bzk optimize, JMP
-                                        JSR sub_0x001BB0
-                                        RTS
+                                        JMP loc_0x001BB0
 
 
 
 sub_A719:
 C - - - - - 0x002729 01:A719: A0 83     LDY #< tbl_B583_опции_japan
 C - - - - - 0x00272B 01:A71B: A2 B5     LDX #> tbl_B583_опции_japan
-; bzk optimize, JMP
-C - - - - - 0x00272D 01:A71D: 20 AB 97  JSR sub_0x0017BB
-C - - - - - 0x002730 01:A720: 60        RTS
+C - - - - - 0x00272D 01:A71D: 20 AB 97  JMP loc_0x0017BB
 
 
 
@@ -1542,9 +1533,7 @@ sub_AA77_повторная_отрисовка_опций:
 ; повторно отрисовать опции в меню команды после подтверждения/отмены выбора опции во внутреннем окне
 C - - - - - 0x002A87 01:AA77: A0 B3     LDY #< tbl_B4B3_опции_sao_paulo_nankatsu
 C - - - - - 0x002A89 01:AA79: A2 B4     LDX #> tbl_B4B3_опции_sao_paulo_nankatsu
-; bzk optimize, JMP
-C - - - - - 0x002A8B 01:AA7B: 20 AB 97  JSR sub_0x0017BB
-C - - - - - 0x002A8E 01:AA7E: 60        RTS
+C - - - - - 0x002A8B 01:AA7B: 20 AB 97  JMP loc_0x0017BB
 
 
 
@@ -2163,9 +2152,7 @@ C - - - - - 0x002DFD 01:ADED: 0A        ASL
                                         LDA tbl_B6BB_название_твоей_команды_в_опциях + $01,X
                                         TAX
 C - - - - - 0x002E0A 01:ADFA: AD EC 00  LDA ram_00EC_t31
-; bzk optimize, JMP
-C - - - - - 0x002E0D 01:ADFD: 20 B8 97  JSR sub_0x0017C8_запись_в_буфер_со_смещением
-C - - - - - 0x002E10 01:AE00: 60        RTS
+C - - - - - 0x002E0D 01:ADFD: 20 B8 97  JMP loc_0x0017C8_запись_в_буфер_со_смещением
 
 
 
@@ -2681,8 +2668,7 @@ C - - - - - 0x0030C4 01:B0B4: AD 50 04  LDA ram_счетчик_замен
 C - - - - - 0x0030C7 01:B0B7: 49 FF     EOR #$FF
 C - - - - - 0x0030C9 01:B0B9: 18        CLC
 C - - - - - 0x0030CA 01:B0BA: 69 37     ADC #$34
-; bzk optimize, JMP
-C - - - - - 0x0030CC 01:B0BC: 20 95 98  JSR sub_0x0018A5
+C - - - - - 0x0030CC 01:B0BC: 20 95 98  JMP loc_0x0018A5
 bra_B0BF_RTS:
 C - - - - - 0x0030CF 01:B0BF: 60        RTS
 

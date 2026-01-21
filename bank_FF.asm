@@ -11,7 +11,7 @@
 .export loc_0x03C4C9_банксвич_PRG_5115
 .export loc_0x03C4D8_начислить_опыт
 .export loc_0x03C6CE
-.export sub_0x03CAF7_подготовить_подпрограмму_в_стеке
+.export loc_0x03CAF7_подготовить_подпрограмму_в_стеке
 .export loc_0x03CB07
 .export sub_0x03CB1F_задержка
 .export loc_0x03CB1F_задержка
@@ -782,7 +782,7 @@ C - - - - - 0x03CAF6 FF:CAE6: 60        RTS
 
 
 sub_CAE7_подготовить_подпрограмму_в_стеке:
-sub_0x03CAF7_подготовить_подпрограмму_в_стеке:
+loc_0x03CAF7_подготовить_подпрограмму_в_стеке:
 C D 2 - - - 0x03CAF7 FF:CAE7: 48        PHA
 C - - - - - 0x03CAF8 FF:CAE8: 98        TYA
 C - - - - - 0x03CAF9 FF:CAE9: B4 01     LDY ram_0001_stack_pointer,X
