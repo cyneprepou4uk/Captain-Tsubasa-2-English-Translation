@@ -1467,6 +1467,7 @@ C - - - - - 0x0287BF 14:87AF: 86 3C     STX ram_003C_t08_lo
 C - - - - - 0x0287C1 14:87B1: 84 3D     STY ram_003D_t06
 C - - - - - 0x0287C3 14:87B3: AE 39 06  LDX ram_0639
 C - - - - - 0x0287C6 14:87B6: AC 35 06  LDY ram_ball_pos_X_hi
+loc_87B9:
 bra_87B9_loop:
 C - - - - - 0x0287C9 14:87B9: 18        CLC
 C - - - - - 0x0287CA 14:87BA: 8A        TXA
@@ -1484,25 +1485,14 @@ C - - - - - 0x0287D6 14:87C6: 60        RTS
 sub_87C7:
 ; in
     ; A = 
-C - - - - - 0x0287D7 14:87C7: 85 3E     STA ram_003E_t09_loop_counter
+C - - - - - 0x0287D7 14:87C7: 85 3E     STA ram_003E_t08_loop_counter
 C - - - - - 0x0287D9 14:87C9: AD 2C 06  LDA ram_062C
 C - - - - - 0x0287DC 14:87CC: 20 42 C5  JSR sub_0x03CE5D
-C - - - - - 0x0287DF 14:87CF: 86 3C     STX ram_003C_t09_lo
-C - - - - - 0x0287E1 14:87D1: 84 3D     STY ram_003D_t07
+C - - - - - 0x0287DF 14:87CF: 86 3C     STX ram_003C_t08_lo
+C - - - - - 0x0287E1 14:87D1: 84 3D     STY ram_003D_t06
 C - - - - - 0x0287E3 14:87D3: AE 3B 06  LDX ram_063B
 C - - - - - 0x0287E6 14:87D6: AC 37 06  LDY ram_ball_pos_Y_hi
-; bzk optimize, JMP to 0x0287C9
-bra_87D9_loop:
-C - - - - - 0x0287E9 14:87D9: 18        CLC
-C - - - - - 0x0287EA 14:87DA: 8A        TXA
-C - - - - - 0x0287EB 14:87DB: 65 3C     ADC ram_003C_t09_lo
-C - - - - - 0x0287ED 14:87DD: AA        TAX
-C - - - - - 0x0287EE 14:87DE: 98        TYA
-C - - - - - 0x0287EF 14:87DF: 65 3D     ADC ram_003D_t07
-C - - - - - 0x0287F1 14:87E1: A8        TAY
-C - - - - - 0x0287F2 14:87E2: C6 3E     DEC ram_003E_t09_loop_counter
-C - - - - - 0x0287F4 14:87E4: 10 F3     BPL bra_87D9_loop
-C - - - - - 0x0287F6 14:87E6: 60        RTS
+                                        JMP loc_87B9
 
 
 
