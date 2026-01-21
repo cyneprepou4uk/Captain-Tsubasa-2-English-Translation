@@ -30,6 +30,7 @@
 .export sub_0x0018B0_очистка_двух_nametable
 .export sub_0x0018EF
 .export sub_0x0018F8_затереть_часть_экрана
+.export loc_0x0018F8_затереть_часть_экрана
 .export sub_0x0018FA_замостить_часть_экрана_тайлом_A
 .export sub_0x00198A_запись_палитры_фона_и_спрайтов
 .export sub_0x00198E_запись_палитры_фона_и_спрайтов
@@ -609,9 +610,7 @@ C - - - - - 0x00039A 00:838A: A2 02     LDX #con_prg_bank + $02
 C - - - - - 0x00039C 00:838C: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
 C - - - - - 0x00039F 00:838F: 20 15 A2  JSR sub_0x0048DE_copy_oam
 C - - - - - 0x0003A2 00:8392: A2 06     LDX #con_prg_bank + $06
-; bzk optimize, JMP
-C - - - - - 0x0003A4 00:8394: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
-C - - - - - 0x0003A7 00:8397: 60        RTS
+C - - - - - 0x0003A4 00:8394: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_5115
 
 
 
@@ -1631,9 +1630,7 @@ C - - - - - 0x0008AB 00:889B: 95 00     STA ram_0000,X
 C - - - - - 0x0008AD 00:889D: A9 88     LDA #> (ofs_88A9 - $01)
 C - - - - - 0x0008AF 00:889F: 95 01     STA ram_0001_stack_pointer,X
 C - - - - - 0x0008B1 00:88A1: A0 A0     LDY #$A0 - $02
-; bzk optimize, JMP
-C - - - - - 0x0008B5 00:88A5: 20 69 9F  JSR sub_9F69
-C - - - - - 0x0008B8 00:88A8: 60        RTS
+C - - - - - 0x0008B5 00:88A5: 20 69 9F  JMP loc_9F69
 
 
 
@@ -1692,9 +1689,7 @@ sub_0x0008DA_запись_символа_в_буфер:
                                         PLA
                                         STA ram_05E8_буфер,X
                                         INX
-; bzk optimize, JMP
-                                        JSR sub_9B5E_закрыть_буфер
-                                        RTS
+                                        JMP loc_9B5E_закрыть_буфер
 
 
 
@@ -1769,9 +1764,7 @@ C - - - - - 0x000963 00:8953: C8        INY
 C - - - - - 0x000964 00:8954: CA        DEX
 C - - - - - 0x000965 00:8955: D0 F7     BNE bra_894E_loop
 C - - - - - 0x000967 00:8957: A6 EA     LDX ram_00EA_t05_prg_bank
-; bzk optimize, JMP
-C - - - - - 0x000969 00:8959: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
-C - - - - - 0x00096C 00:895C: 60        RTS
+C - - - - - 0x000969 00:8959: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_5115
 
 
 
@@ -1891,8 +1884,7 @@ C - - - - - 0x000A03 00:89F3: 85 90     STA ram_008E_t01_chr_banks + $02
 C - - - - - 0x000A05 00:89F5: A9 02     LDA #con_chr_bank + $02
 C - - - - - 0x000A07 00:89F7: 85 91     STA ram_008E_t01_chr_banks + $03
 C - - - - - 0x000A09 00:89F9: A6 56     LDX ram_0056_t04_prg_bank
-; bzk optimize, JMP
-C - - - - - 0x000A0B 00:89FB: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
+C - - - - - 0x000A0B 00:89FB: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_5115
 bra_89FE_RTS:
 C - - - - - 0x000A0E 00:89FE: 60        RTS
 
@@ -1968,9 +1960,7 @@ bra_8A86_FF_заткнуть_чарли:
 - - - - - - 0x000A98 00:8A88: 8D 52 06  STA ram_рот_чарли_hi
 loc_8A8B:
 C D 0 - - - 0x000A9B 00:8A8B: A6 56     LDX ram_0056_t04_prg_bank
-; bzk optimize, JMP
-C - - - - - 0x000A9D 00:8A8D: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
-C D 0 - - - 0x000AA0 00:8A90: 60        RTS
+C - - - - - 0x000A9D 00:8A8D: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_5115
 
 
 
@@ -2774,9 +2764,7 @@ C - - - - - 0x000FD5 00:8FC5: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - - 0x000FD8 00:8FC8: 4C 3E 8F  JMP loc_8F3E_loop
 bra_8FCB:
 C - - - - - 0x000FDB 00:8FCB: A2 07     LDX #con_prg_bank + $07
-; bzk optimize, JMP
-C - - - - - 0x000FDD 00:8FCD: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
-C - - - - - 0x000FE0 00:8FD0: 60        RTS
+C - - - - - 0x000FDD 00:8FCD: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_5115
 
 
 
@@ -2855,9 +2843,7 @@ C - - - - - 0x00104F 00:903F: A5 E7     LDA ram_00E7_t06
 loc_9041:
 C D 0 - - - 0x001051 00:9041: 9D E8 05  STA ram_05E8_буфер,X
 C - - - - - 0x001054 00:9044: E8        INX
-; bzk optimize, JMP
-C - - - - - 0x001055 00:9045: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
-C - - - - - 0x001058 00:9048: 60        RTS
+C - - - - - 0x001055 00:9045: 20 5E 9B  JMP loc_9B5E_закрыть_буфер
 
 
 
@@ -3040,9 +3026,7 @@ C - - - - - 0x001145 00:9135: 95 00     STA ram_0000,X
 C - - - - - 0x001147 00:9137: A9 91     LDA #> (ofs_9148 - $01)
 C - - - - - 0x001149 00:9139: 95 01     STA ram_0001_stack_pointer,X
 C - - - - - 0x00114B 00:913B: A0 C8     LDY #$C8 - $02
-; bzk optimize, JMP
-C - - - - - 0x00114F 00:913F: 20 69 9F  JSR sub_9F69
-C - - - - - 0x001152 00:9142: 60        RTS
+C - - - - - 0x00114F 00:913F: 20 69 9F  JMP loc_9F69
 
 
 
@@ -4431,6 +4415,7 @@ sub_0x0018EF:
 sub_98E8_затереть_часть_экрана:
 loc_98E8_затереть_часть_экрана:
 sub_0x0018F8_затереть_часть_экрана:
+loc_0x0018F8_затереть_часть_экрана:
                                         LDA #$00
 sub_98EA_замостить_часть_экрана_тайлом_A:
 loc_98EA_замостить_часть_экрана_тайлом_A:
@@ -4703,9 +4688,7 @@ C - - - - - 0x001AA5 00:9A95: 20 A2 9A  JSR sub_9AA2_вычислить_ярко
 C - - - - - 0x001AA8 00:9A98: C0 20     CPY #$20
 C - - - - - 0x001AAA 00:9A9A: D0 F1     BNE bra_9A8D_loop_063A_0649
 C - - - - - 0x001AAC 00:9A9C: A6 E7     LDX ram_00E7_t16_индекс_буфера
-; bzk optimize, JMP
-C - - - - - 0x001AAE 00:9A9E: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
-C - - - - - 0x001AB1 00:9AA1: 60        RTS
+C - - - - - 0x001AAE 00:9A9E: 20 5E 9B  JMP loc_9B5E_закрыть_буфер
 
 
 
@@ -4790,9 +4773,7 @@ sub_9B07:
 C - - - - - 0x001B17 00:9B07: A5 25     LDA ram_for_5115
 C - - - - - 0x001B19 00:9B09: 85 E9     STA ram_00E9_t20_копия_prg_bank
 C - - - - - 0x001B1B 00:9B0B: A2 06     LDX #con_prg_bank + $06
-; bzk optimize, JMP
-C - - - - - 0x001B1D 00:9B0D: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
-C - - - - - 0x001B20 00:9B10: 60        RTS
+C - - - - - 0x001B1D 00:9B0D: 20 B9 C4  JMP loc_0x03C4C9_банксвич_PRG_5115
 
 
 
@@ -5362,9 +5343,7 @@ C - - - - - 0x001DBA 00:9DAA: 18        CLC
 C - - - - - 0x001DBB 00:9DAB: 69 33     ADC #$30
 C - - - - - 0x001DBD 00:9DAD: 9D E8 05  STA ram_05E8_буфер,X
 C - - - - - 0x001DC0 00:9DB0: E8        INX
-; bzk optimize, JMP
-C - - - - - 0x001DC1 00:9DB1: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
-C - - - - - 0x001DC4 00:9DB4: 60        RTS
+C - - - - - 0x001DC1 00:9DB1: 20 5E 9B  JMP loc_9B5E_закрыть_буфер
 
 
 
@@ -5386,9 +5365,7 @@ C - - - - - 0x001DDD 00:9DCD: A9 33     LDA #$30
 C - - - - - 0x001DDF 00:9DCF: 85 E7     STA ram_00E7_t10
 C - - - - - 0x001DE1 00:9DD1: A5 EC     LDA ram_00EC_t25_единицы_и_десятки
 C - - - - - 0x001DE3 00:9DD3: 20 DE 9D  JSR sub_9DDE_единицы
-; bzk optimize, JMP
-C - - - - - 0x001DE6 00:9DD6: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
-C - - - - - 0x001DE9 00:9DD9: 60        RTS
+C - - - - - 0x001DE6 00:9DD6: 20 5E 9B  JMP loc_9B5E_закрыть_буфер
 
 
 
@@ -5672,6 +5649,7 @@ C - - - - - 0x001F78 00:9F68: 60        RTS
 
 
 sub_9F69:
+loc_9F69:
 sub_0x001F79:
 ; in
     ; Y = stack pointer

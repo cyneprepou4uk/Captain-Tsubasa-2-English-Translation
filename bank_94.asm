@@ -1458,6 +1458,8 @@ C - - - - - 0x0287B6 14:87A6: 60        RTS
 sub_87A7:
 ; in
     ; A = 
+; out
+    ; A = 
 C - - - - - 0x0287B7 14:87A7: 85 3E     STA ram_003E_t08_loop_counter
 C - - - - - 0x0287B9 14:87A9: AD 2C 06  LDA ram_062C
 C - - - - - 0x0287BC 14:87AC: 20 45 C5  JSR sub_0x03CE5A
