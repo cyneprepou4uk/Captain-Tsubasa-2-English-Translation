@@ -1419,7 +1419,6 @@ ram_00E7_temp                           = $00E7 ; 0000A7 0000D8 0002A7 0004C6 00
     ram_00E7_t18                            = ram_00E7_temp ; 
     
     ram_00E7_tFE_useless                    = ram_00E7_temp ; bzk optimize
-    ram_00E7_tFF_useless                    = ram_00E7_temp ; bzk optimize
 
 
 

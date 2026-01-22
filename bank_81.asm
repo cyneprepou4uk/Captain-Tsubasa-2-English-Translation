@@ -2167,10 +2167,7 @@ C - - - - - 0x002E2B 01:AE1B: 4C 8F AE  JMP loc_AE8F_спрайты_миника
 
 sub_AE1E:
 ; in
-    ; A = 
     ; X = 68/98
-; bzk optimize, бесполезный STA, судя по логу
-C - - - - - 0x002E2E 01:AE1E: 85 E7     STA ram_00E7_tFF_useless
 C - - - - - 0x002E30 01:AE20: A9 71     LDA #$71
 C - - - - - 0x002E32 01:AE22: 8D 61 05  STA ram_0561
 C - - - - - 0x002E35 01:AE25: A9 00     LDA #$00
