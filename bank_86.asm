@@ -1526,6 +1526,8 @@ tbl_0x00DD10_номера_анимаций_чарли:
     .word off_BD41_04
     .word off_BD4E_05
 
+
+
 off_BD0C_00:
     .byte $05   ; 
     .byte $0D   ; 
@@ -1540,7 +1542,10 @@ off_BD0C_00:
     .byte $15   ; 
     .byte $0D   ; 
     .byte $05   ; 
-    .byte $FE   ; 
+    .byte $FE   ; повторить цикл анимации
+
+
+
 off_BD1A_01:
     .byte $24   ; 
     .byte $2C   ; 
@@ -1551,7 +1556,10 @@ off_BD1A_01:
     .byte $34   ; 
     .byte $2C   ; 
     .byte $24   ; 
-    .byte $FE   ; 
+    .byte $FE   ; повторить цикл анимации
+
+
+
 off_BD24_02:
     .byte $3D   ; 
     .byte $45   ; 
@@ -1566,7 +1574,10 @@ off_BD24_02:
     .byte $4D   ; 
     .byte $45   ; 
     .byte $3D   ; 
-    .byte $FE   ; 
+    .byte $FE   ; повторить цикл анимации
+
+
+
 off_BD32_03:
     .byte $55   ; 
     .byte $5D   ; 
@@ -1582,7 +1593,10 @@ off_BD32_03:
     .byte $5D   ; 
     .byte $65   ; 
     .byte $5D   ; 
-    .byte $FE   ; 
+    .byte $FE   ; повторить цикл анимации
+
+
+
 off_BD41_04:
     .byte $6B   ; 
     .byte $73   ; 
@@ -1596,7 +1610,10 @@ off_BD41_04:
     .byte $73   ; 
     .byte $83   ; 
     .byte $7B   ; 
-    .byte $FE   ; 
+    .byte $FE   ; повторить цикл анимации
+
+
+
 off_BD4E_05:
     .byte $95   ; 
     .byte $9D   ; 
@@ -1621,7 +1638,8 @@ off_BD4E_05:
     .byte $9D   ; 
     .byte $95   ; 
     .byte $8F   ; 
-    .byte $FE   ; 
+    .byte $FE   ; повторить цикл анимации
+
 
 
 tbl_0x00DD90_тайлы_чарли_в_катсцене:

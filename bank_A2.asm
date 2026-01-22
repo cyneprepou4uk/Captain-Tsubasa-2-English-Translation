@@ -274,7 +274,7 @@ _off014_A195_13_после_победы_над_японией:
     .byte con_8545_speed, $06
     .byte con_8545_offset, $03
     .text " "
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $3C
     .text "@Sanae,"
     .byte con_8545_pause, $3C
@@ -292,7 +292,7 @@ _off014_A195_13_после_победы_над_японией:
     .byte con_8545_animation, $02, $9C, $8E
     .byte con_8545_screen_on
     .byte con_8545_F5, $05
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_speed, $01
     .byte con_8545_offset, $07
     .text "Several days later,"
@@ -305,18 +305,18 @@ _off014_A195_13_после_победы_над_японией:
     .byte con_8545_new_line
     .byte con_8545_offset, $09
     .text "training camp."
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     
     
     
-    .byte con_8545_F8, $0B
+    .byte con_8545_F8, con_A491_0B
     .byte con_8545_pause, $F0
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_pause, $78
-    .byte con_8545_F8, $02
-    .byte con_8545_F8, $0B
+    .byte con_8545_F8, con_A491_02
+    .byte con_8545_F8, con_A491_0B
     .byte con_8545_clear_1
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $3C
     .byte con_8545_speed, $04
     .byte con_8545_offset, $05
@@ -544,7 +544,7 @@ _off014_A195_13_после_победы_над_японией:
     .byte con_8545_bg_2, $34
     .byte con_8545_toggle_cam
     .byte con_8545_sound, $1E
-    .byte con_8545_F8, $0E
+    .byte con_8545_F8, con_A491_0E
     .byte con_8545_sound, $52
     .byte con_8545_new_line
     .byte con_8545_offset, $05
@@ -562,7 +562,7 @@ _off014_A195_13_после_победы_над_японией:
     
     
     
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_sound, $48
     .byte con_8545_animation, $01, $08
     .byte con_8545_toggle_cam
@@ -700,11 +700,11 @@ _off014_A195_13_после_победы_над_японией:
     .byte con_8545_screen_on
     .byte con_8545_sound, $47
     .byte con_8545_F5, $05
-    .byte con_8545_F8, $0C
+    .byte con_8545_F8, con_A491_0C
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $F0
-    .byte con_8545_F8, $02
-    .byte con_8545_F8, $0C
+    .byte con_8545_F8, con_A491_02
+    .byte con_8545_F8, con_A491_0C
     .byte con_8545_pause, $3C
     .byte con_8545_animation, $01, $2A
     .byte con_8545_toggle_mouth
@@ -731,7 +731,7 @@ _off014_A195_13_после_победы_над_японией:
     .byte con_8545_clear_1
     .byte con_8545_bg_1, $37
     .byte con_8545_animation, $01, $A9
-    .byte con_8545_F8, $0D
+    .byte con_8545_F8, con_A491_0D
     .byte con_8545_screen_on
     .byte con_8545_pause, $3C
     .byte con_8545_speed, $03
@@ -1000,7 +1000,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_new_line
     .byte con_8545_offset, $07
     .text "new coach is_@"
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $1E
     
     
@@ -1063,7 +1063,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_bg_1, $3C
     .byte con_8545_animation, $01, $95
     .byte con_8545_screen_on
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_speed, $00
     .byte con_8545_offset, $09
     .text "South American"
@@ -1075,7 +1075,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_offset, $06
     .text "Argentina VS Uruguay"
     .byte con_8545_pause, $1E
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     
     
@@ -1219,12 +1219,12 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_sound, $01
     .byte con_8545_clear_2
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $3C
     .byte con_8545_animation, $01, $96
     .byte con_8545_sound, $36
     .byte con_8545_screen_on
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_speed, $00
     .byte con_8545_offset, $06
     .text "European Qualifiers"
@@ -1236,7 +1236,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_offset, $07
     .text "France VS Denmark"
     .byte con_8545_pause, $1E
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     
     
@@ -1246,7 +1246,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_bg_1, $01
     .byte con_8545_animation, $01, $6F
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $0A
+    .byte con_8545_F8, con_A491_0A
     .byte con_8545_F5, $00
     .byte con_8545_sound, $68
     .byte con_8545_pause, $1E
@@ -1274,7 +1274,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_clear_1
     .byte con_8545_E8, con_BF00_01
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $3B
     .byte con_8545_animation, $01, $7A
     .byte con_8545_palette, $00
@@ -1395,12 +1395,12 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_sound, $01
     .byte con_8545_clear_1
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $3C
     .byte con_8545_animation, $03, $BD, $C8, $97
     .byte con_8545_sound, $38
     .byte con_8545_screen_on
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_speed, $00
     .byte con_8545_offset, $06
     .text "European Qualifiers"
@@ -1412,7 +1412,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_offset, $04
     .text "West Germany VS Portugal"
     .byte con_8545_pause, $1E
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     
     
@@ -1450,7 +1450,7 @@ _off014_A703_15_после_победы_над_кореей:
     
     
     .byte con_8545_sound, $02
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $05
     .byte con_8545_animation, $01, $79
     .byte con_8545_toggle_cam
@@ -1567,7 +1567,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_screen_off
     .byte con_8545_clear_1
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $1D
     .byte con_8545_pause, $3C
     .byte con_8545_animation, $03, $C9, $91, $99
@@ -1776,7 +1776,7 @@ _off014_A703_15_после_победы_над_кореей:
     .byte con_8545_animation, $01, $6C
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $3C
     .byte con_8545_new_line
     .byte con_8545_speed, $06
@@ -2088,7 +2088,7 @@ _off014_AC95_16_разговор_репортеров:
     .byte con_8545_bg_1, $2E
     .byte con_8545_animation, $01, $47
     .byte con_8545_screen_on
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $3C
     .byte con_8545_offset, $02
     .text "B: @Must be rough on"

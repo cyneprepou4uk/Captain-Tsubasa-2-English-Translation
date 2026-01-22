@@ -136,9 +136,9 @@ _off014_AEEA_08_цубаса_победил_карлоса:
     .byte con_8545_offset, $09
     .text "won the Rio Cup!"
 ; скрытая катсцена
-    .byte con_8545_F4, $06, $01
+    .byte con_8545_F4, con_86C6_ожидание_перехода_к_скрытому_диалогу, $01   ; номер скрытой катсцены
     .byte con_8545_sound, $62
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_clear_all
     .byte con_8545_animation, $01, $2A
     .byte con_8545_toggle_cam
@@ -485,13 +485,13 @@ _off014_AEEA_08_цубаса_победил_карлоса:
     .byte con_8545_palette, $FF, $24, $42
     .byte con_8545_pause, $06
     .byte con_8545_palette, $FF, $23, $41
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_sound, $53
     .byte con_8545_pause, $3C
     
     
     
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_speed, $03
     .byte con_8545_offset, $03
     .text "Having brought victory to"
@@ -869,7 +869,7 @@ off_0x040005_скрытая_катсцена_из_08:
     .byte con_8545_bg_2, $10
     .byte con_8545_F5, $04
     .byte con_8545_sound, $4D
-    .byte con_8545_F4, $07
+    .byte con_8545_F4, con_86C6_возврат_из_скрытой_катсцены
 
 
 
@@ -906,7 +906,7 @@ _off014_B327_0A_мисуги_во_втором_тайме:
     .byte con_8545_F5, $FF
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     
     
     
@@ -1373,7 +1373,7 @@ _off014_B590_0D_мацуяма_после_матча:
     
     .byte con_8545_F5, $FF
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $02
     .byte con_8545_animation, $01, $49
     .byte con_8545_toggle_cam

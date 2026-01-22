@@ -55,7 +55,7 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_pause, $0F
     .text " guys"
     .byte con_8545_speed, $08
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .text "...@"
     .byte con_8545_pause, $28
     .byte con_8545_clear_1
@@ -109,9 +109,9 @@ _off014_A43B_22_финальная_катсцена:
     
     .byte con_8545_sound, $62
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_toggle_cam
-    .byte con_8545_F8, $0E
+    .byte con_8545_F8, con_A491_0E
     .byte con_8545_offset, $06
     .text "@You brought us to"
     .byte con_8545_new_line
@@ -119,7 +119,7 @@ _off014_A43B_22_финальная_катсцена:
     .text "victory,"
     .byte con_8545_pause, $0F
     .text " Tsubasa!@"
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_bg_2, $10
     .byte con_8545_pause, $50
     .byte con_8545_clear_1
@@ -283,7 +283,7 @@ _off014_A43B_22_финальная_катсцена:
     
     
     
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $11
     .byte con_8545_animation, $01, $0A
     .byte con_8545_toggle_cam
@@ -961,7 +961,7 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_pause, $3C
     .byte con_8545_clear_1
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $11
     .byte con_8545_bg_2, $10
     .byte con_8545_animation, $01, $42
@@ -1121,7 +1121,7 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_pause, $50
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     
     
     
@@ -1487,10 +1487,10 @@ _off014_A43B_22_финальная_катсцена:
     
     
     
-    .byte con_8545_F4, $02
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_2
     .byte con_8545_bg_1, $47
     .byte con_8545_bg_2, $4C
-    .byte con_8545_F4, $03
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
     .byte con_8545_animation, $01, $2B
     .byte con_8545_screen_on
     .byte con_8545_pause, $3C
@@ -1599,7 +1599,7 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
     .byte con_8545_F5, $0C
-    .byte con_8545_F8, $15
+    .byte con_8545_F8, con_A491_15_тряска_экрана_хз
     .byte con_8545_speed, $00
     .byte con_8545_offset, $08
     .text "@OW!"
@@ -1620,7 +1620,7 @@ _off014_A43B_22_финальная_катсцена:
     .text "@BANZAI!!@"
     .byte con_8545_pause, $14
     .byte con_8545_sound, $30
-    .byte con_8545_F8, $15
+    .byte con_8545_F8, con_A491_15_тряска_экрана_хз
     .byte con_8545_F5, $FF
     .byte con_8545_palette, $FF, $25, $43
     .byte con_8545_pause, $F0
@@ -1758,7 +1758,7 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_animation, $01, $29
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_sound, $31
     .byte con_8545_pause, $78
     .byte con_8545_sound, $01
@@ -1881,7 +1881,7 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_animation, $01, $B7
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $3C
     .byte con_8545_new_line
     .byte con_8545_speed, $04
@@ -1955,81 +1955,81 @@ _off014_A43B_22_финальная_катсцена:
     .byte con_8545_animation, $03, $B9, $BD, $B0
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $14
+    .byte con_8545_F8, con_A491_14
     .byte con_8545_pause, $F0
     .byte con_8545_screen_off
     .byte con_8545_bg_1, $4E
     .byte con_8545_animation, $02, $BD, $04
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $05
+    .byte con_8545_F8, con_A491_05
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $F0
-    .byte con_8545_F8, $06
-    .byte con_8545_F8, $16
+    .byte con_8545_F8, con_A491_06
+    .byte con_8545_F8, con_A491_16
     .byte con_8545_sound, $6A
-    .byte con_8545_F8, $01, $04
+    .byte con_8545_F8, con_A491_01, $04
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $05
+    .byte con_8545_F8, con_A491_01, $05
     .byte con_8545_pause, $3C
-    .byte con_8545_F8, $01, $08
+    .byte con_8545_F8, con_A491_01, $08
     .byte con_8545_pause, $3C
-    .byte con_8545_F8, $01, $0A
+    .byte con_8545_F8, con_A491_01, $0A
     .byte con_8545_pause, $3C
-    .byte con_8545_F8, $01, $0C
+    .byte con_8545_F8, con_A491_01, $0C
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $0E
+    .byte con_8545_F8, con_A491_01, $0E
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $10
+    .byte con_8545_F8, con_A491_01, $10
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $12
+    .byte con_8545_F8, con_A491_01, $12
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $14
+    .byte con_8545_F8, con_A491_01, $14
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $16
+    .byte con_8545_F8, con_A491_01, $16
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $18
+    .byte con_8545_F8, con_A491_01, $18
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $1A
+    .byte con_8545_F8, con_A491_01, $1A
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $1C
+    .byte con_8545_F8, con_A491_01, $1C
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $1E
+    .byte con_8545_F8, con_A491_01, $1E
     .byte con_8545_pause, $78
-    .byte con_8545_F8, $01, $1C
+    .byte con_8545_F8, con_A491_01, $1C
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $1A
+    .byte con_8545_F8, con_A491_01, $1A
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $18
+    .byte con_8545_F8, con_A491_01, $18
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $16
+    .byte con_8545_F8, con_A491_01, $16
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $14
+    .byte con_8545_F8, con_A491_01, $14
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $12
+    .byte con_8545_F8, con_A491_01, $12
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $10
+    .byte con_8545_F8, con_A491_01, $10
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $0E
+    .byte con_8545_F8, con_A491_01, $0E
     .byte con_8545_pause, $28
     .byte con_8545_animation, $01, $B4
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $01, $0C
+    .byte con_8545_F8, con_A491_01, $0C
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $0A
+    .byte con_8545_F8, con_A491_01, $0A
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $08
+    .byte con_8545_F8, con_A491_01, $08
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $06
+    .byte con_8545_F8, con_A491_01, $06
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $04
+    .byte con_8545_F8, con_A491_01, $04
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $01, $02
+    .byte con_8545_F8, con_A491_01, $02
     .byte con_8545_pause, $28
-    .byte con_8545_F8, $02
-    .byte con_8545_F8, $05
+    .byte con_8545_F8, con_A491_02
+    .byte con_8545_F8, con_A491_05
     .byte con_8545_pause, $50
     .byte con_8545_sound, $59
-    .byte con_8545_F8, $0F
+    .byte con_8545_F8, con_A491_0F
     .byte con_8545_pause, $78
     .byte con_8545_base_offset
     .word $22AE

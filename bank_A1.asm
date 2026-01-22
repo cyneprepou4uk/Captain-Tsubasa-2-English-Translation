@@ -89,14 +89,14 @@ _off014_B731_0F_мисаки_победил_хюгу:
     .byte con_8545_offset, $09
     .text "wild!"
 ; скрытая катсцена
-    .byte con_8545_F4, $06, $02
+    .byte con_8545_F4, con_86C6_ожидание_перехода_к_скрытому_диалогу, $02   ; номер скрытой катсцены
     
     
     
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $0E
     .byte con_8545_screen_on
     .byte con_8545_pause, $1E
@@ -250,7 +250,7 @@ _off014_B731_0F_мисаки_победил_хюгу:
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $11
     .byte con_8545_bg_2, $10
     .byte con_8545_animation, $01, $31
@@ -375,7 +375,7 @@ _off014_B731_0F_мисаки_победил_хюгу:
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $02
     .byte con_8545_animation, $01, $42
     .byte con_8545_screen_on
@@ -738,7 +738,7 @@ _off014_B731_0F_мисаки_победил_хюгу:
     
     .byte con_8545_offset, $05
     .text "@Can we count on_@"
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $0A
     .byte con_8545_F5, $08
     .byte con_8545_new_line
@@ -1207,7 +1207,7 @@ _off014_B731_0F_мисаки_победил_хюгу:
     .byte con_8545_pause, $08
     .byte con_8545_speed, $03
     .text "h"
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .text "uh"
     .byte con_8545_speed, $08
     .text "...?@"
@@ -1505,7 +1505,7 @@ off_0x040005_скрытая_катсцена_из_0F:
     .byte con_8545_screen_off
     .byte con_8545_pause, $3C
     .byte con_8545_sound, $4E
-    .byte con_8545_F4, $07
+    .byte con_8545_F4, con_86C6_возврат_из_скрытой_катсцены
 
 
 

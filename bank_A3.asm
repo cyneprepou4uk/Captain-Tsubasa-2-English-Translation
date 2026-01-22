@@ -416,7 +416,7 @@ _off014_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_8545_screen_on
     .byte con_8545_sound, $47
     .byte con_8545_F5, $04
-    .byte con_8545_F8, $0E
+    .byte con_8545_F8, con_A491_0E
     .byte con_8545_pause, $1E
     .byte con_8545_offset, $05
     .text "@That was a super"
@@ -433,7 +433,7 @@ _off014_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_8545_new_line
     .byte con_8545_offset, $06
     .text "making my head spin!@ "
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $50
     .byte con_8545_clear_1
     .byte con_8545_pause, $0A
@@ -449,7 +449,7 @@ _off014_B1CE_19_цубаса_после_победы_над_францией:
     .byte con_8545_sound, $31
     .byte con_8545_pause, $0F
     .text " Ishi_@ "
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $50
     .byte con_8545_animation, $01, $6A
     .byte con_8545_sound, $43
@@ -711,7 +711,7 @@ _off014_B398_1A_цубаса_планирует_циклон_1:
     .byte con_8545_screen_on
     .byte con_8545_pause, $3C
     .byte con_8545_sound, $04
-    .byte con_8545_F8, $10
+    .byte con_8545_F8, con_A491_схема_драйв_удара_и_циклона
     .byte con_8545_pause, $50
     .byte con_8545_speed, $02
     .byte con_8545_offset, $02
@@ -738,7 +738,7 @@ _off014_B398_1A_цубаса_планирует_циклон_1:
     
     
     .byte con_8545_sound, $06
-    .byte con_8545_F8, $10
+    .byte con_8545_F8, con_A491_схема_драйв_удара_и_циклона
     .byte con_8545_pause, $50
     .byte con_8545_speed, $04
     .byte con_8545_offset, $06
@@ -1148,7 +1148,7 @@ _off014_B71E_1C_цубаса_изучил_циклон:
     .byte con_8545_animation, $01, $AC
     .byte con_8545_sound, $70
     .byte con_8545_pause, $78
-    .byte con_8545_F8, $11
+    .byte con_8545_F8, con_A491_дождь
     .byte con_8545_screen_on
     .byte con_8545_pause, $F0
     .byte con_8545_palette, $27
@@ -1410,7 +1410,7 @@ _off014_B71E_1C_цубаса_изучил_циклон:
     .byte con_8545_animation, $01, $AB
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
-    .byte con_8545_F8, $11
+    .byte con_8545_F8, con_A491_дождь
     .byte con_8545_pause, $78
     .byte con_8545_offset, $04
     .text "(It works"
@@ -1505,10 +1505,10 @@ _off014_B71E_1C_цубаса_изучил_циклон:
     .byte con_8545_pause, $F0
     .byte con_8545_bg_2, $3E
     .byte con_8545_animation, $02, $A7, $A8
-    .byte con_8545_F8, $12
+    .byte con_8545_F8, con_A491_12
     .byte con_8545_toggle_cam
     .byte con_8545_bg_2, $41
-    .byte con_8545_F8, $11
+    .byte con_8545_F8, con_A491_дождь
     .byte con_8545_palette, $FF, $28, $44
     .byte con_8545_pause, $50
     .byte con_8545_palette, $FF, $29, $45
@@ -1665,7 +1665,7 @@ _off014_BA74_1D_после_победы_над_аргентиной:
     .text " "
     .byte con_8545_toggle_mouth
     .text "@He"
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .text "h.@"
     .byte con_8545_pause, $3C
     .byte con_8545_clear_1
@@ -1835,7 +1835,7 @@ _off014_BA74_1D_после_победы_над_аргентиной:
     .byte con_8545_bg_1, $01
     .byte con_8545_animation, $01, $6F
     .byte con_8545_sound, $62
-    .byte con_8545_F8, $0A
+    .byte con_8545_F8, con_A491_0A
     .byte con_8545_palette, $00
     .byte con_8545_F5, $00
     .byte con_8545_base_offset
@@ -1890,7 +1890,7 @@ _off014_BA74_1D_после_победы_над_аргентиной:
     .byte con_8545_clear_1
     .byte con_8545_E8, con_BF00_01
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $3B
     .byte con_8545_animation, $01, $7A
     .byte con_8545_palette, $00
@@ -2012,7 +2012,7 @@ _off014_BA74_1D_после_победы_над_аргентиной:
     .byte con_8545_pause, $3C
     .byte con_8545_clear_1
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $02
     .byte con_8545_animation, $01, $4B
     .byte con_8545_screen_on
@@ -2126,11 +2126,11 @@ _off014_BA74_1D_после_победы_над_аргентиной:
     .byte con_8545_offset, $09
     .text "wonder goalie -"
     .byte con_8545_pause, $3C
-    .byte con_8545_F4, $03
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
     .byte con_8545_animation, $01, $3A
     .byte con_8545_sound, $15
     .byte con_8545_toggle_mouth
-    .byte con_8545_F4, $01
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_1
     .byte con_8545_pause, $3C
     .byte con_8545_charlie, $05
     .byte con_8545_new_line

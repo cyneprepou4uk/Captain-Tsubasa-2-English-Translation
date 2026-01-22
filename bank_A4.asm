@@ -294,7 +294,7 @@ _off014_BE49_1F_перед_матчем_с_бразилией:
     .text "off!"
     .byte con_8545_sound, $62
 ; скрытая катсцена
-    .byte con_8545_F4, $06, $03
+    .byte con_8545_F4, con_86C6_ожидание_перехода_к_скрытому_диалогу, $03   ; номер скрытой катсцены
     .byte con_8545_screen_off
     .byte con_8545_exit
 
@@ -331,7 +331,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_8545_screen_off
     .byte con_8545_clear_1
     .byte con_8545_clear_all
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_1, $10
     .byte con_8545_bg_2, $11
     .byte con_8545_animation, $01, $66
@@ -476,7 +476,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_8545_palette, $00
     .byte con_8545_pause, $1E
     .text "H"
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .text "eh.@"
     .byte con_8545_pause, $28
     .byte con_8545_clear_1
@@ -538,7 +538,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     
     .byte con_8545_toggle_cam
     .byte con_8545_sound, $1E
-    .byte con_8545_F8, $0E
+    .byte con_8545_F8, con_A491_0E
     .byte con_8545_pause, $0A
     .byte con_8545_speed, $04
     .byte con_8545_offset, $06
@@ -575,7 +575,7 @@ off_0x040005_скрытая_катсцена_из_1F:
     .byte con_8545_pause, $3C
     .byte con_8545_screen_off
     .byte con_8545_F5, $FF
-    .byte con_8545_F4, $07
+    .byte con_8545_F4, con_86C6_возврат_из_скрытой_катсцены
 
 
 
@@ -631,7 +631,7 @@ _off014_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_8545_sound, $31
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $11
     .byte con_8545_animation, $01, $07
     .byte con_8545_toggle_cam
@@ -675,7 +675,7 @@ _off014_A080_20_цубаса_видит_санае_перед_матчем:
     .byte con_8545_offset, $04
     .byte con_8545_speed, $06
     .text " "
-    .byte con_8545_F8, $02
+    .byte con_8545_F8, con_A491_02
     .byte con_8545_pause, $08
     .text "(I made it,"
     .byte con_8545_pause, $3C
@@ -890,13 +890,13 @@ _off014_A1A1_21_коимбра_вступает_в_игру:
     
     
     
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_bg_2, $44
     .byte con_8545_animation, $01, $81
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
     .byte con_8545_bg_2, $10
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_sound, $54
     .byte con_8545_speed, $04
     .byte con_8545_offset, $03
@@ -936,11 +936,11 @@ _off014_A1A1_21_коимбра_вступает_в_игру:
     .byte con_8545_pause, $0F
     .text "10,"
     .byte con_8545_pause, $3C
-    .byte con_8545_F4, $03
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
     .byte con_8545_animation, $01, $5F
     .byte con_8545_sound, $15
     .byte con_8545_pause, $14
-    .byte con_8545_F4, $01
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_1
     .byte con_8545_pause, $3C
     .byte con_8545_toggle_mouth
     .byte con_8545_new_line
@@ -1063,20 +1063,20 @@ _off014_A1A1_21_коимбра_вступает_в_игру:
     
     
     
-    .byte con_8545_F4, $03
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_bg_2, $54
     .byte con_8545_animation, $01, $05
-    .byte con_8545_F4, $01
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_1
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_palette, $FF, $21, $40
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $F0
-    .byte con_8545_F4, $02
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_2
     .byte con_8545_bg_1, $11
     .byte con_8545_bg_2, $10
     .byte con_8545_sound, $69
-    .byte con_8545_F4, $03
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
     .byte con_8545_animation, $01, $0A
     .byte con_8545_screen_on
     .byte con_8545_F5, $04

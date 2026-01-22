@@ -38,7 +38,7 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_charlie, $00
     .byte con_8545_bg_1, $01
     .byte con_8545_animation, $01, $6E
-    .byte con_8545_F8, $0A
+    .byte con_8545_F8, con_A491_0A
     .byte con_8545_palette, $00
     .byte con_8545_F5, $00
     .byte con_8545_sound, $68
@@ -66,7 +66,7 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_clear_1
     .byte con_8545_clear_all
     .byte con_8545_E8, con_BF00_01
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $03
     .byte con_8545_animation, $01, $75
     .byte con_8545_palette, $00
@@ -124,7 +124,7 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $07
     .byte con_8545_animation, $01, $76
     .byte con_8545_palette, $00
@@ -179,7 +179,7 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $03
     .byte con_8545_animation, $01, $77
     .byte con_8545_palette, $00
@@ -230,7 +230,7 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_bg_2, $0B
     .byte con_8545_animation, $01, $7C
     .byte con_8545_palette, $00
@@ -249,7 +249,7 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_screen_off
     .byte con_8545_clear_all
     .byte con_8545_clear_1
-    .byte con_8545_charlie, $FF
+    .byte con_8545_charlie, $FF ; выключить чарли
     .byte con_8545_animation, $01, $0D
     .byte con_8545_speed, $00
     .byte con_8545_offset, $03
@@ -269,9 +269,9 @@ _off014_A020_00_самая_первая_заставка:
     .byte con_8545_screen_on
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $B4
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_clear_1
-    .byte con_8545_F8, $00
+    .byte con_8545_F8, con_A491_00
     .byte con_8545_jump
     .word _off014_A020_00_самая_первая_заставка
 
@@ -418,7 +418,7 @@ _off014_A2A1_01_история_цубасы:
     .byte con_8545_offset, $04
     .text "for Tsubasa in Sao Paulo!"
 ; скрытая катсцена
-    .byte con_8545_F4, $06, $00
+    .byte con_8545_F4, con_86C6_ожидание_перехода_к_скрытому_диалогу, $00   ; номер скрытой катсцены
     
     
     
@@ -433,16 +433,16 @@ _off014_A2A1_01_история_цубасы:
     .byte con_8545_screen_on
     .byte con_8545_sound, $51
     .byte con_8545_pause, $3C
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_speed, $00
     .byte con_8545_offset, $06
     .text "Brazil, Sao Paulo FC"
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $50
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_clear_1
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $3C
     .byte con_8545_bg_2, $12
@@ -688,7 +688,7 @@ _off014_A2A1_01_история_цубасы:
     
     
     .byte con_8545_animation, $01, $2B
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_pause, $3C
     .byte con_8545_clear_1
     .byte con_8545_offset, $08
@@ -702,7 +702,7 @@ _off014_A2A1_01_история_цубасы:
     .byte con_8545_new_line
     .byte con_8545_offset, $08
     .text "with the Rio Cup."
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $78
     .byte con_8545_pause, $F0
     .byte con_8545_screen_off
@@ -769,17 +769,17 @@ off_0x040005_скрытая_катсцена_из_01:
     .byte con_8545_screen_on
     .byte con_8545_sound, $51
     .byte con_8545_pause, $3C
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_speed, $00
     .byte con_8545_offset, $04
     .text "Brazil, 3 years earlier"
     .byte con_8545_new_line
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $50
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_clear_1
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $3C
     .byte con_8545_bg_2, $12
@@ -1130,7 +1130,7 @@ off_0x040005_скрытая_катсцена_из_01:
     .byte con_8545_palette, $FF, $23, $41
     .byte con_8545_pause, $01
     .byte con_8545_palette, $FF, $20, $3F
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_clear_1
     .byte con_8545_pause, $3C
     .byte con_8545_speed, $00
@@ -1146,11 +1146,11 @@ off_0x040005_скрытая_катсцена_из_01:
     .byte con_8545_offset, $02
     .text "each other in the World Cup!"
     .byte con_8545_sound, $45
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $F0
     .byte con_8545_screen_off
-    .byte con_8545_F4, $07
+    .byte con_8545_F4, con_86C6_возврат_из_скрытой_катсцены
 
 
 
@@ -1166,17 +1166,17 @@ _off014_A626_02_карлос_перед_первым_матчем:
     .byte con_8545_sound, $53
     .byte con_8545_pause, $3C
     .byte con_8545_speed, $00
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_offset, $09
     .text "Carlos Santana,"
     .byte con_8545_new_line
     .byte con_8545_offset, $05
     .text "Captain of Flamengo FC"
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $B4
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_clear_1
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $3C
     
     
@@ -1358,9 +1358,9 @@ _off014_A6DC_04_цубаса_и_меон:
     .byte con_8545_toggle_cam
     .byte con_8545_palette, $00
     .byte con_8545_bg_1, $1C
-    .byte con_8545_F8, $05
+    .byte con_8545_F8, con_A491_05
     .byte con_8545_pause, $0A
-    .byte con_8545_F8, $06
+    .byte con_8545_F8, con_A491_06
     .byte con_8545_pause, $0A
     .byte con_8545_speed, $03
     .byte con_8545_offset, $06
@@ -1658,13 +1658,13 @@ _off014_A968_05_карлос_и_коимбра:
     .byte con_8545_bg_2, $25
     .byte con_8545_clear_1
     .byte con_8545_pause, $50
-    .byte con_8545_F8, $0F
+    .byte con_8545_F8, con_A491_0F
     .byte con_8545_pause, $3C
     .byte con_8545_sound, $15
-    .byte con_8545_F4, $03
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
     .byte con_8545_animation, $01, $45
     .byte con_8545_pause, $14
-    .byte con_8545_F4, $01
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_1
     .byte con_8545_pause, $50
     .byte con_8545_speed, $04
     .byte con_8545_offset, $03
@@ -1821,14 +1821,14 @@ _off014_A968_05_карлос_и_коимбра:
     
     
     .byte con_8545_sound, $16
-    .byte con_8545_F4, $03
-    .byte con_8545_F4, $05
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_3
+    .byte con_8545_F4, con_86C6_показать_текст
     .byte con_8545_pause, $78
     .byte con_8545_bg_2, $54
     .byte con_8545_animation, $01, $05
-    .byte con_8545_F4, $01
+    .byte con_8545_F4, con_86C6_яркость_спрайтов_1
     .byte con_8545_sound, $46 
-    .byte con_8545_F4, $04
+    .byte con_8545_F4, con_86C6_скрыть_текст
     .byte con_8545_pause, $F0
     .byte con_8545_pause, $F0
     .byte con_8545_speed, $06
@@ -2063,7 +2063,7 @@ _off014_AB61_06_роберто_говорит_о_джаиро:
     .byte con_8545_sound, $3E
     .byte con_8545_bg_1, $01
     .byte con_8545_animation, $01, $A1
-    .byte con_8545_F8, $0A
+    .byte con_8545_F8, con_A491_0A
     .byte con_8545_screen_on
     .byte con_8545_F5, $00
     .byte con_8545_pause, $50
