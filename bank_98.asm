@@ -1524,6 +1524,8 @@ C - - - - - 0x03085E 18:884E: 4C 15 88  JMP loc_8815
 
 
 sub_0x030861_отрисовка_меню_во_время_матча:
+; in
+    ; A = 
 C - - - - - 0x030862 18:8852: 0A        ASL
 C - - - - - 0x030863 18:8853: AA        TAX
 C - - - - - 0x030864 18:8854: BD CF B3  LDA tbl_B3CF_вид_меню,X
@@ -1558,21 +1560,21 @@ C - - - - - 0x0308AE 18:889E: 9D A5 04  STA ram_04A5,X
 C - - - - - 0x0308B1 18:88A1: CA        DEX
 C - - - - - 0x0308B2 18:88A2: 10 FA     BPL bra_889E_loop
 C - - - - - 0x0308B4 18:88A4: A2 00     LDX #$00
-C - - - - - 0x0308B6 18:88A6: 20 B9 88  JSR sub_88B9
+C - - - - - 0x0308B6 18:88A6: 20 B9 88  JSR sub_88B9_отрисовать_окно_меню
 C - - - - - 0x0308B9 18:88A9: F0 0D     BEQ bra_88B8_RTS
 C - - - - - 0x0308BB 18:88AB: A0 02     LDY #$02
 C - - - - - 0x0308BD 18:88AD: B1 50     LDA (ram_0050_t01_data_вид_меню),Y
 C - - - - - 0x0308BF 18:88AF: 18        CLC
 C - - - - - 0x0308C0 18:88B0: 69 03     ADC #$03
 C - - - - - 0x0308C2 18:88B2: AA        TAX
-C - - - - - 0x0308C3 18:88B3: 20 B9 88  JSR sub_88B9
+C - - - - - 0x0308C3 18:88B3: 20 B9 88  JSR sub_88B9_отрисовать_окно_меню
 C - - - - - 0x0308C6 18:88B6: D0 CC     BNE bra_8884_loop_ожидание_освобождения_буфера
 bra_88B8_RTS:
 C - - - - - 0x0308C8 18:88B8: 60        RTS
 
 
 
-sub_88B9:
+sub_88B9_отрисовать_окно_меню:
 C - - - - - 0x0308CD 18:88BD: A0 02     LDY #$02
 C - - - - - 0x0308CF 18:88BF: B1 50     LDA (ram_0050_t01_data_вид_меню),Y
 C - - - - - 0x0308D1 18:88C1: 9D A5 04  STA ram_04A5,X
@@ -1756,30 +1758,35 @@ sub_89B4_управляющие_байты_меню_E0_FC:
 
 
 ofs_036_89FA_E0_имя_игрока_и_позиция:
+; con_8EB4_plr_name_pos
 C - - J - - 0x030A0A 18:89FA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x030A0D 18:89FD: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_его_позиции
 
 
 
 ofs_036_8A00_E1_статы_игрока:
+; con_8EB4_stats_attack
 C - - J - - 0x030A10 18:8A00: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x030A13 18:8A03: 4C A5 8C  JMP loc_8CA5_запись_энергии_и_статов
 
 
 
 ofs_036_8A06_E2_имя_принимающего_и_позиция:
+; con_8EB4_reciever_name_pos
 C - - J - - 0x030A16 18:8A06: AD FC 05  LDA ram_принимающий
 C - - - - - 0x030A19 18:8A09: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_его_позиции
 
 
 
 ofs_036_8A0C_E3_статы_принимающего:
+; con_8EB4_stats_receiver
 C - - J - - 0x030A1C 18:8A0C: AD FC 05  LDA ram_принимающий
 C - - - - - 0x030A1F 18:8A0F: 4C A5 8C  JMP loc_8CA5_запись_энергии_и_статов
 
 
 
 ofs_036_8A12_E4_список_спешалов:
+; con_8EB4_specials_list
 C - - J - - 0x030A22 18:8A12: AD 3B 04  LDA ram_действие_атаки
 C - - - - - 0x030A25 18:8A15: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x030A28 18:8A18: 20 8A     .word ofs_037_8A20_00
@@ -1871,6 +1878,7 @@ C - - - - - 0x030A95 18:8A85: 60        RTS
 
 
 ofs_036_8A86_E5_действия_нескольких_защитников:
+; con_8EB4_defender_actions
 C - - J - - 0x030A96 18:8A86: A4 40     LDY ram_0040_t05_data_index
 C - - - - - 0x030A98 18:8A88: E6 40     INC ram_0040_t05_data_index
 C - - - - - 0x030A9A 18:8A8A: B1 3E     LDA (ram_003E_t07_data),Y
@@ -1881,6 +1889,7 @@ C - - - - - 0x030AA0 18:8A90: 4C 1A 8D  JMP loc_8D1A_вывести_имя_иг�
 
 
 ofs_036_8A93_E6:
+; con_8EB4_defender_special
 C - - J - - 0x030AA3 18:8A93: A4 40     LDY ram_0040_t05_data_index
 C - - - - - 0x030AA5 18:8A95: E6 40     INC ram_0040_t05_data_index
 C - - - - - 0x030AA7 18:8A97: B1 3E     LDA (ram_003E_t07_data),Y
@@ -1904,6 +1913,7 @@ tbl_8AAC_спешал_защиты:
 
 
 ofs_036_8AAF_E7_имя_защитника_и_позиция:
+; con_8EB4_defender_name_pos
 C - - J - - 0x030ABF 18:8AAF: AE 1E 06  LDX ram_061E
 C - - - - - 0x030AC2 18:8AB2: BD 01 06  LDA ram_номер_защитника,X
 C - - - - - 0x030AC5 18:8AB5: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_его_позиции
@@ -1911,6 +1921,7 @@ C - - - - - 0x030AC5 18:8AB5: 4C DC 8C  JMP loc_8CDC_вывести_имя_иг�
 
 
 ofs_036_8AB8_E8_статы_защитника:
+; con_8EB4_stats_defense
 C - - J - - 0x030AC8 18:8AB8: AE 1E 06  LDX ram_061E
 C - - - - - 0x030ACB 18:8ABB: BD 01 06  LDA ram_номер_защитника,X
 C - - - - - 0x030ACE 18:8ABE: 4C A5 8C  JMP loc_8CA5_запись_энергии_и_статов
@@ -1918,7 +1929,9 @@ C - - - - - 0x030ACE 18:8ABE: 4C A5 8C  JMP loc_8CA5_запись_энергии
 
 
 ofs_036_8AC1_E9_принимающий_напарник:
+; con_8EB4_rec_name_teammate
 ofs_036_8AC1_EA_принимающий_соперник:
+; con_8EB4_rec_name_opponent
 C - - J - - 0x030AD1 18:8AC1: A4 40     LDY ram_0040_t05_data_index
 C - - - - - 0x030AD3 18:8AC3: E6 40     INC ram_0040_t05_data_index
 C - - - - - 0x030AD5 18:8AC5: B1 3E     LDA (ram_003E_t07_data),Y
@@ -1935,6 +1948,7 @@ C - - - - - 0x030AE4 18:8AD4: 4C 1A 8D  JMP loc_8D1A_вывести_имя_иг�
 
 
 ofs_036_8AD7_EB_имя_кипера_и_позиция:
+; con_8EB4_gk_name_pos
 C - - J - - 0x030AE7 18:8AD7: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x030AEA 18:8ADA: 49 0B     EOR #$0B
 C - - - - - 0x030AEC 18:8ADC: 4C DC 8C  JMP loc_8CDC_вывести_имя_игрока_и_название_его_позиции
@@ -1942,6 +1956,7 @@ C - - - - - 0x030AEC 18:8ADC: 4C DC 8C  JMP loc_8CDC_вывести_имя_иг�
 
 
 ofs_036_8ADF_EC_статы_кипера:
+; con_8EB4_stats_gk
 C - - J - - 0x030AEF 18:8ADF: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x030AF2 18:8AE2: 49 0B     EOR #$0B
 C - - - - - 0x030AF4 18:8AE4: 4C A5 8C  JMP loc_8CA5_запись_энергии_и_статов
@@ -1949,6 +1964,7 @@ C - - - - - 0x030AF4 18:8AE4: 4C A5 8C  JMP loc_8CA5_запись_энергии
 
 
 ofs_036_8AE7_ED_сокращение_имени_команды:
+; con_8EB4_team_name
                                         LDY ram_0040_t05_data_index
                                         INC ram_0040_t05_data_index
                                         LDX ram_твоя_команда
@@ -1985,6 +2001,7 @@ tbl_8AE8_сокращения_имен_команд:
 
 
 ofs_036_8B2F_EE_счет_игры:
+; con_8EB4_score
                                         LDY ram_0040_t05_data_index
                                         INC ram_0040_t05_data_index
                                         LDA (ram_003E_t07_data),Y
@@ -2009,6 +2026,7 @@ ofs_036_8B2F_EE_счет_игры:
 
 
 ofs_036_8B48_EF_номер_тайма:
+; con_8EB4_period_number
 C - - J - - 0x030B58 18:8B48: A9 00     LDA #$00
 C - - - - - 0x030B5A 18:8B4A: 85 47     STA ram_0047_t05
 bra_8B4C_loop:
@@ -2054,6 +2072,7 @@ tbl_8B72_текст_периода_матча:
 
 
 ofs_036_8B8B_F0_время_тайма:
+; con_8EB4_time
 ; сначала вычисляются минуты тайма, а в конце кода прыжок на секунды
 C - - J - - 0x030B9B 18:8B8B: A2 00     LDX #$00
 C - - - - - 0x030B9D 18:8B8D: AD F7 05  LDA ram_время_lo
@@ -2104,6 +2123,7 @@ tbl_8B8E_тайл_единиц:
 
 
 ofs_036_8BD5_F1_имена_из_меню:
+; con_8EB4_menu_name
 C - - J - - 0x030BE5 18:8BD5: A4 40     LDY ram_0040_t05_data_index
 C - - - - - 0x030BE7 18:8BD7: E6 40     INC ram_0040_t05_data_index
 C - - - - - 0x030BE9 18:8BD9: B1 3E     LDA (ram_003E_t07_data),Y
@@ -2112,12 +2132,14 @@ C - - - - - 0x030BEB 18:8BDB: 4C 1A 8D  JMP loc_8D1A_вывести_имя_иг�
 
 
 ofs_036_8BDE_F2_имя_управляемого_игрока:
+; con_8EB4_control_plr_name
 C - - J - - 0x030BEE 18:8BDE: AD FD 05  LDA ram_управляемый
 C - - - - - 0x030BF1 18:8BE1: 4C 1A 8D  JMP loc_8D1A_вывести_имя_игрока
 
 
 
 ofs_036_8BE4_F3_имя_напавшего_защитника:
+; con_8EB4_opp_def_name
                                         LDY ram_0040_t05_data_index
                                         INC ram_0040_t05_data_index
                                         LDA (ram_003E_t07_data),Y
@@ -2128,12 +2150,14 @@ ofs_036_8BE4_F3_имя_напавшего_защитника:
 
 
 ofs_036_8BEA_F4_имя_игрока_с_мячом:
+; con_8EB4_plr_with_ball_name
 C - - J - - 0x030BFA 18:8BEA: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x030BFD 18:8BED: 4C 1A 8D  JMP loc_8D1A_вывести_имя_игрока
 
 
 
 ofs_036_8BF0_F5_колво_guts:
+; con_8EB4_plr_stamina
 C - - J - - 0x030C00 18:8BF0: A4 40     LDY ram_0040_t05_data_index
 C - - - - - 0x030C02 18:8BF2: E6 40     INC ram_0040_t05_data_index
 C - - - - - 0x030C04 18:8BF4: B1 3E     LDA (ram_003E_t07_data),Y
@@ -2148,6 +2172,7 @@ C - - - - - 0x030C11 18:8C01: 4C 55 8C  JMP loc_8C55_запись_цифер_в_
 
 
 ofs_036_8C04_F6_список_игроков_в_пенальти:
+; con_8EB4_pk_players_list
 C - - J - - 0x030C14 18:8C04: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x030C17 18:8C07: 85 49     STA ram_0049_t07_выбранный_игрок
 bra_8C09_loop:
@@ -2189,6 +2214,7 @@ C - - - - - 0x030C56 18:8C46: 60        RTS
 
 
 ofs_036_8C47_F7_номер_управляемого:
+; con_8EB4_control_plr_number
 C - - J - - 0x030C57 18:8C47: AD FD 05  LDA ram_управляемый
 C - - - - - 0x030C5A 18:8C4A: 18        CLC
 C - - - - - 0x030C5B 18:8C4B: 69 01     ADC #$01
@@ -2198,11 +2224,12 @@ C - - - - - 0x030C5F 18:8C4F: 4C 55 8C  JMP loc_8C55_запись_цифер_в_
 
 
 ofs_036_8C44_F8_стрелочка_высоты_мяча:
+; con_8EB4_ball_height_arrow
                                         LDA ram_номер_сценария
                                         CMP #con_s_id_32
-                                        BEQ @выход
+                                        BEQ bra_8C44_RTS
                                         LDA ram_высота_мяча
-                                        BEQ @выход
+                                        BEQ bra_8C44_RTS
                                         ASL      ; умножение на 3
                                         ADC ram_высота_мяча
                                         ADC #< tbl_8C45_стрелочка
@@ -2212,7 +2239,7 @@ ofs_036_8C44_F8_стрелочка_высоты_мяча:
                                         STA ram_0030_t05_data_словарь + $01
                                         LDA #$03
                                         JMP loc_8A6F_вывести_стрелочку_высоты_мяча
-@выход:
+bra_8C44_RTS:
                                         RTS
 
 
@@ -2225,6 +2252,7 @@ tbl_8C45_стрелочка:
 
 
 ofs_036_8C45_F9_индикатор_если_соперник_не_клон:
+; con_8EB4_not_a_clone_indicator
                                         LDY ram_0040_t05_data_index
                                         INC ram_0040_t05_data_index
                                         LDA (ram_003E_t07_data),Y
@@ -2271,6 +2299,7 @@ bra_8C49_принимающий_существует:
 
 
 ofs_036_8C52_FC_закончить:
+; con_8EB4_end_token
 C - - J - - 0x030C62 18:8C52: 68        PLA
 C - - - - - 0x030C63 18:8C53: 68        PLA
 C - - - - - 0x030C64 18:8C54: 60        RTS
@@ -2414,6 +2443,7 @@ loc_8D6C_вывести_слово:
 C D 0 - - - 0x030D7C 18:8D6C: 20 3C C5  JSR sub_0x03F31F_подготовить_поинтер_на_слово
 C - - - - - 0x030D7F 18:8D6F: A0 00     LDY #$00
 bra_8D71_loop:
+; записать слово в буфер побуквенно
 C - - - - - 0x030D81 18:8D71: B1 30     LDA (ram_0030_t05_data_словарь),Y
 C - - - - - 0x030D83 18:8D73: C9 E0     CMP #$FC
 C - - - - - 0x030D85 18:8D75: B0 0F     BEQ bra_8D86_конец_слова
@@ -2434,11 +2464,11 @@ C - - - - - 0x030D9A 18:8D8A: 10 11     BPL bra_8D9D_RTS
 C - - - - - 0x030D9C 18:8D8C: 49 FF     EOR #$FF
 C - - - - - 0x030D9E 18:8D8E: 18        CLC
 C - - - - - 0x030D9F 18:8D8F: 69 01     ADC #$01
-C - - - - - 0x030DA1 18:8D91: 85 47     STA ram_0047_t01_количество_пробелов
+C - - - - - 0x030DA1 18:8D91: 85 47     STA ram_0047_t01_колво_пробелов
 bra_8D93_loop_добавления_пробелов_после_имени:
 C - - - - - 0x030DA3 18:8D93: A9 00     LDA #$00
 C - - - - - 0x030DA6 18:8D96: 20 9F 8C  JSR sub_8C9F_записать_символ_в_буфер_и_увеличить_индекс
-C - - - - - 0x030DA9 18:8D99: C6 47     DEC ram_0047_t01_количество_пробелов
+C - - - - - 0x030DA9 18:8D99: C6 47     DEC ram_0047_t01_колво_пробелов
 C - - - - - 0x030DAB 18:8D9B: D0 F6     BNE bra_8D93_loop_добавления_пробелов_после_имени
 bra_8D9D_RTS:
 C - - - - - 0x030DAD 18:8D9D: 60        RTS
@@ -4774,82 +4804,83 @@ off_B3B0:
 
 tbl_B3CF_вид_меню:
 ; 0x0333DF
-    .word off_B453_00_period_number_and_time                    ; номер тайма и время
-    .word off_B464_01_team_names_and_score                      ; сокращения команд и счет
-    .word off_B47D_02_player_action_window                      ; обычный набор действий для полевого и кипера
-    .word off_B48A_03_player_dribble_pass_shoot
-    .word off_B4A7_04_player_trap_pass_shot
-    .word off_B4C4_05_player_trap_pass_clearing
-    .word off_B4E1_06_gk_punch_catch
-    .word off_B4FA_07_gk_action_window_vs_player                ; действие когда ты на штрафной соперника и нападаешь на него
-    .word off_B507_08_gk_counter_drib_shot
-    .word off_B528_09_2_specials
-    .word off_B539_0A_3_specials
-    .word off_B54E_0B_4_specials
-    .word off_B567_0C_2_defensive_specials
-    .word off_B578_0D_gk_dive
+    .word _off016_B453_00_period_number_and_time                    ; номер тайма и время
+    .word _off016_B464_01_team_names_and_score                      ; сокращения команд и счет
+    .word _off016_B47D_02_player_action_window                      ; обычный набор действий для полевого и кипера
+    .word _off016_B48A_03_player_dribble_pass_shoot
+    .word _off016_B4A7_04_player_trap_pass_shot
+    .word _off016_B4C4_05_player_trap_pass_clearing
+    .word _off016_B4E1_06_gk_punch_catch
+    .word _off016_B4FA_07_gk_action_window_vs_player                ; действие когда ты на штрафной соперника и нападаешь на него
+    .word _off016_B507_08_gk_counter_drib_shot
+    .word _off016_B528_09_2_specials
+    .word _off016_B539_0A_3_specials
+    .word _off016_B54E_0B_4_specials
+    .word _off016_B567_0C_2_defensive_specials
+    .word _off016_B578_0D_gk_dive
     .word $0000      ; unused, тут была копия 0F
-    .word off_B58D_0F_pass_select_a_teammate
-    .word off_B5A2_10_1_2_pass_choose_a_partner
-    .word off_B5B7_11_no_players_nearby                         ; не с кем перепасоваться, напарники далеко
-    .word off_B5C8_12_1_player_action_window
-    .word off_B5D9_13_2_players_action_window                   ; действие нескольких игроков при нападении на соперника
-    .word off_B5EE_14_3_players_action_window
-    .word off_B607_15_4_players_action_window
-    .word off_B624_16_defender_tackle_block_passcut
-    .word off_B641_17_player_interfere_passcut
-    .word off_B65A_18_player_clearing_passcut
-    .word off_B673_19_show_2_teammates                          ; показать напарников при перемещении курсора паса
-    .word off_B688_1A_show_3_teammates
-    .word off_B6A1_1B_show_4_teammates
-    .word off_B6BE_1C_clear_receiver_stats_window               ; очистить окно статов принимаюшего
-    .word off_B6C7_1D_receiver_dribble_pass_shoot               ; отобразить статы принимающего
-    .word off_B6E4_1E_opponent_trap_clearing_pass           ; unused
-    .word off_B701_1F_opponent_trap_shot_pass               ; unused
-    .word off_B71E_20_show_1_opponent                           ; показать соперников при перемещении курсора паса
-    .word off_B72F_21_show_2_opponents
-    .word off_B744_22_show_3_opponents
-    .word off_B75D_23_show_4_opponents
-    .word off_B77A_24_select_1_of_2_teammates_for_pass          ; выбрать одного из напарников для паса
-    .word off_B78F_25_select_1_of_3_teammates_for_pass
-    .word off_B7A8_26_select_1_of_4_teammates_for_pass
-    .word off_B7C5_27_free_kick_taker
-    .word off_B7FE_28_rearrange_players_no_yes
-    .word off_B813_29_rearrange_select_done
-    .word off_B828_2A_aim_left_right
-    .word off_B83D_2B_wall_left_right
-    .word off_B852_2C_pk_aim
-    .word off_B85F_2D_pk_dive
-    .word off_B86C_2E_corner_kick_taker
-    .word off_B8A5_2F_select_penalty_taker
-    .word off_B8DE_30_display_name_stamina_at_the_top
-    .word off_B8EF_31_display_name_number_at_the_top
-    .word off_B900_32_display_name_opponent_at_the_top          ; когда мяч у соперника и тот бежит по полю
-    .word off_B90D_33_resume_play_edit_team_data
-    .word off_B922_34_formation_defense_swap_status_done
-    .word off_B93F_35_formation
-    .word off_B95C_36_defense
-    .word off_B975_37_swap
-    .word off_B98A_38_no_subs_left
-    .word off_B99B_39_swap_main_players
-    .word off_B9F8_3A_swap_sub_players
-    .word off_BA39_3B_whom_to_sub
-    .word off_BAA2_3C_stamina_fielded_players
-    .word off_BB03_3D_stamina_substitutes_bench
-    .word off_BB5C_3E_pk_shootout_select_taker
-    .word off_BB69_3F_pk_players_list
-    .word off_BB9E_40_pk_order
-    .word off_BBBF_41_pk_score
-    .word off_BC02_42_booth_for_charlie_time_score_period_number
-    .word off_BC03_43_booth_for_charlie_pk_period_number
-    .word off_BC04_44_show_1_defender
-    .word off_BC05_45_show_2_defenders
-    .word off_BC06_46_show_3_defenders
-    .word off_BC07_47_show_4_defenders
+    .word _off016_B58D_0F_pass_select_a_teammate
+    .word _off016_B5A2_10_1_2_pass_choose_a_partner
+    .word _off016_B5B7_11_no_players_nearby                         ; не с кем перепасоваться, напарники далеко
+    .word _off016_B5C8_12_1_player_action_window
+    .word _off016_B5D9_13_2_players_action_window                   ; действие нескольких игроков при нападении на соперника
+    .word _off016_B5EE_14_3_players_action_window
+    .word _off016_B607_15_4_players_action_window
+    .word _off016_B624_16_defender_tackle_block_passcut
+    .word _off016_B641_17_player_interfere_passcut
+    .word _off016_B65A_18_player_clearing_passcut
+    .word _off016_B673_19_show_2_teammates                          ; показать напарников при перемещении курсора паса
+    .word _off016_B688_1A_show_3_teammates
+    .word _off016_B6A1_1B_show_4_teammates
+    .word _off016_B6BE_1C_clear_receiver_stats_window               ; очистить окно статов принимаюшего
+    .word _off016_B6C7_1D_receiver_dribble_pass_shoot               ; отобразить статы принимающего
+    .word _off016_B6E4_1E_opponent_trap_clearing_pass           ; unused
+    .word _off016_B701_1F_opponent_trap_shot_pass               ; unused
+    .word _off016_B71E_20_show_1_opponent                           ; показать соперников при перемещении курсора паса
+    .word _off016_B72F_21_show_2_opponents
+    .word _off016_B744_22_show_3_opponents
+    .word _off016_B75D_23_show_4_opponents
+    .word _off016_B77A_24_select_1_of_2_teammates_for_pass          ; выбрать одного из напарников для паса
+    .word _off016_B78F_25_select_1_of_3_teammates_for_pass
+    .word _off016_B7A8_26_select_1_of_4_teammates_for_pass
+    .word _off016_B7C5_27_free_kick_taker
+    .word _off016_B7FE_28_rearrange_players_no_yes
+    .word _off016_B813_29_rearrange_select_done
+    .word _off016_B828_2A_aim_left_right
+    .word _off016_B83D_2B_wall_left_right
+    .word _off016_B852_2C_pk_aim
+    .word _off016_B85F_2D_pk_dive
+    .word _off016_B86C_2E_corner_kick_taker
+    .word _off016_B8A5_2F_select_penalty_taker
+    .word _off016_B8DE_30_display_name_stamina_at_the_top
+    .word _off016_B8EF_31_display_name_number_at_the_top
+    .word _off016_B900_32_display_name_opponent_at_the_top          ; когда мяч у соперника и тот бежит по полю
+    .word _off016_B90D_33_resume_play_edit_team_data
+    .word _off016_B922_34_formation_defense_swap_status_done
+    .word _off016_B93F_35_formation
+    .word _off016_B95C_36_defense
+    .word _off016_B975_37_swap
+    .word _off016_B98A_38_no_subs_left
+    .word _off016_B99B_39_swap_main_players
+    .word _off016_B9F8_3A_swap_sub_players
+    .word _off016_BA39_3B_whom_to_sub
+    .word _off016_BAA2_3C_stamina_fielded_players
+    .word _off016_BB03_3D_stamina_substitutes_bench
+    .word _off016_BB5C_3E_pk_shootout_select_taker
+    .word _off016_BB69_3F_pk_players_list
+    .word _off016_BB9E_40_pk_order
+    .word _off016_BBBF_41_pk_score
+    .word _off016_BC02_42_booth_for_charlie_time_score_period_number
+    .word _off016_BC03_43_booth_for_charlie_pk_period_number
+    .word _off016_BC04_44_show_1_defender
+    .word _off016_BC05_45_show_2_defenders
+    .word _off016_BC06_46_show_3_defenders
+    .word _off016_BC07_47_show_4_defenders
 
 
 
-off_B453_00_period_number_and_time:
+_off016_B453_00_period_number_and_time:
+; con_B3CF_period_number_and_time
 ; номер набора контура окна
 ; id of the window outline
     .byte $02 * $09
@@ -4877,15 +4908,16 @@ off_B453_00_period_number_and_time:
     .word @time
 
 @time:
-    .byte con_8EB4_F0_time
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_time
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B464_01_team_names_and_score:
+_off016_B464_01_team_names_and_score:
+; con_B3CF_team_names_and_score
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
@@ -4913,23 +4945,24 @@ off_B464_01_team_names_and_score:
     .word @score_right
 
 @score_left:
-    .byte con_8EB4_EE_score, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_score, $00
+    .byte con_8EB4_end_token
 
 @dash:
     .text "-"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @score_right:
-    .byte con_8EB4_EE_score, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_score, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B47D_02_player_action_window:
+_off016_B47D_02_player_action_window:
+; con_B3CF_player_action_window
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -4955,17 +4988,18 @@ off_B47D_02_player_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @arrow:
-    .byte con_8EB4_F8_ball_height_arrow
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_ball_height_arrow
+    .byte con_8EB4_end_token
 
 
 
 
 
-off_B48A_03_player_dribble_pass_shoot:
+_off016_B48A_03_player_dribble_pass_shoot:
+; con_B3CF_player_dribble_pass_shoot
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -4999,35 +5033,36 @@ off_B48A_03_player_dribble_pass_shoot:
     .word @shoot
 
 @name_pos:
-    .byte con_8EB4_E0_plr_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E1_stats_attack, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @dribble:
     .text "Dribble    "
-    .byte con_8EB4_E1_stats_attack, con_skill_prl_dribble
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_prl_dribble
+    .byte con_8EB4_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_8EB4_E1_stats_attack, con_skill_prl___pass
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_prl___pass
+    .byte con_8EB4_end_token
 
 @shoot:
     .text "Shoot      "
-    .byte con_8EB4_E1_stats_attack, con_skill_prl___shoot
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_prl___shoot
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B4A7_04_player_trap_pass_shot:
+_off016_B4A7_04_player_trap_pass_shot:
+; con_B3CF_player_trap_pass_shot
 ; не зависит от низкого и высокого мяча, видимо статы вычисляются отдельно
 ; номер набора контура окна
     .byte $00 * $09
@@ -5062,35 +5097,36 @@ off_B4A7_04_player_trap_pass_shot:
     .word @shot
 
 @name_pos:
-    .byte con_8EB4_E0_plr_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E1_stats_attack, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @trap:
     .text "Trap       "
-    .byte con_8EB4_E1_stats_attack, con_skill_prl_trap_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_prl_trap_low
+    .byte con_8EB4_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_8EB4_E1_stats_attack, con_skill_plr_pass_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_plr_pass_low
+    .byte con_8EB4_end_token
 
 @shot:
     .text "Shoot      "
-    .byte con_8EB4_E1_stats_attack, con_skill_prl_shoot_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_prl_shoot_low
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B4C4_05_player_trap_pass_clearing:
+_off016_B4C4_05_player_trap_pass_clearing:
+; con_B3CF_player_trap_pass_clearing
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5124,35 +5160,36 @@ off_B4C4_05_player_trap_pass_clearing:
     .word @clearing
 
 @name_pos:
-    .byte con_8EB4_E0_plr_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E1_stats_attack, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @trap:
     .text "Trap       "
-    .byte con_8EB4_E1_stats_attack, con_skill_prl_trap_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_prl_trap_low
+    .byte con_8EB4_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_8EB4_E1_stats_attack, con_skill_plr_pass_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_plr_pass_low
+    .byte con_8EB4_end_token
 
 @clearing:
     .text "Clearing   "
-    .byte con_8EB4_E1_stats_attack, con_skill_0B
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_0B
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B4E1_06_gk_punch_catch:
+_off016_B4E1_06_gk_punch_catch:
+; con_B3CF_gk_punch_catch
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5183,30 +5220,31 @@ off_B4E1_06_gk_punch_catch:
     .word @catch
 
 @name_pos:
-    .byte con_8EB4_EB_gk_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_gk_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_EC_stats_gk, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @punch:
     .text "Punch      "
-    .byte con_8EB4_EC_stats_gk, con_skill_gk_punch
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_gk_punch
+    .byte con_8EB4_end_token
 
 @catch:
     .text "Catch      "
-    .byte con_8EB4_EC_stats_gk, con_skill_gk_catch
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_gk_catch
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B4FA_07_gk_action_window_vs_player:
+_off016_B4FA_07_gk_action_window_vs_player:
+; con_B3CF_gk_action_window_vs_player
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5229,14 +5267,15 @@ off_B4FA_07_gk_action_window_vs_player:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B507_08_gk_counter_drib_shot:
+_off016_B507_08_gk_counter_drib_shot:
+; con_B3CF_gk_counter_drib_shot
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5273,38 +5312,39 @@ off_B507_08_gk_counter_drib_shot:
     .word @stop_shot_2
 
 @name_pos:
-    .byte con_8EB4_EB_gk_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_gk_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_EC_stats_gk, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @stop_dribble_1:
     .text "Stop"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @stop_dribble_2:
     .text " dribble   "
-    .byte con_8EB4_EC_stats_gk, con_skill_gk_stop_shot
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_gk_stop_shot
+    .byte con_8EB4_end_token
 
 @stop_shot_1:
     .text "Stop"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @stop_shot_2:
     .text " shot      "
-    .byte con_8EB4_EC_stats_gk, con_skill_gk_stop_dribble
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_gk_stop_dribble
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B528_09_2_specials:
+_off016_B528_09_2_specials:
+; con_B3CF_2_specials
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5333,22 +5373,23 @@ off_B528_09_2_specials:
 
 @txt:
     .text " Specials "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @special_1:
-    .byte con_8EB4_E4_specials_list, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $00
+    .byte con_8EB4_end_token
 
 @special_2:
-    .byte con_8EB4_E4_specials_list, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B539_0A_3_specials:
+_off016_B539_0A_3_specials:
+; con_B3CF_3_specials
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5380,26 +5421,27 @@ off_B539_0A_3_specials:
 
 @txt:
     .text " Specials "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @special_1:
-    .byte con_8EB4_E4_specials_list, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $00
+    .byte con_8EB4_end_token
 
 @special_2:
-    .byte con_8EB4_E4_specials_list, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $01
+    .byte con_8EB4_end_token
 
 @special_3:
-    .byte con_8EB4_E4_specials_list, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $02
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B54E_0B_4_specials:
+_off016_B54E_0B_4_specials:
+; con_B3CF_4_specials
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5434,30 +5476,31 @@ off_B54E_0B_4_specials:
 
 @txt:
     .text " Specials "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @special_1:
-    .byte con_8EB4_E4_specials_list, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $00
+    .byte con_8EB4_end_token
 
 @special_2:
-    .byte con_8EB4_E4_specials_list, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $01
+    .byte con_8EB4_end_token
 
 @special_3:
-    .byte con_8EB4_E4_specials_list, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $02
+    .byte con_8EB4_end_token
 
 @special_4:
-    .byte con_8EB4_E4_specials_list, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_specials_list, $03
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B567_0C_2_defensive_specials:
+_off016_B567_0C_2_defensive_specials:
+; con_B3CF_2_defensive_specials
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5487,21 +5530,22 @@ off_B567_0C_2_defensive_specials:
 
 @txt:
     .text " Specials "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @special_1:
-    .byte con_8EB4_E6_defender_special, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_special, $00
+    .byte con_8EB4_end_token
 
 @special_2:
-    .byte con_8EB4_E6_defender_special, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_special, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
-off_B578_0D_gk_dive:
+_off016_B578_0D_gk_dive:
+; con_B3CF_gk_dive
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5529,25 +5573,26 @@ off_B578_0D_gk_dive:
     .word @dive
 
 @name_pos:
-    .byte con_8EB4_EB_gk_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_gk_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_EC_stats_gk, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @dive:
     .text "Dive       "
-    .byte con_8EB4_EC_stats_gk, con_skill_gk_dive_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_gk, con_skill_gk_dive_low
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B58D_0F_pass_select_a_teammate:
+_off016_B58D_0F_pass_select_a_teammate:
+; con_B3CF_pass_select_a_teammate
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5576,22 +5621,23 @@ off_B58D_0F_pass_select_a_teammate:
 
 @txt_1:
     .text " Pass "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Select a"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "teammate"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B5A2_10_1_2_pass_choose_a_partner:
+_off016_B5A2_10_1_2_pass_choose_a_partner:
+; con_B3CF_1_2_pass_choose_a_partner
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5620,22 +5666,23 @@ off_B5A2_10_1_2_pass_choose_a_partner:
 
 @txt_1:
     .text "1-2 Pass"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Choose a"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "partner"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B5B7_11_no_players_nearby:
+_off016_B5B7_11_no_players_nearby:
+; con_B3CF_no_players_nearby
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5667,26 +5714,27 @@ off_B5B7_11_no_players_nearby:
 
 @txt_1:
     .text "1-2 Pass"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "No"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
     
 @txt_3:
     .text "players"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
     
 @txt_4:
     .text "nearby!"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B5C8_12_1_player_action_window:
+_off016_B5C8_12_1_player_action_window:
+; con_B3CF_1_player_action_window
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5715,22 +5763,23 @@ off_B5C8_12_1_player_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_1:
-    .byte con_8EB4_E5_defender_actions, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $00
+    .byte con_8EB4_end_token
 
 @arrow:
-    .byte con_8EB4_F8_ball_height_arrow
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_ball_height_arrow
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B5D9_13_2_players_action_window:
+_off016_B5D9_13_2_players_action_window:
+; con_B3CF_2_players_action_window
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5762,26 +5811,27 @@ off_B5D9_13_2_players_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_1:
-    .byte con_8EB4_E5_defender_actions, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $00
+    .byte con_8EB4_end_token
 
 @name_2:
-    .byte con_8EB4_E5_defender_actions, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $01
+    .byte con_8EB4_end_token
 
 @arrow:
-    .byte con_8EB4_F8_ball_height_arrow
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_ball_height_arrow
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B5EE_14_3_players_action_window:
+_off016_B5EE_14_3_players_action_window:
+; con_B3CF_3_players_action_window
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5816,30 +5866,31 @@ off_B5EE_14_3_players_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_1:
-    .byte con_8EB4_E5_defender_actions, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $00
+    .byte con_8EB4_end_token
 
 @name_2:
-    .byte con_8EB4_E5_defender_actions, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $01
+    .byte con_8EB4_end_token
 
 @name_3:
-    .byte con_8EB4_E5_defender_actions, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $02
+    .byte con_8EB4_end_token
 
 @arrow:
-    .byte con_8EB4_F8_ball_height_arrow
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_ball_height_arrow
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B607_15_4_players_action_window:
+_off016_B607_15_4_players_action_window:
+; con_B3CF_4_players_action_window
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5877,34 +5928,35 @@ off_B607_15_4_players_action_window:
 
 @txt:
     .byte $80, $81, $82, $83, $84, $85, $86     ; Action
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_1:
-    .byte con_8EB4_E5_defender_actions, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $00
+    .byte con_8EB4_end_token
 
 @name_2:
-    .byte con_8EB4_E5_defender_actions, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $01
+    .byte con_8EB4_end_token
 
 @name_3:
-    .byte con_8EB4_E5_defender_actions, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $02
+    .byte con_8EB4_end_token
 
 @name_4:
-    .byte con_8EB4_E5_defender_actions, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_actions, $03
+    .byte con_8EB4_end_token
 
 @arrow:
-    .byte con_8EB4_F8_ball_height_arrow
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_ball_height_arrow
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B624_16_defender_tackle_block_passcut:
+_off016_B624_16_defender_tackle_block_passcut:
+; con_B3CF_defender_tackle_block_passcut
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5938,35 +5990,36 @@ off_B624_16_defender_tackle_block_passcut:
     .word @passcut
 
 @name:
-    .byte con_8EB4_E7_defender_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E8_stats_defense, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @tackle:
     .text "Tackle     "
-    .byte con_8EB4_E8_stats_defense, con_skill_prl_tackle
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_prl_tackle
+    .byte con_8EB4_end_token
 
 @block:
     .text "Block      "
-    .byte con_8EB4_E8_stats_defense, con_skill_prl_block
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_prl_block
+    .byte con_8EB4_end_token
 
 @passcut:
     .text "Pass cut   "
-    .byte con_8EB4_E8_stats_defense, con_skill_06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_06
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B641_17_player_interfere_passcut:
+_off016_B641_17_player_interfere_passcut:
+; con_B3CF_player_interfere_passcut
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -5997,30 +6050,31 @@ off_B641_17_player_interfere_passcut:
     .word @passcut
 
 @name:
-    .byte con_8EB4_E7_defender_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E8_stats_defense, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @interfere:
     .text "Interfere  "
-    .byte con_8EB4_E8_stats_defense, con_skill_prl_interfere_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_prl_interfere_low
+    .byte con_8EB4_end_token
 
 @passcut:
     .text "Pass cut   "
-    .byte con_8EB4_E8_stats_defense, con_skill_0E
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_0E
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B65A_18_player_clearing_passcut:
+_off016_B65A_18_player_clearing_passcut:
+; con_B3CF_player_clearing_passcut
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6051,30 +6105,31 @@ off_B65A_18_player_clearing_passcut:
     .word @passcut
 
 @name:
-    .byte con_8EB4_E7_defender_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_defender_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E8_stats_defense, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @clearing:
     .text "Clearing   "
-    .byte con_8EB4_E8_stats_defense, con_skill_prl_clearance_low
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_prl_clearance_low
+    .byte con_8EB4_end_token
 
 @passcut:
     .text "Pass cut   "
-    .byte con_8EB4_E8_stats_defense, con_skill_0E
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_defense, con_skill_0E
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B673_19_show_2_teammates:
+_off016_B673_19_show_2_teammates:
+; con_B3CF_19_show_2_teammates
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6103,22 +6158,23 @@ off_B673_19_show_2_teammates:
 
 @txt:
     .text "Teammates"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @receiver_1:
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @receiver_2:
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B688_1A_show_3_teammates:
+_off016_B688_1A_show_3_teammates:
+; con_B3CF_1A_show_3_teammates
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6150,26 +6206,27 @@ off_B688_1A_show_3_teammates:
 
 @txt:
     .text "Teammates"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @receiver_1:
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @receiver_2:
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 @receiver_3:
-    .byte con_8EB4_E9_rec_name_teammate, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $02
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B6A1_1B_show_4_teammates:
+_off016_B6A1_1B_show_4_teammates:
+; con_B3CF_1B_show_4_teammates
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6204,30 +6261,31 @@ off_B6A1_1B_show_4_teammates:
 
 @txt:
     .text "Teammates"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @receiver_1:
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @receiver_2:
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 @receiver_3:
-    .byte con_8EB4_E9_rec_name_teammate, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $02
+    .byte con_8EB4_end_token
 
 @receiver_4:
-    .byte con_8EB4_E9_rec_name_teammate, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $03
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B6BE_1C_clear_receiver_stats_window:
+_off016_B6BE_1C_clear_receiver_stats_window:
+; con_B3CF_clear_receiver_stats_window
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
@@ -6249,7 +6307,8 @@ off_B6BE_1C_clear_receiver_stats_window:
 
 
 
-off_B6C7_1D_receiver_dribble_pass_shoot:
+_off016_B6C7_1D_receiver_dribble_pass_shoot:
+; con_B3CF_receiver_dribble_pass_shoot
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6283,35 +6342,36 @@ off_B6C7_1D_receiver_dribble_pass_shoot:
     .word @shoot
 
 @name_pos:
-    .byte con_8EB4_E2_reciever_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_reciever_name_pos
+    .byte con_8EB4_end_token
 
 @stamina:
     .text "Stamina    "
-    .byte con_8EB4_E3_stats_receiver, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_stamina
+    .byte con_8EB4_end_token
 
 @dribble:
     .text "Dribble    "
-    .byte con_8EB4_E3_stats_receiver, con_skill_prl_dribble
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_prl_dribble
+    .byte con_8EB4_end_token
 
 @pass:
     .text "Pass       "
-    .byte con_8EB4_E3_stats_receiver, con_skill_prl___pass
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_prl___pass
+    .byte con_8EB4_end_token
 
 @shoot:
     .text "Shoot      "
-    .byte con_8EB4_E3_stats_receiver, con_skill_prl___shoot
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_prl___shoot
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B6E4_1E_opponent_trap_clearing_pass:
+_off016_B6E4_1E_opponent_trap_clearing_pass:
+; con_B3CF_opponent_trap_clearing_pass
                                         .byte $00   ; 
 - - - - - - 0x0336F4 18:B6E4: 32 22     .word $2232 ; 
 
@@ -6343,7 +6403,8 @@ off_B6E4_1E_opponent_trap_clearing_pass:
 
 
 
-off_B701_1F_opponent_trap_shot_pass:
+_off016_B701_1F_opponent_trap_shot_pass:
+; con_B3CF_opponent_trap_shot_pass
                                         .byte $00   ; 
 - - - - - - 0x033711 18:B701: 32 22     .word $2232 ; 
 
@@ -6375,7 +6436,8 @@ off_B701_1F_opponent_trap_shot_pass:
 
 
 
-off_B71E_20_show_1_opponent:
+_off016_B71E_20_show_1_opponent:
+; con_B3CF_show_1_opponent
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6404,22 +6466,23 @@ off_B71E_20_show_1_opponent:
 
 @txt:
     .text "Opponent"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $00
+    .byte con_8EB4_end_token
 
 @opponent_1:
-    .byte con_8EB4_EA_rec_name_opponent, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $00
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B72F_21_show_2_opponents:
+_off016_B72F_21_show_2_opponents:
+; con_B3CF_show_2_opponents
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6454,30 +6517,31 @@ off_B72F_21_show_2_opponents:
 
 @txt:
     .text "Opponents"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $00
+    .byte con_8EB4_end_token
 
 @opponent_1:
-    .byte con_8EB4_EA_rec_name_opponent, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $00
+    .byte con_8EB4_end_token
 
 @indicator_2:
-    .byte con_8EB4_F9_not_a_clone_indicator, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $01
+    .byte con_8EB4_end_token
 
 @opponent_2:
-    .byte con_8EB4_EA_rec_name_opponent, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B744_22_show_3_opponents:
+_off016_B744_22_show_3_opponents:
+; con_B3CF_show_3_opponents
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6518,38 +6582,39 @@ off_B744_22_show_3_opponents:
 
 @txt:
     .text "Opponents"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $00
+    .byte con_8EB4_end_token
 
 @opponent_1:
-    .byte con_8EB4_EA_rec_name_opponent, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $00
+    .byte con_8EB4_end_token
 
 @indicator_2:
-    .byte con_8EB4_F9_not_a_clone_indicator, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $01
+    .byte con_8EB4_end_token
 
 @opponent_2:
-    .byte con_8EB4_EA_rec_name_opponent, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $01
+    .byte con_8EB4_end_token
 
 @indicator_3:
-    .byte con_8EB4_F9_not_a_clone_indicator, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $02
+    .byte con_8EB4_end_token
 
 @opponent_3:
-    .byte con_8EB4_EA_rec_name_opponent, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $02
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B75D_23_show_4_opponents:
+_off016_B75D_23_show_4_opponents:
+; con_B3CF_show_4_opponents
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6596,46 +6661,47 @@ off_B75D_23_show_4_opponents:
 
 @txt:
     .text "Opponents"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $00
+    .byte con_8EB4_end_token
 
 @opponent_1:
-    .byte con_8EB4_EA_rec_name_opponent, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $00
+    .byte con_8EB4_end_token
 
 @indicator_2:
-    .byte con_8EB4_F9_not_a_clone_indicator, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $01
+    .byte con_8EB4_end_token
 
 @opponent_2:
-    .byte con_8EB4_EA_rec_name_opponent, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $01
+    .byte con_8EB4_end_token
 
 @indicator_3:
-    .byte con_8EB4_F9_not_a_clone_indicator, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $02
+    .byte con_8EB4_end_token
 
 @opponent_3:
-    .byte con_8EB4_EA_rec_name_opponent, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $02
+    .byte con_8EB4_end_token
 
 @indicator_4:
-    .byte con_8EB4_F9_not_a_clone_indicator, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $03
+    .byte con_8EB4_end_token
 
 @opponent_4:
-    .byte con_8EB4_EA_rec_name_opponent, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_opponent, $03
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B77A_24_select_1_of_2_teammates_for_pass:
+_off016_B77A_24_select_1_of_2_teammates_for_pass:
+; con_B3CF_select_1_of_2_teammates_for_pass
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6664,22 +6730,23 @@ off_B77A_24_select_1_of_2_teammates_for_pass:
 
 @txt:
     .text "To whom?"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @receiver_1:
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @receiver_2:
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B78F_25_select_1_of_3_teammates_for_pass:
+_off016_B78F_25_select_1_of_3_teammates_for_pass:
+; con_B3CF_select_1_of_3_teammates_for_pass
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6711,26 +6778,27 @@ off_B78F_25_select_1_of_3_teammates_for_pass:
 
 @txt:
     .text "To whom?"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @receiver_1:
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @receiver_2:
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 @receiver_3:
-    .byte con_8EB4_E9_rec_name_teammate, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $02
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B7A8_26_select_1_of_4_teammates_for_pass:
+_off016_B7A8_26_select_1_of_4_teammates_for_pass:
+; con_B3CF_select_1_of_4_teammates_for_pass
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6765,30 +6833,31 @@ off_B7A8_26_select_1_of_4_teammates_for_pass:
 
 @txt:
     .text "To whom?"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @receiver_1:
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @receiver_2:
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 @receiver_3:
-    .byte con_8EB4_E9_rec_name_teammate, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $02
+    .byte con_8EB4_end_token
 
 @receiver_4:
-    .byte con_8EB4_E9_rec_name_teammate, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $03
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B7C5_27_free_kick_taker:
+_off016_B7C5_27_free_kick_taker:
+; con_B3CF_free_kick_taker
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6841,54 +6910,55 @@ off_B7C5_27_free_kick_taker:
 
 @txt:
     .text " Free Kick taker "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_2:
-    .byte con_8EB4_F1_menu_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $01
+    .byte con_8EB4_end_token
 
 @name_3:
-    .byte con_8EB4_F1_menu_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $02
+    .byte con_8EB4_end_token
 
 @name_4:
-    .byte con_8EB4_F1_menu_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $03
+    .byte con_8EB4_end_token
 
 @name_5:
-    .byte con_8EB4_F1_menu_name, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $04
+    .byte con_8EB4_end_token
 
 @name_6:
-    .byte con_8EB4_F1_menu_name, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $05
+    .byte con_8EB4_end_token
 
 @name_7:
-    .byte con_8EB4_F1_menu_name, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $06
+    .byte con_8EB4_end_token
 
 @name_8:
-    .byte con_8EB4_F1_menu_name, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $07
+    .byte con_8EB4_end_token
 
 @name_9:
-    .byte con_8EB4_F1_menu_name, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $08
+    .byte con_8EB4_end_token
 
 @name_10:
-    .byte con_8EB4_F1_menu_name, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $09
+    .byte con_8EB4_end_token
 
 @name_11:
-    .byte con_8EB4_F1_menu_name, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $0A
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B7FE_28_rearrange_players_no_yes:
+_off016_B7FE_28_rearrange_players_no_yes:
+; con_B3CF_rearrange_players_no_yes
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6920,26 +6990,27 @@ off_B7FE_28_rearrange_players_no_yes:
 
 @txt_1:
     .text "Rearrange"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "your players?"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "No"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_4:
     .text "Yes"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B813_29_rearrange_select_done:
+_off016_B813_29_rearrange_select_done:
+; con_B3CF_rearrange_select_done
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -6968,22 +7039,23 @@ off_B813_29_rearrange_select_done:
 
 @txt_1:
     .text "Rearrange"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Select"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Done"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B828_2A_aim_left_right:
+_off016_B828_2A_aim_left_right:
+; con_B3CF_aim_left_right
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7012,22 +7084,23 @@ off_B828_2A_aim_left_right:
 
 @txt_1:
     .text " Aim "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Left"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Right"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B83D_2B_wall_left_right:
+_off016_B83D_2B_wall_left_right:
+; con_B3CF_wall_left_right
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7056,22 +7129,23 @@ off_B83D_2B_wall_left_right:
 
 @txt_1:
     .text " Wall "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Left"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Right"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B852_2C_pk_aim:
+_off016_B852_2C_pk_aim:
+; con_B3CF_pk_aim
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7095,14 +7169,15 @@ off_B852_2C_pk_aim:
 
 @txt:
     .text " Aim "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B85F_2D_pk_dive:
+_off016_B85F_2D_pk_dive:
+; con_B3CF_pk_dive
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7126,14 +7201,15 @@ off_B85F_2D_pk_dive:
 
 @txt:
     .text $87, $88, $89, $8A, $8B       ; Dive
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B86C_2E_corner_kick_taker:
+_off016_B86C_2E_corner_kick_taker:
+; con_B3CF_corner_kick_taker
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7186,54 +7262,55 @@ off_B86C_2E_corner_kick_taker:
 
 @txt:
     .text " Corner Kick taker "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_2:
-    .byte con_8EB4_F1_menu_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $01
+    .byte con_8EB4_end_token
 
 @name_3:
-    .byte con_8EB4_F1_menu_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $02
+    .byte con_8EB4_end_token
 
 @name_4:
-    .byte con_8EB4_F1_menu_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $03
+    .byte con_8EB4_end_token
 
 @name_5:
-    .byte con_8EB4_F1_menu_name, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $04
+    .byte con_8EB4_end_token
 
 @name_6:
-    .byte con_8EB4_F1_menu_name, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $05
+    .byte con_8EB4_end_token
 
 @name_7:
-    .byte con_8EB4_F1_menu_name, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $06
+    .byte con_8EB4_end_token
 
 @name_8:
-    .byte con_8EB4_F1_menu_name, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $07
+    .byte con_8EB4_end_token
 
 @name_9:
-    .byte con_8EB4_F1_menu_name, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $08
+    .byte con_8EB4_end_token
 
 @name_10:
-    .byte con_8EB4_F1_menu_name, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $09
+    .byte con_8EB4_end_token
 
 @name_11:
-    .byte con_8EB4_F1_menu_name, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $0A
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B8A5_2F_select_penalty_taker:
+_off016_B8A5_2F_select_penalty_taker:
+; con_B3CF_select_penalty_taker
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7286,54 +7363,55 @@ off_B8A5_2F_select_penalty_taker:
 
 @txt:
     .text "Select Penalty taker"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_2:
-    .byte con_8EB4_F1_menu_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $01
+    .byte con_8EB4_end_token
 
 @name_3:
-    .byte con_8EB4_F1_menu_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $02
+    .byte con_8EB4_end_token
 
 @name_4:
-    .byte con_8EB4_F1_menu_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $03
+    .byte con_8EB4_end_token
 
 @name_5:
-    .byte con_8EB4_F1_menu_name, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $04
+    .byte con_8EB4_end_token
 
 @name_6:
-    .byte con_8EB4_F1_menu_name, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $05
+    .byte con_8EB4_end_token
 
 @name_7:
-    .byte con_8EB4_F1_menu_name, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $06
+    .byte con_8EB4_end_token
 
 @name_8:
-    .byte con_8EB4_F1_menu_name, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $07
+    .byte con_8EB4_end_token
 
 @name_9:
-    .byte con_8EB4_F1_menu_name, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $08
+    .byte con_8EB4_end_token
 
 @name_10:
-    .byte con_8EB4_F1_menu_name, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $09
+    .byte con_8EB4_end_token
 
 @name_11:
-    .byte con_8EB4_F1_menu_name, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $0A
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B8DE_30_display_name_stamina_at_the_top:
+_off016_B8DE_30_display_name_stamina_at_the_top:
+; con_B3CF_display_name_stamina_at_the_top
 ; номер набора контура окна
     .byte $03 * $09
 ; адрес ppu
@@ -7358,19 +7436,20 @@ off_B8DE_30_display_name_stamina_at_the_top:
     .word @энергия
 
 @имя_игрока_с_мячом:
-    .byte con_8EB4_F4_plr_with_ball_name
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_with_ball_name
+    .byte con_8EB4_end_token
 
 @энергия:
-    .byte con_8EB4_E1_stats_attack, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_attack, con_skill_stamina
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B8EF_31_display_name_number_at_the_top:
+_off016_B8EF_31_display_name_number_at_the_top:
+; con_B3CF_display_name_number_at_the_top
 ; номер набора контура окна
     .byte $03 * $09
 ; адрес ppu
@@ -7396,19 +7475,20 @@ off_B8EF_31_display_name_number_at_the_top:
     .word @имя_управляемого_игрока
 
 @номер_управляемого_игрока:
-    .byte con_8EB4_F7_control_plr_number
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_control_plr_number
+    .byte con_8EB4_end_token
 
 @имя_управляемого_игрока:
-    .byte con_8EB4_F2_control_plr_name
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_control_plr_name
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B900_32_display_name_opponent_at_the_top:
+_off016_B900_32_display_name_opponent_at_the_top:
+; con_B3CF_display_name_opponent_at_the_top
 ; номер набора контура окна
     .byte $03 * $09
 ; адрес ppu
@@ -7430,15 +7510,16 @@ off_B900_32_display_name_opponent_at_the_top:
     .word @имя_игрока_с_мячом
 
 @имя_игрока_с_мячом:
-    .byte con_8EB4_F4_plr_with_ball_name
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_with_ball_name
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B90D_33_resume_play_edit_team_data:
+_off016_B90D_33_resume_play_edit_team_data:
+; con_B3CF_resume_play_edit_team_data
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7467,22 +7548,23 @@ off_B90D_33_resume_play_edit_team_data:
 
 @txt_1:
     .text " Action "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Resume Play"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Edit Team Data"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B922_34_formation_defense_swap_status_done:
+_off016_B922_34_formation_defense_swap_status_done:
+; con_B3CF__formation_defense_swap_status_done
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7517,30 +7599,31 @@ off_B922_34_formation_defense_swap_status_done:
 
 @txt_1:
     .text "Formation"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Defense"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Swap"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_4:
     .text "Status"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_5:
     .text "Done"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B93F_35_formation:
+_off016_B93F_35_formation:
+; con_B3CF_formation
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7578,34 +7661,35 @@ off_B93F_35_formation:
 
 @txt_1:
     .text "Formation"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "4:3:3"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "4:4:2"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_4:
     .text "3:5:2"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_5:
     .text "Brazil"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_6:
     .text "tactics"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B95C_36_defense:
+_off016_B95C_36_defense:
+; con_B3CF_defense
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7637,26 +7721,27 @@ off_B95C_36_defense:
 
 @txt_1:
     .text "Defense"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Normal"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Press"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_4:
     .text "Counter"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B975_37_swap:
+_off016_B975_37_swap:
+; con_B3CF_swap
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7685,22 +7770,23 @@ off_B975_37_swap:
 
 @txt_1:
     .text "Swap"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Players"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "Positions"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B98A_38_no_subs_left:
+_off016_B98A_38_no_subs_left:
+; con_B3CF_no_subs_left
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7729,22 +7815,23 @@ off_B98A_38_no_subs_left:
 
 @txt_1:
     .text "Swap"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_2:
     .text "Only 3 subs"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @txt_3:
     .text "per match!"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B99B_39_swap_main_players:
+_off016_B99B_39_swap_main_players:
+; con_B3CF__swap_main_players
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7797,64 +7884,65 @@ off_B99B_39_swap_main_players:
 
 @txt:
     .text " Swap Positions "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_2:
     .text "2 "
-    .byte con_8EB4_F1_menu_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $01
+    .byte con_8EB4_end_token
 
 @name_3:
     .text "3 "
-    .byte con_8EB4_F1_menu_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $02
+    .byte con_8EB4_end_token
 
 @name_4:
     .text "4 "
-    .byte con_8EB4_F1_menu_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $03
+    .byte con_8EB4_end_token
 
 @name_5:
     .text "5 "
-    .byte con_8EB4_F1_menu_name, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $04
+    .byte con_8EB4_end_token
 
 @name_6:
     .text "6 "
-    .byte con_8EB4_F1_menu_name, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $05
+    .byte con_8EB4_end_token
 
 @name_7:
     .text "7 "
-    .byte con_8EB4_F1_menu_name, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $06
+    .byte con_8EB4_end_token
 
 @name_8:
     .text "8 "
-    .byte con_8EB4_F1_menu_name, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $07
+    .byte con_8EB4_end_token
 
 @name_9:
     .text "9 "
-    .byte con_8EB4_F1_menu_name, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $08
+    .byte con_8EB4_end_token
 
 @name_10:
     .text "10 "
-    .byte con_8EB4_F1_menu_name, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $09
+    .byte con_8EB4_end_token
 
 @name_11:
     .text "11 "
-    .byte con_8EB4_F1_menu_name, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $0A
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_B9F8_3A_swap_sub_players:
+_off016_B9F8_3A_swap_sub_players:
+; con_B3CF__swap_sub_players
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -7907,54 +7995,55 @@ off_B9F8_3A_swap_sub_players:
 
 @txt:
     .text " Who will you use? "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @sub_plr_1_name:
-    .byte con_8EB4_F1_menu_name, $16
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $16
+    .byte con_8EB4_end_token
 
 @sub_plr_2_name:
-    .byte con_8EB4_F1_menu_name, $17
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $17
+    .byte con_8EB4_end_token
 
 @sub_plr_3_name:
-    .byte con_8EB4_F1_menu_name, $18
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $18
+    .byte con_8EB4_end_token
 
 @sub_plr_4_name:
-    .byte con_8EB4_F1_menu_name, $19
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $19
+    .byte con_8EB4_end_token
 
 @sub_plr_5_name:
-    .byte con_8EB4_F1_menu_name, $1A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1A
+    .byte con_8EB4_end_token
 
 @sub_plr_6_name:
-    .byte con_8EB4_F1_menu_name, $1B
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1B
+    .byte con_8EB4_end_token
 
 @sub_plr_7_name:
-    .byte con_8EB4_F1_menu_name, $1C
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1C
+    .byte con_8EB4_end_token
 
 @sub_plr_8_name:
-    .byte con_8EB4_F1_menu_name, $1D
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1D
+    .byte con_8EB4_end_token
 
 @sub_plr_gk1_name:
-    .byte con_8EB4_F1_menu_name, $1E
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1E
+    .byte con_8EB4_end_token
 
 @sub_plr_gk2_name:
-    .byte con_8EB4_F1_menu_name, $1F
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1F
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BA39_3B_whom_to_sub:
+_off016_BA39_3B_whom_to_sub:
+; con_B3CF_whom_to_sub
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8010,69 +8099,70 @@ off_BA39_3B_whom_to_sub:
 
 @txt:
     .text " Whom to sub? "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @name_2:
     .text "2 "
-    .byte con_8EB4_F1_menu_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $01
+    .byte con_8EB4_end_token
 
 @name_3:
     .text "3 "
-    .byte con_8EB4_F1_menu_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $02
+    .byte con_8EB4_end_token
 
 @name_4:
     .text "4 "
-    .byte con_8EB4_F1_menu_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $03
+    .byte con_8EB4_end_token
 
 @name_5:
     .text "5 "
-    .byte con_8EB4_F1_menu_name, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $04
+    .byte con_8EB4_end_token
 
 @name_6:
     .text "6 "
-    .byte con_8EB4_F1_menu_name, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $05
+    .byte con_8EB4_end_token
 
 @name_7:
     .text "7 "
-    .byte con_8EB4_F1_menu_name, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $06
+    .byte con_8EB4_end_token
 
 @name_8:
     .text "8 "
-    .byte con_8EB4_F1_menu_name, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $07
+    .byte con_8EB4_end_token
 
 @name_9:
     .text "9 "
-    .byte con_8EB4_F1_menu_name, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $08
+    .byte con_8EB4_end_token
 
 @name_10:
     .text "10 "
-    .byte con_8EB4_F1_menu_name, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $09
+    .byte con_8EB4_end_token
 
 @name_11:
     .text "11 "
-    .byte con_8EB4_F1_menu_name, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $0A
+    .byte con_8EB4_end_token
 
 @name_gk:
     .text "GK "
-    .byte con_8EB4_F1_menu_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $00
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BAA2_3C_stamina_fielded_players:
+_off016_BAA2_3C_stamina_fielded_players:
+; con_B3CF_stamina_fielded_players
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8161,101 +8251,102 @@ off_BAA2_3C_stamina_fielded_players:
 
 @txt:
     .text " Fielded Players "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @main_plr_2_name:
-    .byte con_8EB4_F1_menu_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $01
+    .byte con_8EB4_end_token
 
 @main_plr_2_stamina:
-    .byte con_8EB4_F5_plr_stamina, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $01
+    .byte con_8EB4_end_token
 
 @main_plr_3_name:
-    .byte con_8EB4_F1_menu_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $02
+    .byte con_8EB4_end_token
 
 @main_plr_3_stamina:
-    .byte con_8EB4_F5_plr_stamina, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $02
+    .byte con_8EB4_end_token
 
 @main_plr_4_name:
-    .byte con_8EB4_F1_menu_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $03
+    .byte con_8EB4_end_token
 
 @main_plr_4_stamina:
-    .byte con_8EB4_F5_plr_stamina, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $03
+    .byte con_8EB4_end_token
 
 @main_plr_5_name:
-    .byte con_8EB4_F1_menu_name, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $04
+    .byte con_8EB4_end_token
 
 @main_plr_5_stamina:
-    .byte con_8EB4_F5_plr_stamina, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $04
+    .byte con_8EB4_end_token
 
 @main_plr_6_name:
-    .byte con_8EB4_F1_menu_name, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $05
+    .byte con_8EB4_end_token
 
 @main_plr_6_stamina:
-    .byte con_8EB4_F5_plr_stamina, $05
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $05
+    .byte con_8EB4_end_token
 
 @main_plr_7_name:
-    .byte con_8EB4_F1_menu_name, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $06
+    .byte con_8EB4_end_token
 
 @main_plr_7_stamina:
-    .byte con_8EB4_F5_plr_stamina, $06
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $06
+    .byte con_8EB4_end_token
 
 @main_plr_8_name:
-    .byte con_8EB4_F1_menu_name, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $07
+    .byte con_8EB4_end_token
 
 @main_plr_8_stamina:
-    .byte con_8EB4_F5_plr_stamina, $07
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $07
+    .byte con_8EB4_end_token
 
 @main_plr_9_name:
-    .byte con_8EB4_F1_menu_name, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $08
+    .byte con_8EB4_end_token
 
 @main_plr_9_stamina:
-    .byte con_8EB4_F5_plr_stamina, $08
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $08
+    .byte con_8EB4_end_token
 
 @main_plr_10_name:
-    .byte con_8EB4_F1_menu_name, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $09
+    .byte con_8EB4_end_token
 
 @main_plr_10_stamina:
-    .byte con_8EB4_F5_plr_stamina, $09
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $09
+    .byte con_8EB4_end_token
 
 @main_plr_11_name:
-    .byte con_8EB4_F1_menu_name, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $0A
+    .byte con_8EB4_end_token
 
 @main_plr_11_stamina:
-    .byte con_8EB4_F5_plr_stamina, $0A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $0A
+    .byte con_8EB4_end_token
 
 @main_plr_gk_name:
-    .byte con_8EB4_F1_menu_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $00
+    .byte con_8EB4_end_token
 
 @main_plr_gk_stamina:
-    .byte con_8EB4_F5_plr_stamina, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $00
+    .byte con_8EB4_end_token
 
 
 
 
 
-off_BB03_3D_stamina_substitutes_bench:
+_off016_BB03_3D_stamina_substitutes_bench:
+; con_B3CF_stamina_substitutes_bench
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8338,94 +8429,95 @@ off_BB03_3D_stamina_substitutes_bench:
 
 @txt:
     .text " Substitute's Bench "
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @sub_plr_1_name:
-    .byte con_8EB4_F1_menu_name, $16
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $16
+    .byte con_8EB4_end_token
 
 @sub_plr_1_stamina:
-    .byte con_8EB4_F5_plr_stamina, $16
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $16
+    .byte con_8EB4_end_token
 
 @sub_plr_2_name:
-    .byte con_8EB4_F1_menu_name, $17
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $17
+    .byte con_8EB4_end_token
 
 @sub_plr_2_stamina:
-    .byte con_8EB4_F5_plr_stamina, $17
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $17
+    .byte con_8EB4_end_token
 
 @sub_plr_3_name:
-    .byte con_8EB4_F1_menu_name, $18
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $18
+    .byte con_8EB4_end_token
 
 @sub_plr_3_stamina:
-    .byte con_8EB4_F5_plr_stamina, $18
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $18
+    .byte con_8EB4_end_token
 
 @sub_plr_4_name:
-    .byte con_8EB4_F1_menu_name, $19
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $19
+    .byte con_8EB4_end_token
 
 @sub_plr_4_stamina:
-    .byte con_8EB4_F5_plr_stamina, $19
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $19
+    .byte con_8EB4_end_token
 
 @sub_plr_5_name:
-    .byte con_8EB4_F1_menu_name, $1A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1A
+    .byte con_8EB4_end_token
 
 @sub_plr_5_stamina:
-    .byte con_8EB4_F5_plr_stamina, $1A
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $1A
+    .byte con_8EB4_end_token
 
 @sub_plr_6_name:
-    .byte con_8EB4_F1_menu_name, $1B
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1B
+    .byte con_8EB4_end_token
 
 @sub_plr_6_stamina:
-    .byte con_8EB4_F5_plr_stamina, $1B
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $1B
+    .byte con_8EB4_end_token
 
 @sub_plr_7_name:
-    .byte con_8EB4_F1_menu_name, $1C
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1C
+    .byte con_8EB4_end_token
 
 @sub_plr_7_stamina:
-    .byte con_8EB4_F5_plr_stamina, $1C
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $1C
+    .byte con_8EB4_end_token
 
 @sub_plr_8_name:
-    .byte con_8EB4_F1_menu_name, $1D
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1D
+    .byte con_8EB4_end_token
 
 @sub_plr_8_stamina:
-    .byte con_8EB4_F5_plr_stamina, $1D
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $1D
+    .byte con_8EB4_end_token
 
 @sub_plr_gk1_name:
-    .byte con_8EB4_F1_menu_name, $1E
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1E
+    .byte con_8EB4_end_token
 
 @sub_plr_gk1_stamina:
-    .byte con_8EB4_F5_plr_stamina, $1E
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $1E
+    .byte con_8EB4_end_token
 
 @sub_plr_gk2_name:
-    .byte con_8EB4_F1_menu_name, $1F
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_menu_name, $1F
+    .byte con_8EB4_end_token
 
 @sub_plr_gk2_stamina:
-    .byte con_8EB4_F5_plr_stamina, $1F
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_plr_stamina, $1F
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BB5C_3E_pk_shootout_select_taker:
+_off016_BB5C_3E_pk_shootout_select_taker:
+; con_B3CF_pk_shootout_select_taker
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
@@ -8448,14 +8540,15 @@ off_BB5C_3E_pk_shootout_select_taker:
 
 @txt:
     .text "PK Shootout - Select Taker"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BB69_3F_pk_players_list:
+_off016_BB69_3F_pk_players_list:
+; con_B3CF_pk_players_list
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
@@ -8509,18 +8602,19 @@ off_BB69_3F_pk_players_list:
 
 @txt:
     .text "Skill"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @list:
-    .byte con_8EB4_F6_pk_players_list
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_pk_players_list
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BB9E_40_pk_order:
+_off016_BB9E_40_pk_order:
+; con_B3CF_pk_order
 ; номер набора контура окна
     .byte $01 * $09
 ; адрес ppu
@@ -8558,39 +8652,40 @@ off_BB9E_40_pk_order:
 
 @txt:
     .text "PK Order"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @shooter_1:
     .text "1 "
-    .byte con_8EB4_E9_rec_name_teammate, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $00
+    .byte con_8EB4_end_token
 
 @shooter_2:
     .text "2 "
-    .byte con_8EB4_E9_rec_name_teammate, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $01
+    .byte con_8EB4_end_token
 
 @shooter_3:
     .text "3 "
-    .byte con_8EB4_E9_rec_name_teammate, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $02
+    .byte con_8EB4_end_token
 
 @shooter_4:
     .text "4 "
-    .byte con_8EB4_E9_rec_name_teammate, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $03
+    .byte con_8EB4_end_token
 
 @shooter_5:
     .text "5 "
-    .byte con_8EB4_E9_rec_name_teammate, $04
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_rec_name_teammate, $04
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BBBF_41_pk_score:
+_off016_BBBF_41_pk_score:
+; con_B3CF_pk_score
 ; номер набора контура окна
     .byte $02 * $09
 ; адрес ppu
@@ -8621,27 +8716,28 @@ off_BBBF_41_pk_score:
     .word @score_right
 
 @team_left:
-    .byte con_8EB4_ED_team_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_team_name, $00
+    .byte con_8EB4_end_token
 
 @score_left:
-    .byte con_8EB4_EE_score, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_score, $00
+    .byte con_8EB4_end_token
 
 @team_right:
-    .byte con_8EB4_ED_team_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_team_name, $01
+    .byte con_8EB4_end_token
 
 @score_right:
-    .byte con_8EB4_EE_score, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_score, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BC02_42_booth_for_charlie_time_score_period_number:
+_off016_BC02_42_booth_for_charlie_time_score_period_number:
+; con_B3CF_booth_for_charlie_time_score_period_number
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8675,31 +8771,32 @@ off_BC02_42_booth_for_charlie_time_score_period_number:
     .word @score_right
 
 @period:
-    .byte con_8EB4_EF_period_number
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_period_number
+    .byte con_8EB4_end_token
 
 @time:
-    .byte con_8EB4_F0_time
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_time
+    .byte con_8EB4_end_token
 
 @score_left:
-    .byte con_8EB4_EE_score, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_score, $00
+    .byte con_8EB4_end_token
 
 @dash:
     .text "-"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @score_right:
-    .byte con_8EB4_EE_score, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_score, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BC03_43_booth_for_charlie_pk_period_number:
+_off016_BC03_43_booth_for_charlie_pk_period_number:
+; con_B3CF_booth_for_charlie_pk_period_number
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8721,15 +8818,16 @@ off_BC03_43_booth_for_charlie_pk_period_number:
     .word @period
 
 @period:
-    .byte con_8EB4_EF_period_number
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_period_number
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BC04_44_show_1_defender:
+_off016_BC04_44_show_1_defender:
+; con_B3CF_show_1_defender
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8758,22 +8856,23 @@ off_BC04_44_show_1_defender:
 
 @txt:
     .text "Defender"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $80
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $80
+    .byte con_8EB4_end_token
 
 @defender_1:
-    .byte con_8EB4_F3_opp_def_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $00
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BC05_45_show_2_defenders:
+_off016_BC05_45_show_2_defenders:
+; con_B3CF_show_2_defenders
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8808,30 +8907,31 @@ off_BC05_45_show_2_defenders:
 
 @txt:
     .text "Defenders"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $80
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $80
+    .byte con_8EB4_end_token
 
 @defender_1:
-    .byte con_8EB4_F3_opp_def_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $00
+    .byte con_8EB4_end_token
 
 @indicator_2:
-    .byte con_8EB4_F9_not_a_clone_indicator, $81
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $81
+    .byte con_8EB4_end_token
 
 @defender_2:
-    .byte con_8EB4_F3_opp_def_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $01
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BC06_46_show_3_defenders:
+_off016_BC06_46_show_3_defenders:
+; con_B3CF_show_3_defenders
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8872,38 +8972,39 @@ off_BC06_46_show_3_defenders:
 
 @txt:
     .text "Defenders"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $80
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $80
+    .byte con_8EB4_end_token
 
 @defender_1:
-    .byte con_8EB4_F3_opp_def_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $00
+    .byte con_8EB4_end_token
 
 @indicator_2:
-    .byte con_8EB4_F9_not_a_clone_indicator, $81
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $81
+    .byte con_8EB4_end_token
 
 @defender_2:
-    .byte con_8EB4_F3_opp_def_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $01
+    .byte con_8EB4_end_token
 
 @indicator_3:
-    .byte con_8EB4_F9_not_a_clone_indicator, $82
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $82
+    .byte con_8EB4_end_token
 
 @defender_3:
-    .byte con_8EB4_F3_opp_def_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $02
+    .byte con_8EB4_end_token
 
 
 
 
 
 
-off_BC07_47_show_4_defenders:
+_off016_BC07_47_show_4_defenders:
+; con_B3CF_show_4_defenders
 ; номер набора контура окна
     .byte $00 * $09
 ; адрес ppu
@@ -8950,62 +9051,62 @@ off_BC07_47_show_4_defenders:
 
 @txt:
     .text "Defenders"
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_end_token
 
 @indicator_1:
-    .byte con_8EB4_F9_not_a_clone_indicator, $80
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $80
+    .byte con_8EB4_end_token
 
 @defender_1:
-    .byte con_8EB4_F3_opp_def_name, $00
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $00
+    .byte con_8EB4_end_token
 
 @indicator_2:
-    .byte con_8EB4_F9_not_a_clone_indicator, $81
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $81
+    .byte con_8EB4_end_token
 
 @defender_2:
-    .byte con_8EB4_F3_opp_def_name, $01
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $01
+    .byte con_8EB4_end_token
 
 @indicator_3:
-    .byte con_8EB4_F9_not_a_clone_indicator, $82
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $82
+    .byte con_8EB4_end_token
 
 @defender_3:
-    .byte con_8EB4_F3_opp_def_name, $02
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $02
+    .byte con_8EB4_end_token
 
 @indicator_4:
-    .byte con_8EB4_F9_not_a_clone_indicator, $83
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_not_a_clone_indicator, $83
+    .byte con_8EB4_end_token
 
 @defender_4:
-    .byte con_8EB4_F3_opp_def_name, $03
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_opp_def_name, $03
+    .byte con_8EB4_end_token
 
 
 
 
 
 off_BCF9_позиция_и_имя_принимающего:
-    .byte con_8EB4_E2_reciever_name_pos
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_reciever_name_pos
+    .byte con_8EB4_end_token
 
 off_BCFB_энергия_принимающего:
     .text "Stamina    "
-    .byte con_8EB4_E3_stats_receiver, con_skill_stamina
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_stamina
+    .byte con_8EB4_end_token
 
 off_BD06_shoot_принимающего:
     .text "Shoot      "
-    .byte con_8EB4_E3_stats_receiver, con_skill_prl___shoot
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_prl___shoot
+    .byte con_8EB4_end_token
 
 off_BD1C_pass_принимающего:
     .text "Pass       "
-    .byte con_8EB4_E3_stats_receiver, con_skill_prl___pass
-    .byte con_8EB4_FC_end_token
+    .byte con_8EB4_stats_receiver, con_skill_prl___pass
+    .byte con_8EB4_end_token
 
 off_BD27:       ; unused <トラップ>
 - - - - - - 0x033D37 18:BD27: 54        .byte $54   ; 
@@ -9016,8 +9117,8 @@ off_BD27:       ; unused <トラップ>
 - - - - - - 0x033D3C 18:BD2C: 00        .byte $00   ; 
 - - - - - - 0x033D3D 18:BD2D: 00        .byte $00   ; 
 - - - - - - 0x033D3E 18:BD2E: 00        .byte $00   ; 
-- - - - - - 0x033D3F 18:BD2F: E3        .byte con_8EB4_E3_stats_receiver, con_skill_prl_trap_low
-- - - - - - 0x033D41 18:BD31: FC        .byte con_8EB4_FC_end_token
+- - - - - - 0x033D3F 18:BD2F: E3        .byte con_8EB4_stats_receiver, con_skill_prl_trap_low
+- - - - - - 0x033D41 18:BD31: FC        .byte con_8EB4_end_token
 
 off_BD32:       ; unused <クリアー>
 - - - - - - 0x033D42 18:BD32: 48        .byte $48   ; 
@@ -9028,8 +9129,8 @@ off_BD32:       ; unused <クリアー>
 - - - - - - 0x033D47 18:BD37: 00        .byte $00   ; 
 - - - - - - 0x033D48 18:BD38: 00        .byte $00   ; 
 - - - - - - 0x033D49 18:BD39: 00        .byte $00   ; 
-- - - - - - 0x033D4A 18:BD3A: E3        .byte con_8EB4_E3_stats_receiver, con_skill_0B
-- - - - - - 0x033D4C 18:BD3C: FC        .byte con_8EB4_FC_end_token
+- - - - - - 0x033D4A 18:BD3A: E3        .byte con_8EB4_stats_receiver, con_skill_0B
+- - - - - - 0x033D4C 18:BD3C: FC        .byte con_8EB4_end_token
 
 
 

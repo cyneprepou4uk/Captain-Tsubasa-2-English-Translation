@@ -2466,7 +2466,7 @@ tbl_89BF_сценарии:
 - D 0 - I - 0x0209CF 10:89BF: B1 8A     .word _scenario_8AB1_00 ; 
 - D 0 - I - 0x0209D1 10:89C1: F2 91     .word _scenario_91F2_01 ; 
 - D 0 - I - 0x0209D3 10:89C3: FF 91     .word _scenario_91FF_02 ; 
-- - - - - - 0x0209D5 10:89C5: 8E B4     .word $0000        ; 03 ; 
+- - - - - - 0x0209D5 10:89C5: 8E B4     .word $0000        ; 03 ; unused, index doesn't exist
 - D 0 - I - 0x0209D7 10:89C7: CB 9B     .word _scenario_9BCB_04 ; 
 - D 0 - I - 0x0209D9 10:89C9: 59 92     .word _scenario_9259_05 ; 
 - D 0 - I - 0x0209DB 10:89CB: 63 92     .word _scenario_9263_06 ; 
@@ -2522,8 +2522,8 @@ tbl_89BF_сценарии:
 - D 0 - I - 0x020A3F 10:8A2F: C6 B7     .word _scenario_B7C6_38 ; 
 - D 0 - I - 0x020A41 10:8A31: B3 BD     .word _scenario_BDB3_39 ; 
 - D 0 - I - 0x020A43 10:8A33: 7C B4     .word _scenario_B47C_3A ; 
-- - - - - - 0x020A45 10:8A35: A1 BD     .word $0000        ; 3B ; 
-- - - - - - 0x020A47 10:8A37: 3E 9F     .word $0000        ; 3C ; 
+- - - - - - 0x020A45 10:8A35: A1 BD     .word $0000        ; 3B ; unused, index doesn't exist
+- - - - - - 0x020A47 10:8A37: 3E 9F     .word $0000        ; 3C ; unused, index doesn't exist
 - D 0 - I - 0x020A49 10:8A39: BA 9F     .word _scenario_9FBA_3D ; 
 - D 0 - I - 0x020A4B 10:8A3B: 0A 9C     .word _scenario_9C0A_3E ; 
 - D 0 - I - 0x020A4D 10:8A3D: 54 B7     .word _scenario_B754_3F ; 
@@ -2535,14 +2535,14 @@ tbl_89BF_сценарии:
 - D 0 - I - 0x020A59 10:8A49: B8 BD     .word _scenario_BDB8_45 ; 
 - D 0 - I - 0x020A5B 10:8A4B: BD BD     .word _scenario_BDBD_46 ; 
 - D 0 - I - 0x020A5D 10:8A4D: 19 9C     .word _scenario_9C19_47 ; 
-- - - - - - 0x020A5F 10:8A4F: 01 BE     .word $0000        ; 48 ; 
-- - - - - - 0x020A61 10:8A51: 01 BE     .word $0000        ; 49 ; 
-- - - - - - 0x020A63 10:8A53: 01 BE     .word $0000        ; 4A ; 
-- - - - - - 0x020A65 10:8A55: 01 BE     .word $0000        ; 4B ; 
-- - - - - - 0x020A67 10:8A57: 01 BE     .word $0000        ; 4C ; 
-- - - - - - 0x020A69 10:8A59: 01 BE     .word $0000        ; 4D ; 
-- - - - - - 0x020A6B 10:8A5B: 01 BE     .word $0000        ; 4E ; 
-- - - - - - 0x020A6D 10:8A5D: 01 BE     .word $0000        ; 4F ; 
+- - - - - - 0x020A5F 10:8A4F: 01 BE     .word $0000        ; 48 ; unused, index doesn't exist
+- - - - - - 0x020A61 10:8A51: 01 BE     .word $0000        ; 49 ; unused, index doesn't exist
+- - - - - - 0x020A63 10:8A53: 01 BE     .word $0000        ; 4A ; unused, index doesn't exist
+- - - - - - 0x020A65 10:8A55: 01 BE     .word $0000        ; 4B ; unused, index doesn't exist
+- - - - - - 0x020A67 10:8A57: 01 BE     .word $0000        ; 4C ; unused, index doesn't exist
+- - - - - - 0x020A69 10:8A59: 01 BE     .word $0000        ; 4D ; unused, index doesn't exist
+- - - - - - 0x020A6B 10:8A5B: 01 BE     .word $0000        ; 4E ; unused, index doesn't exist
+- - - - - - 0x020A6D 10:8A5D: 01 BE     .word $0000        ; 4F ; unused, index doesn't exist
 - D 0 - I - 0x020A6F 10:8A5F: 01 BE     .word _scenario_BE01_50 ; 
 - D 0 - I - 0x020A71 10:8A61: 0D BE     .word _scenario_BE0D_51 ; 
 - D 0 - I - 0x020A73 10:8A63: 18 BE     .word _scenario_BE18_52 ; 
@@ -2565,8 +2565,8 @@ tbl_89BF_сценарии:
 - D 0 - I - 0x020A95 10:8A85: AE BE     .word _scenario_BEAE_63 ; 
 - D 0 - I - 0x020A97 10:8A87: B6 BE     .word _scenario_BEB6_64 ; 
 - D 0 - I - 0x020A99 10:8A89: BE BE     .word _scenario_BEBE_65 ; 
-- D 0 - I - 0x020A9B 10:8A8B: C6 BE     .word $0000        ; 66 ; 
-- - - - - - 0x020A9D 10:8A8D: D8 BE     .word $0000        ; 67 ; 
+- D 0 - I - 0x020A9B 10:8A8B: C6 BE     .word $0000        ; 66 ; unused, index doesn't exist
+- - - - - - 0x020A9D 10:8A8D: D8 BE     .word $0000        ; 67 ; unused, index doesn't exist
 - - - - - - 0x020A9F 10:8A8F: F7 BE     .word _scenario_BEF7_68 ; 
 - D 0 - I - 0x020AA1 10:8A91: 05 BF     .word _scenario_BF05_69 ; 
 - D 0 - I - 0x020AA3 10:8A93: 62 AA     .word _scenario_AA62_6A ; 
@@ -2694,6 +2694,7 @@ con_pause                   = $00   ; задержка следующей ани
 
 
 _scenario_8AB1_00:
+; con_s_id_00
     .dbyt con_branch_long + con_bra_где_сейчас_мяч
     .word bra_long_case_00_00 ; мяч у атакующего на земле
     .word bra_long_case_00_01 ; летит низкий мяч
@@ -3706,6 +3707,7 @@ loc_8D38_защитник_ловит_блоком_высокий_мяч:
 
 
 _scenario_91F2_01:
+; con_s_id_01
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_long + con_bra_высота_мяча
     .word bra_long_case_01_00 ; low
@@ -3809,6 +3811,7 @@ _scenario_91F2_01:
 
 
 _scenario_91FF_02:
+; con_s_id_02
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_long + con_bra_защитник_полевой_или_кипер
     .word bra_long_case_02_00 ; защитник полевой
@@ -3879,6 +3882,7 @@ _scenario_91FF_02:
 
 
 _scenario_9BCB_04:
+; con_s_id_04
     .byte con_jsr
     .word sub_A2FE_сообщение_oh_на_мигающем_белом_фоне
     .byte con_quit
@@ -3886,6 +3890,7 @@ _scenario_9BCB_04:
 
 
 _scenario_9259_05:
+; con_s_id_05
 loc_9259:
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_short + con_bra_выживет_ли_защитник
@@ -3904,6 +3909,7 @@ loc_9259:
 
 
 _scenario_9263_06:
+; con_s_id_06
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_short + con_bra_защитник_полевой_или_кипер
     .byte off_case_06_00 - * ; защитник полевой
@@ -3948,6 +3954,7 @@ _scenario_9263_06:
 
 
 _scenario_9285_07:
+; con_s_id_07
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_long + con_bra_высота_мяча
     .word bra_long_case_07_00 ; low
@@ -4130,6 +4137,7 @@ _scenario_9285_07:
 
 
 _scenario_932C_08:
+; con_s_id_08
     .dbyt con_branch_long + con_bra_высота_мяча
     .word bra_long_case_08_00 ; low
     .word bra_long_case_08_01 ; high
@@ -4204,6 +4212,7 @@ loc_9350:
 
 
 _scenario_9369_09:
+; con_s_id_09
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jsr
     .word sub_9EF6_выбор_анимации_полета_удара
@@ -5351,6 +5360,7 @@ loc_94C7_wakashimazu_triagle_jump_ловит_мяч:
 
 
 _scenario_9811_0A_result_gk_vs_attacker:
+; con_s_id_0A
     .dbyt con_branch_long + con_bra_действие_атаки_на_земле
     .word bra_long_case_0A_00 ; shoot
     .word bra_long_case_0A_01 ; pass
@@ -5598,6 +5608,7 @@ _scenario_9811_0A_result_gk_vs_attacker:
 
 
 _scenario_98ED_0B:
+; con_s_id_0B
     .dbyt con_branch_long + con_bra_высота_мяча
     .word bra_long_case_0B_00 ; low
     .word bra_long_case_0B_01 ; high
@@ -5901,6 +5912,7 @@ _scenario_98ED_0B:
 
 
 _scenario_96E3_0C:
+; con_s_id_0C
 ; !!! правильные ли комменты?
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jsr
@@ -5979,6 +5991,7 @@ _scenario_96E3_0C:
 
 
 _scenario_96F7_0D:
+; con_s_id_0D
     .byte con_jsr
     .word sub_AB31_полная_анимация_обычного_удара_с_земли
     .byte con_mirror_condition, $03       ; куда летит мяч
@@ -6013,6 +6026,7 @@ _scenario_96F7_0D:
 
 
 _scenario_91EA_0E:
+; con_s_id_0E
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_short + con_bra_высота_мяча
     .byte off_case_0E_00 - * ; low
@@ -6031,6 +6045,7 @@ _scenario_91EA_0E:
 
 
 _scenario_9205_0F:
+; con_s_id_0F
     .byte con_mirror_condition, $01       ; номер защитника
     .dbyt con_branch_long + con_bra_43         ; действие атакующего на своей штрафной
     .word bra_long_case_0F_00 ; pass
@@ -6127,18 +6142,21 @@ loc_BD87:
 
 
 _scenario_9259_10:
+; con_s_id_10
     .byte con_jmp
     .word loc_9259
 
 
 
 _scenario_9269_11:
+; con_s_id_11
     .byte con_jmp
     .word loc_9264
 
 
 
 _scenario_927F_12:
+; con_s_id_12
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_long + con_bra_высота_мяча
     .word bra_long_case_12_00 ; low
@@ -6303,6 +6321,7 @@ _scenario_927F_12:
 
 
 _scenario_91D3_13:
+; con_s_id_13
     .dbyt con_branch_long + con_bra_высота_мяча
     .word bra_long_case_13_00 ; low
     .word bra_long_case_13_01 ; high
@@ -6357,6 +6376,7 @@ _scenario_91D3_13:
 
 
 ;_scenario_9369_09:
+; con_s_id_09
     .byte con_mirror_condition, $03       ; куда летит мяч
     .byte con_jsr
     .word sub_9EF6_выбор_анимации_полета_удара
@@ -6718,6 +6738,7 @@ sub_936E_выбор_финального_результата:
 
 
 _scenario_9B82_14:
+; con_s_id_14
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_short + con_bra_выживет_ли_защитник
     .byte off_case_14_00 - * ; защитник выживет
@@ -6799,6 +6820,7 @@ _scenario_9B82_14:
 
 
 _scenario_B80A_15:
+; con_s_id_15
     .byte con_pause + $01
     .byte con_s_bg_71
     .byte con_s_anim_00
@@ -6814,6 +6836,7 @@ _scenario_B80A_15:
 
 
 _scenario_B817_16:
+; con_s_id_16
     .byte con_pause + $01
     .byte con_s_bg_71
     .byte con_s_anim_00
@@ -6828,6 +6851,7 @@ _scenario_B817_16:
 
 
 _scenario_B8A1_17:
+; con_s_id_17
     .byte con_pause + $01
     .byte con_s_bg_71
     .byte con_s_anim_00
@@ -6921,6 +6945,7 @@ _scenario_B8A1_17:
 
 
 _scenario_9E3E_18:
+; con_s_id_18
     .byte con_mirror_condition, $00
     .dbyt con_branch_short + con_bra_где_сейчас_мяч
     .byte off_case_18_00 - * ; мяч у атакующего на земле
@@ -6942,6 +6967,7 @@ _scenario_9E3E_18:
 
 
 _scenario_BBD4_19_1_2_start:
+; con_s_id_19
     .byte con_mirror_condition, $00
     .dbyt con_branch_short + con_bra_обычный_или_спешал
     .byte off_case_19_00 - * ; обычная_перепасовка
@@ -7119,6 +7145,7 @@ _scenario_BBD4_19_1_2_start:
 
 
 _scenario_BC6D_1A_1_2_return:
+; con_s_id_1A
     .dbyt con_branch_short + con_bra_обычный_или_спешал
     .byte off_case_1A_00 - * ; обычная перепасовка
     .byte off_case_1A_01 - * ; спешал перепасовка
@@ -7391,6 +7418,7 @@ _scenario_BC6D_1A_1_2_return:
 
 
 _scenario_B486_1B_1_2_end:
+; con_s_id_1B
     .byte con_mirror_condition, $00
     .dbyt con_branch_short + con_bra_обычный_или_спешал
     .word case_1B_00 - * ; обычная перепасовка
@@ -7418,6 +7446,7 @@ loc_B49E_игрок_принимает_пас_на_ногу:
 
 
 _scenario_9BE3_1C:
+; con_s_id_1C
     .byte con_mirror_condition, $00
     .byte con_jsr
     .word sub_9F3E
@@ -8139,6 +8168,7 @@ loc_AA62_heel_lift:
 
 
 _scenario_9CEE_1D:
+; con_s_id_1D
     .dbyt con_branch_short + con_bra_где_сейчас_мяч
     .byte off_case_1D_00 - * ; мяч у атакующего на земле
     .byte off_case_1D_01 - * ; летит низкий мяч
@@ -8162,6 +8192,7 @@ _scenario_9CEE_1D:
 
 
 _scenario_B7DA_1E_игрок_бежит_по_полю_с_картой:
+; con_s_id_1E
     .byte con_mirror_condition, $02       ; команда
     .byte con_mirror_toggle
     .byte con_F7, $01
@@ -13589,6 +13620,7 @@ bra_long_case_B724_22:
 
 
 _scenario_B733_1F:
+; con_s_id_1F
     .byte con_pause + $96
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -13598,6 +13630,7 @@ _scenario_B733_1F:
 
 
 _scenario_B738_20:
+; con_s_id_20
     .byte con_jsr
     .word sub_BBC7_очистка
     .dbyt con_branch_short + con_bra_у_чьей_команды_мяч
@@ -13623,6 +13656,7 @@ _scenario_B738_20:
 
 
 _scenario_BA3B_21:
+; con_s_id_21
     .byte con_jsr
     .word sub_BA2C_замах_и_удар_по_мячу_обычным_ударом
     .dbyt con_branch_short + con_bra_у_чьей_команды_мяч
@@ -13903,6 +13937,7 @@ _scenario_BA3B_21:
 
 
 _scenario_B749_22:
+; con_s_id_22
     .byte con_pause + $B0
     .byte con_s_bg_38
     .byte con_s_anim_85
@@ -13912,6 +13947,7 @@ _scenario_B749_22:
 
 
 _scenario_BB3F_23:
+; con_s_id_23
     .byte con_jsr
     .word sub_BA2C_замах_и_удар_по_мячу_обычным_ударом
     .byte con_pause + $0A
@@ -13925,6 +13961,7 @@ _scenario_BB3F_23:
 
 
 _scenario_9BF2_24:
+; con_s_id_24
     .byte con_jsr
     .word sub_B4BF_мяч_улетает_в_аут
     .byte con_pause + $46
@@ -13936,6 +13973,7 @@ _scenario_9BF2_24:
 
 
 _scenario_9CDD_25:
+; con_s_id_25
     .byte con_jsr
     .word sub_BBC7_очистка
     .dbyt con_branch_short + con_bra_обычный_или_спешал
@@ -13960,6 +13998,7 @@ _scenario_9CDD_25:
 
 
 _scenario_9E2D_26:
+; con_s_id_26
     .byte con_jsr
     .word sub_BBC7_очистка
     .dbyt con_branch_short + con_bra_обычный_или_спешал
@@ -13984,6 +14023,7 @@ _scenario_9E2D_26:
 
 
 _scenario_9BF8_27:
+; con_s_id_27
     .byte con_jsr
     .word sub_B4BF_мяч_улетает_в_аут
     .byte con_pause + $46
@@ -13995,6 +14035,7 @@ _scenario_9BF8_27:
 
 
 _scenario_B4CC_28:
+; con_s_id_28
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $2B, $09
     .byte con_pause + $32
@@ -14006,6 +14047,7 @@ _scenario_B4CC_28:
 
 
 _scenario_9BFE_29:
+; con_s_id_29
     .byte con_jsr
     .word sub_B4BF_мяч_улетает_в_аут
     .byte con_pause + $46
@@ -14017,6 +14059,7 @@ _scenario_9BFE_29:
 
 
 _scenario_B4E0_2A:
+; con_s_id_2A
     .byte con_mirror_condition, $00
     .byte con_pause + $30
     .byte con_s_bg_3E
@@ -14027,6 +14070,7 @@ _scenario_B4E0_2A:
 
 
 _scenario_B72C_2B:
+; con_s_id_2B
     .byte con_pause + $78
     .byte con_s_bg_46
     .byte con_s_anim_00
@@ -14037,6 +14081,7 @@ _scenario_B72C_2B:
 
 
 _scenario_9F54_2C:
+; con_s_id_2C
     .byte con_mirror_condition, $03       ; куда летит мяч
     .dbyt con_branch_short + con_bra_высота_мяча
     .byte off_case_2C_00 - * ; low
@@ -14063,6 +14108,7 @@ _scenario_9F54_2C:
 
 
 _scenario_B4D6_2D:
+; con_s_id_2D
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $64, $0D
     .byte con_pause + $3A
@@ -14074,6 +14120,7 @@ _scenario_B4D6_2D:
 
 
 _scenario_B74E_2E:
+; con_s_id_2E
     .byte con_mirror_off
     .byte con_pause + $78
     .byte con_s_bg_36
@@ -14084,6 +14131,7 @@ _scenario_B74E_2E:
 
 
 _scenario_B773_2F:
+; con_s_id_2F
     .byte con_mirror_condition, $00
     .byte con_jsr
     .word sub_9F3E
@@ -14115,6 +14163,7 @@ _scenario_B773_2F:
 
 
 _scenario_9C30_30:
+; con_s_id_30
     .dbyt con_branch_long + con_bra_у_чьей_команды_мяч
     .word bra_long_case_30_00 ; гол в правые ворота
     .word bra_long_case_30_01 ; гол в левые ворота
@@ -14283,6 +14332,7 @@ sub_9C36_анимация_гола_в_левые_ворота_и_сообщен�
 
 
 _scenario_B78C_31_gk_vs_attacker:
+; con_s_id_31
     .byte con_mirror_off
     .byte con_pause + $5A
     .byte con_s_bg_2C
@@ -14293,6 +14343,7 @@ _scenario_B78C_31_gk_vs_attacker:
 
 
 _scenario_9E57_32:
+; con_s_id_32
     .byte con_mirror_off
     .dbyt con_branch_short + con_bra_рожа_кипера
     .byte off_case_32_00 - * ; кипер без рожи (unused)
@@ -14340,6 +14391,7 @@ _scenario_9E57_32:
 
 
 _scenario_9C04_33:
+; con_s_id_33
     .byte con_mirror_off
     .byte con_soundID_delay, $66, $02
     .byte con_pause + $32
@@ -14364,6 +14416,7 @@ _scenario_9C04_33:
 
 
 _scenario_BBCC_34:
+; con_s_id_34
     .byte con_soundID_delay, $64, $0D
     .byte con_pause + $30
     .byte con_s_bg_3C
@@ -14374,6 +14427,7 @@ _scenario_BBCC_34:
 
 
 _scenario_B7CD_35_wait_for_kick_off:
+; con_s_id_35
     .byte con_soundID_delay, $44, $EB
     .byte con_pause + $02
     .byte con_s_bg_3A
@@ -14384,6 +14438,7 @@ _scenario_B7CD_35_wait_for_kick_off:
 
 
 _scenario_B7E4_36_kick_off:
+; con_s_id_36
     .byte con_mirror_off
     .byte con_soundID_delay, $7F, $02
     .byte con_pause + $10
@@ -14416,6 +14471,7 @@ _scenario_B7E4_36_kick_off:
 
 
 _scenario_B7BF_37:
+; con_s_id_37
     .byte con_F7, $1C
     .byte con_pause + $07
     .byte con_s_bg_46
@@ -14426,6 +14482,7 @@ _scenario_B7BF_37:
 
 
 _scenario_B7C6_38:
+; con_s_id_38
     .byte con_F7, $17
     .byte con_pause + $01
     .byte con_s_bg_34
@@ -14436,6 +14493,7 @@ _scenario_B7C6_38:
 
 
 _scenario_BDB3_39:
+; con_s_id_39
     .byte con_pause + $B0
     .byte con_s_bg_38
     .byte con_s_anim_85
@@ -14445,6 +14503,7 @@ _scenario_BDB3_39:
 
 
 _scenario_B47C_3A:
+; con_s_id_3A
     .byte con_mirror_condition, $00
     .byte con_soundID_delay, $2B, $09
     .byte con_pause + $3C
@@ -14513,6 +14572,7 @@ sub_BB4B_летящий_мяч_перед_принятием_финальног�
 
 
 _scenario_9FBA_3D:
+; con_s_id_3D
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14522,6 +14582,7 @@ _scenario_9FBA_3D:
 
 
 _scenario_9C0A_3E:
+; con_s_id_3E
     .byte con_mirror_condition, $00
     .byte con_jsr
     .word sub_9F3E
@@ -14542,6 +14603,7 @@ _scenario_9C0A_3E:
 
 
 _scenario_B754_3F:
+; con_s_id_3F
     .byte con_mirror_condition, $00
     .byte con_jsr
     .word sub_9F3E
@@ -14586,6 +14648,7 @@ _scenario_B754_3F:
 
 
 _scenario_BD95_40:
+; con_s_id_40
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14595,6 +14658,7 @@ _scenario_BD95_40:
 
 
 _scenario_BD9A_41:
+; con_s_id_41
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14605,6 +14669,7 @@ _scenario_BD9A_41:
 
 
 _scenario_BDA6_42:
+; con_s_id_42
     .byte con_pause + $78
     .byte con_s_bg_FF_skip
     .byte con_s_anim_FF_skip
@@ -14615,6 +14680,7 @@ _scenario_BDA6_42:
 
 
 _scenario_BDAD_43:
+; con_s_id_43
     .byte con_mirror_off
     .byte con_pause + $46
     .byte con_s_bg_3A
@@ -14625,6 +14691,7 @@ _scenario_BDAD_43:
 
 
 _scenario_B7D5_44:
+; con_s_id_44
     .byte con_pause + $02
     .byte con_s_bg_70
     .byte con_s_anim_5C
@@ -15036,6 +15103,7 @@ loc_BBDA:
 
 
 _scenario_BDB8_45:
+; con_s_id_45
     .byte con_pause + $B0
     .byte con_s_bg_38
     .byte con_s_anim_85
@@ -15045,6 +15113,7 @@ _scenario_BDB8_45:
 
 
 _scenario_BDBD_46:
+; con_s_id_46
     .dbyt con_branch_short + con_bra_где_сейчас_мяч
     .byte off_case_46_00 - * ; мяч у атакующего на земле
     .byte off_case_46_01 - * ; летит низкий мяч
@@ -15101,6 +15170,7 @@ _scenario_BDBD_46:
 
 
 _scenario_9C19_47:
+; con_s_id_47
     .byte con_jsr
     .word sub_9C36_анимация_гола_в_левые_ворота_и_сообщения
     .byte con_jsr
@@ -15115,6 +15185,7 @@ _scenario_9C19_47:
 
 
 _scenario_BE01_50:
+; con_s_id_50
     .byte con_mirror_off
     .byte con_jsr
     .word sub_BDFC
@@ -15129,6 +15200,7 @@ _scenario_BE01_50:
 
 
 _scenario_BE0D_51:
+; con_s_id_51
     .byte con_jsr
     .word sub_BDFC
     .byte con_jsr
@@ -15142,6 +15214,7 @@ _scenario_BE0D_51:
 
 
 _scenario_BE18_52:
+; con_s_id_52
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15153,6 +15226,7 @@ _scenario_BE18_52:
 
 
 _scenario_BE20_53:
+; con_s_id_53
     .byte con_jsr
     .word sub_BDF6
     .byte con_mirror_off
@@ -15166,6 +15240,7 @@ _scenario_BE20_53:
 
 
 _scenario_BE2A_54:
+; con_s_id_54
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15177,6 +15252,7 @@ _scenario_BE2A_54:
 
 
 _scenario_BE32_55:
+; con_s_id_55
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15188,6 +15264,7 @@ _scenario_BE32_55:
 
 
 _scenario_BE3A_56:
+; con_s_id_56
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15199,6 +15276,7 @@ _scenario_BE3A_56:
 
 
 _scenario_BE42_57:
+; con_s_id_57
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15210,6 +15288,7 @@ _scenario_BE42_57:
 
 
 _scenario_BE4A_58:
+; con_s_id_58
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15221,6 +15300,7 @@ _scenario_BE4A_58:
 
 
 _scenario_BE52_59:
+; con_s_id_59
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15232,6 +15312,7 @@ _scenario_BE52_59:
 
 
 _scenario_BE5A_5A:
+; con_s_id_5A
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $50
@@ -15249,6 +15330,7 @@ _scenario_BE5A_5A:
 
 
 _scenario_BE69_5B:
+; con_s_id_5B
     .byte con_jsr
     .word sub_BDF6
     .byte con_mirror_off
@@ -15262,6 +15344,7 @@ _scenario_BE69_5B:
 
 
 _scenario_BE73_5C:
+; con_s_id_5C
     .byte con_mirror_off
     .byte con_jsr
     .word sub_BDF6
@@ -15274,6 +15357,7 @@ _scenario_BE73_5C:
 
 
 _scenario_BE7C_5D:
+; con_s_id_5D
     .byte con_jsr
     .word sub_BDF6
     .byte con_mirror_off
@@ -15287,6 +15371,7 @@ _scenario_BE7C_5D:
 
 
 _scenario_BE86_5E:
+; con_s_id_5E
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15298,6 +15383,7 @@ _scenario_BE86_5E:
 
 
 _scenario_BE8E_5F:
+; con_s_id_5F
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15309,6 +15395,7 @@ _scenario_BE8E_5F:
 
 
 _scenario_BE96_60:
+; con_s_id_60
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15320,6 +15407,7 @@ _scenario_BE96_60:
 
 
 _scenario_BE9E_61:
+; con_s_id_61
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15331,6 +15419,7 @@ _scenario_BE9E_61:
 
 
 _scenario_BEA6_62:
+; con_s_id_62
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15342,6 +15431,7 @@ _scenario_BEA6_62:
 
 
 _scenario_BEAE_63:
+; con_s_id_63
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15353,6 +15443,7 @@ _scenario_BEAE_63:
 
 
 _scenario_BEB6_64:
+; con_s_id_64
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15364,6 +15455,7 @@ _scenario_BEB6_64:
 
 
 _scenario_BEBE_65:
+; con_s_id_65
     .byte con_jsr
     .word sub_BDF6
     .byte con_pause + $10
@@ -15375,6 +15467,7 @@ _scenario_BEBE_65:
 
 
 _scenario_BEF7_68:
+; con_s_id_68
     .byte con_F7, $03
     .byte con_pause + $A0
     .byte con_s_bg_07
@@ -15391,6 +15484,7 @@ _scenario_BEF7_68:
 
 
 _scenario_BF05_69:
+; con_s_id_69
     .byte con_mirror_off
     .byte con_pause + $28
     .byte con_s_bg_3C
@@ -15402,12 +15496,14 @@ _scenario_BF05_69:
 
 
 _scenario_AA62_6A:
+; con_s_id_6A
     .byte con_jmp
     .word loc_AA62_heel_lift
 
 
 
 _scenario_BF0D_6B:
+; con_s_id_6B
     .byte con_jsr
     .word sub_A45D_soda_razor_tackle
     .byte con_jmp
@@ -15416,6 +15512,7 @@ _scenario_BF0D_6B:
 
 
 _scenario_BF13_6C:
+; con_s_id_6C
     .byte con_jsr
     .word sub_A7B1_прыжок_перед_face_block
     .byte con_F7, $0F
@@ -15433,6 +15530,7 @@ _scenario_BF13_6C:
 
 
 _scenario_BF23_6D:
+; con_s_id_6D
     .byte con_pause + $3C
     .byte con_s_bg_28
     .byte con_s_anim_C6
@@ -15446,6 +15544,7 @@ _scenario_BF23_6D:
 
 
 _scenario_BF2C_6E:
+; con_s_id_6E
     .byte con_mirror_off
     .byte con_pause + $32
     .byte con_s_bg_1F
@@ -15486,6 +15585,7 @@ _scenario_BF2C_6E:
 
 
 _scenario_BF54_6F:
+; con_s_id_6F
     .byte con_jsr
     .word sub_A34D_отскок_вакашимазу_от_штанги
     .byte con_moving_bg, $01
@@ -15499,6 +15599,7 @@ _scenario_BF54_6F:
 
 
 _scenario_BF61_70:
+; con_s_id_70
     .byte con_jsr
     .word sub_B4E7_конечный_полет_обычного_удара_с_земли
     .byte con_jsr
@@ -15515,6 +15616,7 @@ _scenario_BF61_70:
 
 
 _scenario_BF73_71:
+; con_s_id_71
     .byte con_jsr
     .word sub_9FD6_кипер_делает_нижний_dive
     .byte con_jsr
@@ -15527,6 +15629,7 @@ _scenario_BF73_71:
 
 
 _scenario_BF7F_72:
+; con_s_id_72
     .byte con_F7, $33
     .byte con_pause + $20
     .byte con_s_bg_6B
@@ -15550,6 +15653,7 @@ _scenario_BF7F_72:
 
 
 _scenario_BF94_73:
+; con_s_id_73
     .byte con_jsr
     .word sub_A32D_полет_удара_со_звуком
     .byte con_pause + $78
@@ -15561,6 +15665,7 @@ _scenario_BF94_73:
 
 
 _scenario_BF9C_74:
+; con_s_id_74
     .byte con_jsr
     .word sub_B3C0
     .byte con_jsr
@@ -15592,6 +15697,7 @@ _scenario_BF9C_74:
 
 
 _scenario_BFD2_75:
+; con_s_id_75
     .byte con_jsr
     .word sub_B2AD_misaki_разгоняется_и_прыгает_перед_jumping_volley
     .byte con_jmp
@@ -15600,12 +15706,14 @@ _scenario_BFD2_75:
 
 
 _scenario_B01B_76:
+; con_s_id_76
     .byte con_jmp
     .word loc_B01B_overhead_без_очистки
 
 
 
 _scenario_BFD8_77:
+; con_s_id_77
     .byte con_mirror_off
     .byte con_pause + $E0
     .byte con_s_bg_2D
@@ -15616,6 +15724,7 @@ _scenario_BFD8_77:
 
 
 _scenario_A197_78:
+; con_s_id_78
     .byte con_jmp
     .word loc_A197_защитник_делает_clear_головой_из_своей_штрафной
 

@@ -296,10 +296,10 @@ ram_защита_справа                       = $002F ; 035068 03617B 0388
 
 ; 
 ram_0030_temp                           = $0030 ; 0025EC 002CBF 002F2A 03C680 03F321 03F336 
-    ram_0030_t01_data                       = ram_0030_temp ; 2 адреса 0030-0031
+    ram_0030_t01_data_ptr                   = ram_0030_temp ; 2 адреса 0030-0031
     ram_0030_t02_data                       = ram_0030_temp ; 2 адреса 0030-0031
-    ram_0030_t03_data                       = ram_0030_temp ; 2 адреса 0030-0031
-    ram_0030_t04_data                       = ram_0030_temp ; 2 адреса 0030-0031
+    ram_0030_t03_data_dictionary            = ram_0030_temp ; 2 адреса 0030-0031
+    ram_0030_t04_data_dictionary_ptr        = ram_0030_temp ; 2 адреса 0030-0031
     ram_0030_t05_data_словарь               = ram_0030_temp ; 2 адреса 0030-0031
 
 
@@ -637,7 +637,7 @@ ram_0046_temp                           = $0046 ; 0011B9 001BB9 00413B 004248 00
 
 ; 
 ram_0047_temp                           = $0047 ; 000DD1 000DD6 0011C0 001BDA 00413D 004248 0042E2 02C135 02C14D 030A66 030A6B 030B5A 030B64 030B79 030B7B 030D2A 030D35 030DA1 030DA9 034C04 034C0E 038C60 038C74 038C8F 038CD7 038DDC 03C680 03CEAF 03CED9 03CEDE 03CEF4 03CF06 03CF58 03E8BE 03E8C4 03E8CE 03E905 03E920 
-    ram_0047_t01_количество_пробелов        = ram_0047_temp ; 
+    ram_0047_t01_колво_пробелов             = ram_0047_temp ; 
     ram_0047_t02                            = ram_0047_temp ; 
     ram_0047_t03_spr_X                      = ram_0047_temp ; 
     ram_0047_t04_индекс_слова               = ram_0047_temp ; 
@@ -1417,15 +1417,13 @@ ram_00E7_temp                           = $00E7 ; 0000A7 0000D8 0002A7 0004C6 00
     ram_00E7_t16_индекс_буфера              = ram_00E7_temp ; 
     ram_00E7_t17                            = ram_00E7_temp ; 
     ram_00E7_t18                            = ram_00E7_temp ; 
-    
-    ram_00E7_tFE_useless                    = ram_00E7_temp ; bzk optimize
+    ram_00E7_t19                            = ram_00E7_temp ; bzk optimize
 
 
 
 ; 
 ram_00E8_temp                           = $00E8 ; 000994 000A4F 000A53 000A55 000A5D 000A62 000AB6 000ABB 000F4C 000F67 000FE8 001038 0010C4 0011A5 0011AF 0011B1 0011C2 0011E5 0011EF 001521 001558 0015D8 0015E2 0015E4 00161E 0017DF 0017F1 0017F3 0017FA 001824 001902 00191D 001933 001935 001950 001973 001C5A 001C7C 001C83 001CCF 001D3F 001D72 001D79 001D83 001D88 001D8C 001D97 001E1E 001E28 001E2C 001E3A 001E6E 001E75 001E89 001F4C 001FCD 002155 00216B 002172 002174 00217C 002181 0024E8 0024F6 00254B 0025E5 00264C 002BEB 002CA9 002CB8 002CC5 002D01 002EEA 002EF0 002EFC 002F01 002F5E 004302 00431C 00431E 03C680 
     ram_00E8_t01_data_тайлы_чарли           = ram_00E8_temp ; 2 адреса 00E8-00E9
-    
     ram_00E8_t02_порядковый_номер_игрока    = ram_00E8_temp ; 
     ram_00E8_t03_ppu_addr_lo                = ram_00E8_temp ; 
     ram_00E8_t04_ppu_addr_lo                = ram_00E8_temp ; 
@@ -1594,7 +1592,7 @@ ram_00ED_temp                           = $00ED ; 00009F 0000A1 0000CC 0000D0 00
     ram_00ED_t09_data_index                 = ram_00ED_temp ; 
     ram_00ED_t10_ppu_addr_lo                = ram_00ED_temp ; 
     ram_00ED_t11_опыт_hi                    = ram_00ED_temp ; 
-   ;ram_00ED_t12_опыт_до_levelup_hi         = ram_00ED_temp ; 0x00206C
+   ;ram_00ED_t12                            = ram_00ED_temp ; 
     ram_00ED_t13_hi                         = ram_00ED_temp ; 
     ram_00ED_t14_hi                         = ram_00ED_temp ; 
     ram_00ED_t15                            = ram_00ED_temp ; 
@@ -3149,7 +3147,7 @@ ram_задержка_звука_анимации             = $052E ; 00090D 00
 
 
 ; будет воспроизведен звук по истечении таймера задержки
-; bzk optimize, совпадеие названия с 0700, придумать другое
+; bzk optimize, совпадение названия с 0700, придумать другое
 ram_052F_звук_анимации                  = $052F ; 001099 0011E8 0011EB 00155A 001B93 004372 00439E 0043A5 004767 004901 004A1E 03C680 03CF42 03EBF1 03ED5E 
 
 

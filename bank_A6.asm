@@ -20,24 +20,25 @@ sub_0x040005_подготовить_поинтер_на_слово:
         ; 00 = клон
 ; out
     ; ram_0030_t05_data_словарь
-                                        TYA
+                                        TYA ; обновить N
                                         BNE @это_не_клон
+; if это клон
                                         LDA #< tbl_teams_with_clones
-                                        STA ram_0030_t01_data
+                                        STA ram_0030_t01_data_ptr
                                         LDA #> tbl_teams_with_clones
-                                        STA ram_0030_t01_data + $01
+                                        STA ram_0030_t01_data_ptr + $01
 ; вычислить поинтер на команду
                                         LDA ram_команда_соперника
                                         SEC
                                         SBC #$03
                                         ASL
                                         TAY
-                                        LDA (ram_0030_t01_data),Y
-                                        PHA
+                                        LDA (ram_0030_t01_data_ptr),Y
+                                        PHA ; ptr lo
                                         INY
-                                        LDA (ram_0030_t01_data),Y
+                                        LDA (ram_0030_t01_data_ptr),Y
                                         STA ram_0030_t02_data + $01
-                                        PLA
+                                        PLA ; ptr lo
                                         STA ram_0030_t02_data
 ; вычислить поинтер на игрока этой команды
                                         LDA ram_копия_номера_игрока
@@ -46,34 +47,34 @@ sub_0x040005_подготовить_поинтер_на_слово:
                                         ASL
                                         TAY
                                         LDA (ram_0030_t02_data),Y
-                                        PHA
+                                        PHA ; ptr lo
                                         INY
                                         LDA (ram_0030_t02_data),Y
-                                        STA ram_0030_t03_data + $01
-                                        PLA
-                                        STA ram_0030_t03_data
+                                        STA ram_0030_t03_data_dictionary + $01
+                                        PLA ; ptr lo
+                                        STA ram_0030_t03_data_dictionary
                                         JMP loc_копирование_текста
 @это_не_клон:
                                         LDY #< tbl_dictionary
-                                        STY ram_0030_t04_data
+                                        STY ram_0030_t04_data_dictionary_ptr
                                         LDY #> tbl_dictionary
-                                        STY ram_0030_t04_data + $01
+                                        STY ram_0030_t04_data_dictionary_ptr + $01
                                         ASL
                                         BCC @not_overflow
-                                        INC ram_0030_t04_data + $01
+                                        INC ram_0030_t04_data_dictionary_ptr + $01
 @not_overflow:
                                         TAY
-                                        LDA (ram_0030_t04_data),Y
-                                        PHA
+                                        LDA (ram_0030_t04_data_dictionary_ptr),Y
+                                        PHA ; ptr lo
                                         INY
-                                        LDA (ram_0030_t04_data),Y
-                                        STA ram_0030_t03_data + $01
-                                        PLA
-                                        STA ram_0030_t03_data
+                                        LDA (ram_0030_t04_data_dictionary_ptr),Y
+                                        STA ram_0030_t03_data_dictionary + $01
+                                        PLA ; ptr lo
+                                        STA ram_0030_t03_data_dictionary
 loc_копирование_текста:
                                         LDY #$00
 @цикл_копирования_текста:
-                                        LDA (ram_0030_t03_data),Y
+                                        LDA (ram_0030_t03_data_dictionary),Y
                                         STA ram_7FE0_слово_из_словаря,Y
                                         INY
                                         CMP #$FC

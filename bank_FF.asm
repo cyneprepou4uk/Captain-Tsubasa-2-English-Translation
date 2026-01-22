@@ -2078,7 +2078,7 @@ C - - - - - 0x03D1D6 FF:D1C6: AA        TAX
 bra_D1C7:
 C - - - - - 0x03D1D7 FF:D1C7: 8D F8 05  STA ram_время_hi
 C - - - - - 0x03D1DA FF:D1CA: 8E F7 05  STX ram_время_lo
-C - - - - - 0x03D1DD FF:D1CD: A9 00     LDA #con_B3CF_00
+C - - - - - 0x03D1DD FF:D1CD: A9 00     LDA #con_B3CF_period_number_and_time
 C - - - - - 0x03D1DF FF:D1CF: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D1E2 FF:D1D2: 2C 3E 06  BIT ram_флаг_loss
 C - - - - - 0x03D1E5 FF:D1D5: 30 14     BMI bra_D1EB_сейчас_не_loss
@@ -2318,14 +2318,16 @@ C - - - - - 0x03D369 FF:D359: 4C B4 D2  JMP loc_D2B4_loop
 
 
 tbl_D35C_окно_с_действием:
-    .byte con_B3CF_07   ; 03 на кипера напали
-    .byte con_B3CF_02   ; 04 кипер отбивает удар
-    .byte con_B3CF_2D   ; 05 кипер отбивает пк
+    .byte con_B3CF_gk_action_window_vs_player   ; 03 на кипера напали
+    .byte con_B3CF_player_action_window   ; 04 кипер отбивает удар
+    .byte con_B3CF_pk_dive   ; 05 кипер отбивает пк
+
+
 
 tbl_D35F_статы_кипера:
-    .byte con_B3CF_08   ; 03 на кипера напали
-    .byte con_B3CF_06   ; 04 кипер отбивает удар
-    .byte con_B3CF_06   ; 05 кипер отбивает пк
+    .byte con_B3CF_gk_counter_drib_shot   ; 03 на кипера напали
+    .byte con_B3CF_gk_punch_catch   ; 04 кипер отбивает удар
+    .byte con_B3CF_gk_punch_catch   ; 05 кипер отбивает пк
 
 
 
@@ -2346,6 +2348,7 @@ tbl_D362_действие_кипера:
 - D 2 - - - 0x03D37B FF:D36B: 07        .byte $07   ; 
 - D 2 - - - 0x03D37C FF:D36C: FF        .byte $FF   ; 
 - D 2 - - - 0x03D37D FF:D36D: 08        .byte $08   ; 
+
 
 
 loc_D36E:
@@ -2369,7 +2372,7 @@ C - - - - - 0x03D39B FF:D38B: A9 00     LDA #$00
 C - - - - - 0x03D39D FF:D38D: 8D 1E 06  STA ram_061E
 C - - - - - 0x03D3A0 FF:D390: 20 EA D4  JSR sub_D4EA
 loc_D393:
-C D 2 - - - 0x03D3A3 FF:D393: A9 0D     LDA #con_B3CF_0D
+C D 2 - - - 0x03D3A3 FF:D393: A9 0D     LDA #con_B3CF_gk_dive
 C - - - - - 0x03D3A5 FF:D395: AE 1E 06  LDX ram_061E
 C - - - - - 0x03D3A8 FF:D398: BC 01 06  LDY ram_номер_защитника,X
 C - - - - - 0x03D3AB FF:D39B: F0 06     BEQ bra_D3A3
@@ -2429,7 +2432,7 @@ C - - - - - 0x03D41F FF:D40F: 20 EA D4  JSR sub_D4EA
 C - - - - - 0x03D422 FF:D412: AD 1E 06  LDA ram_061E
 C - - - - - 0x03D425 FF:D415: CD 00 06  CMP ram_колво_защитников
 C - - - - - 0x03D428 FF:D418: F0 05     BEQ bra_D41F
-C - - - - - 0x03D42A FF:D41A: A9 16     LDA #con_B3CF_16
+C - - - - - 0x03D42A FF:D41A: A9 16     LDA #con_B3CF_defender_tackle_block_passcut
 C - - - - - 0x03D42C FF:D41C: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D41F:
 C - - - - - 0x03D42F FF:D41F: 28        PLP
@@ -2557,6 +2560,8 @@ C - - - - - 0x03D513 FF:D503: 60        RTS
 
 
 sub_D504_выбрать_название_действия_защитника:
+; out
+    ; A = con_E9DA
 C - - - - - 0x03D514 FF:D504: BD 0B 06  LDA ram_действие_защитника,X
 C - - - - - 0x03D517 FF:D507: C9 FF     CMP #$FF
 C - - - - - 0x03D519 FF:D509: D0 03     BNE bra_D50E_действие_было_выбрано
@@ -2611,7 +2616,7 @@ off_D53D_01_tackle:
 
 
 off_D542_02_passcut:
-- D 2 - I - 0x03D552 FF:D542: 10        .byte con_E9DA_passcut ; 00 
+- D 2 - I - 0x03D552 FF:D542: 10        .byte con_E9DA__passcut ; 00 
 - D 2 - I - 0x03D553 FF:D543: 11        .byte con_E9DA_skylab_passcut ; 01 
 
 
@@ -2651,9 +2656,9 @@ tbl_D548_название_действия_защиты:
 
 
 tbl_D552_меню_статов:
-    .byte con_B3CF_16   ; 00 
-    .byte con_B3CF_18   ; 01 
-    .byte con_B3CF_17   ; 02 
+    .byte con_B3CF_defender_tackle_block_passcut   ; 00 
+    .byte con_B3CF_player_clearing_passcut   ; 01 
+    .byte con_B3CF_player_interfere_passcut   ; 02 
 
 
 
@@ -2716,9 +2721,9 @@ C - - - - - 0x03D5A5 FF:D595: D0 0E     BNE bra_D5A5
 C - - - - - 0x03D5A7 FF:D597: AD 00 06  LDA ram_колво_защитников
 C - - - - - 0x03D5AA FF:D59A: F0 09     BEQ bra_D5A5
 C - - - - - 0x03D5AC FF:D59C: AD 01 06  LDA ram_номер_защитника
-C - - - - - 0x03D5AF FF:D59F: F0 11     BEQ bra_D5B2
+C - - - - - 0x03D5AF FF:D59F: F0 11     BEQ bra_D5B2    ; if наш кипер
 C - - - - - 0x03D5B1 FF:D5A1: C9 0B     CMP #$0B
-C - - - - - 0x03D5B3 FF:D5A3: F0 0D     BEQ bra_D5B2
+C - - - - - 0x03D5B3 FF:D5A3: F0 0D     BEQ bra_D5B2    ; if кипер соперника
 bra_D5A5:
 C - - - - - 0x03D5B5 FF:D5A5: A0 07     LDY #con_gk_величина_наебки
 C - - - - - 0x03D5B7 FF:D5A7: B1 34     LDA (ram_plr_data),Y    ; con_gk_величина_наебки
@@ -2746,7 +2751,7 @@ C - - - - - 0x03D5F2 FF:D5E2: 8D 1E 06  STA ram_061E
 C - - - - - 0x03D5DE FF:D5CE: AE 21 06  LDX ram_0621
 C - - - - - 0x03D5E1 FF:D5D1: BD 06 D7  LDA tbl_D706_окно_action,X
 C - - - - - 0x03D5E4 FF:D5D4: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-loc_D5D7:
+loc_D5D7_loop:
 C - - - - - 0x03D5E7 FF:D5D7: AE 21 06  LDX ram_0621
 C - - - - - 0x03D5EA FF:D5DA: BD 00 D7  LDA tbl_D700_статы,X
 C - - - - - 0x03D5ED FF:D5DD: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
@@ -2768,7 +2773,11 @@ C - - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F_задержка
                                         DEX
                                         TXA
                                         CLC
-                                        ADC #$44      ; show_?_defenders
+                                        ADC #$44
+; con_B3CF_show_1_defender
+; con_B3CF_show_2_defenders
+; con_B3CF_show_3_defenders
+; con_B3CF_show_4_defenders
                                         JSR sub_EF7F_отрисовка_меню_во_время_матча
 @продолжать_отображение_соперников:
                                         LDA #$01
@@ -2776,7 +2785,7 @@ C - - - - - 0x03D5F7 FF:D5E7: 20 0F CB  JSR sub_CB0F_задержка
                                         LDA ram_btn_hold
                                         AND #con_btn_Select
                                         BNE @продолжать_отображение_соперников
-                                        JMP loc_D5D7
+                                        JMP loc_D5D7_loop
 @читать_другие_кнопки:
 C - - - - - 0x03D5FA FF:D5EA: A9 0F     LDA #con_btns_Dpad
 C - - - - - 0x03D5FC FF:D5EC: 2D 1E 00  AND ram_btn_press
@@ -2955,22 +2964,22 @@ tbl_D6E8_действие_при_владении_мячом:
 
 
 tbl_D700_статы:
-    .byte con_B3CF_03   ; 00 
-    .byte con_B3CF_04   ; 01 
-    .byte con_B3CF_05   ; 02 
-    .byte con_B3CF_03   ; 03 
-    .byte con_B3CF_03   ; 04 
-    .byte con_B3CF_03   ; 05 
+    .byte con_B3CF_player_dribble_pass_shoot   ; 00 
+    .byte con_B3CF_player_trap_pass_shot   ; 01 
+    .byte con_B3CF_player_trap_pass_clearing   ; 02 
+    .byte con_B3CF_player_dribble_pass_shoot   ; 03 
+    .byte con_B3CF_player_dribble_pass_shoot   ; 04 
+    .byte con_B3CF_player_dribble_pass_shoot   ; 05 
 
 
 
 tbl_D706_окно_action:
-    .byte con_B3CF_02   ; 00 
-    .byte con_B3CF_02   ; 01 
-    .byte con_B3CF_02   ; 02 
-    .byte con_B3CF_02   ; 03 
-    .byte con_B3CF_02   ; 04 
-    .byte con_B3CF_2C   ; 05 
+    .byte con_B3CF_player_action_window   ; 00 
+    .byte con_B3CF_player_action_window   ; 01 
+    .byte con_B3CF_player_action_window   ; 02 
+    .byte con_B3CF_player_action_window   ; 03 
+    .byte con_B3CF_player_action_window   ; 04 
+    .byte con_B3CF_pk_aim   ; 05 
 
 
 
@@ -3104,7 +3113,7 @@ sub_0x03D7F8:
 ofs_059_D7E8_F1:
 C D 2 J - - 0x03D7F8 FF:D7E8: A9 38     LDA #con_s_id_38
 C - - - - - 0x03D7FA FF:D7EA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
-C - - - - - 0x03D7FD FF:D7ED: A9 0F     LDA #con_B3CF_0F
+C - - - - - 0x03D7FD FF:D7ED: A9 0F     LDA #con_B3CF_pass_select_a_teammate
 C - - - - - 0x03D7FF FF:D7EF: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D802 FF:D7F2: A9 81     LDA #$81
 C - - - - - 0x03D804 FF:D7F4: 8D 2D 06  STA ram_062D
@@ -3177,7 +3186,10 @@ C - - - - - 0x03D875 FF:D865: 4C D2 D8  JMP loc_D8D2
 bra_D868:
 C - - - - - 0x03D878 FF:D868: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D87B FF:D86B: 18        CLC
-C - - - - - 0x03D87C FF:D86C: 69 22     ADC #$22      ; ??? select_1_of_?_teammates_for_pass
+C - - - - - 0x03D87C FF:D86C: 69 22     ADC #$22
+; con_B3CF_select_1_of_2_teammates_for_pass
+; con_B3CF_select_1_of_3_teammates_for_pass
+; con_B3CF_select_1_of_4_teammates_for_pass
 C - - - - - 0x03D87E FF:D86E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D881 FF:D871: A9 00     LDA #$00
 C - - - - - 0x03D883 FF:D873: 8D 25 06  STA ram_0625
@@ -3188,7 +3200,7 @@ C - - - - - 0x03D88B FF:D87B: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03D88E FF:D87E: A9 40     LDA #con_btn_B
 C - - - - - 0x03D890 FF:D880: 2D 1E 00  AND ram_btn_press
 C - - - - - 0x03D893 FF:D883: F0 0A     BEQ bra_D88F
-C - - - - - 0x03D895 FF:D885: A9 0F     LDA #con_B3CF_0F
+C - - - - - 0x03D895 FF:D885: A9 0F     LDA #con_B3CF_pass_select_a_teammate
 C - - - - - 0x03D897 FF:D887: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D89A FF:D88A: 20 F7 D8  JSR sub_D8F7
 C - - - - - 0x03D89D FF:D88D: 18        CLC
@@ -3218,7 +3230,7 @@ loc_D8B5:
 C D 2 - - - 0x03D8C5 FF:D8B5: AE 25 06  LDX ram_0625
 C - - - - - 0x03D8C8 FF:D8B8: BD 31 04  LDA ram_список_спешалов + $01,X
 C - - - - - 0x03D8CB FF:D8BB: 8D FC 05  STA ram_принимающий
-C - - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #con_B3CF_1D
+C - - - - - 0x03D8CE FF:D8BE: A9 1D     LDA #con_B3CF_receiver_dribble_pass_shoot
 C - - - - - 0x03D8D0 FF:D8C0: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D8C3:
 C - - - - - 0x03D8D3 FF:D8C3: 20 DA D8  JSR sub_D8DA_курсор_выбора_из_нескольких_напарников_для_паса
@@ -3300,26 +3312,33 @@ C - - - - - 0x03D955 FF:D945: C9 16     CMP #$16
 C - - - - - 0x03D957 FF:D947: D0 B6     BNE bra_D8FF_loop
 C - - - - - 0x03D959 FF:D949: AE 30 04  LDX ram_список_спешалов
 C - - - - - 0x03D95C FF:D94C: D0 06     BNE bra_D954
-C - - - - - 0x03D95E FF:D94E: A9 1C     LDA #con_B3CF_1C
+C - - - - - 0x03D95E FF:D94E: A9 1C     LDA #con_B3CF_clear_receiver_stats_window
 C - - - - - 0x03D960 FF:D950: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_D954:
 C - - - - - 0x03D964 FF:D954: AD 25 06  LDA ram_0625
 C - - - - - 0x03D967 FF:D957: D0 08     BNE bra_D961
 C - - - - - 0x03D969 FF:D959: 8A        TXA
 C - - - - - 0x03D96A FF:D95A: 18        CLC
-C - - - - - 0x03D96B FF:D95B: 69 1F     ADC #$1F      ; ??? show_?_opponents
+C - - - - - 0x03D96B FF:D95B: 69 1F     ADC #$1F
+; con_B3CF_show_1_opponent
+; con_B3CF_show_2_opponents
+; con_B3CF_show_3_opponents
+; con_B3CF_show_4_opponents
 C - - - - - 0x03D96D FF:D95D: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_D961:
 C - - - - - 0x03D971 FF:D961: CA        DEX
 C - - - - - 0x03D972 FF:D962: D0 0C     BNE bra_D970
 C - - - - - 0x03D974 FF:D964: AD 31 04  LDA ram_список_спешалов + $01
 C - - - - - 0x03D977 FF:D967: 8D FC 05  STA ram_принимающий
-C - - - - - 0x03D97A FF:D96A: A9 1D     LDA #con_B3CF_1D
+C - - - - - 0x03D97A FF:D96A: A9 1D     LDA #con_B3CF_receiver_dribble_pass_shoot
 C - - - - - 0x03D97C FF:D96C: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_D970:
 C - - - - - 0x03D980 FF:D970: 8A        TXA
 C - - - - - 0x03D981 FF:D971: 18        CLC
-C - - - - - 0x03D982 FF:D972: 69 18     ADC #$18      ; ? show_?_teammates
+C - - - - - 0x03D982 FF:D972: 69 18     ADC #$18
+; con_B3CF_19_show_2_teammates
+; con_B3CF_1A_show_3_teammates
+; con_B3CF_1B_show_4_teammates
 C - - - - - 0x03D984 FF:D974: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 
 
@@ -3353,7 +3372,7 @@ C - - - - - 0x03D9BD FF:D9AD: C9 0B     CMP #$0B
 C - - - - - 0x03D9BF FF:D9AF: D0 E1     BNE bra_D992_loop
 C - - - - - 0x03D9C1 FF:D9B1: AD 30 04  LDA ram_список_спешалов
 C - - - - - 0x03D9C4 FF:D9B4: D0 12     BNE bra_D9C8
-C - - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #con_B3CF_11
+C - - - - - 0x03D9C6 FF:D9B6: A9 11     LDA #con_B3CF_no_players_nearby
 C - - - - - 0x03D9C8 FF:D9B8: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_D9BB_loop:
 C - - - - - 0x03D9CB FF:D9BB: A9 01     LDA #$01
@@ -3363,7 +3382,7 @@ C - - - - - 0x03D9D2 FF:D9C2: 2D 1E 00  AND ram_btn_press
 C - - - - - 0x03D9D5 FF:D9C5: F0 F4     BEQ bra_D9BB_loop
 C - - - - - 0x03D9D7 FF:D9C7: 60        RTS
 bra_D9C8:
-C - - - - - 0x03D9D8 FF:D9C8: A9 10     LDA #con_B3CF_10
+C - - - - - 0x03D9D8 FF:D9C8: A9 10     LDA #con_B3CF_1_2_pass_choose_a_partner
 C - - - - - 0x03D9DA FF:D9CA: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03D9DD FF:D9CD: A9 82     LDA #$82
 C - - - - - 0x03D9DF FF:D9CF: 8D 2D 06  STA ram_062D
@@ -3399,7 +3418,7 @@ C D 2 - - - 0x03DA13 FF:DA03: 8D 25 06  STA ram_0625
 C - - - - - 0x03DA16 FF:DA06: AA        TAX
 C - - - - - 0x03DA17 FF:DA07: BD 31 04  LDA ram_список_спешалов + $01,X
 C - - - - - 0x03DA1A FF:DA0A: 8D FC 05  STA ram_принимающий
-C - - - - - 0x03DA1D FF:DA0D: A9 1D     LDA #con_B3CF_1D
+C - - - - - 0x03DA1D FF:DA0D: A9 1D     LDA #con_B3CF_receiver_dribble_pass_shoot
 C - - - - - 0x03DA1F FF:DA0F: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 bra_DA12:
 C - - - - - 0x03DA22 FF:DA12: A9 40     LDA #con_btn_B
@@ -3499,7 +3518,7 @@ C - - - - - 0x03DAD4 FF:DAC4: 20 24 DB  JSR sub_DB24
 C - - - - - 0x03DAE1 FF:DAD1: AD 29 06  LDA ram_флаг_разводки
 C - - - - - 0x03DAE4 FF:DAD4: C9 04     CMP #$04
 C - - - - - 0x03DAE6 FF:DAD6: F0 11     BEQ bra_DAE9_пропуск_отрисовки_и_ожидания_разводки
-                                        LDA #con_B3CF_42
+                                        LDA #con_B3CF_booth_for_charlie_time_score_period_number
                                         JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03DAE8 FF:DAD8: A9 35     LDA #con_s_id_wait_for_kick_off
 C - - - - - 0x03DAEA FF:DADA: 20 B0 CB  JSR sub_CBB0_запись_номера_сценария
@@ -4464,9 +4483,9 @@ C - - - - - 0x03E0EE FF:E0DE: 60        RTS
 
 loc_E0DF:
 loc_0x03E0EF:
-C D 3 - - - 0x03E0EF FF:E0DF: A9 00     LDA #con_B3CF_00
+C D 3 - - - 0x03E0EF FF:E0DF: A9 00     LDA #con_B3CF_period_number_and_time
 C - - - - - 0x03E0F1 FF:E0E1: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03E0F4 FF:E0E4: A9 01     LDA #con_B3CF_01
+C - - - - - 0x03E0F4 FF:E0E4: A9 01     LDA #con_B3CF_team_names_and_score
 C - - - - - 0x03E0F6 FF:E0E6: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
 C - - - - - 0x03E0F9 FF:E0E9: 20 33 E2  JSR sub_E233
 C - - - - - 0x03E0FC FF:E0EC: A9 0A     LDA #$0A
@@ -4654,12 +4673,12 @@ loc_E267:
 C - - - - - 0x03E277 FF:E267: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x03E27A FF:E26A: F0 0B     BEQ bra_E277_команда_слева
 ; if мяч у команды справа
-C - - - - - 0x03E27C FF:E26C: A9 31     LDA #con_B3CF_31
+C - - - - - 0x03E27C FF:E26C: A9 31     LDA #con_B3CF_display_name_number_at_the_top
 C - - - - - 0x03E27E FF:E26E: 20 7F EF  JSR sub_EF7F_отрисовка_меню_во_время_матча
-C - - - - - 0x03E281 FF:E271: A9 32     LDA #con_B3CF_32
+C - - - - - 0x03E281 FF:E271: A9 32     LDA #con_B3CF_display_name_opponent_at_the_top
 C - - - - - 0x03E283 FF:E273: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 bra_E277_команда_слева:
-C - - - - - 0x03E287 FF:E277: A9 30     LDA #con_B3CF_30
+C - - - - - 0x03E287 FF:E277: A9 30     LDA #con_B3CF_display_name_stamina_at_the_top
 C - - - - - 0x03E289 FF:E279: 20 7F EF  JMP loc_EF7F_отрисовка_меню_во_время_матча
 
 
@@ -5806,206 +5825,303 @@ C - - - - - 0x03E9E9 FF:E9D9: 60        RTS
 
 
 tbl_E9DA_текст_названия_действий:
-- D 3 - - - 0x03E9EA FF:E9DA: 1C EA     .word off_EA1C_00_dribble
-- D 3 - - - 0x03E9EC FF:E9DC: 29 EA     .word off_EA29_01_pass
-- D 3 - - - 0x03E9EE FF:E9DE: 34 EA     .word off_EA34_02_shoot
-- D 3 - - - 0x03E9F0 FF:E9E0: 3D EA     .word off_EA3D_03_1_2_pass
-- D 3 - - - 0x03E9F2 FF:E9E2: 46 EA     .word off_EA46_04_trap
-- D 3 - - - 0x03E9F4 FF:E9E4: 51 EA     .word off_EA51_05_through
-- D 3 - - - 0x03E9F6 FF:E9E6: 59 EA     .word off_EA59_06_clearing
-- D 3 - - - 0x03E9F8 FF:E9E8: 61 EA     .word off_EA61_07_tackle
-- D 3 - - - 0x03E9FA FF:E9EA: 6A EA     .word off_EA6A_08_skylab_tackle
-- D 3 - - - 0x03E9FC FF:E9EC: 73 EA     .word off_EA73_09_razor_tackle
-- D 3 - - - 0x03E9FE FF:E9EE: 7C EA     .word off_EA7C_0A_power_tackle
-- D 3 - - - 0x03EA00 FF:E9F0: 87 EA     .word off_EA87_0B_tiger_tackle
-- D 3 - - - 0x03EA02 FF:E9F2: 94 EA     .word off_EA94_0C_block
-- D 3 - - - 0x03EA04 FF:E9F4: 9F EA     .word off_EA9F_0D_skylab_block
-- D 3 - - - 0x03EA06 FF:E9F6: AC EA     .word off_EAAC_0E_face_block
-- D 3 - - - 0x03EA08 FF:E9F8: B7 EA     .word off_EAB7_0F_power_block
-- D 3 - - - 0x03EA0A FF:E9FA: C4 EA     .word off_EAC4_10_passcut
-- D 3 - - - 0x03EA0C FF:E9FC: CE EA     .word off_EACE_11_skylab_passcut
-- D 3 - - - 0x03EA0E FF:E9FE: DB EA     .word off_EADB_12_wait
-- D 3 - - - 0x03EA10 FF:EA00: E6 EA     .word off_EAE6_13_mark
-- D 3 - - - 0x03EA12 FF:EA02: EF EA     .word off_EAEF_14_interfere
-- D 3 - - - 0x03EA14 FF:EA04: F8 EA     .word off_EAF8_15_clearing
-- D 3 - - - 0x03EA16 FF:EA06: 01 EB     .word off_EB01_16_punch
-- D 3 - - - 0x03EA18 FF:EA08: 0D EB     .word off_EB0D_17_catch
-- D 3 - - - 0x03EA1A FF:EA0A: 17 EB     .word off_EB17_18_triangle_jump
-- D 3 - - - 0x03EA1C FF:EA0C: 26 EB     .word off_EB26_19_dive
-- D 3 - - - 0x03EA1E FF:EA0E: 33 EB     .word off_EB33_1A_stay
-- D 3 - - - 0x03EA20 FF:EA10: 3E EB     .word off_EB3E_1B_stop_shot
-- D 3 - - - 0x03EA22 FF:EA12: 4C EB     .word off_EB4C_1C_stop_dribble
-- D 3 - - - 0x03EA24 FF:EA14: 5E EB     .word off_EB5E_1D_________lines
-- D 3 - - - 0x03EA26 FF:EA16: 67 EB     .word off_EB67_1E_left
-- D 3 - - - 0x03EA28 FF:EA18: 72 EB     .word off_EB72_1F_center
-- D 3 - - - 0x03EA2A FF:EA1A: 7B EB     .word off_EB7B_20_right
+- D 3 - - - 0x03E9EA FF:E9DA: 1C EA     .word _off017_EA1C_00_dribble
+- D 3 - - - 0x03E9EC FF:E9DC: 29 EA     .word _off017_EA29_01_pass
+- D 3 - - - 0x03E9EE FF:E9DE: 34 EA     .word _off017_EA34_02_shoot
+- D 3 - - - 0x03E9F0 FF:E9E0: 3D EA     .word _off017_EA3D_03_1_2_pass
+- D 3 - - - 0x03E9F2 FF:E9E2: 46 EA     .word _off017_EA46_04_trap
+- D 3 - - - 0x03E9F4 FF:E9E4: 51 EA     .word _off017_EA51_05_through
+- D 3 - - - 0x03E9F6 FF:E9E6: 59 EA     .word _off017_EA59_06_clearing
+- D 3 - - - 0x03E9F8 FF:E9E8: 61 EA     .word _off017_EA61_07_tackle
+- D 3 - - - 0x03E9FA FF:E9EA: 6A EA     .word _off017_EA6A_08_skylab_tackle
+- D 3 - - - 0x03E9FC FF:E9EC: 73 EA     .word _off017_EA73_09_razor_tackle
+- D 3 - - - 0x03E9FE FF:E9EE: 7C EA     .word _off017_EA7C_0A_power_tackle
+- D 3 - - - 0x03EA00 FF:E9F0: 87 EA     .word _off017_EA87_0B_tiger_tackle
+- D 3 - - - 0x03EA02 FF:E9F2: 94 EA     .word _off017_EA94_0C_block
+- D 3 - - - 0x03EA04 FF:E9F4: 9F EA     .word _off017_EA9F_0D_skylab_block
+- D 3 - - - 0x03EA06 FF:E9F6: AC EA     .word _off017_EAAC_0E_face_block
+- D 3 - - - 0x03EA08 FF:E9F8: B7 EA     .word _off017_EAB7_0F_power_block
+- D 3 - - - 0x03EA0A FF:E9FA: C4 EA     .word _off017_EAC4_10_passcut
+- D 3 - - - 0x03EA0C FF:E9FC: CE EA     .word _off017_EACE_11_skylab_passcut
+- D 3 - - - 0x03EA0E FF:E9FE: DB EA     .word _off017_EADB_12_wait
+- D 3 - - - 0x03EA10 FF:EA00: E6 EA     .word _off017_EAE6_13_mark
+- D 3 - - - 0x03EA12 FF:EA02: EF EA     .word _off017_EAEF_14_interfere
+- D 3 - - - 0x03EA14 FF:EA04: F8 EA     .word _off017_EAF8_15_clearing
+- D 3 - - - 0x03EA16 FF:EA06: 01 EB     .word _off017_EB01_16_punch
+- D 3 - - - 0x03EA18 FF:EA08: 0D EB     .word _off017_EB0D_17_catch
+- D 3 - - - 0x03EA1A FF:EA0A: 17 EB     .word _off017_EB17_18_triangle_jump
+- D 3 - - - 0x03EA1C FF:EA0C: 26 EB     .word _off017_EB26_19_dive
+- D 3 - - - 0x03EA1E FF:EA0E: 33 EB     .word _off017_EB33_1A_stay
+- D 3 - - - 0x03EA20 FF:EA10: 3E EB     .word _off017_EB3E_1B_stop_shot
+- D 3 - - - 0x03EA22 FF:EA12: 4C EB     .word _off017_EB4C_1C_stop_dribble
+- D 3 - - - 0x03EA24 FF:EA14: 5E EB     .word _off017_EB5E_1D_________lines
+- D 3 - - - 0x03EA26 FF:EA16: 67 EB     .word _off017_EB67_1E_left
+- D 3 - - - 0x03EA28 FF:EA18: 72 EB     .word _off017_EB72_1F_center
+- D 3 - - - 0x03EA2A FF:EA1A: 7B EB     .word _off017_EB7B_20_right
 
 
 
-off_EA1C_00_dribble:
+_off017_EA1C_00_dribble:
+; con_E9DA_dribble
     .word $2288         ; адрес ppu
     .byte $25           ; AND 03 = количество строк, LSR LSR = количество символов в строке
     .text " Dribble "
 
-off_EA29_01_pass:
+
+
+_off017_EA29_01_pass:
+; con_E9DA_pass
     .word $2288 ; 
     .byte $25 ; 
     .text "  Pass   "
 
-off_EA34_02_shoot:
+
+
+_off017_EA34_02_shoot:
+; con_E9DA_shoot
     .word $2288 ; 
     .byte $25 ; 
     .text "  Shoot  "
 
-off_EA3D_03_1_2_pass:
+
+
+_off017_EA3D_03_1_2_pass:
+; con_E9DA_1_2_pass
     .word $2288 ; 
     .byte $25 ; 
     .text "1-2 Pass "
 
-off_EA46_04_trap:
+
+
+_off017_EA46_04_trap:
+; con_E9DA_trap
     .word $2288 ; 
     .byte $25 ; 
     .text "  Trap   "
 
-off_EA51_05_through:
+
+
+_off017_EA51_05_through:
+; con_E9DA_through
     .word $2288 ; 
     .byte $25 ; 
     .text " Through "
 
-off_EA59_06_clearing:       ; когда ты в своей штрафной с мячом
+
+
+_off017_EA59_06_clearing:       ; когда ты в своей штрафной с мячом
+; con_E9DA_clearing_atk
     .word $2288 ; 
     .byte $25 ; 
     .text " Clearing"
 
-off_EA61_07_tackle:
+
+
+_off017_EA61_07_tackle:
+; con_E9DA_tackle
     .word $2288 ; 
     .byte $25 ; 
     .text "   Tackle"
 
-off_EA6A_08_skylab_tackle:
+
+
+_off017_EA6A_08_skylab_tackle:
+; con_E9DA_skylab_tackle
     .word $2288 ; 
     .byte $25 ; 
     .text "SkLab Tkl"
 
-off_EA73_09_razor_tackle:
+
+
+_off017_EA73_09_razor_tackle:
+; con_E9DA_razor_tackle
     .word $2288 ; 
     .byte $25 ; 
     .text "Razor Tkl"
 
-off_EA7C_0A_power_tackle:
+
+
+_off017_EA7C_0A_power_tackle:
+; con_E9DA_power_tackle
     .word $2288 ; 
     .byte $25   ; 
     .text "Power Tkl"
 
-off_EA87_0B_tiger_tackle:
+
+
+_off017_EA87_0B_tiger_tackle:
+; con_E9DA_tiger_tackle
     .word $2288 ; 
     .byte $25 ; 
     .text "Tiger Tkl"
 
-off_EA94_0C_block:
+
+
+_off017_EA94_0C_block:
+; con_E9DA_block
     .word $2288 ; 
     .byte $25 ; 
     .text "    Block"
 
-off_EA9F_0D_skylab_block:
+
+
+_off017_EA9F_0D_skylab_block:
+; con_E9DA_skylab_block
     .word $2288 ; 
     .byte $25 ; 
     .text "SkLab Blk"
 
-off_EAAC_0E_face_block:
+
+
+_off017_EAAC_0E_face_block:
+; con_E9DA_face_block
     .word $2288 ; 
     .byte $25 ; 
     .text " Face Blk"
 
-off_EAB7_0F_power_block:
+
+
+_off017_EAB7_0F_power_block:
+; con_E9DA_power_block
     .word $2288 ; 
     .byte $25 ; 
     .text "Power Blk"
 
-off_EAC4_10_passcut:        ; в воздухе понизу
+
+
+_off017_EAC4_10_passcut:        ; в воздухе понизу
+; con_E9DA__passcut
     .word $2288 ; 
     .byte $25 ; 
     .text " Pass cut"
 
-off_EACE_11_skylab_passcut:
+
+
+_off017_EACE_11_skylab_passcut:
+; con_E9DA_skylab_passcut
     .word $2288 ; 
     .byte $25 ; 
     .text "SkLab Cut"
 
-off_EADB_12_wait:           ; player
+
+
+_off017_EADB_12_wait:           ; player
+; con_E9DA_wait
     .word $2288 ; 
     .byte $25 ; 
     .text "     Wait"
 
-off_EAE6_13_mark:           ; когда соперник в твоей штрафной принимает мяч
+
+
+_off017_EAE6_13_mark:           ; когда соперник в твоей штрафной принимает мяч
+; con_E9DA_mark
     .word $2288 ; 
     .byte $25 ; 
     .text "     Mark"
 
-off_EAEF_14_interfere:
+
+
+_off017_EAEF_14_interfere:
+; con_E9DA_interfere
     .word $2288 ; 
     .byte $25 ; 
     .text "Interfere"
 
-off_EAF8_15_clearing:       ; когда соперник в твоей штрафной принимает мяч
+
+
+_off017_EAF8_15_clearing:       ; когда соперник в твоей штрафной принимает мяч
+; con_E9DA_clearing_def
     .word $2288 ; 
     .byte $25 ; 
     .text " Clearing"
 
-off_EB01_16_punch:
+
+
+_off017_EB01_16_punch:
+; con_E9DA_punch
     .word $2288 ; 
     .byte $25 ; 
     .text "  Punch  "
 
-off_EB0D_17_catch:
+
+
+_off017_EB0D_17_catch:
+; con_E9DA_catch
     .word $2288 ; 
     .byte $25 ; 
     .text "  Catch  "
 
-off_EB17_18_triangle_jump:
+
+
+_off017_EB17_18_triangle_jump:
+; con_E9DA_triangle_catch
     .word $2288 ; 
     .byte $26 ; 
     .text "Triangle "
     .text "  Jump   "
 
-off_EB26_19_dive:
+
+
+_off017_EB26_19_dive:
+; con_E9DA_dive
     .word $2288 ; 
     .byte $25 ; 
     .text "     Dive"
 
-off_EB33_1A_stay:           ; GK
+
+
+_off017_EB33_1A_stay:           ; GK
+; con_E9DA_stay
     .word $2288 ; 
     .byte $25 ; 
     .text "     Stay"
 
-off_EB3E_1B_stop_shot:
+
+
+_off017_EB3E_1B_stop_shot:
+; con_E9DA_stop_shot
     .word $2288 ; 
     .byte $26 ; 
     .text "Stop shot"
     .text "         "
 
-off_EB4C_1C_stop_dribble:
+
+
+_off017_EB4C_1C_stop_dribble:
+; con_E9DA_stop_dribble
     .word $2288 ; 
     .byte $26 ; 
     .text "  Stop   "
     .text " dribble "
 
-off_EB5E_1D_________lines:
+
+
+_off017_EB5E_1D_________lines:
+; con_E9DA_________lines
     .word $2288 ; 
     .byte $25 ; 
     .text "---------"
 
-off_EB67_1E_left:
+
+
+_off017_EB67_1E_left:
+; con_E9DA_left
     .word $2288 ; 
     .byte $25 ; 
     .text "Left     "
 
-off_EB72_1F_center:
+
+
+_off017_EB72_1F_center:
+; con_E9DA_center
     .word $2288 ; 
     .byte $25 ; 
     .text "  Center "
 
-off_EB7B_20_right:
+
+
+_off017_EB7B_20_right:
+; con_E9DA_right
     .word $2288 ; 
     .byte $25 ; 
     .text "    Right"
@@ -6519,6 +6635,8 @@ sub_EF7F_отрисовка_меню_во_время_матча:
 loc_EF7F_отрисовка_меню_во_время_матча:
 sub_0x03EF8F_отрисовка_меню_во_время_матча:
 loc_0x03EF8F_отрисовка_меню_во_время_матча:
+; in
+    ; A = con_B3CF
 C D 3 - - - 0x03EF8F FF:EF7F: A8        TAY
 C - - - - - 0x03EF90 FF:EF80: A5 24     LDA ram_for_5114
 C - - - - - 0x03EF92 FF:EF82: 48        PHA
@@ -7322,137 +7440,137 @@ tbl_FB4C:
 
 
 tbl_FBCC_палитра:
-; 00 
+; con_FBCC_00
 - D 3 - I - 0x03FBDC FF:FBCC: 00        .byte $00, $00, $30   ; 
 - D 3 - I - 0x03FBDF FF:FBCF: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FBE2 FF:FBD2: 1A        .byte $1A, $00, $18   ; 
 - D 3 - I - 0x03FBE5 FF:FBD5: 1A        .byte $1A, $18, $30   ; 
-; 01 
+; con_FBCC_01
 - D 3 - I - 0x03FBE8 FF:FBD8: 21        .byte $21, $10, $30   ; 
 - D 3 - I - 0x03FBEB FF:FBDB: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FBEE FF:FBDE: 19        .byte $19, $00, $2A   ; 
 - D 3 - I - 0x03FBF1 FF:FBE1: 21        .byte $21, $3A, $1A   ; 
-; 02 
+; con_FBCC_02
 - D 3 - I - 0x03FBF4 FF:FBE4: 1A        .byte $1A, $10, $30   ; 
 - D 3 - I - 0x03FBF7 FF:FBE7: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FBFA FF:FBEA: 21        .byte $21, $31, $30   ; 
 - D 3 - I - 0x03FBFD FF:FBED: 21        .byte $21, $10, $30   ; 
-; 03 
+; con_FBCC_03
 - D 3 - I - 0x03FC00 FF:FBF0: 0F        .byte $0F, $0F, $30   ; 
 - D 3 - I - 0x03FC03 FF:FBF3: 21        .byte $21, $30, $31   ; 
 - D 3 - I - 0x03FC06 FF:FBF6: 21        .byte $21, $30, $37   ; 
 - D 3 - I - 0x03FC09 FF:FBF9: 21        .byte $21, $30, $37   ; 
-; 04 
+; con_FBCC_04
 - D 3 - I - 0x03FC0C FF:FBFC: 0F        .byte $0F, $0F, $30   ; 
 - D 3 - I - 0x03FC0F FF:FBFF: 21        .byte $21, $36, $27   ; 
 - D 3 - I - 0x03FC12 FF:FC02: 21        .byte $21, $11, $16   ; 
 - D 3 - I - 0x03FC15 FF:FC05: 21        .byte $21, $11, $30   ; 
-; 05 
+; con_FBCC_05
 - D 3 - I - 0x03FC18 FF:FC08: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FC1B FF:FC0B: 21        .byte $21, $27, $36   ; 
 - D 3 - I - 0x03FC1E FF:FC0E: 21        .byte $21, $27, $36   ; 
 - D 3 - I - 0x03FC21 FF:FC11: 30        .byte $30, $27, $36   ; 
-; 06 
+; con_FBCC_06
 - D 3 - I - 0x03FC24 FF:FC14: 1A        .byte $1A, $18, $30   ; 
 - D 3 - I - 0x03FC27 FF:FC17: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FC2A FF:FC1A: 21        .byte $21, $31, $30   ; 
 - D 3 - I - 0x03FC2D FF:FC1D: 3A        .byte $3A, $1A, $1A   ; 
-; 07 
+; con_FBCC_07
 - D 3 - I - 0x03FC30 FF:FC20: 1A        .byte $1A, $10, $30   ; 
 - D 3 - I - 0x03FC33 FF:FC23: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FC36 FF:FC26: 0F        .byte $0F, $21, $07   ; 
 - D 3 - I - 0x03FC39 FF:FC29: 21        .byte $21, $36, $30   ; 
-; 08 
+; con_FBCC_08
 - D 3 - I - 0x03FC3C FF:FC2C: 2A        .byte $2A, $10, $30   ; 
 - D 3 - I - 0x03FC3F FF:FC2F: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FC42 FF:FC32: 36        .byte $36, $21, $07   ; 
 - D 3 - I - 0x03FC45 FF:FC35: 21        .byte $21, $36, $15   ; 
-; 09 
+; con_FBCC_09
 - D 3 - I - 0x03FC48 FF:FC38: 0F        .byte $0F, $10, $30   ; 
 - D 3 - I - 0x03FC4B FF:FC3B: 0F        .byte $0F, $30, $00   ; 
 - D 3 - I - 0x03FC4E FF:FC3E: 31        .byte $31, $30, $10   ; 
 - D 3 - I - 0x03FC51 FF:FC41: 0F        .byte $0F, $30, $00   ; 
-; 0A 
+; con_FBCC_0A
 - D 3 - I - 0x03FC54 FF:FC44: 0F        .byte $0F, $0F, $36   ; 
 - D 3 - I - 0x03FC57 FF:FC47: 0F        .byte $0F, $30, $36   ; 
 - D 3 - I - 0x03FC5A FF:FC4A: 0F        .byte $0F, $17, $36   ; 
 - D 3 - I - 0x03FC5D FF:FC4D: 0F        .byte $0F, $31, $30   ; 
-; 0B 
+; con_FBCC_0B
 - D 3 - I - 0x03FC60 FF:FC50: 36        .byte $36, $31, $30   ; 
 - D 3 - I - 0x03FC63 FF:FC53: 07        .byte $07, $18, $28   ; 
 - D 3 - I - 0x03FC66 FF:FC56: 00        .byte $00, $00, $00   ; 
 - D 3 - I - 0x03FC69 FF:FC59: 0F        .byte $0F, $30, $11   ; 
-; 0C 
+; con_FBCC_0C
 - D 3 - I - 0x03FC6C FF:FC5C: 0F        .byte $0F, $27, $36   ; 
 - D 3 - I - 0x03FC6F FF:FC5F: 0F        .byte $0F, $30, $31   ; 
 - D 3 - I - 0x03FC72 FF:FC62: 0F        .byte $0F, $00, $00   ; 
 - D 3 - I - 0x03FC75 FF:FC65: 0F        .byte $0F, $30, $36   ; 
-; 0D 
+; con_FBCC_0D
 - D 3 - I - 0x03FC78 FF:FC68: 0F        .byte $0F, $0F, $36   ; 
 - D 3 - I - 0x03FC7B FF:FC6B: 0F        .byte $0F, $16, $36   ; 
 - D 3 - I - 0x03FC7E FF:FC6E: 0F        .byte $0F, $30, $36   ; 
 - D 3 - I - 0x03FC81 FF:FC71: 0F        .byte $0F, $30, $36   ; 
-; 0E 
+; con_FBCC_0E
 - D 3 - I - 0x03FC84 FF:FC74: 0F        .byte $0F, $0F, $36   ; 
 - D 3 - I - 0x03FC87 FF:FC77: 0F        .byte $0F, $19, $36   ; 
 - D 3 - I - 0x03FC8A FF:FC7A: 0F        .byte $0F, $30, $36   ; 
 - D 3 - I - 0x03FC8D FF:FC7D: 0F        .byte $0F, $30, $36   ; 
-; 0F 
+; con_FBCC_0F
 - D 3 - I - 0x03FC90 FF:FC80: 0F        .byte $0F, $0F, $36   ; 
 - D 3 - I - 0x03FC93 FF:FC83: 0F        .byte $0F, $16, $36   ; 
 - D 3 - I - 0x03FC96 FF:FC86: 0F        .byte $0F, $30, $36   ; 
 - D 3 - I - 0x03FC99 FF:FC89: 0F        .byte $0F, $30, $36   ; 
-; 10 
+; con_FBCC_10
 - D 3 - I - 0x03FC9C FF:FC8C: 0F        .byte $0F, $07, $36   ; 
 - D 3 - I - 0x03FC9F FF:FC8F: 0F        .byte $0F, $16, $36   ; 
 - D 3 - I - 0x03FCA2 FF:FC92: 0F        .byte $0F, $30, $36   ; 
 - D 3 - I - 0x03FCA5 FF:FC95: 0F        .byte $0F, $30, $36   ; 
-; 11 
+; con_FBCC_11
 - D 3 - I - 0x03FCA8 FF:FC98: 0F        .byte $0F, $00, $36   ; 
 - D 3 - I - 0x03FCAB FF:FC9B: 0F        .byte $0F, $16, $36   ; 
 - D 3 - I - 0x03FCAE FF:FC9E: 0F        .byte $0F, $30, $36   ; 
 - D 3 - I - 0x03FCB1 FF:FCA1: 0F        .byte $0F, $30, $36   ; 
-; 12 
+; con_FBCC_12
 - D 3 - I - 0x03FCB4 FF:FCA4: 0F        .byte $0F, $0F, $0F   ; 
 - D 3 - I - 0x03FCB7 FF:FCA7: 0F        .byte $0F, $0F, $0F   ; 
 - D 3 - I - 0x03FCBA FF:FCAA: 0F        .byte $0F, $0F, $0F   ; 
 - D 3 - I - 0x03FCBD FF:FCAD: 0F        .byte $0F, $0F, $0F   ; 
-; 13 
+; con_FBCC_13
 - D 3 - I - 0x03FCC0 FF:FCB0: 0F        .byte $0F, $26, $30   ; 
 - D 3 - I - 0x03FCC3 FF:FCB3: 26        .byte $26, $25, $30   ; 
 - D 3 - I - 0x03FCC6 FF:FCB6: 0F        .byte $0F, $0F, $0F   ; 
 - D 3 - I - 0x03FCC9 FF:FCB9: 0F        .byte $0F, $0F, $0F   ; 
-; 14 
+; con_FBCC_14
 - D 3 - I - 0x03FCCC FF:FCBC: 0F        .byte $0F, $27, $36   ; 
 - D 3 - I - 0x03FCCF FF:FCBF: 0F        .byte $0F, $31, $30   ; 
 - D 3 - I - 0x03FCD2 FF:FCC2: 0F        .byte $0F, $31, $27   ; 
 - D 3 - I - 0x03FCD5 FF:FCC5: 0F        .byte $0F, $30, $36   ; 
-; 15 
+; con_FBCC_15
 - D 3 - I - 0x03FCD8 FF:FCC8: 05        .byte $05, $16, $15   ; 
 - D 3 - I - 0x03FCDB FF:FCCB: 30        .byte $30, $27, $37   ; 
 - D 3 - I - 0x03FCDE FF:FCCE: 10        .byte $10, $0F, $0F   ; 
 - D 3 - I - 0x03FCE1 FF:FCD1: 0F        .byte $0F, $00, $30   ; 
-; 16 
+; con_FBCC_16
 - D 3 - I - 0x03FCE4 FF:FCD4: 0F        .byte $0F, $0F, $30   ; 
 - D 3 - I - 0x03FCE7 FF:FCD7: 36        .byte $36, $25, $30   ; 
 - D 3 - I - 0x03FCEA FF:FCDA: 11        .byte $11, $00, $30   ; 
 - D 3 - I - 0x03FCED FF:FCDD: 0F        .byte $0F, $15, $25   ; 
-; 17 
+; con_FBCC_17
 - D 3 - I - 0x03FCF0 FF:FCE0: 0F        .byte $0F, $0F, $35   ; 
 - D 3 - I - 0x03FCF3 FF:FCE3: 0F        .byte $0F, $31, $35   ; 
 - D 3 - I - 0x03FCF6 FF:FCE6: 0F        .byte $0F, $0F, $35   ; 
 - D 3 - I - 0x03FCF9 FF:FCE9: 0F        .byte $0F, $30, $35   ; 
-; 18 
+; con_FBCC_18
 - D 3 - I - 0x03FCFC FF:FCEC: 0F        .byte $0F, $16, $35   ; 
 - D 3 - I - 0x03FCFF FF:FCEF: 0F        .byte $0F, $31, $35   ; 
 - D 3 - I - 0x03FD02 FF:FCF2: 0F        .byte $0F, $0F, $35   ; 
 - D 3 - I - 0x03FD05 FF:FCF5: 0F        .byte $0F, $30, $35   ; 
-; 19 
+; con_FBCC_19
 - D 3 - I - 0x03FD08 FF:FCF8: 21        .byte $21, $0F, $30   ; 
 - D 3 - I - 0x03FD0B FF:FCFB: 21        .byte $21, $36, $27   ; 
 - D 3 - I - 0x03FD0E FF:FCFE: 21        .byte $21, $16, $16   ; 
 - D 3 - I - 0x03FD11 FF:FD01: 21        .byte $21, $16, $30   ; 
-; 1A 
+; con_FBCC_1A
 - D 3 - I - 0x03FD14 FF:FD04: 0F        .byte $0F, $36, $27   ; 
 - D 3 - I - 0x03FD17 FF:FD07: 0F        .byte $0F, $0F, $27   ; 
 - D 3 - I - 0x03FD1A FF:FD0A: 0F        .byte $0F, $30, $0F   ; 

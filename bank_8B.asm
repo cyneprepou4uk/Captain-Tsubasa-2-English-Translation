@@ -291,7 +291,7 @@ C - - - - - 0x0161CE 0B:81BE: 8E 25 05  STX ram_0525
 C - - - - - 0x0161D1 0B:81C1: 29 0F     AND #$0F
 C - - - - - 0x0161D3 0B:81C3: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x0161D6 0B:81C6: CC 81     .word ofs_010_81CC_F0
-- - - - - - 0x0161D8 0B:81C8: 76 82     .word ofs_010_8276_F1
+- - - - - - 0x0161D8 0B:81C8: 76 82     .word ofs_010_8276_F1   ; unused, index doesn't exist
 - D 0 - I - 0x0161DA 0B:81CA: 4D 82     .word ofs_010_824D_F2
 
 

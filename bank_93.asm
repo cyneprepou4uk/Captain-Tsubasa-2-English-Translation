@@ -1486,7 +1486,7 @@ C - - - - - 0x027173 13:B163: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 - D 1 - I - 0x027176 13:B166: A6 B1     .word ofs_020_B1A6_E0_рожа_игрока_или_фон
 - D 1 - I - 0x027178 13:B168: E0 B1     .word ofs_020_B1E0_E1_таймер_перед_следующим_экраном
 - D 1 - I - 0x02717A 13:B16A: F3 B1     .word ofs_020_B1F3_E2_параметры_игрока
-- D 1 - I - 0x02717C 13:B16C: 18 B2     .word ofs_020_B218_E3_заяц
+- D 1 - I - 0x02717C 13:B16C: 18 B2     .word ofs_020_B218_E3_tecmo_logo_заяц
 - D 1 - I - 0x02717E 13:B16E: 1B B2     .word ofs_020_B21B_E4_смещение_текста
 - D 1 - I - 0x027180 13:B170: 24 B2     .word ofs_020_B224_E5_яркость_и_отображение_текста
 - D 1 - I - 0x027182 13:B172: 35 B2     .word ofs_020_B235_E6_toggle_открывать_текст_движением_спрайта
@@ -1495,6 +1495,7 @@ C - - - - - 0x027173 13:B163: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 
 ofs_020_B1A6_E0_рожа_игрока_или_фон:
+; con_B160_animation
 C - - J - - 0x0271B6 13:B1A6: 20 2D C5  JSR sub_B1A7_очистить_текст
 C - - - - - 0x0271B9 13:B1A9: A4 8A     LDY ram_008A_t01_data_index
 C - - - - - 0x0271BB 13:B1AB: E6 8A     INC ram_008A_t01_data_index
@@ -1577,6 +1578,7 @@ bra_B1AA_not_overflow:
 
 
 ofs_020_B1E0_E1_таймер_перед_следующим_экраном:
+; con_B160_timer
 C - - J - - 0x0271F0 13:B1E0: A4 8A     LDY ram_008A_t01_data_index
 C - - - - - 0x0271F2 13:B1E2: E6 8A     INC ram_008A_t01_data_index
 C - - - - - 0x0271F4 13:B1E4: B1 88     LDA (ram_0088_t01_data_credits),Y
@@ -1593,6 +1595,7 @@ C - - - - - 0x027202 13:B1F2: 60        RTS
 
 
 ofs_020_B1F3_E2_параметры_игрока:
+; con_B160_plr_cfg
 C - - J - - 0x027203 13:B1F3: A4 8A     LDY ram_008A_t01_data_index
 C - - - - - 0x027205 13:B1F5: B1 88     LDA (ram_0088_t01_data_credits),Y
 C - - - - - 0x027207 13:B1F7: AA        TAX
@@ -1619,6 +1622,7 @@ C - - - - - 0x027227 13:B217: 60        RTS
 
 
 ofs_020_B21B_E4_смещение_текста:
+; con_B160_offset
 C - - J - - 0x02722B 13:B21B: A4 8A     LDY ram_008A_t01_data_index
 C - - - - - 0x02722F 13:B21F: B1 88     LDA (ram_0088_t01_data_credits),Y
 C - - - - - 0x027231 13:B221: 85 8B     STA ram_0086_смещение_текста_lo
@@ -1632,6 +1636,7 @@ C - - - - - 0x027233 13:B223: 60        RTS
 
 
 ofs_020_B224_E5_яркость_и_отображение_текста:
+; con_B160_brightness
 C - - J - - 0x027234 13:B224: A4 8A     LDY ram_008A_t01_data_index
 C - - - - - 0x027236 13:B226: E6 8A     INC ram_008A_t01_data_index
 C - - - - - 0x027238 13:B228: B1 88     LDA (ram_0088_t01_data_credits),Y
@@ -1643,6 +1648,7 @@ C - - - - - 0x02723A 13:B22A: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 
 ofs_020_B235_E6_toggle_открывать_текст_движением_спрайта:
+; con_B160_hide_letters
 C - - J - - 0x027245 13:B235: AD 3F 06  LDA ram_063F
 C - - - - - 0x027248 13:B238: 09 40     ORA #$40
 C - - - - - 0x02724A 13:B23A: 8D 3F 06  STA ram_063F
@@ -1651,14 +1657,16 @@ C - - - - - 0x02724D 13:B23D: 60        RTS
 
 
 ofs_021_B23E_00_осветление_экрана:
+; con_B160_light_on
 C - - J - - 0x02724E 13:B23E: A9 0F     LDA #$0F
 C - - - - - 0x027250 13:B240: 8D 72 04  STA ram_046A + $08
 C - - - - - 0x027253 13:B243: 4C F7 B2  JMP loc_B2F7
 
 
 
-sub_B2A6:
+sub_B2A6_затемнение_экрана:
 ofs_021_B2A6_01_затемнение_экрана:
+; con_B160_light_off
 C - - J - - 0x0272B6 13:B2A6: A9 30     LDA #$30
 bra_B2A8_loop:
 C - - - - - 0x0272B8 13:B2A8: 48        PHA
@@ -1693,6 +1701,7 @@ C - - - - - 0x0272EA 13:B2DA: 60        RTS
 
 
 ofs_021_B2DB_02_отображение_текста:
+; con_B160_show_txt
 C - - J - - 0x0272EB 13:B2DB: A9 10     LDA #$10
 bra_B2DD_loop:
 C - - - - - 0x0272ED 13:B2DD: 48        PHA
@@ -1728,14 +1737,16 @@ C - - - - - 0x02731C 13:B30C: 20 15 C5  JMP loc_0x03CB1F_задержка
 
 
 ofs_020_B333_E7_закончить_чтение_строки:
+; con_B160_endline
 C - - J - - 0x027343 13:B333: A9 80     LDA #$80
 C - - - - - 0x027345 13:B335: 8D 15 05  STA ram_0515_buffer_flag
 C - - - - - 0x027348 13:B338: 60        RTS
 
 
 
-ofs_020_B218_E3_заяц:
-C D 1 - - - 0x027359 13:B349: 20 A6 B2  JSR sub_B2A6
+ofs_020_B218_E3_tecmo_logo_заяц:
+; con_B160_tecmo_logo
+C D 1 - - - 0x027359 13:B349: 20 A6 B2  JSR sub_B2A6_затемнение_экрана
 C - - - - - 0x02735C 13:B34C: A9 01     LDA #$01
 C - - - - - 0x02735E 13:B34E: 8D 6B 04  STA ram_046B
 C - - - - - 0x027361 13:B351: A9 00     LDA #$00
@@ -1881,589 +1892,589 @@ tbl_0x02745E_финальная_надпись_TECMO:
 
 tbl_B467_credits:
 ; 0x027477
-    .byte con_B160_E0_animation, con_s_id_5C
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_animation, con_s_id_5C
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2269 ; 
     .text "Carlos Santana"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_5D
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_5D
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Claudio Meon"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E2, $01, $14, $09
-    .byte con_B160_E0_animation, con_s_id_56
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_plr_cfg, $01, $14, $09
+    .byte con_B160_animation, con_s_id_56
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Ishizaki Ryo"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_59
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_59
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Jito Hiroshi"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_5A
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_5A
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2267 ; 
     .text "Tachibana brothers"
-    .byte con_B160_E7_endline
-    .byte con_B160_E4_offset
+    .byte con_B160_endline
+    .byte con_B160_offset
     .word $22A8 ; 
     .text "Masao and Kazuo"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_57
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_57
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Soda Makoto"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_55
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_55
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226B ; 
     .text "Misugi Jun"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_54
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_54
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2268 ; 
     .text "Matsuyama Hikaru"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E2, $01, $15, $09
-    .byte con_B160_E0_animation, con_s_id_58
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_plr_cfg, $01, $15, $09
+    .byte con_B160_animation, con_s_id_58
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226B ; 
     .text "Nitta Shun"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_64
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_64
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2268 ; 
     .text "Ramon Victorino"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_5E
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_5E
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2269 ; 
     .text "Hermann Kaltz"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_5F
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_5F
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2268 ; 
     .text "Elle Sid Pierre"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_60
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_60
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2269 ; 
     .text "Louis Napoleon"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_61
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_61
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226B ; 
     .text "Juan Diaz"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_62
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_62
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Alan Pascal"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_63
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_63
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2266 ; 
     .text "Karl Heinz Schneider"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_65
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_65
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2265 ; 
     .text "Arthur Antines Coimbra"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_51
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_51
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Misaki Taro"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_5B
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_5B
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2269 ; 
     .text "Wakashimazu Ken"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_52
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_52
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $226A ; 
     .text "Hyuga Kojiro"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E0_animation, con_s_id_53
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_animation, con_s_id_53
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2268 ; 
     .text "Wakabayashi Genzo"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E2, $02, $01, $09
-    .byte con_B160_E0_animation, con_s_id_50
-    .byte con_B160_E5_brightness, con_B160_light_on
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_plr_cfg, $02, $01, $09
+    .byte con_B160_animation, con_s_id_50
+    .byte con_B160_brightness, con_B160_light_on
+    .byte con_B160_offset
     .word $2269 ; 
     .text "Ozora Tsubasa"
-    .byte con_B160_E7_endline
-    .byte con_B160_E5_brightness, con_B160_show_txt
-    .byte con_B160_E1_timer, $68
+    .byte con_B160_endline
+    .byte con_B160_brightness, con_B160_show_txt
+    .byte con_B160_timer, $68
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E2, $00, $58, $09
-    .byte con_B160_E0_animation, con_s_id_66
-    .byte con_B160_E4_offset
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_plr_cfg, $00, $58, $09
+    .byte con_B160_animation, con_s_id_66
+    .byte con_B160_offset
     .word $226D ; 
     .text "STAFF"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $A0
+    .byte con_B160_endline
+    .byte con_B160_timer, $A0
     
     
     
-    .byte con_B160_E6_hide_letters
-    .byte con_B160_E2, $02, $01, $09
-    .byte con_B160_E0_animation, con_s_id_69
-    .byte con_B160_E4_offset
+    .byte con_B160_hide_letters
+    .byte con_B160_plr_cfg, $02, $01, $09
+    .byte con_B160_animation, con_s_id_69
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Director"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22EF ; 
     .text "Fighter Otomi"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $01, $15, $14
-    .byte con_B160_E0_animation, con_s_id_78
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $01, $15, $14
+    .byte con_B160_animation, con_s_id_78
+    .byte con_B160_offset
     .word $2264 ; 
     .text "In-Game Programming"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F6 ; 
     .text "Yochin"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $0B, $32, $14
-    .byte con_B160_E0_animation, con_s_id_6B
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $0B, $32, $14
+    .byte con_B160_animation, con_s_id_6B
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Out-Game Programming"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F5 ; 
     .text "Akihiko"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $01, $14, $14
-    .byte con_B160_E0_animation, con_s_id_6C
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $01, $14, $14
+    .byte con_B160_animation, con_s_id_6C
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Planning"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F5 ; 
     .text "Red Fox"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $02, $01, $09
-    .byte con_B160_E0_animation, con_s_id_6D
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $02, $01, $09
+    .byte con_B160_animation, con_s_id_6D
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Out-Game Director"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F7 ; 
     .text "Horse"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $0A, $30, $09
-    .byte con_B160_E0_animation, con_s_id_6E
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $0A, $30, $09
+    .byte con_B160_animation, con_s_id_6E
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Animation Director"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F1 ; 
     .text "Niwaka Maru"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $0E, $39, $0B
-    .byte con_B160_E0_animation, con_s_id_6F
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $0E, $39, $0B
+    .byte con_B160_animation, con_s_id_6F
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Composers"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F1 ; 
     .text "Yama-san"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2331 ; 
     .text "Metal Yuhki"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2371 ; 
     .text "Mayu"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $01, $0C, $09
-    .byte con_B160_E0_animation, con_s_id_70
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $01, $0C, $09
+    .byte con_B160_animation, con_s_id_70
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Sprite Animation"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22ED ; 
     .text "Super Gonta-kun"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $0D, $00, $0B
-    .byte con_B160_E2, $0D, $35, $14
-    .byte con_B160_E0_animation, con_s_id_71
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $0D, $00, $0B
+    .byte con_B160_plr_cfg, $0D, $35, $14
+    .byte con_B160_animation, con_s_id_71
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Maintenence"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F5 ; 
     .text "Mashian"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $09, $2E, $14
-    .byte con_B160_E0_animation, con_s_id_72
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $09, $2E, $14
+    .byte con_B160_animation, con_s_id_72
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Graphic Team #1"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F0 ; 
     .text "Kena"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2330 ; 
     .text "Perco"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2370 ; 
     .text "Shinpero Ace"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $02, $01, $09
-    .byte con_B160_E0_animation, con_s_id_6A
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $02, $01, $09
+    .byte con_B160_animation, con_s_id_6A
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Graphic Team #2"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F4 ; 
     .text "Purple"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2334 ; 
     .text "Zu"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2374 ; 
     .text "Fuyufuyu"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $02, $21, $0B
-    .byte con_B160_E0_animation, con_s_id_73
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $02, $21, $0B
+    .byte con_B160_animation, con_s_id_73
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Data Work"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F0 ; 
     .text "Sugar Radish"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $2330 ; 
     .text "Yahemi"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $0E, $36, $09
-    .byte con_B160_E2, $01, $00, $14
-    .byte con_B160_E2, $01, $0F, $0B
-    .byte con_B160_E0_animation, con_s_id_74
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $0E, $36, $09
+    .byte con_B160_plr_cfg, $01, $00, $14
+    .byte con_B160_plr_cfg, $01, $0F, $0B
+    .byte con_B160_animation, con_s_id_74
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Chief Debugger"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22F1 ; 
     .text "Today Jubei"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $02, $11, $09
-    .byte con_B160_E0_animation, con_s_id_75
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $02, $11, $09
+    .byte con_B160_animation, con_s_id_75
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Out-Game Advisor"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22EE ; 
     .text "Cherry Blossom"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E2, $12, $44, $09
-    .byte con_B160_E0_animation, con_s_id_76
-    .byte con_B160_E4_offset
+    .byte con_B160_plr_cfg, $12, $44, $09
+    .byte con_B160_animation, con_s_id_76
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Manual Design"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22EC ; 
     .text "Mondo Eco"
-    .byte con_B160_E7_endline
+    .byte con_B160_endline
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $232C ; 
     .text "Pancho Taka-chan"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $50
+    .byte con_B160_endline
+    .byte con_B160_timer, $50
     
     
     
-    .byte con_B160_E0_animation, con_s_id_77
-    .byte con_B160_E4_offset
+    .byte con_B160_animation, con_s_id_77
+    .byte con_B160_offset
     .word $2264 ; 
     .text "Original"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $20
+    .byte con_B160_endline
+    .byte con_B160_timer, $20
     
-    .byte con_B160_E4_offset
+    .byte con_B160_offset
     .word $22EC ; 
     .text "Yoichi Takahashi"
-    .byte con_B160_E7_endline
-    .byte con_B160_E1_timer, $80
+    .byte con_B160_endline
+    .byte con_B160_timer, $80
     
     
     
-    .byte con_B160_E5_brightness, con_B160_light_off
-    .byte con_B160_E3_tecmo_logo
+    .byte con_B160_brightness, con_B160_light_off
+    .byte con_B160_tecmo_logo
 
 
 
