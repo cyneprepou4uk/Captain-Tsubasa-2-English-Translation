@@ -986,7 +986,6 @@ ram_0073_temp                           = $0073 ; 000E37 000EA4 000ED2 004248 00
 ; 
 ram_0074_temp                           = $0074 ; 000E3B 000EAC 000EDA 004248 0042E2 030C74 034D95 03C680 03CD62 03CD78 03CF58 03E834 
     ram_0074_t01_ppu_addr_hi                = ram_0074_temp ; 
-    ram_0074_tFF_useless_00                 = ram_0074_temp ; bzk optimize
 
 
 

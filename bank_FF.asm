@@ -1181,7 +1181,6 @@ sub_0x03CD4C_получить_младший_разряд_числа:
     ; ram_0070_t02_число_hi
     ; ram_0071_t01_система_счисления
         ; 0A = DEC
-    ; ram_0074_tFF_useless_00
 ; out
     ; ram_006F_t03_lo
     ; ram_0070_t03_hi
@@ -1217,7 +1216,7 @@ C - - - - - 0x03CD5A FF:CD4A: 26 72     ROL ram_0072_t01_младший_разр
 C - - - - - 0x03CD5C FF:CD4C: 26 73     ROL ram_0073_t01_младший_разряд_числа_hi
 C - - - - - 0x03CD5E FF:CD4E: B0 10     BCS bra_CD60
 C - - - - - 0x03CD60 FF:CD50: A5 73     LDA ram_0073_t01_младший_разряд_числа_hi
-C - - - - - 0x03CD62 FF:CD52: C5 74     CMP ram_0074_tFF_useless_00
+C - - - - - 0x03CD62 FF:CD52: C5 74     CMP #$00
 C - - - - - 0x03CD64 FF:CD54: F0 04     BEQ bra_CD5A
 C - - - - - 0x03CD66 FF:CD56: 90 15     BCC bra_CD6D
 C - - - - - 0x03CD68 FF:CD58: B0 06     BCS bra_CD60    ; jmp
@@ -1231,7 +1230,7 @@ C - - - - - 0x03CD70 FF:CD60: A5 72     LDA ram_0072_t01_младший_разр
 C - - - - - 0x03CD72 FF:CD62: E5 71     SBC ram_0071_t01_система_счисления
 C - - - - - 0x03CD74 FF:CD64: 85 72     STA ram_0072_t01_младший_разряд_числа_lo
 C - - - - - 0x03CD76 FF:CD66: A5 73     LDA ram_0073_t01_младший_разряд_числа_hi
-C - - - - - 0x03CD78 FF:CD68: E5 74     SBC ram_0074_tFF_useless_00
+C - - - - - 0x03CD78 FF:CD68: E5 74     SBC #$00
 C - - - - - 0x03CD7A FF:CD6A: 85 73     STA ram_0073_t01_младший_разряд_числа_hi
 C - - - - - 0x03CD7C FF:CD6C: 38        SEC
 bra_CD6D:
@@ -5496,7 +5495,6 @@ bra_E81E:
 C - - - - - 0x03E82E FF:E81E: 85 70     STA ram_0070_t02_число_hi
 C - - - - - 0x03E830 FF:E820: A9 00     LDA #$00
 C - - - - - 0x03E832 FF:E822: 85 6F     STA ram_006F_t02_число_lo
-C - - - - - 0x03E834 FF:E824: 85 74     STA ram_0074_tFF_useless_00
 C - - - - - 0x03E836 FF:E826: 20 3C CD  JSR sub_CD3C_получить_младший_разряд_числа
 C - - - - - 0x03E839 FF:E829: A2 00     LDX #$00
 bra_E82B_loop:
