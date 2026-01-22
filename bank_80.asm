@@ -4708,12 +4708,9 @@ sub_9AA2_вычислить_яркость_цвета:
 ; out
     ; ram_00E7_t16_индекс_буфера
 C - - - - - 0x001AB2 00:9AA2: AA        TAX
-C - - - - - 0x001AB3 00:9AA3: BD A2 9E  LDA tbl_9EA2_яркость_цвета,X
-; bzk optimize, обойтись без посредника 00E6
-C - - - - - 0x001AB6 00:9AA6: 85 E6     STA ram_00E6_t26_яркость_цвета
 C - - - - - 0x001AB8 00:9AA8: B9 2A 06  LDA ram_062A,Y
 C - - - - - 0x001ABB 00:9AAB: 29 0F     AND #$0F
-C - - - - - 0x001ABD 00:9AAD: 05 E6     ORA ram_00E6_t26_яркость_цвета
+C - - - - - 0x001ABD 00:9AAD: 05 E6     ORA tbl_9EA2_яркость_цвета,X
 C - - - - - 0x001ABF 00:9AAF: A6 E7     LDX ram_00E7_t16_индекс_буфера
 C - - - - - 0x001AC1 00:9AB1: 9D E8 05  STA ram_05E8_буфер,X
 C - - - - - 0x001AC4 00:9AB4: E6 E7     INC ram_00E7_t16_индекс_буфера
