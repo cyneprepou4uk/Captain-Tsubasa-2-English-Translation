@@ -1912,18 +1912,13 @@ C - - - - - 0x000A1A 00:8A0A: F0 03     BNE bra_89FE_RTS
 C - - - - - 0x000A1F 00:8A0F: A2 06     LDX #con_prg_bank + $06
 C - - - - - 0x000A21 00:8A11: 20 B9 C4  JSR sub_0x03C4C9_банксвич_PRG_5115
 loc_8A14_loop_анимация:
-; bzk optimize, обойтись без осредников 00E6 00E7
-C D 0 - - - 0x000A24 00:8A14: AD 54 06  LDA ram_data_чарли_lo
-C - - - - - 0x000A27 00:8A17: 85 E6     STA ram_00E6_t22_data_ptr_чарли_lo
-C - - - - - 0x000A29 00:8A19: AD 55 06  LDA ram_data_чарли_hi
-C - - - - - 0x000A2C 00:8A1C: 85 E7     STA ram_00E6_t05_data_ptr_чарли_hi
 C - - - - - 0x000A2E 00:8A1E: AD 52 06  LDA ram_рот_чарли_hi
 C - - - - - 0x000A31 00:8A21: EE 52 06  INC ram_рот_чарли_hi
 C - - - - - 0x000A34 00:8A24: 29 3F     AND #$3F
 C - - - - - 0x000A36 00:8A26: 18        CLC
-C - - - - - 0x000A37 00:8A27: 65 E6     ADC ram_00E6_t22_data_ptr_чарли_lo
+C - - - - - 0x000A37 00:8A27: 65 E6     ADC ram_data_чарли_lo
 C - - - - - 0x000A39 00:8A29: 85 E6     STA ram_00E6_t01_data
-C - - - - - 0x000A3B 00:8A2B: A5 E7     LDA ram_00E6_t05_data_ptr_чарли_hi
+C - - - - - 0x000A3B 00:8A2B: A5 E7     LDA ram_data_чарли_hi
 C - - - - - 0x000A3D 00:8A2D: 69 00     ADC #$00
 C - - - - - 0x000A3F 00:8A2F: 85 E7     STA ram_00E6_t01_data + $01
 C - - - - - 0x000A41 00:8A31: A0 00     LDY #$00
