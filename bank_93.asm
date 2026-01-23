@@ -1319,8 +1319,9 @@ C - - - - - 0x02702A 13:B01A: A9 09     LDA #$09
 C - - - - - 0x02702C 13:B01C: 8D 41 04  STA ram_игрок_с_мячом
 C - - - - - 0x02702F 13:B01F: A9 14     LDA #$14
 C - - - - - 0x027031 13:B021: 8D 42 04  STA ram_игрок_без_мяча
-C - - - - - 0x027034 13:B024: A9 80     LDA #$80
-C - - - - - 0x027036 13:B026: 8D 3F 06  STA ram_063F
+C - - - - - 0x027034 13:B024: A9 80     LDA #$80    ; флаг титров
+C - - - - - 0x027036 13:B026: 8D 3F 06  STA ram_063F_flags
+; 
 C - - - - - 0x027039 13:B029: A9 00     LDA #$00
 C - - - - - 0x02703B 13:B02B: 85 8A     STA ram_008A_t01_data_index
 loc_B02D_loop:
@@ -1339,7 +1340,7 @@ C - - - - - 0x027050 13:B040: 4C 2D B0  JMP loc_B02D_loop
 
 
 sub_B043:
-C - - - - - 0x027053 13:B043: 2C 3F 06  BIT ram_063F
+C - - - - - 0x027053 13:B043: 2C 3F 06  BIT ram_063F_flags
 C - - - - - 0x027056 13:B046: 50 03     BVC bra_B04B
 C - - - - - 0x027058 13:B048: 4C AF B0  JMP loc_B0AF_скрытие_букв_спрайтами
 bra_B04B:
@@ -1530,22 +1531,24 @@ C - - - - - 0x0271EF 13:B1DF: 60        RTS
 
 
 sub_B1A7_очистить_текст:
-; 04A5 - счетчик тайлов
-; 04A6 - 2006 lo
-; 04A7 - 2006 hi
-; 04A8 - тайл
-; 04AD - конец буфера
+; 04A5 = счетчик тайлов
+; 04A6 = 2006 lo
+; 04A7 = 2006 hi
+; 04A8 = тайл
+; 04AD = конец буфера
                                         LDA #$01
                                         STA ram_0515_buffer_flag
                                         LDA #$40
-                                        STA ram_04A5
+                                        STA ram_04A5    ; счетчик тайлов
                                         LDA #$22
-                                        STA ram_04A7
+                                        STA ram_04A7    ; ppu addr hi
                                         LDA #$00
-                                        STA ram_04A6
+                                        STA ram_04A6    ; ppu addr lo
                                         STA ram_04A8
                                         STA ram_04A9
-                                        STA ram_05F4       ; bzk optimize, возможно не обязательно, было скопировано из 0x03CC56
+; bzk optimize, возможно это STA не обязательно, было скопировано из 0x03CC56
+                                        STA ram_05F4_flag
+; 
                                         LDA #$06        ; счетчик цикла
 bra_B1A8_loop_очистка_экрана:
                                         PHA
@@ -1556,22 +1559,28 @@ bra_B1A9_loop_ожидание_очистки:
                                         JSR sub_0x03CB1F_задержка
                                         LDA ram_0515_buffer_flag
                                         BNE bra_B1A9_loop_ожидание_очистки
+; 
                                         LDA #$01
                                         STA ram_0515_buffer_flag
-                                        LDA ram_04A6
+                                        LDA ram_04A6    ; ppu addr lo
                                         CLC
                                         ADC #$40        ; увеличение адреса на 40, начиная с 2200
-                                        STA ram_04A6
+                                        STA ram_04A6    ; ppu addr lo
                                         BCC bra_B1AA_not_overflow
-                                        INC ram_04A7
+; if overflow
+                                        INC ram_04A7    ; ppu addr hi
 bra_B1AA_not_overflow:
                                         PLA
                                         SEC
                                         SBC #$01
                                         BPL bra_B1A8_loop_очистка_экрана
-                                        LSR ram_04A5       ; 40 / 2 = 20
-                                        LDA #$E0        ; очистка второй половины атрибутов
-                                        STA ram_04A6
+; очистка второй половины атрибутов (23E0-23FF)
+; для читабельности, в адресе уже должно быть правильное значение
+                                       ;LDA #$23
+                                       ;STA ram_04A7    ; ppu addr hi
+                                        LSR ram_04A5    ; счетчик тайлов    ; 40 -> 20
+                                        LDA #$E0
+                                        STA ram_04A6    ; ppu addr lo
                                         LDA #$81
                                         STA ram_0515_buffer_flag
                                         LDA #$01
@@ -1651,9 +1660,9 @@ C - - - - - 0x02723A 13:B22A: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 ofs_020_B235_E6_toggle_открывать_текст_движением_спрайта:
 ; con_B160_hide_letters
-C - - J - - 0x027245 13:B235: AD 3F 06  LDA ram_063F
+C - - J - - 0x027245 13:B235: AD 3F 06  LDA ram_063F_flags
 C - - - - - 0x027248 13:B238: 09 40     ORA #$40
-C - - - - - 0x02724A 13:B23A: 8D 3F 06  STA ram_063F
+C - - - - - 0x02724A 13:B23A: 8D 3F 06  STA ram_063F_flags
 C - - - - - 0x02724D 13:B23D: 60        RTS
 
 

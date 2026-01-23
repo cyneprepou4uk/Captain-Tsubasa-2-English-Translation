@@ -914,7 +914,7 @@ sub_85F6_выбор_мелодии_команды:
 C - - - - - 0x034606 1A:85F6: 2C 3E 06  BIT ram_флаг_loss
 C - - - - - 0x034609 1A:85F9: 10 06     BPL bra_8601_сейчас_не_loss
 ; музыка добавочного времени
-C - - - - - 0x03460B 1A:85FB: A9 32     LDA #$32
+C - - - - - 0x03460B 1A:85FB: A9 32     LDA #con_music_32
 C - - - - - 0x03460D 1A:85FD: 20 5D C5  JMP loc_0x03CC01_запись_звука
 bra_8601_сейчас_не_loss:
 C - - - - - 0x034611 1A:8601: 20 6F C5  JMP loc_0x03D0A3_выбор_мелодии_команды
@@ -3502,7 +3502,7 @@ C - - - - - 0x03560F 1A:95FF: 8D 19 06  STA ram_снижение_силы_дей
                                         JSR sub_0x03EF8F_отрисовка_меню_во_время_матча
 C - - - - - 0x035612 1A:9602: A9 41     LDA #con_B3CF_pk_score
 C - - - - - 0x035614 1A:9604: 20 2A C5  JSR sub_0x03EF8F_отрисовка_меню_во_время_матча
-C - - - - - 0x035617 1A:9607: A9 33     LDA #$33
+C - - - - - 0x035617 1A:9607: A9 33     LDA #con_music_33
 C - - - - - 0x035619 1A:9609: 20 5D C5  JSR sub_0x03CC01_запись_звука
 C - - - - - 0x03561C 1A:960C: A9 39     LDA #con_s_id_39
 C - - - - - 0x03561E 1A:960E: 20 4E C5  JSR sub_0x03CBC0_запись_номера_сценария
@@ -3620,7 +3620,7 @@ C - - - - - 0x0356D9 1A:96C9: 60        RTS
 
 
 sub_96CC:
-C - - - - - 0x0356DC 1A:96CC: A9 01     LDA #$01
+C - - - - - 0x0356DC 1A:96CC: A9 01     LDA #con_sfx_выкл_музыку_и_звуки
 C - - - - - 0x0356DE 1A:96CE: 20 5D C5  JSR sub_0x03CC01_запись_звука
 C - - - - - 0x0356E1 1A:96D1: A9 00     LDA #$00
 C - - - - - 0x0356E3 1A:96D3: 85 11     STA ram_0011
@@ -5568,13 +5568,13 @@ tbl_A1DC:
 
 
 sub_0x0361FB_отрисовка_чарли_на_фоне:
-C D 1 - - - 0x0361FB 1A:A1EB: AD F4 05  LDA ram_05F4
+C D 1 - - - 0x0361FB 1A:A1EB: AD F4 05  LDA ram_05F4_flag
 C - - - - - 0x0361FE 1A:A1EE: D0 01     BNE bra_A1F1
 C - - - - - 0x036200 1A:A1F0: 60        RTS
 bra_A1F1:
 C - - - - - 0x036201 1A:A1F1: 10 19     BPL bra_A20C
 C - - - - - 0x036203 1A:A1F3: A9 01     LDA #$01
-C - - - - - 0x036205 1A:A1F5: 8D F4 05  STA ram_05F4
+C - - - - - 0x036205 1A:A1F5: 8D F4 05  STA ram_05F4_flag
 C - - - - - 0x036208 1A:A1F8: AD F3 05  LDA ram_05F3
 C - - - - - 0x03620B 1A:A1FB: 0A        ASL
 C - - - - - 0x03620C 1A:A1FC: AA        TAX
@@ -5613,7 +5613,7 @@ C - - - - - 0x036245 1A:A235: 86 63     STX ram_0063_t04_data
 C - - - - - 0x036247 1A:A237: AD E3 05  LDA ram_05E3_флаг
 C - - - - - 0x03624A 1A:A23A: D0 E8     BNE bra_A224_loop
 ; A = 00
-C - - - - - 0x03624C 1A:A23C: 8D F4 05  STA ram_05F4
+C - - - - - 0x03624C 1A:A23C: 8D F4 05  STA ram_05F4_flag
 C - - - - - 0x03624F 1A:A23F: 4C 24 A2  JMP loc_A224_loop
 bra_A242_байты_еще_есть:
 C - - - - - 0x036252 1A:A242: 8D F5 05  STA ram_05F5

@@ -469,7 +469,7 @@ C - - - - - 0x00437C 02:A36C: E8        INX
 C - - - - - 0x00437D 02:A36D: E8        INX
 C - - - - - 0x00437E 02:A36E: E0 FC     CPX #$FC
 C - - - - - 0x004380 02:A370: D0 D8     BNE bra_A34A_loop
-loc_A372:
+loc_A372_loop:
 C D 1 - - - 0x004382 02:A372: A9 01     LDA #$01
 C - - - - - 0x004384 02:A374: 20 A8 9F  JSR sub_0x001FB8_задержка_кадра
 C - - - - - 0x004387 02:A377: A2 78     LDX #$78
@@ -495,7 +495,7 @@ C - - - - - 0x0043AA 02:A39A: E8        INX
 C - - - - - 0x0043AB 02:A39B: E8        INX
 C - - - - - 0x0043AC 02:A39C: E0 FC     CPX #$FC
 C - - - - - 0x0043AE 02:A39E: D0 D9     BNE bra_A379_loop
-C - - - - - 0x0043B0 02:A3A0: 4C 72 A3  JMP loc_A372
+C - - - - - 0x0043B0 02:A3A0: 4C 72 A3  JMP loc_A372_loop
 bra_A3A3_81_тряска_экрана:
 C - - - - - 0x0043B3 02:A3A3: AD 68 05  LDA ram_0568
 C - - - - - 0x0043B6 02:A3A6: 09 10     ORA #$10
@@ -546,11 +546,11 @@ C - - - - - 0x00440C 02:A3FC: 29 10     AND #con_btn_Start
 C - - - - - 0x00440E 02:A3FE: D0 45     BNE bra_A445_RTS_из_музыкального_экрана
 C - - - - - 0x004410 02:A400: 24 1E     BIT ram_btn_press
 C - - - - - 0x004412 02:A402: 30 07     BMI bra_A40B_воспроизвести_звук   ; con_btn_A
-C - - - - - 0x004414 02:A404: A9 01     LDA #$01
+C - - - - - 0x004414 02:A404: A9 01     LDA #con_sfx_выкл_музыку_и_звуки
 C - - - - - 0x004416 02:A406: 70 08     BVS bra_A410_выключить_звук       ; con_btn_B
 C - - - - - 0x004418 02:A408: 4C 13 A4  JMP loc_A413_кнопки_не_нажаты
 bra_A40B_воспроизвести_звук:
-C - - - - - 0x00441B 02:A40B: A6 E7     LDX ram_00E7_t12
+C - - - - - 0x00441B 02:A40B: A6 E7     LDX ram_00E7_t12_номер_выбранного_звука
 C - - - - - 0x00441D 02:A40D: BD 2F AB  LDA tbl_AB2F_номера_звуков_для_музыкального_экрана,X
 bra_A410_выключить_звук:
 C - - - - - 0x004420 02:A410: 8D 00 07  STA ram_номер_звука
@@ -562,7 +562,7 @@ loc_A41A_loop:
 C D 1 - - - 0x00442A 02:A41A: 86 E6     STX ram_00E6_t34_таймер
 C - - - - - 0x00442C 02:A41C: A8        TAY
 C - - - - - 0x00442D 02:A41D: 18        CLC
-C - - - - - 0x00442E 02:A41E: 65 E7     ADC ram_00E7_t12
+C - - - - - 0x00442E 02:A41E: 65 E7     ADC ram_00E7_t12_номер_выбранного_звука
 C - - - - - 0x004430 02:A420: C9 64     CMP #$64
 C - - - - - 0x004432 02:A422: 90 09     BCC bra_A42D_запись_номера
 C - - - - - 0x004434 02:A424: 98        TYA
@@ -583,7 +583,7 @@ C - - - - - 0x00444E 02:A43E: D0 F2     BNE bra_A432_loop
 C - - - - - 0x004450 02:A440: A2 04     LDX #$04
 C - - - - - 0x004452 02:A442: 4C 1A A4  JMP loc_A41A_loop
 bra_A445_RTS_из_музыкального_экрана:
-C - - - - - 0x004455 02:A445: A9 01     LDA #$01
+C - - - - - 0x004455 02:A445: A9 01     LDA #con_sfx_выкл_музыку_и_звуки
 C - - - - - 0x004457 02:A447: 8D 00 07  STA ram_номер_звука
 C - - - - - 0x00445A 02:A44A: A9 00     LDA #$00
 C - - - - - 0x00445C 02:A44C: 85 4C     STA ram_004C_t03
@@ -596,8 +596,8 @@ sub_A454_выбрать_тайлы_цифр:
 ; in
     ; A = 
 ; out
-    ; ram_00E7_t12
-C - - - - - 0x004464 02:A454: A5 E7     STA ram_00E7_t12
+    ; ram_00E7_t12_номер_выбранного_звука
+C - - - - - 0x004464 02:A454: A5 E7     STA ram_00E7_t12_номер_выбранного_звука
 C - - - - - 0x004466 02:A456: 20 7C 9E  JSR sub_0x001E8C_перевод_из_HEX_в_DEC
 ; вычислить десятки числа
 C - - - - - 0x004469 02:A459: A5 EC     LDA ram_00EC_t25_единицы_и_десятки
@@ -1624,14 +1624,112 @@ tbl_AB1F:
 - D 1 - - - 0x004B3E 02:AB2E: FA        .byte $FA   ; 
 
 
+
 tbl_AB2F_номера_звуков_для_музыкального_экрана:
-    .byte $58, $45, $51, $55, $53, $47, $46, $52, $54, $57, $5A, $48, $49, $4B, $4C, $4D
-    .byte $4E, $4F, $50, $59, $56, $44, $32, $33, $41, $42, $43, $3C, $39, $3F, $40, $37
-    .byte $38, $3E, $35, $34, $3B, $3A, $36, $3D, $03, $04, $05, $06, $07, $08, $09, $0A
-    .byte $0B, $0C, $0D, $0E, $0F, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $1A
-    .byte $1B, $1C, $1D, $1E, $1F, $22, $23, $24, $25, $26, $27, $28, $29, $2A, $2B, $2C
-    .byte $2D, $2E, $2F, $30, $5F, $60, $61, $62, $63, $64, $65, $66, $68, $69, $6A, $6B
-    .byte $6C, $6D, $6E, $6F, $70
+; 0x004B3F
+; 100 звуков под номерами 00-99
+    .byte con_music_58	; 00 00 
+    .byte con_music_45	; 01 01 
+    .byte con_music_51	; 02 02 
+    .byte con_music_55	; 03 03 
+    .byte con_music_53	; 04 04 
+    .byte con_music_47	; 05 05 
+    .byte con_music_46	; 06 06 
+    .byte con_music_52	; 07 07 
+    .byte con_music_54	; 08 08 
+    .byte con_music_57	; 09 09 
+    .byte con_music_5A	; 0A 10 
+    .byte con_music_48	; 0B 11 
+    .byte con_music_49	; 0C 12 
+    .byte con_music_4B	; 0D 13 
+    .byte con_music_4C	; 0E 14 
+    .byte con_music_4D	; 0F 15 
+    .byte con_music_4E	; 10 16 
+    .byte con_music_4F	; 11 17 
+    .byte con_music_50	; 12 18 
+    .byte con_music_59	; 13 19 
+    .byte con_music_56	; 14 20 
+    .byte con_music_44	; 15 21 
+    .byte con_music_32	; 16 22 
+    .byte con_music_33	; 17 23 
+    .byte con_music_41	; 18 24 
+    .byte con_music_42	; 19 25 
+    .byte con_music_43	; 1A 26 
+    .byte con_music_3C	; 1B 27 
+    .byte con_music_39	; 1C 28 
+    .byte con_music_3F	; 1D 29 
+    .byte con_music_40	; 1E 30 
+    .byte con_music_37	; 1F 31 
+    .byte con_music_38	; 20 32 
+    .byte con_music_3E	; 21 33 
+    .byte con_music_35	; 22 34 
+    .byte con_music_34	; 23 35 
+    .byte con_music_3B	; 24 36 
+    .byte con_music_3A	; 25 37 
+    .byte con_music_36	; 26 38 
+    .byte con_music_3D	; 27 39 
+    .byte con_sfx_03	; 28 40 
+    .byte con_sfx_04	; 29 41 
+    .byte con_sfx_05	; 2A 42 
+    .byte con_sfx_06	; 2B 43 
+    .byte con_sfx_07	; 2C 44 
+    .byte con_sfx_08	; 2D 45 
+    .byte con_sfx_09	; 2E 46 
+    .byte con_sfx_0A	; 2F 47 
+    .byte con_sfx_0B	; 30 48 
+    .byte con_sfx_0C	; 31 49 
+    .byte con_sfx_0D	; 32 50 
+    .byte con_sfx_0E	; 33 51 
+    .byte con_sfx_0F	; 34 52 
+    .byte con_sfx_10	; 35 53 
+    .byte con_sfx_11	; 36 54 
+    .byte con_sfx_12	; 37 55 
+    .byte con_sfx_13	; 38 56 
+    .byte con_sfx_14	; 39 57 
+    .byte con_sfx_15	; 3A 58 
+    .byte con_sfx_16	; 3B 59 
+    .byte con_sfx_17	; 3C 60 
+    .byte con_sfx_18	; 3D 61 
+    .byte con_sfx_19	; 3E 62 
+    .byte con_sfx_1A	; 3F 63 
+    .byte con_sfx_1B	; 40 64 
+    .byte con_sfx_1C	; 41 65 
+    .byte con_sfx_1D	; 42 66 
+    .byte con_sfx_1E	; 43 67 
+    .byte con_sfx_1F	; 44 68 
+    .byte con_sfx_22	; 45 69 
+    .byte con_sfx_23	; 46 70 
+    .byte con_sfx_24	; 47 71 
+    .byte con_sfx_25	; 48 72 
+    .byte con_sfx_26	; 49 73 
+    .byte con_sfx_27	; 4A 74 
+    .byte con_sfx_28	; 4B 75 
+    .byte con_sfx_29	; 4C 76 
+    .byte con_sfx_2A	; 4D 77 
+    .byte con_sfx_2B	; 4E 78 
+    .byte con_sfx_2C	; 4F 79 
+    .byte con_sfx_2D	; 50 80 
+    .byte con_sfx_2E	; 51 81 
+    .byte con_sfx_2F	; 52 82 
+    .byte con_sfx_гроза	; 53 83 
+    .byte con_sfx_5F	; 54 84 
+    .byte con_sfx_60	; 55 85 
+    .byte con_sfx_61	; 56 86 
+    .byte con_sfx_62	; 57 87 
+    .byte con_sfx_попадание_по_штанге	; 58 88 
+    .byte con_sfx_64	; 59 89 
+    .byte con_sfx_65	; 5A 90 
+    .byte con_sfx_66	; 5B 91 
+    .byte con_sfx_68	; 5C 92 
+    .byte con_sfx_69	; 5D 93 
+    .byte con_sfx_6A	; 5E 94 
+    .byte con_sfx_6B	; 5F 95 
+    .byte con_sfx_6C	; 60 96 
+    .byte con_sfx_6D	; 61 97 
+    .byte con_sfx_6E	; 62 98 
+    .byte con_sfx_6F	; 63 99 
+; bzk garbage, нет звука под номером 100 (101, если считать с 1)
+    .byte con_sfx_70	; 64 100 
 
 
 

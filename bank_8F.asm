@@ -25,6 +25,7 @@
 
 
 _off001_0x01E010_5A:
+; con_music_5A
 - D 1 - I - 0x01E010 0F:A000: 04        .byte $04   ; 
 - D 1 - I - 0x01E011 0F:A001: 0D A0     .word off_A00D_5A_04
 - D 1 - I - 0x01E013 0F:A003: 05        .byte $05   ; 
@@ -34,6 +35,7 @@ _off001_0x01E010_5A:
 - D 1 - I - 0x01E019 0F:A009: 07        .byte $07   ; 
 - D 1 - I - 0x01E01A 0F:A00A: 3D A1     .word off_A13D_5A_07
 - D 1 - I - 0x01E01C 0F:A00C: FF        .byte $FF   ; 
+
 
 
 off_A00D_5A_04:
@@ -383,6 +385,7 @@ loc_E8_A141:
 
 
 _off001_0x01E167_52_мелодия_неожиданность:
+; con_sfx_ть
 - D 1 - I - 0x01E167 0F:A157: 04        .byte $04   ; 
 - D 1 - I - 0x01E168 0F:A158: 64 A1     .word off_A164_52_04
 - D 1 - I - 0x01E16A 0F:A15A: 05        .byte $05   ; 
@@ -392,6 +395,7 @@ _off001_0x01E167_52_мелодия_неожиданность:
 - D 1 - I - 0x01E170 0F:A160: 07        .byte $07   ; 
 - D 1 - I - 0x01E171 0F:A161: CF A1     .word off_A1CF_52_07
 - D 1 - I - 0x01E173 0F:A163: FF        .byte $FF   ; 
+
 
 
 off_A164_52_04:
@@ -434,6 +438,7 @@ off_A164_52_04:
 - D 1 - I - 0x01E198 0F:A188: FF        .byte $FF   ; 
 
 
+
 off_A189_52_05:
 - D 1 - I - 0x01E199 0F:A189: E2        .byte $E2   ; 
 - D 1 - I - 0x01E19A 0F:A18A: C0        .byte $C0   ; 
@@ -474,6 +479,7 @@ off_A189_52_05:
 - D 1 - I - 0x01E1BD 0F:A1AD: FF        .byte $FF   ; 
 
 
+
 off_A1AE_52_06:
 - D 1 - I - 0x01E1BE 0F:A1AE: E0        .byte $E0   ; 
 - D 1 - I - 0x01E1BF 0F:A1AF: 1C        .byte $1C   ; 
@@ -508,6 +514,7 @@ off_A1AE_52_06:
 - D 1 - I - 0x01E1DC 0F:A1CC: F4        .byte $F4   ; 
 - D 1 - I - 0x01E1DD 0F:A1CD: EF        .byte $EF   ; 
 - D 1 - I - 0x01E1DE 0F:A1CE: FF        .byte $FF   ; 
+
 
 
 off_A1CF_52_07:
@@ -554,7 +561,9 @@ off_A1CF_52_07:
 - D 1 - I - 0x01E207 0F:A1F7: FF        .byte $FF   ; 
 
 
+
 _off001_0x01E208_57:
+; con_music_57
 - D 1 - I - 0x01E208 0F:A1F8: 04        .byte $04   ; 
 - D 1 - I - 0x01E209 0F:A1F9: 05 A2     .word off_A205_57_04
 - D 1 - I - 0x01E20B 0F:A1FB: 05        .byte $05   ; 
@@ -564,6 +573,7 @@ _off001_0x01E208_57:
 - D 1 - I - 0x01E211 0F:A201: 07        .byte $07   ; 
 - D 1 - I - 0x01E212 0F:A202: C2 A2     .word off_A2C2_57_07
 - D 1 - I - 0x01E214 0F:A204: FF        .byte $FF   ; 
+
 
 
 off_A205_57_04:
@@ -630,6 +640,7 @@ off_A205_57_04:
 - D 1 - I - 0x01E251 0F:A241: F4        .byte $F4   ; 
 - D 1 - I - 0x01E252 0F:A242: EF        .byte $EF   ; 
 - D 1 - I - 0x01E253 0F:A243: FF        .byte $FF   ; 
+
 
 
 off_A244_57_05:
@@ -705,6 +716,7 @@ off_A244_57_05:
 - D 1 - I - 0x01E299 0F:A289: FF        .byte $FF   ; 
 
 
+
 off_A28A_57_06:
 - D 1 - I - 0x01E29A 0F:A28A: E0        .byte $E0   ; 
 - D 1 - I - 0x01E29B 0F:A28B: 1E        .byte $1E   ; 
@@ -762,6 +774,7 @@ off_A28A_57_06:
 - D 1 - I - 0x01E2CF 0F:A2BF: 9C        .byte $9C   ; 
 - D 1 - I - 0x01E2D0 0F:A2C0: 36        .byte $36   ; 
 - D 1 - I - 0x01E2D1 0F:A2C1: FF        .byte $FF   ; 
+
 
 
 off_A2C2_57_07:
@@ -844,7 +857,9 @@ off_A2C2_57_07:
 - D 1 - I - 0x01E31E 0F:A30E: FF        .byte $FF   ; 
 
 
+
 _off001_0x01E31F_55_музыка_меню:
+; con_sfx_ню
 - D 1 - I - 0x01E31F 0F:A30F: 04        .byte $04   ; 
 - D 1 - I - 0x01E320 0F:A310: 1C A3     .word off_A31C_55_04
 - D 1 - I - 0x01E322 0F:A312: 05        .byte $05   ; 
@@ -854,6 +869,7 @@ _off001_0x01E31F_55_музыка_меню:
 - D 1 - I - 0x01E328 0F:A318: 07        .byte $07   ; 
 - D 1 - I - 0x01E329 0F:A319: 8B A5     .word off_A58B_55_07
 - D 1 - I - 0x01E32B 0F:A31B: FF        .byte $FF   ; 
+
 
 
 off_A31C_55_04:
@@ -1587,7 +1603,9 @@ off_0x01E5E2_3E:
 - D 1 - I - 0x01E5EF 0F:A5DF: 09        .byte $09   ; 
 
 
+
 _off001_0x01E5F0_53:
+; con_music_53
 - D 1 - I - 0x01E5F0 0F:A5E0: 04        .byte $04   ; 
 - D 1 - I - 0x01E5F1 0F:A5E1: ED A5     .word off_A5ED_53_04
 - D 1 - I - 0x01E5F3 0F:A5E3: 05        .byte $05   ; 
@@ -1597,6 +1615,7 @@ _off001_0x01E5F0_53:
 - D 1 - I - 0x01E5F9 0F:A5E9: 07        .byte $07   ; 
 - D 1 - I - 0x01E5FA 0F:A5EA: 74 A7     .word off_A774_53_07
 - D 1 - I - 0x01E5FC 0F:A5EC: FF        .byte $FF   ; 
+
 
 
 off_A5ED_53_04:
@@ -2107,6 +2126,7 @@ loc_E8_A77A:
 
 
 _off001_0x01E7E9_56_мелодия_проигрыш:
+; con_sfx_ыш
 - D 1 - I - 0x01E7E9 0F:A7D9: 04        .byte $04   ; 
 - D 1 - I - 0x01E7EA 0F:A7DA: E6 A7     .word off_A7E6_56_04
 - D 1 - I - 0x01E7EC 0F:A7DC: 05        .byte $05   ; 
@@ -2116,6 +2136,7 @@ _off001_0x01E7E9_56_мелодия_проигрыш:
 - D 1 - I - 0x01E7F2 0F:A7E2: 07        .byte $07   ; 
 - D 1 - I - 0x01E7F3 0F:A7E3: 35 A8     .word off_A835_56_07
 - D 1 - I - 0x01E7F5 0F:A7E5: FF        .byte $FF   ; 
+
 
 
 off_A7E6_56_04:
@@ -2150,6 +2171,7 @@ off_A7E6_56_04:
 - D 1 - I - 0x01E812 0F:A802: FF        .byte $FF   ; 
 
 
+
 off_A803_56_05:
 - D 1 - I - 0x01E813 0F:A803: E2        .byte $E2   ; 
 - D 1 - I - 0x01E814 0F:A804: 00        .byte $00   ; 
@@ -2181,6 +2203,7 @@ off_A803_56_05:
 - D 1 - I - 0x01E82E 0F:A81E: FF        .byte $FF   ; 
 
 
+
 off_A81F_56_06:
 - D 1 - I - 0x01E82F 0F:A81F: E0        .byte $E0   ; 
 - D 1 - I - 0x01E830 0F:A820: 1D        .byte $1D   ; 
@@ -2206,6 +2229,7 @@ off_A81F_56_06:
 - D 1 - I - 0x01E844 0F:A834: FF        .byte $FF   ; 
 
 
+
 off_A835_56_07:
 - D 1 - I - 0x01E845 0F:A835: E0        .byte $E0   ; 
 - D 1 - I - 0x01E846 0F:A836: 16        .byte $16   ; 
@@ -2228,7 +2252,9 @@ off_A835_56_07:
 - D 1 - I - 0x01E857 0F:A847: FF        .byte $FF   ; 
 
 
+
 _off001_0x01E858_54_музыка_коимбра:
+; con_sfx_ра
 - D 1 - I - 0x01E858 0F:A848: 04        .byte $04   ; 
 - D 1 - I - 0x01E859 0F:A849: 55 A8     .word off_A855_54_04
 - D 1 - I - 0x01E85B 0F:A84B: 05        .byte $05   ; 
@@ -2238,6 +2264,7 @@ _off001_0x01E858_54_музыка_коимбра:
 - D 1 - I - 0x01E861 0F:A851: 07        .byte $07   ; 
 - D 1 - I - 0x01E862 0F:A852: 4D AA     .word off_AA4D_54_07
 - D 1 - I - 0x01E864 0F:A854: FF        .byte $FF   ; 
+
 
 
 off_A855_54_04:
@@ -2852,7 +2879,9 @@ sub_E9_AA8D:
 - D 1 - I - 0x01EAB7 0F:AAA7: EA        .byte $EA   ; 
 
 
+
 _off001_0x01EAB8_51_музыка_поле:
+; con_sfx_ле
 - D 1 - I - 0x01EAB8 0F:AAA8: 04        .byte $04   ; 
 - D 1 - I - 0x01EAB9 0F:AAA9: B5 AA     .word off_AAB5_51_04
 - D 1 - I - 0x01EABB 0F:AAAB: 05        .byte $05   ; 
@@ -2862,6 +2891,7 @@ _off001_0x01EAB8_51_музыка_поле:
 - D 1 - I - 0x01EAC1 0F:AAB1: 07        .byte $07   ; 
 - D 1 - I - 0x01EAC2 0F:AAB2: 0D AC     .word off_AC0D_51_07
 - D 1 - I - 0x01EAC4 0F:AAB4: FF        .byte $FF   ; 
+
 
 
 off_AAB5_51_04:
@@ -3298,7 +3328,9 @@ sub_E9_AC4C:
 - D 1 - I - 0x01EC68 0F:AC58: EA        .byte $EA   ; 
 
 
+
 _off001_0x01EC69_59_музыка_титры:
+; con_sfx_ры
 - D 1 - I - 0x01EC69 0F:AC59: 04        .byte $04   ; 
 - D 1 - I - 0x01EC6A 0F:AC5A: 66 AC     .word off_AC66_59_04
 - D 1 - I - 0x01EC6C 0F:AC5C: 05        .byte $05   ; 
@@ -3308,6 +3340,7 @@ _off001_0x01EC69_59_музыка_титры:
 - D 1 - I - 0x01EC72 0F:AC62: 07        .byte $07   ; 
 - D 1 - I - 0x01EC73 0F:AC63: F3 B5     .word off_B5F3_59_07
 - D 1 - I - 0x01EC75 0F:AC65: FF        .byte $FF   ; 
+
 
 
 off_AC66_59_04:
@@ -4414,6 +4447,7 @@ sub_E9_B03D:
 - D 1 - I - 0x01F0C0 0F:B0B0: EA        .byte $EA   ; 
 
 
+
 off_B0B1_59_05:
 - D 1 - I - 0x01F0C1 0F:B0B1: E9        .byte $E9   ; 
 - D 1 - I - 0x01F0C2 0F:B0B2: 56 B1     .word sub_E9_B156
@@ -5207,6 +5241,7 @@ sub_E9_B26A:
 - D 1 - I - 0x01F3D3 0F:B3C3: EA        .byte $EA   ; 
 
 
+
 off_B3C4_59_06:
 - D 1 - I - 0x01F3D4 0F:B3C4: E9        .byte $E9   ; 
 - D 1 - I - 0x01F3D5 0F:B3C5: 34 B4     .word sub_E9_B434
@@ -5773,6 +5808,7 @@ sub_E9_B547:
 - D 1 - I - 0x01F602 0F:B5F2: EA        .byte $EA   ; 
 
 
+
 off_B5F3_59_07:
 - D 1 - I - 0x01F603 0F:B5F3: E9        .byte $E9   ; 
 - D 1 - I - 0x01F604 0F:B5F4: 3E B6     .word sub_E9_B63E
@@ -6216,7 +6252,9 @@ sub_E9_B786:
 - D 1 - I - 0x01F7BC 0F:B7AC: EA        .byte $EA   ; 
 
 
+
 _off001_0x01F7BD_58_музыка_заставка:
+; con_sfx_ка
 - D 1 - I - 0x01F7BD 0F:B7AD: 04        .byte $04   ; 
 - D 1 - I - 0x01F7BE 0F:B7AE: BA B7     .word off_B7BA_58_04
 - D 1 - I - 0x01F7C0 0F:B7B0: 05        .byte $05   ; 
@@ -6226,6 +6264,7 @@ _off001_0x01F7BD_58_музыка_заставка:
 - D 1 - I - 0x01F7C6 0F:B7B6: 07        .byte $07   ; 
 - D 1 - I - 0x01F7C7 0F:B7B7: 3F BF     .word off_BF3F_58_07
 - D 1 - I - 0x01F7C9 0F:B7B9: FF        .byte $FF   ; 
+
 
 
 off_B7BA_58_04:
@@ -7004,6 +7043,7 @@ sub_E9_BA86:
 - D 1 - I - 0x01FACC 0F:BABC: EA        .byte $EA   ; 
 
 
+
 off_BABD_58_05:
 - D 1 - I - 0x01FACD 0F:BABD: E0        .byte $E0   ; 
 - D 1 - I - 0x01FACE 0F:BABE: 24        .byte $24   ; 
@@ -7682,6 +7722,7 @@ sub_E9_BD26:
 - D 1 - I - 0x01FD6D 0F:BD5D: EA        .byte $EA   ; 
 
 
+
 off_BD5E_58_06:
 - D 1 - I - 0x01FD6E 0F:BD5E: E0        .byte $E0   ; 
 - D 1 - I - 0x01FD6F 0F:BD5F: 17        .byte $17   ; 
@@ -8169,6 +8210,7 @@ sub_E9_BEF1:
 - D 1 - I - 0x01FF4C 0F:BF3C: 28        .byte $28   ; 
 - D 1 - I - 0x01FF4D 0F:BF3D: EC        .byte $EC   ; 
 - D 1 - I - 0x01FF4E 0F:BF3E: EA        .byte $EA   ; 
+
 
 
 off_BF3F_58_07:

@@ -154,7 +154,7 @@ C - - - - - 0x03C447 FF:C437: 8D 01 80  STA $5115
 C - - - - - 0x03C44A FF:C43A: 20 00 A0  JSR sub_0x004010
 C - - - - - 0x03C454 FF:C444: A9 0C     LDA #con_prg_bank + $8C
 C - - - - - 0x03C456 FF:C446: 8D 01 80  STA $5114
-C - - - - - 0x03C459 FF:C449: 20 00 80  JSR sub_0x018010_звуковой_движок
+C - - - - - 0x03C459 FF:C449: 20 00 80  JSR sub_0x018010_sound_engine_update
 C - - - - - 0x03C463 FF:C453: A5 24     LDA ram_for_5114
                                         ORA #$80
 C - - - - - 0x03C465 FF:C455: 8D 01 80  STA $5114
@@ -264,7 +264,7 @@ C - - - - - 0x03C709 FF:C6F9: 8D 6C 04  STA ram_046C
 C - - - - - 0x03C70C FF:C6FC: A9 00     LDA #$00
 C - - - - - 0x03C70E FF:C6FE: 8D 6D 04  STA ram_046D
 C - - - - - 0x03C6FA FF:C6EA: 85 1B     STA ram_флаг_nmi
-C - - - - - 0x03C6FC FF:C6EC: 8D 3F 06  STA ram_063F
+C - - - - - 0x03C6FC FF:C6EC: 8D 3F 06  STA ram_063F_flags
 C - - - - - 0x03C6FF FF:C6EF: A9 08     LDA #$08
 C - - - - - 0x03C701 FF:C6F1: 85 20     STA ram_for_2000
 C - - - - - 0x03C703 FF:C6F3: A9 1E     LDA #$1E
@@ -496,7 +496,7 @@ C - - - - - 0x03C8D9 FF:C8C9: 8D 01 80  STA $5125
 C - - - - - 0x03C8DC FF:C8CC: 4E 00 E0  STA $5204
 C - - - - - 0x03C8E6 FF:C8D6: A9 0C     LDA #con_prg_bank + $8C
 C - - - - - 0x03C8E8 FF:C8D8: 8D 01 80  STA $5114
-C - - - - - 0x03C8EB FF:C8DB: 20 00 80  JSR sub_0x018010_звуковой_движок
+C - - - - - 0x03C8EB FF:C8DB: 20 00 80  JSR sub_0x018010_sound_engine_update
 C - - - - - 0x03C8F5 FF:C8E5: A5 25     LDA ram_for_5115
                                         ORA #$80
 C - - - - - 0x03C8F7 FF:C8E7: 8D 01 80  STA $5115
@@ -989,18 +989,18 @@ sub_0x03CC56_очистить_нижнюю_половину_экрана:
 loc_0x03CC56_очистить_нижнюю_половину_экрана:
 ; первые 8 тайлов не очищаются для сохранения отображения таймера и счета
     ; буфер 1
-        ; 04A5 - счетчик тайлов
-        ; 04A6 - 2006 lo
-        ; 04A7 - 2006 hi
-        ; 04A8 - тайл
+        ; 04A5 = счетчик тайлов
+        ; 04A6 = 2006 lo
+        ; 04A7 = 2006 hi
+        ; 04A8 = тайл
     ; буфер 2
-        ; 04A9 - счетчик тайлов/конец буфера
-        ; 04AA - 2006 lo
-        ; 04AB - 2006 hi
-        ; 04AC - тайл
-    ; 04AD - конец буфера
+        ; 04A9 = счетчик тайлов/конец буфера
+        ; 04AA = 2006 lo
+        ; 04AB = 2006 hi
+        ; 04AC = тайл
+    ; 04AD = конец буфера
                                         LDA #$00
-                                        STA ram_05F4
+                                        STA ram_05F4_flag
 bra_CC47:
                                         STA ram_00B1_t02
 @ожидание_освобождения_буфера_1:
@@ -1019,24 +1019,24 @@ bra_CC4D_loop_очистки_экрана:
                                         BCS @пропустить
                                         LDA #$22
 @пропустить:
-                                        STA ram_04A7
-                                        STA ram_04AB
-                                        LDA tbl_CC46_2006_lo,X
+                                        STA ram_04A7    ; ppu addr hi
+                                        STA ram_04AB    ; ppu addr hi
+                                        LDA tbl_CC46_ppu_address_lo,X
                                         SEC
                                         SBC ram_00B1_t02
-                                        STA ram_04A6
+                                        STA ram_04A6    ; ppu addr lo
                                         CLC
                                         ADC #$20
-                                        STA ram_04AA
+                                        STA ram_04AA    ; ppu addr lo
                                         LDA #$19        ; количество записей
                                         CLC
                                         ADC ram_00B1_t02
-                                        STA ram_04A5
-                                        STA ram_04A9
+                                        STA ram_04A5    ; счетчик тайлов
+                                        STA ram_04A9    ; счетчик тайлов/конец буфера
                                         LDA #$00
-                                        STA ram_04A8
-                                        STA ram_04AC
-                                        STA ram_04AD
+                                        STA ram_04A8    ; тайл
+                                        STA ram_04AC    ; тайл
+                                        STA ram_04AD    ; конец буфера
                                         LDA #$81
                                         STA ram_0515_buffer_flag
 @ожидание_освобождения_буфера_2:
@@ -1063,33 +1063,33 @@ bra_CC4D_loop_очистки_экрана:
 
 
 
-tbl_CC46_2006_lo:
-    .byte $07, $47, $87, $C7, $07, $47, $87
+tbl_CC46_ppu_address_lo:
+    .byte $07, $47, $87, $C7, $07, $47, $87   ; 
 
 
 
 tbl_CC47_ppu_байты_затирания_чарли_и_атрибутов_фона:
-    .byte $03 ; 
+    .byte $03   ; 
     .word $2302 ; 
-    .byte $00 ; 
+    .byte $00   ; 
     
-    .byte $03 ; 
+    .byte $03   ; 
     .word $2322 ; 
-    .byte $00 ; 
+    .byte $00   ; 
     
-    .byte $03 ; 
+    .byte $03   ; 
     .word $2342 ; 
-    .byte $00 ; 
+    .byte $00   ; 
     
-    .byte $03 ; 
+    .byte $03   ; 
     .word $2362 ; 
-    .byte $00 ; 
+    .byte $00   ; 
     
-    .byte $20 ; 
+    .byte $20   ; 
     .word $23E0 ; 
-    .byte $00 ; 
+    .byte $00   ; 
     
-    .byte $00       ; end token
+    .byte $00   ; end token
 
 
 
@@ -1862,7 +1862,7 @@ C - - - - - 0x03D0A2 FF:D092: 60        RTS
 sub_D093_выбор_мелодии_команды:
 sub_0x03D0A3_выбор_мелодии_команды:
 loc_0x03D0A3_выбор_мелодии_команды:
-C D 2 - - - 0x03D0A3 FF:D093: A9 32     LDA #con_музыка_добавочное_время
+C D 2 - - - 0x03D0A3 FF:D093: A9 32     LDA #con_music_32
 C - - - - - 0x03D0A5 FF:D095: 2C 3E 06  BIT ram_флаг_loss
 C - - - - - 0x03D0A8 FF:D098: 30 0E     BMI bra_D0A8_сейчас_loss
 C - - - - - 0x03D0AA FF:D09A: AE FB 05  LDX ram_команда_с_мячом
@@ -1879,50 +1879,50 @@ C - - - - - 0x03D0B8 FF:D0A8: 20 F1 CB  JMP loc_CBF1_запись_звука
 
 
 tbl_D0AC_мелодии_команд:
-- D 2 - - - 0x03D0BC FF:D0AC: 3C        .byte $3C    ; 00 сан-паулу
-- D 2 - - - 0x03D0BD FF:D0AD: 39        .byte $39    ; 01 нанкацу
-- D 2 - - - 0x03D0BE FF:D0AE: 3F        .byte $3F    ; 02 япония
+- D 2 - - - 0x03D0BC FF:D0AC: 3C        .byte con_music_3C    ; 00 сан-паулу
+- D 2 - - - 0x03D0BD FF:D0AD: 39        .byte con_music_39    ; 01 нанкацу
+- D 2 - - - 0x03D0BE FF:D0AE: 3F        .byte con_music_3F    ; 02 япония
 
-- D 2 - - - 0x03D0BF FF:D0AF: 35        .byte $35    ; 03 кубок рио
-- D 2 - - - 0x03D0C0 FF:D0B0: 35        .byte $35    ; 04 кубок рио
-- D 2 - - - 0x03D0C1 FF:D0B1: 35        .byte $35    ; 05 кубок рио
-- D 2 - - - 0x03D0C2 FF:D0B2: 35        .byte $35    ; 06 кубок рио
-- D 2 - - - 0x03D0C3 FF:D0B3: 35        .byte $35    ; 07 кубок рио
-- D 2 - - - 0x03D0C4 FF:D0B4: 40        .byte $40    ; 08 фламенго
+- D 2 - - - 0x03D0BF FF:D0AF: 35        .byte con_music_35    ; 03 кубок рио
+- D 2 - - - 0x03D0C0 FF:D0B0: 35        .byte con_music_35    ; 04 кубок рио
+- D 2 - - - 0x03D0C1 FF:D0B1: 35        .byte con_music_35    ; 05 кубок рио
+- D 2 - - - 0x03D0C2 FF:D0B2: 35        .byte con_music_35    ; 06 кубок рио
+- D 2 - - - 0x03D0C3 FF:D0B3: 35        .byte con_music_35    ; 07 кубок рио
+- D 2 - - - 0x03D0C4 FF:D0B4: 40        .byte con_music_40    ; 08 фламенго
 
-- D 2 - - - 0x03D0C5 FF:D0B5: 34        .byte $34    ; 09 нац чемп
-- D 2 - - - 0x03D0C6 FF:D0B6: 34        .byte $34    ; 0A нац чемп
-- D 2 - - - 0x03D0C7 FF:D0B7: 34        .byte $34    ; 0B нац чемп
-- D 2 - - - 0x03D0C8 FF:D0B8: 34        .byte $34    ; 0C нац чемп
-- D 2 - - - 0x03D0C9 FF:D0B9: 34        .byte $34    ; 0D нац чемп
-- D 2 - - - 0x03D0CA FF:D0BA: 37        .byte $37    ; 0E тохо
+- D 2 - - - 0x03D0C5 FF:D0B5: 34        .byte con_music_34    ; 09 нац чемп
+- D 2 - - - 0x03D0C6 FF:D0B6: 34        .byte con_music_34    ; 0A нац чемп
+- D 2 - - - 0x03D0C7 FF:D0B7: 34        .byte con_music_34    ; 0B нац чемп
+- D 2 - - - 0x03D0C8 FF:D0B8: 34        .byte con_music_34    ; 0C нац чемп
+- D 2 - - - 0x03D0C9 FF:D0B9: 34        .byte con_music_34    ; 0D нац чемп
+- D 2 - - - 0x03D0CA FF:D0BA: 37        .byte con_music_37    ; 0E тохо
 
-- D 2 - - - 0x03D0CB FF:D0BB: 3B        .byte $3B    ; 0Fкубок японии
-- D 2 - - - 0x03D0CC FF:D0BC: 3B        .byte $3B    ; 10кубок японии
-- D 2 - - - 0x03D0CD FF:D0BD: 3B        .byte $3B    ; 11кубок японии
-- D 2 - - - 0x03D0CE FF:D0BE: 3B        .byte $3B    ; 12кубок японии
+- D 2 - - - 0x03D0CB FF:D0BB: 3B        .byte con_music_3B    ; 0Fкубок японии
+- D 2 - - - 0x03D0CC FF:D0BC: 3B        .byte con_music_3B    ; 10кубок японии
+- D 2 - - - 0x03D0CD FF:D0BD: 3B        .byte con_music_3B    ; 11кубок японии
+- D 2 - - - 0x03D0CE FF:D0BE: 3B        .byte con_music_3B    ; 12кубок японии
 
-- D 2 - - - 0x03D0CF FF:D0BF: 3A        .byte $3A    ; 13 чемп азии
-- D 2 - - - 0x03D0D0 FF:D0C0: 3A        .byte $3A    ; 14 чемп азии
-- D 2 - - - 0x03D0D1 FF:D0C1: 3A        .byte $3A    ; 15 чемп азии
-- D 2 - - - 0x03D0D2 FF:D0C2: 3A        .byte $3A    ; 16 чемп азии
-- D 2 - - - 0x03D0D3 FF:D0C3: 3A        .byte $3A    ; 17 чемп азии
-- D 2 - - - 0x03D0D4 FF:D0C4: 3A        .byte $3A    ; 18 чемп азии
+- D 2 - - - 0x03D0CF FF:D0BF: 3A        .byte con_music_3A    ; 13 чемп азии
+- D 2 - - - 0x03D0D0 FF:D0C0: 3A        .byte con_music_3A    ; 14 чемп азии
+- D 2 - - - 0x03D0D1 FF:D0C1: 3A        .byte con_music_3A    ; 15 чемп азии
+- D 2 - - - 0x03D0D2 FF:D0C2: 3A        .byte con_music_3A    ; 16 чемп азии
+- D 2 - - - 0x03D0D3 FF:D0C3: 3A        .byte con_music_3A    ; 17 чемп азии
+- D 2 - - - 0x03D0D4 FF:D0C4: 3A        .byte con_music_3A    ; 18 чемп азии
 
-- D 2 - - - 0x03D0D5 FF:D0C5: 36        .byte $36    ; 19 товарняки
-- D 2 - - - 0x03D0D6 FF:D0C6: 36        .byte $36    ; 1A товарняки
-- D 2 - - - 0x03D0D7 FF:D0C7: 36        .byte $36    ; 1B товарняки
-- D 2 - - - 0x03D0D8 FF:D0C8: 36        .byte $36    ; 1C товарняки
-- D 2 - - - 0x03D0D9 FF:D0C9: 36        .byte $36    ; 1D товарняки
+- D 2 - - - 0x03D0D5 FF:D0C5: 36        .byte con_music_36    ; 19 товарняки
+- D 2 - - - 0x03D0D6 FF:D0C6: 36        .byte con_music_36    ; 1A товарняки
+- D 2 - - - 0x03D0D7 FF:D0C7: 36        .byte con_music_36    ; 1B товарняки
+- D 2 - - - 0x03D0D8 FF:D0C8: 36        .byte con_music_36    ; 1C товарняки
+- D 2 - - - 0x03D0D9 FF:D0C9: 36        .byte con_music_36    ; 1D товарняки
 
-- D 2 - - - 0x03D0DA FF:D0CA: 3D        .byte $3D    ; 1E кубок мира
-- D 2 - - - 0x03D0DB FF:D0CB: 3D        .byte $3D    ; 1F кубок мира
-- D 2 - - - 0x03D0DC FF:D0CC: 3D        .byte $3D    ; 20 кубок мира
-- D 2 - - - 0x03D0DD FF:D0CD: 3D        .byte $3D    ; 21 кубок мира
-- D 2 - - - 0x03D0DE FF:D0CE: 38        .byte $38    ; 22 германия
-- D 2 - - - 0x03D0DF FF:D0CF: 3E        .byte $3E    ; 23 бразилия
+- D 2 - - - 0x03D0DA FF:D0CA: 3D        .byte con_music_3D    ; 1E кубок мира
+- D 2 - - - 0x03D0DB FF:D0CB: 3D        .byte con_music_3D    ; 1F кубок мира
+- D 2 - - - 0x03D0DC FF:D0CC: 3D        .byte con_music_3D    ; 20 кубок мира
+- D 2 - - - 0x03D0DD FF:D0CD: 3D        .byte con_music_3D    ; 21 кубок мира
+- D 2 - - - 0x03D0DE FF:D0CE: 38        .byte con_music_38    ; 22 германия
+- D 2 - - - 0x03D0DF FF:D0CF: 3E        .byte con_music_3E    ; 23 бразилия
 ; bzk garbage? в новых логах не читалось
-- - - - - - 0x03D0E0 FF:D0D0: 3E        .byte $3E    ; 24
+- - - - - - 0x03D0E0 FF:D0D0: 3E        .byte con_music_3E    ; 24
 
 
 
@@ -2094,7 +2094,7 @@ C - - - - - 0x03D1EA FF:D1DA: C9 1E     CMP #$1E      ; 5 минут
 C - - - - - 0x03D1EC FF:D1DC: B0 0D     BCS bra_D1EB_сейчас_не_loss
 C - - - - - 0x03D1EE FF:D1DE: AD 3E 06  LDA #$80
 C - - - - - 0x03D1F3 FF:D1E3: 8D 3E 06  STA ram_флаг_loss
-C - - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #con_музыка_добавочное_время
+C - - - - - 0x03D1F6 FF:D1E6: A9 32     LDA #con_music_32
 C - - - - - 0x03D1F8 FF:D1E8: 20 F1 CB  JSR sub_CBF1_запись_звука
 bra_D1EB_сейчас_не_loss:
 C - - - - - 0x03D1FB FF:D1EB: AD F8 05  LDA ram_время_hi
@@ -3516,7 +3516,7 @@ C - - - - - 0x03DAA5 FF:DA95: 4C 0C D7  JMP loc_D70C    ; всегда PLA PLA
 loc_DAAA:
 loc_0x03DABA:
 ; срабатывает до первой разводки тайма, и каждый раз перед разводкой после гола
-C D 2 - - - 0x03DABA FF:DAAA: A9 01     LDA #con_музыка_выключить_все
+C D 2 - - - 0x03DABA FF:DAAA: A9 01     LDA #con_sfx_выкл_музыку_и_звуки
 C - - - - - 0x03DABC FF:DAAC: 20 F1 CB  JSR sub_CBF1_запись_звука
 C - - - - - 0x03DABF FF:DAAF: 20 4F CF  JSR sub_CF4F
 C - - - - - 0x03DAC5 FF:DAB5: A9 1A     LDA #con_prg_bank + $1A
@@ -6196,28 +6196,33 @@ C - - - - - 0x03EBDE FF:EBCE: 85 25     STA ram_for_5115
 C - - - - - 0x03EBE0 FF:EBD0: 20 2D CE  JSR sub_CE2D_prg_bankswitch
 C - - - - - 0x03EBE4 FF:EBD4: 20 09 80  JSR sub_0x0307F6
 C - - - - - 0x03EBE7 FF:EBD7: AD 2E 05  LDA ram_задержка_звука_анимации
-C - - - - - 0x03EBEA FF:EBDA: F0 29     BEQ bra_EC05
+C - - - - - 0x03EBEA FF:EBDA: F0 29     BEQ bra_EC05_skip_записи_звука
 C - - - - - 0x03EBEC FF:EBDC: CE 2E 05  DEC ram_задержка_звука_анимации
-C - - - - - 0x03EBEF FF:EBDF: D0 24     BNE bra_EC05
+C - - - - - 0x03EBEF FF:EBDF: D0 24     BNE bra_EC05_skip_записи_звука
+; bzk optimize, сделать управляющие байты 80+,
+; тогда достаточно проверить на BPL
 C - - - - - 0x03EBF1 FF:EBE1: AD 2F 05  LDA ram_052F_звук_анимации
 C - - - - - 0x03EBF4 FF:EBE4: C9 7E     CMP #$7E
 C - - - - - 0x03EBF6 FF:EBE6: 90 11     BCC bra_EBF9
-C - - - - - 0x03EBF8 FF:EBE8: C9 7F     CMP #$7F
+C - - - - - 0x03EBF8 FF:EBE8: C9 7F     CMP #con_sfx_7F
 C - - - - - 0x03EBFA FF:EBEA: F0 07     BEQ bra_EBF3_7F
+; if con_sfx_7E
 C - - - - - 0x03EBFC FF:EBEC: AD 27 00  LDA ram_номер_тайма
-C - - - - - 0x03EBFF FF:EBEF: C9 04     CMP #$04
-C - - - - - 0x03EC01 FF:EBF1: F0 12     BEQ bra_EC05
+C - - - - - 0x03EBFF FF:EBEF: C9 04     CMP #$04    ; пенальти
+C - - - - - 0x03EC01 FF:EBF1: F0 12     BEQ bra_EC05_skip_записи_звука
 bra_EBF3_7F:
 C - - - - - 0x03EC03 FF:EBF3: 20 93 D0  JSR sub_D093_выбор_мелодии_команды
 C - - - - - 0x03EC06 FF:EBF6: 4C 05 EC  JMP loc_EB86
 bra_EBF9:
-C - - - - - 0x03EC09 FF:EBF9: 2C 3F 06  BIT ram_063F
-C - - - - - 0x03EC0C FF:EBFC: 10 04     BPL bra_EC02
-C - - - - - 0x03EC0E FF:EBFE: C9 63     CMP #$63
-C - - - - - 0x03EC10 FF:EC00: D0 03     BNE bra_EC05
-bra_EC02:
+C - - - - - 0x03EC09 FF:EBF9: 2C 3F 06  BIT ram_063F_flags
+C - - - - - 0x03EC0C FF:EBFC: 10 04     BPL bra_EC02_не_титры
+; if сейчас титры, воспроизводить только звук штанги,
+; остальные игнорировать
+C - - - - - 0x03EC0E FF:EBFE: C9 63     CMP #con_sfx_попадание_по_штанге
+C - - - - - 0x03EC10 FF:EC00: D0 03     BNE bra_EC05_skip_записи_звука
+bra_EC02_не_титры:
 C - - - - - 0x03EC12 FF:EC02: 20 F1 CB  JSR sub_CBF1_запись_звука
-bra_EC05:
+bra_EC05_skip_записи_звука:
 C D 3 - - - 0x03EC15 FF:EC05: 4C 86 EB  JMP loc_EB86
 
 

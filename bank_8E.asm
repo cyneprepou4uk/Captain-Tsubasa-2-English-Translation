@@ -36,6 +36,7 @@
 
 
 _off001_0x01C010_4D:
+; con_music_4D
 - D 1 - I - 0x01C010 0E:A000: 04        .byte $04   ; 
 - D 1 - I - 0x01C011 0E:A001: 0D A0     .word off_A00D_4D_04
 - D 1 - I - 0x01C013 0E:A003: 05        .byte $05   ; 
@@ -967,7 +968,9 @@ sub_E9_A388:
 - D 1 - I - 0x01C3A8 0E:A398: EA        .byte $EA   ; 
 
 
+
 _off001_0x01C3A9_4C_музыка_последний_матч:
+; con_music_4C
 - D 1 - I - 0x01C3A9 0E:A399: 04        .byte $04   ; 
 - D 1 - I - 0x01C3AA 0E:A39A: A6 A3     .word off_A3A6_4C_04
 - D 1 - I - 0x01C3AC 0E:A39C: 05        .byte $05   ; 
@@ -2463,7 +2466,9 @@ sub_E9_A948:
 - D 1 - I - 0x01C973 0E:A963: EA        .byte $EA   ; 
 
 
+
 _off001_0x01C974_45_музыка_логотипа:
+; con_music_45
 - D 1 - I - 0x01C974 0E:A964: 04        .byte $04   ; 
 - D 1 - I - 0x01C975 0E:A965: 71 A9     .word off_A971_45_04
 - D 1 - I - 0x01C977 0E:A967: 05        .byte $05   ; 
@@ -2768,7 +2773,9 @@ off_AA39_45_07:
 - D 1 - I - 0x01CA94 0E:AA84: FF        .byte $FF   ; 
 
 
+
 _off001_0x01CA95_46_музыка_поля:
+; con_music_46
 - D 1 - I - 0x01CA95 0E:AA85: 04        .byte $04   ; 
 - D 1 - I - 0x01CA96 0E:AA86: 92 AA     .word off_AA92_46_04
 - D 1 - I - 0x01CA98 0E:AA88: 05        .byte $05   ; 
@@ -3206,6 +3213,7 @@ loc_E8_AC12:
 
 
 _off001_0x01CC3A_47:
+; con_music_47
 - D 1 - I - 0x01CC3A 0E:AC2A: 04        .byte $04   ; 
 - D 1 - I - 0x01CC3B 0E:AC2B: 37 AC     .word off_AC37_47_04
 - D 1 - I - 0x01CC3D 0E:AC2D: 05        .byte $05   ; 
@@ -3668,6 +3676,7 @@ loc_E8_ADCF:
 
 
 _off001_0x01CDF8_4B_музыка_дождь:
+; con_music_4B
 - D 1 - I - 0x01CDF8 0E:ADE8: 04        .byte $04   ; 
 - D 1 - I - 0x01CDF9 0E:ADE9: F5 AD     .word off_ADF5_4B_04
 - D 1 - I - 0x01CDFB 0E:ADEB: 05        .byte $05   ; 
@@ -4343,7 +4352,9 @@ sub_E9_B061:
 - D 1 - I - 0x01D089 0E:B079: EA        .byte $EA   ; 
 
 
+
 _off001_0x01D08A_48_музыка_романтика:
+; con_music_48
 - D 1 - I - 0x01D08A 0E:B07A: 04        .byte $04   ; 
 - D 1 - I - 0x01D08B 0E:B07B: 87 B0     .word off_B087_48_04
 - D 1 - I - 0x01D08D 0E:B07D: 05        .byte $05   ; 
@@ -4990,6 +5001,7 @@ loc_E8_B291:
 
 
 _off001_0x01D303_49_музыка_тревожная:
+; con_music_49
 - D 1 - I - 0x01D303 0E:B2F3: 04        .byte $04   ; 
 - D 1 - I - 0x01D304 0E:B2F4: 00 B3     .word off_B300_49_04
 - D 1 - I - 0x01D306 0E:B2F6: 05        .byte $05   ; 
@@ -5175,6 +5187,7 @@ loc_E8_B37F:
 
 
 _off001_0x01D3AC_4F_музыка_победа_над_бразилией:
+; con_music_4F
 - D 1 - I - 0x01D3AC 0E:B39C: 04        .byte $04   ; 
 - D 1 - I - 0x01D3AD 0E:B39D: A9 B3     .word off_B3A9_4F_04
 - D 1 - I - 0x01D3AF 0E:B39F: 05        .byte $05   ; 
@@ -6350,6 +6363,7 @@ loc_E8_B798:
 
 
 _off001_0x01D82F_4E:
+; con_music_4E
 - D 1 - I - 0x01D82F 0E:B81F: 04        .byte $04   ; 
 - D 1 - I - 0x01D830 0E:B820: 2C B8     .word off_B82C_4E_04
 - D 1 - I - 0x01D832 0E:B822: 05        .byte $05   ; 
@@ -7136,7 +7150,9 @@ off_0x01DB03_3D:
 - D 1 - I - 0x01DB10 0E:BB00: 09        .byte $09   ; 
 
 
+
 _off001_0x01DB11_50_музыка_романтика:
+; con_music_50
 - D 1 - I - 0x01DB11 0E:BB01: 04        .byte $04   ; 
 - D 1 - I - 0x01DB12 0E:BB02: 0E BB     .word off_BB0E_50_04
 - D 1 - I - 0x01DB14 0E:BB04: 05        .byte $05   ; 
