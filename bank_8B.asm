@@ -291,7 +291,7 @@ C - - - - - 0x0161CE 0B:81BE: 8E 25 05  STX ram_0525
 C - - - - - 0x0161D1 0B:81C1: 29 0F     AND #$0F
 C - - - - - 0x0161D3 0B:81C3: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x0161D6 0B:81C6: CC 81     .word ofs_010_81CC_F0
-- - - - - - 0x0161D8 0B:81C8: 76 82     .word ofs_010_8276_F1   ; unused, index doesn't exist
+- - - - - - 0x0161D8 0B:81C8: 76 82     .word $FFFF      ; F0 unused, index doesn't exist
 - D 0 - I - 0x0161DA 0B:81CA: 4D 82     .word ofs_010_824D_F2
 
 
@@ -452,15 +452,6 @@ C - - - - - 0x01627D 0B:826D: 49 0B     EOR #$0B
 C - - - - - 0x01627F 0B:826F: A8        TAY
 bra_8270:
 C - - - - - 0x016280 0B:8270: 20 FE 82  JSR sub_82FE
-C - - - - - 0x016283 0B:8273: 4C 79 82  JMP loc_8279
-
-
-
-ofs_010_8276_F1:
-; con_81BC_F1
-; bzk garbage
-- - - - - - 0x016286 0B:8276: 20 F7 82  JSR sub_82F7
-loc_8279:
 C D 0 - - - 0x016289 0B:8279: BD 7F 82  LDA tbl_827F,X
 C - - - - - 0x01628C 0B:827C: 4C 2B 83  JMP loc_832B
 
