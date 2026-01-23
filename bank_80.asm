@@ -424,7 +424,10 @@ C - - - - - 0x000262 00:8252: 20 18 A0  JSR sub_0x003060_передать_опы
 C - - - - - 0x000265 00:8255: A5 26     LDA ram_номер_матча
 C - - - - - 0x000267 00:8257: C9 03     CMP #$03
 C - - - - - 0x000269 00:8259: 90 05     BCC bra_8260_еще_не_матч_против_меона
-; запись драйв оверхеда цубасе
+; запись наличия drive overhead для tsubasa
+; bzk bug, если спешал не был активирован в матче,
+; его по идее нельзя записывать. исключением
+; может являться ввод пароля
 C - - - - - 0x00026B 00:825B: A2 05     LDX #$05
 C - - - - - 0x00026D 00:825D: 8E 46 04  STX ram_drive_overhead_flag
 bra_8260_еще_не_матч_против_меона:
@@ -2115,23 +2118,28 @@ C - - - - - 0x000B71 00:8B61: 29 F8     AND #$F8
 C - - - - - 0x000B73 00:8B63: 85 5C     STA ram_005C_t02
 C - - - - - 0x000B75 00:8B65: A9 02     LDA #$02
 C - - - - - 0x000B77 00:8B67: 85 5D     STA ram_005D_t20_ppu_addr_hi
+; * 04
 C - - - - - 0x000B79 00:8B69: 06 5C     ASL ram_005C_t02
 C - - - - - 0x000B7B 00:8B6B: 26 5D     ROL ram_005D_t20_ppu_addr_hi
 C - - - - - 0x000B7D 00:8B6D: 06 5C     ASL ram_005C_t02
 C - - - - - 0x000B7F 00:8B6F: 26 5D     ROL ram_005D_t20_ppu_addr_hi
+; 
 C - - - - - 0x000B81 00:8B71: B1 63     LDA (ram_0063_t02_data_парам_задн_фона),Y
 ; смещение для адреса ppu, байт * #04
 C - - - - - 0x000B83 00:8B73: 29 07     AND #$07
 C - - - - - 0x000B85 00:8B75: 05 5C     ORA ram_005C_t02
 C - - - - - 0x000B87 00:8B77: 85 5C     STA ram_005C_t03_ppu_addr_lo
+; * 04
 C - - - - - 0x000B89 00:8B79: 06 5C     ASL ram_005C_t03_ppu_addr_lo
 C - - - - - 0x000B8B 00:8B7B: 26 5D     ROL ram_005D_t20_ppu_addr_hi
 C - - - - - 0x000B8D 00:8B7D: 06 5C     ASL ram_005C_t03_ppu_addr_lo
 C - - - - - 0x000B8F 00:8B7F: 26 5D     ROL ram_005D_t20_ppu_addr_hi
+; 
 C - - - - - 0x000B91 00:8B81: A5 5D     LDA ram_005D_t20_ppu_addr_hi
 C - - - - - 0x000B93 00:8B83: 29 0C     AND #$0C
 C - - - - - 0x000B95 00:8B85: D0 0C     BNE bra_8B93_пропуск
 C - - - - - 0x000B97 00:8B87: A5 7B     LDA ram_007B_t02_массив_scroll_X_hi
+; * 04
 C - - - - - 0x000B99 00:8B89: 0A        ASL
 C - - - - - 0x000B9A 00:8B8A: 0A        ASL
 C - - - - - 0x000B9B 00:8B8B: 45 5B     EOR ram_005B_t02_флаги
@@ -2183,6 +2191,7 @@ C - - - - - 0x000BEE 00:8BDE: 85 62     STA ram_0062_t01
 C - - - - - 0x000BF0 00:8BE0: B1 70     LDA (ram_0070_t01_data),Y
 C - - - - - 0x000BF2 00:8BE2: 29 1F     AND #$1F
 C - - - - - 0x000BF4 00:8BE4: AA        TAX
+; / 04
 C - - - - - 0x000BF5 00:8BE5: 4A        LSR
 C - - - - - 0x000BF6 00:8BE6: 66 60     ROR ram_0060_t01_lo
 C - - - - - 0x000BF8 00:8BE8: 4A        LSR
@@ -2484,6 +2493,7 @@ C - - - - - 0x000DF5 00:8DE5: 85 62     STA ram_0062_t01
 C - - - - - 0x000DF7 00:8DE7: B1 70     LDA (ram_0070_t01_data),Y
 C - - - - - 0x000DF9 00:8DE9: 29 1F     AND #$1F
 C - - - - - 0x000DFB 00:8DEB: AA        TAX
+; / 04
 C - - - - - 0x000DFC 00:8DEC: 4A        LSR
 C - - - - - 0x000DFD 00:8DED: 66 60     ROR ram_0060_t01_lo
 C - - - - - 0x000DFF 00:8DEF: 4A        LSR
@@ -2543,6 +2553,7 @@ C - - - - - 0x000E4D 00:8E3D: 45 5C     EOR ram_005C_t03_ppu_addr_lo
 C - - - - - 0x000E4F 00:8E3F: 29 20     AND #$20
 C - - - - - 0x000E51 00:8E41: F0 15     BEQ bra_8E58
 C - - - - - 0x000E53 00:8E43: A5 6D     LDA ram_006D_t01
+; * 08
 C - - - - - 0x000E55 00:8E45: 0A        ASL
 C - - - - - 0x000E56 00:8E46: 0A        ASL
 C - - - - - 0x000E57 00:8E47: 0A        ASL
@@ -2662,6 +2673,7 @@ C - - - - - 0x000F0D 00:8EFD: A8        TAY
 C - - - - - 0x000F0E 00:8EFE: 85 EB     STA ram_00EB_t13
 C - - - - - 0x000F10 00:8F00: 8A        TXA
 C - - - - - 0x000F11 00:8F01: 85 EA     STA ram_00EA_t10
+; * 11
 C - - - - - 0x000F13 00:8F03: 0A        ASL
 C - - - - - 0x000F14 00:8F04: 26 EB     ROL ram_00EB_t13
 C - - - - - 0x000F16 00:8F06: 0A        ASL
@@ -2676,6 +2688,7 @@ C - - - - - 0x000F22 00:8F12: 85 EA     STA ram_00EA_t11_ptr_lo
 C - - - - - 0x000F24 00:8F14: 98        TYA
 C - - - - - 0x000F25 00:8F15: 65 EB     ADC ram_00EB_t13
 C - - - - - 0x000F27 00:8F17: 85 EB     STA ram_00EB_t14_ptr_hi
+; 
 C - - - - - 0x000F29 00:8F19: A5 EA     LDA ram_00EA_t11_ptr_lo
 C - - - - - 0x000F2B 00:8F1B: 18        CLC
 C - - - - - 0x000F2C 00:8F1C: 69 00     ADC #< tbl_0x010010_блоки_4x4_тайла
@@ -2743,6 +2756,7 @@ C - - - - - 0x000F9E 00:8F8E: 20 49 90  JSR sub_9049_вычислить_ppu_addr
 C - - - - - 0x000FA1 00:8F91: A9 01     LDA #$01
 C - - - - - 0x000FA3 00:8F93: 20 28 9B  JSR sub_9B28_подготовить_буфер
 C - - - - - 0x000FA6 00:8F96: A5 67     LDA ram_0067_t01_ppu_addr_lo
+; / 04
 C - - - - - 0x000FA8 00:8F98: 4A        LSR
 C - - - - - 0x000FA9 00:8F99: 4A        LSR
 C - - - - - 0x000FAA 00:8F9A: 29 07     AND #$07
@@ -2752,6 +2766,7 @@ C - - - - - 0x000FAF 00:8F9F: 29 C0     AND #$C0
 C - - - - - 0x000FB1 00:8FA1: C9 40     CMP #$40
 C - - - - - 0x000FB3 00:8FA3: F0 13     BEQ bra_8FB8
 C - - - - - 0x000FB5 00:8FA5: A5 E7     LDA ram_00E7_t06
+; / 10
 C - - - - - 0x000FB7 00:8FA7: 4A        LSR
 C - - - - - 0x000FB8 00:8FA8: 4A        LSR
 C - - - - - 0x000FB9 00:8FA9: 4A        LSR
@@ -2763,6 +2778,7 @@ C - - - - - 0x000FC2 00:8FB2: 20 5E 9B  JSR sub_9B5E_закрыть_буфер
 C - - - - - 0x000FC5 00:8FB5: 4C 3E 8F  JMP loc_8F3E_loop
 bra_8FB8:
 C - - - - - 0x000FC8 00:8FB8: A5 E7     LDA ram_00E7_t06
+; / 10
 C - - - - - 0x000FCA 00:8FBA: 4A        LSR
 C - - - - - 0x000FCB 00:8FBB: 4A        LSR
 C - - - - - 0x000FCC 00:8FBC: 4A        LSR
@@ -2787,6 +2803,7 @@ C - - - - - 0x000FEA 00:8FDA: 86 E9     STX ram_00E9_t09_ppu_addr_hi
 C - - - - - 0x000FEC 00:8FDC: A9 01     LDA #$01
 C - - - - - 0x000FEE 00:8FDE: 20 28 9B  JSR sub_9B28_подготовить_буфер
 C - - - - - 0x000FF1 00:8FE1: A5 67     LDA ram_0067_t01_ppu_addr_lo
+; / 04
 C - - - - - 0x000FF3 00:8FE3: 4A        LSR
 C - - - - - 0x000FF4 00:8FE4: 4A        LSR
 C - - - - - 0x000FF5 00:8FE5: 29 07     AND #$07
@@ -2799,6 +2816,7 @@ C - - - - - 0x000FFE 00:8FEE: F0 1B     BEQ bra_900B
 
 ; bzk garbage? в новых логах не выполнялось
 - - - - - - 0x001000 00:8FF0: A5 E7     LDA ram_00E7_t06
+; * 10
 - - - - - - 0x001002 00:8FF2: 0A        ASL
 - - - - - - 0x001003 00:8FF3: 0A        ASL
 - - - - - - 0x001004 00:8FF4: 0A        ASL
@@ -2807,6 +2825,7 @@ C - - - - - 0x000FFE 00:8FEE: F0 1B     BEQ bra_900B
 - - - - - - 0x001009 00:8FF9: 9D E8 05  STA ram_05E8_буфер,X
 - - - - - - 0x00100C 00:8FFC: E8        INX
 - - - - - - 0x00100D 00:8FFD: A5 E7     LDA ram_00E7_t06
+; / 10
 - - - - - - 0x00100F 00:8FFF: 4A        LSR
 - - - - - - 0x001010 00:9000: 4A        LSR
 - - - - - - 0x001011 00:9001: 4A        LSR
@@ -2819,6 +2838,7 @@ C - - - - - 0x000FFE 00:8FEE: F0 1B     BEQ bra_900B
 
 bra_900B:
 C - - - - - 0x00101B 00:900B: A5 E7     LDA ram_00E7_t06
+; * 10
 C - - - - - 0x00101D 00:900D: 0A        ASL
 C - - - - - 0x00101E 00:900E: 0A        ASL
 C - - - - - 0x00101F 00:900F: 0A        ASL
@@ -2827,6 +2847,7 @@ C - - - - - 0x001021 00:9011: 48        PHA
 C - - - - - 0x001022 00:9012: 9D E8 05  STA ram_05E8_буфер,X
 C - - - - - 0x001025 00:9015: E8        INX
 C - - - - - 0x001026 00:9016: A5 E7     LDA ram_00E7_t06
+; / 10
 C - - - - - 0x001028 00:9018: 4A        LSR
 C - - - - - 0x001029 00:9019: 4A        LSR
 C - - - - - 0x00102A 00:901A: 4A        LSR
@@ -2866,16 +2887,19 @@ sub_9049_вычислить_ppu_address:
     ; Y = ppu addr lo
 C - - - - - 0x001059 00:9049: A5 67     LDA ram_0067_t01_ppu_addr_lo
 C - - - - - 0x00105B 00:904B: 29 9C     AND #$9C
+; / 04
 C - - - - - 0x00105D 00:904D: 4A        LSR
 C - - - - - 0x00105E 00:904E: 4A        LSR
 C - - - - - 0x00105F 00:904F: 85 E6     STA ram_00E6_t23
 C - - - - - 0x001061 00:9051: 29 20     AND #$20
+; / 04
 C - - - - - 0x001063 00:9053: 4A        LSR
 C - - - - - 0x001064 00:9054: 4A        LSR
 C - - - - - 0x001065 00:9055: 05 E6     ORA ram_00E6_t23
 C - - - - - 0x001067 00:9057: 29 0F     AND #$0F
 C - - - - - 0x001069 00:9059: 85 E6     STA ram_00E6_t24
 C - - - - - 0x00106B 00:905B: A5 68     LDA ram_0068_t01_ppu_addr_hi
+; * 10
 C - - - - - 0x00106D 00:905D: 0A        ASL
 C - - - - - 0x00106E 00:905E: 0A        ASL
 C - - - - - 0x00106F 00:905F: 0A        ASL
@@ -3108,6 +3132,7 @@ C - - - - - 0x0011C6 00:91B6: B1 94     LDA (ram_0094_t02_data),Y
 C - - - - - 0x0011C8 00:91B8: AA        TAX
 C - - - - - 0x0011C9 00:91B9: C8        INY ; 11    con_0094_11
 C - - - - - 0x0011CA 00:91BA: B1 94     LDA (ram_0094_t02_data),Y
+; / 04
 C - - - - - 0x0011CC 00:91BC: 4A        LSR
 C - - - - - 0x0011CD 00:91BD: 4A        LSR
 C - - - - - 0x0011CE 00:91BE: A8        TAY
@@ -3474,6 +3499,7 @@ ofs_003_93A7_F7_физика:
 ; 3й = разгон Y
 C - - - - - 0x0013B7 00:93A7: A0 01     LDY #$01
 C - - - - - 0x0013B9 00:93A9: B1 92     LDA (ram_0092_t01_data),Y
+; / 20
 C - - - - - 0x0013BB 00:93AB: 4A        LSR
 C - - - - - 0x0013BC 00:93AC: 4A        LSR
 C - - - - - 0x0013BD 00:93AD: 4A        LSR
@@ -3726,6 +3752,7 @@ C - - - - - 0x001529 00:9519: 30 6E     BMI bra_9589_80_FF
 ; 00-7F
 C - - - - - 0x00152B 00:951B: A6 98     LDX ram_0098_индекс_oam
 C - - - - - 0x00152D 00:951D: 29 3C     AND #$3C
+; * 04
 C - - - - - 0x00152F 00:951F: 0A        ASL
 C - - - - - 0x001530 00:9520: 0A        ASL
 C - - - - - 0x001531 00:9521: 30 10     BMI bra_9533
@@ -3757,6 +3784,7 @@ C - - - - - 0x00155A 00:954A: 9D 6B 04  STA ram_copy_spr_X,X
 C - - - - - 0x00155D 00:954D: A5 E9     LDA ram_00E9_t10
 C - - - - - 0x00155F 00:954F: 29 01     AND #$01
 C - - - - - 0x001561 00:9551: 05 EC     ORA ram_00EC_t22
+; * 04
 C - - - - - 0x001563 00:9553: 0A        ASL
 C - - - - - 0x001564 00:9554: 0A        ASL
 C - - - - - 0x001565 00:9555: 85 EC     STA ram_00EC_t21_spr_A
@@ -3791,7 +3819,7 @@ C - - - - - 0x001599 00:9589: C9 A0     CMP #$A0
 C - - - - - 0x00159B 00:958B: B0 22     BCS bra_95AF_A0_FF
 ; 80-9F
 C - - - - - 0x00159D 00:958D: A2 00     LDX #$00
-; умножение на 8, по сути умножение первых 4х битов
+; * 08, по сути умножение первых 4х битов
 C - - - - - 0x00159F 00:958F: 0A        ASL
 C - - - - - 0x0015A0 00:9590: 0A        ASL
 C - - - - - 0x0015A1 00:9591: 0A        ASL
@@ -3831,6 +3859,7 @@ C - - - - - 0x0015D1 00:95C1: AA        TAX
 bra_95C2:
 C - - - - - 0x0015D2 00:95C2: 8A        TXA
 C - - - - - 0x0015D3 00:95C3: A2 00     LDX #$00
+; * 08
 C - - - - - 0x0015D5 00:95C5: 0A        ASL
 C - - - - - 0x0015D6 00:95C6: 0A        ASL
 C - - - - - 0x0015D7 00:95C7: 0A        ASL
@@ -3892,6 +3921,7 @@ C - - - - - 0x00162A 00:961A: 85 EC     STA ram_00EC_t16
 C - - - - - 0x00162C 00:961C: A0 01     LDY #$01
 C - - - - - 0x00162E 00:961E: B1 E6     LDA (ram_00E6_t03_data),Y
 C - - - - - 0x001630 00:9620: 29 3C     AND #$3C
+; / 04
 C - - - - - 0x001632 00:9622: 4A        LSR
 C - - - - - 0x001633 00:9623: 4A        LSR
 C - - - - - 0x001634 00:9624: A8        TAY
@@ -3917,6 +3947,7 @@ loc_9645:
 C D 0 - - - 0x001655 00:9645: 29 01     AND #$01
 C - - - - - 0x001657 00:9647: 0A        ASL
 C - - - - - 0x001658 00:9648: 05 EC     ORA ram_00EC_t16
+; * 04
 C - - - - - 0x00165A 00:964A: 0A        ASL
 C - - - - - 0x00165B 00:964B: 0A        ASL
 C - - - - - 0x00165C 00:964C: 85 EC     STA ram_00EC_t17_spr_A
@@ -4064,6 +4095,7 @@ C - - - - - 0x00171B 00:970B: 38        SEC
 C - - - - - 0x00171C 00:970C: E5 98     SBC ram_0098_индекс_oam
 C - - - - - 0x00171E 00:970E: F0 24     BEQ bra_9734_RTS
 C - - - - - 0x001720 00:9710: 90 15     BCC bra_9727
+; / 04
 C - - - - - 0x001722 00:9712: 4A        LSR
 C - - - - - 0x001723 00:9713: 4A        LSR
 C - - - - - 0x001724 00:9714: A8        TAY
@@ -4731,8 +4763,8 @@ tbl_9EA2_яркость_цвета:
 sub_9AB8_запись_палитры_фона_в_буфер:
 C - - - - - 0x001AC8 00:9AB8: A9 00     LDA #$00
 C - - - - - 0x001ACA 00:9ABA: 85 E7     STA ram_00E7_t18
-; * 10
 C - - - - - 0x001ACC 00:9ABC: A5 48     LDA ram_0048_t03_bg_pal_index
+; * 10
 C - - - - - 0x001ACE 00:9ABE: 0A        ASL
 C - - - - - 0x001ACF 00:9ABF: 26 E7     ROL ram_00E7_t18
 C - - - - - 0x001AD1 00:9AC1: 0A        ASL
@@ -4990,6 +5022,7 @@ C - - - - - 0x001C08 00:9BF8: B9 68 04  LDA ram_copy_spr_Y,Y
 C - - - - - 0x001C0B 00:9BFB: AA        TAX
 C - - - - - 0x001C0C 00:9BFC: 38        SEC
 C - - - - - 0x001C0D 00:9BFD: E5 E7     SBC ram_00E7_t01_min_spr_Y_курсора
+; / 08
 C - - - - - 0x001C0F 00:9BFF: 4A        LSR
 C - - - - - 0x001C10 00:9C00: 4A        LSR
 C - - - - - 0x001C11 00:9C01: 4A        LSR
@@ -5224,6 +5257,7 @@ C - - - - - 0x001CE8 00:9CD8: 48        PHA
 C - - - - - 0x001CE9 00:9CD9: B9 68 04  LDA ram_copy_spr_Y,Y
 C - - - - - 0x001CEC 00:9CDC: 38        SEC
 C - - - - - 0x001CED 00:9CDD: E5 E7     SBC ram_00E7_t01_min_spr_Y_курсора
+; / 04
 C - - - - - 0x001CEF 00:9CDF: 4A        LSR
 C - - - - - 0x001CF0 00:9CE0: 4A        LSR
 C - - - - - 0x001CF1 00:9CE1: AA        TAX
@@ -5247,6 +5281,7 @@ C - - - - - 0x001D1B 00:9D0B: 98        TYA
 C - - - - - 0x001D1C 00:9D0C: 49 FF     EOR #$FF
 C - - - - - 0x001D1E 00:9D0E: 38        SEC
 C - - - - - 0x001D1F 00:9D0F: E9 28     SBC #$28
+; / 10
 C - - - - - 0x001D21 00:9D11: 4A        LSR
 C - - - - - 0x001D22 00:9D12: 4A        LSR
 C - - - - - 0x001D23 00:9D13: 4A        LSR
@@ -5255,6 +5290,7 @@ C - - - - - 0x001D25 00:9D15: 85 ED     STA ram_00ED_t24_порядковый_н
 C - - - - - 0x001D27 00:9D17: 4C 0C C5  JMP loc_0x03CD8C_получить_адрес_игрока
 bra_9D1A:
 C - - - - - 0x001D2A 00:9D1A: 98        TYA
+; / 10
 C - - - - - 0x001D2B 00:9D1B: 4A        LSR
 C - - - - - 0x001D2C 00:9D1C: 4A        LSR
 C - - - - - 0x001D2D 00:9D1D: 4A        LSR
@@ -5356,6 +5392,7 @@ C - - - - - 0x001D9E 00:9D8E: 85 EC     STA ram_00EC_t26
 C - - - - - 0x001DA0 00:9D90: A9 02     LDA #$02
 C - - - - - 0x001DA2 00:9D92: 20 28 9B  JSR sub_9B28_подготовить_буфер
 C - - - - - 0x001DA5 00:9D95: A5 EC     LDA ram_00EC_t26
+; / 10
 C - - - - - 0x001DA7 00:9D97: 4A        LSR
 C - - - - - 0x001DA8 00:9D98: 4A        LSR
 C - - - - - 0x001DA9 00:9D99: 4A        LSR
@@ -5404,6 +5441,7 @@ sub_9DDA_десятки:
 ; in
     ; A = 
     ; ram_00E7_t10
+; / 10
 C - - - - - 0x001DEA 00:9DDA: 4A        LSR
 C - - - - - 0x001DEB 00:9DDB: 4A        LSR
 C - - - - - 0x001DEC 00:9DDC: 4A        LSR
@@ -5503,6 +5541,7 @@ C - - - - - 0x001E6E 00:9E5E: A5 E8     LDA ram_00E8_t10_lo
 C - - - - - 0x001E70 00:9E60: 85 E7     STA ram_00E7_t11
 C - - - - - 0x001E72 00:9E62: 20 0C 9E  JSR sub_9E0C_конвертация_в_dec___хз
 C - - - - - 0x001E75 00:9E65: A5 E8     LDA ram_00E8_t10_lo
+; * 10
 C - - - - - 0x001E77 00:9E67: 0A        ASL
 C - - - - - 0x001E78 00:9E68: 0A        ASL
 C - - - - - 0x001E79 00:9E69: 0A        ASL
@@ -5539,6 +5578,7 @@ sub_0x001E8C_перевод_из_HEX_в_DEC:
                                         STA ram_00EB_t24
                                         JSR sub_9E36_конвертация
                                         LDA ram_00EA_t15_hi
+; * 10
                                         ASL
                                         ASL
                                         ASL

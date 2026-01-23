@@ -23,9 +23,9 @@ sub_0x040005_подготовить_поинтер_на_слово:
                                         TYA ; обновить N
                                         BNE @это_не_клон
 ; if это клон
-                                        LDA #< tbl_teams_with_clones
+                                        LDA #< tbl_0010_teams_with_clones
                                         STA ram_0030_t01_data_ptr
-                                        LDA #> tbl_teams_with_clones
+                                        LDA #> tbl_0010_teams_with_clones
                                         STA ram_0030_t01_data_ptr + $01
 ; вычислить поинтер на команду
                                         LDA ram_команда_соперника
@@ -53,11 +53,11 @@ sub_0x040005_подготовить_поинтер_на_слово:
                                         STA ram_0030_t03_data_dictionary + $01
                                         PLA ; ptr lo
                                         STA ram_0030_t03_data_dictionary
-                                        JMP loc_копирование_текста
+                                        JMP loc_0012_копирование_текста
 @это_не_клон:
-                                        LDY #< tbl_dictionary
+                                        LDY #< tbl_0011_dictionary
                                         STY ram_0030_t04_data_dictionary_ptr
-                                        LDY #> tbl_dictionary
+                                        LDY #> tbl_0011_dictionary
                                         STY ram_0030_t04_data_dictionary_ptr + $01
                                         ASL
                                         BCC @not_overflow
@@ -71,7 +71,7 @@ sub_0x040005_подготовить_поинтер_на_слово:
                                         STA ram_0030_t03_data_dictionary + $01
                                         PLA ; ptr lo
                                         STA ram_0030_t03_data_dictionary
-loc_копирование_текста:
+loc_0012_копирование_текста:
                                         LDY #$00
 @цикл_копирования_текста:
                                         LDA (ram_0030_t03_data_dictionary),Y
@@ -88,7 +88,7 @@ loc_копирование_текста:
 
 
 
-tbl_teams_with_clones:
+tbl_0010_teams_with_clones:
 ; запасные бразильские имена https://captaintsubasa.fandom.com/wiki/Category:Brazil%27s_clubs
 ; запасные арабские имена https://parenting.firstcry.com/articles/100-unique-arabic-baby-names-for-boys/
     .word _team_Fluminense
@@ -581,7 +581,7 @@ _team_Brazil:
 
 
 
-tbl_dictionary:
+tbl_0011_dictionary:
     .word $0000 ; 
     .word txt_01_our_player_Tsubasa
     .word txt_02_our_player_Renato

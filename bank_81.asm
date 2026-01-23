@@ -76,6 +76,7 @@ C - - - - - 0x002089 01:A079: 20 0C 9E  JSR sub_0x001E1C_конвертация_
 C - - - - - 0x00208C 01:A07C: 68        PLA
 C - - - - - 0x00208D 01:A07D: AA        TAX
 C - - - - - 0x00208E 01:A07E: A5 E7     LDA ram_00E7_t09_уровень
+; * 04
 C - - - - - 0x002090 01:A080: 0A        ASL
 C - - - - - 0x002091 01:A081: 0A        ASL
 C - - - - - 0x002092 01:A082: 05 EC     ORA ram_00EC_t28_lo
@@ -438,13 +439,14 @@ loc_A2DF_loop:
 C D 1 - - - 0x0022EF 01:A2DF: 85 E6     STA ram_00E6_t20_порядковый_номер_игрока
 C - - - - - 0x0022F1 01:A2E1: AA        TAX
 C - - - - - 0x0022F2 01:A2E2: BD 56 06  LDA ram_0656,X
+; / 04
 C - - - - - 0x0022F5 01:A2E5: 4A        LSR
 C - - - - - 0x0022F6 01:A2E6: 4A        LSR
-C - - - - - 0x0022F7 01:A2E7: 85 E7     STA ram_00E7_t14
+C - - - - - 0x0022F7 01:A2E7: 85 E7     STA ram_00E7_t14_div04
 C - - - - - 0x0022F9 01:A2E9: 20 45 B0  JSR sub_B045_вычислить_опыт_для_levelup
 C - - - - - 0x0022FC 01:A2EC: 84 EC     STY ram_00EC_t06_опыт_lo_1
 C - - - - - 0x0022FE 01:A2EE: 86 ED     STX ram_00ED_t04_опыт_hi_1
-C - - - - - 0x002300 01:A2F0: A5 E7     LDA ram_00E7_t14
+C - - - - - 0x002300 01:A2F0: A5 E7     LDA ram_00E7_t14_div04
 C - - - - - 0x002302 01:A2F2: C9 3F     CMP #$3F
 C - - - - - 0x002304 01:A2F4: B0 5C     BCS bra_A352
 C - - - - - 0x002306 01:A2F6: 18        CLC
@@ -516,9 +518,11 @@ C - - - - - 0x002376 01:A366: F0 03     BEQ bra_A36B_продолжить
 C - - - - - 0x002378 01:A368: 4C DF A2  JMP loc_A2DF_loop
 bra_A36B_продолжить:
 C - - - - - 0x00237B 01:A36B: AD 60 06  LDA ram_0660
+; / 04
 C - - - - - 0x00237E 01:A36E: 4A        LSR
 C - - - - - 0x00237F 01:A36F: 4A        LSR
 C - - - - - 0x002380 01:A370: 85 26     STA ram_номер_матча
+; 
 C - - - - - 0x002382 01:A372: AD 60 06  LDA ram_0660
 C - - - - - 0x002385 01:A375: 29 03     AND #$03
 C - - - - - 0x002387 01:A377: 4A        LSR
@@ -575,7 +579,7 @@ C - - - - - 0x0023C3 01:A3B3: 60        RTS
 sub_A3B4:
 loc_A3B4:
 ; in
-    ; A = 
+    ; A = колво игроков
 ; выполнится при правильном вводе пароля
 C - - - - - 0x0023C4 01:A3B4: 85 EB     STA ram_00EB_t23_loop_counter
 bra_A3B6_loop:
@@ -661,6 +665,8 @@ C - - - - - 0x002447 01:A437: 60        RTS
 
 
 sub_A438:
+; in
+    ; X = 
 C - - - - - 0x002448 01:A438: BC 8A AD  LDY tbl_AD8A,X
 C - - - - - 0x00244B 01:A43B: 8A        TXA
 C - - - - - 0x00244C 01:A43C: 29 03     AND #$03
@@ -690,11 +696,13 @@ C - - - - - 0x002474 01:A464: B9 57 06  LDA ram_0657,Y
 C - - - - - 0x002477 01:A467: 6A        ROR
 C - - - - - 0x002478 01:A468: 46 EC     LSR ram_00EC_t12
 C - - - - - 0x00247A 01:A46A: 6A        ROR
+; / 04
 C - - - - - 0x00247B 01:A46B: 4A        LSR
 C - - - - - 0x00247C 01:A46C: 4A        LSR
 C - - - - - 0x00247D 01:A46D: 60        RTS
 bra_A46E:
 C - - - - - 0x00247E 01:A46E: B9 56 06  LDA ram_0656,Y
+; / 04
 C - - - - - 0x002481 01:A471: 4A        LSR
 C - - - - - 0x002482 01:A472: 4A        LSR
 C - - - - - 0x002483 01:A473: 60        RTS
@@ -719,24 +727,30 @@ C - - - - - 0x00249F 01:A48F: 99 56 06  STA ram_0656,Y
 C - - - - - 0x0024A2 01:A492: 60        RTS
 bra_A493:
 C - - - - - 0x0024A3 01:A493: B9 57 06  LDA ram_0657,Y
+; * 04
 C - - - - - 0x0024A6 01:A496: 0A        ASL
 C - - - - - 0x0024A7 01:A497: 0A        ASL
+; / 04
 C - - - - - 0x0024A8 01:A498: 46 EC     LSR ram_00EC_t34
 C - - - - - 0x0024AA 01:A49A: 6A        ROR
 C - - - - - 0x0024AB 01:A49B: 46 EC     LSR ram_00EC_t34
 C - - - - - 0x0024AD 01:A49D: 6A        ROR
 C - - - - - 0x0024AE 01:A49E: 99 57 06  STA ram_0657,Y
+; 
 C - - - - - 0x0024B1 01:A4A1: B9 56 06  LDA ram_0656,Y
 C - - - - - 0x0024B4 01:A4A4: 29 F0     AND #$F0
 C - - - - - 0x0024B6 01:A4A6: 05 EC     ORA ram_00EC_t34
 C - - - - - 0x0024B8 01:A4A8: 99 56 06  STA ram_0656,Y
 C - - - - - 0x0024BB 01:A4AB: 60        RTS
 bra_A4AC:
+; * 04
 C - - - - - 0x0024BC 01:A4AC: 06 EC     ASL ram_00EC_t34
 C - - - - - 0x0024BE 01:A4AE: 06 EC     ASL ram_00EC_t34
 C - - - - - 0x0024C0 01:A4B0: B9 56 06  LDA ram_0656,Y
+; / 04
 C - - - - - 0x0024C3 01:A4B3: 4A        LSR
 C - - - - - 0x0024C4 01:A4B4: 4A        LSR
+; * 04
 C - - - - - 0x0024C5 01:A4B5: 06 EC     ASL ram_00EC_t34
 C - - - - - 0x0024C7 01:A4B7: 2A        ROL
 C - - - - - 0x0024C8 01:A4B8: 06 EC     ASL ram_00EC_t34
@@ -748,6 +762,7 @@ C - - - - - 0x0024D3 01:A4C3: 05 EC     ORA ram_00EC_t34
 C - - - - - 0x0024D5 01:A4C5: 99 57 06  STA ram_0657,Y
 C - - - - - 0x0024D8 01:A4C8: 60        RTS
 bra_A4C9:
+; * 04
 C - - - - - 0x0024D9 01:A4C9: 06 EC     ASL ram_00EC_t34
 C - - - - - 0x0024DB 01:A4CB: 06 EC     ASL ram_00EC_t34
 C - - - - - 0x0024DD 01:A4CD: B9 56 06  LDA ram_0656,Y
@@ -1535,6 +1550,7 @@ C - - - - - 0x002A9A 01:AA8A: A2 C0     LDX #$C0
 C - - - - - 0x002A9C 01:AA8C: 20 BF AA  JSR sub_AABF
 C - - - - - 0x002A9F 01:AA8F: 90 22     BCC bra_AAB3
 C - - - - - 0x002AA1 01:AA91: 8A        TXA
+; * 04
 C - - - - - 0x002AA2 01:AA92: 0A        ASL
 C - - - - - 0x002AA3 01:AA93: 0A        ASL
 C - - - - - 0x002AA4 01:AA94: 18        CLC
@@ -1811,20 +1827,22 @@ loc_AC60_loop_чтение_спешалов_игрока:
 C D 1 - - - 0x002C70 01:AC60: A0 00     LDY #$00
 C - - - - - 0x002C72 01:AC62: B1 5C     LDA (ram_005C_t01_data_список_спешалов),Y
 C - - - - - 0x002C74 01:AC64: 10 1D     BPL bra_AC83_проверить_матч
+; FD FE FF
+; FD и FE только для tsubasa
 C - - - - - 0x002C76 01:AC66: C9 FF     CMP #$FF
 C - - - - - 0x002C78 01:AC68: D0 03     BNE bra_AC6D
-; FF
+; FF end token
 C - - - - - 0x002C7A 01:AC6A: 4C 23 AD  JMP loc_AD23_нижняя_полоска_окна_special
 bra_AC6D:
 C - - - - - 0x002C7D 01:AC6D: C9 FE     CMP #$FE
 C - - - - - 0x002C7F 01:AC6F: D0 0A     BNE bra_AC7B_циклон
-; FE
+; FE drive overhead
 C - - - - - 0x002C81 01:AC71: AD 46 04  LDA ram_drive_overhead_flag
 C - - - - - 0x002C84 01:AC74: C9 05     CMP #$05
 C - - - - - 0x002C86 01:AC76: F0 14     BEQ bra_AC8C_узнать_имя_спешала
 C - - - - - 0x002C88 01:AC78: 4C 13 AD  JMP loc_AD13_новая_строка
 bra_AC7B_циклон:
-; FD
+; FD cyclone
 C - - - - - 0x002C8B 01:AC7B: AD 48 04  LDA ram_cyclone_flag
 C - - - - - 0x002C8E 01:AC7E: 4A        LSR
 C - - - - - 0x002C8F 01:AC7F: B0 0B     BCS bra_AC8C_узнать_имя_спешала
@@ -1835,6 +1853,7 @@ bra_AC83_проверить_матч:
 C - - - - - 0x002C93 01:AC83: C5 26     CMP ram_номер_матча
 C - - - - - 0x002C95 01:AC85: 90 05     BCC bra_AC8C_узнать_имя_спешала
 C - - - - - 0x002C97 01:AC87: F0 03     BEQ bra_AC8C_узнать_имя_спешала
+; if еще рано для наличия данного спешала
 C - - - - - 0x002C99 01:AC89: 4C 13 AD  JMP loc_AD13_новая_строка
 bra_AC8C_узнать_имя_спешала:
 C - - - - - 0x002C9C 01:AC8C: C8        INY ; 01
@@ -1918,6 +1937,7 @@ C - - - - - 0x002D30 01:AD20: 4C 60 AC  JMP loc_AC60_loop_чтение_спеш�
 loc_AD23_нижняя_полоска_окна_special:
 C D 1 - - - 0x002D33 01:AD23: A5 5E     LDA ram_005E_t04_счетчик_спешалов
 C - - - - - 0x002D35 01:AD25: AA        TAX
+; * 08
 C - - - - - 0x002D36 01:AD26: 0A        ASL
 C - - - - - 0x002D37 01:AD27: 0A        ASL
 C - - - - - 0x002D38 01:AD28: 0A        ASL
@@ -1984,43 +2004,43 @@ C - - - - - 0x002D97 01:AD87: 4C E5 AA  JMP loc_AAE5_выйти_на_экран_
 
 
 tbl_AD8A:
-- D 1 - - - 0x002D9A 01:AD8A: 00        .byte $00
-- D 1 - - - 0x002D9B 01:AD8B: 00        .byte $00
-- D 1 - - - 0x002D9C 01:AD8C: 01        .byte $01
-- D 1 - - - 0x002D9D 01:AD8D: 02        .byte $02
+- D 1 - - - 0x002D9A 01:AD8A: 00        .byte $00   ; 
+- D 1 - - - 0x002D9B 01:AD8B: 00        .byte $00   ; 
+- D 1 - - - 0x002D9C 01:AD8C: 01        .byte $01   ; 
+- D 1 - - - 0x002D9D 01:AD8D: 02        .byte $02   ; 
 
-- D 1 - - - 0x002D9E 01:AD8E: 03        .byte $03
-- D 1 - - - 0x002D9F 01:AD8F: 03        .byte $03
-- D 1 - - - 0x002DA0 01:AD90: 04        .byte $04
-- D 1 - - - 0x002DA1 01:AD91: 05        .byte $05
+- D 1 - - - 0x002D9E 01:AD8E: 03        .byte $03   ; 
+- D 1 - - - 0x002D9F 01:AD8F: 03        .byte $03   ; 
+- D 1 - - - 0x002DA0 01:AD90: 04        .byte $04   ; 
+- D 1 - - - 0x002DA1 01:AD91: 05        .byte $05   ; 
 
-- D 1 - - - 0x002DA2 01:AD92: 06        .byte $06
-- D 1 - - - 0x002DA3 01:AD93: 06        .byte $06
-- D 1 - - - 0x002DA4 01:AD94: 07        .byte $07
-- D 1 - - - 0x002DA5 01:AD95: 08        .byte $08
+- D 1 - - - 0x002DA2 01:AD92: 06        .byte $06   ; 
+- D 1 - - - 0x002DA3 01:AD93: 06        .byte $06   ; 
+- D 1 - - - 0x002DA4 01:AD94: 07        .byte $07   ; 
+- D 1 - - - 0x002DA5 01:AD95: 08        .byte $08   ; 
 
-- D 1 - - - 0x002DA6 01:AD96: 09        .byte $09
-- D 1 - - - 0x002DA7 01:AD97: 09        .byte $09
-- D 1 - - - 0x002DA8 01:AD98: 0A        .byte $0A
-- D 1 - - - 0x002DA9 01:AD99: 0B        .byte $0B
+- D 1 - - - 0x002DA6 01:AD96: 09        .byte $09   ; 
+- D 1 - - - 0x002DA7 01:AD97: 09        .byte $09   ; 
+- D 1 - - - 0x002DA8 01:AD98: 0A        .byte $0A   ; 
+- D 1 - - - 0x002DA9 01:AD99: 0B        .byte $0B   ; 
 
-- D 1 - - - 0x002DAA 01:AD9A: 0C        .byte $0C
-- D 1 - - - 0x002DAB 01:AD9B: 0C        .byte $0C
-- - - - - - 0x002DAC 01:AD9C: 0D        .byte $0D
-- - - - - - 0x002DAD 01:AD9D: 0E        .byte $0E
+- D 1 - - - 0x002DAA 01:AD9A: 0C        .byte $0C   ; 
+- D 1 - - - 0x002DAB 01:AD9B: 0C        .byte $0C   ; 
+- - - - - - 0x002DAC 01:AD9C: 0D        .byte $0D   ; 
+- - - - - - 0x002DAD 01:AD9D: 0E        .byte $0E   ; 
 
 
 
 tbl_AD9E_курсор_опции_sao_paulo_nankatsu:
-- D 1 - - - 0x002DAE 01:AD9E: 38        .byte $38
-- D 1 - - - 0x002DAF 01:AD9F: 71        .byte $71
-- D 1 - - - 0x002DB0 01:ADA0: 00        .byte $00
-- D 1 - - - 0x002DB1 01:ADA1: 88        .byte $90
+- D 1 - - - 0x002DAE 01:AD9E: 38        .byte $38   ; 
+- D 1 - - - 0x002DAF 01:AD9F: 71        .byte $71   ; 
+- D 1 - - - 0x002DB0 01:ADA0: 00        .byte $00   ; 
+- D 1 - - - 0x002DB1 01:ADA1: 88        .byte $90   ; 
 
 
 
 tbl_ADA2_курсор_defense_sao_paulo_nankatsu:
-    .byte $F8       ; ???
+    .byte $F8       ; ? начальный индекс oam
     .byte $58       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2030,7 +2050,7 @@ tbl_ADA2_курсор_defense_sao_paulo_nankatsu:
 
 
 tbl_ADA8_курсор_замены_1:
-    .byte $F8       ; ???
+    .byte $F8       ; ? начальный индекс oam
     .byte $28       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2040,7 +2060,7 @@ tbl_ADA8_курсор_замены_1:
 
 
 tbl_ADAE_курсор_замены_2:
-    .byte $F4       ; ???
+    .byte $F4       ; ? начальный индекс oam
     .byte $28       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2058,7 +2078,7 @@ tbl_ADB4_spr_data:
 
 
 tbl_ADB8_курсор_защиты_japan:
-    .byte $F8       ; ???
+    .byte $F8       ; ? начальный индекс oam
     .byte $58       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2068,7 +2088,7 @@ tbl_ADB8_курсор_защиты_japan:
 
 
 tbl_ADBE_курсор_замены_игроков_japan_1:
-    .byte $F8       ; ???
+    .byte $F8       ; ? начальный индекс oam
     .byte $28       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2078,7 +2098,7 @@ tbl_ADBE_курсор_замены_игроков_japan_1:
 
 
 tbl_ADC4_курсор_замены_игроков_japan_2:
-    .byte $F4       ; ???
+    .byte $F4       ; ? начальный индекс oam
     .byte $28       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2088,7 +2108,7 @@ tbl_ADC4_курсор_замены_игроков_japan_2:
 
 
 tbl_ADCA_курсор_замены_киперов_japan:
-    .byte $F4       ; ???
+    .byte $F4       ; ? начальный индекс oam
     .byte $B8       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2098,7 +2118,7 @@ tbl_ADCA_курсор_замены_киперов_japan:
 
 
 tbl_ADD0_курсор_тренера:
-    .byte $FC       ; ???
+    .byte $FC       ; ? начальный индекс oam
     .byte $96       ; Y
     .byte $FF       ; тайл
     .byte $03       ; палитра
@@ -2108,7 +2128,7 @@ tbl_ADD0_курсор_тренера:
 
 
 tbl_ADD6_курсор_в_перерыве:
-    .byte $FC       ; ???
+    .byte $FC       ; ? начальный индекс oam
     .byte $AE       ; Y
     .byte $FF       ; тайл
     .byte $03       ; палитра
@@ -2118,7 +2138,7 @@ tbl_ADD6_курсор_в_перерыве:
 
 
 tbl_ADDC_курсор_на_экране_со_списком_игроков:
-    .byte $F4       ; ???
+    .byte $F4       ; ? начальный индекс oam
     .byte $28       ; Y
     .byte $71       ; тайл
     .byte $00       ; палитра
@@ -2174,6 +2194,7 @@ C - - - - - 0x002E35 01:AE25: A9 00     LDA #$00
 C - - - - - 0x002E37 01:AE27: 8D 62 05  STA ram_0562
 C - - - - - 0x002E3A 01:AE2A: 8E 63 05  STX ram_0563
 C - - - - - 0x002E3D 01:AE2D: A5 2C     LDA ram_расстановка_слева
+; * 10
 C - - - - - 0x002E3F 01:AE2F: 0A        ASL
 C - - - - - 0x002E40 01:AE30: 0A        ASL
 C - - - - - 0x002E41 01:AE31: 0A        ASL
@@ -2205,6 +2226,7 @@ C - - - - - 0x002E61 01:AE51: 18        CLC
 C - - - - - 0x002E62 01:AE52: 65 E6     ADC ram_00E6_t32_расстановка
 C - - - - - 0x002E64 01:AE54: 29 03     AND #$03
 C - - - - - 0x002E66 01:AE56: 85 E6     STA ram_00E6_t32_расстановка
+; * 10
 C - - - - - 0x002E68 01:AE58: 0A        ASL
 C - - - - - 0x002E69 01:AE59: 0A        ASL
 C - - - - - 0x002E6A 01:AE5A: 0A        ASL
@@ -2232,6 +2254,7 @@ C - - - - - 0x002E84 01:AE74: 4C 8F AE  JMP loc_AE8F_спрайты_миника
 sub_AE77:
 C - - - - - 0x002E87 01:AE77: 20 3A 9C  JSR sub_0x001C4A_отобразить_курсор
 C - - - - - 0x002E8A 01:AE7A: A5 2D     LDA ram_защита_слева
+; * 10
 C - - - - - 0x002E8C 01:AE7C: 0A        ASL
 C - - - - - 0x002E8D 01:AE7D: 0A        ASL
 C - - - - - 0x002E8E 01:AE7E: 0A        ASL
@@ -2476,6 +2499,7 @@ C D 1 - - - 0x002FD2 01:AFC2: 86 EC     STX ram_00EC_t32
 C - - - - - 0x002FD4 01:AFC4: 20 23 B0  JSR sub_B023_вычислить_указатели_опыта
 C - - - - - 0x002FD7 01:AFC7: 85 EB     STA ram_00EB_t18    ; число из таблицы команды для текущего игрока
 C - - - - - 0x002FD9 01:AFC9: 29 F0     AND #$F0
+; / 04
 C - - - - - 0x002FDB 01:AFCB: 4A        LSR
                                         LSR
 C - - - - - 0x002FDC 01:AFCC: 18        CLC
@@ -2490,12 +2514,13 @@ C - - - - - 0x002FE8 01:AFD8: B9 4D BA  LDA tbl_BA4C_опыт_за_победу_
 C - - - - - 0x002FEB 01:AFDB: 85 ED     STA ram_00ED_t25_опыт_hi
 C - - - - - 0x002FED 01:AFDD: B9 4C BA  LDA tbl_BA4C_опыт_за_победу_над_командой,Y
 ; / 04
+; bzk bug? кривая математика? сначала должен быть LSR, потом ROR?
 C - - - - - 0x002FF0 01:AFE0: 66 ED     ROR ram_00ED_t25_опыт_hi
 C - - - - - 0x002FF2 01:AFE2: 4A        LSR
 C - - - - - 0x002FF3 01:AFE3: 66 ED     ROR ram_00ED_t25_опыт_hi
 C - - - - - 0x002FF5 01:AFE5: 4A        LSR
 C - - - - - 0x002FF6 01:AFE6: 20 EE 9D  JSR sub_0x001DFE_умножить_A_на_X
-; умножить результат на 4
+; * 04
 C - - - - - 0x002FF9 01:AFE9: 06 EC     ASL ram_00EC_t04_произведение_lo
 C - - - - - 0x002FFB 01:AFEB: 26 ED     ROL ram_00ED_t03_произведение_hi
 C - - - - - 0x002FFD 01:AFED: 06 EC     ASL ram_00EC_t04_произведение_lo
@@ -4235,6 +4260,8 @@ tbl_BB10_nankatsu:
 - D 1 - I - 0x003B28 01:BB18: 0E        .byte $0E   ; 08
 - D 1 - I - 0x003B29 01:BB19: 0C        .byte $0C   ; 09
 
+
+
 tbl_BB1A_sao_paulo:
 - D 1 - I - 0x003B2A 01:BB1A: 08        .byte $08   ; 00
 - D 1 - I - 0x003B2B 01:BB1B: 04        .byte $04   ; 01
@@ -4246,6 +4273,8 @@ tbl_BB1A_sao_paulo:
 - D 1 - I - 0x003B31 01:BB21: 10        .byte $10   ; 07
 - D 1 - I - 0x003B32 01:BB22: 0A        .byte $0A   ; 08
 - D 1 - I - 0x003B33 01:BB23: 0C        .byte $0C   ; 09
+
+
 
 tbl_BB24_japan:
 - D 1 - I - 0x003B34 01:BB24: 00        .byte $00   ; 00
@@ -4512,8 +4541,6 @@ off_BBC8_p_kazuo_my:
 
 
 
-
-
 off_BBEB_p_sano_my:
     .byte $00       ; минимальный номер матча для наличия спешала у игрока
     .byte $A8       ; индекс имени спешала в словаре (overhead kick)
@@ -4522,8 +4549,6 @@ off_BBEB_p_sano_my:
     .byte con_bsw_1C_01 ; индекс обработчика
     
     .byte $FF       ; end token
-
-
 
 
 
@@ -4798,106 +4823,106 @@ off_BF15_оформление_окон_и_текст:
 
 off_BF4E_названия_действий_полевого:
 ; stats
-    .byte $07
+    .byte $07   ; 
     .word $2202 ; 
     .text "Dribble"
     
-    .byte $04
+    .byte $04   ; 
     .word $2242 ; 
     .text "Pass"
     
-    .byte $05
+    .byte $05   ; 
     .word $2282 ; 
     .text "Shoot"
     
-    .byte $06
+    .byte $06   ; 
     .word $22C2 ; 
     .text "Tackle"
     
-    .byte $05
+    .byte $05   ; 
     .word $2302 ; 
     .text "Block"
     
-    .byte $08
+    .byte $08   ; 
     .word $2342 ; 
     .text "Pass cut"
 ; high ball
-    .byte $04
+    .byte $04   ; 
     .word $20B1 ; 
     .text "Trap"
     
-    .byte $05
+    .byte $05   ; 
     .word $20F1 ; 
     .text "Shoot"
     
-    .byte $07
+    .byte $07   ; 
     .word $2131 ; 
     .text "Through"
     
-    .byte $08
+    .byte $08   ; 
     .word $2171 ; 
     .text "Clearing"
     
-    .byte $09
+    .byte $09   ; 
     .word $21B1 ; 
     .text "Interfere"
 ; low ball
-    .byte $04
+    .byte $04   ; 
     .word $2251 ; 
     .text "Trap"
     
-    .byte $05
+    .byte $05   ; 
     .word $2291 ; 
     .text "Shoot"
     
-    .byte $07
+    .byte $07   ; 
     .word $22D1 ; 
     .text "Through"
     
-    .byte $08
+    .byte $08   ; 
     .word $2311 ; 
     .text "Clearing"
     
-    .byte $49
+    .byte $09 + $40   ; 
     .word $2351 ; 
     .text "Interfere"
 
 
 
 off_BFBB_названия_действий_кипера:
-    .byte $04
+    .byte $04   ; 
     .word $2202 ; 
     .text "Pass"
     
-    .byte $05
+    .byte $05   ; 
     .word $2242 ; 
     .text "Catch"
     
-    .byte $05
+    .byte $05   ; 
     .word $2282 ; 
     .text "Punch"
     
-    .byte $04
+    .byte $04   ; 
     .word $22C2 ; 
     .text "Stop"
     
-    .byte $07
+    .byte $07   ; 
     .word $22E3 ; 
     .text "dribble"
     
-    .byte $04
+    .byte $04   ; 
     .word $2322 ; 
     .text "Stop"
     
-    .byte $04
+    .byte $04   ; 
     .word $2343 ; 
     .text "shot"
     
-    .byte $04
+    .byte $04   ; 
     .word $20B1 ; 
     .text "Dive"
     
-    .byte $44
+    .byte $04 + $40   ; 
     .word $2251 ; 
     .text "Dive"
 
