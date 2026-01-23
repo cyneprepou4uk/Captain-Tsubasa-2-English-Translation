@@ -303,48 +303,55 @@ C - - - - - 0x0281C7 14:81B7: 4C CF 83  JMP loc_83CF_увеличить_поин
 
 
 sub_81BA:
+; in
+    ; A = con_81BA
 C - - - - - 0x0281CA 14:81BA: 29 7F     AND #$7F
 C - - - - - 0x0281CC 14:81BC: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
-- D 0 - I - 0x0281CF 14:81BF: CF 81     .word ofs_023_81CF_00_игрок_с_мячом
-- D 0 - I - 0x0281D1 14:81C1: E9 81     .word ofs_023_81E9_01_игрок_без_мяча
-- D 0 - I - 0x0281D3 14:81C3: DB 81     .word ofs_023_81DB_02_команда_с_мячом
-- D 0 - I - 0x0281D5 14:81C5: E1 81     .word ofs_023_81E1_03_команда_без_мяча
-- D 0 - I - 0x0281D7 14:81C7: BC 82     .word ofs_023_82BC_04
-- D 0 - I - 0x0281D9 14:81C9: 7F 83     .word ofs_023_837F_05
-- - - - - - 0x0281DB 14:81CB: 7F 83     .word ofs_023_837F_06
-- D 0 - I - 0x0281DD 14:81CD: D5 81     .word ofs_023_81D5_07_принимающий_мяч
+- D 0 - I - 0x0281CF 14:81BF: CF 81     .word ofs_023_81CF_80_игрок_с_мячом
+- D 0 - I - 0x0281D1 14:81C1: E9 81     .word ofs_023_81E9_81_игрок_без_мяча
+- D 0 - I - 0x0281D3 14:81C3: DB 81     .word ofs_023_81DB_82_кипер_команды_с_мячом
+- D 0 - I - 0x0281D5 14:81C5: E1 81     .word ofs_023_81E1_83_кипер_команды_без_мяча
+- D 0 - I - 0x0281D7 14:81C7: BC 82     .word ofs_023_82BC_84
+- D 0 - I - 0x0281D9 14:81C9: 7F 83     .word ofs_023_837F_85
+- - - - - - 0x0281DB 14:81CB: 7F 83     .word ofs_023_837F_86
+- D 0 - I - 0x0281DD 14:81CD: D5 81     .word ofs_023_81D5_87_принимающий_мяч
 
 
 
-ofs_023_81CF_00_игрок_с_мячом:
+ofs_023_81CF_80_игрок_с_мячом:
+; con_81BA_игрок_с_мячом
 C - - J - - 0x0281DF 14:81CF: AD 41 04  LDA ram_игрок_с_мячом
 C - - - - - 0x0281E2 14:81D2: 4C EC 81  JMP loc_81EC
 
 
 
-ofs_023_81D5_07_принимающий_мяч:
+ofs_023_81D5_87_принимающий_мяч:
+; con_81BA_принимающий_мяч
 C - - J - - 0x0281E5 14:81D5: AD FC 05  LDA ram_принимающий
 C - - - - - 0x0281E8 14:81D8: 4C EC 81  JMP loc_81EC
 
 
 
-ofs_023_81DB_02_команда_с_мячом:
+ofs_023_81DB_82_кипер_команды_с_мячом:
+; con_81BA_кипер_команды_с_мячом
 C - - J - - 0x0281EB 14:81DB: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x0281EE 14:81DE: 4C EC 81  JMP loc_81EC
 
 
 
-ofs_023_81E1_03_команда_без_мяча:
+ofs_023_81E1_83_кипер_команды_без_мяча:
+; con_81BA_кипер_команды_без_мяча
 C - - J - - 0x0281F1 14:81E1: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x0281F4 14:81E4: 49 0B     EOR #$0B
 C - - - - - 0x0281F6 14:81E6: 4C EC 81  JMP loc_81EC
 
 
 
-ofs_023_81E9_01_игрок_без_мяча:
+ofs_023_81E9_81_игрок_без_мяча:
+; con_81BA_игрок_без_мяча
 C - - J - - 0x0281F9 14:81E9: AD 42 04  LDA ram_игрок_без_мяча
 loc_81EC:
-C D 0 - - - 0x0281FC 14:81EC: 85 3A     STA ram_003A_t23
+C D 0 - - - 0x0281FC 14:81EC: 85 3A     STA ram_003A_t23_порядковый_номер_игрока
 C - - - - - 0x0281FE 14:81EE: 20 0C C5  JSR sub_0x03CD8C_получить_адрес_игрока
 C - - - - - 0x028201 14:81F1: 20 6A 82  JSR sub_826A
 C - - - - - 0x028204 14:81F4: A0 00     LDY #con_plr_id
@@ -359,11 +366,11 @@ C - - - - - 0x028211 14:8201: AD 2B 00  LDA ram_команда_соперник�
 C - - - - - 0x028214 14:8204: 38        SEC
 C - - - - - 0x028215 14:8205: E9 03     SBC #$03
 C - - - - - 0x028217 14:8207: A2 02     LDX #$02
-C - - - - - 0x028219 14:8209: A4 3A     LDY ram_003A_t23
-C - - - - - 0x02821B 14:820B: F0 04     BEQ bra_8211
+C - - - - - 0x028219 14:8209: A4 3A     LDY ram_003A_t23_порядковый_номер_игрока
+C - - - - - 0x02821B 14:820B: F0 04     BEQ bra_8211_киперы ; if кипер слева
 C - - - - - 0x02821D 14:820D: C0 0B     CPY #$0B
-C - - - - - 0x02821F 14:820F: D0 02     BNE bra_8213
-bra_8211:
+C - - - - - 0x02821F 14:820F: D0 02     BNE bra_8213    ; if not кипер справа
+bra_8211_киперы:
 C - - - - - 0x028221 14:8211: A2 04     LDX #$04
 bra_8213:
 C - - - - - 0x028223 14:8213: 85 3A     STA ram_003A_t24
@@ -430,7 +437,7 @@ tbl_8264_палитра:
 
 sub_826A:
 ; in
-    ; ram_003A_t23
+    ; ram_003A_t23_порядковый_номер_игрока
 C - - - - - 0x02827A 14:826A: A0 00     LDY #con_plr_id
 C - - - - - 0x02827C 14:826C: B1 34     LDA (ram_plr_data),Y    ; con_plr_id
 C - - - - - 0x02827E 14:826E: 08        PHP
@@ -439,7 +446,7 @@ C - - - - - 0x028280 14:8270: BD F0 88  LDA tbl_88F0,X
 C - - - - - 0x028283 14:8273: 28        PLP
 C - - - - - 0x028284 14:8274: D0 08     BNE bra_827E    ; if not con_p_clone
 ; if con_p_clone
-C - - - - - 0x028286 14:8276: A6 3A     LDX ram_003A_t23
+C - - - - - 0x028286 14:8276: A6 3A     LDX ram_003A_t23_порядковый_номер_игрока
 C - - - - - 0x028288 14:8278: E0 0B     CPX #$0B
 C - - - - - 0x02828A 14:827A: D0 02     BNE bra_827E
 C - - - - - 0x02828C 14:827C: A9 04     LDA #$04
@@ -498,7 +505,8 @@ C - - - - - 0x0282CB 14:82BB: 60        RTS
 
 
 
-ofs_023_82BC_04:
+ofs_023_82BC_84:
+; con_81BA_84
 C - - J - - 0x0282CC 14:82BC: A0 02     LDY #$02
 C - - - - - 0x0282CE 14:82BE: B1 4C     LDA (ram_004C_t02_data_анимация_сценария),Y
 C - - - - - 0x0282D0 14:82C0: 10 03     BPL bra_82C5
@@ -515,7 +523,7 @@ C - - - - - 0x0282DF 14:82CF: 0A        ASL
 C - - - - - 0x0282E0 14:82D0: 26 3B     ROL ram_003B_t15_hi
 C - - - - - 0x0282E2 14:82D2: 0A        ASL
 C - - - - - 0x0282E3 14:82D3: 26 3B     ROL ram_003B_t15_hi
-C - - - - - 0x0282E5 14:82D5: 69 CF     ADC #< tbl_BACF
+C - - - - - 0x0282E5 14:82D5: 69 CF     ADC #< tbl_BACF ; палитра?
 C - - - - - 0x0282E7 14:82D7: 85 3A     STA ram_003A_t06_data
 C - - - - - 0x0282E9 14:82D9: A5 3B     LDA ram_003B_t15_hi
 C - - - - - 0x0282EB 14:82DB: 69 BA     ADC #> tbl_BACF
@@ -527,7 +535,7 @@ C - - - - - 0x0282F4 14:82E4: 29 7F     AND #$7F
 C - - - - - 0x0282F6 14:82E6: A8        TAY
 C - - - - - 0x0282F7 14:82E7: B1 3A     LDA (ram_003A_t06_data),Y
 bra_82E9:
-C - - - - - 0x0282F9 14:82E9: 9D 6F 04  STA ram_046F,X
+C - - - - - 0x0282F9 14:82E9: 9D 6F 04  STA ram_046F,X  ; буфер палитры?
 C - - - - - 0x0282FC 14:82EC: E8        INX
 C - - - - - 0x0282FD 14:82ED: E0 20     CPX #$20
 C - - - - - 0x0282FF 14:82EF: D0 EE     BNE bra_82DF_loop_046F_048E
@@ -550,7 +558,10 @@ tbl_82F6:
 
 
 sub_8316_управляющие_байты_80_87:
-; смотреть con_8316
+; in
+    ; A = con_8316
+; out
+    ; A = 
 C - - - - - 0x028326 14:8316: 29 7F     AND #$7F
 C - - - - - 0x028328 14:8318: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x02832B 14:831B: 2B 83     .word ofs_025_832B_80
@@ -562,8 +573,8 @@ C - - - - - 0x028328 14:8318: 20 09 C5  JSR sub_0x03CBA9_поинтеры_пос
 
 
 ; bzk garbage
-- - - - - - 0x028337 14:8327: 6A 83     .word ofs_025_836A_86
-- - - - - - 0x028339 14:8329: 7B 83     .word ofs_025_837B_87
+- - - - - - 0x028337 14:8327: 6A 83     .word ofs_025_836A_86   ; unused, index doesn't exist
+- - - - - - 0x028339 14:8329: 7B 83     .word ofs_025_837B_87   ; unused, index doesn't exist
 
 
 
@@ -661,8 +672,10 @@ ofs_025_837B_87:
 
 
 
-ofs_023_837F_05:
-ofs_023_837F_06:
+ofs_023_837F_85:
+; con_81BA_85
+ofs_023_837F_86:
+; con_81BA_86
 C - - J - - 0x02838F 14:837F: A2 00     LDX #$00
 C - - - - - 0x028391 14:8381: AD FB 05  LDA ram_команда_с_мячом
 C - - - - - 0x028394 14:8384: F0 01     BEQ bra_8387_команда_слева
@@ -2084,7 +2097,7 @@ tbl_8968_данные_анимаций_сценариев:
 ; обычные байты без управляющих байтов = 3 последних палитры фона + 3 последних палитры спрайтов
 
 _off007_8B48_00:
-- D 0 - I - 0x028B58 14:8B48: F5        .byte con_8084_cb_F5, $0B   ; 
+- D 0 - I - 0x028B58 14:8B48: F5        .byte con_8084_cb_F5, con_FBCC_0B   ; 
 - D 0 - I - 0x028B5A 14:8B4A: F4        .byte con_8084_cb_chr_spr, $1F, $00, $00, $00   ; 
 - D 0 - I - 0x028B5F 14:8B4F: F6        .byte con_8084_cb_F6, $00   ; 
 - D 0 - I - 0x028B61 14:8B51: F6        .byte con_8084_cb_F6, $15   ; 
@@ -2097,7 +2110,7 @@ _off007_8B48_00:
 
 
 _off007_8B5C_01:
-- D 0 - I - 0x028B6C 14:8B5C: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028B6C 14:8B5C: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028B6E 14:8B5E: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028B73 14:8B63: F1        .byte con_8084_cb_F1, con_A1B4_0B, con_AC47_BA, $B8, $F3, $00   ; 
 - D 0 - I - 0x028B79 14:8B69: F0        .byte con_8084_cb_exit   ; 
@@ -2105,7 +2118,7 @@ _off007_8B5C_01:
 
 
 _off007_8B6A_02:
-- D 0 - I - 0x028B7A 14:8B6A: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028B7A 14:8B6A: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028B7C 14:8B6C: F4        .byte con_8084_cb_chr_spr, $12, $00, $00, $00   ; 
 - D 0 - I - 0x028B81 14:8B71: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_01, $00, $C3, $01   ; 
 - D 0 - I - 0x028B87 14:8B77: F0        .byte con_8084_cb_exit   ; 
@@ -2113,7 +2126,7 @@ _off007_8B6A_02:
 
 
 _off007_8B78_03:
-- D 0 - I - 0x028B88 14:8B78: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028B88 14:8B78: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028B8A 14:8B7A: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028B8F 14:8B7F: F1        .byte con_8084_cb_F1, con_A1B4_46, con_AC47_40, $E8, $BB, $00   ; 
 - D 0 - I - 0x028B95 14:8B85: F0        .byte con_8084_cb_exit   ; 
@@ -2121,7 +2134,7 @@ _off007_8B78_03:
 
 
 _off007_8B86_04:
-- D 0 - I - 0x028B96 14:8B86: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028B96 14:8B86: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028B98 14:8B88: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $2B   ; 
 - D 0 - I - 0x028B9D 14:8B8D: F1        .byte con_8084_cb_F1, con_A1B4_37, con_AC47_05, $18, $CB, $01   ; 
 - D 0 - I - 0x028BA3 14:8B93: F0        .byte con_8084_cb_exit   ; 
@@ -2129,7 +2142,7 @@ _off007_8B86_04:
 
 
 _off007_8B94_05:
-- D 0 - I - 0x028BA4 14:8B94: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028BA4 14:8B94: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028BA6 14:8B96: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028BAB 14:8B9B: F1        .byte con_8084_cb_F1, con_A1B4_02, con_AC47_07, $E4, $CF, $00   ; 
 - D 0 - I - 0x028BB1 14:8BA1: F1        .byte con_8084_cb_F1, con_A1B4_01, con_AC47_06, $F8, $BB, $04   ; 
@@ -2144,7 +2157,7 @@ off_8BA7:
 
 
 _off007_8BB4_06:
-- D 0 - I - 0x028BC4 14:8BB4: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028BC4 14:8BB4: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028BC6 14:8BB6: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028BCB 14:8BBB: F1        .byte con_8084_cb_F1, con_A1B4_04, con_AC47_07, $50, $04, $02   ; 
 - D 0 - I - 0x028BD1 14:8BC1: F1        .byte con_8084_cb_F1, con_A1B4_03, con_AC47_06, $10, $B3, $05   ; 
@@ -2154,7 +2167,7 @@ _off007_8BB4_06:
 
 
 _off007_8BCA_07:
-- D 0 - I - 0x028BDA 14:8BCA: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028BDA 14:8BCA: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028BDC 14:8BCC: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028BE1 14:8BD1: F1        .byte con_8084_cb_F1, con_A1B4_06, con_AC47_07, $58, $EF, $00   ; 
 - D 0 - I - 0x028BE7 14:8BD7: F1        .byte con_8084_cb_F1, con_A1B4_05, con_AC47_06, $10, $B3, $05   ; 
@@ -2164,7 +2177,7 @@ _off007_8BCA_07:
 
 
 _off007_8BE0_08:
-- D 0 - I - 0x028BF0 14:8BE0: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028BF0 14:8BE0: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028BF2 14:8BE2: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028BF7 14:8BE7: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_08, $F8, $BB, $00   ; 
 - D 0 - I - 0x028BFD 14:8BED: F0        .byte con_8084_cb_exit   ; 
@@ -2172,7 +2185,7 @@ _off007_8BE0_08:
 
 
 _off007_8BEE_09:
-- D 0 - I - 0x028BFE 14:8BEE: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028BFE 14:8BEE: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028C00 14:8BF0: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028C05 14:8BF5: F1        .byte con_8084_cb_F1, con_A1B4_09, con_AC47_07, $32, $FE, $00   ; 
 - D 0 - I - 0x028C0B 14:8BFB: F1        .byte con_8084_cb_F1, con_A1B4_DA, con_AC47_06, $11, $B2, $05   ; 
@@ -2182,7 +2195,7 @@ _off007_8BEE_09:
 
 
 _off007_8C04_0A:
-- - - - - - 0x028C14 14:8C04: F5        .byte con_8084_cb_F5, $09   ; 
+- - - - - - 0x028C14 14:8C04: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - - - - - - 0x028C16 14:8C06: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - - - - - - 0x028C1B 14:8C0B: F1        .byte con_8084_cb_F1, con_A1B4_0D, con_AC47_C4, $98, $E3, $00   ; 
 - - - - - - 0x028C21 14:8C11: F0        .byte con_8084_cb_exit   ; 
@@ -2190,7 +2203,7 @@ _off007_8C04_0A:
 
 
 _off007_8C12_0B:
-- D 0 - I - 0x028C22 14:8C12: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028C22 14:8C12: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028C24 14:8C14: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028C29 14:8C19: F1        .byte con_8084_cb_F1, con_A1B4_0A, con_AC47_0A, $F0, $BB, $00   ; 
 - D 0 - I - 0x028C2F 14:8C1F: F1        .byte con_8084_cb_F1, con_A1B4_01, con_AC47_09, $F8, $BB, $04   ; 
@@ -2200,7 +2213,7 @@ _off007_8C12_0B:
 
 
 _off007_8C28_0C:
-- D 0 - I - 0x028C38 14:8C28: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028C38 14:8C28: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028C3A 14:8C2A: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028C3F 14:8C2F: F1        .byte con_8084_cb_F1, con_A1B4_05, con_AC47_09, $10, $B3, $05   ; 
 - D 0 - I - 0x028C45 14:8C35: F1        .byte con_8084_cb_F1, con_A1B4_06, con_AC47_0A, $58, $EF, $00   ; 
@@ -2209,7 +2222,7 @@ _off007_8C28_0C:
 
 
 _off007_8C3C_0D:
-- D 0 - I - 0x028C4C 14:8C3C: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028C4C 14:8C3C: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028C4E 14:8C3E: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028C53 14:8C43: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_3A, $F8, $BB, $00   ; 
 - D 0 - I - 0x028C59 14:8C49: F0        .byte con_8084_cb_exit   ; 
@@ -2217,7 +2230,7 @@ _off007_8C3C_0D:
 
 
 _off007_8C4A_0E:
-- D 0 - I - 0x028C5A 14:8C4A: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028C5A 14:8C4A: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028C5C 14:8C4C: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028C61 14:8C51: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028C64 14:8C54: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -2227,7 +2240,7 @@ _off007_8C4A_0E:
 
 
 _off007_8C61_0F:
-- D 0 - I - 0x028C71 14:8C61: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028C71 14:8C61: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028C73 14:8C63: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028C78 14:8C68: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028C7B 14:8C6B: F1        .byte con_8084_cb_F1, con_A1B4_3C, con_AC47_CF, $E0, $7B, $04   ; 
@@ -2237,7 +2250,7 @@ _off007_8C61_0F:
 
 
 _off007_8C78_10:
-- D 0 - I - 0x028C88 14:8C78: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028C88 14:8C78: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028C8A 14:8C7A: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028C8F 14:8C7F: F1        .byte con_8084_cb_F1, con_A1B4_48, con_AC47_C4, $98, $A4, $00   ; 
 - D 0 - I - 0x028C95 14:8C85: F0        .byte con_8084_cb_exit   ; 
@@ -2245,7 +2258,7 @@ _off007_8C78_10:
 
 
 _off007_8C86_11:
-- D 0 - I - 0x028C96 14:8C86: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028C96 14:8C86: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028C98 14:8C88: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028C9D 14:8C8D: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_BA, $00, $C3, $01   ; 
 - D 0 - I - 0x028CA3 14:8C93: F0        .byte con_8084_cb_exit   ; 
@@ -2253,7 +2266,7 @@ _off007_8C86_11:
 
 
 _off007_8C94_12:
-- D 0 - I - 0x028CA4 14:8C94: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028CA4 14:8C94: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028CA6 14:8C96: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028CAB 14:8C9B: F1        .byte con_8084_cb_F1, con_A1B4_5F, con_AC47_CF, $98, $AB, $00   ; 
 - D 0 - I - 0x028CB1 14:8CA1: F0        .byte con_8084_cb_exit   ; 
@@ -2261,7 +2274,7 @@ _off007_8C94_12:
 
 
 _off007_8CA2_13:
-- D 0 - I - 0x028CB2 14:8CA2: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028CB2 14:8CA2: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028CB4 14:8CA4: F4        .byte con_8084_cb_chr_spr, $1C, $1D, $00, $00   ; 
 - D 0 - I - 0x028CB9 14:8CA9: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028CBC 14:8CAC: F1        .byte con_8084_cb_F1, con_A1B4_76, con_AC47_0D, $80, $23, $06   ; 
@@ -2271,7 +2284,7 @@ _off007_8CA2_13:
 
 
 _off007_8CB9_14:
-- D 0 - I - 0x028CC9 14:8CB9: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028CC9 14:8CB9: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028CCB 14:8CBB: F4        .byte con_8084_cb_chr_spr, $1C, $1D, $00, $00   ; 
 - D 0 - I - 0x028CD0 14:8CC0: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028CD3 14:8CC3: F1        .byte con_8084_cb_F1, con_A1B4_76, con_AC47_0F, $80, $23, $06   ; 
@@ -2281,7 +2294,7 @@ _off007_8CB9_14:
 
 
 _off007_8CD0_15:
-- D 0 - I - 0x028CE0 14:8CD0: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028CE0 14:8CD0: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028CE2 14:8CD2: F4        .byte con_8084_cb_chr_spr, $28, $29, $2A, $0B   ; 
 - D 0 - I - 0x028CE7 14:8CD7: F1        .byte con_8084_cb_F1, con_A1B4_0E, con_AC47_3C, $E8, $BB, $00   ; 
 - D 0 - I - 0x028CED 14:8CDD: F0        .byte con_8084_cb_exit   ; 
@@ -2289,7 +2302,7 @@ _off007_8CD0_15:
 
 
 _off007_8CDE_16:
-- D 0 - I - 0x028CEE 14:8CDE: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028CEE 14:8CDE: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028CF0 14:8CE0: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028CF5 14:8CE5: F1        .byte con_8084_cb_F1, con_A1B4_99, con_AC47_40, $D0, $BB, $00   ; 
 - D 0 - I - 0x028CFB 14:8CEB: F0        .byte con_8084_cb_exit   ; 
@@ -2297,7 +2310,7 @@ _off007_8CDE_16:
 
 
 _off007_8CEC_17:
-- D 0 - I - 0x028CFC 14:8CEC: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028CFC 14:8CEC: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028CFE 14:8CEE: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028D03 14:8CF3: F1        .byte con_8084_cb_F1, con_A1B4_11, con_AC47_15, $64, $EF, $00   ; 
 - D 0 - I - 0x028D09 14:8CF9: F1        .byte con_8084_cb_F1, con_A1B4_9A, con_AC47_14, $CE, $B7, $04   ; 
@@ -2309,7 +2322,7 @@ _off007_8CEC_17:
 
 
 _off007_8D09_18:
-- D 0 - I - 0x028D19 14:8D09: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028D19 14:8D09: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028D1B 14:8D0B: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028D20 14:8D10: F1        .byte con_8084_cb_F1, con_A1B4_12, con_AC47_15, $40, $CB, $00   ; 
 - D 0 - I - 0x028D26 14:8D16: F1        .byte con_8084_cb_F1, con_A1B4_9B, con_AC47_14, $DC, $C6, $04   ; 
@@ -2319,7 +2332,7 @@ _off007_8D09_18:
 
 
 _off007_8D1F_19:
-- D 0 - I - 0x028D2F 14:8D1F: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x028D2F 14:8D1F: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x028D31 14:8D21: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x028D36 14:8D26: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028D39 14:8D29: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -2336,7 +2349,7 @@ _off007_8D1F_19:
 
 
 _off007_8D52_1A:
-- D 0 - I - 0x028D62 14:8D52: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028D62 14:8D52: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028D64 14:8D54: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028D69 14:8D59: F1        .byte con_8084_cb_F1, con_A1B4_60, con_AC47_CF, $98, $E3, $00   ; 
 - D 0 - I - 0x028D6F 14:8D5F: F0        .byte con_8084_cb_exit   ; 
@@ -2344,7 +2357,7 @@ _off007_8D52_1A:
 
 
 _off007_8D60_1B:
-- D 0 - I - 0x028D70 14:8D60: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028D70 14:8D60: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028D72 14:8D62: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028D77 14:8D67: F1        .byte con_8084_cb_F1, con_A1B4_49, con_AC47_15, $40, $CB, $00   ; 
 - D 0 - I - 0x028D7D 14:8D6D: F1        .byte con_8084_cb_F1, con_A1B4_A5, con_AC47_14, $DC, $C6, $04   ; 
@@ -2361,7 +2374,7 @@ _off007_8D60_1B:
 
 
 _off007_8D89_1C:
-- D 0 - I - 0x028D99 14:8D89: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028D99 14:8D89: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028D9B 14:8D8B: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 0 - I - 0x028DA0 14:8D90: F1        .byte con_8084_cb_F1, con_A1B4_90, con_AC47_2A, $00, $CB, $01   ; 
 - D 0 - I - 0x028DA6 14:8D96: F0        .byte con_8084_cb_exit   ; 
@@ -2369,7 +2382,7 @@ _off007_8D89_1C:
 
 
 _off007_8D97_1D:
-- D 0 - I - 0x028DA7 14:8D97: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028DA7 14:8D97: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028DA9 14:8D99: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028DAE 14:8D9E: F1        .byte con_8084_cb_F1, con_A1B4_61, con_AC47_C4, $00, $EB, $01   ; 
 - D 0 - I - 0x028DB4 14:8DA4: F0        .byte con_8084_cb_exit   ; 
@@ -2377,7 +2390,7 @@ _off007_8D97_1D:
 
 
 _off007_8DA5_1E:
-- D 0 - I - 0x028DB5 14:8DA5: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028DB5 14:8DA5: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028DB7 14:8DA7: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028DBC 14:8DAC: F1        .byte con_8084_cb_F1, con_A1B4_73, con_AC47_72, $9F, $BB, $00   ; 
 - D 0 - I - 0x028DC2 14:8DB2: F0        .byte con_8084_cb_exit   ; 
@@ -2385,7 +2398,7 @@ _off007_8DA5_1E:
 
 
 _off007_8DB3_1F:
-- D 0 - I - 0x028DC3 14:8DB3: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028DC3 14:8DB3: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028DC5 14:8DB5: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028DCA 14:8DBA: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_71, $00, $BB, $01   ; 
 - D 0 - I - 0x028DD0 14:8DC0: F0        .byte con_8084_cb_exit   ; 
@@ -2393,7 +2406,7 @@ _off007_8DB3_1F:
 
 
 _off007_8DC1_20:
-- D 0 - I - 0x028DD1 14:8DC1: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028DD1 14:8DC1: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028DD3 14:8DC3: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 0 - I - 0x028DD8 14:8DC8: F1        .byte con_8084_cb_F1, con_A1B4_38, con_AC47_2A, $00, $CB, $01   ; 
 - D 0 - I - 0x028DDE 14:8DCE: F0        .byte con_8084_cb_exit   ; 
@@ -2401,7 +2414,7 @@ _off007_8DC1_20:
 
 
 _off007_8DCF_21:
-- D 0 - I - 0x028DDF 14:8DCF: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028DDF 14:8DCF: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028DE1 14:8DD1: F4        .byte con_8084_cb_chr_spr, $28, $29, $2A, $0B   ; 
 - D 0 - I - 0x028DE6 14:8DD6: F1        .byte con_8084_cb_F1, con_A1B4_4C, con_AC47_12, $70, $CB, $00   ; 
 - D 0 - I - 0x028DEC 14:8DDC: F1        .byte con_8084_cb_F1, con_A1B4_4B, con_AC47_10, $23, $C0, $05   ; 
@@ -2421,7 +2434,7 @@ _off007_8DCF_21:
 
 
 _off007_8E05_22:
-- D 0 - I - 0x028E15 14:8E05: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028E15 14:8E05: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028E17 14:8E07: F4        .byte con_8084_cb_chr_spr, $28, $29, $2A, $2B   ; 
 - D 0 - I - 0x028E1C 14:8E0C: F1        .byte con_8084_cb_F1, con_A1B4_4E, con_AC47_12, $70, $CB, $00   ; 
 - D 0 - I - 0x028E22 14:8E12: F1        .byte con_8084_cb_F1, con_A1B4_4D, con_AC47_10, $28, $C3, $05   ; 
@@ -2431,7 +2444,7 @@ _off007_8E05_22:
 
 
 _off007_8E1B_23:
-- D 0 - I - 0x028E2B 14:8E1B: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028E2B 14:8E1B: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028E2D 14:8E1D: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $2B   ; 
 - D 0 - I - 0x028E32 14:8E22: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028E35 14:8E25: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -2441,7 +2454,7 @@ _off007_8E1B_23:
 
 
 _off007_8E32_24:
-- D 0 - I - 0x028E42 14:8E32: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028E42 14:8E32: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028E44 14:8E34: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028E49 14:8E39: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028E4C 14:8E3C: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -2458,7 +2471,7 @@ off_8E4E:
 
 
 _off007_8E5B_25:
-- D 0 - I - 0x028E6B 14:8E5B: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028E6B 14:8E5B: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028E6D 14:8E5D: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028E72 14:8E62: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028E75 14:8E65: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -2470,7 +2483,7 @@ _off007_8E5B_25:
 
 
 _off007_8E7A_26:
-- D 0 - I - 0x028E8A 14:8E7A: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028E8A 14:8E7A: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028E8C 14:8E7C: F4        .byte con_8084_cb_chr_spr, $2A, $2B, $00, $00   ; 
 - D 0 - I - 0x028E91 14:8E81: F1        .byte con_8084_cb_F1, con_A1B4_16, con_AC47_04, $90, $9B, $00   ; 
 - D 0 - I - 0x028E97 14:8E87: F1        .byte con_8084_cb_F1, con_A1B4_15, con_AC47_03, $F6, $D5, $04   ; 
@@ -2479,7 +2492,7 @@ _off007_8E7A_26:
 
 
 _off007_8E8E_27:
-- D 0 - I - 0x028E9E 14:8E8E: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028E9E 14:8E8E: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028EA0 14:8E90: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028EA5 14:8E95: F1        .byte con_8084_cb_F1, con_A1B4_17, con_AC47_15, $39, $7E, $00   ; 
 - D 0 - I - 0x028EAB 14:8E9B: F1        .byte con_8084_cb_F1, con_A1B4_52, con_AC47_17, $02, $BD, $05   ; 
@@ -2500,7 +2513,7 @@ _off007_8E8E_27:
 
 
 _off007_8EC6_28:
-- D 0 - I - 0x028ED6 14:8EC6: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028ED6 14:8EC6: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028ED8 14:8EC8: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028EDD 14:8ECD: F7        .byte con_8084_cb_spr_Y_limit, $03, $73   ; 
 - D 0 - I - 0x028EE0 14:8ED0: F1        .byte con_8084_cb_F1, con_A1B4_75, con_AC47_71, $00, $C3, $01   ; 
@@ -2513,7 +2526,7 @@ _off007_8EC6_28:
 
 
 _off007_8EE5_29:
-- D 0 - I - 0x028EF5 14:8EE5: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028EF5 14:8EE5: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028EF7 14:8EE7: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028EFC 14:8EEC: F1        .byte con_8084_cb_F1, con_A1B4_87, con_AC47_71, $00, $EB, $01   ; 
 - D 0 - I - 0x028F02 14:8EF2: F0        .byte con_8084_cb_exit   ; 
@@ -2521,7 +2534,7 @@ _off007_8EE5_29:
 
 
 _off007_8EF3_2A:
-- D 0 - I - 0x028F03 14:8EF3: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028F03 14:8EF3: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028F05 14:8EF5: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028F0A 14:8EFA: F1        .byte con_8084_cb_F1, con_A1B4_17, con_AC47_15, $56, $7C, $00   ; 
 - D 0 - I - 0x028F10 14:8F00: F1        .byte con_8084_cb_F1, con_A1B4_08, con_AC47_80, $E6, $BC, $04   ; 
@@ -2541,7 +2554,7 @@ _off007_8EF3_2A:
 
 
 _off007_8F29_2B:
-- D 0 - I - 0x028F39 14:8F29: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028F39 14:8F29: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028F3B 14:8F2B: F4        .byte con_8084_cb_chr_spr, $2A, $2B, $00, $00   ; 
 - D 0 - I - 0x028F40 14:8F30: F1        .byte con_8084_cb_F1, con_A1B4_19, con_AC47_04, $90, $9B, $00   ; 
 - D 0 - I - 0x028F46 14:8F36: F1        .byte con_8084_cb_F1, con_A1B4_18, con_AC47_03, $FA, $D0, $04   ; 
@@ -2556,7 +2569,7 @@ _off007_8F29_2B:
 
 
 _off007_8F53_2C:
-- D 0 - I - 0x028F63 14:8F53: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028F63 14:8F53: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028F65 14:8F55: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x028F6A 14:8F5A: F1        .byte con_8084_cb_F1, con_A1B4_17, con_AC47_15, $56, $7C, $00   ; 
 - D 0 - I - 0x028F70 14:8F60: F1        .byte con_8084_cb_F1, con_A1B4_08, con_AC47_80, $E6, $BC, $04   ; 
@@ -2573,7 +2586,7 @@ _off007_8F53_2C:
 
 
 _off007_8F7C_2D:
-- D 0 - I - 0x028F8C 14:8F7C: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x028F8C 14:8F7C: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x028F8E 14:8F7E: F4        .byte con_8084_cb_chr_spr, $2A, $2B, $00, $00   ; 
 - D 0 - I - 0x028F93 14:8F83: F1        .byte con_8084_cb_F1, con_A1B4_19, con_AC47_04, $90, $9B, $00   ; 
 - D 0 - I - 0x028F99 14:8F89: F1        .byte con_8084_cb_F1, con_A1B4_18, con_AC47_03, $FA, $D0, $04   ; 
@@ -2585,7 +2598,7 @@ _off007_8F7C_2D:
 
 
 _off007_8F99_2E:
-- D 0 - I - 0x028FA9 14:8F99: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028FA9 14:8F99: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028FAB 14:8F9B: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028FB0 14:8FA0: F1        .byte con_8084_cb_F1, con_A1B4_9C, con_AC47_38, $08, $BB, $01   ; 
 - D 0 - I - 0x028FB6 14:8FA6: F0        .byte con_8084_cb_exit   ; 
@@ -2593,7 +2606,7 @@ _off007_8F99_2E:
 
 
 _off007_8FA7_2F:
-- D 0 - I - 0x028FB7 14:8FA7: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028FB7 14:8FA7: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028FB9 14:8FA9: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028FBE 14:8FAE: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028FC1 14:8FB1: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -2603,7 +2616,7 @@ _off007_8FA7_2F:
 
 
 _off007_8FBE_30:
-- D 0 - I - 0x028FCE 14:8FBE: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028FCE 14:8FBE: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028FD0 14:8FC0: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028FD5 14:8FC5: F1        .byte con_8084_cb_F1, con_A1B4_1F, con_AC47_3A, $08, $BB, $01   ; 
 - D 0 - I - 0x028FDB 14:8FCB: F0        .byte con_8084_cb_exit   ; 
@@ -2611,7 +2624,7 @@ _off007_8FBE_30:
 
 
 _off007_8FCC_31:
-- D 0 - I - 0x028FDC 14:8FCC: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x028FDC 14:8FCC: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x028FDE 14:8FCE: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x028FE3 14:8FD3: F1        .byte con_8084_cb_F1, con_A1B4_04, con_AC47_0A, $50, $03, $02   ; 
 - D 0 - I - 0x028FE9 14:8FD9: F1        .byte con_8084_cb_F1, con_A1B4_03, con_AC47_09, $10, $B3, $05   ; 
@@ -2621,7 +2634,7 @@ _off007_8FCC_31:
 
 
 _off007_8FE2_32:
-- D 0 - I - 0x028FF2 14:8FE2: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x028FF2 14:8FE2: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x028FF4 14:8FE4: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x028FF9 14:8FE9: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x028FFC 14:8FEC: F1        .byte con_8084_cb_F1, con_A1B4_89, con_AC47_23, $C0, $7B, $04   ; 
@@ -2631,7 +2644,7 @@ _off007_8FE2_32:
 
 
 _off007_8FF9_33:
-- D 0 - I - 0x029009 14:8FF9: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x029009 14:8FF9: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 off_8FFB:
 - D 0 - I - 0x02900B 14:8FFB: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029010 14:9000: F1        .byte con_8084_cb_F1, con_A1B4_21, con_AC47_49, $80, $8F, $00   ; 
@@ -2653,7 +2666,7 @@ off_8FFB:
 
 
 _off007_903A_34:
-- D 0 - I - 0x02904A 14:903A: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x02904A 14:903A: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 off_903C:
 - D 0 - I - 0x02904C 14:903C: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029051 14:9041: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
@@ -2672,7 +2685,7 @@ off_903C:
 
 
 _off007_906F_35:
-- D 0 - I - 0x02907F 14:906F: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x02907F 14:906F: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x029081 14:9071: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x029086 14:9076: F1        .byte con_8084_cb_F1, con_A1B4_0C, con_AC47_0A, $48, $FC, $00   ; 
 - D 0 - I - 0x02908C 14:907C: F1        .byte con_8084_cb_F1, con_A1B4_DA, con_AC47_09, $10, $B3, $05   ; 
@@ -2692,7 +2705,7 @@ _off007_906F_35:
 
 
 _off007_90A5_36:
-- D 0 - I - 0x0290B5 14:90A5: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0290B5 14:90A5: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0290B7 14:90A7: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0290BC 14:90AC: F1        .byte con_8084_cb_F1, con_A1B4_8A, con_AC47_BA, $00, $EB, $01   ; 
 - D 0 - I - 0x0290C2 14:90B2: F0        .byte con_8084_cb_exit   ; 
@@ -2700,7 +2713,7 @@ _off007_90A5_36:
 
 
 _off007_90B3_37:
-- D 0 - I - 0x0290C3 14:90B3: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x0290C3 14:90B3: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x0290C5 14:90B5: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x0290CA 14:90BA: F1        .byte con_8084_cb_F1, con_A1B4_54, con_AC47_4B, $B0, $BB, $01   ; 
 - D 0 - I - 0x0290D0 14:90C0: F1        .byte con_8084_cb_F1, con_A1B4_54, con_AC47_4D, $B0, $BB, $05   ; 
@@ -2710,21 +2723,21 @@ _off007_90B3_37:
 
 
 _off007_90CD_38:
-- D 0 - I - 0x0290DD 14:90CD: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0290DD 14:90CD: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0290DF 14:90CF: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0290E0 14:90D0: FB 8F     .word off_8FFB
 
 
 
 _off007_90D2_39:
-- D 0 - I - 0x0290E2 14:90D2: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0290E2 14:90D2: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0290E4 14:90D4: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0290E5 14:90D5: 3C 90     .word off_903C
 
 
 
 _off007_90D7_3A:
-- D 0 - I - 0x0290E7 14:90D7: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x0290E7 14:90D7: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x0290E9 14:90D9: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x0290EE 14:90DE: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x0290F1 14:90E1: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $A3, $00   ; 
@@ -2743,7 +2756,7 @@ _off007_90D7_3A:
 
 
 _off007_910C_3B:
-- D 0 - I - 0x02911C 14:910C: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02911C 14:910C: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x02911E 14:910E: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029123 14:9113: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029126 14:9116: F1        .byte con_8084_cb_F1, con_A1B4_9E, con_AC47_1E, $68, $93, $05   ; 
@@ -2762,7 +2775,7 @@ off_9132:
 
 
 _off007_9141_3C:
-- D 0 - I - 0x029151 14:9141: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029151 14:9141: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029153 14:9143: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x029158 14:9148: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x02915B 14:914B: F1        .byte con_8084_cb_F1, con_A1B4_8D, con_AC47_CF, $98, $C3, $00   ; 
@@ -2771,7 +2784,7 @@ _off007_9141_3C:
 
 
 _off007_9152_3D:
-- D 0 - I - 0x029162 14:9152: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029162 14:9152: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029164 14:9154: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x029169 14:9159: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_EC, $00, $C3, $01   ; 
 - D 0 - I - 0x02916F 14:915F: F0        .byte con_8084_cb_exit   ; 
@@ -2779,7 +2792,7 @@ _off007_9152_3D:
 
 
 _off007_9160_3E:
-- D 0 - I - 0x029170 14:9160: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029170 14:9160: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029172 14:9162: F4        .byte con_8084_cb_chr_spr, $1C, $1D, $00, $00   ; 
 - D 0 - I - 0x029177 14:9167: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x02917A 14:916A: F1        .byte con_8084_cb_F1, con_A1B4_95, con_AC47_0C, $7F, $23, $07   ; 
@@ -2789,7 +2802,7 @@ _off007_9160_3E:
 
 
 _off007_9177_3F:
-- D 0 - I - 0x029187 14:9177: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029187 14:9177: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029189 14:9179: F4        .byte con_8084_cb_chr_spr, $1C, $1D, $00, $00   ; 
 - D 0 - I - 0x02918E 14:917E: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029191 14:9181: F1        .byte con_8084_cb_F1, con_A1B4_95, con_AC47_0E, $7F, $23, $07   ; 
@@ -2799,7 +2812,7 @@ _off007_9177_3F:
 
 
 _off007_918E_40:
-- D 0 - I - 0x02919E 14:918E: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x02919E 14:918E: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0291A0 14:9190: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0291A5 14:9195: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x0291A8 14:9198: F1        .byte con_8084_cb_F1, con_A1B4_8F, con_AC47_BC, $A0, $A3, $04   ; 
@@ -2809,7 +2822,7 @@ _off007_918E_40:
 
 
 _off007_91A5_41:
-- D 0 - I - 0x0291B5 14:91A5: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0291B5 14:91A5: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0291B7 14:91A7: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0291BC 14:91AC: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x0291BF 14:91AF: F1        .byte con_8084_cb_F1, con_A1B4_91, con_AC47_BC, $C0, $EB, $04   ; 
@@ -2819,7 +2832,7 @@ _off007_91A5_41:
 
 
 _off007_91BC_42:
-- D 0 - I - 0x0291CC 14:91BC: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0291CC 14:91BC: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0291CE 14:91BE: F4        .byte con_8084_cb_chr_spr, $06, $00, $00, $00   ; 
 - D 0 - I - 0x0291D3 14:91C3: F1        .byte con_8084_cb_F1, con_A1B4_77, con_AC47_B4, $40, $EB, $01   ; 
 - D 0 - I - 0x0291D9 14:91C9: F0        .byte con_8084_cb_exit   ; 
@@ -2827,7 +2840,7 @@ _off007_91BC_42:
 
 
 _off007_91CA_43:
-- D 0 - I - 0x0291DA 14:91CA: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0291DA 14:91CA: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0291DC 14:91CC: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0291E1 14:91D1: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_34, $08, $CB, $01   ; 
 - D 0 - I - 0x0291E7 14:91D7: F0        .byte con_8084_cb_exit   ; 
@@ -2835,7 +2848,7 @@ _off007_91CA_43:
 
 
 _off007_91D8_44:
-- D 0 - I - 0x0291E8 14:91D8: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0291E8 14:91D8: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0291EA 14:91DA: F4        .byte con_8084_cb_chr_spr, $3B, $47, $00, $00   ; 
 - D 0 - I - 0x0291EF 14:91DF: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_35, $00, $CB, $01   ; 
 - D 0 - I - 0x0291F5 14:91E5: F0        .byte con_8084_cb_exit   ; 
@@ -2843,7 +2856,7 @@ _off007_91D8_44:
 
 
 _off007_91E6_45:
-- D 0 - I - 0x0291F6 14:91E6: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0291F6 14:91E6: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0291F8 14:91E8: F4        .byte con_8084_cb_chr_spr, $3B, $47, $00, $00   ; 
 - D 0 - I - 0x0291FD 14:91ED: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_36, $00, $CB, $01   ; 
 - D 0 - I - 0x029203 14:91F3: F0        .byte con_8084_cb_exit   ; 
@@ -2851,7 +2864,7 @@ _off007_91E6_45:
 
 
 _off007_91F4_46:
-- D 0 - I - 0x029204 14:91F4: F5        .byte con_8084_cb_F5, $0B   ; 
+- D 0 - I - 0x029204 14:91F4: F5        .byte con_8084_cb_F5, con_FBCC_0B   ; 
 - D 0 - I - 0x029206 14:91F6: F4        .byte con_8084_cb_chr_spr, $43, $45, $47, $44   ; 
 - D 0 - I - 0x02920B 14:91FB: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_24, $F0, $BB, $00   ; 
 - D 0 - I - 0x029211 14:9201: F0        .byte con_8084_cb_exit   ; 
@@ -2859,7 +2872,7 @@ _off007_91F4_46:
 
 
 _off007_9202_47:
-- D 0 - I - 0x029212 14:9202: F5        .byte con_8084_cb_F5, $0B   ; 
+- D 0 - I - 0x029212 14:9202: F5        .byte con_8084_cb_F5, con_FBCC_0B   ; 
 - D 0 - I - 0x029214 14:9204: F4        .byte con_8084_cb_chr_spr, $43, $45, $47, $44   ; 
 - D 0 - I - 0x029219 14:9209: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_25, $F0, $BB, $00   ; 
 - D 0 - I - 0x02921F 14:920F: F0        .byte con_8084_cb_exit   ; 
@@ -2867,7 +2880,7 @@ _off007_9202_47:
 
 
 _off007_9210_48:
-- D 0 - I - 0x029220 14:9210: F5        .byte con_8084_cb_F5, $0B   ; 
+- D 0 - I - 0x029220 14:9210: F5        .byte con_8084_cb_F5, con_FBCC_0B   ; 
 - D 0 - I - 0x029222 14:9212: F4        .byte con_8084_cb_chr_spr, $43, $45, $47, $44   ; 
 - D 0 - I - 0x029227 14:9217: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_26, $F0, $BB, $00   ; 
 - D 0 - I - 0x02922D 14:921D: F0        .byte con_8084_cb_exit   ; 
@@ -2875,7 +2888,7 @@ _off007_9210_48:
 
 
 _off007_921E_49:
-- D 0 - I - 0x02922E 14:921E: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x02922E 14:921E: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x029230 14:9220: F4        .byte con_8084_cb_chr_spr, $04, $05, $0F, $00   ; 
 - D 0 - I - 0x029235 14:9225: F1        .byte con_8084_cb_F1, con_A1B4_32, con_AC47_C0, $88, $E3, $00   ; 
 - D 0 - I - 0x02923B 14:922B: F1        .byte con_8084_cb_F1, con_A1B4_07, con_AC47_2B, $50, $DB, $05   ; 
@@ -2884,7 +2897,7 @@ _off007_921E_49:
 
 
 _off007_9232_4A:
-- D 0 - I - 0x029242 14:9232: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x029242 14:9232: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x029244 14:9234: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029249 14:9239: F1        .byte con_8084_cb_F1, con_A1B4_29, con_AC47_3F, $F8, $B3, $04   ; 
 - D 0 - I - 0x02924F 14:923F: F0        .byte con_8084_cb_exit   ; 
@@ -2892,14 +2905,14 @@ _off007_9232_4A:
 
 
 _off007_9240_4B:
-- D 0 - I - 0x029250 14:9240: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029250 14:9240: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029252 14:9242: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x029253 14:9243: 48 9C     .word off_9C48
 
 
 
 _off007_9245_4C:
-- D 0 - I - 0x029255 14:9245: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029255 14:9245: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029257 14:9247: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x02925C 14:924C: F1        .byte con_8084_cb_F1, con_A1B4_7E, con_AC47_BA, $E0, $BB, $00   ; 
 - D 0 - I - 0x029262 14:9252: F0        .byte con_8084_cb_exit   ; 
@@ -2907,7 +2920,7 @@ _off007_9245_4C:
 
 
 _off007_9253_4D:
-- D 0 - I - 0x029263 14:9253: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x029263 14:9253: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x029265 14:9255: F4        .byte con_8084_cb_chr_spr, $1B, $00, $00, $00   ; 
 - D 0 - I - 0x02926A 14:925A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_2C, $00, $BB, $01   ; 
 - D 0 - I - 0x029270 14:9260: F0        .byte con_8084_cb_exit   ; 
@@ -2915,7 +2928,7 @@ _off007_9253_4D:
 
 
 _off007_9261_4E:
-- D 0 - I - 0x029271 14:9261: F5        .byte con_8084_cb_F5, $0A   ; 
+- D 0 - I - 0x029271 14:9261: F5        .byte con_8084_cb_F5, con_FBCC_0A   ; 
 - D 0 - I - 0x029273 14:9263: F4        .byte con_8084_cb_chr_spr, $2C, $0B, $05, $07   ; 
 - D 0 - I - 0x029278 14:9268: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_27, $10, $CB, $01   ; 
 - D 0 - I - 0x02927E 14:926E: F0        .byte con_8084_cb_exit   ; 
@@ -2923,7 +2936,7 @@ _off007_9261_4E:
 
 
 _off007_926F_4F:
-- D 0 - I - 0x02927F 14:926F: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x02927F 14:926F: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029281 14:9271: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x029286 14:9276: F1        .byte con_8084_cb_F1, con_A1B4_35, con_AC47_28, $00, $B7, $01   ; 
 - D 0 - I - 0x02928C 14:927C: F0        .byte con_8084_cb_exit   ; 
@@ -2931,7 +2944,7 @@ _off007_926F_4F:
 
 
 _off007_927D_50:
-- D 0 - I - 0x02928D 14:927D: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x02928D 14:927D: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x02928F 14:927F: F4        .byte con_8084_cb_chr_spr, $28, $29, $2A, $0B   ; 
 - D 0 - I - 0x029294 14:9284: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_11, $E8, $BB, $00   ; 
 - D 0 - I - 0x02929A 14:928A: F0        .byte con_8084_cb_exit   ; 
@@ -2939,7 +2952,7 @@ _off007_927D_50:
 
 
 _off007_928B_51:
-- D 0 - I - 0x02929B 14:928B: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x02929B 14:928B: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x02929D 14:928D: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0292A2 14:9292: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
 - D 0 - I - 0x0292A8 14:9298: F1        .byte con_8084_cb_F1, con_A1B4_E8, con_AC47_BA, $FC, $C3, $04   ; 
@@ -2948,7 +2961,7 @@ _off007_928B_51:
 
 
 _off007_929F_52:
-- D 0 - I - 0x0292AF 14:929F: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0292AF 14:929F: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0292B1 14:92A1: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0292B6 14:92A6: F1        .byte con_8084_cb_F1, con_A1B4_7A, con_AC47_BD, $E0, $E3, $00   ; 
 - D 0 - I - 0x0292BC 14:92AC: F0        .byte con_8084_cb_exit   ; 
@@ -2956,7 +2969,7 @@ _off007_929F_52:
 
 
 _off007_92AD_53:
-- - - - - - 0x0292BD 14:92AD: F5        .byte con_8084_cb_F5, $09   ; 
+- - - - - - 0x0292BD 14:92AD: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - - - - - - 0x0292BF 14:92AF: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - - - - - - 0x0292C4 14:92B4: F1        .byte con_8084_cb_F1, con_A1B4_7B, con_AC47_BC, $A8, $EB, $00   ; 
 - - - - - - 0x0292CA 14:92BA: F0        .byte con_8084_cb_exit   ; 
@@ -2964,7 +2977,7 @@ _off007_92AD_53:
 
 
 _off007_92BB_54:
-- D 0 - I - 0x0292CB 14:92BB: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0292CB 14:92BB: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0292CD 14:92BD: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0292D2 14:92C2: F1        .byte con_8084_cb_F1, con_A1B4_7F, con_AC47_C0, $60, $A3, $01   ; 
 - D 0 - I - 0x0292D8 14:92C8: F0        .byte con_8084_cb_exit   ; 
@@ -2972,7 +2985,7 @@ _off007_92BB_54:
 
 
 _off007_92C9_55:
-- D 0 - I - 0x0292D9 14:92C9: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0292D9 14:92C9: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0292DB 14:92CB: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0292E0 14:92D0: F1        .byte con_8084_cb_F1, con_A1B4_80, con_AC47_C0, $E0, $A3, $00   ; 
 - D 0 - I - 0x0292E6 14:92D6: F0        .byte con_8084_cb_exit   ; 
@@ -2980,7 +2993,7 @@ _off007_92C9_55:
 
 
 _off007_92D7_56:
-- D 0 - I - 0x0292E7 14:92D7: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0292E7 14:92D7: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0292E9 14:92D9: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0292EE 14:92DE: F1        .byte con_8084_cb_F1, con_A1B4_7C, con_AC47_BA, $90, $AB, $00   ; 
 - D 0 - I - 0x0292F4 14:92E4: F0        .byte con_8084_cb_exit   ; 
@@ -2988,7 +3001,7 @@ _off007_92D7_56:
 
 
 _off007_92E5_57:
-- D 0 - I - 0x0292F5 14:92E5: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x0292F5 14:92E5: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x0292F7 14:92E7: F4        .byte con_8084_cb_chr_spr, $2A, $2B, $00, $00   ; 
 - D 0 - I - 0x0292FC 14:92EC: F1        .byte con_8084_cb_F1, con_A1B4_36, con_AC47_02, $10, $D3, $01   ; 
 - D 0 - I - 0x029302 14:92F2: F0        .byte con_8084_cb_exit   ; 
@@ -2996,7 +3009,7 @@ _off007_92E5_57:
 
 
 _off007_92F3_58:
-- D 0 - I - 0x029303 14:92F3: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x029303 14:92F3: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x029305 14:92F5: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x02930A 14:92FA: F1        .byte con_8084_cb_F1, con_A1B4_98, con_AC47_4B, $90, $B3, $01   ; 
 - D 0 - I - 0x029310 14:9300: F1        .byte con_8084_cb_F1, con_A1B4_98, con_AC47_4D, $90, $B3, $05   ; 
@@ -3006,7 +3019,7 @@ _off007_92F3_58:
 
 
 _off007_930D_59:
-- D 0 - I - 0x02931D 14:930D: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x02931D 14:930D: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x02931F 14:930F: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x029324 14:9314: F1        .byte con_8084_cb_F1, con_A1B4_E3, con_AC47_15, $64, $EF, $00   ; 
 - D 0 - I - 0x02932A 14:931A: F1        .byte con_8084_cb_F1, con_A1B4_9A, con_AC47_14, $D0, $B3, $04   ; 
@@ -3016,7 +3029,7 @@ _off007_930D_59:
 
 
 _off007_9323_5A:
-- D 0 - I - 0x029333 14:9323: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x029333 14:9323: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x029335 14:9325: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x02933A 14:932A: F1        .byte con_8084_cb_F1, con_A1B4_8B, con_AC47_4B, $80, $BB, $01   ; 
 - D 0 - I - 0x029340 14:9330: F1        .byte con_8084_cb_F1, con_A1B4_8B, con_AC47_4D, $80, $BB, $05   ; 
@@ -3026,7 +3039,7 @@ _off007_9323_5A:
 
 
 _off007_933D_5B:
-- D 0 - I - 0x02934D 14:933D: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x02934D 14:933D: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x02934F 14:933F: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029354 14:9344: F1        .byte con_8084_cb_F1, con_A1B4_8C, con_AC47_4B, $80, $BB, $01   ; 
 - D 0 - I - 0x02935A 14:934A: F1        .byte con_8084_cb_F1, con_A1B4_8C, con_AC47_4D, $80, $BB, $05   ; 
@@ -3036,7 +3049,7 @@ _off007_933D_5B:
 
 
 _off007_9357_5C:
-- D 0 - I - 0x029367 14:9357: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029367 14:9357: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029369 14:9359: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x02936E 14:935E: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_CD, $00, $C3, $0D   ; 
 - D 0 - I - 0x029374 14:9364: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_CA, $00, $C3, $01   ; 
@@ -3046,7 +3059,7 @@ _off007_9357_5C:
 
 
 _off007_9371_5D:
-- D 0 - I - 0x029381 14:9371: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029381 14:9371: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029383 14:9373: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x029388 14:9378: F1        .byte con_8084_cb_F1, con_A1B4_93, con_AC47_C4, $A0, $A3, $00   ; 
 - D 0 - I - 0x02938E 14:937E: F0        .byte con_8084_cb_exit   ; 
@@ -3054,7 +3067,7 @@ _off007_9371_5D:
 
 
 _off007_937F_5E:
-- D 0 - I - 0x02938F 14:937F: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x02938F 14:937F: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029391 14:9381: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x029396 14:9386: F1        .byte con_8084_cb_F1, con_A1B4_94, con_AC47_BA, $80, $E3, $00   ; 
 - D 0 - I - 0x02939C 14:938C: F0        .byte con_8084_cb_exit   ; 
@@ -3062,7 +3075,7 @@ _off007_937F_5E:
 
 
 _off007_938D_5F:
-- D 0 - I - 0x02939D 14:938D: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x02939D 14:938D: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x02939F 14:938F: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0293A4 14:9394: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x0293A7 14:9397: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -3072,7 +3085,7 @@ _off007_938D_5F:
 
 
 _off007_93A4_60:
-- D 0 - I - 0x0293B4 14:93A4: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0293B4 14:93A4: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0293B6 14:93A6: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x0293BB 14:93AB: F1        .byte con_8084_cb_F1, con_A1B4_3A, con_AC47_56, $E0, $BB, $08   ; 
 - D 0 - I - 0x0293C1 14:93B1: F1        .byte con_8084_cb_F1, con_A1B4_3A, con_AC47_4C, $E0, $BB, $00   ; 
@@ -3092,7 +3105,7 @@ _off007_93A4_60:
 
 
 _off007_93EC_61:
-- D 0 - I - 0x0293FC 14:93EC: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0293FC 14:93EC: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0293FE 14:93EE: F4        .byte con_8084_cb_chr_spr, $10, $11, $12, $00   ; 
 - D 0 - I - 0x029403 14:93F3: F1        .byte con_8084_cb_F1, con_A1B4_DB, con_AC47_2D, $18, $B3, $01   ; 
 - D 0 - I - 0x029409 14:93F9: F1        .byte con_8084_cb_F1, con_A1B4_59, con_AC47_2E, $20, $AB, $05   ; 
@@ -3103,7 +3116,7 @@ _off007_93EC_61:
 
 
 _off007_9403_62:
-- D 0 - I - 0x029413 14:9403: F5        .byte con_8084_cb_F5, $85   ; 
+- D 0 - I - 0x029413 14:9403: F5        .byte con_8084_cb_F5, con_81BA_85   ; 
 - D 0 - I - 0x029415 14:9405: F4        .byte con_8084_cb_chr_spr, $41, $04, $00, $00   ; 
 - D 0 - I - 0x02941A 14:940A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_2F, $00, $D3, $01   ; 
 - D 0 - I - 0x029420 14:9410: F0        .byte con_8084_cb_exit   ; 
@@ -3111,7 +3124,7 @@ _off007_9403_62:
 
 
 _off007_9411_63:
-- D 0 - I - 0x029421 14:9411: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029421 14:9411: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029423 14:9413: F4        .byte con_8084_cb_chr_spr, $04, $05, $23, $00   ; 
 - D 0 - I - 0x029428 14:9418: F1        .byte con_8084_cb_F1, con_A1B4_A8, con_AC47_CF, $10, $D3, $01   ; 
 - D 0 - I - 0x02942E 14:941E: F1        .byte con_8084_cb_F1, con_A1B4_5A, con_AC47_E7, $10, $CB, $05   ; 
@@ -3120,7 +3133,7 @@ _off007_9411_63:
 
 
 _off007_9425_64:
-- D 0 - I - 0x029435 14:9425: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029435 14:9425: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029437 14:9427: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 0 - I - 0x02943C 14:942C: F1        .byte con_8084_cb_F1, con_A1B4_40, con_AC47_29, $D8, $CB, $00   ; 
 - D 0 - I - 0x029442 14:9432: F0        .byte con_8084_cb_exit   ; 
@@ -3128,7 +3141,7 @@ _off007_9425_64:
 
 
 _off007_9433_65:
-- - - - - - 0x029443 14:9433: F5        .byte con_8084_cb_F5, $09   ; 
+- - - - - - 0x029443 14:9433: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - - - - - - 0x029445 14:9435: F4        .byte con_8084_cb_chr_spr, $06, $00, $00, $00   ; 
 - - - - - - 0x02944A 14:943A: F1        .byte con_8084_cb_F1, con_A1B4_5C, con_AC47_B5, $00, $93, $01   ; 
 - - - - - - 0x029450 14:9440: F0        .byte con_8084_cb_exit   ; 
@@ -3136,7 +3149,7 @@ _off007_9433_65:
 
 
 _off007_9441_66:
-- D 0 - I - 0x029451 14:9441: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029451 14:9441: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029453 14:9443: F4        .byte con_8084_cb_chr_spr, $04, $05, $22, $00   ; 
 - D 0 - I - 0x029458 14:9448: F1        .byte con_8084_cb_F1, con_A1B4_5D, con_AC47_31, $B0, $D3, $04   ; 
 - D 0 - I - 0x02945E 14:944E: 06        .byte $06   ; 
@@ -3146,7 +3159,7 @@ _off007_9441_66:
 
 
 _off007_9456_67:
-- D 0 - I - 0x029466 14:9456: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029466 14:9456: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029468 14:9458: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x02946D 14:945D: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
 - D 0 - I - 0x029473 14:9463: F1        .byte con_8084_cb_F1, con_A1B4_EA, con_AC47_23, $70, $CB, $05   ; 
@@ -3155,7 +3168,7 @@ _off007_9456_67:
 
 
 _off007_946A_68:
-- D 0 - I - 0x02947A 14:946A: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02947A 14:946A: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x02947C 14:946C: F4        .byte con_8084_cb_chr_spr, $04, $05, $20, $21   ; 
 - D 0 - I - 0x029481 14:9471: F1        .byte con_8084_cb_F1, con_A1B4_AA, con_AC47_C6, $90, $CB, $00   ; 
 - D 0 - I - 0x029487 14:9477: F1        .byte con_8084_cb_F1, con_A1B4_5E, con_AC47_32, $80, $9B, $05   ; 
@@ -3164,7 +3177,7 @@ _off007_946A_68:
 
 
 _off007_947E_69:
-- D 0 - I - 0x02948E 14:947E: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02948E 14:947E: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029490 14:9480: F4        .byte con_8084_cb_chr_spr, $16, $17, $2D, $53   ; 
 - D 0 - I - 0x029495 14:9485: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_46, $08, $BB, $01   ; 
 - D 0 - I - 0x02949B 14:948B: F0        .byte con_8084_cb_exit   ; 
@@ -3172,7 +3185,7 @@ _off007_947E_69:
 
 
 _off007_948C_6A:
-- D 0 - I - 0x02949C 14:948C: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02949C 14:948C: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x02949E 14:948E: F4        .byte con_8084_cb_chr_spr, $04, $05, $20, $21   ; 
 - D 0 - I - 0x0294A3 14:9493: F1        .byte con_8084_cb_F1, con_A1B4_AB, con_AC47_CF, $E8, $DB, $00   ; 
 - D 0 - I - 0x0294A9 14:9499: F1        .byte con_8084_cb_F1, con_A1B4_2D, con_AC47_33, $F8, $CB, $04   ; 
@@ -3182,7 +3195,7 @@ _off007_948C_6A:
 
 
 _off007_94A2_6B:
-- D 0 - I - 0x0294B2 14:94A2: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0294B2 14:94A2: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0294B4 14:94A4: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x0294B9 14:94A9: F1        .byte con_8084_cb_F1, con_A1B4_42, con_AC47_4C, $80, $BB, $00   ; 
 - D 0 - I - 0x0294BF 14:94AF: F1        .byte con_8084_cb_F1, con_A1B4_42, con_AC47_4E, $80, $BB, $04   ; 
@@ -3193,7 +3206,7 @@ off_94B5:
 
 
 _off007_94BC_6C:
-- D 0 - I - 0x0294CC 14:94BC: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0294CC 14:94BC: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0294CE 14:94BE: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x0294D3 14:94C3: F1        .byte con_8084_cb_F1, con_A1B4_1A, con_AC47_07, $4C, $76, $00   ; 
 - D 0 - I - 0x0294D9 14:94C9: F1        .byte con_8084_cb_F1, con_A1B4_A0, con_AC47_06, $10, $B3, $05   ; 
@@ -3214,7 +3227,7 @@ _off007_94BC_6C:
 
 
 _off007_94F4_6D:
-- D 0 - I - 0x029504 14:94F4: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029504 14:94F4: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029506 14:94F6: F4        .byte con_8084_cb_chr_spr, $24, $25, $26, $4F   ; 
 - D 0 - I - 0x02950B 14:94FB: F1        .byte con_8084_cb_F1, con_A1B4_A2, con_AC47_0A, $5F, $7B, $00   ; 
 - D 0 - I - 0x029511 14:9501: F1        .byte con_8084_cb_F1, con_A1B4_A0, con_AC47_09, $10, $B3, $05   ; 
@@ -3235,7 +3248,7 @@ _off007_94F4_6D:
 
 
 _off007_952C_6E:
-- D 0 - I - 0x02953C 14:952C: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02953C 14:952C: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x02953E 14:952E: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029543 14:9533: F1        .byte con_8084_cb_F1, con_A1B4_33, con_AC47_1E, $60, $97, $04   ; 
 - D 0 - I - 0x029549 14:9539: F1        .byte con_8084_cb_F1, con_A1B4_24, con_AC47_1D, $20, $B7, $09   ; 
@@ -3247,7 +3260,7 @@ _off007_952C_6E:
 
 
 _off007_9549_6F:
-- D 0 - I - 0x029559 14:9549: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029559 14:9549: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x02955B 14:954B: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029560 14:9550: F1        .byte con_8084_cb_F1, con_A1B4_33, con_AC47_49, $60, $E3, $04   ; 
 - D 0 - I - 0x029566 14:9556: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_94, $F0, $BB, $00   ; 
@@ -3263,7 +3276,7 @@ _off007_9549_6F:
 
 
 _off007_9579_70:
-- D 0 - I - 0x029589 14:9579: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029589 14:9579: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x02958B 14:957B: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x029590 14:9580: F1        .byte con_8084_cb_F1, con_A1B4_81, con_AC47_C0, $C0, $EB, $00   ; 
 - D 0 - I - 0x029596 14:9586: F0        .byte con_8084_cb_exit   ; 
@@ -3271,7 +3284,7 @@ _off007_9579_70:
 
 
 _off007_9587_71:
-- D 0 - I - 0x029597 14:9587: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029597 14:9587: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029599 14:9589: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 0 - I - 0x02959E 14:958E: F1        .byte con_8084_cb_F1, con_A1B4_40, con_AC47_7E, $D8, $CB, $00   ; 
 - D 0 - I - 0x0295A4 14:9594: F0        .byte con_8084_cb_exit   ; 
@@ -3279,7 +3292,7 @@ _off007_9587_71:
 
 
 _off007_9598_72:
-- D 0 - I - 0x0295A8 14:9598: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0295A8 14:9598: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0295AA 14:959A: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0295AF 14:959F: F1        .byte con_8084_cb_F1, con_A1B4_96, con_AC47_C0, $D0, $9B, $00   ; 
 - D 0 - I - 0x0295B5 14:95A5: F0        .byte con_8084_cb_exit   ; 
@@ -3287,7 +3300,7 @@ _off007_9598_72:
 
 
 _off007_95A6_73:
-- D 0 - I - 0x0295B6 14:95A6: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0295B6 14:95A6: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0295B8 14:95A8: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0295BD 14:95AD: F1        .byte con_8084_cb_F1, con_A1B4_97, con_AC47_C0, $00, $E3, $01   ; 
 - D 0 - I - 0x0295C3 14:95B3: F0        .byte con_8084_cb_exit   ; 
@@ -3295,7 +3308,7 @@ _off007_95A6_73:
 
 
 _off007_95B4_74:
-- D 0 - I - 0x0295C4 14:95B4: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0295C4 14:95B4: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0295C6 14:95B6: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0295CB 14:95BB: F7        .byte con_8084_cb_spr_Y_limit, $2B, $53   ; 
 - D 0 - I - 0x0295CE 14:95BE: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $A3, $00   ; 
@@ -3312,8 +3325,7 @@ _off007_95B4_74:
 
 
 _off007_95E6_75:
-- D 0 - I - 0x0295F6 14:95E6: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0295F8 14:95E8: 16        .byte $16   ; 
+- D 0 - I - 0x0295F6 14:95E6: F5        .byte con_8084_cb_F5, con_81BA_84, $16   ; 
 - D 0 - I - 0x0295F9 14:95E9: F4        .byte con_8084_cb_chr_spr, $2D, $00, $00, $00   ; 
 - D 0 - I - 0x0295FE 14:95EE: F1        .byte con_8084_cb_F1, con_A1B4_CB, con_AC47_B3, $53, $C3, $00   ; 
 - D 0 - I - 0x029604 14:95F4: F0        .byte con_8084_cb_exit   ; 
@@ -3321,7 +3333,7 @@ _off007_95E6_75:
 
 
 _off007_95F5_76:
-- D 0 - I - 0x029605 14:95F5: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029605 14:95F5: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029607 14:95F7: F4        .byte con_8084_cb_chr_spr, $28, $29, $2A, $0B   ; 
 - D 0 - I - 0x02960C 14:95FC: F1        .byte con_8084_cb_F1, con_A1B4_39, con_AC47_11, $E8, $BB, $00   ; 
 - D 0 - I - 0x029612 14:9602: F0        .byte con_8084_cb_exit   ; 
@@ -3329,7 +3341,7 @@ _off007_95F5_76:
 
 
 _off007_9603_77:
-- D 0 - I - 0x029613 14:9603: F5        .byte con_8084_cb_F5, $82   ; 
+- D 0 - I - 0x029613 14:9603: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_с_мячом   ; 
 - D 0 - I - 0x029615 14:9605: F4        .byte con_8084_cb_chr_spr, $04, $05, $22, $00   ; 
 - D 0 - I - 0x02961A 14:960A: F1        .byte con_8084_cb_F1, con_A1B4_5D, con_AC47_83, $B8, $D3, $04   ; 
 - D 0 - I - 0x029620 14:9610: 06        .byte $06   ; 
@@ -3340,7 +3352,7 @@ _off007_9603_77:
 
 
 _off007_9618_78:
-- D 0 - I - 0x029628 14:9618: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029628 14:9618: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 off_961A:
 - D 0 - I - 0x02962A 14:961A: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x02962F 14:961F: F1        .byte con_8084_cb_F1, con_A1B4_62, con_AC47_5E, $20, $BB, $0D   ; 
@@ -3361,7 +3373,7 @@ off_961A:
 
 
 _off007_9651_79:
-- D 0 - I - 0x029661 14:9651: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029661 14:9651: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029663 14:9653: F4        .byte con_8084_cb_chr_spr, $60, $61, $62, $63   ; 
 - D 0 - I - 0x029668 14:9658: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_79, $F0, $BB, $00   ; 
 - D 0 - I - 0x02966E 14:965E: F0        .byte con_8084_cb_exit   ; 
@@ -3369,7 +3381,7 @@ _off007_9651_79:
 
 
 _off007_965F_7A:
-- D 0 - I - 0x02966F 14:965F: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02966F 14:965F: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029671 14:9661: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029676 14:9666: F1        .byte con_8084_cb_F1, con_A1B4_65, con_AC47_1E, $D0, $93, $00   ; 
 - D 0 - I - 0x02967C 14:966C: F1        .byte con_8084_cb_F1, con_A1B4_64, con_AC47_1D, $1F, $B7, $05   ; 
@@ -3384,7 +3396,7 @@ _off007_965F_7A:
 
 
 _off007_9689_7B:
-- D 0 - I - 0x029699 14:9689: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029699 14:9689: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x02969B 14:968B: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0296A0 14:9690: F1        .byte con_8084_cb_F1, con_A1B4_83, con_AC47_BA, $B8, $BB, $00   ; 
 - D 0 - I - 0x0296A6 14:9696: F0        .byte con_8084_cb_exit   ; 
@@ -3392,7 +3404,7 @@ _off007_9689_7B:
 
 
 _off007_9697_7C:
-- D 0 - I - 0x0296A7 14:9697: F5        .byte con_8084_cb_F5, $87   ; 
+- D 0 - I - 0x0296A7 14:9697: F5        .byte con_8084_cb_F5, con_81BA_принимающий_мяч   ; 
 - D 0 - I - 0x0296A9 14:9699: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x0296AE 14:969E: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x0296B4 14:96A4: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_94, $F0, $B3, $04   ; 
@@ -3412,7 +3424,7 @@ _off007_9697_7C:
 
 
 _off007_96D2_7D:
-- D 0 - I - 0x0296E2 14:96D2: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x0296E2 14:96D2: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x0296E4 14:96D4: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $2B   ; 
 - D 0 - I - 0x0296E9 14:96D9: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x0296EC 14:96DC: F1        .byte con_8084_cb_F1, con_A1B4_30, con_AC47_00, $80, $9B, $04   ; 
@@ -3445,7 +3457,7 @@ _off007_96D2_7D:
 
 
 _off007_973B_7E:
-- D 0 - I - 0x02974B 14:973B: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x02974B 14:973B: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x02974D 14:973D: F4        .byte con_8084_cb_chr_spr, $06, $00, $00, $00   ; 
 - D 0 - I - 0x029752 14:9742: F1        .byte con_8084_cb_F1, con_A1B4_84, con_AC47_B6, $E0, $63, $00   ; 
 - D 0 - I - 0x029758 14:9748: F0        .byte con_8084_cb_exit   ; 
@@ -3453,7 +3465,7 @@ _off007_973B_7E:
 
 
 _off007_9749_7F:
-- D 0 - I - 0x029759 14:9749: F5        .byte con_8084_cb_F5, $82   ; 
+- D 0 - I - 0x029759 14:9749: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_с_мячом   ; 
 - D 0 - I - 0x02975B 14:974B: F4        .byte con_8084_cb_chr_spr, $04, $05, $22, $00   ; 
 - D 0 - I - 0x029760 14:9750: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_8A, $20, $CB, $05   ; 
 - D 0 - I - 0x029766 14:9756: 06        .byte $06   ; 
@@ -3464,7 +3476,7 @@ _off007_9749_7F:
 
 
 _off007_9760_80:
-- D 0 - I - 0x029770 14:9760: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029770 14:9760: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029772 14:9762: F4        .byte con_8084_cb_chr_spr, $06, $00, $00, $00   ; 
 - D 0 - I - 0x029777 14:9767: F1        .byte con_8084_cb_F1, con_A1B4_85, con_AC47_B7, $60, $93, $00   ; 
 - D 0 - I - 0x02977D 14:976D: F0        .byte con_8084_cb_exit   ; 
@@ -3472,7 +3484,7 @@ _off007_9760_80:
 
 
 _off007_976E_81:
-- D 0 - I - 0x02977E 14:976E: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x02977E 14:976E: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029780 14:9770: F4        .byte con_8084_cb_chr_spr, $04, $05, $23, $00   ; 
 - D 0 - I - 0x029785 14:9775: F1        .byte con_8084_cb_F1, con_A1B4_AE, con_AC47_BA, $D0, $B5, $00   ; 
 - D 0 - I - 0x02978B 14:977B: F1        .byte con_8084_cb_F1, con_A1B4_6A, con_AC47_8B, $C0, $C5, $04   ; 
@@ -3482,7 +3494,7 @@ _off007_976E_81:
 
 
 _off007_9784_82:
-- D 0 - I - 0x029794 14:9784: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029794 14:9784: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029796 14:9786: F4        .byte con_8084_cb_chr_spr, $04, $05, $23, $00   ; 
 - D 0 - I - 0x02979B 14:978B: F1        .byte con_8084_cb_F1, con_A1B4_AF, con_AC47_BA, $D0, $D7, $00   ; 
 - D 0 - I - 0x0297A1 14:9791: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_30, $C8, $CF, $04   ; 
@@ -3491,7 +3503,7 @@ _off007_9784_82:
 
 
 _off007_9798_83:
-- D 0 - I - 0x0297A8 14:9798: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0297A8 14:9798: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0297AA 14:979A: F4        .byte con_8084_cb_chr_spr, $04, $05, $22, $00   ; 
 - D 0 - I - 0x0297AF 14:979F: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_31, $E4, $CB, $04   ; 
 - D 0 - I - 0x0297B5 14:97A5: 06        .byte $06   ; 
@@ -3502,7 +3514,7 @@ _off007_9798_83:
 
 
 _off007_97AF_84:
-- D 0 - I - 0x0297BF 14:97AF: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x0297BF 14:97AF: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x0297C1 14:97B1: F4        .byte con_8084_cb_chr_spr, $04, $05, $00, $00   ; 
 - D 0 - I - 0x0297C6 14:97B6: F1        .byte con_8084_cb_F1, con_A1B4_86, con_AC47_C4, $A8, $AB, $00   ; 
 - D 0 - I - 0x0297CC 14:97BC: F0        .byte con_8084_cb_exit   ; 
@@ -3510,7 +3522,7 @@ _off007_97AF_84:
 
 
 _off007_97BD_85:
-- D 0 - I - 0x0297CD 14:97BD: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x0297CD 14:97BD: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x0297CF 14:97BF: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x0297D4 14:97C4: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_8E, $00, $EB, $01   ; 
 off_97CA:
@@ -3520,7 +3532,7 @@ off_97CA:
 
 
 _off007_97D1_86:
-- D 0 - I - 0x0297E1 14:97D1: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x0297E1 14:97D1: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x0297E3 14:97D3: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x0297E8 14:97D8: F1        .byte con_8084_cb_F1, con_A1B4_6C, con_AC47_B8, $00, $EB, $01   ; 
 off_97DE:
@@ -3531,7 +3543,7 @@ off_97DE:
 
 
 _off007_97E7_87:
-- D 0 - I - 0x0297F7 14:97E7: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x0297F7 14:97E7: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x0297F9 14:97E9: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x0297FE 14:97EE: F1        .byte con_8084_cb_F1, con_A1B4_6D, con_AC47_B8, $00, $EB, $01   ; 
 - D 0 - I - 0x029804 14:97F4: F8        .byte con_8084_cb_jmp   ; 
@@ -3540,7 +3552,7 @@ _off007_97E7_87:
 
 
 _off007_97F7_88:
-- D 0 - I - 0x029807 14:97F7: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x029807 14:97F7: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x029809 14:97F9: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x02980E 14:97FE: F1        .byte con_8084_cb_F1, con_A1B4_6E, con_AC47_B8, $00, $EB, $01   ; 
 - D 0 - I - 0x029814 14:9804: F8        .byte con_8084_cb_jmp   ; 
@@ -3549,7 +3561,7 @@ _off007_97F7_88:
 
 
 _off007_9807_89:
-- D 0 - I - 0x029817 14:9807: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x029817 14:9807: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x029819 14:9809: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x02981E 14:980E: F1        .byte con_8084_cb_F1, con_A1B4_6C, con_AC47_B8, $00, $EB, $01   ; 
 - D 0 - I - 0x029824 14:9814: F8        .byte con_8084_cb_jmp   ; 
@@ -3558,7 +3570,7 @@ _off007_9807_89:
 
 
 _off007_9817_8A:
-- D 0 - I - 0x029827 14:9817: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x029827 14:9817: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x029829 14:9819: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x02982E 14:981E: F1        .byte con_8084_cb_F1, con_A1B4_6E, con_AC47_B8, $00, $EB, $01   ; 
 - D 0 - I - 0x029834 14:9824: F8        .byte con_8084_cb_jmp   ; 
@@ -3567,7 +3579,7 @@ _off007_9817_8A:
 
 
 _off007_9827_8B:
-- D 0 - I - 0x029837 14:9827: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029837 14:9827: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029839 14:9829: F4        .byte con_8084_cb_chr_spr, $20, $21, $00, $00   ; 
 - D 0 - I - 0x02983E 14:982E: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_8F, $10, $BB, $01   ; 
 - D 0 - I - 0x029844 14:9834: F0        .byte con_8084_cb_exit   ; 
@@ -3575,7 +3587,7 @@ _off007_9827_8B:
 
 
 _off007_9835_8C:
-- D 0 - I - 0x029845 14:9835: F5        .byte con_8084_cb_F5, $85   ; 
+- D 0 - I - 0x029845 14:9835: F5        .byte con_8084_cb_F5, con_81BA_85   ; 
 - D 0 - I - 0x029847 14:9837: F4        .byte con_8084_cb_chr_spr, $06, $07, $00, $00   ; 
 - D 0 - I - 0x02984C 14:983C: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_64, $10, $D3, $01   ; 
 - D 0 - I - 0x029852 14:9842: 10        .byte $10   ; 
@@ -3593,7 +3605,7 @@ _off007_9835_8C:
 
 
 _off007_9863_8D:
-- D 0 - I - 0x029873 14:9863: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029873 14:9863: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029875 14:9865: F4        .byte con_8084_cb_chr_spr, $20, $21, $00, $00   ; 
 - D 0 - I - 0x02987A 14:986A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_90, $10, $BB, $01   ; 
 - D 0 - I - 0x029880 14:9870: F0        .byte con_8084_cb_exit   ; 
@@ -3601,7 +3613,7 @@ _off007_9863_8D:
 
 
 _off007_9871_8E:
-- D 0 - I - 0x029881 14:9871: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029881 14:9871: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029883 14:9873: F4        .byte con_8084_cb_chr_spr, $10, $11, $12, $13   ; 
 - D 0 - I - 0x029888 14:9878: F1        .byte con_8084_cb_F1, con_A1B4_D0, con_AC47_2E, $20, $B3, $05   ; 
 - D 0 - I - 0x02988E 14:987E: F1        .byte con_8084_cb_F1, con_A1B4_B2, con_AC47_2D, $18, $BB, $01   ; 
@@ -3610,7 +3622,7 @@ _off007_9871_8E:
 
 
 _off007_9885_8F:
-- D 0 - I - 0x029895 14:9885: F5        .byte con_8084_cb_F5, $0A   ; 
+- D 0 - I - 0x029895 14:9885: F5        .byte con_8084_cb_F5, con_FBCC_0A   ; 
 - D 0 - I - 0x029897 14:9887: F4        .byte con_8084_cb_chr_spr, $2C, $0B, $05, $07   ; 
 - D 0 - I - 0x02989C 14:988C: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_91, $00, $D3, $01   ; 
 - D 0 - I - 0x0298A2 14:9892: F1        .byte con_8084_cb_F1, con_A1B4_70, con_AC47_92, $28, $C3, $05   ; 
@@ -3622,7 +3634,7 @@ _off007_9885_8F:
 
 
 _off007_98AB_90:
-- D 0 - I - 0x0298BB 14:98AB: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0298BB 14:98AB: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0298BD 14:98AD: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x0298C2 14:98B2: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_58, $00, $C3, $09   ; 
 - D 0 - I - 0x0298C8 14:98B8: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_4B, $00, $C3, $01   ; 
@@ -3633,8 +3645,7 @@ _off007_98AB_90:
 
 _off007_98C5_91_face_p_tsubasa_my:
 ; p_tsubasa_my
-- D 0 - I - 0x0298D5 14:98C5: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0298D7 14:98C7: 80        .byte con_8316_80   ; 
+- D 0 - I - 0x0298D5 14:98C5: F5        .byte con_8084_cb_F5, con_81BA_84, con_8316_80   ; 
 - D 0 - I - 0x0298D8 14:98C8: F4        .byte con_8084_cb_chr_spr, $33, $00, $00, $00   ; 
 - D 0 - I - 0x0298DD 14:98CD: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_98, $00, $D3, $01   ; 
 - D 0 - I - 0x0298E3 14:98D3: F0        .byte con_8084_cb_exit   ; 
@@ -3642,7 +3653,7 @@ _off007_98C5_91_face_p_tsubasa_my:
 
 
 _off007_98D4_92:
-- D 0 - I - 0x0298E4 14:98D4: F5        .byte con_8084_cb_F5, $0F   ; 
+- D 0 - I - 0x0298E4 14:98D4: F5        .byte con_8084_cb_F5, con_FBCC_0F   ; 
 - D 0 - I - 0x0298E6 14:98D6: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x0298EB 14:98DB: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x0298F1 14:98E1: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D3, $F0, $B3, $04   ; 
@@ -3664,8 +3675,7 @@ off_990C:
 
 _off007_9913_93_face_p_renato_my:
 ; p_renato_my
-- D 0 - I - 0x029923 14:9913: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029925 14:9915: 02        .byte $02   ; 
+- D 0 - I - 0x029923 14:9913: F5        .byte con_8084_cb_F5, con_81BA_84, $02   ; 
 - D 0 - I - 0x029926 14:9916: F4        .byte con_8084_cb_chr_spr, $38, $39, $42, $41   ; 
 - D 0 - I - 0x02992B 14:991B: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_B1, $10, $CB, $01   ; 
 - D 0 - I - 0x029931 14:9921: F0        .byte con_8084_cb_exit   ; 
@@ -3674,8 +3684,7 @@ _off007_9913_93_face_p_renato_my:
 
 _off007_9922_94_face_p_morisaki_my:
 ; p_morisaki_my
-- D 0 - I - 0x029932 14:9922: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029934 14:9924: 81        .byte con_8316_81   ; 
+- D 0 - I - 0x029932 14:9922: F5        .byte con_8084_cb_F5, con_81BA_84, con_8316_81   ; 
 - D 0 - I - 0x029935 14:9925: F4        .byte con_8084_cb_chr_spr, $38, $39, $42, $41   ; 
 - D 0 - I - 0x02993A 14:992A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_AE, $10, $CB, $01   ; 
 - D 0 - I - 0x029940 14:9930: F0        .byte con_8084_cb_exit   ; 
@@ -3683,7 +3692,7 @@ _off007_9922_94_face_p_morisaki_my:
 
 
 _off007_9931_95:
-- D 0 - I - 0x029941 14:9931: F5        .byte con_8084_cb_F5, $10   ; 
+- D 0 - I - 0x029941 14:9931: F5        .byte con_8084_cb_F5, con_FBCC_10   ; 
 - D 0 - I - 0x029943 14:9933: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029948 14:9938: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x02994E 14:993E: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D4, $F0, $B3, $04   ; 
@@ -3704,8 +3713,7 @@ _off007_9931_95:
 
 _off007_996C_96_face_p_misaki_my:
 ; p_misaki_my
-- D 0 - I - 0x02997C 14:996C: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x02997E 14:996E: 82        .byte con_8316_82   ; 
+- D 0 - I - 0x02997C 14:996C: F5        .byte con_8084_cb_F5, con_81BA_84, con_8316_82   ; 
 off_996F:
 - D 0 - I - 0x02997F 14:996F: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x029984 14:9974: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_9E, $00, $D3, $01   ; 
@@ -3715,8 +3723,7 @@ off_996F:
 
 _off007_997B_97_face_p_misaki_japan:
 ; p_misaki_japan
-- D 0 - I - 0x02998B 14:997B: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x02998D 14:997D: 06        .byte $06   ; 
+- D 0 - I - 0x02998B 14:997B: F5        .byte con_8084_cb_F5, con_81BA_84, $06   ; 
 - D 0 - I - 0x02998E 14:997E: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x02998F 14:997F: 6F 99     .word off_996F
 
@@ -3724,8 +3731,7 @@ _off007_997B_97_face_p_misaki_japan:
 
 _off007_9981_98_face_p_ishizaki_my:
 ; p_ishizaki_my
-- D 0 - I - 0x029991 14:9981: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029993 14:9983: 83        .byte con_8316_83   ; 
+- D 0 - I - 0x029991 14:9981: F5        .byte con_8084_cb_F5, con_81BA_84, con_8316_83   ; 
 off_9984:
 - D 0 - I - 0x029994 14:9984: F4        .byte con_8084_cb_chr_spr, $34, $00, $00, $00   ; 
 - D 0 - I - 0x029999 14:9989: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_9D, $00, $D3, $01   ; 
@@ -3735,8 +3741,7 @@ off_9984:
 
 _off007_9990_99_face_p_ishizaki_japan:
 ; p_ishizaki_japan
-- D 0 - I - 0x0299A0 14:9990: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299A2 14:9992: 09        .byte $09   ; 
+- D 0 - I - 0x0299A0 14:9990: F5        .byte con_8084_cb_F5, con_81BA_84, $09   ; 
 - D 0 - I - 0x0299A3 14:9993: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299A4 14:9994: 84 99     .word off_9984
 
@@ -3744,8 +3749,7 @@ _off007_9990_99_face_p_ishizaki_japan:
 
 _off007_9996_9A_face_p_nitta_my:
 ; p_nitta_my
-- D 0 - I - 0x0299A6 14:9996: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299A8 14:9998: 85        .byte con_8316_85   ; 
+- D 0 - I - 0x0299A6 14:9996: F5        .byte con_8084_cb_F5, con_81BA_84, con_8316_85   ; 
 off_9999:
 - D 0 - I - 0x0299A9 14:9999: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x0299AE 14:999E: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_AA, $00, $D3, $01   ; 
@@ -3755,8 +3759,7 @@ off_9999:
 
 _off007_99A5_9B_face_p_nitta_japan:
 ; p_nitta_japan
-- D 0 - I - 0x0299B5 14:99A5: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299B7 14:99A7: 0C        .byte $0C   ; 
+- D 0 - I - 0x0299B5 14:99A5: F5        .byte con_8084_cb_F5, con_81BA_84, $0C   ; 
 - D 0 - I - 0x0299B8 14:99A8: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299B9 14:99A9: 99 99     .word off_9999
 
@@ -3764,15 +3767,14 @@ _off007_99A5_9B_face_p_nitta_japan:
 
 _off007_99AB_9C_face_p_masao_my:
 ; p_masao_my, p_masao_japan, p_kazuo_my, p_kazuo_japan
-- D 0 - I - 0x0299BB 14:99AB: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299BD 14:99AD: 0D        .byte $0D   ; 
+- D 0 - I - 0x0299BB 14:99AB: F5        .byte con_8084_cb_F5, con_81BA_84, $0D   ; 
 - D 0 - I - 0x0299BE 14:99AE: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299BF 14:99AF: B2 9A     .word off_9AB2
 
 
 
 _off007_99B1_9D:
-- D 0 - I - 0x0299C1 14:99B1: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x0299C1 14:99B1: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x0299C3 14:99B3: F4        .byte con_8084_cb_chr_spr, $10, $11, $12, $13   ; 
 - D 0 - I - 0x0299C8 14:99B8: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x0299CB 14:99BB: F1        .byte con_8084_cb_F1, con_A1B4_D2, con_AC47_2E, $20, $BB, $0D   ; 
@@ -3785,8 +3787,7 @@ _off007_99B1_9D:
 
 _off007_99D4_9E_face_p_hyuga_my:
 ; p_hyuga_my, p_hyuga_japan
-- D 0 - I - 0x0299E4 14:99D4: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299E6 14:99D6: 0F        .byte $0F   ; 
+- D 0 - I - 0x0299E4 14:99D4: F5        .byte con_8084_cb_F5, con_81BA_84, $0F   ; 
 - D 0 - I - 0x0299E7 14:99D7: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299E8 14:99D8: 05 9B     .word off_9B05
 
@@ -3794,8 +3795,7 @@ _off007_99D4_9E_face_p_hyuga_my:
 
 _off007_99DA_9F_face_p_soda_my:
 ; p_soda_my, p_soda_japan
-- D 0 - I - 0x0299EA 14:99DA: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299EC 14:99DC: 10        .byte $10   ; 
+- D 0 - I - 0x0299EA 14:99DA: F5        .byte con_8084_cb_F5, con_81BA_84, $10   ; 
 - D 0 - I - 0x0299ED 14:99DD: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299EE 14:99DE: D8 9A     .word off_9AD8
 
@@ -3803,8 +3803,7 @@ _off007_99DA_9F_face_p_soda_my:
 
 _off007_99E0_A0_face_p_jito_my:
 ; p_jito_my, p_jito_japan
-- D 0 - I - 0x0299F0 14:99E0: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299F2 14:99E2: 11        .byte $11   ; 
+- D 0 - I - 0x0299F0 14:99E0: F5        .byte con_8084_cb_F5, con_81BA_84, $11   ; 
 - D 0 - I - 0x0299F3 14:99E3: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299F4 14:99E4: A3 9A     .word off_9AA3
 
@@ -3812,8 +3811,7 @@ _off007_99E0_A0_face_p_jito_my:
 
 _off007_99E6_A1_face_p_matsuyama_my:
 ; p_matsuyama_my, p_matsuyama_japan
-- D 0 - I - 0x0299F6 14:99E6: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x0299F8 14:99E8: 12        .byte $12   ; 
+- D 0 - I - 0x0299F6 14:99E6: F5        .byte con_8084_cb_F5, con_81BA_84, $12   ; 
 - D 0 - I - 0x0299F9 14:99E9: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x0299FA 14:99EA: F6 9A     .word off_9AF6
 
@@ -3821,8 +3819,7 @@ _off007_99E6_A1_face_p_matsuyama_my:
 
 _off007_99EC_A2_face_p_sawada_my:
 ; p_sawada_my
-- - - - - - 0x0299FC 14:99EC: F5        .byte con_8084_cb_F5, $84   ; 
-- - - - - - 0x0299FE 14:99EE: 13        .byte $13   ; 
+- - - - - - 0x0299FC 14:99EC: F5        .byte con_8084_cb_F5, con_81BA_84, $13   ; 
 - - - - - - 0x0299FF 14:99EF: F8        .byte con_8084_cb_jmp   ; 
 - - - - - - 0x029A00 14:99F0: 14 9B     .word off_9B14
 
@@ -3830,8 +3827,7 @@ _off007_99EC_A2_face_p_sawada_my:
 
 _off007_99F2_A3_face_p_misugi_my:
 ; p_misugi_my, p_misugi_japan
-- D 0 - I - 0x029A02 14:99F2: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029A04 14:99F4: 14        .byte $14   ; 
+- D 0 - I - 0x029A02 14:99F2: F5        .byte con_8084_cb_F5, con_81BA_84, $14   ; 
 - D 0 - I - 0x029A05 14:99F5: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x029A06 14:99F6: E7 9A     .word off_9AE7
 
@@ -3839,8 +3835,7 @@ _off007_99F2_A3_face_p_misugi_my:
 
 _off007_99F8_A4_face_p_wakabayashi_my:
 ; p_wakabayashi_my, p_wakabayashi_hamburger_sv
-- D 0 - I - 0x029A08 14:99F8: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029A0A 14:99FA: 15        .byte $15   ; 
+- D 0 - I - 0x029A08 14:99F8: F5        .byte con_8084_cb_F5, con_81BA_84, $15   ; 
 - D 0 - I - 0x029A0B 14:99FB: F4        .byte con_8084_cb_chr_spr, $38, $39, $42, $41   ; 
 - D 0 - I - 0x029A10 14:9A00: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_B0, $10, $CB, $01   ; 
 - D 0 - I - 0x029A16 14:9A06: F0        .byte con_8084_cb_exit   ; 
@@ -3848,7 +3843,7 @@ _off007_99F8_A4_face_p_wakabayashi_my:
 
 
 _off007_9A07_A5:
-- D 0 - I - 0x029A17 14:9A07: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029A17 14:9A07: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029A19 14:9A09: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029A1E 14:9A0E: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x029A24 14:9A14: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D5, $F0, $B3, $04   ; 
@@ -3869,7 +3864,7 @@ _off007_9A07_A5:
 
 _off007_9A42_A6_face_p_wakashimazu_my:
 ; p_wakashimazu_my, p_wakashimazu_toho, p_wakashimazu_japan
-- D 0 - I - 0x029A52 14:9A42: F5        .byte con_8084_cb_F5, $1A   ; 
+- D 0 - I - 0x029A52 14:9A42: F5        .byte con_8084_cb_F5, con_FBCC_1A   ; 
 - D 0 - I - 0x029A54 14:9A44: F4        .byte con_8084_cb_chr_spr, $38, $39, $42, $41   ; 
 - D 0 - I - 0x029A59 14:9A49: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_AF, $10, $CB, $01   ; 
 - D 0 - I - 0x029A5F 14:9A4F: F0        .byte con_8084_cb_exit   ; 
@@ -3877,7 +3872,7 @@ _off007_9A42_A6_face_p_wakashimazu_my:
 
 
 _off007_9A50_A7:
-- D 0 - I - 0x029A60 14:9A50: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029A60 14:9A50: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029A62 14:9A52: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029A67 14:9A57: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x029A6D 14:9A5D: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D6, $F0, $B3, $04   ; 
@@ -3898,8 +3893,7 @@ _off007_9A50_A7:
 
 _off007_9A8B_A8_face_p_meon_gremio:
 ; p_meon_gremio
-- D 0 - I - 0x029A9B 14:9A8B: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029A9D 14:9A8D: 18        .byte $18   ; 
+- D 0 - I - 0x029A9B 14:9A8B: F5        .byte con_8084_cb_F5, con_81BA_84, $18   ; 
 - D 0 - I - 0x029A9E 14:9A8E: F4        .byte con_8084_cb_chr_spr, $38, $39, $42, $41   ; 
 - D 0 - I - 0x029AA3 14:9A93: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_AD, $10, $CB, $01   ; 
 - D 0 - I - 0x029AA9 14:9A99: F0        .byte con_8084_cb_exit   ; 
@@ -3908,8 +3902,7 @@ _off007_9A8B_A8_face_p_meon_gremio:
 
 _off007_9A9A_A9_face_p_carlos_flamengo:
 ; p_carlos_flamengo
-- D 0 - I - 0x029AAA 14:9A9A: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029AAC 14:9A9C: 19        .byte $19   ; 
+- D 0 - I - 0x029AAA 14:9A9A: F5        .byte con_8084_cb_F5, con_81BA_84, $19   ; 
 - D 0 - I - 0x029AAD 14:9A9D: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x029AAE 14:9A9E: A1 9B     .word off_9BA1
 
@@ -3917,8 +3910,7 @@ _off007_9A9A_A9_face_p_carlos_flamengo:
 
 _off007_9AA0_AA_face_p_jito_kunimi:
 ; p_jito_kunimi
-- D 0 - I - 0x029AB0 14:9AA0: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029AB2 14:9AA2: 1A        .byte $1A   ; 
+- D 0 - I - 0x029AB0 14:9AA0: F5        .byte con_8084_cb_F5, con_81BA_84, $1A   ; 
 off_9AA3:
 - D 0 - I - 0x029AB3 14:9AA3: F4        .byte con_8084_cb_chr_spr, $35, $00, $00, $00   ; 
 - D 0 - I - 0x029AB8 14:9AA8: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A9, $00, $D3, $01   ; 
@@ -3928,8 +3920,7 @@ off_9AA3:
 
 _off007_9AAF_AB_face_p_masao_akita:
 ; p_masao_akita, p_kazuo_akita
-- D 0 - I - 0x029ABF 14:9AAF: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029AC1 14:9AB1: 1B        .byte $1B   ; 
+- D 0 - I - 0x029ABF 14:9AAF: F5        .byte con_8084_cb_F5, con_81BA_84, $1B   ; 
 off_9AB2:
 - D 0 - I - 0x029AC2 14:9AB2: F4        .byte con_8084_cb_chr_spr, $33, $00, $00, $00   ; 
 - D 0 - I - 0x029AC7 14:9AB7: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_99, $00, $D3, $01   ; 
@@ -3938,7 +3929,7 @@ off_9AB2:
 
 
 _off007_9ABE_AC:
-- D 0 - I - 0x029ACE 14:9ABE: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029ACE 14:9ABE: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029AD0 14:9AC0: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 0 - I - 0x029AD5 14:9AC5: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029AD8 14:9AC8: F1        .byte con_8084_cb_F1, con_A1B4_B4, con_AC47_29, $E0, $1B, $06   ; 
@@ -3949,8 +3940,7 @@ _off007_9ABE_AC:
 
 _off007_9AD5_AD_face_p_soda_tatsunami:
 ; p_soda_tatsunami
-- D 0 - I - 0x029AE5 14:9AD5: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029AE7 14:9AD7: 1D        .byte $1D   ; 
+- D 0 - I - 0x029AE5 14:9AD5: F5        .byte con_8084_cb_F5, con_81BA_84, $1D   ; 
 off_9AD8:
 - D 0 - I - 0x029AE8 14:9AD8: F4        .byte con_8084_cb_chr_spr, $33, $30, $00, $00   ; 
 - D 0 - I - 0x029AED 14:9ADD: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_9A, $00, $D3, $01   ; 
@@ -3960,8 +3950,7 @@ off_9AD8:
 
 _off007_9AE4_AE_face_p_misugi_musashi:
 ; p_misugi_musashi
-- D 0 - I - 0x029AF4 14:9AE4: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029AF6 14:9AE6: 1E        .byte $1E   ; 
+- D 0 - I - 0x029AF4 14:9AE4: F5        .byte con_8084_cb_F5, con_81BA_84, $1E   ; 
 off_9AE7:
 - D 0 - I - 0x029AF7 14:9AE7: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x029AFC 14:9AEC: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A7, $00, $D3, $01   ; 
@@ -3971,8 +3960,7 @@ off_9AE7:
 
 _off007_9AF3_AF_face_p_matsuyama_furano:
 ; p_matsuyama_furano
-- D 0 - I - 0x029B03 14:9AF3: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B05 14:9AF5: 1F        .byte $1F   ; 
+- D 0 - I - 0x029B03 14:9AF3: F5        .byte con_8084_cb_F5, con_81BA_84, $1F   ; 
 off_9AF6:
 - D 0 - I - 0x029B06 14:9AF6: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x029B0B 14:9AFB: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A8, $00, $D3, $01   ; 
@@ -3982,8 +3970,7 @@ off_9AF6:
 
 _off007_9B02_B0_face_p_hyuga_toho:
 ; p_hyuga_toho
-- D 0 - I - 0x029B12 14:9B02: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B14 14:9B04: 20        .byte $20   ; 
+- D 0 - I - 0x029B12 14:9B02: F5        .byte con_8084_cb_F5, con_81BA_84, $20   ; 
 off_9B05:
 - D 0 - I - 0x029B15 14:9B05: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029B1A 14:9B0A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_9B, $00, $D3, $01   ; 
@@ -3993,8 +3980,7 @@ off_9B05:
 
 _off007_9B11_B1_face_p_sawada_toho:
 ; p_sawada_toho
-- D 0 - I - 0x029B21 14:9B11: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B23 14:9B13: 21        .byte $21   ; 
+- D 0 - I - 0x029B21 14:9B11: F5        .byte con_8084_cb_F5, con_81BA_84, $21   ; 
 off_9B14:
 - D 0 - I - 0x029B24 14:9B14: F4        .byte con_8084_cb_chr_spr, $34, $00, $00, $00   ; 
 - D 0 - I - 0x029B29 14:9B19: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_9C, $00, $D3, $01   ; 
@@ -4004,8 +3990,7 @@ off_9B14:
 
 _off007_9B20_B2_face_p_victorino_uruguay:
 ; p_victorino_uruguay
-- D 0 - I - 0x029B30 14:9B20: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B32 14:9B22: 23        .byte $23   ; 
+- D 0 - I - 0x029B30 14:9B20: F5        .byte con_8084_cb_F5, con_81BA_84, $23   ; 
 - D 0 - I - 0x029B33 14:9B23: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x029B38 14:9B28: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_AC, $00, $D3, $01   ; 
 - D 0 - I - 0x029B3E 14:9B2E: F0        .byte con_8084_cb_exit   ; 
@@ -4014,8 +3999,7 @@ _off007_9B20_B2_face_p_victorino_uruguay:
 
 _off007_9B2F_B3_face_p_kaltz_hamburger_sv:
 ; p_kaltz_hamburger_sv
-- D 0 - I - 0x029B3F 14:9B2F: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B41 14:9B31: 24        .byte $24   ; 
+- D 0 - I - 0x029B3F 14:9B2F: F5        .byte con_8084_cb_F5, con_81BA_84, $24   ; 
 - D 0 - I - 0x029B42 14:9B32: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x029B43 14:9B33: 83 9B     .word off_9B83
 
@@ -4023,8 +4007,7 @@ _off007_9B2F_B3_face_p_kaltz_hamburger_sv:
 
 _off007_9B35_B4_face_p_napoleon_france:
 ; p_napoleon_france
-- D 0 - I - 0x029B45 14:9B35: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B47 14:9B37: 33        .byte $33   ; 
+- D 0 - I - 0x029B45 14:9B35: F5        .byte con_8084_cb_F5, con_81BA_84, $33   ; 
 - D 0 - I - 0x029B48 14:9B38: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029B4D 14:9B3D: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A6, $00, $D3, $01   ; 
 - D 0 - I - 0x029B53 14:9B43: F0        .byte con_8084_cb_exit   ; 
@@ -4033,8 +4016,7 @@ _off007_9B35_B4_face_p_napoleon_france:
 
 _off007_9B44_B5_face_p_pierre_france:
 ; p_pierre_france
-- D 0 - I - 0x029B54 14:9B44: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B56 14:9B46: 34        .byte $34   ; 
+- D 0 - I - 0x029B54 14:9B44: F5        .byte con_8084_cb_F5, con_81BA_84, $34   ; 
 - D 0 - I - 0x029B57 14:9B47: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029B5C 14:9B4C: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A5, $00, $D3, $01   ; 
 - D 0 - I - 0x029B62 14:9B52: F0        .byte con_8084_cb_exit   ; 
@@ -4043,8 +4025,7 @@ _off007_9B44_B5_face_p_pierre_france:
 
 _off007_9B53_B6_face_p_pascal_argentina:
 ; p_pascal_argentina
-- D 0 - I - 0x029B63 14:9B53: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B65 14:9B55: 35        .byte $35   ; 
+- D 0 - I - 0x029B63 14:9B53: F5        .byte con_8084_cb_F5, con_81BA_84, $35   ; 
 - D 0 - I - 0x029B66 14:9B56: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x029B6B 14:9B5B: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A0, $00, $D3, $01   ; 
 - D 0 - I - 0x029B71 14:9B61: F0        .byte con_8084_cb_exit   ; 
@@ -4053,8 +4034,7 @@ _off007_9B53_B6_face_p_pascal_argentina:
 
 _off007_9B62_B7_face_p_diaz_argentina:
 ; p_diaz_argentina
-- D 0 - I - 0x029B72 14:9B62: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B74 14:9B64: 36        .byte $36   ; 
+- D 0 - I - 0x029B72 14:9B62: F5        .byte con_8084_cb_F5, con_81BA_84, $36   ; 
 - D 0 - I - 0x029B75 14:9B65: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029B7A 14:9B6A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_9F, $00, $D3, $01   ; 
 - D 0 - I - 0x029B80 14:9B70: F0        .byte con_8084_cb_exit   ; 
@@ -4063,8 +4043,7 @@ _off007_9B62_B7_face_p_diaz_argentina:
 
 _off007_9B71_B8_face_p_schneider_west_germany:
 ; p_schneider_west_germany
-- D 0 - I - 0x029B81 14:9B71: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B83 14:9B73: 37        .byte $37   ; 
+- D 0 - I - 0x029B81 14:9B71: F5        .byte con_8084_cb_F5, con_81BA_84, $37   ; 
 - D 0 - I - 0x029B84 14:9B74: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029B89 14:9B79: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A3, $00, $D3, $01   ; 
 - D 0 - I - 0x029B8F 14:9B7F: F0        .byte con_8084_cb_exit   ; 
@@ -4073,8 +4052,7 @@ _off007_9B71_B8_face_p_schneider_west_germany:
 
 _off007_9B80_B9_face_p_kaltz_west_germany:
 ; p_kaltz_west_germany
-- D 0 - I - 0x029B90 14:9B80: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029B92 14:9B82: 38        .byte $38   ; 
+- D 0 - I - 0x029B90 14:9B80: F5        .byte con_8084_cb_F5, con_81BA_84, $38   ; 
 off_9B83:
 - D 0 - I - 0x029B93 14:9B83: F4        .byte con_8084_cb_chr_spr, $35, $00, $00, $00   ; 
 - D 0 - I - 0x029B98 14:9B88: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A2, $00, $D3, $01   ; 
@@ -4084,8 +4062,7 @@ off_9B83:
 
 _off007_9B8F_BA_face_p_schester_west_germany:
 ; p_schester_west_germany
-- D 0 - I - 0x029B9F 14:9B8F: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029BA1 14:9B91: 39        .byte $39   ; 
+- D 0 - I - 0x029B9F 14:9B8F: F5        .byte con_8084_cb_F5, con_81BA_84, $39   ; 
 - D 0 - I - 0x029BA2 14:9B92: F4        .byte con_8084_cb_chr_spr, $36, $37, $00, $00   ; 
 - D 0 - I - 0x029BA7 14:9B97: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A4, $00, $D3, $01   ; 
 - D 0 - I - 0x029BAD 14:9B9D: F0        .byte con_8084_cb_exit   ; 
@@ -4094,8 +4071,7 @@ _off007_9B8F_BA_face_p_schester_west_germany:
 
 _off007_9B9E_BB_face_p_carlos_brazil:
 ; p_carlos_brazil
-- D 0 - I - 0x029BAE 14:9B9E: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029BB0 14:9BA0: 3A        .byte $3A   ; 
+- D 0 - I - 0x029BAE 14:9B9E: F5        .byte con_8084_cb_F5, con_81BA_84, $3A   ; 
 off_9BA1:
 - D 0 - I - 0x029BB1 14:9BA1: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029BB6 14:9BA6: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_A1, $00, $D3, $01   ; 
@@ -4105,8 +4081,7 @@ off_9BA1:
 
 _off007_9BAD_BC_face_p_coimbra_brazil:
 ; p_coimbra_brazil
-- D 0 - I - 0x029BBD 14:9BAD: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029BBF 14:9BAF: 3C        .byte $3C   ; 
+- D 0 - I - 0x029BBD 14:9BAD: F5        .byte con_8084_cb_F5, con_81BA_84, $3C   ; 
 - D 0 - I - 0x029BC0 14:9BB0: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029BC5 14:9BB5: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_AB, $00, $D3, $01   ; 
 - D 0 - I - 0x029BCB 14:9BBB: F0        .byte con_8084_cb_exit   ; 
@@ -4114,8 +4089,7 @@ _off007_9BAD_BC_face_p_coimbra_brazil:
 
 
 _off007_9BBC_BD:
-- D 0 - I - 0x029BCC 14:9BBC: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029BCE 14:9BBE: 84        .byte con_8316_84   ; 
+- D 0 - I - 0x029BCC 14:9BBC: F5        .byte con_8084_cb_F5, con_81BA_84, con_8316_84   ; 
 - D 0 - I - 0x029BCF 14:9BBF: F4        .byte con_8084_cb_chr_spr, $1D, $00, $80, $48   ; 
 - D 0 - I - 0x029BD4 14:9BC4: F1        .byte con_8084_cb_F1, con_A1B4_72, con_AC47_B2, $08, $CB, $01   ; 
 - D 0 - I - 0x029BDA 14:9BCA: F0        .byte con_8084_cb_exit   ; 
@@ -4123,7 +4097,7 @@ _off007_9BBC_BD:
 
 
 _off007_9BCB_BE:
-- D 0 - I - 0x029BDB 14:9BCB: F5        .byte con_8084_cb_F5, $17   ; 
+- D 0 - I - 0x029BDB 14:9BCB: F5        .byte con_8084_cb_F5, con_FBCC_17   ; 
 - D 0 - I - 0x029BDD 14:9BCD: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029BE2 14:9BD2: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x029BE8 14:9BD8: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D7, $F0, $B3, $04   ; 
@@ -4143,7 +4117,7 @@ _off007_9BCB_BE:
 
 
 _off007_9C06_BF:
-- D 0 - I - 0x029C16 14:9C06: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029C16 14:9C06: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029C18 14:9C08: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $0B   ; 
 - D 0 - I - 0x029C1D 14:9C0D: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029C20 14:9C10: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
@@ -4160,7 +4134,7 @@ _off007_9C06_BF:
 
 
 _off007_9C38_C0:
-- D 0 - I - 0x029C48 14:9C38: F5        .byte con_8084_cb_F5, $0D   ; 
+- D 0 - I - 0x029C48 14:9C38: F5        .byte con_8084_cb_F5, con_FBCC_0D   ; 
 off_9C3A:
 - D 0 - I - 0x029C4A 14:9C3A: F4        .byte con_8084_cb_chr_spr, $14, $15, $16, $00   ; 
 - D 0 - I - 0x029C4F 14:9C3F: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_3D, $00, $C3, $01   ; 
@@ -4169,7 +4143,7 @@ off_9C3A:
 
 
 _off007_9C46_C1:
-- D 0 - I - 0x029C56 14:9C46: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x029C56 14:9C46: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 off_9C48:
 - D 0 - I - 0x029C58 14:9C48: F4        .byte con_8084_cb_chr_spr, $14, $15, $16, $00   ; 
 - D 0 - I - 0x029C5D 14:9C4D: F1        .byte con_8084_cb_F1, con_A1B4_BC, con_AC47_41, $B0, $C3, $00   ; 
@@ -4178,7 +4152,7 @@ off_9C48:
 
 
 _off007_9C54_C2:
-- D 0 - I - 0x029C64 14:9C54: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029C64 14:9C54: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029C66 14:9C56: F4        .byte con_8084_cb_chr_spr, $14, $15, $16, $00   ; 
 - D 0 - I - 0x029C6B 14:9C5B: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_42, $00, $C3, $01   ; 
 - D 0 - I - 0x029C71 14:9C61: F0        .byte con_8084_cb_exit   ; 
@@ -4186,7 +4160,7 @@ _off007_9C54_C2:
 
 
 _off007_9C62_C3:
-- D 0 - I - 0x029C72 14:9C62: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029C72 14:9C62: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029C74 14:9C64: F4        .byte con_8084_cb_chr_spr, $14, $15, $16, $00   ; 
 - D 0 - I - 0x029C79 14:9C69: F1        .byte con_8084_cb_F1, con_A1B4_BC, con_AC47_44, $A0, $C3, $00   ; 
 - D 0 - I - 0x029C7F 14:9C6F: F0        .byte con_8084_cb_exit   ; 
@@ -4194,7 +4168,7 @@ _off007_9C62_C3:
 
 
 _off007_9C70_C4:
-- D 0 - I - 0x029C80 14:9C70: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029C80 14:9C70: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029C82 14:9C72: F4        .byte con_8084_cb_chr_spr, $04, $05, $20, $21   ; 
 - D 0 - I - 0x029C87 14:9C77: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x029C8A 14:9C7A: F1        .byte con_8084_cb_F1, con_A1B4_BD, con_AC47_32, $08, $E3, $0D   ; 
@@ -4206,7 +4180,7 @@ _off007_9C70_C4:
 
 
 _off007_9C93_C5:
-- D 0 - I - 0x029CA3 14:9C93: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029CA3 14:9C93: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029CA5 14:9C95: F4        .byte con_8084_cb_chr_spr, $04, $05, $20, $21   ; 
 - D 0 - I - 0x029CAA 14:9C9A: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $FB, $00   ; 
 - D 0 - I - 0x029CB0 14:9CA0: F1        .byte con_8084_cb_F1, con_A1B4_BF, con_AC47_CF, $F0, $CB, $04   ; 
@@ -4216,7 +4190,7 @@ _off007_9C93_C5:
 
 
 _off007_9CAD_C6:
-- D 0 - I - 0x029CBD 14:9CAD: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029CBD 14:9CAD: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029CBF 14:9CAF: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029CC4 14:9CB4: F1        .byte con_8084_cb_F1, con_A1B4_64, con_AC47_1D, $20, $BB, $05   ; 
 - D 0 - I - 0x029CCA 14:9CBA: F1        .byte con_8084_cb_F1, con_A1B4_65, con_AC47_1E, $D0, $93, $00   ; 
@@ -4231,7 +4205,7 @@ _off007_9CAD_C6:
 
 
 _off007_9CD7_C7:
-- D 0 - I - 0x029CE7 14:9CD7: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029CE7 14:9CD7: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029CE9 14:9CD9: F4        .byte con_8084_cb_chr_spr, $10, $11, $12, $13   ; 
 - D 0 - I - 0x029CEE 14:9CDE: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029CF1 14:9CE1: F1        .byte con_8084_cb_F1, con_A1B4_C2, con_AC47_53, $E0, $7B, $0C   ; 
@@ -4244,7 +4218,7 @@ _off007_9CD7_C7:
 
 
 _off007_9CFB_C8:
-- D 0 - I - 0x029D0B 14:9CFB: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029D0B 14:9CFB: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029D0D 14:9CFD: F4        .byte con_8084_cb_chr_spr, $04, $05, $20, $21   ; 
 - D 0 - I - 0x029D12 14:9D02: F1        .byte con_8084_cb_F1, con_A1B4_C4, con_AC47_32, $B8, $BB, $05   ; 
 - D 0 - I - 0x029D18 14:9D08: F1        .byte con_8084_cb_F1, con_A1B4_C5, con_AC47_C0, $E0, $C3, $00   ; 
@@ -4253,7 +4227,7 @@ _off007_9CFB_C8:
 
 
 _off007_9D0F_C9:
-- D 0 - I - 0x029D1F 14:9D0F: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029D1F 14:9D0F: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029D21 14:9D11: F4        .byte con_8084_cb_chr_spr, $13, $00, $0F, $00   ; 
 - D 0 - I - 0x029D26 14:9D16: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029D29 14:9D19: F1        .byte con_8084_cb_F1, con_A1B4_C6, con_AC47_2B, $40, $0B, $0F   ; 
@@ -4267,7 +4241,7 @@ _off007_9D0F_C9:
 
 
 _off007_9D34_CA:
-- D 0 - I - 0x029D44 14:9D34: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029D44 14:9D34: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029D46 14:9D36: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 0 - I - 0x029D4B 14:9D3B: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x029D4E 14:9D3E: F1        .byte con_8084_cb_F1, con_A1B4_51, con_AC47_1C, $00, $CB, $0C   ; 
@@ -4291,7 +4265,7 @@ off_9D6C:
 
 
 _off007_9D79_CB:
-- D 0 - I - 0x029D89 14:9D79: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029D89 14:9D79: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029D8B 14:9D7B: F4        .byte con_8084_cb_chr_spr, $2B, $00, $00, $00   ; 
 - D 0 - I - 0x029D90 14:9D80: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_57, $10, $C3, $01   ; 
 - D 0 - I - 0x029D96 14:9D86: F0        .byte con_8084_cb_exit   ; 
@@ -4299,7 +4273,7 @@ _off007_9D79_CB:
 
 
 _off007_9D87_CC:
-- D 0 - I - 0x029D97 14:9D87: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029D97 14:9D87: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029D99 14:9D89: F4        .byte con_8084_cb_chr_spr, $14, $15, $16, $00   ; 
 - D 0 - I - 0x029D9E 14:9D8E: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x029DA1 14:9D91: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_00, $80, $DB, $00   ; 
@@ -4310,7 +4284,7 @@ _off007_9D87_CC:
 
 
 _off007_9DA4_CD:
-- D 0 - I - 0x029DB4 14:9DA4: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029DB4 14:9DA4: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029DB6 14:9DA6: F4        .byte con_8084_cb_chr_spr, $27, $1E, $00, $0B   ; 
 - D 0 - I - 0x029DBB 14:9DAB: F1        .byte con_8084_cb_F1, con_A1B4_B6, con_AC47_13, $50, $AB, $04   ; 
 - D 0 - I - 0x029DC1 14:9DB1: F1        .byte con_8084_cb_F1, con_A1B4_92, con_AC47_49, $20, $77, $01   ; 
@@ -4319,7 +4293,7 @@ _off007_9DA4_CD:
 
 
 _off007_9DB8_CE:
-- D 0 - I - 0x029DC8 14:9DB8: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029DC8 14:9DB8: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029DCA 14:9DBA: F4        .byte con_8084_cb_chr_spr, $22, $23, $00, $00   ; 
 - D 0 - I - 0x029DCF 14:9DBF: F1        .byte con_8084_cb_F1, con_A1B4_BB, con_AC47_62, $18, $8B, $01   ; 
 - D 0 - I - 0x029DD5 14:9DC5: 01        .byte $01   ; 
@@ -4337,7 +4311,7 @@ _off007_9DB8_CE:
 
 
 _off007_9DE9_CF:
-- D 0 - I - 0x029DF9 14:9DE9: F5        .byte con_8084_cb_F5, $81   ; 
+- D 0 - I - 0x029DF9 14:9DE9: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 0 - I - 0x029DFB 14:9DEB: F4        .byte con_8084_cb_chr_spr, $14, $15, $16, $00   ; 
 - D 0 - I - 0x029E00 14:9DF0: F1        .byte con_8084_cb_F1, con_A1B4_B9, con_AC47_52, $B0, $E3, $0C   ; 
 - D 0 - I - 0x029E06 14:9DF6: 28        .byte $28   ; 
@@ -4349,7 +4323,7 @@ _off007_9DE9_CF:
 
 
 _off007_9E07_D0:
-- D 0 - I - 0x029E17 14:9E07: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029E17 14:9E07: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029E19 14:9E09: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029E1E 14:9E0E: F1        .byte con_8084_cb_F1, con_A1B4_D3, con_AC47_6D, $60, $BB, $05   ; 
 - D 0 - I - 0x029E24 14:9E14: F1        .byte con_8084_cb_F1, con_A1B4_D3, con_AC47_6C, $60, $BB, $01   ; 
@@ -4359,7 +4333,7 @@ _off007_9E07_D0:
 
 
 _off007_9E21_D1:
-- D 0 - I - 0x029E31 14:9E21: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029E31 14:9E21: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029E33 14:9E23: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029E38 14:9E28: F1        .byte con_8084_cb_F1, con_A1B4_CA, con_AC47_6D, $20, $C3, $05   ; 
 - D 0 - I - 0x029E3E 14:9E2E: F1        .byte con_8084_cb_F1, con_A1B4_CA, con_AC47_6C, $20, $C3, $01   ; 
@@ -4369,7 +4343,7 @@ _off007_9E21_D1:
 
 
 _off007_9E3B_D2:
-- D 0 - I - 0x029E4B 14:9E3B: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029E4B 14:9E3B: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029E4D 14:9E3D: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029E52 14:9E42: F1        .byte con_8084_cb_F1, con_A1B4_C9, con_AC47_BE, $E0, $C3, $04   ; 
 - D 0 - I - 0x029E58 14:9E48: F1        .byte con_8084_cb_F1, con_A1B4_C9, con_AC47_BB, $E0, $C3, $00   ; 
@@ -4379,7 +4353,7 @@ _off007_9E3B_D2:
 
 
 _off007_9E55_D3:
-- D 0 - I - 0x029E65 14:9E55: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x029E65 14:9E55: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x029E67 14:9E57: F4        .byte con_8084_cb_chr_spr, $18, $19, $1A, $1B   ; 
 - D 0 - I - 0x029E6C 14:9E5C: F1        .byte con_8084_cb_F1, con_A1B4_13, con_AC47_17, $F8, $C3, $04   ; 
 - D 0 - I - 0x029E72 14:9E62: F1        .byte con_8084_cb_F1, con_A1B4_CE, con_AC47_15, $80, $EB, $00   ; 
@@ -4389,8 +4363,7 @@ _off007_9E55_D3:
 
 
 _off007_9E6B_D4:
-- D 0 - I - 0x029E7B 14:9E6B: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029E7D 14:9E6D: 34        .byte $34   ; 
+- D 0 - I - 0x029E7B 14:9E6B: F5        .byte con_8084_cb_F5, con_81BA_84, $34   ; 
 - D 0 - I - 0x029E7E 14:9E6E: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029E83 14:9E73: F1        .byte con_8084_cb_F1, con_A1B4_CC, con_AC47_A5, $F8, $D3, $01   ; 
 - D 0 - I - 0x029E89 14:9E79: F0        .byte con_8084_cb_exit   ; 
@@ -4398,8 +4371,7 @@ _off007_9E6B_D4:
 
 
 _off007_9E7A_D5:
-- D 0 - I - 0x029E8A 14:9E7A: F5        .byte con_8084_cb_F5, $84   ; 
-- D 0 - I - 0x029E8C 14:9E7C: 33        .byte $33   ; 
+- D 0 - I - 0x029E8A 14:9E7A: F5        .byte con_8084_cb_F5, con_81BA_84, $33   ; 
 - D 0 - I - 0x029E8D 14:9E7D: F4        .byte con_8084_cb_chr_spr, $30, $31, $32, $00   ; 
 - D 0 - I - 0x029E92 14:9E82: F1        .byte con_8084_cb_F1, con_A1B4_CC, con_AC47_A6, $F8, $D3, $01   ; 
 - D 0 - I - 0x029E98 14:9E88: F0        .byte con_8084_cb_exit   ; 
@@ -4407,7 +4379,7 @@ _off007_9E7A_D5:
 
 
 _off007_9E89_D6:
-- D 0 - I - 0x029E99 14:9E89: F5        .byte con_8084_cb_F5, $0F   ; 
+- D 0 - I - 0x029E99 14:9E89: F5        .byte con_8084_cb_F5, con_FBCC_0F   ; 
 - D 0 - I - 0x029E9B 14:9E8B: F4        .byte con_8084_cb_chr_spr, $16, $17, $2D, $00   ; 
 - D 0 - I - 0x029EA0 14:9E90: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_69, $00, $C3, $01   ; 
 - D 0 - I - 0x029EA6 14:9E96: F0        .byte con_8084_cb_exit   ; 
@@ -4415,7 +4387,7 @@ _off007_9E89_D6:
 
 
 _off007_9E97_D7:
-- D 0 - I - 0x029EA7 14:9E97: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029EA7 14:9E97: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029EA9 14:9E99: F4        .byte con_8084_cb_chr_spr, $16, $17, $2D, $00   ; 
 - D 0 - I - 0x029EAE 14:9E9E: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_7B, $00, $C3, $01   ; 
 - D 0 - I - 0x029EB4 14:9EA4: F0        .byte con_8084_cb_exit   ; 
@@ -4423,7 +4395,7 @@ _off007_9E97_D7:
 
 
 _off007_9EA5_D8:
-- D 0 - I - 0x029EB5 14:9EA5: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029EB5 14:9EA5: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029EB7 14:9EA7: F4        .byte con_8084_cb_chr_spr, $16, $17, $2D, $00   ; 
 - D 0 - I - 0x029EBC 14:9EAC: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_7C, $00, $C3, $01   ; 
 - D 0 - I - 0x029EC2 14:9EB2: F0        .byte con_8084_cb_exit   ; 
@@ -4431,7 +4403,7 @@ _off007_9EA5_D8:
 
 
 _off007_9EB3_D9:
-- D 0 - I - 0x029EC3 14:9EB3: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029EC3 14:9EB3: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029EC5 14:9EB5: F4        .byte con_8084_cb_chr_spr, $16, $17, $2D, $00   ; 
 - D 0 - I - 0x029ECA 14:9EBA: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_7D, $00, $C3, $01   ; 
 - D 0 - I - 0x029ED0 14:9EC0: F0        .byte con_8084_cb_exit   ; 
@@ -4439,7 +4411,7 @@ _off007_9EB3_D9:
 
 
 _off007_9EC1_DA:
-- D 0 - I - 0x029ED1 14:9EC1: F5        .byte con_8084_cb_F5, $83   ; 
+- D 0 - I - 0x029ED1 14:9EC1: F5        .byte con_8084_cb_F5, con_81BA_кипер_команды_без_мяча   ; 
 - D 0 - I - 0x029ED3 14:9EC3: F4        .byte con_8084_cb_chr_spr, $04, $05, $1E, $1F   ; 
 - D 0 - I - 0x029ED8 14:9EC8: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_8C, $1C, $D7, $01   ; 
 - D 0 - I - 0x029EDE 14:9ECE: F0        .byte con_8084_cb_exit   ; 
@@ -4447,7 +4419,7 @@ _off007_9EC1_DA:
 
 
 _off007_9ECF_DB:
-- D 0 - I - 0x029EDF 14:9ECF: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029EDF 14:9ECF: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029EE1 14:9ED1: F4        .byte con_8084_cb_chr_spr, $10, $11, $12, $13   ; 
 - D 0 - I - 0x029EE6 14:9ED6: F7        .byte con_8084_cb_spr_Y_limit, $23, $5B   ; 
 - D 0 - I - 0x029EE9 14:9ED9: F1        .byte con_8084_cb_F1, con_A1B4_E0, con_AC47_6B, $06, $B3, $0C   ; 
@@ -4470,7 +4442,7 @@ _off007_9ECF_DB:
 
 
 _off007_9F1F_DC:
-- D 0 - I - 0x029F2F 14:9F1F: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029F2F 14:9F1F: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029F31 14:9F21: F4        .byte con_8084_cb_chr_spr, $04, $05, $20, $21   ; 
 - D 0 - I - 0x029F36 14:9F26: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 0 - I - 0x029F39 14:9F29: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_54, $10, $BB, $09   ; 
@@ -4481,7 +4453,7 @@ _off007_9F1F_DC:
 
 
 _off007_9F3C_DD:
-- D 0 - I - 0x029F4C 14:9F3C: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029F4C 14:9F3C: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029F4E 14:9F3E: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029F53 14:9F43: F1        .byte con_8084_cb_F1, con_A1B4_CF, con_AC47_4D, $00, $C3, $05   ; 
 - D 0 - I - 0x029F59 14:9F49: F1        .byte con_8084_cb_F1, con_A1B4_CF, con_AC47_4B, $00, $C3, $01   ; 
@@ -4491,7 +4463,7 @@ _off007_9F3C_DD:
 
 
 _off007_9F56_DE:
-- D 0 - I - 0x029F66 14:9F56: F5        .byte con_8084_cb_F5, $09   ; 
+- D 0 - I - 0x029F66 14:9F56: F5        .byte con_8084_cb_F5, con_FBCC_09   ; 
 - D 0 - I - 0x029F68 14:9F58: F4        .byte con_8084_cb_chr_spr, $60, $61, $62, $63   ; 
 - D 0 - I - 0x029F6D 14:9F5D: F1        .byte con_8084_cb_F1, con_A1B4_0F, con_AC47_79, $F0, $BB, $01   ; 
 - D 0 - I - 0x029F73 14:9F63: EF        .byte $EF   ; 
@@ -4503,7 +4475,7 @@ _off007_9F56_DE:
 
 
 _off007_9F6D_DF:
-- D 0 - I - 0x029F7D 14:9F6D: F5        .byte con_8084_cb_F5, $18   ; 
+- D 0 - I - 0x029F7D 14:9F6D: F5        .byte con_8084_cb_F5, con_FBCC_18   ; 
 - D 0 - I - 0x029F7F 14:9F6F: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029F84 14:9F74: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 0 - I - 0x029F8A 14:9F7A: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D4, $F0, $B3, $04   ; 
@@ -4523,11 +4495,11 @@ _off007_9F6D_DF:
 
 
 _off007_9FA8_E0:
-- D 0 - I - 0x029FB8 14:9FA8: F5        .byte con_8084_cb_F5, $14   ; 
+- D 0 - I - 0x029FB8 14:9FA8: F5        .byte con_8084_cb_F5, con_FBCC_14   ; 
 - D 0 - I - 0x029FBA 14:9FAA: F4        .byte con_8084_cb_chr_spr, $74, $75, $7B, $67   ; 
 - D 0 - I - 0x029FBF 14:9FAF: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_81, $00, $D3, $01   ; 
 - D 0 - I - 0x029FC5 14:9FB5: EF        .byte $EF   ; 
-- D 0 - I - 0x029FC6 14:9FB6: F5        .byte con_8084_cb_F5, $0C   ; 
+- D 0 - I - 0x029FC6 14:9FB6: F5        .byte con_8084_cb_F5, con_FBCC_0C   ; 
 - D 0 - I - 0x029FC8 14:9FB8: F4        .byte con_8084_cb_chr_spr, $6C, $6D, $6E, $6F   ; 
 - D 0 - I - 0x029FCD 14:9FBD: F1        .byte con_8084_cb_F1, con_A1B4_D5, con_AC47_78, $F8, $D3, $00   ; 
 - D 0 - I - 0x029FD3 14:9FC3: F0        .byte con_8084_cb_exit   ; 
@@ -4535,14 +4507,14 @@ _off007_9FA8_E0:
 
 
 _off007_9FC4_E1:
-- D 0 - I - 0x029FD4 14:9FC4: F5        .byte con_8084_cb_F5, $0E   ; 
+- D 0 - I - 0x029FD4 14:9FC4: F5        .byte con_8084_cb_F5, con_FBCC_0E   ; 
 - D 0 - I - 0x029FD6 14:9FC6: F8        .byte con_8084_cb_jmp   ; 
 - D 0 - I - 0x029FD7 14:9FC7: 3A 9C     .word off_9C3A
 
 
 
 _off007_9FC9_E2:
-- D 0 - I - 0x029FD9 14:9FC9: F5        .byte con_8084_cb_F5, $80   ; 
+- D 0 - I - 0x029FD9 14:9FC9: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 0 - I - 0x029FDB 14:9FCB: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 0 - I - 0x029FE0 14:9FD0: F1        .byte con_8084_cb_F1, con_A1B4_DC, con_AC47_4D, $60, $B3, $05   ; 
 - D 0 - I - 0x029FE6 14:9FD6: F1        .byte con_8084_cb_F1, con_A1B4_DC, con_AC47_4B, $60, $B3, $01   ; 
@@ -4586,7 +4558,7 @@ off_A035:
 
 
 _off007_A04C_E3:
-- D 1 - I - 0x02A05C 14:A04C: F5        .byte con_8084_cb_F5, $81   ; 
+- D 1 - I - 0x02A05C 14:A04C: F5        .byte con_8084_cb_F5, con_81BA_игрок_без_мяча   ; 
 - D 1 - I - 0x02A05E 14:A04E: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 1 - I - 0x02A063 14:A053: F1        .byte con_8084_cb_F1, con_A1B4_8B, con_AC47_6E, $80, $BB, $09   ; 
 - D 1 - I - 0x02A069 14:A059: F1        .byte con_8084_cb_F1, con_A1B4_8B, con_AC47_6D, $80, $BB, $05   ; 
@@ -4596,7 +4568,7 @@ _off007_A04C_E3:
 
 
 _off007_A066_E4:
-- D 1 - I - 0x02A076 14:A066: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A076 14:A066: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A078 14:A068: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 1 - I - 0x02A07D 14:A06D: F1        .byte con_8084_cb_F1, con_A1B4_E4, con_AC47_4F, $21, $BA, $0D   ; 
 - D 1 - I - 0x02A083 14:A073: F1        .byte con_8084_cb_F1, con_A1B4_E4, con_AC47_4D, $21, $BA, $09   ; 
@@ -4610,7 +4582,7 @@ _off007_A066_E4:
 
 
 _off007_A08F_E5:
-- D 1 - I - 0x02A09F 14:A08F: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A09F 14:A08F: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A0A1 14:A091: F4        .byte con_8084_cb_chr_spr, $06, $00, $21, $26   ; 
 - D 1 - I - 0x02A0A6 14:A096: F1        .byte con_8084_cb_F1, con_A1B4_C0, con_AC47_51, $06, $B3, $05   ; 
 - D 1 - I - 0x02A0AC 14:A09C: F1        .byte con_8084_cb_F1, con_A1B4_C1, con_AC47_16, $00, $BF, $01   ; 
@@ -4619,14 +4591,14 @@ _off007_A08F_E5:
 
 
 _off007_A0A3_E6:
-- D 1 - I - 0x02A0B3 14:A0A3: F5        .byte con_8084_cb_F5, $87   ; 
+- D 1 - I - 0x02A0B3 14:A0A3: F5        .byte con_8084_cb_F5, con_81BA_принимающий_мяч   ; 
 - D 1 - I - 0x02A0B5 14:A0A5: F8        .byte con_8084_cb_jmp   ; 
 - D 1 - I - 0x02A0B6 14:A0A6: 1A 96     .word off_961A
 
 
 
 _off007_A0A8_E7:
-- D 1 - I - 0x02A0B8 14:A0A8: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A0B8 14:A0A8: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A0BA 14:A0AA: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 1 - I - 0x02A0BF 14:A0AF: F1        .byte con_8084_cb_F1, con_A1B4_42, con_AC47_C8, $80, $BB, $04   ; 
 - D 1 - I - 0x02A0C5 14:A0B5: F1        .byte con_8084_cb_F1, con_A1B4_42, con_AC47_97, $80, $BB, $00   ; 
@@ -4636,7 +4608,7 @@ _off007_A0A8_E7:
 
 
 _off007_A0BE_E8:
-- D 1 - I - 0x02A0CE 14:A0BE: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A0CE 14:A0BE: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A0D0 14:A0C0: F4        .byte con_8084_cb_chr_spr, $0C, $0D, $0E, $0F   ; 
 - D 1 - I - 0x02A0D5 14:A0C5: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 1 - I - 0x02A0D8 14:A0C8: F1        .byte con_8084_cb_F1, con_A1B4_2F, con_AC47_D0, $D0, $BB, $08   ; 
@@ -4652,7 +4624,7 @@ _off007_A0BE_E8:
 
 
 _off007_A0EA_E9:
-- D 1 - I - 0x02A0FA 14:A0EA: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A0FA 14:A0EA: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A0FC 14:A0EC: F4        .byte con_8084_cb_chr_spr, $16, $17, $2D, $53   ; 
 - D 1 - I - 0x02A101 14:A0F1: F1        .byte con_8084_cb_F1, con_A1B4_00, con_AC47_74, $00, $C3, $01   ; 
 - D 1 - I - 0x02A107 14:A0F7: F0        .byte con_8084_cb_exit   ; 
@@ -4660,7 +4632,7 @@ _off007_A0EA_E9:
 
 
 _off007_A0F8_EA:
-- D 1 - I - 0x02A108 14:A0F8: F5        .byte con_8084_cb_F5, $11   ; 
+- D 1 - I - 0x02A108 14:A0F8: F5        .byte con_8084_cb_F5, con_FBCC_11   ; 
 - D 1 - I - 0x02A10A 14:A0FA: F4        .byte con_8084_cb_chr_spr, $28, $29, $2A, $0B   ; 
 - D 1 - I - 0x02A10F 14:A0FF: F1        .byte con_8084_cb_F1, con_A1B4_39, con_AC47_73, $E8, $BB, $00   ; 
 - D 1 - I - 0x02A115 14:A105: F0        .byte con_8084_cb_exit   ; 
@@ -4668,7 +4640,7 @@ _off007_A0F8_EA:
 
 
 _off007_A106_EB:
-- D 1 - I - 0x02A116 14:A106: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A116 14:A106: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A118 14:A108: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 1 - I - 0x02A11D 14:A10D: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 1 - I - 0x02A120 14:A110: F1        .byte con_8084_cb_F1, con_A1B4_B4, con_AC47_75, $B0, $1B, $06   ; 
@@ -4679,7 +4651,7 @@ off_A116:
 
 
 _off007_A11D_EC:
-- D 1 - I - 0x02A12D 14:A11D: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A12D 14:A11D: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A12F 14:A11F: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 1 - I - 0x02A134 14:A124: F7        .byte con_8084_cb_spr_Y_limit, $03, $7B   ; 
 - D 1 - I - 0x02A137 14:A127: F1        .byte con_8084_cb_F1, con_A1B4_B4, con_AC47_76, $B0, $1B, $06   ; 
@@ -4689,7 +4661,7 @@ _off007_A11D_EC:
 
 
 _off007_A130_ED:
-- D 1 - I - 0x02A140 14:A130: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A140 14:A130: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A142 14:A132: F4        .byte con_8084_cb_chr_spr, $13, $00, $00, $00   ; 
 - D 1 - I - 0x02A147 14:A137: F1        .byte con_8084_cb_F1, con_A1B4_40, con_AC47_77, $D8, $CB, $00   ; 
 - D 1 - I - 0x02A14D 14:A13D: F0        .byte con_8084_cb_exit   ; 
@@ -4697,7 +4669,7 @@ _off007_A130_ED:
 
 
 _off007_A13E_EE:
-- D 1 - I - 0x02A14E 14:A13E: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A14E 14:A13E: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A150 14:A140: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 1 - I - 0x02A155 14:A145: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 1 - I - 0x02A15B 14:A14B: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_D8, $F0, $B3, $04   ; 
@@ -4717,7 +4689,7 @@ _off007_A13E_EE:
 
 
 _off007_A179_EF:
-- D 1 - I - 0x02A189 14:A179: F5        .byte con_8084_cb_F5, $80   ; 
+- D 1 - I - 0x02A189 14:A179: F5        .byte con_8084_cb_F5, con_81BA_игрок_с_мячом   ; 
 - D 1 - I - 0x02A18B 14:A17B: F4        .byte con_8084_cb_chr_spr, $08, $09, $0A, $0B   ; 
 - D 1 - I - 0x02A190 14:A180: F1        .byte con_8084_cb_F1, con_A1B4_AC, con_AC47_49, $9C, $63, $00   ; 
 - D 1 - I - 0x02A196 14:A186: F1        .byte con_8084_cb_F1, con_A1B4_67, con_AC47_B9, $F0, $B3, $04   ; 

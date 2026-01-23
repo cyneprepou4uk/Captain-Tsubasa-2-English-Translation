@@ -248,6 +248,8 @@ C - - - - - 0x016188 0B:8178: 90 0E     BCC bra_8188_00_EF
 C - - - - - 0x01618A 0B:817A: 20 BC 81  JSR sub_81BC_управляющие_байты_фона_анимаций_F0_F2
 C - - - - - 0x01618D 0B:817D: A9 02     LDA #$02
 C - - - - - 0x01618F 0B:817F: 8D D0 05  STA ram_05D0
+; для читабельности (тот же байт 02)
+                                       ;LDA #con_FBCC_02
 C - - - - - 0x016192 0B:8182: 8D 25 05  STA ram_0525
 C - - - - - 0x016195 0B:8185: 4C 9C 81  JMP loc_819C
 bra_8188_00_EF:
@@ -275,12 +277,12 @@ sub_81A7_управляющие_байты:
 C - - - - - 0x0161B7 0B:81A7: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x0161BA 0B:81AA: 27 83     .word ofs_009_8327_00
 - D 0 - I - 0x0161BC 0B:81AC: E7 83     .word ofs_009_83E7_01
-- - - - - - 0x0161BE 0B:81AE: FF 83     .word ofs_009_83FF_02
+- - - - - - 0x0161BE 0B:81AE: FF 83     .word ofs_009_83FF_02   ; unused, index doesn't exist
 - D 0 - I - 0x0161C0 0B:81B0: 58 83     .word ofs_009_8358_03
 - D 0 - I - 0x0161C2 0B:81B2: 77 83     .word ofs_009_8377_04
 - D 0 - I - 0x0161C4 0B:81B4: 64 83     .word ofs_009_8364_05
 - D 0 - I - 0x0161C6 0B:81B6: D2 83     .word ofs_009_83D2_06
-- - - - - - 0x0161C8 0B:81B8: E7 83     .word ofs_009_83E7_07
+- - - - - - 0x0161C8 0B:81B8: E7 83     .word ofs_009_83E7_07   ; unused, index doesn't exist
 - D 0 - I - 0x0161CA 0B:81BA: EE 83     .word ofs_009_83EE_08
 
 
@@ -617,6 +619,7 @@ C - - - - - 0x016336 0B:8326: 60        RTS
 
 
 ofs_009_8327_00:
+; con_81A7_00
 C - - J - - 0x016337 0B:8327: A0 02     LDY #$02
 bra_8329:   ; Y = 04
 loc_8329:   ; Y = 04 05
@@ -645,6 +648,7 @@ C - - - - - 0x016367 0B:8357: 60        RTS
 
 
 ofs_009_8358_03:
+; con_81A7_03
 C - - J - - 0x016368 0B:8358: 20 D9 84  JSR sub_84D9
 C - - - - - 0x01636B 0B:835B: A9 80     LDA #$80
 C - - - - - 0x01636D 0B:835D: 8D D1 05  STA ram_for_05D2
@@ -654,6 +658,7 @@ C - - - - - 0x016372 0B:8362: D0 C5     BNE bra_8329    ; jmp
 
 
 ofs_009_8364_05:
+; con_81A7_05
 C - - J - - 0x016374 0B:8364: 20 D9 84  JSR sub_84D9
 C - - - - - 0x016377 0B:8367: A9 80     LDA #$80
 C - - - - - 0x016379 0B:8369: 8D D1 05  STA ram_for_05D2
@@ -667,6 +672,7 @@ C - - - - - 0x016384 0B:8374: 4C 29 83  JMP loc_8329
 
 
 ofs_009_8377_04:
+; con_81A7_04
 C - - J - - 0x016387 0B:8377: 20 CF 84  JSR sub_84CF
 C - - - - - 0x01638A 0B:837A: A0 04     LDY #$04
 C - - - - - 0x01638C 0B:837C: B1 52     LDA (ram_0052_t02_data_фон_анимации),Y
@@ -708,6 +714,7 @@ C - - - - - 0x0163DF 0B:83CF: 4C 93 84  JMP loc_8493
 
 
 ofs_009_83D2_06:
+; con_81A7_06
 C - - J - - 0x0163E2 0B:83D2: 20 D9 84  JSR sub_84D9
 C - - - - - 0x0163E5 0B:83D5: A0 04     LDY #$04
 C - - - - - 0x0163E7 0B:83D7: B1 52     LDA (ram_0052_t02_data_фон_анимации),Y
@@ -720,7 +727,9 @@ C - - - - - 0x0163F4 0B:83E4: 4C 86 83  JMP loc_8386
 
 
 ofs_009_83E7_01:
+; con_81A7_01
 ofs_009_83E7_07:
+; con_81A7_07
 C - - J - - 0x0163F7 0B:83E7: A9 C0     LDA #$C0
 C - - - - - 0x0163F9 0B:83E9: 8D D1 05  STA ram_for_05D2
 C - - - - - 0x0163FC 0B:83EC: D0 1C     BNE bra_840A    ; jmp
@@ -728,6 +737,7 @@ C - - - - - 0x0163FC 0B:83EC: D0 1C     BNE bra_840A    ; jmp
 
 
 ofs_009_83EE_08:
+; con_81A7_08
 C - - J - - 0x0163FE 0B:83EE: A9 C2     LDA #$C0 + $02
 C - - - - - 0x016400 0B:83F0: 8D D1 05  STA ram_for_05D2
 C - - - - - 0x016403 0B:83F3: 20 CF 84  JSR sub_84CF
@@ -738,10 +748,15 @@ C - - - - - 0x01640C 0B:83FC: 4C 0D 84  JMP loc_840D
 
 
 ofs_009_83FF_02:
+; con_81A7_02
+; bzk garbage
 - - - - - - 0x01640F 0B:83FF: A9 C2     LDA #$C0 + $02
 - - - - - - 0x016411 0B:8401: 8D D1 05  STA ram_for_05D2
 - - - - - - 0x016414 0B:8404: 20 CF 84  JSR sub_84CF
 - - - - - - 0x016417 0B:8407: 20 5C 84  JSR sub_845C
+
+
+
 bra_840A:
 C - - - - - 0x01641A 0B:840A: 20 CF 84  JSR sub_84CF
 loc_840D:
@@ -783,6 +798,9 @@ C - - - - - 0x016469 0B:8459: 4C 93 84  JMP loc_8493
 
 
 sub_845C:
+; out
+    ; ram_05E1_lo
+    ; ram_05E2_hi
 C - - - - - 0x01646C 0B:845C: A0 04     LDY #$04
 C - - - - - 0x01646E 0B:845E: B1 52     LDA (ram_0052_t02_data_фон_анимации),Y
 C - - - - - 0x016470 0B:8460: 2C DF 05  BIT ram_05DF_hi
@@ -810,6 +828,7 @@ sub_847F:
 C - - - - - 0x01648F 0B:847F: A0 05     LDY #$05
 C - - - - - 0x016491 0B:8481: 2C 2A 05  BIT ram_флаг_зеркала_анимации
 C - - - - - 0x016494 0B:8484: 50 02     BVC bra_8488
+; if отзеркалено
 C - - - - - 0x016496 0B:8486: C8        INY
 C - - - - - 0x016497 0B:8487: C8        INY ; 07
 bra_8488:
@@ -874,7 +893,10 @@ C - - - - - 0x0164DE 0B:84CE: 60        RTS
 
 
 sub_84CF:
-C - - - - - 0x0164DF 0B:84CF: 20 F4 84  JSR sub_84F4
+; out
+    ; ram_05DE_lo
+    ; ram_05DF_hi
+C - - - - - 0x0164DF 0B:84CF: 20 F4 84  JSR sub_84F4_получить_XY_на_основе_данных_или_силы_действия
 C - - - - - 0x0164E2 0B:84D2: 8E DE 05  STX ram_05DE_lo
 C - - - - - 0x0164E5 0B:84D5: 8C DF 05  STY ram_05DF_hi
 C - - - - - 0x0164E8 0B:84D8: 60        RTS
@@ -882,9 +904,13 @@ C - - - - - 0x0164E8 0B:84D8: 60        RTS
 
 
 sub_84D9:
-C - - - - - 0x0164E9 0B:84D9: 20 F4 84  JSR sub_84F4
+; out
+    ; ram_05DE_lo
+    ; ram_05DF_hi
+C - - - - - 0x0164E9 0B:84D9: 20 F4 84  JSR sub_84F4_получить_XY_на_основе_данных_или_силы_действия
 C - - - - - 0x0164EC 0B:84DC: 2C 2A 05  BIT ram_флаг_зеркала_анимации
 C - - - - - 0x0164EF 0B:84DF: 50 0C     BVC bra_84ED
+; EOR 16-bit
 C - - - - - 0x0164F1 0B:84E1: 8A        TXA
 C - - - - - 0x0164F2 0B:84E2: 49 FF     EOR #$FF
 C - - - - - 0x0164F4 0B:84E4: AA        TAX
@@ -901,7 +927,10 @@ C - - - - - 0x016503 0B:84F3: 60        RTS
 
 
 
-sub_84F4:
+sub_84F4_получить_XY_на_основе_данных_или_силы_действия:
+; out
+    ; X = lo
+    ; Y = hi
 C - - - - - 0x016504 0B:84F4: A0 02     LDY #$02
 C - - - - - 0x016506 0B:84F6: B1 52     LDA (ram_0052_t02_data_фон_анимации),Y
 C - - - - - 0x016508 0B:84F8: AA        TAX
@@ -912,9 +941,12 @@ C - - - - - 0x01650D 0B:84FD: C9 80     CMP #$80
 C - - - - - 0x01650F 0B:84FF: F0 01     BEQ bra_8502
 C - - - - - 0x016511 0B:8501: 60        RTS
 bra_8502:
+; если 2й байт был 80, то умножить силу действия на 08
+; если 1й байт был 01, дополнительно умножить на 02 (итого 10)
 C - - - - - 0x016512 0B:8502: AD 1D 06  LDA ram_сила_действия_hi
 C - - - - - 0x016515 0B:8505: 85 3A     STA ram_003A_t19_сила_действия_hi
 C - - - - - 0x016517 0B:8507: AD 1C 06  LDA ram_сила_действия_lo
+; * 08
 C - - - - - 0x01651A 0B:850A: 0A        ASL
 C - - - - - 0x01651B 0B:850B: 26 3A     ROL ram_003A_t19_сила_действия_hi
 C - - - - - 0x01651D 0B:850D: 0A        ASL
@@ -923,9 +955,12 @@ C - - - - - 0x016520 0B:8510: 0A        ASL
 C - - - - - 0x016521 0B:8511: 26 3A     ROL ram_003A_t19_сила_действия_hi
 C - - - - - 0x016523 0B:8513: E0 01     CPX #$01
 C - - - - - 0x016525 0B:8515: F0 03     BEQ bra_851A
+; if 01
+; / 02 (10)
 C - - - - - 0x016527 0B:8517: 0A        ASL
 C - - - - - 0x016528 0B:8518: 26 3A     ROL ram_003A_t19_сила_действия_hi
 bra_851A:
+; bzk optimize, вместо TYA в 0x016530, поместить туда этот LDY
 C - - - - - 0x01652A 0B:851A: A4 3A     LDY ram_003A_t19_сила_действия_hi
 C - - - - - 0x01652C 0B:851C: 18        CLC
 C - - - - - 0x01652D 0B:851D: 69 C0     ADC #< $00C0
@@ -1475,10 +1510,9 @@ tbl_87F6_данные_фона_анимаций:
 
 _off005_88DE_00:
 ; con_s_bg_00
-- D 0 - I - 0x0168EE 0B:88DE: 02        .byte $02   ; 
-- D 0 - I - 0x0168EF 0B:88DF: 03        .byte $03   ; 
-- D 0 - I - 0x0168F0 0B:88E0: 00        .byte $00   ; 
-- D 0 - I - 0x0168F1 0B:88E1: 06        .byte $06   ; 
+- D 0 - I - 0x0168EE 0B:88DE: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0168EF 0B:88DF: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x0168F0 0B:88E0: 00 06     .word $0600 ; 
 - D 0 - I - 0x0168F2 0B:88E2: 50        .byte $50   ; 
 
 
@@ -1492,16 +1526,16 @@ _off005_88E3_01:
 
 _off005_88E4_02:
 ; con_s_bg_02
-- D 0 - I - 0x0168F4 0B:88E4: 02        .byte $02   ; 
-- D 0 - I - 0x0168F5 0B:88E5: 00        .byte $00   ; 
+- D 0 - I - 0x0168F4 0B:88E4: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0168F5 0B:88E5: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0168F6 0B:88E6: 52        .byte $52   ; 
 
 
 
 _off005_88E7_03:
 ; con_s_bg_03
-- D 0 - I - 0x0168F7 0B:88E7: 02        .byte $02   ; 
-- D 0 - I - 0x0168F8 0B:88E8: 05        .byte $05   ; 
+- D 0 - I - 0x0168F7 0B:88E7: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0168F8 0B:88E8: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x0168F9 0B:88E9: 00        .byte $00   ; 
 - D 0 - I - 0x0168FA 0B:88EA: 00        .byte $00   ; 
 - D 0 - I - 0x0168FB 0B:88EB: 4C        .byte $4C   ; 
@@ -1511,8 +1545,8 @@ _off005_88E7_03:
 
 _off005_88ED_04:
 ; con_s_bg_04
-- D 0 - I - 0x0168FD 0B:88ED: 02        .byte $02   ; 
-- D 0 - I - 0x0168FE 0B:88EE: 05        .byte $05   ; 
+- D 0 - I - 0x0168FD 0B:88ED: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0168FE 0B:88EE: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x0168FF 0B:88EF: 00        .byte $00   ; 
 - D 0 - I - 0x016900 0B:88F0: 00        .byte $00   ; 
 - D 0 - I - 0x016901 0B:88F1: 21        .byte $21   ; 
@@ -1522,16 +1556,16 @@ _off005_88ED_04:
 
 _off005_88F3_05:
 ; con_s_bg_05
-- D 0 - I - 0x016903 0B:88F3: 02        .byte $02   ; 
-- D 0 - I - 0x016904 0B:88F4: 00        .byte $00   ; 
+- D 0 - I - 0x016903 0B:88F3: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016904 0B:88F4: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016905 0B:88F5: 55        .byte $55   ; 
 
 
 
 _off005_88F6_06:
 ; con_s_bg_06
-- D 0 - I - 0x016906 0B:88F6: 02        .byte $02   ; 
-- D 0 - I - 0x016907 0B:88F7: 05        .byte $05   ; 
+- D 0 - I - 0x016906 0B:88F6: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016907 0B:88F7: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016908 0B:88F8: 00        .byte $00   ; 
 - D 0 - I - 0x016909 0B:88F9: 00        .byte $00   ; 
 - D 0 - I - 0x01690A 0B:88FA: 54        .byte $54   ; 
@@ -1541,8 +1575,8 @@ _off005_88F6_06:
 
 _off005_88FC_07:
 ; con_s_bg_07
-- D 0 - I - 0x01690C 0B:88FC: 02        .byte $02   ; 
-- D 0 - I - 0x01690D 0B:88FD: 05        .byte $05   ; 
+- D 0 - I - 0x01690C 0B:88FC: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01690D 0B:88FD: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x01690E 0B:88FE: 00        .byte $00   ; 
 - D 0 - I - 0x01690F 0B:88FF: 00        .byte $00   ; 
 - D 0 - I - 0x016910 0B:8900: 31        .byte $31   ; 
@@ -1552,32 +1586,32 @@ _off005_88FC_07:
 
 _off005_8902_08:
 ; con_s_bg_08
-- D 0 - I - 0x016912 0B:8902: 07        .byte $07   ; 
-- D 0 - I - 0x016913 0B:8903: 00        .byte $00   ; 
+- D 0 - I - 0x016912 0B:8902: 07        .byte con_FBCC_07   ; 
+- D 0 - I - 0x016913 0B:8903: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016914 0B:8904: 70        .byte $70   ; 
 
 
 
 _off005_8905_09:
 ; con_s_bg_09
-- D 0 - I - 0x016915 0B:8905: 07        .byte $07   ; 
-- D 0 - I - 0x016916 0B:8906: 00        .byte $00   ; 
+- D 0 - I - 0x016915 0B:8905: 07        .byte con_FBCC_07   ; 
+- D 0 - I - 0x016916 0B:8906: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016917 0B:8907: 71        .byte $71   ; 
 
 
 
 _off005_8908_0A:
 ; con_s_bg_0A
-- D 0 - I - 0x016918 0B:8908: 08        .byte $08   ; 
-- D 0 - I - 0x016919 0B:8909: 00        .byte $00   ; 
+- D 0 - I - 0x016918 0B:8908: 08        .byte con_FBCC_08   ; 
+- D 0 - I - 0x016919 0B:8909: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x01691A 0B:890A: 72        .byte $72   ; 
 
 
 
 _off005_890B_0B:
 ; con_s_bg_0B
-- D 0 - I - 0x01691B 0B:890B: 07        .byte $07   ; 
-- D 0 - I - 0x01691C 0B:890C: 05        .byte $05   ; 
+- D 0 - I - 0x01691B 0B:890B: 07        .byte con_FBCC_07   ; 
+- D 0 - I - 0x01691C 0B:890C: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x01691D 0B:890D: 00        .byte $00   ; 
 - D 0 - I - 0x01691E 0B:890E: 00        .byte $00   ; 
 - D 0 - I - 0x01691F 0B:890F: 44        .byte $44   ; 
@@ -1587,24 +1621,24 @@ _off005_890B_0B:
 
 _off005_8911_0C:
 ; con_s_bg_0C
-- D 0 - I - 0x016921 0B:8911: 02        .byte $02   ; 
-- D 0 - I - 0x016922 0B:8912: 00        .byte $00   ; 
+- D 0 - I - 0x016921 0B:8911: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016922 0B:8912: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016923 0B:8913: 43        .byte $43   ; 
 
 
 
 _off005_8914_0D:
 ; con_s_bg_0D
-- D 0 - I - 0x016924 0B:8914: 01        .byte $01   ; 
-- D 0 - I - 0x016925 0B:8915: 00        .byte $00   ; 
+- D 0 - I - 0x016924 0B:8914: 01        .byte con_FBCC_01   ; 
+- D 0 - I - 0x016925 0B:8915: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016926 0B:8916: 4F        .byte $4F   ; 
 
 
 
 _off005_8917_0E:
 ; con_s_bg_0E
-- D 0 - I - 0x016927 0B:8917: 02        .byte $02   ; 
-- D 0 - I - 0x016928 0B:8918: 05        .byte $05   ; 
+- D 0 - I - 0x016927 0B:8917: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016928 0B:8918: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016929 0B:8919: 00        .byte $00   ; 
 - D 0 - I - 0x01692A 0B:891A: 00        .byte $00   ; 
 - D 0 - I - 0x01692B 0B:891B: 23        .byte $23   ; 
@@ -1614,8 +1648,8 @@ _off005_8917_0E:
 
 _off005_891D_0F:
 ; con_s_bg_0F
-- D 0 - I - 0x01692D 0B:891D: 02        .byte $02   ; 
-- D 0 - I - 0x01692E 0B:891E: 05        .byte $05   ; 
+- D 0 - I - 0x01692D 0B:891D: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01692E 0B:891E: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x01692F 0B:891F: 00        .byte $00   ; 
 - D 0 - I - 0x016930 0B:8920: 00        .byte $00   ; 
 - D 0 - I - 0x016931 0B:8921: 76        .byte $76   ; 
@@ -1625,16 +1659,16 @@ _off005_891D_0F:
 
 _off005_8923_10:
 ; con_s_bg_10
-- D 0 - I - 0x016933 0B:8923: 02        .byte $02   ; 
-- D 0 - I - 0x016934 0B:8924: 00        .byte $00   ; 
+- D 0 - I - 0x016933 0B:8923: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016934 0B:8924: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016935 0B:8925: 6F        .byte $6F   ; 
 
 
 
 _off005_8926_11:
 ; con_s_bg_11
-- D 0 - I - 0x016936 0B:8926: 02        .byte $02   ; 
-- D 0 - I - 0x016937 0B:8927: 05        .byte $05   ; 
+- D 0 - I - 0x016936 0B:8926: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016937 0B:8927: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016938 0B:8928: 00        .byte $00   ; 
 - D 0 - I - 0x016939 0B:8929: 00        .byte $00   ; 
 - D 0 - I - 0x01693A 0B:892A: 38        .byte $38   ; 
@@ -1644,16 +1678,16 @@ _off005_8926_11:
 
 _off005_892C_12:
 ; con_s_bg_12
-- D 0 - I - 0x01693C 0B:892C: 02        .byte $02   ; 
-- D 0 - I - 0x01693D 0B:892D: 00        .byte $00   ; 
+- D 0 - I - 0x01693C 0B:892C: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01693D 0B:892D: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x01693E 0B:892E: 39        .byte $39   ; 
 
 
 
 _off005_892F_13:
 ; con_s_bg_13
-- D 0 - I - 0x01693F 0B:892F: 02        .byte $02   ; 
-- D 0 - I - 0x016940 0B:8930: 05        .byte $05   ; 
+- D 0 - I - 0x01693F 0B:892F: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016940 0B:8930: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016941 0B:8931: 00        .byte $00   ; 
 - D 0 - I - 0x016942 0B:8932: 00        .byte $00   ; 
 - D 0 - I - 0x016943 0B:8933: 3A        .byte $3A   ; 
@@ -1663,8 +1697,8 @@ _off005_892F_13:
 
 _off005_8935_14:
 ; con_s_bg_14
-- D 0 - I - 0x016945 0B:8935: 02        .byte $02   ; 
-- D 0 - I - 0x016946 0B:8936: 05        .byte $05   ; 
+- D 0 - I - 0x016945 0B:8935: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016946 0B:8936: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016947 0B:8937: 00        .byte $00   ; 
 - D 0 - I - 0x016948 0B:8938: 00        .byte $00   ; 
 - D 0 - I - 0x016949 0B:8939: 3B        .byte $3B   ; 
@@ -1674,8 +1708,8 @@ _off005_8935_14:
 
 _off005_893B_15:
 ; con_s_bg_15
-- D 0 - I - 0x01694B 0B:893B: 02        .byte $02   ; 
-- D 0 - I - 0x01694C 0B:893C: 05        .byte $05   ; 
+- D 0 - I - 0x01694B 0B:893B: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01694C 0B:893C: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x01694D 0B:893D: 00        .byte $00   ; 
 - D 0 - I - 0x01694E 0B:893E: 00        .byte $00   ; 
 - D 0 - I - 0x01694F 0B:893F: 3C        .byte $3C   ; 
@@ -1685,16 +1719,16 @@ _off005_893B_15:
 
 _off005_8941_16:
 ; con_s_bg_16
-- D 0 - I - 0x016951 0B:8941: 02        .byte $02   ; 
-- D 0 - I - 0x016952 0B:8942: 00        .byte $00   ; 
+- D 0 - I - 0x016951 0B:8941: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016952 0B:8942: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016953 0B:8943: 3D        .byte $3D   ; 
 
 
 
 _off005_8944_17:
 ; con_s_bg_17
-- D 0 - I - 0x016954 0B:8944: 02        .byte $02   ; 
-- D 0 - I - 0x016955 0B:8945: 05        .byte $05   ; 
+- D 0 - I - 0x016954 0B:8944: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016955 0B:8945: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016956 0B:8946: 00        .byte $00   ; 
 - D 0 - I - 0x016957 0B:8947: 00        .byte $00   ; 
 - D 0 - I - 0x016958 0B:8948: 3E        .byte $3E   ; 
@@ -1704,8 +1738,8 @@ _off005_8944_17:
 
 _off005_894A_18:
 ; con_s_bg_18
-- D 0 - I - 0x01695A 0B:894A: 02        .byte $02   ; 
-- D 0 - I - 0x01695B 0B:894B: 05        .byte $05   ; 
+- D 0 - I - 0x01695A 0B:894A: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01695B 0B:894B: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x01695C 0B:894C: 00        .byte $00   ; 
 - D 0 - I - 0x01695D 0B:894D: 00        .byte $00   ; 
 - D 0 - I - 0x01695E 0B:894E: 3F        .byte $3F   ; 
@@ -1715,84 +1749,79 @@ _off005_894A_18:
 
 _off005_8950_19:
 ; con_s_bg_19
-- D 0 - I - 0x016960 0B:8950: 02        .byte $02   ; 
-- D 0 - I - 0x016961 0B:8951: 03        .byte $03   ; 
-- D 0 - I - 0x016962 0B:8952: 60        .byte $60   ; 
-- D 0 - I - 0x016963 0B:8953: 00        .byte $00   ; 
+- D 0 - I - 0x016960 0B:8950: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016961 0B:8951: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016962 0B:8952: 60 00     .word $0060 ; 
 - D 0 - I - 0x016964 0B:8954: 04        .byte $04   ; 
 
 
 
 _off005_8955_1A:
 ; con_s_bg_1A
-- - - - - - 0x016965 0B:8955: F1        .byte $F1   ; 
+- - - - - - 0x016965 0B:8955: F1        .byte $F1   ; con_81BC_F1
 
 
 
 _off005_8956_1B:
 ; con_s_bg_1B
-- D 0 - I - 0x016966 0B:8956: 02        .byte $02   ; 
-- D 0 - I - 0x016967 0B:8957: 03        .byte $03   ; 
-- D 0 - I - 0x016968 0B:8958: 01        .byte $01   ; 
-- D 0 - I - 0x016969 0B:8959: 80        .byte $80   ; 
+- D 0 - I - 0x016966 0B:8956: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016967 0B:8957: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016968 0B:8958: 01        .byte $01   ; доп умножение на 02
+- D 0 - I - 0x016969 0B:8959: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x01696A 0B:895A: 52        .byte $52   ; 
 
 
 
 _off005_895B_1C:
 ; con_s_bg_1C
-- D 0 - I - 0x01696B 0B:895B: 02        .byte $02   ; 
-- D 0 - I - 0x01696C 0B:895C: 03        .byte $03   ; 
-- D 0 - I - 0x01696D 0B:895D: 00        .byte $00   ; 
-- D 0 - I - 0x01696E 0B:895E: 80        .byte $80   ; 
+- D 0 - I - 0x01696B 0B:895B: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01696C 0B:895C: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x01696D 0B:895D: 00        .byte $00   ; без доп умножения
+- D 0 - I - 0x01696E 0B:895E: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x01696F 0B:895F: 52        .byte $52   ; 
 
 
 
 _off005_8960_1D:
 ; con_s_bg_1D
-- D 0 - I - 0x016970 0B:8960: 02        .byte $02   ; 
-- D 0 - I - 0x016971 0B:8961: 03        .byte $03   ; 
-- D 0 - I - 0x016972 0B:8962: 00        .byte $00   ; 
-- D 0 - I - 0x016973 0B:8963: FC        .byte $FC   ; 
+- D 0 - I - 0x016970 0B:8960: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016971 0B:8961: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016972 0B:8962: 00 FC     .word $FC00 ; 
 - D 0 - I - 0x016974 0B:8964: 52        .byte $52   ; 
 
 
 
 _off005_8965_1E:
 ; con_s_bg_1E
-- D 0 - I - 0x016975 0B:8965: 02        .byte $02   ; 
-- D 0 - I - 0x016976 0B:8966: 03        .byte $03   ; 
-- D 0 - I - 0x016977 0B:8967: 00        .byte $00   ; 
-- D 0 - I - 0x016978 0B:8968: F9        .byte $F9   ; 
+- D 0 - I - 0x016975 0B:8965: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016976 0B:8966: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016977 0B:8967: 00 F9     .word $F900 ; 
 - D 0 - I - 0x016979 0B:8969: 52        .byte $52   ; 
 
 
 
 _off005_896A_1F:
 ; con_s_bg_1F
-- D 0 - I - 0x01697A 0B:896A: 02        .byte $02   ; 
-- D 0 - I - 0x01697B 0B:896B: 03        .byte $03   ; 
-- D 0 - I - 0x01697C 0B:896C: 00        .byte $00   ; 
-- D 0 - I - 0x01697D 0B:896D: 04        .byte $04   ; 
+- D 0 - I - 0x01697A 0B:896A: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x01697B 0B:896B: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x01697C 0B:896C: 00 04     .word $0400 ; 
 - D 0 - I - 0x01697E 0B:896E: 52        .byte $52   ; 
 
 
 
 _off005_896F_20:
 ; con_s_bg_20
-- D 0 - I - 0x01697F 0B:896F: 02        .byte $02   ; 
-- D 0 - I - 0x016980 0B:8970: 03        .byte $03   ; 
-- D 0 - I - 0x016981 0B:8971: 00        .byte $00   ; 
-- D 0 - I - 0x016982 0B:8972: 07        .byte $07   ; 
+- D 0 - I - 0x01697F 0B:896F: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016980 0B:8970: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016981 0B:8971: 00 07     .word $0700 ; 
 - D 0 - I - 0x016983 0B:8973: 52        .byte $52   ; 
 
 
 
 _off005_8974_21:
 ; con_s_bg_21
-- - - - - - 0x016984 0B:8974: 02        .byte $02   ; 
-- - - - - - 0x016985 0B:8975: 01        .byte $01   ; 
+- - - - - - 0x016984 0B:8974: 02        .byte con_FBCC_02   ; 
+- - - - - - 0x016985 0B:8975: 01        .byte con_81A7_01   ; 
 - - - - - - 0x016986 0B:8976: 00        .byte $00   ; 
 - - - - - - 0x016987 0B:8977: FF        .byte $FF   ; 
 - - - - - - 0x016988 0B:8978: 00        .byte $00   ; 
@@ -1803,48 +1832,44 @@ _off005_8974_21:
 
 _off005_897B_22:
 ; con_s_bg_22
-- D 0 - I - 0x01698B 0B:897B: 06        .byte $06   ; 
-- D 0 - I - 0x01698C 0B:897C: 03        .byte $03   ; 
-- D 0 - I - 0x01698D 0B:897D: 00        .byte $00   ; 
-- D 0 - I - 0x01698E 0B:897E: 01        .byte $01   ; 
+- D 0 - I - 0x01698B 0B:897B: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x01698C 0B:897C: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x01698D 0B:897D: 00 01     .word $0100 ; 
 - D 0 - I - 0x01698F 0B:897F: 35        .byte $35   ; 
 
 
 
 _off005_8980_23:
 ; con_s_bg_23
-- D 0 - I - 0x016990 0B:8980: 06        .byte $06   ; 
-- D 0 - I - 0x016991 0B:8981: 03        .byte $03   ; 
-- D 0 - I - 0x016992 0B:8982: 00        .byte $00   ; 
-- D 0 - I - 0x016993 0B:8983: FF        .byte $FF   ; 
+- D 0 - I - 0x016990 0B:8980: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x016991 0B:8981: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016992 0B:8982: 00 FF     .word $FF00 ; 
 - D 0 - I - 0x016994 0B:8984: 35        .byte $35   ; 
 
 
 
 _off005_8985_24:
 ; con_s_bg_24
-- D 0 - I - 0x016995 0B:8985: 06        .byte $06   ; 
-- D 0 - I - 0x016996 0B:8986: 03        .byte $03   ; 
-- D 0 - I - 0x016997 0B:8987: 00        .byte $00   ; 
-- D 0 - I - 0x016998 0B:8988: 06        .byte $06   ; 
+- D 0 - I - 0x016995 0B:8985: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x016996 0B:8986: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016997 0B:8987: 00 06     .word $0600 ; 
 - D 0 - I - 0x016999 0B:8989: 35        .byte $35   ; 
 
 
 
 _off005_898A_25:
 ; con_s_bg_25
-- D 0 - I - 0x01699A 0B:898A: 06        .byte $06   ; 
-- D 0 - I - 0x01699B 0B:898B: 03        .byte $03   ; 
-- D 0 - I - 0x01699C 0B:898C: 00        .byte $00   ; 
-- D 0 - I - 0x01699D 0B:898D: FA        .byte $FA   ; 
+- D 0 - I - 0x01699A 0B:898A: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x01699B 0B:898B: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x01699C 0B:898C: 00 FA     .word $FA00 ; 
 - D 0 - I - 0x01699E 0B:898E: 35        .byte $35   ; 
 
 
 
 _off005_898F_26:
 ; con_s_bg_26
-- D 0 - I - 0x01699F 0B:898F: 02        .byte $02   ; 
-- D 0 - I - 0x0169A0 0B:8990: 05        .byte $05   ; 
+- D 0 - I - 0x01699F 0B:898F: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169A0 0B:8990: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x0169A1 0B:8991: 00        .byte $00   ; 
 - D 0 - I - 0x0169A2 0B:8992: 00        .byte $00   ; 
 - D 0 - I - 0x0169A3 0B:8993: 1F        .byte $1F   ; 
@@ -1854,48 +1879,44 @@ _off005_898F_26:
 
 _off005_8995_27:
 ; con_s_bg_27
-- D 0 - I - 0x0169A5 0B:8995: 02        .byte $02   ; 
-- D 0 - I - 0x0169A6 0B:8996: 03        .byte $03   ; 
-- D 0 - I - 0x0169A7 0B:8997: 00        .byte $00   ; 
-- D 0 - I - 0x0169A8 0B:8998: 0B        .byte $0B   ; 
+- D 0 - I - 0x0169A5 0B:8995: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169A6 0B:8996: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x0169A7 0B:8997: 00 0B     .word $0B00 ; 
 - D 0 - I - 0x0169A9 0B:8999: 30        .byte $30   ; 
 
 
 
 _off005_899A_28:
 ; con_s_bg_28
-- D 0 - I - 0x0169AA 0B:899A: 02        .byte $02   ; 
-- D 0 - I - 0x0169AB 0B:899B: 03        .byte $03   ; 
-- D 0 - I - 0x0169AC 0B:899C: 00        .byte $00   ; 
-- D 0 - I - 0x0169AD 0B:899D: 02        .byte $02   ; 
+- D 0 - I - 0x0169AA 0B:899A: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169AB 0B:899B: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x0169AC 0B:899C: 00 02     .word $0200 ; 
 - D 0 - I - 0x0169AE 0B:899E: 50        .byte $50   ; 
 
 
 
 _off005_899F_29:
 ; con_s_bg_29
-- D 0 - I - 0x0169AF 0B:899F: 02        .byte $02   ; 
-- D 0 - I - 0x0169B0 0B:89A0: 03        .byte $03   ; 
-- D 0 - I - 0x0169B1 0B:89A1: 00        .byte $00   ; 
-- D 0 - I - 0x0169B2 0B:89A2: FE        .byte $FE   ; 
+- D 0 - I - 0x0169AF 0B:899F: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169B0 0B:89A0: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x0169B1 0B:89A1: 00 FE     .word $FE00 ; 
 - D 0 - I - 0x0169B3 0B:89A3: 50        .byte $50   ; 
 
 
 
 _off005_89A4_2A:
 ; con_s_bg_2A
-- D 0 - I - 0x0169B4 0B:89A4: 02        .byte $02   ; 
-- D 0 - I - 0x0169B5 0B:89A5: 03        .byte $03   ; 
-- D 0 - I - 0x0169B6 0B:89A6: 00        .byte $00   ; 
-- D 0 - I - 0x0169B7 0B:89A7: 04        .byte $04   ; 
+- D 0 - I - 0x0169B4 0B:89A4: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169B5 0B:89A5: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x0169B6 0B:89A6: 00 04     .word $0400 ; 
 - D 0 - I - 0x0169B8 0B:89A8: 51        .byte $51   ; 
 
 
 
 _off005_89A9_2B:
 ; con_s_bg_2B
-- D 0 - I - 0x0169B9 0B:89A9: 02        .byte $02   ; 
-- D 0 - I - 0x0169BA 0B:89AA: 05        .byte $05   ; 
+- D 0 - I - 0x0169B9 0B:89A9: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169BA 0B:89AA: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x0169BB 0B:89AB: 00        .byte $00   ; 
 - D 0 - I - 0x0169BC 0B:89AC: 03        .byte $03   ; 
 - D 0 - I - 0x0169BD 0B:89AD: 67        .byte $67   ; 
@@ -1905,24 +1926,24 @@ _off005_89A9_2B:
 
 _off005_89AF_2C:
 ; con_s_bg_2C
-- D 0 - I - 0x0169BF 0B:89AF: 02        .byte $02   ; 
-- D 0 - I - 0x0169C0 0B:89B0: 00        .byte $00   ; 
+- D 0 - I - 0x0169BF 0B:89AF: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169C0 0B:89B0: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169C1 0B:89B1: 75        .byte $75   ; 
 
 
 
 _off005_89B2_2D:
 ; con_s_bg_2D
-- D 0 - I - 0x0169C2 0B:89B2: 05        .byte $05   ; 
-- D 0 - I - 0x0169C3 0B:89B3: 00        .byte $00   ; 
+- D 0 - I - 0x0169C2 0B:89B2: 05        .byte con_FBCC_05   ; 
+- D 0 - I - 0x0169C3 0B:89B3: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169C4 0B:89B4: 64        .byte $64   ; 
 
 
 
 _off005_89B5_2E:
 ; con_s_bg_2E
-- D 0 - I - 0x0169C5 0B:89B5: 02        .byte $02   ; 
-- D 0 - I - 0x0169C6 0B:89B6: 06        .byte $06   ; 
+- D 0 - I - 0x0169C5 0B:89B5: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169C6 0B:89B6: 06        .byte con_81A7_06   ; 
 - D 0 - I - 0x0169C7 0B:89B7: E0        .byte $E0   ; 
 - D 0 - I - 0x0169C8 0B:89B8: FF        .byte $FF   ; 
 - D 0 - I - 0x0169C9 0B:89B9: 01        .byte $01   ; 
@@ -1941,8 +1962,8 @@ off_89C0:
 
 _off005_89C2_2F:
 ; con_s_bg_2F
-- D 0 - I - 0x0169D2 0B:89C2: 02        .byte $02   ; 
-- D 0 - I - 0x0169D3 0B:89C3: 08        .byte $08   ; 
+- D 0 - I - 0x0169D2 0B:89C2: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169D3 0B:89C3: 08        .byte con_81A7_08   ; 
 - D 0 - I - 0x0169D4 0B:89C4: B0        .byte $B0   ; 
 - D 0 - I - 0x0169D5 0B:89C5: FE        .byte $FE   ; 
 - D 0 - I - 0x0169D6 0B:89C6: 02        .byte $02   ; 
@@ -1961,8 +1982,8 @@ off_89CD:
 
 _off005_89CF_30:
 ; con_s_bg_30
-- D 0 - I - 0x0169DF 0B:89CF: 03        .byte $03   ; 
-- D 0 - I - 0x0169E0 0B:89D0: 05        .byte $05   ; 
+- D 0 - I - 0x0169DF 0B:89CF: 03        .byte con_FBCC_03   ; 
+- D 0 - I - 0x0169E0 0B:89D0: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x0169E1 0B:89D1: 00        .byte $00   ; 
 - D 0 - I - 0x0169E2 0B:89D2: 00        .byte $00   ; 
 - D 0 - I - 0x0169E3 0B:89D3: 26        .byte $26   ; 
@@ -1972,8 +1993,8 @@ _off005_89CF_30:
 
 _off005_89D5_31:
 ; con_s_bg_31
-- D 0 - I - 0x0169E5 0B:89D5: 03        .byte $03   ; 
-- D 0 - I - 0x0169E6 0B:89D6: 05        .byte $05   ; 
+- D 0 - I - 0x0169E5 0B:89D5: 03        .byte con_FBCC_03   ; 
+- D 0 - I - 0x0169E6 0B:89D6: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x0169E7 0B:89D7: 00        .byte $00   ; 
 - D 0 - I - 0x0169E8 0B:89D8: 00        .byte $00   ; 
 - D 0 - I - 0x0169E9 0B:89D9: 28        .byte $28   ; 
@@ -1983,80 +2004,80 @@ _off005_89D5_31:
 
 _off005_89DB_32:
 ; con_s_bg_32
-- D 0 - I - 0x0169EB 0B:89DB: 04        .byte $04   ; 
-- D 0 - I - 0x0169EC 0B:89DC: 00        .byte $00   ; 
+- D 0 - I - 0x0169EB 0B:89DB: 04        .byte con_FBCC_04   ; 
+- D 0 - I - 0x0169EC 0B:89DC: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169ED 0B:89DD: 2A        .byte $2A   ; 
 
 
 
 _off005_89DE_33:
 ; con_s_bg_33
-- D 0 - I - 0x0169EE 0B:89DE: 04        .byte $04   ; 
-- D 0 - I - 0x0169EF 0B:89DF: 00        .byte $00   ; 
+- D 0 - I - 0x0169EE 0B:89DE: 04        .byte con_FBCC_04   ; 
+- D 0 - I - 0x0169EF 0B:89DF: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169F0 0B:89E0: 2B        .byte $2B   ; 
 
 
 
 _off005_89E1_34:
 ; con_s_bg_34
-- D 0 - I - 0x0169F1 0B:89E1: 02        .byte $02   ; 
-- D 0 - I - 0x0169F2 0B:89E2: 00        .byte $00   ; 
+- D 0 - I - 0x0169F1 0B:89E1: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169F2 0B:89E2: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169F3 0B:89E3: 2D        .byte $2D   ; 
 
 
 
 _off005_89E4_35:
 ; con_s_bg_35
-- D 0 - I - 0x0169F4 0B:89E4: 00        .byte $00   ; 
-- D 0 - I - 0x0169F5 0B:89E5: 00        .byte $00   ; 
+- D 0 - I - 0x0169F4 0B:89E4: 00        .byte con_FBCC_00   ; 
+- D 0 - I - 0x0169F5 0B:89E5: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169F6 0B:89E6: 2E        .byte $2E   ; 
 
 
 
 _off005_89E7_36:
 ; con_s_bg_36
-- D 0 - I - 0x0169F7 0B:89E7: 02        .byte $02   ; 
-- D 0 - I - 0x0169F8 0B:89E8: 00        .byte $00   ; 
+- D 0 - I - 0x0169F7 0B:89E7: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169F8 0B:89E8: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169F9 0B:89E9: 2F        .byte $2F   ; 
 
 
 
 _off005_89EA_37:
 ; con_s_bg_37
-- D 0 - I - 0x0169FA 0B:89EA: 02        .byte $02   ; 
-- D 0 - I - 0x0169FB 0B:89EB: 00        .byte $00   ; 
+- D 0 - I - 0x0169FA 0B:89EA: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169FB 0B:89EB: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169FC 0B:89EC: 33        .byte $33   ; 
 
 
 
 _off005_89ED_38:
 ; con_s_bg_38
-- D 0 - I - 0x0169FD 0B:89ED: 02        .byte $02   ; 
-- D 0 - I - 0x0169FE 0B:89EE: 00        .byte $00   ; 
+- D 0 - I - 0x0169FD 0B:89ED: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x0169FE 0B:89EE: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x0169FF 0B:89EF: 34        .byte $34   ; 
 
 
 
 _off005_89F0_39:
 ; con_s_bg_39
-- D 0 - I - 0x016A00 0B:89F0: 02        .byte $02   ; 
-- D 0 - I - 0x016A01 0B:89F1: 00        .byte $00   ; 
+- D 0 - I - 0x016A00 0B:89F0: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A01 0B:89F1: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A02 0B:89F2: 41        .byte $41   ; 
 
 
 
 _off005_89F3_3A:
 ; con_s_bg_3A
-- D 0 - I - 0x016A03 0B:89F3: 02        .byte $02   ; 
-- D 0 - I - 0x016A04 0B:89F4: 00        .byte $00   ; 
+- D 0 - I - 0x016A03 0B:89F3: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A04 0B:89F4: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A05 0B:89F5: 42        .byte $42   ; 
 
 
 
 _off005_89F6_3B:
 ; con_s_bg_3B
-- - - - - - 0x016A06 0B:89F6: 02        .byte $02   ; 
-- - - - - - 0x016A07 0B:89F7: 05        .byte $05   ; 
+- - - - - - 0x016A06 0B:89F6: 02        .byte con_FBCC_02   ; 
+- - - - - - 0x016A07 0B:89F7: 05        .byte con_81A7_05   ; 
 - - - - - - 0x016A08 0B:89F8: 00        .byte $00   ; 
 - - - - - - 0x016A09 0B:89F9: 00        .byte $00   ; 
 - - - - - - 0x016A0A 0B:89FA: 4B        .byte $4B   ; 
@@ -2066,26 +2087,25 @@ _off005_89F6_3B:
 
 _off005_89FC_3C:
 ; con_s_bg_3C
-- D 0 - I - 0x016A0C 0B:89FC: 02        .byte $02   ; 
-- D 0 - I - 0x016A0D 0B:89FD: 00        .byte $00   ; 
+- D 0 - I - 0x016A0C 0B:89FC: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A0D 0B:89FD: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A0E 0B:89FE: 4E        .byte $4E   ; 
 
 
 
 _off005_89FF_3D:
 ; con_s_bg_3D
-- - - - - - 0x016A0F 0B:89FF: 02        .byte $02   ; 
-- - - - - - 0x016A10 0B:8A00: 03        .byte $03   ; 
-- - - - - - 0x016A11 0B:8A01: 00        .byte $00   ; 
-- - - - - - 0x016A12 0B:8A02: F9        .byte $F9   ; 
+- - - - - - 0x016A0F 0B:89FF: 02        .byte con_FBCC_02   ; 
+- - - - - - 0x016A10 0B:8A00: 03        .byte con_81A7_03   ; 
+- - - - - - 0x016A11 0B:8A01: 00 F9     .word $F900 ; 
 - - - - - - 0x016A13 0B:8A03: 61        .byte $61   ; 
 
 
 
 _off005_8A04_3E:
 ; con_s_bg_3E
-- D 0 - I - 0x016A14 0B:8A04: 02        .byte $02   ; 
-- D 0 - I - 0x016A15 0B:8A05: 05        .byte $05   ; 
+- D 0 - I - 0x016A14 0B:8A04: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A15 0B:8A05: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016A16 0B:8A06: 00        .byte $00   ; 
 - D 0 - I - 0x016A17 0B:8A07: 01        .byte $01   ; 
 - D 0 - I - 0x016A18 0B:8A08: 7D        .byte $7D   ; 
@@ -2095,8 +2115,8 @@ _off005_8A04_3E:
 
 _off005_8A0A_3F:
 ; con_s_bg_3F
-- D 0 - I - 0x016A1A 0B:8A0A: 05        .byte $05   ; 
-- D 0 - I - 0x016A1B 0B:8A0B: 04        .byte $04   ; 
+- D 0 - I - 0x016A1A 0B:8A0A: 05        .byte con_FBCC_05   ; 
+- D 0 - I - 0x016A1B 0B:8A0B: 04        .byte con_81A7_04   ; 
 - D 0 - I - 0x016A1C 0B:8A0C: 80        .byte $80   ; 
 - D 0 - I - 0x016A1D 0B:8A0D: 00        .byte $00   ; 
 - D 0 - I - 0x016A1E 0B:8A0E: 01        .byte $01   ; 
@@ -2107,8 +2127,8 @@ _off005_8A0A_3F:
 
 _off005_8A11_40:
 ; con_s_bg_40
-- D 0 - I - 0x016A21 0B:8A11: 02        .byte $02   ; 
-- D 0 - I - 0x016A22 0B:8A12: 05        .byte $05   ; 
+- D 0 - I - 0x016A21 0B:8A11: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A22 0B:8A12: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016A23 0B:8A13: 00        .byte $00   ; 
 - D 0 - I - 0x016A24 0B:8A14: 00        .byte $00   ; 
 - D 0 - I - 0x016A25 0B:8A15: 6C        .byte $6C   ; 
@@ -2118,16 +2138,16 @@ _off005_8A11_40:
 
 _off005_8A17_41:
 ; con_s_bg_41
-- D 0 - I - 0x016A27 0B:8A17: 02        .byte $02   ; 
-- D 0 - I - 0x016A28 0B:8A18: 00        .byte $00   ; 
+- D 0 - I - 0x016A27 0B:8A17: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A28 0B:8A18: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A29 0B:8A19: 6E        .byte $6E   ; 
 
 
 
 _off005_8A1A_42:
 ; con_s_bg_42
-- D 0 - I - 0x016A2A 0B:8A1A: 02        .byte $02   ; 
-- D 0 - I - 0x016A2B 0B:8A1B: 05        .byte $05   ; 
+- D 0 - I - 0x016A2A 0B:8A1A: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A2B 0B:8A1B: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016A2C 0B:8A1C: 00        .byte $00   ; 
 - D 0 - I - 0x016A2D 0B:8A1D: 00        .byte $00   ; 
 - D 0 - I - 0x016A2E 0B:8A1E: 7A        .byte $7A   ; 
@@ -2137,16 +2157,16 @@ _off005_8A1A_42:
 
 _off005_8A20_43:
 ; con_s_bg_43
-- D 0 - I - 0x016A30 0B:8A20: 02        .byte $02   ; 
-- D 0 - I - 0x016A31 0B:8A21: 00        .byte $00   ; 
+- D 0 - I - 0x016A30 0B:8A20: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A31 0B:8A21: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A32 0B:8A22: 40        .byte $40   ; 
 
 
 
 _off005_8A23_44:
 ; con_s_bg_44
-- D 0 - I - 0x016A33 0B:8A23: 02        .byte $02   ; 
-- D 0 - I - 0x016A34 0B:8A24: 01        .byte $01   ; 
+- D 0 - I - 0x016A33 0B:8A23: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A34 0B:8A24: 01        .byte con_81A7_01   ; 
 - D 0 - I - 0x016A35 0B:8A25: 00        .byte $00   ; 
 - D 0 - I - 0x016A36 0B:8A26: 0B        .byte $0B   ; 
 - - - - - - 0x016A37 0B:8A27: 00        .byte $00   ; 
@@ -2157,44 +2177,42 @@ _off005_8A23_44:
 
 _off005_8A2A_45:
 ; con_s_bg_45
-- D 0 - I - 0x016A3A 0B:8A2A: 06        .byte $06   ; 
-- D 0 - I - 0x016A3B 0B:8A2B: 00        .byte $00   ; 
+- D 0 - I - 0x016A3A 0B:8A2A: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x016A3B 0B:8A2B: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A3C 0B:8A2C: 36        .byte $36   ; 
 
 
 
 _off005_8A2D_46:
 ; con_s_bg_46
-- D 0 - I - 0x016A3D 0B:8A2D: 02        .byte $02   ; 
-- D 0 - I - 0x016A3E 0B:8A2E: 00        .byte $00   ; 
+- D 0 - I - 0x016A3D 0B:8A2D: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A3E 0B:8A2E: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A3F 0B:8A2F: 37        .byte $37   ; 
 
 
 
 _off005_8A30_47:
 ; con_s_bg_47
-- D 0 - I - 0x016A40 0B:8A30: 02        .byte $02   ; 
-- D 0 - I - 0x016A41 0B:8A31: 03        .byte $03   ; 
-- D 0 - I - 0x016A42 0B:8A32: 00        .byte $00   ; 
-- D 0 - I - 0x016A43 0B:8A33: F5        .byte $F5   ; 
+- D 0 - I - 0x016A40 0B:8A30: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A41 0B:8A31: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016A42 0B:8A32: 00 F5     .word $F500 ; 
 - D 0 - I - 0x016A44 0B:8A34: 5D        .byte $5D   ; 
 
 
 
 _off005_8A35_48:
 ; con_s_bg_48
-- D 0 - I - 0x016A45 0B:8A35: 02        .byte $02   ; 
-- D 0 - I - 0x016A46 0B:8A36: 03        .byte $03   ; 
-- D 0 - I - 0x016A47 0B:8A37: 00        .byte $00   ; 
-- D 0 - I - 0x016A48 0B:8A38: 0B        .byte $0B   ; 
+- D 0 - I - 0x016A45 0B:8A35: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A46 0B:8A36: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016A47 0B:8A37: 00 0B     .word $0B00 ; 
 - D 0 - I - 0x016A49 0B:8A39: 5E        .byte $5E   ; 
 
 
 
 _off005_8A3A_49:
 ; con_s_bg_49
-- D 0 - I - 0x016A4A 0B:8A3A: 02        .byte $02   ; 
-- D 0 - I - 0x016A4B 0B:8A3B: 01        .byte $01   ; 
+- D 0 - I - 0x016A4A 0B:8A3A: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A4B 0B:8A3B: 01        .byte con_81A7_01   ; 
 - D 0 - I - 0x016A4C 0B:8A3C: 00        .byte $00   ; 
 - D 0 - I - 0x016A4D 0B:8A3D: F5        .byte $F5   ; 
 - - - - - - 0x016A4E 0B:8A3E: 00        .byte $00   ; 
@@ -2205,8 +2223,8 @@ _off005_8A3A_49:
 
 _off005_8A41_4A:
 ; con_s_bg_4A
-- D 0 - I - 0x016A51 0B:8A41: 02        .byte $02   ; 
-- D 0 - I - 0x016A52 0B:8A42: 01        .byte $01   ; 
+- D 0 - I - 0x016A51 0B:8A41: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A52 0B:8A42: 01        .byte con_81A7_01   ; 
 - D 0 - I - 0x016A53 0B:8A43: 00        .byte $00   ; 
 - D 0 - I - 0x016A54 0B:8A44: F5        .byte $F5   ; 
 - - - - - - 0x016A55 0B:8A45: 00        .byte $00   ; 
@@ -2217,18 +2235,17 @@ _off005_8A41_4A:
 
 _off005_8A48_4B:
 ; con_s_bg_4B
-- D 0 - I - 0x016A58 0B:8A48: 02        .byte $02   ; 
-- D 0 - I - 0x016A59 0B:8A49: 03        .byte $03   ; 
-- D 0 - I - 0x016A5A 0B:8A4A: 00        .byte $00   ; 
-- D 0 - I - 0x016A5B 0B:8A4B: 0B        .byte $0B   ; 
+- D 0 - I - 0x016A58 0B:8A48: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A59 0B:8A49: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016A5A 0B:8A4A: 00 0B     .word $0B00 ; 
 - D 0 - I - 0x016A5C 0B:8A4C: 5D        .byte $5D   ; 
 
 
 
 _off005_8A4D_4C:
 ; con_s_bg_4C
-- D 0 - I - 0x016A5D 0B:8A4D: 02        .byte $02   ; 
-- D 0 - I - 0x016A5E 0B:8A4E: 08        .byte $08   ; 
+- D 0 - I - 0x016A5D 0B:8A4D: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A5E 0B:8A4E: 08        .byte con_81A7_08   ; 
 - D 0 - I - 0x016A5F 0B:8A4F: B0        .byte $B0   ; 
 - D 0 - I - 0x016A60 0B:8A50: FE        .byte $FE   ; 
 - D 0 - I - 0x016A61 0B:8A51: 03        .byte $03   ; 
@@ -2249,46 +2266,43 @@ off_8A59:
 
 _off005_8A5C_4D:
 ; con_s_bg_4D
-- D 0 - I - 0x016A6C 0B:8A5C: 02        .byte $02   ; 
-- D 0 - I - 0x016A6D 0B:8A5D: 03        .byte $03   ; 
-- D 0 - I - 0x016A6E 0B:8A5E: 60        .byte $60   ; 
-- D 0 - I - 0x016A6F 0B:8A5F: 00        .byte $00   ; 
+- D 0 - I - 0x016A6C 0B:8A5C: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A6D 0B:8A5D: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016A6E 0B:8A5E: 60 00     .word $0060 ; 
 - D 0 - I - 0x016A70 0B:8A60: 25        .byte $25   ; 
 
 
 
 _off005_8A61_4E:
 ; con_s_bg_4E
-- D 0 - I - 0x016A71 0B:8A61: 02        .byte $02   ; 
-- D 0 - I - 0x016A72 0B:8A62: 03        .byte $03   ; 
-- D 0 - I - 0x016A73 0B:8A63: 00        .byte $00   ; 
-- D 0 - I - 0x016A74 0B:8A64: 07        .byte $07   ; 
+- D 0 - I - 0x016A71 0B:8A61: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A72 0B:8A62: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016A73 0B:8A63: 00 07     .word $0700 ; 
 - D 0 - I - 0x016A75 0B:8A65: 39        .byte $39   ; 
 
 
 
 _off005_8A66_4F:
 ; con_s_bg_4F
-- D 0 - I - 0x016A76 0B:8A66: 03        .byte $03   ; 
-- D 0 - I - 0x016A77 0B:8A67: 00        .byte $00   ; 
+- D 0 - I - 0x016A76 0B:8A66: 03        .byte con_FBCC_03   ; 
+- D 0 - I - 0x016A77 0B:8A67: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A78 0B:8A68: 81        .byte $81   ; 
 
 
 
 _off005_8A69_50:
 ; con_s_bg_50
-- - - - - - 0x016A79 0B:8A69: 02        .byte $02   ; 
-- - - - - - 0x016A7A 0B:8A6A: 03        .byte $03   ; 
-- - - - - - 0x016A7B 0B:8A6B: 00        .byte $00   ; 
-- - - - - - 0x016A7C 0B:8A6C: 0B        .byte $0B   ; 
+- - - - - - 0x016A79 0B:8A69: 02        .byte con_FBCC_02   ; 
+- - - - - - 0x016A7A 0B:8A6A: 03        .byte con_81A7_03   ; 
+- - - - - - 0x016A7B 0B:8A6B: 00 0B     .word $0B00 ; 
 - - - - - - 0x016A7D 0B:8A6D: 5D        .byte $5D   ; 
 
 
 
 _off005_8A6E_51:
 ; con_s_bg_51
-- D 0 - I - 0x016A7E 0B:8A6E: 02        .byte $02   ; 
-- D 0 - I - 0x016A7F 0B:8A6F: 05        .byte $05   ; 
+- D 0 - I - 0x016A7E 0B:8A6E: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A7F 0B:8A6F: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016A80 0B:8A70: 00        .byte $00   ; 
 - D 0 - I - 0x016A81 0B:8A71: 02        .byte $02   ; 
 - D 0 - I - 0x016A82 0B:8A72: 7C        .byte $7C   ; 
@@ -2298,16 +2312,16 @@ _off005_8A6E_51:
 
 _off005_8A74_52:
 ; con_s_bg_52
-- D 0 - I - 0x016A84 0B:8A74: 00        .byte $00   ; 
-- D 0 - I - 0x016A85 0B:8A75: 00        .byte $00   ; 
+- D 0 - I - 0x016A84 0B:8A74: 00        .byte con_FBCC_00   ; 
+- D 0 - I - 0x016A85 0B:8A75: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A86 0B:8A76: 2C        .byte $2C   ; 
 
 
 
 _off005_8A77_53:
 ; con_s_bg_53
-- D 0 - I - 0x016A87 0B:8A77: 02        .byte $02   ; 
-- D 0 - I - 0x016A88 0B:8A78: 05        .byte $05   ; 
+- D 0 - I - 0x016A87 0B:8A77: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A88 0B:8A78: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016A89 0B:8A79: 00        .byte $00   ; 
 - D 0 - I - 0x016A8A 0B:8A7A: 00        .byte $00   ; 
 - D 0 - I - 0x016A8B 0B:8A7B: 66        .byte $66   ; 
@@ -2317,8 +2331,8 @@ _off005_8A77_53:
 
 _off005_8A7D_54:
 ; con_s_bg_54
-- D 0 - I - 0x016A8D 0B:8A7D: 03        .byte $03   ; 
-- D 0 - I - 0x016A8E 0B:8A7E: 06        .byte $06   ; 
+- D 0 - I - 0x016A8D 0B:8A7D: 03        .byte con_FBCC_03   ; 
+- D 0 - I - 0x016A8E 0B:8A7E: 06        .byte con_81A7_06   ; 
 - D 0 - I - 0x016A8F 0B:8A7F: 00        .byte $00   ; 
 - D 0 - I - 0x016A90 0B:8A80: 08        .byte $08   ; 
 - D 0 - I - 0x016A91 0B:8A81: 01        .byte $01   ; 
@@ -2337,26 +2351,25 @@ off_8A88:
 
 _off005_8A8A_55:
 ; con_s_bg_55
-- D 0 - I - 0x016A9A 0B:8A8A: 03        .byte $03   ; 
-- D 0 - I - 0x016A9B 0B:8A8B: 00        .byte $00   ; 
+- D 0 - I - 0x016A9A 0B:8A8A: 03        .byte con_FBCC_03   ; 
+- D 0 - I - 0x016A9B 0B:8A8B: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016A9C 0B:8A8C: 82        .byte $82   ; 
 
 
 
 _off005_8A8D_56:
 ; con_s_bg_56
-- D 0 - I - 0x016A9D 0B:8A8D: 02        .byte $02   ; 
-- D 0 - I - 0x016A9E 0B:8A8E: 03        .byte $03   ; 
-- D 0 - I - 0x016A9F 0B:8A8F: 00        .byte $00   ; 
-- D 0 - I - 0x016AA0 0B:8A90: FF        .byte $FF   ; 
+- D 0 - I - 0x016A9D 0B:8A8D: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016A9E 0B:8A8E: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016A9F 0B:8A8F: 00 FF     .word $FF00 ; 
 - D 0 - I - 0x016AA1 0B:8A91: 51        .byte $51   ; 
 
 
 
 _off005_8A92_57:
 ; con_s_bg_57
-- D 0 - I - 0x016AA2 0B:8A92: 01        .byte $01   ; 
-- D 0 - I - 0x016AA3 0B:8A93: 05        .byte $05   ; 
+- D 0 - I - 0x016AA2 0B:8A92: 01        .byte con_FBCC_01   ; 
+- D 0 - I - 0x016AA3 0B:8A93: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016AA4 0B:8A94: 00        .byte $00   ; 
 - D 0 - I - 0x016AA5 0B:8A95: 00        .byte $00   ; 
 - D 0 - I - 0x016AA6 0B:8A96: 5A        .byte $5A   ; 
@@ -2366,8 +2379,8 @@ _off005_8A92_57:
 
 _off005_8A98_58:
 ; con_s_bg_58
-- D 0 - I - 0x016AA8 0B:8A98: 01        .byte $01   ; 
-- D 0 - I - 0x016AA9 0B:8A99: 05        .byte $05   ; 
+- D 0 - I - 0x016AA8 0B:8A98: 01        .byte con_FBCC_01   ; 
+- D 0 - I - 0x016AA9 0B:8A99: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016AAA 0B:8A9A: 00        .byte $00   ; 
 - D 0 - I - 0x016AAB 0B:8A9B: 00        .byte $00   ; 
 - D 0 - I - 0x016AAC 0B:8A9C: 5C        .byte $5C   ; 
@@ -2377,36 +2390,36 @@ _off005_8A98_58:
 
 _off005_8A9E_59:
 ; con_s_bg_59
-- D 0 - I - 0x016AAE 0B:8A9E: 01        .byte $01   ; 
-- D 0 - I - 0x016AAF 0B:8A9F: 00        .byte $00   ; 
+- D 0 - I - 0x016AAE 0B:8A9E: 01        .byte con_FBCC_01   ; 
+- D 0 - I - 0x016AAF 0B:8A9F: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016AB0 0B:8AA0: 5B        .byte $5B   ; 
 
 
 
 _off005_8AA1_5A:
 ; con_s_bg_5A
-- D 0 - I - 0x016AB1 0B:8AA1: 02        .byte $02   ; 
-- D 0 - I - 0x016AB2 0B:8AA2: 03        .byte $03   ; 
-- D 0 - I - 0x016AB3 0B:8AA3: 00        .byte $00   ; 
-- D 0 - I - 0x016AB4 0B:8AA4: 80        .byte $80   ; 
+- D 0 - I - 0x016AB1 0B:8AA1: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AB2 0B:8AA2: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016AB3 0B:8AA3: 00        .byte $00   ; без доп умножения
+- D 0 - I - 0x016AB4 0B:8AA4: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x016AB5 0B:8AA5: 50        .byte $50   ; 
 
 
 
 _off005_8AA6_5B:
 ; con_s_bg_5B
-- D 0 - I - 0x016AB6 0B:8AA6: 02        .byte $02   ; 
-- D 0 - I - 0x016AB7 0B:8AA7: 03        .byte $03   ; 
-- D 0 - I - 0x016AB8 0B:8AA8: 00        .byte $00   ; 
-- D 0 - I - 0x016AB9 0B:8AA9: 80        .byte $80   ; 
+- D 0 - I - 0x016AB6 0B:8AA6: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AB7 0B:8AA7: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016AB8 0B:8AA8: 00        .byte $00   ; без доп умножения
+- D 0 - I - 0x016AB9 0B:8AA9: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x016ABA 0B:8AAA: 51        .byte $51   ; 
 
 
 
 _off005_8AAB_5C:
 ; con_s_bg_5C
-- D 0 - I - 0x016ABB 0B:8AAB: 02        .byte $02   ; 
-- D 0 - I - 0x016ABC 0B:8AAC: 01        .byte $01   ; 
+- D 0 - I - 0x016ABB 0B:8AAB: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016ABC 0B:8AAC: 01        .byte con_81A7_01   ; 
 - D 0 - I - 0x016ABD 0B:8AAD: 00        .byte $00   ; 
 - D 0 - I - 0x016ABE 0B:8AAE: 0B        .byte $0B   ; 
 - - - - - - 0x016ABF 0B:8AAF: 00        .byte $00   ; 
@@ -2417,28 +2430,28 @@ _off005_8AAB_5C:
 
 _off005_8AB2_5D:
 ; con_s_bg_5D
-- D 0 - I - 0x016AC2 0B:8AB2: 02        .byte $02   ; 
-- D 0 - I - 0x016AC3 0B:8AB3: 03        .byte $03   ; 
-- D 0 - I - 0x016AC4 0B:8AB4: 00        .byte $00   ; 
-- D 0 - I - 0x016AC5 0B:8AB5: 80        .byte $80   ; 
+- D 0 - I - 0x016AC2 0B:8AB2: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AC3 0B:8AB3: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016AC4 0B:8AB4: 00        .byte $00   ; без доп умножения
+- D 0 - I - 0x016AC5 0B:8AB5: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x016AC6 0B:8AB6: 30        .byte $30   ; 
 
 
 
 _off005_8AB7_5E:
 ; con_s_bg_5E
-- D 0 - I - 0x016AC7 0B:8AB7: 06        .byte $06   ; 
-- D 0 - I - 0x016AC8 0B:8AB8: 03        .byte $03   ; 
-- D 0 - I - 0x016AC9 0B:8AB9: 00        .byte $00   ; 
-- D 0 - I - 0x016ACA 0B:8ABA: 80        .byte $80   ; 
+- D 0 - I - 0x016AC7 0B:8AB7: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x016AC8 0B:8AB8: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016AC9 0B:8AB9: 00        .byte $00   ; без доп умножения
+- D 0 - I - 0x016ACA 0B:8ABA: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x016ACB 0B:8ABB: 35        .byte $35   ; 
 
 
 
 _off005_8ABC_5F:
 ; con_s_bg_5F
-- D 0 - I - 0x016ACC 0B:8ABC: 02        .byte $02   ; 
-- D 0 - I - 0x016ACD 0B:8ABD: 01        .byte $01   ; 
+- D 0 - I - 0x016ACC 0B:8ABC: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016ACD 0B:8ABD: 01        .byte con_81A7_01   ; 
 - D 0 - I - 0x016ACE 0B:8ABE: 00        .byte $00   ; 
 - D 0 - I - 0x016ACF 0B:8ABF: 01        .byte $01   ; 
 - - - - - - 0x016AD0 0B:8AC0: 00        .byte $00   ; 
@@ -2449,26 +2462,26 @@ _off005_8ABC_5F:
 
 _off005_8AC3_60:
 ; con_s_bg_60
-- D 0 - I - 0x016AD3 0B:8AC3: 02        .byte $02   ; 
-- D 0 - I - 0x016AD4 0B:8AC4: 03        .byte $03   ; 
-- D 0 - I - 0x016AD5 0B:8AC5: 00        .byte $00   ; 
-- D 0 - I - 0x016AD6 0B:8AC6: 80        .byte $80   ; 
+- D 0 - I - 0x016AD3 0B:8AC3: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AD4 0B:8AC4: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016AD5 0B:8AC5: 00        .byte $00   ; без доп умножения
+- D 0 - I - 0x016AD6 0B:8AC6: 80        .byte $80   ; 80 умножить силу атаки на 08
 - D 0 - I - 0x016AD7 0B:8AC7: 5E        .byte $5E   ; 
 
 
 
 _off005_8AC8_61:
 ; con_s_bg_61
-- D 0 - I - 0x016AD8 0B:8AC8: 02        .byte $02   ; 
-- D 0 - I - 0x016AD9 0B:8AC9: 00        .byte $00   ; 
+- D 0 - I - 0x016AD8 0B:8AC8: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AD9 0B:8AC9: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016ADA 0B:8ACA: 69        .byte $69   ; 
 
 
 
 _off005_8ACB_62:
 ; con_s_bg_62
-- D 0 - I - 0x016ADB 0B:8ACB: 02        .byte $02   ; 
-- D 0 - I - 0x016ADC 0B:8ACC: 06        .byte $06   ; 
+- D 0 - I - 0x016ADB 0B:8ACB: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016ADC 0B:8ACC: 06        .byte con_81A7_06   ; 
 - D 0 - I - 0x016ADD 0B:8ACD: 00        .byte $00   ; 
 - D 0 - I - 0x016ADE 0B:8ACE: 08        .byte $08   ; 
 - D 0 - I - 0x016ADF 0B:8ACF: 01        .byte $01   ; 
@@ -2487,26 +2500,25 @@ off_8AD6:
 
 _off005_8AD8_63:
 ; con_s_bg_63
-- D 0 - I - 0x016AE8 0B:8AD8: 02        .byte $02   ; 
-- D 0 - I - 0x016AE9 0B:8AD9: 00        .byte $00   ; 
+- D 0 - I - 0x016AE8 0B:8AD8: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AE9 0B:8AD9: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016AEA 0B:8ADA: 51        .byte $51   ; 
 
 
 
 _off005_8ADB_64:
 ; con_s_bg_64
-- D 0 - I - 0x016AEB 0B:8ADB: 02        .byte $02   ; 
-- D 0 - I - 0x016AEC 0B:8ADC: 03        .byte $03   ; 
-- D 0 - I - 0x016AED 0B:8ADD: 00        .byte $00   ; 
-- D 0 - I - 0x016AEE 0B:8ADE: F9        .byte $F9   ; 
+- D 0 - I - 0x016AEB 0B:8ADB: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AEC 0B:8ADC: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016AED 0B:8ADD: 00 F9     .word $F900 ; 
 - D 0 - I - 0x016AEF 0B:8ADF: 39        .byte $39   ; 
 
 
 
 _off005_8AE0_65:
 ; con_s_bg_65
-- D 0 - I - 0x016AF0 0B:8AE0: 02        .byte $02   ; 
-- D 0 - I - 0x016AF1 0B:8AE1: 05        .byte $05   ; 
+- D 0 - I - 0x016AF0 0B:8AE0: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AF1 0B:8AE1: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016AF2 0B:8AE2: 00        .byte $00   ; 
 - D 0 - I - 0x016AF3 0B:8AE3: 00        .byte $00   ; 
 - D 0 - I - 0x016AF4 0B:8AE4: 83        .byte $83   ; 
@@ -2516,8 +2528,8 @@ _off005_8AE0_65:
 
 _off005_8AE6_66:
 ; con_s_bg_66
-- - - - - - 0x016AF6 0B:8AE6: 02        .byte $02   ; 
-- - - - - - 0x016AF7 0B:8AE7: 01        .byte $01   ; 
+- - - - - - 0x016AF6 0B:8AE6: 02        .byte con_FBCC_02   ; 
+- - - - - - 0x016AF7 0B:8AE7: 01        .byte con_81A7_01   ; 
 - - - - - - 0x016AF8 0B:8AE8: 00        .byte $00   ; 
 - - - - - - 0x016AF9 0B:8AE9: 80        .byte $80   ; 
 - - - - - - 0x016AFA 0B:8AEA: 00        .byte $00   ; 
@@ -2528,8 +2540,8 @@ _off005_8AE6_66:
 
 _off005_8AED_67:
 ; con_s_bg_67
-- D 0 - I - 0x016AFD 0B:8AED: 02        .byte $02   ; 
-- D 0 - I - 0x016AFE 0B:8AEE: 05        .byte $05   ; 
+- D 0 - I - 0x016AFD 0B:8AED: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016AFE 0B:8AEE: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016AFF 0B:8AEF: 00        .byte $00   ; 
 - D 0 - I - 0x016B00 0B:8AF0: 00        .byte $00   ; 
 - D 0 - I - 0x016B01 0B:8AF1: 7C        .byte $7C   ; 
@@ -2539,8 +2551,8 @@ _off005_8AED_67:
 
 _off005_8AF3_68:
 ; con_s_bg_68
-- D 0 - I - 0x016B03 0B:8AF3: 02        .byte $02   ; 
-- D 0 - I - 0x016B04 0B:8AF4: 05        .byte $05   ; 
+- D 0 - I - 0x016B03 0B:8AF3: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B04 0B:8AF4: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016B05 0B:8AF5: 00        .byte $00   ; 
 - D 0 - I - 0x016B06 0B:8AF6: 80        .byte $80   ; 
 - D 0 - I - 0x016B07 0B:8AF7: 7D        .byte $7D   ; 
@@ -2550,8 +2562,8 @@ _off005_8AF3_68:
 
 _off005_8AF9_69:
 ; con_s_bg_69
-- D 0 - I - 0x016B09 0B:8AF9: 02        .byte $02   ; 
-- D 0 - I - 0x016B0A 0B:8AFA: 05        .byte $05   ; 
+- D 0 - I - 0x016B09 0B:8AF9: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B0A 0B:8AFA: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016B0B 0B:8AFB: 00        .byte $00   ; 
 - D 0 - I - 0x016B0C 0B:8AFC: 00        .byte $00   ; 
 - D 0 - I - 0x016B0D 0B:8AFD: 6A        .byte $6A   ; 
@@ -2561,28 +2573,26 @@ _off005_8AF9_69:
 
 _off005_8AFF_6A:
 ; con_s_bg_6A
-- D 0 - I - 0x016B0F 0B:8AFF: 02        .byte $02   ; 
-- D 0 - I - 0x016B10 0B:8B00: 03        .byte $03   ; 
-- D 0 - I - 0x016B11 0B:8B01: 00        .byte $00   ; 
-- D 0 - I - 0x016B12 0B:8B02: F5        .byte $F5   ; 
+- D 0 - I - 0x016B0F 0B:8AFF: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B10 0B:8B00: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016B11 0B:8B01: 00 F5     .word $F500 ; 
 - D 0 - I - 0x016B13 0B:8B03: 5E        .byte $5E   ; 
 
 
 
 _off005_8B04_6B:
 ; con_s_bg_6B
-- D 0 - I - 0x016B14 0B:8B04: 02        .byte $02   ; 
-- D 0 - I - 0x016B15 0B:8B05: 03        .byte $03   ; 
-- D 0 - I - 0x016B16 0B:8B06: 00        .byte $00   ; 
-- D 0 - I - 0x016B17 0B:8B07: F5        .byte $F5   ; 
+- D 0 - I - 0x016B14 0B:8B04: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B15 0B:8B05: 03        .byte con_81A7_03   ; 
+- D 0 - I - 0x016B16 0B:8B06: 00 F5     .word $F500 ; 
 - D 0 - I - 0x016B18 0B:8B08: 30        .byte $30   ; 
 
 
 
 _off005_8B09_6C:
 ; con_s_bg_6C
-- D 0 - I - 0x016B19 0B:8B09: 02        .byte $02   ; 
-- D 0 - I - 0x016B1A 0B:8B0A: 05        .byte $05   ; 
+- D 0 - I - 0x016B19 0B:8B09: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B1A 0B:8B0A: 05        .byte con_81A7_05   ; 
 - D 0 - I - 0x016B1B 0B:8B0B: 00        .byte $00   ; 
 - D 0 - I - 0x016B1C 0B:8B0C: 00        .byte $00   ; 
 - D 0 - I - 0x016B1D 0B:8B0D: 68        .byte $68   ; 
@@ -2592,8 +2602,8 @@ _off005_8B09_6C:
 
 _off005_8B0F_6D:
 ; con_s_bg_6D
-- D 0 - I - 0x016B1F 0B:8B0F: 02        .byte $02   ; 
-- D 0 - I - 0x016B20 0B:8B10: 08        .byte $08   ; 
+- D 0 - I - 0x016B1F 0B:8B0F: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B20 0B:8B10: 08        .byte con_81A7_08   ; 
 - D 0 - I - 0x016B21 0B:8B11: B0        .byte $B0   ; 
 - D 0 - I - 0x016B22 0B:8B12: FE        .byte $FE   ; 
 - D 0 - I - 0x016B23 0B:8B13: 02        .byte $02   ; 
@@ -2612,8 +2622,8 @@ off_8B1A:
 
 _off005_8B1C_6E:
 ; con_s_bg_6E
-- D 0 - I - 0x016B2C 0B:8B1C: 02        .byte $02   ; 
-- D 0 - I - 0x016B2D 0B:8B1D: 08        .byte $08   ; 
+- D 0 - I - 0x016B2C 0B:8B1C: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B2D 0B:8B1D: 08        .byte con_81A7_08   ; 
 - D 0 - I - 0x016B2E 0B:8B1E: 00        .byte $00   ; 
 - D 0 - I - 0x016B2F 0B:8B1F: FD        .byte $FD   ; 
 - D 0 - I - 0x016B30 0B:8B20: 03        .byte $03   ; 
@@ -2634,8 +2644,8 @@ off_8B28:
 
 _off005_8B2B_6F:
 ; con_s_bg_6F
-- - - - - - 0x016B3B 0B:8B2B: 02        .byte $02   ; 
-- - - - - - 0x016B3C 0B:8B2C: 06        .byte $06   ; 
+- - - - - - 0x016B3B 0B:8B2B: 02        .byte con_FBCC_02   ; 
+- - - - - - 0x016B3C 0B:8B2C: 06        .byte con_81A7_06   ; 
 - - - - - - 0x016B3D 0B:8B2D: B0        .byte $B0   ; 
 - - - - - - 0x016B3E 0B:8B2E: FE        .byte $FE   ; 
 - - - - - - 0x016B3F 0B:8B2F: 01        .byte $01   ; 
@@ -2654,16 +2664,16 @@ off_8B36:
 
 _off005_8B38_70:
 ; con_s_bg_70
-- D 0 - I - 0x016B48 0B:8B38: 06        .byte $06   ; 
-- D 0 - I - 0x016B49 0B:8B39: 00        .byte $00   ; 
+- D 0 - I - 0x016B48 0B:8B38: 06        .byte con_FBCC_06   ; 
+- D 0 - I - 0x016B49 0B:8B39: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016B4A 0B:8B3A: 56        .byte $56   ; 
 
 
 
 _off005_8B3B_71:
 ; con_s_bg_71
-- D 0 - I - 0x016B4B 0B:8B3B: 02        .byte $02   ; 
-- D 0 - I - 0x016B4C 0B:8B3C: 00        .byte $00   ; 
+- D 0 - I - 0x016B4B 0B:8B3B: 02        .byte con_FBCC_02   ; 
+- D 0 - I - 0x016B4C 0B:8B3C: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016B4D 0B:8B3D: 80        .byte $80   ; 
 
 
@@ -2676,8 +2686,8 @@ _off005_8B3E_72:
 
 _off005_8B3F_73:
 ; con_s_bg_73
-- D 0 - I - 0x016B4F 0B:8B3F: 19        .byte $19   ; 
-- D 0 - I - 0x016B50 0B:8B40: 00        .byte $00   ; 
+- D 0 - I - 0x016B4F 0B:8B3F: 19        .byte con_FBCC_19   ; 
+- D 0 - I - 0x016B50 0B:8B40: 00        .byte con_81A7_00   ; 
 - D 0 - I - 0x016B51 0B:8B41: 2B        .byte $2B   ; 
 
 
