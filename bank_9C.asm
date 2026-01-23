@@ -81,35 +81,38 @@ bra_8061:
 C - - - - - 0x038071 1C:8061: 68        PLA
 C - - - - - 0x038072 1C:8062: E9 23     SBC #$23
 bra_8064_это_один_из_игроков_нашей_команды:
-; * 0C
+; * 04
 C - - - - - 0x038074 1C:8064: A0 00     LDY #$00
-C - - - - - 0x038076 1C:8066: 84 33     STY ram_0032_t01_data + $01
+C - - - - - 0x038076 1C:8066: 84 33     STY ram_0033_t04_ptr_hi
 C - - - - - 0x038078 1C:8068: 0A        ASL
-C - - - - - 0x038079 1C:8069: 26 33     ROL ram_0032_t01_data + $01
+C - - - - - 0x038079 1C:8069: 26 33     ROL ram_0033_t04_ptr_hi
 C - - - - - 0x03807B 1C:806B: 0A        ASL
-C - - - - - 0x03807C 1C:806C: 26 33     ROL ram_0032_t01_data + $01
-C - - - - - 0x03807E 1C:806E: 85 32     STA ram_0032_t01_data
+C - - - - - 0x03807C 1C:806C: 26 33     ROL ram_0033_t04_ptr_hi
+C - - - - - 0x03807E 1C:806E: 85 32     STA ram_0032_t13_ptr_lo
 C - - - - - 0x038080 1C:8070: 28        PLP
 ; Y = 00
 C - - - - - 0x038081 1C:8071: 90 10     BCC bra_8083_это_один_из_игроков_нашей_команды
-C - - - - - 0x038083 1C:8073: A4 33     LDY ram_0032_t01_data + $01
+; if игрок из команды соперников
+; * 03 (0C)
+C - - - - - 0x038083 1C:8073: A4 33     LDY ram_0033_t04_ptr_hi
 C - - - - - 0x038085 1C:8075: 0A        ASL
-C - - - - - 0x038086 1C:8076: 26 33     ROL ram_0032_t01_data + $01
-C - - - - - 0x038088 1C:8078: 65 32     ADC ram_0032_t01_data
-C - - - - - 0x03808A 1C:807A: 85 32     STA ram_0032_t01_data
+C - - - - - 0x038086 1C:8076: 26 33     ROL ram_0033_t04_ptr_hi
+C - - - - - 0x038088 1C:8078: 65 32     ADC ram_0032_t13_ptr_lo
+C - - - - - 0x03808A 1C:807A: 85 32     STA ram_0032_t13_ptr_lo
 C - - - - - 0x03808C 1C:807C: 98        TYA
-C - - - - - 0x03808D 1C:807D: 65 33     ADC ram_0032_t01_data + $01
-C - - - - - 0x03808F 1C:807F: 85 33     STA ram_0032_t01_data + $01
+C - - - - - 0x03808D 1C:807D: 65 33     ADC ram_0033_t04_ptr_hi
+C - - - - - 0x03808F 1C:807F: 85 33     STA ram_0033_t04_ptr_hi
 C - - - - - 0x038091 1C:8081: A0 02     LDY #$02
 bra_8083_это_один_из_игроков_нашей_команды:
 C - - - - - 0x038093 1C:8083: 18        CLC
-C - - - - - 0x038094 1C:8084: A5 32     LDA ram_0032_t01_data
+C - - - - - 0x038094 1C:8084: A5 32     LDA ram_0032_t13_ptr_lo
 C - - - - - 0x038096 1C:8086: 79 99 81  ADC tbl_8199,Y
 C - - - - - 0x038099 1C:8089: 85 32     STA ram_0032_t01_data
-C - - - - - 0x03809B 1C:808B: A5 33     LDA ram_0032_t01_data + $01
+C - - - - - 0x03809B 1C:808B: A5 33     LDA ram_0033_t04_ptr_hi
 C - - - - - 0x03809D 1C:808D: 79 9A 81  ADC tbl_8199 + $01,Y
 C - - - - - 0x0380A0 1C:8090: 85 33     STA ram_0032_t01_data + $01
 C - - - - - 0x0380A2 1C:8092: 68        PLA
+; X = con_skill (in)
 C - - - - - 0x0380A3 1C:8093: E0 1F     CPX #$1F
 C - - - - - 0x0380A5 1C:8095: 90 03     BCC bra_809A_00_1E
 C - - - - - 0x0380A7 1C:8097: 4C 3F 81  JMP loc_813F_1F_FF
@@ -126,47 +129,48 @@ bra_80A8:
 C - - - - - 0x0380B8 1C:80A8: 08        PHP
 C - - - - - 0x0380B9 1C:80A9: A0 00     LDY #$00
 C - - - - - 0x0380BB 1C:80AB: B1 32     LDA (ram_0032_t01_data),Y
-C - - - - - 0x0380BD 1C:80AD: 84 33     STY ram_0032_t02_data + $01
+C - - - - - 0x0380BD 1C:80AD: 84 33     STY ram_0033_t05_ptr_hi
 C - - - - - 0x0380BF 1C:80AF: 28        PLP
 C - - - - - 0x0380C0 1C:80B0: D0 1F     BNE bra_80D1
 ; * 08
 C - - - - - 0x0380C2 1C:80B2: 0A        ASL
-C - - - - - 0x0380C3 1C:80B3: 26 33     ROL ram_0032_t02_data + $01
+C - - - - - 0x0380C3 1C:80B3: 26 33     ROL ram_0033_t05_ptr_hi
 C - - - - - 0x0380C5 1C:80B5: 0A        ASL
-C - - - - - 0x0380C6 1C:80B6: 26 33     ROL ram_0032_t02_data + $01
+C - - - - - 0x0380C6 1C:80B6: 26 33     ROL ram_0033_t05_ptr_hi
 C - - - - - 0x0380C8 1C:80B8: 0A        ASL
-C - - - - - 0x0380C9 1C:80B9: 26 33     ROL ram_0032_t02_data + $01
+C - - - - - 0x0380C9 1C:80B9: 26 33     ROL ram_0033_t05_ptr_hi
 C - - - - - 0x0380CB 1C:80BB: 69 86     ADC #< tbl_AE86
 C - - - - - 0x0380CD 1C:80BD: 85 32     STA ram_0032_t02_data
-C - - - - - 0x0380CF 1C:80BF: A5 33     LDA ram_0032_t02_data + $01
+C - - - - - 0x0380CF 1C:80BF: A5 33     LDA ram_0033_t05_ptr_hi
 C - - - - - 0x0380D1 1C:80C1: 69 AE     ADC #> tbl_AE86
 C - - - - - 0x0380D3 1C:80C3: 85 33     STA ram_0032_t02_data + $01
+; X = 00, 18-1E
 C - - - - - 0x0380D5 1C:80C5: 8A        TXA
-C - - - - - 0x0380D6 1C:80C6: F0 03     BEQ bra_80CB_00
+C - - - - - 0x0380D6 1C:80C6: F0 03     BEQ bra_80CB_00_stamina ; if con_skill_stamina
 C - - - - - 0x0380D8 1C:80C8: 38        SEC
 C - - - - - 0x0380D9 1C:80C9: E9 17     SBC #$17
-bra_80CB_00:
+bra_80CB_00_stamina:
 C - - - - - 0x0380DB 1C:80CB: A8        TAY
 C - - - - - 0x0380DE 1C:80CE: 4C F9 80  JMP loc_80F9
 bra_80D1:
 ; * 18
 C - - - - - 0x0380E1 1C:80D1: 0A        ASL
-C - - - - - 0x0380E2 1C:80D2: 26 33     ROL ram_0032_t02_data + $01
+C - - - - - 0x0380E2 1C:80D2: 26 33     ROL ram_0033_t05_ptr_hi
 C - - - - - 0x0380E4 1C:80D4: 0A        ASL
-C - - - - - 0x0380E5 1C:80D5: 26 33     ROL ram_0032_t02_data + $01
+C - - - - - 0x0380E5 1C:80D5: 26 33     ROL ram_0033_t05_ptr_hi
 C - - - - - 0x0380E7 1C:80D7: 0A        ASL
-C - - - - - 0x0380E8 1C:80D8: 26 33     ROL ram_0032_t02_data + $01
-C - - - - - 0x0380EA 1C:80DA: A4 33     LDY ram_0032_t02_data + $01
-C - - - - - 0x0380EC 1C:80DC: 85 32     STA ram_0032_t02_data
+C - - - - - 0x0380E8 1C:80D8: 26 33     ROL ram_0033_t05_ptr_hi
+C - - - - - 0x0380EA 1C:80DA: A4 33     LDY ram_0033_t05_ptr_hi
+C - - - - - 0x0380EC 1C:80DC: 85 32     STA ram_0032_t14_ptr_lo
 C - - - - - 0x0380EE 1C:80DE: 0A        ASL
-C - - - - - 0x0380EF 1C:80DF: 26 33     ROL ram_0032_t02_data + $01
-C - - - - - 0x0380F1 1C:80E1: 65 32     ADC ram_0032_t02_data
-C - - - - - 0x0380F3 1C:80E3: 85 32     STA ram_0032_t02_data
+C - - - - - 0x0380EF 1C:80DF: 26 33     ROL ram_0033_t05_ptr_hi
+C - - - - - 0x0380F1 1C:80E1: 65 32     ADC ram_0032_t14_ptr_lo
+C - - - - - 0x0380F3 1C:80E3: 85 32     STA ram_0032_t15_ptr_lo
 C - - - - - 0x0380F5 1C:80E5: 98        TYA
-C - - - - - 0x0380F6 1C:80E6: 65 33     ADC ram_0032_t02_data + $01
+C - - - - - 0x0380F6 1C:80E6: 65 33     ADC ram_0033_t05_ptr_hi
 C - - - - - 0x0380F8 1C:80E8: 85 33     STA ram_0032_t02_data + $01
 C - - - - - 0x0380FA 1C:80EA: 18        CLC
-C - - - - - 0x0380FB 1C:80EB: A5 32     LDA ram_0032_t02_data
+C - - - - - 0x0380FB 1C:80EB: A5 32     LDA ram_0032_t15_ptr_lo
 C - - - - - 0x0380FD 1C:80ED: 69 CE     ADC #< tbl_9FCE
 C - - - - - 0x0380FF 1C:80EF: 85 32     STA ram_0032_t02_data
 C - - - - - 0x038101 1C:80F1: A5 33     LDA ram_0032_t02_data + $01
@@ -175,8 +179,10 @@ C - - - - - 0x038105 1C:80F5: 85 33     STA ram_0032_t02_data + $01
 C - - - - - 0x038107 1C:80F7: 8A        TXA
 C - - - - - 0x038108 1C:80F8: A8        TAY
 loc_80F9:
+; X = con_skill (original)
+; Y = con_skill (converted)
 C D 0 - - - 0x038109 1C:80F9: 8A        TXA
-C - - - - - 0x03810A 1C:80FA: F0 17     BEQ bra_8113
+C - - - - - 0x03810A 1C:80FA: F0 17     BEQ bra_8113_00_stamina ; if con_skill_stamina
 C - - - - - 0x03810C 1C:80FC: B1 32     LDA (ram_0032_t02_data),Y
 C - - - - - 0x03810E 1C:80FE: 48        PHA
 C - - - - - 0x03810F 1C:80FF: A0 03     LDY #con_plr_lvl
@@ -191,7 +197,7 @@ C - - - - - 0x03811C 1C:810C: 90 02     BCC bra_8110_not_overflow
 - - - - - - 0x03811E 1C:810E: A0 BF     LDY #$BF
 bra_8110_not_overflow:
 C - - - - - 0x038122 1C:8112: 60        RTS
-bra_8113:
+bra_8113_00_stamina:
 ; чтение уровня игрока и вычисление его параметров
 C - - - - - 0x038123 1C:8113: B1 32     LDA (ram_0032_t02_data),Y
 C - - - - - 0x038125 1C:8115: 48        PHA
@@ -224,32 +230,33 @@ C - - - - - 0x03814C 1C:813C: 4C 8B 81  PLA
 
 loc_813F_1F_FF:
 ; in
+    ; X = 1F-26
     ; ram_0032_t01_data
 ; out
     ; ram_0032_t10_число_скилла_lo
     ; ram_0033_t01_число_скилла_hi
 C D 0 - - - 0x03814F 1C:813F: E0 25     CPX #$25
-C - - - - - 0x038151 1C:8141: B0 3B     BCS bra_817E_25_FF
+C - - - - - 0x038151 1C:8141: B0 3B     BCS bra_817E_25_26
 ; 1F-24
 C - - - - - 0x038153 1C:8143: A0 01     LDY #$01
 C - - - - - 0x038155 1C:8145: B1 32     LDA (ram_0032_t01_data),Y
 C - - - - - 0x038157 1C:8147: 88        DEY ; 00
-C - - - - - 0x038158 1C:8148: 84 33     STY ram_0032_t06_data + $01
+C - - - - - 0x038158 1C:8148: 84 33     STY ram_0033_t06_ptr_hi
 ; * 0C
 C - - - - - 0x03815A 1C:814A: 0A        ASL
-C - - - - - 0x03815B 1C:814B: 26 33     ROL ram_0032_t06_data + $01
+C - - - - - 0x03815B 1C:814B: 26 33     ROL ram_0033_t06_ptr_hi
 C - - - - - 0x03815D 1C:814D: 0A        ASL
-C - - - - - 0x03815E 1C:814E: 26 33     ROL ram_0032_t06_data + $01
-C - - - - - 0x038160 1C:8150: 85 32     STA ram_0032_t06_data
-C - - - - - 0x038162 1C:8152: A4 33     LDY ram_0032_t06_data + $01
+C - - - - - 0x03815E 1C:814E: 26 33     ROL ram_0033_t06_ptr_hi
+C - - - - - 0x038160 1C:8150: 85 32     STA ram_0032_t16_ptr_lo
+C - - - - - 0x038162 1C:8152: A4 33     LDY ram_0033_t06_ptr_hi
 C - - - - - 0x038164 1C:8154: 0A        ASL
-C - - - - - 0x038165 1C:8155: 26 33     ROL ram_0032_t06_data + $01
-C - - - - - 0x038167 1C:8157: 65 32     ADC ram_0032_t06_data
-C - - - - - 0x038169 1C:8159: 85 32     STA ram_0032_t06_data
+C - - - - - 0x038165 1C:8155: 26 33     ROL ram_0033_t06_ptr_hi
+C - - - - - 0x038167 1C:8157: 65 32     ADC ram_0032_t16_ptr_lo
+C - - - - - 0x038169 1C:8159: 85 32     STA ram_0032_t17_ptr_lo
 C - - - - - 0x03816B 1C:815B: 98        TYA
-C - - - - - 0x03816C 1C:815C: 65 33     ADC ram_0032_t06_data + $01
+C - - - - - 0x03816C 1C:815C: 65 33     ADC ram_0033_t06_ptr_hi
 C - - - - - 0x03816E 1C:815E: A8        TAY
-C - - - - - 0x03816F 1C:815F: A5 32     LDA ram_0032_t06_data
+C - - - - - 0x03816F 1C:815F: A5 32     LDA ram_0032_t17_ptr_lo
 C - - - - - 0x038171 1C:8161: 18        CLC
 C - - - - - 0x038172 1C:8162: 69 AE     ADC #< tbl_AFAE
 C - - - - - 0x038174 1C:8164: 85 32     STA ram_0032_t06_data
@@ -270,11 +277,12 @@ C - - - - - 0x038189 1C:8179: 86 32     STX ram_0032_t10_число_скилла
 C - - - - - 0x03818B 1C:817B: 4C 8B 81  PLA
                                         PLA
                                         RTS
-bra_817E_25_FF:
+bra_817E_25_26:
 C - - - - - 0x03818E 1C:817E: 8A        TXA
 C - - - - - 0x03818F 1C:817F: 38        SEC
 C - - - - - 0x038190 1C:8180: E9 23     SBC #$23
 C - - - - - 0x038192 1C:8182: A8        TAY
+; Y = 02 03
 C - - - - - 0x038193 1C:8183: B1 32     LDA (ram_0032_t01_data),Y
 C - - - - - 0x038195 1C:8185: 85 32     STA ram_0032_t10_число_скилла_lo
 C - - - - - 0x038197 1C:8187: A9 00     LDA #$00
@@ -301,8 +309,8 @@ tbl_818E_индекс_для_параметров_команды:
 
 
 tbl_8199:
-- D 0 - - - 0x0381A9 1C:8199: D6 95     .word off_95D6_игроки_нашей_команды
-- D 0 - - - 0x0381AB 1C:819B: 62 96     .word off_9662_игроки_команды_соперников
+- D 0 - - - 0x0381A9 1C:8199: D6 95     .word off_95D6_00_игроки_нашей_команды
+- D 0 - - - 0x0381AB 1C:819B: 62 96     .word off_9662_02_игроки_команды_соперников
 
 
 
@@ -4720,7 +4728,7 @@ off_95D2_06:
 
 
 
-off_95D6_игроки_нашей_команды:
+off_95D6_00_игроки_нашей_команды:
 ; 00 ???
 - - - - - - 0x0395E6 1C:95D6: 00        .byte $00   ; 
 - D 0 - I - 0x0395E7 1C:95D7: 00        .byte $00   ; 
@@ -4900,7 +4908,7 @@ off_95D6_игроки_нашей_команды:
 
 
 tbl_9662_игроки_команды_соперников:
-off_9662_игроки_команды_соперников:
+off_9662_02_игроки_команды_соперников:
 ; 23 p_satrustegui_corinthians
 - D 0 - I - 0x039672 1C:9662: 1C        .byte $1C   ; 
 - D 0 - I - 0x039673 1C:9663: 06        .byte $06   ; 

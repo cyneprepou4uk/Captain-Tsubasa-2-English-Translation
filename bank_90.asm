@@ -59,10 +59,10 @@ C - - - - - 0x020041 10:8031: 8D 2B 05  STA ram_for_0532
 C - - - - - 0x020044 10:8034: 8D 2D 05  STA ram_052D
 C - - - - - 0x020047 10:8037: 8D 2C 05  STA ram_052C
 C - - - - - 0x02004A 10:803A: 8D 30 05  STA ram_for_052E_задержка_звука_анимации
-C - - - - - 0x02004D 10:803D: 85 3A     STA ram_003A_t12_индекс_данных
+C - - - - - 0x02004D 10:803D: 85 3A     STA ram_003A_t12_data_index_scenario
 loc_803F_loop:
-C D 0 - - - 0x02004F 10:803F: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x020051 10:8041: E6 3A     INC ram_003A_t12_индекс_данных
+C D 0 - - - 0x02004F 10:803F: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x020051 10:8041: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020053 10:8043: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020055 10:8045: C9 F0     CMP #$F0
 C - - - - - 0x020057 10:8047: 90 06     BCC bra_804F
@@ -75,16 +75,16 @@ C - - - - - 0x020062 10:8052: AD 16 05  LDA ram_флаги_сценария_ХЗ
 C - - - - - 0x020065 10:8055: 09 40     ORA #$40
 C - - - - - 0x020067 10:8057: 29 EF     AND #$10 ^ $FF
 C - - - - - 0x020069 10:8059: 8D 16 05  STA ram_флаги_сценария_ХЗ
-C - - - - - 0x02006C 10:805C: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x02006E 10:805E: E6 3A     INC ram_003A_t12_индекс_данных
+C - - - - - 0x02006C 10:805C: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x02006E 10:805E: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020070 10:8060: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020079 10:8069: 8D 24 05  STA ram_фон_анимации
-C - - - - - 0x02007C 10:806C: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x02007E 10:806E: E6 3A     INC ram_003A_t12_индекс_данных
+C - - - - - 0x02007C 10:806C: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x02007E 10:806E: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020080 10:8070: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020089 10:8079: 8D 28 05  STA ram_for_053C_номер_анимации
-C - - - - - 0x02008C 10:807C: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x02008E 10:807E: E6 3A     INC ram_003A_t12_индекс_данных
+C - - - - - 0x02008C 10:807C: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x02008E 10:807E: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020090 10:8080: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020099 10:8089: 8D 29 05  STA ram_for_05EA_облако
 ; при необходимости выбрать анимацию из таблицы
@@ -107,7 +107,7 @@ loc_808A:
                                         STA ram_for_053C_номер_анимации
 loc_808C:
 ; 00-FC, FF
-C - - - - - 0x02009C 10:808C: A5 3A     LDA ram_003A_t12_индекс_данных
+C - - - - - 0x02009C 10:808C: A5 3A     LDA ram_003A_t12_data_index_scenario
 C - - - - - 0x02009E 10:808E: 18        CLC
 C - - - - - 0x02009F 10:808F: 65 5D     ADC ram_005D_t02_data_scenario
 C - - - - - 0x0200A1 10:8091: 85 5D     STA ram_005D_t02_data_scenario
@@ -188,7 +188,7 @@ C - - - - - 0x03CB1C FF:CB0C: 60        RTS
 ofs_014_80F4_F2_jmp:
 ; читает 2 следующих байта
 ; переместиться на адрес поинтеров после F2
-C - - J - - 0x020104 10:80F4: A4 3A     LDY ram_003A_t12_индекс_данных
+C - - J - - 0x020104 10:80F4: A4 3A     LDY ram_003A_t12_data_index_scenario
 loc_80F6_подпрограмма_сценария:
 C D 0 - - - 0x020106 10:80F6: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020108 10:80F8: AA        TAX
@@ -197,7 +197,7 @@ C - - - - - 0x02010A 10:80FA: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x02010C 10:80FC: 85 5E     STA ram_005D_t02_data_scenario + $01
 C - - - - - 0x02010E 10:80FE: 86 5D     STX ram_005D_t02_data_scenario
 C - - - - - 0x020110 10:8100: A9 00     LDA #$00
-C - - - - - 0x020112 10:8102: 85 3A     STA ram_003A_t12_индекс_данных
+C - - - - - 0x020112 10:8102: 85 3A     STA ram_003A_t12_data_index_scenario
 C - - - - - 0x020114 10:8104: 60        RTS
 
 
@@ -207,7 +207,7 @@ ofs_014_8105_F3_branch:
 ; код считывает байт после F3 и прыгает на одну из соответствующих подпрограмм, откуда получает нужный результат в X
     ; если байт после F3 отрицательный, то меняется косвенный адрес сценария в зависимости от результата
     ; если байт после F3 положительный, то косвенный адрес сценария смещается на велечину результата
-C - - J - - 0x020115 10:8105: A4 3A     LDY ram_003A_t12_индекс_данных
+C - - J - - 0x020115 10:8105: A4 3A     LDY ram_003A_t12_data_index_scenario
 C - - - - - 0x020117 10:8107: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020119 10:8109: 48        PHA
 C - - - - - 0x02011A 10:810A: 20 6E 81  JSR sub_816E_выбор_подпрограммы
@@ -242,7 +242,7 @@ C - - - - - 0x02011E 10:810E: 10 1F     BPL bra_812F_00_7F
 ; 80-FF
 C - - - - - 0x020120 10:8110: 8A        TXA
 C - - - - - 0x020121 10:8111: 38        SEC
-C - - - - - 0x020122 10:8112: 65 3A     ADC ram_003A_t12_индекс_данных
+C - - - - - 0x020122 10:8112: 65 3A     ADC ram_003A_t12_data_index_scenario
 C - - - - - 0x020124 10:8114: 18        CLC
 C - - - - - 0x020125 10:8115: 65 5D     ADC ram_005D_t02_data_scenario
 C - - - - - 0x020127 10:8117: 85 5D     STA ram_005D_t02_data_scenario
@@ -258,14 +258,14 @@ C - - - - - 0x020136 10:8126: 90 02     BCC bra_812A_not_overflow
 C - - - - - 0x020138 10:8128: E6 5E     INC ram_005D_t02_data_scenario + $01
 bra_812A_not_overflow:
 C - - - - - 0x02013A 10:812A: A9 00     LDA #$00
-C - - - - - 0x02013C 10:812C: 85 3A     STA ram_003A_t12_индекс_данных
+C - - - - - 0x02013C 10:812C: 85 3A     STA ram_003A_t12_data_index_scenario
 C - - - - - 0x02013E 10:812E: 60        RTS
 bra_812F_00_7F:
 loc_812F_выбрать_подпрограмму:
 C D 0 - - - 0x02013F 10:812F: 8A        TXA
 C - - - - - 0x020140 10:8130: 0A        ASL
 C - - - - - 0x020141 10:8131: 38        SEC
-C - - - - - 0x020142 10:8132: 65 3A     ADC ram_003A_t12_индекс_данных
+C - - - - - 0x020142 10:8132: 65 3A     ADC ram_003A_t12_data_index_scenario
 C - - - - - 0x020144 10:8134: A8        TAY
 C - - - - - 0x020145 10:8135: 4C F6 80  JMP loc_80F6_подпрограмма_сценария
 
@@ -2158,8 +2158,8 @@ C - - - - - 0x020804 10:87F4: 60        RTS
 
 ofs_014_87F5_F7:
 ; читает 1 следующий байт, который позже будет записан в ram_0532_temp
-C - - J - - 0x020805 10:87F5: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x020807 10:87F7: E6 3A     INC ram_003A_t12_индекс_данных
+C - - J - - 0x020805 10:87F5: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x020807 10:87F7: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020809 10:87F9: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x02080B 10:87FB: 8D 2B 05  STA ram_for_0532
 C - - - - - 0x02080E 10:87FE: 60        RTS
@@ -2168,8 +2168,8 @@ C - - - - - 0x02080E 10:87FE: 60        RTS
 
 ofs_014_87FF_F8:
 ; читает 1 следующий байт
-C - - J - - 0x02080F 10:87FF: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x020811 10:8801: E6 3A     INC ram_003A_t12_индекс_данных
+C - - J - - 0x02080F 10:87FF: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x020811 10:8801: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020813 10:8803: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020815 10:8805: 8D 2C 05  STA ram_052C
 C - - - - - 0x020818 10:8808: 60        RTS
@@ -2179,14 +2179,14 @@ C - - - - - 0x020818 10:8808: 60        RTS
 ofs_014_8809_F9_soundID_delay:
 ; читает 2 следующих байта
 ; номер звука и время задержки перед воспроизведением этого звука
-C - - J - - 0x020819 10:8809: A4 3A     LDY ram_003A_t12_индекс_данных
+C - - J - - 0x020819 10:8809: A4 3A     LDY ram_003A_t12_data_index_scenario
 C - - - - - 0x02081B 10:880B: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x02081D 10:880D: 8D 30 05  STA ram_for_052F_звук_анимации
 C - - - - - 0x020820 10:8810: C8        INY
 C - - - - - 0x020821 10:8811: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020823 10:8813: 8D 31 05  STA ram_for_052E_задержка_звука_анимации
 C - - - - - 0x020826 10:8816: C8        INY
-C - - - - - 0x020827 10:8817: 84 3A     STY ram_003A_t12_индекс_данных
+C - - - - - 0x020827 10:8817: 84 3A     STY ram_003A_t12_data_index_scenario
 C - - - - - 0x020829 10:8819: 60        RTS
 
 
@@ -2195,7 +2195,7 @@ ofs_014_881A_FA_jsr:
 ; читает 2 следующих байта
 ; прыжок с возвратом во внутренний сценарий
 C - - J - - 0x02082A 10:881A: AE 22 05  LDX ram_указатель_стека_сценария
-C - - - - - 0x02082D 10:881D: A5 3A     LDA ram_003A_t12_индекс_данных
+C - - - - - 0x02082D 10:881D: A5 3A     LDA ram_003A_t12_data_index_scenario
 C - - - - - 0x02082F 10:881F: A8        TAY
 C - - - - - 0x020830 10:8820: 18        CLC
 C - - - - - 0x020831 10:8821: 69 02     ADC #< $0002
@@ -2244,7 +2244,7 @@ C - - - - - 0x020857 10:8847: 85 5D     STA ram_005D_t02_data_scenario
 C - - - - - 0x020859 10:8849: BD 1B 05  LDA ram_стек_сценария_hi,X
 C - - - - - 0x02085C 10:884C: 85 5E     STA ram_005D_t02_data_scenario + $01
 C - - - - - 0x02085E 10:884E: A9 00     LDA #$00
-C - - - - - 0x020860 10:8850: 85 3A     STA ram_003A_t12_индекс_данных
+C - - - - - 0x020860 10:8850: 85 3A     STA ram_003A_t12_data_index_scenario
 C - - - - - 0x020862 10:8852: 60        RTS
 
 
@@ -2252,8 +2252,8 @@ C - - - - - 0x020862 10:8852: 60        RTS
 ofs_014_8853_FC_moving_bg:
 ; читает 1 следующий байт
 ; что-то связанное с движущимся фоном во время подката
-C - - J - - 0x020863 10:8853: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x020865 10:8855: E6 3A     INC ram_003A_t12_индекс_данных
+C - - J - - 0x020863 10:8853: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x020865 10:8855: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020867 10:8857: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020869 10:8859: 8D 2D 05  STA ram_052D
 C - - - - - 0x02086C 10:885C: 60        RTS
@@ -2262,8 +2262,8 @@ C - - - - - 0x02086C 10:885C: 60        RTS
 
 ofs_014_885D_FD_mirror_condition:
 ; читает 1 следующий байт
-C - - J - - 0x02086D 10:885D: A4 3A     LDY ram_003A_t12_индекс_данных
-C - - - - - 0x02086F 10:885F: E6 3A     INC ram_003A_t12_индекс_данных
+C - - J - - 0x02086D 10:885D: A4 3A     LDY ram_003A_t12_data_index_scenario
+C - - - - - 0x02086F 10:885F: E6 3A     INC ram_003A_t12_data_index_scenario
 C - - - - - 0x020871 10:8861: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020873 10:8863: 20 6A 88  JSR sub_886A_подпрограмма
 C - - - - - 0x020876 10:8866: 8E 2A 05  STX ram_флаг_зеркала_анимации
@@ -2375,7 +2375,7 @@ C - - - - - 0x0208FC 10:88EC: 60        RTS
 
 ofs_014_88ED_FF_drive_overhead_tiger:
 ; читает 1 следующий байт
-C - - J - - 0x0208FD 10:88ED: A4 3A     LDY ram_003A_t12_индекс_данных
+C - - J - - 0x0208FD 10:88ED: A4 3A     LDY ram_003A_t12_data_index_scenario
 C - - - - - 0x0208FF 10:88EF: B1 5D     LDA (ram_005D_t02_data_scenario),Y
 C - - - - - 0x020901 10:88F1: 20 09 C5  JSR sub_0x03CBA9_поинтеры_после_JSR
 - D 0 - I - 0x020906 10:88F6: 0D 89     .word ofs_019_890D_00_drive_overhead

@@ -325,6 +325,11 @@ ram_0032_temp                           = $0032 ; 002BDC 002C23 030C4A 030CE5 03
     ram_0032_t10_число_скилла_lo            = ram_0032_temp ; 
     ram_0032_t11_lo                         = ram_0032_temp ; 
     ram_0032_t12_lo                         = ram_0032_temp ; 
+    ram_0032_t13_ptr_lo                     = ram_0032_temp ; 
+    ram_0032_t14_ptr_lo                     = ram_0032_temp ; 
+    ram_0032_t15_ptr_lo                     = ram_0032_temp ; 
+    ram_0032_t16_ptr_lo                     = ram_0032_temp ; 
+    ram_0032_t17_ptr_lo                     = ram_0032_temp ; 
 
 
 
@@ -333,6 +338,9 @@ ram_0033_temp                           = $0033 ; 002BE0 030C4C 030CE7 034D74 03
     ram_0033_t01_число_скилла_hi            = ram_0033_temp ; 
     ram_0033_t02_hi                         = ram_0033_temp ; 
     ram_0033_t03_hi                         = ram_0033_temp ; 
+    ram_0033_t04_ptr_hi                     = ram_0033_temp ; 
+    ram_0033_t05_ptr_hi                     = ram_0033_temp ; 
+    ram_0033_t06_ptr_hi                     = ram_0033_temp ; 
 
 
 
@@ -378,7 +386,7 @@ ram_003A_temp                           = $003A ; 0023E0 004145 004248 0042E2 01
     ram_003A_t09_data                       = ram_003A_temp ; 2 адреса 003A-003B
     ram_003A_t10_data_байты_анимации_чарли  = ram_003A_temp ; 2 адреса 003A-003B
     ram_003A_t11_data_игроки_ком_соперников = ram_003A_temp ; 2 адреса 003A-003B
-    ram_003A_t12_индекс_данных              = ram_003A_temp ; 
+    ram_003A_t12_data_index_scenario        = ram_003A_temp ; 
     ram_003A_t13                            = ram_003A_temp ; 
     ram_003A_t14                            = ram_003A_temp ; 
     ram_003A_t15_затрата_guts_на_бег        = ram_003A_temp ; 
