@@ -278,6 +278,8 @@ C - - - - - 0x03818B 1C:817B: 4C 8B 81  PLA
                                         PLA
                                         RTS
 bra_817E_25_26:
+; con_skill_25
+; con_skill_26
 C - - - - - 0x03818E 1C:817E: 8A        TXA
 C - - - - - 0x03818F 1C:817F: 38        SEC
 C - - - - - 0x038190 1C:8180: E9 23     SBC #$23

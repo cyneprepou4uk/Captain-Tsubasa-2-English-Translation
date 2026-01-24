@@ -1547,7 +1547,7 @@ sub_B1A7_очистить_текст:
                                         STA ram_04A8
                                         STA ram_04A9
 ; bzk optimize, возможно это STA не обязательно, было скопировано из 0x03CC56
-                                        STA ram_05F4_flag
+                                        STA ram_05F4_flag_charlie
 ; 
                                         LDA #$06        ; счетчик цикла
 bra_B1A8_loop_очистка_экрана:

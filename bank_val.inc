@@ -69,11 +69,33 @@ con_chr_bank                            = $00 ; номер chr банка
 con_cutscene                            = $00 ; номер катсцены
 con_макс_длина_имени_08                 = $08 ; 
 con_81FA_spr_X                          = $00 ; индекс для 0x02C20A
+
+
+
 ; начальные байты
 con_cloud_start_line                    = $00 ; 
 con_cloud_pause                         = $00 ; 
-con_cloud_window                        = $00 ; 
-con_cloud_charlie                       = $00 ; 
+con_cloud_window                        = $00 ; 0x030DD2
+con_cloud_charlie                       = $00 ; 0x0362A2
+
+
+
+; ram_btn_hold
+; ram_btn_press
+con_btn_Right                           = $01 ; 
+con_btn_Left                            = $02 ; 
+con_btn_Down                            = $04 ; 
+con_btn_Up                              = $08 ; 
+con_btn_Start                           = $10 ; 
+con_btn_Select                          = $20 ; 
+con_btn_B                               = $40 ; 
+con_btn_A                               = $80 ; 
+
+con_btns_LR                             = con_btn_Left + con_btn_Right                              ; 03
+con_btns_UD                             = con_btn_Up + con_btn_Down                                 ; 0C
+con_btns_Dpad                           = con_btn_Right + con_btn_Left + con_btn_Down + con_btn_Up  ; 0F
+con_btns_SS                             = con_btn_Start + con_btn_Select                            ; 30
+con_btns_AB                             = con_btn_A + con_btn_B                                     ; C0
 
 
 
@@ -94,11 +116,9 @@ con_plr_pos_X_lo                        = $05 ;
 con_plr_pos_X_hi                        = $06 ; 
 con_plr_pos_Y_lo                        = $07 ; 
 con_plr_pos_Y_hi                        = $08 ; 
-con_plr_09                              = $09 ; какой-то параметр ???
+con_plr_09                              = $09 ; что-то связано с интеллектом в зависимости от расстановки/защиты
 con_plr_stun                            = $0A ; stunlock, таймер, во время которого игрок не может двигаться автоматически и нападать (также для киперов)
 ; con_plr_0B                            = $0B ; unused, bzk optimize
-
-
 
 ; особые параметры киперов
 ; в теории у кипера может быть Y_lo в 0x03E5B0, но это скорее баг
@@ -106,30 +126,9 @@ con_gk_таймер_наебки                    = $05 ; при наебке 
 con_gk_06                               = $06 ; 
 con_gk_величина_наебки                  = $07 ; при наебке кипера (вероятно при постоянных отбиваниях тоже)
 
-
-
 ; особые параметры ботов
 con_бот_флаг_1_ХЗ                       = $01 ; флаг злого шнайдера если 80, пишется в 0x020467
 con_бот_флаг_2_ХЗ                       = $02 ; ??? сила злого шнайдера
-
-
-
-; ram_btn_hold
-; ram_btn_press
-con_btn_Right                           = $01 ; 
-con_btn_Left                            = $02 ; 
-con_btn_Down                            = $04 ; 
-con_btn_Up                              = $08 ; 
-con_btn_Start                           = $10 ; 
-con_btn_Select                          = $20 ; 
-con_btn_B                               = $40 ; 
-con_btn_A                               = $80 ; 
-
-con_btns_LR                             = con_btn_Left + con_btn_Right                              ; 03
-con_btns_UD                             = con_btn_Up + con_btn_Down                                 ; 0C
-con_btns_Dpad                           = con_btn_Right + con_btn_Left + con_btn_Down + con_btn_Up  ; 0F
-con_btns_SS                             = con_btn_Start + con_btn_Select                            ; 30
-con_btns_AB                             = con_btn_A + con_btn_B                                     ; C0
 
 
 
@@ -174,7 +173,7 @@ con_8C7F_06                             = $06 ;
 con_8C7F_07                             = $07 ; 
 con_8C7F_08                             = $08 ; 
 con_8C7F_09                             = $09 ; 
-con_8C7F_проверка_на_наличие_jito                             = $0A ; 
+con_8C7F_проверка_на_наличие_jito       = $0A ; 
 con_8C7F_0B                             = $0B ; 
 con_8C7F_0C                             = $0C ; 
 con_8C7F_0D                             = $0D ; 
@@ -249,9 +248,9 @@ con_8084_cb_F1                          = $F1 ;
                                             ; 5й байт = хз, у рож стоит 01, если поменять то спрайты исчезнут
 ; con_8084_cb_F2                        = $F2 ; unused
 ; con_8084_cb_F3                        = $F3 ; unused
-con_8084_cb_chr_spr                     = $F4 ; запись_4х_банков_chr
-con_8084_cb_F5                          = $F5 ; запись_палитры_спрайтов
-con_8084_cb_F6                          = $F6 ; 
+con_8084_cb_chr_spr                     = $F4 ; запись 4х банков chr
+con_8084_cb_spr_pal                     = $F5 ; запись палитры спрайтов
+con_8084_cb_F6                          = $F6 ; очичтить какой-то адрес под заданным индексом
 con_8084_cb_spr_Y_limit                 = $F7 ; 2 байта мин + макс диапазон для вывода spr_Y
 con_8084_cb_jmp                         = $F8 ; прыжок
 con_8084_cb_pause                       = $F9 ; ? пауза
@@ -1837,20 +1836,20 @@ con_s_cloud_73                              = $73 ; ожидание перед 
 ; con_s_cloud_EE                              = $EE ; 
 ; con_s_cloud_EF                              = $EF ; 
 con_s_cloud_F0_default                      = $F0 ; если пока ничего не придумано, по умолчанию используется это облако
-; con_s_cloud_F1                              = $F1 ; 
-; con_s_cloud_F2                              = $F2 ; 
-; con_s_cloud_F3                              = $F3 ; 
-; con_s_cloud_F4                              = $F4 ; 
-; con_s_cloud_F5                              = $F5 ; 
-; con_s_cloud_F6                              = $F6 ; 
-; con_s_cloud_F7                              = $F7 ; 
-; con_s_cloud_F8                              = $F8 ; 
-; con_s_cloud_F9                              = $F9 ; 
-; con_s_cloud_FA                              = $FA ; 
-; con_s_cloud_FB                              = $FB ; 
-; con_s_cloud_FC                              = $FC ; 
-; con_s_cloud_FD                              = $FD ; 
-; con_s_cloud_FE                              = $FE ; 
+; con_s_cloud_F1                              = $F1 ; future expansion
+; con_s_cloud_F2                              = $F2 ; future expansion
+; con_s_cloud_F3                              = $F3 ; future expansion
+; con_s_cloud_F4                              = $F4 ; future expansion
+; con_s_cloud_F5                              = $F5 ; future expansion
+; con_s_cloud_F6                              = $F6 ; future expansion
+; con_s_cloud_F7                              = $F7 ; future expansion
+; con_s_cloud_F8                              = $F8 ; future expansion
+; con_s_cloud_F9                              = $F9 ; future expansion
+; con_s_cloud_FA                              = $FA ; future expansion
+; con_s_cloud_FB                              = $FB ; future expansion
+; con_s_cloud_FC                              = $FC ; future expansion
+; con_s_cloud_FD                              = $FD ; future expansion
+; con_s_cloud_FE                              = $FE ; future expansion
 con_s_cloud_FF_skip                         = $FF ; управляющий байт, пропустить вывод облака
 
 
@@ -2748,7 +2747,7 @@ con_skill_13                            = $13 ;
 con_skill_prl_clearance_high            = $14 ; 
 con_skill_prl_interfere_high            = $15 ; 
 con_skill_16                            = $16 ; 
-; con_skill_17                          = $17 ; возможно используется в 0x030CE0
+; con_skill_17                          = $17 ; возможно используется в 0x030CE0 (upd 24.11.2026 по логам не используется)
 con_skill_gk_pass                       = $18 ; 
 con_skill_gk_catch                      = $19 ; 
 con_skill_gk_punch                      = $1A ; 

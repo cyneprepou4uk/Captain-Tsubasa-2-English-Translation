@@ -1000,7 +1000,7 @@ loc_0x03CC56_очистить_нижнюю_половину_экрана:
         ; 04AC = тайл
     ; 04AD = конец буфера
                                         LDA #$00
-                                        STA ram_05F4_flag
+                                        STA ram_05F4_flag_charlie
 bra_CC47:
                                         STA ram_00B1_t02
 @ожидание_освобождения_буфера_1:
@@ -1321,7 +1321,7 @@ C - - - - - 0x03CDDB FF:CDCB: C9 0C     CMP #$0C
 C - - - - - 0x03CDDD FF:CDCD: 90 05     BCC bra_CDD4_продолжить
 C - - - - - 0x03CDDF FF:CDCF: E9 0C     SBC #$0C
 C - - - - - 0x03CDE1 FF:CDD1: E8        INX
-C - - - - - 0x03CDE2 FF:CDD2: D0 F7     BNE bra_CDCB_loop
+C - - - - - 0x03CDE2 FF:CDD2: D0 F7     BNE bra_CDCB_loop   ; jmp
 bra_CDD4_продолжить:
 ; * 08
 C - - - - - 0x03CDE4 FF:CDD4: 0A        ASL
@@ -4445,7 +4445,7 @@ sub_0x03E084:
 C D 3 - - - 0x03E084 FF:E074: AD FF 05  LDA ram_05FF
 C - - - - - 0x03E087 FF:E077: F0 65     BEQ bra_E0DE_RTS
 C - - - - - 0x03E089 FF:E079: A9 0F     LDA #$0F
-C - - - - - 0x03E08B FF:E07B: 8D 2A 06  STA ram_062A
+C - - - - - 0x03E08B FF:E07B: 8D 2A 06  STA ram_хз_062A
 C - - - - - 0x03E08E FF:E07E: 20 09 E7  JSR sub_E709
 C - - - - - 0x03E091 FF:E081: A9 00     LDA #$00
 bra_E083_loop:
@@ -4454,15 +4454,15 @@ C - - - - - 0x03E094 FF:E084: A9 01     LDA #$01
 C - - - - - 0x03E096 FF:E086: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03E099 FF:E089: 68        PLA
 C - - - - - 0x03E09A FF:E08A: 48        PHA
-C - - - - - 0x03E09B FF:E08B: F0 44     BEQ bra_E0D1
+C - - - - - 0x03E09B FF:E08B: F0 44     BEQ bra_E0D1    ; if gk слева
 C - - - - - 0x03E09D FF:E08D: C9 0B     CMP #$0B
-C - - - - - 0x03E09F FF:E08F: F0 40     BEQ bra_E0D1
+C - - - - - 0x03E09F FF:E08F: F0 40     BEQ bra_E0D1    ; if gk справа
 C - - - - - 0x03E0A1 FF:E091: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03E0A4 FF:E094: F0 3B     BEQ bra_E0D1
-C - - - - - 0x03E0A6 FF:E096: 2C 2A 06  BIT ram_062A
+C - - - - - 0x03E0A6 FF:E096: 2C 2A 06  BIT ram_хз_062A
 C - - - - - 0x03E0A9 FF:E099: 10 14     BPL bra_E0AF
 C - - - - - 0x03E0AB FF:E09B: 48        PHA
-; здесь нужно PHA + PLA перед банксвичем, не удалять
+; здесь нужно PHA + PHA перед банксвичем, не удалять
 C - - - - - 0x03E0AC FF:E09C: 48        PHA
 C - - - - - 0x03E0AF FF:E09F: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E0B1 FF:E0A1: 85 24     STA ram_for_5114
@@ -4516,7 +4516,7 @@ C - - - - - 0x03E0F9 FF:E0E9: 20 33 E2  JSR sub_E233
 C - - - - - 0x03E0FC FF:E0EC: A9 0A     LDA #$0A
 C - - - - - 0x03E0FE FF:E0EE: 8D 14 06  STA ram_0614_таймер_бега_игрока_с_мячом
 C - - - - - 0x03E101 FF:E0F1: A9 FF     LDA #$FF
-C - - - - - 0x03E103 FF:E0F3: 8D 2A 06  STA ram_062A
+C - - - - - 0x03E103 FF:E0F3: 8D 2A 06  STA ram_хз_062A
 C - - - - - 0x03E106 FF:E0F6: 20 EC E6  JSR sub_E6EC
 C - - - - - 0x03E109 FF:E0F9: A0 40     LDY #$40
 C - - - - - 0x03E10B FF:E0FB: A2 00     LDX #$00    ; индекс команды слева
@@ -4951,9 +4951,9 @@ C - - - - - 0x03E41F FF:E40F: 20 0F CB  JSR sub_CB0F_задержка
 C - - - - - 0x03E422 FF:E412: 20 49 E3  JSR sub_E349
 C - - - - - 0x03E425 FF:E415: 68        PLA
 C - - - - - 0x03E426 FF:E416: 48        PHA
-C - - - - - 0x03E427 FF:E417: F0 76     BEQ bra_E48F
+C - - - - - 0x03E427 FF:E417: F0 76     BEQ bra_E48F    ; if gk слева
 C - - - - - 0x03E429 FF:E419: C9 0B     CMP #$0B
-C - - - - - 0x03E42B FF:E41B: F0 72     BEQ bra_E48F
+C - - - - - 0x03E42B FF:E41B: F0 72     BEQ bra_E48F    ; if gk справа
 C - - - - - 0x03E42D FF:E41D: AE FB 05  LDX ram_команда_с_мячом
 C - - - - - 0x03E430 FF:E420: F0 05     BEQ bra_E427_команда_слева
 ; if мяч у команды справа
@@ -4965,12 +4965,12 @@ C - - - - - 0x03E43A FF:E42A: D0 04     BNE bra_E430
 C - - - - - 0x03E43C FF:E42C: C9 0B     CMP #$0B
 C - - - - - 0x03E43E FF:E42E: 90 5F     BCC bra_E48F
 bra_E430:
-C - - - - - 0x03E440 FF:E430: 2C 2A 06  BIT ram_062A
+C - - - - - 0x03E440 FF:E430: 2C 2A 06  BIT ram_хз_062A
 C - - - - - 0x03E443 FF:E433: 10 19     BPL bra_E44E
 C - - - - - 0x03E445 FF:E435: CD 41 04  CMP ram_игрок_с_мячом
 C - - - - - 0x03E448 FF:E438: F0 14     BEQ bra_E44E
 C - - - - - 0x03E44A FF:E43A: 48        PHA
-; здесь нужно PHA + PLA перед банксвичем, не удалять
+; здесь нужно PHA + PHA перед банксвичем, не удалять
 C - - - - - 0x03E44B FF:E43B: 48        PHA
 C - - - - - 0x03E44E FF:E43E: A9 1A     LDA #con_prg_bank + $1A
 C - - - - - 0x03E450 FF:E440: 85 24     STA ram_for_5114
@@ -5392,9 +5392,9 @@ C - - - - - 0x03E718 FF:E708: 60        RTS
 
 
 sub_E709:
-C - - - - - 0x03E719 FF:E709: AD 2A 06  LDA ram_062A
+C - - - - - 0x03E719 FF:E709: AD 2A 06  LDA ram_хз_062A
 C - - - - - 0x03E71C FF:E70C: 29 7F     AND #$7F
-C - - - - - 0x03E71E FF:E70E: 8D 2A 06  STA ram_062A
+C - - - - - 0x03E71E FF:E70E: 8D 2A 06  STA ram_хз_062A
 C - - - - - 0x03E721 FF:E711: AD 37 06  LDA ram_ball_pos_Y_hi
 C - - - - - 0x03E724 FF:E714: 38        SEC
 C - - - - - 0x03E725 FF:E715: E9 50     SBC #$50
@@ -5419,10 +5419,10 @@ C - - - - - 0x03E73E FF:E72E: 4A        LSR
 C - - - - - 0x03E73F FF:E72F: 4A        LSR
 C - - - - - 0x03E740 FF:E730: 4A        LSR
 C - - - - - 0x03E741 FF:E731: 65 3A     ADC ram_003A_t66_div12
-C - - - - - 0x03E743 FF:E733: CD 2A 06  CMP ram_062A
+C - - - - - 0x03E743 FF:E733: CD 2A 06  CMP ram_хз_062A
 C - - - - - 0x03E746 FF:E736: F0 05     BEQ bra_E73D_RTS
 C - - - - - 0x03E748 FF:E738: 09 80     ORA #$80
-C - - - - - 0x03E74A FF:E73A: 8D 2A 06  STA ram_062A
+C - - - - - 0x03E74A FF:E73A: 8D 2A 06  STA ram_хз_062A
 bra_E73D_RTS:
 C - - - - - 0x03E74D FF:E73D: 60        RTS
 
