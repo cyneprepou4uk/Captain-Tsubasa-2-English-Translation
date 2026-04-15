@@ -49,7 +49,7 @@ local files_list = {
 
 
 --конвертация символов внутри .text "xxx" в .byte $xx, $xx, $xx
---convert text into corresponding bytes
+--convert .text "xxx" into corresponding bytes (.byte $xx, $xx, $xx)
     --try to place most common characters at the top, so the script will work a bit faster
 --WARNING: do not use " character for " itself in the files, instead use @ for example, like .text "@hello@"
 local translation = {
@@ -118,7 +118,7 @@ local unknown_character = "$30"
 
 
 --конвертация остальных русских символов в английские
---convert the rest of the text, which is labels and variables, into english
+--convert the rest of the russian text, which is labels and variables, into english
 local english_labels = {
     "А",    "A",        "а",    "a",
     "Б",    "B",        "б",    "b",
@@ -190,10 +190,8 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     --print("3 - writing the result to a temp copy...")
-    local file_temp_copy, err = io.open("temp_"..f, "w+")       --create a temporary copy of the file and clear it if this file already exists for some reason
+    local file_temp_copy, err = io.open("temp_"..f, "w")        --create a temporary copy of the file (overwrites existing file if exists)
     if err ~= nil then PrintError(err) end                      --check for errors during opening
-    file_temp_copy:close()                                      --close file
-    file_temp_copy = io.open("temp_"..f, "a")                   --open temp copy again, this time in append mode
     io.output(file_temp_copy)                                   --set output target to a temp copy file
     io.write(text)                                              --paste text from the main file
     file_temp_copy:flush()                                      --make sure all text was pasted from the buffer
@@ -202,14 +200,12 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     --print("4 - translating text and pasting result to the main copy...")
-    local file_main_copy, err = io.open("copy_"..f, "w+")       --create a main copy for assembler and clear it if this file already exists exists for some reason
+    local file_main_copy, err = io.open("copy_"..f, "w")        --create a main copy for assembler (overwrites existing file if exists)
     if err ~= nil then PrintError(err) end                      --check for errors during opening
-    file_main_copy:close()                                      --close file
-    file_main_copy = io.open("copy_"..f, "w")                   --open main copy again, this time in a write mode
     io.output(file_main_copy)                                   --set output target to the main copy file
     file_temp_copy = io.open("temp_"..f, "r")                   --open temp copy in a read mode
     
-    while true do                                                                   --start translation loop
+    while true do                                                                   --start main translation loop for each line
         local line = file_temp_copy:read("*line")                                   --read line from the file
         if line == nil then break end                                               --exit the loop if there is no more lines in the file
         local find_start, find_end = string.find(line, ".text "..[["]])             --check if there is any lines that contain .text "
@@ -227,13 +223,13 @@ for _, f in ipairs(files_list) do                               --execute this l
             text = string.sub(text, 0, length - 1)                                  --delete " at the end of the string
             
             local translated_text = ""                                              --this variable will contain all translated text
-            for _, c in utf8.codes(text) do
-                translated_text = translated_text..(translation[utf8.char(c)] or unknown_character)
+            for _, c in utf8.codes(text) do                                         --start the loop for translating characters into bytes from the table
+                translated_text = translated_text..(translation[utf8.char(c)] or unknown_character) --replace character with corresponding byte (or unknown if not found)
                 translated_text = translated_text..", "                             --add ", " after each translated character
             end
             
             text = string.sub(translated_text, 0, string.len(translated_text) - 2)          --delete the very last ", "
-            line = "\t.byte "..text..after                                                  --create a total line
+            line = "\t.byte "..text..after                                                  --create the final line
         end
 
         io.write(line.."\n")                                            --write line to the main copy
@@ -246,7 +242,7 @@ for _, f in ipairs(files_list) do                               --execute this l
     
     
     
-    --print("5 - translating labels and variables inside the main copy...")
+    --print("5 - translating russian labels and variables inside the main copy...")
     local file_main_copy, err = io.open("copy_"..f, "r")        --open a main copy in a read mode
     if err ~= nil then PrintError(err) end                      --check for errors during opening
     local text = file_main_copy:read("*all")                    --read all text
@@ -258,9 +254,7 @@ for _, f in ipairs(files_list) do                               --execute this l
         end
     end
     
-    file_main_copy = io.open("copy_"..f, "w+")                  --open main copy and erase all text
-    file_main_copy:close()                                      --close file
-    file_main_copy = io.open("copy_"..f, "w")                   --open main copy again, this time in a write mode
+    file_main_copy = io.open("copy_"..f, "w")                   --create main copy file (overwrites existing file if exists)
     io.output(file_main_copy)                                   --set output target to this file
     io.write(text)                                              --paste translated text
     file_main_copy:flush()                                      --make sure all text was pasted from the buffer
@@ -274,7 +268,9 @@ end
 
 
 --создание файла комментов для FCEUX
---чтение перевведенного на английский файла с адресами
+--creating .ram.nl file from bank_ram.inc for FCEUX
+
+--чтение переведенного на английский файла с адресами
 local inc_file, err = io.open("copy_bank_ram.inc", "r")
 if err ~= nil then PrintError(err) end
 
